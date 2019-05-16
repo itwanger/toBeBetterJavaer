@@ -52,4 +52,19 @@ class Arraylist<E> {
         }
         return sb.toString();
     }
+    
+    public int size() {
+        return size;
+    }
+    
+    E elementData(int index) {
+        return (E) elementData[index];
+    }
+    
+    public E set(int index, E element) {
+
+        E oldValue = elementData(index);
+        elementData[index] = element;
+        return oldValue;
+    }
 }
