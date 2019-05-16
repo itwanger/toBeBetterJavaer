@@ -2,3 +2,16 @@
 *.prefs
 java_demo/.project
 java_demo/.classpath
+.idea/vcs.xml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/vcs.xml
+java_demo/logs/error.log
+*.log
+.idea/vcs.xml
+java_demo/src/main/main.iml
+java_demo/src/test/test.iml
+.idea/vcs.xml
