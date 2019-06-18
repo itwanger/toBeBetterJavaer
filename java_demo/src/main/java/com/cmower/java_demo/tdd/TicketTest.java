@@ -17,10 +17,25 @@ public class TicketTest {
 	}
 
 	@Test
-	public void test() {
+	public void testOne() {
 		BigDecimal total = new BigDecimal("99");
 		
 		assertEquals(total, ticket.sale(1));
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testNegative() {
+		ticket.sale(-1);
+	}
+	
+	@Test
+	public void testZero() {
+		assertEquals(BigDecimal.ZERO, ticket.sale(0));
+	}
+	
+	@Test
+	public void test1000() {
+		assertEquals(new BigDecimal(99000), ticket.sale(1000));
 	}
 
 }
