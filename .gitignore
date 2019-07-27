@@ -15,3 +15,4 @@ java_demo/logs/error.log
 java_demo/src/main/main.iml
 java_demo/src/test/test.iml
 .idea/vcs.xml
+.DS_Store
