@@ -1,5 +1,6 @@
 package com.cmower.java_demo;
 
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -23,5 +24,4 @@ System.out.println(String. format("str1：%d | str2：%d",  str1. hashCode(),str
 // str1：890945 | str2：890945
 		
 	}
-
 }
