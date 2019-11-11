@@ -16,3 +16,7 @@ java_demo/src/main/main.iml
 java_demo/src/test/test.iml
 .idea/vcs.xml
 .DS_Store
+java_demo/.idea/misc.xml
+java_demo/.idea/modules.xml
+java_demo/.idea/vcs.xml
+java_demo/java_demo.iml
