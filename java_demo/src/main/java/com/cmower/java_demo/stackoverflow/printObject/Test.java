@@ -9,23 +9,23 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        Cmower cmower = new Cmower("沉默王二");
-        System.out.println(cmower);
-
-        Cmower[] cmowers = {new Cmower("沉默王二"), new Cmower("沉默王三")};
-        System.out.println(Arrays.toString(cmowers));
-
-        System.out.println(ToStringBuilder.reflectionToString(cmower));
-
-        System.out.println(MoreObjects.toStringHelper(cmower)
-                .add("name", cmower.getName())
-                .toString());
-
-        System.out.println(cmower);
-
-List<Cmower> list = new ArrayList<>();
-list.add(new Cmower("沉默王二"));
-list.add(new Cmower("沉默王三"));
-System.out.println(list);
+//        Cmower cmower = new Cmower("沉默王二");
+//        System.out.println(cmower);
+//
+//        Cmower[] cmowers = {new Cmower("沉默王二"), new Cmower("沉默王三")};
+//        System.out.println(Arrays.toString(cmowers));
+//
+//        System.out.println(ToStringBuilder.reflectionToString(cmower));
+//
+//        System.out.println(MoreObjects.toStringHelper(cmower)
+//                .add("name", cmower.getName())
+//                .toString());
+//
+//        System.out.println(cmower);
+//
+//List<Cmower> list = new ArrayList<>();
+//list.add(new Cmower("沉默王二"));
+//list.add(new Cmower("沉默王三"));
+//System.out.println(list);
     }
 }
