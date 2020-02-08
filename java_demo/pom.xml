@@ -73,12 +73,18 @@
 			<version>2.4.7</version>
 		</dependency>
 
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.1</version>
+</dependency>
+
 
 	</dependencies>
 
 	<organization>
-		<name>青苗科技</name>
-		<url>http://www.qingmiaokeji.cn</url>
+		<name>沉默王二</name>
+		<url>http://www.itwanger.com</url>
 	</organization>
 
 	<build>
