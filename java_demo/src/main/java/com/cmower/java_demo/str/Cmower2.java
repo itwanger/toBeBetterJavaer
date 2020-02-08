@@ -1,6 +1,6 @@
 package com.cmower.java_demo.str;
 
-import com.cmower.java_demo.Wanger;
+import com.cmower.java_demo.orther.Wanger;
 
 public class Cmower2 {
 
