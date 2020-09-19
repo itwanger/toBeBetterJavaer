@@ -9,10 +9,10 @@
  * [目录](#目录)
  * [面试](#面试)
      * [面试技巧](#面试技巧)
-     * [Java 面试题](#Java 面试题)
-     * [Spring 面试题](#Spring 面试题)
-     * [Spring Boot 面试题](#Spring Boot 面试题)
-     * [Spring MVC 面试题](#Spring MVC 面试题)
+     * [Java 面试题](#Java面试题)
+     * [Spring 面试题](#Spring面试题)
+     * [Spring Boot 面试题](#SpringBoot面试题)
+     * [Spring MVC 面试题](#SpringMVC面试题)
  * [Java](#java)
     * [教妹学Java](#教妹学Java)
  * [说明](#说明)
@@ -23,7 +23,7 @@
 
 - [面试技巧](docs/java/.md)
 
-### Java 面试题
+### Java面试题
 
 - [300 道核心面试题（上）](docs/java/.md)
 - [300 道核心面试题（下）](docs/java/.md)
@@ -31,15 +31,15 @@
 - [多线程面试题](docs/java/.md)
 - [集合面试题](docs/java/.md)
 
-### Spring 面试题
+### Spring面试题
 
 - [Spring 面试题](docs/java/.md)
 
-### Spring Boot 面试题
+### SpringBoot面试题
 
 - [Spring Boot 面试题](docs/java/.md)
 
-### Spring MVC 面试题
+### SpringMVC面试题
 
 - [Spring MVC 面试题](docs/java/.md)
 
