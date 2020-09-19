@@ -8,7 +8,7 @@
 
  * [目录](#目录)
  * [Java](#java)
-    * [教妹学Java](# 教妹学Java)
+    * [教妹学Java](#教妹学Java)
  * [说明](#说明)
 
 
@@ -16,18 +16,179 @@
 
 ### 教妹学Java
 
-**基础知识系统总结：**
+**基础知识：**
 
-1. **[Java 基础知识](docs/java/Java基础知识.md)**
-2. **[Java 基础知识疑难点/易错点](docs/java/Java疑难点.md)**
-3. [【选看】J2EE 基础知识](docs/java/J2EE基础知识.md)
+- [什么是 Java](docs/java/.md)
+- [Java 历史](docs/java/.md)
+- [Java 特性](docs/java/.md)
+- [C++ 和 Java](docs/java/.md)
+- [第一个 Java 程序](docs/java/.md)
+- [Java 程序是如何运行的](docs/java/.md)
+- [JDK,JRE,JVM](docs/java/.md)
+- [Java 虚拟机详解](docs/java/.md)
+- [Java 变量](docs/java/.md)
+- [Java 数据类型](docs/java/.md)
+- [Unicode 字符集](docs/java/.md)
+- [操作符](docs/java/.md)
+- [Java 的那些关键字](docs/java/.md)
+- [if-else](docs/java/.md)
+- [switch](docs/java/.md)
+- [for 循环](docs/java/.md)
+- [while 循环](docs/java/.md)
+- [do-while 循环](docs/java/.md)
+- [break](docs/java/.md)
+- [continue](docs/java/.md)
+- [Java 注释](docs/java/.md)
 
-**重要知识点详解：**
+**对象和类：**
 
-1. [枚举](docs/java/basic/用好Java中的枚举真的没有那么简单.md) （很重要的一个数据结构，用好枚举真的没有那么简单！）
-2. [Java 常见关键字总结：final、static、this、super!](docs/java/basic/final,static,this,super.md)
-3. [什么是反射机制?反射机制的应用场景有哪些?](docs/java/basic/reflection.md)
-4. [代理模式详解：静态代理+JDK/CGLIB 动态代理实战（动态代理和静态代理的区别？JDK动态代理 和 CGLIB 动态代理的区别？）](docs/java/basic/java-proxy.md)
+- [什么是面向对象编程](docs/java/.md)
+- [命名约定](docs/java/.md)
+- [对象和类](docs/java/.md)
+- [方法](docs/java/.md)
+- [构造方法](docs/java/.md)
+- [static 关键字](docs/java/.md)
+- [this 关键字](docs/java/.md)
+- [继承](docs/java/.md)
+- [聚合](docs/java/.md)
+- [方法重载](docs/java/.md)
+- [方法重写](docs/java/.md)
+- [返回类型协变](docs/java/.md)
+- [super 关键字](docs/java/.md)
+- [初始化代码块](docs/java/.md)
+- [final 关键字](docs/java/.md)
+- [多态](docs/java/.md)
+- [动态绑定](docs/java/.md)
+- [instanceof](docs/java/.md)
+- [抽象类](docs/java/.md)
+- [接口](docs/java/.md)
+- [抽象类和接口的区别](docs/java/.md)
+- [包](docs/java/.md)
+- [访问权限修饰符](docs/java/.md)
+- [封装](docs/java/.md)
+
+
+**内部类：**
+
+- [什么是内部类](docs/java/.md)
+- [成员内部类](docs/java/.md)
+- [匿名内部类](docs/java/.md)
+- [本地内部类](docs/java/.md)
+- [静态内部类](docs/java/.md)
+- [嵌套内部类](docs/java/.md)
+
+
+**数组：**
+
+- [数组](docs/java/.md)
+
+**对象和类的一些细节：**
+
+- [Object 类](docs/java/.md)
+- [对象克隆](docs/java/.md)
+- [Math 类](docs/java/.md)
+- [包装器类](docs/java/.md)
+- [递归](docs/java/.md)
+- [Java 是值传递还是引用传递](docs/java/.md)
+- [strictfp 关键字](docs/java/.md)
+- [文档工具](docs/java/.md)
+- [命令行参数](docs/java/.md)
+- [对象和类的区别](docs/java/.md)
+- [方法重载和方法重写的区别](docs/java/.md)
+
+
+**字符串：**
+
+- [什么是字符串](docs/java/.md)
+- [字符串是不可变的](docs/java/.md)
+- [字符串比较](docs/java/.md)
+- [字符串拼接](docs/java/.md)
+- [字符串截取](docs/java/.md)
+- [StringBuffer 类](docs/java/.md)
+- [StringBuilder 类](docs/java/.md)
+- [String 和 StringBuffer 的区别](docs/java/.md)
+- [StringBuffer 和 StringBuilder 的区别](docs/java/.md)
+- [自定义不可变类](docs/java/.md)
+- [打印对象字符串](docs/java/.md)
+- [StringTokenizer 类](docs/java/.md)
+
+**字符串面试题：**
+
+- [字符串面试题](docs/java/.md)
+
+**字符串常用方法：**
+
+- [charAt](docs/java/.md)
+- [compareTo](docs/java/.md)
+- [concat](docs/java/.md)
+- [contains](docs/java/.md)
+- [endsWith](docs/java/.md)
+- [equals](docs/java/.md)
+- [equalsIgnoreCase](docs/java/.md)
+- [format](docs/java/.md)
+- [getBytes](docs/java/.md)
+- [getChars](docs/java/.md)
+- [indexOf](docs/java/.md)
+- [intern](docs/java/.md)
+- [isEmpty](docs/java/.md)
+- [join](docs/java/.md)
+- [lastIndexOf](docs/java/.md)
+- [length](docs/java/.md)
+- [replace](docs/java/.md)
+- [replaceAll](docs/java/.md)
+- [split](docs/java/.md)
+- [startsWith](docs/java/.md)
+- [substring](docs/java/.md)
+- [toCharArray](docs/java/.md)
+- [toLowerCase](docs/java/.md)
+- [toUpperCase](docs/java/.md)
+- [trim](docs/java/.md)
+- [valueOf](docs/java/.md)
+
+**正则表达式：**
+
+- [正则表达式](docs/java/.md)
+
+
+**异常控制：**
+
+- [什么是异常控制](docs/java/.md)
+- [try-catch](docs/java/.md)
+- [多个 catch](docs/java/.md)
+- [内嵌 try 块](docs/java/.md)
+- [final 块](docs/java/.md)
+- [throw 关键字](docs/java/.md)
+- [异常堆栈](docs/java/.md)
+- [throws 关键字](docs/java/.md)
+- [throw 和 throws 的区别](docs/java/.md)
+- [final、finally 和 finalize 的区别](docs/java/.md)
+- [方法重写时的异常控制](docs/java/.md)
+- [自定义异常](docs/java/.md)
+
+**多线程：**
+
+- [什么是多线程](docs/java/.md)
+- [线程的生命周期](docs/java/.md)
+- [创建一个线程](docs/java/.md)
+- [线程调度](docs/java/.md)
+- [线程休眠](docs/java/.md)
+- [能启动两次线程吗？](docs/java/.md)
+- [能调用 run 方法代替 start 吗？](docs/java/.md)
+- [停止线程](docs/java/.md)
+- [线程命名](docs/java/.md)
+- [线程优先级](docs/java/.md)
+- [守护线程](docs/java/.md)
+- [线程池](docs/java/.md)
+- [线程组](docs/java/.md)
+- [虚拟机突然关闭后如何发送警报？](docs/java/.md)
+- [为什么要使用同步？](docs/java/.md)
+- [同步块](docs/java/.md)
+- [静态同步方法](docs/java/.md)
+- [死锁](docs/java/.md)
+- [线程通信](docs/java/.md)
+- [线程打断](docs/java/.md)
+- [可重入监视器](docs/java/.md)
+
 
 **其他：**
 
