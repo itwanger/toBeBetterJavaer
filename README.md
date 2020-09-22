@@ -1,8 +1,21 @@
 《程序员软实力修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“**软实力**”即可获取。
 
-《 Java 程序员进阶修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“** Java**”即可获取。
+《Java 程序员进阶修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“**Java**”即可获取。
 
 如要进群或者请教问题，请[联系我](#联系我) （备注来自 Github。有任何问题都可以向我提问，有问必答）。
+
+<p align="center">
+<a href="https://github.com/itwanger/itwanger.github.io" target="_blank">
+	<img src="http://itwanger.com/assets/images/favicon.jpg" width=""/>
+</a>
+</p>
+
+<p align="center">
+  <a href="https://gitee.com/itwanger/itwanger.github.io"><img src="https://img.shields.io/badge/%E9%98%85%E8%AF%BB-%20read-brightgreen.svg" alt="阅读"></a>
+  <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-%E6%B2%89%E9%BB%98%E7%8E%8B%E4%BA%8C-red.svg" alt="公众号"></a>
+  <a href="#公众号"><img src="https://img.shields.io/badge/PDF-%E5%B0%8F%E7%99%BD%E6%89%8B%E5%86%8C-yellow.svg" alt="公众号"></a>
+  <a href="http://itwanger.com"><img src="https://img.shields.io/badge/%E5%8D%9A%E5%AE%A2-%E6%B2%89%E9%BB%98%E7%8E%8B%E4%BA%8C-orange" alt="itwanger"></a>
+</p>
 
 ## 目录
 
