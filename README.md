@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://gitee.com/itwanger/itwanger.github.io"><img src="https://img.shields.io/badge/%E9%98%85%E8%AF%BB-%20read-brightgreen.svg" alt="阅读"></a>
+  <a href="http://itwanger.gitee.io"><img src="https://img.shields.io/badge/%E9%98%85%E8%AF%BB-%20read-brightgreen.svg" alt="阅读"></a>
   <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-%E6%B2%89%E9%BB%98%E7%8E%8B%E4%BA%8C-red.svg" alt="公众号"></a>
   <a href="#公众号"><img src="https://img.shields.io/badge/PDF-%E5%B0%8F%E7%99%BD%E6%89%8B%E5%86%8C-yellow.svg" alt="公众号"></a>
   <a href="http://itwanger.com"><img src="https://img.shields.io/badge/%E5%8D%9A%E5%AE%A2-%E6%B2%89%E9%BB%98%E7%8E%8B%E4%BA%8C-orange" alt="itwanger"></a>
