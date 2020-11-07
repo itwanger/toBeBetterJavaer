@@ -11,7 +11,3 @@ java_demo/.idea/*
 java_demo/java_demo.iml
 .idea/vcs.xml
 *.class
-
-target/
-log4j2/
-*.log
