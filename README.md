@@ -1,97 +1,48 @@
-GitHub 是多人协作的。
+同学们好啊，我是沉默王二，欢迎大家来到《教妹学 Java》专栏。
 
-《程序员软实力修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“**软实力**”即可获取。
+[我妹今年上大学了](https://mp.weixin.qq.com/s/bsu9uH8VKh5Vtue-9SafwQ)，学的计算机编程，立志像我一样做一名正儿八经的 Java 程序员。我期初是反抗的，因为程序员这行业容易掉头发，作为一名需要美貌的女生，长发飘飘是必须的啊。但与其反抗，不如做点更积极的事情，比如说写点有趣的文章，教我妹更快地掌握 Java 这门编程语言，于是就有了这个专栏。
 
-《Java 程序员进阶修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“**Java**”即可获取。
+>**强烈推荐**：我在 GitHub 上发现了一个宝藏项目，里面收录了 500+ 本电子书，包含 Java、Spring、MySQL、设计模式、计算机网络、计算机操作系统、数据结构与算法、面试题等方面的电子书，需要的小伙伴可以通过下面的链接按需获取。
+>
+>GitHub：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
+>
+>码云：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks)
 
-如要进群或者请教问题，请[联系我](#联系我) （备注来自 Github。有任何问题都可以向我提问，有问必答）。
+有同学可能会说“妹妹大一就开始学习 Java 了，有点厉害啊。”我只能说，要对妹妹负责，就必须得趁早，因为生意经有这么一句话：
 
-<p align="center">
-<a href="https://github.com/itwanger/itwanger.github.io" target="_blank">
-	<img src="http://itwanger.com/assets/images/favicon.jpg" width=""/>
-</a>
-</p>
+>人无我有，人有我好，人好我早，人多我早。
 
-<p align="center">
-  <a href="http://itwanger.gitee.io"><img src="https://img.shields.io/badge/%E9%98%85%E8%AF%BB-%20read-brightgreen.svg" alt="阅读"></a>
-  <a href="#公众号"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-%E6%B2%89%E9%BB%98%E7%8E%8B%E4%BA%8C-red.svg" alt="公众号"></a>
-  <a href="#公众号"><img src="https://img.shields.io/badge/PDF-%E5%B0%8F%E7%99%BD%E6%89%8B%E5%86%8C-yellow.svg" alt="公众号"></a>
-  <a href="http://itwanger.com"><img src="https://img.shields.io/badge/%E5%8D%9A%E5%AE%A2-%E6%B2%89%E9%BB%98%E7%8E%8B%E4%BA%8C-orange" alt="itwanger"></a>
-</p>
+这句话用在生意上合适，用在学习上也是再合适不过了。当别人都不懂一门新技术的时候，你懂，那么恭喜你，你已经遥遥领先了；当别人也懂了，你比他精通，那么你就是牛逼；当别人也精通了，你比他精通的早，还是有优势，对吧？
+
+强调一下，《教妹学 Java》面向的是零基础的 Java 爱好者，我希望能帮助同学们轻松迈进编程世界的大门，为后续的深入学习打下坚实的基础。
+
+![](http://www.itwanger.com/assets/images/tech-sister.png)
+
+---------------
 
 ## 目录
 
- * [目录](#目录)
- * [面试](#面试)
-     * [面试技巧](#面试技巧)
-     * [Java 面试题](#Java面试题)
-     * [Spring 面试题](#Spring面试题)
-     * [Spring Boot 面试题](#SpringBoot面试题)
-     * [Spring MVC 面试题](#SpringMVC面试题)
- * [Java](#java)
-    * [教妹学Java](#教妹学Java)
- * [说明](#说明)
-
-## 面试
-
-### 面试技巧
-
-- [面试技巧](docs/java/.md)
-
-### Java面试题
-
-- [300 道核心面试题（上）](docs/java/.md)
-- [300 道核心面试题（下）](docs/java/.md)
-- [字符串面试题](docs/java/.md)
-- [多线程面试题](docs/java/.md)
-- [集合面试题](docs/java/.md)
-
-### Spring面试题
-
-- [Spring 面试题](docs/java/.md)
-
-### SpringBoot面试题
-
-- [Spring Boot 面试题](docs/java/.md)
-
-### SpringMVC面试题
-
-- [Spring MVC 面试题](docs/java/.md)
-
-
-
-## Java
-
-### 教妹学Java
 
 **基础知识：**
 
-- [什么是 Java](docs/java/.md)
-- [Java 历史](docs/java/.md)
-- [Java 特性](docs/java/.md)
-- [C++ 和 Java](docs/java/.md)
-- [第一个 Java 程序](docs/java/.md)
-- [Java 程序是如何运行的](docs/java/.md)
-- [JDK,JRE,JVM](docs/java/.md)
-- [Java 虚拟机详解](docs/java/.md)
-- [Java 变量](docs/java/.md)
-- [Java 数据类型](docs/java/.md)
-- [Unicode 字符集](docs/java/.md)
-- [操作符](docs/java/.md)
-- [Java 的那些关键字](docs/java/.md)
-- [if-else](docs/java/.md)
-- [switch](docs/java/.md)
-- [for 循环](docs/java/.md)
-- [while 循环](docs/java/.md)
-- [do-while 循环](docs/java/.md)
-- [break](docs/java/.md)
-- [continue](docs/java/.md)
-- [Java 注释](docs/java/.md)
+- [什么是 Java](https://mp.weixin.qq.com/s/Fh_B0q8O_qc_KnxSar_fsA)
+- [Java 发展简史](https://mp.weixin.qq.com/s/Ctouw652iC0qtrmjen9aEw)
+- [Java 为什么如此流行](https://mp.weixin.qq.com/s/2Q6T5rUnw_JYCrH_zEWH4A)
+- [第一个 Java 程序：Hello World](https://mp.weixin.qq.com/s/191I_2CVOxVuyfLVtb4jhg)
+- [Java程序在编译期发生了什么](https://mp.weixin.qq.com/s/GYDFndO0Q1Nqzcc_Te61gw)
+- [JDK 与 JRE](https://mp.weixin.qq.com/s/Qy4WgAc8ioFKz52DVinO1A)
+- [Java 虚拟机](https://mp.weixin.qq.com/s/aIO2hBgceVfTxlTLjIbgYw)
+- [Java 变量](https://mp.weixin.qq.com/s/IgBpLGn0L1HZymgI4hWGVA)
+- [Java 数据类型](https://mp.weixin.qq.com/s/twim3w_dp5ctCigjLGIbFw)
+- [Unicode](https://mp.weixin.qq.com/s/pNQjlXOivIgO3pbYc0GnpA)
+- [Java 运算符](https://mp.weixin.qq.com/s/w8UPNgP_Xjb6E-deQHQivQ)
+- [Java 的那些关键字](https://mp.weixin.qq.com/s/4huV6Ea_nR0MVyRtOZLijg)
+- [流程控制语句](https://mp.weixin.qq.com/s/2q_-VAhZp5LbVAba_3odiQ)
+- [Java 注释](https://mp.weixin.qq.com/s/PyoZLtwrDXmrHnwRYzivDw)
 
 **对象和类：**
 
-- [什么是面向对象编程](docs/java/.md)
-- [命名约定](docs/java/.md)
+- [命名约定](https://mp.weixin.qq.com/s/WzMEOEdzI0fFwBQ4s0S-0g)
 - [对象和类](docs/java/.md)
 - [方法](docs/java/.md)
 - [构造方法](docs/java/.md)
@@ -380,45 +331,12 @@ GitHub 是多人协作的。
 
 
 
-## 说明
+## one more thing
 
-开源项目在于大家的参与，这才使得它的价值得到提升。感谢🙏有你！
+同学们放宽心，《教妹学 Java》专栏还会继续更新，敬请期待👍。写这个专栏的初衷就是为了帮助那些零基础学 Java，或者自学 Java 感觉特别痛苦，特别难入门的小伙伴。
 
-### JavaPoint介绍
-
-开源 JavaPoint 初始想法源于自己的个人那一段比较迷茫的学习经历。主要目的是为了通过这个开源平台来帮助一些在学习 Java 或者面试过程中遇到问题的小伙伴。
-
-*  **对于 Java 初学者来说：** 本文档倾向于给你提供一个比较详细的学习路径，让你对于Java整体的知识体系有一个初步认识。另外，本文的一些文章
-也是你学习和复习 Java 知识不错的实践；
-*  **对于非 Java 初学者来说：** 本文档更适合回顾知识，准备面试，搞清面试应该把重心放在那些问题上。要搞清楚这个道理：提前知道那些面试常见，不是为了背下来应付面试，而是为了让你可以更有针对的学习重点。
-
-Markdown 格式参考：[Github Markdown格式](https://guides.github.com/features/mastering-markdown/)，表情素材来自：[EMOJI CHEAT SHEET](https://www.webpagefx.com/tools/emoji-cheat-sheet/)。
-
-Logo下的小图标是使用[Shields.IO](https://shields.io/) 生成的。
-
-### 关于转载
-
-如果你需要转载本仓库的一些文章到自己的博客的话，记得注明原文地址就可以了。
-
-### 如何对该开源文档进行贡献
-
-1. 笔记内容大多是手敲，所以难免会有笔误，你可以帮我找错别字。
-2. 很多知识点我可能没有涉及到，所以你可以对其他知识点进行补充。
-3. 现有的知识点难免存在不完善或者错误，所以你可以对已有知识点进行修改/补充。
-
-> 如果要提 issue/question 的话，强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](http://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)。
-
-### 联系我
+另外，我还创建了一些「**技术交流群**」，群里氛围很不错，有不少小伙伴会分享一些校招或者社招经验，更重要的是，群里时不时会有「红包」等福利，当然，群里不允许任何形式的广告。扫描下方的二维码，回复「**加群**」即可。
 
 ![个人微信](http://www.itwanger.com/assets/images/wangsan.png)
 
-### 公众号
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
-
-《程序员软实力修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“**软实力**”即可获取。
-
-《 Java 程序员进阶修炼手册》PDF 版本，在公众号 **[沉默王二](#公众号)** 后台回复“** Java**”即可获取。
-
-![我的公众号](http://www.itwanger.com/assets/images/cmower_7.png)
 
