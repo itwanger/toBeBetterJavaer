@@ -13,7 +13,6 @@ java_demo/java_demo.iml
 *.class
 *.zip
 *.js
-*.html
 *.css
 *.png
 element-list/
