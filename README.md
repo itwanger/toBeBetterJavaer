@@ -1457,7 +1457,7 @@ Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数�
 
 ```
 Exception in thread "main" java.lang.ArithmeticException: / by zero
-  at com.itwanger.eleven.ArithmeticOperator.main(ArithmeticOperator.java:32)
+	at com.itwanger.eleven.ArithmeticOperator.main(ArithmeticOperator.java:32)
 ```
 
 所以整数在进行除法运算时，需要先判断除数是否为 0，以免程序抛出异常。
