@@ -11,3 +11,9 @@ java_demo/.idea/*
 java_demo/java_demo.iml
 .idea/vcs.xml
 *.class
+*.zip
+*.js
+*.html
+*.css
+*.png
+Element-list/
