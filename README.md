@@ -1,3 +1,7 @@
+👍推荐 [在线阅读](https://itwanger.gitee.io/sister-learn-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
+
+👍推荐 [百度云下载链接](https://pan.baidu.com/s/1T1gNwQB8nKsrIzHveJ9WKg)  密码:8tw7  (一个月更新一次，每次更新 10 个小节) 
+
 # 前言
 
 同学们好啊，我是沉默王二，欢迎大家来到《教妹学 Java》专栏。
