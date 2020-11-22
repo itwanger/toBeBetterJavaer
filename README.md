@@ -1,4 +1,4 @@
-👍推荐 [在线阅读](https://itwanger.gitee.io/zero-learn-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
+👍推荐 [在线阅读](https://itwanger.gitee.io/javazero)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
 
 👍推荐 [百度云下载链接](https://pan.baidu.com/s/1qwomiFHW6vZdVo26heMctg)  密码:1thn  (一个月更新一次，每次更新 10 个小节) 
 
