@@ -28,7 +28,7 @@ public class Demo {
 
         System.out.println(Strman.at("沉默王二", 0));
         System.out.println(Strman.at("沉默王二", -1));
-        System.out.println(Strman.at("沉默王二", 4));
+        System.out.println(Strman.at("沉默王二", -3));
 
         String[] results = Strman.between("[沉默王二][一枚有趣的程序员]", "[", "]");
 
