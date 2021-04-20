@@ -65,17 +65,14 @@ class Writer {
     public void setName(String name) {
         this.name = name;
     }
-}
 
-
-public SerializeWriter(java.io.Writer writer, int defaultFeatures, SerializerFeature... features){
-    this.writer = writer;
-
-    buf = bufLocal.get();
-
-    if (buf != null) {
-        bufLocal.set(null);
-    } else {
-        buf = new char[2048];
+static int add(int ... args) {
+    int sum = 0;
+    for ( int a: args) {
+        sum += a;
     }
+    return sum;
 }
+}
+
+
