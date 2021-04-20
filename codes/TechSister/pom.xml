@@ -46,9 +46,23 @@
 </dependency>
 
 <dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>30.1-jre</version>
+</dependency>
+
+        
+
+<dependency>
     <groupId>com.github.Cloudmersive</groupId>
     <artifactId>Cloudmersive.APIClient.Java</artifactId>
     <version>v3.54</version>
+</dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>RELEASE</version>
+    <scope>compile</scope>
 </dependency>
     </dependencies>
 
