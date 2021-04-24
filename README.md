@@ -68,7 +68,7 @@
 
 
 <div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" width="200px" alt="图片没显示的话，可以微信搜索「沉默王二」关注">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" width="260px" alt="图片没显示的话，可以微信搜索「沉默王二」关注">
 </div>
 
 # Donate
@@ -77,5 +77,5 @@
 
 
 <div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/weixin.png" width="200px">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/weixin.png" width="260px">
 </div>
