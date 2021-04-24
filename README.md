@@ -1,6 +1,6 @@
 👍推荐 [在线阅读](https://itwanger.gitee.io/javazero)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
 
-
+👍点击关注[公众号](#公众号)及时获取作者最新文章，并可免费领取配套的《教妹学 Java》PDF 以及 Java 工程师必备学习资源。
 
 <div align="center">
     <a href="https://www.cyc2018.xyz"> <img src="https://badgen.net/badge/itwanger/%E5%9C%A8%E7%BA%BF%E9%98%85%E8%AF%BB?icon=sourcegraph&color=4ab8a1"></a>
@@ -10,9 +10,12 @@
 </div>
 <br>
 
+<div align="center">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/logo.png" width="200px">
+</div>
 
 
-点击关注[公众号](#公众号)及时获取作者最新文章，并可免费领取配套的《教妹学 Java》PDF 以及 Java 工程师必备学习资源。
+
 
 # 前言
 
@@ -21,7 +24,9 @@
 [我妹今年上大学了](https://mp.weixin.qq.com/s/bsu9uH8VKh5Vtue-9SafwQ)，学的计算机编程，立志像我一样做一名正儿八经的 Java 程序员。我期初是反抗的，因为程序员这行业容易掉头发，作为一名需要美貌的女生，长发飘飘是必须的啊。但与其反抗，不如做点更积极的事情，比如说写点有趣的文章，教她更快地掌握 Java 这门编程语言，于是就有了这个专栏。
 
 
-![](http://www.itwanger.com/assets/images/tech-sister.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
+
+
 
 **基础知识：**
 
@@ -50,7 +55,7 @@
 
 **《教妹学Java》:** 本文档的离线版 PDF 版可以在[公众号](#公众号)后台回复 **" 03"** 即可领取！
 
-![我的公众号](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images/2020-08/167598cd2e17b8ec.png)
+![我的公众号](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png)
 
 
 
