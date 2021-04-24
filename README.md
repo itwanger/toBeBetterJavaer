@@ -3,6 +3,10 @@
 👍点击关注[公众号](#公众号)及时获取作者最新文章，并可免费领取配套的《教妹学 Java》PDF 以及 Java 工程师必备学习资源。
 
 <div align="center">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/logo.png" width="200px">
+</div>
+
+<div align="center">
     <a href="https://www.cyc2018.xyz"> <img src="https://badgen.net/badge/itwanger/%E5%9C%A8%E7%BA%BF%E9%98%85%E8%AF%BB?icon=sourcegraph&color=4ab8a1"></a>
     <a href="#公众号"><img src="https://badgen.net/badge/PDF/%E6%95%99%E5%A6%B9%E5%AD%A6Java?color=4ab8a1&icon=bitcoin-lightning&label=PDF" alt="PDF下载"></a>
     <a href="https://github.com/itwanger/Tech-Sister-Learn-Java"> <img src="https://badgen.net/github/stars/itwanger/Tech-Sister-Learn-Java?icon=github&color=4ab8a1"></a>
@@ -10,9 +14,7 @@
 </div>
 <br>
 
-<div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/logo.png" width="200px">
-</div>
+
 
 
 
