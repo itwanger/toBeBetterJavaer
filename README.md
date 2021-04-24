@@ -66,7 +66,16 @@
 
 **《教妹学Java》:** 本文档的离线版 PDF 版可以扫描下方的二维码关注我的[公众号](#公众号)后回复 **" 03"** 关键字即可领取！
 
-![我的公众号](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png)
+
+<div align="center">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" width="200px" alt="图片没显示的话，可以微信搜索「沉默王二」关注">
+</div>
+
+# Donate
+
+开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请作者喝杯咖啡，让他继续肝！
 
 
-
+<div align="center">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/weixin.png" width="200px">
+</div>
