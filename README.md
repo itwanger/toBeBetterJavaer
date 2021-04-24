@@ -1,3 +1,15 @@
+点击关注[公众号](#公众号)及时获取作者最新文章，并可免费领取配套的《教妹学 Java》PDF 以及 Java 工程师必备学习资源。
+
+<div align="center">
+    <a href="https://www.cyc2018.xyz"> <img src="https://badgen.net/badge/itwanger/%E5%9C%A8%E7%BA%BF%E9%98%85%E8%AF%BB?icon=sourcegraph&color=4ab8a1"></a>
+    <a href="https://github.com/itwanger/Tech-Sister-Learn-Java"> <img src="https://badgen.net/github/stars/itwanger/Tech-Sister-Learn-Java?icon=github&color=4ab8a1"></a>
+    <a href="https://github.com/itwanger/Tech-Sister-Learn-Java"> <img src="https://badgen.net/github/forks/itwanger/Tech-Sister-Learn-Java?icon=github&color=4ab8a1"></a>
+</div>
+<br>
+
+
+
+
 👍推荐 [在线阅读](https://itwanger.gitee.io/javazero)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
 
 👍推荐 [百度云下载链接](https://pan.baidu.com/s/1qwomiFHW6vZdVo26heMctg)  密码:1thn  (一个月更新一次，每次更新 10 个小节) 

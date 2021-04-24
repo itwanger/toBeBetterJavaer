@@ -16,7 +16,7 @@
 
 Java 是一门计算机编程语言，高级、健壮、面向对象，并且非常安全。它由 Sun 公司在 1995 年开发，主力开发叫 James Gosling，被称为 Java 之父，就是下图这位，头秃的厉害。
 
-![](http://www.itwanger.com/assets/images/techSisterLearnJava/one-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/one-01.png)
 
 “三妹啊，你要不要再考虑考虑？做程序员不容易啊”
 
@@ -33,7 +33,7 @@ James Gosling 回忆说，“Java”是一个叫 Mark Opperman 的人提议的�
 
 使用十六进制编辑器打开由 Java 源代码编译出的二进制文件（.class 文件），就可以看得到，最前面的 8 个字符是 CA FE BA BE（定义文件类型的魔数），即词组“CAFE BABE”（咖啡屋宝贝）。
 
-![](http://www.itwanger.com/assets/images/techSisterLearnJava/one-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/one-02.png)
 
 “二哥，能给我展示一段 Java 代码吗？我想感受一下。”
 
