@@ -1,9 +1,11 @@
 package com.itwanger.twentysix;
 
+import java.io.Serializable;
+
 /**
  * @author 微信搜「沉默王二」，回复关键字 PDF
  */
-public class Counter {
+public class Counter implements Serializable {
     int count = 0;
 
     Counter() {
