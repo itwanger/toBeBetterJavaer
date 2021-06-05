@@ -1,4 +1,4 @@
-## 九、Java 中的数据类型
+## 数据类型
 
 “二哥，[上一节](https://mp.weixin.qq.com/s/IgBpLGn0L1HZymgI4hWGVA)提到了 Java 变量的数据类型，是不是指定了类型就限定了变量的取值范围啊？”三妹吸了一口麦香可可奶茶后对我说。
 

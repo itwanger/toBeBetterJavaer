@@ -1,4 +1,4 @@
-## 十、不可不知的 Unicode
+## 不可不知的 Unicode
 
 “二哥，[上一篇](https://mp.weixin.qq.com/s/twim3w_dp5ctCigjLGIbFw)文章中提到了 Unicode，说 Java 中的 
  char 类型之所以占 2 个字节，是因为 Java 使用的是 Unicode 字符集而不是 ASCII 字符集，我有点迷，想了解一下，能细致给我说说吗？”

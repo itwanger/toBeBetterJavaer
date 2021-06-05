@@ -1,4 +1,4 @@
-## 四、第一个 Java 程序：Hello World
+## 第一个 Java 程序：Hello World
 
 ### 01、安装 JDK 
 

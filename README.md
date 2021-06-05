@@ -19,8 +19,13 @@
 
 同学们好，我是二哥呀，欢迎来到《教妹学 Java》专栏。
 
-
 ![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
+
+之前在公众号上更新《教妹学 Java》专栏的时候，有个小姐姐留言说，已经三连。CS大姐一枚。入门课程也是Java，学得云里雾里的。经常在找到自信和零自信之间受虐。感谢作者创作出这么有趣且容易理解的Java课。会持续关注，并推荐给其他学CS的朋友，截图如下：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-02.png)
+
+特别受鼓舞！！！！
 
 # 目录
 
@@ -83,6 +88,27 @@
 <div align="center">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" width="260px" alt="图片没显示的话，可以微信搜索「沉默王二」关注">
 </div>
+
+# 备注
+
+**图片使用了 jsdelivr 进行加速**，这应该是 GitHub 图床的正确使用方法。重点，敲黑板了哈，有需要图床的同学可以参考这种做法哈。
+
+做法非常简单，分两步：
+
+- 第一步，创建一个 GitHub 仓库作为图床仓库，把图片上传上去，可以使用 GitHub 桌面版上传，很方便。
+- 第二步，在要使用 GitHub 图床的地方将图片的链接替换为 `https://cdn.jsdelivr.net/gh/user/repo@version/file` 这种形式。
+
+比如说，我要用 markdown 的形式加载一张图片，路径可以替换成下面这种形式。
+```
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
+```
+
+- `itwanger` 是我的 GitHub 账号名
+- `Tech-Sister-Learn-Java` 是仓库名
+- `images` 是仓库下的一个目录，专门存放图片用的
+- `tech-sister-01.png` 是图片名
+
+换成这种格式后，就可以享受 jsdelivr 提供的全球 CDN 加速服务了，关键是还是免费，白嫖起来真香~⚠️
 
 # Donate
 

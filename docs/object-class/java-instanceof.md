@@ -1,4 +1,4 @@
-## 二十四、instanceof
+## instanceof
 
 instanceof 操作符的用法其实很简单：
 
