@@ -76,7 +76,6 @@
 - [字符串常量池](docs/string/constant-pool.md)
 - [intern](docs/string/intern.md)
 
-## **字符串**
 
 # 公众号
 
