@@ -15,15 +15,9 @@
 <br>
 
 
-
-
-
-
 # 前言
 
 同学们好，我是二哥呀，欢迎来到《教妹学 Java》专栏。
-
-[我妹今年上大学了](https://mp.weixin.qq.com/s/bsu9uH8VKh5Vtue-9SafwQ)，学的计算机编程，立志像我一样做一名正儿八经的 Java 程序员。我期初是反抗的，因为程序员这行业容易掉头发，作为一名需要美貌的女生，长发飘飘是必须的啊。但与其反抗，不如做点更积极的事情，比如说写点有趣的文章，教她更快地掌握 Java 这门编程语言，于是就有了这个专栏。
 
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
@@ -59,12 +53,31 @@
 - [代码初始化块](docs/object-class/code-init.md)
 - [final 关键字](docs/object-class/java-final.md)
 - [instanceof](docs/object-class/java-instanceof.md)
+- [抽象类](docs/object-class/java-abstract.md)
+- [接口](docs/object-class/java-interface.md)
+- [值传递与引用传递](docs/object-class/pass-by-value.md)
+- [浅拷贝与深拷贝](docs/object-class/deep-copy.md)
+- [自动拆箱与装箱](docs/object-class/box.md)
+
+## **数组**
+
+- [数组概览](docs/array/gailan.md)
+- [Arrays](docs/array/arrays.md)
+- [打印数组](docs/array/print.md)
+
+## **字符串**
+
+- [字符串源码分析](docs/string/source.md)
+- [字符串常量池](docs/string/constant-pool.md)
+- [intern](docs/string/intern.md)
+
+## **字符串**
 
 # 公众号
 
 如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号“**沉默王二**”。
 
-**《教妹学Java》:** 本文档的离线版 PDF 版可以扫描下方的二维码关注我的[公众号](#公众号)后回复 **" 03"** 关键字即可领取！
+**《教妹学Java》:** 本文档的离线版 PDF 版可以扫描下方的二维码关注我的[公众号](#公众号)后回复 **"03"** 关键字即可领取！
 
 
 <div align="center">
@@ -73,7 +86,7 @@
 
 # Donate
 
-开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请作者喝杯咖啡，让他继续肝！
+开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请二哥喝杯咖啡，让他继续肝！
 
 
 <div align="center">
