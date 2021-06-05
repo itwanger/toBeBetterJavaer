@@ -150,3 +150,9 @@ System.out.println(Arrays.deepToString(deepArray));
 “好的，哥，我记住了。以后遇到的话，我注意下。你去休息吧，我来敲一下你提到的这些代码，练一练。”
 
 “OK，我走，我走。”
+
+-----
+
+《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
+
+<img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
