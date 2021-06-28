@@ -25,6 +25,23 @@
 	- [代码初始化块](docs/object-class/code-init.md)
 	- [final 关键字](docs/object-class/java-final.md)
 	- [instanceof](docs/object-class/java-instanceof.md)
+	- [抽象类](docs/object-class/java-abstract.md)
+	- [接口](docs/object-class/java-interface.md)
+	- [值传递VS引用传递](docs/object-class/pass-by-value.md)
+	- [浅拷贝与深拷贝](docs/object-class/deep-copy.md)
+	- [自动拆箱与自动装箱](docs/object-class/box.md)
+
+- **数组**
+
+	- [数组](docs/array/gailan.md)
+	- [Arrays](docs/array/arrays.md)
+	- [deepToString](docs/array/print.md)
+
+- **字符串**
+
+	- [不可变性](docs/string/source.md)
+	- [字符串常量池](docs/string/constant-pool.md)
+	- [String.intern](docs/string/intern.md)
 
 -  **其他：**
 	- [公众号](docs/bottom.md)
