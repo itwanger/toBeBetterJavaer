@@ -251,8 +251,3 @@ System.out.println(t2-t1);
 
 “好了，三妹，今天的主题就先讲到这吧。我再去来根华子。”
 
------
-
-《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
-
-<img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
