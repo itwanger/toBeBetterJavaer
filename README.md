@@ -63,6 +63,8 @@
 - [Java 表示：我只有值传递，没有引用传递](docs/object-class/pass-by-value.md)
 - [面试经典题目：浅拷贝与深拷贝有什么区别](docs/object-class/deep-copy.md)
 - [自动拆箱与自动装箱，好玩](docs/object-class/box.md)
+- [深入理解 Java 的反射](docs/object-class/fanshe.md)
+- [撸个注解有什么难的](docs/object-class/annotation.md)
 
 ## **数组**
 
@@ -75,6 +77,16 @@
 - [从源码的角度来看字符串的不可变性](docs/string/source.md)
 - [学弟学妹都必须掌握的字符串常量池](docs/string/constant-pool.md)
 - [深入浅出之美团技术团队解析过的 String.intern](docs/string/intern.md)
+- [如何比较两个字符串是否相等](docs/string/equals.md)
+- [如何拼接字符串](docs/string/join.md)
+- [如何拆分字符串](docs/string/split.md)
+
+## **异常处理机制**
+
+- [异常处理机制](docs/exception/gailan.md)
+- [try-catch-finally](docs/exception/try-catch-finally.md)
+- [throw 和 throws](docs/exception/throw-throws.md)
+- [try-with-resouces](docs/exception/try-with-resouces.md)
 
 
 # 公众号
