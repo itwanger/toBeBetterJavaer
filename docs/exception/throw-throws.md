@@ -41,7 +41,7 @@ Exception in thread "main" java.lang.ArithmeticException: 年纪未满 18 岁，
 
 `Class.forName()` 方法在执行的时候可能会遇到 `java.lang.ClassNotFoundException` 异常，一个检查型异常，如果没有做处理，IDEA 就会提示你，要么在方法签名上声明，要么放在 try-catch 中。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-359e818705b260e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/exception/throw-throws-01.png)
 
 “那什么情况下使用 throws 而不是 try-catch 呢？”三妹问。
 

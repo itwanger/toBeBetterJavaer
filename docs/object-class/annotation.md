@@ -6,7 +6,7 @@
 
 三妹毫不犹豫地摇摇头，摆摆手，不好意思地承认自己的确没有自定义过。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-3d36fc838a8d9982.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/object-class/annotation-01.png)
 
 “好吧，哥来告诉你吧。”
 

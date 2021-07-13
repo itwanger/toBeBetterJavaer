@@ -70,7 +70,7 @@ checked 异常（检查型异常）在源代码里必须显式地捕获或者抛
 
 “我先画一幅思维导图给你感受一下。”
 
-![](https://upload-images.jianshu.io/upload_images/1179389-01aeee263b511caf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/exception/gailan-01.png)
 
 首先，Exception 和 Error 都继承了 Throwable 类。换句话说，只有 Throwable 类（或者子类）的对象才能使用 throw 关键字抛出，或者作为 catch 的参数类型。
 
@@ -98,7 +98,7 @@ Class clz = Class.forName("com.itwanger.s41.Demo1");
 
 如果没做处理，比如说在 Intellij IDEA 环境下，就会提示你这行代码可能会抛出 `java.lang.ClassNotFoundException`。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-a60ca044b8d0e65e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/exception/gailan-02.png)
 
 建议你要么使用 try-catch 进行捕获：
 

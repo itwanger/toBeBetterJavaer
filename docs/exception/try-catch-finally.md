@@ -1,12 +1,5 @@
 ## try-catch-finally
 
-回首页
-新建文集
- 新建文章
- 在下方新建文章
-已保存
-教妹学 Java 第 42 讲：try-catch-finally
- 发布文章
 “二哥，[上一节](https://mp.weixin.qq.com/s/fXRJ1xdz_jNSSVTv7ZrYGQ)你讲了异常处理机制，这一节讲什么呢？”三妹问。
 
 “该讲 try-catch-finally 了。”我说，“try 关键字后面会跟一个大括号 `{}`，我们把一些可能发生异常的代码放到大括号里；`try` 块后面一般会跟 `catch` 块，用来处理发生异常的情况；当然了，异常不一定会发生，为了保证发不发生异常都能执行一些代码，就会跟一个 `finally` 块。”
@@ -185,7 +178,7 @@ static int test2 () {
 
 “三妹，来看一下源码的文档注释就全明白了！”
 
-![](https://upload-images.jianshu.io/upload_images/1179389-97bdf20028db49f9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/exception/try-catch-finally-01.png)
 
 至于参数 status 的值也很好理解，如果是异常退出，设置为非 0 即可，通常用 1 来表示；如果是想正常退出程序，用 0 表示即可。
 
