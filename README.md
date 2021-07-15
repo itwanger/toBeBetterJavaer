@@ -68,7 +68,7 @@
 
 ## **数组**
 
-- [最重要的数据结构之一：数组](docs/array/gailan.md)
+- [最重要的数据结构之一](docs/array/gailan.md)
 - [数组的专用工具类：java.util.Arrays](docs/array/arrays.md)
 - [打印数组最优雅的方式：deepToString](docs/array/print.md)
 
@@ -81,7 +81,7 @@
 - [如何拼接字符串](docs/string/join.md)
 - [如何拆分字符串](docs/string/split.md)
 
-## **异常处理机制**
+## **异常处理**
 
 - [异常处理机制](docs/exception/gailan.md)
 - [try-catch-finally](docs/exception/try-catch-finally.md)
