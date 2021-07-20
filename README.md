@@ -14,19 +14,6 @@
 </div>
 <br>
 
-
-# 前言
-
-同学们好，我是二哥呀，欢迎来到《教妹学 Java》专栏。
-
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
-
-之前在公众号上更新《教妹学 Java》专栏的时候，有个小姐姐留言说，已经三连。CS大姐一枚。入门课程也是Java，学得云里雾里的。经常在找到自信和零自信之间受虐。感谢作者创作出这么有趣且容易理解的Java课。会持续关注，并推荐给其他学CS的朋友，截图如下：
-
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-02.png)
-
-特别受鼓舞！！！！
-
 # 目录
 
 ## **基础知识**
@@ -87,6 +74,18 @@
 - [try-catch-finally](docs/exception/try-catch-finally.md)
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
+
+# 瞎BB
+
+大家好，我是二哥呀，欢迎来到《教妹学 Java》专栏。
+
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
+
+之前在公众号上更新《教妹学 Java》专栏的时候，有个小姐姐留言说，留言了下面这段话：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-02.png)
+
+让我备受鼓舞！！！！
 
 
 # 公众号
