@@ -16,13 +16,9 @@
 
 2021 年 10 月份，我妹上了大学，入了计算机专业这个坑，于是我就想着，能为她做点什么呢？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
-
 我是 2008 年学的 Java，在这方面已经有足够多的经验，所以我就萌生了一个想法，不如教她怎么学习 Java 吧！
 
 我妹也觉得这个想法不错，于是我就开始连载这个《教妹学Java》的专栏了，没想到的是，读者都挺喜欢看的。
-
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-02.png)
 
 
 真的希望《教妹学 Java》专栏能帮助到更多的 Java 初学者，让大家爱上 Java，真正通过 Java 来改变人生的命运。
@@ -88,33 +84,6 @@
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
 
-
-
-
-<div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/itwanger.png" width="260px" alt="图片没显示的话，可以微信搜索「沉默王二」关注">
-</div>
-
-# 备注
-
-**图片使用了 jsdelivr 进行加速**，这应该是 GitHub 图床的正确使用方法。重点，敲黑板了哈，有需要图床的同学可以参考这种做法哈。
-
-做法非常简单，分两步：
-
-- 第一步，创建一个 GitHub 仓库作为图床仓库，把图片上传上去，可以使用 GitHub 桌面版上传，很方便。
-- 第二步，在要使用 GitHub 图床的地方将图片的链接替换为 `https://cdn.jsdelivr.net/gh/user/repo@version/file` 这种形式。
-
-比如说，我要用 markdown 的形式加载一张图片，路径可以替换成下面这种形式。
-```
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
-```
-
-- `itwanger` 是我的 GitHub 账号名
-- `Tech-Sister-Learn-Java` 是仓库名
-- `images` 是仓库下的一个目录，专门存放图片用的
-- `tech-sister-01.png` 是图片名
-
-换成这种格式后，就可以享受 jsdelivr 提供的全球 CDN 加速服务了，关键是还是免费，白嫖起来真香~⚠️
 
 # Donate
 
