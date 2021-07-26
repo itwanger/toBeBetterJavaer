@@ -1,7 +1,5 @@
 👍推荐 [在线阅读](https://itwanger.gitee.io/tech-sister-learn-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
 
-👍点击关注[公众号](#公众号)及时获取作者最新文章，并可免费领取配套的《教妹学 Java》PDF 以及 Java 工程师必备学习资源。
-
 <div align="center">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/logo.png" width="200px">
 </div>
@@ -13,6 +11,21 @@
     <a href="https://github.com/itwanger/Tech-Sister-Learn-Java"> <img src="https://badgen.net/github/forks/itwanger/Tech-Sister-Learn-Java?icon=github&color=4ab8a1"></a>
 </div>
 <br>
+
+# 前言
+
+2021 年 10 月份，我妹上了大学，入了计算机专业这个坑，于是我就想着，能为她做点什么呢？
+
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
+
+我是 2008 年学的 Java，在这方面已经有足够多的经验，所以我就萌生了一个想法，不如教她怎么学习 Java 吧！
+
+我妹也觉得这个想法不错，于是我就开始连载这个《教妹学Java》的专栏了，没想到的是，读者都挺喜欢看的。
+
+![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-02.png)
+
+
+真的希望《教妹学 Java》专栏能帮助到更多的 Java 初学者，让大家爱上 Java，真正通过 Java 来改变人生的命运。
 
 # 目录
 
@@ -75,24 +88,7 @@
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
 
-# 瞎BB
 
-大家好，我是二哥呀，欢迎来到《教妹学 Java》专栏。
-
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-01.png)
-
-之前在公众号上更新《教妹学 Java》专栏的时候，有个小姐姐留言说，留言了下面这段话：
-
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/tech-sister-02.png)
-
-让我备受鼓舞！！！！
-
-
-# 公众号
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号“**沉默王二**”。
-
-**《教妹学Java》:** 本文档的离线版 PDF 版可以扫描下方的二维码关注我的[公众号](#公众号)后回复 **"03"** 关键字即可领取！
 
 
 <div align="center">
