@@ -1,4 +1,12 @@
+# 教妹学 Java
+
+> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](http://www.itwanger.com/)，[:trophy: CSDN 博客专家](https://blog.csdn.net/qing_gee)，[:memo: 关于我](http://www.itwanger.com/about.html)
+
+
+> 《教妹学Java》，听起来就很有趣吧，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 基础语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为您提供帮助，请给予支持(关注、点赞、分享)！
+
 👍推荐 [在线阅读](https://itwanger.gitee.io/tech-sister-learn-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
+
 
 <div align="center">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/logo.png" width="200px">
@@ -12,16 +20,13 @@
 </div>
 <br>
 
-# 前言
+<div align="center">
+<a href="https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw">Java 教程</a> •    
+<a href="https://mp.weixin.qq.com/s/s0_XzGjHcgk2RwbCRzmgHg">Java 面经手册</a> • 
+<a href="https://mp.weixin.qq.com/s/wvzB1p9_Yu7n7Ak83DrrdA">LeetCode 刷题笔记</a> • 
+<a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA">计算机经典书单</a>
+</div>
 
-2021 年 10 月份，我妹上了大学，入了计算机专业这个坑，于是我就想着，能为她做点什么呢？
-
-我是 2008 年学的 Java，在这方面已经有足够多的经验，所以我就萌生了一个想法，不如教她怎么学习 Java 吧！
-
-我妹也觉得这个想法不错，于是我就开始连载这个《教妹学Java》的专栏了，没想到的是，读者都挺喜欢看的。
-
-
-真的希望《教妹学 Java》专栏能帮助到更多的 Java 初学者，让大家爱上 Java，真正通过 Java 来改变人生的命运。
 
 # 目录
 
@@ -84,10 +89,15 @@
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
 
+# 参与贡献
+
+1. 如果您对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
+2. 对于文中我没有涉及到知识点，欢迎提交 PR。
+
 
 # Donate
 
-开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请二哥喝杯咖啡，让他继续肝！
+开源不易，如果《教妹学 Java》专栏对您有些帮助，可以请二哥喝杯咖啡，让他继续肝！
 
 
 <div align="center">
