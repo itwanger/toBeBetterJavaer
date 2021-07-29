@@ -2,6 +2,8 @@
 
 > **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家](https://blog.csdn.net/qing_gee)，[:memo: 关于我](https://itwanger.com/about.html)
 
+> 教妹学Java，听起来就很有趣吧（全网独一份），本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
+
 
 <div align="center">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/logo.png" width="200px">
@@ -9,25 +11,49 @@
 
 <div align="center">
     <a href="https://github.com/itwanger/jmx-java"> <img src="https://badgen.net/github/stars/itwanger/jmx-java?icon=github&color=4ab8a1"></a>
-    <a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA"> <img src="https://badgen.net/badge/:books:/计算机经典书单/green"></a>
+    <a href="https://itwanger.gitee.io/jmx-java/#/"> <img src="https://badgen.net/badge/在线阅读/★★★★★"></a>
+    <a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA"> <img src="https://badgen.net/badge/计算机经典书单/戳一戳/green"></a>
 </div>
 <br>
 
-<div align="center">
 
-<a href="https://mp.weixin.qq.com/s/s0_XzGjHcgk2RwbCRzmgHg">Java 面经手册</a> • 
-<a href="https://mp.weixin.qq.com/s/wvzB1p9_Yu7n7Ak83DrrdA">LeetCode 刷题笔记</a> • 
-<a href="">计算机经典书单</a>
-</div>
+## ⛳目录
 
-> 《教妹学Java》，听起来就很有趣吧，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 基础语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为您提供帮助，请给予支持(关注、点赞、分享)！
+- 代码仓库：[Github](https://github.com/itwanger/jmx-java) | [码云](https://gitee.com/itwanger/jmx-java) | [CodeChina](https://codechina.csdn.net/qing_gee/jmx-java)
+- [学习说明](https://github.com/itwanger/jmx-java#bookmark-学习说明)
+- [章节目录](https://github.com/itwanger/jmx-java#pencil-章节目录)
+- [参与贡献](https://github.com/itwanger/jmx-java#muscle-参与贡献)
 
-👍推荐 [在线阅读](https://itwanger.gitee.io/jmx-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
+## :bookmark: 学习说明
+
+《教妹学Java》专栏主要针对零基础学 Java 编程的同学，从 Java 核心语法开始，循序渐进，再到 Java 集合框架、Java IO、Java 并发编程、Java 虚拟机，只讲重点。
+
+一开始，不要求快，毕竟知识是需要时间来沉淀的。一定要从头到尾阅读这个专栏，因为基础真的很重要，“根基不牢，地动山摇”。
+
+编程是听不会，也看不会的，只有经过大量的实践才能学会，所以一定要动手，专栏中所有的例子都不要放过，一个一个来，直到自己能在没有任何帮助的情况下，独立完成代码的编写。
+
+编程是门手艺活，唯手熟尔！
+
+----
+
+1. 本专栏通过二哥与三妹对话的形式展开，这种方式是全网独一份的，会让你有一种身临其境的感觉，仿佛身边就有一个学长在手把手的教你，可以这么告诉你，想学不会都很难！
+
+2. 此专栏的所有配套源码已经在 GitHub 上开源，所以你在练手的时候可以作为参考，但尽量尝试在每篇学完后独立完成任务。
+
+3. 如果你在学习的过程中遇到什么问题，包括：不能运行、优化意见、文字错误等任何问题都可以提交 issue，也可以联系作者：`作者` 的微信，`qing_geee`
+
+4. 本专栏不仅会教会你如何编写 Java 代码，还会把我十多年的编程经验倾囊相助，使你在编程思想上也能形成一套完整的套路。
+
+5. 即便是学完了本专栏，Java 后端这条路前面的路依然很长。
+
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/string/java-luxian.png)
+
+但既然已经在路上了，便只顾风雨前行，因为 Java 岗的薪资是真的香，岗位是真的多！
 
 
-# 目录
+## :pencil: 章节目录
 
-## **基础知识**
+### **基础知识**
 
 - [什么是 Java](docs/basic/what-is-java.md)
 - [Java 发展简史](docs/basic/java-history.md)
@@ -44,7 +70,7 @@
 - [流程控制语句有哪些？图解版](docs/basic/java-control.md)
 - [Java 注释：程序的注解](docs/basic/javadoc.md)
 
-## **对象和类**
+### **对象和类**
 
 - [技术大佬的必备素质：命名优雅](docs/object-class/java-naming.md)
 - [对象和类的相爱相杀](docs/object-class/java-object-class.md)
@@ -64,13 +90,13 @@
 - [深入理解 Java 的反射](docs/object-class/fanshe.md)
 - [撸个注解有什么难的](docs/object-class/annotation.md)
 
-## **数组**
+### **数组**
 
 - [最重要的数据结构之一](docs/array/gailan.md)
 - [数组的专用工具类：java.util.Arrays](docs/array/arrays.md)
 - [打印数组最优雅的方式：deepToString](docs/array/print.md)
 
-## **字符串**
+### **字符串**
 
 - [从源码的角度来看字符串的不可变性](docs/string/source.md)
 - [学弟学妹都必须掌握的字符串常量池](docs/string/constant-pool.md)
@@ -79,22 +105,22 @@
 - [如何拼接字符串](docs/string/join.md)
 - [如何拆分字符串](docs/string/split.md)
 
-## **异常处理**
+### **异常处理**
 
 - [异常处理机制](docs/exception/gailan.md)
 - [try-catch-finally](docs/exception/try-catch-finally.md)
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
 
-# 参与贡献
+## :muscle: 参与贡献
 
-1. 如果您对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
+1. 如果你对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
 2. 对于文中我没有涉及到知识点，欢迎提交 PR。
 
 
-# Donate
+## :gift: Donate
 
-开源不易，如果《教妹学 Java》专栏对您有些帮助，可以请二哥喝杯咖啡，让他继续肝！
+开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 
 <div align="center">
