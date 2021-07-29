@@ -22,6 +22,7 @@
 - 代码仓库：[Github](https://github.com/itwanger/jmx-java) | [码云](https://gitee.com/itwanger/jmx-java) | [CodeChina](https://codechina.csdn.net/qing_gee/jmx-java)
 - [学习说明](https://github.com/itwanger/jmx-java#bookmark-学习说明)
 - [章节目录](https://github.com/itwanger/jmx-java#pencil-章节目录)
+- [联系作者](https://github.com/itwanger/jmx-java#paw_prints-联系作者)
 - [参与贡献](https://github.com/itwanger/jmx-java#muscle-参与贡献)
 
 ## :bookmark: 学习说明
@@ -111,6 +112,17 @@
 - [try-catch-finally](docs/exception/try-catch-finally.md)
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
+
+
+## :paw_prints: 联系作者
+
+- **加群交流**
+
+    本群的宗旨是给大家提供一个良好的技术学习交流平台，所以杜绝一切广告！由于微信群人满 100 之后无法加入，请扫描下方二维码先添加作者 “沉默王二” 微信( qing_geee)，备注：加群。
+
+- **公众号(沉默王二)**
+
+    技术文通俗易懂，吹水文风趣幽默，专注于 Java 后端技术和程序人生分享，目前已有 8 万+ 读者关注，快来微信搜索「**沉默王二**」关注吧，回复关键字「**02**」还可以获取[一份可能是2021年最全最硬核的Java面试 “备战” 资料](https://mp.weixin.qq.com/s/gyLxYoUTm6lRTgVZSgGEnQ)。
 
 ## :muscle: 参与贡献
 
