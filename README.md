@@ -1,31 +1,28 @@
-# 教妹学 Java
+# :girl: 教妹学 Java 专栏 - 通俗易懂、风趣幽默
 
-> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](http://www.itwanger.com/)，[:trophy: CSDN 博客专家](https://blog.csdn.net/qing_gee)，[:memo: 关于我](http://www.itwanger.com/about.html)
-
-
-> 《教妹学Java》，听起来就很有趣吧，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 基础语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为您提供帮助，请给予支持(关注、点赞、分享)！
-
-👍推荐 [在线阅读](https://itwanger.gitee.io/tech-sister-learn-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
+> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家](https://blog.csdn.net/qing_gee)，[:memo: 关于我](https://itwanger.com/about.html)
 
 
 <div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/logo.png" width="200px">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/logo.png" width="200px">
 </div>
 
 <div align="center">
-    <a href="https://itwanger.gitee.io/tech-sister-learn-java"> <img src="https://badgen.net/badge/itwanger/%E5%9C%A8%E7%BA%BF%E9%98%85%E8%AF%BB?icon=sourcegraph&color=4ab8a1"></a>
-    <a href="#公众号"><img src="https://badgen.net/badge/PDF/%E6%95%99%E5%A6%B9%E5%AD%A6Java?color=4ab8a1&icon=bitcoin-lightning&label=PDF" alt="PDF下载"></a>
-    <a href="https://github.com/itwanger/Tech-Sister-Learn-Java"> <img src="https://badgen.net/github/stars/itwanger/Tech-Sister-Learn-Java?icon=github&color=4ab8a1"></a>
-    <a href="https://github.com/itwanger/Tech-Sister-Learn-Java"> <img src="https://badgen.net/github/forks/itwanger/Tech-Sister-Learn-Java?icon=github&color=4ab8a1"></a>
+    <a href="https://github.com/itwanger/jmx-java"> <img src="https://badgen.net/github/stars/itwanger/jmx-java?icon=github&color=4ab8a1"></a>
+    <a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA"> <img src="https://badgen.net/badge/:books:/计算机经典书单/green"></a>
 </div>
 <br>
 
 <div align="center">
-<a href="https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw">Java 教程</a> •    
+
 <a href="https://mp.weixin.qq.com/s/s0_XzGjHcgk2RwbCRzmgHg">Java 面经手册</a> • 
 <a href="https://mp.weixin.qq.com/s/wvzB1p9_Yu7n7Ak83DrrdA">LeetCode 刷题笔记</a> • 
-<a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA">计算机经典书单</a>
+<a href="">计算机经典书单</a>
 </div>
+
+> 《教妹学Java》，听起来就很有趣吧，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 基础语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为您提供帮助，请给予支持(关注、点赞、分享)！
+
+👍推荐 [在线阅读](https://itwanger.gitee.io/jmx-java)  (Github 访问速度比较慢可能会导致部分图片无法刷新出来) 
 
 
 # 目录
@@ -101,5 +98,5 @@
 
 
 <div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/weixin.png" width="260px">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/weixin.png" width="260px">
 </div>
