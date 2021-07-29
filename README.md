@@ -46,7 +46,7 @@
 
 5. 即便是学完了本专栏，Java 后端这条路前面的路依然很长。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/string/java-luxian.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/java-luxian.png)
 
 但既然已经在路上了，便只顾风雨前行，因为 Java 岗的薪资是真的香，岗位是真的多！
 
