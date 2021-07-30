@@ -129,11 +129,15 @@
 
 ### **泛型**
 
-- [撸个注解有什么难的](docs/fanxing/annotation.md)
+- [晦涩难懂的泛型](docs/generic/generic.md)
 
 ### **注解**
 
 - [撸个注解有什么难的](docs/annotation/annotation.md)
+
+### **枚举**
+
+- [单例的最佳实现方式——枚举](docs/enum/enum.md)
 
 
 
