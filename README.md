@@ -56,26 +56,26 @@
 
 ### **概述**
 
-- [什么是 Java](docs/basic/what-is-java.md)
-- [Java 发展简史](docs/basic/java-history.md)
-- [Java 为什么如此流行](docs/basic/why-java-popular.md)
-- [第一个 Java 程序：Hello World](docs/basic/hello-world.md)
-- [Java程序在编译期发生了什么](docs/basic/what-happen-when-javac.md)
-- [JDK 和 JRE 有什么区别](docs/basic/jdk-jre.md)
-- [JVM 是什么](docs/basic/jvm.md)
-- [Java 注释：程序的注解](docs/basic/javadoc.md)
+- [什么是 Java](docs/overview/what-is-java.md)
+- [Java 发展简史](docs/overview/java-history.md)
+- [Java 为什么如此流行](docs/overview/why-java-popular.md)
+- [第一个 Java 程序：Hello World](docs/overview/hello-world.md)
+- [Java程序在编译期发生了什么](docs/overview/what-happen-when-javac.md)
+- [JDK 和 JRE 有什么区别](docs/overview/jdk-jre.md)
+- [JVM 是什么](docs/overview/jvm.md)
+- [Java 注释：程序的注解](docs/overview/javadoc.md)
 
 ### **核心语法**
 
-- [一网打尽 Java 的那些关键字](docs/basic/java-keywords.md)
-- [Java 运算符有哪些？](docs/basic/java-operator.md)
-- [Java 变量类型有哪些](docs/basic/java-var.md)
-- [Java 数据类型有哪些](docs/basic/java-data-type.md)
-- [技术大佬的必备素质：命名优雅](docs/object-class/java-naming.md)
+- [一网打尽 Java 的那些关键字](docs/core-grammar/java-keywords.md)
+- [Java 运算符有哪些？](docs/core-grammar/java-operator.md)
+- [Java 变量类型有哪些](docs/core-grammar/java-var.md)
+- [Java 数据类型有哪些](docs/core-grammar/java-data-type.md)
+- [技术大佬的必备素质：命名优雅](docs/core-grammar/java-naming.md)
 
 ### **分支、循环**
 
-- [流程控制语句有哪些？图解版](docs/basic/java-control.md)
+- [流程控制语句有哪些？图解版](docs/control/java-control.md)
 
 ### **字符串**
 
@@ -103,22 +103,22 @@
 
 ### **关键字详解**
 
-- [学妹必须学会的 static 关键字](docs/object-class/java-static.md)
-- [学弟必须掌握的 this 和 super ](docs/object-class/java-this.md)
-- [再见了，我的 final 关键字](docs/object-class/java-final.md)
-- [判断对象的类型：instanceof 关键字](docs/object-class/java-instanceof.md)
+- [学妹必须学会的 static 关键字](docs/keywords/java-static.md)
+- [学弟必须掌握的 this 和 super ](docs/keywords/java-this.md)
+- [再见了，我的 final 关键字](docs/keywords/java-final.md)
+- [判断对象的类型：instanceof 关键字](docs/keywords/java-instanceof.md)
 
 ### **关键知识点**
 
-- [必知必会的 Unicode：躲开锟斤拷](docs/basic/unicode.md)
-- [傻傻分不清：方法重载和方法重写](docs/object-class/override-overload.md)
-- [Java 表示：我只有值传递，没有引用传递](docs/object-class/pass-by-value.md)
-- [面试经典题目：浅拷贝与深拷贝有什么区别](docs/object-class/deep-copy.md)
-- [自动拆箱与自动装箱，好玩](docs/object-class/box.md)
+- [必知必会的 Unicode：躲开锟斤拷](docs/core-points/unicode.md)
+- [傻傻分不清：方法重载和方法重写](docs/core-points/override-overload.md)
+- [Java 表示：我只有值传递，没有引用传递](docs/core-points/pass-by-value.md)
+- [面试经典题目：浅拷贝与深拷贝有什么区别](docs/core-points/deep-copy.md)
+- [自动拆箱与自动装箱，好玩](docs/core-points/box.md)
 
 ### **反射**
 
-- [深入理解 Java 的反射](docs/object-class/fanshe.md)
+- [深入理解 Java 的反射](docs/fanshe/fanshe.md)
 
 ### **异常**
 
@@ -128,9 +128,12 @@
 - [try-with-resouces](docs/exception/try-with-resouces.md)
 
 ### **泛型**
+
+- [撸个注解有什么难的](docs/fanxing/annotation.md)
+
 ### **注解**
 
-- [撸个注解有什么难的](docs/object-class/annotation.md)
+- [撸个注解有什么难的](docs/annotation/annotation.md)
 
 
 

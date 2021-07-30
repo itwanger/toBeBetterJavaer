@@ -49,7 +49,7 @@ public class HelloWorld {
 
 IDEA 会自动保存，在代码编辑面板中右键，在弹出的菜单中选择「Run 'HelloWorld.main()'」，如下图所示：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/four-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/four-01.png)
 
 等代码编译结束后，就可以在 Run 面板里看到下面的内容：
 

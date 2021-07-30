@@ -10,15 +10,15 @@ JDK 是 Java Development Kit 的首字母缩写，是提供给 Java 程序员的
 
 想要成为一名 Java 程序员，首先就需要在电脑上安装 JDK。当然了，新版的 Intellij IDEA（公认最好用的集成开发环境）已经支持直接下载 JDK 了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-01.png)
 
 并且支持下载不同版本的 JDK，除了 Oracle 的 OpenJDK，还有社区维护版 AdoptOpenJDK，里面包含了目前使用范围最广的 HotSpot 虚拟机。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-02.png)
 
 如果下载比较慢的话，可以直接在 AdoptOpenJDK 官网上下载。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-03.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-03.png)
 
 如果还是比较慢的话，通过 Oracle 官网下载吧！
 
@@ -51,7 +51,7 @@ Java 程序运行的正式环境一般会选择 Linux 服务器，因为更安�
 
 可以看到有这么一些（只列出 Java 11 的部分——最近一个 LTS 版本）：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-04.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-04.png)
 
 其中 JRE 为 java-11-openjdk.x86_64，JDK 为 java-11-openjdk-devel.x86_64。
 
@@ -65,35 +65,35 @@ Java 程序运行的正式环境一般会选择 Linux 服务器，因为更安�
 
 如果出现以下结果，则表明安装成功：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-05.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-05.png)
 
 由于 JRE 中不包含 javac，所以 `javac -version` 的结果如下所示：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-06.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-06.png)
 
 那既然服务器上的 JRE 环境已经 OK 了，那我们就把之前的“Hello World”程序打成 jar 上传过去，让它跑起来。
 
 第一步，Maven clean（对项目清理）：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-07.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-07.png)
 
 第二步，Maven package（对项目打包）：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-08.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-08.png)
 
 可以在 Run 面板中看到以下信息：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-09.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-09.png)
 
 说明项目打包成功了。
 
 第三步，使用 FileZilla 工具将 jar 包上传到服务器指定目录。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-10.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-10.png)
 
 第四步，使用 iTerm2 工具连接服务器。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-11.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-11.png)
 
 第五步，执行以下命令：
 
@@ -101,7 +101,7 @@ Java 程序运行的正式环境一般会选择 Linux 服务器，因为更安�
 
 可以看到以下结果：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/six-12.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/six-12.png)
 
 “搞定了，三妹，今天我们就学到这吧。”转动了一下僵硬的脖子后，我对三妹说，“开发环境需要安装 JDK，因为既需要编写源代码，还需要打包和测试；生产环境只需要安装 JRE，因为只需要运行编译打包好的 jar 包即可。”
 

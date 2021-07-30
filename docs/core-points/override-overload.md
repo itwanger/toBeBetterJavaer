@@ -20,7 +20,7 @@
 
 话音刚落，我就在 IDEA 中噼里啪啦地敲了起来。两段代码，分别是方法重写和方法重载。然后，把这两段代码截图到 draw.io（一个很漂亮的在线画图网站）上，加了一些文字说明。最后，打开 Photoscape X，把两张图片合并到了一起。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/21-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/core-points/21-01.png)
 
 ### 02、方法重载
 
@@ -94,7 +94,7 @@ class Adder {
 
 “编译时报错优于运行时报错，所以当两个方法的名字相同，参数个数和类型也相同的时候，虽然返回值类型不同，但依然会提示方法已经被定义的错误。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/21-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/core-points/21-02.png)
 
 “你想啊，三妹。我们在调用一个方法的时候，可以指定返回值类型，也可以不指定。当不指定的时候，直接指定 `add(1, 2)` 的时候，编译器就不知道该调用返回 int 的 `add()` 方法还是返回 double 的 `add()` 方法，产生了歧义。”
 
@@ -132,7 +132,7 @@ String[] args
 
 “由于可以通过改变参数类型的方式实现方法重载，那么当传递的参数没有找到匹配的方法时，就会发生隐式的类型转换。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/21-03.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/core-points/21-03.png)
 
 “如上图所示，byte 可以向上转换为 short、int、long、float 和 double，short 可以向上转换为 int、long、float 和 double，char 可以向上转换为 int、long、float 和 double，依次类推。”
 
@@ -207,7 +207,7 @@ public class OverloadingTypePromotion2 {
 “二哥，我又想到一个问题。当有两个方法 `sum(long a, int b)` 和 `sum(int a, long b)`，参数个数相同，参数类型相同，只不过位置不同的时候，会发生什么呢？”
 
 “当通过 `obj.sum(20, 20)` 来调用 sum 方法的时候，编译器会提示错误。”
-![](https://cdn.jsdelivr.net/gh/itwanger/Tech-Sister-Learn-Java/images/21-04.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/core-points/21-04.png)
 
 “不明确，编译器会很为难，究竟是把第一个 20 从 int 转成 long 呢，还是把第二个 20 从 int 转成 long，智障了！所以，不能写这样让编译器左右为难的代码。”
 
