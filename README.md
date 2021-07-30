@@ -115,6 +115,7 @@
 - [Java 表示：我只有值传递，没有引用传递](docs/core-points/pass-by-value.md)
 - [面试经典题目：浅拷贝与深拷贝有什么区别](docs/core-points/deep-copy.md)
 - [自动拆箱与自动装箱，好玩](docs/core-points/box.md)
+- [为什么重写 equals 时必须重写 hashCode 方法](docs/core-points/equals-hashcode.md)
 
 ### **反射**
 
@@ -126,10 +127,12 @@
 - [try-catch-finally](docs/exception/try-catch-finally.md)
 - [throw 和 throws](docs/exception/throw-throws.md)
 - [try-with-resouces](docs/exception/try-with-resouces.md)
+- [异常最佳实践](docs/exception/shijian.md)
 
 ### **泛型**
 
 - [晦涩难懂的泛型](docs/generic/generic.md)
+- [Java 不能实现真正泛型的原因是什么？](docs/generic/true-generic.md)
 
 ### **注解**
 
