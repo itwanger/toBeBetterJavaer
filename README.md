@@ -19,7 +19,7 @@
 
 ## ⛳目录
 
-- 代码仓库：[Github](https://github.com/itwanger/jmx-java) | [码云](https://gitee.com/itwanger/jmx-java) | [CodeChina](https://codechina.csdn.net/qing_gee/jmx-java)
+- 仓库同步：[Github](https://github.com/itwanger/jmx-java) | [码云](https://gitee.com/itwanger/jmx-java) | [CodeChina](https://codechina.csdn.net/qing_gee/jmx-java)
 - [学习说明](https://github.com/itwanger/jmx-java#bookmark-学习说明)
 - [章节目录](https://github.com/itwanger/jmx-java#pencil-章节目录)
 - [联系作者](https://github.com/itwanger/jmx-java#paw_prints-联系作者)
