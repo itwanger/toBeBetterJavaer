@@ -1,6 +1,6 @@
 # :girl: 教妹学 Java 专栏 - 通俗易懂、风趣幽默
 
-> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 9，周榜第 1）](https://blog.csdn.net/qing_gee)，[:memo: 关于我](https://itwanger.com/about.html)
+> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 6，周榜第 1）](https://blog.csdn.net/qing_gee)，[:memo: 关于我](https://itwanger.com/about.html)
 
 > 教妹学Java，听起来就很有趣吧（全网独一份），本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
