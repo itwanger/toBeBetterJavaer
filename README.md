@@ -168,9 +168,9 @@
 开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 
-<div align="center">
+
     <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/weixin.png" width="260px">
-</div>
+
 
 :gift_heart: 感谢大家对我资金的赞赏
 
