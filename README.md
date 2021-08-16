@@ -1,6 +1,6 @@
 # :girl: 教妹学 Java 专栏 - 通俗易懂、风趣幽默
 
-> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 9，周榜第 1）](https://blog.csdn.net/qing_gee)，[:memo: 关于我](https://itwanger.com/about.html)
+> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 6，周榜第 1）](https://blog.csdn.net/qing_gee)
 
 > 教妹学Java，听起来就很有趣吧（全网独一份），本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
@@ -165,9 +165,16 @@
 
 ## :gift: Donate
 
-开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
+开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
-
-<div align="center">
+<div align="left">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/weixin.png" width="260px">
 </div>
+
+:gift_heart: 感谢大家对我资金的赞赏
+
+时间|小伙伴|赞赏金额
+---|---|---
+2012-08-02|*秒|1 元
+2021-06-13|*7| 28 元
+2021-04-29|pebble|2 元
