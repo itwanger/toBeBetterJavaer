@@ -164,3 +164,9 @@ Service/DAO 层的方法命名规约：
 - 在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。正例：`startTime / workQueue / nameList / TERMINATED_THREAD_COUNT`
 - 如果模块、接口、类、方法使用了设计模式，在命名时需体现出具体模式。 将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。比如说：`public class OrderFactory;public class LoginProxy;public class ResourceObserver;`
 - 枚举类名带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。枚举其实就是特殊的常量类，且构造方法被默认强制是私有。比如说：`枚举名字为 ProcessStatusEnum 的成员名称：SUCCESS / UNKNOWN_REASON`。
+
+-----
+
+《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
+
+<img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />

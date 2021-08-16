@@ -217,3 +217,9 @@ Project Valhalla：正在进行当中的 OpenJDK 项目，计划给未来的 Jav
 “怎么样？三妹，这下全部都明白了吧！”我问。
 
 “嗯嗯。二哥，你讲得可真棒👍”三妹夸奖得我有点小开心，嘿嘿。
+
+-----
+
+《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
+
+<img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
