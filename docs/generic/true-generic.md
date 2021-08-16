@@ -1,5 +1,7 @@
 ## Java 不能实现真正泛型的原因是什么？
 
+“二哥，为啥 Java 不能实现真正泛型啊？”三妹开门见山地问。
+
 简单来回顾一下类型擦除，看下面这段代码。
 
 ```java
@@ -14,7 +16,9 @@ public class Cmower {
 }
 ```
 
-在浅层的意识上，我们会认为 `ArrayList<String> list` 和 `ArrayList<Date> list` 是两种不同的类型，因为 String 和 Date 是不同的类。
+“三妹，你是不是认为 `ArrayList<String> list` 和 `ArrayList<Date> list` 是两种不同的类型，因为 String 和 Date 是不同的类。”我问。
+
+“嗯。”三妹点点头。
 
 但由于类型擦除的原因，以上代码是不会编译通过的——编译器会提示一个错误：
 
@@ -34,7 +38,10 @@ public class Cmower {
 }
 ```
 
-为什么 Java 不能实现真正意义上的泛型呢？背后的原因是什么？
+“为什么 Java 不能实现真正意义上的泛型呢？背后的原因是什么？快告诉我呀！”三妹着急了。
+
+“保持耐心，好不好？”我安慰道。
+
 
 第一，兼容性
 
@@ -46,15 +53,13 @@ Java 在 2004 年已经积累了较为丰富的生态，如果把现有的类修
 
 老用户不受影响，新用户可以自由地选择使用泛型，可谓一举两得。
 
-第二，不是“实现不了”
-
-*这部分内容参考自 R大@RednaxelaFX*
-
-Pizza，1996 年的实验语言，在 Java 的基础上扩展了泛型。
+第二，不是“实现不了”。Pizza，1996 年的实验语言，在 Java 的基础上扩展了泛型。
 
 >Pizza 教程地址：http://pizzacompiler.sourceforge.net/doc/tutorial.html
 
-这里插一下 Java 的版本历史，大家好有一个时间线上的观念。
+“1996 年？”三妹表示很吃惊。
+
+“嗯，你那会还没出生。”我说，“插一下 Java 的版本历史吧，你好有一个时间线上的观念。”
 
 - 1995年5月23日，Java语言诞生
 - 1996年1月，JDK1.0 诞生
@@ -64,7 +69,7 @@ Pizza，1996 年的实验语言，在 Java 的基础上扩展了泛型。
 - 2000年5月29日，JDK1.4发布
 - 2004年9月30日18:00 PM，J2SE1.5 发布
 
-也就是说，Pizza 在 JDK 1.0 的版本上就实现了“真正意义上的”泛型，我引过来两段例子，大家一看就明白了。
+也就是说，Pizza 在 JDK 1.0 的版本上就实现了“真正意义上的”泛型，我引过来两段例子，你一看就明白了。
 
 首先是 StoreSomething，一个泛型类，标识符是大写字母 A 而不是我们熟悉的大写字母 T。
 
@@ -121,7 +126,7 @@ class java.util.ArrayList
 
 都是 ArrayList 而已。
 
-那 Pizza 这种“真正意义上的泛型”为什么没有被 Java 采纳呢？这是大家都很关心的问题。
+“那 Pizza 这种“真正意义上的泛型”为什么没有被 Java 采纳呢？”三妹很关心这个问题。
 
 事实上，Java 的核心开发组对 Pizza 的泛型设计非常感兴趣，并且与 Pizza 的设计者 Martin 和 Phil 取得了联系，新合作了一个项目 Generic Java，争取在 Java 中添加泛型支持，但不引入 Pizza 的其他功能，比如说函数式编程。
 
@@ -129,9 +134,11 @@ class java.util.ArrayList
 
 站在马后炮的思维来看，Pizza 的泛型设计和函数式编程非常具有历史前瞻性。然而 Java 的核心开发组在当时似乎并不想把函数式编程引入到 Java 中。
 
-以至于 Java 在 1.4 之前仍然是不支持泛型的，为什么 Java 1.5 的时候又突然支持泛型了呢？
+以至于 Java 在 1.4 之前仍然是不支持泛型的。
 
-当然是到了不支持不行的时候了。
+“为什么 Java 1.5 的时候又突然支持泛型了呢？”三妹问。
+
+“当然是到了不支持不行的时候了。”我说。
 
 没有泛型之前，我们可以这样写代码：
 
@@ -147,11 +154,7 @@ list.add(new Date());
 String s = list.get(1);
 ```
 
-这样取行吗？
-
-不行。
-
-还得加上强制转换。
+这样取行吗？不行。还得加上强制转换。
 
 ```java
 String s = (String) list.get(1);
@@ -176,7 +179,7 @@ Java 一直以来都强调兼容性，我认为这也是 Java 之所以能被广
 ![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/generic/true-generic-02.png)
 
 
-针对泛型，兼容性具体表现在什么地方呢？
+针对泛型，兼容性具体表现在什么地方呢？来看下面这段代码。
 
 ```java
 ArrayList<Integer> ints = new ArrayList<Integer>();
@@ -186,11 +189,11 @@ list = ints;
 list = strs;
 ```
 
-表现在上面这段代码必须得能够编译运行。怎么办呢？
+“兼容性表现在上面这段代码必须得能够编译运行。怎么办呢？”我扭头看了一下旁边的三妹，继续说。
 
-就只能搞类型擦除了！
+“只能搞类型擦除了！”我妹肯定地回答。
 
-真所谓“表面上一套，背后玩另外一套”呀！
+“是滴。”
 
 编译前进行泛型检测，`ArrayList<Integer>` 只能放 Integer，`ArrayList<String>` 只能放 String，取的时候就不用担心类型强转出错了。
 
@@ -211,4 +214,6 @@ Project Valhalla：正在进行当中的 OpenJDK 项目，计划给未来的 Jav
 
 让我们拭目以待吧！
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/generic/true-generic-04.png)
+“怎么样？三妹，这下全部都明白了吧！”我问。
+
+“嗯嗯。二哥，你讲得可真棒👍”三妹夸奖得我有点小开心，嘿嘿。

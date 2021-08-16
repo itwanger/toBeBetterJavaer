@@ -58,6 +58,7 @@
 - **关键知识点**
 
 - [必知必会的 Unicode：躲开锟斤拷](docs/core-points/unicode.md)
+- [面试会考，Java 数据类型缓存池](docs/core-points/int-cache.md)
 - [傻傻分不清：方法重载和方法重写](docs/core-points/override-overload.md)
 - [Java 表示：我只有值传递，没有引用传递](docs/core-points/pass-by-value.md)
 - [面试经典题目：浅拷贝与深拷贝有什么区别](docs/core-points/deep-copy.md)
@@ -88,6 +89,10 @@
 - **枚举**
 
 - [单例的最佳实现方式——枚举](docs/enum/enum.md)
+
+- **集合框架**
+
+- [初探集合框架](docs/collection/gailan.md)
 
 -  **其他：**
 	- [公众号](docs/bottom.md)
