@@ -1,21 +1,14 @@
-# :girl: 教妹学 Java 专栏 - 通俗易懂、风趣幽默
+# :rainbow: To Be Better Javaer，Java 程序员进阶之路 - 通俗易懂、风趣幽默
 
 > **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 6，周榜第 1）](https://blog.csdn.net/qing_gee)
 
-> 教妹学Java，听起来就很有趣吧（全网独一份），本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
-
-
-<div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/logo.png" width="200px">
-</div>
+> Java 程序员进阶之路，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
 <div align="center">
     <a href="https://github.com/itwanger/jmx-java"> <img src="https://badgen.net/github/stars/itwanger/jmx-java?icon=github&color=4ab8a1"></a>
     <a href="https://itwanger.gitee.io/jmx-java/#/"> <img src="https://badgen.net/badge/在线阅读/★★★★★"></a>
     <a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA"> <img src="https://badgen.net/badge/计算机经典书单/戳一戳/green"></a>
 </div>
-<br>
-
 
 ## ⛳目录
 
@@ -27,7 +20,7 @@
 
 ## :bookmark: 学习说明
 
-《教妹学Java》专栏主要针对零基础学 Java 编程的同学，从 Java 核心语法开始，循序渐进，再到 Java 集合框架、Java IO、Java 并发编程、Java 虚拟机，只讲重点。
+《Java 程序员进阶之路》专栏主要针对零基础学 Java 编程的同学，从 Java 核心语法开始，循序渐进，再到 Java 集合框架、Java IO、Java 并发编程、Java 虚拟机，只讲重点。
 
 一开始，不要求快，毕竟知识是需要时间来沉淀的。一定要从头到尾阅读这个专栏，因为基础真的很重要，“根基不牢，地动山摇”。
 
@@ -155,7 +148,7 @@
 
 - **公众号(沉默王二)**
 
-    技术文通俗易懂，吹水文风趣幽默，专注于 Java 后端技术和程序人生分享，目前已有 8 万+ 读者关注，快来微信搜索「**沉默王二**」关注吧，回复关键字「**03**」还可以《教妹学Java》专栏的离线 PDF 版本。
+    技术文通俗易懂，吹水文风趣幽默，专注于 Java 后端技术和程序人生分享，目前已有 8 万+ 读者关注，快来微信搜索「**沉默王二**」关注吧，回复关键字「**03**」还可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本。
 
 ## :muscle: 参与贡献
 
@@ -165,7 +158,7 @@
 
 ## :gift: Donate
 
-开源不易，如果《教妹学 Java》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
+开源不易，如果《Java 程序员进阶之路》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/weixin.png" width="260px">
