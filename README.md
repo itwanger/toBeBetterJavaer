@@ -47,7 +47,7 @@
 
 5. 目前已更新 51 篇，我会继续努力。没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/dagang.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/toBeBetterJavaer.png)
 
 ## :pencil: 章节目录
 
