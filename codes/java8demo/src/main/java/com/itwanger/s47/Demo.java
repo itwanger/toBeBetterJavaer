@@ -12,7 +12,7 @@ public class Demo {
         HashMap map;
 
         Student s1 = new Student(18, "张三");
-        Map<Student, Integer> scores = new HashMap<>();
+        Map<Student, Integer> scores = new HashMap<Student, Integer>();
         scores.put(s1, 98);
 
         Student s2 = new Student(18, "张三");

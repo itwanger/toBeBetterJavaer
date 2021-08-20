@@ -62,17 +62,17 @@ static void test() {
 }
 
 static void test1 () {
-    try{
-        int arr[]=new int[7];
-        arr[9]=30/1;
-        System.out.println("try 块的最后");
-    } catch(ArithmeticException | ArrayIndexOutOfBoundsException e){
-        System.out.println("除数必须是 0");
-    }
+//    try{
+//        int arr[]=new int[7];
+//        arr[9]=30/1;
+//        System.out.println("try 块的最后");
+//    } catch(ArithmeticException | ArrayIndexOutOfBoundsException e){
+//        System.out.println("除数必须是 0");
+//    }
 
-    finally {
-
-    }
+//    finally {
+//
+//    }
     System.out.println("try-catch 之外");
 }
 
