@@ -4,11 +4,6 @@
 
 > Java 程序员进阶之路，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
-
-<div align="center">
-    To Be Better Javaer
-</div>
-
 <div align="center">
     <a href="https://github.com/itwanger/jmx-java"> <img src="https://badgen.net/github/stars/itwanger/jmx-java?icon=github&color=4ab8a1"></a>
     <a href="https://itwanger.gitee.io/jmx-java/#/"> <img src="https://badgen.net/badge/在线阅读/★★★★★"></a>
