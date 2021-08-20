@@ -6,7 +6,7 @@
 
 
 <div align="center">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/logo.png" width="200px">
+    To Be Better Javaer
 </div>
 
 <div align="center">
