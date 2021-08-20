@@ -211,7 +211,7 @@ hello
 
 “不过，需要注意的是，`this()` 必须放在构造方法的第一行，否则就报错了。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/keywords/20-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/keywords/20-01.png)
 
 ### 05、作为参数在方法中传递
 
