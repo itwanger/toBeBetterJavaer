@@ -101,7 +101,7 @@ private static class IntegerCache {
 
 
 
-之前我们在[学习 static 关键字](https://github.com/itwanger/jmx-java/blob/master/docs/keywords/java-static.md)的时候，提到过静态代码块，还记得吧？三妹。静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
+之前我们在[学习 static 关键字](https://github.com/itwanger/toBeBetterJavaer/blob/master/docs/keywords/java-static.md)的时候，提到过静态代码块，还记得吧？三妹。静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
 
 在静态代码块中，low 为 -128，也就是缓存池的最小值；high 默认为 127，也就是缓存池的最大值，共计 256 个。
 

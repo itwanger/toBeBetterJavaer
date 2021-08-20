@@ -6,7 +6,7 @@
 
 “好吧。”我只好摊摊手地说，“那我先画张集合框架的结构图等着你。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/collection/gailan-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/collection/gailan-01.png)
 
 
 “完了没？三妹。”
@@ -116,7 +116,7 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
 
 这是一个包含了 4 个元素的双端队列，和一个包含了 5 个元素的双端队列。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/collection/gailan-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/collection/gailan-02.png)
 
 head 指向队首的第一个有效的元素，tail 指向队尾第一个可以插入元素的空位，因为是循环数组，所以 head 不一定从是从 0 开始，tail 也不一定总是比 head 大。
 
@@ -200,4 +200,4 @@ HashMap 是无序的，所以遍历的时候元素的顺序也是不可测的。
 
 《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
 
-<img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />

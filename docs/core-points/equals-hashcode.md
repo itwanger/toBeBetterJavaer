@@ -165,7 +165,7 @@ null
 
 “原因就在于重写 equals 方法的时候没有重写 hashCode 方法。”我回答道，“equals 方法虽然认定名字和年纪相同就是同一个学生，但它们本质上是两个对象，hashCode 并不相同。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/core-points/equals-hashcode-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/core-points/equals-hashcode-01.png)
 
 “那怎么重写 hashCode 方法呢？”三妹问。
 
@@ -216,7 +216,7 @@ result = (31*1 + Integer(18).hashCode()) * 31 + String("张三").hashCode();
 
 因为此时 s1 和 s2 对象的哈希值都为 776408。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/core-points/equals-hashcode-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/core-points/equals-hashcode-02.png)
 
 
 “每当重写 equals 方法时，hashCode 方法也需要重写，原因就是为了保证：如果两个对象调用 equals 方法返回的结果为 true，那么两个对象调用 hashCode 方法返回的结果也必然相同。”我点题了。
@@ -227,5 +227,5 @@ result = (31*1 + Integer(18).hashCode()) * 31 + String("张三").hashCode();
 
 《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
 
-<img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
 

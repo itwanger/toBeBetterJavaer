@@ -95,11 +95,11 @@ for (String s : cmowers) {
 
 `Arrays.toString()` 可以将任意类型的数组转成字符串，包括基本类型数组和引用类型数组。该方法有多种重载形式。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/array/print-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/array/print-01.png)
 
 使用 `Arrays.toString()` 方法来打印数组再优雅不过了，就像，就像，就像蒙娜丽莎的微笑。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/array/print-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/array/print-02.png)
 
 （三妹看到这么一副图的时候忍不住地笑了）
 
@@ -137,7 +137,7 @@ System.out.println(Arrays.deepToString(deepArray));
 
 “说到打印，三妹，哥给你提醒一点。阿里巴巴的 Java 开发手册上有这样一条规约，你看。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/array/print-03.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/array/print-03.png)
 
 “什么是 POJO 呢，就是 Plain Ordinary Java Object 的缩写，一般在 Web 应用程序中建立一个数据库的映射对象时，我们称它为 POJO，这类对象不继承或不实现任何其它 Java 框架的类或接口。”
 
@@ -155,4 +155,4 @@ System.out.println(Arrays.deepToString(deepArray));
 
 《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
 
-<img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />

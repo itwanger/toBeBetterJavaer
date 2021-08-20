@@ -178,7 +178,7 @@ static int test2 () {
 
 “三妹，来看一下源码的文档注释就全明白了！”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/exception/try-catch-finally-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/exception/try-catch-finally-01.png)
 
 至于参数 status 的值也很好理解，如果是异常退出，设置为非 0 即可，通常用 1 来表示；如果是想正常退出程序，用 0 表示即可。
 

@@ -10,7 +10,7 @@
 
 一开始，项目组打算使用 C++，但 C++ 无法达到跨平台的要求，比如在 Windows 系统下编译的 Hello.exe 无法直接拿到 Linux 环境下执行。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-01.png)
 
 在当时，C++ 已经非常流行了，但无法跨平台，只能忍痛割爱了。
 
@@ -18,7 +18,7 @@
 
 三妹不知道有没有听过直译器（解释器）这玩意？（估计你没听过）就是每跑一行代码就生成机器码，然后执行，比如说 Python 和 Ruby 用的就是直译器。在每个操作系统上装一个直译器就好了，跨平台的目的就达到了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-02.png)
 
 但直译器有个缺点，就是没法像编译器那样对一些热点代码进行优化，从而让机器码跑得更快一些。
 
@@ -26,7 +26,7 @@
 
 来个结合体呗，编译器和直译器一块上！
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-03.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-03.png)
 
 编译器负责把 Java 源代码编译成字节码（不清楚的小伙伴可以点击链接查看[上一节](https://mp.weixin.qq.com/s/GYDFndO0Q1Nqzcc_Te61gw)），Java 虚拟机（Java Virtual Machine，简称 JVM） 负责把字节码转换成机器码。转换的时候，可以做一些压缩或者优化，这样的机器码跑起来就快多了。
 
@@ -42,7 +42,7 @@
 
 说到这，三妹是不是想问，“都有哪些 Java 虚拟机呢？”来看下面这张思维导图：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-04.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-04.png)
 
 除了我们经常看到，经常听到的 Hotspot VM，还有很多，下面我来简单介绍一下。
 
@@ -78,7 +78,7 @@ HotSpot 的技术优势就在于热点代码探测技术（名字就从这来）
 
 关键是，1997 年 10 月，Sun 公司因为这事把微软告了，最后微软赔给了 Sun 公司 2000 万美金，并且终止了在 Java 虚拟机方面的发展。如果，我是说如果，如果微软保持着对 Java 的热情，后面还有 .Net 什么事？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-05.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-05.png)
 
 解释了这么多 Java 虚拟机后，三妹是不是想问，“Java 虚拟机长什么样子呢？”
 
@@ -88,7 +88,7 @@ Java 虚拟机虽然是虚拟的，但它的内部是可以划分为：
 - 运行时数据区（Runtime Data Areas）
 - 执行引擎（Excution Engine）
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-06.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-06.png)
 
 
 **1）类加载器**
@@ -136,7 +136,7 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 来看下面这张图：
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/overview/seven-07.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/seven-07.png)
 
 
 - PC寄存器（PC Register），也叫程序计数器（Program Counter Register），是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的信号指示器。

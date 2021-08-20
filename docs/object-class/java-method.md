@@ -17,7 +17,7 @@
 
 方法的声明反映了方法的一些信息，比如说可见性、返回类型、方法名和参数。如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/object-class/17-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/17-01.png)
 
 **访问权限**：它指定了方法的可见性。Java 提供了四种访问权限修饰符：
 
@@ -69,7 +69,7 @@ public class PredefinedMethodDemo {
 
 我们可以通过集成开发工具查看预先定义方法的方法签名，当我们把鼠标停留在 `println()` 方法上面时，就会显示下图中的内容：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/object-class/17-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/17-02.png)
 
 `println()` 方法的访问权限修饰符是 public，返回类型为 void，方法名为 println，参数为 `String x`，以及 Javadoc（方法是干嘛的）。
 

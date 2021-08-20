@@ -1,22 +1,17 @@
 # :rainbow: To Be Better Javaer，Java 程序员进阶之路 - 通俗易懂、风趣幽默
 
-> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 6，周榜第 1）](https://blog.csdn.net/qing_gee)
+> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 6）](https://blog.csdn.net/qing_gee)，[:books: 计算机经典书单(download)](https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA)
 
 > Java 程序员进阶之路，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
-<div align="center">
-    <a href="https://github.com/itwanger/jmx-java"> <img src="https://badgen.net/github/stars/itwanger/jmx-java?icon=github&color=4ab8a1"></a>
-    <a href="https://itwanger.gitee.io/jmx-java/#/"> <img src="https://badgen.net/badge/在线阅读/★★★★★"></a>
-    <a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA"> <img src="https://badgen.net/badge/计算机经典书单/戳一戳/green"></a>
-</div>
 
 ## ⛳目录
 
-- 仓库同步：[Github](https://github.com/itwanger/jmx-java) | [码云](https://gitee.com/itwanger/jmx-java) | [CodeChina](https://codechina.csdn.net/qing_gee/jmx-java)
-- [学习说明](https://github.com/itwanger/jmx-java#bookmark-学习说明)
-- [章节目录](https://github.com/itwanger/jmx-java#pencil-章节目录)
-- [联系作者](https://github.com/itwanger/jmx-java#paw_prints-联系作者)
-- [参与贡献](https://github.com/itwanger/jmx-java#muscle-参与贡献)
+- 仓库同步：[Github](https://github.com/itwanger/toBeBetterJavaer) | [码云](https://gitee.com/itwanger/toBeBetterJavaer) | [CodeChina](https://codechina.csdn.net/qing_gee/toBeBetterJavaer)
+- [学习说明](https://github.com/itwanger/toBeBetterJavaer#bookmark-学习说明)
+- [章节目录](https://github.com/itwanger/toBeBetterJavaer#pencil-章节目录)
+- [联系作者](https://github.com/itwanger/toBeBetterJavaer#paw_prints-联系作者)
+- [参与贡献](https://github.com/itwanger/toBeBetterJavaer#muscle-参与贡献)
 
 ## :bookmark: 学习说明
 
@@ -40,7 +35,7 @@
 
 5. 目前已更新 51 篇，我会继续努力。没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/toBeBetterJavaer.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/toBeBetterJavaer.png)
 
 ## :pencil: 章节目录
 
@@ -161,7 +156,7 @@
 开源不易，如果《Java 程序员进阶之路》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/weixin.png" width="260px">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/weixin.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏

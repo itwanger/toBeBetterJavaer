@@ -87,7 +87,7 @@ cmower.split("[.]");
 
 除此之外， 还可以使用 Pattern 类的 `quote()` 方法来包裹英文逗点“.”，该方法会返回一个使用 `\Q\E` 包裹的字符串。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/string/split-01.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/string/split-01.png)
 
 来看示例：
 
@@ -178,7 +178,7 @@ String [] parts = cmower.split("(?=，)");
 
 “它其实是正则表达式中的断言模式。”我说，“你有时间的话，可以看看前面我推荐的两份开源文档。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/string/split-02.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/string/split-02.png)
 
 “`split()` 方法可以传递 2 个参数，第一个为分隔符，第二个为拆分的字符串个数。”我说。
 
@@ -192,7 +192,7 @@ if (cmower.contains("，")) {
 
 进入 debug 模式的话，可以看到以下内容：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/string/split-03.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/string/split-03.png)
 
 也就是说，传递 2 个参数的时候，会直接调用 `substring()` 进行截取，第二个分隔符后的就不再拆分了。
 
@@ -213,4 +213,4 @@ if (cmower.contains("，")) {
 
 《**教妹学 Java**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
 
-<img src="https://cdn.jsdelivr.net/gh/itwanger/jmx-java/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
