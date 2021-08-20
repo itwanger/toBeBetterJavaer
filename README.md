@@ -9,8 +9,6 @@
     <a href="https://itwanger.gitee.io/jmx-java/#/"> <img src="https://badgen.net/badge/在线阅读/★★★★★"></a>
     <a href="https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA"> <img src="https://badgen.net/badge/计算机经典书单/戳一戳/green"></a>
 </div>
-<br>
-
 
 ## ⛳目录
 
