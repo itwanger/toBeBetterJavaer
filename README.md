@@ -133,6 +133,8 @@
 
 - [初探集合框架](docs/collection/gailan.md)
 - [时间复杂度](docs/collection/big-o.md)
+- [面试官：换人！他连 ArrayList 都没吃透](docs/collection/arraylist.md)
+- [某团技术拷问：LinkedList 源码看过吗](docs/collection/linkedlist.md)
 
 
 
