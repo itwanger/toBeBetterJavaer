@@ -2,6 +2,7 @@ package com.itwanger.s53;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * @author 微信搜「沉默王二」，回复关键字 Java
@@ -13,5 +14,7 @@ public class Demo {
         for (int i = 0; i < 16; i++) {
             list.add("沉默王二");
         }
+
+        HashMap map;
     }
 }
