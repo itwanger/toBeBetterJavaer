@@ -148,11 +148,12 @@
 
 - **原创公众号**
 
-    本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有近 10 万读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注我了。<br>回复关键字「**03**」可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本（暗黑版和亮白版）。
+    本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有近 10 万读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注我了。<br>
     
     <div align="left">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongzhonghao.png" width="260px">
 </div>
+回复关键字「**03**」可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本（暗黑版和亮白版）。
 
 ## :muscle: 参与贡献
 
