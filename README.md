@@ -1,6 +1,6 @@
 # :rainbow: To Be Better Javaer，Java 程序员进阶之路 - 通俗易懂、风趣幽默
 
-> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 6）](https://blog.csdn.net/qing_gee)，[:books: 计算机经典书单(download)](https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA)
+> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:trophy: CSDN 博客专家（总榜前 7）](https://blog.csdn.net/qing_gee)，[:books: 计算机经典书单(download)](https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA)
 
 > Java 程序员进阶之路，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
@@ -19,23 +19,21 @@
 
 一开始，不要求快，毕竟知识是需要时间来沉淀的。一定要从头到尾阅读这个专栏，因为基础真的很重要，“根基不牢，地动山摇”。
 
-编程是听不会，也看不会的，只有经过大量的实践才能学会，所以一定要动手，专栏中所有的例子都不要放过，一个一个来，直到自己能在没有任何帮助的情况下，独立完成代码的编写。
+**编程是听不会，也看不会的，只有经过大量的实践才能学会，所以一定要动手，专栏中所有的例子都不要放过，一个一个来，直到自己能在没有任何帮助的情况下，独立完成代码的编写**。
 
-编程是门手艺活，唯手熟尔！
+记住：编程是门手艺活，唯手熟尔！
 
 ----
 
-1. 本专栏通过二哥与三妹对话的形式展开，这种方式是全网独一份的，会让你有一种身临其境的感觉，仿佛身边就有一个学长在手把手的教你，可以这么告诉你，想学不会都很难！
+1. 本专栏面向的是 Java 初学者，完全零基础的小伙伴，所以你完全不用担心学不会的问题，所有内容都是经过我精心打磨的！
 
-2. 本专栏的所有配套源码已经在 GitHub 上开源，所以你在练手的时候可以作为参考，但尽量尝试在每篇学完后独立完成任务。
+2. 本专栏的所有配套源码已经在 GitHub 上开源（在本仓库的 code 目录下，直接导入到 Intellij IDEA 就可以运行），你在练手的时候可以作为参考。
 
-3. 如果你在学习的过程中遇到什么问题，包括：不能运行、优化意见、文字错误等任何问题都可以提交 issue，也可以联系作者：`作者` 的微信，`qing_geee`
+3. 如果你在学习的过程中遇到了什么问题，包括：不能运行、优化意见、文字错误等任何问题都可以提交 issue，也可以联系我，微信：`qing_geee`
 
-4. 本专栏不仅会教你如何编写 Java 代码，还会把我十多年的编程经验倾囊相助，使你在编程思想上也能形成一套完整的套路。
+4. 本专栏不仅会教你如何学习 Java，还会把我十多年的编程经验倾囊相授，这比学习 Java 可能更重要。
 
-5. 目前已更新 51 篇，我会继续努力。没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
-
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/toBeBetterJavaer.png)
+5. 送大家一句我的座右铭吧：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。
 
 ## :pencil: 章节目录
 
@@ -140,13 +138,21 @@
 
 ## :paw_prints: 联系作者
 
-- **加群交流**
+- **技术交流群**
 
-    本群的宗旨是给大家提供一个良好的技术学习交流平台，所以杜绝一切广告！由于微信群人满 100 之后无法加入，请先添加作者微信( qing_geee)，备注：加群。
+    本群的宗旨是给大家提供一个良好的技术学习交流平台，所以杜绝一切广告！<br>由于微信群人满 100 之后无法加入，请先添加作者微信「qing_geee」（也可以扫描下方的二维码），备注：加群。
+    
+    <div align="left">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/qing_geee.png" width="260px">
+</div>
 
-- **公众号(沉默王二)**
+- **原创公众号**
 
-    技术文通俗易懂，吹水文风趣幽默，专注于 Java 后端技术和程序人生分享，目前已有 8 万+ 读者关注，快来微信搜索「**沉默王二**」关注吧，回复关键字「**03**」还可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本。
+    本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有近 10 万读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注我了。<br>回复关键字「**03**」可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本（暗黑版和亮白版）。
+    
+    <div align="left">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongzhonghao.png" width="260px">
+</div>
 
 ## :muscle: 参与贡献
 
@@ -159,13 +165,14 @@
 开源不易，如果《Java 程序员进阶之路》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/weixin.png" width="260px">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/zhifu.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏
 
 时间|小伙伴|赞赏金额
 ---|---|---
+2012-09-01|S*n|6.6 元
 2012-08-02|*秒|1 元
 2021-06-13|*7| 28 元
 2021-04-29|pebble|2 元
