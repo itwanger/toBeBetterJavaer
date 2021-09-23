@@ -1,6 +1,3 @@
-
-
-
 - **概述**
 
 - [什么是 Java](docs/overview/what-is-java.md)
@@ -101,5 +98,5 @@
 - [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
 
 -  **其他：**
-	- [公众号](docs/bottom.md)
+- [公众号](docs/bottom.md)
 
