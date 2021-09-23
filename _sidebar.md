@@ -97,6 +97,8 @@
 - [ArrayList](docs/collection/arraylist.md)
 - [LinkedList](docs/collection/linkedlist.md)
 - [HashMap 的 hash 方法原理是什么](docs/collection/hash.md)
+- [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
+- [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
 
 -  **其他：**
 	- [公众号](docs/bottom.md)

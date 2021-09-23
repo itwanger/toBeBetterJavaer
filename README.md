@@ -134,7 +134,8 @@
 - [面试官：换人！他连 ArrayList 都没吃透](docs/collection/arraylist.md)
 - [某团技术拷问：LinkedList 源码看过吗](docs/collection/linkedlist.md)
 - [蔚来一面：HashMap 的 hash 方法原理是什么？](docs/collection/hash.md)
-
+- [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
+- [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
 
 
 
