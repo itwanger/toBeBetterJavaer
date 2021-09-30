@@ -96,6 +96,8 @@
 - [HashMap 的 hash 方法原理是什么](docs/collection/hash.md)
 - [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
 - [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
+- [为什么 HashMap 是线程不安全的？](docs/collection/hashmap-thread-nosafe.md)
+- [HashMap 精选面试题（背诵版）](docs/collection/hashmap-interview.md)
 
 -  **其他：**
 
