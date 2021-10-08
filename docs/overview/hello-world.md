@@ -1,38 +1,8 @@
-## 第一个 Java 程序：Hello World
+## 编写 Hello World 程序
 
-### 01、安装 JDK 
+可以通过 Intellij IDEA 来编写代码，也可以使用在线编辑器来完成。
 
-如果电脑上没有安装 JDK 的话，就无法编译和运行 Java 代码，因此我们要先下载 JDK。虽然 JDK 已经更新到了 Java 15，但上一个长期支持（Long Term Support，LTS）的版本还是 JDK 11，它的官网下载地址为：
-
->https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
-
-PS：对 JDK 版本不解的小伙伴可以回看《[Java 发展简史](https://mp.weixin.qq.com/s/Ctouw652iC0qtrmjen9aEw)》那篇专栏。
-
-JDK 是 `Java Development ToolKit` 的简称，也就是 Java 开发工具包，它是整个 Java 的核心，包括 Java 运行时环境（Java Runtime Envirnment，简称 JRE），Java 程序编译命令（javac）、Java 程序运行命令（java）、Java 字节码反编译命令（javap），以及 Java 基础类库（比如 rt.jar——像常见的包 io、lang、math、net、nio、util 等都在它里面）等等。
-
-Windows 安装 JDK 和配置环境变量的步骤，可以参照我博客上的一篇文章：
-
->http://www.itwanger.com/java/2019/10/19/java-jdk-install-windows.html
-
-### 02、安装 IntelliJ IDEA
-
-IntelliJ IDEA 简称 IDEA，是业界公认为最好的 Java 集成开发工具，尤其是在代码自动提示、代码重构、代码版本管理、单元测试、代码分析等方面有着亮眼的发挥。
-
-IDEA 产于捷克，开发人员以严谨著称的东欧程序员为主，分为社区版和付费版两个版本。我们在学习阶段，社区版就足够用了。
-
-回想起我最初学 Java 的时候，老师要求我们在记事本上敲代码，在命令行中编译和执行 Java 代码，搞得全班三分之二的同学都做好了放弃学习 Java 的打算。
-
-鉴于此，我强烈推荐大家使用集成开发工具，比如说 IntelliJ IDEA 来学习。
-
-我最初学习 Java 的时候，老师都要求我们在记事本上开发，导致我当时觉得写 Java 代码好难，差点还没入门就放弃了。不过，三妹你别担心，我推荐使用 IDEA 进行学习和开发。
-
-IDEA 的安装步骤，可以参照我博客上的一篇文章：
-
->[http://www.itwanger.com/java/2019/11/25/java-idea-community.html](http://www.itwanger.com/java/2019/11/25/java-idea-community.html)
-
-
-
-### 03、编写 Hello World 程序
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/helloworld-01.png)
 
 第一个 Java 程序非常简单，代码如下：
 
