@@ -5,7 +5,7 @@
 > Java 程序员进阶之路，本专栏旨在为 Java 初学者提供一个清晰详细的学习教程，侧重点为 Java 语法基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
 
-## ⛳目录
+# ⛳目录
 
 - 仓库同步：[Github](https://github.com/itwanger/toBeBetterJavaer) | [码云](https://gitee.com/itwanger/toBeBetterJavaer) | [CodeChina](https://codechina.csdn.net/qing_gee/toBeBetterJavaer)
 - [学习说明](https://github.com/itwanger/toBeBetterJavaer#bookmark-学习说明)
@@ -13,7 +13,7 @@
 - [联系作者](https://github.com/itwanger/toBeBetterJavaer#paw_prints-联系作者)
 - [参与贡献](https://github.com/itwanger/toBeBetterJavaer#muscle-参与贡献)
 
-## :bookmark: 学习说明
+# :bookmark: 学习说明
 
 《Java 程序员进阶之路》专栏主要针对零基础学 Java 编程的同学，从 Java 核心语法开始，循序渐进，再到 Java 集合框架、Java IO、Java 并发编程、Java 虚拟机，只讲重点。
 
@@ -35,7 +35,9 @@
 
 5. 送大家一句我的座右铭吧：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。
 
-## :pencil: 章节目录
+# :pencil: 章节目录
+
+## Java 入门
 
 ### **Java 概述**
 
@@ -139,7 +141,7 @@
 - [HashMap 精选面试题（背诵版）](docs/collection/hashmap-interview.md)
 
 
-## :paw_prints: 联系作者
+# :paw_prints: 联系作者
 
 - **技术交流群**
 
