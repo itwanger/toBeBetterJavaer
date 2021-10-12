@@ -2,6 +2,7 @@ package com.itwanger.s62;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ public class Demo {
 //            System.out.println(num);
 //        }
 
-        List<String> list = new ArrayList<>();
+        List<String> list = new LinkedList<>();
         list.add("沉默王二");
         list.add("沉默王三");
         list.add("沉默王四");
