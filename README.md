@@ -134,6 +134,8 @@
 - [时间复杂度](docs/collection/big-o.md)
 - [ArrayList](docs/collection/arraylist.md)
 - [LinkedList](docs/collection/linkedlist.md)
+- [ArrayList 重拳出击，把 LinkedList 干翻在地](docs/collection/list-war-1.md)
+- [被 ArrayList 锤了一拳后，LinkedList 很不服气](docs/collection/list-war-2.md)
 - [HashMap 的 hash 方法原理是什么](docs/collection/hash.md)
 - [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
 - [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
