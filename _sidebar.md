@@ -74,7 +74,7 @@
 - [数组工具类：Arrays](docs/common-tool/arrays.md)
 - [集合工具类：Collections](docs/common-tool/collections.md)
 
-**加餐**
+**入门篇加餐**
 
 - [Java 中常用的 48 个关键字](docs/basic-extra-meal/48-keywords.md)
 - [Java 命名约定](docs/basic-extra-meal/java-naming.md)
