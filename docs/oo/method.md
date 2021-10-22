@@ -1,4 +1,4 @@
-## Java 方法
+## 方法
 
 “二哥，[上一节](https://mp.weixin.qq.com/s/UExby8GP3kSacCXliQw8pQ)学了对象和类，这一节我们学什么呢？”三妹满是期待的问我。
 

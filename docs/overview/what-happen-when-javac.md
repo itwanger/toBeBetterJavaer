@@ -1,4 +1,4 @@
-## Java 程序在编译期发生了什么
+## Java程序在编译期发生了什么
 
 “二哥，看了上一篇 [Hello World](https://mp.weixin.qq.com/s/191I_2CVOxVuyfLVtb4jhg) 的程序后，我很好奇，它是怎么在 Run 面板里打印出‘三妹，少看手机少打游戏，好好学，美美哒’呢？”三妹咪了一口麦香可可奶茶后对我说。
 
