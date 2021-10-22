@@ -1,4 +1,4 @@
-## 安装 Intellij IDEA
+## 安装集成开发环境 Intellij IDEA
 
 IntelliJ IDEA 简称 IDEA，是业界公认为最好的 Java 集成开发工具，尤其是在代码自动提示、代码重构、代码版本管理、单元测试、代码分析等方面有着亮眼的发挥。
 

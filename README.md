@@ -43,72 +43,66 @@
 
 - [什么是 Java](docs/overview/what-is-java.md)
 - [Java 发展简史](docs/overview/java-history.md)
-- [Java 为什么如此流行](docs/overview/why-java-popular.md)
-- [环境准备：Intellij IDEA](docs/overview/idea.md)
-- [第一个 Java 程序：Hello World](docs/overview/hello-world.md)
+- [Java 的优势](docs/overview/java-advantage.md)
 - [JDK 和 JRE 有什么区别](docs/overview/jdk-jre.md)
-- [JVM 是什么](docs/overview/jvm.md)
+- [安装集成开发环境 Intellij IDEA](docs/overview/idea.md)
+- [第一个 Java 程序：Hello World](docs/overview/hello-world.md)
+
 
 ### **Java 基础语法**
 
-- [一网打尽 Java 的那些关键字](docs/core-grammar/java-keywords.md)
-- [Java 数据类型有哪些](docs/core-grammar/java-data-type.md)
-- [流程控制语句有哪些？图解版](docs/control/java-control.md)
-- [Java 运算符有哪些？](docs/core-grammar/java-operator.md)
-- [Java 注释：程序的注解](docs/overview/javadoc.md)
-- [技术大佬的必备素质：命名优雅](docs/core-grammar/java-naming.md)
+- [基本数据类型](docs/basic-grammar/basic-data-type.md)
+- [流程控制](docs/basic-grammar/flow-control.md)
+- [运算符](docs/basic-grammar/operator.md)
+- [注释：代码的最强辅助](docs/basic-grammar/javadoc.md)
 
 ### **面向对象**
 
-- [对象和类的相爱相杀](docs/object-class/java-object-class.md)
-- [Java 变量类型有哪些](docs/core-grammar/java-var.md)
-- [方法：我负责程序的行为](docs/object-class/java-method.md)
-- [构造方法：对象初始化的必经之路](docs/object-class/java-construct.md)
-- [代码初始化块：让我先走一步](docs/object-class/code-init.md)
-- [抽象类：子类复用的基石](docs/object-class/java-abstract.md)
-- [接口：抽象的另外一种表现形式](docs/object-class/java-interface.md)
+- [什么是对象？什么是类](docs/oo/object-class.md)
+- [变量](docs/oo/var.md)
+- [方法](docs/oo/method.md)
+- [构造方法](docs/oo/construct.md)
+- [代码初始化块](docs/oo/code-init.md)
+- [抽象类](docs/oo/java-abstract.md)
+- [接口](docs/oo/interface.md)
+- [static 关键字](docs/oo/static.md)
+- [this 和 super 关键字](docs/oo/this-super.md)
+- [final 关键字](docs/oo/final.md)
+- [instanceof 关键字](docs/oo/instanceof.md)
 
-### **关键字详解**
-
-- [学妹必须学会的 static 关键字](docs/keywords/java-static.md)
-- [学弟必须掌握的 this 和 super ](docs/keywords/java-this.md)
-- [再见了，我的 final 关键字](docs/keywords/java-final.md)
-- [判断对象的类型：instanceof 关键字](docs/keywords/java-instanceof.md)
 
 ### **字符串**
 
-- [从源码的角度来看字符串的不可变性](docs/string/source.md)
-- [学弟学妹都必须掌握的字符串常量池](docs/string/constant-pool.md)
-- [深入浅出之美团技术团队解析过的 String.intern](docs/string/intern.md)
+- [String 为什么是不可变的](docs/string/immutable.md)
+- [字符串常量池](docs/string/constant-pool.md)
+- [深入浅出 String.intern](docs/string/intern.md)
 - [如何比较两个字符串是否相等](docs/string/equals.md)
 - [如何拼接字符串](docs/string/join.md)
 - [如何拆分字符串](docs/string/split.md)
 
 ### **数组**
 
-- [最重要的数据结构之一](docs/array/gailan.md)
-- [数组的专用工具类：java.util.Arrays](docs/array/arrays.md)
-- [打印数组最优雅的方式：deepToString](docs/array/print.md)
+- [数组](docs/array/array.md)
+- [打印数组](docs/array/print.md)
 
-### **泛型**
+### **集合框架**
 
-- [晦涩难懂的泛型](docs/generic/generic.md)
-- [Java 不能实现真正泛型的原因是什么？](docs/generic/true-generic.md)
+- [初识集合框架](docs/collection/gailan.md)
+- [时间复杂度](docs/collection/big-o.md)
+- [ArrayList](docs/collection/arraylist.md)
+- [LinkedList](docs/collection/linkedlist.md)
+- [ArrayList 重拳出击，把 LinkedList 干翻在地](docs/collection/list-war-1.md)
+- [被 ArrayList 锤了一拳后，LinkedList 很不服气](docs/collection/list-war-2.md)
+- [海康威视一面：Iterator与Iterable有什么区别？](docs/collection/iterator-iterable.md)
+- [为什么阿里巴巴强制不要在 foreach 里执行删除操作](docs/collection/fail-fast.md)
+- [HashMap 的 hash 原理](docs/collection/hash.md)
+- [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
+- [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
+- [为什么 HashMap 是线程不安全的？](docs/collection/hashmap-thread-nosafe.md)
+- [HashMap 精选面试题（背诵版）](docs/collection/hashmap-interview.md)
 
-### **注解**
 
-- [撸个注解有什么难的](docs/annotation/annotation.md)
-
-### **枚举**
-
-- [单例的最佳实现方式——枚举](docs/enum/enum.md)
-
-
-### **反射**
-
-- [深入理解 Java 的反射](docs/fanshe/fanshe.md)
-
-### **异常**
+### **异常处理**
 
 - [异常处理机制](docs/exception/gailan.md)
 - [try-catch-finally](docs/exception/try-catch-finally.md)
@@ -116,32 +110,34 @@
 - [try-with-resouces](docs/exception/try-with-resouces.md)
 - [异常最佳实践](docs/exception/shijian.md)
 
+### **常用工具类**
 
-### **补充**
+- [数组工具类：Arrays](docs/common-tool/arrays.md)
+- [集合工具类：Collections](docs/common-tool/collections.md)
 
-- [Java程序在编译期发生了什么](docs/overview/what-happen-when-javac.md)
-- [必知必会的 Unicode：躲开锟斤拷](docs/core-points/unicode.md)
-- [面试会考，Java 数据类型缓存池](docs/core-points/int-cache.md)
-- [傻傻分不清：方法重载和方法重写](docs/core-points/override-overload.md)
-- [Java 表示：我只有值传递，没有引用传递](docs/core-points/pass-by-value.md)
-- [面试经典题目：浅拷贝与深拷贝有什么区别](docs/core-points/deep-copy.md)
-- [自动拆箱与自动装箱，好玩](docs/core-points/box.md)
-- [为什么重写 equals 时必须重写 hashCode 方法](docs/core-points/equals-hashcode.md)
+### **加餐**
 
-### **集合框架**
+- [Java 中常用的 48 个关键字](docs/basic-extra-meal/48-keywords.md)
+- [Java 命名约定](docs/basic-extra-meal/java-naming.md)
+- [Java 默认的编码方式 Unicode](docs/basic-extra-meal/java-unicode.md)
+- [new Integer(18) 与 Integer.valueOf(18) 有什么区别](docs/basic-extra-meal/int-cache.md)
+- [自动拆箱与自动装箱](docs/basic-extra-meal/box.md)
+- [方法重载和方法重写](docs/basic-extra-meal/override-overload.md)
+- [Java 到底是值传递还是引用传递](docs/basic-extra-meal/pass-by-value.md)
+- [浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
+- [为什么重写 equals 时必须重写 hashCode 方法](docs/basic-extra-meal/equals-hashcode.md)
+- [注解](docs/basic-extra-meal/annotation.md)
+- [枚举](docs/basic-extra-meal/enum.md)
+- [深入理解 Java 中的反射](docs/basic-extra-meal/fanshe.md)
+- [泛型](docs/basic-extra-meal/generic.md)
+- [Java 不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
+- [Java程序在编译期发生了什么](docs/basic-extra-meal/what-happen-when-javac.md)
 
-- [初探集合框架](docs/collection/gailan.md)
-- [时间复杂度](docs/collection/big-o.md)
-- [ArrayList](docs/collection/arraylist.md)
-- [LinkedList](docs/collection/linkedlist.md)
-- [ArrayList 重拳出击，把 LinkedList 干翻在地](docs/collection/list-war-1.md)
-- [被 ArrayList 锤了一拳后，LinkedList 很不服气](docs/collection/list-war-2.md)
-- [HashMap 的 hash 方法原理是什么](docs/collection/hash.md)
-- [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
-- [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
-- [为什么 HashMap 是线程不安全的？](docs/collection/hashmap-thread-nosafe.md)
-- [HashMap 精选面试题（背诵版）](docs/collection/hashmap-interview.md)
+## Java 进阶
 
+### **Java 虚拟机**
+
+- [JVM 是什么？](docs/jvm/what-is-jvm.md)
 
 # :paw_prints: 联系作者
 

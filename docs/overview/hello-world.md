@@ -1,4 +1,4 @@
-## 编写 Hello World 程序
+## 第一个 Java 程序：Hello World
 
 可以通过 Intellij IDEA 来编写代码，也可以使用在线编辑器来完成。
 

@@ -1,6 +1,6 @@
-## instanceof
+## instanceof 关键字
 
-instanceof 操作符的用法其实很简单：
+instanceof 关键字的用法其实很简单：
 
 ```java
 (object) instanceof (type)
