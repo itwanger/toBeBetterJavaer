@@ -91,7 +91,9 @@
 - [泛型](docs/basic-extra-meal/generic.md)
 - [Java 不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
 - [Java程序在编译期发生了什么](docs/basic-extra-meal/what-happen-when-javac.md)
-
+- [马蜂窝一面：Comparable和Comparator有什么区别？](docs/basic-extra-meal/comparable-omparator.md)
+- [手撸了一个Java的不可变对象，很哇塞！](docs/basic-extra-meal/immutable.md)
+- [从原理上搞懂可变参数，就靠它了](docs/basic-extra-meal/varables.md)
 
 **Java 虚拟机**
 
