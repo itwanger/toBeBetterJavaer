@@ -15,7 +15,7 @@
 
 具体章节可以参照下面这张思维导图（绿色✅的部分是已经更新的）
   
-  ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer.png)
+![](https://img-blog.csdnimg.cn/b9d4f0cb02e14669b34cb2a589de69ea.png)
 
 
 # :bookmark: 学习说明
