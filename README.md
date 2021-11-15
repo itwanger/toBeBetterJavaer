@@ -16,8 +16,8 @@
 具体章节可以参照下面这张思维导图（绿色✅的部分是已经更新的）
 
   <div align="left">
-        <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer.png">
-    </div>
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer.png">
+  </div>
 
 
 # :bookmark: 学习说明
