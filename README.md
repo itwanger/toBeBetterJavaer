@@ -13,6 +13,13 @@
 - [联系作者](https://github.com/itwanger/toBeBetterJavaer#paw_prints-联系作者)
 - [参与贡献](https://github.com/itwanger/toBeBetterJavaer#muscle-参与贡献)
 
+具体章节可以参照下面这张思维导图（绿色✅的部分是已经更新的）
+
+  <div align="left">
+        <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer.png">
+    </div>
+
+
 # :bookmark: 学习说明
 
 《Java 程序员进阶之路》专栏主要针对零基础学 Java 编程的同学，从 Java 核心语法开始，循序渐进，再到 Java 集合框架、Java IO、Java 并发编程、Java 虚拟机，只讲重点。
