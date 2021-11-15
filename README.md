@@ -14,10 +14,8 @@
 - [参与贡献](https://github.com/itwanger/toBeBetterJavaer#muscle-参与贡献)
 
 具体章节可以参照下面这张思维导图（绿色✅的部分是已经更新的）
-
-  <div align="left">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer.png">
-  </div>
+  
+  ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer.png)
 
 
 # :bookmark: 学习说明
