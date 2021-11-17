@@ -1,4 +1,3 @@
-## try-with-resouces
 
 “二哥，终于等到你讲 try-with-resouces 了！”三妹夸张的表情让我有些吃惊。
 

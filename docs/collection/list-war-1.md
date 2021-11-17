@@ -1,4 +1,4 @@
-## ArrayList 重拳出击，把 LinkedList 干翻在地
+
 
 这是《Java 程序员进阶之路》专栏的第 60 篇，我们来聊聊 ArrayList 和 LinkedList 之间的区别。大家可以到 GitHub 上给二哥一个 star，马上破 400 星标了。
 

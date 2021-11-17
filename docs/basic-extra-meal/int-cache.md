@@ -1,4 +1,4 @@
-## new Integer(18) 与 Integer.valueOf(18) 有什么区别
+
 
 “三妹，今天我们来补一个小的知识点：Java 数据类型缓存池。”我喝了一口枸杞泡的茶后对三妹说，“考你一个问题哈：`new Integer(18) 与 Integer.valueOf(18) ` 的区别是什么？”
 

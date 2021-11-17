@@ -1,4 +1,4 @@
-## throw 和 throws
+
 
 “二哥，你能告诉我 throw 和 throws 两个关键字的区别吗？”三妹问。
 
