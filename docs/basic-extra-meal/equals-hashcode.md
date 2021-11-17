@@ -1,4 +1,4 @@
-## 为什么重写 equals 时必须重写 hashCode 方法
+
 
 “二哥，我在读《Effective Java》 的时候，第 11 条规约说重写 equals 的时候必须要重写 hashCode 方法，这是为什么呀？”三妹单刀直入地问。
 

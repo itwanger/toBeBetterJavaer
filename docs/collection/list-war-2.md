@@ -1,4 +1,4 @@
-## 被 ArrayList 锤了一拳后，LinkedList 很不服气
+
 
 这是《Java 程序员进阶之路》专栏的第 61 篇，我们来继续探讨 ArrayList 和 LinkedList，这一篇比[上一篇](https://mp.weixin.qq.com/s/mjeLeNv5PKateVarZE4KQQ)更深入、更全面，源码讲解、性能考量，方方面面都有涉及到了。
 

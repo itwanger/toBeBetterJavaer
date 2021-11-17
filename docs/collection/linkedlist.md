@@ -1,4 +1,4 @@
-## 某团技术拷问：LinkedList 源码看过吗？
+
 
 ### 一、LinkedList 的剖白
 
