@@ -96,6 +96,12 @@
 - [手撸了一个Java的不可变对象，很哇塞！](docs/basic-extra-meal/immutable.md)
 - [从原理上搞懂可变参数，就靠它了](docs/basic-extra-meal/varables.md)
 
+
+
+**Maven**
+
+- [保姆级神器 Maven，再也不用担心项目构建搞崩了](docs/maven/maven.md)
+
 **Java IO**
 
 - [IO 流的分类和概述](docs/io/shangtou.md)
