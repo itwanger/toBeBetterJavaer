@@ -144,6 +144,10 @@
 
 - [保姆级神器 Maven，再也不用担心项目构建搞崩了](docs/maven/maven.md)
 
+### **Git**
+
+- [Git 的前世今生](docs/git/git-qiyuan.md)
+
 ## Java 进阶
 
 ### **Java IO**
