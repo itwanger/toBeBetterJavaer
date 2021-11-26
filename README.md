@@ -116,6 +116,8 @@
 - [数组工具类：Arrays](docs/common-tool/arrays.md)
 - [集合工具类：Collections](docs/common-tool/collections.md)
 - [简化每一行代码工具类：Hutool](docs/common-tool/hutool.md)
+- [Guava，拯救垃圾代码，效率提升N倍](docs/common-tool/guava.md)
+
 
 ### **加餐**
 
