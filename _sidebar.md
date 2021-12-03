@@ -80,6 +80,10 @@
 - [简化每一行代码工具类：Hutool](docs/common-tool/hutool.md)
 - [Guava，拯救垃圾代码，效率提升N倍](docs/common-tool/guava.md)
 
+**Java IO**
+
+- [IO 流的分类和概述](docs/io/shangtou.md)
+
 **入门篇加餐**
 
 - [Java 中常用的 48 个关键字](docs/basic-extra-meal/48-keywords.md)
@@ -109,9 +113,7 @@
 - [Git 的内部实现](docs/git/neibushixian.md)
 - [常用 Git 命令清单](docs/git/mingling.md)
 
-**Java IO**
 
-- [IO 流的分类和概述](docs/io/shangtou.md)
 
 **Java 虚拟机**
 
