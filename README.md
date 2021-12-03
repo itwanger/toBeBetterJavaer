@@ -123,6 +123,10 @@
 - [简化每一行代码工具类：Hutool](docs/common-tool/hutool.md)
 - [Guava，拯救垃圾代码，效率提升N倍](docs/common-tool/guava.md)
 
+### **Java IO**
+
+- [IO 流的分类和概述](docs/io/shangtou.md)
+
 
 ### **加餐**
 
@@ -154,10 +158,6 @@
 - [常用 Git 命令清单](docs/git/mingling.md)
 
 ## Java 进阶
-
-### **Java IO**
-
-- [IO 流的分类和概述](docs/io/shangtou.md)
 
 ### **Java 虚拟机**
 
