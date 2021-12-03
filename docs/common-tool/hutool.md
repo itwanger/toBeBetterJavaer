@@ -546,10 +546,5 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 项目源码地址：[https://github.com/looly/hutool](https://github.com/looly/hutool)
 
-**Java 程序员进阶之路，该专栏风趣幽默、通俗易懂，对 Java 爱好者极度友好和舒适😄，内容包括但不限于 Java 基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机、Java 企业级开发（SSM、Spring Boot）等核心知识点**。
 
-GitHub 地址：[https://github.com/itwanger/toBeBetterJavaer](https://github.com/itwanger/toBeBetterJavaer)
 
-亮白版和暗黑版的 PDF 也准备好了呢，让我们一起成为更好的 Java 工程师吧，一起冲！
-
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer-01.png)
