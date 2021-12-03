@@ -128,7 +128,7 @@ def load_reference(name_or_id):
 
 在 Git 中，当前的位置有一个特殊的索引，它就是“HEAD”。
 
-## 仓库
+### 仓库
 
 我们可以粗略地给出 Git 仓库的定义了：对象 和 引用。
 

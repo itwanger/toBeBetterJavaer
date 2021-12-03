@@ -119,7 +119,10 @@
 
 **八股文**
 
+- [Java 基础](docs/baguwen/java-basic.md)
 - [HashMap](docs/collection/hashmap-interview.md)
+- [Java 并发编程](docs/baguwen/java-thread.md)
+- [Java 虚拟机](docs/baguwen/jvm.md)
 
 -  **其他：**
 
