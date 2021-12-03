@@ -165,7 +165,11 @@
 
 ## 八股文
 
-- [HashMap 精选面试题（背诵版）](docs/collection/hashmap-interview.md)
+- [Java 基础](docs/baguwen/java-basic.md)
+- [HashMap](docs/collection/hashmap-interview.md)
+- [Java 并发编程](docs/baguwen/java-thread.md)
+- [Java 虚拟机](docs/baguwen/jvm.md)
+
 
 
 # :paw_prints: 联系作者
