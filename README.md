@@ -191,14 +191,21 @@
     </div>
 
     回复关键字「**03**」可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本（暗黑版和亮白版）。
+    
+    
+- **star 趋势图**
 
-## :muscle: 参与贡献
+[![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
+
+
+
+# :muscle: 参与贡献
 
 1. 如果你对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
 2. 对于文中我没有涉及到知识点，欢迎提交 PR。
 
 
-## :gift: Donate
+# :gift: Donate
 
 开源不易，如果《Java 程序员进阶之路》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
