@@ -22,7 +22,7 @@
 - [方法](docs/oo/method.md)
 - [构造方法](docs/oo/construct.md)
 - [代码初始化块](docs/oo/code-init.md)
-- [抽象类](docs/oo/java-abstract.md)
+- [抽象类](docs/oo/abstract.md)
 - [接口](docs/oo/interface.md)
 - [static](docs/oo/static.md)
 - [this 和 super](docs/oo/this-super.md)
