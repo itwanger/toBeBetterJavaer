@@ -152,10 +152,13 @@
 
 ### **Git**
 
-- [Git 的前世今生](docs/git/git-qiyuan.md)
-- [Git 的数据模型](docs/git/shujujiegou.md)
-- [Git 的内部实现](docs/git/neibushixian.md)
-- [常用 Git 命令清单](docs/git/mingling.md)
+- [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
+- [终于有人把 Git 的数据模型讲清楚了](docs/git/shujujiegou.md)
+- [昨晚看完 Linus 第一次提交的 Git 代码后，我失眠了！](docs/git/neibushixian.md)
+- [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
+- [崩溃！实习生把小组的代码仓库搞得一团糟。。。](docs/git/jibenshiyong.md)
+- [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
+- [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
 
 ## Java 进阶
 
