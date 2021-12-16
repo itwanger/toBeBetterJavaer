@@ -112,7 +112,13 @@
 - [Git 的数据模型](docs/git/shujujiegou.md)
 - [Git 的内部实现](docs/git/neibushixian.md)
 - [常用 Git 命令清单](docs/git/mingling.md)
+- [Git 的基本使用](docs/git/jibenshiyong.md)
+- [Git 分支管理](docs/git/fenzhi.md)
+- [Pro Git](docs/git/progit.md)
 
+**Java 并发编程**
+
+- [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
 
 
 **Java 虚拟机**
@@ -121,10 +127,11 @@
 
 **八股文**
 
-- [Java 基础](docs/baguwen/java-basic.md)
-- [HashMap](docs/collection/hashmap-interview.md)
-- [Java 并发编程](docs/baguwen/java-thread.md)
-- [Java 虚拟机](docs/baguwen/jvm.md)
+- [Java 面试八股文精选 34 题](docs/baguwen/java-basic-34.md)
+- [Java 基础（背诵版）](docs/baguwen/java-basic.md)
+- [HashMap精选面试题](docs/collection/hashmap-interview.md)
+- [Java 并发编程（背诵版）](docs/baguwen/java-thread.md)
+- [Java 虚拟机（背诵版）](docs/baguwen/jvm.md)
 
 -  **其他：**
 

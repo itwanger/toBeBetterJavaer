@@ -162,16 +162,21 @@
 
 ## Java 进阶
 
+### **Java 并发编程**
+
+- [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
+
 ### **Java 虚拟机**
 
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
 
 ## 八股文
 
-- [Java 基础](docs/baguwen/java-basic.md)
-- [HashMap](docs/collection/hashmap-interview.md)
-- [Java 并发编程](docs/baguwen/java-thread.md)
-- [Java 虚拟机](docs/baguwen/jvm.md)
+- [Java 面试八股文精选 34 题](docs/baguwen/java-basic-34.md)
+- [Java 基础（背诵版）](docs/baguwen/java-basic.md)
+- [HashMap精选面试题](docs/collection/hashmap-interview.md)
+- [Java 并发编程（背诵版）](docs/baguwen/java-thread.md)
+- [Java 虚拟机（背诵版）](docs/baguwen/jvm.md)
 
 
 
