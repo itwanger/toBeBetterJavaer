@@ -2,7 +2,7 @@
 
 > **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:books: 计算机经典书单(download)](https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA)
 
-> Java 程序员进阶之路，本专栏旨在为 Java 爱好者提供一个清晰详细的学习教程，专栏风趣幽默、通俗易懂，对 Java 爱好者极度友好和舒适😄，内容包括但不限于 Java 基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机、Java 企业级开发（Maven、Git、SSM、Spring Boot）等核心知识点。。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
+> Java 程序员进阶之路，本专栏旨在为 Java 爱好者提供一个清晰详细的学习教程，专栏风趣幽默、通俗易懂，对 Java 爱好者极度友好和舒适😄，内容包括但不限于 Java 基础、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机、Java 企业级开发（Git、SSM、Spring Boot）等核心知识点。。如果本仓库能为你提供帮助，请给予支持(关注、点赞、分享)！
 
 
 # ⛳目录
