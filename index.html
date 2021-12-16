@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>Java程序员进阶之路</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="keywords" content="Java后端开发,前端开发,大数据开发,数据结构,算法题,leetcode,开源,代码,计算机网络,操作系统,设计模式,编译原理,计算机组成原理,Spring,Spring Boot,Spring Cloud,Redis,MongoDB,Linux,JVM,IDEA,Docker,Git,SVN,MySQL,Tomcat,Nginx,Kubernetes,Elasticsearch,Kafka,程序员,分布式,微服务,大数据,开发者,编程,">
+  <meta name="description" content="本站内容主要包含但不限于：Java后端、大数据开发、数据结构、算法题、leetcode、计算机网络、操作系统、设计模式、编译原理、计算机组成原理、Spring Boot、Spring Cloud、Git、SVN、Linux、IDEA、MySQL、Redis、Tomcat、Nginx、Kubernetes、Elasticsearch、Kafka、微服务分布式、高可用架构、中间件、数据库、缓存、消息队列、系统监控等知识分享。">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -26,8 +27,10 @@
       repo: 'https://github.com/itwanger/toBeBetterJavaer',
       loadSidebar: true,
       autoHeader: true,
-      // logo: '/images/logo-01.png',
+      coverpage: true,
+      logo: '/images/logo-01.png',
       auto2top: true,
+      nameLink: 'https://www.tobebetterjavaer.com/', 
       search: {
         paths: 'auto',
         placeholder: '搜索',
@@ -41,7 +44,29 @@
         language:'chinese'
       },
       plugins: [
-        
+        function (hook) {
+          var footer = [
+            '<hr/>',
+            '<footer style="text-align: center">',
+              '<p>',
+              '<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/logo-01.png" alt="Java 程序员进阶之路" >',
+            '</p>',
+            '<span><a href="https://beian.miit.gov.cn/" style="font-size:80%;color:#939393;" target="_blank">备案号</a></span><span>  •  </span><span><img src="https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/beian.5m919tgd7vw0.png" height="15px" width="15px" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32010402001108" style="font-size:80%;color:#939393;" target="_blank"></a></span>',
+            '<p>',
+            'Copyright © 2021 <span><a href="" style="font-size:80%;color:blue;" target="_blank">沉默王二</a></span> , All rights reserved.',
+            '</p>',
+            '</footer>'
+          ].join('');
+          hook.afterEach(function (html) {
+            var isReadme = window.location.href.indexOf("README");
+            if (isReadme === -1) {
+              // return header + html + footer;
+              return html + footer;
+            } else {
+              return html + footer;
+            }
+          });
+        }
       ]
     }
   </script>
