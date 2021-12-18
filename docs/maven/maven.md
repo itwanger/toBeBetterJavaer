@@ -325,6 +325,8 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
   </mirrors>
 ```
 
+通过 `https://developer.aliyun.com/mvn/search` 可以查看阿里云镜像 Maven 的地址
+
 其中 mirrorOf 元素的可选项有：
 
 - `<mirrorOf>*</mirrorOf>`，匹配所有远程仓库。
@@ -362,6 +364,7 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
 - `mvn clean package`：运行清理和打包。
 - `mvn clean install`：运行清理和安装，会将打好的包安装到本地仓库中，以便其他的项目可以调用。
 - `mvn clean deploy`：运行清理和发布（发布到私服上面）。
+- `mvn help:effective-settings`：查看 Maven 的有效配置信息。
 
 **2）Maven 常用 POM 属性**
 
