@@ -129,7 +129,7 @@
 
 **真香工具**
 
-- [开源的终端工具Tabby](docs/shigu/log4j2-jndi.md)
+- [开源的终端工具Tabby](docs/gongju/tabby.md)
 - [一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
 - [EasyPoi实现Excel导入导出](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
 - [一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)

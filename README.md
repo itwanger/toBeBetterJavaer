@@ -174,7 +174,7 @@
 
 ### **真香工具**
 
-- [干掉 Xshell？这款开源的终端工具Tabby逼格更高！](docs/shigu/log4j2-jndi.md)
+- [干掉 Xshell？这款开源的终端工具Tabby逼格更高！](docs/gongju/tabby.md)
 - [再见Postman！一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
 - [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
 - [再见了VMware，一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
