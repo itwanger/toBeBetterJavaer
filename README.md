@@ -158,11 +158,31 @@
 - [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
 - [崩溃！实习生把小组的代码仓库搞得一团糟。。。](docs/git/jibenshiyong.md)
 - [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
-- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
+- [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
 
 ### **SpringBoot**
 
-- [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
+- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
+- [基于SpringBoot 的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
+
+
+### **事故处理**
+
+- [我鮳！Log4j2突发重大漏洞，我们也中招了。。](docs/shigu/log4j2.md)
+- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
+- [面试官问：生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+
+### **真香工具**
+
+- [干掉 Xshell？这款开源的终端工具Tabby逼格更高！](docs/shigu/log4j2-jndi.md)
+- [再见Postman！一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
+- [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
+- [再见了VMware，一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
+
+### **开源项目**
+
+- [2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+
 
 ## Java 进阶
 
