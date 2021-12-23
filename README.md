@@ -158,6 +158,10 @@
 - [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
 - [崩溃！实习生把小组的代码仓库搞得一团糟。。。](docs/git/jibenshiyong.md)
 - [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
+- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
+
+### **SpringBoot**
+
 - [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
 
 ## Java 进阶
