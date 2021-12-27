@@ -160,6 +160,10 @@
 - [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
 - [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
 
+### **Nginx**
+
+- [某俄罗斯小哥，竟靠一个服务器软件直接封神？](docs/nginx/nginx.md)
+
 ### **SpringBoot**
 
 - [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
