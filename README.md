@@ -43,7 +43,7 @@
 ### **Maven**
 
 - [项目构建神器 Maven](docs/maven/maven.md)
-- [项目构建神器 Maven](docs/maven/maven.md)
+- [更快的 Maven 来了！！！性能提升 300%](docs/maven/mvnd.md)
 
 ### **Git**
 
