@@ -78,6 +78,8 @@
 - [再见Postman！一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
 - [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
 - [再见了VMware，一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
+- [再见Swagger了，这七款在线文档生成神器真的赞](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
+- [干掉visio，这个画图神器真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
 
 ### **开源项目**
 
