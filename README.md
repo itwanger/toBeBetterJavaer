@@ -63,6 +63,7 @@
 
 - [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
 - [基于SpringBoot 的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
+- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
 
 
 ### **事故处理**
