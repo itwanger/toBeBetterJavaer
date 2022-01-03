@@ -1,4 +1,4 @@
-![logo](images/logo.png)
+![logo](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/logo.png)
 
 
 # Java程序员进阶之路 <small>To Be Better Javaer</small>
