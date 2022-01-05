@@ -1,17 +1,17 @@
 **Maven**
 
 - [项目构建神器 Maven](docs/maven/maven.md)
-- [更快的 Maven 来了!!](docs/maven/mvnd.md)
+- [更快的 Maven 来了！！！性能提升 300%](docs/maven/mvnd.md)
 
 **Git**
 
-- [Git 的前世今生](docs/git/git-qiyuan.md)
-- [Git 的数据模型](docs/git/shujujiegou.md)
-- [Git 的内部实现](docs/git/neibushixian.md)
-- [常用 Git 命令清单](docs/git/mingling.md)
-- [Git 的基本使用](docs/git/jibenshiyong.md)
-- [Git 分支管理](docs/git/fenzhi.md)
-- [Pro Git](docs/git/progit.md)
+- [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
+- [终于有人把 Git 的数据模型讲清楚了](docs/git/shujujiegou.md)
+- [昨晚看完 Linus 第一次提交的 Git 代码后，我失眠了！](docs/git/neibushixian.md)
+- [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
+- [崩溃！实习生把小组的代码仓库搞得一团糟。。。](docs/git/jibenshiyong.md)
+- [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
+- [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
 
 **SpringBoot**
 
@@ -24,6 +24,8 @@
 - [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
 - [重现了一波 Log4j2 核弹级漏洞](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
 - [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [西安一码通又崩了背后的技术原因](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
+
 
 **真香工具**
 
@@ -152,11 +154,22 @@
 
 **八股文**
 
-- [Java 面试八股文精选 34 题](docs/baguwen/java-basic-34.md)
+- [Java 精选面试题 34 卷](docs/baguwen/java-basic-34.md)
 - [Java 基础（背诵版）](docs/baguwen/java-basic.md)
 - [HashMap精选面试题](docs/collection/hashmap-interview.md)
 - [Java 并发编程（背诵版）](docs/baguwen/java-thread.md)
 - [Java 虚拟机（背诵版）](docs/baguwen/jvm.md)
+
+
+**城市选择**
+
+- [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
+- [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
+- [深圳有哪些牛批的互联网公司？](https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g)
+- [西安有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
+- [青岛有牛逼的互联网公司吗？](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
+- [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
+- [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 
 -  **其他：**
 

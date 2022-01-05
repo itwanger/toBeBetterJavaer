@@ -70,7 +70,8 @@
 
 - [我鮳！Log4j2突发重大漏洞，我们也中招了。。](docs/shigu/log4j2.md)
 - [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
-- [面试官问：生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [西安一码通又崩了！难道又不小心回滚上个版本](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
 
 ### **真香工具**
 
@@ -202,14 +203,25 @@
 
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
 
-## 八股文
+## 求职面试
 
-- [Java 面试八股文精选 34 题](docs/baguwen/java-basic-34.md)
+### 八股文
+
+- [Java 精选面试题 34 卷](docs/baguwen/java-basic-34.md)
 - [Java 基础（背诵版）](docs/baguwen/java-basic.md)
 - [HashMap精选面试题](docs/collection/hashmap-interview.md)
 - [Java 并发编程（背诵版）](docs/baguwen/java-thread.md)
 - [Java 虚拟机（背诵版）](docs/baguwen/jvm.md)
 
+### 城市选择
+
+- [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
+- [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
+- [深圳有哪些牛批的互联网公司？](https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g)
+- [西安有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
+- [青岛有牛逼的互联网公司吗？](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
+- [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
+- [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 
 
 # :paw_prints: 联系作者
