@@ -86,6 +86,10 @@
 
 - [2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
 
+### **实战经验**
+
+- [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
+
 ## Java 入门
 
 ### **Java 概述**
