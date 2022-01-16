@@ -54,6 +54,7 @@
 - [崩溃！实习生把小组的代码仓库搞得一团糟。。。](docs/git/jibenshiyong.md)
 - [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
 - [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
+- [一条 Git 命令减少了一半存储空间，我的服务器在偷着笑](docs/git/sparse-checkout.md)
 
 ### **Nginx**
 
