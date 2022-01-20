@@ -15,7 +15,7 @@
 
 具体章节可以参照下面这张思维导图（绿色✅的部分是已经更新的）
   
-![](https://img-blog.csdnimg.cn/7a19bf4d16064987bdf76b10a348715b.png)
+![](https://img-blog.csdnimg.cn/85a7af0298ec42ee91fd806286bf0fd1.png)
 
 
 # :bookmark: 学习说明
@@ -92,6 +92,7 @@
 ### **实战经验**
 
 - [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
+- [273 块钱购入的域名，值了！](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
 
 ## Java 入门
 
