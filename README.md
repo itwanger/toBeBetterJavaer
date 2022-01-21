@@ -60,6 +60,10 @@
 
 - [某俄罗斯小哥，竟靠一个服务器软件直接封神？](docs/nginx/nginx.md)
 
+### **Intellij IDEA**
+
+- [4个 Intellij IDEA 调试魔法，助你起飞](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
+
 ### **SpringBoot**
 
 - [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
