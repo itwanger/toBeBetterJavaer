@@ -2,8 +2,6 @@
 
 2022 年 1 月 1 日，**二哥的《Java 程序员进阶之路》网站终于上线了**！10 天过去了，网站在没有 SEO 的加持下访问量也突破了 1000 pu，算是一个小小的里程碑吧。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-28.png)
-
 往下看，你不仅会直呼这个网站的颜值贼高，丝毫不输 B 站上那些舞蹈区的小姐姐，hhh，另外你还会学到如何从0 到 1搭建一个个人的学习网站。
 
 经常逛 GitHub 的小伙伴应该已经发现了，二哥的《Java 程序员进阶之路》最近在持续霸榜，今天仍然在 GitHub 的周榜上。

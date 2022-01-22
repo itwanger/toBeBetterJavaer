@@ -97,6 +97,7 @@
 
 - [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
 - [273 块钱购入的域名，值了！](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
+- [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
 
 ## Java 入门
 
