@@ -46,6 +46,7 @@
 - [一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
 - [再见Swagger了，这七款在线文档生成神器真的赞](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
 - [干掉visio，这个画图神器drwa.io真的绝了](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
+- [干掉PowerDesigner，这款开源数据库设计神器真的绝了](docs/gongju/chiner.md)
 
 **开源项目**
 
