@@ -190,6 +190,10 @@
 - [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
 - [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 
+**程序人生**
+
+- [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
+
 -  **其他：**
 
 - [公众号](docs/bottom.md)
