@@ -1,64 +1,3 @@
-**Maven**
-
-- [项目构建神器 Maven](docs/maven/maven.md)
-- [更快的 Maven 来了，性能提升 300%](docs/maven/mvnd.md)
-
-**Git**
-
-- [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
-- [终于有人把 Git 的数据模型讲清楚了](docs/git/shujujiegou.md)
-- [昨晚看完 Linus 第一次提交的 Git 代码后，我失眠了！](docs/git/neibushixian.md)
-- [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
-- [崩溃！实习生把小组的代码仓库搞得一团糟](docs/git/jibenshiyong.md)
-- [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的](docs/git/fenzhi.md)
-- [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
-- [一条 Git 命令减少了一半存储空间，我的服务器在偷着笑](docs/git/sparse-checkout.md)
-
-**Nginx**
-
-- [某俄罗斯小哥，竟靠一个服务器软件直接封神？](docs/nginx/nginx.md)
-
-**Intellij IDEA**
-
-- [4个 Intellij IDEA 调试魔法，助你起飞](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
-
-**SpringBoot**
-
-- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
-- [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
-- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
-
-**事故处理**
-
-- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
-- [重现了一波 Log4j2 核弹级漏洞](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
-- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
-- [西安一码通又崩了背后的技术原因](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
-- [从技术角度再来聊聊一码通](https://mp.weixin.qq.com/s/dKsneRKW7G9dvtr9NzefEA)
-
-
-**真香工具**
-
-- [开源的终端工具Tabby](docs/gongju/tabby.md)
-- [一款更适合国人的接口管理工具ApiPost](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
-- [EasyPoi实现Excel导入导出](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
-- [EasyExcel实现 Excel 导入导出](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
-- [一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
-- [再见Swagger了，这七款在线文档生成神器真的赞](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
-- [干掉visio，这个画图神器drwa.io真的绝了](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
-- [干掉PowerDesigner，这款开源数据库设计神器真的绝了](docs/gongju/chiner.md)
-
-**开源项目**
-
-- [云E办、仿网易云音乐](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
-
-**实战经验**
-
-- [Java 程序员进阶之路网站上线了，颜值贼高](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
-- [273 块钱购入的域名，值了](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
-- [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
-- [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
-
 **Java 概述**
 
 - [什么是 Java](docs/overview/what-is-java.md)
@@ -165,11 +104,79 @@
 **Java 并发编程**
 
 - [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
+- [为什么阿里要禁用Executors创建线程池？](https://mp.weixin.qq.com/s/dd_IPt7lQQeIMH7YTdgLIw)
+- [60张手绘图，一举拿下Java并发！](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)
 
 
 **Java 虚拟机**
 
 - [初识JVM](docs/jvm/what-is-jvm.md)
+
+**Maven**
+
+- [项目构建神器 Maven](docs/maven/maven.md)
+- [更快的 Maven 来了，性能提升 300%](docs/maven/mvnd.md)
+
+**Git**
+
+- [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
+- [终于有人把 Git 的数据模型讲清楚了](docs/git/shujujiegou.md)
+- [昨晚看完 Linus 第一次提交的 Git 代码后，我失眠了！](docs/git/neibushixian.md)
+- [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
+- [崩溃！实习生把小组的代码仓库搞得一团糟](docs/git/jibenshiyong.md)
+- [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的](docs/git/fenzhi.md)
+- [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
+- [一条 Git 命令减少了一半存储空间，我的服务器在偷着笑](docs/git/sparse-checkout.md)
+
+**Nginx**
+
+- [某俄罗斯小哥，竟靠一个服务器软件直接封神？](docs/nginx/nginx.md)
+
+**Intellij IDEA**
+
+- [4个 Intellij IDEA 调试魔法，助你起飞](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
+
+**SpringBoot**
+
+- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
+- [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
+- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
+- [Spring Boot 3.0 M1 发布，正式弃用 Java 8](https://mp.weixin.qq.com/s/FmRyF6RcCodb8vUBem8dAA)
+
+**事故处理**
+
+- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
+- [重现了一波 Log4j2 核弹级漏洞](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
+- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [西安一码通又崩了背后的技术原因](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
+- [从技术角度再来聊聊一码通](https://mp.weixin.qq.com/s/dKsneRKW7G9dvtr9NzefEA)
+
+
+**真香工具**
+
+- [开源的终端工具Tabby](docs/gongju/tabby.md)
+- [一款更适合国人的接口管理工具ApiPost](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
+- [EasyPoi实现Excel导入导出](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
+- [EasyExcel实现 Excel 导入导出](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
+- [一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
+- [再见Swagger了，这七款在线文档生成神器真的赞](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
+- [干掉visio，这个画图神器drwa.io真的绝了](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
+- [干掉PowerDesigner，这款开源数据库设计神器真的绝了](docs/gongju/chiner.md)
+
+**消息队列**
+
+- [敢在简历上写精通消息队列，果然有一手！](https://mp.weixin.qq.com/s/UKWOyS90O6R_y1YEdF_JjQ)
+
+**开源项目**
+
+- [云E办、仿网易云音乐](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+
+**实战经验**
+
+- [Java 程序员进阶之路网站上线了，颜值贼高](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
+- [273 块钱购入的域名，值了](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
+- [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
+- [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
 
 **八股文**
 
@@ -193,6 +200,8 @@
 **程序人生**
 
 - [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
+- [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
+- [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
 
 -  **其他：**
 
