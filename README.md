@@ -292,13 +292,14 @@
 开源不易，如果《Java 程序员进阶之路》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/zhifu.png" width="260px">
+    <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/weixin-zhifu.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。
 
 时间|小伙伴|赞赏金额
 ---|---|---
+2022-01-28|G*R|6.6元
 2022-01-20|*光|50元
 2022-01-14|*浩|1元
 2022-01-01|马伟谊|6.6元
