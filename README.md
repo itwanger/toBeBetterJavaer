@@ -209,6 +209,7 @@
 - [再见Swagger了，这七款在线文档生成神器真的赞](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
 - [干掉visio，这个画图神器真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
 - [干掉PowerDesigner，这款开源数据库设计神器真的绝了](docs/gongju/chiner.md)
+- [再见丑陋的 SwaggerUI，这款开源的API文档生成神器界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
 
 ### **消息队列**
 
@@ -246,6 +247,7 @@
 - [青岛有牛逼的互联网公司吗？](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
 - [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
 - [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
+- [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
 
 ## 程序人生
 
