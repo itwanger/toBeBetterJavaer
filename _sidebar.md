@@ -167,6 +167,7 @@
 **消息队列**
 
 - [敢在简历上写精通消息队列，果然有一手！](https://mp.weixin.qq.com/s/UKWOyS90O6R_y1YEdF_JjQ)
+- [使用MQ的时候，怎么确保消息100%不丢失？](https://mp.weixin.qq.com/s/lJdYpH94qGm5Q0pkgfjHTQ)
 
 **开源项目**
 
@@ -178,6 +179,10 @@
 - [273 块钱购入的域名，值了](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
 - [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
 - [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
+
+**日志**
+
+- [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
 
 **八股文**
 
