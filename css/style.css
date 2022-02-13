@@ -68,14 +68,6 @@ p {
     color: var(--text_color)
 }
 
-.sidebar .sidebar-nav {
-  padding-left: 15px;
-}
-
-section.cover .cover-main blockquote{
-  font-size: 1rem;
-}
-
 .cover-main img[alt=logo]{
   width: 112px;
 }

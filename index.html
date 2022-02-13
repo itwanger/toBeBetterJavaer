@@ -26,11 +26,12 @@
       name: '<span>🌈Java程序员进阶之路</span>',
       repo: 'https://github.com/itwanger/toBeBetterJavaer',
       loadSidebar: true,
-      autoHeader: true,
+      autoHeader: false,
       coverpage: true,
+      onlyCover: false,
       logo: 'https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/logo-01.png',
       auto2top: true,
-      nameLink: 'https://tobebetterjavaer.com', 
+      nameLink: 'https://tobebetterjavaer.com',
       search: {
         paths: 'auto',
         placeholder: '搜索',
@@ -80,6 +81,9 @@
             } else {
               return html + footer;
             }
+          });
+          hook.ready(function() {
+            // 初始化并第一次加载完成数据后调用，没有参数。
           });
         }
       ]

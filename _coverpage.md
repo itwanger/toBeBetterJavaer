@@ -4,9 +4,16 @@
 # Java程序员进阶之路 <small>To Be Better Javaer</small>
 
 
-> 🌈 Java 程序员进阶之路，本专栏风趣幽默、通俗易懂，对 Java 爱好者极度友好和舒适😄，内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 面试题、Java 企业级开发（Git、SSM、Spring Boot）、计算机基础知识（操作系统、计组、计网、数据结构与算法）等核心知识点。如果本专栏为你提供了帮助，请给予支持(star一下，或者推荐给你的朋友)！
+> Java 程序员进阶之路，据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。学 Java，就认准 Java 程序员进阶之路😄。
 
-![](https://img.shields.io/badge/version-v1.0.0-green.svg) ![](https://img.shields.io/badge/author-沉默王二-yellow.svg) ![](https://img.shields.io/badge/license-GPL-blue.svg)
+<p align="center">
+  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Github-toBeBetterJavaer-red.svg"></a>
+  <a href="https://gitee.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Gitee-toBeBetterJavaer-blue.svg"></a>
+  <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical"></a>
+  <a href="https://mp.weixin.qq.com/s/ePhaYezFblgt0NgbvtWqww" target="_blank">
+    <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
+  </a>
+</p>
 
 
 <span id="busuanzi_container_site_pv" style="display: inline;">
