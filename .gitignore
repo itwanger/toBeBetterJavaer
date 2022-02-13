@@ -1,16 +1,2 @@
 
-*.prefs
-java_demo/.project
-java_demo/.classpath
-.idea/
-java_demo/logs/
-java_demo/src/main/main.iml
-java_demo/src/test/test.iml
 .DS_Store
-java_demo/.idea/*
-java_demo/java_demo.iml
-.idea/vcs.xml
-*.class
-*.zip
-*.js
-element-list/
