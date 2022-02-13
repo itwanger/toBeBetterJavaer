@@ -1,63 +1,72 @@
-# :rainbow: To Be Better Javaer，Java 程序员进阶之路 - 通俗易懂、风趣幽默
+# To Be Better Javaer，Java 程序员进阶之路 - 通俗易懂、风趣幽默
 
-> **作者：** 沉默王二，Java Developer，[:pencil2: 个人博客](https://itwanger.com)，[:books: 计算机经典书单(download)](https://mp.weixin.qq.com/s/qwUtTbfDB36VSwnjMRakqA)
+<p align="center">
+  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Github-toBeBetterJavaer-red.svg"></a>
+  <a href="https://gitee.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Gitee-toBeBetterJavaer-blue.svg"></a>
+  <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical"></a>
+  <a href="https://mp.weixin.qq.com/s/ePhaYezFblgt0NgbvtWqww" target="_blank">
+    <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
+  </a>
+</p>
 
->🌈 Java 程序员进阶之路，本专栏风趣幽默、通俗易懂，对 Java 爱好者极度友好和舒适😄，内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 面试题、Java 企业级开发（Git、SSM、Spring Boot）、计算机基础知识（操作系统、计组、计网、数据结构与算法）等核心知识点。如果本专栏为你提供了帮助，请给予支持(star一下，或者推荐给你的朋友)！
+>Java 程序员进阶之路，据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。学 Java，就认准 Java 程序员进阶之路😄。
 
-
-# ⛳目录
-
-- 仓库同步：[Github](https://github.com/itwanger/toBeBetterJavaer) | [码云](https://gitee.com/itwanger/toBeBetterJavaer) | [CodeChina](https://codechina.csdn.net/qing_gee/toBeBetterJavaer)
-- [学习说明](https://github.com/itwanger/toBeBetterJavaer#bookmark-学习说明)
-- [章节目录](https://github.com/itwanger/toBeBetterJavaer#pencil-章节目录)
-- [联系作者](https://github.com/itwanger/toBeBetterJavaer#paw_prints-联系作者)
-- [参与贡献](https://github.com/itwanger/toBeBetterJavaer#muscle-参与贡献)
-
-具体章节可以参照下面这张思维导图（绿色✅的部分是已经更新的）
-  
-![](https://img-blog.csdnimg.cn/85a7af0298ec42ee91fd806286bf0fd1.png)
+<a href="https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw" target="_blank">👉 我整理汇总了 10 本优质的 Java 面试相关的 PDF（质量很高！不要再看网上的那些东拼西凑的垃圾面试题了！），点击下载，希望对需要的小伙伴有帮助！</a>
 
 
-# :bookmark: 学习说明
+# 为什么会有这个开源知识库
 
-**编程是听不会，也看不会的，只有经过大量的实践才能学会，所以一定要动手，专栏中所有的例子都不要放过，一个一个来，直到自己能在没有任何帮助的情况下，独立完成代码的编写**。
+> [!TIP]
+>  本站取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。
+>  
+>  旨在为学习 Java 的小伙伴提供一系列：
+>  - **优质的原创 Java 教程**
+>  - **全面清晰的 Java 学习路线**
+>  - **免费但靠谱的 Java 学习资料**
+>  - **精选的 Java 岗求职面试指南**
+>  - **Java 企业级开发所需的高效工具**
+>
+> 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！
 
-记住：编程是门手艺活，唯手熟尔！
 
-----
+# 知识库地图
 
-1. 本专栏的所有内容都是经过我精心打磨的，所以你完全不用担心学不会的问题！
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/tobebetterjavaer-map.png)
 
-2. 本专栏的所有配套源码已经在 GitHub 上开源（在本仓库的 code 目录下，直接导入到 Intellij IDEA 就可以运行），你在练手的时候可以作为参考。
+# Java基础
 
-3. 如果你在学习的过程中遇到了什么问题，包括：不能运行、优化意见、文字错误等任何问题都可以提交 issue，也可以联系我，微信：`qing_geee`，备注 Java。
 
-4. 本专栏不仅会教你如何学习 Java，还会把我十多年的编程经验倾囊相授，让你真正成为一名有即战力的选手。
+> [!ATTENTION]
+>  **Java 基础是非常重要的！**所谓基础不牢，地动山摇，很多初学者在初学阶段容易按捺不住，三天打鱼两天晒网，这就会导致后面的学习非常的吃力，所以我的建议是一定要肯花时间花精力把基础部分学扎实了，再开始学习后面的内容。<br><br>
+>  Java 基础部分可以分为基础篇和进阶篇，基础篇包括基础语法、面向对象、集合框架、异常处理，以及字符串和数组等等重要知识点；进阶篇包括 Java IO、Java 并发编程、Java 虚拟机等等。<br><br>
+>  入门阶段，一定要多 coding，不要眼高手低，很多看起来会的知识可能真正实操起来就会出现各种各样的问题，那么只有通过多记多练才能迎刃而解。
 
-5. **没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。
 
-# :pencil: 章节目录
+## 基础篇
 
-## Java 入门
 
-### **Java 概述**
+> [!ATTENTION]
+>  万丈高楼平地起，勿在浮沙筑高台！
 
-- [什么是 Java](docs/overview/what-is-java.md)
-- [Java 发展简史](docs/overview/java-history.md)
+
+### Java概述
+
+- [什么是 Java？](docs/overview/what-is-java.md)
+- [Java 的发展简史](docs/overview/java-history.md)
 - [Java 的优势](docs/overview/java-advantage.md)
-- [JDK 和 JRE 有什么区别](docs/overview/jdk-jre.md)
-- [安装集成开发环境 Intellij IDEA](docs/overview/idea.md)
+- [JDK 和 JRE 有什么区别？](docs/overview/jdk-jre.md)
+- [手把手教你安装集成开发环境 Intellij IDEA](docs/overview/idea.md)
 - [第一个 Java 程序：Hello World](docs/overview/hello-world.md)
 
 
-### **Java 基础语法**
+### Java基础语法
 
 - [基本数据类型](docs/basic-grammar/basic-data-type.md)
 - [流程控制](docs/basic-grammar/flow-control.md)
 - [运算符](docs/basic-grammar/operator.md)
-- [注释：代码的最强辅助](docs/basic-grammar/javadoc.md)
+- [注释](docs/basic-grammar/javadoc.md)
 
-### **面向对象**
+### 面向对象
 
 - [什么是对象？什么是类](docs/oo/object-class.md)
 - [变量](docs/oo/var.md)
@@ -70,101 +79,115 @@
 - [this 和 super 关键字](docs/oo/this-super.md)
 - [final 关键字](docs/oo/final.md)
 - [instanceof 关键字](docs/oo/instanceof.md)
-- [方法重载和方法重写](docs/basic-extra-meal/override-overload.md)
-- [Java 到底是值传递还是引用传递](docs/basic-extra-meal/pass-by-value.md)
-- [Java的不可变对象](docs/basic-extra-meal/immutable.md)
+- [不可变对象](docs/basic-extra-meal/immutable.md)
 - [可变参数](docs/basic-extra-meal/varables.md)
+- [泛型](docs/basic-extra-meal/generic.md)
+- [注解](docs/basic-extra-meal/annotation.md)
+- [枚举](docs/basic-extra-meal/enum.md)
+- [反射](docs/basic-extra-meal/fanshe.md)
 
+### 字符串String
 
-
-### **字符串**
-
-- [String 为什么是不可变的](docs/string/immutable.md)
+- [String 为什么是不可变的？](docs/string/immutable.md)
 - [字符串常量池](docs/string/constant-pool.md)
 - [深入浅出 String.intern](docs/string/intern.md)
-- [如何比较两个字符串是否相等](docs/string/equals.md)
-- [如何拼接字符串](docs/string/join.md)
-- [如何拆分字符串](docs/string/split.md)
+- [如何比较两个字符串是否相等？](docs/string/equals.md)
+- [如何拼接字符串？](docs/string/join.md)
+- [如何拆分字符串？](docs/string/split.md)
 
-### **数组**
+### 数组
 
-- [数组](docs/array/array.md)
-- [打印数组](docs/array/print.md)
+- [什么是数组？](docs/array/array.md)
+- [如何打印数组？](docs/array/print.md)
 
-### **集合框架**
+### 集合框架（容器）
 
-- [初识集合框架](docs/collection/gailan.md)
-- [时间复杂度](docs/collection/big-o.md)
+- [Java 中的集合框架该如何分类？](docs/collection/gailan.md)
+- [简单介绍下时间复杂度](docs/collection/big-o.md)
 - [ArrayList](docs/collection/arraylist.md)
-- [泛型](docs/basic-extra-meal/generic.md)
 - [LinkedList](docs/collection/linkedlist.md)
-- [ArrayList 重拳出击，把 LinkedList 干翻在地](docs/collection/list-war-1.md)
-- [被 ArrayList 锤了一拳后，LinkedList 很不服气](docs/collection/list-war-2.md)
-- [海康威视一面：Iterator与Iterable有什么区别？](docs/collection/iterator-iterable.md)
+- [ArrayList 和 LinkedList 之增删改查的时间复杂度](docs/collection/list-war-1.md)
+- [ArrayList 和 LinkedList 的实现方式以及性能对比](docs/collection/list-war-2.md)
+- [Iterator与Iterable有什么区别？](docs/collection/iterator-iterable.md)
 - [为什么阿里巴巴强制不要在 foreach 里执行删除操作](docs/collection/fail-fast.md)
-- [HashMap 的 hash 原理](docs/collection/hash.md)
-- [HashMap 的扩容机制](docs/collection/hashmap-resize.md)
-- [HashMap 的加载因子为什么是 0.75](docs/collection/hashmap-loadfactor.md)
+- [详细讲解 HashMap 的 hash 原理](docs/collection/hash.md)
+- [详细讲解 HashMap 的扩容机制](docs/collection/hashmap-resize.md)
+- [HashMap 的加载因子为什么是 0.75？](docs/collection/hashmap-loadfactor.md)
 - [为什么 HashMap 是线程不安全的？](docs/collection/hashmap-thread-nosafe.md)
 
 
-### **异常处理**
+### 异常处理
 
-- [异常处理机制](docs/exception/gailan.md)
-- [try-catch-finally](docs/exception/try-catch-finally.md)
-- [throw 和 throws](docs/exception/throw-throws.md)
-- [try-with-resouces](docs/exception/try-with-resouces.md)
-- [异常最佳实践](docs/exception/shijian.md)
+- [聊聊异常处理机制](docs/exception/gailan.md)
+- [关于 try-catch-finally](docs/exception/try-catch-finally.md)
+- [关于 throw 和 throws](docs/exception/throw-throws.md)
+- [关于 try-with-resouces](docs/exception/try-with-resouces.md)
+- [异常处理机制到底该怎么用？](docs/exception/shijian.md)
 
-### **常用工具类**
+### 常用工具类
 
 - [数组工具类：Arrays](docs/common-tool/arrays.md)
 - [集合工具类：Collections](docs/common-tool/collections.md)
 - [简化每一行代码工具类：Hutool](docs/common-tool/hutool.md)
 - [Guava，拯救垃圾代码，效率提升N倍](docs/common-tool/guava.md)
 
-### **Java IO**
-
-- [IO 流的分类和概述](docs/io/shangtou.md)
-
-
-### **加餐**
+### 重要知识点
 
 - [Java 中常用的 48 个关键字](docs/basic-extra-meal/48-keywords.md)
-- [Java 命名约定](docs/basic-extra-meal/java-naming.md)
-- [Java 默认的编码方式 Unicode](docs/basic-extra-meal/java-unicode.md)
-- [new Integer(18) 与 Integer.valueOf(18) 有什么区别](docs/basic-extra-meal/int-cache.md)
-- [自动拆箱与自动装箱](docs/basic-extra-meal/box.md)
-- [浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
-- [为什么重写 equals 时必须重写 hashCode 方法](docs/basic-extra-meal/equals-hashcode.md)
-- [注解](docs/basic-extra-meal/annotation.md)
-- [枚举](docs/basic-extra-meal/enum.md)
-- [深入理解 Java 中的反射](docs/basic-extra-meal/fanshe.md)
+- [Java 命名的注意事项](docs/basic-extra-meal/java-naming.md)
+- [详解 Java 的默认编码方式 Unicode](docs/basic-extra-meal/java-unicode.md)
+- [new Integer(18)与Integer.valueOf(18)有什么区别？](docs/basic-extra-meal/int-cache.md)
+- [聊聊自动拆箱与自动装箱](docs/basic-extra-meal/box.md)
+- [浅拷贝与深拷贝究竟有什么不一样？](docs/basic-extra-meal/deep-copy.md)
+- [为什么重写 equals 时必须重写 hashCode 方法？](docs/basic-extra-meal/equals-hashcode.md)
+- [方法重载和方法重写有什么区别？](docs/basic-extra-meal/override-overload.md)
+- [Java 到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
 - [Java 不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
-- [Java程序在编译期发生了什么](docs/basic-extra-meal/what-happen-when-javac.md)
+- [Java 程序在编译期发生了什么？](docs/basic-extra-meal/what-happen-when-javac.md)
 - [Comparable和Comparator有什么区别？](docs/basic-extra-meal/comparable-omparator.md)
+- [Java IO 流详细划分](docs/io/shangtou.md)
 
 
-## Java 进阶
+## 进阶篇
 
-### **Java 并发编程**
+> [!ATTENTION]
+>  如果你想成为一名高质量的 Java 程序员，那么 Java 并发编程和 Java 虚拟机是必须要熟练掌握的！
+
+### Java并发编程
 
 - [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
 - [为什么阿里要禁用Executors创建线程池？](https://mp.weixin.qq.com/s/dd_IPt7lQQeIMH7YTdgLIw)
 - [60张手绘图，一举拿下Java并发！](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)
 
-### **Java 虚拟机**
+### Java虚拟机
 
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
 
-## Java 企业级开发
 
-### **Maven**
 
-- [项目构建神器 Maven](docs/maven/maven.md)
-- [更快的 Maven 来了！！！性能提升 300%](docs/maven/mvnd.md)
+# Java企业级开发
 
-### **Git**
+> [!ATTENTION]
+>  **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭！**<br><br>
+>  Java 企业级开发这部分可以分为工具篇、框架篇、安全篇、分布式、高性能、高可用和实战篇等等。<br><br>
+>  纸上得来终觉浅，须知此事要躬行。
+
+
+## 基建篇
+
+### Maven
+
+> [!ATTENTION]
+>  Maven 是一个项目管理工具，可以对 Java 项目进行构建、依赖管理。
+
+- [手把手教你安装、配置、使用 Maven](docs/maven/maven.md)
+- [守护版 Maven 来了！！！性能提升 300%](docs/maven/mvnd.md)
+
+
+### Git
+
+> [!ATTENTION]
+>  Git 是 Linus Torvalds 为了帮助管理 Linux 内核而开发的一个开源的版本控制软件，绝大多数项目源码和文档都会采用 Git 来进行版本控制。
 
 - [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
 - [终于有人把 Git 的数据模型讲清楚了](docs/git/shujujiegou.md)
@@ -175,15 +198,50 @@
 - [豆瓣9.1分！我昨天在挂急诊时啃完了这本书！](docs/git/progit.md)
 - [一条 Git 命令减少了一半存储空间，我的服务器在偷着笑](docs/git/sparse-checkout.md)
 
-### **Nginx**
+### Nginx
 
-- [某俄罗斯小哥，竟靠一个服务器软件直接封神？](docs/nginx/nginx.md)
+> [!ATTENTION]
+>  Nginx是一款轻量级的 Web 服务器/反向代理服务器，占有内存少，并发能力强。
 
-### **Intellij IDEA**
+- [Nginx 入门教程，敲简单，10 分钟搞定](docs/nginx/nginx.md)
 
-- [4个 Intellij IDEA 调试魔法，助你起飞](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
+### Logback
 
-### **SpringBoot**
+> [!ATTENTION]
+>  线上问题的追踪离不开日志框架，Logback 是 Spring Boot 默认的日志框架。
+
+- [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
+
+
+## 工具篇
+
+### Intellij IDEA
+
+> [!ATTENTION]
+>  业界公认的最好的 Java 基础开发环境。
+
+- [阅读源码必备的4个 IDEA 高级调试技巧](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
+
+
+### 辅助工具
+
+> [!ATTENTION]
+>  一些优质的开源工具，可替代付费工具。
+
+- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
+- [再见Postman！推荐一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
+- [再见了VMware，推荐一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
+- [再见了Swagger，推荐七款可以替代的在线文档生成神器](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
+- [干掉visio，这款在线的画图神器 drwa.io 真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
+- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
+- [再见丑陋的SwaggerUI，这款开源的API文档生成神器 knife4j 界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
+
+## 框架篇
+
+### SpringBoot
+
+> [!ATTENTION]
+>  SpringBoot 不仅继承了Spring框架原有的优秀特性，而且还通过简化配置来进一步简化了Spring应用的整个搭建和开发过程。另外SpringBoot通过集成大量的框架使得依赖包的版本冲突，以及引用的不稳定性等问题得到了很好的解决。
 
 - [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
 - [基于SpringBoot 的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
@@ -191,59 +249,68 @@
 - [Spring Boot 3.0 M1 发布，正式弃用 Java 8](https://mp.weixin.qq.com/s/FmRyF6RcCodb8vUBem8dAA)
 
 
-### **事故处理**
 
-- [我鮳！Log4j2突发重大漏洞，我们也中招了。。](docs/shigu/log4j2.md)
-- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
-- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
-- [西安一码通又崩了！难道又不小心回滚上个版本](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
-- [局长撤职，半月崩两次，从技术角度再来聊聊一码通](https://mp.weixin.qq.com/s/dKsneRKW7G9dvtr9NzefEA)
+## 安全篇
 
-### **真香工具**
+## 分布式
 
-- [干掉 Xshell？这款开源的终端工具Tabby逼格更高！](docs/gongju/tabby.md)
-- [再见Postman！一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
-- [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
-- [SpringBoot 实现 Excel 导入导出，性能爆表，用起来够优雅！](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
-- [再见了VMware，一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
-- [再见Swagger了，这七款在线文档生成神器真的赞](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
-- [干掉visio，这个画图神器真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
-- [干掉PowerDesigner，这款开源数据库设计神器真的绝了](docs/gongju/chiner.md)
-- [再见丑陋的 SwaggerUI，这款开源的API文档生成神器界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
+## 高性能
 
-### **消息队列**
+### 消息队列
+
+> [!ATTENTION]
+>  消息队列是一种异步的服务间通信方式，适用于无服务器和微服务架构，用于分离重量级处理、缓冲或批处理工作以及缓解高峰期工作负载。
 
 - [敢在简历上写精通消息队列，果然有一手！](https://mp.weixin.qq.com/s/UKWOyS90O6R_y1YEdF_JjQ)
+
+
+## 高可用
+
+## 实战篇
+
+### 开源项目
+
+> [!ATTENTION]
+>  GitHub 上、码云上一些高 star 的优质项目推荐，优质的轮子极大地提高了开发效率。
+
+- [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
+- [SpringBoot 实现 Excel 导入导出，性能爆表，用起来够优雅！](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
+- [推荐2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+
+### 问题解析
+
+> [!ATTENTION]
+>  开发过程中遇到的一些典型问题，该如何解决？
+
+- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
+- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
+- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [西安一码通又崩了！难道又不小心回滚到上个版本？](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
+- [半月崩两次，从技术角度再来聊聊一码通](https://mp.weixin.qq.com/s/dKsneRKW7G9dvtr9NzefEA)
 - [使用MQ的时候，怎么确保消息100%不丢失？](https://mp.weixin.qq.com/s/lJdYpH94qGm5Q0pkgfjHTQ)
 
 
-### **开源项目**
+# 数据库
 
-- [2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
-
-### **实战经验**
-
-- [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
-- [273 块钱购入的域名，值了！](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
-- [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
-- [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
-
-### **日志**
-
-- [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
+# 计算机基础
 
 
-## 求职面试
+# 求职面试
 
-### 八股文
+> [!ATTENTION]
+>  **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了。**br><br>
+>  那八股文、面试题、城市选择、优质面经又怎能少得了呢？<br><br>
+>  千淘万漉虽辛苦，吹尽狂沙始到金。
 
-- [Java 精选面试题 34 卷](docs/baguwen/java-basic-34.md)
-- [Java 基础（背诵版）](docs/baguwen/java-basic.md)
-- [HashMap精选面试题](docs/collection/hashmap-interview.md)
-- [Java 并发编程（背诵版）](docs/baguwen/java-thread.md)
-- [Java 虚拟机（背诵版）](docs/baguwen/jvm.md)
+## 八股文
 
-### 城市选择
+- [Java 高频面试题 34 道](docs/baguwen/java-basic-34.md)
+- [Java 基础八股文（背诵版）](docs/baguwen/java-basic.md)
+- [HashMap 精选面试题](docs/collection/hashmap-interview.md)
+- [Java 并发编程八股文（背诵版）](docs/baguwen/java-thread.md)
+- [Java 虚拟机八股文（背诵版）](docs/baguwen/jvm.md)
+
+## 城市选择
 
 - [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
 - [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
@@ -254,14 +321,37 @@
 - [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 - [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
 
-## 程序人生
+# 学习资源
+
+# 程序人生
+
+> [!ATTENTION]
+>  **程序员的人生不仅有代码，还有诗和远方。**br><br>
+>  人间烟火味，最抚凡人心。
+
+## 码农生活
 
 - [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
 - [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
 - [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
 
+# 联系作者
 
-# :paw_prints: 联系作者
+## 关于作者
+
+- 一名普通的 Java 后端开发者，热爱学习
+- 目前在洛阳栖息，虽然处在一片互联网沙漠，却心存妄想，想要在这片土地上开垦出一片属于自己的田地
+- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望自己的分享去帮助到小伙伴们
+- Java 程序员进阶之路，不仅是我自学 Java 以来所有的原创文章和学习资料的大聚合，更是我向这个世界传播知识的一个窗口。
+
+## 心路历程
+
+- [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
+- [273 块钱购入的域名，值了！](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
+- [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
+- [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
+
+## 联系方式
 
 - **技术交流群**
 
@@ -273,30 +363,22 @@
 
 - **原创公众号**
 
-    本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有近 10 万读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注我了。
+    本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有 10 万+读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注作者了。
     
     <div align="left">
         <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongzhonghao.png" width="260px">
     </div>
 
-    回复关键字「**03**」可以下载《Java 程序员进阶之路》专栏的离线 PDF 版本（暗黑版和亮白版）。
+    关注后，回复关键字「**00**」可以获取更多优质的 Java 学习资料。
     
     
 - **star 趋势图**
 
 [![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
 
+- **捐赠鼓励**
 
-
-# :muscle: 参与贡献
-
-1. 如果你对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
-2. 对于文中我没有涉及到知识点，欢迎提交 PR。
-
-
-# :gift: Donate
-
-开源不易，如果《Java 程序员进阶之路》专栏对你有些帮助，可以请二哥喝杯咖啡，算是对开源做出的一点点鼓励吧！
+开源不易，如果《Java 程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
     <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/weixin-zhifu.png" width="260px">
@@ -318,3 +400,13 @@
 2021-08-02|*秒|1 元
 2021-06-13|*7| 28 元
 2021-04-29|pebble|2 元
+
+
+
+- **参与贡献**
+
+1. 如果你对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
+2. 对于文中我没有涉及到知识点，欢迎提交 PR。
+
+
+
