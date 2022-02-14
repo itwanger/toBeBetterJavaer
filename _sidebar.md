@@ -133,6 +133,7 @@
 			- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
 			- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
 			- [再见丑陋的SwaggerUI，这款开源的API文档生成神器 knife4j 界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
+			- [取代 Mybatis Generator，这款代码生成神器配置更简单，开发效率更高！](docs/kaiyuan/auto-generator.md)
 		* [问题解析](README.md?id=问题解析)
 			- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
 			- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
