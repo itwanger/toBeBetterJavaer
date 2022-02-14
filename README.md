@@ -300,6 +300,14 @@
 
 # 数据库
 
+## Redis
+
+> [!ATTENTION]
+>  Redis（Remote Dictionary Server )，即远程字典服务，是一个用 C语言编写的，支持网络、可基于内存和可持久化日志的键值对数据库。
+
+
+
+
 # 计算机基础
 
 
@@ -318,6 +326,11 @@
 - [Java 并发编程八股文（背诵版）](docs/baguwen/java-thread.md)
 - [Java 虚拟机八股文（背诵版）](docs/baguwen/jvm.md)
 
+## 面试经验
+
+- [上岸杭州阿里云](docs/mianjing/shanganaliyun.md)
+- [面试官：看你简历上写了Redis，请回答一下这 12 个问题](docs/mianjing/redis12question.md)
+
 ## 城市选择
 
 - [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
@@ -328,6 +341,8 @@
 - [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
 - [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 - [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
+
+
 
 # 学习资源
 
@@ -342,6 +357,11 @@
 - [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
 - [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
 - [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
+- [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
+
+## 闲聊唠嗑
+
+- [大学计算机系最努力的同学都是如何学习的？](docs/xianliaolaoke/daxue-nuli-jisuanji.md)
 
 # 联系作者
 
