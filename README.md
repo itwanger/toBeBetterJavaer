@@ -234,13 +234,11 @@
 > [!ATTENTION]
 >  一些优质的开源工具，可替代付费工具。
 
-- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
 - [再见Postman！推荐一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
 - [再见了VMware，推荐一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
 - [再见了Swagger，推荐七款可以替代的在线文档生成神器](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
 - [干掉visio，这款在线的画图神器 drwa.io 真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
-- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
-- [再见丑陋的SwaggerUI，这款开源的API文档生成神器 knife4j 界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
+
 
 ## 框架篇
 
@@ -282,6 +280,10 @@
 - [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
 - [SpringBoot 实现 Excel 导入导出，性能爆表，用起来够优雅！](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
 - [推荐2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
+- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
+- [再见丑陋的SwaggerUI，这款开源的API文档生成神器 knife4j 界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
+- [取代 Mybatis Generator，这款代码生成神器配置更简单，开发效率更高！](docs/kaiyuan/auto-generator.md)
 
 ### 问题解析
 
