@@ -162,7 +162,7 @@
 		- [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
 		- [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 		- [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
-		- [杭州有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
+		- [杭州有哪些顶级的互联网公司？](docs/cityselect/hangzhou.md)
 * [学习资源](README.md?id=学习资源)
 * [程序人生](README.md?id=程序人生)
 	* [码农生活](README.md?id=码农生活)
