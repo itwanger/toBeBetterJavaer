@@ -232,13 +232,15 @@
 ### 辅助工具
 
 > [!ATTENTION]
->  一些优质的开源工具，可替代付费工具。
+>  一些可以提高工作效率的工具，甚至可以替代付费工具。
 
 - [再见Postman！推荐一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
 - [再见了VMware，推荐一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
 - [再见了Swagger，推荐七款可以替代的在线文档生成神器](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
 - [干掉visio，这款在线的画图神器 drwa.io 真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
-
+- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
+- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
+- [再见收费的Navicat！操作所有数据库就靠它了！](docs/gongju/DBeaver.md)
 
 ## 框架篇
 
@@ -279,9 +281,6 @@
 
 - [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
 - [SpringBoot 实现 Excel 导入导出，性能爆表，用起来够优雅！](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
-- [推荐2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
-- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
-- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
 - [再见丑陋的SwaggerUI，这款开源的API文档生成神器 knife4j 界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
 - [取代 Mybatis Generator，这款代码生成神器配置更简单，开发效率更高！](docs/kaiyuan/auto-generator.md)
 
@@ -346,6 +345,22 @@
 
 # 学习资源
 
+> [!ATTENTION]
+>  **这里会推荐一些优质的简历模板、技术手册、硬核 PDF、在线教程和在线教学视频，帮助大家在学习的道路上少走一些弯路**。
+
+## 资料下载
+
+## 资源推荐
+
+> [!ATTENTION]
+>  **有 GitHub、码云、B 站、Coursera、个人博客、知识库网站上公开的免费课程，也有极客时间上付费专栏，慕课上的教学视频等**。
+
+### 在线教程
+
+### 在线教学视频
+
+- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+
 # 程序人生
 
 > [!ATTENTION]
@@ -358,6 +373,7 @@
 - [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
 - [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
 - [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
+- [研究所月入两万，是什么体验？](docs/manongshenghuo/yanjiusuo-20wan.md)
 
 ## 闲聊唠嗑
 
