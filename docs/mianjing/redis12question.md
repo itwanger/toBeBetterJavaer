@@ -155,3 +155,8 @@ B |5001 - 10000
 C |10001 - 16383
 
 这样就实现了 cluster 节点的选择。
+
+----
+
+文章来源于JAVA日知录 ，作者飘渺Jam
+链接：https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w
