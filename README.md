@@ -405,7 +405,7 @@
     本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有 10 万+读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注作者了。
     
     <div align="left">
-        <img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongzhonghao.png" width="260px">
+        <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/codingmore/banner/gongzhonghao.png" width="260px">
     </div>
 
     关注后，回复关键字「**00**」可以获取更多优质的 Java 学习资料。
