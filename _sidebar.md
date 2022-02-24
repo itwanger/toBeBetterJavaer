@@ -123,7 +123,6 @@
 			- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
 			- [Spring Boot 3.0 M1 发布，正式弃用 Java 8](https://mp.weixin.qq.com/s/FmRyF6RcCodb8vUBem8dAA)
 			- [Spring Boot AOP 扫盲，实现接口访问的统一日志记录](docs/springboot/aop-log.md)
-			- [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
 	* [安全篇](README.md?id=安全篇)
 	* [分布式](README.md?id=分布式)
 	* [高性能](README.md?id=高性能)
