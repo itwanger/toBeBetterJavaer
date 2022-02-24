@@ -422,7 +422,7 @@
 开源不易，如果《Java 程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
+    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。
