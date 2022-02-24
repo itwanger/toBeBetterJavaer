@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
+    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
   </a>
 </p>
 
