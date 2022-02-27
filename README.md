@@ -37,7 +37,7 @@
 
 # 知识库地图
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+![](https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 # Java基础
 
