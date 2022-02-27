@@ -164,6 +164,7 @@
 ### Java虚拟机
 
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
+- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
 
 
 
@@ -303,7 +304,12 @@
 >  Redis（Remote Dictionary Server )，即远程字典服务，是一个用 C语言编写的，支持网络、可基于内存和可持久化日志的键值对数据库。
 
 
+## MySQL
 
+> [!ATTENTION]
+>  MySQL 由于性能高、成本低、可靠性好，已经成为最流行的关系型数据库，一般中小型网站的开发都选择 MySQL 作为网站数据库。
+
+- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
 
 # 计算机基础
 
