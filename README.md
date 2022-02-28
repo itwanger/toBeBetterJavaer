@@ -162,6 +162,9 @@
 
 #### 面渣逆袭
 
+> [!ATTENTION]
+>  图文详解六十道Java并发面试高频题，整理：沉默王二，作者：三分恶，戳[链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)直达原文。
+
 - [并行跟并发有什么区别？](docs/thread/sanfene/bingxing-bingfa.md)
 - [什么是进程和线程？](docs/thread/sanfene/jincheng-xiancheng.md)
 - [线程有几种创建方式？](docs/thread/sanfene/create-thread-way.md)
