@@ -83,7 +83,7 @@
 	* [进阶篇](README.md?id=进阶篇)
 		* [Java并发编程](README.md?id=Java并发编程)
 			- [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
-			- [为什么阿里要禁用Executors创建线程池？](https://mp.weixin.qq.com/s/dd_IPt7lQQeIMH7YTdgLIw)
+			- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
 			- [60张手绘图，一举拿下Java并发！](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)
 		* [Java虚拟机](README.md?id=Java虚拟机)
 			- [JVM 是什么？](docs/jvm/what-is-jvm.md)
