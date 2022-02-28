@@ -360,6 +360,8 @@
 > [!ATTENTION]
 >  Redis（Remote Dictionary Server )，即远程字典服务，是一个用 C语言编写的，支持网络、可基于内存和可持久化日志的键值对数据库。
 
+- [面试官：看你简历上写了Redis，请回答一下这 12 个问题](docs/mianjing/redis12question.md)
+
 
 ## MySQL
 
@@ -388,7 +390,7 @@
 ## 面试经验
 
 - [上岸杭州阿里云](docs/mianjing/shanganaliyun.md)
-- [面试官：看你简历上写了Redis，请回答一下这 12 个问题](docs/mianjing/redis12question.md)
+
 
 ## 城市选择
 
