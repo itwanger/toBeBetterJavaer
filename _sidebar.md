@@ -200,8 +200,6 @@
 			- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
 			- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
 			- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
-			- [西安一码通又崩了！难道又不小心回滚到上个版本？](https://mp.weixin.qq.com/s/TaFohrRetiCKEf7ZKESBaQ)
-			- [半月崩两次，从技术角度再来聊聊一码通](https://mp.weixin.qq.com/s/dKsneRKW7G9dvtr9NzefEA)
 			- [使用MQ的时候，怎么确保消息100%不丢失？](https://mp.weixin.qq.com/s/lJdYpH94qGm5Q0pkgfjHTQ)
 * [数据库](README.md?id=数据库)
 	* [MySQL](README.md?id=MySQL)
