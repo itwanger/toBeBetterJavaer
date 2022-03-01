@@ -309,6 +309,7 @@
 - [Spring Boot 3.0 M1 发布，正式弃用 Java 8](https://mp.weixin.qq.com/s/FmRyF6RcCodb8vUBem8dAA)
 - [Spring Boot AOP 扫盲，实现接口访问的统一日志记录](docs/springboot/aop-log.md)
 - [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
+- [没想到，Session竟然被一个叫JWT的家伙干掉了！](docs/springboot/jwt.md)
 
 
 
