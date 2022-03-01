@@ -460,7 +460,7 @@
 
 ## 联系方式
 
-- **技术交流群**
+### 技术交流群
 
     本群的宗旨是给大家提供一个良好的技术学习交流平台，所以杜绝一切广告！<br>由于微信群人满 100 之后无法加入，请先添加作者微信「qing_geee」（也可以扫描下方的二维码），备注：加群。
     
@@ -468,7 +468,7 @@
         <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/qing_geee.png" width="260px">
     </div>
 
-- **原创公众号**
+### 原创公众号
 
     本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有 10 万+读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注作者了。
     
@@ -479,17 +479,17 @@
     关注后，回复关键字「**00**」可以获取更多优质的 Java 学习资料。
     
     
-- **star 趋势图**
+### star 趋势图
 
 [![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
 
 
-- **友情链接**
+### 友情链接
 
 - [Hippo4J](https://github.com/acmenlt/dynamic-threadpool)，🔥 强大的动态线程池，附带监控报警功能（没有依赖中间件），完全遵循阿里巴巴编码规范。
 - [JavaGuide](https://github.com/Snailclimb/JavaGuide)，「Java学习+面试指南」一份涵盖大部分 Java 程序员所需要掌握的核心知识。准备 Java 面试，首选 JavaGuide！
 
-- **捐赠鼓励**
+### 捐赠鼓励
 
 开源不易，如果《Java 程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
@@ -516,7 +516,7 @@
 
 
 
-- **参与贡献**
+### 参与贡献
 
 1. 如果你对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
 2. 对于文中我没有涉及到知识点，欢迎提交 PR。
