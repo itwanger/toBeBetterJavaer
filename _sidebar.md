@@ -122,7 +122,7 @@
 				- [什么是线程池？](docs/thread/sanfene/thread-pool.md)
 				- [工作中用过线程池吗？](docs/thread/sanfene/thread-pool-yingyong.md)
 				- [线程池的工作流程了解吗？](docs/thread/sanfene/thread-pool-gongzuoliu.md)
-				- [线程池主要参数有哪些？](docs/thread/sanfene/thread-pool-args.m)
+				- [线程池主要参数有哪些？](docs/thread/sanfene/thread-pool-args.md)
 				- [线程池的拒绝策略有哪些？](docs/thread/sanfene/thread-pool-jujue-celue.md)
 				- [线程池有哪几种阻塞队列？](docs/thread/sanfene/thread-pool-queue.md)
 				- [线程池提交execute和submit有什么区别？](docs/thread/sanfene/thread-pool-execute-submit.md)
