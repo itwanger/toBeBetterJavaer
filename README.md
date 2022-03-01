@@ -39,6 +39,18 @@
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
+# 学习路线
+
+> [!tip]
+> 不止有 Java，还有 C语言、C++、Python、Go 语言、操作系统等学习路线。
+
+  * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
+  * [C语言学习路线](docs/xuexiluxian/c.md)
+  * [C++学习路线](docs/xuexiluxian/ccc.md)
+  * [Python学习路线](docs/xuexiluxian/python.md)
+  * [Go语言学习路线](docs/xuexiluxian/go.md)
+  * [操作系统学习路线](docs/xuexiluxian/os.md)
+
 # Java基础
 
 
@@ -200,21 +212,6 @@
 - [Semaphore（信号量）了解吗？](docs/thread/sanfene/semaphore.md)
 - [Exchanger 了解吗？](docs/thread/sanfene/exchanger.md)
 - [什么是线程池？](docs/thread/sanfene/thread-pool.md)
-- [工作中用过线程池吗？](docs/thread/sanfene/thread-pool-yingyong.md)
-- [线程池的工作流程了解吗？](docs/thread/sanfene/thread-pool-gongzuoliu.md)
-- [线程池主要参数有哪些？](docs/thread/sanfene/thread-pool-args.md)
-- [线程池的拒绝策略有哪些？](docs/thread/sanfene/thread-pool-jujue-celue.md)
-- [线程池有哪几种阻塞队列？](docs/thread/sanfene/thread-pool-queue.md)
-- [线程池提交execute和submit有什么区别？](docs/thread/sanfene/thread-pool-execute-submit.md)
-- [线程池怎么关闭？](docs/thread/sanfene/thread-pool-close.md)
-- [线程池的线程数应该怎么配置？](docs/thread/sanfene/thread-pool-size.md)
-- [有哪几种常见的线程池？](docs/thread/sanfene/thread-pool-changjian.md)
-- [线程池异常怎么处理知道吗？](docs/thread/sanfene/thread-pool-exception.md)
-- [线程池有几种状态？](docs/thread/sanfene/thread-pool-state.md)
-- [线程池如何实现参数的动态修改？](docs/thread/sanfene/thread-pool-args-modify.md)
-- [线程池调优了解吗？](docs/thread/sanfene/thread-pool-tiaoyou.md)
-- [你能设计实现一个线程池吗？](docs/thread/sanfene/thread-pool-sheji.md)
-- [单机线程池执行断电了应该怎么处理？](docs/thread/sanfene/thread-pool-shutdown.md)
 - [Fork/Join框架了解吗？](docs/thread/sanfene/fork-join.md)
 
 
