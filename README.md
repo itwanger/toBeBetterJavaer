@@ -41,7 +41,7 @@
 
 # 学习路线
 
-> [!tip]
+> [!TIP]
 > 不止有 Java，还有 C语言、C++、Python、Go 语言、操作系统等学习路线。
 
   * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
@@ -54,13 +54,30 @@
 # Java基础
 
 
-> [!ATTENTION]
+> [!TIP]
 >  - **Java 基础是非常重要的**！所谓基础不牢，地动山摇，很多初学者在初学阶段容易按捺不住，三天打鱼两天晒网，这就会导致后面的学习非常的吃力，所以我的建议是一定要肯花时间花精力把基础部分学扎实了，再开始学习后面的内容。
 >  - Java 基础部分可以分为基础篇和进阶篇，基础篇包括基础语法、面向对象、集合框架、异常处理，以及字符串和数组等等重要知识点；进阶篇包括 Java IO、Java 并发编程、Java 虚拟机等等。
 >  - 入门阶段，一定要多 coding，不要眼高手低，很多看起来会的知识可能真正实操起来就会出现各种各样的问题，那么只有通过多记多练才能迎刃而解。
 
 
 ## 基础篇
+
+### 面渣逆袭
+
+> [!ATTENTION]
+>  图文详解 53 道Java基础面试高频题，整理：沉默王二，作者：三分恶，戳[链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)直达原文。
+
+- [Java概述](docs/overview/sanfene/java-gaishu.md)
+- [基础语法](docs/overview/sanfene/basic-yufa.md)
+- [面向对象](docs/overview/sanfene/object.md)
+- [常用类](docs/overview/sanfene/useful-class.md)
+- [异常处理](docs/overview/sanfene/exception.md)
+- [IO](docs/overview/sanfene/io.md)
+- [序列化](docs/overview/sanfene/serializable.md)
+- [泛型](docs/overview/sanfene/generics.md)
+- [注解](docs/overview/sanfene/zhujie.md)
+- [反射](docs/overview/sanfene/fanshe.md)
+- [Java新特性](docs/overview/sanfene/news.md)
 
 
 ### Java概述
@@ -224,7 +241,7 @@
 
 # Java企业级开发
 
-> [!ATTENTION]
+> [!TIP]
 >  - **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭**！
 >  - Java 企业级开发这部分可以分为工具篇、框架篇、安全篇、分布式、高性能、高可用和实战篇等等。
 >  - 纸上得来终觉浅，须知此事要躬行。
@@ -373,7 +390,7 @@
 
 # 求职面试
 
-> [!ATTENTION]
+> [!TIP]
 >  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
 >  - 千淘万漉虽辛苦，吹尽狂沙始到金。
 
@@ -405,7 +422,7 @@
 
 # 学习资源
 
-> [!ATTENTION]
+> [!TIP]
 >  **这里会推荐一些优质的简历模板、技术手册、硬核 PDF、在线教程和在线教学视频，帮助大家在学习的道路上少走一些弯路**。
 
 ## 资料下载
@@ -423,7 +440,7 @@
 
 # 程序人生
 
-> [!ATTENTION]
+> [!TIP]
 >  **程序员的人生不仅有代码，还有诗和远方**。br><br>
 >  人间烟火味，最抚凡人心。
 
