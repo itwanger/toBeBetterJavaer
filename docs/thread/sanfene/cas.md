@@ -40,3 +40,6 @@ CAS 保证的是对一个变量执行操作的原子性，如果对多个变量�
 
 *   可以考虑改用锁来保证操作的原子性
 *   可以考虑合并多个变量，将多个变量封装成一个对象，通过AtomicReference来保证原子性。
+
+> [!ATTENTION]
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。

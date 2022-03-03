@@ -12,3 +12,7 @@ CyclicBarrier面向的是线程数|	CountDownLatch面向的是任务数
 在使用CyclicBarrier时，你必须在构造中指定参与协作的线程数，这些线程必须调用await()方法	|使用CountDownLatch时，则必须要指定任务数，至于这些任务由哪些线程完成无关紧要
 CyclicBarrier可以在所有的线程释放后重新使用|	CountDownLatch在计数器为0时不能再使用
 在CyclicBarrier中，如果某个线程遇到了中断、超时等问题时，则处于await的线程都会出现问题	|在CountDownLatch中，如果某个线程出现问题，其他线程不受影响
+
+
+> [!ATTENTION]
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。

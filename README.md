@@ -65,7 +65,7 @@
 ### 面渣逆袭
 
 > [!ATTENTION]
->  图文详解 53 道Java基础面试高频题，整理：沉默王二，作者：三分恶，戳[链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)直达原文。
+> 图文详解 53 道Java基础面试高频题，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 - [Java概述](docs/overview/sanfene/java-gaishu.md)
 - [基础语法](docs/overview/sanfene/basic-yufa.md)
@@ -192,7 +192,7 @@
 #### 面渣逆袭
 
 > [!ATTENTION]
->  图文详解六十道Java并发面试高频题，整理：沉默王二，作者：三分恶，戳[链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)直达原文。
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 - [并行跟并发有什么区别？](docs/thread/sanfene/bingxing-bingfa.md)
 - [什么是进程和线程？](docs/thread/sanfene/jincheng-xiancheng.md)
@@ -381,7 +381,24 @@
 > [!ATTENTION]
 >  MySQL 由于性能高、成本低、可靠性好，已经成为最流行的关系型数据库，一般中小型网站的开发都选择 MySQL 作为网站数据库。
 
+### 面渣逆袭
+
+> [!ATTENTION]
+>  60道精选 MySQL 高频面试题，整理：沉默王二，作者：herongwei，戳[链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)直达原文。
+
+- [基础篇](docs/mysql/herongwei/jichupian.md)
+- [索引篇](docs/mysql/herongwei/suoyinpian.md)
+- [日志篇](docs/mysql/herongwei/rizhipian.md)
+- [索引篇](docs/mysql/herongwei/suoyinpian.md)
+- [数据篇](docs/mysql/herongwei/shujupian.md)
+- [主从备份篇](docs/mysql/herongwei/zhucongbeifenpian.md)
+- [锁篇](docs/mysql/herongwei/suopian.md)
+- [其他篇](docs/mysql/herongwei/qitapian.md)
+
+
 - [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
+
+
 
 # 计算机基础
 
@@ -449,6 +466,7 @@
 - [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
 - [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
 - [研究所月入两万，是什么体验？](docs/manongshenghuo/yanjiusuo-20wan.md)
+- [裸辞全职做外包一个月的感受](docs/manongshenghuo/waibao-1geyue.md)
 
 ## 闲聊唠嗑
 

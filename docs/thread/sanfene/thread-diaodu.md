@@ -42,3 +42,5 @@ Java 中的线程中断是一种线程间的协作模式，通过设置线程的
 *   boolean isInterrupted() 方法：检测当前线程是否被中断。
 *   boolean interrupted() 方法：检测当前线程是否被中断，与 isInterrupted 不同的是，该方法如果发现当前线程被中断，则会清除中断标志。
 
+> [!ATTENTION]
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。

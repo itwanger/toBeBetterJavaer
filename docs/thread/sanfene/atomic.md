@@ -40,3 +40,6 @@ Atomic包里的类基本都是使用Unsafe实现的包装类。
 *   AtomicIntegerFieldUpdater：原子更新整型的字段的更新器。
 *   AtomicLongFieldUpdater：原子更新长整型字段的更新器。
 *   AtomicStampedReference：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于原子的更新数据和数据的版本号，可以解决使用CAS进行原子更新时可能出现的 ABA问题。
+
+> [!ATTENTION]
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。

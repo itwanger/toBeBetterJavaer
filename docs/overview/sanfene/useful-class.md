@@ -244,3 +244,6 @@ Object 类是一个特殊的类，是所有类的父类，也就是说所有类�
 **垃圾回收：**
 
 - protected void finalize() throws Throwable ：通知垃圾收集器回收对象。
+
+
+> 图文详解 53 道Java基础面试高频题，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
