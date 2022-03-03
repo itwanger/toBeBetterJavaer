@@ -387,7 +387,8 @@
 ### 面渣逆袭MySQL
 
 > [!ATTENTION]
->  60道精选 MySQL 高频面试题，整理：沉默王二，作者：herongwei，戳[链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)直达原文。
+> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。
+
 
 - [基础篇](docs/mysql/herongwei/jichupian.md)
 - [索引篇](docs/mysql/herongwei/suoyinpian.md)
