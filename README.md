@@ -62,7 +62,7 @@
 
 ## 基础篇
 
-### 面渣逆袭
+### 面渣逆袭Java基础
 
 > [!ATTENTION]
 > 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
@@ -189,7 +189,7 @@
 - [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
 
-#### 面渣逆袭
+#### 面渣逆袭Java并发
 
 > [!ATTENTION]
 >  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
@@ -381,7 +381,10 @@
 > [!ATTENTION]
 >  MySQL 由于性能高、成本低、可靠性好，已经成为最流行的关系型数据库，一般中小型网站的开发都选择 MySQL 作为网站数据库。
 
-### 面渣逆袭
+- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
+- [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
+
+### 面渣逆袭MySQL
 
 > [!ATTENTION]
 >  60道精选 MySQL 高频面试题，整理：沉默王二，作者：herongwei，戳[链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)直达原文。
@@ -396,7 +399,6 @@
 - [其他篇](docs/mysql/herongwei/qitapian.md)
 
 
-- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
 
 
 
