@@ -22,3 +22,6 @@ i = i + 1;
 - 原子性：JMM只能保证基本的原子性，如果要保证一个代码块的原子性，需要使用synchronized。
 - 可见性：Java是利用volatile关键字来保证可见性的，除此之外，final和synchronized也能保证可见性。
 - 有序性：synchronized或者volatile都可以保证多线程之间操作的有序性。
+
+> [!ATTENTION]
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。

@@ -25,3 +25,7 @@ AQS 中的 CLH 变体等待队列拥有以下特性：
 *   通过 Head、Tail 头尾两个节点来组成队列结构，通过 volatile 修饰保证可见性
 *   Head 指向节点为已获得锁的节点，是一个虚拟节点，节点本身不持有具体线程
 *   获取不到同步状态，会将节点进行自旋获取锁，自旋一定次数失败后会将线程阻塞，相对于 CLH 队列性能较好
+
+
+> [!ATTENTION]
+>  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
