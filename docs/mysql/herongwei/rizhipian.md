@@ -184,3 +184,5 @@ redo log buffer (内存中)是由首尾相连的四个文件组成的，它们�
 - Free Space：页中尚未使用的部分，大小不固定。
 - Page Directory：页中某些记录的相对位置，也就是各个槽对应的记录在页面中的地址偏移量。
 - File Trailer：用于检验页是否完整，占固定大小 8 字节。
+
+> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。

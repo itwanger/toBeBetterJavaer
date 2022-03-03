@@ -75,3 +75,5 @@ kill 不掉的原因
 ### 36、如果数据库误操作, 如何执行数据恢复?
 
 数据库在某个时候误操作，就可以找到距离误操作最近的时间节点的bin log，重放到临时数据库里，然后选择误删的数据节点，恢复到线上数据库。
+
+> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。

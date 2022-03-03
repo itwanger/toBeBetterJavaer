@@ -23,3 +23,5 @@ Server 层按顺序执行 SQL 的步骤为：
 - 分析器（对 SQL 进行词法分析和语法分析操作）
 - 优化器（主要对执行的 SQL 优化选择最优的执行方案方法）
 - 执行器（执行时会先看用户是否有执行权限，有才去使用这个引擎提供的接口）-> 去引擎层获取数据返回（如果开启查询缓存则会缓存查询结果）
+
+> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。

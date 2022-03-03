@@ -61,3 +61,5 @@
 **MySQL 内部维护了一个全局变量 global_query_id，每次执行语句（包括select语句）的时候将它赋值给 Query_id，然后给这个变量加 1。如果当前语句是这个事务执行的第一条语句，那么 MySQL 还会同时把 Query_id 赋值给这个事务的 Xid。**
 
 而 global_query_id 是一个纯内存变量，重启之后就清零了。所以你就知道了，在同一个数据库实例中，不同事务的 Xid 也是有可能相同的。但是 MySQL 重启之后会重新生成新的 binlog 文件，这就保证了，同一个 binlog 文件里，Xid 一定是惟一的。
+
+> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。

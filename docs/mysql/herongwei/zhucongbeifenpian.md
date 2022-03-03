@@ -64,3 +64,5 @@ MySQL 主备切换流程：
 - 在执行show processlist的结果里，看到了几千个连接，指的是并发连接。而"当前正在执行"的语句，才是并发查询。
 - 并发连接数多影响的是内存，并发查询太高对CPU不利。一个机器的CPU核数有限，线程全冲进来，上下文切换的成本就会太高。
 - 所以需要设置参数：innodb_thread_concurrency 用来限制线程数，当线程数达到该参数，InnoDB就会认为线程数用完了，会阻止其他语句进入引擎执行。
+
+> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。
