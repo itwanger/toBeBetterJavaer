@@ -490,6 +490,7 @@
 - [273 块钱购入的域名，值了！](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
 - [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
 - [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
+- [图片外链转GitHub+jsdelivr！](docs/szjy/tupian-zhuanlian.md)
 
 ## 联系方式
 
