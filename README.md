@@ -331,6 +331,26 @@
 
 ## 分布式
 
+### ZooKeeper
+
+> [!ATTENTION]
+>  ZooKeeper曾是Hadoop 的一个子项目，但现在是一个独立的顶级项目，为大型分布式计算提供开源的分布式配置服务、同步服务和命名注册。
+
+- [基本介绍](docs/zookeeper/jibenjieshao.md)
+- [数据模型](docs/zookeeper/shujumoxing.md)
+- [数据存储](docs/zookeeper/shujucunchu.md)
+- [Watch机制](docs/zookeeper/watch.md)
+- [会话机制](docs/zookeeper/huihuajizhi.md)
+- [ACL权限](docs/zookeeper/acl.md)
+- [序列化方式](docs/zookeeper/xuliehua.md)
+- [集群](docs/zookeeper/jiqun.md)
+- [ZAB协议](docs/zookeeper/zab.md)
+- [日志清理](docs/zookeeper/rizhiqingli.md)
+- [实现分布式锁](docs/zookeeper/fenbushisuo.md)
+- [实现分布式ID](docs/zookeeper/fenbushiid.md)
+- [实现负载均衡](docs/zookeeper/fuzaijunheng.md)
+- [开源框架使用案例](docs/zookeeper/shiyonganli.md)
+
 ## 高性能
 
 ### 消息队列
