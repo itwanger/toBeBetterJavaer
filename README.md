@@ -237,6 +237,15 @@
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
 - [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
 
+#### 面渣逆袭Java虚拟机
+
+> [!ATTENTION]
+>  图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+
+- [开胃菜 1 题](docs/jvm/sanfene/what-is-jvm.md)
+- [内存管理篇 30 题](docs/jvm/sanfene/neicunguanli.md)
+- [JVM 调优 10 题](docs/jvm/sanfene/jvm-tiaoyou.md)
+- [虚拟机执行 9 题](docs/jvm/sanfene/jvm-run.md)
 
 
 # Java企业级开发
@@ -358,8 +367,7 @@
 > [!ATTENTION]
 >  消息队列是一种异步的服务间通信方式，适用于无服务器和微服务架构，用于分离重量级处理、缓冲或批处理工作以及缓解高峰期工作负载。
 
-- [敢在简历上写精通消息队列，果然有一手！](https://mp.weixin.qq.com/s/UKWOyS90O6R_y1YEdF_JjQ)
-- [使用MQ的时候，怎么确保消息100%不丢失？](https://mp.weixin.qq.com/s/lJdYpH94qGm5Q0pkgfjHTQ)
+- [怎么确保消息 100% 不丢失？](docs/mq/100-budiushi.md)
 
 ## 高可用
 
@@ -440,6 +448,7 @@
 - [HashMap 精选面试题](docs/collection/hashmap-interview.md)
 - [Java 并发编程八股文（背诵版）](docs/baguwen/java-thread.md)
 - [Java 虚拟机八股文（背诵版）](docs/baguwen/jvm.md)
+- [Redis 八股文（12 道精选）](docs/mianjing/redis12question.md)
 
 ## 面试经验
 
