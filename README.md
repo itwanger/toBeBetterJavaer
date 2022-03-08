@@ -363,6 +363,7 @@
 - [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
 - [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
 - [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [两天两夜，1M图片优化到100kb！](docs/shigu/image-yasuo.md)
 
 
 
