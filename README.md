@@ -453,6 +453,7 @@
 ## 面试经验
 
 - [上岸杭州阿里云](docs/mianjing/shanganaliyun.md)
+- [简历优化、投递策略和面试攻略](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
 
 
 ## 城市选择

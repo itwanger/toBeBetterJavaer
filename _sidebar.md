@@ -245,6 +245,7 @@
 		- [Redis 八股文（12 道精选）](docs/mianjing/redis12question.md)
 	* [面试经验](README.md?id=面试经验)
 		- [上岸杭州阿里云](docs/mianjing/shanganaliyun.md)
+		- [简历优化、投递策略和面试攻略](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
 	* [城市选择](README.md?id=城市选择)
 		- [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
 		- [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
