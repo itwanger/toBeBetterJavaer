@@ -7,5 +7,6 @@
   * [Python学习路线](docs/xuexiluxian/python.md)
   * [Go语言学习路线](docs/xuexiluxian/go.md)
   * [操作系统学习路线](docs/xuexiluxian/os.md)
+  * [前端学习路线](https://mp.weixin.qq.com/s/dRyovbU9Y5xKjVb-Tvs9lQ)
 
 
