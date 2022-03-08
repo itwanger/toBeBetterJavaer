@@ -450,9 +450,12 @@
 > [!ATTENTION]
 >  **有 GitHub、码云、B 站、Coursera、个人博客、知识库网站上公开的免费课程，也有极客时间上付费专栏，慕课上的教学视频等**。
 
-### 在线教程
+### 在线图文教程
 
-### 在线教学视频
+- [Java 正则表达式详解](https://segmentfault.com/a/1190000009162306)
+- [Java 正则从入门到精通](https://dunwu.github.io/javacore/advanced/java-regex.html)
+
+### 在线视频教程
 
 - [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
 
