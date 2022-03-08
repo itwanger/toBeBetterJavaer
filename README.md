@@ -37,7 +37,7 @@
 
 # 知识库地图
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+![](https://img-blog.csdnimg.cn/7fa7cbd99d6449288f4e75cb7d771ec4.png)
 
 # 学习路线
 
