@@ -495,6 +495,7 @@
 - [Java 正则从入门到精通](https://dunwu.github.io/javacore/advanced/java-regex.html)
 - [GitHub 上优质的 Java 知识总结项](https://mp.weixin.qq.com/s/-lQ2PTEO4F2d92GDDxKVpw)
 - [处于萌芽阶段的 Java 核心知识库](https://mp.weixin.qq.com/s/_Q7lopxM1sJtMA-NOE_v3A)
+- [大数据入门指南 ](https://github.com/heibaiying/BigData-Notes)
 
 
 ### 在线视频教程
