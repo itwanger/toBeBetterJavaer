@@ -1,4 +1,4 @@
-# To Be Better Javaer，Java 程序员进阶之路 - 通俗易懂、风趣幽默
+<a href="https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw" target="_blank">👉 我整理汇总了 10 本优质的 Java 面试相关的 PDF（质量很高！不要再看网上的那些东拼西凑的垃圾面试题了！），点击下载，希望对需要的小伙伴有帮助！</a>
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
@@ -15,34 +15,40 @@
   </a>
 </p>
 
->Java 程序员进阶之路，据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。学 Java，就认准 Java 程序员进阶之路😄。
-
-<a href="https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw" target="_blank">👉 我整理汇总了 10 本优质的 Java 面试相关的 PDF（质量很高！不要再看网上的那些东拼西凑的垃圾面试题了！），点击下载，希望对需要的小伙伴有帮助！</a>
-
 
 # 为什么会有这个开源知识库
 
-> [!TIP]
->  本站取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。
+> [!NOTE]
+>  知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java 程序员进阶之路😄。
 >  
->  旨在为学习 Java 的小伙伴提供一系列：
+>  知识库旨在为学习 Java 的小伙伴提供一系列：
 >  - **优质的原创 Java 教程**
 >  - **全面清晰的 Java 学习路线**
 >  - **免费但靠谱的 Java 学习资料**
 >  - **精选的 Java 岗求职面试指南**
->  - **Java 企业级开发所需的高效工具**
+>  - **Java 企业级开发所需的必备技术**
 >
 > 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！
+>
+> **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
+> 
+> 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
+> 
+> - [Java 程序员进阶之路在线阅读网站（docsify 版）](https://tobebetterjavaer.com/)
 
 
 # 知识库地图
 
+> [!NOTE]
+>  知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
+
 ![](https://img-blog.csdnimg.cn/7fa7cbd99d6449288f4e75cb7d771ec4.png)
+
 
 # 学习路线
 
-> [!TIP]
-> 不止有 Java，还有 C语言、C++、Python、Go 语言、操作系统等学习路线。
+> [!NOTE]
+> 除了 Java 的学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等学习路线，可能你正好需要。
 
   * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
   * [C语言学习路线](docs/xuexiluxian/c.md)
@@ -52,35 +58,17 @@
   * [操作系统学习路线](docs/xuexiluxian/os.md)
   * [前端学习路线](https://mp.weixin.qq.com/s/dRyovbU9Y5xKjVb-Tvs9lQ)
 
-# Java核心
+# Java核心（必看:+1:）
 
-> [!TIP]
->  - **Java核心是非常重要的**！所谓基础不牢，地动山摇，很多初学者在初学阶段容易按捺不住，三天打鱼两天晒网，这就会导致后面的学习非常的吃力，所以我的建议是一定要肯花时间花精力把基础部分学扎实了，再开始学习后面的内容。
->  - Java 基础部分可以分为基础篇和进阶篇，基础篇包括基础语法、面向对象、集合框架、异常处理，以及字符串和数组等等重要知识点；进阶篇包括 Java IO、Java 并发编程、Java 虚拟机等等。
->  - 入门阶段，一定要多 coding，不要眼高手低，很多看起来会的知识可能真正实操起来就会出现各种各样的问题，那么只有通过多记多练才能迎刃而解。
+> [!NOTE]
+>  - **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
 
+- [面渣逆袭（Java 基础篇）](docs/sidebar/sanfene/javase.md)
+- [面渣逆袭（Java 集合框架篇）](docs/sidebar/sanfene/collection.md)
+- [面渣逆袭（Java 并发编程篇）](docs/sidebar/sanfene/javathread.md)
+- [面渣逆袭（Java 虚拟机篇）](docs/sidebar/sanfene/jvm.md)
 
-## 基础篇
-
-### 面渣逆袭Java基础
-
-> [!ATTENTION]
-> 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
-
-- [Java概述](docs/overview/sanfene/java-gaishu.md)
-- [基础语法](docs/overview/sanfene/basic-yufa.md)
-- [面向对象](docs/overview/sanfene/object.md)
-- [常用类](docs/overview/sanfene/useful-class.md)
-- [异常处理](docs/overview/sanfene/exception.md)
-- [IO](docs/overview/sanfene/io.md)
-- [序列化](docs/overview/sanfene/serializable.md)
-- [泛型](docs/overview/sanfene/generics.md)
-- [注解](docs/overview/sanfene/zhujie.md)
-- [反射](docs/overview/sanfene/fanshe.md)
-- [Java新特性](docs/overview/sanfene/news.md)
-
-
-### Java概述
+## Java概述
 
 - [什么是 Java？](docs/overview/what-is-java.md)
 - [Java 的发展简史](docs/overview/java-history.md)
@@ -90,14 +78,14 @@
 - [第一个 Java 程序：Hello World](docs/overview/hello-world.md)
 
 
-### Java基础语法
+## Java基础语法
 
 - [基本数据类型](docs/basic-grammar/basic-data-type.md)
 - [流程控制](docs/basic-grammar/flow-control.md)
 - [运算符](docs/basic-grammar/operator.md)
 - [注释](docs/basic-grammar/javadoc.md)
 
-### 面向对象
+## 面向对象
 
 - [什么是对象？什么是类](docs/oo/object-class.md)
 - [变量](docs/oo/var.md)
@@ -117,7 +105,7 @@
 - [枚举](docs/basic-extra-meal/enum.md)
 - [反射](docs/basic-extra-meal/fanshe.md)
 
-### 字符串String
+## 字符串String
 
 - [String 为什么是不可变的？](docs/string/immutable.md)
 - [字符串常量池](docs/string/constant-pool.md)
@@ -126,12 +114,12 @@
 - [如何拼接字符串？](docs/string/join.md)
 - [如何拆分字符串？](docs/string/split.md)
 
-### 数组
+## 数组
 
 - [什么是数组？](docs/array/array.md)
 - [如何打印数组？](docs/array/print.md)
 
-### 集合框架（容器）
+## 集合框架（容器）
 
 - [Java 中的集合框架该如何分类？](docs/collection/gailan.md)
 - [简单介绍下时间复杂度](docs/collection/big-o.md)
@@ -147,7 +135,7 @@
 - [为什么 HashMap 是线程不安全的？](docs/collection/hashmap-thread-nosafe.md)
 
 
-### 异常处理
+## 异常处理
 
 - [聊聊异常处理机制](docs/exception/gailan.md)
 - [关于 try-catch-finally](docs/exception/try-catch-finally.md)
@@ -155,20 +143,20 @@
 - [关于 try-with-resouces](docs/exception/try-with-resouces.md)
 - [异常处理机制到底该怎么用？](docs/exception/shijian.md)
 
-### 常用工具类
+## 常用工具类
 
 - [数组工具类：Arrays](docs/common-tool/arrays.md)
 - [集合工具类：Collections](docs/common-tool/collections.md)
 - [简化每一行代码工具类：Hutool](docs/common-tool/hutool.md)
 - [Guava，拯救垃圾代码，效率提升N倍](docs/common-tool/guava.md)
 
-### Java8新特性
+## Java8新特性
 
 - [入门Java Stream流](https://mp.weixin.qq.com/s/7hNUjjmqKcHDtymsfG_Gtw)
 - [Java 8 Optional 最佳指南](https://mp.weixin.qq.com/s/PqK0KNVHyoEtZDtp5odocA)
 - [Lambda 表达式入门](https://mp.weixin.qq.com/s/ozr0jYHIc12WSTmmd_vEjw)
 
-### 重要知识点
+## Java重要知识点
 
 - [Java 中常用的 48 个关键字](docs/basic-extra-meal/48-keywords.md)
 - [Java 命名的注意事项](docs/basic-extra-meal/java-naming.md)
@@ -189,12 +177,7 @@
 - [空指针的传说](https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg)
 
 
-## 进阶篇
-
-> [!ATTENTION]
->  如果你想成为一名高质量的 Java 程序员，那么 Java 并发编程和 Java 虚拟机是必须要熟练掌握的！
-
-### Java并发编程
+## Java并发编程
 
 - [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
@@ -204,50 +187,8 @@
 - [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
 - [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
 
-#### 面渣逆袭Java并发
 
-> [!ATTENTION]
->  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
-
-- [并行跟并发有什么区别？](docs/thread/sanfene/bingxing-bingfa.md)
-- [什么是进程和线程？](docs/thread/sanfene/jincheng-xiancheng.md)
-- [线程有几种创建方式？](docs/thread/sanfene/create-thread-way.md)
-- [为什么调用start方法时不直接调用run方法?](docs/thread/sanfene/start-run.md)
-- [线程有哪些常用的调度方法？](docs/thread/sanfene/thread-diaodu.md)
-- [线程有几种状态？](docs/thread/sanfene/thread-zhaungtai.md)
-- [什么是线程上下文切换？](docs/thread/sanfene/thread-shangxiawen-qiehuan.md)
-- [什么是守护线程？](docs/thread/sanfene/daemon-thread.md)
-- [线程间有哪些通信方式？](docs/thread/sanfene/tongxin-way.md)
-- [ThreadLocal是什么？](docs/thread/sanfene/threadlocal.md)
-- [ThreadLocalMap了解吗？](docs/thread/sanfene/threadlocal-map.md)
-- [父子线程怎么共享数据？](docs/thread/sanfene/fuzi-thread-share-data.md)
-- [Java内存模型（JMM）了解吗？](docs/thread/sanfene/jmm.md)
-- [原子性、可见性、有序性了解吗？](docs/thread/sanfene/yuanzi-kejian-youxu.md)
-- [什么是指令重排？](docs/thread/sanfene/zhiling-chongpai.md)
-- [happens-before了解吗？](docs/thread/sanfene/happens-before.md)
-- [as-if-serial了解吗？](docs/thread/sanfene/as-if-serial.md)
-- [volatile实现原理了解吗？](docs/thread/sanfene/volatile.md)
-- [掌握synchronized吗？](docs/thread/sanfene/synchronized.md)
-- [synchronized优化了解吗？](docs/thread/sanfene/synchronized-youhua.md)
-- [说说synchronized和ReentrantLock的区别？](docs/thread/sanfene/synchronized-reentrantlock.md)
-- [ReentrantLock的实现原理了解吗？](docs/thread/sanfene/reentrantlock-yuanli.md)
-- [ReentrantLock怎么实现公平锁的？](docs/thread/sanfene/reentrantlock-gongpingsuo.md)
-- [AQS了解多少？](docs/thread/sanfene/aqs.md)
-- [CAS了解多少？](docs/thread/sanfene/cas.md)
-- [Java有哪些保证原子性的方法？](docs/thread/sanfene/yuanzi-method.md)
-- [原子操作类Atomic了解多少？](docs/thread/sanfene/atomic.md)
-- [AtomicInteger的原理了解吗？](docs/thread/sanfene/atomicInteger.md)
-- [线程死锁了解吗？](docs/thread/sanfene/sisuo.md)
-- [CountDownLatch（倒计数器）了解吗？](docs/thread/sanfene/CountDownLatch.md)
-- [CyclicBarrier（同步屏障）了解吗？](docs/thread/sanfene/cyclicBarrier.md)
-- [CyclicBarrier和CountDownLatch有什么区别？](docs/thread/sanfene/countDownLatch-cyclicBarrier.md)
-- [Semaphore（信号量）了解吗？](docs/thread/sanfene/semaphore.md)
-- [Exchanger 了解吗？](docs/thread/sanfene/exchanger.md)
-- [什么是线程池？](docs/thread/sanfene/thread-pool.md)
-- [Fork/Join框架了解吗？](docs/thread/sanfene/fork-join.md)
-
-
-### Java虚拟机
+## Java虚拟机
 
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
 - [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
@@ -258,30 +199,19 @@
 - [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
 - [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
 
-#### 面渣逆袭Java虚拟机
-
-> [!ATTENTION]
->  图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
-
-- [开胃菜 1 题](docs/jvm/sanfene/what-is-jvm.md)
-- [内存管理篇 30 题](docs/jvm/sanfene/neicunguanli.md)
-- [JVM 调优 10 题](docs/jvm/sanfene/jvm-tiaoyou.md)
-- [虚拟机执行 9 题](docs/jvm/sanfene/jvm-run.md)
-
 
 # Java企业级开发
 
-> [!TIP]
+> [!NOTE]
 >  - **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭**！
 >  - Java 企业级开发这部分可以分为工具篇、框架篇、安全篇、分布式、高性能、高可用和实战篇等等。
 >  - 纸上得来终觉浅，须知此事要躬行。
-
 
 ## 基建篇
 
 ### Maven
 
-> [!ATTENTION]
+> [!TIP]
 >  Maven 是一个项目管理工具，可以对 Java 项目进行构建、依赖管理。
 
 - [手把手教你安装、配置、使用 Maven](docs/maven/maven.md)
@@ -290,7 +220,7 @@
 
 ### Git
 
-> [!ATTENTION]
+> [!TIP]
 >  Git 是 Linus Torvalds 为了帮助管理 Linux 内核而开发的一个开源的版本控制软件，绝大多数项目源码和文档都会采用 Git 来进行版本控制。
 
 - [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
@@ -305,14 +235,14 @@
 
 ### Nginx
 
-> [!ATTENTION]
+> [!TIP]
 >  Nginx是一款轻量级的 Web 服务器/反向代理服务器，占有内存少，并发能力强。
 
 - [Nginx 入门教程，敲简单，10 分钟搞定](docs/nginx/nginx.md)
 
 ### 日志服务
 
-> [!ATTENTION]
+> [!TIP]
 >  日志是生产环境不可缺少的产物，能够为线上服务提供快速记录、定位、排查问题的来源。
 
 - [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
@@ -325,7 +255,7 @@
 
 ### Intellij IDEA
 
-> [!ATTENTION]
+> [!TIP]
 >  业界公认的最好的 Java 基础开发环境。
 
 - [阅读源码必备的4个 IDEA 高级调试技巧](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
@@ -333,7 +263,7 @@
 
 ### 辅助工具
 
-> [!ATTENTION]
+> [!TIP]
 >  一些可以提高工作效率的工具，甚至可以替代付费工具。
 
 - [再见Postman！推荐一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
@@ -353,7 +283,7 @@
 
 ### SpringBoot
 
-> [!ATTENTION]
+> [!TIP]
 >  SpringBoot 不仅继承了Spring框架原有的优秀特性，而且还通过简化配置来进一步简化了Spring应用的整个搭建和开发过程。另外SpringBoot通过集成大量的框架使得依赖包的版本冲突，以及引用的不稳定性等问题得到了很好的解决。
 
 - [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
@@ -382,7 +312,7 @@
 
 ### ZooKeeper
 
-> [!ATTENTION]
+> [!TIP]
 >  ZooKeeper曾是Hadoop 的一个子项目，但现在是一个独立的顶级项目，为大型分布式计算提供开源的分布式配置服务、同步服务和命名注册。
 
 - [基本介绍](docs/zookeeper/jibenjieshao.md)
@@ -404,7 +334,7 @@
 
 ### 消息队列
 
-> [!ATTENTION]
+> [!TIP]
 >  消息队列是一种异步的服务间通信方式，适用于无服务器和微服务架构，用于分离重量级处理、缓冲或批处理工作以及缓解高峰期工作负载。
 
 - [怎么确保消息 100% 不丢失？](docs/mq/100-budiushi.md)
@@ -416,7 +346,7 @@
 
 ### 开源项目
 
-> [!ATTENTION]
+> [!TIP]
 >  GitHub 上、码云上一些高 star 的优质项目推荐，优质的轮子极大地提高了开发效率。
 
 - [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
@@ -427,7 +357,7 @@
 
 ### 问题解析
 
-> [!ATTENTION]
+> [!TIP]
 >  开发过程中遇到的一些典型问题，该如何解决？
 
 - [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
@@ -453,7 +383,7 @@
 
 ## Redis
 
-> [!ATTENTION]
+> [!TIP]
 >  Redis（Remote Dictionary Server )，即远程字典服务，是一个用 C语言编写的，支持网络、可基于内存和可持久化日志的键值对数据库。
 
 - [Redis入门](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)
@@ -461,26 +391,16 @@
 
 ## MySQL
 
-> [!ATTENTION]
+> [!TIP]
 >  MySQL 由于性能高、成本低、可靠性好，已经成为最流行的关系型数据库，一般中小型网站的开发都选择 MySQL 作为网站数据库。
+
+- [面渣逆袭（MySQL）](docs/sidebar/herongwei/mysql.md)
+
+### MySQL重要知识点
 
 - [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
 - [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
 
-### 面渣逆袭MySQL
-
-> [!ATTENTION]
-> 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。
-
-
-- [基础篇](docs/mysql/herongwei/jichupian.md)
-- [索引篇](docs/mysql/herongwei/suoyinpian.md)
-- [日志篇](docs/mysql/herongwei/rizhipian.md)
-- [索引篇](docs/mysql/herongwei/suoyinpian.md)
-- [数据篇](docs/mysql/herongwei/shujupian.md)
-- [主从备份篇](docs/mysql/herongwei/zhucongbeifenpian.md)
-- [锁篇](docs/mysql/herongwei/suopian.md)
-- [其他篇](docs/mysql/herongwei/qitapian.md)
 
 ## MongoDB
 
@@ -725,10 +645,10 @@
 - [如何优雅地向公司提加薪?](https://mp.weixin.qq.com/s/A7fD8Y0wDvg9byJRF2rg9Q)
 
 
-# 网站建设
+# 知识库建设
 
-> [!TIP]
->  **Java 程序员进阶之路/编程进阶网的搭建过程**。
+> [!NOTE]
+>  Java 程序员进阶之路知识库的搭建过程，包括服务器购置、域名购置、HTTPS配置、在线网站搭建等内容，手把手教你搭建一个属于自己的知识库。
 
 - [阿里云服务器上安装宝塔面板](https://mp.weixin.qq.com/s/ditN9J80rSWwnYRumwb4ww)
 - [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
@@ -741,7 +661,7 @@
 
 # 联系作者
 
-> [!TIP]
+> [!NOTE]
 >- 一名普通的 Java 后端开发者，热爱学习
 >- 目前在洛阳栖息，虽然处在一片互联网沙漠，却心存妄想，想要在这片土地上开垦出一片属于自己的田地
 >- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望自己的分享去帮助到小伙伴们

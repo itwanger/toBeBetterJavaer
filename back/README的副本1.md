@@ -52,10 +52,10 @@
 
 ### 面渣逆袭（必看:+1:）：
 
-- [面渣逆袭之 Java 基础 53 题](docs/sidebar/sanfene/javase.md)
-- [面渣逆袭之 Java 集合框架 53 题]()
-- [面渣逆袭之 Java 并发 60 题]()
-- [面渣逆袭之 Java 虚拟机 50 题]()
+- [面渣逆袭（Java 基础篇）](docs/sidebar/sanfene/javase.md)
+- [面渣逆袭（Java 集合框架篇）]()
+- [面渣逆袭（Java 并发编程篇）]()
+- [面渣逆袭（Java 虚拟机篇）]()
 
 
 ### Java基础
