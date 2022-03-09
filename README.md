@@ -58,15 +58,15 @@
   * [操作系统学习路线](docs/xuexiluxian/os.md)
   * [前端学习路线](https://mp.weixin.qq.com/s/dRyovbU9Y5xKjVb-Tvs9lQ)
 
-# Java核心（必看:+1:）
+# Java核心
 
 > [!NOTE]
 >  - **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
 
-- [面渣逆袭（Java 基础篇）](docs/sidebar/sanfene/javase.md)
-- [面渣逆袭（Java 集合框架篇）](docs/sidebar/sanfene/collection.md)
-- [面渣逆袭（Java 并发编程篇）](docs/sidebar/sanfene/javathread.md)
-- [面渣逆袭（Java 虚拟机篇）](docs/sidebar/sanfene/jvm.md)
+- [面渣逆袭（Java 基础篇）必看:+1:](docs/sidebar/sanfene/javase.md)
+- [面渣逆袭（Java 集合框架篇）必看:+1:](docs/sidebar/sanfene/collection.md)
+- [面渣逆袭（Java 并发编程篇）必看:+1:](docs/sidebar/sanfene/javathread.md)
+- [面渣逆袭（Java 虚拟机篇）必看:+1:](docs/sidebar/sanfene/jvm.md)
 
 ## Java概述
 
@@ -394,7 +394,7 @@
 > [!TIP]
 >  MySQL 由于性能高、成本低、可靠性好，已经成为最流行的关系型数据库，一般中小型网站的开发都选择 MySQL 作为网站数据库。
 
-- [面渣逆袭（MySQL）](docs/sidebar/herongwei/mysql.md)
+- [面渣逆袭（MySQL）必看:+1:](docs/sidebar/herongwei/mysql.md)
 
 ### MySQL重要知识点
 

@@ -8,7 +8,7 @@
   * [Go语言学习路线](docs/xuexiluxian/go.md)
   * [操作系统学习路线](docs/xuexiluxian/os.md)
   * [前端学习路线](https://mp.weixin.qq.com/s/dRyovbU9Y5xKjVb-Tvs9lQ)
-* [Java核心（必看:+1:）](README.md?id=java核心（必看:+1:）)
+* [Java核心](README.md?id=java核心)
 	* [Java概述](README.md?id=java概述)
 	* [Java基础语法](README.md?id=java基础语法)
 	* [面向对象](README.md?id=面向对象)
