@@ -456,7 +456,6 @@
 > [!ATTENTION]
 >  Redis（Remote Dictionary Server )，即远程字典服务，是一个用 C语言编写的，支持网络、可基于内存和可持久化日志的键值对数据库。
 
-- [面试官：看你简历上写了Redis，请回答一下这 12 个问题](docs/mianjing/redis12question.md)
 - [Redis入门](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)
 
 
@@ -467,10 +466,6 @@
 
 - [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
 - [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
-
-## MongoDB
-
-- [MongoDB 入门](https://mp.weixin.qq.com/s/qz0sNOFeS0GTW-H9cdnbJg)
 
 ### 面渣逆袭MySQL
 
@@ -486,6 +481,10 @@
 - [主从备份篇](docs/mysql/herongwei/zhucongbeifenpian.md)
 - [锁篇](docs/mysql/herongwei/suopian.md)
 - [其他篇](docs/mysql/herongwei/qitapian.md)
+
+## MongoDB
+
+- [MongoDB 入门](https://mp.weixin.qq.com/s/qz0sNOFeS0GTW-H9cdnbJg)
 
 
 # 计算机基础
@@ -781,7 +780,7 @@
 关注后，回复关键字「**00**」可以获取更多优质的 Java 学习资料。
     
     
-### star 趋势图
+### star趋势图
 
 [![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
 
