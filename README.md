@@ -564,7 +564,7 @@
 - [女生适合学编程吗？](https://mp.weixin.qq.com/s/ZtFAxJP4KVXjzbT-Qc91Dw)
 - [如何写出让同事好维护的代码？](https://mp.weixin.qq.com/s/KGLrZ1nGmnwr2uq7FJzfQg)
 - [如何写出让同事无法维护的代码？](https://mp.weixin.qq.com/s/XS6Zh51ISvQ1uyIXBWkUUA)
-
+- [新手小白，该怎么提高编程能力呢？](https://mp.weixin.qq.com/s/YTpBj5nNZdkuPahK9JuqXQ)
 
 # 程序人生
 
@@ -677,7 +677,6 @@
 - [逆袭！](https://mp.weixin.qq.com/s/XdQwOoyhRZnXt7XL6toqDg)
 - [我坚持三年了](https://mp.weixin.qq.com/s/hA1dnbjd7o1t1jWVGDX8tg)
 - [坚持了半年，值了！](https://mp.weixin.qq.com/s/LMm3zzA8XbbeJIfAn0D-QQ)
-- [刚实习那会，二哥差点被辞退！](https://mp.weixin.qq.com/s/YTpBj5nNZdkuPahK9JuqXQ)
 
 ## 联系方式
 
