@@ -423,7 +423,7 @@
 
 # 求职面试
 
-> [!TIP]
+> [!NOTE]
 >  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
 >  - 千淘万漉虽辛苦，吹尽狂沙始到金。
 
@@ -469,12 +469,12 @@
 
 # 学习资源
 
-> [!TIP]
+> [!NOTE]
 >  **这里会推荐一些优质的简历模板、技术手册、硬核 PDF、在线教程和在线教学视频，帮助大家在学习的道路上少走一些弯路**。
 
 ## 资料下载
 
-> [!ATTENTION]
+> [!TIP]
 >  **主要包含一些经典的开源电子书，不限于 Java、Git、计算机操作系统、计算机网络、数据结构与算法等**。
 
 - [Java 版 LeetCode 刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
@@ -486,7 +486,7 @@
 
 ## 资源推荐
 
-> [!ATTENTION]
+> [!TIP]
 >  **有 GitHub、码云、B 站、Coursera、个人博客、知识库网站上公开的免费课程，也有极客时间上付费专栏，慕课上的教学视频等**。
 
 ### 在线图文教程
@@ -568,7 +568,7 @@
 
 # 程序人生
 
-> [!TIP]
+> [!NOTE]
 >  **程序员的人生不仅有代码，还有诗和远方**。<br><br>
 >  人间烟火味，最抚凡人心。
 
@@ -657,6 +657,10 @@
 - [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
 - [图片外链转GitHub+jsdelivr！](docs/szjy/tupian-zhuanlian.md)
 - [入坑 docsify，一款神奇的文档生成利器！](https://mp.weixin.qq.com/s/CJ6JzqU3N4l9pJbrQ_HB-w)
+
+## TODO
+
+- [优质文章](docs/sidebar/todo.md)
 
 
 # 联系作者
