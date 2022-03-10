@@ -14,6 +14,7 @@
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
+一份通俗易懂、风趣幽默的 Java 学习指南，内容涵盖 Java 基础、Java 并发编程、JVM、Java 企业级开发（Git、Spring Boot、MySQL）等知识点。
 
 
 # 为什么会有这个开源知识库
@@ -220,7 +221,7 @@
 
 ### Git
 
-> [!TIP]
+> [!Important]
 >  Git 是 Linus Torvalds 为了帮助管理 Linux 内核而开发的一个开源的版本控制软件，绝大多数项目源码和文档都会采用 Git 来进行版本控制。
 
 - [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
