@@ -10,7 +10,7 @@
   <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Github-toBeBetterJavaer-red.svg"></a>
   <a href="https://gitee.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Gitee-toBeBetterJavaer-blue.svg"></a>
   <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical"></a>
-  <a href="https://mp.weixin.qq.com/s/ePhaYezFblgt0NgbvtWqww" target="_blank">
+  <a href="https://mp.weixin.qq.com/s/ExjM-xdqMFFY1NIZffz-Ng" target="_blank">
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
@@ -482,7 +482,7 @@
 - [豆瓣9.1分，Pro Git中文版](https://mp.weixin.qq.com/s/RpFzXOa2VlFNd7ylLmr9LQ)
 - [给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
 - [阮一峰C语言入门教程](https://mp.weixin.qq.com/s/n8WMwvnpA9KBe0bvZ4IX3g)
-- [计算机经典书单下载（几乎你要的都有）](https://mp.weixin.qq.com/s/ePhaYezFblgt0NgbvtWqww)
+- [计算机经典书单下载（几乎你要的都有）](https://mp.weixin.qq.com/s/ExjM-xdqMFFY1NIZffz-Ng)
 - [BAT 大佬的刷题笔记](https://mp.weixin.qq.com/s/SZmW3ItBuLlmeDiDe3oPzA)
 
 ## 资源推荐
