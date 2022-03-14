@@ -1,7 +1,0 @@
-* [Java核心](docs/sidebar/java-core.md)
-* [Java企业级开发](docs/sidebar/javaee.md)
-* [数据库](docs/sidebar/database.md)
-* [计算机基础](docs/sidebar/computer-base.md)
-* [求职面试](docs/sidebar/interview.md)
-* [学习资源](docs/sidebar/learn-resource.md)
-* [程序人生](docs/sidebar/code-life.md)
