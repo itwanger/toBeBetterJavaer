@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java不能实现真正泛型的原因是什么？
 
 “二哥，为啥 Java 不能实现真正泛型啊？”三妹开门见山地问。
 
@@ -22,7 +29,9 @@ public class Cmower {
 
 但由于类型擦除的原因，以上代码是不会编译通过的——编译器会提示一个错误：
 
+```
 >'method(ArrayList<String>)' clashes with 'method(ArrayList<Date>)'; both methods have same erasure
+```
 
 也就是说，两个 `method()` 方法经过类型擦除后的方法签名是完全相同的，Java 是不允许这样做的。
 

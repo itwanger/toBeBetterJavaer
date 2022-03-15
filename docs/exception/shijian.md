@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java异常处理的20个最佳实践
 
 “三妹啊，今天我来给你传授几个异常处理的最佳实践经验，以免你以后在开发中采坑。”我面带着微笑对三妹说。
 
@@ -204,11 +211,6 @@ public int checkReturn() {
 
 “好吧。”三妹无奈地叹了口气。
 
-----
-
-《**Java 程序员进阶之路**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
-
-<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
 
 
 

@@ -1,4 +1,11 @@
+---
+category:
+  - 求职面试
+tag:
+  - Java
+---
 
+# Java HashMap精选面试题
 
 对于 Java 求职者来说，HashMap 可谓是重中之重，是面试的必考点。然而 HashMap 的知识点非常多，复习起来花费精力很大。
 

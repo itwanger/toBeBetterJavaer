@@ -1,3 +1,12 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
+
+# 如何优雅地打印Java数组？
+
 “哥，之前听你说，数组也是一个对象，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 
 “是的，因此数组也就没有机会覆盖 `Object.toString()` 方法。如果尝试直接打印数组的话，输出的结果并不是我们预期的结果。”我接着三妹的话继续说。
@@ -149,8 +158,4 @@ System.out.println(Arrays.deepToString(deepArray));
 
 “OK，我走，我走。”
 
------
 
-《**Java 程序员进阶之路**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
-
-<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />

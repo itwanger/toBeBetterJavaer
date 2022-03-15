@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java集合LinkedList详解
 
 ### 一、LinkedList 的剖白
 

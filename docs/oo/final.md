@@ -1,3 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
+
+# 浅析Java中的final关键字
 
 “哥，今天学什么呢？”
 

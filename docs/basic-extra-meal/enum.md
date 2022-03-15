@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java枚举（enum）
 
 “今天我们来学习枚举吧，三妹！”我说，“同学让你去她家玩了两天，感觉怎么样呀？”
 
@@ -281,9 +288,3 @@ public enum EasySingleton{
 “好勒，这就安排。二哥，你去休息吧。”
 
 “嗯嗯。”讲了这么多，必须跑去抽烟机那里安排一根华子了。
-
------
-
-《**Java 程序员进阶之路**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
-
-<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
