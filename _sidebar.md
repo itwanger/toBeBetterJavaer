@@ -1,7 +1,7 @@
 * [为什么会有这个开源知识库](README.md?id=为什么会有这个开源知识库)
 * [知识库地图](README.md?id=知识库地图)
 * [学习路线](README.md?id=学习路线)
-  * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
+  * [Java并发学习路线](docs/xuexiluxian/java/thread.md)
   * [C语言学习路线](docs/xuexiluxian/c.md)
   * [C++学习路线](docs/xuexiluxian/ccc.md)
   * [Python学习路线](docs/xuexiluxian/python.md)

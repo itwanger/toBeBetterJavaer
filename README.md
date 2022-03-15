@@ -51,7 +51,7 @@
 > [!NOTE]
 > 除了 Java 的学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等学习路线，可能你正好需要。
 
-  * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
+  * [Java并发学习路线](docs/xuexiluxian/java/thread.md)
   * [C语言学习路线](docs/xuexiluxian/c.md)
   * [C++学习路线](docs/xuexiluxian/ccc.md)
   * [Python学习路线](docs/xuexiluxian/python.md)
