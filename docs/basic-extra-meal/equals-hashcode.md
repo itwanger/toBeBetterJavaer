@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# 一次性搞清楚equals和hashCode
 
 “二哥，我在读《Effective Java》 的时候，第 11 条规约说重写 equals 的时候必须要重写 hashCode 方法，这是为什么呀？”三妹单刀直入地问。
 
@@ -222,10 +229,4 @@ result = (31*1 + Integer(18).hashCode()) * 31 + String("张三").hashCode();
 “每当重写 equals 方法时，hashCode 方法也需要重写，原因就是为了保证：如果两个对象调用 equals 方法返回的结果为 true，那么两个对象调用 hashCode 方法返回的结果也必然相同。”我点题了。
 
 “OK，get 了。”三妹开心地点了点头，看得出来，今天学到了不少。
-
------
-
-《**Java 程序员进阶之路**》预计一个月左右会有一次内容更新和完善，大家在我的公众号 **沉默王二** 后台回复“**03**” 即可获取最新版！如果觉得内容不错的话，欢迎转发分享！
-
-<img src="https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/itwanger.png" alt="图片没显示的话，可以微信搜索「沉默王二」关注" style="zoom:50%;" />
 

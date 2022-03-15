@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java集合ArrayList详解
 
 “二哥，听说今天我们开讲 ArrayList 了？好期待哦！”三妹明知故问，这个托配合得依然天衣无缝。
 

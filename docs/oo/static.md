@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java中的static关键字解析
 
 “哥，你牙龈肿痛轻点没？周一的教妹学 Java 你都没有更新，偷懒了呀！”三妹关心地问我。
 
@@ -138,7 +145,7 @@ public class StaticCounter {
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/keywords/19-03.png)
 
 
-### 02、 静态方法
+### 02、静态方法
 
 “说完静态变量，我们来说静态方法。”说完，我准备点一支华子来抽，三妹阻止了我，她指一指烟盒上的「吸烟有害身体健康」，我笑了。
 

@@ -71,111 +71,101 @@
 
 ## Java概述
 
-- [什么是 Java？](docs/overview/what-is-java.md)
-- [Java 的发展简史](docs/overview/java-history.md)
-- [Java 的优势](docs/overview/java-advantage.md)
-- [JDK 和 JRE 有什么区别？](docs/overview/jdk-jre.md)
-- [手把手教你安装集成开发环境 Intellij IDEA](docs/overview/idea.md)
-- [第一个 Java 程序：Hello World](docs/overview/hello-world.md)
+- [什么是Java？Java发展简史，Java的优势](docs/overview/what-is-java.md)
+- [JDK和JRE有什么区别？](docs/overview/jdk-jre.md)
+- [安装集成开发环境Intellij IDEA](docs/overview/idea.md)
+- [第一个Java程序：Hello World](docs/overview/hello-world.md)
 
 
 ## Java基础语法
 
-- [基本数据类型](docs/basic-grammar/basic-data-type.md)
-- [流程控制](docs/basic-grammar/flow-control.md)
-- [运算符](docs/basic-grammar/operator.md)
-- [注释](docs/basic-grammar/javadoc.md)
+- [Java支持的8种基本数据类型](docs/basic-grammar/basic-data-type.md)
+- [Java流程控制语句](docs/basic-grammar/flow-control.md)
+- [Java运算符](docs/basic-grammar/operator.md)
+- [Java注释：单行、多行和文档注释](docs/basic-grammar/javadoc.md)
+- [Java中常用的48个关键字](docs/basic-extra-meal/48-keywords.md)
+- [Java命名规范（非常全面，可以收藏）](docs/basic-extra-meal/java-naming.md)
 
-## 面向对象
+## Java面向对象编程
 
-- [什么是对象？什么是类](docs/oo/object-class.md)
-- [变量](docs/oo/var.md)
-- [方法](docs/oo/method.md)
-- [构造方法](docs/oo/construct.md)
-- [代码初始化块](docs/oo/code-init.md)
-- [抽象类](docs/oo/abstract.md)
-- [接口](docs/oo/interface.md)
-- [static 关键字](docs/oo/static.md)
-- [this 和 super 关键字](docs/oo/this-super.md)
-- [final 关键字](docs/oo/final.md)
-- [instanceof 关键字](docs/oo/instanceof.md)
-- [不可变对象](docs/basic-extra-meal/immutable.md)
-- [可变参数](docs/basic-extra-meal/varables.md)
-- [泛型](docs/basic-extra-meal/generic.md)
-- [注解](docs/basic-extra-meal/annotation.md)
-- [枚举](docs/basic-extra-meal/enum.md)
-- [反射](docs/basic-extra-meal/fanshe.md)
+- [怎么理解Java中类和对象的概念？](docs/oo/object-class.md)
+- [Java变量的作用域：局部变量、成员变量、静态变量、常量](docs/oo/var.md)
+- [Java方法](docs/oo/method.md)
+- [Java构造方法](docs/oo/construct.md)
+- [Java代码初始化块](docs/oo/code-init.md)
+- [Java抽象类](docs/oo/abstract.md)
+- [Java接口](docs/oo/interface.md)
+- [Java中的static关键字解析](docs/oo/static.md)
+- [Java中this和super的用法总结](docs/oo/this-super.md)
+- [浅析Java中的final关键字](docs/oo/final.md)
+- [Java instanceof关键字用法](docs/oo/instanceof.md)
+- [深入理解Java中的不可变对象](docs/basic-extra-meal/immutable.md)
+- [Java中可变参数的使用](docs/basic-extra-meal/varables.md)
+- [深入理解Java泛型](docs/basic-extra-meal/generic.md)
+- [深入理解Java注解](docs/basic-extra-meal/annotation.md)
+- [Java枚举（enum）](docs/basic-extra-meal/enum.md)
+- [大白话说Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
 
-## 字符串String
+## 字符串&数组
 
-- [String 为什么是不可变的？](docs/string/immutable.md)
-- [字符串常量池](docs/string/constant-pool.md)
-- [深入浅出 String.intern](docs/string/intern.md)
-- [如何比较两个字符串是否相等？](docs/string/equals.md)
-- [如何拼接字符串？](docs/string/join.md)
-- [如何拆分字符串？](docs/string/split.md)
-
-## 数组
-
-- [什么是数组？](docs/array/array.md)
-- [如何打印数组？](docs/array/print.md)
+- [为什么String是不可变的？](docs/string/immutable.md)
+- [深入了解Java字符串常量池](docs/string/constant-pool.md)
+- [深入解析 String#intern](docs/string/intern.md)
+- [Java判断两个字符串是否相等？](docs/string/equals.md)
+- [Java字符串拼接的几种方式](docs/string/join.md)
+- [如何在Java中优雅地分割String字符串？](docs/string/split.md)
+- [深入理解Java数组](docs/array/array.md)
+- [如何优雅地打印Java数组？](docs/array/print.md)
 
 ## 集合框架（容器）
 
-- [Java 中的集合框架该如何分类？](docs/collection/gailan.md)
-- [简单介绍下时间复杂度](docs/collection/big-o.md)
-- [ArrayList](docs/collection/arraylist.md)
-- [LinkedList](docs/collection/linkedlist.md)
-- [ArrayList 和 LinkedList 之增删改查的时间复杂度](docs/collection/list-war-1.md)
-- [ArrayList 和 LinkedList 的实现方式以及性能对比](docs/collection/list-war-2.md)
-- [Iterator与Iterable有什么区别？](docs/collection/iterator-iterable.md)
-- [为什么阿里巴巴强制不要在 foreach 里执行删除操作](docs/collection/fail-fast.md)
-- [详细讲解 HashMap 的 hash 原理](docs/collection/hash.md)
-- [详细讲解 HashMap 的扩容机制](docs/collection/hashmap-resize.md)
-- [HashMap 的加载因子为什么是 0.75？](docs/collection/hashmap-loadfactor.md)
-- [为什么 HashMap 是线程不安全的？](docs/collection/hashmap-thread-nosafe.md)
+- [Java集合框架](docs/collection/gailan.md)
+- [Java集合ArrayList详解](docs/collection/arraylist.md)
+- [Java集合LinkedList详解](docs/collection/linkedlist.md)
+- [Java中ArrayList和LinkedList的区别](docs/collection/list-war-2.md)
+- [Java中的Iterator和Iterable区别](docs/collection/iterator-iterable.md)
+- [为什么阿里巴巴强制不要在foreach里执行删除操作](docs/collection/fail-fast.md)
+- [Java8系列之重新认识HashMap](docs/collection/hashmap.md)
+
+## Java I/O
+
+- [Java IO学习整理](docs/io/shangtou.md)
+- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/io/BIONIOAIO.md)
 
 
 ## 异常处理
 
-- [聊聊异常处理机制](docs/exception/gailan.md)
-- [关于 try-catch-finally](docs/exception/try-catch-finally.md)
-- [关于 throw 和 throws](docs/exception/throw-throws.md)
-- [关于 try-with-resouces](docs/exception/try-with-resouces.md)
-- [异常处理机制到底该怎么用？](docs/exception/shijian.md)
+- [一文读懂Java异常处理](docs/exception/gailan.md)
+- [详解Java7新增的try-with-resouces语法](docs/exception/try-with-resouces.md)
+- [Java异常处理的20个最佳实践](docs/exception/shijian.md)
+- [Java空指针NullPointerException的传说](docs/exception/npe.md)
 
 ## 常用工具类
 
-- [数组工具类：Arrays](docs/common-tool/arrays.md)
-- [集合工具类：Collections](docs/common-tool/collections.md)
-- [简化每一行代码工具类：Hutool](docs/common-tool/hutool.md)
-- [Guava，拯救垃圾代码，效率提升N倍](docs/common-tool/guava.md)
+- [Java Arrays工具类10大常用方法](docs/common-tool/arrays.md)
+- [Java集合框架：Collections工具类](docs/common-tool/collections.md)
+- [Hutool：国产良心工具包，让你的Java变得更甜](docs/common-tool/hutool.md)
+- [Google开源的Guava工具库，太强大了～](docs/common-tool/guava.md)
 
-## Java8新特性
+## Java新特性
 
-- [入门Java Stream流](https://mp.weixin.qq.com/s/7hNUjjmqKcHDtymsfG_Gtw)
-- [Java 8 Optional 最佳指南](https://mp.weixin.qq.com/s/PqK0KNVHyoEtZDtp5odocA)
-- [Lambda 表达式入门](https://mp.weixin.qq.com/s/ozr0jYHIc12WSTmmd_vEjw)
+- [Java 8 Stream流详细用法](docs/java8/stream.md)
+- [Java 8 Optional最佳指南](docs/java8/optional.md)
+- [深入浅出Java 8 Lambda表达式](docs/java8/Lambda.md)
 
 ## Java重要知识点
 
-- [Java 中常用的 48 个关键字](docs/basic-extra-meal/48-keywords.md)
-- [Java 命名的注意事项](docs/basic-extra-meal/java-naming.md)
-- [详解 Java 的默认编码方式 Unicode](docs/basic-extra-meal/java-unicode.md)
-- [new Integer(18)与Integer.valueOf(18)有什么区别？](docs/basic-extra-meal/int-cache.md)
-- [聊聊自动拆箱与自动装箱](docs/basic-extra-meal/box.md)
-- [浅拷贝与深拷贝究竟有什么不一样？](docs/basic-extra-meal/deep-copy.md)
-- [为什么重写 equals 时必须重写 hashCode 方法？](docs/basic-extra-meal/equals-hashcode.md)
-- [方法重载和方法重写有什么区别？](docs/basic-extra-meal/override-overload.md)
-- [Java 到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
-- [Java 不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
-- [Java 程序在编译期发生了什么？](docs/basic-extra-meal/what-happen-when-javac.md)
-- [Comparable和Comparator有什么区别？](docs/basic-extra-meal/comparable-omparator.md)
-- [Java IO 流详细划分](docs/io/shangtou.md)
-- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ)
-- [为什么 Object 类需要一个 hashCode() 方法呢？](https://mp.weixin.qq.com/s/PcbMQ5VGnPXlcgIsK8AW4w)
-- [重写的 11 条规则](https://mp.weixin.qq.com/s/tmaK5DSjQhA0IvTrSvKkQQ)
-- [空指针的传说](https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg)
+- [彻底弄懂Java中的Unicode和UTF-8编码](docs/basic-extra-meal/java-unicode.md)
+- [Java中int、Integer、new Integer之间的区别](docs/basic-extra-meal/int-cache.md)
+- [深入剖析Java中的拆箱和装箱](docs/basic-extra-meal/box.md)
+- [彻底讲明白的Java浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
+- [深入理解Java中的hashCode方法](docs/basic-extra-meal/hashcode.md)
+- [一次性搞清楚equals和hashCode](docs/basic-extra-meal/equals-hashcode.md)
+- [Java重写(Override)与重载(Overload)](docs/basic-extra-meal/override-overload.md)
+- [Java重写（Overriding）时应当遵守的11条规则](docs/basic-extra-meal/Overriding.md)
+- [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
+- [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
+- [详解Java中Comparable和Comparator的区别](docs/basic-extra-meal/comparable-omparator.md)
 
 
 ## Java并发编程
@@ -193,6 +183,7 @@
 
 - [JVM 是什么？](docs/jvm/what-is-jvm.md)
 - [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
+- [Java程序在编译期发生了什么？](docs/basic-extra-meal/what-happen-when-javac.md)
 - [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
 - [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
 - [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)

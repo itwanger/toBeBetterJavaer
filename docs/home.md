@@ -19,6 +19,7 @@ title: Java核心&Java企业级开发&Java面试
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
+
 一份通俗易懂、风趣幽默的 Java 学习指南，内容涵盖 Java 基础、Java 并发编程、JVM、Java 企业级开发（Git、Spring Boot、MySQL）等知识点。
 
 
@@ -76,111 +77,100 @@ title: Java核心&Java企业级开发&Java面试
 
 ### Java概述
 
-- [什么是 Java？](overview/what-is-java.md)
-- [Java 的发展简史](overview/java-history.md)
-- [Java 的优势](overview/java-advantage.md)
-- [JDK 和 JRE 有什么区别？](overview/jdk-jre.md)
-- [手把手教你安装集成开发环境 Intellij IDEA](overview/idea.md)
-- [第一个 Java 程序：Hello World](overview/hello-world.md)
+- [什么是Java？Java发展简史，Java的优势](overview/what-is-java.md)
+- [JDK和JRE有什么区别？](overview/jdk-jre.md)
+- [安装集成开发环境Intellij IDEA](overview/idea.md)
+- [第一个Java程序：Hello World](overview/hello-world.md)
 
 
 ### Java基础语法
 
-- [基本数据类型](basic-grammar/basic-data-type.md)
-- [流程控制](basic-grammar/flow-control.md)
-- [运算符](basic-grammar/operator.md)
-- [注释](basic-grammar/javadoc.md)
+- [Java支持的8种基本数据类型](basic-grammar/basic-data-type.md)
+- [Java流程控制语句](basic-grammar/flow-control.md)
+- [Java运算符](basic-grammar/operator.md)
+- [Java注释：单行、多行和文档注释](basic-grammar/javadoc.md)
+- [Java中常用的48个关键字](basic-extra-meal/48-keywords.md)
+- [Java命名规范（非常全面，可以收藏）](basic-extra-meal/java-naming.md)
 
-### 面向对象
+### Java面向对象编程
 
-- [什么是对象？什么是类](oo/object-class.md)
-- [变量](oo/var.md)
-- [方法](oo/method.md)
-- [构造方法](oo/construct.md)
-- [代码初始化块](oo/code-init.md)
-- [抽象类](oo/abstract.md)
-- [接口](oo/interface.md)
-- [static 关键字](oo/static.md)
-- [this 和 super 关键字](oo/this-super.md)
-- [final 关键字](oo/final.md)
-- [instanceof 关键字](oo/instanceof.md)
-- [不可变对象](basic-extra-meal/immutable.md)
-- [可变参数](basic-extra-meal/varables.md)
-- [泛型](basic-extra-meal/generic.md)
-- [注解](basic-extra-meal/annotation.md)
-- [枚举](basic-extra-meal/enum.md)
-- [反射](basic-extra-meal/fanshe.md)
+- [怎么理解Java中类和对象的概念？](oo/object-class.md)
+- [Java变量的作用域：局部变量、成员变量、静态变量、常量](oo/var.md)
+- [Java方法](oo/method.md)
+- [Java构造方法](oo/construct.md)
+- [Java代码初始化块](oo/code-init.md)
+- [Java抽象类](oo/abstract.md)
+- [Java接口](oo/interface.md)
+- [Java中的static关键字解析](oo/static.md)
+- [Java中this和super的用法总结](oo/this-super.md)
+- [浅析Java中的final关键字](oo/final.md)
+- [Java instanceof关键字用法](oo/instanceof.md)
+- [深入理解Java中的不可变对象](basic-extra-meal/immutable.md)
+- [Java中可变参数的使用](basic-extra-meal/varables.md)
+- [深入理解Java泛型](basic-extra-meal/generic.md)
+- [深入理解Java注解](basic-extra-meal/annotation.md)
+- [Java枚举（enum）](basic-extra-meal/enum.md)
+- [大白话说Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
 
-### 字符串String
+### 字符串&数组
 
-- [String 为什么是不可变的？](string/immutable.md)
-- [字符串常量池](string/constant-pool.md)
-- [深入浅出 String.intern](string/intern.md)
-- [如何比较两个字符串是否相等？](string/equals.md)
-- [如何拼接字符串？](string/join.md)
-- [如何拆分字符串？](string/split.md)
-
-### 数组
-
-- [什么是数组？](array/array.md)
-- [如何打印数组？](array/print.md)
+- [为什么String是不可变的？](string/immutable.md)
+- [深入了解Java字符串常量池](string/constant-pool.md)
+- [深入解析 String#intern](string/intern.md)
+- [Java判断两个字符串是否相等？](string/equals.md)
+- [Java字符串拼接的几种方式](string/join.md)
+- [如何在Java中优雅地分割String字符串？](string/split.md)
+- [深入理解Java数组](array/array.md)
+- [如何优雅地打印Java数组？](array/print.md)
 
 ### 集合框架（容器）
 
-- [Java 中的集合框架该如何分类？](collection/gailan.md)
-- [简单介绍下时间复杂度](collection/big-o.md)
-- [ArrayList](collection/arraylist.md)
-- [LinkedList](collection/linkedlist.md)
-- [ArrayList 和 LinkedList 之增删改查的时间复杂度](collection/list-war-1.md)
-- [ArrayList 和 LinkedList 的实现方式以及性能对比](collection/list-war-2.md)
+- [Java集合框架](collection/gailan.md)
+- [Java集合ArrayList详解](collection/arraylist.md)
+- [Java集合LinkedList详解](collection/linkedlist.md)
+- [Java中ArrayList和LinkedList的区别](collection/list-war-2.md)
 - [Iterator与Iterable有什么区别？](collection/iterator-iterable.md)
-- [为什么阿里巴巴强制不要在 foreach 里执行删除操作](collection/fail-fast.md)
-- [详细讲解 HashMap 的 hash 原理](collection/hash.md)
-- [详细讲解 HashMap 的扩容机制](collection/hashmap-resize.md)
-- [HashMap 的加载因子为什么是 0.75？](collection/hashmap-loadfactor.md)
-- [为什么 HashMap 是线程不安全的？](collection/hashmap-thread-nosafe.md)
+- [为什么阿里巴巴强制不要在foreach里执行删除操作](collection/fail-fast.md)
+- [Java8系列之重新认识HashMap](collection/hashmap.md)
 
+### Java I/O
+
+- [Java IO学习整理](io/shangtou.md)
+- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](io/BIONIOAIO.md)
 
 ### 异常处理
 
-- [聊聊异常处理机制](exception/gailan.md)
-- [关于 try-catch-finally](exception/try-catch-finally.md)
-- [关于 throw 和 throws](exception/throw-throws.md)
-- [关于 try-with-resouces](exception/try-with-resouces.md)
-- [异常处理机制到底该怎么用？](exception/shijian.md)
+- [一文读懂Java异常处理](exception/gailan.md)
+- [详解Java7新增的try-with-resouces语法](exception/try-with-resouces.md)
+- [Java异常处理的20个最佳实践](exception/shijian.md)
+- [Java空指针NullPointerException的传说](exception/npe.md)
 
 ### 常用工具类
 
-- [数组工具类：Arrays](common-tool/arrays.md)
-- [集合工具类：Collections](common-tool/collections.md)
-- [简化每一行代码工具类：Hutool](common-tool/hutool.md)
-- [Guava，拯救垃圾代码，效率提升N倍](common-tool/guava.md)
+- [Java Arrays工具类10大常用方法](common-tool/arrays.md)
+- [Java集合框架：Collections工具类](common-tool/collections.md)
+- [Hutool：国产良心工具包，让你的Java变得更甜](common-tool/hutool.md)
+- [Google开源的Guava工具库，太强大了～](common-tool/guava.md)
 
-### Java8新特性
+### Java新特性
 
-- [入门Java Stream流](https://mp.weixin.qq.com/s/7hNUjjmqKcHDtymsfG_Gtw)
-- [Java 8 Optional 最佳指南](https://mp.weixin.qq.com/s/PqK0KNVHyoEtZDtp5odocA)
-- [Lambda 表达式入门](https://mp.weixin.qq.com/s/ozr0jYHIc12WSTmmd_vEjw)
+- [Java 8 Stream流详细用法](java8/stream.md)
+- [Java 8 Optional最佳指南](java8/optional.md)
+- [深入浅出Java 8 Lambda表达式](java8/Lambda.md)
 
 ### Java重要知识点
 
-- [Java 中常用的 48 个关键字](basic-extra-meal/48-keywords.md)
-- [Java 命名的注意事项](basic-extra-meal/java-naming.md)
-- [详解 Java 的默认编码方式 Unicode](basic-extra-meal/java-unicode.md)
-- [new Integer(18)与Integer.valueOf(18)有什么区别？](basic-extra-meal/int-cache.md)
-- [聊聊自动拆箱与自动装箱](basic-extra-meal/box.md)
-- [浅拷贝与深拷贝究竟有什么不一样？](basic-extra-meal/deep-copy.md)
-- [为什么重写 equals 时必须重写 hashCode 方法？](basic-extra-meal/equals-hashcode.md)
-- [方法重载和方法重写有什么区别？](basic-extra-meal/override-overload.md)
-- [Java 到底是值传递还是引用传递？](basic-extra-meal/pass-by-value.md)
-- [Java 不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
-- [Java 程序在编译期发生了什么？](basic-extra-meal/what-happen-when-javac.md)
-- [Comparable和Comparator有什么区别？](basic-extra-meal/comparable-omparator.md)
-- [Java IO 流详细划分](io/shangtou.md)
-- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ)
-- [为什么 Object 类需要一个 hashCode() 方法呢？](https://mp.weixin.qq.com/s/PcbMQ5VGnPXlcgIsK8AW4w)
-- [重写的 11 条规则](https://mp.weixin.qq.com/s/tmaK5DSjQhA0IvTrSvKkQQ)
-- [空指针的传说](https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg)
+- [彻底弄懂Java中的Unicode和UTF-8编码](basic-extra-meal/java-unicode.md)
+- [Java中int、Integer、new Integer之间的区别](basic-extra-meal/int-cache.md)
+- [深入剖析Java中的拆箱和装箱](basic-extra-meal/box.md)
+- [彻底讲明白的Java浅拷贝与深拷贝](basic-extra-meal/deep-copy.md)
+- [深入理解Java中的hashCode方法](basic-extra-meal/hashcode.md)
+- [一次性搞清楚equals和hashCode](basic-extra-meal/equals-hashcode.md)
+- [Java重写(Override)与重载(Overload)](basic-extra-meal/override-overload.md)
+- [Java重写（Overriding）时应当遵守的11条规则](basic-extra-meal/Overriding.md)
+- [Java到底是值传递还是引用传递？](basic-extra-meal/pass-by-value.md)
+- [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
+- [详解Java中Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
 
 
 ### Java并发编程
@@ -204,6 +194,7 @@ title: Java核心&Java企业级开发&Java面试
 - [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
 - [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
 - [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
+- [Java程序在编译期发生了什么？](basic-extra-meal/what-happen-when-javac.md)
 
 
 ## Java企业级开发
@@ -435,12 +426,13 @@ title: Java核心&Java企业级开发&Java面试
 
 ### 八股文
 
-- [Java 高频面试题 34 道](baguwen/java-basic-34.md)
-- [Java 基础八股文（背诵版）](baguwen/java-basic.md)
-- [HashMap 精选面试题](collection/hashmap-interview.md)
-- [Java 并发编程八股文（背诵版）](baguwen/java-thread.md)
-- [Java 虚拟机八股文（背诵版）](baguwen/jvm.md)
-- [Redis 八股文（12 道精选）](mianjing/redis12question.md)
+- [Java高频面试题34道](baguwen/java-basic-34.md)
+- [Java HashMap精选面试题](collection/hashmap-interview.md)
+- [Redis精选面试题](mianjing/redis12question.md)
+- [Java基础八股文（背诵版）](baguwen/java-basic.md)
+- [Java并发编程八股文（背诵版）](baguwen/java-thread.md)
+- [Java虚拟机八股文（背诵版）](baguwen/jvm.md)
+
 
 ### 面试经验
 

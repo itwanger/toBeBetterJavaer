@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# 深入理解Java泛型
 
 “二哥，为什么要设计泛型啊？”三妹开门见山地问。
 
@@ -305,11 +312,14 @@ public class Cmower {
 
 但由于类型擦除的原因，以上代码是不会通过编译的——编译器会提示一个错误（这正是类型擦除引发的那些“问题”）：
 
+```
 >Erasure of method method(Arraylist<String>) is the same as another method in type 
  Cmower
 >
 >Erasure of method method(Arraylist<Date>) is the same as another method in type 
  Cmower
+```
+
 
 大致的意思就是，这两个方法的参数类型在擦除后是相同的。
 

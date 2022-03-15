@@ -1,4 +1,11 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
 
+# Java构造方法
 
 我对三妹说，“[上一节](https://mp.weixin.qq.com/s/L4jAgQPurGZPvWu8ECtBpA)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”
 
