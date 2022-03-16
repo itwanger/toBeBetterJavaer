@@ -55,15 +55,15 @@ title: Java核心&Java企业级开发&Java面试
 ## 学习路线
 
 > [!NOTE]
-> 除了 Java 的学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等学习路线，可能你正好需要。
+> 除了 Java 的学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
 
-  * [Java并发学习路线](xuexiluxian/java/thread.md)
-  * [C语言学习路线](xuexiluxian/c.md)
-  * [C++学习路线](xuexiluxian/ccc.md)
-  * [Python学习路线](xuexiluxian/python.md)
-  * [Go语言学习路线](xuexiluxian/go.md)
-  * [操作系统学习路线](xuexiluxian/os.md)
-  * [前端学习路线](https://mp.weixin.qq.com/s/dRyovbU9Y5xKjVb-Tvs9lQ)
+  * [Java并发编程学习路线（建议收藏:+1:）](xuexiluxian/java/thread.md)
+  * [C语言学习路线（建议收藏:+1:）](xuexiluxian/c.md)
+  * [C++学习路线（建议收藏:+1:）](xuexiluxian/ccc.md)
+  * [Python学习路线（建议收藏:+1:）](xuexiluxian/python.md)
+  * [Go语言学习路线（建议收藏:+1:）](xuexiluxian/go.md)
+  * [操作系统学习路线（建议收藏:+1:）](xuexiluxian/os.md)
+  * [前端学习路线（建议收藏:+1:）](xuexiluxian/qianduan.md)
 
 ## Java核心
 

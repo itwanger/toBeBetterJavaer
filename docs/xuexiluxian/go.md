@@ -1,3 +1,12 @@
+---
+category:
+  - 学习路线
+tag:
+  - Go
+---
+
+# Go学习路线（建议收藏:+1:）
+
 大家好，我是二哥呀！最近又有一个读者来咨询我的建议：**应届生，要求 Java 进去后转 Go，问我咋样？**
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/go-1.png)
@@ -142,6 +151,14 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 **第三本：《Go Web 编程》**，这本书以一个网络论坛作为例子，讲解了如何使用请求处理器、多路复用器、模板引擎、存储系统等核心组件去构建一个 Go 的 Web 应用。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/go-18.jpg)
+
+下面是我根据一位拿到大厂 offer 的师弟菜饼提供的学习资料整理出来的书单，相信对你学习 go 语言会很有帮助的。
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/go-4b3b67f3-ebe0-4311-8c7c-7e87f89ccdc7.jpg)
+
+需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**go**」就可以拉取到了。
+
+![扫码关注后回复「go」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 **3）实战项目**
 

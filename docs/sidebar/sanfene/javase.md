@@ -1,4 +1,11 @@
-[TOC]
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
+
+# 面渣逆袭（Java 基础篇）必看:+1:
 
 > 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 

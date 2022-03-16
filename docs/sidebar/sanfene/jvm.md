@@ -1,4 +1,11 @@
-[TOC]
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
+
+# 面渣逆袭（Java 虚拟机篇）必看:+1:
 
 >  图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 

@@ -1,4 +1,11 @@
-[TOC]
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
+
+# 面渣逆袭（Java 集合框架篇）必看:+1:
 
 # 引言
 
