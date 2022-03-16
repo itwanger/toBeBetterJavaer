@@ -1,3 +1,12 @@
+---
+category:
+  - Java核心
+tag:
+  - Java
+---
+
+# 为什么阿里巴巴要禁用Executors创建线程池？
+
 看阿里巴巴开发手册并发编程这块有一条：**线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式**，今天我们来通过源码分析一下禁用的原因。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/ali-executors-1.png)
@@ -230,9 +239,5 @@ CPU 数量 * CPU 利用率 * (1 + 线程等待时间/线程 CPU 时间)
 
 > 转载链接：https://mp.weixin.qq.com/s/dd_IPt7lQQeIMH7YTdgLIw
 > 原文链接：https://juejin.cn/post/6844903989675458574
-
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/ali-executors-4.png)
-
-*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
 
 

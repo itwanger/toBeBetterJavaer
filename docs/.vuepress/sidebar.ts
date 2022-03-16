@@ -138,6 +138,23 @@ export default defineSidebarConfig([
         "basic-extra-meal/comparable-omparator",
         ],
       },
+      {
+        text: "Java并发编程",
+        icon: "duoxiancheng",
+        collapsable: true,
+        children: [
+        "thread/wangzhe-thread",
+        "thread/ali-executors",
+        ],
+      },
+      {
+        text: "Java虚拟机",
+        icon: "duoxiancheng",
+        collapsable: true,
+        children: [
+        "jvm/what-is-jvm",
+        ],
+      },
     ],
   },
 ]);
