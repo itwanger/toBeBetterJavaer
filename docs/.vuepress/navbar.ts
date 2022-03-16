@@ -6,6 +6,11 @@ export default defineNavbarConfig([
     icon: "lujing", 
     link: "/home.md" 
   },
+  { 
+    text: "Java优质专栏", 
+    icon: "youzhi", 
+    link: "/zhuanlan/java-mianshi-zhinan.md" 
+  },
   {
     text: "Java学习路线",
     icon: "luxian",

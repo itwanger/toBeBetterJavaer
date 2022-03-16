@@ -14,7 +14,7 @@ actions:
     type: default
 ---
 
-## 必看专栏
+## 优质专栏
 
 - **[《Java 面试指南》](/zhuanlan/java-mianshi-zhinan.md)** : 内容上与《Java 程序员进阶之路》形成互补，助力你快速成长成为 Offer 收割机！
 

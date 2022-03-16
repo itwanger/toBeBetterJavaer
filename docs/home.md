@@ -177,24 +177,11 @@ title: Java核心&Java企业级开发&Java面试
 
 - [室友打一把王者就学会了多线程](thread/wangzhe-thread.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](thread/ali-executors.md)
-- [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
-- [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
-- [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
-- [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
-- [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
 
 
 ### Java虚拟机
 
-- [JVM 是什么？](jvm/what-is-jvm.md)
-- [Java 创建的对象到底放在哪？](jvm/whereis-the-object.md)
-- [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
-- [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
-- [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)
-- [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
-- [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
-- [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
-- [Java程序在编译期发生了什么？](basic-extra-meal/what-happen-when-javac.md)
+- [什么是JVM？](jvm/what-is-jvm.md)
 
 
 ## Java企业级开发
