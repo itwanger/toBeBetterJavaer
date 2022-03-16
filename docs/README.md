@@ -2,15 +2,21 @@
 home: true
 icon: home
 title: 主页
-heroImage: http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-02.png
+heroImage: http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png
 heroText: Java程序员进阶之路
-tagline: 一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java 程序员进阶之路😄
+tagline: 一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路😄
 actions:
   - text: 开始阅读
     link: /home/
     type: primary
+  - text: 知识星球
+    link: /zhishixingqiu/
+    type: default
 ---
 
+## 必看专栏
+
+- **[《Java 面试指南》](/zhuanlan/java-mianshi-zhinan.md)** : 内容上与《Java 程序员进阶之路》形成互补，助力你快速成长成为 Offer 收割机！
 
 ## 推荐阅读 
 
