@@ -1,3 +1,12 @@
+---
+category:
+  - 学习路线
+tag:
+  - C语言
+---
+
+# C语言学习路线（建议收藏:+1:）
+
 我花时间写这篇文章来给大家讲C语言的学习，当然是希望大家真正的学会、学懂C语言，并能够真正感觉到它的用处。
 
 我们先从 C 语言的入门开始，总共**一本书，两门视频课**。
@@ -12,7 +21,7 @@
 
 直接长按扫描下方二维码，关注后回复 「**C语言**」 下载这份 PDF 吧：
 
-![（长按扫码识别）](https://files.mdnice.com/user/3903/24b2eb71-bca8-4915-b68b-f9214db6c316.png)
+![扫码关注后回复「C语言」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 
@@ -46,7 +55,7 @@
 
 C语言是由贝尔实验室的 Dennis Ritchie 在 1969 年~ 1973 年间发明创造的。
 
-![C语言之父](https://files.mdnice.com/user/3903/02e8ad2c-f442-41a5-b8cd-e8e602098689.jpg)
+![C语言之父](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-1.jpg)
 
 Dennis Ritchie是这样评价自己的亲儿子的：“**古怪的、有缺陷的，但同时也是一个巨大的成功**。”这句评语还是非常中肯的。
 
@@ -67,7 +76,7 @@ C语言非常的简洁，几乎没有任何冗余。上手难度几乎为 0，�
 
 C语言能够直接操作硬件、管理内存、跟操作系统交互，这使得它成为了一种非常接近底层的编程语言，非常适合有极高性能要求的程序。
 
-![MATLAB+C语言来控制机械臂](https://files.mdnice.com/user/3903/2cc58dea-4890-41a2-bb84-fcd9d99e3679.jpg)
+![MATLAB+C语言来控制机械臂](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-2.jpg)
 
 
 **04）C语言核心知识点汇总**

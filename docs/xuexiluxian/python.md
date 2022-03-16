@@ -1,3 +1,12 @@
+---
+category:
+  - 学习路线
+tag:
+  - Python
+---
+
+# Python学习路线（建议收藏:+1:）
+
 先上一张 Python 知识图谱，直观的了解一下 Python 的基本构成与实际应用。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-1.png)

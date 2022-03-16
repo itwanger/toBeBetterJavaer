@@ -1,3 +1,12 @@
+---
+category:
+  - 学习路线
+tag:
+  - 操作系统
+---
+
+# 操作系统学习路线（建议收藏:+1:）
+
 操作系统是管理计算机硬件和软件资源的程序，是计算机的基石。
 
 举个例子来讲，像 Java 中的并发编程这块，如果连进程调度的相关原理、同步和互斥都搞不懂，那多半会有两种结果： 
@@ -143,18 +152,24 @@ linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 
 
 这里给大家推荐两门超级硬核的操作系统学习资料，我都已经整理成 PDF 了。
 
-第一份，给操作系统捋条线
-
-看图感受一下吧，想要下载的话，戳这个[链接🔗](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
+第一份，给操作系统捋条线，看图感受一下吧。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/os-8.png)
+
+需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**os**」就可以拉取到了。
+
+![扫码关注后回复「os」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 第二份，操作系统核心知识点
 
-同样看图感受一下吧，想要下载的话，戳这个[链接🔗](https://mp.weixin.qq.com/s/_lOvToFwDki2nDFvwDV5gg)
+同样看图感受一下吧。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/os-9.png)
+
+需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**os**」就可以拉取到了。
+
+![扫码关注后回复「os」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 有一说一，操作系统确实难刷，大家在刷的过程中一定要记得多喝水，因为这门课实在是太干了。说实话，光是整理这两门课的过程，我就又 get 到了不少新鲜的知识点。希望我推荐的这两门课算是抛砖引玉吧，大家一起冲！

@@ -1,3 +1,12 @@
+---
+category:
+  - 学习路线
+tag:
+  - C++
+---
+
+# C++学习路线（建议收藏:+1:）
+
 学习 C++ 语法，首推《C++ Primer 第五版》。我在参加第一份工作的时候，就买过一本《C++ Primer 第四版》，这本书一直不舍得扔，尽管它已经非常破了，但我们之间的感情是深厚的，毕竟跟随我辗转了好几个城市了。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/ccc-1.png)
@@ -26,6 +35,8 @@
 - 《C++ 11 新特性》
 - 《C++ 程序的生前死后》
 
-我从网上 down 了一份，保存到了本地。大家需要的话，可以在后台回复「**侯捷**」关键字拉取下载链接。
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/ccc-5.png)
+
+我从网上 down 了一份，保存到了本地。需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**侯捷**」就可以拉取到了。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

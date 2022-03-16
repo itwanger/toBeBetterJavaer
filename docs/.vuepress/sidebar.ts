@@ -7,6 +7,13 @@ export default defineSidebarConfig([
     collapsable: true,
     children: [
       {
+        prefix: "sidebar/sanfene/",
+        text: "面渣逆袭",
+        icon: "mianshitiku",
+        collapsable: true,
+        children: ["javase", "collection", "javathread","jvm"],
+      },
+      {
         prefix: "overview/",
         text: "Java概述",
         icon: "gaishu",
@@ -149,7 +156,7 @@ export default defineSidebarConfig([
       },
       {
         text: "Java虚拟机",
-        icon: "duoxiancheng",
+        icon: "JVM",
         collapsable: true,
         children: [
         "jvm/what-is-jvm",
