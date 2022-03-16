@@ -14,13 +14,12 @@
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
-一份通俗易懂、风趣幽默的 Java 学习指南，内容涵盖 Java 基础、Java 并发编程、JVM、Java 企业级开发（Git、Spring Boot、MySQL）等知识点。
 
 
 # 为什么会有这个开源知识库
 
 > [!NOTE]
->  知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java 程序员进阶之路😄。
+> 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java 程序员进阶之路😄。
 >  
 >  知识库旨在为学习 Java 的小伙伴提供一系列：
 >  - **优质的原创 Java 教程**
@@ -41,7 +40,7 @@
 # 知识库地图
 
 > [!NOTE]
->  知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
+> 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
 ![](https://img-blog.csdnimg.cn/7fa7cbd99d6449288f4e75cb7d771ec4.png)
 
@@ -49,7 +48,7 @@
 # 学习路线
 
 >[!NOTE]
-> 除了 Java 的学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
+> 除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
 
   * [Java并发编程学习路线（建议收藏:+1:）](docs/xuexiluxian/java/thread.md)
   * [C语言学习路线（建议收藏:+1:）](docs/xuexiluxian/c.md)
@@ -62,7 +61,9 @@
 # Java核心
 
 > [!NOTE]
->  - **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
+>  **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
+
+## Java面渣逆袭
 
 - [面渣逆袭（Java 基础篇）必看:+1:](docs/sidebar/sanfene/javase.md)
 - [面渣逆袭（Java 集合框架篇）必看:+1:](docs/sidebar/sanfene/collection.md)
@@ -153,6 +154,10 @@
 - [Java 8 Optional最佳指南](docs/java8/optional.md)
 - [深入浅出Java 8 Lambda表达式](docs/java8/Lambda.md)
 
+## 单元测试
+
+- [JUnit：别再用 main 方法测试了，好吗？](https://mp.weixin.qq.com/s/rgOPzpOYUEXHQhUNcOH98w)
+
 ## Java重要知识点
 
 - [彻底弄懂Java中的Unicode和UTF-8编码](docs/basic-extra-meal/java-unicode.md)
@@ -172,6 +177,11 @@
 
 - [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
+- [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
+- [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
+- [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
+- [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
+- [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
 
 
 ## Java虚拟机
@@ -190,43 +200,65 @@
 
 > [!NOTE]
 >  - **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭**！
->  - Java 企业级开发这部分可以分为工具篇、框架篇、安全篇、分布式、高性能、高可用和实战篇等等。
 >  - 纸上得来终觉浅，须知此事要躬行。
 
-## 基建篇
+## 开发工具
 
-### Maven
+- [终于把项目构建神器Maven捋清楚了~](docs/maven/maven.md)
+- [我在工作中是如何使用Git的](docs/git/git-qiyuan.md)
+- [Nginx入门教程，敲简单，10分钟搞定](docs/nginx/nginx.md)
 
-> [!TIP]
->  Maven 是一个项目管理工具，可以对 Java 项目进行构建、依赖管理。
+## IDE/编辑器
 
-- [手把手教你安装、配置、使用 Maven](docs/maven/maven.md)
-- [守护版 Maven 来了！！！性能提升 300%](docs/maven/mvnd.md)
+- [4个高级的IntelliJ IDEA调试技巧](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
 
+## Spring
 
-### Git
+- [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
+- [一分钟带你玩转Spring IoC](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
 
-> [!Important]
->  Git 是 Linus Torvalds 为了帮助管理 Linux 内核而开发的一个开源的版本控制软件，绝大多数项目源码和文档都会采用 Git 来进行版本控制。
-
-- [可能是 Git 历史上最伟大的一次代码提交](docs/git/git-qiyuan.md)
-- [终于有人把 Git 的数据模型讲清楚了](docs/git/shujujiegou.md)
-- [昨晚看完 Linus 第一次提交的 Git 代码后，我失眠了！](docs/git/neibushixian.md)
-- [要熟练使用 Git，恐怕要记住这60个命令](docs/git/mingling.md)
-- [崩溃！实习生把小组的代码仓库搞得一团糟。。。](docs/git/jibenshiyong.md)
-- [信不信，7 张图就能让你把 Git 分支管理拿捏的死死的。。](docs/git/fenzhi.md)
-- [一条 Git 命令减少了一半存储空间，我的服务器在偷着笑](docs/git/sparse-checkout.md)
-- [摸清 Git 的门路，就靠这 22 张图](https://mp.weixin.qq.com/s/lY79hI7URuFh3gD9DJKInQ)
-- [保姆级Git入门教程](https://mp.weixin.qq.com/s/Z766Egape2QicYndsQjZ4g)
-
-### Nginx
+## SpringBoot
 
 > [!TIP]
->  Nginx是一款轻量级的 Web 服务器/反向代理服务器，占有内存少，并发能力强。
+>  SpringBoot 不仅继承了Spring框架原有的优秀特性，而且还通过简化配置来进一步简化了Spring应用的整个搭建和开发过程。另外SpringBoot通过集成大量的框架使得依赖包的版本冲突，以及引用的不稳定性等问题得到了很好的解决。
 
-- [Nginx 入门教程，敲简单，10 分钟搞定](docs/nginx/nginx.md)
+- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
+- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
+- [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
+- [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](docs/springboot/aop-log.md)
+- [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
+- [JWT：一个优雅的跨域认证解决方案](docs/springboot/jwt.md)
+- [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
 
-### 日志服务
+## 辅助工具
+
+- [ApiPost：一款更适合国人的接口管理工具](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
+- [Multipass：一款更轻量级的虚拟机](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
+- [drwa.io：一个在线的画图神器](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
+- [Tabby：一款逼格更高的开源终端工具](docs/gongju/tabby.md)
+- [chiner：一款开源的数据库设计神器](docs/gongju/chiner.md)
+- [DBeaver：一款免费的数据库操作工具](docs/gongju/DBeaver.md)
+- [knife4j：一款界面更炫酷的API文档生成神器](docs/gongju/knife4j.md)
+- [AutoGenerator：一款开发效率更高的代码生成工具](docs/kaiyuan/auto-generator.md)
+
+## 精选轮子
+
+### Excel
+
+- [EasyPoi](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
+- [EasyExcel](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
+
+### JSON
+
+- [fastjson](https://mp.weixin.qq.com/s/TsIHRTOyF2_4oNb1APfZ6Q)
+- [Gson](https://mp.weixin.qq.com/s/pc72TlPUmXCrvQkcH7yAdQ)
+- [Jackson](https://mp.weixin.qq.com/s/e94E2FquEzjmXSlHRA8Qzw)
+
+### 网络
+
+- [Forest](https://mp.weixin.qq.com/s/vw-Yaugb4McJA9w-RjWPpQ)
+
+## 日志服务
 
 > [!TIP]
 >  日志是生产环境不可缺少的产物，能够为线上服务提供快速记录、定位、排查问题的来源。
@@ -237,55 +269,6 @@
 - [为什么阿里巴巴开发手册强制使用SLF4J作为门面担当？](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA)
 - [打印日志竟然只晓得 Log4j？](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg)
 
-## 工具篇
-
-### Intellij IDEA
-
-> [!TIP]
->  业界公认的最好的 Java 基础开发环境。
-
-- [阅读源码必备的4个 IDEA 高级调试技巧](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
-
-
-### 辅助工具
-
-> [!TIP]
->  一些可以提高工作效率的工具，甚至可以替代付费工具。
-
-- [再见Postman！推荐一款更适合国人的接口管理工具ApiPost！](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
-- [再见了VMware，推荐一款更轻量级的虚拟机Multipass！](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
-- [再见了Swagger，推荐七款可以替代的在线文档生成神器](https://mp.weixin.qq.com/s/tEwVadscpaUI5uR6aiTZkQ)
-- [干掉visio，这款在线的画图神器 drwa.io 真的绝了！！！](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
-- [干掉 Xshell？Tabby这款开源的终端工具逼格更高！](docs/gongju/tabby.md)
-- [干掉PowerDesigner，这款开源数据库设计神器chiner真的绝了](docs/gongju/chiner.md)
-- [再见收费的Navicat！操作所有数据库就靠它了！](docs/gongju/DBeaver.md)
-- [JUnit：别再用 main 方法测试了，好吗？](https://mp.weixin.qq.com/s/rgOPzpOYUEXHQhUNcOH98w)
-- [fastjson：差点被几个漏洞毁了一世英名](https://mp.weixin.qq.com/s/TsIHRTOyF2_4oNb1APfZ6Q)
-- [Gson：我爸是 Google](https://mp.weixin.qq.com/s/pc72TlPUmXCrvQkcH7yAdQ)
-- [Jackson，最牛掰的 Java JSON 解析器](https://mp.weixin.qq.com/s/e94E2FquEzjmXSlHRA8Qzw)
-
-
-## 框架篇
-
-### SpringBoot
-
-> [!TIP]
->  SpringBoot 不仅继承了Spring框架原有的优秀特性，而且还通过简化配置来进一步简化了Spring应用的整个搭建和开发过程。另外SpringBoot通过集成大量的框架使得依赖包的版本冲突，以及引用的不稳定性等问题得到了很好的解决。
-
-- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
-- [基于SpringBoot 的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
-- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
-- [Spring Boot 3.0 M1 发布，正式弃用 Java 8](https://mp.weixin.qq.com/s/FmRyF6RcCodb8vUBem8dAA)
-- [Spring Boot AOP 扫盲，实现接口访问的统一日志记录](docs/springboot/aop-log.md)
-- [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
-- [没想到，Session竟然被一个叫JWT的家伙干掉了！](docs/springboot/jwt.md)
-- [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
-
-
-### Spring
-
-- [Spring事务失效的12个场景我全碰到过，太巧了！](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
-- [一分钟带你玩转 Spring IoC](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
 
 
 ## 安全篇
@@ -298,48 +281,19 @@
 
 ### ZooKeeper
 
-> [!TIP]
->  ZooKeeper曾是Hadoop 的一个子项目，但现在是一个独立的顶级项目，为大型分布式计算提供开源的分布式配置服务、同步服务和命名注册。
-
-- [基本介绍](docs/zookeeper/jibenjieshao.md)
-- [数据模型](docs/zookeeper/shujumoxing.md)
-- [数据存储](docs/zookeeper/shujucunchu.md)
-- [Watch机制](docs/zookeeper/watch.md)
-- [会话机制](docs/zookeeper/huihuajizhi.md)
-- [ACL权限](docs/zookeeper/acl.md)
-- [序列化方式](docs/zookeeper/xuliehua.md)
-- [集群](docs/zookeeper/jiqun.md)
-- [ZAB协议](docs/zookeeper/zab.md)
-- [日志清理](docs/zookeeper/rizhiqingli.md)
-- [实现分布式锁](docs/zookeeper/fenbushisuo.md)
-- [实现分布式ID](docs/zookeeper/fenbushiid.md)
-- [实现负载均衡](docs/zookeeper/fuzaijunheng.md)
-- [开源框架使用案例](docs/zookeeper/shiyonganli.md)
+- [可能是把ZooKeeper概念讲的最清楚的一篇文章](docs/zookeeper/jibenjieshao.md)
 
 ## 高性能
 
 ### 消息队列
 
-> [!TIP]
->  消息队列是一种异步的服务间通信方式，适用于无服务器和微服务架构，用于分离重量级处理、缓冲或批处理工作以及缓解高峰期工作负载。
-
-- [怎么确保消息 100% 不丢失？](docs/mq/100-budiushi.md)
+- [使用MQ的时候，怎么确保消息100%不丢失？](docs/mq/100-budiushi.md)
 - [RabbitMQ入门](https://mp.weixin.qq.com/s/CoK1PoGQ-ulQuj1Rejgccg)
 
 ## 高可用
 
-## 实战篇
 
-### 开源项目
 
-> [!TIP]
->  GitHub 上、码云上一些高 star 的优质项目推荐，优质的轮子极大地提高了开发效率。
-
-- [EasyPoi实现Excel导入导出，好用到爆，POI可以扔掉了！](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
-- [SpringBoot 实现 Excel 导入导出，性能爆表，用起来够优雅！](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
-- [再见丑陋的SwaggerUI，这款开源的API文档生成神器 knife4j 界面更炫酷，逼格更高！](docs/gongju/knife4j.md)
-- [取代 Mybatis Generator，这款代码生成神器配置更简单，开发效率更高！](docs/kaiyuan/auto-generator.md)
-- [HTTP 客户端框架 Forest](https://mp.weixin.qq.com/s/vw-Yaugb4McJA9w-RjWPpQ)
 
 ### 问题解析
 
@@ -413,16 +367,20 @@
 >  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
 >  - 千淘万漉虽辛苦，吹尽狂沙始到金。
 
-## 八股文
+## 面试题集合
 
-- [Java 高频面试题 34 道](docs/baguwen/java-basic-34.md)
+- [Java：34道高频面试题集合](docs/baguwen/java-basic-34.md)
+- [Java：HashMap精选面试题](docs/collection/hashmap-interview.md)
+- [Redis：八股文（12 道精选）](docs/mianjing/redis12question.md)
+
+## 背诵版八股文
+
 - [Java 基础八股文（背诵版）](docs/baguwen/java-basic.md)
-- [HashMap 精选面试题](docs/collection/hashmap-interview.md)
 - [Java 并发编程八股文（背诵版）](docs/baguwen/java-thread.md)
 - [Java 虚拟机八股文（背诵版）](docs/baguwen/jvm.md)
-- [Redis 八股文（12 道精选）](docs/mianjing/redis12question.md)
 
-## 面试经验
+
+## 优质面验
 
 - [上岸杭州阿里云](docs/mianjing/shanganaliyun.md)
 - [简历优化、投递策略和面试攻略](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)

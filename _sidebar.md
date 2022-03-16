@@ -2,6 +2,7 @@
 * [知识库地图](README.md?id=知识库地图)
 * [学习路线](README.md?id=学习路线)
 * [Java核心](README.md?id=java核心)
+	* [Java面渣逆袭](README.md?id=Java面渣逆袭)
 	* [Java概述](README.md?id=java概述)
 	* [Java基础语法](README.md?id=java基础语法)
 	* [面向对象](README.md?id=面向对象)
