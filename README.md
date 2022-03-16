@@ -264,7 +264,7 @@
 >  日志是生产环境不可缺少的产物，能够为线上服务提供快速记录、定位、排查问题的来源。
 
 - [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
-- [高性能日志记录工具 Log4j 2](https://mp.weixin.qq.com/s/CHoA-WF-ONo9nVJb9dzJWw)
+- [Log4j 2：高性能日志记录工具](https://mp.weixin.qq.com/s/CHoA-WF-ONo9nVJb9dzJWw)
 - [老板下了死命令，要把日志系统切换到Logback](https://mp.weixin.qq.com/s/mm0OYM-raVBi2KwK_QK21g)
 - [为什么阿里巴巴开发手册强制使用SLF4J作为门面担当？](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA)
 - [打印日志竟然只晓得 Log4j？](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg)
@@ -293,54 +293,16 @@
 ## 高可用
 
 
-
-
-### 问题解析
-
-> [!TIP]
->  开发过程中遇到的一些典型问题，该如何解决？
-
-- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
-- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
-- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
-- [两天两夜，1M图片优化到100kb！](docs/shigu/image-yasuo.md)
-- [内部群炸了锅，隔壁同事真删库了啊。。](https://mp.weixin.qq.com/s/lvyoN1gHCWhcPqudcjcRgQ)
-- [B 站崩了](https://mp.weixin.qq.com/s/PfJe5rXednkXTq8EKT0xpw)
-- [因为一个低级错误，生产数据库崩溃了将近半个小时](https://mp.weixin.qq.com/s/ec6u8WsPt7zJ0eul8sPEhg)
-- [防止重复提交最简单的方案是什么？](https://mp.weixin.qq.com/s/n9AFMwQB9V_fq_sED1EWvg)
-
-### 代码优化
-
-- [49 个代码优化小技巧](https://mp.weixin.qq.com/s/ikfgfHunmlwR-43rd8LknQ)
-- [不要用“ ! = null ”做判空了！](https://mp.weixin.qq.com/s/9EOTzZ2Qx3u8oTyghkVUEg)
-
-### 性能调优
-
-- [性能调优标准](https://mp.weixin.qq.com/s/vEt_ypvByKS-oCsuRmpgUw)
-
-
 # 数据库
 
 ## Redis
-
-> [!TIP]
->  Redis（Remote Dictionary Server )，即远程字典服务，是一个用 C语言编写的，支持网络、可基于内存和可持久化日志的键值对数据库。
 
 - [Redis入门](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)
 
 
 ## MySQL
 
-> [!TIP]
->  MySQL 由于性能高、成本低、可靠性好，已经成为最流行的关系型数据库，一般中小型网站的开发都选择 MySQL 作为网站数据库。
-
 - [面渣逆袭（MySQL）必看:+1:](docs/sidebar/herongwei/mysql.md)
-
-### MySQL重要知识点
-
-- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
-- [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
-
 
 ## MongoDB
 
