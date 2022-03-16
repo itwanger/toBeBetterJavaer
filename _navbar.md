@@ -1,4 +1,4 @@
-* [计算机经典书籍下载](https://mp.weixin.qq.com/s/ExjM-xdqMFFY1NIZffz-Ng)
+* [计算机经典书籍下载](docs/download/java.md)
 * 学习路线
   * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
   * [C语言学习路线](docs/xuexiluxian/c.md)

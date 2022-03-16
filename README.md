@@ -469,11 +469,11 @@
 > [!TIP]
 >  **主要包含一些经典的开源电子书，不限于 Java、Git、计算机操作系统、计算机网络、数据结构与算法等**。
 
+- [Java程序员常读书单📚，附下载地址）](docs/download/java.md)
 - [Java 版 LeetCode 刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
 - [豆瓣9.1分，Pro Git中文版](https://mp.weixin.qq.com/s/RpFzXOa2VlFNd7ylLmr9LQ)
 - [给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
 - [阮一峰C语言入门教程](https://mp.weixin.qq.com/s/n8WMwvnpA9KBe0bvZ4IX3g)
-- [计算机经典书单下载（几乎你要的都有）](https://mp.weixin.qq.com/s/ExjM-xdqMFFY1NIZffz-Ng)
 - [BAT 大佬的刷题笔记](https://mp.weixin.qq.com/s/SZmW3ItBuLlmeDiDe3oPzA)
 
 ## 资源推荐

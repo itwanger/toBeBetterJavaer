@@ -18,6 +18,8 @@ export default defineThemeConfig({
 
   docsDir: "docs",
 
+  darkmode: "switch",
+
   // navbar
   navbar: navbar,
 
@@ -48,15 +50,6 @@ export default defineThemeConfig({
   plugins: {
     blog: {
       autoExcerpt: true,
-    },
-
-    // 你也可以使用 Waline
-    comment: {
-      type: "giscus",
-      repo: "vuepress-theme-hope/giscus-discussions",
-      repoId: "R_kgDOG_Pt2A",
-      category: "Announcements",
-      categoryId: "DIC_kwDOG_Pt2M4COD69",
     },
 
     mdEnhance: {
