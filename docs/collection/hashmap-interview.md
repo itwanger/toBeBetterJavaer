@@ -2,7 +2,7 @@
 category:
   - 求职面试
 tag:
-  - Java
+  - 面试题集合
 ---
 
 # Java HashMap精选面试题

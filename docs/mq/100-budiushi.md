@@ -1,3 +1,13 @@
+---
+category:
+  - 求职面试
+tag:
+  - 面试题集合
+title: 在使用 MQ 的时候，怎么确保消息 100% 不丢失？
+---
+
+# MQ：怎么确保消息100%不丢失？
+
 面试官在面试候选人时，如果发现候选人的简历中写了在项目中使用了 MQ 技术（如 Kafka、RabbitMQ、RocketMQ），基本都会抛出一个问题：在使用 MQ 的时候，怎么确保消息 100% 不丢失？
 
 这个问题在实际工作中很常见，既能考察候选者对于 MQ 中间件技术的掌握程度，又能很好地区分候选人的能力水平。接下来，我们就从这个问题出发，探讨你应该掌握的基础知识和答题思路，以及延伸的面试考点。
@@ -7,7 +17,7 @@
 以京东系统为例，用户在购买商品时，通常会选择用京豆抵扣一部分的金额，在这个过程中，交易服务和京豆服务通过 MQ 消息队列进行通信。在下单时，交易服务发送“扣减账户 X 100 个京豆”的消息给 MQ 消息队列，而京豆服务则在消费端消费这条命令，实现真正的扣减操作。
 
 
-![](https://files.mdnice.com/user/3903/e4e96a8d-c187-4794-8339-b26d461b26fd.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mq/100-budiushi-a5cbe077-5f38-44c6-9ed7-496fe1702cca.png)
 
 那在这个过程中你会遇到什么问题呢？
 
@@ -40,7 +50,7 @@
 我们首先来看消息丢失的环节，一条消息从生产到消费完成这个过程，可以划分三个阶段，分别为消息生产阶段，消息存储阶段和消息消费阶段。
 
 
-![](https://files.mdnice.com/user/3903/f00bed87-0f1a-4d71-87d0-eb7b0989eed3.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mq/100-budiushi-1d1962fb-cb0f-41d0-8d6d-077ba33b6125.png)
 
 **消息生产阶段**： 从消息被生产出来，然后提交给 MQ 的过程中，只要能正常收到 MQ Broker 的 ack 确认响应，就表示发送成功，所以只要处理好返回值和异常，这个阶段是不会出现消息丢失的。
 
@@ -67,7 +77,7 @@
 我们还是来看扣减京豆的例子，将账户 X 的金豆个数扣减 100 个，在这个例子中，我们可以通过改造业务逻辑，让它具备幂等性。
 
 
-![](https://files.mdnice.com/user/3903/eca60cd8-b700-4f87-b2b0-877678e59dad.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mq/100-budiushi-9d864624-2136-4770-942b-9a5f70c2aaf6.png)
 
 最简单的实现方案，就是在数据库中建一张消息日志表， 这个表有两个字段：消息 ID 和消息执行状态。这样，我们消费消息的逻辑可以变为：在消息日志表中增加一条消息记录，然后再根据消息记录，异步操作更新用户京豆余额。
 
@@ -78,7 +88,7 @@
 在分布式系统中，全局唯一 ID 生成的实现方法有数据库自增主键、UUID、Redis，Twitter-Snowflake 算法，我总结了几种方案的特点，你可以参考下。
 
 
-![](https://files.mdnice.com/user/3903/02045323-b348-4c7a-af62-abcc44ae5bcb.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mq/100-budiushi-0622a500-83ef-4b8f-96d3-68c649d17311.png)
 
 我提醒你注意，无论哪种方法，如果你想同时满足简单、高可用和高性能，就要有取舍，所以你要站在实际的业务中，说明你的选型所考虑的平衡点是什么。我个人在业务中比较倾向于选择 Snowflake 算法，在项目中也进行了一定的改造，主要是让算法中的 ID 生成规则更加符合业务特点，以及优化诸如时钟回拨等问题。
 

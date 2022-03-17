@@ -7,5 +7,4 @@
   * [Go语言学习路线](docs/xuexiluxian/go.md)
   * [操作系统学习路线](docs/xuexiluxian/os.md)
   * [前端学习路线](docs/xuexiluxian/qianduan.md)
-* [回到主页](README.md)
 

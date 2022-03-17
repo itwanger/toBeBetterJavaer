@@ -1,4 +1,12 @@
+---
+category:
+  - Java企业级开发
+tag:
+  - Spring Boot
+---
 
+
+# 一分钟快速搭建Spring Boot项目
 
 ### 一、Spring Boot 项目搭建
 
