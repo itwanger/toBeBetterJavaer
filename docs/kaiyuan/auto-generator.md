@@ -1,4 +1,12 @@
+---
+category:
+  - Java企业级开发
+tag:
+  - 辅助工具
+  - 轮子
+---
 
+# MyBatis-Plus AutoGenerator：一款开发效率更高的代码生成工具
 
 作为一名 Java 后端开发，日常工作中免不了要生成数据库表对应的持久化对象 PO，操作数据库的接口 DAO，以及 CRUD 的 XML，也就是 mapper。
 

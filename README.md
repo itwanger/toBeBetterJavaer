@@ -73,8 +73,6 @@
 ## Java概述
 
 - [什么是Java？Java发展简史，Java的优势](docs/overview/what-is-java.md)
-- [JDK和JRE有什么区别？](docs/overview/jdk-jre.md)
-- [安装集成开发环境Intellij IDEA](docs/overview/idea.md)
 - [第一个Java程序：Hello World](docs/overview/hello-world.md)
 
 
@@ -128,7 +126,7 @@
 - [为什么阿里巴巴强制不要在foreach里执行删除操作](docs/collection/fail-fast.md)
 - [Java8系列之重新认识HashMap](docs/collection/hashmap.md)
 
-## Java I/O
+## Java输入输出
 
 - [Java IO学习整理](docs/io/shangtou.md)
 - [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/io/BIONIOAIO.md)
@@ -154,10 +152,6 @@
 - [Java 8 Optional最佳指南](docs/java8/optional.md)
 - [深入浅出Java 8 Lambda表达式](docs/java8/Lambda.md)
 
-## 单元测试
-
-- [JUnit：别再用 main 方法测试了，好吗？](https://mp.weixin.qq.com/s/rgOPzpOYUEXHQhUNcOH98w)
-
 ## Java重要知识点
 
 - [彻底弄懂Java中的Unicode和UTF-8编码](docs/basic-extra-meal/java-unicode.md)
@@ -176,24 +170,11 @@
 ## Java并发编程
 
 - [室友打一把王者就学会了多线程](docs/thread/wangzhe-thread.md)
-- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
-- [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
-- [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
-- [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
-- [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
-- [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
 
 
 ## Java虚拟机
 
 - [什么是JVM？](docs/jvm/what-is-jvm.md)
-- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
-- [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
-- [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
-- [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)
-- [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
-- [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
-- [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
 
 
 # Java企业级开发
@@ -206,31 +187,23 @@
 
 - [终于把项目构建神器Maven捋清楚了~](docs/maven/maven.md)
 - [我在工作中是如何使用Git的](docs/git/git-qiyuan.md)
-- [Nginx入门教程，敲简单，10分钟搞定](docs/nginx/nginx.md)
+- [5分钟带你深入浅出搞懂Nginx](docs/nginx/nginx.md)
 
 ## IDE/编辑器
 
-- [4个高级的IntelliJ IDEA调试技巧](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
+- [4个高级的IntelliJ IDEA调试技巧](docs/ide/4-debug-skill.md)
 
 ## Spring
 
-- [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
-- [一分钟带你玩转Spring IoC](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
+- [Spring IoC扫盲](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
 
 ## SpringBoot
 
-> [!TIP]
->  SpringBoot 不仅继承了Spring框架原有的优秀特性，而且还通过简化配置来进一步简化了Spring应用的整个搭建和开发过程。另外SpringBoot通过集成大量的框架使得依赖包的版本冲突，以及引用的不稳定性等问题得到了很好的解决。
-
-- [一分钟快速搭建 Spring Boot 项目](docs/springboot/initializr.md)
+- [一分钟快速搭建Spring Boot项目](docs/springboot/initializr.md)
 - [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
-- [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
-- [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](docs/springboot/aop-log.md)
-- [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
-- [JWT：一个优雅的跨域认证解决方案](docs/springboot/jwt.md)
-- [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
 
-## 辅助工具
+
+## 辅助工具/轮子
 
 - [ApiPost：一款更适合国人的接口管理工具](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
 - [Multipass：一款更轻量级的虚拟机](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
@@ -239,36 +212,18 @@
 - [chiner：一款开源的数据库设计神器](docs/gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](docs/gongju/DBeaver.md)
 - [knife4j：一款界面更炫酷的API文档生成神器](docs/gongju/knife4j.md)
-- [AutoGenerator：一款开发效率更高的代码生成工具](docs/kaiyuan/auto-generator.md)
-
-## 精选轮子
-
-### Excel
-
-- [EasyPoi](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
-- [EasyExcel](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
-
-### JSON
-
-- [fastjson](https://mp.weixin.qq.com/s/TsIHRTOyF2_4oNb1APfZ6Q)
-- [Gson](https://mp.weixin.qq.com/s/pc72TlPUmXCrvQkcH7yAdQ)
-- [Jackson](https://mp.weixin.qq.com/s/e94E2FquEzjmXSlHRA8Qzw)
-
-### 网络
-
-- [Forest](https://mp.weixin.qq.com/s/vw-Yaugb4McJA9w-RjWPpQ)
-
-## 日志服务
-
-> [!TIP]
->  日志是生产环境不可缺少的产物，能够为线上服务提供快速记录、定位、排查问题的来源。
-
-- [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
-- [Log4j 2：高性能日志记录工具](https://mp.weixin.qq.com/s/CHoA-WF-ONo9nVJb9dzJWw)
-- [老板下了死命令，要把日志系统切换到Logback](https://mp.weixin.qq.com/s/mm0OYM-raVBi2KwK_QK21g)
-- [为什么阿里巴巴开发手册强制使用SLF4J作为门面担当？](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA)
-- [打印日志竟然只晓得 Log4j？](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg)
-
+- [MyBatis-Plus AutoGenerator：一款开发效率更高的代码生成工具](docs/kaiyuan/auto-generator.md)
+- [Junit：一个开源的Java单元测试框架](docs/gongju/junit.md)
+- [EasyPoi：5行代码就可以完成Excel的导入导出的开源项目](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
+- [EasyExcel：一个基于Java的简单、省内存的读写Excel的开源项目](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
+- [fastjson：阿里巴巴开源的JSON解析库](docs/gongju/fastjson.md)
+- [Gson：Google开源的JSON解析库](docs/gongju/gson.md)
+- [Jackson：GitHub上star数最多的JSON解析库](docs/gongju/jackson.md)
+- [Forest：一款极简的声明式HTTP调用API框架](docs/gongju/forest.md)
+- [Log4j：Log4j 2的前身，Java日志框架的鼻祖](docs/gongju/log4j.md)
+- [Log4j 2：Apache维护的一款高性能日志记录工具](docs/gongju/log4j2.md)
+- [Logback：Spring Boot内置的日志处理框架](docs/gongju/logback.md)
+- [SLF4J：阿里巴巴强制使用的日志门面担当](docs/gongju/slf4j.md)
 
 
 ## 安全篇
@@ -277,7 +232,7 @@
 
 ### Elasticsearch
 
-- [Elasticsearch入门](https://mp.weixin.qq.com/s/ZjsZxle7m_dfmVwVkq2ayg)
+- [全文搜索引擎Elasticsearch入门教程](docs/elasticsearch/rumen.md)
 
 ### ZooKeeper
 
@@ -287,40 +242,32 @@
 
 ### 消息队列
 
-- [使用MQ的时候，怎么确保消息100%不丢失？](docs/mq/100-budiushi.md)
-- [RabbitMQ入门](https://mp.weixin.qq.com/s/CoK1PoGQ-ulQuj1Rejgccg)
+- [RabbitMQ入门教程（概念、应用场景、安装、使用）](docs/mq/rabbitmq-rumen.md)
 
 ## 高可用
 
-
 # 数据库
 
-## Redis
-
-- [Redis入门](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)
-
+> [!NOTE]
+>  - **简而言之，就是按照数据结构来组织、存储和管理数据的仓库**。几乎所有的 Java 后端开发都要学习数据库这块的知识，包括关系型数据库 MySQL，缓存中间件 Redis，非关系型数据库 MongoDB 等。
 
 ## MySQL
 
-- [面渣逆袭（MySQL）必看:+1:](docs/sidebar/herongwei/mysql.md)
+## Redis
+
+- [Redis入门(适合新手)](docs/redis/rumen.md)
+
 
 ## MongoDB
 
-- [MongoDB 入门](https://mp.weixin.qq.com/s/qz0sNOFeS0GTW-H9cdnbJg)
+- [MongoDB最基础入门教程](docs/mongodb/rumen.md)
 
 
 # 计算机基础
 
-## 数据结构
-
-- [栈](https://mp.weixin.qq.com/s/fc48Z5tSMlBHweYIS1UL0g)
-- [队列](https://mp.weixin.qq.com/s/TCg9_3cVuDfZLqK2eYrc7w)
-- [霍夫曼编码](https://mp.weixin.qq.com/s/BbDQPEPY6Etp9F8gQSBchw)
-
-# 前端
-
-- [前端最努力的同学都是如何学习的？](https://mp.weixin.qq.com/s/BrYyhCyQwBEZOwgJZeaTOw)
-- [前端学习资料](https://mp.weixin.qq.com/s/sos0tc_pTptzQimBNSS-vg)
+> [!NOTE]
+>  - **计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。
+>  - 万丈高露平地起，勿在浮沙筑高台。
 
 
 # 求职面试
@@ -331,33 +278,32 @@
 
 ## 面试题集合
 
-- [Java：34道高频面试题集合](docs/baguwen/java-basic-34.md)
+- [Java：34道精选高频面试题](docs/baguwen/java-basic-34.md)
 - [Java：HashMap精选面试题](docs/collection/hashmap-interview.md)
-- [Redis：八股文（12 道精选）](docs/mianjing/redis12question.md)
+- [Redis：12道精选高频面试题）](docs/mianjing/redis12question.md)
+- [MQ：怎么确保消息100%不丢失？](docs/mq/100-budiushi.md)
+
 
 ## 背诵版八股文
 
-- [Java 基础八股文（背诵版）](docs/baguwen/java-basic.md)
-- [Java 并发编程八股文（背诵版）](docs/baguwen/java-thread.md)
-- [Java 虚拟机八股文（背诵版）](docs/baguwen/jvm.md)
+- [Java 基础八股文（背诵版）必看:+1:](docs/baguwen/java-basic.md)
+- [Java 并发编程八股文（背诵版）必看:+1:](docs/baguwen/java-thread.md)
+- [Java 虚拟机八股文（背诵版）必看:+1:](docs/baguwen/jvm.md)
+- [MySQL 八股文（背诵版）必看:+1:](docs/sidebar/herongwei/mysql.md)
 
 
-## 优质面验
+## 优质面经
 
-- [上岸杭州阿里云](docs/mianjing/shanganaliyun.md)
-- [简历优化、投递策略和面试攻略](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
-- [社招一年面经分享(含阿里美团头条京东滴滴)](https://mp.weixin.qq.com/s/h2tV6v5Rh6jHdO9x0p63-g)
+- [春招斩获深圳腾讯PCG和杭州阿里云](docs/mianjing/shanganaliyun.md)
+- [社招拿下阿里美团头条京东滴滴)](https://mp.weixin.qq.com/s/h2tV6v5Rh6jHdO9x0p63-g)
 - [字节小姐姐的一份秋招攻略](https://mp.weixin.qq.com/s/0hCJy0m8nHm08HfyXKQT1A)
-- [面试美团，过了](https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA)
-- [学历一般，但终获阿里 Offer！](https://mp.weixin.qq.com/s/vnMZY9Gsy3o1FwMi4f1GlA)
-- [工作时间节点、简历编写、笔试注意事项、常用网站、要不要实习？](https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw)
-- [B 站面试的心路历程](https://mp.weixin.qq.com/s/u_kDtmWpHj5OuAhYs-cW1w)
-- [阿里面试，我挂在了第四轮……](https://mp.weixin.qq.com/s/MGRvDMpCVB18aoPeDvTMew)
+- [面试常见词汇扫盲+常见大厂面试特点分享](https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA)
+- [双非学历的社畜，历经 6 轮面试，最终拿下阿里Offer](https://mp.weixin.qq.com/s/vnMZY9Gsy3o1FwMi4f1GlA)
 
-## 简历
+## 面试准备
 
-- [简历该如何优化？](https://mp.weixin.qq.com/s/soVldFzBbqwm_vM35afFvg)
-- [入职阿里后，才知道原来简历这么写](https://mp.weixin.qq.com/s/QFraobvuGnVJRCi4tA-CNQ)
+- [简历如何优化，简历如何投递，面试如何准备？](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
+- [校招时间节点、简历编写、笔试、、HR面、实习等注意事项](https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw)
 
 
 ## 城市选择
@@ -370,224 +316,51 @@
 - [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
 - [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 - [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
-- [杭州有哪些顶级的互联网公司？](docs/cityselect/hangzhou.md)
+- [杭州有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
+- [成都有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/eaX9QhLwy_VsGIH0apA4qw)
+
+## 工作体会
+
 
 
 # 学习资源
 
 > [!NOTE]
->  **这里会推荐一些优质的简历模板、技术手册、硬核 PDF、在线教程和在线教学视频，帮助大家在学习的道路上少走一些弯路**。
+>  - **不知道学什么？不知道该怎么学？找不到优质的学习资源**？这些问题在这里统统都可以找到答案。
+>  - 我会把自己十多年的编程经验和学习资源毫不保留的分享出来。
 
-## 资料下载
+## PDF下载
 
-> [!TIP]
->  **主要包含一些经典的开源电子书，不限于 Java、Git、计算机操作系统、计算机网络、数据结构与算法等**。
-
-- [Java程序员常读书单📚，附下载地址）](docs/download/java.md)
-- [Java 版 LeetCode 刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
-- [豆瓣9.1分，Pro Git中文版](https://mp.weixin.qq.com/s/RpFzXOa2VlFNd7ylLmr9LQ)
-- [给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
-- [阮一峰C语言入门教程](https://mp.weixin.qq.com/s/n8WMwvnpA9KBe0bvZ4IX3g)
-- [BAT 大佬的刷题笔记](https://mp.weixin.qq.com/s/SZmW3ItBuLlmeDiDe3oPzA)
-
-## 资源推荐
-
-> [!TIP]
->  **有 GitHub、码云、B 站、Coursera、个人博客、知识库网站上公开的免费课程，也有极客时间上付费专栏，慕课上的教学视频等**。
-
-### 在线图文教程
-
-- [Java 正则表达式详解](https://segmentfault.com/a/1190000009162306)
-- [Java 正则从入门到精通](https://dunwu.github.io/javacore/advanced/java-regex.html)
-- [GitHub 上优质的 Java 知识总结项](https://mp.weixin.qq.com/s/-lQ2PTEO4F2d92GDDxKVpw)
-- [处于萌芽阶段的 Java 核心知识库](https://mp.weixin.qq.com/s/_Q7lopxM1sJtMA-NOE_v3A)
-- [大数据入门指南 ](https://github.com/heibaiying/BigData-Notes)
+- [👏下载→Java程序员常读书单）](docs/download/java.md)
+- [👏下载→Java版LeetCode刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
+- [👏下载→阮一峰C语言入门教程](https://mp.weixin.qq.com/s/n8WMwvnpA9KBe0bvZ4IX3g)
+- [👏下载→BAT大佬的刷题笔记](https://mp.weixin.qq.com/s/SZmW3ItBuLlmeDiDe3oPzA)
+- [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
+- [👏下载→豆瓣9.1分，Pro Git中文版](https://mp.weixin.qq.com/s/RpFzXOa2VlFNd7ylLmr9LQ)
+- [👏下载→简历模板](https://mp.weixin.qq.com/s/soVldFzBbqwm_vM35afFvg)
 
 
-### 在线视频教程
-
-- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
-- [中国大学 mooc 国防科技大学计算机基础课](https://mp.weixin.qq.com/s/QpT6jbTAxAoCr-YeiMmFNg)
-- [B 站， YYDS！看了这些 Java视频，我直呼好家伙！！！](https://mp.weixin.qq.com/s/rRNYGNwuPdpSJHycP8J37g)
-- [哈佛大学的 CS50](https://mp.weixin.qq.com/s/s3e21hF7jmq1lQP-0J1zXA)
-- [计算机科学速成课](https://mp.weixin.qq.com/s/JF3CYYsaTAlLgHJoOSnTIQ)
-- [该死！B 站上这些 Java 视频真香！](https://mp.weixin.qq.com/s/Wgedf4ZH3_zJXxFxyPPyNQ)
-- [大学寒假在 B 站上应该刷的视频课](https://mp.weixin.qq.com/s/xCHyjOokoiES6dOUWp-5mA)
-
-### 优质书单
-
- - [豆瓣 9.7！2022 值得一读的 15 本技术书籍！](https://mp.weixin.qq.com/s/alul8QAwtD82U37Oqa0N5Q)
- - [开发内功修炼的2021年书单](https://mp.weixin.qq.com/s/DQPfguCIY4I3N8WnKGpVKg)
- - [数据库书单](https://mp.weixin.qq.com/s/vivwFEfvHzpaMl5rzf1GGw)
-
-### 学习建议
-
-- [学习 Java 的建议](https://mp.weixin.qq.com/s/E_z9QsimrbOjVeyjbqGvQw) 
-- [一些学习 Java 的小心得](https://mp.weixin.qq.com/s/6edJC7qL7XtPpbFLfIXMow)
-- [大学想报计算机专业，暑假想要自学，有哪些建议？](https://mp.weixin.qq.com/s/qx9DEvZsEkGISChtTVKy1A)
-- [有哪些给专科生的建议？](https://mp.weixin.qq.com/s/kcV0kzfbGGqvlTfeWiVhIg)
-- [如何阅读《深入理解计算机系统》这本书？](https://mp.weixin.qq.com/s/dKQ30zJ6sZTZE4brF3JqHA)
-- [视频学习胜过读书吗？](https://mp.weixin.qq.com/s/mzbDZCWbfTMvDdh-tQivwg)
-- [计算机专业，暑假需要提前自学吗？](https://mp.weixin.qq.com/s/BR0w_bok3MJ2jRFEQR_yTQ)
-- [计算机专业应该怎样规划自己的大学四年？](https://mp.weixin.qq.com/s/prclU2IGTlfPqOqFX7CHnA)
-- [大学计算机系最努力的同学都是如何学习的？](docs/xianliaolaoke/daxue-nuli-jisuanji.md)
-- [编程语言该如何选择？](https://mp.weixin.qq.com/s/uh9lAgXQ6I2EwqNxXhA-EQ)
-- [如何才能把团队给带散？](https://mp.weixin.qq.com/s/GzqBuOjRmzbmTNUBKWqmCA)
-- [为什么程序员会有代码能跑就不要动的观点？](https://mp.weixin.qq.com/s/n-ef_q3PIHfa9je1Ndoo3g)
-- [自己拥有一台服务器可以做哪些很酷的事情？](https://mp.weixin.qq.com/s/7eIIJzHvIGnlz1cCFyX-yQ)
-- [大专生在大学该怎么学习？](https://mp.weixin.qq.com/s/0TFob0orzPW1Xkeu56uIFA)
-- [如何准备蓝桥杯？](https://mp.weixin.qq.com/s/10LLldlmmiIlT3198UQqEg)
-- [如何才能考上哈工大？](https://mp.weixin.qq.com/s/Ynmz2ljHhQIHIE1kAWq2Sw)
-- [学编程有哪些建议？](https://mp.weixin.qq.com/s/EvhWOAGxs2J-2gFVqc8uDQ)
-- [怎么吃透一个 Java 项目？](https://mp.weixin.qq.com/s/td12spLVFhSiV3RN3F2zDQ)
-- [如何自学编程？](https://mp.weixin.qq.com/s/DPF153bIBGD6GzEEsEaZYw)
-- [为什么很多程序员用 switch，而是大量的 if-else？](https://mp.weixin.qq.com/s/iJCWPtksG8dGuvo0TJ7WVA)
-- [计科专业的大一新生，如何提高编程能力？](https://mp.weixin.qq.com/s/nUfHezq6orqroW7F-Cs1zQ)
-- [前端和 Java 该怎么选？](https://mp.weixin.qq.com/s/oCh8pMuRJrx6vhz2hcA6Aw)
-- [如何在大学四年成为一名优秀的程序员？](https://mp.weixin.qq.com/s/AeA42qa3w7gY6TNIHMCcxA)
-- [什么才算是真正的编程能力？](https://mp.weixin.qq.com/s/exwE-AGx5gHZzZRHLyYmxA)
-- [Java 后端实习生的最基本的要求是什么？](https://mp.weixin.qq.com/s/4KJ-c60G7QsPW4aqdXnPCQ)
-- [数据结构该怎么学？](https://mp.weixin.qq.com/s/F1jpcYrmUXTNU9u7tuxw2A)
-- [学习 Java，知识点太多记不住怎么办?](https://mp.weixin.qq.com/s/1Vs-pzfnUoqL1tK7M7KdzA)
-- [程序员需要达到什么水平才能顺利拿到 20k 无压力?](https://mp.weixin.qq.com/s/d6_0Ab8Wwa_OwHt1_-vfTQ)
-- [如何看待一些大学生说 3 天学会了 Java？](https://mp.weixin.qq.com/s/IyaFozSB4p9us8Gwz4J9uQ)
-- [如何培养解决问题的能力呢？](https://mp.weixin.qq.com/s/TIbF4H9tzazMromHfYEAXw)
-- [如何才能愉快的刷题？](https://mp.weixin.qq.com/s/rNKr0rLwj4H05d5PlDYJZg)
-- [如何才能高效地学习编程？](https://mp.weixin.qq.com/s/_TaQ7KzmHJMoZ2JQ891Rqg)
-- [读书有没有一些好的方法呢？](https://mp.weixin.qq.com/s/bz71WiC0Ltw42vNPhjnYaQ)
-- [如何学习 Java 的数据结构？](https://mp.weixin.qq.com/s/eGchqCHsX5epqIn2zT3ARQ)
-- [如何全面系统地自学Java?](https://mp.weixin.qq.com/s/_K2eCN6mQPAoKjo19bJ6CQ)
-- [如何才能高效的阅读源码？](https://mp.weixin.qq.com/s/-QnztlTt0F2zsHf1wV7uRg)
-- [奉劝那些想把编程学好的人](https://mp.weixin.qq.com/s/sDI8hyTKH0bRfNoc9zRP1g)
-- [计算机基础知识有哪些？](https://mp.weixin.qq.com/s/QPlbIAPU_TbYxbt-t2quRQ)
-- [如何学习 Vim?](https://mp.weixin.qq.com/s/Dz-CcTdrVZ6XALr-3utdxw)
-- [如何学习 Shell？](https://mp.weixin.qq.com/s/oEo8N3nE0wR1zl7qD4nh3w)
-- [学习编程的一些经验梳理](https://mp.weixin.qq.com/s/yuKLyS0-3GbMRu0cH77JRg)
-- [如何成为优质开源项目的贡献者？](https://mp.weixin.qq.com/s/_jJk4xKLAlBU6ZrxsbeqoQ)
-- [新手如何使用 GitHub？](https://mp.weixin.qq.com/s/IcbWYOZ_HXc9O8h0o62Wmg)
-- [怎样提高自己的编程能力？](https://mp.weixin.qq.com/s/0BDRUAob-DUPYs6gPS7V6Q)
-- [一名厉害的 Java 后端程序员都需要懂得哪些知识呢？](https://mp.weixin.qq.com/s/dYbDNeyE5zddn1SbO2g6aA)
-- [只会抄代码，该怎么办？](https://mp.weixin.qq.com/s/T576UPxMGH_4axlllwPgzw)
-- [女生适合学编程吗？](https://mp.weixin.qq.com/s/ZtFAxJP4KVXjzbT-Qc91Dw)
-- [如何写出让同事好维护的代码？](https://mp.weixin.qq.com/s/KGLrZ1nGmnwr2uq7FJzfQg)
-- [如何写出让同事无法维护的代码？](https://mp.weixin.qq.com/s/XS6Zh51ISvQ1uyIXBWkUUA)
-- [新手小白，该怎么提高编程能力呢？](https://mp.weixin.qq.com/s/YTpBj5nNZdkuPahK9JuqXQ)
-
-# 程序人生
+# 知识库搭建历程
 
 > [!NOTE]
->  **程序员的人生不仅有代码，还有诗和远方**。<br><br>
->  人间烟火味，最抚凡人心。
+> 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java 程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
 
-## 码农生活
-
-- [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
-- [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
-- [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
-- [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
-- [研究所月入两万，是什么体验？](docs/manongshenghuo/yanjiusuo-20wan.md)
-- [裸辞全职做外包一个月的感受](docs/manongshenghuo/waibao-1geyue.md)
-- [转眼就来字节六个月了，真的不一样](https://mp.weixin.qq.com/s/jG7DLrCFf_pYoMLFiVbaaA)
-- [在监狱里编程是一种什么体验（上）？](https://mp.weixin.qq.com/s/ci5Meem_d3g2BphDmMP8VQ)
-- [29 岁，非科班零基础，想兼职做外包。。](https://mp.weixin.qq.com/s/CTTlnXNXY9j3Bm3_4gmIbw)
-- [30岁女程序员，做建材生意4年，想重回软件开发...](docs/xianliaolaoke/chengxuyuannv-chonghui-java.md)
-- [就离谱.......这个产品小姐姐也太会撩了吧](https://mp.weixin.qq.com/s/Oml9oWQHIR1aYWSJQDXWVQ)
-- [王小波的计算机水平有多好？](https://mp.weixin.qq.com/s/Ad_6DMt0tTzF6lYu3EUm0A)
-- [为了一个 deadline，清华毕业的 IT 老乡猝死在马桶上](https://mp.weixin.qq.com/s/j54Kh2p8cAtIZprScN4_dg)
-- [996加班累到肺部切除，维权之路](https://mp.weixin.qq.com/s/DjSSzLQHBNOVyewEbLmhyw)
-- [去上海申通实习了，有点迷茫。。](https://mp.weixin.qq.com/s/cHqplnL2S-lI76HQE6QBvA)
-- [一个月薪 12000 的北京程序员的真实生活](https://mp.weixin.qq.com/s/HhFzoDR4oSOf0idlCjtApw)
-- [进腾讯了！](https://mp.weixin.qq.com/s/XG1k39oZ0p1tT1Y4qVmXfQ)
-- [被调剂到计算机专业是一种什么体验？](https://mp.weixin.qq.com/s/EMt1xGE5rGOLQQ-3587oUg)
-- [拿到贝壳的转正意向书了！](https://mp.weixin.qq.com/s/bv_lLFnl7xq8X9D07q-cJQ)
-- [卧底软件培训公司，揭开编程培训内幕](https://mp.weixin.qq.com/s/e3r6aXm2yjGBaQvaCjzBfw)
-- [这样的国企，不去也罢](https://mp.weixin.qq.com/s/9oGfI-qumnFlkSqD13l4kA)
-- [老乡拿下了ACM金牌！](https://mp.weixin.qq.com/s/SOdXLc1B1dUHwJHsmQppUQ)
-- [去银行写代码是什么体验？](https://mp.weixin.qq.com/s/-BMhUxWbiTtAasGCssoWiA)
-- [考上北大了！](https://mp.weixin.qq.com/s/l9ew7ilIjUwplCky3IQTww)
-- [二哥的读者（女，从小就想当黑客，初中学编程，高中造火箭](https://mp.weixin.qq.com/s/nx15_7xw32CsfLYXuLg7Sg)
-- [二哥的读者（男，半年时间，非科班进携程了！](https://mp.weixin.qq.com/s/_coQbVnlir_fH5eDNzBB3Q)
-- [我终于有字节工牌了！！！！](https://mp.weixin.qq.com/s/8gArGQck86zOBgoP77pqiA)
-- [半路转行计算机的女生](https://mp.weixin.qq.com/s/nOIZmt1Qkd8pY_ANsFZiDw)
-- [在国企当程序员，贼酸爽！](https://mp.weixin.qq.com/s/OG6ziNS26TobPlHgp4CYSQ)
-- [面试外企是一种什么体验？](https://mp.weixin.qq.com/s/HEydOa8zhWOBe_2sngEDuw)
-- [37岁老码农找工作](https://mp.weixin.qq.com/s/0wslDH_9oaVHfepGLJ113w)
-- [一个培训班出来的程序员](https://mp.weixin.qq.com/s/3JXhx1ut4VgmCr766Ig3ng)
-
-
-## 闲聊唠嗑
-
-- [约河科大软工专业的 4 位学弟一起撸了个串](https://mp.weixin.qq.com/s/nhDBZGmN3-pZQD2AxMhFhA)
-- [带妹来和父母团聚了！](docs/xianliaolaoke/fumutuanju.md)
-- [愤怒！这个阿里云工程师的甩锅能力，真的超级高水平！](docs/xianliaolaoke/aliyun-shuaiguo-gongchengshi.md)
-- [差点散伙！](docs/xianliaolaoke/chadiansanhuo.md)
-- [滴滴程序员被亲戚鄙视：年薪八十万还不如二本教书的...](https://mp.weixin.qq.com/s/iDQiMaTo4Pi8fqnUxAsWuQ)
-- [和华为的大佬一起创业了！](https://mp.weixin.qq.com/s/LfJR6qIZ7fRorIs22VNSOA)
-- [带妹来青岛了！](https://mp.weixin.qq.com/s/TUdQI4B9_VLSrzLekp6JsA)
-- [母亲节快乐！](https://mp.weixin.qq.com/s/VgixuYkIkyMfK1aGM6sBSQ)
-- [大学同学考研成功了！](https://mp.weixin.qq.com/s/U44Js0_KQbv_9osV75lOuA)
-- [打算在县城“买”片地](https://mp.weixin.qq.com/s/KRaSFlMTYV_3GoCv4aDRWA)
-- [曝下 955 加班少的公司名单！](https://mp.weixin.qq.com/s/qR_MmaKfVHERuAz987MzyA)
-- [我身边的 3 个女神](https://mp.weixin.qq.com/s/kZ7simp8xSniK-E-AmVJCw)
-- [住过窑洞的人](https://mp.weixin.qq.com/s/CDXyVL39aIQuvD4jssObTw)
-
-
-## 人生建议
-
-- [准备考研还是准备工作？](https://mp.weixin.qq.com/s/uY7tSA3ieSBe0IRjR9Ighg)
-- [自己能力不足，想要辞职，该怎么办？](https://mp.weixin.qq.com/s/XAnWkOzO_PHIgyFrnlejbg)
-- [美团还是研究所，美团年包多二十万，怎么选？](https://mp.weixin.qq.com/s/oc-6Um6y0LlpSQwDY4HAbw)
-- [被毁约了，该怎么办？](https://mp.weixin.qq.com/s/q6EEokBPLjf00ELHpusJlA)
-- [离开学校后，我才明白的这些道理](https://mp.weixin.qq.com/s/iAdAlISvLXgxkrYih3zB3Q)
-- [假如哪天失业了该怎么办？](https://mp.weixin.qq.com/s/2mMH7lp9g_u40Gh7E0S7mQ)
-- [害怕三四年以后读研出来计算机不行了](https://mp.weixin.qq.com/s/Xe06SHupUwfQn-hyBv9s0Q)
-- [校招黑名单](https://mp.weixin.qq.com/s/q4xF4ddqjeTfWikcUk-HLA)
-- [绩效被打C了怎么办？](https://mp.weixin.qq.com/s/VAboB0lrGcDlhxvsYwckzg)
-- [要不要去日企？](https://mp.weixin.qq.com/s/72Mzt2a9pd3HBddaIQvM9g)
-- [上大专有用吗？](https://mp.weixin.qq.com/s/pspf-XKOgSWkoIKgpv9VEA)
-- [高考该如何填报志愿？](https://mp.weixin.qq.com/s/vavycrOfjtsvA_ARaWsxSg)
-- [计算机大类到底该选择哪个学科呢？](https://mp.weixin.qq.com/s/1uZA16fXy7YXivi210vcLw)
-- [银行科技岗，真香吗？](https://mp.weixin.qq.com/s/EOm5qhR4bKF7idBvp4Q7zQ)
-- [该填志愿了，国内大学计算机专业哪家强？](https://mp.weixin.qq.com/s/pDFA5XVKYTte5Jlw6j4Z-g)
-- [如何优雅地向公司提加薪?](https://mp.weixin.qq.com/s/A7fD8Y0wDvg9byJRF2rg9Q)
-
-
-# 知识库建设
-
-> [!NOTE]
->  Java 程序员进阶之路知识库的搭建过程，包括服务器购置、域名购置、HTTPS配置、在线网站搭建等内容，手把手教你搭建一个属于自己的知识库。
-
-- [阿里云服务器上安装宝塔面板](https://mp.weixin.qq.com/s/ditN9J80rSWwnYRumwb4ww)
-- [Java 程序员进阶之路网站上线了，颜值贼高！](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
-- [273 块钱购入的域名，值了！](docs/szjy/tobebetterjavaer-yuming-jiexi.md)
-- [3 年9.9元，HTTP升级到HTTPS，值了！](docs/szjy/tobebetterjavaer-https.md)
-- [30天，终于搞定域名备案！](docs/szjy/tobebetterjavaer-beian.md)
-- [图片外链转GitHub+jsdelivr！](docs/szjy/tupian-zhuanlian.md)
-- [入坑 docsify，一款神奇的文档生成利器！](https://mp.weixin.qq.com/s/CJ6JzqU3N4l9pJbrQ_HB-w)
-
-## TODO
-
-- [优质文章](docs/sidebar/todo.md)
+- [阿里云服务器购买+宝塔面板安装+域名购买+域名备案+升级HTTPS](docs/szjy/tobebetterjavaer-beian.md)
+- [使用docsify+Git+GitHub+码云+阿里云服务器搭建知识库网站](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
 
 
 # 联系作者
 
 > [!NOTE]
->- 一名普通的 Java 后端开发者，热爱学习
->- 目前在洛阳栖息，虽然处在一片互联网沙漠，却心存妄想，想要在这片土地上开垦出一片属于自己的田地
->- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望自己的分享去帮助到小伙伴们
->- Java 程序员进阶之路，不仅是我自学 Java 以来所有的原创文章和学习资料的大聚合，更是我向这个世界传播知识的一个窗口。
+>- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
+>- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
+>- Java 程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
 
 ## 心路历程
 
-- [我的第一个，10 万(B站视频播放)](https://mp.weixin.qq.com/s/mESNrcbaQqwX2deq9acbOw)
-- [B站视频被抄袭了！附 2022 年目标](https://mp.weixin.qq.com/s/MBIahGdnyKJ1KNeUFFqgdQ)
-- [我的第二个，一千万 CSDN 阅读！](https://mp.weixin.qq.com/s/YW8EQ0s8VwfhvJwNansvVA)
-- [我的第一个，一千万！知乎阅读](https://mp.weixin.qq.com/s/8AylY_3EA5wWaKKU-qvDYw)
-- [想去读个研究生了](https://mp.weixin.qq.com/s/eKJIxcwOdykHza4AMRoiTw)
-- [逆袭！](https://mp.weixin.qq.com/s/XdQwOoyhRZnXt7XL6toqDg)
-- [我坚持三年了](https://mp.weixin.qq.com/s/hA1dnbjd7o1t1jWVGDX8tg)
-- [坚持了半年，值了！](https://mp.weixin.qq.com/s/LMm3zzA8XbbeJIfAn0D-QQ)
+- [我的第一个，10 万(B站视频播放)](docs/szjy/bzhan-10wan.md)
+- [我的第一个，一千万！知乎阅读](docs/szjy/zhihu-1000wan.md)
+- [我的第二个，一千万！CSDN阅读](docs/szjy/csdn-1000wan.md)
 
 ## 联系方式
 

@@ -1,3 +1,13 @@
+---
+category:
+  - Java企业级开发
+tag:
+  - Spring Boot
+---
+
+
+# Spring Boot为什么不需要额外安装Tomcat？
+
 首次接触 Spring Boot 的时候，绝大多数小伙伴应该和我一样好奇：
 
 >为什么 Spring Boot 不需要额外安装 Tomcat 啊？

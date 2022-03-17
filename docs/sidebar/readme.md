@@ -1,3 +1,240 @@
+- [B站视频被抄袭了！附 2022 年目标](https://mp.weixin.qq.com/s/MBIahGdnyKJ1KNeUFFqgdQ)
+
+## 数据结构
+
+- [栈](https://mp.weixin.qq.com/s/fc48Z5tSMlBHweYIS1UL0g)
+- [队列](https://mp.weixin.qq.com/s/TCg9_3cVuDfZLqK2eYrc7w)
+- [霍夫曼编码](https://mp.weixin.qq.com/s/BbDQPEPY6Etp9F8gQSBchw)
+
+
+- [入坑 docsify，一款神奇的文档生成利器！](https://mp.weixin.qq.com/s/CJ6JzqU3N4l9pJbrQ_HB-w)
+
+- [想去读个研究生了](https://mp.weixin.qq.com/s/eKJIxcwOdykHza4AMRoiTw)
+- [逆袭！](https://mp.weixin.qq.com/s/XdQwOoyhRZnXt7XL6toqDg)
+- [我坚持三年了](https://mp.weixin.qq.com/s/hA1dnbjd7o1t1jWVGDX8tg)
+- [坚持了半年，值了！](https://mp.weixin.qq.com/s/LMm3zzA8XbbeJIfAn0D-QQ)
+
+- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
+- [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
+- [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
+- [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
+- [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
+- [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
+
+- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
+- [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
+- [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
+- [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)
+- [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
+- [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
+- [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
+
+- [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
+
+
+## 资源推荐
+
+### 图文教程
+
+- [Java 正则表达式详解](https://segmentfault.com/a/1190000009162306)
+- [Java 正则从入门到精通](https://dunwu.github.io/javacore/advanced/java-regex.html)
+- [GitHub 上优质的 Java 知识总结项](https://mp.weixin.qq.com/s/-lQ2PTEO4F2d92GDDxKVpw)
+- [处于萌芽阶段的 Java 核心知识库](https://mp.weixin.qq.com/s/_Q7lopxM1sJtMA-NOE_v3A)
+- [大数据入门指南 ](https://github.com/heibaiying/BigData-Notes)
+
+
+### 视频教程
+
+- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+- [中国大学 mooc 国防科技大学计算机基础课](https://mp.weixin.qq.com/s/QpT6jbTAxAoCr-YeiMmFNg)
+- [B 站， YYDS！看了这些 Java视频，我直呼好家伙！！！](https://mp.weixin.qq.com/s/rRNYGNwuPdpSJHycP8J37g)
+- [哈佛大学的 CS50](https://mp.weixin.qq.com/s/s3e21hF7jmq1lQP-0J1zXA)
+- [计算机科学速成课](https://mp.weixin.qq.com/s/JF3CYYsaTAlLgHJoOSnTIQ)
+- [该死！B 站上这些 Java 视频真香！](https://mp.weixin.qq.com/s/Wgedf4ZH3_zJXxFxyPPyNQ)
+- [大学寒假在 B 站上应该刷的视频课](https://mp.weixin.qq.com/s/xCHyjOokoiES6dOUWp-5mA)
+
+### 优质书单
+
+ - [豆瓣 9.7！2022 值得一读的 15 本技术书籍！](https://mp.weixin.qq.com/s/alul8QAwtD82U37Oqa0N5Q)
+ - [开发内功修炼的2021年书单](https://mp.weixin.qq.com/s/DQPfguCIY4I3N8WnKGpVKg)
+ - [数据库书单](https://mp.weixin.qq.com/s/vivwFEfvHzpaMl5rzf1GGw)
+
+### 学习建议
+
+- [学习 Java 的建议](https://mp.weixin.qq.com/s/E_z9QsimrbOjVeyjbqGvQw) 
+- [一些学习 Java 的小心得](https://mp.weixin.qq.com/s/6edJC7qL7XtPpbFLfIXMow)
+- [大学想报计算机专业，暑假想要自学，有哪些建议？](https://mp.weixin.qq.com/s/qx9DEvZsEkGISChtTVKy1A)
+- [有哪些给专科生的建议？](https://mp.weixin.qq.com/s/kcV0kzfbGGqvlTfeWiVhIg)
+- [如何阅读《深入理解计算机系统》这本书？](https://mp.weixin.qq.com/s/dKQ30zJ6sZTZE4brF3JqHA)
+- [视频学习胜过读书吗？](https://mp.weixin.qq.com/s/mzbDZCWbfTMvDdh-tQivwg)
+- [计算机专业，暑假需要提前自学吗？](https://mp.weixin.qq.com/s/BR0w_bok3MJ2jRFEQR_yTQ)
+- [计算机专业应该怎样规划自己的大学四年？](https://mp.weixin.qq.com/s/prclU2IGTlfPqOqFX7CHnA)
+- [大学计算机系最努力的同学都是如何学习的？](docs/xianliaolaoke/daxue-nuli-jisuanji.md)
+- [编程语言该如何选择？](https://mp.weixin.qq.com/s/uh9lAgXQ6I2EwqNxXhA-EQ)
+- [如何才能把团队给带散？](https://mp.weixin.qq.com/s/GzqBuOjRmzbmTNUBKWqmCA)
+- [为什么程序员会有代码能跑就不要动的观点？](https://mp.weixin.qq.com/s/n-ef_q3PIHfa9je1Ndoo3g)
+- [自己拥有一台服务器可以做哪些很酷的事情？](https://mp.weixin.qq.com/s/7eIIJzHvIGnlz1cCFyX-yQ)
+- [大专生在大学该怎么学习？](https://mp.weixin.qq.com/s/0TFob0orzPW1Xkeu56uIFA)
+- [如何准备蓝桥杯？](https://mp.weixin.qq.com/s/10LLldlmmiIlT3198UQqEg)
+- [如何才能考上哈工大？](https://mp.weixin.qq.com/s/Ynmz2ljHhQIHIE1kAWq2Sw)
+- [学编程有哪些建议？](https://mp.weixin.qq.com/s/EvhWOAGxs2J-2gFVqc8uDQ)
+- [怎么吃透一个 Java 项目？](https://mp.weixin.qq.com/s/td12spLVFhSiV3RN3F2zDQ)
+- [如何自学编程？](https://mp.weixin.qq.com/s/DPF153bIBGD6GzEEsEaZYw)
+- [为什么很多程序员用 switch，而是大量的 if-else？](https://mp.weixin.qq.com/s/iJCWPtksG8dGuvo0TJ7WVA)
+- [计科专业的大一新生，如何提高编程能力？](https://mp.weixin.qq.com/s/nUfHezq6orqroW7F-Cs1zQ)
+- [前端和 Java 该怎么选？](https://mp.weixin.qq.com/s/oCh8pMuRJrx6vhz2hcA6Aw)
+- [如何在大学四年成为一名优秀的程序员？](https://mp.weixin.qq.com/s/AeA42qa3w7gY6TNIHMCcxA)
+- [什么才算是真正的编程能力？](https://mp.weixin.qq.com/s/exwE-AGx5gHZzZRHLyYmxA)
+- [Java 后端实习生的最基本的要求是什么？](https://mp.weixin.qq.com/s/4KJ-c60G7QsPW4aqdXnPCQ)
+- [数据结构该怎么学？](https://mp.weixin.qq.com/s/F1jpcYrmUXTNU9u7tuxw2A)
+- [学习 Java，知识点太多记不住怎么办?](https://mp.weixin.qq.com/s/1Vs-pzfnUoqL1tK7M7KdzA)
+- [程序员需要达到什么水平才能顺利拿到 20k 无压力?](https://mp.weixin.qq.com/s/d6_0Ab8Wwa_OwHt1_-vfTQ)
+- [如何看待一些大学生说 3 天学会了 Java？](https://mp.weixin.qq.com/s/IyaFozSB4p9us8Gwz4J9uQ)
+- [如何培养解决问题的能力呢？](https://mp.weixin.qq.com/s/TIbF4H9tzazMromHfYEAXw)
+- [如何才能愉快的刷题？](https://mp.weixin.qq.com/s/rNKr0rLwj4H05d5PlDYJZg)
+- [如何才能高效地学习编程？](https://mp.weixin.qq.com/s/_TaQ7KzmHJMoZ2JQ891Rqg)
+- [读书有没有一些好的方法呢？](https://mp.weixin.qq.com/s/bz71WiC0Ltw42vNPhjnYaQ)
+- [如何学习 Java 的数据结构？](https://mp.weixin.qq.com/s/eGchqCHsX5epqIn2zT3ARQ)
+- [如何全面系统地自学Java?](https://mp.weixin.qq.com/s/_K2eCN6mQPAoKjo19bJ6CQ)
+- [如何才能高效的阅读源码？](https://mp.weixin.qq.com/s/-QnztlTt0F2zsHf1wV7uRg)
+- [奉劝那些想把编程学好的人](https://mp.weixin.qq.com/s/sDI8hyTKH0bRfNoc9zRP1g)
+- [计算机基础知识有哪些？](https://mp.weixin.qq.com/s/QPlbIAPU_TbYxbt-t2quRQ)
+- [如何学习 Vim?](https://mp.weixin.qq.com/s/Dz-CcTdrVZ6XALr-3utdxw)
+- [如何学习 Shell？](https://mp.weixin.qq.com/s/oEo8N3nE0wR1zl7qD4nh3w)
+- [学习编程的一些经验梳理](https://mp.weixin.qq.com/s/yuKLyS0-3GbMRu0cH77JRg)
+- [如何成为优质开源项目的贡献者？](https://mp.weixin.qq.com/s/_jJk4xKLAlBU6ZrxsbeqoQ)
+- [新手如何使用 GitHub？](https://mp.weixin.qq.com/s/IcbWYOZ_HXc9O8h0o62Wmg)
+- [怎样提高自己的编程能力？](https://mp.weixin.qq.com/s/0BDRUAob-DUPYs6gPS7V6Q)
+- [一名厉害的 Java 后端程序员都需要懂得哪些知识呢？](https://mp.weixin.qq.com/s/dYbDNeyE5zddn1SbO2g6aA)
+- [只会抄代码，该怎么办？](https://mp.weixin.qq.com/s/T576UPxMGH_4axlllwPgzw)
+- [女生适合学编程吗？](https://mp.weixin.qq.com/s/ZtFAxJP4KVXjzbT-Qc91Dw)
+- [如何写出让同事好维护的代码？](https://mp.weixin.qq.com/s/KGLrZ1nGmnwr2uq7FJzfQg)
+- [如何写出让同事无法维护的代码？](https://mp.weixin.qq.com/s/XS6Zh51ISvQ1uyIXBWkUUA)
+- [新手小白，该怎么提高编程能力呢？](https://mp.weixin.qq.com/s/YTpBj5nNZdkuPahK9JuqXQ)
+
+# 程序人生
+
+> [!NOTE]
+>  **程序员的人生不仅有代码，还有诗和远方**。<br><br>
+>  人间烟火味，最抚凡人心。
+
+## 码农生活
+
+- [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
+- [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
+- [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
+- [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
+- [研究所月入两万，是什么体验？](docs/manongshenghuo/yanjiusuo-20wan.md)
+- [裸辞全职做外包一个月的感受](docs/manongshenghuo/waibao-1geyue.md)
+- [转眼就来字节六个月了，真的不一样](https://mp.weixin.qq.com/s/jG7DLrCFf_pYoMLFiVbaaA)
+- [在监狱里编程是一种什么体验（上）？](https://mp.weixin.qq.com/s/ci5Meem_d3g2BphDmMP8VQ)
+- [29 岁，非科班零基础，想兼职做外包。。](https://mp.weixin.qq.com/s/CTTlnXNXY9j3Bm3_4gmIbw)
+- [30岁女程序员，做建材生意4年，想重回软件开发...](docs/xianliaolaoke/chengxuyuannv-chonghui-java.md)
+- [就离谱.......这个产品小姐姐也太会撩了吧](https://mp.weixin.qq.com/s/Oml9oWQHIR1aYWSJQDXWVQ)
+- [王小波的计算机水平有多好？](https://mp.weixin.qq.com/s/Ad_6DMt0tTzF6lYu3EUm0A)
+- [为了一个 deadline，清华毕业的 IT 老乡猝死在马桶上](https://mp.weixin.qq.com/s/j54Kh2p8cAtIZprScN4_dg)
+- [996加班累到肺部切除，维权之路](https://mp.weixin.qq.com/s/DjSSzLQHBNOVyewEbLmhyw)
+- [去上海申通实习了，有点迷茫。。](https://mp.weixin.qq.com/s/cHqplnL2S-lI76HQE6QBvA)
+- [一个月薪 12000 的北京程序员的真实生活](https://mp.weixin.qq.com/s/HhFzoDR4oSOf0idlCjtApw)
+- [进腾讯了！](https://mp.weixin.qq.com/s/XG1k39oZ0p1tT1Y4qVmXfQ)
+- [被调剂到计算机专业是一种什么体验？](https://mp.weixin.qq.com/s/EMt1xGE5rGOLQQ-3587oUg)
+- [拿到贝壳的转正意向书了！](https://mp.weixin.qq.com/s/bv_lLFnl7xq8X9D07q-cJQ)
+- [卧底软件培训公司，揭开编程培训内幕](https://mp.weixin.qq.com/s/e3r6aXm2yjGBaQvaCjzBfw)
+- [这样的国企，不去也罢](https://mp.weixin.qq.com/s/9oGfI-qumnFlkSqD13l4kA)
+- [老乡拿下了ACM金牌！](https://mp.weixin.qq.com/s/SOdXLc1B1dUHwJHsmQppUQ)
+- [去银行写代码是什么体验？](https://mp.weixin.qq.com/s/-BMhUxWbiTtAasGCssoWiA)
+- [考上北大了！](https://mp.weixin.qq.com/s/l9ew7ilIjUwplCky3IQTww)
+- [二哥的读者（女，从小就想当黑客，初中学编程，高中造火箭](https://mp.weixin.qq.com/s/nx15_7xw32CsfLYXuLg7Sg)
+- [二哥的读者（男，半年时间，非科班进携程了！](https://mp.weixin.qq.com/s/_coQbVnlir_fH5eDNzBB3Q)
+- [我终于有字节工牌了！！！！](https://mp.weixin.qq.com/s/8gArGQck86zOBgoP77pqiA)
+- [半路转行计算机的女生](https://mp.weixin.qq.com/s/nOIZmt1Qkd8pY_ANsFZiDw)
+- [在国企当程序员，贼酸爽！](https://mp.weixin.qq.com/s/OG6ziNS26TobPlHgp4CYSQ)
+- [面试外企是一种什么体验？](https://mp.weixin.qq.com/s/HEydOa8zhWOBe_2sngEDuw)
+- [37岁老码农找工作](https://mp.weixin.qq.com/s/0wslDH_9oaVHfepGLJ113w)
+- [一个培训班出来的程序员](https://mp.weixin.qq.com/s/3JXhx1ut4VgmCr766Ig3ng)
+
+
+## 闲聊唠嗑
+
+- [约河科大软工专业的 4 位学弟一起撸了个串](https://mp.weixin.qq.com/s/nhDBZGmN3-pZQD2AxMhFhA)
+- [带妹来和父母团聚了！](docs/xianliaolaoke/fumutuanju.md)
+- [愤怒！这个阿里云工程师的甩锅能力，真的超级高水平！](docs/xianliaolaoke/aliyun-shuaiguo-gongchengshi.md)
+- [差点散伙！](docs/xianliaolaoke/chadiansanhuo.md)
+- [滴滴程序员被亲戚鄙视：年薪八十万还不如二本教书的...](https://mp.weixin.qq.com/s/iDQiMaTo4Pi8fqnUxAsWuQ)
+- [和华为的大佬一起创业了！](https://mp.weixin.qq.com/s/LfJR6qIZ7fRorIs22VNSOA)
+- [带妹来青岛了！](https://mp.weixin.qq.com/s/TUdQI4B9_VLSrzLekp6JsA)
+- [母亲节快乐！](https://mp.weixin.qq.com/s/VgixuYkIkyMfK1aGM6sBSQ)
+- [大学同学考研成功了！](https://mp.weixin.qq.com/s/U44Js0_KQbv_9osV75lOuA)
+- [打算在县城“买”片地](https://mp.weixin.qq.com/s/KRaSFlMTYV_3GoCv4aDRWA)
+- [曝下 955 加班少的公司名单！](https://mp.weixin.qq.com/s/qR_MmaKfVHERuAz987MzyA)
+- [我身边的 3 个女神](https://mp.weixin.qq.com/s/kZ7simp8xSniK-E-AmVJCw)
+- [住过窑洞的人](https://mp.weixin.qq.com/s/CDXyVL39aIQuvD4jssObTw)
+
+
+
+
+## 人生建议
+
+- [准备考研还是准备工作？](https://mp.weixin.qq.com/s/uY7tSA3ieSBe0IRjR9Ighg)
+- [自己能力不足，想要辞职，该怎么办？](https://mp.weixin.qq.com/s/XAnWkOzO_PHIgyFrnlejbg)
+- [美团还是研究所，美团年包多二十万，怎么选？](https://mp.weixin.qq.com/s/oc-6Um6y0LlpSQwDY4HAbw)
+- [被毁约了，该怎么办？](https://mp.weixin.qq.com/s/q6EEokBPLjf00ELHpusJlA)
+- [离开学校后，我才明白的这些道理](https://mp.weixin.qq.com/s/iAdAlISvLXgxkrYih3zB3Q)
+- [假如哪天失业了该怎么办？](https://mp.weixin.qq.com/s/2mMH7lp9g_u40Gh7E0S7mQ)
+- [害怕三四年以后读研出来计算机不行了](https://mp.weixin.qq.com/s/Xe06SHupUwfQn-hyBv9s0Q)
+- [校招黑名单](https://mp.weixin.qq.com/s/q4xF4ddqjeTfWikcUk-HLA)
+- [绩效被打C了怎么办？](https://mp.weixin.qq.com/s/VAboB0lrGcDlhxvsYwckzg)
+- [要不要去日企？](https://mp.weixin.qq.com/s/72Mzt2a9pd3HBddaIQvM9g)
+- [上大专有用吗？](https://mp.weixin.qq.com/s/pspf-XKOgSWkoIKgpv9VEA)
+- [高考该如何填报志愿？](https://mp.weixin.qq.com/s/vavycrOfjtsvA_ARaWsxSg)
+- [计算机大类到底该选择哪个学科呢？](https://mp.weixin.qq.com/s/1uZA16fXy7YXivi210vcLw)
+- [银行科技岗，真香吗？](https://mp.weixin.qq.com/s/EOm5qhR4bKF7idBvp4Q7zQ)
+- [该填志愿了，国内大学计算机专业哪家强？](https://mp.weixin.qq.com/s/pDFA5XVKYTte5Jlw6j4Z-g)
+- [如何优雅地向公司提加薪?](https://mp.weixin.qq.com/s/A7fD8Y0wDvg9byJRF2rg9Q)
+
+- [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
+- [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](docs/springboot/aop-log.md)
+- [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
+- [JWT：一个优雅的跨域认证解决方案](docs/springboot/jwt.md)
+- [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
+
+- [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
+
+# 前端
+
+- [前端最努力的同学都是如何学习的？](https://mp.weixin.qq.com/s/BrYyhCyQwBEZOwgJZeaTOw)
+- [前端学习资料](https://mp.weixin.qq.com/s/sos0tc_pTptzQimBNSS-vg)
+
+### 问题解析
+
+> [!TIP]
+>  开发过程中遇到的一些典型问题，该如何解决？
+
+- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
+- [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
+- [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
+- [两天两夜，1M图片优化到100kb！](docs/shigu/image-yasuo.md)
+- [内部群炸了锅，隔壁同事真删库了啊。。](https://mp.weixin.qq.com/s/lvyoN1gHCWhcPqudcjcRgQ)
+- [B 站崩了](https://mp.weixin.qq.com/s/PfJe5rXednkXTq8EKT0xpw)
+- [因为一个低级错误，生产数据库崩溃了将近半个小时](https://mp.weixin.qq.com/s/ec6u8WsPt7zJ0eul8sPEhg)
+- [防止重复提交最简单的方案是什么？](https://mp.weixin.qq.com/s/n9AFMwQB9V_fq_sED1EWvg)
+
+### 代码优化
+
+- [49 个代码优化小技巧](https://mp.weixin.qq.com/s/ikfgfHunmlwR-43rd8LknQ)
+- [不要用“ ! = null ”做判空了！](https://mp.weixin.qq.com/s/9EOTzZ2Qx3u8oTyghkVUEg)
+
+### 性能调优
+
+- [性能调优标准](https://mp.weixin.qq.com/s/vEt_ypvByKS-oCsuRmpgUw)
+
+
+### MySQL重要知识点
+
+- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
+- [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
+
+
 * 苏三说技术
   * [你管这破玩意儿叫 Token?](https://mp.weixin.qq.com/s/ALFKO1s4Ilmp39dwjm42iA)
   * [Java并发编程AQS](https://mp.weixin.qq.com/s/VnhST9UQLay2Zvrq-zu0hA)
