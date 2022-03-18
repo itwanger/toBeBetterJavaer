@@ -4,6 +4,7 @@ title: Java程序员进阶之路
 
 <a href="https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw" target="_blank">👉 **我整理汇总了 10 本优质的 Java 面试相关的 PDF（质量很高！不要再看网上的那些东拼西凑的垃圾面试题了！），点击下载，希望对需要的小伙伴有帮助**！</a>
 
+::: center
 <p align="center">
   <a href="https://tobebetterjavaer.com">
     <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
@@ -18,6 +19,7 @@ title: Java程序员进阶之路
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
+:::
 
 
 # 为什么会有这个开源知识库
