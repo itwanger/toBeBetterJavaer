@@ -1,36 +1,4 @@
-- [B站视频被抄袭了！附 2022 年目标](https://mp.weixin.qq.com/s/MBIahGdnyKJ1KNeUFFqgdQ)
-
-## 数据结构
-
-- [栈](https://mp.weixin.qq.com/s/fc48Z5tSMlBHweYIS1UL0g)
-- [队列](https://mp.weixin.qq.com/s/TCg9_3cVuDfZLqK2eYrc7w)
-- [霍夫曼编码](https://mp.weixin.qq.com/s/BbDQPEPY6Etp9F8gQSBchw)
-
-
-- [入坑 docsify，一款神奇的文档生成利器！](https://mp.weixin.qq.com/s/CJ6JzqU3N4l9pJbrQ_HB-w)
-
-- [想去读个研究生了](https://mp.weixin.qq.com/s/eKJIxcwOdykHza4AMRoiTw)
-- [逆袭！](https://mp.weixin.qq.com/s/XdQwOoyhRZnXt7XL6toqDg)
-- [我坚持三年了](https://mp.weixin.qq.com/s/hA1dnbjd7o1t1jWVGDX8tg)
-- [坚持了半年，值了！](https://mp.weixin.qq.com/s/LMm3zzA8XbbeJIfAn0D-QQ)
-
-- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
-- [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
-- [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
-- [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
-- [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
-- [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
-
-- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
-- [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
-- [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
-- [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)
-- [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
-- [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
-- [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
-
-- [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
-
+# 优质文章精选集
 
 ## 资源推荐
 
@@ -45,7 +13,7 @@
 
 ### 视频教程
 
-- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](docs/kaiyuan/yuneban-wangyiyunyinyue.md)
+- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](kaiyuan/yuneban-wangyiyunyinyue.md)
 - [中国大学 mooc 国防科技大学计算机基础课](https://mp.weixin.qq.com/s/QpT6jbTAxAoCr-YeiMmFNg)
 - [B 站， YYDS！看了这些 Java视频，我直呼好家伙！！！](https://mp.weixin.qq.com/s/rRNYGNwuPdpSJHycP8J37g)
 - [哈佛大学的 CS50](https://mp.weixin.qq.com/s/s3e21hF7jmq1lQP-0J1zXA)
@@ -112,13 +80,13 @@
 - [如何写出让同事无法维护的代码？](https://mp.weixin.qq.com/s/XS6Zh51ISvQ1uyIXBWkUUA)
 - [新手小白，该怎么提高编程能力呢？](https://mp.weixin.qq.com/s/YTpBj5nNZdkuPahK9JuqXQ)
 
-# 程序人生
+## 程序人生
 
 > [!NOTE]
 >  **程序员的人生不仅有代码，还有诗和远方**。<br><br>
 >  人间烟火味，最抚凡人心。
 
-## 码农生活
+### 码农生活
 
 - [中美程序员不完全对比](https://mp.weixin.qq.com/s/KByt42RiDtt2aWpN4klmKg)
 - [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
@@ -154,7 +122,7 @@
 - [一个培训班出来的程序员](https://mp.weixin.qq.com/s/3JXhx1ut4VgmCr766Ig3ng)
 
 
-## 闲聊唠嗑
+### 闲聊唠嗑
 
 - [约河科大软工专业的 4 位学弟一起撸了个串](https://mp.weixin.qq.com/s/nhDBZGmN3-pZQD2AxMhFhA)
 - [带妹来和父母团聚了！](docs/xianliaolaoke/fumutuanju.md)
@@ -173,7 +141,7 @@
 
 
 
-## 人生建议
+### 人生建议
 
 - [准备考研还是准备工作？](https://mp.weixin.qq.com/s/uY7tSA3ieSBe0IRjR9Ighg)
 - [自己能力不足，想要辞职，该怎么办？](https://mp.weixin.qq.com/s/XAnWkOzO_PHIgyFrnlejbg)
@@ -192,20 +160,50 @@
 - [该填志愿了，国内大学计算机专业哪家强？](https://mp.weixin.qq.com/s/pDFA5XVKYTte5Jlw6j4Z-g)
 - [如何优雅地向公司提加薪?](https://mp.weixin.qq.com/s/A7fD8Y0wDvg9byJRF2rg9Q)
 
+## 数据结构
+
+- [栈](https://mp.weixin.qq.com/s/fc48Z5tSMlBHweYIS1UL0g)
+- [队列](https://mp.weixin.qq.com/s/TCg9_3cVuDfZLqK2eYrc7w)
+- [霍夫曼编码](https://mp.weixin.qq.com/s/BbDQPEPY6Etp9F8gQSBchw)
+
+## 其他杂文
+
+- [B站视频被抄袭了！附 2022 年目标](https://mp.weixin.qq.com/s/MBIahGdnyKJ1KNeUFFqgdQ)
+- [入坑 docsify，一款神奇的文档生成利器！](https://mp.weixin.qq.com/s/CJ6JzqU3N4l9pJbrQ_HB-w)
+- [想去读个研究生了](https://mp.weixin.qq.com/s/eKJIxcwOdykHza4AMRoiTw)
+- [逆袭！](https://mp.weixin.qq.com/s/XdQwOoyhRZnXt7XL6toqDg)
+- [我坚持三年了](https://mp.weixin.qq.com/s/hA1dnbjd7o1t1jWVGDX8tg)
+- [坚持了半年，值了！](https://mp.weixin.qq.com/s/LMm3zzA8XbbeJIfAn0D-QQ)
+
+## 技术文
+
+- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
+- [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
+- [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
+- [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
+- [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
+- [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
+- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
+- [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
+- [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
+- [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)
+- [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
+- [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
+- [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
+- [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
 - [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
 - [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](docs/springboot/aop-log.md)
 - [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
 - [JWT：一个优雅的跨域认证解决方案](docs/springboot/jwt.md)
 - [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
-
 - [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
 
-# 前端
+## 前端
 
 - [前端最努力的同学都是如何学习的？](https://mp.weixin.qq.com/s/BrYyhCyQwBEZOwgJZeaTOw)
 - [前端学习资料](https://mp.weixin.qq.com/s/sos0tc_pTptzQimBNSS-vg)
 
-### 问题解析
+## 问题解析
 
 > [!TIP]
 >  开发过程中遇到的一些典型问题，该如何解决？
@@ -219,21 +217,22 @@
 - [因为一个低级错误，生产数据库崩溃了将近半个小时](https://mp.weixin.qq.com/s/ec6u8WsPt7zJ0eul8sPEhg)
 - [防止重复提交最简单的方案是什么？](https://mp.weixin.qq.com/s/n9AFMwQB9V_fq_sED1EWvg)
 
-### 代码优化
+## 代码优化
 
 - [49 个代码优化小技巧](https://mp.weixin.qq.com/s/ikfgfHunmlwR-43rd8LknQ)
 - [不要用“ ! = null ”做判空了！](https://mp.weixin.qq.com/s/9EOTzZ2Qx3u8oTyghkVUEg)
 
-### 性能调优
+## 性能调优
 
 - [性能调优标准](https://mp.weixin.qq.com/s/vEt_ypvByKS-oCsuRmpgUw)
 
 
-### MySQL重要知识点
+## MySQL重要知识点
 
 - [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
 - [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
 
+## 待收录文章
 
 * 苏三说技术
   * [你管这破玩意儿叫 Token?](https://mp.weixin.qq.com/s/ALFKO1s4Ilmp39dwjm42iA)

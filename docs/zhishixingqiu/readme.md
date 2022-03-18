@@ -1,8 +1,23 @@
 ---
-icon: java
 title: 沉默王二的专属知识星球
+sticky: true
+star: true
+isOriginal: true
 category:
   - 知识星球
+  - Java核心
+  - Java企业级开发
+  - 联系作者
+  - 求职面试
+  - 学习资源
+  - 知识库搭建历程
+  - 数据库
+tag:
+  - 知识星球
+  - Java
+  - 心路历程
+  - 背诵版八股文
+date: 2022-03-17
 ---
 
 # 今天，我决定干件大事！

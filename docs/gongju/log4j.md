@@ -2,8 +2,7 @@
 category:
   - Java企业级开发
 tag:
-  - 辅助工具
-  - 轮子
+  - 辅助工具/轮子
 ---
 
 # Log4j：Log4j 2的前身，Java日志框架的鼻祖

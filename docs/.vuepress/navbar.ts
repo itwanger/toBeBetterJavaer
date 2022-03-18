@@ -1,21 +1,28 @@
 import { defineNavbarConfig } from "vuepress-theme-hope";
 
 export default defineNavbarConfig([
+
   { 
     text: "进阶之路", 
     icon: "lujing", 
     link: "/home.md" 
   },
   { 
-    text: "优质专栏", 
-    icon: "youzhi", 
-    link: "/zhuanlan/java-mianshi-zhinan.md" 
+    text: "星球专栏", 
+    icon: "Artboard", 
+    link: "/zhishixingqiu/java-mianshi-zhinan.md" 
   },
   {
     text: "学习路线",
     icon: "luxian",
     link: "/xuexiluxian/"
   },
+  { 
+    text: "优质文章精选集", 
+    icon: "youzhi", 
+    link: "/nicearticle/" 
+  },
+  
   {
     text: "计算机经典书单下载",
     icon: "pdf",

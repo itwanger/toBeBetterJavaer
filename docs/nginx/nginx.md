@@ -60,7 +60,7 @@ Nginx 的特点是：
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/nginx/nginx-05.png)
 
-## 二、Nginx 的安装
+### 二、Nginx 的安装
 
 针对不同的操作系统，Nginx 的安装各不相同。Windows 可以直接到官网下载 zip 绿色安装包，解压后就可以了。
 
