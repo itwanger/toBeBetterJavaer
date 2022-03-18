@@ -40,7 +40,8 @@ title: Java程序员进阶之路
 
 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 
-- [Java 程序员进阶之路在线阅读网站（docsify 版）](https://tobebetterjavaer.com/)
+- [Java 程序员进阶之路在线阅读网站（VuePress 版）](https://tobebetterjavaer.com/)
+- [Java 程序员进阶之路在线阅读网站（docsify 版）](https://docsify.tobebetterjavaer.com/)
 
 
 
