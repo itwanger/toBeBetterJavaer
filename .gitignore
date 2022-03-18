@@ -1,3 +1,6 @@
 node_modules
 .cache
 .temp
+dist
+package-lock.json
+yarn.lock
