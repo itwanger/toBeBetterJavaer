@@ -205,17 +205,12 @@
 
 ## 辅助工具/轮子
 
-- [ApiPost：一款更适合国人的接口管理工具](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
-- [Multipass：一款更轻量级的虚拟机](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
-- [drwa.io：一个在线的画图神器](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
 - [Tabby：一款逼格更高的开源终端工具](docs/gongju/tabby.md)
 - [chiner：一款开源的数据库设计神器](docs/gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](docs/gongju/DBeaver.md)
 - [knife4j：一款界面更炫酷的API文档生成神器](docs/gongju/knife4j.md)
 - [MyBatis-Plus AutoGenerator：一款开发效率更高的代码生成工具](docs/kaiyuan/auto-generator.md)
 - [Junit：一个开源的Java单元测试框架](docs/gongju/junit.md)
-- [EasyPoi：5行代码就可以完成Excel的导入导出的开源项目](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
-- [EasyExcel：一个基于Java的简单、省内存的读写Excel的开源项目](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
 - [fastjson：阿里巴巴开源的JSON解析库](docs/gongju/fastjson.md)
 - [Gson：Google开源的JSON解析库](docs/gongju/gson.md)
 - [Jackson：GitHub上star数最多的JSON解析库](docs/gongju/jackson.md)
@@ -224,18 +219,14 @@
 - [Log4j 2：Apache维护的一款高性能日志记录工具](docs/gongju/log4j2.md)
 - [Logback：Spring Boot内置的日志处理框架](docs/gongju/logback.md)
 - [SLF4J：阿里巴巴强制使用的日志门面担当](docs/gongju/slf4j.md)
+- [其他辅助工具/轮子](docs/gongju/others.md)
 
 
 ## 安全篇
 
 ## 分布式
 
-### Elasticsearch
-
 - [全文搜索引擎Elasticsearch入门教程](docs/elasticsearch/rumen.md)
-
-### ZooKeeper
-
 - [可能是把ZooKeeper概念讲的最清楚的一篇文章](docs/zookeeper/jibenjieshao.md)
 
 ## 高性能
@@ -305,7 +296,6 @@
 - [简历如何优化，简历如何投递，面试如何准备？](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
 - [校招时间节点、简历编写、笔试、、HR面、实习等注意事项](https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw)
 
-
 ## 城市选择
 
 - [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
@@ -331,13 +321,17 @@
 
 ## PDF下载
 
-- [👏下载→Java程序员常读书单）](docs/download/java.md)
+- [👏下载→Java程序员常读书单](docs/download/java.md)
+- [👏下载→最全最硬核的Java面试 “备战” 资料](https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw)
+- [👏下载→深入浅出Java多线程](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)
+- [👏下载→GitHub星标115k+的Java教程](https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw)
+- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
 - [👏下载→Java版LeetCode刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
-- [👏下载→阮一峰C语言入门教程](https://mp.weixin.qq.com/s/n8WMwvnpA9KBe0bvZ4IX3g)
-- [👏下载→BAT大佬的刷题笔记](https://mp.weixin.qq.com/s/SZmW3ItBuLlmeDiDe3oPzA)
+- [👏下载→阮一峰C语言入门教程](docs/download/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](docs/download/bat-shuati.md)
 - [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
-- [👏下载→豆瓣9.1分，Pro Git中文版](https://mp.weixin.qq.com/s/RpFzXOa2VlFNd7ylLmr9LQ)
-- [👏下载→简历模板](https://mp.weixin.qq.com/s/soVldFzBbqwm_vM35afFvg)
+- [👏下载→豆瓣9.1分，Pro Git中文版](docs/download/progit.md)
+- [👏下载→简历模板](docs/download/jianli.md)
 
 
 # 知识库搭建历程
@@ -358,9 +352,10 @@
 
 ## 心路历程
 
-- [我的第一个，10 万(B站视频播放)](docs/szjy/bzhan-10wan.md)
-- [我的第一个，一千万！知乎阅读](docs/szjy/zhihu-1000wan.md)
-- [我的第二个，一千万！CSDN阅读](docs/szjy/csdn-1000wan.md)
+- [走近作者：个人介绍 Q&A](docs/about-the-author/readme.md)
+- [我的第一个，10 万(B站视频播放)](docs/about-the-author/bzhan-10wan.md)
+- [我的第一个，一千万！知乎阅读](docs/about-the-author/zhihu-1000wan.md)
+- [我的第二个，一千万！CSDN阅读](docs/about-the-author/csdn-1000wan.md)
 
 ## 联系方式
 

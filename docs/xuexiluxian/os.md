@@ -1,4 +1,5 @@
 ---
+star: true
 category:
   - 学习路线
 tag:

@@ -22,37 +22,40 @@ title: Java程序员进阶之路
 
 # 为什么会有这个开源知识库
 
-> [!NOTE]
-> 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java 程序员进阶之路😄。
->  
->  知识库旨在为学习 Java 的小伙伴提供一系列：
->  - **优质的原创 Java 教程**
->  - **全面清晰的 Java 学习路线**
->  - **免费但靠谱的 Java 学习资料**
->  - **精选的 Java 岗求职面试指南**
->  - **Java 企业级开发所需的必备技术**
->
-> 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！
->
-> **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
-> 
-> 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
-> 
-> - [Java 程序员进阶之路在线阅读网站（docsify 版）](https://tobebetterjavaer.com/)
+
+知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java 程序员进阶之路😄。
+ 
+ 知识库旨在为学习 Java 的小伙伴提供一系列：
+ - **优质的原创 Java 教程**
+ - **全面清晰的 Java 学习路线**
+ - **免费但靠谱的 Java 学习资料**
+ - **精选的 Java 岗求职面试指南**
+ - **Java 企业级开发所需的必备技术**
+
+赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！
+
+**转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
+
+推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
+
+- [Java 程序员进阶之路在线阅读网站（docsify 版）](https://tobebetterjavaer.com/)
+
 
 
 # 知识库地图
 
-> [!NOTE]
-> 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
+
+知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
+
 
 ![](https://img-blog.csdnimg.cn/7fa7cbd99d6449288f4e75cb7d771ec4.png)
 
 
 # 学习路线
 
->[!NOTE]
-> 除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
+
+除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
+
 
   * [Java并发编程学习路线（建议收藏:+1:）](xuexiluxian/java/thread.md)
   * [C语言学习路线（建议收藏:+1:）](xuexiluxian/c.md)
@@ -64,8 +67,9 @@ title: Java程序员进阶之路
 
 # Java核心
 
-> [!NOTE]
->  **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
+
+ **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
+
 
 ## Java面渣逆袭
 
@@ -183,9 +187,10 @@ title: Java程序员进阶之路
 
 # Java企业级开发
 
-> [!NOTE]
->  - **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭**！
->  - 纸上得来终觉浅，须知此事要躬行。
+
+ - **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭**！
+ - 纸上得来终觉浅，须知此事要躬行。
+
 
 ## 开发工具
 
@@ -209,17 +214,12 @@ title: Java程序员进阶之路
 
 ## 辅助工具/轮子
 
-- [ApiPost：一款更适合国人的接口管理工具](https://mp.weixin.qq.com/s/ZgkNQsve_vq6Xq0_gnWHCw)
-- [Multipass：一款更轻量级的虚拟机](https://mp.weixin.qq.com/s/gy6dVHvNy495bqov6JOAdA)
-- [drwa.io：一个在线的画图神器](https://mp.weixin.qq.com/s/EaGCe4GRG2C-0zuVxWxl5A)
 - [Tabby：一款逼格更高的开源终端工具](gongju/tabby.md)
 - [chiner：一款开源的数据库设计神器](gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](gongju/DBeaver.md)
 - [knife4j：一款界面更炫酷的API文档生成神器](gongju/knife4j.md)
 - [MyBatis-Plus AutoGenerator：一款开发效率更高的代码生成工具](kaiyuan/auto-generator.md)
 - [Junit：一个开源的Java单元测试框架](gongju/junit.md)
-- [EasyPoi：5行代码就可以完成Excel的导入导出的开源项目](https://mp.weixin.qq.com/s/H2Bwc-7ghcjyaEnKUTQ5Dg)
-- [EasyExcel：一个基于Java的简单、省内存的读写Excel的开源项目](https://mp.weixin.qq.com/s/Knb7b-uYLWsKZfgvGgN_ug)
 - [fastjson：阿里巴巴开源的JSON解析库](gongju/fastjson.md)
 - [Gson：Google开源的JSON解析库](gongju/gson.md)
 - [Jackson：GitHub上star数最多的JSON解析库](gongju/jackson.md)
@@ -228,18 +228,14 @@ title: Java程序员进阶之路
 - [Log4j 2：Apache维护的一款高性能日志记录工具](gongju/log4j2.md)
 - [Logback：Spring Boot内置的日志处理框架](gongju/logback.md)
 - [SLF4J：阿里巴巴强制使用的日志门面担当](gongju/slf4j.md)
+- [其他辅助工具/轮子](gongju/others.md)
 
 
 ## 安全篇
 
 ## 分布式
 
-### Elasticsearch
-
 - [全文搜索引擎Elasticsearch入门教程](elasticsearch/rumen.md)
-
-### ZooKeeper
-
 - [可能是把ZooKeeper概念讲的最清楚的一篇文章](zookeeper/jibenjieshao.md)
 
 ## 高性能
@@ -252,8 +248,9 @@ title: Java程序员进阶之路
 
 # 数据库
 
-> [!NOTE]
->  - **简而言之，就是按照数据结构来组织、存储和管理数据的仓库**。几乎所有的 Java 后端开发都要学习数据库这块的知识，包括关系型数据库 MySQL，缓存中间件 Redis，非关系型数据库 MongoDB 等。
+
+**简而言之，就是按照数据结构来组织、存储和管理数据的仓库**。几乎所有的 Java 后端开发都要学习数据库这块的知识，包括关系型数据库 MySQL，缓存中间件 Redis，非关系型数据库 MongoDB 等。
+
 
 ## MySQL
 
@@ -269,16 +266,18 @@ title: Java程序员进阶之路
 
 # 计算机基础
 
-> [!NOTE]
->  - **计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。
->  - 万丈高露平地起，勿在浮沙筑高台。
+
+ - **计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。
+ - 万丈高露平地起，勿在浮沙筑高台。
+
 
 
 # 求职面试
 
-> [!NOTE]
->  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
->  - 千淘万漉虽辛苦，吹尽狂沙始到金。
+
+ - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
+ - 千淘万漉虽辛苦，吹尽狂沙始到金。
+
 
 ## 面试题集合
 
@@ -298,7 +297,7 @@ title: Java程序员进阶之路
 
 ## 优质面经
 
-- [春招斩获深圳腾讯PCG和杭州阿里云](mianjing/shanganaliyun.md)
+- [春招斩获深圳腾讯PCG和杭州阿里云](docs/mianjing/shanganaliyun.md)
 - [社招拿下阿里美团头条京东滴滴)](https://mp.weixin.qq.com/s/h2tV6v5Rh6jHdO9x0p63-g)
 - [字节小姐姐的一份秋招攻略](https://mp.weixin.qq.com/s/0hCJy0m8nHm08HfyXKQT1A)
 - [面试常见词汇扫盲+常见大厂面试特点分享](https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA)
@@ -308,7 +307,6 @@ title: Java程序员进阶之路
 
 - [简历如何优化，简历如何投递，面试如何准备？](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
 - [校招时间节点、简历编写、笔试、、HR面、实习等注意事项](https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw)
-
 
 ## 城市选择
 
@@ -329,25 +327,31 @@ title: Java程序员进阶之路
 
 # 学习资源
 
-> [!NOTE]
->  - **不知道学什么？不知道该怎么学？找不到优质的学习资源**？这些问题在这里统统都可以找到答案。
->  - 我会把自己十多年的编程经验和学习资源毫不保留的分享出来。
+
+ - **不知道学什么？不知道该怎么学？找不到优质的学习资源**？这些问题在这里统统都可以找到答案。
+ - 我会把自己十多年的编程经验和学习资源毫不保留的分享出来。
+
 
 ## PDF下载
 
-- [👏下载→Java程序员常读书单）](download/java.md)
+- [👏下载→Java程序员常读书单](download/java.md)
+- [👏下载→最全最硬核的Java面试 “备战” 资料](https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw)
+- [👏下载→深入浅出Java多线程](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)
+- [👏下载→GitHub星标115k+的Java教程](https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw)
+- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
 - [👏下载→Java版LeetCode刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
-- [👏下载→阮一峰C语言入门教程](https://mp.weixin.qq.com/s/n8WMwvnpA9KBe0bvZ4IX3g)
-- [👏下载→BAT大佬的刷题笔记](https://mp.weixin.qq.com/s/SZmW3ItBuLlmeDiDe3oPzA)
+- [👏下载→阮一峰C语言入门教程](download/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](download/bat-shuati.md)
 - [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
-- [👏下载→豆瓣9.1分，Pro Git中文版](https://mp.weixin.qq.com/s/RpFzXOa2VlFNd7ylLmr9LQ)
-- [👏下载→简历模板](https://mp.weixin.qq.com/s/soVldFzBbqwm_vM35afFvg)
+- [👏下载→豆瓣9.1分，Pro Git中文版](download/progit.md)
+- [👏下载→简历模板](download/jianli.md)
 
 
 # 知识库搭建历程
 
-> [!NOTE]
-> 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java 程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
+
+从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java 程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
+
 
 - [阿里云服务器购买+宝塔面板安装+域名购买+域名备案+升级HTTPS](szjy/tobebetterjavaer-beian.md)
 - [使用docsify+Git+GitHub+码云+阿里云服务器搭建知识库网站](szjy/tobebetterjavaer-wangzhan-shangxian.md)
@@ -355,16 +359,18 @@ title: Java程序员进阶之路
 
 # 联系作者
 
-> [!NOTE]
->- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
->- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
->- Java 程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
+
+- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
+- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
+- Java 程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
+
 
 ## 心路历程
 
-- [我的第一个，10 万(B站视频播放)](szjy/bzhan-10wan.md)
-- [我的第一个，一千万！知乎阅读](szjy/zhihu-1000wan.md)
-- [我的第二个，一千万！CSDN阅读](szjy/csdn-1000wan.md)
+- [走近作者：个人介绍 Q&A](docs/about-the-author/readme.md)
+- [我的第一个，10 万(B站视频播放)](about-the-author/bzhan-10wan.md)
+- [我的第一个，一千万！知乎阅读](about-the-author/zhihu-1000wan.md)
+- [我的第二个，一千万！CSDN阅读](about-the-author/csdn-1000wan.md)
 
 ## 联系方式
 

@@ -1,6 +1,7 @@
 ---
+title: Java程序员常读书单
 category:
-  - PDF下载
+  - 学习资源
 tag:
   - PDF
 ---

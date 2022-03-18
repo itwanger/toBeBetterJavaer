@@ -1,6 +1,8 @@
 ---
 title: 《Java 面试指南》
 category: 知识星球
+tag:
+  - 知识星球
 ---
 
 大家好，我是二哥呀。
@@ -70,11 +72,12 @@ category: 知识星球
 
 名额有限，先到先得，**仅限这一波就恢复原价**，请长按下面的海报扫码加入（早买早享受，还可以抢到前排编号）。
 
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/zhishixingqiu/readme-9.png)
 
 
 透露一个消息，星主二哥去年一共在朋友圈和公众号送出去了近 300 本纸质书（技术书定价一般都是 100 元走上），今年计划全部从**星球内部送，所以幸运的小伙伴直接可以白嫖星球一整年**。
 
-
+![这是一部分的记录表](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/zhishixingqiu/readme-10.png)
 
 
 进入星球后，可以为自己制定一个目标，比如说多长时间内要加入某某心仪的公司，或者达成某某值得炫耀的成就（一定要是还算有点挑战性的目标）。

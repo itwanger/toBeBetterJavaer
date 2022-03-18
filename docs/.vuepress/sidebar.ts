@@ -1,57 +1,55 @@
 import { defineSidebarConfig } from "vuepress-theme-hope";
-
-export default defineSidebarConfig([
+export const sidebarConfig = defineSidebarConfig({
+  "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
+  "/download/": ["java"],
+  "/nicearticle/": ["readme.md"],
+  "/xuexiluxian/": [
     {
-      text: "学习路线",
-      icon: "luxian",
-      prefix: "xuexiluxian/",
+      text: "Java学习路线",
+      icon: "java",
+      prefix: "java/",
       collapsable: true,
       children: [
         {
-          text: "Java",
-          icon: "java",
-          prefix: "java/",
-          collapsable: true,
-          children: [
-            {
-              text: "并发编程",
-              icon: "duoxiancheng",
-              link: "thread.md",
-            },
-          ],
-        },
-        {
-          text: "C语言",
-          link: "c.md",
-          icon: "c",
-        },
-        {
-          text: "C++",
-          link: "ccc.md",
-          icon: "cpp",
-        },
-        {
-          text: "Python",
-          link: "python.md",
-          icon: "python",
-        },
-        {
-          text: "Go语言",
-          link: "go.md",
-          icon: "gopher",
-        },
-        {
-          text: "操作系统",
-          link: "os.md",
-          icon: "caozuoxitong",
-        },
-        {
-          text: "前端",
-          link: "qianduan.md",
-          icon: "_qianduankaifa",
+          text: "并发编程学习路线",
+          icon: "duoxiancheng",
+          link: "thread.md",
         },
       ],
     },
+    {
+      text: "C语言学习路线",
+      link: "c.md",
+      icon: "c",
+    },
+    {
+      text: "C++学习路线",
+      link: "ccc.md",
+      icon: "cpp",
+    },
+    {
+      text: "Python学习路线",
+      link: "python.md",
+      icon: "python",
+    },
+    {
+      text: "Go语言学习路线",
+      link: "go.md",
+      icon: "gopher",
+    },
+    {
+      text: "操作系统学习路线",
+      link: "os.md",
+      icon: "caozuoxitong",
+    },
+    {
+      text: "前端学习路线",
+      link: "qianduan.md",
+      icon: "_qianduankaifa",
+    },
+  ],
+  // 必须放在最后面
+  "/": [
     {
       text: "Java核心",
       icon: "java",
@@ -86,7 +84,10 @@ export default defineSidebarConfig([
           text: "Java概述",
           icon: "gaishu",
           collapsable: true,
-          children: ["what-is-java", "hello-world"],
+          children: [
+          "what-is-java", 
+          "hello-world"
+          ],
         },
         {
           text: "Java基础语法",
@@ -234,19 +235,237 @@ export default defineSidebarConfig([
     },
     {
       text: "Java企业级开发",
-      icon: "luxian",
+      icon: "qiye",
       collapsable: true,
       children: [
         {
-          text: "基建篇",
-          icon: "duoxiancheng",
+          text: "开发工具",
+          icon: "gongju",
           collapsable: true,
           children: [
           "maven/maven.md",
           "git/git-qiyuan.md",
+          "nginx/nginx.md",
+          ],
+        },
+        {
+          text: "IDE/编辑器",
+          icon: "icons-intellij_idea",
+          collapsable: true,
+          children: [
+          "ide/4-debug-skill.md",
+          ],
+        },
+        {
+          text: "Spring",
+          icon: "spring-3",
+          collapsable: true,
+          children: [
+            {
+              text: "Spring IoC扫盲",
+              link: "https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w",
+            },
+          ],
+        },
+        {
+          text: "SpringBoot",
+          icon: "springboot",
+          collapsable: true,
+          children: [
+            "springboot/initializr",
+            "springboot/tomcat",
+          ],
+        },
+        {
+          text: "辅助工具/轮子",
+          icon: "maxus-tyre-tianchong",
+          collapsable: true,
+          children: [
+            "gongju/tabby",
+            "gongju/chiner",
+            "gongju/DBeaver",
+            "gongju/knife4j",
+            "kaiyuan/auto-generator",
+            "gongju/junit",
+            "gongju/gson",
+            "gongju/fastjson",
+            "gongju/jackson",
+            "gongju/forest",
+            "gongju/log4j",
+            "gongju/log4j2",
+            "gongju/logback",
+            "gongju/slf4j",
+            "gongju/others",
+          ],
+        },
+        {
+          text: "分布式",
+          icon: "fenbushi",
+          collapsable: true,
+          children: [
+            "elasticsearch/rumen",
+            "zookeeper/jibenjieshao",
+          ],
+        },
+        {
+          text: "高性能",
+          icon: "gaoxingneng",
+          collapsable: true,
+          children: [
+            {
+              text: "消息队列",
+              icon: "mqxiaoxiduilieMQ",
+              collapsable: true,
+              children: [
+                "mq/rabbitmq-rumen",
+              ],
+            },
           ],
         },
       ],
-    }
+    },
+    {
+      text: "数据库",
+      icon: "shujuku",
+      collapsable: true,
+      children: [
+        {
+          text: "Redis",
+          icon: "redis",
+          collapsable: true,
+          children: [
+            "redis/rumen",
+          ],
+        },
+        {
+          text: "MongoDB",
+          icon: "MongoDB",
+          collapsable: true,
+          children: [
+            "mongodb/rumen",
+          ],
+        },
+      ],
+    },
+    {
+      text: "求职面试",
+      icon: "qiuzhi",
+      collapsable: true,
+      children: [
+        {
+          text: "面试题集合",
+          icon: "jingpinmianjingku",
+          collapsable: true,
+          children: [
+            "baguwen/java-basic-34",
+            "collection/hashmap-interview",
+            "mianjing/redis12question",
+            "mq/100-budiushi",
+          ],
+        },
+        {
+          text: "背诵版八股文",
+          icon: "wenyanwenyuedu",
+          collapsable: true,
+          children: [
+            "baguwen/java-basic",
+            "baguwen/java-thread",
+            "baguwen/jvm",
+            "sidebar/herongwei/mysql",
+          ],
+        },
+      ],
+    },
+    {
+      text: "学习资源",
+      icon: "xuexiziyuan",
+      collapsable: true,
+      children: [
+        {
+          text: "PDF下载",
+          icon: "pdf",
+          collapsable: true,
+          children: [
+            {
+              text: "Java程序员常读书单",
+              icon: "xiazai",
+              link: "download/java.md",
+            },
+            {
+              text: "最全最硬核的Java面试 “备战” 资料",
+              icon: "xiazai",
+              link: "https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw",
+            },
+            {
+              text: "深入浅出Java多线程",
+              icon: "xiazai",
+              link: "https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w",
+            },
+            {
+              text: "GitHub星标115k+的Java教程",
+              icon: "xiazai",
+              link: "https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw",
+            },
+            {
+              text: "重学Java设计模式",
+              icon: "xiazai",
+              link: "https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw",
+            },
+            {
+              text: "Java版LeetCode刷题笔记",
+              icon: "xiazai",
+              link: "https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ",
+            },
+            {
+              text: "阮一峰C语言入门教程",
+              icon: "xiazai",
+              link: "download/yuanyifeng-c-language.md",
+            },
+            {
+              text: "BAT大佬的刷题笔记",
+              icon: "xiazai",
+              link: "download/bat-shuati.md",
+            },
+            {
+              text: "给操作系统捋条线",
+              icon: "xiazai",
+              link: "https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA",
+            },
+            {
+              text: "豆瓣9.1分，Pro Git中文版",
+              icon: "xiazai",
+              link: "download/progit.md",
+            },
+            {
+              text: "简历模板",
+              icon: "xiazai",
+              link: "download/jianli.md",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      text: "联系作者",
+      icon: "hezuozuozhe",
+      collapsable: true,
+      children: [
+        {
+          text: "心路历程",
+          icon: "xinlulicheng",
+          prefix: "about-the-author/",
+          collapsable: true,
+          children: [
+            "bzhan-10wan",
+            "zhihu-1000wan",
+            "csdn-1000wan",
+            "readme.md",
+          ],
+        },
+      ],
+    },
   ],
-);
+});
+
+
+
