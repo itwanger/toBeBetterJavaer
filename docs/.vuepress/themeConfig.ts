@@ -82,7 +82,7 @@ export default defineThemeConfig({
 
     mdEnhance: {
       // 仅将此选项用于体验或测试。
-      enableAll: false,
+      align: true,
       presentation: {
         plugins: ["highlight", "math", "search", "notes", "zoom"],
       },
