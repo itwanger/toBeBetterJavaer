@@ -72,7 +72,7 @@ tag:
 
 名额有限，先到先得，**仅限这一波就恢复原价**，请长按下面的海报扫码加入（早买早享受，还可以抢到前排编号）。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/zhishixingqiu/readme-9.png)
+![](https://itwanger-oss.oss-cn-beijing.aliyuncs.com/itwanger/zhishixingqiu-youhui30yuan.png)
 
 
 透露一个消息，星主二哥去年一共在朋友圈和公众号送出去了近 300 本纸质书（技术书定价一般都是 100 元走上），今年计划全部从**星球内部送，所以幸运的小伙伴直接可以白嫖星球一整年**。
