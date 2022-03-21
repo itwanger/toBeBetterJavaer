@@ -348,6 +348,21 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
+      text: "计算机基础",
+      icon: "jisuanjijichu",
+      collapsable: true,
+      children: [
+        {
+          text: "计算机操作系统",
+          link: "https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ",
+        },
+        {
+          text: "计算机网络",
+          link: "https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw",
+        },
+      ],
+    },
+    {
       text: "求职面试",
       icon: "qiuzhi",
       collapsable: true,
