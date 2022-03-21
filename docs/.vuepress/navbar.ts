@@ -17,11 +17,6 @@ export default defineNavbarConfig([
     icon: "luxian",
     link: "/xuexiluxian/"
   },
-  {
-    text: "B站视频",
-    icon: "bzhan",
-    link: "https://space.bilibili.com/513340480"
-  },
   { 
     text: "优质文章", 
     icon: "youzhi", 
@@ -32,5 +27,10 @@ export default defineNavbarConfig([
     text: "经典书单",
     icon: "pdf",
     link: "/download/java.md",
+  },
+  {
+    text: "B站视频",
+    icon: "bzhan",
+    link: "https://space.bilibili.com/513340480"
   },
 ]);

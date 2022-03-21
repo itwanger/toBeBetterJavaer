@@ -271,8 +271,7 @@ title: Java程序员进阶之路
 
 # 计算机基础
 
- - **计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。
- - 万丈高露平地起，勿在浮沙筑高台。
+**计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。万丈高露平地起，勿在浮沙筑高台。
 
 - [计算机操作系统知识点大梳理](https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ)
 - [计算机网络核心知识点大梳理](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
@@ -280,8 +279,7 @@ title: Java程序员进阶之路
 # 求职面试
 
 
- - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
- - 千淘万漉虽辛苦，吹尽狂沙始到金。
+**学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？千淘万漉虽辛苦，吹尽狂沙始到金。
 
 
 ## 面试题集合
@@ -377,71 +375,7 @@ title: Java程序员进阶之路
 - [我的第一个，一千万！知乎阅读](about-the-author/zhihu-1000wan.md)
 - [我的第二个，一千万！CSDN阅读](about-the-author/csdn-1000wan.md)
 
-## 联系方式
 
-### 技术交流群
-
-本群的宗旨是给大家提供一个良好的技术学习交流平台，所以杜绝一切广告！<br>由于微信群人满 100 之后无法加入，请先添加作者微信「qing_geee」（也可以扫描下方的二维码），备注：加群。
-
-<div align="left">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/qing_geee.png" width="260px">
-</div>
-
-### 原创公众号
-
-本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有 10 万+读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注作者了。
-
-<div align="left">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" width="260px">
-</div>
-
-关注后，回复关键字「**00**」可以获取更多优质的 Java 学习资料。
-    
-    
-### star趋势图
-
-[![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
-
-
-### 友情链接
-
-- [Hippo4J](https://github.com/acmenlt/dynamic-threadpool)，🔥 强大的动态线程池，附带监控报警功能（没有依赖中间件），完全遵循阿里巴巴编码规范。
-- [JavaGuide](https://github.com/Snailclimb/JavaGuide)，「Java学习+面试指南」一份涵盖大部分 Java 程序员所需要掌握的核心知识。准备 Java 面试，首选 JavaGuide！
-
-### 捐赠鼓励
-
-开源不易，如果《Java 程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
-
-<div align="left">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
-</div>
-
-:gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。
-
-时间|小伙伴|赞赏金额
----|---|---
-2022-03-04|袁*波|99元
-2022-02-17|*色|1元
-2022-02-17|M*y|1元
-2022-01-28|G*R|6.6元
-2022-01-20|*光|50元
-2022-01-14|*浩|1元
-2022-01-01|马*谊|6.6元
-2022-01-01|刚*好|3.6元
-2021-12-20|t*1|5 元
-2021-10-26|*鱼|28 元
-2021-10-11|*人|28 元
-2021-09-01|S*n|6.6 元
-2021-08-02|*秒|1 元
-2021-06-13|*7| 28 元
-2021-04-29|p*e|2 元
-
-
-
-### 参与贡献
-
-1. 如果你对本项目有任何建议或发现文中内容有误的，欢迎提交 issues 进行指正。
-2. 对于文中我没有涉及到知识点，欢迎提交 PR。
 
 
 
