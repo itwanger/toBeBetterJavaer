@@ -166,6 +166,8 @@
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
 - [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
 - [详解Java中Comparable和Comparator的区别](docs/basic-extra-meal/comparable-omparator.md)
+- [jdk9为何要将String的底层实现由char[]改成了byte[]?](docs/basic-extra-meal/jdk9-char-byte-string.md)
+- [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 
 
 ## Java并发编程
@@ -260,6 +262,9 @@
 > [!NOTE]
 >  - **计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。
 >  - 万丈高露平地起，勿在浮沙筑高台。
+
+- [计算机操作系统知识点大梳理](https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ)
+- [计算机网络核心知识点大梳理](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
 
 
 # 求职面试
