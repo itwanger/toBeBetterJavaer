@@ -1,4 +1,5 @@
 * [计算机经典书籍下载](docs/download/java.md)
+* [B站视频](https://space.bilibili.com/513340480)
 * 学习路线
   * [Java并发学习路线](docs/xuexiluxian/java-thread.md)
   * [C语言学习路线](docs/xuexiluxian/c.md)
