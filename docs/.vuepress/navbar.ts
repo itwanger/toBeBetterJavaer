@@ -23,13 +23,13 @@ export default defineNavbarConfig([
     link: "https://space.bilibili.com/513340480"
   },
   { 
-    text: "优质文章精选集", 
+    text: "优质文章", 
     icon: "youzhi", 
     link: "/nicearticle/" 
   },
   
   {
-    text: "计算机经典书单下载",
+    text: "经典书单",
     icon: "pdf",
     link: "/download/java.md",
   },
