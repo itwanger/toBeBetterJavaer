@@ -1,5 +1,5 @@
 ---
-title: 吊打Java并发面试官之ThreadLocal
+title: 吊打Java并发面试官之BlockingQueue
 category:
   - Java核心
   - 并发编程
@@ -8,12 +8,11 @@ tag:
 ---
 
 
-# 1. BlockingQueue简介 #
+最常用的"**生产者-消费者**"问题中，队列通常被视作线程间操作的数据容器，这样，可以对各个模块的业务功能进行解耦，生产者将“生产”出来的数据放置在数据容器中，而消费者仅仅只需要在“数据容器”中进行获取数据即可，这样生产者线程和消费者线程就能够进行解耦，只专注于自己的业务功能即可。
 
-
-最常用的"**生产者-消费者**"问题中，队列通常被视作线程间操作的数据容器，这样，可以对各个模块的业务功能进行解耦，生产者将“生产”出来的数据放置在数据容器中，而消费者仅仅只需要在“数据容器”中进行获取数据即可，这样生产者线程和消费者线程就能够进行解耦，只专注于自己的业务功能即可。阻塞队列（BlockingQueue）被广泛使用在“生产者-消费者”问题中，其原因是BlockingQueue提供了可阻塞的插入和移除的方法。**当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。**
+阻塞队列（BlockingQueue）被广泛使用在“生产者-消费者”问题中，其原因是BlockingQueue提供了可阻塞的插入和移除的方法。**当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止**。
     
-# 2. 基本操作 #
+## 基本操作
 
 BlockingQueue基本操作总结如下（此图来源于JAVA API文档）：
 
@@ -49,10 +48,11 @@ BlockingQueue具有的特殊操作：
 2. poll(long timeout, TimeUnit unit)：当阻塞队列为空时，获取数据的线程会被阻塞，另外，如果被阻塞的线程超过了给定的时长，该线程会退出
 
 
-# 3. 常用的BlockingQueue #
+## 常用的BlockingQueue
+
 实现BlockingQueue接口的有`ArrayBlockingQueue, DelayQueue, LinkedBlockingDeque, LinkedBlockingQueue, LinkedTransferQueue, PriorityBlockingQueue, SynchronousQueue`，而这几种常见的阻塞队列也是在实际编程中会常用的，下面对这几种常见的阻塞队列进行说明：
 
-> 1.ArrayBlockingQueue
+### ArrayBlockingQueue
 
 **ArrayBlockingQueue**是由数组实现的有界阻塞队列。该队列命令元素FIFO（先进先出）。因此，对头元素时队列中存在时间最长的数据元素，而对尾数据则是当前队列最新的数据元素。ArrayBlockingQueue可作为“有界数据缓冲区”，生产者插入数据到队列容器中，并由消费者提取。ArrayBlockingQueue一旦创建，容量不能改变。
 
@@ -105,7 +105,7 @@ public ArrayBlockingQueue(int capacity, boolean fair) {
 ```
 接下来，主要看看可阻塞式的put和take方法是怎样实现的。
 
-## 2.2 put方法详解
+### put方法详解
 
 ` put(E e)`方法源码如下：
 ```java
@@ -142,7 +142,7 @@ private void enqueue(E x) {
 ```
 enqueue方法的逻辑同样也很简单，先完成插入数据，即往数组中添加数据（`items[putIndex] = x`），然后通知被阻塞的消费者线程，当前队列中有数据可供消费（`notEmpty.signal()`）。
 
-## 2.3 take方法详解 
+### take方法详解 
 
 take方法源码如下：
 
@@ -338,7 +338,7 @@ LinkedTransferQueue是一个由链表数据结构构成的无界阻塞队列，�
 **tryTransfer(E e)**
 tryTransfer方法如果当前有消费者线程（调用take方法或者具有超时特性的poll方法）正在消费数据的话，该方法可以将数据立即传送给消费者线程，如果当前没有消费者线程消费数据的话，就立即返回`false`。因此，与transfer方法相比，transfer方法是必须等到有消费者线程消费数据时，生产者线程才能够返回。而tryTransfer方法能够立即返回结果退出。
 
-**tryTransfer(E e,long timeout,imeUnit unit)**</br>
+`tryTransfer(E e,long timeout,imeUnit unit)`
 与transfer基本功能一样，只是增加了超时特性，如果数据才规定的超时时间内没有消费者进行消费的话，就返回`false`。
 
 
