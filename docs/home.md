@@ -182,7 +182,33 @@ title: Java程序员进阶之路
 
 ## Java并发编程
 
-- [室友打一把王者就学会了多线程](thread/wangzhe-thread.md)
+- [室友打了一把王者就学会了创建Java线程的3种方式](thread/wangzhe-thread.md)
+- [Java线程的6种状态及切换(透彻讲解)](thread/thread-state-and-method.md)
+- [线程组是什么？线程优先级如何设置？](thread/thread-group-and-thread-priority.md)
+- [进程与线程的区别是什么？](thread/why-need-thread.md)
+- [并发编程带来了哪些问题？](thread/thread-bring-some-problem.md)
+- [全面理解Java的内存模型（JMM）](thread/jmm.md)
+- [Java并发编程volatile关键字解析](thread/volatile.md)
+- [Java中的synchronized关键字锁的到底是什么？](thread/synchronized.md)
+- [Java实现CAS的原理](thread/cas.md)
+- [Java并发AQS详解](thread/aqs.md)
+- [大致了解下Java的锁接口和锁](thread/lock.md)
+- [深入理解Java并发重入锁ReentrantLock](thread/reentrantLock.md)
+- [深入理解Java并发读写锁ReentrantReadWriteLock](thread/ReentrantReadWriteLock.md)
+- [深入理解Java并发线程协作类Condition](thread/condition.md)
+- [深入理解Java并发线程线程阻塞唤醒类LockSupport](thread/LockSupport.md)
+- [简单聊聊Java的并发集合容器](thread/map.md)
+- [吊打Java并发面试官之ConcurrentHashMap](thread/ConcurrentHashMap.md)
+- [吊打Java并发面试官之ConcurrentLinkedQueue](thread/ConcurrentLinkedQueue.md)
+- [吊打Java并发面试官之CopyOnWriteArrayList](thread/CopyOnWriteArrayList.md)
+- [吊打Java并发面试官之ThreadLocal](thread/ThreadLocal.md)
+- [吊打Java并发面试官之BlockingQueue](thread/BlockingQueue.md)
+- [面试必备：Java线程池解析](thread/pool.md)
+- [深入剖析Java计划任务ScheduledThreadPoolExecutor](thread/ScheduledThreadPoolExecutor.md)
+- [Java atomic包中的原子操作类总结](thread/atomic.md)
+- [Java并发编程通信工具类CountDownLatch等一网打尽](thread/CountDownLatch.md)
+- [深入理解Java并发编程之Fork/Join框架](thread/fork-join.md)
+- [从根上理解生产者-消费者模式](thread/shengchanzhe-xiaofeizhe.md)
 
 
 ## Java虚拟机
@@ -300,7 +326,7 @@ title: Java程序员进阶之路
 
 ## 优质面经
 
-- [春招斩获深圳腾讯PCG和杭州阿里云](docs/mianjing/shanganaliyun.md)
+- [春招斩获深圳腾讯PCG和杭州阿里云](mianjing/shanganaliyun.md)
 - [社招拿下阿里美团头条京东滴滴)](https://mp.weixin.qq.com/s/h2tV6v5Rh6jHdO9x0p63-g)
 - [字节小姐姐的一份秋招攻略](https://mp.weixin.qq.com/s/0hCJy0m8nHm08HfyXKQT1A)
 - [面试常见词汇扫盲+常见大厂面试特点分享](https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA)
@@ -370,7 +396,7 @@ title: Java程序员进阶之路
 
 ## 心路历程
 
-- [走近作者：个人介绍 Q&A](docs/about-the-author/readme.md)
+- [走近作者：个人介绍 Q&A](about-the-author/readme.md)
 - [我的第一个，10 万(B站视频播放)](about-the-author/bzhan-10wan.md)
 - [我的第一个，一千万！知乎阅读](about-the-author/zhihu-1000wan.md)
 - [我的第二个，一千万！CSDN阅读](about-the-author/csdn-1000wan.md)
