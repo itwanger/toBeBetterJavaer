@@ -16,36 +16,36 @@ tag:
 
 BlockingQueue基本操作总结如下（此图来源于JAVA API文档）：
 
-![BlockingQueue基本操作.png](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-d40c88b5-2b20-4f43-a2c7-8699db11a196.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-dc9c17f3-c3d7-4e62-92a6-1cf772001bc6.png)
 
 BlockingQueue继承于Queue接口，因此，对数据元素的基本操作有：
 
-> 插入元素
+1）插入元素
 
 1. add(E e) ：往队列插入数据，当队列满时，插入元素时会抛出IllegalStateException异常；
 2. offer(E e)：当往队列插入数据时，插入成功返回`true`，否则则返回`false`。当队列满时不会抛出异常；
 
-> 删除元素
+2）删除元素
 
 1. remove(Object o)：从队列中删除数据，成功则返回`true`，否则为`false`
 2. poll：删除数据，当队列为空时，返回null；
 
-> 查看元素
+3）查看元素
 
 1. element：获取队头元素，如果队列为空时则抛出NoSuchElementException异常；
 2. peek：获取队头元素，如果队列为空则抛出NoSuchElementException异常
 
 BlockingQueue具有的特殊操作：
 
-> 插入数据：
+1）插入数据：
 
 1. put：当阻塞队列容量已经满时，往阻塞队列插入数据的线程会被阻塞，直至阻塞队列已经有空余的容量可供使用；
-2. offer(E e, long timeout, TimeUnit unit)：若阻塞队列已经满时，同样会阻塞插入数据的线程，直至阻塞队列已经有空余的地方，与put方法不同的是，该方法会有一个超时时间，若超过当前给定的超时时间，插入数据的线程会退出；
+2. `offer(E e, long timeout, TimeUnit unit)`：若阻塞队列已经满时，同样会阻塞插入数据的线程，直至阻塞队列已经有空余的地方，与put方法不同的是，该方法会有一个超时时间，若超过当前给定的超时时间，插入数据的线程会退出；
 
-> 删除数据
+2）删除数据
 
-1. take()：当阻塞队列为空时，获取队头数据的线程会被阻塞；
-2. poll(long timeout, TimeUnit unit)：当阻塞队列为空时，获取数据的线程会被阻塞，另外，如果被阻塞的线程超过了给定的时长，该线程会退出
+1. `take()`：当阻塞队列为空时，获取队头数据的线程会被阻塞；
+2. `poll(long timeout, TimeUnit unit)`：当阻塞队列为空时，获取数据的线程会被阻塞，另外，如果被阻塞的线程超过了给定的时长，该线程会退出
 
 
 ## 常用的BlockingQueue
@@ -105,7 +105,7 @@ public ArrayBlockingQueue(int capacity, boolean fair) {
 ```
 接下来，主要看看可阻塞式的put和take方法是怎样实现的。
 
-### put方法详解
+#### 1）put方法详解
 
 ` put(E e)`方法源码如下：
 ```java
@@ -142,7 +142,7 @@ private void enqueue(E x) {
 ```
 enqueue方法的逻辑同样也很简单，先完成插入数据，即往数组中添加数据（`items[putIndex] = x`），然后通知被阻塞的消费者线程，当前队列中有数据可供消费（`notEmpty.signal()`）。
 
-### take方法详解 
+### 2）take方法详解 
 
 take方法源码如下：
 
@@ -186,7 +186,7 @@ dequeue方法也主要做了两件事情：1. 获取队列中的数据，即获�
 从以上分析，可以看出put和take方法主要是通过condition的通知机制来完成可阻塞式的插入数据和获取数据。在理解ArrayBlockingQueue后再去理解LinkedBlockingQueue就很容易了。
 
 
-> 2.LinkedBlockingQueue
+### LinkedBlockingQueue
 
 LinkedBlockingQueue是用链表实现的有界阻塞队列，同样满足FIFO的特性，与ArrayBlockingQueue相比起来具有更高的吞吐量，为了防止LinkedBlockingQueue容量迅速增，损耗大量内存。通常在创建LinkedBlockingQueue对象时，会指定其大小，如果未指定，容量等于Integer.MAX_VALUE
 
@@ -239,7 +239,7 @@ static class Node<E> {
 ```
 接下来，我们也同样来看看put方法和take方法的实现。
 
-## 3.2 put方法详解 ##
+#### 1）put方法详解
 
 put方法源码为:
 
@@ -279,7 +279,12 @@ public void put(E e) throws InterruptedException {
         signalNotEmpty();
 }
 ```
-put方法的逻辑也同样很容易理解，可见注释。基本上和ArrayBlockingQueue的put方法一样。take方法的源码如下：
+put方法的逻辑也同样很容易理解，可见注释。基本上和ArrayBlockingQueue的put方法一样。
+
+
+#### 2）take方法
+
+源码如下：
 
 ```java
 public E take() throws InterruptedException {
@@ -309,7 +314,7 @@ public E take() throws InterruptedException {
 ```
 take方法的主要逻辑请见于注释，也很容易理解。
 
-# 4. ArrayBlockingQueue与LinkedBlockingQueue的比较 #
+** ArrayBlockingQueue与LinkedBlockingQueue的比较**
 
 **相同点**：ArrayBlockingQueue和LinkedBlockingQueue都是通过condition通知机制来实现可阻塞式插入和删除元素，并满足线程安全的特性；
 
@@ -319,16 +324,16 @@ take方法的主要逻辑请见于注释，也很容易理解。
 2.  ArrayBlockingQueue插入和删除数据，只采用了一个lock，而LinkedBlockingQueue则是在插入和删除分别采用了`putLock`和`takeLock`，这样可以降低线程由于线程无法获取到lock而进入WAITING状态的可能性，从而提高了线程并发执行的效率。
 
 
-> 3.PriorityBlockingQueue
+### PriorityBlockingQueue
 
 PriorityBlockingQueue是一个支持优先级的无界阻塞队列。默认情况下元素采用自然顺序进行排序，也可以通过自定义类实现compareTo()方法来指定元素排序规则，或者初始化时通过构造器参数Comparator来指定排序规则。
 
-> 4.SynchronousQueue
+### SynchronousQueue
 
 SynchronousQueue每个插入操作必须等待另一个线程进行相应的删除操作，因此，SynchronousQueue实际上没有存储任何数据元素，因为只有线程在删除数据时，其他线程才能插入数据，同样的，如果当前有线程在插入数据时，线程才能删除数据。SynchronousQueue也可以通过构造器参数来为其指定公平性。
 
 
-> 5.LinkedTransferQueue
+### LinkedTransferQueue
 
 LinkedTransferQueue是一个由链表数据结构构成的无界阻塞队列，由于该队列实现了TransferQueue接口，与其他阻塞队列相比主要有以下不同的方法：
  
@@ -342,24 +347,29 @@ tryTransfer方法如果当前有消费者线程（调用take方法或者具有�
 与transfer基本功能一样，只是增加了超时特性，如果数据才规定的超时时间内没有消费者进行消费的话，就返回`false`。
 
 
-> 6.LinkedBlockingDeque
+### LinkedBlockingDeque
 
 LinkedBlockingDeque是基于链表数据结构的有界阻塞双端队列，如果在创建对象时为指定大小时，其默认大小为Integer.MAX_VALUE。与LinkedBlockingQueue相比，主要的不同点在于，LinkedBlockingDeque具有双端队列的特性。LinkedBlockingDeque基本操作如下图所示（来源于java文档）
 
-![LinkedBlockingDeque的基本操作.png](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-82554857-f987-459f-9dbf-2d5649861d9c.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-82554857-f987-459f-9dbf-2d5649861d9c.png)
 
 
 
-如上图所示，LinkedBlockingDeque的基本操作可以分为四种类型：1.特殊情况，抛出异常；2.特殊情况，返回特殊值如null或者false；3.当线程不满足操作条件时，线程会被阻塞直至条件满足；4. 操作具有超时特性。
+如上图所示，LinkedBlockingDeque的基本操作可以分为四种类型：
+
+1. 特殊情况，抛出异常；
+2. 特殊情况，返回特殊值如null或者false；
+3. 当线程不满足操作条件时，线程会被阻塞直至条件满足；
+4. 操作具有超时特性。
 
 另外，LinkedBlockingDeque实现了BlockingDueue接口而LinkedBlockingQueue实现的是BlockingQueue，这两个接口的主要区别如下图所示（来源于java文档）：
 
 
-![BlockingQueue和BlockingDeque的区别.png](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-ab4857f1-f7a2-4674-ba53-af44d76f4c6d.png)
+![BlockingQueue和BlockingDeque的区别](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-ab4857f1-f7a2-4674-ba53-af44d76f4c6d.png)
 
 从上图可以看出，两个接口的功能是可以等价使用的，比如BlockingQueue的add方法和BlockingDeque的addLast方法的功能是一样的。
 
-> 7.DelayQueue
+### DelayQueue
 
 DelayQueue是一个存放实现Delayed接口的数据的无界阻塞队列，只有当数据对象的延时时间达到时才能插入到队列进行存储。如果当前所有的数据都还没有达到创建时所指定的延时期，则队列没有队头，并且线程通过poll等方法获取数据元素则返回null。所谓数据延时期满时，则是通过Delayed接口的`getDelay(TimeUnit.NANOSECONDS)`来进行判定，如果该方法返回的是小于等于0则说明该数据元素的延时期已满。
 
