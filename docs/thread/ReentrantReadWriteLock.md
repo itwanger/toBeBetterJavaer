@@ -85,13 +85,15 @@ protected final boolean tryAcquire(int acquires) {
 
 该方法是获取读锁被获取的次数，是将同步状态（int c）右移16次，即取同步状态的高16位，现在我们可以得出另外一个结论**同步状态的高16位用来表示读锁被获取的次数**。现在还记得我们开篇说的需要弄懂的第一个问题吗？读写锁是怎样实现分别记录读锁和写锁的状态的，现在这个问题的答案就已经被我们弄清楚了，其示意图如下图所示：
 
-![读写锁的读写状态设计.png](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/ReentrantReadWriteLock-609029e0-d0ed-41ee-9779-65e647bf91bc.png)
+![读写锁的读写状态设计](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/ReentrantReadWriteLock-f714bdd6-917a-4d25-ac11-7e85b0ec1b14.png)
 
 
 现在我们回过头来看写锁获取方法tryAcquire，其主要逻辑为：**当读锁已经被读线程获取或者写锁已经被其他写线程获取，则写锁获取失败；否则，获取成功并支持重入，增加写状态。**
 
 ### 写锁的释放
+
 写锁释放通过重写AQS的tryRelease方法，源码为：
+
 ```java
 protected final boolean tryRelease(int releases) {
     if (!isHeldExclusively())
@@ -112,8 +114,11 @@ protected final boolean tryRelease(int releases) {
 源码的实现逻辑请看注释，不难理解与ReentrantLock基本一致，这里需要注意的是，减少写状态` int nextc = getState() - releases;`只需要用**当前同步状态直接减去写状态的原因正是我们刚才所说的写状态是由同步状态的低16位表示的**。
 
 ## 读锁详解
+
 ### 读锁的获取
+
 看完了写锁，现在来看看读锁，读锁不是独占式锁，即同一时刻该锁可以被多个读线程获取也就是一种共享式锁。按照之前对AQS介绍，实现共享式同步组件的同步语义需要通过重写AQS的tryAcquireShared方法和tryReleaseShared方法。读锁的获取实现方法为：
+
 ```java
 protected final int tryAcquireShared(int unused) {
     /*
@@ -166,9 +171,12 @@ protected final int tryAcquireShared(int unused) {
 ```
 	
 
-代码的逻辑请看注释，需要注意的是  **当写锁被其他线程获取后，读锁获取失败**，否则获取成功利用CAS更新同步状态。另外，当前同步状态需要加上SHARED_UNIT（`(1 << SHARED_SHIFT)`即0x00010000）的原因这是我们在上面所说的同步状态的高16位用来表示读锁被获取的次数。如果CAS失败或者已经获取读锁的线程再次获取读锁时，是靠fullTryAcquireShared方法实现的，这段代码就不展开说了，有兴趣可以看看。
+代码的逻辑请看注释，需要注意的是  **当写锁被其他线程获取后，读锁获取失败**，否则获取成功利用CAS更新同步状态。
+
+另外，当前同步状态需要加上SHARED_UNIT（`(1 << SHARED_SHIFT)`即0x00010000）的原因这是我们在上面所说的同步状态的高16位用来表示读锁被获取的次数。如果CAS失败或者已经获取读锁的线程再次获取读锁时，是靠fullTryAcquireShared方法实现的，这段代码就不展开说了，有兴趣可以看看。
 
 ### 读锁的释放
+
 读锁释放的实现主要通过方法tryReleaseShared，源码如下，主要逻辑请看注释：
 
 ```java
@@ -208,34 +216,35 @@ protected final boolean tryReleaseShared(int unused) {
 	
 
 ## 锁降级
+
 读写锁支持锁降级，**遵循按照获取写锁，获取读锁再释放写锁的次序，写锁能够降级成为读锁**，不支持锁升级，关于锁降级下面的示例代码摘自ReentrantWriteReadLock源码中：
+
 ```java
 void processCachedData() {
-        rwl.readLock().lock();
-        if (!cacheValid) {
-            // Must release read lock before acquiring write lock
-            rwl.readLock().unlock();
-            rwl.writeLock().lock();
-            try {
-                // Recheck state because another thread might have
-                // acquired write lock and changed state before we did.
-                if (!cacheValid) {
-                    data = ...
-            cacheValid = true;
-          }
-          // Downgrade by acquiring read lock before releasing write lock
-          rwl.readLock().lock();
-        } finally {
-          rwl.writeLock().unlock(); // Unlock write, still hold read
-        }
-      }
- 
-      try {
-        use(data);
-      } finally {
+    rwl.readLock().lock();
+    if (!cacheValid) {
+        // Must release read lock before acquiring write lock
         rwl.readLock().unlock();
+        rwl.writeLock().lock();
+        try {
+            // Recheck state because another thread might have
+            // acquired write lock and changed state before we did.
+            if (!cacheValid) {
+                data = ...
+        cacheValid = true;
       }
+      // Downgrade by acquiring read lock before releasing write lock
+      rwl.readLock().lock();
+    } finally {
+      rwl.writeLock().unlock(); // Unlock write, still hold read
     }
+  }
+
+  try {
+    use(data);
+  } finally {
+    rwl.readLock().unlock();
+  }
 }
 ```
 	

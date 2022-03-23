@@ -55,7 +55,9 @@ public class TestVector {
 并发容器是Java 5 提供的在多线程编程下用于代替同步容器，针对不同的应用场景进行设计，提高容器的并发访问性，同时定义了线程安全的复合操作。
 
 ## 并发容器类介绍
+
 整体架构(列举常用的容器类)
+
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/map-a6a020a3-4573-4cf8-b5ae-1541ae45801c.png)
 
 
@@ -85,13 +87,13 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
 }
 ```
 
-**putIfAbsent：**与原有put方法不同的是，putIfAbsent方法中如果插入的key相同，则不替换原有的value值；
+**putIfAbsent：** 与原有put方法不同的是，putIfAbsent方法中如果插入的key相同，则不替换原有的value值；
 
-**remove：**与原有remove方法不同的是，新remove方法中增加了对value的判断，如果要删除的key-value不能与Map中原有的key-value对应上，则不会删除该元素;
+**remove：** 与原有remove方法不同的是，新remove方法中增加了对value的判断，如果要删除的key-value不能与Map中原有的key-value对应上，则不会删除该元素;
 
-**replace(K,V,V)：**增加了对value值的判断，如果key-oldValue能与Map中原有的key-value对应上，才进行替换操作；
+**replace(K,V,V)：** 增加了对value值的判断，如果key-oldValue能与Map中原有的key-value对应上，才进行替换操作；
 
-**replace(K,V)：**与上面的replace不同的是，此replace不会对Map中原有的key-value进行比较，如果key存在则直接替换；
+**replace(K,V)：** 与上面的replace不同的是，此replace不会对Map中原有的key-value进行比较，如果key存在则直接替换；
 
 #### ConcurrentHashMap类
 
@@ -581,7 +583,7 @@ public class CopyOnWriteMap<K, V> implements Map<K, V>, Cloneable {
 ~~~
 上面就是参考CopyOnWriteArrayList实现的CopyOnWriteMap，我们可以用这个容器来做什么呢？结合我们之前说的CopyOnWrite的复制思想，它最适用于“读多写少”的并发场景。
 
-**场景：**假如我们有一个搜索的网站需要屏蔽一些“关键字”，“黑名单”每晚定时更新，每当用户搜索的时候，“黑名单”中的关键字不会出现在搜索结果当中，并且提示用户敏感字。
+**场景：** 假如我们有一个搜索的网站需要屏蔽一些“关键字”，“黑名单”每晚定时更新，每当用户搜索的时候，“黑名单”中的关键字不会出现在搜索结果当中，并且提示用户敏感字。
 
 ~~~java
 // 黑名单服务
