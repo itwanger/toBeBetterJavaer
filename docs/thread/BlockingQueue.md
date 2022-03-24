@@ -16,7 +16,7 @@ tag:
 
 BlockingQueue基本操作总结如下（此图来源于JAVA API文档）：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-dc9c17f3-c3d7-4e62-92a6-1cf772001bc6.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-01.png)
 
 BlockingQueue继承于Queue接口，因此，对数据元素的基本操作有：
 
@@ -65,6 +65,7 @@ private static ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueu
 ```
     
 ArrayBlockingQueue的主要属性如下:
+
 ```java
 /** The queued items */
 final Object[] items;
@@ -92,7 +93,9 @@ private final Condition notEmpty;
 /** Condition for waiting puts */
 private final Condition notFull;
 ```
+
 从源码中可以看出ArrayBlockingQueue内部是采用数组进行数据存储的（`属性items`），为了保证线程安全，采用的是`ReentrantLock lock`，为了保证可阻塞式的插入删除数据利用的是Condition，当获取数据的消费者线程被阻塞时会将该线程放置到notEmpty等待队列中，当插入数据的生产者线程被阻塞时，会将该线程放置到notFull等待队列中。而notEmpty和notFull等中要属性在构造方法中进行创建：
+
 ```java
 public ArrayBlockingQueue(int capacity, boolean fair) {
     if (capacity <= 0)
@@ -103,11 +106,13 @@ public ArrayBlockingQueue(int capacity, boolean fair) {
     notFull =  lock.newCondition();
 }
 ```
+
 接下来，主要看看可阻塞式的put和take方法是怎样实现的。
 
 #### 1）put方法详解
 
 ` put(E e)`方法源码如下：
+
 ```java
 public void put(E e) throws InterruptedException {
     checkNotNull(e);
@@ -126,6 +131,7 @@ public void put(E e) throws InterruptedException {
 ```
 
 该方法的逻辑很简单，当队列已满时（`count == items.length`）将线程移入到notFull等待队列中，如果当前满足插入数据的条件，就可以直接调用` enqueue(e)`插入数据元素。enqueue方法源码为：
+
 ```java
 private void enqueue(E x) {
     // assert lock.getHoldCount() == 1;
@@ -140,9 +146,10 @@ private void enqueue(E x) {
     notEmpty.signal();
 }
 ```
+
 enqueue方法的逻辑同样也很简单，先完成插入数据，即往数组中添加数据（`items[putIndex] = x`），然后通知被阻塞的消费者线程，当前队列中有数据可供消费（`notEmpty.signal()`）。
 
-### 2）take方法详解 
+#### 2）take方法详解 
 
 take方法源码如下：
 
@@ -161,7 +168,12 @@ public E take() throws InterruptedException {
     }
 }
 ```
-take方法也主要做了两步：1. 如果当前队列为空的话，则将获取数据的消费者线程移入到等待队列中；2. 若队列不为空则获取数据，即完成出队操作`dequeue`。dequeue方法源码为：
+
+take方法也主要做了两步：
+
+1. 如果当前队列为空的话，则将获取数据的消费者线程移入到等待队列中；
+2. 若队列不为空则获取数据，即完成出队操作`dequeue`。dequeue方法源码为：
+
 ```java
 private E dequeue() {
     // assert lock.getHoldCount() == 1;
@@ -181,7 +193,10 @@ private E dequeue() {
     return x;
 }
 ```
-dequeue方法也主要做了两件事情：1. 获取队列中的数据，即获取数组中的数据元素（`(E) items[takeIndex]`）；2. 通知notFull等待队列中的线程，使其由等待队列移入到同步队列中，使其能够有机会获得lock，并执行完成功退出。
+dequeue方法也主要做了两件事情：
+
+1. 获取队列中的数据，即获取数组中的数据元素（`(E) items[takeIndex]`）；
+2. 通知notFull等待队列中的线程，使其由等待队列移入到同步队列中，使其能够有机会获得lock，并执行完成功退出。
 
 从以上分析，可以看出put和take方法主要是通过condition的通知机制来完成可阻塞式的插入数据和获取数据。在理解ArrayBlockingQueue后再去理解LinkedBlockingQueue就很容易了。
 
@@ -220,6 +235,7 @@ private final ReentrantLock putLock = new ReentrantLock();
 /** Wait queue for waiting puts */
 private final Condition notFull = putLock.newCondition();
 ```
+
 可以看出与ArrayBlockingQueue主要的区别是，LinkedBlockingQueue在插入数据和删除数据时分别是由两个不同的lock（`takeLock`和`putLock`）来控制线程安全的，因此，也由这两个lock生成了两个对应的condition（`notEmpty`和`notFull`）来实现可阻塞的插入和删除数据。并且，采用了链表的数据结构来实现队列，Node结点的定义为：
 
 ```java
@@ -237,6 +253,7 @@ static class Node<E> {
     Node(E x) { item = x; }
 }
 ```
+
 接下来，我们也同样来看看put方法和take方法的实现。
 
 #### 1）put方法详解
@@ -279,6 +296,7 @@ public void put(E e) throws InterruptedException {
         signalNotEmpty();
 }
 ```
+
 put方法的逻辑也同样很容易理解，可见注释。基本上和ArrayBlockingQueue的put方法一样。
 
 
@@ -312,6 +330,7 @@ public E take() throws InterruptedException {
     return x;
 }
 ```
+
 take方法的主要逻辑请见于注释，也很容易理解。
 
 ** ArrayBlockingQueue与LinkedBlockingQueue的比较**
@@ -351,7 +370,7 @@ tryTransfer方法如果当前有消费者线程（调用take方法或者具有�
 
 LinkedBlockingDeque是基于链表数据结构的有界阻塞双端队列，如果在创建对象时为指定大小时，其默认大小为Integer.MAX_VALUE。与LinkedBlockingQueue相比，主要的不同点在于，LinkedBlockingDeque具有双端队列的特性。LinkedBlockingDeque基本操作如下图所示（来源于java文档）
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-82554857-f987-459f-9dbf-2d5649861d9c.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-02.png)
 
 
 
@@ -365,7 +384,7 @@ LinkedBlockingDeque是基于链表数据结构的有界阻塞双端队列，如�
 另外，LinkedBlockingDeque实现了BlockingDueue接口而LinkedBlockingQueue实现的是BlockingQueue，这两个接口的主要区别如下图所示（来源于java文档）：
 
 
-![BlockingQueue和BlockingDeque的区别](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-ab4857f1-f7a2-4674-ba53-af44d76f4c6d.png)
+![BlockingQueue和BlockingDeque的区别](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/BlockingQueue-03.png)
 
 从上图可以看出，两个接口的功能是可以等价使用的，比如BlockingQueue的add方法和BlockingDeque的addLast方法的功能是一样的。
 

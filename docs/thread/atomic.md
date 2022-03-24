@@ -7,13 +7,13 @@ tag:
   - Java
 ---
 
-# 1. 原子操作类介绍 #
+## 原子操作类介绍
 
 在并发编程中很容易出现并发安全的问题，有一个很简单的例子就是多线程更新变量i=1,比如多个线程执行i++操作，就有可能获取不到正确的值，而这个问题，最常用的方法是通过Synchronized进行控制来达到线程安全的目的。
 
 但是由于synchronized是采用的是悲观锁策略，并不是特别高效的一种解决方案。实际上，在J.U.C下的atomic包提供了一系列的操作简单，性能高效，并能保证线程安全的类去更新基本类型变量，数组元素，引用类型以及更新对象中的字段类型。atomic包下的这些类都是采用的是乐观锁策略去原子更新数据，在java中则是使用CAS操作具体实现。
 
-# 2. 预备知识--CAS操作 #
+## 预备知识--CAS操作
 
 能够弄懂atomic包下这些原子操作类的实现原理，就要先明白什么是CAS操作。
 
@@ -42,7 +42,7 @@ CAS的实现需要硬件指令集的支撑，在JDK1.5后虚拟机才可以使�
 使用CAS时非阻塞同步，也就是说不会将线程挂起，会自旋（无非就是一个死循环）进行下一次尝试，如果这里自旋时间过长对性能是很大的消耗。如果JVM能支持处理器提供的pause指令，那么在效率上会有一定的提升。
 
 
-# 3. 原子更新基本类型
+## 原子更新基本类型
 
 atomic包提高原子更新基本类型的工具类，主要有这些：
 
@@ -67,10 +67,13 @@ public final int getAndIncrement() {
 	
 
 可以看出，该方法实际上是调用了unsafe实例的getAndAddInt方法，unsafe实例的获取时通过UnSafe类的静态方法getUnsafe获取：
+
 ```java
 private static final Unsafe unsafe = Unsafe.getUnsafe();
 ```
+
 Unsafe类在sun.misc包下，Unsafer类提供了一些底层操作，atomic包下的原子操作类的也主要是通过Unsafe类提供的compareAndSwapInt，compareAndSwapLong等一系列提供CAS操作的方法来进行实现。下面用一个简单的例子来说明AtomicInteger的用法：
+
 ```java
 public class AtomicDemo {
     private static AtomicInteger atomicInteger = new AtomicInteger(1);
@@ -88,6 +91,7 @@ public class AtomicDemo {
 例子很简单，就是新建了一个atomicInteger对象，而atomicInteger的构造方法也就是传入一个基本类型数据即可，对其进行了封装。对基本变量的操作比如自增，自减，相加，更新等操作，atomicInteger也提供了相应的方法进行这些操作。但是，因为atomicInteger借助了UnSafe提供的CAS操作能够保证数据更新的时候是线程安全的，并且由于CAS是采用乐观锁策略，因此，这种数据更新的方法也具有高效性。
 
 AtomicLong的实现原理和AtomicInteger一致，只不过一个针对的是long变量，一个针对的是int变量。而boolean变量的更新类AtomicBoolean类是怎样实现更新的呢?核心方法是`compareAndSet`t方法，其源码如下：
+
 ```java
 public final boolean compareAndSet(boolean expect, boolean update) {
     int e = expect ? 1 : 0;
@@ -98,7 +102,7 @@ public final boolean compareAndSet(boolean expect, boolean update) {
 
 可以看出，compareAndSet方法的实际上也是先转换成0,1的整型变量，然后是通过针对int型变量的原子更新方法compareAndSwapInt来实现的。可以看出atomic包中只提供了对boolean,int ,long这三种基本类型的原子更新的方法，参考对boolean更新的方式，原子更新char,doule,float也可以采用类似的思路进行实现。
 
-# 4. 原子更新数组类型 #
+## 原子更新数组类型
 
 atomic包下提供能原子更新数组中元素的类有：
 
@@ -132,7 +136,8 @@ public class AtomicDemo {
 2
 ```
 通过getAndAdd方法将位置为1的元素加5，从结果可以看出索引为1的元素变成了7，该方法返回的也是相加之前的数为2。
-# 5. 原子更新引用类型 #
+
+## 原子更新引用类型 
 
 如果需要原子更新引用类型变量的话，为了保证线程安全，atomic也提供了相关的类：
 
@@ -181,7 +186,7 @@ User{userName='b', age=2}
 ```
 首先将对象User1用AtomicReference进行封装，然后调用getAndSet方法，从结果可以看出，该方法会原子更新引用的user对象，变为`User{userName='b', age=2}`，返回的是原来的user对象User`{userName='a', age=1}`。
 
-# 6. 原子更新字段类型 #
+## 原子更新字段类型
 
 如果需要更新对象的某个字段，并在多线程的情况下，能够保证线程安全，atomic同样也提供了相应的原子操作类：
 
@@ -195,6 +200,7 @@ User{userName='b', age=2}
 2. 更新类的属性必须使用`public volatile`进行修饰；
 
 这几个类提供的方法基本一致，以AtomicIntegerFieldUpdater为例来看看具体的使用：
+
 ```java
 public class AtomicDemo {
 
@@ -229,9 +235,16 @@ public class AtomicDemo {
 1
 6
 ```
+
 从示例中可以看出，创建`AtomicIntegerFieldUpdater`是通过它提供的静态方法进行创建，`getAndAdd`方法会将指定的字段加上输入的值，并且返回相加之前的值。user对象中age字段原值为1，加5之后，可以看出user对象中的age字段的值已经变成了6。
 
+---
 
+**参考链接**
+
+- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
+- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
+- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
 
 
 
