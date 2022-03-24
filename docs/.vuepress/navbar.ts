@@ -17,20 +17,29 @@ export default defineNavbarConfig([
     icon: "luxian",
     link: "/xuexiluxian/"
   },
-  { 
-    text: "优质文章", 
-    icon: "youzhi", 
-    link: "/nicearticle/" 
-  },
-  
   {
-    text: "经典书单",
+    text: "珍藏资源",
     icon: "pdf",
-    link: "/download/java.md",
+    children: [
+      {
+        text: "PDF下载", 
+        icon: "pdf", 
+        link: "/download/java.md" 
+      },
+      { 
+        text: "优质文章", 
+        icon: "youzhi", 
+        link: "/download/nicearticle.md" 
+      },
+      {
+        text: "回到过去",
+        icon: "fanhuijiuban", 
+        link: "https://docsify.tobebetterjavaer.com/"
+      },
+    ],
   },
   {
     text: "B站视频",
-    icon: "bzhan",
     link: "https://space.bilibili.com/513340480"
   },
 ]);

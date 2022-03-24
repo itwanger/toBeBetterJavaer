@@ -44,7 +44,7 @@ actions:
 
 强烈推荐大家关注一波作者的原创公众号，专注于分享硬核的 Java 后端技术文章，但又能保证你在阅读的时候轻松惬意。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="500px">
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 ## 联系我
 
