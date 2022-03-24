@@ -36,7 +36,7 @@ solve(任务):
 
 通过上面伪代码可以看出，我们通过递归嵌套的计算得到最终结果，这里有体现**分而治之(divide and conquer)** 的算法思想。
 
-## 18.2 工作窃取算法
+## 工作窃取算法
 
 工作窃取算法指的是在多线程执行不同任务队列的过程中，某个线程执行完自己队列的任务后从其他线程的任务队列里窃取任务来执行。
 
@@ -48,11 +48,11 @@ solve(任务):
 
 另外，当一个线程在窃取任务时要是没有其他可用的任务了，这个线程会进入**阻塞状态**以等待再次“工作”。
 
-## 18.3 Fork/Join的具体实现
+## Fork/Join的具体实现
 
 前面我们说Fork/Join框架简单来讲就是对任务的分割与子任务的合并，所以要实现这个框架，先得有**任务**。在Fork/Join框架里提供了抽象类`ForkJoinTask`来实现任务。
 
-### 18.3.1 ForkJoinTask
+### ForkJoinTask
 
 ForkJoinTask是一个类似普通线程的实体，但是比普通线程轻量得多。
 
@@ -125,7 +125,7 @@ private int doJoin() {
 
 此外，两个子类都有执行主要计算的方法compute()，当然，RecursiveAction的compute()返回void，RecursiveTask的compute()有具体的返回值。
 
-### 18.3.2 ForkJoinPool
+### ForkJoinPool
 
 ForkJoinPool是用于执行ForkJoinTask任务的执行（线程）池。
 
@@ -182,7 +182,7 @@ ForkJoinPool与传统线程池最显著的区别就是它维护了一个**工作
 
 ForkJoinPool的运行状态。**SHUTDOWN**状态用负数表示，其他用2的幂次表示。
 
-## 18.4 Fork/Join的使用
+## Fork/Join的使用
 
 上面我们说ForkJoinPool负责管理线程和任务，ForkJoinTask实现fork和join操作，所以要使用Fork/Join框架就离不开这两个类了，只是在实际开发中我们常用ForkJoinTask的子类RecursiveTask 和RecursiveAction来替代ForkJoinTask。
 
