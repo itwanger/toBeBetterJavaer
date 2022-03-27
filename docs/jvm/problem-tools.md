@@ -271,17 +271,225 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 
 ## 8、可视化监控工具（JConsole、JVisualVM）
 
-集上面之大成，并提供了可视化的界面；还可以监控远程Java服务；支持监控JMX。
+### 简介
 
-JVisualVM比JConsole更强大：支持对CPU、内存运行进行采样、配置。推荐用JVisualVM。
+在 JDK 安装目录的 `bin` 文件夹下，除了提供有命令行监控工具外，还提供了几种可视化的监控工具，以方便用户直观地了解虚拟机的运行状态。常用的可视化监控工具如下：
 
-JConsole监控页面示例：
+### JConsole
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-7fa6b7b2-28bf-46cb-8d52-5fe3cb75240a.png)
+#### 简介
 
-JVisualVM监控页面示例：
+JConsole（Java Monitoring and Management Console）是一款基于 JMX（Java Manage-ment Extensions）的可视化监视工具。它的主要功能是通过 JMX 的 MBean（Managed Bean）对系统信息进行收集和动态调整系统参数。JMX（Java Management Extensions）是一个为应用程序、设备、系统等植入管理功能的框架，通常用于监控系统的运行状态或管理系统的部分功能。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-dca6e1d0-f345-4e21-83b3-e0cf82e3d79a.png)
+#### 使用
+
+打开位于 bin 目录下的 `jconsole` 程序后，它会自动扫描当前主机上的所有 JVM 进程：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-6b614bd9-5e75-48e0-b51e-50cbd33669a5.png)
+
+
+选中需要监控的进程后，点击连接，即可进入监控界面。监控界面包含了 *概览*、*内存*、*线程*、*类*、*VM 概要*、*MBean* 六个选项卡。其中概览界面显示的是 *内存*、*线程*、*类* 等三个选项卡界面的概览信息，如下所示：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-10f3df05-e209-4bca-a8dc-99668a2d8e07.png)
+
+
+
+
+而内存界面主要用于显示堆和非堆上各个区域的使用量：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-ddabe66e-18ac-4cb6-9e9e-f446645a4501.png)
+
+
+
+
+线程界面内主要显示各个线程的堆栈信息，最下角有一个 **检测死锁** 按钮，点击后如果检测到死锁存在，则在下部的线程选项卡旁边会出现死锁选项卡：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-a97902be-6084-4009-81b2-cbe08d60a617.png)
+
+
+
+
+点击死锁选项卡则可以看到造成死锁的线程：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-a76f6714-0efd-4208-a203-9264bc9963d9.png)
+
+
+
+
+最后的 **类** 选项卡主要用于显示当前已加载和已卸载的类的数量。而 **VM 概要** 选项卡则主要用于显示虚拟机的相关参数，如下所示：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-519acfd8-943e-4005-b1af-9de1e4187971.png)
+
+
+
+
+### VisualVM
+
+#### 简介
+
+VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最强大的运行监视和故障处理程序之一， 它除了支持常规的运行监视、故障处理等功能外，还能用于性能分析（Profiling）。同时因为 VisualVM 是基于 NetBeans 平台的开发工具，所以它还支持通过插件来进行功能的拓展。VisualVM 的主要功能如下：
+
+- 显示虚拟机进程及其配置信息、环境信息（与 jps、jinfo 功能类似）；
+- 监视应用程序的处理器、垃圾收集、堆、方法区以及线程的信息（与 jstat、jstack 功能类似）；
+- dump以及分析堆转储快照（与 jmap、jhat 功能类似）；
+- 方法级的程序运行性能分析，找出被调用最多、运行时间最长的方法；
+- 离线程序快照：可以收集程序的运行时配置、线程 dump、内存 dump 等信息来建立快照。
+
+#### 使用
+
+打开位于 bin 目录下的 `jvisualvm` 程序， 它会自动扫描当前主机上的所有 JVM 进程：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-221c1e6e-bcfd-4bf3-be85-6172a3f72962.png)
+
+
+
+
+点击需要监控的进程后，右侧即会显示相关的监控信息：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-0e0a833a-d13c-4b70-b7ee-c58651a58185.png)
+
+
+
+
+**1. 堆 Dump**
+
+在监控界面点击按钮可以 **执行垃圾回收** 或者 **堆 Dump** 。进行堆 Dump 后，还会显示其分析结果：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-afaf433c-6ae7-4c4b-b686-48504cd4c3e9.png)
+
+
+
+
+**2. 线程 Dump**
+
+在线程界面可以查看所有线程的状态，如果出现死锁，该界面还会进行提示：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-9dbc6b53-c9e6-4051-845f-ef2d848b5d60.png)
+
+
+
+
+此时可以进行 **线程 Dump** 来获取具体的线程信息，效果和 jstack 命令类似：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-74941c88-d009-4d7f-8264-efc7d94c94ee.png)
+
+
+
+
+**3. 性能分析**
+
+在 Profiler 界面，可以进行 CPU 和 内存的性能分析。要开始性能分析，需要先选择 **CPU** 或 **内存** 按钮中的一个，VisualVM 将会开始记录应用程序执行过的所有方法：如果是进行的是 CPU 执行时间分析，将会统计每个方法的执行次数、执行耗时；如果是内存分析，则会统计每个方法关联的对象数以及这些对象所占的空间。想要结束性能分析，点击停止按钮即可：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-946d7f3e-9519-4a0b-8905-0bf2c1d83fcb.png)
+
+
+
+
+**4.  Visual GC**
+
+Visual GC 面板默认是不显示的，需要通过插件进行扩展。它会实时监控虚拟机的状态，在功能上类似于 jstat 命令：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-b6f23234-8b1d-44df-8b12-e723dc0d1903.png)
+
+
+
+
+#### 安装插件
+
+在主界面，点击 **工具 => 插件** ，可以打开插件面板。右击插件选项或者点击安装按钮即可完成对应插件的安装：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-4518bc2f-ef1f-4ed6-8da9-47a0fdc03338.png)
+
+
+
+
+需要注意的是，安装插件前需要按照自己 JVM 的版本来配置插件中心，否则会抛出 ”无法连接到插件中心“ 的异常。每个版本对应的插件中心可以在该网址上查看：https://visualvm.github.io/pluginscenters.html，界面如下：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-146f715c-a902-4725-9101-07d608a04770.png)
+
+
+
+
+之后需要将正确的插件中心的地址配置到程序中：
+
+
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-55919d48-88f4-4ee5-842f-3ed20b9f7cd6.png)
+
+
+
+
+### 连接远程进程
+
+以上演示 JConsole 和 VisualVM 时，我们都是用的本地进程，但在实际开发中，我们更多需要监控的是服务器上的远程进程。想要监控远程主机上的进程，需要进行 JMX 的相关配置，根据连接时是否需要用户名和密码，可以分为以下两种配置方式：
+
+#### 不使用安全凭证
+
+启动服务器上的 Java 进程时增加以下参数：
+
+```shell
+ java -Dcom.sun.management.jmxremote.port=12345  #jmx远程连接的端口号
+ -Dcom.sun.management.jmxremote.ssl=false 
+ -Dcom.sun.management.jmxremote.authenticate=false  
+ -jar springboot.jar 
+```
+
+此时只需要知道主机地址和端口号就可以连接，不需要使用用户名和密码，所以安全性比较低。
+
+#### 使用安全凭证
+
+启动服务器上的 Java 进程时增加以下参数：
+
+```shell
+java -Dcom.sun.management.jmxremote.port=12345 
+-Dcom.sun.management.jmxremote.ssl=false 
+-Dcom.sun.management.jmxremote.authenticate=true 
+-Dcom.sun.management.jmxremote.access.file=/usr/local/jmxremote.access 
+-Dcom.sun.management.jmxremote.password.file=/usr/local/jmxremote.password 
+-jar springboot.jar 
+```
+
+其中 `jmxremote.access ` 的内容如下，其中 admin 为用户名，readwrite 表示可读可写，也可以设置为 readonly（只读）：
+
+```shell
+admin readwrite  
+```
+
+ `jmxremote.password` 的内容如下，其中 admin 为用户名，123456 为密码：
+
+```shell
+admin 123456
+```
+
+两个文件创建好后，还需要赋予其执行权限：
+
+```shell
+chmod 600 /usr/local/jmxremote.access
+chmod 600 /usr/local/jmxremote.password
+chown root:root /usr/local/jmxremote.access
+chown root:root /usr/local/jmxremote.password
+```
+
+之后在使用 VisualVM 进行远程连接时，配置如下：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-f84f1b0a-3ff7-444f-8285-709a234ce670.png)
+
+
+需要注意的是这里的端口号是配置的 `Dcom.sun.management.jmxremote.port` 的值，而不是 Java 程序的端口号。连接完成后，即可查看到对应进程的监控状态。
 
 
 ## 其他工具 
@@ -342,6 +550,7 @@ CPU使用情况：top 命令
 
 Java程序问题分析：jmap 分析堆内存、jstack 分析线程栈等，见前文。
 
-原文链接：https://www.cnblogs.com/z-sm/p/6745375.html
+- 参考链接 1：[https://www.cnblogs.com/z-sm/p/6745375.html](https://www.cnblogs.com/z-sm/p/6745375.html)
+- 参考链接：[https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/JVM_性能监控之可视化工具.md](https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/JVM_性能监控之可视化工具.md)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
