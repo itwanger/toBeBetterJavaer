@@ -27,6 +27,11 @@ export default defineNavbarConfig([
         link: "/download/java.md" 
       },
       { 
+        text: "网络日志", 
+        icon: "rizhi", 
+        link: "/download/history.md" 
+      },
+      { 
         text: "优质文章", 
         icon: "youzhi", 
         link: "/download/nicearticle.md" 
