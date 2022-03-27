@@ -7,6 +7,7 @@ tag:
 
 # 终于把项目构建神器Maven捋清楚了~
 
+
 今天来给大家介绍一款项目构建神器——Maven，不仅能帮我们自动化构建，还能够抽象构建过程，提供构建任务实现；它跨平台，对外提供了一致的操作接口，这一切足以使它成为优秀的、流行的构建工具，从此以后，再也不用担心项目搞崩了。
 
 总结一下 Maven 的优点，主要有以下 3 点：
@@ -503,3 +504,5 @@ brew install mvndaemon/homebrew-mvnd/mvnd
 >- 许晓斌：https://www.infoq.cn/article/2011/04/xxb-maven-7-plugin
 
 希望大家能在阅读完本篇文章后对 Maven 有一个初步的了解和掌握，并将这些技能在项目的实战中加以练习，以达到项目工程化的要求。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

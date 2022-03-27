@@ -375,3 +375,5 @@ public class TernaryOperator {
 “好了，三妹，关于 Java 运算符就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
 
 “差不多，二哥，我需要写点 demo 练习会。”
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

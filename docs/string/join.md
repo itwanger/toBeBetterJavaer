@@ -369,3 +369,5 @@ public static String join(final Object[] array, String separator, final int star
 “好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了字节码指令后我们再详细地讲一次。”我说。
 
 “嗯，哥，你休息吧，我把这些例子再重新跑一遍。”三妹说。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

@@ -7,6 +7,7 @@ tag:
 
 # Java IO学习整理
 
+
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/io/shangtou-01.png)
@@ -79,7 +80,7 @@ tag:
 
 理解了上面这些方法，基本上 IO 的灵魂也就全部掌握了。
 
-### 二、操作对象划分
+### 02、操作对象划分
 
 小二，你细想一下，IO IO，不就是输入输出（Input/Output）嘛：
 
@@ -330,18 +331,7 @@ out.close() ;
 ---------
 
 
-**这是《Java 程序员进阶之路》专栏的第 68 篇。Java 程序员进阶之路，该专栏风趣幽默、通俗易懂，对 Java 初学者极度友好和舒适😘，内容包括但不限于 Java 语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等核心知识点**。
-
-GitHub 地址：<https://github.com/itwanger/toBeBetterJavaer>
-
-码云地址：[https://gitee.com/itwanger/toBeBetterJavaer](https://gitee.com/itwanger/toBeBetterJavaer)
-
-CodeChina 直达地址：[https://codechina.csdn.net/qing_gee/toBeBetterJavaer](https://codechina.csdn.net/qing_gee/toBeBetterJavaer)
-
-亮白版和暗黑版的 PDF 也准备好了呢，让我们一起成为更好的 Java 工程师吧，一起冲！
-
-
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 
 

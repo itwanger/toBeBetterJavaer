@@ -8,6 +8,10 @@ tag:
 
 # 自己编译JDK
 
+
+引用链接：https://segmentfault.com/a/1190000023251649
+
+
 很多小伙伴们做`Java`开发，天天写`Java`代码，肯定离不开`Java`基础环境：`JDK`，毕竟我们写好的`Java`代码也是跑在`JVM`虚拟机上。
 
 一般来说，我们学`Java`之前，第一步就是安装`JDK`环境。这个简单啊，我们一般直接把`JDK`从官网下载下来，安装完成，配个环境变量就可以愉快地使用了。
@@ -353,4 +357,6 @@ tag:
 ---
 
 引用链接：https://segmentfault.com/a/1190000023251649
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 

@@ -7,6 +7,7 @@ tag:
 
 # 浅析Java中的final关键字
 
+
 “哥，今天学什么呢？”
 
 “今天学一个重要的关键字——final。 ”我面带着朴实无华的微笑回答着她，“对了，三妹，你打算考研吗？”
@@ -217,3 +218,5 @@ System.out.println(writer.getName()); // 沉默王二
 “好想去再看一场周杰伦的演唱会，不知道 2021 有没有这个机会。”
 
 我心里这样想着，天渐渐地暗了下来。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

@@ -7,6 +7,7 @@ tag:
 
 # Java Arrays工具类10大常用方法
 
+
 “哥，数组专用工具类是专门用来操作数组的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
 
 “是滴，这里说的数组专用工具类指的是 `java.util.Arrays` 类，基本上常见的数组操作，这个类都提供了静态方法可供直接调用。毕竟数组本身想完成这些操作还是挺麻烦的，有了这层封装，就方便多了。”在回答三妹的同时，我打开 Intellij IDEA，找到了 Arrays 类的源码。
@@ -421,3 +422,5 @@ System.out.println(Arrays.toString(arr));
 “嗯嗯，我先复习一下这节的内容。哥，你去休息吧。”
 
 我来到客厅，坐到沙发上，捧起黄永玉先生的《无愁河上的浪荡汉子·八年卷 1》看了起来，津津有味。。。。。。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

@@ -8,6 +8,7 @@ tag:
 
 # JVM到底是什么？
 
+
 “二哥，之前的文章里提到 JVM，说实在的， 我还不知道它到底是干嘛的，你能给我普及一下吗？”三妹咪了一口麦香可可奶茶后对我说。
 
 “三妹，不要担心，这篇文章来带你认识一下什么是 JVM，这也是 Java 中非常重要的一块知识，每个程序员都应该了解的。”说完最后这句话，我脸上忍不住泛起了一阵羞涩的红晕。
@@ -169,3 +170,5 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 “三妹，关于 Java 虚拟机，今天我们就学到这吧，后面再展开讲，怎么样？”转动了一下僵硬的脖子后，我对三妹说，“Java 虚拟机是一块很大很深的内容，如果一上来学太多的话，我怕难倒你。”
 
 “好的，二哥，我也觉得今天的知识量够了，我要好好消化几天。我会加油的！”三妹似乎对未来充满了希望，这正是我想看到的。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

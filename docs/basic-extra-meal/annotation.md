@@ -223,3 +223,5 @@ public class JsonFieldTest {
 “撸个注解好像真没什么难度，但你接下来的那个 JsonSerializer 我还需要再消化一下。”三妹很认真地说。
 
 “嗯，你好好复习下，我看会《编译原理》。”说完我拿起桌子边上的一本书就走了。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

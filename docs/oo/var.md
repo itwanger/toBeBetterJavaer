@@ -7,6 +7,7 @@ tag:
 
 # Java变量的作用域：局部变量、成员变量、静态变量、常量
 
+
 “二哥，听说 Java 变量在以后的日子里经常用，能不能提前给我透露透露？”三妹咪了一口麦香可可奶茶后对我说。
 
 “三妹啊，搬个凳子坐我旁边，听二哥来给你慢慢说啊。”
@@ -136,3 +137,5 @@ public class FinalVariable {
 “是啊，二哥，我想以后还会再见到它们吧？”
 
 “那见的次数可就多了，就好像你每天眨眼的次数一样多。”
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

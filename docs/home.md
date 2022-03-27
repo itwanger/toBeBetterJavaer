@@ -214,7 +214,22 @@ title: Java程序员进阶之路
 ## Java虚拟机
 
 - [什么是JVM？](jvm/what-is-jvm.md)
-
+- [JVM到底是如何运行Java代码的？](jvm/how-run-java-code.md)
+- [我竟然不再抗拒Java的类加载机制了](jvm/class-load.md)
+- [详解Java的类文件（class文件）结构](jvm/class-file-jiegou.md)
+- [从javap的角度轻松看懂字节码](jvm/bytecode.md)
+- [JVM字节码指令详解](jvm/zijiema-zhiling.md)
+- [虚拟机是如何执行字节码指令的？](jvm/how-jvm-run-zijiema-zhiling.md)
+- [HSDB（Hotspot Debugger）从入门到实战](jvm/hsdb.md)
+- [史上最通俗易懂的ASM教程](jvm/asm.md)
+- [自己编译JDK](jvm/compile-jdk.md)
+- [深入理解JVM的内存结构](jvm/neicun-jiegou.md)
+- [Java 创建的对象到底放在哪？](jvm/whereis-the-object.md)
+- [咱们从头到尾说一次Java垃圾回收](jvm/gc.md)
+- [图解Java的垃圾回收机制](jvm/tujie-gc.md)
+- [Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）](jvm/problem-tools.md)
+- [Java即时编译（JIT）器原理解析及实践](jvm/jit.md)
+- [JVM 核心知识点总结](jvm/zongjie.md)
 
 # Java企业级开发
 
@@ -339,16 +354,16 @@ title: Java程序员进阶之路
 
 ## 城市选择
 
-- [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
-- [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
-- [深圳有哪些牛批的互联网公司？](https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g)
-- [西安有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
-- [青岛有牛逼的互联网公司吗？](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
-- [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
-- [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
-- [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
-- [杭州有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
-- [成都有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/eaX9QhLwy_VsGIH0apA4qw)
+- [北京都有哪些牛逼的互联网公司？](cityselect/beijing.md)
+- [想去广州了！](cityselect/guangzhou.md)
+- [深圳有哪些牛批的互联网公司？](cityselect/shenzhen.md)
+- [西安有哪些不错的互联网公司？](cityselect/xian.md)
+- [青岛有牛逼的互联网公司吗？](cityselect/qingdao.md)
+- [郑州有哪些不错的互联网公司？](cityselect/zhengzhou.md)
+- [想搬去苏州生活了。。](cityselect/suzhou.md)
+- [南京有哪些靠谱的互联网公司？](cityselect/nanjing.md)
+- [杭州有哪些顶级的互联网公司？](cityselect/hangzhou.md)
+- [成都有哪些牛批的互联网公司？](cityselect/chengdu.md)
 
 ## 工作体会
 

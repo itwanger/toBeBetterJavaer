@@ -226,3 +226,5 @@ Project Valhalla：正在进行当中的 OpenJDK 项目，计划给未来的 Jav
 “怎么样？三妹，这下全部都明白了吧！”我问。
 
 “嗯嗯。二哥，你讲得可真棒👍”三妹夸奖得我有点小开心，嘿嘿。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

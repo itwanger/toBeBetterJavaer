@@ -8,6 +8,7 @@ tag:
 
 # 深入理解JVM的内存结构
 
+
 在谈 JVM 内存区域划分之前，我们先来看一下 Java 程序的具体执行过程，我画了一幅图。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/neicun-jiegou-dac0f4c1-8a7e-4309-a599-5664cdaf5016.png)
@@ -101,3 +102,5 @@ JDK 8 的时候，HotSpot 移除了永久代，也就是说方法区不存在了
 第一，永久代放在 Java 虚拟机中，就会受到 Java 虚拟机内存大小的限制，而元空间使用的是本地内存，也就脱离了 Java 虚拟机内存的限制。
 
 第二，JDK 8 的时候，在 HotSpot 中融合了 JRockit 虚拟机，而 JRockit 中并没有永久代的概念，因此新的 HotSpot 就没有必要再开辟一块空间来作为永久代了。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

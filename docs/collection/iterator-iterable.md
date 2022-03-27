@@ -7,11 +7,8 @@ tag:
 
 # Java中的Iterator和Iterable区别
 
-那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？小二差点笑出声，因为一年前，也就是 2021 年，他在《Java 程序员进阶之路》专栏上的第 62 篇看到过这题😆。
 
-*PS：星标这种事，只能求，不求没效果，come on。《Java 程序员进阶之路》在 GitHub 上已经收获了 408 枚星标，小伙伴们赶紧去点点了，冲 500！*
-
->https://github.com/itwanger/toBeBetterJavaer
+那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？
 
 -----
 
@@ -245,3 +242,6 @@ while (it.hasNext()) {
 
 - 学会深入思考，一点点抽丝剥茧，多想想为什么这样实现，很多问题没有自己想象中的那么复杂。
 - 遇到疑惑不放弃，这是提升自己最好的机会，遇到某个疑难的点，解决的过程中会挖掘出很多相关的东西。
+
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

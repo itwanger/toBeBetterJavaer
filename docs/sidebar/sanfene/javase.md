@@ -9,7 +9,7 @@ tag:
 
 > 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
-# Java 概述
+## Java 概述
 
 ### 1.什么是 Java？
 
@@ -74,7 +74,9 @@ Java 语言既具有编译型语言的特征，也具有解释型语言的特征
 
 ![编译与解释](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/javase-5.png)
 
-# 基础语法
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
+## 基础语法
 
 ### 7.Java 有哪些数据类型？
 
@@ -237,7 +239,9 @@ int autoAdd(int count)
 
 PS：笔试面试可能会碰到的奇葩题，开发这么写，见一次吊一次。
 
-# 面向对象
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
+## 面向对象
 
 ### 15.⾯向对象和⾯向过程的区别?
 
@@ -380,11 +384,11 @@ final 表示不可变的意思，可用于修饰类、属性和方法：
 
   例如：
 
-  ```java
-          final StringBuilder sb = new StringBuilder("abc");
-          sb.append("d");
-          System.out.println(sb);  //abcd
-  ```
+```java
+final StringBuilder sb = new StringBuilder("abc");
+sb.append("d");
+System.out.println(sb);  //abcd
+```
 
   一张图说明：
 
@@ -506,7 +510,7 @@ Java 中有以下四种创建对象的方式:
 
 前两者都需要显式地调用构造方法。对于 clone 机制,需要注意浅拷贝和深拷贝的区别，对于序列化机制需要明确其实现原理，在 Java 中序列化可以通过实现 Externalizable 或者 Serializable 来实现。
 
-# 常用类
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 ## String
 
@@ -620,6 +624,8 @@ JDK 源码里已经对这个方法进行了说明：
 - 如果当前字符串内容存在于字符串常量池（即 equals()方法为 true，也就是内容一样），直接返回字符串常量池中的字符串
 - 否则，将此 String 对象添加到池中，并返回 String 对象的引用
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
 ## Integer
 
 ### 36.Integer a= 127，Integer b = 127；Integer c= 128，Integer d = 128；，相等吗?
@@ -718,6 +724,8 @@ public static int parseInt(String s, int radix)
 
 ![parseInt示意图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/javase-20.png)
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
 ## Object
 
 ### 38.Object 类的常见方法?
@@ -755,7 +763,7 @@ Object 类是一个特殊的类，是所有类的父类，也就是说所有类�
 
 - protected void finalize() throws Throwable ：通知垃圾收集器回收对象。
 
-# 异常处理
+## 异常处理
 
 ### 39.Java 中异常处理体系?
 
@@ -869,7 +877,7 @@ public class TryDemo {
 
 但其实，在执行 finally 之前，JVM 会先将 i 的结果暂存起来，然后 finally 执行完毕后，会返回之前暂存的结果，而不是返回 i，所以即使 i 已经被修改为 3，最终返回的还是之前暂存起来的结果 2。
 
-# I/O
+## I/O
 
 ### 42.Java 中 IO 流分为几种?
 
@@ -932,7 +940,7 @@ NIO 的数据是面向**缓冲区 Buffer**的，必须从 Buffer 中读取或写
 **AIO**：JDK 7 引入了 Asynchronous I/O，是**异步不阻塞**的 IO。在进行 I/O 编程中，常用到两种模式：Reactor 和 Proactor。Java 的 NIO 就是 Reactor，当有事件触发时，服务器端得到通知，进行相应的处理，完成后才通知服务端程序启动线程去处理，一般适用于连接数较多且连接时间较长的应用。
 
 
-# 序列化
+## 序列化
 
 ### 45.什么是序列化？什么是反序列化？
 
@@ -986,7 +994,7 @@ Java 序列化方式有很多，常见的有三种：
 - Json 序列化：这个可能是我们最常用的序列化方式，Json 序列化的选择很多，一般会使用 jackson 包，通过 ObjectMapper 类来进行一些操作，比如将对象转化为 byte 数组或者将 json 串转化为对象。
 - ProtoBuff 序列化：ProtocolBuffer 是一种轻便高效的结构化数据存储格式，ProtoBuff 序列化对象可以很大程度上将其压缩，可以大大减少数据传输大小，提高系统性能。
 
-# 泛型
+## 泛型
 
 ### 47.Java 泛型了解么？什么是类型擦除？介绍一下常用的通配符？
 
@@ -1118,7 +1126,7 @@ list.add(new Dog());
 
 主要是为了向下兼容，因为 JDK5 之前是没有泛型的，为了让 JVM 保持向下兼容，就出了类型擦除这个策略。
 
-# 注解
+## 注解
 
 ### 48.说一下你对注解的理解？
 
@@ -1150,7 +1158,7 @@ list.add(new Dog());
 
 ![Autowired注解](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/javase-35.png)
 
-# 反射
+## 反射
 
 ### 49.什么是反射？应用？原理？
 
@@ -1182,7 +1190,7 @@ list.add(new Dog());
 
 我们都知道 Java 程序的执行分为编译和运行两步，编译之后会生成字节码(.class)文件，JVM 进行类加载的时候，会加载字节码文件，将类型相关的所有信息加载进方法区，反射就是去获取这些信息，然后进行各种操作。
 
-# JDK1.8 新特性
+## JDK1.8 新特性
 
 JDK 已经出到 17 了，但是你迭代你的版本，我用我的 8。JDK1.8 的一些新特性，当然现在也不新了，其实在工作中已经很常用了。
 
@@ -1368,5 +1376,7 @@ reduced.ifPresent(System.out::println);
 以上是常见的几种流式操作，还有其它的一些流式操作，可以帮助我们更便捷地处理集合数据。
 
 ![Java Stream流](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/javase-38.png)
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 > 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。

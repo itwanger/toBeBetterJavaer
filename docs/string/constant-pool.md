@@ -89,3 +89,4 @@ Java 8 之后，移除了永久代，字符串常量池就移到了堆中。
 
 “是的，我现在是彻底搞懂了字符串常量池，哥，你真棒！”三妹说。
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

@@ -7,6 +7,7 @@ tag:
 
 # fastjson：阿里巴巴开源的JSON解析库
 
+
 ### 01、前世今生
 
 我是 fastjson，是个地地道道的杭州土著，但我始终怀揣着一颗走向全世界的雄心。这不，我在 GitHub 上的简介都换成了英文，国际范十足吧？
@@ -283,3 +284,5 @@ public class IdentityHashMap<K, V> {
 
 
 2020 年的最后一篇文章！看到的就点个赞吧，2021 年顺顺利利。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

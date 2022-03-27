@@ -7,6 +7,7 @@ tag:
 
 # 5分钟带你深入浅出搞懂 Nginx
 
+
 最近在搭建一个网站，就不可避免地要用到 Nginx，索性就出一期 Nginx 的入门教程，希望也可以帮助到大家~😁
 
 作为开发者，相信大家都知道 Nginx 的重要性。Nginx 是一个高性能的 HTTP 和反向代理 Web 服务器，由俄罗斯的伊戈尔·赛索耶夫开发，第一个版本发布于 2004 年 10 月 4 日。
@@ -219,5 +220,5 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 这些资料如果能全部过一遍的话，我要喊你 Nginx 小王子了，估计公司遇到 Nginx 问题的话，你肯定是解决问题的那一个。
 
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 

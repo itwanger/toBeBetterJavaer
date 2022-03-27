@@ -7,6 +7,9 @@ tag:
 
 # 春招斩获深圳腾讯PCG和杭州阿里云
 
+
+转载链接：[https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw](https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw)
+
 大家好，我是二哥呀！春招即将到来，祝参加面试的小伙伴都能顺利拿到满意的 offer!
 
 为了给小伙伴们一点点帮助和启发，我也会分享一些比较有价值的读者面经，这是一篇来自一位老读者的硬核春招面经分享。内容包括：
@@ -126,3 +129,7 @@ Guide 哥 : 目前，虽然有各种编程语言异军突起，但是 Java 庞�
 ----
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+
+转载链接：[https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw](https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw)
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

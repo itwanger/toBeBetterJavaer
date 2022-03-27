@@ -7,6 +7,7 @@ tag:
 
 # Logback：Spring Boot内置的日志处理框架
 
+
 [Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg) 介绍过了，[SLF4J](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA) 也介绍过了，那接下来，你懂的，Logback 就要隆重地登场了，毕竟它哥仨有一个爹，那就是巨佬 Ceki Gulcu。
 
 就在昨天，老板听我说完 Logback 有多牛逼之后，彻底动心了，对我下了死命令，“这么好的日志系统，你还不赶紧点，把它切换到咱的项目当中！”
@@ -412,4 +413,4 @@ Logback 的官网上是有一份手册的，非常详细，足足 200 多页，�
 >链接:[https://pan.baidu.com/s/16FrbwycYUUIfKknlLhRKYA](https://pan.baidu.com/s/16FrbwycYUUIfKknlLhRKYA)  密码:bptl
 
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

@@ -7,6 +7,7 @@ tag:
 
 # Java接口
 
+
 “哥，我看你朋友圈说《Java 程序员进阶之路》专栏收到了第一笔赞赏呀，虽然只有一块钱，但我也替你感到开心。”三妹的脸上洋溢着自信的微笑，仿佛这钱是打给她的一样。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-01.png)
@@ -321,3 +322,4 @@ for (Shape shape : shapes) {
 
 接口是对类的某种行为的一种抽象，接口和类之间并没有很强的关联关系，举个例子来说，所有的类都可以实现 `Serializable` 接口，从而具有序列化的功能，但不能说所有的类和 Serializable 之间是 `is-a` 的关系。
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

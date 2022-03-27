@@ -1,3 +1,12 @@
+---
+category:
+  - 求职面试
+tag:
+  - 城市选择
+---
+
+# 杭州有哪些顶级的互联网公司？
+
 大家好，我是二哥呀！上期发了南京的互联网公司后，杭州的呼声非常高。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-1.png)
@@ -231,17 +240,6 @@
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-17.png)
 
-好了，今天就先聊到这里吧。下一站想要看哪个城市，大家可以在评论区留言哈。
+>作者：大白，转载链接：[https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
 
-**往期精彩**：
-
-- [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
-- [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
-- [深圳有哪些牛批的互联网公司？](https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g)
-- [西安有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
-- [青岛有牛逼的互联网公司吗？](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
-- [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
-- [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
-- [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
-
-_没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

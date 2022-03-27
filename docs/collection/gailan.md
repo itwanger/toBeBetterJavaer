@@ -7,6 +7,7 @@ tag:
 
 # Java集合框架
 
+
 眼瞅着三妹的王者荣耀杀得正嗨，我趁机喊到：“别打了，三妹，我们来一起学习 Java 的集合框架吧。”
 
 “才不要呢，等我打完这一局啊。”三妹倔强地说。
@@ -292,3 +293,4 @@ public static void logn(int n) {
 
 “好的，二哥。”三妹重新回答沙发上，一盘王者荣耀即将开始。
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

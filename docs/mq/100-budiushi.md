@@ -3,10 +3,10 @@ category:
   - 求职面试
 tag:
   - 面试题集合
-title: 在使用 MQ 的时候，怎么确保消息 100% 不丢失？
 ---
 
 # MQ：怎么确保消息100%不丢失？
+
 
 面试官在面试候选人时，如果发现候选人的简历中写了在项目中使用了 MQ 技术（如 Kafka、RabbitMQ、RocketMQ），基本都会抛出一个问题：在使用 MQ 的时候，怎么确保消息 100% 不丢失？
 
@@ -129,3 +129,5 @@ title: 在使用 MQ 的时候，怎么确保消息 100% 不丢失？
 ----
 
 >原文链接：http://t.hk.uy/Ue6
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

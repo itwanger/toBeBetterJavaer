@@ -422,3 +422,5 @@ writer2：Writer@544fe44c age=18, name='二哥', book=Book@31610302 bookName='�
 “好的，二哥，你先去休息吧，让我来琢磨一会，总结一下浅拷贝和深拷贝之间的差异。”
 
 “嗯嗯。”
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

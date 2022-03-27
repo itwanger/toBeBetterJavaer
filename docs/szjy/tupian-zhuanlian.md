@@ -182,6 +182,6 @@ writer.flush();
 
 再次感谢各位小伙伴的厚爱，我也会一如既往地完善这个专栏，我们下期见~
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
 
 

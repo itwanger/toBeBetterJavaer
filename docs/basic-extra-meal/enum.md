@@ -288,3 +288,5 @@ public enum EasySingleton{
 “好勒，这就安排。二哥，你去休息吧。”
 
 “嗯嗯。”讲了这么多，必须跑去抽烟机那里安排一根华子了。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

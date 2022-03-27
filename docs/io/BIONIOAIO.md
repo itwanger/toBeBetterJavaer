@@ -7,6 +7,7 @@ tag:
 
 # 如何给女朋友解释清楚BIO、NIO和AIO？
 
+
 周末午后，在家里面进行电话面试，我问了面试者几个关于 IO 的问题，其中包括什么是 BIO、NIO 和 AIO？三者有什么区别？具体如何使用等问题，但是面试者回答的并不是很满意。于是我在面试评价中写道："对 Java 的 IO 提醒理解不够深入"。恰好被女朋友看到了。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/io/BIONIOAIO-1)
@@ -287,6 +288,10 @@ public class WriteToFile {
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/io/BIONIOAIO-23)
 
-转载链接：
 
->https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ
+
+
+
+>转载链接：[https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ](https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ)
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

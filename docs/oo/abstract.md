@@ -7,6 +7,7 @@ tag:
 
 # Java抽象类
 
+
 “二哥，你这明显加快了更新的频率呀！”三妹对于我最近的肝劲由衷的佩服了起来。
 
 “哈哈，是呀，这次不能再断更了，我要再更 175 篇，总计 200 篇，给广大的学弟学妹们一个完整的 Java 学习体系。”我对未来充满了信心。
@@ -246,3 +247,5 @@ public class FileReaderTest {
 “是滴，这次我们系统化的学习了抽象类，可以说面面俱到了。三妹你可以把代码敲一遍，加强了一些印象，电脑交给你了。”说完，我就跑到阳台去抽烟了。
 
 “呼。。。。。”一个大大的眼圈飘散开来，又是愉快的一天~
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

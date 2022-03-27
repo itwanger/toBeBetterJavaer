@@ -7,6 +7,7 @@ tag:
 
 # Hutool：国产良心工具包，让你的Java变得更甜
 
+
 读者群里有个小伙伴感慨说，“Hutool 这款开源类库太厉害了，基本上该有该的工具类，它里面都有。”讲真的，我平常工作中也经常用 Hutool，它确实可以帮助我们简化每一行代码，使 Java 拥有函数式语言般的优雅，让 Java 语言变得“甜甜的”。
 
 Hutool 的作者在官网上说，Hutool 是 Hu+tool 的自造词（好像不用说，我们也能猜得到），“Hu”用来致敬他的“前任”公司，“tool”就是工具的意思，谐音就有意思了，“糊涂”，寓意追求“万事都作糊涂观，无所谓失，无所谓得”（一个开源类库，上升到了哲学的高度，作者厉害了）。
@@ -549,5 +550,5 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 项目源码地址：[https://github.com/looly/hutool](https://github.com/looly/hutool)
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
 

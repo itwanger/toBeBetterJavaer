@@ -347,16 +347,16 @@
 
 ## 城市选择
 
-- [北京都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
-- [广州都有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
-- [深圳有哪些牛批的互联网公司？](https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g)
-- [西安有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
-- [青岛有牛逼的互联网公司吗？](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
-- [郑州有哪些不错的互联网公司？](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
-- [苏州有哪些牛逼的互联网公司？](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
-- [南京有哪些靠谱的互联网公司？](https://mp.weixin.qq.com/s/CfZ1CEmtPOP4TAwAs8Ocrw)
-- [杭州有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
-- [成都有哪些顶级的互联网公司？](https://mp.weixin.qq.com/s/eaX9QhLwy_VsGIH0apA4qw)
+- [北京都有哪些牛逼的互联网公司？](docs/cityselect/beijing.md)
+- [想去广州了！](docs/cityselect/guangzhou.md)
+- [深圳有哪些牛批的互联网公司？](docs/cityselect/shenzhen.md)
+- [西安有哪些不错的互联网公司？](docs/cityselect/xian.md)
+- [青岛有牛逼的互联网公司吗？](docs/cityselect/qingdao.md)
+- [郑州有哪些不错的互联网公司？](docs/cityselect/zhengzhou.md)
+- [想搬去苏州生活了。。](docs/cityselect/suzhou.md)
+- [南京有哪些靠谱的互联网公司？](docs/cityselect/nanjing.md)
+- [杭州有哪些顶级的互联网公司？](docs/cityselect/hangzhou.md)
+- [成都有哪些牛批的互联网公司？](docs/cityselect/chengdu.md)
 
 ## 工作体会
 

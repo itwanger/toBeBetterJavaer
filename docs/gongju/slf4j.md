@@ -7,8 +7,6 @@ tag:
 
 # SLF4J：阿里巴巴强制使用的日志门面担当
 
-
-
 之前已经详细、全面地介绍了 [Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg)，相信小伙伴们已经完全掌握了。那我在读嵩山版的阿里巴巴开发手册（没有的小伙伴，记着找我要）的时候，就发现了一条「**强制**」性质的日志规约：
 
 >应用中不可以直接使用日志系统（Log4j、Logback）中的 API，而应该使用日志框架中的 API，比如说 SLF4J，使用门面模式的日志框架，有利于维护和统一各个类的日志处理方式。
@@ -339,3 +337,6 @@ logger.debug("\u6C89\u9ED8\u738B\u4E8C\uFF0C{}\u5C81", Integer.valueOf(18));
 4）小伙伴们如果知道更多秘密的话，建议在留言区贴出来哦。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/slf4j-88e280f4-d82a-43d7-924d-13978e7563b3.png)
+
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

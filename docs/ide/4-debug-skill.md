@@ -7,6 +7,7 @@ tag:
 
 # 4个高级的IntelliJ IDEA调试技巧
 
+
 大家好，我是二哥！
 
 今天给大家带来几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
@@ -136,3 +137,6 @@ Process finished with exit code
 -----
 
 >作者：tan日拱一兵，转载链接：https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ
+
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

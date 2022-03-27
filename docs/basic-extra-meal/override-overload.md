@@ -310,3 +310,5 @@ class Vehicle {
 “‘一大’：子类方法的访问权限应该比父类的更大或者相等。”
 
 “记住了吧？三妹。带上口罩，拿好手机，咱准备出门吧。”今天限号，没法开车送三妹去学校了。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

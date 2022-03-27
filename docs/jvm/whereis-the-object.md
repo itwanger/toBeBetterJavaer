@@ -8,6 +8,7 @@ tag:
 
 # Java 创建的对象到底放在哪？
 
+
 大家好，我是二哥呀。创建对象的时候，对象是在堆内存中创建的。但堆内存又分为新生代和老年代，新生代又细分为 Eden 空间、From Survivor 空间、To Survivor 空间。**那我们创建的对象到底在哪里**？
 
 
@@ -75,3 +76,4 @@ Eden 剩余内存空间越来越少，又会触发 Minor GC，于是 Eden 和 Fr
 
 > 原文链接：juejin.cn/post/7052894117105238053
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

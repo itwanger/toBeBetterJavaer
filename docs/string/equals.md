@@ -215,3 +215,5 @@ public boolean contentEquals(CharSequence cs) {
 从源码上可以看得出，如果 cs 是 StringBuffer，该方法还会进行同步，非常的智能化；如果是 String 的话，其实调用的还是 `equals()` 方法。当然了，这也就意味着使用该方法进行比较的时候，多出来了很多步骤，性能上有些损失。
 
 “是的，总体上感觉还是 `Objects.equals()` 比较舒服。”三妹的眼睛是雪亮的，发现了这个方法的优点。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

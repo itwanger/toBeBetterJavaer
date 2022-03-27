@@ -7,6 +7,7 @@ tag:
 
 # Java集合ArrayList详解
 
+
 “二哥，听说今天我们开讲 ArrayList 了？好期待哦！”三妹明知故问，这个托配合得依然天衣无缝。
 
 “是的呀，三妹。”我肯定地点了点头，继续说道，“ArrayList 可以称得上是集合框架方面最常用的类了，可以和 HashMap 一较高下。”
@@ -391,3 +392,5 @@ ArrayList，如果有个中文名的话，应该叫动态数组，也就是可�
 要想掌握扩容机制，就必须得读源码，也就肯定会遇到 `oldCapacity >> 1`，有些初学者会选择跳过，虽然不影响整体上的学习，但也错过了一个精进的机会。
 
 计算机内部是如何表示十进制数的，右移时又发生了什么，静下心来去研究一下，你就会发现，哦，原来这么有趣呢？
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

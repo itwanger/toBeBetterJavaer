@@ -223,3 +223,5 @@ pause指令能让自旋失败时cpu睡眠一小段时间再继续自旋，从而
 >- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
 >- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
 >- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

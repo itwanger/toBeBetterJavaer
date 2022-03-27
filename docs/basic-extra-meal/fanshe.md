@@ -319,5 +319,5 @@ Method[] methods2 = System.class.getMethods();
 
 >链接：https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 

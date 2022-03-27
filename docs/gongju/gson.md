@@ -7,6 +7,7 @@ tag:
 
 # Gson：Google开源的JSON解析库
 
+
 ### 01、前世今生
 
 我叫 Gson，是一款开源的 Java 库，主要用途为序列化 Java 对象为 JSON 字符串，或反序列化 JSON 字符串成 Java 对象。从我的名字上，就可以看得出一些端倪，我并非籍籍无名，我出身贵族，我爸就是 Google，市值富可敌国。
@@ -453,3 +454,5 @@ private int age = 18;
 我会向你坦露我的一切，毫不保留的，除了我和女朋友之间的一些秘密，只为能够帮助到你。
 
 如果你觉得我有点用的话，不妨点个赞，留个言，see you。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

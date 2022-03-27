@@ -7,6 +7,7 @@ tag:
 
 # Forest：一款极简的声明式HTTP调用API框架
 
+
 大家好，我是二哥呀！
 
 今天来给大家推荐一款直击痛点的 HTTP 客户端框架，可以超高效率地完成和第三方接口的对接。
@@ -382,3 +383,5 @@ myClient.send("foo", (String resText, ForestRequest request, ForestResponse resp
 开源精神难能可贵，好的开源需要大家的添砖加瓦和支持。希望这篇文章能给大家在选择 HTTP 客户端框架时带来一个新的选择，对，就是 Forest。
 
 这篇文章不仅介绍了 Forest 这个轻量级的 HTTP 客户端框架，还回顾了它的底层实现：HttpClient 和 OkHttp，希望能对大家有所帮助。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

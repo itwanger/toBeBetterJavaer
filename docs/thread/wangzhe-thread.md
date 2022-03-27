@@ -197,4 +197,4 @@ t3.start();
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/wangzhe-thread-04.png)
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

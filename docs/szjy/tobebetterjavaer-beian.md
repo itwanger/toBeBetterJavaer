@@ -444,3 +444,5 @@ server {
 希望百度和谷歌等搜索引擎尽快收录，后面也会去学习一些 SEO 方面的知识，提高一下网站的排名，让网站获得更多的流量，从而提升品牌的影响力。
 
 恭喜！
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

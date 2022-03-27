@@ -247,3 +247,5 @@ int index = Arrays.binarySearch(anArray, 4);
 ```
 
 “除了一维数组，还有二维数组，三妹你可以去研究下，比如说用二维数组打印一下杨辉三角。”说完，我就去阳台上休息了，留三妹在那里学习，不能打扰她。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

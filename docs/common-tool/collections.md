@@ -7,6 +7,7 @@ tag:
 
 # Java集合框架：Collections工具类
 
+
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
 还记得我们前面讲过的 [Arrays 工具类](https://mp.weixin.qq.com/s/9dYmKXEErZbyPJ_GxwWYug)吗？可以回去温习下。
@@ -249,7 +250,7 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 这才是高手要思考的一个问题。
 
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 
 
