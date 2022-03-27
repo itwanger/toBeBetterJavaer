@@ -23,6 +23,8 @@ tag:
 
 这里主要介绍如下几个工具：
 
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-01.png)
+
 1、jps：查看本机java进程信息
 
 2、jstack：打印线程的**栈**信息，制作 线程dump文件
