@@ -184,13 +184,6 @@
 - [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
 - [我是一个线程(全新修订版)](https://mp.weixin.qq.com/s/zxlLWxNsyIJMh4NDeGZBAg)
 - [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
-- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
-- [图解 Java 垃圾回收机制](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
-- [Java 字节码指令](https://mp.weixin.qq.com/s/GKe9F-IZZnw-f-_fRd_sZQ)
-- [轻松看懂 Java 字节码](https://mp.weixin.qq.com/s/DRMBsE4iZjJt4xF-AS4w-g)
-- [Java 虚拟机栈](https://mp.weixin.qq.com/s/xaIEqngM-J0DouWYa8Ms7g)
-- [JVM 内存区域划分](https://mp.weixin.qq.com/s/NaCFDOGuoHkfQZZjvY66Jg)
-- [解剖一下 Java 的 class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
 - [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
 - [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
 - [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](docs/springboot/aop-log.md)
@@ -199,6 +192,10 @@
 - [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
 - [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
 - [崩溃！我带的实习生竟然把图片直接存到了服务器上！](docs/springboot/oss.md)
+- [看见 Java](https://mp.weixin.qq.com/s/zBfvjq3gry2zsMoMir6oZA)
+- [临时抱佛脚，线上问题如何排查？](https://mp.weixin.qq.com/s/mDnDjTWereF_ekLG1NNHRQ)
+- [深入浅出 Java 虚拟机](http://static.kancloud.cn/alex_wsc/javajvm/1844795)
+- [Java中9种常见的CMS GC问题分析与解决](docs/jvm/meituan-9-gc.md)
 
 ## 前端
 

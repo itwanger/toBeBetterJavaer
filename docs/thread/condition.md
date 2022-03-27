@@ -405,12 +405,9 @@ Thread-0接收到通知，条件满足
 ```
 开启了两个线程waiter和signaler，waiter线程开始执行的时候由于条件不满足，执行condition.await方法使该线程进入等待状态同时释放锁，signaler线程获取到锁之后更改条件，并通知所有的等待线程后释放锁。这时，waiter线程获取到锁，并由于signaler线程更改了条件此时相对于waiter来说条件满足，继续执行。
 
-
-
 ---
 
-**参考链接**
-
-- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
-- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
-- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+>编辑：沉默王二，内容大部分来源以下三个开源仓库：
+>- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
+>- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
+>- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)

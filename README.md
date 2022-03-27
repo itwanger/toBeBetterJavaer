@@ -194,6 +194,7 @@
 - [吊打Java并发面试官之ThreadLocal](docs/thread/ThreadLocal.md)
 - [吊打Java并发面试官之BlockingQueue](docs/thread/BlockingQueue.md)
 - [面试必备：Java线程池解析](docs/thread/pool.md)
+- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
 - [深入剖析Java计划任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
 - [Java atomic包中的原子操作类总结](docs/thread/atomic.md)
 - [Java并发编程通信工具类CountDownLatch等一网打尽](docs/thread/CountDownLatch.md)
@@ -203,7 +204,23 @@
 
 ## Java虚拟机
 
-- [什么是JVM？](docs/jvm/what-is-jvm.md)
+- [JVM到底是什么？](docs/jvm/what-is-jvm.md)
+- [JVM到底是如何运行Java代码的？](docs/jvm/how-run-java-code.md)
+- [我竟然不再抗拒Java的类加载机制了](docs/jvm/class-load.md)
+- [详解Java的类文件（class文件）结构](docs/jvm/class-file-jiegou.md)
+- [javap的角度轻松看懂字节码](docs/jvm/bytecode.md)
+- [JVM字节码指令详解](docs/jvm/zijiema-zhiling.md)
+- [虚拟机是如何执行字节码指令的？](docs/jvm/how-jvm-run-zijiema-zhiling.md)
+- [HSDB（Hotspot Debugger）从入门到实战](docs/jvm/hsdb.md)
+- [史上最通俗易懂的ASM教程](docs/jvm/asm.md)
+- [自己编译JDK](docs/jvm/compile-jdk.md)
+- [深入理解JVM的内存结构](docs/jvm/neicun-jiegou.md)
+- [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
+- [咱们从头到尾说一次Java垃圾回收](docs/jvm/gc.md)
+- [图解Java的垃圾回收机制](docs/jvm/tujie-gc.md)
+- [Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）](docs/jvm/problem-tools.md)
+- [Java即时编译（JIT）器原理解析及实践](docs/jvm/jit.md)
+- [JVM 核心知识点总结](docs/jvm/zongjie.md)
 
 
 # Java企业级开发
