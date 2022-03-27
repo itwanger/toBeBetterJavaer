@@ -571,6 +571,7 @@ public static String concat(String... strings) {
 
 对于虚拟机执行子系统来说，每次数组元素的读写都带有一次隐含的上下文检查以避免访问越界。如果数组的访问发生在循环之中，并且使用循环变量来访问数据，即循环变量的取值永远在 [0，list.length) 之间，那么此时就可以消除整个循环的数据边界检查，从而避免多次无用的判断。
 
-原文链接：https://github.com/heibaiying/Full-Stack-Notes
+>- 原文链接：[https://github.com/heibaiying/Full-Stack-Notes](https://github.com/heibaiying/Full-Stack-Notes)
+>- 整理：沉默王二
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
