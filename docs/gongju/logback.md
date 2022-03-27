@@ -413,4 +413,4 @@ Logback 的官网上是有一份手册的，非常详细，足足 200 多页，�
 >链接:[https://pan.baidu.com/s/16FrbwycYUUIfKknlLhRKYA](https://pan.baidu.com/s/16FrbwycYUUIfKknlLhRKYA)  密码:bptl
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
