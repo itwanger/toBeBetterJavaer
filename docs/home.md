@@ -231,6 +231,8 @@ headerDepth: 1
 - [图解Java的垃圾回收机制](jvm/tujie-gc.md)
 - [Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）](jvm/problem-tools.md)
 - [Java即时编译（JIT）器原理解析及实践](jvm/jit.md)
+- [一次内存溢出排查优化实战](jvm/oom.md)
+- [一次生产CPU 100% 排查优化实践](jvm/cpu-percent-100.md)
 - [JVM 核心知识点总结](jvm/zongjie.md)
 
 ## Java企业级开发

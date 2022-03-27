@@ -344,4 +344,4 @@ Java程序问题分析：jmap 分析堆内存、jstack 分析线程栈等，见�
 
 原文链接：https://www.cnblogs.com/z-sm/p/6745375.html
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
