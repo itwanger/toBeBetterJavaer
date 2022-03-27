@@ -272,6 +272,8 @@ export const sidebarConfig = defineSidebarConfig({
           "tujie-gc",
           "problem-tools",
           "jit",
+          "oom",
+          "cpu-percent-100",
           "zongjie",
           ],
         },
