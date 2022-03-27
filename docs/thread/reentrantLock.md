@@ -113,11 +113,9 @@ protected final boolean tryAcquire(int acquires) {
 
 **公平锁每次都是从同步队列中的第一个节点获取到锁，而非公平性锁则不一定，有可能刚释放锁的线程能再次获取到锁**。
 
-
 ---
 
-**参考链接**
-
-- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
-- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
-- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+>编辑：沉默王二，内容大部分来源以下三个开源仓库：
+>- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
+>- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
+>- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)

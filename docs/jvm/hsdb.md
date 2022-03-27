@@ -1,0 +1,349 @@
+---
+category:
+  - Java核心
+  - JVM
+tag:
+  - Java
+---
+
+# HSDB（Hotspot Debugger）从入门到实战
+
+`HSDB（Hotspot Debugger)`，是一款内置于 SA 中的 GUI 调试工具，可用于调试 JVM 运行时数据，从而进行故障排除。
+
+## 启动HSDB
+
+检测不同 JDK 版本需要使用不同的 `HSDB` 版本，否则容易出现无法扫描到对象等莫名其妙的问题
+
+*   **Mac**：JDK7 和 JDK8 均可以采用以下的方式
+
+  ```
+$ sudo java -cp ,:/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/lib/sa-jdi.jar sun.jvm.hotspot.HSDB
+```
+
+> 事实上经过测试，即使通过 JDK8 自带的 `sa-jdi.jar` 去扫描对象（`scanoops`）的时候也会发生扫不到的情况，但可以通过其他手段代替
+
+而 JDK11 的启动方式有些区别
+
+```
+$ /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/bin/jhsdb hsdb
+```
+
+> 事实上经过测试，该版本启动的 `HSDB` 会少支持一些指令（比如 `mem, whatis`），**因此目前不推荐使用该版本**
+
+*   **Windows**: 
+
+```
+$ java -classpath "%JAVA_HOME%/lib/sa-jdi.jar" sun.jvm.hotspot.HSDB
+```
+
+其中启动版本可以使用 `/usr/libexec/java_home -V` 获取
+
+> 若遇到 Unable to locate an executable at “/Users/xx/.jenv/versions/1.7/bin/jhsdb” (-1) 可通过 `Jenv` 切换到当前 Jdk 版本即可解决
+
+## JVM参数设置
+
+`HSDB` 对 `Serial GC` 支持的较好，因此 Debug 时增加参数 `-XX:+UseSerialGC`，Debug 工具可以使用 IDE 或 JDB
+
+## 获取应用进程id
+
+jps 仅查找当前用户的 Java 进程，而不是当前系统中的所有进程
+
+```
+$ jps
+```
+
+*   默认**显示 pid **以及 **main 方法对应的 class 名称**
+*   -v：**输出传递给 JVM 的参数**
+*   -l： **输出 main 方法对应的 class 的完整 package 名**
+
+## CLHSDB常用指令
+
+*   `universe`：查看堆空间信息
+
+*   `scanoops start end [type]`：扫描指定空间中的 type 类型及其子类的实例
+
+> JDK8 版本的 `HSDB` 的 `scanoops` 会无法扫描到对象，但可以通过 GUI 界面的 `Tools -> Object Histogram`，输入想要查询的对象，之后双击来获取对象的地址，也可以继续在里面点击 `inspect` 来查看对象信息
+
+*   `inspect`：查看对象（`OOP`）信息【使用 `tools->inspect`，输入对象地址有更详细的信息哦】
+
+*   `revptrs`：反向指针，查找引用该对象的指针
+
+## HSDB GUI界面
+
+### 可视化线程栈
+
+![](https://upload-images.jianshu.io/upload_images/1179389-07afdc3c2b66fa3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 对象直方图
+
+`Tools -> Object Histogram`，我们可以通过对象直方图快速定位某个类型的对象的地址以供我们进一步分析
+
+![](https://upload-images.jianshu.io/upload_images/1179389-ec4b946a0804334e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](https://upload-images.jianshu.io/upload_images/1179389-120d4d54c09cb697.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### OOP信息
+
+我们可以根据对象地址在 `Tools -> Inspector` 获取对象的在 JVM 层的实例 `instanceOopDesc` 对象，它包括对象头 `_mark` 和 `_metadata` 以及实例信息
+
+![](https://upload-images.jianshu.io/upload_images/1179389-0f5bcf523b13aadc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 堆信息
+
+我们可以通过 `Tools -> Heap Parameters` 获取堆信息，可以结合对象地址判断对象位置
+
+![](https://upload-images.jianshu.io/upload_images/1179389-a2b9e8c740a8b717.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 加载类列表
+
+我们可以通过 `Tools -> Class Browser` 来获取所有加载类列表
+
+![](https://upload-images.jianshu.io/upload_images/1179389-413e8aa34bd714a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 元数据区
+
+HotSpot VM 里有一套对象专门用来存放元数据，它们包括： 
+
+*   `Klass` 系对象，用于描述类型的总体信息【**通过 `OOP` 信息（`inspect`）可以看到 `instanceKlass` 对象**】
+
+*   `ConstantPool/ConstantPoolCache` 对象：每个 `InstanceKlass` 关联着一个 `ConstantPool`，作为该类型的运行时常量池。这个常量池的结构跟 Class 文件里的常量池基本上是对应的
+
+![](https://upload-images.jianshu.io/upload_images/1179389-fe2110ec3400736a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](https://upload-images.jianshu.io/upload_images/1179389-2067a77695ea91d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+*   `Method` 对象，用来描述 Java 方法的总体信息，如方法入口地址、调用/循环计数器等等
+
+    *   `ConstMethod` 对象，记录着 Java 方法的不变的描述信息，包括方法名、方法的访问修饰符、**字节码**、行号表、局部变量表等等。**注意，字节码指令被分配在 `constMethodOop` 对象的内存区域的末尾**
+    *   `MethodData` 对象，记录着 Java 方法执行时的 profile 信息，例如某方法里的某个字节码之类是否从来没遇到过 null，某个条件跳转是否总是走同一个分支，等等。这些信息在解释器（多层编译模式下也在低层的编译生成的代码里）收集，然后供给 HotSpot Server Compiler 用于做激进优化。
+
+![](https://upload-images.jianshu.io/upload_images/1179389-06e56c814c156cfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](https://upload-images.jianshu.io/upload_images/1179389-539d3ef606a97139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+*   `Symbol` 对象，对应 Class 文件常量池里的 `JVM_CONSTANT_Utf8` 类型的常量。有一个 VM 全局的 `SymbolTable` 管理着所有 `Symbol`。`Symbol` 由所有 Java 类所共享。
+
+### 生成class文件
+
+到对应类下点击 create .class 后就可以在执行 HSDB 的目录下看到生成的 class文件，适合查看动态代理生成的字节码
+
+## 实战
+
+### 分析对象存储区域
+
+下面代码中的静态变量，成员变量分别存储在什么地方呢？
+
+```java
+public class Main {
+
+    private static VMShow StaticVmShow = new VMShow();
+    private VMShow objVmShow = new VMShow();
+
+    public static void main(String[] args) {
+        fn();
+    }
+
+    private static VMShow fn(){
+        return new VMShow();
+    }
+}
+
+class VMShow {
+    private int basicInt = 1;
+    private Integer objInt = 2;
+    private static Integer staticInt = 3;
+    private String basicString = "basicString";
+    private static String staticString = new String("staticString");
+}
+```
+
+首先查看对象直方图可以找到三个 VMShow 对象
+
+![](https://upload-images.jianshu.io/upload_images/1179389-48e27aeb30f47103.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+那么如何确定这三个地址分别属于哪些变量呢？首先找静态变量，它在 JDK8 中是在 Class 对象中的，因此我们可以找它们的反向指针，如果是`java.lang.Class` 的那么就是静态变量
+
+![](https://upload-images.jianshu.io/upload_images/1179389-2b4087bd358a0eb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+我们可以从 ObjTest 的 `instanceKlass` 中的镜像找到 class 对象来验证是否是该对象的 class
+
+![](https://upload-images.jianshu.io/upload_images/1179389-95cab9181b8b77af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+那么成员变量和局部变量如何区分呢？成员变量会被类实例引用，而局部变量地址则在会被被放在栈区
+
+![](https://upload-images.jianshu.io/upload_images/1179389-80bced631b4dafcf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+那么局部变量的反向指针都是 null，怎么确定它就被栈区所引用呢？我们可以看可视化线程栈
+
+![](https://upload-images.jianshu.io/upload_images/1179389-9b97606de3b61531.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 分析字符串字面量存储区域
+
+```java
+public class StringTest {
+
+    public static void main(String[] args) {
+        String s1 = "a";
+        String s2 = "b";
+        String s3 = s1 + s2;
+        String s4 = new String("ab");
+        System.out.println(s4);
+    }
+}
+```
+
+上面一共涉及的字符串字面量和实例分别存储在什么地方呢？
+
+1.  首先在 s2 处打上断点，启动 `HSDB` 监控该进程
+
+2.  打开对象直方图发现只有 1 个 `a` 的字符串对象
+
+![](https://upload-images.jianshu.io/upload_images/1179389-946aec17f0649e1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+3.  查找 StringTable 中 `a` 的对象地址
+
+ ```
+jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUtilities.stringOopToString(s).matches('^(a)')) {print(s + ': ');s.printValueOn(java.lang.System.out); println('')}})"
+```
+
+可以根据需要改变 `matches` 中的值来匹配
+
+![](https://upload-images.jianshu.io/upload_images/1179389-27e18d823a9fbd3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+可以看到这个对象地址就是 StringTable 中引用的地址
+
+4.  然后打断点在 sout 上，重新开始监控进程
+
+5.  重新使用对象直方图查看 String 值
+
+![](https://upload-images.jianshu.io/upload_images/1179389-c6ce35bebc51e557.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+这里有5个值，`ab` 有3个：
+
+ *   `ab` 字面量
+*   其中 s3 相当于 `new StringBuild().append("a").append("b").toString()`，会创建一个 `ab` 的实例
+*   s4会创建一个 `ab` 的实例
+
+6.  我们重新打印 StringTable 相应的值来验证
+
+```
+jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUtilities.stringOopToString(s).matches('^(a|b).?')) {print(s + ': ');s.printValueOn(java.lang.System.out); println('')}})"
+```
+
+ 
+![](https://upload-images.jianshu.io/upload_images/1179389-2953df01d3c87685.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+那么运行时常量池中存放的是哪些呢？实际上它和 StringTable 一样是这些对象的引用，只不过 StringTable 是全局共享的，而运行时常量池只有该类的一些字面量。我们通过加载类列表可以查看
+
+![](https://upload-images.jianshu.io/upload_images/1179389-2dd5e0ac29c0f3a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![](https://zzcoder.oss-cn-hangzhou.aliyuncs.com/jvm/HSDB-20.png)
+
+### 分析String.intern
+
+```java
+public class StringInternTest {
+
+    public static void main(String[] args) {
+        String s1 = new String("he") + new String("llo"); //  1
+        s1.intern(); // 2
+        String s2="hello"; // 3
+        System.out.println(s1==s2); // true
+
+        String s3 = new String("1") + new String("2"); // 4
+        String s4 = "12"; // 5
+        s3.intern(); // 6
+        System.out.println(s3 == s4);  // false
+    }
+}
+```
+
+上述在编译器确定的字面量有 `he`, `llo`, `hello`, `1`,  `2`, `12`，但在真正执行到语句前，符号引用不一定解析成直接引用，即字面量对应的对象会在执行到语句时（`idc` 指令）才会创建
+
+首先看通过加载类列表查看字节码指令： 
+
+| line | bci | bytecode |
+| --- | --- | --- |
+| 7 | 0 | `new #2 [Class java.lang.StringBuilder]` |
+| 7 | 3 | dup |
+| 7 | 4 | `invokespecial #3 [Method void ()]` |
+| 7 | 7 | `new #4 [Class java.lang.String]` |
+| 7 | 10 | dup |
+| 7 | 11 | `  ldc #5(0) [fast_aldc]` |
+| 7 | 13 | `invokespecial #6 [Method void (java.lang.String)]` |
+| 7 | 16 | `invokevirtual #7 [Method java.lang.StringBuilder append(java.lang.String)]` |
+| 7 | 19 | `new #4 [Class java.lang.String]` |
+| 7 | 22 | dup |
+| 7 | 23 | `ldc #8(1) [fast_aldc]` |
+| 7 | 25 | `invokespecial #6 [Method void (java.lang.String)]` |
+| 7 | 28 | `invokevirtual #7 [Method java.lang.StringBuilder append(java.lang.String)]` |
+| 7 | 31 | `invokevirtual #9 [Method java.lang.String toString()]` |
+| 7 | 34 | astore_1 |
+| 8 | 35 | aload_1 |
+| 8 | 36 | `invokevirtual #10 [Method java.lang.String intern()]` |
+| 8 | 39 | pop |
+| 9 | 40 | `ldc #11(2) [fast_aldc]` |
+| 9 | 42 | astore_2 |
+| 10 | 43 | `getstatic #12 [Field java.io.PrintStream out]` |
+| 10 | 46 | aload_1 |
+| 10 | 47 | aload_2 |
+| 10 | 48 | if_acmpne 55 |
+| 10 | 51 | iconst_1 |
+| 10 | 52 | goto 56 |
+| 10 | 55 | iconst_0 |
+| 10 | 56 | `invokevirtual #13 [Method void println(boolean)]` |
+| 12 | 59 | `new #2 [Class java.lang.StringBuilder]` |
+| 12 | 62 | dup |
+| 12 | 63 | `invokevirtual #13 [Method void println(boolean)]` |
+| 12 | 66 | `new #4 [Class java.lang.String]` |
+| 12 | 69 | dup |
+| 12 | 70 | `ldc #14(3) [fast_aldc]` |
+| 12 | 72 | `invokespecial #6 [Method void (java.lang.String)]` |
+| 12 | 75 | `invokevirtual #7 [Method java.lang.StringBuilder append(java.lang.String)]` |
+| 12 | 78 | `new #4 [Class java.lang.String]` |
+| 12 | 81 | dup |
+| 12 | 82 | `ldc #15(4) [fast_aldc]` |
+| 12 | 84 | `invokespecial #6 [Method void (java.lang.String)]` |
+| 12 | 87 | `invokevirtual #7 [Method java.lang.StringBuilder append(java.lang.String)]` |
+| 12 | 90 | `invokevirtual #9 [Method java.lang.String toString()]` |
+| 12 | 93 | astore_3 |
+| 13 | 94 | `ldc #16(5) [fast_aldc]` |
+| 13 | 96 | astore #4 |
+| 14 | 98 | aload_3 |
+| 14 | 99 | `invokevirtual #10 [Method java.lang.String intern()]` |
+| 14 | 102 | pop |
+| 15 | 103 | `getstatic #12 [Field java.io.PrintStream out]` |
+| 15 | 106 | aload_3 |
+| 15 | 107 | aload #4 |
+| 15 | 109 | if_acmpne 116 |
+| 15 | 112 | iconst_1 |
+| 15 | 113 | goto 117 |
+| 15 | 116 | iconst_0 |
+| 15 | 117 | `invokevirtual #13 [Method void println(boolean)]` |
+| 16 | 120 | return |
+
+可以看到确实有 6 个`idc`，但如果我们在第一行语句打上断点，会发现它们都不在 StringTable（但这里的 `he` 在，它可能被其他类用到了），然后执行第一行，会发现 `he` 和 `llo` 在了，但 `hello` 不在
+
+```
+jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUtilities.stringOopToString(s).matches('^(he|llo|hello|1|2|12)')) {print(s + ': ');s.printValueOn(java.lang.System.out); println('')}})"
+```
+
+![](https://upload-images.jianshu.io/upload_images/1179389-fd5799daae6fb942.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+但是 `hello` 对象还是存在的（new）
+
+![](https://upload-images.jianshu.io/upload_images/1179389-da8c4df5133fccd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+接着执行 s1.intern 会将 `hello` 对象的地址放入 StringTable
+
+![](https://upload-images.jianshu.io/upload_images/1179389-d888e688976bae33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+再执行 `String s2="hello";` 会发现 `hello` 对象仍然只有一个，都指向同一个。
+
+而继续在 6 打断点，即执行完 `String s4 = "12";`，因为 `12` 不在字符串常量池，那么会新建一个 `12`的实例，并让字符串常量池引用它，这样会发现就有两个 `12` 了
+
+![](https://upload-images.jianshu.io/upload_images/1179389-7abae26e2d2e6a6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+---
+
+>参考链接：https://zzcoder.cn/2019/12/06/HSDB%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98/
