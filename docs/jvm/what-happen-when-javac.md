@@ -8,6 +8,7 @@ tag:
 
 # Java程序在编译期发生了什么？
 
+
 “二哥，看了上一篇 [Hello World](https://mp.weixin.qq.com/s/191I_2CVOxVuyfLVtb4jhg) 的程序后，我很好奇，它是怎么在 Run 面板里打印出‘三妹，少看手机少打游戏，好好学，美美哒’呢？”三妹咪了一口麦香可可奶茶后对我说。
 
 “三妹，我们通常把 Java 分为编译期和运行时，弄清楚这两个阶段就知道原因了。由于运行时涉及到的内容比较多，这篇文章我们先来说说编译期，随后我们再来分析运行时。”
@@ -131,3 +132,5 @@ PPS：为什么要查看字节码呢？查看字节码文件更容易让我们�
 也就是说，在编译阶段，Java 会将 Java 源代码文件编译为字节码文件。在这个阶段，编译器会进行一些检查工作，比如说，某个关键字是不是写错了，语法上是不是符合预期了，不能有很明显的错误，否则带到运行时再检查出来就会比较麻烦了。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/five-10.png)
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

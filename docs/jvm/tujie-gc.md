@@ -8,6 +8,7 @@ tag:
 
 # 图解Java的垃圾回收机制
 
+
 垃圾回收是一种在堆内存中找出哪些对象在被使用，还有哪些对象没被使用，并且将后者回收掉的机制。
 
 所谓使用中的对象，指的是程序中还有引用的对象；而未使用中的对象，指的是程序中已经没有引用的对象，该对象占用的内存也可以被回收掉。
@@ -135,3 +136,5 @@ Survivor 区相当于是 Eden 区和 Old 区的一个缓冲，类似于我们交
 ----
 
 参考链接：https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

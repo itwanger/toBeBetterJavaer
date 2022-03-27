@@ -7,6 +7,7 @@ tag:
 
 # Java构造方法
 
+
 我对三妹说，“[上一节](https://mp.weixin.qq.com/s/L4jAgQPurGZPvWu8ECtBpA)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”
 
 “在 Java 中，构造方法是一种特殊的方法，当一个类被实例化的时候，就会调用构造方法。只有在构造方法被调用的时候，对象才会被分配内存空间。每次使用 `new` 关键字创建对象的时候，构造方法至少会被调用一次。”
@@ -354,3 +355,5 @@ public class ClonePerson implements Cloneable {
 “好的，二哥，我的问题问完了，今天的学习可以结束了！”三妹一脸得意的样子。
 
 “那你记得复习下一节的内容哦。”感受到三妹已经学到了知识，我也很欣慰。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

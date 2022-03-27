@@ -5,7 +5,7 @@ tag:
   - 面试题集合
 ---
 
-# Java：34道精选高频面试题
+# Java：34道精选高频面试题必看:+1:
 
 ## 1.介绍一下 java 吧
 
@@ -566,3 +566,5 @@ Object obj = new Object();
 - **4.Padding**:Java 对象占用空间是 8 字节对齐的，即所有 Java 对象占用 bytes 数必须是 8 的倍数,是因为当我们从磁盘中取一个数据时，不会说我想取一个字节就是一个字节，都是按照一块儿一块儿来取的，这一块大小是 8 个字节，所以为了完整，padding 的作用就是补充字节，**保证对象是 8 字节的整数倍**。
 
 ---
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

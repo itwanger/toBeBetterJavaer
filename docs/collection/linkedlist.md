@@ -7,6 +7,7 @@ tag:
 
 # Java集合LinkedList详解
 
+
 ### 一、LinkedList 的剖白
 
 大家好，我是 LinkedList，和 ArrayList 是同门师兄弟，但我俩练的内功却完全不同。师兄练的是动态数组，我练的是链表。
@@ -382,3 +383,5 @@ public E get(int index) {
 也许这就是命运吧，从我进入师门的那天起，这种争论就一直没有停息过。
 
 无论外人怎么看待我们，在我眼里，师兄永远都是一哥，我敬重他，他也愿意保护我。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

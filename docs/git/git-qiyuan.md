@@ -7,6 +7,7 @@ tag:
 
 # 我在工作中是如何使用 Git 的
 
+
 ## 一、Git 起源
 
 Git 是一个分布式版本控制系统，缔造者是大名鼎鼎的林纳斯·托瓦茲 (Linus Torvalds)，Git 最初的目的是为了能更好的管理 Linux 内核源码。
@@ -1164,5 +1165,5 @@ Git 是真的牛逼，Linus 是真的牛逼，神不愧是神！
 >- hutusi：[改变世界的一次代码提交](https://mp.weixin.qq.com/s/gM__sQPILkAKWsMejOO8cA)
 
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 

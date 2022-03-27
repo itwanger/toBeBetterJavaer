@@ -8,6 +8,7 @@ tag:
 
 # Java即时编译（JIT）器原理解析及实践
 
+
 ## 一、导读
 
 常见的编译型语言如C++，通常会把代码直接编译成CPU所能理解的机器码来运行。而Java为了实现“一次编译，处处运行”的特性，把编译的过程分成两部分，首先它会先由javac编译成通用的中间形式——字节码，然后再由解释器逐条将字节码解释为机器码来执行。所以在性能上，Java通常不如C++这类编译型语言。
@@ -751,3 +752,5 @@ Graal编译器的优化方式更加激进，因此在启动时会进行更多的
 -----
 
 原文链接：https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

@@ -8,7 +8,6 @@ tag:
 # Java中ArrayList和LinkedList的区别
 
 
-
 ### 01、ArrayList 是如何实现的？
 
 ArrayList 实现了 List 接口，继承了 AbstractList 抽象类。
@@ -841,3 +840,5 @@ private class ListItr implements ListIterator<E> {
 ### 06、总结
 
 花了两天时间，终于肝完了！相信看完这篇文章后，再有面试官问你 ArrayList 和 LinkedList 有什么区别的话，你一定会胸有成竹地和他扯上半小时了。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

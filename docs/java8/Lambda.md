@@ -7,6 +7,7 @@ tag:
 
 # 深入浅出 Java 8 Lambda表达式
 
+
 今天分享的主题是《Lambda 表达式入门》，这也是之前一些读者留言强烈要求我写一写的，不好意思，让你们久等了，现在来满足你们，为时不晚吧？
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/java8/Lambda-1)
@@ -346,5 +347,4 @@ this = com.cmower.java_demo.journal.LamadaTest@3feba861
 
 好了，我亲爱的读者朋友们，以上就是本文的全部内容了。能在疫情期间坚持看技术文，二哥必须要伸出大拇指为你点个赞👍。原创不易，如果觉得有点用的话，请不要吝啬你手中**点赞**的权力——因为这将是我写作的最强动力。
 
-
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/java8/Lambda-5.png)
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

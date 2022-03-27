@@ -7,11 +7,10 @@ tag:
 
 # Java HashMap精选面试题
 
+
 对于 Java 求职者来说，HashMap 可谓是重中之重，是面试的必考点。然而 HashMap 的知识点非常多，复习起来花费精力很大。
 
-为了减轻大家在面试时的痛苦，二哥将读者库森的这篇 HashMap 的面试专题文章整理出来分享给大家，希望对小伙伴们有所帮助!
 
->链接：https://zhuanlan.zhihu.com/p/362214327
 
 ### 01、HashMap的底层数据结构是什么？
 
@@ -196,5 +195,7 @@ HashMap 在容量超过负载因子所定义的容量之后，就会扩容。
 
 
 
+>参考链接：https://zhuanlan.zhihu.com/p/362214327
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 

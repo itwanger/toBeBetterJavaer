@@ -7,6 +7,7 @@ tag:
 
 # Java方法
 
+
 “二哥，[上一节](https://mp.weixin.qq.com/s/UExby8GP3kSacCXliQw8pQ)学了对象和类，这一节我们学什么呢？”三妹满是期待的问我。
 
 “这一节我们来了解一下 Java 中的方法——什么是方法？如何声明方法？方法有哪几种？什么是实例方法？什么是抽象方法？”我笑着对三妹说，“我开始了啊，你不要闪啊。”
@@ -228,3 +229,5 @@ public class MyAbstractDemo extends AbstractDemo {
 ```
 重写了抽象方法
 ```
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

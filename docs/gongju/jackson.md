@@ -7,6 +7,7 @@ tag:
 
 # Jackson：GitHub上star数最多的JSON解析库
 
+
 在当今的编程世界里，JSON 已经成为将信息从客户端传输到服务器端的首选协议，可以好不夸张的说，XML 就是那个被拍死在沙滩上的前浪。
 
 很不幸的是，JDK 没有 JSON 库，不知道为什么不搞一下。Log4j 的时候，为了竞争，还推出了 java.util.logging，虽然最后也没多少人用。
@@ -561,3 +562,5 @@ Woman{age=18, name='三妹'}
 需要注意的是，对日期格式的字段要多加小心，尽量不要使用默认配置，可读性很差。
 
 好了，通过这篇文章的系统化介绍，相信你已经完全摸透 Jackson 了，我们下篇文章见。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

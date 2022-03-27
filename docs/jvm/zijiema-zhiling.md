@@ -32,7 +32,7 @@ Java 字节码由操作码和操作数组成。
 
 **1）将局部变量表中的变量压入操作数栈中**
 
-- xload_<n>（x 为 i、l、f、d、a，n 默认为 0 到 3），表示将第 n 个局部变量压入操作数栈中。
+- `xload_<n>`（x 为 i、l、f、d、a，n 默认为 0 到 3），表示将第 n 个局部变量压入操作数栈中。
 - xload（x 为 i、l、f、d、a），通过指定参数的形式，将局部变量压入操作数栈中，当使用这个指令时，表示局部变量的数量可能超过了 4 个
 
 解释一下。
@@ -114,14 +114,14 @@ public void pushConstLdc() {
 
 主要是用来给局部变量赋值，这类指令主要以 store 的形式存在。
 
-- xstore_<n>（x 为 i、l、f、d、a，n 默认为 0 到 3）
+- `xstore_<n>`（x 为 i、l、f、d、a，n 默认为 0 到 3）
 - xstore（x 为 i、l、f、d、a）
 
-明白了 xload_<n> 和 xload，再看 xstore_<n> 和 xstore 就会轻松得多，作用反了一下而已。
+明白了 `xload_<n>` 和 xload，再看 `xstore_<n>` 和 xstore 就会轻松得多，作用反了一下而已。
 
-大家来想一个问题，为什么要有 xstore_<n> 和 xload_<n> 呢？它们的作用和 xstore n、xload n 不是一样的吗？
+大家来想一个问题，为什么要有 `xstore_<n>` 和 `xload_<n>` 呢？它们的作用和 xstore n、xload n 不是一样的吗？
 
-xstore_<n> 和 xstore n 的区别在于，前者相当于只有操作码，占用 1 个字节；后者相当于由操作码和操作数组成，操作码占 1 个字节，操作数占 2 个字节，一共占 3 个字节。
+`xstore_<n>` 和 xstore n 的区别在于，前者相当于只有操作码，占用 1 个字节；后者相当于由操作码和操作数组成，操作码占 1 个字节，操作数占 2 个字节，一共占 3 个字节。
 
 由于局部变量表中前几个位置总是非常常用，虽然 `xstore_<n>` 和 `xload_<n>` 增加了指令数量，但字节码的体积变小了！
 
@@ -592,3 +592,5 @@ goto 指令接收两个字节的操作数，共同组成一个带符号的整数
 >路漫漫其修远兮，吾将上下而求索
 
 想要走得更远，Java 字节码这块就必须得硬碰硬地吃透，希望二哥的这些分享可以帮助到大家~
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

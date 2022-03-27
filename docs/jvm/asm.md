@@ -8,6 +8,7 @@ tag:
 
 # 史上最通俗易懂的ASM教程
 
+
 ## 一勺思想
 
 We are all in the gutter, but some of us are looking at the stars. （我们都生活在阴沟里，但仍有人仰望星空 ）- 王尔德 《温德米尔夫人的扇子》
@@ -345,3 +346,5 @@ mv.visitEnd();
 ----
 
 >参考链接：https://zhuanlan.zhihu.com/p/94498015
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

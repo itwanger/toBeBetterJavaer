@@ -7,6 +7,8 @@ tag:
 
 # Log4j 2：Apache维护的一款高性能日志记录工具
 
+
+
 [Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg) 介绍过了，[SLF4J](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA) 介绍过了，[Logback](https://mp.weixin.qq.com/s/mm0OYM-raVBi2KwK_QK21g) 也介绍过了，你以为日志系列的文章就到此终结了？
 
 不不不，我告诉你，还有一个 Log4j 2，顾名思义，它就是 Log4j 的升级版，就好像手机里面的 Pro 版。我作为一个写文章方面的工具人，或者叫打工人，怎么能不写完这最后一篇。
@@ -313,4 +315,4 @@ for (int i = 1;i < 20; i++) {
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/log4j2-190753e2-7a33-4306-bbf2-a5fd42d655ab.png)
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

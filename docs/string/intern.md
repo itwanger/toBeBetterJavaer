@@ -113,3 +113,4 @@ true
 
 看到三妹一点一滴的进步，我也感到由衷的开心。
 
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

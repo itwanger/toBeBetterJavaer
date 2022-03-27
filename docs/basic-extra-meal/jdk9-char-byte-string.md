@@ -107,3 +107,5 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 所以UTF-16在Java的世界里，就可以视为一个定长的编码。
 
 >参考链接：https://www.zhihu.com/question/447224628
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

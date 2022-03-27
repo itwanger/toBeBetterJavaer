@@ -8,6 +8,7 @@ tag:
 
 # DBeaver：一款免费的数据库操作工具
 
+
 作为一名开发者，免不了要和数据库打交道，于是我们就需要一款顺手的数据库管理工具。很长一段时间里，Navicat 都是我的首选，但最近更换了一台新电脑，之前的绿色安装包找不到了。
 
 于是就琢磨着，找一款免费的，功能和 Navicat 有一拼的数据库管理工具来替代。好朋友 macrozheng 给我推荐了 DBeaver，试用完后体验真心不错，于是就来给大家安利一波。
@@ -162,3 +163,5 @@ DBeaver 有一个很亮眼的操作就是，可以直接选中一条结果集，
 ### 七、总结
 
 总体来说，DBeaver是一款非常优秀的开源数据库管理工具了，功能很全面，日常的开发基本上是够用了。对比收费的 Navicat 和 DataGrip，可以说非常良心了。大家如果遇到收费版不能使用的时候，可以来体验一下社区版 DBeaver。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

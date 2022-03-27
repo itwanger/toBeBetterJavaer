@@ -221,4 +221,4 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 - 访问地址由原来的 `http://${host}:${port}/swagger-ui.html` 切换到 `http://${host}:${port}/doc.html`，如果有权限限制的话，记得开白名单。
 
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

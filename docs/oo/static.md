@@ -7,6 +7,7 @@ tag:
 
 # Java中的static关键字解析
 
+
 “哥，你牙龈肿痛轻点没？周一的教妹学 Java 你都没有更新，偷懒了呀！”三妹关心地问我。
 
 “今天周四了，吃了三天的药，疼痛已经减轻不少，咱妈还给我打了电话，让我买点牛黄解毒片下下火。”我面带着微笑对三妹说，“学习可不能落下，今天我们来学 Java 中 `static` 关键字吧。”
@@ -341,3 +342,5 @@ public class Singleton {
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/keywords/19-08.png)
 
 三妹点了点头，所有所思。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

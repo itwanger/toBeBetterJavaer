@@ -185,3 +185,5 @@ public class ElasticsearchTest {
 好了，我亲爱的小伙伴们，以上就是本文的全部内容了，是不是看完后很想实操一把 Elasticsearch，赶快行动吧！如果你在学习的过程中遇到了问题，欢迎随时和我交流，虽然我也是个菜鸟，但我有热情啊。
 
 另外，如果你想写入门级别的文章，这篇就是最好的范例。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

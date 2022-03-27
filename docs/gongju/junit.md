@@ -7,6 +7,7 @@ tag:
 
 # Junit：一个开源的Java单元测试框架
 
+
 ### 01、前世今生
 
 你好呀，我是 JUnit，一个开源的 Java 单元测试框架。在了解我之前，先来了解一下什么是单元测试。单元测试，就是针对最小的功能单元编写测试代码。在 Java 中，最小的功能单元就是方法，因此，对 Java 程序员进行单元测试实际上就是对 Java 方法的测试。
@@ -305,3 +306,5 @@ void fromJava9to11() {
 3）测试时要特别注意边界条件，比如说 0，`null`，空字符串"" 等情况。
 
 希望我能尽早的替你发现代码中的 bug，毕竟越早的发现，造成的损失就会越小。see you！
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

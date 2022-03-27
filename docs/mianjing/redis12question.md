@@ -7,6 +7,7 @@ tag:
 
 # Redis：12道精选高频面试题
 
+
 大家好，我是二哥呀。
 
 Redis 是面试中绕不过的槛，只要在简历中写了用过 Redis，肯定逃不过。今天我们就来模拟一下面试官在 Redis 这个话题上是如何一步一步深入，全面考察候选人对于 Redis 的掌握情况。
@@ -168,4 +169,6 @@ C |10001 - 16383
 ----
 
 文章来源于JAVA日知录 ，作者飘渺Jam
-链接：https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w
+转载链接：https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

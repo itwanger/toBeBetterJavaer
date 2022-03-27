@@ -7,6 +7,7 @@ tag:
 
 # MongoDB最基础入门教程
 
+
 我以为我对MongoDB十分了解，直到我遇到了字节面试官
 
 有时候不得不感慨一下，系统升级真的是好处多多，不仅让我有机会重构了之前的烂代码，也满足了我积极好学的虚荣心。你看，[Redis 入门](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)了、[Elasticsearch 入门](https://mp.weixin.qq.com/s/ZjsZxle7m_dfmVwVkq2ayg)了，这次又要入门 MongoDB，感觉自己变秃的同时，也变强大了。
@@ -208,3 +209,5 @@ Document 对象来源于 org.bson 包下，可以在实例化该对象之后通�
 好了，我亲爱的小伙伴们，以上就是本文的全部内容了，是不是看完后很想实操一把 MongoDB，赶快行动吧！如果你在学习的过程中遇到了问题，欢迎随时和我交流，虽然我也是个菜鸟，但我有热情啊。
 
 另外，如果你想写入门级别的文章，这篇就是最好的范例。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

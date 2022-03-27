@@ -8,6 +8,7 @@ tag:
 
 # 咱们从头到尾说一次Java垃圾回收
 
+
 之前上学的时候有这个一个梗，说在食堂里吃饭，吃完把餐盘端走清理的，是 C++ 程序员，吃完直接就走的，是 Java 程序员。
 
 确实，在 Java 的世界里，似乎我们不用对垃圾回收那么的专注，很多初学者不懂 GC，也依然能写出一个能用甚至还不错的程序或系统。但其实这并不代表 Java 的 GC 就不重要。相反，它是那么的重要和复杂，以至于出了问题，那些初学者除了打开 GC 日志，看着一堆0101的天文，啥也做不了。
@@ -229,3 +230,5 @@ Survivor 区相当于是 Eden 区和 Old 区的一个缓冲，类似于我们交
 
 >- 整理：沉默王二，原文链接：https://zhuanlan.zhihu.com/p/73628158
 >- https://segmentfault.com/a/1190000038256027
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

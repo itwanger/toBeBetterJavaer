@@ -5,7 +5,7 @@ tag:
   - Java
 ---
 
-# 什么是Java？Java发展简史，Java的优势
+# 什么是Java？
 
 ## 一、什么是 Java？
 
@@ -240,3 +240,5 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 - JavaServer Faces 框架，由 Oracle 开发，能够将表示层与应用程序代码轻松连接，它提供了一个 API 集，用于表示和管理 UI 组件。
 
 总之，Oracle 宣称，Java 正运行在 97% 的企业计算机上——有点厉害的样子。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

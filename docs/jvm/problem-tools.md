@@ -8,6 +8,7 @@ tag:
 
 # Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）
 
+
 ## JDK自带的工具
 
 在JDK的bin目录下有很多命令行工具：
@@ -340,3 +341,5 @@ CPU使用情况：top 命令
 Java程序问题分析：jmap 分析堆内存、jstack 分析线程栈等，见前文。
 
 原文链接：https://www.cnblogs.com/z-sm/p/6745375.html
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

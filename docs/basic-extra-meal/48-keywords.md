@@ -113,3 +113,6 @@ PS：按照首字母的自然顺序排列。
 “好了，三妹，关于 Java 中的关键字就先说这 48 个吧，这只是一个大概的介绍，后面还会对一些特殊的关键字单独拎出来详细地讲，比如说重要的 static、final 等。”转动了一下僵硬的脖子后，我对三妹说。
 
 “二哥，你辛苦了，足足 48 个啊，容我好好消化一下。”
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+

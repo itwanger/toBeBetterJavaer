@@ -7,9 +7,11 @@ tag:
 
 # 面渣逆袭（Java 集合框架篇）必看:+1:
 
-# 引言
+> 图文详解 30 道Java集合框架面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
 
-## 1.说说有哪些常见集合？
+## 引言
+
+### 1.说说有哪些常见集合？
 
 集合相关类和接口都在java.util中，主要分为3种：List（列表）、Map（映射）、Set(集)。
 
@@ -22,11 +24,11 @@ tag:
 
 `Map`是另外的接口，是键值对映射结构的集合。
 
-# List
+## List
 
 List，也没啥好问的，但不排除面试官剑走偏锋，比如面试官也看了我这篇文章。
 
-## 2.ArrayList和LinkedList有什么区别？
+### 2.ArrayList和LinkedList有什么区别？
 
 **（1）**数据结构不同
 
@@ -57,7 +59,7 @@ List，也没啥好问的，但不排除面试官剑走偏锋，比如面试官�
 - ArrayList是预先定义好的数组，可能会有空的内存空间，存在一定空间浪费
 - LinkedList每个节点，需要存储前驱和后继，所以每个节点会占用更多的空间
 
-## 3.ArrayList的扩容机制了解吗？
+### 3.ArrayList的扩容机制了解吗？
 
 ArrayList是基于数组的集合，数组的容量是在定义的时候确定的，如果数组满了，再插入，就会数组溢出。所以在插入时候，会先检查是否需要扩容，如果当前容量+1超过数组长度，就会进行扩容。
 
@@ -65,7 +67,7 @@ ArrayList的扩容是创建一个**1.5倍**的新数组，然后把原数组的�
 
 ![ArrayList扩容](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-5.png)
 
-## 4.ArrayList怎么序列化的知道吗？ 为什么用transient修饰数组？
+### 4.ArrayList怎么序列化的知道吗？ 为什么用transient修饰数组？
 
 ArrayList的序列化不太一样，它使用`transient`修饰存储元素的`elementData`的数组，`transient`关键字的作用是让被修饰的成员属性不被序列化。
 
@@ -79,7 +81,7 @@ ArrayList通过两个方法**readObject、writeObject**自定义序列化和反�
 
 ![ArrayList自定义序列化](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-6.png)
 
-## 5.快速失败(fail-fast)和安全失败(fail-safe)了解吗？
+### 5.快速失败(fail-fast)和安全失败(fail-safe)了解吗？
 
 **快速失败（fail—fast）**：快速失败是Java集合的一种错误检测机制
 
@@ -95,7 +97,7 @@ ArrayList通过两个方法**readObject、writeObject**自定义序列化和反�
 - 缺点：基于拷贝内容的优点是避免了Concurrent Modification Exception，但同样地，迭代器并不能访问到修改后的内容，即：迭代器遍历的是开始遍历那一刻拿到的集合拷贝，在遍历期间原集合发生的修改迭代器是不知道的。
 - 场景：java.util.concurrent包下的容器都是安全失败，可以在多线程下并发使用，并发修改，比如CopyOnWriteArrayList类。
 
-## 6.有哪几种实现ArrayList线程安全的方法？
+### 6.有哪几种实现ArrayList线程安全的方法？
 
 fail-fast是一种可能触发的机制，实际上，ArrayList的线程安全仍然没有保证，一般，保证ArrayList的线程安全可以通过这些方案：
 
@@ -104,20 +106,24 @@ fail-fast是一种可能触发的机制，实际上，ArrayList的线程安全�
 - 使用 CopyOnWriteArrayList 代替 ArrayList。
 - 在使用 ArrayList 时，应用程序通过同步机制去控制 ArrayList 的读写。
 
-## 7.CopyOnWriteArrayList了解多少？
+### 7.CopyOnWriteArrayList了解多少？
 
 CopyOnWriteArrayList就是线程安全版本的ArrayList。
 
 它的名字叫`CopyOnWrite`——写时复制，已经明示了它的原理。
 
 CopyOnWriteArrayList采用了一种读写分离的并发策略。CopyOnWriteArrayList容器允许并发读，读操作是无锁的，性能较高。至于写操作，比如向容器中添加一个元素，则首先将当前容器复制一份，然后在新副本上执行写操作，结束之后再将原容器的引用指向新容器。
+
+
 ![CopyOnWriteArrayList原理](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-7.png)
 
-# Map
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
+## Map
 
 Map中，毫无疑问，最重要的就是HashMap，面试基本被盘出包浆了，各种问法，一定要好好准备。
 
-## 8.能说一下HashMap的数据结构吗？
+### 8.能说一下HashMap的数据结构吗？
 
 JDK1.7的数据结构是`数组`+`链表`，JDK1.7还有人在用？不会吧……
 
@@ -136,7 +142,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 - 如果链表长度>8&数组大小>=64，链表转为红黑树
 - 如果红黑树节点个数<6 ，转为链表
 
-## 9.你对红黑树了解多少？为什么不用二叉树/平衡树呢？
+### 9.你对红黑树了解多少？为什么不用二叉树/平衡树呢？
 
 红黑树本质上是一种二叉查找树，为了保持平衡，它又在二叉查找树的基础上增加了一些规则：
 
@@ -156,7 +162,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 
 平衡二叉树是比红黑树更严格的平衡树，为了保持保持平衡，需要旋转的次数更多，也就是说平衡二叉树保持平衡的效率更低，所以平衡二叉树插入和删除的效率比红黑树要低。
 
-## 10.红黑树怎么保持平衡的知道吗？
+### 10.红黑树怎么保持平衡的知道吗？
 
 红黑树有两种方式保持平衡：`旋转`和`染色`。
 
@@ -170,7 +176,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 
 ![染色](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-12.png)
 
-## 11.HashMap的put流程知道吗？
+### 11.HashMap的put流程知道吗？
 
 先上个流程图吧:
 
@@ -194,7 +200,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 6. 最后所有元素处理完成后，判断是否超过阈值；`threshold`，超过则扩容。
 
 
-## 12.HashMap怎么查找元素的呢？
+### 12.HashMap怎么查找元素的呢？
 
 先看流程图：
 
@@ -210,7 +216,7 @@ HashMap的查找就简单很多：
 4. 否则，当前节点是否为树节点，查找红黑树
 5. 否则，遍历链表查找
 
-## 13.HashMap的哈希/扰动函数是怎么设计的?
+### 13.HashMap的哈希/扰动函数是怎么设计的?
 
 HashMap的哈希函数是先拿到 key 的hashcode，是一个32位的int类型的数值，然后让hashcode的高16位和低16位进行异或操作。
 
@@ -224,7 +230,7 @@ HashMap的哈希函数是先拿到 key 的hashcode，是一个32位的int类型�
 
 这么设计是为了降低哈希碰撞的概率。
 
-## 14.为什么哈希/扰动函数能降hash碰撞？
+### 14.为什么哈希/扰动函数能降hash碰撞？
 
 因为 key.hashCode() 函数调用的是 key 键值类型自带的哈希函数，返回 int 型散列值。int 值范围为 **-2147483648~2147483647**，加起来大概 40 亿的映射空间。
 
@@ -254,7 +260,7 @@ static int indexFor(int h, int length) {
 
 右移 16 位，正好是 32bit 的一半，自己的高半区和低半区做异或，就是为了混合原始哈希码的高位和低位，以此来加大低位的随机性。而且混合后的低位掺杂了高位的部分特征，这样高位的信息也被变相保留下来。
 
-## 15.为什么HashMap的容量是2的倍数呢？
+### 15.为什么HashMap的容量是2的倍数呢？
 
 - 第一个原因是为了方便哈希取余：
 
@@ -268,7 +274,7 @@ HashMap的容量是2的n次幂时，(n-1)的2进制也就是1111111***111这样�
 
 ![put中的扩容](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-17.png)
 
-## 16.如果初始化HashMap，传一个17的值`new HashMap<>`，它会怎么处理？
+### 16.如果初始化HashMap，传一个17的值`new HashMap<>`，它会怎么处理？
 
 简单来说，就是初始化时，传的不是2的倍数时，HashMap会向上寻找`离得最近的2的倍数`，所以传入17，但HashMap的实际容量是32。
 
@@ -303,7 +309,7 @@ static final int tableSizeFor(int cap) {
 
 ![容量计算](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-18.png)
 
-## 17.你还知道哪些哈希函数的构造方法呢？
+### 17.你还知道哪些哈希函数的构造方法呢？
 
 HashMap里哈希构造函数的方法叫：
 
@@ -329,7 +335,7 @@ HashMap里哈希构造函数的方法叫：
 
 ![散列函数构造](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-19.png)
 
-## 18.解决哈希冲突有哪些方法呢？
+### 18.解决哈希冲突有哪些方法呢？
 
 我们到现在已经知道，HashMap使用链表的原因为了处理哈希冲突，这种方法就是所谓的：
 
@@ -350,7 +356,7 @@ HashMap里哈希构造函数的方法叫：
 - **再哈希法**：换种哈希函数，重新计算冲突元素的地址。
 - **建立公共溢出区**：再建一个数组，把冲突的元素放进去。
 
-## 19.为什么HashMap链表转红黑树的阈值为8呢？
+### 19.为什么HashMap链表转红黑树的阈值为8呢？
 
 树化发生在table数组的长度大于64，且链表的长度大于8的时候。
 
@@ -364,7 +370,7 @@ HashMap里哈希构造函数的方法叫：
 
 至于红黑树转回链表的阈值为什么是6，而不是8？是因为如果这个阈值也设置成8，假如发生碰撞，节点增减刚好在8附近，会发生链表和红黑树的不断转换，导致资源浪费。
 
-## 20.扩容在什么时候呢？为什么扩容因子是0.75？
+### 20.扩容在什么时候呢？为什么扩容因子是0.75？
 
 为了减少哈希冲突发生的概率，当当前HashMap的元素个数达到一个临界值的时候，就会触发扩容，把所有元素rehash之后再放在扩容后的容器中，这是一个相当耗时的操作。
 
@@ -392,7 +398,7 @@ HashMap里哈希构造函数的方法叫：
 
 我们设的比较小的话，元素比较少，空位比较多的时候就扩容了，发生哈希碰撞的概率就降低了，查找时间成本降低，但是就需要更多的空间去存储元素，空间成本就增加了。
 
-## 21.那扩容机制了解吗？
+### 21.那扩容机制了解吗？
 
 HashMap是基于数组+链表和红黑树实现的，但用于存放key值的桶数组的长度是固定的，由初始化参数确定。
 
@@ -416,7 +422,7 @@ HashMap是基于数组+链表和红黑树实现的，但用于存放key值的桶
 
 ![扩容主要逻辑](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-28.png)
 
-## 22.jdk1.8对HashMap主要做了哪些优化呢？为什么？
+### 22.jdk1.8对HashMap主要做了哪些优化呢？为什么？
 
 jdk1.8 的HashMap主要有五点优化：
 
@@ -440,7 +446,7 @@ jdk1.8 的HashMap主要有五点优化：
 
    `原因`：做 4 次的话，边际效用也不大，改为一次，提升效率。
 
-## 23.你能自己设计实现一个HashMap吗？
+### 23.你能自己设计实现一个HashMap吗？
 
 这道题**快手**常考。
 
@@ -458,7 +464,7 @@ jdk1.8 的HashMap主要有五点优化：
 
 ![完整代码](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-30.png)
 
-##  24.HashMap 是线程安全的吗？多线程下会有什么问题？
+###  24.HashMap 是线程安全的吗？多线程下会有什么问题？
 
 HashMap不是线程安全的，可能会发生这些问题：
 
@@ -468,7 +474,7 @@ HashMap不是线程安全的，可能会发生这些问题：
 
 *   put 和 get 并发时，可能导致 get 为 null。线程 1 执行 put 时，因为元素个数超出 threshold 而导致 rehash，线程 2 此时执行 get，有可能导致这个问题。这个问题在 JDK 1.7 和 JDK 1.8 中都存在。
 
-## 25.有什么办法能解决HashMap线程不安全的问题呢？
+### 25.有什么办法能解决HashMap线程不安全的问题呢？
 
  Java 中有 HashTable、Collections.synchronizedMap、以及 ConcurrentHashMap 可以实现线程安全的 Map。
 
@@ -476,11 +482,11 @@ HashMap不是线程安全的，可能会发生这些问题：
 - Collections.synchronizedMap 是使用 Collections 集合工具的内部类，通过传入 Map 封装出一个 SynchronizedMap 对象，内部定义了一个对象锁，方法内通过对象锁实现；
 - ConcurrentHashMap 在jdk1.7中使用分段锁，在jdk1.8中使用CAS+synchronized。
 
-## 26.能具体说一下ConcurrentHashmap的实现吗？
+### 26.能具体说一下ConcurrentHashmap的实现吗？
 
 ConcurrentHashmap线程安全在jdk1.7版本是基于`分段锁`实现，在jdk1.8是基于`CAS+synchronized`实现。
 
-## 1.7分段锁
+#### 1.7分段锁
 
 从结构上说，1.7版本的ConcurrentHashMap采用分段锁机制，里面包含一个Segment数组，Segment继承于ReentrantLock，Segment则包含HashEntry的数组，HashEntry本身就是一个链表的结构，具有保存key、value的能力能指向下一个节点的指针。
 
@@ -502,7 +508,7 @@ ConcurrentHashmap线程安全在jdk1.7版本是基于`分段锁`实现，在jdk1
 
 get也很简单，key通过hash定位到segment，再遍历链表定位到具体的元素上，需要注意的是value是volatile的，所以get是不需要加锁的。
 
-## **1.8 CAS+synchronized**
+#### **1.8 CAS+synchronized**
 
 jdk1.8实现线程安全不是在数据结构上下功夫，它的数据结构和HashMap是一样的，数组+链表+红黑树。它实现线程安全的关键点在于put流程。
 
@@ -517,38 +523,38 @@ jdk1.8实现线程安全不是在数据结构上下功夫，它的数据结构�
 node数组初始化：
 
 ````java
-    private final Node<K,V>[] initTable() {
-        Node<K,V>[] tab; int sc;
-        while ((tab = table) == null || tab.length == 0) {
-            //如果正在初始化或者扩容
-            if ((sc = sizeCtl) < 0)
-                //等待
-                Thread.yield(); // lost initialization race; just spin
-            else if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {   //CAS操作
-                try {
-                    if ((tab = table) == null || tab.length == 0) {
-                        int n = (sc > 0) ? sc : DEFAULT_CAPACITY;
-                        @SuppressWarnings("unchecked")
-                        Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
-                        table = tab = nt;
-                        sc = n - (n >>> 2);
-                    }
-                } finally {
-                    sizeCtl = sc;
+private final Node<K,V>[] initTable() {
+    Node<K,V>[] tab; int sc;
+    while ((tab = table) == null || tab.length == 0) {
+        //如果正在初始化或者扩容
+        if ((sc = sizeCtl) < 0)
+            //等待
+            Thread.yield(); // lost initialization race; just spin
+        else if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {   //CAS操作
+            try {
+                if ((tab = table) == null || tab.length == 0) {
+                    int n = (sc > 0) ? sc : DEFAULT_CAPACITY;
+                    @SuppressWarnings("unchecked")
+                    Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
+                    table = tab = nt;
+                    sc = n - (n >>> 2);
                 }
-                break;
+            } finally {
+                sizeCtl = sc;
             }
+            break;
         }
-        return tab;
     }
+    return tab;
+}
 ````
 2.如果当前数组位置是空则直接通过CAS自旋写入数据
 
 ````java
-    static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
-                                        Node<K,V> c, Node<K,V> v) {
-        return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
-    }
+static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
+                                    Node<K,V> c, Node<K,V> v) {
+    return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
+}
 ````
 
 
@@ -561,25 +567,25 @@ else if ((fh = f.hash) == MOVED)
 ````
 
 ````java
-    final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
-        Node<K,V>[] nextTab; int sc;
-        if (tab != null && (f instanceof ForwardingNode) &&
-            (nextTab = ((ForwardingNode<K,V>)f).nextTable) != null) {
-            int rs = resizeStamp(tab.length);
-            while (nextTab == nextTable && table == tab &&
-                   (sc = sizeCtl) < 0) {
-                if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
-                    sc == rs + MAX_RESIZERS || transferIndex <= 0)
-                    break;
-                if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) {
-                    transfer(tab, nextTab);
-                    break;
-                }
+final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
+    Node<K,V>[] nextTab; int sc;
+    if (tab != null && (f instanceof ForwardingNode) &&
+        (nextTab = ((ForwardingNode<K,V>)f).nextTable) != null) {
+        int rs = resizeStamp(tab.length);
+        while (nextTab == nextTable && table == tab &&
+               (sc = sizeCtl) < 0) {
+            if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
+                sc == rs + MAX_RESIZERS || transferIndex <= 0)
+                break;
+            if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) {
+                transfer(tab, nextTab);
+                break;
             }
-            return nextTab;
         }
-        return table;
+        return nextTab;
     }
+    return table;
+}
 ````
 
 
@@ -600,11 +606,11 @@ else if ((fh = f.hash) == MOVED)
 
 get很简单，和HashMap基本相同，通过key计算位置，table该位置key相同就返回，如果是红黑树按照红黑树获取，否则就遍历链表获取。
 
-## 27.HashMap 内部节点是有序的吗？
+### 27.HashMap 内部节点是有序的吗？
 
 HashMap是无序的，根据 hash 值随机插入。如果想使用有序的Map，可以使用LinkedHashMap 或者 TreeMap。
 
-## 28.讲讲 LinkedHashMap 怎么实现有序的？
+### 28.讲讲 LinkedHashMap 怎么实现有序的？
 
  LinkedHashMap维护了一个双向链表，有头尾节点，同时 LinkedHashMap 节点 Entry 内部除了继承 HashMap 的 Node 属性，还有 before 和 after 用于标识前置节点和后置节点。
 
@@ -616,26 +622,26 @@ HashMap是无序的，根据 hash 值随机插入。如果想使用有序的Map�
 
 
 
-## 29.讲讲 TreeMap 怎么实现有序的？
+### 29.讲讲 TreeMap 怎么实现有序的？
 
 TreeMap 是按照 Key 的自然顺序或者 Comprator 的顺序进行排序，内部是通过红黑树来实现。所以要么 key 所属的类实现 Comparable 接口，或者自定义一个实现了 Comparator 接口的比较器，传给 TreeMap 用于 key 的比较。
 
 ![TreeMap](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-35.png)
 
-# Set
+## Set
 
 Set面试没啥好问的，拿HashSet来凑个数。
 
-## 30.讲讲HashSet的底层实现？
+### 30.讲讲HashSet的底层实现？
 
  HashSet 底层就是基于 HashMap 实现的。（ HashSet 的源码⾮常⾮常少，因为除了 clone() 、 writeObject() 、 readObject() 是 HashSet⾃⼰不得不实现之外，其他⽅法都是直接调⽤ HashMap 中的⽅法。
 
 HashSet的add方法，直接调用HashMap的put方法，将添加的元素作为key，new一个Object作为value，直接调用HashMap的put方法，它会根据返回值是否为空来判断是否插入元素成功。
 
 ````java
-    public boolean add(E e) {
-        return map.put(e, PRESENT)==null;
-    }
+public boolean add(E e) {
+    return map.put(e, PRESENT)==null;
+}
 ````
 
 ![HashSet套娃](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/collection-36.png)
@@ -643,11 +649,15 @@ HashSet的add方法，直接调用HashMap的put方法，将添加的元素作为
 而在HashMap的putVal方法中，进行了一系列判断，最后的结果是，只有在key在table数组中不存在的时候，才会返回插入的值。
 
 ````java
-            if (e != null) { // existing mapping for key
-                V oldValue = e.value;
-                if (!onlyIfAbsent || oldValue == null)
-                    e.value = value;
-                afterNodeAccess(e);
-                return oldValue;
-            }
+if (e != null) { // existing mapping for key
+    V oldValue = e.value;
+    if (!onlyIfAbsent || oldValue == null)
+        e.value = value;
+    afterNodeAccess(e);
+    return oldValue;
+}
 ````
+
+> 图文详解 30 道Java集合框架面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

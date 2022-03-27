@@ -7,6 +7,7 @@ tag:
 
 # 怎么理解Java中类和对象的概念？
 
+
 “二哥，我那天在图书馆复习[上一节](https://mp.weixin.qq.com/s/WzMEOEdzI0fFwBQ4s0S-0g)你讲的内容，刚好碰见一个学长，他问我有没有‘对象’，我说还没有啊。结果你猜他说什么，‘要不要我给你 new 一个啊？’我当时就懵了，new 是啥意思啊，二哥？”三妹满是疑惑的问我。
 
 “哈哈，三妹，你学长还挺幽默啊。new 是 Java 中的一个关键字，用来把类变成对象。”我笑着对三妹说，“对象和类是 Java 中最基本的两个概念，可以说撑起了面向对象编程（OOP）的一片天。”
@@ -300,3 +301,5 @@ new Person();
 ```java
 new Person().initialize("沉默王二", 18, 1);
 ```
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

@@ -7,6 +7,7 @@ tag:
 
 # 详解Java7新增的try-with-resouces语法
 
+
 “二哥，终于等到你讲 try-with-resouces 了！”三妹夸张的表情让我有些吃惊。
 
 “三妹，不要激动呀！开讲之前，我们还是要来回顾一下 try–catch-finally，好做个铺垫。”我说，“来看看这段代码吧。”
@@ -295,6 +296,6 @@ java.lang.Exception: out()
 
 “靠谱！”三妹说。
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 

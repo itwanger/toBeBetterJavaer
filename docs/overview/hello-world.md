@@ -223,3 +223,5 @@ Java 程序运行的正式环境一般会选择 Linux 服务器，因为更安�
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/overview/six-12.png)
 
 “搞定了，三妹，今天我们就学到这吧。”转动了一下僵硬的脖子后，我对三妹说，“开发环境需要安装 JDK，因为既需要编写源代码，还需要打包和测试；生产环境只需要安装 JRE，因为只需要运行编译打包好的 jar 包即可。”
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

@@ -8,6 +8,7 @@ tag:
 
 # Tabby：一款逼格更高的开源终端工具
 
+
 大家好，我是二哥呀！
 
 作为一名 Java 后端开发，日常工作中免不了要和 Linux 服务器打交道，因为生产环境基本上都是部署在 Linux 环境下的。以前呢，我会选择 Xshell 来作为终端进行远程操作。
@@ -148,7 +149,7 @@ Windows 用户习惯用 Xshell，macOS 用户习惯用 iTerm2，但这两款工�
 
 Tabby 的学习资料还比较少，所以希望二哥的这篇文章能给有需要的小伙伴提供一点点的帮助和启发。
 
-
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 
 

@@ -9,6 +9,7 @@ tag:
 
 >  图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
+
 ## 一、引言
 
 ### 1.什么是 JVM?
@@ -272,18 +273,17 @@ public class OOM {
 创建的连接不再使用时，需要调用 **close** 方法关闭连接，只有连接被关闭后，GC 才会回收对应的对象（Connection，Statement，ResultSet，Session）。忘记关闭这些资源会导致持续占有内存，无法被 GC 回收。
 
 ```java
-        try {
-            Connection conn = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("url", "", "");
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("....");
-          } catch (Exception e) {
+try {
+    Connection conn = null;
+    Class.forName("com.mysql.jdbc.Driver");
+    conn = DriverManager.getConnection("url", "", "");
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery("....");
+  } catch (Exception e) {
 
-          }finally {
-            //不关闭连接
-          }
-        }
+  }finally {
+    //不关闭连接
+  }
 ```
 
 **变量不合理的作用域**
@@ -348,31 +348,31 @@ Object obj =new Object();
 - 软引用是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存， 才会抛出内存溢出异常。在 JDK 1.2 版之后提供了 SoftReference 类来实现软引用。
 
 ```java
-        Object obj = new Object();
-        ReferenceQueue queue = new ReferenceQueue();
-        SoftReference reference = new SoftReference(obj, queue);
-        //强引用对象滞空，保留软引用
-        obj = null;
+Object obj = new Object();
+ReferenceQueue queue = new ReferenceQueue();
+SoftReference reference = new SoftReference(obj, queue);
+//强引用对象滞空，保留软引用
+obj = null;
 ```
 
 - 弱引用也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在 JDK 1.2 版之后提供了 WeakReference 类来实现弱引用。
 
 ```java
-        Object obj = new Object();
-        ReferenceQueue queue = new ReferenceQueue();
-        WeakReference reference = new WeakReference(obj, queue);
-        //强引用对象滞空，保留软引用
-        obj = null;
+Object obj = new Object();
+ReferenceQueue queue = new ReferenceQueue();
+WeakReference reference = new WeakReference(obj, queue);
+//强引用对象滞空，保留软引用
+obj = null;
 ```
 
 - 虚引用也称为“幽灵引用”或者“幻影引用”，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在 JDK 1.2 版之后提供了 PhantomReference 类来实现虚引用。
 
 ```java
-        Object obj = new Object();
-        ReferenceQueue queue = new ReferenceQueue();
-        PhantomReference reference = new PhantomReference(obj, queue);
-        //强引用对象滞空，保留软引用
-        obj = null;
+Object obj = new Object();
+ReferenceQueue queue = new ReferenceQueue();
+PhantomReference reference = new PhantomReference(obj, queue);
+//强引用对象滞空，保留软引用
+obj = null;
 ```
 
 ![四种引用总结](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-19.png)
@@ -695,7 +695,9 @@ Parallel Scavenge 的特点是什么？
 
 如果一个数据是基本数据类型，不可拆分，它就被称之为标量。把一个 Java 对象拆散，将其用到的成员变量恢复为原始类型来访问，这个过程就称为标量替换。假如逃逸分析能够证明一个对象不会被方法外部访问，并且这个对象可以被拆散，那么可以不创建对象，直接用创建若干个成员变量代替，可以让对象的成员变量在栈上分配和读写。
 
-# JVM 调优
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
+## 三、JVM 调优
 
 ### 32.有哪些常用的命令行性能监控和故障处理工具？
 
@@ -929,10 +931,10 @@ jmap -dump:format=b,file=heap pid
 
    在线程栈信息中找到对应线程号的 16 进制值，如下是 **731f** 线程的信息。线程栈分析可使用 Visualvm 插件 **TDA**。
 
-   ```java
-   "Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007fbe2c164000 nid=0x731f runnable [0x0000000000000000]
-      java.lang.Thread.State: RUNNABLE
-   ```
+```java
+"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007fbe2c164000 nid=0x731f runnable [0x0000000000000000]
+  java.lang.Thread.State: RUNNABLE
+```
 
 6）使用`jstat -gcutil [pid] 5000 10` 每隔 5 秒输出 GC 信息，输出 10 次，查看 **YGC** 和 **Full GC** 次数。通常会出现 YGC 不增加或增加缓慢，而 Full GC 增加很快。
 
@@ -954,7 +956,7 @@ jmap -dump:format=b,file=heap pid
    Heap dump file created
    ```
 
-   10）dump 文件分析
+10）dump 文件分析
 
    可以使用 **jhat** 命令分析：`jhat -port 8000 29471.dump`，浏览器访问 jhat 服务，端口是 8000。
 
@@ -962,9 +964,9 @@ jmap -dump:format=b,file=heap pid
 
    或使用第三方式具分析的，如 **JProfiler** 也是个图形化工具，**GCViewer** 工具。Eclipse 或以使用 MAT 工具查看。或使用在线分析平台 **GCEasy**。
 
-   **注意：**如果 dump 文件较大的话，分析会占比较大的内存。
+   **注意**：如果 dump 文件较大的话，分析会占比较大的内存。
 
-   11）在 dump 文析结果中查找存在大量的对象，再查对其的引用。
+11）在 dump 文析结果中查找存在大量的对象，再查对其的引用。
 
    基本上就可以定位到代码层的逻辑了。
 
@@ -974,7 +976,9 @@ jmap -dump:format=b,file=heap pid
 
 排查过程和排查内存泄漏过程类似。
 
-# 虚拟机执行
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+
+## 四、虚拟机执行
 
 ### 42.能说一下类的生命周期吗？
 
@@ -1093,5 +1097,7 @@ Tomcat 实际上也是破坏了双亲委派模型的。
 Tomact 是 web 容器，可能需要部署多个应用程序。不同的应用程序可能会依赖同一个第三方类库的不同版本，但是不同版本的类库中某一个类的全路径名可能是一样的。如多个应用都要依赖 hollis.jar，但是 A 应用需要依赖 1.0.0 版本，但是 B 应用需要依赖 1.0.1 版本。这两个版本中都有一个类是 com.hollis.Test.class。如果采用默认的双亲委派类加载机制，那么无法加载多个相同的类。
 
 所以，Tomcat 破坏了**双亲委派原则**，提供隔离的机制，为每个 web 容器单独提供一个 WebAppClassLoader 加载器。每一个 WebAppClassLoader 负责加载本身的目录下的 class 文件，加载不到时再交 CommonClassLoader 加载，这和双亲委派刚好相反。
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
 
 >  图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。

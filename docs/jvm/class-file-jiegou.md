@@ -8,6 +8,7 @@ tag:
 
 # 详解Java的类文件（class文件）结构
 
+
 大家好，我是二哥呀，今天我拿了一把小刀，准备解剖一下 Java 的 class 文件。
 
 CS 的世界里流行着这么一句话，“计算机科学领域的任何问题都可以通过增加一个中间层来解决”。对于 Java 来说，JVM 就是这么一个产物，“Write once, Run anywhere”之所以能实现，靠得就是 JVM，它能在不同的操作系统下运行同一份源代码编译后的 class 文件。
@@ -358,3 +359,5 @@ main 方法中调用了 foo 方法。通过 jclasslib 看一下它当中一个�
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/class-file-jiegou-b5853549-b17b-48eb-8eb3-a393fb5d655f.png)
 
 到此为止，class 文件的内部算是剖析得差不多了，希望能对大家有所帮助。第一次拿刀，手有点颤，如果哪里有不足的地方，欢迎大家在评论区毫不留情地指出来！
+
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
