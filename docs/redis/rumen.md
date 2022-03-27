@@ -7,8 +7,6 @@ tag:
 
 # Redis入门(适合新手)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
-
 说起来，可能有些小伙伴会不相信，我是第一次用 Redis，真的。因为公司小，业务量小，Redis 根本派不上用场。不过，最近打算把系统升级一下，顺带把当下时髦的技术入个门，“与时俱进”嘛，虽然进的有“一点点”晚（注意双引号）。
 
 作为一名富有责任心的技术博主，我觉得有必要把我入门 Redis 的过程分享出来，供一些小伙伴作为参考。要是我哪里写错了，别客气，过来给我一巴掌，就行了（温柔点，别打肿，影响颜值就不好了）。

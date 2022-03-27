@@ -1002,7 +1002,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/git/jibenshiyong-26.png)
 
 
-### 八、详解 sparse-checkout 命令
+## 八、详解 sparse-checkout 命令
 
 前天不是搭建了一个《Java 程序员进阶之路》的网站嘛，其中用到了 Git 来作为云服务器和 GitHub 远程仓库之间的同步工具。
 
@@ -1165,5 +1165,5 @@ Git 是真的牛逼，Linus 是真的牛逼，神不愧是神！
 >- hutusi：[改变世界的一次代码提交](https://mp.weixin.qq.com/s/gM__sQPILkAKWsMejOO8cA)
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
 

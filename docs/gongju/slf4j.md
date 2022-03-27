@@ -336,7 +336,6 @@ logger.debug("\u6C89\u9ED8\u738B\u4E8C\uFF0C{}\u5C81", Integer.valueOf(18));
 
 4）小伙伴们如果知道更多秘密的话，建议在留言区贴出来哦。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/slf4j-88e280f4-d82a-43d7-924d-13978e7563b3.png)
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
