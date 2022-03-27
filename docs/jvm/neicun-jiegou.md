@@ -10,7 +10,7 @@ tag:
 
 在谈 JVM 内存区域划分之前，我们先来看一下 Java 程序的具体执行过程，我画了一幅图。
 
-![](https://img-blog.csdnimg.cn/img_convert/77f1fa00cdd92c77330538642d9ca3c4.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/neicun-jiegou-dac0f4c1-8a7e-4309-a599-5664cdaf5016.png)
 
 Java 源代码文件经过编译器编译后生成字节码文件，然后交给 JVM 的类加载器，加载完毕后，交给执行引擎执行。在整个执行的过程中，JVM 会用一块空间来存储程序执行期间需要用到的数据，这块空间一般被称为运行时数据区，也就是常说的 JVM 内存。
 
@@ -28,7 +28,7 @@ Java 源代码文件经过编译器编译后生成字节码文件，然后交给
 
 根据第二章 Java 虚拟机结构中的规定，运行时数据区可以分为以下几个部分，见下图。
 
-![](https://img-blog.csdnimg.cn/img_convert/ed3ca24f1f857bf23a9b5c061535d258.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
 
 
 ### 01、程序计数器
@@ -51,7 +51,7 @@ Java 虚拟机栈中是一个个栈帧，每个栈帧对应一个被调用的方
 
 栈帧包含以下 5 个部分，见下图。
 
-![](https://img-blog.csdnimg.cn/img_convert/2e727f1048988c8ce7e6ae46b08dfb54.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/neicun-jiegou-4ea2a60a-05df-4ed1-8109-99ae23acefd1.png)
 
 [Java 虚拟机栈](https://tobebetterjavaer.com/jvm/how-jvm-run-zijiema-zhiling.md)
 

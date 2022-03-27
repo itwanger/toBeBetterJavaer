@@ -12,7 +12,7 @@ tag:
 
 在JDK的bin目录下有很多命令行工具：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-6298ada851edf7c6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-547b1b2c-9fb4-4d1d-9c72-013ec210f6a5.jpg)
 
 　　我们可以看到各个工具的大小基本上都稳定在27kb左右，这个不是JDK开发团队刻意为之的，而是因为这些工具大多数是 `jdk\lib\tools.jar` 类库的一层薄包装而已，他们的主要功能代码是在tools类库中实现的。
 
@@ -50,21 +50,21 @@ JAVA Dump就是虚拟机运行时的快照，将虚拟机运行时的状态和�
 
 显示当前所有java进程pid的命令，我们可以通过这个命令来查看到底启动了几个java进程（因为每一个java程序都会独占一个java虚拟机实例），不过jps有个缺点是只能显示当前用户的进程id，要显示其他用户的还只能用linux的ps命令。
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-2d5d658c8b8db0b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-2017daf6-832a-4673-b776-ad3380e47402.png)
 
 执行jps命令，会列出所有正在运行的java进程，其中jps命令也是一个java程序。前面的数字就是进程的id，这个id的作用非常大，后面会有相关介绍。
 
 **jps -help：**
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-99d21062099dd578.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-031be661-e47e-44f0-9e33-34368b187662.png)
 
 **jps -l** 输出应用程序main.class的完整package名或者应用程序jar文件完整路径名
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-d9f3ff6819b15a66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-0ccc96dc-8053-4222-9824-b116f02776a4.png)
 
 **jps -v** 输出传递给JVM的参数
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-3bcfc37630242cb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-059a3285-4a01-4f7a-a6ed-1cc5dcbf3f18.png)
 
 **jps失效**
 
@@ -87,7 +87,7 @@ java程序启动后，会在目录/tmp/hsperfdata_{userName}/下生成几个文�
 
 主要用于生成指定进程当前时刻的线程快照，线程快照是当前java虚拟机每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是用于定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致长时间等待。
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-5f09162f867d044e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-e80d0925-2dcf-4204-b46d-47312df2a673.png)
 
 **3、jmap**
 
@@ -97,21 +97,21 @@ java程序启动后，会在目录/tmp/hsperfdata_{userName}/下生成几个文�
 
 jmap的用法摘要：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-ef4aa428f2519317.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示") 
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-96a70bab-5cee-4068-8ccb-1d35124abeea.png)
 
 **1、`jmap pid`**
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-b98c8d50df75dff0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-38d5c9da-e433-43d2-b1bc-3f3634e05497.png)
 
 打印的信息分别为：共享对象的起始地址、映射大小、共享对象路径的全程。
 
 **2、`jmap -heap pid`:查看堆使用情况**
 
- ![image](https://upload-images.jianshu.io/upload_images/1179389-e3294292dc504803.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-75acf4c8-393d-43d1-b208-04de1f0ba6bd.png)
 
 **3、`jmap -histo pid`：查看堆中对象数量和大小**
 
-**![image](https://upload-images.jianshu.io/upload_images/1179389-b5c31231270ec757.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")** 
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-5e42fe47-e1e6-4649-acb5-e17bd277a771.png)
 
 打印的信息分别是：序列号、对象的数量、这些对象的内存占用大小、这些对象所属的类的全限定名
 
@@ -141,7 +141,7 @@ count：打印次数
 
 **1、jstat -gc PID 5000 20**
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-d438cd37f68605c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示") 
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-3f71397d-3ff6-430d-adf4-ff5ab9f111d5.png)
 
 S0C:年轻代第一个survivor的容量（字节）
 
@@ -173,7 +173,7 @@ FGCT：从应用程序启动到采样时老年代中GC所使用的时间（单�
 
 **2、jstat -gcutil PID 5000 20**
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-a210f6badcc528ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-c2a84c1d-e853-482a-88a5-27ef39da66a0.png)
 
 s0:年轻代中第一个survivor已使用的占当前容量百分比
 
@@ -193,7 +193,7 @@ P:永久代中已使用的占当前容量百分比
 
 **jhat heapdump**
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-83746a41d4bf74d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-fd76ac30-53a5-4549-8206-18283f330758.png)
 
 这个命令将heapdump文件转换成html格式，并且启动一个http服务，默认端口为7000。
 
@@ -201,7 +201,7 @@ P:永久代中已使用的占当前容量百分比
 
 下面我们来访问下：ip：port
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-cf3e93133f846884.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-059e61f1-8263-4ee0-b36b-f117ecaf0a07.png)
 
 ## 6、jinfo
 
@@ -219,15 +219,15 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 
 下面的命令显示了新生代对象晋升到老年代对象的最大年龄。在运行程序运行时并没有指定这个参数，但是通过jinfo，可以查看这个参数的当前的值。
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-31d29381b1ed517c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-f37517b7-20b4-4243-ae03-d41126ae43e5.png)
 
 下面的命令显示是否打印gc详细信息：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-4cbebf30779aa5ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-86c5ace2-7377-4d5a-a780-0a194e14c9a0.png)
 
 下面的命令在运用程序运行时动态打开打印详细gc信息开关：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-6d011dce3e04c0a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-d258d260-65eb-48f9-8585-6bed74de5a47.png)
 
 注意事项：jinfo虽然可以在java程序运行时动态地修改虚拟机参数，但并不是所有的参数都支持动态修改。
 
@@ -236,11 +236,11 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 在JDK 1.7之后，新增了一个命令行工具jcmd。它是一个多功能工具，可以用来导出堆，查看java进程，导出线程信息，执行GC等。jcmd拥有jmap的大部分功能，Oracle官方建议使用jcmd代替jmap。
 
 使用 jcmd -l 命令列出当前运行的所有虚拟机，示例：
-![image](https://upload-images.jianshu.io/upload_images/1179389-428e5bb14754ca0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-4fa6915b-d39c-4d6d-a6e7-edc989cac76f.png)
 
 针对每一个虚拟机，可以使用help命令列出该虚拟机支持的所有命令，示例：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-52c559995e3fbb49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-219b7cac-c9a9-4d47-8ecf-93a4a04fc1db.png)
 
 子命令含义：
 
@@ -264,7 +264,7 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 
 示例：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-9225121e737ab406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-b0742677-4ad0-4fd3-b985-054238af8865.png)
 
 ## 8、可视化监控工具（JConsole、JVisualVM）
 
@@ -274,11 +274,11 @@ JVisualVM比JConsole更强大：支持对CPU、内存运行进行采样、配置
 
 JConsole监控页面示例：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-92e66778004bf548.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-7fa6b7b2-28bf-46cb-8d52-5fe3cb75240a.png)
 
 JVisualVM监控页面示例：
 
-![image](https://upload-images.jianshu.io/upload_images/1179389-57562c975c5c0a24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "点击全屏显示")
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-dca6e1d0-f345-4e21-83b3-e0cf82e3d79a.png)
 
 
 ## 其他工具 
@@ -325,7 +325,7 @@ strace：跟踪程序运行过程发起的系统调用
 
 https://fastthread.io：线程栈分析的网站
 
-![](https://upload-images.jianshu.io/upload_images/1179389-c82f746ad11b7f13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/problem-tools-6d57b323-9665-4453-9fee-ea3111ad8629.png)
 
 ## 上问题排查思路（八股）
 

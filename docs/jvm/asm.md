@@ -18,7 +18,7 @@ We are all in the gutter, but some of us are looking at the stars. （我们都�
 
 ASM是一种通用Java字节码操作和分析框架。它可以用于修改现有的class文件或动态生成class文件。
 
-> **ASM **is an all purpose Java bytecode manipulation and analysis framework. It can be used to modify existing classes or to dynamically generate classes, directly in binary form. ASM provides some common bytecode transformations and analysis algorithms from which custom complex transformations and code analysis tools can be built. ASM offers similar functionality as other Java bytecode frameworks, but is focused on[performance](https://link.zhihu.com/?target=https%3A//asm.ow2.io/performance.html). Because it was designed and implemented to be as small and as fast as possible, it is well suited for use in dynamic systems (but can of course be used in a static way too, e.g. in compilers).
+> **ASM **is an all purpose Java bytecode manipulation and analysis framework. It can be used to modify existing classes or to dynamically generate classes, directly in binary form. ASM provides some common bytecode transformations and analysis algorithms from which custom complex transformations and code analysis tools can be built. ASM offers similar functionality as other Java bytecode frameworks, but is focused on[performance](https://asm.ow2.io/performance.html). Because it was designed and implemented to be as small and as fast as possible, it is well suited for use in dynamic systems (but can of course be used in a static way too, e.g. in compilers).
 
 本篇文章分享的是对ASM的理解和应用，之前需要我们掌握**class字节码**，**JVM基于栈的设计模式,JVM指令**
 
@@ -26,7 +26,7 @@ ASM是一种通用Java字节码操作和分析框架。它可以用于修改现�
 
 我们编写的java文件，会通过javac命令编译为class文件，JVM最终会执行该类型文件来运行程序。下图所示为class文件结构。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-17f68ac5dabe8d33.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/asm-43844b78-c01f-4990-b038-3c91ff2eeb34.jpg)
 
 下面我们通过一个简单的实例来进行说明。下面是我们编写的一个简单的java文件，只是简单的函数调用.
 
@@ -185,7 +185,7 @@ SourceFile: "Test.java"
 
 JVM的指令集是基于栈而不是寄存器，基于栈可以具备很好的跨平台性。在线程中执行一个方法时，我们会创建一个栈帧入栈并执行，如果该方法又调用另一个方法时会再次创建新的栈帧然后入栈，方法返回之际，原栈帧会返回方法的执行结果给之前的栈帧，随后虚拟机将会丢弃此栈帧。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-9173e9d3cc8fd537.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/asm-e31b7e50-1d48-4eef-9552-6fa7e6c68fed.jpg)
 
 ### 局部变量表
 
@@ -237,9 +237,9 @@ public int sub(int, int);
 
 a = b + c 的字节码执行过程中操作数栈以及局部变量表的变化如下图所示
 
-![](https://upload-images.jianshu.io/upload_images/1179389-c5ccfcca3e6fabaa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/asm-4670450e-6199-4562-9cf4-354234c734c8.jpg)
 
-![](https://upload-images.jianshu.io/upload_images/1179389-4d970cd306753276.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/asm-9808d639-327f-4796-80d4-1809be0b9106.jpg)
 
 ## ASM操作
 
@@ -340,7 +340,7 @@ mv.visitEnd();
 
 可以一键生成对应的ASM API代码
 
-![](https://upload-images.jianshu.io/upload_images/1179389-d9960e4e54e3f547.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/asm-3c8c8db4-5b6a-4576-b147-62965d0e0c1c.jpg)
 
 ----
 

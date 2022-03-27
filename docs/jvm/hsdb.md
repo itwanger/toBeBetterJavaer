@@ -72,33 +72,33 @@ $ jps
 
 ### 可视化线程栈
 
-![](https://upload-images.jianshu.io/upload_images/1179389-07afdc3c2b66fa3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-a606c6ac-1cfc-44c3-8fdf-e0eeeabbf05a.png)
 
 ### 对象直方图
 
 `Tools -> Object Histogram`，我们可以通过对象直方图快速定位某个类型的对象的地址以供我们进一步分析
 
-![](https://upload-images.jianshu.io/upload_images/1179389-ec4b946a0804334e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-cf39737a-7d6a-42de-b843-123cba1f96aa.png)
 
-![](https://upload-images.jianshu.io/upload_images/1179389-120d4d54c09cb697.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-974d211c-e627-40d6-af13-9560ebae0bfa.png)
 
 ### OOP信息
 
 我们可以根据对象地址在 `Tools -> Inspector` 获取对象的在 JVM 层的实例 `instanceOopDesc` 对象，它包括对象头 `_mark` 和 `_metadata` 以及实例信息
 
-![](https://upload-images.jianshu.io/upload_images/1179389-0f5bcf523b13aadc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-026fb881-59a2-4e0f-ac4a-a2a7b505a707.png)
 
 ### 堆信息
 
 我们可以通过 `Tools -> Heap Parameters` 获取堆信息，可以结合对象地址判断对象位置
 
-![](https://upload-images.jianshu.io/upload_images/1179389-a2b9e8c740a8b717.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-3baabaf0-1681-4443-b8db-ae08128744d6.png)
 
 ### 加载类列表
 
 我们可以通过 `Tools -> Class Browser` 来获取所有加载类列表
 
-![](https://upload-images.jianshu.io/upload_images/1179389-413e8aa34bd714a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-7e4ebd1f-ba9c-4862-b4c3-574de5c30d6b.png)
 
 ### 元数据区
 
@@ -108,18 +108,18 @@ HotSpot VM 里有一套对象专门用来存放元数据，它们包括： 
 
 *   `ConstantPool/ConstantPoolCache` 对象：每个 `InstanceKlass` 关联着一个 `ConstantPool`，作为该类型的运行时常量池。这个常量池的结构跟 Class 文件里的常量池基本上是对应的
 
-![](https://upload-images.jianshu.io/upload_images/1179389-fe2110ec3400736a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-07d80d18-be4e-4861-bea3-291eea0ff262.png)
 
-![](https://upload-images.jianshu.io/upload_images/1179389-2067a77695ea91d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-b7b0ebed-cd38-42b7-bebc-41090409a1db.png)
 
 *   `Method` 对象，用来描述 Java 方法的总体信息，如方法入口地址、调用/循环计数器等等
 
     *   `ConstMethod` 对象，记录着 Java 方法的不变的描述信息，包括方法名、方法的访问修饰符、**字节码**、行号表、局部变量表等等。**注意，字节码指令被分配在 `constMethodOop` 对象的内存区域的末尾**
     *   `MethodData` 对象，记录着 Java 方法执行时的 profile 信息，例如某方法里的某个字节码之类是否从来没遇到过 null，某个条件跳转是否总是走同一个分支，等等。这些信息在解释器（多层编译模式下也在低层的编译生成的代码里）收集，然后供给 HotSpot Server Compiler 用于做激进优化。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-06e56c814c156cfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-59231922-9ce3-4107-ab1a-b33818cbab96.png)
 
-![](https://upload-images.jianshu.io/upload_images/1179389-539d3ef606a97139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-85c6fca7-2d1f-4194-bc07-fd1e2ab18632.png)
 
 *   `Symbol` 对象，对应 Class 文件常量池里的 `JVM_CONSTANT_Utf8` 类型的常量。有一个 VM 全局的 `SymbolTable` 管理着所有 `Symbol`。`Symbol` 由所有 Java 类所共享。
 
@@ -159,23 +159,23 @@ class VMShow {
 
 首先查看对象直方图可以找到三个 VMShow 对象
 
-![](https://upload-images.jianshu.io/upload_images/1179389-48e27aeb30f47103.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-e5f0f200-83fd-4529-b5d6-416f9a6f626b.png)
 
 那么如何确定这三个地址分别属于哪些变量呢？首先找静态变量，它在 JDK8 中是在 Class 对象中的，因此我们可以找它们的反向指针，如果是`java.lang.Class` 的那么就是静态变量
 
-![](https://upload-images.jianshu.io/upload_images/1179389-2b4087bd358a0eb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-301ebfc3-c2c4-49de-946a-5d2f1660e669.png)
 
 我们可以从 ObjTest 的 `instanceKlass` 中的镜像找到 class 对象来验证是否是该对象的 class
 
-![](https://upload-images.jianshu.io/upload_images/1179389-95cab9181b8b77af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-f22359ab-b066-405f-a754-197ccbd36884.png)
 
 那么成员变量和局部变量如何区分呢？成员变量会被类实例引用，而局部变量地址则在会被被放在栈区
 
-![](https://upload-images.jianshu.io/upload_images/1179389-80bced631b4dafcf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-51cb7321-fb7a-42b0-9321-edd410e3d328.png)
 
 那么局部变量的反向指针都是 null，怎么确定它就被栈区所引用呢？我们可以看可视化线程栈
 
-![](https://upload-images.jianshu.io/upload_images/1179389-9b97606de3b61531.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-51fb09f4-06d7-4518-8038-5dd69d765862.png)
 
 ### 分析字符串字面量存储区域
 
@@ -198,7 +198,7 @@ public class StringTest {
 
 2.  打开对象直方图发现只有 1 个 `a` 的字符串对象
 
-![](https://upload-images.jianshu.io/upload_images/1179389-946aec17f0649e1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-b5631e70-be3a-48de-99be-4468632d23e0.png)
 
 3.  查找 StringTable 中 `a` 的对象地址
 
@@ -208,7 +208,7 @@ jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUti
 
 可以根据需要改变 `matches` 中的值来匹配
 
-![](https://upload-images.jianshu.io/upload_images/1179389-27e18d823a9fbd3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-76084b8d-6134-4866-8891-c24a43a3b836.png)
 
 可以看到这个对象地址就是 StringTable 中引用的地址
 
@@ -216,7 +216,7 @@ jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUti
 
 5.  重新使用对象直方图查看 String 值
 
-![](https://upload-images.jianshu.io/upload_images/1179389-c6ce35bebc51e557.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-f3c35027-2fe1-4b18-8a1c-b7243a9b5149.png)
 
 这里有5个值，`ab` 有3个：
 
@@ -231,13 +231,13 @@ jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUti
 ```
 
  
-![](https://upload-images.jianshu.io/upload_images/1179389-2953df01d3c87685.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-f07a9fc8-5744-4859-9df9-c3a1016e936a.png)
 
 那么运行时常量池中存放的是哪些呢？实际上它和 StringTable 一样是这些对象的引用，只不过 StringTable 是全局共享的，而运行时常量池只有该类的一些字面量。我们通过加载类列表可以查看
 
-![](https://upload-images.jianshu.io/upload_images/1179389-2dd5e0ac29c0f3a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-25fa5e06-0250-424b-8b05-aea770e80963.png)
 
-![](https://zzcoder.oss-cn-hangzhou.aliyuncs.com/jvm/HSDB-20.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-88e8c10d-e09c-4a74-95e6-e5b21577459f.png)
 
 ### 分析String.intern
 
@@ -328,21 +328,21 @@ public class StringInternTest {
 jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUtilities.stringOopToString(s).matches('^(he|llo|hello|1|2|12)')) {print(s + ': ');s.printValueOn(java.lang.System.out); println('')}})"
 ```
 
-![](https://upload-images.jianshu.io/upload_images/1179389-fd5799daae6fb942.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-ca5d06a0-1690-4a8f-98cb-aa6bd7800afe.png)
 
 但是 `hello` 对象还是存在的（new）
 
-![](https://upload-images.jianshu.io/upload_images/1179389-da8c4df5133fccd3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-85253e10-d0c2-442b-a26b-91b1b2588f1c.png)
 
 接着执行 s1.intern 会将 `hello` 对象的地址放入 StringTable
 
-![](https://upload-images.jianshu.io/upload_images/1179389-d888e688976bae33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-801d35f2-0c8a-4699-afbf-057c1e6cac6c.png)
 
 再执行 `String s2="hello";` 会发现 `hello` 对象仍然只有一个，都指向同一个。
 
 而继续在 6 打断点，即执行完 `String s4 = "12";`，因为 `12` 不在字符串常量池，那么会新建一个 `12`的实例，并让字符串常量池引用它，这样会发现就有两个 `12` 了
 
-![](https://upload-images.jianshu.io/upload_images/1179389-7abae26e2d2e6a6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/hsdb-47a42bfa-7645-4c9b-bcd8-aeabea1ae44f.png)
 
 ---
 

@@ -1,3 +1,13 @@
+---
+category:
+  - Java核心
+  - JVM
+tag:
+  - Java
+---
+
+# 自己编译JDK
+
 很多小伙伴们做`Java`开发，天天写`Java`代码，肯定离不开`Java`基础环境：`JDK`，毕竟我们写好的`Java`代码也是跑在`JVM`虚拟机上。
 
 一般来说，我们学`Java`之前，第一步就是安装`JDK`环境。这个简单啊，我们一般直接把`JDK`从官网下载下来，安装完成，配个环境变量就可以愉快地使用了。
@@ -36,7 +46,7 @@
 
 一图胜千言，各平台上的编译器支持如下表所示，按平台选择即可：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-8fe4ece6f45ccc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-3b66d5b6-272f-47bd-88f7-47146a06ef06.png)
 
 
 ### **4、其他工具**
@@ -75,7 +85,7 @@
 
 `Mercurial`可以理解为和`Git`一样，是另外一种代码管理工具，安装好之后就有一个`hg`命令可用。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-b038992018f648bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-cd8a19ba-e9f5-4a4a-a23c-17688f0f459d.png)
 
 
 而`OpenJDK`的源码已经提前托管到`http://hg.openjdk.java.net/`。
@@ -96,7 +106,7 @@
 
 下载地址：`https://jdk.java.net/`
 
-![](https://upload-images.jianshu.io/upload_images/1179389-7dc7742f5907f149.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-1bbbb1f8-da01-46e1-a793-487a25193c68.png)
 
 
 选择你想要的版本下载即可。
@@ -118,27 +128,27 @@
 
 **配置JDK 8完成：**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-3867d900e9a4c18c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-27593edc-03e2-4a42-baf3-ed5e5096b3cb.png)
 
 
 **配置JDK 11完成：**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-ecc8bbeb8f7f8a86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-8526d944-a36e-4d37-93a0-9ad4ad53f927.png)
 
 
 **注：** 如果这一步出错，大概率是某个软件环境未装，或者即使装了，但版本不匹配，控制台打印日志里一般是会提醒的。
 
 比如我在配置`JDK 8`的时候，就遇到了一个`errof：GCC compiler is required`的问题：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-6cde1ab51a34b6e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-2957399f-6451-46dc-a003-76e5159265e9.png)
 
 
 明明系统里已经有编译器，但还是报这个错误。通过后来修改 `jdk源码根目录/common/autoconf/generated-configure.sh`文件，将相关的两行代码注释后就配置通过了
 
-![](https://upload-images.jianshu.io/upload_images/1179389-f07354003d229595.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-ffa10d36-3a77-48aa-ae0c-d3daf67f9a19.png)
 
 
-![](https://upload-images.jianshu.io/upload_images/1179389-0e8c6c94255e19ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-a6f6e416-639e-4706-8b40-6152eb3cf85d.png)
 
 
 配置完成，接下来开始执行真正的编译动作了！
@@ -156,12 +166,12 @@
 
 **JDK 8编译完成：**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-f61a82bb7b340811.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-89020f5a-0909-4c57-8c88-f655293a42a4.png)
 
 
 **JDK 11编译完成：**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-238728a22d2ae4bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-993fac94-2473-4f3b-9737-959510d2fe98.png)
 
 
 从两张图的对比可以看出，编译`JDK 8`和`JDK 11`完成时在输出上还是有区别的。时间上的区别很大程度上来源于`JDK 11`的编译机配置要高不少。
@@ -184,7 +194,7 @@
 
 进入该目录后，可以输入`./java -version`命令验证：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-5449dc4bb0574327.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-f02dff40-f27e-476c-998b-bd6cdb5d3559.png)
 
 
 其次，编译生成的成品`JDK`套装，可以在目录
@@ -194,7 +204,7 @@
 
 下找到，如图所示：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-1c9733b7a55a39fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-1c781d34-776e-4acc-8d2b-b34bc59fda61.png)
 
 
 其中：
@@ -204,7 +214,7 @@
 
 进入`j2sdk-image`目录会发现，里面的内容和我们平时从网络上下载的成品`JDK`内容一致。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-be394d2e97a6c8ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-7b7f147e-58c9-4eb5-b407-b8984cd72e1d.png)
 
 
 ### **2、JDK 11的编译输出**
@@ -219,7 +229,7 @@
 
 下看到，进入该目录后，也可以输入`./java -version`命令验证：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-b2372c6a17726593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-f9b55425-f308-44e8-8812-ac59b2707c81.png)
 
 
 其次，编译生成的成品`JDK 11`套装，可以在目录
@@ -229,7 +239,7 @@
 
 下找到，如图所示：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-50d09e58e36b3aac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-4e96858f-f681-4498-b1c4-282d317a6a32.png)
 
 
 其中`jdk`目录就是编译生成的成品`JDK 11`套装。
@@ -242,20 +252,20 @@
 
 新建一个最最基本的`Java`工程，比如命名为`JdkTest`，目的是把我们自己编译出的`JDK`给用上。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-09ead6f932b19a36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-2cf54b29-9b7e-46b2-8cde-4c36960aa09b.png)
 
 
 我们点开`Project Structure`，选到`SDKs`选项，新添加上自己刚刚编译生成的JDK，并选为项目的JDK，看看是否能正常工作
 
-![](https://upload-images.jianshu.io/upload_images/1179389-b7f8a14909575248.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-ad8023d0-fbb7-48b1-856e-a8818677a0a5.png)
 
 
-![](https://upload-images.jianshu.io/upload_images/1179389-bca2673d926753de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-b8d87f09-6178-44c7-9572-a2852e81318d.png)
 
 
 点击确定之后，我们运行之：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-d11ded14bd13a8a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-3164cf31-8078-46d7-bee0-22e05b0c08de.png)
 
 
 可以看到我们自己编译出的JDK已经用上了。
@@ -266,31 +276,31 @@
 
 我们继续在上一步`JdkTest`项目的`Project Structure` → `SDKs`里将`JDK`源码关联到自行下载的JDK源码路径上：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-538b9a08b4031a9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-129ede68-c368-461e-92d6-38a8e5dee344.png)
 
 
 这样方便我们对自己下载的`JDK源码`进行**阅读**、**调试**、**修改**、以及在源码里随意**做笔记**和**加注释**。
 
 举个最简单的例子，比如我们打开`System.out.println()`这个函数的底层源码：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-12247e4b15ec0936.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-c406b2a2-208a-4a54-a869-b3f526e93ccd.png)
 
 
 我们随便给它修改一下，加两行简单的标记，像这样：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-b271aef7ba3844f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-2a46b215-04e5-458a-b475-4dc31d7fe326.png)
 
 
 为了使我们新加的代码行生效，我们必须要重新去JDK源码的根目录中再次执行 `make images`重新编译生成JDK方可生效：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-5d35948c61ee8801.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-fd3cf88d-007e-4615-99b5-a3499c35ef40.png)
 
 
 因为之前已经全量编译过了，所以再次`make`的时候增量编译一般很快。
 
 重新编译之后，我们再次运行`JdkTest`项目，就可以看到改动的效果了：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-9e44c4851d71b82d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-33dc0de6-2690-4ba2-9fe7-0e450c44c07b.png)
 
 
 * * *
@@ -305,14 +315,14 @@
 
 比如，还是以上面例子中最简单的`System.out.println()`源码为例，我们添加几行中文注释：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-0994ca44784b5558.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-d6a44833-b908-4824-8862-1679bfdddfa3.png)
 
 
 这时候我们去JDK源码目录下编译会发现满屏类似这样的报错：
 
 > 错误: 编码 ascii 的不可映射字符
 
-![](https://upload-images.jianshu.io/upload_images/1179389-d830ae06a196161e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-ad0ca5a3-36c7-477d-bd58-d6731a87d762.png)
 
 
 顿时有点懵，毕竟仅仅是加了几行注释。对于我们来说，源码里写点多行的中文注释基本是**刚需**，然而编译竟会报错，这还能不能让人愉快的玩耍了... 当时后背有点发凉。
@@ -325,12 +335,12 @@
 
 `jdk源码根目录/make/common/SetupJavaCompilers.gmk`文件中有两处指定了`ascii`相关的编码方式：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-f8819768a06f1019.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-a86933af-f6d5-4d45-b4ca-33069a212c52.png)
 
 
 于是尝试将这两处`-encoding ascii`的均替换成`-encoding utf-8`：
 
-![](https://upload-images.jianshu.io/upload_images/1179389-31c43dadfdddaaec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/compile-jdk-c8117faf-d027-48d3-869b-32d0e98e8372.png)
 
 
 然后再次执行`make images`编译，编译顺利通过！
@@ -339,4 +349,8 @@
 至此大功告成！
 
 这样后面不管是**阅读**、**调试**还是**定制**`JDK`源码都非常方便了。
+
+---
+
+引用链接：https://segmentfault.com/a/1190000023251649
 
