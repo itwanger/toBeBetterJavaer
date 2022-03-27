@@ -1,7 +1,7 @@
 import { defineSidebarConfig } from "vuepress-theme-hope";
 export const sidebarConfig = defineSidebarConfig({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
-  "/download/": ["java","nicearticle"],
+  "/download/": ["java","nicearticle", "history"],
   "/xuexiluxian/": [
     {
       text: "Java学习路线",
@@ -50,8 +50,11 @@ export const sidebarConfig = defineSidebarConfig({
   // 必须放在最后面
   "/": [
     {
-      text: "Java核心",
-      icon: "java",
+      text: "一、前言",
+      link: "home.md",
+    },
+    {
+      text: "二、Java核心",
       collapsable: true,
       children: [
         {
@@ -275,8 +278,7 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
-      text: "Java企业级开发",
-      icon: "qiye",
+      text: "三、Java企业级开发",
       collapsable: true,
       children: [
         {
@@ -366,8 +368,7 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
-      text: "数据库",
-      icon: "shujuku",
+      text: "四、数据库",
       collapsable: true,
       children: [
         {
@@ -389,8 +390,7 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
-      text: "计算机基础",
-      icon: "jisuanjijichu",
+      text: "五、计算机基础",
       collapsable: true,
       children: [
         {
@@ -404,8 +404,7 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
-      text: "求职面试",
-      icon: "qiuzhi",
+      text: "六、求职面试",
       collapsable: true,
       children: [
         {
@@ -451,8 +450,7 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
-      text: "学习资源",
-      icon: "xuexiziyuan",
+      text: "七、学习资源",
       collapsable: true,
       children: [
         {
@@ -520,8 +518,7 @@ export const sidebarConfig = defineSidebarConfig({
       ],
     },
     {
-      text: "联系作者",
-      icon: "hezuozuozhe",
+      text: "八、联系作者",
       collapsable: true,
       children: [
         {
