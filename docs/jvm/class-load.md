@@ -16,7 +16,7 @@ tag:
 
 Java 在诞生的时候喊出了一个非常牛逼的口号：“Write Once, Run Anywhere”，为了达成这个目的，Sun 公司发布了许多可以在不同平台（Windows、Linux）上运行的 Java 虚拟机（JVM）——负责载入和执行 Java 编译后的字节码。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/class-load-7c6d4230-9154-4c7f-9ac1-122d39078442)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/class-load-01.png)
 
 
 到底 Java 字节码是什么样子，我们借助一段简单的代码来看一看。
@@ -167,7 +167,7 @@ sun.misc.Launcher$ExtClassLoader@15db9742
 
 如果以上三种类加载器不能满足要求的话，程序员还可以自定义类加载器（继承 `java.lang.ClassLoader` 类），它们之间的层级关系如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/class-load-fcef6ce9-5c54-4217-9681-8be69c456d8b)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/class-load-02.png)
 
 这种层次关系被称作为**双亲委派模型**：如果一个类加载器收到了加载类的请求，它会先把请求委托给上层加载器去完成，上层加载器又会委托上上层加载器，一直到最顶层的类加载器；如果上层加载器无法完成类的加载工作时，当前类加载器才会尝试自己去加载这个类。
 

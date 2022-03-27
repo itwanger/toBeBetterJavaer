@@ -44,7 +44,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode) # 使用的是H
 
 ## 二、Java 内存区域
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/java虚拟机运行时数据区.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-1d779fca-b6a4-4982-b746-2a8db7805645.png)
 
 
 ### 2.1 程序计数器
@@ -88,7 +88,7 @@ Java 堆（Java Heap）是虚拟机所管理的最大一块的内存空间，它
 
 + **指针碰撞**：假设 Java 堆中内存是绝对规整的，所有使用的内存放在一边，所有未被使用的内存放在另外一边，中间以指针作为分界点指示器。此时内存分配只是将指针向空闲方向偏移出对象大小的空间即可，这种方式被称为指针碰撞。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_指针碰撞.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-afb11e2b-f457-4a19-bb21-f659756061ec.png)
 
 
 + **空闲列表**：如果 Java 堆不是规整的，此时虚拟机需要维护一个列表，记录哪些内存块是可用的，哪些是不可用的。在进行内存分配时，只需要从该列表中选取出一块足够的内存空间划分给对象实例即可。
@@ -136,12 +136,12 @@ Java 堆（Java Heap）是虚拟机所管理的最大一块的内存空间，它
 
 通过句柄访问对象：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_通过句柄访问对象.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-f6b5eb22-a5af-40c0-8c80-00fdd6d16b1d.png)
 
 
 通过直接指针访问对象：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_通过直接指针访问对象.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-f696f4a8-af51-4e28-9d72-c2f6b1e5b3db.png)
 
 
 句柄访问的优点在于对象移动时（垃圾收集时移动对象是非常普遍的行为）只需要改变句柄中实例数据的指针，而  `reference`  本生并不需要修改；指针访问则反之，由于其 `reference` 中存储的直接就是对象地址，所以当对象移动时， `reference` 需要被修改。但针对只需要访问对象本身的场景，指针访问则可以减少一次定位开销。由于对象访问是一项非常频繁的操作，所以这类减少的效果会非常显著，基于这个原因，HotSpot 主要使用的是指针访问的方式。
@@ -172,7 +172,7 @@ System.gc();
 
 上面的代码在大多数虚拟机中都能被正确的回收，因为大多数主流的虚拟机都是采用的可达性分析方法来判断对象是否死亡。可达性分析是通过一系列被称为 `GC Roots` 的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径被称为引用链（Reference Chain），如果某个对象到 `GC Roots` 间没有任何引用链相连，这代表 `GC Roots` 到该对象不可达， 此时证明此该对象不可能再被使用。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_可达性分析.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-f1325549-5689-4398-a39c-c0a6836f6077.png)
 
 
 在 Java 语言中，固定可作为 `GC Roots` 的对象包括以下几种：
@@ -233,7 +233,7 @@ System.gc();
 
 它是最基础的垃圾收集算法，收集过程分为两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象；也可以反过来，标记存活对象，统一回收所有未被标记的对象。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_标记清除算法.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-7d489254-f1e0-4feb-bd4a-af129767a787.png)
 
 
 它主要有以下两个缺点：
@@ -248,7 +248,7 @@ System.gc();
 + 如果内存中多数对象都是存活的，这种算法将产生大量的复制开销；
 + 浪费内存空间，内存空间变为了原有的一半。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_标记复制算法.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-f4572b93-f7f3-41cc-9901-93816e79c789.png)
 
 
 基于新生代 “朝生夕灭” 的特点，大多数虚拟机都不会按照 1:1 的比例来进行内存划分，例如 HotSpot 虚拟机会将内存空间划分为一块较大的 `Eden` 和 两块较小的 `Survivor` 空间，它们之间的比例是 8:1:1 。 每次分配时只会使用 `Eden` 和其中的一块 `Survivor` ，发生垃圾回收时，只需要将存活的对象一次性复制到另外一块 `Survivor` 上，这样只有 10% 的内存空间会被浪费掉。当 `Survivor` 空间不足以容纳一次 `Minor GC` 时，此时由其他内存区域（通常是老年代）来进行分配担保。 
@@ -257,7 +257,7 @@ System.gc();
 
 标记-整理算法是在标记完成后，让所有存活对象都向内存的一端移动，然后直接清理掉边界以外的内存。其优点在于可以避免内存空间碎片化的问题，也可以充分利用内存空间；其缺点在于根据所使用的收集器的不同，在移动存活对象时可能要全程暂停用户程序：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_标记移动算法.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-e674c49f-c55b-4eba-95ea-34be62d55a78.png)
 
 
 ## 五、经典垃圾收集器
@@ -270,7 +270,7 @@ System.gc();
 
 HotSpot 虚拟机中一共存在七款经典的垃圾收集器：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_hotspot_垃圾收集器.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-1fa20f99-d203-42d6-982c-f1bd66a0c929.png)
 
 > 注：收集器之间存在连线，则代表它们可以搭配使用。
 
@@ -278,14 +278,14 @@ HotSpot 虚拟机中一共存在七款经典的垃圾收集器：
 
 Serial 收集器是最基础、历史最悠久的收集器，它是一个单线程收集器，在进行垃圾回收时，必须暂停其他所有的工作线程，直到收集结束，这是其主要缺点。它的优点在于单线程避免了多线程复杂的上下文切换，因此在单线程环境下收集效率非常高，由于这个优点，迄今为止，其仍然是 HotSpot 虚拟机在客户端模式下默认的新生代收集器：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_收集器1.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-ec6ec994-6fe4-4d5b-890c-7f31b5a607a0.png)
 
 
 ### 5.2 ParNew 收集器
 
 他是 Serial 收集器的多线程版本，可以使用多条线程进行垃圾回收：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_收集器2.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-ae8c47c7-538b-426a-85e4-d422d1c37683.png)
 
 
 ### 5.3 Parallel Scavenge 收集器
@@ -304,14 +304,14 @@ Parallel Scavenge 收集器提供两个参数用于精确控制吞吐量：
 
 从名字也可以看出来，它是 Serial 收集器的老年代版本，同样是一个单线程收集器，采用 标记-整理 算法，主要用于给客户端模式下的 HotSpot 虚拟机使用：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_收集器1.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-b199ece2-8de2-4f24-b50a-ea0c0d16bd7b.png)
 
 
 ### 5.5 Paralled Old 收集器
 
 Paralled Old 是 Parallel Scavenge 收集器的老年代版本，支持多线程并发收集，采用 标记-整理 算法实现：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_收集器3.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-30dd34d5-27df-4a6f-b391-5a7928dfb3ab.png)
 
 
 ### 5.6 CMS 收集器
@@ -323,7 +323,7 @@ CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时�
 3. **重新标记 (remark)**：采用增量更新算法，对并发标记阶段因为用户线程运行而产生变动的那部分对象进行重新标记，耗时比初始标记稍长且需要暂停用户线程；
 4. **并发清除 (inital sweep)**：并发清除掉已经死亡的对象，耗时长但不需要暂停用户线程。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_收集器4.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-7ad8d755-53f2-422a-9cea-c792b0579d8b.png)
 
 
 其优点在于耗时长的 并发标记 和 并发清除 阶段都不需要暂停用户线程，因此其停顿时间较短，其主要缺点如下：
@@ -336,7 +336,7 @@ CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时�
 
 Garbage First（简称 G1）是一款面向服务端的垃圾收集器，也是 JDK 9 服务端模式下默认的垃圾收集器，它的诞生具有里程碑式的意义。G1 虽然也遵循分代收集理论，但不再以固定大小和固定数量来划分分代区域，而是把连续的 Java 堆划分为多个大小相等的独立区域（Region）。每一个 Region 都可以根据不同的需求来扮演新生代的 `Eden` 空间、`Survivor` 空间或者老年代空间，收集器会根据其扮演角色的不同而采用不同的收集策略。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/G1_内存布局.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-e0f5da26-6e46-4f9d-bfcc-0842cc7079e7.png)
 
 
 上面还有一些 Region 使用 H 进行标注，它代表 Humongous，表示这些 Region 用于存储大对象（humongous object，H-obj），即大小大于等于 region 一半的对象。G1 收集器的运行大致可以分为以下四个步骤：
@@ -346,7 +346,7 @@ Garbage First（简称 G1）是一款面向服务端的垃圾收集器，也是 
 3. **最终标记 (Final Marking)**：对用户线程做一个短暂的暂停，用于处理并发阶段结束后仍遗留下来的少量的 STAB 记录。虽然并发标记阶段会处理 SATB 记录，但由于处理时用户线程依然是运行中的，因此依然会有少量的变动，所以需要最终标记来处理；
 4. **筛选回收 (Live Data Counting and Evacuation)**：负责更新 Regin 统计数据，按照各个 Regin 的回收价值和成本进行排序，在根据用户期望的停顿时间进行来指定回收计划，可以选择任意多个 Regin 构成回收集。然后将回收集中 Regin 的存活对象复制到空的 Regin 中，再清理掉整个旧的 Regin 。此时因为涉及到存活对象的移动，所以需要暂停用户线程，并由多个收集线程并行执行。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_收集器5.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-3cf7a78a-d541-49af-929a-4bf8f4f0edd9.png)
 
 
 ### 5.8 内存分配原则
@@ -379,7 +379,7 @@ Java 虚拟机把描述类的数据从 Class 文件加载到内存，并对数�
 
 一个类型从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期将会经历加载、验证、准备、卸载、解析、初始化、使用、卸载七个阶段，其中验证、准备、解析三个部分统称为连接：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_类的生命周期.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-e154964a-9a0a-46de-bf37-75b483956d6c.png)
 
 
 《Java 虚拟机规范》严格规定了有且只有六种情况必须立即对类进行初始化：
@@ -458,7 +458,7 @@ Java 虚拟机把描述类的数据从 Class 文件加载到内存，并对数�
 
 JDK 9 之前的 Java 应用都是由这三种类加载器相互配合来完成加载：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_双亲委派模型.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-c1fcdc37-4e5a-4ed3-94b1-ad4afa2dba7c.png)
 
 
 上图所示的各种类加载器之间的层次关系被称为类加载器的 “双亲委派模型”，“双亲委派模型” 要求除了顶层的启动类加载器外，其余的类加载器都应该有自己的父类加载器，需要注意的是这里的加载器之间的父子关系一般不是以继承关系来实现的，而是使用组合关系来复用父类加载器的代码。
@@ -473,7 +473,7 @@ JDK 9 之后为了适应模块化的发展，类加载器做了如下变化：
 + 当平台及应用程序类加载器收到类加载请求时，要首先判断该类是否能够归属到某一个系统模块中，如果可以找到这样的归属关系，就要优先委派给负责那个模块的加载器完成加载；
 + 启动类加载器、平台类加载器、应用程序类加载器全部继承自 `java.internal.loader.BuiltinClassLoader` ，BuiltinClassLoader 中实现了新的模块化架构下类如何从模块中加载的逻辑，以及模块中资源可访问性的处理。
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/jvm_jdk9_双亲委派模型.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-04b18ddb-3457-4e46-ba53-78237d234e37.png)
 
 
 ## 七、程序编译
@@ -506,7 +506,7 @@ JDK 9 之后为了适应模块化的发展，类加载器做了如下变化：
 
 以上层次并不是固定不变的，根据不同的运行参数和版本，虚拟机可以调整分层的数量。各层次编译之间的交互转换关系如下图所示：
 
-![](https://gitee.com/heibaiying/Full-Stack-Notes/raw/master/pictures/分层编译的交互关系.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zongjie-2188c350-fdb8-4fee-b2f0-5311795f386b.png)
 
 
 实施分层编译后，解释器、客户端编译器和服务端编译器就会同时工作，可以用客户端编译器获取更高的编译速度、用服务端编译器来获取更好的编译质量。

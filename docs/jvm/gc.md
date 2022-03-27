@@ -31,13 +31,13 @@ tag:
 
 先创建一个字符串，这时候"jack"有一个引用，就是 m。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-4582bb244165acc4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-691109d2-bee4-4a79-8da6-87c5fd233f54.jpg)
 
 然后将 m 设置为 null，这时候"jack"的引用次数就等于0了，在引用计数算法中，意味着这块内容就需要被回收了。
 
 **m = null;**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-048b1138f853f7eb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-74865618-4576-4f8b-baf3-17d6a71125b9.jpg)
 
 引用计数算法是将垃圾回收分摊到整个应用程序的运行当中了，而不是在进行垃圾收集时，要挂起整个应用的运行，直到对堆中所有对象的处理都结束。因此，采用引用计数的垃圾收集不属于严格意义上的"Stop-The-World"的垃圾收集机制。
 
@@ -68,7 +68,7 @@ b = null;
 **2\. 相互引用**
 **3\. 置空各自的声明引用**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-86b2c41b63437f88.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-fe980c00-3605-4b5d-a711-7edbfd2c80b0.jpg)
 
 我们可以看到，最后这2个对象已经不可能再被访问了，但由于他们相互引用着对方，导致它们的引用计数永远都不会为0，通过引用计数算法，也就永远无法通知GC收集器回收它们。
 
@@ -76,7 +76,7 @@ b = null;
 
 可达性分析算法（Reachability Analysis）的基本思路是，通过一些被称为引用链（GC Roots）的对象作为起点，从这些节点开始向下搜索，搜索走过的路径被称为（Reference Chain)，当一个对象到 GC Roots 没有任何引用链相连时（即从 GC Roots 节点到该节点不可达），则证明该对象是不可用的。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-696ce5e5d3727f0b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-1636ce77-77b3-4b10-b75a-c0c2d28912c5.jpg)
 
 通过可达性算法，成功解决了引用计数所无法解决的问题-“循环依赖”，只要你无法与 GC Root 建立直接或间接的连接，系统就会判定你为可回收对象。那这样就引申出了另一个问题，哪些属于 GC Root。
 
@@ -89,7 +89,7 @@ b = null;
 *   方法区中常量引用的对象
 *   本地方法栈中 JNI（即一般说的 Native 方法）引用的对象
 
-![](https://upload-images.jianshu.io/upload_images/1179389-5b483f86d4aad226.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-6abf9f50-dc53-4e8f-a7f6-3e74df8803d6.jpg)
 
 1、虚拟机栈（栈帧中的本地变量表）中引用的对象
 此时的 s，即为 GC Root，当s置空时，localParameter 对象也断掉了与 GC Root 的引用链，将被回收。
@@ -141,7 +141,7 @@ s = null;
 4、本地方法栈中引用的对象
 任何 native 接口都会使用某种本地方法栈，实现的本地方法接口是使用 C 连接模型的话，那么它的本地方法栈就是 C 栈。当线程调用 Java 方法时，虚拟机会创建一个新的栈帧并压入 Java 栈。然而当它调用的是本地方法时，虚拟机会保持 Java 栈不变，不再在线程的 Java 栈中压入新的帧，虚拟机只是简单地动态连接并直接调用指定的本地方法。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-71a5f9fe99025832.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-a138a4b4-56cb-4d6f-a65a-7f4259977476.jpg)
 
 ### 怎么回收垃圾
 
@@ -149,7 +149,7 @@ s = null;
 
 **标记 --- 清除算法**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-bafcd58836e2de69.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-2001e224-0f34-4429-bc89-a8fbe8ab271c.jpg)
 
 标记清除算法（Mark-Sweep）是最基础的一种垃圾回收算法，它分为2部分，先把内存区域中的这些对象进行标记，哪些属于可回收标记出来，然后把这些垃圾拎出来清理掉。就像上图一样，清理掉的垃圾就变成未使用的内存区域，等待被再次使用。
 
@@ -159,7 +159,7 @@ s = null;
 
 **复制算法**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-129240ac460cb06e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-a2b15e6f-6921-4710-bf76-77858df38c27.jpg)
 
 复制算法（Copying）是在标记清除算法上演化而来，解决标记清除算法的内存碎片问题。它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。保证了内存的连续可用，内存分配时也就不用考虑内存碎片等复杂情况，逻辑清晰，运行高效。
 
@@ -167,7 +167,7 @@ s = null;
 
 **标记整理算法**
 
-![](https://upload-images.jianshu.io/upload_images/1179389-d931502c610a971c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-2d47a225-ad9d-4f15-9b4d-7dce9a693adf.jpg)
 
 标记整理算法（Mark-Compact）标记过程仍然与标记 --- 清除算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，再清理掉端边界以外的内存区域。
 
@@ -177,7 +177,7 @@ s = null;
 
 ### 内存模型与回收策略
 
-![](https://upload-images.jianshu.io/upload_images/1179389-11711b193fa3c146.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/gc-59dddea1-b6bc-4fd4-bb79-d81adbdc7bed.jpg)
 
 Java 堆（Java Heap）是JVM所管理的内存中最大的一块，堆又是垃圾收集器管理的主要区域，这里我们主要分析一下 Java 堆的结构。
 
