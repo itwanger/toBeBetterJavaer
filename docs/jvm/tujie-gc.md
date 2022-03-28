@@ -135,6 +135,6 @@ Survivor 区相当于是 Eden 区和 Old 区的一个缓冲，类似于我们交
 
 ----
 
-参考链接：https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A
+参考链接：[https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A](https://mp.weixin.qq.com/s/RQGImK3-SrvJfs8eYCiv4A)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
