@@ -21,20 +21,20 @@ B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作
 
 01、小甲鱼零基础入门学习Python，1669.8万播放。画面虽然有点儿童风，但配合 up 幽默的教学风格到也显得非常有意思。
 
->https://www.bilibili.com/video/av4050443
+>[https://www.bilibili.com/video/av4050443](https://www.bilibili.com/video/av4050443)
 
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-2.png)
 
 02、Python从入门到精通教程，1165.8万播放。虽然是培训机构出品的，但视频质量还过得去，也比较像大学老师的授课风格，况且还可以白票。前 100 集在讲 Linux 基础，没兴趣的可以直接跳过。
 
->https://www.bilibili.com/video/av14184325
+>[https://www.bilibili.com/video/av14184325](https://www.bilibili.com/video/av14184325)
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-3.png)
 
 03、Python编程从入门到实践，84.4万播放。虽然播放量一般，内容也一般，但如果想听萝莉小姐姐的声音的话，可以尝试下，听完整个人都治愈了。
 
->https://www.bilibili.com/video/av35698354
+>[https://www.bilibili.com/video/av35698354](https://www.bilibili.com/video/av35698354)
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-4.png)
 
@@ -45,11 +45,11 @@ B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-5.png)
 
->https://docs.python.org/zh-cn/3/
+>[https://docs.python.org/zh-cn/3/](https://docs.python.org/zh-cn/3/)
 
 02、Python - 100天从新手到大师，112k star，足见受到的关注程度。
 
->https://github.com/jackfrued/Python-100-Days
+>[https://github.com/jackfrued/Python-100-Days](https://github.com/jackfrued/Python-100-Days)
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-6.png)
 
@@ -58,4 +58,6 @@ B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-7.png)
 
->https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html
+>[https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html](https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
