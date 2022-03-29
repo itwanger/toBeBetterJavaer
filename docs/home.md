@@ -62,7 +62,9 @@ headerDepth: 1
 除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
 
 
+  * [Java学习路线一条龙版（建议收藏:+1:）](xuexiluxian/java/yitiaolong.md)
   * [Java并发编程学习路线（建议收藏:+1:）](xuexiluxian/java/thread.md)
+  * [Java虚拟机学习路线（建议收藏:+1:）](xuexiluxian/java/jvm.md)
   * [C语言学习路线（建议收藏:+1:）](xuexiluxian/c.md)
   * [C++学习路线（建议收藏:+1:）](xuexiluxian/ccc.md)
   * [Python学习路线（建议收藏:+1:）](xuexiluxian/python.md)
