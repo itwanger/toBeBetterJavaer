@@ -134,7 +134,7 @@ tag:
 - 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#javascript)
 
 
-![](ttps://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/qianduan-books.jpg)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/qianduan-books.jpg)
 
 简单罗列一下：
 

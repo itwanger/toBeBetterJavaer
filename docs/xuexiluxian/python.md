@@ -67,7 +67,7 @@ B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作
 - 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#python)
 
 
-![](ttps://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-books.jpg)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-books.jpg)
 
 简单罗列一下：
 
