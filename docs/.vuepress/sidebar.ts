@@ -10,9 +10,19 @@ export const sidebarConfig = defineSidebarConfig({
       collapsable: true,
       children: [
         {
+          text: "一条龙版",
+          icon: "java",
+          link: "yitiaolong.md",
+        },
+        {
           text: "并发编程学习路线",
           icon: "duoxiancheng",
           link: "thread.md",
+        },
+        {
+          text: "JVM学习路线",
+          icon: "JVM",
+          link: "jvm.md",
         },
       ],
     },

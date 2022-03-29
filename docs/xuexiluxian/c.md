@@ -20,9 +20,9 @@ tag:
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-1.png)
 
-直接长按扫描下方二维码，关注后回复 「**C语言**」 下载这份 PDF 吧：
+直接长按识别/扫描下方二维码，关注后回复 「**08**」 下载这份 PDF 吧：
 
-![扫码关注后回复「C语言」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「08」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 
@@ -32,7 +32,7 @@ tag:
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-2.png)
 
->视频地址：https://www.icourse163.org/course/ZJU-199001
+>视频地址：[https://www.icourse163.org/course/ZJU-199001](https://www.icourse163.org/course/ZJU-199001)
 
 看完这套视频，大家至少能学到：
 
@@ -41,7 +41,7 @@ tag:
 
 学完这门入门课后，可以再看一下进阶版的。课程以一个 Windows 下的图形游戏程序入手，借助一个 C 语言图形库，展开全部的教学内容，非常有趣。
 
->视频地址：https://www.icourse163.org/course/ZJU-200001
+>视频地址：[https://www.icourse163.org/course/ZJU-200001](https://www.icourse163.org/course/ZJU-200001)
 
 这里给大家一点看视频的小建议哈。
 
@@ -126,7 +126,7 @@ C语言有两个关键部分：
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-6.jpg)
 
->课程地址：https://www.lanqiao.cn/courses/75
+>课程地址：[https://www.lanqiao.cn/courses/75](https://www.lanqiao.cn/courses/75)
 
 
 通过这个 lab，大家可以学到：
@@ -142,7 +142,7 @@ C语言有两个关键部分：
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-7.png)
 
 
->课程地址：https://www.shiyanlou.com/courses/670
+>课程地址：[https://www.shiyanlou.com/courses/670](https://www.shiyanlou.com/courses/670)
 
 通过这个 lab，大家可以学到：
 
@@ -161,7 +161,7 @@ C语言有两个关键部分：
 
 这个 lab 翻译自国外的 build your own lisp：
 
->https://buildyourownlisp.com/
+>[https://buildyourownlisp.com/](https://buildyourownlisp.com/)
 
 如果英语功底比较扎实的话，可以直接看原版。
 
@@ -202,9 +202,27 @@ C语言有两个关键部分：
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-12.png)
 
-尽管我不推荐大家看书入门，但我知道很多读者还是喜欢通过看书的方式学习。直接长按扫描下方二维码，关注后回复 「**C语言**」 下载这 PDF 版吧：
+尽管我不推荐大家看书入门，但我知道很多读者还是喜欢通过看书的方式学习。直接长按扫描下方二维码，关注后回复 「**C**」 下载这 PDF 版吧：
 
 ![（长按扫码识别）](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+
+更多 C语言的学习资料，可以直接戳我整理的这个 GitHub/码云仓库——📚程序员必读书单整理，附下载地址，里面有大量的 C语言学习资料。
+
+- GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks#c)
+- 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#c)
+
+![](ttps://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-books.png)
+
+简单罗列一下：
+
+- 深度探索C  对象模型
+- 数据结构与算法分析--C语言描述
+- C Primer Plus（第五版） 
+- C程序设计语言（第二版，中文版）
+- C和指针
+- C陷阱与缺陷
+- C专家编程
 
 -------
 
@@ -222,11 +240,10 @@ C语言有两个关键部分：
 
 以上，希望能帮助到大家！
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/c-13.png)
-
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
 
 
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 
 

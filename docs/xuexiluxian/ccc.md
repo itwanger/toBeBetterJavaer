@@ -10,7 +10,7 @@ tag:
 
 学习 C++ 语法，首推《C++ Primer 第五版》。我在参加第一份工作的时候，就买过一本《C++ Primer 第四版》，这本书一直不舍得扔，尽管它已经非常破了，但我们之间的感情是深厚的，毕竟跟随我辗转了好几个城市了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/ccc-1.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/ccc-primer-book.png)
 
 *是不是一下子就暴露自己工作年限了*？
 
@@ -38,6 +38,28 @@ tag:
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/ccc-5.png)
 
-我从网上 down 了一份，保存到了本地。需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**侯捷**」就可以拉取到了。
+我从网上 down 了一份，保存到了本地。需要的小伙伴请长按识别/扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**cpp**」就可以拉取到了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![回复关键字「**cpp**」](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+更多 C++ 的学习资料，可以直接戳我整理的这个 GitHub/码云仓库——📚程序员必读书单整理，附下载地址，里面有大量的 C++ 学习资料。
+
+- GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks#c-1)
+- 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#c-1)
+
+
+![](ttps://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/cpp-books.png)
+
+简单罗列一下：
+
+- 大规模c++程序设计
+- 牛客校招面试题（附答案与解析）c++篇
+- 深度探索C++对象模型 PDF中文清晰版
+- 深入理解c11(c11新特性解析与应用)
+- C++ Primer 第五版--- 高清版
+- C++语言的设计和演化
+- Effective.Modern.C++ - 中文版
+- Effective+STL中文版：50条有效使用STL的经验
+- More Effective C++中文
+- STL源码剖析--侯捷
+

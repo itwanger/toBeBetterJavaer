@@ -60,4 +60,25 @@ B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作
 
 >[https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html](https://python3-cookbook.readthedocs.io/zh_CN/latest/index.html)
 
+
+更多 Python 的学习资料，可以直接戳我整理的这个 GitHub/码云仓库——📚程序员必读书单整理，附下载地址，里面有大量的 Python 学习资料。
+
+- GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks#python)
+- 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#python)
+
+
+![](ttps://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/python-books.png)
+
+简单罗列一下：
+
+- 《Python+Cookbook》第三版中文
+- 编程小白的第一本Python入门书
+- 可爱的Python_中文版
+- 利用Python进行数据分析
+- 流畅的python
+- 深入浅出：使用Python编程
+- 用Python进行自然语言处理
+- Python编程：从入门到实践
+- PYTHON自然语言处理【中文版】
+
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

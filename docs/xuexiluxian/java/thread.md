@@ -2,6 +2,7 @@
 star: true
 category:
   - 学习路线
+  - 并发编程
 tag:
   - Java
 ---
@@ -29,25 +30,55 @@ tag:
 
 ### 二、Java 并发学习路线图
 
-给大家看一张 pdai.tech 学习网站上总结的一张关于 Java 并发编程的思维导图，非常清晰，一目了然，包含了理论基础、线程基础、synchronized、volatile、final关键字，以及JUC框架等核心内容。
+这是我最近整理的一张关于 Java 并发编程的思维导图，大的方向可以分为三个部分：线程基础、理论基础、工具类 JUC。
 
->网站地址：https://pdai.tech/
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-thread-map.png)
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-concurrent-overview-1.png)
+线程基础部分包括：
 
-如果想总览 Java 并发编程的关键知识点的话，这张思维导图还是非常值得参考的。
+- 线程的创建方式
+- 线程的状态切换
+- 线程的基本操作
+- 线程组和线程优先级
+
+理论基础包括：
+
+- 进程和线程的区别
+- 多线程解决了什么问题，又带来了什么问题？
+- 如何解决并发问题？包括 Java 内存模型，以及两个常见的关键字 volatile 和 synchronized
+
+工具类 JUC 包括：
+
+- 锁 Lock 系的 AQS、ReentrantLock、ReentrantReadWriteLock、Condition、LockSupport
+- 并发容器系的 ConcurrentHashMap、ConcurrentLinkedQueue、CopyOnWriteArrayList、ThreadLocal、BlockingQueue
+- 线程池系的 ThreadPoolExecutor、ScheduledThreadPoolExecutor
+- 原子系的 AtomicInteger、AtomicIntegerArray、AtomicReference 等等
+- 通信工具系的倒计时器 CountDownLatch、循环栅栏 CyclicBarrier、资源访问控制 Semaphore、数据交换 Exchanger、移相器Phaser
+- Fork/Join框架
+
+最后再来个经典的生产者消费者模式进行实践，整个 Java 并发体系就学得非常扎实了！
 
 ### 三、硬核 Java 并发学习资料
 
-**1）视频**
+**1）Java 程序员进阶之路**
+
+学 Java，当然要找 Java 程序员进阶之路，网址我贴下面了哈：
+
+>[https://tobebetterjavaer.com/home.html#java并发编程](https://tobebetterjavaer.com/home.html#java并发编程)
+
+进去直接找 Java 核心里面的 Java 并发编程就对了。我按照前面的思维导图整理了 27 篇文章，全部都是硬核级别的，跟着学就对了。
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-thread-map-1.png)
+
+**2）视频**
 
 懂的都懂，看视频到 B 站。黑马的《Java并发编程》评价还不错，300 多个小节，我觉得讲的比较好的有三部分：synchronized优化原理、AQS和线程池。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-thread-4.png)
 
->视频地址：https://www.bilibili.com/video/BV16J411h7Rd
+>视频地址：[https://www.bilibili.com/video/BV16J411h7Rd](https://www.bilibili.com/video/BV16J411h7Rd)
 
-**2）书籍**
+**3）书籍**
 
 纸质书只推荐一本《[Java 并发编程实战](https://book.douban.com/subject/10484692/)》，豆瓣评分 9.0。不过这本书确实有点老了，基本上是按照 Java 6 来讲解的，希望出版社能早点出 2.0 版。
 
@@ -68,13 +99,13 @@ tag:
 
 
 
-**3）开源电子书**
+**4）开源电子书**
 
 推荐 RedSpider社区的[深入浅出 Java 多线程](http://concurrent.redspider.group/RedSpider.html)，比Java 并发编程实战更通俗易懂一些，因为里面穿插了很多精美的手绘图。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-thread-6.png)
 
->GitHub地址：https://github.com/RedSpider1/concurrent
+>GitHub地址：[https://github.com/RedSpider1/concurrent](https://github.com/RedSpider1/concurrent)
 
 考虑到有些小伙伴可能需要 [PDF 版本](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)，我花了一周的时间整理了一份，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**并发**」就可以拉取到了。
 
@@ -82,19 +113,14 @@ tag:
 
 再推荐一份 GitHub 上星标 3.6k+ 的 Java 并发知识点总结：
 
->https://github.com/CL0610/Java-concurrency
+>[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency)
 
 仓库里有一句话我非常喜欢，也分享给各位小伙伴：
 
 >努力的意义，就是，在以后的日子里，放眼望去全是自己喜欢的人和事！
 
-顺带再推荐一份完整的Java 并发学习笔记：
 
->http://www.blogjava.net/xylz/archive/2010/07/08/325587.html
-
-
-
-**4）付费专栏**
+**5）付费专栏**
 
 王宝令老师在极客时间上开了一门《Java 并发编程实战》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11cBH)去购买。
 
@@ -105,15 +131,15 @@ tag:
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-thread-7.png)
 
-为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java 程序员进阶之路》上。路径一：Java核心→Java并发编程→面渣逆袭
+为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java 程序员进阶之路》上，面渣逆袭 Java 并发篇：
 
->https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A
+>[https://tobebetterjavaer.com/sidebar/sanfene/javathread.html](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
 
-路径二：求职面试→八股文→Java并发编程八股文（背诵版）
+Java 并发编程八股文（背诵版）：
 
->https://mp.weixin.qq.com/s/HEzi-UKs-hpWhTh_HPWaMQ
+>[https://tobebetterjavaer.com/baguwen/java-thread.html](https://tobebetterjavaer.com/baguwen/java-thread.html)
 
-这两份八股文的质量都非常高，来看一下「[AQS了解多少](https://tobebetterjavaer.com/#/docs/thread/sanfene/aqs)」小节下的内容，图文并茂，非常容易消化和吸收。
+这两份八股文的质量都非常高，来看一下AQS了解多少小节下的内容，图文并茂，非常容易消化和吸收。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java-thread-8.png)
 
@@ -171,8 +197,15 @@ Java 提供的并发组件，大致可以分为两类：
 
 听我这么一说，是不是一下子就清晰多了！
 
+另外，需要 Java 学习资料的话，可以直接戳我整理的这个 GitHub/码云仓库——📚Java程序员必读书单整理，附下载地址，助力每一个Java程序员构建属于自己的知识体系。包括但不限于Java、设计模式、计算机网络、操作系统、数据库、数据结构与算法、大数据、架构、面试等等。
+
+- GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
+- 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks)
+
+给大家截图展示一下里面都有哪些优质的 PDF：
+
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexiluxian/java/java-books.jpg)
+
 **Java 并发编程虽然难学，会涉及到操作系统、CPU、内存等偏基础方面的内容，但如果你能坚持学下去，内功自然而然就提升了一大截**。
 
-参考资料：
-
->小熊的技术之路：https://zhuanlan.zhihu.com/p/25577863
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
