@@ -56,6 +56,11 @@ export const sidebarConfig = defineSidebarConfig({
       link: "qianduan.md",
       icon: "_qianduankaifa",
     },
+    {
+      text: "蓝桥杯学习路线",
+      link: "lanqiaobei.md",
+      icon: "lanqiao-logo",
+    },
   ],
   // 必须放在最后面
   "/": [
@@ -393,6 +398,7 @@ export const sidebarConfig = defineSidebarConfig({
           collapsable: true,
           children: [
             "redis/rumen",
+            "redis/xuebeng-chuantou-jichuan",
           ],
         },
         {
@@ -408,14 +414,15 @@ export const sidebarConfig = defineSidebarConfig({
     {
       text: "五、计算机基础",
       collapsable: true,
+      prefix: "cs/",
       children: [
         {
           text: "计算机操作系统",
-          link: "https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ",
+          link: "os",
         },
         {
           text: "计算机网络",
-          link: "https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw",
+          link: "wangluo",
         },
       ],
     },
@@ -529,6 +536,15 @@ export const sidebarConfig = defineSidebarConfig({
               icon: "xiazai",
               link: "download/jianli.md",
             },
+          ],
+        },
+        {
+          text: "学习建议",
+          icon: "xuexijianyi",
+          collapsable: true,
+          prefix: "xuexijianyi/",
+          children: [
+              "read-csapp",
           ],
         },
       ],

@@ -1,5 +1,9 @@
 # 网络日志
 
+### 2022年03月31日
+
+- [增加学习建议板块](http://localhost:8080/home.html#学习建议)
+
 ### 2022年03月29日
 
 - [修改学习路线部分的404错误](https://tobebetterjavaer.com/xuexiluxian/)
