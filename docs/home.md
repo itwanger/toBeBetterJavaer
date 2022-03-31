@@ -59,7 +59,7 @@ headerDepth: 1
 ## 学习路线
 
 
-除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端等硬核学习路线，欢迎收藏品鉴！
+除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
 
 
   * [Java学习路线一条龙版（建议收藏:+1:）](xuexiluxian/java/yitiaolong.md)
@@ -71,6 +71,7 @@ headerDepth: 1
   * [Go语言学习路线（建议收藏:+1:）](xuexiluxian/go.md)
   * [操作系统学习路线（建议收藏:+1:）](xuexiluxian/os.md)
   * [前端学习路线（建议收藏:+1:）](xuexiluxian/qianduan.md)
+  * [蓝桥杯学习路线（建议收藏:+1:）](xuexiluxian/lanqiaobei.md)
 
 ## Java核心
 
@@ -310,6 +311,7 @@ headerDepth: 1
 ### Redis
 
 - [Redis入门(适合新手)](redis/rumen.md)
+- [简单聊聊缓存雪崩、穿透、击穿](redis/xuebeng-chuantou-jichuan.md)
 
 
 ### MongoDB
@@ -321,8 +323,8 @@ headerDepth: 1
 
 **计算机基础包括操作系统、计算机网络、计算机组成原理、数据结构与算法等**。对于任何一名想要走得更远的 Java 后端开发来说，都是必须要花时间和精力去夯实的。万丈高露平地起，勿在浮沙筑高台。
 
-- [计算机操作系统知识点大梳理](https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ)
-- [计算机网络核心知识点大梳理](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
+- [计算机操作系统知识点大梳理](cs/os.md)
+- [计算机网络核心知识点大梳理](cs/wangluo.md)
 
 ## 求职面试
 
@@ -378,7 +380,6 @@ headerDepth: 1
 
 ## 学习资源
 
-
  - **不知道学什么？不知道该怎么学？找不到优质的学习资源**？这些问题在这里统统都可以找到答案。
  - 我会把自己十多年的编程经验和学习资源毫不保留的分享出来。
 
@@ -396,6 +397,10 @@ headerDepth: 1
 - [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
 - [👏下载→豆瓣9.1分，Pro Git中文版](download/progit.md)
 - [👏下载→简历模板](download/jianli.md)
+
+### 学习建议
+
+- [如何阅读《深入理解计算机系统》这本书？](xuexijianyi/read-csapp.md)
 
 
 ## 知识库搭建历程
