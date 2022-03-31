@@ -256,7 +256,8 @@ headerDepth: 1
 
 ### Spring
 
-- [Spring IoC扫盲](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
+- [Spring AOP扫盲](springboot/aop-log.md)
+- [Spring IoC扫盲](docs/springboot/ioc.md)
 
 ### SpringBoot
 

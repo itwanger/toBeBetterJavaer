@@ -317,8 +317,12 @@ export const sidebarConfig = defineSidebarConfig({
           collapsable: true,
           children: [
             {
+              text: "Spring AOP扫盲",
+              link: "springboot/aop-log",
+            },
+            {
               text: "Spring IoC扫盲",
-              link: "https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w",
+              link: "springboot/ioc",
             },
           ],
         },

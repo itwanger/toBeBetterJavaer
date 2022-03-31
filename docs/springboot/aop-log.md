@@ -1,4 +1,11 @@
-## Spring Boot AOP 扫盲，实现接口访问的统一日志记录
+---
+category:
+  - Java企业级开发
+tag:
+  - Spring
+---
+
+# Spring AOP 扫盲
 
 AOP 是 Spring 体系中非常重要的两个概念之一（另外一个是 IoC），今天这篇文章就来带大家通过实战的方式，在编程猫 SpringBoot 项目中使用 AOP 技术为 controller 层添加一个切面来实现接口访问的统一日志记录。
 
@@ -157,13 +164,15 @@ public class WebLogAspect {
 >Swagger knife4j 访问地址：http://localhost:9022/doc.html
 
 执行登录用户查询操作：
+
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/aop-log-3.png)
+
 可以在控制台可以看到以下日志信息：
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/aop-log-4.png)
 源码地址：
 
->https://github.com/itwanger/coding-more
+>[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 
 参考链接：
 
@@ -173,17 +182,4 @@ public class WebLogAspect {
 >macrozheng：https://github.com/macrozheng/mall
 
 
-----
-
-**本篇已收录至 GitHub 上星标 1.6k+ star 的开源专栏《Java 程序员进阶之路》，据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。学 Java，就认准 Java 程序员进阶之路**😄。
-
-[https://github.com/itwanger/toBeBetterJavaer](https://github.com/itwanger/toBeBetterJavaer)
-
-star 了这个仓库就等于你拥有了成为了一名优秀 Java 工程师的潜力。也可以戳下面的链接跳转到《Java 程序员进阶之路》的官网网址，开始愉快的学习之旅吧。
-
-[https://tobebetterjavaer.com/](https://tobebetterjavaer.com/)
-
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/aop-log-5.png)
-
-
-*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
