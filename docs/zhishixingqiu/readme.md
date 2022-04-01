@@ -142,7 +142,7 @@ date: 2022-03-17
 
 进入星球后，你还可以添加我的微信，加入星球专属的交流群，非诚勿扰！
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/qiyeweixin.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/qiye-weixin.png)
 
 **真诚欢迎想要进阶提升的小伙伴加入星球一起交流，真心希望能帮助到更多的小伙伴**。
 
