@@ -567,4 +567,6 @@ Object obj = new Object();
 
 ---
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+>作者：moon聊技术，转载链接：[https://mp.weixin.qq.com/s/aTWtqPyMQ-6P_c8iuMVrkg](https://mp.weixin.qq.com/s/aTWtqPyMQ-6P_c8iuMVrkg)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
