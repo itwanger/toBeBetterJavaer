@@ -36,6 +36,8 @@
 > 
 > - [Java 程序员进阶之路在线阅读网站（VuePress 版）](https://tobebetterjavaer.com/)
 > - [Java 程序员进阶之路在线阅读网站（docsify 版）](https://docsify.tobebetterjavaer.com/)
+> 
+> 建议给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
 
 
 # 知识库地图
