@@ -72,6 +72,7 @@ headerDepth: 1
   * [操作系统学习路线（建议收藏:+1:）](xuexiluxian/os.md)
   * [前端学习路线（建议收藏:+1:）](xuexiluxian/qianduan.md)
   * [蓝桥杯学习路线（建议收藏:+1:）](xuexiluxian/lanqiaobei.md)
+  * [算法和数据结构学习路线（建议收藏:+1:）](xuexiluxian/algorithm.md)
 
 ## Java核心
 

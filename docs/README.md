@@ -22,7 +22,7 @@ actions:
 
 ## 推荐阅读 
 
-- [CS 学习指南👉](/xuexiluxian/) : 一份涵盖 Java、C 语言、C++、Python、Go、前端、操作系统、蓝桥杯的全方位 CS 学习路线！清晰且有效！
+- [CS 学习指南👉](/xuexiluxian/) : 一份涵盖 Java、C 语言、C++、Python、Go、前端、操作系统、蓝桥杯、算法和数据结构的全方位 CS 学习路线！清晰且有效！
 - [Java程序员常读书单📚，附下载地址](https://gitee.com/itwanger/JavaBooks) : 助力Java 程序员构建最强知识体系，涵盖Java、设计模式、数据库、数据结构与算法、大数据、架构等等，再也不用辛苦去找下载地址了。
 - [编程喵喵🐱实战项目学习教程](https://github.com/itwanger/codingmore-learning) ：codingmore（Spring Boot+Vue 的前后端分离项目，一款值得一试的开源知识库学习网站）的学习教程，需要项目经验的 Java 开发者必备！
 - [优质文章精选集📗](download/nicearticle.md) ：精选一些 Java 程序员应该读一读的优质文章，帮你少走一些弯路！

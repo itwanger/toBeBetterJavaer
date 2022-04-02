@@ -63,6 +63,7 @@
   * [操作系统学习路线（建议收藏:+1:）](docs/xuexiluxian/os.md)
   * [前端学习路线（建议收藏:+1:）](docs/xuexiluxian/qianduan.md)
   * [蓝桥杯学习路线（建议收藏:+1:）](docs/xuexiluxian/lanqiaobei.md)
+  * [算法和数据结构学习路线（建议收藏:+1:）](docs/xuexiluxian/algorithm.md)
 
 # Java核心
 

@@ -89,8 +89,8 @@ Java 语言数据类型分为两种：**基本数据类型**和**引用数据类
 <b>基本数据类型：</b>
 
 - 数值型
-  - 整数类型（byte、short、long）
-  - 浮点类型（float、long）
+  - 整数类型（byte、short、int、long）
+  - 浮点类型（float、double）
 - 字符型（char）
 - 布尔型（boolean）
 
