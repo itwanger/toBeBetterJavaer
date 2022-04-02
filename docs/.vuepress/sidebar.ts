@@ -61,6 +61,11 @@ export const sidebarConfig = defineSidebarConfig({
       link: "lanqiaobei.md",
       icon: "lanqiao-logo",
     },
+    {
+      text: "算法和数据结构学习路线",
+      link: "algorithm.md",
+      icon: "algorithm",
+    },
   ],
   // 必须放在最后面
   "/": [
