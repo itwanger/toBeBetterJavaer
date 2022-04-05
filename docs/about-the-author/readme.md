@@ -80,7 +80,7 @@ B 站还比较菜，目前只有一个 10 万+播放量的视频，等我的开�
 
 喜欢的小伙伴可以直接扫码加入。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-4bda0674-57e7-45ae-b6d2-53d44b265791.png)
+![](http://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu-youhui30yuan.png)
 
 ## 二、为什么叫沉默王二
 
