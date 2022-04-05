@@ -23,7 +23,7 @@ IC 就是半导体元件产品的统称，主要分为数字 IC 和模拟 IC。�
 
 从入门门槛上来看，模拟比数字的门槛高一些，模拟如果想做的好一点，研究生学历是必须的，读博更好；数字门槛也不能说低，如果足够优秀，本科也是可以顺利就职的，版图岗位的要求更低一些，只有要数电、模电的基础，对大专生也是比较友好的。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-9a6c5a91de0d5df1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-30e29fba-9b5d-40da-bda1-dbd0e81b8247.png)
 
 
 至于薪资的话，如果是名校出身的科班生，50 万的薪资可以说羡煞旁人了。
@@ -58,7 +58,7 @@ IC 就是半导体元件产品的统称，主要分为数字 IC 和模拟 IC。�
 
 中间的计算机，算是这个时代给予贫寒子弟仅有的一点温柔。反正我就是靠着计算机专业完成逆袭的。晒张图，这是我的家乡，虽然树很多、空气也很新鲜，但确实比较穷。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-6d741facd97df3be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-4e3f8c93-9df5-48dd-9824-79005d5c5518.png)
 
 
 我之所以能够逆袭成功，因素有很多，但我想以下这三点非常重要：
@@ -71,7 +71,7 @@ IC 就是半导体元件产品的统称，主要分为数字 IC 和模拟 IC。�
 
 **里面的书单真的非常 nice，不管是学习编程的新手，还是工作多年的老手，应该都很有帮助**：
 
-![](https://pic2.zhimg.com/80/v2-086511386b96c539839a58fd9859060e_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-e40c4215-3078-42b3-8ab6-fe84c34d0a07.jpg)
 
 戳：[计算机必读经典书单（可 download）！](https://tobebetterjavaer.com/download/java.html)
 
@@ -138,7 +138,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 答案就是学习计算机组成原理。
 
-![](https://pica.zhimg.com/80/v2-f33414e06fe1ccadeea51cdca2365635_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-5270d8c0-5e03-4a06-924c-c9a8d25dd446.jpg)
 
 计算机组成原理的知识点可以拆分为四个部分：
 
@@ -157,7 +157,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 这门课的视频拍的那叫一个优质，虽然没有中文翻译，但视频下方的字幕会有节奏的移动。
 
-![](https://pic3.zhimg.com/80/v2-e780242c9f5d05805f3a4ebf5ff12ec1_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-a5f13f0d-c0e1-486a-933a-7bfa81983a6c.jpg)
 
 国内的推荐哈工大的这门视频课，整体评价非常高（建议 1.5 倍速食用），戳：[计算机组成原理（唐朔飞）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1WW411Q7PF)
 
@@ -191,7 +191,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 我画了一张图，里面几乎涵盖了所有数据结构与算法书籍中都会讲到的知识点。
 
-![](https://pic1.zhimg.com/80/v2-6e664c3e841dcc41ec574fec129a2a96_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-46294124-8e8f-4d2e-ac48-f68a1be9b2ac.jpg)
 
 如果英语功底不错的话，推荐国外的 MIT 6.006，是经典的数据结构和算法入门课程，涉及到排序、哈希、图论、动态规划。
 
@@ -217,7 +217,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 考过研的同学应该知道《深入理解计算机系统》这本书是必读的，我自己最近又买了一本新的，算是我读的第二遍了。
 
-![](https://pic3.zhimg.com/80/v2-6740363d4f36cae623182c08a23ac43f_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-52358273-5b8b-416a-b466-986b5f3ee96a.jpg)
 
 操作系统中的很多思想和经典算法，都可以在日常开发使用的各种工具或者框架中找到影子。
 
@@ -239,7 +239,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 每当进程需要调用内核时，它会触发一个*system call*（系统调用），system call进入内核执行相应的服务然后返回。
 
-![](https://pic1.zhimg.com/80/v2-772ecd738c71ec868dfaa69f3be8b3ba_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-b7db672b-7a5a-443f-8a4d-5a8e1d65886c.jpg)
 
 网友在学习这门课程的时候做的笔记：[MIT 6.S081 Lecture Notes](https://fanxiao.tech/posts/MIT-6S081-notes/)，大家可以作为参考。
 
@@ -260,7 +260,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 下图是课程的封面，一个简易版的操作系统，和我们当前使用操作系统界面比起来，显然丑露无比，但它能让你体会到快乐——一种真正地学到了本领的快乐。
 
-![](https://pic3.zhimg.com/80/v2-231b9e4c33b04b49847474985b18d0f7_1440w.jpg?source=1940ef5c)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-cdccae94-aca8-4e88-b241-0b6d95dee5f9.jpg)
 
 >更详细的学习路线戳：[https://tobebetterjavaer.com/xuexiluxian/os.html](https://tobebetterjavaer.com/xuexiluxian/os.html)
 
@@ -280,14 +280,14 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 一个资深的嵌入式硬件工程师的年薪在 15-30 万左右。需要有非常扎实的理论知识，以及高频 CPU、多层 PCB 板的设计经验。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-34f9c8fcc7eb24e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-34380fff-fcbd-4d1a-805d-72d38a1d8834.png)
 
 
 嵌入式软件工程师指在 wince、linux 等嵌入式操作系统下进行用户应用软件开发的人员，硬件平台有手机、pad 等；开发工具有 wince 下的 evc，Linux 下的 QT 等。
 
 嵌入式软件工程师的主要职责是根据产品的功能需求设计出好的软件，让硬件工作起来。一般情况下，软件工程师的需求量更大一些。
 
-![](https://upload-images.jianshu.io/upload_images/1179389-2662c1aa90b3b017.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/xuexijianyi/electron-information-engineering-5e3615e1-54c3-41a2-beca-97fcac8bc2cb.png)
 
 
 一个资深的嵌入式软件工程师的年薪也在 15-30 万左右。要熟练掌握 C/C++，熟练使用CortexM4系列单片机、RTOS(FreeRTOS, UcosII，RT-thread)等。
