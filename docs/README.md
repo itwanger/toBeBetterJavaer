@@ -9,8 +9,8 @@ actions:
   - text: 开始阅读
     link: /home/
     type: primary
-  - text: 知识星球
-    link: /zhishixingqiu/
+  - text: 关于作者
+    link: /about-the-author/
     type: default
 ---
 
