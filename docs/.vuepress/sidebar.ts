@@ -550,6 +550,7 @@ export const sidebarConfig = defineSidebarConfig({
           prefix: "xuexijianyi/",
           children: [
               "read-csapp",
+              "electron-information-engineering",
           ],
         },
       ],
