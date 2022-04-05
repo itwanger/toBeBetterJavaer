@@ -402,7 +402,7 @@ headerDepth: 1
 ### 学习建议
 
 - [如何阅读《深入理解计算机系统》这本书？](xuexijianyi/read-csapp.md)
-
+- [电子信息工程最好的出路的是什么？](xuexijianyi/electron-information-engineering.md)
 
 ## 知识库搭建历程
 
