@@ -119,6 +119,7 @@
 - [面试外企是一种什么体验？](https://mp.weixin.qq.com/s/HEydOa8zhWOBe_2sngEDuw)
 - [37岁老码农找工作](https://mp.weixin.qq.com/s/0wslDH_9oaVHfepGLJ113w)
 - [一个培训班出来的程序员](https://mp.weixin.qq.com/s/3JXhx1ut4VgmCr766Ig3ng)
+- [如何才能把团队给带散？](https://mp.weixin.qq.com/s/GzqBuOjRmzbmTNUBKWqmCA)
 
 
 ### 闲聊唠嗑
