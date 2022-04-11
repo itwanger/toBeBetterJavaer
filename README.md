@@ -364,7 +364,7 @@
 - [西安有哪些不错的互联网公司？](docs/cityselect/xian.md)
 - [青岛有牛逼的互联网公司吗？](docs/cityselect/qingdao.md)
 - [郑州有哪些不错的互联网公司？](docs/cityselect/zhengzhou.md)
-- [想搬去苏州生活了。。](docs/cityselect/suzhou.md)
+- [想搬去苏州生活了。](docs/cityselect/suzhou.md)
 - [南京有哪些靠谱的互联网公司？](docs/cityselect/nanjing.md)
 - [杭州有哪些顶级的互联网公司？](docs/cityselect/hangzhou.md)
 - [成都有哪些牛批的互联网公司？](docs/cityselect/chengdu.md)
