@@ -149,7 +149,7 @@ Windows 用户习惯用 Xshell，macOS 用户习惯用 iTerm2，但这两款工�
 
 Tabby 的学习资料还比较少，所以希望二哥的这篇文章能给有需要的小伙伴提供一点点的帮助和启发。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png）
 
 
 

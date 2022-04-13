@@ -234,6 +234,10 @@ export const sidebarConfig = defineSidebarConfig({
           "basic-extra-meal/pass-by-value",
           "basic-extra-meal/true-generic",
           "basic-extra-meal/comparable-omparator",
+          "basic-extra-meal/jdk9-char-byte-string",
+          "basic-extra-meal/jdk-while-for-wuxian-xunhuan",
+          "basic-extra-meal/class-object",
+          "basic-extra-meal/instanceof-jvm",
           ],
         },
         {
@@ -351,6 +355,7 @@ export const sidebarConfig = defineSidebarConfig({
           collapsable: true,
           children: [
             "gongju/tabby",
+            "gongju/warp",
             "gongju/chiner",
             "gongju/DBeaver",
             "gongju/knife4j",
