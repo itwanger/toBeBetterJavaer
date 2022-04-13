@@ -21,7 +21,7 @@ tag:
 >还记得之前给大家推荐的 [Tabby](https://mp.weixin.qq.com/s/HeUAPe4LqqjfzIeWDe8KIg) 吗？是时候喜新厌旧了。
 
 
-![](https://files.mdnice.com/user/3903/339d626c-2bab-4386-82d9-81c058736f97.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-e0411889-e506-480f-a719-eba4f2d229b4.png)
 
 Warp，一个超级牛叉的 terminal，号称是 21 世纪的终端，还未正式发布，就获得了两千三百万美元的融资。
 
@@ -29,7 +29,7 @@ Warp，一个超级牛叉的 terminal，号称是 21 世纪的终端，还未正
 
 Warp 在 GitHub 上也已经开源，目前已经有 2.8k+ 的 star 了。
 
-![](https://files.mdnice.com/user/3903/8ebb72d9-f425-4f2e-b884-5ad59db73d2f.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-17a2270c-3bd1-47eb-a205-b7defde42895.png)
 
 >GitHub 地址：[https://github.com/warpdotdev/Warp](https://github.com/warpdotdev/Warp)
 
@@ -42,7 +42,7 @@ Warp 号称自己“Reinvent the Terminal”，也就是重新定义了终端，
 
 直接到官网 `warp.dev` 点击「download now」就可以下载最新版了。下载完成后，双击安装包就可以安装了。完成后打开，界面还是非常清爽的。
 
-![](https://files.mdnice.com/user/3903/748e966f-899b-4632-91b4-01d797ea3127.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-188834c7-70b7-4f9c-a817-b4a691625fd1.png)
 
 Warp 支持 GitHub 账户登录。不过，如果你在登录的过程中因为某些原因无法完成跳转，可以通过下面的链接自行解决。
 
@@ -50,19 +50,19 @@ Warp 支持 GitHub 账户登录。不过，如果你在登录的过程中因为�
 
 如果顺利登录，会跳转到这个页面。
 
-![](https://files.mdnice.com/user/3903/664c32a7-92fe-47a0-8892-da651cdfa2a6.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-84c0b513-57f3-4ab4-8c77-508c10c923c5.png)
 
 填写一些 Warp 的调查信息后，就会跳转到 Warp 的初始界面。
 
-![](https://files.mdnice.com/user/3903/fb62c2f1-dcd5-4881-be37-e9f462c8655f.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-304639e9-7554-45b4-a199-e7c0c3b40c33.png)
 
 >需要注意的是，Warp 目前仅支持 macOS 版，Linux 和 Windows 用户还需要等待一段时间。
 
-![](https://files.mdnice.com/user/3903/e82cb7fd-8050-4c48-9958-b4ddffb4e295.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-a4d43a50-0ad9-4f91-ad4e-c1c0788bb580.png)
 
 其实 macOS 版也是刚刚公测，我这份攻略绝壁是热乎乎的。想要第一时间关注 Warp 版本信息的话，可以戳下图中提到的链接填写自己的邮箱。
 
-![](https://files.mdnice.com/user/3903/66d3abf2-b8cd-4058-b63b-5c7a4075bc99.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-f622d505-b136-4b9d-95c5-a6872e1423e1.png)
 
 ### 二、使用 Warp
 
@@ -73,17 +73,17 @@ Warp 解决的第一个痛点，就是减少配置、方便输入、优化输出
 普通的终端在你键入 tab 的时候，是这样提示的，就是简单地帮你罗列下。
 
 
-![](https://files.mdnice.com/user/3903/47ee4d50-2d55-4f10-9f1f-cbfc37b27a6c.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-078017c6-a872-466a-8aa2-f202c9371493.png)
 
 而 Warp 就非常的时髦，会给你滚动可选的列表形式展示出来。
 
-![](https://files.mdnice.com/user/3903/21478ba4-9484-4e55-924b-c2f8302cccbb.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-4e205289-d8c4-49a9-90ba-08aef8beb627.png)
 
 Warp 的智能提示也更加“智能化”，它会猜测你下一步的命令到底输入什么。
 
 比如说我的工作目录下有一个 README.md 的文件，那当我输入 `echo '沉默王二' >>`的时候它会把 `README.md` 提示在后面。
 
-![](https://files.mdnice.com/user/3903/047573a9-69b3-4e73-ae1f-74f6bc8d02ce.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-8948ab59-3ce8-4b04-80a5-ecd7663e1034.png)
 
 **2）智能记忆**
 
@@ -91,24 +91,24 @@ Warp 会记录上一次执行的命令，在顶部会有一个提示的按钮，
 
 点击「clear」之前。
 
-![](https://files.mdnice.com/user/3903/4966cc3b-a258-4f09-84f4-c76cb06df9c0.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-6055bfaa-a146-4cf8-a6f4-aa493dbfa60b.png)
 
 点击「clear」之后。
 
-![](https://files.mdnice.com/user/3903/e36c9f70-c6f1-44d9-8747-9ed8baa414dc.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-181dff97-bd6f-4c41-94c8-8e9ac5567460.png)
 
 **3）区域选择**
 
 传统的终端，在复制区域命令和输出结果的时候需要全部手动选择，而 Warp 是可以点选的，之后可以通过右键菜单进行复制粘贴（可以选择只复制命令或者输出，也可以都选），非常方便。
 
 
-![](https://files.mdnice.com/user/3903/8021dcc3-b82a-442c-9157-122cad00dec9.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-23c0a936-2371-4cf4-acf1-555bceecac44.png)
 
 **4）历史命令**
 
 传统的终端在通过 up-down 键选择历史命令的时候，一次只能提示一个命令。而 Warp 会把历史命令做成一个滚动的可以选择的列表。
 
-![](https://files.mdnice.com/user/3903/c271f291-194a-4bbb-b86f-ddd3bcb4d867.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-da43dca3-d8d1-43ad-9308-f8ec1c2b871b.png)
 
 
 **5）命令导航**
@@ -116,7 +116,7 @@ Warp 会记录上一次执行的命令，在顶部会有一个提示的按钮，
 同时按下 Ctrl+Shift+R 可以打开命令导航，Warp 集成了很多工具的命令导航。比如说我们要执行 `git reset` 命令，那么到底格式什么，应该怎么执行，Warp 都提示的非常到位。
 
 
-![](https://files.mdnice.com/user/3903/90b3d18b-f694-45fb-aa5c-c8c2c698c6b5.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-b9a4fd3f-24b2-4f6a-8a70-58fa1b313df3.png)
 
 这让我想起了 macOS 的效率工具 Alfred，可以搜索任何你想要的命令。
 
@@ -126,23 +126,23 @@ Warp 还提供了 AI 智能搜索，快捷键可以在 setting→keyboard shortc
 
 可调整为自己喜欢的快捷键。我目前设置的是 `Ctrl+shift+>`。
 
-![](https://files.mdnice.com/user/3903/f5547fba-ed52-4075-b8d3-66b40ab306bc.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-04300bc5-5d0d-494b-955c-1d270133227a.png)
 
 比如说我问它“how many lines were changed in the last 2 commits?”
 
-![](https://files.mdnice.com/user/3903/d3aec963-5b03-4c79-ad54-7c035466eac6.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-871e51e9-c2ac-4ecb-bfcb-ff339f05bd61.png)
 
 Warp 解决的第二个痛点是增加协作功能。不过由于我目前没有邀请其他用户参与，还无法使用共享功能，后面有小伙伴体验的话，可以通过我分享的链接下载试一波。
 
 >https://app.warp.dev/referral/25KR3Y
 
-![](https://files.mdnice.com/user/3903/1ea837e4-fd61-4d36-ad8d-e36142fd523d.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-d8952a84-a0a7-4c3d-b237-87cdc997bb4c.png)
 
 ### 三、配置 Warp
 
 输入 Command+P 快捷键可以打开 Warp 的命令面板。
 
-![](https://files.mdnice.com/user/3903/dcd95676-6887-4534-9056-13f3882a03dc.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-369d16f6-f897-4c9f-bbea-631d561e145b.png)
 
 键入 `sett` 关键字就可以打开配置页。
 
@@ -150,7 +150,7 @@ Warp 解决的第二个痛点是增加协作功能。不过由于我目前没有
 
 大概有十多种主题可选，比如说这个女生非常喜欢的粉色系。
 
-![](https://files.mdnice.com/user/3903/3fcb594a-7e5f-43a9-855c-05ad14f5de40.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-6b5dbf4c-7bb0-4926-b9e9-b64333cc2ed8.png)
 
 更多主题可以到 GitHub 仓库的 theme 页。
 
@@ -159,7 +159,7 @@ Warp 解决的第二个痛点是增加协作功能。不过由于我目前没有
 至于快捷键配置，如果不确定有哪些快捷键可以尝试，直接点击 Warp 顶部的这个温馨提示「welcome tips」就可以了。
 
 
-![](https://files.mdnice.com/user/3903/be7b55cc-3547-42a0-9127-56b6174a5448.png)
+![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/warp-aa785da8-bb39-4851-97f5-b7f8baaccf34.png)
 
 
 ### 四、总结
