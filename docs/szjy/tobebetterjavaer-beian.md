@@ -47,7 +47,7 @@ u1s1，二哥是全天下最良心的博主——之一，是没毛病的。
 
 我出过一期视频，讲了程序员拥有一台云服务器能做哪些很酷的事情？
 
->https://www.bilibili.com/video/BV1nb4y187rU/
+>[https://www.bilibili.com/video/BV1nb4y187rU/](https://www.bilibili.com/video/BV1nb4y187rU/)
 
 没看过的小伙伴可以去 B 站欣赏一下二哥颜值了，顺带三连交代下。
 
