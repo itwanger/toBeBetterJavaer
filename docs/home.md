@@ -261,7 +261,7 @@ headerDepth: 1
 ### Spring
 
 - [Spring AOP扫盲](springboot/aop-log.md)
-- [Spring IoC扫盲](docs/springboot/ioc.md)
+- [Spring IoC扫盲](springboot/ioc.md)
 
 ### SpringBoot
 
@@ -272,7 +272,7 @@ headerDepth: 1
 ### 辅助工具/轮子
 
 - [Tabby：一款逼格更高的开源终端工具](gongju/tabby.md)
-- [Warp：一款21世纪人用的终端工具](docs/gongju/warp.md)
+- [Warp：一款21世纪人用的终端工具](gongju/warp.md)
 - [chiner：一款开源的数据库设计神器](gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](gongju/DBeaver.md)
 - [knife4j：一款界面更炫酷的API文档生成神器](gongju/knife4j.md)
