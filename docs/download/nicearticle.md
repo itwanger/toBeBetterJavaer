@@ -14,7 +14,7 @@
 
 ### 视频教程
 
-- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](kaiyuan/yuneban-wangyiyunyinyue.md)
+- [推荐 2 个 Java 练手项目（云E办、仿网易云音乐）](/kaiyuan/yuneban-wangyiyunyinyue.md)
 - [中国大学 mooc 国防科技大学计算机基础课](https://mp.weixin.qq.com/s/QpT6jbTAxAoCr-YeiMmFNg)
 - [B 站， YYDS！看了这些 Java视频，我直呼好家伙！！！](https://mp.weixin.qq.com/s/rRNYGNwuPdpSJHycP8J37g)
 - [哈佛大学的 CS50](https://mp.weixin.qq.com/s/s3e21hF7jmq1lQP-0J1zXA)
@@ -37,7 +37,7 @@
 - [视频学习胜过读书吗？](https://mp.weixin.qq.com/s/mzbDZCWbfTMvDdh-tQivwg)
 - [计算机专业，暑假需要提前自学吗？](https://mp.weixin.qq.com/s/BR0w_bok3MJ2jRFEQR_yTQ)
 - [计算机专业应该怎样规划自己的大学四年？](https://mp.weixin.qq.com/s/prclU2IGTlfPqOqFX7CHnA)
-- [大学计算机系最努力的同学都是如何学习的？](docs/xianliaolaoke/daxue-nuli-jisuanji.md)
+- [大学计算机系最努力的同学都是如何学习的？](/xianliaolaoke/daxue-nuli-jisuanji.md)
 - [编程语言该如何选择？](https://mp.weixin.qq.com/s/uh9lAgXQ6I2EwqNxXhA-EQ)
 - [如何才能把团队给带散？](https://mp.weixin.qq.com/s/GzqBuOjRmzbmTNUBKWqmCA)
 - [为什么程序员会有代码能跑就不要动的观点？](https://mp.weixin.qq.com/s/n-ef_q3PIHfa9je1Ndoo3g)
@@ -91,12 +91,12 @@
 - [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
 - [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
 - [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
-- [研究所月入两万，是什么体验？](docs/manongshenghuo/yanjiusuo-20wan.md)
-- [裸辞全职做外包一个月的感受](docs/manongshenghuo/waibao-1geyue.md)
+- [研究所月入两万，是什么体验？](/manongshenghuo/yanjiusuo-20wan.md)
+- [裸辞全职做外包一个月的感受](/manongshenghuo/waibao-1geyue.md)
 - [转眼就来字节六个月了，真的不一样](https://mp.weixin.qq.com/s/jG7DLrCFf_pYoMLFiVbaaA)
 - [在监狱里编程是一种什么体验（上）？](https://mp.weixin.qq.com/s/ci5Meem_d3g2BphDmMP8VQ)
 - [29 岁，非科班零基础，想兼职做外包。。](https://mp.weixin.qq.com/s/CTTlnXNXY9j3Bm3_4gmIbw)
-- [30岁女程序员，做建材生意4年，想重回软件开发...](docs/xianliaolaoke/chengxuyuannv-chonghui-java.md)
+- [30岁女程序员，做建材生意4年，想重回软件开发...](/xianliaolaoke/chengxuyuannv-chonghui-java.md)
 - [就离谱.......这个产品小姐姐也太会撩了吧](https://mp.weixin.qq.com/s/Oml9oWQHIR1aYWSJQDXWVQ)
 - [王小波的计算机水平有多好？](https://mp.weixin.qq.com/s/Ad_6DMt0tTzF6lYu3EUm0A)
 - [为了一个 deadline，清华毕业的 IT 老乡猝死在马桶上](https://mp.weixin.qq.com/s/j54Kh2p8cAtIZprScN4_dg)
@@ -125,9 +125,9 @@
 ### 闲聊唠嗑
 
 - [约河科大软工专业的 4 位学弟一起撸了个串](https://mp.weixin.qq.com/s/nhDBZGmN3-pZQD2AxMhFhA)
-- [带妹来和父母团聚了！](docs/xianliaolaoke/fumutuanju.md)
-- [愤怒！这个阿里云工程师的甩锅能力，真的超级高水平！](docs/xianliaolaoke/aliyun-shuaiguo-gongchengshi.md)
-- [差点散伙！](docs/xianliaolaoke/chadiansanhuo.md)
+- [带妹来和父母团聚了！](/xianliaolaoke/fumutuanju.md)
+- [愤怒！这个阿里云工程师的甩锅能力，真的超级高水平！](/xianliaolaoke/aliyun-shuaiguo-gongchengshi.md)
+- [差点散伙！](/xianliaolaoke/chadiansanhuo.md)
 - [滴滴程序员被亲戚鄙视：年薪八十万还不如二本教书的...](https://mp.weixin.qq.com/s/iDQiMaTo4Pi8fqnUxAsWuQ)
 - [和华为的大佬一起创业了！](https://mp.weixin.qq.com/s/LfJR6qIZ7fRorIs22VNSOA)
 - [带妹来青岛了！](https://mp.weixin.qq.com/s/TUdQI4B9_VLSrzLekp6JsA)
@@ -177,7 +177,7 @@
 
 ## 技术文
 
-- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
+- [为什么阿里巴巴要禁用Executors创建线程池？](/thread/ali-executors.md)
 - [10 张图告诉你多线程那些破事](https://mp.weixin.qq.com/s/047_V8QVNewxsYVykNqwAQ)
 - [我是一个线程池（细节修订版）](https://mp.weixin.qq.com/s/gHUyuljaT8ESOjeMfV1fnQ)
 - [我是一个线程池（续）](https://mp.weixin.qq.com/s/e61PCzlIUe0YJcQsCG9FYw)
@@ -185,16 +185,16 @@
 - [为什么 Java 线程没有 Running 状态？](https://mp.weixin.qq.com/s/eo-IKT_d6IT-8b2CXCidPw)
 - [Spring事务失效的12个场景](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
 - [在 Spring Boot 中使用 HikariCP 连接池](https://mp.weixin.qq.com/s/9R3U4-Uzg3eaXJS20izS9A)
-- [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](docs/springboot/aop-log.md)
-- [前后端分离项目，如何解决跨域问题？](docs/springboot/cors.md)
-- [JWT：一个优雅的跨域认证解决方案](docs/springboot/jwt.md)
+- [Spring Boot AOP 扫盲，实现统一的接口访问日志记录](/springboot/aop-log.md)
+- [前后端分离项目，如何解决跨域问题？](/springboot/cors.md)
+- [JWT：一个优雅的跨域认证解决方案](/springboot/jwt.md)
 - [基于SpringBoot的CMS系统，拿去开发企业官网真香](https://mp.weixin.qq.com/s/HWTVu7E62VkaH2anQc1J_g)
 - [Logback这样配置，性能提升10倍！](https://mp.weixin.qq.com/s/dO1dYAHwyB-81L1z3D_sdg)
-- [崩溃！我带的实习生竟然把图片直接存到了服务器上！](docs/springboot/oss.md)
+- [崩溃！我带的实习生竟然把图片直接存到了服务器上！](/springboot/oss.md)
 - [看见 Java](https://mp.weixin.qq.com/s/zBfvjq3gry2zsMoMir6oZA)
 - [临时抱佛脚，线上问题如何排查？](https://mp.weixin.qq.com/s/mDnDjTWereF_ekLG1NNHRQ)
 - [深入浅出 Java 虚拟机](http://static.kancloud.cn/alex_wsc/javajvm/1844795)
-- [Java中9种常见的CMS GC问题分析与解决](docs/jvm/meituan-9-gc.md)
+- [Java中9种常见的CMS GC问题分析与解决](/jvm/meituan-9-gc.md)
 
 ## 前端
 
@@ -206,10 +206,10 @@
 > [!TIP]
 >  开发过程中遇到的一些典型问题，该如何解决？
 
-- [Log4j2突发重大漏洞](docs/shigu/log4j2.md)
+- [Log4j2突发重大漏洞](/shigu/log4j2.md)
 - [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
 - [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
-- [两天两夜，1M图片优化到100kb！](docs/shigu/image-yasuo.md)
+- [两天两夜，1M图片优化到100kb！](/shigu/image-yasuo.md)
 - [内部群炸了锅，隔壁同事真删库了啊。。](https://mp.weixin.qq.com/s/lvyoN1gHCWhcPqudcjcRgQ)
 - [B 站崩了](https://mp.weixin.qq.com/s/PfJe5rXednkXTq8EKT0xpw)
 - [因为一个低级错误，生产数据库崩溃了将近半个小时](https://mp.weixin.qq.com/s/ec6u8WsPt7zJ0eul8sPEhg)
@@ -227,7 +227,7 @@
 
 ## MySQL重要知识点
 
-- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](docs/mysql/deletedb-binlog-weiguanjishu.md)
+- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](/mysql/deletedb-binlog-weiguanjishu.md)
 - [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
 
 ## 待收录文章
