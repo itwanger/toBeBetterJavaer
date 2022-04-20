@@ -1,7 +1,7 @@
 import { defineSidebarConfig } from "vuepress-theme-hope";
 export const sidebarConfig = defineSidebarConfig({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
-  "/download/": ["java","nicearticle", "history"],
+  "/download/": ["java","pdf","learn-jianyi","nicearticle", "history"],
   "/xuexiluxian/": [
     {
       text: "Java学习路线",
