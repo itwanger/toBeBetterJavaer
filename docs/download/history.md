@@ -1,5 +1,9 @@
 # 网络日志
 
+### 2022年04月19日
+
+- [增加文档搜索功能]()
+
 ### 2022年04月02日
 
 - [杨锅锅同学提出错误：浮点多了个long, 整数少了个int](https://tobebetterjavaer.com/sidebar/sanfene/javase.html)

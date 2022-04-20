@@ -32,7 +32,11 @@ export default defineThemeConfig({
   // sidebar
   sidebar: sidebarConfig,
 
-  footer: '<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-1</a>',
+  footer: '<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-1</a>'
+  +'<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/beian.png" height="15px" width="15px" />'
+  +'<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41030502000411">'
+  +'<span>豫公网安备 41030502000411号</span>'
+  +'</a>',
 
   displayFooter: true,
 

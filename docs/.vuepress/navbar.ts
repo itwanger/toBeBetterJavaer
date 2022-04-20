@@ -19,32 +19,44 @@ export default defineNavbarConfig([
   },
   {
     text: "珍藏资源",
-    icon: "pdf",
+    icon: "youzhi",
     children: [
       {
-        text: "PDF下载", 
-        icon: "pdf", 
+        text: "Java电子书下载", 
+        icon: "java", 
         link: "/download/java.md" 
       },
-      { 
-        text: "网络日志", 
-        icon: "rizhi", 
-        link: "/download/history.md" 
+      {
+        text: "PDF干货笔记下载", 
+        icon: "pdf", 
+        link: "/download/pdf.md" 
+      },
+      {
+        text: "学习建议", 
+        icon: "xuexijianyi", 
+        link: "/download/learn-jianyi.md" 
       },
       { 
         text: "优质文章", 
         icon: "youzhi", 
         link: "/download/nicearticle.md" 
       },
+      { 
+        text: "网络日志", 
+        icon: "rizhi", 
+        link: "/download/history.md" 
+      },
       {
         text: "回到过去",
         icon: "fanhuijiuban", 
         link: "https://docsify.tobebetterjavaer.com/"
       },
+      {
+        text: "B站视频",
+        icon: "bzhan", 
+        link: "https://space.bilibili.com/513340480"
+      },
     ],
   },
-  {
-    text: "B站视频",
-    link: "https://space.bilibili.com/513340480"
-  },
+  
 ]);
