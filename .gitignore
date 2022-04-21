@@ -5,3 +5,8 @@ dist
 package-lock.json
 yarn.lock
 package.json
+<<<<<<< HEAD
+=======
+*.json
+package.json
+>>>>>>> 18256b0dac52cb2a6c0a07c2e3aae8a44c7a87ef
