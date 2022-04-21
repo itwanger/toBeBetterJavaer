@@ -6,7 +6,7 @@ tag:
   - Java
 ---
 
-# 深入理解Java并发线程线程阻塞唤醒类LockSupport
+# 深入理解Java并发线程阻塞唤醒类LockSupport
 
 
 LockSupport位于java.util.concurrent.locks包下，有兴趣的可以直接去看源码，该类的方法并不是很多。LockSupprot是线程的阻塞原语，用来阻塞线程和唤醒线程。每个使用LockSupport的线程都会与一个许可关联，如果该许可可用，并且可在线程中使用，则调用park()将会立即返回，否则可能阻塞。如果许可尚不可用，则可以调用 unpark 使其可用。但是注意许可**不可重入**，也就是说只能调用一次park()方法，否则会一直阻塞。
