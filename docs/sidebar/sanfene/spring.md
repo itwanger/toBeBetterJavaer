@@ -86,7 +86,7 @@ Spring 有很多模块，甚至广义的 SpringBoot、SpringCloud 也算是 Spri
   - @DeleteMapping
 - @ResponseBody：支持将返回值放在 response 内，而不是一个页面，通常用户返回 json 数据。
 - @RequestBody：允许 request 的参数在 request 体中，而不是在直接连接在地址后面。
-- @PathVariable：用于接收路径参数，比如@RequestMapping(“/hello/{name}”)申明的路径，将注解放在参数中前，即可获取该值，通常作为 Restful 的接口实现方法。
+- @PathVariable：用于接收路径参数，比如 `@RequestMapping(“/hello/{name}”)`申明的路径，将注解放在参数中前，即可获取该值，通常作为 Restful 的接口实现方法。
 - @RestController：该注解为一个组合注解，相当于@Controller 和@ResponseBody 的组合，注解在类上，意味着，该 Controller 的所有方法都默认加上了@ResponseBody。
 
 **容器**:
@@ -97,8 +97,8 @@ Spring 有很多模块，甚至广义的 SpringBoot、SpringCloud 也算是 Spri
 - @Autowired：Spring 提供的工具（由 Spring 的依赖注入工具（BeanPostProcessor、BeanFactoryPostProcessor）自动注入）。
 - @Qualifier：该注解通常跟 @Autowired 一起使用，当想对注入的过程做更多的控制，@Qualifier 可帮助配置，比如两个以上相同类型的 Bean 时 Spring 无法抉择，用到此注解
 - @Configuration：声明当前类是一个配置类（相当于一个 Spring 配置的 xml 文件）
-- @Value：可用在字段，构造器参数跟方法参数，指定一个默认值，支持 #{} 跟 \${} 两个方式。一般将 SpringbBoot 中的 application.properties 配置的属性值赋值给变量。
-- @Bean：注解在方法上，声明当前方法的返回值为一个 Bean。返回的 Bean 对应的类中可以定义 init()方法和 destroy()方法，然后在@Bean(initMethod=”init”,destroyMethod=”destroy”)定义，在构造之后执行 init，在销毁之前执行 destroy。
+- @Value：可用在字段，构造器参数跟方法参数，指定一个默认值，支持 `#{} 跟 \${}` 两个方式。一般将 SpringbBoot 中的 application.properties 配置的属性值赋值给变量。
+- @Bean：注解在方法上，声明当前方法的返回值为一个 Bean。返回的 Bean 对应的类中可以定义 init()方法和 destroy()方法，然后在`@Bean(initMethod=”init”,destroyMethod=”destroy”)`定义，在构造之后执行 init，在销毁之前执行 destroy。
 - @Scope:定义我们采用什么模式去创建 Bean（方法上，得有@Bean） 其设置类型包括：Singleton 、Prototype、Request 、 Session、GlobalSession。
 
 **AOP**:
@@ -175,7 +175,7 @@ Bean 通过一个配置文件定义，把它解析成一个类型。
 
 - beans.properties
 
-  偷懒，这里直接用了最方便解析的 properties，这里直接用一个<key,value>类型的配置来代表 Bean 的定义，其中 key 是 beanName，value 是 class
+  偷懒，这里直接用了最方便解析的 properties，这里直接用一个`<key,value>`类型的配置来代表 Bean 的定义，其中 key 是 beanName，value 是 class
 
   ```java
   userDao:cn.fighter3.bean.UserDao
@@ -463,6 +463,7 @@ Spring IOC 中 Bean 的生命周期大致分为四个阶段：**实例化**（In
 - **属性赋值**：第 2 步，为 Bean 设置相关属性和依赖
 - **初始化**：初始化的阶段的步骤比较多，5、6 步是真正的初始化，第 3、4 步为在初始化前执行，第 7 步在初始化后执行，初始化完成之后，Bean 就可以被使用了
 - **销毁**：第 8~10 步，第 8 步其实也可以算到销毁阶段，但不是真正意义上的销毁，而是先在使用前注册了销毁的相关调用接口，为了后面第 9、10 步真正销毁 Bean 时再执行相应的方法
+
 ![SpringBean生命周期](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
 
 简单总结一下，Bean 生命周期里初始化的过程相对步骤会多一些，比如前置、后置的处理。
@@ -745,7 +746,7 @@ Spring 支持**构造方法注入**、**属性注入**、**工厂方法注入**,
 
 Spring IOC 容器知道所有 Bean 的配置信息，此外，通过 Java 反射机制还可以获知实现类的结构信息，如构造方法的结构、属性等信息。掌握所有 Bean 的这些信息后，Spring IOC 容器就可以按照某种规则对容器中的 Bean 进行自动装配，而无须通过显式的方式进行依赖配置。
 
-Spring 提供的这种方式，可以按照某些规则进行 Bean 的自动装配，<bean>元素提供了一个指定自动装配类型的属性：autowire="<自动装配类型>"
+Spring 提供的这种方式，可以按照某些规则进行 Bean 的自动装配，`<bean>`元素提供了一个指定自动装配类型的属性：`autowire="<自动装配类型>"`
 
 > **Spring 提供了哪几种自动装配类型？**
 
@@ -833,9 +834,9 @@ Spring 不支持基于构造器注入的循环依赖，但是假如 AB 循环依
 
 注入就发生在第二步，**属性赋值**，结合这个过程，Spring 通过**三级缓存**解决了循环依赖：
 
-1.  一级缓存 : Map<String,Object> **singletonObjects**，单例池，用于保存实例化、属性赋值（注入）、初始化完成的 bean 实例
-2.  二级缓存 : Map<String,Object> **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
-3.  三级缓存 : Map<String,ObjectFactory<?>> **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便于后面扩展有机会创建代理对象。
+1.  一级缓存 : `Map<String,Object>` **singletonObjects**，单例池，用于保存实例化、属性赋值（注入）、初始化完成的 bean 实例
+2.  二级缓存 : `Map<String,Object>` **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
+3.  三级缓存 : `Map<String,ObjectFactory<?>>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便于后面扩展有机会创建代理对象。
 
 ![三级缓存](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
 
@@ -1323,7 +1324,7 @@ Spring 事务的传播机制说的是，当多个事务同时存在的时候—�
 
 ![7种事务传播机制](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/spring-a6e2a8dc-9771-4d8b-9d91-76ddee98af1a.png)
 
-Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，它适合绝大多数情况，如果多个 ServiceX#methodX()都工作在事务环境下（均被 Spring 事务增强），且程序中存在调用链 Service1#method1()->Service2#method2()->Service3#method3()，那么这 3 个服务类的三个方法通过 Spring 的事务传播机制都工作在同一个事务中。
+Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，它适合绝大多数情况，如果多个 ServiceX#methodX()都工作在事务环境下（均被 Spring 事务增强），且程序中存在调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的三个方法通过 Spring 的事务传播机制都工作在同一个事务中。
 
 ### 26.声明式事务实现原理了解吗？
 
