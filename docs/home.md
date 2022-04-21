@@ -321,6 +321,7 @@ headerDepth: 1
 - [Java：34道精选高频面试题](baguwen/java-basic-34.md)
 - [Java：HashMap精选面试题](collection/hashmap-interview.md)
 - [Redis：12道精选高频面试题）](mianjing/redis12question.md)
+- [Spring：35道精选面试题](sidebar/sanfene/spring.md)
 - [MQ：怎么确保消息100%不丢失？](mq/100-budiushi.md)
 
 

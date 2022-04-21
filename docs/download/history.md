@@ -1,8 +1,12 @@
 # 网络日志
 
+### 2022年04月21日
+
+- [重新定制左侧菜单](https://tobebetterjavaer.com/home.html)
+
 ### 2022年04月19日
 
-- [增加文档搜索功能]()
+- [增加文档搜索功能](https://mp.weixin.qq.com/s/JVdQj-Fl9RPjt4P0y5Ws8g)
 
 ### 2022年04月02日
 
