@@ -335,6 +335,7 @@
 - [Java：34道精选高频面试题](docs/baguwen/java-basic-34.md)
 - [Java：HashMap精选面试题](docs/collection/hashmap-interview.md)
 - [Redis：12道精选高频面试题）](docs/mianjing/redis12question.md)
+- [Spring：35道精选面试题](docs/sidebar/sanfene/spring.md)
 - [MQ：怎么确保消息100%不丢失？](docs/mq/100-budiushi.md)
 
 
