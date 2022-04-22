@@ -761,6 +761,7 @@ export const sidebarConfig = defineSidebarConfig({
             "baguwen/java-basic-34",
             "collection/hashmap-interview",
             "mianjing/redis12question",
+            "sidebar/sanfene/spring",
             "mq/100-budiushi",
           ],
         },
