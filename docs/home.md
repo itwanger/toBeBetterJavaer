@@ -4,7 +4,7 @@ isOriginal: true
 headerDepth: 1
 ---
 
-<a href="https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw" target="_blank">👉 **我整理汇总了 10 本优质的 Java 面试相关的 PDF（质量很高！不要再看网上的那些东拼西凑的垃圾面试题了！），点击下载，希望对需要的小伙伴有帮助**！</a>
+<a href="https://mp.weixin.qq.com/s/IUSfNpHtcmr0CrRvlxA4DQ">👉 《Java 程序员进阶之路》官方知识星球来啦！！！</a>如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍： <a href="https://mp.weixin.qq.com/s/IUSfNpHtcmr0CrRvlxA4DQ">《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
 
 ::: center
 <p align="center">
