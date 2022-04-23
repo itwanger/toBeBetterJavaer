@@ -1,8 +1,6 @@
 <a href="https://mp.weixin.qq.com/s/IUSfNpHtcmr0CrRvlxA4DQ">👉 《Java 程序员进阶之路》官方知识星球来啦！！！</a>
 
-如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍：
-
-<a href="https://mp.weixin.qq.com/s/IUSfNpHtcmr0CrRvlxA4DQ">《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
+如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍：<a href="https://mp.weixin.qq.com/s/IUSfNpHtcmr0CrRvlxA4DQ">《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
