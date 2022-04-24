@@ -18,6 +18,11 @@ export default defineNavbarConfig([
     link: "/xuexiluxian/"
   },
   {
+    text: "B站视频",
+    icon: "bzhan", 
+    link: "https://space.bilibili.com/513340480"
+  },
+  {
     text: "珍藏资源",
     icon: "youzhi",
     children: [
@@ -50,11 +55,6 @@ export default defineNavbarConfig([
         text: "回到过去",
         icon: "fanhuijiuban", 
         link: "https://docsify.tobebetterjavaer.com/"
-      },
-      {
-        text: "B站视频",
-        icon: "bzhan", 
-        link: "https://space.bilibili.com/513340480"
       },
     ],
   },
