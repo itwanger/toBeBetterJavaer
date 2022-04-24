@@ -8,7 +8,7 @@
 
 下面是视频链接，感兴趣的小伙伴可以跳过去给二哥刷个三连，谢谢支持了。
 
->https://www.bilibili.com/video/BV1434y117xE/
+>[https://www.bilibili.com/video/BV1434y117xE/](https://www.bilibili.com/video/BV1434y117xE/)
 
 下面是文字版，发出来给公众号的读者欣赏一下我这完美无缺的学习计划。
 
