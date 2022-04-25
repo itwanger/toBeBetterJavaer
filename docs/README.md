@@ -53,11 +53,10 @@ actions:
 交流/加群/互看朋友圈，欢迎添加我的微信（备注“Github”即可）。
 
 <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/qing_geee.png" width="260px">
-    
-    
+
 ## star趋势图
 
-[![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
+[![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
 
 
 ## 友情链接

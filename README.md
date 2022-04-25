@@ -451,7 +451,7 @@
     
 ### star趋势图
 
-[![Stargazers over time](https://starchart.cc/itwanger/toBeBetterJavaer.svg)](https://starchart.cc/itwanger/toBeBetterJavaer)
+[![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
 
 
 ### 友情链接
