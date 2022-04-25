@@ -54,6 +54,24 @@ headerDepth: 1
 
 ![](https://img-blog.csdnimg.cn/7fa7cbd99d6449288f4e75cb7d771ec4.png)
 
+
+## 学习路线
+
+>除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
+
+  * [Java学习路线一条龙版（建议收藏:+1:）](xuexiluxian/java/yitiaolong.md)
+  * [Java并发编程学习路线（建议收藏:+1:）](xuexiluxian/java/thread.md)
+  * [Java虚拟机学习路线（建议收藏:+1:）](xuexiluxian/java/jvm.md)
+  * [C语言学习路线（建议收藏:+1:）](xuexiluxian/c.md)
+  * [C++学习路线（建议收藏:+1:）](xuexiluxian/ccc.md)
+  * [Python学习路线（建议收藏:+1:）](xuexiluxian/python.md)
+  * [Go语言学习路线（建议收藏:+1:）](xuexiluxian/go.md)
+  * [操作系统学习路线（建议收藏:+1:）](xuexiluxian/os.md)
+  * [前端学习路线（建议收藏:+1:）](xuexiluxian/qianduan.md)
+  * [蓝桥杯学习路线（建议收藏:+1:）](xuexiluxian/lanqiaobei.md)
+  * [算法和数据结构学习路线（建议收藏:+1:）](xuexiluxian/algorithm.md)
+
+
 ## Java核心
 
 
@@ -360,6 +378,31 @@ headerDepth: 1
 - [成都有哪些牛批的互联网公司？](cityselect/chengdu.md)
 
 ### 工作体会
+
+## 学习资源
+
+ - **不知道学什么？不知道该怎么学？找不到优质的学习资源**？这些问题在这里统统都可以找到答案。
+ - 我会把自己十多年的编程经验和学习资源毫不保留的分享出来。
+
+### PDF下载
+
+- [👏下载→Java程序员常读书单](download/java.md)
+- [👏下载→最全最硬核的Java面试 “备战” 资料](https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw)
+- [👏下载→深入浅出Java多线程](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)
+- [👏下载→GitHub星标115k+的Java教程](https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw)
+- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
+- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
+- [👏下载→Java版LeetCode刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
+- [👏下载→阮一峰C语言入门教程](download/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](download/bat-shuati.md)
+- [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
+- [👏下载→豆瓣9.1分，Pro Git中文版](download/progit.md)
+- [👏下载→简历模板](download/jianli.md)
+
+### 学习建议
+
+- [如何阅读《深入理解计算机系统》这本书？](xuexijianyi/read-csapp.md)
+- [电子信息工程最好的出路的是什么？](xuexijianyi/electron-information-engineering.md)
 
 
 ## 知识库搭建历程
