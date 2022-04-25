@@ -9,7 +9,7 @@ actions:
   - text: 立马上路→
     link: /home/
     type: primary
-  - text: 要不一起卷
+  - text: 知识星球
     link: /zhishixingqiu/
     type: default
 ---
