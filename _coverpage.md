@@ -11,7 +11,7 @@
   <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Github-toBeBetterJavaer-red.svg"></a>
   <a href="https://gitee.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Gitee-toBeBetterJavaer-blue.svg"></a>
   <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical"></a>
-  <a href="https://mp.weixin.qq.com/s/ePhaYezFblgt0NgbvtWqww" target="_blank">
+  <a href="https://mp.weixin.qq.com/s/ExjM-xdqMFFY1NIZffz-Ng" target="_blank">
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
