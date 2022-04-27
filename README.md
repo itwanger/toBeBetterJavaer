@@ -295,6 +295,7 @@
 ### 消息队列
 
 - [RabbitMQ入门教程（概念、应用场景、安装、使用）](https://tobebetterjavaer.com/mq/rabbitmq-rumen.html)
+- [MQ：怎么确保消息100%不丢失？](https://tobebetterjavaer.com/mq/100-budiushi.html)
 
 ## 高可用
 
@@ -338,7 +339,7 @@
 - [Java：HashMap精选面试题](https://tobebetterjavaer.com/collection/hashmap-interview.html)
 - [Redis：12道精选高频面试题）](https://tobebetterjavaer.com/mianjing/redis12question.html)
 - [Spring：35道精选面试题](https://tobebetterjavaer.com/sidebar/sanfene/spring.html)
-- [MQ：怎么确保消息100%不丢失？](https://tobebetterjavaer.com/mq/100-budiushi.html)
+
 
 
 ## 背诵版八股文

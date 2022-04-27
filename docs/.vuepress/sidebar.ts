@@ -708,6 +708,7 @@ export const sidebarConfig = defineSidebarConfig({
               collapsable: true,
               children: [
                 "mq/rabbitmq-rumen",
+                "mq/100-budiushi",
               ],
             },
           ],
@@ -762,7 +763,7 @@ export const sidebarConfig = defineSidebarConfig({
             "collection/hashmap-interview",
             "mianjing/redis12question",
             "sidebar/sanfene/spring",
-            "mq/100-budiushi",
+            "nginx/40-interview"
           ],
         },
         {
