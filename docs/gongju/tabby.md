@@ -27,7 +27,7 @@ tag:
 
 GitHub 上已经有 21.4k 的 star 了，这说明 Tabby 非常的受欢迎：
 
->https://github.com/eugeny/tabby
+>[https://github.com/eugeny/tabby](https://github.com/eugeny/tabby)
 
 *Tabby：二哥，我谢谢你呀，能再吹两句吗？*
 
@@ -35,7 +35,7 @@ Tabby 是一个高度可定制化的 跨平台的终端工具，支持 Windows�
 
 ### 一、安装 Tabby
 
-直接到官网 `tabby.sh` 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
+直接到官网 [tabby.sh](tabby.sh) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/tabby-02.png)
 
@@ -51,7 +51,7 @@ Apple M1 是苹果公司的第一款基于ARM架构的自研处理器单片系�
 
 详情可参阅下面这篇：
 
->https://www.cnblogs.com/zhaoqingqing/p/13145115.html
+>[https://www.cnblogs.com/zhaoqingqing/p/13145115.html](https://www.cnblogs.com/zhaoqingqing/p/13145115.html)
 
 从这一点上可以证明，Tabby 的更新是非常勤快的，连 macOS 的最新芯片 M1 都支持了，厉害了呀，我的虎斑猫（Tabby）！
 
