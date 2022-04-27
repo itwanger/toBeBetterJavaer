@@ -165,13 +165,13 @@ juc 包提供了一个 AtomicStampedReference，即在原始的版本下加入�
 ### 简述常见的Atomic类
 在很多时候，我们需要的仅仅是一个简单的、高效的、线程安全的++或者--方案，使用synchronized关键字和lock固然可以实现，但代价比较大，此时用原子类更加方便。基本数据类型的原子类有：
 
-- AtomicInteger 原子更新整形
+- AtomicInteger 原子更新整型
 - AtomicLong 原子更新长整型
 - AtomicBoolean 原子更新布尔类型
 
 Atomic数组类型有：
 
-- AtomicIntegerArray 原子更新整形数组里的元素
+- AtomicIntegerArray 原子更新整型数组里的元素
 - AtomicLongArray 原子更新长整型数组里的元素
 - AtomicReferenceArray 原子更新引用类型数组里的元素。
 
@@ -183,8 +183,8 @@ Atomic引用类型有：
 
 FieldUpdater类型：
 
-- AtomicIntegerFieldUpdater 原子更新整形字段的更新器
-- AtomicLongFieldUpdater 原子更新长整形字段的更新器
+- AtomicIntegerFieldUpdater 原子更新整型字段的更新器
+- AtomicLongFieldUpdater 原子更新长整型字段的更新器
 - AtomicReferenceFieldUpdater 原子更新引用类型字段的更新器
 ### 简述Atomic类基本实现原理
 以AtomicIntger 为例。
