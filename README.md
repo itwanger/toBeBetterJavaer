@@ -339,7 +339,7 @@
 - [Java：HashMap精选面试题](https://tobebetterjavaer.com/collection/hashmap-interview.html)
 - [Redis：12道精选高频面试题）](https://tobebetterjavaer.com/mianjing/redis12question.html)
 - [Spring：35道精选面试题](https://tobebetterjavaer.com/sidebar/sanfene/spring.html)
-
+- [Nginx：40道精选面试题](https://tobebetterjavaer.com/nginx/40-interview.html)
 
 
 ## 背诵版八股文
