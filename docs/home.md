@@ -299,6 +299,7 @@ headerDepth: 1
 #### 消息队列
 
 - [RabbitMQ入门教程（概念、应用场景、安装、使用）](mq/rabbitmq-rumen.md)
+- [怎么确保消息100%不丢失？](mq/100-budiushi.md)
 
 ### 高可用
 
@@ -340,7 +341,7 @@ headerDepth: 1
 - [Java：HashMap精选面试题](collection/hashmap-interview.md)
 - [Redis：12道精选高频面试题）](mianjing/redis12question.md)
 - [Spring：35道精选面试题](sidebar/sanfene/spring.md)
-- [MQ：怎么确保消息100%不丢失？](mq/100-budiushi.md)
+- [Nginx：40道精选面试题](nginx/40-interview.md)
 
 
 ### 背诵版八股文
