@@ -51,7 +51,7 @@ public class LocalVaraiablesTable {
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/how-jvm-run-zijiema-zhiling-e5e6037c-9be1-472f-8ab3-2754466e7828.png)
 
-第 0 个是 this，类型为 LocalVaraiablesTable 对象；第 1 个是方法参数 age，类型为整形 int；第 2 个是方法内部的局部变量 name，类型为字符串 String。
+第 0 个是 this，类型为 LocalVaraiablesTable 对象；第 1 个是方法参数 age，类型为整型 int；第 2 个是方法内部的局部变量 name，类型为字符串 String。
 
 当然了，局部变量表的大小并不是方法中所有局部变量的数量之和，它与变量的类型和变量的作用域有关。当一个局部变量的作用域结束了，它占用的局部变量表中的位置就被接下来的局部变量取代了。
 
@@ -152,7 +152,7 @@ OperandStack 类共有 2 个方法，`test()` 方法中调用了 `add()` 方法�
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/how-jvm-run-zijiema-zhiling-3ffdbe03-c0e4-49de-97a6-76666964a087.png)
 
-操作数中的数据类型必须与字节码指令匹配，以上面的 iadd 指令为例，该指令只能用于整形数据的加法运算，它在执行的时候，栈顶的两个数据必须是 int 类型的，不能出现一个 long 型和一个 double 型的数据进行 iadd 命令相加的情况。
+操作数中的数据类型必须与字节码指令匹配，以上面的 iadd 指令为例，该指令只能用于整型数据的加法运算，它在执行的时候，栈顶的两个数据必须是 int 类型的，不能出现一个 long 型和一个 double 型的数据进行 iadd 命令相加的情况。
 
 #### 动态链接
 

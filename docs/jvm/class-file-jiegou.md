@@ -88,7 +88,7 @@ public class ConstantTest {
 }
 ```
 
-布尔值 true 的十六进制是 0x01、字符 a 的十六进制是 0x61，字节 66 的十六进制是 0x42，短整型 67 的十六进制是 0x43，整形 68 的十六进制是 0x44。所以编译生成的整形常量在 class 文件中的位置如下图所示。
+布尔值 true 的十六进制是 0x01、字符 a 的十六进制是 0x61，字节 66 的十六进制是 0x42，短整型 67 的十六进制是 0x43，整型 68 的十六进制是 0x44。所以编译生成的整型常量在 class 文件中的位置如下图所示。
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/class-file-jiegou-bbe4c673-c3a5-4952-901d-35446f91a3af.png)
 
