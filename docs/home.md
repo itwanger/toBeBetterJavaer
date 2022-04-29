@@ -265,6 +265,7 @@ headerDepth: 1
 
 - [一分钟快速搭建Spring Boot项目](springboot/initializr.md)
 - [Spring Boot为什么不需要额外安装Tomcat？](springboot/tomcat.md)
+- [Spring Boot 整合 Redis 实现缓存](redis/redis-springboot.md)
 
 
 ### 辅助工具/轮子
@@ -315,6 +316,7 @@ headerDepth: 1
 
 - [Redis入门(适合新手)](redis/rumen.md)
 - [简单聊聊缓存雪崩、穿透、击穿](redis/xuebeng-chuantou-jichuan.md)
+
 
 
 ### MongoDB
