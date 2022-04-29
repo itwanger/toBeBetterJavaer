@@ -219,4 +219,4 @@ System.out.println(writer.getName()); // 沉默王二
 
 我心里这样想着，天渐渐地暗了下来。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

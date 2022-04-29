@@ -109,6 +109,7 @@ headerDepth: 1
 - [Java代码初始化块](oo/code-init.md)
 - [Java抽象类](oo/abstract.md)
 - [Java接口](oo/interface.md)
+- [Java内部类](oo/inner-class.md)
 - [Java中的static关键字解析](oo/static.md)
 - [Java中this和super的用法总结](oo/this-super.md)
 - [浅析Java中的final关键字](oo/final.md)
