@@ -667,6 +667,7 @@ export const sidebarConfig = defineSidebarConfig({
           children: [
             "springboot/initializr",
             "springboot/tomcat",
+            "redis/redis-springboot",
           ],
         },
         {

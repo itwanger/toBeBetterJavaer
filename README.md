@@ -261,6 +261,7 @@
 
 - [一分钟快速搭建Spring Boot项目](https://tobebetterjavaer.com/springboot/initializr.html)
 - [Spring Boot为什么不需要额外安装Tomcat？](https://tobebetterjavaer.com/springboot/tomcat.html)
+- [Spring Boot 整合 Redis 实现缓存](https://tobebetterjavaer.com/redis/redis-springboot.html)
 
 
 ## 辅助工具/轮子
@@ -310,6 +311,7 @@
 
 - [Redis入门(适合新手)](https://tobebetterjavaer.com/redis/rumen.html)
 - [简单聊聊缓存雪崩、穿透、击穿](https://tobebetterjavaer.com/redis/xuebeng-chuantou-jichuan.html)
+
 
 
 ## MongoDB
