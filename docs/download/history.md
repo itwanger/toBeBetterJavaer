@@ -1,5 +1,9 @@
 # 网络日志
 
+### 2022年04月29日
+
+- [增加内部类](https://tobebetterjavaer.com/oo/inner-class.html)
+
 ### 2022年04月27日
 
 - 修改整形到整型，By Lettuce
