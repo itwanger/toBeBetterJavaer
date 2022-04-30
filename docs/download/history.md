@@ -1,5 +1,9 @@
 # 网络日志
 
+### 2022年04月30日
+
+- 批量替换所有图片链接为阿里云的 CDN 链接
+
 ### 2022年04月29日
 
 - [增加内部类](https://tobebetterjavaer.com/oo/inner-class.html)
