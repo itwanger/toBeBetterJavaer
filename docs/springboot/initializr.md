@@ -12,7 +12,7 @@ tag:
 
 Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目。网址如下：
 
->https://start.spring.io/
+>[https://start.spring.io/](https://start.spring.io/)
 
 打开后的界面如下：
 
@@ -126,7 +126,7 @@ what？？？？？？竟然没有安装 JDK。好吧，为了带白票阿里云
 
 PS：需要在 centos 环境下安装 JDK 的小伙伴可以看这篇。
 
->https://segmentfault.com/a/1190000015389941
+>[https://segmentfault.com/a/1190000015389941](https://segmentfault.com/a/1190000015389941)
 
 安装好 JDK 后，再次执行命令就可以看到 Spring Boot 项目可以正常在服务器上跑起来了。
 
@@ -165,8 +165,7 @@ public class HelloController {
 
 OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项目开发完成了。
 
-由于公众号的文章发布后不能修改，也没办法加个统一的目录作为索引页，所以二哥就把《Java 程序员进阶之路》的系列文章开源到了 GitHub（点击**阅读原文**可以直接跳转）：
 
->https://github.com/itwanger/toBeBetterJavaer
+---
 
-每天看着 star 数的上涨我心里非常的开心，希望越来越多的 Java 爱好者能因为这个开源项目而受益，而**越来越多人的 star，也会激励我继续更新下去**~
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
