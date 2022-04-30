@@ -117,7 +117,7 @@ public class Wangsan {
 
 局部内部类就好像一个局部变量一样，它是不能被权限修饰符修饰的，比如说 public、protected、private 和 static 等。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/oo/inner-class-26fc0242-134a-4588-a52d-7da962fc3fb9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/oo/inner-class-26fc0242-134a-4588-a52d-7da962fc3fb9.png)
 
 **3）匿名内部类**
 
@@ -140,7 +140,7 @@ public class ThreadDemo {
 匿名内部类就好像一个方法的参数一样，用完就没了，以至于我们都不需要为它专门写一个构造方法，它的名字也是由系统自动命名的。仔细观察编译后的字节码文件也可以发现，匿名内部类连名字都不配拥有，哈哈，直接借用的外部类，然后 `&1` 就搞定了。
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/oo/inner-class-c0b9bdf5-cb12-45fc-b362-cb14d5d44fdc.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/oo/inner-class-c0b9bdf5-cb12-45fc-b362-cb14d5d44fdc.png)
 
 
 匿名内部类是唯一一种没有构造方法的类。就上面的写法来说，匿名内部类也不允许我们为其编写构造方法，因为它就像是直接通过 new 关键字创建出来的一个对象。
@@ -167,7 +167,7 @@ public class Wangsi {
 由于 static 关键字的存在，静态内部类是不允许访问外部类中非 static 的变量和方法的，这一点也非常好理解：你一个静态的内部类访问我非静态的成员变量干嘛？
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/oo/inner-class-69523196-37fe-43c6-a52e-5a8c94fdd2d8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/oo/inner-class-69523196-37fe-43c6-a52e-5a8c94fdd2d8.png)
 
 
 ### 总结

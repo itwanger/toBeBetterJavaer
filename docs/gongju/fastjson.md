@@ -12,7 +12,7 @@ tag:
 
 我是 fastjson，是个地地道道的杭州土著，但我始终怀揣着一颗走向全世界的雄心。这不，我在 GitHub 上的简介都换成了英文，国际范十足吧？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/fastjson-0576767f-c447-49f1-83a3-6971782c4d52.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/fastjson-0576767f-c447-49f1-83a3-6971782c4d52.png)
 
 如果你的英语功底没有我家老板 666 的话，我可以简单地翻译下（说人话，不装逼）。
 
@@ -233,7 +233,7 @@ public class IdentityHashMap<K, V> {
 
 再比如说，使用 asm 技术来避免反射导致的开销。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/fastjson-86a38cb0-3acc-4132-8e1f-48ebeaa52b47.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/fastjson-86a38cb0-3acc-4132-8e1f-48ebeaa52b47.png)
 
 我承认，快的同时，也带来了一些安全性的问题。尤其是 AutoType 的引入，让黑客有了可乘之机。
 
@@ -257,14 +257,14 @@ public class IdentityHashMap<K, V> {
 
 在于黑客的反复较量中，我虽然变得越来越稳重成熟了，但与此同时，让我的用户为此也付出了沉重的代价。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/fastjson-6868c673-8799-4326-baab-1050a5a4e9a3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/fastjson-6868c673-8799-4326-baab-1050a5a4e9a3.png)
 
 
 网络上也出现了很多不和谐的声音，他们声称我是最垃圾的国产开源软件之一，只不过凭借着一些投机取巧赢得了国内开发者的信赖。
 
 但更多的是，对我的不离不弃。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/fastjson-85a44233-6eb2-4164-a091-6b65fc5f001a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/fastjson-85a44233-6eb2-4164-a091-6b65fc5f001a.png)
 
 最令我感到为之动容的一句话是：
 
@@ -274,7 +274,7 @@ public class IdentityHashMap<K, V> {
 
 为了彻底解决 AutoType 带来的问题，在 1.2.68 版本中，我引入了 safeMode 的安全模式，无论白名单和黑名单，都不支持 AutoType，这样就可以彻底地杜绝攻击。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/fastjson-57146979-cb99-4236-94f9-1cd5276e8269.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/fastjson-57146979-cb99-4236-94f9-1cd5276e8269.png)
 
 安全模式下，`checkAutoType()` 方法会直接抛出异常。
 

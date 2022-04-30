@@ -17,27 +17,27 @@ Java 语言出来之前，大家都在拼命的写 C 或者 C++ 的程序，此�
 
 垃圾回收的第一步是标记。垃圾回收器此时会找出内存哪些在使用中，哪些不是。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-9858785a-c6aa-4d6d-a6cd-640d24dd27d0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-9858785a-c6aa-4d6d-a6cd-640d24dd27d0.png)
 
 
 上图中，蓝色表示已引用对象，橙色表示未引用对象。垃圾回收器要检查完所有的对象，才能知道哪些有被引用，哪些没。如果系统里所有的对象都要检查，那这一步可能会相当耗时间。
 
 垃圾回收的第二步是清除，这一步会删掉标记出的未引用对象。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-768f5a2c-6c81-4f76-b847-a41cc8413228.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-768f5a2c-6c81-4f76-b847-a41cc8413228.png)
 
 
 内存分配器会保留指向可用内存中的引用，以分配给新的对象。
 
 垃圾回收的第三步是压缩，为了提升性能，删除了未引用对象后，还可以将剩下的已引用对象放在一起（压缩），这样就能更简单快捷地分配新对象了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-989889b6-adb4-4277-8c67-73d76658f744.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-989889b6-adb4-4277-8c67-73d76658f744.png)
 
 之前提到过，逐一标记和压缩  Java 虚拟机中的所有对象非常低效：分配的对象越多，垃圾回收需要的时间就越久。不过，根据统计，大部分的对象，其实用没多久就不用了。
 
 来看个例子吧。下图中，竖轴代表已分配的字节，而横轴代表程序的运行时间。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-24b154be-4ad0-4cc7-87e9-a3035bc9e3c5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-24b154be-4ad0-4cc7-87e9-a3035bc9e3c5.png)
 
 
 可见，存活（没被释放）的对象随着运行时间越来越少。图中左侧的峰值，也表明了大部分对象其实都挺短命的。
@@ -48,7 +48,7 @@ Java 语言出来之前，大家都在拼命的写 C 或者 C++ 的程序，此�
 
 根据之前的规律，就可以用来提升 JVM 的效率了。方法是，把堆分成几个部分（就是所谓的分代），分别是新生代、老年代，以及永生代。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-590c5011-48c4-4543-bd26-6f14c2b8614b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-590c5011-48c4-4543-bd26-6f14c2b8614b.png)
 
 新对象会被分配在新生代内存。一旦新生代内存满了，就会开始对死掉的对象，进行所谓的小型垃圾回收（Minor GC）过程。一片新生代内存里，死掉的越多，回收过程就越快；至于那些还活着的对象，此时就会老化，并最终老到进入老年代内存。
 
@@ -64,37 +64,37 @@ Major GC 也会触发STW（Stop the World）。通常，Major GC会慢很多，�
 
 首先，将任何新对象分配给 eden 空间。 两个 survivor 空间都是空的。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-efe9657b-c7a6-48a8-9037-0e709b1d236c)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-efe9657b-c7a6-48a8-9037-0e709b1d236c)
 
 当 eden 空间填满时，会触发轻微的垃圾收集。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-2497947b-92b5-4a7c-9399-1909a3153660)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-2497947b-92b5-4a7c-9399-1909a3153660)
 
 引用的对象被移动到第一个 survivor 空间。 清除 eden 空间时，将删除未引用的对象。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-2b431315-26fa-4ea0-843a-c63ca568f960)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-2b431315-26fa-4ea0-843a-c63ca568f960)
 
 在下一次Minor GC中，Eden区也会做同样的操作。删除未被引用的对象，并将被引用的对象移动到Survivor区。然而，这里，他们被移动到了第二个Survivor区（S1）。
 
 此外，第一个Survivor区（S0）中，在上一次Minor GC幸存的对象，会增加年龄，并被移动到S1中。待所有幸存对象都被移动到S1后，S0和Eden区都会被清空。注意，Survivor区中有了不同年龄的对象。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-e2560f59-9b24-4d16-88db-b6ac4d0b6ffe)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-e2560f59-9b24-4d16-88db-b6ac4d0b6ffe)
 
 在下一次Minor GC中，会重复同样的操作。不过，这一次Survivor区会交换。被引用的对象移动到S0,。幸存的对象增加年龄。Eden区和S1被清空。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-aa9f883a-12db-4c8b-8391-3c289b53d804)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-aa9f883a-12db-4c8b-8391-3c289b53d804)
 
  此幻灯片演示了 promotion。 在较小的GC之后，当老化的物体达到一定的年龄阈值（在该示例中为8）时，它们从年轻一代晋升到老一代。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-dec96816-2912-4127-aaaa-a4d987123f52)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-dec96816-2912-4127-aaaa-a4d987123f52)
 
 随着较小的GC持续发生，物体将继续被推广到老一代空间。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-6cb31f8a-2eac-489c-88bd-fc643996ab49)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-6cb31f8a-2eac-489c-88bd-fc643996ab49)
 
 所以这几乎涵盖了年轻一代的整个过程。 最终，将主要对老一代进行GC，清理并最终压缩该空间。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-df98a004-e233-4fb5-a31a-f422033ecfa7)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-df98a004-e233-4fb5-a31a-f422033ecfa7)
 
 --------
 
@@ -102,7 +102,7 @@ Major GC 也会触发STW（Stop the World）。通常，Major GC会慢很多，�
 
 Java 堆（Java Heap）是 JVM 所管理的内存中最大的一块，堆又是垃圾收集器管理的主要区域，这里我们主要分析一下 Java 堆的结构。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/tujie-gc-294701a5-1c50-4112-94a1-96a8bab80e34.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-294701a5-1c50-4112-94a1-96a8bab80e34.png)
 
 
 Java 堆主要分为 2 个区域-年轻代与老年代，其中年轻代又分 Eden 区和 Survivor 区，其中 Survivor 区又分 From 和 To 2 个区。可能这时候大家会有疑问，为什么需要 Survivor 区，为什么 Survivor 还要分 2 个区。

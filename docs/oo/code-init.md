@@ -79,7 +79,7 @@ public class Car {
 
 说完这句话，我打开 draw.io，使上了吃奶的劲，画出了下面这幅图。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/22-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/22-01.png)
 
 “哦，原来如此啊！”三妹仿佛发现了新大陆，意味深长地说。
 

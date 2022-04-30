@@ -21,7 +21,7 @@ tag:
 
 有句话叫做上有天堂，下有苏杭，不过有一说一，互联网环境方面苏州和杭州感觉还是有点差距。但是个人觉得还是不错的，而且从 18 年左右开始，苏州的互联网环境开始有了明显的改善。生活方面无论是苏州的地理位置，还是人文环境，都是十分适合居住生活的。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-e780c8c6-6e3f-4ba0-a91b-5cf572ee2d54.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-e780c8c6-6e3f-4ba0-a91b-5cf572ee2d54.png)
 
 老规矩，下面我们还是按照程序员的工作机会和生活环境来介绍苏州。
 
@@ -31,7 +31,7 @@ tag:
 
 ### 微软
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-e18a11b0-2667-4e27-b93f-a05dad122e76.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-e18a11b0-2667-4e27-b93f-a05dad122e76.png)
 
 微软可以说是程序员在苏州最好的工作机会了。微软近些年也一直扩大在苏州的投资力度，目前微软苏州研究院的研发团队已经有 2000 人左右了，并且还在近一步扩建。2022 年微软将启动微软苏州三期新大楼的建设，建成后预计微软在苏州的研发团队会达到5000人。所以，目前想拿微软苏州的 offer 的难度，相比于拿北京上海等其它几个工作地 offer 的难度会低一些，大家抓紧呀。 
 
@@ -43,55 +43,55 @@ tag:
 
 ### ZOOM
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-ce9a78ef-6a18-4adf-8a4f-de7b7fa34b45.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-ce9a78ef-6a18-4adf-8a4f-de7b7fa34b45.png)
 
 在苏州，Zoom是除微软外的另一个好选择。Zoom 曾经被评为全球最佳雇主。根据 zoom 员工的说法，zoom的技术水平大概和国内二三线厂的水平差不多。薪资方面，比国内互联网也要低一些，看到一个校招薪资的爆料，一个做前端的硕士在苏州zoom的薪资是17k * 14。额外有 7 万美元的股票，分 4 年发完。虽然 base 薪资方面相对低一些，但是 zoom 工作是真的爽呀，没有 996，没有 kpi，办公环境好，无限零食和水果供应，这还要啥自行车。
 
 ### 华为
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-8bd7e5d1-1984-43f7-84e1-b02141160a37.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-8bd7e5d1-1984-43f7-84e1-b02141160a37.png)
 
 华为在苏州的研究院设立时间不长。华为的苏研院的加班在各地所有的研发中心中是排的上号的。华为各地研发中心的忙碌程度差不多是成都 》= 西安 》= 苏州 > 武汉 > 东莞 > 杭州 > 南京 > 深圳 > 北京 > 上海（整体感觉是这样，每个研发中心各部门的加班情况也不同）。不过华为有一个好处就是你挣的钱能和你的付出成正比，所以想快速挣钱的还是建议去。
 
 ### 360
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-85547b36-15da-443f-b7f2-878bfd06e997.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-85547b36-15da-443f-b7f2-878bfd06e997.png)
 
 360 来苏州时间不长，2018年才逐渐开始在苏州设立开发部门。目前 360 苏州包含了未来安全研究、360政企、安全等部门。目前 360苏州的薪资水平是北京上海薪资水平的 8 折，看到 21 年毕业的一个应届硕士爆料月薪是 16k，工资有点少，不过感觉在苏州也不错呀。
 
 ### Momenta
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-c4c83915-04b5-4660-9bad-32989a65116d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-c4c83915-04b5-4660-9bad-32989a65116d.png)
 
 一开始我对 Momenta 还真没什么了解，直到我有一天突然在校招薪水上搜了下 Momenta，然后我不由得直呼卧槽，这特么是给应届生的薪资？认真的？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-ff400245-2fe0-437e-8dd3-aa9eed650e99.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-ff400245-2fe0-437e-8dd3-aa9eed650e99.png)
 
 然后我详细的了解了下这家公司，这是一家做自动驾驶的公司，创立时间也不长，2016年创立的。不过据说这家公司加班特别猛，有的组 10 10 5，有的组 996，有的组比 996 还要累。Momenta 现在能给的起这么高的工资，实力还是有的，不过对于发展的前景来说，领域这么垂直的公司风险性是比较大的。
 
 ### 企查查
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-d4bcbf1d-f758-4267-b55f-7553d7673511.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-d4bcbf1d-f758-4267-b55f-7553d7673511.png)
 
 跟上面的公司相比，企查查算是一个小而美的公司。企查查是苏州的本地企业，目前来说口碑还是很不错的。目前企查查的业务很赚钱，自己的大楼也差不多修好了。没有强制加班，全额社保和公积金。我没有查到企查查的校招薪资，看 boss 上的社招薪资水平不算太高，只能算还可以了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-c7dbed8d-c471-4969-bfc4-badf8e0ac346.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-c7dbed8d-c471-4969-bfc4-badf8e0ac346.png)
 
 ### 收钱吧
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-31051fbc-a573-4328-904b-6915bfba2323.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-31051fbc-a573-4328-904b-6915bfba2323.png)
 
 这个公司大家应该都听说过，每次你用支付宝或者微信给商家付钱时都能听到“收钱吧到账xx元”。收钱吧的技术不错，加班也比较少，收钱吧的风评不错。不过就是工资相对给的少点，月薪 17k 左右（在苏州也还行了），每年14 个月的月薪。
 
 ### 中国移动苏州研究院
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-1bb72f74-dba6-420f-8c37-0a9e621b3561.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-1bb72f74-dba6-420f-8c37-0a9e621b3561.png)
 
 中国移动苏州研究院又叫苏小研，其实犹豫了很久要不要把他放在推荐里。苏小妍在知乎上的争议很大，有说待遇福利很好的，也有狂喷的。苏小研肯定有国企的通病，这个我确认，但具体怎么样就靠大家自己判断了，贴两张知乎上对苏小研的评价，好坏要大家自己去具体确认了。这两张图评价完全是两个极端呀。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-b616269f-3717-4ea4-8c29-b4d5bcd448b4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-b616269f-3717-4ea4-8c29-b4d5bcd448b4.png)
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-76122245-a8e1-44a8-a1f4-8ce7ab3c640d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-76122245-a8e1-44a8-a1f4-8ce7ab3c640d.png)
 
 上面是我认为苏州的比较不错的程序员就业机会，其它的一些苏州比较成规模的提供程序员就业机会的公司就列在下面，并且快速的简单介绍一下。
 
@@ -119,7 +119,7 @@ tag:
 
 ### 教育
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-1b300d4a-1384-4dd2-a9a5-98221f1f6c46.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-1b300d4a-1384-4dd2-a9a5-98221f1f6c46.png)
 
 高等教育方面。其实就苏州本身而言，高校并不多，只有苏州大学一所 211（苏大的自然语言处理挺强的）。但是前些年许多地理位置偏北的高校为了打造自己在南方的影响力，提高生源质量，都会选择在南方办学。其中一部分选择了深圳，另一部分选择了苏州。西交大、中科大、中国人民大学、东南大学、西工大等院校都在苏州设有校区。所以虽然苏州本地院校不多，但是苏州计算机软件相关的高校毕业生并不少。不过这种现象随着西工大太仓校区刚修好，异地办学就被叫停了，我瓜实惨~
 
@@ -129,11 +129,11 @@ tag:
 
 相比于苏州的工资水平，其实苏州的房价也不低了，看网站上的新房均价大约两万五一平。但是和旁边的城市一比，那苏州的房价就比较香了。在苏州咬咬牙还是能考虑买房的。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-60675498-4bfe-46d2-af70-da2f21add403.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-60675498-4bfe-46d2-af70-da2f21add403.png)
 
 ### 娱乐&交通&美食
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/suzhou-c35c16ca-0bbf-489a-ba0b-9ecb6fef6905.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/suzhou-c35c16ca-0bbf-489a-ba0b-9ecb6fef6905.png)
 
 娱乐方面苏州好玩的地方很多，传统的苏州园林风格和苏州现代风格都让人十分留恋。周末在苏州园林逛一逛真的很惬意。
 

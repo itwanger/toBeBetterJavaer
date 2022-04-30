@@ -16,7 +16,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 打开后的界面如下：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-01.png)
 
 
 可以将 Spring Initializr 看作是 Spring Boot 项目的初始化向导，它可以帮助开发人员在一分钟之内创建一个 Spring Boot 骨架，非常的傻瓜式。
@@ -43,26 +43,26 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 好，接下来我们使用 Spring Initializr 初始化一个 Web 项目，Project 选择 Maven，Spring Boot 选择 2.6.1，Java 选择 JDK 8，Dependencies 选择「Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.」
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-02.png)
 
 
 这预示着我们会采用 SpringMVC 并且使用 Tomcat 作为默认服务器来开发一个 Web 项目。
 
 然后点击底部的「generate」按钮，就会生成一个 Spring Boot 初始化项目的压缩包。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-03.png)
 
 
 ### 二、Spring Boot 项目结构分析
 
 解开压缩包，并导入到 Intellij IDEA 中，可以看到 Spring Boot 项目的目录结构。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-04.png)
 
 
 可以使用 `tree  -CfL 3` 命令以树状图列出目录的内容：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-05.png)
 
 
 - src/main/java 为项目的开发目录，业务代码在这里写。
@@ -76,12 +76,12 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 第一次启动，我个人习惯在 main 类中右键，在弹出的右键菜单这种选择「run ... main()」启动。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-06.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-06.png)
 
 
 经过 2.5s 左右的 build 后，项目启动成功了，可以在日志中看到 Web 项目是以 Tomcat 为容器的，默认端口号为 8080，根路径为空。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-07.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-07.png)
 
 
 这要比传统的 Web 项目省事省心省力，不需要打成 war 包，不需要把 war 包放到 Tomcat 的 webapp 目录下再启动。
@@ -91,7 +91,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 打开 Terminal 终端， 执行命令 `mvn clean package`，等待打包结果。
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-08.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-08.png)
 
 
 我们的项目在初始化的时候选择的是 Maven 构建方式，所以 pom.xml 文件中会引入 spring-boot-maven-plugin 插件。
@@ -109,17 +109,17 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 因此我们就可以利用 Maven 命令来完成项目打包，打包完成后，进入 target 目录下，就可以看到打包好的 jar 包了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-09.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-09.png)
 
 
 利用终端工具 [Tabby](https://mp.weixin.qq.com/s/HeUAPe4LqqjfzIeWDe8KIg)，将 jar 包上传到服务器。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-10.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-10.png)
 
 
 执行 `java -jar tobebetterjavaer-0.0.1-SNAPSHOT.jar` 命令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-11.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-11.png)
 
 
 what？？？？？？竟然没有安装 JDK。好吧，为了带白票阿里云服务器的小伙伴一起学习 Linux，我下了血本自己买了一台零添加的服务器。
@@ -130,14 +130,14 @@ PS：需要在 centos 环境下安装 JDK 的小伙伴可以看这篇。
 
 安装好 JDK 后，再次执行命令就可以看到 Spring Boot 项目可以正常在服务器上跑起来了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-12.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-12.png)
 
 
 ### 四、开发第一个 Spring Boot 项目
 
 项目既然启动成功了，我们在浏览器里访问 8080 端口测试下吧。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-13.png)
 
 
 咦，竟然 Whitelabel 了，这个 404 页面是 Spring Boot 默认的错误页面，表示我们的请求在 Web 服务中不存在。
@@ -160,7 +160,7 @@ public class HelloController {
 
 这段代码的业务逻辑非常简单，用户发送 hello 请求，服务器端响应一个“hello, springboot”回去。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/springboot/initializr-14.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/springboot/initializr-14.png)
 
 
 OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项目开发完成了。

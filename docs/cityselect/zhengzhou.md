@@ -20,25 +20,25 @@ tag:
 
 教育资源极度匮乏导致好的企业不来，好的企业不来又导致人才外流，恶性循环。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-0cd5c4ac-4e67-4b06-b5a3-20fad836824b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-0cd5c4ac-4e67-4b06-b5a3-20fad836824b.png)
 
 
 
 ### 数字郑州
 
-![img](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-b88e7ee0-5ab7-40af-8d1d-16cd3eae7b97.png)
+![img](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-b88e7ee0-5ab7-40af-8d1d-16cd3eae7b97.png)
 
 这个是阿里和郑州的政府合作的，目前评价大家对数字郑州的评价很不错呀，薪资也挺给力的，大家可以看下 Boss 上数字郑州的招聘岗位以及薪资报价呀。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-b1ef6dc9-0859-47fd-9058-a504bf01cd5a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-b1ef6dc9-0859-47fd-9058-a504bf01cd5a.png)
 
 ### 中原银行
 
-![img](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-db7b6919-2158-4846-914f-f30e028c0234.png)
+![img](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-db7b6919-2158-4846-914f-f30e028c0234.png)
 
 中原银行的工资比较高，在郑州生活的话去中原银行是很不错的选择，不过想进中原银行的话，不是校招想进去有点难。薪资水平可以看下 Boss 上的招聘薪资水平。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-ce9e2a6e-8743-49b3-83aa-8719da78b7e1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-ce9e2a6e-8743-49b3-83aa-8719da78b7e1.png)
 
 
 
@@ -46,19 +46,19 @@ tag:
 
 浪潮在郑州的研发中心法定节假日加班是有加班费的，但平时加班就没有加班费了，每月要求加够50个小时的班。薪资水平大家也可以参考下 Boss 上放出的招聘薪资水平。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-ef0fe9a0-eff2-4037-96d2-ab84a2f76491.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-ef0fe9a0-eff2-4037-96d2-ab84a2f76491.png)
 
 ### 新华三
 
 新华三大部分情况下能双休，周末加班也有加班费，不过涨薪很缓慢。在网上看到一个帖子，有人问 offer 选西安中兴还算郑州新华三，中兴和华三的职工都在互相劝退，说这是一个送命题。薪资水平大家还是参考下Boss上的招聘薪资水平吧。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-caa46657-f65d-4965-b553-c9f4502f3cc9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-caa46657-f65d-4965-b553-c9f4502f3cc9.png)
 
-![点击并拖拽以移动](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-62496f27-fe20-45c6-b116-90a38e607a09)
+![点击并拖拽以移动](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-62496f27-fe20-45c6-b116-90a38e607a09)
 
 ### UU 跑腿
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-624dd61d-2b19-4cb6-b4b6-e1b813fd6baf.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-624dd61d-2b19-4cb6-b4b6-e1b813fd6baf.png)
 
 UU 跑腿主要提供同城送件服务，是郑州本土最大的互联网公司，隶属于郑州时空隧道信息技术有限公司，地址位于郑州市金水区。
 
@@ -68,11 +68,11 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 薪资的话，看准网上的平均薪资是 10k 附近，其中后端开发的薪资在 14k 附近，前端开发的薪资在 10k 附近，软件测试的薪资在 10k 附近(薪资水平仅供参考，实际情况因人和岗位或许会有一些出入)。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-b3a5d176-a10b-4637-a349-06197ee984a8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-b3a5d176-a10b-4637-a349-06197ee984a8.png)
 
 ### 中原消费金融
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-3317ba70-8310-465c-b36d-60f8e215960c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-3317ba70-8310-465c-b36d-60f8e215960c.png)
 
 河南中原消费金融股份有限公司是一家全国性非银行金融机构，地址位于郑州市郑东新区。
 
@@ -84,27 +84,27 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 注意：大家注意一个情况，中原消费的软件研发岗位大部分都搬迁到上海了，目前在郑州的大部分是行政岗位，只有少部分研发岗位。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-6de95df2-4c10-44af-9ddb-935cb358def6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-6de95df2-4c10-44af-9ddb-935cb358def6.png)
 
 ### 刀锋互娱
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-aa02294b-e809-49b6-9e96-4ec44db676c3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-aa02294b-e809-49b6-9e96-4ec44db676c3.png)
 
 刀锋互娱是一家专注游戏服务市场的互联网公司，2019 年完成 A+轮融资，平台注册用户量突破千万。
 
 旗下比较出名的产品有租号玩、一派陪玩，都是和游戏领域相关的产品。相信比较喜欢玩游戏的小伙伴应该对这个两个产品有了解。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-ec100440-a50e-4f27-88e4-4b075cf12676.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-ec100440-a50e-4f27-88e4-4b075cf12676.png)
 
 整体面试不是很难，薪资相对来说也还可以。
 
 薪资的话，看准网上的平均薪资是 16k 附近，其中后端开发（C++）的薪资在 20k 附近，前端开发的薪资在 8.5k 附近，软件测试的薪资在 9.5k 附近(薪资水平仅供参考，实际情况因人和岗位或许会有一些出入)。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-1b7640e6-deee-42f6-8df7-639555c5d236.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-1b7640e6-deee-42f6-8df7-639555c5d236.png)
 
 ### 新开普
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-ca1cf626-13aa-4081-b6c0-285893458dde.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-ca1cf626-13aa-4081-b6c0-285893458dde.png)
 
 新开普也是郑州的一家本土互联网公司，成立于郑州高新技术产业开发区，主要做 NFC 近场移动支付、金融 IC 卡等业务。
 
@@ -114,7 +114,7 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 薪资的话，看准网上的平均薪资是 7.6k 附近，其中后端开发（Java）的薪资在 9k 附近，前端开发的薪资在 9k 附近，软件测试的薪资在 5.5k 附近(薪资水平仅供参考，实际情况因人和岗位或许会有一些出入)。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-dca4c23e-7310-4a60-b338-25f3e92d3339.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-dca4c23e-7310-4a60-b338-25f3e92d3339.png)
 
 ### 中移在线
 
@@ -136,11 +136,11 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 薪资的话，看准网上的平均薪资是 12k 附近，其中后端开发（Java）的薪资在 14k 附近，前端开发的薪资在 8k 附近，软件测试的薪资在 10k 附近(薪资水平仅供参考，实际情况因人和岗位或许会有一些出入)。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-90273777-d5d0-424a-a8b0-e5df53455ef9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-90273777-d5d0-424a-a8b0-e5df53455ef9.png)
 
 ### 妙优车
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-b6ca12ab-ecb5-4b01-9cf3-21b22da0d67a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-b6ca12ab-ecb5-4b01-9cf3-21b22da0d67a.png)
 
 妙优车主要做的是汽车方面的业务，涵盖整车销售、汽车金融、汽车保险、汽车用品、汽车美容等方面。
 
@@ -150,7 +150,7 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 薪资这块的一般偏上，看准网上的平均薪资是 11k 附近，其中后端开发（Java）的薪资在 12k 附近，前端开发的薪资在 10k 附近(薪资水平仅供参考，实际情况因人和岗位或许会有一些出入)。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-491c2bc1-5cea-48e6-ad47-80eb92ddaa3d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-491c2bc1-5cea-48e6-ad47-80eb92ddaa3d.png)
 
 ### 腾河
 
@@ -180,13 +180,13 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 科大讯飞在郑州金水区有一个小分部，大部分招聘的都是和技术无关的岗位，不过也有一个 Java 开发岗。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-dc1517e7-c93b-457f-96d2-0871c17bf916.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-dc1517e7-c93b-457f-96d2-0871c17bf916.png)
 
 ### 字节跳动
 
 郑州也有字节跳动分部，不过都是和市场拓展与运营相关的岗位，像技术开发岗是没有的。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-c7d11e68-2b85-4895-a3c5-44f6816ccfb2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-c7d11e68-2b85-4895-a3c5-44f6816ccfb2.png)
 
 类似的还有美团、华为、阿里巴巴等大厂，这些公司在郑州招聘的基本也都是非技术岗位。
 
@@ -206,7 +206,7 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 以下房价数据来源于安居客，可以作为参考。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-95ec5784-5064-488c-bce8-4c076115a021.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-95ec5784-5064-488c-bce8-4c076115a021.png)
 
 ### 教育
 
@@ -214,7 +214,7 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 不过，211 院校仅有一所——郑州大学。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-03294872-3914-441b-ae6b-55200bce097a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-03294872-3914-441b-ae6b-55200bce097a.png)
 
 是的！作为偌大的河南省的省会，国家历史文化名城，也就只有一所 211！
 
@@ -228,7 +228,7 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 另外，郑州市的优质医疗资源，在金水区、中原区、管城区比较集中；
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-6bbd8d11-dbe5-43c4-9354-b422b7fe1f77.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-6bbd8d11-dbe5-43c4-9354-b422b7fe1f77.png)
 
 ### 本地居民
 
@@ -246,15 +246,15 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 下图中的部分高铁线路正在修建，比如郑万高铁全线大概是 2021 年中旬通车。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-0a4d6b3c-a756-4509-a6fd-f3a65f018c84.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-0a4d6b3c-a756-4509-a6fd-f3a65f018c84.png)
 
 郑州的地铁规划情况如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-264ab1f2-f355-466a-ab5d-2dc21668e888.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-264ab1f2-f355-466a-ab5d-2dc21668e888.gif)
 
 目前的话，郑州地铁有 1 号线、2 号线、3 号线、4 号线、城郊线、5 号线、14 号线一期 7 条地铁线。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-c5e61f03-efcb-4e56-b9bf-ff7bcec3dce0)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-c5e61f03-efcb-4e56-b9bf-ff7bcec3dce0)
 
 ### 美食
 
@@ -262,7 +262,7 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 郑州好吃的还挺多的！去了郑州之后，一定要去喝胡辣汤，真的不要太好喝！
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/zhengzhou-757eed5b-4b81-4bb0-a0e1-b24e510cc707.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-757eed5b-4b81-4bb0-a0e1-b24e510cc707.png)
 
 本地的美食还有烩面、焖饼、烧鸡等等都非常不错。
 

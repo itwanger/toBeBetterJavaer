@@ -15,11 +15,11 @@ category: 联系作者
 
 可以微信搜索 **沉默王二** 关键字或者扫码直接关注，关注后回复 **00** 还可以拉取我为你精心准备的学习资料。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-34972eb2-f214-48db-a43e-c44918dfa23e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-34972eb2-f214-48db-a43e-c44918dfa23e.png)
 
 学习资料有 BAT 大佬的刷题笔记，有《Java 程序员进阶之路》的 PDF 版电子书等等。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-a3b81b80-03ec-470c-a9aa-ae8868e239cd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-a3b81b80-03ec-470c-a9aa-ae8868e239cd.png)
 
 
 
@@ -29,7 +29,7 @@ category: 联系作者
 
 >访问地址：https://blog.csdn.net/qing_gee
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-14fd83ec-db6e-4a6f-a8e9-8ce1ce0097c3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-14fd83ec-db6e-4a6f-a8e9-8ce1ce0097c3.png)
 
 ### 03、知乎
 
@@ -37,7 +37,7 @@ LV9 选手，阅读总数超 1590 万，今年卷一卷的话，破 2000 万阅�
 
 >访问地址：https://www.zhihu.com/people/cmower
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-0fa19b6e-d06c-436b-bd11-1de8265c56bb.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-0fa19b6e-d06c-436b-bd11-1de8265c56bb.png)
 
 ### 04、B 站
 
@@ -45,7 +45,7 @@ B 站还比较菜，目前只有一个 10 万+播放量的视频，等我的开�
 
 >访问地址：https://space.bilibili.com/513340480
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-5db6c62f-6194-4022-aee5-daf4d1a19f0c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-5db6c62f-6194-4022-aee5-daf4d1a19f0c.png)
 
 ### 05、GitHub
 
@@ -53,14 +53,14 @@ B 站还比较菜，目前只有一个 10 万+播放量的视频，等我的开�
 
 >访问地址：https://github.com/itwanger/toBeBetterJavaer
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-aa477206-41a9-4c55-a649-3d87ba1cb26b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-aa477206-41a9-4c55-a649-3d87ba1cb26b.png)
 
 
 ### 05、知识星球
 
 目前还处在试运营阶段，正在筹备星球用户专属的 5 份小册，质量高的一笔。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-c3dd1280-098e-460c-9a41-7d566976392b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-c3dd1280-098e-460c-9a41-7d566976392b.png)
 
 内容涵盖实战项目开发笔记、面试指南、Java学习、LeetCode Java 版刷题笔记等优质内容，价值远超门票！
 
@@ -72,11 +72,11 @@ B 站还比较菜，目前只有一个 10 万+播放量的视频，等我的开�
 
 这是《Java 面试指南》专栏目前已经更新的内容，讲真，就这一个专栏就值回票价（新人优惠价只有 69 元）。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-066ef990-a603-4ace-9a19-728eeb319924.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-066ef990-a603-4ace-9a19-728eeb319924.png)
 
 还有星球内部我也在坚持每天更新优质的内容。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/about-the-author/readme-e108c929-ebc5-4d75-8d40-825f6d027117.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/about-the-author/readme-e108c929-ebc5-4d75-8d40-825f6d027117.png)
 
 喜欢的小伙伴可以直接扫码加入。
 

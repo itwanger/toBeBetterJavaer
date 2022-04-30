@@ -38,7 +38,7 @@ tag:
 
 首先来看一下这位学弟的专业技能部分。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-2c93d164-55f7-4d2f-b0d0-f0857644a265)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-2c93d164-55f7-4d2f-b0d0-f0857644a265)
 
 其实，这部分他写的已经挺好的了，简单大方、条理清晰。
 
@@ -68,13 +68,13 @@ tag:
 
 下面是我当时给他的修改意见。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-f5c60946-3cdd-4ac6-9e20-8360808f8612)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-f5c60946-3cdd-4ac6-9e20-8360808f8612)
 
 ### 项目经历
 
 其实一份校招简历，最重要的就是项目经历、实习经历（有则加分，没有也行）、专业技能了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-a715eaa8-86c5-41ce-aee7-cd1873e2eec8)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-a715eaa8-86c5-41ce-aee7-cd1873e2eec8)
 
 可以从这位学弟的描述中看出来，他毕业后的这四个月里确实做了不少的工作，但感觉没说出来自己所做工作的意义和难点所在。
 
@@ -108,7 +108,7 @@ tag:
 
 以下是修改意见标注
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-5b6ff7c0-c8ad-4874-8ee8-7593e3ee1f5f)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-5b6ff7c0-c8ad-4874-8ee8-7593e3ee1f5f)
 
 至此，帮他把第一个项目修改完毕了，**针对第二个项目的修改**，我就不多BB了，直接贴上来吧。
 
@@ -122,7 +122,7 @@ tag:
 
 **下面是当时给他做的标注**：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-f2aec848-d462-491b-9fe1-7d939ea16ed8)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-f2aec848-d462-491b-9fe1-7d939ea16ed8)
 
 其实对于该部分的修改，我是紧紧抓住一个要点，那就是尽可能使用具化的指标即明确的信息而不是概括性的描述。
 
@@ -136,12 +136,12 @@ tag:
 
 首先是原文。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-eabee6e7-0fcf-4fb7-9ca8-0ada1c604acf)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-eabee6e7-0fcf-4fb7-9ca8-0ada1c604acf)
 
 
 我给的修改意见批注。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/download/jianli-bb7279ad-dd46-47ea-8f13-37d5caaf404e)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/download/jianli-bb7279ad-dd46-47ea-8f13-37d5caaf404e)
 
 1、在工作经历这里，注意细节问题，比如你的岗位名称是什么？你在实习过程中，你的工作有哪些？在这过程中用到了哪些技能？
 

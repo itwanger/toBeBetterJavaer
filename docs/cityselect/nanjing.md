@@ -13,7 +13,7 @@ tag:
 
 有句话说的很对，“安徽不能没有南京，就像东北不能没有三亚”。不过调研中也发现，对于程序员来说，想要在南京留下也不是件很容易的事情，因为南京程序员的工作机会只能算一般，薪资水平这两年许多大公司选择在南京设立分部后才带起来一些，但是南京的房价已经很高了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-707d074e-def7-4cd3-af0a-84e46a0929a9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-707d074e-def7-4cd3-af0a-84e46a0929a9.png)
 
 提一下哈，在这个系列里说的校招薪资都是常规招聘计划的薪资，说的常规招聘计划给出的 offer 包含普通 offer，sp (special offer) 和 ssp。不包含那些比如华为天才少年、美团北斗之类的。那种神仙 offer 怎么样我这种凡人还真不了解。这些招聘的薪资也都是针对本科生和研究生的。如果你是博士，薪资方面和公司都好商量。
 
@@ -23,7 +23,7 @@ tag:
 
 ### 阿里巴巴
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-f55e084c-f731-419b-af71-278ac8e7b15c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-f55e084c-f731-419b-af71-278ac8e7b15c.png)
 
 校招薪资：招的人不多，具体薪资情况不太清楚。据说和总部薪资水平差不多。阿里的薪资水平可以参考下[链接](https://mp.weixin.qq.com/s/3c-a7GpkTzAU2DFWSwN4lw)。
 
@@ -31,7 +31,7 @@ tag:
 
 ### 字节跳动
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-f945934a-3ab8-4272-a8b2-7001ea396377.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-f945934a-3ab8-4272-a8b2-7001ea396377.png)
 
 校招薪资：字节在南京的薪资是字节在北京上海深圳薪资的 0.9。感觉薪资水平挺不错了。今年字节校招薪资也可以点这个[链接](https://mp.weixin.qq.com/s/3c-a7GpkTzAU2DFWSwN4lw)查看。
 
@@ -39,7 +39,7 @@ tag:
 
 ### 荣耀
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-8470d707-53c6-4c07-8160-50759ad9d50b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-8470d707-53c6-4c07-8160-50759ad9d50b.png)
 
 校招薪资：月薪 17k - 27k（对应13-15级），每年 14-16 薪。
 
@@ -49,7 +49,7 @@ tag:
 
 ### 华为
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-f8ba1f60-c3bc-450b-b833-54db9bfdb807.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-f8ba1f60-c3bc-450b-b833-54db9bfdb807.png)
 
 校招薪资：13级月薪 20-21k，14 级 23-25k，15级月薪 26-27k。每年 14-16 薪。16级我就不清楚了。
 
@@ -57,7 +57,7 @@ tag:
 
 ### 小米
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-bfb9cd80-f9b5-4ea7-b4f6-a15e54cf3c4b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-bfb9cd80-f9b5-4ea7-b4f6-a15e54cf3c4b.png)
 
 校招薪资：小米的薪资是挺抠，不过放在南京来看也还行。看校招薪水上南京的薪资爆料今年有 11k，14k，16k，18k，19k，21k，23k 几个档。11k，14k基本都是本科生，硕士做开发岗的大部分是16k，18k，19k这几个档。20k 以上的基本都是做算法的。
 
@@ -65,7 +65,7 @@ tag:
 
 ### Vivo
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-7d676f6f-b081-4eb7-a2ce-3590a04b2fcd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-7d676f6f-b081-4eb7-a2ce-3590a04b2fcd.png)
 
 校招薪资：南京这边目前看到给应届生的价钱分为月薪17k，20k，24k三个档，，每年15薪。额外每个月有 1500 的租房补贴。住房公积金5%。
 
@@ -73,7 +73,7 @@ tag:
 
 ### OPPO
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-9ad6c7fe-c486-4628-8e07-f21b3e2cac6d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-9ad6c7fe-c486-4628-8e07-f21b3e2cac6d.png)
 
 校招薪资：具体薪资不太清楚，大致应届生月薪在 20k 上下，每年 14 -15 个月薪资。
 
@@ -81,7 +81,7 @@ tag:
 
 ### 中兴
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-094809df-30b0-40c6-a1a5-f1e0a5329b6a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-094809df-30b0-40c6-a1a5-f1e0a5329b6a.png)
 
 校招薪资：中兴常规计划（指的是普通 offer)的月薪基本都在20k 以内，蓝剑计划年薪会在 40w 以上。
 
@@ -89,7 +89,7 @@ tag:
 
 ### 360
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-0bec3704-902d-4b8b-90b7-4ab5fc28a79d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-0bec3704-902d-4b8b-90b7-4ab5fc28a79d.png)
 
 校招薪资：没调查清楚，年薪差不多 23w 左右。
 
@@ -97,7 +97,7 @@ tag:
 
 ### 深信服
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-5041109f-e9d8-4419-9f41-466f93708c53.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-5041109f-e9d8-4419-9f41-466f93708c53.png)
 
 校招薪资：开发岗有3个档，月薪分布在15.6 - 22.8k 这个区间，算法岗也是三个档，月薪分布在19 - 25.2k 这个区间。每年13 - 15 薪
 
@@ -105,7 +105,7 @@ tag:
 
 ### 趋势科技
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-f60ae6ee-13d7-4efc-bd5a-a0334b76c6e3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-f60ae6ee-13d7-4efc-bd5a-a0334b76c6e3.png)
 
 校招薪资：看到校招薪资爆料有三个档，分别是年薪 20w，23.5w 和 25w。
 
@@ -113,7 +113,7 @@ tag:
 
 ### 亚信安全
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-97e8edd1-2a4d-492c-9039-febbae881c05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-97e8edd1-2a4d-492c-9039-febbae881c05.png)
 
 校招薪资：基本上月薪在15-18.5k 这个区间，每年 13- 15薪。
 
@@ -121,7 +121,7 @@ tag:
 
 ### SHEIN
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-fc7ddb5b-cbc1-482f-9087-ea9e3e136795.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-fc7ddb5b-cbc1-482f-9087-ea9e3e136795.png)
 
 校招薪资：目前看校招薪资爆料月薪基本集中在16-23k，有个说自己 27k 的不知道真的假的（如果是真的，感觉 SHEIN 大部分老员工要RUN了）。每年14薪。
 
@@ -129,7 +129,7 @@ tag:
 
 ### 满帮集团
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-ec98654b-0bcf-4e96-bb52-fe7ebd2a6c55.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-ec98654b-0bcf-4e96-bb52-fe7ebd2a6c55.png)
 
 校招薪资：校招薪水上的爆料开发月薪基本都在 20-30k 这个区间，算法基本都在 27-36k 这个区间。大部分人每年 14 薪。
 
@@ -139,25 +139,25 @@ tag:
 
 ### 中电系列
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-21fd091d-8afd-4cde-8fbd-a78b3c805085.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-21fd091d-8afd-4cde-8fbd-a78b3c805085.png)
 
 南京有中电 28 所、中电 14 所、中电 841 所。有一些读者跟我说想去研究所，想法是去研究所可以工作生活平衡。但是现在有很多的研究所其实很忙的，工作生活平衡的研究所尤其不包括南京这几个。841 所还不是特别清楚。大部分互联网公司和中电 28 所以及 14 所 比起来还真是弟弟，不过根据南京的薪资的水平来说，这两个所得福利待遇算是顶级了。刚毕业的应届生进去工资大概每月到手是一万出头吧，有食堂有宿舍，出差会有出差补贴，差不多一天三四百，这几个所出差会非常的多。
 
 ### 南瑞集团（国网电科院）
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-aff2d53a-95b6-4654-baac-ebc2ba39fc25.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-aff2d53a-95b6-4654-baac-ebc2ba39fc25.png)
 
 南瑞集团是国家电网直属的科研企业单位，主要做电力系统自动化相关设备，所以会招很多程序员。年薪 14 万左右。南瑞要给各个省公司做电力软件，所以出差的情况会非常多。面试上南瑞以后你还没有国家电网编制，想要编制还要去参加电网的考试。感觉性价比一般，不如去省公司，听说省公司工资还挺高的。
 
 ### 运营商
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-6f4cd4bc-e1da-496c-bf00-7ef2e6089dee.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-6f4cd4bc-e1da-496c-bf00-7ef2e6089dee.png)
 
 几个运营商里只有联通在南京有研究院专门做软件相关，除此之外想去运营商就只有省公司了。一些运营商的子公司我就不多介绍了，我是感觉国企的子公司性价比一般，既没有国企的稳定也没互联网的高薪。
 
 ### 烽火
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-d16dd7fe-f7a0-4f70-a016-f88350a56fa7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-d16dd7fe-f7a0-4f70-a016-f88350a56fa7.png)
 
 简单说下烽火，下面有烽火星空还有烽火通信。是国企，不过感觉一直处于一个乙方的位置。项目很多是涉密项目，但是我劝大家尽量少碰涉密类型的项目。如果手头没大公司可以去烽火锻炼下，如果有其它大公司的 offer，我感觉还是优先其它大公司了。
 
@@ -169,18 +169,18 @@ tag:
 
 南京的房价还是比较高的，比较好的区域的房价直逼一线城市了，对于刚毕业的学生来说压力很大了，感觉这个房价应该逼走不少人。 另外南京物价也不低噢。下面这张图是网上找的，不一定准，可以当作参考。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-b5247968-f8fa-445a-b83e-7d88fbb056c7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-b5247968-f8fa-445a-b83e-7d88fbb056c7.png)
 
 ### 教育
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-61b6b641-72d1-45d2-be1e-463c7d1d7f9c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-61b6b641-72d1-45d2-be1e-463c7d1d7f9c.png)
 
 南京高校资源方面很强。南京大学、东南大学、南航、河海大学、南理工等等都是很不错的学校。另外南邮、南京工业大学这些双非学校的计算机也很强。感觉近几年各个大厂陆续在南京设分布也是看中了南京有大量的计算机相关专业的毕业生。
 江苏高考题的难是出了名的，当然江苏省的中小学教育资源也很优质，所以在教育这方面选择南京还是不错的。
 
 ### 交通&风景&气候&美食
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/nanjing-9da3efca-ceb7-4685-9932-6613ea2ea1c6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/nanjing-9da3efca-ceb7-4685-9932-6613ea2ea1c6.png)
 
 南京拥堵程度是上过全国前十榜单的，我租房是喜欢宁愿住的小一点差一点也尽可能离上班地方近一点，我比较抗拒通勤。宏观上来说，南京的地理位置特别好，离苏州、杭州、上海都很近，另外离安徽也很近，这也是安徽人喜欢往南京跑的原因。
 

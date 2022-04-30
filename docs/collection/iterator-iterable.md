@@ -104,7 +104,7 @@ list.forEach(new Consumer<Integer>() {
 
 如果我们仔细观察ArrayList 或者 LinkedList 的“户口本”就会发现，并没有直接找到 Iterator 的影子。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/collection/iterator-iterable-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/collection/iterator-iterable-01.png)
 
 反而找到了 Iterable！
 
