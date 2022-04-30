@@ -13,7 +13,7 @@ tag:
 
 经过三天三夜的学习，总算是入了 Elasticsearch 的门，我就决定把这些心得体会分享出来，感兴趣的小伙伴可以作为参考。遇到文章中有错误的地方，不要手下留情，过来捶我，只要不打脸就好。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-ebb2bdbc-2cdb-4540-b48f-41f92c848f2f)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-ebb2bdbc-2cdb-4540-b48f-41f92c848f2f)
 
 
 ### 01、Elasticsearch 是什么
@@ -24,7 +24,7 @@ tag:
 
 Elastic Stack 又是什么呢？整个架构图如下图（来源于网络，侵删）所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-04b04318-25c9-4eb5-895e-9c608a4b26f9)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-04b04318-25c9-4eb5-895e-9c608a4b26f9)
 
 信息量比较多，对吧？那就记住一句话吧，Elasticsearch 是 Elastic Stack 的核心。
 
@@ -44,7 +44,7 @@ Elasticsearch 是由 Java 开发的，所以早期的版本需要先在电脑上
 
 Elasticsearch 是免安装的，只需要把 zip 包解压就可以了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-07da0521-74eb-4a90-b17f-59258e622609)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-07da0521-74eb-4a90-b17f-59258e622609)
 
 1）bin 目录下是一些脚本文件，包括 Elasticsearch 的启动执行文件。
 
@@ -62,11 +62,11 @@ Elasticsearch 是免安装的，只需要把 zip 包解压就可以了。
 
 直接双击 bin 目录下的 elasticsearch.bat 文件就可以启动 Elasticsearch 服务了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-7dd19afd-1aeb-49b6-a07c-f11e139fe3d3)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-7dd19afd-1aeb-49b6-a07c-f11e139fe3d3)
 
 输出的日志信息有点多，不用细看，注意看到有“started”的字样就表明启动成功了。为了进一步确认 Elasticsearch 有没有启动成功，可以在浏览器的地址栏里输入 `http://localhost:9200` 进行查看（9200 是 Elasticsearch 的默认端口号）。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-51f269c2-7482-494a-8a04-6585f20176a7)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-51f269c2-7482-494a-8a04-6585f20176a7)
 
 你看，为了 Search。
 
@@ -82,29 +82,29 @@ Elasticsearch 是免安装的，只需要把 zip 包解压就可以了。
 
 最新的版本是 7.6.2，284M 左右，体积和 Elasticsearch 差不多。选择下载 Windows 版，zip 格式的，完成后直接解压就行了。下载的过程中又去洗了 6 颗葡萄吃，狗头。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-12372ee6-acc0-4425-964b-ca32886f17ce)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-12372ee6-acc0-4425-964b-ca32886f17ce)
 
 包目录不再一一解释了，进入 bin 目录下，双击运行 kibana.bat 文件，启动 Kibana 服务。整个过程比 Elasticsearch 要慢一些，当看到 `[Kibana][http] http server running` 的信息后，说明服务启动成功了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-784d70ef-b6e7-4312-85f1-36ace9b2a5bd)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-784d70ef-b6e7-4312-85f1-36ace9b2a5bd)
 
 在浏览器地址栏输入 `http://localhost:5601` 查看 Kibana 的图形化界面。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-e6f64545-a925-4bb4-a25e-44129832fb4e)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-e6f64545-a925-4bb4-a25e-44129832fb4e)
 
 由于当前的 Elasticsearch 服务端中还没有任何数据，所以我们可以选择「Try Our Sample Data」导入 Kibana 提供的模拟数据体验一下。下图是导入电商数据库的看板页面，是不是很丰富？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-a16d99ff-272d-43bb-aa94-23b240cc464b)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-a16d99ff-272d-43bb-aa94-23b240cc464b)
 
 打开 Dev Tools 面板，可以看到一个简单的 DSL 查询语句（一种完全基于 JSON 的特定于领域的语言），点击「运行」按钮后就可以看到 JSON 格式的数据了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-5c44bd79-d3a9-49fb-9414-04dc38840cfb)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-5c44bd79-d3a9-49fb-9414-04dc38840cfb)
 
 ### 04、Elasticsearch 的关键概念
 
 在进行下一步之前，需要先来理解 Elasticsearch 中的几个关键概念，比如说什么是索引，什么是类型，什么是文档等等。Elasticsearch 既然是一个数据引擎，它里面的一些概念就和 MySQL 有一定的关系。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-ad2b2f8c-5a19-4c5e-9bc7-cf7ba17830bf)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-ad2b2f8c-5a19-4c5e-9bc7-cf7ba17830bf)
 
 看完上面这幅图（来源于网络，侵删），是不是瞬间就清晰了。向 Elasticsearch 中存储数据，其实就是向 Elasticsearch 中的 index 下面的 type 中存储 JSON 类型的数据。
 
@@ -175,7 +175,7 @@ public class ElasticsearchTest {
 
 也可以通过 Kibana 的 Dev Tools 面板查看“writer”索引，结果如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/elasticsearch/rumen-64baa243-0075-436e-a070-f28813fee284)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/elasticsearch/rumen-64baa243-0075-436e-a070-f28813fee284)
 
 
 

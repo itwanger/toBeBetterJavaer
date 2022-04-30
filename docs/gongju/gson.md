@@ -243,7 +243,7 @@ class Bar{
 
 假如你 debug 的时候，进入到 `toJson()` 方法的内部，就可以观察到。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/gson-402ff6b5-a460-45de-ab62-ede6fbf6b61e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/gson-402ff6b5-a460-45de-ab62-ede6fbf6b61e.png)
 
 foo 的实际类型为 `Foo<Bar>`，但我女朋友在调用 `foo.getClass()` 的时候，只会得到 Foo，这就意味着她并不知道 foo 的实际类型。
 
@@ -283,11 +283,11 @@ Bar bar1 = foo1.get();
 
 debug 进入 `toJson()` 方法内部查看的话，就可以看到 foo 的真实类型了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/gson-1c6eac43-6f0b-4a00-ae6c-2db29f911719.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/gson-1c6eac43-6f0b-4a00-ae6c-2db29f911719.png)
 
 `fromJson()` 在反序列化的时候，和此类似。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/gongju/gson-5afe5cd1-4966-4b16-adcb-fc04edfff406.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/gson-5afe5cd1-4966-4b16-adcb-fc04edfff406.png)
 
 这样的话，bar1 就可以通过 `foo1.get()` 到了。
 

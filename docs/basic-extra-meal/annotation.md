@@ -13,7 +13,7 @@ tag:
 
 三妹毫不犹豫地摇摇头，摆摆手，不好意思地承认自己的确没有自定义过。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/annotation/annotation-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/annotation/annotation-01.png)
 
 “好吧，哥来告诉你吧。”
 

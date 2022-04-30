@@ -12,7 +12,7 @@ tag:
 
 有时候不得不感慨一下，系统升级真的是好处多多，不仅让我有机会重构了之前的烂代码，也满足了我积极好学的虚荣心。你看，[Redis 入门](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)了、[Elasticsearch 入门](https://mp.weixin.qq.com/s/ZjsZxle7m_dfmVwVkq2ayg)了，这次又要入门 MongoDB，感觉自己变秃的同时，也变强大了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-a1f2d203-e586-4ca1-8556-e1a94c6b411e)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-a1f2d203-e586-4ca1-8556-e1a94c6b411e)
 
 小伙伴们在继续阅读之前，我必须要声明一点，我对 MongoDB 并没有进行很深入的研究，仅仅是因为要用，就学一下。但作为一名负责任的技术博主，我是花了心思的，这篇入门教程，小伙伴们读完后绝对会感到满意，忍不住点赞。
 
@@ -33,7 +33,7 @@ MongoDB 提供了企业版（功能更强大）和社区版，对于我们开发
 
 MongoDB 针对不同的操作系统有不同的安装包，我们这篇入门的文章就以 Windows 为例吧。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-557ab648-e2c4-4309-8695-aeb7fbcba25b)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-557ab648-e2c4-4309-8695-aeb7fbcba25b)
 
 官网下载地址如下：
 
@@ -43,19 +43,19 @@ MongoDB 针对不同的操作系统有不同的安装包，我们这篇入门的
 
 建议选择「Custom」自定义安装，如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-42330ff2-598a-40bf-b252-480704c6a531)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-42330ff2-598a-40bf-b252-480704c6a531)
 
 以服务模式运行，并配置好数据和日志目录，如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-c71a31d4-5a99-4c12-93a9-348aa79bc086)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-c71a31d4-5a99-4c12-93a9-348aa79bc086)
 
 建议取消勾选安装 MongoDB 的图形化客户端工具，否则安装速度慢到你想要去扣会手机。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-84ea8b51-6b53-4500-86fa-0dcfa61b84cd)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-84ea8b51-6b53-4500-86fa-0dcfa61b84cd)
 
 安装完成后进入到 bin 目录下，双击 mongo.exe 文件就可以连接到 MongoDB 服务了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-bcf34981-0c2b-4f86-94e0-711dfb307371)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-bcf34981-0c2b-4f86-94e0-711dfb307371)
 
 
 1）MongoDB 的默认端口号为 27017。
@@ -64,11 +64,11 @@ MongoDB 针对不同的操作系统有不同的安装包，我们这篇入门的
 
 默认会连接到 test 文档（相当于数据），可以通过 db 命令查询。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-ded1c30c-9943-4061-8fa3-4562387b72cd)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-ded1c30c-9943-4061-8fa3-4562387b72cd)
 
 还可以运行一些简单的算术运算：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-22c1d414-6ba4-47dd-beb8-f1003f21083e)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-22c1d414-6ba4-47dd-beb8-f1003f21083e)
 
 那如何停止服务呢？可以直接点击右上角的 X 号——粗暴、壁咚。
 
@@ -82,20 +82,20 @@ Robo 3T 提供了对 MongoDB 和 SCRAM-SHA-256（升级的 mongo shell）的支�
 
 最新的版本是 1.3，选择 zip 格式进行下载，23M 左右。下载完成后，解压就行了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-b178e02c-23b6-4b54-92ec-3a170a8499d0)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-b178e02c-23b6-4b54-92ec-3a170a8499d0)
 
 
 包目录不再一一解释了，进入 bin 目录下，双击运行 robo3t.exe 文件，启动 Robo 3T 客户端。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-99717a12-c90d-4a03-941d-f3857f503d44)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-99717a12-c90d-4a03-941d-f3857f503d44)
 
 点击「Create」创建一个 MongoDB 的连接。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-11866209-6a60-4a6a-9ca9-fcd9279796f6)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-11866209-6a60-4a6a-9ca9-fcd9279796f6)
 
 连接成功后，就可以操作 MongoDB 了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-753dfcd7-1557-4837-9a7e-94b2ff9db72a)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-753dfcd7-1557-4837-9a7e-94b2ff9db72a)
 
 （不过，小伙伴们这时候也不太知道该怎么操作，毕竟 MongoDB 的一些相关概念还不清楚，无从下手啊）
 
@@ -117,7 +117,7 @@ MongoDB 命名源于英文单词 hu**mongo**us，意思是「巨大无比」，�
 
 在进行下一步之前，需要先来理解 MongoDB 中的几个关键概念，比如说什么是集合，什么是文档，什么是字段等等。MongoDB 虽然是非关系型数据库，但和关系型数据库非常相似。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-814acc38-8934-47f9-991c-666466601bd7)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-814acc38-8934-47f9-991c-666466601bd7)
 
 
 看完上面这幅图（图片来源于好朋友 macrozheng 的文章），是不是瞬间就清晰了？
@@ -201,7 +201,7 @@ Document 对象来源于 org.bson 包下，可以在实例化该对象之后通�
 
 也可以通过 Robo 3T 查看“mydb”数据库，结果如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/mongodb/rumen-95d49578-b1ef-43cc-91da-c7b3a7a7517e)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mongodb/rumen-95d49578-b1ef-43cc-91da-c7b3a7a7517e)
 
 
 ### 06、鸣谢

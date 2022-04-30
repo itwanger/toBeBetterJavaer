@@ -225,7 +225,7 @@ public void execute(Runnable command) {
 
 整个过程如图所示：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/pool-f9e419fa-9d42-44fc-b14e-5b618a6f906d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/pool-f9e419fa-9d42-44fc-b14e-5b618a6f906d.png)
 
 ### ThreadPoolExecutor如何做到线程复用的？
 

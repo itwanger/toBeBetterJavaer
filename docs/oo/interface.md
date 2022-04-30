@@ -10,14 +10,14 @@ tag:
 
 “哥，我看你朋友圈说《Java 程序员进阶之路》专栏收到了第一笔赞赏呀，虽然只有一块钱，但我也替你感到开心。”三妹的脸上洋溢着自信的微笑，仿佛这钱是打给她的一样。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-01.png)
 
 “是啊，早上起来的时候看到这条信息，还真的是挺开心的，虽然只有一块钱，但是开源的第一笔，也是我人生当中的第一笔，真的非常感谢这个读者，值得纪念的一天。”我自己也掩饰不住内心的激动。
 
 “有了这份鼓励，我相信你更新下去的动力更足了！”三妹今天说的话真的是特别令人喜欢。
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-02.png)
 
 “是啊是啊，所以，今天要更新第 26 讲了——接口。”我接着说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://mp.weixin.qq.com/s/WSmGwdtlimIFVVDVKfvrWQ)，另外一种就是今天的主角——接口。”
 
@@ -93,7 +93,7 @@ Java 官方文档上有这样的声明：
 
 4）接口中允许定义 `default` 方法也是从 Java 8 开始的，比如说上例中的 `printDescription()` 方法，它始终由一个代码块组成，为，实现该接口而不覆盖该方法的类提供默认实现。既然要提供默认实现，就要有方法体，换句话说，默认方法后面不能直接使用“;”号来结束——编译器会报错。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-03.png)
 
 “为什么要在接口中定义默认方法呢？”三妹好奇地问到。
 
@@ -110,7 +110,7 @@ Java 官方文档上有这样的声明：
 
 1）接口不允许直接实例化，否则编译器会报错。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-04.png)
 
 需要定义一个类去实现接口，见下例。
 
@@ -145,11 +145,11 @@ Serializable 接口用来为序列化的具体实现提供一个标记，也就�
 
 3）不要在定义接口的时候使用 final 关键字，否则会报编译错误，因为接口就是为了让子类实现的，而 final 阻止了这种行为。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-05.png)
 
 4）接口的抽象方法不能是 private、protected 或者 final，否则编译器都会报错。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-06.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-06.png)
 
 5）接口的变量是隐式 `public static final`（常量），所以其值无法改变。
 
@@ -204,7 +204,7 @@ Exception in thread "main" java.lang.CloneNotSupportedException: com.cmower.bael
 
 如果有两个类共同继承（extends）一个父类，那么父类的方法就会被两个子类重写。然后，如果有一个新类同时继承了这两个子类，那么在调用重写方法的时候，编译器就不能识别要调用哪个类的方法了。这也正是著名的菱形问题，见下图。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/object-class/interface-07.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/interface-07.png)
 
 
 简单解释下，ClassC 同时继承了 ClassA 和 ClassB，ClassC 的对象在调用 ClassA 和 ClassB 中重写的方法时，就不知道该调用 ClassA 的方法，还是 ClassB 的方法。

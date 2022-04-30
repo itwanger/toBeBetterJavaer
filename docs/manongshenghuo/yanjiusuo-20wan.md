@@ -4,7 +4,7 @@
 
 之前在一篇[美团还是研究所，美团年包多二十万，怎么选](https://mp.weixin.qq.com/s/oc-6Um6y0LlpSQwDY4HAbw)的文章里做过一个投票：一线互联网大厂还是二三线城市的研究所？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/manongshenghuo/yanjiusuo-20wan-1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/manongshenghuo/yanjiusuo-20wan-1.png)
 
 1000 多人的投票结果中，选择研究所的竟然比选择互联网的多一些，看来向往研究所那种能兼顾生活和工作的小伙伴不在少数啊。
 
@@ -19,7 +19,7 @@
 
 先发个收入截图吧。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/manongshenghuo/yanjiusuo-20wan-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/manongshenghuo/yanjiusuo-20wan-2.png)
 
 首先声明我这个收入是要低于跟我同年上大学，2014年硕士入所的同学的，我比较熟的技术部门的同学收入加公积金在30左右了，不是很多人想的博士才这么点硕士更少了。我要达到这个数字估计还得两年左右。
 
@@ -74,6 +74,6 @@
 
 分享结束，你的选择是互联网 or 研究所？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/manongshenghuo/yanjiusuo-20wan-3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/manongshenghuo/yanjiusuo-20wan-3.png)
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。

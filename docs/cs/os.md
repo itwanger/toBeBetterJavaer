@@ -9,7 +9,7 @@ tag:
 
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ](https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ)
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-5ad16ae7-059f-44f1-8236-697b203bb72e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-5ad16ae7-059f-44f1-8236-697b203bb72e.png)
 
 ## 计算机结构
 
@@ -37,7 +37,7 @@ tag:
 
 输入设备；输出设备；内存；中央处理器；总线。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-eff4b87b-9091-443c-988b-721e9fd59d2f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-eff4b87b-9091-443c-988b-721e9fd59d2f.png)
 
 ### 内存
 
@@ -105,11 +105,11 @@ L3- 缓存同样在 CPU 中，位置比 L2- 缓存距离 CPU 核心更远，大�
 
 L3 缓存大小也是看型号的，比如 i9 CPU 有 512KB L1 Cache；有 2MB L2 Cache； 有16MB L3 Cache。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-214a4294-df48-4ed4-8f6a-15c93c02037d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-214a4294-df48-4ed4-8f6a-15c93c02037d.png)
 
 当 CPU 需要内存中某个数据的时候，如果寄存器中有这个数据，我们可以直接使用；如果寄存器中没有这个数据，我们就要先查询 L1 缓存；L1 中没有，再查询 L2 缓存；L2 中没有再查询 L3 缓存；L3 中没有，再去内存中拿。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-936b2476-4704-4928-bfd0-d7417d0f1ab8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-936b2476-4704-4928-bfd0-d7417d0f1ab8.png)
 
 
 
@@ -169,7 +169,7 @@ ring0是指CPU的运行级别，是最高级别，ring1次之，ring2更次之�
 
 CPU 从程序计数器读取指令、到执行、再到下一条指令，这个过程会不断循环，直到程序执行结束，这个不断循环的过程被称为 **CPU 的指令周期**。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-0e135ca2-26fa-4495-8a4b-3c9c05a4341e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-0e135ca2-26fa-4495-8a4b-3c9c05a4341e.png)
 
 ### 总线
 
@@ -274,7 +274,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 **举例：**
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-29b6f34f-a8b3-48ec-8e5c-aea1036ea16a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-29b6f34f-a8b3-48ec-8e5c-aea1036ea16a.png)
 
 如上图所示：内核程序执行在内核态（Kernal Mode），用户程序执行在用户态（User Mode）。
 
@@ -366,7 +366,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 ### 协程
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-586071a1-3d5f-4873-963f-d47b8aeea594.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-586071a1-3d5f-4873-963f-d47b8aeea594.png)
 
 协程，是一种比线程更加轻量级的存在，协程不是被操作系统内核所管理，而完全是由程序所控制（也就是在用户态执行）。
 
@@ -419,7 +419,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 因此当进程 1 执行到一半时，会先挂起，然后进程 2 开始执行；进程 2 一次可以执行完，然后进程 3 开始执行，不过进程 3 一次执行不完，在执行了 1 个时间片段后，进程 1 开始执行；就这样如此周而复始，这个就是分时技术。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-606eb7bd-e9e1-457a-bf61-66b152c5ada5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-606eb7bd-e9e1-457a-bf61-66b152c5ada5.png)
 
 ### 创建进程
 
@@ -429,7 +429,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 另一方面，如果程序员希望执行完一段代价昂贵的初始化过程后，将当前程序的状态复制好几份，变成一个个单独执行的进程，那么操作系统提供了 fork 指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-85a86f1b-eeff-401e-8bfe-19e5509e2a53.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-85a86f1b-eeff-401e-8bfe-19e5509e2a53.png)
 
 也就是说，每次 fork 会多创造一个克隆的进程，这个克隆的进程，所有状态都和原来的进程一样，但是会有自己的地址空间。
 
@@ -449,7 +449,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 ### 进程状态
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-5f202fa5-0922-4b41-b4f2-f8a9af37a176.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-5f202fa5-0922-4b41-b4f2-f8a9af37a176.png)
 
 **创建状态**
 
@@ -517,7 +517,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 共享内存示意图：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-8644f82a-eda6-4abf-b86a-13c02e7af5fd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-8644f82a-eda6-4abf-b86a-13c02e7af5fd.png)
 
 一旦这样的内存映射到共享它的进程的地址空间，这些进程间数据传递不再涉及到内核，换句话说是进程不再通过执行进入内核的系统调用来传递彼此的数据。
 
@@ -663,7 +663,7 @@ signal() 操作用于唤醒被阻塞的进程。
 
 多级队列，就是多个队列执行调度，先考虑最简单的两级模型
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-bcc4bc31-75b9-43f2-9f16-7a0e419e5615.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-bcc4bc31-75b9-43f2-9f16-7a0e419e5615.png)
 
 上图中设计了两个优先级不同的队列，从下到上优先级上升，上层队列调度紧急任务，下层队列调度普通任务。
 
@@ -677,7 +677,7 @@ signal() 操作用于唤醒被阻塞的进程。
 
 > 比如下图这个模型：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-85f35508-c541-483b-9f34-a54a0c619fff.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-85f35508-c541-483b-9f34-a54a0c619fff.png)
 
 紧急任务仍然走高优队列，非抢占执行。
 
@@ -819,7 +819,7 @@ Linux系统中有很多的守护进程，最典型的就是我们经常看到的
 
 `fork`系统调用会通过复制一个现有进程来创建一个全新的进程，新进程被存放在一个叫做任务队列的双向循环链表中，链表中的每一项都是类型为`task_struct`的进程控制块`PCB`的结构。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-ee3d0c6b-9d93-4f9d-95f3-86e7d195a8f8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-ee3d0c6b-9d93-4f9d-95f3-86e7d195a8f8.png)
 
 每个进程都由独特换不相同的进程标识符（PID），通过`getpid()`函数可获取当前进程的进程标识符，通过`getppid()`函数可获得父进程的进程标识符。
 
@@ -892,12 +892,12 @@ CPU想要找到x在内存中的实际存放位置，只需要用进程的起始�
 1. **块式管理**：将内存分为几个固定大小的块，每个块中只包含一个进程，如果程序运行需要内存的话，操作系统就分配给它一块，如果程序运行只需要很小的空间的话，分配的这块内存很大一部分几乎被浪费了，这些在每个块中未被利用的空间，我们称之为碎片。
 2. **页式管理**：把主存分为大小相等且固定的一页一页的形式，页较小，相对相比于块式管理的划分力度更大，提高了内存利用率，减少了碎片，页式管理通过页表对应逻辑地址和物理地址。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-2d1e6109-5c99-4ab8-b9b4-00c851386d65.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-2d1e6109-5c99-4ab8-b9b4-00c851386d65.png)
 
 1. **段式管理**： 页式管理虽然提高了内存利用率，但是页式管理其中的页实际并无任何实际意义， 段式管理把主存分为一段段的，每一段的空间又要比一页的空间小很多 ，段式管理通过段表对应逻辑地址和物理地址。
 2. **段页式管理机制：**段页式管理机制结合了段式管理和页式管理的优点，简单来说段页式管理机制就是把主存先分成若干段，每个段又分成若干页，也就是说**段页式管理机制**中段与段之间以及段的内部的都是离散的。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-06d985c8-7c5a-46eb-8f04-e7a010a90f40.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-06d985c8-7c5a-46eb-8f04-e7a010a90f40.png)
 
 ### 虚拟地址
 
@@ -907,7 +907,7 @@ CPU想要找到x在内存中的实际存放位置，只需要用进程的起始�
 
 实际上完成虚拟地址转换为物理地址转换的硬件是 CPU 中含有一个被称为**内存管理单元（Memory Management Unit, MMU）**的硬件
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-ad8515bb-ce0c-43b3-b9ff-9d4d5fa0994e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-ad8515bb-ce0c-43b3-b9ff-9d4d5fa0994e.png)
 
 **为什么要有虚拟地址空间**
 
@@ -930,7 +930,7 @@ CPU想要找到x在内存中的实际存放位置，只需要用进程的起始�
 
 每当为一个虚拟页面寻找到一个物理页面之后，就在页表里增加一条记录来保留该映射关系，当然，随着虚拟页面进出物理内存，页表的内容也会不断更新变化。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-169790fd-8ef1-400f-a4a4-e291a729d2cb.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-169790fd-8ef1-400f-a4a4-e291a729d2cb.png)
 
 ### 虚拟内存
 
@@ -954,7 +954,7 @@ CPU想要找到x在内存中的实际存放位置，只需要用进程的起始�
 
 > 一定容量的内存和外存：在载入程序的时候，只需要将程序的一部分装入内存，而将其他部分留在外存，然后程序就可以执行了；
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-d2104a4e-cb28-4d90-b8f1-92cb15b0bb31.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-d2104a4e-cb28-4d90-b8f1-92cb15b0bb31.png)
 
 
 
@@ -968,7 +968,7 @@ CPU想要找到x在内存中的实际存放位置，只需要用进程的起始�
 
 缺页中断的处理步骤如下，省略了中间很多的步骤，只保留最核心的几个步骤：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-5101231b-d8da-418e-b60c-574bcfa8b579.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-5101231b-d8da-418e-b60c-574bcfa8b579.png)
 
 ### 页面置换算法
 
@@ -1001,7 +1001,7 @@ CPU想要找到x在内存中的实际存放位置，只需要用进程的起始�
 
 Page 到 Frame 的映射，需要一种叫作页表的结构。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-d3ce7f2b-275c-422c-8793-f3e0e1894ecc.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-d3ce7f2b-275c-422c-8793-f3e0e1894ecc.png)
 
 上图展示了 Page、Frame 和页表 （PageTable）三者之间的关系。 
 
@@ -1058,7 +1058,7 @@ Page 大小和 Frame 大小通常相等，页表中记录的某个 Page 对应�
 3. 如果该页不在快表中，就访问内存中的页表，再从页表中得到物理地址，同时将页表中的该映射表项添加到快表中；
 4. 当快表填满后，又要登记新页时，就按照一定的淘汰策略淘汰掉快表中的一个页。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-a9551753-2578-474e-a452-192d01382d22.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-a9551753-2578-474e-a452-192d01382d22.png)
 
 ### 内存管理单元
 
@@ -1066,7 +1066,7 @@ Page 大小和 Frame 大小通常相等，页表中记录的某个 Page 对应�
 
 ![](https://img-blog.csdnimg.cn/2da3a2f130cf415cb0b42c19fda70f30.png">
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-51d4172c-068b-46b2-a7bc-fb4a6d39955b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-51d4172c-068b-46b2-a7bc-fb4a6d39955b.png)
 
 当 CPU 需要执行一条指令时，如果指令中涉及内存读写操作，CPU 会把虚拟地址给 MMU，MMU 自动完成虚拟地址到真实地址的计算；然后，MMU 连接了地址总线，帮助 CPU 操作真实地址。
 
@@ -1096,7 +1096,7 @@ Page 大小和 Frame 大小通常相等，页表中记录的某个 Page 对应�
 
 又称循环首次适应法，由首次适应法演变而成，不同之处是分配内存时从上一次查找结束的位置开始继续查找
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-a072428d-1d01-4c93-b5bb-8d2f9721d2ba.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-a072428d-1d01-4c93-b5bb-8d2f9721d2ba.png)
 
 > 最佳适应算法（Best Fit）
 
@@ -1108,7 +1108,7 @@ Page 大小和 Frame 大小通常相等，页表中记录的某个 Page 对应�
 
 又称最大适应算法，空闲分区以容量递减的次序链接，找到第一个能满足要求的空闲分区（也就是最大的分区）就进行分配
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-4673dda6-3940-4a15-ba09-6acfe095ff62.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-4673dda6-3940-4a15-ba09-6acfe095ff62.png)
 
 **总结**
 
@@ -1166,7 +1166,7 @@ Page 大小和 Frame 大小通常相等，页表中记录的某个 Page 对应�
 
 操作系统会以进程为单位，分配系统资源（CPU时间片、内存等资源），进程是资源分配的最小单位。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-6a48d3af-0342-4529-a45e-3ff739d8b22c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-6a48d3af-0342-4529-a45e-3ff739d8b22c.png)
 
 调度：线程作为CPU调度和分配的基本单位，进程作为拥有资源的基本单位；
 
@@ -1319,7 +1319,7 @@ CPU处理程序的时候一旦程序不在内存中，会产生缺页异常；�
 
 下面这张图显示了异常处理的流程：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cs/os-1555a2c9-121e-4b08-a685-2d789fc3b66b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cs/os-1555a2c9-121e-4b08-a685-2d789fc3b66b.png)
 
 > 相同点
 

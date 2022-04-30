@@ -148,7 +148,7 @@ public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) 
 
 我们先看看里面涉及到的几个类和接口`ScheduledFuture`、 `RunnableScheduledFuture`、 `ScheduledFutureTask`的关系：
 
-![类图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
+![类图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
 
 我们先看看这几个接口和类：
 

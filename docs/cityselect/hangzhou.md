@@ -9,11 +9,11 @@ tag:
 
 大家好，我是二哥呀！上期发了南京的互联网公司后，杭州的呼声非常高。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-1.png)
 
 有小伙伴在公众号后台私信催，还有小伙伴在二哥的《Java 程序员进阶之路》的开源专栏提交了 issue，那今天必须得来整一波了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-2.png)
 
 杭州的互联网公司比较多，我先列举一些大家瞅瞅（部分数据来源于好朋友 Carl 的统计）。
 
@@ -77,7 +77,7 @@ tag:
 
 ### 字节跳动
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-3.png)
 
 - 「基本情况」 ：字节总部在北京，在上海、深圳、杭州、广州、成都等地都有办公室。去年 6 月，抖音电商落户杭州。
 - 「业务方向」 ：抖音电商、抖音餐饮、字节跳动广告业务、字节跳动本地生活
@@ -88,7 +88,7 @@ tag:
 
 ### 阿里系
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-4.png)
 
 - 「基本情况」 ：阿里系占据了杭州互联网的一片天，相关联的企业是在是太多了。
 - 「业务方向」 ：达摩院、淘宝、菜鸟、钉钉、飞猪、盒马、支付宝、夸克、UC、书旗小说......
@@ -100,7 +100,7 @@ tag:
 
 ### 京东
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-5.png)
 
 - 「基本情况」 ：京东在杭州也有招聘，不过，招聘的岗位比较少。
 - 「业务方向」 ：京东金融、京东云
@@ -111,7 +111,7 @@ tag:
 
 ### 网易
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-6.png)
 
 - 「基本情况」 ：网易在杭州有一个研究院，成立于 2006 年 6 月。
 - 「业务方向」 ：⽹易杭州研究院，简称“杭研”。杭研是⽹易内部的基础技术研发中⼼和前沿技术研究中⼼，在云计算、⼤数据、安全、⼈⼯智能等⽅⾯进⾏前沿技术研究、关键技术攻关和基础技术平台研发，服务⽹易系游戏、邮箱、⾳乐、电商、新闻、在线教育等产品，触达近 10 亿⽤户。
@@ -122,7 +122,7 @@ tag:
 
 ### 华为
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-7.png)
 
 - 「基本情况」 ：华为在杭州有一个研究所。
 - 「业务方向」 ：智能摄像机、云服务
@@ -134,7 +134,7 @@ tag:
 
 ### 中移杭研
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-8.png)
 
 - 「基本情况」 ：中国移动的一个全资子公司，2014 年在杭州成立。
 - 「业务方向」 ：统一认证、融合通信、魔固云
@@ -145,7 +145,7 @@ tag:
 
 ### 之江实验室
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-9.png)
 
 - 「基本情况」 ：之江实验室是浙江省委、省政府贯彻落实科技创新思想，深入实施创新驱动发展战略的重大科技创新平台。
 - 「业务方向」 ：智能感知、智能计算、智能网络、智能系统
@@ -156,7 +156,7 @@ tag:
 
 ### 同花顺
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-10.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-10.png)
 
 - 「基本情况」 ：同花顺成立于 2001 年,总部位于杭州未来科技城，是国内第一家互联网金融信息服务业上市公司。同花顺作为一家互联网金融信息提供商，致力于为各类机构提供软件产品和系统维护服务、金融数据服务和智能推广服务，为个人投资者提供金融资讯和投资理财分析工具。
 - 「业务方向」 ：旗下有多款热门投资理财类 APP。
@@ -167,7 +167,7 @@ tag:
 
 ### 51 信用卡
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-11.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-11.png)
 
 - 「基本情况」 ：51 信用卡（母公司为杭州恩牛网络技术有限公司），公司创立于 2012 年，是一家服务于中国亿万信用卡用户的互联网金融公司。
 - 「业务方向」 ：旗下有“51 信用卡管家”、“51 人品”、“51 人品贷”等 APP
@@ -179,7 +179,7 @@ tag:
 
 ### 蘑菇街
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-12.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-12.png)
 
 - 「基本情况」 ：2011 年，蘑菇街正式上线，2016 年 1 月与美丽说战略融合，公司旗下包括：蘑菇街、美丽说、uni 等产品与服务。
 - 「业务方向」 ：电商
@@ -191,7 +191,7 @@ tag:
 
 ### 有赞
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-13.png)
 
 - 「基本情况」 ：有赞，原名口袋通，2012 年 11 月 27 日在杭州贝塔咖啡馆孵化成立，是一家主要从事零售科技 SaaS 服务的企业，帮助商家进行网上开店、社交营销、提高留存复购，拓展全渠道新零售业务。2014 年 11 月 27 日，口袋通正式更名为有赞。2018 年 4 月 18 日，有赞完成在港上市。2019 年 4 月，腾讯领投有赞 10 亿港元融资。
 - 「业务方向」 ：SaaS 服务（帮助商家网上开店、社交营销......）、PaaS 云服务。
@@ -203,7 +203,7 @@ tag:
 
 ### Zoom
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-14.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-14.png)
 
 - 「基本情况」 ：Zoom 是一位美国华人企业家创办的公司，主营业务就是提供视频会议服务。总部位于硅谷，国内的话，杭州、苏州、合肥均有研发中心。
 - 「业务方向」 ：视频会议
@@ -215,7 +215,7 @@ tag:
 
 ### Cisco(思科)
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-15.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-15.png)
 
 - 「基本情况」 ：思科系统公司（Cisco Systems, Inc.），简称思科公司或思科，1984 年 12 月正式成立，是互联网解决方案的领先提供者，其设备和软件产品主要用于连接计算机网络系统，总部位于美国加利福尼亚州圣何塞。
 - 「业务方向」 ：路由器、交换机等网络基础设施
@@ -233,12 +233,12 @@ tag:
 顺带再聊聊杭州的房价、教育吧。杭州的房价不忍直视啊！！！涨的实在是太厉害了！
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-16.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-16.png)
 
 杭州只有一所 985，也就是浙江大学。除了浙江大学之外，浙江省没有 211 院校。不过，杭州电子科技大学虽然不是 211，但是实力很强，外界也很认可。
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/cityselect/hangzhou-17.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/hangzhou-17.png)
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
 

@@ -14,7 +14,7 @@ Java 对象模型中：
 
 那到底是先有Class还是先有Object？ JVM 是怎么处理这个“鸡·蛋”问题呢？
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/basic-extra-meal/class-object-2f47490c-70b8-41b8-9551-42c2f98eea91.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/basic-extra-meal/class-object-2f47490c-70b8-41b8-9551-42c2f98eea91.png)
 
 针对这个问题，我在知乎上看到了 R 大的一个回答，正好解答了我心中的疑惑，就分享出来给各位小伙伴一个参考和启发~
 

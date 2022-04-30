@@ -75,7 +75,7 @@ t3.start();
 来看一下执行后的结果：
 
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/wangzhe-thread-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/wangzhe-thread-01.png)
 
 
 ♠②：创建一个类实现Runnable接口，并重写run方法。
@@ -113,7 +113,7 @@ t3.start();
 
 来看一下执行后的结果：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/wangzhe-thread-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/wangzhe-thread-02.png)
 
  
 **❤1、为什么要重写run方法？**
@@ -169,7 +169,7 @@ t3.start();
 
 来看一下执行后的结果：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/wangzhe-thread-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/wangzhe-thread-03.png)
 
 
 3）`setDaemon()`：将此线程标记为守护线程，准确来说，就是服务其他的线程，像 Java 中的垃圾回收线程，就是典型的守护线程。
@@ -195,6 +195,6 @@ t3.start();
 
 最后再来看一下线程的生命周期吧，一图胜千言。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/thread/wangzhe-thread-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/wangzhe-thread-04.png)
 
 <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

@@ -14,7 +14,7 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 来个 GIF 感受一下 AutoGenerator 生成代码的快感吧。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-1.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-1.gif)
 
 
 ### 一、使用 Mybatis Generator
@@ -40,12 +40,12 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 添加完成后，一定要执行一次 Maven 重载（见下图），确保 MyBatis 的依赖加载完毕后再执行第二步。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-2.png)
 
 
 否则下一步可能不通过，但又得不到任何错误提示。不要问我为什么，踩过坑后痛苦的领悟。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-3.png)
 
 添加完成后，可以通过 Maven 插件来生成代码，也可以通过 Java 代码来生成代码，这里以 Maven 插件的形式来演示。Java 代码的形式可参照 Mybatis Generator：
 
@@ -53,7 +53,7 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 第二步，在 pom.xml 的 MyBatis Generator 插件，先来看一下整体的结构图，注意是在 build→plugins 下节点下添加。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-4.png)
 
 首先是 MyBatis Generator 插件，目前最新版是 1.4.0，我们采用上一个稳定版本 1.3.7，稳一点。
 
@@ -69,7 +69,7 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 <configurationFile>src/main/resources/mybatis-generator-config.xml</configurationFile>
 ```
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-5.png)
 
 来看一下 mybatis-generator-config.xml 的内容。
 
@@ -173,13 +173,13 @@ Mybatis Generator 需要链接数据库，所以还需要添加数据库驱动�
 
 配置完成后可以双击运行 Maven 的插件 Mybatis Generator，没有问题的话，可以看到生成后的文件。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-6.png)
 
 ### 二、使用 MyBatis-Plus 的 AutoGenerator
 
 MyBatis-Plus（简写 MP）是 MyBatis 的增强工具，官方宣称 MP 和 MyBatis 的关系就好像魂斗罗中的 1P 和 2P，可谓好基友，天下走。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-7.png)
 
 AutoGenerator 是 MyBatis-Plus 推出的代码生成器，可以快速生成 Entity、Mapper、Mapper XML、Service、Controller 等各个模块的代码，比 Mybatis Generator 更强大，开发效率更高。
 
@@ -266,7 +266,7 @@ public class CodeGenerator {
 
 再来看一下运行后的效果，可以看到数据库表对应的 controller、service、entity、mapper 等等全有了——爽歪歪：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-1.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-1.gif)
 
 ### 三、总结对比
 
@@ -274,7 +274,7 @@ public class CodeGenerator {
 
 **MyBatis-Plus 的确配得上 Plus 啊，确实优秀**。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/kaiyuan/auto-generator-9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/kaiyuan/auto-generator-9.png)
 
  想要完整示例的话，可以到 GitHub 上查看：
 

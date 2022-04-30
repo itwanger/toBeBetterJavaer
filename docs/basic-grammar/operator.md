@@ -11,7 +11,7 @@ tag:
 
 “是的，三妹。运算符在 Java 中占据着重要的位置，对程序的执行有着很大的帮助。除了常见的加减乘除，还有许多其他类型的运算符，来看下面这张思维导图。”
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/core-grammar/eleven-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/eleven-01.png)
 
 
 ### 01、算数运算符
@@ -118,7 +118,7 @@ System.out.println(y + " " + x);// 10 11
 
 关系运算符用来比较两个操作数，返回结果为 true 或者 false。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/core-grammar/eleven-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/eleven-02.png)
 
 来看示例：
 
@@ -159,7 +159,7 @@ public class BitOperator {
 
 PS：现代的二进制记数系统由戈特弗里德·威廉·莱布尼茨于 1679 年设计。莱布尼茨是德意志哲学家、数学家，历史上少见的通才。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/core-grammar/eleven-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/eleven-03.png)
 
 来看示例：
 
@@ -298,7 +298,7 @@ public class AssignmentOperator {
 
 不过在进行数值的赋值时，需要小点心，比如说下面这种情况：
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/core-grammar/eleven-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/eleven-04.png)
 
 编译器之所以提示错误，是因为 = 右侧的算术表达式默认为 int 类型，左侧是 short 类型的时候需要进行强转。
 

@@ -18,11 +18,11 @@ JVM——Java 虚拟机，它是 Java 实现平台无关性的基石。
 
 Java 程序运行的时候，编译器将 Java 文件编译成平台无关的 Java 字节码文件（.class）,接下来对应平台 JVM 对字节码文件进行解释，翻译成对应平台匹配的机器指令并运行。
 
-![Java语言编译运行](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-1.png)
+![Java语言编译运行](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-1.png)
 
 同时 JVM 也是一个跨语言的平台，和语言无关，只和 class 的文件格式关联，任何语言，只要能翻译成符合规范的字节码文件，都能被 JVM 运行。
 
-![JVM跨语言](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-2.png)
+![JVM跨语言](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-2.png)
 
 ## 二、内存管理
 
@@ -30,7 +30,7 @@ Java 程序运行的时候，编译器将 Java 文件编译成平台无关的 Ja
 
 JVM 内存区域最粗略的划分可以分为`堆`和`栈`，当然，按照虚拟机规范，可以划分为以下几个区域：
 
-![Java虚拟机运行时数据区](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-3.png)
+![Java虚拟机运行时数据区](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-3.png)
 
 JVM 内存分为线程私有区和线程共享区，其中`方法区`和`堆`是线程共享区，`虚拟机栈`、`本地方法栈`和`程序计数器`是线程隔离的数据区。
 
@@ -46,7 +46,7 @@ Java 虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的�
 
 Java 虚拟机栈描述的是 Java 方法执行的线程内存模型：方法执行时，JVM 会同步创建一个栈帧，用来存储局部变量表、操作数栈、动态连接等。
 
-![Java虚拟机栈](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-4.png)
+![Java虚拟机栈](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-4.png)
 
 **3）本地方法栈**
 
@@ -60,7 +60,7 @@ Java 虚拟机规范允许本地方法栈被实现成固定大小的或者是根
 
 Java 堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC 堆”（Garbage Collected Heap，）。从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以 Java 堆中经常会出现`新生代`、`老年代`、`Eden空间`、`From Survivor空间`、`To Survivor空间`等名词，需要注意的是这种划分只是根据垃圾回收机制来进行的划分，不是 Java 虚拟机规范本身制定的。
 
-![Java 堆内存结构](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-5.png)
+![Java 堆内存结构](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-5.png)
 
 **5）方法区**
 
@@ -74,15 +74,15 @@ JDK1.6、1.7/1.8 内存区域发生了变化，主要体现在方法区的实现
 
 - JDK1.6 使用永久代实现方法区：
 
-![JDK 1.6内存区域](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-6.png)
+![JDK 1.6内存区域](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-6.png)
 
 - JDK1.7 时发生了一些变化，将字符串常量池、静态变量，存放在堆上
 
-![JDK 1.7内存区域](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-7.png)
+![JDK 1.7内存区域](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-7.png)
 
 - 在 JDK1.8 时彻底干掉了永久代，而在直接内存中划出一块区域作为**元空间**，运行时常量池、类常量池都移动到元空间。
 
-![JDK 1.8内存区域](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-8.png)
+![JDK 1.8内存区域](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-8.png)
 
 ### 4.为什么使用元空间替代永久代作为方法区的实现？
 
@@ -108,13 +108,13 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 这个过程大概图示如下：
 
-![对象创建过程](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-9.png)
+![对象创建过程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-9.png)
 
 ### 6.什么是指针碰撞？什么是空闲列表？
 
 内存分配有两种方式，**指针碰撞**（Bump The Pointer）、**空闲列表**（Free List）。
 
-![指针碰撞和空闲列表](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-10.png)
+![指针碰撞和空闲列表](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-10.png)
 
 - 指针碰撞：假设 Java 堆中内存是绝对规整的，所有被使用过的内存都被放在一边，空闲的内存被放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是把那个指针向空闲空间方向挪动一段与对象大小相等的距离，这种分配方式称为“指针碰撞”。
 - 空闲列表：如果 Java 堆中的内存并不是规整的，已被使用的内存和空闲的内存相互交错在一起，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，记录上哪些内存块是可用的，在分配的时候从列表中找到一块足够大的空间划分给对象实例，并更新列表上的记录，这种分配方式称为“空闲列表”。
@@ -126,7 +126,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 有两种可选方案来解决这个问题：
 
-![堆抢占和解决方案](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-11.png)
+![堆抢占和解决方案](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-11.png)
 
 - 采用 CAS 分配重试的方式来保证更新操作的原子性
 
@@ -138,7 +138,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 在 HotSpot 虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。
 
-![对象的存储布局](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-12.png)
+![对象的存储布局](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-12.png)
 
 **对象头**主要由两部分组成：
 
@@ -156,11 +156,11 @@ Java 程序会通过栈上的 reference 数据来操作堆上的具体对象。�
 
 - 如果使用句柄访问的话，Java 堆中将可能会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息，其结构如图所示：
 
-![通过句柄访问对象](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-13.png)
+![通过句柄访问对象](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-13.png)
 
 - 如果使用直接指针访问的话，Java 堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference 中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销，如图所示：
 
-![通过直接指针访问对象](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-14.png)
+![通过直接指针访问对象](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-14.png)
 
 这两种对象访问方式各有优势，使用句柄来访问的最大好处就是 reference 中存储的是稳定句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而 reference 本身不需要被修改。
 
@@ -178,7 +178,7 @@ HotSpot 虚拟机主要使用直接指针来进行对象访问。
 
 用一个有味道的比喻，内存溢出就是排队去蹲坑，发现没坑位了，内存泄漏，就是有人占着茅坑不拉屎，占着茅坑不拉屎的多了可能会导致坑位不够用。
 
-![内存泄漏、内存溢出](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-15.png)
+![内存泄漏、内存溢出](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-15.png)
 
 ### 11.能手写内存溢出的例子吗？
 
@@ -245,7 +245,7 @@ public class JavaVMStackOOM {
 
 内存泄漏可能的原因有很多种：
 
-![内存泄漏可能原因](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-16.png)
+![内存泄漏可能原因](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-16.png)
 
 **静态集合类引起内存泄漏**
 
@@ -319,12 +319,12 @@ ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，�
 
 引用计数器的算法是这样的：在对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器为零的对象就是不可能再被使用的。
 
-![引用计数算法](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-17.png)
+![引用计数算法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-17.png)
 
 - **可达性分析算法**
 
 目前 Java 虚拟机的主流垃圾回收器采取的是可达性分析算法。这个算法的实质在于将一系列 GC Roots 作为初始的存活对象合集（Gc Root Set），然后从该合集出发，探索所有能够被该集合引用到的对象，并将其加入到该集合中，这个过程我们也称之为标记（mark）。最终，未被探索到的对象便是死亡的，是可以回收的。
-![GC Root](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-18.png)
+![GC Root](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-18.png)
 
 ### 14.Java 中可作为 GC Roots 的对象有哪几种？
 
@@ -375,13 +375,13 @@ PhantomReference reference = new PhantomReference(obj, queue);
 obj = null;
 ```
 
-![四种引用总结](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-19.png)
+![四种引用总结](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-19.png)
 
 ### 16.finalize()方法了解吗？有什么作用？
 
 用一个不太贴切的比喻，垃圾回收就是古代的秋后问斩，finalize()就是刀下留人，在人犯被处决之前，还要做最后一次审计，青天大老爷看看有没有什么冤情，需不需要刀下留人。
 
-![刀下留人](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-20.png)
+![刀下留人](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-20.png)
 
 如果对象在进行可达性分析后发现没有与 GC Roots 相连接的引用链，那它将会被第一次标记，随后进行一次筛选，筛选的条件是此对象是否有必要执行 finalize()方法。如果对象在在 finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己 （this 关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它就”逃过一劫“；但是如果没有抓住这个机会，那么对象就真的要被回收了。
 
@@ -391,7 +391,7 @@ obj = null;
 
 而新生代又可以分为三个区域，eden、from、to，比例是 8：1：1，而新生代的内存分区同样是从垃圾收集的角度来分配的。
 
-![Java堆内存划分](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-21.png)
+![Java堆内存划分](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-21.png)
 
 ### 18.垃圾收集算法了解吗？
 
@@ -404,7 +404,7 @@ obj = null;
 - **标记** : 标记出所有需要回收的对象
 - **清除**：回收所有被标记的对象
 
-![标记-清除算法](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-22.png)
+![标记-清除算法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-22.png)
 
 标记-清除算法比较基础，但是主要存在两个缺点：
 
@@ -417,7 +417,7 @@ obj = null;
 
 过程也比较简单：将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。
 
-![标记-复制算法](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-23.png)
+![标记-复制算法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-23.png)
 
 这种算法存在一个明显的缺点：一部分空间没有使用，存在空间的浪费。
 
@@ -429,7 +429,7 @@ obj = null;
 
 其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存。
 
-![标记-整理算法](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-24.png)
+![标记-整理算法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-24.png)
 
 标记-整理算法主要用于老年代，移动存活对象是个极为负重的操作，而且这种操作需要 Stop The World 才能进行，只是从整体的吞吐量来考量，老年代使用标记-整理算法更加合适。
 
@@ -439,7 +439,7 @@ obj = null;
 
 基于这种算法，虚拟机将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次分配内存只使用 Eden 和其中一块 Survivor。发生垃圾收集时，将 Eden 和 Survivor 中仍然存活的对象一次性复制到另外一块 Survivor 空间上，然后直接清理掉 Eden 和已用过的那块 Survivor 空间。默认 Eden 和 Survivor 的大小比例是 8∶1。
 
-![新生代内存划分](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-25.png)
+![新生代内存划分](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-25.png)
 
 ### 20.Minor GC/Young GC、Major GC/Old GC、Mixed GC、Full GC 都是什么意思？
 
@@ -459,7 +459,7 @@ obj = null;
 
 这个触发条件稍微有点多，往下看：
 
-![Full GC触发条件](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-26.png)
+![Full GC触发条件](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-26.png)
 
 - **Young GC 之前检查老年代**：在要进行 Young GC 的时候，发现`老年代可用的连续内存空间` < `新生代历次Young GC后升入老年代的对象总和的平均大小`，说明本次 Young GC 后可能升入老年代的对象大小，可能超过了老年代当前可用内存空间,那就会触发 Full GC。
 - **Young GC 之后老年代空间不足**：执行 Young GC 之后有一批对象需要放入老年代，此时老年代就是没有足够的内存空间存放这些对象了，此时必须立即触发一次 Full GC
@@ -470,7 +470,7 @@ obj = null;
 
 ### 23.对象什么时候会进入老年代？
 
-![对象进入老年代](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-27.png)
+![对象进入老年代](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-27.png)
 
 **长期存活的对象将进入老年代**
 
@@ -504,7 +504,7 @@ HotSpot 虚拟机提供了这个参数来设置。
 
 主要垃圾收集器如下，图中标出了它们的工作区域、垃圾收集算法，以及配合关系。
 
-![HotSpot虚拟机垃圾收集器](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-28.png)
+![HotSpot虚拟机垃圾收集器](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-28.png)
 
 这些收集器里，面试的重点是两个——**CMS**和**G1**。
 
@@ -516,7 +516,7 @@ Serial 收集器是最基础、历史最悠久的收集器。
 
 Serial/Serial Old 收集器的运行过程如图：
 
-![Serial/Serial Old收集器运行示意图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-29.png)
+![Serial/Serial Old收集器运行示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-29.png)
 
 - ParNew
 
@@ -524,13 +524,13 @@ ParNew 收集器实质上是 Serial 收集器的多线程并行版本，使用�
 
 ParNew/Serial Old 收集器运行示意图如下：
 
-![ParNew/Serial Old收集器运行示意图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-30.png)
+![ParNew/Serial Old收集器运行示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-30.png)
 
 - Parallel Scavenge
 
 Parallel Scavenge 收集器是一款新生代收集器，基于标记-复制算法实现，也能够并行收集。和 ParNew 有些类似，但 Parallel Scavenge 主要关注的是垃圾收集的吞吐量——所谓吞吐量，就是 CPU 用于运行用户代码的时间和总消耗时间的比值，比值越大，说明垃圾收集的占比越小。
 
-![吞吐量](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-31.png)
+![吞吐量](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-31.png)
 
 - Serial Old
 
@@ -540,7 +540,7 @@ Serial Old 是 Serial 收集器的老年代版本，它同样是一个单线程�
 
 Parallel Old 是 Parallel Scavenge 收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。
 
-![Parallel Scavenge/Parallel Old收集器运行示意图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-32.png)
+![Parallel Scavenge/Parallel Old收集器运行示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-32.png)
 
 - CMS 收集器
 
@@ -568,7 +568,7 @@ Garbage First（简称 G1）收集器是垃圾收集器的一个颠覆性的产�
 
 用通俗的比喻，假如老王去拉车，车上东西很重，老王累的汗流浃背，但是老王不能在上坡或者下坡休息，只能在平地上停下来擦擦汗，喝口水。
 
-![老王拉车只能在平路休息](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-33.png)
+![老王拉车只能在平路休息](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-33.png)
 
 ### 26.能详细说一下 CMS 收集器的垃圾收集过程吗？
 
@@ -581,7 +581,7 @@ CMS 收集齐的垃圾收集分为四步：
 
 Concurrent Mark Sweep 收集器运行示意图如下：
 
-![Concurrent Mark Sweep收集器运行示意图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-34.png)
+![Concurrent Mark Sweep收集器运行示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-34.png)
 
 ### 27.G1 垃圾收集器了解吗？
 
@@ -591,7 +591,7 @@ Garbage First（简称 G1）收集器是垃圾收集器的一个颠覆性的产�
 
 G1 把连续的 Java 堆划分为多个大小相等的独立区域（Region），每一个 Region 都可以根据需要，扮演新生代的 Eden 空间、Survivor 空间，或者老年代空间。收集器能够对扮演不同角色的 Region 采用不同的策略去处理。
 
-![G1 Heap Regions](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-35.png)
+![G1 Heap Regions](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-35.png)
 
 这样就避免了收集整个堆，而是按照若干个 Region 集进行收集，同时维护一个优先级列表，跟踪各个 Region 回收的“价值，优先收集价值高的 Region。
 
@@ -602,7 +602,7 @@ G1 收集器的运行过程大致可划分为以下四个步骤：
 - **最终标记**（Remark），STW，标记再并发标记过程中产生的垃圾。
 - **筛选回收**（Live Data Counting And Evacuation），制定回收计划，选择多个 Region 构成回收集，把回收集中 Region 的存活对象复制到空的 Region 中，再清理掉整个旧 Region 的全部空间。需要 STW。
 
-![G1收集器运行示意图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-36.png)
+![G1收集器运行示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-36.png)
 
 ### 28.有了 CMS，为什么还要引入 G1？
 
@@ -675,11 +675,11 @@ Parallel Scavenge 的特点是什么？
 
 通俗点讲，当一个对象被 new 出来之后，它可能被外部所调用，如果是作为参数传递到外部了，就称之为方法逃逸。
 
-![逃逸](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-37.png)
+![逃逸](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-37.png)
 
 除此之外，如果对象还有可能被外部线程访问到，例如赋值给可以在其它线程中访问的实例变量，这种就被称为线程逃逸。
 
-![逃逸强度](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-38.png)
+![逃逸强度](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-38.png)
 
 **逃逸分析的好处**
 
@@ -723,15 +723,15 @@ Parallel Scavenge 的特点是什么？
 
 - JConsole
 
-![JConsole概览](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-39.png)
+![JConsole概览](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-39.png)
 
 - VisualVM
 
-![VisualVM安装插件](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-40.png)
+![VisualVM安装插件](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-40.png)
 
 - Java Mission Control
 
-![JMC主要界面](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-41.png)
+![JMC主要界面](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-41.png)
 
 除此之外，还有一些第三方的工具：
 
@@ -798,7 +798,7 @@ Java 应用性能分析工具，开源、火焰图、跨平台。
 
 JVM 调优是一件很严肃的事情，不是拍脑门就开始调优的，需要有严密的分析和监控机制，大概的一个 JVM 调优流程图：
 
-![JVM调优大致流程图](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-42.png)
+![JVM调优大致流程图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-42.png)
 
 实际上，JVM 调优是不得已而为之，有那功夫，好好把烂代码重构一下不比瞎调 JVM 强。
 
@@ -827,7 +827,7 @@ JVM 调优是一件很严肃的事情，不是拍脑门就开始调优的，需�
 
 问题分析：CPU 高一定是某个程序长期占用了 CPU 资源。
 
-![CPU飙高](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-43.png)
+![CPU飙高](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-43.png)
 
 1）所以先需要找出那个进程占用 CPU 高。
 
@@ -984,7 +984,7 @@ jmap -dump:format=b,file=heap pid
 
 一个类从被加载到虚拟机内存中开始，到从内存中卸载，整个生命周期需要经过七个阶段：加载 （Loading）、验证（Verification）、准备（Preparation）、解析（Resolution）、初始化 （Initialization）、使用（Using）和卸载（Unloading），其中验证、准备、解析三个部分统称为连接（Linking）。
 
-![类的生命周期](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-44.png)
+![类的生命周期](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-44.png)
 
 ### 43.类加载的过程知道吗？
 
@@ -992,7 +992,7 @@ jmap -dump:format=b,file=heap pid
 
 在加载过程，JVM 要做三件事情：
 
-![加载](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-45.png)
+![加载](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-45.png)
 
 - 1）通过一个类的全限定名来获取定义此类的二进制字节流。
 
@@ -1018,7 +1018,7 @@ jmap -dump:format=b,file=heap pid
 
 ### 45.什么是双亲委派机制？
 
-![双亲委派模型](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-46.png)
+![双亲委派模型](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-46.png)
 
 双亲委派模型的工作过程：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载。
 
@@ -1036,7 +1036,7 @@ jmap -dump:format=b,file=heap pid
 
 双亲委派机制在历史上主要有三次破坏：
 
-![双亲委派模型的三次破坏](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-47.png)
+![双亲委派模型的三次破坏](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-47.png)
 
 > **第一次破坏**
 
@@ -1090,7 +1090,7 @@ Tomcat 是主流的 Java Web 服务器之一，为了实现一些特殊的功能
 
 Tomcat 类加载器如下：
 
-![Tomcat类加载器](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/sidebar/sanfene/jvm-48.png)
+![Tomcat类加载器](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/jvm-48.png)
 
 Tomcat 实际上也是破坏了双亲委派模型的。
 

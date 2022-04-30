@@ -39,7 +39,7 @@ Java 字节码由操作码和操作数组成。
 
 x 为操作码助记符，表明是哪一种数据类型。见下表所示。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-879da2f2-fb72-48a9-985e-5a28a9fc8814.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-879da2f2-fb72-48a9-985e-5a28a9fc8814.png)
 
 像 arraylength 指令，没有操作码助记符，它没有代表数据类型的特殊字符，但操作数只能是一个数组类型的对象。
 
@@ -55,7 +55,7 @@ private void load(int age, String name, long birthday, boolean sex) {
 
 通过 jclasslib 看一下 `load()` 方法（4 个参数）的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-05bfae95-2a33-402c-9041-570093729c42.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-05bfae95-2a33-402c-9041-570093729c42.png)
 
 - iload_1：将局部变量表中下标为 1 的 int 变量压入操作数栈中。
 - aload_2：将局部变量表中下标为 2 的引用数据类型变量（此时为 String）压入操作数栈中。
@@ -64,7 +64,7 @@ private void load(int age, String name, long birthday, boolean sex) {
 
 通过查看局部变量表就能关联上了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-79d74946-ce9e-41d4-b889-bda861f847bc.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-79d74946-ce9e-41d4-b889-bda861f847bc.png)
 
 
 **2）将常量池中的常量压入操作数栈中**
@@ -73,7 +73,7 @@ private void load(int age, String name, long birthday, boolean sex) {
 
 **const 系列**，用于特殊的常量入栈，要入栈的常量隐含在指令本身。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-270c314d-872b-43b0-861f-417eafc046fd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-270c314d-872b-43b0-861f-417eafc046fd.png)
 
 **push 系列**，主要包括 bipush 和 sipush，前者接收 8 位整数作为参数，后者接收 16 位整数。
 
@@ -101,7 +101,7 @@ public void pushConstLdc() {
 
 通过 jclasslib 看一下 `pushConstLdc()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-b34fc802-18bb-46a1-8d24-de2087c9b6bf.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-b34fc802-18bb-46a1-8d24-de2087c9b6bf.png)
 
 - iconst_m1：将 -1 入栈。范围 [-1,5]。
 - bipush 127：将 127 入栈。范围 [-128,127]。
@@ -136,14 +136,14 @@ public void store(int age, String name) {
 
 通过 jclasslib 看一下 `store()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-d955468c-d07d-47cd-b82b-c03ecea8753d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-d955468c-d07d-47cd-b82b-c03ecea8753d.png)
 
 - istore_3：从操作数中弹出一个整数，并把它赋值给局部变量表中索引为 3 的变量。
 - astore 4：从操作数中弹出一个引用数据类型，并把它赋值给局部变量表中索引为 4 的变量。
 
 通过查看局部变量表就能关联上了。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-a08c20cb-c148-47c9-91e2-df37e68989a9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-a08c20cb-c148-47c9-91e2-df37e68989a9.png)
 
 ### 02、算术指令
 
@@ -200,7 +200,7 @@ public void calculate(int age) {
 
 通过 jclasslib 看一下 `calculate()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-598e4204-fd77-425b-b536-1e001cda8e13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-598e4204-fd77-425b-b536-1e001cda8e13.png)
 
 - iadd，加法
 - isub，减法
@@ -238,7 +238,7 @@ public void updown() {
 
 通过 jclasslib 看一下 `updown()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-0c3e47c6-1e25-4926-a838-20cf146a8993.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-0c3e47c6-1e25-4926-a838-20cf146a8993.png)
 
 - i2d，int 宽化为 double
 - f2l， float 窄化为 long
@@ -269,7 +269,7 @@ public void newObject() {
 
 通过 jclasslib 看一下 `newObject()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-8125da3d-876c-43fe-8347-cb2341408088.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-8125da3d-876c-43fe-8347-cb2341408088.png)
 
 
 - `new #13 <java/lang/String>`，创建一个 String 对象。
@@ -304,7 +304,7 @@ public class Writer {
 
 通过 jclasslib 看一下 `main()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-70441cfc-7c6e-4a5e-b0dd-818fc3fa1a67.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-70441cfc-7c6e-4a5e-b0dd-818fc3fa1a67.png)
 
 - `getstatic #2 <com/itwanger/jvm/Writer.mark>`，访问静态变量 mark
 - `getfield #6 <com/itwanger/jvm/Writer.name>`，访问成员变量 name
@@ -428,7 +428,7 @@ invokestatic  #11 // Method print:()V
 
 方法返回指令根据方法的返回值类型进行区分，常见的返回指令见下图。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-37513fa2-fdba-45db-adfc-c18225c6ff8b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-37513fa2-fdba-45db-adfc-c18225c6ff8b.png)
 
 ### 06、操作数栈管理指令
 
@@ -453,7 +453,7 @@ public class Dup {
 
 通过 jclasslib 看一下 `incAndGet()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-642ca54e-5808-428d-9840-ebf478e95c17.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-642ca54e-5808-428d-9840-ebf478e95c17.png)
 
 - aload_0：将 this 入栈。
 - dup：复制栈顶的 this。
@@ -490,13 +490,13 @@ public void lcmp(long a, long b) {
 
 通过 jclasslib 看一下 `lcmp()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-e8fa6685-b3d4-4f42-8fc5-8a4d8a9efe7b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-e8fa6685-b3d4-4f42-8fc5-8a4d8a9efe7b.png)
 
 lcmp 用于两个 long 型的数据进行比较。
 
 **2）条件跳转指令**
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-5de34f26-52ad-4e07-a20d-91ea92038984.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-5de34f26-52ad-4e07-a20d-91ea92038984.png)
 
 这些指令都会接收两个字节的操作数，它们的统一含义是，弹出栈顶元素，测试它是否满足某一条件，满足的话，跳转到对应位置。
 
@@ -519,13 +519,13 @@ public void fi() {
 
 通过 jclasslib 看一下 `fi()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-d0561d5c-ae21-48e7-9e7c-4aae87d02f56.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-d0561d5c-ae21-48e7-9e7c-4aae87d02f56.png)
 
 `3 ifne 12 (+9)` 的意思是，如果栈顶的元素不等于 0，跳转到第 12（3+9）行 `12 bipush 20`。
 
 **3）比较条件转指令**
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-bfab6edd-d63f-45a7-8838-997e7630fa2a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-bfab6edd-d63f-45a7-8838-997e7630fa2a.png)
 
 前缀“if_”后，以字符“i”开头的指令针对 int 型整数进行操作，以字符“a”开头的指令表示对象的比较。
 
@@ -541,7 +541,7 @@ public void compare() {
 
 通过 jclasslib 看一下 `compare()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-d4f9a680-1364-4af9-9474-c0763c9bc6f7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-d4f9a680-1364-4af9-9474-c0763c9bc6f7.png)
 
 `11 if_icmple 18 (+7)` 的意思是，如果栈顶的两个 int 类型的数值比较的话，如果前者小于后者时跳转到第 18 行（11+7）。
 
@@ -571,7 +571,7 @@ public void switchTest(int select) {
 
 通过 jclasslib 看一下 `switchTest()` 方法的字节码指令。
 
-![](https://cdn.jsdelivr.net/gh/itwanger/toBeBetterJavaer/images/jvm/zijiema-zhiling-04e166ae-13c7-4025-804a-be88e2923a50.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/zijiema-zhiling-04e166ae-13c7-4025-804a-be88e2923a50.png)
 
 
 case 2 的时候没有 break，所以 case 2 和 case 3 是连续的，用的是 tableswitch。如果等于 1，跳转到 28 行；如果等于 2 和 3，跳转到 34 行，如果是 default，跳转到 40 行。
