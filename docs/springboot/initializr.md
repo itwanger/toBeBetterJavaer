@@ -23,7 +23,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 来解释一下 Spring Initializr 初始化界面中的关键选项。
 
-1）Project：项目的构建方式，可以选择 [Maven](https://mp.weixin.qq.com/s/3umZOaI4l0EIZ5RgtEDchw) 和 Gradle（构建脚本基于 Groovy 或者 Kotlin 等语言来编写，而不是传统的 XML）。默认 Maven 即可。
+1）Project：项目的构建方式，可以选择 [Maven](https://tobebetterjavaer.com/maven/maven.html)（Maven 的安装可以戳链接参考） 和 Gradle（构建脚本基于 Groovy 或者 Kotlin 等语言来编写，而不是传统的 XML）。默认 Maven 即可。
 
 2）Language：项目的开发语言，可以选择 Java、Kotlin（JetBrains开发的可以在 JVM 上运行的编程语言）、Groovy（可以作为 Java 平台的脚本语言来使用）。默认 Java 即可。
 
