@@ -26,13 +26,13 @@ tag:
 
 我们先介绍*官网下载，手动安装*，该方式同样适用于 Windows 系统，差别可参照 Maven 官网安装教程：
 
->http://maven.apache.org/install.html
+>[http://maven.apache.org/install.html](http://maven.apache.org/install.html)
 
 1）**一种官网下载，手动安装**
 
 第一步，去官网下载 Maven 安装包：
 
->官网地址：http://maven.apache.org/download.cgi
+>官网地址：[http://maven.apache.org/download.cgi](http://maven.apache.org/download.cgi)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/maven/maven-02.png)
 
@@ -62,7 +62,7 @@ tag:
 
 bash_profile 文件用于配置环境变量和启动程序，详细介绍可参照：
 
->https://www.cnblogs.com/kevingrace/p/8072860.html
+>[https://www.cnblogs.com/kevingrace/p/8072860.html](https://www.cnblogs.com/kevingrace/p/8072860.html)
 
 在文件中添加设置环境变量的命令：
 
@@ -418,7 +418,7 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
 
 maven-mvnd，可以读作 Maven Daemon，译作 Maven 守护版，旨在为 Maven 提供更快的构建速度，灵感借鉴了 Gradle 和 Takari（Maven 生命周期优化器）。
 
->https://github.com/apache/maven-mvnd
+>[https://github.com/apache/maven-mvnd](https://github.com/apache/maven-mvnd)
 
 
 
@@ -462,7 +462,7 @@ brew install mvndaemon/homebrew-mvnd/mvnd
 
 通过下面的网址下载 mvnd 的 release 版本：
 
->https://github.com/apache/maven-mvnd/releases
+>[https://github.com/apache/maven-mvnd/releases](https://github.com/apache/maven-mvnd/releases)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/maven/mvnd-03.png)
 
@@ -499,10 +499,10 @@ brew install mvndaemon/homebrew-mvnd/mvnd
 
 参考链接：
 
->- 嘟嘟MD：http://tengj.top/2018/01/01/maven/
+>- 嘟嘟MD：[http://tengj.top/2018/01/01/maven/](http://tengj.top/2018/01/01/maven/)
 >- 杭建：《Java 工程师修炼之道》
->- 许晓斌：https://www.infoq.cn/article/2011/04/xxb-maven-7-plugin
+>- 许晓斌：[https://www.infoq.cn/article/2011/04/xxb-maven-7-plugin](https://www.infoq.cn/article/2011/04/xxb-maven-7-plugin)
 
 希望大家能在阅读完本篇文章后对 Maven 有一个初步的了解和掌握，并将这些技能在项目的实战中加以练习，以达到项目工程化的要求。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
