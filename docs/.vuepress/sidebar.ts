@@ -632,7 +632,7 @@ export const sidebarConfig = defineSidebarConfig({
       collapsable: true,
       children: [
         {
-          text: "开发工具",
+          text: "3.1 开发工具",
           collapsable: true,
           children: [
           "maven/maven.md",
@@ -641,14 +641,14 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "IDE/编辑器",
+          text: "3.2 IDE/编辑器",
           collapsable: true,
           children: [
           "ide/4-debug-skill.md",
           ],
         },
         {
-          text: "Spring",
+          text: "3.3 Spring",
           collapsable: true,
           children: [
             {
@@ -662,16 +662,23 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "SpringBoot",
+          text: "3.4 SpringBoot",
           collapsable: true,
           children: [
-            "springboot/initializr",
+            {
+              text: "第一个Spring Boot项目",
+              link: "springboot/initializr",
+            },
+            {
+              text: "整合 MySQL和Druid",
+              link: "springboot/mysql-druid",
+            },
             "springboot/tomcat",
             "redis/redis-springboot",
           ],
         },
         {
-          text: "辅助工具/轮子",
+          text: "3.5 辅助工具/轮子",
           collapsable: true,
           children: [
             "gongju/tabby",
@@ -693,7 +700,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "分布式",
+          text: "3.6 分布式",
           collapsable: true,
           children: [
             "elasticsearch/rumen",
@@ -701,7 +708,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "高性能",
+          text: "3.7 高性能",
           collapsable: true,
           children: [
             {

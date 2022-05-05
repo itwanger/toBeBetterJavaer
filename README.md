@@ -260,6 +260,7 @@
 ## SpringBoot
 
 - [一分钟快速搭建Spring Boot项目](docs/springboot/initializr.md)
+- [Spring Boot 整合 MySQL 和 Druid](docs/springboot/mysql-druid.md)
 - [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
 - [Spring Boot 整合 Redis 实现缓存](docs/redis/redis-springboot.md)
 
