@@ -471,6 +471,10 @@ export const sidebarConfig = defineSidebarConfig({
             link: "cas",
           },
           {
+            text: "AQS详解",
+            link: "aqs",
+          },
+          {
             text: "锁",
             link: "lock",
           },
