@@ -44,7 +44,7 @@ export default defineNavbarConfig([
       { 
         text: "面渣逆袭", 
         icon: "zhunbei", 
-        link: "/download/nixi.md" 
+        link: "/sidebar/sanfene/nixi.md" 
       },
       { 
         text: "优质文章", 
