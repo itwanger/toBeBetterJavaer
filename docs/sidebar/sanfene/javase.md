@@ -1,6 +1,6 @@
 ---
 category:
-  - Java核心
+  - 面渣逆袭
 tag:
   - Java
 ---
@@ -74,7 +74,7 @@ Java 语言既具有编译型语言的特征，也具有解释型语言的特征
 
 ![编译与解释](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/javase-5.png)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 基础语法
 

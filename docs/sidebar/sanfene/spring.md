@@ -1,11 +1,11 @@
 ---
 category:
-  - Java企业级开发
+  - 面渣逆袭
 tag:
   - Spring
 ---
 
-# Spring：35道精选面试题
+# 面渣逆袭（Spring）必看:+1:
 
 > 图文详解 35 道Spring面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
@@ -126,6 +126,8 @@ Spring 框架中广泛使用了不同类型的设计模式，下面我们来看�
 5. **观察者模式**: Spring 事件驱动模型就是观察者模式很经典的一个应用。
 6. **适配器模式** :Spring AOP 的增强或通知 (Advice) 使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 Controller。
 7. **策略模式**：Spring 中有一个 Resource 接口，它的不同实现类，会根据不同的策略去访问资源。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## IOC
 
@@ -887,56 +889,58 @@ A 实例的初始化过程：
 
 - 在 populateBean()方法中一共调用了两次后置处理器，第一次是为了判断是否需要属性填充，如果不需要进行属性填充，那么就会直接进行 return，如果需要进行属性填充，那么方法就会继续向下执行，后面会进行第二次后置处理器的调用，这个时候，就会调用到 AutowiredAnnotationBeanPostProcessor 的 postProcessPropertyValues()方法，在该方法中就会进行@Autowired 注解的解析，然后实现自动装配。
 
-  ```java
-  /**
-  * 属性赋值
-  **/
-  protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
-              //…………
-              if (hasInstAwareBpps) {
-                  if (pvs == null) {
-                      pvs = mbd.getPropertyValues();
-                  }
+```java
+/**
+* 属性赋值
+**/
+protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
+          //…………
+          if (hasInstAwareBpps) {
+              if (pvs == null) {
+                  pvs = mbd.getPropertyValues();
+              }
 
-                  PropertyValues pvsToUse;
-                  for(Iterator var9 = this.getBeanPostProcessorCache().instantiationAware.iterator(); var9.hasNext(); pvs = pvsToUse) {
-                      InstantiationAwareBeanPostProcessor bp = (InstantiationAwareBeanPostProcessor)var9.next();
-                      pvsToUse = bp.postProcessProperties((PropertyValues)pvs, bw.getWrappedInstance(), beanName);
+              PropertyValues pvsToUse;
+              for(Iterator var9 = this.getBeanPostProcessorCache().instantiationAware.iterator(); var9.hasNext(); pvs = pvsToUse) {
+                  InstantiationAwareBeanPostProcessor bp = (InstantiationAwareBeanPostProcessor)var9.next();
+                  pvsToUse = bp.postProcessProperties((PropertyValues)pvs, bw.getWrappedInstance(), beanName);
+                  if (pvsToUse == null) {
+                      if (filteredPds == null) {
+                          filteredPds = this.filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
+                      }
+                      //执行后处理器，填充属性，完成自动装配
+                      //调用InstantiationAwareBeanPostProcessor的postProcessPropertyValues()方法
+                      pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);
                       if (pvsToUse == null) {
-                          if (filteredPds == null) {
-                              filteredPds = this.filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
-                          }
-                          //执行后处理器，填充属性，完成自动装配
-                          //调用InstantiationAwareBeanPostProcessor的postProcessPropertyValues()方法
-                          pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);
-                          if (pvsToUse == null) {
-                              return;
-                          }
+                          return;
                       }
                   }
               }
-             //…………
-      }
-  ```
+          }
+         //…………
+  }
+```
 
 * postProcessorPropertyValues()方法的源码如下，在该方法中，会先调用 findAutowiringMetadata()方法解析出 bean 中带有@Autowired 注解、@Inject 和@Value 注解的属性和方法。然后调用 metadata.inject()方法，进行属性填充。
 
-  ```java
-      public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
-          //@Autowired注解、@Inject和@Value注解的属性和方法
-          InjectionMetadata metadata = this.findAutowiringMetadata(beanName, bean.getClass(), pvs);
+```java
+  public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
+      //@Autowired注解、@Inject和@Value注解的属性和方法
+      InjectionMetadata metadata = this.findAutowiringMetadata(beanName, bean.getClass(), pvs);
 
-          try {
-              //属性填充
-              metadata.inject(bean, beanName, pvs);
-              return pvs;
-          } catch (BeanCreationException var6) {
-              throw var6;
-          } catch (Throwable var7) {
-              throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", var7);
-          }
+      try {
+          //属性填充
+          metadata.inject(bean, beanName, pvs);
+          return pvs;
+      } catch (BeanCreationException var6) {
+          throw var6;
+      } catch (Throwable var7) {
+          throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", var7);
       }
-  ```
+  }
+```
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## AOP
 
@@ -1287,6 +1291,9 @@ AspectJ 属于**静态织入**，通过修改代码来实现，在实际运行�
 
 ![Spring AOP和AspectJ对比](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/sanfene/spring-d1dbe9d9-c55f-4293-8622-d9759064d613.png)
 
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
 ## 事务
 
 Spring 事务的本质其实就是数据库对事务的支持，没有数据库的事务支持，Spring 是无法提供事务功能的。Spring 只提供统一事务管理接口，具体实现都是由各数据库自己实现，数据库事务的提交和回滚是通过数据库自己的事务机制实现。
@@ -1443,6 +1450,8 @@ private Integer A() throws Exception {
 org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
 ```
 
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
 ## MVC
 
 ### 28.Spring MVC 的核心组件？
@@ -1507,6 +1516,8 @@ PS:这是一道全新的八股，毕竟 ModelAndView 这种方式应该没人用
    5.3.在写入的过程中，会使用 JsonGenerator（默认使用 Jackson 框架）对返回值进行 Json 序列化
 
 6. 执行完请求后，返回的 ModealAndView 为 null，ServletServerHttpResponse 里也已经写入了响应，所以不用关心 View 的处理
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## Spring Boot
 

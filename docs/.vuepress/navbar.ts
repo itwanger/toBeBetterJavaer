@@ -42,6 +42,11 @@ export default defineNavbarConfig([
         link: "/download/learn-jianyi.md" 
       },
       { 
+        text: "面渣逆袭", 
+        icon: "zhunbei", 
+        link: "/download/nixi.md" 
+      },
+      { 
         text: "优质文章", 
         icon: "youzhi", 
         link: "/download/nicearticle.md" 
