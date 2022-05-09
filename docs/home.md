@@ -57,33 +57,41 @@ headerDepth: 1
 
 ## 学习路线
 
->除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
+除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
 
-  * [Java学习路线一条龙版（建议收藏:+1:）](xuexiluxian/java/yitiaolong.md)
-  * [Java并发编程学习路线（建议收藏:+1:）](xuexiluxian/java/thread.md)
-  * [Java虚拟机学习路线（建议收藏:+1:）](xuexiluxian/java/jvm.md)
-  * [C语言学习路线（建议收藏:+1:）](xuexiluxian/c.md)
-  * [C++学习路线（建议收藏:+1:）](xuexiluxian/ccc.md)
-  * [Python学习路线（建议收藏:+1:）](xuexiluxian/python.md)
-  * [Go语言学习路线（建议收藏:+1:）](xuexiluxian/go.md)
-  * [操作系统学习路线（建议收藏:+1:）](xuexiluxian/os.md)
-  * [前端学习路线（建议收藏:+1:）](xuexiluxian/qianduan.md)
-  * [蓝桥杯学习路线（建议收藏:+1:）](xuexiluxian/lanqiaobei.md)
-  * [算法和数据结构学习路线（建议收藏:+1:）](xuexiluxian/algorithm.md)
+* [Java学习路线一条龙版（建议收藏:+1:）](xuexiluxian/java/yitiaolong.md)
+* [Java并发编程学习路线（建议收藏:+1:）](xuexiluxian/java/thread.md)
+* [Java虚拟机学习路线（建议收藏:+1:）](xuexiluxian/java/jvm.md)
+* [C语言学习路线（建议收藏:+1:）](xuexiluxian/c.md)
+* [C++学习路线（建议收藏:+1:）](xuexiluxian/ccc.md)
+* [Python学习路线（建议收藏:+1:）](xuexiluxian/python.md)
+* [Go语言学习路线（建议收藏:+1:）](xuexiluxian/go.md)
+* [操作系统学习路线（建议收藏:+1:）](xuexiluxian/os.md)
+* [前端学习路线（建议收藏:+1:）](xuexiluxian/qianduan.md)
+* [蓝桥杯学习路线（建议收藏:+1:）](xuexiluxian/lanqiaobei.md)
+* [算法和数据结构学习路线（建议收藏:+1:）](xuexiluxian/algorithm.md)
 
+## 面渣逆袭
 
-## Java核心
-
-
- **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
-
-
-### Java面渣逆袭
+**面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis 等等。
 
 - [面渣逆袭（Java 基础篇）必看:+1:](sidebar/sanfene/javase.md)
 - [面渣逆袭（Java 集合框架篇）必看:+1:](sidebar/sanfene/collection.md)
 - [面渣逆袭（Java 并发编程篇）必看:+1:](sidebar/sanfene/javathread.md)
 - [面渣逆袭（Java 虚拟机篇）必看:+1:](sidebar/sanfene/jvm.md)
+- [面渣逆袭（Spring）必看:+1:](sidebar/sanfene/spring.md)
+- [面渣逆袭（Redis）必看:+1:](sidebar/sanfene/redis.md)
+
+## 学习建议
+
+**收集了我所有的知乎高赞帖子**！全方位迷茫解惑。
+
+- [如何阅读《深入理解计算机系统》这本书？](xuexijianyi/read-csapp.md)
+- [电子信息工程最好的出路的是什么？](xuexijianyi/electron-information-engineering.md)
+
+## Java核心
+
+**Java核心非常重要**！我将其分成了Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
 
 ### Java概述
 
@@ -265,18 +273,20 @@ headerDepth: 1
 ### SpringBoot
 
 - [一分钟快速搭建Spring Boot项目](springboot/initializr.md)
-- [Spring Boot为什么不需要额外安装Tomcat？](springboot/tomcat.md)
+- [Spring Boot 整合 MySQL 和 Druid](springboot/mysql-druid.md)
+- [Spring Boot 整合 JPA](springboot/jpa.md)
 - [Spring Boot 整合 Redis 实现缓存](redis/redis-springboot.md)
+- [Spring Boot 整合 MyBatis-Plus AutoGenerator生成项目骨架代码](kaiyuan/auto-generator.md)
+- [Spring Boot 为什么不需要额外安装Tomcat？](springboot/tomcat.md)
 
-
-### 辅助工具/轮子
+## 辅助工具/轮子
 
 - [Tabby：一款逼格更高的开源终端工具](gongju/tabby.md)
 - [Warp：一款21世纪人用的终端工具](gongju/warp.md)
+- [Chocolatey Homebrew：两款惊艳的Shell软件管理器](gongju/Chocolatey-Homebrew.md)
 - [chiner：一款开源的数据库设计神器](gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](gongju/DBeaver.md)
 - [knife4j：一款界面更炫酷的API文档生成神器](gongju/knife4j.md)
-- [MyBatis-Plus AutoGenerator：一款开发效率更高的代码生成工具](kaiyuan/auto-generator.md)
 - [Junit：一个开源的Java单元测试框架](gongju/junit.md)
 - [fastjson：阿里巴巴开源的JSON解析库](gongju/fastjson.md)
 - [Gson：Google开源的JSON解析库](gongju/gson.md)
@@ -341,9 +351,8 @@ headerDepth: 1
 ### 面试题集合
 
 - [Java：34道精选高频面试题](baguwen/java-basic-34.md)
-- [Java：HashMap精选面试题](collection/hashmap-interview.md)
+- [Java：13道HashMap精选面试题](collection/hashmap-interview.md)
 - [Redis：12道精选高频面试题）](mianjing/redis12question.md)
-- [Spring：35道精选面试题](sidebar/sanfene/spring.md)
 - [Nginx：40道精选面试题](nginx/40-interview.md)
 
 
@@ -402,11 +411,6 @@ headerDepth: 1
 - [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
 - [👏下载→豆瓣9.1分，Pro Git中文版](download/progit.md)
 - [👏下载→简历模板](download/jianli.md)
-
-### 学习建议
-
-- [如何阅读《深入理解计算机系统》这本书？](xuexijianyi/read-csapp.md)
-- [电子信息工程最好的出路的是什么？](xuexijianyi/electron-information-engineering.md)
 
 
 ## 知识库搭建历程

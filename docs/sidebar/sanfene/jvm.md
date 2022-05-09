@@ -1,6 +1,6 @@
 ---
 category:
-  - Java核心
+  - 面渣逆袭
 tag:
   - Java
 ---
@@ -695,7 +695,7 @@ Parallel Scavenge 的特点是什么？
 
 如果一个数据是基本数据类型，不可拆分，它就被称之为标量。把一个 Java 对象拆散，将其用到的成员变量恢复为原始类型来访问，这个过程就称为标量替换。假如逃逸分析能够证明一个对象不会被方法外部访问，并且这个对象可以被拆散，那么可以不创建对象，直接用创建若干个成员变量代替，可以让对象的成员变量在栈上分配和读写。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 三、JVM 调优
 

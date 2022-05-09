@@ -1,7 +1,7 @@
 import { defineSidebarConfig } from "vuepress-theme-hope";
 export const sidebarConfig = defineSidebarConfig({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
-  "/download/": ["java","pdf","learn-jianyi","nicearticle", "history"],
+  "/download/": ["java","pdf","learn-jianyi","nixi","nicearticle", "history"],
   "/xuexiluxian/": [
     {
       text: "Java",
@@ -67,31 +67,8 @@ export const sidebarConfig = defineSidebarConfig({
       collapsable: true,
       children: [
         {
-          prefix: "sidebar/sanfene/",
-          text: "2.1 面渣逆袭",
-          collapsable: true,
-          children: [
-            {
-              text: "Java基础篇",
-              link: "javase.md",
-            },
-            {
-              text: "Java集合框架篇",
-              link: "collection.md",
-            },
-            {
-              text: "Java并发编程篇",
-              link: "javathread.md",
-            },
-            {
-              text: "Java虚拟机篇",
-              link: "jvm.md",
-            },
-          ],
-        },
-        {
           prefix: "overview/",
-          text: "2.2 Java概述",
+          text: "2.1 Java概述",
           collapsable: true,
           children: [
           "what-is-java",
@@ -102,7 +79,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.3 Java基础语法",
+          text: "2.2 Java基础语法",
           collapsable: true,
           children: [
           {
@@ -132,7 +109,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.4 面向对象编程",
+          text: "2.3 面向对象编程",
           collapsable: true,
           children: [
           {
@@ -162,6 +139,10 @@ export const sidebarConfig = defineSidebarConfig({
           {
             text: "接口",
             link: "oo/interface",
+          },
+          {
+            text: "内部类",
+            link: "oo/inner-class",
           },
           {
             text: "static",
@@ -207,7 +188,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.5 字符串&数组",
+          text: "2.4 字符串&数组",
           collapsable: true,
           children: [
         
@@ -247,7 +228,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.6 集合框架（容器）",
+          text: "2.5 集合框架（容器）",
           collapsable: true,
           children: [
           
@@ -283,7 +264,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.7 IO",
+          text: "2.6 IO",
           collapsable: true,
           prefix:"io/",
           children: [
@@ -298,7 +279,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.8 异常处理",
+          text: "2.7 异常处理",
           collapsable: true,
           prefix:"exception/",
           children: [
@@ -321,7 +302,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.9 常用工具类",
+          text: "2.8 常用工具类",
           collapsable: true,
           prefix:"common-tool/",
           children: [
@@ -344,7 +325,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.10 Java新特性",
+          text: "2.9 Java新特性",
           prefix: "java8/",
           collapsable: true,
           children: [
@@ -363,7 +344,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.11 Java重要知识点",
+          text: "2.10 Java重要知识点",
           prefix:"basic-extra-meal/",
           collapsable: true,
           children: [
@@ -430,7 +411,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.12 并发编程",
+          text: "2.11 并发编程",
           collapsable: true,
           prefix: "thread/",
           children: [
@@ -546,7 +527,7 @@ export const sidebarConfig = defineSidebarConfig({
           ],
         },
         {
-          text: "2.13 JVM",
+          text: "2.12 JVM",
           prefix: "jvm/",
           collapsable: true,
           children: [
@@ -677,8 +658,19 @@ export const sidebarConfig = defineSidebarConfig({
               text: "整合 MySQL和Druid",
               link: "springboot/mysql-druid",
             },
+            {
+              text: "整合 JPA",
+              link: "springboot/jpa",
+            },
+            {
+              text: "整合 Redis 实现缓存",
+              link: "redis/redis-springboot",
+            },
+            {
+              text: "整合 MyBatis-Plus AutoGenerator",
+              link: "kaiyuan/auto-generator",
+            },
             "springboot/tomcat",
-            "redis/redis-springboot",
           ],
         },
         {
@@ -687,6 +679,7 @@ export const sidebarConfig = defineSidebarConfig({
           children: [
             "gongju/tabby",
             "gongju/warp",
+            "gongju/Chocolatey-Homebrew",
             "gongju/chiner",
             "gongju/DBeaver",
             "gongju/knife4j",

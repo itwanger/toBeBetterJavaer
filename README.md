@@ -67,17 +67,32 @@
   * [蓝桥杯学习路线（建议收藏:+1:）](docs/xuexiluxian/lanqiaobei.md)
   * [算法和数据结构学习路线（建议收藏:+1:）](docs/xuexiluxian/algorithm.md)
 
-# Java核心
+# 面渣逆袭
 
 > [!NOTE]
->  **Java核心非常重要**！我将其分成了面渣逆袭篇、Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
-
-## Java面渣逆袭
+>  **面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis 等等。
 
 - [面渣逆袭（Java 基础篇）必看:+1:](docs/sidebar/sanfene/javase.md)
 - [面渣逆袭（Java 集合框架篇）必看:+1:](docs/sidebar/sanfene/collection.md)
 - [面渣逆袭（Java 并发编程篇）必看:+1:](docs/sidebar/sanfene/javathread.md)
 - [面渣逆袭（Java 虚拟机篇）必看:+1:](docs/sidebar/sanfene/jvm.md)
+- [面渣逆袭（Spring）必看:+1:](docs/sidebar/sanfene/spring.md)
+- [面渣逆袭（Redis）必看:+1:](docs/sidebar/sanfene/redis.md)
+
+# 学习建议
+
+> [!NOTE]
+>  **收集了我所有的知乎高赞帖子**！全方位迷茫解惑。
+
+- [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
+- [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
+
+
+# Java核心
+
+> [!NOTE]
+>  **Java核心非常重要**！我将其分成了Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
+
 
 ## Java概述
 
@@ -261,18 +276,19 @@
 
 - [一分钟快速搭建Spring Boot项目](docs/springboot/initializr.md)
 - [Spring Boot 整合 MySQL 和 Druid](docs/springboot/mysql-druid.md)
-- [Spring Boot为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
+- [Spring Boot 整合 JPA](docs/springboot/jpa.md)
 - [Spring Boot 整合 Redis 实现缓存](docs/redis/redis-springboot.md)
-
+- [Spring Boot 整合 MyBatis-Plus AutoGenerator生成项目骨架代码](docs/kaiyuan/auto-generator.md)
+- [Spring Boot 为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
 
 ## 辅助工具/轮子
 
 - [Tabby：一款逼格更高的开源终端工具](docs/gongju/tabby.md)
 - [Warp：一款21世纪人用的终端工具](docs/gongju/warp.md)
+- [Chocolatey Homebrew：两款惊艳的Shell软件管理器](docs/gongju/Chocolatey-Homebrew.md)
 - [chiner：一款开源的数据库设计神器](docs/gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](docs/gongju/DBeaver.md)
 - [knife4j：一款界面更炫酷的API文档生成神器](docs/gongju/knife4j.md)
-- [MyBatis-Plus AutoGenerator：一款开发效率更高的代码生成工具](docs/kaiyuan/auto-generator.md)
 - [Junit：一个开源的Java单元测试框架](docs/gongju/junit.md)
 - [fastjson：阿里巴巴开源的JSON解析库](docs/gongju/fastjson.md)
 - [Gson：Google开源的JSON解析库](docs/gongju/gson.md)
@@ -339,9 +355,8 @@
 ## 面试题集合
 
 - [Java：34道精选高频面试题](docs/baguwen/java-basic-34.md)
-- [Java：HashMap精选面试题](docs/collection/hashmap-interview.md)
+- [Java：13道HashMap精选面试题](docs/collection/hashmap-interview.md)
 - [Redis：12道精选高频面试题）](docs/mianjing/redis12question.md)
-- [Spring：35道精选面试题](docs/sidebar/sanfene/spring.md)
 - [Nginx：40道精选面试题](docs/nginx/40-interview.md)
 
 
@@ -402,11 +417,6 @@
 - [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
 - [👏下载→豆瓣9.1分，Pro Git中文版](docs/download/progit.md)
 - [👏下载→简历模板](docs/download/jianli.md)
-
-### 学习建议
-
-- [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
-- [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
 
 
 # 知识库搭建历程

@@ -315,6 +315,8 @@ public class Singleton {
 - synchronized 是加锁防止多个线程同时进入该方法创建对象
 - 第二层if(singleton == null) 是防止有多个线程同时等待锁，一个执行完了后面一个又继续执行的情况
 
+[关于双检锁可以参考](https://blog.csdn.net/fly910905/article/details/79286680)
+
 ## 22.volatile 有什么作用
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-09.png)
