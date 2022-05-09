@@ -1,7 +1,7 @@
 import { defineSidebarConfig } from "vuepress-theme-hope";
 export const sidebarConfig = defineSidebarConfig({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
-  "/download/": ["java","pdf","learn-jianyi","nixi","nicearticle", "history"],
+  "/download/": ["java","pdf","learn-jianyi","nicearticle", "history"],
   "/xuexiluxian/": [
     {
       text: "Java",
@@ -54,6 +54,32 @@ export const sidebarConfig = defineSidebarConfig({
     {
       text: "算法和数据结构",
       link: "algorithm.md",
+    },
+  ],
+  "/sidebar/sanfene/": [
+    {
+      text: "Java 基础",
+      link: "javase.md",
+    },
+    {
+      text: "Java 集合框架",
+      link: "collection.md",
+    },
+    {
+      text: "Java 并发编程",
+      link: "javathread.md",
+    },
+    {
+      text: "Java 虚拟机",
+      link: "jvm.md",
+    },
+    {
+      text: "Spring",
+      link: "spring.md",
+    },
+    {
+      text: "Redis",
+      link: "redis.md",
     },
   ],
   // 必须放在最后面
@@ -767,7 +793,6 @@ export const sidebarConfig = defineSidebarConfig({
             "baguwen/java-basic-34",
             "collection/hashmap-interview",
             "mianjing/redis12question",
-            "sidebar/sanfene/spring",
             "nginx/40-interview"
           ],
         },
