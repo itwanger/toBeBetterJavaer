@@ -6,7 +6,7 @@ tag:
 title: Spring Boot 整合 MySQL 和 Druid
 ---
 
-### 关于 MySQL
+### MySQL 简介
 
 MySQL 是目前项目中运用最广泛的关系型数据库，无论是互联网大厂，还是中小型公司，几乎都在用。
 
@@ -20,7 +20,7 @@ MySQL 目前主推的版本是 8.0，参考手册的地址如下所示：
 
 >[https://dev.mysql.com/doc/refman/8.0/en/](https://dev.mysql.com/doc/refman/8.0/en/)
 
-### 安装 MySQL
+### 如何安装 MySQL
 
 如果有云服务器的话，建议安装在云服务器上，这样就可以长时间运行 MySQL 而不用担心服务重启的问题。按照步骤参照下面的文档。
 
@@ -58,7 +58,7 @@ Windows 和 macOS 的安装都非常的简单，主要就是下载对应操作�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-e7031aec-74c5-4079-a6f3-97368c921620.png)
 
-### 整合 MySQL 数据库
+### Spring Boot 整合 MySQL 数据库
 
 Spring Boot 整合 MySQL 数据库非常简单，只需要添加 MySQL 依赖并在配置文件中添加数据库配置即可。我们可以不用编写原始的访问数据库的代码，也不用调用 JDBC 或者连接池就可以访问 MySQL。
 
@@ -203,7 +203,7 @@ Spring Boot 的测试类主要放置在 `src/test/java` 目录下面，项目创
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-92a53c8e-e99a-4ca6-8ad1-f5ec4653da3b.png)
 
-### Navicat
+### 如何通过 Navicat 连接 MySQL
 
 Navicat 是一个从我参加工作到现在一直都在用的 MySQL 客户端工具，通过 Navicat 可以轻松连接数据库，并执行增删改查操作。
 
@@ -214,7 +214,7 @@ Navicat 是一个从我参加工作到现在一直都在用的 MySQL 客户端�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-18d120ea-0f84-4ca0-b0fd-020587e43fc4.png)
 
-### Intellij IDEA 直连 MySQL
+### 如何通过 Intellij IDEA 连接 MySQL
 
 除了 Navicat，还可以使用 Intellij IDEA 直连 MySQL。
 
@@ -238,7 +238,7 @@ Navicat 是一个从我参加工作到现在一直都在用的 MySQL 客户端�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-e1c9e85c-382a-40a8-a4fa-3fe32ee612fb.png)
 
-### 整合 Druid
+### Spring Boot 整合 Druid
 
 Druid 是阿里巴巴开源的一款数据库连接池，结合了C3P0、DBCP 等 DB 池的优点，同时还加入了日志监控。
 
@@ -340,8 +340,6 @@ spring:
 
 > - 编程喵 GitHub：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - codingmore-learn：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning)
-
-
 
 ---
 

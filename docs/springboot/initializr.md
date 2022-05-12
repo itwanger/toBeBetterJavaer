@@ -3,11 +3,11 @@ category:
   - Java企业级开发
 tag:
   - Spring Boot
-title: 一分钟快速搭建Spring Boot项目
+title: 搭建第一个Spring Boot项目
 ---
 
 
-### 01、Spring Boot 项目搭建
+### 01、关于 Spring Initializr
 
 Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目。网址如下：
 
@@ -71,7 +71,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 - src/test/java 为测试类文件目录。
 - pom.xml 用来管理项目的依赖和构建。
 
-### 03、启动 Spring Boot 项目
+### 03、如何启动/部署 Spring Boot 项目
 
 第一次启动，我个人习惯在 main 类中右键，在弹出的右键菜单这种选择「run ... main()」启动。
 
@@ -132,7 +132,7 @@ PS：需要在 centos 环境下安装 JDK 的小伙伴可以看这篇。
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/initializr-12.png)
 
 
-### 04、开发第一个 Spring Boot 项目
+### 04、开发第一个Web项目
 
 项目既然启动成功了，我们在浏览器里访问 8080 端口测试下吧。
 

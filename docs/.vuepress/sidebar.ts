@@ -677,7 +677,7 @@ export const sidebarConfig = defineSidebarConfig({
           collapsable: true,
           children: [
             {
-              text: "第一个Spring Boot项目",
+              text: "搭建第一个Spring Boot项目",
               link: "springboot/initializr",
             },
             {
