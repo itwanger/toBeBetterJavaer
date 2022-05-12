@@ -46,12 +46,12 @@ date: 2022-03-17
 
 手机端截图：
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12.png)
 
 
 网页版截图：
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-13.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-13.png)
 
 
 ### 二、为什么要做知识星球？
@@ -61,7 +61,7 @@ date: 2022-03-17
 2. 为需要帮助的小伙伴提供一个可以随时提问并且能及时响应的平台。同时，我也会利用自己的影响力，邀请**一批行业大咖入驻，给小伙伴提供一个近距离交流学习的机会**。
 
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-14.jpeg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-14.jpeg)
 
 
 目前邀请到了 5 位嘉宾，都是二哥的好朋友，行业内的顶尖技术大拿：
@@ -78,7 +78,7 @@ date: 2022-03-17
 
 星球原价为 **99元/年**，目前第一波加入的小伙伴限时优惠 **30元**，只需 **69元一年**，后面会随着人数的增多持续涨价。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-11.png)
 
 
 名额有限，先到先得，**仅限这一波就恢复原价**，请长按下面的海报扫码加入：
@@ -89,39 +89,39 @@ date: 2022-03-17
 
 **1. 免费下载海量编程学习资料**，包括星主二哥的原创学习资料，数千本个方面的计算机经典电子书，为此，二哥还特意开通了 CSDN 的付费下载会员，可以说，进入星球后，几乎不用再从其他地方费劲找资源下载了。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-15.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-15.png)
 
 
 **2. 3 份高质量小册的永久阅读**，内容涵盖编程喵实战项目开发笔记、Java面试指南、LeetCode Java 版刷题笔记等优质内容，价值远超门票！
 
 - 编程喵开源 Spring Boot+Vue 的前后端分离项目实战笔记，今年重点更新内容之一，后面打算B站直播写 bug，不，直播写代码，手把手教代码学编程。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-16.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-16.png)
 
 
 - **Java 面试指南**，今年重点更新内容，涵盖面试准备篇、技术面试题篇、面经篇、职场修炼篇等等硬核内容。
 
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-17.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-17.png)
 
 
 - LeetCode 题解 Java 版（持续更新 300 道）
 
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-18.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-18.png)
 
 
 **3. 编程喵喵🐱实战项目手把手教，带你成为一名公司不可或缺的技术干将**。我们来看一下后端的技术栈和前端的技术栈，主流技术一网打尽。
 
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-19.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-19.png)
 
 
 4. 一对一免费提问交流（有问题你尽管问，回答绝对走心干货，从此不再迷茫彷徨，毕竟二哥也是被读者尊称为“人生导师”的男人）。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-20.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-20.png)
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-21.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-21.png)
 
 
 
@@ -135,7 +135,7 @@ date: 2022-03-17
 
 已经有球友拿到了之前的赠书哈。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-22.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-22.png)
 
 
 ### 四、如何加入？
@@ -144,7 +144,7 @@ date: 2022-03-17
 
 名额有限，先到先得，**仅限这一波就恢复原价**，请长按下面的海报扫码加入（早买早享受，还可以抢到前排编号）。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-11.png)
 
 进入星球后，可以为自己制定一个目标，比如说多长时间内要加入某某心仪的公司，或者达成某某值得炫耀的成就（一定要是还算有点挑战性的目标）。
 
@@ -152,11 +152,11 @@ date: 2022-03-17
 
 进入星球后，你还可以添加我的微信，加入星球专属的交流群，非诚勿扰！
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-25.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-25.png)
 
 亲眼目睹下我们每天的欢乐，不，每天求知的态度。
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-23.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-23.png)
 
 
 **真诚欢迎想要进阶提升的小伙伴加入星球一起交流，真心希望能帮助到更多的小伙伴**。
@@ -166,12 +166,10 @@ date: 2022-03-17
 
 
 
-![](https://cdn.tobebetterjavaer.com/itwanger/zhishixingqiu/zhishixingqiu/readme-24.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-24.png)
 
 
 看到这就别犹豫了，原价 99 元，限时优惠 69 元，你买不了吃亏，买不了上当，却能买到一颗永不倦怠的心，以及那种就像你跑去图书馆学习的仪式感，学习氛围不一样，学习的效率也就大有改观。
-
-![](https://upload-images.jianshu.io/upload_images/1179389-e5e91aea76d1c7d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*
 
