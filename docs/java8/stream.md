@@ -13,7 +13,7 @@ date: 2019-01-01
 
 两个星期以前，就有读者强烈要求我写一篇 Java Stream 流的文章，我说市面上不是已经有很多了吗，结果你猜他怎么说：“就想看你写的啊！”你看你看，多么苍白的喜欢啊。那就“勉为其难”写一篇吧，嘻嘻。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/java8/stream-1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/java8/stream-1.jpg)
 
 单从“Stream”这个单词上来看，它似乎和 java.io 包下的 InputStream 和 OutputStream 有些关系。实际上呢，没毛关系。Java 8 新增的 Stream 是为了解放程序员操作集合（Collection）时的生产力，之所以能解放，很大一部分原因可以归功于同时出现的 Lambda 表达式——极大的提高了编程效率和程序可读性。
 
@@ -312,6 +312,6 @@ Collectors 是一个收集器的工具类，内置了一系列收集器实现，
 周杰伦, 王力宏, 陶喆, 林俊杰
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/java8/stream-2)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/java8/stream-2.jpg)
 
 <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
