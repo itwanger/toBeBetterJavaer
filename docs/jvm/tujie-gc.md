@@ -64,37 +64,37 @@ Major GC 也会触发STW（Stop the World）。通常，Major GC会慢很多，�
 
 首先，将任何新对象分配给 eden 空间。 两个 survivor 空间都是空的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-efe9657b-c7a6-48a8-9037-0e709b1d236c)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-efe9657b-c7a6-48a8-9037-0e709b1d236c.jpg)
 
 当 eden 空间填满时，会触发轻微的垃圾收集。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-2497947b-92b5-4a7c-9399-1909a3153660)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-2497947b-92b5-4a7c-9399-1909a3153660.jpg)
 
 引用的对象被移动到第一个 survivor 空间。 清除 eden 空间时，将删除未引用的对象。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-2b431315-26fa-4ea0-843a-c63ca568f960)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-2b431315-26fa-4ea0-843a-c63ca568f960.jpg)
 
 在下一次Minor GC中，Eden区也会做同样的操作。删除未被引用的对象，并将被引用的对象移动到Survivor区。然而，这里，他们被移动到了第二个Survivor区（S1）。
 
 此外，第一个Survivor区（S0）中，在上一次Minor GC幸存的对象，会增加年龄，并被移动到S1中。待所有幸存对象都被移动到S1后，S0和Eden区都会被清空。注意，Survivor区中有了不同年龄的对象。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-e2560f59-9b24-4d16-88db-b6ac4d0b6ffe)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-e2560f59-9b24-4d16-88db-b6ac4d0b6ffe.jpg)
 
 在下一次Minor GC中，会重复同样的操作。不过，这一次Survivor区会交换。被引用的对象移动到S0,。幸存的对象增加年龄。Eden区和S1被清空。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-aa9f883a-12db-4c8b-8391-3c289b53d804)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-aa9f883a-12db-4c8b-8391-3c289b53d804.jpg)
 
  此幻灯片演示了 promotion。 在较小的GC之后，当老化的物体达到一定的年龄阈值（在该示例中为8）时，它们从年轻一代晋升到老一代。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-dec96816-2912-4127-aaaa-a4d987123f52)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-dec96816-2912-4127-aaaa-a4d987123f52.jpg)
 
 随着较小的GC持续发生，物体将继续被推广到老一代空间。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-6cb31f8a-2eac-489c-88bd-fc643996ab49)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-6cb31f8a-2eac-489c-88bd-fc643996ab49.jpg)
 
 所以这几乎涵盖了年轻一代的整个过程。 最终，将主要对老一代进行GC，清理并最终压缩该空间。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-df98a004-e233-4fb5-a31a-f422033ecfa7)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/tujie-gc-df98a004-e233-4fb5-a31a-f422033ecfa7.jpg)
 
 --------
 

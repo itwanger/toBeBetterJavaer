@@ -54,7 +54,7 @@ tag:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-caa46657-f65d-4965-b553-c9f4502f3cc9.png)
 
-![点击并拖拽以移动](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-62496f27-fe20-45c6-b116-90a38e607a09)
+![点击并拖拽以移动](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/zhengzhou-62496f27-fe20-45c6-b116-90a38e607a09.jpg)
 
 ### UU 跑腿
 

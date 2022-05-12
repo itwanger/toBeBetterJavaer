@@ -26,7 +26,7 @@ u1s1，二哥是全天下最良心的博主——之一，是没毛病的。
 
 对了，剩下的 9 单新客（仍然可以返 60 元），还有需要的小伙伴可以扫描下面的二维码添加二哥的微信，备注「**服务器**」即可。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/szjy/tobebetterjavaer-beian-3d9a98e4-2ae2-4e71-805c-70a918176b8d)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/szjy/tobebetterjavaer-beian-3d9a98e4-2ae2-4e71-805c-70a918176b8d.jpg)
 
 
 有些买过服务器的小伙伴，已经把个人博客整起来了，这里推荐三个给大家欣赏一下（可以直接复制图片下的链接到浏览器地址栏），真的惊艳~
