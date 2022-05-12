@@ -170,18 +170,18 @@ public Object invoke(Object obj, Object... args)
 
 `invoke()` 方法实际上是委派给 MethodAccessor 接口来完成的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/fanshe/fanshe-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-01.png)
 
 MethodAccessor 接口有三个实现类，其中的 MethodAccessorImpl 是一个抽象类，另外两个具体的实现类继承了这个抽象类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/fanshe/fanshe-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-02.png)
 
 - NativeMethodAccessorImpl：通过本地方法来实现反射调用；
 - DelegatingMethodAccessorImpl：通过委派模式来实现反射调用；
 
 通过 debug 的方式进入 `invoke()` 方法后，可以看到第一次反射调用会生成一个委派实现 DelegatingMethodAccessorImpl，它在生成的时候会传递一个本地实现 NativeMethodAccessorImpl。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/fanshe/fanshe-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-03.png)
 
 也就是说，`invoke()` 方法在执行的时候，会先调用 DelegatingMethodAccessorImpl，然后调用 NativeMethodAccessorImpl，最后再调用实际的方法。
 
@@ -204,7 +204,7 @@ for (int i = 0;i < 20; i++) {
 
 在 `invoke()` 方法处加断点进入 debug 模式，当 i = 15 的时候，也就是第 16 次执行的时候，会进入到 if 条件分支中，改变 DelegatingMethodAccessorImpl 的委派模式 delegate 为 `(MethodAccessorImpl)(new MethodAccessorGenerator()).generateMethod()`，而之前的委派模式 delegate 为 NativeMethodAccessorImpl。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/fanshe/fanshe-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-04.png)
 
 “这下明白了吧？三妹。”我说，“接下来，我们再来熟悉一下反射当中常用的 API。”
 

@@ -20,15 +20,15 @@ Knife4j 的前身是 swagger-bootstrap-ui，是 springfox-swagger-ui 的增强 U
 
 springfox-swagger-ui 的界面长这个样子，说实话，确实略显丑陋。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-1.png)
 
 swagger-bootstrap-ui 增强后的样子长下面这样。单纯从直观体验上来看，确实增强了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-2.png)
 
 改良后的 Knife4j 不仅在界面上更加优雅、炫酷，功能上也更加强大：后端 Java 代码和前端 UI 模块分离了出来，在微服务场景下更加灵活；更提供了专注于 Swagger 的增强解决方案。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-3.png)
 
 官方文档：
 
@@ -91,7 +91,7 @@ public class SwaggerConfig {
 
 在项目路径后面添加上 `swagger-ui` 就可以了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-4.png)
 
 在 Controller 类中，可以看到常见的 Swagger 注解 @Api 和 @ApiOperation：
 
@@ -142,7 +142,7 @@ public class SwaggerConfig {}
 
 >访问地址：http://localhost:9002/doc.html
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-5.png)
 
 如果项目中加了权限认证的话，记得给 Knife4j 添加白名单。我的项目用的是 SpringSecurity，所以需要在 application.yml 文件中添加。
 
@@ -163,47 +163,47 @@ secure:
 
 Knife4j 和 Swagger 一样，也是支持头部登录认证的，点击「authorize」菜单，添加登录后的信息即可保持登录认证的 token。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-6.png)
 
 如果某个 API 需要登录认证的话，就会把之前填写的信息带过来。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-7.png)
 
 **2）支持 JSON 折叠**
 
 Swagger 是不支持 JSON 折叠的，当返回的信息非常多的时候，界面就会显得非常的臃肿。Knife4j 则不同，可以对返回的 JSON 节点进行折叠。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-8.png)
 
 **3）离线文档**
 
 Knife4j 支持把 API 文档导出为离线文档（支持 markdown 格式、HTML 格式、Word 格式），
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-9.png)
 
 使用 Typora 打开后的样子如下，非常的大方美观。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-10.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-10.png)
 
 **4）全局参数**
 
 当某些请求需要全局参数时，这个功能就很实用了，Knife4j 支持 header 和 query 两种方式。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-11.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-11.png)
 
 之后进行请求的时候，就会把这个全局参数带过去。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-12.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-12.png)
 
 **5）搜索 API 接口**
 
 Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当需要去找某一个 API 的时候就傻眼了，只能一个个去拖动滚动条去找。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-13.png)
 
 在文档的右上角，Knife4j 提供了文档搜索功能，输入要查询的关键字，就可以检索筛选了，是不是很方便？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-14.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-14.png)
 
 目前支持搜索接口的地址、名称和描述。
 
@@ -213,7 +213,7 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 
 >https://doc.xiaominfo.com/knife4j/documentation/enhance.html
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/knife4j-15.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-15.png)
 
 如果项目中之前使用过 Swagger 生成接口文档，切换到 Knife4j 可以说是非常的丝滑，只需要两步：
 

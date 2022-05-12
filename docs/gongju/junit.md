@@ -16,7 +16,7 @@ tag:
 
 微软公司之前有这样一个统计：bug 在单元测试阶段被发现的平均耗时是 3.25 小时，如果遗漏到系统测试则需要 11.5 个小时。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-5b0afb32-c60e-4218-98b1-44288705e472.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-5b0afb32-c60e-4218-98b1-44288705e472.png)
 
 经我这么一说，你应该已经很清楚单元测试的重要性了。那在你最初编写测试代码的时候，是不是经常这么做？就像下面这样。
 
@@ -56,17 +56,17 @@ public class Factorial {
 
 第一步，直接在当前的代码编辑器窗口中按下 `Command+N` 键（Mac 版），在弹出的菜单中选择「Test...」。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-fe29e8b8-9264-4aa3-9139-6ebb39af88a1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-fe29e8b8-9264-4aa3-9139-6ebb39af88a1.png)
 
 勾选上要编写测试用例的方法 `fact()`，然后点击「OK」。
 
 此时，IDEA 会自动在当前类所在的包下生成一个类名带 Test（惯例）的测试类。如下图所示。 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-756305d6-7166-4737-8665-89d24a1eefae.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-756305d6-7166-4737-8665-89d24a1eefae.png)
 
 如果你是第一次使用我的话，IDEA 会提示你导入我的依赖包。建议你选择最新的 JUnit 5.4。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-91bf986d-3586-4175-9ca2-959e5eb62e9c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-91bf986d-3586-4175-9ca2-959e5eb62e9c.png)
 
 导入完毕后，你可以打开 pom.xml 文件确认一下，里面多了对我的依赖。
 
@@ -95,11 +95,11 @@ void fact() {
 
 第三步，你可以在邮件菜单中选择「Run FactorialTest」来运行测试用例，结果如下所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-7daf1a3d-a321-4d42-9d16-134043161a29.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-7daf1a3d-a321-4d42-9d16-134043161a29.png)
 
 测试失败了，因为第 20 行的预期结果和实际不符，预期是 100，实际是 120。此时，你要么修正实现代码，要么修正测试代码，直到测试通过为止。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-5b71c36f-684d-4d30-b1a1-faef453603ae.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-5b71c36f-684d-4d30-b1a1-faef453603ae.png)
 
 不难吧？单元测试可以确保单个方法按照正确的预期运行，如果你修改了某个方法的代码，只需确保其对应的单元测试通过，即可认为改动是没有问题的。
 
@@ -124,7 +124,7 @@ public class Calculator {
 
 新建测试用例的时候记得勾选`setUp` 和 `tearDown`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/junit-afa3c969-a2d2-439c-b440-5b7480592d52.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/junit-afa3c969-a2d2-439c-b440-5b7480592d52.png)
 
 生成后的代码如下所示。
 

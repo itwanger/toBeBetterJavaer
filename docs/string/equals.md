@@ -20,7 +20,7 @@ tag:
 
 有一对双胞胎，姐姐叫阿丽塔，妹妹叫洛丽塔。我们普通人可能完全无法分辨谁是姐姐谁是妹妹，可她们的妈妈却可以轻而易举地辨认出。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/string/equals-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/equals-01.png)
 
 
 `.equals()` 就好像我们普通人，看见阿丽塔以为是洛丽塔，看见洛丽塔以为是阿丽塔，看起来一样就觉得她们是同一个人；“==”操作符就好像她们的妈妈，要求更严格，观察更细致，一眼就能分辨出谁是姐姐谁是妹妹。

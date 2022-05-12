@@ -73,7 +73,7 @@ List<Integer> list = new ArrayList<>();
 
 “作为局部变量时，基本类型在栈中直接存储的具体数值，而包装类型则存储的是堆中的引用。”我一边说着，一边打开 `draw.io` 画起了图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-points/box-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/box-01.png)
 
 很显然，相比较于基本类型而言，包装类型需要占用更多的内存空间，不仅要存储对象，还要存储引用。假如没有基本类型的话，对于数值这类经常使用到的数据来说，每次都要通过 new 一个包装类型就显得非常笨重。
 

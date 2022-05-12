@@ -9,7 +9,7 @@ tag:
 
 看阿里巴巴开发手册并发编程这块有一条：**线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式**，今天我们来通过源码分析一下禁用的原因。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/ali-executors-1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ali-executors-1.png)
 
 
 
@@ -70,7 +70,7 @@ public ThreadPoolExecutor(int corePoolSize,
 线程池执行任务逻辑和线程池参数的关系。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/ali-executors-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ali-executors-2.png)
 
 
 执行逻辑说明：
@@ -181,7 +181,7 @@ public class TaskTest {
 在启动测试类之前先将 JVM 内存调整小一点，不然很容易将电脑跑出问题【别问我为什么知道，是铁憨憨没错了！！！】，在 idea 里：Run -> Edit Configurations。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/thread/ali-executors-3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ali-executors-3.png)
 
 
 JVM 参数说明：

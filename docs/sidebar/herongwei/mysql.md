@@ -138,7 +138,7 @@ Server 层按顺序执行 SQL 的步骤为：
 
 ### 13、MySQL 的 redo log 和 binlog 区别？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/herongwei/mysql-a2b8e123-41cb-4717-9225-3a8b49197004.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-a2b8e123-41cb-4717-9225-3a8b49197004.png)
 
 ### 14、为什么需要 redo log？ 
 
@@ -176,7 +176,7 @@ redo log包括两部分内容，分别是内存中的**日志缓冲**(redo log b
 
 MySQL 每执行一条 DML 语句，会先把记录写入 **redo log buffer（用户空间）** ，再保存到内核空间的缓冲区 OS-buffer 中，后续某个时间点再一次性将多个操作记录写到 **redo log file（刷盘）** 。这种先写日志，再写磁盘的技术，就是**WAL**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/herongwei/mysql-f901a97f-9d82-4d4e-a5be-559a64b3d9b8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-f901a97f-9d82-4d4e-a5be-559a64b3d9b8.png)
 
 
 可以发现，redo log buffer写入到redo log file，是经过OS buffer中转的。其实可以通过参数innodb_flush_log_at_trx_commit进行配置，参数值含义如下： 
@@ -193,7 +193,7 @@ MySQL 每执行一条 DML 语句，会先把记录写入 **redo log buffer（用
 update T set a =1 where id =666
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/herongwei/mysql-43fe6587-0cb8-49aa-bd93-0119e46430d7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-43fe6587-0cb8-49aa-bd93-0119e46430d7.png)
 
 
 1.  MySQL 客户端将请求语句 update T set a =1 where id =666，发往 MySQL Server 层。 
@@ -215,7 +215,7 @@ update T set a =1 where id =666
 MySQL 将 redo log 的写入拆成了两个步骤：prepare 和 commit，中间再穿插写入binlog，这就是"两阶段提交"。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/herongwei/mysql-11420486-f9d0-483a-ba2e-a742ec4c518d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-11420486-f9d0-483a-ba2e-a742ec4c518d.png)
 
 
 而两阶段提交就是让这两个状态保持逻辑上的一致。redolog 用于恢复主机故障时的未更新的物理数据，binlog 用于备份操作。两者本身就是两个独立的个体，要想保持一致，就必须使用分布式事务的解决方案来处理。
@@ -270,7 +270,7 @@ WAL，中文全称是 Write-Ahead Logging，它的关键点就是日志先写内
 
 ### 24、redo log日志格式
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/sidebar/herongwei/mysql-ee8a859f-d1e8-4ab6-94d1-9733373be825.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-ee8a859f-d1e8-4ab6-94d1-9733373be825.png)
 
 
 redo log buffer (内存中)是由首尾相连的四个文件组成的，它们分别是：ib_logfile_1、ib_logfile_2、ib_logfile_3、ib_logfile_4。

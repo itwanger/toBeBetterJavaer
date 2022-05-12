@@ -15,7 +15,7 @@ Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供�
 Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之后就可以看到它提供的方法了，大致看一下方法名和参数就能知道这个方法是干嘛的。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/common-tool/collections-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-01.png)
 
 为了节省大家的学习时间，我将这些方法做了一些分类，并列举了一些简单的例子。
 
@@ -109,7 +109,7 @@ System.out.println("填充后的结果：" + list);
 
 [HashMap 是线程不安全](https://mp.weixin.qq.com/s/qk_neCdzM3aB6pVWVTHhNw)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/common-tool/collections-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-02.png)
 
 使用起来也非常的简单：
 

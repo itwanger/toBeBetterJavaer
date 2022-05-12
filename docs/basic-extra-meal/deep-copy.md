@@ -111,7 +111,7 @@ writer2：Writer@b97c004{age=18, name='三妹'}
 
 可以看得出，浅拷贝后，writer1 和 writer2 引用了不同的对象，但值是相同的，说明拷贝成功。之后，修改了 writer2 的 name 字段，直接上图就明白了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-points/deep-copy-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/deep-copy-01.png)
 
  之前的例子中，Writer 类只有两个字段，没有引用类型字段。那么，我们再来看另外一个例子，为 Writer 类增加一个自定义的引用类型字段 Book，先来看 Book 的定义。
 
@@ -210,7 +210,7 @@ writer2：Writer@36d4b5c age=18, name='二哥', book=Book@32e6e9c3 bookName='永
 
 与之前例子不同的是，writer2.book 变更后，writer1.book 也发生了改变。这是因为字符串 String 是不可变对象，一个新的值必须在字符串常量池中开辟一段新的内存空间，而自定义对象的内存地址并没有发生改变，只是对应的字段值发生了改变，见下图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-points/deep-copy-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/deep-copy-02.png)
 
 “哇，哥，果真一图胜千言，我明白了。”三妹似乎对我画的图很感兴趣呢，“那你继续说深拷贝吧！”
 
@@ -311,7 +311,7 @@ writer2：Writer@6d00a15d age=18, name='二哥', book=Book@51efea79 bookName='�
 
 不只是 writer1 和 writer2 是不同的对象，它们中的 book 也是不同的对象。所以，改变了 writer2 中的 book 并不会影响到 writer1。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-points/deep-copy-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/deep-copy-03.png)
 
 不过，通过 `clone()` 方法实现的深拷贝比较笨重，因为要将所有的引用类型都重写 `clone()` 方法，当嵌套的对象比较多的时候，就废了！
 

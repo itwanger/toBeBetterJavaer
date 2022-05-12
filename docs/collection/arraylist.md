@@ -199,7 +199,7 @@ public void add(int index, E element) {
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/collection/arraylist-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-01.png)
 
 
 “二哥，那怎么**更新 ArrayList 中的元素**呢？”三妹继续问。
@@ -296,7 +296,7 @@ private void fastRemove(int index) {
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/collection/arraylist-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-02.png)
 
 
 

@@ -29,11 +29,11 @@ Java 后端开发的小伙伴应该都知道，Log4j、SLF4J、Logback 这 3 个
 
 目前，Log4j2 的官网已经发布了 Log4j2 2.15.0 正式版，来解决此次漏洞。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/shigu/log4j2-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/shigu/log4j2-01.png)
 
 那随着 Log4j2 2.15.0 正式版的发布，Spring Boot 的 GitHub 仓库提的这些关于 Log4j2 的 issue 都已经处于关闭状态了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/shigu/log4j2-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/shigu/log4j2-02.png)
 
 看到这些消息后，老王紧张的情绪一下子就缓解了下来，就像吃了一颗定心丸，赶紧去通知小二不用再提心吊胆了，直接一行代码搞定。
 
@@ -49,7 +49,7 @@ Java 后端开发的小伙伴应该都知道，Log4j、SLF4J、Logback 这 3 个
 
 Gradle 构建的项目也有解决方案。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/shigu/log4j2-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/shigu/log4j2-03.png)
 
 问题是解决了，不过老王没闲着。他从 Log4j2 官网公布的最新消息中琢磨出，本次远程代码执行漏洞正是由于组件存在 Java JNDI 注入漏洞：**当程序将用户输入的数据记录到日志时，攻击者通过构造特殊请求，来触发 Apache Log4j2 中的远程代码执行漏洞，从而利用此漏洞在目标服务器上执行任意代码**。
 
@@ -89,15 +89,15 @@ public class VulnerableLog4jExampleHandler implements HttpHandler {
 
 下图是程序猿阿朗画的简单的攻击链路步骤图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/shigu/log4j2-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/shigu/log4j2-04.png)
 
 感兴趣的小伙伴可以在本地复现一下，但**千万不要不当利用**哦！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/shigu/log4j2-05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/shigu/log4j2-05.png)
 
 再次提醒大家一下，排查自己的项目是否引入了 Apache log4j-core Jar 包。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/shigu/log4j2-06.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/shigu/log4j2-06.png)
 
 如果存在依赖引入，且在受影响版本范围内，请升级到 Apache Log4j2  2.15.0 版本，目前已经 release。
 

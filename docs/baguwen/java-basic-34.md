@@ -11,13 +11,13 @@ tag:
 
 java 是一门**开源的跨平台的面向对象的**计算机语言.
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-01.png)
 
 跨平台是因为 java 的 class 文件是运行在虚拟机上的,其实跨平台的,而**虚拟机是不同平台有不同版本**,所以说 java 是跨平台的.
 
 面向对象有几个特点:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-02.png)
 
 - 1.**封装**
   - 两层含义：一层含义是把对象的属性和行为看成一个密不可分的整体，将这两者'封装'在一个不可分割的**独立单元**(即对象)中
@@ -55,7 +55,7 @@ java 是一门**开源的跨平台的面向对象的**计算机语言.
 
 ## 2.java 有哪些数据类型？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-03.png)
 
 java 主要有两种数据类型
 
@@ -131,7 +131,7 @@ try{
 ## 7.arrayList 和 linkedList 的区别？
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-04.png)
 
 - 1.ArrayList 是实现了基于**数组**的，存储空间是连续的。LinkedList 基于**链表**的，存储空间是不连续的。（LinkedList 是双向链表）
 
@@ -160,7 +160,7 @@ try{
 
 ## 10.那么 hashMap 线程不安全怎么解决？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-05.png)
 
 - 一.给 hashMap **直接加锁**,来保证线程安全
 - 二.使用 **hashTable**,比方法一效率高,其实就是在其方法上加了 synchronized 锁
@@ -178,7 +178,7 @@ try{
 
 ## 12.介绍一下 hashset 吧
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-06.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-06.png)
 
 上图是 set 家族整体的结构，
 
@@ -204,7 +204,7 @@ HashSet 是**基于 HashMap 实现**的，底层**采用 HashMap 来保存元素
 
 ## 16.volatile 有什么作用？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-07.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-07.png)
 
 - **1.保证内存可见性**
   - 可见性是指线程之间的可见性，一个线程修改的状态对另一个线程是可见的。也就是一个线程修改的结果，另一个线程马上就能看到。
@@ -240,7 +240,7 @@ Integer a = 1，Integer b = 1，a==b 结果为**true**
 
 ## 19.JMM 是什么？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-08.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-08.png)
 
 JMM 就是 **Java内存模型**(java memory model)。因为在不同的硬件生产商和不同的操作系统下，内存的访问有一定的差异，所以会造成相同的代码运行在不同的系统上会出现各种问题。所以java内存模型(JMM)**屏蔽掉各种硬件和操作系统的内存访问差异，以实现让java程序在各种平台下都能达到一致的并发效果**。
 
@@ -319,7 +319,7 @@ public class Singleton {
 
 ## 22.volatile 有什么作用
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-09.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-09.png)
 
 - 1.**保证内存可见性**
   - 当一个被volatile关键字修饰的变量被一个线程修改的时候，其他线程可以立刻得到修改之后的结果。当一个线程向被volatile关键字修饰的变量**写入数据**的时候，虚拟机会**强制它被值刷新到主内存中**。当一个线程**读取**被volatile关键字修饰的值的时候，虚拟机会**强制要求它从主内存中读取**。
@@ -350,7 +350,7 @@ try {
 在 Java1.6 之前的版本中，synchronized 属于重量级锁，效率低下，**锁是** cpu 一个**总量级的资源**，每次获取锁都要和 cpu 申请，非常消耗性能。
 
 在 **jdk1.6 之后** Java 官方对从 JVM 层面对 synchronized 较大优化，所以现在的 synchronized 锁效率也优化得很不错了，Jdk1.6 之后，为了减少获得锁和释放锁所带来的性能消耗，引入了偏向锁和轻量级锁，**增加了锁升级的过程**，由无锁->偏向锁->自旋锁->重量级锁
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-10.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-10.png)
 
 增加锁升级的过程主要是**减少用户态到核心态的切换，提高锁的效率，从 jvm 层面优化锁**
 
@@ -364,7 +364,7 @@ cas 叫做 CompareAndSwap，**比较并交换**，很多地方使用到了它，
 
 当一个线程需要修改一个共享变量的值，完成这个操作需要先取出共享变量的值，赋给 A，基于 A 进行计算，得到新值 B，在用预期原值 A 和内存中的共享变量值进行比较，**如果相同就认为其他线程没有进行修改**，而将新值写入内存
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-11.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-11.png)
 
 **CAS的缺点**
 
@@ -385,7 +385,7 @@ ReentrantLock有两种模式，一种是公平锁，一种是非公平锁。
 
 **公平锁**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-12.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-12.png)
 
 - 第一步：**获取状态的 state 的值**
   - 如果 state=0 即代表锁没有被其它线程占用，执行第二步。
@@ -399,7 +399,7 @@ ReentrantLock有两种模式，一种是公平锁，一种是非公平锁。
 
 **非公平锁**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-13.png)
 
 -  获取状态的 state 的值
    - 如果 state=0 即代表锁没有被其它线程占用，则设置当前锁的持有者为当前线程，该操作用 CAS 完成。
@@ -502,7 +502,7 @@ public class Demo {
 
 ## 29.线程池的执行流程？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-14.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-14.png)
 
 - 判断线程池中的线程数**是否大于设置的核心线程数**
   - 如果**小于**，就**创建**一个核心线程来执行任务
@@ -550,13 +550,13 @@ Object obj = new Object();
 ## 33.聊聊 ThreadLocal 吧
 
 - ThreadLocal其实就是**线程本地变量**，他会在每个线程都创建一个副本，那么在线程之间访问内部副本变量就行了，做到了线程之间互相隔离。
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-15.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-15.png)
 - ThreadLocal 有一个**静态内部类 ThreadLocalMap**，ThreadLocalMap 又包含了一个 Entry 数组，**Entry 本身是一个弱引用**，他的 key 是指向 ThreadLocal 的弱引用，**弱引用的目的是为了防止内存泄露**,如果是强引用那么除非线程结束,否则无法终止,可能会有内存泄漏的风险。
 - 但是这样还是会存在内存泄露的问题，假如 key 和 ThreadLocal 对象被回收之后，entry 中就存在 key 为 null ，但是 value 有值的 entry 对象，但是永远没办法被访问到，同样除非线程结束运行。**解决方法就是调用 remove 方法删除 entry 对象**。
 
 ## 34.一个对象的内存布局是怎么样的?
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/baguwen/basic-34-16.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/baguwen/basic-34-16.png)
 
 - **1.对象头**:
   对象头又分为 **MarkWord** 和 **Class Pointer** 两部分。

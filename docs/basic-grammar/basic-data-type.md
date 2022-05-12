@@ -23,13 +23,13 @@ Java 中的数据类型可分为 2 种：
 
 来个思维导图，感受下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
 通过[上一节](https://mp.weixin.qq.com/s/IgBpLGn0L1HZymgI4hWGVA)的学习，我们知道变量可以分为局部变量、成员变量、静态变量。
 
 当变量是局部变量的时候，必须得先初始化，否则编译器不允许你使用它。拿 int 来举例吧，看下图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-02.png)
 
 当变量是成员变量或者静态变量时，可以不进行初始化，它们会有一个默认值，仍然以 int 为例，来看代码：
 
@@ -87,7 +87,7 @@ public class LocalVar {
 
 （终于知道 1024 和程序员的关系了吧？狗头保命）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-03.png)
 
 接下来，我们再来详细地了解一下 8 种基本数据类型。
 
@@ -169,11 +169,11 @@ double d1 = 12.3
 
 Tips：单精度是这样的格式，1 位符号，8 位指数，23 位小数，有效位数为 7 位。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-04.png)
 
 双精度是这样的格式，1 位符号，11 位指数，52 为小数，有效位数为 16 位。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-05.png)
 
 取值范围取决于指数位，计算精度取决于小数位（尾数）。小数位越多，则能表示的数越大，那么计算精度则越高。
 
@@ -248,7 +248,7 @@ arrays 是一个 int 类型的数组，对吧？打印结果如下所示：
 
 `[I` 表示数组是 int 类型的，@ 后面是十六进制的 hashCode——这样的打印结果太“人性化”了，一般人表示看不懂！为什么会这样显示呢？查看一下 `java.lang.Object` 类的 `toString()` 方法就明白了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-06.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-06.png)
 
 数组虽然没有显式定义成一个类，但它的确是一个对象，继承了祖先类 Object 的所有方法。那为什么数组不单独定义一个类来表示呢？就像字符串 String 类那样呢？
 
@@ -294,7 +294,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 对于接口类型的引用变量来说，你没法直接 new 一个：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/nine-07.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-07.png)
 
 
 只能 new 一个实现它的类的对象——那自然接口也是引用数据类型了。

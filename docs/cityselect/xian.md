@@ -30,7 +30,7 @@ tag:
 
 **华为**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-4e82d879-bbe0-4bc5-a088-fadc84483d65.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-4e82d879-bbe0-4bc5-a088-fadc84483d65.png)
 
 如果想在西安快速挣钱的话，华为几乎是最好的选择了，按照华为的工资水平在西安买房根本没有压力。华为在西安的建制很齐全，消费者、CloudBu、云核心等事业群以及`华为海思`，2012 实验室都有。但是因为去年美国对华为的打压，消费者、华为海思以及 2012 实验室这些之前很香的事业群目前日子都不太好过。
 
@@ -44,13 +44,13 @@ tag:
 
 **阿里巴巴**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-135b1f20-48ad-4295-bc50-40969ef023b0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-135b1f20-48ad-4295-bc50-40969ef023b0.png)
 
 阿里巴巴还没大范围的在西安招人，情况目前还不太清楚。我问过阿里巴巴的员工，只知道目前在西安设点的部门是阿里云，需要半年在杭州上班，半年在西安上班，工资水平和杭州一致。不过目前招的量比较小，基本都是招高p，主要是做售前的业务架构设计，只有很少的校招名额。
 
 **京东**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-c9b0621d-f56c-42a0-a618-f261466f06a4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-c9b0621d-f56c-42a0-a618-f261466f06a4.png)
 
 京东把京东物流的团队设在了西安航天城，目测团队规模在几百人，工资水平大约是京东在北京工资的 80%。大家可以参考一下，京东去年在北京的部门，校招普通 offer 是年包 28 万，sp 是年包 32.9 万。
 
@@ -58,7 +58,7 @@ tag:
 
 **腾讯云**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-67aa194e-52b0-4acb-b22b-1c1f4c09fac8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-67aa194e-52b0-4acb-b22b-1c1f4c09fac8.png)
 
 腾讯云是腾讯的全资子公司，目前对这里褒贬不一。校招薪资水平本科和硕士生大概是月薪 13-16k，每年 16 薪，大家可以参考一下，腾讯 21 届校招的薪资是 17-21.5k ，每年 18 薪。社招我看一个本科毕业四年经验的老哥拿到的年包是 33 万。腾讯云的职级和腾讯不是对齐的，并且业务比较边缘，这也是网上被喷的一个主要原因。目前西安腾讯云创立时间不久，加班强度是比较大的。
 
@@ -68,7 +68,7 @@ tag:
 
 **广联达**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-9180be40-265e-42e5-9a85-4d61193b8798.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-9180be40-265e-42e5-9a85-4d61193b8798.png)
 
 广联达西安的部门在针对 21 届毕业生的校招中开出的薪资是很有诚意的。给应届硕士的 sp 是 19k x 15，普通 offer 是 17k x 15，本科生每月基本都在 13-17k 之间。广联达工作制度基本是 965 或者 975，每个月还有一天的带薪病假。这还要啥自行车？不过广联达曾经也有过黑料，大家自行上网了解。
 
@@ -78,7 +78,7 @@ tag:
 
 **360**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-327db5f0-4061-48c3-b672-b1670f98325f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-327db5f0-4061-48c3-b672-b1670f98325f.png)
 
 360 在西安只有一个几十人的团队。没听说过这里有校招，社招的话 3 年以上经验的差不多能每月给到 20k 。有说在这里待的舒服的，也有喷的。
 
@@ -88,7 +88,7 @@ tag:
 
 **科大讯飞**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-3592f841-8390-4399-ae8a-94c4368541ea.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-3592f841-8390-4399-ae8a-94c4368541ea.png)
 
 科大讯飞西安丝路总部主要是算法岗，不过我看网上喷的比较多。据说是活多钱少。
 
@@ -102,7 +102,7 @@ tag:
 
 **绿盟**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-b70c6624-f4f1-453f-9ec8-5db22661bb18.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-b70c6624-f4f1-453f-9ec8-5db22661bb18.png)
 
 绿盟算是中型企业里比较香的，绿盟在安全领域还是比较强的。工资比较低，硕士校招才能给到 14k x 14，但是这家公司几乎不加班，员工的离职率也一直很低，我同学有违约中兴三方去绿盟的。
 
@@ -118,7 +118,7 @@ tag:
 
 **寒武纪**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-fdf08fc3-d216-4382-913d-5f8b78b8e7df.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-fdf08fc3-d216-4382-913d-5f8b78b8e7df.png)
 
 寒武纪是做智能芯片的公司，背后站着中科院计算所。2019 年落户的西咸新区，相关信息比较少。我知道的是加班比较多，不过薪资也高。
 
@@ -132,7 +132,7 @@ tag:
 
 感觉西安几家国企的性价比略低，工资不高，且大部分加班严重。校招应届硕士工资税前年薪基本都在 15w-20w 之间，本科生的年薪比硕士少 3w 左右。国企相较于私企涨薪会慢很多，不过相对稳定一些。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-e12acc1d-4b6d-4f2e-a352-7155b527fa07.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-e12acc1d-4b6d-4f2e-a352-7155b527fa07.png)
 
 **中兴**
 
@@ -144,7 +144,7 @@ tag:
 
 **联通**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-33ac9a8b-04d3-4adb-8482-e725e25bb2f9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-33ac9a8b-04d3-4adb-8482-e725e25bb2f9.png)
 
 西安联通软件研究院，应届硕士的总包和移动差不多，大约 16-19 万。不过联通比较清闲，大部分部门都能下午六点就下班。目前在网上的评价相对好一些。
 
@@ -162,7 +162,7 @@ tag:
 
 **荣耀**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-19d21a8f-6a45-408a-9f0f-ae8dd40bdbb1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-19d21a8f-6a45-408a-9f0f-ae8dd40bdbb1.png)
 
 荣耀目前的招人需求是很大的，工作强度未知，薪资水平目前是完全对标华为的。
 
@@ -180,7 +180,7 @@ tag:
 
 **农行软开**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-cfa06bd9-abd6-455e-bd5c-aef4c90f7edb.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-cfa06bd9-abd6-455e-bd5c-aef4c90f7edb.png)
 
 农行软开目前是在西安工作的最好的几个选择之一，硕士每月到手 12k，本科生少几百块钱，年终奖 2-4 个月。大部分部门都能晚上 7 点以前下班，并且周末双休。目前农行软开有子公司化软件开发中心的计划，听消息说可以选择去子公司，也可以留在软开。目前西安的农行软开也越来越卷，大部分的 offer 都给了西电、西交、西工大这三个学校了，另外这三个学校的学生现在也不是想去农行就能去了。农行软开有个硬性规定是必须通过六级才能报。
 
@@ -206,7 +206,7 @@ tag:
 
 **邮政银行**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-946ce62c-0afc-48c8-b570-fab660d2ea13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-946ce62c-0afc-48c8-b570-fab660d2ea13.png)
 
 邮储银行软件开发中心在西安刚成立，还不太确定。目前宣传是年包 28 万以上，工作强度目测比较大。
 
@@ -220,7 +220,7 @@ tag:
 
 **三星**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-31302c7c-7dcd-4f12-b624-872b4878670d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-31302c7c-7dcd-4f12-b624-872b4878670d.png)
 
 大部分应届生都是（11-14)k \*13.5k。965 工作制。几乎都是芯片、运维相关岗位。
 
@@ -236,7 +236,7 @@ SAP 是一家做企业软件的德企，技术十分强大。硕士年薪 20 万
 
 **Thougtworks**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-167d941b-740e-4342-9d28-1ba753766398.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-167d941b-740e-4342-9d28-1ba753766398.png)
 
 在 Thoughtworks 工作是很舒服的，开放式办公、扁平化管理、技术氛围浓厚。工资本硕都是 13k x 14。
 
@@ -252,7 +252,7 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 ### 研究所
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-872dc3ff-316d-4194-b549-f998b39feedf.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-872dc3ff-316d-4194-b549-f998b39feedf.png)
 
 西安航空航天类的研究所特别多，我知道的招计算机方面的研究所有航天 504 所、771 所，航空 631 所、618 所、603 所，中电 20 所、39 所，兵器工业 203 所、204 所、205 所。
 
@@ -264,7 +264,7 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 ## 生活
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-980c455e-1858-4c52-8c4f-5c1b0ed996b4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-980c455e-1858-4c52-8c4f-5c1b0ed996b4.png)
 
 陕西的资源基本都集中在西安，从人口上也能看出西安的资源有多集中。整个陕西三千多万人，在西安就有一千多万。并且这些年中央对西安的扶植力度越来越大。
 
@@ -272,25 +272,25 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 西安的房价从 18 年到现在翻了一倍，但就目前的房价相较于其它同类型城市算是比较友好的。现在西安的房价最贵的在曲江、第二贵是高新区。其它地方的房价差不多一万六左右吧，不过今年的全运会过后可能会长一波。按照程序员的工资来说，在西安买房的问题不算很大，这也是程序员待在西安比较舒服的地方。对于程序员来说，租房的压力相对较小，我同学有在农行软开工作的，在附近租了一个一居室的开间四十平左右，一个月一千五，上班步行用不了十分钟。高新那边租房贵一些，你愿意合租的话压力也不大。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-b905fada-e4a5-4a0a-a704-cbf9f310be6c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-b905fada-e4a5-4a0a-a704-cbf9f310be6c.png)
 
 西安住建前段时间出了二手房交易参考价格，我贴在下面大家可以参考下，不过这个价格感觉低于市场价了。我感觉这直接打了个八折~西安住建发布二手房交易参考价格的链接在这里  https://mp.weixin.qq.com/s/Gis7kIJklWygTseztydDaw
 
-![image-20210720212848036](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-c22be12f-8426-487d-b256-96d7e8950762.png)
+![image-20210720212848036](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-c22be12f-8426-487d-b256-96d7e8950762.png)
 
-![image-20210720212821035](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-fb06e9b2-ba0b-46d3-b84a-5449a77dc6ae.png)
+![image-20210720212821035](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-fb06e9b2-ba0b-46d3-b84a-5449a77dc6ae.png)
 
 ### 教育资源
 
 西安的教育资源很好。高中教育资源方面，西安的名校众多。西工大附中、西安铁一中、高新一中、交大附中、陕师大附中这些学校在全国都是很有名的，另外还有一批在陕西省很有名的高中也很不错。大学教育资源方面，整个陕西有三所 985，西工大和西安交大都在西安，西北农林科技大学就在离西安不远的杨凌。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-d905fc96-b354-45fa-b6aa-cfb4e2171eb7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-d905fc96-b354-45fa-b6aa-cfb4e2171eb7.png)
 
 另外，还有像西安电子科技大学、西北大学、陕西师范大学、长安大学、第四军医大学这些不错的 211，还有像西安邮电、西安理工、西安科技大学、西安工业大学等等这些不错的双非院校。西安每年产出的人才的数量是很庞大的。这是很值得西安自豪的一点，但是这也造成了一个问题，西安就业十分的内卷。有一个现象是陕西人都愿意在西安，不愿意出来，计算去外面上学的陕西人毕业也大部分都回到了西安，另外在西安上过学的也大部分留在了西安。西安的几个效益比较好的研究所、银行软开的应聘难度比在北京的同级别单位都难很多。内卷不仅表现在计算机，计算机算好的，我了解到目前好多西安的小学老师都敢只要 211 以上毕业的硕士生。
 
 ### 医疗资源
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-e6f524ec-e353-48c2-b89a-cd2ca6373924.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-e6f524ec-e353-48c2-b89a-cd2ca6373924.png)
 
 医疗资源方面西安也很给力，交大一附院、交大二附院、唐都医院、西京医院、红会医院都是放在全国都很强的，另外其他一批省内比较有名的医院也很不错。
 
@@ -298,7 +298,7 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 西安的交通方面不敢恭维，堵车那是一绝，我的感觉是西安比北京都要堵。西安的地铁 21 年初新开了 3 条线路，目前共有 8 条线路才勉强够的上需求。每逢法定节假日，旅游的人都会把西安挤炸。说到旅游，近年来西安对游客的吸引力是越来越大，一方面西安在弘扬大唐文化，另一方面西安的美食也叫一个美滴很。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/xian-e3de7963-bfcf-4b37-9306-ff9939202208.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-e3de7963-bfcf-4b37-9306-ff9939202208.png)
 
 另外，大唐不夜城这里的人是真的多，尤其是夏天，晚上的时候基本打不到车！
 

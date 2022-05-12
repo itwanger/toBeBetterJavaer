@@ -101,7 +101,7 @@ public class Bike {
 
 通常情况下，无参构造方法是可以缺省的，我们开发者并不需要显式的声明无参构造方法，把这项工作交给编译器更轻松一些。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/18-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/18-01.png)
 
 “二哥，默认构造方法的目的是什么？它为什么是一个空的啊？”三妹疑惑地看着我，提出了这个尖锐的问题。
 
@@ -217,7 +217,7 @@ public class OverloadingConstrutorPerson {
 
 构造方法和方法之间的区别还是蛮多的，比如说下面这些：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/object-class/18-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/18-02.png)
 
 
 

@@ -32,13 +32,13 @@ tag:
 
 于是我们想根据运维之前收集到的内存数据、GC 日志尝试判断哪里出现问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-81051388-0c35-4de6-a3d9-4f546ef4bfec.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-81051388-0c35-4de6-a3d9-4f546ef4bfec.jpg)
 
 结果发现老年代的内存使用就算是发生 GC 也一直居高不下，而且随着时间推移也越来越高。
 
 结合 jstat 的日志发现就算是发生了 FGC 老年代也已经回收不了，内存已经到顶。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-e79d4da0-fbb1-4918-a8d8-e29d2d64323b.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-e79d4da0-fbb1-4918-a8d8-e29d2d64323b.jpg)
 
 甚至有几台应用 FGC 达到了上百次，时间也高的可怕。
 
@@ -61,7 +61,7 @@ tag:
 
 结果跑了 10 几分钟内存使用并没有什么问题。根据图中可以看出，每产生一次 GC 内存都能有效的回收，所以这样并没有复现问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-4cf05af0-924f-406b-a8a4-5aa885e38cea.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-4cf05af0-924f-406b-a8a4-5aa885e38cea.jpg)
 
 
 没法复现问题就很难定位了。于是我们 review 代码，发现生产的逻辑和我们用 while 循环 Mock 数据还不太一样。
@@ -72,7 +72,7 @@ tag:
 
 果然不出意外只跑了一分多钟内存就顶不住了，观察左图发现 GC 的频次非常高，但是内存的回收却是相形见拙。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-a6d6c9cd-e79c-4a76-ba97-032cfefefd5f.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-a6d6c9cd-e79c-4a76-ba97-032cfefefd5f.jpg)
 
 同时后台也开始打印内存溢出了，这样便复现出问题。
 
@@ -82,7 +82,7 @@ tag:
 
 于是便想看看到底是什么对象占用了这么多的内存，利用 VisualVM 的 HeapDump 功能可以立即 dump 出当前应用的内存情况。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-49b47ca3-b3e2-49f7-85c9-23f7a3ef6f93.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-49b47ca3-b3e2-49f7-85c9-23f7a3ef6f93.jpg)
 
 结果发现 `com.lmax.disruptor.RingBuffer` 类型的对象占用了将近 50% 的内存。
 
@@ -98,7 +98,7 @@ tag:
 
 我也做了一个实验，证明确实如此。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-dee49da6-905a-4085-b82e-41e136d422e8.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-dee49da6-905a-4085-b82e-41e136d422e8.jpg)
 
 我设置队列大小为 8 ，从 0~9 往里面写 10 条数据，当写到 8 的时候就会把之前 0 的位置覆盖掉，后面的以此类推（类似于 HashMap 的取模定位）。
 
@@ -112,7 +112,7 @@ tag:
 
 同样的 128M 内存，也是通过 Kafka 一直源源不断的取出数据。通过监控如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/jvm/oom-5529781f-1f68-47a7-a3d2-04eba9e9d52e.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-5529781f-1f68-47a7-a3d2-04eba9e9d52e.jpg)
 
 跑了 20 几分钟系统一切正常，每当一次 GC 都能回收大部分内存，最终呈现锯齿状。
 

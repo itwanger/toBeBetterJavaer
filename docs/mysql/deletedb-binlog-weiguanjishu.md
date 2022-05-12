@@ -3,19 +3,19 @@
 网上也经常看到一些段子，某公司程序员对工作不满，删库跑路，老板损失惨重，欲哭无泪。这不前几天又爆出一例，**某程序员离职当天删库跑路**！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-1.png)
 
 那么有没有什么解决方案？即使数据库真的被删了，也有备份数据，能快速恢复。甚至可以做到实时热备，即使内部炸掉外部用户也感知不到，一片风平浪静。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-2.png)
 
 MySQL 作为当下流行数据库，在数据备份、高可用方面非常有竞争力，今天，我们就重点聊一聊数据备份的杀手锏 binlog。
 
 ### 一、MySQL 主备是什么？
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-3.png)
 
 情况一：
 
@@ -33,7 +33,7 @@ MySQL 作为当下流行数据库，在数据备份、高可用方面非常有�
 ### 二、主从同步
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-4.png)
 
 1、在备库执行 `change master` 命令 ，绑定主库的信息
 
@@ -99,12 +99,12 @@ insert into person values(80,800,800);
 查看binlog模式：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-5.png)
 
 查看当前正在写入的binlog文件：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-6.png)
 
 查看 binlog 中的内容，我们先来看下 row 模式
 
@@ -113,7 +113,7 @@ show binlog events in 'mysql-bin.000001';
 ```
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-7.png)
 
 说明：
 
@@ -137,7 +137,7 @@ mysqlbinlog -vv mysql-bin.000001 --start-position=2986;
 ```
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-8.png)
 
 红框中的内容表示执行了插入命令，insert into person values(80,800,800);
 
@@ -155,7 +155,7 @@ show binlog events in 'mysql-bin.000001';
 ```
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-9.png)
 
 从上图中我们可以看出，当 binlog_format=statement 时，binlog 里面记录的就是 SQL 语句的原文。
 
@@ -172,7 +172,7 @@ statement 与 row 对比：
 statement 格式的binlog记录的是sql语句；row 格式的binlog记录的是event（Table_map，Write_rows，Delete_rows）
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-10.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-10.png)
 
 当 binlog 在 statement 格式下，记录的是sql语句，在主库执行时可能使用的是索引 A；但是同步给备库执行时，可能用了 索引B。
 
@@ -184,10 +184,10 @@ statement 格式的binlog记录的是sql语句；row 格式的binlog记录的是
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-11.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-11.png)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-12.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-12.png)
 
 
 **mixed 格式 的binlog 是个啥**？
@@ -246,6 +246,6 @@ OK，搞定，再也不怕删库跑路了。
 
 转载链接：https://mp.weixin.qq.com/s/oD3Anvz3XCsrahn6WdeeNw
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/mysql/deletedb-binlog-weiguanjishu-13.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/deletedb-binlog-weiguanjishu-13.png)
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。

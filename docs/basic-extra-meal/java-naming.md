@@ -44,7 +44,7 @@ tag:
 
 - 尽量不要省略成单词的首字母，但以下情形例外：DO/BO/DTO/VO/AO/ PO / UID 等
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/core-grammar/fifteen-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/fifteen-01.png)
 
 另外，如果是抽象类的话，使用 Abstract 或 Base 开头；如果是异常类的话，使用 Exception 结尾；如果是测试类的话，使用 Test 结尾。
 
