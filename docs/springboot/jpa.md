@@ -6,7 +6,7 @@ tag:
 title: Spring Boot 整合 JPA
 ---
 
-### 关于 Spring Data JPA
+### Spring Data JPA 简介
 
 Spring Data 是 Spring 提供的一个操作数据的框架，Spring Data JPA是 Spring Data 下的一个基于 JPA 标准的操作数据的模块。
 
@@ -22,7 +22,7 @@ Spring Data JPA 只是一个抽象层，它上接 JPA 下接 ORM 框架，通过
 - Hibernate 是 JPA 的实现，是一套成熟的 ORM 框架。
 - Spring Data JPA 是 Spring 提出的，它增加了一个抽象层，用来屏蔽不同 ORM 框架的差异。
 
-### 整合 Spring Data JPA
+### Spring Boot 整合 Spring Data JPA
 
 第一步，在 pom.xml 文件中添加 JPA 的 starter 依赖。
 
@@ -319,7 +319,7 @@ List<User> findByNameLikeParam(@Param("name")String name);
 Hibernate: delete from user where id=?
 ```
 
-### Spring Data JPA 还是 MyBatis
+### Spring Data JPA 和 MyBatis 的对比
 
 在以往我参与的项目当中，无一例外都选择的是 MyBatis。国内采用 MyBatis 作为 ORM 框架的要比 Spring Data JPA 多得多。
 
