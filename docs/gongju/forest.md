@@ -143,11 +143,11 @@ Forest 的字面意思是森林的意思，更内涵点的话，可以拆成For�
 
 **虽然 star 数还不是很多，但 star 趋势图正在趋于爬坡阶段，大家可以拿来作为一个练手项目，我觉得还是不错的选择**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/forest-55b54f3f-88a7-458b-b8e0-b0d60e916d5e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/forest-55b54f3f-88a7-458b-b8e0-b0d60e916d5e.png)
 
 Forest 本身是处理前端过程的框架，是对后端 HTTP API 框架的进一步封装。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/forest-41345eec-fe16-4fcf-9448-0cb8c57d515f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/forest-41345eec-fe16-4fcf-9448-0cb8c57d515f.png)
 
 前端部分：
 

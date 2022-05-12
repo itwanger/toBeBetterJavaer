@@ -30,7 +30,7 @@ final int age = 18;
 
 “当尝试将 age 的值修改为 30 的时候，编译器就生气了。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/keywords/23-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-01.png)
 
 “再来看这段代码。”
 
@@ -58,7 +58,7 @@ final Pig pig = new Pig();
 
 “如果尝试将 pig 重新赋值的话，编译器同样会生气。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/keywords/23-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-02.png)
 
 “但我们仍然可以去修改 pig 对象的 name。”
 
@@ -70,7 +70,7 @@ System.out.println(pig.getName()); // 特立独行
 
 “另外，final 修饰的成员变量必须有一个默认值，否则编译器将会提醒没有初始化。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/keywords/23-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-03.png)
 
 “final 和 static 一起修饰的成员变量叫做常量，常量名必须全部大写。”
 
@@ -97,7 +97,7 @@ public class ArgFinalTest {
 
 “如果尝试去修改它的话，编译器会提示以下错误。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/keywords/23-04.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-04.png)
 
 ### 02、final 方法
 
@@ -124,7 +124,7 @@ public class Actor {
 
 “当我们想要重写该方法的话，就会出现编译错误。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/keywords/23-05.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-05.png)
 
 “如果一个类中的某些方法要被其他方法调用，则应考虑事被调用的方法称为 final 方法，否则，重写该方法会影响到调用方法的使用。”
 
@@ -186,7 +186,7 @@ public final class Writer {
 
 “尝试去继承它，编译器会提示以下错误，Writer 类是 final 的，无法继承。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/keywords/23-06.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-06.png)
 
 “不过，类是 final 的，并不意味着该类的对象是不可变的。”
 

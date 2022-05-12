@@ -24,7 +24,7 @@ public native int hashCode();
 
 具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 GitHub 上 OpenJDK 的仓库中下载）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/basic-extra-meal/hashcode-1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-1.png)
 
 并且 `hashCode()` 方法被 `@HotSpotIntrinsicCandidate` 注解修饰，说明它在 HotSpot 虚拟机中有一套高效的实现，基于 CPU 指令。
 
@@ -166,7 +166,7 @@ public static int hashCode(Object a[]) {
 
 代码似乎很简单，归纳出的数学公式如下所示（n 为字符串长度）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/basic-extra-meal/hashcode-2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-2.png)
 
 注意：31 是个奇质数，不大不小，一般质数都非常适合哈希计算，偶数相当于移位运算，容易溢出，造成数据信息丢失。
 

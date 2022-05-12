@@ -14,7 +14,7 @@ tag:
 
 我由 Google 公司开源，目前在 GitHub 上已经有 39.9k 的铁粉了，由此可以证明我的受欢迎程度。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/common-tool/guava-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-01.png)
 
 
 我的身体里主要包含有这些常用的模块：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等。新版的 JDK 中已经直接把我引入了，可想而知我有多优秀，忍不住骄傲了。
@@ -43,7 +43,7 @@ tag:
 
 Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“null 真糟糕”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/common-tool/guava-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-02.png)
 
 
 代码示例如下所示。
@@ -250,7 +250,7 @@ LoadingCache 就是缓存的主要操作对象了，常用的就是其中的 put
 
 我觉得适用于每一个 Java 项目，至于其他的一些功能，比如说散列、事件总线、数学运算、反射，就等待你去发掘了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/common-tool/guava-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-03.png)
 
 
 <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">

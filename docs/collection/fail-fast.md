@@ -51,7 +51,7 @@ System.out.println(list);
 
 这段代码看起来没有任何问题，但运行起来就报错了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/collection/fail-fast-01.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-01.png)
 
 
 根据错误的堆栈信息，我们可以定位到 ArrayList 的第 901 行代码。
@@ -152,7 +152,7 @@ modCount 的值变成了 4。
 
 那其实在阿里巴巴的 Java 开发手册里也提到了，不要在 for-each 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator 方式。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/collection/fail-fast-02.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-02.png)
 
 那原因其实就是我们上面分析的这些，出于 fail-fast 保护机制。
 

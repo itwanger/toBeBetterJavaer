@@ -10,13 +10,13 @@ tag:
 
 周末午后，在家里面进行电话面试，我问了面试者几个关于 IO 的问题，其中包括什么是 BIO、NIO 和 AIO？三者有什么区别？具体如何使用等问题，但是面试者回答的并不是很满意。于是我在面试评价中写道："对 Java 的 IO 提醒理解不够深入"。恰好被女朋友看到了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-1.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-1.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-2.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-2.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-3.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-3.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-4.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-4.jpg)
 
 Java IO
 
@@ -30,11 +30,11 @@ IO，常协作 I/O，是 Input/Output 的简称，即输入/输出。通常指�
 
 IO 是 Java 中比较重要，且比较难的知识点，主要是因为随着 Java 的发展，目前有三种 IO 共存。分别是 BIO、NIO 和 AIO。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-5.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-5.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-6.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-6.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-7.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-7.gif)
 
 Java BIO
 
@@ -56,13 +56,13 @@ Java AIO，全程 Asynchronous IO，是**异步非阻塞**的 IO。是一种非�
 
 在 NIO 的基础上引入了新的异步通道的概念，并提供了异步文件通道和异步套接字通道的实现。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-8.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-8.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-9.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-9.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-10.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-10.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-11.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-11.gif)
 
 三种 IO 的区别
 
@@ -84,13 +84,13 @@ Java AIO，全程 Asynchronous IO，是**异步非阻塞**的 IO。是一种非�
 
 同步 VS 异步：水壶是不是在水烧开之后主动通知人。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-12.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-12.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-13.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-13.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-14.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-14.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-15.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-15.jpg)
 
 适用场景
 
@@ -100,9 +100,9 @@ NIO 方式适用于连接数目多且连接比较短（轻操作）的架构，�
 
 AIO 方式适用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用 OS 参与并发操作，编程比较复杂，JDK7 开始支持。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-16.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-16.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-17.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-17.gif)
 
 使用方式
 
@@ -274,19 +274,19 @@ public class WriteToFile {
 }
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-18.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-18.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-19.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-19.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-20.gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-20.gif)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-21.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-21.jpg)
 
 滴滴滴，水开了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-22.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-22.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/io/BIONIOAIO-23.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-23.jpg)
 
 
 

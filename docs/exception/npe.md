@@ -171,7 +171,7 @@ Object听到这话，皱了皱眉，他沉默了一会儿，缓缓站起身子�
 
 我见他好像魔怔了，仿佛在思考什么，于是迈步走到他刚才站立的地方看着前面，原来，这是他们的族谱！这里是异常的祠堂！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/exception/npe-1.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/npe-1.jpg)
 
 看完这张族谱，我恍然大悟，好像明白了什么。突然，我的脑袋里出现了一个冰冷的机器声音：“获取异常族谱，历练完成度+100。”
 

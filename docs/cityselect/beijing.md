@@ -13,7 +13,7 @@ tag:
 
 因为北京适合程序员工作的企业实在太多了，所以怎样给大家介绍北京适合程序员的工作机会一直让我十分头疼。如果写的太简单，我跟大家说北京有百度、腾讯、阿里、美团等等，大家一定觉得我是在废话，但把所有企业一次性全介绍了工作量太大，并且文章也看不出重点了。所以我最终决定，北京拆成三篇来讲，一篇介绍北京的国企央企研究所、一篇介绍北京的大型互联网公司和大型外企、一篇介绍北京的中小型互联网公司。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-68628d58-37ff-44c8-a3f6-6b9f4978f976.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-68628d58-37ff-44c8-a3f6-6b9f4978f976.jpg)
 
 我发现在互联网公司工作的程序员都对国企央企以及研究所十分好奇，但是因为这些单位的信息比较封闭，所以大家对于这些企业的工作方式以及薪酬情况都都不清楚。为了能给北京系列开个好头，第一篇文章我就以我熟悉的北京的国企央企研究所来给大家介绍了。想提前声明一点，虽然我有很多同学和朋友在北京国企央企以及研究所，但是同一个公司，不同的部门或者不同的组差别都太大了。尤其是研究所，每个系列都有数量庞大的下属研究所，并且下属的研究所独立性都特别高，所以风格差别很大。我只能把我见到的情况给大家做一个介绍，具体去到哪个研究所哪个团队还得你们自己去详细打听。只能说我的介绍相对于更接近一些真实。如果大家发现哪里有误，欢迎大家指出。
 
@@ -29,7 +29,7 @@ tag:
 
 #### 工商银行软件开发中心
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-b8653934-cc7f-4703-81f2-f654f7d4440a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-b8653934-cc7f-4703-81f2-f654f7d4440a.png)
 
 和同行相比，工商银行的软件开发中心算技术最好的了。工行喜欢招应届生，社招进来的比较少。刚进来的应届生职级是助理经理，税前年薪差不多是20万左右（到手15-16万吧，加上年终奖和节假日补贴）。工资发放方式稍微有点奇怪，就是每月发八九千，然后留一部分年底一并发放。每月会有饭补，过节也会有节假日补贴（放三天的节日假期给 1000，国庆给 2000，过年 4000）。这个职级的工资对于在北京工作来说还是有点难顶的，毕竟光跟人合租每月就要画掉两千多了。如果你是本科毕业进入工行，从助理经理升到经理一需要两年时间，硕士只需要一年，这个职级基本上全都能按时达到，不过工资变化不太大。从经理一升到经理二大约要一到两年的时间，这就看你能力了，经理二以后工资就相对多一些了，经理二绩效不太好的话每年到手能拿 22 万左右，如果绩效好，可能能拿到 29 万左右。经理二升经理三就完全看你自己能力了，到经理三以后每年到手都能 35 万左右，收入就很可观了。另外在工行发专利什么的也有些奖金，一个专利貌似是奖励 5000.
 
@@ -37,25 +37,25 @@ tag:
 
 #### 农业银行软件开发中心
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-fb046afd-1116-4619-a5ae-d9756863ca19.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-fb046afd-1116-4619-a5ae-d9756863ca19.png)
 
 感觉农业银行的软件开发中心技术比工行差一点，不过工资比工行多一些，刚毕业的应届生税前能到税前25万-32万（这是hr说的啊，我了解到的西安每月税后到手是 1万2，加上年终奖税前能算 20 万的年包，北京比西安稍微多一点点，但是多不了太多）。农行软件开发中心有个大问题就是工资分配很平均，但是工作量分布不均，有的组十分养生，有的组忙的受不了（越接近客户用的产品线越累）。我的一个学长天天早早就下班了，另外一个同学周末跟我吃个饭都急匆匆的，为了投产要加班到凌晨。目前农行内部的怨气比较大，这点大家在脉脉上也能看出来。农行想要升职还要去考软考。
 
 #### 中国银行软件开发中心
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-e3490a86-2b92-4a47-8c68-8e2281c2cb32.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-e3490a86-2b92-4a47-8c68-8e2281c2cb32.png)
 
 中国银行软件开发中心算是给钱最少的了，年包15万左右。这钱在北京确实太少了。不过工作是目前几个银行软开里最轻松的，家里不怎么缺钱，只想找个轻松稳定的可以选。
 
 #### 邮政储蓄银行软件研发中心
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-4e15e06c-f808-4d79-954f-3fbca94ce6e6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-4e15e06c-f808-4d79-954f-3fbca94ce6e6.png)
 
 第一年包含试用期，年薪税前总包 26w, 第二年年薪税前总包 31w。加不加班看你运气了，运气好被分到好的组不怎么加班，运气不好就很惨了。在北京工作的话不会被外调，但是在西安等地工作的许多人会被外调。
 
 ### 券商
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-58cd1949-b992-4550-b2e1-b24c519c0a78.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-58cd1949-b992-4550-b2e1-b24c519c0a78.png)
 
 曾经农行软开的一位领导来我们学校校招宣讲时就说因为银行的工资有限制，涨薪比较慢。所以很多银行软开的职工干几年后就会跑到券商去挣钱。那时我才知道券商居然还招不少程序员。后来我发现中信建投证券是真不错，北京这边校招生进来月薪 18k ，年终奖 6 个月，虽然薪资还是不及互联网公司，但是涨薪速度相比于其它国企央企还是快很多的。另外只有股票开市的日子用上班，加班很少。不过对于学历的要求比较高，必须是985硕士，并且还卡本科。
 
@@ -63,7 +63,7 @@ tag:
 
 ### 运营商
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-1b67f498-dc2e-401f-b942-59455b941bd9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-1b67f498-dc2e-401f-b942-59455b941bd9.png)
 
 这里说的运营商说的是移动联通还有电信的研究院。移动的工资发放风格和工行有异曲同工之妙，每个月发的工资很少，到年终会一起再发一些。应届生年薪大概 20w 左右，平时工资发一半，年终把剩下的一半发给你。联通在北京的研究院有两个，一个叫联通研究院，一个叫联通软件研究院。我听说的是联通研究院比较好，联通软件研究院比较坑。 电信研究院的据说很轻松，但是工资低，没朋友在这里，我不太确定，只是听说。
 
@@ -79,7 +79,7 @@ tag:
 
 ### 航天科技&航空工业
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-fcff3f6d-6357-48fe-a807-74c225ce0c95.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-fcff3f6d-6357-48fe-a807-74c225ce0c95.png)
 
 我有很多的校友都在航空航天系列的研究所。研究所的具体薪资都比较保密，大部分研究所在给你 offer 的时候不会像互联网公司那样把薪资给你说的清清楚楚并且写在合同上，而是大概和你说个数。而且你入职后两到三个月的薪资往往都很少，等三四个月以后薪资稳定了你才能确定你开多少钱。
 
@@ -89,13 +89,13 @@ tag:
 
 ### 工信部下属研究院
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-0f3b7783-4567-4f07-974d-a31b8d9ec939.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-0f3b7783-4567-4f07-974d-a31b8d9ec939.png)
 
 工信部下属的研究院整体上都不错，就比如信通院（中国信息通信研究院），如果你对这个单位陌生的话你可以看看你的行程码下面服务提供商排在第一个的是谁。信通院是制定标准的单位，也是监理单位。在信通院的话代码就很少写了，更多就是写文档了，不过信通院这种地方的视野肯定高一些。薪资的话信通院每个职工薪资差别很大，刚进去工资很低，可能就四五千块钱，但是薪资每个月都会变化，然后稳定在一个数。薪资低的每月到手有一万出头，但我知道每月到手两三万甚至更多的也是有的（不是领导啊，只是职工）。
 
 ### 中科院系列
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-96c5f7a6-b13b-4153-9c7f-7c4617dbddca.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-96c5f7a6-b13b-4153-9c7f-7c4617dbddca.png)
 
 中科院系列下计算机相关最强的三个所就是自动化所（搞 nlp 的应该都听过宗成庆老师）、软件所、计算所。另外还有信工所、电子所也还凑合。整体待遇上，中科院系列的待遇不如航空航天系列的。你可以把中科院系列的研究所完全的想象成一个大学（嗯，不用想象，确实是个大学，中国科学院大学嘛）。每个团队就是你们研究生的实验室。基本上就是一个大老板，带几个小老板，再带几个职工，另外再配几个中科院的学生。课题组想要挣钱也是需要大老板出去拉活，然后小老板带着学生去干活。工作方式和技术水平和你们研究生的实验室一模一样的，就是多了一些硕士博士职工罢了。
 
@@ -103,13 +103,13 @@ tag:
 
 ### 中电科系列
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-a4804493-fdb0-48ea-b9f5-82ad9a3d3d08.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-a4804493-fdb0-48ea-b9f5-82ad9a3d3d08.png)
 
 中电科系列的待遇比航空航天系列稍差，比中科院系列稍强一些。我感觉中电科系列的加班强度比较高，认识的几个在中电科系列的经常 996 甚至 007，还经常出差。待遇的话基本工资也是每月1万出头，然后出差也是有出差补贴，每天300 或者400，具体要看团队。感觉工资主要是靠出差补贴堆起来的。大部分下属院所会提供职工宿舍，中电科系列下属研究所风格差别很大，好起来是真好，坑起来是真坑啊。
 
 ### 中国兵器系列
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-db583262-a5d4-4137-88e1-90f0127ba755.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-db583262-a5d4-4137-88e1-90f0127ba755.png)
 
 中国兵器系列计算机相关专业招的不是太多，其实每年一共招的人也不多。我最初对中国兵器系列的研究所有了解是一个所来我们学校宣讲。感觉中国兵器在西安的几个所能算的上是西安研究所的天花板了吧，待遇还不错（和航天504所比我有点不太确定）但是在北京我就不太清楚了。
 
@@ -121,7 +121,7 @@ tag:
 
 ## 生活方面
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-799a0d1a-7782-4e3c-8a36-4c495cd94ae5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-799a0d1a-7782-4e3c-8a36-4c495cd94ae5.png)
 
 北京具体的房价、美食教育等情况我放到下一篇讲北京互联网公司的文章中好好去讲下。这篇文章只讲一个事，那就是**北京户口**。北京户口的主要用处就是子女教育问题，其它的一些好处就是有北京户口可以申请共有产权房还有摇车牌等。应届毕业生是最好搞定户口的时候了，如果你能进这篇文章中讲的这些单位，大概率你是有户口的。不过拿户口的同时都要签一个五年的服务期合同，违约金每个单位不一样， 20万-50万不等，逐年递减。对于应届生来说户口貌似吸引力没有特别的大，毕竟现在自己还顾不过来，也不知道自己子女在哪呢。但是对于已经有子女的人来说，我一提给北京户口的事他们眼睛就亮了。
 
@@ -139,7 +139,7 @@ tag:
 
 #### 百度
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-7d1367ae-04c1-4162-aed8-2a99203a623d.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-7d1367ae-04c1-4162-aed8-2a99203a623d.jpg)
 
 坐标：西北旺
 
@@ -151,7 +151,7 @@ tag:
 
 #### 腾讯
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-7d6cd775-8895-447a-a348-27443594bdcd.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-7d6cd775-8895-447a-a348-27443594bdcd.jpg)
 
 坐标：西北旺
 
@@ -166,7 +166,7 @@ tag:
 
 #### 阿里巴巴
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-996bbbca-dd9c-4108-b796-46f29dd840e9.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-996bbbca-dd9c-4108-b796-46f29dd840e9.jpg)
 
 坐标：望京
 
@@ -176,7 +176,7 @@ tag:
 
 #### 字节跳动
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-fd757b6c-154c-4aa6-95a8-467d6a9a83b4.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-fd757b6c-154c-4aa6-95a8-467d6a9a83b4.jpg)
 
 坐标：中航广场
 
@@ -186,7 +186,7 @@ tag:
 
 #### 美团
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-809a1c71-7a8f-43c8-ad4b-befab2fe5cf2.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-809a1c71-7a8f-43c8-ad4b-befab2fe5cf2.jpg)
 
 坐标：望京
 
@@ -196,7 +196,7 @@ tag:
 
 #### 京东
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-e08e1eef-6561-4057-a12e-3a1183fb9ae1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-e08e1eef-6561-4057-a12e-3a1183fb9ae1.png)
 
 坐标：亦庄
 
@@ -206,7 +206,7 @@ tag:
 
 #### 网易
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-fc7b1b08-0363-4af6-adc2-e6185c55bb9c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-fc7b1b08-0363-4af6-adc2-e6185c55bb9c.png)
 
 坐标:西北旺
 
@@ -222,7 +222,7 @@ tag:
 
 #### Hulu
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-483d5154-671c-4ef4-844c-3240f34b6008.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-483d5154-671c-4ef4-844c-3240f34b6008.png)
 
 坐标：望京
 
@@ -232,7 +232,7 @@ tag:
 
 #### 微软
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-e0dbb967-2bb3-453f-8384-02c1c0aa61a0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-e0dbb967-2bb3-453f-8384-02c1c0aa61a0.png)
 
 坐标：离五道口也不远。
 
@@ -240,7 +240,7 @@ tag:
 
 #### Shoppe（虾皮）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-ea99812c-fdb6-44a6-bc55-79c15ad37a3a.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-ea99812c-fdb6-44a6-bc55-79c15ad37a3a.jpg)
 
 坐标：五道口附近，和搜狗挨着。那片有好多互联网公司。
 
@@ -250,7 +250,7 @@ tag:
 
 #### Amazon
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-9a9d93ca-89fa-4b67-a491-d085eb2601d3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-9a9d93ca-89fa-4b67-a491-d085eb2601d3.png)
 
 坐标：朝阳区远洋国际中心
 
@@ -260,7 +260,7 @@ tag:
 
 #### Apple
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-ba5e8a95-1cf8-42f9-aacc-3573cd93f19f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-ba5e8a95-1cf8-42f9-aacc-3573cd93f19f.png)
 
 坐标：朝阳区建国门外大街国贸大厦
 
@@ -268,7 +268,7 @@ tag:
 
 #### Airbnb
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-b9d6ef38-e7c1-4e00-8409-2f63489a5d6c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-b9d6ef38-e7c1-4e00-8409-2f63489a5d6c.png)
 
 坐标:朝阳区环球金融中心
 
@@ -290,11 +290,11 @@ tag:
 
 下面就说买房的事了，算了，我对北京买房的事也没什么见解。贴个图你们自己看吧，数据不一定准，就感受下房价有多高吧....密云延庆什么的就太远了，当然有很多人在北京上班在天津买房或者廊坊买房的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-e5bc2cf6-647d-43f9-9352-934440d71b16.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-e5bc2cf6-647d-43f9-9352-934440d71b16.png)
 
 ### 美食
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-148db131-6c78-4cbf-86a0-465d88fdd217.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-148db131-6c78-4cbf-86a0-465d88fdd217.png)
 
 有一句话叫“京城无美食”。虽然这句话有点极端但是也有点道理的。美食的聚集地大部分是沿山沿海沿河沿江的地方，北京一直不是一个美食原料富足的地方。北京常说的北京名菜特点不像鲁菜川菜江苏菜那样特点鲜明。我能想到的北京特色的饭也就是烤鸭、涮羊肉、爆肚、炒肝、京酱肉丝、炸酱面，除了这些还真不太好想了。在北京有个好处是你能在这里吃到全国各地的美食，因为北京全国各地甚至世界各地的人都有，所以各省各国风味的餐厅都会有，但是感觉风味上还是根据北京这边的口味做了一些改变。
 
@@ -302,13 +302,13 @@ tag:
 
 ### 教育&医疗
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-dc5e04dd-8a49-45b2-b96d-e1a17a2405f2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-dc5e04dd-8a49-45b2-b96d-e1a17a2405f2.png)
 
 北京的教育和医疗肯定全国顶级了。再往详细的介绍我觉得我写不出什么有深度的东西了，对于教育和医疗来说，我觉得我这个刚毕业不到一年的人肯定不如在北京待了多年的并且有孩子的了解的多。我只是知道虽然北京的高考会比其它省份容易很多，但北京一贯实行的素质教育对于孩子家长来说会很累，今天陪孩子学个交谊舞，明天学个马术，后天学校开个家长联谊会。对于 996 或者 995 的程序员家长来说真的有点难顶，不像我们上学时很少叫家长了。
 
 ### 娱乐
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/cityselect/beijing-58c387f7-575f-4c2f-9702-e62d7b7575dc.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/beijing-58c387f7-575f-4c2f-9702-e62d7b7575dc.png)
 
 北京值得去的玩的地方很多的，圆明园、颐和园、故宫、香山、各种胡同、各种博物馆、各种茶馆。听个相声、听个演唱会，看个体育比赛都是不错的休闲方式。去各种商场转一转买点东西也是休闲。当然因为北京这么大所以周末出来玩一趟会特别花时间。北京的国家级景区票价是比较便宜的，我记得颐和园门票也就四五十，不像其它地区的景区动辄好几百的门票。
 

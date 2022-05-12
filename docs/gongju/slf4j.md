@@ -13,11 +13,11 @@ tag:
 
 （为什么我把这段文字手敲了下来呢，因为我发现阿里巴巴开发手册上的有语病，瞧下面红色标出的部分）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-94ba034a-c6e6-46e0-bff3-b658bf35945f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-94ba034a-c6e6-46e0-bff3-b658bf35945f.png)
 
 （维护和统一，把统一放在最后面读起来真的是别扭，和的有点牵强，请问手册的小编是数学老师教的语文吧？）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-a7a6e0ae-cbee-428e-8a45-2f5a33243625.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-a7a6e0ae-cbee-428e-8a45-2f5a33243625.png)
 
 那看到这条强制性的规约，我就忍不住想要问：“为什么阿里巴巴开发手册会强制使用 SLF4J 作为 Log4J 的门面担当呢？”究竟这背后藏了什么“不可告人”的秘密？
 
@@ -33,11 +33,11 @@ SLF4J 是 Simple Logging Facade for Java 的缩写（for≈4），也就是简�
 
 SLF4J 的作者就是 Log4J 和 Logback 的作者，他的 GitHub 主页长下面这样：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-c72cd63d-b15b-401c-8399-ad0355f1f802.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-c72cd63d-b15b-401c-8399-ad0355f1f802.png)
 
 一股秋风瑟瑟的清冷感扑面而来，有没有？可能巨佬不屑于维护他的 GitHub 主页吧？我的 GitHub 主页够凄惨了，没想到巨佬比我还惨，终于可以吹牛逼地说，“我，沉默王二，GitHub 主页比 SLF4J、Log4J 和 Logback 的作者 Ceki Gulcu 绿多了。。。。。。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-cdc9e0fb-71ab-42e7-8024-7e9cfd9b30c3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-cdc9e0fb-71ab-42e7-8024-7e9cfd9b30c3.png)
 
 1996 年初，欧洲安全电子市场项目决定编写自己的跟踪 API，最后该 API 演变成了 Log4j，已经推出就备受宠爱。
 
@@ -45,17 +45,17 @@ SLF4J 的作者就是 Log4J 和 Logback 的作者，他的 GitHub 主页长下�
 
 2002 年 8 月，Apache 就推出了自己的日志包，也就是阿里巴巴开发手册上提到的 JCL（Jakarta Commons Logging）。JCL 的野心很大，它在 JUL 和 Log4j 的基础上提供了一个抽象层的接口，方便使用者在 JUL 和 Log4j 之间切换。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-5b40fac4-0ab1-467d-9dc1-85c43ed879e7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-5b40fac4-0ab1-467d-9dc1-85c43ed879e7.png)
 
 但 JCL 好像并不怎么招人喜欢，有人是这样抱怨的：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-795d5543-7bd1-450a-8a35-a151be106b3b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-795d5543-7bd1-450a-8a35-a151be106b3b.png)
 
 Ceki Gulcu 也觉得 JCL 不好，要不然他也不会在 2005 年自己撸一个名叫 SLF4J 的新项目，对吧？但出来混总是要付出代价的，SLF4J 只有接口，没有实现，总不能强逼着 Java 和 Apache 去实现 SLF4J 接口吧？这太难了，不现实。
 
 但巨佬之所以称之为巨佬，是因为他拥有超出普通人的惊人之处，他在 SLF4J 和 JUL、Log4j、JCL 之间搭了三座桥：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-3044b416-ff14-408f-b933-71993b7ddeee.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-3044b416-ff14-408f-b933-71993b7ddeee.png)
 
 巨佬动手，丰衣足食，有没有？狠起来连自己的 Log4j 都搭个桥。
 
@@ -71,13 +71,13 @@ Ceki Gulcu 也觉得 JCL 不好，要不然他也不会在 2005 年自己撸一�
 
 假设我们正在开发一套系统，打算用 SLF4J 作为门面，Log4j 作为日志系统，我们在项目中使用了 A 框架，而 A 框架的门面是 JCL，日志系统是 JUL，那就相等于要维护两套日志系统，对吧？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-e66a78a6-1ef6-42c1-86fa-a4c57b3ef160.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-e66a78a6-1ef6-42c1-86fa-a4c57b3ef160.png)
 
 这就难受了！
 
 Ceki Gulcu 想到了这个问题，并且帮我们解决了！来看 SLF4J 官网给出的解决方案。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-5e1021d6-6a81-492b-b8d3-f9438014b53b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-5e1021d6-6a81-492b-b8d3-f9438014b53b.png)
 
 - 使用 jcl-over-slf4j.jar 替换 commons-logging.jar
 - 引入 jul-to-slf4j.jar
@@ -117,7 +117,7 @@ public class Demo {
 
 调试这段代码的过程中你会发现，Log 的实现有四种：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-a1db024d-1b29-47b2-a1f8-70b899d5b7c0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-a1db024d-1b29-47b2-a1f8-70b899d5b7c0.png)
 
 如果没有绑定 Log4j 的话，就会默认选择 Jdk14Logger——它返回的 Logger 对象，正是 java.util.logging.Logger，也就是 JUL。
 
@@ -198,15 +198,15 @@ private static Log logger = LogFactory.getLog(Demo.class);
 
 SLF4J 除了提供这种解决方案，绑定 Log4j 替换 JUL 和 JCL；还提供了绑定 Logback 替换 JUL、JCL、Log4j 的方案：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-d3162919-47e1-4760-beba-7b77cdf42e71.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-d3162919-47e1-4760-beba-7b77cdf42e71.png)
 
 还有绑定 JUL 替换 JCL 和 Log4j 的方案：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-a7d80721-ec0f-4b99-a59b-15f8344c3819.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-a7d80721-ec0f-4b99-a59b-15f8344c3819.png)
 
 太强了，有木有？有的话请在留言区敲出 666。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-e9233a42-d13e-4d7d-9d9e-b049d08303aa.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-e9233a42-d13e-4d7d-9d9e-b049d08303aa.png)
 
 ###  03、SLF4J 比 Log4J 强在哪
 
@@ -283,7 +283,7 @@ public class Log4jSLF4JDemo {
 
 看到了吧，使用占位符要比“+”操作符方便的多。并且此时不再需要 `isDebugEnabled()` 先进行判断，`debug()` 方法会在字符串拼接之前执行。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-5e831353-b2a3-4a39-80e3-47a044009d95.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-5e831353-b2a3-4a39-80e3-47a044009d95.png)
 
 
 如果只是 Log4J 的话，会先进行字符串拼接，再执行 `debug()` 方法，来看示例代码：
@@ -296,13 +296,13 @@ logger.debug(name + "，年纪：" + age + "，是个非常不要脸的程序员
 
 在调试这段代码的时候，你会发现的，如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-4ae3eda7-cd0d-4094-9331-d6070a39c8ea.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-4ae3eda7-cd0d-4094-9331-d6070a39c8ea.png)
 
 这也就意味着，如果日志系统的级别不是 DEBUG，就会多执行了字符串拼接的操作，白白浪费了性能。
 
 注意，阿里巴巴开发手册上还有一条「**强制**」级别的规约：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-51004734-620a-4c1a-8aa7-6d7f3e1781d6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-51004734-620a-4c1a-8aa7-6d7f3e1781d6.png)
 
 这是因为如果参数是基本数据类型的话，会先进行自动装箱（`Integer.valueOf()`）。测试代码如下所示：
 
@@ -318,7 +318,7 @@ logger.debug("\u6C89\u9ED8\u738B\u4E8C\uFF0C{}\u5C81", Integer.valueOf(18));
 
 如果参数需要调用其他方法的话，`debug()` 方法会随后调用。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/gongju/slf4j-aec16f40-7849-4a1d-9507-9119707e6c79.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/slf4j-aec16f40-7849-4a1d-9507-9119707e6c79.png)
 
 也就是说，如果不 `isDebugEnabled()` 的话，在不是 DEBUG 级别的情况下，会多执行自动装箱和调用其他方法的操作——程序的性能就下降了！
 

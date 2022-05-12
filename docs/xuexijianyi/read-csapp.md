@@ -30,7 +30,7 @@ tag:
 我截了一张图，给大家看一下，这门课的目的：“让你深入了解代码在执行的时候到底发生了什么？”可以说包含了计算机专业的方方面面，计算机组成原理、操作系统、计算机网络等等。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-eb4daee0-0de3-4f7f-8b7b-6892dba3305d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-eb4daee0-0de3-4f7f-8b7b-6892dba3305d.png)
 
 
 第二个视频地址：
@@ -51,7 +51,7 @@ tag:
 - 进程间的交互和通信
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-3f838b31-1551-438b-8f44-d4a2b5ab27dd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-3f838b31-1551-438b-8f44-d4a2b5ab27dd.png)
 
 
 分享一些我的视频观感——计算机系统漫游部分。
@@ -60,29 +60,29 @@ tag:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-9967518e-7807-4d84-a774-bc6eb5f44229.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-9967518e-7807-4d84-a774-bc6eb5f44229.png)
 
 
 第二个视频讲解了计算机的整个硬件组成部分，看下面这幅图，也太清晰了吧！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-2bc0b332-7039-4978-86fa-f33701afb0e1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-2bc0b332-7039-4978-86fa-f33701afb0e1.png)
 
 
 第三个视频，普及了进程和线程、以及虚拟内存等重要知识点。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-7b171f32-4418-4ba2-84ef-fe55881a1874.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-7b171f32-4418-4ba2-84ef-fe55881a1874.png)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-298ded3a-e510-466e-809e-57a9a998ab80.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-298ded3a-e510-466e-809e-57a9a998ab80.png)
 
 
 
 第四个视频，讲解了阿姆达尔定律，以及如何提高程序性能的解决方案。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-fe228ea9-4317-4b19-881e-08972ff20c9e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-fe228ea9-4317-4b19-881e-08972ff20c9e.png)
 
 
 这两套视频我还没有看完，除了有一些看不懂之外，很多知识点都需要看多遍，并且查找一些资料后才能懂。
@@ -111,7 +111,7 @@ tag:
 
 这门课是 2020 年新出的，所以食用起来会更加的舒适。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/images/xuexijianyi/read-csapp-5a759059-81da-4814-881c-5b58fb168de8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/read-csapp-5a759059-81da-4814-881c-5b58fb168de8.png)
 
 
 当然了，要学好 CSAPP 这门课，并不容易，因为它包含了汇编、计算机组成原理、操作系统、计算机网络等等方方面面的知识，任何一个知识点展开去学习，都是需要花费大量时间和精力的。
