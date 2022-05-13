@@ -318,4 +318,4 @@ synchronized 关键字用于在多线程环境中获取和释放监听对象，�
 
 如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 strictfp 关键字。因此 strictfp 关键和重写规则无关。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

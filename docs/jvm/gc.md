@@ -231,4 +231,4 @@ Survivor 区相当于是 Eden 区和 Old 区的一个缓冲，类似于我们交
 >- 整理：沉默王二，原文链接：https://zhuanlan.zhihu.com/p/73628158
 >- https://segmentfault.com/a/1190000038256027
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

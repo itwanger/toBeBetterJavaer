@@ -197,5 +197,5 @@ HashMap 在容量超过负载因子所定义的容量之后，就会扩容。
 
 >参考链接：https://zhuanlan.zhihu.com/p/362214327
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

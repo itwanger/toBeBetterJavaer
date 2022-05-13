@@ -976,7 +976,7 @@ jmap -dump:format=b,file=heap pid
 
 排查过程和排查内存泄漏过程类似。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 四、虚拟机执行
 

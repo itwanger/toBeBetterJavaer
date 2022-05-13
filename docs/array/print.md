@@ -158,4 +158,4 @@ System.out.println(Arrays.deepToString(deepArray));
 
 “OK，我走，我走。”
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

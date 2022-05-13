@@ -384,4 +384,4 @@ public E get(int index) {
 
 无论外人怎么看待我们，在我眼里，师兄永远都是一哥，我敬重他，他也愿意保护我。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -108,4 +108,4 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 >参考链接：https://www.zhihu.com/question/447224628
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -455,4 +455,4 @@ private int age = 18;
 
 如果你觉得我有点用的话，不妨点个赞，留个言，see you。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

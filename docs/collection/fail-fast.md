@@ -245,4 +245,4 @@ public void remove() {
 
 那也就是说，for-each 本质上是一种语法糖，遍历集合时很方面，但并不适合拿来操作集合中的元素（增删）。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

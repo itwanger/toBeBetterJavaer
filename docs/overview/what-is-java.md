@@ -241,4 +241,4 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 总之，Oracle 宣称，Java 正运行在 97% 的企业计算机上——有点厉害的样子。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

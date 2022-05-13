@@ -172,4 +172,4 @@ UTF-16 使用 2 个或者 4 个字节来存储字符。
 
 “好了，三妹，关于 Unicode 就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

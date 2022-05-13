@@ -347,4 +347,4 @@ this = com.cmower.java_demo.journal.LamadaTest@3feba861
 
 好了，我亲爱的读者朋友们，以上就是本文的全部内容了。能在疫情期间坚持看技术文，二哥必须要伸出大拇指为你点个赞👍。原创不易，如果觉得有点用的话，请不要吝啬你手中**点赞**的权力——因为这将是我写作的最强动力。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

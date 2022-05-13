@@ -171,4 +171,4 @@ C |10001 - 16383
 文章来源于JAVA日知录 ，作者飘渺Jam
 转载链接：https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

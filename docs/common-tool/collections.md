@@ -250,7 +250,7 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 这才是高手要思考的一个问题。
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 
 

@@ -584,4 +584,4 @@ Java 编译器输出的指令流，基本上是一种基于栈的指令集架构
 
 引用链接：https://juejin.cn/post/6844903871010045960
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

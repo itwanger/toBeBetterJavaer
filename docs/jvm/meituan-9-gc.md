@@ -1711,4 +1711,4 @@ JNI 产生的 GC 问题较难排查，需要谨慎使用。
 
 原文链接：https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

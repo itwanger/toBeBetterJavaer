@@ -133,4 +133,4 @@ PPS：为什么要查看字节码呢？查看字节码文件更容易让我们�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-10.png)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

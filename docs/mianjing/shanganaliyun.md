@@ -132,4 +132,4 @@ Guide 哥 : 目前，虽然有各种编程语言异军突起，但是 Java 庞�
 
 转载链接：[https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw](https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

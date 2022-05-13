@@ -234,4 +234,4 @@ DeliverCallback deliverCallback = (consumerTag, delivery) -> {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-0dcb67b3-521f-4d91-9e46-590e93631b35.jpg)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

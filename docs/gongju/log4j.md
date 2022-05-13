@@ -356,4 +356,4 @@ if(logger.isDebugEnabled()) {
 
 打印日志真的是一种艺术活，搞不好会严重影响服务器的性能。最可怕的是，记录了日志，但最后发现屁用没有，那简直是苍了个天啊！尤其是在生产环境下，问题没有记录下来，但重现有一定的随机性，到那时候，真的是叫天天不应，叫地地不灵啊！
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

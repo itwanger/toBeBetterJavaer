@@ -248,4 +248,4 @@ public class FileReaderTest {
 
 “呼。。。。。”一个大大的眼圈飘散开来，又是愉快的一天~
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

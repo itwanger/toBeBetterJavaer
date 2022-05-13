@@ -230,4 +230,4 @@ public class MyAbstractDemo extends AbstractDemo {
 重写了抽象方法
 ```
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

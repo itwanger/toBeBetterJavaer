@@ -141,4 +141,4 @@ if (obj instanceof String s) {
 
 好了，关于 instanceof 操作符我们就先讲到这吧，难是一点都不难，希望各位同学也能够很好的掌握。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

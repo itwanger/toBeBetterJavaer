@@ -384,4 +384,4 @@ myClient.send("foo", (String resText, ForestRequest request, ForestResponse resp
 
 这篇文章不仅介绍了 Forest 这个轻量级的 HTTP 客户端框架，还回顾了它的底层实现：HttpClient 和 OkHttp，希望能对大家有所帮助。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

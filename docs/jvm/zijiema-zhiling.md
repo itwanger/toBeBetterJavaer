@@ -593,4 +593,4 @@ goto 指令接收两个字节的操作数，共同组成一个带符号的整数
 
 想要走得更远，Java 字节码这块就必须得硬碰硬地吃透，希望二哥的这些分享可以帮助到大家~
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

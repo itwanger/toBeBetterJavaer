@@ -348,4 +348,4 @@ jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUti
 
 >参考链接：https://zzcoder.cn/2019/12/06/HSDB%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98/
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
