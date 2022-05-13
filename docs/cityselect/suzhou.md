@@ -146,4 +146,4 @@ tag:
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -258,4 +258,4 @@ System.out.println(t2-t1);
 
 “好了，三妹，今天的主题就先讲到这吧。我再去来根华子。”
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

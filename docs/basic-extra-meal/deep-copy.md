@@ -423,4 +423,4 @@ writer2：Writer@544fe44c age=18, name='二哥', book=Book@31610302 bookName='�
 
 “嗯嗯。”
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

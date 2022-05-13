@@ -211,7 +211,7 @@ public int checkReturn() {
 
 “好吧。”三妹无奈地叹了口气。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 
 

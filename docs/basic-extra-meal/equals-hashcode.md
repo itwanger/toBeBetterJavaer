@@ -230,4 +230,4 @@ result = (31*1 + Integer(18).hashCode()) * 31 + String("张三").hashCode();
 
 “OK，get 了。”三妹开心地点了点头，看得出来，今天学到了不少。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

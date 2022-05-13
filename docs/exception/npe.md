@@ -220,4 +220,4 @@ Object听到这话，皱了皱眉，他沉默了一会儿，缓缓站起身子�
 >转载链接：https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

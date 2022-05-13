@@ -753,4 +753,4 @@ Graal编译器的优化方式更加激进，因此在启动时会进行更多的
 
 原文链接：https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

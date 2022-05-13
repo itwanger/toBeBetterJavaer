@@ -293,4 +293,4 @@ public static void logn(int n) {
 
 “好的，二哥。”三妹重新回答沙发上，一盘王者荣耀即将开始。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

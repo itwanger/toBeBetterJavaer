@@ -314,4 +314,4 @@ Collectors 是一个收集器的工具类，内置了一系列收集器实现，
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/stream-2.jpg)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

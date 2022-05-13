@@ -483,4 +483,4 @@ tag:
 
 >链接：[https://mp.weixin.qq.com/s/eaX9QhLwy_VsGIH0apA4qw](https://mp.weixin.qq.com/s/eaX9QhLwy_VsGIH0apA4qw)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

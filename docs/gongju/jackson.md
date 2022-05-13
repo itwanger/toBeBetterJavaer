@@ -563,4 +563,4 @@ Woman{age=18, name='三妹'}
 
 好了，通过这篇文章的系统化介绍，相信你已经完全摸透 Jackson 了，我们下篇文章见。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

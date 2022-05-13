@@ -376,4 +376,4 @@ public class TernaryOperator {
 
 “差不多，二哥，我需要写点 demo 练习会。”
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

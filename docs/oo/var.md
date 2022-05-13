@@ -138,4 +138,4 @@ public class FinalVariable {
 
 “那见的次数可就多了，就好像你每天眨眼的次数一样多。”
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

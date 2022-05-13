@@ -302,4 +302,4 @@ AQS获取共享锁/释放共享锁原理
 投稿作者：后端技术小牛说
 转载链接：[https://mp.weixin.qq.com/s/PmeH38qWVxyIhBpsAsjG7w](https://mp.weixin.qq.com/s/PmeH38qWVxyIhBpsAsjG7w)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

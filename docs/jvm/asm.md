@@ -347,4 +347,4 @@ mv.visitEnd();
 
 >参考链接：https://zhuanlan.zhihu.com/p/94498015
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

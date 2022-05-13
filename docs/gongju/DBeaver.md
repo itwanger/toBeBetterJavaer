@@ -164,4 +164,4 @@ DBeaver 有一个很亮眼的操作就是，可以直接选中一条结果集，
 
 总体来说，DBeaver是一款非常优秀的开源数据库管理工具了，功能很全面，日常的开发基本上是够用了。对比收费的 Navicat 和 DataGrip，可以说非常良心了。大家如果遇到收费版不能使用的时候，可以来体验一下社区版 DBeaver。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

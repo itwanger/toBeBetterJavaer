@@ -253,4 +253,4 @@ LoadingCache 就是缓存的主要操作对象了，常用的就是其中的 put
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-03.png)
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

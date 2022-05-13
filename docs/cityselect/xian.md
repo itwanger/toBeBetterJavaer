@@ -315,4 +315,4 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

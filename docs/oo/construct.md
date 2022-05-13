@@ -356,4 +356,4 @@ public class ClonePerson implements Cloneable {
 
 “那你记得复习下一节的内容哦。”感受到三妹已经学到了知识，我也很欣慰。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

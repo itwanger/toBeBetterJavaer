@@ -797,4 +797,4 @@ final Node<K,V>[] resize() {
 > - https://www.zhihu.com/question/20733617
 > - https://zhuanlan.zhihu.com/p/21673805
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png" width="700px">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
