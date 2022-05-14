@@ -1048,11 +1048,8 @@ Generic<Integer> genericInteger = new Generic<Integer>(123456);
 **2.泛型接口** ：
 
 ```java
-class GeneratorImpl<T> implements Generator<T>{
-    @Override
-    public T method() {
-        return null;
-    }
+public interface Generator<T> {
+    public T method();
 }
 ```
 
