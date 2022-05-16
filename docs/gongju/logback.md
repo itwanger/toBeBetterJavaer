@@ -406,7 +406,7 @@ Logback 的官网上是有一份手册的，非常详细，足足 200 多页，�
 
 如果英文阅读能力有限的话，可以到 GitHub 上查看雷锋翻译的中文版：
 
->https://github.com/itwanger/logback-chinese-manual
+>[https://github.com/itwanger/logback-chinese-manual](https://github.com/itwanger/logback-chinese-manual)
 
 当然了，还有一部分小伙伴喜欢看离线版的 PDF，我已经整理好了：
 
