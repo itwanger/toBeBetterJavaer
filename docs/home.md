@@ -277,6 +277,7 @@ headerDepth: 1
 - [Spring Boot 整合 JPA](springboot/jpa.md)
 - [Spring Boot 整合 Redis 实现缓存](redis/redis-springboot.md)
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator生成项目骨架代码](kaiyuan/auto-generator.md)
+- [Spring Boot 整合 Swagger-UI 实现在线API文档](springboot/swagger.md)
 - [Spring Boot 为什么不需要额外安装Tomcat？](springboot/tomcat.md)
 
 ## 辅助工具/轮子

@@ -681,20 +681,24 @@ export const sidebarConfig = defineSidebarConfig({
               link: "springboot/initializr",
             },
             {
-              text: "整合 MySQL和Druid",
+              text: "整合MySQL和Druid",
               link: "springboot/mysql-druid",
             },
             {
-              text: "整合 JPA",
+              text: "整合JPA",
               link: "springboot/jpa",
             },
             {
-              text: "整合 Redis 实现缓存",
+              text: "整合Redis实现缓存",
               link: "redis/redis-springboot",
             },
             {
-              text: "整合 MyBatis-Plus AutoGenerator",
+              text: "整合MyBatis-Plus AutoGenerator",
               link: "kaiyuan/auto-generator",
+            },
+            {
+              text: "整合Swagger-UI",
+              link: "springboot/swagger"
             },
             "springboot/tomcat",
           ],
