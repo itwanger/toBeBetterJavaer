@@ -170,6 +170,59 @@ public class HelloController {
 
 OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项目开发完成了。
 
+### 热部署
+
+作为开发者，我们希望每次修改代码后，代码能够自动编译，服务能够自动重新加载，这样就省去了重新运行代码的烦恼。
+
+那 spring-boot-devtools 就是这样的一个神器，当我们把它添加到项目当中后，无论是代码修改，还是配置文件修改，服务都能够秒级重载（俗称热部署），这在我们开发的时候，非常有用。
+
+怎么才能开启热部署呢？
+
+第一步，在 pom.xml 文件中添加依赖。
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+</dependency>
+```
+
+第二步，没有第二步了，哈哈。
+
+直接修改代码来体验一下吧。我们修改 HelloController 内容为：
+
+```java
+@Controller
+public class HelloController {
+
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello() {
+        return "hello, springboot，沉默王二是傻X";
+    }
+}
+```
+
+由于 Intellij IDEA 是自动保存的，所以默认情况下，Intellij IDEA 的实时编译是关闭的（建议不要打开，否则已修改就编译，挺废内存的），我们需要手动点一下 build 按钮。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/initializr-55098eb9-1809-460d-9d2a-730da24e73c0.png)
+
+很快，控制台就开始滚动日志了。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/initializr-489f64c7-8d1e-4aea-a5c9-bad582991040.png)
+
+我们发现，这次服务重载的时间很短，短到只有 0.372 秒，这就很方便了有没有，不用再去点运行/调试按钮重新跑服务了，重新跑服务是很费时间的，大家可以操作一下试试。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/initializr-377b9d53-0bcd-475d-9774-4135a9019694.png)
+
+再次访问 `http://localhost:8080/hello`，就可以看到返回的内容发生变化了。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/initializr-a5924f5c-c41f-49d7-b076-b93d24de37c8.png)
+
+也就是说，热部署生效了。搞定。
+
 ### 源码路径
 
 >- 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
