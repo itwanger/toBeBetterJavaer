@@ -1,20 +1,19 @@
 ---
+title: Spring Boot整合Knife4j，美化强化丑陋的Swagger
 category:
   - Java企业级开发
 tag:
-  - 辅助工具/轮子
+  - Spring Boot
 ---
 
 
-# knife4j：一款界面更炫酷的API文档生成神器
-
-一般在使用 Spring Boot 开发前后端分离项目的时候，都会用到 Swagger。Swagger 是一个规范和完整的框架，用于生成、描述、调试和可视化 RESTful 风格的 Web  API 服务框架。
+一般在使用 Spring Boot 开发前后端分离项目的时候，都会用到 [Swagger](https://tobebetterjavaer.com/springboot/swagger.html)（戳链接详细了解）。
 
 但随着系统功能的不断增加，接口数量的爆炸式增长，Swagger 的使用体验就会变得越来越差，比如请求参数为 JSON 的时候没办法格式化，返回结果没办法折叠，还有就是没有提供搜索功能。
 
-刚好最近发现 Knife4j 弥补了这些不足，赋予了 Swagger 更强的生命力，于是就来给大家安利一波。
+今天我们介绍的主角 Knife4j 弥补了这些不足，赋予了 Swagger 更强的生命力和表现力。
 
-### 一、关于 Knife4j
+### 关于 Knife4j
 
 Knife4j 的前身是 swagger-bootstrap-ui，是 springfox-swagger-ui 的增强 UI 实现。swagger-bootstrap-ui 采用的是前端 UI 混合后端 Java 代码的打包方式，在微服务的场景下显得非常臃肿，改良后的 Knife4j 更加小巧、轻量，并且功能更加强大。
 
@@ -26,7 +25,7 @@ swagger-bootstrap-ui 增强后的样子长下面这样。单纯从直观体验�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-2.png)
 
-改良后的 Knife4j 不仅在界面上更加优雅、炫酷，功能上也更加强大：后端 Java 代码和前端 UI 模块分离了出来，在微服务场景下更加灵活；更提供了专注于 Swagger 的增强解决方案。
+那改良后的 Knife4j 不仅在界面上更加优雅、炫酷，功能上也更加强大：后端 Java 代码和前端 UI 模块分离了出来，在微服务场景下更加灵活；还提供了专注于 Swagger 的增强解决方案。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-3.png)
 
@@ -36,90 +35,17 @@ swagger-bootstrap-ui 增强后的样子长下面这样。单纯从直观体验�
 
 码云地址：
 
->https://gitee.com/xiaoym/knife4j
+>[https://gitee.com/xiaoym/knife4j](https://gitee.com/xiaoym/knife4j)
 
 示例地址：
 
->https://gitee.com/xiaoym/swagger-bootstrap-ui-demo
+>[https://gitee.com/xiaoym/swagger-bootstrap-ui-demo](https://gitee.com/xiaoym/swagger-bootstrap-ui-demo)
 
-### 二、整合 Swagger
-
-为了对比 Knife4j 和 Swagger，我们先来整合体验一把 Swagger。
-
-第一步，在 pom.xml 中添加 springfox 的官方 Swagger 依赖：
-
-```
-<dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-boot-starter</artifactId>
-    <version>3.0.0</version>
-</dependency>
-```
-
-第二步，添加 Swagger 的 Java 配置，只需要配置基本的 API 信息和需要扫描的类路径即可。
-
-```java
-@Configuration
-public class SwaggerConfig {
-    @Bean
-    public Docket docket() {
-        Docket docket = new Docket(DocumentationType.OAS_30)
-                .apiInfo(apiInfo()).enable(true)
-                .select()
-                //apis： 添加swagger接口提取范围
-                .apis(RequestHandlerSelectors.basePackage("com.codingmore.controller"))
-                .paths(PathSelectors.any())
-                .build();
-
-        return docket;
-    }
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("编程猫学习网站的 admin 管理端 API")
-                .description("codingmore")
-                .contact(new Contact("沉默王二&石磊", "https://tobebetterjavaer.com", "983436076@qq.com"))
-                .version("1.0")
-                .build();
-    }
-}
-```
-
-第二步，访问 API 文档，访问地址如下所示：
-
->http://localhost:9002/swagger-ui/
-
-在项目路径后面添加上 `swagger-ui` 就可以了。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-4.png)
-
-在 Controller 类中，可以看到常见的 Swagger 注解 @Api 和 @ApiOperation：
-
-```java
-@Controller
-@Api(tags = "文章 ")
-@RequestMapping("/posts")
-public class PostsController {
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    @ResponseBody
-    @ApiOperation("删除")
-    public ResultObject<String> delete(long postsId) {
-        return ResultObject.success(postsService.removePostsById(postsId) ? "删除成功" : "删除失败");
-    }
-}
-```
-
-- @Api 注解用在类上，该注解将一个 Controller 类标记位一个 Swagger 资源（API）。默认情况下，Swagger 只会扫描解析具有 @Api 注解的类。
-
-- @ApiOperation 注解用在方法上，该注解在指定的方法上，对一个方法进行描述。
-
-Swagger 还有很多其他的注解，比如说 @ApiParam、@ApiResponses 等等，这里就不再一一说明。
-
-### 三、整合 Knife4j
+### 整合 Knife4j
 
 Knife4j 完全遵循了 Swagger 的使用方式，所以可以无缝切换。
 
-第一步，在 pom.xml 文件中添加 Knife4j 的依赖（**不需要再引入 springfox-boot-starter**）。
+第一步，在 pom.xml 文件中添加 Knife4j 的依赖（**不需要再引入 springfox-boot-starter**了，因为 Knife4j 的 starter 里面已经加入过了）。
 
 ```
 <dependency>
@@ -130,34 +56,121 @@ Knife4j 完全遵循了 Swagger 的使用方式，所以可以无缝切换。
 </dependency>
 ```
 
-第二步，在 Java 配置类上添加 @EnableOpenApi 注解，开启 Knife4j 增强功能。
+第二步，配置类 SwaggerConfig 还是 Swagger 时期原来的配方。
 
 ```java
 @Configuration
 @EnableOpenApi
-public class SwaggerConfig {}
+public class SwaggerConfig {
+    @Bean
+    public Docket docket() {
+        Docket docket = new Docket(DocumentationType.OAS_30)
+                .apiInfo(apiInfo()).enable(true)
+                .select()
+                //apis： 添加swagger接口提取范围
+                .apis(RequestHandlerSelectors.basePackage("top.codingmore.controller"))
+                .paths(PathSelectors.any())
+                .build();
+
+        return docket;
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("编程猫实战项目笔记")
+                .description("编程喵是一个 Spring Boot+Vue 的前后端分离项目")
+                .contact(new Contact("沉默王二", "https://codingmore.top","www.qing_gee@163.com"))
+                .version("v1.0")
+                .build();
+    }
+}
 ```
 
-第三步，重新运行 Spring Boot 项目，访问 API 文档，查看效果。
+第三步，新建测试控制器类 Knife4jController.java：
 
->访问地址：http://localhost:9002/doc.html
+```java
+@Api(tags = "测试 Knife4j")
+@RestController
+@RequestMapping("/knife4j")
+public class Knife4jController {
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-5.png)
-
-如果项目中加了权限认证的话，记得给 Knife4j 添加白名单。我的项目用的是 SpringSecurity，所以需要在 application.yml 文件中添加。
-
-```
-secure:
-  ignored:
-    urls: #安全路径白名单
-      - /doc.html
-      - /swagger-ui/**
-      - /swagger/**
-      - /swagger-resources/**
-      - /**/v3/api-docs
+    @ApiOperation("测试")
+    @RequestMapping(value ="/test", method = RequestMethod.POST)
+    public String test() {
+        return "沉默王二又帅又丑";
+    }
+}
 ```
 
-### 四、Knife4j 的功能特点
+第四步，由于 springfox 3.0.x 版本 和 Spring Boot 2.6.x 版本有冲突，所以还需要先解决这个 bug，一共分两步（在[Swagger](https://tobebetterjavaer.com/springboot/swagger.html) 那篇已经解释过了，这里不再赘述，但防止有小伙伴在学习的时候再次跳坑，这里就重复一下步骤）。
+
+先在 application.yml 文件中加入：
+
+```
+spring:
+  mvc:
+    path match:
+      matching-strategy: ANT_PATH_MATCHER
+```
+
+再在 SwaggerConfig.java 中添加：
+
+```java
+@Bean
+public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
+    return new BeanPostProcessor() {
+
+        @Override
+        public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+            if (bean instanceof WebMvcRequestHandlerProvider || bean instanceof WebFluxRequestHandlerProvider) {
+                customizeSpringfoxHandlerMappings(getHandlerMappings(bean));
+            }
+            return bean;
+        }
+
+        private <T extends RequestMappingInfoHandlerMapping> void customizeSpringfoxHandlerMappings(List<T> mappings) {
+            List<T> copy = mappings.stream()
+                    .filter(mapping -> mapping.getPatternParser() == null)
+                    .collect(Collectors.toList());
+            mappings.clear();
+            mappings.addAll(copy);
+        }
+
+        @SuppressWarnings("unchecked")
+        private List<RequestMappingInfoHandlerMapping> getHandlerMappings(Object bean) {
+            try {
+                Field field = ReflectionUtils.findField(bean.getClass(), "handlerMappings");
+                field.setAccessible(true);
+                return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
+            } catch (IllegalArgumentException | IllegalAccessException e) {
+                throw new IllegalStateException(e);
+            }
+        }
+    };
+}
+```
+
+以上步骤均完成后，开始下一步，否则要么项目启动的时候报错，要么在文档中看不到测试的文档接口。
+
+第五步，运行 Spring Boot 项目，浏览器地址栏输入以下地址访问 API 文档，查看效果。
+
+>访问地址（和 Swagger 不同）：[http://localhost:8080/doc.html](http://localhost:8080/doc.html)
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-0a9eb2b1-bace-4f47-ace9-8a5f9f280279.png)
+
+是不是比 Swagger 简洁大方多了？如果想测试接口的话，可以直接点击接口，然后点击「测试」，点击发送就可以看到返回结果了。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-16b1b553-1667-4222-9f29-2e5dfc8917a0.png)
+
+### Knife4j 的功能特点
+
+编程喵🐱实战项目中已经整合好了 Knife4j，在本地跑起来后，就可以查看所有 API 接口了。编程喵中的管理端（codingmore-admin）端口为 9002，启动服务后，在浏览器中输入 [http://localhost:9002/doc.html](http://localhost:9002/doc.html) 就可以访问到了。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-3cfbf598-b94a-4081-aab3-06af1eef612c.png)
+
+简单来介绍下 Knife4j 的 功能特点：
+
 
 **1）支持登录认证**
 
@@ -207,18 +220,48 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 
 目前支持搜索接口的地址、名称和描述。
 
-### 五、尾声
+### 尾声
 
 除了我上面提到的增强功能，Knife4j 还提供了很多实用的功能，大家可以通过官网的介绍一一尝试下，生产效率会提高不少。
 
->https://doc.xiaominfo.com/knife4j/documentation/enhance.html
+>[https://doc.xiaominfo.com/knife4j/documentation/enhance.html](https://doc.xiaominfo.com/knife4j/documentation/enhance.html)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-15.png)
 
 如果项目中之前使用过 Swagger 生成接口文档，切换到 Knife4j 可以说是非常的丝滑，只需要两步：
 
 - 在 pom.xml 文件中把 `springfox-boot-starter` 替换为 `knife4j-spring-boot-starter`；
-- 访问地址由原来的 `http://${host}:${port}/swagger-ui.html` 切换到 `http://${host}:${port}/doc.html`，如果有权限限制的话，记得开白名单。
+- 访问地址由原来的 `http://${host}:${port}/swagger-ui.html` 切换到 `http://${host}:${port}/doc.html`，如果有权限限制的话，记得开白名单。比如说，编程喵整合了 SpringSecurity，所以需要在 application.yml 文件中放开 Swagger 和 Knife4j 的访问后缀。
+
+
+```
+# 自定义类 ignoreConfig，URL 的白名单
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /doc.html
+      - /swagger-ui/**
+      - /swagger/**
+      - /swagger-resources/**
+      - /**/v3/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /webjars/springfox-swagger-ui/**
+      - /actuator/**
+      - /druid/**
+      - /users/login
+      - /users/register
+      - /users/info
+      - /users/logout
+      - /minio/upload
+```
+
+### 源码路径
+
+> - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
+> - codingmore-knife4j：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-knife4j)
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

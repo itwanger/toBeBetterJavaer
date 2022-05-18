@@ -700,6 +700,10 @@ export const sidebarConfig = defineSidebarConfig({
               text: "整合Swagger-UI",
               link: "springboot/swagger"
             },
+            {
+              text: "整合Knife4j",
+              link: "gongju/knife4j"
+            },
             "springboot/tomcat",
           ],
         },
@@ -712,8 +716,6 @@ export const sidebarConfig = defineSidebarConfig({
             "gongju/Chocolatey-Homebrew",
             "gongju/chiner",
             "gongju/DBeaver",
-            "gongju/knife4j",
-            "kaiyuan/auto-generator",
             "gongju/junit",
             "gongju/gson",
             "gongju/fastjson",
