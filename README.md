@@ -280,6 +280,7 @@
 - [Spring Boot 整合 Redis 实现缓存](docs/redis/redis-springboot.md)
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](docs/kaiyuan/auto-generator.md)
 - [Spring Boot 整合 Swagger-UI 实现在线API文档](docs/springboot/swagger.md)
+- [Spring Boot 整合 Knife4j，美化强化丑陋的Swagger](docs/gongju/knife4j.md)
 - [Spring Boot 为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
 
 ## 辅助工具/轮子
@@ -289,7 +290,6 @@
 - [Chocolatey Homebrew：两款惊艳的Shell软件管理器](docs/gongju/Chocolatey-Homebrew.md)
 - [chiner：一款开源的数据库设计神器](docs/gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](docs/gongju/DBeaver.md)
-- [knife4j：一款界面更炫酷的API文档生成神器](docs/gongju/knife4j.md)
 - [Junit：一个开源的Java单元测试框架](docs/gongju/junit.md)
 - [fastjson：阿里巴巴开源的JSON解析库](docs/gongju/fastjson.md)
 - [Gson：Google开源的JSON解析库](docs/gongju/gson.md)
