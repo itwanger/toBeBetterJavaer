@@ -279,6 +279,7 @@ headerDepth: 1
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator生成项目骨架代码](kaiyuan/auto-generator.md)
 - [Spring Boot 整合 Swagger-UI 实现在线API文档](springboot/swagger.md)
 - [Spring Boot 整合 Knife4j，美化强化丑陋的Swagger](gongju/knife4j.md)
+- [Spring Boot 整合 Spring Task 实现定时任务](springboot/springtask.md)
 - [Spring Boot 为什么不需要额外安装Tomcat？](springboot/tomcat.md)
 
 ## 辅助工具/轮子

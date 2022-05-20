@@ -704,6 +704,10 @@ export const sidebarConfig = defineSidebarConfig({
               text: "整合Knife4j",
               link: "gongju/knife4j"
             },
+            {
+              text: "整合SpringTask",
+              link: "springboot/springtask"
+            },
             "springboot/tomcat",
           ],
         },
