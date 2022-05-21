@@ -645,57 +645,11 @@ public class RedisServiceImpl implements RedisService {
 
 **第三步**，在标签 PostTagController 中增加 Redis 测试用接口 simpleTest ：
 
-```java
-@Controller
-@Api(tags = "标签")
-@RequestMapping("/postTag")
-public class PostTagController {
-    @Autowired
-    private IPostTagService postTagService;
-    @Autowired
-    private IPostTagRelationService postTagRelationService;
+----
 
-    @Autowired
-    private RedisService redisService;
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-    @RequestMapping(value = "/simpleTest", method = RequestMethod.POST)
-    @ResponseBody
-    @ApiOperation("修改标签/Redis 测试用")
-    public ResultObject<PostTag> simpleTest(@Valid PostTagParam postAddTagParam) {
-        if (postAddTagParam.getPostTagId() == null) {
-            return ResultObject.failed("标签id不能为空");
-        }
-        PostTag postTag = postTagService.getById(postAddTagParam.getPostTagId());
-        if (postTag == null) {
-            return ResultObject.failed("标签不存在");
-        }
-        QueryWrapper<PostTag> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("description", postAddTagParam.getDescription());
-        int count = postTagService.count(queryWrapper);
-        if (count > 0) {
-            return ResultObject.failed("标签名称已存在");
-        }
-        BeanUtils.copyProperties(postAddTagParam, postTag);
-
-        boolean successFlag = postTagService.updateById(postTag);
-
-        String key = "redis:simple:" + postTag.getPostTagId();
-        redisService.set(key, postTag);
-
-        PostTag cachePostTag = (PostTag) redisService.get(key);
-        return ResultObject.success(cachePostTag);
-    }
-
-}
-```
-
-**第四步**，重启服务，使用 [Knife4j](https://mp.weixin.qq.com/s/gWPCg6TP3G_-I-eqA6EJmA) 测试该接口 ：
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-b74b8efe-4ef8-4395-9892-692272593b68.png)
-
-然后通过 Red 查看该缓存，OK，确认我们的代码是可以完美执行的。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-6b3979b7-37be-4c0a-b6fa-7701850ea0a1.png)
+----
 
 
 

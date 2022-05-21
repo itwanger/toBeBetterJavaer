@@ -417,49 +417,11 @@ logging:
 
 开搞。在控制器中添加一个 update 接口，准备修改数据，打算把沉默王二的狗腿子修改为沉默王二的狗腿：
 
-```java
-@RequestMapping("/update")
-public String update(Model model) {
-    User user = userService.findById(2);
-    user.setName("沉默王二的狗腿");
-    userService.update(user);
-    return "update";
-}
-```
+----
 
-在 Service 中为方法加上 `@Transactional` 注解并抛出运行时异常：
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-```java
-@Override
-@Transactional
-public void update(User user) {
-    userRepository.save(user);
-    throw new RuntimeException("啊，出现妖怪了！");
-}
-```
-
-按照我们的预期，当执行 save 保存数据后，因为出现了异常，所以事务要回滚。所以数据不会被修改。
-
-在浏览器中输入 `http://localhost:8080/user/update` 进行测试，注意查看日志，可以确认事务起效了。
-
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-002c8710-eae6-4b7e-9147-5fef33e50fab.png)
-
-当我们把事务去掉，同样抛出异常：
-
-```java
-@Override
-public void update(User user) {
-    userRepository.save(user);
-    throw new RuntimeException("啊，出现妖怪了！");
-}
-```
-
-再次执行，发现虽然程序报错了，但数据却被更新了。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-a32c6362-16b8-4fff-b333-8cc88e158ff9.png)
-
-这也间接地证明，我们的 `@Transactional` 事务起效了。
+----
 
 
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)

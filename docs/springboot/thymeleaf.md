@@ -145,14 +145,11 @@ public class UserController {
 
 ### HTTP Client
 
-Intellij IDEA 中提供了一个非常轻量级的 HTTP 客户端，可用来进行简单的测试。通过 tools 菜单栏选中 HTTP Client 创建一个 HTTP 请求。
+----
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-33cdf614-84d1-40eb-b78d-be57843a3b95.png)
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-
-按照格式填写完请求的 URL 后，就点击 Run all requests 就可以在 services 面板中查看到页面输出信息了。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-28a6bf83-42ef-4f07-9a3c-996b8a222b4a.png)
+----
 
 ### 源码地址
 
