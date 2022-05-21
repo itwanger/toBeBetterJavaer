@@ -48,11 +48,6 @@ actions:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
-## 联系我
-
-交流/加群/互看朋友圈，欢迎添加我的微信（备注“Github”即可）。
-
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/qing_geee.png" width="260px">
 
 ## star趋势图
 
@@ -76,6 +71,7 @@ actions:
 
 时间|小伙伴|赞赏金额
 ---|---|---
+2022-05-12|*烟|10元
 2022-04-25|*思|5元
 2022-04-20|w*n|1元
 2022-04-12|*生|10元
