@@ -277,12 +277,16 @@
 - [一分钟快速搭建Spring Boot项目](docs/springboot/initializr.md)
 - [Spring Boot 整合 MySQL 和 Druid](docs/springboot/mysql-druid.md)
 - [Spring Boot 整合 JPA](docs/springboot/jpa.md)
+- [Spring Boot 整合 Thymeleaf 模板引擎](docs/springboot/thymeleaf.md)
+- [Spring Boot 如何开启事务支持？](docs/springboot/transaction.md)
+- [Spring Boot 中使用过滤器、拦截器、监听器](docs/springboot/Filter-Interceptor-Listener.md)
 - [Spring Boot 整合 Redis 实现缓存](docs/redis/redis-springboot.md)
-- [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](docs/kaiyuan/auto-generator.md)
+- [Spring Boot 整合 Logback 定制日志框架](docs/springboot/logback.md)
 - [Spring Boot 整合 Swagger-UI 实现在线API文档](docs/springboot/swagger.md)
 - [Spring Boot 整合 Knife4j，美化强化丑陋的Swagger](docs/gongju/knife4j.md)
 - [Spring Boot 整合 Spring Task 实现定时任务](docs/springboot/springtask.md)
-- [Spring Boot 为什么不需要额外安装Tomcat？](docs/springboot/tomcat.md)
+- [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](docs/kaiyuan/auto-generator.md)
+
 
 ## 辅助工具/轮子
 
@@ -309,13 +313,14 @@
 
 - [全文搜索引擎Elasticsearch入门教程](docs/elasticsearch/rumen.md)
 - [可能是把ZooKeeper概念讲的最清楚的一篇文章](docs/zookeeper/jibenjieshao.md)
+- [微服务网关：从对比到选型，由理论到实践](docs/microservice/api-wangguan.md)
 
 ## 高性能
 
 ### 消息队列
 
 - [RabbitMQ入门教程（概念、应用场景、安装、使用）](docs/mq/rabbitmq-rumen.md)
-- [MQ：怎么确保消息100%不丢失？](docs/mq/100-budiushi.md)
+- [怎么确保消息100%不丢失？](docs/mq/100-budiushi.md)
 
 ## 高可用
 
@@ -326,10 +331,12 @@
 
 ## MySQL
 
+- [如何保障MySQL和Redis的数据一致性？](docs/mysql/redis-shuju-yizhixing.md)
+
 ## Redis
 
 - [Redis入门(适合新手)](docs/redis/rumen.md)
-- [简单聊聊缓存雪崩、穿透、击穿](docs/redis/xuebeng-chuantou-jichuan.md)
+- [聊聊缓存雪崩、穿透、击穿](docs/redis/xuebeng-chuantou-jichuan.md)
 
 
 

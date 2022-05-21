@@ -689,12 +689,24 @@ export const sidebarConfig = defineSidebarConfig({
               link: "springboot/jpa",
             },
             {
+              text: "整合Thymeleaf",
+              link: "springboot/thymeleaf",
+            },
+            {
+              text: "开启事务支持",
+              link: "springboot/transaction",
+            },
+            {
+              text: "过滤器、拦截器、监听器",
+              link: "Filter-Interceptor-Listener",
+            },
+            {
               text: "整合Redis实现缓存",
               link: "redis/redis-springboot",
             },
             {
-              text: "整合MyBatis-Plus AutoGenerator",
-              link: "kaiyuan/auto-generator",
+              text: "整合Logback",
+              link: "springboot/logback"
             },
             {
               text: "整合Swagger-UI",
@@ -708,7 +720,11 @@ export const sidebarConfig = defineSidebarConfig({
               text: "整合SpringTask",
               link: "springboot/springtask"
             },
-            "springboot/tomcat",
+            {
+              text: "整合MyBatis-Plus AutoGenerator",
+              link: "kaiyuan/auto-generator",
+            },
+            
           ],
         },
         {
@@ -736,21 +752,31 @@ export const sidebarConfig = defineSidebarConfig({
           text: "3.6 分布式",
           collapsable: true,
           children: [
-            "elasticsearch/rumen",
-            "zookeeper/jibenjieshao",
+            {
+              text: "Elasticsearch入门",
+              link: "elasticsearch/rumen"
+            },
+            {
+              text: "聊聊ZooKeeper",
+              link: "zookeeper/jibenjieshao"
+            },
+            {
+              text: "聊聊微服务网关",
+              link: "microservice/api-wangguan"
+            },
           ],
         },
         {
-          text: "3.7 高性能",
+          text: "3.7 消息队列",
           collapsable: true,
           children: [
             {
-              text: "消息队列",
-              collapsable: true,
-              children: [
-                "mq/rabbitmq-rumen",
-                "mq/100-budiushi",
-              ],
+              text: "RabbitMQ入门",
+              link: "mq/rabbitmq-rumen"
+            },
+            {
+              text: "如何保障消息不丢失",
+              link: "mq/100-budiushi"
             },
           ],
         },
@@ -761,11 +787,27 @@ export const sidebarConfig = defineSidebarConfig({
       collapsable: true,
       children: [
         {
+          text: "MySQL",
+          collapsable: true,
+          children: [
+            {
+              text: "MySQL和Redis数据一致性",
+              link: "mysql/redis-shuju-yizhixing"
+            },
+          ],
+        },
+        {
           text: "Redis",
           collapsable: true,
           children: [
-            "redis/rumen",
-            "redis/xuebeng-chuantou-jichuan",
+            {
+              text: "Redis入门",
+              link: "redis/rumen"
+            },
+            {
+              text: "缓存雪崩、穿透、击穿",
+              link: "redis/xuebeng-chuantou-jichuan"
+            },
           ],
         },
         {
