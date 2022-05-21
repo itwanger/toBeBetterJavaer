@@ -1,53 +1,321 @@
 ---
 category:
-  - 数据库
+  - Java企业级开发
 tag:
+  - Spring Boot
   - Redis
+title: Spring Boot 整合 Redis  缓存
 ---
-
-# 某意大利小哥，竟靠一个缓存中间件直接封神？
-
-大家好，我是二哥呀！关注我有一段时间的小伙伴都知道了，我最近的业余时间都花在了编程喵🐱这个实战项目上，其中要用到 Redis，于是我就想，索性出一期 Redis 的入门教程吧——主要是整合 Redis 来实现缓存功能，希望能帮助到大家。
 
 作为开发者，相信大家都知道 Redis 的重要性。Redis 是使用 C 语言开发的一个高性能键值对数据库，是互联网技术领域使用最为广泛的存储中间件，它是「Remote Dictionary Service」的首字母缩写，也就是「远程字典服务」。
 
 Redis 以超高的性能、完美的文档、简洁的源码著称，国内外很多大型互联网公司都在用，比如说阿里、腾讯、GitHub、Stack Overflow 等等。当然了，中小型公司也都在用。
 
-![](https://img-blog.csdnimg.cn/img_convert/10872dcbe110f9aa7aaf23a8fed76469.png)
-
-Redis 的作者是一名意大利人，原名 Salvatore Sanfilippo，网名 Antirez。不过，很遗憾的是，网上竟然没有他的维基百科，甚至他自己的博客网站，都在跪的边缘（没有 HTTPS，一些 js 也加载失败了）。
-
-![](https://img-blog.csdnimg.cn/img_convert/5dba51cff6e4f1c6c05ab893749b0a18.png)
-
-不过，如果是鄙人造出 Redis 这么酷炫的产品，早就功成身退了。
-
-### 一、安装 Redis
+### 安装 Redis
 
 Redis 的官网提供了各种平台的安装包，Linux、macOS、Windows 的都有。
 
-
-![](https://img-blog.csdnimg.cn/img_convert/a4ac529b6f2a4ee018e344ba1e65dc5f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-182f2469-b7f2-4fec-bd41-e5a33dca185a.png)
 
 >官方地址：[https://redis.io/docs/getting-started/](https://redis.io/docs/getting-started/)
 
 我目前用的是 macOS，直接执行 `brew install redis` 就可以完成安装了。
 
-![](https://img-blog.csdnimg.cn/img_convert/7de3dc4db8e8711270a6974aa8e083c5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-cdf02715-5ed6-44b5-a1ce-db0249107dd7.png)
 
 完成安装后执行 `redis-server` 就可以启动 Redis 服务了。
 
-![](https://img-blog.csdnimg.cn/img_convert/d1ea58d82b3dfbd79baef07efef24054.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-8c272a19-e961-449c-afee-c973fb44a5e0.png)
 
-不过，实际的开发当中，我们通常会选择 Linux 服务器来作为生产环境。我的服务器上安装了宝塔面板，可以直接在软件商店里搜「Redis」关键字，然后直接安装（我的已经安装过了）。
+Windows 用户可以通过我之前提到的 [chocolatey 命令行软件管理神器](https://mp.weixin.qq.com/s/Hgm3ZAbOeBqpSUsJZBtlNg)安装（可以戳链接了解详情），只需要一行命令 `choco install redis` 就可以完成安装了，非常方便。
 
-![](https://img-blog.csdnimg.cn/img_convert/753dc67e5ca3fd1090c281ff77c105a2.png)
 
-### 二、整合 Redis
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-13b569ca-e747-4d64-af0d-a9a5d0260f5f.png)
+
+
+生产环境中，我们通常会在 Linux 上安装 Redis。我的服务器上安装了宝塔面板，可以直接在软件商店里搜「Redis」关键字，然后直接安装（我已经安装过了）。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-df5e600b-1290-447c-b140-6f513c69492c.png)
+
+顺带安装一下 Redis 客户端工具，推荐 GitHub 星标 20k+ 的 AnotherRedisDesktopManager，一款 🚀🚀🚀 更快、更好、更稳定的Redis桌面(GUI)管理客户端，支持 Windows、macOS 和 Linux，性能出众，可以轻松加载海量键值。
+
+>[https://github.com/qishibo/AnotherRedisDesktopManager](https://github.com/qishibo/AnotherRedisDesktopManager)
+
+安装完成后，链接 Redis 服务：
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-d36b9022-fe3b-4fb1-80c3-8d23d19d9025.png)
+
+
+### Redis 数据类型
+
+Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。
+
+>Redis 教程：[https://www.redis.net.cn/tutorial/3508.html](https://www.redis.net.cn/tutorial/3508.html)
+
+**1）string**
+
+string 是 Redis 最基本的数据类型，一个key对应一个value。
+
+我们可以通过 AnotherRedisDesktopManager 客户端来练习一下基本的 set、get 命令（参考 Redis 文档，客户端会有提示，所以命令完全不用死记硬背）。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-d7d4043b-b753-484c-bfc1-25533004cca5.png)
+
+对应文本命令：
+
+```
+### 增加一个 key 为 name，value 为 沉默王二
+> set name '沉默王二'
+OK
+### 获取
+> get name
+沉默王二
+> set name '沉默王三'
+OK
+> get name
+沉默王三
+### 删除
+> del name
+1
+> get name
+null
+### 测试是否存在 name
+> EXISTS key
+0
+> EXISTS name
+0
+```
+
+**2）hash**
+
+Redis hash 是一个键值对集合，值可以看成是一个 Map。
+
+```
+### 清除数据库
+> flushdb
+OK
+### 创建 hash，key 为 user_hset 字段为 user1，值为 沉默王二
+> hset user_hset user1 沉默王二
+1
+> hset user_hset user2 沉默王三
+1
+### 字段长度
+> hlen user_hset
+2
+### 所有字段
+> HKEYS user_hset
+user1
+user2
+### 所有值
+> hvals user_hset
+沉默王二
+沉默王三
+### 字段 user1 的值
+> hget user_hset user1
+沉默王二
+### 获取 key 为 user_hset 的所有字段和值
+> hgetall user_hset
+user1
+沉默王二
+user2
+沉默王三
+### 更新字段
+> hset user_hset user1 沉默王四
+0
+> hgetall user_hset
+user1
+沉默王四
+user2
+沉默王三
+> hdel user_hset user1
+1
+> hgetall user_hset
+user2
+沉默王三
+```
+
+**3）list**
+
+list 是一个简单的字符串列表，按照插入顺序排序。
+
+```
+### 添加 key 为 user_list value 为 沉默王二、沉默万三的集合
+> lpush user_list 沉默王二 沉默王三
+2
+### 查询
+> lrange user_list 0 -1
+沉默王三
+沉默王二
+### 往尾部添加
+> rpush user_list 沉默王二是沙比
+3
+### 头部添加
+> lpush user_list 沉默王二是傻叉
+4
+> lrange user_list 0 -1
+沉默王二是傻叉
+沉默王三
+沉默王二
+沉默王二是沙比
+### 更新 index 为 0 的值
+> lset user_list 0 沉默王四
+OK
+> lrange user_list 0 -1
+沉默王四
+沉默王三
+沉默王二
+沉默王二是沙比
+### 删除 index 为 0 的值
+> lrem user_list 0 沉默王四
+1
+> lrange user_list 0 -1
+沉默王三
+沉默王二
+沉默王二是沙比
+```
+
+**4）set**
+
+set 是 string 类型的无序集合，不允许有重复的元素。
+
+```
+### 添加 key 为 user_set value 为沉默王二 沉默王三 沉默王二的狗腿子的集合
+> sadd user_set 沉默王二 沉默王三 沉默王二的狗腿子
+3
+### 查询
+> smembers user_set
+沉默王二
+沉默王二的狗腿子
+沉默王三
+### 删除 value 为沉默王二的元素
+> srem user_set 沉默王二
+1
+> smembers user_set
+沉默王二的狗腿子
+沉默王三
+### 添加
+> sadd user_set 沉默王二
+1
+> smembers user_set
+沉默王二
+沉默王二的狗腿子
+沉默王三
+```
+
+**5）sorted set**
+
+sorted set 是 string 类型的有序集合，不允许有重复的元素。
+
+```
+> FLUSHDB
+OK
+### 添加 key 为 user_zset 分数为 1 值为沉默王二、分数为 2 值为沉默王三、分数为 3 值为沉默王二的狗腿子
+> zadd user_zset 1 沉默王二 2 沉默王三 3 沉默王二的狗腿子
+3
+### 查询
+> zrange user_zset 0 -1
+沉默王二
+沉默王三
+沉默王二的狗腿子
+### 反转
+> zrevrange user_zset 0 -1
+沉默王二的狗腿子
+沉默王三
+沉默王二
+### 查询元素沉默王二的分数
+> zscore user_zset 沉默王二
+1
+```
+
+
+### Spring Boot 整合 Redis
+
+第一步，在 pom.xml 文件中添加 Redis 的 starter。
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+
+第二步，在 application.yml 文件中添加 Redis 的配置信息
+
+```
+spring:
+  redis:
+    host: xxx.xxx.99.232 # Redis服务器地址
+    database: 0 # Redis数据库索引（默认为0）
+    port: 6379 # Redis服务器连接端口
+    password: xxx # Redis服务器连接密码（默认为空）
+```
+
+第三步，在测试类中添加以下代码。
+
+```java
+@SpringBootTest
+class CodingmoreRedisApplicationTests {
+    @Resource
+    private RedisTemplate redisTemplate;
+
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
+
+    @Test
+    public void testRedis() {
+        // 添加
+        redisTemplate.opsForValue().set("name","沉默王二");
+        // 查询
+        System.out.println(redisTemplate.opsForValue().get("name"));
+        // 删除
+        redisTemplate.delete("name");
+        // 更新
+        redisTemplate.opsForValue().set("name","沉默王二的狗腿子");
+        // 查询
+        System.out.println(redisTemplate.opsForValue().get("name"));
+
+        // 添加
+        stringRedisTemplate.opsForValue().set("name","沉默王二");
+        // 查询
+        System.out.println(stringRedisTemplate.opsForValue().get("name"));
+        // 删除
+        stringRedisTemplate.delete("name");
+        // 更新
+        stringRedisTemplate.opsForValue().set("name","沉默王二的狗腿子");
+        // 查询
+        System.out.println(stringRedisTemplate.opsForValue().get("name"));
+
+    }
+
+}
+```
+
+RedisTemplate 和 StringRedisTemplate 都是 Spring Data Redis 提供的模板类，可以对 Redis 进行操作，后者针对键值对都是 String 类型的数据，前者可以是任何类型的对象。
+
+RedisTemplate 和 StringRedisTemplate 除了提供 opsForValue 方法来操作字符串之外，还提供了以下方法：
+
+- opsForList：操作 list
+- opsForSet：操作 set
+- opsForZSet：操作有序 set
+- opsForHash：操作 hash
+
+运行测试类后可以在控制台看到以下输出信息：
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f4456aea-2e48-4bad-910d-2d963ef0224e.png)
+
+也可以通过 AnotherRedisDesktopManager 客户端查看 Redis 数据库中的数据。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f7551ebb-0bde-4084-9ab0-4a724d8ad2ec.png)
+
+
+
+### 编程喵整合 Redis
 
 编程喵是一个 Spring Boot + Vue 的前后端分离项目，要整合 Redis 的话，最好的方式是使用 Spring Cache，仅仅通过 @Cacheable、@CachePut、@CacheEvict、@EnableCaching 等注解就可以轻松使用 Redis 做缓存了。
 
 
-![](https://img-blog.csdnimg.cn/img_convert/3855e75d86e5da978a76369384dd8055.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-eb6d69d7-9152-4695-87c7-cba138ca93fd.png)
 
 **1）@EnableCaching**，开启缓存功能。
 
@@ -63,7 +331,7 @@ Spring Cache 的注解（前面提到的四个）会在调用方法之后，去�
 
 这些读写操作不用我们手动再去写代码实现了，直接交给 Spring Cache 来打理就 OK 了，是不是非常贴心？
 
-![](https://img-blog.csdnimg.cn/img_convert/66e9480a7b1e9ecf48953dc97ed882f0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-afed274d-458d-4e6e-9fd0-b421ac811f47.png)
 
 **第一步**，在 pom.xml 文件中追加 Redis 的 starter。
 
@@ -195,13 +463,13 @@ public class PostTagController {
 
 **第五步**，启动服务器端，启动客户端，修改标签进行测试。
 
-![](https://img-blog.csdnimg.cn/img_convert/7a3faff80eae3d43031aae38f2fc8a89.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-6463fdda-6cc2-43f4-91e6-e0de9f0f1c0c.png)
 
 通过 Red 客户端（一款 macOS 版的 Redis 桌面工具），可以看到刚刚更新的返回值已经添加到 Redis 中了。
 
-![](https://img-blog.csdnimg.cn/img_convert/482888d29652bcf20ec5e1af369cd03b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-468a253d-931a-4e5b-8f7e-36ecc1561dac.png)
 
-### 三、使用 Redis 连接池
+### 使用 Redis 连接池
 
 Redis 是基于内存的数据库，本来是为了提高程序性能的，但如果不使用 Redis 连接池的话，建立连接、断开连接就需要消耗大量的时间。
 
@@ -214,7 +482,7 @@ Redis 是基于内存的数据库，本来是为了提高程序性能的，但�
 
 它俩在 GitHub 上都挺受欢迎的，大家可以按需选用。
 
-![](https://img-blog.csdnimg.cn/img_convert/0304871d4718d0dd9a5d428f14bb21a3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-c94651b5-1e53-42e5-ad5f-162b4bf509a7.png)
 
 我这里把两种客户端的情况都演示一下，方便小伙伴们参考。
 
@@ -237,11 +505,11 @@ spring:
 
 ```
 Caused by: java.lang.ClassNotFoundException: org.apache.commons.pool2.impl.GenericObjectPoolConfig
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	... 153 common frames omitted
+    at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+    at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:335)
+    at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+    ... 153 common frames omitted
 ```
 
 添加 commons-pool2 依赖：
@@ -258,11 +526,11 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.pool2.impl.Gener
 
 重新启动服务，在 RedisConfig 类的 redisTemplate 方法里对 redisTemplate 打上断点，debug 模式下可以看到连接池的配置信息（`redisConnectionFactory→clientConfiguration→poolConfig`）。如下图所示。
 
-![](https://img-blog.csdnimg.cn/img_convert/1550863dcb1dc7eb24efb265d5b04319.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-e4cd346c-07d0-4ee3-9832-4c7a2aa1b7b4.png)
 
 如果在 application-dev.yml 文件中没有添加 Lettuce 连接池配置的话，是不会看到
 
-![](https://img-blog.csdnimg.cn/img_convert/4dd422a75f9e710ea34a1771001b8333.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-7e86e208-bf5f-4dc2-a962-2b926adaa524.png)
 
 
 
@@ -304,22 +572,22 @@ spring:
 启动服务后，观察 redisTemplate 的 clientConfiguration 节点，可以看到它的值已经变成 DefaultJedisClientConfiguration 对象了。
 
 
-![](https://img-blog.csdnimg.cn/img_convert/fab2a70033e339b836802aa15b1327ba.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-01aa7dc6-b9f7-46bd-b8a4-0a24e44185bc.png)
 
 
 当然了，也可以不配置 Jedis 客户端的连接池，走默认的连接池配置。因为 Jedis 客户端默认增加了连接池的依赖包，在 pom.xml 文件中点开 Jedis 客户端依赖可以查看到。 
 
-![](https://img-blog.csdnimg.cn/img_convert/dabc473eebaf612a913f740002a6af5f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-c87d8e02-aace-4d86-8011-13e4087956e0.png)
 
-### 四、自由操作 Redis
+### 自由操作 Redis
 
 Spring Cache 虽然提供了操作 Redis 的便捷方法，比如我们前面演示的 @CachePut 注解，但注解提供的操作非常有限，比如说它只能保存返回值到缓存中，而返回值并不一定是我们想要保存的结果。
 
-![](https://img-blog.csdnimg.cn/img_convert/3804abcc76359d9f225ac794e68650bc.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f28a3b84-ed0b-4a78-a5e5-5803bae967be.png)
 
 与其保存这个返回给客户端的 JSON 信息，我们更想保存的是更新后的标签。那该怎么自由地操作 Redis 呢？
 
-![](https://img-blog.csdnimg.cn/img_convert/2effe1fc18c93391c51340576a00ddf5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-9b89af51-c2fd-4b2d-ba57-a59efa4cbffd.png)
 
 **第一步**，增加 RedisService 接口：
 
@@ -421,27 +689,20 @@ public class PostTagController {
 }
 ```
 
-**第四步**，重启服务，使用 Knife4j 测试该接口 ：
+**第四步**，重启服务，使用 [Knife4j](https://mp.weixin.qq.com/s/gWPCg6TP3G_-I-eqA6EJmA) 测试该接口 ：
 
-![](https://img-blog.csdnimg.cn/img_convert/5a05faf1d698be1004d43459d10c4c41.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-b74b8efe-4ef8-4395-9892-692272593b68.png)
 
 然后通过 Red 查看该缓存，OK，确认我们的代码是可以完美执行的。
 
-![](https://img-blog.csdnimg.cn/img_convert/7c5062a79c293b58f279e61588280d18.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-6b3979b7-37be-4c0a-b6fa-7701850ea0a1.png)
 
-### 五、小结
 
-赞美 Redis 的彩虹屁我就不再吹了，总之，如果我是 Redis 的作者 Antirez，我就自封为神！
 
-![](https://img-blog.csdnimg.cn/img_convert/dbbeda5f72afd77fbccb2f66560f8ab3.gif)
+### 项目源码
 
-编程喵实战项目的源码地址我贴下面了，大家可以下载下来搞一波了：
-
-> [https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
-
-我们下期见~
-
-----
+> - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
+> - 整合 Redis 专用：[https://github.com/itwanger/coding-more](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-redis)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

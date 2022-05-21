@@ -275,12 +275,15 @@ headerDepth: 1
 - [一分钟快速搭建Spring Boot项目](springboot/initializr.md)
 - [Spring Boot 整合 MySQL 和 Druid](springboot/mysql-druid.md)
 - [Spring Boot 整合 JPA](springboot/jpa.md)
+- [Spring Boot 整合 Thymeleaf 模板引擎](springboot/thymeleaf.md)
+- [Spring Boot 如何开启事务支持？](springboot/transaction.md)
+- [Spring Boot 中使用过滤器、拦截器、监听器](springboot/Filter-Interceptor-Listener.md)
 - [Spring Boot 整合 Redis 实现缓存](redis/redis-springboot.md)
-- [Spring Boot 整合 MyBatis-Plus AutoGenerator生成项目骨架代码](kaiyuan/auto-generator.md)
+- [Spring Boot 整合 Logback 定制日志框架](springboot/logback.md)
 - [Spring Boot 整合 Swagger-UI 实现在线API文档](springboot/swagger.md)
 - [Spring Boot 整合 Knife4j，美化强化丑陋的Swagger](gongju/knife4j.md)
 - [Spring Boot 整合 Spring Task 实现定时任务](springboot/springtask.md)
-- [Spring Boot 为什么不需要额外安装Tomcat？](springboot/tomcat.md)
+- [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](kaiyuan/auto-generator.md)
 
 ## 辅助工具/轮子
 
@@ -307,6 +310,7 @@ headerDepth: 1
 
 - [全文搜索引擎Elasticsearch入门教程](elasticsearch/rumen.md)
 - [可能是把ZooKeeper概念讲的最清楚的一篇文章](zookeeper/jibenjieshao.md)
+- [微服务网关：从对比到选型，由理论到实践](microservice/api-wangguan.md)
 
 ### 高性能
 
@@ -325,10 +329,12 @@ headerDepth: 1
 
 ### MySQL
 
+- [如何保障MySQL和Redis的数据一致性？](mysql/redis-shuju-yizhixing.md)
+
 ### Redis
 
 - [Redis入门(适合新手)](redis/rumen.md)
-- [简单聊聊缓存雪崩、穿透、击穿](redis/xuebeng-chuantou-jichuan.md)
+- [聊聊缓存雪崩、穿透、击穿](redis/xuebeng-chuantou-jichuan.md)
 
 
 
