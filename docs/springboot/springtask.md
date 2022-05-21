@@ -263,12 +263,11 @@ Cron 的语法格式可以总结为：
 
 Spring Task 虽然用起来很方便，但用法过去简单，很多复杂的业务逻辑是没有办法实现的，比如说编程喵的定时发布文章功能，只用 Spring Task 是没办法的。
 
-因为 Spring Task 第一没办法持久化，也就是只能在程序运行期间执行定时任务，不能把任务写入到数据库，这就意味着程序一旦挂掉，定时任务就没了。
+----
 
-不过，Spring Task 中的 Cron 表达式是值得去学习的，包括源码层面上 ThreadPoolTaskScheduler 和 ScheduledThreadPoolExecutor 的关系。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-14348079-4398-4484-bfd6-8cbf3ad3ee0d.png)
+----
 
 
 ### 源码路径

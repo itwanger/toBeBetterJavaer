@@ -286,38 +286,11 @@ class CodingmoreLogbackApplicationTests {
 }
 ```
 
-运行该测试方法，可以在控制台看到如下日志：
+----
 
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-2456652a-63f5-4499-8133-ed9c8a68e0e7.png)
-
-日志文件也有：
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-f1baaaa3-e6c4-4abb-8cc7-9862e90f960a.png)
-
-查看字节码反编译后的文件就明白了。lombok 在编译的时候会自动添加一行代码：
-
-```java
-private static final Logger log = LoggerFactory.getLogger(CodingmoreLogbackApplicationTests.class);
-```
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-e5eb93b2-906c-4fbf-8fe4-6e6a3c727625.png)
-
-### logback 中文手册
-
-GitHub 上有一份 Logback 的中文手册，总共有 150 多页，主要包含以下基本的和高级的特性：
-
-- logback 的整体架构
-- 讨论 logback 最好的实践以及反模式
-- logback 的 xml 配置方式
-- appender
-- encoder
-- layout
-- filter
-- 上下文诊断
-- Joran - logback 的配置系统
-
->[https://github.com/YLongo/logback-chinese-manual](https://github.com/YLongo/logback-chinese-manual)
+----
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-cd491159-e48e-4c74-a67f-7962a45e847f.png)

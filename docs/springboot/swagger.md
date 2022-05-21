@@ -262,23 +262,11 @@ public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 
 Swagger 虽然解决了调用端代码、服务端代码以及接口文档的不一致的问题，但有一说一，Swagger-UI 实在是太丑了。
 
-不仅查看不方便，操作起来不方便。
+----
 
-你比如说，我压根就不需要 OPTIONS、HEAD、PATCH、TRACE 这些 HTTP 请求，它也全部列了出来。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-4b42804a-e88c-4cb0-baa2-874af5297bc5.png)
-
-你比如说测试接口的时候要先点「try it out」
-
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-529b1547-90b8-478b-8e9e-b77c0b9ae855.png)
-
-再点「execute」才能发送请求和查看响应结果。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-a1411977-0f4c-4688-97bc-3d48ca8dc32b.png)
-
-所以下一节，我们要在 Swagger 的基础上进行美化，增强接口文档，以便提升我们的工作效率。
+----
 
 
 ### 源码路径

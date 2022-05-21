@@ -309,72 +309,11 @@ pc.setParent("top.codingmore.mpg");
 
 完整代码如下所示：
 
-```java
-package top.codingmore.generator;
+----
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.rules.DateType;
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
-/**
- * 微信搜索「沉默王二」，回复 Java
- *
- * @author 沉默王二
- * @date 5/17/22
- */
-public class CodeGenerator {
-    public static void main(String[] args) {
-        // 代码生成器
-        AutoGenerator mpg = new AutoGenerator();
-
-        // 全局配置
-        GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("沉默王二");
-        gc.setOpen(false);
-        gc.setDateType(DateType.ONLY_DATE);
-        gc.setSwagger2(true);
-        gc.setIdType(IdType.AUTO);
-        gc.setBaseColumnList(true);
-        gc.setBaseResultMap(true);
-        gc.setFileOverride(true);
-
-        mpg.setGlobalConfig(gc);
-
-        // 数据源配置
-        DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/codingmore?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai");
-        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("Huicheng123");
-
-        mpg.setDataSource(dsc);
-
-        // 包配置
-        PackageConfig pc = new PackageConfig();
-        pc.setParent("top.codingmore.mpg");
-        mpg.setPackageInfo(pc);
-
-        mpg.execute();
-    }
-}
-```
-
-再来看一下运行后的效果，可以看到数据库表对应的 controller、service、entity、mapper 等等全有了——爽歪歪：
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-1.gif)
-
-### 总结对比
-
-对比 Mybatis 的 Generator 和 MyBatis-Plus 的 AutoGenerator，就可以得出这样一条结论：后者的配置更简单，开发效率也更高，功能也更强大——可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码。
-
-**MyBatis-Plus 的确配得上 Plus 啊，确实优秀**。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-9.png)
+----
 
 ### 源码地址：
 
