@@ -1,14 +1,11 @@
 ---
+title: chiner：一款开源的数据库设计神器
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 
 ---
-
-
-# chiner：一款开源的数据库设计神器
-
 
 最近在造轮子，从 0 到 1 的那种，就差前台的界面了，大家可以耐心耐心耐心期待一下。其中需要设计一些数据库表，可以通过 Navicat 这种图形化管理工具直接开搞，也可以通过一些数据库设计工具来搞，比如说 PowerDesigner，更专业一点。
 
@@ -17,7 +14,7 @@ tag:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-1.png)
 
 
-### 一、 关于 PowerDesigner
+### 一、关于 PowerDesigner
 
 PowerDesigner 是一款功能非常强大的建模工具，可以和 Rational Rose 媲美。Rose 专攻 UML 对象模型的建模，之后才拓展到数据库这块。而 PowerDesigner 是一开始就为数据库建模服务的，后来才发展为一款综合战斗力都还不错的建模工具。
 
@@ -43,7 +40,7 @@ chiner，发音：[kaɪˈnər]，使用React+Electron+Java技术体系构建的�
 
 chiner 支持 Windows、macOS 和 Linux，下载地址如下所示：
 
->https://gitee.com/robergroup/chiner/releases
+>[https://gitee.com/robergroup/chiner/releases](https://gitee.com/robergroup/chiner/releases)
 
 码云做了外部链接的拦截，导致直接复制链接到地址栏才能完成下载。我这里以 macOS 为例。
 
@@ -155,11 +152,11 @@ chiner 还有更多更强大的功能，大家觉得不错的话，可以去尝�
 
 项目地址：
 
->https://gitee.com/robergroup/chiner
+>[https://gitee.com/robergroup/chiner](https://gitee.com/robergroup/chiner)
 
 使用手册：
 
->https://www.yuque.com/chiner/docs/manual
+>[https://www.yuque.com/chiner/docs/manual](https://www.yuque.com/chiner/docs/manual)
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

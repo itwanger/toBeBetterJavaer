@@ -1,11 +1,11 @@
 ---
+title: fastjson：阿里巴巴开源的JSON解析库
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
 
-# fastjson：阿里巴巴开源的JSON解析库
 
 
 ### 01、前世今生

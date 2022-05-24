@@ -731,21 +731,63 @@ export const sidebarConfig = defineSidebarConfig({
           text: "3.5 辅助工具/轮子",
           collapsable: true,
           children: [
-            "gongju/tabby",
-            "gongju/warp",
-            "gongju/Chocolatey-Homebrew",
-            "gongju/chiner",
-            "gongju/DBeaver",
-            "gongju/junit",
-            "gongju/gson",
-            "gongju/fastjson",
-            "gongju/jackson",
-            "gongju/forest",
-            "gongju/log4j",
-            "gongju/log4j2",
-            "gongju/logback",
-            "gongju/slf4j",
-            "gongju/others",
+            {
+              text: "Tabby",
+              link: "gongju/tabby",
+            },
+            {
+              text: "Warp",
+              link: "gongju/warp",
+            },
+            {
+              text: "Chocolatey",
+              link: "gongju/choco",
+            },
+            {
+              text: "chiner",
+              link: "gongju/chiner",
+            },
+            {
+              text: "DBeaver",
+              link: "gongju/DBeaver",
+            },
+            {
+              text: "Forest",
+              link: "gongju/forest",
+            },
+            {
+              text: "Junit",
+              link: "gongju/junit",
+            },
+            {
+              text: "fastjson",
+              link: "gongju/fastjson",
+            },
+            {
+              text: "Gson",
+              link: "gongju/gson",
+            },
+            {
+              text: "Jackson",
+              link: "gongju/jackson",
+            },
+            {
+              text: "Log4j",
+              link: "gongju/log4j",
+            },
+            {
+              text: "Log4j2",
+              link: "gongju/log4j2",
+            },
+            {
+              text: "Logback",
+              link: "gongju/logback",
+            },
+            {
+              text: "SLF4J",
+              link: "gongju/slf4j",
+            },
+            
           ],
         },
         {

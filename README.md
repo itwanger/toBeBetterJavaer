@@ -292,19 +292,18 @@
 
 - [Tabby：一款逼格更高的开源终端工具](docs/gongju/tabby.md)
 - [Warp：一款21世纪人用的终端工具](docs/gongju/warp.md)
-- [Chocolatey Homebrew：两款惊艳的Shell软件管理器](docs/gongju/Chocolatey-Homebrew.md)
+- [Chocolatey：一款GitHub星标8.2k+的Windows命令行软件管理器](docs/gongju/choco.md)
 - [chiner：一款开源的数据库设计神器](docs/gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](docs/gongju/DBeaver.md)
+- [Forest：一款极简的声明式HTTP调用API框架](docs/gongju/forest.md)
 - [Junit：一个开源的Java单元测试框架](docs/gongju/junit.md)
 - [fastjson：阿里巴巴开源的JSON解析库](docs/gongju/fastjson.md)
 - [Gson：Google开源的JSON解析库](docs/gongju/gson.md)
 - [Jackson：GitHub上star数最多的JSON解析库](docs/gongju/jackson.md)
-- [Forest：一款极简的声明式HTTP调用API框架](docs/gongju/forest.md)
-- [Log4j：Log4j 2的前身，Java日志框架的鼻祖](docs/gongju/log4j.md)
+- [Log4j：Java日志框架的鼻祖](docs/gongju/log4j.md)
 - [Log4j 2：Apache维护的一款高性能日志记录工具](docs/gongju/log4j2.md)
 - [Logback：Spring Boot内置的日志处理框架](docs/gongju/logback.md)
 - [SLF4J：阿里巴巴强制使用的日志门面担当](docs/gongju/slf4j.md)
-- [其他辅助工具/轮子](docs/gongju/others.md)
 
 
 ## 安全篇

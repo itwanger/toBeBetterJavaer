@@ -1,17 +1,12 @@
 ---
+title: Log4j 2：Apache维护的一款高性能日志记录工具
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
 
-# Log4j 2：Apache维护的一款高性能日志记录工具
-
-
-
-[Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg) 介绍过了，[SLF4J](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA) 介绍过了，[Logback](https://mp.weixin.qq.com/s/mm0OYM-raVBi2KwK_QK21g) 也介绍过了，你以为日志系列的文章就到此终结了？
-
-不不不，我告诉你，还有一个 Log4j 2，顾名思义，它就是 Log4j 的升级版，就好像手机里面的 Pro 版。我作为一个写文章方面的工具人，或者叫打工人，怎么能不写完这最后一篇。
+Log4j 2，顾名思义，它就是 Log4j 的升级版，就好像手机里面的 Pro 版。我作为一个写文章方面的工具人，或者叫打工人，怎么能不写完这最后一篇。
 
 Log4j、SLF4J、Logback 是一个爹——Ceki Gulcu，但 Log4j 2 却是例外，它是 Apache 基金会的产品。
 
@@ -314,4 +309,4 @@ for (int i = 1;i < 20; i++) {
 到此为止，Log4j 2 的基本使用示例就已经完成了。测试环境搞定，我去问一下老板，要不要在生产环境下使用 Log4j 2。
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

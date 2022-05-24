@@ -1,20 +1,18 @@
 ---
+title: Logback：Spring Boot内置的日志处理框架
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
 
-# Logback：Spring Boot内置的日志处理框架
-
-
-[Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg) 介绍过了，[SLF4J](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA) 也介绍过了，那接下来，你懂的，Logback 就要隆重地登场了，毕竟它哥仨有一个爹，那就是巨佬 Ceki Gulcu。
-
 就在昨天，老板听我说完 Logback 有多牛逼之后，彻底动心了，对我下了死命令，“这么好的日志系统，你还不赶紧点，把它切换到咱的项目当中！”
 
 我们项目之前用的 Log4j，在我看来，已经足够用了，毕竟是小公司，性能上的要求没那么苛刻。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-320329e9-a754-427f-8a19-2e4f809b6a6f.png)
+
+[Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg) 介绍过了，[SLF4J](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA) 也介绍过了，那接下来，你懂的，Logback 就要隆重地登场了，毕竟它哥仨有一个爹，那就是巨佬 Ceki Gulcu。
 
 ### 01、Logback 强在哪
 
@@ -200,7 +198,7 @@ appender-ref 用来指定具体的 appender。
 
 如果你的项目以前用的 Log4j，那么可以通过下面这个网址把 log4j.properties 转成 logback-test.xml：
 
->http://logback.qos.ch/translator/
+>[http://logback.qos.ch/translator/](http://logback.qos.ch/translator/)
 
 把之前 log4j.properties 的内容拷贝一份：
 
@@ -402,7 +400,7 @@ public class Test {
 
 Logback 的官网上是有一份手册的，非常详细，足足 200 多页，只不过是英文版的。小伙伴们可以看完我这篇文章入门实操的 Logback 教程后，到下面的地址看官方手册。
 
->http://logback.qos.ch/manual/index.html
+>[http://logback.qos.ch/manual/index.html](http://logback.qos.ch/manual/index.html)
 
 如果英文阅读能力有限的话，可以到 GitHub 上查看雷锋翻译的中文版：
 
@@ -413,4 +411,4 @@ Logback 的官网上是有一份手册的，非常详细，足足 200 多页，�
 >链接:[https://pan.baidu.com/s/16FrbwycYUUIfKknlLhRKYA](https://pan.baidu.com/s/16FrbwycYUUIfKknlLhRKYA)  密码:bptl
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
