@@ -698,7 +698,7 @@ export const sidebarConfig = defineSidebarConfig({
             },
             {
               text: "过滤器、拦截器、监听器",
-              link: "Filter-Interceptor-Listener",
+              link: "springboot/Filter-Interceptor-Listener",
             },
             {
               text: "整合Redis实现缓存",
