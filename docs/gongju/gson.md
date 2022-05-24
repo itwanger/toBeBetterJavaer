@@ -1,11 +1,11 @@
 ---
+title: Gson：Google开源的JSON解析库
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
 
-# Gson：Google开源的JSON解析库
 
 
 ### 01、前世今生
@@ -68,7 +68,7 @@ PS：Gradle 是一个基于 Apache Ant 和 Apache Maven 概念的项目自动化
 
 测试用例我已经帮你写好了，放在 GitHub 上，如果你不相信的话，可以验证一下。
 
->https://github.com/google/gson/blob/master/gson/src/test/java/com/google/gson/metrics/PerformanceTest.java
+>[https://github.com/google/gson/blob/master/gson/src/test/java/com/google/gson/metrics/PerformanceTest.java](https://github.com/google/gson/blob/master/gson/src/test/java/com/google/gson/metrics/PerformanceTest.java)
 
 ### 04、使用指南
 
@@ -449,7 +449,7 @@ private int age = 18;
 
 如果你还想了解更多的话，请来参观我的 GitHub 主页：
 
->https://github.com/google/gson
+>[https://github.com/google/gson](https://github.com/google/gson)
 
 我会向你坦露我的一切，毫不保留的，除了我和女朋友之间的一些秘密，只为能够帮助到你。
 

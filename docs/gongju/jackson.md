@@ -1,11 +1,11 @@
 ---
+title: Jackson：GitHub上star数最多的JSON解析库
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
 
-# Jackson：GitHub上star数最多的JSON解析库
 
 
 在当今的编程世界里，JSON 已经成为将信息从客户端传输到服务器端的首选协议，可以好不夸张的说，XML 就是那个被拍死在沙滩上的前浪。

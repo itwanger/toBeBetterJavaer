@@ -1,11 +1,11 @@
 ---
+title: Junit：一个开源的Java单元测试框架
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
 
-# Junit：一个开源的Java单元测试框架
 
 
 ### 01、前世今生

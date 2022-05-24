@@ -1,12 +1,10 @@
 ---
+title: DBeaver：一款免费的数据库操作工具
 category:
   - Java企业级开发
 tag:
   - 辅助工具/轮子
 ---
-
-
-# DBeaver：一款免费的数据库操作工具
 
 
 作为一名开发者，免不了要和数据库打交道，于是我们就需要一款顺手的数据库管理工具。很长一段时间里，Navicat 都是我的首选，但最近更换了一台新电脑，之前的绿色安装包找不到了。
@@ -19,7 +17,7 @@ DBeaver 是一个跨平台的数据库管理工具，支持 Windows、Linux 和 
 
 DBeaver 是由 Java 编写的，默认使用 JDK 11 进行编译。社区版基于 [Apache-2.0 License](https://github.com/dbeaver/dbeaver/blob/devel/LICENSE.md) 在 GitHub 上开源，目前已获得 24k+ 的星标。
 
->https://github.com/dbeaver/dbeaver
+>[https://github.com/dbeaver/dbeaver](https://github.com/dbeaver/dbeaver)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-1.png)
 
@@ -31,7 +29,7 @@ DBeaver 支持几乎所有主流的数据库，包括关系型数据库和非关
 
 可以通过 DBeaver 官方下载安装包，也可以通过 GitHub 下载 release 版本。
 
->官方下载地址：https://dbeaver.io/download/
+>官方下载地址：[https://dbeaver.io/download/](https://dbeaver.io/download/)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-3.png)
 
@@ -42,7 +40,7 @@ DBeaver 支持几乎所有主流的数据库，包括关系型数据库和非关
 
 因为 DBeaver 是基于 [Maven 构建](https://github.com/itwanger/toBeBetterJavaer/blob/master/docs/maven/maven.md)的，数据库驱动也就是链接数据库的 JDBC 驱动是通过 Maven 仓库下载的。选择「首选项」→「Maven」，添加阿里云镜像地址：
 
->http://maven.aliyun.com/nexus/content/groups/public
+>[http://maven.aliyun.com/nexus/content/groups/public](http://maven.aliyun.com/nexus/content/groups/public)
 
 和配置 Maven 镜像一样，如下图所示。
 
