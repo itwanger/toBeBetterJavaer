@@ -273,7 +273,7 @@ Spring Task 虽然用起来很方便，但用法过去简单，很多复杂的�
 ### 源码路径
 
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
-> - codingmore-springtask：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-knife4j)
+> - codingmore-springtask：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-springtask)
 
 
 
