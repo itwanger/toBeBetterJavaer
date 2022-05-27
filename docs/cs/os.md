@@ -1,11 +1,10 @@
 ---
+title: 计算机操作系统知识点大梳理
 category:
   - 计算机基础
 tag:
   - 操作系统
 ---
-
-# 计算机操作系统知识点大梳理
 
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ](https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ)
 
