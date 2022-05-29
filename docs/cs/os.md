@@ -1,5 +1,8 @@
 ---
 title: 计算机操作系统知识点大梳理
+shortTitle: 操作系统核心知识点
+description: 转载链接：https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ
+author: 月伴飞鱼
 category:
   - 计算机基础
 tag:
