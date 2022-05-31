@@ -154,7 +154,7 @@ export const sidebarConfig = defineSidebarConfig({
             text: "构造方法",
             link: "oo/construct",
           },
-          "bokeyuan-jianxijavazhongdifangwenquanxiankongzhi",
+          "nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi",
           {
             text: "代码初始化块",
             link: "oo/code-init",
