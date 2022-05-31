@@ -115,6 +115,7 @@
 - [Java变量的作用域：局部变量、成员变量、静态变量、常量](docs/oo/var.md)
 - [Java方法](docs/oo/method.md)
 - [Java构造方法](docs/oo/construct.md)
+- [浅析Java中的访问权限控制](docs/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi.md)
 - [Java代码初始化块](docs/oo/code-init.md)
 - [Java抽象类](docs/oo/abstract.md)
 - [Java接口](docs/oo/interface.md)

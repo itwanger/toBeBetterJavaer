@@ -114,6 +114,7 @@ headerDepth: 1
 - [Java变量的作用域：局部变量、成员变量、静态变量、常量](oo/var.md)
 - [Java方法](oo/method.md)
 - [Java构造方法](oo/construct.md)
+- [浅析Java中的访问权限控制](docs/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi.md)
 - [Java代码初始化块](oo/code-init.md)
 - [Java抽象类](oo/abstract.md)
 - [Java接口](oo/interface.md)

@@ -38,21 +38,13 @@ class Writer implements Cloneable{
                 ", name='" + name + '\'' +
                 '}';
     }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 }
 ```
 
-Writer 类有两个字段，分别是 int 类型的 age，和 String 类型的 name。然后重写了 `toString()` 方法，方便打印对象的具体信息。并且重写了 `clone()` 方法，方法体里面也很简单，直接调用 Object 类的 `clone()` 方法。
+Writer 类有两个字段，分别是 int 类型的 age，和 String 类型的 name。然后重写了 `toString()` 方法，方便打印对象的具体信息。
 
-“既然 Writer 类的 `clone()` 方法体里只有一行代码，调用的还是超类 Object 的 `clone()` 方法？为什么还要重写呢？不是多此一举吗？”三妹着急地问。
 
-“嗯，是这样的，三妹。Object 类中的 `clone()` 方法是 protected 的，如果 Writer 类不去重写的话，Writer 类的对象是无法调用 `clone()` 方法的，因为 protected 修饰的方法对子类并不可见。”
-
-“哦哦，那为什么要实现 Cloneable 接口呢？”三妹开启了十万个为什么的模式。
+“为什么要实现 Cloneable 接口呢？”三妹开启了十万个为什么的模式。
 
 Cloneable 接口是一个标记接口，它肚子里面是空的：
 
