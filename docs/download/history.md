@@ -3,6 +3,7 @@
 ### 2022年05月31日
 
 - 升级 VuePress-hope 的版本
+- [增加访问权限修饰符](/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi)
 
 ### 2022年05月21日
 
