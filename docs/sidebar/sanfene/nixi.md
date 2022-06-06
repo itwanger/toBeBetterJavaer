@@ -8,3 +8,4 @@
 - [面渣逆袭（Java 虚拟机篇）必看:+1:](/sidebar/sanfene/jvm.md)
 - [面渣逆袭（Spring）必看:+1:](/sidebar/sanfene/spring.md)
 - [面渣逆袭（Redis）必看:+1:](/sidebar/sanfene/redis.md)
+- [面渣逆袭（MyBatis）必看:+1:](/sidebar/sanfene/mybatis.md)

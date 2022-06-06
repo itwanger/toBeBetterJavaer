@@ -1,5 +1,6 @@
 ---
 star: true
+shortTitle: 算法和数据结构学习路线
 category:
   - 学习路线
 tag:

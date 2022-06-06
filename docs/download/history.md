@@ -1,5 +1,13 @@
 # 网络日志
 
+### 2022年06月06日
+
+- [macOS下如何运行编程喵源码](/springboot/macos-codingmore-run)
+- 修正 w63967261 提出的问题
+- 修正 gqcdm 提出的问题
+- [增加 MyBatis 面渣逆袭](/sidebar/sanfene/mybatis)
+
+
 ### 2022年05月31日
 
 - 升级 VuePress-hope 的版本
@@ -13,7 +21,7 @@
 
 ### 2022年05月09日
 
-- [增加面渣逆袭板块](/download/nixi)
+- [增加面渣逆袭板块](/sidebar/sanfene/nixi)
 - [Spring Boot 整合 MySQL-Druid](/springboot/mysql-druid)
 
 ### 2022年04月30日

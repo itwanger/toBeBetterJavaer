@@ -1,10 +1,11 @@
 ---
 star: true
+shortTitle: Java并发编程学习路线
 category:
   - 学习路线
-  - 并发编程
 tag:
   - Java
+  - 并发编程
 ---
 
 # Java并发编程学习路线（建议收藏:+1:）

@@ -1,10 +1,11 @@
 ---
 star: true
+shortTitle: JVM学习路线
 category:
   - 学习路线
-  - jvm
 tag:
   - Java
+  - JVM
 ---
 
 # Java虚拟机学习路线（建议收藏:+1:）

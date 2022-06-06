@@ -1,5 +1,6 @@
 ---
 star: true
+shortTitle: 操作系统学习路线
 category:
   - 学习路线
 tag:
