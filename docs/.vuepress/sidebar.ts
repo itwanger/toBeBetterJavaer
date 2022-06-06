@@ -1,60 +1,26 @@
-import { defineSidebarConfig } from "vuepress-theme-hope";
-export const sidebarConfig = defineSidebarConfig({
+import { sidebar } from "vuepress-theme-hope";
+export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
   "/download/": ["java","pdf","learn-jianyi","nicearticle", "history"],
   "/xuexiluxian/": [
     {
-      text: "Java",
-      icon: "java",
+      text: "Java学习路线",
       prefix: "java/",
       collapsable: true,
       children: [
-        {
-          text: "一条龙版",
-          link: "yitiaolong.md",
-        },
-        {
-          text: "并发编程",
-          link: "thread.md",
-        },
-        {
-          text: "JVM",
-          link: "jvm.md",
-        },
+        "yitiaolong",
+        "thread",
+        "jvm",
       ],
     },
-    {
-      text: "C语言",
-      link: "c.md",
-    },
-    {
-      text: "C++",
-      link: "ccc.md",
-    },
-    {
-      text: "Python",
-      link: "python.md",
-    },
-    {
-      text: "Go语言",
-      link: "go.md",
-    },
-    {
-      text: "操作系统",
-      link: "os.md",
-    },
-    {
-      text: "前端",
-      link: "qianduan.md",
-    },
-    {
-      text: "蓝桥杯",
-      link: "lanqiaobei.md",
-    },
-    {
-      text: "算法和数据结构",
-      link: "algorithm.md",
-    },
+    "c.md",
+    "ccc.md",
+    "python",
+    "go",
+    "os",
+    "qianduan",
+    "lanqiaobei",
+    "algorithm",
   ],
   "/sidebar/sanfene/": [
     {
@@ -81,6 +47,7 @@ export const sidebarConfig = defineSidebarConfig({
       text: "Redis",
       link: "redis.md",
     },
+    "mybatis.md",
   ],
   // 必须放在最后面
   "/": [
@@ -725,7 +692,7 @@ export const sidebarConfig = defineSidebarConfig({
               text: "整合MyBatis-Plus AutoGenerator",
               link: "kaiyuan/auto-generator",
             },
-            
+            "springboot/macos-codingmore-run"
           ],
         },
         {

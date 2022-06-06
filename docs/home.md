@@ -81,6 +81,7 @@ headerDepth: 1
 - [面渣逆袭（Java 虚拟机篇）必看:+1:](sidebar/sanfene/jvm.md)
 - [面渣逆袭（Spring）必看:+1:](sidebar/sanfene/spring.md)
 - [面渣逆袭（Redis）必看:+1:](sidebar/sanfene/redis.md)
+- [面渣逆袭（MyBatis）必看:+1:](sidebar/sanfene/mybatis.md)
 
 ## 学习建议
 
@@ -285,6 +286,7 @@ headerDepth: 1
 - [Spring Boot 整合 Knife4j，美化强化丑陋的Swagger](gongju/knife4j.md)
 - [Spring Boot 整合 Spring Task 实现定时任务](springboot/springtask.md)
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](kaiyuan/auto-generator.md)
+- [如何在本地（macOS环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/macos-codingmore-run.md)
 
 ## 辅助工具/轮子
 

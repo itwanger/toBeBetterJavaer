@@ -1,5 +1,6 @@
 ---
 star: true
+shortTitle: 前端学习路线
 category:
   - 学习路线
 tag:
