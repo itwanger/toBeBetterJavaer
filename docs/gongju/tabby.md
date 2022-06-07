@@ -30,7 +30,7 @@ Tabby 是一个高度可定制化的 跨平台的终端工具，支持 Windows�
 
 ### 一、安装 Tabby
 
-直接到官网 [tabby.sh](tabby.sh) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
+直接到官网 [tabby.sh](https://tabby.sh/) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-02.png)
 
