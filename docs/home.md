@@ -287,6 +287,7 @@ headerDepth: 1
 - [Spring Boot 整合 Spring Task 实现定时任务](springboot/springtask.md)
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](kaiyuan/auto-generator.md)
 - [如何在本地（macOS环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/macos-codingmore-run.md)
+- [如何在本地（Windows环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/windows-codingmore-run.md)
 
 ## 辅助工具/轮子
 
