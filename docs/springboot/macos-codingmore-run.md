@@ -12,11 +12,14 @@ shortTitle: macOS下如何运行编程喵源码
 
 - 一台可以开机的电脑
 - JDK 8
+- Maven
+- Intellij IDEA
+- Visual Studio Code
 - MySQL
 - Redis
 - OSS
 
-对，编程喵 🐱（Spring Boot+Vue 的前后端分离项目）要想在本地跑起来，需要这 5 个前置环境。
+对，编程喵 🐱（Spring Boot+Vue 的前后端分离项目）要想在本地跑起来，需要这 8 个前置环境。
 
 第一个条件，一台可以开机的电脑，显然我相信大家都是有的。不然怎么学编程是吧？瞧我这废话真多。
 
@@ -54,7 +57,49 @@ shortTitle: macOS下如何运行编程喵源码
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-a1bb43ca-b3b8-4681-b290-6ddbdf2bc1fc.png)
 
-第三个条件，MySQL，可以通过 [MySQL 官网](https://dev.mysql.com/doc/refman/8.0/en/macos-installation-pkg.html)下载安装包。
+第三个条件，Maven，可以直接通过 `brew install maven` 来完成安装。通过 `mvn -v` 来查看版本。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-9b4dab03-c720-4f23-8a1e-90fa55130c73.png)
+
+为了加快项目依赖包的下载速度，我们需要配置 Maven 的国内镜像源。
+
+找到 Maven Home（`/Users/yourpath/save/apache-maven-3.8.3`），复制一份 settings.xml。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-7743fabc-1a49-44a6-8862-1f31c94b0633.png)
+
+到 `/Users/you/.m2` 路径下。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-31580aab-9990-4553-9557-41dbd748f361.png)
+
+在 mirrors 节点下添加阿里云镜像地址，并保存。
+
+```
+<mirror>
+  <id>alimaven</id>
+  <name>aliyun maven</name>
+<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+  <mirrorOf>central</mirrorOf>
+</mirror>
+```
+
+第四个条件，Intellij IDEA，Java 后端开发必备神器，可以安装社区版，也可以安装旗舰版。
+
+>[https://www.jetbrains.com/zh-cn/idea/download/#section=mac](https://www.jetbrains.com/zh-cn/idea/download/#section=mac)
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-556c70fd-c3bc-46af-9d20-d52783ecc1f5.png)
+
+第五个条件，Visual Studio Code，在编写前端代码（vue、JavaScript、css 等）时，比 Intellij IDEA 更值得信赖。
+
+>[https://code.visualstudio.com/](https://code.visualstudio.com/)
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-8b2d3562-09ec-4a93-b40d-9a06816aa46c.png)
+
+第六个条件，MySQL，可以通过 [MySQL 官网](https://dev.mysql.com/doc/refman/8.0/en/macos-installation-pkg.html)下载安装包。
 
 安装完成后，可以通过设置面板看到 MySQL 服务（记住用户名和密码）。
 
@@ -64,7 +109,7 @@ shortTitle: macOS下如何运行编程喵源码
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-fc93c46b-2868-4400-8c47-b51a901d38cc.png)
 
-第四个条件，Redis，可以直接通过 `brew install redis` 来完成安装。
+第七个条件，Redis，可以直接通过 `brew install redis` 来完成安装。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-e1b42515-b750-4b74-8d05-832aa0ab1601.png)
 
@@ -72,7 +117,7 @@ shortTitle: macOS下如何运行编程喵源码
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-fc207f85-16b8-4943-986f-fb9e20fc8891.png)
 
-第五个条件，OSS，主要用来保存图片，可以通过阿里云官方去购买服务，并且创建 Bucket。
+第八个条件，OSS，主要用来保存图片，可以通过阿里云官方去购买服务，并且创建 Bucket。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-996b9d40-b2da-4fdc-9190-b7992b9a880e.png)
 

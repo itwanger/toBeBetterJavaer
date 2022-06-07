@@ -7,6 +7,8 @@ export default defineUserConfig({
 
   dest: "./dist",
 
+  shouldPrefetch: false,
+
   head: [
     [
       "script",{},
