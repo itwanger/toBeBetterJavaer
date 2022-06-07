@@ -2,16 +2,16 @@
 
 ### 2022年06月06日
 
-- [macOS下如何运行编程喵源码](/springboot/macos-codingmore-run)
+- [macOS下如何运行编程喵源码](/springboot/macos-codingmore-run.md)
 - 修正 w63967261 提出的问题
 - 修正 gqcdm 提出的问题
-- [增加 MyBatis 面渣逆袭](/sidebar/sanfene/mybatis)
+- [增加 MyBatis 面渣逆袭](/sidebar/sanfene/mybatis.md)
 
 
 ### 2022年05月31日
 
 - 升级 VuePress-hope 的版本
-- [增加访问权限修饰符](/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi)
+- [增加访问权限修饰符](/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi.md)
 
 ### 2022年05月21日
 
@@ -21,8 +21,8 @@
 
 ### 2022年05月09日
 
-- [增加面渣逆袭板块](/sidebar/sanfene/nixi)
-- [Spring Boot 整合 MySQL-Druid](/springboot/mysql-druid)
+- [增加面渣逆袭板块](/sidebar/sanfene/nixi.md)
+- [Spring Boot 整合 MySQL-Druid](/springboot/mysql-druid.md)
 
 ### 2022年04月30日
 
@@ -30,7 +30,7 @@
 
 ### 2022年04月29日
 
-- [增加内部类](/oo/inner-class)
+- [增加内部类](/oo/inner-class.md)
 
 ### 2022年04月27日
 
@@ -46,8 +46,8 @@
 
 ### 2022年04月02日
 
-- [杨锅锅同学提出错误：浮点多了个long, 整数少了个int](/sidebar/sanfene/javase)
-- [增加数据结构与算法的学习路线](/xuexiluxian/algorithm)
+- [杨锅锅同学提出错误：浮点多了个long, 整数少了个int](/sidebar/sanfene/javase.md)
+- [增加数据结构与算法的学习路线](/xuexiluxian/algorithm.md)
 
 ### 2022年03月31日
 
@@ -56,13 +56,13 @@
 ### 2022年03月29日
 
 - [修改学习路线部分的404错误](/xuexiluxian/)
-- [增加Java整体学习路线](/xuexiluxian/java/yitiaolong)
-- [增加Java虚拟机学习路线](/xuexiluxian/java/jvm)
+- [增加Java整体学习路线](/xuexiluxian/java/yitiaolong.md)
+- [增加Java虚拟机学习路线](/xuexiluxian/java/jvm.md)
 
 ### 2022年03月27日
 
-- [增加Java并发编程的内容](/home#java并发编程)；
-- [增加Java虚拟机模块的内容](/home#java虚拟机)；
+- [增加Java并发编程的内容](/home.md#java并发编程)；
+- [增加Java虚拟机模块的内容](/home.md#java虚拟机)；
 
 
 ### 2022年03月19日
