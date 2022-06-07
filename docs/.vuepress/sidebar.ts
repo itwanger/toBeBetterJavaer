@@ -692,7 +692,8 @@ export const sidebarConfig = sidebar({
               text: "整合MyBatis-Plus AutoGenerator",
               link: "kaiyuan/auto-generator",
             },
-            "springboot/macos-codingmore-run"
+            "springboot/macos-codingmore-run",
+            "springboot/windows-codingmore-run"
           ],
         },
         {
@@ -700,31 +701,31 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
             {
-              text: "Tabby",
+              text: "高逼格终端工具Tabby",
               link: "gongju/tabby",
             },
             {
-              text: "Warp",
+              text: "21世纪人用的终端工具Warp",
               link: "gongju/warp",
             },
             {
-              text: "Chocolatey",
+              text: "Win命令行软件管理器Chocolatey",
               link: "gongju/choco",
             },
             {
-              text: "chiner",
+              text: "数据库设计神器chiner",
               link: "gongju/chiner",
             },
             {
-              text: "DBeaver",
+              text: "数据库操作工具DBeaver",
               link: "gongju/DBeaver",
             },
             {
-              text: "Forest",
+              text: "HTTP调用框架Forest",
               link: "gongju/forest",
             },
             {
-              text: "Junit",
+              text: "单元测试Junit",
               link: "gongju/junit",
             },
             {
