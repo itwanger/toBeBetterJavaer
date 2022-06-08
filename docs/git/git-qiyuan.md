@@ -3,6 +3,7 @@ category:
   - Java企业级开发
 tag:
   - Git
+shortTitle: Git
 ---
 
 # 我在工作中是如何使用 Git 的

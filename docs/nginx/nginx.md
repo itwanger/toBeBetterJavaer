@@ -3,6 +3,7 @@ category:
   - Java企业级开发
 tag:
   - Nginx
+shortTitle: Nginx
 ---
 
 # 5分钟带你深入浅出搞懂 Nginx

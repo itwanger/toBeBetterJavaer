@@ -697,7 +697,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.5 辅助工具/轮子",
+          text: "3.5 辅助工具",
           collapsable: true,
           children: [
             {
@@ -720,6 +720,13 @@ export const sidebarConfig = sidebar({
               text: "数据库操作工具DBeaver",
               link: "gongju/DBeaver",
             },
+            "gongju/baota-mianban.md",
+          ],
+        },
+        {
+          text: "3.6 开源轮子",
+          collapsable: true,
+          children: [
             {
               text: "HTTP调用框架Forest",
               link: "gongju/forest",
@@ -729,38 +736,38 @@ export const sidebarConfig = sidebar({
               link: "gongju/junit",
             },
             {
-              text: "fastjson",
+              text: "阿里开源的fastjson",
               link: "gongju/fastjson",
             },
             {
-              text: "Gson",
+              text: "谷歌开源的Gson",
               link: "gongju/gson",
             },
             {
-              text: "Jackson",
+              text: "SpringBoot内置的Jackson",
               link: "gongju/jackson",
             },
             {
-              text: "Log4j",
+              text: "日志框架的鼻祖Log4j",
               link: "gongju/log4j",
             },
             {
-              text: "Log4j2",
+              text: "高性能日志框架Log4j2",
               link: "gongju/log4j2",
             },
             {
-              text: "Logback",
+              text: "Spring Boot内置的Logback",
               link: "gongju/logback",
             },
             {
-              text: "SLF4J",
+              text: "日志门面SLF4J",
               link: "gongju/slf4j",
             },
             
           ],
         },
         {
-          text: "3.6 分布式",
+          text: "3.7 分布式",
           collapsable: true,
           children: [
             {
@@ -778,7 +785,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.7 消息队列",
+          text: "3.8 消息队列",
           collapsable: true,
           children: [
             {
@@ -965,7 +972,19 @@ export const sidebarConfig = sidebar({
       ],
     },
     {
-      text: "八、联系作者",
+      text: "八、知识库搭建",
+      collapsable: true,
+      prefix: "szjy/",
+      children: [
+          "buy-cloud-server",
+          "install-baota-mianban",
+          "buy-domain",
+          "record-domain",
+          "https-domain",
+        ],
+    },
+    {
+      text: "九、联系作者",
       collapsable: true,
       children: [
         {

@@ -13,11 +13,11 @@ shortTitle: macOS下如何运行编程喵源码
 - 一台可以开机的电脑
 - JDK 8
 - Maven
-- Intellij IDEA
-- Visual Studio Code
+- Intellij IDEA（非必须，可用 Eclipse）
+- Visual Studio Code（非必须，可用 hbuilderx）
 - MySQL
-- Redis
-- OSS
+- Redis（非必须，会报错，但不影响跑）
+- OSS（非必须，上传图片时报错，但不影响跑）
 
 对，编程喵 🐱（Spring Boot+Vue 的前后端分离项目）要想在本地跑起来，需要这 8 个前置环境。
 

@@ -3,6 +3,7 @@ category:
   - Java企业级开发
 tag:
   - Maven
+shortTitle: Maven
 ---
 
 # 终于把项目构建神器Maven捋清楚了~

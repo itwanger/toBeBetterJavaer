@@ -289,13 +289,16 @@ headerDepth: 1
 - [如何在本地（macOS环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/macos-codingmore-run.md)
 - [如何在本地（Windows环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/windows-codingmore-run.md)
 
-## 辅助工具/轮子
+### 辅助工具
 
 - [Tabby：一款逼格更高的开源终端工具](gongju/tabby.md)
 - [Warp：一款21世纪人用的终端工具](gongju/warp.md)
 - [Chocolatey：一款GitHub星标8.2k+的Windows命令行软件管理器](gongju/choco.md)
 - [chiner：一款开源的数据库设计神器](gongju/chiner.md)
 - [DBeaver：一款免费的数据库操作工具](gongju/DBeaver.md)
+
+### 开源轮子
+
 - [Forest：一款极简的声明式HTTP调用API框架](gongju/forest.md)
 - [Junit：一个开源的Java单元测试框架](gongju/junit.md)
 - [fastjson：阿里巴巴开源的JSON解析库](gongju/fastjson.md)
@@ -307,22 +310,16 @@ headerDepth: 1
 - [SLF4J：阿里巴巴强制使用的日志门面担当](gongju/slf4j.md)
 
 
-### 安全篇
-
 ### 分布式
 
 - [全文搜索引擎Elasticsearch入门教程](elasticsearch/rumen.md)
 - [可能是把ZooKeeper概念讲的最清楚的一篇文章](zookeeper/jibenjieshao.md)
 - [微服务网关：从对比到选型，由理论到实践](microservice/api-wangguan.md)
 
-### 高性能
-
-#### 消息队列
+### 消息队列
 
 - [RabbitMQ入门教程（概念、应用场景、安装、使用）](mq/rabbitmq-rumen.md)
 - [怎么确保消息100%不丢失？](mq/100-budiushi.md)
-
-### 高可用
 
 ## 数据库
 
@@ -424,13 +421,16 @@ headerDepth: 1
 - [👏下载→简历模板](download/jianli.md)
 
 
-## 知识库搭建历程
+## 知识库搭建
 
 
 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java 程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
 
-
-- [阿里云服务器购买+宝塔面板安装+域名购买+域名备案+升级HTTPS](szjy/tobebetterjavaer-beian.md)
+- [购买云服务器](szjy/buy-cloud-server.md)
+- [安装宝塔面板](szjy/install-baota-mianban.md)
+- [购买域名&域名解析](szjy/buy-domain.md)
+- [备案域名](szjy/record-domain.md)
+- [给域名配置HTTPS证书](szjy/https-domain.md)
 - [使用docsify+Git+GitHub+码云+阿里云服务器搭建知识库网站](szjy/tobebetterjavaer-wangzhan-shangxian.md)
 
 
