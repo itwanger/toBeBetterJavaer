@@ -6,7 +6,7 @@ tag:
 title: Spring Boot 整合 Thymeleaf 模板引擎
 ---
 
-### 关于 Thymeleaf
+## 关于 Thymeleaf
 
 Thymeleaf 是一个优秀的、面向 Java 的 HTML 页面模板，具有丰富的标签语言和函数。在 JSP 被淘汰之后，Thymeleaf 取而代之成为了 Spring Boot 推荐的模板引擎。
 
@@ -60,7 +60,7 @@ Thymeleaf 在有网和没网的环境下都可以正常工作，既能让美工�
 
 >[https://www.thymeleaf.org/](https://www.thymeleaf.org/)
 
-### 整合 Thymeleaf
+## 整合 Thymeleaf
 
 第一步，在 pom.xml 文件中添加 Thymeleaf 的 stater
 
@@ -143,17 +143,17 @@ public class UserController {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-e4b658fd-e30a-4b00-8818-ab00f8a28620.png)
 
-### HTTP Client
+## HTTP Client
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 
-### 源码地址
+## 源码地址
 
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
-> - [https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-thymeleaf)
+> - codingmore-thymeleaf: [https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-thymeleaf)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

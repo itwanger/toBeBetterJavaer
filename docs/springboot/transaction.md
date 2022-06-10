@@ -6,7 +6,7 @@ tag:
 title: Spring Boot 如何开启事务支持？
 ---
 
-### 关于事务
+## 关于事务
 
 事务在逻辑上是一组操作，**要么执行，要不都不执行**。主要是针对数据库而言的，比如说 MySQL。
 
@@ -41,7 +41,7 @@ public void savePosts(PostsParam postsParam) {
 
 需要格外注意的是：**事务能否生效，取决于数据库引擎是否支持事务，MySQL 的 InnoDB 引擎是支持事务的，但 MyISAM 就不支持**。
 
-### 关于 Spring 对事务的支持
+## 关于 Spring 对事务的支持
 
 Spring 支持两种事务方式，分别是编程式事务和声明式事务，后者最常见，通常情况下只需要一个 `@Transactional` 就搞定了（代码侵入性降到了最低），就像这样：
 
@@ -113,7 +113,7 @@ public void testTransaction() {
 
 **声明式事务虽然优于编程式事务，但也有不足，声明式事务管理的粒度是方法级别，而编程式事务是可以精确到代码块级别的**。
 
-### 事务管理模型
+## 事务管理模型
 
 Spring 将事务管理的核心抽象为一个事务管理器（TransactionManager），它的源码只有一个简单的接口定义，属于一个标记接口：
 
@@ -196,7 +196,7 @@ public @interface Transactional {
 
 说到这，我们来详细地说明一下 Spring 事务的传播行为、事务的隔离级别、事务的超时时间、事务的只读属性，以及事务的回滚规则。
 
-#### 事务传播行为
+### 事务传播行为
 
 **当事务方法被另外一个事务方法调用时，必须指定事务应该如何传播**，例如，方法可能继续在当前事务中执行，也可以开启一个新的事务，在自己的事务中执行。
 
@@ -283,7 +283,7 @@ Class B {
 
 3、4、5、6、7 这 5 种事务传播方式不常用，了解即可。
 
-#### 事务隔离级别
+### 事务隔离级别
 
 前面我们已经了解了数据库的事务隔离级别，再来理解 Spring 的事务隔离级别就容易多了。
 
@@ -300,13 +300,13 @@ TransactionDefinition 中一共定义了 5 种事务隔离级别：
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-06cb7de0-6316-4ba6-b642-9584bc998468.png)
 
-#### 事务的超时时间
+### 事务的超时时间
 
 事务超时，也就是指一个事务所允许执行的最长时间，如果在超时时间内还没有完成的话，就自动回滚。
 
 假如事务的执行时间格外的长，由于事务涉及到对数据库的锁定，就会导致长时间运行的事务占用数据库资源。
 
-#### 事务的只读属性
+### 事务的只读属性
 
 如果一个事务只是对数据库执行读操作，那么该数据库就可以利用事务的只读属性，采取优化措施，适用于多条数据库查询操作中。
 
@@ -318,7 +318,7 @@ TransactionDefinition 中一共定义了 5 种事务隔离级别：
 
 有些情况下，当一次执行多条查询语句时，需要保证数据一致性时，就需要启用事务支持。否则上一条 SQL 查询后，被其他用户改变了数据，那么下一个 SQL 查询可能就会出现不一致的状态。
 
-#### 事务的回滚策略
+### 事务的回滚策略
 
 默认情况下，事务只在出现运行时异常（Runtime Exception）时回滚，以及 Error，出现检查异常（checked exception，需要主动捕获处理或者向上抛出）时不回滚。
 
@@ -330,23 +330,23 @@ TransactionDefinition 中一共定义了 5 种事务隔离级别：
 @Transactional(rollbackFor= MyException.class)
 ```
 
-### 关于 Spring Boot 对事务的支持
+## 关于 Spring Boot 对事务的支持
 
 以前，我们需要通过 XML 配置 Spring 来托管事务，有了 Spring Boot 之后，一切就变得更加简单了，只需要在业务层添加事务注解（`@Transactional`）就可以快速开启事务。
 
 也就是说，我们只需要把焦点放在 `@Transactional` 注解上就可以了。
 
-#### @Transactional 的作用范围
+### @Transactional 的作用范围
 
 - 类上，表明类中所有 public 方法都启用事务
 - 方法上，最常用的一种
 - 接口上，不推荐使用
 
-#### @Transactional 的常用配置参数
+### @Transactional 的常用配置参数
 
 虽然 @Transactional 注解源码中定义了很多属性，但大多数时候，我都是采用默认配置，当然了，如果需要自定义的话，前面也都说明过了。
 
-#### @Transactional 的使用注意事项总结
+### @Transactional 的使用注意事项总结
 
 1）要在 public 方法上使用，在AbstractFallbackTransactionAttributeSource类的computeTransactionAttribute方法中有个判断，如果目标方法不是public，则TransactionAttribute返回null，即不支持事务。
 
@@ -396,7 +396,7 @@ protected TransactionAttribute computeTransactionAttribute(Method method, @Nulla
 >[https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ](https://mp.weixin.qq.com/s/qoWlR4ohVMfZf8IlhdSQDQ)
 
 
-### 测试事务是否起效
+## 测试事务是否起效
 
 在测试之前，我们先把 Spring Boot 默认的日志级别 info 调整为 debug，在 application.yml 文件中 修改：
 
@@ -419,7 +419,7 @@ logging:
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 

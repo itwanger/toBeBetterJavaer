@@ -15,7 +15,7 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-1.gif)
 
-### 导入 SQL 文件
+## 导入 SQL 文件
 
 编程喵项目的 SQL 文件我已经同步到本教程所在的源码当中。
 
@@ -40,7 +40,7 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 
 
-### 先体验 Mybatis Generator
+## 先体验 Mybatis Generator
 
 
 第一步，在 pom.xml 文件中添加 MySQL+MyBatis 的依赖（Mybatis Generator 的前置条件）。
@@ -212,7 +212,7 @@ Mybatis Generator 需要连接数据库，所以还需要在 plugin 节点中添
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-843487f6-5823-4291-b6c3-b4f69b9bba51.png)
 
 
-### 再体验 MyBatis-Plus 的 AutoGenerator
+## 再体验 MyBatis-Plus 的 AutoGenerator
 
 MyBatis-Plus（简写 MP）是 MyBatis 的增强工具，官方宣称 MP 和 MyBatis 的关系就好像魂斗罗中的 1P 和 2P，可谓好基友，天下走。
 
@@ -311,11 +311,11 @@ pc.setParent("top.codingmore.mpg");
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 
-### 源码地址：
+## 源码地址：
 
 >- 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 >- codingmore-autogenerator：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-autogenerator)

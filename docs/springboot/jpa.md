@@ -6,7 +6,7 @@ tag:
 title: Spring Boot 整合 JPA
 ---
 
-### Spring Data JPA 简介
+## Spring Data JPA 简介
 
 Spring Data 是 Spring 提供的一个操作数据的框架，Spring Data JPA是 Spring Data 下的一个基于 JPA 标准的操作数据的模块。
 
@@ -22,7 +22,7 @@ Spring Data JPA 只是一个抽象层，它上接 JPA 下接 ORM 框架，通过
 - Hibernate 是 JPA 的实现，是一套成熟的 ORM 框架。
 - Spring Data JPA 是 Spring 提出的，它增加了一个抽象层，用来屏蔽不同 ORM 框架的差异。
 
-### Spring Boot 整合 Spring Data JPA
+## Spring Boot 整合 Spring Data JPA
 
 第一步，在 pom.xml 文件中添加 JPA 的 starter 依赖。
 
@@ -222,7 +222,7 @@ public List<User> findByNameLikeIgnoreCase(String name) {
 }
 ```
 
-### 测试 Spring Data JPA
+## 测试 Spring Data JPA
 
 在测试类中对服务类中的 5 个接口进行测试，顺带在application.yml 中开启 SQL 语句的输出，看看 JPA 自动生成的 SQL 语句到底长什么样子。
 
@@ -319,18 +319,18 @@ List<User> findByNameLikeParam(@Param("name")String name);
 Hibernate: delete from user where id=?
 ```
 
-### Spring Data JPA 和 MyBatis 的对比
+## Spring Data JPA 和 MyBatis 的对比
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 
-### 源码地址：
+## 源码地址：
 
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
-> - Spring Boot 整合 JPA：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning)
+> - Spring Boot 整合 JPA：[https://github.com/itwanger/codingmore-learning/tree/main/codingmore-jpa](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-jpa)
 
 
 

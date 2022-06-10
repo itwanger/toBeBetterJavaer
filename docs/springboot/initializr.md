@@ -7,7 +7,7 @@ title: 搭建第一个Spring Boot项目
 ---
 
 
-### 关于 Spring Initializr
+## 关于 Spring Initializr
 
 Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目。网址如下：
 
@@ -58,7 +58,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 
 
-### Spring Boot 项目结构分析
+## Spring Boot 项目结构分析
 
 解开压缩包，并导入到 Intellij IDEA 中，可以看到 Spring Boot 项目的目录结构。
 
@@ -77,7 +77,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 - src/test/java 为测试类文件目录。
 - pom.xml 用来管理项目的依赖和构建。
 
-### 如何启动/部署 Spring Boot 项目
+## 如何启动/部署 Spring Boot 项目
 
 第一次启动，我个人习惯在 main 类中右键，在弹出的右键菜单这种选择「run ... main()」启动。
 
@@ -138,7 +138,7 @@ PS：需要在 centos 环境下安装 JDK 的小伙伴可以看这篇。
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/initializr-12.png)
 
 
-### 第一个Web项目
+## 第一个Web项目
 
 项目既然启动成功了，我们在浏览器里访问 8080 端口测试下吧。
 
@@ -170,7 +170,7 @@ public class HelloController {
 
 OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项目开发完成了。
 
-### 热部署
+## 热部署
 
 作为开发者，我们希望每次修改代码后，代码能够自动编译，服务能够自动重新加载，这样就省去了重新运行代码的烦恼。
 
@@ -193,7 +193,7 @@ OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项�
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 
