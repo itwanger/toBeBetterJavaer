@@ -6,7 +6,7 @@ tag:
 title: Spring Boot整合Swagger-UI实现在线API文档
 ---
 
-### 关于 Swagger
+## 关于 Swagger
 
 Swagger 是一个用于生成、描述和调用 RESTful 接口的 Web 服务。
 
@@ -37,7 +37,7 @@ Swagger 定义了一套规范，你只需要按照它的规范去定义接口及
 
 那只要及时更新 Swagger 的描述文件，就可以自动生成接口文档了，做到调用端代码、服务端代码以及接口文档的一致性。
 
-### 整合 Swagger-UI
+## 整合 Swagger-UI
 
 Swagger-UI 是一套 HTML/CSS/JS 框架，用于渲染 Swagger 文档，以便提供美观的 API 文档界面。
 
@@ -162,7 +162,7 @@ public class SwaggerController {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-0f2b9c42-bae4-4712-be29-3771ab3bd3a8.png)
 
-### 版本不兼容
+## 版本不兼容
 
 在 Spring Boot 整合 Swagger 的过程中，我发现一个大 bug，Spring Boot 2.6.7 版本和 springfox 3.0.0 版本不兼容，启动的时候直接就报错了。
 
@@ -258,18 +258,20 @@ public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-41096e72-bd7c-4663-b57e-fbc8506ec1cc.png)
 
-### 小结
+## 小结
 
 Swagger 虽然解决了调用端代码、服务端代码以及接口文档的不一致的问题，但有一说一，Swagger-UI 实在是太丑了。
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](docs/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 
 
-### 源码路径
+## 源码路径
 
 >- 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 >- codingmore-swagger：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-swagger)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

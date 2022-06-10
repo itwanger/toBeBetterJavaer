@@ -397,3 +397,5 @@ shortTitle: Windows下如何运行编程喵源码
 
 
 好了，[MacOS 版](https://tobebetterjavaer.com/springboot/macos-codingmore-run.html)和Windows版如何下载编程喵源码，如何在本地跑起来的整个演示过程就告一段落辣，我们回头见！
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
