@@ -31,11 +31,6 @@ export default navbar([
         icon: "java", 
         link: "/download/java.md" 
       },
-      {
-        text: "学习建议", 
-        icon: "xuexijianyi", 
-        link: "/download/learn-jianyi.md" 
-      },
       { 
         text: "面渣逆袭", 
         icon: "zhunbei", 
