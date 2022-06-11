@@ -891,6 +891,7 @@ export const sidebarConfig = sidebar({
             "suzhou",
             "xian",
             "zhengzhou",
+            "jinan",
           ],
         },
       ],
@@ -904,57 +905,46 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
             {
-              text: "Java程序员常读书单",
               icon: "xiazai",
               link: "download/java.md",
             },
             {
-              text: "最全最硬核的Java面试 “备战” 资料",
               icon: "xiazai",
-              link: "https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw",
+              link: "nice-article/weixin-bagwpdf.md",
             },
             {
-              text: "深入浅出Java多线程",
               icon: "xiazai",
-              link: "https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w",
+              link: "nice-article/weixin-shenrjcjavabfbchwjdhl.md",
             },
             {
-              text: "GitHub星标115k+的Java教程",
               icon: "xiazai",
-              link: "https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw",
+              link: "nice-article/weixin-githubxbkdjavajccjyh.md",
             },
             {
-              text: "重学Java设计模式",
               icon: "xiazai",
-              link: "https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw",
+              link: "nice-article/weixin-shejmsnb.md",
             },
             {
-              text: "Java版LeetCode刷题笔记",
               icon: "xiazai",
-              link: "https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ",
+              link: "nice-article/weixin-mozdsdzfjavableetcodetxxk.md",
             },
             {
-              text: "阮一峰C语言入门教程",
               icon: "xiazai",
               link: "download/yuanyifeng-c-language.md",
             },
             {
-              text: "BAT大佬的刷题笔记",
               icon: "xiazai",
               link: "download/bat-shuati.md",
             },
             {
-              text: "给操作系统捋条线",
               icon: "xiazai",
-              link: "https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA",
+              link: "download/weixin-piaolwzjztqdtskwlzfpdf.md",
             },
             {
-              text: "豆瓣9.1分，Pro Git中文版",
               icon: "xiazai",
               link: "download/progit.md",
             },
             {
-              text: "简历模板",
               icon: "xiazai",
               link: "download/jianli.md",
             },

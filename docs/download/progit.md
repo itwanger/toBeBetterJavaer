@@ -1,5 +1,6 @@
 ---
-title: 豆瓣9.1分，Pro Git中文版
+title: 👏下载→豆瓣9.1分，Pro Git中文版
+shortTitle: Pro Git中文版
 category:
   - 学习资源
 tag:
