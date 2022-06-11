@@ -36,10 +36,11 @@
 > 
 > 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 > 
-> - [Java 程序员进阶之路在线阅读网站（VuePress 版）](https://tobebetterjavaer.com/)
-> - [Java 程序员进阶之路在线阅读网站（docsify 版）](https://docsify.tobebetterjavaer.com/)
+> - [Java 程序员进阶之路在线阅读网站](https://tobebetterjavaer.com/)
+> - [Java 程序员进阶之路 GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)
+> - [Java 程序员进阶之路 Gitee 仓库](https://gitee.com/itwanger/toBeBetterJavaer)
 > 
-> 建议给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
+> 亿点点小请求，建议戳[这个链接🔗](https://github.com/itwanger/toBeBetterJavaer)给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
 
 
 # 知识库地图
