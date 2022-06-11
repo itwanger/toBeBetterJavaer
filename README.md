@@ -77,13 +77,6 @@
 - [面渣逆袭（Redis）必看:+1:](docs/sidebar/sanfene/redis.md)
 - [面渣逆袭（MyBatis）必看:+1:](docs/sidebar/sanfene/mybatis.md)
 
-# 学习建议
-
->  **收集了我所有的知乎高赞帖子**！全方位迷茫解惑。
-
-- [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
-- [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
-
 
 # Java核心
 
@@ -415,6 +408,13 @@
 - [👏下载→给操作系统捋条线](docs/download/weixin-piaolwzjztqdtskwlzfpdf.md)
 - [👏下载→豆瓣9.1分，Pro Git中文版](docs/download/progit.md)
 - [👏下载→简历模板](docs/download/jianli.md)
+
+## 学习建议
+
+**收集了我所有的知乎高赞帖子**！全方位迷茫解惑。
+
+- [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
+- [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
 
 
 # 知识库搭建

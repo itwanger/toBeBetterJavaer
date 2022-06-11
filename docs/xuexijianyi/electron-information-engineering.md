@@ -1,4 +1,5 @@
 ---
+shortTitle: 电子信息工程最好的出路
 category:
   - 学习资源
 tag:
