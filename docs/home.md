@@ -404,17 +404,16 @@ headerDepth: 1
 ### PDF下载
 
 - [👏下载→Java程序员常读书单](download/java.md)
-- [👏下载→最全最硬核的Java面试 “备战” 资料](https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw)
-- [👏下载→深入浅出Java多线程](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)
-- [👏下载→GitHub星标115k+的Java教程](https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw)
-- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
-- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
-- [👏下载→Java版LeetCode刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
-- [👏下载→阮一峰C语言入门教程](download/yuanyifeng-c-language.md)
-- [👏下载→BAT大佬的刷题笔记](download/bat-shuati.md)
-- [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
-- [👏下载→豆瓣9.1分，Pro Git中文版](download/progit.md)
-- [👏下载→简历模板](download/jianli.md)
+- [👏下载→最全最硬核的Java面试 “备战” 资料](nice-article/weixin-bagwpdf.md)
+- [👏下载→深入浅出Java多线程](nice-article/weixin-shenrjcjavabfbchwjdhl.md)
+- [👏下载→GitHub星标115k+的Java教程](nice-article/weixin-githubxbkdjavajccjyh.md)
+- [👏下载→重学Java设计模式](nice-article/weixin-shejmsnb.md)
+- [👏下载→Java版LeetCode刷题笔记](nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
+- [👏下载→阮一峰C语言入门教程](nice-article/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](nice-article/bat-shuati.md)
+- [👏下载→给操作系统捋条线](nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
+- [👏下载→豆瓣9.1分，Pro Git中文版](nice-article/progit.md)
+- [👏下载→简历模板](nice-article/jianli.md)
 
 
 ### 学习建议
@@ -441,12 +440,10 @@ headerDepth: 1
 ## 联系作者
 
 
-- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
-- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
-- Java 程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
+>- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
+>- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
+>- Java 程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
 
-
-### 心路历程
 
 - [走近作者：个人介绍 Q&A](about-the-author/readme.md)
 - [我的第一个，10 万(B站视频播放)](about-the-author/bzhan-10wan.md)

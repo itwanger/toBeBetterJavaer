@@ -403,11 +403,11 @@
 - [👏下载→GitHub星标115k+的Java教程](docs/nice-article/weixin-githubxbkdjavajccjyh.md)
 - [👏下载→重学Java设计模式](docs/nice-article/weixin-shejmsnb.md)
 - [👏下载→Java版LeetCode刷题笔记](docs/nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
-- [👏下载→阮一峰C语言入门教程](docs/download/yuanyifeng-c-language.md)
-- [👏下载→BAT大佬的刷题笔记](docs/download/bat-shuati.md)
-- [👏下载→给操作系统捋条线](docs/download/weixin-piaolwzjztqdtskwlzfpdf.md)
-- [👏下载→豆瓣9.1分，Pro Git中文版](docs/download/progit.md)
-- [👏下载→简历模板](docs/download/jianli.md)
+- [👏下载→阮一峰C语言入门教程](docs/nice-article/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](docs/nice-article/bat-shuati.md)
+- [👏下载→给操作系统捋条线](docs/nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
+- [👏下载→豆瓣9.1分，Pro Git中文版](docs/nice-article/progit.md)
+- [👏下载→简历模板](docs/nice-article/jianli.md)
 
 ## 学习建议
 

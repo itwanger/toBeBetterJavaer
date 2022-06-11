@@ -1,7 +1,7 @@
 import { sidebar } from "vuepress-theme-hope";
 export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
-  "/download/": ["java","pdf","learn-jianyi","nicearticle", "history"],
+  "/download/": ["java","nicearticle", "history"],
   "/xuexiluxian/": [
     {
       text: "Java学习路线",
@@ -900,69 +900,30 @@ export const sidebarConfig = sidebar({
       text: "七、学习资源",
       collapsable: true,
       children: [
-        {
-          text: "PDF下载",
-          collapsable: true,
-          children: [
-            {
-              icon: "xiazai",
-              link: "download/java.md",
-            },
-            {
-              icon: "xiazai",
-              link: "nice-article/weixin-bagwpdf.md",
-            },
-            {
-              icon: "xiazai",
-              link: "nice-article/weixin-shenrjcjavabfbchwjdhl.md",
-            },
-            {
-              icon: "xiazai",
-              link: "nice-article/weixin-githubxbkdjavajccjyh.md",
-            },
-            {
-              icon: "xiazai",
-              link: "nice-article/weixin-shejmsnb.md",
-            },
-            {
-              icon: "xiazai",
-              link: "nice-article/weixin-mozdsdzfjavableetcodetxxk.md",
-            },
-            {
-              icon: "xiazai",
-              link: "download/yuanyifeng-c-language.md",
-            },
-            {
-              icon: "xiazai",
-              link: "download/bat-shuati.md",
-            },
-            {
-              icon: "xiazai",
-              link: "download/weixin-piaolwzjztqdtskwlzfpdf.md",
-            },
-            {
-              icon: "xiazai",
-              link: "download/progit.md",
-            },
-            {
-              icon: "xiazai",
-              link: "download/jianli.md",
-            },
-          ],
-        },
-        {
-          text: "学习建议",
-          collapsable: true,
-          prefix: "xuexijianyi/",
-          children: [
-              "read-csapp",
-              "electron-information-engineering",
-          ],
-        },
+        "download/java.md",
+        "nice-article/weixin-bagwpdf.md",
+        "nice-article/weixin-shenrjcjavabfbchwjdhl.md",
+        "nice-article/weixin-githubxbkdjavajccjyh.md",
+        "nice-article/weixin-shejmsnb.md",
+        "nice-article/weixin-mozdsdzfjavableetcodetxxk.md",
+        "nice-article/yuanyifeng-c-language.md",
+        "nice-article/bat-shuati.md",
+        "nice-article/weixin-piaolwzjztqdtskwlzfpdf.md",
+        "nice-article/progit.md",
+        "nice-article/jianli.md",
       ],
     },
     {
-      text: "八、知识库搭建",
+      text: "八、学习建议",
+      collapsable: true,
+      prefix: "xuexijianyi/",
+      children: [
+          "read-csapp",
+          "electron-information-engineering",
+        ],
+    },
+    {
+      text: "九、知识库搭建",
       collapsable: true,
       prefix: "szjy/",
       children: [
@@ -974,20 +935,15 @@ export const sidebarConfig = sidebar({
         ],
     },
     {
-      text: "九、联系作者",
+      text: "十、联系作者",
       collapsable: true,
+      prefix: "about-the-author/",
       children: [
-        {
-          text: "心路历程",
-          prefix: "about-the-author/",
-          collapsable: true,
-          children: [
-            "bzhan-10wan",
-            "zhihu-1000wan",
-            "csdn-1000wan",
-            "readme.md",
-          ],
-        },
+        "bzhan-10wan",
+        "zhihu-1000wan",
+        "csdn-1000wan",
+        "readme.md",
+        
       ],
     },
   ],
