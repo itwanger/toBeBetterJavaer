@@ -289,6 +289,7 @@ headerDepth: 1
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](kaiyuan/auto-generator.md)
 - [如何在本地（macOS环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/macos-codingmore-run.md)
 - [如何在本地（Windows环境）跑起来编程喵（Spring Boot+Vue）项目源码？](springboot/windows-codingmore-run.md)
+- [编程喵🐱实战项目如何在云服务器上跑起来？](springboot/linux-codingmore-run.md)
 
 ### 辅助工具
 
@@ -388,16 +389,17 @@ headerDepth: 1
 
 ### 城市选择
 
-- [北京都有哪些牛逼的互联网公司？](cityselect/beijing.md)
-- [想去广州了！](cityselect/guangzhou.md)
-- [深圳有哪些牛批的互联网公司？](cityselect/shenzhen.md)
-- [西安有哪些不错的互联网公司？](cityselect/xian.md)
-- [青岛有牛逼的互联网公司吗？](cityselect/qingdao.md)
-- [郑州有哪些不错的互联网公司？](cityselect/zhengzhou.md)
-- [想搬去苏州生活了。。。](cityselect/suzhou.md)
-- [南京有哪些靠谱的互联网公司？](cityselect/nanjing.md)
-- [杭州有哪些顶级的互联网公司？](cityselect/hangzhou.md)
-- [成都有哪些牛批的互联网公司？](cityselect/chengdu.md)
+- [北京都有哪些值得加入的IT互联网公司？](cityselect/beijing.md)
+- [广州都有哪些值得加入的IT互联网公司？](cityselect/guangzhou.md)
+- [深圳都有哪些值得加入的IT互联网公司？](cityselect/shenzhen.md)
+- [西安都有哪些值得加入的IT互联网公司？](cityselect/xian.md)
+- [青岛都有哪些值得加入的IT互联网公司？](cityselect/qingdao.md)
+- [郑州都有哪些值得加入的IT互联网公司？](cityselect/zhengzhou.md)
+- [苏州都有哪些值得加入的IT互联网公司？](cityselect/suzhou.md)
+- [南京都有哪些值得加入的IT互联网公司？](cityselect/nanjing.md)
+- [杭州都有哪些值得加入的IT互联网公司？](cityselect/hangzhou.md)
+- [成都都有哪些值得加入的IT互联网公司？](cityselect/chengdu.md)
+- [济南都有哪些值得加入的IT互联网公司？](cityselect/jinan.md)
 
 ### 工作体会
 

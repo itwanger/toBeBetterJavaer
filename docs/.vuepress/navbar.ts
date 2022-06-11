@@ -32,11 +32,6 @@ export default navbar([
         link: "/download/java.md" 
       },
       {
-        text: "PDF干货笔记下载", 
-        icon: "pdf", 
-        link: "/download/pdf.md" 
-      },
-      {
         text: "学习建议", 
         icon: "xuexijianyi", 
         link: "/download/learn-jianyi.md" 

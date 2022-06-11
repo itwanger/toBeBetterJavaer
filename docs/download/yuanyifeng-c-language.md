@@ -1,5 +1,6 @@
 ---
-title: 阮一峰-C语言入门教程
+title: 👏下载→阮一峰C语言入门教程
+shortTitle: 阮一峰C语言入门教程
 category:
   - 学习资源
 tag:
@@ -10,11 +11,11 @@ tag:
 
 对，和往常一样，这个教程是开源的，采用知识共享许可证，源码托管在 GitHub，大家可以自由使用。
 
->https://github.com/wangdoc/clang-tutorial
+>[https://github.com/wangdoc/clang-tutorial](https://github.com/wangdoc/clang-tutorial)
 
 在线阅读地址也有：
 
->https://wangdoc.com/clang/
+>[https://wangdoc.com/clang/](https://wangdoc.com/clang/)
 
 我第一时间就拜读了一遍，受益匪浅！可以说目前我见到的最好的 C语言入门教程了，没有之一！
 
@@ -39,7 +40,7 @@ tag:
 那配上阮一峰老师的这个在线文档教程，可以说是完美！
 
 
-![](https://files.mdnice.com/user/3903/96b19f0e-4721-4b86-b69b-3eeb78ac3410.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/yuanyifeng-c-language-4a28a9bd-0db4-419c-8aaf-fa102323282d.png)
 
 我对这份教程是非常满意的，该讲的地方都讲到了，示例也给了很多，对初学者来说，完全够用了。
 
@@ -71,9 +72,9 @@ C语言在武林界的地位就相当于少林的地位，天下武功皆出少�
 
 不过网上也有蛮多在线编译器的，可以直接在网页上模拟运行 C 代码，查看结果，非常方便。
 
-![](https://files.mdnice.com/user/3903/e565681d-ee91-4be3-bb1a-bee34f0e87a6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/yuanyifeng-c-language-4dfd8f91-893f-401f-81ad-488e08934c07.png)
 
->CodingGround网址：https://www.tutorialspoint.com/compile_c_online.php
+>CodingGround网址：[https://www.tutorialspoint.com/compile_c_online.php](https://www.tutorialspoint.com/compile_c_online.php)
 
 C 语言是一种编译型语言，源码是文本文件，本身是无法执行的，需要通过编译器，生成二进制的可执行文件。
 

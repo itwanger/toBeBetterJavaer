@@ -284,6 +284,7 @@
 - [Spring Boot 整合 MyBatis-Plus AutoGenerator 生成编程喵项目骨架代码](docs/kaiyuan/auto-generator.md)
 - [如何在本地（macOS环境）跑起来编程喵（Spring Boot+Vue）项目源码？](docs/springboot/macos-codingmore-run.md)
 - [如何在本地（Windows环境）跑起来编程喵（Spring Boot+Vue）项目源码？](docs/springboot/windows-codingmore-run.md)
+- [编程喵🐱实战项目如何在云服务器上跑起来？](docs/springboot/linux-codingmore-run.md)
 
 
 ## 辅助工具
@@ -383,16 +384,17 @@
 
 ## 城市选择
 
-- [北京都有哪些牛逼的互联网公司？](docs/cityselect/beijing.md)
-- [想去广州了！](docs/cityselect/guangzhou.md)
-- [深圳有哪些牛批的互联网公司？](docs/cityselect/shenzhen.md)
-- [西安有哪些不错的互联网公司？](docs/cityselect/xian.md)
-- [青岛有牛逼的互联网公司吗？](docs/cityselect/qingdao.md)
-- [郑州有哪些不错的互联网公司？](docs/cityselect/zhengzhou.md)
-- [想搬去苏州生活了。](docs/cityselect/suzhou.md)
-- [南京有哪些靠谱的互联网公司？](docs/cityselect/nanjing.md)
-- [杭州有哪些顶级的互联网公司？](docs/cityselect/hangzhou.md)
-- [成都有哪些牛批的互联网公司？](docs/cityselect/chengdu.md)
+- [北京都有哪些值得加入的IT互联网公司？](docs/cityselect/beijing.md)
+- [广州都有哪些值得加入的IT互联网公司？](docs/cityselect/guangzhou.md)
+- [深圳都有哪些值得加入的IT互联网公司？](docs/cityselect/shenzhen.md)
+- [西安都有哪些值得加入的IT互联网公司？](docs/cityselect/xian.md)
+- [青岛都有哪些值得加入的IT互联网公司？](docs/cityselect/qingdao.md)
+- [郑州都有哪些值得加入的IT互联网公司？](docs/cityselect/zhengzhou.md)
+- [苏州都有哪些值得加入的IT互联网公司？](docs/cityselect/suzhou.md)
+- [南京都有哪些值得加入的IT互联网公司？](docs/cityselect/nanjing.md)
+- [杭州都有哪些值得加入的IT互联网公司？](docs/cityselect/hangzhou.md)
+- [成都都有哪些值得加入的IT互联网公司？](docs/cityselect/chengdu.md)
+- [济南都有哪些值得加入的IT互联网公司？](docs/cityselect/jinan.md)
 
 
 # 学习资源
@@ -403,14 +405,14 @@
 ## PDF下载
 
 - [👏下载→Java程序员常读书单](docs/download/java.md)
-- [👏下载→最全最硬核的Java面试 “备战” 资料](https://mp.weixin.qq.com/s/US5nTxbC2nYc1hWpn5Bozw)
-- [👏下载→深入浅出Java多线程](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)
-- [👏下载→GitHub星标115k+的Java教程](https://mp.weixin.qq.com/s/d7Z0QoChNuP9bTwAGh2QCw)
-- [👏下载→重学Java设计模式](https://mp.weixin.qq.com/s/PH5AizUAnTz0CuvJclpAKw)
-- [👏下载→Java版LeetCode刷题笔记](https://mp.weixin.qq.com/s/FyoOPIMGcaeH0z5RMhxtaQ)
+- [👏下载→最全最硬核的Java面试 “备战” 资料](docs/nice-article/weixin-bagwpdf.md)
+- [👏下载→深入浅出Java多线程](docs/nice-article/weixin-shenrjcjavabfbchwjdhl.md)
+- [👏下载→GitHub星标115k+的Java教程](docs/nice-article/weixin-githubxbkdjavajccjyh.md)
+- [👏下载→重学Java设计模式](docs/nice-article/weixin-shejmsnb.md)
+- [👏下载→Java版LeetCode刷题笔记](docs/nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
 - [👏下载→阮一峰C语言入门教程](docs/download/yuanyifeng-c-language.md)
 - [👏下载→BAT大佬的刷题笔记](docs/download/bat-shuati.md)
-- [👏下载→给操作系统捋条线](https://mp.weixin.qq.com/s/puTGbgU7xQnRcvz5hxGBHA)
+- [👏下载→给操作系统捋条线](docs/download/weixin-piaolwzjztqdtskwlzfpdf.md)
 - [👏下载→豆瓣9.1分，Pro Git中文版](docs/download/progit.md)
 - [👏下载→简历模板](docs/download/jianli.md)
 
