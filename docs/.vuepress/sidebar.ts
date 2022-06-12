@@ -720,7 +720,6 @@ export const sidebarConfig = sidebar({
               text: "数据库操作工具DBeaver",
               link: "gongju/DBeaver",
             },
-            "gongju/baota-mianban.md",
           ],
         },
         {
