@@ -46,11 +46,6 @@ export default navbar([
         icon: "rizhi", 
         link: "/download/history.md" 
       },
-      {
-        text: "回到过去",
-        icon: "fanhuijiuban", 
-        link: "https://docsify.tobebetterjavaer.com/"
-      },
     ],
   },
   
