@@ -124,3 +124,45 @@ http
 
     include /www/server/panel/vhost/nginx/*.conf;
 }
+
+server {
+    listen       80;
+    server_name  docsify.tobebetterjavaer.com tobebetterjavaer.com *.tobebetterjavaer.com;
+    return 301 https://$server_name$request_uri;
+}
+
+# HTTPS server
+
+server {
+    listen       443 ssl;
+    server_name  tobebetterjavaer.com;
+
+    ssl_certificate      /home/cert/nginx/tobebetterjavaer.com_cert_chain.pem;
+    ssl_certificate_key  /home/cert/nginx/tobebetterjavaer.com_key.key;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    ssl_ciphers  HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
+    
+    root   /home/www/toBeBetterJavaer/dist;
+    index  index.html index.htm;
+}
+
+server {
+    listen       443 ssl;
+    server_name  docsify.tobebetterjavaer.com;
+
+    ssl_certificate      /home/cert/nginx/docsify.tobebetterjavaer.com_cert_chain.pem;
+    ssl_certificate_key  /home/cert/nginx/docsify.tobebetterjavaer.com_key.key;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    ssl_ciphers  HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
+    
+    root   /home/www/toBeBetterJavaer;
+    index  index.html index.htm;
+}
