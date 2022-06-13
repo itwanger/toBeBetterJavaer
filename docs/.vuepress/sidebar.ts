@@ -692,8 +692,12 @@ export const sidebarConfig = sidebar({
               text: "整合MyBatis-Plus AutoGenerator",
               link: "kaiyuan/auto-generator",
             },
+            "springboot/quartz",
+            "springboot/mybatis",
+            "springboot/docker",
             "springboot/macos-codingmore-run",
-            "springboot/windows-codingmore-run"
+            "springboot/windows-codingmore-run",
+            "springboot/linux-codingmore-run",
           ],
         },
         {
