@@ -1,6 +1,6 @@
 ---
 title: Spring Boot 整合 MyBatis
-shortTitle: 整合Quartz
+shortTitle: 整合MyBatis
 category:
   - Java企业级开发
 tag:
