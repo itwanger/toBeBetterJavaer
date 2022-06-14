@@ -9,3 +9,4 @@
 - [面渣逆袭（Spring）必看:+1:](/sidebar/sanfene/spring.md)
 - [面渣逆袭（Redis）必看:+1:](/sidebar/sanfene/redis.md)
 - [面渣逆袭（MyBatis）必看:+1:](/sidebar/sanfene/mybatis.md)
+- [面渣逆袭（操作系统）必看:+1:](/sidebar/sanfene/os.md)
