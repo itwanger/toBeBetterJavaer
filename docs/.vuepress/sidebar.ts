@@ -48,6 +48,7 @@ export const sidebarConfig = sidebar({
       link: "redis.md",
     },
     "mybatis.md",
+    "os.md",
   ],
   // 必须放在最后面
   "/": [
@@ -698,6 +699,7 @@ export const sidebarConfig = sidebar({
             "springboot/macos-codingmore-run",
             "springboot/windows-codingmore-run",
             "springboot/linux-codingmore-run",
+            "springboot/validator",
           ],
         },
         {
