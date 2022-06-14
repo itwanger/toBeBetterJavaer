@@ -281,6 +281,7 @@
 - [如何在本地（macOS环境）跑起来编程喵（Spring Boot+Vue）项目源码？](docs/springboot/macos-codingmore-run.md)
 - [如何在本地（Windows环境）跑起来编程喵（Spring Boot+Vue）项目源码？](docs/springboot/windows-codingmore-run.md)
 - [编程喵🐱实战项目如何在云服务器上跑起来？](docs/springboot/linux-codingmore-run.md)
+- [SpringBoot中处理校验逻辑的两种方式：Hibernate Validator+全局异常处理](docs/springboot/validator.md)
 
 
 ## 辅助工具
