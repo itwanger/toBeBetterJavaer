@@ -9,6 +9,8 @@ export default defineUserConfig({
 
   shouldPrefetch: false,
 
+  autoDescription: true,
+
   head: [
     [
       "script",{},
