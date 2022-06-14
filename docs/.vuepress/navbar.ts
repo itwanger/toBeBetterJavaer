@@ -46,6 +46,10 @@ export default navbar([
         icon: "rizhi", 
         link: "/download/history.md" 
       },
+      { 
+        text: "破解合集",
+        link: "/nice-article/itmind/" 
+      },
     ],
   },
   

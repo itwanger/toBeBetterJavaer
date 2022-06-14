@@ -2,6 +2,10 @@ import { sidebar } from "vuepress-theme-hope";
 export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
   "/download/": ["java","nicearticle", "history"],
+  "/nice-article/itmind/": [
+    "readme",
+    "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
+  ],
   "/xuexiluxian/": [
     {
       text: "Java学习路线",

@@ -1,11 +1,18 @@
 ---
+title: 什么是Java & Java的发展简史 & Java的优势
+shortTitle: 关于 Java
 category:
   - Java核心
 tag:
   - Java
+head:
+  - - meta
+    - name: keywords
+      content: Java是什么,Java的发展简史,Java的优势
+    - name: description
+      content: Java是什么,Java的发展简史,Java的优势
 ---
 
-# 什么是Java？
 
 ## 01、什么是 Java？
 
