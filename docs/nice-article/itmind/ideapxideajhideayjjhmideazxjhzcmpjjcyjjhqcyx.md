@@ -1,6 +1,6 @@
 ---
-title: IDEA 2022/2021 最新激活注册码 - 破解教程 [永久激活，亲测有效]
-shortTitle: idea破解,idea激活,idea2022永久激活码，IDEA 2022/2021 最新激活注册码 - 破解教程 [永久激活，亲测有效]
+title: IDEA 2022 最新激活注册码 - 附破解教程 [永久激活，亲测有效]
+shortTitle: IDEA破解教程 2022
 description: IntelliJ IDEA 2022 激活破解图文教程（亲测有用，永久激活）,IDEA永久激活破解教程，亲测有效（2022年最新IDEA激活码）通过补丁+激活码可以激活到2099年，前面IDEA安装都是一样的，主要是后面的步骤，注意看后面就行~
 tags:
   - idea破解
@@ -19,10 +19,12 @@ head:
   - - meta
     - name: description
       content: IntelliJ IDEA 2022 激活破解图文教程（亲测有用，永久激活）,IDEA永久激活破解教程，亲测有效（2022年最新IDEA激活码）通过补丁+激活码可以激活到2099年，前面IDEA安装都是一样的，主要是后面的步骤，注意看后面就行~
+  - - meta
     - name: keywords
       content: idea破解,idea2021.3永久激活码,idea激活,idea 破解,阿里云盘资源,idea破解2022,idea 2021.3.3破解,idea 2022破解教程,idea2022破解,intellij idea激活码,
-
 ---
+
+
 
 IDEA 2022.1 最新激活注册码 – 破解教程 \[永久激活，亲测有效\]
 ========================================
@@ -31,10 +33,31 @@ IDEA 2022.1 最新激活注册码 – 破解教程 \[永久激活，亲测有效
 
 **申明：本教程 IntelliJ IDEA 破解补丁、激活码均收集于网络，请勿商用，仅供个人学习使用，如有侵权，请联系作者删除。若条件允许，希望大家购买正版 ！**
 
-**PS: 本教程最新更新时间: 2022年06月12日~**
+**PS: 本教程最新更新时间: 2022年06月15日~**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-3fc2c838-c441-4da3-80be-ac64c7fa796e.png)
+这里提供几个**最新的激活码**，有需要的朋友可以试试，先到先用：
 
+[2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
+
+[一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+
+[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-2c79bba3-9bf6-4e2a-8d4b-b76aeb5d1b80.png)
+
+笔者试了网上几乎所有的 IDEA 破解方案，发现两种靠谱的破解方法（这两种都是亲测成功的），都配上了详细的图文教程，在这里分享给大家，小伙伴们二选一即可：
+
+*   第一种：**[👉 无限重置 IDEA 30天试用期（补丁）](http://www.itmind.net/11397.html)**；  
+
+**PS: 此种方法仅适用于 IDEA 2021.2.2 (包含 2021.2.2 版本) 以下版本，可下载 IDEA 历史版本来使用。**历史版本下载链接：https://www.jetbrains.com/idea/download/other.html
+
+*   第二种：👉 [**【推荐】永久激活 IDEA （补丁）**](http://www.itmind.net/14363.html)，即本文教程所写的，具体步骤**跟着下面的图文教程一步一步来就行，一分钟即可搞定，过程也非常简单。**无图无真相，下面截图是成功激活后的画面：
+
+PS: **补丁的原理实际上是暴力拦截了 IDEA 的剩余使用期网络请求，实际上等于永久激活，激活到的哪天的配置，之前版本z大是开放出来的，可以通过配置文件随意修改，比如改成激活到 2099 年，最新的版本无了，可能是太高调了，怕被官方搞，其实都是一样的。还是要感谢z大的补丁~ 无敌~ nbility~。**
+
+![IDEA 2021.3.2 成功激活至9999年截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-2c2b4867-536c-4e7d-a486-ba432c8b016d.jpg)
+
+![IDEA 2022.1 成功激活至2099年截图2](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-bbbcc2db-6abd-4590-a873-9b79c20b6907.jpg)
 
 注意
 --
@@ -61,7 +84,7 @@ PS: IDEA 前面的安装步骤还是一样，主要是后面的激活步骤~
 
 https://www.jetbrains.com/idea/download/
 
-![IDEA 2022.1版本官网下载](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-557cd1e7-51ec-46ac-bd7f-fa246aa657a3.jpg)
+![IDEA 2022.1版本官网下载](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-c9a1381f-00d5-4f27-9ed2-c51f4a90f5b1.jpg)
 
 点击下载，静心等待其下载完毕即可。
 
@@ -74,11 +97,11 @@ https://www.jetbrains.com/idea/download/
 
 1.笔者之前安装了老版本的 IDEA, 所以要先卸载，未安装老版本 IDEA 的小伙伴直接跳过，直接看后面激活步骤就行:
 
-![卸载老版本的IDEA](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-423c4ca8-1bfe-468f-915b-fa372cce5a36.jpg)
+![卸载老版本的IDEA](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-c7aa3f6e-1d80-4b54-8d25-11dc63d7d648.jpg)
 
 卸载成功后，点击关闭:
 
-![IDEA老版本卸载成功](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-2ede2f61-06cc-4669-be10-2ba0cde3f7bb.jpg)
+![IDEA老版本卸载成功](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-47c585ac-2ef9-471e-958d-dda5ad071dd6.jpg)
 
 卸载成功后，双击刚刚下载好的 idea exe 格式安装包, 打开它；
 
@@ -87,23 +110,23 @@ https://www.jetbrains.com/idea/download/
 
 2.安装目录默认为 C:Program FilesJetBrainsIntelliJ IDEA 2022.1, 这里笔者选择的是默认路径:
 
-![IDEA 2022.1安装第一步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-14e02e25-37d9-4325-b432-79ce46000b48.jpg)
+![IDEA 2022.1安装第一步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-e347ba95-6fbe-4e18-87d1-5e75dc52b65c.jpg)
 
 3.勾选创建桌面快捷方式，这边方便后续打开 IDEA：
 
-![IDEA 2022.1安装第二步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-b2d7f0c8-8561-45aa-b779-3e1b1d385ea0.jpg)
+![IDEA 2022.1安装第二步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-7f909299-a714-46aa-97de-58f3541ca3f3.jpg)
 
 4.点击 Install ：
 
-![IDEA 2022.1安装第三步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-40275a59-d9cd-4f6b-8fc8-0e0bbda2cff6.jpg)
+![IDEA 2022.1安装第三步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-7a5bbb05-3d99-410d-a105-f64d3361a562.jpg)
 
 5.安装完成后，勾选 Run IntelliJ IDEA，点击 Finish 运行软件:
 
-![IDEA 2022.1安装第四步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-923a5034-c873-486e-8d45-839c3992e12c.jpg)
+![IDEA 2022.1安装第四步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-888d4262-5dc5-4d5b-b301-2aa2abc5b6d9.jpg)
 
 IDEA 运行成功后，会弹出下面的对话框，提示我们需要先登录 JetBrains 账户才能使用：
 
-![IDEA 2022.1 弹出对话框，提示需要登录账户](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-c229121c-ed1a-4c35-91b9-bb925a929c55.jpg)
+![IDEA 2022.1 弹出对话框，提示需要登录账户](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-b83b128a-f624-4809-85c4-958700379f11.jpg)
 
 这里我们先不管，**先点击 Exit 退出，准备开始运行激活脚本**。
 
@@ -123,7 +146,7 @@ IDEA 运行成功后，会弹出下面的对话框，提示我们需要先登录
 
 **注意：激活脚本文末获取！**
 
-![IDEA 2022.1 激活脚本文件夹](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-78d64003-d0f9-43c0-921b-9519a949b4e2.jpg)  
+![IDEA 2022.1 激活脚本文件夹](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-56c2b046-1ab4-4e5b-b8be-902b56a37f58.jpg)  
 
 **注意：激活脚本文末获取！**
 
@@ -138,7 +161,7 @@ IDEA 运行成功后，会弹出下面的对话框，提示我们需要先登录
 
 将 ja-netfilter-all激活文件夹移动到电脑上某个位置，笔者做演示放置在了桌面上，你可以放到 D 盘或者其他路径下：
 
-![打开 IDEA 2022.1 激活脚本文件夹](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-944f14c4-2492-4f86-bd1e-f57430d44c17.jpg)
+![打开 IDEA 2022.1 激活脚本文件夹](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-d80bdcef-a4b2-4ad5-b2a0-c4a27d2111f0.jpg)
 
 Windows 系统，点击运行 install-current-user.vbs 脚本，为当前用户安装破解补丁。
 
@@ -148,25 +171,25 @@ PS: install-all-users.vbs 为系统所有用户安装，不太推荐。unistall-
 
 点击安装，会弹出如下提示：
 
-![安装IDEA激活破解补丁提示框](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-ccbb5b97-e1cb-4b10-91c6-c9e7e6e85b20.jpg)
+![安装IDEA激活破解补丁提示框](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-01f5dfa3-3435-45be-93e5-bfa74ed77fc4.jpg)
 
 告诉我们，运行此补丁大约花费几秒钟，点击 确定，等待 Done 完成提示框出现，到这里，表示补丁安装成功。
 
-![IDEA 激活破解补丁安装成功](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-41c03a86-875b-4fa9-a47e-03f4d11d2ecf.jpg)  
+![IDEA 激活破解补丁安装成功](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-e666b512-6258-47f6-bcfa-d99e577e5f18.jpg)  
 
 注意：运行此脚本因为需要添加 idea.vmoptions 文件的环境变量，可能会被杀毒软件误报为木马，大家允许运行即可。
 
 实在不放心的小伙伴也可打开该脚本，看看源码，截图如下：
 
-![IDEA 破解激活补丁源码截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-6615c397-b979-4694-bd5c-96996a487c1e.jpg)
+![IDEA 破解激活补丁源码截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-80961ede-c03d-41c0-9a41-8b8a2597d92c.jpg)
 
 大致看下，代码主要是为 JetBrains 系列产品在外置 .vmoptions 配置文件中引用破解补丁：
 
-![运行脚本自动引入了 IDEA 2022.1 的破解补丁](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-5e1649f7-9626-4e25-afb8-b8198c066d42.jpg)
+![运行脚本自动引入了 IDEA 2022.1 的破解补丁](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-5f1445b5-af02-4c6e-90d9-3225ca71b17b.jpg)
 
 以及添加idea.vmoptions 文件的环境变量，脚本运行成功后，打开环境变量看下，如下：
 
-![系统环境变量截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-e846513d-fb18-4175-9625-2beba44c0ffc.jpg)
+![系统环境变量截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-e5c23e06-86fb-4d17-9f26-2b4292a1aef9.jpg)
 
 可以看到，除了为 IDEA 添加 .vmoptions 环境变量外，还有其他产品的，如 Goland 等。
 
@@ -185,13 +208,13 @@ Jetbrains 每个产品对应激活码都不一样，其他 IDE, 如 Pycharm、We
 
 复制激活码后填入，点击 Activate 按钮完成激活：
 
-![填入 IDEA 2022.1 激活码](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-b85d8c73-b451-4bf0-8943-12a8e09efb14.jpg)  
+![填入 IDEA 2022.1 激活码](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-0813c7a9-9fd6-4723-af5a-edce3b136bac.jpg)  
 
 PS: 有部分小伙伴反应，重启 IDEA 填入激活码依然无法激活，重启系统才行，如果有小伙伴遇到这种情况，不妨试试看~  
 
 点击激活后，就可以看到激活成功辣，又可以开心的 coding 了~：
 
-![IDEA 2021.3.2 成功激活至9999年截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-d73b2ada-c8ca-475c-8a3e-82dd5a752578.jpg)
+![IDEA 2021.3.2 成功激活至9999年截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-2c2b4867-536c-4e7d-a486-ba432c8b016d.jpg)
 
 一切按照教程来的，还是提示 Key is invalid？
 -----------------------------
@@ -218,11 +241,11 @@ PS: 有部分小伙伴反应，重启 IDEA 填入激活码依然无法激活，�
 激活补丁下载地址
 --------
 
-PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容易被封： ![IDEA 2022.1破解补丁分享失败](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-21e9acb1-999f-440d-bee3-4320a4bb3803.jpg) 蛋疼ing，为限制人数，目前暂不提供页面直接提取，**改为从笔者公众号提取**。
+PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容易被封： ![IDEA 2022.1破解补丁分享失败](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-8a941a9c-2e70-4350-8cb6-17f9dafbc3d0.jpg) 蛋疼ing，为限制人数，目前暂不提供页面直接提取，**改为从笔者公众号提取**。
 
 **需要的小伙伴，扫描下方公众号二维码，或者关注公众号： 沉默王二，回复关键字：idea, 即可免费无套路获取激活码、破解补丁，持续更新中~。**  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-2cbe6501-e7f5-474d-9d4b-ad10802362a7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 声明
 --
@@ -232,3 +255,4 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 *   若资金允许，请点击 https://www.jetbrains.com/idea/buy/ 购买正版，谢谢合作！
 *   学生凭学生证可免费申请 https://sales.jetbrains.com/hc/zh-cn/articles/207154369-学生授权申请方式 正版授权！
 *   创业公司可5折购买 https://www.jetbrains.com/shop/eform/startup 正版授权！
+
