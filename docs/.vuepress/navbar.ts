@@ -48,6 +48,7 @@ export default navbar([
       },
       { 
         text: "破解合集",
+        icon: "zhongyaotishi",
         link: "/nice-article/itmind/" 
       },
     ],

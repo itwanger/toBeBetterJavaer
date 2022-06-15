@@ -3,8 +3,9 @@ export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["java-mianshi-zhinan","readme.md"],
   "/download/": ["java","nicearticle", "history"],
   "/nice-article/itmind/": [
-    "readme",
+    "readme.md",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
+    "yigkymxczideatsyqdffblwxjcywdxbxt",
   ],
   "/xuexiluxian/": [
     {
