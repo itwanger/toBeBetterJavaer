@@ -6,6 +6,7 @@ export const sidebarConfig = sidebar({
     "readme.md",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
     "yigkymxczideatsyqdffblwxjcywdxbxt",
+    "xshellazpjbjcxshellpxffxbxt",
   ],
   "/xuexiluxian/": [
     {

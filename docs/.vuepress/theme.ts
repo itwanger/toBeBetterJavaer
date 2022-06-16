@@ -5,9 +5,29 @@ import { sidebarConfig } from "./sidebar";
 export default hopeTheme({
   hostname: "https://tobebetterjavaer.com",
 
+  encrypt: {
+    config: {
+      // 这只会加密 config/page.html
+      "/nice-article/itmind/xshellazpjbjcxshellpxffxbxt.html": ["1110", "5210"],
+    },
+  },
+
   author: {
     name: "沉默王二",
     url: "https://tobebetterjavaer.com",
+  },
+
+  encryptLocales: {
+    /**
+     * Encrypt title
+     */
+    title: "初次访问，人机识别活动下筋骨",
+    placeholder: "微信搜「沉默王二」回复「密码」获取",
+
+    /**
+     * Passwrod error hint
+     */
+    errorHint: "哈哈，别调戏人家啦，按规则来嘛",
   },
 
   iconPrefix: "iconfont icon-",
