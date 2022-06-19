@@ -1,6 +1,6 @@
 ---
-title: 沉默王二的专属知识星球-Java程序员进阶之路
-shortTitle: 沉默王二的专属知识星球
+title: 沉默王二的编程知识星球-Java程序员进阶之路-第一期简介
+shortTitle: 第一期简介
 sticky: true
 star: true
 isOriginal: true

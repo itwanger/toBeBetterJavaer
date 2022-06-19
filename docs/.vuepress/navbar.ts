@@ -8,9 +8,9 @@ export default navbar([
     link: "/home.md" 
   },
   { 
-    text: "星球专栏", 
+    text: "知识星球", 
     icon: "Artboard", 
-    link: "/zhishixingqiu/java-mianshi-zhinan.md" 
+    link: "/zhishixingqiu/" 
   },
   {
     text: "学习路线",
