@@ -44,12 +44,12 @@ date: 2022-03-17
 
 知识星球支持手机端 APP、小程序和电脑网页端，让你随时随地分享、碎片化学习，每天认真阅读 10 分钟，一年后一定会大有所获。
 
-手机端截图：
+手机端截图（APP 可以在应用商店搜「知识星球」下载好，微信登录即可）：
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12.png)
 
 
-网页版截图：
+网页版截图（戳链接[https://zsxq.com/](https://zsxq.com/)微信扫码就可以登录）：
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-13.png)
 
