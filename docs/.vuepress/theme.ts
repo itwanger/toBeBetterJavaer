@@ -14,7 +14,7 @@ export default hopeTheme({
 
   author: {
     name: "沉默王二",
-    url: "https://tobebetterjavaer.com",
+    url: "https://tobebetterjavaer.com/about-the-author/",
   },
 
   encryptLocales: {
@@ -76,6 +76,7 @@ export default hopeTheme({
   },
 
   plugins: {
+    blog: true,
     // 评论区
     comment: {
       type: "giscus",
