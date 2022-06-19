@@ -22,7 +22,7 @@ export default hopeTheme({
      * Encrypt title
      */
     title: "初次访问，人机识别活动下筋骨",
-    placeholder: "微信搜「沉默王二」回复「密码」获取",
+    placeholder: "微信搜‘沉默王二’回复‘密码’获取口令",
 
     /**
      * Passwrod error hint

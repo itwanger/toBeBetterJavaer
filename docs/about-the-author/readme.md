@@ -27,7 +27,7 @@ category: 联系作者
 
 两届博客之星，总榜前 10 选手，访问量 1100 万+，粉丝 34 万+，妥妥的裆部博主，哦，不，头部博主。
 
->访问地址：https://blog.csdn.net/qing_gee
+>访问地址：[https://blog.csdn.net/qing_gee](https://blog.csdn.net/qing_gee)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/about-the-author/readme-14fd83ec-db6e-4a6f-a8e9-8ce1ce0097c3.png)
 
@@ -35,23 +35,21 @@ category: 联系作者
 
 LV9 选手，阅读总数超 1590 万，今年卷一卷的话，破 2000 万阅读没什么问题。
 
->访问地址：https://www.zhihu.com/people/cmower
+>访问地址：[https://www.zhihu.com/people/cmower](https://www.zhihu.com/people/cmower)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/about-the-author/readme-0fa19b6e-d06c-436b-bd11-1de8265c56bb.png)
 
 ### 04、B 站
 
-B 站还比较菜，目前只有一个 10 万+播放量的视频，等我的开源项目编程喵喵🐱开发完第一个版本后，开始重新卷视频。
-
->访问地址：https://space.bilibili.com/513340480
+>访问地址：[https://space.bilibili.com/513340480](https://space.bilibili.com/513340480)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/about-the-author/readme-5db6c62f-6194-4022-aee5-daf4d1a19f0c.png)
 
 ### 05、GitHub
 
-目前主要维护的《Java 程序员进阶之路》开源版在 GitHub 上有 1.8k+ 的 star，和出版社约定的是，超过 1 万 star 就出书，小伙伴们可以来点赞支持下。
+目前主要维护的《Java 程序员进阶之路》开源版在 GitHub 上有 2.7k+ 的 star，和出版社约定的是，超过 1 万 star 就出书，小伙伴们可以来点赞支持下。
 
->访问地址：https://github.com/itwanger/toBeBetterJavaer
+>访问地址：[https://github.com/itwanger/toBeBetterJavaer](https://github.com/itwanger/toBeBetterJavaer)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/about-the-author/readme-aa477206-41a9-4c55-a649-3d87ba1cb26b.png)
 
