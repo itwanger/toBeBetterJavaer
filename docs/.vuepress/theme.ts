@@ -76,16 +76,9 @@ export default hopeTheme({
   },
 
   plugins: {
+    
+
     blog: true,
-    // 评论区
-    comment: {
-      type: "giscus",
-      repo :"itwanger/tobebetterjavaer-giscus",
-      repoId:"R_kgDOHBJssg",
-      category:"Announcements",
-      categoryId:"DIC_kwDOHBJsss4COJOx",
-      mapping:"pathname",
-    },
 
     activeHeaderLinks: true,
 

@@ -1,4 +1,5 @@
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+import { commentPlugin } from "vuepress-plugin-comment2";
 import { defineUserConfig } from "vuepress";
 import theme from "./theme";
 
@@ -42,6 +43,13 @@ export default defineUserConfig({
   },
 
   plugins: [
+    commentPlugin({
+      provider: "Giscus",
+      repo :"itwanger/tobebetterjavaer-giscus",
+      repoId:"R_kgDOHBJssg",
+      category:"Announcements",
+      categoryId:"DIC_kwDOHBJsss4COJOx",
+    }),
     docsearchPlugin({
       appId: "O566AMFNJH",
       apiKey: "d9aebea8bd1a4f1e01201464bbab255f",
