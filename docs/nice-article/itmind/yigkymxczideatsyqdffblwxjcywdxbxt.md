@@ -34,7 +34,9 @@ head:
 
 [2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
 
-[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+[一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+
+[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)
 
 笔者发现一个可以 无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定，再也不用担心激活码经常失效的问题了，具体步骤跟着下面的图文教程一步一步来就行，非常简单哟。
 

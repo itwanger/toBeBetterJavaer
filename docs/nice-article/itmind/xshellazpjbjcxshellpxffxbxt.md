@@ -24,7 +24,7 @@ Xshell7-Xftp7免费版下载 （亲测可用）
 
 **本教程更新时间：2022.06.07**
 
-### [更多靠谱破解教程，戳这里！！（破解目录汇总）](https://tobebetterjavaer.com/nice-article/itmind/)
+[更多靠谱破解教程，戳这里！！（破解目录汇总）](https://tobebetterjavaer.com/nice-article/itmind/)
 
 ### 1.下载安装包
 
