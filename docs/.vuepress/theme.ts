@@ -14,7 +14,7 @@ export default hopeTheme({
 
   author: {
     name: "沉默王二",
-    url: "https://tobebetterjavaer.com/about-the-author/",
+    url: "/about-the-author/",
   },
 
   encryptLocales: {
@@ -62,10 +62,19 @@ export default hopeTheme({
 
   pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
+  // page meta
+  metaLocales: {
+    editLink: "在 GitHub 上编辑此页",
+  },
+
   blog: {
     intro: "/about-the-author/",
     sidebarDisplay: "mobile",
+    // 博主头像
     avatar: "/assets/icon/itwanger-282.png",
+    // 圆角
+    roundAvatar: true,
+    // 座右铭
     description:"没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。",
     medias: {
       Zhihu: "https://www.zhihu.com/people/cmower",
@@ -76,9 +85,12 @@ export default hopeTheme({
   },
 
   plugins: {
-    
-
+    // 启用博客功能
     blog: true,
+    // 启用博客自动摘要
+    blog: {
+      autoExcerpt: true,
+    },
 
     activeHeaderLinks: true,
 
@@ -87,49 +99,6 @@ export default hopeTheme({
       align: true,
       presentation: {
         plugins: ["highlight", "math", "search", "notes", "zoom"],
-      },
-    },
-
-    // Progressive Web app，即渐进式网络应用程序，
-    // 允许网站通过支持该特性的浏览器将网站作为 App 安装在对应平台上。
-    pwa: {
-      // favicon.ico一般用于作为缩略的网站标志,它显示位于浏览器的地址栏或者在标签上,用于显示网站的logo,
-      favicon: "/favicon.ico",
-      // 如果你的站点体积不大，且配图大多为关键性说明，希望可以在离线模式下显示，建议将此项设置为 true
-      cachePic: true,
-      apple: {
-        icon: "/assets/icon/apple-icon-152.png",
-        statusBarColor: "black",
-      },
-      msTile: {
-        image: "/assets/icon/ms-icon-144.png",
-        color: "#ffffff",
-      },
-      manifest: {
-        icons: [
-          {
-            src: "/assets/icon/chrome-mask-512.png",
-            sizes: "512x512",
-            purpose: "maskable",
-            type: "image/png",
-          },
-          {
-            src: "/assets/icon/chrome-mask-192.png",
-            sizes: "192x192",
-            purpose: "maskable",
-            type: "image/png",
-          },
-          {
-            src: "/assets/icon/chrome-512.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-          {
-            src: "/assets/icon/chrome-192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-        ],
       },
     },
   },

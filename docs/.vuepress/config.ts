@@ -1,5 +1,6 @@
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { commentPlugin } from "vuepress-plugin-comment2";
+import { pwaPlugin } from "vuepress-plugin-pwa2";
 import { defineUserConfig } from "vuepress";
 import theme from "./theme";
 
@@ -8,6 +9,7 @@ export default defineUserConfig({
 
   dest: "./dist",
 
+  // 如果你正在使用本插件，我们推荐在你的 VuePress 配置文件中设置 shouldPrefetch: false。
   shouldPrefetch: false,
 
   autoDescription: true,
@@ -43,6 +45,48 @@ export default defineUserConfig({
   },
 
   plugins: [
+    // Progressive Web app，即渐进式网络应用程序，
+    // 允许网站通过支持该特性的浏览器将网站作为 App 安装在对应平台上。
+    pwaPlugin({
+      // favicon.ico一般用于作为缩略的网站标志,它显示位于浏览器的地址栏或者在标签上,用于显示网站的logo,
+      favicon: "/favicon.ico",
+      // 如果你的站点体积不大，且配图大多为关键性说明，希望可以在离线模式下显示，建议将此项设置为 true
+      cachePic: true,
+      apple: {
+        icon: "/assets/icon/apple-icon-152.png",
+        statusBarColor: "black",
+      },
+      msTile: {
+        image: "/assets/icon/ms-icon-144.png",
+        color: "#ffffff",
+      },
+      manifest: {
+        icons: [
+          {
+            src: "/assets/icon/chrome-mask-512.png",
+            sizes: "512x512",
+            purpose: "maskable",
+            type: "image/png",
+          },
+          {
+            src: "/assets/icon/chrome-mask-192.png",
+            sizes: "192x192",
+            purpose: "maskable",
+            type: "image/png",
+          },
+          {
+            src: "/assets/icon/chrome-512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "/assets/icon/chrome-192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+        ],
+      },
+    }),
     commentPlugin({
       provider: "Giscus",
       repo :"itwanger/tobebetterjavaer-giscus",

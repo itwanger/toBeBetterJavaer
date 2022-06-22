@@ -1,5 +1,9 @@
 # 网络日志
 
+### 2022年06月22日
+
+- [增加博客页](/blog.md)
+
 ### 2022年06月06日
 
 - [macOS下如何运行编程喵源码](/springboot/macos-codingmore-run.md)
