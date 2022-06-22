@@ -1,7 +1,11 @@
 import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
-
+  { 
+    text: "博客",
+    icon: "gaishu",
+    link: "/blog.md" 
+  },
   { 
     text: "进阶之路", 
     icon: "lujing", 
@@ -18,16 +22,11 @@ export default navbar([
     link: "/xuexiluxian/"
   },
   {
-    text: "B站视频",
-    icon: "bzhan", 
-    link: "https://space.bilibili.com/513340480"
-  },
-  {
     text: "珍藏资源",
     icon: "youzhi",
     children: [
       {
-        text: "Java电子书下载", 
+        text: "电子书下载", 
         icon: "java", 
         link: "/download/java.md" 
       },
@@ -53,5 +52,9 @@ export default navbar([
       },
     ],
   },
-  
+  {
+    text: "B站视频",
+    icon: "bzhan", 
+    link: "https://space.bilibili.com/513340480"
+  },
 ]);

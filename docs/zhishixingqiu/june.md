@@ -1,6 +1,6 @@
 ---
 title: 六月总结-沉默王二-Java程序员进阶之路-知识星球
-shortTitle: Java 面试指南
+shortTitle: 知识星球六月总结
 category: 知识星球
 tag:
   - 知识星球
