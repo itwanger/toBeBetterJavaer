@@ -41,7 +41,7 @@ IDEA 2022.1 最新激活注册码 – 破解教程 \[永久激活，亲测有效
 
 [一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
 
-[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/)
+[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-2c79bba3-9bf6-4e2a-8d4b-b76aeb5d1b80.png)
 

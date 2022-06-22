@@ -9,6 +9,7 @@ export default hopeTheme({
     config: {
       // 这只会加密 config/page.html
       "/nice-article/itmind/xshellazpjbjcxshellpxffxbxt.html": ["1110", "5210"],
+      "/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html": ["1110", "5210"],
     },
   },
 
