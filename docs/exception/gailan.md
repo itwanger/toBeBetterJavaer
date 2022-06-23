@@ -177,7 +177,7 @@ public class Demo2 {
 
 或者说，强制性的 checked 异常可以让我们在编程的时候去思考，遇到这种异常的时候该怎么更优雅的去处理。显然，Socket 编程中，肯定是会遇到 IOException 的，假如 IOException 是非检查型异常，就意味着开发者也可以不考虑，直接跳过，交给 Java 虚拟机来处理，但我觉得这样做肯定更不合适。
 
-## 四、关于 try-catch-finally
+## 四、关于 throw 和 throws
 
 “二哥，你能告诉我 throw 和 throws 两个关键字的区别吗？”三妹问。
 
@@ -277,8 +277,7 @@ throw new ArithmeticException("算术异常");
 
 4）throws 关键字在声明异常的时候可以跟多个，用逗号隔开；而 throw 关键字每次只能抛出一个异常。
 
-## 五、关于 throw 和 throws
-
+## 五、关于 try-catch-finally
 “二哥，[上一节](https://mp.weixin.qq.com/s/fXRJ1xdz_jNSSVTv7ZrYGQ)你讲了异常处理机制，这一节讲什么呢？”三妹问。
 
 “该讲 try-catch-finally 了。”我说，“try 关键字后面会跟一个大括号 `{}`，我们把一些可能发生异常的代码放到大括号里；`try` 块后面一般会跟 `catch` 块，用来处理发生异常的情况；当然了，异常不一定会发生，为了保证发不发生异常都能执行一些代码，就会跟一个 `finally` 块。”
