@@ -1,11 +1,25 @@
 ---
+title: 面渣逆袭（Java 虚拟机-JVM面试题）必看👍
+shortTitle: 面渣逆袭-JVM
 category:
   - 面渣逆袭
 tag:
   - Java
+  - Java 虚拟机
+  - JVM
+  - Java 面试题
+  - JVM 面试题
+  - java虚拟机面试题
+description: 图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官
+head:
+  - - meta
+    - name: description
+      content: 图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官
+  - - meta
+    - name: keywords
+      content: Java,Java 虚拟机,JVM,Java 面试题,JVM 面试题,java虚拟机面试题
 ---
 
-# 面渣逆袭（Java 虚拟机篇）必看:+1:
 
 >  图文详解 50 道Java虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 

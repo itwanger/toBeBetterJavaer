@@ -1,11 +1,21 @@
 ---
+title: 面渣逆袭（Spring面试题）必看👍
+shortTitle: 面渣逆袭-Spring
+description: 图文详解 35 道Spring面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+author: 三分恶
 category:
   - 面渣逆袭
-tag:
+tags:
+  - Spring 面试题
   - Spring
+head:
+  - - meta
+    - name: description
+      content: 图文详解 35 道Spring面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+  - - meta
+    - name: keywords
+      content: Spring 面试题,Spring
 ---
-
-# 面渣逆袭（Spring）必看:+1:
 
 > 图文详解 35 道Spring面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
