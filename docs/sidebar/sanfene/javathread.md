@@ -1,14 +1,28 @@
 ---
+title: 面渣逆袭（Java并发编程面试题）必看👍
+shortTitle: 面渣逆袭-Java并发编程
 category:
   - 面渣逆袭
 tag:
   - Java
+  - Java Thread
+  - Java 并发编程
+  - Java 多线程
+  - Java 面试题
+  - Java 并发编程面试题
+description: 图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官
+head:
+  - - meta
+    - name: description
+      content: 图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官
+  - - meta
+    - name: keywords
+      content: Java,Java Thread,Java 并发编程,Java 多线程,Java 面试题,Java 并发编程面试题
 ---
 
-# 面渣逆袭（Java 并发编程篇）必看:+1:
 
 
->  图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+> 图文详解 60 道Java并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 
 ## 基础

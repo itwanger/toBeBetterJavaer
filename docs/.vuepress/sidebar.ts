@@ -35,32 +35,15 @@ export const sidebarConfig = sidebar({
     "algorithm",
   ],
   "/sidebar/sanfene/": [
-    {
-      text: "Java 基础",
-      link: "javase.md",
-    },
-    {
-      text: "Java 集合框架",
-      link: "collection.md",
-    },
-    {
-      text: "Java 并发编程",
-      link: "javathread.md",
-    },
-    {
-      text: "Java 虚拟机",
-      link: "jvm.md",
-    },
-    {
-      text: "Spring",
-      link: "spring.md",
-    },
-    {
-      text: "Redis",
-      link: "redis.md",
-    },
+    "javase.md",
+    "collection.md",
+    "javathread.md",
+    "jvm.md",
+    "spring.md",
+    "redis.md",
     "mybatis.md",
     "os.md",
+    "mysql.md",
   ],
   // 必须放在最后面
   "/": [

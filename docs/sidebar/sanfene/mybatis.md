@@ -1,10 +1,19 @@
 ---
+title: 面渣逆袭（MyBatis面试题）必看👍
+shortTitle: 面渣逆袭-MyBatis
 category:
   - 面渣逆袭
 tag:
   - MyBatis
-title: 面渣逆袭（MyBatis）必看
-shortTitle: MyBatis
+  - MyBatis面试题
+description: 图文详解 20 道MyBatis面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+head:
+  - - meta
+    - name: description
+      content: 图文详解 20 道MyBatis面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+  - - meta
+    - name: keywords
+      content: MyBatis面试题,MyBatis
 ---
 
 > 图文详解 20 道MyBatis面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/en2RgcVx52Ql3tYGLfv3Kw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/O_5Id2o9IP4loPazJuiHng)。

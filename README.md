@@ -77,6 +77,7 @@
 - [面渣逆袭（Redis）必看:+1:](docs/sidebar/sanfene/redis.md)
 - [面渣逆袭（MyBatis）必看:+1:](docs/sidebar/sanfene/mybatis.md)
 - [面渣逆袭（操作系统）必看:+1:](docs/sidebar/sanfene/os.md)
+- [面渣逆袭（MySQL）必看:+1:](docs/sidebar/sanfene/mysql.md)
 
 
 # Java核心

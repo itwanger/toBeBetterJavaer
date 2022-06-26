@@ -25,7 +25,7 @@ actions:
 - [CS 学习指南👉](/xuexiluxian/) : 一份涵盖 Java、C 语言、C++、Python、Go、前端、操作系统、蓝桥杯、算法和数据结构的全方位 CS 学习路线！清晰且有效！
 - [Java程序员常读书单📚，附下载地址](https://gitee.com/itwanger/JavaBooks) : 助力Java 程序员构建最强知识体系，涵盖Java、设计模式、数据库、数据结构与算法、大数据、架构等等，再也不用辛苦去找下载地址了。
 - [编程喵喵🐱实战项目学习教程](https://github.com/itwanger/codingmore-learning) ：codingmore（Spring Boot+Vue 的前后端分离项目，一款值得一试的开源知识库学习网站）的学习教程，需要项目经验的 Java 开发者必备！
-- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis 等等，助你拿到心仪 offer！
+- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统等等，助你拿到心仪 offer！
 
 
 ## PDF
