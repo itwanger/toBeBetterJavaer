@@ -371,7 +371,7 @@ public class SwitchEnumDemo {
 
 3）循环体：循环每次要执行的代码块，直到条件变为 false。
 
-4）自增/自减：初识变量变化的方式。
+4）自增/自减：初始变量变化的方式。
 
 
 
@@ -380,7 +380,7 @@ public class SwitchEnumDemo {
 
 
 ```java
-for(初识变量;条件;自增/自减){  
+for(初始变量;条件;自增/自减){  
 // 循环体
 }  
 ```
