@@ -10,9 +10,9 @@ category:
 
 来源：知乎
 
-最近互联网裁员，有网友热议：2022年大规模裁员后，计算机专业会不会成为下一个土木？
+最近互联网裁员，有网友热议：**2022年大规模裁员后，计算机专业会不会成为下一个土木**？
 
-今年是我进入这个行业的第 10 年，算是抓住了这个行业的红利期，不用依靠家里也可以在一线城市买房、成家立业。
+今年是我进入这个行业的第 12 年，算是抓住了这个行业的红利期，不用依靠家里也可以在一线城市买房、成家立业。
 
 但反观现在，“被毕业、逃离互联网、躺平算了...”却成了这个行业的主旋律，身边陆续有一些同事润到国企和外企去了，放低了对工资的预期，转而追求稳定和平衡。
 
@@ -160,4 +160,25 @@ category:
 
 \----------  END  \----------
 
-Java后端训练营 7月 1 号之后便会涨价到 5000+ 元，后面承诺只涨不降，课程永久有效，想有人带着你学的同学可以抓紧哦：：[从0到拿offer，Java后端体系课](https://mp.weixin.qq.com/s?__biz=Mzg2NzA4MTkxNQ==&mid=2247499250&idx=1&sn=9d41e61c2a99674a8f9b98e725e119b6&chksm=ce43b626f9343f30aa2850210e01fe7973a18327528c57f8666caa9fb5cc76fb1b3a799f2c29&token=357789221&lang=zh_CN&scene=21#wechat_redirect)
+> [二哥编程知识星球](https://mp.weixin.qq.com/s/vZwDdRc21ot7SSjDo4CXJQ) （戳链接加入）正式上线了，来和 **280 多名** 小伙伴一起打怪升级吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。<br><br>
+> Java程序员进阶之路网址：[https://tobebetterjavaer.com](https://tobebetterjavaer.com)
+
+
+---
+
+*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+
+
+
+
+**推荐阅读**：
+
+- [计算机专业如何细分？](https://mp.weixin.qq.com/s/_v0jnxDPjfU7LnKmHJJDWQ)
+- [推荐一款macOS 软件包管理神器](https://mp.weixin.qq.com/s/gVo46a-0AAnGzpntTm4NAA)
+- [专科生，去培训还是直接找工作？](https://mp.weixin.qq.com/s/3hgA2j_FpMxneyskZkGy4w)
+- [我扔进垃圾桶的第一本 Java 书...](https://mp.weixin.qq.com/s/XWwqzrHAJ0vtY3lNilqVkg)
+
+
+
+
+![](https://img-blog.csdnimg.cn/img_convert/29e81f023caee3bdfdb6698a3ad2178f.png)
