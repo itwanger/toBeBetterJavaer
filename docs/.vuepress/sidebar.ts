@@ -709,10 +709,8 @@ export const sidebarConfig = sidebar({
               text: "21世纪人用的终端工具Warp",
               link: "gongju/warp",
             },
-            {
-              text: "Win命令行软件管理器Chocolatey",
-              link: "gongju/choco",
-            },
+            "gongju/choco",
+            "gongju/brew",
             {
               text: "数据库设计神器chiner",
               link: "gongju/chiner",

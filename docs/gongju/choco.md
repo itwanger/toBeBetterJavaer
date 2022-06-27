@@ -2,9 +2,24 @@
 category:
   - Java企业级开发
 tag:
-  - 辅助工具/轮子
-title: chocolatey：一款 GitHub 星标 8.2k+的Windows命令行软件管理器
-
+  - 辅助工具
+  - GitHub
+  - Windows
+  - chocolatey
+  - 命令行
+  - Shell 工具
+  - 软件管理
+  - choco
+title: chocolatey：一款 GitHub 星标 8.2k+ 的 Windows 命令行软件管理神器
+shortTitle: Win软件管理神器choco
+description: chocolatey：一款 GitHub 星标 8.2k+ 的 Windows 命令行软件管理神器
+head:
+  - - meta
+    - name: description
+      content: chocolatey：一款 GitHub 星标 8.2k+ 的 Windows 命令行软件管理神器
+  - - meta
+    - name: keywords
+      content: 辅助工具,GitHub,Windows,chocolatey,命令行,Shell 工具,软件管理,choco
 ---
 
 小二是公司新来的实习生，之前面试的过程中对答如流，所以我非常看好他。第一天，我给他了一台新电脑，要他先在本地搭建个 Java 开发环境。
