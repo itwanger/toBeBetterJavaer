@@ -126,7 +126,6 @@ public class Actor {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-05.png)
 
-“如果一个类中的某些方法要被其他方法调用，则应考虑事被调用的方法称为 final 方法，否则，重写该方法会影响到调用方法的使用。”
 
 “三妹，来问你一个问题吧。”正想趁三妹回答问题的时候喝口水。
 
