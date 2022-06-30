@@ -351,7 +351,7 @@
 >  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
 >  - 千淘万漉虽辛苦，吹尽狂沙始到金。
 
-## 面试题集合
+## 精选面试题
 
 - [Java：34道精选高频面试题](docs/baguwen/java-basic-34.md)
 - [Java：13道HashMap精选面试题](docs/collection/hashmap-interview.md)
@@ -369,16 +369,18 @@
 
 ## 优质面经
 
-- [春招斩获深圳腾讯PCG和杭州阿里云](docs/mianjing/shanganaliyun.md)
-- [社招拿下阿里美团头条京东滴滴)](https://mp.weixin.qq.com/s/h2tV6v5Rh6jHdO9x0p63-g)
-- [字节小姐姐的一份秋招攻略](https://mp.weixin.qq.com/s/0hCJy0m8nHm08HfyXKQT1A)
-- [面试常见词汇扫盲+常见大厂面试特点分享](https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA)
-- [双非学历的社畜，历经 6 轮面试，最终拿下阿里Offer](https://mp.weixin.qq.com/s/vnMZY9Gsy3o1FwMi4f1GlA)
+- [硕士读者春招斩获深圳腾讯PCG和杭州阿里云 offer✌️](docs/mianjing/shanganaliyun.md)
+- [本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️](docs/nice-article/weixin/shezynmjfxhelmtttjddd.md)
+- [非科班读者，用一年时间社招拿下阿里 Offer✌️](docs/nice-article/weixin/xuelybdzheloffer.md)
+- [二本读者社招两年半10家公司28轮面试面经✌️](docs/nice-article/weixin/huanxgzl.md)
 
 ## 面试准备
 
-- [简历如何优化，简历如何投递，面试如何准备？](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)
-- [校招时间节点、简历编写、笔试、、HR面、实习等注意事项](https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw)
+- [面试常见词汇扫盲+大厂面试特点分享💪](docs/nice-article/weixin/miansmtgl.md)
+- [有无实习/暑期实习 offer 如何准备秋招？💪](docs/nice-article/weixin/zijxjjdyfqzgl.md)
+- [简历如何优化，简历如何投递，面试如何准备？💪](docs/nice-article/weixin/luoczbmsddyb.md)
+- [校招时间节点、简历编写、笔试、HR面、实习等注意事项💪](docs/nice-article/weixin/youdxzhhmjzlycfx.md)
+
 
 ## 城市选择
 
