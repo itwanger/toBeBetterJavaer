@@ -2,17 +2,17 @@ import { sidebar } from "vuepress-theme-hope";
 export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["readme.md","java-mianshi-zhinan","may","june"],
   "/download/": ["java","nicearticle", "history"],
-  "/nice-article/": [
-    "itmind/readme.md",
-    "itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
-    "itmind/yigkymxczideatsyqdffblwxjcywdxbxt",
-    "itmind/ideapjazjczxjhmzcmyjjhcxgxz",
-    "itmind/ideajhmideajhmideapxideajhmideazcmideayjjhm",
-    "itmind/navicatmacyjpx",
-    "itmind/navicatzxbwindowspjbjc",
-    "itmind/typorayjpx",
-    "imacso/typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom",
-    "itmind/xshellazpjbjcxshellpxffxbxt",
+  "/nice-article/itmind/": [
+    "readme.md",
+    "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
+    "yigkymxczideatsyqdffblwxjcywdxbxt",
+    "ideapjazjczxjhmzcmyjjhcxgxz",
+    "ideajhmideajhmideapxideajhmideazcmideayjjhm",
+    "navicatmacyjpx",
+    "navicatzxbwindowspjbjc",
+    "typorayjpx",
+    "typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom",
+    "xshellazpjbjcxshellpxffxbxt",
   ],
   "/xuexiluxian/": [
     {

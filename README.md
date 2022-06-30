@@ -421,6 +421,7 @@
 
 - [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
 - [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
+- [高考填志愿，计算机，计科，人工智能，软工，大数据，物联网，网络工程该怎么选？](docs/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx.md)
 
 
 # 知识库搭建

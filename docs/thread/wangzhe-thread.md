@@ -1,12 +1,24 @@
 ---
+title: 室友打了一把王者就学会了创建Java线程的3种方式
+shortTitle: 创建Java线程的3种方式
 category:
   - Java核心
   - 并发编程
 tag:
   - Java
+  - Java并发编程
+  - Java多线程
+  - Java Thread
+description: 室友打了一把王者就学会了创建Java线程的3种方式
+head:
+  - - meta
+    - name: description
+      content: 室友打了一把王者就学会了创建Java线程的3种方式
+  - - meta
+    - name: keywords
+      content: Java,Java并发编程,Java多线程,Java Thread
 ---
 
-# 室友打了一把王者就学会了创建Java线程的3种方式
 
 对于 Java 初学者来说，多线程的很多概念听起来就很难理解。比方说：
 

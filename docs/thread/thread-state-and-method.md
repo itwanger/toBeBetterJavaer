@@ -1,12 +1,23 @@
 ---
+title: Java线程的6种状态及切换(透彻讲解)
+shortTitle: Java线程的6种状态
 category:
   - Java核心
   - 并发编程
 tag:
   - Java
+  - Java并发编程
+  - Java多线程
+  - Java Thread
+description: Java线程的6种状态及切换(透彻讲解)
+head:
+  - - meta
+    - name: description
+      content: Java线程的6种状态及切换(透彻讲解)
+  - - meta
+    - name: keywords
+      content: Java,Java并发编程,Java多线程,Java Thread
 ---
-
-# Java线程的6种状态及切换(透彻讲解)
 
 ## 操作系统中的线程状态转换
 
