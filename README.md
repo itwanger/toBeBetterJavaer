@@ -1,6 +1,4 @@
-<a href="docs/zhishixingqiu/">👉 沉默王二-《Java 程序员进阶之路》官方知识星球来啦！！！</a>
 
-如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍：<a href="docs/zhishixingqiu/">沉默王二-《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
@@ -16,6 +14,10 @@
     <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
   </a>
 </p>
+
+<a href="docs/zhishixingqiu/">👉 沉默王二-《Java 程序员进阶之路》官方知识星球来啦！！！</a>
+
+如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍：<a href="docs/zhishixingqiu/">沉默王二-《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
 
 
 # 为什么会有这个开源知识库
