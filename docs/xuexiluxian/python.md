@@ -1,13 +1,23 @@
 ---
 star: true
+title: 非 Python 职业选手的Python学习路线（建议收藏🔥）
 shortTitle: Python学习路线
 category:
   - 学习路线
 tag:
   - Python
+  - Python学习路线
+description: 非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
+head:
+  - - meta
+    - name: description
+      content: 非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
+  - - meta
+    - name: keywords
+      content: Python,Python学习路线
 ---
 
-# Python学习路线（建议收藏:+1:）
+>非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
 
 先上一张 Python 知识图谱，直观的了解一下 Python 的基本构成与实际应用。
 

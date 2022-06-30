@@ -9,10 +9,12 @@ export default defineUserConfig({
 
   dest: "./dist",
 
-  // 如果你正在使用本插件，我们推荐在你的 VuePress 配置文件中设置 shouldPrefetch: false。
+  // 如果你正在使用本插件，我们推荐在你的 VuePress 配置文件中设置 
   shouldPrefetch: false,
-
+  // 自动 description
   autoDescription: true,
+  // 精选图标 https://vuepress-theme-hope.github.io/v2/zh/guide/interface/icon.html#%E4%BD%BF%E7%94%A8
+  iconAssets: "iconfont",
 
   head: [
     [

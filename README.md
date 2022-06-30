@@ -53,17 +53,18 @@
 
 > 除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
 
-  * [Java学习路线一条龙版（建议收藏:+1:）](docs/xuexiluxian/java/yitiaolong.md)
-  * [Java并发编程学习路线（建议收藏:+1:）](docs/xuexiluxian/java/thread.md)
-  * [Java虚拟机学习路线（建议收藏:+1:）](docs/xuexiluxian/java/jvm.md)
-  * [C语言学习路线（建议收藏:+1:）](docs/xuexiluxian/c.md)
-  * [C++学习路线（建议收藏:+1:）](docs/xuexiluxian/ccc.md)
-  * [Python学习路线（建议收藏:+1:）](docs/xuexiluxian/python.md)
-  * [Go语言学习路线（建议收藏:+1:）](docs/xuexiluxian/go.md)
-  * [操作系统学习路线（建议收藏:+1:）](docs/xuexiluxian/os.md)
-  * [前端学习路线（建议收藏:+1:）](docs/xuexiluxian/qianduan.md)
-  * [蓝桥杯学习路线（建议收藏:+1:）](docs/xuexiluxian/lanqiaobei.md)
-  * [算法和数据结构学习路线（建议收藏:+1:）](docs/xuexiluxian/algorithm.md)
+  * [Java学习路线一条龙版（建议收藏🔥）](docs/xuexiluxian/java/yitiaolong.md)
+  * [Java并发编程学习路线（建议收藏🔥）](docs/xuexiluxian/java/thread.md)
+  * [Java虚拟机学习路线（建议收藏🔥）](docs/xuexiluxian/java/jvm.md)
+  * [C语言学习路线（建议收藏🔥）](docs/xuexiluxian/c.md)
+  * [C++学习路线（建议收藏🔥）](docs/xuexiluxian/ccc.md)
+  * [Python学习路线（建议收藏🔥）](docs/xuexiluxian/python.md)
+  * [Go语言学习路线（建议收藏🔥）](docs/xuexiluxian/go.md)
+  * [操作系统学习路线（建议收藏🔥）](docs/xuexiluxian/os.md)
+  * [前端学习路线（建议收藏🔥）](docs/xuexiluxian/qianduan.md)
+  * [算法和数据结构学习路线（建议收藏🔥）](docs/xuexiluxian/algorithm.md)
+  * [蓝桥杯学习路线（建议收藏🔥）](docs/xuexiluxian/lanqiaobei.md)
+  
 
 # 面渣逆袭
 

@@ -31,8 +31,8 @@ export const sidebarConfig = sidebar({
     "go",
     "os",
     "qianduan",
-    "lanqiaobei",
     "algorithm",
+    "lanqiaobei",
   ],
   "/sidebar/sanfene/": [
     "javase.md",
@@ -42,8 +42,9 @@ export const sidebarConfig = sidebar({
     "spring.md",
     "redis.md",
     "mybatis.md",
-    "os.md",
     "mysql.md",
+    "os.md",
+    
   ],
   // 必须放在最后面
   "/": [
