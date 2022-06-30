@@ -405,10 +405,7 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           prefix: "thread/",
           children: [
-          {
-            text: "创建Java线程的3种方式",
-            link: "wangzhe-thread",
-          },
+          "wangzhe-thread",
           {
             text: "线程的6种状态及切换",
             link: "thread-state-and-method",
