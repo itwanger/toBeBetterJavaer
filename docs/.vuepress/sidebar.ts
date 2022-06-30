@@ -862,6 +862,7 @@ export const sidebarConfig = sidebar({
             "nginx/40-interview"
           ],
         },
+        
         {
           text: "背诵版八股文",
           collapsable: true,
@@ -870,6 +871,27 @@ export const sidebarConfig = sidebar({
             "baguwen/java-thread",
             "baguwen/jvm",
             "sidebar/herongwei/mysql",
+          ],
+        },
+        {
+          text: "优质面经",
+          collapsable: true,
+          children: [
+            "mianjing/shanganaliyun",
+            "nice-article/weixin/shezynmjfxhelmtttjddd",
+            "nice-article/weixin/xuelybdzheloffer",
+            "nice-article/weixin/huanxgzl",
+            
+          ],
+        },
+        {
+          text: "面试准备",
+          collapsable: true,
+          children: [
+            "nice-article/weixin/zijxjjdyfqzgl",
+            "nice-article/weixin/miansmtgl",
+            "nice-article/weixin/luoczbmsddyb",
+            "nice-article/weixin/youdxzhhmjzlycfx",
           ],
         },
         {
