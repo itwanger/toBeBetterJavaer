@@ -1,14 +1,28 @@
 ---
 star: true
-shortTitle: JVM学习路线
+title: Java虚拟机学习路线（建议收藏🔥）
+shortTitle: Java虚拟机学习路线
 category:
   - 学习路线
 tag:
   - Java
   - JVM
+  - Java 虚拟机
+  - Java 虚拟机学习路线
+  - Java 学习路线
+  - JVM 学习路线
+  - Java 教程
+  - Java 开发
+  - Java 入门
+description: JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家
+head:
+  - - meta
+    - name: description
+      content: JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家
+  - - meta
+    - name: keywords
+      content: Java,JVM,Java 虚拟机,Java 虚拟机学习路线,Java 学习路线,Java 教程,Java 开发,Java 入门
 ---
-
-# Java虚拟机学习路线（建议收藏:+1:）
 
 2020 年的时候，通读了一遍周志明老师的《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》第三版，读完之后受益匪浅，这让我对 Java 虚拟机有了一个更完整的认识。毫无疑问，《深入理解 Java 虚拟机》是 JVM 书籍中最好的一本书了，国产技术书的天花板。
 
