@@ -58,7 +58,7 @@ headerDepth: 1
 
 ## 学习路线
 
-除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
+除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、数据结构与算法、蓝桥杯等硬核学习路线，欢迎收藏品鉴！
 
 * [Java学习路线一条龙版（建议收藏🔥）](xuexiluxian/java/yitiaolong.md)
 * [Java并发编程学习路线（建议收藏🔥）](xuexiluxian/java/thread.md)
@@ -76,15 +76,16 @@ headerDepth: 1
 
 **面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis 等等。
 
-- [面渣逆袭（Java 基础篇）必看:+1:](sidebar/sanfene/javase.md)
-- [面渣逆袭（Java 集合框架篇）必看:+1:](sidebar/sanfene/collection.md)
-- [面渣逆袭（Java 并发编程篇）必看:+1:](sidebar/sanfene/javathread.md)
-- [面渣逆袭（Java 虚拟机篇）必看:+1:](sidebar/sanfene/jvm.md)
-- [面渣逆袭（Spring）必看:+1:](sidebar/sanfene/spring.md)
-- [面渣逆袭（Redis）必看:+1:](sidebar/sanfene/redis.md)
-- [面渣逆袭（MyBatis）必看:+1:](sidebar/sanfene/mybatis.md)
-- [面渣逆袭（操作系统）必看:+1:](sidebar/sanfene/os.md)
-- [面渣逆袭（MySQL）必看:+1:](sidebar/sanfene/mysql.md)
+- [面渣逆袭（Java 基础篇）必看👍](sidebar/sanfene/javase.md)
+- [面渣逆袭（Java 集合框架篇）必看👍](sidebar/sanfene/collection.md)
+- [面渣逆袭（Java 并发编程篇）必看👍](sidebar/sanfene/javathread.md)
+- [面渣逆袭（Java 虚拟机篇）必看👍](sidebar/sanfene/jvm.md)
+- [面渣逆袭（Spring）必看👍](sidebar/sanfene/spring.md)
+- [面渣逆袭（Redis）必看👍](sidebar/sanfene/redis.md)
+- [面渣逆袭（MyBatis）必看👍](sidebar/sanfene/mybatis.md)
+- [面渣逆袭（MySQL）必看👍](sidebar/sanfene/mysql.md)
+- [面渣逆袭（操作系统）必看👍](sidebar/sanfene/os.md)
+
 
 ## Java核心
 
