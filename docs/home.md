@@ -14,12 +14,11 @@ headerDepth: 1
 </p>
 
 <p align="center">
-  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Github-toBeBetterJavaer-red.svg"></a>
-  <a href="https://gitee.com/itwanger/toBeBetterJavaer" target="_blank"><img src="https://img.shields.io/badge/Gitee-toBeBetterJavaer-blue.svg"></a>
-  <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical"></a>
-  <a href="https://mp.weixin.qq.com/s/ExjM-xdqMFFY1NIZffz-Ng" target="_blank">
-    <img src="https://img.shields.io/badge/计算机经典电子书-下载-green.svg" alt="无套路下载">
-  </a>
+  <a href="https://tobebetterjavaer.com/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
+  <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
+  <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical?style=for-the-badge"></a>
+  <a href="https://tobebetterjavaer.com/download/java.html" target="_blank"><img src="https://img.shields.io/badge/计算机经典电子书-下载-yellow.svg?style=for-the-badge" alt="无套路下载"></a>
+  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="Java程序员进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a>
 </p>
 :::
 
@@ -87,14 +86,18 @@ headerDepth: 1
 - [面渣逆袭（操作系统）必看👍](sidebar/sanfene/os.md)
 
 
-## Java核心
+## Java 核心
 
-**Java核心非常重要**！我将其分成了Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
+**Java 核心非常重要**！我将其分成了Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
 
 ### Java概述
 
-- [什么是Java？Java发展简史，Java的优势](overview/what-is-java.md)
-- [第一个Java程序：Hello World](overview/hello-world.md)
+- [Java简介](overview/what-is-java.md)
+- [Java发展简史](overview/java-history.md)
+- [Java的优势](overview/java-can-do-what.md)
+- [安装Java开发工具包JDK](overview/jdk-install-config.md)
+- [安装集成开发环境Intellij IDEA](overview/IDEA-install-config.md)
+- [编写第一个Java程序：Hello World](overview/hello-world.md)
 
 
 ### Java基础语法

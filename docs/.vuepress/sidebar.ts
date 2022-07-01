@@ -62,10 +62,11 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
           "what-is-java",
-          {
-            text: "编写第一个 Java 程序",
-            link: "hello-world",
-          },
+          "java-history",
+          "java-can-do-what",
+          "jdk-install-config",
+          "IDEA-install-config",
+          "hello-world",
           ],
         },
         {
