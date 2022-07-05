@@ -1,12 +1,28 @@
 ---
 title: 六月总结-沉默王二-Java程序员进阶之路-知识星球
 shortTitle: 知识星球六月总结
-category: 知识星球
+category:
+  - 知识星球
 tag:
   - 知识星球
+  - 沉默王二
+  - Java 程序员进阶之路
+  - 编程
+  - 程序员
+  - Java
+  - IT
+  - 计算机专业
+description: 沉默王二的编程知识星球-Java程序员进阶之路-六月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
+head:
+  - - meta
+    - name: description
+      content: 沉默王二的编程知识星球-Java程序员进阶之路-六月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
+  - - meta
+    - name: keywords
+      content: 知识星球,沉默王二,Java 程序员进阶之路,编程,Java,IT,计算机专业
 ---
 
-### 沉默王二-Java 程序员进阶之路六月第一周打卡总结
+### 第一周打卡总结
 
 上一周去烟台，发现竟然没有写星球总结，主要是要玩一整天，早上 6 点多就要起，晚上喝完酒散伙洗漱完到酒店再聊会天，基本上就凌晨 2 点多了。
 
@@ -60,7 +76,7 @@ tag:
 
 上期总结：[https://t.zsxq.com/02bi6Eun2](https://t.zsxq.com/02bi6Eun2)
 
-### 沉默王二-Java 程序员进阶之路六月第二周打卡总结
+### 第二周打卡总结
 
 Java 程序员进阶之路的网站服务器被攻击后，一直在犹豫要不要重装系统。重装吧，怕影响网站的流量，不重装吧？服务器内存占用一直飙升到 80%，很耽误事。
 
@@ -79,7 +95,7 @@ Java 程序员进阶之路的网站服务器被攻击后，一直在犹豫要不
 
 球友提问/优质帖子：
 
-- 瓶颈期后该怎么发展，地址：[https://t.zsxq.com/03fYNNv72](https://t.zsxq.com/03fYNNv72 )
+- 大专学历，基础不扎实，发展遇到瓶颈，想进大公司，该怎么办？地址：[https://t.zsxq.com/03fYNNv72](https://t.zsxq.com/03fYNNv72)
 - 专科，该去培训还是直接参加工作，地址：[https://t.zsxq.com/03zrFQvBM](https://t.zsxq.com/03zrFQvBM)
 - postgresql JDBC 链接断开怎么办，地址：[https://t.zsxq.com/033VbQVVb](https://t.zsxq.com/033VbQVVb)
 - 个人发展路线。地址：[https://t.zsxq.com/03mu3B2Fe](https://t.zsxq.com/03mu3B2Fe)
@@ -102,3 +118,88 @@ Java 程序员进阶之路的网站服务器被攻击后，一直在犹豫要不
 能坚持两周的球友就很少，能坚持一个月的球友就更少了。所以，我们不要再怪自己起点低，学习时间少了，本身的原因就是自己懈怠了，哈哈哈。
 
 上期总结：[https://t.zsxq.com/03N7UNNfq](https://t.zsxq.com/03N7UNNfq)
+
+### 沉默王二-Java 程序员进阶之路六月第三周打卡总结
+
+不废话了，直接开始这周《Java 程序员进阶之路》星球的总结吧。
+
+《Java 面试指南》专栏更新：
+
+- 程序员如何做副业？地址：[https://t.zsxq.com/032BeMrbq](https://t.zsxq.com/032BeMrbq)
+- 怎么跟 HR/领导 谈薪资？地址：[https://t.zsxq.com/03mmQVz3r](https://t.zsxq.com/03mmQVz3r)
+
+《编程喵实战项目笔记》专栏更新：
+
+- 第21节：Spring Boot 整合 MongoDB 实现文章浏览记录：Hibernate Validator+全局异常处理，地址：[https://t.zsxq.com/03vF6IUvv](https://t.zsxq.com/03vF6IUvv)
+- 第20节：Spring Boot 整合 Elasticsearch 实现文章搜索，地址：[https://t.zsxq.com/03jUbEQfQ](https://t.zsxq.com/03jUbEQfQ)
+
+球友提问/优质帖子：
+
+- 面渣逆袭 MySQL 篇，地址：[https://t.zsxq.com/03Fma6EyF](https://t.zsxq.com/03Fma6EyF)
+- 一行命令安装homebrew，地址：[https://t.zsxq.com/03YB2rbAM](https://t.zsxq.com/03YB2rbAM)
+- 如何修复 VuePress Hope 主题下评论不起效的问题，地址：[https://t.zsxq.com/03nqBu7YB](https://t.zsxq.com/03nqBu7YB)
+
+另外，更新这周的积分榜：
+
+- 第一名，沉默王二
+- 第二名，南风知我意（好家伙，又回来了）
+- 第三名， Melo
+- 第四名， 飞鸟
+- 第五名，学而思索
+- 第六名 陈大德
+- 第七名，Clover
+- 第八名  水中捞月
+- 第九名 洛翎
+- 第十名 奋斗熊
+
+积分榜这周又发生了变化，上周在榜单上的某些球友又不见了，哈哈哈，这个积分榜我真的是越来越喜欢了，你有没有努力，有没有变化，都是这样一点一滴中印证的。
+
+而我们的南风，再次证明，自己只要稍微一卷，其他球友就只能到后面去，哈哈哈。牛逼
+
+
+上期总结：[https://t.zsxq.com/03yFufiyz](https://t.zsxq.com/03yFufiyz)
+
+### 沉默王二-Java 程序员进阶之路六月第四周打卡总结
+
+时间过得可真的快，马上就进入 2022 年的下半年了。说实话，上半年的某一个阶段，我还是有点悲观的，因为疫情影响真的是太大了。但经过上周的团建后，我真的有点感觉新的机会就要来了。
+
+因为景点已经放开了，这就是利好的大消息，学生党可以趁这个暑假，规划出来一块时间，争取好好学一下，尤其是大三选手，不能再蹉跎岁月了，因为时间真的所剩无几了；工作党，尤其是刚入职的，一定要稳下心来，多看看项目的需求文档啊，看看你能看得到的源码啊（有些可能不会给你权限），把整个项目跑起来后，一个业务一个业务去跟，并且要和 leader 处好关系，这个阶段他对你帮助会最大，影响也最大。
+
+另外，马上金九银十就要来了，想要跳槽的话，这两三个月就是最后的冲刺阶段。
+
+还是那句话，二哥要不厌其烦地讲给球友们听，一定要记得多打卡，多分享，养成良好的学习习惯，改变之前的那种自由散漫，让自己自律起来，加入星球是一个非常好的机会，因为在此之前，没有人会天天催着你。现在有了二哥这个班主任，一定要好好珍惜。
+
+好了，开始 6 月最后一周的总结，横跨了一点 7 月份，不过不要紧。马上七月份的规划就要来了。
+
+《Java 面试指南》专栏更新：
+
+- 如何获得高并发的经验？地址：[https://t.zsxq.com/03UzRfi2V](https://t.zsxq.com/03UzRfi2V)
+- 程序员如何优雅地赚零花钱？地址：[https://t.zsxq.com/036QBeAyj](https://t.zsxq.com/036QBeAyj)
+
+
+球友提问/优质帖子：
+
+- 垃圾国企，要不要辞职，地址：[https://t.zsxq.com/03yZfyvZn](https://t.zsxq.com/03yZfyvZn)
+- 程序员新人如何度过自己苦逼的试用期，学不到东西怎么办，看源码就瞌睡怎么办，地址：[https://t.zsxq.com/03mmqnmiq](https://t.zsxq.com/03mmqnmiq)
+- HashMap 的原理，concurrentHashMap 的原理、JVM 的内存结构等知识点，工作中很少用，学它干嘛？地址：[https://t.zsxq.com/03beeQJEa]](https://t.zsxq.com/03beeQJEa)
+- 感觉疫情好转了，新的机会要来了吗？地址：[https://t.zsxq.com/03y7A2bYv](https://t.zsxq.com/03y7A2bYv)
+- 如何才能开始分享（总感觉自己没有别人写的好）？地址：[https://t.zsxq.com/03AufUjim](https://t.zsxq.com/03AufUjim)
+- 促学计划，《漫画 Java》 送书，地址：[https://t.zsxq.com/03YVzJ23r](https://t.zsxq.com/03YVzJ23r)
+
+
+另外，更新这周的积分榜：
+
+- 第一名，沉默王二
+- 第二名，南风知我意
+- 第三名，学而思索
+- 第四名，水中捞月
+- 第五名，Clover
+- 第六名 Ping
+- 第七名，泠青沼
+- 第八名  Melo
+- 第九名 孤独孤独
+- 第十名 詠
+
+上周在榜单前十的@飞鸟、@陈大德、@洛翎、@奋斗熊四名球友这周已经不在榜单前十了哈。看见这条总结，赶紧过来找班主任二哥汇报一下情况哈。
+
+上期总结：[https://t.zsxq.com/03M3VJAm2](https://t.zsxq.com/03M3VJAm2)
