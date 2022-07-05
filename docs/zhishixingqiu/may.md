@@ -1,9 +1,25 @@
 ---
 title: 五月总结-沉默王二-Java程序员进阶之路-知识星球
 shortTitle: 知识星球五月总结
-category: 知识星球
+category:
+  - 知识星球
 tag:
   - 知识星球
+  - 沉默王二
+  - Java 程序员进阶之路
+  - 编程
+  - 程序员
+  - Java
+  - IT
+  - 计算机专业
+description: 沉默王二的编程知识星球-Java程序员进阶之路-五月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
+head:
+  - - meta
+    - name: description
+      content: 沉默王二的编程知识星球-Java程序员进阶之路-五月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
+  - - meta
+    - name: keywords
+      content: 知识星球,沉默王二,Java 程序员进阶之路,编程,Java,IT,计算机专业
 ---
 
 ### 第一周打卡总结
@@ -233,3 +249,8 @@ offer 拿到手软，自己的知识库也丰富起来了，逻辑很简单，�
 最后是这周的排名。发现已经有几个小伙伴开始掉队了哈，该跟上的跟上，我周一会找你们一一聊一下。
 
 加油，六月份！
+
+*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
