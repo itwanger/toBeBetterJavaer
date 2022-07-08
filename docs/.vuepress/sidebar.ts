@@ -33,6 +33,7 @@ export const sidebarConfig = sidebar({
     "qianduan",
     "algorithm",
     "lanqiaobei",
+    "bigdata",
   ],
   "/sidebar/sanfene/": [
     "javase.md",
