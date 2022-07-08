@@ -936,10 +936,11 @@ export const sidebarConfig = sidebar({
     {
       text: "八、学习建议",
       collapsable: true,
-      prefix: "xuexijianyi/",
       children: [
-          "read-csapp",
-          "electron-information-engineering",
+          "xuexijianyi/read-csapp",
+          "xuexijianyi/electron-information-engineering",
+          "nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx",
+          "nice-article/zhihu/ceskfgcsbdjdhsqdcjzssfl",
         ],
     },
     {
