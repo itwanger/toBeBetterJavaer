@@ -1,6 +1,6 @@
 ---
 title: 测试开发工程师必读经典好书清单！
-shortTitle: 测试开发工程师必读经典好书清单！
+shortTitle: 测试开发工程师必读清单
 description: 以书为伴，以书会友，跨越测试小白到大牛成长之路
 author: Hogwarts
 category:
