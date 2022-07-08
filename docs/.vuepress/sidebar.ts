@@ -940,7 +940,7 @@ export const sidebarConfig = sidebar({
           "xuexijianyi/read-csapp",
           "xuexijianyi/electron-information-engineering",
           "nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx",
-          "nice-article/zhihu/ceskfgcsbdjdhsqdcjzssfl",
+          "nice-article/weixin/ceskfgcsbdjdhsqdcjzssfl",
         ],
     },
     {
