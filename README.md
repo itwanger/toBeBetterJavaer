@@ -87,8 +87,12 @@
 
 ## Java概述
 
-- [什么是Java？Java发展简史，Java的优势](docs/overview/what-is-java.md)
-- [第一个Java程序：Hello World](docs/overview/hello-world.md)
+- [Java简介](docs/overview/what-is-java.md)
+- [Java发展简史](docs/overview/java-history.md)
+- [Java的优势](docs/overview/java-can-do-what.md)
+- [安装Java开发工具包JDK](docs/overview/jdk-install-config.md)
+- [安装集成开发环境Intellij IDEA](docs/overview/IDEA-install-config.md)
+- [编写第一个Java程序：Hello World](docs/overview/hello-world.md)
 
 
 ## Java基础语法
