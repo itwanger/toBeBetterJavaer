@@ -429,6 +429,7 @@
 - [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
 - [高考填志愿，计算机，计科，人工智能，软工，大数据，物联网，网络工程该怎么选？](docs/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx.md)
 - [测试开发工程师必读经典好书清单](docs/nice-article/zhihu/ceskfgcsbdjdhsqdcjzssfl.md)
+- [校招java后端应该掌握到什么程度？](docs/nice-article/zhihu/jiaozjavahdygzwdsmcd.md)
 
 
 # 知识库搭建
