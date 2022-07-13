@@ -43,19 +43,19 @@ head:
 
 
 
-![](https://files.mdnice.com/user/3903/252c3584-8027-4177-a852-98c570918f2a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-3e332826-b9bd-4fce-a051-ab086a66ce79.png)
 
 
 
-![](https://files.mdnice.com/user/3903/df7b9d12-66d8-4296-b239-c09ff8186a3a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-4cd2498c-b876-44ab-9d03-38c6861bdf03.png)
 
 
-![](https://files.mdnice.com/user/3903/94d61767-5ec5-4a83-bbff-c3b35c68b8dd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a54e96dc-6627-4114-bff9-d919a7b651ad.png)
 
 
 
 
-![](https://files.mdnice.com/user/3903/81d0b41a-2baa-4a9b-a6f3-413caa5c6a41.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e11ddb75-6654-48e2-95aa-3f8f423b45b3.png)
 
 这样的问题如果就这么列下去，二哥能列三天三夜，😃，因为实在是太多太多了，于是我就在知识星球上组建了一个《**Java 程序员进阶之路**》的编程学习圈子，这样不仅能把所有的问题都沉淀下来，也方便一起学习的小伙伴互相交流和切磋技艺。
 
@@ -68,7 +68,7 @@ head:
 
 **星球定价 99 元，限时优惠 30 元，也就是说前 500 名只需要 69 元就能加入，目前已有近 300 名球友加入**。
 
-![](https://files.mdnice.com/user/3903/ebf7399c-25cb-41f2-ad1b-6d0fbf4043ca.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f5ad88c9-0ddc-4180-8a14-bffc30805ef2.png)
 
 一个人可以走得很快，但一群人才能走得更远。在这里的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。
 
@@ -83,13 +83,13 @@ head:
 知识星球网页端长这个样子：
 
 
-![](https://files.mdnice.com/user/3903/650d577b-fd59-4f6c-8589-71e721d61018.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-d2892dcb-d13e-4ed1-b2ac-f50da67f1db8.png)
 
 
 知识星球APP的界面长这样：
 
 
-![](https://files.mdnice.com/user/3903/b830d2cd-5c7e-48f1-be73-b6f4f883c49c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-cc13a453-d099-4384-9f80-ec706bd53653.png)
 
 
 我会在这个小圈子里继续沉淀自己，同时也希望能帮助到想要共同进步的小伙伴们，让我们一起构建一个**学习氛围浓烈**的编程圈子。
@@ -155,17 +155,17 @@ head:
 
 这是《Java 面试指南》已完结的内容：
 
-![](https://files.mdnice.com/user/3903/961ad9ce-af78-4f78-9efa-c229cf87bfbc.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-cc0a5160-7658-4cee-adc3-2825d1ad286c.png)
 
 这是《Spring Boot 趣味实战课》已连载的内容：
 
 
-![](https://files.mdnice.com/user/3903/220c8ef4-57a3-4621-b6ad-2454d8acf11e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-92cc5aec-ee1d-430d-ac32-24e2c832fecd.png)
 
 这是《Java 版 LeetCode 笔记》已连载的内容：
 
 
-![](https://files.mdnice.com/user/3903/d4efbba7-5759-468a-a04c-ce971a8634d5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1b1095bf-e2cd-42e9-9ddc-d3aa78963eee.png)
 
 
 ### 再来看看球友们的热情和坚持
@@ -173,39 +173,39 @@ head:
 1）先来看看你的队友们都是什么样的人才吧。
 
 
-![](https://files.mdnice.com/user/3903/2edbf51f-f560-4fca-8ae6-be2bb3b03f54.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a2dd0ed8-1da9-4958-b096-350a12120041.png)
 
 
-![](https://files.mdnice.com/user/3903/3b1bbeee-bd91-4c9f-ba31-0b89f5bb49d5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-ae3c75f7-1fe8-4315-ba80-7deb18baaf8a.png)
 
 
-![](https://files.mdnice.com/user/3903/7e8799de-c4e6-4dee-858a-b3dde47c2fa2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-b08bb799-cb2f-4c18-b2cb-80ab9acc46bc.png)
 
 
-![](https://files.mdnice.com/user/3903/3de62dcb-0367-41f9-b05e-70a484328227.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-8064b0a5-4161-417f-9a5d-df7b0b55f92a.png)
 
 
-![](https://files.mdnice.com/user/3903/bc327a09-37b9-4fe8-8fd8-b4702255193f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-922365f9-a9e3-4eb3-bf58-e98f0a113320.png)
 
 
-![](https://files.mdnice.com/user/3903/8a5f6444-eb0d-4af5-993b-0efb9dfa3f5b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-b412806c-3f76-48a6-ba9f-3cc6725c0e6f.png)
 
 
-![](https://files.mdnice.com/user/3903/7a4b9d30-0ac9-41c6-a8c1-72e8fd95468a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9997fb47-bf95-4b29-8f1d-2799a597ef5e.png)
 
 2）再来看看二哥是如何答疑解惑的，几乎每个回答都在上千字，非常的良心，有道有术。
 
 
-![](https://files.mdnice.com/user/3903/4238e561-9f4f-4e86-9fe1-3a19395785b0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a029e332-8ec9-499e-9d3a-16e723f11026.png)
 
 
-![](https://files.mdnice.com/user/3903/42031877-4064-413d-9d78-9d86ed48a482.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-cbf26a0b-949c-41d8-a644-b79d470db3d3.png)
 
 
-![](https://files.mdnice.com/user/3903/15796727-7ee3-4d55-9ca7-696aa249eeb7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9fe55469-5236-48a6-b369-aaee08bfcd1e.png)
 
 
-![](https://files.mdnice.com/user/3903/9ee1560e-3314-4f19-9cd6-8c23717cb964.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c0b8b0f1-2892-42e9-9868-4c895e7ff4d6.png)
 
 ### 如何加入成为共同进步的球友？
 
@@ -213,11 +213,11 @@ head:
 
 目前星球定价 99 元，可以说已经非常的良心了，但本着小伙伴们的钱包着想，再发放一波 30 元的优惠券，**也就是说前 500 名只需要 69 元就能加入**。
 
-![](https://files.mdnice.com/user/3903/ebf7399c-25cb-41f2-ad1b-6d0fbf4043ca.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f5ad88c9-0ddc-4180-8a14-bffc30805ef2.png)
 
 这价格绝对是友情价，这不，就连二哥的好朋友 Guide 哥都看不下去了。
 
-![](https://files.mdnice.com/user/3903/23e3e626-412e-46ed-b1dd-a8e3c5d7d3e1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fdc13cad-0976-44cf-ba9f-0288b07ccd0b.png)
 
 
 郑重声明（加粗加粗）：**如果感觉不值得或者不满意，这里郑重承诺可以免费体验三天，三天内知识星球APP右上角都可以直接全额退款(官方自动扣除手续费)！无任何套路**。
@@ -226,7 +226,7 @@ head:
 
 二哥没有拯救天拯救地的伟大理想，如果恰好能帮助到一小撮人就够了，就非常有意义了。
 
-![](https://files.mdnice.com/user/3903/b3f728c2-1a87-44b0-9bb8-851108a17e53.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e5f4dff5-10d9-4c88-90a1-92125eb1f350.png)
 
 
 没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。

@@ -1,8 +1,6 @@
 ---
 title: 沉默王二的编程知识星球-Java程序员进阶之路-第一期简介
 shortTitle: 知识星球第一期简介
-sticky: true
-star: true
 isOriginal: true
 category:
   - 知识星球
@@ -15,7 +13,6 @@ tag:
   - Java
   - IT
   - 计算机专业
-date: 2022-03-17
 description: 沉默王二的编程知识星球-Java程序员进阶之路-一期介绍，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 head:
   - - meta

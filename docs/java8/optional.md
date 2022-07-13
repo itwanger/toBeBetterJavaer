@@ -3,7 +3,6 @@ category:
   - Java核心
 tag:
   - Java
-date: 2019-01-01
 ---
 
 # Java 8 Optional最佳指南
