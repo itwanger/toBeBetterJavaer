@@ -45,6 +45,7 @@ export const sidebarConfig = sidebar({
     "mybatis.md",
     "mysql.md",
     "os.md",
+    "network.md",
     
   ],
   // 必须放在最后面
