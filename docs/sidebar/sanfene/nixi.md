@@ -40,3 +40,6 @@ head:
 - [面渣逆袭（MyBatis）必看:+1:](/sidebar/sanfene/mybatis.md)
 - [面渣逆袭（MySQL）必看:+1:](/sidebar/sanfene/mysql.md)
 - [面渣逆袭（操作系统）必看:+1:](/sidebar/sanfene/os.md)
+- [面渣逆袭（计算机网络）必看:+1:](/sidebar/sanfene/network.md)
+
+
