@@ -52,8 +52,7 @@ headerDepth: 1
 
 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
-![](https://img-blog.csdnimg.cn/7fa7cbd99d6449288f4e75cb7d771ec4.png)
-
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 ## 学习路线
 
@@ -104,17 +103,19 @@ headerDepth: 1
 
 ### Java基础语法
 
-- [Java支持的8种基本数据类型](basic-grammar/basic-data-type.md)
+- [Java中常用的48个关键字 & 2个保留字](basic-extra-meal/48-keywords.md)
+- [Java命名规范，告别编码 5 分钟，命名 2 小时](basic-extra-meal/java-naming.md)
+- [Java注释：单行、多行和文档注释](basic-grammar/javadoc.md)
+- [Java 中的数据类型（8 种基本数据类型和引用数据类型）](basic-grammar/basic-data-type.md)
 - [Java流程控制语句](basic-grammar/flow-control.md)
 - [Java运算符](basic-grammar/operator.md)
-- [Java注释：单行、多行和文档注释](basic-grammar/javadoc.md)
-- [Java中常用的48个关键字](basic-extra-meal/48-keywords.md)
-- [Java命名规范（非常全面，可以收藏）](basic-extra-meal/java-naming.md)
+
+
 
 ### Java面向对象编程
 
 - [怎么理解Java中类和对象的概念？](oo/object-class.md)
-- [Java变量的作用域：局部变量、成员变量、静态变量、常量](oo/var.md)
+- [Java变量：局部变量、成员变量、静态变量、常量](oo/var.md)
 - [Java方法](oo/method.md)
 - [Java构造方法](oo/construct.md)
 - [浅析Java中的访问权限控制](nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi.md)

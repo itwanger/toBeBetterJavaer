@@ -10,11 +10,12 @@ tag:
   - Java 教程
   - Java 程序员进阶之路
   - Java 入门
-  - Java 简介
+  - Java Hello World
+description: 编写第一个Java程序：Hello World
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Intellij IDEA,IDEA
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java Hello World
     - name: description
       content: 编写第一个Java程序：Hello World
 ---

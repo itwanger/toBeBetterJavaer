@@ -1,11 +1,29 @@
 ---
+title: Java变量：局部变量、成员变量、静态变量、常量
+shortTitle: Java变量
 category:
-  - Java核心
+  - Java 核心
 tag:
   - Java
+  - Java SE
+  - Java 基础
+  - Java 教程
+  - Java 程序员进阶之路
+  - Java 入门
+  - Java 简介
+  - Java 变量
+  - 局部变量
+  - 成员变量
+  - 静态变量
+  - 常量
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 变量,局部变量,成员变量,静态变量,常量
+    - name: description
+      content: Java变量：局部变量、成员变量、静态变量、常量
 ---
 
-# Java变量的作用域：局部变量、成员变量、静态变量、常量
 
 
 “二哥，听说 Java 变量在以后的日子里经常用，能不能提前给我透露透露？”三妹咪了一口麦香可可奶茶后对我说。
@@ -111,7 +129,6 @@ public class StaticVariable {
 常量在程序运行过程中主要有 2 个作用：
 
 - 代表常数，便于修改（例如：圆周率的值，`final double PI = 3.14`）
-
 - 增强程序的可读性（例如：常量 UP、DOWN 用来代表上和下，`final int UP = 0`）
 
 Java 要求常量名必须大写。来看下面这个示例：

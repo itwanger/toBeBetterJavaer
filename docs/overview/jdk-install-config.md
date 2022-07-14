@@ -10,11 +10,12 @@ tag:
   - Java 教程
   - Java 程序员进阶之路
   - Java 入门
-  - Java 简介
+  - JDK 安装
+description: JDK的安装和配置
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,JDK 安装
     - name: description
       content: JDK的安装和配置
 ---

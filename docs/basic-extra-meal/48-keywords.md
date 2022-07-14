@@ -1,11 +1,26 @@
 ---
+title: Java中常用的48个关键字和2个保留字
+shortTitle: 48个关键字和2个保留字
 category:
-  - Java核心
+  - Java 核心
 tag:
   - Java
+  - Java SE
+  - Java 基础
+  - Java 教程
+  - Java 程序员进阶之路
+  - Java 入门
+  - Java 简介
+  - Java 保留字
+  - Java 关键字
+description: Java中常用的48个关键字和2个保留字
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 保留字,Java 关键字
+    - name: description
+      content: Java中常用的48个关键字和2个保留字
 ---
-
-# Java中常用的48个关键字
 
 “二哥，就我之前学过的这些 Java 代码中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
 
@@ -112,7 +127,13 @@ PS：按照首字母的自然顺序排列。
 
 “好了，三妹，关于 Java 中的关键字就先说这 48 个吧，这只是一个大概的介绍，后面还会对一些特殊的关键字单独拎出来详细地讲，比如说重要的 static、final 等。”转动了一下僵硬的脖子后，我对三妹说。
 
-“二哥，你辛苦了，足足 48 个啊，容我好好消化一下。”
+“除了这些关键字，Java 中还有两个非常特殊的保留字（goto 和 const），它们不能在程序中使用。”
+
+“goto 在 C语言中叫做‘无限跳转’语句，在 Java 中，不再使用 goto 语句，因为无限跳转会破坏程序结构。”
+
+“const 在 C语言中是声明常量的关键字，在 Java 中可以使用 public static final 三个关键字的组合来达到常量的效果。”
+
+“好的二哥，我了解了，您辛苦了。”
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

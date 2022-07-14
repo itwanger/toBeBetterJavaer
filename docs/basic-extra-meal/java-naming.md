@@ -1,11 +1,25 @@
 ---
+title: Java命名规范，告别编码 5 分钟，命名 2 小时
+shortTitle: Java命名规范
 category:
-  - Java核心
+  - Java 核心
 tag:
   - Java
+  - Java SE
+  - Java 基础
+  - Java 教程
+  - Java 程序员进阶之路
+  - Java 入门
+  - Java 简介
+  - Java 命名规范
+description: Java命名规范，告别编码 5 分钟，命名 2 小时
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 命名规范
+    - name: description
+      content: Java命名规范，告别编码 5 分钟，命名 2 小时
 ---
-
-# Java命名规范（非常全面，可以收藏）
 
 “二哥，Java 中的命名约定都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
 
@@ -24,11 +38,8 @@ tag:
 包的命名应该遵守以下规则：
 
 - 应该全部是小写字母
-
 - 点分隔符之间有且仅有一个自然语义的英语单词
-
 - 包名统一使用单数形式，比如说 `com.itwanger.util` 不能是 `com.itwanger.utils`
-
 - 在最新的 Java 编程规范中，要求开发人员在自己定义的包名前加上唯一的前缀。由于互联网上的域名是不会重复的，所以多数开发人员采用自己公司（或者个人博客）在互联网上的域名称作为包的唯一前缀。比如我文章中出现的代码示例的包名就是 `package com.itwanger`。
 
 
@@ -37,12 +48,9 @@ tag:
 类的命名应该遵守以下规则：
 
 - 必须以大写字母开头
-
 - 最好是一个名词，比如说 System
-
 - 类名使用 UpperCamelCase（驼峰式命名）风格
-
-- 尽量不要省略成单词的首字母，但以下情形例外：DO/BO/DTO/VO/AO/ PO / UID 等
+- 尽量不要省略成单词的首字母，但以下情形例外：DO/BO/DTO/VO/AO/PO/UID 等
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/fifteen-01.png)
 
@@ -53,9 +61,7 @@ tag:
 接口的命名应该遵守以下规则：
 
 - 必须以大写字母开头
-
 - 最好是一个形容词，比如说 Runnable
-
 - 尽量不要省略成单词的首字母
 
 来看个例子：
@@ -67,7 +73,6 @@ interface Printable {}
 接口和实现类之间也有一些规则：
 
 - 实现类用 Impl 的后缀与接口区别，比如说 CacheServiceImpl 实现 CacheService 接口
-
 - 或者，AbstractTranslator 实现 Translatable 接口
 
 ### 04、字段（field）和变量（variable）
@@ -75,15 +80,10 @@ interface Printable {}
 字段和变量的命名应该遵守以下规则：
 
 - 必须以小写字母开头
-
 - 可以包含多个单词，第一个单词的首字母小写，其他的单词首字母大写，比如说 `firstName`
-
 - 最好不要使用单个字符，比如说 `int a`，除非是局部变量
-
 - 类型与中括号紧挨相连来表示数组，比如说 `int[] arrayDemo`，main 方法中字符串数组参数不应该写成 `String args[]`
-
 - POJO 类中的任何布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误，我自己知道的有 fastjson
-
 - 避免在子类和父类的成员变量之间、或者不同代码块的局部变量之间采用完全相同的命名，使可理解性降低。子类、父类成员变量名相同，即使是 public 类型的变量也能够通过编译，另外，局部变量在同一方法内的不同代码块中同名也是合法的，这些情况都要避免。
 
 反例：
@@ -115,9 +115,7 @@ class Son extends ConfusingName {
 常量的命名应该遵守以下规则：
 
 - 应该全部是大写字母
-
 - 可以包含多个单词，单词之间使用“_”连接，比如说 `MAX_PRIORITY`，力求语义表达完整清楚，不要嫌名字长
-
 - 可以包含数字，但不能以数字开头
 
 来看个例子：
@@ -132,9 +130,7 @@ static final int MIN_AGE = 18;
 方法的命名应该遵守以下规则：
 
 - 必须以小写字母开头
-
 - 最好是一个动词，比如说 `print()`
-
 - 可以包含多个单词，第一个单词的首字母小写，其他的单词首字母大写，比如说 `actionPerformed()`
 
 来看个例子：
@@ -146,15 +142,10 @@ void writeBook(){}
 Service/DAO 层的方法命名规约：
 
 - 获取单个对象的方法用 get 做前缀
-
 - 获取多个对象的方法用 list 做前缀，复数结尾，如：listObjects
-
 - 获取统计值的方法用 count 做前缀
-
 - 插入的方法用 save/insert 做前缀
-
 - 删除的方法用 remove/delete 做前缀
-
 - 修改的方法用 update 做前缀
 
 

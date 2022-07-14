@@ -1,11 +1,25 @@
 ---
+title: Java 运算符
+shortTitle: Java 运算符
 category:
-  - Java核心
+  - Java 核心
 tag:
   - Java
+  - Java SE
+  - Java 基础
+  - Java 教程
+  - Java 程序员进阶之路
+  - Java 入门
+  - Java 简介
+  - Java 运算符
+description: 本文主要介绍Java 中的运算符(算术运算符、关系运算符、赋值运算符、逻辑运算符、位运算符)的使用
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 运算符
+    - name: description
+      content: 本文主要介绍Java 中的运算符(算术运算符、关系运算符、赋值运算符、逻辑运算符、位运算符)的使用
 ---
-
-# Java运算符
 
 “二哥，让我盲猜一下哈，运算符是不是指的就是加减乘除啊？”三妹的脸上泛着甜甜的笑容，我想她一定对提出的问题很有自信。
 

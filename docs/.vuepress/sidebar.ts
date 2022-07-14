@@ -72,33 +72,15 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "2.2 Java基础语法",
+          text: "2.2 Java语法基础",
           collapsable: true,
           children: [
-          {
-            text: "基本数据类型",
-            link: "basic-grammar/basic-data-type",
-          },
-          {
-            text: "流程控制语句",
-            link: "basic-grammar/flow-control",
-          },
-          {
-            text: "运算符",
-            link: "basic-grammar/operator",
-          },
-          {
-            text: "注释",
-            link: "basic-grammar/javadoc",
-          },
-          {
-            text: "关键字",
-            link: "basic-extra-meal/48-keywords",
-          },
-          {
-            text: "命名规范",
-            link: "basic-extra-meal/java-naming",
-          },
+          "basic-extra-meal/48-keywords",
+          "basic-extra-meal/java-naming",
+          "basic-grammar/javadoc",
+          "basic-grammar/basic-data-type",
+          "basic-grammar/operator",
+          "basic-grammar/flow-control",
           ],
         },
         {
@@ -109,10 +91,7 @@ export const sidebarConfig = sidebar({
             text: "对象和类",
             link: "oo/object-class",
           },
-          {
-            text: "变量",
-            link: "oo/var",
-          },
+          "oo/var",
           {
             text: "方法",
             link: "oo/method",

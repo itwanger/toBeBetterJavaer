@@ -1,15 +1,29 @@
 ---
+title: Java 中的数据类型（8 种基本数据类型和引用数据类型）
+shortTitle: Java 中的数据类型
 category:
-  - Java核心
+  - Java 核心
 tag:
   - Java
+  - Java SE
+  - Java 基础
+  - Java 教程
+  - Java 程序员进阶之路
+  - Java 入门
+  - Java 简介
+  - Java 数据类型
+  - 基本数据类型
+  - 引用数据类型
+description: Java 中的数据类型（8 种基本数据类型和引用数据类型）
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 数据类型,基本数据类型,引用数据类型
+    - name: description
+      content: Java 中的数据类型（8 种基本数据类型和引用数据类型）
 ---
 
-# Java 支持的 8 种基本数据类型
-
-“二哥，[上一节](https://mp.weixin.qq.com/s/IgBpLGn0L1HZymgI4hWGVA)提到了 Java 变量的数据类型，是不是指定了类型就限定了变量的取值范围啊？”三妹吸了一口麦香可可奶茶后对我说。
-
-“三妹，你不得了啊，长进很大嘛，都学会推理判断了。Java 是一种静态类型的编程语言，这意味着所有变量必须在使用之前声明好，也就是必须得先指定变量的类型和名称。”
+“Java 是一种静态类型的编程语言，这意味着所有变量必须在使用之前声明好，也就是必须得先指定变量的类型和名称。”我吸了一口麦香可可奶茶后对三妹说。
 
 Java 中的数据类型可分为 2 种：
 
@@ -19,13 +33,13 @@ Java 中的数据类型可分为 2 种：
 
 2）**引用数据类型**。
 
-除了基本数据类型以外的类型，都是所谓的引用类型。常见的有数组（对，没错，数组是引用类型）、class（也就是类），以及接口（指向的是实现接口的类的对象）。
+除了基本数据类型以外的类型，都是所谓的引用类型。常见的有[数组](https://tobebetterjavaer.com/array/array.html)（对，没错，数组是引用类型）、class（也就是[类](https://tobebetterjavaer.com/oo/object-class.html)），以及[接口](https://tobebetterjavaer.com/oo/interface.html)（指向的是实现接口的类的对象）。
 
 来个思维导图，感受下。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
-通过[上一节](https://mp.weixin.qq.com/s/IgBpLGn0L1HZymgI4hWGVA)的学习，我们知道变量可以分为局部变量、成员变量、静态变量。
+[变量](https://tobebetterjavaer.com/oo/var.html)可以分为局部变量、成员变量、静态变量。
 
 当变量是局部变量的时候，必须得先初始化，否则编译器不允许你使用它。拿 int 来举例吧，看下图。
 
@@ -88,6 +102,8 @@ public class LocalVar {
 （终于知道 1024 和程序员的关系了吧？狗头保命）
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-03.png)
+
+## 基本数据类型
 
 接下来，我们再来详细地了解一下 8 种基本数据类型。
 
@@ -189,9 +205,9 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 
 那三妹可能要问，“char 既然只有一个字符，为什么占 2 个字节呢？”
 
-“主要是因为 Java 使用的是 Unicode 字符集而不是 ASCII 字符集。”
+“主要是因为 Java 使用的是 Unicode 字符集而不是 ASCII 字符集。字符集也可以叫编码，编码不同，实际占用的字节就会不同。”
 
-这又是为什么呢？我们留到下一节再讲。
+## 引用数据类型
 
 基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的。
 
@@ -325,6 +341,6 @@ public class ArrayList<E> extends AbstractList<E>
 
 这么说就理解了吧？
 
-“好了，三妹，关于 Java  中的数据类型就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
+“好了，三妹，关于 Java 中的数据类型就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
