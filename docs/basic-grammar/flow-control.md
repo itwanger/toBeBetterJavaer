@@ -1,11 +1,27 @@
 ---
+title: Java流程控制语句（if/switch判断语句和while/do-while/for循环语句）
+shortTitle: Java流程控制语句
 category:
-  - Java核心
+  - Java 核心
 tag:
   - Java
+  - Java SE
+  - Java 基础
+  - Java 教程
+  - Java 程序员进阶之路
+  - Java 入门
+  - Java 流程控制语句
+  - Java 判断语句
+  - Java 循环语句
+description: Java流程控制语句（if/switch判断语句和while/do-while/for循环语句）
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 流程控制语句,Java 判断语句,Java 循环语句
+    - name: description
+      content: Java流程控制语句（if/switch判断语句和while/do-while/for循环语句）
 ---
 
-# Java流程控制语句
 
 “二哥，流程控制语句都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
 

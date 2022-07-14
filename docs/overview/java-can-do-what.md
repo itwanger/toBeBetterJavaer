@@ -10,11 +10,12 @@ tag:
   - Java 教程
   - Java 程序员进阶之路
   - Java 入门
-  - Java 简介
+  - Java 优势
+description: Java的优势
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 优势
     - name: description
       content: Java的优势
 ---

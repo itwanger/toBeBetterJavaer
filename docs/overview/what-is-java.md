@@ -11,12 +11,13 @@ tag:
   - Java 程序员进阶之路
   - Java 入门
   - Java 简介
+description: Java 简介，什么是Java？
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介
     - name: description
-      content: 什么是Java？
+      content: Java 简介，什么是Java？
 ---
 
 
