@@ -97,12 +97,12 @@
 
 ## Java基础语法
 
-- [Java支持的8种基本数据类型](docs/basic-grammar/basic-data-type.md)
+- [Java中常用的48个关键字 & 2个保留字](docs/basic-extra-meal/48-keywords.md)
+- [Java命名规范，告别编码 5 分钟，命名 2 小时](docs/basic-extra-meal/java-naming.md)
+- [Java注释：单行、多行和文档注释](docs/basic-grammar/javadoc.md)
+- [Java 中的数据类型（8 种基本数据类型和引用数据类型）](docs/basic-grammar/basic-data-type.md)
 - [Java流程控制语句](docs/basic-grammar/flow-control.md)
 - [Java运算符](docs/basic-grammar/operator.md)
-- [Java注释：单行、多行和文档注释](docs/basic-grammar/javadoc.md)
-- [Java中常用的48个关键字](docs/basic-extra-meal/48-keywords.md)
-- [Java命名规范（非常全面，可以收藏）](docs/basic-extra-meal/java-naming.md)
 
 ## Java面向对象编程
 
