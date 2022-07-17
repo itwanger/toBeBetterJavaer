@@ -26,7 +26,7 @@ head:
 
 说到这里，我很想送给还有充足的大学时光且尚未毕业的学弟学妹们一句话：**开阔自己的视野，学会调整心态，提前准备面对未来的不确定性，尽可能的在有限的大学时间段内，多去扩展和丰富自己的知识储备以及专业技能，不到等到临近毕业，马上要步入社会的时候才手足无措地在求职过程中四处碰壁！**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpsAsJUY0jVeEwbhhtUVuYdVczXy6ibY0BgshwzXeOvlCFSbdkicsFzSLQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-ba753524-0bcf-4880-8c49-de88772030c1.jpg)
 
 二、前人栽树后人乘凉~
 -----------
@@ -57,7 +57,7 @@ head:
 
 所以，通过这篇文章，我把自己四年走过来的经历和想法，分享给大家，供大家参考，希望帮助大家在校期间目标明确，尽量少走弯路。上面这些问题，我会在下文一个一个回答（只是我自己的观点，如果和大家的有出入希望不要diss，有不对的地方大家可以私信给我反馈建议），希望大家可以花20分钟把这篇文章看完，如果对大家有帮助，麻烦转发给需要的人，谢谢！
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpiajz1sRQ6avXlxZGjR5114icgm7crEAt1ic53K85C5xWaicMZ3I0GTcEtg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-a58f5d87-a359-43d3-857f-5470a42ef3c1.jpg)
 
 三、匆匆忙忙的大学四年换来了什么？
 -----------------
@@ -102,7 +102,7 @@ head:
 
 另外在做综合案例的时候，学会把大问题拆分成小问题，一点点去解决，别急于求成，光盯着一大串设计好的需求无从下手永远解决不了问题。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpfdYMwdAE8x1Xtuo25NU73fjVicJliafqAdXRvcdYONQmwjJbRIkr5QlQ/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-df9f21d1-d355-4b3e-884d-ed390e8827b1.jpg)
 
 写这篇文章的时候，我刚签完劳务合同，准备明天正式入职，心理有些期待、满足，也有一丝庆幸，庆幸这四年自己没有虚度光阴，也庆幸经历了这么多坎坷最后也能有一个自己满意的归宿（与其说是归宿，不如说是新的起点，哈哈~）。
 
@@ -116,9 +116,9 @@ head:
 
 如果说收获，那肯定是靠自己的努力收获了一些自己满意的校招offer，进入了自己理想的公司从事自己喜欢的岗位：
 
-*   阿里校招offer：![](https://mmbiz.qpic.cn/mmbiz_png/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvp1FCKtUru92DHl7DtlLC3IOyexmibHicnbIrGZicsRPgn0hW7u2PDloPTw/640?wx_fmt=png)
-*   字节校招offer：![](https://mmbiz.qpic.cn/mmbiz_png/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpxVBlJGec4kFX5LicxoUXUJhSIKRaFZKYgtlibr9V9UFsFyI7icV5SjBvw/640?wx_fmt=png)
-*   Blibili实习转正后的校招offer：![](https://mmbiz.qpic.cn/mmbiz_png/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpT2Eibm9h8FEapZWzDBFtw41Ey3tFHqiaaCYcyiaQHPc8l7gkqiaVJ9RDibQ/640?wx_fmt=png)
+*   阿里校招offer：![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-5bd9a69b-d674-4dea-8ddb-e79cc1cd93e8.jpg)
+*   字节校招offer：![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-e0e40d08-b035-4892-9da5-b7b755f27bf4.jpg)
+*   Blibili实习转正后的校招offer：![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-6853ce1d-ed12-4c71-bfef-1aab4e35a8d7.jpg)
 
 至于遗憾嘛，那肯定是没能在最后临近毕业的几个月时间里，和大学室友一起出去聚个餐，一起来一场毕业旅行。
 
@@ -129,7 +129,7 @@ head:
 
 第四小节这一部分，我想和大家探讨下视野差和信息差对我们大学四年的学习、求职、升学规划的影响。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpHkDKfyPxAmQvvyD2B0JpQeYEvZ4WeqABnFLzicW3Kqy3icEjX3lGd9Eg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-4282f85b-cd94-4480-8b8c-85fa863e4983.jpg)
 
 我们围绕下面四个问题，来了解下视野差和信息差对我们又多么重要！
 
@@ -166,7 +166,7 @@ head:
 
 下图是前段时间，和我的大学好基友的聊天记录（22年毕业生，已经考研上岸）：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/mngWTkJEOYKT0lksgA4FQXic1djnwIKkPXPtNFT5haKyns83tj6PRPC5mbc93UsXLerjp6q2pebtzuDPBXuQEJA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-f805c42e-b4cc-40f9-ba55-1ce113b9aaf3.jpg)
 
 相比于那些大一大二大三、研一研二都已经实习offer拿到手麻的，我们是不是应该多加把劲了？
 
@@ -278,7 +278,7 @@ ACM训练和学习技术栈如何取舍？
 
 编程语言没有高低贵贱，技术方向也是如此。正所谓，术业有专攻，算法岗位做的事儿，开发团队替代不了而且也做不了，同样的离开了开发团队研发的组件、类库、工具、平台，算法团队也很难去做算法应用。我们要做的就是把自己喜欢的且符合自己身实际情况的方向学扎实就够了，而不是天天盯着语言排行榜纠结自己该学哪一个“最热门的语言”~
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvpXDGOicGbDohoRO16aZDZZNKSmHLdnKECNJdsWXDPfUTJfJShAVCKJAQ/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-4cd21295-aa62-499c-9da1-9255cf76be02.jpg)
 
 六、如何看待就业与考研的选择？
 ---------------
@@ -333,7 +333,7 @@ Last Question：
 
   
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/mngWTkJEOYLOOCT89GMr9IEJ0uoiaRIvp90tzzsY1R8NQq24akh21XFT4DibC504ZuJuRjyauhQp0KR0DGrrjrSQ/640?wx_fmt=jpeg)  
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-7a9f3bd7-912a-40d6-acb4-6e5a5a0d0f1e.jpg)  
 
 * * *
 
@@ -343,7 +343,7 @@ Last Question：
 
 最后,欢迎加入 [鱼皮的编程知识星球](http://mp.weixin.qq.com/s?__biz=MzI1NDczNTAwMA==&mid=2247508640&idx=1&sn=b02fff3533f18b5d0bfbf714b127c140&chksm=e9c24557deb5cc41b1f2ecefdd23eb1370e261a47c23ad89b1d1428537fd1e8fe39762e707e1&scene=21#wechat_redirect)（点击了解详情），和大家一起交流学习编程，向鱼皮和大厂同学 1 对 1 提问、帮你制定学习计划不迷茫、跟着鱼皮直播做项目（往期项目可无限回看）、领取鱼皮原创编程学习/求职资料等。最近秋招开始了，星球内也会帮大家规划求职进度、完善简历和项目。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/mngWTkJEOYJrQEPNiamWq4Z9AouO3XptkSsSJro9icBwc5icEmL6ficibOW2SwMHUOSmur5WsSQVw4oWNYx0EM7bgng/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-4f0b4f8f-7708-4072-8359-2dbf2765c14b.jpg)
 
   
 
