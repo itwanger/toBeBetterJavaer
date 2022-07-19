@@ -46,6 +46,7 @@ export const sidebarConfig = sidebar({
     "mysql.md",
     "os.md",
     "network.md",
+    "rocketmq.md",
     
   ],
   // 必须放在最后面
@@ -600,6 +601,7 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
           "ide/4-debug-skill.md",
+          "ide/xechat.md",
           ],
         },
         {

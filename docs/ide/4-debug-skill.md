@@ -1,11 +1,21 @@
 ---
+title: 4个高级的 IntelliJ IDEA 调试技巧
+shortTitle: IDEA 调试技巧
 category:
   - Java企业级开发
 tag:
   - Intellij IDEA
+  - IDEA
+  - Intellij IDEA 调试技巧
+  - IDEA 调试技巧
+description: 几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
+head:
+  - - meta
+    - name: keywords
+      content: Intellij IDEA,IDEA,Intellij IDEA 调试技巧,IDEA 调试技巧
+    - name: description
+      content: 几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
 ---
-
-# 4个高级的IntelliJ IDEA调试技巧
 
 
 大家好，我是二哥！
