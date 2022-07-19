@@ -140,7 +140,7 @@ head:
 - 专科，该去培训还是直接参加工作，地址：[https://t.zsxq.com/03zrFQvBM](https://t.zsxq.com/03zrFQvBM)
 - 垃圾国企，要不要辞职，地址：[https://t.zsxq.com/03yZfyvZn](https://t.zsxq.com/03yZfyvZn)
 - 程序员新人如何度过自己苦逼的试用期，学不到东西怎么办，看源码就瞌睡怎么办，地址：[https://t.zsxq.com/03mmqnmiq](https://t.zsxq.com/03mmqnmiq)
-- HashMap 的原理，concurrentHashMap 的原理、JVM 的内存结构等知识点，工作中很少用，学它干嘛？地址：[https://t.zsxq.com/03beeQJEa]](https://t.zsxq.com/03beeQJEa)
+- HashMap 的原理，concurrentHashMap 的原理、JVM 的内存结构等知识点，工作中很少用，学它干嘛？地址：[https://t.zsxq.com/03beeQJEa](https://t.zsxq.com/03beeQJEa)
 - 如何才能开始分享（总感觉自己没有别人写的好）？地址：[https://t.zsxq.com/03AufUjim](https://t.zsxq.com/03AufUjim)
 
 ### 二哥的学习圈子能提供什么帮助？
