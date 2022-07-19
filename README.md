@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://tobebetterjavaer.com">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
+    <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
   </a>
 </p>
 
@@ -43,7 +43,7 @@
 
 > 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+![](https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 
 # 学习路线
@@ -467,7 +467,7 @@
 本号的slogan：技术文通俗易懂，吹水文风趣幽默。<br>目前已有 10 万+读者关注，微信搜索「**沉默王二**」（也可以扫描下方的二维码）就可以关注作者了。
 
 <div align="left">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" width="260px">
+    <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/gongzhonghao.png" width="260px">
 </div>
 
 关注后，回复关键字「**00**」可以获取更多优质的 Java 学习资料。
@@ -488,7 +488,7 @@
 开源不易，如果《Java 程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
+    <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。
