@@ -600,6 +600,7 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
           "ide/4-debug-skill.md",
+          "ide/xechat.md",
           ],
         },
         {

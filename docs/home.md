@@ -268,7 +268,8 @@ headerDepth: 1
 
 ### IDE/编辑器
 
-- [4个高级的IntelliJ IDEA调试技巧](ide/4-debug-skill.md)
+- [4个高级的 IntelliJ IDEA 调试技巧](ide/4-debug-skill.md)
+- [在 IDEA 里下个五子棋不过分吧？](ide/xechat.md)
 
 ### Spring
 
