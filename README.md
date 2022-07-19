@@ -66,7 +66,7 @@
 
 # 面渣逆袭
 
->  **面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络 等等。
+>  **面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ 等等。
 
 - [面渣逆袭（Java 基础篇）必看👍](docs/sidebar/sanfene/javase.md)
 - [面渣逆袭（Java 集合框架篇）必看👍](docs/sidebar/sanfene/collection.md)
@@ -78,6 +78,7 @@
 - [面渣逆袭（MySQL）必看👍](docs/sidebar/sanfene/mysql.md)
 - [面渣逆袭（操作系统）必看👍](docs/sidebar/sanfene/os.md)
 - [面渣逆袭（计算机网络）必看👍](docs/sidebar/sanfene/network.md)
+- [面渣逆袭（RocketMQ）必看👍](docs/sidebar/sanfene/rocketmq.md)
 
 
 # Java核心

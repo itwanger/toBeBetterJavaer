@@ -46,6 +46,7 @@ export const sidebarConfig = sidebar({
     "mysql.md",
     "os.md",
     "network.md",
+    "rocketmq.md",
     
   ],
   // 必须放在最后面
