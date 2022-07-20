@@ -9,7 +9,7 @@ actions:
   - text: 立马上路→
     link: /home.md
     type: primary
-  - text: 二哥的学习圈子
+  - text: 二哥的编程星球
     link: /zhishixingqiu/
     type: default
 ---
