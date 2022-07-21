@@ -1,15 +1,22 @@
 ---
-title: 面渣逆袭：RocketMQ二十三问
-shortTitle: 面渣逆袭：RocketMQ二十三问
-description: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ二十三问！不会有人假期偷偷玩吧？
+title: 面渣逆袭（RocketMQ面试题）必看👍
+shortTitle: 面渣逆袭-RocketMQ
+description: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ面试高频题23 道，这次吊打面试官，我觉得稳了（手动 dog）
 author: 三分恶
 category:
-  - 微信公众号
+  - 面渣逆袭
+tags:
+  - RocketMQ 面试题
+  - RocketMQ
 head:
   - - meta
     - name: description
-      content: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ二十三问！不会有人假期偷偷玩吧？
+      content: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ面试高频题23 道，这次吊打面试官，我觉得稳了（手动 dog）
+    - name: keywords
+      content: RocketMQ 面试题,RocketMQ
 ---
+
+> 图文详解 RocketMQ 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/N6wq52pBGh8xkS-5uRcO2g)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A)。
 
 ## 基础
 
@@ -31,9 +38,9 @@ head:
 
 我们可以把请求扔到队列里面，只放出我们服务能处理的流量，这样就能抗住短时间的大流量了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f028cb0c-b1a3-47ef-b290-f7d6f46512fb.jpg)
+![消息队列削峰](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f028cb0c-b1a3-47ef-b290-f7d6f46512fb.jpg)
 
-消息队列削峰
+
 
 解耦、异步、削峰，是消息队列最主要的三大作用。
 
@@ -235,6 +242,8 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 *   **Consumer**也由用户部署，支持PUSH和PULL两种消费模式，支持**集群消费**和**广播消费**，提供**实时的消息订阅机制**。
 *   **Pull**：拉取型消费者（Pull Consumer）主动从消息服务器拉取信息，只要批量拉取到消息，用户应用就会启动消费过程，所以 Pull 称为主动消费型。
 *   **Push**：推送型消费者（Push Consumer）封装了消息的拉取、消费进度和其他的内部维护工作，将消息到达时执行的回调接口留给用户应用程序来实现。所以 Push 称为被动消费类型，但其实从实现上看还是从消息服务器中拉取消息，不同于 Pull 的是 Push 首先要注册消费监听器，当监听器处触发后才开始消费消息。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 进阶
 
@@ -481,6 +490,8 @@ Consumer 的配置文件中，并不需要设置是从 Master 读还是从 Slave
 
 如何达到发送端写的高可用性呢？在创建 Topic 的时候，把 Topic 的多个Message Queue 创建在多个 Broker 组上（相同 Broker 名称，不同 brokerId机器组成 Broker 组），这样当 Broker 组的 Master 不可用后，其他组Master 仍然可用， Producer 仍然可以发送消息 RocketMQ 目前还不支持把Slave自动转成 Master ，如果机器资源不足，需要把 Slave 转成 Master ，则要手动停止 Slave 色的 Broker ，更改配置文件，用新的配置文件启动 Broker。
 
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
 ## 原理
 
 ### 18.说一下RocketMQ的整体工作流程？
@@ -719,6 +730,27 @@ public void run() {
     log.info("{} service end", this.getServiceName());
 }
 ```
+---
+
+*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
 
 
->转载链接：[https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A](https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A)，出处：三分恶，整理：沉默王二
+**系列内容**：
+
+- [面渣逆袭 Java SE 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/javase.html)
+- [面渣逆袭 Java 集合框架篇👍](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
+- [面渣逆袭 Java 并发编程篇👍](https://tobebetterjavaer.com/sidebar/sanfene/collection.html)
+- [面渣逆袭 JVM 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)
+- [面渣逆袭 Spring 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/spring.html)
+- [面渣逆袭 Redis 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/redis.html)
+- [面渣逆袭 MyBatis 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/mybatis.html)
+- [面渣逆袭 MySQL 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/mysql.html)
+- [面渣逆袭操作系统篇👍](https://tobebetterjavaer.com/sidebar/sanfene/os.html)
+- [面渣逆袭计算机网络篇👍](https://tobebetterjavaer.com/sidebar/sanfene/network.html)
+- [面渣逆袭 RocketMQ 篇👍](https://tobebetterjavaer.com/sidebar/sanfene/rocketmq.html)
+
+----
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
+> 图文详解 RocketMQ 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/N6wq52pBGh8xkS-5uRcO2g)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A)。
