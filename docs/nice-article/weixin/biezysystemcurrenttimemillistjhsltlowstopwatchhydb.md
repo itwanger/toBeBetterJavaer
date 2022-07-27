@@ -2,7 +2,7 @@
 title: 别再用 System.currentTimeMillis() 统计耗时了，太 Low，StopWatch 好用到爆！
 shortTitle: 别再用 System.currentTimeMillis() 统计耗时了，太 Low，StopWatch 好用到爆！
 description: 真香！！
-author: 栈长
+author: 沉默王二
 category:
   - 微信公众号
 head:
@@ -11,188 +11,210 @@ head:
       content: 真香！！
 ---
 
-## 背景
 
-你还在用 System.currentTimeMillis... 统计耗时？
+大家好，我是二哥呀！
 
-比如下面这段代码：
+昨天，[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)里的一位球友问我能不能给他解释一下 `@SpringBootApplication` 注解是什么意思，还有 Spring Boot 的运行原理，于是我就带着他扒拉了一下这个注解的源码，还有 `SpringApplication` 类的 `run()` 方法的源码，一下子他就明白了。
 
-```
-/** * @author: 栈长 * @from: Java技术栈 */@Testpublic void jdkWasteTime() throws InterruptedException {    long start = System.currentTimeMillis();    Thread.sleep(3000);    System.out.printf("耗时：%dms.", System.currentTimeMillis() - start);}
-```
+你别说，看源码的过程还真的是挺有趣，这不，我就发现了一个有意思的点。
 
-System.currentTimeMillis...这种方式统计耗时确实是用的最多的，因为它不用引入其他的 JAR 包，JDK 就能搞定，但是它用起来有几个不方便的地方：
-
-1）需要定义初始时间值，再用当前时间进行手工计算；
-
-2）统计多个任务的耗时比较麻烦，如果 start 赋值搞错可能还会出现逻辑问题；
-
-有没有其他的更好的替代方案呢？答案是肯定的：**StopWatch**！
-
-## StopWatch
-
-StopWatch 是一个统计耗时的工具类：
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-71db7631-47a7-4349-9c1c-d6ce42390636.jpg)
-
-常用的 StopWatch 工具类有以下两种：
-
-*   commons-lang3（Apache 提供的通用工具包）
-*   spring-core（Spring 核心包）
-
-虽然两个工具类的名称是一样的，但是用法大不相同，本文栈长就给大家分别演示下。
-
-### commons-lang3 提供的 StopWatch
-
-#### 引入依赖
-
-commons-lang3 是 Apache 开源的通用工具包，需要额外引入 Maven 依赖：
-
-```
-<dependency>    <groupId>org.apache.commons</groupId>    <artifactId>commons-lang3</artifactId>    <version>${commons-lang3.version}</version></dependency>
+```java
+public ConfigurableApplicationContext run(String... args) {
+	StopWatch stopWatch = new StopWatch();
+	stopWatch.start();
+	......
+	stopWatch.stop();
+}
 ```
 
-#### 简单示例
+Spring Boot 是用 StopWatch 来统计耗时的，而通常情况下，我们会用 `System.currentTimeMillis()` 来统计耗时，对吧？编程喵🐱开源项目里就有这样一段代码，在处理统一日志处理切面的时候。
 
-创建一个 StopWatch 实例有以下 3 种方法：
-
-1） 使用 new 关键字
-
-```
-StopWatch sw = new StopWatch();
-```
-
-2）使用 create 工厂方法
-
-```
-StopWatch sw = StopWatch.create();
+```java
+@Around("webLog()")
+public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
+    long startTime = System.currentTimeMillis();
+    long endTime = System.currentTimeMillis();
+    webLog.setSpendTime((int) (endTime - startTime));
+}
 ```
 
-3）使用 createStarted 方法
+对比之下，我们就能发现，JDK 提供的 `System.currentTimeMillis()` 没有 Spring 提供的 StopWatch 简洁、清晰。
 
-```
-StopWatch sw = StopWatch.createStarted();
-```
+尤其是在多任务的情况下，StopWatch 简直好用到爆🤗！
 
-这个方法不但会创建一个实例，同时还会启动计时。
+```java
+// 创建一个 StopWatch 实例
+StopWatch sw = new StopWatch("沉默王二是傻 X");
+// 开始计时
+sw.start("任务1");
 
-**来看一个简单的例子：**
+Thread.sleep(1000);
 
-```
-// 创建一个 StopWatch 实例并开始计时StopWatch sw = StopWatch.createStarted();// 休眠1秒Thread.sleep(1000);// 1002msSystem.out.printf("耗时：%dms.\n", sw.getTime()); 
-```
+// 停止计时
+sw.stop();
+System.out.printf("任务1耗时：%d%s.\n", sw.getLastTaskTimeMillis(), "ms");
 
-#### 更多用法
+sw.start("任务2");
+Thread.sleep(1100);
+sw.stop();
 
-接之前的示例继续演示。
-
-**暂停计时：**
-
-```
-// 暂停计时sw.suspend();Thread.sleep(1000);// 1000msSystem.out.printf("暂停耗时：%dms.\n", sw.getTime()); 
-```
-
-因为暂停了，所以还是 1000ms，暂停后中间休眠的 1000 ms 不会被统计。
-
-**恢复计时：**
-
-```
-// 恢复计时sw.resume();Thread.sleep(1000);// 2001msSystem.out.printf("恢复耗时：%dms.\n", sw.getTime()); 
+System.out.printf("任务2耗时：%d%s.\n", sw.getLastTaskTimeMillis(), "ms");
+System.out.printf("任务数量：%s，总耗时：%ss.\n", sw.getTaskCount(), sw.getTotalTimeSeconds());
 ```
 
-因为恢复了，结果是 2001 ms，恢复后中间休眠的 1000 ms 被统计了。
+看到没，是不是很简单？
 
-**停止计时：**
+- 先 new 一个 StopWatch 对象
+- 再 start 开始计时
+- 然后 stop 停止计时
+- 最后通过 `sw.getLastTaskTimeMillis()` 得出时间差
 
-```
-Thread.sleep(1000);// 停止计时sw.stop();Thread.sleep(1000);// 3009msSystem.out.printf("总耗时：%dms.\n", sw.getTime()); 
-```
+如果换成 `System.currentTimeMillis()` 就要了老命，先得声明好几个 long 型的局部变量，然后要第二个减第一个，第三个减第二个，稍微粗心一点（尤其是 CV 大法）时，很容易搞错。
 
-停止计时前休眠了 1000ms，所以结果是 3009ms，停止计时后就不能再使用暂停、恢复功能了。
-
-**重置计时：**
-
-```
-// 重置计时sw.reset();// 开始计时sw.start();Thread.sleep(1000);// 1000msSystem.out.printf("重置耗时：%dms.\n", sw.getTime()); 
-```
-
-因为重置计时了，所以重新开始计时后又变成了 1000ms。
-
-### Spring 提供的 StopWatch
-
-来看一个简单的例子：
+除了可以通过局部时间，还可以通过 `sw.getTotalTimeSeconds()` 获取总的耗时。
 
 ```
-// 创建一个 StopWatch 实例StopWatch sw = StopWatch("Java技术栈：测试耗时");// 开始计时sw.start("任务1");// 休眠1秒Thread.sleep(1000);// 停止计时sw.stop();// 1002msSystem.out.printf("任务1耗时：%d%s.\n", sw.getLastTaskTimeMillis(), "ms");
+任务1耗时：1002ms.
+任务2耗时：1105ms.
+任务数量：2，总耗时：2.107820109s.
 ```
 
-Spring 创建实例的方法就是 new，开始计时，以及获取时间需要手动 start、stop。
-
-继续再新增 2 个任务：
+另外，StopWatch 还提供了一个 `sw.prettyPrint()` 方法供打印出漂亮的格式化结果：
 
 ```
-Thread.sleep(1000);sw.start("任务2");Thread.sleep(1100);sw.stop();// 1100ms.System.out.printf("任务2耗时：%d%s.\n", sw.getLastTaskTimeMillis(), "ms");sw.start("任务3");Thread.sleep(1200);sw.stop();// 1203ms.System.out.printf("任务3耗时：%d%s.\n", sw.getLastTaskTimeMillis(), "ms");// 3.309373456s.System.out.printf("任务数量：%s，总耗时：%ss.\n", sw.getTaskCount(), sw.getTotalTimeSeconds());
+StopWatch '沉默王二是傻 X': running time = 2108529351 ns
+---------------------------------------------
+ns         %     Task name
+---------------------------------------------
+1004338467  048%  任务1
+1104190884  052%  任务2
 ```
 
-Spring 一个重要的亮点是支持格式化打印结果：
+有耗时，有占用百分比，还有任务名，非常清晰。
 
+除了 Spring，hutool 工具库和 Apache common 工具包都提供了各自的 StopWatch。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-b4ca30f2-9e26-478c-b37c-062f5e3e0076.png)
+
+查看 hutool 工具库中的 StopWatch 源码可以得出，该类其实就来自 Spring 的 StopWatch.java，用法也完全一致。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-cdc28804-8b8e-40fa-a2fe-88b9d2ec57c9.png)
+
+这说明 hutool 的作者也认为 Spring 的 StopWatch 写得好，哈哈哈😁。
+
+使用 Beyond compare 比较后也能得出，两者除了一个中文注释，一个英文注释，代码几乎一样。setKeepTaskList 方法有比较大的不同。
+
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-529e5215-b41c-492f-8e7f-a223242a4120.png)
+
+
+那也就是说，如果你的项目中没有使用 Spring 全家桶，只用了 hutool 工具包，那就可以使用 hutool 的 StopWatch 来代替 `System.currentTimeMillis()`。
+
+通过分析 StopWatch 的 stop 方法源码：
+
+```java 
+public void stop() throws IllegalStateException {
+	if (null == this.currentTaskName) {
+		throw new IllegalStateException("Can't stop StopWatch: it's not running");
+	}
+
+	final long lastTime = System.nanoTime() - this.startTimeNanos;
+	this.totalTimeNanos += lastTime;
+	this.lastTaskInfo = new TaskInfo(this.currentTaskName, lastTime);
+	if (null != this.taskList) {
+		this.taskList.add(this.lastTaskInfo);
+	}
+	++this.taskCount;
+	this.currentTaskName = null;
+}
 ```
-System.out.println(sw.prettyPrint());
+
+其实可以发现，StopWatch 的内部是通过 `System.nanoTime()` 来计时的，本质上和 `System.currentTimeMillis()` 差别并不大。
+
+nanoTime 比 currentTimeMillis 的粒度更细，前者是以纳秒为单位，后者是以毫秒为单位。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-a3823870-63a7-4154-9bb9-6994f09f0f39.png)
+
+
+注意两者都是 native 方法，也就是说，值的粒度其实取决于底层的操作系统。
+
+**看到这，大家可能会恍然大悟，StopWatch 不过是披着一层外衣的 `System.currentTimeMillis()` 嘛**？
+
+但妙就妙在，这层外衣足够的漂亮，足够的优雅。StopWatch 可以记录每个子任务的名称，以及按格式化打印结果，尤其是针对多任务统计时更友好一点。
+
+当然了，除了选择 Spring 和 hutool 的 StopWatch，Apache commons-lang3 的 StopWatch 也是一个不错的可选项，更加灵活多变。
+
+```java
+StopWatch sw = StopWatch.createStarted();
+Thread.sleep(1000);
+System.out.printf("耗时：%dms.\n", sw.getTime());
 ```
 
-来看最后的输出结果：
+其他两个都是通过 new 来创建 StopWatch 对象，commons-lang3 还可以通过 createStarted（创建并立即启动）、create（创建）来完成。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-9584ef69-33ea-4ec4-bd4d-5c6b34c8039a.jpg)
+还可以调用 suspend 方法暂停计时、resume 方法恢复计时、reset 重新计时。
 
-## 实现原理
+```java
+// 暂停计时
+sw.suspend();
+System.out.printf("暂停耗时：%dms.\n", sw.getTime());
 
-分别来看下 commons-lang3 和 Spring 的核心源码：
+// 恢复计时
+sw.resume();
+System.out.printf("恢复耗时：%dms.\n", sw.getTime());
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-048a7d6b-df2f-4d67-bd62-5ac20311a4f6.jpg)
+// 停止计时
+sw.stop();
+System.out.printf("总耗时：%dms.\n", sw.getTime());
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-16378e71-7f8f-452a-851d-81e5efd1c355.jpg)
+// 重置计时
+sw.reset();
 
-其实也都是利用了 JDK 中的 System 系统类去实现的，做了一系列封装而已。
+// 开始计时
+sw.start();
+System.out.printf("重置耗时：%dms.\n", sw.getTime());
+```
 
-## 总结
+## ending
 
-commons-lang3 工具包和 Spring 框架中的 StopWatch 都能轻松完成多个任务的计时以及总耗时，再也不要用手工计算耗时的方式了，手动计算如果 start 赋值错误可能还会出错。
+文末给自己的编程星球打个广告。一个人可以走得很快，但一群人才能走得更远。欢迎加入[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)，里面的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。
 
-当然，以上两个 StopWatch 的功能也远不止栈长介绍的，栈长介绍的这些已经够用了，更多的可以深入研究。
 
-**总结一下这两种计时工具类优缺点：**
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-7fc972ae-c530-4c91-a1ac-ef7c38494734.png)
 
-1）commons-lang3 中的 StopWatch 的用法比 Spring 中的要更简单一些；
 
-2）commons-lang3 中的 StopWatch 功能比 Spring 中的要更灵活、更强大一些，支持暂停、恢复、重置等功能；
+星球提供的三份专属专栏《Java 面试指南》、《编程喵 🐱（Spring Boot+Vue 前后端分离）实战项目笔记》、《Java 版 LeetCode 刷题笔记》，干货满满，价值连城。
 
-3）Spring 提供每个子任务名称，以及按格式化打印结果功能，针对多任务统计时更好一点；
 
-综上所述，个人推荐使用 commons-lang3 工具包中的，更灵活、更强大，如果不想额外引入包，也可以考虑 Spring 中的，根据自己的系统需求定。
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-e89d40c9-078b-4b2b-9367-2bd707a418fa.png)
 
-**所以，别再用 System.currentTimeMillis... 统计耗时了，太 low，赶紧分享转发下吧，规范起来！**
 
-* * *
-
-**微信8.0将好友放开到了一万，小伙伴可以加我大号了，先到先得，再满就真没了**
-
-**扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-4343b516-4747-4e12-be7f-8719a372dfc7.jpg)
-
-## 推荐阅读
-
-*   [Grafana 9 正式发布，更易用，更酷炫了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500998&idx=1&sn=58d1222ef56fa3bef2abeb832c3a3c32&scene=21#wechat_redirect)
-*   [如何优雅的写 Controller 层代码？](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500925&idx=1&sn=0a937f3b4281987b3633666421bf275b&scene=21#wechat_redirect)
-*   [Mall电商实战项目全面升级！支持最新版SpringBoot，干掉循环依赖...](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500820&idx=1&sn=9895bd4c39b90d45eb2a10efedb236ac&scene=21#wechat_redirect)
-*   [阿里出品！SpringBoot应用自动化部署神器，IDEA版Jenkins？](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500584&idx=1&sn=14ab8fa74ed8391a5cb91449f699123a&scene=21#wechat_redirect)
-*   [再见命令行！一键部署应用到远程服务器，IDEA官方Docker插件真香！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500482&idx=1&sn=713a30c88cea125f4768e6a0df939600&scene=21#wechat_redirect)
-*   [还在从零开始搭建项目？这款升级版快速开发脚手架值得一试！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500084&idx=1&sn=5bd4e684af3cfede8f332c423a478abf&scene=21#wechat_redirect)
-*   [重磅更新！Mall实战教程全面升级，瞬间高大上了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499376&idx=1&sn=3ed28795cdd35fbaa3506e74a56703b0&scene=21#wechat_redirect)
-*   [40K+Star！Mall电商实战项目开源回忆录！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247486684&idx=1&sn=807fd808adac8019eb2095ba088efe54&scene=21#wechat_redirect)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-1af7a5f6-312c-4ae9-ab77-3c359389c4a6.png)
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-eba82a19-3f81-4707-a327-8901d03a9c49.jpg)
+已经有 **480 多名** 小伙伴加入[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)加入我们的大家庭吧！这是一个 Java 学习指南 + 编程实战 + LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 
->转载链接：[https://mp.weixin.qq.com/s/lo9vq-YToQF-u76b_fabvg](https://mp.weixin.qq.com/s/lo9vq-YToQF-u76b_fabvg)，出处：macrozheng，整理：沉默王二
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-a60262ae-01dc-4e39-affb-b192ca2de1c4.png)
+
+
+---
+
+没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
+
+**推荐阅读**：
+
+- [没必要为实习碰的头破血流](https://mp.weixin.qq.com/s/KxUMq2YmlIBMbAeRwUm8JA)
+- [网站挣了 200 美刀后的感触](https://mp.weixin.qq.com/s/PxgZkuA_SnAgG7xfwlKLgw)
+- [在 IDEA 里下五子棋不过分吧？](https://mp.weixin.qq.com/s/R13FkPipfEMKjqNaCL3UoA)
+- [顺利入职了](https://mp.weixin.qq.com/s/oBLUSnHOmzoVpCP1sacNbA)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-da664b36-ac4c-4d16-a345-fc710462b515.jpg)
+
+
+
+
