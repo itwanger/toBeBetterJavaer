@@ -1,11 +1,17 @@
 ---
+title: 如何在Java中优雅地分割String字符串？
+shortTitle: Java字符串分割
 category:
   - Java核心
 tag:
-  - Java
+  - 数组&字符串
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，如何在Java中优雅地分割String字符串？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,java字符串,String
+      content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，如何在Java中优雅地分割String字符串？
 ---
-
-# 如何在Java中优雅地分割String字符串？
 
 “哥，我感觉字符串拆分没什么可讲的呀，直接上 String 类的 `split()` 方法不就可以了！”三妹毫不客气地说。
 
@@ -215,4 +221,4 @@ if (cmower.contains("，")) {
 
 “嗯，我把今天的内容温习下，二哥，你休息会。”三妹说。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

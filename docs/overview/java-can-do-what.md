@@ -2,22 +2,16 @@
 title: Java的优势
 shortTitle: Java的优势
 category:
-  - Java 核心
+  - Java核心
 tag:
-  - Java
-  - Java SE
-  - Java 基础
-  - Java 教程
-  - Java 程序员进阶之路
-  - Java 入门
-  - Java 优势
-description: Java的优势
+  - Java概述
+description: Java程序员进阶之路，小白的零基础Java教程，Java的优势
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 优势
     - name: description
-      content: Java的优势
+      content: Java程序员进阶之路，小白的零基础Java教程，Java的优势
 ---
 
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。

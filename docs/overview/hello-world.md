@@ -2,22 +2,16 @@
 title: 编写第一个Java程序：Hello World
 shortTitle: 编写第一个Java程序：Hello World
 category:
-  - Java 核心
+  - Java核心
 tag:
-  - Java
-  - Java SE
-  - Java 基础
-  - Java 教程
-  - Java 程序员进阶之路
-  - Java 入门
-  - Java Hello World
-description: 编写第一个Java程序：Hello World
+  - Java概述
+description: Java程序员进阶之路，小白的零基础Java教程，编写第一个Java程序：Hello World
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java Hello World
     - name: description
-      content: 编写第一个Java程序：Hello World
+      content: Java程序员进阶之路，小白的零基础Java教程，编写第一个Java程序：Hello World
 ---
 
 第一个 Java 程序非常简单，代码如下：

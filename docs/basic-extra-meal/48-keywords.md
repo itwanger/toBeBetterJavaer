@@ -2,24 +2,16 @@
 title: Java中常用的48个关键字和2个保留字
 shortTitle: 48个关键字和2个保留字
 category:
-  - Java 核心
+  - Java核心
 tag:
-  - Java
-  - Java SE
-  - Java 基础
-  - Java 教程
-  - Java 程序员进阶之路
-  - Java 入门
-  - Java 简介
-  - Java 保留字
-  - Java 关键字
-description: Java中常用的48个关键字和2个保留字
+  - Java语法基础
+description: Java程序员进阶之路，小白的零基础Java教程，Java中常用的48个关键字和2个保留字
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 保留字,Java 关键字
     - name: description
-      content: Java中常用的48个关键字和2个保留字
+      content: Java程序员进阶之路，小白的零基础Java教程，Java中常用的48个关键字和2个保留字
 ---
 
 “二哥，就我之前学过的这些 Java 代码中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。

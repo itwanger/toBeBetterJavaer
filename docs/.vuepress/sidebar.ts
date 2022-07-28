@@ -85,7 +85,21 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "2.3 面向对象编程",
+          text: "2.3 数组&字符串",
+          collapsable: true,
+          children: [
+          "array/array",
+          "array/print",
+          "string/immutable",
+          "string/constant-pool",
+          "string/intern",
+          "string/equals",
+          "string/join",
+          "string/split",
+          ],
+        },
+        {
+          text: "2.4 面向对象编程",
           collapsable: true,
           children: [
           {
@@ -157,46 +171,6 @@ export const sidebarConfig = sidebar({
           {
             text: "反射",
             link: "basic-extra-meal/fanshe",
-          },
-          
-          ],
-        },
-        {
-          text: "2.4 字符串&数组",
-          collapsable: true,
-          children: [
-        
-          {
-            text: "字符串为什么是不可变的",
-            link: "string/immutable",
-          },
-          {
-            text: "字符串常量池",
-            link: "string/constant-pool",
-          },
-          {
-            text: " String#intern",
-            link: "string/intern",
-          },
-          {
-            text: "字符串比较",
-            link: "string/equals",
-          },
-          {
-            text: "字符串拼接",
-            link: "string/join",
-          },
-          {
-            text: "字符串分割",
-            link: "string/split",
-          },
-          {
-            text: "数组",
-            link: "array/array",
-          },
-          {
-            text: "打印数组",
-            link: "array/print",
           },
           
           ],
@@ -908,6 +882,7 @@ export const sidebarConfig = sidebar({
         "nice-article/weixin-githubxbkdjavajccjyh.md",
         "nice-article/weixin-shejmsnb.md",
         "nice-article/weixin-mozdsdzfjavableetcodetxxk.md",
+        "nice-article/weixin/sulwgalcpdssbjavakfsc.md",
         "nice-article/yuanyifeng-c-language.md",
         "nice-article/bat-shuati.md",
         "nice-article/weixin-piaolwzjztqdtskwlzfpdf.md",

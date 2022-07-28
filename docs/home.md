@@ -2,6 +2,13 @@
 title: Java程序员进阶之路x沉默王二
 isOriginal: true
 headerDepth: 1
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶
+head:
+  - - meta
+    - name: keywords
+      content: Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门
+    - name: description
+      content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶
 ---
 
 <a href="https://tobebetterjavaer.com/zhishixingqiu/">👉 沉默王二-《Java 程序员进阶之路》官方知识星球来啦！！！</a>如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍： <a href="https://tobebetterjavaer.com/zhishixingqiu/">《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
@@ -111,7 +118,16 @@ headerDepth: 1
 - [Java流程控制语句](basic-grammar/flow-control.md)
 - [Java运算符](basic-grammar/operator.md)
 
+### 数组&字符串
 
+- [浅入浅出Java数组](array/array.md)
+- [如何优雅地打印Java数组？](array/print.md)
+- [为什么String是不可变的？](string/immutable.md)
+- [深入理解Java字符串常量池](string/constant-pool.md)
+- [深入解析String.intern()方法](string/intern.md)
+- [Java如何判断两个字符串是否相等？](string/equals.md)
+- [最优雅的Java字符串拼接是哪种方式？](string/join.md)
+- [如何在Java中优雅地分割String字符串？](string/split.md)
 
 ### Java面向对象编程
 
@@ -134,17 +150,6 @@ headerDepth: 1
 - [深入理解Java注解](basic-extra-meal/annotation.md)
 - [Java枚举（enum）](basic-extra-meal/enum.md)
 - [大白话说Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
-
-### 字符串&数组
-
-- [为什么String是不可变的？](string/immutable.md)
-- [深入了解Java字符串常量池](string/constant-pool.md)
-- [深入解析 String#intern](string/intern.md)
-- [Java判断两个字符串是否相等？](string/equals.md)
-- [Java字符串拼接的几种方式](string/join.md)
-- [如何在Java中优雅地分割String字符串？](string/split.md)
-- [深入理解Java数组](array/array.md)
-- [如何优雅地打印Java数组？](array/print.md)
 
 ### 集合框架（容器）
 
