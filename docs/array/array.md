@@ -1,13 +1,19 @@
 ---
+title: 浅入浅出Java数组
+shortTitle: Java数组
 category:
   - Java核心
 tag:
-  - Java
+  - 数组&字符串
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java数组
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,java数组
+      content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java数组
 ---
 
-# 深入理解Java数组
-
-“哥，我看你之前的文章里提到，ArrayList 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
+“二哥，我看你公众号的一篇文章里提到，ArrayList 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 
 “的确是的，看 ArrayList 的源码就一清二楚了。”我一边说，一边打开 Intellij IDEA，并找到了 ArrayList 的源码。
 
@@ -66,9 +72,9 @@ int anOtherArray[];
 int[] anArray = new int[10];
 ```
 
-看到了没？上面这行代码中使用了 new 关键字，这就意味着数组的确是一个对象，只有对象的创建才会用到 new 关键字，基本数据类型是不用的。然后，我们需要在方括号中指定数组的长度。
+看到了没？上面这行代码中使用了 new 关键字，这就意味着数组的确是一个对象，只有对象的创建才会用到 new 关键字，[基本数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)是不用的。然后，我们需要在方括号中指定数组的长度。
 
-这时候，数组中的每个元素都会被初始化为默认值，int 类型的就为 0，Object 类型的就为 null。 不同数据类型的默认值不同，可以参照[之前的文章](https://mp.weixin.qq.com/s/twim3w_dp5ctCigjLGIbFw)。
+这时候，数组中的每个元素都会被初始化为默认值，int 类型的就为 0，Object 类型的就为 null。 不同数据类型的默认值不同，可以参照[之前的文章](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)。
 
 另外，还可以使用大括号的方式，直接初始化数组中的元素：
 

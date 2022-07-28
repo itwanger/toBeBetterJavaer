@@ -1,25 +1,30 @@
 ---
+title: 深入解析String.intern()方法
+shortTitle: 深入解析String.intern()方法
 category:
   - Java核心
 tag:
-  - Java
+  - 数组&字符串
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入解析String.intern()方法
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,java字符串,String
+      content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入解析String.intern()方法
 ---
 
-# 深入解析 String#intern
 
 “哥，你发给我的那篇文章我看了，结果直接把我给看得不想学 Java 了！”三妹气冲冲地说。
 
 “哪一篇啊？”看着三妹面色沉重，我关心地问到。
 
-“就是美团技术团队深入解析 `String.intern()` 那篇啊！”三妹回答。
+“就是[美团技术团队深入解析 `String.intern()` 那篇](https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html)啊！”三妹回答。
 
->https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html
-
-“哦，我想起来了，不挺好一篇文章嘛，深入浅出，精品中的精品，看完后你应该对 String 的 intern 彻底理解了才对呀。”
+“哦，我想起来了，不挺好一篇文章嘛，深入浅出，精品中的精品，看完后你应该对 String 的 intern 方法彻底理解了才对呀。”
 
 “好是好，但我就是看不懂！”三妹委屈地说，“哥，还是你亲自给我讲讲吧？”
 
-“好吧，上次学的[字符串常量池](https://mp.weixin.qq.com/s/b69zXknKLIa3FWs0Yj23xA)你都搞清楚了吧？”
+“好吧，上次学的[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)你都搞清楚了吧？”
 
 “嗯。”三妹微微的点了点头。
 
@@ -113,4 +118,4 @@ true
 
 看到三妹一点一滴的进步，我也感到由衷的开心。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

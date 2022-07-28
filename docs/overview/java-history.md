@@ -2,22 +2,16 @@
 title: Java发展简史
 shortTitle: Java发展简史
 category:
-  - Java 核心
+  - Java核心
 tag:
-  - Java
-  - Java SE
-  - Java 基础
-  - Java 教程
-  - Java 程序员进阶之路
-  - Java 入门
-  - Java 简介
-description: Java发展简史
+  - Java概述
+description: Java程序员进阶之路，小白的零基础Java教程，Java发展简史
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介
     - name: description
-      content: Java发展简史
+      content: Java程序员进阶之路，小白的零基础Java教程，Java发展简史
 ---
 
 20 世纪 90 年代，单片式计算机系统诞生。单片式计算机系统不仅廉价（之前的计算机非常庞大，并且昂贵），而且功能强大，可以大幅度提升消费性电子产品的智能化程度。

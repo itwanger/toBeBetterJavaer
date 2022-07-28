@@ -1,10 +1,17 @@
 ---
 title: 👏下载→最全最硬核的Java面试 “备战” 资料
-shortTitle: Java面试 “备战” 资料
+shortTitle: 下载→Java面试备战资料
 category:
   - 学习资源
 tag:
   - PDF
+head:
+  - - meta
+    - name: description
+      content: 下载→最全最硬核的Java面试 “备战” 资料
+  - - meta
+    - name: keywords
+      content: PDF,Java 面试资料,java面试准备,java面试题,java面试指南,java 面试题,java面试题2022
 ---
 
 大家好，我是二哥呀!分享一下今天整理汇总的一些 Java 面试相关的 PDF 资料，希望对需要的小伙伴有帮助！

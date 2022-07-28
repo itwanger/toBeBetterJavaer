@@ -1,10 +1,17 @@
 ---
-title: 👏下载→深入浅出Java多线程
-shortTitle: 深入浅出Java多线程
+title: 👏下载→深入浅出Java多线程PDF
+shortTitle: 下载→深入浅出Java多线程
 category:
   - 学习资源
 tag:
   - PDF
+head:
+  - - meta
+    - name: description
+      content: 下载深入浅出Java多线程PDF
+  - - meta
+    - name: keywords
+      content: 深入浅出Java多线程,深入浅出Java多线程 PDF,深入浅出java多线程 pdf,深入浅出Java多线程 下载,Java多线程入门,java并发编程实战,java线程池,java多线程 PDF,Java 多线程 书籍
 ---
 
 你好，我是二哥。对于一个 Java 程序员而言，能否熟练掌握并发编程是判断他优秀与否的重要标准之一。因为并发编程是 Java 语言中最为晦涩的知识点，它涉及操作系统、内存、CPU、编程语言等多方面的基础能力，更能考验一个程序员的内功。

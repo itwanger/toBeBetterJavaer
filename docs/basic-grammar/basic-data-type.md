@@ -2,25 +2,16 @@
 title: Java 中的数据类型（8 种基本数据类型和引用数据类型）
 shortTitle: Java 中的数据类型
 category:
-  - Java 核心
+  - Java核心
 tag:
-  - Java
-  - Java SE
-  - Java 基础
-  - Java 教程
-  - Java 程序员进阶之路
-  - Java 入门
-  - Java 简介
-  - Java 数据类型
-  - 基本数据类型
-  - 引用数据类型
-description: Java 中的数据类型（8 种基本数据类型和引用数据类型）
+  - Java语法基础
+description: Java程序员进阶之路，小白的零基础Java教程，Java 中的数据类型（8 种基本数据类型和引用数据类型）
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 数据类型,基本数据类型,引用数据类型
     - name: description
-      content: Java 中的数据类型（8 种基本数据类型和引用数据类型）
+      content: Java程序员进阶之路，小白的零基础Java教程，Java 中的数据类型（8 种基本数据类型和引用数据类型）
 ---
 
 “Java 是一种静态类型的编程语言，这意味着所有变量必须在使用之前声明好，也就是必须得先指定变量的类型和名称。”我吸了一口麦香可可奶茶后对三妹说。

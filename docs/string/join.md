@@ -1,13 +1,20 @@
 ---
+title: 最优雅的Java字符串拼接是哪种方式？
+shortTitle: Java字符串拼接
 category:
   - Java核心
 tag:
-  - Java
+  - 数组&字符串
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，最优雅的Java字符串拼接是哪种方式？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,java字符串,String
+      content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，最优雅的Java字符串拼接是哪种方式？
 ---
 
-# Java字符串拼接的几种方式
 
-“哥，你让我看的《Java 开发手册》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
+“哥，你让我看的《[Java 开发手册](https://tobebetterjavaer.com/nice-article/weixin/sulwgalcpdssbjavakfsc.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 
 “好的，三妹，哥来慢慢给你讲。”我回答。
 
@@ -370,4 +377,4 @@ public static String join(final Object[] array, String separator, final int star
 
 “嗯，哥，你休息吧，我把这些例子再重新跑一遍。”三妹说。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

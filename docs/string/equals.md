@@ -1,15 +1,22 @@
 ---
+title: Java如何判断两个字符串是否相等？
+shortTitle: 如何判断两个字符串是否相等？
 category:
   - Java核心
 tag:
-  - Java
+  - 数组&字符串
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java如何判断两个字符串是否相等？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,java字符串,String
+      content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java如何判断两个字符串是否相等？
 ---
 
-# Java判断两个字符串是否相等？
 
-“哥，如何比较两个字符串相等啊？”三妹问。
+“二哥，如何比较两个字符串相等啊？”三妹问。
 
-“这个问题看似简单，却在 Stack Overflow 上有超过 370 万的访问量。”我说，“这个问题也可以引申为 `.equals()` 和 ‘==’ 操作符有什么区别。”
+“这个问题看似简单，却在 Stack Overflow 上有超过 370 万+的访问量。”我说，“这个问题也可以引申为 `.equals()` 和 ‘==’ 操作符有什么区别。”
 
 - “==”操作符用于比较两个对象的地址是否相等。
 - `.equals()` 方法用于比较两个对象的内容是否相等。
@@ -86,7 +93,7 @@ public static boolean equals(byte[] value, byte[] other) {
 }
 ```
 
-我的 JDK 版本是 Java 11，也就是最新的 LTS（长期支持）版本。该版本中，String 类使用字节数组实现的，所以比较两个字符串的内容是否相等时，可以先比较字节数组的长度是否相等，不相等就直接返回 false；否则就遍历两个字符串的字节数组，只有有一个字节不相等，就返回 false。
+我的 JDK 版本是 Java 17，也就是最新的 LTS（长期支持）版本。该版本中，String 类使用字节数组实现的，所以比较两个字符串的内容是否相等时，可以先比较字节数组的长度是否相等，不相等就直接返回 false；否则就遍历两个字符串的字节数组，只有有一个字节不相等，就返回 false。
 
 “嗯，二哥，这段源码不难理解。”三妹自信地说。
 
@@ -216,4 +223,4 @@ public boolean contentEquals(CharSequence cs) {
 
 “是的，总体上感觉还是 `Objects.equals()` 比较舒服。”三妹的眼睛是雪亮的，发现了这个方法的优点。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

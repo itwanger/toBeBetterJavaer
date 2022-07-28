@@ -36,6 +36,7 @@ actions:
 - [👏下载→GitHub星标115k+的Java教程](nice-article/weixin-githubxbkdjavajccjyh.md)
 - [👏下载→重学Java设计模式](nice-article/weixin-shejmsnb.md)
 - [👏下载→Java版LeetCode刷题笔记](nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
+- [👏下载→阿里巴巴Java开发手册](nice-article/weixin/sulwgalcpdssbjavakfsc.md)
 - [👏下载→阮一峰C语言入门教程](nice-article/yuanyifeng-c-language.md)
 - [👏下载→BAT大佬的刷题笔记](nice-article/bat-shuati.md)
 - [👏下载→给操作系统捋条线](nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
