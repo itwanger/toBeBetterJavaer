@@ -1,3 +1,5 @@
+>[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **490 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
+
 <p align="center">
   <a href="https://tobebetterjavaer.com">
     <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
@@ -34,10 +36,6 @@
 > - [Java 程序员进阶之路 Gitee 仓库](https://gitee.com/itwanger/toBeBetterJavaer)
 > 
 > 亿点点小请求，建议戳[这个链接🔗](https://github.com/itwanger/toBeBetterJavaer)给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
-
-<a href="docs/zhishixingqiu/">👉 沉默王二-《Java 程序员进阶之路》官方知识星球来啦！！！</a>
-
-如果你需要专属Java学习/面试小册/一对一交流/简历修改/专属求职指南/学习打卡，不妨花 3 分钟左右看看星球的详细介绍：<a href="docs/zhishixingqiu/">沉默王二-《Java 程序员进阶之路》详细介绍 </a>（一定要确定自己真的需要再加入，一定要看完详细介绍之后再加我）。
 
 # 知识库地图
 
