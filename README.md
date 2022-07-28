@@ -105,6 +105,17 @@
 - [Java流程控制语句](docs/basic-grammar/flow-control.md)
 - [Java运算符](docs/basic-grammar/operator.md)
 
+## 数组&字符串
+
+- [浅入浅出Java数组](docs/array/array.md)
+- [如何优雅地打印Java数组？](docs/array/print.md)
+- [为什么String是不可变的？](docs/string/immutable.md)
+- [深入理解Java字符串常量池](docs/string/constant-pool.md)
+- [深入解析String.intern()方法](docs/string/intern.md)
+- [Java如何判断两个字符串是否相等？](docs/string/equals.md)
+- [最优雅的Java字符串拼接是哪种方式？](docs/string/join.md)
+- [如何在Java中优雅地分割String字符串？](docs/string/split.md)
+
 ## Java面向对象编程
 
 - [怎么理解Java中类和对象的概念？](docs/oo/object-class.md)
@@ -125,17 +136,6 @@
 - [深入理解Java注解](docs/basic-extra-meal/annotation.md)
 - [Java枚举（enum）](docs/basic-extra-meal/enum.md)
 - [大白话说Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
-
-## 字符串&数组
-
-- [为什么String是不可变的？](docs/string/immutable.md)
-- [深入了解Java字符串常量池](docs/string/constant-pool.md)
-- [深入解析 String#intern](docs/string/intern.md)
-- [Java判断两个字符串是否相等？](docs/string/equals.md)
-- [Java字符串拼接的几种方式](docs/string/join.md)
-- [如何在Java中优雅地分割String字符串？](docs/string/split.md)
-- [深入理解Java数组](docs/array/array.md)
-- [如何优雅地打印Java数组？](docs/array/print.md)
 
 ## 集合框架（容器）
 
@@ -417,6 +417,7 @@
 - [👏下载→GitHub星标115k+的Java教程](docs/nice-article/weixin-githubxbkdjavajccjyh.md)
 - [👏下载→重学Java设计模式](docs/nice-article/weixin-shejmsnb.md)
 - [👏下载→Java版LeetCode刷题笔记](docs/nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
+- [👏下载→阿里巴巴Java开发手册](docs/nice-article/weixin/sulwgalcpdssbjavakfsc.md)
 - [👏下载→阮一峰C语言入门教程](docs/nice-article/yuanyifeng-c-language.md)
 - [👏下载→BAT大佬的刷题笔记](docs/nice-article/bat-shuati.md)
 - [👏下载→给操作系统捋条线](docs/nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
