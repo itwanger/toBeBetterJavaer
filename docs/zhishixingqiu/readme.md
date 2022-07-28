@@ -68,7 +68,7 @@ head:
 
 **星球定价 99 元，限时优惠 30 元，也就是说前 500 名只需要 69 元就能加入，目前已有近 300 名球友加入**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f5ad88c9-0ddc-4180-8a14-bffc30805ef2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-75e243aa-8c92-49c8-b72e-cb82098d04a8.png)
 
 一个人可以走得很快，但一群人才能走得更远。在这里的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。
 
@@ -213,7 +213,9 @@ head:
 
 目前星球定价 99 元，可以说已经非常的良心了，但本着小伙伴们的钱包着想，再发放一波 30 元的优惠券，**也就是说前 500 名只需要 69 元就能加入**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f5ad88c9-0ddc-4180-8a14-bffc30805ef2.png)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-75e243aa-8c92-49c8-b72e-cb82098d04a8.png)
+
 
 这价格绝对是友情价，这不，就连二哥的好朋友 Guide 哥都看不下去了。
 
@@ -226,8 +228,10 @@ head:
 
 二哥没有拯救天拯救地的伟大理想，如果恰好能帮助到一小撮人就够了，就非常有意义了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e5f4dff5-10d9-4c88-90a1-92125eb1f350.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-3aeda60d-6d46-40ff-8679-20f1efd727a9.png)
 
 
 没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
+
+
 
