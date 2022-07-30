@@ -10,6 +10,7 @@ head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,java字符串,String
+    - name: description
       content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java如何判断两个字符串是否相等？
 ---
 
