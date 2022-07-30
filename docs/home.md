@@ -393,6 +393,7 @@ head:
 - [本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️](nice-article/weixin/shezynmjfxhelmtttjddd.md)
 - [非科班读者，用一年时间社招拿下阿里 Offer✌️](nice-article/weixin/xuelybdzheloffer.md)
 - [二本读者社招两年半10家公司28轮面试面经✌️](nice-article/weixin/huanxgzl.md)
+- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer](nice-article/weixin/quzjlsspdx.md)
 
 ### 面试准备
 
