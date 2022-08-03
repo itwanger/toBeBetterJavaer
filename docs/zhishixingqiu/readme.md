@@ -1,6 +1,6 @@
 ---
-title: 沉默王二的编程知识星球-Java程序员进阶之路-第二期简介
-shortTitle: 知识星球第二期简介
+title: 欢迎加入沉默王二的知识星球-Java程序员进阶之路
+shortTitle: 欢迎加入二哥的编程星球
 sticky: true
 star: true
 isOriginal: true
