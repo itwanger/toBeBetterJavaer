@@ -1,10 +1,15 @@
 ---
-title: chiner：一款开源的数据库设计神器
+title: chiner：干掉 PowerDesigner，国人开源的数据库设计工具，界面漂亮，功能强大
+shortTitle: chiner：国人开源的数据库设计工具
 category:
   - Java企业级开发
 tag:
-  - 辅助工具/轮子
-
+  - 辅助工具
+description: chiner：干掉 PowerDesigner，国人开源的数据库设计工具，界面漂亮，功能强大
+head:
+  - - meta
+    - name: keywords
+      content: 辅助工具,GitHub,pdman chiner,PDM 工具,数据库设计,PowerDesigner chiner,Java企业级开发
 ---
 
 最近在造轮子，从 0 到 1 的那种，就差前台的界面了，大家可以耐心耐心耐心期待一下。其中需要设计一些数据库表，可以通过 Navicat 这种图形化管理工具直接开搞，也可以通过一些数据库设计工具来搞，比如说 PowerDesigner，更专业一点。

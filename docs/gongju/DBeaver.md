@@ -1,9 +1,15 @@
 ---
-title: DBeaver：一款免费的数据库操作工具
+title: DBeaver：干掉付费的 Navicat，操作所有数据库就靠它了！
+shortTitle: DBeaver：一款免费的数据库操作工具
 category:
   - Java企业级开发
 tag:
-  - 辅助工具/轮子
+  - 辅助工具
+description: DBeaver：干掉付费的 Navicat，操作所有数据库就靠它了！
+head:
+  - - meta
+    - name: keywords
+      content: 辅助工具,GitHub,DBeaver教程,DBeaver使用,DBeaver开源,Navicat DBeaver,Java企业级开发
 ---
 
 
@@ -11,7 +17,7 @@ tag:
 
 于是就琢磨着，找一款免费的，功能和 Navicat 有一拼的数据库管理工具来替代。好朋友 macrozheng 给我推荐了 DBeaver，试用完后体验真心不错，于是就来给大家安利一波。
 
-### 一、关于 DBeaver
+## 一、关于 DBeaver
 
 DBeaver 是一个跨平台的数据库管理工具，支持 Windows、Linux 和 macOS。它有两个版本，企业版和社区版，对于个人开发者来说，社区版的功能已经足够强大。
 
@@ -25,7 +31,7 @@ DBeaver 支持几乎所有主流的数据库，包括关系型数据库和非关
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-2.png)
 
-### 二、安装 DBeaver
+## 二、安装 DBeaver
 
 可以通过 DBeaver 官方下载安装包，也可以通过 GitHub 下载 release 版本。
 
@@ -52,7 +58,7 @@ DBeaver 支持几乎所有主流的数据库，包括关系型数据库和非关
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-6.png)
 
 
-### 三、管理数据源
+## 三、管理数据源
 
 像使用 Navicat 一样，我们需要先建立连接，这里就以 MySQL 为例。点击「连接」小图标，选择数据库。
 
@@ -74,7 +80,7 @@ DBeaver 支持几乎所有主流的数据库，包括关系型数据库和非关
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-11.png)
 
-### 四、管理表
+## 四、管理表
 
 数据库连接成功后，最重要的还是操作表。
 
@@ -122,7 +128,7 @@ DBeaver 支持几乎所有主流的数据库，包括关系型数据库和非关
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-21.png)
 
-### 五、执行 SQL
+## 五、执行 SQL
 
 右键数据库表，选择右键菜单中的「SQL 编辑器」可以打开 SQL 编辑面板。
 
@@ -140,7 +146,7 @@ DBeaver 有一个很亮眼的操作就是，可以直接选中一条结果集，
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-25.png)
 
-### 六、外观配置
+## 六、外观配置
 
 可以在首选项里对外观进行设置，比如说把主题修改为暗黑色。
 
@@ -158,7 +164,7 @@ DBeaver 有一个很亮眼的操作就是，可以直接选中一条结果集，
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/DBeaver-29.png)
 
-### 七、总结
+## 七、总结
 
 总体来说，DBeaver是一款非常优秀的开源数据库管理工具了，功能很全面，日常的开发基本上是够用了。对比收费的 Navicat 和 DataGrip，可以说非常良心了。大家如果遇到收费版不能使用的时候，可以来体验一下社区版 DBeaver。
 

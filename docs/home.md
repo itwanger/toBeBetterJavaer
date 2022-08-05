@@ -306,11 +306,13 @@ head:
 
 ### 辅助工具
 
-- [Tabby：一款逼格更高的开源终端工具](gongju/tabby.md)
-- [Warp：一款21世纪人用的终端工具](gongju/warp.md)
-- [Chocolatey：一款GitHub星标8.2k+的Windows命令行软件管理器](gongju/choco.md)
-- [chiner：一款开源的数据库设计神器](gongju/chiner.md)
-- [DBeaver：一款免费的数据库操作工具](gongju/DBeaver.md)
+- [Chocolatey：一款GitHub星标8.2k+的Windows命令行软件管理器，好用到爆！](gongju/choco.md)
+- [Homebrew，GitHub 星标 32.5k+的 macOS 命令行软件管理神器，功能真心强大！](gongju/brew.md)
+- [Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k](gongju/tabby.md)
+- [Warp：号称下一代终端神器，GitHub星标2.8k+，用完爱不释手](gongju/warp.md)
+- [WindTerm：新一代开源免费的终端工具，GitHub星标6.6k+，太酷了！](gongju/windterm.md)
+- [chiner：干掉 PowerDesigner，国人开源的数据库设计工具，界面漂亮，功能强大](gongju/chiner.md)
+- [DBeaver：干掉付费的 Navicat，操作所有数据库就靠它了！](gongju/DBeaver.md)
 
 ### 开源轮子
 

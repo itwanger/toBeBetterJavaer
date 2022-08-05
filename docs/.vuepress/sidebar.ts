@@ -657,24 +657,13 @@ export const sidebarConfig = sidebar({
           text: "3.5 辅助工具",
           collapsable: true,
           children: [
-            {
-              text: "高逼格终端工具Tabby",
-              link: "gongju/tabby",
-            },
-            {
-              text: "21世纪人用的终端工具Warp",
-              link: "gongju/warp",
-            },
             "gongju/choco",
             "gongju/brew",
-            {
-              text: "数据库设计神器chiner",
-              link: "gongju/chiner",
-            },
-            {
-              text: "数据库操作工具DBeaver",
-              link: "gongju/DBeaver",
-            },
+            "gongju/tabby",
+            "gongju/warp",
+            "gongju/windterm",
+            "gongju/chiner",
+            "gongju/DBeaver",
           ],
         },
         {

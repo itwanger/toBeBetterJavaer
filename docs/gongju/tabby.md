@@ -1,10 +1,15 @@
 ---
+title: Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k
+shortTitle: Tabby：一款逼格更高的开源终端工具
 category:
   - Java企业级开发
 tag:
-  - 辅助工具/轮子
-title: Tabby：一款逼格更高的开源终端工具
-shortTitle: Tabby：一款逼格更高的开源终端工具
+  - 辅助工具
+description: Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k
+head:
+  - - meta
+    - name: keywords
+      content: 辅助工具,GitHub,终端,Tabby,tabby 终端,tabby 教程,Java企业级开发
 ---
 
 作为一名 Java 后端开发，日常工作中免不了要和 Linux 服务器打交道，因为生产环境基本上都是部署在 Linux 环境下的。以前呢，我会选择 Xshell 来作为终端进行远程操作。
@@ -29,7 +34,7 @@ GitHub 上已经有 21.4k 的 star 了，这说明 Tabby 非常的受欢迎：
 
 Tabby 是一个高度可定制化的 跨平台的终端工具，支持 Windows、macOS 和 Linux，自带 SFTP 功能，能与 Linux 服务器轻松传输文件，支持多种主题，界面炫酷，插件丰富。
 
-### 一、安装 Tabby
+## 一、安装 Tabby
 
 直接到官网 [tabby.sh](https://tabby.sh/) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
 
@@ -80,7 +85,7 @@ SSH，也就是 Secure Shell（安全外壳协议），是一种加密的网络�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-07.png)
 
-### 三、SFTP 传输文件
+## 三、SFTP 传输文件
 
 Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需要点击一下「SFTP」图标就可以打开文件传输窗口。
 
@@ -94,7 +99,7 @@ Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-10.png)
 
-### 四、配置 Tabby
+## 四、配置 Tabby
 
 「Settings」 的面板下有一个「Appearance」的菜单，可以对 Tabby 的外观进行设置，比如说调整字体，比如说自定义样式。
 
@@ -137,7 +142,7 @@ Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-18.png)
 
-### 五、总结
+## 五、总结
 
 SSH 连接和 SFTP 传输恐怕是我们操作 Linux 服务器最常用的两个功能了，那 Tabby 对这两个功能的支持非常的友好，足够的轻量级。关键它是跨平台的，Windows、macOS 都可以用，再把配置信息同步到云上后，多平台下切换起来简直不要太舒服。
 
