@@ -60,7 +60,7 @@ head:
 - 目录列表，macos/linux 下可以使用 ls 命令列出目录下所有的文件和子目录（Windows 下使用 dir 命令），使用通配符 `*` 对展示的内容进行过滤，比如 `ls *.java` 列出所有 `.java`后缀的文件，如果想更进一步的话，可以使用 `ls H*.java` 列出所有以 H 开头 `.java` 后缀的文件。
 - 新建目录，macOS/Linux 下可以使用 mkdir 命令新建一个目录（比如 `mkdir hello` 可以新建一个 hello 的目录），Windows 下可以使用 md 命令。
 - 删除文件，macOS/Linux 下可以使用 `rm` 命令删除文件（比如 `rm hello.java` 删除 hello.java 文件），Windows 下可以使用 del 命令。
-- 删除目录，macOS/Linux 下可以使用 `rm -r` 命令删除目录以及它所包含的所有文件（比如说 `rm -r hello` 删除 hello 目录）。Windows 下可以使用 deltree 命令。
+- 删除目录，macOS/Linux 下可以使用 `rm -r` 命令删除目录以及它所包含的所有文件（比如说 `rm -r hello` 删除 hello 目录）。Windows 下可以使用 rmdir 命令。
 - 重复命令，macOS/Linux/Windows 下都可以使用上下箭头来选择以往执行过的命令。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-269f4133-cdd3-414f-baf9-31067e0eb27f.png)
