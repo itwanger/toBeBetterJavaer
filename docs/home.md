@@ -11,7 +11,7 @@ head:
       content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶
 ---
 
->[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **560 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
+>[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **600 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
 
 ::: center
 <p align="center">
@@ -129,9 +129,9 @@ head:
 - [最优雅的Java字符串拼接是哪种方式？](string/join.md)
 - [如何在Java中优雅地分割String字符串？](string/split.md)
 
-### Java面向对象编程
+### 面向对象编程
 
-- [怎么理解Java中类和对象的概念？](oo/object-class.md)
+- [怎么理解Java中的类和对象？](oo/object-class.md)
 - [Java变量：局部变量、成员变量、静态变量、常量](oo/var.md)
 - [Java方法](oo/method.md)
 - [Java构造方法](oo/construct.md)

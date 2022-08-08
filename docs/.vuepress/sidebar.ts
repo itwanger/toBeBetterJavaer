@@ -104,10 +104,7 @@ export const sidebarConfig = sidebar({
           text: "2.4 面向对象编程",
           collapsable: true,
           children: [
-          {
-            text: "对象和类",
-            link: "oo/object-class",
-          },
+          "oo/object-class",
           "oo/var",
           {
             text: "方法",
