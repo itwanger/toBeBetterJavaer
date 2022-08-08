@@ -34,7 +34,7 @@ head:
 
 可以很负责任的告诉你，若是能够把下面将要讲诉的所有内容和PDF里面的知识进行学习与融汇贯通，BAT和ATM的基础部分是绝对没有问题的，甚至对于一些校招，能够拿到Offer也是没有压力的。
 
-关注如下公众号，回复**fff110** 即可免费领取
+关注如下公众号，回复**111** 即可免费领取
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
@@ -72,7 +72,7 @@ head:
 - 12、GC 中老年代用什么回收方法？ 
 - 13、什么时候出现full gc
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934838-dc5c7986daef50c-300x172.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-f1c55ca2-932b-4622-89f6-a1f0d62ae28f.jpg)
 
 ### Java集合
 
@@ -104,9 +104,9 @@ head:
 - 12、synchronized 与锁
 - 13、说一下对于在Java6 之后进行的锁的升级
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934840-93dd4de5cddba2c-300x166.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-c2a9f4ce-e784-4602-b6ad-929419fe271e.jpg)
 
-关注如下公众号，回复**fff110** 即可免费领取
+关注如下公众号，回复**111** 即可免费领取
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
@@ -128,9 +128,9 @@ head:
 - 14、Http的各种状态码表示什么意思
 - 15、Http1.0，1.1，2.0 之间的区别
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934842-e88a49bccde359f-300x151.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-75dd6079-bffb-4456-bb9a-12c55cfef5ef.jpg)
 
-关注如下公众号，回复**fff110** 即可免费领取
+关注如下公众号，回复**111** 即可免费领取
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
@@ -161,7 +161,7 @@ head:
 - 11、什么时候用索引
 - 12、使用索引一定能够提高性能？
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934843-11364907cf269dd-300x144.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-ff01a123-f973-4a1a-966e-36c0cd984b45.jpg)
 
 ### Redis
 - 1、什么是Redis
@@ -175,9 +175,9 @@ head:
 - 9、什么是布隆过滤器
 - 10、如何保持主从一致性
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934846-ce08becc73195df.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-410d8494-e4b8-465b-adc6-2bd9045700d7.jpg)
 
-关注如下公众号，回复**fff110** 即可免费领取
+关注如下公众号，回复**111** 即可免费领取
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
@@ -238,7 +238,7 @@ head:
 
 **太多太多了 这里久不具体放出来了**
 
-关注如下公众号，回复**fff110** 即可免费领取
+关注如下公众号，回复**111** 即可免费领取
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
@@ -246,61 +246,61 @@ head:
 
 首先来看具体都整理那些内容：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934848-568628e0d993b19-300x124.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-2ac18e1f-ef52-4105-a76c-c1a705b49523.jpg)
 
 或者这个：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934850-9e94b15ed312fa4-300x170.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-79d32611-77b7-44bd-afa6-59392850163b.jpg)
 
 当然若是你以为只有这些那就大错特错了
 
 ### 有专门的性能优化相关知识点：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934851-a13ee062eff9d72-300x89.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-6560c844-f2b8-447a-8704-88f9d2da7355.jpg)
 
 **开源框架相关问题**
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934853-dc5e819e186f11e-300x109.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-7529ec6b-65d8-44f4-b857-df0841404415.jpg)
 
 ### java架构师基础资料
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934854-ea20a043c08f516-300x86.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-594d0376-f8b4-4a9e-b785-901d64c279e0.jpg)
 
 ### 分布式相关专门的问题
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934856-84eb13cfed01764-300x127.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-8df77ed5-bf42-4984-a7e9-94c1f5be1645.jpg)
 
 ### 进阶版本BAT专门回答
 
-![](http://www.itmind.net/wp-content/uploads/2022/08/20220807055406-dd632.jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-c84ce646-babf-4194-960b-20d5dc9abcc1.jpeg)
 
 ### Java基础白天/黑夜
 
 教你如何一步一步走下去：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934860-441954d29ad2a37-300x236.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-c92d856f-99f3-4e1e-885c-d1cf076e0fad.jpg)
 
 计算机基础：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934861-0e51011a4c4891e-300x231.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-17236aef-dedf-4944-9bb8-b8c1d8f3370c.jpg)
 
 又或者是开源框架：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934863-af032fbcb07ffc7-300x212.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-3659d490-4c2f-4c6e-8aa3-5f350ed4b322.jpg)
 
 同时也有对应的黑夜版本：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934865-73f7634ab3f381f-300x250.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-d7c2281f-638f-4e3b-b3f2-df0a3adc3c57.jpg)
 
 ### 最全内容：
 
-![](http://www.itmind.net/wp-content/uploads/2022/06/1654934866-738cccd4fda1724-300x134.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl-201ad17b-d0fa-420e-af87-196c2d98dcc8.jpg)
 
 **可以说得上是只有你目前想不到这些资源，没有我整理不到。**
 
 **毕竟每天晚上按时回来，收集了一个多月的资源也不是白盖的。**
 
-**获取这些资源没有任何套路，**关注如下公众号，回复**fff110** 即可免费领取
+**获取这些资源没有任何套路，**关注如下公众号，回复**111** 即可免费领取
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
