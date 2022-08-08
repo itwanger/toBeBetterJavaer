@@ -32,11 +32,17 @@ head:
 
 ## xshell
 
-- [Xshell 破解版安装教程（xshell7破解方法）](/nice-article/itmind/xshellazpjbjcxshellpxffxbxt.md)
+- [Xshell 破解版安装教程（xshell 7 破解方法）](/nice-article/itmind/pycharmjhpxmazjcnyrgxxbxt.md)
+
+## PyCharm
+
+- [PyCharm 2022.1 激活破解码_安装教程](/nice-article/itmind/xshellazpjbjcxshellpxffxbxt.md)
+
 
 ## 学习&面试资料
 
 - [2022年全网最全关于程序员学习和找工作的PDF资源](/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.md)
+
 
 ## 免责声明
 

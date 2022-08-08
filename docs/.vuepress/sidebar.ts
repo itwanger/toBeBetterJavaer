@@ -13,6 +13,7 @@ export const sidebarConfig = sidebar({
     "typorayjpx",
     "typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom",
     "xshellazpjbjcxshellpxffxbxt",
+    "pycharmjhpxmazjcnyrgxxbxt",
     "miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl",
   ],
   "/xuexiluxian/": [
