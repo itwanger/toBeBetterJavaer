@@ -1,14 +1,18 @@
 ---
+title: 一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类
+shortTitle: 一文彻底搞懂Java static关键字
+description: Java程序员进阶之路，小白的零基础Java教程，一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java static,java 静态变量,java 静态方法,java 静态代码块,java 静态内部类
 ---
 
-# Java中的static关键字解析
-
-
-“哥，你牙龈肿痛轻点没？周一的教妹学 Java 你都没有更新，偷懒了呀！”三妹关心地问我。
+“哥，你牙龈肿痛轻点没？周一的《教妹学 Java》（Java 程序员进阶之路的前身）你都没有更新，偷懒了呀！”三妹关心地问我。
 
 “今天周四了，吃了三天的药，疼痛已经减轻不少，咱妈还给我打了电话，让我买点牛黄解毒片下下火。”我面带着微笑对三妹说，“学习可不能落下，今天我们来学 Java 中 `static` 关键字吧。”
 
@@ -18,7 +22,7 @@ tag:
 
 “static 关键字的作用可以用一句话来描述：‘**方便在没有创建对象的情况下进行调用**，包括变量和方法’。也就是说，只要类被加载了，就可以通过类名进行访问。”我扶了扶沉重眼镜，继续说到，“static 可以用来修饰类的成员变量，以及成员方法。我们一个个来看。”
 
-### 01、静态变量
+## 01、静态变量
 
 “如果在声明变量的时候使用了 static 关键字，那么这个变量就被称为静态变量。静态变量只在类加载的时候获取一次内存空间，这使得静态变量很节省内存空间。”家里的暖气有点足，我跑去开了一点窗户后继续说道。
 
@@ -146,7 +150,7 @@ public class StaticCounter {
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-03.png)
 
 
-### 02、静态方法
+## 02、静态方法
 
 “说完静态变量，我们来说静态方法。”说完，我准备点一支华子来抽，三妹阻止了我，她指一指烟盒上的「吸烟有害身体健康」，我笑了。
 
@@ -222,7 +226,7 @@ public class StaticMethodStudent {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-06.png)
 
-### 03、静态代码块
+## 03、静态代码块
 
 “三妹，站起来活动一下，我的脖子都有点僵硬了。”
 
@@ -303,7 +307,7 @@ public class StaticBlockDemo {
 
 “静态代码块在初始集合的时候，真的非常有用。在实际的项目开发中，通常使用静态代码块来加载配置文件到内存当中。”
 
-### 04、静态内部类
+## 04、静态内部类
 
 “三妹啊，除了以上只写，static 还有一个不太常用的功能——静态内部类。”
 
@@ -342,5 +346,11 @@ public class Singleton {
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-08.png)
 
 三妹点了点头，所有所思。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

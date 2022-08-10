@@ -1,11 +1,17 @@
 ---
+title: Java中this和super的用法总结
+shortTitle: Java中this和super的用法总结
+description: Java程序员进阶之路，小白的零基础Java教程，Java中this和super的用法总结
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java this,java super
 ---
 
-# Java中this和super的用法总结
 
 “哥，被喊大舅子的感觉怎么样啊？”三妹不怀好意地对我说，她眼睛里充满着不屑。
 
@@ -23,7 +29,7 @@ tag:
 - this 可以作为参数在构造方法中传递；
 - this 可以作为方法的返回值，返回当前类的对象。
 
-### 01、 指向当前对象
+## 01、 指向当前对象
 
 “三妹，来看下面这段代码。”话音刚落，我就在键盘上噼里啪啦一阵敲。
 
@@ -109,7 +115,7 @@ public class WithThisStudent {
 
 
 
-### 02、调用当前类的方法
+## 02、调用当前类的方法
 
 “仔细听，三妹，看我敲键盘的速度是不是够快。”
 
@@ -158,7 +164,7 @@ public class InvokeCurrentClassMethod {
 
 “我们可以在一个类中使用 this 关键字来调用另外一个方法，如果没有使用的话，编译器会自动帮我们加上。”我对自己深厚的编程功底充满自信，“在源代码中，`method2()` 在调用 `method1()` 的时候并没有使用 this 关键字，但通过反编译后的字节码可以看得到。”
 
-### 03、调用当前类的构造方法
+## 03、调用当前类的构造方法
 
 “再来看下面这段代码。”
 
@@ -220,7 +226,7 @@ hello
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/20-01.png)
 
-### 04、作为参数在方法中传递
+## 04、作为参数在方法中传递
 
 “来看下面这段代码。”
 
@@ -253,7 +259,7 @@ com.itwanger.twentyseven.ThisAsParam@77459877
 
 “`method2()` 调用了 `method1()`，并传递了参数 this，`method1()` 中打印了当前对象的字符串。 `main()` 方法中打印了 thisAsParam 对象的字符串。从输出结果中可以看得出来，两者是同一个对象。”
 
-### 05、作为参数在构造方法中传递
+## 05、作为参数在构造方法中传递
 
 “继续来看代码。”
 
@@ -293,7 +299,7 @@ class Data {
 10
 ```
 
-### 06、作为方法的返回值
+## 06、作为方法的返回值
 
 “需要休息会吗？三妹”
 
@@ -339,7 +345,7 @@ hello
 
 “噢噢噢噢。”三妹意味深长地笑了。
 
-### 07、super 关键字
+## 07、super 关键字
 
 “super 关键字的用法主要有三种。”
 
@@ -521,5 +527,12 @@ public class CallParentParamConstrutor {
 ```
 
 三妹点了点头，所有所思。
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

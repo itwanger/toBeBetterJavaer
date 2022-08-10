@@ -1,13 +1,18 @@
 ---
+title: Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了
+shortTitle: Java 方法重写和方法重载的区别
+description: Java程序员进阶之路，小白的零基础Java教程，Java 中方法重写 Override 和方法重载 Overload 的区别
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 方法重写,Java 方法重载,Java Override,java Overload
 ---
 
-# Java重写(Override)与重载(Overload)
-
-### 01、开篇
+## 01、开篇
 
 入冬的夜，总是来得特别的早。我静静地站在阳台，目光所及之处，不过是若隐若现的钢筋混凝土，还有那毫无情调的灯光。
 
@@ -29,7 +34,7 @@ tag:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
 
-### 02、方法重载
+## 02、方法重载
 
 “三妹，你仔细听哦。”我缓了一口气后继续说道。
 
@@ -218,7 +223,7 @@ public class OverloadingTypePromotion2 {
 
 “不明确，编译器会很为难，究竟是把第一个 20 从 int 转成 long 呢，还是把第二个 20 从 int 转成 long，智障了！所以，不能写这样让编译器左右为难的代码。”
 
-### 03、方法重写
+## 03、方法重写
 
 “三妹，累吗？我们稍微休息一下吧。”我把眼镜摘下来，放到桌子上，闭上了眼睛，开始胡思乱想起来。
 
@@ -291,7 +296,7 @@ class Vehicle {
 
 “Bike 重写了 `run()` 方法，也就意味着，Bike 可以跑出自己的风格。”
 
-### 04、总结
+## 04、总结
 
 “好了，三妹，我来简单做个总结。”我瞥了一眼电脑右上角的时钟，离三妹离开的时间不到 10 分钟了。
 

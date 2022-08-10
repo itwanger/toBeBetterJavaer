@@ -114,18 +114,11 @@ export const sidebarConfig = sidebar({
           "oo/interface",
           "oo/abstract-vs-interface",
           "oo/inner-class",
-          {
-            text: "static",
-            link: "oo/static",
-          },
-          {
-            text: "this 和 super",
-            link: "oo/this-super",
-          },
-          {
-            text: "final",
-            link: "oo/final",
-          },
+          "oo/this-super",
+          "basic-extra-meal/override-overload",
+          "oo/static",
+          "oo/final",
+          "oo/bigsai",
           {
             text: "instanceof",
             link: "oo/instanceof",
@@ -301,10 +294,6 @@ export const sidebarConfig = sidebar({
           {
             text: "重写equals时为什么要重写hashCode",
             link: "equals-hashcode",
-          },
-          {
-            text: "重写和重载的区别",
-            link: "override-overload",
           },
           {
             text: "重写时应当遵守的11条规则",

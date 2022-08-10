@@ -1,11 +1,16 @@
 ---
+title: 一文彻底搞懂 Java final 关键字
+shortTitle: 一文彻底搞懂Java final关键字
+description: Java程序员进阶之路，小白的零基础Java教程，一文彻底搞懂 Java final 关键字
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java final,java 静态变量,java 静态方法,java 静态代码块,java 静态内部类
 ---
-
-# 浅析Java中的final关键字
 
 
 “哥，今天学什么呢？”
@@ -16,7 +21,7 @@ tag:
 
 “好吧。”我摊摊手，表示很无辜，真的是所有的决定都交给我这个哥哥了，如果决定错了，锅得背上。
 
-### 01、final 变量
+## 01、final 变量
 
 “好了，我们先来看 final 修饰的变量吧！”
 
@@ -99,7 +104,7 @@ public class ArgFinalTest {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-04.png)
 
-### 02、final 方法
+## 02、final 方法
 
 “被 final 修饰的方法不能被重写。如果我们在设计一个类的时候，认为某些方法不应该被重写，就应该把它设计成 final 的。”
 
@@ -139,7 +144,7 @@ public class Actor {
 
 “那必须啊，谁叫我是你妹呢。”
 
-### 03、final 类
+## 03、final 类
 
 “如果一个类使用了 final 关键字修饰，那么它就无法被继承.....”
 
@@ -165,7 +170,7 @@ public final class String
 
 “想了解更详细的原因，可以一会看看我之前写的这篇文章。”
 
-[为什么 Java 字符串是不可变的？](https://mp.weixin.qq.com/s/CRQrm5zGpqWxYL_ztk-b2Q)
+[为什么 Java 字符串是不可变的？](https://tobebetterjavaer.com/string/immutable.html)
 
 “任何尝试从 final 类继承的行为将会引发编译错误。来看这段代码。”
 
@@ -201,7 +206,7 @@ System.out.println(writer.getName()); // 沉默王二
 
 “关于不可变类，我之前也单独讲过一篇，你一会去看看。”
 
-[不可变类](https://mp.weixin.qq.com/s/wbdV9rV60AwWiiTEBYPP7g)
+[不可变类](https://tobebetterjavaer.com/basic-extra-meal/immutable.html)
 
 “把一个类设计成 final 的，有其安全方面的考虑，但不应该故意为之，因为把一个类定义成 final 的，意味着它没办法继承，假如这个类的一些方法存在一些问题的话，我们就无法通过重写的方式去修复它。”
 
@@ -217,5 +222,11 @@ System.out.println(writer.getName()); // 沉默王二
 “好想去再看一场周杰伦的演唱会，不知道 2021 有没有这个机会。”
 
 我心里这样想着，天渐渐地暗了下来。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
