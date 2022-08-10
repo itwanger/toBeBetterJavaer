@@ -1,14 +1,20 @@
 ---
+title: Java接口，看这一篇就够了，简单易懂
+shortTitle: Java接口
+description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊Java接口
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 接口
 ---
 
-# Java接口
+“今天开始讲 Java 的接口。”我对三妹说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://tobebetterjavaer.com/oo/abstract.html)，另外一种就是今天的主角——接口。”
 
-
-“哥，我看你朋友圈说《Java 程序员进阶之路》专栏收到了第一笔赞赏呀，虽然只有一块钱，但我也替你感到开心。”三妹的脸上洋溢着自信的微笑，仿佛这钱是打给她的一样。
+“二哥，开讲之前，先恭喜你呀。我看你朋友圈说《Java 程序员进阶之路》开源知识库收到了第一笔赞赏呀，虽然只有一块钱，但我也替你感到开心。”三妹的脸上洋溢着自信的微笑，仿佛这钱是打给她的一样。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-01.png)
 
@@ -19,9 +25,9 @@ tag:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-02.png)
 
-“是啊是啊，所以，今天要更新第 26 讲了——接口。”我接着说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://mp.weixin.qq.com/s/WSmGwdtlimIFVVDVKfvrWQ)，另外一种就是今天的主角——接口。”
+“是呀是呀，让我们开始吧！”
 
-----------
+## 定义接口
 
 “接口是什么呀？”三妹顺着我的话题及时的插话到。
 
@@ -293,9 +299,9 @@ for (Shape shape : shapes) {
 
 说一下多态存在的 3 个前提：
 
-1、要有继承关系，比如说 Circle 和 Square 都实现了 Shape 接口。
-2、子类要重写父类的方法，Circle 和 Square 都重写了 `name()` 方法。
-3、父类引用指向子类对象，circleShape 和 squareShape 的类型都为 Shape，但前者指向的是 Circle 对象，后者指向的是 Square 对象。
+- 1、要有继承关系，比如说 Circle 和 Square 都实现了 Shape 接口。
+- 2、子类要重写父类的方法，Circle 和 Square 都重写了 `name()` 方法。
+- 3、父类引用指向子类对象，circleShape 和 squareShape 的类型都为 Shape，但前者指向的是 Circle 对象，后者指向的是 Square 对象。
 
 然后，我们来看一下测试结果：
 
@@ -306,20 +312,168 @@ for (Shape shape : shapes) {
 
 也就意味着，尽管在 for 循环中，shape 的类型都为 Shape，但在调用 `name()` 方法的时候，它知道 Circle 对象应该调用 Circle 类的 `name()` 方法，Square 对象应该调用 Square 类的 `name()` 方法。
 
-“哦，我理解了哥。那我再问一下，抽象类和接口有什么差别呢？”
+### 04、 接口在应用中常见的三种模式
 
-“哇，三妹呀，你这个问题恰到好处，问到了点子上。”我不由得为三妹竖起了大拇指。
+**在编程领域，好的设计模式能够让我们的代码事半功倍**。在使用接口的时候，经常会用到三种模式，分别是策略模式、适配器模式和工厂模式。
 
-1）语法层面上
+1）策略模式
 
-- 接口中不能有 private 和 protected 修饰的方法，抽象类中可以有。
-- 接口中的变量只能是隐式的常量，抽象类中可以有任意类型的变量。
-- 一个类只能继承一个抽象类，但却可以实现多个接口。
+策略模式的思想是，针对一组算法，将每一种算法封装到具有共同接口的实现类中，接口的设计者可以在不影响调用者的情况下对算法做出改变。示例如下：
 
-2）设计层面上
+```java
+// 接口：教练
+interface Coach {
+    // 方法：防守
+    void defend();
+}
 
-抽象类是对类的一种抽象，继承抽象类的子类和抽象类本身是一种 `is-a` 的关系。
+// 何塞·穆里尼奥
+class Hesai implements Coach {
 
-接口是对类的某种行为的一种抽象，接口和类之间并没有很强的关联关系，举个例子来说，所有的类都可以实现 `Serializable` 接口，从而具有序列化的功能，但不能说所有的类和 Serializable 之间是 `is-a` 的关系。
+    @Override
+    public void defend() {
+        System.out.println("防守赢得冠军");
+    }
+}
+
+// 德普·瓜迪奥拉
+class Guatu implements Coach {
+
+    @Override
+    public void defend() {
+        System.out.println("进攻就是最好的防守");
+    }
+}
+
+public class Demo {
+    // 参数为接口
+    public static void defend(Coach coach) {
+        coach.defend();
+    }
+    
+    public static void main(String[] args) {
+        // 为同一个方法传递不同的对象
+        defend(new Hesai());
+        defend(new Guatu());
+    }
+}
+```
+
+`Demo.defend()` 方法可以接受不同风格的 Coach，并根据所传递的参数对象的不同而产生不同的行为，这被称为“策略模式”。
+
+2）适配器模式
+
+适配器模式的思想是，针对调用者的需求对原有的接口进行转接。生活当中最常见的适配器就是HDMI（英语：`High Definition Multimedia Interface`，中文：高清多媒体接口）线，可以同时发送音频和视频信号。适配器模式的示例如下：
+
+```java
+interface Coach {
+    void defend();
+    void attack();
+}
+
+// 抽象类实现接口，并置空方法
+abstract class AdapterCoach implements Coach {
+    public void defend() {};
+    public void attack() {};
+}
+
+// 新类继承适配器
+class Hesai extends AdapterCoach {
+    public void defend() {
+        System.out.println("防守赢得冠军");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Coach coach = new Hesai();
+        coach.defend();
+    }
+}
+```
+Coach 接口中定义了两个方法（`defend()` 和 `attack()`），如果类直接实现该接口的话，就需要对两个方法进行实现。
+
+如果我们只需要对其中一个方法进行实现的话，就可以使用一个抽象类作为中间件，即适配器（AdapterCoach），用这个抽象类实现接口，并对抽象类中的方法置空（方法体只有一对花括号），这时候，新类就可以绕过接口，继承抽象类，我们就可以只对需要的方法进行覆盖，而不是接口中的所有方法。
+
+3）工厂模式
+
+所谓的工厂模式理解起来也不难，就是什么工厂生产什么，比如说宝马工厂生产宝马，奔驰工厂生产奔驰，A 级学院毕业 A 级教练，C 级学院毕业 C 级教练。示例如下：
+
+```java
+// 教练
+interface Coach {
+    void command();
+}
+
+// 教练学院
+interface CoachFactory {
+    Coach createCoach();
+}
+
+// A级教练
+class ACoach implements Coach {
+
+    @Override
+    public void command() {
+        System.out.println("我是A级证书教练");
+    }
+    
+}
+
+// A级教练学院
+class ACoachFactory implements CoachFactory {
+
+    @Override
+    public Coach createCoach() {
+        return new ACoach();
+    }
+    
+}
+
+// C级教练
+class CCoach implements Coach {
+
+    @Override
+    public void command() {
+        System.out.println("我是C级证书教练");
+    }
+    
+}
+
+// C级教练学院
+class CCoachFactory implements CoachFactory {
+
+    @Override
+    public Coach createCoach() {
+        return new CCoach();
+    }
+    
+}
+
+public class Demo {
+    public static void create(CoachFactory factory) {
+        factory.createCoach().command();
+    }
+    
+    public static void main(String[] args) {
+        // 对于一支球队来说，需要什么样的教练就去找什么样的学院
+        // 学院会介绍球队对应水平的教练。
+        create(new ACoachFactory());
+        create(new CCoachFactory());
+    }
+}
+```
+
+有两个接口，一个是 Coach（教练），可以 `command()`（指挥球队）；另外一个是 CoachFactory（教练学院），能 `createCoach()`（教出一名优秀的教练）。然后 ACoach 类实现 Coach 接口，ACoachFactory 类实现 CoachFactory 接口；CCoach 类实现 Coach 接口，CCoachFactory 类实现 CoachFactory 接口。当需要 A 级教练时，就去找 A 级教练学院；当需要 C 级教练时，就去找 C 级教练学院。
+
+依次类推，我们还可以用 BCoach 类实现 Coach 接口，BCoachFactory 类实现 CoachFactory 接口，从而不断地丰富教练的梯队。
+
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

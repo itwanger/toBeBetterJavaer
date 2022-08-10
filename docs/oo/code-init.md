@@ -1,11 +1,16 @@
 ---
+title: Java中的代码初始化块：对成员变量进行更复杂的赋值
+shortTitle: Java中的代码初始化块
+description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java中的代码初始化块：对成员变量进行更复杂的赋值
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 代码初始化块
 ---
-
-# Java代码初始化块
 
 
 “哥，今天我们要学习的内容是‘代码初始化块’，对吧？”看来三妹已经提前预习了我上次留给她的作业。
@@ -123,5 +128,12 @@ public class B extends A{
 “在默认情况下，子类的构造方法在执行的时候会主动去调用父类的构造方法。也就是说，其实是构造方法先执行的，再执行的代码初始化块。”
 
 “这个例子再次印证了之前的第二条规则：代码初始化块是放在构造方法中执行的，只不过比较靠前。”
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

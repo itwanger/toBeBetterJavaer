@@ -1,13 +1,16 @@
 ---
-title: 浅析Java中的访问权限控制
-shortTitle: 访问权限控制
+title: 聊一聊Java中的访问权限控制
+shortTitle: 聊一聊Java中的访问权限控制
+description: Java程序员进阶之路，小白的零基础Java教程，聊一聊Java中的访问权限控制
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
-
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 访问权限控制
 ---
-
 
 
 我们先来讨论一下为什么需要访问权限控制。考虑两个场景：
@@ -40,7 +43,7 @@ class Wanger{}
 但变量和方法则都可以修饰。
 
 
-## 1.修饰类
+## 1. 修饰类
 
 - 默认访问权限（包访问权限）：用来修饰类的话，表示该类只对同一个包中的其他类可见。
 - public：用来修饰类的话，表示该类对其他所有的类都可见。
@@ -125,7 +128,7 @@ class People {//默认访问权限（包访问权限）
 
 正如上图的快速修正提示所示，将 People 类的默认访问权限更改为 public 的话，People 类对于 Main 类便可见了。
 
-## 2.修饰类的方法和变量
+## 2. 修饰类的方法和变量
 
 - 默认访问权限（包访问权限）：如果一个类的方法或变量被包访问权限修饰，也就意味着只能在同一个包中的其他类中显示地调用该类的方法或者变量，在不同包中的类中不能显式地调用该类的方法或变量。
 - private：如果一个类的方法或者变量被 private 修饰，那么这个类的方法或者变量只能在该类本身中被访问，在类外以及其他类中都不能显式的进行访问。
@@ -276,7 +279,14 @@ public class Man extends People {
 
 另外，如果还存在其他类，这些类在包外是不可见的。如果源代码文件没有 public 类，则源代码文件的名称可以随意命名。
 
->转载链接：[https://www.cnblogs.com/dolphin0520/p/3734915.html](https://www.cnblogs.com/dolphin0520/p/3734915.html) 原作者: Matrix海子，编辑：沉默王二
+>原文链接：[https://www.cnblogs.com/dolphin0520/p/3734915.html](https://www.cnblogs.com/dolphin0520/p/3734915.html) 作者: Matrix海子，编辑：沉默王二
 
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

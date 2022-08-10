@@ -1,27 +1,15 @@
 ---
 title: Java变量：局部变量、成员变量、静态变量、常量
-shortTitle: Java变量
+shortTitle: Java 中的变量
+description: Java程序员进阶之路，小白的零基础Java教程，Java变量：局部变量、成员变量、静态变量、常量
 category:
   - Java 核心
 tag:
-  - Java
-  - Java SE
-  - Java 基础
-  - Java 教程
-  - Java 程序员进阶之路
-  - Java 入门
-  - Java 简介
-  - Java 变量
-  - 局部变量
-  - 成员变量
-  - 静态变量
-  - 常量
+  - 面向对象编程
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 变量,局部变量,成员变量,静态变量,常量
-    - name: description
-      content: Java变量：局部变量、成员变量、静态变量、常量
 ---
 
 
@@ -35,7 +23,7 @@ Java 变量就好像一个容器，可以保存程序在运行过程中的值，
 比如说，`int data = 88;`，其中 data 就是一个变量，它的值为 88，类型为整型（int）。
 
 
-### 01、局部变量
+## 01、局部变量
 
 在方法体内声明的变量被称为局部变量，该变量只能在该方法内使用，类中的其他方法并不知道该变量。来看下面这个示例：
 
@@ -64,7 +52,7 @@ public class LocalVariable {
 - 局部变量是在栈上分配的。
 - 局部变量没有默认值，所以局部变量被声明后，必须经过初始化，才可以使用。
 
-### 02、成员变量
+## 02、成员变量
 
 在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。来看下面这个示例：
 
@@ -93,7 +81,7 @@ public class InstanceVariable {
 - 访问修饰符可以修饰成员变量。
 - 成员变量对于类中的方法、构造方法或者语句块是可见的。一般情况下应该把成员变量设为私有。通过使用访问修饰符可以使成员变量对子类可见；成员变量具有默认值。数值型变量的默认值是 0，布尔型变量的默认值是 false，引用类型变量的默认值是 null。变量的值可以在声明时指定，也可以在构造方法中指定。
 
-### 03、静态变量
+## 03、静态变量
 
 通过 static 关键字声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
 
@@ -122,7 +110,7 @@ public class StaticVariable {
 - 静态变量的默认值和实例变量相似。
 - 静态变量还可以在静态语句块中初始化。
 
-### 04、常量
+## 04、常量
 
 在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 final 关键字修饰的成员变量。常量的值一旦给定就无法改变！
 
@@ -154,5 +142,13 @@ public class FinalVariable {
 “是啊，二哥，我想以后还会再见到它们吧？”
 
 “那见的次数可就多了，就好像你每天眨眼的次数一样多。”
+
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
