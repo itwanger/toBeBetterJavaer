@@ -1,27 +1,30 @@
 ---
+title: Java中的方法：实例方法、静态方法、抽象方法
+shortTitle: Java 中的方法
+description: Java程序员进阶之路，小白的零基础Java教程，Java中的方法：实例方法、静态方法、抽象方法
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 方法,实例方法,静态方法,抽象方法
 ---
 
-# Java方法
 
+“二哥，上一节学了Java 中的方法，这一节我们学什么呢？”三妹满是期待的问我。
 
-“二哥，[上一节](https://mp.weixin.qq.com/s/UExby8GP3kSacCXliQw8pQ)学了对象和类，这一节我们学什么呢？”三妹满是期待的问我。
+“这一节我们来了解一下 Java 中的方法——什么是方法？如何声明方法？方法有哪几种？什么是实例方法？什么是静态方法？什么是抽象方法？”我笑着对三妹说，“我开始了啊，你要注意力集中啊。”
 
-“这一节我们来了解一下 Java 中的方法——什么是方法？如何声明方法？方法有哪几种？什么是实例方法？什么是抽象方法？”我笑着对三妹说，“我开始了啊，你不要闪啊。”
-
-### 01、Java 中的方法是什么？
+## 01、Java 中的方法是什么？
 
 方法用来实现代码的可重用性，我们编写一次方法，并多次使用它。通过增加或者删除方法中的一部分代码，就可以提高整体代码的可读性。
 
-只有方法被调用时，它才会执行。Java 中最有名的方法当属 `main()` 方法，点击下面的链接可以阅读更多关于 `main()` 方法的知识点。
-
->[零基础学 Java 第 4 讲：Hello World](https://mp.weixin.qq.com/s/191I_2CVOxVuyfLVtb4jhg)
+只有方法被调用时，它才会执行。Java 中最有名的方法当属 `main()` 方法，这是程序的入口。
 
 
-### 02、如何声明方法？
+## 02、如何声明方法？
 
 方法的声明反映了方法的一些信息，比如说可见性、返回类型、方法名和参数。如下图所示。
 
@@ -52,13 +55,11 @@ tag:
 **方法体**：方法体放在一对花括号内，把一些代码放在一起，用来执行特定的任务。
 
 
-
-
-### 02、方法有哪几种？
+## 03、方法有哪几种？
 
 方法可以分为两种，一种叫预先定义方法，一种叫用户自定义方法。
 
-**1）预先定义方法**
+### **1）预先定义方法**
 
 Java 提供了大量预先定义好的方法供我们调用，也称为标准类库方法，或者内置方法。比如说 String 类的 `length()`、`equals()`、`compare()` 方法，以及我们在初学 Java 阶段最常用的 `println()` 方法，用来在控制台打印信息。
 
@@ -84,7 +85,7 @@ public class PredefinedMethodDemo {
 预先定义方法让编程变得简单了起来，我们只需要在实现某些功能的时候直接调用这些方法即可，不需要重新编写。
 
 
-**2）用户自定义方法**
+### **2）用户自定义方法**
 
 当预先定义方法无法满足我们的要求时，就需要自定义一些方法，比如说，我们来定义这样一个方法，用来检查数字是偶数还是奇数。
 
@@ -126,9 +127,9 @@ public class EvenOddDemo {
 
 当一个方法被 static 关键字修饰时，它就是一个静态方法。换句话说，静态方法是属于类的，不属于类实例的（不需要通过 new 关键字创建对象来调用，直接通过类名就可以调用）。
 
-### 03、什么是实例方法？
+## 04、什么是实例方法？
 
-没有使用 static 关键字修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
+没有使用 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
 
 ```java
 /**
@@ -192,7 +193,40 @@ public class Person {
 
 getter 方法以 get 开头，setter 方法以 set 开头。
 
-### 04、什么是抽象方法？
+## 05、什么是静态方法？
+
+相应的，有 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰的方法就叫做静态方法。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ *
+ * @author 沉默王二
+ * @date 8/9/22
+ */
+public class StaticMethodExample {
+    public static void main(String[] args) {
+        System.out.println(add(1,2));
+    }
+
+    public static int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+StaticMethodExample 类中，mian 和 add 方法都是静态方法，不同的是，main 方法是程序的入口。当我们调用静态方法的时候，就不需要 new 出来类的对象，就可以直接调用静态方法了，一些工具类的方法都是静态方法，比如说 hutool 工具类库，里面有大量的静态方法可以直接调用。
+
+>Hutool的目标是使用一个工具方法代替一段复杂代码，从而最大限度的避免“复制粘贴”代码的问题，彻底改变我们写代码的方式。
+
+以计算MD5为例：
+
+- 👴【以前】打开搜索引擎 -> 搜“Java MD5加密” -> 打开某篇博客-> 复制粘贴 -> 改改好用
+- 👦【现在】引入Hutool -> SecureUtil.md5()
+
+Hutool的存在就是为了减少代码搜索成本，避免网络上参差不齐的代码出现导致的bug。
+
+## 06、什么是抽象方法？
 
 没有方法体的方法被称为抽象方法，它总是在抽象类中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
 
@@ -229,5 +263,12 @@ public class MyAbstractDemo extends AbstractDemo {
 ```
 重写了抽象方法
 ```
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

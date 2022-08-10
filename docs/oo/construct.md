@@ -1,14 +1,19 @@
 ---
+title: Java中的构造方法：对象创建时的必经之路
+shortTitle: Java 中的构造方法
+description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java中的构造方法：对象创建时的必经之路
 category:
-  - Java核心
+  - Java 核心
 tag:
-  - Java
+  - 面向对象编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 构造方法
 ---
 
-# Java构造方法
 
-
-我对三妹说，“[上一节](https://mp.weixin.qq.com/s/L4jAgQPurGZPvWu8ECtBpA)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”
+我对三妹说，“上一节学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”
 
 “在 Java 中，构造方法是一种特殊的方法，当一个类被实例化的时候，就会调用构造方法。只有在构造方法被调用的时候，对象才会被分配内存空间。每次使用 `new` 关键字创建对象的时候，构造方法至少会被调用一次。”
 
@@ -16,7 +21,7 @@ tag:
 
 “注意，之所以叫它构造方法，是因为对象在创建的时候，需要通过构造方法初始化值——就是描写对象的那些状态，对应的是类中的字段。”
 
-### 01、创建构造方法的规则有哪些
+## 01、创建构造方法的规则有哪些
 
 构造方法必须符合以下规则：
 
@@ -72,7 +77,7 @@ public class Demo {
 不过，可以使用访问权限修饰符（private、protected、public、default）来修饰构造方法，访问权限修饰符决定了构造方法的创建方式。
 
 
-### 02、 什么是默认构造方法
+## 02、什么是默认构造方法
 
 如果一个构造方法中没有任何参数，那么它就是一个默认构造方法，也称为无参构造方法。
 
@@ -131,7 +136,7 @@ public class Person {
 在上面的例子中，默认构造方法初始化了 name 和 age 的值，name 是 String 类型，所以默认值为 null，age 是 int 类型，所以默认值为 0。如果没有默认构造方法的话，这项工作就无法完成了。
 
 
-### 03、什么是有参构造方法
+## 03、什么是有参构造方法
 
 有参数的构造方法被称为有参构造方法，参数可以有一个或多个。有参构造方法可以为不同的对象提供不同的值。当然，也可以提供相同的值。
 
@@ -172,7 +177,7 @@ new ParamConstructorPerson("沉默王三",16);
 如果没有有参构造方法的话，就需要通过 setter 方法给字段赋值了。
 
 
-### 04、如何重载构造方法
+## 04、如何重载构造方法
 
 在 Java 中，构造方法和方法类似，只不过没有返回类型。它也可以像方法一样被重载。构造方法的重载也很简单，只需要提供不同的参数列表即可。编译器会通过参数的数量来决定应该调用哪一个构造方法。
 
@@ -213,7 +218,7 @@ public class OverloadingConstrutorPerson {
 创建对象的时候，如果传递的是三个参数，那么就会调用 `OverloadingConstrutorPerson(String name, int age, int sex)` 这个构造方法；如果传递的是两个参数，那么就会调用 `OverloadingConstrutorPerson(String name, int age)` 这个构造方法。
 
 
-### 05、构造方法和方法有什么区别
+## 05、构造方法和方法有什么区别
 
 构造方法和方法之间的区别还是蛮多的，比如说下面这些：
 
@@ -221,7 +226,7 @@ public class OverloadingConstrutorPerson {
 
 
 
-### 06、如何复制对象
+## 06、如何复制对象
 
 复制一个对象可以通过下面三种方式完成：
 
@@ -338,7 +343,7 @@ public class ClonePerson implements Cloneable {
 
 通过 `clone()` 方法复制对象的时候，ClonePerson 必须先实现 Cloneable 接口的 `clone()` 方法，然后再调用 `clone()` 方法（`ClonePerson p2 = (ClonePerson) p1.clone()`）。
 
-### 07、ending
+## 07、ending
 
 “二哥，我能问一些问题吗？”三妹精神焕发，没有丝毫的疲惫。
 
@@ -355,5 +360,12 @@ public class ClonePerson implements Cloneable {
 “好的，二哥，我的问题问完了，今天的学习可以结束了！”三妹一脸得意的样子。
 
 “那你记得复习下一节的内容哦。”感受到三妹已经学到了知识，我也很欣慰。
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

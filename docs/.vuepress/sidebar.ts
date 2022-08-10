@@ -106,31 +106,14 @@ export const sidebarConfig = sidebar({
           children: [
           "oo/object-class",
           "oo/var",
-          {
-            text: "方法",
-            link: "oo/method",
-          },
-          {
-            text: "构造方法",
-            link: "oo/construct",
-          },
-          "nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi",
-          {
-            text: "代码初始化块",
-            link: "oo/code-init",
-          },
-          {
-            text: "抽象类",
-            link: "oo/abstract",
-          },
-          {
-            text: "接口",
-            link: "oo/interface",
-          },
-          {
-            text: "内部类",
-            link: "oo/inner-class",
-          },
+          "oo/method",
+          "oo/construct",
+          "oo/access-control",
+          "oo/code-init",
+          "oo/abstract",
+          "oo/interface",
+          "oo/abstract-vs-interface",
+          "oo/inner-class",
           {
             text: "static",
             link: "oo/static",
