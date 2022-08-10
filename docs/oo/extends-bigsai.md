@@ -1,7 +1,7 @@
 ---
-title: 「万字图文」史上最姨母级Java继承详解丨【奔跑吧！JAVA】-云社区-华为云
-shortTitle: 「万字图文」史上最姨母级Java继承详解丨【奔跑吧！JAVA】-云社区-华为云
-description: 原创公众号：「bigsai」 除公众号以外拒绝任意擅自转载文章收录在bigsai公众号和回车课堂 课程导学在Java课堂中，所有老师不得不提到面向对象（O...
+title: 一万字彻底搞懂 Java 继承
+shortTitle: 一万字彻底搞懂Java继承
+description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：继承
 tags:
   -  网络爬虫
 category:
@@ -9,48 +9,40 @@ category:
 head:
   - - meta
     - name: keywords
-      content: 父类,子类,构造方法,静态,成员,开发者,云社区,华为云
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 继承
 ---
 
-> 原创公众号：「**bigsai**」 除公众号以外拒绝任意擅自转载
-> 
-> 文章收录在bigsai公众号和回车课堂
+## 关于继承
 
-## 课程导学
+在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：封装、**继承**、多态。三大特征紧密联系而又有区别，本篇文章就来带你学习 Java 的**继承**。合理使用继承就能大大减少重复代码，**提高代码复用性。**
 
-在Java课堂中，所有老师不得不提到**面向对象**（Object Oriented），而在谈到面向对象的时候，又不得不提到面向对象的三大特征：封装、**继承**、多态。三大特征紧密联系而又有区别，本课程就带你学习Java的**继承**。
+![](https://img-blog.csdnimg.cn/20201021205729775.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjkzMTcx,size_1,color_FFFFFF,t_70)
 
-你可能不知道继承到底有什么用，但你大概率曾有过这样的经历：写Java项目/作业时候创建很多相似的类，类中也有很多相同的方法，做了很多重复的工作量，感觉很臃肿。而合理使用继承就能大大减少重复代码，**提高代码复用性。**
+## 什么是继承
 
-![在这里插入图片描述](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+**继承**（英语：inheritance）是面向对象软件技术中的一个概念。它使得**复用以前的代码非常容易，能够大大提高开发效率。**
 
-## 继承的初相识
+Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承就是子类继承父类的属性和方法，使得子类对象（实例）具有父类的属性和方法，或子类从父类继承方法，使得子类具有父类相同的方法**。
 
-学习继承，肯定是先从广的概念了解继承是什么以及其作用，然后才从细的方面学习继承的具体实现细节，本关就是带你先快速了解和理解继承的重要概念。
+我们来举个例子：动物有很多种，是一个比较大的概念。在动物的种类中，我们熟悉的有猫(Cat)、狗(Dog)等动物，它们都有动物的一般特征（比如能够吃东西，能够发出声音），不过又在细节上有区别（不同动物的吃的不同，叫声不一样）。
 
-### 什么是继承
+在 Java 语言中实现 Cat 和 Dog 等类的时候，就需要继承 Animal 这个类。继承之后 Cat、Dog 等具体动物类就是子类，Animal 类就是父类。
 
-**继承**（英语：inheritance）是面向对象软件技术中的一个概念。它使得**复用以前的代码非常容易，能够大大缩短开发周期，降低开发费用。**
+![](https://img-blog.csdnimg.cn/img_convert/1a879fea7899bd17dba2d354763308b3.png)
 
-Java语言是非常典型的面向对象的语言，在Java语言中**继承就是子类继承父类的属性和方法，使得子类对象（实例）具有父类的属性和方法，或子类从父类继承方法，使得子类具有父类相同的方法**。父类有时也叫基类、超类；子类有时也被称为派生类。
+## 为什么需要继承
 
-我们来举个例子：我们知道动物有很多种，是一个比较大的概念。在动物的种类中，我们熟悉的有猫(Cat)、狗(Dog)等动物，它们都有动物的一般特征（比如能够吃东西，能够发出声音），不过又在细节上有区别（不同动物的吃的不同，叫声不一样）。在Java语言中实现Cat和Dog等类的时候，就需要继承Animal这个类。继承之后Cat、Dog等具体动物类就是子类，Animal类就是父类。
-
-![image-20201104084434252](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
-
-### 为什么需要继承
-
-你可能会疑问**为什么需要继承**？在具体实现的时候，我们创建Dog，Cat等类的时候实现其具体的方法不就可以了嘛，实现这个继承似乎使得这个类的结构不那么清晰。
+你可能会疑问**为什么需要继承**？在具体实现的时候，我们创建 Dog，Cat 等类的时候实现其具体的方法不就可以了嘛，实现这个继承似乎使得这个类的结构不那么清晰。
 
 如果仅仅只有两三个类，每个类的属性和方法很有限的情况下确实没必要实现继承，但事情并非如此，事实上一个系统中往往有很多个类并且有着很多相似之处，比如猫和狗同属动物，或者学生和老师同属人。各个类可能又有很多个相同的属性和方法，这样的话如果每个类都重新写不仅代码显得很乱，代码工作量也很大。
 
 这时继承的优势就出来了：可以直接使用父类的属性和方法，自己也可以有自己新的属性和方法满足拓展，父类的方法如果自己有需求更改也可以重写。这样**使用继承不仅大大的减少了代码量，也使得代码结构更加清晰可见**。
 
-![image-20201025115427580](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/3e4e6c0f3027547ca2ea8fb919bdddbe.png)
 
-所以这样从代码的层面上来看我们设计这个完整的Animal类是这样的：
+所以这样从代码的层面上来看我们设计这个完整的 Animal 类是这样的：
 
-```language-java codetheme-tomorrownight
+```java
 class Animal
 {
     public int id;
@@ -79,11 +71,10 @@ class Animal
     }
 }
 ```
- 
 
-而Dog，Cat，Chicken类可以这样设计：
+而 Dog，Cat，Chicken 类可以这样设计：
 
-```language-java codetheme-tomorrownight
+```java
 class Dog extends Animal//继承animal
 {
     public Dog(int id, String name, int age, int weight) {
@@ -108,75 +99,64 @@ class Chicken extends Animal{
     }
 }
 ```
- 
 
-各自的类继承Animal后可以直接使用Animal类的属性和方法而不需要重复编写，各个类如果有自己的方法也可很容易地拓展。上述代码中你需要注意extends就是用来实现继承的。
+各自的类继承 Animal 后可以直接使用 Animal 类的属性和方法而不需要重复编写，各个类如果有自己的方法也可很容易地拓展。
 
-### 继承的分类
+## 继承的分类
 
-继承分为单继承和多继承，Java语言只支持类的单继承，但可以通过实现接口的方式达到多继承的目的。**我们先用一张表概述一下两者的区别，然后再展开讲解。**
+继承分为单继承和多继承，Java 语言只支持类的单继承，但可以通过实现接口的方式达到多继承的目的。**我们先用一张表概述一下两者的区别，然后再展开讲解。**
 
-|定义|优缺点|
----|---|---|
-单继承
-
-![](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
-|一个子类只拥有一个父类|优点：在类层次结构上比较清晰
-
-缺点：结构的丰富度有时不能满足使用需求|
-多继承（Java不支持，但可以用其它方式满足多继承使用需求）
-
-![](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
-|一个子类拥有多个直接的父类|优点：子类的丰富度很高
-
-缺点：容易造成混乱|
+继承 | 定义 | 优缺点 |
+---| ---- | ------ |
+单继承![](https://bigsai.oss-cn-shanghai.aliyuncs.com/img/image-20201104084434252.png)|一个子类只拥有一个父类|优点：在类层次结构上比较清晰<br>缺点：结构的丰富度有时不能满足使用需求|
+多继承（Java 不支持，但可以用其它方式满足多继承使用需求）![](https://bigsai.oss-cn-shanghai.aliyuncs.com/img/image-20201105202324446.png)|一个子类拥有多个直接的父类|优点：子类的丰富度很高<br>缺点：容易造成混乱|
 
 **单继承**
 
-单继承，是一个子类只拥有一个父类，如我们上面讲过的Animal类和它的子类。**单继承在类层次结构上比较清晰，但缺点是结构的丰富度有时不能满足使用需求**。
+单继承，一个子类只有一个父类，如我们上面讲过的 Animal 类和它的子类。**单继承在类层次结构上比较清晰，但缺点是结构的丰富度有时不能满足使用需求**。
 
-**多继承**(Java不支持，但可以实现)
+**多继承**(Java 不支持，但可以通过实现接口来变通)
 
-多继承，是一个子类拥有多个直接的父类。这样做的好处是子类拥有所有父类的特征，**子类的丰富度很高，但是缺点就是容易造成混乱**。下图为一个混乱的例子。
+多继承，一个子类有多个直接的父类。这样做的好处是子类拥有所有父类的特征，**子类的丰富度很高，但是缺点就是容易造成混乱**。下图为一个混乱的例子。
 
-![image-20201026092613166](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/debf7ef41c1fe11bb2ae99139160181c.png)
 
-Java虽然不支持多继承，但是Java有三种实现多继承效果的方式，**分别是**内部类、多层继承和实现接口。
+Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方式，**分别是**内部类、多层继承和实现接口。
 
-**内部类**可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
+[内部类](https://tobebetterjavaer.com/oo/inner-class.html)可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
 
 **多层继承：**子类继承父类，父类如果还继承其他的类，那么这就叫**多层继承**。这样子类就会拥有所有被继承类的属性和方法。
 
-![image-20201104092855833](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/c32c415c362a651bcbba89d677bcbeba.png)
 
-**实现接口**无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。类和接口相比，**类就是一个实体，有属性和方法，而接口更倾向于一组方法**。举个例子，就拿斗罗大陆的唐三来看，他存在的继承关系可能是这样的：
+**实现接口**无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
 
-![image-20201026111105372](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+类和接口相比，**类就是一个实体，有属性和方法，而接口更倾向于一组方法**。举个例子，就拿斗罗大陆的唐三来看，他存在的继承关系可能是这样的：
 
-### 如何实现继承
+![](https://img-blog.csdnimg.cn/img_convert/d396cc5578883619b52bf2a52634ec89.png)
 
-实现继承**除了上面用到的extends**外，还可以用implements这个关键字实现。下面，让我给你逐一讲解一下。
+## 如何实现继承
 
-**extends关键字**
+实现继承**除了上面用到的 extends**外，还可以用 implements 这个关键字实现。
 
-在Java中，类的继承是单一继承，也就是说一个子类只能拥有一个父类，所以**extends**只能继承一个类。其使用语法为：
+### **extends 关键字**
 
-```language-java codetheme-tomorrownight
+在 Java 中，类的继承是单一继承，也就是说一个子类只能拥有一个父类，所以**extends**只能继承一个类。其使用语法为：
+
+```java
 class 子类名 extends 父类名{}
 ```
- 
 
-例如Dog类继承Animal类，它是这样的：
+例如 Dog 类继承 Animal 类，它是这样的：
 
-```language-java codetheme-tomorrownight
+```java
 class Animal{} //定义Animal类
 class Dog extends Animal{} //Dog类继承Animal类
 ```
- 
 
-子类继承父类后，就拥有父类的非私有的**属性和方法**。如果不明白，请看这个案例，在IDEA下创建一个项目，创建一个test类做测试，分别创建Animal类和Dog类，Animal作为父类写一个sayHello()方法，Dog类继承Animal类之后就可以调用sayHello()方法。具体代码为：
+子类继承父类后，就拥有父类的非私有的**属性和方法**。如果不明白，请看这个案例，在 IDEA 下创建一个项目，创建一个 test 类做测试，分别创建 Animal 类和 Dog 类，Animal 作为父类写一个 sayHello()方法，Dog 类继承 Animal 类之后就可以调用 sayHello()方法。具体代码为：
 
-```language-java codetheme-tomorrownight
+```java
 class Animal {
     public void  sayHello()//父类的方法
     {
@@ -192,19 +172,18 @@ public class test {
     }
 }
 ```
- 
 
-点击运行的时候Dog子类可以直接使用Animal父类的方法。
+点击运行的时候 Dog 子类可以直接使用 Animal 父类的方法。
 
-![image-20201025171057573](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/c368a545587640da16fbe8bb164b3586.png)
 
-**implements 关键字**
+### **implements 关键字**
 
-使用implements 关键字可以变相使Java拥有多继承的特性，使用范围为类实现接口的情况，一个类可以实现多个接口(接口与接口之间用逗号分开)。Java接口是一系列方法的声明，**一个接口中没有方法的具体实现** 。子类实现接口的时候必须重写接口中的方法。
+使用 implements 关键字可以变相使 Java 拥有多继承的特性，使用范围为类实现接口的情况，一个类可以实现多个接口(接口与接口之间用逗号分开)。
 
-我们来看一个案例，创建一个test2类做测试，分别创建doA接口和doB接口，doA接口声明sayHello()方法，doB接口声明eat()方法，创建Cat2类实现doA和doB接口，并且在类中需要重写sayHello()方法和eat()方法。具体代码为：
+我们来看一个案例，创建一个 test2 类做测试，分别创建 doA 接口和 doB 接口，doA 接口声明 sayHello()方法，doB 接口声明 eat()方法，创建 Cat2 类实现 doA 和 doB 接口，并且在类中需要重写 sayHello()方法和 eat()方法。具体代码为：
 
-```language-java codetheme-tomorrownight
+```java
 interface doA{
      void sayHello();
 }
@@ -231,45 +210,44 @@ public class test2 {
     }
 }
 ```
- 
 
-Cat类实现doA和doB接口的时候，需要实现其声明的方法，点击运行结果如下，这就是一个类实现接口的简单案例：
+Cat 类实现 doA 和 doB 接口的时候，需要实现其声明的方法，点击运行结果如下，这就是一个类实现接口的简单案例：
 
-![image-20201025212020810](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/e6d364aa0beed9d41e7f05418db80605.png)
 
 ## 继承的特点
 
-继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过**构造方法**去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握**this和super**关键字。创建完这个对象之后，在调用**重写**父类的方法，并区别重写和重载的区别。所以本节根据this、super关键字—>构造函数—>方法重写—>方法重载的顺序进行讲解。
+继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://tobebetterjavaer.com/oo/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://tobebetterjavaer.com/oo/this-super.html)。
 
-### this和super关键字
+创建完这个对象之后，再调用**重写**父类后的方法，并[区别重写和重载的区别](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
 
-this和super关键字是继承中**非常重要的知识点**，分别表示当前对象的引用和父类对象的引用，两者有很大相似又有一些区别。
+### this 和 super 关键字
 
-**this表示当前对象，是指向自己的引用。**
+this 和 super 关键字是继承中**非常重要的知识点**，分别表示当前对象的引用和父类对象的引用，两者有很大相似又有一些区别。
 
-```language-javascript codetheme-tomorrownight
+**this 表示当前对象，是指向自己的引用。**
+
+```java
 this.属性 // 调用成员变量，要区别成员变量和局部变量
 this.() // 调用本类的某个方法
 this() // 表示调用本类构造方法
 ```
- 
 
-**super表示父类对象，是指向父类的引用。**
+**super 表示父类对象，是指向父类的引用。**
 
-```language-javascript codetheme-tomorrownight
+```java
 super.属性 // 表示父类对象中的成员变量
 super.方法() // 表示父类对象中定义的方法
 super() // 表示调用父类构造方法
 ```
- 
 
-此外，this和super关键字只能出现在非static修饰的代码中。
+此外，this 和 super 关键字只能出现在非 static 修饰的代码中。
 
-this()和super()都只能在**构造方法**的第一行出现，如果使用this()表示调用当前类的其他构造方法，使用super()表示调用父类的某个构造方法，所以两者只能根据自己使用需求选择其一。
+this()和 super()都只能在**构造方法**的第一行出现，如果使用 this()表示调用当前类的其他构造方法，使用 super()表示调用父类的某个构造方法，所以两者只能根据自己使用需求选择其一。
 
-写一个小案例，创建D1类和子类D2如下：
+写一个小案例，创建 D1 类和子类 D2 如下：
 
-```language-java codetheme-tomorrownight
+```java
 class D1{
     public D1() {}//无参构造
     public void sayHello() {
@@ -299,11 +277,10 @@ public class test8 {
     }
 }
 ```
- 
 
 执行的结果为：
 
-![image-20201027221658119](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/67bb2b22b915c7196f2b5ac076469f83.png)
 
 ### 构造方法
 
@@ -313,13 +290,13 @@ public class test8 {
 
 **父类的构造方法不能被继承：**
 
-因为构造方法语法是**与类同名**，而继承则不更改方法名，如果子类继承父类的构造方法，那明显与构造方法的语法冲突了。比如Father类的构造方法名为Father()，Son类如果继承Father类的构造方法Father()，那就和构造方法定义：**构造方法与类同名**冲突了，所以在子类中不能继承父类的构造方法，但子类会调用父类的构造方法。
+因为构造方法语法是**与类同名**，而继承则不更改方法名，如果子类继承父类的构造方法，那明显与构造方法的语法冲突了。比如 Father 类的构造方法名为 Father()，Son 类如果继承 Father 类的构造方法 Father()，那就和构造方法定义：**构造方法与类同名**冲突了，所以在子类中不能继承父类的构造方法，但子类会调用父类的构造方法。
 
 **子类的构造过程必须调用其父类的构造方法：**
 
-Java虚拟机**构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，**这被称为**内存叠加**。而Java虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须调用super()即父类的构造方法。就比如一个简单的继承案例应该这么写：
+Java 虚拟机**构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，**这被称为**内存叠加**。而 Java 虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须调用 super()即父类的构造方法。就比如一个简单的继承案例应该这么写：
 
-```language-java codetheme-tomorrownight
+```java
 class A{
     public String name;
     public A() {//无参构造
@@ -337,13 +314,12 @@ class B extends A{
     }
 }
 ```
- 
 
 **如果子类的构造方法中没有显示地调用父类构造方法，则系统默认调用父类无参数的构造方法。**
 
-你可能有时候在写继承的时候子类并没有使用super()调用，程序依然没问题，其实这样是为了节省代码，系统执行时会自动添加父类的无参构造方式，如果不信的话我们对上面的类稍作修改执行：
+你可能有时候在写继承的时候子类并没有使用 super()调用，程序依然没问题，其实这样是为了节省代码，系统执行时会自动添加父类的无参构造方式，如果不信的话我们对上面的类稍作修改执行：
 
-![image-20201026201029796](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/333b607acf11d2bb85638164ddaa649e.png)
 
 ### 方法重写(Override)
 
@@ -351,7 +327,7 @@ class B extends A{
 
 在这里提供一个简单易懂的方法重写案例：
 
-```language-java codetheme-tomorrownight
+```java
 class E1{
     public void doA(int a){
         System.out.println("这是父类的方法");
@@ -364,33 +340,32 @@ class E2 extends E1{
     }
 }
 ```
- 
 
-其中@Override注解显示声明该方法为注解方法，可以帮你检查重写方法的语法正确性，当然如果不加也是可以的，但建议加上。
+其中@Override 注解显示声明该方法为注解方法，可以帮你检查重写方法的语法正确性，当然如果不加也是可以的，但建议加上。
 
 对于重写，你需要注意以下几点：
 
 从重写的要求上看：
 
-*   重写的方法和父类的要一致(包括返回值类型、方法名、参数列表)
-*   方法重写只存在于子类和父类之间，同一个类中只能重载
+- 重写的方法和父类的要一致(包括返回值类型、方法名、参数列表)
+- 方法重写只存在于子类和父类之间，同一个类中只能重载
 
 从访问权限上看：
 
-*   子类方法不能缩小父类方法的访问权限
-*   子类方法不能抛出比父类方法更多的异常
-*   父类的私有方法不能被子类重写
+- 子类方法不能缩小父类方法的访问权限
+- 子类方法不能抛出比父类方法更多的异常
+- 父类的私有方法不能被子类重写
 
 从静态和非静态上看：
 
-*   父类的静态方法不能被子类重写为非静态方法
-*   子类可以定义于父类的静态方法同名的静态方法，以便在子类中隐藏父类的静态方法（满足重写约束）
-*   父类的非静态方法不能被子类重写为静态方法
+- 父类的静态方法不能被子类重写为非静态方法
+- 子类可以定义于父类的静态方法同名的静态方法，以便在子类中隐藏父类的静态方法（满足重写约束）
+- 父类的非静态方法不能被子类重写为静态方法
 
 从抽象和非抽象来看：
 
-*   父类的抽象方法可以被子类通过两种途径重写（即实现和重写）
-*   父类的非抽象方法可以被重写为抽象方法
+- 父类的抽象方法可以被子类通过两种途径重写（即实现和重写）
+- 父类的非抽象方法可以被重写为抽象方法
 
 当然，这些规则可能涉及一些修饰符，在第三关中会详细介绍。
 
@@ -398,16 +373,16 @@ class E2 extends E1{
 
 如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的重载。方法重载规则如下：
 
-*   被重载的方法**必须改变参数列表**(参数个数或类型或顺序不一样)
-*   被重载的方法可以改变返回类型
-*   被重载的方法可以改变访问修饰符
-*   被重载的方法可以声明新的或更广的检查异常
-*   方法能够在同一个类中或者在一个子类中被重载
-*   无法以返回值类型作为重载函数的区分标准
+- 被重载的方法**必须改变参数列表**(参数个数或类型或顺序不一样)
+- 被重载的方法可以改变返回类型
+- 被重载的方法可以改变访问修饰符
+- 被重载的方法可以声明新的或更广的检查异常
+- 方法能够在同一个类中或者在一个子类中被重载
+- 无法以返回值类型作为重载函数的区分标准
 
-重载可以通常理解为完成同一个事情的方法名相同，但是参数列表不同其他条件也可能不同。一个简单的方法重载的例子，类E3中的add()方法就是一个重载方法。
+重载可以通常理解为完成同一个事情的方法名相同，但是参数列表不同其他条件也可能不同。一个简单的方法重载的例子，类 E3 中的 add()方法就是一个重载方法。
 
-```language-java codetheme-tomorrownight
+```java
 class E3{
     public int add(int a,int b){
         return a+b;
@@ -420,57 +395,37 @@ class E3{
     }
 }
 ```
- 
 
 **方法重写和方法重载的区别**：
 
 方法重写和方法重载名称上容易混淆，但内容上有很大区别，下面用一个表格列出其中区别：
 
-区别点|方法重写|方法重载|
----|---|---|
-结构上|垂直结构，是一种父子类之间的关系|水平结构，是一种同类之间关系|
-参数列表|不可以修改|可以修改|
-访问修饰符|子类的访问修饰符范围必须大于等于父类访问修饰符范围|可以修改|
-抛出异常|子类方法异常必须是父类方法异常或父类方法异常子异常|可以修改|
+| 区别点     | 方法重写                                           | 方法重载                     |
+| ---------- | -------------------------------------------------- | ---------------------------- |
+| 结构上     | 垂直结构，是一种父子类之间的关系                   | 水平结构，是一种同类之间关系 |
+| 参数列表   | 不可以修改                                         | 可以修改                     |
+| 访问修饰符 | 子类的访问修饰符范围必须大于等于父类访问修饰符范围 | 可以修改                     |
+| 抛出异常   | 子类方法异常必须是父类方法异常或父类方法异常子异常 | 可以修改                     |
 
 ## 继承与修饰符
 
-Java修饰符的作用就是对类或类成员进行修饰或限制，每个修饰符都有自己的作用，而在继承中可能有些特殊修饰符使得被修饰的属性或方法不能被继承，或者继承需要一些其他的条件，下面就详细介绍在继承中一些修饰符的作用和特性。
+Java 修饰符的作用就是对类或类成员进行修饰或限制，每个修饰符都有自己的作用，而在继承中可能有些特殊修饰符使得被修饰的属性或方法不能被继承，或者继承需要一些其他的条件。
 
-Java语言提供了很多修饰符，修饰符用来定义类、方法或者变量，通常放在语句的最前端。主要分为以下两类：
+Java 语言提供了很多修饰符，修饰符用来定义类、方法或者变量，通常放在语句的最前端。主要分为以下两类：
 
-*   访问修饰符
-*   非访问修饰符
+- [访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，也就是 public、private、protected 等
+- 非访问修饰符，也就是 static、final、abstract 等
 
-这里访问修饰符主要讲解public，protected，default，private四种访问控制修饰符。非访问修饰符这里就介绍static修饰符，final修饰符和abstract修饰符。
 
-### 访问修饰符
+Java 子类重写继承的方法时，**不可以降低方法的访问权限**，**子类继承父类的访问修饰符作用域不能比父类小**，也就是更加开放，假如父类是 protected 修饰的，其子类只能是 protected 或者 public，绝对不能是 default(默认的访问范围)或者 private。所以在继承中需要重写的方法不能使用 private 修饰词修饰。
 
-**public，protected，default(无修饰词)，private**修饰符是面向对象中非常重要的知识点，而在继承中也需要懂得各种修饰符使用规则。
+如果还是不太清楚可以看几个小案例就很容易搞懂，写一个 A1 类中用四种修饰词实现四个方法，用子类 A2 继承 A1，重写 A1 方法时候你就会发现父类私有方法不能重写，非私有方法重写使用的修饰符作用域不能变小(大于等于)。
 
-首先我们都知道不同的关键字作用域不同，四种关键字的作用域如下：
-
-|同一个类|同一个包|不同包子类|不同包非子类|
----|---|---|---|---|
-private|✅||||
-default|✅|✅|||
-protect|✅|✅|✅||
-public|✅|✅|✅|✅|
-
-1.  private：Java语言中对访问权限限制的**最窄**的修饰符，一般称之为“私有的”。被其修饰的属性以及方法**只能被该类的对象访问**，其子类不能访问，更不能允许跨包访问。
-2.  default：(也有称friendly)**即不加任何访问修饰符**，通常称为“默认访问权限“或者“包访问权限”。该模式下，只允许在同一个包中进行访问。
-3.  protected：介于public 和 private 之间的一种访问修饰符，一般称之为“保护访问权限”。被其修饰的属性以及方法只能被类本身的方法及子类访问，即使子类在不同的包中也可以访问。
-4.  public： Java语言中访问限制**最宽**的修饰符，一般称之为“公共的”。被其修饰的类、属性以及方法不仅可以跨类访问，而且允许跨包访问。
-
-Java 子类重写继承的方法时，**不可以降低方法的访问权限**，**子类继承父类的访问修饰符作用域不能比父类小**，也就是更加开放，假如父类是protected修饰的，其子类只能是protected或者public，绝对不能是default(默认的访问范围)或者private。所以在继承中需要重写的方法不能使用private修饰词修饰。
-
-如果还是不太清楚可以看几个小案例就很容易搞懂，写一个A1类中用四种修饰词实现四个方法，用子类A2继承A1，重写A1方法时候你就会发现父类私有方法不能重写，非私有方法重写使用的修饰符作用域不能变小(大于等于)。
-
-![image-20201027085359779](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/fb9996503adc1998c5ec948746eaa9bb.png)
 
 正确的案例应该为：
 
-```language-java codetheme-tomorrownight
+```java
 class A1 {
     private void doA(){ }
     void doB(){}//default
@@ -489,15 +444,14 @@ class A2 extends A1{
     public void doD() { }//不可用protected或者default修饰
 }
 ```
- 
 
 还要注意的是，**继承当中子类抛出的异常必须是父类抛出的异常或父类抛出异常的子异常**。下面的一个案例四种方法测试可以发现子类方法的异常不可大于父类对应方法抛出异常的范围。
 
-![image-20201027091537901](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/fd468a60a317caa04a9f370930b4f1ac.png)
 
 正确的案例应该为：
 
-```language-java codetheme-tomorrownight
+```java
 class B1{
     public void doA() throws Exception{}
     public void doB() throws Exception{}
@@ -518,30 +472,29 @@ class B2 extends B1{
     public void doD() throws IOException { }
 }
 ```
- 
 
 ### 非访问修饰符
 
-访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对static、final、abstract修饰符进行介绍。
+访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对 static、final、abstract 修饰符进行介绍。
 
-**static 修饰符**
+[static 修饰符](https://tobebetterjavaer.com/oo/static.html)
 
-static 翻译为“静态的”，能够与变量，方法和类一起使用，**称为静态变量，静态方法(也称为类变量、类方法)**。如果在一个类中使用static修饰变量或者方法的话，它们**可以直接通过类访问，不需要创建一个类的对象来访问成员。**
+static 翻译为“静态的”，能够与变量，方法和类一起使用，**称为静态变量，静态方法(也称为类变量、类方法)**。如果在一个类中使用 static 修饰变量或者方法的话，它们**可以直接通过类访问，不需要创建一个类的对象来访问成员。**
 
-我们在设计类的时候可能会使用静态方法，有很多工具类比如`Math`，`Arrays`等类里面就写了很多静态方法。static修饰符的规则很多，这里仅仅介绍和Java继承相关用法的规则：
+我们在设计类的时候可能会使用静态方法，有很多工具类比如`Math`，`Arrays`等类里面就写了很多静态方法。static 修饰符的规则很多，这里仅仅介绍和 Java 继承相关用法的规则：
 
-*   构造方法不允许声明为 static 的。
-*   静态方法中不存在当前对象，因而不能使用 this，当然也不能使用 super。
-*   静态方法不能被非静态方法重写(覆盖)
-*   静态方法能被静态方法重写(覆盖)
+- 构造方法不允许声明为 static 的。
+- 静态方法中不存在当前对象，因而不能使用 this，当然也不能使用 super。
+- 静态方法不能被非静态方法重写(覆盖)
+- 静态方法能被静态方法重写(覆盖)
 
 可以看以下的案例证明上述规则：
 
-![image-20201027193540259](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/03034ad1d92e441220f92a34c061796f.png)
 
 源代码为：
 
-```language-java codetheme-tomorrownight
+```java
 class C1{
     public  int a;
     public C1(){}
@@ -558,25 +511,24 @@ class C2 extends C1{
    // public void doB(){}//静态方法不能被非静态方法重写
 }
 ```
- 
 
-**final修饰符**
+[final 修饰符](https://tobebetterjavaer.com/oo/final.html)
 
-final变量：
+final 变量：
 
-*   final 表示"最后的、最终的"含义，**变量一旦赋值后，不能被重新赋值**。被 final 修饰的实例变量必须显式指定初始值(即不能只声明)。final 修饰符通常和 static 修饰符一起使用来创建类常量。
+- final 表示"最后的、最终的"含义，**变量一旦赋值后，不能被重新赋值**。被 final 修饰的实例变量必须显式指定初始值(即不能只声明)。final 修饰符通常和 static 修饰符一起使用来创建类常量。
 
 final 方法：
 
-*   **父类中的 final 方法可以被子类继承，但是不能被子类重写**。声明 final 方法的主要目的是防止该方法的内容被修改。
+- **父类中的 final 方法可以被子类继承，但是不能被子类重写**。声明 final 方法的主要目的是防止该方法的内容被修改。
 
-final类：
+final 类：
 
-*   **final 类不能被继承**，没有类能够继承 final 类的任何特性。
+- **final 类不能被继承**，没有类能够继承 final 类的任何特性。
 
-所以无论是变量、方法还是类被final修饰之后，都有代表最终、最后的意思。内容无法被修改。
+所以无论是变量、方法还是类被 final 修饰之后，都有代表最终、最后的意思。内容无法被修改。
 
-**abstract 修饰符**
+[abstract 修饰符](https://tobebetterjavaer.com/oo/abstract.html)
 
 abstract 英文名为“抽象的”，主要用来修饰类和方法，称为抽象类和抽象方法。
 
@@ -586,15 +538,15 @@ abstract 英文名为“抽象的”，主要用来修饰类和方法，称为�
 
 抽象类和抽象方法内容和规则比较多。这里只提及一些和继承有关的用法和规则：
 
-*   抽象类也是类，如果一个类继承于抽象类，就不能继承于其他的（类或抽象类）
-*   子类可以继承于抽象类，但是一定要实现父类们所有abstract的方法。如果不能完全实现，那么子类也必须被定义为抽象类
-*   只有实现父类的所有抽象方法，才能是完整类。
+- 抽象类也是类，如果一个类继承于抽象类，就不能继承于其他的（类或抽象类）
+- 子类可以继承于抽象类，但是一定要实现父类们所有 abstract 的方法。如果不能完全实现，那么子类也必须被定义为抽象类
+- 只有实现父类的所有抽象方法，才能是完整类。
 
-![image-20201027205344230](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/59544079331d3db7deeadada34606aa7.png)
 
-比如我们可以这样设计一个People抽象类以及一个抽象方法，在子类中具体完成：
+比如我们可以这样设计一个 People 抽象类以及一个抽象方法，在子类中具体完成：
 
-```language-java codetheme-tomorrownight
+```java
 abstract class People{
     public abstract void sayHello();//抽象方法
 }
@@ -617,33 +569,36 @@ class American extends People{
     }
 }
 ```
- 
 
-## Object类和转型
+## Object 类和转型
 
-提到Java继承，不得不提及所有类的根类：Object(java.lang.Object)类，如果一个类没有显式声明它的父类（即没有写extends xx），那么默认这个类的父类就是Object类，任何类都可以使用Object类的方法，创建的类也可和Object进行向上、向下转型，所以Object类是掌握和理解继承所必须的知识点。而Java向上和向下转型在Java中运用很多，也是建立在继承的基础上，所以Java转型也是掌握和理解继承所必须的知识点。
+提到 Java 继承，不得不提及所有类的根类：Object(java.lang.Object)类，如果一个类没有显式声明它的父类（即没有写 extends xx），那么默认这个类的父类就是 Object 类，任何类都可以使用 Object 类的方法，创建的类也可和 Object 进行向上、向下转型，所以 Object 类是掌握和理解继承所必须的知识点。
 
-### Object类概述
+Java 向上和向下转型在 Java 中运用很多，也是建立在继承的基础上，所以 Java 转型也是掌握和理解继承所必须的知识点。
 
-1.  Object是类层次结构的**根类**，所有的类都隐式的继承自Object类。
-2.  Java所有的对象都拥有Object默认方法
-3.  Object类的构造方法有一个，并且是**无参构造**
+### Object 类概述
 
-Object是java所有类的父类，是整个类继承结构的顶端，也是最抽象的一个类。像toString()、equals()、hashCode()、wait()、notify()、getClass()等都是Object的方法。你以后可能会经常碰到，但其中遇到更多的就是toString()方法和equals()方法，我们经常需要重写这两种方法满足我们的使用需求。
+1.  Object 是类层次结构的**根类**，所有的类都隐式的继承自 Object 类。
+2.  Java 中，所有的对象都拥有 Object 的默认方法。
+3.  Object 类有一个[构造方法](https://tobebetterjavaer.com/oo/construct.html)，并且是**无参构造方法**。
 
-\*\*toString()\*\*方法表示返回该对象的字符串，由于各个对象构造不同所以需要重写，如果不重写的话默认返回`类名@hashCode`格式。
+Object 是 Java 所有类的父类，是整个类继承结构的顶端，也是最抽象的一个类。
 
-**如果重写toString()方法后**直接调用toString()方法就可以返回我们自定义的该类转成字符串类型的内容输出，而不需要每次都手动的拼凑成字符串内容输出，大大简化输出操作。
+像 toString()、equals()、hashCode()、wait()、notify()、getClass()等都是 Object 的方法。你以后可能会经常碰到，但其中遇到更多的就是 toString()方法和 equals()方法，我们经常需要重写这两种方法满足我们的使用需求。
 
-\*\*equals()**方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如String 类就重写了**euqals()\*\*方法，通过字符串的内容比较是否相等。
+toString()方法表示返回该对象的字符串，由于各个对象构造不同所以需要重写，如果不重写的话默认返回`类名@hashCode`格式。
 
-![image-20201029174821212](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+**如果重写 toString()方法后**直接调用 toString()方法就可以返回我们自定义的该类转成字符串类型的内容输出，而不需要每次都手动的拼凑成字符串内容输出，大大简化输出操作。
+
+equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了euqals()方法，通过[字符串的内容比较是否相等](https://tobebetterjavaer.com/string/equals.html)。
+
+![](https://img-blog.csdnimg.cn/img_convert/4d45537a3e8b8e2b07dca4fa38bee41a.png)
 
 ### 向上转型
 
 **向上转型** : 通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换。用一张图就能很好地表示向上转型的逻辑：
 
-![image-20201029150415474](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/ee9a74056658d94078696ebb54e9c5ef.png)
 
 父类引用变量指向子类对象后，只能使用父类已声明的方法，但方法如果被重写会执行子类的方法，如果方法未被重写那么将执行父类的方法。
 
@@ -651,41 +606,40 @@ Object是java所有类的父类，是整个类继承结构的顶端，也是最�
 
 **向下转型** : 通过父类对象(大范围)实例化子类对象(小范围)，在书写上父类对象需要加括号`()`强制转换为子类类型。但父类引用变量实际引用必须是子类对象才能成功转型，这里也用一张图就能很好表示向上转型的逻辑：
 
-![image-20201029150242786](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/6e1f2e5b4c3cc5d54793a53207764a8e.png)
 
-子类引用变量指向父类引用变量指向的对象后(一个Son()对象)，就完成向下转型，就可以调用一些子类特有而父类没有的方法 。
+子类引用变量指向父类引用变量指向的对象后(一个 Son()对象)，就完成向下转型，就可以调用一些子类特有而父类没有的方法 。
 
 在这里写一个向上转型和向下转型的案例：
 
-```language-java codetheme-tomorrownight
+```java
 Object object=new Integer(666);//向上转型
 
 Integer i=(Integer)object;//向下转型Object->Integer，object的实质还是指向Integer
 
 String str=(String)object;//错误的向下转型，虽然编译器不会报错但是运行会报错
 ```
- 
 
 ## 子父类初始化顺序
 
-在Java继承中，父子类初始化先后顺序为：
+在 Java 继承中，父子类初始化先后顺序为：
 
 1.  父类中静态成员变量和静态代码块
 2.  子类中静态成员变量和静态代码块
-3.  父类中普通成员变量和代码块，父类的构造函数
-4.  子类中普通成员变量和代码块，子类的构造函数
+3.  父类中普通成员变量和代码块，父类的构造方法
+4.  子类中普通成员变量和代码块，子类的构造方法
 
-总的来说，就是**静态>非静态，父类>子类，非构造函数>构造函数**。同一类别（例如普通变量和普通代码块）成员变量和代码块执行从前到后，需要注意逻辑。
+总的来说，就是**静态>非静态，父类>子类，非构造方法>构造方法**。同一类别（例如普通变量和普通代码块）成员变量和代码块执行从前到后，需要注意逻辑。
 
 这个也不难理解，静态变量也称类变量，可以看成一个全局变量，静态成员变量和静态代码块在类加载的时候就初始化，而非静态变量和代码块在对象创建的时候初始化。所以静态快于非静态初始化。
 
 而在创建子类对象的时候需要先创建父类对象，所以父类优先于子类。
 
-而在调用构造函数的时候，是对成员变量进行一些初始化操作，所以普通成员变量和代码块优于构造函数执行。
+而在调用构造方法的时候，是对成员变量进行一些初始化操作，所以普通成员变量和代码块优于构造方法执行。
 
-至于更深层次为什么这个顺序，就要更深入了解JVM执行流程啦。下面一个测试代码为：
+至于更深层次为什么这个顺序，就要更深入了解 JVM 执行流程啦。下面一个测试代码为：
 
-```language-java codetheme-tomorrownight
+```java
 class Father{
     public Father() {
         System.out.println(++b1+"父类构造方法");
@@ -717,17 +671,16 @@ public class test9 {
     }
 }
 ```
- 
 
 执行结果：
 
-![image-20201029230721006](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/249406d862216a710074cb7d71f2e284.png)
 
 ## 结语
 
-好啦，本次继承就介绍到这里啦，Java面向对象三大特征之一继承——优秀的你已经掌握。再看看Java面向对象三大特性：封装、继承、多态。最后问你能大致了解它们的特征嘛？
+好啦，本次继承就介绍到这里啦，Java 面向对象三大特征之一继承——优秀的你已经掌握。最后再来看一下 Java 面向对象的三大特性：封装、继承、多态。
 
-封装：是对类的封装，封装是对类的属性和方法进行封装，只对外暴露方法而不暴露具体使用细节，所以我们一般设计类成员变量时候大多设为私有而通过一些get、set方法去读写。
+封装：是对类的封装，封装是对类的属性和方法进行封装，只对外暴露方法而不暴露具体使用细节，所以我们一般设计类成员变量时候大多设为私有而通过一些 get、set 方法去读写。
 
 继承：子类继承父类，即“子承父业”，子类拥有父类除私有的所有属性和方法，自己还能在此基础上拓展自己新的属性和方法。主要目的是**复用代码**。
 
@@ -735,16 +688,17 @@ public class test9 {
 
 最后送你一张图捋一捋其中的关系吧。
 
-![image-20201104163238242](https://res.hc-cdn.com/ecology/7.7.103/v2_resources/ydcomm/libs/images/loading.gif)
+![](https://img-blog.csdnimg.cn/img_convert/351fae294ba1360b061f25a924307040.png)
 
-【奔跑吧！JAVA】有奖征文火热进行中：[https://bbs.huaweicloud.com/blogs/265241](https://bbs.huaweicloud.com/blogs/265241)
 
-【版权声明】本文为华为云社区用户原创内容，转载时必须标注文章的来源（华为云社区），文章链接，文章作者等基本信息，否则作者和本社区有权追究责任。如果您发现本社区中有涉嫌抄袭的内容，欢迎发送邮件至：[cloudbbs@huaweicloud.com](mailto:cloudbbs@huaweicloud.com)进行举报，并提供相关证据，一经查实，本社区将立刻删除涉嫌侵权内容。
 
-[Java](https://developer.huaweicloud.com/tags/200077/blog_1 "Java") [面向对象编程](https://developer.huaweicloud.com/tags/200608/blog_1 "面向对象编程")
+> 转载链接：[https://bbs.huaweicloud.com/blogs/271358](https://bbs.huaweicloud.com/blogs/271358)，作者：bigsai，整理：沉默王二
 
-*   点赞
-*   收藏
-*   关注作者
 
->转载链接：[https://bbs.huaweicloud.com/blogs/271358](https://bbs.huaweicloud.com/blogs/271358)，整理：沉默王二
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/nice-article/itmind/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

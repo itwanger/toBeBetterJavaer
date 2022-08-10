@@ -1,7 +1,7 @@
 ---
-title: 聊一聊Java中的访问权限控制
-shortTitle: 聊一聊Java中的访问权限控制
-description: Java程序员进阶之路，小白的零基础Java教程，聊一聊Java中的访问权限控制
+title: 聊一聊Java中的访问权限修饰符
+shortTitle: 聊一聊Java中的访问权限修饰符
+description: Java程序员进阶之路，小白的零基础Java教程，聊一聊Java中的访问权限修饰符
 category:
   - Java 核心
 tag:
@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 访问权限控制
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 访问权限修饰符,java public,java private,java protected
 ---
 
 
