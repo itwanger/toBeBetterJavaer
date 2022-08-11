@@ -146,6 +146,7 @@ head:
 - [一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
 - [一文彻底搞懂 Java final 关键字](oo/final.md)
 - [一万字彻底搞懂 Java 继承](oo/extends-bigsai.md)
+- [几句话，直观解释清楚 Java 多态](oo/polymorphism.md)
 - [Java instanceof关键字用法](oo/instanceof.md)
 - [深入理解Java中的不可变对象](basic-extra-meal/immutable.md)
 - [Java中可变参数的使用](basic-extra-meal/varables.md)
@@ -397,7 +398,8 @@ head:
 - [本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️](nice-article/weixin/shezynmjfxhelmtttjddd.md)
 - [非科班读者，用一年时间社招拿下阿里 Offer✌️](nice-article/weixin/xuelybdzheloffer.md)
 - [二本读者社招两年半10家公司28轮面试面经✌️](nice-article/weixin/huanxgzl.md)
-- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer](nice-article/weixin/quzjlsspdx.md)
+- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer✌️](nice-article/weixin/quzjlsspdx.md)
+- [双非学弟收割阿里、字节、B站校招 offer，附大学四年硬核经验总结✌️](nice-article/weixin/zheisnylzldhzd.md)
 
 ### 面试准备
 

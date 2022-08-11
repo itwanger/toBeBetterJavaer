@@ -380,7 +380,8 @@
 - [本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️](docs/nice-article/weixin/shezynmjfxhelmtttjddd.md)
 - [非科班读者，用一年时间社招拿下阿里 Offer✌️](docs/nice-article/weixin/xuelybdzheloffer.md)
 - [二本读者社招两年半10家公司28轮面试面经✌️](docs/nice-article/weixin/huanxgzl.md)
-- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer](docs/nice-article/weixin/quzjlsspdx.md)
+- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer✌️](docs/nice-article/weixin/quzjlsspdx.md)
+- [双非学弟收割阿里、字节、B站校招 offer，附大学四年硬核经验总结✌️](docs/nice-article/weixin/zheisnylzldhzd.md)
 
 
 ## 面试准备
@@ -389,6 +390,7 @@
 - [有无实习/暑期实习 offer 如何准备秋招？💪](docs/nice-article/weixin/zijxjjdyfqzgl.md)
 - [简历如何优化，简历如何投递，面试如何准备？💪](docs/nice-article/weixin/luoczbmsddyb.md)
 - [校招时间节点、简历编写、笔试、HR面、实习等注意事项💪](docs/nice-article/weixin/youdxzhhmjzlycfx.md)
+
 
 
 ## 城市选择
