@@ -118,7 +118,8 @@ export const sidebarConfig = sidebar({
           "basic-extra-meal/override-overload",
           "oo/static",
           "oo/final",
-          "oo/bigsai",
+          "oo/extends-bigsai",
+          "oo/polymorphism",
           {
             text: "instanceof",
             link: "oo/instanceof",
@@ -810,6 +811,7 @@ export const sidebarConfig = sidebar({
             "nice-article/weixin/miansmtgl",
             "nice-article/weixin/luoczbmsddyb",
             "nice-article/weixin/youdxzhhmjzlycfx",
+            "nice-article/weixin/zheisnylzldhzd",
           ],
         },
         {

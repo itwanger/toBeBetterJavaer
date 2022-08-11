@@ -2,10 +2,10 @@
 title: 一万字彻底搞懂 Java 继承
 shortTitle: 一万字彻底搞懂Java继承
 description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：继承
-tags:
-  -  网络爬虫
 category:
-  - 其他网站
+  - Java 核心
+tag:
+  - 面向对象编程
 head:
   - - meta
     - name: keywords
