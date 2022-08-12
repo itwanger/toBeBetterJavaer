@@ -133,13 +133,7 @@
 - [这次彻底搞清楚了 Java 的三大特征之一：封装](docs/oo/encapsulation.md)
 - [一万字彻底搞懂 Java 继承（三大特征之一）](docs/oo/extends-bigsai.md)
 - [几句话，直观解释清楚 Java 多态（三大特征之一）](docs/oo/polymorphism.md)
-- [Java instanceof关键字用法](docs/oo/instanceof.md)
-- [深入理解Java中的不可变对象](docs/basic-extra-meal/immutable.md)
-- [Java中可变参数的使用](docs/basic-extra-meal/varables.md)
-- [深入理解Java泛型](docs/basic-extra-meal/generic.md)
-- [深入理解Java注解](docs/basic-extra-meal/annotation.md)
-- [Java枚举（enum）](docs/basic-extra-meal/enum.md)
-- [大白话说Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
+
 
 ## 集合框架（容器）
 
@@ -194,6 +188,13 @@
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 - [先有Class还是先有Object？](docs/basic-extra-meal/class-object.md)
 - [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
+- [Java instanceof关键字用法](docs/oo/instanceof.md)
+- [深入理解Java中的不可变对象](docs/basic-extra-meal/immutable.md)
+- [Java中可变参数的使用](docs/basic-extra-meal/varables.md)
+- [深入理解Java泛型](docs/basic-extra-meal/generic.md)
+- [深入理解Java注解](docs/basic-extra-meal/annotation.md)
+- [Java枚举（enum）](docs/basic-extra-meal/enum.md)
+- [大白话说Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
 
 
 ## Java并发编程
