@@ -105,6 +105,7 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
           "oo/object-class",
+          "oo/package",
           "oo/var",
           "oo/method",
           "oo/construct",
@@ -118,36 +119,9 @@ export const sidebarConfig = sidebar({
           "basic-extra-meal/override-overload",
           "oo/static",
           "oo/final",
+          "oo/encapsulation",
           "oo/extends-bigsai",
           "oo/polymorphism",
-          {
-            text: "instanceof",
-            link: "oo/instanceof",
-          },
-          {
-            text: "不可变对象",
-            link: "basic-extra-meal/immutable",
-          },
-          {
-            text: "可变参数",
-            link: "basic-extra-meal/varables",
-          },
-          {
-            text: "泛型",
-            link: "basic-extra-meal/generic",
-          },
-          {
-            text: "注解",
-            link: "basic-extra-meal/annotation",
-          },
-          {
-            text: "枚举",
-            link: "basic-extra-meal/enum",
-          },
-          {
-            text: "反射",
-            link: "basic-extra-meal/fanshe",
-          },
           
           ],
         },
@@ -327,6 +301,34 @@ export const sidebarConfig = sidebar({
           {
             text: "instanceof关键字是如何实现的",
             link: "instanceof-jvm",
+          },
+          {
+            text: "instanceof",
+            link: "oo/instanceof",
+          },
+          {
+            text: "不可变对象",
+            link: "basic-extra-meal/immutable",
+          },
+          {
+            text: "可变参数",
+            link: "basic-extra-meal/varables",
+          },
+          {
+            text: "泛型",
+            link: "basic-extra-meal/generic",
+          },
+          {
+            text: "注解",
+            link: "basic-extra-meal/annotation",
+          },
+          {
+            text: "枚举",
+            link: "basic-extra-meal/enum",
+          },
+          {
+            text: "反射",
+            link: "basic-extra-meal/fanshe",
           },
           ],
         },
