@@ -1,5 +1,5 @@
 ---
-title: 几句话，直观解释清楚 Java 多态
+title: 几句话，直观解释清楚 Java 多态（三大特征之一）
 shortTitle: 几句话直观解释Java多态
 description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：多态
 category:

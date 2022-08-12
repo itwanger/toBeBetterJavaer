@@ -1,5 +1,5 @@
 ---
-title: 一万字彻底搞懂 Java 继承
+title: 一万字彻底搞懂 Java 继承（三大特征之一）
 shortTitle: 一万字彻底搞懂Java继承
 description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：继承
 category:
