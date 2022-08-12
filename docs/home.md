@@ -310,6 +310,10 @@ head:
 - [编程喵🐱实战项目如何在云服务器上跑起来？](springboot/linux-codingmore-run.md)
 - [SpringBoot中处理校验逻辑的两种方式：Hibernate Validator+全局异常处理](springboot/validator.md)
 
+## Netty
+
+- [超详细Netty入门，看这篇就够了！](netty/rumen.md)
+
 ### 辅助工具
 
 - [Chocolatey：一款GitHub星标8.2k+的Windows命令行软件管理器，好用到爆！](gongju/choco.md)
@@ -425,37 +429,21 @@ head:
 - [成都都有哪些值得加入的IT互联网公司？](cityselect/chengdu.md)
 - [济南都有哪些值得加入的IT互联网公司？](cityselect/jinan.md)
 
-### 工作体会
-
-## 学习资源
-
- - **不知道学什么？不知道该怎么学？找不到优质的学习资源**？这些问题在这里统统都可以找到答案。
- - 我会把自己十多年的编程经验和学习资源毫不保留的分享出来。
-
-### PDF下载
-
-- [👏下载→Java程序员常读书单](download/java.md)
-- [👏下载→最全最硬核的Java面试 “备战” 资料](nice-article/weixin-bagwpdf.md)
-- [👏下载→深入浅出Java多线程](nice-article/weixin-shenrjcjavabfbchwjdhl.md)
-- [👏下载→GitHub星标115k+的Java教程](nice-article/weixin-githubxbkdjavajccjyh.md)
-- [👏下载→重学Java设计模式](nice-article/weixin-shejmsnb.md)
-- [👏下载→Java版LeetCode刷题笔记](nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
-- [👏下载→阮一峰C语言入门教程](nice-article/yuanyifeng-c-language.md)
-- [👏下载→BAT大佬的刷题笔记](nice-article/bat-shuati.md)
-- [👏下载→给操作系统捋条线](nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
-- [👏下载→豆瓣9.1分，Pro Git中文版](nice-article/progit.md)
-- [👏下载→简历模板](nice-article/jianli.md)
-
 
 ### 学习建议
 
-**收集了我所有的知乎高赞帖子**！全方位迷茫解惑。
+**收集了一些网上高质量的帖子**！全方位帮你答疑解惑。
 
 - [如何阅读《深入理解计算机系统》这本书？](xuexijianyi/read-csapp.md)
 - [电子信息工程最好的出路的是什么？](xuexijianyi/electron-information-engineering.md)
-- [高考填志愿，计算机，计科，人工智能，软工，大数据，物联网，网络工程该怎么选？](nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx.md)
-- [测试开发工程师必读经典好书清单](nice-article/zhihu/ceskfgcsbdjdhsqdcjzssfl.md)
-- [校招java后端应该掌握到什么程度？](nice-article/zhihu/jiaozjavahdygzwdsmcd.md)
+- [如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？](xuexijianyi/gaokao-zhiyuan-cs.md)
+- [测试开发工程师必读经典书籍有哪些？](xuexijianyi/test-programmer-read-books.md)
+- [校招 Java 后端开发应该掌握到什么程度？](xuexijianyi/xiaozhao-java-should-master.md)
+- [本科生如何才能进入腾讯、阿里等一流的互联网公司？](xuexijianyi/benksrhcnjrtxaldyldhlwgs.md)
+- [大裁员下，程序员如何做“副业”？](xuexijianyi/chengxuyuan-fuye.md)
+- [如何在繁重的工作中持续成长？](xuexijianyi/ruhzfzdgzzcxcz.md)
+- [如何获得高并发的经验？](xuexijianyi/gaobingfa-jingyan-hsmcomputer.md)
+- [怎么跟 HR 谈薪资？](docs/xuexijianyi/hr-xinzi.md)
 
 
 ## 知识库搭建

@@ -3,8 +3,6 @@ title: 入职东北国企做程序员一个月，感受如何？
 shortTitle: 入职东北国企做程序员一个月的感触
 description: 我新入职的公司是哈尔滨的一家国企下的二级子公司，新成立的研发公司，目前还处于蓬勃发展的阶段，业务水准也算的上是不错了。 人 目前
 tags:
-  - 后端
-  - Java
   - 程序员
 author: 我犟不过你
 category:
@@ -107,3 +105,11 @@ head:
 
 
 >转载链接：[https://juejin.cn/post/7125627005407592462](https://juejin.cn/post/7125627005407592462)，整理：沉默王二
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

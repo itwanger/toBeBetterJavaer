@@ -117,6 +117,7 @@
 ## Java面向对象编程
 
 - [怎么理解Java中的类和对象？](docs/oo/object-class.md)
+- [Java 包，优雅地解决类名冲突](docs/oo/package.md)
 - [Java中的变量：局部变量、成员变量、静态变量、常量](docs/oo/var.md)
 - [Java中的方法：实例方法、静态方法、抽象方法](docs/oo/method.md)
 - [Java中的构造方法：对象创建时的必经之路](docs/oo/construct.md)
@@ -297,6 +298,11 @@
 - [SpringBoot中处理校验逻辑的两种方式：Hibernate Validator+全局异常处理](docs/springboot/validator.md)
 
 
+## Netty
+
+- [超详细Netty入门，看这篇就够了！](docs/netty/rumen.md)
+
+
 ## 辅助工具
 
 - [Chocolatey：一款GitHub星标8.2k+的Windows命令行软件管理器，好用到爆！](docs/gongju/choco.md)
@@ -422,28 +428,32 @@
 
 ## PDF下载
 
-- [👏下载→Java程序员常读书单](docs/download/java.md)
-- [👏下载→最全最硬核的Java面试 “备战” 资料](docs/nice-article/weixin-bagwpdf.md)
-- [👏下载→深入浅出Java多线程](docs/nice-article/weixin-shenrjcjavabfbchwjdhl.md)
+- [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](docs/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.md)
+- [👏下载→深入浅出Java多线程PDF](docs/nice-article/weixin-shenrjcjavabfbchwjdhl.md)
 - [👏下载→GitHub星标115k+的Java教程](docs/nice-article/weixin-githubxbkdjavajccjyh.md)
-- [👏下载→重学Java设计模式](docs/nice-article/weixin-shejmsnb.md)
+- [👏下载→重学Java设计模式PDF](docs/nice-article/weixin-shejmsnb.md)
 - [👏下载→Java版LeetCode刷题笔记](docs/nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
 - [👏下载→阿里巴巴Java开发手册](docs/nice-article/weixin/sulwgalcpdssbjavakfsc.md)
 - [👏下载→阮一峰C语言入门教程](docs/nice-article/yuanyifeng-c-language.md)
 - [👏下载→BAT大佬的刷题笔记](docs/nice-article/bat-shuati.md)
-- [👏下载→给操作系统捋条线](docs/nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
-- [👏下载→豆瓣9.1分，Pro Git中文版](docs/nice-article/progit.md)
+- [👏下载→给操作系统捋条线PDF](docs/nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
+- [👏下载→豆瓣9.1分的Pro Git中文版](docs/nice-article/progit.md)
 - [👏下载→简历模板](docs/nice-article/jianli.md)
 
 ## 学习建议
 
-**收集了我所有的知乎高赞帖子**！全方位迷茫解惑。
+**收集了一些网上高质量的帖子**！全方位帮你答疑解惑。
 
 - [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
 - [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
-- [高考填志愿，计算机，计科，人工智能，软工，大数据，物联网，网络工程该怎么选？](docs/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx.md)
-- [测试开发工程师必读经典好书清单](docs/nice-article/zhihu/ceskfgcsbdjdhsqdcjzssfl.md)
-- [校招java后端应该掌握到什么程度？](docs/nice-article/zhihu/jiaozjavahdygzwdsmcd.md)
+- [如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？](docs/xuexijianyi/gaokao-zhiyuan-cs.md)
+- [测试开发工程师必读经典书籍有哪些？](docs/xuexijianyi/test-programmer-read-books.md)
+- [校招 Java 后端开发应该掌握到什么程度？](docs/xuexijianyi/xiaozhao-java-should-master.md)
+- [本科生如何才能进入腾讯、阿里等一流的互联网公司？](docs/xuexijianyi/benksrhcnjrtxaldyldhlwgs.md)
+- [大裁员下，程序员如何做“副业”？](docs/xuexijianyi/chengxuyuan-fuye.md)
+- [如何在繁重的工作中持续成长？](docs/xuexijianyi/ruhzfzdgzzcxcz.md)
+- [如何获得高并发的经验？](docs/xuexijianyi/gaobingfa-jingyan-hsmcomputer.md)
+- [怎么跟 HR 谈薪资？](docs/xuexijianyi/hr-xinzi.md)
 
 
 # 知识库搭建

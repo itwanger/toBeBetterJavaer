@@ -1,6 +1,6 @@
 ---
-title: 正规军springboot如何处理：参数校验、统一异常、统一响应_bugpool的博客-CSDN博客_正规军springboot如何处理
-shortTitle: 正规军springboot如何处理：参数校验、统一异常、统一响应_bugpool的博客-CSDN博客_正规军springboot如何处理
+title: 如何优雅的写 Controller 层代码？
+shortTitle: 如何优雅的写Controller层代码？
 description: 前言本篇主要要介绍的就是controller层的处理，一个完整的后端请求由4部分组成：1. 接口地址(也就是URL地址)、2. 请求方式(一般就是get、set，当然还有put、delete)、3. 请求数据(request，有head跟body)、4. 响应数据(response)本篇将解决以下3个问题：当接收到请求时，如何优雅的校验参数返回响应数据该如何统一的进行处理接收到请求，处...
 tags:
   - 正规军springboot如何处理
@@ -15,15 +15,16 @@ head:
       content: 正规军springboot如何处理
 ---
 
-# 目录
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-69c3cc92-4d31-467b-a15d-33e43fd4bade.png)
 
-[一步到位springboot目录](https://blog.csdn.net/chaitoudaren/article/details/105624082)  
+作者：沉默王二<br>
+Java 程序员进阶之路：https://tobebetterjavaer.com
 
-gitee：[https://gitee.com/chaitou/leilema.git](https://gitee.com/chaitou/leilema.git)
-
-# 前言
+大家好，我是二哥呀！
 
 本篇主要要介绍的就是`controller`层的处理，一个完整的后端请求由4部分组成：1. `接口地址`(也就是URL地址)、2. `请求方式`(一般就是get、set，当然还有put、delete)、3. `请求数据`(request，有head跟body)、4. `响应数据`(response)
+
+>文章链接：https://blog.csdn.net/chaitoudaren/article/details/105610962 作者：bugpool 整理：沉默王二
 
 本篇将解决以下3个问题：
 
@@ -31,7 +32,7 @@ gitee：[https://gitee.com/chaitou/leilema.git](https://gitee.com/chaitou/leilem
 2.  返回响应数据该如何统一的进行处理
 3.  接收到请求，处理业务逻辑时抛出了异常又该如何处理
 
-# 一、Controller层参数接收（太基础了，可以跳过）
+## 一、Controller层参数接收（太基础了，可以跳过）
 
 常见的请求就分为`get`跟`post`2种
 
@@ -45,12 +46,12 @@ public class ProductInfoController {
 
     @GetMapping("/findById")
     public ProductInfoQueryVo findById(Integer id) {
-    	...
+        ...
     }
 
     @PostMapping("/page")
     public IPage findPage(Page page, ProductInfoQueryVo vo) {
-    	...
+        ...
     }
 }
 ```
@@ -71,9 +72,9 @@ productName : 泡脚
 ```
  
 
-# 二、统一状态码
+## 二、统一状态码
 
-## 1\. 返回格式
+### 1\. 返回格式
 
 为了跟`前端妹妹`打好关系，我们通常需要对后端返回的数据进行包装一下，增加一下`状态码`，`状态信息`，这样前端妹妹接收到数据就可以根据不同的`状态码`，判断`响应数据状态`，是否成功是否异常进行不同的显示。当然这让你拥有了更多跟前端妹妹的交流机会，假设我们约定了`1000`就是成功的意思  
 
@@ -107,7 +108,7 @@ productName : 泡脚
 ```
  
 
-## 2\. 封装ResultVo
+### 2\. 封装ResultVo
 
 这些状态码肯定都是要预先编好的，怎么编呢？写个常量`1000`？还是直接写死`1000`？要这么写就真的书白读的了，写`状态码`当然是用枚举拉
 
@@ -202,9 +203,9 @@ public class ResultVo {
 
 最后返回就会是上面带了状态码的数据了
 
-# 三、统一校验
+## 三、统一校验
 
-## 1\. 原始做法
+### 1\. 原始做法
 
 假设有一个添加`ProductInfo`的接口，在没有统一校验时，我们需要这么做
 
@@ -242,7 +243,7 @@ public class ProductInfoVo {
 
 这if写的人都傻了，能忍吗？肯定不能忍啊
 
-## 2\. @Validated参数校验
+### 2\. @Validated参数校验
 
 好在有`@Validated`，又是一个校验参数必备良药了。有了`@Validated`我们只需要再`vo`上面加一点小小的注解，便可以完成校验功能
 
@@ -323,7 +324,7 @@ productStatus : 1
 
 大功告成了吗？虽然成功校验了参数，也返回了异常，并且带上`"商品价格不允许为负数"`的信息。但是你要是这样返回给前端，前端妹妹就提刀过来了，当年约定好的`状态码`，你个`负心人`说忘就忘？用户`体验小于等于0`啊！所以我们要进行优化一下，每次出现异常的时候，自动把`状态码`写好，不负妹妹之约！
 
-## 3\. 优化异常处理
+### 3\. 优化异常处理
 
 首先我们先看看校验参数抛出了什么异常
 
@@ -334,7 +335,7 @@ Resolved [org.springframework.validation.BindException: org.springframework.vali
 
 我们看到代码抛出了`org.springframework.validation.BindException`的绑定异常，因此我们的思路就是`AOP`拦截所有`controller`，然后异常的时候统一拦截起来，进行封装！完美！
 
-![](https://img-blog.csdnimg.cn/20200419113721962.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-48412c36-e140-4a00-9eb4-b90d2accb8a5.png)
 
 玩你个头啊完美，这么呆瓜的操作`springboot`不知道吗？`spring mvc`当然知道拉，所以给我们提供了一个`@RestControllerAdvice`来增强所有`@RestController`，然后使用`@ExceptionHandler`注解，就可以拦截到对应的异常。
 
@@ -365,9 +366,9 @@ public class ControllerExceptionAdvice {
 ```
  
 
-# 四、统一响应
+## 四、统一响应
 
-## 1\. 统一包装响应
+### 1\. 统一包装响应
 
 再回头看一下`controller`层的返回
 
@@ -378,7 +379,7 @@ return new ResultVo(productInfoService.getOne(new QueryWrapper(productInfo)));
 
 开发小哥肯定不乐意了，谁有空天天写`new ResultVo(data)`啊，我就想返回一个实体！怎么实现我不管！好把，那就是`AOP`拦截所有`Controller`，再`@After`的时候统一帮你封装一下咯
 
-![](https://img-blog.csdnimg.cn/20200419113721962.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-48412c36-e140-4a00-9eb4-b90d2accb8a5.png)
 
 怕是上一次脸打的不够疼，springboot能不知道这么个操作吗？
 
@@ -445,9 +446,9 @@ public class ControllerResponseAdvice implements ResponseBodyAdvice<Object> {
 ```
  
 
-## 2\. NOT统一响应
+### 2\. NOT统一响应
 
-### 不开启统一响应原因
+#### 不开启统一响应原因
 
 开发小哥是开心了，可是其他系统就不开心了。举个例子：我们项目中集成了一个`健康检测`的功能，也就是这货
 
@@ -474,7 +475,7 @@ public class HealthController {
 
 是的，web项目的本质就是复读机。一旦发送的请求`没响应`，就会给负责人发信息（企业微信或者短信之类的），你的`系统死啦`！赶紧回来`排查bug`吧！让大家感受一下。每次看到我都`射射发抖`，早上6点！我tm！！！！！  
 
-![监控](https://img-blog.csdnimg.cn/20200419123058704.png)  
+![监控](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-9abb673b-9a5a-4a63-b103-089e5460da12.png)  
 
 好吧，没办法，人家是老大，人家要的返回不是
 
@@ -489,7 +490,7 @@ public class HealthController {
 
 人家要的返回只要一个`success`，人家定的标准不可能因为你一个系统改。俗话说的好，如果你改变不了环境，那你就只能我\*\*\*\*
 
-### 新增不进行封装注解
+#### 新增不进行封装注解
 
 因为百分之99的请求还是需要包装的，只有个别不需要，写在包装的过滤器吧？又不是很好维护，那就加个注解好了。所有不需要包装的就加上这个注解。
 
@@ -533,9 +534,9 @@ public class HealthController {
 
 这时候就不会自动封装了，而其他没加注解的则依旧自动包装  
 
-![noResponseAdvice](https://img-blog.csdnimg.cn/20200419124010579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYWl0b3VkYXJlbg==,size_16,color_FFFFFF,t_70)
+![noResponseAdvice](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-67f4a389-dfe5-4275-aab3-3ae149603e6a.png)
 
-# 五、统一异常
+## 五、统一异常
 
 每个系统都会有自己的`业务异常`，比如`库存不能小于0`子类的，这种异常并非程序异常，而是业务操作引发的异常，我们也需要进行规范的编排业务`异常状态码`，并且写一个专门处理的`异常类`，最后通过刚刚学习过的`异常拦截`统一进行处理，以及打`日志`
 
@@ -603,7 +604,7 @@ public class ControllerExceptionAdvice {
 
     @ExceptionHandler(APIException.class)
     public ResultVo APIExceptionHandler(APIException e) {
-    	// log.error(e.getMessage(), e); 由于还没集成日志框架，暂且放着，写上TODO
+        // log.error(e.getMessage(), e); 由于还没集成日志框架，暂且放着，写上TODO
         return new ResultVo(e.getCode(), e.getMsg(), e.getMessage());
     }
 }
@@ -629,6 +630,14 @@ if (null == orderMaster) {
 ```
  
 
-就会自动抛出`AppCode.ORDER_NOT_EXIST`状态码的响应，并且带上异常详细信息`订单号不存在：xxxx`。后端小哥开发有效率，前端妹妹获取到`2003`状态码，调用对应警告弹窗，`title`写上`订单不存在`，`body`详细信息记载`"订单号不存在：1998"`。同时`日志`还自动打上去了！666！老哥们三连点个赞！
+就会自动抛出`AppCode.ORDER_NOT_EXIST`状态码的响应，并且带上异常详细信息`订单号不存在：xxxx`。后端小哥开发有效率，前端妹妹获取到`2003`状态码，调用对应警告弹窗，`title`写上`订单不存在`，`body`详细信息记载`"订单号不存在：1998"`。同时`日志`还自动打上去了！
 
-![](https://tse1-mm.cn.bing.net/th?id=OIP.a1GxKoapSbT0sCoSJ7xd1AAAAA&w=148&h=160&c=8&rs=1&qlt=90&dpr=2&pid=3.1&rm=2)
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
