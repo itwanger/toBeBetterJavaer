@@ -38,7 +38,7 @@ export default navbar([
       { 
         text: "优质文章", 
         icon: "youzhi", 
-        link: "/download/nicearticle.md" 
+        link: "/nice-article/readme.md"
       },
       { 
         text: "网络日志", 

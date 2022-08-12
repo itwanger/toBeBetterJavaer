@@ -1,12 +1,17 @@
 ---
-shortTitle: 如何阅读CSAPP
-category:
-  - 学习资源
-tag:
+title: 如何阅读《深入理解计算机系统》这本书？
+shortTitle: 如何阅读《CSAPP》这本书？
+description: 如何阅读《深入理解计算机系统》这本书？
+tags:
   - 学习建议
+category:
+  - 学习建议
+head:
+  - - meta
+    - name: keywords
+      content: CSAPP,深入理解计算机系统
 ---
 
-# 如何阅读《深入理解计算机系统》这本书？
 
 大家好，我是二哥呀！好家伙，昨天在逛知乎的时候，发现了一个宝藏。
 
@@ -116,6 +121,12 @@ tag:
 当然了，要学好 CSAPP 这门课，并不容易，因为它包含了汇编、计算机组成原理、操作系统、计算机网络等等方方面面的知识，任何一个知识点展开去学习，都是需要花费大量时间和精力的。
 
 但求知的快乐不也正源于此吗？
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

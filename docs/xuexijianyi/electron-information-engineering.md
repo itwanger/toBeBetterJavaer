@@ -1,12 +1,17 @@
 ---
-shortTitle: 电子信息工程最好的出路
-category:
-  - 学习资源
-tag:
+title: 电子信息工程最好的出路的是什么？
+shortTitle: 电子信息工程最好的出路的是什么？
+description: 电子信息工程最好的出路的是什么？
+tags:
   - 学习建议
+category:
+  - 学习建议
+head:
+  - - meta
+    - name: keywords
+      content: 电子信息工程
 ---
 
-# 电子信息工程最好的出路的是什么？
 
 **最好的出路，在我看来是读研，然后做 IC；如果不想读研，想早点赚钱，建议转计算机专业；如果还想折中，考虑做嵌入式**。
 
@@ -160,7 +165,8 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/electron-information-engineering-a5f13f0d-c0e1-486a-933a-7bfa81983a6c.jpg)
 
-国内的推荐哈工大的这门视频课，整体评价非常高（建议 1.5 倍速食用），戳：[计算机组成原理（唐朔飞）_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1WW411Q7PF)
+国内的推荐哈工大的这门视频课，整体评价非常高（建议 1.5 倍速食用），戳：[计算机组成原理（唐朔飞）哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1WW411Q7PF)
+
 
 ### 五、数据结构与算法
 
@@ -295,5 +301,10 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 **希望能给大家提供一点点帮助和启发~**
 
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

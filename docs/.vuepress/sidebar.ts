@@ -1,7 +1,6 @@
 import { sidebar } from "vuepress-theme-hope";
 export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["readme.md","map","may","june","july"],
-  "/download/": ["java","nicearticle", "history"],
   "/nice-article/itmind/": [
     "readme.md",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
@@ -14,7 +13,6 @@ export const sidebarConfig = sidebar({
     "typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom",
     "xshellazpjbjcxshellpxffxbxt",
     "pycharmjhpxmazjcnyrgxxbxt",
-    "miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl",
   ],
   "/xuexiluxian/": [
     {
@@ -49,7 +47,6 @@ export const sidebarConfig = sidebar({
     "os.md",
     "network.md",
     "rocketmq.md",
-    
   ],
   // 必须放在最后面
   "/": [
@@ -628,7 +625,14 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.5 辅助工具",
+          text: "3.5 Netty",
+          collapsable: true,
+          children: [
+            "netty/rumen",
+          ],
+        },
+        {
+          text: "3.6 辅助工具",
           collapsable: true,
           children: [
             "gongju/choco",
@@ -641,7 +645,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.6 开源轮子",
+          text: "3.7 开源轮子",
           collapsable: true,
           children: [
             {
@@ -684,7 +688,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.7 分布式",
+          text: "3.8 分布式",
           collapsable: true,
           children: [
             {
@@ -702,7 +706,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.8 消息队列",
+          text: "3.9 消息队列",
           collapsable: true,
           children: [
             {
@@ -840,18 +844,17 @@ export const sidebarConfig = sidebar({
       text: "七、学习资源",
       collapsable: true,
       children: [
-        "download/java.md",
-        "nice-article/weixin-bagwpdf.md",
-        "nice-article/weixin-shenrjcjavabfbchwjdhl.md",
-        "nice-article/weixin-githubxbkdjavajccjyh.md",
-        "nice-article/weixin-shejmsnb.md",
-        "nice-article/weixin-mozdsdzfjavableetcodetxxk.md",
-        "nice-article/weixin/sulwgalcpdssbjavakfsc.md",
-        "nice-article/yuanyifeng-c-language.md",
-        "nice-article/bat-shuati.md",
-        "nice-article/weixin-piaolwzjztqdtskwlzfpdf.md",
-        "nice-article/progit.md",
-        "nice-article/jianli.md",
+        "pdf/programmer-111.md",
+        "pdf/java-concurrent.md",
+        "pdf/github-java-jiaocheng-115-star.md",
+        "pdf/shejimoshi.md",
+        "pdf/java-leetcode.md",
+        "pdf/ali-java-shouce.md",
+        "pdf/yuanyifeng-c-language.md",
+        "pdf/bat-shuati.md",
+        "pdf/os.md",
+        "pdf/progit.md",
+        "pdf/jianli.md",
       ],
     },
     {
@@ -860,8 +863,14 @@ export const sidebarConfig = sidebar({
       children: [
           "xuexijianyi/read-csapp",
           "xuexijianyi/electron-information-engineering",
-          "nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx",
-          "nice-article/weixin/ceskfgcsbdjdhsqdcjzssfl",
+          "xuexijianyi/gaokao-zhiyuan-cs",
+          "xuexijianyi/test-programmer-read-books",
+          "xuexijianyi/xiaozhao-java-should-master",
+          "xuexijianyi/benksrhcnjrtxaldyldhlwgs",
+          "xuexijianyi/chengxuyuan-fuye",
+          "xuexijianyi/ruhzfzdgzzcxcz",
+          "xuexijianyi/gaobingfa-jingyan-hsmcomputer",
+          "xuexijianyi/hr-xinzi",
         ],
     },
     {

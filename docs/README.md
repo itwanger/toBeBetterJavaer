@@ -30,18 +30,18 @@ actions:
 
 ## PDF
 
-- [👏下载→Java程序员常读书单](download/java.md)
-- [👏下载→最全最硬核的Java面试 “备战” 资料](nice-article/weixin-bagwpdf.md)
-- [👏下载→深入浅出Java多线程](nice-article/weixin-shenrjcjavabfbchwjdhl.md)
-- [👏下载→GitHub星标115k+的Java教程](nice-article/weixin-githubxbkdjavajccjyh.md)
-- [👏下载→重学Java设计模式](nice-article/weixin-shejmsnb.md)
-- [👏下载→Java版LeetCode刷题笔记](nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
-- [👏下载→阿里巴巴Java开发手册](nice-article/weixin/sulwgalcpdssbjavakfsc.md)
-- [👏下载→阮一峰C语言入门教程](nice-article/yuanyifeng-c-language.md)
-- [👏下载→BAT大佬的刷题笔记](nice-article/bat-shuati.md)
-- [👏下载→给操作系统捋条线](nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
-- [👏下载→豆瓣9.1分，Pro Git中文版](nice-article/progit.md)
-- [👏下载→简历模板](nice-article/jianli.md)
+- [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](pdf/programmer-111.md)
+- [👏下载→深入浅出Java多线程PDF](pdf/java-concurrent.md)
+- [👏下载→GitHub星标115k+的Java教程](pdf/github-java-jiaocheng-115-star.md)
+- [👏下载→重学Java设计模式PDF](pdf/shejimoshi.md)
+- [👏下载→Java版LeetCode刷题笔记](pdf/java-leetcode.md)
+- [👏下载→阿里巴巴Java开发手册](pdf/ali-java-shouce.md)
+- [👏下载→阮一峰C语言入门教程](pdf/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](pdf/bat-shuati.md)
+- [👏下载→给操作系统捋条线PDF](pdf/os.md)
+- [👏下载→豆瓣9.1分的Pro Git中文版](pdf/progit.md)
+- [👏下载→简历模板](pdf/jianli.md)
+
 
 ## 公众号
 
