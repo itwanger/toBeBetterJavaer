@@ -414,7 +414,7 @@ public class ArrayListTest {
         long timeStart = System.currentTimeMillis();
         while (i < num) {
             int temp = list.size();
-            list.add(temp / 2 + "沉默王二");
+            list.add(temp / 2, i + "沉默王二");
             i++;
         }
         long timeEnd = System.currentTimeMillis();
@@ -443,8 +443,8 @@ public class LinkedListTest {
 num 为 10000，代码实测后的时间如下所示：
 
 ```
-ArrayList从集合中间位置新增元素花费的时间1
-LinkedList从集合中间位置新增元素花费的时间101
+ArrayList从集合中间位置新增元素花费的时间16
+LinkedList从集合中间位置新增元素花费的时间114
 ```
 
 ArrayList 花费的时间比 LinkedList 要少很多很多。
