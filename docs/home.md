@@ -310,7 +310,7 @@ head:
 - [编程喵🐱实战项目如何在云服务器上跑起来？](springboot/linux-codingmore-run.md)
 - [SpringBoot中处理校验逻辑的两种方式：Hibernate Validator+全局异常处理](springboot/validator.md)
 
-## Netty
+### Netty
 
 - [超详细Netty入门，看这篇就够了！](netty/rumen.md)
 
