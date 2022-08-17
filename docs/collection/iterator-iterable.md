@@ -1,6 +1,6 @@
 ---
 title: 海康威视一面：Java中Iterator和Iterable有什么区别？
-shortTitle: ArrayList和LinkedList的区别
+shortTitle: Iterator和Iterable有什么区别？
 category:
   - Java核心
 tag:
@@ -9,11 +9,15 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java中I
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java LinkedList,Java ArrayList,linkedlist arraylist
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java Iterable,Java Iterator,Iterable Iterator
 ---
 
 
 那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？
+
+小二表示很开心，因为他3 天前刚好在《Java 程序员进阶之路》上读过这篇文章，所以回答得胸有成竹。
+
+以下↓是文章的内容。
 
 ----
 
@@ -248,5 +252,11 @@ while (it.hasNext()) {
 - 学会深入思考，一点点抽丝剥茧，多想想为什么这样实现，很多问题没有自己想象中的那么复杂。
 - 遇到疑惑不放弃，这是提升自己最好的机会，遇到某个疑难的点，解决的过程中会挖掘出很多相关的东西。
 
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

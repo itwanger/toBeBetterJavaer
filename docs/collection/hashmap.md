@@ -1,11 +1,19 @@
 ---
+title: Java HashMap详解（附源码分析）
+shortTitle: Java HashMap详解
 category:
   - Java核心
 tag:
-  - Java
+  - 集合框架（容器）
+description: Java程序员进阶之路，小白的零基础Java教程，Java HashMap详解
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java HashMap
 ---
 
-# Java8系列之重新认识HashMap
+这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括HashMap hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，所有 HashMap 的常见面试题，都会在这一篇文章里讲明白。
+
 
 ## 一、hash 方法的原理
 
@@ -141,7 +149,7 @@ static final int hash(Object key) {
 
 ## 二、扩容机制
 
-大家都知道，数组一旦初始化后大小就无法改变了，所以就有了 [ArrayList](https://mp.weixin.qq.com/s/7puyi1PSbkFEIAz5zbNKxA)这种“动态数组”，可以自动扩容。
+大家都知道，数组一旦初始化后大小就无法改变了，所以就有了 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html)这种“动态数组”，可以自动扩容。
 
 HashMap 的底层用的也是数组。向 HashMap 里不停地添加元素，当数组无法装载更多元素时，就需要对数组进行扩容，以便装入更多的元素。
 
@@ -224,7 +232,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 **在旧数组中同一个链表上的元素，通过重新计算索引位置后，有可能被放到了新数组的不同位置上**（仔细看下面的内容，会解释清楚这一点）。
 
-假设 hash 算法（[之前的章节有讲到](https://mp.weixin.qq.com/s/aS2dg4Dj1Efwujmv-6YTBg)，点击链接再温故一下）就是简单的用键的哈希值（一个 int 值）和数组大小取模（也就是 hashCode % table.length）。
+假设 hash 算法就是简单的用键的哈希值（一个 int 值）和数组大小取模（也就是 hashCode % table.length）。
 
 继续假设：
 
@@ -410,7 +418,7 @@ i = (n - 1) & hash
 
 我们知道，HashMap 是通过拉链法来解决哈希冲突的。
 
-为了减少哈希冲突发生的概率，当 HashMap 的数组长度达到一个**临界值**的时候，就会触发扩容（可以点击[链接](https://mp.weixin.qq.com/s/0KSpdBJMfXSVH63XadVdmw)查看 HashMap 的扩容机制），扩容后会将之前小数组中的元素转移到大数组中，这是一个相当耗时的操作。
+为了减少哈希冲突发生的概率，当 HashMap 的数组长度达到一个**临界值**的时候，就会触发扩容，扩容后会将之前小数组中的元素转移到大数组中，这是一个相当耗时的操作。
 
 这个临界值由什么来确定呢？
 
@@ -440,7 +448,7 @@ static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
 阮一峰老师曾在一篇博文中详细的介绍了泊松分布和指数分布，大家可以去看一下。
 
->链接：https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html
+>链接：[https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html](https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html)
 
 具体是用这么一个公式来表示的。
 
@@ -486,7 +494,7 @@ more: less than 1 in ten million
 
 为了搞清楚到底为什么，我看到了这篇文章：
 
->参考链接：https://segmentfault.com/a/1190000023308658
+>参考链接：[https://segmentfault.com/a/1190000023308658](https://segmentfault.com/a/1190000023308658)
 
 里面提到了一个概念：**二项分布**（二哥概率论没学好，只能简单说一说）。
 
@@ -535,7 +543,7 @@ more: less than 1 in ten million
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-09.png)
 
 
-考虑到 HashMap的容量有一个要求：它必须是2的n 次幂（这个[之前的文章](https://mp.weixin.qq.com/s/aS2dg4Dj1Efwujmv-6YTBg)讲过了，点击链接回去可以再温故一下）。当加载因子选择了0.75就可以保证它与容量的乘积为整数。
+考虑到 HashMap的容量有一个要求：它必须是2的n 次幂。当加载因子选择了0.75就可以保证它与容量的乘积为整数。
 
 ```
 16*0.75=12
@@ -656,7 +664,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 套娃开始，元素 5 也就成了弃婴，惨~~~
 
-不过，JDK 8 时已经修复了这个问题，扩容时会保持链表原来的顺序，参照[HashMap 扩容机制](https://mp.weixin.qq.com/s/0KSpdBJMfXSVH63XadVdmw)的这一篇。
+不过，JDK 8 时已经修复了这个问题，扩容时会保持链表原来的顺序。
 
 ### 02、多线程下 put 会导致元素丢失
 
@@ -794,9 +802,15 @@ final Node<K,V>[] resize() {
 
 参考链接：
 
-> - https://blog.csdn.net/lonyw/article/details/80519652
-> - https://zhuanlan.zhihu.com/p/91636401 
-> - https://www.zhihu.com/question/20733617
-> - https://zhuanlan.zhihu.com/p/21673805
+> - [https://blog.csdn.net/lonyw/article/details/80519652](https://blog.csdn.net/lonyw/article/details/80519652)
+> - [https://zhuanlan.zhihu.com/p/91636401](https://zhuanlan.zhihu.com/p/91636401)
+> - [https://www.zhihu.com/question/20733617](https://www.zhihu.com/question/20733617)
+> - [https://zhuanlan.zhihu.com/p/21673805](https://zhuanlan.zhihu.com/p/21673805)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

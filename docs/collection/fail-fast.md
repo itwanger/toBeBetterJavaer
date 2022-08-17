@@ -1,14 +1,23 @@
 ---
+title: 为什么阿里巴巴强制不要在foreach里执行删除操作？还不是因为fail-fast
+shortTitle: 为什么不要在foreach里执行删除操作？
 category:
   - Java核心
 tag:
-  - Java
+  - 集合框架（容器）
+description: Java程序员进阶之路，小白的零基础Java教程，为什么阿里巴巴强制不要在foreach里执行删除操作？还不是因为fail-fast
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java fail-fast
 ---
-
-# 为什么阿里巴巴强制不要在foreach里执行删除操作
 
 
 那天，小二去阿里面试，面试官老王一上来就甩给了他一道面试题：为什么阿里的 Java 开发手册里会强制不要在 foreach 里进行元素的删除操作？
+
+小二听完这句话就乐了。为什么呢？因为一天前他刚在《Java 程序员进阶之路》上看到过这道题的答案。
+
+以下是整篇文章的内容。
 
 -----
 
@@ -156,9 +165,9 @@ modCount 的值变成了 4。
 
 那原因其实就是我们上面分析的这些，出于 fail-fast 保护机制。
 
-**那该如何正确地删除元素呢**？
+## 那该如何正确地删除元素呢？
 
-**1）remove 后 break**
+### **1）remove 后 break**
 
 ```java
 List<String> list = new ArrayList<>();
@@ -179,7 +188,7 @@ break 后循环就不再遍历了，意味着 Iterator 的 next 方法不再执�
 但是呢，当 List 中有重复元素要删除的时候，break 就不合适了。
 
 
-**2）for 循环**
+### **2）for 循环**
 
 ```java
 List<String> list = new ArrayList<>();
@@ -200,7 +209,7 @@ for 循环虽然可以避开 fail-fast 保护机制，也就说 remove 元素后
 
 remove 之前 `list.get(1)` 为“沉默王三”；但 remove 之后 `list.get(1)` 变成了“一个文章真特么有趣的程序员”，而 `list.get(0)` 变成了“沉默王三”。
 
-**3）使用 Iterator**
+### **3）使用 Iterator**
 
 ```java
 List<String> list = new ArrayList<>();
@@ -244,5 +253,11 @@ public void remove() {
 简单地总结一下，fail-fast 是一种保护机制，可以通过 for-each 循环删除集合的元素的方式验证这种保护机制。
 
 那也就是说，for-each 本质上是一种语法糖，遍历集合时很方面，但并不适合拿来操作集合中的元素（增删）。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

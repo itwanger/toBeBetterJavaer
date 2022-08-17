@@ -127,34 +127,13 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           children: [
           
-          {
-            text: "概述",
-            link: "collection/gailan",
-          },
-          {
-            text: "ArrayList",
-            link: "collection/arraylist",
-          },
-          {
-            text: "LinkedList",
-            link: "collection/linkedlist",
-          },
-          {
-            text: "ArrayList和LinkedList的区别",
-            link: "collection/list-war-2",
-          },
-          {
-            text: "Iterator和Iterable",
-            link: "collection/iterator-iterable",
-          },
-          {
-            text: "fail-fast",
-            link: "collection/fail-fast",
-          },
-          {
-            text: "HashMap",
-            link: "collection/hashmap",
-          },
+          "collection/gailan",
+          "collection/arraylist",
+          "collection/linkedlist",
+          "collection/list-war-2",
+          "collection/iterator-iterable",
+          "collection/fail-fast",
+          "collection/hashmap",
          
           ],
         },
