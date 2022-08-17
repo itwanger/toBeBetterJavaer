@@ -1,6 +1,6 @@
 ---
 title: Java LinkedList详解（附源码分析）
-shortTitle: Java LinkedList详解
+shortTitle: LinkedList详解
 category:
   - Java核心
 tag:

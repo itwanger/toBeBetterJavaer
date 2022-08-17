@@ -1,6 +1,6 @@
 ---
 title: Java ArrayList详解（附源码分析）
-shortTitle: Java ArrayList详解
+shortTitle: ArrayList详解
 category:
   - Java核心
 tag:
