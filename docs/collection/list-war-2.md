@@ -1,14 +1,19 @@
 ---
+title: 面试官问我Java中ArrayList和LinkedList的区别，我和他扯了半小时
+shortTitle: ArrayList和LinkedList的区别
 category:
   - Java核心
 tag:
-  - Java
+  - 集合框架（容器）
+description: Java程序员进阶之路，小白的零基础Java教程，Java中ArrayList和LinkedList的区别
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java LinkedList,Java ArrayList,linkedlist arraylist
 ---
 
-# Java中ArrayList和LinkedList的区别
 
-
-### 01、ArrayList 是如何实现的？
+## 01、ArrayList 是如何实现的？
 
 ArrayList 实现了 List 接口，继承了 AbstractList 抽象类。
 
@@ -139,7 +144,7 @@ private void writeObject(java.io.ObjectOutputStream s)
 
 此处应该有掌声啊！不是为我，为 Java 源码的作者们，他们真的是太厉害了，可以用两个词来形容他们——殚精竭虑、精益求精。
 
-### 02、LinkedList 是如何实现的？
+## 02、LinkedList 是如何实现的？
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-02.png)
@@ -230,11 +235,11 @@ void linkLast(E e) {
 
 和 ArrayList 相比，LinkedList 没有实现 RandomAccess 接口，这是因为 LinkedList 存储数据的内存地址是不连续的，所以不支持随机访问。
 
-### 03、ArrayList 和 LinkedList 新增元素时究竟谁快？
+## 03、ArrayList 和 LinkedList 新增元素时究竟谁快？
 
 前面我们已经从多个维度了解了 ArrayList 和 LinkedList 的实现原理和各自的特点。那接下来，我们就来聊聊 ArrayList 和 LinkedList 在新增元素时究竟谁快？
 
-**1）ArrayList**
+### **1）ArrayList**
 
 ArrayList 新增元素有两种情况，一种是直接将元素添加到数组末尾，一种是将元素插入到指定位置。
 
@@ -277,7 +282,7 @@ public void add(int index, E element) {
 
 先检查插入的位置是否在合理的范围之内，然后判断是否需要扩容，再把该位置以后的元素复制到新添加元素的位置之后，最后通过索引将元素添加到指定的位置。这种情况是非常伤的，性能会比较差。
 
-**2）LinkedList**
+### **2）LinkedList**
 
 LinkedList 新增元素也有两种情况，一种是直接将元素添加到队尾，一种是将元素插入到指定位置。
 
@@ -499,9 +504,9 @@ ArrayList 花费的时间比 LinkedList 要少一些。
 
 当然了，如果涉及到数组扩容的话，ArrayList 的性能就没那么可观了，因为扩容的时候也要复制数组。
 
-### 04、ArrayList 和 LinkedList 删除元素时究竟谁快？
+## 04、ArrayList 和 LinkedList 删除元素时究竟谁快？
 
-**1）ArrayList**
+### **1）ArrayList**
 
 ArrayList 删除元素的时候，有两种方式，一种是直接删除元素（`remove(Object)`），需要直先遍历数组，找到元素对应的索引；一种是按照索引删除元素（`remove(int)`）。
 
@@ -551,7 +556,7 @@ private void fastRemove(Object[] es, int i) {
 从源码可以看得出，只要删除的不是最后一个元素，都需要数组重组。删除的元素位置越靠前，代价就越大。
 
 
-**2）LinkedList**
+### **2）LinkedList**
 
 LinkedList 删除元素的时候，有四种常用的方式：
 
@@ -672,9 +677,9 @@ ArrayList从集合尾部位置删除元素花费的时间8
 LinkedList从集合尾部位置删除元素花费的时间12
 ```
 
-### 05、ArrayList 和 LinkedList 遍历元素时究竟谁快？
+## 05、ArrayList 和 LinkedList 遍历元素时究竟谁快？
 
-**1）ArrayList**
+### **1）ArrayList**
 
 遍历 ArrayList 找到某个元素的话，通常有两种形式：
 
@@ -718,7 +723,7 @@ int indexOfRange(Object o, int start, int end) {
 根据元素找索引的话，就需要遍历整个数组了，从头到尾依次找。
 
 
-**2）LinkedList**
+### **2）LinkedList**
 
 遍历 LinkedList 找到某个元素的话，通常也有两种形式：
 
@@ -837,8 +842,13 @@ private class ListItr implements ListIterator<E> {
 
 也就是说，for 循环遍历的时候，ArrayList 花费的时间远小于 LinkedList；迭代器遍历的时候，两者性能差不多。
 
-### 06、总结
 
 花了两天时间，终于肝完了！相信看完这篇文章后，再有面试官问你 ArrayList 和 LinkedList 有什么区别的话，你一定会胸有成竹地和他扯上半小时了。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
