@@ -134,6 +134,11 @@ export const sidebarConfig = sidebar({
           "collection/iterator-iterable",
           "collection/fail-fast",
           "collection/hashmap",
+          "collection/linkedhashmap",
+          "collection/treemap",
+          "collection/arraydeque",
+          "collection/PriorityQueue",
+          "collection/WeakHashMap",
          
           ],
         },

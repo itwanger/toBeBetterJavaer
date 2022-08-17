@@ -1,6 +1,6 @@
 ---
 title: Java HashMap详解（附源码分析）
-shortTitle: Java HashMap详解
+shortTitle: HashMap详解
 category:
   - Java核心
 tag:

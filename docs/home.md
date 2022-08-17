@@ -160,6 +160,12 @@ head:
 - [海康威视一面：Java中Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
 - [为什么阿里巴巴强制不要在foreach里执行删除操作？还不是因为fail-fast](collection/fail-fast.md)
 - [Java HashMap详解（附源码分析）](collection/hashmap.md)
+- [Java LinkedHashMap详解（附源码分析）](collection/linkedhashmap.md)
+- [Java TreeMap详解（附源码分析）](collection/treemap.md)
+- [详解 Java 中的堆和队列（Stack and Queue 附源码分析）](collection/arraydeque.md)
+- [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](collection/PriorityQueue.md)
+- [Java WeakHashMap详解（附源码分析）](collection/WeakHashMap.md)
+
 
 ### Java输入输出
 
