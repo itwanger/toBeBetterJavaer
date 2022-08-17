@@ -1,16 +1,21 @@
 ---
+title: 海康威视一面：Java中Iterator和Iterable有什么区别？
+shortTitle: ArrayList和LinkedList的区别
 category:
   - Java核心
 tag:
-  - Java
+  - 集合框架（容器）
+description: Java程序员进阶之路，小白的零基础Java教程，Java中Iterator和Iterable有什么区别？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java LinkedList,Java ArrayList,linkedlist arraylist
 ---
-
-# Java中的Iterator和Iterable区别
 
 
 那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？
 
------
+----
 
 在 Java 中，我们对 List 进行遍历的时候，主要有这么三种方式。
 

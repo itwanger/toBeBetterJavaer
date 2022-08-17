@@ -1,14 +1,19 @@
 ---
+title: Java LinkedList详解（附源码分析）
+shortTitle: Java LinkedList详解
 category:
   - Java核心
 tag:
-  - Java
+  - 集合框架（容器）
+description: Java程序员进阶之路，小白的零基础Java教程，Java LinkedList详解
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java LinkedList,LinkedList源码
 ---
 
-# Java集合LinkedList详解
 
-
-### 一、LinkedList 的剖白
+## 一、LinkedList 的剖白
 
 大家好，我是 LinkedList，和 ArrayList 是同门师兄弟，但我俩练的内功却完全不同。师兄练的是动态数组，我练的是链表。
 
@@ -36,7 +41,7 @@ tag:
 
 但我现在的功力还达不到第三层，不过师父说我有这个潜力，练成神功是早晚的事。
 
-### 二、LinkedList 的内功心法
+## 二、LinkedList 的内功心法
 
 好了，经过我这么样的一个剖白后，大家对我应该已经不陌生了。那么接下来，我给大家展示一下我的内功心法。
 
@@ -72,7 +77,7 @@ private static class Node<E> {
 
 我的内功心法就这么简单，其实我早已经牢记在心了。但师父叮嘱我，每天早上醒来的时候，每天晚上睡觉的时候，一定要默默地背诵一遍。虽然我有些厌烦，但我对师父的教诲从来都是言听计从。
 
-### 03、LinkedList 的招式
+## 03、LinkedList 的招式
 
 和师兄 ArrayList 一样，我的招式也无外乎“增删改查”这 4 种。在此之前，我们都必须得初始化。
 
@@ -82,7 +87,7 @@ LinkedList<String> list = new LinkedList();
 
 师兄在初始化的时候，默认大小为 10，也可以指定大小，依据要存储的元素数量来。我就不需要。
 
-**1）招式一：增**
+### **1）招式一：增**
 
 可以调用 add 方法添加元素：
 
@@ -173,7 +178,7 @@ private void linkFirst(E e) {
 addLast 的内核其实和 addFirst 差不多，就交给大家自行理解了。
 
 
-**2）招式二：删**
+### **2）招式二：删**
 
 我这个删的招式还挺多的：
 
@@ -280,7 +285,7 @@ private E unlinkFirst(Node<E> f) {
 }
 ```
 
-**3）招式三：改**
+### **3）招式三：改**
 
 可以调用 `set()` 方法来更新元素：
 
@@ -326,7 +331,7 @@ Node<E> node(int index) {
 
 找到指定下标的节点就简单了，直接把原有节点的元素替换成新的节点就 OK 了，prev 和 next 都不用改动。
 
-**4）招式四：查**
+### **4）招式四：查**
 
 我这个查的招式可以分为两种：
 
@@ -372,7 +377,7 @@ public E get(int index) {
 - `pollLast()` 方法用于删除并返回最后一个元素；
 - `peekFirst()` 方法用于返回但不删除第一个元素。
 
-###  四、LinkedList 的挑战
+## 四、LinkedList 的挑战
 
 说句实在话，我不是很喜欢和师兄 ArrayList 拿来比较，因为我们各自修炼的内功不同，没有孰高孰低。
 
@@ -383,5 +388,11 @@ public E get(int index) {
 也许这就是命运吧，从我进入师门的那天起，这种争论就一直没有停息过。
 
 无论外人怎么看待我们，在我眼里，师兄永远都是一哥，我敬重他，他也愿意保护我。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
