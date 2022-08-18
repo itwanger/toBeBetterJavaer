@@ -34,6 +34,7 @@
 > - [Java 程序员进阶之路在线阅读网站](https://tobebetterjavaer.com/)
 > - [Java 程序员进阶之路 GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)
 > - [Java 程序员进阶之路 Gitee 仓库](https://gitee.com/itwanger/toBeBetterJavaer)
+> - [Java 程序员进阶之路 GitCode 仓库](https://gitcode.net/qing_gee/toBeBetterJavaer)
 > 
 > 亿点点小请求，建议戳[这个链接🔗](https://github.com/itwanger/toBeBetterJavaer)给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
 
