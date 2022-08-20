@@ -1,6 +1,6 @@
 ---
-title: HR问我目前拿到哪几个offer了，该怎么回答？_笔经面经_牛客网
-shortTitle: HR问我目前拿到哪几个offer了，该怎么回答？
+title: HR问你目前拿到哪几个offer了，该怎么回答？
+shortTitle: HR问你目前拿到哪几个offer了，该怎么回答？
 tags:
   - 优质文章
 category:
