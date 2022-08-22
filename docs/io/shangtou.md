@@ -1,11 +1,16 @@
 ---
+title: 看完这篇，Java IO 不再混乱！
+shortTitle: 看完这篇，Java IO不再混乱
 category:
   - Java核心
 tag:
-  - Java
+  - Java IO
+description: Java程序员进阶之路，小白的零基础Java教程，Java IO 体系看起来类很多，感觉很复杂，但其实是 IO 涉及的因素太多了。在设计 IO 相关的类时，编写者也不是从同一个方面考虑的，所以会给人一种很乱的感觉，并且还有设计模式的使用，更加难以使用这些 IO 类，所以特地对 Java 的 IO 做一个总结。
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO
 ---
-
-# Java IO学习整理
 
 
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
@@ -16,7 +21,7 @@ tag:
 
 看着肺都快要气炸的小二，老王深深地吸了一口气，耐心地对小二说：“主要是 Java 的设计者考虑得比较多吧，所以 IO 给人一种很乱的感觉，我来给你梳理一下。”
 
-### 01、传输方式划分
+## 01、传输方式划分
 
 就按照你的那副思维导图来说吧。
 
@@ -80,7 +85,7 @@ tag:
 
 理解了上面这些方法，基本上 IO 的灵魂也就全部掌握了。
 
-### 02、操作对象划分
+## 02、操作对象划分
 
 小二，你细想一下，IO IO，不就是输入输出（Input/Output）嘛：
 
@@ -94,7 +99,7 @@ tag:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-03.png)
 
 
-**1）文件**
+### **1）文件**
 
 文件流也就是直接操作文件的流，可以细分为字节流（FileInputStream 和 FileOuputStream）和字符流（FileReader 和 FileWriter）。
 
@@ -144,7 +149,7 @@ fileWriter.close();
 
 当掌握了文件的输入输出，其他的自然也就掌握了，都大差不差。
 
-**2）数组**
+### **2）数组**
 
 通常来说，针对文件的读写操作，使用文件流配合缓冲流就够用了，但为了提升效率，频繁地读写文件并不是太好，那么就出现了数组流，有时候也称为内存流。
 
@@ -176,7 +181,7 @@ byte[] dest =bos.toByteArray();
 bos.close();
 ```
 
-**3）管道**
+### **3）管道**
 
 Java 中的管道和 Unix/Linux 中的管道不同，在 Unix/Linux 中，不同的进程之间可以通过管道来通信，但 Java 中，通信的双方必须在同一个进程中，也就是在同一个 JVM 中，管道为线程之间的通信提供了通信能力。
 
@@ -219,7 +224,7 @@ thread1.start();
 thread2.start();
 ```
 
-**4）基本数据类型**
+### **4）基本数据类型**
 
 基本数据类型输入输出流是一个字节流，该流不仅可以读写字节和字符，还可以读写基本数据类型。
 
@@ -251,7 +256,7 @@ das.writeBoolean(true);
 das.writeChar('A');
 ```
 
-**5）缓冲**
+### **5）缓冲**
 
 CPU 很快，它比内存快 100 倍，比磁盘快百万倍。那也就意味着，程序和内存交互会很快，和硬盘交互相对就很慢，这样就会导致性能问题。
 
@@ -262,7 +267,7 @@ CPU 很快，它比内存快 100 倍，比磁盘快百万倍。那也就意味�
 
 缓冲流在内存中设置了一个缓冲区，只有缓冲区存储了足够多的带操作的数据后，才会和内存或者硬盘进行交互。简单来说，就是一次多读/写点，少读/写几次，这样程序的性能就会提高。
 
-**6）打印**
+### **6）打印**
 
 恐怕 Java 程序员一生当中最常用的就是打印流了：`System.out` 其实返回的就是一个 PrintStream 对象，可以用来打印各式各样的对象。
 
@@ -280,7 +285,7 @@ try (PrintWriter pw = new PrintWriter(buffer)) {
 System.out.println(buffer.toString());
 ```
 
-**7）对象序列化/反序列化**
+### **7）对象序列化/反序列化**
 
 序列化本质上是将一个 Java 对象转成字节数组，然后可以将其保存到文件中，或者通过网络传输到远程。
 
@@ -302,7 +307,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 ```
 
 
-**8）转换**
+### **8）转换**
 
 InputStreamReader 是从字节流到字符流的桥连接，它使用指定的字符集读取字节并将它们解码为字符。
 
@@ -329,6 +334,10 @@ out.close() ;
 此时此刻的小二，还沉浸在老王的滔滔不绝中。不仅感觉老王的肺活量是真的大，还感慨老王不愧是工作了十多年的“老油条”，一下子就把自己感觉头大的 IO 给梳理得很清晰了。
 
 ---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

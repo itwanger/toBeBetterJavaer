@@ -152,9 +152,11 @@
 - [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](docs/collection/PriorityQueue.md)
 - [Java WeakHashMap详解（附源码分析）](docs/collection/WeakHashMap.md)
 
-## Java输入输出
+## Java IO
 
-- [Java IO学习整理](docs/io/shangtou.md)
+- [看完这篇，Java IO 不再混乱！](docs/io/shangtou.md)
+- [详解 File、Path、Paths、Files 四个类，操作文件不再难](docs/io/file-path.md)
+- [文件的世界，一切皆字节（Stream）](docs/io/byte.md)
 - [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/io/BIONIOAIO.md)
 
 
