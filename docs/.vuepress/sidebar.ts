@@ -147,14 +147,9 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           prefix:"io/",
           children: [
-          {
-            text: "概览",
-            link: "shangtou",
-          },
-          {
-            text: "BIO、NIO和AIO",
-            link: "BIONIOAIO",
-          },
+          "shangtou",
+          "file-path",
+          "BIONIOAIO",
           ],
         },
         {
