@@ -79,6 +79,7 @@ export const sidebarConfig = sidebar({
           "basic-extra-meal/java-naming",
           "basic-grammar/javadoc",
           "basic-grammar/basic-data-type",
+          "basic-grammar/type-cast",
           "basic-grammar/operator",
           "basic-grammar/flow-control",
           ],
@@ -149,6 +150,9 @@ export const sidebarConfig = sidebar({
           children: [
           "shangtou",
           "file-path",
+          "stream",
+          "reader-writer",
+          "buffer",
           "BIONIOAIO",
           ],
         },

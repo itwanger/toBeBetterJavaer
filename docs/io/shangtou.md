@@ -21,6 +21,22 @@ head:
 
 看着肺都快要气炸的小二，老王深深地吸了一口气，耐心地对小二说：“主要是 Java 的设计者考虑得比较多吧，所以 IO 给人一种很乱的感觉，我来给你梳理一下。”
 
+## 00、初识 Java IO
+
+IO，即in和out，也就是输入和输出，指应用程序和外部设备之间的数据传递，常见的外部设备包括文件、管道、网络连接。
+
+Java 中是通过流处理IO 的，那么什么是流？
+
+流（Stream），是一个抽象的概念，是指一连串的数据（字符或字节），是以先进先出的方式发送信息的通道。
+
+当程序需要读取数据的时候，就会开启一个通向数据源的流，这个数据源可以是文件，内存，或是网络连接。类似的，当程序需要写入数据的时候，就会开启一个通向目的地的流。这时候你就可以想象数据好像在这其中“流”动一样。
+
+一般来说关于流的特性有下面几点：
+
+- 先进先出：最先写入输出流的数据最先被输入流读取到。
+- 顺序存取：可以一个接一个地往流中写入一串字节，读出时也将按写入顺序读取一串字节，不能随机访问中间的数据。（RandomAccessFile除外）
+- 只读或只写：每个流只能是输入流或输出流的一种，不能同时具备两个功能，输入流只能进行读操作，对输出流只能进行写操作。在一个数据传输通道中，如果既要写入数据，又要读取数据，则要分别提供两个流。
+
 ## 01、传输方式划分
 
 就按照你的那副思维导图来说吧。
@@ -37,7 +53,7 @@ head:
 
 具体还要看字符编码，比如说在 UTF-8 编码下，一个英文字母（不分大小写）为一个字节，一个中文汉字为三个字节；在 Unicode 编码中，一个英文字母为一个字节，一个中文汉字为两个字节。
 
- PS：关于字符编码，可以看前面的章节：[锟斤拷](https://mp.weixin.qq.com/s/pNQjlXOivIgO3pbYc0GnpA)
+ PS：关于字符编码，可以看前面的章节：[锟斤拷](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
 
 明白了字节与字符的区别，再来看字节流和字符流就会轻松多了。
 
@@ -84,6 +100,38 @@ head:
 - `void close()`：关闭流
 
 理解了上面这些方法，基本上 IO 的灵魂也就全部掌握了。
+
+字节流和字符流的区别：
+
+- 字节流一般用来处理图像、视频、音频、PPT、Word等类型的文件。字符流一般用于处理纯文本类型的文件，如TXT文件等，但不能处理图像视频等非文本文件。用一句话说就是：字节流可以处理一切文件，而字符流只能处理纯文本文件。
+- 字节流本身没有缓冲区，缓冲字节流相对于字节流，效率提升非常高。而字符流本身就带有缓冲区，缓冲字符流相对于字符流效率提升就不是那么大了。
+
+以写文件为例，我们查看字符流的源码，发现确实有利用到缓冲区：
+
+```java
+private char[] writeBuffer;
+
+/**
+ * Size of writeBuffer, must be >= 1
+ */
+private static final int WRITE_BUFFER_SIZE = 1024;
+
+public void write(String str, int off, int len) throws IOException {
+    synchronized (lock) {
+        char cbuf[];
+        if (len <= WRITE_BUFFER_SIZE) {
+            if (writeBuffer == null) {
+                writeBuffer = new char[WRITE_BUFFER_SIZE];
+            }
+            cbuf = writeBuffer;
+        } else {    // Don't permanently allocate very large buffers.
+            cbuf = new char[len];
+        }
+        str.getChars(off, (off + len), cbuf, 0);
+        write(cbuf, 0, len);
+    }
+}
+```
 
 ## 02、操作对象划分
 

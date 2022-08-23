@@ -14,6 +14,8 @@ head:
       content: Java程序员进阶之路，小白的零基础Java教程，Java 中的数据类型（8 种基本数据类型和引用数据类型）
 ---
 
+## 数据类型的分类
+
 “Java 是一种静态类型的编程语言，这意味着所有变量必须在使用之前声明好，也就是必须得先指定变量的类型和名称。”我吸了一口麦香可可奶茶后对三妹说。
 
 Java 中的数据类型可分为 2 种：
@@ -74,17 +76,19 @@ public class LocalVar {
 | float    | 0.0f     | 4字节 |
 | double   | 0.0      | 8字节 |
 
+## 比特和字节
+
 那三妹可能要问，“比特和字节是什么鬼？”
 
 比特币听说过吧？字节跳动听说过吧？这些名字当然不是乱起的，确实和比特、字节有关系。
 
-**1）bit（比特）**
+### **1）bit（比特）**
 
 比特作为信息技术的最基本存储单位，非常小，但大名鼎鼎的比特币就是以此命名的，它的简写为小写字母“b”。
 
 大家都知道，计算机是以二进制存储数据的，二进制的一位，就是 1 比特，也就是说，比特要么为 0 要么为 1。
 
-**2）Byte（字节）**
+### **2）Byte（字节）**
 
 通常来说，一个英文字符是一个字节，一个中文字符是两个字节。字节与比特的换算关系是：1 字节 = 8 比特。
 
@@ -197,6 +201,67 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 那三妹可能要问，“char 既然只有一个字符，为什么占 2 个字节呢？”
 
 “主要是因为 Java 使用的是 Unicode 字符集而不是 ASCII 字符集。字符集也可以叫编码，编码不同，实际占用的字节就会不同。”
+
+[关于字符编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
+
+
+## 关于 int 和 char 类型互转
+
+这里整理一波 int 和 char 类型的互转，它们之间比较特殊。也会在以后的学习当中经常遇到。
+
+1）可以通过[强制类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)将整型 int 转换为字符 char。
+
+```java
+public class SimpleTesting {
+    public static void main(String[] args) {
+        int value_int = 65;
+        char value_char  = (char) value_int;
+        System.out.println(value_char);
+    }
+} 
+```
+
+输出 `A`(其 [ASCII 值](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)可以通过整数 65 来表示)。
+
+2）可以使用 `Character.forDigit()` 方法将整型 int 转换为字符 char。
+
+```java
+public class SimpleTesting {
+    public static void main(String[] args) {
+        //radix 10 is for decimal number, for hexa use radix 16 
+        int radix = 10; 
+        int value_int = 6;
+        char value_char = Character.forDigit(value_int , radix);
+        System.out.println(value_char );
+    }
+}
+```
+
+radix 为基数，十进制为 10，十六进制为 16。
+
+3）可以使用 int 的包装器类型 Integer 的 toString() 方法+String 的 CharAt() 方法转成 char
+
+```java
+public class SimpleTesting {
+    public static void main(String[] args) {
+        int value_int = 1;
+        char value_char = Integer.toString(value_int).charAt(0);
+System.out.println(value_char );
+    }
+}
+```
+
+4）char 转 int
+
+当然了，如果只是简单的 char 转 int，直接赋值就可以了。
+
+```java
+int a = 'a';
+```
+
+因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)。
+
+
 
 ## 引用数据类型
 
