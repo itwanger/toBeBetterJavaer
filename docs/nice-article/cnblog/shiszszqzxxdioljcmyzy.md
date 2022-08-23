@@ -164,7 +164,7 @@ io流用到的地方很多，就比如上传下载，传输，设计模式等...
 > 
 > 　　　　　　　　网络：`Socket`
 
-（4）明确是否需要额外功能
+（4）明确是否需要额外功能 
 
 　　
 
@@ -444,7 +444,7 @@ public class FileFor {
 
 不说啥了，直接上代码：
 
-```javascript
+```java
 package File;
 
 import java.io.File;
@@ -573,7 +573,7 @@ OutputStream与InputStream的继承关系
 
 **推荐第二种构造方法**【开发常用】：
 
-```javascript
+```java
 FileOutputStream outputStream = new FileOutputStream("abc.txt");
 ```
  
@@ -610,7 +610,7 @@ public class FileOutputStreamConstructor throws IOException {
 
 使用FileOutputStream写出字节数据主要通过`Write`方法，而`write`方法分如下三种
 
-```javascript
+```java
 public void write(int b)
 public void write(byte[] b)
 public void write(byte[] b,int off,int len)  //从`off`索引开始，`len`个字节
@@ -773,7 +773,7 @@ e
 同样的，推荐使用第二种构造方法：
 
  
-```javascript
+```java
 FileInputStream inputStream = new FileInputStream("a.txt");
 ```
  
@@ -923,7 +923,7 @@ e
 
 在开发中一般强烈推荐使用数组读取文件，代码如下：
 
-```javascript
+```java
 package io;
 
 import java.io.FileInputStream;
@@ -1008,7 +1008,7 @@ public class Copy {
 
 字符流的由来：因为数据编码的不同，因而有了对字符进行高效操作的流对象，字符流本质其实就是基于字节流读取时，去查了指定的码表，而字节流直接读取数据会有乱码的问题（读中文会乱码），这个时候小白同学就看不懂了，没事，咋们先来看个程序：
 
-```javascript
+```java
 package IO;
 
 import java.io.FileInputStream;
@@ -1043,7 +1043,7 @@ public class CharaterStream {
 
 那字节流就没办法了吗？不，字节流依旧有办法，只是麻烦了点，代码如下：
 
-```javascript
+```java
 public class CharaterStream {
     public static void main(String[] args) throws Exception {
 
@@ -1061,7 +1061,7 @@ public class CharaterStream {
 
 这是为啥呢？没错解码的正是`String`，查看`new String()`的源码，`String`构造方法有解码功能，并且默认编码是`utf-8`，代码如下：
 
-```javascript
+```java
 this.value = StringCoding.decode(bytes, offset, length);
  
  再点进decode，循序渐进发现，默认编码是UTF-8
@@ -1217,7 +1217,7 @@ flush还是比较有趣的，童鞋们不自己运行一下还真不好体会，
 
 字符流
 
-```javascript
+```java
 public class FlushDemo {
     public static void main(String[] args) throws Exception {
         //源   也就是输入流【读取流】 读取a.txt文件
@@ -1243,7 +1243,7 @@ public class FlushDemo {
 所以，我们在以上的代码中再添加下面三句代码，就完美了，b.txt文件就能复制到源文件的数据了！
 
  
-```javascript
+```java
 fr.close();
   fw.flush();
   fw.close();
@@ -1306,7 +1306,7 @@ public class FWWrite {
 
 直接上代码：
 
-```javascript
+```java
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -1676,7 +1676,7 @@ public class BufferedTest {
 
 运行效果
 
-```javascript
+```java
 1.一想到你我就哦豁豁豁豁豁豁豁豁豁豁…哦nima个头啊，完全不理人家受得了受不了
 2.总是喜欢坐在电脑前， 总是喜欢工作到很晚
 3.约了地点却忘了见面 ，懂得寂寞才明白浩瀚
@@ -1871,7 +1871,7 @@ public class OutputDemo {
 
 为了达到**最高效率**，可以考虑在 `BufferedReader` 内包装 `InputStreamReader`
 
-```javascript
+```java
 BufferedReader in = new BufferedReader(new InputStreamReader(System.in))；
 ```
  
@@ -2132,7 +2132,7 @@ PrintStream是OutputStream的子类，PrintWriter是Writer的子类，两者处�
 
 ## 4.2 字节输出打印流PrintStream复制文本文件
 
-```javascript
+```java
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -2155,7 +2155,7 @@ public class PrintStreamDemo {
 
 ## 4.3 字符输出打印流PrintWriter复制文本文件
 
-```javascript
+```java
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;

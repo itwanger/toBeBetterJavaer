@@ -100,6 +100,7 @@
 - [Java命名规范，告别编码 5 分钟，命名 2 小时](docs/basic-extra-meal/java-naming.md)
 - [Java注释：单行、多行和文档注释](docs/basic-grammar/javadoc.md)
 - [Java 中的数据类型（8 种基本数据类型和引用数据类型）](docs/basic-grammar/basic-data-type.md)
+- [Java 数据类型转换（强制类型转换+自动类型转换）](docs/basic-grammar/type-cast.md)
 - [Java流程控制语句](docs/basic-grammar/flow-control.md)
 - [Java运算符](docs/basic-grammar/operator.md)
 
@@ -155,8 +156,10 @@
 ## Java IO
 
 - [看完这篇，Java IO 不再混乱！](docs/io/shangtou.md)
-- [详解 File、Path、Paths、Files 四个类，操作文件不再难](docs/io/file-path.md)
-- [文件的世界，一切皆字节（Stream）](docs/io/byte.md)
+- [详解 File、Path、Paths、Files 四个类，Java操作文件不再难](docs/io/file-path.md)
+- [文件的世界，一切皆字节流（Stream）](docs/io/stream.md)
+- [Java字符流Reader和Writer的故事](docs/io/reader-writer.md)
+- [Java缓冲流（Buffered）：读写速度有了质的飞升](docs/io/buffer.md)
 - [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/io/BIONIOAIO.md)
 
 

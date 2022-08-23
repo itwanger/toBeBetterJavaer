@@ -1,6 +1,6 @@
 ---
-title: 详解 File、Path、Paths、Files 四个类，操作文件不再难
-shortTitle: 详解 File、Path、Paths、Files
+title: 详解 File、Path、Paths、Files 四个类，Java操作文件不再难
+shortTitle: 详解File、Path、Paths、Files
 category:
   - Java核心
 tag:
