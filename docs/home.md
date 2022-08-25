@@ -170,7 +170,16 @@ head:
 
 ### Java输入输出
 
-- [Java IO学习整理](io/shangtou.md)
+- [看完这篇，Java IO 不再混乱！](io/shangtou.md)
+- [详解 File、Path、Paths、Files 四个类，Java操作文件不再难](io/file-path.md)
+- [文件的世界，一切皆字节流（Stream）](io/stream.md)
+- [Java字符流Reader和Writer的故事](io/reader-writer.md)
+- [Java缓冲流（Buffered）：读写速度有了质的飞升](io/buffer.md)
+- [Java转换流，解决字符与字节之间编码、解码的乱码问题](io/char-byte.md)
+- [Java序列化流，字节和对象之间的序列化和反序列化](io/serialize.md)
+- [Java Serializable：明明就一个空的接口嘛](io/Serializbale.md)
+- [招银面试官：说说Java transient关键字](io/transient.md)
+- [Java打印流：PrintStream & PrintWriter](io/print.md)
 - [如何给女朋友解释什么是 BIO、NIO 和 AIO？](io/BIONIOAIO.md)
 
 
@@ -449,7 +458,7 @@ head:
 - [大裁员下，程序员如何做“副业”？](xuexijianyi/chengxuyuan-fuye.md)
 - [如何在繁重的工作中持续成长？](xuexijianyi/ruhzfzdgzzcxcz.md)
 - [如何获得高并发的经验？](xuexijianyi/gaobingfa-jingyan-hsmcomputer.md)
-- [怎么跟 HR 谈薪资？](docs/xuexijianyi/hr-xinzi.md)
+- [怎么跟 HR 谈薪资？](xuexijianyi/hr-xinzi.md)
 
 
 ## 知识库搭建
