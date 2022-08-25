@@ -198,7 +198,7 @@ private native int read0() throws IOException;
 
 画幅图比较一下。
 
-![](https://files.mdnice.com/user/3903/9508a24f-825a-4e41-a0cb-c9b9f338311b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/buffer-fcae80c2-04a5-4a1b-ab49-89a5ddabd38e.png)
 
 再来看 BufferedOutputStream 的 read 方法：
 

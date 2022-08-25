@@ -160,6 +160,11 @@
 - [文件的世界，一切皆字节流（Stream）](docs/io/stream.md)
 - [Java字符流Reader和Writer的故事](docs/io/reader-writer.md)
 - [Java缓冲流（Buffered）：读写速度有了质的飞升](docs/io/buffer.md)
+- [Java转换流，解决字符与字节之间编码、解码的乱码问题](docs/io/char-byte.md)
+- [Java序列化流，字节和对象之间的序列化和反序列化](docs/io/serialize.md)
+- [Java Serializable：明明就一个空的接口嘛](docs/io/Serializbale.md)
+- [招银面试官：说说Java transient关键字](docs/io/transient.md)
+- [Java打印流：PrintStream & PrintWriter](docs/io/print.md)
 - [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/io/BIONIOAIO.md)
 
 
@@ -191,7 +196,6 @@
 - [彻底讲明白的Java浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
 - [深入理解Java中的hashCode方法](docs/basic-extra-meal/hashcode.md)
 - [一次性搞清楚equals和hashCode](docs/basic-extra-meal/equals-hashcode.md)
-- [Java重写(Override)与重载(Overload)](docs/basic-extra-meal/override-overload.md)
 - [Java重写（Overriding）时应当遵守的11条规则](docs/basic-extra-meal/Overriding.md)
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
 - [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
