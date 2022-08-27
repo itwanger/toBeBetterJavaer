@@ -9,9 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java注�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 注释
-    - name: description
-      content: Java程序员进阶之路，小白的零基础Java教程，Java注释：单行、多行和文档注释
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 注释,javadoc,注释
 ---
 
 “二哥，Java 中的注释好像真没什么可讲的，我已经提前预习了，不过是单行注释，多行注释，还有文档注释。”三妹的脸上泛着甜甜的笑容，她竟然提前预习了接下来要学习的知识，有一种“士别三日，当刮目相看”的感觉。

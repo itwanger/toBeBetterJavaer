@@ -1,19 +1,16 @@
 ---
-title: 面渣逆袭（RocketMQ面试题）必看👍
+title: 面渣逆袭（RocketMQ面试题八股文）必看👍
 shortTitle: 面渣逆袭-RocketMQ
 description: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ面试高频题23 道，这次吊打面试官，我觉得稳了（手动 dog）
 author: 三分恶
 category:
   - 面渣逆袭
 tags:
-  - RocketMQ 面试题
-  - RocketMQ
+  - 面渣逆袭
 head:
   - - meta
-    - name: description
-      content: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ面试高频题23 道，这次吊打面试官，我觉得稳了（手动 dog）
     - name: keywords
-      content: RocketMQ 面试题,RocketMQ
+      content: RocketMQ面试题,RocketMQ,面试题,八股文
 ---
 
 > 图文详解 RocketMQ 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/N6wq52pBGh8xkS-5uRcO2g)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A)。

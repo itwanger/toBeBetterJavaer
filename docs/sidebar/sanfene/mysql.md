@@ -1,20 +1,16 @@
 ---
-title: 面渣逆袭（MySQL面试题）必看 👍
+title: 面渣逆袭（MySQL面试题八股文）必看 👍
 shortTitle: 面渣逆袭-MySQL
 description: 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
 author: 三分恶
 category:
   - 面渣逆袭
 tags:
-  - MySQL 面试题
-  - MySQL
+  - 面渣逆袭
 head:
   - - meta
-    - name: description
-      content: 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
-  - - meta
     - name: keywords
-      content: MySQL 面试题,MySQL
+      content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
 > 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。

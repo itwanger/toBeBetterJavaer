@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，详解 F
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO,java file,java paths,java files,java path
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,file,paths,files,path
 ---
 
 ## File 类

@@ -82,17 +82,17 @@ head:
 
 **面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ 等等。
 
-- [面渣逆袭（Java 基础篇）必看👍](sidebar/sanfene/javase.md)
-- [面渣逆袭（Java 集合框架篇）必看👍](sidebar/sanfene/collection.md)
-- [面渣逆袭（Java 并发编程篇）必看👍](sidebar/sanfene/javathread.md)
-- [面渣逆袭（Java 虚拟机篇）必看👍](sidebar/sanfene/jvm.md)
-- [面渣逆袭（Spring）必看👍](sidebar/sanfene/spring.md)
-- [面渣逆袭（Redis）必看👍](sidebar/sanfene/redis.md)
-- [面渣逆袭（MyBatis）必看👍](sidebar/sanfene/mybatis.md)
-- [面渣逆袭（MySQL）必看👍](sidebar/sanfene/mysql.md)
-- [面渣逆袭（操作系统）必看👍](sidebar/sanfene/os.md)
-- [面渣逆袭（计算机网络）必看👍](sidebar/sanfene/network.md)
-- [面渣逆袭（RocketMQ）必看👍](sidebar/sanfene/rocketmq.md)
+- [面渣逆袭（Java 基础篇八股文面试题）必看👍](sidebar/sanfene/javase.md)
+- [面渣逆袭（Java 集合框架篇八股文面试题）必看👍](sidebar/sanfene/collection.md)
+- [面渣逆袭（Java 并发编程篇八股文面试题）必看👍](sidebar/sanfene/javathread.md)
+- [面渣逆袭（Java 虚拟机篇八股文面试题）必看👍](sidebar/sanfene/jvm.md)
+- [面渣逆袭（Spring八股文面试题）必看👍](sidebar/sanfene/spring.md)
+- [面渣逆袭（Redis八股文面试题）必看👍](sidebar/sanfene/redis.md)
+- [面渣逆袭（MyBatis八股文面试题）必看👍](sidebar/sanfene/mybatis.md)
+- [面渣逆袭（MySQL八股文面试题）必看👍](sidebar/sanfene/mysql.md)
+- [面渣逆袭（操作系统八股文面试题）必看👍](sidebar/sanfene/os.md)
+- [面渣逆袭（计算机网络八股文面试题）必看👍](sidebar/sanfene/network.md)
+- [面渣逆袭（RocketMQ八股文面试题）必看👍](sidebar/sanfene/rocketmq.md)
 
 
 ## Java 核心
@@ -101,9 +101,9 @@ head:
 
 ### Java概述
 
-- [Java简介](overview/what-is-java.md)
+- [Java简介，什么是 Java？](overview/what-is-java.md)
 - [Java发展简史](overview/java-history.md)
-- [Java的优势](overview/java-can-do-what.md)
+- [Java的特点，Java能做什么](overview/java-can-do-what.md)
 - [安装Java开发工具包JDK](overview/jdk-install-config.md)
 - [安装集成开发环境Intellij IDEA](overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](overview/hello-world.md)
@@ -227,6 +227,16 @@ head:
 - [深入理解Java注解](basic-extra-meal/annotation.md)
 - [Java枚举（enum）](basic-extra-meal/enum.md)
 - [大白话说Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
+
+### Java网络编程
+
+- [Java Socket：飞鸽传书的网络套接字](docs/socket/socket.md)
+
+### Java NIO
+
+- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/nio/BIONIOAIO.md)
+- [一文彻底理解 Java NIO 核心组件](docs/nio/nio.md)
+
 
 ### Java并发编程
 

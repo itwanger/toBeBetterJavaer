@@ -5,19 +5,12 @@ shortTitle: Java学习路线一条龙
 category:
   - 学习路线
 tag:
-  - Java
-  - Java 学习路线
-  - Java 教程
-  - Java 开发
-  - Java 入门
+  - 学习路线
 description: 2022最新超详细Java学习路线一条龙版，如果想从事Java开发工作，可以参考本文
 head:
   - - meta
-    - name: description
-      content: 2022最新超详细Java学习路线一条龙版，如果想从事Java开发工作，可以参考本文
-  - - meta
     - name: keywords
-      content: Java,Java 学习路线,Java 教程,Java 开发,Java 入门
+      content: Java,学习路线,Java教程,Java开发,Java入门
 ---
 
 
@@ -134,36 +127,36 @@ Java 是一门面向对象的编程语言，所以三大特性：封装、继承
 
 张无忌在学太极拳的时候，太师父张三丰就对他喊，一定要把之前所学习的武功全部忘掉，**忘得越多就会学得越快**。同样的，自学 Java 的时候一定要先知道哪些 Java 知识不需要再学了，毕竟技术的更新迭代就好像火箭一样快，Java 的一些知识点早已经过时了。如果不懂得断舍离，那学起来就不免太痛苦了。
 
-1）AWT 和 Swing
+### 1）AWT 和 Swing
 
 已经 2022 年了，谁还会用 AWT 和 Swing 去开发桌面应用呢？学好后端开发即可，现在是移动互联网时代，基本上都是手机APP、小程序、Web 网页来做前端了，可以把学习的重心放到 Spring Boot、Spring Cloud、Netty、Dubbo、Zookeeper、Mysql上。
 
 
-2）Applet
+### 2）Applet
 
 作为网页插件技术，Applet 压根就没流行起来。
 
-3）XML
+### 3）XML
 
 XML 还没有被淘汰，应用的地方还有不少，比如说 Maven 的 pom.xml 文件里就还在用。但是作为一种数据传输格式，它正在被 JSON 替代。至于复杂的 XML 操作 API（例如 XPath）就完全没必要学习了，如果真的用到了，再去补也不迟。
 
-4）JDBC
+### 4）JDBC
 
 我个人不建议再学习偏底层的 JDBC 了，尤其是对于时间宝贵的自学程序员来说。与其花这点时间，不如把精力投入到 MyBatis 的学习上。当然了，如果真的有时间，真的想打基础，研究一下也无可厚非。
 
-5）Struts
+### 5）Struts
 
 Struts 是早年一个优秀的 MVC 框架，单从技术的角度来看，还是蛮不错的。但是自从有了 SpringMVC 后，Struts 就被拍死在沙滩上了。
 
-6）Hibernate
+### 6）Hibernate
 
 在我刚参加工作那会（2010 年的时候），持久层框架用的正是 Hibernate。但时过境迁，Hibernate 太重量级了，学习成本太高，取而代之的是轻量级的 MyBatis。现在有一种说法就是这种对象关系映射太过死板了，不如直接写 SQL 来得灵活，像我很喜欢的一个轻量级框架 JFinal 就更偏重于在 Java 代码中写 SQL，而不像 MyBatis 和 Hibernate 在 xml 文件中写。
 
-7）JSP
+### 7）JSP
 
 JSP 在实际开发中，主要是作为 MVC 模型中的V（View）层出现的。它本来是为 Java 后端程序员开发前端界面而生的，但随着技术的发展，前后端分离的流行，JSP 的生命周期已经到头了。
 
-8）Servlet
+### 8）Servlet
 
 虽然 SpringMVC 的底层是以 Servlet 为基础的，是 JavaWeb 容器的基石，但 Servlet 的确已经过时了。如果后面有空余时间的话，想钻的话可以钻一下，对服务器端接收请求数据和向前端发送响应数据时会有一些帮助。
 

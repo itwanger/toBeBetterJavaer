@@ -5,18 +5,12 @@ shortTitle: Go 语言学习路线
 category:
   - 学习路线
 tag:
-  - Go
-  - golang
-  - Go 语言学习路线
-  - golang 学习路线
+  - 学习路线
 description: Go 语言越来越火了，这里整理一份 go 语言的超详细学习路线，附学习资源，可下载
 head:
   - - meta
-    - name: description
-      content: Go 语言越来越火了，这里整理一份 go 语言的超详细学习路线，附学习资源，可下载
-  - - meta
     - name: keywords
-      content: Go,Go学习路线,golang,golang学习路线
+      content: Go,Go学习路线,golang,golang学习路线,学习路线
 ---
 
 大家好，我是二哥呀！最近又有一个读者来咨询我的建议：**应届生，要求 Java 进去后转 Go，问我咋样？**
@@ -29,7 +23,7 @@ head:
 
 那作为贴心的二哥，必须得给大家梳理一波思路了，希望能给需要的读者一点点帮助和启发~
 
-### 一、Go 的优势和劣势
+## 一、Go 的优势和劣势
 
 Go 语言诞生于 2009 年，发展到现在，已经 12 岁了（应该没算错吧😭）。
 
@@ -57,7 +51,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-5.jpg)
 
-### 二、为什么会要求 Java 转 Go 呢？
+## 二、为什么会要求 Java 转 Go 呢？
 
 最直接的原因就是 Go 这边比较缺人，而 Java 这边基本上是招聘的多，竞聘的更多。
 
@@ -71,7 +65,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 截止到目前，我学过 Python、C/C++、Go、JavaScript 等等，因为有 Java 语言的底子在，学这些编程语言的时候，阻力基本上就像在泳池里游泳一样，一开始会感觉有点困难，等熟练了之后，会感觉很舒服。
 
-### 三、Go 语言该怎么学习呢？
+## 三、Go 语言该怎么学习呢？
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-6.png)
 
@@ -85,7 +79,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 记住一点：**不管是学习哪一门编程语言，顺序基本上就是视频入门+教程/书籍巩固+项目练习**。
 
-**1）视频课**
+### **1）视频课**
 
 **第一套视频：《Go 编程基础》**，主要面向 Go 语言新手级别的学习者。
 
@@ -101,7 +95,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 >视频地址：[https://www.bilibili.com/video/BV1ME411Y71o](https://www.bilibili.com/video/BV1ME411Y71o)
 
-**2）教程/书籍**
+### **2）教程/书籍**
 
 **第一套教程：Go 语言之旅**，这是一个对初学者极其友好的在线网站，并且每一步都可以直接运行代码并看到效果。初学阶段，最重要的就是能通过手敲代码感受到学习的成果。
 
@@ -174,7 +168,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 ![扫码关注后回复「go」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-**3）实战项目**
+### **3）实战项目**
 
 **第一个项目：seaweedfs**，GitHub 上星标 13k+，这是一个分布式文件系统，基于 Go 开发，部署方便，使用简单，功能强大。
 
@@ -205,7 +199,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 - 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#go)
 
 
-### 四、Java 和 Go 如何做取舍？
+## 四、Java 和 Go 如何做取舍？
 
 Go 语言设计的晚一点，所以可以站在巨人的肩膀上，不像 Java，历史包袱很沉重。比如 Go 在并发编程方面，就比 Java 更轻量级，性能也更强劲，因为 Java 诞生的时候还没有为高并发这样的场景做好准备。
 

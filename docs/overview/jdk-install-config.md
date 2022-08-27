@@ -9,9 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，JDK的�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,JDK 安装
-    - name: description
-      content: Java程序员进阶之路，小白的零基础Java教程，JDK的安装和配置
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,JDK 安装,jdk
 ---
 
 因为Java程序必须运行在JVM之上，所以我们 Java 程序员在学习 Java 之前，要做的第一件事情就是安装JDK。

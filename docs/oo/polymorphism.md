@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 多态
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java多态,多态
 ---
 
 **多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编译时并不确定，而是在程序运行期间才确定。**

@@ -9,9 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Intellij
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Intellij IDEA 安装,IDEA 安装
-    - name: description
-      content: Java程序员进阶之路，小白的零基础Java教程，Intellij IDEA的安装和配置
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Intellij IDEA安装,IDEA安装,idea,Intellij IDEA
 ---
 
 IntelliJ IDEA 简称 IDEA，是业界公认为最好的 Java 集成开发工具，尤其是在代码自动提示、代码重构、代码版本管理、单元测试、代码分析等方面有着亮眼的发挥。
@@ -22,7 +20,7 @@ IDEA 产于捷克，开发人员以严谨著称的东欧程序员为主，分为
 
 鉴于此，我强烈推荐大家使用集成开发工具，比如说 IntelliJ IDEA 来学习。
 
-### 01、下载 IDEA
+## 01、下载 IDEA
 
 IntelliJ IDEA 的官方下载地址为：[https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download)
 
@@ -39,7 +37,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 稍等一分钟时间，大概 580M。
 
-### 02、安装 IDEA
+## 02、安装 IDEA
 
 双击运行 IDEA 安装程序，一步步傻瓜式的下一步就行了。
 
@@ -63,7 +61,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ![](https://cdn.jsdelivr.net/gh/itwanger/itwanger.github.io/assets/images/2019/11/java-idea-community-8.png)
 
-### 03、启动 IDEA
+## 03、启动 IDEA
 
 回到桌面，双击运行 IDEA 的快捷方式，启动 IDEA。
 

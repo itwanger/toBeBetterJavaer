@@ -5,23 +5,12 @@ shortTitle: Java虚拟机学习路线
 category:
   - 学习路线
 tag:
-  - Java
-  - JVM
-  - Java 虚拟机
-  - Java 虚拟机学习路线
-  - Java 学习路线
-  - JVM 学习路线
-  - Java 教程
-  - Java 开发
-  - Java 入门
+  - 学习路线
 description: JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家
 head:
   - - meta
-    - name: description
-      content: JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家
-  - - meta
     - name: keywords
-      content: Java,JVM,Java 虚拟机,Java 虚拟机学习路线,Java 学习路线,Java 教程,Java 开发,Java 入门
+      content: Java,JVM,Java虚拟机,Java虚拟机学习路线,Java学习路线,Java教程,Java开发,Java入门
 ---
 
 2020 年的时候，通读了一遍周志明老师的《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》第三版，读完之后受益匪浅，这让我对 Java 虚拟机有了一个更完整的认识。毫无疑问，《深入理解 Java 虚拟机》是 JVM 书籍中最好的一本书了，国产技术书的天花板。
@@ -30,7 +19,7 @@ head:
 
 在金三银四/金九银十的跳槽季中，很多小伙伴都会忍不住蠢蠢欲动，其中 JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家。
 
-### 一、为什么要学习 JVM？
+## 一、为什么要学习 JVM？
 
 曾经我对 JVM 也是感到非常的头痛，完全搞不懂该怎么入门，只是听说《深入理解 Java 虚拟机》这本书很吊，但真读起来，却需要极大的耐心和定力，否则很快就会在读完第一章 JVM 的简史后放弃。
 
@@ -49,7 +38,7 @@ head:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-4cbbdc72-3bdd-4b14-9d8d-ecd7764afb11.png)
 
 
-### 二、JVM 学习路线图
+## 二、JVM 学习路线图
 
 这是我最近整理的一张关于 JVM 的思维导图，大的方向可以分为三个部分：字节码与类的加载、内存与垃圾回收、性能监控和调优。
 
@@ -77,9 +66,9 @@ head:
 有理论知识，有动手实战，基本上可以把 JVM 这块学的非常扎实了。
 
 
-### 三、硬核 JVM 学习资料
+## 三、硬核 JVM 学习资料
 
-**1）Java 程序员进阶之路**
+### **1）Java 程序员进阶之路**
 
 学 Java，怎么能少得了二哥的小破站《Java 程序员进阶之路》，网址我贴下面了哈：
 
@@ -89,7 +78,7 @@ head:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-cc84fead-278b-46aa-a8ab-a3b07acefc12.png)
 
-**2）视频**
+### **2）视频**
 
 懂的都懂，看视频到 B 站。先推荐宋红康老师的 JVM 全套教程，200多万的播放量，还是非常受欢迎的。全套课程分为：
 
@@ -119,7 +108,7 @@ head:
 
 >视频地址：[https://www.bilibili.com/video/BV1iJ411d7jS](https://www.bilibili.com/video/BV1iJ411d7jS)
 
-**3）书籍**
+### **3）书籍**
 
 纸质书只推荐一本周志明老师的神书《[深入理解 Java 虚拟机](https://book.douban.com/subject/34907497/)》，基本上学习 JVM 的小伙伴人手一本。
 
@@ -135,7 +124,7 @@ head:
 
 >[https://github.com/TangBean/understanding-the-jvm](https://github.com/TangBean/understanding-the-jvm)
 
-**4）开源电子书**
+### **4）开源电子书**
 
 推荐 doocs 社区的 [JVM 底层原理最全知识总结](https://doocs.github.io/jvm/)，算是《深入理解 Java 虚拟机》这本书的一个精简知识点梳理。
 
@@ -163,7 +152,7 @@ head:
 郑雨迪老师在极客时间上开了一门《深入拆解Java虚拟机》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11htX)去购买，反正我自己感觉质量还不错。
 
 
-### 四、JVM 八股文
+## 四、JVM 八股文
 
 这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
 
@@ -180,7 +169,7 @@ Java 虚拟机八股文（背诵版）：
 
 诚实点说，如果能把这两份八股文背会/理解的话，简历上就真的敢写“精通”Java 虚拟机了。
 
-### 五、学习 JVM 的一点小心得
+## 五、学习 JVM 的一点小心得
 
 和 C++ 相比，Java 的内存管理机制可以说是一大特色，Java 开发不再需要自己去写代码手动释放内存，甚至你想自己干，JVM 都不给你这个机会，虚拟机完全掌握了 Java 内存的控制权。
 

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java序�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO,java 序列化流,java 序列化,java 反序列化,java ObjectOutputStream,java ObjectInputStream
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,序列化流,java序列化,java反序列化,ObjectOutputStream,ObjectInputStream
 ---
 
 序列化有什么好处呢？可以把对象写入文本文件或者在网络中传输。

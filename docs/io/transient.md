@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java tra
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java transient
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,transient
 ---
 
 害，小二最熟的是 Java，但很多 Java 基础知识都不知道，比如 transient 关键字以前就没用到过，所以不知道它的作用是什么，今天去招银面试的时候，面试官问到了这个：说说 Java transient 关键字吧，结果小二直接懵逼了。

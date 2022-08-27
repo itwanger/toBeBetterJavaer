@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java字�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO,java Reader,java Writer
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,Reader,Writer,字符流
 ---
 
 字符流Reader和Writer的故事要从它们的类关系图开始，啥都不说了，直接看图
