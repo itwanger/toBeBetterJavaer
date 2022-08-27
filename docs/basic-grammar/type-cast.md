@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java 数
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 数据类型转换,java 强制数据类型转换,java 自动类型转换
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 简介,数据类型转换,j强制数据类型转换,自动类型转换
 ---
 
 数据类型转换发生在所赋值的数值类型和接收数据的变量类型不一致的时候，它需要从一种数据类型转换成另一种数据类型。数据类型的转换可以分为隐式转换（自动类型转换）和显式转换（强制类型转换）两种。

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，详解 J
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java ArrayDeque
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,ArrayDeque,堆,队列
 ---
 
 Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它是个接口名字）。当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*；既然*Queue*只是一个接口，当需要使用队列时也就首选*ArrayDeque*了（次选是[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)）。

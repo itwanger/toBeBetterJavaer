@@ -9,9 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java 中
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介,Java 数据类型,基本数据类型,引用数据类型
-    - name: description
-      content: Java程序员进阶之路，小白的零基础Java教程，Java 中的数据类型（8 种基本数据类型和引用数据类型）
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 简介,Java数据类型,基本数据类型,引用数据类型,数据类型
 ---
 
 ## 数据类型的分类

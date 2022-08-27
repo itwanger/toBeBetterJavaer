@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java static,java 静态变量,java 静态方法,java 静态代码块,java 静态内部类
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,static,java静态变量,java静态方法,java静态代码块,java静态内部类
 ---
 
 “哥，你牙龈肿痛轻点没？周一的《教妹学 Java》（Java 程序员进阶之路的前身）你都没有更新，偷懒了呀！”三妹关心地问我。

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java转�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO,java 缓冲流,java InputStreamReader,java OutputStreamWriter,java 乱码,java 编码,java 解码
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,转换流,InputStreamReader,OutputStreamWriter,乱码,编码,解码
 ---
 
 何谓转换流？为何由来？让我们暂时带着这两个问题来了解了解字符编码和字符集！

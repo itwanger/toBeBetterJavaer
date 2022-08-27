@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，详解 J
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java PriorityQueue
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,优先级队列,PriorityQueue
 ---
 
 Java 中的 PriorityQueue 事通过二叉小顶堆实现的，可以用一棵完全二叉树表示。本文从 Queue 接口出发，结合生动的图解，深入浅出地分析 PriorityQueue 每个操作的具体过程和时间复杂度，让读者对 PriorityQueue 建立清晰而深入的认识。

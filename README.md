@@ -66,17 +66,17 @@
 
 >  **面试前必读系列**！包括 Java 基础、Java 集合框架、Java 并发编程、Java 虚拟机、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ 等等。
 
-- [面渣逆袭（Java 基础篇）必看👍](docs/sidebar/sanfene/javase.md)
-- [面渣逆袭（Java 集合框架篇）必看👍](docs/sidebar/sanfene/collection.md)
-- [面渣逆袭（Java 并发编程篇）必看👍](docs/sidebar/sanfene/javathread.md)
-- [面渣逆袭（Java 虚拟机篇）必看👍](docs/sidebar/sanfene/jvm.md)
-- [面渣逆袭（Spring）必看👍](docs/sidebar/sanfene/spring.md)
-- [面渣逆袭（Redis）必看👍](docs/sidebar/sanfene/redis.md)
-- [面渣逆袭（MyBatis）必看👍](docs/sidebar/sanfene/mybatis.md)
-- [面渣逆袭（MySQL）必看👍](docs/sidebar/sanfene/mysql.md)
-- [面渣逆袭（操作系统）必看👍](docs/sidebar/sanfene/os.md)
-- [面渣逆袭（计算机网络）必看👍](docs/sidebar/sanfene/network.md)
-- [面渣逆袭（RocketMQ）必看👍](docs/sidebar/sanfene/rocketmq.md)
+- [面渣逆袭（Java 基础篇八股文面试题）必看👍](docs/sidebar/sanfene/javase.md)
+- [面渣逆袭（Java 集合框架篇八股文面试题）必看👍](docs/sidebar/sanfene/collection.md)
+- [面渣逆袭（Java 并发编程篇八股文面试题）必看👍](docs/sidebar/sanfene/javathread.md)
+- [面渣逆袭（Java 虚拟机篇八股文面试题）必看👍](docs/sidebar/sanfene/jvm.md)
+- [面渣逆袭（Spring八股文面试题）必看👍](docs/sidebar/sanfene/spring.md)
+- [面渣逆袭（Redis八股文面试题）必看👍](docs/sidebar/sanfene/redis.md)
+- [面渣逆袭（MyBatis八股文面试题）必看👍](docs/sidebar/sanfene/mybatis.md)
+- [面渣逆袭（MySQL八股文面试题）必看👍](docs/sidebar/sanfene/mysql.md)
+- [面渣逆袭（操作系统八股文面试题）必看👍](docs/sidebar/sanfene/os.md)
+- [面渣逆袭（计算机网络八股文面试题）必看👍](docs/sidebar/sanfene/network.md)
+- [面渣逆袭（RocketMQ八股文面试题）必看👍](docs/sidebar/sanfene/rocketmq.md)
 
 
 # Java核心
@@ -86,9 +86,9 @@
 
 ## Java概述
 
-- [Java简介](docs/overview/what-is-java.md)
+- [Java简介，什么是 Java？](docs/overview/what-is-java.md)
 - [Java发展简史](docs/overview/java-history.md)
-- [Java的优势](docs/overview/java-can-do-what.md)
+- [Java的特点，Java能做什么](docs/overview/java-can-do-what.md)
 - [安装Java开发工具包JDK](docs/overview/jdk-install-config.md)
 - [安装集成开发环境Intellij IDEA](docs/overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](docs/overview/hello-world.md)
@@ -165,8 +165,6 @@
 - [Java Serializable：明明就一个空的接口嘛](docs/io/Serializbale.md)
 - [招银面试官：说说Java transient关键字](docs/io/transient.md)
 - [Java打印流：PrintStream & PrintWriter](docs/io/print.md)
-- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/io/BIONIOAIO.md)
-- [一文彻底理解 Java NIO 核心组件](docs/io/nio.md)
 
 
 ## 异常处理
@@ -212,6 +210,16 @@
 - [深入理解Java注解](docs/basic-extra-meal/annotation.md)
 - [Java枚举（enum）](docs/basic-extra-meal/enum.md)
 - [大白话说Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
+
+## Java网络编程
+
+- [Java Socket：飞鸽传书的网络套接字](docs/socket/socket.md)
+- [牛逼，用Java Socket手撸了一个HTTP服务器](docs/socket/http.md)
+
+## Java NIO
+
+- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/nio/BIONIOAIO.md)
+- [一文彻底理解 Java NIO 核心组件](docs/nio/nio.md)
 
 
 ## Java并发编程

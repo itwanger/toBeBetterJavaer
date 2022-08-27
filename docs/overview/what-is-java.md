@@ -1,5 +1,5 @@
 ---
-title: Java简介
+title: Java简介，什么是 Java？
 shortTitle: Java简介
 category:
   - Java核心
@@ -9,9 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java 简
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java 简介
-    - name: description
-      content: Java程序员进阶之路，小白的零基础Java教程，Java 简介，什么是Java？
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,Java简介
 ---
 
 

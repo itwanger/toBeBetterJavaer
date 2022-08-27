@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java final,java 静态变量,java 静态方法,java 静态代码块,java 静态内部类
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,final,静态变量,静态方法,静态代码块,静态内部类
 ---
 
 

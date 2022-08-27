@@ -5,16 +5,12 @@ shortTitle: Python学习路线
 category:
   - 学习路线
 tag:
-  - Python
-  - Python学习路线
+  - 学习路线
 description: 非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
 head:
   - - meta
-    - name: description
-      content: 非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
-  - - meta
     - name: keywords
-      content: Python,Python学习路线
+      content: Python,学习路线
 ---
 
 >非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
@@ -24,7 +20,7 @@ head:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/python-1.png)
 
 
-**1）视频篇**
+## **1）视频篇**
 
 B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作为一个半吊子 up 主，我虽然看视频不多，但现在基本想看视频就直接去 B 站了。
 
@@ -49,7 +45,7 @@ B 站也就是哔哩哔哩，是国内最大的二次元视频网站之一。作
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/python-4.png)
 
-**2）教程篇**
+## **2）教程篇**
 
 01、Python 3.10.0 文档，官方文档，毫无疑问是需要学习的。
 

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java打�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO,java 打印流,java PrintStream,java PrintWriter
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,打印流,PrintStream,PrintWriter
 ---
 
 ## 何谓打印流

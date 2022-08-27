@@ -5,16 +5,12 @@ shortTitle: C++学习路线
 category:
   - 学习路线
 tag:
-  - C++
-  - C++学习路线
+  - 学习路线
 description: 非 C++职业选手，但工作中学过一段时间，这篇分享给对 C++ 感兴趣的爱好者，文末有侯捷老师的视频资源可供下载。
 head:
   - - meta
-    - name: description
-      content: 非 C++职业选手，但工作中学过一段时间，这篇分享给对 C++ 感兴趣的爱好者，文末有侯捷老师的视频资源。
-  - - meta
     - name: keywords
-      content: C++,C++学习路线
+      content: C++,学习路线
 ---
 
 >非 C++职业选手，但工作中学过一段时间，这篇分享给对 C++ 感兴趣的爱好者，文末有侯捷老师的视频资源。

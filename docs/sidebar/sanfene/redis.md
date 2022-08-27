@@ -1,20 +1,16 @@
 ---
-title: 面渣逆袭（Redis面试题）必看👍
+title: 面渣逆袭（Redis面试题八股文）必看👍
 shortTitle: 面渣逆袭-Redis
 description: 图文详解 53 道Redis面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
 author: 三分恶
 category:
   - 面渣逆袭
 tags:
-  - Redis 面试题
-  - Redis
+  - 面渣逆袭
 head:
   - - meta
-    - name: description
-      content: 图文详解 53 道Redis面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
-  - - meta
     - name: keywords
-      content: Redis 面试题,Redis
+      content: Redis面试题,Redis,八股文,面试题
 ---
 
 > 图文详解 53 道Redis面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。

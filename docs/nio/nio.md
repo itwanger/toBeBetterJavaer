@@ -4,12 +4,12 @@ shortTitle: 一文彻底理解NIO核心组件
 category:
   - Java核心
 tag:
-  - Java IO
+  - Java NIO
 description: Java程序员进阶之路，小白的零基础Java教程，一文彻底理解 Java NIO 核心组件
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java 基础,Java 教程,Java 程序员进阶之路,Java 入门,Java IO,java NIO
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,java NIO,nio
 ---
 
 **同步、异步、阻塞、非阻塞**

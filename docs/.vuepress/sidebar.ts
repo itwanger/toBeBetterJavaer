@@ -158,8 +158,6 @@ export const sidebarConfig = sidebar({
           "Serializbale",
           "transient",
           "print",
-          "BIONIOAIO",
-          "nio",
           ],
         },
         {
@@ -319,7 +317,25 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "2.11 并发编程",
+          text: "2.11 网络编程",
+          collapsable: true,
+          prefix: "socket/",
+          children: [
+            "socket",
+            "http",
+          ],
+        },
+        {
+          text: "2.12 NIO",
+          collapsable: true,
+          prefix: "nio/",
+          children: [
+            "BIONIOAIO",
+            "nio",
+          ],
+        },
+        {
+          text: "2.13 并发编程",
           collapsable: true,
           prefix: "thread/",
           children: [
@@ -432,7 +448,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "2.12 JVM",
+          text: "2.14 JVM",
           prefix: "jvm/",
           collapsable: true,
           children: [

@@ -5,14 +5,9 @@ shortTitle: 大数据学习路线
 category:
   - 学习路线
 tag:
-  - 大数据
-  - Java
   - 学习路线
 description: 如何系统地学习大数据？如何成为一名合格的大数据工程师？我这里给大家准备了一份 GitHub 上星标 12k 的大数据入门指南
 head:
-  - - meta
-    - name: description
-      content: 如何系统地学习大数据？如何成为一名合格的大数据工程师？我这里给大家准备了一份 GitHub 上星标 12k 的大数据入门指南
   - - meta
     - name: keywords
       content: 大数据,Java,学习路线
