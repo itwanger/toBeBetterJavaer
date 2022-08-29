@@ -330,8 +330,11 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           prefix: "nio/",
           children: [
+            "why",
+            "rumen",
+            "moxing",
+            "network-connect",
             "BIONIOAIO",
-            "nio",
           ],
         },
         {
