@@ -469,8 +469,7 @@
 
 ## 学习建议
 
-**收集了一些网上高质量的帖子**！全方位帮你答疑解惑。
-
+- [计算机专业该如何自学编程，看哪些书籍哪些视频哪些教程？](docs/xuexijianyi/LearnCS-ByYourself.md)
 - [如何阅读《深入理解计算机系统》这本书？](docs/xuexijianyi/read-csapp.md)
 - [电子信息工程最好的出路的是什么？](docs/xuexijianyi/electron-information-engineering.md)
 - [如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？](docs/xuexijianyi/gaokao-zhiyuan-cs.md)
