@@ -1,11 +1,16 @@
 ---
+title: 详解Java中instanceof关键字的用法
+shortTitle: instanceof关键字的用法
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，详解Java中instanceof关键字的用法
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,instanceof
 ---
-
-# Java instanceof关键字用法
 
 
 instanceof 关键字的用法其实很简单：
@@ -140,5 +145,12 @@ if (obj instanceof String s) {
 “哇，这样就简洁了呀！”三妹不仅惊叹到！
 
 好了，关于 instanceof 操作符我们就先讲到这吧，难是一点都不难，希望各位同学也能够很好的掌握。
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

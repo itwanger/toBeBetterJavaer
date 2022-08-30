@@ -1,11 +1,17 @@
 ---
+title: 深入剖析Java中的拆箱和装箱
+shortTitle: 深入剖析Java中的拆箱和装箱
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入剖析Java中的拆箱和装箱
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,装箱,拆箱,包装类型
 ---
 
-# 深入剖析Java中的拆箱和装箱
 
 “哥，听说 Java 的每个基本类型都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
 

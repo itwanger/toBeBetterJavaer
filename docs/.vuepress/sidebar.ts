@@ -198,90 +198,27 @@ export const sidebarConfig = sidebar({
           prefix:"basic-extra-meal/",
           collapsable: true,
           children: [
-          {
-            text: "Unicode和UTF-8编码",
-            link: "java-unicode",
-          },
-          {
-            text: "new Integer和Integer.valueOf区别",
-            link: "int-cache",
-          },
-          {
-            text: "拆箱和装箱",
-            link: "box",
-          },
-          {
-            text: "浅拷贝与深拷贝",
-            link: "deep-copy",
-          },
-          {
-            text: "深入理解Java中的hashCode方法",
-            link: "hashcode",
-          },
-          {
-            text: "重写equals时为什么要重写hashCode",
-            link: "equals-hashcode",
-          },
-          {
-            text: "重写时应当遵守的11条规则",
-            link: "Overriding",
-          },
-          {
-            text: "Java到底是值传递还是引用传递",
-            link: "pass-by-value",
-          },
-          {
-            text: "Java为什么不能实现真正的泛型",
-            link: "true-generic",
-          },
-          {
-            text: "Comparable和Comparator的区别",
-            link: "comparable-omparator",
-          },
-          {
-            text: "JDK9中String为什么由char[]改成byte[]",
-            link: "jdk9-char-byte-string",
-          },
-          {
-            text: "JDK源码无限循环用for(;;)还是while(true)",
-            link: "jdk-while-for-wuxian-xunhuan",
-          },
-          {
-            text: "先有Class还是先有Object",
-            link: "class-object",
-          },
-          {
-            text: "instanceof关键字是如何实现的",
-            link: "instanceof-jvm",
-          },
-          {
-            text: "instanceof",
-            link: "oo/instanceof",
-          },
-          {
-            text: "不可变对象",
-            link: "basic-extra-meal/immutable",
-          },
-          {
-            text: "可变参数",
-            link: "basic-extra-meal/varables",
-          },
-          {
-            text: "泛型",
-            link: "basic-extra-meal/generic",
-          },
-          {
-            text: "注解",
-            link: "basic-extra-meal/annotation",
-          },
-          {
-            text: "枚举",
-            link: "basic-extra-meal/enum",
-          },
-          {
-            text: "反射",
-            link: "basic-extra-meal/fanshe",
-          },
+          "java-unicode",
+          "int-cache",
+          "box",
+          "deep-copy",
+          "hashcode",
+          "equals-hashcode",
+          "Overriding",
+          "pass-by-value",
+          "comparable-omparator",
+          "jdk9-char-byte-string",
+          "jdk-while-for-wuxian-xunhuan",
+          "class-object",
+          "instanceof",
+          "instanceof-jvm",
+          "immutable"
+          "varables",
+          "generic",
+          "true-generic",
+          "annotation",
+          "enum",
+          "fanshe",
           ],
         },
         {

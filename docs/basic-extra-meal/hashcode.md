@@ -1,11 +1,18 @@
 ---
+title: 深入理解Java中的hashCode方法
+shortTitle: 深入理解Java中的hashCode方法
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解Java中的hashCode方法
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,hashcode
 ---
 
-# 深入理解Java中的hashCode方法
+
 
 假期结束了，需要快速切换到工作的状态投入到新的一天当中。放假的时候痛快地玩耍，上班的时候积极的工作，这应该是我们大多数“现代人”该有的生活状态。
 

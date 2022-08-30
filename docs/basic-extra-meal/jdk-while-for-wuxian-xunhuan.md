@@ -1,15 +1,22 @@
 ---
+title: 为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?
+shortTitle: JDK源码无限循环大多使用for(;;)而不是while(true)?
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,jdk,无限循环,for,while
 ---
 
-# 为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?
+
 
 在知乎上看到 R 大的这篇回答，着实感觉需要分享给在座的各位 javaer 们，真心透彻。
 
->https://www.zhihu.com/question/52311366/answer/130090347
+>[https://www.zhihu.com/question/52311366/answer/130090347](https://www.zhihu.com/question/52311366/answer/130090347)
 
 -----
 

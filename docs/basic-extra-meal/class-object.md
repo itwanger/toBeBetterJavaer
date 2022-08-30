@@ -1,11 +1,18 @@
 ---
+title: Java 中，先有Class还是先有Object？
+shortTitle: 先有Class还是先有Object？
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java 中，先有Class还是先有Object？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,class,object
 ---
 
-# 先有Class还是先有Object？
+
 
 Java 对象模型中：
 
@@ -18,7 +25,7 @@ Java 对象模型中：
 
 针对这个问题，我在知乎上看到了 R 大的一个回答，正好解答了我心中的疑惑，就分享出来给各位小伙伴一个参考和启发~
 
->作者：RednaxelaFX，整理：沉默王二，参考链接：https://www.zhihu.com/question/30301819/answer/47539163
+>作者：RednaxelaFX，整理：沉默王二，参考链接：[https://www.zhihu.com/question/30301819/answer/47539163](https://www.zhihu.com/question/30301819/answer/47539163)
 
 -----
 

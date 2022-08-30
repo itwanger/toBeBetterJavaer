@@ -1,17 +1,22 @@
 ---
+title: 详解Java中Comparable和Comparator接口的区别
+shortTitle: Comparable和Comparator的区别
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Comparable和Comparator接口的区别
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,泛型
 ---
 
-# 详解Java中Comparable和Comparator的区别
-
-那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《Java 程序员进阶之路》专栏上看到过这题😆。
+那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[Java 程序员进阶之路](https://tobebetterjavaer.com/)》专栏上看到过这题😆。
 
 Comparable 和 Comparator 是 Java 的两个接口，从名字上我们就能够读出来它们俩的相似性：以某种方式来比较两个对象。但它们之间到底有什么区别呢？请随我来，打怪进阶喽！
 
-### 01、Comparable
+## 01、Comparable
 
 Comparable 接口的定义非常简单，源码如下所示。
 
@@ -58,7 +63,7 @@ public class Cmower implements Comparable<Cmower> {
 
 凭证就在于 `compareTo()` 方法，该方法的返回值可能为负数，零或者正数，代表的意思是该对象按照排序的规则小于、等于或者大于要比较的对象。如果指定对象的类型与此对象不能进行比较，则引发 `ClassCastException` 异常（自从有了泛型，这种情况就少有发生了）。
 
-### 02、Comparator
+## 02、Comparator
 
 Comparator 接口的定义相比较于 Comparable 就复杂的多了，不过，核心的方法只有两个，来看一下源码。
 
@@ -151,7 +156,7 @@ for (Cmower c : list) {
 
 这意味着沉默王三的年纪比沉默王二小，排在第一位；沉默王一的年纪比沉默王二大，排在第三位。和我们的预期完全符合。
 
-### 03、到底该用哪一个呢？
+## 03、到底该用哪一个呢？
 
 通过上面的两个例子可以比较出 Comparable 和 Comparator 两者之间的区别：
 
@@ -170,6 +175,7 @@ for (Cmower c : list) {
 
 好了，关于 Comparable 和 Comparator 我们就先聊这么多。总而言之，如果对象的排序需要基于自然顺序，请选择 `Comparable`，如果需要按照对象的不同属性进行排序，请选择 `Comparator`。
 
+----
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 

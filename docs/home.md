@@ -191,10 +191,11 @@ head:
 
 ### 常用工具类
 
-- [Java Arrays工具类10大常用方法](common-tool/arrays.md)
-- [Java集合框架：Collections工具类](common-tool/collections.md)
+- [Java Arrays：专为数组而生的工具类](common-tool/arrays.md)
+- [Java Collections：专为集合框架而生的工具类](common-tool/collections.md)
 - [Hutool：国产良心工具包，让你的Java变得更甜](common-tool/hutool.md)
-- [Google开源的Guava工具库，太强大了～](common-tool/guava.md)
+- [Guava：Google开源的工具库，太强大了](common-tool/guava.md)
+- [这10个工具类，让我的开发效率提升了50%](common-tool/utils.md)
 
 ### Java新特性
 
@@ -205,26 +206,26 @@ head:
 ### Java重要知识点
 
 - [彻底弄懂Java中的Unicode和UTF-8编码](basic-extra-meal/java-unicode.md)
-- [Java中int、Integer、new Integer之间的区别](basic-extra-meal/int-cache.md)
+- [Java中new Integer与Integer.valueOf的区别](basic-extra-meal/int-cache.md)
 - [深入剖析Java中的拆箱和装箱](basic-extra-meal/box.md)
-- [彻底讲明白的Java浅拷贝与深拷贝](basic-extra-meal/deep-copy.md)
+- [一文彻底讲明白的Java中的浅拷贝与深拷贝](basic-extra-meal/deep-copy.md)
 - [深入理解Java中的hashCode方法](basic-extra-meal/hashcode.md)
-- [一次性搞清楚equals和hashCode](basic-extra-meal/equals-hashcode.md)
+- [为什么重写equals方法的时候必须要重写hashCode方法？](basic-extra-meal/equals-hashcode.md)
 - [Java重写（Overriding）时应当遵守的11条规则](basic-extra-meal/Overriding.md)
 - [Java到底是值传递还是引用传递？](basic-extra-meal/pass-by-value.md)
-- [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
-- [详解Java中Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
-- [jdk9为何要将String的底层实现由char[]改成了byte[]?](basic-extra-meal/jdk9-char-byte-string.md)
+- [详解Java中Comparable和Comparator接口的区别](basic-extra-meal/comparable-omparator.md)
+- [jdk9为什么要将String的底层实现由char数组改成了byte数组?](basic-extra-meal/jdk9-char-byte-string.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
-- [先有Class还是先有Object？](basic-extra-meal/class-object.md)
+- [Java 中，先有Class还是先有Object？](basic-extra-meal/class-object.md)
+- [详解Java中instanceof关键字的用法](oo/instanceof.md)
 - [instanceof关键字是如何实现的？](basic-extra-meal/instanceof-jvm.md)
-- [Java instanceof关键字用法](oo/instanceof.md)
 - [深入理解Java中的不可变对象](basic-extra-meal/immutable.md)
 - [Java中可变参数的使用](basic-extra-meal/varables.md)
-- [深入理解Java泛型](basic-extra-meal/generic.md)
-- [深入理解Java注解](basic-extra-meal/annotation.md)
-- [Java枚举（enum）](basic-extra-meal/enum.md)
-- [大白话说Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
+- [深入理解Java中的泛型](basic-extra-meal/generic.md)
+- [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
+- [深入理解Java中的注解](basic-extra-meal/annotation.md)
+- [新来个技术总监，彻底把 Java 枚举(enum)讲清楚了](basic-extra-meal/enum.md)
+- [大白话说清楚Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
 
 ### Java网络编程
 

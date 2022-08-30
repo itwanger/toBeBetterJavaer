@@ -1,17 +1,22 @@
 ---
+title: jdk9为什么要将String的底层实现由char数组改成了byte数组?
+shortTitle: String的底层实现由char改成了byte?
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，jdk9为什么要将String的底层实现由char数组改成了byte数组?
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,string,char,byte
 ---
-
-# jdk9为何要将String的底层实现由char[]改成了byte[]?
 
 大家好，我是二哥呀！如果你不是 Java8 的钉子户，你应该早就发现了：String 类的源码已经由 `char[]` 优化为了 `byte[]` 来存储字符串内容，为什么要这样做呢？
 
 开门见山地说，从 `char[]` 到 `byte[]`，最主要的目的是**为了节省字符串占用的内存**。内存占用减少带来的另外一个好处，就是 GC 次数也会减少。
 
-### 一、为什么要优化 String 节省内存空间
+## 一、为什么要优化 String 节省内存空间
 
 我们使用 `jmap -histo:live pid | head -n 10` 命令就可以查看到堆内对象示例的统计信息、查看 ClassLoader 的信息以及 finalizer 队列。
 
@@ -27,7 +32,7 @@ tag:
 
 那也就是说优化 String 节省内存空间是非常有必要的，如果是去优化一个使用频率没有 String 这么高的类库，就显得非常的鸡肋。
 
-### 二、`byte[]` 为什么就能节省内存空间呢？
+## 二、`byte[]` 为什么就能节省内存空间呢？
 
 众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 编码，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
 
@@ -76,7 +81,7 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 也就是说，从 `char[]` 到 `byte[]`，**中文是两个字节，纯英文是一个字节，在此之前呢，中文是两个字节，应为也是两个字节**。
 
-### 三、为什么用UTF-16而不用UTF-8呢？
+## 三、为什么用UTF-16而不用UTF-8呢？
 
 在 UTF-8 中，0-127 号的字符用 1 个字节来表示，使用和 ASCII 相同的编码。只有 128 号及以上的字符才用 2 个、3 个或者 4 个字节来表示。
 
@@ -106,7 +111,7 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 所以UTF-16在Java的世界里，就可以视为一个定长的编码。
 
->参考链接：https://www.zhihu.com/question/447224628
+>参考链接：[https://www.zhihu.com/question/447224628](https://www.zhihu.com/question/447224628)
 
 ----
 

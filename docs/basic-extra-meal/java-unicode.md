@@ -1,18 +1,23 @@
 ---
+title: 彻底弄懂Java中的Unicode和UTF-8编码
+shortTitle: 彻底弄懂Unicode和UTF-8编码
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，彻底弄懂Java中的Unicode和UTF-8编码
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,unicode,utf-8
 ---
 
-# 彻底弄懂Java中的Unicode和UTF-8编码
-
-“二哥，[上一篇](https://mp.weixin.qq.com/s/twim3w_dp5ctCigjLGIbFw)文章中提到了 Unicode，说 Java 中的 
+“二哥，[上一篇](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)文章中提到了 Unicode，说 Java 中的 
  char 类型之所以占 2 个字节，是因为 Java 使用的是 Unicode 字符集而不是 ASCII 字符集，我有点迷，想了解一下，能细致给我说说吗？”
 
 “当然没问题啊，三妹。”
 
-**1）ASCII**
+## **1）ASCII**
 
 对于计算机来说，只认 0 和 1，所有的信息最终都是一个二进制数。一个二进制数要么是 0，要么是 1，所以 8 个二进制数放在一起（一个字节），就会组合出 256 种状态，也就是 2 的 8 次方（`2^8`），从 00000000 到 11111111。
 
@@ -49,7 +54,7 @@ PPPS：英式标点符号，也叫英文标点符号，和中文标点符号很�
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-05.png)
 
 
-**2）Unicode**
+## **2）Unicode**
 
 这个世界上，除了英语，还有法语、葡萄牙语、西班牙语、德语、俄语、阿拉伯语、韩语、日语等等等等。ASCII 码用来表示英语是绰绰有余的，但其他这些语言就没办法了。
 
@@ -152,7 +157,7 @@ UTF-16 使用 2 个或者 4 个字节来存储字符。
 
 - 对于 Unicode 编号范围在 10000 ~ 10FFFF 之间的字符，UTF-16 使用四个字节存储，具体来说就是：将字符编号的所有比特位分成两部分，较高的一些比特位用一个值介于 D800~DBFF 之间的双字节存储，较低的一些比特位（剩下的比特位）用一个值介于 DC00~DFFF 之间的双字节存储。
 
-**3）char**
+## **3）char**
 
 搞清楚了 Unicode 之后，再回头来看 char 为什么是两个字节的问题，就很容易搞明白了。
 
