@@ -1,11 +1,17 @@
 ---
+title: Java不能实现真正泛型的原因是什么？
+shortTitle: Java不能实现真正泛型的原因是什么？
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java不能实现真正泛型的原因是什么？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,泛型
 ---
 
-# Java不能实现真正泛型的原因是什么？
 
 “二哥，为啥 Java 不能实现真正泛型啊？”三妹开门见山地问。
 
@@ -64,7 +70,7 @@ Java 在 2004 年已经积累了较为丰富的生态，如果把现有的类修
 
 第二，不是“实现不了”。Pizza，1996 年的实验语言，在 Java 的基础上扩展了泛型。
 
->Pizza 教程地址：http://pizzacompiler.sourceforge.net/doc/tutorial.html
+>Pizza 教程地址：[http://pizzacompiler.sourceforge.net/doc/tutorial.html](http://pizzacompiler.sourceforge.net/doc/tutorial.html)
 
 “1996 年？”三妹表示很吃惊。
 
@@ -219,7 +225,7 @@ Java 神奇就神奇在这，表面上万物皆对象，但为了性能上的考
 
 Project Valhalla：正在进行当中的 OpenJDK 项目，计划给未来的 Java 添加改进的泛型支持。
 
->源码地址：http://openjdk.java.net/projects/valhalla/
+>源码地址：[http://openjdk.java.net/projects/valhalla/](http://openjdk.java.net/projects/valhalla/)
 
 让我们拭目以待吧！
 

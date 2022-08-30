@@ -1,11 +1,16 @@
 ---
+title: 大白话说清楚Java反射：入门、使用、原理
+shortTitle: Java反射：入门、使用、原理
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，大白话说清楚Java反射：入门、使用、原理
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,反射
 ---
-
-# 大白话说Java反射：入门、使用、原理
 
 “二哥，什么是反射呀？”三妹开门见山地问。
 
@@ -313,11 +318,11 @@ Method[] methods2 = System.class.getMethods();
 
 第一篇：深入理解 Java 反射和动态代理
 
->链接：https://dunwu.github.io/javacore/basics/java-reflection.html#_1-%E5%8F%8D%E5%B0%84%E7%AE%80%E4%BB%8B
+>链接：[https://dunwu.github.io/javacore/basics/java-reflection.html](https://dunwu.github.io/javacore/basics/java-reflection.html)
 
 第二篇：大白话说Java反射：入门、使用、原理：
 
->链接：https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html
+>链接：[https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html](https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html)
 
 
 ----

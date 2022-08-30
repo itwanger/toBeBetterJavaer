@@ -1,11 +1,16 @@
 ---
+title: 深入理解Java中的注解
+shortTitle: 深入理解Java中的注解
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解Java中的注解
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,注解,annotation
 ---
-
-# 深入理解Java注解
 
 “二哥，这节讲注解吗？”三妹问。
 

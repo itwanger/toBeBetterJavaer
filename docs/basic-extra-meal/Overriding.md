@@ -1,15 +1,21 @@
 ---
+title: Java重写（Overriding）时应当遵守的11条规则
+shortTitle: 重写时应当遵守的11条规则
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java重写（Overriding）时应当遵守的11条规则
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,重写,Overriding
 ---
 
-# Java重写（Overriding）时应当遵守的11条规则
 
 重写（Overriding）算是 Java 中一个非常重要的概念，理解重写到底是什么对每个 Java 程序员来说都至关重要，这篇文章就来给大家说说重写过程中应当遵守的 12 条规则。
 
-### 01、什么是重写？
+## 01、什么是重写？
 
 重写带来了一种非常重要的能力，可以让子类重新实现从超类那继承过来的方法。在下面这幅图中，Animal 是父类，Dog 是子类，Dog 重新实现了 `move()` 方法用来和父类进行区分，毕竟狗狗跑起来还是比较有特色的。
 
@@ -17,9 +23,9 @@ tag:
 
 重写的方法和被重写的方法，不仅方法名相同，参数也相同，只不过，方法体有所不同。
 
-### 02、哪些方法可以被重写？
+## 02、哪些方法可以被重写？
 
-**规则一：只能重写继承过来的方法**。
+### **规则一：只能重写继承过来的方法**。
 
 因为重写是在子类重新实现从父类继承过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
 
@@ -63,9 +69,9 @@ public class Dog extends Animal {
 }
 ```
 
-### 03、哪些方法不能被重写？
+## 03、哪些方法不能被重写？
 
-**规则二：final、static 的方法不能被重写**。
+### **规则二：final、static 的方法不能被重写**。
 
 一个方法是 final 的就意味着它无法被子类继承到，所以就没办法重写。
 
@@ -91,9 +97,9 @@ public class Animal {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
 
-### 04、重写方法的要求
+## 04、重写方法的要求
 
-**规则三：重写的方法必须有相同的参数列表**。
+### **规则三：重写的方法必须有相同的参数列表**。
 
 ```java
 public class Animal {
@@ -143,7 +149,7 @@ public class Dog extends Animal {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
 
-**规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
+### **规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
 
 可以这样来理解：
 
@@ -171,7 +177,7 @@ public class Dog extends Animal {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
 
-**规则六：重写后的方法不能抛出比父类中更高级别的异常**。
+### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
 
 举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何异常。这条规则只适用于可检查的异常。
 
@@ -231,9 +237,9 @@ Error:(9, 16) java: com.itwanger.overriding.Dog中的eat()无法覆盖com.itwang
   被覆盖的方法未抛出java.lang.Exception
 ```
 
-### 05、如何调用被重写的方法？
+## 05、如何调用被重写的方法？
 
-**规则七：可以在子类中通过 super 关键字来调用父类中被重写的方法**。
+### **规则七：可以在子类中通过 super 关键字来调用父类中被重写的方法**。
 
 子类继承父类的方法而不是重新实现是很常见的一种做法，在这种情况下，可以按照下面的形式调用父类的方法：
 
@@ -260,15 +266,15 @@ public class Dog extends Animal {
 }
 ```
 
-### 06、重写和构造方法
+## 06、重写和构造方法
 
-**规则八：构造方法不能被重写**。
+### **规则八：构造方法不能被重写**。
 
 因为构造方法很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
 
-### 07、重写和抽象方法
+## 07、重写和抽象方法
 
-**规则九：如果一个类继承了抽象类，抽象类中的抽象方法必须在子类中被重写**。
+### **规则九：如果一个类继承了抽象类，抽象类中的抽象方法必须在子类中被重写**。
 
 先来看这样一个接口类：
 
@@ -306,15 +312,15 @@ public class BullDog extends AbstractDog {
 }
 ```
 
-### 08、重写和 synchronized 方法
+## 08、重写和 synchronized 方法
 
-**规则十：synchronized 关键字对重写规则没有任何影响**。
+### **规则十：synchronized 关键字对重写规则没有任何影响**。
 
 synchronized 关键字用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
 
-### 09、重写和 strictfp 方法
+## 09、重写和 strictfp 方法
 
-**规则十一：strictfp 关键字对重写规则没有任何影响**。
+### **规则十一：strictfp 关键字对重写规则没有任何影响**。
 
 如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 strictfp 关键字。因此 strictfp 关键和重写规则无关。
 

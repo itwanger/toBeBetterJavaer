@@ -1,13 +1,18 @@
 ---
+title: Java中new Integer与Integer.valueOf的区别
+shortTitle: new Integer与Integer.valueOf的区别
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java中new Integer与Integer.valueOf的区别
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Integer
 ---
 
-# Java中int、Integer、new Integer之间的区别
-
-“三妹，今天我们来补一个小的知识点：Java 数据类型缓存池。”我喝了一口枸杞泡的茶后对三妹说，“考你一个问题哈：`new Integer(18) 与 Integer.valueOf(18) ` 的区别是什么？”
+“三妹，今天我们来补一个小的知识点：Java 数据类型缓存池。”我喝了一口枸杞泡的茶后对三妹说，“考你一个问题哈：`new Integer(18) 与 Integer.valueOf(18)` 的区别是什么？”
 
 “难道不一样吗？”三妹有点诧异。
 
@@ -108,7 +113,7 @@ private static class IntegerCache {
 
 
 
-之前我们在[学习 static 关键字](https://github.com/itwanger/toBeBetterJavaer/blob/master/docs/keywords/java-static.md)的时候，提到过静态代码块，还记得吧？三妹。静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
+之前我们在[学习 static 关键字](https://tobebetterjavaer.com/oo/static.html)的时候，提到过静态代码块，还记得吧？三妹。静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
 
 在静态代码块中，low 为 -128，也就是缓存池的最小值；high 默认为 127，也就是缓存池的最大值，共计 256 个。
 

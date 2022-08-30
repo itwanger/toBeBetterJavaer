@@ -1,11 +1,16 @@
 ---
+title: 深入理解Java中的泛型
+shortTitle: 深入理解Java中的泛型
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解Java中的泛型
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,泛型
 ---
-
-# 深入理解Java泛型
 
 “二哥，为什么要设计泛型啊？”三妹开门见山地问。
 
@@ -459,7 +464,7 @@ list3.add(new Wangxiaoer());
 
 “三妹，关于泛型，这里还有一篇很不错的文章，你等会去看一下。”我说。
 
->https://www.pdai.tech/md/java/basic/java-basic-x-generic.html
+>[https://www.pdai.tech/md/java/basic/java-basic-x-generic.html](https://www.pdai.tech/md/java/basic/java-basic-x-generic.html)
 
 “对泛型机制讲的也很透彻，你结合二哥给你讲的这些，再深入的学习一下。”
 

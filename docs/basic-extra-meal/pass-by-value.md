@@ -1,11 +1,17 @@
 ---
+title: Java到底是值传递还是引用传递？
+shortTitle: Java到底是值传递还是引用传递？
 category:
   - Java核心
 tag:
-  - Java
+  - Java重要知识点
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java到底是值传递还是引用传递？
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,值传递,引用传递
 ---
 
-# Java到底是值传递还是引用传递？
 
 “哥，说说 Java 到底是值传递还是引用传递吧？”三妹一脸的困惑，看得出来她被这个问题折磨得不轻。
 
