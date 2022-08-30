@@ -165,22 +165,10 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           prefix:"exception/",
           children: [
-          {
-            text: "概览",
-            link: "gailan",
-          },
-          {
-            text: "try-with-resouces",
-            link: "try-with-resouces",
-          },
-          {
-            text: "最佳实践",
-            link: "shijian",
-          },
-          {
-            text: "NullPointerException",
-            link: "npe",
-          },
+          "gailan",
+          "try-with-resouces",
+          "shijian",
+          "npe",
           ],
         },
         {
@@ -188,22 +176,11 @@ export const sidebarConfig = sidebar({
           collapsable: true,
           prefix:"common-tool/",
           children: [
-          {
-            text: "Arrays",
-            link: "arrays",
-          },
-          {
-            text: "Collections",
-            link: "collections",
-          },
-          {
-            text: "Hutool",
-            link: "hutool",
-          },
-          {
-            text: "Guava",
-            link: "guava",
-          },
+          "arrays",
+          "collections",
+          "hutool",
+          "guava",
+          "utils",
           ],
         },
         {
@@ -211,18 +188,9 @@ export const sidebarConfig = sidebar({
           prefix: "java8/",
           collapsable: true,
           children: [
-          {
-            text: "Stream",
-            link: "stream",
-          },
-          {
-            text: "Optional",
-            link: "optional",
-          },
-          {
-            text: "Lambda",
-            link: "Lambda",
-          },
+          "stream",
+          "optional",
+          "Lambda",
           ],
         },
         {

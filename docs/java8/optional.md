@@ -1,11 +1,16 @@
 ---
+title: Java 8 Optional最佳指南
+shortTitle: Optional最佳指南
 category:
   - Java核心
 tag:
-  - Java
+  - Java新特性
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java 8 Optional最佳指南
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java8,Optional
 ---
-
-# Java 8 Optional最佳指南
 
 
 想学习，永远都不晚，尤其是针对 Java 8 里面的好东西，Optional 就是其中之一，该类提供了一种用于表示可选值而非空引用的类级别解决方案。作为一名 Java 程序员，我真的是烦透了 NullPointerException（NPE），尽管和它熟得就像一位老朋友，知道它也是迫不得已——程序正在使用一个对象却发现这个对象的值为 null，于是 Java 虚拟机就怒发冲冠地把它抛了出来当做替罪羊。
@@ -15,7 +20,7 @@ tag:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/optional-1.jpg)
 
 
-### 01、没有 Optional 会有什么问题
+## 01、没有 Optional 会有什么问题
 
 我们来模拟一个实际的应用场景。小王第一天上班，领导老马就给他安排了一个任务，要他从数据库中根据会员 ID 拉取一个会员的姓名，然后将姓名打印到控制台。虽然是新来的，但这个任务难不倒小王，于是他花了 10 分钟写下了这段代码：
 
@@ -54,7 +59,7 @@ Exception in thread "main" java.lang.NullPointerException
 	at com.cmower.dzone.optional.WithoutOptionalDemo.main(WithoutOptionalDemo.java:24)
 ```
 
-### 02、Optional 是如何解决这个问题的
+## 02、Optional 是如何解决这个问题的
 
 小王把代码提交后，就兴高采烈地去找老马要新的任务了。本着虚心学习的态度，小王请求老马看一下自己的代码，于是老王就告诉他应该尝试一下 Optional，可以避免没有必要的 null 值检查。现在，让我们来看看小王是如何通过 Optional 来解决上述问题的。
 
@@ -90,7 +95,7 @@ class Member {
 
 Optional 之所以可以解决 NPE 的问题，是因为它明确的告诉我们，不需要对它进行判空。它就好像十字路口的路标，明确地告诉你该往哪走。
 
-### 03、创建 Optional 对象
+## 03、创建 Optional 对象
 
 1）可以使用静态方法 `empty()` 创建一个空的 Optional 对象
 
@@ -123,7 +128,7 @@ System.out.println(optOrNull); // 输出：Optional.empty
 
 `ofNullable()` 方法内部有一个三元表达式，如果为参数为 null，则返回私有常量 EMPTY；否则使用 new 关键字创建了一个新的 Optional 对象——不会再抛出 NPE 异常了。
 
-### 04、判断值是否存在
+## 04、判断值是否存在
 
 可以通过方法 `isPresent()` 判断一个 Optional 对象是否存在，如果存在，该方法返回 true，否则返回 false——取代了 `obj != null` 的判断。
 
@@ -145,7 +150,7 @@ Optional<String> optOrNull = Optional.ofNullable(null);
 System.out.println(opt.isPresent()); // 输出：true
 ```
 
-### 05、非空表达式
+## 05、非空表达式
 
 Optional 类有一个非常现代化的方法——`ifPresent()`，允许我们使用函数式编程的方式执行一些代码，因此，我把它称为非空表达式。如果没有该方法的话，我们通常需要先通过 `isPresent()` 方法对 Optional 对象进行判空后再执行相应的代码：
 
@@ -170,7 +175,7 @@ Optional<String> opt = Optional.of("沉默王二");
 opt.ifPresentOrElse(str -> System.out.println(str.length()), () -> System.out.println("为空"));
 ```
 
-### 06、设置（获取）默认值
+## 06、设置（获取）默认值
 
 有时候，我们在创建（获取） Optional 对象的时候，需要一个默认值，`orElse()` 和 `orElseGet()` 方法就派上用场了。
 
@@ -249,7 +254,7 @@ orElseGet
 
 咦，`orElseGet()` 没有去调用 `getDefaultValue()`。哪个方法的性能更佳，你明白了吧？
 
-### 07、获取值
+## 07、获取值
 
 直观从语义上来看，`get()` 方法才是最正宗的获取 Optional 对象值的方法，但很遗憾，该方法是有缺陷的，因为假如 Optional 对象的值为 null，该方法会抛出 NoSuchElementException 异常。这完全与我们使用 Optional 类的初衷相悖。
 
@@ -273,7 +278,7 @@ Exception in thread "main" java.util.NoSuchElementException: No value present
 
 尽管抛出的异常是 NoSuchElementException 而不是 NPE，但在我们看来，显然是在“五十步笑百步”。建议 `orElseGet()` 方法获取 Optional 对象的值。
 
-### 08、过滤值
+## 08、过滤值
 
 小王通过 Optional 类对之前的代码进行了升级，完成后又兴高采烈地跑去找老马要任务了。老马觉得这小伙子不错，头脑灵活，又干活积极，很值得培养，就又交给了小王一个新的任务：用户注册时对密码的长度进行检查。
 
@@ -306,7 +311,7 @@ System.out.println(result);
 
 这次程序输出的结果为 true，因为密码变成了 7 位，在 6 到 10 位之间。想象一下，假如小王使用 if-else 来完成这个任务，代码该有多冗长。
 
-### 09、转换值
+## 09、转换值
 
 小王检查完了密码的长度，仍然觉得不够尽兴，觉得要对密码的强度也进行检查，比如说密码不能是“password”，这样的密码太弱了。于是他又开始研究起了 `map()` 方法，该方法可以按照一定的规则将原有 Optional 对象转换为一个新的 Optional 对象，原有的 Optional 对象不会更改。
 
@@ -352,5 +357,11 @@ public class OptionalMapFilterDemo {
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/optional-2.jpg)
 
 好了，我亲爱的读者朋友，以上就是本文的全部内容了——可以说是史上最佳 Optional 指南了，能看到这里的都是最优秀的程序员，二哥必须要伸出大拇指为你点个赞。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

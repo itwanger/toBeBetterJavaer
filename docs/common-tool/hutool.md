@@ -1,12 +1,16 @@
 ---
+title: Hutool：国产良心工具包，让你的Java变得更甜
+shortTitle: Hutool工具类
 category:
   - Java核心
 tag:
-  - Java
+  - 常用工具类
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Hutool：国产良心工具包，让你的Java变得更甜
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,Hutool
 ---
-
-# Hutool：国产良心工具包，让你的Java变得更甜
-
 
 读者群里有个小伙伴感慨说，“Hutool 这款开源类库太厉害了，基本上该有该的工具类，它里面都有。”讲真的，我平常工作中也经常用 Hutool，它确实可以帮助我们简化每一行代码，使 Java 拥有函数式语言般的优雅，让 Java 语言变得“甜甜的”。
 
@@ -19,7 +23,7 @@ Hutool 的作者在官网上说，Hutool 是 Hu+tool 的自造词（好像不用
 
 废话就说到这，来吧，实操走起！
 
-### 01、引入 Hutool
+## 01、引入 Hutool
 
 Maven 项目只需要在 pom.xml 文件中添加以下依赖即可。
 
@@ -44,7 +48,7 @@ Hutool 对不仅对 JDK 底层的文件、流、加密解密、转码、正则�
 
 非常多，非常全面，鉴于此，我只挑选一些我喜欢的来介绍下（偷偷地告诉你，我就是想偷懒）。
 
-### 02、类型转换
+## 02、类型转换
 
 类型转换在 Java 开发中很常见，尤其是从 HttpRequest 中获取参数的时候，前端传递的是整型，但后端只能先获取到字符串，然后再调用 `parseXXX()` 方法进行转换，还要加上判空，很繁琐。
 
@@ -70,7 +74,7 @@ String unicodeStr = "沉默王二";
 String unicode = Convert.strToUnicode(unicodeStr);
 ```
 
-### 03、日期时间
+## 03、日期时间
 
 JDK 自带的 Date 和 Calendar 不太好用，Hutool 封装的 DateUtil 用起来就舒服多了！
 
@@ -131,7 +135,7 @@ String zodiac = DateUtil.getZodiac(Month.DECEMBER.getValue(), 10);
 String chineseZodiac = DateUtil.getChineseZodiac(1989);
 ```
 
-### 04、IO 流相关
+## 04、IO 流相关
 
 IO 操作包括读和写，应用的场景主要包括网络操作和文件操作，原生的 Java 类库区分字符流和字节流，字节流 InputStream 和 OutputStream 就有很多很多种，使用起来让人头皮发麻。
 
@@ -176,7 +180,7 @@ FileUtil.getInputStream("origin.txt")
 FileUtil.getInputStream("hutool/origin.txt")
 ```
 
-### 05、字符串工具
+## 05、字符串工具
 
 Hutool 封装的字符串工具类 StrUtil 和 Apache Commons Lang 包中的 StringUtils 类似，作者认为优势在于 Str 比 String 短，尽管我不觉得。不过，我倒是挺喜欢其中的一个方法的：
 
@@ -186,7 +190,7 @@ String str = StrUtil.format(template, "沉默王二", "沉默王二");
 // 沉默王二，一枚沉默但有趣的程序员，喜欢他的文章的话，请微信搜索沉默王二
 ```
 
-### 06、反射工具
+## 06、反射工具
 
 反射机制可以让 Java 变得更加灵活，因此在某些情况下，反射可以做到事半功倍的效果。Hutool 封装的反射工具 ReflectUtil 包括：
 
@@ -249,7 +253,7 @@ public class ReflectDemo {
 }
 ```
 
-### 07、压缩工具
+## 07、压缩工具
 
 在 Java 中，对文件、文件夹打包压缩是一件很繁琐的事情，Hutool 封装的 ZipUtil 针对 java.util.zip 包做了优化，可以使用一个方法搞定压缩和解压，并且自动处理文件和目录的问题，不再需要用户判断，大大简化的压缩解压的复杂度。
 
@@ -258,7 +262,7 @@ ZipUtil.zip("hutool", "hutool.zip");
 File unzip = ZipUtil.unzip("hutool.zip", "hutoolzip");
 ```
 
-### 08、身份证工具
+## 08、身份证工具
 
 Hutool 封装的 IdcardUtil 可以用来对身份证进行验证，支持大陆 15 位、18 位身份证，港澳台 10 位身份证。
 
@@ -270,7 +274,7 @@ boolean valid = IdcardUtil.isValidCard(ID_18);
 boolean valid15 = IdcardUtil.isValidCard(ID_15);
 ```
 
-### 09、扩展 HashMap
+## 09、扩展 HashMap
 
 Java 中的 HashMap 是强类型的，而 Hutool 封装的 Dict 对键的类型要求没那么严格。
 
@@ -284,7 +288,7 @@ int age = dict.getInt("age");
 String name = dict.getStr("name");
 ```
 
-### 10、控制台打印
+## 10、控制台打印
 
 本地编码的过程中，经常需要使用 `System.out` 打印结果，但是往往一些复杂的对象不支持直接打印，比如说数组，需要调用 `Arrays.toString`。Hutool 封装的 Console 类借鉴了 JavaScript 中的 `console.log()`，使得打印变成了一个非常便捷的方式。
 
@@ -304,7 +308,7 @@ public class ConsoleDemo {
 }
 ```
 
-### 11、字段验证器
+## 11、字段验证器
 
 做 Web 开发的时候，后端通常需要对表单提交过来的数据进行验证。Hutool 封装的 Validator 可以进行很多有效的条件验证：
 
@@ -320,7 +324,7 @@ Validator.isEmail("沉默王二");
 Validator.isMobile("itwanger.com");
 ```
 
-### 12、双向查找 Map
+## 12、双向查找 Map
 
 Guava 中提供了一种特殊的 Map 结构，叫做 BiMap，实现了一种双向查找的功能，可以根据 key 查找 value，也可以根据 value 查找 key，Hutool 也提供这种 Map 结构。
 
@@ -342,7 +346,7 @@ biMap.getKey("沉默王三");
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-06.png)
 
-### 13、图片工具
+## 13、图片工具
 
 Hutool 封装的 ImgUtil 可以对图片进行缩放、裁剪、转为黑白、加水印等操作。
 
@@ -384,7 +388,7 @@ ImgUtil.pressText(//
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-07.png)
 
-### 14、配置文件
+## 14、配置文件
 
 >众所周知，Java 中广泛应用的配置文件 Properties 存在一个特别大的诟病：不支持中文。每次使用时，如果想存放中文字符，就必须借助 IDE 相关插件才能转为 Unicode 符号，而这种反人类的符号在命令行下根本没法看。
 
@@ -423,7 +427,7 @@ public class SettingDemo {
 }
 ```
 
-### 15、日志工厂
+## 15、日志工厂
 
 Hutool 封装的日志工厂 LogFactory 兼容了各大日志框架，使用起来也非常简便。
 
@@ -445,7 +449,7 @@ public class LogDemo {
 StaticLog.info("爽啊 {}.", "沉默王二的文章");
 ```
 
-### 16、缓存工具
+## 16、缓存工具
 
 CacheUtil 是 Hutool 封装的创建缓存的快捷工具类，可以创建不同的缓存对象：
 
@@ -496,7 +500,7 @@ String value2 = lruCache.get("key2");
 System.out.println(value2);
 ```
 
-### 17、加密解密
+## 17、加密解密
 
 加密分为三种：
 
@@ -544,11 +548,18 @@ public class SecureUtilDemo {
 }
 ```
 
-### 18、其他类库
+## 18、其他类库
 
 Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步封装，比如邮件工具 MailUtil，二维码工具 QrCodeUtil，Emoji 工具 EmojiUtil，小伙伴们可以参考 Hutool 的官方文档：https://www.hutool.cn/
 
 项目源码地址：[https://github.com/looly/hutool](https://github.com/looly/hutool)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
 

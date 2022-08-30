@@ -552,9 +552,8 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 我把所有的电子书都放在另外一个仓库了：
 
-GitHub：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
-
-码云：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks)
+- GitHub：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
+- 码云：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks)
 
 ## [](#常见问题解答)常见问题解答
 
@@ -590,8 +589,7 @@ GitHub：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/Jav
 
 **所涉及到的电子书，可以通过下面这个仓库下载**：
 
-GitHub：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
-
-码云：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks)
+- GitHub：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
+- 码云：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks)
 
 

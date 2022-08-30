@@ -1,11 +1,16 @@
 ---
+title: Java Collections：专为集合框架而生的工具类
+shortTitle: Collections工具类
 category:
   - Java核心
 tag:
-  - Java
+  - 常用工具类
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java Collections：专为集合框架而生的工具类
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,Collections,集合框架
 ---
-
-# Java集合框架：Collections工具类
 
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
@@ -19,7 +24,7 @@ Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之�
 
 为了节省大家的学习时间，我将这些方法做了一些分类，并列举了一些简单的例子。
 
-### 01、排序操作
+## 01、排序操作
 
 - `reverse(List list)`：反转顺序
 - `shuffle(List list)`：洗牌，将顺序打乱
@@ -66,7 +71,7 @@ System.out.println("交换后：" + list);
 交换后：[沉默王三, 沉默王二, 沉默王四, 沉默王六, 沉默王五]
 ```
 
-### 02、查找操作
+## 02、查找操作
 
 - `binarySearch(List list, Object key)`：二分查找法，前提是 List 已经排序过了
 - `max(Collection coll)`：返回最大元素
@@ -105,7 +110,7 @@ System.out.println("填充后的结果：" + list);
 填充后的结果：[沉默王八, 沉默王八, 沉默王八, 沉默王八, 沉默王八]
 ```
 
-### 03、同步控制
+## 03、同步控制
 
 [HashMap 是线程不安全](https://mp.weixin.qq.com/s/qk_neCdzM3aB6pVWVTHhNw)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
 
@@ -179,7 +184,7 @@ public class Vector<E>
 
 正确的做法是使用并发包下的 CopyOnWriteArrayList、ConcurrentHashMap。这些我们放到并发编程时再讲。
 
-### 04、不可变集合
+## 04、不可变集合
 
 - `emptyXxx()`：制造一个空的不可变集合
 - `singletonXxx()`：制造一个只有一个元素的不可变集合
@@ -214,7 +219,7 @@ public static final <T> List<T> emptyList() {
 public static final List EMPTY_LIST = new EmptyList<>();
 ```
 
-### 05、其他
+## 05、其他
 
 还有两个方法比较常用：
 
@@ -249,6 +254,12 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 
 这才是高手要思考的一个问题。
 
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
