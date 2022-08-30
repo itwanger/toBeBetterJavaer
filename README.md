@@ -169,17 +169,18 @@
 
 ## 异常处理
 
-- [一文读懂Java异常处理](docs/exception/gailan.md)
-- [详解Java7新增的try-with-resouces语法](docs/exception/try-with-resouces.md)
+- [一文彻底搞懂Java异常处理，YYDS](docs/exception/gailan.md)
+- [深入理解 Java 中的 try-with-resouces 语法糖](docs/exception/try-with-resouces.md)
 - [Java异常处理的20个最佳实践](docs/exception/shijian.md)
 - [Java空指针NullPointerException的传说](docs/exception/npe.md)
 
 ## 常用工具类
 
-- [Java Arrays工具类10大常用方法](docs/common-tool/arrays.md)
-- [Java集合框架：Collections工具类](docs/common-tool/collections.md)
+- [Java Arrays：专为数组而生的工具类](docs/common-tool/arrays.md)
+- [Java Collections：专为集合框架而生的工具类](docs/common-tool/collections.md)
 - [Hutool：国产良心工具包，让你的Java变得更甜](docs/common-tool/hutool.md)
-- [Google开源的Guava工具库，太强大了～](docs/common-tool/guava.md)
+- [Guava：Google开源的工具库，太强大了](docs/common-tool/guava.md)
+- [这10个工具类，让我的开发效率提升了50%](docs/common-tool/utils.md)
 
 ## Java新特性
 

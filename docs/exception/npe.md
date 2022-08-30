@@ -1,11 +1,17 @@
 ---
+title: Java空指针NullPointerException的传说
+shortTitle: NPE的传说
 category:
   - Java核心
 tag:
-  - Java
+  - 异常处理
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java空指针NullPointerException的传说
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,npe,NullPointerException
 ---
 
-# Java空指针NullPointerException的传说
 
 **空指针**，号称天下最强刺客。
 
@@ -217,7 +223,13 @@ Object听到这话，皱了皱眉，他沉默了一会儿，缓缓站起身子�
 
 可是，他为什么要给我，看他刚才的样子都想打我了，又突然给了我这些？还有他一直在说的规则之力又是什么？这座城市为什么又这么诡异？
 
->转载链接：https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg
+>转载链接：[https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg](https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg)
 
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

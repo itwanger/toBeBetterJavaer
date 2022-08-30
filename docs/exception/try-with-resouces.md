@@ -1,12 +1,16 @@
 ---
+title: 深入理解 Java 中的 try-with-resouces 语法糖
+shortTitle: try-with-resouces
 category:
   - Java核心
 tag:
-  - Java
+  - 异常处理
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解 Java 中的 try-with-resouces 语法糖
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,try-with-resouces
 ---
-
-# 详解Java7新增的try-with-resouces语法
-
 
 “二哥，终于等到你讲 try-with-resouces 了！”三妹夸张的表情让我有些吃惊。
 
@@ -295,6 +299,13 @@ java.lang.Exception: out()
 “三妹，怎么样？是不是感觉 try-with-resouces 好用多了！我来简单总结下哈，在处理必须关闭的资源时，始终有限考虑使用 try-with-resources，而不是 try–catch-finally。前者产生的代码更加简洁、清晰，产生的异常信息也更靠谱。”
 
 “靠谱！”三妹说。
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

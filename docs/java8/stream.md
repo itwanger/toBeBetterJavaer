@@ -1,14 +1,16 @@
 ---
+title: Java 8 Stream流详细用法
+shortTitle: Stream流详细用法
 category:
   - Java核心
 tag:
-  - Java
+  - Java新特性
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java 8 Stream流详细用法
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java8,stream
 ---
-
-
-
-# Java 8 Stream流详细用法
-
 
 两个星期以前，就有读者强烈要求我写一篇 Java Stream 流的文章，我说市面上不是已经有很多了吗，结果你猜他怎么说：“就想看你写的啊！”你看你看，多么苍白的喜欢啊。那就“勉为其难”写一篇吧，嘻嘻。
 
@@ -58,7 +60,7 @@ long count();
 
 理论部分就扯这么多，下面直接进入实战部分。
 
-### 01、创建流
+## 01、创建流
 
 如果是数组的话，可以使用 `Arrays.stream()` 或者 `Stream.of()` 创建流；如果是集合的话，可以直接使用 `stream()` 方法创建流，因为该方法已经添加到 Collection 接口中。
 
@@ -94,11 +96,11 @@ List<Long> aList = new ArrayList<>();
 Stream<Long> parallelStream = aList.parallelStream();
 ```
 
-### 02、操作流
+## 02、操作流
 
 Stream 类提供了很多有用的操作流的方法，我来挑一些常用的给你介绍一下。
 
-1）过滤
+### 1）过滤
 
 通过 `filter()` 方法可以从流中筛选出我们想要的元素。
 
@@ -134,7 +136,7 @@ for (String s : strs) {
 王力宏
 ```
 
-2）映射 
+### 2）映射 
 
 如果想通过某种操作把一个流中的元素转化成新的流中的元素，可以使用 `map()` 方法。
 
@@ -163,7 +165,7 @@ public class MapStreamDemo {
 3
 ```
 
-3）匹配
+### 3）匹配
 
 Stream 类提供了三个方法可供进行元素匹配，它们分别是：
 
@@ -202,7 +204,7 @@ true
 true
 ```
 
-4）组合
+### 4）组合
 
 `reduce()` 方法的主要作用是把 Stream 中的元素组合起来，它有两种用法：
 
@@ -248,7 +250,7 @@ public class ReduceStreamDemo {
 
 0、1、2、3 在没有起始值相加的时候结果为 6；有起始值 6 的时候结果为 12。
 
-### 03、转换流
+## 03、转换流
 
 既然可以把集合或者数组转成流，那么也应该有对应的方法，将流转换回去——`collect()` 方法就满足了这种需求。
 
@@ -312,5 +314,11 @@ Collectors 是一个收集器的工具类，内置了一系列收集器实现，
 ```
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/stream-2.jpg)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

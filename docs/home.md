@@ -184,8 +184,8 @@ head:
 
 ### 异常处理
 
-- [一文读懂Java异常处理](exception/gailan.md)
-- [详解Java7新增的try-with-resouces语法](exception/try-with-resouces.md)
+- [一文彻底搞懂Java异常处理，YYDS](exception/gailan.md)
+- [深入理解 Java 中的 try-with-resouces 语法糖](exception/try-with-resouces.md)
 - [Java异常处理的20个最佳实践](exception/shijian.md)
 - [Java空指针NullPointerException的传说](exception/npe.md)
 
