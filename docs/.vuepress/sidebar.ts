@@ -212,7 +212,7 @@ export const sidebarConfig = sidebar({
           "class-object",
           "instanceof",
           "instanceof-jvm",
-          "immutable"
+          "immutable",
           "varables",
           "generic",
           "true-generic",
