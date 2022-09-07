@@ -34,6 +34,7 @@ export const sidebarConfig = sidebar({
     "algorithm",
     "lanqiaobei",
     "bigdata",
+    "android",
   ],
   "/sidebar/sanfene/": [
     "javase.md",
