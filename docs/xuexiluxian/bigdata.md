@@ -203,3 +203,12 @@ Flume + Kafka，在实时流式日志的处理非常常见，后面再通过 Spa
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-99b69697-4804-4113-907b-fbe14ac36964.png)
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
