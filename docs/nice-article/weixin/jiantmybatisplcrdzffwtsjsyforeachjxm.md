@@ -26,7 +26,7 @@ head:
 
 数据库的最终效果如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJcVHbhYvGFH03UWnBufnhDPXNL8piaDsBFzQ3Hic8Ds0XiaEqqWqEf2vzA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-c58f5d09-cd1d-4bc9-9095-286a645acd6c.jpg)
 
 ## 1.循环单次插入
 
@@ -44,13 +44,13 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 运行以上程序，花费了 88574 毫秒，如下图所示：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJGiaCMAibclH6t8XN3dMZDxvKa31J8CWnsa8DH6Vmib6UGEUbMXFicc1lCQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-9d65d2e5-c528-47ba-a219-79b2797c3207.jpg)
 
 ## 2.MP 批量插入
 
 MP 批量插入功能核心实现类有三个：UserController（控制器）、UserServiceImpl（业务逻辑实现类）、UserMapper（数据库映射类），它们的调用流程如下:
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJC3ictbGZjO7VicwU2XO2ezic0X7dPj8PbXMrnS5yVtCicuuuaopLfkco6g/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-d31a8de8-a3de-4e16-8bac-10b0f093c972.jpg)
 
 注意此方法实现需要先添加 MP 框架，打开 pom.xml 文件添加如下内容：
 
@@ -100,7 +100,7 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 以上程序的执行总共花费了 6088 毫秒，如下图所示：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJtbd8aT9SSZs1xzy6gfMeUDlM9cCuXBzhXjfjXldia4t84iacGwXdvuIw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-4a267c42-a363-4dd0-8397-385e58bfc0ee.jpg)
 
 从上述结果可知，使用 MP 的批量插入功能（插入数据 10W 条），它的性能比循环单次插入的性能提升了 14.5 倍。
 
@@ -110,11 +110,11 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 MP 的核心实现代码是 saveBatch 方法，此方法的源码如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJJBibhibribzpN0TDibA1xPJV7iahahXexS2Ez3aQ6ymJHt53o7icxeHjgGmA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-d3373660-274a-473e-b958-07731fdf9fa5.jpg)
 
 我们继续跟进 saveBatch 的重载方法：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJVWFGcB9jRcGyHMvUjNCTTM0VSRCbbQvdU308EpribdR9sZX4TL3bicEA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-a8427c2f-7dca-4b15-be72-14c2d9c22563.jpg)
 
 从上述源码可以看出，MP 是将要执行的数据分成 N 份，每份 1000 条，每满 1000 条就会执行一次批量插入，所以它的性能要比循环单次插入的性能高很多。
 
@@ -164,7 +164,7 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 然而，当我们运行程序时却发生了以下情况：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJG9sukP0aniaeeic5UOYtCjUGWVReEkVTIL73luPsPHpVLCiayqnwzHmpQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-a9007c24-5db5-46fc-9d64-fb721184817b.jpg)
 
 纳尼？程序的执行竟然报错了。
 
@@ -184,7 +184,7 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 如下图所示：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJIh5cib1UXXf8mO1pp7EC8zVhkbpxU1uU8mq4ob2ITY4cv3z9rC2L1DA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-c2ce0dc0-3791-4d7c-8f05-c96246700438.jpg)
 
 > 注意：以上命令需要在 MySQL 连接的客户端中执行。
 
@@ -192,7 +192,7 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 当我们将 MySQL 的最大执行 SQL 设置为 10M 之后，运行以上单元测试代码，执行的结果如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/HrWw6ZuXCsgfDtHxQhVVdVqewSM2bjvJPelRkFfhwOAMwdHHM8EibCEpTAU4SQUQiatz3iaTQfnuwLLXSKiagVWSFQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-a701da82-ba81-4715-9c24-4b9aaa6594ec.jpg)
 
 ## 总结
 
@@ -206,7 +206,7 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/CKvMdchsUwmO2uOfAMVQgZTkNLowXood5ciaCq97iahic6naQgNYqLZeuibIJicmujK07RFa6E4PeiaicVVicDmVnAOZ1Q/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-700e6458-ee4b-469c-ba22-063b303d6b5e.jpg)
 
 ## 推荐阅读
 
@@ -221,6 +221,6 @@ import com.example.demo.model.User;import com.example.demo.service.impl.UserS
 
 
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/CKvMdchsUwlkU1ysoMgG69dVYbCQcI6Byneb8ibzZWPfUCr3T8CuBicCSGyFE6SpAtxpxtDCp6VlZ4F1hEL1BNyg/640?wx_fmt=gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiantmybatisplcrdzffwtsjsyforeachjxm-f56912cd-115c-4f76-88e2-9cb2b4386ce5.jpg)
 
 >参考链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247502982&idx=1&sn=db9beac3eedacc587392d7b1800c752b&chksm=fc2c708ecb5bf99803a64716c6ccf77fcf116697cce40bbbfb993f9ee05eb47efeb72af359fd#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247502982&idx=1&sn=db9beac3eedacc587392d7b1800c752b&chksm=fc2c708ecb5bf99803a64716c6ccf77fcf116697cce40bbbfb993f9ee05eb47efeb72af359fd#rd)，出处：macrozheng，整理：沉默王二

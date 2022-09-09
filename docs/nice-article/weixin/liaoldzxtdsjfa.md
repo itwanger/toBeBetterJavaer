@@ -25,7 +25,7 @@ head:
 
 模块调用顺序层次图如下。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4ZMX8c2ErJTaTJbJkiaHS48HxKRIkVOqQ2XdqW5TJ2hJAHJXCJ1qLjVGn4lVhhwjY7pcI7qlkqWww/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-159c8017-8574-4f7f-be1a-392cd1767df8.jpg)
 
 
 ## 渠道数据处理模块
@@ -42,7 +42,7 @@ head:
 
 第三方渠道对账文件里面字段数量以及字段名称也存在不同。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4ZMX8c2ErJTaTJbJkiaHS48zqq0ObI17NGwuJtE63ybDggZZ534GoYFjpInuhiaItqfE19oIbWBWSQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-9ce853f4-3109-40bb-8621-f6329c975733.jpg)
 
 一般这一层每接入一个渠道需要专门根据这个渠道特性开发。这一层可以抽象化接口，对外暴露下载与解析接口。每次接入渠道，实现该接口相应方法即可。
 
@@ -78,7 +78,7 @@ head:
 
 这一个模块我们使用上一模块提取出来的数据，核对订单号与金额是否完全一致。核对模块伪代码如下。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4ZMX8c2ErJTaTJbJkiaHS48sue6xL9NXAFvJU62Z0rW53avic7BvKAWFGjcZTfFs33dXTicnZp4BxhQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-4eab5394-d3bd-45ee-843e-ad3e80048e10.jpg)
 
 这个过程可能产生三类差异数据。
 
@@ -90,7 +90,7 @@ head:
 
 三者如图所示。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4ZMX8c2ErJTaTJbJkiaHS48U7BSzTJV2VhdobFJpoLH3ZRokAMaC0ZOBic1TzkSxOuxZBEmGCNkM2A/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-9e23f4fd-eea1-48ca-97fe-972cbe49f922.jpg)
 
 这里产生的差异数据存入一张差异表中，以便下个模块使用。
 
@@ -116,7 +116,7 @@ head:
 
 伪代码如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4ZMX8c2ErJTaTJbJkiaHS48jzCiatUA20Wvic3bRiap7DMr0RMiaFiarDHAcYC47hJKcNqT6MB5h4TlBUw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-e2229924-bab7-4ab3-8987-0af1f21900de.jpg)
 
 对端多账的产生情况可能可能有两种情况.
 

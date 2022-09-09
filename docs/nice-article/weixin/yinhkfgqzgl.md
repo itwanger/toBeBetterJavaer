@@ -16,15 +16,15 @@ head:
 
 同时，我们根据题库，也开发了互联网题库在线网站：也有不少热心的网友贡献了面试经历。题库还处于更新中，欢迎大家访问。http://interviewtop.top。同时，我的公众号也会发一点广告，负担一下服务器成本，希望大家谅解。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/4pX70FGa4OQpIGhW6MYXnLHHKDwkR5WQIUmOeMxShuHqPtEmQvKw4wf9IHJNxjoxFJ7f7FlcIHFeJiazx76IsEg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yinhkfgqzgl-2c79f6ed-1495-4188-88d7-50403a9fe6dc.jpg)
 
 目前题库覆盖公司有：各类银行科技岗，百度，阿里，字节，腾讯，美团，快手，网易，华为，shopee，京东。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/4pX70FGa4OQpIGhW6MYXnLHHKDwkR5WQtIBH50ywOg7cTU5XmUfHcPI8hicqfEsIvdk2gQetA8BHCXQ6aFm24Cw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yinhkfgqzgl-6257f286-c1e8-479f-a255-50a36d43cacd.jpg)
 
 题库包括：计算网络，操作系统，数据库，Redis，Java基础，Java多线程，Java虚拟机，设计模式，数据结构与算法。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/4pX70FGa4OQpIGhW6MYXnLHHKDwkR5WQ5gCAsNZ1JTNCE1bPV6eMWhmIPHNwnuVC67OOVcGaSLTJX3ReiaoXzibw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yinhkfgqzgl-95d7d915-4177-4508-b75f-7b8c087b82f8.jpg)
 
 大家可以进入网站搜索大厂对应题库的高频面试题。
 

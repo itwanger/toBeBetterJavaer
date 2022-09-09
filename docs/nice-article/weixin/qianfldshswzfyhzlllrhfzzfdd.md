@@ -16,7 +16,7 @@ head:
 
 毫无疑问，用户肯定会炸，结果不是投诉，就是差评。
 
-![用户感觉受到了欺诈](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7wT63sPX6ichSmQ91OT49RuGEZGZaxDRoarYB48GRZfeicZBjNEHT1ckXg/640?wx_fmt=png)
+![用户感觉受到了欺诈](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-e067090b-f47c-4c55-84c1-a00d74c4cdc6.jpg)
 
 
 
@@ -24,7 +24,7 @@ head:
 
 我们先来看看订单支付的完整流程：
 
-![钱包支付的完整流程](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7wTq5d6ejibWdTv6nADy9Xgty4JJSDzibSlzW8jBNe4TSLAvcVW0yI8DhA/640?wx_fmt=png)
+![钱包支付的完整流程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-15fe2cfb-1a43-4bb4-989a-7a037db47ceb.jpg)
 
 
 
@@ -39,7 +39,7 @@ head:
 
 对于支付订单而言，大概可以分为这么几个状态：
 
-![支付状态](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7w4HUd8LvG1Hkmz8zApvNYoHPKfqficXNMxDQ2sqjjsBN6ibUUcVBMBUug/640?wx_fmt=png)
+![支付状态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-588abc59-6457-4b9e-bead-40ba7c67249a.jpg)
 
 
 
@@ -49,7 +49,7 @@ head:
 
 看起来没什么问题啊，怎么就掉单了？简单说，就是支付的状态没有同步到，或者没有及时同步到。
 
-![掉单发生](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7whbLnyWAQcziaibjUuwpNjED3Kruiad7ADibJRLVchHZosicGDVKiaVw8jl4g/640?wx_fmt=png)
+![掉单发生](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-7efd0938-22a0-4062-9258-a36c61bf3a30.jpg)
 
 
 
@@ -77,7 +77,7 @@ head:
 
 支付服务和订单服务之间防止掉单，关键就在于尽可能保证支付通知订单支付结果成功，我们一般通过这两种方式。
 
-![服务端防止掉单](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7w0yl68aus90LddXrGPX394mm6upzmibvWNsaMmjwp7d1AraCcRfic0BhA/640?wx_fmt=png)
+![服务端防止掉单](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-c2408e08-6ae9-4268-9878-59e94f5cb760.jpg)
 
 
 
@@ -109,7 +109,7 @@ head:
 
 客户端判断用户未支付之后，通常会进行订单倒计时。
 
-![倒计时](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7wGgAZHcMmibfN0KTKM0UqqDJuyP9Gn8h776kYmZ6vCumEwSNb4Oyl1Gg/640?wx_fmt=png)
+![倒计时](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-9d55b97f-fcf8-4f25-b24d-e73bc7f721cd.jpg)
 
 
 
@@ -133,7 +133,7 @@ head:
 
 毫无疑问，最简单的肯定就是定时任务了，支付服务，定时查询一段时间内`支付中`的支付订单，向第三方渠道查询支付结果，查询到终态之后，就去更新支付订单状态、通知订单服务：
 
-![定时查询支付状态](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7wQPM28icTetO9qchibW1WtZAf6P6mUsbGQdkic1x7WcCbHvhOMTSJazJicQ/640?wx_fmt=png)
+![定时查询支付状态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-1f52b170-7471-42a8-9bb6-f5f70fb470f8.jpg)
 
 
 
@@ -182,7 +182,7 @@ head:
 
 定时任务存在一些问题，那么有没有什么其它办法呢？答案是延时消息。
 
-![延时消息查询支付状态](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7wficDDPD4SpbBjc4ia7IWRdtz55fDFc5Esj92AibP0K0JLmssKWnshsDmA/640?wx_fmt=png)
+![延时消息查询支付状态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-2e6168c0-7793-413b-b405-4eb4193971c4.jpg)
 
 
 
@@ -279,7 +279,7 @@ public class ConsultListener implements MessageListener {
 
 不过大家也看到，我这里的实现是利用的是充钱版的RocketMQ，所以看起来不太复杂，但是如果用开源方案，那就没那么简单。
 
-![充钱就能解决](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWdT0rfYoeWzHsS1w2bkOj7wbwesLkeYBBdwEfcUW71cjDEDtNb2WNXiciaVL5aWOUEYVdicDyB8qm7iaQ/640?wx_fmt=png)
+![充钱就能解决](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qianfldshswzfyhzlllrhfzzfdd-d7f82bb3-536a-4c0d-8679-62939978c344.jpg)
 
 
 

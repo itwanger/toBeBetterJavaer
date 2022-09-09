@@ -13,7 +13,7 @@ head:
 
 昨天我在逛知乎的时候，看到了这么一个问题：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/jXQDbLkGBYXicQ7qeIRM5MZhAVSNf1DhbcvAsrNY7JSYLupuY0PhDuKC5oPVe6K57XM0I4edDr1HeoMBNsfqJ6A/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wozdmlmgylgldwfm-e0fea145-13d1-412d-81d3-a4618972f20a.jpg)
 
 我看到了三个非常有意思的回答，分享给大家一看。
 

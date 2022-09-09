@@ -8,7 +8,7 @@ category:
 head:
 ---
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl3hpCRemKNsknpT4ccj0qxZdCPKDqSJrjUpPibg0GrjySH4LQz8WSeZibsWB7mKXxNghKWCeCb8p0uA/640?wx_fmt=jpeg&random=0.35132273657536417)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-fbfe254a-2e14-4214-aad6-56a53b143cf7.jpg)
 
 ## 前言
 
@@ -37,7 +37,7 @@ hello world
 
 废话说完了接下来重点聊聊 `GScript` 所支持的特性了。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl3hpCRemKNsknpT4ccj0qxZwg2cejdXgJsialeia2wkamVSyfpbeBeZj1BId4JOAxohuiatqqkXfGS9g/640?wx_fmt=jpeg&random=0.46384588861415055)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-8a0c03dc-551e-4aad-92da-855f7d7246a9.jpg)
 
 后文会重点说明每一个特性。
 
@@ -396,7 +396,7 @@ int hashcode = hash(key);
 
 现阶段的 `GScript` 还有许多功能没有完善，比如 JSON、网络库、更完善的语法检查、编译报错信息等；现在拿来刷刷 `LeetCode` 还是没有问题的。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl3hpCRemKNsknpT4ccj0qxZJVVc48AZHdloic7UuIrFuWQda71AScUAur6rZxiakblnHWurLLGB3aew/640?wx_fmt=jpeg&random=0.025896757034374884)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-47b5eaba-3fb8-41e7-96ff-e5ef97ffd988.jpg)
 
 从这 65 个 todo 就能看出还有很长的路要走，我对它的终极目标就是可以编写一个网站那就算是一个成熟的语言了。
 
@@ -416,7 +416,7 @@ int hashcode = hash(key);
 
 2022-08-17
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl26iccj99XHMKDneUju80OqoUTZNdymrIKyR29B1yfNCGytVHhReZicyNV8A0ELJ9vUGb2Ewb2rw6TA/640?wx_fmt=jpeg&random=0.46410282679243675)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-b1de8beb-c4f2-4f54-960d-41854bb44c6d.jpg)
 
 
 
@@ -428,7 +428,7 @@ int hashcode = hash(key);
 
 2022-08-08
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl0NLGrM5aCSYqsRnPebQLHRvCWKNV9kmy0PBzbXdwgictE7vh1haEWicI2UpiaPxZ5wVEWY2bBE5XuDw/640?wx_fmt=jpeg&random=0.9901666106123703)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-36d526ef-c152-4a52-9407-b543fb39b722.jpg)
 
 
 
@@ -440,7 +440,7 @@ int hashcode = hash(key);
 
 2022-08-01
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl1kFPASEluyjaxuUEBSZiaYib87JCmPmBZxQvia1BzdZXUoqwvtbMjf7y06iatibH1Ytwm5Us1x6AQwjpQ/640?wx_fmt=jpeg&random=0.5784940867098072)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-49021143-1edd-4f28-bfe1-53a8f75416cb.jpg)
 
 
 
@@ -452,25 +452,25 @@ int hashcode = hash(key);
 
 2022-06-28
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/csD7FygBVl24qG27RS5ugRjj2GudS7jBWnA1Z6TEP01nKYTOQm26rfx1Gn0WB08h471QcsujDrHDAIXAK68wibw/640?wx_fmt=jpeg&random=0.7588734231650056)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-65f541be-ae36-44dc-8d1f-7b0c3c349049.jpg)
 
 
 
 ](http://mp.weixin.qq.com/s?__biz=MzIyMzgyODkxMQ==&mid=2247485550&idx=1&sn=496e57f44f194f70d80e8617f0992809&chksm=e81906aedf6e8fb83dc71f66a736c491080b1ce2e0f30dbb699b21f872d684058427d6b02f7e&scene=21#wechat_redirect)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/GTYMPD3QEMBARsHI2LvgDDqrousetLicytT9btlRgibLtFpThQXxH4uW58awaYUOXE1AveaibzrwLe0bDocM7RicVg/640?wx_fmt=gif&random=0.30307711465123255)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-4ca1dcd6-56b7-4b36-ac99-3568a9632671.jpg)
 
 **点分享**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/GTYMPD3QEMBARsHI2LvgDDqrousetLicyqOrWUoDrflhQhLq8sqPFk1SckNk1qCEIkD1m4klyI6xAXGdBPntb8g/640?wx_fmt=gif&random=0.617854603551782)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-6c493bc3-f0e7-431c-8d43-e1ef56d4bcc3.jpg)
 
 **点收藏**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/GTYMPD3QEMBARsHI2LvgDDqrousetLicySZKZY74znKQXAFJJ9sLZlgydm8GorZIYbnzufv7A7UvTSCufyoxMTw/640?wx_fmt=gif&random=0.487847290638745)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-b2a3d350-b516-4f76-bbfc-7edb369d29d1.jpg)
 
 **点点赞**
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/GTYMPD3QEMBARsHI2LvgDDqrousetLicyk8JEr5YgZaEW0icNMGIdVHqs9k0xvJr9KgDquzGRBIGerbdHY1NK7QA/640?wx_fmt=gif&random=0.857270267672607)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-24674baf-8222-4fb7-9c43-c5d25daf9a39.jpg)
 
 **点在看**
 
