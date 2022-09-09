@@ -692,24 +692,17 @@ export const sidebarConfig = sidebar({
       collapsable: true,
       children: [
         {
-          text: "面试题集合",
+          text: "面试题&八股文",
           collapsable: true,
+          prefix:"/interview"
           children: [
-            "baguwen/java-basic-34",
-            "collection/hashmap-interview",
-            "mianjing/redis12question",
-            "nginx/40-interview"
-          ],
-        },
-        
-        {
-          text: "背诵版八股文",
-          collapsable: true,
-          children: [
-            "baguwen/java-basic",
-            "baguwen/java-thread",
-            "baguwen/jvm",
-            "sidebar/herongwei/mysql",
+            "java-34",
+            "java-hashmap-13",
+            "redis-12",
+            "mysql-60",
+            "java-basic-baguwen",
+            "java-thread-baguwen",
+            "java-jvm-baguwen",
           ],
         },
         {
