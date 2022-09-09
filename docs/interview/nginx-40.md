@@ -791,7 +791,6 @@ Proxy_set_header THE-TIME $date_gmt;
 
 看完这 40 个 Nginx 的面试题，小二是感激涕零，感动的一塌糊涂。我拍了拍他的肩膀，安慰他说：“加油，未来是你的。”
 
-----
 
 >原文链接：[blog.csdn.net/wuzhiwei549/article/details/122758937](blog.csdn.net/wuzhiwei549/article/details/122758937)，整理：沉默王二
 

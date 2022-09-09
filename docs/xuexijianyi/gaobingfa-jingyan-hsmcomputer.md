@@ -1,23 +1,11 @@
 ---
 title: 如何获得高并发的经验？
 shortTitle: 如何获得高并发的经验？
-description: 如何获得高并发的经验？先说结论。1 首先得在自己电脑上鼓捣出Redis，kafka，dubbo，mycat等高并发分布式组件的环境，通过这些环…
 tags:
-  - 互联网
-  - 高并发
-  - 程序员
-  - 编程
-  - Java 程序员
+  - 学习建议
 author: hsmcomputer
 category:
-  - 知乎
-head:
-  - - meta
-    - name: description
-      content: 如何获得高并发的经验？先说结论。1 首先得在自己电脑上鼓捣出Redis，kafka，dubbo，mycat等高并发分布式组件的环境，通过这些环…
-  - - meta
-    - name: keywords
-      content: 互联网,程序员,编程,高并发,Java 程序员
+  - 学习建议
 ---
 
 **先说结论。**

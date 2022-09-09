@@ -400,16 +400,19 @@
 >  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
 >  - 千淘万漉虽辛苦，吹尽狂沙始到金。
 
-## 精选面&八股文
+## 面试题&八股文
 
 - [34 道 Java 精选面试题👍](docs/interview/java-34.md)
 - [13 道 Java HashMap 精选面试题👍](docs/interview/java-hashmap-13.md)
 - [12 道 Redis 精选面试题👍](docs/interview/redis-12.md)
 - [40 道 Nginx 精选面试题👍](docs/interview/nginx-40.md)
 - [60 道 MySQL 精选面试题👍](docs/interview/mysql-60.md)
-- [Java 基础背诵版八股文必看🍉](docs/baguwen/java-basic.md)
-- [Java 并发编程背诵版八股文必看🍉](docs/baguwen/java-thread.md)
-- [Java 虚拟机背诵版八股文必看🍉](docs/baguwen/jvm.md)
+- [Java 基础背诵版八股文必看🍉](docs/interview/java-basic-baguwen.md)
+- [Java 并发编程背诵版八股文必看🍉](docs/interview/java-thread-baguwen.md)
+- [Java 虚拟机背诵版八股文必看🍉](docs/interview/java-jvm-baguwen.md)
+- [携程面试官👤：大文件上传时如何做到秒传？](docs/interview/mianshiguan-bigfile-miaochuan.md)
+- [阿里面试官👤：为什么要分库分表？](docs/interview/mianshiguan-fenkufenbiao.md)
+- [淘宝面试官👤：优惠券系统该如何设计？](docs/interview/mianshiguan-youhuiquan.md)
 
 
 ## 优质面经
@@ -454,17 +457,17 @@
 
 ## PDF下载
 
-- [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](docs/nice-article/itmind/miansjavamsdhmsmsbdjavabdjavaxxzlmsxxzlmszlzlxzmszlfxjlzl.md)
-- [👏下载→深入浅出Java多线程PDF](docs/nice-article/weixin-shenrjcjavabfbchwjdhl.md)
-- [👏下载→GitHub星标115k+的Java教程](docs/nice-article/weixin-githubxbkdjavajccjyh.md)
-- [👏下载→重学Java设计模式PDF](docs/nice-article/weixin-shejmsnb.md)
-- [👏下载→Java版LeetCode刷题笔记](docs/nice-article/weixin-mozdsdzfjavableetcodetxxk.md)
-- [👏下载→阿里巴巴Java开发手册](docs/nice-article/weixin/sulwgalcpdssbjavakfsc.md)
-- [👏下载→阮一峰C语言入门教程](docs/nice-article/yuanyifeng-c-language.md)
-- [👏下载→BAT大佬的刷题笔记](docs/nice-article/bat-shuati.md)
-- [👏下载→给操作系统捋条线PDF](docs/nice-article/weixin-piaolwzjztqdtskwlzfpdf.md)
-- [👏下载→豆瓣9.1分的Pro Git中文版](docs/nice-article/progit.md)
-- [👏下载→简历模板](docs/nice-article/jianli.md)
+- [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](docs/pdf/programmer-111.md)
+- [👏下载→深入浅出Java多线程PDF](docs/pdf/java-concurrent.md)
+- [👏下载→GitHub星标115k+的Java教程](docs/pdf/github-java-jiaocheng-115-star.md)
+- [👏下载→重学Java设计模式PDF](docs/pdf/shejimoshi.md)
+- [👏下载→Java版LeetCode刷题笔记](docs/pdf/java-leetcode.md)
+- [👏下载→阿里巴巴Java开发手册](docs/pdf/ali-java-shouce.md)
+- [👏下载→阮一峰C语言入门教程](docs/pdf/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](docs/pdf/bat-shuati.md)
+- [👏下载→给操作系统捋条线PDF](docs/pdf/os.md)
+- [👏下载→豆瓣9.1分的Pro Git中文版](docs/pdf/progit.md)
+- [👏下载→简历模板](docs/pdf/jianli.md)
 
 ## 学习建议
 
@@ -474,14 +477,13 @@
 - [如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？](docs/xuexijianyi/gaokao-zhiyuan-cs.md)
 - [测试开发工程师必读经典书籍有哪些？](docs/xuexijianyi/test-programmer-read-books.md)
 - [校招 Java 后端开发应该掌握到什么程度？](docs/xuexijianyi/xiaozhao-java-should-master.md)
-- [本科生如何才能进入腾讯、阿里等一流的互联网公司？](docs/xuexijianyi/benksrhcnjrtxaldyldhlwgs.md)
 - [大裁员下，程序员如何做“副业”？](docs/xuexijianyi/chengxuyuan-fuye.md)
 - [如何在繁重的工作中持续成长？](docs/xuexijianyi/ruhzfzdgzzcxcz.md)
 - [如何获得高并发的经验？](docs/xuexijianyi/gaobingfa-jingyan-hsmcomputer.md)
 - [怎么跟 HR 谈薪资？](docs/xuexijianyi/hr-xinzi.md)
 - [程序员 35 岁危机，如何破局？](docs/xuexijianyi/35-weiji.md)
-- [大厂的优惠券系统是如何设计的？](docs/xuexijianyi/youhuiquan.md)
-
+- [不到 20 人的 IT 公司该去吗？](docs/xuexijianyi/20ren-it-quma.md)
+- [本科生如何才能进入腾讯、阿里等一流的互联网公司？](docs/xuexijianyi/benkesheng-ali-tengxun.md)
 
 # 知识库搭建
 

@@ -412,7 +412,7 @@ head:
 **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？千淘万漉虽辛苦，吹尽狂沙始到金。
 
 
-### 精选面试题
+### 面试题&八股文
 
 - [34 道 Java 精选面试题👍](interview/java-34.md)
 - [13 道 Java HashMap 精选面试题👍](interview/java-hashmap-13.md)
@@ -422,6 +422,9 @@ head:
 - [Java 基础背诵版八股文必看🍉](interview/java-basic-baguwen.md)
 - [Java 并发编程背诵版八股文必看🍉](interview/java-thread-baguwen.md)
 - [Java 虚拟机背诵版八股文必看🍉](interview/java-jvm-baguwen.md)
+- [携程面试官👤：大文件上传时如何做到秒传？](interview/mianshiguan-bigfile-miaochuan.md)
+- [阿里面试官👤：为什么要分库分表？](interview/mianshiguan-fenkufenbiao.md)
+- [淘宝面试官👤：优惠券系统该如何设计？](interview/mianshiguan-youhuiquan.md)
 
 
 ### 优质面经
@@ -464,13 +467,11 @@ head:
 - [如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？](xuexijianyi/gaokao-zhiyuan-cs.md)
 - [测试开发工程师必读经典书籍有哪些？](xuexijianyi/test-programmer-read-books.md)
 - [校招 Java 后端开发应该掌握到什么程度？](xuexijianyi/xiaozhao-java-should-master.md)
-- [本科生如何才能进入腾讯、阿里等一流的互联网公司？](xuexijianyi/benksrhcnjrtxaldyldhlwgs.md)
 - [大裁员下，程序员如何做“副业”？](xuexijianyi/chengxuyuan-fuye.md)
 - [如何在繁重的工作中持续成长？](xuexijianyi/ruhzfzdgzzcxcz.md)
 - [如何获得高并发的经验？](xuexijianyi/gaobingfa-jingyan-hsmcomputer.md)
 - [怎么跟 HR 谈薪资？](xuexijianyi/hr-xinzi.md)
 - [程序员 35 岁危机，如何破局？](xuexijianyi/35-weiji.md)
-- [大厂的优惠券系统是如何设计的？](xuexijianyi/youhuiquan.md)
 - [不到 20 人的 IT 公司该去吗？](xuexijianyi/20ren-it-quma.md)
 - [本科生如何才能进入腾讯、阿里等一流的互联网公司？](xuexijianyi/benkesheng-ali-tengxun.md)
 - [大厂的优惠券系统是如何设计的？](xuexijianyi/youhuiquan.md)

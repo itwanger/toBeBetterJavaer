@@ -1,15 +1,10 @@
 ---
 title: 电子信息工程最好的出路的是什么？
 shortTitle: 电子信息工程最好的出路的是什么？
-description: 电子信息工程最好的出路的是什么？
 tags:
   - 学习建议
 category:
   - 学习建议
-head:
-  - - meta
-    - name: keywords
-      content: 电子信息工程
 ---
 
 
