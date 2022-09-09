@@ -1,12 +1,15 @@
 ---
-title: 阿里二面：为什么要分库分表？
+title: 阿里面试官👤：为什么要分库分表？
 shortTitle: 为什么要分库分表？
-description: 在高并发系统当中，分库分表是必不可少的技术手段之一，同时也是BAT等大厂面试时，经常考的热门考题。
 author: 苏三呀
-tags:
-  - 学习建议
 category:
-  - 学习建议
+  - 求职面试
+tag:
+  - 面试题&八股文
+head:
+  - - meta
+    - name: keywords
+      content: Java,java,面试题,八股文
 ---
 
 ## 前言

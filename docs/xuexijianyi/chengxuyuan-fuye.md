@@ -1,19 +1,11 @@
 ---
 title: 大裁员下，程序员如何做“副业”？
 shortTitle: 大裁员下，程序员如何做“副业”？
-description: 最近大厂裁员不断，好多人思考要不要搞个副业抵御风险。那你知道程序员的副业怎么做吗？来和我一探究竟吧～
-tags:
-  - 程序员
-author: 杨成功
 category:
-  - 掘金社区
-head:
-  - - meta
-    - name: description
-      content: 最近大厂裁员不断，好多人思考要不要搞个副业抵御风险。那你知道程序员的副业怎么做吗？来和我一探究竟吧～
-  - - meta
-    - name: keywords
-      content: 程序员,前端
+  - 学习建议
+tags:
+  - 学习建议
+author: 杨成功
 ---
 
 

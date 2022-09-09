@@ -1,15 +1,10 @@
 ---
 title: 如何阅读《深入理解计算机系统》这本书？
 shortTitle: 如何阅读《CSAPP》这本书？
-description: 如何阅读《深入理解计算机系统》这本书？
 tags:
   - 学习建议
 category:
   - 学习建议
-head:
-  - - meta
-    - name: keywords
-      content: CSAPP,深入理解计算机系统
 ---
 
 
