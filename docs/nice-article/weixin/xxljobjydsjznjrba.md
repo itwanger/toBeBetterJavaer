@@ -34,7 +34,7 @@ xxl-job 使用 netty http 的方式进行通信，虽然也支持 Mina，jetty�
 
 我以调度器通知执行器执行任务为例，绘制的活动图：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/1J6IbIcPCLYka9j7GuMHJvuMhrSnQLSbU7cCZku6K0QrNdkF8RUmq49wdrQ3Bf2CUI775d02aGz6WcqYjMHiavw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xxljobjydsjznjrba-27c73954-acc5-4571-b344-7cfaa6c96b7d.jpg)
 
 *活动图*
 

@@ -22,18 +22,18 @@ head:
 
 以支付宝为例，具体用户端支付流程如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/LEFcpfxrbq4RNgb88O91mWhExKo782jby2hDb96VniaaCBV6M7Xiacp5EOYku7icdSEznS3vzGGD0NBx6cMhZ5icjg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-ee8cca5c-9107-451b-9d55-0c613b48e756.jpg)
 
 
 付款码支付后台调用流程如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jbsEFwvLEPxiavUyfr53SYIJYk7I05HWscUBFgbJXt7kNn8YWbvP0nl1Q/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-5dde8420-8d02-4cab-99e3-e034de8785af.jpg)
 
 ## 付款码支付详细版流程
 
 微信/支付宝付款码支付调用流程大同小异，官网写的都比较清楚，这里直接用支付宝的官网的流程。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/LEFcpfxrbq4RNgb88O91mWhExKo782jbbztduicSAmRXDdJCempgiaY30cyT6KE8zuBsibf9gJT7KMiajc12H0XbZg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-202b590d-ce2b-4dd0-a919-a374939636ae.jpg)
 
 
 
@@ -48,7 +48,7 @@ head:
 
 微信付款码支付在以下情况需要输入密码二次确认。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jby3n2XVJUPdwPEAQ3TyOGrPEFMCucn1IovvibCQF3jXFzz6pR7Mz8ia1Q/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-68e3ebb6-3132-4a6d-b821-3e029aa754d9.jpg)
 
 支付宝官方文档暂未找到相关规则，经过测试当支付金额大于 **2000** ，需要输入密码。如果有熟悉其他验密规则的同学，可以在评论区留言一下。
 
@@ -56,7 +56,7 @@ head:
 
 所以如果付款码支付若返回等待用户输入密码，商家后台服务必须定时调用调用微信支付/支付宝查询接口，获取支付结果。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jbicKsxjeyFdJBbsG3u7KFflRzjzroWyldSq7GNJCBXcVBjM5c5862t4Q/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-bf673856-9b8e-4431-9a10-a1d7961d5f27.jpg)
 
 ## 撤销支付
 
@@ -84,7 +84,7 @@ head:
 
 另外再说一点，有些地方这个功能接口称为**冲正接口**，如下面工商二维码支付。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jb0OYA7RFvic0rhE96IBp2Y7giar8BQ2kibCpNicNOfjXeniaIiaueiaP0mlDUg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-ad827c55-9452-455c-92ea-24d89c144150.jpg)
 
 实际上提供的功能与微信/支付宝撤销类似，这里需要各家支付公司提供文档具体研究。
 
@@ -104,13 +104,13 @@ head:
 
 比如微信撤销接口成功判断还需要结合 `recall` 字段，支付宝也有类似字段。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jbjHc5blXPxvb6O1iaibsku93hxZjkE8MGFmgcwnxKdKvkpTV2vVjiaP59w/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-2991d929-84e9-4f74-b599-40be877c8893.jpg)
 
 ### 订单状态
 
 微信/支付宝订单状态处理不太一致，微信订单状态比较复杂：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/LEFcpfxrbq4RNgb88O91mWhExKo782jbCst89CBISDnTdQgCIM01icVTia8v3zIJXQv1JicOg2AT0gKxFVpic7sFjQ/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-0a96570f-46e7-40f6-990f-b4e39c5138b8.jpg)
 
 
 也就是说，付款码订单一旦被撤销成功，再次查询订单，状态将会返回为**已撤销（REVOKED）**。
@@ -119,7 +119,7 @@ head:
 
 接下来说下支付宝的状态，支付宝文档没要给出类似的订单状态机，我根据官方一些文档，以及一些测试结果总结出下方订单状态图。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jb4ic30ySVu4cRG9mHZTSvjBHiaC4M42HJmHueHibacDQFFtLerLungqSYg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-68a6cefc-6c10-4984-88f0-d5f008948c40.jpg)
 
 所以支付宝的付款码订单一旦撤销成功，再次查询原单状态将会返回 **TRADE\_CLOSED**。
 
@@ -135,13 +135,13 @@ head:
 
 微信对账文件撤销产生那笔退款，交易状态为 **REVOKED**，所以我们可以采用商户订单号加交易状态识别出一条记录是否为撤销产生退款记录。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jbFUejQwJn0slrC7bcib2mlIticF3unUaKbicnMyywMbDjaNjSgvEe55WGw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-dfc3b88f-342d-4d62-b345-edcc7f120526.jpg)
 
 > 上面银联订单号可以当做是微信支付宝内部产生订单号
 
 支付宝对账文件比较麻烦，撤销产生的退款记录不能跟微信根据交易状态区分。从对账文件上看支付宝撤销产生退款与普通退款接口产生退款记录是一样的。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/LEFcpfxrbq4RNgb88O91mWhExKo782jbbTHXYJibXickibv62zNDYz4vib1wD0uKRDmvd6seWiaPRW9wqZH9cfb9wRw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingqyslkkkfkmbhdylnfxzdmyc-c100c76d-2826-4dee-8445-b7d95d1e87d7.jpg)
 
 仔细研究对账文件可以发现一些区别，撤销导致退款记录退款批次与正交易支付宝内部订单号是一致的。而正常退款记录，退款批次号是由商户自己上送的。所以我们可以以此筛选出撤销产生的退款记录。
 

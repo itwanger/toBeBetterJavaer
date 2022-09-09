@@ -102,7 +102,7 @@ Javascript  |       |        |   X  
 
 我们将上面的内容转换为图的形式来说明倒排索引的结构信息，如下图所示：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PxMzT0Oibf4hVH3IUycaXbZib5Koq8WmfkoicqcEKGkEaJgoRj9ScrmHQvNN4yp6CXKPvg114OpDian2PSqQibM9MuA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-4e1488ab-66f4-4cce-94c6-5b56d59bb5d5.jpg)
 
 其中主要有如下几个核心术语需要理解：
 
@@ -212,7 +212,7 @@ node.data: true    //是否数据节点  
 
 主节点负责创建索引、删除索引、跟踪哪些节点是群集的一部分，并决定哪些分片分配给相关的节点、追踪集群中节点的状态等，稳定的主节点对集群的健康是非常重要的。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/PxMzT0Oibf4hVH3IUycaXbZib5Koq8Wmfk8BIXEgrg82MS7obopk8ia7SNBJYea2lKrQpiaUy4jibHJZqibamAV38FwA/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-5b5da0d3-4763-4b82-9c1b-62c9eb2fa481.jpg)
 
 一个节点既可以是候选主节点也可以是数据节点，但是由于数据节点对 CPU、内存核 I/O 消耗都很大。
 
@@ -286,7 +286,7 @@ ES 为了提高写入的能力这个过程是并发写的，同时为了解决�
 
 一旦所有的副本分片都报告写成功才会向协调节点报告成功，协调节点向客户端报告成功。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PxMzT0Oibf4hVH3IUycaXbZib5Koq8Wmfkiaafg9Y8aHhpYPXOMibwUfg1WjZlcS1dTxBoIM60zMaaz6VdaMyOJvmA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-e19c55d2-5a4e-439f-9c92-31a21c649c82.jpg)
 
 图片
 
@@ -324,7 +324,7 @@ ES 为了提高写入的能力这个过程是并发写的，同时为了解决�
 
 ES（v6.8）中字段数据类型主要有以下几类：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PxMzT0Oibf4hVH3IUycaXbZib5Koq8Wmfk3NdtphiaU1KgG0ibp9YcMkZwia7TRUmibicveyQ6bHicmHwibYlf91cMB6mQg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-5a47d45a-2493-4199-a487-d39bf6c8c15e.jpg)
 
 Text 用于索引全文值的字段，例如电子邮件正文或产品说明。这些字段是被分词的，它们通过分词器传递 ，以在被索引之前将字符串转换为单个术语的列表。
 
@@ -380,7 +380,7 @@ Elasticsearch 是使用 Java 构建，所以除了注意 ELK 技术的版本统�
 
 ### 安装使用
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PxMzT0Oibf4hVH3IUycaXbZib5Koq8WmfkG48w0JJoFBickdfoMcfia1LvNbMvibiaK7sJIT5p3IJ9QzykLM7xrubu8w/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-0c3efe8a-d2e8-4dae-8b7f-2a436bc6a7c4.jpg)
 
 图片
 
@@ -469,7 +469,7 @@ ES 的基本概念和基本操作介绍完了之后，我们可能还有很多�
 
 下图描述了 3 个节点的集群，共拥有 12 个分片，其中有 4 个主分片（S0、S1、S2、S3）和 8 个副本分片（R0、R1、R2、R3），每个主分片对应两个副本分片，节点 1 是主节点（Master 节点）负责整个集群的状态。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PxMzT0Oibf4hVH3IUycaXbZib5Koq8WmfkWlicAKhpDrg6zPH4k9Ozy6jRovxHNt4lMTnO6wCTujV93SSb5YdqAOg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-b4bf9406-30bc-421a-8eb8-97c01806bbd4.jpg)
 
 写索引是只能写在主分片上，然后同步到副本分片。这里有四个主分片，一条数据 ES 是根据什么规则写到特定分片上的呢？
 
@@ -495,7 +495,7 @@ Routing 通过 Hash 函数生成一个数字，然后这个数字再除以 `num
 
 在一个写请求被发送到某个节点后，该节点即为前面说过的协调节点，协调节点会根据路由公式计算出需要写到哪个分片上，再将请求转发到该分片的主分片节点上。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/PxMzT0Oibf4hVH3IUycaXbZib5Koq8WmfkmiaSuhyENf0Wh7zLLYricHmk7vlE9XBCdFX5mEN73oFFyfvmcic2raEWA/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-b16f251a-093f-413a-bed5-9225e662fca2.jpg)
 
 假如此时数据通过路由计算公式取余后得到的值是 `shard=hash(routing)%4=0`。
 
@@ -588,7 +588,7 @@ Tips：尽管刷新是比提交轻量很多的操作，它还是会有性能开�
 
 为了避免丢失数据，Elasticsearch 添加了事务日志（Translog），事务日志记录了所有还没有持久化到磁盘的数据。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/PxMzT0Oibf4hVH3IUycaXbZib5Koq8WmfkfxSeppzJUiaKZaBq1kibIOG7jWUibicfaxCuTIu0LxbOj1eFAKVia9cLf7Q/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-70bbded1-269e-4652-818a-75a225b3d9fd.jpg)
 
 图片
 
@@ -614,7 +614,7 @@ Elasticsearch 通过在后台定期进行段合并来解决这个问题。小的
 
 段合并的时候会将那些旧的已删除文档从文件系统中清除。被删除的文档不会被拷贝到新的大段中。合并的过程中不会中断索引和搜索。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PxMzT0Oibf4hVH3IUycaXbZib5Koq8Wmfk3uxjyCldDSHCClz99fmLvwBuzL5rWJyFiaHMqdLJApxQx98mB1R8HOg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-a21c68fc-21b8-491b-b9ad-22f7dee5c3a1.jpg)
 
 图片
 
@@ -643,7 +643,7 @@ Elasticsearch 在默认情况下会对合并流程进行资源限制，所以搜
 
 ### 内部索引优化
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/PxMzT0Oibf4hVH3IUycaXbZib5Koq8Wmfkw2IKK8nHdbOygjIjPVgshUARdvTFhJ9XVysU3nh2lsFZFFibicdn7Lfg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-ae56971d-d35e-49e4-8b3a-13101685b54f.jpg)
 
 图片
 
@@ -687,7 +687,7 @@ JVM 调优建议如下：
 
 欢迎加入我的[知识星球](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247519201&idx=1&sn=b910e72ec34a1447ecece7e993bc977d&chksm=cea1c42af9d64d3c69ba4849fc9175b26a2219d67c2aa6dabb7b73d95f4c41b8a9461e818243&token=1878783075&lang=zh_CN&scene=21#wechat_redirect)获取更多面试干货，[《Java 面试指北》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247519384&idx=1&sn=bc7e71af75350b755f04ca4178395b1a&chksm=cea1c353f9d64a458f797696d4144b4d6e58639371a4612b8e4d106d83a66d2289e7b2cd7431&token=660789642&lang=zh_CN&scene=21#wechat_redirect)持续更新完善中！
 
-![](https://mmbiz.qpic.cn/mmbiz_png/iaIdQfEric9TyGIdWmVOht6AvFIs6gqH9ZgaajiaKxicyza3eq3PWjcRRrSxSFQicFBkkQUORWxYibtsWHlHqLjhic9Sg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-wzxxctes-b659fc2c-9449-4359-bc25-44a896858b39.jpg)
 
 《Java 面试指北》目录
 

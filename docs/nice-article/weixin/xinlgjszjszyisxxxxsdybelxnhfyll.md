@@ -129,7 +129,7 @@ Model[isSuccess=false]
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/CKvMdchsUwmsM14dJH1aGT6hK3ynN42O9s11UkncibibStIiccYL3KQnKQB7Zb08ibRDw5MibibicbM0EXHEQzERwlJFg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszyisxxxxsdybelxnhfyll-26b896af-468d-471e-a742-5233d276b555.jpg)
 
 推荐阅读
 ----
@@ -145,4 +145,4 @@ Model[isSuccess=false]
 
 [](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247486362&idx=1&sn=fb6d71d328e8eee34976a86135dc6a7d&scene=21#wechat_redirect)
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/CKvMdchsUwlkU1ysoMgG69dVYbCQcI6Byneb8ibzZWPfUCr3T8CuBicCSGyFE6SpAtxpxtDCp6VlZ4F1hEL1BNyg/640?wx_fmt=gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszyisxxxxsdybelxnhfyll-888ea0e6-4ace-468b-892d-a0ddd65130dd.jpg)

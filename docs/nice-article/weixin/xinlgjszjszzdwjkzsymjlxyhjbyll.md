@@ -79,7 +79,7 @@ public static <T extends Enum<T>> T valueOf(Class<T> enumType, String n
 
 关于这个问题，其实在《阿里巴巴Java开发手册》中也有类似的约定：
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/6fuT3emWI5KGz4UOJfG17P6I2nSObcjQUoM6XjElqtpLXN4Ia0bjuSjmgsC3JOP7hvFk8U0r26tFia3mFZmia7Xg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-c6cb2139-8e30-4c16-a09b-82edb0a78ceb.jpg)
 
 这里面规定"**对于二方库的参数可以使用枚举，但是返回值不允许使用枚举**"。这背后的思考就是本文上面提到的内容。
 
@@ -141,7 +141,7 @@ public Class AResponse{    private Boolean success;    /**  
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/CKvMdchsUwlnf5yh5vy4DySiaARflcVYTe0BPfSiaJhXnVMoVibogLkbXKmKb62SlXicuFnjwBFWkhfm6ibbg9Xaqxg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-11f8353c-3795-4e07-9d96-4c26d9574aa5.jpg)
 
 ## 推荐阅读
 
@@ -156,6 +156,6 @@ public Class AResponse{    private Boolean success;    /**  
 
 
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/CKvMdchsUwlkU1ysoMgG69dVYbCQcI6Byneb8ibzZWPfUCr3T8CuBicCSGyFE6SpAtxpxtDCp6VlZ4F1hEL1BNyg/640?wx_fmt=gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-938d5f07-9996-4215-abe6-4d029c00414e.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd)，出处：macrozheng，整理：沉默王二

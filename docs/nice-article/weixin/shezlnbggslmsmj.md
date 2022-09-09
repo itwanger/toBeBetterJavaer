@@ -18,8 +18,6 @@ head:
 
 今天给大家分享一篇读者 CoderW 换新工作的面经体验，他二本学历，工作年限 2 年半，面了 10 家公司，一共 28 轮，大家可以猜猜他最后选择了哪家公司？我们留言区见。
 
-![](https://image.dbbqb.com/202206300735/0fc22bb772ff17b07bcdff5d07509039/4Brwn)
-
 同时，他提到的面经准备、简历准备、以及面试题我觉得都非常值得参考和借鉴。
 
 ## 面试准备
@@ -42,9 +40,9 @@ head:
 
 还有一个点是，看书的时候可以尝试记一下笔记，这样效率会高一些，不至于看完就忘记了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PVxtibbvVya0ibW1k1VkEIDcx8TiaO6qPCWXkVXCwRPH2omf7voWRCNfLB5IGeC5d4yQia5b4HBDCgq4MCm4erIfIQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shezlnbggslmsmj-64918434-d392-4f2b-bda9-94bfeebff2fd.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PVxtibbvVya0ibW1k1VkEIDcx8TiaO6qPCWU2ap8sHmQQbI49EGicoGEs4RrE4n4VJstMKVKO0ykYxn9gjsIX0V5Uw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shezlnbggslmsmj-4c72eb4e-9d70-459a-86d6-78b647eabc56.jpg)
 
 上面提到的书籍和文章，开源部分的后台回复“**书籍**”自取就行，我整理的部分思维导图也在里面，有兴趣也可以看一看。
 
@@ -56,7 +54,7 @@ head:
 
 我只刷了 170 道题，面了十几个大公司，大多的算法题都是原题。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/PVxtibbvVya0ibW1k1VkEIDcx8TiaO6qPCWStLQswQhS5onrh4ptanrUOGqkrRGYCgZmvwg9r82lvoFjVLcyQfeaQ/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shezlnbggslmsmj-490d1e58-fe2a-410b-b333-2c87ccc6d11b.jpg)
 
 刚开始刷的时候会很痛苦，坚持几天，没有思路的就看答案，看完答案继续写代码，写不出代码继续看答案，反反复复坚持下来算法就搞定了。
 
@@ -66,7 +64,7 @@ head:
 
 至于怎么写简历，我也不是专家，不说些花里花哨的，直接给一个我的简历模板吧，仅供参考。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PVxtibbvVya0ibW1k1VkEIDcx8TiaO6qPCWvdxj4NQEORkPibicDTrehfM7uibChtLamkzy9aYWQQemkRymwAb2wSghw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shezlnbggslmsmj-de7b7474-798c-4774-b50f-6a213b65db46.jpg)
 
 提一个点，你写的简历就是划了一个知识范围，然后让面试官从题库里面选题，如果你自己划的知识点你都不清楚，那你面试肯定没有把握的。所以，一定要对你简历上面的每一字负责，要对你在简历上写的每一个技术点都熟悉。
 
@@ -324,4 +322,4 @@ head:
 
 
 
-![](https://img-blog.csdnimg.cn/img_convert/29e81f023caee3bdfdb6698a3ad2178f.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shezlnbggslmsmj-ca0f1a37-e971-4b9a-bca3-36ada22c1d21.png)
