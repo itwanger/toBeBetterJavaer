@@ -400,30 +400,27 @@
 >  - **学习了那么多 Java 知识，耗费了无数的脑细胞，熬掉了无数根秀发，为的是什么？当然是谋取一份心仪的 offer 了**。那八股文、面试题、城市选择、优质面经又怎能少得了呢？
 >  - 千淘万漉虽辛苦，吹尽狂沙始到金。
 
-## 精选面试题
+## 精选面&八股文
 
-- [Java：34道精选高频面试题](docs/baguwen/java-basic-34.md)
-- [Java：13道HashMap精选面试题](docs/collection/hashmap-interview.md)
-- [Redis：12道精选高频面试题）](docs/mianjing/redis12question.md)
-- [Nginx：40道精选面试题](docs/nginx/40-interview.md)
-
-
-## 背诵版八股文
-
-- [Java 基础八股文（背诵版）必看:+1:](docs/baguwen/java-basic.md)
-- [Java 并发编程八股文（背诵版）必看:+1:](docs/baguwen/java-thread.md)
-- [Java 虚拟机八股文（背诵版）必看:+1:](docs/baguwen/jvm.md)
-- [MySQL 八股文（背诵版）必看:+1:](docs/sidebar/herongwei/mysql.md)
+- [34 道 Java 精选面试题👍](docs/interview/java-34.md)
+- [13 道 Java HashMap 精选面试题👍](docs/interview/java-hashmap-13.md)
+- [12 道 Redis 精选面试题👍](docs/interview/redis-12.md)
+- [40 道 Nginx 精选面试题👍](docs/interview/nginx-40.md)
+- [60 道 MySQL 精选面试题👍](docs/interview/mysql-60.md)
+- [Java 基础背诵版八股文必看🍉](docs/baguwen/java-basic.md)
+- [Java 并发编程背诵版八股文必看🍉](docs/baguwen/java-thread.md)
+- [Java 虚拟机背诵版八股文必看🍉](docs/baguwen/jvm.md)
 
 
 ## 优质面经
 
 - [硕士读者春招斩获深圳腾讯PCG和杭州阿里云 offer✌️](docs/mianjing/shanganaliyun.md)
-- [本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️](docs/nice-article/weixin/shezynmjfxhelmtttjddd.md)
-- [非科班读者，用一年时间社招拿下阿里 Offer✌️](docs/nice-article/weixin/xuelybdzheloffer.md)
-- [二本读者社招两年半10家公司28轮面试面经✌️](docs/nice-article/weixin/huanxgzl.md)
-- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer✌️](docs/nice-article/weixin/quzjlsspdx.md)
-- [双非学弟收割阿里、字节、B站校招 offer，附大学四年硬核经验总结✌️](docs/nice-article/weixin/zheisnylzldhzd.md)
+- [本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️](docs/mianjing/shezynmjfxhelmtttjddd.md)
+- [非科班读者，用一年时间社招拿下阿里 Offer✌️](docs/mianjing/xuelybdzheloffer.md)
+- [二本读者社招两年半10家公司28轮面试面经✌️](docs/mianjing/huanxgzl.md)
+- [双非一本秋招收获腾讯ieg、百度、字节等6家大厂offer✌️](docs/mianjing/quzjlsspdx.md)
+- [双非学弟收割阿里、字节、B站校招 offer，附大学四年硬核经验总结✌️](docs/mianjing/zheisnylzldhzd.md)
+- [深漂 6 年了，回西安的一波面经总结✌️](docs/mianjing/chengxyspnhxagzl.md)
 
 
 ## 面试准备
@@ -482,6 +479,8 @@
 - [如何在繁重的工作中持续成长？](docs/xuexijianyi/ruhzfzdgzzcxcz.md)
 - [如何获得高并发的经验？](docs/xuexijianyi/gaobingfa-jingyan-hsmcomputer.md)
 - [怎么跟 HR 谈薪资？](docs/xuexijianyi/hr-xinzi.md)
+- [程序员 35 岁危机，如何破局？](docs/xuexijianyi/35-weiji.md)
+- [大厂的优惠券系统是如何设计的？](docs/xuexijianyi/youhuiquan.md)
 
 
 # 知识库搭建

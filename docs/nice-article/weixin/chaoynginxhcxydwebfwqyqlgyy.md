@@ -1,6 +1,6 @@
 ---
-title: 超越 Nginx！号称下一代 Web 服务器，用起来够优雅！
-shortTitle: 超越 Nginx！号称下一代 Web 服务器，用起来够优雅！
+title: Caddy：超越 Nginx！号称下一代 Web 服务器，用起来够优雅！
+shortTitle: Caddy：号称下一代 Web 服务器
 description: Github标星38K+，Web服务器后起之秀！
 author: 梦想de星空
 category:
@@ -17,7 +17,7 @@ head:
 
 Caddy是一款功能强大，扩展性高的Web服务器，目前在Github上已有`38K+Star`。Caddy采用Go语言编写，可用于静态资源托管和反向代理。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyic9pYv5Rnk0XtbCCFCYH13siazfcQ0kWu730nOiab2RF7TvUZsuiaOC3Tw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-9934a57f-8350-4ea0-b3c9-d42e5d032c8f.jpg)
 
 Caddy具有如下主要特性：
 
@@ -35,12 +35,14 @@ Caddy具有如下主要特性：
 *   使用如下命令通过DNF工具安装Caddy，安装成功后Caddy会被注册成系统服务；
 
 ```
-dnf install 'dnf-command(copr)'dnf copr enable @caddy/caddydnf install caddy
+dnf install 'dnf-command(copr)'
+dnf copr enable @caddy/caddy
+dnf install caddy
 ```
 
 *   使用`systemctl status caddy`查看Caddy的状态，可以发现Caddy已被注册为系统服务，但是还没开启。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyZ9DjgwxIf8WR8czpVgiakibIxelIEgDZahkTQGSBmAHkOgBeic6dHN2xw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-37c16043-2774-4571-8e96-940c09d664a1.jpg)
 
 ## 使用
 
@@ -52,11 +54,11 @@ dnf install 'dnf-command(copr)'dnf copr enable @caddy/caddydnf install 
 
 *   直接使用`caddy`命令将输出Caddy的常用命令，基本看介绍就知道如何使用了，标出来的是常用命令；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyJX5LicAxNDTianKTrMEjEAgVpibTjDAiapBYsbngSWDF9AxOFyGlLrScEA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-814f1724-07d8-4b0e-947c-d2be4623ff00.jpg)
 
 *   使用`caddy start`命令可以让Caddy服务在后台运行；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyqB6JIia6ciaSU6qkJ4fuJHn2PTpwLn8VQmpoWx47ZPYOnjib2LIb0RT8g/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-91091246-afc8-4baa-ac94-9c71239fc7d7.jpg)
 
 *   Caddy默认使用JSON格式的配置文件，但由于JOSN格式配置书写比较麻烦，又提供了`Caddyfile`这种更加简洁的配置形式，使用如下命令能自动把`Caddyfile`转化为JSON配置；
 
@@ -67,12 +69,14 @@ caddy adapter
 *   我们可以先创建一个名称为`Caddyfile`的文件，文件内容如下，然后使用`caddy adapter`将它转换为JSON配置，再使用`caddy reload`使配置生效，该配置将监听`2015`端口，并返回`Hello, world!`；
 
 ```
-:2015respond "Hello, world!"
+:2015
+
+respond "Hello, world!"
 ```
 
 *   然后我们使用curl命令访问`localhost:2015`，将返回指定的信息；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyE1Lop7oCO9XA41rsV6rIx965KibCJVvxZvlcHmyBLugzNVwhMCZiclEA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-067cef19-b4fa-465d-a78e-b0aeda1fdfe8.jpg)
 
 *   当然我们还可以使用Caddy提供的`Admin API`来查看配置信息，使用如下命令即可；
 
@@ -83,14 +87,30 @@ curl localhost:2019/config/
 *   当前JSON配置如下，如果你直接使用JSON配置的话需要书写如下配置，使用`Caddyfile`确实方便很多！
 
 ```
-{ "apps": {  "http": {   "servers": {    "srv0": {     "listen": [":2015"],     "routes": [{      "handle": [{       "body": "Hello, world!",       "handler": "static_response"      }]     }]    }   }  } }}
+{
+ "apps": {
+  "http": {
+   "servers": {
+    "srv0": {
+     "listen": [":2015"],
+     "routes": [{
+      "handle": [{
+       "body": "Hello, world!",
+       "handler": "static_response"
+      }]
+     }]
+    }
+   }
+  }
+ }
+}
 ```
 
 ### `Caddyfile`基本语法
 
 *   下面案例将使用`Caddyfile`来进行配置，我们有必要了解下它的语法，`Caddyfile`的具体语法规则如下。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyNlfRVs45X1gmSoXRTfn92JAgITJGd9fnibmcDvVtSiaIjc9zCZbJd7iaA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-7164a091-ca8e-494b-9036-578d86bb5ebd.jpg)
 
 *   介绍下上图中的关键字，有助于理解。
 
@@ -115,30 +135,39 @@ Directive|指令|指令赋予了Caddy强大的功能|
 *   首先我们修改下本机的host文件：
 
 ```
-192.168.3.106 docs.macrozheng.com192.168.3.106 mall.macrozheng.com
+192.168.3.106 docs.macrozheng.com
+192.168.3.106 mall.macrozheng.com
 ```
 
 *   然后将我们的文档项目和mall前端项目上传到Caddy的html目录中去，并进行解压操作：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWykpHD5r6oUasglvK4BgicubLewfpZyEMthIfvv0LCrCaFbcIxKr1u8Mw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-c3daf1e4-465c-4438-90f0-3ff43ea5f894.jpg)
 
 *   修改`Caddyfile`文件，使用如下配置，修改完成后使用`caddy reload`命令刷新配置；
 
 ```
-http://docs.macrozheng.com {        root * /mydata/caddy/html/docs        file_server browse}http://mall.macrozheng.com {        root * /mydata/caddy/html/mall        file_server browse}
+http://docs.macrozheng.com {
+        root * /mydata/caddy/html/docs
+        file_server browse
+}
+
+http://mall.macrozheng.com {
+        root * /mydata/caddy/html/mall
+        file_server browse
+}
 ```
 
 *   如果你的`Caddyfile`文件格式不太合格的话，会出现如下警告，直接使用`caddy fmt --overwrite`格式化并重写配置即可解决；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyzz5efViac36b9ic6icuPunQoZqnrLqvGicwWrW1r7p9vrFFSB9wRTtboTg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-c605a767-d9cf-4962-9e58-26b1acde3d8b.jpg)
 
 *   通过`docs.macrozheng.com`即可访问部署好的文档项目了：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyGNcrBssiaTMiaC9kI1JichCnqr2bUS6mXHT9icxvr7Bkh77sAMIDxZXzTQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-13db54d4-c25b-4a9f-a303-93552dfa4751.jpg)
 
 *   通过`mall.macrozheng.com`即可访问到部署好的前端项目了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyeot4SMTibs5UxhuQBx4oyz0O9jbnbTNOoOKypsZD9vepWSsF0CwqYQA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-0af0e997-4135-4dbe-9255-4c11fda173c7.jpg)
 
 #### 动态代理
 
@@ -153,12 +182,14 @@ http://docs.macrozheng.com {        root * /mydata/caddy/html/docs�
 *   修改`Caddyfile`文件，使用如下配置，修改完成后使用`caddy reload`命令刷新配置；
 
 ```
-http://api.macrozheng.com {        reverse_proxy http://admin-api.macrozheng.com}
+http://api.macrozheng.com {
+        reverse_proxy http://admin-api.macrozheng.com
+}
 ```
 
 *   之后通过`api.macrozheng.com/swagger-ui.html`即可访问到`mall-admin`的API文档页面了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyjezYsLibVetwblI1bL541QIxgGFBIBSmggFZrKj4OBXRFUuQabhrXqg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-64a2a842-ce0b-49e3-a901-69583dbba655.jpg)
 
 ### 文件压缩
 
@@ -167,20 +198,26 @@ http://api.macrozheng.com {        reverse_proxy http://admin-api.mac
 *   我们需要修改`Caddyfile`文件，使用`encode`指令开启Gzip压缩，修改完成后使用`caddy reload`命令刷新配置；
 
 ```
-http://mall.macrozheng.com {        root * /mydata/caddy/html/mall        encode {            gzip        }        file_server browse}
+http://mall.macrozheng.com {
+        root * /mydata/caddy/html/mall
+        encode {
+            gzip
+        }
+        file_server browse
+}
 ```
 
 *   有个比较大的JS文件压缩前是`1.7M`；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWy5Et1W6kialSkXGVor1mDx4I35uibiaCV2jI3yp0mbUDvnL6dPIqHd68aA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-ed4d3a63-0bdb-4330-927d-2fd496ecc21b.jpg)
 
 *   压缩后为`544K`，访问速度也有很大提示；
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyPrX5AKdbdetLJddlI0oSgib9MKe4xA1yoswfcEnQd27TW1ZtKr7b0tQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-452cb1c0-4298-4834-a5c2-a15db28d1a62.jpg)
 
 *   另外我们可以看下响应信息，如果有`Content-Encoding: gzip`这个响应头表明Gzip压缩已经启用了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyoA9E03ABUgHCOz0CI3sc5YnB9m3iaXOHwCmKQGVWH5icbwRwBMNTvN3Q/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-df92216c-66c4-4d8c-8139-bcf6f2ce43ca.jpg)
 
 ### 地址重写
 
@@ -189,7 +226,9 @@ http://mall.macrozheng.com {        root * /mydata/caddy/html/mall�
 *   我们需要修改`Caddyfile`文件，使用`redir`指令重写地址，修改完成后使用`caddy reload`命令刷新配置；
 
 ```
-http://docs.macrozheng.com {        redir http://www.macrozheng.com}
+http://docs.macrozheng.com {
+        redir http://www.macrozheng.com
+}
 ```
 
 *   此时访问旧域名`docs.macrozheng.com`会直接跳转到`www.macrozheng.com`去。
@@ -201,13 +240,31 @@ http://docs.macrozheng.com {        redir http://www.macrozheng.com}
 *   比如说我们需要按以下路径来访问各个前端项目；
 
 ```
-www.macrozheng.com #访问文档项目www.macrozheng.com/admin #访问后台项目www.macrozheng.com/app #访问移动端项目
+www.macrozheng.com #访问文档项目
+www.macrozheng.com/admin #访问后台项目
+www.macrozheng.com/app #访问移动端项目
 ```
 
 *   我们需要修改`Caddyfile`文件，使用`route`指令定义路由，修改完成后使用`caddy reload`命令刷新配置。
 
 ```
-http://www.macrozheng.com {        route /admin/* {                uri strip_prefix /admin                file_server {                        root /mydata/caddy/html/admin                }        }        route /app/* {                uri strip_prefix /app                file_server {                        root /mydata/caddy/html/app                }        }        file_server * {                root /mydata/caddy/html/www        }}
+http://www.macrozheng.com {
+        route /admin/* {
+                uri strip_prefix /admin
+                file_server {
+                        root /mydata/caddy/html/admin
+                }
+        }
+        route /app/* {
+                uri strip_prefix /app
+                file_server {
+                        root /mydata/caddy/html/app
+                }
+        }
+        file_server * {
+                root /mydata/caddy/html/www
+        }
+}
 ```
 
 ### HTTPS
@@ -218,13 +275,17 @@ http://www.macrozheng.com {        route /admin/* {        
 *   之后使用如下命令验证DNS解析记录是否正确，注意配置的服务器的`80`和`443`端口需要在外网能正常访问；
 
 ```
-curl "https://cloudflare-dns.com/dns-query?name=docs.macrozheng.com&type=A" \  -H "accept: application/dns-json"
+curl "https://cloudflare-dns.com/dns-query?name=docs.macrozheng.com&type=A" \
+  -H "accept: application/dns-json"
 ```
 
 *   修改`Caddyfile`配置文件，进行如下配置；
 
 ```
-docs.macrozheng.com {        root * /mydata/caddy/html/docs        file_server browse}
+docs.macrozheng.com {
+        root * /mydata/caddy/html/docs
+        file_server browse
+}
 ```
 
 *   然后使用`caddy run`命令启动Caddy服务器即可，是不是非常方便！
@@ -246,13 +307,19 @@ docker pull caddy
 *   然后在`/mydata/caddy/`目录下创建`Caddyfile`配置文件，文件内容如下；
 
 ```
-http://192.168.3.105:80respond "Hello, world!"
+http://192.168.3.105:80
+
+respond "Hello, world!"
 ```
 
 *   之后使用如下命令启动caddy服务，这里将宿主机上的`Caddyfile`配置文件、Caddy的数据目录和网站目录挂载到了容器中；
 
 ```
-docker run -p 80:80 -p 443:443 --name caddy \    -v /mydata/caddy/Caddyfile:/etc/caddy/Caddyfile \    -v /mydata/caddy/data:/data \    -v /mydata/caddy/html:/usr/share/caddy \    -d caddy
+docker run -p 80:80 -p 443:443 --name caddy \
+    -v /mydata/caddy/Caddyfile:/etc/caddy/Caddyfile \
+    -v /mydata/caddy/data:/data \
+    -v /mydata/caddy/html:/usr/share/caddy \
+    -d caddy
 ```
 
 *   之后使用`docker exec`进入caddy容器内部执行命令；
@@ -263,7 +330,7 @@ docker exec -it caddy /bin/sh
 
 *   输入Caddy命令即可操作，之后的操作就和我们直接在CentOS上安装一样了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyXGYibV5qAibu6EiauLWxnYDibKibBaInlSTmtrM10wuj3zRHcOkEibUJ7bcg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-f589fa89-5940-43f2-a798-5b1523be9441.jpg)
 
 ## 总结
 
@@ -280,7 +347,7 @@ docker exec -it caddy /bin/sh
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/CKvMdchsUwliaXhlIY1ibvFfDzk0oTqaWyWovicuqACWv6zibOMxSe2GIYlK1zWrZeoI8BxaosSt3LAeJDZmPjWLtg/640?wx_fmt=jpeg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-756f64b8-2db0-4bba-a813-a5f8f9f4ef79.jpg)
 
 ## 推荐阅读
 
@@ -295,6 +362,6 @@ docker exec -it caddy /bin/sh
 
 
 
-![](https://mmbiz.qpic.cn/mmbiz_gif/CKvMdchsUwlkU1ysoMgG69dVYbCQcI6Byneb8ibzZWPfUCr3T8CuBicCSGyFE6SpAtxpxtDCp6VlZ4F1hEL1BNyg/640?wx_fmt=gif)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-92de163f-23a3-4194-b87b-83bb7fe9d203.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499016&idx=1&sn=b4f12202e884dd02588cc701d0946ad3&chksm=fc2c4100cb5bc8167dcde2b0fb052e534ef335f2a8e6afd4034a5cfb8292d05423af0f35dcd0#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499016&idx=1&sn=b4f12202e884dd02588cc701d0946ad3&chksm=fc2c4100cb5bc8167dcde2b0fb052e534ef335f2a8e6afd4034a5cfb8292d05423af0f35dcd0#rd)，出处：macrozheng，整理：沉默王二

@@ -1,8 +1,15 @@
 ---
+title: 40 道 Nginx 精选面试题👍
+shortTitle: 40 道 Nginx 精选面试题👍
 category:
   - 求职面试
 tag:
-  - 面试题集合
+  - 面试题&八股文
+description: Java程序员进阶之路，小白的零基础Java教程，40 道 Nginx 精选面试题👍
+head:
+  - - meta
+    - name: keywords
+      content: Nginx,nginx,面试题,八股文
 ---
 
 # Nginx：40道精选面试题必看:+1:
@@ -786,6 +793,13 @@ Proxy_set_header THE-TIME $date_gmt;
 
 ----
 
->原文链接：blog.csdn.net/wuzhiwei549/article/details/122758937，整理：沉默王二
+>原文链接：[blog.csdn.net/wuzhiwei549/article/details/122758937](blog.csdn.net/wuzhiwei549/article/details/122758937)，整理：沉默王二
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

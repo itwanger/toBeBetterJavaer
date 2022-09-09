@@ -1,11 +1,18 @@
 ---
+title: Java 基础背诵版八股文必看🍉
+shortTitle: Java 基础背诵版八股文必看🍉
 category:
   - 求职面试
 tag:
-  - 背诵版八股文
+  - 面试题&八股文
+description: Java程序员进阶之路，小白的零基础Java教程，Java 基础背诵版八股文必看🍉
+head:
+  - - meta
+    - name: keywords
+      content: Java,java,面试题,八股文
 ---
 
-# Java 基础八股文（背诵版）必看:+1:
+# Java 基础八股文（背诵版）必看🍉
 
 ### Java 语言具有哪些特点？
 
@@ -398,6 +405,13 @@ equals 和 hashCode 这两个方法都是从 object 类中继承过来的，equa
 
 投稿作者：后端技术小牛说
 转载链接：[https://mp.weixin.qq.com/s/PmeH38qWVxyIhBpsAsjG7w](https://mp.weixin.qq.com/s/PmeH38qWVxyIhBpsAsjG7w)
+
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

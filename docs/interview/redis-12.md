@@ -1,8 +1,15 @@
 ---
+title: 12 道 Redis 精选面试题👍
+shortTitle: 12 道 Redis 精选面试题👍
 category:
   - 求职面试
 tag:
-  - 面试题集合
+  - 面试题&八股文
+description: Java程序员进阶之路，小白的零基础Java教程，12 道 Redis 精选面试题👍
+head:
+  - - meta
+    - name: keywords
+      content: Redis,redis,面试题,八股文
 ---
 
 # Redis：12道精选高频面试题
@@ -169,6 +176,13 @@ C |10001 - 16383
 ----
 
 文章来源于JAVA日知录 ，作者飘渺Jam
-转载链接：https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w
+转载链接：[https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w](https://mp.weixin.qq.com/s/GFUHslsSm96fJbhsCkFe_w)
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -2,25 +2,22 @@
 title: 不到 20 人的 IT 公司该去吗？
 shortTitle: 不到 20 人的 IT 公司该去吗？
 author: Shawn
+tags:
+  - 学习建议
 category:
-  - 微信公众号
+  - 学习建议
 ---
 
-> **近期文章精选** ：
-> 
-> *   [完结撒花！时隔 596 天，《JavaGuide 面试突击版》5.0 来啦！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529453&idx=1&sn=f1b3245f023aa2b9890071bb9a9c318c&scene=21#wechat_redirect)
-> *   [热乎的美团一面，1 小时 40 分钟，问的很全面！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529365&idx=1&sn=a933939d0d38779502c6f9c4d7094bba&scene=21#wechat_redirect)
-> *   [什么是 CDN ？CDN 工作原理是什么？](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529365&idx=2&sn=cede039a89fa340584f7226b709e86ad&scene=21#wechat_redirect)
-> *   [为什么建议使用 BigDecimal 进行浮点数运算？](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529249&idx=1&sn=b847fd68d576bd713250acd166617ad7&scene=21#wechat_redirect)
-> *   [上岸 2022 字节 Java 后端实习面经](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247528162&idx=1&sn=81bf1255c923cffae384a5a38e51da91&scene=21#wechat_redirect)
+>[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)已经有 **740 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们吧！这是一个Java学习指南+编程实战+LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、和球友一起打卡成长，冲冲冲。
 
-原回答地址：https://sourl.cn/hy9TD
 
-周末就不分享技术了。今天早上在知乎看到一个挺有意思的话题：不到 20 人的 IT 公司该去吗？。
+周末就不分享技术了。今天早上在知乎看到一个挺有意思的话题：**不到 20 人的 IT 公司该去吗**？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/iaIdQfEric9TwXFujfEZQx8kzKKQaW3F5iaeDPCibtAdBT4ItV8f1DMhqd7pkwTwOAq1ib7IrkOd8ubR7tNvdUmpNug/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-budrditgsgqm-092ccdf7-12ac-4ca0-81b0-0d7fc193ffdc.jpg)
 
 回答区有一位老哥分享了自己在一个20 来人的小公司的奇葩工作经历，分享一下。
+
+>原回答地址：https://sourl.cn/hy9TD
 
 下面是正文。
 
@@ -213,16 +210,29 @@ category:
 
 不过，还是有少部分不错的小公司的，这个也不能一棒子打死。
 
-**·········· END ··············**
+----
 
-**推荐阅读** ：
+没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
-*   [曾经真是网瘾少年](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247523651&idx=1&sn=f0f4cff906c8e5febb7097fa6716c1d3&scene=21#wechat_redirect)
-*   [害，毕业三年了！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247521759&idx=1&sn=60965fc8c51f65f7cd271f59fd19e124&scene=21#wechat_redirect)
-*   [一个普通程序员的周末](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247505539&idx=1&sn=721dd80d064afbaf8ea71e6b211f304d&scene=21#wechat_redirect)
-*   [做公众号这一年的经历和一件“大事”](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484746&idx=1&sn=a519a9e3d638bff5c65008f7de167e4b&chksm=cea24a81f9d5c397ca9ac5668ba6cb18b38065e0e282a34ebc077a2dea98de3f1eb285ea5f09&token=330978132&lang=zh_CN&scene=21#wechat_redirect)
-*   [简单聊聊我的 Java 后端开发求职之路](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247500276&idx=1&sn=09acfc2b4ba6c0c9c335c1ee296f7d6c&chksm=cea18e3ff9d6072933adf0e130412a952d37e43345f665953b6d07b234a3753f9a546677fce3&token=330978132&lang=zh_CN&scene=21#wechat_redirect)
+- [再见，GitHub trending](https://mp.weixin.qq.com/s/E2ko0I0Lts2yoIF-HLBOgw)
+- [钱付了订单还是未支付，怎么解决？](https://mp.weixin.qq.com/s/nzR9eKFgEbpPFIkMF40vYw)
+- [涨薪40%，从国企跳到一家小公司！](https://mp.weixin.qq.com/s/NT4fVbI8hDdN7MQkG2RNdQ)
+- [暑假在富士康打工50天，感受如何？](https://mp.weixin.qq.com/s/luKyE0O1eGBhUyBuoAONqA)
+- [35 岁危机怎么破？](https://mp.weixin.qq.com/s/duEzl6qiM59cHVdFhWB2FA)
+- [面试通过，背调凉了！](https://mp.weixin.qq.com/s/R8IonWhFfNk0H1vUgjEadg)
+- [推荐一些小而美的互联网公司](https://mp.weixin.qq.com/s/iiGGsfvPzNIcWFdH0LStjw)
+- [有哪些值得计算机专业加入的国企？](https://mp.weixin.qq.com/s/WO0MYpWI3m_18Yohe0SzMA)
 
-👉 如果本文对你有帮助的话，欢迎 **点赞&在看&分享** ，这对我继续分享&创作优质文章非常重要。非常感谢！
 
->参考链接：[https://mp.weixin.qq.com/s/Dhd7mWfYl-evUxdQSXXA1w](https://mp.weixin.qq.com/s/Dhd7mWfYl-evUxdQSXXA1w)，出处：JavaGuide，整理：沉默王二
+
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

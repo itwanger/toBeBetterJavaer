@@ -6,14 +6,7 @@ author: 茶杯
 category:
   - 求职面试
 tag:
-  - 面试经验
-  - 面经
-  - 求职
-  - offer
-  - 春招
-  - 秋招
-  - 社招
-  - 校招
+  - 优质面经
 head:
   - - meta
     - name: description
@@ -274,6 +267,14 @@ g、分库分表：减轻 DB 压力
 
 
 >转载链接：[https://mp.weixin.qq.com/s/vnMZY9Gsy3o1FwMi4f1GlA](https://mp.weixin.qq.com/s/vnMZY9Gsy3o1FwMi4f1GlA)，出处：大厂面试指南，整理：沉默王二
+
+
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -1,9 +1,15 @@
 ---
-title: 程序员深漂 6 年，回西安工作了
-shortTitle: 离开苏州了！
-author: 七哥呀
+title: 深漂 6 年了，回西安的一波面经总结✌️
+shortTitle: 社招，深漂6 年回西安
 category:
-  - 微信公众号
+  - 求职面试
+tag:
+  - 优质面经
+description: 深漂 6 年了，回西安的一波面经总结✌️
+head:
+  - - meta
+    - name: keywords
+      content: 面试经验,面经,求职,offer,春招,秋招,社招,校招
 ---
 
 >[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)已经有 **470 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)加入我们吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
@@ -249,15 +255,18 @@ hr 面，聊聊做了什么项目，遇到了最复杂的问题是啥？如何�
 
 没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
-**推荐阅读**：
-
-- [没必要为实习碰的头破血流](https://mp.weixin.qq.com/s/KxUMq2YmlIBMbAeRwUm8JA)
-- [网站挣了 200 美刀后的感触](https://mp.weixin.qq.com/s/PxgZkuA_SnAgG7xfwlKLgw)
-- [在 IDEA 里下五子棋不过分吧？](https://mp.weixin.qq.com/s/R13FkPipfEMKjqNaCL3UoA)
-- [顺利入职了](https://mp.weixin.qq.com/s/oBLUSnHOmzoVpCP1sacNbA)
-
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 
->转载链接：[https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247524803&idx=1&sn=c5df3564f67d3c66d1c5357face5b001&chksm=cea12e08f9d6a71e6889f615918cef6232dea7045a7dee56530f6c86a3c979880dda266cbae2#rd](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247524803&idx=1&sn=c5df3564f67d3c66d1c5357face5b001&chksm=cea12e08f9d6a71e6889f615918cef6232dea7045a7dee56530f6c86a3c979880dda266cbae2#rd)，出处：JavaGuide，整理：沉默王二
+>转载链接：[https://mp.weixin.qq.com/s/vIqfeVmWtDnvsHllC4M5Tg](https://mp.weixin.qq.com/s/vIqfeVmWtDnvsHllC4M5Tg)，整理：沉默王二
+
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -4,19 +4,9 @@ shortTitle: 硕士读者春招上岸阿里云
 category:
   - 求职面试
 tag:
-  - 面试经验
-  - 面经
-  - 求职
-  - offer
-  - 春招
-  - 秋招
-  - 社招
-  - 校招
+  - 优质面经
 description: 春招斩获深圳腾讯 PCG 和杭州阿里云
 head:
-  - - meta
-    - name: description
-      content: 春招斩获深圳腾讯 PCG 和杭州阿里云
   - - meta
     - name: keywords
       content: 面试经验,面经,求职,offer,春招,秋招,社招,校招
@@ -143,5 +133,13 @@ head:
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
 
 >转载链接：[https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw](https://mp.weixin.qq.com/s/EB_NCC2fNyYHuz04k1H4Nw)，出处：JavaGuide，整理：沉默王二
+
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

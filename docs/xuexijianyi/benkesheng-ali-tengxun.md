@@ -1,16 +1,11 @@
 ---
 title: 本科生如何才能进入腾讯、阿里等一流的互联网公司？
-shortTitle: 本科生如何才能进入腾讯、阿里等一流的互联网公司？
-description: 研究生强答一波，阿里和腾讯都拿到了校招offer，除此之外也拿了百度头条网易滴滴亚马逊。我本科不是计算…
+shortTitle: 本科生如何进入一流的互联网公司？
 tags:
   - 学习建议
-author: 黄小斜
 category:
   - 学习建议
 head:
-  - - meta
-    - name: description
-      content: 研究生强答一波，阿里和腾讯都拿到了校招offer，除此之外也拿了百度头条网易滴滴亚马逊。我本科不是计算…
   - - meta
     - name: keywords
       content: 信息技术（IT）,软件工程师,就业

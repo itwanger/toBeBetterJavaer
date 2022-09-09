@@ -4,7 +4,9 @@ shortTitle: 去字节了！SSP顶薪
 description: 没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 author: wasabi
 category:
-  - 微信公众号
+  - 求职面试
+tag:
+  - 优质面经
 head:
   - - meta
     - name: description
@@ -189,15 +191,12 @@ CSOC 开源项目结项通知
 
 我认为这都是实力的体现。总之，你需要尽力地做一些 “显而易见” 的成就，让面试成功拥有事半功倍的效果。
 
-* * *
 
-*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+---------
 
-**推荐阅读**：
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-*   [崩溃，我把自己的网站搞挂了！](https://mp.weixin.qq.com/s?__biz=MzIxNzQwNjM3NA==&mid=2247506251&idx=1&sn=17cfecf45d761853c0cb82156cc6c6a2&scene=21#wechat_redirect)
-*   [真材实料才是底气！](https://mp.weixin.qq.com/s?__biz=MzIxNzQwNjM3NA==&mid=2247506170&idx=1&sn=d6f94e1e60583df6e819043700ae4d41&scene=21#wechat_redirect)
-*   [干掉iTerm！号称下一代终端神器，功能贼强大！](https://mp.weixin.qq.com/s?__biz=MzIxNzQwNjM3NA==&mid=2247506099&idx=1&sn=73bf97ee09cdbd8449fb564be1599509&scene=21#wechat_redirect)
-*   [LeetCode刷题笔记.pdf下载（Java版）](https://mp.weixin.qq.com/s?__biz=MzUxNzAzMTU4OQ==&mid=2247483848&idx=1&sn=5e338587650f4a5199fea1844a616343&scene=21#wechat_redirect)
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
->转载链接：[https://mp.weixin.qq.com/s?__biz=MzIxNzQwNjM3NA==&mid=2247506281&idx=1&sn=1ecdfab4e04ce0201e55a9c3be88d6a1&chksm=97f8d7a0a08f5eb6908c5b0a246300c781df051590b455b2a8616478e8d43e2eb71ab3da67ef&token=2006113039&lang=zh_CN#rd](https://mp.weixin.qq.com/s?__biz=MzIxNzQwNjM3NA==&mid=2247506281&idx=1&sn=1ecdfab4e04ce0201e55a9c3be88d6a1&chksm=97f8d7a0a08f5eb6908c5b0a246300c781df051590b455b2a8616478e8d43e2eb71ab3da67ef&token=2006113039&lang=zh_CN#rd)，出处：沉默王二，整理：沉默王二
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

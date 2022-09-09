@@ -4,11 +4,9 @@ shortTitle: 双非学弟收割大厂offer附大学经验总结
 description: 双非学弟收割阿里、字节、B站校招 offer，附大学四年经验总结，硬核！
 author: 兴趣使然的草帽路飞
 category:
-  - 微信公众号
-head:
-  - - meta
-    - name: description
-      content: 双非学长收割大厂offer，大学经验总结
+  - 求职面试
+tag:
+  - 优质面经
 ---
 
 大家好，我是二哥。今天分享一位双非进大厂同学的成长经历以及经验总结（他大学读的河科大，就在我们洛阳，离二哥住的地方就两站路的距离）。
@@ -367,15 +365,11 @@ Last Question：
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-2335e716-3853-457b-a3a7-fc8da353cdfa.png)
 
----
+---------
 
-_没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-**推荐阅读**：
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-- [顺利入职了](https://mp.weixin.qq.com/s/oBLUSnHOmzoVpCP1sacNbA)
-- [外包被歧视](https://mp.weixin.qq.com/s/n2mvD3sZ_pt9qVKbSCaiDg)
-- [给大家鼓鼓劲！](https://mp.weixin.qq.com/s/QNlqleAj8Osq3gRW_D05Ew)
-- [计划国庆前跳槽](https://mp.weixin.qq.com/s/1_9FVEhEErMhjCRNP9dqZw)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
