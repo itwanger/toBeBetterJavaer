@@ -8,19 +8,11 @@ category:
 head:
 ---
 
-> **近期文章精选** ：
-> 
-> *   [《JavaGuide 面试突击版》5.0 来啦！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529453&idx=1&sn=f1b3245f023aa2b9890071bb9a9c318c&scene=21#wechat_redirect)
-> *   [蔚来后端校招面经](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529628&idx=1&sn=8a8dbc0946ddaa32f6d2dc7028e9bcb1&scene=21#wechat_redirect)
-> *   [不到 20 人的 IT 公司该去吗？](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529620&idx=1&sn=e25cd1c780e733a583e4581b019c3005&scene=21#wechat_redirect)
-> *   [今年面试有点小难！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247527888&idx=1&sn=55c63873a53ab9b376cc94b7dcbba1a3&scene=21#wechat_redirect)
-> *   [为什么建议使用 BigDecimal 进行浮点数运算？](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247529249&idx=1&sn=b847fd68d576bd713250acd166617ad7&scene=21#wechat_redirect)
-
-**Java 八股文网站**：javaguide.cn
+>[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)已经有 **750 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们吧！这是一个Java学习指南+编程实战+LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、和球友一起打卡成长，冲冲冲。
 
 这篇文章要从一个奇怪的注释说起，就是下面这张图：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsssHtX7DPF7sFo6FVYWV7lg1SzC6ic0MretuyfkKhPb8SNX9oAkc2cYw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-1f69f0ce-8122-470e-a98a-1003bff384b0.jpg)
 
 我们可以不用管具体的代码逻辑，只是单单看这个 for 循环。
 
@@ -32,13 +24,13 @@ head:
 
 prevent，这个单词如果不认识的同学记一下，考试肯定要考的：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPseEtMqZNuXB8eytdnO6a0sR6PmEMwoMgkzc1jYoiapVLfr33O921BicRQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-b2e1de33-114d-4675-a4ec-151a4e72c310.jpg)
 
 这个注释翻译一下就是：防止 GC 线程进行垃圾回收。
 
 具体的实现逻辑是这样的：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsp5Z9mZps5RAJiaFsPDm8vVjz6nbXYZib0BYzq35uydWD6t3U4A9C6lww/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-8c765043-a67d-456a-9e60-58ee961ca5eb.jpg)
 
 核心逻辑其实就是这样一行代码：
 
@@ -46,7 +38,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 这样就能实现 prevent gc 了？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsF1xtExvf4VHTX6xAEyEqPEdWuqNmG1qopXYRhm7eBHMpIXW7sY2u6g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-a03a6ac5-420e-4ea2-bda9-ff3252f0fd5b.jpg)
 
 图片
 
@@ -58,7 +50,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 > org.apache.rocketmq.store.logfile.DefaultMappedFile#warmMappedFile
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsZnRpM9icMIf7y9urjPUW9WtBdZprsnvbFTwqCeusECz5moC4CNVicu5A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-146a842c-e4f4-40bd-a3b6-b63753f5d0f5.jpg)
 
 事先需要说明的是，我并没有找到写这个代码的人问他的意图是什么，所以我只有基于自己的理解去推测他的意图。如果推测的不对，还请多多指教。
 
@@ -66,11 +58,11 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 我给出的修改意见是这样的：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsSj2ctY3D6wjKhous6uyGNTOicGmeAcssY7R63NljoHg7dJBIcImJIdg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-89e3f8fb-c4d8-4a43-b7d5-1fa152e38126.jpg)
 
 把 int 修改为 long，然后就可以直接把 for 循环里面的 if 逻辑删除掉了。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsR6DickwibTYsYATia3icx4fZiacDeoibDrN3pKxdyXgqeHAYQvg8lsrCEyPQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-07f96325-2a98-4ca9-afd8-2c1f0a450cbf.jpg)
 
 这样一看是不是更加懵逼了？
 
@@ -82,7 +74,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 *   官方最后没有采纳这个修改方案。
 *   官方采没采纳不重要，重要的是我高低得给你“剥个茧”。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsNS1LqnGUphAbvmVRpj3ySkE0tvsOZu6vZgWrJRGoWNLSKFtgHTbiaOA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-1bce37d6-a2e6-4926-a213-56352d1e6cac.jpg)
 
 ## **探索**
 
@@ -92,7 +84,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 于是我把代码拉了下来，一看提交记录是这样的：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPs8ibv6NCtQfCxb0kbkaHZZMtxB5elsjCMmkX8xGmbr5RIEWuS2CoFUGw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-a2ccf1d2-3501-4876-ad15-28a34f5153da.jpg)
 
 我就知道这里不会有答案了。
 
@@ -104,7 +96,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 除了第一个链接之外，没有找到什么有用的信息：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsLdul2wxZg4VqusCoyJUTicIiauPf87VHSAzibrvfbgMAYWgNs8H5UBHMg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-3d1ec5f2-e409-4305-967e-3fd1b9326d49.jpg)
 
 而第一个链接对应的 issues 是这个：
 
@@ -112,7 +104,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 这个 issues 其实就是我们在讨论这个问题的过程中提出来的，也就是前面出现的修改方案：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsw4Ym237KwoC8jb9Y7Ur1DtI7eiaZbngIj30bEujhWgbrqp5gYZY7ciaQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-0ecc61c5-1e29-498c-b069-f960279f239c.jpg)
 
 也就是说，我想通过源码或者 github 找到这个问题权威的回答，是找不到了。
 
@@ -120,11 +112,11 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 > https://stackoverflow.com/questions/53284031/why-thread-sleep0-can-prevent-gc-in-rocketmq
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsyKoecnxIOEZMNF1u39BOiao3ezc3ezkVEAmFWViauUs0G1ryIlyGiajicg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-d475da21-31f9-461b-9ff3-224024d7021d.jpg)
 
 问题和我们的问题一模一样，但是这个问题下面就这一个回答：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsLhia3LVfBYDhhriasia0lE8scP4Vuez1ialhZYFAdaZOZvb1wicb93F2Kcg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-2e92107e-777e-437a-93af-9247be7638c8.jpg)
 
 这个回答并不好，因为我觉得没答到点上，但是没关系，我刚好可以把这个回答作为抓手，把差的这一点拉通对齐一下，给它赋能。
 
@@ -148,13 +140,13 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 那么本文中最关键的一个问题就来了：**为什么这里要在代码里面特别注意 GC，想要尝试“触发”GC 呢？**
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsLTOichkX0CUdWhTkJLz6PiaXpyWWB2bQsnrjWpbYuFrTvSLfl8YDHP5A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-6b749e84-c316-4435-94c8-fe4bc3a57c5a.jpg)
 
 先说答案：safepoint，安全点。
 
 关于安全点的描述，我们可以看看《深入理解 JVM 虚拟机(第三版)》的 3.4.2 小节：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsp97RZpCpaoZcbqo6cmSqc8fP7TKBhEemxcicquBibnGBvZPJJeLwILhA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-bf69bc21-2d42-4c69-85ce-43676ce8d7cd.jpg)
 
 注意书里面的描述：
 
@@ -168,7 +160,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 里面有这样一段话：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsJPeXO8SUELfQJDt8YzCyicK7rzHXhIA7lub2XIdpvQlqNa9iaj4sIwZA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-5835322a-ffcd-4dfa-977c-6bc4ade41353.jpg)
 
 我把划线的部分单独拿出来，你仔细读一遍：
 
@@ -186,7 +178,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 如果你有时间，我建议你把这个案例完整的看一下，我只截取问题解决的部分：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPs1oic5IZTTEzkx9N30oB7aw87sOflULuStyxcibPZQSKp2t5amnh11J5w/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-8406a4d2-c6dc-4926-b28d-566459b75b9e.jpg)
 
 截图中的 while(i < end) 就是一个可数循环，由于执行这个循环的线程需要在循环结束后才进入 Safepoint，所以先进入 Safepoint 的线程需要等待它。从而影响到 GC 线程的运行。
 
@@ -196,7 +188,7 @@ prevent，这个单词如果不认识的同学记一下，考试肯定要考的�
 
 接着我们再把目光拉回到这里：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsOBoepdTVLlPuTwFfTonwnyfuC9QdgCrJ0EqmyzsPph1FIfE9HL6HGQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-ea048839-1b93-4eef-a915-5ab757c039c0.jpg)
 
 这个循环也是一个可数循环。
 
@@ -210,7 +202,7 @@ Thread.sleep(0) 这个代码看起来莫名其妙，但是我是不是可以大�
 
 > https://hg.openjdk.java.net/jdk8u/jdk8u/hotspot/file/tip/src/share/vm/runtime/safepoint.cpp
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsCvghvvOU27Or0612aRy9lQHG740OhnyvMHsvw0vdAEZQjfucQjibFnw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-1468e19e-d613-45bb-bf17-29cb32391f50.jpg)
 
 注释里面说，在程序进入 Safepoint 的时候， Java 线程可能正处于框起来的五种不同的状态，针对不同的状态有不同的处理方案。
 
@@ -226,11 +218,11 @@ Thread.sleep(0) 这个代码看起来莫名其妙，但是我是不是可以大�
 
 > https://www.zhihu.com/question/29268019/answer/43762165
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsjsdQdD1VQmYj881N6BHnJwtw739Hcj07Eu5f9qicVckpEqJrzrnxGCQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-c6585830-3b04-4691-bcf4-46657591423e.jpg)
 
 那么接下来，就是见证奇迹的时刻了：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsXcVS6gvibrwOFe7vz4OJeiadywxOoZ6xUl8gWwgia1nib20NOdNHgCYPpw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-66727b54-f6a2-4209-9d79-851e6cb663a2.jpg)
 
 根据 R 大的说法：正在执行 native 函数的线程看作“已经进入了 safepoint”，或者把这种情况叫做“在 safe-region 里”。
 
@@ -242,7 +234,7 @@ sleep 方法就是一个 native 方法，你说巧不巧？
 
 > https://hllvm-group.iteye.com/group/topic/38232?page=2
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsVSMu8ZQiahQmErYmiaVRUJv4mVHN8Jva6ZiaQ4y26EmLCRxDhYCqHiaKpg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-1e9abecb-c865-4ac2-ab56-1de12e99ac14.jpg)
 
 这里就直接点名道姓的指出了：Thread.sleep(0).
 
@@ -259,14 +251,33 @@ sleep 方法就是一个 native 方法，你说巧不巧？
 这一部分我们来拿代码实践跑上一把，就拿我之前分享过的[《真是绝了！这段被 JVM 动了手脚的代码！》](https://mp.weixin.qq.com/s?__biz=Mzg3NjU3NTkwMQ==&mid=2247509056&idx=1&sn=1d8383e50127b6b45186d243b92f5037&scene=21#wechat_redirect)文章里面的案例。
 
 ```
-public class MainTest {    public static AtomicInteger num = new AtomicInteger(0);    public static void main(String[] args) throws InterruptedException {        Runnable runnable=()->{            for (int i = 0; i < 1000000000; i++) {                num.getAndAdd(1);            }            System.out.println(Thread.currentThread().getName()+"执行结束!");        };        Thread t1 = new Thread(runnable);        Thread t2 = new Thread(runnable);        t1.start();        t2.start();        Thread.sleep(1000);        System.out.println("num = " + num);    }}
+public class MainTest {
+
+    public static AtomicInteger num = new AtomicInteger(0);
+
+    public static void main(String[] args) throws InterruptedException {
+        Runnable runnable=()->{
+            for (int i = 0; i < 1000000000; i++) {
+                num.getAndAdd(1);
+            }
+            System.out.println(Thread.currentThread().getName()+"执行结束!");
+        };
+
+        Thread t1 = new Thread(runnable);
+        Thread t2 = new Thread(runnable);
+        t1.start();
+        t2.start();
+        Thread.sleep(1000);
+        System.out.println("num = " + num);
+    }
+}
 ```
 
 这个代码，你直接粘到你的 IDEA 里面去就能跑。
 
 按照代码来看，主线程休眠 1000ms 后就会输出结果，但是实际情况却是主线程一直在等待 t1,t2 执行结束才继续执行。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsQqRVvicic2f3IlHP8d44I9J9KI3Gxqic2163osnicIS1L20d788criazpOA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-b1ac91e0-1430-4d4f-a1ee-7e9257208151.jpg)
 
 图片
 
@@ -281,17 +292,17 @@ public class MainTest {    public static AtomicInteger num = new 
 
 所以，当我们把 int 修改为 long 后，程序就表现正常了：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsPJtpg5KTEIacSSibelibibT8CQAuL1SicbolA5hgbfyI5ibkwyvlwZOVCAQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-c44b9901-a75e-490a-9e84-121b8f1b7ca6.jpg)
 
 受到 RocketMQ 源码的启示，我们还可以直接把它的代码拿过来：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsSuMhCGiaHVg6tYxv1pOb8kibuZoLTEKBWpgEoETX4AppNfqOoguNy3cA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-bf1cfd2e-024a-45c1-94b0-43f4653f41a5.jpg)
 
 这样，即使 for 循环的对象是 int 类型，也可以按照预期执行。因为我们相当于在循环体中插入了 Safepoint。
 
 另外，我通过**不严谨的方式**测试了一下两个方案的耗时：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsNRwicAEbVLG9p6YibCyHU2LeTlo4YKhriaHB5TCgTmD0W0NwwvmkORmvg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-d764519c-05d1-43a2-9fd9-97e1a5f0da31.jpg)
 
 在我的机器上运行了几次，时间上都差距不大。
 
@@ -301,7 +312,7 @@ public class MainTest {    public static AtomicInteger num = new 
 
 再说一个也是由前面的 RocketMQ 的源码引起的一个思考：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsAiamY27lFbO7lXB0XDFY5jCQwib4H7iaZ8Hk3g1fw7OcsZky7jqic6jYHw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-d4d985fa-e45a-46e4-875a-695e08924da9.jpg)
 
 这个方法是在干啥？
 
@@ -315,7 +326,7 @@ public class MainTest {    public static AtomicInteger num = new 
 
 > https://tianchi.aliyun.com/competition/entrance/531922/information
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsHDlfA9qmXTSqialUYZPFnibaWylticuY2WXJmIOUqtvJ6tXOH6SoVfh0Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-48431bc4-4ed9-4b47-85f3-0afad04122d6.jpg)
 
 其中有两个参赛选大佬都提到了“文件预热”的思路。
 
@@ -323,32 +334,36 @@ public class MainTest {    public static AtomicInteger num = new 
 
 > https://tianchi.aliyun.com/forum/postDetail?spm=5176.12586969.0.0.13714154spKjib&postId=300892
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsl3XE6b0XPdibsA7gYV3TaNYBAUqMOibCUribdW1ZOWRcKm0iaCINBYMbug/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-aaa07604-9075-44ca-b9c3-5fc6d050bc39.jpg)
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsQriaIdfsjokKC6cQPtylXRlz0v7beaCzy1jC0WoDmrhOoX3Pe1BnxBg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-34ee7d10-2279-40cf-8da0-38882fd96806.jpg)
 
 > https://tianchi.aliyun.com/forum/postDetail?spm=5176.21852664.0.0.4c353a5a06PzVZ&postId=313716
 
-![](https://mmbiz.qpic.cn/mmbiz_png/ELQw2WCMgt0XR1d7OdySjSexwkxKyxPsIrauqbZPBEqibdNCmibXKWgc17u3iaK4gjRUaPUmNfaa6SvCmibM4iboBKg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moyjsnglxbczyxkswyddm-f89f8ade-dc10-42e2-8380-fd11f7127a5e.jpg)
 
 好了，本文的技术部分就到这里啦。
 
 你要不喜欢，退出之前记得文末点个“在看”哦。
 
-**·········· END ··············**
 
-👉 专属专栏/一对一提问/简历修改/学习打卡/读书活动，欢迎加入 [**JavaGuide 知识星球**](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247527474&idx=1&sn=7b808e81a16cee54113856854be18c47&scene=21#wechat_redirect)（文末可领取优惠券）。
+----
 
-![](https://mmbiz.qpic.cn/mmbiz_png/iaIdQfEric9TzZkViam7X6uTdI3RpXobBElO7uFwmtAn8ibaxWsP8y8VicX9hmgSR1OnNHNupqmL5T2ZW3sojVOxf0g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
-**推荐阅读** ：
+- [2.7万学费的培训机构，体验如何？](https://mp.weixin.qq.com/s/DI3XLQ2VOLK-FZBK792ZYQ)
+- [MyBatis批量插入10w条数据仅用2秒](https://mp.weixin.qq.com/s/FPnhVgdgpjwVFgGGUoQCVw)
+- [不到 20 人的公司能去吗？](https://mp.weixin.qq.com/s/c5h_IOBYfVTmkrM9S1q1tw)
+- [钱付了订单还是未支付，怎么解决？](https://mp.weixin.qq.com/s/nzR9eKFgEbpPFIkMF40vYw)
+- [涨薪40%，从国企跳到一家小公司！](https://mp.weixin.qq.com/s/NT4fVbI8hDdN7MQkG2RNdQ)
+- [暑假在富士康打工50天，感受如何？](https://mp.weixin.qq.com/s/luKyE0O1eGBhUyBuoAONqA)
+- [35 岁危机怎么破？](https://mp.weixin.qq.com/s/duEzl6qiM59cHVdFhWB2FA)
+- [面试通过，背调凉了！](https://mp.weixin.qq.com/s/R8IonWhFfNk0H1vUgjEadg)
 
-*   [曾经真是网瘾少年](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247523651&idx=1&sn=f0f4cff906c8e5febb7097fa6716c1d3&scene=21#wechat_redirect)
-*   [害，毕业三年了！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247521759&idx=1&sn=60965fc8c51f65f7cd271f59fd19e124&scene=21#wechat_redirect)
-*   [一个普通程序员的周末](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247505539&idx=1&sn=721dd80d064afbaf8ea71e6b211f304d&scene=21#wechat_redirect)
-*   [做公众号这一年的经历和一件“大事”](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484746&idx=1&sn=a519a9e3d638bff5c65008f7de167e4b&chksm=cea24a81f9d5c397ca9ac5668ba6cb18b38065e0e282a34ebc077a2dea98de3f1eb285ea5f09&token=330978132&lang=zh_CN&scene=21#wechat_redirect)
-*   [简单聊聊我的 Java 后端开发求职之路](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247500276&idx=1&sn=09acfc2b4ba6c0c9c335c1ee296f7d6c&chksm=cea18e3ff9d6072933adf0e130412a952d37e43345f665953b6d07b234a3753f9a546677fce3&token=330978132&lang=zh_CN&scene=21#wechat_redirect)
 
-👉 如果本文对你有帮助的话，欢迎 **点赞&在看&分享** ，这对我继续分享&创作优质文章非常重要。非常感谢！
 
->参考链接：[https://mp.weixin.qq.com/s/y0zt9a4WmwBE1DcDGtN6fA](https://mp.weixin.qq.com/s/y0zt9a4WmwBE1DcDGtN6fA)，出处：JavaGuide，整理：沉默王二
+
+
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
