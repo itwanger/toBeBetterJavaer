@@ -1,197 +1,289 @@
 ---
+title: Java并发编程volatile关键字解析
+shortTitle: volatile关键字解析
+description: Java并发编程volatile关键字解析
 category:
   - Java核心
-  - 并发编程
 tag:
-  - Java
+  - Java并发编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,并发编程,多线程,Thread,volatile
 ---
 
 # Java并发编程volatile关键字解析
 
-##  几个基本概念
+“三妹啊，这节我们来学习 Java 并发编程中的 volatile 关键字，以及容易遇到的坑。”看着三妹好学的样子，我倍感欣慰。
 
-在介绍volatile之前，我们先回顾及介绍几个基本的概念。
+“好呀，哥。”三妹愉快的答应了。
 
-###  内存可见性
+## volatile 变量的特性
 
-在Java内存模型那一章我们介绍了JMM有一个主内存，每个线程有自己私有的工作内存，工作内存中保存了一些变量在主内存的拷贝。
+volatile 可以保证可见性，但不保证原子性：
 
-**内存可见性，指的是线程之间的可见性，当一个线程修改了共享变量时，另一个线程可以读取到这个修改后的值**。
+- 当写一个 volatile 变量时，JMM 会把该线程本地内存中的变量强制刷新到主内存中去；
+- 这个写操作会导致其他线程中的 volatile 变量缓存无效。
 
-###  重排序
+## volatile 禁止指令重排规则
 
-为优化程序性能，对原有的指令执行顺序进行优化重新排序。重排序可能发生在多个阶段，比如编译重排序、CPU重排序等。
+我们回顾一下，重排序需要遵守一定规则：
 
-###  happens-before规则
+- 重排序操作不会对存在数据依赖关系的操作进行重排序。比如：a=1;b=a; 这个指令序列，由于第二个操作依赖于第一个操作，所以在编译时和处理器运行时这两个操作不会被重排序。
+- 重排序是为了优化性能，但是不管怎么重排序，单线程下程序的执行结果不能被改变。比如：a=1;b=2;c=a+b 这三个操作，第一步（a=1)和第二步(b=2)由于不存在数据依赖关系， 所以可能会发生重排序，但是 c=a+b 这个操作是不会被重排序的，因为需要保证最终的结果一定是 c=a+b=3。
 
-是一个给程序员使用的规则，只要程序员在写代码的时候遵循happens-before规则，JVM就能保证指令在多线程之间的顺序性符合程序员的预期。
+使用 volatile 关键字修饰共享变量可以禁止这种重排序。若用 volatile 修饰共享变量，在编译时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序，volatile 禁止指令重排序也有一些规则：
 
-##  volatile的内存语义
+- 当程序执行到 volatile 变量的读操作或者写操作时，在其前面的操作的更改肯定全部已经进行，且结果已经对后面的操作可见；在其后面的操作肯定还没有进行；
+- 在进行指令优化时，不能将对 volatile 变量访问的语句放在其后面执行，也不能把 volatile 变量后面的语句放到其前面执行。
 
-在Java中，volatile关键字有特殊的内存语义。volatile主要有以下两个功能：
+“二哥，能不能通俗地讲讲啊？”
 
-- 保证变量的**内存可见性**
-- 禁止volatile变量与普通变量**重排序**（JSR133提出，Java 5 开始才有这个“增强的volatile内存语义”）
+“也就是说，执行到 volatile 变量时，其前面的所有语句都执行完，后面所有语句都未执行。且前面语句的结果对 volatile 变量及其后面语句可见。”我瞅了了三妹一眼说。
 
-###  内存可见性
 
-以一段示例代码开始：
+## volatile 禁止指令重排分析
 
-```java
-public class VolatileExample {
-    int a = 0;
-    volatile boolean flag = false;
-    
-    public void writer() {
-        a = 1; // step 1
-        flag = true; // step 2
-    }
-    
-    public void reader() {
-        if (flag) { // step 3
-            System.out.println(a); // step 4
-        }
-    }
+先看下面未使用 volatile 的代码：
+
+```
+class ReorderExample {
+  int a = 0;
+  boolean flag = false;
+  public void writer() {
+      a = 1;                   //1
+      flag = true;             //2
+  }
+  Public void reader() {
+      if (flag) {                //3
+          int i =  a * a;        //4
+          System.out.println(i);
+      }
+  }
 }
 ```
 
-在这段代码里，我们使用`volatile`关键字修饰了一个`boolean`类型的变量`flag`。
+因为重排序影响，所以最终的输出可能是 0，具体分析请参考[上一篇](https://mp.weixin.qq.com/s/s983WflPH7jF0-_SpGRfBg)，如果引入 volatile，我们再看一下代码：
 
-所谓内存可见性，指的是当一个线程对`volatile`修饰的变量进行**写操作**（比如step 2）时，JMM会立即把该线程对应的本地内存中的共享变量的值刷新到主内存；当一个线程对`volatile`修饰的变量进行**读操作**（比如step 3）时，JMM会把立即该线程对应的本地内存置为无效，从主内存中读取共享变量的值。
-
-> 在这一点上，volatile与锁具有相同的内存效果，volatile变量的写和锁的释放具有相同的内存语义，volatile变量的读和锁的获取具有相同的内存语义。
-
-假设在时间线上，线程A先执行方法`writer`方法，线程B后执行`reader`方法。那必然会有下图：
-
-![volatile内存示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/volatile-1f5e263e-dd3e-4fb9-a21f-67e160b3dbf2.jpg)
-
-而如果`flag`变量**没有**用`volatile`修饰，在step 2，线程A的本地内存里面的变量就不会立即更新到主内存，那随后线程B也同样不会去主内存拿最新的值，仍然使用线程B本地内存缓存的变量的值`a = 0，flag = false`。
-
-###  禁止重排序
-
-在JSR-133之前的旧的Java内存模型中，是允许volatile变量与普通变量重排序的。那上面的案例中，可能就会被重排序成下列时序来执行：
-
-1. 线程A写volatile变量，step 2，设置flag为true；
-2. 线程B读同一个volatile，step 3，读取到flag为true；
-3. 线程B读普通变量，step 4，读取到 a = 0；
-4. 线程A修改普通变量，step 1，设置 a = 1；
-
-可见，如果volatile变量与普通变量发生了重排序，虽然volatile变量能保证内存可见性，也可能导致普通变量读取错误。
-
-所以在旧的内存模型中，volatile的写-读就不能与锁的释放-获取具有相同的内存语义了。为了提供一种比锁更轻量级的**线程间的通信机制**，**JSR-133**专家组决定增强volatile的内存语义：严格限制编译器和处理器对volatile变量与普通变量的重排序。
-
-编译器还好说，JVM是怎么还能限制处理器的重排序的呢？它是通过**内存屏障**来实现的。
-
-什么是内存屏障？硬件层面，内存屏障分两种：读屏障（Load Barrier）和写屏障（Store Barrier）。内存屏障有两个作用：
-
-1. 阻止屏障两侧的指令重排序；
-2. 强制把写缓冲区/高速缓存中的脏数据等写回主内存，或者让缓存中相应的数据失效。
-
-> 注意这里的缓存主要指的是CPU缓存，如L1，L2等
-
-编译器在**生成字节码时**，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。编译器选择了一个**比较保守的JMM内存屏障插入策略**，这样可以保证在任何处理器平台，任何程序中都能得到正确的volatile内存语义。这个策略是：
-
-- 在每个volatile写操作前插入一个StoreStore屏障；
-- 在每个volatile写操作后插入一个StoreLoad屏障；
-- 在每个volatile读操作后插入一个LoadLoad屏障；
-- 在每个volatile读操作后再插入一个LoadStore屏障。
-
-大概示意图是这个样子：
-
-![内存屏障](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/volatile-aaa0fa44-341f-401f-bfb7-03d0c03dc2b1.png)
-
-> 再逐个解释一下这几个屏障。注：下述Load代表读操作，Store代表写操作
->
-> **LoadLoad屏障**：对于这样的语句Load1; LoadLoad; Load2，在Load2及后续读取操作要读取的数据被访问前，保证Load1要读取的数据被读取完毕。  
-> **StoreStore屏障**：对于这样的语句Store1; StoreStore; Store2，在Store2及后续写入操作执行前，这个屏障会把Store1强制刷新到内存，保证Store1的写入操作对其它处理器可见。  
-> **LoadStore屏障**：对于这样的语句Load1; LoadStore; Store2，在Store2及后续写入操作被刷出前，保证Load1要读取的数据被读取完毕。  
-> **StoreLoad屏障**：对于这样的语句Store1; StoreLoad; Load2，在Load2及后续所有读取操作执行前，保证Store1的写入对所有处理器可见。它的开销是四种屏障中最大的（冲刷写缓冲器，清空无效化队列）。在大多数处理器的实现中，这个屏障是个万能屏障，兼具其它三种内存屏障的功能
-
-对于连续多个volatile变量读或者连续多个volatile变量写，编译器做了一定的优化来提高性能，比如：
-
-> 第一个volatile读;  
->
-> LoadLoad屏障；  
->
-> 第二个volatile读；  
->
-> LoadStore屏障
-
-再介绍一下volatile与普通变量的重排序规则:
-
-1. 如果第一个操作是volatile读，那无论第二个操作是什么，都不能重排序；
-
-2. 如果第二个操作是volatile写，那无论第一个操作是什么，都不能重排序；
-
-3. 如果第一个操作是volatile写，第二个操作是volatile读，那不能重排序。
-
-举个例子，我们在案例中step 1，是普通变量的写，step 2是volatile变量的写，那符合第2个规则，这两个steps不能重排序。而step 3是volatile变量读，step 4是普通变量读，符合第1个规则，同样不能重排序。
-
-但如果是下列情况：第一个操作是普通变量读，第二个操作是volatile变量读，那是可以重排序的：
-
-```java
-// 声明变量
-int a = 0; // 声明普通变量
-volatile boolean flag = false; // 声明volatile变量
-
-// 以下两个变量的读操作是可以重排序的
-int i = a; // 普通变量读
-boolean j = flag; // volatile变量读
 ```
-
-
-## volatile的用途
-
-从volatile的内存语义上来看，volatile可以保证内存可见性且禁止重排序。
-
-在保证内存可见性这一点上，volatile有着与锁相同的内存语义，所以可以作为一个“轻量级”的锁来使用。但由于volatile仅仅保证对单个volatile变量的读/写具有原子性，而锁可以保证整个**临界区代码**的执行具有原子性。所以**在功能上，锁比volatile更强大；在性能上，volatile更有优势**。
-
-在禁止重排序这一点上，volatile也是非常有用的。比如我们熟悉的单例模式，其中有一种实现方式是“双重锁检查”，比如这样的代码：
-
-```java
-public class Singleton {
-
-    private static Singleton instance; // 不使用volatile关键字
-    
-    // 双重锁检验
-    public static Singleton getInstance() {
-        if (instance == null) { // 第7行
-            synchronized (Singleton.class) {
-                if (instance == null) {
-                    instance = new Singleton(); // 第10行
-                }
-            }
-        }
-        return instance;
-    }
+class ReorderExample {
+  int a = 0;
+  boolean volatile flag = false;
+  public void writer() {
+      a = 1;                   //1
+      flag = true;             //2
+  }
+  Public void reader() {
+      if (flag) {                //3
+          int i =  a * a;        //4
+          System.out.println(i);
+      }
+  }
 }
 ```
 
-如果这里的变量声明不使用volatile关键字，是可能会发生错误的。它可能会被重排序：
+这个时候，volatile 禁止指令重排序也有一些规则，这个过程建立的 happens before 关系可以分为两类：
 
-```java
-instance = new Singleton(); // 第10行
+1.  根据程序次序规则，1 happens before 2; 3 happens before 4。
+2.  根据 volatile 规则，2 happens before 3。
+3.  根据 happens before 的传递性规则，1 happens before 4。
 
-// 可以分解为以下三个步骤
-1 memory=allocate();// 分配内存 相当于c的malloc
-2 ctorInstanc(memory) //初始化对象
-3 s=memory //设置s指向刚分配的地址
+上述 happens before 关系的图形化表现形式如下：
 
-// 上述三个步骤可能会被重排序为 1-3-2，也就是：
-1 memory=allocate();// 分配内存 相当于c的malloc
-3 s=memory //设置s指向刚分配的地址
-2 ctorInstanc(memory) //初始化对象
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/volatile-f4de7989-672e-43d6-906b-feffe4fb0a9c.jpg)
+
+在上图中，每一个箭头链接的两个节点，代表了一个 happens before 关系:
+
+- 黑色箭头表示程序顺序规则；
+- 橙色箭头表示 volatile 规则；
+- 蓝色箭头表示组合这些规则后提供的 happens before 保证。
+
+这里 A 线程写一个 volatile 变量后，B 线程读同一个 volatile 变量。A 线程在写 volatile 变量之前所有可见的共享变量，在 B 线程读同一个 volatile 变量后，将立即变得对 B 线程可见。
+
+## volatile 不适用场景
+
+### volatile 不适合复合操作
+
+下面是变量自加的示例：
+
+```
+public class volatileTest {
+    public volatile int inc = 0;
+    public void increase() {
+        inc++;
+    }
+    public static void main(String[] args) {
+        final volatileTest test = new volatileTest();
+        for(int i=0;i<10;i++){
+            new Thread(){
+                public void run() {
+                    for(int j=0;j<1000;j++)
+                        test.increase();
+                };
+            }.start();
+        }
+        while(Thread.activeCount()>1)  //保证前面的线程都执行完
+            Thread.yield();
+        System.out.println("inc output:" + test.inc);
+    }
+}
 ```
 
-而一旦假设发生了这样的重排序，比如线程A在第10行执行了步骤1和步骤3，但是步骤2还没有执行完。这个时候另一个线程B执行到了第7行，它会判定instance不为空，然后直接返回了一个未初始化完成的instance！
+测试输出：
 
-所以JSR-133对volatile做了增强后，volatile的禁止重排序功能还是非常有用的。
+```
+inc output:8182
+```
 
----
+“为什么呀？二哥？”三妹疑惑地问。
 
->编辑：沉默王二，内容大部分来源以下三个开源仓库：
->- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
->- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
->- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+“因为 inc++不是一个原子性操作，由读取、加、赋值 3 步组成，所以结果并不能达到 10000。”我耐心地回答。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+“哦，你这样说我就理解了。”三妹点点头。
+
+### 解决方法
+
+采用 synchronized：
+
+```
+public class volatileTest1 {
+    public int inc = 0;
+    public synchronized void increase() {
+        inc++;
+    }
+    public static void main(String[] args) {
+        final volatileTest1 test = new volatileTest1();
+        for(int i=0;i<10;i++){
+            new Thread(){
+                public void run() {
+                    for(int j=0;j<1000;j++)
+                        test.increase();
+                };
+            }.start();
+        }
+        while(Thread.activeCount()>1)  //保证前面的线程都执行完
+            Thread.yield();
+        System.out.println("add synchronized, inc output:" + test.inc);
+    }
+}
+```
+
+采用 Lock：
+
+```
+public class volatileTest2 {
+    public int inc = 0;
+    Lock lock = new ReentrantLock();
+    public void increase() {
+        lock.lock();
+        inc++;
+        lock.unlock();
+    }
+    public static void main(String[] args) {
+        final volatileTest2 test = new volatileTest2();
+        for(int i=0;i<10;i++){
+            new Thread(){
+                public void run() {
+                    for(int j=0;j<1000;j++)
+                        test.increase();
+                };
+            }.start();
+        }
+        while(Thread.activeCount()>1)  //保证前面的线程都执行完
+            Thread.yield();
+        System.out.println("add lock, inc output:" + test.inc);
+    }
+}
+```
+
+采用 AtomicInteger：
+
+```
+public class volatileTest3 {
+    public AtomicInteger inc = new AtomicInteger();
+    public void increase() {
+        inc.getAndIncrement();
+    }
+    public static void main(String[] args) {
+        final volatileTest3 test = new volatileTest3();
+        for(int i=0;i<10;i++){
+            new Thread(){
+                public void run() {
+                    for(int j=0;j<100;j++)
+                        test.increase();
+                };
+            }.start();
+        }
+        while(Thread.activeCount()>1)  //保证前面的线程都执行完
+            Thread.yield();
+        System.out.println("add AtomicInteger, inc output:" + test.inc);
+    }
+}
+```
+
+三者输出都是 1000，如下：
+
+```
+add synchronized, inc output:1000
+add lock, inc output:1000
+add AtomicInteger, inc output:1000
+```
+
+## 单例模式的双重锁要加volatile
+
+先看一下单例代码：
+
+```
+public class penguin {
+    private static volatile penguin m_penguin = null;
+    // 避免通过new初始化对象
+    private void penguin() {}
+    public void beating() {
+        System.out.println("打豆豆");
+    };
+    public static penguin getInstance() {      //1
+        if (null == m_penguin) {               //2
+            synchronized(penguin.class) {      //3
+                if (null == m_penguin) {       //4
+                    m_penguin = new penguin(); //5
+                }
+            }
+        }
+        return m_penguin;                      //6
+    }
+}
+```
+
+在并发情况下，如果没有 volatile 关键字，在第 5 行会出现问题。instance = new TestInstance();可以分解为 3 行伪代码：
+
+```
+a. memory = allocate() //分配内存
+b. ctorInstanc(memory) //初始化对象
+c. instance = memory   //设置instance指向刚分配的地址
+```
+
+上面的代码在编译运行时，可能会出现重排序从 a-b-c 排序为 a-c-b。在多线程的情况下会出现以下问题。
+
+当线程 A 在执行第 5 行代码时，B 线程进来执行到第 2 行代码。假设此时 A 执行的过程中发生了指令重排序，即先执行了 a 和 c，没有执行 b。那么由于 A 线程执行了 c 导致 instance 指向了一段地址，所以 B 线程判断 instance 不为 null，会直接跳到第 6 行并返回一个未初始化的对象。
+
+## 总结
+
+“好了，三妹，我们来总结一下。”我舒了一口气说。
+
+volatile 可以保证线程可见性且提供了一定的有序性，但是无法保证原子性。在 JVM 底层 volatile 是采用“内存屏障”来实现的。
+
+观察加入 volatile 关键字和没有加入 volatile 关键字时所生成的汇编代码发现，加入 volatile 关键字时，会多出一个 lock 前缀指令，lock 前缀指令实际上相当于一个内存屏障（也称内存栅栏），内存屏障会提供 3 个功能：
+
+- 它确保指令重排序时不会把其后面的指令排到内存屏障之前的位置，也不会把前面的指令排到内存屏障的后面；即在执行到内存屏障这句指令时，在它前面的操作已经全部完成；
+- 它会强制将对缓存的修改操作立即写入主存；
+- 如果是写操作，它会导致其他 CPU 中对应的缓存行无效。
+
+最后，我们学习了 volatile 不适用的场景，以及解决的方法，并解释了单例模式为何需要使用 volatile。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

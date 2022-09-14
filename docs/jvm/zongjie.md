@@ -1,9 +1,15 @@
 ---
+title: JVM 核心知识点总结
+shortTitle: JVM 核心知识点总结
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，JVM 核心知识点总结
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机
 ---
 
 # JVM 核心知识点总结
@@ -573,5 +579,11 @@ public static String concat(String... strings) {
 
 >- 原文链接：[https://github.com/heibaiying/Full-Stack-Notes](https://github.com/heibaiying/Full-Stack-Notes)
 >- 整理：沉默王二
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -1,9 +1,15 @@
 ---
+title: 详解Java的类文件（class文件）结构
+shortTitle: 详解class文件结构
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，详解Java的类文件（class文件）结构
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机,class
 ---
 
 # 详解Java的类文件（class文件）结构
@@ -359,5 +365,11 @@ main 方法中调用了 foo 方法。通过 jclasslib 看一下它当中一个�
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/class-file-jiegou-b5853549-b17b-48eb-8eb3-a393fb5d655f.png)
 
 到此为止，class 文件的内部算是剖析得差不多了，希望能对大家有所帮助。第一次拿刀，手有点颤，如果哪里有不足的地方，欢迎大家在评论区毫不留情地指出来！
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -1,22 +1,15 @@
 ---
 title: Java线程的6种状态及切换(透彻讲解)
 shortTitle: Java线程的6种状态
+description: Java线程的6种状态及切换(透彻讲解)
 category:
   - Java核心
-  - 并发编程
 tag:
-  - Java
   - Java并发编程
-  - Java多线程
-  - Java Thread
-description: Java线程的6种状态及切换(透彻讲解)
 head:
   - - meta
-    - name: description
-      content: Java线程的6种状态及切换(透彻讲解)
-  - - meta
     - name: keywords
-      content: Java,Java并发编程,Java多线程,Java Thread
+      content: Java,并发编程,多线程,Thread,线程状态
 ---
 
 ## 操作系统中的线程状态转换
@@ -358,4 +351,10 @@ b线程状态仍然不固定（RUNNABLE或BLOCKED）。
 >- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
 >- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

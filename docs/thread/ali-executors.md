@@ -1,8 +1,15 @@
 ---
+title: 为什么阿里巴巴要禁用Executors创建线程池？
+shortTitle: 为什么禁用Executors创建线程池？
+description: 为什么阿里巴巴要禁用Executors创建线程池？
 category:
   - Java核心
 tag:
-  - Java
+  - Java并发编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,并发编程,多线程,Thread,Executors,线程池
 ---
 
 # 为什么阿里巴巴要禁用Executors创建线程池？
@@ -241,4 +248,10 @@ CPU 数量 * CPU 利用率 * (1 + 线程等待时间/线程 CPU 时间)
 > 转载链接：https://mp.weixin.qq.com/s/dd_IPt7lQQeIMH7YTdgLIw
 > 原文链接：https://juejin.cn/post/6844903989675458574
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

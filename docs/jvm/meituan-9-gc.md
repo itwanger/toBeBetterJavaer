@@ -1,9 +1,15 @@
 ---
+title: Java中9种常见的CMS GC问题分析与解决
+shortTitle: 9种常见的CMS GC问题分析与解决
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java中9种常见的CMS GC问题分析与解决
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机,cms
 ---
  
 # Java中9种常见的CMS GC问题分析与解决
@@ -1709,6 +1715,12 @@ JNI 产生的 GC 问题较难排查，需要谨慎使用。
 
 最后的最后，再多啰嗦一句，目前所有 GC 调优相关的文章，第一句讲的就是“不要过早优化”，使得很多同学对 GC 优化望而却步。在这里笔者提出不一样的观点，熵增定律（在一个孤立系统里，如果没有外力做功，其总混乱度（即熵）会不断增大）在计算机系统同样适用，**如果不主动做功使熵减，系统终究会脱离你的掌控**，在我们对业务系统和 GC 原理掌握得足够深的时候，可以放心大胆地做优化，因为我们基本可以预测到每一个操作的结果，放手一搏吧，少年！
 
-原文链接：https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw
+原文链接：[https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw](https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
