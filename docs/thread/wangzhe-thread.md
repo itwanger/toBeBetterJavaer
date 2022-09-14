@@ -3,20 +3,13 @@ title: 室友打了一把王者就学会了创建Java线程的3种方式
 shortTitle: 创建Java线程的3种方式
 category:
   - Java核心
-  - 并发编程
 tag:
-  - Java
   - Java并发编程
-  - Java多线程
-  - Java Thread
 description: 室友打了一把王者就学会了创建Java线程的3种方式
 head:
   - - meta
-    - name: description
-      content: 室友打了一把王者就学会了创建Java线程的3种方式
-  - - meta
     - name: keywords
-      content: Java,Java并发编程,Java多线程,Java Thread
+      content: Java,并发编程,多线程,Thread
 ---
 
 
@@ -209,4 +202,10 @@ t3.start();
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-04.png)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

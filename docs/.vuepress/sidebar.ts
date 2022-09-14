@@ -249,110 +249,33 @@ export const sidebarConfig = sidebar({
           prefix: "thread/",
           children: [
           "wangzhe-thread",
-          {
-            text: "线程的6种状态及切换",
-            link: "thread-state-and-method",
-          },
-          {
-            text: "线程组和线程优先级",
-            link: "thread-group-and-thread-priority",
-          },
-          {
-            text: "进程与线程的区别",
-            link: "why-need-thread",
-          },
-          {
-            text: "并发编程带来了哪些问题",
-            link: "thread-bring-some-problem",
-          },
-          {
-            text: "Java内存模型",
-            link: "jmm",
-          },
-          {
-            text: "volatile",
-            link: "volatile",
-          },
-          {
-            text: "synchronized",
-            link: "synchronized",
-          },
-          {
-            text: "CAS的原理",
-            link: "cas",
-          },
-          {
-            text: "AQS详解",
-            link: "aqs",
-          },
-          {
-            text: "锁",
-            link: "lock",
-          },
-          {
-            text: "重入锁ReentrantLock",
-            link: "reentrantLock",
-          },
-          {
-            text: "读写锁ReentrantReadWriteLock",
-            link: "ReentrantReadWriteLock",
-          },
-          {
-            text: "线程协作类Condition",
-            link: "condition",
-          },
-          {
-            text: "线程阻塞唤醒类LockSupport",
-            link: "LockSupport",
-          },
-          {
-            text: "并发集合容器",
-            link: "map",
-          },
-          {
-            text: "ConcurrentHashMap",
-            link: "ConcurrentHashMap",
-          },
-          {
-            text: "ConcurrentLinkedQueue",
-            link: "ConcurrentLinkedQueue",
-          },
-          {
-            text: "CopyOnWriteArrayList",
-            link: "CopyOnWriteArrayList",
-          },
-          {
-            text: "ThreadLocal",
-            link: "ThreadLocal",
-          },
-          {
-            text: "BlockingQueue",
-            link: "BlockingQueue",
-          },
-          {
-            text: "线程池",
-            link: "pool",
-          },
-          {
-            text: "计划任务",
-            link: "ScheduledThreadPoolExecutor",
-          },
-          {
-            text: "原子操作类",
-            link: "atomic",
-          },
-          {
-            text: "通信工具类CountDownLatch",
-            link: "CountDownLatch",
-          },
-          {
-            text: "Fork/Join框架",
-            link: "fork-join",
-          },
-          {
-            text: "生产者-消费者模式",
-            link: "shengchanzhe-xiaofeizhe",
-          },
+          "thread-state-and-method",
+          "thread-group-and-thread-priority",
+          "why-need-thread",
+          "thread-bring-some-problem",
+          "jmm",
+          "volatile",
+          "synchronized-1",
+          "synchronized",
+          "cas",
+          "aqs",
+          "lock",
+          "reentrantLock",
+          "ReentrantReadWriteLock",
+          "condition",
+          "LockSupport",
+          "map",
+          "ConcurrentHashMap",
+          "ConcurrentLinkedQueue",
+          "CopyOnWriteArrayList",
+          "ThreadLocal",
+          "BlockingQueue",
+          "pool",
+          "ScheduledThreadPoolExecutor",
+          "atomic",
+          "CountDownLatch",
+          "fork-join",
+          "shengchanzhe-xiaofeizhe",
 
           ],
         },
@@ -361,82 +284,26 @@ export const sidebarConfig = sidebar({
           prefix: "jvm/",
           collapsable: true,
           children: [
-          {
-            text: "JVM到底是什么？",
-            link: "what-is-jvm",
-          },
-          {
-            text: "JVM到底是如何运行Java代码的",
-            link: "how-run-java-code",
-          },
-          {
-            text: "类加载机制",
-            link: "class-load",
-          },
-          {
-            text: "详解Java的类文件结构",
-            link: "class-file-jiegou",
-          },
-          {
-            text: "从javap的角度轻松看懂字节码",
-            link: "bytecode",
-          },
-          {
-            text: "字节码指令详解",
-            link: "zijiema-zhiling",
-          },
-          {
-            text: "虚拟机是如何执行字节码指令的",
-            link: "how-jvm-run-zijiema-zhiling",
-          },
-          {
-            text: "HSDB（Hotspot Debugger）",
-            link: "hsdb",
-          },
-          {
-            text: "史上最通俗易懂的ASM教程",
-            link: "asm",
-          },
-          {
-            text: "自己编译JDK",
-            link: "compile-jdk",
-          },
-          {
-            text: "深入理解JVM的内存结构",
-            link: "neicun-jiegou",
-          },
-          {
-            text: "Java 创建的对象到底放在哪",
-            link: "whereis-the-object",
-          },
-          {
-            text: "从头到尾说一次Java垃圾回收",
-            link: "gc",
-          },
-          {
-            text: "图解Java的垃圾回收机制",
-            link: "tujie-gc",
-          },
-          {
-            text: "Java问题诊断和排查工具",
-            link: "problem-tools",
-          },
-          {
-            text: "JIT原理解析及实践",
-            link: "jit",
-          },
-          {
-            text: "内存溢出排查优化实战",
-            link: "oom",
-          },
-          {
-            text: "CPU 100% 排查优化实践",
-            link: "cpu-percent-100",
-          },
-          {
-            text: "JVM 核心知识点总结",
-            link: "zongjie",
-          },
+          "what-is-jvm",
+          "how-run-java-code",
+          "class-load",
+          "class-file-jiegou",
+          "bytecode",
+          "zijiema-zhiling",
+          "how-jvm-run-zijiema-zhiling",
+          "hsdb",
+          "asm",
+          "compile-jdk",
+          "neicun-jiegou",
+          "whereis-the-object",
+          "gc",
+          "tujie-gc",
+          "meituan-9-gc",
+          "problem-tools",
+          "jit",
+          "oom",
+          "cpu-percent-100",
+          "zongjie",
           
           ],
         },

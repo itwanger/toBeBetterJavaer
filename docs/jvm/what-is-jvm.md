@@ -1,9 +1,15 @@
 ---
+title: JVM到底是什么？
+shortTitle: JVM到底是什么？
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，JVM到底是什么？
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机
 ---
 
 # JVM到底是什么？
@@ -170,5 +176,11 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 “三妹，关于 Java 虚拟机，今天我们就学到这吧，后面再展开讲，怎么样？”转动了一下僵硬的脖子后，我对三妹说，“Java 虚拟机是一块很大很深的内容，如果一上来学太多的话，我怕难倒你。”
 
 “好的，二哥，我也觉得今天的知识量够了，我要好好消化几天。我会加油的！”三妹似乎对未来充满了希望，这正是我想看到的。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

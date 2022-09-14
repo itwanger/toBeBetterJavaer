@@ -1,9 +1,15 @@
 ---
+title: Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）
+shortTitle: Java问题诊断和排查工具
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机
 ---
 
 # Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）
@@ -552,5 +558,11 @@ Java程序问题分析：jmap 分析堆内存、jstack 分析线程栈等，见�
 
 - 参考链接 1：[https://www.cnblogs.com/z-sm/p/6745375.html](https://www.cnblogs.com/z-sm/p/6745375.html)
 - 参考链接：[https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/JVM_性能监控之可视化工具.md](https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/JVM_性能监控之可视化工具.md)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

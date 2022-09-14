@@ -36,6 +36,8 @@
 > - [Java 程序员进阶之路 Gitee 仓库](https://gitee.com/itwanger/toBeBetterJavaer)
 > 
 > 亿点点小请求，建议戳[这个链接🔗](https://github.com/itwanger/toBeBetterJavaer)给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
+> 
+> 👍推荐[免费下载1000本计算机经典书籍](https://github.com/itwanger/JavaBooks)
 
 # 知识库地图
 
@@ -250,7 +252,7 @@
 - [吊打Java并发面试官之CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
 - [吊打Java并发面试官之ThreadLocal](docs/thread/ThreadLocal.md)
 - [吊打Java并发面试官之BlockingQueue](docs/thread/BlockingQueue.md)
-- [面试必备：Java线程池解析](docs/thread/pool.md)
+- [面试必备：Java线程池](docs/thread/pool.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
 - [深入剖析Java计划任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
 - [Java atomic包中的原子操作类总结](docs/thread/atomic.md)
@@ -275,6 +277,7 @@
 - [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
 - [咱们从头到尾说一次Java垃圾回收](docs/jvm/gc.md)
 - [图解Java的垃圾回收机制](docs/jvm/tujie-gc.md)
+- [Java中9种常见的CMS GC问题分析与解决](docs/jvm/meituan-9-gc.md)
 - [Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）](docs/jvm/problem-tools.md)
 - [Java即时编译（JIT）器原理解析及实践](docs/jvm/jit.md)
 - [一次内存溢出排查优化实战](docs/jvm/oom.md)

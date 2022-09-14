@@ -1,9 +1,15 @@
 ---
+title: 从javap的角度轻松看懂字节码
+shortTitle: 从javap的角度轻松看懂字节码
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，从javap的角度轻松看懂字节码
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机,字节码,javap
 ---
 
 # 从javap的角度轻松看懂字节码
@@ -452,5 +458,11 @@ private int age;
 无论是从十六进制的字节码角度，还是 jclasslib 图形化查看反编译后的字节码的角度，也或者是今天这样从 javap 反编译后的角度，都能窥探出一些新的内容来！
 
 初学者一开始接触字节码的时候会感觉比较头大，没关系，我当初也是这样，随着时间的推移，经验的积累，慢慢就好了，越往深处钻，就越能体会到那种“技术我有，雄霸天下”的感觉~
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

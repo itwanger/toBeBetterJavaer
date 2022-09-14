@@ -244,6 +244,7 @@ head:
 
 ### Java并发编程
 
+
 - [室友打了一把王者就学会了创建Java线程的3种方式](thread/wangzhe-thread.md)
 - [Java线程的6种状态及切换(透彻讲解)](thread/thread-state-and-method.md)
 - [线程组是什么？线程优先级如何设置？](thread/thread-group-and-thread-priority.md)
@@ -265,7 +266,7 @@ head:
 - [吊打Java并发面试官之CopyOnWriteArrayList](thread/CopyOnWriteArrayList.md)
 - [吊打Java并发面试官之ThreadLocal](thread/ThreadLocal.md)
 - [吊打Java并发面试官之BlockingQueue](thread/BlockingQueue.md)
-- [面试必备：Java线程池解析](thread/pool.md)
+- [面试必备：Java线程池](thread/pool.md)
 - [深入剖析Java计划任务ScheduledThreadPoolExecutor](thread/ScheduledThreadPoolExecutor.md)
 - [Java atomic包中的原子操作类总结](thread/atomic.md)
 - [Java并发编程通信工具类CountDownLatch等一网打尽](thread/CountDownLatch.md)
@@ -289,6 +290,7 @@ head:
 - [Java 创建的对象到底放在哪？](jvm/whereis-the-object.md)
 - [咱们从头到尾说一次Java垃圾回收](jvm/gc.md)
 - [图解Java的垃圾回收机制](jvm/tujie-gc.md)
+- [Java中9种常见的CMS GC问题分析与解决](jvm/meituan-9-gc.md)
 - [Java问题诊断和排查工具（查看JVM参数、内存使用情况及分析）](jvm/problem-tools.md)
 - [Java即时编译（JIT）器原理解析及实践](jvm/jit.md)
 - [一次内存溢出排查优化实战](jvm/oom.md)

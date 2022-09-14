@@ -1,9 +1,15 @@
 ---
+title: JVM到底是如何运行Java代码的？
+shortTitle: JVM是如何运行Java代码的？
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，JVM到底是如何运行Java代码的？
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机
 ---
 
 # JVM到底是如何运行Java代码的？

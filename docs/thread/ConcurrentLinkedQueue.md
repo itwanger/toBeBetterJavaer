@@ -1,10 +1,15 @@
 ---
 title: 吊打Java并发面试官之ConcurrentLinkedQueue
+shortTitle: ConcurrentLinkedQueue
+description: 吊打Java并发面试官之ConcurrentLinkedQueue
 category:
   - Java核心
-  - 并发编程
 tag:
-  - Java
+  - Java并发编程
+head:
+  - - meta
+    - name: keywords
+      content: Java,并发编程,多线程,Thread,ConcurrentLinkedQueue
 ---
 
 
@@ -350,4 +355,10 @@ queue当前是否为空队列：false
 >- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
 >- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

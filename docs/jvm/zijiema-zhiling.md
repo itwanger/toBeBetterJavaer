@@ -1,9 +1,15 @@
 ---
+title: JVM字节码指令详解
+shortTitle: JVM字节码指令详解
 category:
   - Java核心
-  - JVM
 tag:
-  - Java
+  - Java虚拟机
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，JVM字节码指令详解
+head:
+  - - meta
+    - name: keywords
+      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机,字节码
 ---
 
 # JVM字节码指令详解
@@ -592,5 +598,11 @@ goto 指令接收两个字节的操作数，共同组成一个带符号的整数
 >路漫漫其修远兮，吾将上下而求索
 
 想要走得更远，Java 字节码这块就必须得硬碰硬地吃透，希望二哥的这些分享可以帮助到大家~
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
