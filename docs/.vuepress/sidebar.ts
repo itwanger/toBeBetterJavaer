@@ -260,6 +260,8 @@ export const sidebarConfig = sidebar({
           "cas",
           "aqs",
           "lock",
+          "suo",
+          "pianxiangsuo",
           "reentrantLock",
           "ReentrantReadWriteLock",
           "condition",
@@ -276,7 +278,6 @@ export const sidebarConfig = sidebar({
           "CountDownLatch",
           "fork-join",
           "shengchanzhe-xiaofeizhe",
-
           ],
         },
         {
@@ -625,6 +626,7 @@ export const sidebarConfig = sidebar({
       collapsable: true,
       prefix: "pdf/",
       children: [
+        "java.md",
         "programmer-111.md",
         "java-concurrent.md",
         "github-java-jiaocheng-115-star.md",

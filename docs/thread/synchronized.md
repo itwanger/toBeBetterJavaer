@@ -1,7 +1,7 @@
 ---
-title: Java中的synchronized关键字锁的到底是什么？
-shortTitle: synchronized关键字锁的到底是什么？
-description: Java中的synchronized关键字锁的到底是什么？
+title: Java中的synchronized锁的到底是什么？
+shortTitle: synchronized锁的到底是什么？
+description: Java中的synchronized锁的到底是什么？
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,synchronized
 ---
 
-# Java中的synchronized关键字锁的到底是什么？
+# Java中的synchronized锁的到底是什么？
 
 这篇文章我们来聊一聊Java多线程里面的“锁”。
 
