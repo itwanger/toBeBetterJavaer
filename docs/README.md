@@ -17,26 +17,10 @@ actions:
 
 ## 推荐阅读 
 
-- [编程学习路线👉](/xuexiluxian/) : 一份涵盖 Java、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据的全方位编程学习路线！清晰且有效！
-- [Java程序员常读书单📚，附下载地址](https://gitee.com/itwanger/JavaBooks) : 助力Java 程序员构建最强知识体系，涵盖Java、设计模式、数据库、数据结构与算法、大数据、架构等等，再也不用辛苦去找下载地址了。
+- [学习路线👉](/xuexiluxian/) : 一份涵盖 Java、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android的全方位编程学习路线！清晰且有效！
+- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ等等，助你拿到心仪 offer！
+- [Java程序员常读书单📚](/pdf/)：超1000本PDF，助力Java 程序员构建最强知识体系，涵盖Java、设计模式、数据库、数据结构与算法、大数据、架构、其他编程语言等等，再也不用辛苦去找下载地址了，这里全都有。
 - [编程喵喵🐱实战项目学习教程](https://github.com/itwanger/codingmore-learning) ：codingmore（Spring Boot+Vue 的前后端分离项目，一款值得一试的开源知识库学习网站）的学习教程，需要项目经验的 Java 开发者必备！
-- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络等等，助你拿到心仪 offer！
-
-
-## PDF
-
-- [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](pdf/programmer-111.md)
-- [👏下载→深入浅出Java多线程PDF](pdf/java-concurrent.md)
-- [👏下载→GitHub星标115k+的Java教程](pdf/github-java-jiaocheng-115-star.md)
-- [👏下载→重学Java设计模式PDF](pdf/shejimoshi.md)
-- [👏下载→Java版LeetCode刷题笔记](pdf/java-leetcode.md)
-- [👏下载→阿里巴巴Java开发手册](pdf/ali-java-shouce.md)
-- [👏下载→阮一峰C语言入门教程](pdf/yuanyifeng-c-language.md)
-- [👏下载→BAT大佬的刷题笔记](pdf/bat-shuati.md)
-- [👏下载→给操作系统捋条线PDF](pdf/os.md)
-- [👏下载→豆瓣9.1分的Pro Git中文版](pdf/progit.md)
-- [👏下载→简历模板](pdf/jianli.md)
-
 
 ## 公众号
 

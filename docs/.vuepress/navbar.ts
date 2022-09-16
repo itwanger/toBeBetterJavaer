@@ -26,24 +26,14 @@ export default navbar([
     icon: "youzhi",
     children: [
       {
-        text: "电子书下载", 
+        text: "PDF下载", 
         icon: "java", 
-        link: "/download/java.md" 
+        link: "/pdf/readme.md" 
       },
       { 
         text: "面渣逆袭", 
         icon: "zhunbei", 
         link: "/sidebar/sanfene/nixi.md" 
-      },
-      { 
-        text: "优质文章", 
-        icon: "youzhi", 
-        link: "/nice-article/readme.md"
-      },
-      { 
-        text: "网络日志", 
-        icon: "rizhi", 
-        link: "/download/history.md" 
       },
       { 
         text: "破解合集",

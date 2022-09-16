@@ -252,10 +252,12 @@ head:
 - [并发编程带来了哪些问题？](thread/thread-bring-some-problem.md)
 - [全面理解Java的内存模型（JMM）](thread/jmm.md)
 - [Java并发编程volatile关键字解析](thread/volatile.md)
-- [Java中的synchronized关键字锁的到底是什么？](thread/synchronized.md)
+- [Java中的synchronized锁的到底是什么？](thread/synchronized.md)
 - [Java实现CAS的原理](thread/cas.md)
 - [Java并发AQS详解](thread/aqs.md)
 - [大致了解下Java的锁接口和锁](thread/lock.md)
+- [公司空降一个美团大佬，彻底把Java中的锁”讲清楚了](thread/suo.md)
+- [Java 15 终于把难搞的偏向锁移除了](thread/pianxiangsuo.md)
 - [深入理解Java并发重入锁ReentrantLock](thread/reentrantLock.md)
 - [深入理解Java并发读写锁ReentrantReadWriteLock](thread/ReentrantReadWriteLock.md)
 - [深入理解Java并发线程协作类Condition](thread/condition.md)
@@ -459,6 +461,21 @@ head:
 - [杭州都有哪些值得加入的IT互联网公司？](cityselect/hangzhou.md)
 - [成都都有哪些值得加入的IT互联网公司？](cityselect/chengdu.md)
 - [济南都有哪些值得加入的IT互联网公司？](cityselect/jinan.md)
+
+### 学习资源
+
+- [👏下载→超1000本计算机经典书籍分享](pdf/java.md)
+- [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](pdf/programmer-111.md)
+- [👏下载→深入浅出Java多线程PDF](pdf/java-concurrent.md)
+- [👏下载→GitHub星标115k+的Java教程](pdf/github-java-jiaocheng-115-star.md)
+- [👏下载→重学Java设计模式PDF](pdf/shejimoshi.md)
+- [👏下载→Java版LeetCode刷题笔记](pdf/java-leetcode.md)
+- [👏下载→阿里巴巴Java开发手册](pdf/ali-java-shouce.md)
+- [👏下载→阮一峰C语言入门教程](pdf/yuanyifeng-c-language.md)
+- [👏下载→BAT大佬的刷题笔记](pdf/bat-shuati.md)
+- [👏下载→给操作系统捋条线PDF](pdf/os.md)
+- [👏下载→豆瓣9.1分的Pro Git中文版](pdf/progit.md)
+- [👏下载→简历模板](pdf/jianli.md)
 
 
 ### 学习建议

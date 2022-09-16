@@ -238,10 +238,12 @@
 - [并发编程带来了哪些问题？](docs/thread/thread-bring-some-problem.md)
 - [全面理解Java的内存模型（JMM）](docs/thread/jmm.md)
 - [Java并发编程volatile关键字解析](docs/thread/volatile.md)
-- [Java中的synchronized关键字锁的到底是什么？](docs/thread/synchronized.md)
+- [Java中的synchronized锁的到底是什么？](docs/thread/synchronized.md)
 - [Java实现CAS的原理](docs/thread/cas.md)
 - [Java并发AQS详解](docs/thread/aqs.md)
 - [大致了解下Java的锁接口和锁](docs/thread/lock.md)
+- [公司空降一个美团大佬，彻底把Java中的锁”讲清楚了](docs/thread/suo.md)
+- [Java 15 终于把难搞的偏向锁移除了](docs/thread/pianxiangsuo.md)
 - [深入理解Java并发重入锁ReentrantLock](docs/thread/reentrantLock.md)
 - [深入理解Java并发读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
 - [深入理解Java并发线程协作类Condition](docs/thread/condition.md)
@@ -460,6 +462,7 @@
 
 ## PDF下载
 
+- [👏下载→超1000本计算机经典书籍分享](docs/pdf/java.md)
 - [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](docs/pdf/programmer-111.md)
 - [👏下载→深入浅出Java多线程PDF](docs/pdf/java-concurrent.md)
 - [👏下载→GitHub星标115k+的Java教程](docs/pdf/github-java-jiaocheng-115-star.md)
