@@ -1,6 +1,6 @@
 ---
 title: 深入理解JVM的内存结构
-shortTitle:深入理解JVM的内存结构
+shortTitle: 深入理解JVM的内存结构
 category:
   - Java核心
 tag:
