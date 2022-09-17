@@ -2,9 +2,9 @@
 title: 👏下载→深入浅出Java多线程PDF
 shortTitle: 👏下载→深入浅出Java多线程PDF
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 head:
   - - meta
     - name: description

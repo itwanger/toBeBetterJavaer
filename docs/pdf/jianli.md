@@ -2,9 +2,9 @@
 title: 👏下载→程序员简历模板
 shortTitle: 👏下载→程序员简历模板
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: 程序员简历模板下载
 head:
   - - meta

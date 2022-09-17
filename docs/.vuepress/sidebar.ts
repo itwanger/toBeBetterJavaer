@@ -2,7 +2,7 @@ import { sidebar } from "vuepress-theme-hope";
 export const sidebarConfig = sidebar({
   "/zhishixingqiu/": ["readme.md","map","may","june","july"],
   "/nice-article/itmind/": [
-    "readme.md",
+    "readme",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
     "yigkymxczideatsyqdffblwxjcywdxbxt",
     "ideapjazjczxjhmzcmyjjhcxgxz",
@@ -13,6 +13,21 @@ export const sidebarConfig = sidebar({
     "typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom",
     "xshellazpjbjcxshellpxffxbxt",
     "pycharmjhpxmazjcnyrgxxbxt",
+    "yang1",
+  ],
+  "/pdf/": [
+    "java",
+    "programmer-111",
+    "java-concurrent",
+    "github-java-jiaocheng-115-star",
+    "shejimoshi",
+    "java-leetcode",
+    "ali-java-shouce",
+    "yuanyifeng-c-language",
+    "bat-shuati",
+    "os",
+    "progit",
+    "jianli",
   ],
   "/xuexiluxian/": [
     {
@@ -25,8 +40,8 @@ export const sidebarConfig = sidebar({
         "jvm",
       ],
     },
-    "c.md",
-    "ccc.md",
+    "c",
+    "ccc",
     "python",
     "go",
     "os",
@@ -37,23 +52,24 @@ export const sidebarConfig = sidebar({
     "android",
   ],
   "/sidebar/sanfene/": [
-    "javase.md",
-    "collection.md",
-    "javathread.md",
-    "jvm.md",
-    "spring.md",
-    "redis.md",
-    "mybatis.md",
-    "mysql.md",
-    "os.md",
-    "network.md",
-    "rocketmq.md",
+    "nixi",
+    "javase",
+    "collection",
+    "javathread",
+    "jvm",
+    "spring",
+    "redis",
+    "mybatis",
+    "mysql",
+    "os",
+    "network",
+    "rocketmq",
   ],
   // 必须放在最后面
   "/": [
     {
       text: "一、前言",
-      link: "home.md",
+      link: "home",
     },
     {
       text: "二、Java核心",
@@ -318,17 +334,17 @@ export const sidebarConfig = sidebar({
           text: "3.1 开发工具",
           collapsable: true,
           children: [
-          "maven/maven.md",
-          "git/git-qiyuan.md",
-          "nginx/nginx.md",
+          "maven/maven",
+          "git/git-qiyuan",
+          "nginx/nginx",
           ],
         },
         {
           text: "3.2 IDE/编辑器",
           collapsable: true,
           children: [
-          "ide/4-debug-skill.md",
-          "ide/xechat.md",
+          "ide/4-debug-skill",
+          "ide/xechat",
           ],
         },
         {
@@ -622,26 +638,7 @@ export const sidebarConfig = sidebar({
       ],
     },
     {
-      text: "七、学习资源",
-      collapsable: true,
-      prefix: "pdf/",
-      children: [
-        "java.md",
-        "programmer-111.md",
-        "java-concurrent.md",
-        "github-java-jiaocheng-115-star.md",
-        "shejimoshi.md",
-        "java-leetcode.md",
-        "ali-java-shouce.md",
-        "yuanyifeng-c-language.md",
-        "bat-shuati.md",
-        "os.md",
-        "progit.md",
-        "jianli.md",
-      ],
-    },
-    {
-      text: "八、学习建议",
+      text: "七、学习建议",
       collapsable: true,
       prefix: "xuexijianyi/",
       children: [
@@ -661,7 +658,7 @@ export const sidebarConfig = sidebar({
         ],
     },
     {
-      text: "九、知识库搭建",
+      text: "八、知识库搭建",
       collapsable: true,
       prefix: "szjy/",
       children: [
@@ -673,14 +670,14 @@ export const sidebarConfig = sidebar({
         ],
     },
     {
-      text: "十、联系作者",
+      text: "九、联系作者",
       collapsable: true,
       prefix: "about-the-author/",
       children: [
         "bzhan-10wan",
         "zhihu-1000wan",
         "csdn-1000wan",
-        "readme.md",
+        "readme",
         
       ],
     },

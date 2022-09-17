@@ -2,9 +2,9 @@
 title: 👏下载→Java版LeetCode刷题笔记
 shortTitle: 👏下载→Java版LeetCode刷题笔记
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: 下载BAT大佬的刷题笔记，下载 LeetCode 刷题笔记
 head:
   - - meta

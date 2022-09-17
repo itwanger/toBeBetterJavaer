@@ -2,9 +2,9 @@
 title: 👏下载→重学 Java 设计模式 PDF
 shortTitle: 👏下载→重学Java设计模式
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: 重学 Java 设计模式 PDF 下载
 head:
   - - meta

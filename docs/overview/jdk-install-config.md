@@ -12,6 +12,8 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,JDK 安装,jdk
 ---
 
+# 安装Java开发工具包JDK
+
 因为Java程序必须运行在JVM之上，所以我们 Java 程序员在学习 Java 之前，要做的第一件事情就是安装JDK。
 
 什么？ 

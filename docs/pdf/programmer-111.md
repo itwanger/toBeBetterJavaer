@@ -1,10 +1,10 @@
 ---
 title: 👏下载→2022年全网最全关于程序员学习和找工作的PDF资源
-shortTitle: 👏下载→程序员学习和找工作的PDF资源
+shortTitle: 👏下载→程序员学习找工作的PDF资源
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: 收集来的资料中包括但不限于普通的Java基础部分（JVM、Java集合框架、多线程），还囊括了数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关等等等等……
 head:
   - - meta

@@ -29,13 +29,13 @@ head:
 而且手册的内容不是杂乱无章的，每一部分都是循序渐进，由浅入深，看看目录就知道了：
 
 
-![Java 篇（Java 基础、并发编程、JVM）](https://files.mdnice.com/user/3903/e07c568d-5d3f-4401-bc00-ce712275acd2.png)
+![Java 篇（Java 基础、并发编程、JVM）](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-75f87853-ca11-4e6e-ab3f-ba8335a24783.png)
 
 
-![Spring+MySQL+Redis](https://files.mdnice.com/user/3903/5cb6dab6-34da-439b-a960-ae767fc2e656.png)
+![Spring+MySQL+Redis](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-fda2401a-1162-438d-8fe8-19876224d2b1.png)
 
 
-![操作系统+计算机网络+RocketMQ](https://files.mdnice.com/user/3903/d68c0c5f-302c-4802-940b-5aff98590125.png)
+![操作系统+计算机网络+RocketMQ](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-3b3d55c6-7b18-4b0a-83b4-5a8535461ddb.png)
 
 
 成体系的知识才是最有价值的，这本手册你不仅可以把它当做一本面试题解，还可以当作学习指南，带着这本手册里的问题，相信你学习起来也是事半功倍。
