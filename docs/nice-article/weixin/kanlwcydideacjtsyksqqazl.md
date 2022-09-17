@@ -5,7 +5,6 @@ description: 装上这些IDEA插件，基本上就是一站式开发了！
 author: 梦想de星空
 category:
   - 微信公众号
-head:
 ---
 
 > IDEA是程序员用的最多的开发工具，很多程序员想把它打造成一站式开发工具，于是安装了各种各样的插件。通过插件在IDEA中完成各种操作，无需安装其他软件，确实很方便！今天给大家分享下我平时常用的IDEA插件，个个是精品！
@@ -35,7 +34,19 @@ head:
 
  * Created by macro on 2018/10/29.
 
- */@Getter@Setterpublic class OmsMoneyInfoParam {    @ApiModelProperty("订单ID")    private Long orderId;    @ApiModelProperty("运费金额")    private BigDecimal freightAmount;    @ApiModelProperty("管理员后台调整订单所使用的折扣金额")    private BigDecimal discountAmount;    @ApiModelProperty("订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单")    private Integer status;}
+ */
+@Getter
+@Setter
+public class OmsMoneyInfoParam {
+    @ApiModelProperty("订单ID")
+    private Long orderId;
+    @ApiModelProperty("运费金额")
+    private BigDecimal freightAmount;
+    @ApiModelProperty("管理员后台调整订单所使用的折扣金额")
+    private BigDecimal discountAmount;
+    @ApiModelProperty("订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单")
+    private Integer status;
+}
 ```
 
 Lombok就会为我们自动生成所有属性的Getter和Setter方法，无需我们再手写，具体使用可以参考[Lombok的使用](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247488419&idx=1&sn=8fcd89fe0727a5b3fc4179db3aaf9891&scene=21#wechat_redirect) 。

@@ -5,7 +5,6 @@ description: 详解付款支付流程以及撤销支付一些坑
 author: 楼下小黑哥
 category:
   - 微信公众号
-head:
 ---
 
 ## 前言

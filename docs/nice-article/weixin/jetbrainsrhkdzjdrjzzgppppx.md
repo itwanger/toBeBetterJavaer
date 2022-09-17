@@ -4,7 +4,6 @@ shortTitle: JetBrains 如何看待自己的软件在中国被频繁破解?
 description: JetBrains 永远滴神！
 category:
   - 微信公众号
-head:
 ---
 
 > **近期文章精选** ：

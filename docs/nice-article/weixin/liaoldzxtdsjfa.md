@@ -5,7 +5,6 @@ description: 本文主要结合实际的项目经验，聊聊对账系统的设�
 author: 楼下小黑哥
 category:
   - 微信公众号
-head:
 ---
 
 ## 前言

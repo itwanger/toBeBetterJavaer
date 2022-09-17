@@ -5,7 +5,6 @@ description: 谈谈 @Transactional 的原理和坑。
 author: 楼仔
 category:
   - 微信公众号
-head:
 ---
 
 Java 后端面试的时候，面试官经常会问到 @Transactional 的原理，以及容易踩的坑，之前一面百度，就遇到过，今天就带大家把这几块知识吃透。
