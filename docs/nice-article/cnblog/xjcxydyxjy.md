@@ -1,7 +1,7 @@
 ---
 title: 1024  写给程序员的一些建议
 shortTitle: 1024  写给程序员的一些建议
-author: —阿辉
+author: 阿辉
 category:
   - 博客园
 ---

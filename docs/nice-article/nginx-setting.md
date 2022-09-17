@@ -1,3 +1,5 @@
+# nginx 配置
+
 user  www www;
 worker_processes auto;
 error_log  /www/wwwlogs/nginx_error.log  crit;
