@@ -1,8 +1,8 @@
 ---
-title: Java程序员常读书单📚，附下载地址
-shortTitle: Java电子书下载
+title: 👏下载→Java程序员常读书单📚
+shortTitle: 👏下载→Java电子书
 category:
-  - 学习资源
+  - PDF
 tag:
   - PDF
 ---

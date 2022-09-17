@@ -12,6 +12,8 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 优势,特点
 ---
 
+# Java的特点，Java能做什么
+
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-01.png)

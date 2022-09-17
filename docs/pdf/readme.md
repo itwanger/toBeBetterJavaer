@@ -2,7 +2,7 @@
 title: 📚PDF干货笔记，附下载地址
 shortTitle: PDF干货笔记
 category:
-  - 学习资源
+  - PDF
 tag:
   - PDF
 ---

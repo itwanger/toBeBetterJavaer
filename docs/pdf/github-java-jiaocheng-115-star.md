@@ -2,9 +2,9 @@
 title: 👏下载→GitHub星标115k+的Java教程
 shortTitle: 👏下载→GitHub星标115k+的Java教程
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: GitHub 上星标 115k+ 的 Java 教程
 head:
   - - meta

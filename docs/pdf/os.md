@@ -2,9 +2,9 @@
 title: 👏下载→给操作系统捋条线
 shortTitle: 👏下载→给操作系统捋条线
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: 给操作系统学习资料下载
 head:
   - - meta

@@ -12,6 +12,8 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Hello World
 ---
 
+# 编写第一个Java程序：Hello World
+
 第一个 Java 程序非常简单，代码如下：
 
 ```java

@@ -2,9 +2,9 @@
 title: 👏下载→豆瓣9.1分，Pro Git中文版
 shortTitle: 👏下载→Pro Git中文版
 category:
-  - 学习资源
+  - PDF
 tag:
-  - 学习资源
+  - PDF
 description: 豆瓣9.1分，Pro Git中文版下载
 head:
   - - meta

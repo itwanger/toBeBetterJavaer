@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://tobebetterjavaer.com/sitemap.xml
