@@ -5,7 +5,6 @@ description: 不管你信不信，我反正信了
 author: 轩辕之风O
 category:
   - 微信公众号
-head:
 ---
 
 大家好，我是轩辕。

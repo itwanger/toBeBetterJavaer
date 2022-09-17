@@ -5,7 +5,6 @@ description: 前言都说程序员的三大浪漫是：操作系统、编译原�
 author: crossoverJie
 category:
   - 微信公众号
-head:
 ---
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongysxlymzyzjdbcyy-fbfe254a-2e14-4214-aad6-56a53b143cf7.jpg)

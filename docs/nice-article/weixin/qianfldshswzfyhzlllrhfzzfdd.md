@@ -5,7 +5,6 @@ description: 不说了，给客服下跪道歉去了……
 author: 老三
 category:
   - 微信公众号
-head:
 ---
 
 ## 好好的支付，怎么就掉单了？
