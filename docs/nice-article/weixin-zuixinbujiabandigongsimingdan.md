@@ -1,7 +1,6 @@
 ---
 title: 最新 955 不加班的公司名单
 shortTitle: 最新 955 不加班的公司名单
-author: null
 category:
   - 优质文章
 ---
