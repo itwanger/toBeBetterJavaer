@@ -40,7 +40,7 @@ head:
 
 ## 羊了个羊
 
-- [三步教你羊了个羊攻略修改教程，快速通关-2.0修复版](xshellazpjbjcxshellpxffxbxt.md)
+- [三步教你羊了个羊攻略修改教程，快速通关-2.0修复版](yang1.md)
 
 
 
