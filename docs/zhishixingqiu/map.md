@@ -5,21 +5,11 @@ category:
   - 知识星球
 tag:
   - 知识星球
-  - 沉默王二
-  - Java 程序员进阶之路
-  - 编程
-  - 程序员
-  - Java
-  - IT
-  - 计算机专业
 description: 沉默王二-知识星球图谱（包含学习路线 & 球友提问 & 精华主题 & 坦白从宽，持续更新...）
 head:
   - - meta
-    - name: description
-      content: 沉默王二-知识星球图谱（包含学习路线 & 球友提问 & 精华主题 & 坦白从宽，持续更新...）
-  - - meta
     - name: keywords
-      content: 知识星球,沉默王二,Java 程序员进阶之路,编程,Java,IT,计算机专业
+      content: 知识星球,沉默王二,Java程序员进阶之路,编程,Java,IT,计算机专业
 ---
 
 
