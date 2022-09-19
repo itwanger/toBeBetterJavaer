@@ -1,6 +1,13 @@
 import { sidebar } from "vuepress-theme-hope";
 export const sidebarConfig = sidebar({
-  "/zhishixingqiu/": ["readme.md","map","may","june","july"],
+  "/zhishixingqiu/": [
+    "readme.md",
+    "map",
+    "may",
+    "june",
+    "july",
+    "august"
+  ],
   "/nice-article/itmind/": [
     "readme",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
