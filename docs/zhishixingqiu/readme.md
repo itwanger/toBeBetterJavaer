@@ -16,22 +16,18 @@ head:
 ---
 
 
-大家好，我是二哥呀。今天爬上来给公众号的读者朋友们汇报一下二哥编程星球的发展情况：**运营 162 天，成员 600+，产生了 1752 个主题。**
+大家好，我是二哥呀。今天爬上来给读者朋友们汇报一下二哥的编程星球的发展情况：**运营 204 天，成员 800+，产生了 2926 个主题。**
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-34d26aba-0d87-4c5a-a1ed-7919777258e2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-eb1c4b20-e07d-4f59-9077-a73f61185fe1.jpg)
 
-讲良心话，这个发展速度远远超出了二哥的预期，因为我原计划只申请了 600 张 30 元的优惠券，并且截止时间是到 10 月份，然而这 600 张优惠券已经用完了，很快啊！
+讲良心话，这个发展速度远远超出了二哥的预期，因为我原计划只申请了 500 张 30 元的优惠券，并且截止时间是到 10 月份，然而这 500 张优惠券已经用完了，很快啊！
 
 所以想要加入的小伙伴这次一定要抓紧了（文末又补充了一批优惠券，不要再犹豫了，满 1000 成员星球就要涨价到 109 元了）。
 
-知识星球上显示已经运营了 162 天，其实满打满算，二哥的编程星球正式上线的时间只有短短 3 个月，也就是 5、6、7 三个月，所以二哥在这里还是要感谢一下各位球友的大力支持和信任。
+那在正式上线星球前，二哥已经默默筹备了 3 个多月时间，紧锣密鼓地撰写了星球专属的三个专栏：《**Java面试指南**》、《**编程喵实战项目笔记**》（SpringBoot+Vue 的前后端分离项目，附源码）、《**LeetCode刷题笔记**》（市面上为数不多的Java版本）。给大家看一下一屏截图能装得下的目录结构。
 
-那在正式上线前，二哥已经默默筹备了 2 个多月时间，紧锣密鼓地撰写了星球专属的三个专栏：《**Java 面试指南**》、《**编程喵实战项目笔记**》（SpringBoot+Vue 的前后端分离项目，附源码）、《**Java 版 LeetCode 刷题笔记**》。
-
-在正式运营的这三个月时间里，我又补充了不少章节，目前三个专栏也越来越完整和饱满了。给大家看一下一屏截图能装得下的目录结构。
-
-这是《Java 面试指南》专栏的：
+这是《Java面试指南》专栏的：
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-ca082a6e-3bff-4d39-9aa4-164cea6271a3.png)
@@ -43,7 +39,7 @@ head:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f2a2afb3-62e9-41b1-b63c-0a65bff0bf4f.png)
 
 
-这是《Java 版 LeetCode 刷题笔记》专栏的：
+这是《LeetCode 刷题笔记》专栏的：
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f3215d0b-e73b-4053-b9a7-e12ef5d995e7.png)
@@ -51,36 +47,22 @@ head:
 
 三份专栏可以说是干货满满、价值连城、物超所值，如果大家能够认真读完每个章节的话，一定会大有所获、大有裨益、大彻大悟。
 
-看到这就迫不及待想要加入的小伙伴，可以直接扫下面这个二维码。星球定价 99 元，我临时又申请了一些 30 元优惠券，**等于说只需要 69 元的价格就可以加入，每天不到 0.19 元，划算**！
 
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-950ecda0-552d-4d52-8c58-ef49abeb2607.png)
-
-
-随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，所以星球满 1000 人后会涨价到 109 元。
-
-所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理。
-
-## 二哥的编程星球
+## 为什么要创建二哥的编程星球？
 
 2014 年，我开始坚持写作，通过一点一滴的分享，在技术圈的影响力就渐渐地扩散了开来，于是很多小伙伴开始通过微信/知乎/CSDN/B站 私信咨询二哥各个方面的问题。
 
-每一个问题，不论是大的还是小的，二哥都会尽自己所能，给读者最好的回答。
+每一个问题，不论是大的还是小的，二哥都会尽自己所能，给读者最好的回答。但私信有个问题就是不能沉淀，很多非常有价值的内容都因为时间的流逝消失在了时间的尘埃里。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-bac6b998-82f7-4c9c-ad11-abe11f84839c.jpg)
+于是思来想去，在好朋友 JavaGuide 的建议下，二哥就在知识星球上创建了《**Java程序员进阶之路**》这个编程学习圈子，这样不仅能把所有的问题都沉淀下来，也方便一起学习的小伙伴互相交流和切磋技艺。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fbda8570-23f2-44f9-bcca-4152b7ba1474.jpg)
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-3162acb3-4d1a-433f-8ed1-e5dce67c3ec1.jpg)
-
-
-这样的问题如果就这么列下去，能列三天三夜，😃，因为实在是太多太多了，于是二哥就在知识星球上创建了《**Java程序员进阶之路**》这个编程学习圈子，这样不仅能把所有的问题都沉淀下来，也方便一起学习的小伙伴互相交流和切磋技艺。
-
-**二哥的编程星球**是一个 Java 学习指南+编程实战+LeetCode刷题的学习宝地，可以**帮助你提高编程能力、养成良好的学习习惯、找到志同道合的学习伙伴、拿到更好的 Offer**。
+用一句话来概括下吧。**二哥的编程星球**是一个 Java 学习指南+编程实战+LeetCode刷题的学习宝地，可以**帮助你提高编程能力、养成良好的学习习惯、找到志同道合的学习伙伴、拿到更好的 Offer**。
 
 对于大多数普通人来说，惰性是与生俱来的，那么当你处在这样一个积极的学习氛围当中，就很容易受到感染，那些懒惰和拖延就会一扫而光。
 
-反正我自己就是这么一个体会，每天看到球友们在群里打卡总结自己的学习成果，总感觉不好好学习就对不起自己，不好好输出就对不起球友——学习、求知、进步的道路上再也不会缺少动力，感觉枯燥。
+反正我自己就是这么一个体会，每天看到球友们在群里打卡总结自己的学习成果，总感觉不好好学习就对不起自己，不好好输出就对不起球友。总之，有一群热爱的小伙伴在一起，学习、求知、进步的道路上再也不会缺少动力，感觉枯燥。
+
+简单来介绍一下知识星球吧，可能有些第一次接触星球的小伙伴不太了解。
 
 知识星球网页端长这个样子：
 
@@ -109,7 +91,7 @@ head:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f0536a2c-9a01-42a3-ba8f-8823cfcf8d99.png)
 
 
-2）家有一老如有一宝，二哥已经在这个行业摸爬滚打 14 年了，积攒了大量的行业经验和人脉圈子，一定可以帮到你。
+2）家有一老如有一宝，二哥已经在这个行业摸爬滚打 10 多年了，积攒了大量的行业经验和人脉圈子，一定可以帮到你。
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c034e502-e50f-40d4-a866-24f40fe00554.png)
@@ -121,7 +103,7 @@ head:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-35ea3abd-a142-4f06-b43f-db1e684f2915.png)
 
 
-4）提供GitHub星标3.2k+的开源知识库《Java 程序员进阶之路》上所有内容的疑难点解答。
+4）提供GitHub星标3.4k+的开源知识库《Java 程序员进阶之路》上所有内容的疑难点解答。
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-8c9b52a1-e2b0-4c4b-83e8-e652dbf4e231.png)
@@ -144,10 +126,11 @@ head:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-69be7b85-c528-4f76-8b52-6846e9733d17.png)
 
-看到这就下定决心加入的小伙伴，可以直接扫下面这个二维码。星球定价 99 元，我临时又申请了一些 30 元优惠券，**等于说只需要 69 元的价格就可以加入，每天不到 0.19 元，真的超级划算**！
+看到这下定决心要加入的小伙伴，可以扫下面这个二维码。星球定价 99 元，限时发放 30 元优惠券，**等于说只需要 69 元的低价就可以加入，每天不到 0.19 元，真的超级划算**！
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-950ecda0-552d-4d52-8c58-ef49abeb2607.png)
+
 
 随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，所以星球满 1000 人后会涨价到 109 元，这应该是最后一波最低价了，不要再错过了。
 
@@ -160,8 +143,6 @@ head:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1e8cb302-7540-49f6-95a4-7af6f0541e8c.png)
 
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-8c8fd005-e016-432f-8a5f-cfb411ffd6ff.png)
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-61ebb7cb-bfd1-4e29-9be8-c9be7d7002a0.png)
@@ -217,39 +198,23 @@ head:
 
 ## 如何加入成为共同进步的球友？
 
-目前星球定价 99 元，可以说非常的良心，但提供的服务和内容远远超出了这个价格可以承载的价值。
+目前星球定价 99 元，可以说非常的良心了（杜绝割韭菜），但提供的服务和内容远远超出了这个价格可以承载的价值。
 
-但本着小伙伴们的钱包着想，再次发放一波 30 元的优惠券，**定价 99 元，折扣完只需要 69 元，每天不到 0.19 元，可以说诚意满满**。
+同时再发放一波 30 元优惠券，也就是说你只需要 69 元的低价就可以加入，这恐怕是付费社群里最良心的价格了。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-950ecda0-552d-4d52-8c58-ef49abeb2607.png)
 
-记得 6 月份的时候，二哥的好朋友 Guide 哥曾给二哥说，“你星球价格太低了，尽量还是定高点，我们太实诚了！”
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-604ba7a2-320f-45c1-8944-6a2274781486.png)
-
-我想着凑够 500 人再涨价，然而我食言了，**等 1000 人再涨**！因为二哥来自农村，深知大学阶段，包括刚参加工作的前 3 年，兜里的钱并不充裕。
+之所以定这么低的价格，因为二哥来自农村，深知大学阶段、刚参加工作的前 3 年里，兜里的钱并不充裕，能帮大家省点就省点。
 
 反正二哥在上大学那会包括毕业参加工作那会，是真的穷，舍不得买这个，舍不得买那个。下面这张图是二哥老家现在的样子。
-
-
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-70b647a7-f2be-4c00-bf28-e8310b641690.png)
 
 所以钱不是最重要的，二哥没有拯救天拯救地的伟大理想，如果恰好能帮助到一小撮人就够了，就非常有意义了。
 
-下面是之前同步给公众号读者朋友们的部分主题，全部来自二哥的编程星球，在加入之前，可以先预览感受一下再决定是否加入。
+下面是球友提问的知识图谱，全部来自二哥的编程星球，在加入之前，可以先预览感受一下再决定是否加入。
 
-- [人生当中挣到的第一个 1 万元](https://mp.weixin.qq.com/s/9Naa2r7Xkf9D4d9tqEdgVQ)
-- [Java 后端四件套学习资料](https://mp.weixin.qq.com/s/3lqp4x1B5LI1hNjWAi6v1g)
-- [银行开发太安逸，奋发图强要跳槽](https://mp.weixin.qq.com/s/ZeA-mEyMkEeSHRtd8Pob9A)
-- [这个大专生，强的离谱！](https://mp.weixin.qq.com/s/fNMhpER0tp5RO5TGcgALMQ)
-- [一怒之下，退伍转码](https://mp.weixin.qq.com/s/IEEkWiI9iN4MEhoHvrTgcg)
-- [没必要为实习碰的头破血流](https://mp.weixin.qq.com/s/KxUMq2YmlIBMbAeRwUm8JA)
-- [网站挣了 200 美刀后的感触](https://mp.weixin.qq.com/s/PxgZkuA_SnAgG7xfwlKLgw)
-- [顺利入职北京一家互联网中厂](https://mp.weixin.qq.com/s/oBLUSnHOmzoVpCP1sacNbA)
-- [上岸一家早 9 晚 6 的小公司，舒服](https://mp.weixin.qq.com/s/QNlqleAj8Osq3gRW_D05Ew)
-- [计划国庆节前跳槽](https://mp.weixin.qq.com/s/1_9FVEhEErMhjCRNP9dqZw)
-- [去外包，我也挺知足](https://mp.weixin.qq.com/s/1WdD2eLVMT-efMukLrtAwg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fa5d0d9f-6307-4e58-9367-696105315a94.jpeg)
 
 真诚欢迎想要进步的小伙伴加入星球一起交流！真心希望能够帮助到更多小伙伴！
 
@@ -260,9 +225,9 @@ head:
 
 郑重声明（加粗加粗）：**如果感觉不值得或者不满意，这里郑重承诺可以免费体验三天，三天内知识星球APP右上角都可以直接全额退款(官方自动扣除手续费)！无任何套路**。
 
-记住我们的座右铭：没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
+最后，把二哥的座右铭送给你：没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
-
+共勉。
 
 
 
