@@ -1,7 +1,6 @@
 ---
 title: 为什么 Spring 和 IDEA 都不推荐使用 @Autowired 注解？
 shortTitle: 为什么 Spring 和 IDEA 都不推荐使用 @Autowired 注解？
-description: @Autowired 和 @Resource 的 5 点区别！
 author: 磊哥
 category:
   - 微信公众号
@@ -84,19 +83,57 @@ private UserInfo user;
 **a) 属性注入**
 
 ```
-@RestControllerpublic class UserController {    // 属性注入    @Autowired    private UserService userService;    @RequestMapping("/add")    public UserInfo add(String username, String password) {        return userService.add(username, password);    }}
+@RestController
+public class UserController {
+    // 属性注入
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("/add")
+    public UserInfo add(String username, String password) {
+        return userService.add(username, password);
+    }
+}
 ```
 
 **b) 构造方法注入**
 
 ```
-@RestControllerpublic class UserController {    // 构造方法注入    private UserService userService;    @Autowired    public UserController(UserService userService) {        this.userService = userService;    }    @RequestMapping("/add")    public UserInfo add(String username, String password) {        return userService.add(username, password);    }}
+@RestController
+public class UserController {
+    // 构造方法注入
+    private UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping("/add")
+    public UserInfo add(String username, String password) {
+        return userService.add(username, password);
+    }
+}
 ```
 
 **c) Setter 注入**
 
 ```
-@RestControllerpublic class UserController {    // Setter 注入    private UserService userService;    @Autowired    public void setUserService(UserService userService) {        this.userService = userService;    }    @RequestMapping("/add")    public UserInfo add(String username, String password) {        return userService.add(username, password);    }}
+@RestController
+public class UserController {
+    // Setter 注入
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping("/add")
+    public UserInfo add(String username, String password) {
+        return userService.add(username, password);
+    }
+}
 ```
 
 其中，**@Autowired 支持属性注入、构造方法注入和 Setter 注入，而 @Resource 只支持属性注入和 Setter 注入**，当使用 @Resource 实现构造方法注入时就会提示以下错误：
