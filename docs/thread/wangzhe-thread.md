@@ -1,11 +1,11 @@
 ---
-title: 室友打了一把王者就学会了创建Java线程的2种方式
-shortTitle: 创建Java线程的2种方式
+title: 室友打了一把王者就学会了创建Java线程的3种方式
+shortTitle: 创建Java线程的3种方式
 category:
   - Java核心
 tag:
   - Java并发编程
-description: 室友打了一把王者就学会了创建Java线程的2种方式
+description: 室友打了一把王者就学会了创建Java线程的3种方式
 head:
   - - meta
     - name: keywords
@@ -119,6 +119,33 @@ t3.start();
 来看一下执行后的结果：
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-02.png)
+
+♠③：实现Callable接口，重写call()方法，这种方式可以通过FutureTask获取任务执行的返回值。
+
+
+```java
+public class CallerTask implements Callable<String> {
+    public String call() throws Exception {
+        return "Hello,i am running!";
+    }
+
+    public static void main(String[] args) {
+        //创建异步任务
+        FutureTask<String> task=new FutureTask<String>(new CallerTask());
+        //启动线程
+        new Thread(task).start();
+        try {
+            //等待执行完成，并获取返回结果
+            String result=task.get();
+            System.out.println(result);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
  
 **❤1、为什么要重写run方法？**
