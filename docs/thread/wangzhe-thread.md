@@ -1,11 +1,11 @@
 ---
-title: 室友打了一把王者就学会了创建Java线程的3种方式
-shortTitle: 创建Java线程的3种方式
+title: 室友打了一把王者就学会了创建Java线程的2种方式
+shortTitle: 创建Java线程的2种方式
 category:
   - Java核心
 tag:
   - Java并发编程
-description: 室友打了一把王者就学会了创建Java线程的3种方式
+description: 室友打了一把王者就学会了创建Java线程的2种方式
 head:
   - - meta
     - name: keywords
