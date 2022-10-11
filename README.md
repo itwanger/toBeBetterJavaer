@@ -490,6 +490,7 @@
 - [程序员 35 岁危机，如何破局？](docs/xuexijianyi/35-weiji.md)
 - [不到 20 人的 IT 公司该去吗？](docs/xuexijianyi/20ren-it-quma.md)
 - [本科生如何才能进入腾讯、阿里等一流的互联网公司？](docs/xuexijianyi/benkesheng-ali-tengxun.md)
+- [计算机考研 408 统考该如何准备？](docs/xuexijianyi/408.md)
 
 # 知识库搭建
 
