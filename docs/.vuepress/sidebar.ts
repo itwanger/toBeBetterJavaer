@@ -662,6 +662,7 @@ export const sidebarConfig = sidebar({
           "35-weiji",
           "20ren-it-quma",
           "benkesheng-ali-tengxun",
+          "408",
         ],
     },
     {
