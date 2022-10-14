@@ -148,8 +148,9 @@ alter table blogs modify content text CHARACTER SET utf8mb4 COLLATE ut
 
 ### 11.UNION 与 UNION ALL 的区别？
 
+- 如果使用 UNION，会在表链接后筛选掉重复的记录行
 - 如果使用 UNION ALL，不会合并重复的记录行
-- 效率 UNION 高于 UNION ALL
+- 从效率上说，UNION ALL 要比 UNION 快很多，如果合并没有刻意要删除重复行，那么就使用 UNION All
 
 ### 12.count(1)、count(\*) 与 count(列名) 的区别？
 
