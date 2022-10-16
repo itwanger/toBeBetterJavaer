@@ -5,7 +5,7 @@ tag:
   - 计算机网络
 ---
 
-# 计算机网络核心知识点大梳理
+# 计算机网络核心知识点
 
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
 
