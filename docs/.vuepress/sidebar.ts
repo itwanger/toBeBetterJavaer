@@ -522,6 +522,7 @@ export const sidebarConfig = sidebar({
               text: "如何保障消息不丢失",
               link: "mq/100-budiushi"
             },
+            "mq/kafka",
           ],
         },
       ],
