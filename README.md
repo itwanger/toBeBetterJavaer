@@ -48,7 +48,7 @@
 
 # 学习路线
 
-> 除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android等硬核学习路线，欢迎收藏品鉴！
+> 除了 Java 学习路线，还有 C语言、C++、Python、Go 语言、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android、MySQL等硬核学习路线，欢迎收藏品鉴！
 
   * [Java学习路线一条龙版（建议收藏🔥）](docs/xuexiluxian/java/yitiaolong.md)
   * [Java并发编程学习路线（建议收藏🔥）](docs/xuexiluxian/java/thread.md)
@@ -63,6 +63,7 @@
   * [蓝桥杯学习路线（建议收藏🔥）](docs/xuexiluxian/lanqiaobei.md)
   * [大数据学习路线（建议收藏🔥）](docs/xuexiluxian/bigdata.md)
   * [Android 安卓学习路线（建议收藏🔥）](docs/xuexiluxian/android.md)
+  * [MySQL 学习路线（建议收藏🔥）](docs/xuexiluxian/mysql.md)
   
 
 # 面渣逆袭

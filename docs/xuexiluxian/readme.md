@@ -1,15 +1,15 @@
 ---
-title: Java、C语言、C++、Python、Go 语言、操作系统、前端、算法和数据结构、蓝桥杯、大数据、Android学习路线🔥
+title: Java、C语言、C++、Python、Go 语言、操作系统、前端、算法和数据结构、蓝桥杯、大数据、Android、MySQL学习路线🔥
 shortTitle: 编程学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
-description: Java、C语言、C++、Python、Go 语言、操作系统、前端、算法和数据结构、蓝桥杯、大数据、Android等硬核学习路线，欢迎收藏品鉴！
+description: Java、C语言、C++、Python、Go 语言、操作系统、前端、算法和数据结构、蓝桥杯、大数据、Android、MySQL等硬核学习路线，欢迎收藏品鉴！
 head:
   - - meta
     - name: keywords
-      content: CS,学习路线,编程,计算机专业,程序员,Java,C语言,Python,C++,前端,Go 语言,数据结构,算法,蓝桥杯,大数据,操作系统,安卓,android
+      content: CS,学习路线,编程,计算机专业,程序员,Java,C语言,Python,C++,前端,Go 语言,数据结构,算法,蓝桥杯,大数据,操作系统,安卓,android,mysql
 ---
 
 
@@ -26,4 +26,5 @@ head:
 * [蓝桥杯学习路线（建议收藏🔥）](lanqiaobei.md)
 * [大数据学习路线（建议收藏🔥）](bigdata.md)
 * [Android 安卓学习路线（建议收藏🔥）](android.md)
+* [MySQL 学习路线（建议收藏🔥）](mysql.md)
  
