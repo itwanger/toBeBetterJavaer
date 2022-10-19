@@ -174,7 +174,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 >地址：[https://github.com/chrislusf/seaweedfs](https://github.com/chrislusf/seaweedfs)
 
-**第二个项目：seaweedfs**，GitHub 上星标 13k+，这是一个自带文件浏览器的网盘服务，支持文件浏览、生成分享链接、批量上传、创建文件夹等功能、用户系统。
+**第二个项目：filebrowser**，GitHub 上星标 13k+，这是一个自带文件浏览器的网盘服务，支持文件浏览、生成分享链接、批量上传、创建文件夹等功能、用户系统。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-20.jpg)
 
