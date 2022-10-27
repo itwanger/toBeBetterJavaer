@@ -217,7 +217,7 @@ public interface ListIterator<E> extends Iterator<E> {
 }
 ```
 
-我们知道，集合（Collection）不仅有 List，还有 Map 和 Set，那 Iterator 不仅支持 List，还支持 Set，但 ListIterator 就只支持 List。
+我们知道，集合（Collection）不仅有 List，还有 Set，那 Iterator 不仅支持 List，还支持 Set，但 ListIterator 就只支持 List。
 
 那可能有些小伙伴会问：为什么不直接让 List 实现 Iterator 接口，而是要用内部类来实现呢？
 
