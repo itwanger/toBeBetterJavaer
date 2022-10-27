@@ -103,7 +103,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-10.jpg)
 
->教程地址：[http://tour.studygolang.com/welcome/1](http://tour.studygolang.com/welcome/1)
+>教程地址：[https://tour.go-zh.org/](https://tour.go-zh.org/)
 
 **第二套教程：LeetCode-Go**，一本 LeetCode 的刷题笔记，代码是用 Go 语言实现的，收录了超过 500 道题的题解思路和代码，代码方案都是效率超高的“标准答案”：
 
