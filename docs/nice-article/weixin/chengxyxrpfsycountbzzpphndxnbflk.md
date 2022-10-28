@@ -5,7 +5,6 @@ description: count(*)查询表记录行数性能真的拉垮么？
 author: 小白
 category:
   - 微信公众号
-head:
 ---
 
 >一个人可以走得很快，但一群人才能走得更远。当你处在一个学习氛围浓烈的环境中时，就会不由自主地往前冲刺。[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)已经有 **950 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们吧。
