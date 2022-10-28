@@ -5,7 +5,6 @@ description: 真实面试场景：扫码功能的设计。
 author: 三分恶
 category:
   - 微信公众号
-head:
 ---
 
 真实面试小场景：

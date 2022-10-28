@@ -4,7 +4,6 @@ shortTitle: 离开互联网去国企1年后，我后悔了，重回大厂内卷�
 description: 国企VS互联网？
 category:
   - 微信公众号
-head:
 ---
 
 ![](https://files.mdnice.com/user/3903/3f5a9697-26a8-462b-aac4-4c873e65f041.png)

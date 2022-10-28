@@ -5,7 +5,6 @@ description: 内存、性能、可靠性、运维、资源规划、监控、安�
 author: Magic Kaito
 category:
   - 微信公众号
-head:
 ---
 
 

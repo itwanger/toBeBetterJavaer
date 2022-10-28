@@ -5,7 +5,6 @@ description: 走出老是写增删改查代码的怪圈，站在全局视野，�
 author: 闪客sun
 category:
   - 微信公众号
-head:
 ---
 
 ## 球友提问
