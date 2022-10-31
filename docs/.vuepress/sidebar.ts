@@ -9,7 +9,7 @@ export const sidebarConfig = sidebar({
     "august"
   ],
   "/nice-article/itmind/": [
-    "readme",
+    "readme.md",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
     "yigkymxczideatsyqdffblwxjcywdxbxt",
     "ideapjazjczxjhmzcmyjjhcxgxz",
@@ -687,7 +687,7 @@ export const sidebarConfig = sidebar({
         "bzhan-10wan",
         "zhihu-1000wan",
         "csdn-1000wan",
-        "readme",
+        "readme.md",
         
       ],
     },
