@@ -338,20 +338,20 @@ export const sidebarConfig = sidebar({
       collapsable: true,
       children: [
         {
-          text: "3.1 开发工具",
+          text: "3.1 开发/构建工具",
           collapsable: true,
           children: [
           "maven/maven",
           "git/git-qiyuan",
           "nginx/nginx",
-          ],
-        },
-        {
-          text: "3.2 IDE/编辑器",
-          collapsable: true,
-          children: [
-          "ide/4-debug-skill",
-          "ide/xechat",
+          {
+            text: "3.1.1 IDE",
+            collapsable: true,
+            children: [
+            "ide/4-debug-skill",
+            "ide/xechat",
+            ],
+          },
           ],
         },
         {

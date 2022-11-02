@@ -1,12 +1,18 @@
 ---
+title: 1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
+shortTitle: 最简单明了的 Git 教程
 category:
-  - Java企业级开发
+  - 开发/构建工具
 tag:
   - Git
-shortTitle: Git
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Git入门,Git教程,git
 ---
 
-# 我在工作中是如何使用 Git 的
+# 1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
 
 
 ## 一、Git 起源
@@ -15,11 +21,6 @@ Git 是一个分布式版本控制系统，缔造者是大名鼎鼎的林纳斯�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/git/git-qiyuan-01.png)
 
-PS：**为了能够帮助更多的 Java 爱好者，已将《Java 程序员进阶之路》开源到了 GitHub（本篇已收录）。如果你也喜欢这个专栏，觉得有帮助的话，可以去点个 star，这样也方便以后进行更系统化的学习**：
-
-[https://github.com/itwanger/toBeBetterJavaer](https://github.com/itwanger/toBeBetterJavaer)
-
-*每天看着 star 数的上涨我心里非常的开心，希望越来越多的 Java 爱好者能因为这个开源项目而受益，而越来越多人的 star，也会激励我继续更新下去*~
 
 大家都知道，Linux 内核是开源的，参与者众多，到目前为止，共有两万多名开发者给 Linux Kernel 提交过代码。
 
@@ -348,7 +349,7 @@ Linus 在 Git 的第一次代码提交里便完成了 Git 的最基础功能，�
 
 下面是阮一峰老师整理的常用 Git 命令清单，有必要的话，可以打印一份出来，放在工作台~
 
->http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
+>[http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 ### 1、新建代码库
 
@@ -1078,7 +1079,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/git/sparse-checkout-07.png)
 具体怎么用，可以看官方文档：
 
->https://git-scm.com/docs/git-sparse-checkout
+>[https://git-scm.com/docs/git-sparse-checkout](https://git-scm.com/docs/git-sparse-checkout)
 
 但没必要，hhhh，我们直接实战。
 
@@ -1162,9 +1163,15 @@ Git 是真的牛逼，Linus 是真的牛逼，神不愧是神！
 
 参考资料：
 
->- 维基百科：https://zh.wikipedia.org/wiki/Git
+>- 维基百科：[https://zh.wikipedia.org/wiki/Git](https://zh.wikipedia.org/wiki/Git)
 >- hutusi：[改变世界的一次代码提交](https://mp.weixin.qq.com/s/gM__sQPILkAKWsMejOO8cA)
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

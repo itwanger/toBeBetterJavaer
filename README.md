@@ -293,13 +293,17 @@
 >  - **到底能不能成为一名合格的 Java 程序员，从理论走向实战？Java 企业级开发这部分内容就是一个分水岭**！
 >  - 纸上得来终觉浅，须知此事要躬行。
 
-## 开发工具
+## 开发/构建工具
+
+> 工欲善其事必先利其器，这句话大家都耳熟能详了，熟练使用开发/构建工具可以让我们极大提升开发效率，解放生产力。
 
 - [终于把项目构建神器Maven捋清楚了~](docs/maven/maven.md)
-- [我在工作中是如何使用Git的](docs/git/git-qiyuan.md)
+- [1小时彻底掌握Git，（可能是）史上最简单明了的 Git 教程](docs/git/git-qiyuan.md)
 - [5分钟带你深入浅出搞懂Nginx](docs/nginx/nginx.md)
 
-## IDE/编辑器
+### IDE
+
+> 集成开发环境，Java 党主要就是 Intellij IDEA 了，号称史上最强大的 Java 开发工具，没有之一。
 
 - [4个高级的IntelliJ IDEA调试技巧](docs/ide/4-debug-skill.md)
 - [在 IDEA 里下个五子棋不过分吧？](docs/ide/xechat.md)

@@ -306,13 +306,17 @@ head:
  - 纸上得来终觉浅，须知此事要躬行。
 
 
-### 开发工具
+### 开发/构建工具
+
+> 工欲善其事必先利其器，这句话大家都耳熟能详了，熟练使用开发/构建工具可以让我们极大提升开发效率，解放生产力。
 
 - [终于把项目构建神器Maven捋清楚了~](maven/maven.md)
-- [我在工作中是如何使用Git的](git/git-qiyuan.md)
+- [1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程](git/git-qiyuan.md)
 - [5分钟带你深入浅出搞懂Nginx](nginx/nginx.md)
 
-### IDE/编辑器
+#### IDE
+
+> 集成开发环境，Java 党主要就是 Intellij IDEA 了，号称史上最强大的 Java 开发工具，没有之一。
 
 - [4个高级的 IntelliJ IDEA 调试技巧](ide/4-debug-skill.md)
 - [在 IDEA 里下个五子棋不过分吧？](ide/xechat.md)
