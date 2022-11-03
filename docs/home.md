@@ -11,7 +11,7 @@ head:
       content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶
 ---
 
->[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **900 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
+>[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
 
 ::: center
 <p align="center">
@@ -310,16 +310,28 @@ head:
 
 > 工欲善其事必先利其器，这句话大家都耳熟能详了，熟练使用开发/构建工具可以让我们极大提升开发效率，解放生产力。
 
-- [终于把项目构建神器Maven捋清楚了~](maven/maven.md)
-- [1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程](git/git-qiyuan.md)
 - [5分钟带你深入浅出搞懂Nginx](nginx/nginx.md)
 
-#### IDE
+#### IDEA
 
 > 集成开发环境，Java 党主要就是 Intellij IDEA 了，号称史上最强大的 Java 开发工具，没有之一。
 
-- [4个高级的 IntelliJ IDEA 调试技巧](ide/4-debug-skill.md)
-- [在 IDEA 里下个五子棋不过分吧？](ide/xechat.md)
+- [分享 4 个阅读源码必备的 IDEA 调试技巧](ide/4-debug-skill.md)
+- [分享 1 个可以在 IDEA 里下五子棋的插件](ide/xechat.md)
+- [分享 10 个可以一站式开发的 IDEA 神级插件](docs/ide/shenji-chajian-10.md)
+
+#### Maven
+
+> Maven 是目前比较流行的一个项目构建工具，基于 pom 坐标来帮助我们管理第三方依赖，以及项目打包。
+
+- [终于把项目构建神器Maven捋清楚了~](maven/maven.md)
+
+
+#### Git
+
+> Git 是一个分布式版本控制系统，缔造者是大名鼎鼎的林纳斯·托瓦茲 (Linus Torvalds)，Git 最初的目的是为了能更好的管理 Linux 内核源码。如今，Git 已经成为全球软件开发者的标配。如果说 Linux 项目促成了开源软件的成功并改写了软件行业的格局，那么 Git 则是改变了全世界开发者的工作方式和写作方式。
+
+- [1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程](git/git-qiyuan.md)
 
 ### Spring
 
