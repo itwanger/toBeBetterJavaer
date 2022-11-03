@@ -1,26 +1,19 @@
 ---
-title: 4个高级的 IntelliJ IDEA 调试技巧
-shortTitle: IDEA 调试技巧
+title: 分享 4 个阅读源码必备的 IDEA 调试技巧
+shortTitle: 4个阅读源码必备的IDEA调试技巧
 category:
-  - Java企业级开发
+  - 开发/构建工具
 tag:
-  - Intellij IDEA
   - IDEA
-  - Intellij IDEA 调试技巧
-  - IDEA 调试技巧
 description: 几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
 head:
   - - meta
     - name: keywords
       content: Intellij IDEA,IDEA,Intellij IDEA 调试技巧,IDEA 调试技巧
-    - name: description
-      content: 几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
 ---
 
 
-大家好，我是二哥！
-
-今天给大家带来几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
+大家好，我是二哥！今天给大家带来几个我日常工作以及阅读源码必备的 IntelliJ IDEA 高级调试技巧，分分钟要起飞的节奏。
 
 ## 断点处添加 log
 
@@ -148,5 +141,11 @@ Process finished with exit code
 
 >作者：tan日拱一兵，转载链接：[https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ](https://mp.weixin.qq.com/s/KG0yzb_9XhhTSzjHr4DkIQ)
 
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
