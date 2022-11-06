@@ -51,7 +51,7 @@ export default defineUserConfig({
     // 允许网站通过支持该特性的浏览器将网站作为 App 安装在对应平台上。
     pwaPlugin({
       // favicon.ico一般用于作为缩略的网站标志,它显示位于浏览器的地址栏或者在标签上,用于显示网站的logo,
-      favicon: "/favicon.ico",
+      favicon: "https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/favicon.ico",
       // 如果你的站点体积不大，且配图大多为关键性说明，希望可以在离线模式下显示，建议将此项设置为 true
       cachePic: true,
       apple: {
