@@ -1,6 +1,6 @@
 ---
-title: 聊聊如何学习开源项目
-shortTitle: 聊聊如何学习开源项目
+title: 如何学习开源项目？
+shortTitle: 如何学习开源项目
 author: 勇哥
 category:
   - 微信公众号
