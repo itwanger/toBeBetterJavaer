@@ -636,7 +636,6 @@ export const sidebarConfig = sidebar({
             "nice-article/weixin/miansmtgl",
             "nice-article/weixin/luoczbmsddyb",
             "nice-article/weixin/youdxzhhmjzlycfx",
-            "nice-article/weixin/zheisnylzldhzd",
           ],
         },
         {
