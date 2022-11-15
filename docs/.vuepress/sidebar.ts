@@ -57,6 +57,8 @@ export const sidebarConfig = sidebar({
     "lanqiaobei",
     "bigdata",
     "android",
+    "mysql",
+    "donet",
   ],
   "/sidebar/sanfene/": [
     "nixi",
