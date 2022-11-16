@@ -8,4 +8,5 @@ package.json
 dump.rdb
 docs/.vuepress/.cache/
 docs/.vuepress/.temp/
-docs/.vuepress/dist/
+images
+二哥的 Java 进阶之路.md
