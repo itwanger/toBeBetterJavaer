@@ -2,7 +2,7 @@
 home: true
 layout: Blog
 icon: home
-title: 博客主页
+title: 博客
 heroImage: /itwanger.png
 heroText: 沉默王二的技术博客
 heroFullScreen: false

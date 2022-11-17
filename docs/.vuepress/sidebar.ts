@@ -8,6 +8,7 @@ export const sidebarConfig = sidebar({
     "july",
     "august"
   ],
+  // 你可以省略 .md 扩展名，以 / 结尾的路径会被推断为 /README.md(区分大小写)
   "/nice-article/itmind/": [
     "readme.md",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
@@ -40,7 +41,7 @@ export const sidebarConfig = sidebar({
     {
       text: "Java学习路线",
       prefix: "java/",
-      collapsable: true,
+      collapsible: true,
       children: [
         "yitiaolong",
         "thread",
@@ -82,12 +83,12 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "二、Java核心",
-      collapsable: true,
+      collapsible: true,
       children: [
         {
           prefix: "overview/",
           text: "2.1 Java概述",
-          collapsable: true,
+          collapsible: true,
           children: [
           "what-is-java",
           "java-history",
@@ -99,7 +100,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.2 Java语法基础",
-          collapsable: true,
+          collapsible: true,
           children: [
           "basic-extra-meal/48-keywords",
           "basic-extra-meal/java-naming",
@@ -112,7 +113,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.3 数组&字符串",
-          collapsable: true,
+          collapsible: true,
           children: [
           "array/array",
           "array/print",
@@ -126,7 +127,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.4 面向对象编程",
-          collapsable: true,
+          collapsible: true,
           children: [
           "oo/object-class",
           "oo/package",
@@ -151,7 +152,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.5 集合框架（容器）",
-          collapsable: true,
+          collapsible: true,
           children: [
           
           "collection/gailan",
@@ -171,7 +172,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.6 IO",
-          collapsable: true,
+          collapsible: true,
           prefix:"io/",
           children: [
           "shangtou",
@@ -188,7 +189,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.7 异常处理",
-          collapsable: true,
+          collapsible: true,
           prefix:"exception/",
           children: [
           "gailan",
@@ -199,7 +200,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.8 常用工具类",
-          collapsable: true,
+          collapsible: true,
           prefix:"common-tool/",
           children: [
           "arrays",
@@ -212,7 +213,7 @@ export const sidebarConfig = sidebar({
         {
           text: "2.9 Java新特性",
           prefix: "java8/",
-          collapsable: true,
+          collapsible: true,
           children: [
           "stream",
           "optional",
@@ -222,7 +223,7 @@ export const sidebarConfig = sidebar({
         {
           text: "2.10 Java重要知识点",
           prefix:"basic-extra-meal/",
-          collapsable: true,
+          collapsible: true,
           children: [
           "java-unicode",
           "int-cache",
@@ -249,7 +250,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.11 网络编程",
-          collapsable: true,
+          collapsible: true,
           prefix: "socket/",
           children: [
             "socket",
@@ -258,7 +259,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.12 NIO",
-          collapsable: true,
+          collapsible: true,
           prefix: "nio/",
           children: [
             "why",
@@ -270,7 +271,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "2.13 并发编程",
-          collapsable: true,
+          collapsible: true,
           prefix: "thread/",
           children: [
           "wangzhe-thread",
@@ -308,7 +309,7 @@ export const sidebarConfig = sidebar({
         {
           text: "2.14 JVM",
           prefix: "jvm/",
-          collapsable: true,
+          collapsible: true,
           children: [
           "what-is-jvm",
           "how-run-java-code",
@@ -337,16 +338,16 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "三、Java企业级开发",
-      collapsable: true,
+      collapsible: true,
       children: [
         {
           text: "3.1 开发/构建工具",
-          collapsable: true,
+          collapsible: true,
           children: [
           "nginx/nginx",
           {
             text: "3.1.1 IDE",
-            collapsable: true,
+            collapsible: true,
             children: [
             "ide/4-debug-skill",
             "ide/xechat",
@@ -355,14 +356,14 @@ export const sidebarConfig = sidebar({
           },
           {
             text: "3.1.2 Maven",
-            collapsable: true,
+            collapsible: true,
             children: [
             "maven/maven",
             ],
           },
           {
             text: "3.1.3 Git",
-            collapsable: true,
+            collapsible: true,
             children: [
             "git/git-qiyuan",
             ],
@@ -371,7 +372,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "3.3 Spring",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "Spring AOP扫盲",
@@ -385,7 +386,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "3.4 SpringBoot",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "搭建第一个Spring Boot项目",
@@ -446,14 +447,14 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "3.5 Netty",
-          collapsable: true,
+          collapsible: true,
           children: [
             "netty/rumen",
           ],
         },
         {
           text: "3.6 辅助工具",
-          collapsable: true,
+          collapsible: true,
           children: [
             "gongju/choco",
             "gongju/brew",
@@ -466,7 +467,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "3.7 开源轮子",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "HTTP调用框架Forest",
@@ -509,7 +510,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "3.8 分布式",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "Elasticsearch入门",
@@ -527,7 +528,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "3.9 消息队列",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "RabbitMQ入门",
@@ -544,11 +545,11 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "四、数据库",
-      collapsable: true,
+      collapsible: true,
       children: [
         {
           text: "MySQL",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "MySQL和Redis数据一致性",
@@ -558,7 +559,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "Redis",
-          collapsable: true,
+          collapsible: true,
           children: [
             {
               text: "Redis入门",
@@ -572,7 +573,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "MongoDB",
-          collapsable: true,
+          collapsible: true,
           children: [
             "mongodb/rumen",
           ],
@@ -581,7 +582,7 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "五、计算机基础",
-      collapsable: true,
+      collapsible: true,
       prefix: "cs/",
       children: [
         {
@@ -596,11 +597,11 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "六、求职面试",
-      collapsable: true,
+      collapsible: true,
       children: [
         {
           text: "面试题&八股文",
-          collapsable: true,
+          collapsible: true,
           prefix:"interview/",
           children: [
             "java-34",
@@ -618,7 +619,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "优质面经",
-          collapsable: true,
+          collapsible: true,
           prefix:"mianjing/",
           children: [
             "shanganaliyun",
@@ -632,7 +633,7 @@ export const sidebarConfig = sidebar({
         },
         {
           text: "面试准备",
-          collapsable: true,
+          collapsible: true,
           children: [
             "nice-article/weixin/zijxjjdyfqzgl",
             "nice-article/weixin/miansmtgl",
@@ -643,7 +644,7 @@ export const sidebarConfig = sidebar({
         {
           text: "城市选择",
           prefix: "cityselect/",
-          collapsable: true,
+          collapsible: true,
           children: [
             "beijing",
             "chengdu",
@@ -662,7 +663,7 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "七、学习建议",
-      collapsable: true,
+      collapsible: true,
       prefix: "xuexijianyi/",
       children: [
           "LearnCS-ByYourself",
@@ -683,7 +684,7 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "八、知识库搭建",
-      collapsable: true,
+      collapsible: true,
       prefix: "szjy/",
       children: [
           "buy-cloud-server",
@@ -695,7 +696,7 @@ export const sidebarConfig = sidebar({
     },
     {
       text: "九、联系作者",
-      collapsable: true,
+      collapsible: true,
       prefix: "about-the-author/",
       children: [
         "bzhan-10wan",
