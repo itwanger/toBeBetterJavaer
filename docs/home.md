@@ -11,22 +11,29 @@ head:
       content: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶
 ---
 
-[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个「编程学习指南 + Java项目实战 + LeetCode刷题」的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
-
 ::: center
 <p align="center">
-  <a href="https://tobebetterjavaer.com">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
+  <a href="https://www.yuque.com/itwanger/ydx81p/nksgcaox959w7ie9">
+      <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" style="margin: 0 auto; width: 700px;" />
   </a>
 </p>
+:::
 
-<p align="center">
+>[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个「编程学习指南 + Java项目实战 + LeetCode刷题」的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
+
+::: center
+<div align="center">
+  <a href="https://tobebetterjavaer.com">
+    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
+  </a><br>
   <a href="https://tobebetterjavaer.com/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
   <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
   <a href="https://space.bilibili.com/513340480" target="_blank"><img src="https://img.shields.io/badge/bilibili-哔哩哔哩-critical?style=for-the-badge"></a>
   <a href="https://tobebetterjavaer.com/download/java.html" target="_blank"><img src="https://img.shields.io/badge/计算机经典电子书-下载-yellow.svg?style=for-the-badge" alt="无套路下载"></a>
-  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="Java程序员进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a>
-</p>
+  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="Java程序员进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a><br><br>
+<a href="https://github.com/itwanger/toBeBetterJavaer">Github</a> |
+<a href="https://gitee.com/itwanger/toBeBetterJavaer">Gitee</a>
+</div>  
 :::
 
 
@@ -42,17 +49,12 @@ head:
  - **精选的 Java 岗求职面试指南**
  - **Java 企业级开发所需的必备技术**
 
-赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！
+赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
+
+- [**Java程序员进阶之路在线阅读网站（新版，推荐👍）**](https://tobebetterjavaer.com/)
+- [Java程序员进阶之路在线阅读](https://docsify.tobebetterjavaer.com)
 
 **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
-
-推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
-
-- [Java 程序员进阶之路在线阅读网站](https://tobebetterjavaer.com/)
-- [Java 程序员进阶之路 GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)
-- [Java 程序员进阶之路 Gitee 仓库](https://gitee.com/itwanger/toBeBetterJavaer)
-
-亿点点小请求，建议戳[这个链接🔗](https://github.com/itwanger/toBeBetterJavaer)给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
 
 ## 知识库地图
 

@@ -26,11 +26,11 @@ head:
 - 学生党：方向选择&实习&秋招&offer选择&考研&专升本&培训班
 - 工作党：转行&求职&人生规划
 - 学习路线
+- 星球专栏
 - 球友分享
 - 技术细节
 - 开发工具
 - 其他主题
-- 星球专栏
 - 坦白从宽
 
 ## 学习资料：
@@ -97,6 +97,7 @@ head:
 - [offer选择：985硕，北京亚控科技、经纬恒润、美芯晟这仨 offer 如何选？](https://t.zsxq.com/07FlG8nyq)
 - [offer选择：北京三维力控科技、东华软件这俩 offer 怎么选？](https://t.zsxq.com/07DHZ7qhN)
 - [offer选择：研究生，腾讯云智研发中心、网易这俩实习offer怎么选?](https://t.zsxq.com/04vJuByvR)
+- [offer选择：985硕，字节年包36万，同花顺年包28 万，怎么选？](https://t.zsxq.com/07BpzO7aO)
 
 ### 考研&专升本&培训班
 - [考研：末流985软工，学长们也能进大厂，我有必要考研吗？](https://t.zsxq.com/04ieiEyVj)
@@ -109,6 +110,8 @@ head:
 - [培训班：子牙老师的操作系统课值得报吗？](https://t.zsxq.com/06QvF2F2n)
 
 ### 学生党
+
+- [学生党：本硕 211，项目有点不扎实，学习方向有点没谱，能指导下吗？](https://t.zsxq.com/07KNPN4Ty)
 - [学生党：大三，有保研希望，想去外企，我该怎么制定学习计划？](https://t.zsxq.com/07mIE2Jq7)
 - [学生党：985 计科大三，想考研也想实习，继续 Java 还是转人工智能、大数据、网安，我该如何取舍？](https://t.zsxq.com/07QFEuvJA)
 - [学生党：双非准大二计科专业，有考研意向，大学该如何规划？](https://t.zsxq.com/047qBUN3j)
@@ -120,6 +123,7 @@ head:
 - [学生党：Java 基础学完后学 JavaWeb 还是 MySQL 还是数据结构与算法？](https://t.zsxq.com/04IiUJIUz)
 - [学生党：Java 基础学完后学 Java Web 可以吗？](https://t.zsxq.com/04vZRNzZz)
 - [学生党：我是继续学 JavaWeb 还是 Spring 呢？](https://t.zsxq.com/04IqZj2F6)
+- [学生党：不考研，学到 JavaWeb 了，有没有找工作为主的学习路线？](https://t.zsxq.com/07WOeUGW9)
 - [学生党：有没有人工智能的学习路线或者推荐资料？](https://t.zsxq.com/07e2nUJmM)
 - [学生党：MySQL该怎么学啊？](https://t.zsxq.com/07meuVzJi)
 - [学生党：测试应该学点什么？有资料推荐吗？](https://t.zsxq.com/07meuVzJi)
@@ -128,8 +132,8 @@ head:
 - [学生党：开学大三，专业大数据，Java 底层逻辑不明白，有什么建议吗？](https://t.zsxq.com/04V7IiAYz)
 - [学生党：如何制定暑期学习计划，简历需要包装吗？](https://t.zsxq.com/04mu3B2Fe)
 - [学生党：学到 JavaWeb 了，后面怎么学，有没有详细的学习路线？](https://t.zsxq.com/04mu3B2Fe)
+- [学生党：大三，学到了 JavaWeb，想改变自己，我该如何提升自己？](https://t.zsxq.com/0769frL3P)
 - [学生党：零基础，先从哪一点开始学习呢？](https://t.zsxq.com/07ZFxmf1d)
-- [学生党：大三，学到了 JavaWeb，想改变自己，我该如何提升自己？](https://t.zsxq.com/07ZFxmf1d)
 
 ## 工作党：
 
@@ -190,53 +194,10 @@ head:
 - [Android 安卓学习路线](https://tobebetterjavaer.com/xuexiluxian/android.html)
 
 
-
-
-
-## 球友分享
-
-- [球友harden：我是如何上岸一家小公司的？](https://t.zsxq.com/053jQbQrb)
-- [球友乘风：网站挣了 200 美刀后的感触](https://t.zsxq.com/05QvZjEeM)
-- [球友保持理智：关于机构培训个人经历](https://t.zsxq.com/05zZ3fYRJ)
-- [球友小豪：暑假工的心得体会](https://t.zsxq.com/05fmeUZJY)
-- [球友学而思索：第一次面试分享](https://t.zsxq.com/05333NvVj)
-- [沉默王二：关于买房的一些心得体会](https://t.zsxq.com/05qfyJayZ)
-- [沉默王二：高考失意过，但这四年的我，足够励志](https://t.zsxq.com/04yzVFQFY)
-- [沉默王二：共建“沉默王二特色主义的学习圈子”](https://t.zsxq.com/04YN7IMfM)
-- [沉默王二：如何在 3 天内学会 Java？知乎近万赞](https://t.zsxq.com/05yfUjYjA)
-
-## 技术细节
-
-- [技术细节：new String("a") + new String("b")到底创建了几个对象？](https://t.zsxq.com/06AAAemA2)
-- [技术细节：真实生产环境中使用宝塔吗？](https://t.zsxq.com/057UBEuRb)
-- [技术细节：大量数据写入消息队列，突然的增加大量消息会不会导致其他主题消息的积压？](https://t.zsxq.com/05JuBqfqb)
-- [技术细节：DO、DTO、BO、AO、VO、POJO什么区别？](https://t.zsxq.com/04j2v3vJy)
-- [技术细节：rabbitmq如何重构一个类似于文件上传的服务?](https://t.zsxq.com/05bQfeIiM)
-- [技术细节：向上转型和多态](https://t.zsxq.com/062FaeiEu)
-
-
-## 开发工具
-
-- [推荐几款在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
-- [两种科学上网的方式](https://t.zsxq.com/06Rfia2jm)
-- [macOS Navicat 破解版](https://t.zsxq.com/04eMf6AMZ)
-- [IDEA、Navicat、Typora、xshell 激活](https://tobebetterjavaer.com/nice-article/itmind/)
-
-## 其他主题
-
-- [到底该如何制定学习计划？](https://t.zsxq.com/07AAubyfY)
-- [平常总结的知识点都放在哪里？](https://t.zsxq.com/06UNnIEm2)
-- [该如何开始输出自己学习的内容，感觉别人写的都比我好？](https://t.zsxq.com/04AufUjim)
-- [源码实在是看不下去，该怎么办？](https://t.zsxq.com/04mmqnmiq)
-- [怎样才能找到女朋友？](https://t.zsxq.com/06yBujaey)
-- [有什么 Java 相关的证书对于求职有帮助？](https://t.zsxq.com/06uBMZzZZ)
-- [请问哪个招聘网站比较好呢？](https://t.zsxq.com/078WqmDsU)
-- [Java程序员进阶之路中基础的内容不理解怎么办？](https://t.zsxq.com/07XASWxOL)
-
-
 ## 星球专栏
 
 ### Java面试指南
+- [技术提升篇：开源项目该怎么学习？](https://t.zsxq.com/07LQhxpei)
 - [技术提升篇：2 万字，彻底吃透 Elasticsearch](https://t.zsxq.com/07fRiEDyi)
 - [技术提升篇：编程中都有哪些开源工具类可以提高我们的生产效率？](https://t.zsxq.com/07fHrMSTo)
 - [场景设计题篇：如何解决 MySQL 死锁问题？](https://t.zsxq.com/07BhuGl6l)
@@ -272,12 +233,53 @@ head:
 - [045.跳跃游戏](https://t.zsxq.com/07F2FiufI)
 - [044 通配符匹配](https://t.zsxq.com/06FYrJIA2)
 
-### 编程喵实战项目笔记
+## 球友分享
 
-- [Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k](https://t.zsxq.com/06Z3Vz3vF)
+- [球友harden：我是如何上岸一家小公司的？](https://t.zsxq.com/053jQbQrb)
+- [球友乘风：网站挣了 200 美刀后的感触](https://t.zsxq.com/05QvZjEeM)
+- [球友保持理智：关于机构培训个人经历](https://t.zsxq.com/05zZ3fYRJ)
+- [球友小豪：暑假工的心得体会](https://t.zsxq.com/05fmeUZJY)
+- [球友学而思索：第一次面试分享](https://t.zsxq.com/05333NvVj)
+- [沉默王二：关于买房的一些心得体会](https://t.zsxq.com/05qfyJayZ)
+- [沉默王二：高考失意过，但这四年的我，足够励志](https://t.zsxq.com/04yzVFQFY)
+- [沉默王二：共建“沉默王二特色主义的学习圈子”](https://t.zsxq.com/04YN7IMfM)
+- [沉默王二：如何在 3 天内学会 Java？知乎近万赞](https://t.zsxq.com/05yfUjYjA)
+- [沉默王二：线上配眼镜👓攻略](https://t.zsxq.com/07t1E7YsL)
+
+## 技术细节
+
+- [技术细节：new String("a") + new String("b")到底创建了几个对象？](https://t.zsxq.com/06AAAemA2)
+- [技术细节：真实生产环境中使用宝塔吗？](https://t.zsxq.com/057UBEuRb)
+- [技术细节：大量数据写入消息队列，突然的增加大量消息会不会导致其他主题消息的积压？](https://t.zsxq.com/05JuBqfqb)
+- [技术细节：DO、DTO、BO、AO、VO、POJO什么区别？](https://t.zsxq.com/04j2v3vJy)
+- [技术细节：rabbitmq如何重构一个类似于文件上传的服务?](https://t.zsxq.com/05bQfeIiM)
+- [技术细节：向上转型和多态](https://t.zsxq.com/062FaeiEu)
+
+
+## 开发工具
+
+- [推荐几款在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
+- [两种科学上网的方式](https://t.zsxq.com/06Rfia2jm)
+- [macOS Navicat 破解版](https://t.zsxq.com/04eMf6AMZ)
+- [IDEA、Navicat、Typora、xshell 激活](https://tobebetterjavaer.com/nice-article/itmind/)
+
+## 其他主题
+
+- [到底该如何制定学习计划？](https://t.zsxq.com/07AAubyfY)
+- [平常总结的知识点都放在哪里？](https://t.zsxq.com/06UNnIEm2)
+- [该如何开始输出自己学习的内容，感觉别人写的都比我好？](https://t.zsxq.com/04AufUjim)
+- [源码实在是看不下去，该怎么办？](https://t.zsxq.com/04mmqnmiq)
+- [怎样才能找到女朋友？](https://t.zsxq.com/06yBujaey)
+- [有什么 Java 相关的证书对于求职有帮助？](https://t.zsxq.com/06uBMZzZZ)
+- [请问哪个招聘网站比较好呢？](https://t.zsxq.com/078WqmDsU)
+- [Java程序员进阶之路中基础的内容不理解怎么办？](https://t.zsxq.com/07XASWxOL)
+
 
 ## 坦白从宽
-
+- 95、南柯一梦（跨考计算机）：[戳](https://t.zsxq.com/07MbNKBS9)
+- 94、学习中勿扰.急事打电*（测试转开发）：[戳](https://t.zsxq.com/07UKFFSOJ)
+- 93、无名小辈（转行）：[戳](https://t.zsxq.com/07yWWItwy)
+- 92、金钊（专升本）：[戳](https://t.zsxq.com/07xMScCXB)
 - 91、jojo（985 地质专业，打算跨考计算机）：[戳](https://t.zsxq.com/07abMqMJw)
 - 90、会飞的鱼儿（准备转行）：[戳](https://t.zsxq.com/07IYbAuzN)
 - 89、Super Mari*（工作党）：[戳](https://t.zsxq.com/07y7yRjaq)

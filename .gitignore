@@ -3,10 +3,10 @@ node_modules
 .temp
 package-lock.json
 yarn.lock
-package.json
 .DS_Store
 dump.rdb
 docs/.vuepress/.cache/
 docs/.vuepress/.temp/
 images
 二哥的 Java 进阶之路.md
+*.log

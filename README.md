@@ -1,4 +1,10 @@
->[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个「编程学习指南 + Java项目实战 + LeetCode刷题」的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
+<p align="center">
+  <a href="https://www.yuque.com/itwanger/ydx81p/nksgcaox959w7ie9">
+      <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" style="margin: 0 auto; width: 700px;" />
+  </a>
+</p>
+
+>[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个「编程学习指南 + Java项目实战 + LeetCode刷题」的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
@@ -31,13 +37,9 @@
 > 
 > 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 > 
-> - [Java 程序员进阶之路在线阅读网站](https://tobebetterjavaer.com/)
-> - [Java 程序员进阶之路 GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)
-> - [Java 程序员进阶之路 Gitee 仓库](https://gitee.com/itwanger/toBeBetterJavaer)
-> 
-> 亿点点小请求，建议戳[这个链接🔗](https://github.com/itwanger/toBeBetterJavaer)给本仓库点个 star，满足一下我的虚荣心，内容质量也绝对值得你一个 star。我还在继续创作，给我一点继续更新的动力，笔芯。
-> 
-> 👍推荐[免费下载1000本计算机经典书籍](https://github.com/itwanger/JavaBooks)
+> - [**Java程序员进阶之路在线阅读网站（新版，推荐👍）**](https://tobebetterjavaer.com/)
+> - [Java程序员进阶之路在线阅读](https://docsify.tobebetterjavaer.com)
+> - 👍推荐[免费下载1000本计算机经典书籍](https://github.com/itwanger/JavaBooks)
 
 # 知识库地图
 

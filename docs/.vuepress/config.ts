@@ -5,18 +5,39 @@ import { defineUserConfig } from "vuepress";
 import theme from "./theme";
 
 export default defineUserConfig({
-  base: "/",
-
+  // 中文
+  lang: "zh-CN",
+  // 标题
+  title: "Java程序员进阶之路",
+  // 描述
+  description: "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路",
+  // HTML 目录
   dest: "./dist",
-
-  // 如果你正在使用本插件，我们推荐在你的 VuePress 配置文件中设置 
+  // 如果你正在使用 PWA 插件，我们推荐在你的 VuePress 配置文件中设置 
   shouldPrefetch: false,
-  // 自动 description
-  autoDescription: true,
-  // 精选图标 https://vuepress-theme-hope.github.io/v2/zh/guide/interface/icon.html#%E4%BD%BF%E7%94%A8
-  iconAssets: "iconfont",
 
   head: [
+    // meta
+    ["meta", { name: "robots", content: "all" }],
+    ["meta", { name: "author", content: "沉默王二" }],
+    [
+      "meta",
+      {
+        "http-equiv": "Cache-Control",
+        content: "no-cache, no-store, must-revalidate",
+      },
+    ],
+    ["meta", { "http-equiv": "Pragma", content: "no-cache" }],
+    ["meta", { "http-equiv": "Expires", content: "0" }],
+    [
+      "meta",
+      {
+        name: "keywords",
+        content:
+          "Java, Java基础, 并发编程, JVM, 虚拟机, 数据库, MySQL, Spring, Redis, MyBatis, SpringBoot, IDEA, 求职面试, 面渣逆袭, 学习路线",
+      },
+    ],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
       "script",{},
       `
@@ -38,22 +59,14 @@ export default defineUserConfig({
     ],
   ],
 
-  locales: {
-    "/": {
-      lang: "zh-CN",
-      title: "Java 程序员进阶之路",
-      description: "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路",
-    },
-  },
-
   plugins: [
     // Progressive Web app，即渐进式网络应用程序，
     // 允许网站通过支持该特性的浏览器将网站作为 App 安装在对应平台上。
     pwaPlugin({
       // favicon.ico一般用于作为缩略的网站标志,它显示位于浏览器的地址栏或者在标签上,用于显示网站的logo,
-      favicon: "https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/favicon.ico",
-      // 如果你的站点体积不大，且配图大多为关键性说明，希望可以在离线模式下显示，建议将此项设置为 true
-      cachePic: true,
+      favicon: "https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/favicon.ico",
+      // 主题色
+      themeColor: "#096dd9",
       apple: {
         icon: "/assets/icon/apple-icon-152.png",
         statusBarColor: "black",
@@ -89,6 +102,7 @@ export default defineUserConfig({
         ],
       },
     }),
+    // 留言
     commentPlugin({
       provider: "Giscus",
       repo :"itwanger/tobebetterjavaer-giscus",
@@ -96,6 +110,7 @@ export default defineUserConfig({
       category:"Announcements",
       categoryId:"DIC_kwDOHBJsss4COJOx",
     }),
+    // 只能搜索
     docsearchPlugin({
       appId: "O566AMFNJH",
       apiKey: "d9aebea8bd1a4f1e01201464bbab255f",
