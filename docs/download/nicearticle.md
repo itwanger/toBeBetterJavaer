@@ -91,8 +91,6 @@
 - [降薪 45%，从互联网回到国企](https://mp.weixin.qq.com/s/qHGdIuA32X-zydbMTKDPuA)
 - [学弟在微软的这六个月](https://mp.weixin.qq.com/s/08Ax1ArAjchemjUXih7zNw)
 - [找个程序员做老公/男票有多爽？？？](https://mp.weixin.qq.com/s/mK0yaen1mhCoWZ6ZLC5vQg)
-- [研究所月入两万，是什么体验？](/manongshenghuo/yanjiusuo-20wan.md)
-- [裸辞全职做外包一个月的感受](/manongshenghuo/waibao-1geyue.md)
 - [转眼就来字节六个月了，真的不一样](https://mp.weixin.qq.com/s/jG7DLrCFf_pYoMLFiVbaaA)
 - [在监狱里编程是一种什么体验（上）？](https://mp.weixin.qq.com/s/ci5Meem_d3g2BphDmMP8VQ)
 - [29 岁，非科班零基础，想兼职做外包。。](https://mp.weixin.qq.com/s/CTTlnXNXY9j3Bm3_4gmIbw)
@@ -206,10 +204,8 @@
 > [!TIP]
 >  开发过程中遇到的一些典型问题，该如何解决？
 
-- [Log4j2突发重大漏洞](/shigu/log4j2.md)
 - [重现了一波 Log4j2 核弹级漏洞，同事的电脑沦为炮灰](https://mp.weixin.qq.com/s/zXzJVxRxMUnoyJs6_NojMQ)
 - [生成订单30分钟未支付，则自动取消，该怎么实现？](https://mp.weixin.qq.com/s/J6jb_Dt3C49CIjYBTrN4gQ)
-- [两天两夜，1M图片优化到100kb！](/shigu/image-yasuo.md)
 - [内部群炸了锅，隔壁同事真删库了啊。。](https://mp.weixin.qq.com/s/lvyoN1gHCWhcPqudcjcRgQ)
 - [B 站崩了](https://mp.weixin.qq.com/s/PfJe5rXednkXTq8EKT0xpw)
 - [因为一个低级错误，生产数据库崩溃了将近半个小时](https://mp.weixin.qq.com/s/ec6u8WsPt7zJ0eul8sPEhg)
@@ -227,7 +223,6 @@
 
 ## MySQL重要知识点
 
-- [从京东到家程序员删库被判 10 个月来聊聊 MySQL 数据备份的杀手锏](/mysql/deletedb-binlog-weiguanjishu.md)
 - [深入浅出MySQL crash safe](https://tech.youzan.com/shen-ru-qian-chu-mysql-crash-safe/)
 
 ## 待收录文章

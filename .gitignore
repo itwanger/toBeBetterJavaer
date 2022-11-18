@@ -10,3 +10,4 @@ docs/.vuepress/.temp/
 images
 二哥的 Java 进阶之路.md
 *.log
+dist

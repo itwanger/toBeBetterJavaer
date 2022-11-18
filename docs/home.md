@@ -221,7 +221,7 @@ head:
 - [jdk9为什么要将String的底层实现由char数组改成了byte数组?](basic-extra-meal/jdk9-char-byte-string.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 - [Java 中，先有Class还是先有Object？](basic-extra-meal/class-object.md)
-- [详解Java中instanceof关键字的用法](oo/instanceof.md)
+- [详解Java中instanceof关键字的用法](basic-extra-meal/instanceof.md)
 - [instanceof关键字是如何实现的？](basic-extra-meal/instanceof-jvm.md)
 - [深入理解Java中的不可变对象](basic-extra-meal/immutable.md)
 - [Java中可变参数的使用](basic-extra-meal/varables.md)
@@ -320,7 +320,7 @@ head:
 
 - [分享 4 个阅读源码必备的 IDEA 调试技巧](ide/4-debug-skill.md)
 - [分享 1 个可以在 IDEA 里下五子棋的插件](ide/xechat.md)
-- [分享 10 个可以一站式开发的 IDEA 神级插件](docs/ide/shenji-chajian-10.md)
+- [分享 10 个可以一站式开发的 IDEA 神级插件](ide/shenji-chajian-10.md)
 
 #### Maven
 

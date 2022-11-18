@@ -11,7 +11,6 @@ head:
     - name: keywords
       content: 程序员常用工具破解合集，学习资料、面试资料、简历资料大放送
 ---
----
 
 ## Intellij IDEA
 
@@ -27,7 +26,7 @@ head:
 
 ## typora
 
-- [Typora macOS 永久破解](/nice-article/imacso/typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom.md)
+- [Typora macOS 永久破解](typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom.md)
 - [Typora Windows 永久破解](typorayjpx.md)
 
 ## xshell
@@ -37,10 +36,6 @@ head:
 ## PyCharm
 
 - [PyCharm 2022.1 激活破解码_安装教程](xshellazpjbjcxshellpxffxbxt.md)
-
-## 羊了个羊
-
-- [三步教你羊了个羊攻略修改教程，快速通关-2.0修复版](yang1.md)
 
 
 
