@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-beta.53" />
+    <meta name="theme" content="VuePress Theme Hope" />
+    <meta property="og:url" content="https://tobebetterjavaer.com/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html"><meta property="og:site_name" content="Java程序员进阶之路"><meta property="og:title" content="别再自己瞎写工具类了，SpringBoot内置工具类应有尽有，建议收藏！！"><meta property="og:type" content="article"><meta property="og:updated_time" content="2022-06-15T14:20:09.000Z"><meta property="og:locale" content="zh-CN"><meta property="article:modified_time" content="2022-06-15T14:20:09.000Z"><meta name="robots" content="all"><meta name="author" content="沉默王二"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="keywords" content="Java, Java基础, 并发编程, JVM, 虚拟机, 数据库, MySQL, Spring, Redis, MyBatis, SpringBoot, IDEA, 求职面试, 面渣逆袭, 学习路线"><meta name="apple-mobile-web-app-capable" content="yes"><script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?5230ac143650bf5eb3c14f3fb9b1d3ec";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script><link rel="stylesheet" href="//at.alicdn.com/t/font_3180624_7cy10l7jqqh.css"><link rel="icon" href="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/favicon.ico"><link rel="icon" href="/assets/icon/chrome-mask-512.png" type="image/png" sizes="512x512"><link rel="icon" href="/assets/icon/chrome-mask-192.png" type="image/png" sizes="192x192"><link rel="icon" href="/assets/icon/chrome-512.png" type="image/png" sizes="512x512"><link rel="icon" href="/assets/icon/chrome-192.png" type="image/png" sizes="192x192"><link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials"><meta name="theme-color" content="#096dd9"><link rel="apple-touch-icon" href="/assets/icon/apple-icon-152.png"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"><title>别再自己瞎写工具类了，SpringBoot内置工具类应有尽有，建议收藏！！ | Java程序员进阶之路</title><meta name="description" content="一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路">
+    <style>
+      :root {
+        --bg-color: #fff;
+      }
+
+      html[data-theme="dark"] {
+        --bg-color: #1d2025;
+      }
+
+      html,
+      body {
+        background: var(--bg-color);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem("vuepress-theme-hope-scheme");
+      const systemDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (userMode === "dark" || (userMode !== "light" && systemDarkMode)) {
+        document.querySelector("html").setAttribute("data-theme", "dark");
+      }
+    </script>
+    <link rel="preload" href="/assets/style.e761550a.css" as="style" /><link rel="stylesheet" href="/assets/style.e761550a.css" />
+    <link rel="modulepreload" href="/assets/app.99eb8281.js"><link rel="modulepreload" href="/assets/biezzjxxgjllspringbootnzgjlyyjyjysz.html.8826ee30.js"><link rel="modulepreload" href="/assets/_plugin-vue_export-helper.cdc0426e.js"><link rel="modulepreload" href="/assets/biezzjxxgjllspringbootnzgjlyyjyjysz.html.51f3bd85.js">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><!--[--><span tabindex="-1"></span><a href="#main-content" class="skip-link sr-only">Skip to content</a><!--]--><div class="theme-container has-toc"><!--[--><!--[--><header class="navbar"><div class="navbar-left"><button class="toggle-sidebar-button" title="Toggle Sidebar"><span class="icon"></span></button><!--[--><!----><!--]--><a href="/" class="brand"><img class="logo" src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-02.png" alt="Java程序员进阶之路"><!----><span class="site-name hide-in-pad">Java程序员进阶之路</span></a><!--[--><!----><!--]--></div><div class="navbar-center"><!--[--><!----><!--]--><nav class="nav-links"><div class="nav-item hide-in-mobile"><a href="/blog.html" class="nav-link" aria-label="博客"><span class="icon iconfont icon-gaishu"></span>博客<!----></a></div><div class="nav-item hide-in-mobile"><a href="/home.html" class="nav-link" aria-label="进阶之路"><span class="icon iconfont icon-lujing"></span>进阶之路<!----></a></div><div class="nav-item hide-in-mobile"><a href="/zhishixingqiu/" class="nav-link" aria-label="知识星球"><span class="icon iconfont icon-Artboard"></span>知识星球<!----></a></div><div class="nav-item hide-in-mobile"><a href="/xuexiluxian/" class="nav-link" aria-label="学习路线"><span class="icon iconfont icon-luxian"></span>学习路线<!----></a></div><div class="nav-item hide-in-mobile"><div class="dropdown-wrapper"><button class="dropdown-title" type="button" aria-label="珍藏资源"><span class="title"><span class="icon iconfont icon-youzhi"></span>珍藏资源</span><span class="arrow"></span><ul class="nav-dropdown"><li class="dropdown-item"><a href="/pdf/" class="nav-link" aria-label="PDF下载"><span class="icon iconfont icon-java"></span>PDF下载<!----></a></li><li class="dropdown-item"><a href="/sidebar/sanfene/nixi.html" class="nav-link" aria-label="面渣逆袭"><span class="icon iconfont icon-zhunbei"></span>面渣逆袭<!----></a></li><li class="dropdown-item"><a href="/nice-article/itmind/" class="nav-link" aria-label="破解合集"><span class="icon iconfont icon-zhongyaotishi"></span>破解合集<!----></a></li></ul></button></div></div><div class="nav-item hide-in-mobile"><a href="https://space.bilibili.com/513340480" rel="noopener noreferrer" target="_blank" aria-label="B站视频" class="nav-link"><span class="icon iconfont icon-bzhan"></span>B站视频<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!----></a></div></nav><!--[--><!----><!--]--></div><div class="navbar-right"><!--[--><!----><!--]--><!----><div class="nav-item"><a class="repo-link" href="https://github.com/itwanger/toBeBetterJavaer" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" class="icon github-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="github icon" style="width:1.25rem;height:1.25rem;vertical-align:middle;"><path d="M511.957 21.333C241.024 21.333 21.333 240.981 21.333 512c0 216.832 140.544 400.725 335.574 465.664 24.49 4.395 32.256-10.07 32.256-23.083 0-11.69.256-44.245 0-85.205-136.448 29.61-164.736-64.64-164.736-64.64-22.315-56.704-54.4-71.765-54.4-71.765-44.587-30.464 3.285-29.824 3.285-29.824 49.195 3.413 75.179 50.517 75.179 50.517 43.776 75.008 114.816 53.333 142.762 40.79 4.523-31.66 17.152-53.377 31.19-65.537-108.971-12.458-223.488-54.485-223.488-242.602 0-53.547 19.114-97.323 50.517-131.67-5.035-12.33-21.93-62.293 4.779-129.834 0 0 41.258-13.184 134.912 50.346a469.803 469.803 0 0 1 122.88-16.554c41.642.213 83.626 5.632 122.88 16.554 93.653-63.488 134.784-50.346 134.784-50.346 26.752 67.541 9.898 117.504 4.864 129.834 31.402 34.347 50.474 78.123 50.474 131.67 0 188.586-114.73 230.016-224.042 242.09 17.578 15.232 33.578 44.672 33.578 90.454v135.85c0 13.142 7.936 27.606 32.854 22.87C862.25 912.597 1002.667 728.747 1002.667 512c0-271.019-219.648-490.667-490.71-490.667z"></path></svg></a></div><div class="nav-item hide-in-mobile"><button class="outlook-button" tabindex="-1" ariahidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="icon outlook-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="outlook icon"><path d="M224 800c0 9.6 3.2 44.8 6.4 54.4 6.4 48-48 76.8-48 76.8s80 41.6 147.2 0 134.4-134.4 38.4-195.2c-22.4-12.8-41.6-19.2-57.6-19.2C259.2 716.8 227.2 761.6 224 800zM560 675.2l-32 51.2c-51.2 51.2-83.2 32-83.2 32 25.6 67.2 0 112-12.8 128 25.6 6.4 51.2 9.6 80 9.6 54.4 0 102.4-9.6 150.4-32l0 0c3.2 0 3.2-3.2 3.2-3.2 22.4-16 12.8-35.2 6.4-44.8-9.6-12.8-12.8-25.6-12.8-41.6 0-54.4 60.8-99.2 137.6-99.2 6.4 0 12.8 0 22.4 0 12.8 0 38.4 9.6 48-25.6 0-3.2 0-3.2 3.2-6.4 0-3.2 3.2-6.4 3.2-6.4 6.4-16 6.4-16 6.4-19.2 9.6-35.2 16-73.6 16-115.2 0-105.6-41.6-198.4-108.8-268.8C704 396.8 560 675.2 560 675.2zM224 419.2c0-28.8 22.4-51.2 51.2-51.2 28.8 0 51.2 22.4 51.2 51.2 0 28.8-22.4 51.2-51.2 51.2C246.4 470.4 224 448 224 419.2zM320 284.8c0-22.4 19.2-41.6 41.6-41.6 22.4 0 41.6 19.2 41.6 41.6 0 22.4-19.2 41.6-41.6 41.6C339.2 326.4 320 307.2 320 284.8zM457.6 208c0-12.8 12.8-25.6 25.6-25.6 12.8 0 25.6 12.8 25.6 25.6 0 12.8-12.8 25.6-25.6 25.6C470.4 233.6 457.6 220.8 457.6 208zM128 505.6C128 592 153.6 672 201.6 736c28.8-60.8 112-60.8 124.8-60.8-16-51.2 16-99.2 16-99.2l316.8-422.4c-48-19.2-99.2-32-150.4-32C297.6 118.4 128 291.2 128 505.6zM764.8 86.4c-22.4 19.2-390.4 518.4-390.4 518.4-22.4 28.8-12.8 76.8 22.4 99.2l9.6 6.4c35.2 22.4 80 12.8 99.2-25.6 0 0 6.4-12.8 9.6-19.2 54.4-105.6 275.2-524.8 288-553.6 6.4-19.2-3.2-32-19.2-32C777.6 76.8 771.2 80 764.8 86.4z"></path></svg><div class="outlook-dropdown"><!----></div></button></div><div id="docsearch-container"></div><!--[--><!----><!--]--><button class="toggle-navbar-button" aria-label="Toggle Navbar" aria-expanded="false" aria-controls="nav-screen"><span class="button-container"><span class="button-top"></span><span class="button-middle"></span><span class="button-bottom"></span></span></button></div></header><!----><!--]--><!----><div class="toggle-sidebar-wrapper"><span class="arrow left"></span></div><aside class="sidebar"><!--[--><!----><!--]--><ul class="sidebar-links"><li><!--[--><a href="/home.html" class="nav-link sidebar-link sidebar-page" aria-label="一、前言"><!---->一、前言<!----></a><ul class="sidebar-sub-headers"></ul><!--]--></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">二、Java核心</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">三、Java企业级开发</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">四、数据库</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">五、计算机基础</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">六、求职面试</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">七、学习建议</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">八、知识库搭建</span><span class="arrow right"></span></button><!----></section></li><li><section class="sidebar-group"><button class="sidebar-heading clickable"><!----><span class="title">九、联系作者</span><span class="arrow right"></span></button><!----></section></li></ul><!--[--><!----><!--]--></aside><!--[--><main class="page" id="main-content"><!--[--><!----><nav class="breadcrumb disable"></nav><div class="page-title"><h1><!---->别再自己瞎写工具类了，SpringBoot内置工具类应有尽有，建议收藏！！</h1><div class="page-info"><span class="author-info" aria-label="作者🖊" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon author-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="author icon"><path d="M649.6 633.6c86.4-48 147.2-144 147.2-249.6 0-160-128-288-288-288s-288 128-288 288c0 108.8 57.6 201.6 147.2 249.6-121.6 48-214.4 153.6-240 288-3.2 9.6 0 19.2 6.4 25.6 3.2 9.6 12.8 12.8 22.4 12.8h704c9.6 0 19.2-3.2 25.6-12.8 6.4-6.4 9.6-16 6.4-25.6-25.6-134.4-121.6-240-243.2-288z"></path></svg><span><a class="author-item" href="/about-the-author/" target="_blank" rel="noopener noreferrer">沉默王二</a></span><span property="author" content="沉默王二"></span></span><!----><span class="date-info" aria-label="写作日期📅" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon calendar-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="calendar icon"><path d="M716.4 110.137c0-18.753-14.72-33.473-33.472-33.473-18.753 0-33.473 14.72-33.473 33.473v33.473h66.993v-33.473zm-334.87 0c0-18.753-14.72-33.473-33.473-33.473s-33.52 14.72-33.52 33.473v33.473h66.993v-33.473zm468.81 33.52H716.4v100.465c0 18.753-14.72 33.473-33.472 33.473a33.145 33.145 0 01-33.473-33.473V143.657H381.53v100.465c0 18.753-14.72 33.473-33.473 33.473a33.145 33.145 0 01-33.473-33.473V143.657H180.6A134.314 134.314 0 0046.66 277.595v535.756A134.314 134.314 0 00180.6 947.289h669.74a134.36 134.36 0 00133.94-133.938V277.595a134.314 134.314 0 00-133.94-133.938zm33.473 267.877H147.126a33.145 33.145 0 01-33.473-33.473c0-18.752 14.72-33.473 33.473-33.473h736.687c18.752 0 33.472 14.72 33.472 33.473a33.145 33.145 0 01-33.472 33.473z"></path></svg><span>2022年6月15日</span><meta property="datePublished" content="2022-06-15T14:20:09.000Z"></span><span class="category-info" aria-label="分类🌈" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon category-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="category icon"><path d="M148.41 106.992h282.176c22.263 0 40.31 18.048 40.31 40.31V429.48c0 22.263-18.047 40.31-40.31 40.31H148.41c-22.263 0-40.311-18.047-40.311-40.31V147.302c0-22.263 18.048-40.31 40.311-40.31zM147.556 553.478H429.73c22.263 0 40.311 18.048 40.311 40.31v282.176c0 22.263-18.048 40.312-40.31 40.312H147.555c-22.263 0-40.311-18.049-40.311-40.312V593.79c0-22.263 18.048-40.311 40.31-40.311zM593.927 106.992h282.176c22.263 0 40.31 18.048 40.31 40.31V429.48c0 22.263-18.047 40.31-40.31 40.31H593.927c-22.263 0-40.311-18.047-40.311-40.31V147.302c0-22.263 18.048-40.31 40.31-40.31zM730.22 920.502H623.926c-40.925 0-74.22-33.388-74.22-74.425V623.992c0-41.038 33.387-74.424 74.425-74.424h222.085c41.038 0 74.424 33.226 74.424 74.067v114.233c0 10.244-8.304 18.548-18.547 18.548s-18.548-8.304-18.548-18.548V623.635c0-20.388-16.746-36.974-37.33-36.974H624.13c-20.585 0-37.331 16.747-37.331 37.33v222.086c0 20.585 16.654 37.331 37.126 37.331H730.22c10.243 0 18.547 8.304 18.547 18.547 0 10.244-8.304 18.547-18.547 18.547z"></path></svg><ul class="categories-wrapper"><li><span class="category category5 clickable" role="navigation">微信公众号</span></li></ul><meta property="articleSection" content="微信公众号"></span><!----><span class="words-info" aria-label="字数🔠" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon word-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="word icon"><path d="M518.217 432.64V73.143A73.143 73.143 0 01603.43 1.097a512 512 0 01419.474 419.474 73.143 73.143 0 01-72.046 85.212H591.36a73.143 73.143 0 01-73.143-73.143z"></path><path d="M493.714 566.857h340.297a73.143 73.143 0 0173.143 85.577A457.143 457.143 0 11371.566 117.76a73.143 73.143 0 0185.577 73.143v339.383a36.571 36.571 0 0036.571 36.571z"></path></svg><span>约 2663 字</span><meta property="wordCount" content="2663"></span><span class="reading-time-info" aria-label="阅读时间⌛" data-balloon-pos="down"><svg xmlns="http://www.w3.org/2000/svg" class="icon timer-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="timer icon"><path d="M799.387 122.15c4.402-2.978 7.38-7.897 7.38-13.463v-1.165c0-8.933-7.38-16.312-16.312-16.312H256.33c-8.933 0-16.311 7.38-16.311 16.312v1.165c0 5.825 2.977 10.874 7.637 13.592 4.143 194.44 97.22 354.963 220.201 392.763-122.204 37.542-214.893 196.511-220.2 389.397-4.661 5.049-7.638 11.651-7.638 19.03v5.825h566.49v-5.825c0-7.379-2.849-13.981-7.509-18.9-5.049-193.016-97.867-351.985-220.2-389.527 123.24-37.67 216.446-198.453 220.588-392.892zM531.16 450.445v352.632c117.674 1.553 211.787 40.778 211.787 88.676H304.097c0-48.286 95.149-87.382 213.728-88.676V450.445c-93.077-3.107-167.901-81.297-167.901-177.093 0-8.803 6.99-15.793 15.793-15.793 8.803 0 15.794 6.99 15.794 15.793 0 80.261 63.69 145.635 142.01 145.635s142.011-65.374 142.011-145.635c0-8.803 6.99-15.793 15.794-15.793s15.793 6.99 15.793 15.793c0 95.019-73.789 172.82-165.96 177.093z"></path></svg><span>大约 9 分钟</span><meta property="timeRequired" content="PT9M"></span></div><hr></div><div class="toc-place-holder"><aside id="toc"><div class="toc-header">此页内容</div><div class="toc-wrapper"><ul class="toc-list"><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#断言" class="router-link-active router-link-exact-active toc-link level2">断言</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#对象、数组、集合" class="router-link-active router-link-exact-active toc-link level2">对象、数组、集合</a></li><ul class="toc-list"><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#objectutils" class="router-link-active router-link-exact-active toc-link level3">ObjectUtils</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#stringutils" class="router-link-active router-link-exact-active toc-link level3">StringUtils</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#collectionutils" class="router-link-active router-link-exact-active toc-link level3">CollectionUtils</a></li><!----><!--]--></ul><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#文件、资源、io-流" class="router-link-active router-link-exact-active toc-link level2">文件、资源、IO 流</a></li><ul class="toc-list"><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#filecopyutils" class="router-link-active router-link-exact-active toc-link level3">FileCopyUtils</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#resourceutils" class="router-link-active router-link-exact-active toc-link level3">ResourceUtils</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#streamutils" class="router-link-active router-link-exact-active toc-link level3">StreamUtils</a></li><!----><!--]--></ul><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#反射、aop" class="router-link-active router-link-exact-active toc-link level2">反射、AOP</a></li><ul class="toc-list"><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#reflectionutils" class="router-link-active router-link-exact-active toc-link level3">ReflectionUtils</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#aoputils" class="router-link-active router-link-exact-active toc-link level3">AopUtils</a></li><!----><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#aopcontext" class="router-link-active router-link-exact-active toc-link level3">AopContext</a></li><!----><!--]--></ul><!--]--><!--[--><li class="toc-item"><a aria-current="page" href="/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.html#程序汪资料链接" class="router-link-active router-link-exact-active toc-link level2">程序汪资料链接</a></li><!----><!--]--></ul></div></aside></div><!----><div class="theme-hope-content"><blockquote><p>作者：CadeCode</p><p>来源：<a href="http://juejin.cn/post/7043403364020781064" target="_blank" rel="noopener noreferrer">juejin.cn/post/7043403364020781064<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p></blockquote><h2 id="断言" tabindex="-1"><a class="header-anchor" href="#断言" aria-hidden="true">#</a> 断言</h2><ol><li>断言是一个逻辑判断，用于检查不应该发生的情况</li><li>Assert 关键字在 JDK1.4 中引入，可通过 JVM 参数<code>-enableassertions</code>开启</li><li>SpringBoot 中提供了 Assert 断言工具类，通常用于数据合法性检查</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 要求参数 object 必须为非空（Not Null），否则抛出异常，不予放行
+// 参数
+message
+参数用于定制异常信息。
+void notNull(Object object, String message)
+// 要求参数必须空（Null），否则抛出异常，不予『放行』。
+// 和 notNull() 方法断言规则相反
+void isNull(Object object, String message)
+// 要求参数必须为真（True），否则抛出异常，不予『放行』。
+void isTrue(boolean expression, String message)
+// 要求参数（List/Set）必须非空（Not Empty），否则抛出异常，不予放行
+void notEmpty(Collection collection, String message)
+// 要求参数（String）必须有长度（即，Not Empty），否则抛出异常，不予放行
+void hasLength(String text, String message)
+// 要求参数（String）必须有内容（即，Not Blank），否则抛出异常，不予放行
+void hasText(String text, String message)
+// 要求参数是指定类型的实例，否则抛出异常，不予放行
+void isInstanceOf(Class type, Object obj, String message)
+// 要求参数 `subType` 必须是参数 superType 的子类或实现类，否则抛出异常，不予放行
+void isAssignable(Class superType, Class subType, String message)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="对象、数组、集合" tabindex="-1"><a class="header-anchor" href="#对象、数组、集合" aria-hidden="true">#</a> 对象、数组、集合</h2><h3 id="objectutils" tabindex="-1"><a class="header-anchor" href="#objectutils" aria-hidden="true">#</a> ObjectUtils</h3><ol><li>获取对象的基本信息</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 获取对象的类名。参数为
+null
+时，返回字符串：&quot;null&quot; 
+String nullSafeClassName(Object obj)
+// 参数为 null 时，返回 0
+int nullSafeHashCode(Object object)
+// 参数为
+null
+时，返回字符串：&quot;null&quot;
+String nullSafeToString(boolean[] array)
+// 获取对象
+HashCode（十六进制形式字符串）。参数为
+null
+时，返回 0 
+String getIdentityHexString(Object obj)
+// 获取对象的类名和
+HashCode。 参数为
+null
+时，返回字符串：&quot;&quot; 
+String identityToString(Object obj)
+// 相当于
+toString()方法，但参数为
+null
+时，返回字符串：&quot;&quot;
+String getDisplayString(Object obj)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>判断工具</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 判断数组是否为空
+boolean isEmpty(Object[] array)
+// 判断参数对象是否是数组
+boolean isArray(Object obj)
+// 判断数组中是否包含指定元素
+boolean containsElement(Object[] array, Object element)
+// 相等，或同为 null时，返回 true
+boolean nullSafeEquals(Object o1, Object o2)
+/*
+判断参数对象是否为空，判断标准为：
+    Optional: Optional.empty()
+       Array: length == 0
+CharSequence: length == 0
+  Collection: Collection.isEmpty()
+         Map: Map.isEmpty()
+ */
+boolean isEmpty(Object obj)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3"><li>其他工具方法</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 向参数数组的末尾追加新元素，并返回一个新数组
+&lt;A, O extends A&gt; A[] addObjectToArray(A[] array, O obj)
+// 原生基础类型数组 --&gt; 包装类数组
+Object[] toObjectArray(Object source)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="stringutils" tabindex="-1"><a class="header-anchor" href="#stringutils" aria-hidden="true">#</a> StringUtils</h3><ol><li>字符串判断工具</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 判断字符串是否为
+null，或 &quot;&quot;。注意，包含空白符的字符串为非空
+boolean isEmpty(Object str)
+// 判断字符串是否是以指定内容结束。忽略大小写
+boolean endsWithIgnoreCase(String str, String suffix)
+// 判断字符串是否已指定内容开头。忽略大小写
+boolean startsWithIgnoreCase(String str, String prefix) 
+// 是否包含空白符
+boolean containsWhitespace(String str)
+// 判断字符串非空且长度不为 0，即，Not Empty
+boolean hasLength(CharSequence str)
+// 判断字符串是否包含实际内容，即非仅包含空白符，也就是 Not Blank
+boolean hasText(CharSequence str)
+// 判断字符串指定索引处是否包含一个子串。
+boolean substringMatch(CharSequence str, int index, CharSequence substring)
+// 计算一个字符串中指定子串的出现次数
+int countOccurrencesOf(String str, String sub)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>字符串操作工具</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 查找并替换指定子串
+String replace(String inString, String oldPattern, String newPattern)
+// 去除尾部的特定字符
+String trimTrailingCharacter(String str, char trailingCharacter) 
+// 去除头部的特定字符
+String trimLeadingCharacter(String str, char leadingCharacter)
+// 去除头部的空白符
+String trimLeadingWhitespace(String str)
+// 去除头部的空白符
+String trimTrailingWhitespace(String str)
+// 去除头部和尾部的空白符
+String trimWhitespace(String str)
+// 删除开头、结尾和中间的空白符
+String trimAllWhitespace(String str)
+// 删除指定子串
+String delete(String inString, String pattern)
+// 删除指定字符（可以是多个）
+String deleteAny(String inString, String charsToDelete)
+// 对数组的每一项执行 trim() 方法
+String[] trimArrayElements(String[] array)
+// 将 URL 字符串进行解码
+String uriDecode(String source, Charset charset)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3"><li>路径相关工具方法</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 解析路径字符串，优化其中的 “..” 
+String cleanPath(String path)
+// 解析路径字符串，解析出文件名部分
+String getFilename(String path)
+// 解析路径字符串，解析出文件后缀名
+String getFilenameExtension(String path)
+// 比较两个两个字符串，判断是否是同一个路径。会自动处理路径中的 “..” 
+boolean pathEquals(String path1, String path2)
+// 删除文件路径名中的后缀部分
+String stripFilenameExtension(String path) 
+// 以 “. 作为分隔符，获取其最后一部分
+String unqualify(String qualifiedName)
+// 以指定字符作为分隔符，获取其最后一部分
+String unqualify(String qualifiedName, char separator)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="collectionutils" tabindex="-1"><a class="header-anchor" href="#collectionutils" aria-hidden="true">#</a> CollectionUtils</h3><ol><li>集合判断工具. 我是程序汪</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 判断 List/Set 是否为空
+boolean isEmpty(Collection&lt;?&gt; collection)
+// 判断 Map 是否为空
+boolean isEmpty(Map&lt;?,?&gt; map)
+// 判断 List/Set 中是否包含某个对象
+boolean containsInstance(Collection&lt;?&gt; collection, Object element)
+// 以迭代器的方式，判断 List/Set 中是否包含某个对象
+boolean contains(Iterator&lt;?&gt; iterator, Object element)
+// 判断 List/Set 是否包含某些对象中的任意一个
+boolean containsAny(Collection&lt;?&gt; source, Collection&lt;?&gt; candidates)
+// 判断
+List/Set
+中的每个元素是否唯一。即
+List/Set
+中不存在重复元素
+boolean hasUniqueObject(Collection&lt;?&gt; collection)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>集合操作工具。  <a href="http://mp.weixin.qq.com/s?__biz=Mzg2ODU0NTA2Mw==&amp;mid=2247488419&amp;idx=2&amp;sn=0b80c7f9f73fca89b91e257a269cfada&amp;chksm=ceabf4ebf9dc7dfdaa605a9bb92d31c9fc0a10a7a94351234181a89ba5800672c6e7da2ebfbe&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer">Java项目分享  最新整理全集<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 将 Array 中的元素都添加到 List/Set 中
+&lt;E&gt; void mergeArrayIntoCollection(Object array, Collection&lt;E&gt; collection)  
+// 将 Properties 中的键值对都添加到 Map 中
+&lt;K,V&gt; void mergePropertiesIntoMap(Properties props, Map&lt;K,V&gt; map)
+// 返回 List 中最后一个元素
+&lt;T&gt; T lastElement(List&lt;T&gt; list)  
+// 返回 Set 中最后一个元素
+&lt;T&gt; T lastElement(Set&lt;T&gt; set) 
+// 返回参数 candidates 中第一个存在于参数 source 中的元素
+&lt;E&gt; E findFirstMatch(Collection&lt;?&gt; source, Collection&lt;E&gt; candidates)
+// 返回
+List/Set
+中指定类型的元素。
+&lt;T&gt; T findValueOfType(Collection&lt;?&gt; collection, Class&lt;T&gt; type)
+// 返回
+List/Set
+中指定类型的元素。如果第一种类型未找到，则查找第二种类型，以此类推
+Object findValueOfType(Collection&lt;?&gt; collection, Class&lt;?&gt;[] types)
+// 返回 List/Set 中元素的类型
+Class&lt;?&gt; findCommonElementType(Collection&lt;?&gt; collection)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="文件、资源、io-流" tabindex="-1"><a class="header-anchor" href="#文件、资源、io-流" aria-hidden="true">#</a> 文件、资源、IO 流</h2><h3 id="filecopyutils" tabindex="-1"><a class="header-anchor" href="#filecopyutils" aria-hidden="true">#</a> FileCopyUtils</h3><ol><li>输入</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 从文件中读入到字节数组中
+byte[] copyToByteArray(File in)
+// 从输入流中读入到字节数组中
+byte[] copyToByteArray(InputStream in)
+// 从输入流中读入到字符串中
+String copyToString(Reader in)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>输出</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 从字节数组到文件
+void copy(byte[] in, File out)
+// 从文件到文件
+int copy(File in, File out)
+// 从字节数组到输出流
+void copy(byte[] in, OutputStream out) 
+// 从输入流到输出流
+int copy(InputStream in, OutputStream out) 
+// 从输入流到输出流
+int copy(Reader in, Writer out)
+// 从字符串到输出流
+void copy(String in, Writer out)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="resourceutils" tabindex="-1"><a class="header-anchor" href="#resourceutils" aria-hidden="true">#</a> ResourceUtils</h3><ol><li>从资源路径获取文件</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 判断字符串是否是一个合法的
+URL
+字符串。
+static boolean isUrl(String resourceLocation)
+// 获取 URL
+static URL getURL(String resourceLocation) 
+// 获取文件（在 JAR 包内无法正常使用，需要是一个独立的文件）
+static File getFile(String resourceLocation)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>Resource</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 文件系统资源 D:\...
+FileSystemResource
+// URL 资源，如 file://... http://...
+UrlResource
+// 类路径下的资源，classpth:...
+ClassPathResource
+// Web 容器上下文中的资源（jar 包、war 包）
+ServletContextResource
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 判断资源是否存在
+boolean exists()
+// 从资源中获得 File 对象
+File getFile()
+// 从资源中获得 URI 对象
+URI getURI()
+// 从资源中获得 URI 对象
+URL getURL()
+// 获得资源的 InputStream
+InputStream getInputStream()
+// 获得资源的描述信息
+String getDescription()
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="streamutils" tabindex="-1"><a class="header-anchor" href="#streamutils" aria-hidden="true">#</a> StreamUtils</h3><ol><li>输入</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>void copy(byte[] in, OutputStream out)
+int copy(InputStream in, OutputStream out)
+void copy(String in, Charset charset, OutputStream out)
+long copyRange(InputStream in, OutputStream out, long start, long end)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>输出</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>byte[] copyToByteArray(InputStream in)
+String copyToString(InputStream in, Charset charset)
+// 舍弃输入流中的内容
+int drain(InputStream in)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="反射、aop" tabindex="-1"><a class="header-anchor" href="#反射、aop" aria-hidden="true">#</a> 反射、AOP</h2><h3 id="reflectionutils" tabindex="-1"><a class="header-anchor" href="#reflectionutils" aria-hidden="true">#</a> ReflectionUtils</h3><ol><li>获取方法</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 在类中查找指定方法
+Method findMethod(Class&lt;?&gt; clazz, String name) 
+// 同上，额外提供方法参数类型作查找条件
+Method findMethod(Class&lt;?&gt; clazz, String name, Class&lt;?&gt;... paramTypes) 
+// 获得类中所有方法，包括继承而来的
+Method[] getAllDeclaredMethods(Class&lt;?&gt; leafClass) 
+// 在类中查找指定构造方法
+Constructor&lt;T&gt; accessibleConstructor(Class&lt;T&gt; clazz, Class&lt;?&gt;... parameterTypes) 
+// 是否是 equals() 方法
+boolean isEqualsMethod(Method method) 
+// 是否是 hashCode() 方法 
+boolean isHashCodeMethod(Method method) 
+// 是否是 toString() 方法
+boolean isToStringMethod(Method method) 
+// 是否是从 Object 类继承而来的方法
+boolean isObjectMethod(Method method) 
+// 检查一个方法是否声明抛出指定异常
+boolean declaresException(Method method, Class&lt;?&gt; exceptionType)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>执行方法</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 执行方法
+Object invokeMethod(Method method, Object target)  
+// 同上，提供方法参数
+Object invokeMethod(Method method, Object target, Object... args) 
+// 取消
+Java
+权限检查。以便后续执行该私有方法
+void makeAccessible(Method method) 
+// 取消
+Java
+权限检查。以便后续执行私有构造方法
+void makeAccessible(Constructor&lt;?&gt; ctor)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3"><li>获取字段</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 在类中查找指定属性
+Field findField(Class&lt;?&gt; clazz, String name) 
+// 同上，多提供了属性的类型
+Field findField(Class&lt;?&gt; clazz, String name, Class&lt;?&gt; type) 
+// 是否为一个 &quot;public static final&quot; 属性
+boolean isPublicStaticFinal(Field field)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="4"><li>设置字段</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 获取 target 对象的 field 属性值
+Object getField(Field field, Object target) 
+// 设置 target 对象的 field 属性值，值为 value
+void setField(Field field, Object target, Object value) 
+// 同类对象属性对等赋值
+void shallowCopyFieldState(Object src, Object dest)
+// 取消
+Java
+的权限控制检查。以便后续读写该私有属性
+void makeAccessible(Field field) 
+// 对类的每个属性执行 callback
+void doWithFields(Class&lt;?&gt; clazz, ReflectionUtils.FieldCallback fc) 
+// 同上，多了个属性过滤功能。
+void doWithFields(Class&lt;?&gt; clazz, ReflectionUtils.FieldCallback fc, 
+                  ReflectionUtils.FieldFilter ff) 
+// 同上，但不包括继承而来的属性
+void doWithLocalFields(Class&lt;?&gt; clazz, ReflectionUtils.FieldCallback fc)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="aoputils" tabindex="-1"><a class="header-anchor" href="#aoputils" aria-hidden="true">#</a> AopUtils</h3><ol><li>判断代理类型</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 判断是不是 Spring 代理对象
+boolean isAopProxy()
+// 判断是不是 jdk 动态代理对象
+isJdkDynamicProxy()
+// 判断是不是 CGLIB 代理对象
+boolean isCglibProxy()
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>获取被代理对象的 class</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>// 获取被代理的目标 class
+Class&lt;?&gt; getTargetClass()
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="aopcontext" tabindex="-1"><a class="header-anchor" href="#aopcontext" aria-hidden="true">#</a> AopContext</h3><ol><li>获取当前对象的代理对象</li></ol><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>Object currentProxy()
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><hr><h2 id="程序汪资料链接" tabindex="-1"><a class="header-anchor" href="#程序汪资料链接" aria-hidden="true">#</a> 程序汪资料链接</h2><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&amp;mid=2247501524&amp;idx=1&amp;sn=2cb28e7b64ab77c55bcc1a172b82a2ad&amp;chksm=903bc2b9a74c4baf5737cd430560ee3c5a357bb37864257a05a72e3cccf41db5bd221ccc63d8&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer">程序汪接的7个私活都在这里，经验整理<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p><a href="http://mp.weixin.qq.com/s?__biz=Mzg2ODU0NTA2Mw==&amp;mid=2247488419&amp;idx=2&amp;sn=0b80c7f9f73fca89b91e257a269cfada&amp;chksm=ceabf4ebf9dc7dfdaa605a9bb92d31c9fc0a10a7a94351234181a89ba5800672c6e7da2ebfbe&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer"><strong>Java项目分享  最新整理全集，找项目不累啦 07版</strong><span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&amp;mid=2247494170&amp;idx=1&amp;sn=5181a5277946be31478b1b9425c93f63&amp;chksm=903bee77a74c67614b2772248e8b5e912d323bfe42a0e576dd157a4752f5fed88d6b439ec52f&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer"><strong>堪称神级的Spring Boot手册，从基础入门到实战进阶</strong><span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&amp;mid=2247492941&amp;idx=1&amp;sn=2ff31fec735d7c5d6f3483c346d5ca69&amp;chksm=903be120a74c68361fd9afad178e7338315041a2cd4459f2165a8faa20e995a3477af3eda2bb&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer"><strong>卧槽！字节跳动《算法中文手册》火了，完整版 PDF 开放下载！</strong><span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&amp;mid=2247496297&amp;idx=2&amp;sn=d253dda2160821262d9f6fc1a9a637d0&amp;chksm=903bf604a74c7f126ab936e374a1f22b9b7cb26a7964b6cc837c3f73af516139064e522a1294&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer"><strong>卧槽！阿里大佬总结的《图解Java》火了，完整版PDF开放下载！</strong><span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4NzQ0Njc4Ng==&amp;mid=2247490715&amp;idx=2&amp;sn=7f2c5de11bebaecfbaf1ce4b945a4d6f&amp;chksm=903818f6a74f91e0fde557b75bd44adfd5d378612f682aa3eef6766927aebb9e5afc72c91a9e&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreferrer"><strong>字节跳动总结的设计模式 PDF 火了，完整版开放下载！</strong><span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p>欢迎添加程序汪个人微信 itwang009  进粉丝群或围观朋友圈</p></div><!----><footer class="page-meta"><div class="meta-item edit-link"><a href="https://github.com/itwanger/toBeBetterJavaer/edit/master/docs/nice-article/weixin/biezzjxxgjllspringbootnzgjlyyjyjysz.md" rel="noopener noreferrer" target="_blank" aria-label="编辑此页" class="nav-link label"><!--[--><svg xmlns="http://www.w3.org/2000/svg" class="icon edit-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="edit icon"><path d="M430.818 653.65a60.46 60.46 0 0 1-50.96-93.281l71.69-114.012 7.773-10.365L816.038 80.138A60.46 60.46 0 0 1 859.225 62a60.46 60.46 0 0 1 43.186 18.138l43.186 43.186a60.46 60.46 0 0 1 0 86.373L588.879 565.55l-8.637 8.637-117.466 68.234a60.46 60.46 0 0 1-31.958 11.229z"></path><path d="M728.802 962H252.891A190.883 190.883 0 0 1 62.008 771.98V296.934a190.883 190.883 0 0 1 190.883-192.61h267.754a60.46 60.46 0 0 1 0 120.92H252.891a69.962 69.962 0 0 0-69.098 69.099V771.98a69.962 69.962 0 0 0 69.098 69.098h475.911A69.962 69.962 0 0 0 797.9 771.98V503.363a60.46 60.46 0 1 1 120.922 0V771.98A190.883 190.883 0 0 1 728.802 962z"></path></svg><!--]-->编辑此页<span><svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span><!----></a></div><div class="meta-item update-time"><span class="label">上次编辑于: </span><!----></div><div class="meta-item contributors"><span class="label">贡献者: </span><!--[--><!--[--><span class="contributor" title="email: www.qing_gee@163.com">itwanger</span><!--]--><!--]--></div></footer><!----><div class="giscus-wrapper input-top" style="display:block;"><div style="text-align:center">Loading...</div></div><!----><!--]--></main><!--]--><footer class="footer-wrapper"><div class="footer"><a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-1</a><img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/beian.png" height="15px" width="15px" /><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41030502000411"><span>豫公网安备 41030502000411号</span></a></div><div class="copyright">Copyright © 2022 沉默王二</div></footer><!--]--></div><!--]--><!----><!----><!--]--></div>
+    <script type="module" src="/assets/app.99eb8281.js" defer></script>
+  </body>
+</html>
