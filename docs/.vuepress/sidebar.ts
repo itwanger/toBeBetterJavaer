@@ -344,30 +344,35 @@ export const sidebarConfig = sidebar({
           text: "3.1 开发/构建工具",
           collapsible: true,
           children: [
-          "nginx/nginx",
-          {
-            text: "3.1.1 IDE",
-            collapsible: true,
-            children: [
-            "ide/4-debug-skill",
-            "ide/xechat",
-            "ide/shenji-chajian-10",
-            ],
-          },
-          {
-            text: "3.1.2 Maven",
-            collapsible: true,
-            children: [
-            "maven/maven",
-            ],
-          },
-          {
-            text: "3.1.3 Git",
-            collapsible: true,
-            children: [
-            "git/git-qiyuan",
-            ],
-          },
+            {
+              text: "3.1.1 Nginx",
+              children: [
+                "nginx/nginx",
+              ],
+            },
+            {
+              text: "3.1.2 IDE",
+              collapsible: true,
+              children: [
+              "ide/4-debug-skill",
+              "ide/xechat",
+              "ide/shenji-chajian-10",
+              ],
+            },
+            {
+              text: "3.1.3 Maven",
+              collapsible: true,
+              children: [
+              "maven/maven",
+              ],
+            },
+            {
+              text: "3.1.4 Git",
+              collapsible: true,
+              children: [
+              "git/git-qiyuan",
+              ],
+            },
           ],
         },
         {
