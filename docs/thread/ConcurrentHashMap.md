@@ -591,7 +591,7 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
                 if (tabAt(tab, i) == f) {
                     Node<K,V> ln, hn;
                     if (fh >= 0) {
-						//4.3 处理当前节点为链表的头结点的情况，构造两个链表，一个是原链表  另一个是原链表的反序排列
+						//4.3 处理当前节点为链表的头结点的情况，根据最高位为1还是为0(最高位指数组长度位)，将原链表拆分为两个链表，分别放到新数组的i位置和i+n位置。这里还通过巧妙的处理措施，使得原链表中的一部分能直接平移到新链表(即lastRun及其后面跟着的一串节点)，剩下部分才需要通过new方式克隆移动到新链表中（采用头插法）。
                         int runBit = fh & n;
                         Node<K,V> lastRun = f;
                         for (Node<K,V> p = f.next; p != null; p = p.next) {
@@ -612,7 +612,7 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
                         for (Node<K,V> p = f; p != lastRun; p = p.next) {
                             int ph = p.hash; K pk = p.key; V pv = p.val;
                             if ((ph & n) == 0)
-                                ln = new Node<K,V>(ph, pk, pv, ln);
+                                ln = new Node<K,V>(ph, pk, pv, ln); //可以看到是逆序插入新节点的（头插）
                             else
                                 hn = new Node<K,V>(ph, pk, pv, hn);
                         }
@@ -675,7 +675,7 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
 根据运算得到当前遍历的数组的位置i，然后利用tabAt方法获得i位置的元素再进行判断：
 
 1. 如果这个位置为空，就在原table中的i位置放入forwardNode节点，这个也是触发并发扩容的关键点；
-2. 如果这个位置是Node节点（fh>=0），如果它是一个链表的头节点，就构造一个反序链表，把他们分别放在nextTable的i和i+n的位置上
+2. 如果这个位置是Node节点（fh>=0），如果它是一个链表的头节点，就把这个链表分裂成两个链表，把它们分别放在nextTable的i和i+n的位置上
 3. 如果这个位置是TreeBin节点（fh<0），也做一个反序处理，并且判断是否需要untreefi，把处理的结果分别放在nextTable的i和i+n的位置上
 4. 遍历过所有的节点以后就完成了复制工作，这时让nextTable作为新的table，并且更新sizeCtl为新容量的0.75倍 ，完成扩容。设置为新容量的0.75倍代码为 `sizeCtl = (n << 1) - (n >>> 1)`，仔细体会下是不是很巧妙，n<<1相当于n右移一位表示n的两倍即2n,n>>>1左右一位相当于n除以2即0.5n,然后两者相减为2n-0.5n=1.5n,是不是刚好等于新容量的0.75倍即2n*0.75=1.5n。最后用一个示意图来进行总结（图片摘自网络）：
 
