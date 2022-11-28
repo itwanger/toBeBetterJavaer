@@ -256,10 +256,10 @@ private void unparkSuccessor(Node node) {
     // 得到头结点的后继结点head.next
     Node s = node.next;
     // 如果这个后继结点为空或者状态大于0
-    // 通过前面的定义我们知道，大于0只有一种可能，就是这个结点已被取消
+    // 通过前面的定义我们知道，大于0只有一种可能，就是这个结点已被取消（只有 Node.CANCELLED(=1) 这一种状态大于0）
     if (s == null || s.waitStatus > 0) {
         s = null;
-        // 等待队列中所有还有用的结点，都向前移动
+        // 从尾部开始倒着寻找第一个还未取消的节点（真正的后继者）
         for (Node t = tail; t != null && t != node; t = t.prev)
             if (t.waitStatus <= 0)
                 s = t;
