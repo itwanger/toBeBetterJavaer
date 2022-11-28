@@ -241,7 +241,7 @@ public User selectUser(User user);
     <!–用result属性来映射非主键字段，property为实体类属性名，column为数据库表中的属性–>
   <result property ="orderno" column ="order_no"/>
   <result property="price" column="order_price" />
-</reslutMap>
+</resultMap>
 ```
 
 ### 6. Mybatis是否可以映射Enum枚举类？
@@ -264,7 +264,7 @@ public User selectUser(User user);
 
 - 1 ’`%${question}%`’ 可能引起SQL注入，不推荐
 - 2 `"%"#{question}"%"` 注意：因为`#{…}`解析成sql语句时候，会在变量外侧自动加单引号’ '，所以这里 % 需要使用双引号" "，不能使用单引号 ’ '，不然会查不到任何结果。
-- 3 `CONCAT(’%’,#{question},’%’)` 使用CONCAT()函数，（推荐✨）
+- 3 `CONCAT('%',#{question},'%')` 使用CONCAT()函数，（推荐✨）
 - 4 使用bind标签（不推荐）
 
 ```java
