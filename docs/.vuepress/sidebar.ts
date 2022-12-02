@@ -11,6 +11,7 @@ export const sidebarConfig = sidebar({
   // 你可以省略 .md 扩展名，以 / 结尾的路径会被推断为 /README.md(区分大小写)
   "/nice-article/itmind/": [
     "readme.md",
+    "shangwang.md",
     "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
     "yigkymxczideatsyqdffblwxjcywdxbxt",
     "ideapjazjczxjhmzcmyjjhcxgxz",
