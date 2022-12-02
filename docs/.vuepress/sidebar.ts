@@ -615,6 +615,7 @@ export const sidebarConfig = sidebar({
             "redis-12",
             "mysql-60",
             "dubbo-17",
+            "kafka-40",
             "java-basic-baguwen",
             "java-thread-baguwen",
             "java-jvm-baguwen",
