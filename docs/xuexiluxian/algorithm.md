@@ -163,7 +163,7 @@ B 站上浙江大学的一个数据结构课非常不错，很系统很经典。
 
 不得不说，陈越姥姥等人对数据结构和算法这个领域的知识理解是真的透彻，我在听这个课的时候感觉整个人都通透了。
 
-视频地址：[https://www.bilibili.com/video/BV1JW411i731](https://www.bilibili.com/video/BV1JW411i731)
+视频地址：[https://www.bilibili.com/video/BV1Kb41127fT](https://www.bilibili.com/video/BV1Kb41127fT)
 
 这里还有个同学在 GitHub 上整理这门课程的所有课件和作业，学习 Java 的小伙伴可以尝试用 Java 完成下作业。
 
