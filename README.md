@@ -433,6 +433,7 @@
 - [40 道 Nginx 精选面试题👍](docs/interview/nginx-40.md)
 - [60 道 MySQL 精选面试题👍](docs/interview/mysql-60.md)
 - [17 道 Dubbo 精选面试题👍](docs/interview/dubbo-17.md)
+- [40 道 Kafka 精选面试题👍](docs/interview/kafka-40.md)
 - [Java 基础背诵版八股文必看🍉](docs/interview/java-basic-baguwen.md)
 - [Java 并发编程背诵版八股文必看🍉](docs/interview/java-thread-baguwen.md)
 - [Java 虚拟机背诵版八股文必看🍉](docs/interview/java-jvm-baguwen.md)
