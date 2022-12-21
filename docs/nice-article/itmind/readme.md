@@ -22,6 +22,7 @@ head:
 - [一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!](yigkymxczideatsyqdffblwxjcywdxbxt.md)
 - [IDEA 2022.1 最新激活码、注册码（永久激活，持续更新中~ ](ideapjazjczxjhmzcmyjjhcxgxz.md)
 - [2022 Intellij IDEA最新激活码,IDEA稳定专属激活码](ideajhmideajhmideapxideajhmideazcmideayjjhm.md)
+- [IDEA 如何关闭更新提示？](intellijidearhgbgxdsxbxt.md)
 
 ## Navicat
 
@@ -39,9 +40,19 @@ head:
 
 ## PyCharm
 
-- [PyCharm 2022.1 激活破解码_安装教程](xshellazpjbjcxshellpxffxbxt.md)
+- [PyCharm 2022.1 激活破解码_安装教程](pycharmjhpxmazjcnyrgxxbxt.md)
 
+## Webstorm
 
+- [Webstorm激活码](webstormjhmwebstormwdzsjhmxbxt.md)
+
+## Visual Studio
+
+- [Visual Studio密钥](visualstudiopxbazjcnfvisualstudiojhmmyxbxt.md)
+
+## Sublime
+
+- [Sublime 激活码](sublimetextzcmpjazjcqckyxbxt.md)
 
 ## 免责声明
 
