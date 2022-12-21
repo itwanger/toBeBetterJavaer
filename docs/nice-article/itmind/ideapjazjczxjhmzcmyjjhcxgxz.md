@@ -1,7 +1,7 @@
 ---
 title: IDEA 2022.1 最新激活码、注册码（永久激活，持续更新中~
 shortTitle: IDEA 2022.1 最新激活码
-description: IDEA 2022.1破解安装教程,最新激活码、注册码（永久激活，持续更新中~）通过补丁可以永久激活 IDEA，前面 IDEA 安装都是一样的，主要是后面的步骤，注意看后面就行~
+description: IDEA 2022.1破解安装教程,最新激活码、注册码（永久激活，持续更新中~）通过补丁可以永久激活 IDEA
 tags:
   - IDEA
 category:
@@ -9,13 +9,13 @@ category:
 head:
   - - meta
     - name: description
-      content: IDEA 2022.1破解安装教程,最新激活码、注册码（永久激活，持续更新中~）通过补丁可以永久激活 IDEA，前面 IDEA 安装都是一样的，主要是后面的步骤，注意看后面就行~
+      content: IDEA 2022.1破解安装教程,最新激活码、注册码（永久激活，持续更新中~）通过补丁可以永久激活 IDEA
   - - meta
     - name: keywords
       content: IDEA,IDEA 2022,IDEA 2022.1,Intellij IDEA,激活码,注册码
 ---
 
-**PS: 本教程最新更新时间: 2022年8月8日**
+**PS: 本教程最新更新时间: 2022年12月19日**
 
 [Intellij idea激活码,Webstorm激活码,Pycharm激活码,Typora破解,Xmind,Beyond Compare破解版](https://tobebetterjavaer.com/nice-article/itmind/)
 

@@ -1,7 +1,7 @@
 ---
-title: Typora Windows 版永久破解
+title: Typora Windows 版永久破解，附破解教程，亲测有效
 shortTitle: Typora Windows 永久破解
-description: Typora Windows 版永久破解
+description: Typora Windows 版永久破解，附破解教程，亲测有效
 tags:
   - typora破解
   - typora Windows破解
@@ -39,7 +39,7 @@ PS: 破解文件页面提取人数过多，导致分享的百度网盘链接容�
 
 需要的小伙伴，扫描下方公众号二维码，或者关注公众号： **沉默王二**，回复关键字：**typora** 即可免费无套路获取，持续更新中~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-typorayjpx-9facc169-cdee-43af-b452-97f03a7b0ae7.jpg)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 **二、 解压文件**
 

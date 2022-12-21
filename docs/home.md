@@ -12,16 +12,6 @@ head:
 ---
 
 ::: center
-<p align="center">
-  <a href="https://www.yuque.com/itwanger/ydx81p/nksgcaox959w7ie9">
-      <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" style="margin: 0 auto; width: 700px;" />
-  </a>
-</p>
-:::
-
->[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个「编程学习指南 + Java项目实战 + LeetCode刷题」的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
-
-::: center
 <div align="center">
   <a href="https://tobebetterjavaer.com">
     <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
