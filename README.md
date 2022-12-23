@@ -1,10 +1,3 @@
-<p align="center">
-  <a href="https://www.yuque.com/itwanger/ydx81p/nksgcaox959w7ie9">
-      <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" style="margin: 0 auto; width: 700px;" />
-  </a>
-</p>
-
->[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **1000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个「编程学习指南 + Java项目实战 + LeetCode刷题」的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、跟着二哥一起做项目、刷力扣，冲冲冲。
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
@@ -459,8 +452,6 @@
 - [有无实习/暑期实习 offer 如何准备秋招？💪](docs/nice-article/weixin/zijxjjdyfqzgl.md)
 - [简历如何优化，简历如何投递，面试如何准备？💪](docs/nice-article/weixin/luoczbmsddyb.md)
 - [校招时间节点、简历编写、笔试、HR面、实习等注意事项💪](docs/nice-article/weixin/youdxzhhmjzlycfx.md)
-
-
 
 ## 城市选择
 
