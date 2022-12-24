@@ -2,7 +2,7 @@
 title: IDEA 2022.1 最新激活码、注册码（永久激活，持续更新中~
 shortTitle: IDEA 2022.1 最新激活码
 description: IDEA 2022.1破解安装教程,最新激活码、注册码（永久激活，持续更新中~）通过补丁可以永久激活 IDEA
-tags:
+tag:
   - IDEA
 category:
   - 小白学堂

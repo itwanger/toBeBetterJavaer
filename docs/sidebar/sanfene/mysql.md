@@ -5,7 +5,7 @@ description: 图文详解 66 道 MySQL 面试高频题，这次吊打面试官�
 author: 三分恶
 category:
   - 面渣逆袭
-tags:
+tag:
   - 面渣逆袭
 head:
   - - meta

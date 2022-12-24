@@ -2,7 +2,7 @@
 title: 三十岁的我，自由了！
 shortTitle: 三十岁的我，自由了！
 description: 追寻自由的路上，我依然在前行。喜欢上了这平平淡淡的生活，也喜欢上了这自由的味道，别有那么多的顾虑，快乐就完事了。
-tags:
+tag:
   -  网络爬虫
 author: 破风手_自由
 category:

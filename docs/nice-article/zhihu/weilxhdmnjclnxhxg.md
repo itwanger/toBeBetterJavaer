@@ -2,7 +2,7 @@
 title: 如何快速提升你的编码能力？
 shortTitle: 如何快速提升你的编码能力？
 description: 4年了，我一直坚持“抄袭”别人的代码，有时“抄”同事的，有时“抄”框架的，偶尔也“抄”网友的。为什…
-tags:
+tag:
   - 优质文章
 author: 知乎用户
 category:

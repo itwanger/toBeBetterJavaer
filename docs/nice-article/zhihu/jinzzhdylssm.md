@@ -2,7 +2,7 @@
 title: 进制转换的原理是什么？
 shortTitle: 进制转换的原理是什么？
 description: 老实说我不知道你那里不懂……求更多解释……我先猜着来，有什么不合适的，您说话。据我推测，你这个阶段…
-tags:
+tag:
   - 优质文章
 author: 曹文雯 
 category:

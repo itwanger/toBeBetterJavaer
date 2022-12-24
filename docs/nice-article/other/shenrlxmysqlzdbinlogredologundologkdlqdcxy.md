@@ -1,10 +1,8 @@
 ---
 title: MySQL的bin log、redo log、undo log 到底有什么区别？
 shortTitle: bin log、redo log、undo log
-description: bin log：使用场景、主从复制流程、如何恢复被删数据、如何正确删除bin log日志。
-redo log：原理、mysql如何进行异常崩溃数据恢复、自定义日志刷入时机。
-undo log：作用、工作机制以及原理。
-tags:
+description: bin log：使用场景、主从复制流程、如何恢复被删数据、如何正确删除bin log日志。redo log：原理、mysql如何进行异常崩溃数据恢复、自定义日志刷入时机。undo log：作用、工作机制以及原理。
+tag:
   - 优质文章
 category:
   - 其他网站

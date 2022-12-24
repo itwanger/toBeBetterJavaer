@@ -5,7 +5,7 @@ description: 面试前必读系列！包括 Java 基础（JavaSE）、Java 集�
 author: 三分恶
 category:
   - 面渣逆袭
-tags:
+tag:
   - 面渣逆袭
 head:
   - - meta

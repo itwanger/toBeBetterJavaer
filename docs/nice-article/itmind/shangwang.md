@@ -1,3 +1,17 @@
+---
+title: 科学上网的三种方式
+shortTitle: 科学上网的三种方式
+description: 科学上网的三种方式
+tag:
+  - 破解合集
+category:
+  - 小白学堂
+head:
+  - - meta
+    - name: keywords
+      content: 科学上网
+---
+
 # 三种科学上网的方式
 
 一般情况下，作为开发者，我推荐大家至少学会使用 Google 搜索，这样能解决开发中的绝大多数问题。

@@ -2,19 +2,8 @@
 title: Navicat Windows 破解版教程，绿色安装版，附注册机，附激活教程
 shortTitle: Navicat Windows 破解版
 description: Navicat Windows 破解版教程，绿色安装版，附注册机，附激活教程
-tags:
-  - navicat 16
-  - Navicat windows
-  - navicat破解
-  - Navicat破解版
-  - Navicat Premium15 永久破解
-  - Navicat15 永久破解
-  - Navicat15永久破解
-  - Navicat永久破解
-  - Navicat windows永久破解
-  - Navicat Premium16 永久破解
-  - Navicat16 永久破解
-  - Navicat16永久破解
+tag:
+  - navicat
 category:
   - 小白学堂
 head:

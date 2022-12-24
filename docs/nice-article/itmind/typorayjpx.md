@@ -2,10 +2,8 @@
 title: Typora Windows 版永久破解，附破解教程，亲测有效
 shortTitle: Typora Windows 永久破解
 description: Typora Windows 版永久破解，附破解教程，亲测有效
-tags:
-  - typora破解
-  - typora Windows破解
-  - typora免费使用
+tag:
+  - typora
 category:
   - 小白学堂
 head:

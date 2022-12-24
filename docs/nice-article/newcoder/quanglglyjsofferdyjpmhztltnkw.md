@@ -2,7 +2,7 @@
 title: 全国理工类研究所offer待遇及排名汇总_讨论帖_牛客网
 shortTitle: 全国理工类研究所offer待遇及排名汇总_讨论帖_牛客网
 description: 这里有一份我自己整理的“军工研究所offer待遇汇总”，分享出来希望对大家有帮助
-tags:
+tag:
   - 优质文章
 category:
   - 牛客

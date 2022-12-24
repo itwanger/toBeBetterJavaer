@@ -2,7 +2,7 @@
 title: Elasticsearch学习笔记_巨輪的博客-CSDN博客
 shortTitle: Elasticsearch学习笔记_巨輪的博客-CSDN博客
 description: ----第1章 Elasticsearch概述-01-开篇02-技术选型03-教学大纲-第2章 Elasticsearch入门-04-入门-环境准备05-入门-RESTful &amp; JSON06-入门-Postman客户端工具07-入门-倒排索引08-入门-HTTP-索引-创建09-入门-HTTP-索引-查询 &amp; 删除10-入门-HTTP-文档-创建（Put &amp; Post）11-入门-HTTP-查询-主键查询 &...
-tags:
+tag:
   - 优质文章
 category:
   - CSDN

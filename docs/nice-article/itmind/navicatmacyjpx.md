@@ -2,20 +2,8 @@
 title: Navicat macOS 永久破解，不需要注册机，绿色安装，亲测真实有效
 shortTitle: Navicat macOS 破解版
 description: Navicat 16 macOS 永久破解版本，不需要注册机，绿色安装
-tags:
+tag:
   - Navicat
-  - Navicat macOS
-  - Navicat 16
-  - navicat破解
-  - Navicat破解版
-  - Navicat Premium15 永久破解
-  - Navicat15 永久破解
-  - Navicat15永久破解
-  - Navicat永久破解
-  - Navicat macOS 破解
-  - Navicat Premium16 永久破解
-  - Navicat16 永久破解
-  - Navicat16永久破解
 category:
   - 小白学堂
 head:

@@ -2,7 +2,7 @@
 title: 校招 Java 后端开发应该掌握到什么程度？
 shortTitle: 校招Java后端应该掌握到什么程度?
 description: 参加了21届的春招和秋招，拿到过阿里、腾讯、字节等大厂的offer，目前刚刚入职阿里淘系技术（Java后端开…
-tags:
+tag:
   - 学习建议
 author: 阿里巴巴大淘宝技术 
 category:

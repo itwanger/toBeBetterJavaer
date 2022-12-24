@@ -2,7 +2,7 @@
 title: 如何优雅的写 Controller 层代码？
 shortTitle: 如何优雅的写Controller层代码？
 description: 前言本篇主要要介绍的就是controller层的处理，一个完整的后端请求由4部分组成：1. 接口地址(也就是URL地址)、2. 请求方式(一般就是get、set，当然还有put、delete)、3. 请求数据(request，有head跟body)、4. 响应数据(response)本篇将解决以下3个问题：当接收到请求时，如何优雅的校验参数返回响应数据该如何统一的进行处理接收到请求，处...
-tags:
+tag:
   - 正规军springboot如何处理
 category:
   - CSDN

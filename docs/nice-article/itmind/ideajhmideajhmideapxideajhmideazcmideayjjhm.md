@@ -2,7 +2,7 @@
 title: 2022 Intellij IDEA最新激活码,IDEA稳定专属激活码
 shortTitle: IDEA稳定专属激活码
 description: 2022 Intellij IDEA最新激活码，IDEA稳定专属激活码
-tags:
+tag:
   - IDEA
 category:
   - 小白学堂

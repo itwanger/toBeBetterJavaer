@@ -2,11 +2,8 @@
 title: Xshell 破解版安装教程（xftp破解方法）
 shortTitle: Xshell 破解版安装教程
 description: Xshell 安装破解版教程，xshell 破解方法，xshell 破解版，xshell 激活
-tags:
-  - Xshell 安装破解版教程
-  - xshell 破解方法
-  - xshell 破解版
-  - xshell 激活
+tag:
+  - Xshell
 category:
   - 小白学堂
 head:
