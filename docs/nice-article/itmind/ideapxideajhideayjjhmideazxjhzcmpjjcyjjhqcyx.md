@@ -2,16 +2,8 @@
 title: IDEA 2022 最新激活注册码 - 附破解教程 [永久激活，亲测有效]
 shortTitle: IDEA破解教程 2022
 description: IntelliJ IDEA 2022 激活破解图文教程（亲测有用，永久激活）,IDEA永久激活破解教程，亲测有效（2022年最新IDEA激活码）通过补丁+激活码可以激活到2099年
-tags:
+tag:
   - idea破解
-  - idea2021.3永久激活码
-  - idea激活
-  - idea 破解
-  - idea破解2022
-  - idea 2021.3.3破解
-  - idea 2022破解教程
-  - idea2022破解
-  - intellij idea激活码
 category:
   - 小白学堂
 head:

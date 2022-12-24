@@ -2,7 +2,7 @@
 title: 装了这几个IDEA插件，基本上一站式开发了！
 shortTitle: 装了这几个IDEA插件，基本上一站式开发了！
 description: 前言 前几天有社区小伙伴私聊我，问我都用哪些IDEA插件，我的IDEA的主题看起来不错。 作为一个开源作者，每周要code大量的代码，提升日常工作效率是我一直追求的，在众多的IDEA插件中，我独钟爱这
-tags:
+tag:
   - 优质文章
 author: 铂赛东🐶
 category:

@@ -1,18 +1,9 @@
 ---
 title: 一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!-Java 程序员进阶之路
 shortTitle: 无限重置 IDEA
-description: 本教程最新更新时间 2022年6月12日~  这里提供几个最新的激活码，有需要的朋友可以试试，先到先用：  2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）  2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新） ...
-tags:
-  - IDEA插件
-  - idea破解
-  - idea2021.3永久激活码
-  - idea激活
-  - idea 破解
-  - idea破解2022
-  - idea 2021.3.3破解
-  - idea 2022破解教程
-  - idea2022破解
-  - intellij idea激活码
+description: 本教程最新更新时间 2022年6月12日~  这里提供几个最新的激活码，有需要的朋友可以试试，先到先用：  2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）  2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）
+tag:
+  - IDEA
 category:
   - 小白学堂
 head:

@@ -2,7 +2,7 @@
 title: 怎么跟 HR 谈薪资？
 shortTitle: 怎么跟 HR 谈薪资？
 author: 沈世钧 
-tags:
+tag:
   - 学习建议
 category:
   - 学习建议

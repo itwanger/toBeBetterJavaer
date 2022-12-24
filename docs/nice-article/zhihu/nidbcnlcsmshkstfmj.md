@@ -2,7 +2,7 @@
 title: 你的编程能力从什么时候开始突飞猛进？
 shortTitle: 你的编程能力从什么时候开始突飞猛进？
 description: 百度多了你就明白：它也许有用，但它封印了你精进计算机英语的机会。Google多了你就明白：各地大佬们的文…
-tags:
+tag:
   - 优质文章
 author: 口天师兄
 category:

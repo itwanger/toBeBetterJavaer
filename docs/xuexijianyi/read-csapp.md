@@ -1,7 +1,7 @@
 ---
 title: 如何阅读《深入理解计算机系统》这本书？
 shortTitle: 如何阅读《CSAPP》这本书？
-tags:
+tag:
   - 学习建议
 category:
   - 学习建议

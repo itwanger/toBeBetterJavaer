@@ -1,7 +1,7 @@
 ---
 title: 入职联想三个月是一种什么感觉？
 shortTitle: 入职联想三个月是一种什么感觉？
-tags:
+tag:
   - 优质文章
 category:
   - 牛客

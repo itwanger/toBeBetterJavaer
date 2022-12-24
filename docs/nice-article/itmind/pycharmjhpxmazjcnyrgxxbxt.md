@@ -2,10 +2,8 @@
 title: PyCharm 2022 激活破解码，安装教程 (2022年8月8日更新)
 shortTitle: PyCharm 激活破解码_安装教程
 description: 本文分享一下 PyCharm 2022.1 版本最新激活破解教程，都是 Jetbrains 产品，步骤和 IDEA 破解路数一致，本文专门配上了 Pycharm 的图片，跟着下面教程一步一步来即可。
-tags:
+tag:
   - pycharm
-  - pycharm注册码
-  - Pycharm激活码
 category:
   - 小白学堂
 head:

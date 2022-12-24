@@ -2,7 +2,7 @@
 title: 直接springboot项目上手学习是不是若依框架是最好的选择？
 shortTitle: 直接springboot项目上手学习是不是若依框架是最好的选择？
 description: 无利益相关，这几天正好在欣赏若依这个框架，顺手答一下。不管大家喜不喜欢这种开源的快速开发框架，恐怕…
-tags:
+tag:
   - 优质文章
 author: 祁达方
 category:

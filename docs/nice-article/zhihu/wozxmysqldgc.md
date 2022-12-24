@@ -2,7 +2,7 @@
 title: MySQL的过程
 shortTitle: 我自学MySQL的过程
 description: 絮大家好，我是HaC，这篇文章来给大家分享一下我自学MySQL的历程、 记得我当初入门SQL，用的是SQLServer，老实说，真的不好用，光是安装这个软件都花了几天的时间，因为期间崩溃了几次还无法连接。 后来接触了MySQ…
-tags:
+tag:
   - 优质文章
 category:
   - 知乎

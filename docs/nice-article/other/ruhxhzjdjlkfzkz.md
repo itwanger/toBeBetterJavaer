@@ -2,7 +2,7 @@
 title: 如何写好自己的简历？
 shortTitle:  如何写好自己的简历？
 description: 核心注意事项,简历模板,简历内容,参考,
-tags:
+tag:
   - 开发者客栈
 category:
   - 开发者客栈

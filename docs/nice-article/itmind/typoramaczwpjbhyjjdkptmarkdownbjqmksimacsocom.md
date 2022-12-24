@@ -2,12 +2,8 @@
 title: Typora Mac中文破解版，好用极简的跨平台 Markdown 编辑器
 shortTitle: Typora Mac中文破解版
 description: Typora for Mac的编辑功能齐全，支持插入文本、图片、表格、代码、数学公式等，typora mac版还支持实时预览和所见即所得功能，让你工作更加高效。...
-tags:
-  - MarkDown
+tag:
   - Typora
-  - 文本编辑
-  - 原生中文
-  - 文档处理
 category:
   - 麦客搜
 head:

@@ -1,7 +1,7 @@
 ---
 title: 上岸秘籍 | 银行校招求职攻略
 shortTitle: 银行校招求职攻略
-tags:
+tag:
   - 优质文章
 category:
   - 牛客

@@ -2,11 +2,8 @@
 title: 超详细Netty入门，看这篇就够了！
 shortTitle: 超详细Netty入门
 description: 本文主要讲述Netty框架的一些特性以及重要组件，希望看完之后能对Netty框架有一个比较直观的感受，希望能帮助读者快速入门Netty，减少一些弯路。
-tags:
-  - java
+tag:
   - netty
-  - 网络编程
-  - nio
 category:
   - 思否
 head:

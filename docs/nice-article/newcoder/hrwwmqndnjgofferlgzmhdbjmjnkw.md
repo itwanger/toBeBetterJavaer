@@ -1,7 +1,7 @@
 ---
 title: HR问你目前拿到哪几个offer了，该怎么回答？
 shortTitle: HR问你目前拿到哪几个offer了，怎么回答？
-tags:
+tag:
   - 优质文章
 category:
   - 牛客
