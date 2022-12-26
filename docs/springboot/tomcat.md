@@ -33,16 +33,16 @@ tag:
 
 如果你不确定自己的 Maven 本地仓库在哪里，可以在终端执行 `mvn help:effective-settings` 命令。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-01.png)
 
 
 顺藤摸瓜，根据 parent 的 groupId、artifactId、version 可以锁定 spring-boot-starter-parent.pom 文件的位置。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-02.png)
 
 使用文本编辑器打开以后大致可以看到以下内容：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-03.png)
 
 - 定义了 JDK 的版本为 1.8
 - 项目默认的编码方式为 UTF-8
@@ -51,7 +51,7 @@ tag:
 
 照葫芦画瓢，我们按照同样的方法找到 spring-boot-dependencies.pom 文件。可以看到这里面定义了一系列的属性和依赖，差不多 2800 行。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-04.png)
 
 有消息队列依赖、commons 工具包依赖、数据库链接依赖、HTTP 链接依赖、Spring 家族依赖、Web 服务器依赖等等。
 
@@ -64,7 +64,7 @@ Spring Boot 会帮我们选好最稳定的新版本，这体现出了 Spring Boo
 理解了这一点，我们再来继续看 pom.xml 文件，里面有一个 `spring-boot-starter-web` 依赖。这一次，我们直接按住 Ctrl 键（macOS 是 Command 键），点击鼠标左键就可以跳转到 spring-boot-starter-web.pom 的源文件了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-05.png)
 
 部分源码如下：
 
@@ -160,17 +160,17 @@ spring-webmvc 是 Spring MVC 的一个实现。spring-webmvc 依赖于 spring-we
 从这里可以看出来SpringBoot默认的启动容器是Tomcat，Tomcat 的组成核心 jakarta.annotation、tomcat-embed-core、tomcat-annotations-api、org.apache.tomcat.embed 全部都通过 Maven 引入过来了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-06.png)
 
 core 的版本是 9.0.55，Tomcat 官网上最新的 9.0.x 版本是 9.0.56，高了一个版本。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-07.png)
 
 不过无所谓，直接下载 9.0.56 的 src，对比看一下，是否大致相同。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-08.png)
 
 对比之下可以看得出，Spring Boot 引入的 Tomcat 更精简一点，大体上都是相同的，这也就是**为什么Spring Boot 不需要额外安装 Tomcat 的根本原因了**。
 

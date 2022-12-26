@@ -24,7 +24,7 @@ category:
 
 ### 需求分析
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-f40c0f66-433e-43f3-bafa-cc310f5fadd1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-f40c0f66-433e-43f3-bafa-cc310f5fadd1.jpg)
 
 本文的注册中心需求很简单，就三点：**可注册**、**能发现**、**高可用**。
 
@@ -60,7 +60,7 @@ category:
 
 我们需要的服务注册与发现也被纳入其中：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-4cdaa4cc-c4a7-4f5b-8bc8-da38424f277b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-4cdaa4cc-c4a7-4f5b-8bc8-da38424f277b.jpg)
 
 说有但也不是完全有是因为这个标准还在建设中，服务发现相关的标准在写这篇文章的时候还没有给出。
 
@@ -254,7 +254,7 @@ TCP长连接推送|中等|高|中等|服务端需要保持很多长连接|
 
 首先是长连接的核心诉求：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-d376a064-1b0c-4f45-8d72-8f0554e8ef9e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-d376a064-1b0c-4f45-8d72-8f0554e8ef9e.jpg)
 
 > 图来自《Nacos架构与原理》
 
@@ -293,7 +293,7 @@ TCP长连接推送|中等|高|中等|服务端需要保持很多长连接|
 
 如下图，比如提供者往一个节点注册数据后，正常响应，但是数据同步是异步的，在同步完成前，nodeA节点就挂掉，则这条注册数据就丢失了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-a139f210-09c5-492b-88ab-639cb7bc79ad.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-a139f210-09c5-492b-88ab-639cb7bc79ad.jpg)
 
 所以，我们要极力避免这种情况。
 
@@ -317,7 +317,7 @@ TCP长连接推送|中等|高|中等|服务端需要保持很多长连接|
 
 本文内容略多，用一幅图来总结：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-790cdf94-a0ce-4461-9af5-b850e4de2bfc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhzzygzczx-790cdf94-a0ce-4461-9af5-b850e4de2bfc.jpg)
 
 组装一个线上可用的注册中心最小集，从需求分析出发，每一步都有许多选择，本文通过一些核心的技术选型来描绘出一个大致蓝图，剩下的工作就是用代码将这些组装起来。
 
@@ -338,6 +338,6 @@ TCP长连接推送|中等|高|中等|服务端需要保持很多长连接|
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/eyTe0iTvMgW-T4haBMXYhw](https://mp.weixin.qq.com/s/eyTe0iTvMgW-T4haBMXYhw)，出处：JavaGuide，整理：沉默王二

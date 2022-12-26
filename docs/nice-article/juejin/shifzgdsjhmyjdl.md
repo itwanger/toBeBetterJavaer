@@ -25,7 +25,7 @@ head:
 
 对网络比较熟悉的同学，应该了解五层协议，那么手机流量上网时的五层网络模型有何不同呢？
 
-![手机流量上网的五层网络模型](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-shifzgdsjhmyjdl-70e6c762-e8a5-49e9-82c9-6e0a9ea2c245.jpg)
+![手机流量上网的五层网络模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-shifzgdsjhmyjdl-70e6c762-e8a5-49e9-82c9-6e0a9ea2c245.jpg)
 
 从上图可以看出，手机流量上网的主要区别在数据链路层和物理层。在数据链路层，流量上网没有 MAC 地址的概念，它采用一种点对点协议（PPP），手机端通过拨号方式建立这种 PPP 连接，然后发送数据。在物理层，流量上网通过手机内置的基带模块进行无线信号的调制、解调工作，从而实现与移动基站之间的电磁波通信。
 
@@ -33,7 +33,7 @@ head:
 
 点对点协议支持身份验证功能，手机端发起连接时会携带自己的身份证明，一般就是手机卡内置的 IMSI，这个 IMSI 也会保存在运营商的数据库中，因此基站就可以验证连接用户的身份，当然这个验证过程不是简单的对比 IMSI，会有更多安全机制。为了更清楚的了解流量上网机制，下面再来一张 4G 流量上网时手机与运营商的交互示意图：
 
-![手机流量上网示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-shifzgdsjhmyjdl-644904c8-1a15-4a91-ae99-451538fe95a7.jpg)
+![手机流量上网示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-shifzgdsjhmyjdl-644904c8-1a15-4a91-ae99-451538fe95a7.jpg)
 
 #### 核心组件
 
@@ -73,7 +73,7 @@ head:
 
 如果你接入过微信的第三方应用登录，或者其他类似的第三方应用登录，过程是差不多的。还是先来看图：
 
-![手机号码一键登录时序图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-shifzgdsjhmyjdl-15c46624-1045-4c05-8e39-da0c7e6da758.jpg)
+![手机号码一键登录时序图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-shifzgdsjhmyjdl-15c46624-1045-4c05-8e39-da0c7e6da758.jpg)
 
 这里对一些关键步骤进行说明：
 

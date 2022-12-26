@@ -62,13 +62,13 @@ public class MyBatisConfig {
 
 这里将以mall项目中权限管理模块相关表为例进行介绍，具体表结构如下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mybatiszyytszhwskczjsj-e4c9fdba-fef0-43bf-9d1b-a58b1eae41e8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mybatiszyytszhwskczjsj-e4c9fdba-fef0-43bf-9d1b-a58b1eae41e8.jpg)
 
 ### 项目结构说明
 
 本文示例使用了`mall-learning`项目中的`mall-tiny-mybatis`模块代码，具体项目结构如下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mybatiszyytszhwskczjsj-89145395-c273-4300-8ec3-1676c2a4a855.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mybatiszyytszhwskczjsj-89145395-c273-4300-8ec3-1676c2a4a855.jpg)
 
 ### select
 

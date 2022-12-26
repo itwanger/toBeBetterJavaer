@@ -37,12 +37,12 @@ public static String getLocalIP() {
 
 本机执行后截图如下：
 
-![本机](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-f35dc96f-b8ac-43d3-9393-0ff565e85fb9.jpg)
+![本机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-f35dc96f-b8ac-43d3-9393-0ff565e85fb9.jpg)
 
 
 阿里云机器执行后截图如下：
 
-![阿里云](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-f50b0de2-cf0d-4e9b-8f10-838ea4b47fd8.jpg)
+![阿里云](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-f50b0de2-cf0d-4e9b-8f10-838ea4b47fd8.jpg)
 
 
 再问一句，那是否就真的没有问题了呢？
@@ -53,7 +53,7 @@ public static String getLocalIP() {
 在虚拟机中执行时，就可能遇到这个问题，截图如下
 
 
-![虚拟机](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-7c14024b-57d1-4086-9f51-d7bf312b5fbf.jpg)
+![虚拟机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-7c14024b-57d1-4086-9f51-d7bf312b5fbf.jpg)
 
 ### 2. 进阶版
 
@@ -89,7 +89,7 @@ public static String getLocalIpByNetcard() {
 再次测试，输出如下
 
 
-![虚拟机](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-cd2f2acb-a6ea-4675-82a8-95a7e05c8498.jpg)
+![虚拟机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-cd2f2acb-a6ea-4675-82a8-95a7e05c8498.jpg)
 
 
 ### 3. 完整工具类
@@ -141,12 +141,12 @@ public class IpUtil {
 对集合操作，除了前面说的`Collections`工具类之后，`CollectionUtils`工具类也非常常用。
 
 目前比较主流的是`spring`的`org.springframework.util`包下的CollectionUtils工具类。
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-3433117c-4ab2-4ac4-bf5b-4b729d87fc9a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-3433117c-4ab2-4ac4-bf5b-4b729d87fc9a.jpg)
 
 和`apache`的`org.apache.commons.collections`包下的CollectionUtils工具类。
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-1bc7dfe9-f459-47bb-ae4b-2a25d4be96c1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-1bc7dfe9-f459-47bb-ae4b-2a25d4be96c1.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-2b8630a3-141b-4f18-9f54-5a37fc818420.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-2b8630a3-141b-4f18-9f54-5a37fc818420.jpg)
 > 我个人更推荐使用apache的包下的CollectionUtils工具类，因为它的工具更多更全面。
 
 举个简单的例子，`spring`的CollectionUtils工具类没有判断集合不为空的方法。而`apache`的CollectionUtils工具类却有。
@@ -318,9 +318,9 @@ a,b,c
 ```
 当然还有很多实用的方法，我在这里就不一一介绍了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-68f94af9-d2ea-46c2-81b4-7d7e08891550.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-68f94af9-d2ea-46c2-81b4-7d7e08891550.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-7314260e-4e85-4110-a50d-3bedcbbeb616.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-7314260e-4e85-4110-a50d-3bedcbbeb616.jpg)
 
 ## MDC：一个线程安全的参数传递工具类
 
@@ -434,7 +434,7 @@ System.out.println(ClassUtils.isInnerClass(User.class));
 System.out.println(ClassUtils.isCglibProxy(new User()));
 ```
 ClassUtils还有很多有用的方法，等待着你去发掘。感兴趣的朋友，可以看看下面内容：
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
 
 ## BeanUtils
 spring给我们提供了一个`JavaBean`的工具类，它在`org.springframework.beans`包下面，它的名字叫做：`BeanUtils`。
@@ -477,7 +477,7 @@ System.out.println(propertyForMethod.getName());
 ```
 
 如果你对BeanUtils比较感兴趣，可以看看下面内容：
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
 
 ## ReflectionUtils
 有时候，我们需要在项目中使用`反射`功能，如果使用最原始的方法来开发，代码量会非常多，而且很麻烦，它需要处理一大堆异常以及访问权限等问题。
@@ -517,7 +517,7 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 ```        
 
 当然这个类还有不少有趣的方法，感兴趣的朋友，可以看看下面内容：
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
 
 ----
 
@@ -525,4 +525,4 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

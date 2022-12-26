@@ -19,7 +19,7 @@ head:
 
 ## 01、if-else 相关
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-01.png)
 
 
 **1）if 语句**
@@ -34,7 +34,7 @@ if(布尔表达式){
 
 画个流程图表示一下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-02.png)
 
 
 来写个示例：
@@ -70,7 +70,7 @@ if(布尔表达式){
 
 画个流程图表示一下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-03.png)
 
 
 来写个示例：
@@ -154,7 +154,7 @@ else{
 
 画个流程图表示一下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-04.png)
 
 
 来写个示例：
@@ -197,7 +197,7 @@ if(外侧条件){
 
 画个流程图表示一下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-05.png)
 
 
 来写个示例：
@@ -257,7 +257,7 @@ default: // 该关键字是可选项
 
 画个流程图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-06.png)
 
 
 
@@ -365,7 +365,7 @@ public class SwitchEnumDemo {
 
 ## 03、for 循环
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-07.png)
 
 **1）普通 for 循环**
 
@@ -395,7 +395,7 @@ for(初始变量;条件;自增/自减){
 
 画个流程图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-08.png)
 
 
 
@@ -538,7 +538,7 @@ while(条件){
 
 画个流程图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-09.png)
 
 
 
@@ -620,7 +620,7 @@ do{
 
 画个流程图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-10.png)
 
 
 
@@ -687,7 +687,7 @@ public class InfinitiveDoWhileExample {
 
 把 do-while 的条件设置为 true，并且循环体中没有 break 关键字的话，程序一旦运行起来，就根本停不下来了，除非强制停止。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-11.png)
 
 ## 06、break
 
@@ -698,7 +698,7 @@ break 关键字通常用于中断循环或 switch 语句，它在指定条件下
 来画个流程图感受一下：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-12.png)
 
 
 用在 for 循环中的示例：
@@ -919,4 +919,4 @@ public class ContinueDoWhileDemo {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

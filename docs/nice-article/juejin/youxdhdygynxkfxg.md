@@ -23,7 +23,7 @@ head:
 
 正确的做法是在写 `service` 上层新建一个 `modules` 文件夹，在 `moudles` 文件夹下根据不同业务建立不同的包，在这些包下面写具体的 `service、controller、entity、enums` 包或者继续拆分。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-e9b2d724-5c82-448c-811c-a4d19a5c77f6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-e9b2d724-5c82-448c-811c-a4d19a5c77f6.png)
 
 等以后开发版本迭代，如果某个包可以继续拆领域就继续往下拆，可以很清楚的一览项目业务模块。后续拆微服务也简单。
 
@@ -166,7 +166,7 @@ public boolean finished() {
 推荐一款 IDEA 插件 `CodeMetrics` ，它能显示出方法的复杂度，它是对方法中的表达式进行计算，布尔表达式，if/else 分支，循环等。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-4390ae07-4fb2-4000-bc13-4e752883f985.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-4390ae07-4fb2-4000-bc13-4e752883f985.png)
 
 
 点击可以查看哪些代码增加了方法的复杂度，可以适当参考，毕竟我们通常写的是业务代码，在保证正常工作的前提下最重要的是要让别人能够快速看懂。当你的方法复杂度超过 10 就要考虑是否可以优化了。
@@ -176,7 +176,7 @@ public boolean finished() {
 之前居然还看到有文章推荐使用 @Value 比 @ConfigurationProperties 好用的，吐了，别误人子弟。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-02c6f91a-0013-4d99-bb69-f6ea4d28a0fb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-02c6f91a-0013-4d99-bb69-f6ea4d28a0fb.png)
 
 
 列举一下 @ConfigurationProperties 的好处。
@@ -184,7 +184,7 @@ public boolean finished() {
 - 在项目 `application.yml` 配置文件中按住 ctrl + 鼠标左键点击配置属性可以快速导航到配置类。写配置时也能自动补全、联想到注释。需要额外引入一个依赖 `org.springframework.boot:spring-boot-configuration-processor` 。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-83da0bdf-c4cf-473d-aab2-dc3cb9f76bb2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-83da0bdf-c4cf-473d-aab2-dc3cb9f76bb2.png)
 
 
 - @ConfigurationProperties 支持 NACOS 配置自动刷新，使用 @Value 需要在 BEAN 上面使用 @RefreshScope 注解才能实现自动刷新
@@ -317,7 +317,7 @@ public List<XxxResponse> list(List<Long> userIds) {
 
 前几天捕捉了一个团队内部的小 bug，其实本来和我没有关系，但是同事都在一头雾水的看外面的业务判断为什么走的分支不对，我一眼就扫到了问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-6be3970d-9e97-442a-b324-375af65ea488.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-youxdhdygynxkfxg-6be3970d-9e97-442a-b324-375af65ea488.jpg)
 
 因为 java 中整数字面量都是 `int` 类型，到集合中就变成了 `Integer`，然后 `stepId` 点上去一看是 `long` 类型，在集合中就是 `Long`，那这个 `contains` 妥妥的返回 `false`，都不是一个类型。
 

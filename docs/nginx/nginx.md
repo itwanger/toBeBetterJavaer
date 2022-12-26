@@ -14,7 +14,7 @@ shortTitle: Nginx
 作为开发者，相信大家都知道 Nginx 的重要性。Nginx 是一个高性能的 HTTP 和反向代理 Web 服务器，由俄罗斯的伊戈尔·赛索耶夫开发，第一个版本发布于 2004 年 10 月 4 日。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-01.png)
 
 
 Nginx 的特点是：
@@ -32,13 +32,13 @@ Nginx 的特点是：
 
 **反向代理**是 Nginx 作为 Web 服务器最常用的功能之一。什么是反向代理呢？很多初学者在第一次遇到这个名词的时候总免不了出现很多问号。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-02.png)
 
 那要想搞明白什么是反向代理，就必须得搞明白什么是正向代理。
 
 举个例子，小二的浏览器是无法直接访问谷哥的，但香港的代理服务器是可以访问谷哥的，于是小二访问了香港的代理服务器，也就间接地访问了谷哥。那这台代理服务器也就是**正向代理**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-03.png)
 
 总结一句就是，**正向代理是代理客户端的**，让你能正常访问目的服务器。
 
@@ -48,7 +48,7 @@ Nginx 的特点是：
 
 这就需要一个反向代理服务器了，反向代理服务器让 1 万个小二访问服务器 A，1 万个小二访问服务器 B，1 个小二访问服务器 C，这样的话，每台服务器的压力就相应减小了，是不是很 nice？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-04.png)
 
 那问题来了。每台服务器的能力可能不同，比如说服务器 A 的内存比较大一点，有 100 个 G；服务器 B 的内存小一点，有 10 个 G；服务器 C 的内存更小一点，只有 1 个 G。怎么才能让没台服务器承担起它能力范围内的访问呢？
 
@@ -60,7 +60,7 @@ Nginx 的特点是：
 
 我们可以根据一些规则，把动态资源和静态资源分开，然后通过 Nginx 把请求分开，静态资源的请求就不需要经过 Web 服务器处理了，从而提高整体上的资源的响应速度。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-05.png)
 
 ### 二、Nginx 的安装
 
@@ -72,17 +72,17 @@ Nginx 的特点是：
 
 不过，如果在安装宝塔面板必备工具包的时候，如果选择了 phpmyadmin（MySQL 的管理工具），会覆盖掉 80 端口，就导致没办法直接通过默认配置的方式访问 Nginx 启动页面了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-06.png)
 
 我这里以 macOS 环境为例，来演示一下。
 
 第一步，通过 `brew info nginx` 命令查看 Nginx 是否安装。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-07.png)
 
 第二步，通过 `brew install nginx` 命令安装 Nginx。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-08.png)
 
 从以上信息可以得出：
 
@@ -92,11 +92,11 @@ Nginx 的特点是：
 
 第三步，通过 `nginx` 命令启动 Nginx。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-09.png)
 
 第四步，在浏览器地址栏通过 `localhost:8080` 访问，可以看到以下欢迎页面。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-10.png)
 
 ### 三、Nginx 常用命令
 
@@ -167,7 +167,7 @@ http {
 
 好，现在我们登录宝塔面板，尝试把默认的 server 配置复制到 Linux 服务器中的 Nginx 配置里。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-11.png)
 
 简单解释一下。
 
@@ -190,7 +190,7 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 
 好，保存配置文件，并且 reload Nginx，我们在本地的浏览器中输入服务器的 IP 地址就可以看到效果了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-12.png)
 
 ### 五、Nginx 的学习资料
 
@@ -200,13 +200,13 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 
 **1）狂神说的视频入门教程**，我个人觉得，狂神的入门教程还是非常舒适的，语速和内容都刚刚好。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-13.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-13.png)
 
 >https://www.bilibili.com/video/BV1F5411J7vK
 
 **2）黑马程序员Nginx教程**，总共 159 讲，基本上算是非常全面的 Nginx 的视频教程了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-14.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-14.png)
 
 >https://www.bilibili.com/video/BV1ov41187bq
 
@@ -214,12 +214,12 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 
 **4）Nginx 从入门到实践，万字详解**，图文版的，可以到掘金上看看这篇文章，内容基本上面面俱到了（可以看一下下面的目录），配合前面的视频课，拿下 Nginx 基本上是稳了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-15.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-15.png)
 
 >https://juejin.cn/post/6844904144235413512
 
 这些资料如果能全部过一遍的话，我要喊你 Nginx 小王子了，估计公司遇到 Nginx 问题的话，你肯定是解决问题的那一个。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

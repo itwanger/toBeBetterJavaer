@@ -21,23 +21,23 @@ Navicat 16 macOS 永久破解，软件已集成破解文件于一体，只需下
 
 1、关注公众号：**沉默王二**  回复 **navicat** 即可获取 Navicat 16 macOS 永久破解包
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 2、下载得到 navicat 16 MacOS.dmg 压缩
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-eb07702c-a11a-466a-9796-64bf42e8734d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-eb07702c-a11a-466a-9796-64bf42e8734d.jpg)
 
 3、解压后，如下图所示：将左侧的【Navicat Premium 】拉到右侧应用程序中
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-89f0a947-56ca-4d55-8b69-c140018a5b45.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-89f0a947-56ca-4d55-8b69-c140018a5b45.jpg)
 
 4、软件拷贝中，请耐心等待完成
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-1eded946-7618-47e5-8225-4fec747666ab.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-1eded946-7618-47e5-8225-4fec747666ab.jpg)
 
 5、进入应用程序，navicat 16 已经集成破解补丁，双击运行即可打开软件，破解完成
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-c0192d90-b558-4b00-8d33-1e0c7a757557.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-navicatmacyjpx-c0192d90-b558-4b00-8d33-1e0c7a757557.jpg)
 
 ## 破解汇总
 

@@ -26,19 +26,19 @@ tag:
 
 这是我看过的一些书：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-1.jpg)
 
 那其实很多人在学习编程的时候，很容易陷入一个误区，就是没有计划、没有路线，就导致看似投入了很多精力，但最后的学习效果却有点对不住付出的时间和精力。
 
 为此，我花了将近一个月的时间，整理了这样一条学习路线，并且把我读过的电子书全部做了归类：**入门→工具→框架→数据库→并发编程→底层→性能优化→设计模式→操作系统→计算机网络→数据结构与算法→面试→架构→管理**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-2.jpg)
 
 就连颈椎康复指南都有了，这波良心吧？大家可以通过下面的方式获取，我想不管是科班还是非科班的，只要你喜欢计算机、喜欢编程，应该都会有很大的帮助。
 
 需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**pdf**」就可以拉取到下载链接了。
 
-![扫码关注后回复「pdf」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「pdf」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 ## 一、编程语言
@@ -116,7 +116,7 @@ tag:
 
 需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**pdf**」就可以拉取到下载链接了。
 
-![扫码关注后回复「pdf」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「pdf」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 几年后，你将是一名善于解决实际问题的工程师，而不是一名普普通通的码农。

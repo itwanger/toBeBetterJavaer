@@ -9,7 +9,7 @@ category:
 
 本文主要介绍 mybatis-plus 这款插件，针对 springboot 用户。包括引入，配置，使用，以及扩展等常用的方面做一个汇总整理，尽量包含大家常用的场景内容。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-ed20d595-a4a8-42af-bcbe-7afa578ad065.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-ed20d595-a4a8-42af-bcbe-7afa578ad065.jpg)
 
 >原文链接：https://juejin.cn/post/7054726274362638350 作者：我犟不过你，整理：沉默王二
 
@@ -23,7 +23,7 @@ category:
 
 新建如下数据库：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-9cf4609a-722e-47ab-a89c-64fe31a849fd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-9cf4609a-722e-47ab-a89c-64fe31a849fd.jpg)
 
 建议大家选择 utf8mb4 这种字符集，做过微信的同学应该会知道，微信用户名称的表情，是需要这种字符集才能存储的。
 
@@ -126,7 +126,7 @@ spring:
 
 下面直接启动服务：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-e649b313-4ad3-459d-bb22-59725d57fe8c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-e649b313-4ad3-459d-bb22-59725d57fe8c.jpg)
 
 得到如上结果表示启动成功了。
 
@@ -778,7 +778,7 @@ public class UserController {
 上文基本覆盖了 mybatis-plus 常用的特性，有同学说自动代码生成没说？[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)里《编程喵🐱实战项目笔记》里有专门的文章说明`mybatis-plus-generator` + `velocity`整合的文章，从后台代码，到前端代码全部一键生成。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-385444a5-ff07-4020-a62f-4fda0142e835.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/haibukuaiyongmybatisplusshoubashoujiaoni-385444a5-ff07-4020-a62f-4fda0142e835.png)
 
 
 > 本文项目代码 gitee 地址: [https://gitee.com/wei_rong_xin/rob-necessities.git](https://gitee.com/wei_rong_xin/rob-necessities.git)

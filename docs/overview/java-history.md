@@ -24,7 +24,7 @@ Sun 公司为了抢占市场先机，在 1991 年成立了一个由詹姆斯·�
 
 **Oak** 是“Java”的第二个名字，这次就有点意义了。Oak（橡树）是力量的象征，被美国、法国、德国等许多欧美国家选为国树。橡树长下面这样。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-01.png)
 
 1992 年，Oak 的雏形有了，但项目组在向硬件生产商进行商演的时候，并没有获得认可，于是 Oak 就被搁置一旁了。
 
@@ -38,7 +38,7 @@ Sun 公司为了抢占市场先机，在 1991 年成立了一个由詹姆斯·�
 
 “Java”是印度尼西亚爪哇岛的英文名，因生产咖啡而闻名，所以，小伙伴也看到了，Java 这个单词经常和一杯冒着热气的咖啡一起出现。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
 
 同年，Sun 公司在 SunWorld 大会上正式发布了 Java 1.0 版本，第一次提出了“Write Once, Run anywhere”的口号。《时代》杂志将 Java 评为 1995 年十大最佳产品之一。
 
@@ -90,4 +90,4 @@ Java 在云时代面临着以 Go 语言为主的容器（Docker 等技术）生�
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

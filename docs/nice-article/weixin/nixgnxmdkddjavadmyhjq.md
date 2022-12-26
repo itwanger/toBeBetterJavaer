@@ -19,7 +19,7 @@ head:
 
 今天接着优化这个话题，我们一起聊聊Java中代码优化的30个小技巧，希望会对你有所帮助。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-52b1af62-86fe-4c7a-b716-e5e5968c733c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-52b1af62-86fe-4c7a-b716-e5e5968c733c.jpg)
 
 ## 1.用String.format拼接字符串
 
@@ -441,7 +441,7 @@ PayService2类实现了`ApplicationListener`接口，这样在`onApplicationEven
 
 调用过程如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-f7bf653b-152d-486d-9272-a4d8e38a62e4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-f7bf653b-152d-486d-9272-a4d8e38a62e4.jpg)
 
 调用远程接口总耗时 530ms = 200ms + 150ms + 180ms
 
@@ -453,7 +453,7 @@ PayService2类实现了`ApplicationListener`接口，这样在`onApplicationEven
 
 如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-f1e49121-c895-4e95-8ad1-6c4e8b27154f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-f1e49121-c895-4e95-8ad1-6c4e8b27154f.jpg)
 
 调用远程接口总耗时 200ms = 200ms（即耗时最长的那次远程接口调用）
 
@@ -638,7 +638,7 @@ public class TestController {
 
 如果不做任何处理，当我们请求add接口时，执行结果直接报错：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-478149b7-8982-4b55-accd-2c78c6521dea.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-478149b7-8982-4b55-accd-2c78c6521dea.jpg)
 
 what？用户能直接看到错误信息？
 
@@ -920,7 +920,7 @@ System.out.println(orderStatus1 == orderStatus2);
 
 先看看Integer的构造方法：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-8128d857-c699-4592-b8af-eec334a0fdcc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-8128d857-c699-4592-b8af-eec334a0fdcc.jpg)
 
 它其实并没有用到`缓存`。
 
@@ -928,7 +928,7 @@ System.out.println(orderStatus1 == orderStatus2);
 
 答案在`valueOf`方法中：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-b332dd5f-e7c1-4c07-8a2b-c5651d4375b0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-b332dd5f-e7c1-4c07-8a2b-c5651d4375b0.jpg)
 
 如果上面的判断改成这样：
 
@@ -1130,7 +1130,7 @@ if(Objects.isNull(user)) {
 
 下面用一张图看看大事务引发的问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-a0fb0e10-963b-4df4-8c92-4f1cad4ed210.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-a0fb0e10-963b-4df4-8c92-4f1cad4ed210.jpg)
 
 从图中能够看出，大事务问题可能会造成接口超时，对接口的性能有直接的影响。
 
@@ -1395,7 +1395,7 @@ System.out.println(amount2.subtract(amount1));
 
 `Jdk`中`BigDecimal`的`构造方法`上有这样一段描述：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-228e98bb-8e62-497f-953e-e831fee0d9e7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-nixgnxmdkddjavadmyhjq-228e98bb-8e62-497f-953e-e831fee0d9e7.jpg)
 
 大致的意思是此构造函数的结果可能不可预测，可能会出现创建时为0.1，但实际是0.1000000000000000055511151231257827021181583404541015625的情况。
 
@@ -1987,6 +1987,6 @@ public E remove(int index) {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/tw4lD0XA67yJKAwIWVicIQ](https://mp.weixin.qq.com/s/tw4lD0XA67yJKAwIWVicIQ)，出处：macrozheng，整理：沉默王二

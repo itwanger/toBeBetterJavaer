@@ -57,7 +57,7 @@ head:
 
 也就是1、2、4、8、……
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-jinzzhdylssm-a7357f84-ac6f-46dd-a2da-d37df75679b3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-jinzzhdylssm-a7357f84-ac6f-46dd-a2da-d37df75679b3.jpg)
 
 因此原来十进制咱们叫 十位、百位、千位……
 
@@ -83,7 +83,7 @@ head:
 
 于是13=二进制数1101
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-jinzzhdylssm-92ccc114-aba8-4817-bb54-825b444ed6cf.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-jinzzhdylssm-92ccc114-aba8-4817-bb54-825b444ed6cf.jpg)
 
 然后就多练习这个，反复练，让自己熟悉这个感觉：
 

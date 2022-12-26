@@ -15,11 +15,11 @@ head:
 
 前几天二哥找我，问我阿里 P7 是怎样的水平，在面试中如何才能拿到阿里 P7 的职级。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-f198aac8-6ec8-4cba-9491-17e5c3bb934b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-f198aac8-6ec8-4cba-9491-17e5c3bb934b.jpg)
 
 二哥是我兄弟，他的要求，那必须满足。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-0908da2e-4e77-4b0f-9db3-5a08a051d33f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-0908da2e-4e77-4b0f-9db3-5a08a051d33f.jpg)
 
 下面我们就从**阿里的职级体系、P7 薪资、P7 能力栈、如何才能达到 P7 水平**，全面给大家剖析。
 
@@ -27,7 +27,7 @@ head:
 
 大家谈到阿里 P7，第一反应可能就是年薪百万，我们先看一下阿里的职级体系。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-e90b700d-0b0f-4002-9280-2a316fe63f79.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-e90b700d-0b0f-4002-9280-2a316fe63f79.jpg)
 
 P7 一般薪水在 70-100 万之间，超过 100 万的屈指可数，除非你是阿里 5 年以上的老 P7，薪资构成包括现金和股票：
 
@@ -36,7 +36,7 @@ P7 一般薪水在 70-100 万之间，超过 100 万的屈指可数，除非你�
 
 **所以一个新阿里 P7 的平均年收入是 80 W 左右**，如果是待了 5 年以上老 P7，妥妥年薪 100 万往上，这金钱的味道，真 TM 香！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-f241cc8c-425c-4000-bcf5-57140ebd3895.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-f241cc8c-425c-4000-bcf5-57140ebd3895.jpg)
 
 既然聊 P6 到 P7 这道坎，我们先看一下两者的要求。
 
@@ -57,7 +57,25 @@ P7 的要求就是可以把整个电商各业务模块合理拆分和研发人�
 下面附上 P6 和 P7 的要求（仅供参考）：
 
 ```
-P6（高级工程师，工作 3~5 年，团队核心）：- 公司：大厂工作经验/或者有一定知名度的公司；- 学校：985/211 加分项；- 专业技能：语言基础、使用过的技术框架和中间件，架构设计，技术选型；- 具备专业领域能力，深入的知识和技能，能够培训和教导初级员工；- 对自己所从事的职业具备一定前瞻性了了解；- 基于分析思考，有效执行，领导非跨部门项目；- 掌握分析解决问题的能力，主动协调资源，独⽴处理复杂问题，拿到有效结果。P7（技术专家，工作 5~10 年，团队核心 or TL）：- 公司：最好有大厂工作经验/或者有一定知名度的公司；- 学校：985/211 加分项；- 专业技能：语言基础、使用过的技术框架和中间件，架构设计，技术选型，架构认知；- 专业领域的丰富积累，具备专业影响力，是他人的咨询对象；- 在专业领域中，对公司内外及业界的相关资源及水平⽐较了解；- 基于分析思考，有效执行，领导跨部门项⽬，培养新员工；- 良好的分析解决问题的能力，有创新想法，能改进业务流程；- 团队协作中具备利他精神，能以积极正⾯的心态去影响团队；- ⾏业外或公司内培养周期较⻓。
+P6（高级工程师，工作 3~5 年，团队核心）：
+- 公司：大厂工作经验/或者有一定知名度的公司；
+- 学校：985/211 加分项；
+- 专业技能：语言基础、使用过的技术框架和中间件，架构设计，技术选型；
+- 具备专业领域能力，深入的知识和技能，能够培训和教导初级员工；
+- 对自己所从事的职业具备一定前瞻性了了解；
+- 基于分析思考，有效执行，领导非跨部门项目；
+- 掌握分析解决问题的能力，主动协调资源，独⽴处理复杂问题，拿到有效结果。
+
+P7（技术专家，工作 5~10 年，团队核心 or TL）：
+- 公司：最好有大厂工作经验/或者有一定知名度的公司；
+- 学校：985/211 加分项；
+- 专业技能：语言基础、使用过的技术框架和中间件，架构设计，技术选型，架构认知；
+- 专业领域的丰富积累，具备专业影响力，是他人的咨询对象；
+- 在专业领域中，对公司内外及业界的相关资源及水平⽐较了解；
+- 基于分析思考，有效执行，领导跨部门项⽬，培养新员工；
+- 良好的分析解决问题的能力，有创新想法，能改进业务流程；
+- 团队协作中具备利他精神，能以积极正⾯的心态去影响团队；
+- ⾏业外或公司内培养周期较⻓。
 ```
 
 ## 如何能达到阿里 P7 ？
@@ -66,7 +84,7 @@ P6（高级工程师，工作 3~5 年，团队核心）：- 公司：大厂工
 
 **技术能力**（广度、深度、领域）+ **业务能力**（懂行） + **管理能力**（带项目、管团队）+ **沟通协调**（会扯皮、会来事）+ 工作态度（皮实、肯加班）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-84b5a7fb-f645-44a1-9cbe-ee74653c60ff.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-84b5a7fb-f645-44a1-9cbe-ee74653c60ff.jpg)
 
 #### 1\. 技术
 
@@ -112,7 +130,7 @@ P7 需要具备的业务技能：
 
 #### 3\. 软技能
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-cec9fb32-3942-491f-b2ec-6a0410ea00ea.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-cec9fb32-3942-491f-b2ec-6a0410ea00ea.jpg)
 
 这个金字塔能力模型，适用于绝大多数软件开发工程师，该模型提出的作者说：
 
@@ -145,7 +163,7 @@ P7 需要具备的软技能：
 
 这就是为什么 P6 到 P7 是一个槛，有没有 “世界虐我千百遍，我待世界如初恋” 的 gan juo ？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-bf0a49b1-44dc-453e-b54c-766bd82243a4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-bf0a49b1-44dc-453e-b54c-766bd82243a4.jpg)
 
 ## 写在最后
 
@@ -172,6 +190,6 @@ P7 需要具备的软技能：
 *   [一文搞懂消息队列原理和选型](https://mp.weixin.qq.com/s?__biz=Mzg3OTU5NzQ1Mw==&mid=2247487669&idx=1&sn=7225d0d5613e33a1b1daf18083d04ca1&chksm=cf035257f874db411cb301382934d73bb1e4b8fc2f584335d65535e9c173f7e5e7e1d6b5286b&token=861276582&lang=zh_CN&scene=21#wechat_redirect)
 *   [肝了一个月的 DDD，一文带你掌握！](https://mp.weixin.qq.com/s?__biz=Mzg3OTU5NzQ1Mw==&mid=2247487929&idx=1&sn=e33ca9ee496ef4ecb159a719223259a7&chksm=cf03535bf874da4d72568c2e6235be9084bcd71227f33d588f1019e4a1a4f10e482d44e7bbb1&scene=21#wechat_redirect)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-93dbde70-7f75-461e-a78f-a9e3083e9e0a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jinspl-93dbde70-7f75-461e-a78f-a9e3083e9e0a.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/lKQVYJBVioEV4blmAZxzSw](https://mp.weixin.qq.com/s/lKQVYJBVioEV4blmAZxzSw)，出处：楼仔，整理：沉默王二

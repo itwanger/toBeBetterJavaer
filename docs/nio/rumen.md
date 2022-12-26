@@ -16,7 +16,7 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-90c84f53-f82d-43dd-87c5-4477e540fa57.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-90c84f53-f82d-43dd-87c5-4477e540fa57.jpg)
 
 
 
@@ -60,7 +60,7 @@ Buffer是缓冲区的抽象类：
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-436aa175-3586-4457-b93c-70b21ff122dc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-436aa175-3586-4457-b93c-70b21ff122dc.jpg)
 
 
 
@@ -68,7 +68,7 @@ Buffer是缓冲区的抽象类：
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-4bf73cdc-b5e2-4866-ac68-cc57602be5e8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-4bf73cdc-b5e2-4866-ac68-cc57602be5e8.jpg)
 
 
 
@@ -79,13 +79,13 @@ Buffer是缓冲区的抽象类：
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-7229ef4c-a27d-4f90-97d0-8abbfda810a0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-7229ef4c-a27d-4f90-97d0-8abbfda810a0.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-df9f0bdf-3afe-42dc-9e7e-459484d7cb8e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-df9f0bdf-3afe-42dc-9e7e-459484d7cb8e.jpg)
 
 
 
@@ -107,7 +107,7 @@ Buffer类维护了4个核心变量属性来提供**关于其所包含的数组�
 
 *   一个备忘位置。**用于记录上一次读写的位置**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-85991ca3-99bd-4e56-a84e-e58af4d8aac9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-85991ca3-99bd-4e56-a84e-e58af4d8aac9.jpg)
 
 
 
@@ -145,7 +145,7 @@ public static void main(String[] args) {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-cbf8b617-f71c-47f7-bc20-72d46306349f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-cbf8b617-f71c-47f7-bc20-72d46306349f.jpg)
 
 
 
@@ -155,7 +155,7 @@ public static void main(String[] args) {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-571a843f-1334-4fcb-bbae-90dbbe31ac8c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-571a843f-1334-4fcb-bbae-90dbbe31ac8c.jpg)
 
 
 
@@ -172,7 +172,7 @@ public static void main(String[] args) {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-b7d1a7d4-f2a7-4635-b5a8-9d10733df5f3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-b7d1a7d4-f2a7-4635-b5a8-9d10733df5f3.jpg)
 
 
 
@@ -191,7 +191,7 @@ System.out.println(new String(bytes, 0, bytes.length));
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-40d60cff-e87b-4180-a350-7dc5a5207156.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-40d60cff-e87b-4180-a350-7dc5a5207156.jpg)
 
 
 
@@ -199,7 +199,7 @@ System.out.println(new String(bytes, 0, bytes.length));
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c0fc49ea-bc74-43e8-8f16-d26b93e731bf.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c0fc49ea-bc74-43e8-8f16-d26b93e731bf.jpg)
 
 
 
@@ -209,7 +209,7 @@ System.out.println(new String(bytes, 0, bytes.length));
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-6567241c-8ca6-492d-a4d1-45e6b275e75e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-6567241c-8ca6-492d-a4d1-45e6b275e75e.jpg)
 
 
 
@@ -217,7 +217,7 @@ System.out.println(new String(bytes, 0, bytes.length));
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-275c9588-216a-416f-934e-f3fbe54fda43.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-275c9588-216a-416f-934e-f3fbe54fda43.jpg)
 
 
 
@@ -238,7 +238,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-741d14cb-4ea6-43cb-aacc-4fa3297cedba.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-741d14cb-4ea6-43cb-aacc-4fa3297cedba.jpg)
 
 
 
@@ -246,7 +246,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c8020177-39b4-405b-abc0-c908ab7cf73d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c8020177-39b4-405b-abc0-c908ab7cf73d.jpg)
 
 
 
@@ -254,7 +254,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-2ce868f7-691e-419e-a443-e25131b2785a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-2ce868f7-691e-419e-a443-e25131b2785a.jpg)
 
 
 
@@ -265,13 +265,13 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c51af71c-759c-40de-9d92-92fffa2d075d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c51af71c-759c-40de-9d92-92fffa2d075d.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c6181e11-8960-46f3-a4b5-8233d013499c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c6181e11-8960-46f3-a4b5-8233d013499c.jpg)
 
 
 
@@ -282,7 +282,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-16943811-2190-4fc9-82f9-df34c06c22d2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-16943811-2190-4fc9-82f9-df34c06c22d2.jpg)
 
 
 
@@ -295,13 +295,13 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-d2b8a337-3c1b-4bce-ae8d-ed107a3676a2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-d2b8a337-3c1b-4bce-ae8d-ed107a3676a2.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-e0916f2c-2ce9-4be6-b071-754301a09642.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-e0916f2c-2ce9-4be6-b071-754301a09642.jpg)
 
 
 
@@ -309,7 +309,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-886e1838-3404-4bfb-84c9-36cffa19aa19.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-886e1838-3404-4bfb-84c9-36cffa19aa19.jpg)
 
 
 
@@ -317,7 +317,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-aba6d233-f294-4d1f-b389-dd174e76d1b0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-aba6d233-f294-4d1f-b389-dd174e76d1b0.jpg)
 
 
 
@@ -325,7 +325,7 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-dba55dfc-48df-4111-884d-d67227b7723a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-dba55dfc-48df-4111-884d-d67227b7723a.jpg)
 
 >参考链接：[https://www.zhihu.com/question/29005375/answer/667616386](https://www.zhihu.com/question/29005375/answer/667616386)，整理：沉默王二
 
@@ -336,4 +336,4 @@ FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是�
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

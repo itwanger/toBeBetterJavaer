@@ -84,7 +84,7 @@ public class Car {
 
 说完这句话，我打开 draw.io，使上了吃奶的劲，画出了下面这幅图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/22-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/22-01.png)
 
 “哦，原来如此啊！”三妹仿佛发现了新大陆，意味深长地说。
 
@@ -136,4 +136,4 @@ public class B extends A{
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

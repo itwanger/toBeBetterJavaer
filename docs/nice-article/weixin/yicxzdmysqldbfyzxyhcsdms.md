@@ -18,35 +18,35 @@ head:
 
 下面我以某个电商系统的**客户表**为例，**数据库是 Mysql，数据体量在 100 万以上，详细介绍分页查询下，不同阶段的查询效率情况**（订单表的情况也是类似的，只不过它的数据体量比客户表更大）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-6a0fd06b-595b-4a70-b79c-008ec25f3ebb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-6a0fd06b-595b-4a70-b79c-008ec25f3ebb.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-4c405350-b5c2-4a98-b919-1b01f2d97045.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-4c405350-b5c2-4a98-b919-1b01f2d97045.jpg)
 
 下面我们一起来测试一下，每次查询客户表时最多返回 100 条数据，不同的起始下，数据库查询性能的差异。
 
 *   **当起点位置在 0 的时候，仅耗时：18 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-23a24b41-14ca-4371-bdd6-b0ae7288d58d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-23a24b41-14ca-4371-bdd6-b0ae7288d58d.jpg)
 
 *   **当起点位置在 1000 的时候，仅耗时：23 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-21f287ff-0c00-47ad-8625-db80b9f89839.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-21f287ff-0c00-47ad-8625-db80b9f89839.jpg)
 
 *   **当起点位置在 10000 的时候，仅耗时：54 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-a2aae7d6-3def-4430-bd2a-23fcd2cbd02a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-a2aae7d6-3def-4430-bd2a-23fcd2cbd02a.jpg)
 
 *   **当起点位置在 100000 的时候，仅耗时：268 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-743791f9-6133-4203-ad67-40f22ff60032.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-743791f9-6133-4203-ad67-40f22ff60032.jpg)
 
 *   **当起点位置在 500000 的时候，仅耗时：1.16 s**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-7dc4ce81-5052-4cfc-822e-cfb00fee9de7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-7dc4ce81-5052-4cfc-822e-cfb00fee9de7.jpg)
 
 *   **当起点位置在 1000000 的时候，仅耗时：2.35 s**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-2d5c5c66-c30d-4a4a-b025-0ca4d9d4fb76.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-2d5c5c66-c30d-4a4a-b025-0ca4d9d4fb76.jpg)
 
 可以非常清晰的看出，随着起点位置越大，分页查询效率成倍的下降，当起点位置在 1000000 以上的时候，对于百万级数据体量的单表，查询耗时基本上以秒为单位。
 
@@ -54,7 +54,7 @@ head:
 
 对于千万级的单表数据查询，小编我刚刚也使用了一下分页查询，**起点位置在 10000000，也截图给大家看看，查询耗时结果：39 秒**！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-4d690fe6-78b4-44a5-979e-1e483ad62ac4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-4d690fe6-78b4-44a5-979e-1e483ad62ac4.jpg)
 
 没有接触过这么大数据体量的同学，可能多少对这种查询结果会感到吃惊，事实上，这还只是数据库层面的耗时，还没有算后端服务的处理链路时间，以及返回给前端的数据渲染时间，以百万级的单表查询为例，如果数据库查询耗时 1 秒，再经过后端的数据封装处理，前端的数据渲染处理，以及网络传输时间，没有异常的情况下，差不多在 3～4 秒之间，可能有些同学对这个请求时长数值还不太敏感。
 
@@ -74,15 +74,15 @@ head:
 
 *   **当起点位置在 100000 的时候，仅耗时：73 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-0db3dbe4-8333-41d3-860e-00d5a9bdcb26.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-0db3dbe4-8333-41d3-860e-00d5a9bdcb26.jpg)
 
 *   **当起点位置在 500000 的时候，仅耗时：274 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-408e85b8-3ee6-4135-a470-baf01f7c41b0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-408e85b8-3ee6-4135-a470-baf01f7c41b0.jpg)
 
 *   **当起点位置在 1000000 的时候，仅耗时：471 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-88755ad9-ec59-44ae-8f4b-8dcfb06abb7c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-88755ad9-ec59-44ae-8f4b-8dcfb06abb7c.jpg)
 
 可以很清晰的看到，**通过简化返回的字段，可以很显著的成倍提升查询效率**。
 
@@ -102,15 +102,15 @@ select * from bizuser where id in (1,2,3,4,.....);
 
 *   **查询 100000～1000100 区间段的数据，仅耗时：18 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-6442c1c1-65ac-4227-a68d-fb1f7e07210a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-6442c1c1-65ac-4227-a68d-fb1f7e07210a.jpg)
 
 *   **查询 500000～5000100 区间段的数据，仅耗时：18 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-458734b4-95b9-4a42-bcf6-cb0d6cf8bdf7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-458734b4-95b9-4a42-bcf6-cb0d6cf8bdf7.jpg)
 
 *   **查询 1000000～1000100 区间段的数据，仅耗时：18 ms**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-150548d9-a12d-4207-91bc-2855b76c2152.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdmysqldbfyzxyhcsdms-150548d9-a12d-4207-91bc-2855b76c2152.jpg)
 
 可以很清晰的看到，带上主键 ID 作为过滤条件，查询性能非常的稳定，基本上在`20 ms`内可以返回。
 

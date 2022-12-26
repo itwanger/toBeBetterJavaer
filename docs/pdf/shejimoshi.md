@@ -24,11 +24,11 @@ head:
 
 微信搜索「**沉默王二**」发送「**10**」关键字领取即可领取，也可以扫描下面的二维码关注后发送「**10**」关键字。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 再来推荐一个网站：Refactoring Guru。  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-c582a192-0373-45b2-99de-69e688d31baa.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-c582a192-0373-45b2-99de-69e688d31baa.jpg)
 
 网址如下所示：
 
@@ -38,11 +38,11 @@ head:
 
 来看一下设计模式的目录吧（下图中只展现了创建型模式和结构型模式中的一部分，还有行为模式）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-e28938e4-f117-4afe-966b-e44d0ec022a0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-e28938e4-f117-4afe-966b-e44d0ec022a0.jpg)
 
 每个模式都会对应一篇图文并茂的文章，阅读起来就好像在读绘本一样，生动有趣，令人印象深刻，学起来就没有半点枯燥的感觉。来看一下工厂方法模式的一部分内容截图，这图片的质量，确实高啊，不服不行！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-6ab000de-34e7-44f2-9b06-b9d92cc0c043.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-6ab000de-34e7-44f2-9b06-b9d92cc0c043.jpg)
 
 配套的代码示例也非常完整，来看一下 Java 版的：
 
@@ -117,13 +117,13 @@ public class WindowsButton implements Button {
 
 当然了，代码示例不只有 Java 版的，还有 C#、C++、Python、Go 等 8 种常见的编程语言。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-3a219b1c-be2b-4586-b7d3-5c0ea23975b5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-3a219b1c-be2b-4586-b7d3-5c0ea23975b5.jpg)
 
 这种**图文并茂 + 代码示例**的学习方式，极大地加深了我们程序员对知识的吸收。还有什么赞美的词语？学富五车的我竟然有点词穷了。总之，如果大家也想学好设计模式，赶快点吧！
 
 离线版的 PDF 我也贡献出来了，截取一部分内容供大家预览下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-92309f22-ac2d-4cef-81cb-9f83bf9380d6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shejmsnb-92309f22-ac2d-4cef-81cb-9f83bf9380d6.jpg)
 
 里面有不少图文参照了 Refactoring Guru 这个网站，但也加入了作者自己的思考和理解，读起来也更接地气一点。按照作者说的：
 
@@ -131,7 +131,7 @@ public class WindowsButton implements Button {
 
 如果大家对这份 PDF 感兴趣的话，可以**微信搜索「**沉默王二**」发送**关键字「**设计模式**」获取下载链接：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 也可以扫描上面的二维码关注后发送 「**10** 」获取下载链接  
 

@@ -63,7 +63,7 @@ AOF 采用的是写后日志的方式，Redis 先执行命令把数据写入内�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-1.png)
 
 
 RDB 采用的是内存快照的方式，它记录的是某一时刻的数据，而不是操作，所以采用 RDB 方法做故障恢复时只需要直接把 RDB 文件读入内存即可，实现快速恢复。
@@ -96,7 +96,7 @@ RDB 采用的是内存快照的方式，它记录的是某一时刻的数据，�
 小二：额，这个我不太清楚...
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-2.png)
 
 
 面试官：
@@ -107,7 +107,7 @@ RDB 采用的是内存快照的方式，它记录的是某一时刻的数据，�
 - 如果主线程执行写操作，则被修改的数据会复制一份副本，然后 bgsave 子进程会把该副本数据写入 RDB 文件，在这个过程中，主线程仍然可以直接修改原来的数据。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-3.png)
 
 要注意，Redis 对 RDB 的执行频率非常重要，因为这会影响快照数据的完整性以及 Redis 的稳定性，所以在 Redis 4.0 后，增加了 AOF 和 RDB 混合的数据持久化机制： 把数据以 RDB 的方式写入文件，再将后续的操作命令以 AOF 的格式存入文件，既保证了 Redis 重启速度，又降低数据丢失风险。
 
@@ -122,21 +122,21 @@ RDB 采用的是内存快照的方式，它记录的是某一时刻的数据，�
 将从前的一台 Redis 服务器，同步数据到多台从 Redis 服务器上，即一主多从的模式，这个跟 MySQL 主从复制的原理一样。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-4.png)
 
 **2）哨兵模式**
 
 使用 Redis 主从服务的时候，会有一个问题，就是当 Redis 的主从服务器出现故障宕机时，需要手动进行恢复，为了解决这个问题，Redis 增加了哨兵模式（因为哨兵模式做到了可以监控主从服务器，并且提供自动容灾恢复的功能）。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-5.png)
 
 **3）Redis Cluster（集群）**
 
 Redis Cluster 是一种分布式去中心化的运行模式，是在 Redis 3.0 版本中推出的 Redis 集群方案，它将数据分布在不同的服务器上，以此来降低系统对单主节点的依赖，从而提高 Redis 服务的读写性能。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-6.png)
 
 面试官：使用哨兵模式在数据上有副本数据做保证，在可用性上又有哨兵监控，一旦 master 宕机会选举 salve 节点为 master 节点，这种已经满足了我们的生产环境需要，**那为什么还需要使用集群模式呢**？
 
@@ -147,7 +147,7 @@ Redis Cluster 是一种分布式去中心化的运行模式，是在 Redis 3.0 �
 小二：这应该是使用了某种 hash 算法，但是我不太清楚。。。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/redis12question-7.png)
 
 面试官：那好，今天的面试就到这里吧，你先回去等我们的面试通知。
 
@@ -185,4 +185,4 @@ C |10001 - 16383
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

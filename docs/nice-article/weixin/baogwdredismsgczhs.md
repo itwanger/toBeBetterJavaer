@@ -10,20 +10,20 @@ category:
 
 Redis，是二哥一直提到的 Java 后端开发四大件之一，重要程度就不用我再过分强调了，本篇将通过 30 个问题，由浅入深，最大程度上覆盖整个Redis的问答内容。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-94ba953d-4c73-467b-abdc-e58e6d7b81c1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-94ba953d-4c73-467b-abdc-e58e6d7b81c1.jpg)
 
 在 Web 应用发展的初期阶段，一个网站的访问量本身就不是很高，直接使用关系型数据库就可以应付绝大部分场景。但是随着互联网时代的崛起，人们对于网站访问速度有着越来越高的要求，直接使用关系型数据库的方案在性能上就出现了瓶颈。因此在客户端与数据层之间就需要一个缓存层来分担请求压力，而 Redis 作为一款优秀的缓存中间件，在企业级架构中占有重要的地位，因此 Redis 也作为面试的必问项。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-5f5c4283-29f1-447c-a857-eeca198cf9e0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-5f5c4283-29f1-447c-a857-eeca198cf9e0.jpg)
 
 
 * * *
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-1560b389-1d8d-42d1-9661-a0a5c8597f53.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-1560b389-1d8d-42d1-9661-a0a5c8597f53.jpg)
 
 Redis（Remote Dictionary Server）是一个开源的、键值对型的数据存储系统。使用C语言编写，遵守BSD协议，可基于内存也可持久化的日志型数据库，提供了多种语言的API，被广泛用于数据库、缓存和消息中间件。并且支持多种类型的数据结构，用于应对各种不同场景。可以存储多种不同类型值之间的映射，支持事务，持久化，LUA 脚本以及多种集群方案等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-66e38efb-5246-48ae-86f4-936b7994b189.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-66e38efb-5246-48ae-86f4-936b7994b189.jpg)
 
 **优点：**
 
@@ -39,7 +39,7 @@ Redis（Remote Dictionary Server）是一个开源的、键值对型的数据存
 2.  相比关系型数据库，不支持复杂逻辑查询，且存储结构相对简单
 3.  虽然提供持久化能力，但实际更多是一个 disk-backed 功能，与传统意义上的持久化有所区别
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-60c426d4-f390-4f9f-b5b5-5f65e21df2f0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-60c426d4-f390-4f9f-b5b5-5f65e21df2f0.jpg)
 
 > Memcache 也是一个开源、高性能、分布式内存对象缓存系统。所有数据均存储在内存中，在服务器重启之后就会消失，需要重新加载数据，采用 hash 表的方式将所有数据缓存在内存中，采用 LRU 算法来逐渐把过期的数据清除掉。
 
@@ -49,7 +49,7 @@ Redis（Remote Dictionary Server）是一个开源的、键值对型的数据存
 4.  **内存管理机制**：Memcache数据量不能超出系统内存，但可以调整内存大小，淘汰策略采用LRU算法。Redis增加了 VM 特性，实现了物理内存的限制，它们之间底层实现方式以及客户端之间通信的应用协议不一样。
 5.  **数据大小限制**：Memcache 单个 key-value 大小有限制，一个Value最大容量为 1MB，Redis 最大容量为512 MB
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-390ab912-3fd4-4849-a9d4-00c3b451769c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-390ab912-3fd4-4849-a9d4-00c3b451769c.jpg)
 
 **基本数据类型：**
 
@@ -67,7 +67,7 @@ Redis（Remote Dictionary Server）是一个开源的、键值对型的数据存
 
 > *扩展：* geohash通过算法将1个定位的经度和纬度2个数值，转换成1个hash字符串。如果2个地方距离越近，那么他们的hash值的前缀越相同。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-3476164a-ac24-41b6-8f74-a8835d8c4dc5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-3476164a-ac24-41b6-8f74-a8835d8c4dc5.jpg)
 
 Redis 底层实现了简单动态字符串的类型（Simple Dynamic String，SDS）来表示 String 类型。没有直接使用C语言定义的字符串类型。
 
@@ -78,7 +78,7 @@ Redis 底层实现了简单动态字符串的类型（Simple Dynamic String，SD
 3.  减少内存分配次数
 4.  兼容C字符串函数，可以重用C语言库的一部分函数
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-7d81ee1c-f7bb-4cb7-ad26-768f5bbe5d26.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-7d81ee1c-f7bb-4cb7-ad26-768f5bbe5d26.jpg)
 
 Redis 直接以内存的方式存储可以达到最快的读写速度，如果开启了持久化则通过异步的方式将数据写入磁盘，因此Redis 具有快速和数据持久化的特征。
 
@@ -86,7 +86,7 @@ Redis 直接以内存的方式存储可以达到最快的读写速度，如果�
 
 如果打开了虚拟内存功能，当内存用尽时，Redis就会把那些不经常使用的数据存储到磁盘，如果Redis中的虚拟内存被禁了，它就会操作系统的虚拟内存（交换内存），但这时Redis的性能会急剧下降。如果配置了淘汰机制，会根据已配置的数据淘汰机制来淘汰旧数据。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-dc9f5773-624d-407b-8902-09291d6613fe.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-dc9f5773-624d-407b-8902-09291d6613fe.jpg)
 
 1、**尽可能使用哈希表（hash 数据结构）**：Redis 在储存小于100个字段的Hash结构上，其存储效率是非常高的。所以在不需要集合（set）操作或 list 的push/pop 操作的时候，尽可能使用 hash 结构。
 
@@ -96,7 +96,7 @@ Redis 直接以内存的方式存储可以达到最快的读写速度，如果�
 
 4、**合理使用内存回收策略**：过期数据清除、expire 设置数据过期时间等
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-557f8beb-a419-4b1f-9c4f-3f8eed949540.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-557f8beb-a419-4b1f-9c4f-3f8eed949540.jpg)
 
 > Redis 能够用来实现分布式锁的命令有 INCR、SETNX、SET，并利用过期时间命令 expire 作为辅助
 
@@ -112,7 +112,7 @@ Redis 直接以内存的方式存储可以达到最快的读写速度，如果�
 
 `set` 指令有非常复杂的参数，相当于合成了 `setnx` 和 `expire` 两条命令的功能。其命令格式如：`set($Key,$value, array('nx', 'ex'=>$ttl))`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-c8cdee88-29ad-4a06-b441-befe13172ce5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-c8cdee88-29ad-4a06-b441-befe13172ce5.jpg)
 
 1.  完全基于内存
 2.  数据结构简单，操作方便，并且不同数据结构能够应对于不同场景
@@ -120,7 +120,7 @@ Redis 直接以内存的方式存储可以达到最快的读写速度，如果�
 4.  使用多路I/O复用模型，为非阻塞I/O
 5.  Redis 本身设定了 VM 机制，没有使用 OS 的Swap，可以实现冷热数据分离，避免因为内存不足而造成访问速度下降的问题
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-c88f1351-0ecc-4faf-abd5-c2ecf6f8e10c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-c88f1351-0ecc-4faf-abd5-c2ecf6f8e10c.jpg)
 
 **1、RDB（Redis DataBase）持久化**
 
@@ -169,7 +169,7 @@ auto-aof-rewrite-min-zise 64mb
 2.  比 RDB 持久化启动效率低，数据集大的时候较为明显
 3.  AOF 文件体积可能迅速变大，需要定期执行重写操作来降低文件体积
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-055fb9fa-5453-4969-b819-84ef9983b364.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-055fb9fa-5453-4969-b819-84ef9983b364.jpg)
 
 **方式1：定时删除**
 
@@ -189,7 +189,7 @@ key 不使用时不管 key 过不过期，只会在每次使用的时候再检�
 
 *特点：* 定期删除是对上面两种过期策略的折中，也就是对内存友好和CPU友好的折中方法。每隔一段时间执行一次删除过期键任务，并通过限制操作的时长和频率来减少对CPU时间的占用。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-0933ed13-f214-4102-b5d0-870a6d33abb9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-0933ed13-f214-4102-b5d0-870a6d33abb9.jpg)
 
 > Redis 主从同步分为增量同步和全量同步Redis 会先尝试进行增量同步，如果不成功则会进行全量同步。
 
@@ -201,7 +201,7 @@ Slave 初始化后开始正常工作时主服务器发生的写操作同步到�
 
 Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是第一次同步，主服务器会做一次`bgsave`，并同时将后续的修改操作记录到内存 buffer 中，待 `bgsave` 完成后再将 RDB 文件全量同步到从服务器，从服务器接收完成后会将 RDB 快照加载到内存然后写入到本地磁盘，处理完成后，再通知主服务器将期间修改的操作记录同步到复制节点进行重放就完成了整个全量同步过程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a58be6cb-9a16-42d9-9766-65d144cf4582.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a58be6cb-9a16-42d9-9766-65d144cf4582.jpg)
 
 在Redis中，最大使用内存大小由Redis.conf中的参数maxmemory决定，默认值为0，表示不限制，这时实际相当于当前系统的内存。但如果随着数据的增加，如果对内存中的数据没有管理机制，那么数据集大小达到或超过最大内存的大小时，则会造成Redis崩溃。因此需要内存数据淘汰机制。
 
@@ -223,7 +223,7 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 > *   如果数据呈现平等分布，也就是所有的数据访问频率大体相同，则使用 allKeys-random
 > *   关于 lru 策略，Redis中并不会准确的删除所有键中最近最少使用的键，而是随机抽取5个键（个数由参数maxmemory-samples决定，默认值是5），删除这5个键中最近最少使用的键。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-0ebf4f4c-4907-4019-bf6d-2f81dd4fc005.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-0ebf4f4c-4907-4019-bf6d-2f81dd4fc005.jpg)
 
 **问题1：缓存穿透**
 
@@ -255,7 +255,7 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 3.  对于不同的key设置不同的过期时间，让缓存失效的时间点尽量均匀，比如我们可以在原有的失效时间基础上增加一个随机值，比如1~5分钟随机，这样每一个缓存的过期时间的重复率就会降低。
 4.  设置二级缓存，或者双缓存策略。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-5922d7de-de7c-4a85-bfab-6efd557747a5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-5922d7de-de7c-4a85-bfab-6efd557747a5.jpg)
 
 缓存降级，其实都应该是指服务降级。在访问量剧增、服务响应出现问题（如响应延迟或不响应）或非核心服务影响到核心流程的性能的情况下，仍然需要保证核心服务可用，尽管可能一些非主要服务不可用，这时就可以采取服务降级策略。
 
@@ -263,19 +263,19 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 
 降级往往会指定不同的级别，面临不同的异常等级执行不同的处理。根据服务方式：可以拒接服务，可以延迟服务，也可以随机提供服务。根据服务范围：可以暂时禁用某些功能或禁用某些功能模块。总之服务降级需要根据不同的业务需求采用不同的降级策略。主要的目的就是服务虽然有损但是总比没有好。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-094f1592-ec7e-42ef-9857-c2768bc51df6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-094f1592-ec7e-42ef-9857-c2768bc51df6.jpg)
 
 1.  数据实时同步失效或更新。这是一种增量主动型的方案，能保证数据强一致性，在数据库数据更新之后，主动请求缓存更新
 2.  数据异步更新。这是一种增量被动型方案，数据一致性稍弱，数据更新会有延迟，更新数据库数据后，通过异步方式，用多线程方式或消息队列来实现更新
 3.  定时任务更新。这是一种增/全量被动型方案，通过定时任务按一定频率调度更新，数据一致性最差
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-dbf8f783-af49-42a5-be7d-348dc8781e32.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-dbf8f783-af49-42a5-be7d-348dc8781e32.jpg)
 
 1.  直接写个缓存刷新页面，上线时手工操作
 2.  数据量不大，可以在项目启动时自动进行加载
 3.  定时刷新缓存
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a8eabf5b-7616-4974-b649-d89f7b953fa7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a8eabf5b-7616-4974-b649-d89f7b953fa7.jpg)
 
 > Sentinel（哨兵）适用于监控 Redis 集群中 Master 和 Slave 状态的工具，是Redis的高可用性解决方案
 
@@ -285,7 +285,7 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 2.  提醒。当被监控的某个Redis节点出现问题时，哨兵可以通过API向管理员或其他应用程序发送通知
 3.  自动故障迁移。当一个Master不能正常工作时，哨兵会开始一次自动故障迁移操作，它会将集群中一个Slave提升为新的Master，并让其他Slave改为与新的Master进行同步。当客户端试图连接失败的Master时，集群也会想客户端返回新的Master地址。当主从服务器切换后，新Master的Redis.conf，Slave的Redis.conf和Sentinel的Redis.conf三者配置文件都会发生相应的改变。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-4cbcb19c-d2cc-4a67-aad0-9a082d9996a7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-4cbcb19c-d2cc-4a67-aad0-9a082d9996a7.jpg)
 
 **问题背景**
 
@@ -299,7 +299,7 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 
 *注意：* Redis 集群中使用不了 Pipeline，对可靠性要求很高，每次操作都需要立即获取本次操作结果的场景都不适合用 Pipeline
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a5a7ee47-f220-44bf-ab9d-fb90683c4b46.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a5a7ee47-f220-44bf-ab9d-fb90683c4b46.jpg)
 
 1.  Master 最好不要做 RDB 持久化，因为这时 save 命令调度 rdbSave 函数，会阻塞主线程的工作，当数据集比较大时可能造成主线程间断性暂停服务
 2.  如果数据比较重要，将某个 Slave 节点开启AOF数据备份，策略设置为每秒一次
@@ -307,7 +307,7 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 4.  尽量避免在运行压力很大的主库上增加从库
 5.  主从复制不要用图状结构，用单向链表结构更为稳定，`Mater->Slave1->Slave2->Slave3...` 这样的结构方便解决单点故障问题，实现 Slave 对 Master 的替换，如果 Master 崩溃，可以立即启用 Slave1替换Mater，而其他依赖关系则保持不变。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-433affa2-0cf5-42d2-9101-4d4f297055a9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-433affa2-0cf5-42d2-9101-4d4f297055a9.jpg)
 
 **方式1：先更新数据库，再更新缓存**
 
@@ -323,7 +323,7 @@ Slave 初始化时它会发送一个 `psync` 命令到主服务器，如果是�
 
 **方式4：直接操作缓存，定期写入数据库**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-978967aa-4b5a-4a0b-b2bd-78d726e01125.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-978967aa-4b5a-4a0b-b2bd-78d726e01125.jpg)
 
 > 虽然Redis的Transactions 提供的并不是严格的 ACID的事务（如一串用EXEC提交执行的命令，如果在执行中服务器宕机，那么会有一部分命令执行一部分命令未执行），但这些Transactions还是提供了基本的命令打包执行的功能（在服务器不出问题的情况下，可以保证一连串的命令是顺序在一起执行的。
 
@@ -336,7 +336,7 @@ Redis 事务的本质就是四个原语：
 
 事务支持一次执行多个命令，一个事务中的所有命令都会被序列化。在事务执行的过程中，会按照顺序串行化执行队列中的命令，其他客户端提交的命令请求不会插入到事务执行命令队列中。Redis 不支持回滚事务，在事务失败的时候不会回滚，而是继续执行余下的命令。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-272db8a6-0e11-4a45-8f59-904a17b09ad4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-272db8a6-0e11-4a45-8f59-904a17b09ad4.jpg)
 
 **方式1：Cluster 3.0**
 
@@ -350,7 +350,7 @@ Twitter 开源的一个轻量级后端代理。可以管理 Redis 或 Memcache �
 
 它是一个 Redis 分布式的解决方法，对于应用使用 Codis Proxy 的连接和使用Redis的服务没有明显区别，应用能够像使用单机 Redis 一样，让 Codis 底层处理请求转发，实现不停机实现数据迁移等工作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-cb4dd9db-cc87-413c-8f4f-257b215ff7ef.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-cb4dd9db-cc87-413c-8f4f-257b215ff7ef.jpg)
 
 > 什么是脑裂问题
 
@@ -370,21 +370,21 @@ min-replicas-max-lag  10
 
 配置这两个参数之后，如果发生集群脑裂，原先的master节点接收到写入请求就会拒绝，就会减少数据同步之后的数据丢失
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-bafd12cc-fc0c-4951-bfb5-ec5e8f609032.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-bafd12cc-fc0c-4951-bfb5-ec5e8f609032.jpg)
 
 一般使用 `List` 结构作为队列。`Rpush` 生产消息，`Lpop` 消费消息。当 `Lpop` 没有消费的时候，需要适当 sleep 一会再重试。但是重复 sleep 会耗费性能，所以我们可以利用 list 的 `blpop` 指令，在还没有消息到来时，它会阻塞直到消息到来。
 
 我们也可以使用 `pub/sub` 主题订阅者模式，实现 1：N 的消费队列，但是在消费者下线的时候，生产的消息会丢失
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-55366226-cdcb-49e7-ba44-93adba240c4f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-55366226-cdcb-49e7-ba44-93adba240c4f.jpg)
 
 可以使用 `zset` 结构，可以拿时间戳作为 score，消息的内容作为key，通过调用 `zadd` 来生产消息，消费者使用 `zrangebyscore` 指令轮询获取 N 秒之前的数据进行处理
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-e57e2e25-5c59-4f98-9f51-e2cce8bf1317.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-e57e2e25-5c59-4f98-9f51-e2cce8bf1317.jpg)
 
 Redis Cluster提供了自动将数据分散到各个不同节点的能力，但采用的策略并不是一致性Hash，而是哈希槽。Redis 集群将整个Key的数值域分成16384个哈希槽，每个Key通过 CRC16检验后对16384驱魔来决定放置到那个槽中，集群的每个节点都负责其中一部分的哈希槽。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-4a0ddadf-45f6-44e8-a696-c159c0ca2759.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-4a0ddadf-45f6-44e8-a696-c159c0ca2759.jpg)
 
 **1、数据缓存**
 
@@ -418,7 +418,7 @@ Redis Cluster提供了自动将数据分散到各个不同节点的能力，但�
 
 Redis 提供了发布（`Publish`）与订阅（`Subscribe`）以及阻塞队列能力，能够实现一个简单的消息队列系统
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-320f06ce-7aee-4011-bf2a-067c23cc222b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-320f06ce-7aee-4011-bf2a-067c23cc222b.jpg)
 
 **方式1：Set 结构**
 
@@ -460,7 +460,7 @@ BITPOS u:sign:1000:201902 1 # 返回的首次签到的偏移量，加上1即
 3.  使用 bitmap 最大可以存储 2^32-1也就是 512M 数据
 4.  使用 bitmap 只适用存储只有两个状态的数据，比如用户签到，资源（视频、文章、商品）的已读或未读状态
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-dbdb69a5-1043-4a41-84c4-196f19746cef.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-dbdb69a5-1043-4a41-84c4-196f19746cef.jpg)
 
 Redis中 ZSet 是选择使用 `跳表` 而不是红黑树
 
@@ -470,7 +470,7 @@ Redis中 ZSet 是选择使用 `跳表` 而不是红黑树
 *   跳表在原有的有序链表上增加了多级索引，通过索引来实现快速查找
 *   跳表不仅能提高搜索性能，同时也可以提高插入和删除操作的性能
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a98a9de1-c42a-481e-908b-57632ce9fdcc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdredismsgczhs-a98a9de1-c42a-481e-908b-57632ce9fdcc.jpg)
 
 ***总结：***
 

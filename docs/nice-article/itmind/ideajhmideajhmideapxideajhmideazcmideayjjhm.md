@@ -30,17 +30,17 @@ head:
 
 ### 2018.2-2022 版本用这个
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideajhmideajhmideapxideajhmideazcmideayjjhm-7725c997-6331-4d8a-bef2-7be1416d651d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideajhmideajhmideapxideajhmideazcmideayjjhm-7725c997-6331-4d8a-bef2-7be1416d651d.png)
 
 ### 2018.1 以下版本用这个
 
-### ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideajhmideajhmideapxideajhmideazcmideayjjhm-c8728cc4-b827-4b45-87c1-7c9a5334679e.png)
+### ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideajhmideajhmideapxideajhmideazcmideayjjhm-c8728cc4-b827-4b45-87c1-7c9a5334679e.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideajhmideajhmideapxideajhmideazcmideayjjhm-e6c4c1fd-679f-465b-b855-01e2deaad1ab.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideajhmideajhmideapxideajhmideazcmideayjjhm-e6c4c1fd-679f-465b-b855-01e2deaad1ab.png)
 
 > **为了防止被和谐，需要的小伙伴，扫描下方公众号二维码，或者关注公众号： `沉默王二`，回复关键字：`idea`, 即可免费获取上述激活码，持续更新中~~~**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 > 激活后如果显示 key is invalid，这是因为你破解过软件的原因，请按如下操作
 >

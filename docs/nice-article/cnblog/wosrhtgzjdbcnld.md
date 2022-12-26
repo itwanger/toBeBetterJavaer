@@ -67,7 +67,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 为了照顾大家的学习方向，Java 程序员进阶之路把所有的学习路线都整理了出来，戳链接：[https://tobebetterjavaer.com/xuexiluxian/](https://tobebetterjavaer.com/xuexiluxian/)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-1c762f54-f797-4880-b327-98b9cf1893b2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-1c762f54-f797-4880-b327-98b9cf1893b2.png)
 
 里面也备有一些必须的学习资料可供下载和在线免费优质资源（视频/网站）。
 
@@ -96,7 +96,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 [二哥的编程星球里有一份编程喵🐱的实战（Spring Boot+Vue 的前后端分离）项目笔记，戳链接加入](https://tobebetterjavaer.com/zhishixingqiu/)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-b194758a-53cf-4c5f-8533-12e4ed603f46.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-b194758a-53cf-4c5f-8533-12e4ed603f46.png)
 
 
 Spring IoC 和 AOP 是核心，如何理解，看我这篇文章：
@@ -132,12 +132,12 @@ Spring IoC 和 AOP 是核心，如何理解，看我这篇文章：
 先推荐一本《[MySQL 是怎样使用的，快速入门 MySQL](https://book.douban.com/subject/35670862/)》。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-bf863acd-dff1-450b-9793-46cc6cd412ab.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-bf863acd-dff1-450b-9793-46cc6cd412ab.png)
 
 视频的话推荐《[3 小时学会 MySQL](https://www.bilibili.com/video/BV1iJ411m7Fj)》
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-3ca2be41-e92e-4a4f-be46-a9776c24306e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-3ca2be41-e92e-4a4f-be46-a9776c24306e.png)
 
 
 
@@ -159,12 +159,12 @@ Spring IoC 和 AOP 是核心，如何理解，看我这篇文章：
 一本《[MySQL 是怎样运行的：从根儿上理解 MySQL](https://douban.com/book/subject/35231266/)》。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-1a0e3385-5616-4d1f-9de7-4e45b809fd3b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-1a0e3385-5616-4d1f-9de7-4e45b809fd3b.png)
 
 还有一本《[MySQL 技术内幕：InnoDB 存储引擎](https://douban.com/book/subject/24708143/)》。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-221b4051-7ab9-449f-aad5-6d295e3b1049.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-221b4051-7ab9-449f-aad5-6d295e3b1049.png)
 
 
 举几个面试常见的问题，联合索引为什么要最左匹配？数据库的隔离级别是怎么实现的？数据库绝对是开发适合面试考察的重点。
@@ -172,7 +172,7 @@ Spring IoC 和 AOP 是核心，如何理解，看我这篇文章：
 还有一本书和 Redis 相关的《Redis 设计与实现》，有读者评价说“作者有点大陆版侯捷老师的意思”。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-cc0294d8-1862-4bfa-8c71-970cd2ac72bd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-cc0294d8-1862-4bfa-8c71-970cd2ac72bd.png)
 
 博客的话推荐二哥的《三剑客》团队之一一灰灰的博客：[https://hhui.top/spring-db/08.redis/](https://hhui.top/spring-db/08.redis/)
 
@@ -197,7 +197,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 给大家推荐一本 Linux 界的“圣经”。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-e20af367-911b-460e-b00c-3413cef064a1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-e20af367-911b-460e-b00c-3413cef064a1.png)
 
 
 《[鸟哥的 Linux 私房菜](https://book.douban.com/subject/4889838/)》蝉联最受欢迎华语 Linux 书籍第一的位置，无人能撼动。
@@ -211,7 +211,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 视频的话推荐[韩顺平老师的一周学会Linux](https://www.bilibili.com/video/BV1Sv411r7vd)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-c3a6c806-115a-4e57-8adc-5ddfd2d3d5ef.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-c3a6c806-115a-4e57-8adc-5ddfd2d3d5ef.png)
 
 
 ## 二、内功
@@ -251,7 +251,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 喏，就是这本《[算法 4](https://douban.com/book/subject/19952400/)》的作者，斯坦福的 PhD。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-278cf8b8-a75f-4160-b44f-1d37cdf8cb7a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-278cf8b8-a75f-4160-b44f-1d37cdf8cb7a.png)
 
 
 #### 国内面试
@@ -259,12 +259,12 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 国内的面试，我建议大家跟着星球的专栏《Java 版 LeetCode 刷题笔记》走，通俗易懂。我们计划周一到周五至少每天更新一篇，周六周日更新一篇，目标 300 道 LeetCode 经典题。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-08f44605-8174-4079-8319-e1b8d49602df.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-08f44605-8174-4079-8319-e1b8d49602df.png)
 
 有算法天赋的选手可以从《[剑指 offer](https://douban.com/book/subject/35543447/)》这本书开始学习，或者直接到牛客网或者 Leetcode 开始你的刷题之旅。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-ae5eaa49-cd5f-4403-8ff3-803da9b421de.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-ae5eaa49-cd5f-4403-8ff3-803da9b421de.png)
 
 
 我个人感觉对于一般面试来说，如果能把两百道中等题目刷的比较熟练是足以找到一份不错的工作了。
@@ -280,14 +280,14 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 
 推荐好朋友小傅哥的书籍《[重学 Java 设计模式](https://douban.com/book/subject/35451185/)》：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-68ec93ac-1855-4813-affe-b3b6484ca157.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-68ec93ac-1855-4813-affe-b3b6484ca157.png)
 
 电子版的话可以[戳这里](https://tobebetterjavaer.com/nice-article/weixin-shejmsnb.html)。
 
 也可以直接到这个网站 [Refactoring Guru](https://refactoring.guru) 刷设计模式，制作的真心不错。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-37b13245-b14b-4d04-8dee-b193a7c3c523.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-37b13245-b14b-4d04-8dee-b193a7c3c523.png)
 
 
 设计模式看一遍是不够的，也不需要一遍追求完全看懂。随着代码量的积累，对设计模式的理解也会不同。
@@ -303,7 +303,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 推荐大名鼎鼎的 CSAPP：*Computer Systems: A Programmer's Perspective*
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-3d79c0f7-168b-4e1a-8f67-774624eda1b3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-3d79c0f7-168b-4e1a-8f67-774624eda1b3.png)
 
 
 这本书我在很久之前的视频里就推荐过了，它把计算机底层原理讲解的非常透彻，同时 CMU 也有配套的课程：`http://csapp.cs.cmu.edu/3e/courses.html` ，重要性不言而喻。
@@ -340,7 +340,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 推荐书籍：《[计算机网络：自顶向下](https://douban.com/book/subject/26176870/)》
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-c0604bad-423e-40e7-a81f-e51f09656e77.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-c0604bad-423e-40e7-a81f-e51f09656e77.png)
 
 视频推荐：斯坦福大学 CS 144 计算机网络
 
@@ -351,7 +351,7 @@ B 站链接：[https://www.bilibili.com/video/av96841516/](https://www.bilibili.
 [https://www.bilibili.com/video/BV1c4411d7jb](https://www.bilibili.com/video/BV1c4411d7jb)
 
 
-![每次我来截图，看的人都很多](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-756b8098-ecb9-43a1-93aa-497608f4b1b4.png)
+![每次我来截图，看的人都很多](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-756b8098-ecb9-43a1-93aa-497608f4b1b4.png)
 
 
 ### 5\. 计算机发展史
@@ -370,7 +370,7 @@ B 站中英文版本：[https://www.bilibili.com/video/av21376839/](https://www.
 
 这门课我真是相见恨晚，每一集只有 10-12 分钟，一共 40 集，主讲人非常激情澎湃，你能够隔着屏幕感受到她对计算机科学的热情，对我影响很大。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-e061a7ea-151e-44b5-bda0-c4c4539e8212.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-e061a7ea-151e-44b5-bda0-c4c4539e8212.jpg)
 
 ## 三、踏入江湖
 
@@ -378,7 +378,7 @@ B 站中英文版本：[https://www.bilibili.com/video/av21376839/](https://www.
 
 面试之前，强烈建议你把星球专栏《Java 面试指南》刷完，做到有的放矢。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-3979663f-660c-4163-9a31-58c4fc9dcceb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-3979663f-660c-4163-9a31-58c4fc9dcceb.png)
 
 
 踏入江湖之后，我们仍需不断反复修炼自己的“外功”和“内功”，不断提高自己的功力，哪怕是同一本书，在工作的不同阶段读，一定会有不同的体会。
@@ -400,4 +400,4 @@ B 站中英文版本：[https://www.bilibili.com/video/av21376839/](https://www.
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

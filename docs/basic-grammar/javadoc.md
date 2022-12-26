@@ -16,7 +16,7 @@ head:
 
 “注释的种类确实不多，但还是挺有意思的，且听哥来给你说道说道。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-01.png)
 
 
 
@@ -33,7 +33,7 @@ public void method() {
 
 **但如果写在行尾的话，其实是不符合阿里巴巴的开发规约的**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-02.png)
 
 正确的单行注释如上图中所说，在被注释语句上方另起一行，使用 `//` 注释。
 
@@ -98,24 +98,24 @@ PS：在 Intellij IDEA 中，按下 `/**` 后敲下回车键就可以自动添�
 
 **第一步**，在该类文件上右键，找到「Open in Terminal」 可以打开命令行窗口。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-03.png)
 
 
 **第二步**，执行 javadoc 命令 `javadoc Demo.java -encoding utf-8`。`-encoding utf-8` 可以保证中文不发生乱码。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-04.png)
 
 **第三步，**执行 `ls -l` 命令就可以看到生成代码文档时产生的文件，主要是一些可以组成网页的 html、js 和 css 文件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-05.png)
 
 **第四步**，执行 `open index.html` 命令可以通过默认的浏览器打开文档注释。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-06.png)
 
 点击「Demo」，可以查看到该类更具体的注释文档。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-07.png)
 
 ### 04、文档注释的注意事项
 
@@ -125,7 +125,7 @@ default 和 private 修饰的字段和方法的注释将会被忽略掉。因为
 
 如果类不是 public 的话，javadoc 会执行失败。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-08.png)
 
 2）文档注释中可以嵌入一些 HTML 标记，比如说段落标记 `<p>`，超链接标记 `<a></a>` 等等，但不要使用标题标记，比如说 `<h1>`，因为 javadoc 会插入自己的标题，容易发生冲突。
 
@@ -137,7 +137,7 @@ default 和 private 修饰的字段和方法的注释将会被忽略掉。因为
 
 比如说，在使用 String 类的时候，鼠标悬停在 String 上时可以得到以下提示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-09.png)
 
 2）所有的抽象方法(包括接口中的方法)必须要用Javadoc注释、除了返回值、参数、 异常说明外，还必须指出该方法做什么事情，实现什么功能。
 
@@ -145,7 +145,7 @@ default 和 private 修饰的字段和方法的注释将会被忽略掉。因为
 
 Intellij IDEA 中可以在「File and Code Templates」中设置。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-10.png)
 
 语法如下所示：
 
@@ -188,4 +188,4 @@ public class Test {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

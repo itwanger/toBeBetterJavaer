@@ -18,15 +18,15 @@ head:
 
 我以为，他会傻乎乎地下一步下一步来安装 JDK，就像这样。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-474773ad-69eb-467d-acd8-1928ebf27e3a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-474773ad-69eb-467d-acd8-1928ebf27e3a.png)
 
 然后这样配置环境变量。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-c463c792-60a8-4d16-8cba-dcbe1ece1453.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-c463c792-60a8-4d16-8cba-dcbe1ece1453.png)
 
 结果他是这样的，就一行命令，环境变量也不用配置！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-340c54de-c793-4bbc-9112-96977f8ec69a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-340c54de-c793-4bbc-9112-96977f8ec69a.png)
 
 卧槽！牛逼高大上啊！
 
@@ -35,7 +35,7 @@ head:
 于是我就安排他做一个记录，打算发表在我的小破站《Java 程序员进阶之路》上。从他嘴里了解到，他用的命令行软件管理器叫 chocolatey，这是一个Windows下的命令行软件管理器，在 GitHub 上已经收获 8.2k+的星标，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-92ee5dda-830f-47fd-8770-7a765ef30b5a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-92ee5dda-830f-47fd-8770-7a765ef30b5a.png)
 
 
 以下是他的记录，一起来欣赏下。
@@ -55,7 +55,7 @@ head:
 - 切换目录，可以使用 cd 命令切换目录，`cd ..` 返回上级目录。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-21db6ccd-3bec-4e8c-b72a-6cba674cae63.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-21db6ccd-3bec-4e8c-b72a-6cba674cae63.png)
 
 - 目录列表，macos/linux 下可以使用 ls 命令列出目录下所有的文件和子目录（Windows 下使用 dir 命令），使用通配符 `*` 对展示的内容进行过滤，比如 `ls *.java` 列出所有 `.java`后缀的文件，如果想更进一步的话，可以使用 `ls H*.java` 列出所有以 H 开头 `.java` 后缀的文件。
 - 新建目录，macOS/Linux 下可以使用 mkdir 命令新建一个目录（比如 `mkdir hello` 可以新建一个 hello 的目录），Windows 下可以使用 md 命令。
@@ -63,12 +63,12 @@ head:
 - 删除目录，macOS/Linux 下可以使用 `rm -r` 命令删除目录以及它所包含的所有文件（比如说 `rm -r hello` 删除 hello 目录）。Windows 下可以使用 rmdir 命令。
 - 重复命令，macOS/Linux/Windows 下都可以使用上下箭头来选择以往执行过的命令。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-269f4133-cdd3-414f-baf9-31067e0eb27f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-269f4133-cdd3-414f-baf9-31067e0eb27f.png)
 
 - 命令历史，macOS/Linux 下可以使用 `history` 命令查看所有使用过的命令。Windows 可以按下 F7 键。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-96eb0dde-c08c-4b52-9007-8f3130e22d94.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-96eb0dde-c08c-4b52-9007-8f3130e22d94.png)
 
 - 解压文件，后缀名为“.zip”的文件是一个包含了其他文件的压缩包，macOS/Linux 系统自身已经提供了用于解压的 unzip 命令， Windows 的话需要手动安装。
 
@@ -86,7 +86,7 @@ head:
 第一步，以管理员的身份打开 cmd 命令行。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-3dae462d-56d1-4e80-9d47-bcba1c2ee292.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-3dae462d-56d1-4e80-9d47-bcba1c2ee292.png)
 
 第二步，执行以下命令：
 
@@ -98,11 +98,11 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 安装完成后如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-2cfc4656-e996-4678-bd57-29cc78587e73.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-2cfc4656-e996-4678-bd57-29cc78587e73.png)
 
 如果不确定是否安装成功的话，可以通过键入 `choco` 命令来确认。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-2db830bd-76f5-4b28-8f1d-1642b3e8476b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-2db830bd-76f5-4b28-8f1d-1642b3e8476b.png)
 
 这里推荐几个非常高效的操作命令：
 
@@ -120,21 +120,21 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 比如说我们来查找 Java。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-aa483180-e395-4753-b8ca-0479b05ec4b5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-aa483180-e395-4753-b8ca-0479b05ec4b5.png)
 
 好，现在可以直接在shell中键入 `choco install jdk8` 来安装 JDK8 了，并且会自动将Java加入到环境变量中，不用再去「我的电脑」「环境变量」中新建 JAVA_HOME 并复制 JDK 安装路径配置 PATH 变量了，是不是非常 nice？
 
 稍等片刻，键入 `java -version` 就可以确认Java是否安装成功了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-ddc37a22-43d7-4e40-bcfd-7208f9d1df59.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-ddc37a22-43d7-4e40-bcfd-7208f9d1df59.png)
 
 不得不承认！非常nice！
 
 再比如说安装 Redis，只需要找到 Redis 的安装命令在 Choco 下执行一下就 OK 了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-9cd5f46e-054c-4e1e-bcbb-1d11e36accfe.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-9cd5f46e-054c-4e1e-bcbb-1d11e36accfe.png)
 
 安装 Git：
 
@@ -162,7 +162,7 @@ choco install filezilla
 
 Choco 上的软件包也非常的多，基本上软件开发中常见的安装包都有。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-0f43e407-68ab-4c2d-8fb9-7fb88ca638ec.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-0f43e407-68ab-4c2d-8fb9-7fb88ca638ec.png)
 
 
 ### 小结
@@ -179,6 +179,6 @@ Choco 上的软件包也非常的多，基本上软件开发中常见的安装�
 
 如果不想特殊设置的话，Chocolatey 整体的操作与使用还是比较亲民的。就连刚接触软件开发的小白也可以直接使用，而且路人看着会觉得你特别厉害。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 

@@ -25,7 +25,7 @@ head:
 -----
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/shanganaliyun-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/shanganaliyun-1.png)
 
 我的昵称是风，来自浙江舟山，南航读研，武大本科，专业是计算机。
 
@@ -76,7 +76,7 @@ head:
 进入研究生阶段后，在实验室，学生俱乐部，各种活动比赛，公司的宣讲会等，都能学到很多东西，认识很多朋友。我认为有志同道合的朋友一起学习，互相查漏补缺，帮忙解决问题，相对我之前的自学，效率上要提高不少。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/shanganaliyun-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mianjing/shanganaliyun-2.png)
 
 在了解到项目在面试中占据比较重要的位置，我会在学习完理论知识后，尽量用代码实践。在自己学习项目视频教程，并跟着手打过后，我参与到学校老师手下的一个上线项目，真正用技术解决实际问题。
 
@@ -142,4 +142,4 @@ head:
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

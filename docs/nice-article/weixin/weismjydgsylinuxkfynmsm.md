@@ -5,7 +5,7 @@ category:
   - 微信公众号
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-7156aafe-62b3-40f0-9ad7-f73abffb85fb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-7156aafe-62b3-40f0-9ad7-f73abffb85fb.png)
 
 作者：沉默王二<br>
 Java 程序员进阶之路：https://tobebetterjavaer.com
@@ -30,25 +30,25 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 
 
-![桌面](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-908899d3-707a-46dc-9ed3-bf101dff86b3.jpg)
+![桌面](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-908899d3-707a-46dc-9ed3-bf101dff86b3.jpg)
 
 
 
 
 
-![启动器](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-82db5066-d236-409d-81f6-65f3f007632a.jpg)
+![启动器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-82db5066-d236-409d-81f6-65f3f007632a.jpg)
 
 
 
 
 
-![文件管理器](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-27bb0b0c-dc21-4a24-a12d-15b9130f8a7a.jpg)
+![文件管理器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-27bb0b0c-dc21-4a24-a12d-15b9130f8a7a.jpg)
 
 
 
 
 
-![设置](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-e27d49bd-8180-4ccb-986d-92b8781b7ef5.jpg)
+![设置](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-e27d49bd-8180-4ccb-986d-92b8781b7ef5.jpg)
 
 
 
@@ -79,7 +79,7 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 ## 社交沟通没问题
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-863a2284-60f9-4ef3-bf10-1ae61fa488ca.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-863a2284-60f9-4ef3-bf10-1ae61fa488ca.jpg)
 
 
 居然还有 ICQ ...
@@ -128,11 +128,11 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 xDroid 使 Android 应用能运行在 linux 上，极大的扩展了 linux 生态。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-7f950259-3523-46fc-a27e-d6f00f437005.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-7f950259-3523-46fc-a27e-d6f00f437005.jpg)
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-5a94815c-f246-4935-bea0-03269d94d3f8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-5a94815c-f246-4935-bea0-03269d94d3f8.jpg)
 
 
 
@@ -144,16 +144,16 @@ xDroid 使 Android 应用能运行在 linux 上，极大的扩展了 linux 生�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-602801e9-c4e2-4e5a-9dee-ecb029d86246.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-602801e9-c4e2-4e5a-9dee-ecb029d86246.jpg)
 
 
 **「应用市场部分截图」**
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-73060e2a-911b-41a8-846b-2ffa5c4bcf24.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-73060e2a-911b-41a8-846b-2ffa5c4bcf24.jpg)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-fdee11a7-ad98-4f81-8dcc-85a5cd25684f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-fdee11a7-ad98-4f81-8dcc-85a5cd25684f.jpg)
 
 
 ## Linux 有什么优势吗？
@@ -217,7 +217,7 @@ xDroid 使 Android 应用能运行在 linux 上，极大的扩展了 linux 生�
 
 #### 内存占用
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-465c0894-2ab8-4f19-8096-4c5b74bf478b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-465c0894-2ab8-4f19-8096-4c5b74bf478b.jpg)
 
 
 
@@ -255,12 +255,12 @@ xDroid 使 Android 应用能运行在 linux 上，极大的扩展了 linux 生�
 一个人可以走得很快，但一群人才能走得更远。当你处在一个学习氛围浓烈的环境中时，就会不由自主地往前冲刺。[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)已经有 **760 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们吧。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-6164f973-03be-4588-80a7-04970f3d4aa7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-6164f973-03be-4588-80a7-04970f3d4aa7.png)
 
 星球置顶帖里的知识图谱和精华贴里已经沉淀了非常多优质的内容，多看看这些，相信能帮助你走的更稳、更远。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-72165923-212f-45b4-9a3d-8573fce3562f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismjydgsylinuxkfynmsm-72165923-212f-45b4-9a3d-8573fce3562f.png)
 
 
 
@@ -278,6 +278,6 @@ xDroid 使 Android 应用能运行在 linux 上，极大的扩展了 linux 生�
 - [35 岁危机怎么破？](https://mp.weixin.qq.com/s/duEzl6qiM59cHVdFhWB2FA)
 - [面试通过，背调凉了！](https://mp.weixin.qq.com/s/R8IonWhFfNk0H1vUgjEadg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 欢迎点击左下角**阅读原文**了解二哥的编程星球详情，这可能是你学习求职路上最有含金量的一次点击。

@@ -24,7 +24,7 @@ Java 提供了一种对象**序列化**的机制。用一个字节序列可以�
 
 反之，该字节序列还可以从文件中读取回来，重构对象，对它进行**反序列化**。`对象的数据`、`对象的类型`和`对象中存储的数据`信息，都可以用来在内存中创建对象。看图理解序列化：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/serialize-8a1b6818-5f58-4057-b521-f8ba670d72a1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/serialize-8a1b6818-5f58-4057-b521-f8ba670d72a1.png)
 
 ## ObjectOutputStream类
 
@@ -230,4 +230,4 @@ public class SerTest {
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -14,15 +14,15 @@ tag:
 
 我努力的回想着，回想自己在 2021 年做出了哪些耀眼的成绩，正襟危坐，回想良久，也只想到这最后一件：**CSDN 的博文访问量也突破了一千万**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-2627c2a4-46c1-49a9-b86f-607c65ba6398.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-2627c2a4-46c1-49a9-b86f-607c65ba6398.png)
 
 但这算不算得上是成绩，很难说，因为喜欢这个平台的人有很多，不喜欢这个平台的也有很多。也许，GitHub 上有 110k+ star 的 JavaGuide 的话最具有说服力了，这个平台不规范转载的很多，垃圾资源下载的很多，但也有几个优秀的作者撑起了 CSDN 的半边天，二哥就是其中一个。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-a7c74449-7183-453f-8286-92d0bfe0a56d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-a7c74449-7183-453f-8286-92d0bfe0a56d.png)
 
 老读者都知道，我是从2014 年，开始坚持写技术博客的。一开始，还没敢在 CSDN 上写，只敢在 JavaEye 上写（估计很多新读者都不太知道这个平台）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-43677bfa-bdd6-4c3b-aa67-3a3277dc3575.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-43677bfa-bdd6-4c3b-aa67-3a3277dc3575.png)
 
 那时候的 JavaEye 真的是非常非常非常的纯粹（比博客园更纯粹），没有任何商业广告，还时不时送送书，头部作者有 fastjson 的作者温少，《亿级流量网站架构核心技术》作者开涛，想必做技术的大家应该都知道他们俩。
 
@@ -30,13 +30,13 @@ tag:
 
 就这样写着写着，我成了 CSDN 的博客专家，出版了一本技术图书，成为了两届博客之星。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-5137a245-035e-4e36-ba04-2b06fae275e1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-5137a245-035e-4e36-ba04-2b06fae275e1.png)
 
 就这样写着写着，我遇到了越来越多的读者，给他们提供帮助的同时，也成为了他们前进的动力。
 
 据我自己的不完全统计，2021 年，我在朋友圈和公众号送出去了超过 200 本技术图书，每次我都会留个小心机，问中奖的读者是怎么认识二哥的，有没有什么建议，留言中竟然很多都来自 CSDN，这让我又惊又喜。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-11df1e5d-2505-416c-949a-607b4ebbc61f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-11df1e5d-2505-416c-949a-607b4ebbc61f.png)
 
 经常有读者夸赞二哥好有写作的天赋啊，其实哪里是有天赋，纯粹是因为写得多，所以才写得好。我现在的文笔，讲真，还不如上高中那会，那会才是真的笔下生花，诗都能写得出来，情书就更不用说了。
 
@@ -50,47 +50,47 @@ tag:
 
 2 月 15 日，我和奶奶的合影。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-14d7737b-7324-4717-bd16-a3da7f2b1223.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-14d7737b-7324-4717-bd16-a3da7f2b1223.png)
 
 3 月 26 日，读者考上研究生了，特意发来祝贺。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-63626ad5-8580-4565-a0da-af3a0bf43875.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-63626ad5-8580-4565-a0da-af3a0bf43875.png)
 
 4 月 3 日，和教练小姐姐在健身房合影。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-eb256e24-de8a-49d0-a6ef-eb6d0b8d28e7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-eb256e24-de8a-49d0-a6ef-eb6d0b8d28e7.png)
 
 5 月 25 日，二哥的读者群体扩大了台湾省。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-b2a8a63c-8c8f-4d39-9a9f-acf54c908058.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-b2a8a63c-8c8f-4d39-9a9f-acf54c908058.png)
 
 6 月 13 日，和家人畅游青岛。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-b430951d-544c-4743-b700-3c71a854267a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-b430951d-544c-4743-b700-3c71a854267a.png)
 
 7 月 20 日，被某某女粉追着要联系方式。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-d7e127c5-5560-45c0-87c8-4cea924047cd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-d7e127c5-5560-45c0-87c8-4cea924047cd.png)
 
 8 月 21 日，在十八线县城的老家砸核桃吃。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-944b3f88-86ab-4e86-aeb6-4ad1f4f1ece3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-944b3f88-86ab-4e86-aeb6-4ad1f4f1ece3.png)
 
 9 月 23 日，收到掘金和 CSDN 寄来的月饼。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-0056fcd2-afa4-475e-ad69-95b84b90b8c7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-0056fcd2-afa4-475e-ad69-95b84b90b8c7.png)
 
 10 月 11 日，收到《Java 程序员进阶之路》专栏在 GitHub 上开源以来的两笔大额打赏。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-7e6d9918-6d94-45ef-9afa-42882f79944d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-7e6d9918-6d94-45ef-9afa-42882f79944d.png)
 
 11 月 6 日，和四位河科大的学弟撸完串后在校园里的合影。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-0c1b3624-f4e5-4e0c-b119-0ef4d440a60d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-0c1b3624-f4e5-4e0c-b119-0ef4d440a60d.png)
 
 12 月 27 日，CSDN 生成的年度报告。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-a070af45-bfeb-4b1a-9b29-745279a4a0fc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-a070af45-bfeb-4b1a-9b29-745279a4a0fc.png)
 
 不知道大家的 2021 过得怎么样？
 
@@ -107,7 +107,7 @@ tag:
 
 一年时间过得可真快，有很多想做好的事情，到最后都差了点意思。就说一件吧，B 站的视频播放量没有达到预期。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-83e7cfbc-496d-45e8-bfd6-cd0d1dfc60d3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-83e7cfbc-496d-45e8-bfd6-cd0d1dfc60d3.png)
 
 
 8 月份还能坚持一周输出一个，从一开始面对镜头时的恐惧，到慢慢接纳自己。但好景不长，9 月份的时候，视频播放量呈现下降趋势，我就开始胡思乱想了。
@@ -161,7 +161,7 @@ B 站我一定做到一万粉——这个 flag 不能到。
 
 这不，新的惊喜就是《Java 程序员进阶之路》专栏第一次上了 GitHub 的 trending 榜单！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-8868c50f-d622-4f1f-a92b-13cf95edd786.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-8868c50f-d622-4f1f-a92b-13cf95edd786.png)
 
 正应了那句话，功夫不负有心人。
 
@@ -173,7 +173,7 @@ B 站我一定做到一万粉——这个 flag 不能到。
 
 立个 flag 吧，**2022 年，冲 5000 star**！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-5ebc2c65-f342-45f9-aaf6-7f663b5406b8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-5ebc2c65-f342-45f9-aaf6-7f663b5406b8.png)
 
 这个 flag 绝不能倒！
 

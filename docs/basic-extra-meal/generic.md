@@ -122,7 +122,7 @@ class Arraylist<E> {
 
 不过，说实话，泛型方法的定义看起来略显晦涩。来一副图吧（注意：方法返回类型和方法参数类型至少需要一个）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/generic/generic-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/generic/generic-01.png)
 
 现在，我们来调用一下泛型方法。
 
@@ -476,4 +476,4 @@ list3.add(new Wangxiaoer());
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

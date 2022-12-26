@@ -14,7 +14,9 @@ head:
 最近，我们的线上环境出现了一个问题，线上代码在执行过程中抛出了一个IllegalArgumentException，分析堆栈后，发现最根本的的异常是以下内容：
 
 ```
-java.lang.IllegalArgumentException: No enum constant com.a.b.f.m.a.c.AType.P_M
+java.lang.IllegalArgumentException: 
+
+No enum constant com.a.b.f.m.a.c.AType.P_M
 ```
 
 大概就是以上的内容，看起来还是很简单的，提示的错误信息就是在AType这个枚举类中没有找到P\_M这个枚举项。
@@ -36,13 +38,49 @@ java.lang.IllegalArgumentException: No enum constant com.a.b.f.m.a.c.AType
 > 三方库指的是其他组织、公司等来自第三方的依赖
 
 ```
-public interface AFacadeService {    public AResponse doSth(ARequest aRequest);}public Class AResponse{    private Boolean success;    private AType aType;}public enum AType{    P_T,    A_B}
+public interface AFacadeService {
+
+    public AResponse doSth(ARequest aRequest);
+
+}
+
+public Class AResponse{
+
+    private Boolean success;
+
+    private AType aType;
+
+}
+
+public enum AType{
+
+    P_T,
+
+    A_B
+
+}
 ```
 
 然后B系统依赖了这个二方库，并且会通过RPC远程调用的方式调用AFacadeService的doSth方法。
 
 ```
-public class BService {    @Autowired    AFacadeService aFacadeService;    public void doSth(){        ARequest aRequest = new ARequest();        AResponse aResponse = aFacadeService.doSth(aRequest);        AType aType = aResponse.getAType();    }}
+public class BService {
+
+    @Autowired
+
+    AFacadeService aFacadeService;
+
+    public void doSth(){
+
+        ARequest aRequest = new ARequest();
+
+        AResponse aResponse = aFacadeService.doSth(aRequest);
+
+        AType aType = aResponse.getAType();
+
+    }
+
+}
 ```
 
 这时候，如果A和B系统依赖的都是同一个二方库的话，两者使用到的枚举AType会是同一个类，里面的枚举项也都是一致的，这种情况不会有什么问题。
@@ -52,13 +90,27 @@ public class BService {    @Autowired    AFacadeService aFacadeS
 那么A系统依赖的的AType就是这样的：
 
 ```
-public enum AType{    P_T,    A_B,    P_M}
+public enum AType{
+
+    P_T,
+
+    A_B,
+
+    P_M
+
+}
 ```
 
 而B系统依赖的AType则是这样的：
 
 ```
-public enum AType{    P_T,    A_B}
+public enum AType{
+
+    P_T,
+
+    A_B
+
+}
 ```
 
 这种情况下，在B系统通过RPC调用A系统的时候，如果A系统返回的AResponse中的aType的类型为新增的P\_M时候，B系统就会无法解析。一般在这种时候，RPC框架就会发生反序列化异常。导致程序被中断。
@@ -74,12 +126,28 @@ public enum AType{    P_T,    A_B}
 而我们查看枚举类的valueOf方法的实现时，就可以发现，**如果从枚举类中找不到对应的枚举项的时候，就会抛出IllegalArgumentException**：
 
 ```
-public static <T extends Enum<T>> T valueOf(Class<T> enumType, String name) {    T result = enumType.enumConstantDirectory().get(name);    if (result != null)        return result;    if (name == null)        throw new NullPointerException("Name is null");    throw new IllegalArgumentException(        "No enum constant " + enumType.getCanonicalName() + "." + name);}
+public static <T extends Enum<T>> T valueOf(Class<T> enumType, String name) {
+
+    T result = enumType.enumConstantDirectory().get(name);
+
+    if (result != null)
+
+        return result;
+
+    if (name == null)
+
+        throw new NullPointerException("Name is null");
+
+    throw new IllegalArgumentException(
+
+        "No enum constant " + enumType.getCanonicalName() + "." + name);
+
+}
 ```
 
 关于这个问题，其实在《阿里巴巴Java开发手册》中也有类似的约定：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-c6cb2139-8e30-4c16-a09b-82edb0a78ceb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-c6cb2139-8e30-4c16-a09b-82edb0a78ceb.jpg)
 
 这里面规定"**对于二方库的参数可以使用枚举，但是返回值不允许使用枚举**"。这背后的思考就是本文上面提到的内容。
 
@@ -118,7 +186,19 @@ public static <T extends Enum<T>> T valueOf(Class<T> enumType, String n
 **为了方便调用者使用，可以使用javadoc的@see注解表明这个字符串字段的取值从那个枚举中获取。**
 
 ```
-public Class AResponse{    private Boolean success;    /**    *  @see AType     */    private String aType;}
+public Class AResponse{
+
+    private Boolean success;
+
+    /**
+
+    *  @see AType 
+
+    */
+
+    private String aType;
+
+}
 ```
 
 对于像阿里这种比较庞大的互联网公司，**随便提供出去的一个接口，可能有上百个调用方**，而接口升级也是常态，**我们根本做不到每次二方库升级之后要求所有调用者跟着一起升级**，这是完全不现实的，并且对于有些调用者来说，他用不到新特性，完全没必要做升级。
@@ -141,7 +221,7 @@ public Class AResponse{    private Boolean success;    /**  
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-11f8353c-3795-4e07-9d96-4c26d9574aa5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-11f8353c-3795-4e07-9d96-4c26d9574aa5.jpg)
 
 ## 推荐阅读
 
@@ -156,6 +236,6 @@ public Class AResponse{    private Boolean success;    /**  
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-938d5f07-9996-4215-abe6-4d029c00414e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-938d5f07-9996-4215-abe6-4d029c00414e.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd)，出处：macrozheng，整理：沉默王二

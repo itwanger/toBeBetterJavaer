@@ -36,7 +36,7 @@ head:
 
 在正式的介绍开始以前，先对互联网公司面试中常见的词汇进行一个扫盲。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansmtgl-1d1cf62a-05c0-4af7-91b0-2d62a6e5d36b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansmtgl-1d1cf62a-05c0-4af7-91b0-2d62a6e5d36b.jpg)
 
 **八股文：** 主要是一些概念性的知识，比如 `JVM` 运行时数据区的构成、 `MySQL` 的索引之类的，这些问题的回答一般有固定套路。现在的面试主要就是八股文+算法，八股文背的熟是面试成功的必要不充分条件。
 
@@ -136,4 +136,4 @@ head:
 
 >转载链接：[https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA](https://mp.weixin.qq.com/s/6TYEDM73N68vKXpmLRKhHA)，出处：CS 指南，整理：沉默王二
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)

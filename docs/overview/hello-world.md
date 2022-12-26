@@ -29,7 +29,7 @@ public class HelloWorld {
 
 IDEA 会自动保存，在代码编辑面板中右键，在弹出的菜单中选择「Run 'HelloWorld.main()'」，如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/four-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/four-01.png)
 
 等代码编译结束后，就可以在 Run 面板里看到下面的内容：
 
@@ -61,4 +61,4 @@ IDEA 会自动保存，在代码编辑面板中右键，在弹出的菜单中选
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

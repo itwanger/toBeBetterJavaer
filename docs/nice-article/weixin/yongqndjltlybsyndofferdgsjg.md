@@ -11,7 +11,7 @@ category:
 
 牛客上一位北航22届的朋友做了一个蛮有意思的实验，用自身的对比试验证明了今年秋招的寒冬与往年大不一样，今年是真的寒气逼人！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongqndjltlybsyndofferdgsjg-9a679dac-4f6b-4237-ad91-8ff4aacc2a2a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongqndjltlybsyndofferdgsjg-9a679dac-4f6b-4237-ad91-8ff4aacc2a2a.jpg)
 
 他用去年一摸一样的简历再投一次去年拿到offer的公司，发现结果大不一样，为了避免公司存在人才库，他只改了毕业时间、名字、联系方式、身份证这些基本信息。
 
@@ -61,7 +61,7 @@ category:
 
 **8、考公、考编，学历好的可以走选调、走人才引进**，近年来进体制的毕业生明显增多，好处不用解释，但竞争自然很激烈。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongqndjltlybsyndofferdgsjg-05ce075d-836f-42d1-bfc2-58ee0cea297a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongqndjltlybsyndofferdgsjg-05ce075d-836f-42d1-bfc2-58ee0cea297a.jpg)
 
 
 >参考链接：[https://mp.weixin.qq.com/s/irEmlh1Vqm_gnuRqAzytnA](https://mp.weixin.qq.com/s/irEmlh1Vqm_gnuRqAzytnA)，出处：程序员库森，整理：沉默王二

@@ -13,7 +13,7 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 让我们来通过一个 gif 感受一下 AutoGenerator 的强大。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-1.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-1.gif)
 
 ## 导入 SQL 文件
 
@@ -23,20 +23,20 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 可以通过 GitHub 桌面版从 GitHub 上下载本教程专属的项目 codingmore-autogenerator 到本地，SQL 文件的位置参照下图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-47997c23-cb65-4801-954c-0ec611b764ad.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-47997c23-cb65-4801-954c-0ec611b764ad.png)
 
 编程喵使用的 MySQL 版本是 8.0，可以在链接上 MySQL 后使用 `select version();` 命令查询版本。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-ea5bbe50-ba28-4056-a81f-a68651a58391.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-ea5bbe50-ba28-4056-a81f-a68651a58391.png)
 
 打开 Navicat，把 SQL 文件导入到本地数据库，
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-d523792f-2d55-4485-b64d-b4763ecd7b77.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-d523792f-2d55-4485-b64d-b4763ecd7b77.png)
 
 关闭链接，重新打开就可以看到导入后的数据库 codingmore，里面一共 27 张表。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-3cda9cb7-dda5-4aca-9cea-cc400768b921.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-3cda9cb7-dda5-4aca-9cea-cc400768b921.png)
 
 
 
@@ -61,11 +61,11 @@ Mybatis Generator 是 MyBatis 官方提供的一个代码生成工具，完全�
 
 添加完成后，一定要执行一次 Maven 重载（见下图），确保 MyBatis 的依赖加载完毕后再执行第二步。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-b9dc31ee-32f4-4556-b2e8-b0ed114ec81a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-b9dc31ee-32f4-4556-b2e8-b0ed114ec81a.png)
 
 否则下一步可能不通过，但又得不到任何错误提示。不要问我为什么，踩过坑后痛苦的领悟。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-3.png)
 
 添加完成后，可以通过 Maven 插件来生成骨架代码，也可以通过 Java 代码来生成骨架代码，这里以 Maven 插件的形式来演示。Java 代码的形式可参照 Mybatis Generator：
 
@@ -94,7 +94,7 @@ MyBatis Generator 插件目前最新版是 1.4.0，我们采用上一个稳定�
 
 来看一下添加 MyBatis Generator 插件后 pom.xml 文件的结构图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-136e3eec-04ce-478b-aa7d-3d5913466f70.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-136e3eec-04ce-478b-aa7d-3d5913466f70.png)
 
 只添加插件还不够，还需要对其进行配置，我们使用 configurationFile 元素来指定一个配置文件 mybatis-generator-config.xml：
 
@@ -124,7 +124,7 @@ Mybatis Generator 需要连接数据库，所以还需要在 plugin 节点中添
 来看一下 mybatis-generator-config.xml 的位置。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-499b434d-4ae8-45c3-bfeb-9f5b4710b81e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-499b434d-4ae8-45c3-bfeb-9f5b4710b81e.png)
 
 
 来看一下 mybatis-generator-config.xml 的内容。
@@ -202,21 +202,21 @@ Mybatis Generator 需要连接数据库，所以还需要在 plugin 节点中添
 到此为止，mybatis-generator-maven-plugin 就算是配置完成了，完整内容如下图所示：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-c09c7dcd-ab4e-437b-a512-a9e0bf1f533c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-c09c7dcd-ab4e-437b-a512-a9e0bf1f533c.png)
 
 
 
 配置完成后可以双击运行 Maven 的插件 Mybatis Generator，没有问题的话，可以看到生成后的文件。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-843487f6-5823-4291-b6c3-b4f69b9bba51.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-843487f6-5823-4291-b6c3-b4f69b9bba51.png)
 
 
 ## 再体验 MyBatis-Plus 的 AutoGenerator
 
 MyBatis-Plus（简写 MP）是 MyBatis 的增强工具，官方宣称 MP 和 MyBatis 的关系就好像魂斗罗中的 1P 和 2P，可谓好基友，天下走。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/auto-generator-7.png)
 
 AutoGenerator 是 MyBatis-Plus 推出的代码生成器，可以快速生成 Entity、Mapper、Mapper XML、Service、Controller 等各个模块的代码，比 Mybatis Generator 更强大，开发效率更高。
 
@@ -322,4 +322,4 @@ pc.setParent("top.codingmore.mpg");
 
 ------
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -99,7 +99,7 @@ cmower.split("[.]");
 
 除此之外， 还可以使用 Pattern 类的 `quote()` 方法来包裹英文逗点“.”，该方法会返回一个使用 `\Q\E` 包裹的字符串。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-01.png)
 
 来看示例：
 
@@ -190,7 +190,7 @@ String [] parts = cmower.split("(?=，)");
 
 “它其实是正则表达式中的断言模式。”我说，“你有时间的话，可以看看前面我推荐的两份开源文档。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-02.png)
 
 “`split()` 方法可以传递 2 个参数，第一个为分隔符，第二个为拆分的字符串个数。”我说。
 
@@ -204,7 +204,7 @@ if (cmower.contains("，")) {
 
 进入 debug 模式的话，可以看到以下内容：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-03.png)
 
 也就是说，传递 2 个参数的时候，会直接调用 `substring()` 进行截取，第二个分隔符后的就不再拆分了。
 
@@ -227,4 +227,4 @@ if (cmower.contains("，")) {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

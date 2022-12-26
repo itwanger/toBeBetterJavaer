@@ -10,7 +10,7 @@ category:
 
 今天无聊刷 GitHub 看到一个让我血压上来的项目，带大家看看什么叫做“开源流氓”、“开源牛皮癣”。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-d223ab3b-2b49-48cf-9f2a-eac620874d7a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-d223ab3b-2b49-48cf-9f2a-eac620874d7a.jpg)
 
 
 >作者：琴梨梨 来源：https://zhuanlan.zhihu.com/p/478412327
@@ -26,7 +26,7 @@ category:
 
 对于开源项目我是不喜欢下载预构建的成品的，我更喜欢自己动手从源代码构建，所以我熟练的clone到本地根据readme里面写的指引构建。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-67242325-e584-4952-a4ba-04e16234dd76.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-67242325-e584-4952-a4ba-04e16234dd76.jpg)
 
   
 
@@ -34,7 +34,7 @@ category:
 
 很快啊就给我返回了一个视频链接不合法
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-2cd1aa23-eed5-4775-89b7-d1bc9b13adb8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-2cd1aa23-eed5-4775-89b7-d1bc9b13adb8.jpg)
 
 那就翻翻代码看看是不是哪里有需要微调的地方呗
 
@@ -42,19 +42,19 @@ category:
 
 我就想是不是项目分模块然后我clone的时候缺了什么模块就去翻帮助
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-af44faf8-a196-48c1-85ee-1b9951908c7a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-af44faf8-a196-48c1-85ee-1b9951908c7a.jpg)
 
 可显然不是这样的情况
 
-当我翻来覆去迷惑了半天的时候，才发现readme下面还有一行小字![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-93363bcb-67dc-4ae5-9ca7-7e5744c80995.jpg)他娘的你不早点说啊
+当我翻来覆去迷惑了半天的时候，才发现readme下面还有一行小字![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-93363bcb-67dc-4ae5-9ca7-7e5744c80995.jpg)他娘的你不早点说啊
 
 一看commit记录还真是
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-ec84b915-4936-4ec1-8ddd-4c5e7a00d67a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-ec84b915-4936-4ec1-8ddd-4c5e7a00d67a.jpg)
 
 打开Release页面
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-88057688-64f6-4d0b-84f0-2682f21ed094.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-88057688-64f6-4d0b-84f0-2682f21ed094.jpg)
 
 嗯，用GitHub Release却不上传附件非要用国内流氓网盘也就算了
 
@@ -66,7 +66,7 @@ category:
 
 安装完启动，好，sandboxie给我报了个错
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-097a6e3c-6aa0-4a4d-8ae2-6139e5962863.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-097a6e3c-6aa0-4a4d-8ae2-6139e5962863.jpg)
 
 我默认开的严格模板不允许管理员权限，所以沙盒内如果请求管理员权限就会报错
 
@@ -76,19 +76,19 @@ category:
 
 结果我一打开，弹出来这个
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-c300c0d5-88ba-45b6-ade7-f3b36ca91062.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-c300c0d5-88ba-45b6-ade7-f3b36ca91062.jpg)
 
 登录？还必须扫码登录？
 
 我叉掉这个窗口，又弹出来一次，再叉掉，然后直接就在浏览器内打开扫码登录了
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-e7046c3b-7db3-49bb-b8f9-5752549603f6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-e7046c3b-7db3-49bb-b8f9-5752549603f6.jpg)
 
 你收了微信多少钱，非要捆绑微信？逼着用户必须先注册个微信是吧？
 
 顺着说明打开该项目官网，且不谈图片的css样式显然没在高分屏上测试过，4k屏直接右侧就白了
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-f9c9d040-23ef-48f7-9d5a-678484a14115.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-f9c9d040-23ef-48f7-9d5a-678484a14115.jpg)
 
 谁给你的勇气还写着代码开源的？你发布的源码和你发布的安装包是一个东西吗？用户能通过源码构建出和安装包一样功能的东西吗？
 
@@ -110,7 +110,7 @@ PS:在21年4/18之后开源源码再也没有一行更新，可以说作者至�
 
   
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-5aea5f25-97f8-496f-805d-8eca324661eb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qingfyxkydx-5aea5f25-97f8-496f-805d-8eca324661eb.jpg)
 
   
 
@@ -133,4 +133,4 @@ PS:在21年4/18之后开源源码再也没有一行更新，可以说作者至�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)

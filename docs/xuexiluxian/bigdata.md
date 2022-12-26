@@ -44,7 +44,7 @@ head:
 如果想读纸质书的话，推荐《[on Java 8](https://book.douban.com/subject/30217317/)》。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-9a3d4c2c-2db4-4d53-9d8f-1bb72f7454b9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-9a3d4c2c-2db4-4d53-9d8f-1bb72f7454b9.png)
 
 
 **Scala**
@@ -56,7 +56,7 @@ Scala 是一门综合了面向对象和函数式编程概念的静态类型的�
 推荐两本书《[快学 Scala](https://book.douban.com/subject/27093751/)》和 《[Scala 编程](https://book.douban.com/subject/27591387/)》。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-d5df6ea5-273a-425c-968e-da07f7ef0777.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-d5df6ea5-273a-425c-968e-da07f7ef0777.png)
 
 
 当然了，Scala 不是必学的。也可以放到学完 spark 之后再去学习 Scala。
@@ -66,7 +66,7 @@ Scala 是一门综合了面向对象和函数式编程概念的静态类型的�
 推荐《[鸟哥的私房菜](https://book.douban.com/subject/4889838/)》
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-c0180f2c-6445-4881-ab04-90c43ef870f2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-c0180f2c-6445-4881-ab04-90c43ef870f2.png)
 
 
 或者自己装个 Linux 虚拟机/云服务器直接上手实操。
@@ -100,7 +100,7 @@ Maven，Java 程序员进阶之路上有教程：[https://tobebetterjavaer.com/m
 可以按工作需要学习。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-3feb773b-246b-4dad-9c3b-1a9ef83b6f64.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-3feb773b-246b-4dad-9c3b-1a9ef83b6f64.png)
 
 
 如果学习时间有限的话，初次学习的时候，同一类框架学一种就好。
@@ -120,11 +120,11 @@ Maven，Java 程序员进阶之路上有教程：[https://tobebetterjavaer.com/m
 
 这里还给大家准备了一份 GitHub 上星标 12k 的大数据入门指南，来看一下内容吧。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-461d50d4-504d-499c-b8ea-e8d38eb836ad.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-461d50d4-504d-499c-b8ea-e8d38eb836ad.png)
 
 直接长按识别/扫描下方二维码，关注后回复 「**00**」 下载这份 PDF 吧：
 
-![扫码关注后回复「00」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「00」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 ## 学习建议
@@ -196,13 +196,13 @@ Flume + Kafka，在实时流式日志的处理非常常见，后面再通过 Spa
 ### 10、学习实时数据的处理 Flink / Spark Streaming
 
 
-![大数据的技术栈体系](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-6652c50b-cda6-46dc-8732-69b10319f0da.png)
+![大数据的技术栈体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-6652c50b-cda6-46dc-8732-69b10319f0da.png)
 
 
 再总结一份大数据学习指南的思维导图吧。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-99b69697-4804-4113-907b-fbe14ac36964.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-99b69697-4804-4113-907b-fbe14ac36964.png)
 
 ---------
 
@@ -211,4 +211,4 @@ Flume + Kafka，在实时流式日志的处理非常常见，后面再通过 Spa
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -71,7 +71,7 @@ false
 
 “我来画幅图，帮助你理解下。”看到三妹惊讶的表情，我耐心地说。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-01.png)
 
 “这下理解了吧？”我问三妹。
 
@@ -103,7 +103,7 @@ true
 
 “我再来画幅图，帮助你理解下。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-02.png)
 
 “哇，我明白了！”三妹长舒一口气，大有感慨 intern 也没什么难理解的意味。
 
@@ -123,4 +123,4 @@ true
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

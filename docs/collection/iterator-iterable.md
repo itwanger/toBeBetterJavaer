@@ -113,7 +113,7 @@ list.forEach(new Consumer<Integer>() {
 
 如果我们仔细观察ArrayList 或者 LinkedList 的“户口本”就会发现，并没有直接找到 Iterator 的影子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/iterator-iterable-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/iterator-iterable-01.png)
 
 反而找到了 Iterable！
 
@@ -259,4 +259,4 @@ while (it.hasNext()) {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -67,21 +67,21 @@ public class User {
 
 这里推荐大家在 Intellij IDEA 中安装 JPA Buddy 插件，该插件提供了可视化的代码生成器，可以帮我们简化 JPA 的开发工作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-dbd461e0-f74b-4914-9f79-37c09bce8db4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-dbd461e0-f74b-4914-9f79-37c09bce8db4.png)
 
 安装完 JPA Buddy 插件后，当我们创建好实体类后，会自动打开三个面板：JPA Structure，JPA Palette和JPA Inspector。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-f8e43568-d286-4da6-a61a-c88b50642824.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-f8e43568-d286-4da6-a61a-c88b50642824.png)
 
 >更多详细介绍：[https://codingdict.com/blog/1406](https://codingdict.com/blog/1406)
 
 在JPA Buddy 插件的帮助下，我们其实可以直接在项目的目录上右键选择通过 JPA 的方式创建实体类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-ef1d4416-1ac5-4ad8-b305-dafd454cec3b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-ef1d4416-1ac5-4ad8-b305-dafd454cec3b.png)
 
 选择数据表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-64ad825d-2e53-4315-9fad-3d053d958303.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-64ad825d-2e53-4315-9fad-3d053d958303.png)
 
 代码如下所示：
 
@@ -112,7 +112,7 @@ public class User {
 
 在项目路径上右键，选择新建 JPA Repository。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-1114773a-a507-48e9-a1a1-781a89cc517e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-1114773a-a507-48e9-a1a1-781a89cc517e.png)
 
 生成的代码如下：
 
@@ -197,7 +197,7 @@ public Page<User> findAll(Pageable pageable) {
 首先是 UserRepository，直接用 JPA Buddy 插件：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-d4f2619a-85ea-437f-860d-3738669b4582.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-d4f2619a-85ea-437f-860d-3738669b4582.png)
 
 生成的代码如下：
 
@@ -226,7 +226,7 @@ public List<User> findByNameLikeIgnoreCase(String name) {
 
 在测试类中对服务类中的 5 个接口进行测试，顺带在application.yml 中开启 SQL 语句的输出，看看 JPA 自动生成的 SQL 语句到底长什么样子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-a3d8641a-c701-47bb-ae44-f53eb8e05f65.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jpa-a3d8641a-c701-47bb-ae44-f53eb8e05f65.png)
 
 测试类非常简单哈：
 
@@ -336,4 +336,4 @@ Hibernate: delete from user where id=?
 
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

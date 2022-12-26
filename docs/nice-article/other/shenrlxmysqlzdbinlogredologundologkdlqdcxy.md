@@ -39,7 +39,7 @@ bin log日志有三种格式：STATMENT、ROW、MIXED。MySQL5.7.7之后默认�
 
 简单画个图来理解一下MySQL的主从复制流程：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-7ed47c4c-8ce7-4f66-8121-6f2f12f9622f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-7ed47c4c-8ce7-4f66-8121-6f2f12f9622f.png)
 
 1.  master在准备提交事务之前，将变更记录到bin log中。
 2.  slave启动一个IO线程来读取bin log中的事件，并记录到自己的ready log（中继日志）中。
@@ -267,7 +267,7 @@ mysql> PURGE MASTER LOGS BEFORE '2022-02-18 18:30:00'
 
 *emm…图丑，但能帮助理解就好。*
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-7c27e1cc-8336-42f1-9fa4-f65062550074.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-7c27e1cc-8336-42f1-9fa4-f65062550074.png)
 
 InnoDB的redo log文件大小是固定的，假设我这里redo log大小为4G，并且我划分为4个部分，redo log就会从`ib_logfile_0`开始写`ib_logfile_1`、`ib_logfile_2`、`ib_logfile_3`，直到4个部分都写满为止，再重新回到第一个部分`ib_logfile_0`开始写。
 
@@ -289,7 +289,7 @@ InnoDB的redo log文件大小是固定的，假设我这里redo log大小为4G�
 
 在此，我画一个简单的流程图方便理解
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-7a574353-5f48-4b4d-907b-f5415583ca5a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-7a574353-5f48-4b4d-907b-f5415583ca5a.png)
 
 **还有一种比较特殊的情况，数据页LSN也会大于日志LSN：**
 
@@ -362,7 +362,7 @@ mysql> show variables like 'innodb_flush_log_at_trx_commit';
 
 事务每次提交都仅写入到`os buffer`，然后是每秒调用`fsync()`将`os buffer`中的日志写入到`redo log file`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-a079ed69-cb61-4221-be23-4c6c613308c2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-a079ed69-cb61-4221-be23-4c6c613308c2.png)
 
 ## undo log（回滚日志）
 
@@ -435,7 +435,7 @@ UPDATE sys_user SET username = '小花' WHERE id = 1;
 
 在此，简单画一张图来理解一下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-d20d0db9-54cf-4258-9e3f-56811e52fa5b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-shenrlxmysqlzdbinlogredologundologkdlqdcxy-d20d0db9-54cf-4258-9e3f-56811e52fa5b.png)
 
 1.  事务A提交之前，会备份之前的数据到对应的undo buffer，然后undo log保存之前的记录数据，然后再将最新的数据持久化到ibd文件。
 2.  此时事务B查询，直接读取undo buffer缓存，因为这时候事务A还没提交且它需要回滚事务，所以，这时候事务B是不读取磁盘的，是直接从undo buffer缓存中读取。

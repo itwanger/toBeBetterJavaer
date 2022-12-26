@@ -29,7 +29,7 @@ head:
 
 按照惯例，先上求职时间图，只包含一些大公司。小公司面得太多了，就不列出来了，后面会统一说说这些小公司的共同之处。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-congyxhdsxdqzlbsgbxsyl-1358095d-2368-459a-975a-23e4c40656a0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-congyxhdsxdqzlbsgbxsyl-1358095d-2368-459a-975a-23e4c40656a0.png)
 
 ## 二.遇到的面试题
 
@@ -143,12 +143,12 @@ head:
 一个人可以走得很快，但一群人才能走得更远。当你处在一个学习氛围浓烈的环境中时，就会不由自主地往前冲刺。[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)已经有 **790 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们吧。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-congyxhdsxdqzlbsgbxsyl-3f136fc7-09cd-40cb-b298-adbd87c08abe.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-congyxhdsxdqzlbsgbxsyl-3f136fc7-09cd-40cb-b298-adbd87c08abe.png)
 
 星球置顶帖里的知识图谱和精华贴里已经沉淀了非常多优质的内容，多看看这些，相信能帮助你走的更稳、更远。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-congyxhdsxdqzlbsgbxsyl-0838e55b-2f7a-4f0e-bdcc-8430bd9e5656.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-congyxhdsxdqzlbsgbxsyl-0838e55b-2f7a-4f0e-bdcc-8430bd9e5656.png)
 
 
 
@@ -165,7 +165,7 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 欢迎点击左下角**阅读原文**了解二哥的编程星球详情，这可能是你学习求职路上最有含金量的一次点击。
 

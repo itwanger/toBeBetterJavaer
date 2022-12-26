@@ -90,7 +90,7 @@ class ReorderExample {
 
 上述 happens before 关系的图形化表现形式如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/volatile-f4de7989-672e-43d6-906b-feffe4fb0a9c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/volatile-f4de7989-672e-43d6-906b-feffe4fb0a9c.jpg)
 
 在上图中，每一个箭头链接的两个节点，代表了一个 happens before 关系:
 
@@ -286,4 +286,4 @@ volatile 可以保证线程可见性且提供了一定的有序性，但是无�
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

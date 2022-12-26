@@ -13,13 +13,13 @@ category:
 
 红包雨是一个典型的高并发场景，短时间内有海量请求访问服务端，为了让系统运行顺畅，抢红包一般会采用基于 **Redis + Lua 脚本**的设计方案。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-c1fd7dd9-3974-41e8-a22c-4a4d25f80e73.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-c1fd7dd9-3974-41e8-a22c-4a4d25f80e73.jpg)
 
 ## 1 整体流程
 
 我们来分析下抢红包的整体流程 ：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-47986b38-a727-4894-935c-3675811c5069.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-47986b38-a727-4894-935c-3675811c5069.jpg)
 
 1.  运营系统配置红包雨活动总金额以及红包个数，提前计算出各个红包的金额并存储到 Redis 中；
 2.  抢红包雨界面，用户点击屏幕上落下的红包，发起抢红包请求；
@@ -37,7 +37,7 @@ category:
 
 1.  运营预分配红包列表 ;
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-24dd06eb-b6ba-4123-a4da-d546a4415528.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-24dd06eb-b6ba-4123-a4da-d546a4415528.jpg)
 
 队列元素 json 数据格式 ：
 
@@ -52,7 +52,7 @@ category:
 
 2.  用户红包领取记录列表；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-ef69cad5-d918-40f8-a098-1f1155e1b50e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-ef69cad5-d918-40f8-a098-1f1155e1b50e.jpg)
 
 队列元素 json 数据格式：
 
@@ -69,7 +69,7 @@ category:
 
 3.  用户红包防重 Hash 表；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-6a4f1635-fab2-4c7e-b50c-bd0802389c28.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-6a4f1635-fab2-4c7e-b50c-bd0802389c28.jpg)
 
 抢红包 Redis 操作流程 ：
 
@@ -120,13 +120,13 @@ redis> EXEC
 
 这里有一个疑问？在开启事务的时候，Redis key 可以被修改吗？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-a3fb6aeb-fa05-4731-b10c-16ef6d04eefc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-a3fb6aeb-fa05-4731-b10c-16ef6d04eefc.jpg)
 
 **在事务执行 EXEC 命令之前 ，Redis key 依然可以被修改**。
 
 在事务开启之前，我们可以 watch 命令监听 Redis key 。在事务执行之前，我们修改 key 值 ，事务执行失败，返回 **nil** 。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-7fe9ee84-32da-4b83-8692-21515ed8feed.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-7fe9ee84-32da-4b83-8692-21515ed8feed.jpg)
 
 通过上面的例子，watch 命令可以**实现类似乐观锁的效果** 。
 
@@ -270,7 +270,7 @@ Redis 的事务一致性是指：Redis 事务在执行过程中符合数据库�
 
 这本书是分布式系统入门的神书。在事务这一章节有一段关于 ACID 的解释：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-bb5347ab-4fc2-4b10-bf75-f19e39dd0345.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-bb5347ab-4fc2-4b10-bf75-f19e39dd0345.jpg)
 
 > Atomicity, isolation, and durability are properties of the database,whereas consistency (in the ACID sense) is a property of the application. The application may rely on the database’s atomicity and isolation properties in order to achieve consistency, but it’s not up to the database alone. Thus, the letter C doesn’t really belong in ACID.
 
@@ -311,7 +311,7 @@ Lua 由标准 C 编写而成，代码简洁优美，几乎在所有操作系统�
 
 一个完整的 Lua 解释器不过 200 k，在目前所有脚本引擎中，Lua 的速度是最快的。这一切都决定了 Lua 是作为嵌入式脚本的最佳选择。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-b152e7cd-3d20-4c79-849e-d4ffab2bcbbc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-b152e7cd-3d20-4c79-849e-d4ffab2bcbbc.jpg)
 
 Lua 脚本在游戏领域大放异彩，大家耳熟能详的《大话西游II》，《魔兽世界》都大量使用 Lua 脚本。
 
@@ -385,7 +385,7 @@ redis> EVAL "return redis.call('GET','mystring')" 0
 
 思路是先将 Lua 脚本先缓存起来 , 返回给客户端 Lua 脚本的 sha1 摘要。 客户端存储脚本的 sha1 摘要 ，每次请求执行 EVALSHA 命令即可。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-80555399-ce33-4a0d-baf6-56cb55da5aa6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-80555399-ce33-4a0d-baf6-56cb55da5aa6.jpg)
 
 EVALSHA 命令基本语法如下：
 
@@ -425,7 +425,7 @@ Lua 脚本是另一种形式的事务，他具备一定的原子性，但脚本�
 
 我选择 Redisson 3.12.0 版本作为 Redis 的客户端，在 Redisson 源码基础上做一层薄薄的封装。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-46036f01-d57c-441e-9584-299e1b3ee7cd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-shizlllldsjtzhbygndsjysx-46036f01-d57c-441e-9584-299e1b3ee7cd.jpg)
 
 创建一个 PlatformScriptCommand 类， 用来执行 Lua 脚本。
 

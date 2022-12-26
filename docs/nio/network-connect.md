@@ -18,7 +18,7 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-bb1bd676-8aeb-4428-9498-230a05ee717d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-bb1bd676-8aeb-4428-9498-230a05ee717d.jpg)
 
 
 
@@ -28,7 +28,7 @@ NIO被叫为 `no-blocking io`，其实是在**网络这个层次中理解的**�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-ba836b5c-82d2-42b0-b1ae-83f8ee0b0101.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-ba836b5c-82d2-42b0-b1ae-83f8ee0b0101.jpg)
 
 
 
@@ -47,7 +47,7 @@ NIO被叫为 `no-blocking io`，其实是在**网络这个层次中理解的**�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-63f45193-8eb7-4cc5-a5a7-70713fac0d73.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-63f45193-8eb7-4cc5-a5a7-70713fac0d73.jpg)
 
 
 
@@ -139,7 +139,7 @@ public class BlockServer {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-7545f4e4-dda9-4e62-8463-58f821cb51ed.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-7545f4e4-dda9-4e62-8463-58f821cb51ed.jpg)
 
 
 
@@ -147,7 +147,7 @@ public class BlockServer {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-c25d8b70-cd8f-4f4b-90eb-2e471deeb958.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-c25d8b70-cd8f-4f4b-90eb-2e471deeb958.jpg)
 
 
 
@@ -155,7 +155,7 @@ public class BlockServer {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-a7841446-4eed-4b7b-a815-0d8666b4dd44.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-a7841446-4eed-4b7b-a815-0d8666b4dd44.jpg)
 
 
 
@@ -168,7 +168,7 @@ public class BlockServer {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-97c88ca9-1b0c-4cd0-b410-60d059605ee2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-97c88ca9-1b0c-4cd0-b410-60d059605ee2.jpg)
 
 
 
@@ -293,7 +293,7 @@ public class NoBlockServer {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-5ea2f6d3-be10-4703-aa99-bf36e30fab77.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-5ea2f6d3-be10-4703-aa99-bf36e30fab77.jpg)
 
 
 
@@ -375,7 +375,7 @@ public class NoBlockClient2 {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-b69665b3-77f9-4f3d-9075-ffac1489637f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-b69665b3-77f9-4f3d-9075-ffac1489637f.jpg)
 
 
 
@@ -393,13 +393,13 @@ UDP:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-7fc34dd6-bab4-4c4a-af8a-6ab898c4b6e9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-7fc34dd6-bab4-4c4a-af8a-6ab898c4b6e9.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-d1e531f8-9638-4fd5-9f3a-70db2c25d92e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-d1e531f8-9638-4fd5-9f3a-70db2c25d92e.jpg)
 
 
 
@@ -407,13 +407,13 @@ UDP:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-86f3b103-0c1c-47fb-8364-e7ec3d91b8b1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-86f3b103-0c1c-47fb-8364-e7ec3d91b8b1.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-29d105c0-6525-4efc-912c-d85abd878e82.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-29d105c0-6525-4efc-912c-d85abd878e82.jpg)
 
 
 >参考链接：[https://www.zhihu.com/question/29005375/answer/667616386](https://www.zhihu.com/question/29005375/answer/667616386)，整理：沉默王二
@@ -425,4 +425,4 @@ UDP:
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -52,7 +52,7 @@ Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它是个�
 
 *ArrayDeque*是非线程安全的（not thread-safe），当多个线程同时使用的时候，需要手动同步；另外，该容器不允许放入`null`元素。
 
-![ArrayDeque_base.png](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
+![ArrayDeque_base.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
 
 
 上图中我们看到，**`head`指向首端第一个有效元素，`tail`指向尾端第一个可以插入元素的空位**。因为是循环数组，所以`head`不一定总等于 0，`tail`也不一定总是比`head`大。
@@ -64,7 +64,7 @@ Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它是个�
 `addFirst(E e)`的作用是在*Deque*的首端插入元素，也就是在`head`的前面插入元素，在空间足够且下标没有越界的情况下，只需要将`elements[--head] = e`即可。
 
 
-![ArrayDeque_addFirst.png](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
+![ArrayDeque_addFirst.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
 
 实际需要考虑：
 
@@ -102,7 +102,7 @@ public void addFirst(E e) {
 
 下面再说说扩容函数`doubleCapacity()`，其逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。过程如下图所示：
 
-![ArrayDeque_doubleCapacity.png](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
+![ArrayDeque_doubleCapacity.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
 
 图中我们看到，复制分两次进行，第一次复制`head`右边的元素，第二次复制`head`左边的元素。
 
@@ -129,7 +129,7 @@ private void doubleCapacity() {
 
 `addLast(E e)`的作用是在*Deque*的尾端插入元素，也就是在`tail`的位置插入元素，由于`tail`总是指向下一个可以插入的空位，因此只需要`elements[tail] = e;`即可。插入完成后再检查空间，如果空间已经用光，则调用`doubleCapacity()`进行扩容。
 
-![ArrayDeque_addLast.png](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
+![ArrayDeque_addLast.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
 
 ```
 public void addLast(E e) {
@@ -203,4 +203,4 @@ public E peekLast() {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

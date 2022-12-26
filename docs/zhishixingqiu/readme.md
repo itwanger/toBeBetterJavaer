@@ -19,7 +19,7 @@ head:
 
 今天爬上来宣传一下我的编程星球- Java程序员进阶之路。毕竟上次宣传还是在 [3 个月前](https://mp.weixin.qq.com/s/fpQZq4vOA-bH5XCZETcXLA)（2022-08-07），3 个月时间，星球发生的变化也比较大，是时候给大家通报一声了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-7a5b7590-1425-4279-85d3-b5ce5e1329c5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-7a5b7590-1425-4279-85d3-b5ce5e1329c5.png)
 
 用一句话来做个总结吧，这是一个**编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
 
@@ -35,22 +35,22 @@ head:
 
 先来看一下《Java 面试指南》的部分目录（还有技术提升篇、职场修炼篇、面经分享篇、精选面试题篇、场景设计题篇，没有截图出来），可以说非常的良心。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fc80913b-48bd-453d-b7a9-7c84a4a98231.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fc80913b-48bd-453d-b7a9-7c84a4a98231.png)
 
 再来看一下《编程喵实战项目笔记》的部分目录，可以说非常的扎实。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
 
 还有《二哥的 LeetCode 刷题笔记》，目前更新了一百题，预计更新 300 题，可以说非常的给力。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c706bc3e-2a1e-4cea-ae33-40f8e08f052d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c706bc3e-2a1e-4cea-ae33-40f8e08f052d.png)
 
 看到这就迫不及待想要加入的小伙伴，可以直接扫下面这个二维码。星球定价 99 元，上次申请的 30 元优惠券还剩下一些，**等于说只需要 69 元的价格就可以加入，每天不到 0.19 元，划算**！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-6a57a7ed-150a-43aa-80cf-c920e6a0dd6b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-6a57a7ed-150a-43aa-80cf-c920e6a0dd6b.png)
 
 随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，所以星球也会即将涨价到 109 元，也不会有 30 元这么大力度的优惠了。
 
@@ -64,25 +64,25 @@ head:
 **2）星球为你提供了一对一的免费提问交流**，帮你解答各种疑难杂症，包括制定学习计划、指导职业规划、解决项目 bug 等等。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-888fc104-e8d0-483d-8626-43ed57bb7b58.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-888fc104-e8d0-483d-8626-43ed57bb7b58.png)
 
 
 **3）星球会定期整理和分享优质的学习资料，包括 PDF&视频教程&简历模板&实战项目&学习资料**等等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-61038545-a81e-47c7-9ff8-344ab843af7f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-61038545-a81e-47c7-9ff8-344ab843af7f.png)
 
 为了给球友们准备学习资料，二哥可以说是殚精竭虑，直接充了 SVIP，空间也是直接扩充到 8219G，都是球友非常认可的视频教程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-49508f06-bb55-4102-82da-61305eae241a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-49508f06-bb55-4102-82da-61305eae241a.png)
 
 
 **4）星球为你提供了容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，并且会帮你再三确认。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-7d196fda-9555-4f53-8a8e-500b49ea0fc1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-7d196fda-9555-4f53-8a8e-500b49ea0fc1.png)
 
 **5）星球为你创造了沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e4f4b7ec-5852-487c-afb6-570f49af4ad5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e4f4b7ec-5852-487c-afb6-570f49af4ad5.png)
 
 二哥会在这个圈子里持续沉淀自己，同时也希望能帮助到更多想要共同进步的小伙伴：
 
@@ -96,7 +96,7 @@ head:
 如果你符合上面的任意一条，那二哥非常欢迎你加入我们的学习圈子，共同进步，报团取暖，为成为更好的自己付出实践、付出努力、付出汗水。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
 
 
 ## 二、为什么要创建知识星球呢？
@@ -107,25 +107,25 @@ head:
 
 下图是我在 GitHub 上取得的一些成绩：《**Java 程序员进阶之路**》开源知识库已获得 4k+ 的 star 数，多次上榜 trending 榜单。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9251b490-0d8a-4133-8207-480d1aa7f254.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9251b490-0d8a-4133-8207-480d1aa7f254.png)
 
 下图是我的原创公号「**沉默王二**」在二十次幂「技术公众号」中上周的排名（22 名），放在全国范围内，也是非常优秀了。目前已有超 11 万读者订阅，原创文章数量 775 篇，大家可以感受下这个原创力度是什么概念。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-8344a475-6316-4810-ad50-884f3f13b8e5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-8344a475-6316-4810-ad50-884f3f13b8e5.png)
 
 下图是我在 CSDN 上取得的一些成绩：**CSDN 两届博客之星**，1200 多万的博客访问量，38 万粉丝关注。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-79818296-a0b5-4838-979e-d16e1d08a9bd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-79818296-a0b5-4838-979e-d16e1d08a9bd.png)
 
 下图是我在知乎上取得的一些成绩：**近 2000 万的访问量**，Java 领域优质创作者。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-d0cf037f-15e0-42d2-aad2-993a0d366057.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-d0cf037f-15e0-42d2-aad2-993a0d366057.png)
 
 
 
 二哥来自农村（下图是我老家的样子，小学以前就住在那隐约可见的窑洞里），小时候没少吃苦，真的是吃不饱穿不暖，洗澡都是问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-70b647a7-f2be-4c00-bf28-e8310b641690.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-70b647a7-f2be-4c00-bf28-e8310b641690.png)
 
 父母都是面朝黄土背朝天的农民，能供我上完大学颇为不易，所以能取得这些成绩我真的非常感恩。现在想想，有这样的父母真的挺幸运的，因为整个村子里和我一个年龄段的 20 多个小伙伴，就只有我一个人念完了大学，**因为在父母眼里，唯有知识才能改变我们一家人的命运**，他们自始至终一直在坚守并践行这个理念。
 
@@ -133,17 +133,17 @@ head:
 
 有了这些技术影响力后，每天都有很多小伙伴通过微信/知乎/CSDN/B 站 私信咨询二哥各个方面的问题。来先看一下 CSDN 上的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fe5f5baf-6164-4007-9f87-80cfbf5c7f73.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fe5f5baf-6164-4007-9f87-80cfbf5c7f73.png)
 
 再来看一下微信上的。每一个问题，不论是大的还是小的，二哥都会尽自己所能，给小伙伴最好的回答。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a7434c1f-b2c9-4e0f-b131-abb6867a3e76.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a7434c1f-b2c9-4e0f-b131-abb6867a3e76.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-def00927-6eb1-450c-b82e-79a16c3ef593.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-def00927-6eb1-450c-b82e-79a16c3ef593.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-549e86d5-dc1d-4aa8-acaf-aacd711ecd2a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-549e86d5-dc1d-4aa8-acaf-aacd711ecd2a.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-6f39876d-b276-4e16-a7bc-88eeb8ecbfed.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-6f39876d-b276-4e16-a7bc-88eeb8ecbfed.png)
 
 问题我就不再一一列了，因为还有太多太多。但私信有个问题就是不能沉淀，很多非常有价值的内容都因为时间的流逝消失在了时间的尘埃里，很多时候有相似的问题找过来，苦于找不到以前的聊天记录。
 
@@ -153,13 +153,13 @@ head:
 
 针对一些缺乏自律&自主学习能力的小伙伴，二哥会变身贴心的班主任指导你制定学习计划，并且监督你每日学习打卡，**来这里感受一段时间后，你就会自觉自发地放弃摆烂，开始努力和改变**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-73938f0c-73b8-49c6-95fd-b19c6ff2da40.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-73938f0c-73b8-49c6-95fd-b19c6ff2da40.png)
 
 反正我自己就是这么一个体会，每天看到球友们在群里打卡总结自己的学习成果，总感觉不好好学习就对不起自己，不好好输出就对不起球友们。总之，有一群热爱的小伙伴在一起，学习、求知、进步的道路上再也不会缺少动力和激情。
 
 下定决心加入的小伙伴，可以直接扫下面这个二维码。**星球定价 99 元，减去 30 元的优惠券，等于说只需要 69 元的价格就可以加入，每天不到 0.19 元**，真的超级划算！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
 
 ## 三、什么是知识星球？
 
@@ -167,7 +167,7 @@ head:
 
 知识星球网页端长这个样子：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9fe4a9ee-ec14-4160-8e07-c09c49b9ac79.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9fe4a9ee-ec14-4160-8e07-c09c49b9ac79.png)
 
 星球内部目前已经沉淀了非常多的内容，比如说**置顶帖「知识图谱」里就汇聚了以往球友的提问及我的回答，可以说非常全面**，覆盖有：
 
@@ -178,57 +178,57 @@ head:
 
 见下图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c53fa5ec-b62d-4277-845a-ff753b3191c4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c53fa5ec-b62d-4277-845a-ff753b3191c4.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-261849eb-3b83-44e2-87ef-207be45467ca.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-261849eb-3b83-44e2-87ef-207be45467ca.png)
 
 知识星球 APP 的界面长这个样子：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f78d85d1-bfcb-41bd-8d9a-dba9078294f2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f78d85d1-bfcb-41bd-8d9a-dba9078294f2.png)
 
 你可以戳顶部的「**去提问**」向二哥提问（学习计划/学习路线/offer 选择/简历指导/职业规划/秋招/考研/技术细节），有问必答，并且每个回答都会尽心尽力，力求给你最大的帮助。下面是已经回复过的提问，我都放在了星球的置顶帖「知识图谱」里。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-47d2e851-ef02-401d-906d-2d17f01fb69b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-47d2e851-ef02-401d-906d-2d17f01fb69b.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e45a41e4-8ec3-4016-937c-e41da6b18f6a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e45a41e4-8ec3-4016-937c-e41da6b18f6a.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-ad53044a-5c96-46b7-b9c2-c12f0cf9b34a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-ad53044a-5c96-46b7-b9c2-c12f0cf9b34a.png)
 
 除此之外，你可以参与打卡，养成良好的学习习惯，你还可以阅读星球的精华贴和优质专栏《Java 面试指南》、《编程喵实战项目笔记》（SpringBoot+Vue 的前后端分离项目，附源码）、《二哥的 LeetCode 刷题笔记》。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c0a920a3-0f39-436b-a47e-b6804f1863ca.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c0a920a3-0f39-436b-a47e-b6804f1863ca.png)
 
 可以说是干货满满、价值连城、物超所值，如果你能够认真读完每个章节的话，相信你一定会大有所获，**感谢自己近一年内性价比最高的一笔投资**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
 
 ## 四、星球里有哪些可爱的球友？
 
 **一个人可以走得很快，但一群人才能走得更远**。二哥编程星球里的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。他们虽然来自五湖四海，但都拥有着一颗积极向上，力求改变自我的心！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e160b612-bd16-443d-bfc1-c4bb81340016.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e160b612-bd16-443d-bfc1-c4bb81340016.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1001a5de-470e-4917-8e33-56b96edcab68.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1001a5de-470e-4917-8e33-56b96edcab68.png)
 
 挑一些球友分享的内容，真的是非常的顶，他/她们每天给自己安排任务，从不停歇。这位球友周末会抽出 11 个半小时学习 Java 和 C 语言，真的非常顶啊。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-38aa3f74-4310-46ad-8900-76340339a93e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-38aa3f74-4310-46ad-8900-76340339a93e.png)
 
 还有这位球友的日常打卡，他的学习笔记，每次看都感觉赏心悦目。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1f5d0f9b-ea96-499b-9fbf-f5231487c158.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1f5d0f9b-ea96-499b-9fbf-f5231487c158.png)
 
 还有球友按照二哥的《**Java 程序员进阶之路**》知识库总结的思维导图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f45bec90-057e-40c8-bbe2-0df746de3ffb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f45bec90-057e-40c8-bbe2-0df746de3ffb.png)
 
 还有这位球友的内容输出，硬核到可以出书的程度。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a31656db-1862-4d36-aee3-708bcce1c04e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a31656db-1862-4d36-aee3-708bcce1c04e.png)
 
 球友们也都非常活跃，动不动就把楼盖起来，赞点的也是毫不吝啬。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-32abe34a-4aec-448f-ba02-e726e9137086.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-32abe34a-4aec-448f-ba02-e726e9137086.png)
 
 
 除了这些，还有很多很多，认真学习，积极向上的球友，处在这样的学习环境中，你很难不去反思自己，为什么别人总在进步，只有自己在拖延、浪费时间、刷短视频、迷茫彷徨，你很难不去进步，去挖掘更强大的自己。
@@ -244,13 +244,13 @@ head:
 你可以添加我的微信（没有手机号再申请微信，故使用企业微信。不过，请放心，这个号的消息也是我本人处理，平时最常看这个微信）领取星球专属优惠券，限时 **69/年** 加入（续费半价）！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png)
 
 
 或者你也可以微信扫码或者长按自动识别领取 30 元优惠券，**69/年** 加入！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-12ee1eef-4970-4d07-bae1-b068c19bac58.png)
 
 
 对了，**加入星球后记得花 10 分钟时间看一下星球置顶贴，你会发现物超所值**！

@@ -4,7 +4,7 @@
 
 于是趁着假期连续爆肝了两周，终于肝出了这期视频：希望能给学弟学妹们一点点启发和帮助。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-1.jpg)
 
 下面是视频链接，感兴趣的小伙伴可以跳过去给二哥刷个三连，谢谢支持了。
 
@@ -40,7 +40,7 @@
 可以看得出，我这个学习计划安排得非常合理，劳逸结合，不浪费一分一秒。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-2.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-2.gif)
 
 
 只要你在大学一天，你就有责任、有义务把自己的大学生活过得充实，精彩，别犹豫了，卷起来吧！！！！
@@ -53,7 +53,7 @@
 
 短暂的迷茫后我选择走出寝室，走进图书馆，没想到结识了很多优秀的学长学姐，大学最努力的同学基本上都在这里。我不厌其烦地向他们请教问题，他们都热心帮我解答，不得不承认，优秀的人从来都不吝啬于帮助他人。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-3.jpg)
 
 
 我向他们请教的问题有：
@@ -68,7 +68,7 @@
 
 刚入门的时候，最大的忌讳就是朝三暮四，这个月学 C语言，下个月学 Python，再下个月学 Java，以至于自己在入门阶段就迷茫了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-4.jpeg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-4.jpeg)
 
 我的建议是最好专注于一门编程语言，如果想要走人工智能这条路的话，选 Python 就对了；如果想走算法岗的话，可以选择 C语言，然后再深入学习 C++，之后去把 LeetCode 刷起来；如果想本科毕业就工作赚钱的话，Java 是最优的选择，岗位多，薪资待遇也给力；以后也可以直接转go岗，如果不想那么卷的话，前端也是一个不错的选择。
 
@@ -79,14 +79,14 @@
 大学四年，我的整体规划是，大一时入门，大二时夯实基础，大三时拼命卷，大四时好好准备校招，能早点出去实习就早点去。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-5.jpg)
 
 
 至于学习资料，网上已经有很多免费开源的了，并且绝大多数都非常的优质，只要你肯花时间去筛选和整理。
 
 这是我自己整理的一套，偏 Java 后端路线的 PDF 书单，在GitHub上也有3。6k的star了，说明很多小伙伴都很认可，包括入门→工具→框架→数据库→并发编程→jvm→性能优化→设计模式→操作系统→计算机网络→数据结构与算法→面试→架构等等，可以说非常的全面和系统。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-6.jpg)
 
 你也可以拿来作为参考。
 
@@ -96,7 +96,7 @@
 
 所以说我的建议是代码敲起来，笔记记起来！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-7.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-7.gif)
 
 
 记住卖油翁的那句话：无他，唯手熟尔！
@@ -107,7 +107,7 @@
 
 记得大三寒假的时候，很多同学都回家过年了，我一个人选择南下苏州去 ，本以为能找一个实习就很不错了，没想到好几个公司的面试都过了，这给了我很大的信心。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-8.jpeg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/daxue-nuli-jisuanji-8.jpeg)
 
 
 唐代诗人刘禹锡有句诗是这样写的：**千淘万漉虽辛苦，吹尽狂沙始到金**。

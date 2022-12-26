@@ -102,23 +102,23 @@ public class NetworkUtil {
 
 地址：[https://ip.taobao.com/](https://ip.taobao.com/)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-23cd1007-7470-41f2-aaec-4091c0165597.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-23cd1007-7470-41f2-aaec-4091c0165597.jpg)
 
 不过，taobao 的 ip 库下线了再见 ip.taobao。
 
-![ip 归属地](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-618629ba-d9f2-40f0-860d-86ffe2dfe049.jpg)
+![ip 归属地](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-618629ba-d9f2-40f0-860d-86ffe2dfe049.jpg)
 
 
 
 原来的请求源码如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-30e1c72b-0a55-4371-8ab7-02de0a97ae52.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-30e1c72b-0a55-4371-8ab7-02de0a97ae52.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-505194e1-f98c-4d81-9013-e96e0fff631f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-505194e1-f98c-4d81-9013-e96e0fff631f.jpg)
 
 可以看到日志 log 文件中，大量的 the request over max qps for user 问题。
 
-![留下了难过的泪水](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-b1205779-d638-41d2-9791-fc916c4c1492.jpg)
+![留下了难过的泪水](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-b1205779-d638-41d2-9791-fc916c4c1492.jpg)
 
 
 
@@ -322,12 +322,12 @@ public class SearcherTest {
 
 ## IDEA 中做个测试
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-5d234914-d404-44cf-85bb-8e7fa8ae498b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-5d234914-d404-44cf-85bb-8e7fa8ae498b.jpg)
 
 
 ip 属地国内的话，会展示省份，国外的话，只会展示国家。可以通过如下图这个方法进行进一步封装，得到获取 IP 属地的信息。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-a6e0fc04-60f1-4629-9a69-3186d644cda0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-laobywzygipsdgn-a6e0fc04-60f1-4629-9a69-3186d644cda0.jpg)
 
 > 下面是官网给出的命令运行 jar 方式给出的测试 demo，可以理解下
 

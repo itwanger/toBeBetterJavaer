@@ -19,7 +19,7 @@ head:
 
 学习 C++ 语法，首推《C++ Primer 第五版》。我在参加第一份工作的时候，就买过一本《C++ Primer 第四版》，这本书一直不舍得扔，尽管它已经非常破了，但我们之间的感情是深厚的，毕竟跟随我辗转了好几个城市了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-primer-book.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-primer-book.png)
 
 *是不是一下子就暴露自己工作年限了*？
 
@@ -27,15 +27,15 @@ head:
 
 然后是《Effective C++》，侯捷老师译的，这本书主要讲解了编写 C++ 代码需要注意的一些条款，和《Effective Java》 属于同一个系列。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-2.jpg)
 
 第三本是《STL源码剖析》这本书，侯捷老师写的，这本书讲了C++的底层实现，包括各种容器（vector、list、heap、deque、Red Black tree、hash table、set/map）的实现、各种常见算法（排序、查找、排列组合、数据移动与复制技术）的实现等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-3.png)
 
 第四本《深度探索C++对象模型》，侯捷老师译的，这本书讲解了 C++ 面向对象特性的底层实现机制，读起来虽然有点晦涩，但读完后就会搞明白“代码跑起来的时候实际发生了什么”。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-4.jpg)
 
 ## 二、视频推荐
 
@@ -49,16 +49,16 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-b3de882e-3b4e-453e-a9b7-e327ca7ec30e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-b3de882e-3b4e-453e-a9b7-e327ca7ec30e.png)
 
 
 我从网上 down 了一份，保存到了本地。需要的小伙伴请长按识别/扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**cpp**」就可以拉取到了。
 
-![回复关键字 cpp ](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![回复关键字 cpp ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 给大家看一下我保存的这些视频资源哈。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-5.png)
 
 如果还需要更多 C++ 的学习资料，可以直接戳我整理的这个 GitHub/码云仓库——📚程序员必读书单整理，附下载地址，里面有大量的 C++ 学习资料。
 
@@ -66,7 +66,7 @@ head:
 - 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#c-1)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/cpp-books.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/cpp-books.jpg)
 
 简单罗列一下：
 
@@ -85,7 +85,7 @@ head:
 
 书有了，视频有了，还得动手去敲代码，尤其是初学阶段，记得这四个大字：**唯手熟尔**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-7c451ad4-73e5-4ac4-a9e5-d0bdbae06ff0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-7c451ad4-73e5-4ac4-a9e5-d0bdbae06ff0.jpg)
 
 推荐一个轻量级练手项目吧。
 
@@ -198,7 +198,7 @@ GitHub 链接：[https://github.com/sogou/workflow](https://github.com/sogou/wor
 
 **其次，要从低版本开始学习**。比如说我们在学习 workflow 的时候，可以先从 v0.9.0 这个最终的 release 版本开始学习。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-3e0137d4-f0f3-4a1d-8e6c-c16eefcd175d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-3e0137d4-f0f3-4a1d-8e6c-c16eefcd175d.jpg)
 
 然后再逐层往上推进，这样的学习效果肯定会更佳，尤其是针对新手来说。
 
@@ -259,4 +259,4 @@ GitHub 链接：[https://github.com/sogou/workflow](https://github.com/sogou/wor
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

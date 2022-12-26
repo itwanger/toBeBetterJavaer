@@ -61,7 +61,7 @@ RocketMQ 客户端网络通讯有如下三种方式：
 
 很多技术的思想是相通的，下图是蚂蚁开源的通讯组件 sofa-bolt 支持的调用类型。
 
-![蚂蚁通讯框架Bolt调用类型](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-8493b534-f74e-41f2-9772-9deef42b55be.jpg)
+![蚂蚁通讯框架Bolt调用类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-8493b534-f74e-41f2-9772-9deef42b55be.jpg)
 
 
 
@@ -79,7 +79,7 @@ void registerProcessor(
       final ExecutorService executor);
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-15cb25fd-aef3-4162-8aed-b03b47d38e88.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-15cb25fd-aef3-4162-8aed-b03b47d38e88.jpg)
 
 * * *
 
@@ -111,13 +111,13 @@ void registerProcessor(
 
 2016年，sharding-jdbc 开源了，下图是当时 sharding-jdbc 的架构设计图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-afb6d682-fe03-49db-a7b5-33ee26d3fa76.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-afb6d682-fe03-49db-a7b5-33ee26d3fa76.jpg)
 
 二哥当时对分库分表着迷，同时脑海里有很多疑问，比如如何封装 jdbc 的接口，如何实现 SQL 解析 ，如何将多个分片的结果聚合等。
 
 于是，二哥参考 sharding-jdbc 的源码，仿写了一个分库分表组件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-3a386afd-9828-4618-a729-9c2170a39244.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaolrhxxkyxm-3a386afd-9828-4618-a729-9c2170a39244.jpg)
 
 经过这次仿写，二哥深入实践了 client 模式分库分表的原理，并积累了自己的技术储备。
 

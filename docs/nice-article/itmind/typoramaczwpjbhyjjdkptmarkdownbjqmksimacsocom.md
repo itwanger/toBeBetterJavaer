@@ -45,23 +45,23 @@ Typora 将为读者和作家提供无缝的体验。它删除预览窗口，模�
 
 可以通过 CSS 完全配置
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-2318c560-d0b4-4bf8-b95c-c7079bf12a42.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-2318c560-d0b4-4bf8-b95c-c7079bf12a42.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-2318c560-d0b4-4bf8-b95c-c7079bf12a42.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-2318c560-d0b4-4bf8-b95c-c7079bf12a42.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-2318c560-d0b4-4bf8-b95c-c7079bf12a42.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-2318c560-d0b4-4bf8-b95c-c7079bf12a42.png)
 
 Typora 1.3.6 Mac 破解版 好用极简的跨平台 Markdown 编辑器 下载地址
 
 PS: 破解文件页面提取人数过多，导致分享的百度网盘链接容易被封：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-916b7adf-2697-4e20-ba70-b3d52c08fbc9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/imacso-typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom-916b7adf-2697-4e20-ba70-b3d52c08fbc9.png)
 
 蛋疼 ing，为限制人数，目前暂不提供页面直接提取，**改为从笔者公众号提取**。
 
 需要的小伙伴，扫描下方公众号二维码，或者关注公众号： **沉默王二**，回复关键字：**typora** 即可免费无套路获取，持续更新中~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 
 #### 其他

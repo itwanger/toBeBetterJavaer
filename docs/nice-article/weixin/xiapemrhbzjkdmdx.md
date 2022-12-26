@@ -82,7 +82,7 @@ category:
 
 ##### 主要流程：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-057bba0a-027b-4bed-a757-475f5f62ddb6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-057bba0a-027b-4bed-a757-475f5f62ddb6.jpg)
 
 *   ① 客户端执行创建请求，调用服务端接口。
 *   ② 服务端执行业务逻辑，生成一个分布式 ID，将该 ID 充当待插入数据的主键，然后执数据插入操作，运行对应的 SQL 语句。
@@ -104,7 +104,7 @@ category:
 
 ##### 描述示例：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-03eb841e-5992-4005-bbee-a802c1933b41.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-03eb841e-5992-4005-bbee-a802c1933b41.jpg)
 
 例如，存在如下的数据表中：
 
@@ -150,7 +150,7 @@ UPDATE my_table SET price = price+50 ,version = version + 1 WHERE id
 
 ##### 主要流程：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-d7479bd6-1830-41df-9331-8373cfcce533.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-d7479bd6-1830-41df-9331-8373cfcce533.jpg)
 
 *   ① 服务端提供获取 Token 的接口，该 Token 可以是一个序列号，也可以是一个分布式 ID 或者 UUID 串。
 *   ② 客户端调用接口获取 Token，这时候服务端会生成一个 Token 串。
@@ -186,7 +186,7 @@ UPDATE my_table SET price = price+50 ,version = version + 1 WHERE id
 
 ##### 主要流程：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-bda279ca-262b-484d-9451-da0b31c273bc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-bda279ca-262b-484d-9451-da0b31c273bc.jpg)
 
 *   ① 下游服务生成分布式 ID 作为序列号，然后执行请求调用上游接口，并附带“唯一序列号”与请求的“认证凭据ID”。
 *   ② 上游服务进行安全效验，检测下游传递的参数中是否存在“序列号”和“凭据ID”。
@@ -690,7 +690,7 @@ public class IdempotenceTest {
 
 上面只是给与一些建议，再次强调一下，实现幂等性需要先理解自身业务需求，根据业务逻辑来实现这样才合理，处理好其中的每一个结点细节，完善整体的业务流程设计，才能更好的保证系统的正常运行。最后做一个简单总结，然后本博文到此结束，如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-8ae66a95-6a7a-4f32-9e01-8fa08b48626c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xiapemrhbzjkdmdx-8ae66a95-6a7a-4f32-9e01-8fa08b48626c.jpg)
 
 * * *
 
@@ -709,6 +709,6 @@ public class IdempotenceTest {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/tL0fnUR3BNBjP8Qw2pldVg](https://mp.weixin.qq.com/s/tL0fnUR3BNBjP8Qw2pldVg)，出处：JavaGuide，整理：沉默王二

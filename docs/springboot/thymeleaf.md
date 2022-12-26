@@ -11,7 +11,7 @@ title: Spring Boot 整合 Thymeleaf 模板引擎
 Thymeleaf 是一个优秀的、面向 Java 的 HTML 页面模板，具有丰富的标签语言和函数。在 JSP 被淘汰之后，Thymeleaf 取而代之成为了 Spring Boot 推荐的模板引擎。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-d373bf02-a577-4382-89b4-0b29a87ab922.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-d373bf02-a577-4382-89b4-0b29a87ab922.png)
 
 
 Thymeleaf 在有网和没网的环境下都可以正常工作，既能让美工在浏览器中查看页面的静态效果，也能让程序员在服务器查看带数据的动态页面效果。
@@ -82,7 +82,7 @@ spring:
 其他配置项采用默认就可以了，想要看有哪些默认项的话，可以全局打开 ThymeleafProperties.java 类。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-2e0cba5c-89ae-4f1b-8cc8-0c8f86d5f520.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-2e0cba5c-89ae-4f1b-8cc8-0c8f86d5f520.png)
 
 Thymeleaf 模板引擎默认会读取 resources 目录下的 templates 目录，这个目录是用来存放 HTML 页面的。
 
@@ -136,12 +136,12 @@ public class UserController {
 第五步，启动主类，如果看到以下信息表示启动成功。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-3e636801-32df-4591-9159-fe83f771f68d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-3e636801-32df-4591-9159-fe83f771f68d.png)
 
 第六步，在浏览器地址栏里输入 `http://localhost:8080/user/all` 访问接口。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-e4b658fd-e30a-4b00-8818-ab00f8a28620.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/thymeleaf-e4b658fd-e30a-4b00-8818-ab00f8a28620.png)
 
 ## HTTP Client
 
@@ -156,4 +156,4 @@ public class UserController {
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - codingmore-thymeleaf: [https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-thymeleaf)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -35,7 +35,7 @@ head:
 
 需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**08**」就可以拉取到下载链接了。
 
-![扫码关注后回复「08」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「08」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 也可以微信搜「**沉默王二**」关注后回复关键字「**08**」。
 
@@ -45,7 +45,7 @@ head:
 那配上阮一峰老师的这个在线文档教程，可以说是完美！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/yuanyifeng-c-language-4a28a9bd-0db4-419c-8aaf-fa102323282d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/yuanyifeng-c-language-4a28a9bd-0db4-419c-8aaf-fa102323282d.png)
 
 我对这份教程是非常满意的，该讲的地方都讲到了，示例也给了很多，对初学者来说，完全够用了。
 
@@ -77,7 +77,7 @@ C语言在武林界的地位就相当于少林的地位，天下武功皆出少�
 
 不过网上也有蛮多在线编译器的，可以直接在网页上模拟运行 C 代码，查看结果，非常方便。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/yuanyifeng-c-language-4dfd8f91-893f-401f-81ad-488e08934c07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/yuanyifeng-c-language-4dfd8f91-893f-401f-81ad-488e08934c07.png)
 
 >CodingGround网址：[https://www.tutorialspoint.com/compile_c_online.php](https://www.tutorialspoint.com/compile_c_online.php)
 
@@ -99,7 +99,7 @@ C语言中，指针是令初学者头痛的一块内容，所以我这里简单�
 
 >需要阮一峰老师的这份《C语言入门教程》的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**08**」就可以拉取到下载链接了。
 
-![扫码关注后回复「08」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「08」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 也可以微信搜「**沉默王二**」关注后回复关键字「**08**」。
 

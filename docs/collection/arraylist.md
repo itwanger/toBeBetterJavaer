@@ -207,7 +207,7 @@ public void add(int index, E element) {
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-01.png)
 
 ## 更新 ArrayList 中的元素
 
@@ -308,7 +308,7 @@ private void fastRemove(int index) {
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-02.png)
 
 ## 查找 ArrayList 中的元素
 
@@ -413,4 +413,4 @@ ArrayList，如果有个中文名的话，应该叫动态数组，也就是可�
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

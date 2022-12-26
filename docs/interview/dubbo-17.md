@@ -42,7 +42,7 @@ head:
 
 > **RPC（Remote Procedure Call）**—远程过程调用，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底>层网络技术的协议。RPC 协议假定某些传输协议的存在，如 TCP 或 UDP，为通信程序之间携带信息数据。在 OSI 网络>通信模型中，RPC 跨越了传输层和应用层。RPC 使得开发包括网络分布式多程序在内的应用程序更加容易。RPC 采用客户机/服务器模式。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发>送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为>止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户>端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。有多种 RPC 模式和执行。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-30098e26-c2c6-463b-bdb8-4cec95a9b6f8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-30098e26-c2c6-463b-bdb8-4cec95a9b6f8.jpg)
 
 我们用一种通俗易懂的语言解释它，**远程调用就是本地机器调用远程机器的一个方法，远程机器返回结果的过程**。
 
@@ -58,7 +58,7 @@ head:
 
 Dubbo 的核心功能主要包含:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-78d6db3f-70c7-4ebb-90cb-5b731e77019e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-78d6db3f-70c7-4ebb-90cb-5b731e77019e.jpg)
 
 
 
@@ -77,7 +77,7 @@ Dubbo 的核心功能主要包含:
 
 调用过程图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-4814068d-19cc-42d9-b9bc-26c4c063c8c2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-4814068d-19cc-42d9-b9bc-26c4c063c8c2.jpg)
 
 - 1.Proxy 持有一个 Invoker 对象，**使用 Invoker 调用**
 - 2.之后通过**Cluster 进行负载容错**，失败重试
@@ -98,7 +98,7 @@ Dubbo 的核心功能主要包含:
 
 ## 4.说说 Dubbo 支持哪些协议，每种协议的应用场景和优缺点
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-1f4771de-fad0-410c-a764-c173146dd6d7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-1f4771de-fad0-410c-a764-c173146dd6d7.jpg)
 
 - **1.dubbo** 单一长连接和 NIO 异步通讯，适合大并发小数据量的服务调用，以及消费者远大于提供者。传输协议 TCP，异步，Hessian 序列化
 - **2.rmi** 采用 JDK 标准的 rmi 协议实现，传输参数和返回参数对象需要实现 Serializable 接口，使用 java 标准序列化机制，使用阻塞式短连接，传输数据包大小混合，消费者和提供者个数差不多，可传文件，传输协议 TCP。多个短连接，TCP 协议传输，同步传输，适用常规的远程服务调用和 rmi 互 操作。在依赖低版本的 Common-Collections 包，java 序列化存在安全漏洞
@@ -111,7 +111,7 @@ Dubbo 的核心功能主要包含:
 
 ## 5.Dubbo 中都用到哪些设计模式？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-c33e9fa1-e1da-4701-ac97-3fb9d32d87d1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-c33e9fa1-e1da-4701-ac97-3fb9d32d87d1.jpg)
 
 ### **责任链模式**:
 
@@ -159,7 +159,7 @@ Dubbo consumer 使用 Proxy 类创建远程服务的本地代理，本地代理�
 
 ## 7.服务暴露的流程是怎么样的？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-8203dc1c-927f-45d0-83fd-6a94e3283121.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-8203dc1c-927f-45d0-83fd-6a94e3283121.jpg)
 
 1.通过 ServiceConfig 解析标签，创建 dubbo 标签解析器来**解析 dubbo 的标签**，容器创建完成之后，**触发 ContextRefreshEvent 事件回调开始暴露服务**
 
@@ -171,7 +171,7 @@ Dubbo consumer 使用 Proxy 类创建远程服务的本地代理，本地代理�
 
 5.最后 RegistryProtocol 保存 URL 地址和 invoker 的映射关系，同时**注册到服务中心**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-4fa2fafb-1087-4fd7-b963-4a094eb1f3a9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-4fa2fafb-1087-4fd7-b963-4a094eb1f3a9.jpg)
 
 
 ## 8.服务引用的流程是怎么样的？
@@ -182,12 +182,12 @@ Dubbo consumer 使用 Proxy 类创建远程服务的本地代理，本地代理�
 
 3.之后通过 invoker 为服务接口**生成代理对象**，这个代理对象用于远程调用 provider，至此完成了服务引用
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-f42fb83d-478d-4305-9191-1e6e871409ea.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-f42fb83d-478d-4305-9191-1e6e871409ea.jpg)
 
 
 ## 9.Dubbo 的注册中心有哪些？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-0d76630a-d90b-4ecc-8727-8769ad80fa4e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-0d76630a-d90b-4ecc-8727-8769ad80fa4e.jpg)
 
 Zookeeper、Redis、Multicast、Simple 等都可以作为 Dubbo 的注册中心
 
@@ -216,7 +216,7 @@ key=com.xxx.xxx
 
 ## 11.Dubbo 的 SPi 和 Java 的 SPI 有什么区别？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-9944f8d5-5a58-4896-8604-06b873fc7e3c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-9944f8d5-5a58-4896-8604-06b873fc7e3c.jpg)
 
 **Java Spi**
 
@@ -237,11 +237,11 @@ key=com.xxx.xxx
 
 然后在 15 以内生成一个随机数，0 ～ 4 是服务器 A，4 ～ 9 是服务器 B，9 ～ 15 是服务器 C
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-bd11d3ec-5d87-417e-bca0-70241e1fc065.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-bd11d3ec-5d87-417e-bca0-70241e1fc065.jpg)
 
 **2.最小活跃数**：每个服务提供者对应一个活跃数 active，初始情况下，所有服务提供者活跃数均为 0。每收到一个请求，活跃数加 1，完成请求后则将活跃数减 1。在服务运行一段时间后，性能好的服务提供者处理请求的速度更快，因此活跃数下降的也越快，此时这样的服务提供者能够优先获取到新的服务请求。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-9eb04922-b0c8-4f49-8839-902fc97cc2ed.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-9eb04922-b0c8-4f49-8839-902fc97cc2ed.jpg)
 
 **3.一致性 hash**：
 
@@ -249,11 +249,11 @@ key=com.xxx.xxx
 - 然后采用同样的方法求出存储数据的键的哈希值，并映射到相同的圆上。
 - 然后从数据映射到的位置开始顺时针查找，将数据保存到找到的第一个服务器上。如果超过 2 的 32 次方仍然找不到服务器，就会保存到第一台 memcached 服务器上。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-be1ef6ba-f24d-4fd6-adc6-8b7cc086f66b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-be1ef6ba-f24d-4fd6-adc6-8b7cc086f66b.jpg)
 
 **4.加权轮询**：比如我们有三台服务器\[A, B, C\]，给他们设置权重为\[4, 5, 6\]，那么假如总共有 15 次请求，那么会有 4 次落在 A 服务器，5 次落在 B 服务器，6 次落在 C 服务器。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-e9d2dd09-4d2a-4c43-8920-eac89c6341bc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-e9d2dd09-4d2a-4c43-8920-eac89c6341bc.jpg)
 
 
 ## 13.集群容错方式有哪些？
@@ -274,7 +274,7 @@ key=com.xxx.xxx
 
 分层图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-0c120220-d8be-4180-8694-3787446e1daa.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-0c120220-d8be-4180-8694-3787446e1daa.jpg)
 
 从大的范围来说，dubbo 分为三层
 
@@ -298,7 +298,7 @@ Zookeeper 中节点是有生命周期的，具体的生命周期取决于节点�
 
 ## 16.为什么要通过代理对象通信？？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-40dc629c-e166-476f-9e03-883238e8ba25.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-40dc629c-e166-476f-9e03-883238e8ba25.jpg)
 
 其实主要就是为了将调用细节封装起来，将调用远程方法变得和调用本地方法一样简单，还可以做一些其他方面的增强，比如负载均衡，容错机制，过滤操作，调用数据的统计。
 
@@ -307,7 +307,7 @@ Zookeeper 中节点是有生命周期的，具体的生命周期取决于节点�
 
 关于这个问题，其实核心考察点就是你**对于 RPC 框架的理解**，一个成熟的 RPC 框架**可以完成哪些功能**，其实当我们看过一两个 RPC 框架后，就可以对这个问题回答个七七八八了，我们来举个例子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-23df00fb-11aa-41a4-8bbe-e53bb1b65358.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-msbgwzdubboq-23df00fb-11aa-41a4-8bbe-e53bb1b65358.jpg)
 
 1.首先我们得需要一个**注册中心**，去管理消费者和提供者的节点信息，这样才会有消费者和提供才可以去订阅服务，注册服务。
 
@@ -332,4 +332,4 @@ Zookeeper 中节点是有生命周期的，具体的生命周期取决于节点�
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

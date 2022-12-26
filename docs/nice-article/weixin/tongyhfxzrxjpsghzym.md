@@ -49,7 +49,7 @@ head:
 
 我这里放一张图，是新加坡非常有名的一个祖屋，有一天路过碰到了彩虹拍的。大家可以感受一下这个蓝天，在新加坡几乎每天都有这样的蓝天，尤其是到了傍晚的晚霞更加美，每次看到这样的晚霞都会很有幸福感。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tongyhfxzrxjpsghzym-cd8e4d55-6146-424b-9cd1-81334a381bd5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tongyhfxzrxjpsghzym-cd8e4d55-6146-424b-9cd1-81334a381bd5.jpg)
 
 另外一点是新加坡全年高温，说是高温其实并不可怕，大概30度左右，和国内刚入夏的时候差不多。出门也不会觉得非常热，到了傍晚不开空调也很凉爽。
 
@@ -87,7 +87,7 @@ head:
 
 我这里放一张我刚去新加坡住的小区的照片，大家可以自行感受一下。我当时刚去囊中羞涩，住的只是一般的公寓，不算是很高档的。高档公寓的条件和环境更好，当然也更贵就是了……
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tongyhfxzrxjpsghzym-8729729c-737e-4d71-9672-d14ad35744df.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tongyhfxzrxjpsghzym-8729729c-737e-4d71-9672-d14ad35744df.jpg)
 
 如果是祖屋的话，条件会差很多，基本上可以参考国内的普通小区……不过通常会比国内小区干净很多。
 

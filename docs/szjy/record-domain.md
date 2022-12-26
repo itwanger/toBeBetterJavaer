@@ -9,7 +9,7 @@ shortTitle: 备案域名
 
 新注册的域名在短时间内是可以访问到的，但过一段时间后，就会提示「网站暂时无法访问」。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-1.png)
 
 这就意味着我们需要对网站进行备案。关于网站备案，百度百科是这样解释的：
 
@@ -21,25 +21,25 @@ shortTitle: 备案域名
 
 登录阿里云，点击「ICP 备案」（指网站在信息产业部提交网站信息进行官方认可）菜单，点击「开始备案」。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-2.png)
 
 初次备案的小伙伴建议看一遍「秒懂备案」的视频，对备案进行简单地了解，方便后续操作的时候对备案有一个大致的印象。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-3.png)
 
 填写基本信息。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-4.png)
 
 点击「信息校验」，通过后进入下一步。如果不通过，按照对应提示信息进行修改，一般新注册的域名需要 3 天的实名认证审核周期。
 
 填写主办者信息：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-5.png)
 
 填写网站信息：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-6.png)
 
 完成后会提示我们下载「阿里云 APP」上传一些资料，主要是方便上传身份证和人脸认证（注意不要带眼镜，否则容易校验不通过，踩坑人良心建议）。
 
@@ -47,20 +47,20 @@ shortTitle: 备案域名
 
 这一步审核通过后，会受到工信部的短信核验，记得及时处理。然后等待管局审核，预计 9 天左右。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-7.png)
 
 我差不多等了一周左右，管局审核终于通过了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-8.png)
 
 现在立刻马上，登录[全国互联网安全管理平台](http://www.beian.gov.cn/portal/index)注册登录提交公安联网备案申请。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-9.png)
 
 
 填写申请信息的时候最好不要用 Safari 浏览器，不然会提示要安装 flash 插件（果然政企网站的技术都非常地追求稳定啊）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-10.png)
 
 macOS 系统可以选择用 Chrome 浏览器。
 
@@ -70,15 +70,15 @@ macOS 系统可以选择用 Chrome 浏览器。
 
 提交后再次等待审核。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-11.png)
 
 等了四天，上去看了一下，审核通过了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-12.png)
 
 我们需要做的是下载备案编号图标和复制备案编号 HTML 代码到网站上。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-13.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-beian-13.png)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

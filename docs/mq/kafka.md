@@ -9,7 +9,7 @@ head:
 ---
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-03177674-8192-4e7e-a7e6-0d3593bd644e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-03177674-8192-4e7e-a7e6-0d3593bd644e.jpg)
 
 ## 基本简介
 
@@ -39,7 +39,7 @@ Kafka是一种分布式的，基于发布/订阅的消息系统，主要特性�
 
 我们在官网上下载Kafka时，会看到这样的版本：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-677e0f86-8d4f-4db6-95eb-8bbab6da937a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-677e0f86-8d4f-4db6-95eb-8bbab6da937a.jpg)
 
 前面的版本号是编译Kafka源代码的Scala编译器版本。
 
@@ -73,7 +73,7 @@ Kafka社区在发布1.0.0版本后写过一篇文章，宣布Kafka版本命名�
 
 ## 基本概念
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-0f6308dc-44db-49a2-9eec-50cf65958236.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-0f6308dc-44db-49a2-9eec-50cf65958236.jpg)
 
 **「主题」**
 
@@ -182,7 +182,7 @@ Rebalance是Kafka消费者端实现高可用的重要手段。
 
 日志文件的 HW 为6，表示消费者只能拉取offset在 0 到 5 之间的消息，offset为6的消息对消费者而言是不可见的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-f27928a8-9a91-4e39-a68d-c74d8a3291f1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-f27928a8-9a91-4e39-a68d-c74d8a3291f1.jpg)
 
 **「LEO（Log End Offset）」**：标识当前日志文件中下一条待写入的消息的offset
 
@@ -196,7 +196,7 @@ Rebalance是Kafka消费者端实现高可用的重要手段。
 
 一个最基本的架构是生产者发布一个消息到Kafka的一个Topic ，该Topic的消息存放于的Broker中，消费者订阅这个Topic，然后从Broker中消费消息，下面这个图可以更直观的描述这个场景：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-19b8855c-e132-4dc8-b8a6-ad03465e8af9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-19b8855c-e132-4dc8-b8a6-ad03465e8af9.jpg)
 
 **「消息状态：」** 在Kafka中，消息是否被消费的状态保存在Consumer中，Broker不会关心消息是否被消费或被谁消费，Consumer会记录一个offset值（指向partition中下一条将要被消费的消息位置），如果offset被错误设置可能导致同一条消息被多次消费或者消息丢失。
 
@@ -210,7 +210,7 @@ Rebalance是Kafka消费者端实现高可用的重要手段。
 
 **「系统架构」**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-784020d0-cc87-446a-9627-77a88e158d3d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-784020d0-cc87-446a-9627-77a88e158d3d.jpg)
 
 通常情况下，一个kafka体系架构包括**「多个Producer」**、**「多个Consumer」**、**「多个broker」**以及**「一个Zookeeper集群」**。
 
@@ -487,13 +487,13 @@ Apache ZooKeeper是一个分布式的协调服务框架，Kafka重度依赖它�
 
 默认，也叫轮循，说的是对于同一组消费者来说，使用轮训分配的方式，决定消费者消费的分区
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-1262b5a7-198e-47b7-ad81-a4f84e755901.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-1262b5a7-198e-47b7-ad81-a4f84e755901.jpg)
 
 **「第二种叫做Range」**
 
 对一个消费者组来说决定消费方式是以分区总数除以消费者总数来决定，一般如果不能整除，往往是从头开始将剩余的分区分配开
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-d6a295aa-85f7-439e-9984-e081f3d95238.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-d6a295aa-85f7-439e-9984-e081f3d95238.jpg)
 
 **「第三种叫Sticky」**
 
@@ -801,7 +801,7 @@ Compact的过程就是扫描日志的所有消息，剔除那些过期的消息�
 
 我在这里贴一张来自官网的图片，来说明Compact过程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-14efc721-5848-4931-80f3-b8a52c9a7816.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-14efc721-5848-4931-80f3-b8a52c9a7816.jpg)
 
 图中位移为0、2和3的消息的Key都是K1，Compact之后，分区只需要保存位移为3的消息，因为它是最新发送的。
 
@@ -819,11 +819,11 @@ Compact的过程就是扫描日志的所有消息，剔除那些过期的消息�
 
 从这张图中，我们可以看到，主题1分区0的3个副本分散在3台Broker上，其他主题分区的副本也都散落在不同的Broker上，从而实现数据冗余。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-b2a22704-3d2e-4e1d-8f43-0dfa869ff8a4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-b2a22704-3d2e-4e1d-8f43-0dfa869ff8a4.jpg)
 
 **「副本角色」**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-804bdef2-6281-4dd6-bee7-ec3361cff781.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-804bdef2-6281-4dd6-bee7-ec3361cff781.jpg)
 
 在Kafka中，副本分成两类：领导者副本（Leader Replica）和追随者副本（Follower Replica）。
 
@@ -907,7 +907,7 @@ kafka使用多副本机制提高可靠性，但是只有leader副本对外提供
 
 比如我们在包含3个broker节点的kafka集群上创建一个分区数为3，副本因子为3的主题`topic-partitions`时，leader副本会均匀的分布在3台broker节点上。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-1dfdbca2-372c-4bcf-9f9c-d58a94f32477.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-1dfdbca2-372c-4bcf-9f9c-d58a94f32477.jpg)
 
 **「针对同一个分区，在同一个broker节点上不可能出现它的多个副本」**。
 
@@ -923,7 +923,7 @@ kafka使用多副本机制提高可靠性，但是只有leader副本对外提供
 
 当broker2重新恢复时，此时的kafka集群状态如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-6630b85d-2c0d-44ea-add9-aa1ea1d66ac8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-6630b85d-2c0d-44ea-add9-aa1ea1d66ac8.jpg)
 
 可以看到，此时broker1上负载更大，而broker2上没有负载。
 
@@ -939,7 +939,7 @@ kafka支持自动优先副本选举功能，默认每5分钟触发一次优先�
 
 ## 网络通信模型
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-8b040ee5-4ccc-4e81-b653-611c758c9899.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-8b040ee5-4ccc-4e81-b653-611c758c9899.jpg)
 
 Broker 中有个`Acceptor(mainReactor)`监听新连接的到来，与新连接建连之后轮询选择一个`Processor(subReactor)`管理这个连接。
 
@@ -1131,7 +1131,7 @@ Preferred领导者选举主要是Kafka为了避免部分Broker负载过重而提
 
 **「故障转移指的是，当运行中的控制器突然宕机或意外终止时，Kafka能够快速地感知到，并立即启用备用控制器来代替之前失败的控制器」**。这个过程就被称为Failover，该过程是自动完成的，无需你手动干预。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-d9a4e4d3-0045-4755-87a4-4da396c7ad9f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-d9a4e4d3-0045-4755-87a4-4da396c7ad9f.jpg)
 
 最开始时，Broker 0是控制器。当Broker 0宕机后，ZooKeeper通过Watch机制感知到并删除了`/controller`临时节点。
 
@@ -1153,7 +1153,7 @@ Kafka中的消息是以主题为基本单位进行归类的，每个主题在逻
 
 下图描绘了主题、分区、副本、Log、LogSegment五者之间的关系。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-da2e2224-c452-40d2-b1e6-9719e5520954.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-da2e2224-c452-40d2-b1e6-9719e5520954.jpg)
 
 **「LogSegment」**
 
@@ -1161,7 +1161,7 @@ Kafka中的消息是以主题为基本单位进行归类的，每个主题在逻
 
 其中，每个LogSegment中的日志数据文件大小均相等（该日志数据文件的大小可以通过在Kafka Broker的`config/server.properties`配置文件的中的**「log.segment.bytes」**进行设置，默认为1G大小（1073741824字节），在顺序写入消息时如果超出该设定的阈值，将会创建一组新的日志数据和索引文件）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-57d8c857-af51-4d68-9dcb-86c96ba3cb8e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-57d8c857-af51-4d68-9dcb-86c96ba3cb8e.jpg)
 
 ## 常用参数
 
@@ -1261,7 +1261,7 @@ Consumer端丢失数据主要体现在Consumer端要消费的消息不见了。
 
 下面这张图它清晰地展示了Consumer端的位移数据。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-f8302e6a-9a80-47d8-8946-ac29343bb2af.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-f8302e6a-9a80-47d8-8946-ac29343bb2af.jpg)
 
 比如对于Consumer A而言，它当前的位移值就是9；Consumer B的位移值是11。
 
@@ -1324,7 +1324,7 @@ Consumer程序从Kafka获取到消息后开启了多个线程异步处理消息�
 
 我们都知道`kafka`的`topic`是无序的，但是一个`topic`包含多个`partition`，每个`partition`内部是有序的
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-1d4b9445-6b7f-4cf5-a54c-3c52e371d9a7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-1d4b9445-6b7f-4cf5-a54c-3c52e371d9a7.jpg)
 
 **「乱序场景1」**
 
@@ -1346,7 +1346,7 @@ Consumer程序从Kafka获取到消息后开启了多个线程异步处理消息�
 
 消费者内部根据线程数量创建等量的内存队列，对于需要顺序的一系列业务数据，根据key或者业务数据，放到同一个内存队列中，然后线程从对应的内存队列中取出并操作
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-7fb38f3c-b275-4f33-bbc6-c52f2cc29930.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kafkahxzszj-7fb38f3c-b275-4f33-bbc6-c52f2cc29930.jpg)
 
 **「通过设置相同key来保证消息有序性，会有一点缺陷：」**
 

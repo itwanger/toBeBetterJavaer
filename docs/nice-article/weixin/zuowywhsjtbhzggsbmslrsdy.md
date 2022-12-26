@@ -11,7 +11,7 @@ category:
 
 昨天晚上，成都因为疫情又一次上了热搜，而这一次，热搜上的词条是一家软件公司的名字。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-1418f597-aca8-44fe-967d-ecd5b4c27386.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-1418f597-aca8-44fe-967d-ecd5b4c27386.jpg)
 
 事情的起因是这样的：
 
@@ -23,27 +23,27 @@ category:
 
 辛苦的大白们没有办法，都用上了这种古老的方式来寻找“信号”。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-08046e62-ea91-46e8-981a-e63c9adf008f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-08046e62-ea91-46e8-981a-e63c9adf008f.jpg)
 
 因为这个系统出了问题，导致核酸检测工作非常缓慢，大量的市民排队等待，平常排队半小时能完成的，昨晚都要排队好几个小时。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-fec31c0d-4ab5-46d3-94ed-08d972344e82.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-fec31c0d-4ab5-46d3-94ed-08d972344e82.jpg)
 
 到晚上23点半，物业直接通知只给部分人做，其他人可以洗洗睡了。好家伙，不知道有多少人白排了几个小时队。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-67f985a6-12c3-4795-af08-16afc20b2ee9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-67f985a6-12c3-4795-af08-16afc20b2ee9.jpg)
 
 这好好的系统它咋就崩溃了呢？
 
 有网友挖出了一个中标公告，说这套系统背后使用的是浪潮的服务器：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-76afafd3-4b27-4de3-a7a4-21b5ae09d51c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-76afafd3-4b27-4de3-a7a4-21b5ae09d51c.jpg)
 
 一千多万的项目，结果就这？
 
 但随后，有疑似浪潮的人出来回复：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-fd57eacb-efd1-4772-a0e1-bf27a65d6d32.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-fd57eacb-efd1-4772-a0e1-bf27a65d6d32.jpg)
 
 人家说的很清楚，上面中标的只是基础运维，这套软件系统的设计另有其人。
 
@@ -51,29 +51,29 @@ category:
 
 但实际上，崩的不是健康码，而是大白使用的核酸采集录入系统，这是两套独立的系统。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-f85e9567-a894-4a33-85c8-7888e4adfeda.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-f85e9567-a894-4a33-85c8-7888e4adfeda.jpg)
 
 再接着，有人爆出这套软件是东软公司做的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-97bfcc63-3e22-4ee6-83c4-cab5eb62243c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-97bfcc63-3e22-4ee6-83c4-cab5eb62243c.jpg)
 
 于是一时间，所有人把怒火对准了东软，很快就把东软这个词条送上了微博热搜榜第一的位置。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-2a9c87b3-16c3-41ff-beff-fe34cdd9cdf8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-2a9c87b3-16c3-41ff-beff-fe34cdd9cdf8.jpg)
 
 关于崩溃的原因，也有各种说法在朋友圈、微信群里流传，一时难辨真假。
 
 有说是这套系统背后使用的MySQL使用了超宽的大表：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-ad5e9f38-3276-4a5b-ac0c-8ae247b65cdc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-ad5e9f38-3276-4a5b-ac0c-8ae247b65cdc.jpg)
 
 有说是MySQL单表容量太大，造成性能下降：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-59cffb5a-10c7-47b2-9470-9d5fec5a55d2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-59cffb5a-10c7-47b2-9470-9d5fec5a55d2.jpg)
 
 还有的说是因为负载均衡不行，没法支撑高并发。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-bf18c746-270d-49b7-9e08-115cff114571.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-bf18c746-270d-49b7-9e08-115cff114571.jpg)
 
 总结起来基本上就两个原因：
 
@@ -101,37 +101,37 @@ category:
 
 我们用Java、Python、PHP或者其他后端语言开发一个Web后端服务，再用一个MySQL来存储业务数据，它俩携手工作，运行在同一台服务器上，对外提供服务。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-ec9a1317-9797-418e-8b43-3d00a4f785db.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-ec9a1317-9797-418e-8b43-3d00a4f785db.jpg)
 
 ### 2、应用与数据库分离
 
 慢慢的，用户量开始多了起来，一台服务器有点够呛，把它们拆开成两台服务器，一台专门运行Web服务，一台专门用来运行数据库，这样它们就能独享服务器上的CPU和内存资源，不用互抢了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-baa2299b-fd09-445c-a448-68f12b557832.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-baa2299b-fd09-445c-a448-68f12b557832.jpg)
 
 ### 3、缓存系统
 
 后来，用户量进一步增加，每一次都要去数据库里查，有点费时间，引入一个缓存系统，可以有效缩短服务的响应时间。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-d18bb6b6-88c1-4f44-a3b3-7baf895cd236.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-d18bb6b6-88c1-4f44-a3b3-7baf895cd236.jpg)
 
 ### 4、软件负载均衡
 
 用户量还在增加，一个Web服务的吞吐量开始达到了上限，系统开始出现卡顿。这时候，可以复制多个Web服务出来，再用一个nginx来进行负载均衡，将请求分摊到所有Web服务器上，提高并发量。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-6258cc31-43af-49b0-8c27-9c631581e6b6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-6258cc31-43af-49b0-8c27-9c631581e6b6.jpg)
 
 ### 5、数据读写分离
 
 随着系统的运行和用户的增长，数据量越来越多，数据库的瓶颈开始显现，读写明显变慢。这时候，可以增加新的数据库服务器，将读写进行分离，二者做好数据同步，提高数据库服务的整体I/O性能。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-a641a3a9-d8fe-4e9e-9b62-85222670d81f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-a641a3a9-d8fe-4e9e-9b62-85222670d81f.jpg)
 
 ### 6、数据库分库分表
 
 系统中的数据越来越多，即便是读写分离了，但一张表中的记录越来越多，从几百万到几千万，甚至要过亿了。把它们全部塞在同一张表里，检索查询耗时费力，是时候进行分库分表，把数据拆分一下，提高数据查询效率。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-a23c9fa9-c705-42dd-ada7-260788eb70c9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-a23c9fa9-c705-42dd-ada7-260788eb70c9.jpg)
 
 ### 7、硬件负载均衡
 
@@ -139,7 +139,7 @@ category:
 
 一台不够，那就多整几台，再引入一个硬件负载均衡的服务器，比如F5，将网络流量分发到不同的Nginx服务器上，再一次提高性能。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-c3123631-f541-4d78-b12d-9f6c787a62d1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-c3123631-f541-4d78-b12d-9f6c787a62d1.jpg)
 
 ### 8、DNS负载均衡
 
@@ -147,7 +147,7 @@ category:
 
 老办法，一个不够那就多整几个。这一次，咱们在域名解析上下功夫，不同地区的用户，在访问同一个域名时，解析到不同的IP地址，以此来将流量进一步拆分。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-352287fb-2602-48bc-bd67-13a33e042543.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-352287fb-2602-48bc-bd67-13a33e042543.jpg)
 
 上面就是从最简单的单机到复杂集群的高并发演进之路。
 
@@ -155,15 +155,15 @@ category:
 
 回到这次崩溃事件上，我想着经过一夜的折腾，今天总该好点了吧，结果下午一开始，又继续摆烂了：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-a446dd54-ab26-474c-882e-0210acb39bb1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-a446dd54-ab26-474c-882e-0210acb39bb1.jpg)
 
 在我写这篇文章的时候，当事公司已经发布了说明：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-ea45a7af-138d-4cf7-a3b8-3f74d9432754.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-ea45a7af-138d-4cf7-a3b8-3f74d9432754.jpg)
 
 网络：你的意思是怪我咯？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-735b19fe-d0d7-4bea-b742-112ade5cf009.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zuowywhsjtbhzggsbmslrsdy-735b19fe-d0d7-4bea-b742-112ade5cf009.jpg)
 
 我是轩辕，欢迎关注我，我们下次再见。
 

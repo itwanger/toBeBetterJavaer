@@ -31,21 +31,21 @@ head:
 
 **@Autowired 是先根据类型（byType）查找，如果存在多个 Bean 再根据名称（byName）进行查找**，它的具体查找流程如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-529bdc41-0576-4991-aaa7-b43ae1f55de8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-529bdc41-0576-4991-aaa7-b43ae1f55de8.jpg)
 
 关于以上流程，可以通过查看 Spring 源码中的 org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor#postProcessPropertyValues 实现分析得出，源码执行流程如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-60ef8c35-4122-491e-a504-6a0ee5231e90.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-60ef8c35-4122-491e-a504-6a0ee5231e90.jpg)
 
 ### 2.2 @Resource 查找顺序
 
 **@Resource 是先根据名称查找，如果（根据名称）查找不到，再根据类型进行查找**，它的具体流程如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-4e7ff24e-9e91-4241-8e2a-1e033351c75a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-4e7ff24e-9e91-4241-8e2a-1e033351c75a.jpg)
 
 关于以上流程可以在 Spring 源码的 org.springframework.context.annotation.CommonAnnotationBeanPostProcessor#postProcessPropertyValues 中分析得出。虽然 @Resource 是 JSR-250 定义的，但是由 Spring 提供了具体实现，它的源码实现如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-61077910-1fa0-41c8-b55b-6d34d2d8fdda.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-61077910-1fa0-41c8-b55b-6d34d2d8fdda.jpg)
 
 ### 2.3 查找顺序小结
 
@@ -66,9 +66,9 @@ private UserInfo user;
 
 但**二者支持的参数以及参数的个数完全不同，其中 @Autowired 只支持设置一个 required 的参数，而 @Resource 支持 7 个参数**，支持的参数如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-26a01726-8c63-497c-a657-dd1d2fd22eb9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-26a01726-8c63-497c-a657-dd1d2fd22eb9.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-be0bd572-d881-490b-8d04-2a9cc58a68f8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-be0bd572-d881-490b-8d04-2a9cc58a68f8.jpg)
 
 ## 4.依赖注入的支持不同
 
@@ -138,17 +138,17 @@ public class UserController {
 
 其中，**@Autowired 支持属性注入、构造方法注入和 Setter 注入，而 @Resource 只支持属性注入和 Setter 注入**，当使用 @Resource 实现构造方法注入时就会提示以下错误：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-1b15b519-e690-4c36-b142-49f1310f2be5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-1b15b519-e690-4c36-b142-49f1310f2be5.jpg)
 
 ## 5.编译器提示不同
 
 **当使用 IDEA 专业版在编写依赖注入的代码时，如果注入的是 Mapper 对象，那么使用 @Autowired 编译器会提示报错信息**，报错内容如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-a631f20f-e5a9-48b9-9520-8e1ad4a661c1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-a631f20f-e5a9-48b9-9520-8e1ad4a661c1.jpg)
 
 虽然 IDEA 会出现报错信息，但程序是可以正常执行的。然后，我们再**将依赖注入的注解更改为 @Resource 就不会出现报错信息了**，具体实现如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-930ff656-bb61-4634-95c0-144d0f3739a6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-930ff656-bb61-4634-95c0-144d0f3739a6.jpg)
 
 ## 总结
 
@@ -171,7 +171,7 @@ public class UserController {
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-b067eb59-eb85-4c1a-b69c-e3f3de6a7fe3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-b067eb59-eb85-4c1a-b69c-e3f3de6a7fe3.jpg)
 
 ## 推荐阅读
 
@@ -188,6 +188,6 @@ public class UserController {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-a92889dd-1607-41f7-a0ec-8f57712cffc0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-weismspringhideadftjsyautowiredzj-a92889dd-1607-41f7-a0ec-8f57712cffc0.jpg)
 
 >参考链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247503105&idx=1&sn=f57cb845f3cb401ef3e85ef622cf207e&chksm=fc2c7109cb5bf81fcc36011bc8b0d625a6ce2a51d449b1eb2fbdee2019d7e2489743abbc227d#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247503105&idx=1&sn=f57cb845f3cb401ef3e85ef622cf207e&chksm=fc2c7109cb5bf81fcc36011bc8b0d625a6ce2a51d449b1eb2fbdee2019d7e2489743abbc227d#rd)，出处：macrozheng，整理：沉默王二

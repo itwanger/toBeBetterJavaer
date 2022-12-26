@@ -24,7 +24,7 @@ tag:
 
 说到这里，我很想送给还有充足的大学时光且尚未毕业的学弟学妹们一句话：**开阔自己的视野，学会调整心态，提前准备面对未来的不确定性，尽可能的在有限的大学时间段内，多去扩展和丰富自己的知识储备以及专业技能，不到等到临近毕业，马上要步入社会的时候才手足无措地在求职过程中四处碰壁！**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-fa37f2d9-c922-4616-a358-018fd687313a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-fa37f2d9-c922-4616-a358-018fd687313a.jpg)
 
 ## 二、大学期间会遇到的问题
 
@@ -54,7 +54,7 @@ tag:
 
 所以，通过这篇文章，我把自己四年走过来的经历和想法，分享给大家，供大家参考，希望帮助大家在校期间目标明确，尽量少走弯路。上面这些问题，我会在下文一个一个回答，希望大家可以花 20 分钟把这篇文章看完，如果对大家有帮助，麻烦转发给需要的人，谢谢！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-59527582-9073-4b68-b002-9f04981f4317.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-59527582-9073-4b68-b002-9f04981f4317.jpg)
 
 ## 三、匆匆忙忙的大学四年换来了什么？
 
@@ -98,7 +98,7 @@ tag:
 
 另外在做综合案例的时候，学会把大问题拆分成小问题，一点点去解决，别急于求成，光盯着一大串设计好的需求无从下手永远解决不了问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-1e45b9b2-9504-4446-99fd-3b6a7e7f9363.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-1e45b9b2-9504-4446-99fd-3b6a7e7f9363.jpg)
 
 
 
@@ -114,15 +114,15 @@ tag:
 
 - 阿里校招 offer：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-fb869338-e49e-4df9-bedb-864bc9bd4e6e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-fb869338-e49e-4df9-bedb-864bc9bd4e6e.jpg)
 
 - 字节校招 offer：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-217b8163-1634-461d-9dce-94579ae10f73.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-217b8163-1634-461d-9dce-94579ae10f73.jpg)
 
 - Blibili 实习转正后的校招 offer：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-b96df6de-d820-4e49-87ff-ca56704248bc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-b96df6de-d820-4e49-87ff-ca56704248bc.jpg)
 
 至于遗憾嘛，那肯定是没能在最后临近毕业的几个月时间里，和大学室友一起出去聚个餐，一起来一场毕业旅行。
 
@@ -132,7 +132,7 @@ tag:
 
 第四小节这一部分，我想和大家探讨下视野差和信息差对我们大学四年的学习、求职、升学规划的影响。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-f1979f98-1295-4edd-b772-ac15656b5b36.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-f1979f98-1295-4edd-b772-ac15656b5b36.jpg)
 
 我们围绕下面四个问题，来了解下视野差和信息差对我们又多么重要！
 
@@ -187,7 +187,7 @@ tag:
 
 下图是前段时间，和我的大学好基友的聊天记录（22 年毕业生，已经考研上岸）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-b16a4254-21a2-4fd0-9451-62f663d0b97c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-b16a4254-21a2-4fd0-9451-62f663d0b97c.jpg)
 
 相比于那些大一大二大三、研一研二都已经实习 offer 拿到手麻的，我们是不是应该多加把劲了？
 
@@ -298,7 +298,7 @@ ACM 训练和学习技术栈如何取舍？
 
 编程语言没有高低贵贱，技术方向也是如此。正所谓，术业有专攻，算法岗位做的事儿，开发团队替代不了而且也做不了，同样的离开了开发团队研发的组件、类库、工具、平台，算法团队也很难去做算法应用。我们要做的就是把自己喜欢的且符合自己身实际情况的方向学扎实就够了，而不是天天盯着语言排行榜纠结自己该学哪一个“最热门的语言”~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-3666d1f3-0dc2-40d5-8b5b-9cf4d5def83c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-3666d1f3-0dc2-40d5-8b5b-9cf4d5def83c.jpg)
 
 ## 六、如何看待就业与考研的选择？
 
@@ -347,7 +347,7 @@ Last Question：
 
 另外，对于已经毕业的同届同学们，希望大家在未来的生活竞赛中，都能活出自己理想的模样，前程似锦。相信走到今天为止，大家也面对过很多生活上的不容易，学习上的困惑，求职上的一次次失落，但是，生活还在继续，请坚持走下去，也许自己达不到理想中的高度，可是最起码我们正在尝试改变生活现状~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-39af088b-7ce4-4b98-9279-e080504b3d6f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-39af088b-7ce4-4b98-9279-e080504b3d6f.jpg)
 
 ---
 
@@ -355,15 +355,15 @@ Last Question：
 
 一个人可以走得很快，但一群人才能走得更远。欢迎加入[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)，里面的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。
 
-![基本上所有问题球友都能给出答案](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-b30c01a9-80bb-4a11-bec1-26295fe6f139.png)
+![基本上所有问题球友都能给出答案](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-b30c01a9-80bb-4a11-bec1-26295fe6f139.png)
 
 星球提供的三份专属专栏《Java 面试指南》、《编程喵 🐱（Spring Boot+Vue 前后端分离）实战项目笔记》、《Java 版 LeetCode 刷题笔记》，干货满满，价值连城。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-8c6880df-25dd-42a3-b19d-5717c97f67cf.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-8c6880df-25dd-42a3-b19d-5717c97f67cf.png)
 
 已经有 **420 多名** 小伙伴加入[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)加入我们的大家庭吧！这是一个 Java 学习指南 + 编程实战 + LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-2335e716-3853-457b-a3a7-fc8da353cdfa.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheisnylzldhzd-2335e716-3853-457b-a3a7-fc8da353cdfa.png)
 
 ---------
 
@@ -372,4 +372,4 @@ Last Question：
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

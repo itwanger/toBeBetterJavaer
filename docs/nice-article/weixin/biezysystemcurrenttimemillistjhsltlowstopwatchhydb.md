@@ -95,11 +95,11 @@ ns         %     Task name
 除了 Spring，hutool 工具库和 Apache common 工具包都提供了各自的 StopWatch。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-b4ca30f2-9e26-478c-b37c-062f5e3e0076.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-b4ca30f2-9e26-478c-b37c-062f5e3e0076.png)
 
 查看 hutool 工具库中的 StopWatch 源码可以得出，该类其实就来自 Spring 的 StopWatch.java，用法也完全一致。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-cdc28804-8b8e-40fa-a2fe-88b9d2ec57c9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-cdc28804-8b8e-40fa-a2fe-88b9d2ec57c9.png)
 
 这说明 hutool 的作者也认为 Spring 的 StopWatch 写得好，哈哈哈😁。
 
@@ -107,7 +107,7 @@ ns         %     Task name
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-529e5215-b41c-492f-8e7f-a223242a4120.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-529e5215-b41c-492f-8e7f-a223242a4120.png)
 
 
 那也就是说，如果你的项目中没有使用 Spring 全家桶，只用了 hutool 工具包，那就可以使用 hutool 的 StopWatch 来代替 `System.currentTimeMillis()`。
@@ -136,7 +136,7 @@ public void stop() throws IllegalStateException {
 nanoTime 比 currentTimeMillis 的粒度更细，前者是以纳秒为单位，后者是以毫秒为单位。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-a3823870-63a7-4154-9bb9-6994f09f0f39.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-a3823870-63a7-4154-9bb9-6994f09f0f39.png)
 
 
 注意两者都是 native 方法，也就是说，值的粒度其实取决于底层的操作系统。
@@ -183,23 +183,23 @@ System.out.printf("重置耗时：%dms.\n", sw.getTime());
 文末给自己的编程星球打个广告。一个人可以走得很快，但一群人才能走得更远。欢迎加入[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)，里面的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-7fc972ae-c530-4c91-a1ac-ef7c38494734.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-7fc972ae-c530-4c91-a1ac-ef7c38494734.png)
 
 
 星球提供的三份专属专栏《Java 面试指南》、《编程喵 🐱（Spring Boot+Vue 前后端分离）实战项目笔记》、《Java 版 LeetCode 刷题笔记》，干货满满，价值连城。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-e89d40c9-078b-4b2b-9367-2bd707a418fa.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-e89d40c9-078b-4b2b-9367-2bd707a418fa.png)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-1af7a5f6-312c-4ae9-ab77-3c359389c4a6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-1af7a5f6-312c-4ae9-ab77-3c359389c4a6.png)
 
 
 
 已经有 **480 多名** 小伙伴加入[二哥的编程星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw)加入我们的大家庭吧！这是一个 Java 学习指南 + 编程实战 + LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-a60262ae-01dc-4e39-affb-b192ca2de1c4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezysystemcurrenttimemillistjhsltlowstopwatchhydb-a60262ae-01dc-4e39-affb-b192ca2de1c4.png)
 
 
 ---
@@ -213,7 +213,7 @@ System.out.printf("重置耗时：%dms.\n", sw.getTime());
 - [在 IDEA 里下五子棋不过分吧？](https://mp.weixin.qq.com/s/R13FkPipfEMKjqNaCL3UoA)
 - [顺利入职了](https://mp.weixin.qq.com/s/oBLUSnHOmzoVpCP1sacNbA)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-da664b36-ac4c-4d16-a345-fc710462b515.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-da664b36-ac4c-4d16-a345-fc710462b515.jpg)
 
 
 

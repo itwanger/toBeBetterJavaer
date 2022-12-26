@@ -198,7 +198,7 @@ private native int read0() throws IOException;
 
 画幅图比较一下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/buffer-fcae80c2-04a5-4a1b-ab49-89a5ddabd38e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/buffer-fcae80c2-04a5-4a1b-ab49-89a5ddabd38e.png)
 
 再来看 BufferedOutputStream 的 read 方法：
 
@@ -408,4 +408,4 @@ public class BufferedTest {
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

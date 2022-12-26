@@ -36,7 +36,7 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 在这边工作了整整一年，目前已经跳槽到一家互联网公司，在回头看看这一整年，感受颇深，只好一吐为快，以便对想进入国企的程序员帮助及借鉴。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-30d5e559-30d4-488a-b5e9-e5a498616e87.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-30d5e559-30d4-488a-b5e9-e5a498616e87.jpg)
 
 ## 2、入职考试
 
@@ -80,7 +80,7 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 组内都是协同工作，可能因为你的原因导致项目没法按时上线，发生一两次你就会被边缘化，最终要么离职，要么下放到子公司。就算是副院长级别，如果完成不了集团的KPI，也是会被下放的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-5f093912-1658-4511-99f1-e107f50cbc82.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-5f093912-1658-4511-99f1-e107f50cbc82.jpg)
 
 但是相比互联网公司，国企的压力相对小一些，互联网公司实行的是不能胜任就走人的策略，所以每个人几乎都没有什么安全感，只有拼命的工作来争取自己有安全感。
 
@@ -92,7 +92,7 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 **有自己的产品展厅，有自己的公司纪念馆。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-3363ac84-5912-4077-b3f1-47e827c5fc93.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-3363ac84-5912-4077-b3f1-47e827c5fc93.jpg)
 
 **晋升空间**
 
@@ -112,7 +112,7 @@ PS：组织人员要比群众晋升快（群众进不了总部）。
 
 **吐槽 ：**国企没有奖金，国企没有奖金，国企没有奖金，重要的事情说三遍。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-fb4e34a9-af26-493d-9edf-daa2525b89c8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-fb4e34a9-af26-493d-9edf-daa2525b89c8.jpg)
 
 **工作稳定性**
 
@@ -124,7 +124,7 @@ PS：组织人员要比群众晋升快（群众进不了总部）。
 
 国企则不同，国企的业务本来波动就很少，国企营收相对稳定，再说也不差钱，没有生存的压力。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-4c8e52a8-b1d0-429a-85d5-06d46b8f0602.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-likhlwqgqnhwhhlzhdhnq-4c8e52a8-b1d0-429a-85d5-06d46b8f0602.jpg)
 
 **技术栈**
 

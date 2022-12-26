@@ -252,7 +252,7 @@ public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Ex
 
 这行代码标注在 Mybatis 的自动配置类中有何含义呢？下面介绍，哈哈哈~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-springbootsxdtqhdsjyzyzcjyy-f6d2db37-a295-4638-ae1a-3151bb41c92f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-springbootsxdtqhdsjyzyzcjyy-f6d2db37-a295-4638-ae1a-3151bb41c92f.jpg)
 
 ## 多数据源如何整合？
 

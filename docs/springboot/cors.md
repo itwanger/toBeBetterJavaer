@@ -2,7 +2,7 @@
 
 跨域问题是前后端分离项目中非常常见的一个问题，举例来说，编程猫（[codingmore](https://github.com/itwanger/coding-more)）学习网站的前端服务跑在 8080 端口下，后端服务跑在 9002 端口下，那么前端在请求后端接口的时候就会出现跨域问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-1.png)
 
 403 Forbidden 是HTTP协议中的一个状态码（Status Code），意味着后端服务虽然成功解析了请求，但前端却没有访问该资源的权限。
 
@@ -21,7 +21,7 @@
 
 那正确的打开方式是什么呢？我们前面也提到了，前端使用 Nodejs 代理或者后端开启跨域资源共享，我们一一来实践下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-2.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-2.gif)
 
 
 ### 二、Nodejs 代理
@@ -62,13 +62,13 @@ module.exports = merge(prodEnv, {
 
 第三步，重启前端服务
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-3.png)
 
 再次点击「登录」按钮，可以看到请求的 URL 发生了改变，原来是 `http://localhost:9002/users/login`，现在是 `http://localhost:8080/api/users/login`。与此同时，可以看到多了一个 Remote Address，端口也是 8080，也就是说经过 Nodejs 的代理，前后端的交互在同一个源下面了，这样就不会发生跨域问题了。
 
 同时，可以看得到，服务器端返回的状态码变成了 200，表示请求成功。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-4.png)
 
 ### 三、开启跨域资源共享
 
@@ -101,7 +101,7 @@ public class GlobalCorsConfig {
 
 第二步，重启后端服务，再次点击登录按钮，发现请求已经可以正常访问了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-5.png)
 
 本例中，后端返回 `Access-Control-Allow-Origin: http://localhost:8080` 就表示，跑在 9002 端口下的后端接口可以被 8080 端口的前端请求访问。
 
@@ -134,11 +134,11 @@ config.addAllowedOriginPattern("*");
 
 非简单请求在正式通信之前，会增加一次 HTTP 查询请求，称为“预检”请求。预检请求通过后，才会返回正常的响应内容。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-6.png)
 
 拿编程猫的文章管理页来举例，该页面会向后端发起一个 `posts/queryPageable` 的分页查询，该请求包含了一个自定义的消息头 Authorization，于是浏览器认为该请求是一个非简单请求，然后就会自动发起一次 OPTIONS 请求，但由于我们的 Spring Boot 项目整合了 SpringsScurity 安全管理框架，没有对OPTIONS请求放开登录认证，导致验证失败，文章分页请求的响应数据就没有返回回来。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-7.png)
 
 第三步，通过以下代码给 OPTIONS 请求放行。
 
@@ -157,17 +157,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 再次重启后端服务，重新访问文章列表接口，发现有响应数据了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-8.png)
 
 非简单请求必须首先使用 OPTIONS 请求方法发起一个预检请求到服务器端，以获知服务器是否允许该实际请求。"预检请求“的使用，避免了跨域请求对服务器的用户数据造成未预期的影响。
 
 我们来通过两张图片简单总结一下预检请求的整个过程，第一张，发起 OPTIONS 预检请求：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-9.png)
 
 第二章，发起正式请求：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/cors-10.png)
 
 
 ### 四、源码路径
@@ -197,7 +197,7 @@ star 了这个仓库就等于你拥有了成为了一名优秀 Java 工程师的
 
 [https://tobebetterjavaer.com/](https://tobebetterjavaer.com/)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/aop-log-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/aop-log-5.png)
 
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。

@@ -23,7 +23,7 @@ Xshell7-Xftp7免费版下载 （亲测可用）
 
 ### 1.下载安装包
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-ffa538b5-77d9-4d58-9c0b-c8f76b37713c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-ffa538b5-77d9-4d58-9c0b-c8f76b37713c.png)
 
 安装包如图所示，下载方式见文末。
 
@@ -43,19 +43,19 @@ Xshell7-Xftp7免费版下载 （亲测可用）
 
 **安装完成截图：**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-6c219f24-d6fe-401f-8306-3674f77c7f53.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-6c219f24-d6fe-401f-8306-3674f77c7f53.png)
 
   
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-3e96e9fa-abbc-46dd-b3f6-57d7ceab96a4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-3e96e9fa-abbc-46dd-b3f6-57d7ceab96a4.png)
 
 获取方式
 ----
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-ffa538b5-77d9-4d58-9c0b-c8f76b37713c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-xshellazpjbjcxshellpxffxbxt-ffa538b5-77d9-4d58-9c0b-c8f76b37713c.png)
 
 需要的小伙伴，扫描下方公众号二维码，或者关注公众号： **沉默王二**，回复关键字：**xshell** 即可免费无套路获取，持续更新中~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 注：免费版仅供学习和个人使用，请勿商用。

@@ -14,7 +14,7 @@ head:
 
 **开发一个不崩溃的核酸系统到底难不难** ？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-52f4b36e-dc7d-4607-b364-59ab9c08be3d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-52f4b36e-dc7d-4607-b364-59ab9c08be3d.jpg)
 
 这篇文章，我会想象自己是核酸系统架构师，谈谈自己对核酸系统的理解。
 
@@ -39,7 +39,7 @@ head:
 1.  **核酸系统**：核酸医护人员使用 , 东软负责开发和维护；
 2.  **天府健康通**：广大市民使用，腾讯研发和维护。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-b74cfa87-ed22-4b1b-bfe7-404bee30d8e6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-b74cfa87-ed22-4b1b-bfe7-404bee30d8e6.jpg)
 
 ## 2 崩溃疑云
 
@@ -57,7 +57,7 @@ head:
 
 假如核酸系统没有问题，会不会是网络问题呢？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-0b92d320-99cf-4a76-95ce-66c475f02e62.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-0b92d320-99cf-4a76-95ce-66c475f02e62.jpg)
 
 成都核酸系统奔溃时，医护人员以为是信号问题，纷纷举起手中的手机，捕捉信号，而排队的市民却可以刷抖音，头条。
 
@@ -65,7 +65,7 @@ head:
 
 我们基本可以做出判断：**成都核酸系统部署在政务云**，也就是政府部门提供基础设施 ，应用开发商将软件部署在政务云机房里 。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-d5a62111-4e98-4be7-ab4a-194632a252f5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-d5a62111-4e98-4be7-ab4a-194632a252f5.jpg)
 
 核算系统崩溃的可能原因：
 
@@ -95,7 +95,7 @@ head:
 
 假设核酸检测记录一天 1000 万条数据，一周就有 7000 万条，1 个月就能达到 3 亿条数据。那么势必要使用**分库分表**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-7eca69e0-f231-4cad-b3e7-3414d3e60dce.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-7eca69e0-f231-4cad-b3e7-3414d3e60dce.jpg)
 
 1.  医护人员扫市民的健康码 ，核酸登记的请求发送到 api 网关 , api 网关将请求转发到核酸系统；
 2.  缓存存储检测点，检测批次等基础信息，核酸系统通过缓存判断业务请求是否合法，若合法，则组装真正的入库的数据；
@@ -109,7 +109,7 @@ head:
 
 我们不由得想到了消息队列 MQ ，MQ 最大的优势在于：**异步**和**解耦**，MQ 模式还有一个优点：当流量激增时，消息队列还可以起到**消峰**的作用。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-54d3cd0e-cf55-40bf-8d8d-b0959eaa7b3b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-54d3cd0e-cf55-40bf-8d8d-b0959eaa7b3b.jpg)
 
 MQ 方案里，核心流程如下：
 
@@ -129,13 +129,13 @@ MQ 方案里，核心流程如下：
 
 在对性能和高可用讲究的场景里，监控平台的重要性再怎么强调也不过分。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-e9ae7cc6-76a2-42b9-827d-a471c97576ca.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-e9ae7cc6-76a2-42b9-827d-a471c97576ca.jpg)
 
 **▍ 一、基础运维监控**
 
 基础运维监控负责监控服务器的 CPU、网络、磁盘、负载、网络流量、TCP 连接等指标，并且通过设定报警阈值实时通知指定负责人。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-ad1af175-cf6d-44f9-92ed-ee6dbbb2e6fc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-ad1af175-cf6d-44f9-92ed-ee6dbbb2e6fc.jpg)
 
 
 
@@ -149,13 +149,13 @@ MQ 方案里，核心流程如下：
 
 应用系统监控是研发人员接触最多的一种监控类型，系统出现瓶颈的时候，应用系统监控会有最直观的体现。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-204d7a63-758d-4f00-b8ad-0ff7aec68e86.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-204d7a63-758d-4f00-b8ad-0ff7aec68e86.jpg)
 
 笔者一般会关注性能监控，方法可用性监控，方法调用次数监控，JVM 监控这四大类。
 
 *   性能监控
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-82086bdd-ef5b-4101-8416-ed3412725b15.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-82086bdd-ef5b-4101-8416-ed3412725b15.jpg)
 
 
 
@@ -163,13 +163,13 @@ MQ 方案里，核心流程如下：
 
 *   方法调用次数监控
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-f20b0d63-ce06-453a-87d6-04fa3006737a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-f20b0d63-ce06-453a-87d6-04fa3006737a.jpg)
 
 方法调用次数监控可以按照机器，时间段分析接口或者方法的调用次数，当大流量来袭时，可以清晰的看到请求的波动。
 
 *   方法可用性监控
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-68d79f70-87a0-4558-bfdd-47ec6edb725c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-68d79f70-87a0-4558-bfdd-47ec6edb725c.jpg)
 
 
 
@@ -177,7 +177,7 @@ MQ 方案里，核心流程如下：
 
 *   JVM 监控
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-8e57007b-a0c8-4194-9b21-6340efafeabd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-8e57007b-a0c8-4194-9b21-6340efafeabd.jpg)
 
 
 
@@ -189,7 +189,7 @@ JVM 监控是 JAVA 工程师特别关注的监控类型，我们会重点关注�
 
 具体就是对业务数据，业务功能进行监控，实时收集业务流程的数据，并根据设置的策略对业务流程中不符合预期的部分进行预警和报警，并对收集到业务监控数据进行集中统一的存储和各种方式进行展示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-d1ec3ced-95c0-4b44-8df3-7a2c4df2294a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarwshsjtjgswh-d1ec3ced-95c0-4b44-8df3-7a2c4df2294a.jpg)
 
 比如订单系统中有一个定时结算的服务，每两分钟执行一次。我们可以在定时任务 JOB 中添加埋点，并配置业务监控，假如十分钟该定时任务没有执行，则发送邮件，短信给相关负责人。
 
@@ -244,4 +244,4 @@ JVM 监控是 JAVA 工程师特别关注的监控类型，我们会重点关注�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)

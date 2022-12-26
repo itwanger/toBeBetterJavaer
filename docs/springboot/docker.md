@@ -34,7 +34,7 @@ Java 程序员应该对 Docker 这句宣传语很熟悉：
 
 Docker 采用的是 CS 架构，客户端与 Docker 守护进程交互，后者负责构建、运行和分发 Docker 容器的工作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-5583604e-5ef8-4187-b29b-ff8527829141.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-5583604e-5ef8-4187-b29b-ff8527829141.png)
 
 Docker 的应用场景非常丰富，比如说：
 
@@ -92,7 +92,7 @@ docker run hello-world
 如果出现以下提示信息，就表明 Docker 安装成功了！
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-e1443e64-810b-46e3-9c1c-f144cdca1a35.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-e1443e64-810b-46e3-9c1c-f144cdca1a35.png)
 
 以上是 Docker 官方提供的安装方式，稍显复杂，其实我们可以用更简洁的方式。
 
@@ -114,28 +114,28 @@ Docker 针对 Windows 和 macOS 系统都提供了桌面版，可以到官网下
 
 我这里以 macOS 为例，M1 芯片可以选择 Apple Chip。下载完成后直接傻瓜式安装就可以了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-f4cd508b-c77b-44a1-979f-b4e9e7ff82ef.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-f4cd508b-c77b-44a1-979f-b4e9e7ff82ef.png)
 
 安装并启动成功后的界面如下所示:
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-c78c5bea-aa4c-472f-aa69-20854211fd02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-c78c5bea-aa4c-472f-aa69-20854211fd02.png)
 
 按照提示，在终端输入命令 `docker run -d -p 80:80 docker/getting-started`：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-9d04a0e6-7e74-4a36-bc39-7abc0079ff16.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-9d04a0e6-7e74-4a36-bc39-7abc0079ff16.png)
 
 再次回到 Docker 桌面版，可以看到刚刚通过 80 端口在 Docker 中跑起来的 Docker 教程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-36708add-535a-41d3-bbcf-68e2750e5f16.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-36708add-535a-41d3-bbcf-68e2750e5f16.png)
 
 点击「open in browser」图标就可以在浏览器打开教程文档了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-209a79c6-294f-4f0d-9fe1-1ab62190d4ef.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-209a79c6-294f-4f0d-9fe1-1ab62190d4ef.png)
 
 Windows 用户也可以通过我之前推荐的 chocolatey 命令行工具安装。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-4ef004a5-5b96-41eb-8621-65edfbe64f14.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-4ef004a5-5b96-41eb-8621-65edfbe64f14.png)
 
 （Windows 的安装等下一次拿到小米的笔记本后，我装一个把这部分补充完整）
 
@@ -152,11 +152,11 @@ vim /usr/lib/systemd/system/docker.service
 第二步，在 service 节点下编辑 ExecStart 属性，增加 `-H tcp://0.0.0.0:2375`
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-a1be68f4-cb1b-45b1-ab6a-b39259a3ef39.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-a1be68f4-cb1b-45b1-ab6a-b39259a3ef39.png)
 
 这样就相当于对外开放了 2375 端口，如果你安装了宝塔面板，记得在安全页放行该端口，同时，云服务器的防火墙也要放开该端口。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-9bddcf0e-c6a7-414d-82ef-7881009ea6c9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-9bddcf0e-c6a7-414d-82ef-7881009ea6c9.png)
 
 配置完成后，重启 Docker。
 
@@ -168,19 +168,19 @@ systemctl restart docker
 在浏览器地址栏输入 `http://ip:2375/version` 测试一下是否生效。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-29852364-5b55-43b4-a7fa-6a9c4a592606.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-29852364-5b55-43b4-a7fa-6a9c4a592606.png)
 
 之后，可以在 Intellij IDEA 中配置一下 Docker 的 TCP socket，如果出现 connection successful 就表明链接成功了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-a6e42514-8740-48ac-8baf-b97f49cb1818.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-a6e42514-8740-48ac-8baf-b97f49cb1818.png)
 
 
 ### 使用 Docker 部署 Spring Boot
 
 第一步，新建一个简单的 Spring Boot 项目。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-3f748cc6-2efe-487d-9799-f02794145aec.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-3f748cc6-2efe-487d-9799-f02794145aec.png)
 
 一个非常简单的 Web 项目，只有一个控制器，代码如下：
 
@@ -200,7 +200,7 @@ public class DockerController {
 
 启动服务后，可以通过 Intellij IDEA 的 HTTP Client 验证一下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-78c3e7e5-e208-417e-9b9f-4fc97643f4da.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-78c3e7e5-e208-417e-9b9f-4fc97643f4da.png)
 
 OK，项目可以正常访问。
 
@@ -209,7 +209,7 @@ OK，项目可以正常访问。
 在项目根目录新建 Dockerfile 文件，见下图位置。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-08d6ce30-8192-4a7e-8bdc-95adb91c7c74.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-08d6ce30-8192-4a7e-8bdc-95adb91c7c74.png)
 
 具体内容如下所示：
 
@@ -267,11 +267,11 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 配置搞定后，接下来就是对项目进行打包，可以直接点击 Maven 面板中的 package 进行打包。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-1932f285-bb8d-4225-af6e-014ed2c9104b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-1932f285-bb8d-4225-af6e-014ed2c9104b.png)
 
 首次打包需要下载一些基础镜像，打包成功后，可以在 Docker 容器中查看我们刚刚打包好的镜像，命令 `docker images`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-730b4f5b-d556-4f73-9dfc-b22152d86f08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-730b4f5b-d556-4f73-9dfc-b22152d86f08.png)
 
 接下来，我们就可以启动这个镜像的容器：
 
@@ -287,7 +287,7 @@ docker run -d --name itwanger -p 8080:8080 itwanger/springboot-docker:0.0.1-SNAP
 然后在浏览器中访问 8080 端口，就可以看到我们的应用程序在 Docker 上成功运行了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-79a760b1-c084-4a5c-adc0-911b2e44ae7a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-79a760b1-c084-4a5c-adc0-911b2e44ae7a.png)
 
 当利用 `docker run` 来创建容器时，Docker 在后台运行的标准操作包括：
 
@@ -304,7 +304,7 @@ docker run -d --name itwanger -p 8080:8080 itwanger/springboot-docker:0.0.1-SNAP
 新版的 Intellij IDEA 中已经默认继承了 Docker，所以我们可以通过 services 面板打开 Docker，直接进行操作。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-6b4fbbb0-3986-403b-9d7e-7e50cf27b499.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/docker-6b4fbbb0-3986-403b-9d7e-7e50cf27b499.png)
 
 ----
 
@@ -320,4 +320,4 @@ docker run -d --name itwanger -p 8080:8080 itwanger/springboot-docker:0.0.1-SNAP
 
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

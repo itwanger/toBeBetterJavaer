@@ -34,17 +34,17 @@ public class HelloWorld {
 
 点击 IDEA 工具栏中的锤子按钮（Build Project，编译整个项目），如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-01.png)
 
 
 这时候，就可以在 src 的同级目录 target 下找到一个名为 HelloWorld.class 的文件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-02.png)
 
 
 如果找不到的话，在目录上右键选择「Reload from Disk，从磁盘上重新加载」，如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-03.png)
 
 
 可以双击打开它。
@@ -109,35 +109,35 @@ public class com/itwanger/five/HelloWorld {
 
 那这个字节码文件是怎么看到的呢？可以通过 IDEA 菜单栏中的「View」→「Show Bytecode」查看，如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-04.png)
 
 PS：字节码并不是机器码，操作系统无法直接识别，需要在操作系统上安装不同版本的 Java 虚拟机（JVM）来识别。通常情况下，我们只需要安装不同版本的 JDK（Java Development Kit，Java 开发工具包）就行了，它里面包含了 JRE（Java Runtime Environment，Java 运行时环境），而 JRE 又包含了 JVM。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-05.png)
 
 Windows、Linux、MacOS 等操作系统都有相应的 JDK，只要安装好了 JDK 就有了 Java 语言的运行时环境，就可以把一份字节码文件在不同的平台上运行了。可以在 [Oracle 官网](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)上下载不同版本的 JDK。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-06.png)
 
 PPS：为什么要查看字节码呢？查看字节码文件更容易让我们搞懂 Java 代码背后的原理，比如搞懂 Java 中的各种语法糖的本质。
 
 相比于 IDEA 自带的「Show Bytecode」功能，我更推荐 `jclasslib` 这款插件，可以在插件市场中安装（我已经安装过了）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-07.png)
 
 安装完成之后，点击 View -> Show Bytecode With jclasslib 即可通过 jclasslib 查看字节码文件了（点击之前，光标要停留在对应的类文件上），如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-08.png)
 
 使用 jclasslib 不仅可以直观地查看类对应的字节码文件，还可以查看类的基本信息、常量池、接口、字段、方法等信息，如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-09.png)
 
 
 
 也就是说，在编译阶段，Java 会将 Java 源代码文件编译为字节码文件。在这个阶段，编译器会进行一些检查工作，比如说，某个关键字是不是写错了，语法上是不是符合预期了，不能有很明显的错误，否则带到运行时再检查出来就会比较麻烦了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-10.png)
 
 Java 字节码是沟通 JVM 与 Java 代码的桥梁，下面使用 javap 来稍微看一下字节码到底长什么样子。
 
@@ -179,6 +179,6 @@ JVM 就是靠解析这些 opcode 和操作数来完成程序的执行的。当�
 
 而其他大块数据，是存放在堆上的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

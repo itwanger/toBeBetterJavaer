@@ -20,7 +20,7 @@
 
 <div align="center">
   <a href="https://tobebetterjavaer.com/home.html">
-  <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png" target="_blank">
+  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png" target="_blank">
   </a>
 </div>
 
@@ -38,13 +38,13 @@
     <p>这些书籍基本都是我从一个盗版电子书网站上收集到的，网址是：kanshuy1234.com，现在分享出来希望能对大家有所帮助，自己也花了很久时间整理出来的。<br><br>
       如果觉得本仓库有用，赏赐一块钱，买杯奶茶喝可好？感谢您了~</p>
 <figure class="half" align="center">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px" />
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px" />
 </figure></div>
 
 
 >点击下列目录直接跳转书籍所在类别，但有时目录跳转会失灵...如果没有没有正常跳转可以动动小手向下拉即可，全部的书籍都在本页面。 
 >
->笔者是一个人在维护这个仓库，本地大概是1100多本书了，需要一步步慢慢上传，我只能在闲暇时间慢慢更新，目前已经更新超过1000+了，如果没有您要用的书，可以加一下 **个人微信**([qing_gee](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/qing_gee_noname.jpg))，注明来意，我会慢慢添加上去的。一个人的力量是有限的，请谅解一下。
+>笔者是一个人在维护这个仓库，本地大概是1100多本书了，需要一步步慢慢上传，我只能在闲暇时间慢慢更新，目前已经更新超过1000+了，如果没有您要用的书，可以加一下 **个人微信**([qing_gee](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/qing_gee_noname.jpg))，注明来意，我会慢慢添加上去的。一个人的力量是有限的，请谅解一下。
 
 - [01、入门](#入门)
 - [02、工具](#工具)

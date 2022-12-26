@@ -28,7 +28,7 @@ TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了
 
 二叉查找树又是什么呢？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-c5f29a61-91e0-47e8-9e16-055e1bea5b33.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-c5f29a61-91e0-47e8-9e16-055e1bea5b33.jpg)
 
 上图中这棵树，就是一颗典型的二叉查找树：
 
@@ -40,12 +40,12 @@ TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了
 
 理解二叉查找树了吧？不过，二叉查找树有一个不足，就是容易变成瘸子，就是一侧多，一侧少，就像下图这样：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-6c3309a0-3737-4677-99c1-e8a156140d62.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-6c3309a0-3737-4677-99c1-e8a156140d62.jpg)
 
 
 查找的效率就要从 log(n) 变成 o(n) 了，对吧？必须要平衡一下，对吧？于是就有了平衡二叉树，左右两个子树的高度差的绝对值不超过 1，就像下图这样：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-b8f74a3d-baf9-4192-a0e0-cdd07955d784.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-b8f74a3d-baf9-4192-a0e0-cdd07955d784.jpg)
 
 
 红黑树，顾名思义，就是节点是红色或者黑色的平衡二叉树，它通过颜色的约束来维持着二叉树的平衡：
@@ -60,7 +60,7 @@ TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了
 
 5）从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-3373c98c-d82f-4a7f-949e-a7fe0d99314c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-3373c98c-d82f-4a7f-949e-a7fe0d99314c.jpg)
 
 
 那，关于红黑树，同学们就先了解到这，脑子里有个大概的印象，知道 TreeMap 是个什么玩意。
@@ -241,7 +241,7 @@ TreeMap 默认会保持 key 的自然顺序（根据 `compareTo()` 方法）。
 
 来个表格吧，一目了然。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-f94219fb-b6ef-4192-8174-4759498f857f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/treemap-f94219fb-b6ef-4192-8174-4759498f857f.jpg)
 
 
 
@@ -252,5 +252,5 @@ TreeMap 默认会保持 key 的自然顺序（根据 `compareTo()` 方法）。
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

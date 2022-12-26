@@ -17,7 +17,7 @@ head:
 
 ArrayList 实现了 List 接口，继承了 AbstractList 抽象类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-01.png)
 
 底层是基于数组实现的，并且实现了动态扩容
 
@@ -147,7 +147,7 @@ private void writeObject(java.io.ObjectOutputStream s)
 ## 02、LinkedList 是如何实现的？
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-02.png)
 
 
 LinkedList 是一个继承自 AbstractSequentialList 的双向链表，因此它也可以被当作堆栈、队列或双端队列进行操作。
@@ -354,7 +354,7 @@ void linkBefore(E e, LinkedList.Node<E> succ) {
 
 找到指定位置上的元素（succ）之后，就开始执行 `linkBefore()` 方法了，先将 succ 的前一个节点（prev）存放到临时变量 pred 中，然后生成新的 Node 节点（newNode），并将 succ 的前一个节点变更为 newNode，如果 pred 为 null，说明插入的是队头，所以 first 为新节点；否则将 pred 的后一个节点变更为 newNode。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-03.png)
 
 经过源码分析以后，小伙伴们是不是在想：“好像 ArrayList 在新增元素的时候效率并不一定比 LinkedList 低啊！”
 
@@ -797,7 +797,7 @@ for (Iterator<String> it = list.iterator(); it.hasNext();) {
 
 迭代器只会调用一次 `node(int)` 方法，在执行 `list.iterator()` 的时候：先调用 AbstractSequentialList 类的 `iterator()` 方法，再调用 AbstractList 类的 `listIterator()` 方法，再调用 LinkedList 类的 `listIterator(int)` 方法，如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-04.png)
 
 最后返回的是 LinkedList 类的内部私有类 ListItr 对象：
 
@@ -851,4 +851,4 @@ private class ListItr implements ListIterator<E> {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

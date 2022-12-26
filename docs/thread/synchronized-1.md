@@ -231,7 +231,7 @@ class MonitorExample {
 
 上述 happens before 关系的图形化表现形式如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/synchronized-1-f4430c27-5a0e-49c1-bac5-fe8562b0cdc5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/synchronized-1-f4430c27-5a0e-49c1-bac5-fe8562b0cdc5.jpg)
 
 > 在上图中，每一个箭头链接的两个节点，代表了一个 happens before 关系。黑色箭头表示程序顺序规则；橙色箭头表示监视器锁规则；蓝色箭头表示组合这些规则后提供的 happens before 保证。
 
@@ -285,4 +285,4 @@ public class AccountingSync implements Runnable{
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

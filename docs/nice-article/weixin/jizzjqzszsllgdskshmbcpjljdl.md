@@ -9,7 +9,7 @@ category:
 
 在我们平时做项目的时候，经常会遇到做可视化面板的需求，今天我们就以电商项目为例子，来聊聊电商项目的可视化面板需要包含哪些数据指标！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-a826109e-3371-4630-9466-b6d5834d6127.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-a826109e-3371-4630-9466-b6d5834d6127.jpg)
 
 
 
@@ -20,7 +20,7 @@ category:
 *   产品：因为这个需求，能给我们带来\*\*收益……总之，好处大大地有！
 *   开发：……
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-6d27b9bf-0661-4d25-a68d-3d91224e5dac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-6d27b9bf-0661-4d25-a68d-3d91224e5dac.jpg)
 
 放心，有你好果子吃
 
@@ -36,7 +36,7 @@ category:
 
 但是更多时候，写的都是业务需求，一阵CRUD之后，只余深深的空虚……
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-ac753160-e356-48cb-b261-dac757c7f2ee.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-ac753160-e356-48cb-b261-dac757c7f2ee.jpg)
 
 秃然懵比
 
@@ -56,13 +56,13 @@ category:
 
 看到上面这个，大家应该都知道对于电商而言，一个新用户购物的完整流程了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-f7b782d2-6a97-49f4-80fa-03793a45e154.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-f7b782d2-6a97-49f4-80fa-03793a45e154.jpg)
 
 电商新用户购物
 
 那么从数据指标的角度来看这一套业务的流程，它又是什么样子呢？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-b29d77a7-1ca6-450f-bf19-1cbd4fc143d7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-b29d77a7-1ca6-450f-bf19-1cbd4fc143d7.jpg)
 
 电商业务流程数据看点
 
@@ -88,7 +88,7 @@ category:
 
 对于流量和转化，其实是呈一个漏斗形的，也就是所谓的`流量漏斗转化模型`：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-1d7104ba-5f2a-4917-8d43-ae79ee29805a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-1d7104ba-5f2a-4917-8d43-ae79ee29805a.jpg)
 
 流量漏斗转化模型
 
@@ -107,7 +107,7 @@ category:
 
 我们来看看，有哪些需要关注的用户指标：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-0f8d11c3-83dd-4d34-9486-736f6dc4c6c0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-0f8d11c3-83dd-4d34-9486-736f6dc4c6c0.jpg)
 
 主要用户指标
 
@@ -141,37 +141,37 @@ category:
 
 *   首页
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-b5f84f7b-dc6e-4583-8af6-c9139fa355d8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-b5f84f7b-dc6e-4583-8af6-c9139fa355d8.jpg)
 
 首页
 
 *   活动页
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-45ec832f-92a1-4dad-b0a7-e1a17b461fc2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-45ec832f-92a1-4dad-b0a7-e1a17b461fc2.jpg)
 
 活动页
 
 *   搜索页
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-9e6109e9-ec6e-4c5b-a0e9-aa27a9058a67.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-9e6109e9-ec6e-4c5b-a0e9-aa27a9058a67.jpg)
 
 搜索页
 
 *   商详页
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-858232e5-c52c-4170-ac92-1721e9d4cada.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-858232e5-c52c-4170-ac92-1721e9d4cada.jpg)
 
 商品详情页
 
 *   下单页
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-052645bb-d5bf-4cb5-b925-d8457d143694.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-052645bb-d5bf-4cb5-b925-d8457d143694.jpg)
 
 下单页
 
 *   支付页
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-a168dc42-2620-4524-85fd-1d2df8f0c234.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-a168dc42-2620-4524-85fd-1d2df8f0c234.jpg)
 
 支付页
 
@@ -211,7 +211,7 @@ category:
 
 国内电商基本不用考虑太多的支付方式，支付宝、微信基本可以涵盖大部分用户的支付需求。跨境电商就不太一样了，支付方式复杂很多，包括信用卡支付、钱包支付、线下转账、本地支付等等，需要定期和竞品对比主要支付方式的覆盖度，来确定还有哪些支付方式要接入。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-27688977-852f-45fa-a0dc-c1a4df901b2c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-27688977-852f-45fa-a0dc-c1a4df901b2c.jpg)
 
 Lazada部分支付方式
 *   **支付成功率**
@@ -220,7 +220,7 @@ Lazada部分支付方式
 
 支付的也涉及到和第三方的交互，例如钱包支付，需要拉起对应的钱包，所以也需要分客户端（APP、PC、WAP）去观测成功率，分析交互是否还有优化的空间。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-9614e30f-fdcb-45a6-9027-1c324d4dc6ad.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-9614e30f-fdcb-45a6-9027-1c324d4dc6ad.jpg)
 
 支付成功率
 *   **收款成本**
@@ -239,7 +239,7 @@ Lazada部分支付方式
 
 ### 复购指标
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-a4ed64ec-ca13-40f6-b84b-aaf6314a4431.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-a4ed64ec-ca13-40f6-b84b-aaf6314a4431.jpg)
 
 有调查数据显示，一个满意的用户会带来8笔潜在生意，不满意的用户可能会影响25个人的购买意愿，可见回头客多么重要。
 
@@ -268,7 +268,7 @@ Lazada部分支付方式
 
 最最……后，再比比一句👇
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-4e6179a7-6e0e-442a-9bda-2b6e6f5cf981.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-4e6179a7-6e0e-442a-9bda-2b6e6f5cf981.jpg)
 
 不开心
 
@@ -287,7 +287,7 @@ Lazada部分支付方式
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-31b23af9-8010-4fd6-992b-a7185bc52016.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-31b23af9-8010-4fd6-992b-a7185bc52016.jpg)
 
 ## 推荐阅读
 
@@ -302,6 +302,6 @@ Lazada部分支付方式
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-1a01b369-da63-4603-8e87-3886aab664c6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jizzjqzszsllgdskshmbcpjljdl-1a01b369-da63-4603-8e87-3886aab664c6.jpg)
 
 >参考链接：[https://mp.weixin.qq.com/s/1nrbGJ5fxNSZ9WqRODcB-A](https://mp.weixin.qq.com/s/1nrbGJ5fxNSZ9WqRODcB-A)，出处：macrozheng，整理：沉默王二

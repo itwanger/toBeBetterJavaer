@@ -11,7 +11,7 @@ tag:
 
 作为一名富有责任心的技术博主，我觉得有必要把我入门 Redis 的过程分享出来，供一些小伙伴作为参考。要是我哪里写错了，别客气，过来给我一巴掌，就行了（温柔点，别打肿，影响颜值就不好了）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-fe7d042b-efed-469c-9460-fb3bc1d4c041.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-fe7d042b-efed-469c-9460-fb3bc1d4c041.jpg)
 
 ### 01、Redis 是什么
 
@@ -25,7 +25,7 @@ Redis 的作者是一名意大利人，网名 Antirez，长相还是过得去的
 
 据说是手机键盘上“MERZ”的位置决定的，小伙伴们可以打开自己手机上九宫格键盘感受一下。“MERZ”是什么意思呢？据说是“愚蠢”的意思。这？是不是感觉程序员的生活中还是有蛮多神秘色彩的？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-ced599df-4791-4777-970f-20ceeeb39e68.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-ced599df-4791-4777-970f-20ceeeb39e68.jpg)
 
 ### 02、安装 Redis
 
@@ -37,11 +37,11 @@ Redis 针对不同的操作系统有不同的安装方式，我们这篇入门�
 
 Windows 最新的版本是 3.2.100。从下图中可以看得出，Redis 的体积非常的轻量级，还不到 6 M。体积越小，让我感觉 Redis 越牛逼，你是不是也有这种感觉？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-a6709cca-d3a3-4381-b110-0ff37d384f27.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-a6709cca-d3a3-4381-b110-0ff37d384f27.jpg)
 
 有两种安装方式，第一种是 msi 的方式，双击运行后安装；第二种是免安装，绿色版，只需要把 zip 包解压就可以了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-f3fc9852-7505-45ed-8ce2-d16f1d888251.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-f3fc9852-7505-45ed-8ce2-d16f1d888251.jpg)
 
 里面有一份英文版的文档——Windows Service Documentation.docx，教我们如何安装 Redis 服务、如何启动、如何关闭，以及如何使用自定义端口启动服务。
 
@@ -53,7 +53,7 @@ redis-server redis.windows.conf
 
 然后你就会看到 Redis 启动后的欢迎画面，左边这个盒子感觉好有艺术感啊！有小伙伴知道是怎么生成的吗？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-69b11133-7aac-4f8a-aa1e-9e8af576ad32.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-69b11133-7aac-4f8a-aa1e-9e8af576ad32.jpg)
 
 还有一些其他的提示信息：
 
@@ -74,7 +74,7 @@ String 结构使用非常广泛，比如说把用户的登陆信息转成 JSON �
 
 小伙伴们应该都知道，Java 的 String 是不可变的，无法修改。Redis 的 String 是动态的，可以修改的，两者不同哦。关于 Redis 的 String 结构，我觉得老钱的 Redis 教程上讲得非常明白，大家一起拜读下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-d9aca13e-053e-4aea-a8cb-d77b01e5035a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-d9aca13e-053e-4aea-a8cb-d77b01e5035a.jpg)
 
 >Redis 的 String 在内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配。如上图所示，当前字符串实际分配的空间为 capacity，一般高于实际的字符串长度 len。当字符串长度小于 1M 时，扩容是对现有空间的成倍增长；如果长度超过 1M 时，扩容一次只会多增加 1M 的空间。最大长度为 512M。
 
@@ -84,15 +84,15 @@ String 结构使用非常广泛，比如说把用户的登陆信息转成 JSON �
 
 Redis 的解压目录下有一个名叫 redis-cli.exe 的文件，这是 Redis 自带的一个客户端工具，可以用来连接之前我们启动好的 Redis 服务。双击启动它。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-4fd63521-b07e-41c6-bcbd-b7acb2a81344.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-4fd63521-b07e-41c6-bcbd-b7acb2a81344.jpg)
 
 这个客户端还是非常智能的，当键入命令的时候，会跳出对应的提示
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-6ca5d00d-4b5d-4475-a49c-9937e22f97af.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-6ca5d00d-4b5d-4475-a49c-9937e22f97af.jpg)
 
 当按下空格跟进关键字的时候，对应位置上的提示会自动消失。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-656ec70a-c053-44ab-b078-a5c77386bee6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-656ec70a-c053-44ab-b078-a5c77386bee6.jpg)
 
 以下是完整的键值对测试命令，小伙伴们可以按照格式动手实操一把。
 
@@ -229,7 +229,7 @@ get：null
 
 完全符合我们的预期，perfect！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-7135d995-f563-4021-b364-411b1be07b5a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-7135d995-f563-4021-b364-411b1be07b5a.jpg)
 
 
 ### 06、鸣谢
@@ -238,4 +238,4 @@ get：null
 
 另外，如果你想写入门级别的文章，这篇就是最好的范例。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

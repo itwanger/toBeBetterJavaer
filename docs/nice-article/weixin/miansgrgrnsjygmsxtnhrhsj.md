@@ -10,7 +10,7 @@ category:
 
 秒杀系统的设计是高级职位面试中非常高频的一道题目，它可以较好地考察候选人的知识体系情况。对于我们来说，学习秒杀系统的设计，能够让我们学以致用，设计系统的时候考虑得更加全面。今天就带你一起来看看怎么设计一个秒杀系统！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-bc1898e6-ed8b-4594-bdd5-165886ce9f97.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-bc1898e6-ed8b-4594-bdd5-165886ce9f97.jpg)
 
 活动一般出现在电商的促销活动中，一般是指定了很少数量的商品，以极低的价格，让大量的用户参与，从而造成大量用户在极短的时间内参与活动，进而造成系统在极短的时间内有极高的流量。系统设计的目的是使系统能够稳定地支撑活动的进行，因此其稳定性、高可用是我们考虑的第一位。
 
@@ -18,7 +18,7 @@ category:
 
 后端部分指的是经公网进入了后端的服务器网络里，包括了前置的负载均衡（Nginx 等）、应用服务器、数据库层等。秒杀活动的整个流程可以用下图来表示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-9f9def72-fb75-4e36-9529-61f4cb93d830.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-9f9def72-fb75-4e36-9529-61f4cb93d830.jpg)
 
 the-process-of-network-request
 
@@ -34,7 +34,7 @@ the-process-of-network-request
 
 每次打开页面的时候，直接去请求 CDN 服务器，能极大地减少后端的请求流量。加入了 CDN 之后，其请求过程如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-7d04e7cc-949d-4a03-884f-0178b303f196.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-7d04e7cc-949d-4a03-884f-0178b303f196.jpg)
 
 CDN 优化静态数据
 
@@ -126,7 +126,7 @@ CDN 优化静态数据
 
 这时候可能需要考虑增加验证码，用 App 设备指纹等风控措施。**此外，对于秒杀系统而言，做好业务指标和系统指标的埋点监控也是非常重要的。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-bc1898e6-ed8b-4594-bdd5-165886ce9f97.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrgrnsjygmsxtnhrhsj-bc1898e6-ed8b-4594-bdd5-165886ce9f97.jpg)
 
 * * *
 
@@ -145,6 +145,6 @@ CDN 优化静态数据
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/ksJcA-8v2kY5J0dkMF6W5Q](https://mp.weixin.qq.com/s/ksJcA-8v2kY5J0dkMF6W5Q)，出处：JavaGuide，整理：沉默王二

@@ -25,7 +25,7 @@ category:
 
 扫码登录场景想必我们都不陌生——很多PC端的网站都提供了扫码登录的功能，无需在网页上输入任何账号和密码，只需要通过手机上的APP，如微信、淘宝、QQ等等，使用扫描功能，扫描网页上的二维码，确认登录，就可以完成网页端登录。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-86315129-1521-4f67-b097-9d3f8ecace2f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-86315129-1521-4f67-b097-9d3f8ecace2f.jpg)
 
 
 ## 扫码登录分析
@@ -36,7 +36,7 @@ category:
 
 很明显，扫码登录当中涉及到的三种角色：`PC端`、`手机端`、`服务端`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-fe5c2e6f-3afd-4614-b52a-3b4ff6800f02.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-fe5c2e6f-3afd-4614-b52a-3b4ff6800f02.jpg)
 
 
 相关的设计都要围绕这`三端`来展开，具体的设计其实就是每一端应该完成什么功能？应该怎么实现？端和端应该如何交互？
@@ -52,7 +52,7 @@ category:
 
 服务端响应的时候，需要对token key进行校验，通过则正常响应；校验不通过，认证失败；或者token过期，PC端需要再次登录认证，获取新的token key。
 
-![账号/密码登录过程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-67e71850-ab1c-4265-ba3d-d535d0854c93.jpg)
+![账号/密码登录过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-67e71850-ab1c-4265-ba3d-d535d0854c93.jpg)
 
 
 
@@ -73,7 +73,7 @@ category:
 
 下面我通过一个网站把文字转成了二维码：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-3fd81eb5-5c0e-454a-a96a-b6f78612ed9c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-3fd81eb5-5c0e-454a-a96a-b6f78612ed9c.jpg)
 
 
 所以，我们手机扫码这个过程，其实是对二维码的解码，获取二维码中包含的数据。
@@ -86,7 +86,7 @@ category:
 
 二维码在我们这个场景里面是一个重要的媒介，服务端必须给这个数据生成惟一的标识作为二维码ID，同时还应该设置过期的时间。PC端根据二维码ID等数据生成二维码。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-38073c93-678a-4f19-9db2-cf89acb4295e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-38073c93-678a-4f19-9db2-cf89acb4295e.jpg)
 
 
 同时，服务端也应该保存二维码的一些状态：`未扫描`、`已成功`、`已失效`。
@@ -99,7 +99,7 @@ category:
 
 这背后有一套基于token的认证机制，和PC有些类似，但又有一些不同。
 
-![APP端登录认证](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-aabd9efb-073a-40ca-bf89-9f04add94dbc.jpg)
+![APP端登录认证](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-aabd9efb-073a-40ca-bf89-9f04add94dbc.jpg)
 
 
 
@@ -115,13 +115,13 @@ category:
 
 *   `扫描二维码`：识别PC端展示的二维码，获取二维码ID
 
-![扫描](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-2b1e6388-651c-455a-8b53-48d21d01f328.jpg)
+![扫描](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-2b1e6388-651c-455a-8b53-48d21d01f328.jpg)
 
 
 
 *   `确认登录`：手机端通过带认证信息(token key、设备信息)、二维码信息（二维码ID）请求服务端，完成认证过程，确认PC端的登录。
 
-![确认登录](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-64710a20-1dab-4070-b276-62b237b53d29.jpg)
+![确认登录](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-64710a20-1dab-4070-b276-62b237b53d29.jpg)
 
 
 
@@ -135,7 +135,7 @@ category:
 
 那么，这个PC端又如何获取它所需的token key，来完成登录呢？
 
-![如何获取PC token](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-ec79824f-70fe-41f2-a68d-69253f6d3f02.jpg)
+![如何获取PC token](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-ec79824f-70fe-41f2-a68d-69253f6d3f02.jpg)
 
 
 
@@ -151,20 +151,20 @@ PC端可以通过获取二维码的状态来进行相应的响应：
 
 轮询方式是指客户端会每隔一段时间就主动给服务端发送一次二维码状态的查询请求。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-577a805c-f8f0-435c-bce2-1ddd7fc37a17.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-577a805c-f8f0-435c-bce2-1ddd7fc37a17.jpg)
 
 #### 长轮询
 
 长轮询是指客户端主动给服务端发送二维码状态的查询请求，服务端会按情况对请求进行阻塞，直至二维码信息更新或超时。当客户端接收到返回结果后，若二维码仍未被扫描，则会继续发送查询请求，直至状态变化（已失效或已成功）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-7b93c013-3f28-4ef1-81e0-a7260257d7e5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-7b93c013-3f28-4ef1-81e0-a7260257d7e5.jpg)
 
 
 #### Websocket
 
 Websocket是指前端在生成二维码后，会与后端建立连接，一旦后端发现二维码状态变化，可直接通过建立的连接主动推送信息给前端。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-0aec0448-7820-4082-a2a4-7ea0524a3154.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-0aec0448-7820-4082-a2a4-7ea0524a3154.jpg)
 
 ## 总结
 
@@ -172,7 +172,7 @@ Websocket是指前端在生成二维码后，会与后端建立连接，一旦�
 
 以常用的轮询方式获取二维码状态为例：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-c14345f7-c073-46a0-9d53-0408c01a742f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-miansgrhsxsmdlgn-c14345f7-c073-46a0-9d53-0408c01a742f.jpg)
 
 
 1.  访问PC端二维码生成页面，PC端请求服务端获取`二维码ID`

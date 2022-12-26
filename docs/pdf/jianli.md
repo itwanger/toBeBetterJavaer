@@ -18,7 +18,7 @@ head:
 
 需要简历模板的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**简历**」就可以拉取到下载链接了。
 
-![扫码关注后回复「简历」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「简历」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 这位学弟说自己在秋招的时候没用心找工作，等毕业后才发现找的工作不满意，勉强干了半年就不想干了，然后走的社招，发现社招比校招要难一点。
 
@@ -42,7 +42,7 @@ head:
 
 首先来看一下这位学弟的专业技能部分。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-2c93d164-55f7-4d2f-b0d0-f0857644a265.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-2c93d164-55f7-4d2f-b0d0-f0857644a265.jpg)
 
 其实，这部分他写的已经挺好的了，简单大方、条理清晰。
 
@@ -72,13 +72,13 @@ head:
 
 下面是我当时给他的修改意见。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-f5c60946-3cdd-4ac6-9e20-8360808f8612.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-f5c60946-3cdd-4ac6-9e20-8360808f8612.jpg)
 
 ### 项目经历
 
 其实一份校招简历，最重要的就是项目经历、实习经历（有则加分，没有也行）、专业技能了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-a715eaa8-86c5-41ce-aee7-cd1873e2eec8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-a715eaa8-86c5-41ce-aee7-cd1873e2eec8.jpg)
 
 可以从这位学弟的描述中看出来，他毕业后的这四个月里确实做了不少的工作，但感觉没说出来自己所做工作的意义和难点所在。
 
@@ -112,7 +112,7 @@ head:
 
 以下是修改意见标注
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-5b6ff7c0-c8ad-4874-8ee8-7593e3ee1f5f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-5b6ff7c0-c8ad-4874-8ee8-7593e3ee1f5f.jpg)
 
 至此，帮他把第一个项目修改完毕了，**针对第二个项目的修改**，我就不多BB了，直接贴上来吧。
 
@@ -126,7 +126,7 @@ head:
 
 **下面是当时给他做的标注**：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-f2aec848-d462-491b-9fe1-7d939ea16ed8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-f2aec848-d462-491b-9fe1-7d939ea16ed8.jpg)
 
 其实对于该部分的修改，我是紧紧抓住一个要点，那就是尽可能使用具化的指标即明确的信息而不是概括性的描述。
 
@@ -140,12 +140,12 @@ head:
 
 首先是原文。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-eabee6e7-0fcf-4fb7-9ca8-0ada1c604acf.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-eabee6e7-0fcf-4fb7-9ca8-0ada1c604acf.jpg)
 
 
 我给的修改意见批注。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-bb7279ad-dd46-47ea-8f13-37d5caaf404e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/jianli-bb7279ad-dd46-47ea-8f13-37d5caaf404e.jpg)
 
 1、在工作经历这里，注意细节问题，比如你的岗位名称是什么？你在实习过程中，你的工作有哪些？在这过程中用到了哪些技能？
 
@@ -169,7 +169,7 @@ head:
 
 我把这位小学弟和我自己以前的简历模板放在一起了，需要简历模板的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**简历**」就可以拉取到下载链接了。
 
-![扫码关注后回复「简历」关键字](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「简历」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 记住！简历并不是单纯意义上的自我介绍，比如说我是沉默王二，今年 18 岁，来自洛阳，毕业于某某学校。这样的简历太苍白了。
 

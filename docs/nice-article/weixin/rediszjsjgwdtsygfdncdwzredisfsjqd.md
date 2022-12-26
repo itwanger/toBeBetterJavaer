@@ -31,7 +31,7 @@ category:
 
 文末，我还会给你一个完整的最佳实践清单，不管你是业务开发人员，还是 DBA 运维人员，这个清单将会帮助你更加「优雅」地用好 Redis。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-338002de-3b82-45f4-a825-2c69b7cda2ec.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-338002de-3b82-45f4-a825-2c69b7cda2ec.jpg)
 
 ## 如何更节省内存？
 
@@ -74,7 +74,7 @@ category:
 
 Redis 提供了丰富的数据类型，这些数据类型在实现上，也对内存使用做了优化。具体来说就是，一种数据类型对应多种数据结构来实现：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-febfcfae-1a7e-41fa-8136-29c6668a9a4a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-febfcfae-1a7e-41fa-8136-29c6668a9a4a.jpg)
 
 例如，String、Set 在存储 int 数据时，会采用整数编码存储。Hash、ZSet 在元素数量比较少时（可配置），会采用压缩列表（ziplist）存储，在存储比较多的数据时，才会转换为哈希表和跳表。
 
@@ -93,7 +93,7 @@ Redis 数据存储在内存中，这也意味着其资源是有限的。你在�
 
 业务应用在 Redis 中查不到数据时，再从后端数据库中加载到 Redis 中。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-27c2921c-6bb6-4403-a3dd-7bfc22c002a2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-27c2921c-6bb6-4403-a3dd-7bfc22c002a2.jpg)
 
 采用这种方案，可以让 Redis 中只保留经常访问的「热数据」，内存利用率也会比较高。
 
@@ -139,7 +139,7 @@ Redis 数据存储在内存中，这也意味着其资源是有限的。你在�
 
 而且，当你在读取这个 bigkey 时，也会在「网络数据传输」上花费更多时间，此时后面待执行的请求就会发生排队，Redis 性能下降。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-a0150cf5-f95d-4538-b066-363fc3514526.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-a0150cf5-f95d-4538-b066-363fc3514526.jpg)
 
 所以，你的业务应用尽量不要存储 bigkey，避免操作延迟发生。
 
@@ -151,7 +151,7 @@ Redis 数据存储在内存中，这也意味着其资源是有限的。你在�
 
 当开启这个机制后，Redis 在删除一个 bigkey 时，释放内存的耗时操作，将会放到后台线程中去执行，这样可以在最大程度上，避免对主线程的影响。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-ada5b4cc-d92b-4117-8715-fd729f746eab.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-ada5b4cc-d92b-4117-8715-fd729f746eab.jpg)
 
 ### **3) 不使用复杂度过高的命令**
 
@@ -219,7 +219,7 @@ O(1) ？其实不一定。
 *   String / Hash 使用 MGET/MSET 替代 GET/SET，HMGET/HMSET 替代 HGET/HSET
 *   其它数据类型使用 Pipeline，打包一次性发送多个命令到服务端执行
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-e355be66-a4eb-4109-86df-5fb8baf7f926.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-e355be66-a4eb-4109-86df-5fb8baf7f926.jpg)
 
 ### **7) 避免集中过期 key**
 
@@ -227,7 +227,7 @@ Redis 清理过期 key 是采用定时 + 懒惰的方式来做的，而且这个
 
 如果你的业务存在大量 key 集中过期的情况，那么 Redis 在清理过期 key 时，也会有阻塞主线程的风险。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-9ea57eab-0393-45a2-bd29-d3e433da7f05.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-9ea57eab-0393-45a2-bd29-d3e433da7f05.jpg)
 
 想要避免这种情况发生，你可以在设置过期时间时，增加一个随机时间，把这些 key 的过期时间打散，从而降低集中过期对主线程的影响。
 
@@ -253,11 +253,11 @@ Redis 清理过期 key 是采用定时 + 懒惰的方式来做的，而且这个
 
 如果你的业务读请求量很大，那么可以采用部署多个从库的方式，实现读写分离，让 Redis 的从库分担读压力，进而提升性能。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-356521b6-d30d-4a4a-9cc8-a0570256decc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-356521b6-d30d-4a4a-9cc8-a0570256decc.jpg)
 
 如果你的业务写请求量很大，单个 Redis 实例已无法支撑这么大的写流量，那么此时你需要使用分片集群，分担写压力。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-ead11596-3e81-4825-921c-a8e69caa8569.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-ead11596-3e81-4825-921c-a8e69caa8569.jpg)
 
 ### **11) 不开启 AOF 或 AOF 配置为每秒刷盘**
 
@@ -285,7 +285,7 @@ Linux 操作系统提供了内存大页机制，其特点在于，每次应用�
 
 如果申请内存单位变为了 2MB，那么势必会增加内存申请的耗时，如果此时主进程有大量写操作，需要修改原有的数据，那么在此期间，操作延迟就会变大。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-0c69aedb-8023-466a-a7ba-b9d6517f6ec9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-0c69aedb-8023-466a-a7ba-b9d6517f6ec9.jpg)
 
 所以，为了避免出现这种问题，你需要在操作系统上关闭内存大页机制。
 
@@ -366,7 +366,7 @@ Linux 操作系统提供了内存大页机制，其特点在于，每次应用�
 
 但如果你的 Redis OPS 比较高，那么在执行 MONITOR 会导致 Redis 输出缓冲区的内存持续增长，这会严重消耗 Redis 的内存资源，甚至会导致实例内存超过 maxmemory，引发数据淘汰，这种情况你需要格外注意。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-c94d3df9-0834-46dc-ab19-dd594f72ed23.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-c94d3df9-0834-46dc-ab19-dd594f72ed23.jpg)
 
 所以你在执行 MONITOR 命令时，一定要谨慎，尽量少用。
 
@@ -471,7 +471,7 @@ Redis 5.0 以下版本存在这样一个问题：**从库内存如果超过了 m
 
 这里我画成了思维导图，方便你在实践时做参考。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-7ed960ce-1c9b-4675-9c55-0fe7bccfe453.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-7ed960ce-1c9b-4675-9c55-0fe7bccfe453.jpg)
 
 我还把这些实践优化，按照「业务开发」和「运维」两个维度，进一步做了划分。
 
@@ -485,11 +485,11 @@ Redis 5.0 以下版本存在这样一个问题：**从库内存如果超过了 m
 
 如果你是业务开发人员，你需要了解 Redis 的运行机制，例如各个命令的执行时间复杂度、数据过期策略、数据淘汰策略等，使用合理的命令，并结合业务场景进行优化。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-602cb9df-0296-4bb1-a8dd-5210836fb012.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-602cb9df-0296-4bb1-a8dd-5210836fb012.jpg)
 
 如果你是 DBA 运维人员，你需要在资源规划、运维、监控、安全层面做到位，做到未雨绸缪。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-ea39d84a-57d1-44eb-9209-4ca419927455.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rediszjsjgwdtsygfdncdwzredisfsjqd-ea39d84a-57d1-44eb-9209-4ca419927455.jpg)
 
 
 如果你能耐心地读到这里，应该对如何「用好」Redis 有了新的认识。
