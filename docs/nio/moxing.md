@@ -44,7 +44,7 @@ Linux 的内核将所有外部设备**都看做一个文件来操作**，对一�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-54ee4738-b689-4026-863f-13e456b374de.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-54ee4738-b689-4026-863f-13e456b374de.jpg)
 
 
 
@@ -64,7 +64,7 @@ Linux 的内核将所有外部设备**都看做一个文件来操作**，对一�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-8a1cb207-6c56-4bd8-8489-c21d5a76e1ca.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-8a1cb207-6c56-4bd8-8489-c21d5a76e1ca.jpg)
 
 
 
@@ -74,7 +74,7 @@ Linux 的内核将所有外部设备**都看做一个文件来操作**，对一�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-6590a3de-0e7c-4ce2-aa1c-815625095e62.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-6590a3de-0e7c-4ce2-aa1c-815625095e62.jpg)
 
 
 
@@ -100,13 +100,13 @@ struct pollfd {
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-aec90e84-33c5-4f5b-997e-8db54d6bce88.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-aec90e84-33c5-4f5b-997e-8db54d6bce88.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-62def8ad-3ca3-467b-81f6-5d0a31dd7fdc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/moxing-62def8ad-3ca3-467b-81f6-5d0a31dd7fdc.jpg)
 
 
 
@@ -153,4 +153,4 @@ select/epoll的优势并不是对于单个连接能处理得更快，而是**在
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

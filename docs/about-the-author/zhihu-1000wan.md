@@ -13,7 +13,7 @@ tag:
 
 前几天，偷偷摸摸过了自己的第 N 个 18 岁，本来不想过生日的，就想当做是平常的一天。结果我妹非要提醒我，大家伙瞧瞧，这像妹妹该说的话吗？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-5addb157-141f-400b-a51f-77557c8fdb8d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-5addb157-141f-400b-a51f-77557c8fdb8d.png)
 
 呜呜呜~
 
@@ -23,7 +23,7 @@ tag:
 
 **经营了近一年的知乎，阅读总数突破了一千万，这也是我人生当中的第一个**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-0324afde-4009-4e80-b878-2311ff88e5ca.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-0324afde-4009-4e80-b878-2311ff88e5ca.png)
 
 其实早在 11 月就破了千万，当时就想记录一下，但细想一下，好像这点成绩也算不上什么。毕竟逼乎上人均 985、年薪百万、刚下飞机的大佬多的是。
 
@@ -33,13 +33,13 @@ tag:
 
 这不，前几天一个帖子莫名其妙被知乎删除了，我是无感知的。一个小伙伴为了看这个帖子，还特意发起了一次 9.8 元的付费咨询。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-2fdd5b2b-67c5-40cf-b0e4-0a92a37e659a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-2fdd5b2b-67c5-40cf-b0e4-0a92a37e659a.png)
 
 这足以说明这个帖子的内容是足够硬核的。
 
 写知乎这近一年时间里，有一个帖子无声无息地爆了：**60 万+的阅读，7000+赞同，2.3 万+次的收藏**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-8b4637f2-08c9-479b-855f-3fd332d44651.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-8b4637f2-08c9-479b-855f-3fd332d44651.png)
 
 不对啊，收藏竟然是点赞的 3 倍还多。。嗯，此时此刻天空飘出来了四个字：白票真香。
 
@@ -101,7 +101,7 @@ tag:
 
 我在知乎上还有不少硬核输出，尤其是这些千赞以上的帖子，真心推荐给大家看看，看完后绝壁是有收获的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-4612a83f-6207-496c-b32b-c6f1ab031c4f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/zhihu-1000wan-4612a83f-6207-496c-b32b-c6f1ab031c4f.png)
 
 虽然有些埋没的帖子我觉得价值也很高。不过，埋没就埋没吧。
 

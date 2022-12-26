@@ -59,11 +59,11 @@ socket.close()
 
 **请求消息**
 
-![request headers](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-22e0f678-b83a-4514-b2ae-44980ad845d0.jpg)
+![request headers](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-22e0f678-b83a-4514-b2ae-44980ad845d0.jpg)
 
 **响应消息**
 
-![respones headers](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-8213eb7a-14d9-4db9-b843-d9d816a1fdec.jpg)
+![respones headers](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-8213eb7a-14d9-4db9-b843-d9d816a1fdec.jpg)
 
 上面两张图，先有个直观映象，接下来开始抓重点
 
@@ -386,11 +386,11 @@ public class BasicHttpServer {
 
 一个完成的post请求如下
 
-![2.gif](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
+![2.gif](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
 
 接下来我们看下打印出返回头的情况
 
-![2.gif](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-59db6211-792a-494f-b01a-9d5848eceed1.gif)
+![2.gif](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-59db6211-792a-494f-b01a-9d5848eceed1.gif)
 
 ## II. 其他
 
@@ -413,4 +413,4 @@ public class BasicHttpServer {
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

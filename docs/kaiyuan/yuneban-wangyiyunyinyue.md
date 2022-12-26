@@ -11,7 +11,7 @@ tag:
 
 前段时间，有个读者私信我说，**刚学完 Spring Boot，想找点练手项目，准备找实习了。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-01.png)
 
 二哥这么贴心，对于读者的请求，一向是有求必应，有问必答。那自然得花心思去淘 2 个像样的 Java 练手项目出来了，关键是还要基础，不能太难😆。
 
@@ -23,7 +23,7 @@ tag:
 
 这是一个带大家从 0 搭建一个 Spring Boot+ Vue 的前后端分离的 Java 项目，前 P71 讲前端，P72 到 P131 讲后端。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-02.png)
 
 前端涉及到的技术有 Vue 全家桶、ElementUI；后端涉及到的技术有 Spring Boot、SpringMVC、MyBatisPlus、SpringSecurity、Swagger、Redis、EasyPOI、RabbitMQ、FasfDFS 等等。
 
@@ -31,7 +31,7 @@ tag:
 
 为了验证 up 是不是一家培训机构，顺带替大家踩踩坑。我按照要求加了小助理的微信：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-03.png)
 
 加好友时一看头像，和平常偷偷摸摸混进群的广告党差不多，哈哈哈。
 
@@ -47,11 +47,11 @@ tag:
 
 这是读者提供的一个前后端分离项目，问我项目怎么样，我点开去一看，这不一个号主朋友的嘛。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-04.png)
 
 网站的客户端和管理端使用 VUE 框架来实现的，服务端使用 Spring Boot + MyBatis 来实现，数据库使用了 MySQL。建议至少 1.5 倍速食用。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-05.png)
 
 前后端整体的项目结构也挺清晰的，这是后端的。
 
@@ -94,9 +94,9 @@ up 也非常的良心，源码都开源到 GitHub 上了。
 
 随便再展示两张项目的效果图吧。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-06.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/kaiyuan/yuneban-wangyiyunyinyue-07.png)
 
 项目的基本功能也很完善：
 

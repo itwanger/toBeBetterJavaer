@@ -70,11 +70,11 @@ String s1 = "三妹";
 
 在 Java 8 之前，字符串常量池在永久代中。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/constant-pool-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/constant-pool-01.png)
 
 Java 8 之后，移除了永久代，字符串常量池就移到了堆中。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/constant-pool-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/constant-pool-02.png)
 
 “哥，能再简单给我解释一下方法区，永久代和元空间的概念吗？有点模糊。”三妹说。
 
@@ -101,4 +101,4 @@ Java 8 之后，移除了永久代，字符串常量池就移到了堆中。
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

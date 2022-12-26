@@ -14,7 +14,7 @@ head:
 ::: center
 <div align="center">
   <a href="https://tobebetterjavaer.com">
-    <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
   </a><br>
   <a href="https://tobebetterjavaer.com/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
   <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
@@ -51,7 +51,7 @@ head:
 
 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 ## 学习路线
 

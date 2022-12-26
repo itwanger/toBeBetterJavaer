@@ -20,7 +20,7 @@ head:
 
 `synchronized`是悲观锁，线程开始执行第一步就是获取锁，一旦获得锁，其他的线程进入后就会阻塞等待锁。如果不好理解，举个生活中的例子：一个人进入厕所后首先把门锁上（获取锁），然后开始上厕所，这个时候有其他人来了只能在外面等（阻塞），就算再急也没用。上完厕所完事后把门打开（解锁），其他人就可以进入了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-973e8804-c713-43f6-9a63-4b9f2be54f10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-973e8804-c713-43f6-9a63-4b9f2be54f10.png)
 
 `CAS`是乐观锁，线程执行的时候不会加锁，假设没有冲突去完成某项操作，如果因为冲突失败了就重试，最后直到成功为止。
 
@@ -96,7 +96,7 @@ Linux的X86下主要是通过`cmpxchgl`这个指令在CPU级完成CAS操作的�
 
 JDK提供了一些用于原子操作的类，在`java.util.concurrent.atomic`包下面。在JDK 11中，有如下17个类：
 
-![原子类](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-f6a2281a-d322-4022-8c07-162ccc9dcede.jpg)
+![原子类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-f6a2281a-d322-4022-8c07-162ccc9dcede.jpg)
 
 从名字就可以看得出来这些类大概的用途：
 
@@ -236,4 +236,4 @@ pause指令能让自旋失败时cpu睡眠一小段时间再继续自旋，从而
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

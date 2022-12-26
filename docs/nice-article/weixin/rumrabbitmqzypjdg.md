@@ -21,7 +21,7 @@ head:
 
 文章非常长，如果你能一次性看完，“大神，请收下我的膝盖”，所以建议先收藏，啥时需要面试，或者工作中遇到了，可以再慢慢看，先来一副思维导图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-34140dde-18f6-4875-a6a7-dcf2c61168e8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-34140dde-18f6-4875-a6a7-dcf2c61168e8.jpg)
 
 # 消息队列
 
@@ -33,7 +33,7 @@ head:
 
 一个具体的消息只能由一个消费者消费。多个生产者可以向同一个消息队列发送消息；但是，一个消息在被一个消息者处理的时候，这个消息在队列上会被锁住或者被移除并且其他消费者无法处理该消息。需要额外注意的是，如果消费者处理一个消息失败了，消息系统一般会把这个消息放回队列，这样其他消费者可以继续处理。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-20db3809-0b3f-4c5b-bc24-05f5b80d3dc9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-20db3809-0b3f-4c5b-bc24-05f5b80d3dc9.jpg)
 
 ### 发布/订阅模式
 
@@ -42,7 +42,7 @@ head:
 - 临时（ephemeral）订阅，这种订阅只有在消费者启动并且运行的时候才存在。一旦消费者退出，相应的订阅以及尚未处理的消息就会丢失。
 - 持久（durable）订阅，这种订阅会一直存在，除非主动去删除。消费者退出后，消息系统会继续维护该订阅，并且后续消息可以被继续处理。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-637e6454-2017-407f-b94f-59cd4e5b7200.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-637e6454-2017-407f-b94f-59cd4e5b7200.jpg)
 
 ## 衡量标准
 
@@ -81,7 +81,7 @@ RocketMQ 是阿里开源的消息中间件，它是纯 Java 开发，具有高�
 
 AMQP 协议模型由三部分组成：生产者、消费者和服务端。生产者是投递消息的一方，首先连接到 Server，建立一个连接，开启一个信道；然后生产者声明交换器和队列，设置相关属性，并通过路由键将交换器和队列进行绑定。同理，消费者也需要进行建立连接，开启信道等操作，便于接收消息。接着生产者就可以发送消息，发送到服务端中的虚拟主机，虚拟主机中的交换器根据路由键选择路由规则，然后发送到不同的消息队列中，这样订阅了消息队列的消费者就可以获取到消息，进行消费。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-13f7bb94-3e73-4ea7-8206-4aa1f5281920.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-13f7bb94-3e73-4ea7-8206-4aa1f5281920.jpg)
 
 > 总结一下整体过程：生产者投递消息 -> 和 Server 建立连接，开启信道 -> 声明交换器和队列，并通过路由键将交换机和队列绑定 -> 投递消息到虚拟主机 -> 消息发送到消息队列 -> 消费者建立连接 -> 消费消息 -> 关系信道和连接。
 
@@ -91,22 +91,22 @@ RabbitMQ 常用的交换器类型有 direct、topic、fanout、headers 四种：
 
 - Direct Exchange：见文知意，直连交换机意思是此交换机需要绑定一个队列，要求该消息与一个特定的路由键完全匹配。简单点说就是一对一的，点对点的发送。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-caa74741-a5c1-430c-9f32-ee4db7a9ef9f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-caa74741-a5c1-430c-9f32-ee4db7a9ef9f.jpg)
 
 - Fanout Exchange：这种类型的交换机需要将队列绑定到交换机上。一个发送到交换机的消息都会被转发到与该交换机绑定的所有队列上。很像子网广播，每台子网内的主机都获得了一份复制的消息。简单点说就是发布订阅。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-05cb2a20-96ba-4693-8265-71ae30bf3815.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-05cb2a20-96ba-4693-8265-71ae30bf3815.jpg)
 
 - Topic Exchange：直接翻译的话叫做主题交换机，如果从用法上面翻译可能叫通配符交换机会更加贴切。这种交换机是使用通配符去匹配，路由到对应的队列。通配符有两种："\*" 、 "#"。需要注意的是通配符前面必须要加上"."符号。
 
 - \*符号：有且只匹配一个词。比如 a.\*可以匹配到"a.b"、"a.c"，但是匹配不了"a.b.c"。
 - #符号：匹配一个或多个词。比如"rabbit.#"既可以匹配到"rabbit.a.b"、"rabbit.a"，也可以匹配到"rabbit.a.b.c"。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-8ed77369-1acb-4495-a677-59f3fd51c4f3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-8ed77369-1acb-4495-a677-59f3fd51c4f3.jpg)
 
 - Headers Exchange：这种交换机用的相对没这么多。它跟上面三种有点区别，它的路由不是用 routingKey 进行路由匹配，而是在匹配请求头中所带的键值进行路由。创建队列需要设置绑定的头部信息，有两种模式：全部匹配和部分匹配。如上图所示，交换机会根据生产者发送过来的头部信息携带的键值去匹配队列绑定的键值，路由到对应的队列。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-514cd8c6-b866-490a-b1c2-39be72b4c5f3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-514cd8c6-b866-490a-b1c2-39be72b4c5f3.jpg)
 
 ## 消费原理
 
@@ -118,17 +118,17 @@ RabbitMQ 常用的交换器类型有 direct、topic、fanout、headers 四种：
 
 集群中有两个节点，每个节点上有一个 broker，每个 broker 负责本机上队列的维护，并且 borker 之间可以互相通信。集群中有两个队列 A 和 B，每个队列都分为 master queue 和 mirror queue（备份）。那么队列上的生产消费怎么实现的呢？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-0ee879db-f878-4994-9a69-532b54b92ab9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-0ee879db-f878-4994-9a69-532b54b92ab9.jpg)
 
 对于消费队列，如下图有两个 consumer 消费队列 A，这两个 consumer 连在了集群的不同机器上。RabbitMQ 集群中的任何一个节点都拥有集群上所有队列的元信息，所以连接到集群中的任何一个节点都可以，主要区别在于有的 consumer 连在 master queue 所在节点，有的连在非 master queue 节点上。
 
 因为 mirror queue 要和 master queue 保持一致，故需要同步机制，正因为一致性的限制，导致所有的读写操作都必须都操作在 master queue 上（想想，为啥读也要从 master queue 中读？和数据库读写分离是不一样的），然后由 master 节点同步操作到 mirror queue 所在的节点。即使 consumer 连接到了非 master queue 节点，该 consumer 的操作也会被路由到 master queue 所在的节点上，这样才能进行消费。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-e0494902-ef58-4fa1-b775-05caa5ba5d97.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-e0494902-ef58-4fa1-b775-05caa5ba5d97.jpg)
 
 对于生成队列，原理和消费一样，如果连接到非 master queue 节点，则路由过去。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-8863e133-8598-4cbb-ab9b-09b65c0f75fe.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-8863e133-8598-4cbb-ab9b-09b65c0f75fe.jpg)
 
 > 所以，到这里小伙伴们就可以看到 RabbitMQ 的不足：由于 master queue 单节点，导致性能瓶颈，吞吐量受限。虽然为了提高性能，内部使用了 Erlang 这个语言实现，但是终究摆脱不了架构设计上的致命缺陷。
 
@@ -215,11 +215,11 @@ brew install rabbitmq
 
 但是在执行“brew install rabbitmq”，会自动安装其它的程序，如果你使用源码安装 Rabbitmq，因为启动该服务依赖 erlang 环境，所以你还需手动安装 erlang，但是目前官方已经一键给你搞定，会自动安装 Rabbitmq 依赖的所有程序，是不是很棒！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-82eac98d-a9ef-4c3c-9f54-ad46d29bd938.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-82eac98d-a9ef-4c3c-9f54-ad46d29bd938.jpg)
 
 最后执行成功的输出如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-9ea37474-44c7-4174-8560-2dc45483dde4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-9ea37474-44c7-4174-8560-2dc45483dde4.jpg)
 
 启动服务：
 
@@ -239,7 +239,7 @@ http://localhost:15672/
 
 会出现 RabbitMQ 后台管理界面（用户名和密码都为 guest）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-27810abb-d85f-4842-8300-dd4451823292.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-27810abb-d85f-4842-8300-dd4451823292.jpg)
 
 通过 brew 安装，一行命令搞定，真香！
 
@@ -349,11 +349,11 @@ public class RabbitMqTest {
 [x] Sent 'Hello World RabbitMQ count: 9'
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-cbbb924c-bd68-4dae-abcc-b8e7925556ee.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-cbbb924c-bd68-4dae-abcc-b8e7925556ee.jpg)
 
 执行 consumer()后：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-60b9362d-a475-48b9-bcc6-86e61c02c637.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-60b9362d-a475-48b9-bcc6-86e61c02c637.jpg)
 
 > 示例中的代码讲解，可以直接参考官网：https://www.rabbitmq.com/tutorials/tutorial-one-java.html
 
@@ -436,7 +436,7 @@ public class MsgConsumer {
 
 ## Direct 方式
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-b9b5c7cf-c082-4610-9f8d-ef07ef2485de.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-b9b5c7cf-c082-4610-9f8d-ef07ef2485de.jpg)
 
 ### Direct 示例
 
@@ -468,11 +468,11 @@ public class DirectConsumer {
 
 执行生产者，往消息队列中放入 10 条消息，其中 key 分别为“aaa”、“bbb”和“ccc”，分别放入 qa、qb、qc 三个队列：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-d4b0bcca-700a-4e6c-9b11-771df0efa8bd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-d4b0bcca-700a-4e6c-9b11-771df0efa8bd.jpg)
 
 下面是 qa 队列的信息：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-e73bc28d-cb62-4068-bb90-158297797ef4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-e73bc28d-cb62-4068-bb90-158297797ef4.jpg)
 
 消费者：
 
@@ -549,17 +549,17 @@ public static void main(String[] args) throws InterruptedException {
 
 执行后如下图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-95945700-ce3b-4995-bd36-97501c4eddae.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-95945700-ce3b-4995-bd36-97501c4eddae.jpg)
 
 我们可以发现，多了一个 qc1，所以可以判断这个界面中的 queues，是消费者执行时，会将消费者指定的队列名称和 direct.exchange 绑定，绑定的依据就是 key。
 
 当我们把队列中的数据全部消费掉，然后重新执行生成者后，会发现 qc 和 qc1 中都有 3 条待消费的数据，因为绑定的 key 都是“ccc”，所以两者的数据是一样的：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-babce6a2-ffd3-4de1-aa09-8ba6f6330358.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-babce6a2-ffd3-4de1-aa09-8ba6f6330358.jpg)
 
 绑定关系如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-2204540e-db4a-4c2b-8eb6-4dfd58885afc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-2204540e-db4a-4c2b-8eb6-4dfd58885afc.jpg)
 
 > 注意：当没有 Queue 绑定到 Exchange 时，往 Exchange 中写入的消息也不会重新分发到之后绑定的 queue 上。
 
@@ -567,7 +567,7 @@ public static void main(String[] args) throws InterruptedException {
 
 ## Fanout 方式（指定队列）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-3615265c-b496-482d-a241-7166910a23ef.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-3615265c-b496-482d-a241-7166910a23ef.jpg)
 
 生产者封装：
 
@@ -617,14 +617,14 @@ public class FanoutConsumer {
 
 执行生成者，结果如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-3d39c62b-b127-42b5-88ad-36081416c3eb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-3d39c62b-b127-42b5-88ad-36081416c3eb.jpg)
 
 我们发现，生产者生产的 10 条数据，在每个消费者中都可以消费，这个是和 Direct 不同的地方，但是使用 Fanout 方式时，有几个点需要注意一下：
 
 - 生产者的 routkey 可以为空，因为生产者的所有数据，会下放到每一个队列，所以不会通过 routkey 去路由；
 - 消费者需要指定 queues，因为消费者需要绑定到指定的 queues 才能消费。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-16f20f09-4e1c-4262-bc94-ec34b94cac30.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-16f20f09-4e1c-4262-bc94-ec34b94cac30.jpg)
 
 这幅图就画出了 Fanout 的精髓之处，exchange 会和所有的 queue 进行绑定，不区分路由，消费者需要绑定指定的 queue 才能发起消费。
 
@@ -719,21 +719,21 @@ public class FanoutConsumer {
 
 执行后，管理界面如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-deaad8d4-b656-42ba-8e32-e890c33a4d57.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-deaad8d4-b656-42ba-8e32-e890c33a4d57.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-d6e37865-06fa-41f6-b770-e6bc14ec676a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-d6e37865-06fa-41f6-b770-e6bc14ec676a.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-3f53f21f-c9cc-4e58-9b23-523dddf891db.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-3f53f21f-c9cc-4e58-9b23-523dddf891db.jpg)
 
 ## Topic 方式
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-2f8ec9d1-afbb-454c-ac19-b03caf0f6c56.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-2f8ec9d1-afbb-454c-ac19-b03caf0f6c56.jpg)
 
 代码详见官网：https://www.rabbitmq.com/tutorials/tutorial-five-java.html
 
 > 更多方式，请直接查看官网：https://www.rabbitmq.com/getstarted.html
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-43ab470b-be1b-4497-a388-4dd6921159d8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-43ab470b-be1b-4497-a388-4dd6921159d8.jpg)
 
 # RabbitMQ 进阶
 
@@ -846,6 +846,6 @@ channel.basicConsume(queue, false, consumer);
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 > 转载链接：[https://mp.weixin.qq.com/s?\_\_biz=Mzg3OTU5NzQ1Mw==&mid=2247485842&idx=1&sn=554dc28cfce0042572b8d8ae3ee94277&scene=21#wechat_redirect](https://mp.weixin.qq.com/s?__biz=Mzg3OTU5NzQ1Mw==&mid=2247485842&idx=1&sn=554dc28cfce0042572b8d8ae3ee94277&scene=21#wechat_redirect)，出处：楼仔，整理：沉默王二

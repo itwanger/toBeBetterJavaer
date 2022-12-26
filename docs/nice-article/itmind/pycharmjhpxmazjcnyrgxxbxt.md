@@ -25,9 +25,9 @@ PS: 本教程最新更新时间: 2022年8月8日~
 
 > PS: 补丁的原理实际上是暴力拦截了 Pycharm 的剩余使用期网络请求，实际上等于永久激活，激活到的哪天的配置，之前版本z大是开放出来的，可以通过配置文件随意修改，比如改成激活到 2099 年，最新的版本无了，可能是太高调了，怕被官方搞，其实都是一样的。还是要感谢z大的补丁~ 无敌~ nbility。
 
-![Pycharm 2022.1 成功激活至9999年截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-01a20018-a040-44ca-a218-a11d576a9c57.png)
+![Pycharm 2022.1 成功激活至9999年截图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-01a20018-a040-44ca-a218-a11d576a9c57.png)
 
-![Pycharm 2022.1 成功激活至9999年截图2](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-7922bcd7-bcfb-4aa0-a558-51fd30284daa.png)
+![Pycharm 2022.1 成功激活至9999年截图2](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-7922bcd7-bcfb-4aa0-a558-51fd30284daa.png)
 
 ## 注意
 
@@ -51,7 +51,7 @@ PS: Pycharm 前面的安装步骤还是一样，主要是后面的激活步骤~
 
 [https://www.jetbrains.com/pycharm/download](https://www.jetbrains.com/pycharm/download)
 
-![Pycharm 2022.1版本官网下载](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-a654b93c-6837-4bfa-88b4-aa70042743e6.png)
+![Pycharm 2022.1版本官网下载](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-a654b93c-6837-4bfa-88b4-aa70042743e6.png)
 
 点击下载，静心等待其下载完毕即可。
 
@@ -59,23 +59,23 @@ PS: Pycharm 前面的安装步骤还是一样，主要是后面的激活步骤~
 
 安装目录默认为 `C:Program FilesJetBrainsPyCharm 2022.1`, 这里笔者选择的是默认路径:
 
-![Pycharm 2022.1安装第一步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-50c80c2b-5d4d-463e-8084-09832aa2ed0a.png)
+![Pycharm 2022.1安装第一步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-50c80c2b-5d4d-463e-8084-09832aa2ed0a.png)
 
 勾选创建桌面快捷方式，这边方便后续打开 Pycharm：
 
-![Pycharm 2022.1安装第二步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-209057f1-1626-4796-9d10-092d8423abb0.png)
+![Pycharm 2022.1安装第二步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-209057f1-1626-4796-9d10-092d8423abb0.png)
 
 点击 Install ：
 
-![Pycharm 2022.1安装第三步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-6e1b4545-1305-46f9-b3bb-7a4ee08ed29a.png)
+![Pycharm 2022.1安装第三步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-6e1b4545-1305-46f9-b3bb-7a4ee08ed29a.png)
 
 安装完成后，勾选 Run Pycharm，点击 Finish 运行软件:
 
-![Pycharm 2022.1安装第四步](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-93d1417d-5e02-4786-98cc-74e51abc249e.png)
+![Pycharm 2022.1安装第四步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-93d1417d-5e02-4786-98cc-74e51abc249e.png)
 
 Pycharm 运行成功后，会弹出下面的对话框，提示我们需要先登录 JetBrains 账户才能使用：
 
-![Pycharm 2022.1 弹出对话框，提示需要登录账户](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-7d8e0450-4412-462b-bfa6-7dfcf7802055.png)
+![Pycharm 2022.1 弹出对话框，提示需要登录账户](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-7d8e0450-4412-462b-bfa6-7dfcf7802055.png)
 
 这里我们先不管，**先点击 Exit 退出，准备开始运行激活脚本**。
 
@@ -93,7 +93,7 @@ Pycharm 运行成功后，会弹出下面的对话框，提示我们需要先登
 
 **注意：激活脚本文末获取！**
 
-![Pycharm 2022.1 激活脚本文件夹](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-8133e17a-c5b8-4f9e-b623-d64e2a9b9319.png)
+![Pycharm 2022.1 激活脚本文件夹](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-8133e17a-c5b8-4f9e-b623-d64e2a9b9319.png)
 
 **注意：激活脚本文末获取！**
 
@@ -108,7 +108,7 @@ Pycharm 运行成功后，会弹出下面的对话框，提示我们需要先登
 
 将 ja-netfilter-all激活文件夹移动到电脑上某个位置，笔者这里放置在 D 盘根目录下：
 
-![打开 Pycharm 2022.1 激活脚本文件夹](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-bc662b69-01fb-4717-9799-19384da5f414.png)
+![打开 Pycharm 2022.1 激活脚本文件夹](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-bc662b69-01fb-4717-9799-19384da5f414.png)
 
 Windows 系统，点击运行 install-current-user.vbs 脚本，为当前用户安装破解补丁。
 
@@ -118,11 +118,11 @@ PS: install-all-users.vbs 为系统所有用户安装，不太推荐。`unistall
 
 点击安装，会弹出如下提示：
 
-![安装Pycharm激活破解补丁提示框](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-53e573b7-5218-4fb0-891f-2c086b88333d.png)
+![安装Pycharm激活破解补丁提示框](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-53e573b7-5218-4fb0-891f-2c086b88333d.png)
 
 告诉我们，运行此补丁大约花费几秒钟，点击 确定，等待 Done 完成提示框出现，到这里，表示补丁安装成功。
 
-![Pycharm 激活破解补丁安装成功](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-9c54e79c-f4ec-491b-a705-627aaada62c9.png)
+![Pycharm 激活破解补丁安装成功](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-9c54e79c-f4ec-491b-a705-627aaada62c9.png)
 
 
 
@@ -130,15 +130,15 @@ PS: install-all-users.vbs 为系统所有用户安装，不太推荐。`unistall
 
 实在不放心的小伙伴也可打开该脚本，看看源码，截图如下：
 
-![Pycharm 破解激活补丁源码截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-c70aa981-a48c-4017-a847-0a286be1cf3f.png)
+![Pycharm 破解激活补丁源码截图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-c70aa981-a48c-4017-a847-0a286be1cf3f.png)
 
 大致看下，代码主要是为 JetBrains 系列产品在外置 .vmoptions 配置文件中引用破解补丁：
 
-![运行脚本自动引入了 Pycharm 2022.1 的破解补丁](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-a9499879-92e5-4d54-be21-b452a1642e79.png)
+![运行脚本自动引入了 Pycharm 2022.1 的破解补丁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-a9499879-92e5-4d54-be21-b452a1642e79.png)
 
 以及添加Pycharm.vmoptions 文件的环境变量，脚本运行成功后，打开环境变量看下，如下：
 
-![系统环境变量截图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-32bf0705-f280-46f6-935f-fda73c1f71a3.png)
+![系统环境变量截图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-32bf0705-f280-46f6-935f-fda73c1f71a3.png)
 
 可以看到，除了为 Pycharm 添加 .vmoptions 环境变量外，还有其他产品的，如 IDEA 等。
 
@@ -158,7 +158,7 @@ Jetbrains 每个产品对应激活码都不一样，其他 IDE, 如 IDEA、Webst
 
 复制激活码后填入，点击 Activate 按钮完成激活：
 
-![填入 Pycharm 2022.1 激活码](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-270a600e-3d00-472e-a3a4-2023f2ece1a3.png)
+![填入 Pycharm 2022.1 激活码](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-270a600e-3d00-472e-a3a4-2023f2ece1a3.png)
 
 
 
@@ -166,7 +166,7 @@ PS: 有部分小伙伴反应，重启 Pycharm 填入激活码依然无法激活�
 
 点击激活后，就可以看到激活成功辣，又可以开心的 coding 了：
 
-![Pycharm 2022.1 成功激活至9999年截图1](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-01a20018-a040-44ca-a218-a11d576a9c57.png)
+![Pycharm 2022.1 成功激活至9999年截图1](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-01a20018-a040-44ca-a218-a11d576a9c57.png)
 
 ## 一切按照教程来的，还是提示 Key is invalid？
 
@@ -189,13 +189,13 @@ PS: 有部分小伙伴反应，重启 Pycharm 填入激活码依然无法激活�
 
 PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容易被封： 
 
-![Pycharm 2022.1破解补丁分享失败](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-572f7ad5-af6f-4d9b-b2e2-3cd628baf0d7.jpeg)
+![Pycharm 2022.1破解补丁分享失败](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-pycharmjhpxmazjcnyrgxxbxt-572f7ad5-af6f-4d9b-b2e2-3cd628baf0d7.jpeg)
 
  蛋疼ing，为限制人数，目前暂不提供页面直接提取，**改为从笔者公众号提取**。
 
 **需要的小伙伴，扫描下方公众号二维码，或者关注下发公众号，回复关键字：pycharm, 即可免费无套路获取激活码、破解补丁，持续更新中~。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx-fc5a32f3-04ed-4bbf-9df8-a13a409a275f.png)
 
 ## 你可能感兴趣的
 

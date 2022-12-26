@@ -17,7 +17,7 @@ head:
 
 我们来看看，电商订单支付的简要流程：
 
-![订单钱包支付流程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-d214715e-611b-40bd-be68-e4646e91cdcc.jpg)
+![订单钱包支付流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-d214715e-611b-40bd-be68-e4646e91cdcc.jpg)
 
 
 
@@ -28,7 +28,7 @@ head:
 3.  **发起支付**：支付服务调用三方支付，通常这种钱包类的支付，在发起支付这一步，会响应一些支付的链接，客户端会对链接进行对应的处理。
 4.  **钱包支付**：用户进行支付，通常是通过对应的钱包进行的，大家可以回忆一下自己在购物中，支付的过程，不同的端，对钱包支付的处理是不太一样的：
 
-![京东PC端支付页](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-9b6deba3-d86b-45d3-b17f-b3f4aa615505.jpg)
+![京东PC端支付页](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-9b6deba3-d86b-45d3-b17f-b3f4aa615505.jpg)
 
 
 
@@ -36,12 +36,12 @@ head:
 
 APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，支付。
 
-![APP支付](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-9a63af83-39e5-463b-9a69-8e5238e4a49e.jpg)
+![APP支付](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-9a63af83-39e5-463b-9a69-8e5238e4a49e.jpg)
 
 
 *   `WAP端`：手机的网页站，WAP端的支付一般是直接拉起对应的钱包，如果拉起钱包失败，就跳转界面
 
-![京东支付WAP端](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-ba7c4a9a-27cb-43d3-8624-30f3b451ba26.jpg)
+![京东支付WAP端](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-ba7c4a9a-27cb-43d3-8624-30f3b451ba26.jpg)
 
 
 *   `PC端`：PC端，通常是打开收银台，展示一个二维码，通过钱包扫码支付，下面是京东的微信支付扫码页
@@ -51,7 +51,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 我们再从支付流水的角度看一下支付状态的变化：
 
-![支付状态变化](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-a1c0390b-e070-4b77-a913-d28ce971b0af.jpg)
+![支付状态变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-a1c0390b-e070-4b77-a913-d28ce971b0af.jpg)
 
 
 
@@ -70,7 +70,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 “我明明付款了，为什么我的订单还没支付呢？”
 
-![黑我钱是吧](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-85a3662c-ccc6-4bea-8fd6-78374ad64fd5.jpg)
+![黑我钱是吧](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-85a3662c-ccc6-4bea-8fd6-78374ad64fd5.jpg)
 
 
 
@@ -89,7 +89,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 这种情况大家可能很少遇到，我们可以用`美团`下一个单，先打开微信支付，不要支付啊，接着回到美团，打开支付宝，用支付宝支付完成后，用微信接着支付，大家猜猜，两笔支付是不是都能成功？答案是可以。
 
-![美团多渠道支付](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-10584c11-08ca-4fb8-a6fb-a68155aeb21e.jpg)
+![美团多渠道支付](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-10584c11-08ca-4fb8-a6fb-a68155aeb21e.jpg)
 
 
 
@@ -101,7 +101,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 加锁，毫无疑问，也是分布式锁，通常我们会选择Redis分布式锁。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-31a82d77-598a-4b1e-bf73-0c2b5ac490f1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-31a82d77-598a-4b1e-bf73-0c2b5ac490f1.jpg)
 
 
 ### 缓存结果
@@ -110,7 +110,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 再申请支付，收到成功回调的时候，都应该先去检查支付的状态。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-4dbb0659-7401-47be-b009-f266cca2d732.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-4dbb0659-7401-47be-b009-f266cca2d732.jpg)
 
 
 ### 支付中流水取消
@@ -121,7 +121,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 所以，我们可以取消掉正在支付中的流水，再进行支付。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-ef5a814e-e1fa-4851-b976-325c2ffc6b68.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-ef5a814e-e1fa-4851-b976-325c2ffc6b68.jpg)
 
 
 
@@ -131,7 +131,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 我们可以在发起支付的时候，订单还在支付中的情况下，允许用户发起多笔支付，在支付回调的时候，检查用户是否已经有成功流水，对后来的流水进行退款处理。
 
-![支付回调](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-41a23c59-9701-4f6e-808f-64b0c856327c.jpg)
+![支付回调](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-41a23c59-9701-4f6e-808f-64b0c856327c.jpg)
 
 
 
@@ -145,7 +145,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 防止外部掉单的关键，就在于，不能傻傻地只等三方的回调通知，而要主动去查询，用户发起支付的3s之后，就可以发起轮询了，直到拿到支付流水的最终状态，主动轮询，一般可以这么实现：
 
-![轮询](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-4fe79ee5-b65f-4992-bec0-3f521aa7362d.jpg)
+![轮询](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-4fe79ee5-b65f-4992-bec0-3f521aa7362d.jpg)
 
 
 
@@ -180,7 +180,7 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 
 不管从产品的角度，还是技术的角度，客户端发起支付这一步，其实应该尽可能地不要外跳，PC端使用支付服务生成的支付码，而不是跳转；移动端网页、APP在应用内展示支付页，当然这个是由第三方支付平台决定的。
 
-![在UC内内嵌支付宝](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-0a29dff7-75eb-43b9-a2e4-fd04e9b299e6.jpg)
+![在UC内内嵌支付宝](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzddcfzf-0a29dff7-75eb-43b9-a2e4-fd04e9b299e6.jpg)
 
 
 
@@ -222,4 +222,4 @@ APP端的钱包支付，我们应该都非常熟悉，一般是拉起钱包，�
 - [Java 后端四件套学习资料](https://mp.weixin.qq.com/s/3lqp4x1B5LI1hNjWAi6v1g)
 - [银行开发太安逸，奋发图强要跳槽](https://mp.weixin.qq.com/s/ZeA-mEyMkEeSHRtd8Pob9A)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)

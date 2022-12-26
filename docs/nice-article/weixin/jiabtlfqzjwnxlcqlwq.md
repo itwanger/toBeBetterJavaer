@@ -55,7 +55,7 @@ category:
 
 最后的结果是打铁，也打醒了柯南 —— 在一所双非学校，想获得 ACM 奖牌是如此的难。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-20541653-ecc0-4536-ab7b-601a36d21658.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-20541653-ecc0-4536-ab7b-601a36d21658.jpg)
 
 但柯南不是一个轻易放弃的人，赛后回到学校，柯南更加努力地刷题、训练，因为再过两三个月还有一场正式的区域赛，柯南不想再一次抱憾而归。
 
@@ -93,7 +93,7 @@ category:
 
 最后交了三方协议，柯南实习拿的就是 80% 正式工资，对当时初入职场的学生，刚开始看着每个月工资，还是很开心的(ps: 后来就没啥感觉了...)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-643f17cc-1083-430f-8989-ef15413d0d83.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-643f17cc-1083-430f-8989-ef15413d0d83.jpg)
 
 
 
@@ -129,7 +129,7 @@ category:
 
 后面才知道，难！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-7b0258ac-0a36-4686-879e-f0dcd151cdc1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-7b0258ac-0a36-4686-879e-f0dcd151cdc1.jpg)
 
 
 
@@ -213,13 +213,13 @@ Github 上有一份 955 work–life balance 公司白名单，目前 star 已经
 
 长的节假日，还会去远一点的地方旅游，比如去年的十一假期，就和女朋友一起去内蒙古玩了八天(假期+额外请了一天假)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-f121ce87-03b4-4260-a616-120e29496a5d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-f121ce87-03b4-4260-a616-120e29496a5d.jpg)
 
 外企对员工请假也非常 open，基本上是年假想什么时候用就什么时候用，不会不让休年假，这点也是柯南非常中意的。
 
 对了，柯南家里现在还养了两只猫咪，给柯南的生活增添了不少色彩。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-e2d22bdb-dfd8-4ec8-98f8-6b3ef840fd75.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-e2d22bdb-dfd8-4ec8-98f8-6b3ef840fd75.jpg)
 
 
 
@@ -251,6 +251,6 @@ Github 上有一份 955 work–life balance 公司白名单，目前 star 已经
 - [顺利入职北京一家互联网中厂](https://mp.weixin.qq.com/s/oBLUSnHOmzoVpCP1sacNbA)
 - [别被骂臭外包的吓退](https://mp.weixin.qq.com/s/n2mvD3sZ_pt9qVKbSCaiDg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-d5c14ac5-17e6-4d86-b4fa-c13a27de8b81.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiabtlfqzjwnxlcqlwq-d5c14ac5-17e6-4d86-b4fa-c13a27de8b81.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/avMthgbjiDzzOv_WWiRodQ](https://mp.weixin.qq.com/s/avMthgbjiDzzOv_WWiRodQ)，出处：我是程序汪，整理：沉默王二

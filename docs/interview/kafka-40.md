@@ -19,11 +19,11 @@ head:
 
 Kafka最初是由Linkedin公司开发的，是一个分布式的、可扩展的、容错的、支持分区的（Partition）、多副本的（replica）、基于Zookeeper框架的发布-订阅消息系统，Kafka适合离线和在线消息消费。它是分布式应用系统中的重要组件之一，也被广泛应用于大数据处理。Kafka是用Scala语言开发，它的Java版本称为Jafka。Linkedin于2010年将该系统贡献给了Apache基金会并成为顶级开源项目之一。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdkafkamsgczhs-6c5e6ab3-ff41-4b91-a083-5f8df6d925bd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdkafkamsgczhs-6c5e6ab3-ff41-4b91-a083-5f8df6d925bd.jpg)
 
 **希望这40道面试题作为大家学习 kafka 的路线图，由浅入深，最大程度上覆盖整个 Kafka 的问答内容（预习＋复习一步到位）**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdkafkamsgczhs-58771e78-0829-4ae8-ac93-50e83be044dc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdkafkamsgczhs-58771e78-0829-4ae8-ac93-50e83be044dc.jpg)
 
 * * *
 
@@ -123,7 +123,7 @@ Kafka 将消息以 topic 为单位进行归纳，发布消息的程序称为 **P
 5.  Sender 线程启动以后会从缓存里面去获取可以发送的批次
 6.  Sender 线程把一个一个批次发送到服务端
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdkafkamsgczhs-5ebd5e06-08cb-4c2d-9a84-b1fd15505f0a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-baogwdkafkamsgczhs-5ebd5e06-08cb-4c2d-9a84-b1fd15505f0a.jpg)
 
 ## 10、Kafka 中的消息封装
 
@@ -400,4 +400,4 @@ Kafka 的消费单元是 Partition，同一个 Partition 使用 offset 作为唯
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

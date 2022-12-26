@@ -405,7 +405,7 @@ public void readExternal(ObjectInput in) throws IOException, ClassNotFoundExcept
 
 当一个类实现了 `Serializable` 接口后，IDE 就会提醒该类最好产生一个序列化 ID，就像下面这样：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/Serializbale-7a9a05f6-a65c-46b0-b4d7-8b619297f351.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/Serializbale-7a9a05f6-a65c-46b0-b4d7-8b619297f351.jpg)
 
 1）添加一个默认版本的序列化 ID：
 
@@ -533,4 +533,4 @@ class Wanger implements Serializable {
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

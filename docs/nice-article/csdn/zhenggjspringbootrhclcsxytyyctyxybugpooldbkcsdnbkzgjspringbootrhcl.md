@@ -15,7 +15,7 @@ head:
       content: 正规军springboot如何处理
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-69c3cc92-4d31-467b-a15d-33e43fd4bade.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-69c3cc92-4d31-467b-a15d-33e43fd4bade.png)
 
 作者：沉默王二<br>
 Java 程序员进阶之路：https://tobebetterjavaer.com
@@ -335,7 +335,7 @@ Resolved [org.springframework.validation.BindException: org.springframework.vali
 
 我们看到代码抛出了`org.springframework.validation.BindException`的绑定异常，因此我们的思路就是`AOP`拦截所有`controller`，然后异常的时候统一拦截起来，进行封装！完美！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-48412c36-e140-4a00-9eb4-b90d2accb8a5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-48412c36-e140-4a00-9eb4-b90d2accb8a5.png)
 
 玩你个头啊完美，这么呆瓜的操作`springboot`不知道吗？`spring mvc`当然知道拉，所以给我们提供了一个`@RestControllerAdvice`来增强所有`@RestController`，然后使用`@ExceptionHandler`注解，就可以拦截到对应的异常。
 
@@ -379,7 +379,7 @@ return new ResultVo(productInfoService.getOne(new QueryWrapper(productInfo)));
 
 开发小哥肯定不乐意了，谁有空天天写`new ResultVo(data)`啊，我就想返回一个实体！怎么实现我不管！好把，那就是`AOP`拦截所有`Controller`，再`@After`的时候统一帮你封装一下咯
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-48412c36-e140-4a00-9eb4-b90d2accb8a5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-48412c36-e140-4a00-9eb4-b90d2accb8a5.png)
 
 怕是上一次脸打的不够疼，springboot能不知道这么个操作吗？
 
@@ -475,7 +475,7 @@ public class HealthController {
 
 是的，web项目的本质就是复读机。一旦发送的请求`没响应`，就会给负责人发信息（企业微信或者短信之类的），你的`系统死啦`！赶紧回来`排查bug`吧！让大家感受一下。每次看到我都`射射发抖`，早上6点！我tm！！！！！  
 
-![监控](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-9abb673b-9a5a-4a63-b103-089e5460da12.png)  
+![监控](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-9abb673b-9a5a-4a63-b103-089e5460da12.png)  
 
 好吧，没办法，人家是老大，人家要的返回不是
 
@@ -534,7 +534,7 @@ public class HealthController {
 
 这时候就不会自动封装了，而其他没加注解的则依旧自动包装  
 
-![noResponseAdvice](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-67f4a389-dfe5-4275-aab3-3ae149603e6a.png)
+![noResponseAdvice](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-67f4a389-dfe5-4275-aab3-3ae149603e6a.png)
 
 ## 五、统一异常
 
@@ -640,4 +640,4 @@ if (null == orderMaster) {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

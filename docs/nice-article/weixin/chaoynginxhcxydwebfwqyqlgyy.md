@@ -17,7 +17,7 @@ head:
 
 Caddy是一款功能强大，扩展性高的Web服务器，目前在Github上已有`38K+Star`。Caddy采用Go语言编写，可用于静态资源托管和反向代理。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-9934a57f-8350-4ea0-b3c9-d42e5d032c8f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-9934a57f-8350-4ea0-b3c9-d42e5d032c8f.jpg)
 
 Caddy具有如下主要特性：
 
@@ -42,7 +42,7 @@ dnf install caddy
 
 *   使用`systemctl status caddy`查看Caddy的状态，可以发现Caddy已被注册为系统服务，但是还没开启。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-37c16043-2774-4571-8e96-940c09d664a1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-37c16043-2774-4571-8e96-940c09d664a1.jpg)
 
 ## 使用
 
@@ -54,11 +54,11 @@ dnf install caddy
 
 *   直接使用`caddy`命令将输出Caddy的常用命令，基本看介绍就知道如何使用了，标出来的是常用命令；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-814f1724-07d8-4b0e-947c-d2be4623ff00.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-814f1724-07d8-4b0e-947c-d2be4623ff00.jpg)
 
 *   使用`caddy start`命令可以让Caddy服务在后台运行；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-91091246-afc8-4baa-ac94-9c71239fc7d7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-91091246-afc8-4baa-ac94-9c71239fc7d7.jpg)
 
 *   Caddy默认使用JSON格式的配置文件，但由于JOSN格式配置书写比较麻烦，又提供了`Caddyfile`这种更加简洁的配置形式，使用如下命令能自动把`Caddyfile`转化为JSON配置；
 
@@ -76,7 +76,7 @@ respond "Hello, world!"
 
 *   然后我们使用curl命令访问`localhost:2015`，将返回指定的信息；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-067cef19-b4fa-465d-a78e-b0aeda1fdfe8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-067cef19-b4fa-465d-a78e-b0aeda1fdfe8.jpg)
 
 *   当然我们还可以使用Caddy提供的`Admin API`来查看配置信息，使用如下命令即可；
 
@@ -110,7 +110,7 @@ curl localhost:2019/config/
 
 *   下面案例将使用`Caddyfile`来进行配置，我们有必要了解下它的语法，`Caddyfile`的具体语法规则如下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-7164a091-ca8e-494b-9036-578d86bb5ebd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-7164a091-ca8e-494b-9036-578d86bb5ebd.jpg)
 
 *   介绍下上图中的关键字，有助于理解。
 
@@ -141,7 +141,7 @@ Directive|指令|指令赋予了Caddy强大的功能|
 
 *   然后将我们的文档项目和mall前端项目上传到Caddy的html目录中去，并进行解压操作：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-c3daf1e4-465c-4438-90f0-3ff43ea5f894.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-c3daf1e4-465c-4438-90f0-3ff43ea5f894.jpg)
 
 *   修改`Caddyfile`文件，使用如下配置，修改完成后使用`caddy reload`命令刷新配置；
 
@@ -159,15 +159,15 @@ http://mall.macrozheng.com {
 
 *   如果你的`Caddyfile`文件格式不太合格的话，会出现如下警告，直接使用`caddy fmt --overwrite`格式化并重写配置即可解决；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-c605a767-d9cf-4962-9e58-26b1acde3d8b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-c605a767-d9cf-4962-9e58-26b1acde3d8b.jpg)
 
 *   通过`docs.macrozheng.com`即可访问部署好的文档项目了：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-13db54d4-c25b-4a9f-a303-93552dfa4751.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-13db54d4-c25b-4a9f-a303-93552dfa4751.jpg)
 
 *   通过`mall.macrozheng.com`即可访问到部署好的前端项目了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-0af0e997-4135-4dbe-9255-4c11fda173c7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-0af0e997-4135-4dbe-9255-4c11fda173c7.jpg)
 
 #### 动态代理
 
@@ -189,7 +189,7 @@ http://api.macrozheng.com {
 
 *   之后通过`api.macrozheng.com/swagger-ui.html`即可访问到`mall-admin`的API文档页面了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-64a2a842-ce0b-49e3-a901-69583dbba655.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-64a2a842-ce0b-49e3-a901-69583dbba655.jpg)
 
 ### 文件压缩
 
@@ -209,15 +209,15 @@ http://mall.macrozheng.com {
 
 *   有个比较大的JS文件压缩前是`1.7M`；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-ed4d3a63-0bdb-4330-927d-2fd496ecc21b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-ed4d3a63-0bdb-4330-927d-2fd496ecc21b.jpg)
 
 *   压缩后为`544K`，访问速度也有很大提示；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-452cb1c0-4298-4834-a5c2-a15db28d1a62.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-452cb1c0-4298-4834-a5c2-a15db28d1a62.jpg)
 
 *   另外我们可以看下响应信息，如果有`Content-Encoding: gzip`这个响应头表明Gzip压缩已经启用了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-df92216c-66c4-4d8c-8139-bcf6f2ce43ca.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-df92216c-66c4-4d8c-8139-bcf6f2ce43ca.jpg)
 
 ### 地址重写
 
@@ -330,7 +330,7 @@ docker exec -it caddy /bin/sh
 
 *   输入Caddy命令即可操作，之后的操作就和我们直接在CentOS上安装一样了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-f589fa89-5940-43f2-a798-5b1523be9441.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-f589fa89-5940-43f2-a798-5b1523be9441.jpg)
 
 ## 总结
 
@@ -347,7 +347,7 @@ docker exec -it caddy /bin/sh
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-756f64b8-2db0-4bba-a813-a5f8f9f4ef79.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-756f64b8-2db0-4bba-a813-a5f8f9f4ef79.jpg)
 
 ## 推荐阅读
 
@@ -362,6 +362,6 @@ docker exec -it caddy /bin/sh
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-92de163f-23a3-4194-b87b-83bb7fe9d203.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chaoynginxhcxydwebfwqyqlgyy-92de163f-23a3-4194-b87b-83bb7fe9d203.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499016&idx=1&sn=b4f12202e884dd02588cc701d0946ad3&chksm=fc2c4100cb5bc8167dcde2b0fb052e534ef335f2a8e6afd4034a5cfb8292d05423af0f35dcd0#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499016&idx=1&sn=b4f12202e884dd02588cc701d0946ad3&chksm=fc2c4100cb5bc8167dcde2b0fb052e534ef335f2a8e6afd4034a5cfb8292d05423af0f35dcd0#rd)，出处：macrozheng，整理：沉默王二

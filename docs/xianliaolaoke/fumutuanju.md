@@ -1,6 +1,6 @@
 大家好，我是二哥呀！刚好趁着周末，就带老婆、女儿、妹妹一起从洛阳来三门峡和父母小聚了一下。洛阳到三门峡的距离，大概就 11 个小时的骑行时间，开车大概 2 个小时。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-1.png)
 
 我老家是洛阳一个很偏远的农村，处在三门峡和洛阳的交界处，小时候看电视，收不到我们县城的信号，反而能收到隔壁县城的，不知道有多少小伙伴和我有类似的经历哈？
 
@@ -8,7 +8,7 @@
 
 这是我老家院子的一个近况，每次回去，落叶都会堆积一层，仿佛就像是被时间遗忘了的角落。大概是我大学毕业去苏州参加工作后，我们全家就很少在这里住了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-2.png)
 
 最近爆火的电视剧《人世间》里好像有这样一段旁白：“**穷人家的孩子，大抵会分为两类，一类会因为自己的成长环境而感到自卑、自怨，以至于失去自我，丧失了对未来的主动权；一类会不懈努力，尝试去改变命运，赢得这个世界里一片属于自己的天空**。”
 
@@ -20,13 +20,13 @@
 
 公众号后台是能看到数据的，父亲的微信号是阅读最多的前几位。要知道，技术文章他可是看不懂的，看得懂的也就是我现在写的这种类型的小散文。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-3.png)
 
 **父亲是自己最忠实的读者之一，想想也是一件挺幸福的事情**。
 
 我是昨天夜里开车来三门峡的，因为周六女儿要上舞蹈课和英语课，上完就晚上 7 点左右了。夜里开车非常累，因为对面车道和后面倒车镜里的远光灯非常的刺眼，但又不想请假耽误女儿的课程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-4.png)
 
 快到父母住处的时候，我的眼睛里扫到了一个熟悉的背影，那背影，即便是在漆黑的夜里，即便这夜里只有暗淡的月光和我那不争气的卤素车灯，我也知道，那是父亲的背影。
 
@@ -46,7 +46,7 @@
 
 **真的不是我矫情，我是个念家的人。打小就喜欢待在父母身边，成家后，更是不愿意出远门**。前段时间，阿里云社区的一个负责人邀请我去做无影评测大赛颁奖典礼的嘉宾，被我各种理由推掉了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-5.png)
 
 一想到要离开家，又是只身一人，我就好像脚下生了根，寸步难移。
 

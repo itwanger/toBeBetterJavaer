@@ -19,7 +19,7 @@ category:
 
 举例来说 A 事务持有 X1 锁 ，申请 X2 锁，B 事务持有 X2 锁，申请 X1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成了死锁。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-3ccf37d0-cae4-4cb0-a11d-462be7288611.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-3ccf37d0-cae4-4cb0-a11d-462be7288611.jpg)
 
 如上图，是右侧的四辆汽车资源请求产生了回路现象，即死循环，导致了死锁。
 
@@ -34,7 +34,7 @@ category:
 
 为了分析死锁，我们有必要对 InnoDB 的锁类型有一个了解。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-da7199f3-0ed4-4e01-825e-8f5f54cb4926.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-da7199f3-0ed4-4e01-825e-8f5f54cb4926.jpg)
 
 MySQL InnoDB 引擎实现了标准的`行级别锁：共享锁( S lock ) 和排他锁 ( X lock )`
 
@@ -50,7 +50,7 @@ MySQL InnoDB 引擎实现了标准的`行级别锁：共享锁( S lock ) 和排�
 
 共享锁和排他锁的兼容性如下所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-da39b1a9-110e-4649-869a-a54e1d449973.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-da39b1a9-110e-4649-869a-a54e1d449973.jpg)
 
 ## 间隙锁( gap lock )
 
@@ -76,7 +76,7 @@ InnoDB 为了支持多粒度的加锁，允许行锁和表锁同时存在。为�
 
 由于 InnoDB 存储引擎支持的是行级别的锁，因此意向锁其实不会阻塞除全表扫描以外的任何请求。表级意向锁与行级锁的兼容性如下所示:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-208eaa9b-5d8e-48c8-a39c-2b4c881ec8f9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-208eaa9b-5d8e-48c8-a39c-2b4c881ec8f9.jpg)
 
 ## 插入意向锁( Insert Intention lock )
 
@@ -86,7 +86,7 @@ InnoDB 为了支持多粒度的加锁，允许行锁和表锁同时存在。为�
 
 横向是已持有锁，纵向是正在请求的锁：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-a85d87df-ace5-4827-a7c6-ac8c4c38d8fd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-a85d87df-ace5-4827-a7c6-ac8c4c38d8fd.jpg)
 
 ## 阅读死锁日志
 
@@ -96,11 +96,11 @@ InnoDB 为了支持多粒度的加锁，允许行锁和表锁同时存在。为�
 
 表结构和数据如下:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-cb2e7966-e318-4598-8392-0c85f2fb3bf0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-cb2e7966-e318-4598-8392-0c85f2fb3bf0.jpg)
 
 测试用例如下:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-abd2fc8c-3a5b-4ecd-a2dd-28167b697465.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-abd2fc8c-3a5b-4ecd-a2dd-28167b697465.jpg)
 
 通过执行 `show engine innodb status` 可以查看到最近一次死锁的日志。
 
@@ -110,7 +110,7 @@ InnoDB 为了支持多粒度的加锁，允许行锁和表锁同时存在。为�
 
 事务号为 2322，活跃 6 秒，starting index read 表示事务状态为根据索引读取数据。常见的其他状态有:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-81e70574-3fb0-4066-97fa-c1e48fc136c7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-81e70574-3fb0-4066-97fa-c1e48fc136c7.jpg)
 
 `mysql tables in use 1` 说明当前的事务使用一个表。
 
@@ -166,13 +166,13 @@ RECORD LOCKS space id 11 page no 5 n bits 72 index idx_stuno of table cw\***\*.\
 
 表结构和数据如下所示:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-cd2175f3-5ed0-406a-97c8-e328b42fa9f3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-cd2175f3-5ed0-406a-97c8-e328b42fa9f3.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-54eda565-e156-445a-8577-7c7e5dac4cdc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-54eda565-e156-445a-8577-7c7e5dac4cdc.jpg)
 
 测试用例如下:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-1cad4c4e-ff19-4bea-b4ba-0e83ff206d6a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-1cad4c4e-ff19-4bea-b4ba-0e83ff206d6a.jpg)
 
 日志分析如下:
 
@@ -184,11 +184,11 @@ RECORD LOCKS space id 11 page no 5 n bits 72 index idx_stuno of table cw\***\*.\
 
 表结构如下，无数据:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-2fb97adc-0ccc-4111-9f24-548b5640b418.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-2fb97adc-0ccc-4111-9f24-548b5640b418.jpg)
 
 测试用例如下:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-e79b54b9-f67c-4391-aa89-43463987529a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemzmjjmysqlsswtd-e79b54b9-f67c-4391-aa89-43463987529a.jpg)
 
 死锁分析:
 

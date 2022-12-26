@@ -64,7 +64,33 @@ head:
 伪代码如下：
 
 ```
-public List<ScoreEntity> query(List<SearchEntity> list) {    //结果    List<ScoreEntity> result = Lists.newArrayList();    //获取组织id    List<Long> orgIds = list.stream().map(SearchEntity::getOrgId).collect(Collectors.toList());    //通过regin调用远程接口获取组织信息    List<OrgEntity> orgList = feginClient.getOrgByIds(orgIds);        for(SearchEntity entity : list) {        //通过组织id找组织code        String orgCode = findOrgCode(orgList, entity.getOrgId());            //通过组合条件查询评价        ScoreSearchEntity scoreSearchEntity = new ScoreSearchEntity();        scoreSearchEntity.setOrgCode(orgCode);        scoreSearchEntity.setCategoryId(entity.getCategoryId());        scoreSearchEntity.setBusinessId(entity.getBusinessId());        scoreSearchEntity.setBusinessType(entity.getBusinessType());        List<ScoreEntity> resultList = scoreMapper.queryScore(scoreSearchEntity);                if(CollectionUtils.isNotEmpty(resultList)) {            ScoreEntity scoreEntity = resultList.get(0);            result.add(scoreEntity);        }    }    return result;}
+public List<ScoreEntity> query(List<SearchEntity> list) {
+    //结果
+    List<ScoreEntity> result = Lists.newArrayList();
+    //获取组织id
+    List<Long> orgIds = list.stream().map(SearchEntity::getOrgId).collect(Collectors.toList());
+    //通过regin调用远程接口获取组织信息
+    List<OrgEntity> orgList = feginClient.getOrgByIds(orgIds);
+    
+    for(SearchEntity entity : list) {
+        //通过组织id找组织code
+        String orgCode = findOrgCode(orgList, entity.getOrgId());
+    
+        //通过组合条件查询评价
+        ScoreSearchEntity scoreSearchEntity = new ScoreSearchEntity();
+        scoreSearchEntity.setOrgCode(orgCode);
+        scoreSearchEntity.setCategoryId(entity.getCategoryId());
+        scoreSearchEntity.setBusinessId(entity.getBusinessId());
+        scoreSearchEntity.setBusinessType(entity.getBusinessType());
+        List<ScoreEntity> resultList = scoreMapper.queryScore(scoreSearchEntity);
+        
+        if(CollectionUtils.isNotEmpty(resultList)) {
+            ScoreEntity scoreEntity = resultList.get(0);
+            result.add(scoreEntity);
+        }
+    }
+    return result;
+}
 ```
 
 其实在真实场景中，代码比这个复杂很多，这里为了给大家演示，简化了一下。
@@ -139,7 +165,12 @@ alter table user_score add index  `un_org_category_business` (`org_code`,
 代码调整为：
 
 ```
-CompletableFuture[] futureArray = dataList.stream()     .map(data -> CompletableFuture          .supplyAsync(() -> query(data), asyncExecutor)          .whenComplete((result, th) -> {       })).toArray(CompletableFuture[]::new);CompletableFuture.allOf(futureArray).join();
+CompletableFuture[] futureArray = dataList.stream()
+     .map(data -> CompletableFuture
+          .supplyAsync(() -> query(data), asyncExecutor)
+          .whenComplete((result, th) -> {
+       })).toArray(CompletableFuture[]::new);
+CompletableFuture.allOf(futureArray).join();
 ```
 
 `CompleteFuture`的本质是创建`线程`执行，为了避免产生太多的线程，所以使用`线程池`是非常有必要的。
@@ -149,13 +180,62 @@ CompletableFuture[] futureArray = dataList.stream()     .map(data -> 
 具体代码如下：
 
 ```
-ExecutorService threadPool = new ThreadPoolExecutor(    8, //corePoolSize线程池中核心线程数    10, //maximumPoolSize 线程池中最大线程数    60, //线程池中线程的最大空闲时间，超过这个时间空闲线程将被回收    TimeUnit.SECONDS,//时间单位    new ArrayBlockingQueue(500), //队列    new ThreadPoolExecutor.CallerRunsPolicy()); //拒绝策略
+ExecutorService threadPool = new ThreadPoolExecutor(
+    8, //corePoolSize线程池中核心线程数
+    10, //maximumPoolSize 线程池中最大线程数
+    60, //线程池中线程的最大空闲时间，超过这个时间空闲线程将被回收
+    TimeUnit.SECONDS,//时间单位
+    new ArrayBlockingQueue(500), //队列
+    new ThreadPoolExecutor.CallerRunsPolicy()); //拒绝策略
 ```
 
 也可以使用`ThreadPoolTaskExecutor`类创建线程池：
 
 ```
-@Configurationpublic class ThreadPoolConfig {    /**     * 核心线程数量，默认1     */    private int corePoolSize = 8;    /**     * 最大线程数量，默认Integer.MAX_VALUE;     */    private int maxPoolSize = 10;    /**     * 空闲线程存活时间     */    private int keepAliveSeconds = 60;    /**     * 线程阻塞队列容量,默认Integer.MAX_VALUE     */    private int queueCapacity = 1;    /**     * 是否允许核心线程超时     */    private boolean allowCoreThreadTimeOut = false;    @Bean("asyncExecutor")    public Executor asyncExecutor() {        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();        executor.setCorePoolSize(corePoolSize);        executor.setMaxPoolSize(maxPoolSize);        executor.setQueueCapacity(queueCapacity);        executor.setKeepAliveSeconds(keepAliveSeconds);        executor.setAllowCoreThreadTimeOut(allowCoreThreadTimeOut);        // 设置拒绝策略，直接在execute方法的调用线程中运行被拒绝的任务        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());        // 执行初始化        executor.initialize();        return executor;    }}
+@Configuration
+public class ThreadPoolConfig {
+
+    /**
+     * 核心线程数量，默认1
+     */
+    private int corePoolSize = 8;
+
+    /**
+     * 最大线程数量，默认Integer.MAX_VALUE;
+     */
+    private int maxPoolSize = 10;
+
+    /**
+     * 空闲线程存活时间
+     */
+    private int keepAliveSeconds = 60;
+
+    /**
+     * 线程阻塞队列容量,默认Integer.MAX_VALUE
+     */
+    private int queueCapacity = 1;
+
+    /**
+     * 是否允许核心线程超时
+     */
+    private boolean allowCoreThreadTimeOut = false;
+
+
+    @Bean("asyncExecutor")
+    public Executor asyncExecutor() {
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(corePoolSize);
+        executor.setMaxPoolSize(maxPoolSize);
+        executor.setQueueCapacity(queueCapacity);
+        executor.setKeepAliveSeconds(keepAliveSeconds);
+        executor.setAllowCoreThreadTimeOut(allowCoreThreadTimeOut);
+        // 设置拒绝策略，直接在execute方法的调用线程中运行被拒绝的任务
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        // 执行初始化
+        executor.initialize();
+        return executor;
+    }
+}
 ```
 
 经过这次优化，接口性能也提升了5倍。
@@ -236,7 +316,7 @@ ExecutorService threadPool = new ThreadPoolExecutor(    8, //corePoolS
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdjkxnyhcsdmsjylzsz-e5ad6bcd-46d8-4911-8390-f988d742ece7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdjkxnyhcsdmsjylzsz-e5ad6bcd-46d8-4911-8390-f988d742ece7.jpg)
 
 ## 推荐阅读
 
@@ -251,6 +331,6 @@ ExecutorService threadPool = new ThreadPoolExecutor(    8, //corePoolS
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdjkxnyhcsdmsjylzsz-ffb0ad5d-a393-4a43-b594-74374c54f601.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yicxzdjkxnyhcsdmsjylzsz-ffb0ad5d-a393-4a43-b594-74374c54f601.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/fPgFzGloyUTzSHkXa43M9w](https://mp.weixin.qq.com/s/fPgFzGloyUTzSHkXa43M9w)，出处：macrozheng，整理：沉默王二

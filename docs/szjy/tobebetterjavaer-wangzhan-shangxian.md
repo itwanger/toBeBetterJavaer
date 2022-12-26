@@ -16,7 +16,7 @@ tag:
 
 经常逛 GitHub 的小伙伴应该已经发现了，二哥的《Java 程序员进阶之路》最近在持续霸榜，今天仍然在 GitHub 的周榜上。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-01.png)
 
 这也是 2021-2022 年二哥收获的最后一点点小惊喜了。
 
@@ -24,7 +24,7 @@ tag:
 
 >码云 Pages：https://itwanger.gitee.io/tobebetterjavaer
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-02.png)
 
 怎么解决这个问题呢？
 
@@ -38,7 +38,7 @@ tag:
 
 里面除了 md 文档和图片之外，还有代码示例，以及 docsify 的基础环境文件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-03.png)
 
 - index.html 入口文件
 - README.md 会做为主页内容渲染
@@ -52,17 +52,17 @@ docsify 是一个神奇的文档网站生成器，不同于 GitBook、Hexo 的�
 
 >码云地址：https://gitee.com/itwanger/toBeBetterJavaer
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-04.png)
 
 同时，码云 Pages 也支持 Jekyll、Hugo、Hexo、docsify 等静态网站的服务。当 GitHub 仓库有更新后，直接在 GitHub Pages 上点一下刷新图标就会立即完成网站服务的同步工作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-05.png)
 
 通过码云 Pages 提供的网址就可以访问《Java 程序员进阶之路》网址了。
 
 但由于种种原因，码云 Pages 没有提供自定义域名+ HTTPS 的服务，Pro 版支持，但也因为业务调整，关闭了个人用户的购买入口。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-06.png)
 
 这就很扯了。
 
@@ -74,11 +74,11 @@ docsify 是一个神奇的文档网站生成器，不同于 GitBook、Hexo 的�
 
 进入本地《Java 程序员进阶之路》的仓库目录，执行 `docsify serve` 启动服务。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-07.png)
 
 在浏览器地址栏访问 `http://localhost:3000`：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-08.png)
 
 可以确认是没有问题的。
 
@@ -86,7 +86,7 @@ docsify 是一个神奇的文档网站生成器，不同于 GitBook、Hexo 的�
 
 不过，这样做会存在一个很严重的问题，就是云服务器和本地、GitHub 仓库之间没办法进行同步。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-09.png)
 ### 解决方案二
 
 这是比较完善一点的解决方案：**在服务器上搭建一个 Git 仓库，从 GitHub 上拉取，再通过 Nginx 部署静态网站**。
@@ -95,7 +95,7 @@ docsify 是一个神奇的文档网站生成器，不同于 GitBook、Hexo 的�
 
 关于 Git 环境的搭建，我在《Java 程序员进阶之路》专栏的「Git」篇里已经详细的讲解了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-10.png)
 
 搭建过程我这里简单演示下。
 
@@ -103,13 +103,13 @@ docsify 是一个神奇的文档网站生成器，不同于 GitBook、Hexo 的�
 
 CentOS 上可以直接通过 `yum install git` 命令来安装 Git 环境。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-11.png)
 
 **第二步，初始化 Git**
 
 执行 `git init` 初始化 Git 目录。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-12.png)
 
 
 **第三步，克隆 GitHub 仓库到云服务器**
@@ -121,50 +121,50 @@ CentOS 上可以直接通过 `yum install git` 命令来安装 Git 环境。
 
 在 GitHub 仓库上点击「Code」菜单，复制 SSH 地址。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-13.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-13.png)
 
 然后执行 `git clone` 命令就可以从远程仓库上拉取到最新内容了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-14.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-14.png)
 
 
 **第四步，通过 Nginx 部署静态网站**
 
 [Nginx](https://mp.weixin.qq.com/s/OYOcjUwPZyPo8K4KAgJ4kw) 非常适合用来部署静态网站，只需要将服务器的访问目录设定为 index.html 文件就可以了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-15.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-15.png)
 
 OK，此时再访问域名 `https://tobebetterjavaer.com` 就可以看到《Java 程序员进阶之路》的内容了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-16.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-16.png)
 
 用这种方案的话，本地、GitHub、云服务器之间的同步就完全打通了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-17.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-17.png)
 
 当 GitHub 上有更新的时候，再将内容拉取到云服务器上。
 
 举例来说，我们在《Java 程序员进阶之路》专栏的 GitHub 仓库中修改 _sidebar.md 文件，追加一个感叹号的标点符号。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-18.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-18.png)
 
 有两种办法拉取。
 
 第一种，先执行 `git fetch`，再执行 `git merge`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-19.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-19.png)
 
 `9909f82..7f4b815  master     -> origin/master` 就表示内容有变动。
 
 第二种，直接执行 `git pull` 命令。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-20.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-20.png)
 
 不过，这有一点不尽善尽美，每当 GitHub 上有更新的时候，还要手动在云服务器上拉取更新，能不能做到自动化呢？
 
 可以利用[宝塔面板](https://mp.weixin.qq.com/s/ditN9J80rSWwnYRumwb4ww)的计划任务，添加一个 Shell 脚本。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-21.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-21.png)
 
 脚本内容很简单，就两行内容：
 
@@ -179,19 +179,19 @@ git pull
 
 我们在《Java 程序员进阶之路》专栏的 GitHub 仓库中修改 _sidebar.md 文件，修改中文的感叹号为英文的感叹号。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-22.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-22.png)
 
 点击计划任务的「执行」按钮。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-23.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-23.png)
 
 查看云服务器上的文件是否发生了变化。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-24.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-24.png)
 
 到此为止，我们就完成了《Java 程序员进阶之路》网站从码云 Pages 到 VPS（Virtual private server，虚拟专用服务器）迁移的整个工作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-25.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-25.png)
 
 最后，再带着大家使用[不蒜子](https://busuanzi.ibruce.info/)给网站加一个总访问次数和总访客数吧，看看一个月后《Java 程序员进阶之路》的 PV 有多少。
 
@@ -204,11 +204,11 @@ git pull
 
 刷新网页，发现已经有了哈，我是第一个。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-26.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-26.png)
 
 紧接着，可以把 GitHub/码云上的预览链接从码云 Pages 修改为 `https://tobebetterjavaer.com` 了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-27.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-wangzhan-shangxian-27.png)
 
 简单总结一波：为了搭建这个网站，真的是能学到非常多的实战知识，比如说：
 
@@ -235,4 +235,4 @@ git pull
 
 我们下期见~
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

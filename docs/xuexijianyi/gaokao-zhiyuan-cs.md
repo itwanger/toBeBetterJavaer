@@ -14,7 +14,7 @@ head:
 
 大家好，我是二哥呀！随着高考成绩的出炉，星球的 VIP 群里也是聊的热火朝天，作为过来人，大家都在弟弟妹妹的面前扮演着重要的角色，毕竟学校的选择/专业的选择/会决定你接下来的人生该往哪里走，走成什么样子！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-7ee994ae-343f-4497-ae9a-4c2a501f09d2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-7ee994ae-343f-4497-ae9a-4c2a501f09d2.png)
 
 我当年读大学的时候根本就不知道计算机专业还可以分这么细：计科、人工智能、软工、大数据、物联网、网络工程、前端等等！
 
@@ -33,14 +33,14 @@ head:
 我的读者群体里还有一些家长级别的，也有一些初中生级别的，这篇文章应该能满足各个群体的需求，后续每年我也会在这个基础上进行版本迭代，方便大家参考。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-ff1497b7-b25d-4cd9-9c88-a7669ad80957.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-ff1497b7-b25d-4cd9-9c88-a7669ad80957.png)
 
 
 
 作为一个普普通通的大学生，**我就是靠计算机专业改变的命运**！下面这张图是我老家的样子，老读者应该很有印象，老家不能说是穷乡僻壤，因为天很蓝，空气是真的润肺。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-546bf215-cf62-480e-8826-0672d40b90e3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-546bf215-cf62-480e-8826-0672d40b90e3.png)
 
 接下来我来说说，计科，人工智能，软工，大数据，物联网，网络工程，前端，到底该怎么选？
 
@@ -150,7 +150,7 @@ JSP 的年代，都是Java 后端的小伙伴直接把前端的活也给干了�
 可以先看看我的《Java 程序员进阶之路》，里面涵盖了 Java 所有的知识点，包括 Java 语法、Java 集合框架、Java IO、Java 并发编程和 Java 虚拟机、Java 企业级开发所需要的知识，比如说 Git、Spring Boot，以及 MySql、Redis 等等。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-21e1cfcd-d772-48cd-b8c2-994c19e13ed6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-21e1cfcd-d772-48cd-b8c2-994c19e13ed6.png)
 
 
 然后到 B 站上看看尚硅谷或者动力节点的视频课。
@@ -181,7 +181,7 @@ C 语言是一门古老而常青的编程语言，具备现代程序设计的基
 
 操作系统是计算机系统中负责管理各种软硬件资源的核心系统软件，为应用软件运行提供良好的环境。[清华大学操作系统课-学堂在线](https://www.xuetangx.com/course/THU08091000267/5883104%3Fchannel%3Dlearn_title)这门课程以主流操作系统为实例，以教学操作系统 ucore 为实验环境，讲授操作系统的概念、基本原理和实现技术，是一门非常值得推荐的视频课。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-1fae0039-6b10-49c8-94e7-148e3f7f6db0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-1fae0039-6b10-49c8-94e7-148e3f7f6db0.jpg)
 
 书籍的话，推荐《[操作系统概念](https://book.douban.com/subject/30297919/)》 （“龙书”）和 《[现代操作系统](https://book.douban.com/subject/27096665/)》 ，是操作系统领域的经典书籍。学完操作系统，你要能回答这些问题：
 
@@ -196,7 +196,7 @@ C 语言是一门古老而常青的编程语言，具备现代程序设计的基
 
 B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4411d7jb)视频课非常不错，强烈推荐。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-9988b7fd-2555-4185-bb21-202dc28098a3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-9988b7fd-2555-4185-bb21-202dc28098a3.jpg)
 
 学完计算机网络，你要能回答以下这些问题：
 
@@ -287,7 +287,7 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 我把这两个问题都给解决了！大致按照列出的顺序，借助我所建议的教材或者视频课程（最好二者兼用），可以先花 100到200 个小时学习完其中一个科目，然后记着，你的整个职业生涯里，一定要不时地温习 。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-759d8f19-60af-4e07-a085-281a5329c481.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-759d8f19-60af-4e07-a085-281a5329c481.jpg)
 
 
 计算机专业可能是一个最不会说谎的专业，你选对了，你付出了，还是能从“卷”中走出来了的。**高考改变命运，但你的人生本不应该只被一次成绩决定**。
@@ -298,4 +298,4 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -26,11 +26,11 @@ head:
 
 大家好，我是二哥呀！刚认识一位字节的小姐姐：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zijxjjdyfqzgl-18a7c0d2-b494-417b-8f77-028f61594b34.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zijxjjdyfqzgl-18a7c0d2-b494-417b-8f77-028f61594b34.jpg)
 
 后面一聊，发现和小姐姐竟然是老乡。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zijxjjdyfqzgl-6a5ae651-9c78-475b-9dd2-bb538c39d5eb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zijxjjdyfqzgl-6a5ae651-9c78-475b-9dd2-bb538c39d5eb.jpg)
 
 她之前整理了一篇「秋招攻略」，我觉得还不错，就分享给大家看看，有需要的同学可以作为参考。
 
@@ -83,7 +83,7 @@ head:
 
 （PS：大家可以在二哥的公众号「**沉默王二**」后台回复「**算法小抄**」拉取东哥整理的简版 PDF）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
 
 我简单列举一下要刷的重点题：
 

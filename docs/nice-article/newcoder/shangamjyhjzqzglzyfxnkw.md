@@ -11,7 +11,7 @@ head:
       content: 应届生,应届生求职,校园招聘,校招,春招,秋招,实习,笔试,笔试题库,面试,面试题库,程序员,程序猿,程序猿,产品经理,PM,运营,游戏策划,软件工程师,java,c/c++,php,python,算法,机器学习,人工智能,数据挖掘,数据分析,数据分析师,前端工程师,测试工程师,测试开发工程师,运维工程师,安卓工程师,ios工程师,android,硬件工程师,电气工程师,嵌入式工程师,汽车制造研发,审计,会计,财务管理,市场营销,品牌管理,金融,四大,法务,销售,行政,人力资源,hr,管培生,地产,国企,银行,实习,实习生,招聘,找工作,牛客网
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-1568572d-3fc7-458b-8892-b67d6bdba6c5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-1568572d-3fc7-458b-8892-b67d6bdba6c5.png)
 
 作者：沉默王二<br>
 Java 程序员进阶之路：https://tobebetterjavaer.com
@@ -66,7 +66,7 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 [星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)的专栏《Java 面试指南》里花了不少篇幅来教大家怎么写简历👇🏻👇🏻👇🏻
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-f8a3d876-3b6d-42b6-97e4-ce8ccf09c73f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-f8a3d876-3b6d-42b6-97e4-ce8ccf09c73f.png)
 
 
 后面有时间我也在公众号里发一份，大家可以期待下（饼王开始画饼了哈😂）。
@@ -152,20 +152,20 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 求职路上肯定会遇到很多困难，如果有任何问题也可以私信二哥，陪伴你度过你的求职每一个阶段~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-00e071a6-fe8d-42e2-92ff-8c5ca1b19cba.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-00e071a6-fe8d-42e2-92ff-8c5ca1b19cba.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-5865baef-ddd9-4141-8cf5-bf434d7c8335.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-5865baef-ddd9-4141-8cf5-bf434d7c8335.jpg)
 
 
 一个人可以走得很快，但一群人才能走得更远。当你处在一个学习氛围浓烈的环境中时，就会不由自主地往前冲刺。[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)已经有 **860 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们吧。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-82b4cf6c-c2a8-4c55-bd69-28944a131e03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-82b4cf6c-c2a8-4c55-bd69-28944a131e03.png)
 
 星球置顶帖里的知识图谱和精华贴里已经沉淀了非常多优质的内容，多看看这些，相信能帮助你走的更稳、更远。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-3f9d59dc-9605-4c6f-9c37-6d9227ad7409.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-3f9d59dc-9605-4c6f-9c37-6d9227ad7409.png)
 
 
 
@@ -186,6 +186,6 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 欢迎点击左下角**阅读原文**了解二哥的编程星球详情，这可能是你学习求职路上最有含金量的一次点击。

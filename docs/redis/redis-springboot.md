@@ -15,27 +15,27 @@ Redis 以超高的性能、完美的文档、简洁的源码著称，国内外�
 
 Redis 的官网提供了各种平台的安装包，Linux、macOS、Windows 的都有。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-182f2469-b7f2-4fec-bd41-e5a33dca185a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-182f2469-b7f2-4fec-bd41-e5a33dca185a.png)
 
 >官方地址：[https://redis.io/docs/getting-started/](https://redis.io/docs/getting-started/)
 
 我目前用的是 macOS，直接执行 `brew install redis` 就可以完成安装了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-cdf02715-5ed6-44b5-a1ce-db0249107dd7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-cdf02715-5ed6-44b5-a1ce-db0249107dd7.png)
 
 完成安装后执行 `redis-server` 就可以启动 Redis 服务了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-8c272a19-e961-449c-afee-c973fb44a5e0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-8c272a19-e961-449c-afee-c973fb44a5e0.png)
 
 Windows 用户可以通过我之前提到的 [chocolatey 命令行软件管理神器](https://mp.weixin.qq.com/s/Hgm3ZAbOeBqpSUsJZBtlNg)安装（可以戳链接了解详情），只需要一行命令 `choco install redis` 就可以完成安装了，非常方便。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-13b569ca-e747-4d64-af0d-a9a5d0260f5f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-13b569ca-e747-4d64-af0d-a9a5d0260f5f.png)
 
 
 生产环境中，我们通常会在 Linux 上安装 Redis。我的服务器上安装了宝塔面板，可以直接在软件商店里搜「Redis」关键字，然后直接安装（我已经安装过了）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-df5e600b-1290-447c-b140-6f513c69492c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-df5e600b-1290-447c-b140-6f513c69492c.png)
 
 顺带安装一下 Redis 客户端工具，推荐 GitHub 星标 20k+ 的 AnotherRedisDesktopManager，一款 🚀🚀🚀 更快、更好、更稳定的Redis桌面(GUI)管理客户端，支持 Windows、macOS 和 Linux，性能出众，可以轻松加载海量键值。
 
@@ -44,7 +44,7 @@ Windows 用户可以通过我之前提到的 [chocolatey 命令行软件管理�
 安装完成后，链接 Redis 服务：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-d36b9022-fe3b-4fb1-80c3-8d23d19d9025.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-d36b9022-fe3b-4fb1-80c3-8d23d19d9025.png)
 
 
 ## Redis 数据类型
@@ -59,7 +59,7 @@ string 是 Redis 最基本的数据类型，一个key对应一个value。
 
 我们可以通过 AnotherRedisDesktopManager 客户端来练习一下基本的 set、get 命令（参考 Redis 文档，客户端会有提示，所以命令完全不用死记硬背）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-d7d4043b-b753-484c-bfc1-25533004cca5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-d7d4043b-b753-484c-bfc1-25533004cca5.png)
 
 对应文本命令：
 
@@ -302,11 +302,11 @@ RedisTemplate 和 StringRedisTemplate 除了提供 opsForValue 方法来操作�
 运行测试类后可以在控制台看到以下输出信息：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f4456aea-2e48-4bad-910d-2d963ef0224e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f4456aea-2e48-4bad-910d-2d963ef0224e.png)
 
 也可以通过 AnotherRedisDesktopManager 客户端查看 Redis 数据库中的数据。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f7551ebb-0bde-4084-9ab0-4a724d8ad2ec.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f7551ebb-0bde-4084-9ab0-4a724d8ad2ec.png)
 
 
 
@@ -315,7 +315,7 @@ RedisTemplate 和 StringRedisTemplate 除了提供 opsForValue 方法来操作�
 编程喵是一个 Spring Boot + Vue 的前后端分离项目，要整合 Redis 的话，最好的方式是使用 Spring Cache，仅仅通过 @Cacheable、@CachePut、@CacheEvict、@EnableCaching 等注解就可以轻松使用 Redis 做缓存了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-eb6d69d7-9152-4695-87c7-cba138ca93fd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-eb6d69d7-9152-4695-87c7-cba138ca93fd.png)
 
 **1）@EnableCaching**，开启缓存功能。
 
@@ -331,7 +331,7 @@ Spring Cache 的注解（前面提到的四个）会在调用方法之后，去�
 
 这些读写操作不用我们手动再去写代码实现了，直接交给 Spring Cache 来打理就 OK 了，是不是非常贴心？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-afed274d-458d-4e6e-9fd0-b421ac811f47.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-afed274d-458d-4e6e-9fd0-b421ac811f47.png)
 
 **第一步**，在 pom.xml 文件中追加 Redis 的 starter。
 
@@ -463,11 +463,11 @@ public class PostTagController {
 
 **第五步**，启动服务器端，启动客户端，修改标签进行测试。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-6463fdda-6cc2-43f4-91e6-e0de9f0f1c0c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-6463fdda-6cc2-43f4-91e6-e0de9f0f1c0c.png)
 
 通过 Red 客户端（一款 macOS 版的 Redis 桌面工具），可以看到刚刚更新的返回值已经添加到 Redis 中了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-468a253d-931a-4e5b-8f7e-36ecc1561dac.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-468a253d-931a-4e5b-8f7e-36ecc1561dac.png)
 
 ## 使用 Redis 连接池
 
@@ -482,7 +482,7 @@ Redis 是基于内存的数据库，本来是为了提高程序性能的，但�
 
 它俩在 GitHub 上都挺受欢迎的，大家可以按需选用。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-c94651b5-1e53-42e5-ad5f-162b4bf509a7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-c94651b5-1e53-42e5-ad5f-162b4bf509a7.png)
 
 我这里把两种客户端的情况都演示一下，方便小伙伴们参考。
 
@@ -526,11 +526,11 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.pool2.impl.Gener
 
 重新启动服务，在 RedisConfig 类的 redisTemplate 方法里对 redisTemplate 打上断点，debug 模式下可以看到连接池的配置信息（`redisConnectionFactory→clientConfiguration→poolConfig`）。如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-e4cd346c-07d0-4ee3-9832-4c7a2aa1b7b4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-e4cd346c-07d0-4ee3-9832-4c7a2aa1b7b4.png)
 
 如果在 application-dev.yml 文件中没有添加 Lettuce 连接池配置的话，是不会看到
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-7e86e208-bf5f-4dc2-a962-2b926adaa524.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-7e86e208-bf5f-4dc2-a962-2b926adaa524.png)
 
 
 
@@ -572,22 +572,22 @@ spring:
 启动服务后，观察 redisTemplate 的 clientConfiguration 节点，可以看到它的值已经变成 DefaultJedisClientConfiguration 对象了。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-01aa7dc6-b9f7-46bd-b8a4-0a24e44185bc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-01aa7dc6-b9f7-46bd-b8a4-0a24e44185bc.png)
 
 
 当然了，也可以不配置 Jedis 客户端的连接池，走默认的连接池配置。因为 Jedis 客户端默认增加了连接池的依赖包，在 pom.xml 文件中点开 Jedis 客户端依赖可以查看到。 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-c87d8e02-aace-4d86-8011-13e4087956e0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-c87d8e02-aace-4d86-8011-13e4087956e0.png)
 
 ## 自由操作 Redis
 
 Spring Cache 虽然提供了操作 Redis 的便捷方法，比如我们前面演示的 @CachePut 注解，但注解提供的操作非常有限，比如说它只能保存返回值到缓存中，而返回值并不一定是我们想要保存的结果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f28a3b84-ed0b-4a78-a5e5-5803bae967be.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-f28a3b84-ed0b-4a78-a5e5-5803bae967be.png)
 
 与其保存这个返回给客户端的 JSON 信息，我们更想保存的是更新后的标签。那该怎么自由地操作 Redis 呢？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-9b89af51-c2fd-4b2d-ba57-a59efa4cbffd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/redis-springboot-9b89af51-c2fd-4b2d-ba57-a59efa4cbffd.png)
 
 **第一步**，增加 RedisService 接口：
 
@@ -658,5 +658,5 @@ public class RedisServiceImpl implements RedisService {
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - 整合 Redis 专用：[https://github.com/itwanger/coding-more](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-redis)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

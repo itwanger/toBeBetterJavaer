@@ -18,7 +18,7 @@ head:
 
 > 在现在的操作系统中，线程是被视为轻量级进程的，所以**操作系统线程的状态其实和操作系统进程的状态是一致的**。
 
-![系统进程/线程转换图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-state-and-method-f60caaad-ad47-4edc-8d0a-ab736c2e8500.png)
+![系统进程/线程转换图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-state-and-method-f60caaad-ad47-4edc-8d0a-ab736c2e8500.png)
 
 操作系统线程主要有以下三个状态：
 
@@ -197,7 +197,7 @@ public static State toThreadState(int var0) {
 
 ## 线程状态的转换
 根据上面关于线程状态的介绍我们可以得到下面的**线程状态转换图**：
-![线程状态转换图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-state-and-method-18f0d338-1c19-4e18-a0cc-62e97fc39272.png)
+![线程状态转换图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-state-and-method-18f0d338-1c19-4e18-a0cc-62e97fc39272.png)
 
 ### BLOCKED与RUNNABLE状态的转换
 我们在上面说到：处于BLOCKED状态的线程是因为在等待锁的释放。假如这里有两个线程a和b，a线程提前获得了锁并且暂未释放锁，此时b就处于BLOCKED状态。我们先来看一个例子：
@@ -357,4 +357,4 @@ b线程状态仍然不固定（RUNNABLE或BLOCKED）。
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

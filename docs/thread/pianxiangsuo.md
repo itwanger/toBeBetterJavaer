@@ -32,7 +32,7 @@ public void test(){
 
 经过 `javap -v` 编译后的指令如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-91aa2252-4282-4263-bf1d-6cb36be659ca.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-91aa2252-4282-4263-bf1d-6cb36be659ca.jpg)
 
 `monitorenter` 指令是在编译后插入到同步代码块的开始位置；`monitorexit`是插入到方法结束和异常的位置(实际隐藏了try-finally)，每个对象都有一个 monitor 与之关联，当一个线程执行到 monitorenter 指令时，就会获得对象所对应的 `monitor` 的所有权，也就获得到了对象的锁
 
@@ -48,7 +48,7 @@ public void test(){
 
 如果 CPU 通过简单的 CAS 能处理加锁/释放锁，这样就不会有上下文的切换，较重量级锁而言自然就轻了很多。但是当竞争很激烈，CAS 尝试再多也是浪费 CPU，权衡一下，不如升级成重量级锁，阻塞线程排队竞争，也就有了轻量级锁升级成重量级锁的过程
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-c776b638-dcea-4ebe-8631-34c3b932f548.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-c776b638-dcea-4ebe-8631-34c3b932f548.jpg)
 
 程序员在追求极致的道路上是永无止境的，HotSpot 的作者经过研究发现，大多数情况下，锁不仅不存在多线程竞争，而且总是由**同一个线程**多次获得，同一个线程反复获取锁，如果还按照轻量级锁的方式获取锁（CAS），也是有一定代价的，如何让这个代价更小一些呢？
 
@@ -58,7 +58,7 @@ public void test(){
 
 可是多线程环境，也不可能只是同一个线程一直获取这个锁，其他线程也是要干活的，如果出现多个线程竞争的情况，也就有了偏向锁升级的过程
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-5c6c90e2-b6da-4b7f-ab21-00be305ba633.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-5c6c90e2-b6da-4b7f-ab21-00be305ba633.jpg)
 
 这里可以先思考一下：偏向锁可以绕过轻量级锁，直接升级到重量级锁吗？
 
@@ -91,7 +91,7 @@ Java 对象头最多由三部分构成：
 
 其中 `Markword` 是保存锁状态的关键，对象锁状态可以从偏向锁升级到轻量级锁，再升级到重量级锁，加上初始的无锁状态，可以理解为有 4 种状态。想在一个对象中表示这么多信息自然就要用`位`存储，在 64 位操作系统中，是这样存储的（**注意颜色标记**），想看具体注释的可以看 hotspot(1.8) 源码文件 `path/hotspot/src/share/vm/oops/markOop.hpp` 第 30 行
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-c2642c2a-d51a-4a4d-bc4c-7ffc3d819441.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-c2642c2a-d51a-4a4d-bc4c-7ffc3d819441.jpg)
 
 有了这些基本信息，接下来我们就只需要弄清楚，MarkWord 中的锁信息是怎么变化的
 
@@ -142,17 +142,17 @@ public static void main(String[] args) {
 
 来看输出结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-7f73d31a-1674-4cd7-ace8-d482415f046d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-7f73d31a-1674-4cd7-ace8-d482415f046d.jpg)
 
 上面我们用到的 JOL 版本为 `0.14`, 带领大家快速了解一下位具体值，接下来我们就要用 `0.16` 版本查看输出结果，因为这个版本给了我们更友好的说明，同样的代码，来看输出结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-54b4433d-ef02-4078-8be0-69d51548e5c0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-54b4433d-ef02-4078-8be0-69d51548e5c0.jpg)
 
 看到这个结果，你应该是有疑问的，JDK 1.6 之后默认是开启偏向锁的，为什么初始化的代码是无锁状态，进入同步块产生竞争就绕过偏向锁直接变成轻量级锁了呢？
 
 > 虽然默认开启了偏向锁，但是开启**有延迟**，大概 4s。原因是 JVM 内部的代码有很多地方用到了synchronized，如果直接开启偏向，产生竞争就要有锁升级，会带来额外的性能损耗，所以就有了延迟策略
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-7af242a3-9bf4-44a6-8675-dee5a292569a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-7af242a3-9bf4-44a6-8675-dee5a292569a.jpg)
 
 我们可以通过参数 `-XX:BiasedLockingStartupDelay=0` 将延迟改为0，但是**不建议**这么做。我们可以通过一张图来理解一下目前的情况：
 
@@ -177,7 +177,7 @@ public static void main(String[] args) throws InterruptedException {
 
 重新查看运行结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-e02c5c5b-491d-4e4d-9be6-c90376d4c0dc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-e02c5c5b-491d-4e4d-9be6-c90376d4c0dc.jpg)
 
 这样的结果是符合我们预期的，但是结果中的 `biasable` 状态，在 MarkWord 表格中并不存在，其实这是一种**匿名偏向状态**，是对象初始化中，JVM 帮我们做的
 
@@ -224,7 +224,7 @@ public static void main(String[] args) throws InterruptedException {
 
 来看运行结果，奇怪的事情发生了：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-68e1a20c-8142-44b0-9b68-1c0f1bd1b49e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-68e1a20c-8142-44b0-9b68-1c0f1bd1b49e.jpg)
 
 *   `标记1`: 初始可偏向状态
 *   `标记2`：偏向主线程后，主线程退出同步代码块
@@ -234,7 +234,7 @@ public static void main(String[] args) throws InterruptedException {
 
 至此，场景一二三可以总结为一张图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-91713395-e0aa-4b49-9500-087e2438d3a2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-91713395-e0aa-4b49-9500-087e2438d3a2.jpg)
 
 从这样的运行结果上来看，偏向锁像是“**一锤子买卖**”，只要偏向了某个线程，后续其他线程尝试获取锁，都会变为轻量级锁，这样的偏向非常有局限性。**事实上并不是这样**，如果你仔细看标记2（已偏向状态），还有个 epoch 我们没有提及，这个值就是打破这种局限性的关键，在了解 epoch 之前，我们还要了解一个概念——偏向撤销
 
@@ -311,7 +311,7 @@ BiasedLockingDecayTime = 25000
 
 至此，整个偏向锁的工作流程可以用一张图表示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-64dcd33e-5ff5-4f6b-b1c4-ee448252d8f2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-64dcd33e-5ff5-4f6b-b1c4-ee448252d8f2.jpg)
 
 到此，你应该对偏向锁有个基本的认识了，但是我心中的好多疑问还没有解除，咱们继续看：
 
@@ -346,7 +346,7 @@ public static void main(String[] args) throws InterruptedException {
 
 来看运行结果
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-0ea379e1-8f10-454f-a742-c46bd3729527.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-0ea379e1-8f10-454f-a742-c46bd3729527.jpg)
 
 > 结论就是：即便初始化为可偏向状态的对象，一旦调用 `Object::hashCode()` 或者`System::identityHashCode(Object)` ，进入同步块就会直接使用轻量级锁
 
@@ -380,7 +380,7 @@ public static void main(String[] args) throws InterruptedException {
 
 查看运行结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-67176ad3-6d20-47a4-b045-611b2e484792.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-67176ad3-6d20-47a4-b045-611b2e484792.jpg)
 
 > 结论就是：同场景一，会直接使用轻量级锁
 
@@ -410,13 +410,13 @@ public static void main(String[] args) throws InterruptedException {
 
 来看运行结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-7a238fbe-0fe1-4838-b4ab-aaafcd26e3f8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-7a238fbe-0fe1-4838-b4ab-aaafcd26e3f8.jpg)
 
 > 结论就是：如果对象处在已偏向状态，生成 hashcode 后，就会直接升级成重量级锁
 
 最后用书中的一段话来描述 锁和hashcode 之前的关系
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-3ec9d61b-891e-4f4a-bea1-e95e41816e5a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-3ec9d61b-891e-4f4a-bea1-e95e41816e5a.jpg)
 
 #### 调用 Object.wait() 方法会发生什么？
 
@@ -447,13 +447,13 @@ public static void main(String[] args) throws InterruptedException {
 
 查看运行结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-a9b5bedf-5714-4105-a3d9-42f97ade07cb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-a9b5bedf-5714-4105-a3d9-42f97ade07cb.jpg)
 
 > 结论就是，wait 方法是互斥量（重量级锁）独有的，一旦调用该方法，就会升级成重量级锁（这个是面试可以说出的亮点内容哦）
 
 最后再继续丰富一下锁对象变化图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-27f4d97f-526b-4949-9c28-e766af2fc7d3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-27f4d97f-526b-4949-9c28-e766af2fc7d3.jpg)
 
 [免费的 Java 并发编程小册在此](https://dayarch.top/p/java-concurrency-book.html)
 
@@ -461,23 +461,23 @@ public static void main(String[] args) throws InterruptedException {
 
 看到这个标题你应该是有些慌，为啥要告别偏向锁，因为维护成本有些高了，来看 [Open JDK 官方声明，JEP 374: Deprecate and Disable Biased Locking](https://openjdk.java.net/jeps/374)，相信你看上面的文字说明也深有体会
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-6dc70d12-ebee-4c06-8ffb-f569a0cfb951.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-6dc70d12-ebee-4c06-8ffb-f569a0cfb951.jpg)
 
 这个说明的更新时间距离现在很近，在 JDK15 版本就已经开始了
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-4d515725-eddd-4ab5-94ce-91472b6bb240.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-4d515725-eddd-4ab5-94ce-91472b6bb240.jpg)
 
 一句话解释就是维护成本太高
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-0e0529cc-9a9d-41e0-8141-5c8609ef71eb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-0e0529cc-9a9d-41e0-8141-5c8609ef71eb.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-b973543b-147a-4614-a15b-698d16942e79.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-b973543b-147a-4614-a15b-698d16942e79.jpg)
 
 最终就是，JDK 15 之前，偏向锁默认是 enabled，从 15 开始，默认就是 disabled，除非显示的通过 `UseBiasedLocking 开启`
 
 其中在 [quarkus](https://quarkus.io/blog/biased-locking-help/) 上的一篇文章说明的更加直接
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-8660532f-83d5-4bb5-8d3e-ebc0b6bc7185.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-8660532f-83d5-4bb5-8d3e-ebc0b6bc7185.jpg)
 
 偏向锁给 JVM 增加了巨大的复杂性，只有少数非常有经验的程序员才能理解整个过程，维护成本很高，大大阻碍了开发新特性的进程（换个角度理解，你掌握了，是不是就是那少数有经验的程序员了呢？哈哈）
 
@@ -522,4 +522,4 @@ public static void main(String[] args) throws InterruptedException {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -298,7 +298,7 @@ TransactionDefinition 中一共定义了 5 种事务隔离级别：
 通常情况下，我们采用默认的隔离级别 ISOLATION_DEFAULT 就可以了，也就是交给数据库来决定，可以通过 `SELECT @@transaction_isolation;` 命令来查看 MySql 的默认隔离级别，结果为 REPEATABLE-READ，也就是可重复读。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-06cb7de0-6316-4ba6-b642-9584bc998468.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-06cb7de0-6316-4ba6-b642-9584bc998468.png)
 
 ### 事务的超时时间
 
@@ -412,7 +412,7 @@ logging:
 然后，来看修改之前查到的数据：
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-f81603c2-a36a-4336-ae56-58f4d381e101.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/transaction-f81603c2-a36a-4336-ae56-58f4d381e101.png)
 
 
 开搞。在控制器中添加一个 update 接口，准备修改数据，打算把沉默王二的狗腿子修改为沉默王二的狗腿：
@@ -427,4 +427,4 @@ logging:
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - 本项目源码：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-transactional)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

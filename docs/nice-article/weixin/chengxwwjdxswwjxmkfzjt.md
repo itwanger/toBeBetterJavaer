@@ -41,7 +41,7 @@ MQTT是一个基于客户端-服务器的消息发布/订阅传输协议
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-9ee4dd12-44cc-41c9-b259-e5bb10ca070b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-9ee4dd12-44cc-41c9-b259-e5bb10ca070b.jpg)
 
 
 
@@ -53,7 +53,7 @@ MQTT是一个基于客户端-服务器的消息发布/订阅传输协议
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-0101ec0d-f332-4b83-a452-df66bb1385b4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-0101ec0d-f332-4b83-a452-df66bb1385b4.jpg)
 
 
 
@@ -69,17 +69,17 @@ MQTT是一个基于客户端-服务器的消息发布/订阅传输协议
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-cdd6cacf-4762-45e1-8e27-26987fc3008e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-cdd6cacf-4762-45e1-8e27-26987fc3008e.jpg)
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-9cd8f583-88fc-4037-b4bf-8861ca484af4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-9cd8f583-88fc-4037-b4bf-8861ca484af4.jpg)
 
 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-8ec43e5c-a0b2-4260-804f-e5210ee5df6e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-8ec43e5c-a0b2-4260-804f-e5210ee5df6e.jpg)
 
 
 
@@ -104,7 +104,7 @@ APP 后端服务----》TCP（MQTT服务器）-----〉 网络通讯（4G模块）
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-ef471fb4-269e-493f-ad06-d11610d02e74.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-ef471fb4-269e-493f-ad06-d11610d02e74.jpg)
 
 
 
@@ -364,13 +364,13 @@ APP 后端服务----》TCP（MQTT服务器）-----〉 网络通讯（4G模块）
 
 ## 摄像头
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-b4022f79-34c5-4a32-a067-8cec5e79eb0f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-b4022f79-34c5-4a32-a067-8cec5e79eb0f.jpg)
 
 这里我们采用的海康威视的设备，360度全景这样在线爪娃娃看的更清楚些，下面是用的播放库SDK，具体SDK细节我不细聊了，大家可以去官网开放平台研究一波
 
 特别说明下当软件的操作结果和硬件操作结果不一致时，平台提供了申诉功能
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-3fa04ab1-b000-45ed-b02f-05cfe51ca61c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-3fa04ab1-b000-45ed-b02f-05cfe51ca61c.jpg)
 
 
 
@@ -378,7 +378,7 @@ APP 后端服务----》TCP（MQTT服务器）-----〉 网络通讯（4G模块）
 
 如下直播的画面，我们直接调用的监控摄像头的画面
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-8ec43e5c-a0b2-4260-804f-e5210ee5df6e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-8ec43e5c-a0b2-4260-804f-e5210ee5df6e.jpg)
 
 
 
@@ -398,15 +398,15 @@ APP 后端服务----》TCP（MQTT服务器）-----〉 网络通讯（4G模块）
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-634ae1de-6ad9-43b7-a61c-6f6932ca7997.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-634ae1de-6ad9-43b7-a61c-6f6932ca7997.jpg)
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-bea59def-68e2-43f6-a6b8-e5f65143c38c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-bea59def-68e2-43f6-a6b8-e5f65143c38c.jpg)
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-d956a0ef-3f29-4c8f-9a2c-5c184d8ac9fc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxwwjdxswwjxmkfzjt-d956a0ef-3f29-4c8f-9a2c-5c184d8ac9fc.jpg)
 
 
 ## ending

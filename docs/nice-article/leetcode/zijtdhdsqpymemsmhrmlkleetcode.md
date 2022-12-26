@@ -122,7 +122,7 @@ head:
 
 这三个都是多路复用方面的技术，而多路复用指的是多个 socket 复用同一个线程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-84907012-bae0-49bd-ae24-1ffe842012f0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-84907012-bae0-49bd-ae24-1ffe842012f0.png)
 
 ### [](#3-epoll的两种触发模式？)3\. epoll的两种触发模式？
 
@@ -145,7 +145,7 @@ head:
 
 至此连接建立成功
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-f48e28b4-654d-4dc2-8bd3-91f30719f717.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-f48e28b4-654d-4dc2-8bd3-91f30719f717.png)
 
 ### [](#5-tcp握手的目的有哪些？)5\. TCP握手的目的有哪些？
 
@@ -159,7 +159,7 @@ head:
 
 而 TIME\_WAIT 的长度为 2\*MSL 这样 ACK 丢失了，FIN 再次发送，在这时间里客户端还能收到 FIN 报文
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-c0540557-35c3-4980-9c38-8c96551a8da6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-c0540557-35c3-4980-9c38-8c96551a8da6.png)
 
 ### [](#7-tcp-和-udp-的区别？)7\. TCP 和 UDP 的区别？
 
@@ -178,9 +178,9 @@ TCP 拥塞控制由三部分组成
 2.  拥塞避免：当 cwnd ≥ 慢启动阈值（sstresh）时，窗口按线性增长，当收到三个连续的冗余 ACK 后，进入快重启
 3.  快重启：sstresh=cwnd, cwnd = sstresh + 3\*MSS（三次冗余的）并发送丢失的报文，每次收到冗余的就指数级增长直到收到新的 ACK，进入拥塞避免或者超时进入慢重启
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-c2ad06f3-b550-4700-9103-55e6d946d853.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-c2ad06f3-b550-4700-9103-55e6d946d853.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-9e70c922-09ac-48b5-8678-8a0cd0b55d44.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-9e70c922-09ac-48b5-8678-8a0cd0b55d44.png)
 
 ### [](#9-linux-中一个进程的虚拟内存分布长什么样？内核空间用户空间（6-种不同的内存段）。)9\. Linux 中一个进程的虚拟内存分布长什么样？内核空间+用户空间（6 种不同的内存段）。
 
@@ -194,7 +194,7 @@ TCP 拥塞控制由三部分组成
 
 .bss：存放未初始化或初始化为 0 的全局和静态变量，仅仅是占位符，不占空间，名称可以理解为 Better Save Space（实际起源并不是这个）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-b6b468ed-a143-41bf-aeb9-7b4d55308453.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-b6b468ed-a143-41bf-aeb9-7b4d55308453.png)
 
 ### [](#10-为什么要用虚拟内存？)10\. 为什么要用虚拟内存？
 
@@ -208,17 +208,17 @@ ps：思考虚拟内存和交换空间的区别？
 
 ❶ 直接映射
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-f7e931bf-d038-49fe-8497-43936550cd10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-f7e931bf-d038-49fe-8497-43936550cd10.png)
 
 ❷ 使用页表缓存映射
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-38e23102-f050-47dd-b40d-b85b8379274e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-38e23102-f050-47dd-b40d-b85b8379274e.png)
 
 ❸ 使用 TLB 映射
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-dde7d435-4ccc-47f5-9911-a2d4b283626e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-dde7d435-4ccc-47f5-9911-a2d4b283626e.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-05dfe319-0e50-4301-b773-388add1a8173.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-05dfe319-0e50-4301-b773-388add1a8173.png)
 
 ### [](#12-进程和线程的区别？哪些资源是线程共享的，哪些是线程独占的？)12\. 进程和线程的区别？哪些资源是线程共享的，哪些是线程独占的？
 
@@ -395,7 +395,7 @@ auto\_ptr：时代的眼泪
 
 重载是静态多态中，同名函数通过不同的形参列表调用不同的实现
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-06e11ad0-9b3d-4134-a4db-5e90c5c959ae.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/leetcode-zijtdhdsqpymemsmhrmlkleetcode-06e11ad0-9b3d-4134-a4db-5e90c5c959ae.png)
 
 ### [](#4-手撕：https//leetcodecn/problems/lowestcommonancestorofabinarytree/solution/erchashudegonggongzuxianbypedan00fs/（最后只剩十分钟，要求十分钟之内写出来）。)4\. 手撕：[https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solution/er-cha-shu-de-gong-gong-zu-xian-by-pedan-00fs/（最后只剩十分钟，要求十分钟之内写出来）。](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solution/er-cha-shu-de-gong-gong-zu-xian-by-pedan-00fs/%EF%BC%88%E6%9C%80%E5%90%8E%E5%8F%AA%E5%89%A9%E5%8D%81%E5%88%86%E9%92%9F%EF%BC%8C%E8%A6%81%E6%B1%82%E5%8D%81%E5%88%86%E9%92%9F%E4%B9%8B%E5%86%85%E5%86%99%E5%87%BA%E6%9D%A5%EF%BC%89%E3%80%82)
 

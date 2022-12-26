@@ -14,7 +14,7 @@ category:
 
 IDEA 的重构功能极为强大，包括各种强大的 extract，路径移动等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-weihxjetbrainsgszidejkyyhzjegnzdxdgrjdhnyhgs-3919f506-dea8-4413-9a81-23f1b04150ca.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-weihxjetbrainsgszidejkyyhzjegnzdxdgrjdhnyhgs-3919f506-dea8-4413-9a81-23f1b04150ca.jpg)
 
 IDEA 的强大远不如此。它的功能包括但不限于
 
@@ -49,7 +49,7 @@ IDEA 的强大远不如此。它的功能包括但不限于
 
 如图所示，这是 goland 的 learn 功能，而图上此时此刻显示的则是如何使用快捷键快速删除代码行或者换行，以及将过长可变参数的代码自动转换为可读性较强的多行格式
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-weihxjetbrainsgszidejkyyhzjegnzdxdgrjdhnyhgs-8399891a-249a-46b7-a9fd-063ad675316f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-weihxjetbrainsgszidejkyyhzjegnzdxdgrjdhnyhgs-8399891a-249a-46b7-a9fd-063ad675316f.jpg)
 
 无论是样例代码，还是帮助文档的文案，他们都设计得**言简意赅**，而且即使是英文，也是选择了计算机领域常见的英文单词，不会对非英语母语人士造成太多障碍。
 
@@ -65,7 +65,7 @@ IDEA 的强大远不如此。它的功能包括但不限于
 
 **另外就是 ssh 直接编辑代码这种场景。我认为这种场景是非常危险且不规范的做法。**真正符合工程化的项目都是本地使用 IDE 编辑，IDE 的静态分析功能帮你检查出可能出错的地方，确认没问题后，用版本控制工具提交，提交过程 IDEA 会跑代码格式化，lint 规则检查，import 优化，清理 unused 代码，自动帮你做 GPG git 签名，如果是公司或者开源组织机构的项目，还会自动帮你更新 copyright，然后做 TODO 检测，code analysis，git hook，最后 push 代码后，CI/CD平台开始跑单元测试，集成测试等，全部通过后则自动由 CI 平台通过 SSH 发布到生产环境。如果你的代码经常需要直接 SSH 连上去直接用 vim 修改，没有经过任何工程化工具的前置处理以及 code review，那么我只能说你的项目非常不规范，开发这种不规范的项目当然体验不到 IDE 能够带来的好处。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-weihxjetbrainsgszidejkyyhzjegnzdxdgrjdhnyhgs-2f3135d9-fa20-48c3-9983-446ac8c29bb4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-weihxjetbrainsgszidejkyyhzjegnzdxdgrjdhnyhgs-2f3135d9-fa20-48c3-9983-446ac8c29bb4.jpg)
 
 IDEA 的 Git 功能非常强大，对软件项目中的各种工程化工具有做整合
 
@@ -81,4 +81,4 @@ IDEA 的 Git 功能非常强大，对软件项目中的各种工程化工具有�
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

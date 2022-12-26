@@ -378,7 +378,7 @@ ed
 
 这是由于最后一次读取时，只读取一个字节`e`，而数组中上次读取的数据没有被完全**替换**【注意是替换，看下图】
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/stream-746bf44a-744e-4c47-bc07-af5d845f1852.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/stream-746bf44a-744e-4c47-bc07-af5d845f1852.png)
 
 
 
@@ -449,7 +449,7 @@ public class input2 {
 
 **复制图片原理**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/stream-55e22f8c-8b3f-408d-a12e-e26c0ddbaee6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/stream-55e22f8c-8b3f-408d-a12e-e26c0ddbaee6.png)
 
 **代码实现**
 
@@ -497,4 +497,4 @@ public class Copy {
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

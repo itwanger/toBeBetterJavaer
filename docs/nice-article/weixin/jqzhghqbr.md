@@ -54,7 +54,7 @@ head:
 
 当然了，商城类项目在自己学习的时候用来实践还是不错的，涉及到的知识点比较多。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzhghqbr-097706ee-c77f-41f2-8cf1-bbfcaf358c50.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzhghqbr-097706ee-c77f-41f2-8cf1-bbfcaf358c50.jpg)
 
 也就是在这第二段实习过程中(2022 上半年)，我真正的学到了一些实际的开发技巧；
 
@@ -66,7 +66,7 @@ head:
 
 > 以勇敢的胸膛面对逆境！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzhghqbr-b319dd26-fd4e-4bea-adbb-9391c64c6fac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzhghqbr-b319dd26-fd4e-4bea-adbb-9391c64c6fac.jpg)
 
 我从 6 月底开始复习准备，因为准备得比较晚，所以基本没参加提前批；
 
@@ -126,7 +126,7 @@ head:
 
 但考虑到本次秋招可能会把战线拉得比较长，因此就自己总结了一份脑图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzhghqbr-29a723b6-3614-4968-943e-e72ca3efca2c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzhghqbr-29a723b6-3614-4968-943e-e72ca3efca2c.jpg)
 
 ### 3.2.3 阶段三
 

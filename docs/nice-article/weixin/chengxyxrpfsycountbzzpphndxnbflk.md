@@ -15,11 +15,11 @@ category:
 
 比如说，你有一张 短信表(sms)，里面放了各种需要发送的短信信息。
 
-![sms建表sql](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-98025672-7dbe-4ae6-a158-9d7cbff56396.jpg)
+![sms建表sql](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-98025672-7dbe-4ae6-a158-9d7cbff56396.jpg)
 
 
 
-![sms表](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-74f3746b-82cf-46bf-9157-38d06ba8d309.jpg)
+![sms表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-74f3746b-82cf-46bf-9157-38d06ba8d309.jpg)
 
 
 
@@ -27,7 +27,7 @@ category:
 
 此时还会有一个**异步线程**不断的捞起**未发送（state=0）**的短信数据，执行发短信操作，发送成功之后state字段会被**置为1（已发送）**。也就是说**未发送的数据会不断变少**。
 
-![异步线程发送短信](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-24c6b1d6-2d1d-47d1-bd9f-5c19341df46c.jpg)
+![异步线程发送短信](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-24c6b1d6-2d1d-47d1-bd9f-5c19341df46c.jpg)
 
 
 
@@ -55,7 +55,7 @@ count()方法的目的是计算当前sql语句查询得到的**非NULL的行数*
 
 我们知道mysql是分为**server层和存储引擎层的**。
 
-![Mysql架构](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-dc86c5c9-b340-4f3d-8b73-6a3cc6b607fb.jpg)
+![Mysql架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-dc86c5c9-b340-4f3d-8b73-6a3cc6b607fb.jpg)
 
 
 
@@ -81,7 +81,7 @@ myisam和innodb这两个引擎，有几个比较明显的区别，这个是八�
 
 而事务，有四层隔离级别，其中**默认隔离级别就是可重复读隔离级别（RR）**。
 
-![四层隔离级别](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-da350ad3-d398-4e39-bf9b-77c5c2162e5e.jpg)
+![四层隔离级别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-da350ad3-d398-4e39-bf9b-77c5c2162e5e.jpg)
 
 
 
@@ -89,7 +89,7 @@ innodb引擎通过MVCC实现了**可重复隔离级别**，事务开启后，多
 
 于是我们看个例子。
 
-![为什么innodb不单独记录表行数](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-19cf87d5-c1bd-4f83-9d37-74ae6eb82543.jpg)
+![为什么innodb不单独记录表行数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-19cf87d5-c1bd-4f83-9d37-74ae6eb82543.jpg)
 
 
 
@@ -145,7 +145,7 @@ count(*) ≈ count(1) > count(主键id) > count(普通索引列) > count
 
 其中有个**rows**，会用来**估计**接下来执行这条sql需要扫描和检查多少行。它是通过采样的方式计算出来的，虽然会有一定的偏差，但它能反映一定的数量级。
 
-![explain里的rows](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-f5749485-f71b-4b39-8e8f-5b8af18d52d4.jpg)
+![explain里的rows](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-f5749485-f71b-4b39-8e8f-5b8af18d52d4.jpg)
 
 
 
@@ -171,7 +171,7 @@ CREATE TABLE `count_table` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4;
 ```
 
-![count\_table表保存各种场景下的count](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-625c4cd5-b4f8-4781-833c-70c3fe663c80.jpg)
+![count\_table表保存各种场景下的count](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-625c4cd5-b4f8-4781-833c-70c3fe663c80.jpg)
 
 
 
@@ -191,7 +191,7 @@ select cnt from count_table where cnt_what = "未发送的短信数量";�
 
 比如我们有两个事务A和B，分别是增加未发送短信和减少未发送短信。
 
-![将更改表行数的操作放入到事务里](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-b456cbbc-695c-4480-91d2-9b613ee488b4.jpg)
+![将更改表行数的操作放入到事务里](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-b456cbbc-695c-4480-91d2-9b613ee488b4.jpg)
 
 
 
@@ -207,13 +207,13 @@ select cnt from count_table where cnt_what = "未发送的短信数量";�
 
 对于未发送的短信，就只需要在捞出的那1w条数据里，筛选出state=0的条数。
 
-![batch分批获取短信表](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-ade1d243-6e1e-401a-b132-c5b0e810ea15.jpg)
+![batch分批获取短信表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-ade1d243-6e1e-401a-b132-c5b0e810ea15.jpg)
 
 
 
 当然如果有条件，这种场景最好的方式还是**消费binlog将数据导入到hive里**，然后在hive里做查询，不少公司也已经有现成的组件可以做这种事情，不用自己写脚本，岂不美哉。
 
-![mysql同步hive](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-bd3e2b9b-0b80-47aa-b359-77d85f36930f.jpg)
+![mysql同步hive](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyxrpfsycountbzzpphndxnbflk-bd3e2b9b-0b80-47aa-b359-77d85f36930f.jpg)
 
 
 

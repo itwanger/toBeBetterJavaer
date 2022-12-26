@@ -150,7 +150,7 @@ category:
 
 ### 秋招面试概况
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sspnx-ca02a3a5-286b-49f1-b8d1-488eb1a38a6a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sspnx-ca02a3a5-286b-49f1-b8d1-488eb1a38a6a.jpg)
 
 ### 秋招部分面试题
 

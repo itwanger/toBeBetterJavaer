@@ -15,14 +15,14 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 我直接先抛一下结论：**在满足实时性的条件下，不存在两者完全保存一致的方案，只有最终一致性方案。** 根据网上的众多解决方案，总结出 6 种，直接看目录：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-537a505f-1f3f-4f23-b5e3-209c8c8a9281.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-537a505f-1f3f-4f23-b5e3-209c8c8a9281.png)
 
 
 ##  不好的方案
 
 ###  1. 先写 MySQL，再写 Redis
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-9ac6e9ab-dd82-40a5-b71b-836c745ed8ac.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-9ac6e9ab-dd82-40a5-b71b-836c745ed8ac.png)
 
 > 图解说明：
 > - 这是一副时序图，描述请求的先后调用顺序；
@@ -37,7 +37,7 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 ###  2. 先写 Redis，再写 MySQL
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-c50e7ef0-40aa-4931-982a-a9aa31faa6f1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-c50e7ef0-40aa-4931-982a-a9aa31faa6f1.png)
 
 同“先写 MySQL，再写 Redis”，看图可秒懂。
 
@@ -45,7 +45,7 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 这幅图和上面有些不一样，前面的请求 A 和 B 都是更新请求，这里的请求 A 是更新请求，**但是请求 B 是读请求，且请求 B 的读请求会回写 Redis。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-0fec5605-5530-4b12-af0e-2b529c41e6e6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-0fec5605-5530-4b12-af0e-2b529c41e6e6.png)
 
 请求 A 先删除缓存，可能因为卡顿，数据一直没有更新到 MySQL，导致两者数据不一致。
 
@@ -56,7 +56,7 @@ title: 如何保障MySQL和Redis的数据一致性？
 ###  4. 先删除 Redis，再写 MySQL，再删除 Redis
 对于“先删除 Redis，再写 MySQL”，如果要解决最后的不一致问题，其实再对 Redis 重新删除即可，**这个也是大家常说的“缓存双删”。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-1fe439cd-83fe-487f-a7ba-578a84839616.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-1fe439cd-83fe-487f-a7ba-578a84839616.png)
 
 为了便于大家看图，对于蓝色的文字，“删除缓存 10”必须在“回写缓存10”后面，那如何才能保证一定是在后面呢？**网上给出的第一个方案是，让请求 A 的最后一次删除，等待 500ms。**
 
@@ -64,7 +64,7 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 **那有没有更好的方案呢，我建议异步串行化删除，即删除请求入队列**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-6cb3caf1-c85b-4361-8e29-9e71361fd0c8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-6cb3caf1-c85b-4361-8e29-9e71361fd0c8.png)
 
 异步删除对线上业务无影响，串行化处理保障并发情况下正确删除。
 
@@ -77,13 +77,13 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 ###  5. 先写 MySQL，再删除 Redis
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-1f0e26a8-49c3-469e-a193-08f9766943aa.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-1f0e26a8-49c3-469e-a193-08f9766943aa.png)
 
 对于上面这种情况，对于第一次查询，请求 B 查询的数据是 10，但是 MySQL 的数据是 11，**只存在这一次不一致的情况，对于不是强一致性要求的业务，可以容忍。**（那什么情况下不能容忍呢，比如秒杀业务、库存服务等。）
 
 当请求 B 进行第二次查询时，因为没有命中 Redis，会重新查一次 DB，然后再回写到 Reids。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-268696d3-a7e9-4762-9fe6-283859d5b0ba.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-268696d3-a7e9-4762-9fe6-283859d5b0ba.png)
 
 这里需要满足 2 个条件：
 - 缓存刚好自动失效；
@@ -95,7 +95,7 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 这种方案，主要是监听 MySQL 的 Binlog，然后通过异步的方式，将数据更新到 Redis，这种方案有个前提，查询的请求，不会回写 Redis。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-0da55874-8cf7-4c5a-995b-a0e6611bfac2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/redis-shuju-yizhixing-0da55874-8cf7-4c5a-995b-a0e6611bfac2.png)
 
 这个方案，会保证 MySQL 和 Redis 的最终一致性，但是如果中途请求 B 需要查询数据，如果缓存无数据，就直接查 DB；如果缓存有数据，查询的数据也会存在不一致的情况。
 
@@ -135,4 +135,4 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 > 整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/RL4Bt_UkNcnsBGL_9w37Zg)，作者：楼仔，戳[原文链接](https://mp.weixin.qq.com/s/l7v4s1VekIPNi7KZuUgwGQ)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -35,7 +35,7 @@ head:
 
 用起来还是非常舒服的，直接在 input 中填写内容，然后导出 PDF 就行了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-19c01bf3-2792-4acd-ba8f-e2e7880e15ed.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-19c01bf3-2792-4acd-ba8f-e2e7880e15ed.png)
 
 ## 简历内容
 
@@ -181,7 +181,7 @@ GitHub：这就更不用说了，talk is cheap，show me the code。
 
 1）基本错误尽量减少，比如这样：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-734647b7-1f10-46a1-a657-b99393750926.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-734647b7-1f10-46a1-a657-b99393750926.png)
 
 看到 GitHub 地址我本来很惊喜，但连 GitHub 都能拼错，肯定有大问题，果然，点进去一看，水的不行。
 
@@ -193,13 +193,13 @@ GitHub：这就更不用说了，talk is cheap，show me the code。
 
 强调过很多次了，但依然能收到这样的 Word 简历，打开直接乱码。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-3fde415f-1c13-4971-94bf-fd86cea4a462.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-3fde415f-1c13-4971-94bf-fd86cea4a462.png)
 
 PDF 甚至不用装 PDF 阅读器，直接浏览器就能打开了，这多为 HR/面试官着想啊！！！！！！！
 
 我用 Chrome 浏览器打开的时候就感觉看起来很舒服。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-6fc2647c-80ef-4689-8eb8-a93058f9c1d8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-6fc2647c-80ef-4689-8eb8-a93058f9c1d8.png)
 
 3）HR/面试官关注的点
 
@@ -217,9 +217,9 @@ PDF 甚至不用装 PDF 阅读器，直接浏览器就能打开了，这多为 H
 
 除了前面提到的简历模板，再推荐一个：[冷熊简历](http://cv.ftqq.com/#)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-4809ddab-c1f1-44be-98d0-c6a40a26eed7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-4809ddab-c1f1-44be-98d0-c6a40a26eed7.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-2892c26c-d9b7-4084-b98f-e2298b5d2972.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-ruhxhzjdjlkfzkz-2892c26c-d9b7-4084-b98f-e2298b5d2972.png)
 
 
 以上全是我个人主观感受，欢迎留言讨论。
@@ -231,4 +231,4 @@ PDF 甚至不用装 PDF 阅读器，直接浏览器就能打开了，这多为 H
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

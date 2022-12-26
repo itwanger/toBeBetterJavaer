@@ -34,7 +34,7 @@ xxl-job 使用 netty http 的方式进行通信，虽然也支持 Mina，jetty�
 
 我以调度器通知执行器执行任务为例，绘制的活动图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xxljobjydsjznjrba-27c73954-acc5-4571-b344-7cfaa6c96b7d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xxljobjydsjznjrba-27c73954-acc5-4571-b344-7cfaa6c96b7d.jpg)
 
 *活动图*
 
@@ -85,7 +85,25 @@ XxlRpcReferenceBean 类的 getObject() 方法会生成一个代理类，这个�
 我们看下调度器，XxlJobTrigger 类触发任务执行的代码：
 
 ```
-public static ReturnT<String> runExecutor(TriggerParam triggerParam, String address){    ReturnT<String> runResult = null;    try {        ExecutorBiz executorBiz = XxlJobScheduler.getExecutorBiz(address);        //这里面做了很多异步处理，最终同步得到处理结果        runResult = executorBiz.run(triggerParam);    } catch (Exception e) {        logger.error(">>>>>>>>>>> xxl-job trigger error, please check if the executor[{}] is running.", address, e);        runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));    }    StringBuffer runResultSB = new StringBuffer(I18nUtil.getString("jobconf_trigger_run") + "：");    runResultSB.append("<br>address：").append(address);    runResultSB.append("<br>code：").append(runResult.getCode());    runResultSB.append("<br>msg：").append(runResult.getMsg());    runResult.setMsg(runResultSB.toString());    return runResult;}
+public static ReturnT<String> runExecutor(TriggerParam triggerParam, String address){
+    ReturnT<String> runResult = null;
+    try {
+        ExecutorBiz executorBiz = XxlJobScheduler.getExecutorBiz(address);
+        //这里面做了很多异步处理，最终同步得到处理结果
+        runResult = executorBiz.run(triggerParam);
+    } catch (Exception e) {
+        logger.error(">>>>>>>>>>> xxl-job trigger error, please check if the executor[{}] is running.", address, e);
+        runResult = new ReturnT<String>(ReturnT.FAIL_CODE, ThrowableUtil.toString(e));
+    }
+
+    StringBuffer runResultSB = new StringBuffer(I18nUtil.getString("jobconf_trigger_run") + "：");
+    runResultSB.append("<br>address：").append(address);
+    runResultSB.append("<br>code：").append(runResult.getCode());
+    runResultSB.append("<br>msg：").append(runResult.getMsg());
+
+    runResult.setMsg(runResultSB.toString());
+    return runResult;
+}
 ```
 
 
@@ -101,7 +119,29 @@ ExecutorBiz.run 方法我们说过了，是走的动态代理，和执行器进�
 动态代理代码如下：
 
 ```
-//代理类中的触发调用if (CallType.SYNC == callType) {   // future-response set   XxlRpcFutureResponse futureResponse = new XxlRpcFutureResponse(invokerFactory, xxlRpcRequest, null);   try {      // do invoke      client.asyncSend(finalAddress, xxlRpcRequest);      // future get      XxlRpcResponse xxlRpcResponse = futureResponse.get(timeout, TimeUnit.MILLISECONDS);      if (xxlRpcResponse.getErrorMsg() != null) {         throw new XxlRpcException(xxlRpcResponse.getErrorMsg());      }      return xxlRpcResponse.getResult();   } catch (Exception e) {      logger.info(">>>>>>>>>>> xxl-rpc, invoke error, address:{}, XxlRpcRequest{}", finalAddress, xxlRpcRequest);      throw (e instanceof XxlRpcException)?e:new XxlRpcException(e);   } finally{      // future-response remove      futureResponse.removeInvokerFuture();   }} 
+//代理类中的触发调用
+if (CallType.SYNC == callType) {
+   // future-response set
+   XxlRpcFutureResponse futureResponse = new XxlRpcFutureResponse(invokerFactory, xxlRpcRequest, null);
+   try {
+      // do invoke
+      client.asyncSend(finalAddress, xxlRpcRequest);
+
+      // future get
+      XxlRpcResponse xxlRpcResponse = futureResponse.get(timeout, TimeUnit.MILLISECONDS);
+      if (xxlRpcResponse.getErrorMsg() != null) {
+         throw new XxlRpcException(xxlRpcResponse.getErrorMsg());
+      }
+      return xxlRpcResponse.getResult();
+   } catch (Exception e) {
+      logger.info(">>>>>>>>>>> xxl-rpc, invoke error, address:{}, XxlRpcRequest{}", finalAddress, xxlRpcRequest);
+
+      throw (e instanceof XxlRpcException)?e:new XxlRpcException(e);
+   } finally{
+      // future-response remove
+      futureResponse.removeInvokerFuture();
+   }
+} 
 ```
 
 
@@ -109,7 +149,38 @@ ExecutorBiz.run 方法我们说过了，是走的动态代理，和执行器进�
 XxlRpcFutureResponse 类中实现了线程的等待，和线程唤醒的处理：
 
 ```
-//返回结果，唤醒线程public void setResponse(XxlRpcResponse response) {   this.response = response;   synchronized (lock) {      done = true;      lock.notifyAll();   }}@Override    public XxlRpcResponse get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {        if (!done) {            synchronized (lock) {                try {                    if (timeout < 0) {            //线程阻塞                        lock.wait();                    } else {                        long timeoutMillis = (TimeUnit.MILLISECONDS==unit)?timeout:TimeUnit.MILLISECONDS.convert(timeout , unit);                        lock.wait(timeoutMillis);                    }                } catch (InterruptedException e) {                    throw e;                }            }        }        if (!done) {            throw new XxlRpcException("xxl-rpc, request timeout at:"+ System.currentTimeMillis() +", request:" + request.toString());        }        return response;    }
+//返回结果，唤醒线程
+public void setResponse(XxlRpcResponse response) {
+   this.response = response;
+   synchronized (lock) {
+      done = true;
+      lock.notifyAll();
+   }
+}
+
+@Override
+    public XxlRpcResponse get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+        if (!done) {
+            synchronized (lock) {
+                try {
+                    if (timeout < 0) {
+            //线程阻塞
+                        lock.wait();
+                    } else {
+                        long timeoutMillis = (TimeUnit.MILLISECONDS==unit)?timeout:TimeUnit.MILLISECONDS.convert(timeout , unit);
+                        lock.wait(timeoutMillis);
+                    }
+                } catch (InterruptedException e) {
+                    throw e;
+                }
+            }
+        }
+
+        if (!done) {
+            throw new XxlRpcException("xxl-rpc, request timeout at:"+ System.currentTimeMillis() +", request:" + request.toString());
+        }
+        return response;
+    }
 ```
 
 
@@ -125,7 +196,39 @@ XxlRpcFutureResponse 类中实现了线程的等待，和线程唤醒的处理�
 这里拿着请求 id 这把钥匙，就能找到对应的 XxlRpcFutureResponse，然后调用 setResponse 方法，设置返回值，唤醒线程。
 
 ```
-public void notifyInvokerFuture(String requestId, final XxlRpcResponse xxlRpcResponse){    // 通过requestId找到XxlRpcFutureResponse，    final XxlRpcFutureResponse futureResponse = futureResponsePool.get(requestId);    if (futureResponse == null) {        return;    }    if (futureResponse.getInvokeCallback()!=null) {        // callback type        try {            executeResponseCallback(new Runnable() {                @Override                public void run() {                    if (xxlRpcResponse.getErrorMsg() != null) {                        futureResponse.getInvokeCallback().onFailure(new XxlRpcException(xxlRpcResponse.getErrorMsg()));                    } else {                        futureResponse.getInvokeCallback().onSuccess(xxlRpcResponse.getResult());                    }                }            });        }catch (Exception e) {            logger.error(e.getMessage(), e);        }    } else {        // 里面调用lock的notify方法        futureResponse.setResponse(xxlRpcResponse);    }    // do remove    futureResponsePool.remove(requestId);}
+public void notifyInvokerFuture(String requestId, final XxlRpcResponse xxlRpcResponse){
+
+    // 通过requestId找到XxlRpcFutureResponse，
+    final XxlRpcFutureResponse futureResponse = futureResponsePool.get(requestId);
+    if (futureResponse == null) {
+        return;
+    }
+    if (futureResponse.getInvokeCallback()!=null) {
+
+        // callback type
+        try {
+            executeResponseCallback(new Runnable() {
+                @Override
+                public void run() {
+                    if (xxlRpcResponse.getErrorMsg() != null) {
+                        futureResponse.getInvokeCallback().onFailure(new XxlRpcException(xxlRpcResponse.getErrorMsg()));
+                    } else {
+                        futureResponse.getInvokeCallback().onSuccess(xxlRpcResponse.getResult());
+                    }
+                }
+            });
+        }catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+    } else {
+        // 里面调用lock的notify方法
+        futureResponse.setResponse(xxlRpcResponse);
+    }
+
+    // do remove
+    futureResponsePool.remove(requestId);
+
+}
 ```
 
 

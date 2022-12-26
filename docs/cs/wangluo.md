@@ -10,7 +10,7 @@ tag:
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-608345cf-8378-4b34-bc91-ca6d2fa25da7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-608345cf-8378-4b34-bc91-ca6d2fa25da7.png)
 
 ## OSI七层模型
 
@@ -94,7 +94,7 @@ Linux给WIndows发包，不同系统语法不一致，如exe不能在`Linux`下�
 
 一层物理层时数据被称为**比特流**（Bits）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-d1fdc5fc-c955-4591-9c95-e297a64eccdc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-d1fdc5fc-c955-4591-9c95-e297a64eccdc.png)
 
 ## TCP和IP模型
 
@@ -107,7 +107,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 - 第三层：网络层，主要是IP协议。主要负责寻址（找到目标设备的位置）
 - 第四层：数据链路层，主要是负责转换数字信号和物理二进制信号。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-fa4a4d20-f0db-4ba7-a31e-7772f2f132a8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-fa4a4d20-f0db-4ba7-a31e-7772f2f132a8.png)
 
 **四层网络协议的作用**
 
@@ -127,7 +127,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 
 在数据链路层，对应的协议也会在IP数据包前端加上以太网的部首。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-1d3ce227-fd77-4b95-89dd-aeb786bb4b9e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-1d3ce227-fd77-4b95-89dd-aeb786bb4b9e.png)
 
 源设备和目标设备通过网线连接，就可以通过物理层的二进制传输数据。
 
@@ -135,7 +135,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 
 数据链路层>网络层>传输层>应用层，一层层的解码，最后就可以在浏览器中得到目标设备传送过来的**index.html**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-731f7daa-1b47-4191-828f-c6e54d650604.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-731f7daa-1b47-4191-828f-c6e54d650604.png)
 
 **TCP/IP协议族**
 
@@ -145,7 +145,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 
 具体来说，在网络层是IP/ICMP协议、在传输层是TCP/UDP协议、在应用层是SMTP、FTP、以及 HTTP 等。他们都属于 TCP/IP 协议。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 网络设备
 
@@ -179,7 +179,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 
 它通过识别目的 IP 地址的**网络号**，再根据**路由表**进行数据转发
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## HTTP
 
@@ -374,7 +374,7 @@ HTTPS 协议会对传输的数据进行加密，而加密过程是使用了非�
 
 HTTPS的整体过程分为证书验证和数据传输阶段，具体的交互过程如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-c1db0431-0eee-4c80-bb60-b7508a306864.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-c1db0431-0eee-4c80-bb60-b7508a306864.png)
 
 * Client发起一个HTTPS的请求
 * Server把事先配置好的公钥证书返回给客户端。
@@ -395,7 +395,7 @@ HTTPS的整体过程分为证书验证和数据传输阶段，具体的交互过
 
 通过数字证书的方式保证服务器公钥的身份，解决冒充的风险。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-45917c49-bb08-4f88-84d2-5e8ae53acc7c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-45917c49-bb08-4f88-84d2-5e8ae53acc7c.png)
 
 ### 请求报文
 
@@ -403,7 +403,7 @@ HTTPS的整体过程分为证书验证和数据传输阶段，具体的交互过
 
 HTTP 请求报文由3部分组成(请求行+请求头+请求体)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-3c00598c-43c2-44cd-96c6-ee4d40b97abd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-3c00598c-43c2-44cd-96c6-ee4d40b97abd.png)
 
 **常见的HTTP报文头属性**
 
@@ -431,7 +431,7 @@ HTTP 请求报文由3部分组成(请求行+请求头+请求体)
 
 响应报文与请求报文一样，由三个部分组成(响应行,响应头,响应体)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-58884113-14dc-4cca-a63e-3320f31a4da5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-58884113-14dc-4cca-a63e-3320f31a4da5.png)
 
 **HTTP响应报文属性**
 
@@ -445,7 +445,7 @@ HTTP 请求报文由3部分组成(请求行+请求头+请求体)
   - 服务端可以设置客户端的cookie
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## TCP
 
@@ -499,7 +499,7 @@ TCP的全部功能体现在它首部中各字段的作用
 > 1. 首部前20个字符固定、后面有4n个字节是根据需而增加的选项
 > 2. 故 TCP首部最小长度 = 20字节
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-8011660d-24c8-460f-ac3d-b97ad9c99b13.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-8011660d-24c8-460f-ac3d-b97ad9c99b13.png)
 
 **端口**：
 
@@ -565,7 +565,7 @@ TCP底层并不了解上层业务数据的具体含义，它会根据TCP缓冲�
 
 ### 三次握手
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-f6a9438e-4eb8-4573-9ef5-30e07b8c31df.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-f6a9438e-4eb8-4573-9ef5-30e07b8c31df.png)
 
 **第一次握手**：
 
@@ -625,7 +625,7 @@ TCP底层并不了解上层业务数据的具体含义，它会根据TCP缓冲�
 
 ### 四次挥手
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4a5e455f-5cf8-47a6-8fe4-a4c83a445f77.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4a5e455f-5cf8-47a6-8fe4-a4c83a445f77.png)
 
 挥手请求可以是Client端，也可以是Server端发起的，我们假设是Client端发起：
 
@@ -688,7 +688,7 @@ TCP报文头有个字段叫Window，用于接收方通知发送方自己还有�
 
 发送方窗口内的序列号代表了那些已经被发送，但是还没有被确认的帧，或者是那些可以被发送的帧
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-d734c97b-d7d6-4af6-8674-524a81fb4dbe.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-d734c97b-d7d6-4af6-8674-524a81fb4dbe.png)
 
 滑动窗口由四部分组成每个字节的数据都有唯一顺序的编码，随着时间发展，未确认部分与可以发送数据包编码部分向右移动，形式滑动窗口
 
@@ -717,7 +717,7 @@ TCP报文头有个字段叫Window，用于接收方通知发送方自己还有�
 
 主要的方式就是接收方返回的 ACK 中会包含自己的接收窗口的大小，并且利用大小来控制发送方的数据发送。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4bdc0051-8878-4ffc-b9db-71b73ec49cd0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4bdc0051-8878-4ffc-b9db-71b73ec49cd0.png)
 
 **流量控制引发的死锁**
 
@@ -796,7 +796,7 @@ TCP报文头有个字段叫Window，用于接收方通知发送方自己还有�
 
 注意：拥塞避免并非完全能够避免了阻塞，而是使网络比较不容易出现拥塞。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-314eba07-1388-4e8b-9307-8dd8d03b0dfe.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-314eba07-1388-4e8b-9307-8dd8d03b0dfe.png)
 
 **快重传算法**
 
@@ -816,19 +816,19 @@ TCP报文头有个字段叫Window，用于接收方通知发送方自己还有�
 
 所以此时不执行慢开始算法，而是将cwnd设置为ssthresh减半后的值，然后执行拥塞避免算法，使cwnd缓慢增大。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-3a424e43-405f-494d-b700-093781b63035.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-3a424e43-405f-494d-b700-093781b63035.png)
 
 ### Socket
 
 即套接字，是应用层 与 `TCP/IP` 协议族通信的中间软件抽象层，表现为一个封装了 TCP / IP协议族 的编程接口（API）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-eff20ef6-9d35-4075-8c53-ab52c7a46ac7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-eff20ef6-9d35-4075-8c53-ab52c7a46ac7.png)
 
 `Socket`不是一种协议，而是一个编程调用接口（`API`），属于传输层（主要解决数据如何在网络中传输）
 
 对用户来说，只需调用Socket去组织数据，以符合指定的协议，即可通信
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## UDP
 
@@ -874,7 +874,7 @@ TFTP、DNS、DHCP、TFTP、SNMP(简单网络管理协议)、RIP基于不可靠�
 
 UDP的报文段共有2个字段：数据字段 + 首部字段
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-a5d0d209-01db-4ee7-b63b-bf2659545702.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-a5d0d209-01db-4ee7-b63b-bf2659545702.png)
 
 **UDP报文中每个字段的含义如下：**
 
@@ -927,7 +927,7 @@ IP地址表示为：`xxx.xxx.xxx.xxx`
 
 IP地址分A、B、C、D、E五类，其中A、B、C这三类是比较常用的IP地址，D、E类为特殊地址。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-212f3f9b-b07f-4cc9-81eb-55bb478f1b66.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-212f3f9b-b07f-4cc9-81eb-55bb478f1b66.png)
 
 ### 子网掩码
 
@@ -971,7 +971,7 @@ IP地址分A、B、C、D、E五类，其中A、B、C这三类是比较常用的I
 
 但是A与C，A与D，B与C，B与D它们之间不属于同一网段，所以它们通信是要经过本地网关，然后路由器根据对方IP地址，在路由表中查找恰好有匹配到对方IP地址的直连路由，于是从另一边网关接口转发出去实现互连
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-e1d68baa-9d8c-4595-bcb5-0dc5f6e240fe.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-e1d68baa-9d8c-4595-bcb5-0dc5f6e240fe.png)
 
 **子网掩码和IP地址的关系**
 
@@ -987,7 +987,7 @@ IP地址分A、B、C、D、E五类，其中A、B、C这三类是比较常用的I
 
 将得出的结果转化为十进制，便得到网络地址。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-5fab32f0-20d1-4c05-bfb9-47928ceac65d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-5fab32f0-20d1-4c05-bfb9-47928ceac65d.png)
 
 ### 网关
 
@@ -1051,9 +1051,9 @@ DNS通过主机名，最终得到该主机名对应的IP地址的过程叫做域
 
 将主机域名转换为ip地址，属于应用层协议，使用UDP传输。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-7d129644-dfa7-4151-ae2f-9f3f084c6be9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-7d129644-dfa7-4151-ae2f-9f3f084c6be9.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4ed70ed6-ceeb-4761-8fd4-eb2fe092273d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cs/wangluo-4ed70ed6-ceeb-4761-8fd4-eb2fe092273d.png)
 
 第一步，客户端向本地DNS服务器发送解析请求
 
@@ -1166,7 +1166,7 @@ ARP即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，�
 
 源主机收到ARP响应包后，将目的主机的IP和MAC地址写入ARP列表，并利用此信息发送数据，如果源主机一直没有收到ARP响应数据包，表示ARP查询失败。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 数字签名
 
@@ -1259,7 +1259,7 @@ SELECT * FROM user_table WHERE username=’’or 1 = 1 –- and password=’’
 
 **例子**：甲方生成 **一对密钥** 并将其中的一把作为 **公钥** 向其它人公开，得到该公钥的 **乙方** 使用该密钥对机密信息 **进行加密** 后再发送给甲方，甲方再使用自己保存的另一把 **专用密钥** (**私钥**)，对 **加密** 后的信息 **进行解密**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 网络攻击
 
@@ -1390,7 +1390,7 @@ Session 的**认证过程**：
 3. 有效期，Cookie 可以设置任意时间有效，而 Session 一般失效时间短
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 常见面试题
 
@@ -1418,4 +1418,4 @@ Session 的**认证过程**：
 
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

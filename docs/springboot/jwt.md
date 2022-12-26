@@ -10,7 +10,7 @@
 
 单机情况下，这种模式是没有任何问题的，但对于前后端分离的 Web 应用来说，就非常痛苦了。于是就有了另外一种解决方案，服务器端不再保存 session 数据，而是将其保存在客户端，客户端每次发起请求时再把这个数据发送给服务器端进行验证。**JWT**（JSON Web Token）就是这种方案的典型代表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-1.png)
 
 
 ### 一、关于 JWT 
@@ -29,11 +29,11 @@ JWT，是目前最流行的一个[跨域](https://mp.weixin.qq.com/s/HTMDZaukCb7
 
 假如我现在使用用户名 wanger 和密码 123456 进行访问编程喵（Codingmore）的 login 接口，那么实际的 JWT 是一串看起来像是加过密的字符串。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-2.png)
 
 为了让大家看的更清楚一点，我将其复制到了 [jwt 的官网](https://jwt.io/)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-3.png)
 
 
 
@@ -73,7 +73,7 @@ export function setToken (token) {
 Authorization: Bearer <token>
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-4.png)
 
 服务器端接收到请求后，再对 JWT 进行验证，如果验证通过就返回相应的资源。
 
@@ -315,7 +315,7 @@ JwtAuthenticationTokenFilter  继承了 OncePerRequestFilter，该过滤器能�
 
 这个过滤器非常关键啊，基本上每行代码我都添加了注释，当然了，为了确保大家都能搞清楚这个类到底做了什么，我再来画一幅流程图，这样就一清二楚了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-5.png)
 
 SpringSecurity 是一个安全管理框架，可以和 Spring Boot 应用无缝衔接，SecurityContextHolder 是其中非常关键的一个工具类，持有安全上下文信息，里面保存有当前操作的用户是谁，用户是否已经被认证，用户拥有的权限等关键信息。
 
@@ -334,20 +334,20 @@ SecurityContextHolder 默认使用了 ThreadLocal 策略来存储认证信息，
 
 第一步，访问 login 接口，输入用户名和密码进行登录，获取服务器端返回的 JWT。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-6.png)
 
 
 第二步，收集服务器端返回的 tokenHead 和 token，将其填入 Authorize（注意 tokenHead 和 token 之间有一个空格）完成登录认证。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-7.png)
 
 第三步，再次请求其他接口时，Swagger 会自动将 Authorization 作为请求头信息发送到服务器端。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-8.png)
 
 第四步，服务器端接收到该请求后，会通过 JwtAuthenticationTokenFilter 过滤器对 JWT 进行校验。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-9.png)
 
 到此为止，整个流程全部打通了，完美！
 
@@ -380,7 +380,7 @@ star 了这个仓库就等于你拥有了成为了一名优秀 Java 工程师的
 
 [https://tobebetterjavaer.com/](https://tobebetterjavaer.com/)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/jwt-10.png)
 
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。

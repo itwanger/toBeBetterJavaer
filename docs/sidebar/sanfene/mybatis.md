@@ -20,7 +20,7 @@ head:
 
 ### 1. 说说什么是MyBatis?
 
-![MyBatis logo](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-41c60cf7-6551-4720-8735-290a083640a5.png)
+![MyBatis logo](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-41c60cf7-6551-4720-8735-290a083640a5.png)
 
 **先吹一下**：
 
@@ -34,7 +34,7 @@ head:
 
 > **ORM是什么?**
 
-![ORM简单示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-ea212850-56e0-4d12-98fb-03bb40007f44.png)
+![ORM简单示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-ea212850-56e0-4d12-98fb-03bb40007f44.png)
 
 - ORM（Object Relational Mapping），对象关系映射，是一种为了解决关系型数据库数据与简单Java对象（POJO）的映射关系的技术。简单来说，ORM是通过使用描述对象和数据库之间映射的元数据，将程序中的对象自动持久化到关系型数据库中。
 
@@ -45,7 +45,7 @@ head:
 
 > **JDBC编程有哪些不足之处，MyBatis是如何解决的？**
 
-![JDBC编程的不足](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-f8b181a3-ad40-4381-98ba-351668579bfb.png)
+![JDBC编程的不足](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-f8b181a3-ad40-4381-98ba-351668579bfb.png)
 
 - 1、数据连接创建、释放频繁造成系统资源浪费从而影响系统性能，在mybatis-config.xml中配置数据链接池，使用连接池统一管理数据库连接。
 - 2、sql语句写在代码中造成代码不易维护，将sql语句配置在XXXXmapper.xml文件中与java代码分离。
@@ -58,7 +58,7 @@ head:
 
 - 都是对jdbc的封装，都是应用于持久层的框架。
 
-![这还用说？](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-4964e454-7c80-4768-bf0e-d0bf417353ef.gif)
+![这还用说？](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-4964e454-7c80-4768-bf0e-d0bf417353ef.gif)
 
 **不同点**
 
@@ -74,7 +74,7 @@ head:
 
 3）**MyBatis和Hibernate的适用场景不同**
 
-![Mybatis vs Hibernate](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-d1c707f7-0bd0-415c-b190-4757792c072b.png)
+![Mybatis vs Hibernate](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-d1c707f7-0bd0-415c-b190-4757792c072b.png)
 
 - Hibernate 是标准的ORM框架，SQL编写量较少，但不够灵活，适合于需求相对稳定，中小型的软件项目，比如：办公自动化系统
 - MyBatis 是半ORM框架，需要编写较多SQL，但是比较灵活，适合于需求变化频繁，快速迭代的项目，比如：电商网站
@@ -83,7 +83,7 @@ head:
 
 MyBatis基本使用的过程大概可以分为这么几步：
 
-![Mybatis基本使用步骤](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-47bab2e8-5c08-4f61-9c0c-dddfe09fb2b5.png)
+![Mybatis基本使用步骤](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-47bab2e8-5c08-4f61-9c0c-dddfe09fb2b5.png)
 
 - 1）创建SqlSessionFactory
 
@@ -148,7 +148,7 @@ SqlSession相当于JDBC中的Connection，SqlSession 的实例不是线程安全
 
   
 
-![MyBatis主要组件生命周期](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-79f75371-14c9-4ac9-9d3b-5d80b22705a1.png)
+![MyBatis主要组件生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-79f75371-14c9-4ac9-9d3b-5d80b22705a1.png)
 
 当然，万物皆可集成Spring，MyBatis通常也是和Spring集成使用，Spring可以帮助我们创建线程安全的、基于事务的 SqlSession 和映射器，并将它们直接注入到我们的 bean 中，我们不需要关心它们的创建过程和生命周期，那就是另外的故事了。
 
@@ -156,11 +156,11 @@ SqlSession相当于JDBC中的Connection，SqlSession 的实例不是线程安全
 
 
 
-![这个应该会](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-2c55dfeb-bea1-466f-9b1e-d8c001856aa5.png)
+![这个应该会](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-2c55dfeb-bea1-466f-9b1e-d8c001856aa5.png)
 
 ### 4. 在mapper中如何传递多个参数？
 
-![mapper传递多个参数方法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-dd039a20-ae4f-4f6a-b497-01937073198b.png)
+![mapper传递多个参数方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-dd039a20-ae4f-4f6a-b497-01937073198b.png)
 
 **方法1：顺序传参法**
 
@@ -251,7 +251,7 @@ public User selectUser(User user);
 
 ### 7. `#{}和${}的区别`?
 
-![`#{}和${}比较`](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-8d2d5dc1-8f92-456d-b858-7d3a7888f2eb.png)
+![`#{}和${}比较`](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-8d2d5dc1-8f92-456d-b858-7d3a7888f2eb.png)
 
 - `#{}`是占位符，预编译处理；`${}`是拼接符，字符串替换，没有预编译处理。
 - Mybatis在处理`#{}`时，`#{}`传入参数是以字符串传入，会将SQL中的`#{}`替换为?号，调用PreparedStatement的set方法来赋值。
@@ -260,7 +260,7 @@ public User selectUser(User user);
 
 ### 8. 模糊查询like语句该怎么写?
 
-![concat拼接like](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-e5dde8ba-7808-410b-986a-2fc15ba55e21.png)
+![concat拼接like](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-e5dde8ba-7808-410b-986a-2fc15ba55e21.png)
 
 - 1 ’`%${question}%`’ 可能引起SQL注入，不推荐
 - 2 `"%"#{question}"%"` 注意：因为`#{…}`解析成sql语句时候，会在变量外侧自动加单引号’ '，所以这里 % 需要使用双引号" "，不能使用单引号 ’ '，不然会查不到任何结果。
@@ -278,7 +278,7 @@ public User selectUser(User user);
 
 当然可以，不止支持一对一、一对多的关联查询，还支持多对多、多对一的关联查询。
 
-![MyBatis级联](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-aa1e0cc1-1a5f-4efe-9aed-3081b15c9a2a.png)
+![MyBatis级联](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-aa1e0cc1-1a5f-4efe-9aed-3081b15c9a2a.png)
 
 - **一对一\<association>**
 
@@ -405,7 +405,7 @@ user.getId;
 
 MyBatis中有一些支持动态SQL的标签，它们的原理是使用OGNL从SQL参数对象中计算表达式的值，根据表达式的值动态拼接SQL，以此来完成动态SQL的功能。
 
-![MyBatis](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-f52c027d-25a5-4bd9-b5d3-1421655546a5.png)
+![MyBatis](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-f52c027d-25a5-4bd9-b5d3-1421655546a5.png)
 
 - if
 
@@ -500,7 +500,7 @@ FROM POST P
 
 ### 13. MyBatis如何执行批量操作？
 
-![MyBatis批量操作](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-24225f07-fbe6-40c8-a63b-a94983f9107a.png)
+![MyBatis批量操作](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-24225f07-fbe6-40c8-a63b-a94983f9107a.png)
 
 **第一种方法：使用foreach标签**
 
@@ -602,17 +602,17 @@ public interface EmployeeMapper {
 
 1. 一级缓存: 基于 PerpetualCache 的 HashMap 本地缓存，其存储作用域为SqlSession，各个SqlSession之间的缓存相互隔离，当 Session flush 或 close 之后，该 SqlSession 中的所有 Cache 就将清空，MyBatis默认打开一级缓存。
 
-![Mybatis一级缓存](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-54afb458-7dfc-4d48-9a90-4ad1a8739937.png)
+![Mybatis一级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-54afb458-7dfc-4d48-9a90-4ad1a8739937.png)
 
 2. 二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap 存储，不同之处在于其存储作用域为 Mapper(Namespace)，可以在多个SqlSession之间共享，并且可自定义存储源，如 Ehcache。默认不打开二级缓存，要开启二级缓存，使用二级缓存属性类需要实现Serializable序列化接口(可用来保存对象的状态),可在它的映射文件中配置。
 
-![Mybatis二级缓存示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-8dae71da-ffd4-43f5-9ee9-258ea82d216b.png)
+![Mybatis二级缓存示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-8dae71da-ffd4-43f5-9ee9-258ea82d216b.png)
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 原理
 
@@ -620,7 +620,7 @@ public interface EmployeeMapper {
 
 我们已经大概知道了MyBatis的工作流程，按工作原理，可以分为两大步：`生成会话工厂`、`会话运行`。
 
-![MyBatis的工作流程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-61ac17ef-9eee-48c0-9a2d-545e1d554b13.png)
+![MyBatis的工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-61ac17ef-9eee-48c0-9a2d-545e1d554b13.png)
 
 MyBatis是一个成熟的框架，篇幅限制，这里抓大放小，来看看它的主要工作流程。
 
@@ -628,7 +628,7 @@ MyBatis是一个成熟的框架，篇幅限制，这里抓大放小，来看看�
 
 构造会话工厂也可以分为两步：
 
-![构建会话工厂](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-234a4d1b-2d44-4576-9954-26f56162750e.png)
+![构建会话工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-234a4d1b-2d44-4576-9954-26f56162750e.png)
 
 - 获取配置
 
@@ -668,7 +668,7 @@ public SqlSessionFactory build(Configuration config) {
 
 会话运行是MyBatis最复杂的部分，它的运行离不开四大组件的配合：
 
-![MyBatis会话运行四大关键组件](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-da477d50-209e-45b3-a003-6d63e674bd99.png)
+![MyBatis会话运行四大关键组件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-da477d50-209e-45b3-a003-6d63e674bd99.png)
 
 - Executor（执行器）
 
@@ -755,12 +755,12 @@ public interface ResultSetHandler {
 
 整体上总结一下会话运行：
 
-![会话运行的简单示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-ebd0712a-1f62-4154-b391-2cb596634710.png)
+![会话运行的简单示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-ebd0712a-1f62-4154-b391-2cb596634710.png)
 
 
 > 我们最后把整个的工作流程串联起来，简单总结一下：
 
-![MyBatis整体工作原理图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-dc142e94-8e7f-4ec6-a1f6-1d20669292ad.png)
+![MyBatis整体工作原理图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-dc142e94-8e7f-4ec6-a1f6-1d20669292ad.png)
 
 1. 读取 MyBatis 配置文件——mybatis-config.xml 、加载映射文件——映射文件即 SQL 映射文件，文件中配置了操作数据库的 SQL 语句。最后生成一个配置对象。
 2. 构造会话工厂：通过 MyBatis 的环境等配置信息构建会话工厂 SqlSessionFactory。
@@ -772,7 +772,7 @@ public interface ResultSetHandler {
 
 ### 16. MyBatis的功能架构是什么样的？
 
-![MyBatis功能架构](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-c7b59a67-49f4-48f8-a25d-033daeea7e3e.png)
+![MyBatis功能架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-c7b59a67-49f4-48f8-a25d-033daeea7e3e.png)
 
 我们一般把Mybatis的功能架构分为三层：
 
@@ -784,7 +784,7 @@ public interface ResultSetHandler {
 
 四个字回答：**动态代理**，我们来看一下获取Mapper的过程：
 
-![Mapper代理](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-15e30a15-f34c-4aa4-b131-4ddc8620348e.png)
+![Mapper代理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-15e30a15-f34c-4aa4-b131-4ddc8620348e.png)
 
 
 - 获取Mapper
@@ -880,7 +880,7 @@ public Object execute(SqlSession sqlSession, Object[] args) {
 
 ### 18.Mybatis都有哪些Executor执行器？
 
-![Mybatis Executor类型](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-59340143-5155-4719-869e-304b5738b2f2.png)
+![Mybatis Executor类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-59340143-5155-4719-869e-304b5738b2f2.png)
 
 Mybatis有三种基本的Executor执行器，SimpleExecutor、ReuseExecutor、BatchExecutor。
 
@@ -899,7 +899,7 @@ Mybatis有三种基本的Executor执行器，SimpleExecutor、ReuseExecutor、Ba
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## 插件
 
@@ -909,11 +909,11 @@ Mybatis有三种基本的Executor执行器，SimpleExecutor、ReuseExecutor、Ba
 
 Mybatis会话的运行需要ParameterHandler、ResultSetHandler、StatementHandler、Executor这四大对象的配合，插件的原理就是在这四大对象调度的时候，插入一些我我们自己的代码。
 
-![MyBatis插件原理简图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-00f2581b-5aae-441a-83f7-75641b3ba010.png)
+![MyBatis插件原理简图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-00f2581b-5aae-441a-83f7-75641b3ba010.png)
 
 Mybatis使用JDK的动态代理，为目标对象生成代理对象。它提供了一个工具类`Plugin`，实现了`InvocationHandler`接口。
 
-![Plugin中调用插件方法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-c487f77a-9b87-4d9b-9a49-5aa87401b5e8.png)
+![Plugin中调用插件方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-c487f77a-9b87-4d9b-9a49-5aa87401b5e8.png)
 
 使用`Plugin`生成代理对象，代理对象在调用方法的时候，就会进入invoke方法，在invoke方法中，如果存在签名的拦截方法，插件的intercept方法就会在这里被我们调用，然后就返回结果。如果不存在签名方法，那么将直接反射调用我们要执行的方法。
 
@@ -992,7 +992,7 @@ MyBatis使用RowBounds对象进行分页，它是针对ResultSet结果集执行�
 
 可以看一下一个大概的MyBatis通用分页拦截器：
 
-![Mybatis-通用分页拦截器](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-0bcdca85-e127-44ff-92e0-368a3f089ec8.png)
+![Mybatis-通用分页拦截器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-0bcdca85-e127-44ff-92e0-368a3f089ec8.png)
 
 ---
 
@@ -1022,4 +1022,4 @@ MyBatis使用RowBounds对象进行分页，它是针对ResultSet结果集执行�
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

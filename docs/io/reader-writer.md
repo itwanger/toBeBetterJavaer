@@ -14,7 +14,7 @@ head:
 
 字符流Reader和Writer的故事要从它们的类关系图开始，啥都不说了，直接看图
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-472cf80a-c6d1-4952-b672-15cd54d06eaf.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-472cf80a-c6d1-4952-b672-15cd54d06eaf.png)
 
 ## 字符流
 
@@ -44,7 +44,7 @@ public class CharaterStream {
  
 具体现状分析：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
 
 
 > 字节流读取中文字符时，可能不会显示完整的字符，那是因为一个中文字符占用多个字节。
@@ -278,7 +278,7 @@ public class FlushDemo {
  
 运行效果是怎么样的呢？答案是b.txt文件中依旧是空的，并没有任何东西，为啥呢？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
 
 【注意】**关闭资源时,FileWriter与FileOutputStream不同，如果不关闭,数据只是保存到缓冲区，并未保存到文件。**
 
@@ -399,7 +399,7 @@ public class CopyFile {
 ```
  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0f158401-ee7b-4384-a566-be10bd264fbd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0f158401-ee7b-4384-a566-be10bd264fbd.png)
 
 > 最后再次强调：
 > 
@@ -448,4 +448,4 @@ public class HandleException1 {
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

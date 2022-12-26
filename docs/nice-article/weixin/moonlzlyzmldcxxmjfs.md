@@ -28,15 +28,15 @@ category:
 
 给大家看下「**专业技能**」栏，读者在这里写的基本都是他记得很熟的，不熟悉的框架尽量不要写上去，比如 rabbitmq 虽然你可能看过，但不是很熟，就不要乱写，免得面试中被问到回答不上来。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moonlzlyzmldcxxmjfs-10d1d347-ebae-4d38-b61a-78389e86a9b7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moonlzlyzmldcxxmjfs-10d1d347-ebae-4d38-b61a-78389e86a9b7.jpg)
 
 大家会发现，其实面试官**「基本都是按照你写的技能」**去问的，基本要求就是你简历上写的东西，你都需要熟悉，基本技能栏一定要**「体现某些技术的深度」**，能让面试官看出来你平常会有自己去深度学习
 
 再给大家看下「**项目经历**」栏
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moonlzlyzmldcxxmjfs-a2b7ca30-745a-4de7-9b2b-151a3e52caf5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moonlzlyzmldcxxmjfs-a2b7ca30-745a-4de7-9b2b-151a3e52caf5.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moonlzlyzmldcxxmjfs-ac47970a-2a28-4993-a60c-a5176a257fc8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-moonlzlyzmldcxxmjfs-ac47970a-2a28-4993-a60c-a5176a257fc8.jpg)
 
 这里就挑了两个项目给大家看下：要告诉大家的是，**「一个好的简历模板绝对能让你简历通过的几率大很多」**
 

@@ -16,7 +16,7 @@ head:
 
  今天我给大家推荐的这款国人开源的数据库设计工具 chiner，界面漂亮，功能强大，体验后给我的感觉是真香......
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-1.png)
 
 
 ## 一、关于 PowerDesigner
@@ -25,7 +25,7 @@ PowerDesigner 是一款功能非常强大的建模工具，可以和 Rational Ro
 
 不过，说句实在话，PowerDesigner 的界面偏古典一些，下面是我用 PowerDesigner 设计 DB 的效果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-2.png)
 
 ## 二、关于 chiner
 
@@ -39,7 +39,7 @@ chiner，发音：[kaɪˈnər]，使用React+Electron+Java技术体系构建的�
 
 在此，我们必须得为每一位开源作者奉上最真诚的掌声，希望他们的产品都能有一番天地。也希望，未来我的产品出现在大家的面前时，能给它多一点点包容和支持。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-3.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-3.gif)
 
 ## 三、安装 chiner
 
@@ -49,15 +49,15 @@ chiner 支持 Windows、macOS 和 Linux，下载地址如下所示：
 
 码云做了外部链接的拦截，导致直接复制链接到地址栏才能完成下载。我这里以 macOS 为例。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-4.png)
 
 安装完成后首次打开的样子是这样的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-5.png)
 
 chiner 提供了非常贴心的操作手册和参考模板，如果时间比较充分的话，可以先把操作手册过一遍，写得非常详细。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-6.png)
 
 ## 四、上手 chiner
 
@@ -69,31 +69,31 @@ chiner 提供了非常贴心的操作手册和参考模板，如果时间比较�
 
 第二步，选择导入 PowerDesigner 文件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-7.png)
 
 第三步，选择要添加的数据表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-8.png)
 
 第四步，导入完成后，就可以点开单表进行查看了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-9.png)
 
 第五步，当完成重新设计后，就可以选择导出 DDL 到数据库表了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-10.png)
 
 当然了，也可以直接配置数据库 DB，这样就可以直接连接导入导出了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-11.png)
 
 导出的 SQL 文件可以直接通过宝塔面板上传到服务器端，然后再直接导入到数据库。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-12.png)
 
 如果需要用到数据库说明文档的话，也可以直接通过导出到 Word 文档来完成。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-13.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-13.png)
 
 ### **02、维护数据类型**
 
@@ -101,41 +101,41 @@ chiner 自带了几种常见的数据类型，比如字串、小数、日期等�
 
 比如说默认的字串类型关联到其他数据库的类型如下所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-14.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-14.png)
 
 数据域是在数据类型的基础上，基于当前项目定义的有一定业务含义的数据类型，比如说我这里维护了一个长度为 90 的名称数据域。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-15.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-15.png)
 
 当我需要把某个数据字段的数据域设置成「名称」的时候，长度就会自动填充为 90，不需要手动再去设置。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-16.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-16.png)
 
 ### **03、维护数据表**
 
 第一步，选中数据表，右键选择「新增数据表」
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-17.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-17.png)
 
 第二步，填写数据表名
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-18.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-18.png)
 
 点击「确定」后，chiner 会帮我们自动生成一些常见常用的字段，比如说创建人、创建时间、更新人、更新时间等，非常的智能化。通常来说，这些字段都是必须的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-19.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-19.png)
 
 如果这些默认字段不满足需求的时候，还可以点击「设置」新增默认字段，比如说删除标记，一般来说为了安全起见，数据库都会采用非物理删除。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-20.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-20.png)
 
 一般来说，我们更习惯字段小写命名，因此可以直接选中一列，然后选择大小写转换。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-21.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-21.png)
 
 就变成小写了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-22.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-22.png)
 
 ### **04、维护关系图**
 
@@ -143,11 +143,11 @@ chiner 自带了几种常见的数据类型，比如字串、小数、日期等�
 
 第二步，把需要关联的表拖拽到右侧的面板当中，然后按照字段进行连线，非常的方便。比如说班级和学院表、班级和专业表的关系，就如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-23.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-23.png)
 
 来看一下整体给出来的关系图，还是非常清爽的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-24.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/chiner-24.png)
 
 ## 五、尾声
 
@@ -164,4 +164,4 @@ chiner 还有更多更强大的功能，大家觉得不错的话，可以去尝�
 >[https://www.yuque.com/chiner/docs/manual](https://www.yuque.com/chiner/docs/manual)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -15,7 +15,7 @@ RPC、gRPC、Thrift、HTTP，大家知道它们之间的联系和区别么？这
 
 不 BB，直接上文章目录：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-d8f41176-9369-4a6d-a885-14c6fd912e8c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-d8f41176-9369-4a6d-a885-14c6fd912e8c.jpg)
 
 ## 1\. RPC
 
@@ -25,7 +25,7 @@ RPC（Remote Procedure Call Protocol）远程过程调用协议，目标就是�
 
 RPC 框架负责屏蔽底层的传输方式（TCP 或者 UDP）、序列化方式（XML/Json/ 二进制）和通信细节，服务调用者可以像调用本地接口一样调用远程的服务提供者，而不需要关心底层通信细节和调用过程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-44b31841-6fa1-4c49-bd8d-d46f07f31a56.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-44b31841-6fa1-4c49-bd8d-d46f07f31a56.jpg)
 
 ### 1.2 为什么要用 RPC ？
 
@@ -46,7 +46,7 @@ RPC 框架负责屏蔽底层的传输方式（TCP 或者 UDP）、序列化方�
 
 要让网络通信细节对使用者透明，我们需要对通信细节进行封装，我们先看下一个 RPC 调用的流程涉及到哪些通信细节：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-10aab0c7-8cb6-43d6-89c8-1d46ba0c9034.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-10aab0c7-8cb6-43d6-89c8-1d46ba0c9034.jpg)
 
 1.  服务消费方（client）调用以本地调用方式调用服务；
 2.  client stub接收到调用后负责将方法、参数等组装成能够进行网络传输的消息体；
@@ -60,7 +60,7 @@ RPC 框架负责屏蔽底层的传输方式（TCP 或者 UDP）、序列化方�
 
 RPC 的目标就是要 2~8 这些步骤都封装起来，让用户对这些细节透明，下面是网上的另外一幅图，感觉一目了然：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-3122cede-0ac2-431e-b783-be71a23e49f1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-3122cede-0ac2-431e-b783-be71a23e49f1.jpg)
 
 ## 2\. gRPC
 
@@ -72,7 +72,7 @@ gRPC 是一个高性能、通用的开源 RPC 框架，其由 Google 2015 年主
 
 如下图，DATA 部分即业务层面内容，下面所有的信息都由 gRPC 进行封装。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-ef34af4a-eeb2-4cd9-a230-d6ee52b781cc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-ef34af4a-eeb2-4cd9-a230-d6ee52b781cc.jpg)
 
 ### 2.2 gRPC 的特点
 
@@ -84,7 +84,7 @@ gRPC 是一个高性能、通用的开源 RPC 框架，其由 Google 2015 年主
 
 ### 2.3 gRPC 交互过程
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-b238b8d1-5c4b-4f8e-8224-cd181ec505aa.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-b238b8d1-5c4b-4f8e-8224-cd181ec505aa.jpg)
 
 *   交换机在开启 gRPC 功能后充当 gRPC 客户端的角色，采集服务器充当 gRPC 服务器角色；
 *   交换机会根据订阅的事件构建对应数据的格式（GPB/JSON），通过 Protocol Buffers 进行编写 proto 文件，交换机与服务器建立 gRPC 通道，通过 gRPC 协议向服务器发送请求消息；
@@ -108,7 +108,7 @@ ProtoBuf 在 gRPC 的框架中主要有三个作用：定义数据结构、定�
 
 Protocol Buffers 不像前者，它会将字符串进行序列化后再进行传输，即**二进制数据**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-848f4e52-5818-4fb9-8272-bc4962a6a6ac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-848f4e52-5818-4fb9-8272-bc4962a6a6ac.jpg)
 
 可以看到其实两者内容相差不大，并且内容非常直观，但是 Protocol Buffers 编码的内容只是提供给操作者阅读的，实际上传输的并不会以这种文本形式，而是序列化后的二进制数据，字节数会比 JSON、XML 的字节数少很多，速率更快。
 
@@ -155,15 +155,15 @@ HTTP 1.X 定义了四种与服务器交互的方式，分别为 GET、POST、PUT
 
 Auth0 网站所做的性能测试结果显示，protobuf 和 JSON 的优势差异在 Java、Python 等环境中尤为明显，下图是 Auth0 在两个 Spring Boot 应用程序间所做的对比测试结果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-12e3ca24-ca97-4f8c-a3c6-bc3f86545a2f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-12e3ca24-ca97-4f8c-a3c6-bc3f86545a2f.jpg)
 
 结果显示，**protobuf 所需的请求时间最多只有 JSON 的 20% 左右，即速度是其 5 倍!**
 
 下面看一下性能和空间开销对比。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-b525c88e-4120-4356-8d9d-79de50833439.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-b525c88e-4120-4356-8d9d-79de50833439.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-45a3c518-4ee6-424a-988a-85670d99f643.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-45a3c518-4ee6-424a-988a-85670d99f643.jpg)
 
 从上图可得出如下结论：
 
@@ -177,7 +177,7 @@ Auth0 网站所做的性能测试结果显示，protobuf 和 JSON 的优势差�
 
 我们先看一下项目结构：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-dbf556c2-1bc3-4614-bf17-587a8cb53cd2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-dbf556c2-1bc3-4614-bf17-587a8cb53cd2.jpg)
 
 ### 3.2 生成 protobuf 文件
 
@@ -294,7 +294,7 @@ message HelloReply {
 > *   下载 protoc.exe 工具 ，下载地址：https://github.com/protocolbuffers/protobuf/releases
 > *   下载 protoc-gen-grpc 插件, 下载地址: http://jcenter.bintray.com/io/grpc/protoc-gen-grpc-java/
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-a99b4636-fd35-4a9e-860c-22d2cc892fe4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-a99b4636-fd35-4a9e-860c-22d2cc892fe4.jpg)
 
 ### 3.3 服务端和客户端
 
@@ -416,15 +416,15 @@ public class HelloWorldServer {
 
 先启动 Server，返回如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-6a003725-6235-4214-9087-5d31995403d3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-6a003725-6235-4214-9087-5d31995403d3.jpg)
 
 再启动 Client，返回如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-d0a56a0c-5813-47d5-8235-fb97fc3455a8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-d0a56a0c-5813-47d5-8235-fb97fc3455a8.jpg)
 
 同时 Server返回如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-d6301f6b-b766-4c3d-8555-51db5d343d86.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zongjyllrhhbdzpgrpcxdpf-d6301f6b-b766-4c3d-8555-51db5d343d86.jpg)
 
 ### 3.5 项目代码
 

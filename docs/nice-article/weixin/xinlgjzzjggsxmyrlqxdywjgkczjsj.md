@@ -32,7 +32,7 @@ category:
 
 COLA 是由阿里大佬张建飞所提出的一种**业务代码架构的最佳实践**，并且已经在阿里云脚手架代码生成器中作为一个可选项，可见其已经拥有了一定影响力。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-3197a4cf-23b1-482e-97f9-95edebbeca22.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-3197a4cf-23b1-482e-97f9-95edebbeca22.jpg)
 
 **COLA 是 Clean Object-Oriented and Layered Architecture 的缩写，代表“整洁面向对象分层架构”。**
 
@@ -65,9 +65,9 @@ COLA 是由阿里大佬张建飞所提出的一种**业务代码架构的最佳�
 
 先来看两张官方介绍图
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-c593a058-36f3-4dd4-ad60-2f6f871c7673.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-c593a058-36f3-4dd4-ad60-2f6f871c7673.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-1b8335ad-af07-4530-ba6b-98fba15e9c96.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-1b8335ad-af07-4530-ba6b-98fba15e9c96.jpg)
 
 其次，还有一个官方的表格，介绍了 COLA 中每个层的命名和含义：
 
@@ -109,7 +109,7 @@ COLA 是由阿里大佬张建飞所提出的一种**业务代码架构的最佳�
 
 该模块作为整个应用的启动模块（通常是一个 SpringBoot 应用），只承担启动项目和全局相关配置项的存放职责。代码目录如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-1049297d-cf2e-4e78-8a09-5e2c36f875a9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-1049297d-cf2e-4e78-8a09-5e2c36f875a9.jpg)
 
 将启动独立出来，好处是清晰简洁，也能让新人一眼就看出如何运行项目，以及项目的一些基础依赖。
 
@@ -123,7 +123,7 @@ COLA 是由阿里大佬张建飞所提出的一种**业务代码架构的最佳�
 
 > Controller 这个名字主要是来自于 MVC，因为是 MVC，所以自带了 Web 应用的烙印。然而，随着 mobile 的兴起，现在很少有应用仅仅只支持 Web 端，通常的标配是 Web，Mobile，WAP 三端都要支持。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-9dc734c3-79d7-4df3-9f93-eb5359314bea.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-9dc734c3-79d7-4df3-9f93-eb5359314bea.jpg)
 
 ### cilent 层
 
@@ -137,7 +137,7 @@ COLA 是由阿里大佬张建飞所提出的一种**业务代码架构的最佳�
 
 所以在 COLA 中，你的 adapter 层，调用了 client 层，client 层中就是你服务接口的定义。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-dbe3f5e0-3e46-4481-81f9-1b436e03bf3b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-dbe3f5e0-3e46-4481-81f9-1b436e03bf3b.jpg)
 
 从上图中可以看到，client 包里有：
 
@@ -184,7 +184,7 @@ public class CustomerServiceImpl implements CustomerServiceI {
 
 接着上面说的，我们的 app 模块作为服务的实现，存放了各个业务的实现类，**并且严格按照业务分包**，这里划重点，**是先按照业务分包，再按照功能分包的**，为何要这么做，文章后面还会多说两句，先看图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-659865e3-5248-4920-bcc2-ae7cdfcf8a5e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-659865e3-5248-4920-bcc2-ae7cdfcf8a5e.jpg)
 
 customer 和 order 分别对应了消费着和订单两个业务子领域。里面是 COLA 定义 app 层下面三种功能：
 
@@ -199,7 +199,7 @@ customer 和 order 分别对应了消费着和订单两个业务子领域。里�
 
 接下来便是 domain，也就是领域层，先看一下领域层整体结构：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-130bad2c-36ed-47d0-9997-7e4b923dc27b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-130bad2c-36ed-47d0-9997-7e4b923dc27b.jpg)
 
 可以看到，首先是按照不同的领域（customer 和 order）分包，里面则是三种主要的文件类型：
 
@@ -266,7 +266,7 @@ public class CustomerGatewayImpl implements CustomerGateway {
 }
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-dc098f05-fd49-47c7-8281-eaee07f78626.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-dc098f05-fd49-47c7-8281-eaee07f78626.jpg)
 
 ### infrastructure 层
 
@@ -277,7 +277,7 @@ public class CustomerGatewayImpl implements CustomerGateway {
 | **Infra 层** | **mapper**  | **ibatis 数据库映射** | **否** |
 | **Infra 层** | **config**  | **配置信息**          | **否** |
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-77259bda-b1c4-4ac5-914c-cc020452750d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-77259bda-b1c4-4ac5-914c-cc020452750d.jpg)
 
 所有层讲完了，COLA4.0 很简单明了，**最后，在引用一段官方介绍博客原文来总结 COLA 的层级：**
 
@@ -299,9 +299,9 @@ public class CustomerGatewayImpl implements CustomerGateway {
 
 比如消费者 customer 和订单 order 两个领域是两个后端开发并行开发，两个人对于 dto，util 这些文件夹的命名习惯都不同，那么只会腐烂在各自的业务包下面，而不会将 dto,util,config 等文件夹放在一起，极容易引发文件冲突。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-e594e754-b536-4aea-90db-013549c47fc9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-e594e754-b536-4aea-90db-013549c47fc9.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-4a8d2c2f-cb82-4f07-8e3b-9a8ca717b378.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-4a8d2c2f-cb82-4f07-8e3b-9a8ca717b378.jpg)
 
 > 前面的包定义，都是功能维度的定义。为了兼顾领域维度的内聚性，我们有必要对包结构进行一下微调，即顶层包结构应该是按照领域划分，让领域内聚。
 
@@ -313,7 +313,7 @@ public class CustomerGatewayImpl implements CustomerGateway {
 
 如果是外部的商品服务，你经过 API 调用后，商品域吐出的是一个大而全的 DTO（可能包含几十个字段），而在下单这个阶段，订单所需要的可能只是其中几个字段而已。你拿到了外部领域 DTO，转为自己领域的 Item，只留下标题价格库存等必要的数据字段。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-f0232dda-b392-4c68-8eb4-7c323adddee0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjzzjggsxmyrlqxdywjgkczjsj-f0232dda-b392-4c68-8eb4-7c323adddee0.jpg)
 
 ## COLA 并不完美
 

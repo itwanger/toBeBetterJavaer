@@ -18,7 +18,7 @@ category:
 
 再比如说我这个被 382 人赞同的关于高考填志愿的帖子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-zhonggdtldpxtzsjssysmsp-6f96abb9-3f7a-45c4-be6e-f6cfb2ed4824.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-zhonggdtldpxtzsjssysmsp-6f96abb9-3f7a-45c4-be6e-f6cfb2ed4824.png)
 
 讲良心话，我这个帖子还是非常高质量的，如果你身边有亲戚朋友想问计算机专业方面的问题，可以把这个帖子转发给他，全文近一万字，全部干货。给大家先预览一部分内容，后面等高考分数出来，我再修改一版发到公众号。
 
@@ -88,7 +88,7 @@ category:
 但当我看到这些评论都是作者自己加精后，我似乎悟了，这分明是作者在钓鱼。。。。。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-zhonggdtldpxtzsjssysmsp-531c2864-94ae-43a5-8c03-5bda14f89c39.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-zhonggdtldpxtzsjssysmsp-531c2864-94ae-43a5-8c03-5bda14f89c39.png)
 
 
 再来看看认真答题的，比如说 liujunsong：
@@ -145,7 +145,7 @@ category:
 据知友所说，国铁集团下属的铁科院电子所，领军的牛人叫单杏花，是 12306 的最强大脑。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-zhonggdtldpxtzsjssysmsp-991367ee-8046-49de-873c-bd3a0f417284.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-zhonggdtldpxtzsjssysmsp-991367ee-8046-49de-873c-bd3a0f417284.png)
 
 所以说，小伙伴们有机会的话，可以考虑考虑铁科院电子所。。。。。。
 
@@ -155,5 +155,5 @@ category:
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

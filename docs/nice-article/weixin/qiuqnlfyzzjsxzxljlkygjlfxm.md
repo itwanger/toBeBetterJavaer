@@ -67,7 +67,7 @@ StringUtils.isEmpty(" ")       = false；   
 
 判断字符串是否为空，使用频率非常高，这里大家可以使用 IDEA Prefix 的功能，输入直接生成判空语句。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qiuqnlfyzzjsxzxljlkygjlfxm-c4ae886a-15bf-463e-9601-27a9d9b1bd33.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-qiuqnlfyzzjsxzxljlkygjlfxm-c4ae886a-15bf-463e-9601-27a9d9b1bd33.jpg)
 
 ### 字符串固定长度
 

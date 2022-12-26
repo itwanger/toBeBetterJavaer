@@ -31,7 +31,7 @@ category:
 
 这一年，我和班里的一群新同学去逛了荆州的很多地方比如荆州博物馆、长江大桥、张居正故居、关帝庙。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-36aef006-32e4-4ce1-8dd8-2fe1c2a19443.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-36aef006-32e4-4ce1-8dd8-2fe1c2a19443.jpg)
 
 大一的一次班级出行
 
@@ -47,21 +47,21 @@ category:
 
 下面这些都是我和社团的小伙伴利用课外时间自己做的，在圣诞节那周基本都卖完了。我记得，为了能够多卖一些，我们还挨个去每一个寝室推销了一遍。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-54de3529-f912-446c-bd02-89100ccd12ae.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-54de3529-f912-446c-bd02-89100ccd12ae.jpg)
 
 我还参加了大一元旦晚会，不过，那次演出我还是没放开，说实话，感觉没有表现出应该有的那味。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-376790e3-b2fe-48b4-9659-1f51f28911ac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-376790e3-b2fe-48b4-9659-1f51f28911ac.jpg)
 
 经过这次演出之后，我发现我是真的没有表演的天赋，很僵硬。并且，这种僵硬呆板是自己付出努力之后也没办法改变的。
 
 下图是某一次社团聚餐，我喝的有点小醉之后，被朋友拍下的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-7cedc10b-ad61-438a-a64b-578a8548a7b0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-7cedc10b-ad61-438a-a64b-578a8548a7b0.jpg)
 
 那时候，还经常和和社团的几位小伙伴一起去夜走荆州古城墙。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-4cdf5fe4-b8e6-4ddf-85f0-252f17d29720.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-4cdf5fe4-b8e6-4ddf-85f0-252f17d29720.jpg)
 
 某一次要去夜走古城墙的路上我拍的
 
@@ -83,25 +83,25 @@ category:
 
 每个周末我都会从荆州坐车跑到孝感，在各个县城之间来回跑。绝大部分时候，只有我一个人，偶尔也会有几个社团的小伙伴陪我一起。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-3fbffc13-bed3-4ce6-9478-bbd0a3589279.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-3fbffc13-bed3-4ce6-9478-bbd0a3589279.jpg)
 
 记忆犹新，那一年孝感也是闹洪水，还挺严重的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-69805055-6fb7-4635-9341-52b226597b2d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-69805055-6fb7-4635-9341-52b226597b2d.jpg)
 
 有一次我差点回不去学校参加期末考试。虽然没有备考，但是也没有挂过任何一门课，甚至很多科目考的还不错。不过，这还是对我绩点产生了比较大的影响，导致我后面没有机会拿到奖学金。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-ad8cf3b1-ddd7-46f0-a37c-ea4cf3e13353.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-ad8cf3b1-ddd7-46f0-a37c-ea4cf3e13353.jpg)
 
 这次比较赶时间，所以就坐的是火车回学校。在火车上竟然还和别人撞箱子了！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-14cf9767-b85b-4cfd-9f1f-5c5121f65dcb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-14cf9767-b85b-4cfd-9f1f-5c5121f65dcb.jpg)
 
 当时去小乡镇上的时候，自己最差的时候住过 15 元的旅馆。真的是 15 元，你没看错。就那种老旧民房的小破屋，没有独卫，床上用品也很不卫生，还不能洗澡。
 
 下面这个还是我住过最豪华的一个，因为当时坐客车去了孝感之后，突然下大雨，我就在车站附近找了一个相对便宜点的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-195dbef0-8aa3-43b2-a80a-0711e5d42b01.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-195dbef0-8aa3-43b2-a80a-0711e5d42b01.jpg)
 
 为了以更低的价钱租到房子，我经常和房东砍价砍的面红耳赤。
 
@@ -113,7 +113,7 @@ category:
 
 我一个人给 6 个老师加上 10 来个学生和房东们一家做了一个多月的饭，我的厨艺也因此得到了很大的锻炼。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-f73bcede-cd47-4c38-8f41-d73683e14d21.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-f73bcede-cd47-4c38-8f41-d73683e14d21.jpg)
 
 这些学生有小学的，也有初中的，都比较听话。有很多还是留守儿童，爸爸妈妈在外打工，跟着爷爷奶奶一起生活。
 
@@ -121,11 +121,11 @@ category:
 
 学生们都挺听话，没有出现和我们几个老师闹过矛盾。只有两个调皮的小学生被我训斥之后，怀恨在心，写下了一些让我忍俊不禁的话！哈哈哈哈！太可爱了！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-76a7771c-deff-42ba-9628-8a906de98de5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-76a7771c-deff-42ba-9628-8a906de98de5.jpg)
 
 离开之前的前一天的晚上，我和老师们商量请一些近点的同学们来吃饭。我们一大早就出去买菜了，下图是做成后的成品。虽然是比较简单的一顿饭，但我们吃的特别香。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-91adc6bc-e341-4a03-a3d3-4f6125643b64.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-91adc6bc-e341-4a03-a3d3-4f6125643b64.jpg)
 
 补习班的最后一顿晚餐
 
@@ -139,13 +139,13 @@ category:
 
 大一尾声的时候，还做了一件非常有意义的事情。我和我的朋友们去了一次孤儿院（荆州私立孤儿教养院）。这个孤儿院曾经还被多家电视台报道过，目前也被百度百科收录。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-7f19e983-cf84-4902-8e4c-8c75be48506d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-7f19e983-cf84-4902-8e4c-8c75be48506d.jpg)
 
 孤儿院的孩子们，大多是一些无父无母或者本身有一些疾病被父母遗弃的孩子。
 
 去之前，我们买了很多小孩子的玩具、文具、零食这些东西。这些钱的来源也比较有意义，都是我和社团的一些小伙伴自己去外面兼职赚的一些钱。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-6289e249-76ab-4e94-99f8-239f51272c5f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-6289e249-76ab-4e94-99f8-239f51272c5f.jpg)
 
 离开之前和创建孤儿院的老爷爷的一张合照
 
@@ -153,13 +153,13 @@ category:
 
 我想看看这个孤儿院的现状，于是在网上有搜了一下，看到了去年 1 月份荆州新闻网的一份报道。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-a3e98879-0373-4e63-a877-9898c5418460.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-a3e98879-0373-4e63-a877-9898c5418460.jpg)
 
 孤儿教养院创办 33 年来，累计收养孤儿 85 人，其中有 5 人参军入伍报效祖国，20 人上大学，有的早已参加工作并成家立业。
 
 叔叔也慢慢老了，白发越来越多。有点心酸，想哭，希望有机会再回去看看您！一定会的！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-b04bb470-f7d2-420e-bc9b-eba37cc50fa8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-b04bb470-f7d2-420e-bc9b-eba37cc50fa8.jpg)
 
 ### 徒步旅行
 
@@ -167,7 +167,7 @@ category:
 
 我和一群社团的小伙伴，徒步走了接近 45 公里。我们从学校的西校区，徒步走到了枝江那边的一个沙滩。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-2708e7c7-372b-4fa3-9eea-32be9f037016.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-2708e7c7-372b-4fa3-9eea-32be9f037016.jpg)
 
 是真的全程步行，这还是我第一次走这么远。
 
@@ -175,7 +175,7 @@ category:
 
 我们在沙滩上露营，烧烤，唱歌跳舞，一直到第二天早上才踏上回学校的路程。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-ed037d8a-d703-4fe5-9db9-10addc8605a7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-ed037d8a-d703-4fe5-9db9-10addc8605a7.jpg)
 
 大二
 --
@@ -194,19 +194,19 @@ category:
 
 比如我们一起去了长江边上烧烤露营。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-c0f57a17-0beb-4efa-83d2-e5b2967313f7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-c0f57a17-0beb-4efa-83d2-e5b2967313f7.jpg)
 
 再比如我们一起去环跑了古城墙。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-21d8de8c-cfd9-4fa9-8eb8-f9ce241ef54b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-21d8de8c-cfd9-4fa9-8eb8-f9ce241ef54b.jpg)
 
 大学那会，我还是非常热爱运动的！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-b983cf79-535c-4cfa-8de3-6c0fa4596fac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-b983cf79-535c-4cfa-8de3-6c0fa4596fac.jpg)
 
 大二那会，我就已经环跑了 3 次古城墙。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-c159e123-38a9-43ad-bc5a-132849f69222.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-c159e123-38a9-43ad-bc5a-132849f69222.jpg)
 
 ### 加入长大在线
 
@@ -214,11 +214,11 @@ category:
 
 在百度上，还能搜索到长大在线的词条。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-8ea107d8-8e02-4815-a7d5-c273d64bdf7a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-8ea107d8-8e02-4815-a7d5-c273d64bdf7a.jpg)
 
 莫名其妙还被发了一个记者证，哈哈哈！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-51177217-73d4-4e19-9e84-9cb0e6af349c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-51177217-73d4-4e19-9e84-9cb0e6af349c.jpg)
 
 我选的是安卓组，然后我就开始了学习安卓开发的旅程。
 
@@ -226,7 +226,7 @@ category:
 
 再到后面，我留下来当了副站长，继续为组织服务了大半年多。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-15232c45-ffd0-4cce-9b10-219fb62a058c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-15232c45-ffd0-4cce-9b10-219fb62a058c.jpg)
 
 ### 第一次参加比赛
 
@@ -234,7 +234,7 @@ category:
 
 参加比赛之前，自己也是一个 PPT 小白，苦心学了一周多之后，我的一个作品竟然顺利获得了第一名。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-40660af3-0e64-4433-a8e0-3c157e4f458a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-40660af3-0e64-4433-a8e0-3c157e4f458a.jpg)
 
 也正是因为这次比赛，我免费拥有了自己的第一个机械键盘，这个键盘陪我度过了后面的大学生活。
 
@@ -244,7 +244,7 @@ category:
 
 每次忙到很晚，一个人走在校园的时候还是很爽的！非常喜欢这种安静的感觉。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-6640bb27-fdef-44fe-bac2-52f421d56332.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-6640bb27-fdef-44fe-bac2-52f421d56332.jpg)
 
 当时身体素质真好，熬夜之后第二天照常起来上课学习。现在熬个夜，后面两天直接就废了！
 
@@ -254,13 +254,13 @@ category:
 
 那个时候还贼自恋，没事就喜欢自拍一张。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-7456671b-934b-47ce-b72d-bf7a6c462c8c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-7456671b-934b-47ce-b72d-bf7a6c462c8c.jpg)
 
 国庆节的时候也不回家，继续在学校刷 Java 视频和书籍。
 
 我记得那次国庆节的时候效率还是非常高的，学习起来也特别有动力。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-db6600de-c459-4796-87b5-c125ef3e0845.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-db6600de-c459-4796-87b5-c125ef3e0845.jpg)
 
 大三
 --
@@ -275,11 +275,11 @@ category:
 
 我的开源项目 JavaGuide 和公众号都是这一年启动的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-2b492874-47ae-4c4f-8e99-caa354335496.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-2b492874-47ae-4c4f-8e99-caa354335496.jpg)
 
 目前的话，JavaGuide 也已经 100k star ，我的公众号也已经有 15w+ 的关注。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-26ba1e9b-65f1-4bfb-88ac-c74da20805d7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-26ba1e9b-65f1-4bfb-88ac-c74da20805d7.jpg)
 
 ### 接私活赚钱
 
@@ -293,7 +293,7 @@ category:
 
 商城类型的项目大概的架构图如下（没有找到当时自己画的原图）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-1d02fcde-8c39-40b1-bffd-f1a869e00457.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-1d02fcde-8c39-40b1-bffd-f1a869e00457.jpg)
 
 那会商城项目貌似也已经烂大街了，用的人比较多。为了让自己的商城项目更有竞争力，对照着视频教程做完之后，我加入了很多自己的元素比如更换消息队列 ActiveMQ 为 Kafka、增加二级缓存。
 
@@ -352,7 +352,7 @@ category:
 
 到了武汉之后，我花了一天时间找了一个蛋壳公寓住下。第二天，我就跑去武汉理工大学参加宣讲会。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-035a9024-1965-45ac-a016-fe34efba258a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-035a9024-1965-45ac-a016-fe34efba258a.jpg)
 
 当天，我就面试了自己求职过程中的第一家公司—**玄武科技**。
 
@@ -370,7 +370,7 @@ category:
 
 不过，我最终如愿以偿获得了 ThoughtWorks 的 offer。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-a8215350-6d82-413a-958f-a3e3e35ba63d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-a8215350-6d82-413a-958f-a3e3e35ba63d.jpg)
 
 面试 ThoughtWorks 的过程就不多说了，我在[《结束了我短暂的秋招，说点自己的感受》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247484842&idx=1&sn=4489dfab0ef2479122b71407855afc71&chksm=cea24a61f9d5c3774a8ed67c5fcc3234cb0741fbe831152986e5d1c8fb4f36a003f4fb2f247e&scene=21&cur_album_id=1323354342556057602#wechat_redirect)这篇文章中有提到。
 
@@ -406,7 +406,7 @@ category:
 
 欢迎加入我的[知识星球](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247519201&idx=1&sn=b910e72ec34a1447ecece7e993bc977d&chksm=cea1c42af9d64d3c69ba4849fc9175b26a2219d67c2aa6dabb7b73d95f4c41b8a9461e818243&token=1878783075&lang=zh_CN&scene=21#wechat_redirect)获取更多面试干货，[《Java 面试指北》](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247519384&idx=1&sn=bc7e71af75350b755f04ca4178395b1a&chksm=cea1c353f9d64a458f797696d4144b4d6e58639371a4612b8e4d106d83a66d2289e7b2cd7431&token=660789642&lang=zh_CN&scene=21#wechat_redirect)持续更新完善中！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-e88c9251-efa4-40d4-bacf-11d7f56fb45d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haibysnl-e88c9251-efa4-40d4-bacf-11d7f56fb45d.jpg)
 
 《Java 面试指北》目录
 

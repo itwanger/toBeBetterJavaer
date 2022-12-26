@@ -13,7 +13,7 @@ category:
 
 要追问为什么，估计大家也能说出个大概。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-b20a3dca-e8f6-4f9c-b008-f1939a7bccbc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-b20a3dca-e8f6-4f9c-b008-f1939a7bccbc.jpg)
 
 但这也让人好奇，**用 UDP 就一定比用 TCP 快吗？什么情况下用 UDP 会比用 TCP 慢？**
 
@@ -43,13 +43,13 @@ fd = socket(AF_INET, 具体协议,0);
 
 注意上面的"**具体协议**"，如果传入的是`SOCK_STREAM`，是指使用**字节流**传输数据，说白了就是**TCP 协议**。
 
-![TCP 是什么](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-528c468a-63e4-4680-a7ce-e63210c55174.jpg)
+![TCP 是什么](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-528c468a-63e4-4680-a7ce-e63210c55174.jpg)
 
 
 
 如果传入的是`SOCK_DGRAM`，是指使用**数据报**传输数据，也就是**UDP 协议**。
 
-![UDP 是什么](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-fc9eee64-dd0a-44f8-b6b2-0eab4c418df2.jpg)
+![UDP 是什么](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-fc9eee64-dd0a-44f8-b6b2-0eab4c418df2.jpg)
 
 
 
@@ -59,7 +59,7 @@ fd = socket(AF_INET, 具体协议,0);
 
 **如果一切顺利**，此时对方执行接收消息的操作，也就是 `recv(fd, msg, ...)`，就能拿到你发的消息。
 
-![udp 发送接收过程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-c29c8907-5890-424f-8461-c812d5c92fc1.jpg)
+![udp 发送接收过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-c29c8907-5890-424f-8461-c812d5c92fc1.jpg)
 
 
 
@@ -85,7 +85,7 @@ TCP 老实人石锤了。我们来看下这个老实人在背后都默默做了�
 
 如果长时间等不到对方的确认，TCP 就会重新发一次消息，这就是所谓的**重传机制**。
 
-![TCP 重传](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-a2c82ddf-4fb8-40d4-8b8a-0650b925d251.jpg)
+![TCP 重传](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-a2c82ddf-4fb8-40d4-8b8a-0650b925d251.jpg)
 
 
 
@@ -97,7 +97,7 @@ TCP 老实人石锤了。我们来看下这个老实人在背后都默默做了�
 
 因为数据发送方和接收方处理数据能力可能不同，因此如果可以根据双方的能力去调整发送的数据量就好了，于是就有了**发送和接收窗口**，基本上从名字就能看出它的作用，比如**接收窗口的大小**就是指，接收方当前**能接收的数据量大小**，**发送窗口的大小**就指发送方当前能发的数据量大小。TCP 根据窗口的大小去控制自己发送的数据量，这样就能大大减少丢包的概率。
 
-![流量控制机制](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-9130e2e1-2005-4943-8a35-6cf9d0ac2f2c.jpg)
+![流量控制机制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-9130e2e1-2005-4943-8a35-6cf9d0ac2f2c.jpg)
 
 
 
@@ -107,7 +107,7 @@ TCP 老实人石锤了。我们来看下这个老实人在背后都默默做了�
 
 看到这里大家可能就有点迷了，**流量控制和滑动窗口机制貌似很像，它们之间是啥关系？**我总结一下。其实现在 TCP 是**通过滑动窗口机制来实现流量控制机制的**。
 
-![滑动窗口机制](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-d2dc9fd5-ca0b-4a59-99ef-520dccd0c80f.jpg)
+![滑动窗口机制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-d2dc9fd5-ca0b-4a59-99ef-520dccd0c80f.jpg)
 
 
 
@@ -119,7 +119,7 @@ TCP 会先慢慢试探的发数据，不断加码数据量，越发越多，先�
 
 不少人会疑惑流量控制和拥塞控制的关系。我这里小小的总结下。**流量控制**针对的是**单个连接**数据处理能力的控制，**拥塞控制**针对的是**整个网络环境**数据处理能力的控制。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-caea3945-36df-4766-9190-3d57b5d84eaf.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-caea3945-36df-4766-9190-3d57b5d84eaf.jpg)
 
 
 ### 分段机制
@@ -130,19 +130,19 @@ TCP 会先慢慢试探的发数据，不断加码数据量，越发越多，先�
 
 而这个所谓的一小段的长度，在传输层叫**MSS**（**Maximum Segment Size**），数据包长度大于 MSS 则会分成 N 个小于等于 MSS 的包。
 
-![MSS 分包](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-f3b10e02-3fc3-4d6b-a264-5fbd09ecc3ef.jpg)
+![MSS 分包](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-f3b10e02-3fc3-4d6b-a264-5fbd09ecc3ef.jpg)
 
 
 
 而在网络层，如果数据包还大于**MTU（Maximum Transmit Unit）**，那还会继续分包。
 
-![MTU 分包](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-077bc3b6-3dc0-43a7-af50-71342f2163e0.jpg)
+![MTU 分包](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-077bc3b6-3dc0-43a7-af50-71342f2163e0.jpg)
 
 
 
 一般情况下，`MSS=MTU-40Byte`，所以**TCP 分段后，到了 IP 层大概率就不会再分片了**。
 
-![MSS 和 MTU 的区别](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-95d1b217-4c06-4447-a324-6ac9ac56f815.jpg)
+![MSS 和 MTU 的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-95d1b217-4c06-4447-a324-6ac9ac56f815.jpg)
 
 
 
@@ -152,7 +152,7 @@ TCP 会先慢慢试探的发数据，不断加码数据量，越发越多，先�
 
 后发的数据包先到是吧，那就先放到专门的**乱序队列**中，等数据都到齐后，重新整理好乱序队列的数据包顺序后再给到用户，这就是**乱序重排机制**。
 
-![乱序队列等待数据包的到来](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-9dd70650-8eae-43a2-a3e1-dcd7404df0b6.jpg)
+![乱序队列等待数据包的到来](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-9dd70650-8eae-43a2-a3e1-dcd7404df0b6.jpg)
 
 
 
@@ -214,13 +214,13 @@ TCP 通过上面提到的各种机制实现了数据的可靠性。这些机制�
 
 在`TCP`里，它内部会根据`MSS`的大小**分段**，这时候进入到 IP 层之后，每个包大小都不会超过`MTU`，因此 IP 层一般不会再进行分片。这时候发生丢包了，只需要**重传每个 MSS 分段**就够了。
 
-![TCP 分段](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-5ba64a40-80ff-4b18-9105-e0492db5eb08.jpg)
+![TCP 分段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-5ba64a40-80ff-4b18-9105-e0492db5eb08.jpg)
 
 
 
 但对于`UDP`，其本身并不会分段，如果数据过大，到了 IP 层，就会进行分片。此时发生丢包的话，再次重传，就会**重传整个大数据包**。
 
-![UDP 不分段](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-a9b8400d-47f0-4b9d-b3e8-8a89c81f042b.jpg)
+![UDP 不分段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-udpjydbtcpkm-a9b8400d-47f0-4b9d-b3e8-8a89c81f042b.jpg)
 
 
 

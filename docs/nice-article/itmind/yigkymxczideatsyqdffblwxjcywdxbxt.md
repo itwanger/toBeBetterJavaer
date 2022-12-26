@@ -20,9 +20,9 @@ head:
 
 笔者发现一个可以 无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定，再也不用担心激活码经常失效的问题了，具体步骤跟着下面的图文教程一步一步来就行，非常简单哟。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-e9652ec7-6897-426b-a77b-e500bb4de469.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-e9652ec7-6897-426b-a77b-e500bb4de469.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-d3c39ae6-93c0-43f3-8563-f2d01bdd81aa.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-d3c39ae6-93c0-43f3-8563-f2d01bdd81aa.png)
 
 ## 注意
 
@@ -52,7 +52,7 @@ z 大的破解补丁项目已经停止更新了，但是提供了另外一个方
 
 我们先从 IDEA 官网下载 IDEA 2021.1.3 版本的安装包
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-9a824001-33db-4924-90f3-66091d956dd8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-9a824001-33db-4924-90f3-66091d956dd8.png)
 
 点击下载，静心等待其下载完毕即可。
 
@@ -64,11 +64,11 @@ z 大的破解补丁项目已经停止更新了，但是提供了另外一个方
 
 1.笔者之前安装了老版本的 IDEA, 所以要先卸载，未安装老版本 IDEA 的小伙伴直接跳过，看后面步骤就行:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-b7d15e97-8a55-49ef-84d5-91a8a768ffb6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-b7d15e97-8a55-49ef-84d5-91a8a768ffb6.png)
 
 卸载成功后，点击关闭:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-d7da326d-9c35-4c8a-933a-62274314d63f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-d7da326d-9c35-4c8a-933a-62274314d63f.png)
 
 卸载成功后，双击刚刚下载好的  `idea` exe 格式安装包, 打开它；
 
@@ -76,29 +76,29 @@ z 大的破解补丁项目已经停止更新了，但是提供了另外一个方
 
 2.安装目录默认为  `C:\Program Files\JetBrains\IntelliJ IDEA 2021.1.3`, 这里笔者选择的是默认路径:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-02003c77-ce88-4b3c-b0e7-4ff9694b11ab.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-02003c77-ce88-4b3c-b0e7-4ff9694b11ab.png)
 
 3.勾选自己想要创建的桌面快捷方式，笔者的操作系统是 64 位的，所以勾选的 64 位快捷方式：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-96378b61-e4de-4f20-8a8f-4de642b3f091.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-96378b61-e4de-4f20-8a8f-4de642b3f091.png)
 
 4.点击  `Install` ：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-c56d453c-98c2-4ee4-9fb3-0a70f9f15564.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-c56d453c-98c2-4ee4-9fb3-0a70f9f15564.png)
 
 5.安装完成后，勾选  `Run IntelliJ IDEA`，点击  `Finish` 运行软件:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-872d7970-c325-478a-b23a-7e06dcd206b6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-872d7970-c325-478a-b23a-7e06dcd206b6.png)
 
 ## 第四步： 开始激活
 
 6.等待 IDEA 2021.1.3 运行, 中间会先弹出一个注册框，我们勾选  `Evaluate for free`, 点击  `Evaluate`， 先试用 30 天:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-1ec4356d-2593-4227-b570-9ddad69827ce.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-1ec4356d-2593-4227-b570-9ddad69827ce.png)
 
 **注意，如果没有弹出上面的界面，可执行重置 30 天试用期脚本，脚本网盘地址下面可获取**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-22773bba-f8a3-4df3-8e10-ea068e1cddda.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-22773bba-f8a3-4df3-8e10-ea068e1cddda.png)
 
 打开该文件夹后，有对应系统的执行脚本，执行即可：
 
@@ -109,7 +109,7 @@ linux/mac系统：reset_jetbrains_eval_mac_linux.sh
 
 7.进入 IDEA 中， 先随便新建个 Java 工程， 然后将网盘中最新的 IDEA 无限重置 30 天试用期补丁  `ide-eval-resetter-2.1.6.zip`拖入 IDEA 界面中，如下图所
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-e801203f-018c-4279-975c-c4ff6d5cb125.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-e801203f-018c-4279-975c-c4ff6d5cb125.png)
 
 > **注意**：
 >
@@ -121,23 +121,23 @@ linux/mac系统：reset_jetbrains_eval_mac_linux.sh
 
 **如果无法拖动安装，你可以在`Settings/Preferences...` -> `Plugins`  里手动安装插件（`Install Plugin From Disk...`），参考下图:**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-75ff7614-7d8a-4a98-a9a3-f2d5a9a7a742.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-75ff7614-7d8a-4a98-a9a3-f2d5a9a7a742.png)
 >
 > 注意： MacOS 系统可能会自动解压，然后把`zip`包丢进回收站, 需要注意一下~
 
 PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容易被封：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-a036d637-5de5-40ef-a561-c07c11e260c9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-a036d637-5de5-40ef-a561-c07c11e260c9.png)
 
 蛋疼 ing，为限制人数，目前暂不提供页面直接提取，**改为从笔者公众号提取**。
 
 **需要的小伙伴，扫描下方公众号二维码，或者关注下方公众号，回复关键字：idea , 即可免费无套路获取激活码、破解补丁，持续更新中~。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-dbe8722a-864f-4368-be75-ef7d7ae7cd23.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-dbe8722a-864f-4368-be75-ef7d7ae7cd23.png)
 
 插件安装成功后，会提示如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-2d20003b-b61e-4b67-9d6d-a2a46dec19ea.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-2d20003b-b61e-4b67-9d6d-a2a46dec19ea.png)
 
 ## 第六步: 重启 IDEA ！重启 IDEA！
 
@@ -151,9 +151,9 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 - 如果 IDE 没有打开项目，在`Welcome`界面点击菜单：`Get Help` -> `Eval Reset`
 - 如果 IDE 打开了项目，点击菜单：`Help` -> `Eval Reset`
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-a9d250a7-c2eb-4403-aefd-56b2dd3f7130.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-a9d250a7-c2eb-4403-aefd-56b2dd3f7130.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-f9c8a788-b41a-4144-9671-09bb80137fe0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-f9c8a788-b41a-4144-9671-09bb80137fe0.png)
 
 - 唤出的插件主界面中包含了一些显示信息，`2`个按钮，`1`个勾选项：
 - 按钮：`Reload` 用来刷新界面上的显示信息，其中包括上一次重置 30 天试用期的时间。
@@ -161,7 +161,7 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 
 > **有强迫症的小伙伴，若觉得自动重置不安心，可以通过这种方式来主动重置 30 天试用期，重置成功后，点击菜单 Help -> Register 可查看最新的剩余试用时间。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-5c0205b0-1269-41ed-9630-36ab59500236.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-5c0205b0-1269-41ed-9630-36ab59500236.png)
 
 - 勾选项：`Auto reset before per restart`  如果勾选了，则自勾选后**每次重启/退出 IDE 时会自动重置试用信息**，你无需做额外的事情。（**此为自动重置方式**）
 
@@ -171,17 +171,17 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 >
 > **PS: 注意：自动重置是当你重启 IDEA 的时候触发。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-95028dd8-e8dd-466d-8107-73d86486863e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-95028dd8-e8dd-466d-8107-73d86486863e.png)
 
 ## 第八步: 如何查看剩余的试用期
 
 进入 IDEA 界面后，点击  `Help` -> `Register` 查看：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-0d773cbc-63b1-4eec-9dc5-dd4a31bb8b6f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-0d773cbc-63b1-4eec-9dc5-dd4a31bb8b6f.png)
 
 可以看到，试用期还剩余 30 天：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-b1d39c35-5b69-44f9-8563-ba736a567d27.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind-yigkymxczideatsyqdffblwxjcywdxbxt-b1d39c35-5b69-44f9-8563-ba736a567d27.png)
 
 无限重置大法好呀，这样我们就相当于永久激活了 IDEA 了，比较重要的点是，这种方法非常稳定，不会动不动就失效。
 

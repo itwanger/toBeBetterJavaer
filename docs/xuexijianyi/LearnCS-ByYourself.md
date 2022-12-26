@@ -21,7 +21,7 @@ head:
 于是，我便真正走上了一条自学计算机的“不归路”。说“不归路”的原因在于，计算机科学是一个非常庞大的知识体系，我花了好多年的时间，仍然感觉到这条路上还有很多的未知等待我去探索。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-70e25595-b36b-408c-a8e4-3a67261826da.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-70e25595-b36b-408c-a8e4-3a67261826da.png)
 
 
 
@@ -61,20 +61,20 @@ head:
 你可以去编程语言排行榜（TIOBE，非常权威）看一下——关于近 10 年编程语言的变化。Java 长期霸占着这份榜单，并且还会持续更久，一门编程语言能有这么顽强的生命力，它一定有别的语言所没有的优点，它与生俱来的竞争力是别的语言无法取代的。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-322598db-68da-4003-ad38-430fed540d77.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-322598db-68da-4003-ad38-430fed540d77.png)
 
 
 ### [](#java-基础)Java 基础
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-ad65b6e6-7880-4c6d-9af2-24597046a77d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-ad65b6e6-7880-4c6d-9af2-24597046a77d.png)
 
 
 可以直接看二哥的 [Java 程序员进阶之路](https://tobebetterjavaer.com/)，这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路😄
 
 有了 Java 程序员进阶之路，你甚至不用去看《Java核心技术卷一》。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-52514452-0643-4c42-8e61-616ff04ed56c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-52514452-0643-4c42-8e61-616ff04ed56c.png)
 
 
 
@@ -92,13 +92,13 @@ head:
 因为这本书里囊括的 Java 基础知识，《Java 程序员进阶之路》网站上都囊括了！再推荐两套学习 Java 的视频，戳链接可直达。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-4f7920ff-0dd4-4070-af9d-9f19796efb6c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-4f7920ff-0dd4-4070-af9d-9f19796efb6c.png)
 
 
 [一套是动力节点的，B 站上有超过一千万的播放量](https://www.bilibili.com/video/BV1Rx411876f)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-c28c2bc4-7c46-4504-bcf2-da1c8a813153.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-c28c2bc4-7c46-4504-bcf2-da1c8a813153.png)
 
 
 [一套是尚硅谷的，宋红康老师讲解的](https://www.bilibili.com/video/BV1Kb411W75N)
@@ -109,7 +109,7 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-1f0a8b9d-43f4-42c1-9114-12103db32e80.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-1f0a8b9d-43f4-42c1-9114-12103db32e80.png)
 
 
 可以看一下这份《[深入浅出 Java 多线程](https://tobebetterjavaer.com/pdf/java-concurrent.html)》，几位在大厂工作过的技术大佬开源的，为了写好这份小册子，他们阅读了大量的 Java 并发编程方面的书籍和技术博客，加上他们在工作中积累的一线开发经验，汇聚而成。
@@ -146,7 +146,7 @@ head:
 *   Future 和 CompletableFuture
 
 ### [](#jvm)JVM
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-824cf838-00ac-4ebe-b887-3e1e212e5b54.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-824cf838-00ac-4ebe-b887-3e1e212e5b54.png)
 
 
 
@@ -227,7 +227,7 @@ head:
 给你推荐一门课，浙江大学翁恺教授的《[程序设计入门——C语言](https://www.icourse163.org/course/ZJU-199001?from=searchPage#/info)》，国家级精品课，很适合初学者。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-2535b639-2213-4dcf-9d73-42595a5fcbc8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-2535b639-2213-4dcf-9d73-42595a5fcbc8.png)
 
 
 
@@ -235,7 +235,7 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-7c60d140-e4d5-449d-9026-67867b9fa008.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-7c60d140-e4d5-449d-9026-67867b9fa008.png)
 
 
 
@@ -248,14 +248,14 @@ head:
 ### [](#sql)SQL
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-d0f18a18-a76a-413b-91b9-3dd7d99a2c76.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-d0f18a18-a76a-413b-91b9-3dd7d99a2c76.png)
 
 
 
 《[SQL 必知必会](https://book.douban.com/subject/35167240/)》是麻省理工学院、伊利诺伊大学等众多大学的参考教材，这本书直接从 SQL 的 SELECT 开始，讲述了实际工作环境中最常用和最必需的 SQL 知识，实用性极强。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-e8761c04-2585-4bbc-b84b-fb5fd5c9ceaf.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-e8761c04-2585-4bbc-b84b-fb5fd5c9ceaf.png)
 
 
 
@@ -267,14 +267,14 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-eb7ddcc0-4592-497a-abe4-356211e53577.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-eb7ddcc0-4592-497a-abe4-356211e53577.png)
 
 
 《[高性能 MySQL](https://book.douban.com/subject/23008813/)》，业界公认的一本经典的 MySQL 读物，书中没有各种提升性能的秘籍，而是深入问题的核心，详细的解释了每种提升性能的原理，从而可以使你四两拨千斤。
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-235a7d96-699d-4c8c-8f90-114f2aef22fc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-235a7d96-699d-4c8c-8f90-114f2aef22fc.png)
 
 
 
@@ -284,7 +284,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-f7d8b6a5-8764-41a9-8bb5-7a8a8f16a7f8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-f7d8b6a5-8764-41a9-8bb5-7a8a8f16a7f8.png)
 
 
 
@@ -312,7 +312,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-120c9bac-6cfd-4e5d-9a26-124f6af4121e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-120c9bac-6cfd-4e5d-9a26-124f6af4121e.png)
 
 
 
@@ -320,7 +320,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-019086f2-aa35-4e88-8fd5-a47b9363a89e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-019086f2-aa35-4e88-8fd5-a47b9363a89e.png)
 
 
 
@@ -330,7 +330,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-bdca293f-0448-46db-b1b9-6e39949b7d8d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-bdca293f-0448-46db-b1b9-6e39949b7d8d.png)
 
 
 
@@ -360,7 +360,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-05f90cc6-44bd-42eb-9d2c-23e47bb43db3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-05f90cc6-44bd-42eb-9d2c-23e47bb43db3.png)
 
 
 
@@ -378,7 +378,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-0472d100-5b28-4ec9-a94c-217ad661a157.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-0472d100-5b28-4ec9-a94c-217ad661a157.png)
 
 
 
@@ -398,7 +398,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-e7f73611-9a4b-47a1-8703-73456cce988c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-e7f73611-9a4b-47a1-8703-73456cce988c.png)
 
 
 
@@ -407,13 +407,13 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 操作系统是计算机系统中负责管理各种软硬件资源的核心系统软件，为应用软件运行提供良好的环境。[清华大学操作系统课-学堂在线](https://www.xuetangx.com/course/THU08091000267/5883104?channel=learn_title)这门课程以主流操作系统为实例，以教学操作系统 ucore 为实验环境，讲授操作系统的概念、基本原理和实现技术，是一门非常值得推荐的视频课。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-f43b517a-78c9-4064-836a-6eb275712f88.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-f43b517a-78c9-4064-836a-6eb275712f88.png)
 
 
 
 副本-[计算机科学速成课](https://www.bilibili.com/video/av21376839)：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-bbcd0afb-a240-4b56-b3ba-ea8923878ddf.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-bbcd0afb-a240-4b56-b3ba-ea8923878ddf.png)
 
 
 
@@ -429,7 +429,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 鉴于那么多的关于网络服务端和客户端的软件工程，计算机网络是计算机科学中价值最为“立竿见影”的领域之一。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-1a95df68-4aab-4e2a-8f72-e14d629819fe.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-1a95df68-4aab-4e2a-8f72-e14d629819fe.png)
 
 
 
@@ -437,7 +437,7 @@ CodeWithMosh 是目前市面上能找到的逻辑最清晰，最简单易懂的 
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-dae8a174-e854-487a-badc-bb93ba6f4bbb.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-dae8a174-e854-487a-badc-bb93ba6f4bbb.png)
 
 
 B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4411d7jb)视频课非常不错，强烈推荐。
@@ -471,7 +471,7 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-0eee1a08-7b44-4311-9b00-ef01a0bc0909.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-0eee1a08-7b44-4311-9b00-ef01a0bc0909.png)
 
 
 
@@ -529,7 +529,7 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-37cbc58f-2ced-4334-abc5-d74263008d80.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-37cbc58f-2ced-4334-abc5-d74263008d80.png)
 
 
 
@@ -537,7 +537,7 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-57502a19-c872-4a02-8347-3a4231cffd7e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-57502a19-c872-4a02-8347-3a4231cffd7e.png)
 
 
 
@@ -546,7 +546,7 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 ## [](#全部汇总)全部汇总
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-8614a576-2644-4f7a-a0b3-b133c6b35f45.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-8614a576-2644-4f7a-a0b3-b133c6b35f45.png)
 
 
 

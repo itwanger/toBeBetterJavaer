@@ -21,7 +21,7 @@ head:
 
 首先从工作内容上来说，外包等级一般最多就是高级程序员，上层有很多架构师做技术选型和业务分析，这些一般是轮不到你做的。而如果是日常的开发任务的话，其实是并没有太大的不一样，一般你分配到哪个组，行内人员做什么工作，你就会做什么工作，开发设备大家也是一样的，电脑配置都不会太高，处于让你刚好能开发，但是别想打游戏的程度。不过作为外包人员，一些操作权限上的确有所限制，比如如果出现一些网络环境升级的事情，行内人员不会变动，外包同事就会需要重新申请访问权限的情况，其实就和公司级别高低不同，手中账号权限也有不同一样而已。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-f711c44f-ebb2-4f7e-9b94-5a9b30d5f00b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-f711c44f-ebb2-4f7e-9b94-5a9b30d5f00b.jpg)
 
 银行大部分的人素质都很高，大家彼此之间也非常和气，有刚大学毕业的小伙子，也有工作十几二十年的二级、三级经理，大家彼此之间都是互称老师，同事之间有问题互相帮助是非常正常的事情，刚进来有很多环境和工具的不适应，处于到处问人的阶段，也基本找谁都能得到一定的回应，不用担心自己成为一座孤岛。
 
@@ -29,7 +29,7 @@ head:
 
 ### 使用的技术栈是否很落后，有提升空间吗
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-2c164b53-6c77-4f9a-bdec-b1e7087d41a7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-2c164b53-6c77-4f9a-bdec-b1e7087d41a7.jpg)
 
 以刚从一家小创业公司出来的程序员的技术能力和视野来说，银行的整体技术方向其实并不算很是落后，现在流行的分布式架构，SpringBoot，Kafka,Dubbo，ZooKeeper 这些常用技术都会用到，还有专门的技术中台组，中间件组等技术支持部门，行内最大的业务系统每日访问流量也有上亿的，同时有很丰富的技术社区，会分享技术选型的一些分析文章，以及一些使用文档，使用过程中有什么问题也可以随时上去发表讨论，跟进修改等。
 
@@ -45,7 +45,7 @@ head:
 
 待遇的话，只能说是比内部人员和大厂人员肯定是比不上的了，但是比起普通小公司，又稍微算是体面的了。毕竟很多外包公司是试用期全薪，入职交五险一金，每个月还会有绩效奖金，并且疫情期间也没有拖欠，至于年底双薪就是看公司的，同一家银行的不同外包公司也不一样，有些外包会和你说清楚没有年终，让你报可以接受的月薪，这也是为什么在这种时间入职外包很多，有的是没得选，有的是觉得真的也还不错。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-97954719-78f1-47f2-94af-741439b78ff8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-97954719-78f1-47f2-94af-741439b78ff8.jpg)
 
 而加不加班这个问题，也是看你进到的开发小组的进度赶不赶，有的组真的是 965 很舒服，也有的是一段时间内会加班，这些并不是绝对的，如果你说有事一般也不强求你加班。问过行内人，目前的加班多，主要是任务进度在疫情期间落下来了，需要赶紧补上，所以这段时间依旧会是外包招聘高峰期，也是忙碌期，而能得到的加班费比起加班量来说不是很划算，不过加班时长可以做为当月调休，这个是否值当就各自体会了。
 
@@ -65,7 +65,7 @@ head:
 
 **扫描下方二维码即可加我微信啦，`2022，抱团取暖，一起牛逼。`**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-01309b8e-c5d5-4d88-be8f-ca6bb2d0d668.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-01309b8e-c5d5-4d88-be8f-ca6bb2d0d668.jpg)
 
 ## 推荐阅读
 
@@ -80,6 +80,6 @@ head:
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-ebe735f5-7301-4b27-a35c-f4994f36e8ac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruzyhwbkfgzyyyllwbgsgzdyxzsgs-ebe735f5-7301-4b27-a35c-f4994f36e8ac.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/WkQI6OhGwds8m8TIMpqNmA](https://mp.weixin.qq.com/s/WkQI6OhGwds8m8TIMpqNmA)，出处：macrozheng，整理：沉默王二

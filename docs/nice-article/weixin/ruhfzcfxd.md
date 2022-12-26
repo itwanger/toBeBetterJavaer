@@ -15,7 +15,7 @@ head:
 
 > 关注公众号「**三分恶**」，回复「**666**」，领取七百多页独家原创的面试手册！
 > 
-> ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-2e3b7041-d317-4e79-9241-3dc098828a02.jpg)
+> ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-2e3b7041-d317-4e79-9241-3dc098828a02.jpg)
 > 
 > 面渣逆袭手册
 
@@ -23,7 +23,7 @@ head:
 
 我们从用户浏览商品开始，看看用户下单的简要过程：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-85e704f6-c73f-4881-8d30-ac80057f7bc3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-85e704f6-c73f-4881-8d30-ac80057f7bc3.jpg)
 
 用户下单简要过程
 
@@ -42,7 +42,7 @@ head:
 *   用户重复提交
 *   网络原因导致的超时重试
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-99b57ecc-6aa5-4100-ba56-63565c2dc037.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-99b57ecc-6aa5-4100-ba56-63565c2dc037.jpg)
 
 重复下单原因
 
@@ -54,7 +54,7 @@ head:
 
 PS：这里额外插入一点我对防重和幂等的理解：防重指的是防止重复提交，幂等指的是多次请求如一次，简单说，就是防重可以给对重复请求抛异常，幂等是对重复的请求响应第一次的结果，在我们讨论的这个场景里，幂等就是响应唯一的订单号。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-5a6a4a1d-66df-4fe7-80e9-fc6e2bd27bfd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-5a6a4a1d-66df-4fe7-80e9-fc6e2bd27bfd.jpg)
 
 防重和幂等
 
@@ -70,7 +70,7 @@ PS：这里额外插入一点我对防重和幂等的理解：防重指的是防
 
 可以在订单表`t_order`里添加一个字段：`requestId`，添加唯一索引：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-0f6232ba-4e09-4ef8-a56a-076de147575f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-0f6232ba-4e09-4ef8-a56a-076de147575f.jpg)
 
 唯一请求字段
 
@@ -79,7 +79,27 @@ PS：这里额外插入一点我对防重和幂等的理解：防重指的是防
 大概的代码如下：
 
 ```
-PlaceOrderResVO placeOrder(PlaceOrderReqVO reqVO) {  try {    //下单业务逻辑    ……    //生成订单号    String oid=generateOid();    ……    //订单落库    Order order = orderMapper.saveOrder(orderDO);     //响应订单    resVO.setOid(order.getOid());    return resVO;  } catch(UniqueKeyViolationException e) {    // 发生了重复异常    // 根据请求号获取订单    Order order = getOrderByRequestId(reqVO.getRequestId());    resVO.setOid(order.getOid());    return resVO;  } catch (Exception e) {  }}
+PlaceOrderResVO placeOrder(PlaceOrderReqVO reqVO) {
+  try {
+    //下单业务逻辑
+    ……
+    //生成订单号
+    String oid=generateOid();
+    ……
+    //订单落库
+    Order order = orderMapper.saveOrder(orderDO); 
+    //响应订单
+    resVO.setOid(order.getOid());
+    return resVO;
+  } catch(UniqueKeyViolationException e) {
+    // 发生了重复异常
+    // 根据请求号获取订单
+    Order order = getOrderByRequestId(reqVO.getRequestId());
+    resVO.setOid(order.getOid());
+    return resVO;
+  } catch (Exception e) {
+  }
+}
 ```
 
 当然，这里不太好的地方是，拿异常来做业务判断。
@@ -93,14 +113,45 @@ PlaceOrderResVO placeOrder(PlaceOrderReqVO reqVO) {  try {    //下�
 *   就是以`requestId`为维度，进行加锁，如果获取锁失败，就抛一个自定义的重复下单异常。
 *   如果获取到锁，先check一下，是否已经下单，为了提高性能，下单完成后，也把下单的结果放在Redis缓存里。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-0083bd11-12c2-4894-bb81-d0cd4cd82148.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ruhfzcfxd-0083bd11-12c2-4894-bb81-d0cd4cd82148.jpg)
 
 redis防重逻辑
 
 大概的代码如下：
 
 ```
-    public PlaceOrderResVO placeOrder(PlaceOrderReqVO reqVO) {        //加锁        RLock orderLock = redissonClient.getLock(RedisConstant.PLACE_ORDER_LOCK_KEY + reqVO.getRequestId());        //获取锁失败，抛出重复下单异常        if(orderLock.isExistes){          throw new OrderRepeatException();        }        // 加锁        orderLock.lock();        try {            //检查是否已经下单            RBucket<PlaceOrderResVO> orderCache = redissonClient.getBucket(RedisConstant.PLACE_ORDER_LOCK_KEY+reqVO.getRequestId());            if(orderCache.isExistes){                return orderCache.get();            }            //下单业务逻辑            ……            //落库            //订单落库            Order order = orderMapper.saveOrder(orderDO);             ……            //缓存结果            orderCache.put(resVO);            return resVO;        }         } catch (Exception e) {            //……        } finally {            orderLock.unlock();        }        return resVO;    }
+    public PlaceOrderResVO placeOrder(PlaceOrderReqVO reqVO) {
+        //加锁
+        RLock orderLock = redissonClient.getLock(RedisConstant.PLACE_ORDER_LOCK_KEY + reqVO.getRequestId());
+        //获取锁失败，抛出重复下单异常
+        if(orderLock.isExistes){
+          throw new OrderRepeatException();
+        }
+        // 加锁
+        orderLock.lock();
+        try {
+            //检查是否已经下单
+            RBucket<PlaceOrderResVO> orderCache = redissonClient.getBucket(RedisConstant.PLACE_ORDER_LOCK_KEY+reqVO.getRequestId());
+            if(orderCache.isExistes){
+                return orderCache.get();
+            }
+            //下单业务逻辑
+            ……
+            //落库
+            //订单落库
+            Order order = orderMapper.saveOrder(orderDO); 
+            ……
+            //缓存结果
+            orderCache.put(resVO);
+            return resVO;
+        } 
+        } catch (Exception e) {
+            //……
+        } finally {
+            orderLock.unlock();
+        }
+        return resVO;
+    }
 ```
 
 这里再说明一下：

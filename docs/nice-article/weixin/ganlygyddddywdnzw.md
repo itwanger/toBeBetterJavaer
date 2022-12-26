@@ -12,7 +12,7 @@ category:
 
 不 BB，直接上思维导图！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-0edf009a-064b-48d3-8626-8f6e90eacc8d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-0edf009a-064b-48d3-8626-8f6e90eacc8d.jpg)
 
 ## 1\. 走进 DDD
 
@@ -28,13 +28,13 @@ category:
 - 增加可维护性和可读性，延长软件生命周期；
 - 中台化的基石。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-8ab1b0ae-e3f7-4f55-a504-6fff76c03fe9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-8ab1b0ae-e3f7-4f55-a504-6fff76c03fe9.jpg)
 
 ### 1.2 DDD 作用
 
 说到 DDD，绕不开 MVC，在 MVC 三层架构中，我们进行功能开发的之前，拿到需求，解读需求。往往最先做的一步就是先设计表结构，在逐层设计上层 dao，service，controller。对于产品或者用户的需求都做了一层自我理解的转化。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-da88d3d6-034e-436f-b1b1-f9059a54aaf3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-da88d3d6-034e-436f-b1b1-f9059a54aaf3.jpg)
 
 用户需求在被提出之后经过这么多层的转化后，特别是研发需求在数据库结构这一层转化后，将业务以主观臆断行为进行了转化。一旦业务边界划分模糊，考虑不全，大量的逻辑补充堆积到了代码层实现，变得越来越难维护。
 
@@ -59,7 +59,7 @@ category:
 
 在领域驱动设计（DDD）中采用的是松散分层架构，层间关系不那么严格。每层都可能使用它下面所有层的服务，而不仅仅是下一层的服务。每层都可能是半透明的，这意味着有些服务只对上一层可见，而有些服务对上面的所有层都可见。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-2d9f189e-292a-4f80-8bba-e7c24b18638e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-2d9f189e-292a-4f80-8bba-e7c24b18638e.jpg)
 
 分层的作用，从上往下：
 
@@ -81,7 +81,7 @@ category:
 
 ## 3\. DDD 基础
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-aa8c5d49-429b-4357-aa36-a5bc7b83f770.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-aa8c5d49-429b-4357-aa36-a5bc7b83f770.jpg)
 
 学习 DDD 前，有很多基础概念需要掌握，这幅图总结的很全，他把 DDD 划分不同的层级：
 
@@ -129,7 +129,7 @@ category:
 
 直接看下面这幅图（来源于极客时间欧创新的 DDD 实战课）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-0fdd4b5c-83e1-43ef-a3f2-7238a4b72664.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-0fdd4b5c-83e1-43ef-a3f2-7238a4b72664.jpg)
 
 ##### 3.3.2 限界上下文
 
@@ -161,9 +161,9 @@ DDD 中要求实体是唯一的且可持续变化的。意思是说在实体的�
 
 下面给个简单的图（同样是源于极客时间欧创新的 DDD 实战课）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-1d5c9f50-88c3-4338-8382-fd9b02153397.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-1d5c9f50-88c3-4338-8382-fd9b02153397.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-da7315fd-e7dc-40ed-a2db-fd88d78aec17.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-da7315fd-e7dc-40ed-a2db-fd88d78aec17.jpg)
 
 ### 3.5 聚合和聚合根
 
@@ -187,7 +187,7 @@ DDD 中要求实体是唯一的且可持续变化的。意思是说在实体的�
 
 上面讲的还是有些抽象，下面看一个图就能很好理解（同样是源于极客时间欧创新的 DDD 实战课）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-752b9a44-0e80-4cd8-9021-a9459d9a1e3f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-752b9a44-0e80-4cd8-9021-a9459d9a1e3f.jpg)
 
 简单概括一下：
 
@@ -478,7 +478,7 @@ public interface UserRepository {
 
 基础服务层不仅仅包括资源库，与第三方的调用，都需要放到该层，Demo 中没有该示例，我们可以看一个小米内部具体的实际项目，他把第三方的调用放到了 remote 目录中：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-b2c62061-fb0f-414d-8b93-c804e90b9668.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-b2c62061-fb0f-414d-8b93-c804e90b9668.jpg)
 
 ### 4.5 领域层
 
@@ -527,7 +527,7 @@ public class AuthorizeDomainServiceImpl implements AuthorizeDomainService {
 
 我们其实可以把领域服务再进一步抽象，可以抽象出领域能力，通过这些领域能力去构建应用层逻辑，比如账号相关的领域能力可以包括授权领域能力、身份认证领域能力等，这样每个领域能力相对独立，就不会全部揉到一个文件中，下面是实际项目的领域层截图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-9a6e50c2-61a5-4a87-8fbd-5e0fc962ac67.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-9a6e50c2-61a5-4a87-8fbd-5e0fc962ac67.jpg)
 
 ##### 4.5.3 领域事件
 
@@ -700,7 +700,7 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [离开北京？](https://mp.weixin.qq.com/s/-LNhq_OBHDBZzAEMurqBJw)
 - [编程喵实战项目可以在本地跑起来辣！](https://mp.weixin.qq.com/s/PZcWj0NbWRGdS0I9ACMqbg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-a487294e-13a8-402c-afc6-e63baffa671b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-ganlygyddddywdnzw-a487294e-13a8-402c-afc6-e63baffa671b.png)
 
 ----
 
@@ -708,4 +708,4 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

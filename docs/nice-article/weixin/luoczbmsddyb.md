@@ -16,7 +16,7 @@ head:
 
 大家好，我是二哥呀。最近遇到好几个裸辞准备面试的小伙伴，都很努力，想着今年要换一个更好的工作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-luoczbmsddyb-eb0cc4de-7f59-4775-9259-75dc6d80c473.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-luoczbmsddyb-eb0cc4de-7f59-4775-9259-75dc6d80c473.jpg)
 
 那借此机会和大家分享一下我在**简历、投递策略和面试上的一些经验**，希望能对小伙伴们有一点点启发和帮助。
 
@@ -313,7 +313,7 @@ ok，3 个技巧就说完了，剩下一个重点戏就是项目了，有 2 点�
 
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-luoczbmsddyb-fde939c1-881a-4892-9ee6-f09ae41faa95.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-luoczbmsddyb-fde939c1-881a-4892-9ee6-f09ae41faa95.jpg)
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
@@ -321,4 +321,4 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 > 转载链接：[https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)，出处：沉默王二，整理：沉默王二
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

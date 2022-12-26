@@ -33,7 +33,7 @@ ZooKeeper 中的数据模型是一种树形结构，非常像电脑中的文件�
 
 *   ZooKeeper 树中的每一层级用斜杠`（/）`分隔开，且只能用绝对路径（如`get /work/task`）的方式查询 ZooKeeper 节点，而不能使用相对路径。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shujumoxing-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shujumoxing-1.png)
 
 **「为什么 ZooKeeper 不能采用相对路径查找节点呢？」**
 
@@ -181,7 +181,7 @@ getData(String path, Watcher watcher, Stat stat)
 
 触发通知的条件：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/watch-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/watch-1.png)
 
 
 上图中列出了客户端在不同会话状态下，相应的在服务器节点所能支持的事件类型。
@@ -336,7 +336,7 @@ ZooKeeper 底层实现的原理，核心的一点就是过期队列这个数据�
 
 将会话按照不同的过期时间段分别维护到过期队列之后，在 ZooKeeper 服务运行的过程中，具体的执行过程如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/huihuajizhi-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/huihuajizhi-1.png)
 
 首先，ZooKeeper 服务会开启一个线程专门用来检索过期队列，找出要过期的 bucket，而 ZooKeeper 每次只会让一个 bucket 的会话过期，每当要进行会话过期操作时，ZooKeeper 会唤醒一个处于休眠状态的线程进行会话过期操作，之后会按照上面介绍的操作检索过期队列，取出过期的会话后会执行过期操作。
 
@@ -773,7 +773,7 @@ ZAB 协议算法（Zookeeper Atomic Broadcast  ，Zookeeper 原子广播协议�
 
 以 Fast Leader Election 选举的实现方式来讲，如下图所示，一个选票的整体结果可以分为一下六个部分：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-1.png)
 
 
 *   logicClock：用来记录服务器的投票轮次。logicClock 会从 1 开始计数，每当该台服务经过一轮投票后，logicClock 的数值就会加 1 。
@@ -800,7 +800,7 @@ ZAB 协议算法（Zookeeper Atomic Broadcast  ，Zookeeper 原子广播协议�
 
 Follow 服务器进行选票对比的过程，如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-2.png)
 
 
 首先，会对比 logicClock 服务器的投票轮次，当 logicClock 相同时，表明两张选票处于相同的投票阶段，并进入下一阶段，否则跳过。
@@ -817,7 +817,7 @@ Follow 服务器进行选票对比的过程，如下图所示。
 
 ZooKeeper 集群使用原子广播协议进行消息发送，该协议的底层实现过程与二阶段提交过程非常相似，如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-3.png)
 
 
 当要在集群中的其他角色服务器进行数据同步的时候，Leader 服务器将该操作过程封装成一个 Proposal 提交事务，并将其发送给集群中其他需要进行数据同步的服务器。
@@ -886,7 +886,7 @@ PurgeTxnLog 方式与 crontab 相比，使用起来更加容易而且也更加�
 
 使用子节点，每当有线程来请求锁的时候，便在锁的节点下创建一个子节点，子节点类型必须维护一个顺序，对子节点的自增序号进行排序，默认总是最小的子节点对应的线程获得锁，释放锁时删除对应子节点便可
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fenbushisuo-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fenbushisuo-1.png)
 
 
 **「死锁风险:」**
@@ -913,7 +913,7 @@ PurgeTxnLog 方式与 crontab 相比，使用起来更加容易而且也更加�
 
 这样做还让锁的分配具有公平性，锁定的分配遵循先到先得的原则。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fenbushisuo-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fenbushisuo-2.png)
 
 
 **「用 ZooKeeper 实现分布式锁的算法流程，根节点为 /lock：」**
@@ -1026,12 +1026,12 @@ PurgeTxnLog 方式与 crontab 相比，使用起来更加容易而且也更加�
 
 在它下面创建 servers_host1、servers_host2、servers_host3等临时节点来存储集群中的服务器运行状态信息。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fuzaijunheng-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fuzaijunheng-1.png)
 
 
 整个实现的过程如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fuzaijunheng-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fuzaijunheng-2.png)
 
 
 *   首先，在接收到客户端的请求后，通过 getData 方法获取服务端 Severs 节点下的服务器列表，其中每个节点信息都存储有当前服务器的连接数。
@@ -1078,7 +1078,7 @@ Dubbo 是阿里巴巴开发的一套开源的技术框架，是一款高性能�
 
 该操作是通过 ZooKeeper 服务器在 /consumers 节点路径下创建一个子数据节点，然后再在请求会话中发起对 /providers 节点的 watch 监控
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shiyonganli-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shiyonganli-1.png)
 
 
 **「Kafka与ZooKeeper」**
@@ -1095,11 +1095,11 @@ Dubbo 是阿里巴巴开发的一套开源的技术框架，是一款高性能�
 
 为了能够读取这些以分布式方式存储的分区信息，Kafka 会将这些分区信息在 Broker 服务器中的对应关系存储在 ZooKeeper 数据模型的 topic 节点上，每一个 topic 在 ZooKeeper 数据节点上都会以 `/brokers/topics/[topic]` 的形式存在。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shiyonganli-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shiyonganli-2.png)
 
 
 
 整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/-evZg0epRrOr1IwQ3GJ2Zg)，作者：月伴飞鱼，戳[原文链接](https://mp.weixin.qq.com/s/B2ngp0q5kdWsCNH8sw_5DA)。
 
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">

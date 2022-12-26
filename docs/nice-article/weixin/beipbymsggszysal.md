@@ -20,9 +20,9 @@ category:
 
 上来就是一套笔试卷，下面是其中两套笔试题：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-beipbymsggszysal-25e904d3-aa5c-491e-b528-39fe1202b8ea.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-beipbymsggszysal-25e904d3-aa5c-491e-b528-39fe1202b8ea.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-beipbymsggszysal-0dd66ea8-55fc-452c-98bb-c89363d61f4c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-beipbymsggszysal-0dd66ea8-55fc-452c-98bb-c89363d61f4c.jpg)
 
 面试心得：
 

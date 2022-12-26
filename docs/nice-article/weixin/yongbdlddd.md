@@ -43,7 +43,7 @@ category:
 
 看看下面这张图，我们甚至可以赋予它属性，把系统归类到这三类之中。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongbdlddd-7bf9e791-c2be-4b56-81ad-69f465c78e35.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongbdlddd-7bf9e791-c2be-4b56-81ad-69f465c78e35.jpg)
 
 
 
@@ -101,7 +101,7 @@ DDD的概念最早来源于2004年，这么多年没火，没有标准落地，�
 
 下图是google搜索`Hexagonal Architecture`出现的一张图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongbdlddd-de98a192-86c2-4d0f-af34-4bc8b07f840a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yongbdlddd-de98a192-86c2-4d0f-af34-4bc8b07f840a.jpg)
 
 
 

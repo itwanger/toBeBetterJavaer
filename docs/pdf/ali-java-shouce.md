@@ -14,7 +14,7 @@ head:
 
 说起嵩山，我就想起乔峰，想起慕容复，以及他们两位老爹在少林寺大战的场景。当然了，最令我印象深刻的就是那位默默无闻，却一鸣惊人的扫地僧啊。这次，阿里出品的嵩山版 Java 开发手册的封面就有一个扫地僧，唉，这就厉害了呀！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 嵩山少林寺位于河南省登封市，始建于北魏太和十九年，号称“天下第一名刹”。这意味着什么？阿里出品的嵩山版 Java 开发手册，是迄今为止最重量级的。
 
@@ -34,13 +34,13 @@ head:
 
 ## 02、新增禁止任何歧视性用语的约定
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-8cc71cfc-e133-41bd-94b6-a2b27d6f3758.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-8cc71cfc-e133-41bd-94b6-a2b27d6f3758.jpg)
 
 虽然互联网越来越开放，但有些用语还是要注意一下（尽量和谐）。记得之前 MySQL 的一些关键字都被迫做了调整。
 
 ## 03、新增涉及敏感操作的情况下日志需要保存六个月的约定
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-3209b64a-9b20-4f70-8028-d9b089164caa.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-3209b64a-9b20-4f70-8028-d9b089164caa.jpg)
 
 涉及到法律的地方还是在开发的时候注意一下。
 
@@ -50,27 +50,27 @@ head:
 
 [我去，脸皮厚啊，竟然使用==比较浮点数？](https://mp.weixin.qq.com/s?__biz=MzIxNzQwNjM3NA==&mid=2247488219&idx=1&sn=a847557dae132769797fe19181957c03&scene=21#wechat_redirect)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-158bd290-5df1-4df8-ab59-ada0f57a7516.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-158bd290-5df1-4df8-ab59-ada0f57a7516.jpg)
 
 ## 05、修正 HashMap 关于 1024 个元素扩容的次数
 
 泰山版说是扩容 7 次。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-c2dbe80a-aee4-40e9-9448-0a243d35ea7d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-c2dbe80a-aee4-40e9-9448-0a243d35ea7d.jpg)
 
 嵩山版修正为扩容 8 次。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-1cf3c985-9748-4e83-9473-11356bb566df.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-1cf3c985-9748-4e83-9473-11356bb566df.jpg)
 
 ## 06、修正架构分层规范与相关说明
 
 泰山版的应用分层如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-9a08658c-a8f7-4af6-a7b4-63f1bd0f9edd.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-9a08658c-a8f7-4af6-a7b4-63f1bd0f9edd.jpg)
 
 嵩山版的应用分层修改为如下图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-33efc94e-746c-4e7e-961c-2bf95b14a371.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-sulwgalcpdssbjavakfsc-33efc94e-746c-4e7e-961c-2bf95b14a371.jpg)
 
 ## 07、最后
 
@@ -78,7 +78,7 @@ head:
 
 微信搜索「**沉默王二**」回复「**手册**」就可以免费获取了，当然你也可以扫描下面的二维码后回复，赶紧赶紧。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 最后，我衷心地祝福你，希望你能学有所成，to be better，奥利给！
 

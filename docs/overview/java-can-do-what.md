@@ -16,7 +16,7 @@ head:
 
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-01.png)
 
 很多大型的互联网公司都在使用 Java，国内最有名的当属阿里巴巴，国外最有名的当属谷歌。那为什么 Java 如此流行呢？
 
@@ -70,7 +70,7 @@ Java 在多线程方面做得非常突出，只要操作系统支持，Java 中�
 
 **物联网（IoT）领域：**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-02.png)
 
 Oracle 表示，灵活性和流行度是 IoT 程序员选择 Java 的主要原因。Java 提供了大量的 API 库，可以很容易应用到嵌入式应用程序中。相比其他编程语言，比如 C 语言，Java 在切换平台时更加顺畅，不容易出错。
 
@@ -104,4 +104,4 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -8,7 +8,7 @@ category:
 head:
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-79c84d70-cae4-4400-8472-fcef61829f71.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-79c84d70-cae4-4400-8472-fcef61829f71.jpg)
 
 
 
@@ -18,7 +18,7 @@ head:
 
 看一下维基百科怎么说的：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-cfaa3367-206d-44fb-97ac-a32b9c6f2242.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-cfaa3367-206d-44fb-97ac-a32b9c6f2242.jpg)
 
 **幂等性：**多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。
 
@@ -46,7 +46,7 @@ head:
 
 示意图如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-d8def2b4-1a77-4e7f-9b2e-5110c9ab5078.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-d8def2b4-1a77-4e7f-9b2e-5110c9ab5078.jpg)
 
 具体流程步骤：
 
@@ -66,7 +66,7 @@ head:
 
 示意图如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-208d134d-0a90-4b93-8ddc-a872ac41865d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-208d134d-0a90-4b93-8ddc-a872ac41865d.jpg)
 
 具体流程步骤：
 
@@ -85,7 +85,7 @@ SETNX key value：将 key 的值设为 value ，当且仅当 key 不存在。若
 
 示意图如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-96148d2e-33df-4466-b247-611a86d18d6f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-almsgjkdmdxzysj-96148d2e-33df-4466-b247-611a86d18d6f.jpg)
 
 具体流程步骤：
 

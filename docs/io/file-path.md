@@ -32,7 +32,7 @@ head:
 
 在java中，一切皆是对象，File类也不例外，不论是哪个对象都应该从该对象的构造说起，所以我们来分析分析`File`类的构造方法。首先从API开始着手：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/file-path-37de6cfc-f82f-4459-bc7e-9b4bd7466d70.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/file-path-37de6cfc-f82f-4459-bc7e-9b4bd7466d70.png)
 
 
 比较常用的构造方法有三个：
@@ -254,7 +254,7 @@ public class FileFor {
 ```
  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/file-path-0f1675a7-ee3b-4f28-9cca-00c4ba5a5759.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/file-path-0f1675a7-ee3b-4f28-9cca-00c4ba5a5759.png)
 
 
 
@@ -557,5 +557,5 @@ Files 类包含许多其他有用的函数，例如用于创建符号链接，�
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 

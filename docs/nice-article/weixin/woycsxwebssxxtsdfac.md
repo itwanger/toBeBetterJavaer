@@ -15,11 +15,11 @@ head:
 
 我们公司做了一个小破站，现在要实现一个站内信 web 消息推送的功能，对，就是下图这个小红点，一个很常用的功能。老板限时三天内完成。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-7dad1821-bd37-4e47-80fc-b09db54c1a71.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-7dad1821-bd37-4e47-80fc-b09db54c1a71.jpg)
 
 我整理了几种方案，并简单做了实现，等三天后让老板过目，大家伙先看看这几个方案如何。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-6509c4d3-7c5f-4b6e-95e9-4e9482133d21.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-6509c4d3-7c5f-4b6e-95e9-4e9482133d21.jpg)
 
 ## 什么是消息推送（push）
 
@@ -29,17 +29,17 @@ head:
 
 消息推送一般又分为`web端消息推送`和`移动端消息推送`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-45d8c9ae-666f-468b-b8c5-2a04a1762a4e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-45d8c9ae-666f-468b-b8c5-2a04a1762a4e.jpg)
 
 上边的这种属于移动端消息推送，web 端消息推送常见的诸如站内信、未读邮件数量、监控报警数量等，应用的也非常广泛。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-f6ca6bd4-63d8-4081-9348-ca48a68aaf09.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-f6ca6bd4-63d8-4081-9348-ca48a68aaf09.jpg)
 
 在具体实现之前，咱们再来分析一下前边的需求，其实功能很简单，只要触发某个事件（主动分享了资源或者后台主动推送消息），web 页面的通知小红点就会实时的`+1`就可以了。
 
 通常在服务端会有若干张消息推送表，用来记录用户触发不同事件所推送不同类型的消息，前端主动查询（拉）或者被动接收（推）用户所有未读的消息数。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-d73b5ed2-78e4-48f4-a5b0-edc2a078be8f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-d73b5ed2-78e4-48f4-a5b0-edc2a078be8f.jpg)
 
 消息推送无非是推（`push`）和拉（`pull`）两种形式，下边我们逐个了解下。
 
@@ -64,7 +64,7 @@ setInterval(() => {
 
 效果还是可以的，短轮询实现固然简单，缺点也是显而易见，由于推送数据并不会频繁变更，无论后端此时是否有新的消息产生，客户端都会进行请求，势必会对服务端造成很大压力，浪费带宽和服务器资源。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-c78a59e3-cb09-47be-a50d-d8125c7b6f7a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-c78a59e3-cb09-47be-a50d-d8125c7b6f7a.jpg)
 
 ## 长轮询
 
@@ -74,7 +74,7 @@ setInterval(() => {
 
 这次我使用`apollo`配置中心实现长轮询的方式，应用了一个类`DeferredResult`，它是在`servelet3.0`后经过 Spring 封装提供的一种异步请求机制，直意就是延迟结果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-6fe55cf8-0929-4360-9ebc-baa2fa203a32.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-6fe55cf8-0929-4360-9ebc-baa2fa203a32.jpg)
 
 `DeferredResult`可以允许容器线程快速释放占用的资源，不阻塞请求线程，以此接受更多的请求提升系统的吞吐量，然后启动异步工作线程处理真正的业务逻辑，处理完成调用`DeferredResult.setResult(200)`提交响应结果。
 
@@ -144,7 +144,7 @@ public class AsyncRequestTimeoutHandler {
 
 我们来测试一下，首先页面发起长轮询请求`/polling/watch/10086`监听消息更变，请求被挂起，不变更数据直至超时，再次发起了长轮询请求；紧接着手动变更数据`/polling/publish/10086`，长轮询得到响应，前端处理业务逻辑完成后再次发起请求，如此循环往复。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-bbcdfce6-7032-4ad2-a04c-f90d7c4dbf2c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-bbcdfce6-7032-4ad2-a04c-f90d7c4dbf2c.jpg)
 
 长轮询相比于短轮询在性能上提升了很多，但依然会产生较多的请求，这是它的一点不完美的地方。
 
@@ -154,7 +154,7 @@ iframe 流就是在页面中插入一个隐藏的`<iframe>`标签，通过在`sr
 
 > 传输的数据通常是`HTML`、或是内嵌的`javascript`脚本，来达到实时更新页面的效果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-360e8778-af64-407c-8dcf-72308d6d1c43.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-360e8778-af64-407c-8dcf-72308d6d1c43.jpg)
 
 这种方式实现简单，前端只要一个`<iframe>`标签搞定了
 
@@ -186,7 +186,7 @@ public class IframeController {
 
 但我个人不推荐，因为它在浏览器上会显示请求未加载完，图标会不停旋转，简直是强迫症杀手。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-b66b0eee-189a-49f0-aae6-31b549543c20.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-b66b0eee-189a-49f0-aae6-31b549543c20.jpg)
 
 ## SSE (我的方式)
 
@@ -194,13 +194,13 @@ public class IframeController {
 
 `SSE`它是基于`HTTP`协议的，我们知道一般意义上的 HTTP 协议是无法做到服务端主动向客户端推送消息的，但 SSE 是个例外，它变换了一种思路。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-1668dd05-2600-431d-ac93-20e0ac4022b7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-1668dd05-2600-431d-ac93-20e0ac4022b7.jpg)
 
 SSE 在服务器和客户端之间打开一个单向通道，服务端响应的不再是一次性的数据包而是`text/event-stream`类型的数据流信息，在有数据变更时从服务器流式传输到客户端。
 
 整体的实现思路有点类似于在线视频播放，视频流会连续不断的推送到浏览器，你也可以理解成，客户端在完成一次用时很长（网络不畅）的下载。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-c18f4919-8877-4afa-b20f-700141cae211.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-c18f4919-8877-4afa-b20f-700141cae211.jpg)
 
 `SSE`与`WebSocket`作用相似，都可以建立服务端与浏览器之间的通信，实现服务端向客户端推送消息，但还是有些许不同：
 
@@ -297,11 +297,11 @@ public static void sendMessage(String userId, String message) {
 
 我们模拟服务端推送消息，看下客户端收到了消息，和我们预期的效果一致。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-78c18502-2b42-46fe-9414-74ab9017c5d5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-78c18502-2b42-46fe-9414-74ab9017c5d5.jpg)
 
 **注意：** SSE 不支持`IE`浏览器，对其他主流浏览器兼容性做的还不错。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-0a5ab7ce-1921-414b-8ad1-d7ea4d0b2d55.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-0a5ab7ce-1921-414b-8ad1-d7ea4d0b2d55.jpg)
 
 ## MQTT
 
@@ -311,7 +311,7 @@ public static void sendMessage(String userId, String message) {
 
 该协议将消息的发布者（`publisher`）与订阅者（`subscriber`）进行分离，因此可以在不可靠的网络环境中，为远程连接的设备提供可靠的消息服务，使用方式与传统的 MQ 有点类似。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-5524743a-1f9f-4cde-9f0a-e30312f368b8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-5524743a-1f9f-4cde-9f0a-e30312f368b8.jpg)
 
 `TCP`协议位于传输层，`MQTT` 协议位于应用层，`MQTT` 协议构建于`TCP/IP`协议上，也就是说只要支持`TCP/IP`协议栈的地方，都可以使用`MQTT`协议。
 
@@ -339,7 +339,7 @@ MQTT 实现消息推送
 
 WebSocket 是一种在`TCP`连接上进行全双工通信的协议，建立客户端和服务器之间的通信渠道。浏览器和服务器仅需一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-5c924827-2ada-4e25-bc89-a67b746b2ae8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-5c924827-2ada-4e25-bc89-a67b746b2ae8.jpg)
 
 
 springboot 整合 websocket，先引入`websocket`相关的工具包，和 SSE 相比额外的开发成本。
@@ -447,9 +447,9 @@ public class WebSocketServer {
 
 页面初始化建立 websocket 连接，之后就可以进行双向通信了，效果还不错
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-7cdef2ca-add8-4ef1-be3c-3acab7e45f72.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-7cdef2ca-add8-4ef1-be3c-3acab7e45f72.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-9a99bdb6-6329-4372-8eb9-59bc8d4be64f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-9a99bdb6-6329-4372-8eb9-59bc8d4be64f.jpg)
 
 ## 自定义推送
 
@@ -459,7 +459,7 @@ public class WebSocketServer {
 
 一般大型公司都有自研的消息推送平台，像我们本次实现的 web 站内信只是平台上的一个触点而已，短信、邮件、微信公众号、小程序凡是可以触达到用户的渠道都可以接入进来。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-b4a464a7-b308-498e-81f9-3418f33c396a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-woycsxwebssxxtsdfac-b4a464a7-b308-498e-81f9-3418f33c396a.jpg)
 
 
 消息推送系统内部是相当复杂的，诸如消息内容的维护审核、圈定推送人群、触达过滤拦截（推送的规则频次、时段、数量、黑白名单、关键词等等）、推送失败补偿非常多的模块，技术上涉及到大数据量、高并发的场景也很多。所以我们今天的实现方式在这个庞大的系统面前只是小打小闹。

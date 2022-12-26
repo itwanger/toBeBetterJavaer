@@ -18,13 +18,13 @@ head:
 
 我是 2021 年毕业的研究生。本科是在一所双非大学读的，专业是软件工程，本科时学过一些 Java 开发。因为学历一般，又对科研存在幻想，我选择了考研，拼了老命总算是考上了一所中游 985，去年秋招拿到了很多大厂的 offer 。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-71c064c6-f152-4942-9270-229fdfc70b1e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-71c064c6-f152-4942-9270-229fdfc70b1e.jpg)
 
 本来想写一篇文章给大家分享一下数据结构应该怎么学。但，正当我按步就班的回忆自己本科是怎么学习数据结构的时候，脑海中突然看到了刚上大学的自己。
 
 不过，回想我在刚上本科时，因为高考分数不高只上了一个很一般的学校，也对自己的专业不感兴趣。但庆幸的是，大学四年，我慢慢的对编程产生了兴趣，学会了如何学习并走入了编程的大门。今天我就给大家讲述一下我读本科的经历，也希望给现在同样处境的朋友一点帮助。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-b485b36f-ad35-458c-a1cb-7a0afe9b3fb8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-b485b36f-ad35-458c-a1cb-7a0afe9b3fb8.jpg)
 
 迷茫期
 ---
@@ -46,7 +46,7 @@ head:
 
 故事从我大一下学期 `C++` 挂了开始讲起，因为开了学需要补考，我就问当时还不算熟的字节大哥，我应该怎么学 `C++`。我现在还记得当时他略带深沉的摸了摸下巴说，我建议你看看 C++ 编程圣经 **《C++ Primer》**。好吧，我现在还在记仇。当年我意气风发的在淘宝上买了这本书，然后翻了两页就打消了我学习编程的想法。好在补考前拿着课本突击几天，又找老师画了重点后，算是把补考过了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-35767282-f094-4078-a566-4c51da27a2dc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-35767282-f094-4078-a566-4c51da27a2dc.jpg)
 
 因为感觉编程真的学不明白，大二上学期其实在编程上也没学什么东西，也就没多联系字节大哥，不过还算努力的我在大二上学期第一次考四级就把四级过了（后续也过了六级，英语学好对程序员的发展是很有帮助的）。
 
@@ -71,7 +71,7 @@ head:
 
 我从大三下学期的 6 月开始准备考研，在经历一段折磨后，终于挤进了复试（实行差额复试，我初试的分数就在差额里面）。也得益于我编程基础还不错，所以在面试过程中对于一些编程基础问题我都答得比较完善，实现了逆袭。在面试完忐忑的离开面试房间时，听到了一位老师和另一位老师说，这个学生还不错。我知道，我上岸了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-81488218-127f-43e4-acae-16598732d4db.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhongymxsxl-81488218-127f-43e4-acae-16598732d4db.jpg)
 
 后来
 --

@@ -24,7 +24,7 @@ category:
 
 模块调用顺序层次图如下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-159c8017-8574-4f7f-be1a-392cd1767df8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-159c8017-8574-4f7f-be1a-392cd1767df8.jpg)
 
 
 ## 渠道数据处理模块
@@ -41,7 +41,7 @@ category:
 
 第三方渠道对账文件里面字段数量以及字段名称也存在不同。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-9ce853f4-3109-40bb-8621-f6329c975733.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-9ce853f4-3109-40bb-8621-f6329c975733.jpg)
 
 一般这一层每接入一个渠道需要专门根据这个渠道特性开发。这一层可以抽象化接口，对外暴露下载与解析接口。每次接入渠道，实现该接口相应方法即可。
 
@@ -77,7 +77,7 @@ category:
 
 这一个模块我们使用上一模块提取出来的数据，核对订单号与金额是否完全一致。核对模块伪代码如下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-4eab5394-d3bd-45ee-843e-ad3e80048e10.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-4eab5394-d3bd-45ee-843e-ad3e80048e10.jpg)
 
 这个过程可能产生三类差异数据。
 
@@ -89,7 +89,7 @@ category:
 
 三者如图所示。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-9e23f4fd-eea1-48ca-97fe-972cbe49f922.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-9e23f4fd-eea1-48ca-97fe-972cbe49f922.jpg)
 
 这里产生的差异数据存入一张差异表中，以便下个模块使用。
 
@@ -115,7 +115,7 @@ category:
 
 伪代码如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-e2229924-bab7-4ab3-8987-0af1f21900de.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-liaoldzxtdsjfa-e2229924-bab7-4ab3-8987-0af1f21900de.jpg)
 
 对端多账的产生情况可能可能有两种情况.
 

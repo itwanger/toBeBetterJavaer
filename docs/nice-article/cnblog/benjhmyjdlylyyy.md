@@ -21,11 +21,11 @@ category:
 
 获取手机号码（一键登录）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-d3e6b98a-662e-4bbc-a26d-dbd18e7a5825.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-d3e6b98a-662e-4bbc-a26d-dbd18e7a5825.png)
 
 本机号码校验：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-2f587845-a8d6-4038-b7b6-012ea87d6ccd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-2f587845-a8d6-4038-b7b6-012ea87d6ccd.png)
 
 ## 取号方法
 
@@ -49,23 +49,23 @@ category:
 
 免密认证：天翼账号免密认证方案，依托运营商的移动数据网络，采用“通信网关预登录”及 SIM 卡识别等技术，准确识别用户手机号码，实现一键登录，并可有效规避短信验证码泄露风险
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-747ce8d0-1577-43e1-8daa-922f26ef139c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-747ce8d0-1577-43e1-8daa-922f26ef139c.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-cbf66763-aa11-49ad-93f6-cdbca8082154.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-cbf66763-aa11-49ad-93f6-cdbca8082154.png)
 
 手机号码校验：确认本机号码信息是否为当前用户本机号码。依托运营商的移动数据网络，采用“通信网关预登录”及 SIM 卡识别等技术，判断用户输入的手机号与本机号码是否一致。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-a885c088-1753-4b8d-9af7-5cfde60fded6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-a885c088-1753-4b8d-9af7-5cfde60fded6.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-e89faaa4-3ad3-43f0-a51b-85c900c09fbf.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-e89faaa4-3ad3-43f0-a51b-85c900c09fbf.png)
 
 二次卡校验：众所周知，三大运营商每月注销的手机号约有 2000 多万，为避免手机号资源浪费，运营商会先回收已注销的手机号，然后重新销售，重新销售的卡即为二次卡。如果用户更换了手机号，且未与原账号解绑，可能存在安全风险。
 
 天翼账号二次卡校验方案， 使用独有的运营商二次号数据库，可快速检测用户号码更换状态，保障号码旧用户隐私安全。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-c72b3175-bf04-4a4a-8edf-7d44ed20f79d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-c72b3175-bf04-4a4a-8edf-7d44ed20f79d.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-50cb4f6f-6862-4329-8e15-eb4511aac7e9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-50cb4f6f-6862-4329-8e15-eb4511aac7e9.png)
 
 ## 中国联通
 
@@ -81,11 +81,11 @@ category:
 - APP 一键登录。手机在有蜂窝信号的环境中（若 WIFI 接入，SDK 可瞬间切换至蜂窝信号再切回)，可自动获取手机号码，帮助用户实现一键验证快捷登录，无需手动输入号码和短信验证，有利于提升用户体验，提高登录安全性。
 - H5 一键登录。适用于手机接入蜂窝信号时，H5 页面登录场景，用户只需输入 4 位本机号码即可实现快捷登录，减少降登录等待时间。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-645434bc-0434-4f3c-b197-c092841276b8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-645434bc-0434-4f3c-b197-c092841276b8.png)
 
 - 本机校验。自动校验用户手机号与当前本机卡号的一致性，免输登录密码或短信验证码;适用于如手机号绑定、支付确认、积分兑换等需要具备安全校验能力的业务场景，提供仅限本机操作的安全风控机制。支持有蜂窝信号环境下的 APP 及正在使用蜂窝信号下的 H5。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-a0aaa292-2634-4600-b138-dc10f1a376a6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-benjhmyjdlylyyy-a0aaa292-2634-4600-b138-dc10f1a376a6.png)
 
 ## 匿名设备标识
 

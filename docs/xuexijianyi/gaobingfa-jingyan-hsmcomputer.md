@@ -21,7 +21,7 @@ category:
 可以这样说，能否找到高并发项目的实践经验，决定着程序员能否升级到架构师，不过这不容易。下面讲一下我的一个朋友的经历，二哥经常和他聊天，互相在知乎上点赞，哈哈哈。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/gaobingfa-jingyan-hsmcomputer-9c0199ae-e4ed-40d3-893a-74a87dcd1759.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/gaobingfa-jingyan-hsmcomputer-9c0199ae-e4ed-40d3-893a-74a87dcd1759.png)
 
 
 1、17 年年初的时候，朋友在项目组里只用简单的 Spring + JDBC/ORM 做业务，开发是在 windows 上的，接触到的高并发组件，也就是 nginx 和 mysql 集群，加上一些 linux 上部署和调试组件的经验，并没有高并发组件的使用经验。
@@ -69,7 +69,7 @@ category:
 二哥就认识一个大佬，叫李智慧，由于有高并发架构的能力，目前在极客 xx 上出了一门高并发架构课，不知道有球友听说过吗？
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/gaobingfa-jingyan-hsmcomputer-81c5ab21-c5dd-48e8-8af2-b301cf04d9e2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/gaobingfa-jingyan-hsmcomputer-81c5ab21-c5dd-48e8-8af2-b301cf04d9e2.png)
 
 
 如果你也有高并发的经验，也可以进个外企养老，或者是找个小公司做技术总监，不至于在 35 岁被淘汰。
@@ -150,4 +150,4 @@ category:
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

@@ -21,7 +21,7 @@ head:
 
 集合相关类和接口都在java.util中，主要分为3种：List（列表）、Map（映射）、Set(集)。
 
-![Java集合主要关系](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-1.png)
+![Java集合主要关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-1.png)
 
 其中`Collection`是集合`List`、`Set`的父接口，它主要有两个子接口：
 
@@ -41,7 +41,7 @@ List，也没啥好问的，但不排除面试官剑走偏锋，比如面试官�
 - ArrayList基于数组实现
 - LinkedList基于双向链表实现
 
-![ArrayList和LinkedList的数据结构](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-2.png)
+![ArrayList和LinkedList的数据结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-2.png)
 
 **（2）** 多数情况下，ArrayList更利于查找，LinkedList更利于增删
 
@@ -49,9 +49,9 @@ List，也没啥好问的，但不排除面试官剑走偏锋，比如面试官�
 
 - ArrayList增删如果是数组末尾的位置，直接插入或者删除就可以了，但是如果插入中间的位置，就需要把插入位置后的元素都向前或者向后移动，甚至还有可能触发扩容；双向链表的插入和删除只需要改变前驱节点、后继节点和插入节点的指向就行了，不需要移动元素。
 
-![ArrayList和LinkedList中间插入](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-3.png)
+![ArrayList和LinkedList中间插入](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-3.png)
 
-![ArrayList和LinkedList中间删除](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-4.png)
+![ArrayList和LinkedList中间删除](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-4.png)
 
 > 注意，这个地方可能会出陷阱，LinkedList更利于增删更多是体现在平均步长上，不是体现在时间复杂度上，二者增删的时间复杂度都是O(n)
 
@@ -71,7 +71,7 @@ ArrayList是基于数组的集合，数组的容量是在定义的时候确定�
 
 ArrayList的扩容是创建一个**1.5倍**的新数组，然后把原数组的值拷贝过去。
 
-![ArrayList扩容](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-5.png)
+![ArrayList扩容](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-5.png)
 
 ### 4.ArrayList怎么序列化的知道吗？ 为什么用transient修饰数组？
 
@@ -85,7 +85,7 @@ ArrayList的序列化不太一样，它使用`transient`修饰存储元素的`el
 
 ArrayList通过两个方法**readObject、writeObject**自定义序列化和反序列化策略，实际直接使用两个流`ObjectOutputStream`和`ObjectInputStream`来进行序列化和反序列化。
 
-![ArrayList自定义序列化](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-6.png)
+![ArrayList自定义序列化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-6.png)
 
 ### 5.快速失败(fail-fast)和安全失败(fail-safe)了解吗？
 
@@ -121,13 +121,13 @@ CopyOnWriteArrayList就是线程安全版本的ArrayList。
 CopyOnWriteArrayList采用了一种读写分离的并发策略。CopyOnWriteArrayList容器允许并发读，读操作是无锁的，性能较高。至于写操作，比如向容器中添加一个元素，则首先将当前容器复制一份，然后在新副本上执行写操作，结束之后再将原容器的引用指向新容器。
 
 
-![CopyOnWriteArrayList原理](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-7.png)
+![CopyOnWriteArrayList原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-7.png)
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
 
 ## Map
 
@@ -143,7 +143,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 
 数据结构示意图如下：
 
-![jdk1.8 hashmap数据结构示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-8.png)
+![jdk1.8 hashmap数据结构示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-8.png)
 
 其中，桶数组是用来存储数据元素，链表是用来解决冲突，红黑树是为了提高查询的效率。
 
@@ -162,7 +162,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 4. 每个红色节点的两个子节点一定都是黑色；
 5. 从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点；
 
-![红黑树](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-9.png)
+![红黑树](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-9.png)
 
 > 之所以不用二叉树：
 
@@ -178,19 +178,19 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 
 - 旋转：旋转分为两种，左旋和右旋
 
-![左旋](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-10.png)
+![左旋](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-10.png)
 
-![右旋](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-11.png)
+![右旋](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-11.png)
 
 - 染⾊：
 
-![染色](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-12.png)
+![染色](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-12.png)
 
 ### 11.HashMap的put流程知道吗？
 
 先上个流程图吧:
 
-![HashMap插入数据流程图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-13.jpg)
+![HashMap插入数据流程图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-13.jpg)
 
 1. 首先进行哈希值的扰动，获取一个新的哈希值。`(key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);`
 
@@ -214,7 +214,7 @@ JDK1.8的数据结构是`数组`+`链表`+`红黑树`。
 
 先看流程图：
 
-![HashMap查找流程图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-14.png)
+![HashMap查找流程图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-14.png)
 
 
 
@@ -260,13 +260,13 @@ static int indexFor(int h, int length) {
 
 顺便说一下，这也正好解释了为什么 HashMap 的数组长度要取 2 的整数幂。因为这样（数组长度 - 1）正好相当于一个 “低位掩码”。`与` 操作的结果就是散列值的高位全部归零，只保留低位值，用来做数组下标访问。以初始长度 16 为例，16-1=15。2 进制表示是` 0000 0000 0000 0000 0000 0000 0000 1111`。和某个散列值做 `与` 操作如下，结果就是截取了最低的四位值。
 
-![哈希&运算](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-15.png)
+![哈希&运算](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-15.png)
 
 这样是要快捷一些，但是新的问题来了，就算散列值分布再松散，要是只取最后几位的话，碰撞也会很严重。如果散列本身做得不好，分布上成等差数列的漏洞，如果正好让最后几个低位呈现规律性重复，那就更难搞了。
 
 这时候 `扰动函数` 的价值就体现出来了，看一下扰动函数的示意图：
 
-![扰动函数示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-16.jpg)
+![扰动函数示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-16.jpg)
 
 右移 16 位，正好是 32bit 的一半，自己的高半区和低半区做异或，就是为了混合原始哈希码的高位和低位，以此来加大低位的随机性。而且混合后的低位掺杂了高位的部分特征，这样高位的信息也被变相保留下来。
 
@@ -282,7 +282,7 @@ HashMap的容量是2的n次幂时，(n-1)的2进制也就是1111111***111这样�
 
 我们可以简单看看HashMap的扩容机制，HashMap中的元素在超过`负载因子*HashMap`大小时就会产生扩容。
 
-![put中的扩容](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-17.png)
+![put中的扩容](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-17.png)
 
 ### 16.如果初始化HashMap，传一个17的值`new HashMap<>`，它会怎么处理？
 
@@ -317,7 +317,7 @@ static final int tableSizeFor(int cap) {
 
 以17为例，看一下初始化计算table容量的过程：
 
-![容量计算](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-18.png)
+![容量计算](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-18.png)
 
 ### 17.你还知道哪些哈希函数的构造方法呢？
 
@@ -343,7 +343,7 @@ HashMap里哈希构造函数的方法叫：
 
   将`key`分割成位数相同的几段，然后把它们的叠加和作为映射的位置
 
-![散列函数构造](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-19.png)
+![散列函数构造](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-19.png)
 
 ### 18.解决哈希冲突有哪些方法呢？
 
@@ -361,7 +361,7 @@ HashMap里哈希构造函数的方法叫：
   - 平方探查法: 从冲突的位置x开始，第一次增加`1^2`个位置，第二次增加`2^2`…，直至找到空闲的位置
   - ……
 
-![开放定址法](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-20.png)
+![开放定址法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-20.png)
 
 - **再哈希法**：换种哈希函数，重新计算冲突元素的地址。
 - **建立公共溢出区**：再建一个数组，把冲突的元素放进去。
@@ -372,7 +372,7 @@ HashMap里哈希构造函数的方法叫：
 
 为什么是8呢？源码的注释也给出了答案。
 
-![源码注释](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-21.png)
+![源码注释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-21.png)
 
 红黑树节点的大小大概是普通节点大小的两倍，所以转红黑树，牺牲了空间换时间，更多的是一种兜底的策略，保证极端情况下的查找效率。
 
@@ -384,13 +384,13 @@ HashMap里哈希构造函数的方法叫：
 
 为了减少哈希冲突发生的概率，当当前HashMap的元素个数达到一个临界值的时候，就会触发扩容，把所有元素rehash之后再放在扩容后的容器中，这是一个相当耗时的操作。
 
-![put时，扩容](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-22.png)
+![put时，扩容](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-22.png)
 
 而这个`临界值threshold`就是由加载因子和当前容器的容量大小来确定的，假如采用默认的构造方法：
 
 > 临界值（threshold ）= 默认容量（DEFAULT_INITIAL_CAPACITY） * 默认扩容因子（DEFAULT_LOAD_FACTOR）
 
-![threshold计算](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-23.png)
+![threshold计算](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-23.png)
 
 那就是大于`16x0.75=12`时，就会触发扩容操作。
 
@@ -400,7 +400,7 @@ HashMap里哈希构造函数的方法叫：
 
 在HashMap中有这样一段注释：
 
-![关于默认负载因子的注释](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-24.png)
+![关于默认负载因子的注释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-24.png)
 
 我们都知道，HashMap的散列构造方式是Hash取余，负载因子决定元素个数达到多少时候扩容。
 
@@ -418,19 +418,19 @@ HashMap是基于数组+链表和红黑树实现的，但用于存放key值的桶
 
 看下这张图，n为table的长度，图`a`表示扩容前的key1和key2两种key确定索引的位置，图`b`表示扩容后key1和key2两种key确定索引位置。
 
-![扩容之后的索引计算](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-25.png)
+![扩容之后的索引计算](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-25.png)
 
 元素在重新计算hash之后，因为n变为2倍，那么n-1的mask范围在高位多1bit(红色)，因此新的index就会发生这样的变化：
 
-![扩容位置变化](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-26.png)
+![扩容位置变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-26.png)
 
 所以在扩容时，只需要看原来的hash值新增的那一位是0还是1就行了，是0的话索引没变，是1的化变成`原索引+oldCap`，看看如16扩容为32的示意图：
 
-![扩容节点迁移示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
+![扩容节点迁移示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
 
 扩容节点迁移主要逻辑：
 
-![扩容主要逻辑](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-28.png)
+![扩容主要逻辑](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-28.png)
 
 ### 22.jdk1.8对HashMap主要做了哪些优化呢？为什么？
 
@@ -468,11 +468,11 @@ jdk1.8 的HashMap主要有五点优化：
 - 冲突解决：链地址法
 - 扩容：节点重新hash获取位置
 
-![自定义HashMap整体结构](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-29.png)
+![自定义HashMap整体结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-29.png)
 
 完整代码：
 
-![完整代码](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-30.png)
+![完整代码](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-30.png)
 
 ###  24.HashMap 是线程安全的吗？多线程下会有什么问题？
 
@@ -502,7 +502,7 @@ ConcurrentHashmap线程安全在jdk1.7版本是基于`分段锁`实现，在jdk1
 
 实际上就是相当于每个Segment都是一个HashMap，默认的Segment长度是16，也就是支持16个线程的并发写，Segment之间相互不会受到影响。
 
-![1.7ConcurrentHashMap示意图](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-31.png)
+![1.7ConcurrentHashMap示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-31.png)
 
 **put流程**
 
@@ -610,7 +610,7 @@ final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
 
 
 
-![ConcurrentHashmap jdk1.8put流程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
+![ConcurrentHashmap jdk1.8put流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
 
 **get查询**
 
@@ -624,11 +624,11 @@ HashMap是无序的，根据 hash 值随机插入。如果想使用有序的Map�
 
  LinkedHashMap维护了一个双向链表，有头尾节点，同时 LinkedHashMap 节点 Entry 内部除了继承 HashMap 的 Node 属性，还有 before 和 after 用于标识前置节点和后置节点。
 
-![Entry节点](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-33.png)
+![Entry节点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-33.png)
 
 可以实现按插入的顺序或访问顺序排序。
 
-![LinkedHashMap实现原理](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-34.png)
+![LinkedHashMap实现原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-34.png)
 
 
 
@@ -636,7 +636,7 @@ HashMap是无序的，根据 hash 值随机插入。如果想使用有序的Map�
 
 TreeMap 是按照 Key 的自然顺序或者 Comprator 的顺序进行排序，内部是通过红黑树来实现。所以要么 key 所属的类实现 Comparable 接口，或者自定义一个实现了 Comparator 接口的比较器，传给 TreeMap 用于 key 的比较。
 
-![TreeMap](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-35.png)
+![TreeMap](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-35.png)
 
 ## Set
 
@@ -654,7 +654,7 @@ public boolean add(E e) {
 }
 ````
 
-![HashSet套娃](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-36.png)
+![HashSet套娃](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-36.png)
 
 而在HashMap的putVal方法中，进行了一系列判断，最后的结果是，只有在key在table数组中不存在的时候，才会返回插入的值。
 
@@ -695,4 +695,4 @@ if (e != null) { // existing mapping for key
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

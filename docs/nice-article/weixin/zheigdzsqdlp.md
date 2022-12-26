@@ -6,7 +6,7 @@ category:
   - 微信公众号
 ---
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-990bdd58-fd4f-4b36-9106-b6ef28a62a4c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-990bdd58-fd4f-4b36-9106-b6ef28a62a4c.png)
 
 作者：沉默王二<br>
 Java 程序员进阶之路：https://tobebetterjavaer.com
@@ -15,7 +15,7 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 微信上收到一个读者的私信，看完后着实被震撼到了：好家伙，**一个大专生，能有这样的觉悟和决心，注定是要逆袭的那一个呀**！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-bb7d3c1a-4b06-4457-84eb-375f29657626.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-bb7d3c1a-4b06-4457-84eb-375f29657626.jpg)
 
 我觉得他的问题很有共通性，所以在征得他的同意后，把他的问题和我的答复一并整理了出来，希望能给大家有一点点启发和帮助。
 
@@ -116,13 +116,13 @@ Java 程序员进阶之路：https://tobebetterjavaer.com
 
 一旦心里强大了起来，剩余的就交给时间吧，时间会给你想要的！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-acb9984e-59a7-40aa-b3ac-40cb6db5d19f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-acb9984e-59a7-40aa-b3ac-40cb6db5d19f.jpg)
 
 晒张图，这是我桌子边摆的一些书，有些经常翻，有些是出版社和朋友送过来的新书，有些是刚买的。
 
 成长，一点一滴的积累，就会走得更远~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-69b98aa9-512a-4992-a890-43ccc82f6e2e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-69b98aa9-512a-4992-a890-43ccc82f6e2e.jpg)
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
 

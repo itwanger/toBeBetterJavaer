@@ -90,7 +90,7 @@ RBAC三要素：
 
 **优点**：便于角色划分，更灵活的授权管理；最小颗粒度授权；
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-08622141-9cdc-46ce-bd9c-584bd267e3d8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-08622141-9cdc-46ce-bd9c-584bd267e3d8.jpg)
 
 ## RBAC的深度拓展
 
@@ -106,13 +106,13 @@ RBAC模型可以分为：**RBAC0**、**RBAC1**、**RBAC2**、**RBAC3** 四个阶
 
 **RBAC0**模型如下图：没有画太多线，但是已经能够看出多对多关系。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-9519e9d7-3145-4b6d-b54e-506034b7db5f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-9519e9d7-3145-4b6d-b54e-506034b7db5f.jpg)
 
 ### 2\. RBAC1模型
 
 相对于**RBAC0**模型，增加了**角色分级**的逻辑，类似于树形结构，下一节点继承上一节点的所有权限，如**role1**根节点下有**role1.1**和**role1.2**两个子节点
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-86906439-9dcd-4e1c-a8c7-d680d97b9831.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-86906439-9dcd-4e1c-a8c7-d680d97b9831.jpg)
 
 角色分级的逻辑可以有效的规范角色创建（主要得益于权限继承逻辑），我之前做过BD工具（类CRM），BD之间就有分级（经理、主管、专员），如果采用RBAC0模型做权限系统，我可能需要为经理、主管、专员分别创建一个角色（角色之间权限无继承性），极有可能出现一个问题，由于权限配置错误，主管拥有经理都没有权限。
 
@@ -122,7 +122,7 @@ RBAC模型可以分为：**RBAC0**、**RBAC1**、**RBAC2**、**RBAC3** 四个阶
 
 基于**RBAC0**模型，对角色增加了更多约束条件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-88ed54f3-233b-48a8-83df-6b783fa6bc10.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-88ed54f3-233b-48a8-83df-6b783fa6bc10.jpg)
 
 如**角色互斥**，比较经典的案例是财务系统中出纳不得兼管稽核，那么在赋予财务系统操作人员角色时，同一个操作员不能同时拥有出纳和稽核两个角色。
 
@@ -150,7 +150,7 @@ RBAC 权限模型由三大部分构成，即**用户管理**、**角色管理**�
 
 用户管理中的用户，是企业里每一位员工，他们本身就有自己的组织架构，我们可以直接使用企业部门架构或者业务线架构来作为线索，构建用户管理系统。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-840538da-9803-4a12-94de-fd696a710968.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-840538da-9803-4a12-94de-fd696a710968.jpg)
 
 **需要特殊注意**：实际业务中的组织架构可能与企业部门架构、业务线架构不同，需要考虑数据共享机制，一般的做法为授权某个人、某个角色组共享某个组织层级的某个对象组数据。
 
@@ -188,7 +188,7 @@ RBAC 权限模型由三大部分构成，即**用户管理**、**角色管理**�
 
 权限管理一般从三个方面来做限制。**页面/菜单权限**，**操作权限**，**数据权限**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-d798a7f6-a1b9-4b62-84bd-9412ff8610a0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-d798a7f6-a1b9-4b62-84bd-9412ff8610a0.jpg)
 
 #### **1\. 页面/菜单权限**
 
@@ -210,9 +210,9 @@ RBAC 权限模型由三大部分构成，即**用户管理**、**角色管理**�
 
 目前行业的做法是提供行列级数据权规则配置，把规则当成类似权限点配置赋予某个角色或者某个用户。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-a9c99d87-c5c2-47e7-9c14-99eb536d7789.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-a9c99d87-c5c2-47e7-9c14-99eb536d7789.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-771379da-f2d0-4459-bfcd-8f67661a6694.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-771379da-f2d0-4459-bfcd-8f67661a6694.jpg)
 
 ## 用户管理系统权限设计中的更多实践细节
 
@@ -249,6 +249,6 @@ RBAC 权限模型由三大部分构成，即**用户管理**、**角色管理**�
 
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quanxxtjgzysjyyds-33afdc45-d78b-46e0-91c2-1107161496e9.jpg)
 
 >转载链接：[https://mp.weixin.qq.com/s/FnBgM4m593e8M_UkJ_RWSg](https://mp.weixin.qq.com/s/FnBgM4m593e8M_UkJ_RWSg)，出处：macrozheng，整理：沉默王二

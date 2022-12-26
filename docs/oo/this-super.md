@@ -224,7 +224,7 @@ hello
 
 “不过，需要注意的是，`this()` 必须放在构造方法的第一行，否则就报错了。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/20-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/20-01.png)
 
 ## 04、作为参数在方法中传递
 
@@ -535,4 +535,4 @@ public class CallParentParamConstrutor {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

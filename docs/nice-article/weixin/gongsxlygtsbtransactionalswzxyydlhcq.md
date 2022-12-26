@@ -11,7 +11,7 @@ Java 后端面试的时候，面试官经常会问到 @Transactional 的原理�
 
 这篇文章，**会先讲述 @Transactional 的 4 种不生效的 Case，然后再通过源码解读，分析 @Transactional 的执行原理，以及部分 Case 不生效的真正原因。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-912703df-775a-48b9-abbb-0e951d9da1bf.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-912703df-775a-48b9-abbb-0e951d9da1bf.jpg)
 
 ## 项目准备
 
@@ -224,33 +224,33 @@ public void testMultThread() throws Exception {
 
 > 红色方框有一段注释，大致翻译为 “它是一个拦截器，所以我们只需调用即可：在构造此对象之前，将静态地计算切入点。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-3995e575-2cd3-4f62-80d9-c0fbba3c99b9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-3995e575-2cd3-4f62-80d9-c0fbba3c99b9.jpg)
 
 this 是 ReflectiveMethodInvocation 对象，成员对象包含 UserController 类、testSuccess() 方法、入参和代理对象等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-47edf894-16e1-423b-a59a-cbb1bf1f5fba.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-47edf894-16e1-423b-a59a-cbb1bf1f5fba.jpg)
 
 进入 invoke() 方法后：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-a4464977-3c8f-4800-8ffd-c4e458828b0e.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-a4464977-3c8f-4800-8ffd-c4e458828b0e.jpg)
 
 **前方高能！！！这里就是事务的核心逻辑，包括判断事务是否开启、目标方法执行、事务回滚、事务提交。**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-4b46998f-2c1a-4e7c-abc7-e34113ea33f3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-4b46998f-2c1a-4e7c-abc7-e34113ea33f3.jpg)
 
 ### private 导致事务不生效原因
 
 在上面这幅图中，第一个红框区域调用了方法 getTransactionAttribute()，主要是为了获取 txAttr 变量，它是用于读取 @Transactional 的配置，如果这个 txAttr = null，后面就不会走事务逻辑，我们看一下这个变量的含义：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-d87a548a-cdf7-4027-8a8c-6e37a2cb908f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-d87a548a-cdf7-4027-8a8c-6e37a2cb908f.jpg)
 
 我们直接进入 getTransactionAttribute()，重点关注获取事务配置的方法。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-d5397df4-4a66-4187-92fe-6b7f991aff1a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-d5397df4-4a66-4187-92fe-6b7f991aff1a.jpg)
 
 **前方高能！！！这里就是 private 导致事务不生效的原因所在**，allowPublicMethodsOnly() 一直返回 false，所以重点只关注 isPublic() 方法。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-be1475dd-5e66-4685-9009-34c2bc1eed00.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-be1475dd-5e66-4685-9009-34c2bc1eed00.jpg)
 
 下面通过位与计算，判断是否为 Public，对应的几类修饰符如下：
 
@@ -258,7 +258,7 @@ this 是 ReflectiveMethodInvocation 对象，成员对象包含 UserController �
 *   PRIVATE: 2
 *   PROTECTED: 4
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-5b4f2786-0507-4c14-af2b-79a492317bb0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-5b4f2786-0507-4c14-af2b-79a492317bb0.jpg)
 
 看到这里，是不是豁然开朗了，有没有觉得很有意思呢~~
 
@@ -266,23 +266,23 @@ this 是 ReflectiveMethodInvocation 对象，成员对象包含 UserController �
 
 我们继续回到事务的核心逻辑，因为主方法抛出 Exception() 异常，进入事务回滚的逻辑：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-244514a1-f700-4781-aebe-cc6617c682e2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-244514a1-f700-4781-aebe-cc6617c682e2.jpg)
 
 进入 rollbackOn() 方法，判断该异常是否能进行回滚，这个需要判断主方法抛出的 Exception() 异常，是否在 @Transactional 的配置中：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-32c3759b-7673-4a0a-8e6d-d9e4b0d5cd7d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-32c3759b-7673-4a0a-8e6d-d9e4b0d5cd7d.jpg)
 
 我们进入 getDepth() 看一下异常规则匹配逻辑，因为我们对 @Transactional 配置了 rollbackFor = Exception.class，所以能匹配成功：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-d4e16c96-45b4-49b6-bd5e-8061469b7aab.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-d4e16c96-45b4-49b6-bd5e-8061469b7aab.jpg)
 
 示例中的 winner 不为 null，所以会跳过下面的环节。但是当 winner = null 时，也就是没有设置 rollbackFor 属性时，会走默认的异常捕获方式。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-f08272b5-7365-47c1-a0a1-72307200c08a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-f08272b5-7365-47c1-a0a1-72307200c08a.jpg)
 
 **前方高能！！！这里就是异常不匹配原因的原因所在**，我们看一下默认的异常捕获方式：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-5cc091e2-bcd6-4d81-92ba-ee04509990b7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-5cc091e2-bcd6-4d81-92ba-ee04509990b7.jpg)
 
 是不是豁然开朗，**当没有设置 rollbackFor 属性时，默认只对 RuntimeException 和 Error 的异常执行回滚。**
 
@@ -291,19 +291,19 @@ this 是 ReflectiveMethodInvocation 对象，成员对象包含 UserController �
 
 一个人可以走得很快，但一群人才能走得更远。欢迎加入[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)，里面的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。星球提供的三份专属专栏《Java 面试指南》、《编程喵 🐱（Spring Boot+Vue 前后端分离）实战项目笔记》、《Java 版 LeetCode 刷题笔记》，干货满满，价值连城。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-3ad64454-3033-40f1-840a-8bd90880b065.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-3ad64454-3033-40f1-840a-8bd90880b065.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-853616ff-76bd-40f6-9261-5e45285d3d56.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-853616ff-76bd-40f6-9261-5e45285d3d56.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-976002e6-741c-4948-a4a4-a32ec44a903a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-976002e6-741c-4948-a4a4-a32ec44a903a.png)
 
 已经有 **670 多名** 小伙伴加入[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)加入我们的大家庭吧！这是一个 Java 学习指南 + 编程实战 + LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-6938df3e-6bd3-423e-879a-2b4dafa86bee.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-6938df3e-6bd3-423e-879a-2b4dafa86bee.png)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-3e6e49be-d833-4c4d-9e23-5d54f4132a9a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-gongsxlygtsbtransactionalswzxyydlhcq-3e6e49be-d833-4c4d-9e23-5d54f4132a9a.png)
 
 
 * * *

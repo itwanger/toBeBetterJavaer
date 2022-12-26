@@ -50,7 +50,7 @@ category:
 
 这里的一个前端项目可能对应多个后台服务，所以最终的图应该差不多是这样：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarxgszykssxywhxm-3055f36d-cebe-41e4-b6dd-c9cab9f92a49.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jiarxgszykssxywhxm-3055f36d-cebe-41e4-b6dd-c9cab9f92a49.jpg)
 
 
 这个整理的过程，主要是让自己梳理清楚，一共有哪些项目，哪些是前端可视的，哪些是后台提供服务的，并且大致了解前端项目分别调用了哪些后台服务。通过后台服务和数据库的名称，我们能从本质上了解到这条业务线提供了什么功能；从前端项目和页面路径，我们能了解到我们需要给用户展示什么。

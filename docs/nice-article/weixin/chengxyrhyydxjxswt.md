@@ -12,7 +12,7 @@ category:
 
 线上问题只要影响到了核心业务流程那便是事故，所以一旦事故发生，无论你在约会，还是周末打游戏，甚至是在睡觉，只要接到了来自公司的电话，那只能赶紧连上公司网络加班了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-ff7a235c-b5dc-4cbe-a6f4-72b36414409f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-ff7a235c-b5dc-4cbe-a6f4-72b36414409f.jpg)
 
 
 
@@ -42,7 +42,7 @@ perf是linux的性能分析工具，核心作用之一就是用来查看热点�
 
 用它可以生成**火焰图**查看到函数的资源占用情况，函数的调用栈越深火焰就越高。所以对于异常的函数一眼就能看出。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-760d57bb-758f-45c2-bc93-479c0cb83ea9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-760d57bb-758f-45c2-bc93-479c0cb83ea9.jpg)
 
 
 
@@ -63,7 +63,14 @@ perf是linux的性能分析工具，核心作用之一就是用来查看热点�
 可以使用一些轻量级的linux命令，如**ps**：
 
 ```
-[root@linuxfancy ~]# ps -ef | grep queuejob root       1303      1  0 Apr17 ?        00:00:00 /usr/sbin/queuejob root       3260   3087  0 Apr17 ?        00:00:00 /usr/bin/queuejob /bin/sh -c exec -l /bin/bash -c "env GNOME_SHELL_SESSION_MODE=classic gnome-session --session gnome-classic" root      24174  19508  0 11:39 pts/0    00:00:00 grep --color=auto ssh [root@linux265 ~]# ps -aux | grep queueA root       1303  0.0  0.0  82468  1204 ?        Ss   Apr17   0:00 /usr/sbin/queueA root       3260  0.0  0.0  52864   572 ?        Ss   Apr17   0:00 /usr/bin/queueA /bin/sh -c exec -l  root      24188  0.0  0.0 112652   956 pts/0    S+   11:39   0:00 grep --color=auto ssh
+[root@linuxfancy ~]# ps -ef | grep queuejob
+ root       1303      1  0 Apr17 ?        00:00:00 /usr/sbin/queuejob
+ root       3260   3087  0 Apr17 ?        00:00:00 /usr/bin/queuejob /bin/sh -c exec -l /bin/bash -c "env GNOME_SHELL_SESSION_MODE=classic gnome-session --session gnome-classic"
+ root      24174  19508  0 11:39 pts/0    00:00:00 grep --color=auto ssh
+ [root@linux265 ~]# ps -aux | grep queueA
+ root       1303  0.0  0.0  82468  1204 ?        Ss   Apr17   0:00 /usr/sbin/queueA
+ root       3260  0.0  0.0  52864   572 ?        Ss   Apr17   0:00 /usr/bin/queueA /bin/sh -c exec -l 
+ root      24188  0.0  0.0 112652   956 pts/0    S+   11:39   0:00 grep --color=auto ssh
 ```
 
 该命令还可以用于对进程的资源使用情况进行排序：
@@ -84,19 +91,55 @@ vmstat是Virtual Meomory Statistics（虚拟内存统计）的缩写。
 
 它是一个用于监控内存和磁盘使用情况的工具，但是也可以用来查看CPU的一些指标，如中断次数等。使用它可以查看内存使用的详细信息和磁盘的读/写情况。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-f27a4be2-403b-41bb-9856-43076eef6ac5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-f27a4be2-403b-41bb-9856-43076eef6ac5.jpg)
 
 
 
 以上表头字段的说明如下：
 
 ```
-Procs（进程）：r: 运行队列中进程数量b: 等待IO的进程数量Memory（内存）：swpd: 使用虚拟内存大小free: 可用内存大小buff: 用作缓冲的内存大小cache: 用作缓存的内存大小Swap(交换)：si: 每秒从交换区写到内存的大小so: 每秒写入交换区的内存大小IO：（现在的Linux版本块的大小为1024bytes）bi: 每秒读取的块数bo: 每秒写入的块数System(系统)：in: 每秒中断数，包括时钟中断cs: 每秒上下文切换数CPU（以百分比表示）us: 用户进程执行时间(user time)sy: 系统进程执行时间(system time)id: 空闲时间(包括IO等待时间),中央处理器的空闲时间wa: IO等待时间
+Procs（进程）：
+
+r: 运行队列中进程数量
+
+b: 等待IO的进程数量
+
+Memory（内存）：
+
+swpd: 使用虚拟内存大小
+
+free: 可用内存大小
+
+buff: 用作缓冲的内存大小
+
+cache: 用作缓存的内存大小
+
+Swap(交换)：
+
+si: 每秒从交换区写到内存的大小
+
+so: 每秒写入交换区的内存大小IO：（现在的Linux版本块的大小为1024bytes）bi: 每秒读取的块数bo: 每秒写入的块数
+
+System(系统)：
+
+in: 每秒中断数，包括时钟中断
+
+cs: 每秒上下文切换数
+
+CPU（以百分比表示）
+
+us: 用户进程执行时间(user time)
+
+sy: 系统进程执行时间(system time)
+
+id: 空闲时间(包括IO等待时间),中央处理器的空闲时间
+
+wa: IO等待时间
 ```
 
 从以上命令就可以很清晰地看出服务器的各方面性能情况。除此之外还有以下命令也可以在排查或者调优中使用：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-737f1be8-f8d7-4dcd-9807-5c2a7d14f8ff.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-737f1be8-f8d7-4dcd-9807-5c2a7d14f8ff.jpg)
 
 
 
@@ -122,7 +165,7 @@ bug确定后第一步一定是**先看日志**，只要你写需求的时候日�
 
 所以平时应该预知到这些风险，做好代码设计。总结一下定位业务bug的正确步骤：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-01788ebe-71c4-4af3-b411-0ad16410ee00.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-01788ebe-71c4-4af3-b411-0ad16410ee00.jpg)
 
 
 
@@ -154,7 +197,7 @@ bug确定后第一步一定是**先看日志**，只要你写需求的时候日�
 *   抽象产品（Product）角色：它负责描述所有实例所共有的公共接口。
 *   具体产品（Concrete Product）角色：创建目标，所有创建的对象都是充当这个角色的某个具体类的实例。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-c005c540-07b6-4f5b-8048-aac45dca6481.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-c005c540-07b6-4f5b-8048-aac45dca6481.jpg)
 
 
 
@@ -173,13 +216,13 @@ bug确定后第一步一定是**先看日志**，只要你写需求的时候日�
 *   装饰者(Decorator)：要做的装饰扩展逻辑接口。
 *   装饰者具体实现类(DecoratorComponent)：扩展逻辑的具体实现类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-4931be26-47c8-4950-885e-70ee4f4940f7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-4931be26-47c8-4950-885e-70ee4f4940f7.jpg)
 
 
 
 以上两种设计模式都有着”高扩展性“的特点，我们应该根据业务灵活设计接口，避免需求迭代导致的一坨坨又臭又长的代码。但是设计模式切勿用来炫技，一些较为冷门或者复杂的设计模式不推荐使用，否则当一套代码只有你能维护时，那将会是非常痛苦的。。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-621489ab-c9f3-4193-9288-f2ebf2f17b59.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-621489ab-c9f3-4193-9288-f2ebf2f17b59.jpg)
 
 
 
@@ -191,13 +234,13 @@ bug确定后第一步一定是**先看日志**，只要你写需求的时候日�
 
 *   使用缓存：缓存的作用是为了系统的读能力。将用户经常访问的数据扔到缓存里面可以有效地提高访问速度并且减少数据库的压力。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-302e360e-964b-48a4-bf2a-5b5e7fd0c13c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-302e360e-964b-48a4-bf2a-5b5e7fd0c13c.jpg)
 
 
 
 *   服务降级 & 限流：若短时间内流量激增影响到服务器性能，可考虑降级边缘业务以保证核心业务的可用性和性能。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-57a60456-b91c-4bcc-aebb-836b967b1bea.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-57a60456-b91c-4bcc-aebb-836b967b1bea.jpg)
 
 
 
@@ -207,13 +250,13 @@ bug确定后第一步一定是**先看日志**，只要你写需求的时候日�
 
 和减少单一服务故障对整体系统的影响。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-7f8e4791-2fe1-46f4-9e50-58aa763a7015.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-7f8e4791-2fe1-46f4-9e50-58aa763a7015.jpg)
 
 
 
 *   高可用架构：重要性不言而喻。同城多活、异地多活的架构部署可以保证单机房挂掉的情况下流量可以迅速切换到其他机房让核心业务不受影响。可谓是防止系统宕机必备良药啊！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-7e9072a1-4843-4855-91c6-11043dfb5230.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyrhyydxjxswt-7e9072a1-4843-4855-91c6-11043dfb5230.jpg)
 
 
 

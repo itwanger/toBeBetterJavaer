@@ -12,7 +12,7 @@ head:
 
 **在后台回复「pdf」即可获取本文提到的书籍电子版pdf**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
 
 大学阶段和工作阶段，我买了很多书，大部分是一些技术书籍，后来发现书不在于多，而在于经典。
 
@@ -22,19 +22,19 @@ head:
 
 这是我上学时看过的部分书:
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-1.jpg)
 
 本文分享些计算机专业常看的电子书。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jisjbkjdsdhxzfs-04b2d10c-9435-4d76-92e9-19f60127c5e4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jisjbkjdsdhxzfs-04b2d10c-9435-4d76-92e9-19f60127c5e4.png)
 
 
 **微信搜索公众号**「沉默王二」；**也可以直接截图，微信扫描下方二维码**
 
 **在后台回复「PDF」即可获取本文提到的书籍电子版pdf
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/java-1.jpg)
 
 
 ## 一、编程语言
@@ -111,6 +111,6 @@ head:
 
 **在后台回复「pdf」即可获取本文提到的书籍电子版pdf**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
 
 

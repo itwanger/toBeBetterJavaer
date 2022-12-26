@@ -14,7 +14,7 @@ head:
 
 何谓转换流？为何由来？让我们暂时带着这两个问题来了解了解字符编码和字符集！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/char-byte-86699b2c-4f24-492a-ba68-62c3be0f86bc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/char-byte-86699b2c-4f24-492a-ba68-62c3be0f86bc.png)
 
 ## 字符编码与解码
 
@@ -52,7 +52,7 @@ byte[] -- String
 
 计算机要准确的存储和识别各种字符集符号，需要进行字符编码，一套字符集必然至少有一套字符编码。常见的字符集有`ASCII`字符集、`GBK`字符集、`Unicode`字符集等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/char-byte-eafc0ac8-ce5b-4183-9a7e-9498e23b2d4e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/char-byte-eafc0ac8-ce5b-4183-9a7e-9498e23b2d4e.png)
 
 可见，当指定了**编码**，它所对应的**字符集**自然就指定了，所以**编码**才是我们最终要关心的。
 
@@ -189,7 +189,7 @@ public class OutputDemo {
 ```
  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/char-byte-61d3a7e6-365e-41d3-8c4a-bc9e680c70a6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/char-byte-61d3a7e6-365e-41d3-8c4a-bc9e680c70a6.png)
 
 
 
@@ -210,4 +210,4 @@ BufferedReader in = new BufferedReader(new InputStreamReader(System.in))；
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

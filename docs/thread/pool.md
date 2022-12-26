@@ -230,7 +230,7 @@ public void execute(Runnable command) {
 
 整个过程如图所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/pool-f9e419fa-9d42-44fc-b14e-5b618a6f906d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/pool-f9e419fa-9d42-44fc-b14e-5b618a6f906d.png)
 
 ### ThreadPoolExecutor如何做到线程复用的？
 
@@ -557,4 +557,4 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)

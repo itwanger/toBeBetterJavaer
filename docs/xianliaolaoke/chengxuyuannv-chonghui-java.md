@@ -2,11 +2,11 @@
 
 大家好，我是二哥呀！前几天一个91年的小姐姐给我发私信说，她19年回老家创业开了个实体店做建材生意，但受困于疫情，生意越来越不好做，**于是就萌生重回软件开发 base 武汉**的想法，问我有什么建议。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-1.png)
 
 刚好今天有空，就找她好好聊了一下，给了她一些建议，同时也给了一些我最近整理的学习资料。小姐姐说她会仔细学习的，那份决心给我的触动很大，所以我打算再来写一篇文章帮她深入地分析一下，同时也希望给有同样困惑的小伙伴一点点启发和帮助~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-2.png)
 
 ### 一、不服不行
 
@@ -32,11 +32,11 @@
 
 小姐姐 base 武汉，那我们就到 boss 直聘上看一下 Java 岗的招聘情况哈，岗位还是比较充裕的，3 到 5 年的薪资待遇在 15k-25k 之间。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-3.png)
 
 再来看一下任职要求：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chengxuyuannv-chonghui-java-4.png)
 
 第一，精通 Java 语言，现在的招聘要求基本上都这样，精通是常态。针对这种“无理”的要求，办法只有一个，就是去背八股文！先背会再说。面试官问的你能答上来就表明你是精通。
 

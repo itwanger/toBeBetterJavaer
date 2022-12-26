@@ -12,7 +12,7 @@ category:
 
 知乎有类似问题：www.zhihu.com/question/422427316
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yinhwsmyykjgzrrhrrglnjy-b95e2bb5-14db-4b6d-a021-ea1949f887e2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-yinhwsmyykjgzrrhrrglnjy-b95e2bb5-14db-4b6d-a021-ea1949f887e2.jpg)
 
 > 回答 1：www.zhihu.com/question/422427316/answer/1504706224
 

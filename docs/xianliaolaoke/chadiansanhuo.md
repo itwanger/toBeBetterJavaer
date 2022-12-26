@@ -2,7 +2,7 @@
 
 今天和两个合伙人开了个腾讯会议，没想到差点因为一个功能上的分歧散了伙！！好在大家都是奔三的男人了，吵归吵，但都是奔着做事去的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-1.png)
 
 不过冷静下来后，我感觉主要的责任在我，所以我打算写篇文章反思一下自己。
 
@@ -10,7 +10,7 @@
 
 这一点老读者应该能感受得到。今天经过沉痛的反思后，我决定还是做回从前的自己。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-2.png)
 
 人不能患得患失，否则就变得谨小慎微，很多话很多事就不敢说不敢做了。
 
@@ -56,7 +56,7 @@
 
 私下里仍然有不少小伙伴问我考研和工作之间到底该如何选择，现在去微信上搜了一下“考研”的关键字，好家伙，有好多好多！！！！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-3.png)
 
 我的观点是，根据自身的实际情况出发，你能考上研究生的几率有多大？你为什么要考研？
 
@@ -66,7 +66,7 @@
 
 但其实我们就是因为一个很小很小的点，存在分歧，贴出来也不怕大家笑话，就是，我认为不应该新建一个名叫“未分类”的栏目，把没有分类的文章归类到它下面。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/chadiansanhuo-4.png)
 
 而我的合伙人认为，未分类的存在很合理，否则那些没有栏目的文章如何检索如何管理。
 
