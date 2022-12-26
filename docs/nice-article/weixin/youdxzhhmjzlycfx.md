@@ -418,4 +418,4 @@ head:
 
 >转载链接：[https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw](https://mp.weixin.qq.com/s/rO7cU4NX74CoWADo_O4IUw)，出处：暖蓝笔记，整理：沉默王二
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

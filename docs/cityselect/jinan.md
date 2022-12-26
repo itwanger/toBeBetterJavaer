@@ -107,4 +107,4 @@ hr 说的税前年薪总包是 15 w，网上的信息比较少，盲猜风格应
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/5rjqpY4Wxs0wEw7VuHXIpg](https://mp.weixin.qq.com/s/5rjqpY4Wxs0wEw7VuHXIpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -309,4 +309,4 @@ for (int i = 1;i < 20; i++) {
 到此为止，Log4j 2 的基本使用示例就已经完成了。测试环境搞定，我去问一下老板，要不要在生产环境下使用 Log4j 2。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

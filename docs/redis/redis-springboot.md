@@ -658,5 +658,5 @@ public class RedisServiceImpl implements RedisService {
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - 整合 Redis 专用：[https://github.com/itwanger/coding-more](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-redis)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

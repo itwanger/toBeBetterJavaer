@@ -147,4 +147,4 @@ tag:
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q](https://mp.weixin.qq.com/s/cnYsZLudFOwv5EKYMsMh0Q)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

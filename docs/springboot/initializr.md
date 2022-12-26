@@ -205,4 +205,4 @@ OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项�
 
 ---
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

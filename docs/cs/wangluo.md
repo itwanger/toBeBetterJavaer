@@ -145,7 +145,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 
 具体来说，在网络层是IP/ICMP协议、在传输层是TCP/UDP协议、在应用层是SMTP、FTP、以及 HTTP 等。他们都属于 TCP/IP 协议。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 网络设备
 
@@ -179,7 +179,7 @@ OSI模型注重通信协议必要的功能；TCP/IP更强调在计算机上实�
 
 它通过识别目的 IP 地址的**网络号**，再根据**路由表**进行数据转发
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## HTTP
 
@@ -445,7 +445,7 @@ HTTP 请求报文由3部分组成(请求行+请求头+请求体)
   - 服务端可以设置客户端的cookie
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## TCP
 
@@ -828,7 +828,7 @@ TCP报文头有个字段叫Window，用于接收方通知发送方自己还有�
 
 对用户来说，只需调用Socket去组织数据，以符合指定的协议，即可通信
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## UDP
 
@@ -1166,7 +1166,7 @@ ARP即地址解析协议， 用于实现从 IP 地址到 MAC 地址的映射，�
 
 源主机收到ARP响应包后，将目的主机的IP和MAC地址写入ARP列表，并利用此信息发送数据，如果源主机一直没有收到ARP响应数据包，表示ARP查询失败。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 数字签名
 
@@ -1259,7 +1259,7 @@ SELECT * FROM user_table WHERE username=’’or 1 = 1 –- and password=’’
 
 **例子**：甲方生成 **一对密钥** 并将其中的一把作为 **公钥** 向其它人公开，得到该公钥的 **乙方** 使用该密钥对机密信息 **进行加密** 后再发送给甲方，甲方再使用自己保存的另一把 **专用密钥** (**私钥**)，对 **加密** 后的信息 **进行解密**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 网络攻击
 
@@ -1390,7 +1390,7 @@ Session 的**认证过程**：
 3. 有效期，Cookie 可以设置任意时间有效，而 Session 一般失效时间短
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 常见面试题
 
@@ -1418,4 +1418,4 @@ Session 的**认证过程**：
 
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw](https://mp.weixin.qq.com/s/7EddtzpwIRvYfw34QE4zvw)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

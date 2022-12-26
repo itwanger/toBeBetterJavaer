@@ -285,4 +285,4 @@ public class IdentityHashMap<K, V> {
 
 2020 年的最后一篇文章！看到的就点个赞吧，2021 年顺顺利利。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

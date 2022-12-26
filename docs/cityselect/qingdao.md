@@ -117,4 +117,4 @@ Yeelight 算是在青岛为数不多的小而美的公司了，目前团队330�
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ](https://mp.weixin.qq.com/s/8QQvOrkG3Vdjj3GxP1zxBQ)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

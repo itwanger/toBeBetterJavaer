@@ -192,4 +192,4 @@ WindTerm 支持三种主题的切换，亮白模式、暗黑模式、黑白相�
 
 >[https://kingtoolbox.github.io/](https://kingtoolbox.github.io/)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

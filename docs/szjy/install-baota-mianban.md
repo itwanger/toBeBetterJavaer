@@ -122,4 +122,4 @@ MySQL 基本上是中小型服务器必备的关系型数据库软件；PHP 虽�
 - 代理云服务器端口
 - 更多强大功能，等待大家去解锁
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -155,4 +155,4 @@ tag:
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA](https://mp.weixin.qq.com/s/uZQ8p0ytsQFXzt5ppzx6fA)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

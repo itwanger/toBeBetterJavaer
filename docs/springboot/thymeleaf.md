@@ -156,4 +156,4 @@ public class UserController {
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - codingmore-thymeleaf: [https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-thymeleaf)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -135,4 +135,4 @@ title: 如何保障MySQL和Redis的数据一致性？
 
 > 整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/RL4Bt_UkNcnsBGL_9w37Zg)，作者：楼仔，戳[原文链接](https://mp.weixin.qq.com/s/l7v4s1VekIPNi7KZuUgwGQ)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

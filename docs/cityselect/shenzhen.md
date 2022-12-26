@@ -83,5 +83,5 @@ AI独角兽公司
 
 >作者：代码随想录，转载链接：[https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g](https://mp.weixin.qq.com/s/hBU-eEUq8aN5PWwdZFmC4g)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

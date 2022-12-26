@@ -272,4 +272,4 @@ public class WebLogAspect {
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - 过滤器，拦截器、监听器专用：[https://github.com/itwanger/coding-more](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-filter-interceptor-listener)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

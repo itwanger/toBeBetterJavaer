@@ -164,4 +164,4 @@ chiner 还有更多更强大的功能，大家觉得不错的话，可以去尝�
 >[https://www.yuque.com/chiner/docs/manual](https://www.yuque.com/chiner/docs/manual)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

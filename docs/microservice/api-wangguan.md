@@ -204,4 +204,4 @@ hal-proxy模块是整个微服务网关最复杂，也是技术含量最高的�
 
 > 整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/b2xf4GiJksBQqjHVpsh49Q)，作者：楼仔，戳[原文链接](https://mp.weixin.qq.com/s/0Qupyl5eCyQGFEAIY6GxoQ)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

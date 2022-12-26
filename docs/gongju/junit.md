@@ -307,4 +307,4 @@ void fromJava9to11() {
 
 希望我能尽早的替你发现代码中的 bug，毕竟越早的发现，造成的损失就会越小。see you！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

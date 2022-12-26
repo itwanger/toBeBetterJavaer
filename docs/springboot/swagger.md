@@ -274,4 +274,4 @@ Swagger 虽然解决了调用端代码、服务端代码以及接口文档的不
 >- 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 >- codingmore-swagger：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-swagger)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
