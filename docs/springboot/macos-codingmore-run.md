@@ -313,4 +313,4 @@ DB 文件放在 coding-more/doc 目录下。
 
 好了，Mac 版如何下载编程喵源码，如何在本地跑起来编程喵的服务就告一段落辣，我们回头见！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

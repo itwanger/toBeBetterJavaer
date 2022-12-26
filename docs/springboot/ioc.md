@@ -461,4 +461,4 @@ Spring 也是用的 `set()` 方法，它只不过提供了一套更加完善�
 
 >作者：小齐，转载链接：[https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

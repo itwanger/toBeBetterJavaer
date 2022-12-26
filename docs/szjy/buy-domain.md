@@ -64,4 +64,4 @@ TTL 为缓存时间，数值越小，表示修改记录生效的时间越快，�
 
 nice！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

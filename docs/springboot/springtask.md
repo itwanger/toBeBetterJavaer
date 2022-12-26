@@ -277,7 +277,7 @@ Spring Task 虽然用起来很方便，但用法过去简单，很多复杂的�
 
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 

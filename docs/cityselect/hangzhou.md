@@ -243,4 +243,4 @@ tag:
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w](https://mp.weixin.qq.com/s/hrL2tqXHT5AjOqrQlRhR-w)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

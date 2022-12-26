@@ -287,4 +287,4 @@ Spring Boot2.0 以上默认使用的是 Hikari 连接池，我们从之前的日
 
 ---
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

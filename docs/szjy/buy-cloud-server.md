@@ -31,4 +31,4 @@ shortTitle: 购买云服务器
 
 >视频地址戳这里：[https://www.bilibili.com/video/BV1nb4y187rU/](https://www.bilibili.com/video/BV1nb4y187rU/)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

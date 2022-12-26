@@ -15,7 +15,7 @@ category: 联系作者
 
 可以微信搜索 **沉默王二** 关键字或者扫码直接关注，关注后回复 **00** 还可以拉取我为你精心准备的学习资料。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 学习资料有 BAT 大佬的刷题笔记，有《Java 程序员进阶之路》的 PDF 版电子书等等。
 

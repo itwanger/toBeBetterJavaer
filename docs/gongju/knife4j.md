@@ -240,4 +240,4 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 > - codingmore-knife4j：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-knife4j)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

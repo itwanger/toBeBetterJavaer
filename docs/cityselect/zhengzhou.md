@@ -275,5 +275,5 @@ UU 跑腿的工作环境以及各种福利都还算不错！
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ](https://mp.weixin.qq.com/s/SU9drg2xJKcheIwJ6OSSBQ)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

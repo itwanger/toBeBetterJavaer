@@ -178,4 +178,4 @@ Warp 解决的第二个痛点是增加协作功能。不过由于我目前没有
 
 喜欢的小伙伴一定要尝试一把，你会来感谢我的。好了，这期就先聊到这吧，毕竟 Warp 刚公测，后面有机会再来给大家详细地说。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

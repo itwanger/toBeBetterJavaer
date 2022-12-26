@@ -321,4 +321,4 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 > 转载链接：[https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw](https://mp.weixin.qq.com/s/qurUqeD_VyiJRtB38vOuSw)，出处：沉默王二，整理：沉默王二
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

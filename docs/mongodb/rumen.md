@@ -210,4 +210,4 @@ Document 对象来源于 org.bson 包下，可以在实例化该对象之后通�
 
 另外，如果你想写入门级别的文章，这篇就是最好的范例。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -192,7 +192,7 @@ CPU 和内存以及其他设备之间，也需要通信，因此我们用一种�
 
 如果输入设备、输出设备想要和 CPU 进行交互，比如说用户按键需要 CPU 响应，这时候就需要用到控制总线。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 基础知识
 
@@ -296,7 +296,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 比如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后续操作等
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 线程
 
@@ -393,7 +393,7 @@ Kernel 运行在超级权限模式下，所以拥有很高的权限。
 
 如果每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 进程
 
@@ -873,7 +873,7 @@ Linux系统中有很多的守护进程，最典型的就是我们经常看到的
 
 电梯总是保持一个方向运行，直到该方向没有请求为止，然后改变运行方向， 电梯算法（扫描算法）和电梯的运行过程类似，总是按一个方向来进行磁盘调度，直到该方向上没有未完成的磁盘 请求，然后改变方向，因为考虑了移动方向，因此所有的磁盘请求都会被满足，解决了 SSTF 的饥饿问题
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 内存管理
 
@@ -1160,7 +1160,7 @@ Page 大小和 Frame 大小通常相等，页表中记录的某个 Page 对应�
 
 现代操作系统是通过虚拟内存技术来解决的，覆盖技术则已成为历史；而交换技术在现代操作系统中仍具有较强的生命力。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 常见面试题
 
@@ -1339,4 +1339,4 @@ CPU处理程序的时候一旦程序不在内存中，会产生缺页异常；�
 
 >作者：月伴飞鱼，转载链接：[https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ](https://mp.weixin.qq.com/s/G9ZqwEMxjrG5LbgYwM5ACQ)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

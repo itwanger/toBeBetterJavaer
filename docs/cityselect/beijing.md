@@ -316,4 +316,4 @@ tag:
 
 >作者：朱晋君，转载链接：[https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw](https://mp.weixin.qq.com/s/xlPZfpd89rDq6L-Me80wnw)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
