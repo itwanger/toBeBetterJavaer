@@ -14,7 +14,7 @@ head:
 
 # 安装Java开发工具包JDK
 
-因为Java程序必须运行在JVM之上，所以我们 Java 程序员在学习 Java 之前，要做的第一件事情就是安装JDK。
+因为Java程序必须运行在 JVM 之上，所以我们 Java 程序员在学习 Java 之前，要做的第一件事情就是安装JDK。
 
 什么？ 
 
@@ -42,7 +42,6 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 这是 Oracle 官方给出的 JDK、JRE、JVM 关系图。
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-cbc87f87-6351-4356-936b-77850cc682d5.png)
 
 那针对不同的操作系统，官方也提供了不同的 JDK 安装包。如果你用谷歌去搜“JDK”关键字，能搜到官方的下载链接。
@@ -51,13 +50,11 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 如果你用百度去搜，嗯。
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-31e739ff-b69f-47b6-9db4-8843cd8a716a.png)
 
 总之，是把官方给吃了。
 
 好，如果你想安装 JDK ，到官方下载。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-e5b91a70-2a23-4ebd-896a-5ff19f0075b1.png)
 
@@ -68,8 +65,31 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 下载完双击安装，然后配置环境变量就OK 了。
 
-这没啥技术含量，所以下面我给大家推荐两种高级的：
+先说 Windows 用户，在电脑桌面 右键点击 “此电脑”的“属性”选项
 
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a0a78e05-886f-425a-8ba9-d27314f7a21c.png)
+
+选择“高级系统设置”选项
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-fdc94ada-ae44-4a93-ba0d-92860119ad9c.png)
+
+点击下面的“环境变量”选项
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-919eb8f0-9869-450c-a6cb-50318dd3e2e5.png)
+
+点击“系统变量”下面的”新建“选项
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a4c05c3e-f305-4d6a-96d2-fe345e980c3b.png)
+
+在”变量名“处填上”Java_Home“，”变量值“为JDK安装路径，比如说”D:\Program Files\Java\jdk1.8.0_91“
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-26be5706-036d-4fae-99fa-d5f14b7380d4.png)
+
+参考链接：https://www.cnblogs.com/cnwutianhao/p/5487758.html
+
+macOS 用户直接往后翻。
+
+上面这种下载 JDK 安装配置的方式没啥技术含量，所以下面我给大家推荐两种高级的：
 
 ## Windows 用户
 
@@ -125,7 +145,6 @@ JDK 的安装路径可以通过下图的位置查找。
 jenv versions
 jenv global 17.0.3
 ```
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
 
