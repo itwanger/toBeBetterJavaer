@@ -1085,7 +1085,7 @@ MySQL 默认的事务隔离级别是可重复读 (Repeatable Read)。
 | 隔离级别                   | 脏读 | 不可重复读 | 幻读 |
 | -------------------------- | ---- | ---------- | ---- |
 | Read Uncommited 读取未提交 | 是   | 是         | 是   |
-| Read Commited 读取已提交   | 否   | 是         | 否   |
+| Read Commited 读取已提交   | 否   | 是         | 是   |
 | Repeatable Read 可重复读   | 否   | 否         | 是   |
 | Serialzable 可串行化       | 否   | 否         | 否   |
 
