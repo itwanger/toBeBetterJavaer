@@ -4,7 +4,6 @@ shortTitle: 如何优雅地处理重复请求（并发请求）
 description: 实战
 category:
   - 微信公众号
-head:
 ---
 
 对于一些用户请求，在某些情况下是可能重复发送的，如果是查询类操作并无大碍，但其中有些是涉及写入操作的，一旦重复了，可能会导致很严重的后果，例如交易的接口如果重复请求可能会重复下单。
@@ -25,7 +24,20 @@ head:
 代码大概如下：
 
 ```
-String KEY = "REQ12343456788";//请求唯一编号long expireTime =  1000;// 1000毫秒过期，1000ms内的重复请求会认为重复long expireAt = System.currentTimeMillis() + expireTime;String val = "expireAt@" + expireAt;//redis key还存在的话要就认为请求是重复的Boolean firstSet = stringRedisTemplate.execute((RedisCallback<Boolean>) connection -> connection.set(KEY.getBytes(), val.getBytes(), Expiration.milliseconds(expireTime), RedisStringCommands.SetOption.SET_IF_ABSENT));final boolean isConsiderDup;if (firstSet != null && firstSet) {// 第一次访问 isConsiderDup = false;} else {// redis值已存在，认为是重复了 isConsiderDup = true;}
+String KEY = "REQ12343456788";//请求唯一编号
+long expireTime =  1000;// 1000毫秒过期，1000ms内的重复请求会认为重复
+long expireAt = System.currentTimeMillis() + expireTime;
+String val = "expireAt@" + expireAt;
+
+//redis key还存在的话要就认为请求是重复的
+Boolean firstSet = stringRedisTemplate.execute((RedisCallback<Boolean>) connection -> connection.set(KEY.getBytes(), val.getBytes(), Expiration.milliseconds(expireTime), RedisStringCommands.SetOption.SET_IF_ABSENT));
+
+final boolean isConsiderDup;
+if (firstSet != null && firstSet) {// 第一次访问
+ isConsiderDup = false;
+} else {// redis值已存在，认为是重复了
+ isConsiderDup = true;
+}
 ```
 
 ## 业务参数去重
@@ -63,7 +75,18 @@ String KEY = "dedup:U="+userId + "M=" + method + "P=" + reqParamMD5;
 原因是这些请求参数的字段里面，是带时间字段的，这个字段标记用户请求的时间，服务端可以借此丢弃掉一些老的请求（例如5秒前）。如下面的例子，请求的其他参数是一样的，除了请求时间相差了一秒：
 
 ```
-//两个请求一样，但是请求时间差一秒String req = "{\n" +  "\"requestTime\" :\"20190101120001\",\n" +  "\"requestValue\" :\"1000\",\n" +  "\"requestKey\" :\"key\"\n" +"}";String req2 = "{\n" +  "\"requestTime\" :\"20190101120002\",\n" +  "\"requestValue\" :\"1000\",\n" +  "\"requestKey\" :\"key\"\n" +"}";
+//两个请求一样，但是请求时间差一秒
+String req = "{\n" +
+  "\"requestTime\" :\"20190101120001\",\n" +
+  "\"requestValue\" :\"1000\",\n" +
+  "\"requestKey\" :\"key\"\n" +
+"}";
+
+String req2 = "{\n" +
+  "\"requestTime\" :\"20190101120002\",\n" +
+  "\"requestValue\" :\"1000\",\n" +
+  "\"requestKey\" :\"key\"\n" +
+"}";
 ```
 
 这种请求，我们也很可能需要挡住后面的重复请求。所以求业务参数摘要之前，需要剔除这类时间字段。还有类似的字段可能是GPS的经纬度字段（重复请求间可能有极小的差别）。
@@ -71,7 +94,9 @@ String KEY = "dedup:U="+userId + "M=" + method + "P=" + reqParamMD5;
 ## 请求去重工具类，Java实现
 
 ```
-public class ReqDedupHelper {    /**
+public class ReqDedupHelper {
+
+    /**
 
      *
 
@@ -81,19 +106,75 @@ public class ReqDedupHelper {    /**
 
      * @return 去除参数的MD5摘要
 
-     */    public String dedupParamMD5(final String reqJSON, String... excludeKeys) {        String decreptParam = reqJSON;        TreeMap paramTreeMap = JSON.parseObject(decreptParam, TreeMap.class);        if (excludeKeys!=null) {            List<String> dedupExcludeKeys = Arrays.asList(excludeKeys);            if (!dedupExcludeKeys.isEmpty()) {                for (String dedupExcludeKey : dedupExcludeKeys) {                    paramTreeMap.remove(dedupExcludeKey);                }            }        }        String paramTreeMapJSON = JSON.toJSONString(paramTreeMap);        String md5deDupParam = jdkMD5(paramTreeMapJSON);        log.debug("md5deDupParam = {}, excludeKeys = {} {}", md5deDupParam, Arrays.deepToString(excludeKeys), paramTreeMapJSON);        return md5deDupParam;    }    private static String jdkMD5(String src) {        String res = null;        try {            MessageDigest messageDigest = MessageDigest.getInstance("MD5");            byte[] mdBytes = messageDigest.digest(src.getBytes());            res = DatatypeConverter.printHexBinary(mdBytes);        } catch (Exception e) {            log.error("",e);        }        return res;    }}
+     */
+    public String dedupParamMD5(final String reqJSON, String... excludeKeys) {
+        String decreptParam = reqJSON;
+
+        TreeMap paramTreeMap = JSON.parseObject(decreptParam, TreeMap.class);
+        if (excludeKeys!=null) {
+            List<String> dedupExcludeKeys = Arrays.asList(excludeKeys);
+            if (!dedupExcludeKeys.isEmpty()) {
+                for (String dedupExcludeKey : dedupExcludeKeys) {
+                    paramTreeMap.remove(dedupExcludeKey);
+                }
+            }
+        }
+
+        String paramTreeMapJSON = JSON.toJSONString(paramTreeMap);
+        String md5deDupParam = jdkMD5(paramTreeMapJSON);
+        log.debug("md5deDupParam = {}, excludeKeys = {} {}", md5deDupParam, Arrays.deepToString(excludeKeys), paramTreeMapJSON);
+        return md5deDupParam;
+    }
+
+    private static String jdkMD5(String src) {
+        String res = null;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            byte[] mdBytes = messageDigest.digest(src.getBytes());
+            res = DatatypeConverter.printHexBinary(mdBytes);
+        } catch (Exception e) {
+            log.error("",e);
+        }
+        return res;
+    }
+}
 ```
 
 下面是一些测试日志：
 
 ```
-public static void main(String[] args) {    //两个请求一样，但是请求时间差一秒    String req = "{\n" +            "\"requestTime\" :\"20190101120001\",\n" +            "\"requestValue\" :\"1000\",\n" +            "\"requestKey\" :\"key\"\n" +            "}";    String req2 = "{\n" +            "\"requestTime\" :\"20190101120002\",\n" +            "\"requestValue\" :\"1000\",\n" +            "\"requestKey\" :\"key\"\n" +            "}";    //全参数比对，所以两个参数MD5不同    String dedupMD5 = new ReqDedupHelper().dedupParamMD5(req);    String dedupMD52 = new ReqDedupHelper().dedupParamMD5(req2);    System.out.println("req1MD5 = "+ dedupMD5+" , req2MD5="+dedupMD52);    //去除时间参数比对，MD5相同    String dedupMD53 = new ReqDedupHelper().dedupParamMD5(req,"requestTime");    String dedupMD54 = new ReqDedupHelper().dedupParamMD5(req2,"requestTime");    System.out.println("req1MD5 = "+ dedupMD53+" , req2MD5="+dedupMD54);}
+public static void main(String[] args) {
+    //两个请求一样，但是请求时间差一秒
+    String req = "{\n" +
+            "\"requestTime\" :\"20190101120001\",\n" +
+            "\"requestValue\" :\"1000\",\n" +
+            "\"requestKey\" :\"key\"\n" +
+            "}";
+
+    String req2 = "{\n" +
+            "\"requestTime\" :\"20190101120002\",\n" +
+            "\"requestValue\" :\"1000\",\n" +
+            "\"requestKey\" :\"key\"\n" +
+            "}";
+
+    //全参数比对，所以两个参数MD5不同
+    String dedupMD5 = new ReqDedupHelper().dedupParamMD5(req);
+    String dedupMD52 = new ReqDedupHelper().dedupParamMD5(req2);
+    System.out.println("req1MD5 = "+ dedupMD5+" , req2MD5="+dedupMD52);
+
+    //去除时间参数比对，MD5相同
+    String dedupMD53 = new ReqDedupHelper().dedupParamMD5(req,"requestTime");
+    String dedupMD54 = new ReqDedupHelper().dedupParamMD5(req2,"requestTime");
+    System.out.println("req1MD5 = "+ dedupMD53+" , req2MD5="+dedupMD54);
+
+}
 ```
 
 日志输出：
 
 ```
-req1MD5 = 9E054D36439EBDD0604C5E65EB5C8267 , req2MD5=A2D20BAC78551C4CA09BEF97FE468A3Freq1MD5 = C2A36FED15128E9E878583CAAAFEFDE9 , req2MD5=C2A36FED15128E9E878583CAAAFEFDE9
+req1MD5 = 9E054D36439EBDD0604C5E65EB5C8267 , req2MD5=A2D20BAC78551C4CA09BEF97FE468A3F
+req1MD5 = C2A36FED15128E9E878583CAAAFEFDE9 , req2MD5=C2A36FED15128E9E878583CAAAFEFDE9
 ```
 
 日志说明：
@@ -106,21 +187,27 @@ req1MD5 = 9E054D36439EBDD0604C5E65EB5C8267 , req2MD5=A2D20BAC78551C4CA09BEF97FE4
 至此，我们可以得到完整的去重解决方案，如下：
 
 ```
-String userId= "12345678";//用户String method = "pay";//接口名String dedupMD5 = new ReqDedupHelper().dedupParamMD5(req,"requestTime");//计算请求参数摘要，其中剔除里面请求时间的干扰String KEY = "dedup:U=" + userId + "M=" + method + "P=" + dedupMD5;long expireTime =  1000;// 1000毫秒过期，1000ms内的重复请求会认为重复long expireAt = System.currentTimeMillis() + expireTime;String val = "expireAt@" + expireAt;// NOTE:直接SETNX不支持带过期时间，所以设置+过期不是原子操作，极端情况下可能设置了就不过期了，后面相同请求可能会误以为需要去重，所以这里使用底层API，保证SETNX+过期时间是原子操作Boolean firstSet = stringRedisTemplate.execute((RedisCallback<Boolean>) connection -> connection.set(KEY.getBytes(), val.getBytes(), Expiration.milliseconds(expireTime),        RedisStringCommands.SetOption.SET_IF_ABSENT));final boolean isConsiderDup;if (firstSet != null && firstSet) {    isConsiderDup = false;} else {    isConsiderDup = true;}
+String userId= "12345678";//用户
+String method = "pay";//接口名
+String dedupMD5 = new ReqDedupHelper().dedupParamMD5(req,"requestTime");//计算请求参数摘要，其中剔除里面请求时间的干扰
+String KEY = "dedup:U=" + userId + "M=" + method + "P=" + dedupMD5;
+
+long expireTime =  1000;// 1000毫秒过期，1000ms内的重复请求会认为重复
+long expireAt = System.currentTimeMillis() + expireTime;
+String val = "expireAt@" + expireAt;
+
+// NOTE:直接SETNX不支持带过期时间，所以设置+过期不是原子操作，极端情况下可能设置了就不过期了，后面相同请求可能会误以为需要去重，所以这里使用底层API，保证SETNX+过期时间是原子操作
+Boolean firstSet = stringRedisTemplate.execute((RedisCallback<Boolean>) connection -> connection.set(KEY.getBytes(), val.getBytes(), Expiration.milliseconds(expireTime),
+        RedisStringCommands.SetOption.SET_IF_ABSENT));
+
+final boolean isConsiderDup;
+if (firstSet != null && firstSet) {
+    isConsiderDup = false;
+} else {
+    isConsiderDup = true;
+}
 ```
 
 
-
-好了，今天就到这儿吧，我是飘渺，咱们下期见~~
-
-## 最后说一句（别白嫖，求关注）
-
-新开了一个纯技术交流群（一群已满），群里氛围还不错，无广告，无套路，单纯的吹牛逼，侃人生，想进的可以通过下方二维码加我微信，备注进群！
-
-![](https://mmbiz.qpic.cn/mmbiz_jpg/PxMzT0Oibf4iaaq1LHN5nmBoW0HpH70QAzKz7kqcXajmMbhLkK7rc6CRLcKhybrXOkejBIMwTr56xxbGiameeNPEg/640?wx_fmt=jpeg)
-
-求点赞、在看、分享三连
-
-![](https://mmbiz.qpic.cn/mmbiz_png/PoF8jo1PmpwnEoGbnjibl4txzyz5QMz2YvGiaUDVlxTPCLQv8BlTIibqTsjvRVSAibuUrAicpbFBy6hYKia3KcfIL9UA/640?wx_fmt=png)
 
 >参考链接：[https://mp.weixin.qq.com/s?__biz=MzAwMTk4NjM1MA==&mid=2247504735&idx=1&sn=95d066b8f06562454e51ebb0ac1fb29c&chksm=9ad3c91eada44008ea4ed577b0fa99f575b161dd68374f3ca662c1e0ab335f3f432a7ce1259f#rd](https://mp.weixin.qq.com/s?__biz=MzAwMTk4NjM1MA==&mid=2247504735&idx=1&sn=95d066b8f06562454e51ebb0ac1fb29c&chksm=9ad3c91eada44008ea4ed577b0fa99f575b161dd68374f3ca662c1e0ab335f3f432a7ce1259f#rd)，出处：JAVA日知录，整理：沉默王二
