@@ -1,6 +1,6 @@
 ---
 star: true
-title: 非 Python 职业选手的Python学习路线（建议收藏🔥）
+title: 2023年最值得收藏的Python学习路线（建议收藏🔥）
 shortTitle: Python学习路线
 category:
   - 学习路线
