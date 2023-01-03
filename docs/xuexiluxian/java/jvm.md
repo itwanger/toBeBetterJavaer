@@ -1,6 +1,6 @@
 ---
 star: true
-title: Java虚拟机学习路线（建议收藏🔥）
+title: 2023年最值得收藏的Java虚拟机（JVM）学习路线（🔥）
 shortTitle: Java虚拟机学习路线
 category:
   - 学习路线
