@@ -46,7 +46,7 @@ Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它是个�
 
 **虽然*Deque*的接口有 12 个之多，但无非就是对容器的两端进行操作，或添加，或删除，或查看**。明白了这一点讲解起来就会非常简单。
 
-*ArrayDeque*和*LinkedList*是*Deque*的两个通用实现，由于官方更推荐使用*AarryDeque*用作栈和队列，加之上一篇已经讲解过[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)，本文将着重讲解*ArrayDeque*的具体实现。
+*ArrayDeque*和*LinkedList*是*Deque*的两个通用实现，由于官方更推荐使用*ArrayDeque*用作栈和队列，加之上一篇已经讲解过[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)，本文将着重讲解*ArrayDeque*的具体实现。
 
 从名字可以看出*ArrayDeque*底层通过数组实现，为了满足可以同时在数组两端插入或删除元素的需求，该数组还必须是循环的，即**循环数组（circular array）**，也就是说数组的任何一点都可能被看作起点或者终点。
 
