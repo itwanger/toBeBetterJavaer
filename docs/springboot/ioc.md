@@ -45,7 +45,7 @@ Spring 全家桶中最重要的几个项目都是基于 Spring Framework 的，�
 
 等下，`bean` 又是什么？
 
-Bean 其实就是包装了的 Object，无论是控制反转还是依赖注入，它们的主语都是 object，而 bean 就是由第三方包装好了的 object。（想一下别人送礼物给你的时候都是要包装一下的，自己造的就免了。
+Bean 其实就是包装了的 Object，无论是控制反转还是依赖注入，它们的主语都是 object，而 bean 就是由第三方包装好了的 object（想一下别人送礼物给你的时候都是要包装一下的，自己造的就免了）。
 
 Bean 是 Spring 的主角，有种说法叫 Spring 就是面向 bean 的编程（Bean Oriented Programming, BOP）。
 
