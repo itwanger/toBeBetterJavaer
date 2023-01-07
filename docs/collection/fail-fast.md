@@ -195,7 +195,7 @@ List<String> list = new ArrayList<>();
 list.add("沉默王二");
 list.add("沉默王三");
 list.add("一个文章真特么有趣的程序员");
-for (int i = 0, n = list.size(); i < n; i++) {
+for (int i = 0; i < list.size(); i++) {
 	String str = list.get(i);
 	if ("沉默王二".equals(str)) {
 		list.remove(str);
