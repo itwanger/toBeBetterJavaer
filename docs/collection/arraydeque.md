@@ -35,7 +35,7 @@ Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它是个�
 | 无           | offerFirst(e)           | 向栈顶插入元素，失败则返回`false`      |
 | pop()        | removeFirst()           | 获取并删除栈顶元素，失败则抛出异常     |
 | 无           | pollFirst()             | 获取并删除栈顶元素，失败则返回`null`   |
-| peek()       | peekFirst()             | 获取但不删除栈顶元素，失败则抛出异常   |
+| peek()       | getFirst()             | 获取但不删除栈顶元素，失败则抛出异常   |
 | 无           | peekFirst()             | 获取但不删除栈顶元素，失败则返回`null` |
 
 上面两个表共定义了*Deque*的 12 个接口。
