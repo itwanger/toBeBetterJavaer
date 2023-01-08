@@ -139,9 +139,9 @@ public class Husband {
 
 ```
 Husband husband = new Husband();
-husband.age \= 30;
-husband.name \= "张三";
-husband.sex \= "男";    //貌似有点儿多余
+husband.age = 30;
+husband.name = "张三";
+husband.sex = "男";    //貌似有点儿多余
 ```
 
 但是那哪天如果我们需要修改 Husband，例如将 age 修改为 String 类型的呢？你只有一处使用了这个类还好，如果你有几十个甚至上百个这样地方，你是不是要改到崩溃。如果使用了封装，我们完全可以不需要做任何修改，只需要稍微改变下 Husband 类的 setAge()方法即可。
