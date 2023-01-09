@@ -90,7 +90,7 @@ public void addFirst(E e) {
 public void addFirst(E e) {
     if (e == null)//不允许放入null
         throw new NullPointerException();
-    elements\[head = (head - 1) & (elements.length - 1)\] = e;//2.下标是否越界
+    elements[head = (head - 1) & (elements.length - 1)] = e;//2.下标是否越界
     if (head == tail)//1.空间是否够用
         doubleCapacity();//扩容
 }
@@ -116,10 +116,10 @@ private void doubleCapacity() {
     int newCapacity = n << 1;//原空间的2倍
     if (newCapacity < 0)
         throw new IllegalStateException("Sorry, deque too big");
-    Object\[\] a = new Object\[newCapacity\];
+    Object[] a = new Object[newCapacity];
     System.arraycopy(elements, p, a, 0, r);//复制右半部分，对应上图中绿色部分
     System.arraycopy(elements, 0, a, r, p);//复制左半部分，对应上图中灰色部分
-    elements = (E\[\])a;
+    elements = (E[])a;
     head = 0;
     tail = n;
 }
@@ -135,7 +135,7 @@ private void doubleCapacity() {
 public void addLast(E e) {
     if (e == null)//不允许放入null
         throw new NullPointerException();
-    elements\[tail\] = e;//赋值
+    elements[tail] = e;//赋值
     if ( (tail = (tail + 1) & (elements.length - 1)) == head)//下标越界处理
         doubleCapacity();//扩容
 }
@@ -149,10 +149,10 @@ public void addLast(E e) {
 
 ```
 public E pollFirst() {
-    E result = elements\[head\];
+    E result = elements[head];
     if (result == null)//null值意味着deque为空
         return null;
-    elements\[h\] = null;//let GC work
+    elements[h] = null;//let GC work
     head = (head + 1) & (elements.length - 1);//下标越界处理
     return result;
 }
@@ -165,10 +165,10 @@ public E pollFirst() {
 ```
 public E pollLast() {
     int t = (tail - 1) & (elements.length - 1);//tail的上一个位置是最后一个元素
-    E result = elements\[t\];
+    E result = elements[t];
     if (result == null)//null值意味着deque为空
         return null;
-    elements\[t\] = null;//let GC work
+    elements[t] = null;//let GC work
     tail = t;
     return result;
 }
@@ -180,7 +180,7 @@ public E pollLast() {
 
 ```
 public E peekFirst() {
-    return elements\[head\]; // elements\[head\] is null if deque empty
+    return elements[head]; // elements[head] is null if deque empty
 }
 ```
 
@@ -190,7 +190,7 @@ public E peekFirst() {
 
 ```
 public E peekLast() {
-    return elements\[(tail - 1) & (elements.length - 1)\];
+    return elements[(tail - 1) & (elements.length - 1)];
 }
 ```
 
