@@ -1,7 +1,7 @@
 ---
 title: 春招突击算法 50 题
 shortTitle: 春招突击算法 50 题
-description: 菜饼同学: 专注硬核技术，校招打法，个人认知体系成长
+description: 专注硬核技术，校招打法，个人认知体系成长
 category:
   - 其他网站
 ---

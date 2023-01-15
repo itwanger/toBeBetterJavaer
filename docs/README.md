@@ -13,7 +13,7 @@ actions:
     link: /zhishixingqiu/
     type: default
 footer: |-
-  <a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-1</a> | 主题: <a href="https://vuepress-theme-hope.github.io/v2/" target="_blank">VuePress Theme Hope</a>
+  <a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-1</a> | 主题: <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VuePress Theme Hope</a>
 ---
 
 ## 推荐阅读 
