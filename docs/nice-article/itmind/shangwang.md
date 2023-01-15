@@ -41,11 +41,13 @@ macOS 直接双击打开 dmg 文件进行安装。
 
 我选用的都是付费版本，这样觉得踏实稳定一些。
 
+>PS:地址会不定期变更（你懂的），如果三个都打不开，可以私信二哥微信 qing_gee 
+
 ### 服务 1：饿饭 cc 云服务
 
 你可以通过以下地址购买饿饭 cc 云服务（购买成功后会给二哥一点返利，如果你想要节省一点钱包，可以私信二哥我返给你，具体返多少需要看你购买的套餐服务，会有记录）：
 
-[https://efanccyun.net/aff.php?aff=2849](https://efanccyun.net/aff.php?aff=2849)
+[https://api.efanapi.com/aff.php?aff=2849](https://api.efanapi.com/aff.php?aff=2849)
 
 我采购的是 B 计划 20G流量 每月，三年价格 330RMB。
 
@@ -53,8 +55,9 @@ macOS 直接双击打开 dmg 文件进行安装。
 
 这是某球友推荐的方式（同样会返利）：
 
-[https://nihao-shudong.com/auth/register?code=gUrB](https://nihao-shudong.com/auth/register?code=gUrB)
+[https://balala.io/auth/register?code=gUrB](https://balala.io/auth/register?code=gUrB)
 
+我采购的是 basic 套餐，一年 100 元，1000G 流量。
 
 ### 服务 3：Shadowsocks
 
