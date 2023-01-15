@@ -173,7 +173,7 @@ Stream 类提供了三个方法可供进行元素匹配，它们分别是：
 
 - `allMatch()`，只有有一个元素不匹配传入的条件，就返回 false；如果全部匹配，则返回 true。
 
-- `noneMatch()`，只要有一个元素匹配传入的条件，就返回 false；如果全部匹配，则返回 true。
+- `noneMatch()`，只要有一个元素匹配传入的条件，就返回 false；如果全部不匹配，则返回 true。
 
 ```java
 public class MatchStreamDemo {
