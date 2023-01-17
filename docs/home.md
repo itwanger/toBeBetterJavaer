@@ -93,7 +93,7 @@ head:
 
 **Java 核心非常重要**！我将其分成了Java 基础篇（包括基础语法、面向对象、集合框架、异常处理、Java IO 等）、Java 并发篇和 Java 虚拟机篇。
 
-### Java概述
+### Java概述及环境配置
 
 - [Java简介，什么是 Java？](overview/what-is-java.md)
 - [Java发展简史](overview/java-history.md)

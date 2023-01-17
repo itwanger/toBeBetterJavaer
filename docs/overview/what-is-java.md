@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,Java简介
 ---
 
-# Java简介，什么是 Java？
+# 2.1 Java简介，什么是 Java？
 
 “二哥，到底什么是 Java？给我说说呗。”
 
@@ -52,7 +52,7 @@ James Gosling 回忆说，“Java”是一个叫 Mark Opperman 的人提议的�
 
 “三妹啊，马上就来。”
 
->我噼里啪啦在键盘上一阵狂按
+>我噼里啪啦在键盘上一阵狂按，详细见[https://tobebetterjavaer.com/overview/hello-world.html](https://tobebetterjavaer.com/overview/hello-world.html)
 
 “好，你看，就这样子。”
 
@@ -89,7 +89,13 @@ public class HelloWorld {
 - 实现了热点代码检测和运行时编译，使得 Java 应用能随着运行时间的增长而获得更高的性能；
 - 有一套完善的应用程序接口，还有无数来自商业机构和开源社区的第三方类库。
 
-这一切的一切，都让软件开发的效率大大的提高。所以，学习 Java 还是很有“**钱秃**”的。
+这一切的一切，都让软件开发的效率大大的提高。
+
+下图是号称史上最惨的 23 届秋招 Java 岗的薪资状况，像 22 届的薪资待遇远比这个好得多。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
+
+24 届及以后的起薪肯定会比这个好得多，这上面大专、普本的案例比较少，是因为网上爆的人比较少，但其实这部分群体也是非常大的，所以，学习 Java 还是很有“**钱秃**”的。
 
 “噢噢噢噢，那好吧，我先跟着《[Java 程序员进阶之路](https://tobebetterjavaer.com/)》学起来！”
 
@@ -100,3 +106,4 @@ public class HelloWorld {
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
