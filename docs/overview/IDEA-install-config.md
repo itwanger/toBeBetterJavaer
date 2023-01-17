@@ -88,7 +88,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ### 二、macOS
 
-#### 01、下载IntelliJ IDEA
+#### 01、下载 IDEA
 
 1.  打开 [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/download/#section=mac)，点击Download按钮
 
@@ -126,7 +126,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7aec8534-ea7b-41f5-bc68-e6d2fb20e6c1.png)
 
-#### 02、安装 IntelliJ IDEA
+#### 02、安装 IDEA
 
 1.  双击 ideaIC-2020.3.2.dmg 文件开始安装
 
@@ -140,7 +140,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-96c1a054-8429-416a-ad5d-7fa3f360c19f.png)
 
-#### 03、打开 IntelliJ IDEA
+#### 03、打开 IDEA
 
 首次打开 IntelliJ IDEA 后展现的第一个页面如下所示。至此，IntelliJ IDEA下载、安装和打开就搞定了。
 
