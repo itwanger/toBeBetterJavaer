@@ -240,19 +240,19 @@ Java 在云时代面临着以 Go 语言为主的容器（Docker 等技术）生�
 
 很多大型的互联网公司都在使用 Java，国内最有名的当属阿里巴巴，国外最有名的当属谷歌。那为什么 Java 如此流行呢？
 
-### **1）简单性**
+**1）简单性**
 
 Java 为开发者提供了简单易用的用户体验，与其他面向对象编程语言相比，Java 的设计和生态库具有巨大的优势。Java 剔除了 C++ 中很少使用、难以理解、易混淆的特别，比如说指针运算、操作符重载，内存管理等。
 
 Java 可以做到堆栈分配、垃圾回收和自动内存管理，在一定程度上为开发者减轻了入门的难度。
 
-### **2）可移植性**
+**2）可移植性**
 
 如果 Java 直接编译成操作系统能识的二进制码，可能一个标识在 Windows 操作系统下是1100，而 Linux 下是 1001，这样的话，在 Windows 操作系统下可以运行的程序到了 Linux 环境下就无法运行。
 
 为了解决这个问题，Java 先编译生成字节码，再由 JVM（Java 虚拟机）来解释执行，目的就是将统一的字节码转成操作系统可以识别的二进制码，然后执行。而针对不同的操作系统，都有相应版本的 JVM，所以 Java 就实现了可移植性。
 
-### **3）安全性**
+**3）安全性**
 
 Java 适用于网络/分布式环境，为了达到这个目标，在安全方面投入了巨大的精力。使用 Java 可以构建防病毒、防篡改的程序。
 
@@ -264,7 +264,7 @@ Java 适用于网络/分布式环境，为了达到这个目标，在安全方�
 - 全面的 API 支持广泛的加密服务，包括数字签名、消息摘要、（对称、非对称）密码、密钥生成器。
 - 安全通信，支持 HTTPS、SSL，保护传输的数据完整性和隐私性。
 
-### **4）并发性**
+**4）并发性**
 
 Java 在多线程方面做得非常突出，只要操作系统支持，Java 中的线程就可以利用多个处理器，带来了更好的交互响应和实时行为。
 
@@ -535,7 +535,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ### 二、macOS
 
-#### 01、下载IntelliJ IDEA
+#### 01、下载 IDEA
 
 1.  打开 [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/download/#section=mac)，点击Download按钮
 
@@ -573,7 +573,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7aec8534-ea7b-41f5-bc68-e6d2fb20e6c1.png)
 
-#### 02、安装 IntelliJ IDEA
+#### 02、安装 IDEA
 
 1.  双击 ideaIC-2020.3.2.dmg 文件开始安装
 
@@ -587,7 +587,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-96c1a054-8429-416a-ad5d-7fa3f360c19f.png)
 
-#### 03、打开 IntelliJ IDEA
+#### 03、打开 IDEA
 
 首次打开 IntelliJ IDEA 后展现的第一个页面如下所示。至此，IntelliJ IDEA下载、安装和打开就搞定了。
 

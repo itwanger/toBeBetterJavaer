@@ -12,13 +12,15 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java保留字,Java关键字,关键字,保留字
 ---
 
-“二哥，就我之前学过的这些 Java 代码中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
+# 2.2.1 Java中常用的48个关键字和2个保留字
+
+“二哥，就之前你给我展示的 Java 代码中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
 
 “是的，三妹。Java 中的关键字可不少呢！你一下子可能记不了那么多，不过，先保留个印象吧，对以后的学习会很有帮助。”
 
-PS：按照首字母的自然顺序排列。
+>PS：这里我们按照首字母的自然顺序排列来简述一下，了解即可，记不住没关系哦。这些关键字我们在后续的学习中会详细讲解的，直到你搞懂为止。
 
-1.  **abstract：** 用于声明抽象类，以及抽象方法。
+1.  **abstract：** 用于声明[抽象类](https://tobebetterjavaer.com/oo/abstract.html)，以及抽象方法。
 
 2.  **boolean：** 用于将变量声明为布尔值类型，只有 true 和 false 两个值。
 
@@ -28,11 +30,11 @@ PS：按照首字母的自然顺序排列。
 
 5.  **case：** 用于在 switch 语句中标记条件的值。
 
-6.  **catch：** 用于捕获 try 语句中的异常。
+6.  **catch：** 用于捕获 try 语句中的[异常](https://tobebetterjavaer.com/exception/gailan.html)。
 
-7.  **char：** 用于声明一个可以容纳无符号 16 位比特的 [Unicode 字符](https://mp.weixin.qq.com/s/pNQjlXOivIgO3pbYc0GnpA)的变量。
+7.  **char：** 用于声明一个可以容纳无符号 16 位比特的 [Unicode 字符](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)的变量。
 
-8.  **class：** 用于声明一个类。
+8.  **class：** 用于声明一个[类](https://tobebetterjavaer.com/oo/object-class.html)。
 
 9.  **continue：** 用于继续下一个循环，可以在指定条件下跳过其余代码。
 
@@ -44,11 +46,11 @@ PS：按照首字母的自然顺序排列。
 
 13.  **else：** 用于指示 if 语句中的备用分支。
 
-14.  **enum：** 用于定义一组固定的常量（枚举）。
+14.  **enum：** 用于定义一组固定的常量（[枚举](https://tobebetterjavaer.com/basic-extra-meal/enum.html)）。
 
-15.  **extends：** 用于指示一个类是从另一个类或接口继承的。
+15.  **extends：** 用于指示一个类是从另一个类或接口[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)的。
 
-16.  **final：** 用于指示该变量是不可更改的。
+16.  **final：** [用于指示该变量是不可更改的](https://tobebetterjavaer.com/oo/final.html)。
 
 17.  **finally：** 和 `try-catch` 配合使用，表示无论是否处理异常，总是执行 finally 块中的代码。
 
@@ -58,11 +60,11 @@ PS：按照首字母的自然顺序排列。
 
 20.  **if：** 用于指定条件，如果条件为真，则执行对应代码。
 
-21.  **implements：** 用于实现接口。
+21.  **implements：** 用于实现[接口](https://tobebetterjavaer.com/oo/interface.html)。
 
 22.  **import：** 用于导入对应的类或者接口。
 
-23.  **instanceof：** 用于判断对象是否属于某个类型（class）。
+23.  **instanceof：** [用于判断对象是否属于某个类型（class）](https://tobebetterjavaer.com/basic-extra-meal/instanceof.html)。
 
 24.  **int：** 用于声明一个可以容纳 32 位带符号的整数变量。
 
