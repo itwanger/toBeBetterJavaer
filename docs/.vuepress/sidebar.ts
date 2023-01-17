@@ -91,7 +91,7 @@ export const sidebarConfig = sidebar({
       children: [
         {
           prefix: "overview/",
-          text: "2.1 Java概述",
+          text: "2.1 Java概述及环境配置",
           collapsible: true,
           children: [
           "what-is-java",

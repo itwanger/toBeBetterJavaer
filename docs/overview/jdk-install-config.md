@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,JDK 安装,jdk
 ---
 
-# 安装Java开发工具包JDK
+# 2.4 安装Java开发工具包JDK
 
 因为Java程序必须运行在 JVM 之上，所以我们 Java 程序员在学习 Java 之前，要做的第一件事情就是安装JDK。
 
@@ -24,13 +24,11 @@ head:
 
 它们之间的关系可以用这幅图来表示。
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-6f6fdb4a-7a44-4e76-b4ea-71c070a5b220.png)
 
 真的是人生无常，大肠包小肠啊。
 
-
-## JVM、JRE、JDK 有什么关系
+### JVM、JRE、JDK 有什么关系
 
 JDK（Java Development Kit）是用于开发 Java 应用程序的软件环境。里面包含运行时环境（JRE）和其他 Java 开发所需的工具，比如说解释器（java）、编译器（javac）、文档生成器（javadoc）等等。
 
@@ -91,7 +89,7 @@ macOS 用户直接往后翻。
 
 上面这种下载 JDK 安装配置的方式没啥技术含量，所以下面我给大家推荐两种高级的：
 
-## Windows 用户
+### Windows 用户
 
 Windows 用户建议先安装 Chocolatey，这是一个Windows下的命令行软件管理器，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
 
@@ -101,7 +99,7 @@ Windows 用户建议先安装 Chocolatey，这是一个Windows下的命令行软
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-80a6ced8-c25d-4371-8096-b95be48af768)
 
-## macOS 用户
+### macOS 用户
 
 macOS 用户建议先安装 Homebrew，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
 
@@ -154,7 +152,7 @@ jenv global 17.0.3
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
