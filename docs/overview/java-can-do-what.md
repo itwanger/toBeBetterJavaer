@@ -1,18 +1,18 @@
 ---
-title: Java的特点，Java能做什么
-shortTitle: Java的特点
+title: 学 Java 还有前途吗？
+shortTitle: 学Java还有前途吗？
 category:
   - Java核心
 tag:
   - Java概述
-description: Java程序员进阶之路，小白的零基础Java教程，Java的优势，Java的特点，Java能做什么
+description: Java程序员进阶之路，小白的零基础Java教程，Java的优势，Java的特点，Java能做什么，学 Java 有前途吗？
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 优势,特点
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 优势,特点,java前途
 ---
 
-# 2.3 Java的特性和应用领域
+# 2.3 学 Java 还有前途吗？
 
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。
 

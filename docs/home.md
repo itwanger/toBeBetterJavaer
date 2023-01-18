@@ -97,7 +97,7 @@ head:
 
 - [Java简介，什么是 Java？](overview/what-is-java.md)
 - [Java发展简史](overview/java-history.md)
-- [Java的特点，Java能做什么](overview/java-can-do-what.md)
+- [学Java还有前途吗？](overview/java-can-do-what.md)
 - [安装Java开发工具包JDK](overview/jdk-install-config.md)
 - [安装集成开发环境Intellij IDEA](overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](overview/hello-world.md)
@@ -106,7 +106,6 @@ head:
 ### Java基础语法
 
 - [Java中常用的48个关键字 & 2个保留字](basic-extra-meal/48-keywords.md)
-- [Java命名规范，告别编码 5 分钟，命名 2 小时](basic-extra-meal/java-naming.md)
 - [Java注释：单行、多行和文档注释](basic-grammar/javadoc.md)
 - [Java 中的数据类型（8 种基本数据类型和引用数据类型）](basic-grammar/basic-data-type.md)
 - [Java 数据类型转换（强制类型转换+自动类型转换）](basic-grammar/type-cast.md)
@@ -199,6 +198,7 @@ head:
 
 ### Java重要知识点
 
+- [Java命名规范](basic-extra-meal/java-naming.md)
 - [彻底弄懂Java中的Unicode和UTF-8编码](basic-extra-meal/java-unicode.md)
 - [Java中new Integer与Integer.valueOf的区别](basic-extra-meal/int-cache.md)
 - [深入剖析Java中的拆箱和装箱](basic-extra-meal/box.md)
