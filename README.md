@@ -97,9 +97,9 @@
 ## Java基础语法
 
 - [Java中常用的48个关键字 & 2个保留字](docs/basic-extra-meal/48-keywords.md)
-- [Java注释：单行、多行和文档注释](docs/basic-grammar/javadoc.md)
-- [Java 中的数据类型（8 种基本数据类型和引用数据类型）](docs/basic-grammar/basic-data-type.md)
-- [Java 数据类型转换（强制类型转换+自动类型转换）](docs/basic-grammar/type-cast.md)
+- [Java注释](docs/basic-grammar/javadoc.md)
+- [Java中的数据类型](docs/basic-grammar/basic-data-type.md)
+- [Java 数据类型转换](docs/basic-grammar/type-cast.md)
 - [Java流程控制语句](docs/basic-grammar/flow-control.md)
 - [Java运算符](docs/basic-grammar/operator.md)
 

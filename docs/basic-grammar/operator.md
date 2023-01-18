@@ -9,8 +9,10 @@ description: Java程序员进阶之路，小白的零基础Java教程，本文�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,运算符
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,运算符,java运算符
 ---
+
+## 3.6 Java运算符
 
 “二哥，让我盲猜一下哈，运算符是不是指的就是加减乘除啊？”三妹的脸上泛着甜甜的笑容，我想她一定对提出的问题很有自信。
 
@@ -19,7 +21,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-01.png)
 
 
-## 01、算数运算符
+### 01、算数运算符
 
 算术运算符除了最常见的加减乘除，还有一个取余的运算符，用于得到除法运算后的余数，来串代码感受下。
 
@@ -119,7 +121,7 @@ System.out.println(y + " " + x);// 10 11
 对于前自减和后自减来说，同学们可以自己试一把。
 
 
-## 02、关系运算符
+### 02、关系运算符
 
 关系运算符用来比较两个操作数，返回结果为 true 或者 false。
 
@@ -144,7 +146,7 @@ public class RelationOperator {
 }
 ```
 
-## 03、位运算符
+### 03、位运算符
 
 在学习位运算符之前，需要先学习一下二进制，因为位运算符操作的不是整型数值（int、long、short、char、byte）本身，而是整型数值对应的二进制。
 
@@ -244,7 +246,7 @@ public class RightShiftOperator {
 
 `10>>2` 等于 10 除以 2 的 2 次方；`20>>2` 等于 20 除以 2 的 2 次方。
 
-## 04、逻辑运算符
+### 04、逻辑运算符
 
 逻辑与运算符（&&）：多个条件中只要有一个为 false 结果就为 false。
 
@@ -284,7 +286,7 @@ public class LogicalOperator1 {
 }
 ```
 
-## 05、赋值运算符
+### 05、赋值运算符
 
 赋值操作符恐怕是 Java 中使用最频繁的操作符了，它就是把操作符右侧的值赋值给左侧的变量。来看示例：
 
@@ -360,7 +362,7 @@ long c = a * b;
 System.out.println(c); // 21474836460000
 ```
 
-## 06、三元运算符
+### 06、三元运算符
 
 三元运算符用于替代 if-else，可以使用一行代码完成条件判断的要求。来看示例：
 
