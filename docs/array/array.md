@@ -12,7 +12,9 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java数组,数组
 ---
 
-“二哥，我看你公众号的一篇文章里提到，ArrayList 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
+## 4.1 Java数组
+
+“二哥，我看你公众号的一篇文章里提到，[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 
 “的确是的，看 ArrayList 的源码就一清二楚了。”我一边说，一边打开 Intellij IDEA，并找到了 ArrayList 的源码。
 
@@ -196,7 +198,6 @@ Java 8 新增了 Stream 流的概念，这就意味着我们也可以将数组�
 String[] anArray = new String[] {"沉默王二", "一枚有趣的程序员", "好好珍重他"};
 Stream<String> aStream = Arrays.stream(anArray);
 ```
-
 
 如果想对数组进行排序的话，可以使用 Arrays 类提供的 `sort()` 方法。
 
