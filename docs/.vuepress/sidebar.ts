@@ -107,7 +107,6 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           children: [
           "basic-extra-meal/48-keywords",
-          "basic-extra-meal/java-naming",
           "basic-grammar/javadoc",
           "basic-grammar/basic-data-type",
           "basic-grammar/type-cast",
@@ -229,6 +228,7 @@ export const sidebarConfig = sidebar({
           prefix:"basic-extra-meal/",
           collapsible: true,
           children: [
+            "basic-extra-meal/java-naming",
           "java-unicode",
           "int-cache",
           "box",

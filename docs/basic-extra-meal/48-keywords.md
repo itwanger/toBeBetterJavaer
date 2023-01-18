@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java保留字,Java关键字,关键字,保留字
 ---
 
-# 2.2.1 Java中常用的48个关键字和2个保留字
+# 3.1 Java中常用的48个关键字和2个保留字
 
 “二哥，就之前你给我展示的 Java 代码中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
 
@@ -72,15 +72,15 @@ head:
 
 26.  **long：** 用于声明一个可以容纳 64 位整数的变量。
 
-27.  **native：** 用于指定一个方法是通过调用本机接口（非 Java）实现的。
+27.  **native：** 用于指定一个[方法是通过调用本机接口（非 Java）实现的](https://tobebetterjavaer.com/oo/method.html)。
 
 28.  **new：** 用于创建一个新的对象。
 
 29.  **null：** 如果一个变量是空的（什么引用也没有指向），就可以将它赋值为 null，和空指针异常息息相关。
 
-30.  **package：** 用于声明类所在的包。
+30.  **package：** 用于声明类所在的[包](https://tobebetterjavaer.com/oo/package.html)。
 
-31.  **private：** 一个访问权限修饰符，表示方法或变量只对当前类可见。
+31.  **private：** 一个[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，表示方法或变量只对当前类可见。
 
 32.  **protected：** 一个访问权限修饰符，表示方法或变量对同一包内的类和所有子类可见。
 
@@ -90,34 +90,34 @@ head:
 
 35.  **short：** 用于声明一个可以容纳 16 位整数的变量。
 
-36.  **static：** 表示该变量或方法是静态变量或静态方法。
+36.  **static：** 表示该变量或方法是[静态变量或静态方法](https://tobebetterjavaer.com/oo/static.html)。
 
 37.  **strictfp：** 并不常见，通常用于修饰一个方法，确保方法体内的浮点数运算在每个平台上执行的结果相同。
 
-38.  **super：** 可用于调用父类的方法或者字段。
+38.  **super：** 可用于[调用父类的方法或者字段](https://tobebetterjavaer.com/oo/this-super.html)。
 
 39.  **switch：** 通常用于三个（以上）的条件判断。
 
-40.  **synchronized：** 用于指定多线程代码中的同步方法、变量或者代码块。
+40.  **synchronized：** [用于指定多线程代码中的同步方法、变量或者代码块](https://tobebetterjavaer.com/thread/synchronized-1.html)。
 
-41.  **this：** 可用于在方法或构造函数中引用当前对象。
+41.  **this：** [可用于在方法或构造函数中引用当前对象](https://tobebetterjavaer.com/oo/this-super.html)。
 
-42.  **throw：** 主动抛出异常。
+42.  **throw：** 主动抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)。
 
 43.  **throws：** 用于声明异常。
 
-44.  **transient：**  修饰的字段不会被序列化。
+44.  **transient：**  [修饰的字段不会被序列化](https://tobebetterjavaer.com/io/transient.html)。
 
 45.  **try：** 于包裹要捕获异常的代码块。
 
 46.  **void：** 用于指定方法没有返回值。
 
-47.  **volatile：** 保证不同线程对它修饰的变量进行操作时的可见性，即一个线程修改了某个变量的值，新值对其他线程来说是立即可见的。
+47.  **volatile：** 保证不同线程对它修饰的变量进行操作时的[可见性](https://tobebetterjavaer.com/thread/volatile.html)，即一个线程修改了某个变量的值，新值对其他线程来说是立即可见的。
 
 48.  **while：** 如果循环次数不固定，建议使用 while 循环。
 
 
-“好了，三妹，关于 Java 中的关键字就先说这 48 个吧，这只是一个大概的介绍，后面还会对一些特殊的关键字单独拎出来详细地讲，比如说重要的 static、final 等。”转动了一下僵硬的脖子后，我对三妹说。
+“好了，三妹，关于 Java 中的关键字就先说这 48 个吧，这只是一个大概的介绍，后面还会对一些特殊的关键字单独拎出来详细地讲，比如说重要的 static、final 等等。”转动了一下僵硬的脖子后，我对三妹说。
 
 “除了这些关键字，Java 中还有两个非常特殊的保留字（goto 和 const），它们不能在程序中使用。”
 
@@ -125,7 +125,7 @@ head:
 
 “const 在 C语言中是声明常量的关键字，在 Java 中可以使用 public static final 三个关键字的组合来达到常量的效果。”
 
-“好的二哥，我了解了，您辛苦了。”
+“好的二哥，我了解了，你休息会，我再记一记。”
 
 ----
 

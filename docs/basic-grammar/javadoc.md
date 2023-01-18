@@ -12,14 +12,13 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 注释,javadoc,注释
 ---
 
+# 2.2 Java注释：单行、多行和文档注释
+
 “二哥，Java 中的注释好像真没什么可讲的，我已经提前预习了，不过是单行注释，多行注释，还有文档注释。”三妹的脸上泛着甜甜的笑容，她竟然提前预习了接下来要学习的知识，有一种“士别三日，当刮目相看”的感觉。
 
 “注释的种类确实不多，但还是挺有意思的，且听哥来给你说道说道。”
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-01.png)
-
-
-
 
 ### 01、单行注释
 
