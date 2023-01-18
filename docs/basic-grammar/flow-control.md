@@ -12,17 +12,18 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java流程控制语句,Java判断语句,Java循环语句,if,switch,while,do-while,for
 ---
 
+## 3.5 Java流程控制语句
 
 “二哥，流程控制语句都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
 
 “比如说 if-else、switch、for、while、do-while、return、break、continue 等等，接下来，我们一个个来了解下。”
 
-## 01、if-else 相关
+### 01、if-else 相关
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-01.png)
 
 
-**1）if 语句**
+#### **1）if 语句**
 
 if 语句的格式如下：
 
@@ -56,7 +57,7 @@ public class IfExample {
 青春年华
 ```
 
-**2）if-else 语句**
+#### **2）if-else 语句**
 
 if-else 语句的格式如下:
 
@@ -133,7 +134,7 @@ public class IfElseTernaryExample {
 奇数
 ```
 
-**3）if-else-if 语句**
+#### **3）if-else-if 语句**
 
 if-else-if 语句的格式如下：
 
@@ -182,7 +183,7 @@ public class IfElseIfExample {
 而立之年
 ```
 
-**4）if 嵌套语句**
+#### **4）if 嵌套语句**
 
 if 嵌套语句的格式如下：
 
@@ -222,7 +223,7 @@ public class NestedIfExample {
 女生法定结婚年龄
 ```
 
-## 02、switch 语句
+### 02、switch 语句
 
 switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int、long，或者对应的包装器类型 Byte、Short、Integer、Long，以及字符串和枚举。
 
@@ -363,11 +364,11 @@ public class SwitchEnumDemo {
 篮球运动员詹姆斯
 ```
 
-## 03、for 循环
+### 03、for 循环
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-07.png)
 
-**1）普通 for 循环**
+#### **1）普通 for 循环**
 
 普通的 for 循环可以分为 4 个部分：
 
@@ -379,11 +380,7 @@ public class SwitchEnumDemo {
 
 4）自增/自减：初始变量变化的方式。
 
-
-
 来看一下普通 for 循环的格式：
-
-
 
 ```java
 for(初始变量;条件;自增/自减){  
@@ -391,13 +388,9 @@ for(初始变量;条件;自增/自减){
 }  
 ```
 
-
-
 画个流程图：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-08.png)
-
-
 
 
 来个示例：
@@ -457,7 +450,7 @@ public class PyramidForExample {
 
 “嘿嘿。”
 
-**2）for-each**
+#### **2）for-each**
 
 for-each 循环通常用于遍历数组和集合，它的使用规则比普通的 for 循环还要简单，不需要初始变量，不需要条件，不需要下标来自增或者自减。来看一下语法：
 
@@ -493,7 +486,7 @@ public class ForEachExample {
 
 “嘿嘿，三妹，你这样说哥会脸红的。”
 
-**3）无限 for 循环**
+#### **3）无限 for 循环**
 
 “三妹，你想不想体验一下无限 for 循环的威力，也就是死循环。”
 
@@ -522,11 +515,9 @@ public class InfinitiveForExample {
 
 一旦运行起来，就停不下来了，除非强制停止。
 
-## 04、while 循环
+### 04、while 循环
 
 来看一下 while 循环的格式：
-
-
 
 ```java
 while(条件){  
@@ -534,15 +525,9 @@ while(条件){
 }  
 ```
 
-
-
 画个流程图：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-09.png)
-
-
-
-
 
 来个示例：
 
@@ -575,8 +560,6 @@ public class WhileExample {
 沉默王三
 ```
 
-
-
 “三妹，你想不想体验一下无限 while 循环的威力，也就是死循环。”
 
 “二哥，那会有什么样的后果啊？”
@@ -604,11 +587,9 @@ public class InfinitiveWhileExample {
 
 把 while 的条件设置为 true，并且循环体中没有 break 关键字的话，程序一旦运行起来，就根本停不下来了，除非强制停止。
 
-## 05、do-while 循环
+### 05、do-while 循环
 
 来看一下 do-while 循环的格式：
-
-
 
 ```java
 do{  
@@ -616,16 +597,9 @@ do{
 }while(提交);  
 ```
 
-
-
 画个流程图：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-10.png)
-
-
-
-
-
 
 来个示例：
 
@@ -658,8 +632,6 @@ public class DoWhileExample {
 沉默王三
 ```
 
-
-
 “三妹，你想不想体验一下无限 do-while 循环的威力......”
 
 “二哥，又来啊，我都腻了。”
@@ -689,7 +661,7 @@ public class InfinitiveDoWhileExample {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-11.png)
 
-## 06、break
+### 06、break
 
 break 关键字通常用于中断循环或 switch 语句，它在指定条件下中断程序的当前流程。如果是内部循环，则仅中断内部循环。
 
@@ -772,7 +744,7 @@ switch (age) {
 }
 ```
 
-## 07、continue
+### 07、continue
 
 当我们需要在 for 循环或者 （do）while 循环中立即跳转到下一个循环时，就可以使用 continue 关键字，通常用于跳过指定条件下的循环体，如果循环是嵌套的，仅跳过当前循环。
 

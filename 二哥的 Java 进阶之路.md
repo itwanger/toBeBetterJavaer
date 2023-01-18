@@ -849,7 +849,7 @@ IDEA 会自动保存，在代码编辑面板中右键，在弹出的菜单中选
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 2.2 Java注释：单行、多行和文档注释
+## 3.2 Java注释
 
 “二哥，Java 中的注释好像真没什么可讲的，我已经提前预习了，不过是单行注释，多行注释，还有文档注释。”三妹的脸上泛着甜甜的笑容，她竟然提前预习了接下来要学习的知识，有一种“士别三日，当刮目相看”的感觉。
 
@@ -1026,7 +1026,7 @@ public class Test {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-# 2.3 Java中的数据类型（8种基本数据类型和引用数据类型）
+## 3.3 Java中的数据类型
 
 “Java 是一种静态类型的编程语言，这意味着所有变量必须在使用之前声明好，也就是必须得先指定变量的类型和名称。”我吸了一口麦香可可奶茶后对三妹说。
 
@@ -1386,6 +1386,8 @@ public class ArrayList<E> extends AbstractList<E>
 - 1、变量名指向的是存储对象的内存地址，在栈上。
 - 2、内存地址指向的对象存储在堆上。
 
+### 堆和栈
+
 看到这，三妹是不是又要问，“堆是什么，栈又是什么？”
 
 堆是堆（heap），栈是栈（stack），如果看到“堆栈”的话，请不要怀疑自己，那是翻译的错，堆栈也是栈，反正我很不喜欢“堆栈”这种叫法，容易让新人掉坑里。
@@ -1434,6 +1436,1386 @@ public void test()
 应该一目了然了吧？
 
 “好了，三妹，关于 Java 中的数据类型就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 3.4 Java数据类型转换
+
+数据类型转换发生在所赋值的数值类型和接收数据的变量类型不一致的时候，它需要从一种数据类型转换成另一种数据类型。数据类型的转换可以分为隐式转换（自动类型转换）和显式转换（强制类型转换）两种。
+
+### 自动类型转换
+
+如果以下 2 个条件都满足，那么将一种类型的数据赋给另外一种类型的变量的时候，将会发生自动类型转换（automatic type conversion）。
+
+*   两种数据类型彼此兼容
+*   目标类型的取值范围大于源数据类型（低级类型数据转换成高级类型数据）
+
+当以上 2 个条件都满足时，拓宽转换（widening conversion）就会发生。例如 byte 类型向 short 类型转换时，由于 short 类型的取值范围较大，会自动将 byte 转换为 short 类型。
+
+在运算过程中，由于不同的数据类型会转换成同一种数据类型，所以整型、浮点型以及字符型都可以参与混合运算。自动转换的规则是从低级类型数据转换成高级类型数据。转换规则如下：
+
+*   数值型数据的转换：byte→short→int→long→float→double。
+*   字符型转换为整型：char→int。
+
+以上数据类型的转换遵循从左到右的转换顺序，最终转换成表达式中表示范围最大的变量的数据类型。
+
+顾客到超市购物，购买牙膏 2 盒，面巾纸 4 盒。其中牙膏的价格是 10.9 元，面巾纸的价格是 5.8 元，求商品总价格。实现代码如下：
+
+```java
+public static void main(String[] args) {
+    float price1 = 10.9f; // 定义牙膏的价格
+    double price2 = 5.8; // 定义面巾纸的价格
+    int num1 = 2; // 定义牙膏的数量
+    int num2 = 4; // 定义面巾纸的数量
+    double res = price1 * num1 + price2 * num2; // 计算总价
+    System.out.println("一共付给收银员" + res + "元"); // 输出总价
+}
+```
+
+上述代码中首先定义了一个 float 类型的变量存储牙膏的价格，然后定义了一个 double 类型的变量存储面巾纸的价格，再定义两个 int 类型的变量存储物品的数量，最后进行了乘运算以及和运算之后，将结果储存在一个 double 类型的变量中进行输出。
+
+```
+一共付给收银员44.99999923706055元
+```
+
+从执行结果看出，float、int 和 double 三种数据类型参与运算，最后输出的结果为 double 类型的数据。这种转换一般称为“表达式中类型的自动提升”。
+
+自动类型提升有好处，但它也会引起令人疑惑的编译错误。例如，下面看起来正确的程序却会引起问题：
+
+```java
+byte b = 50;
+
+b = b * 2; // Type mismatch: cannot convert from int to byte
+```
+
+如上所示，第二行会报“类型不匹配：无法从int转换为byte”错误。
+
+
+该程序试图将一个完全合法的 byte 型的值 `50*2` 存储给一个 byte 型的变量。但是当表达式求值的时候，操作数被自动的提升为 int 型，计算结果也被提升为 int 型。这样表达式的结果现在是 int 型，不强制转换它就不能被赋为 byte 型。
+
+所以应该使用一个显示的强制类型转换，例如：
+
+```java
+byte b = 50;
+
+b = (byte)(b*2);
+```
+
+这样就能产生正确的值 100。
+
+注意：char 类型比较特殊，char 自动转换成 int、long、float 和 double，但 byte 和 short 不能自动转换为 char，而且 char 也不能自动转换为 byte 或 short。
+
+### 强制类型转换
+
+尽管自动类型转换是很有帮助的，但并不能满足所有的编程需要。例如，如果你需要将 double 型的值赋给一个 int 型的变量，你将怎么办？
+
+这种转换不会自动进行，因为 double 型的变化范围比 int 型的要小。这种转换有使成为“缩小转换”，因为你肯定要将源数据类型的值变小才能适合目标数据类型。
+
+所以当两种数据类型不兼容，或目标类型的取值范围小于源类型时，自动转换将无法进行，这时就需要进行强制类型转换。其语法格式如下：
+
+```java
+(type)variableName
+```
+
+其中，type 为 variableName 要转换成的数据类型，而 variableName 是指要进行类型转换的变量名称，强制转换的实例如下：
+
+```java
+int a = 3;
+double b = 5.0;
+a = (int)b;
+```
+
+上述代码中首先将 double 类型变量 b 的值强制转换成 int 类型，然后将值赋给 a，但是变量 b 本身的值是没有发生变化的。
+
+在强制类型转换中，如果是将浮点类型的值转换为整数，直接去掉小数点后边的所有数字；而如果是整数类型强制转换为浮点类型时，将在小数点后面补零。
+
+顾客到超市购物，购买牙膏 2 盒，面巾纸 4 盒。其中牙膏的价格是 10.9 元，面巾纸的价格是 5.8 元，求商品总价格，在计算总价时采用 int 类型的数据进行存储。实现代码如下：
+
+```java
+public static void main(String[] args) {
+    float price1 = 10.9f;
+    double price2 = 5.8;
+    int num1 = 2;
+    int num2 = 4;
+    int res2 = (int) (price1 * num1 + price2 * num2);
+    System.out.println("一共付给收银员" + res2 + "元");
+}
+```
+
+在上述实例中，有 double 类型、float 类型和 int 类型的数据参与运算，其运算结果默认为 double 类型，题目要求的结果为 int 类型，因为 int 类型的取值范围要小于 double 类型的取值范围，所以需要进行强制类型转换。
+
+```
+一共付给收银员44元
+```
+
+>参考链接：[http://c.biancheng.net/view/796.html](http://c.biancheng.net/view/796.html)，整理：沉默王二
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 3.5 Java流程控制语句
+
+“二哥，流程控制语句都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
+
+“比如说 if-else、switch、for、while、do-while、return、break、continue 等等，接下来，我们一个个来了解下。”
+
+### 01、if-else 相关
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-01.png)
+
+
+#### **1）if 语句**
+
+if 语句的格式如下：
+
+```java
+if(布尔表达式){  
+// 如果条件为 true，则执行这块代码
+} 
+```
+
+画个流程图表示一下：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-02.png)
+
+
+来写个示例：
+
+```java
+public class IfExample {
+    public static void main(String[] args) {
+        int age = 20;
+        if (age < 30) {
+            System.out.println("青春年华");
+        }
+    }
+}
+```
+
+输出：
+
+```
+青春年华
+```
+
+#### **2）if-else 语句**
+
+if-else 语句的格式如下:
+
+```java
+if(布尔表达式){  
+// 条件为 true 时执行的代码块
+}else{  
+// 条件为 false  时执行的代码块
+}  
+```
+
+画个流程图表示一下：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-03.png)
+
+
+来写个示例：
+
+```java
+public class IfElseExample {
+    public static void main(String[] args) {
+        int age = 31;
+        if (age < 30) {
+            System.out.println("青春年华");
+        } else {
+            System.out.println("而立之年");
+        }
+    }
+}
+```
+
+输出：
+
+```
+而立之年
+```
+
+除了这个例子之外，还有一个判断闰年（被 4 整除但不能被 100 整除或者被 400 整除）的例子：
+
+```java
+public class LeapYear {
+    public static void main(String[] args) {
+        int year = 2020;
+        if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+            System.out.println("闰年");
+        } else {
+            System.out.println("普通年份");
+        }
+    }
+}
+```
+
+输出：
+
+```
+闰年
+```
+
+如果执行语句比较简单的话，可以使用三元运算符来代替 if-else 语句，如果条件为 true，返回 ? 后面 : 前面的值；如果条件为 false，返回 : 后面的值。
+
+```java
+public class IfElseTernaryExample {
+    public static void main(String[] args) {
+        int num = 13;
+        String result = (num % 2 == 0) ? "偶数" : "奇数";
+        System.out.println(result);
+    }
+}
+```
+
+输出：
+
+```
+奇数
+```
+
+#### **3）if-else-if 语句**
+
+if-else-if 语句的格式如下：
+
+```java
+if(条件1){  
+// 条件1 为 true 时执行的代码
+}else if(条件2){  
+// 条件2 为 true 时执行的代码
+}  
+else if(条件3){  
+// 条件3 为 true 时执行的代码
+}  
+...  
+else{  
+// 以上条件均为 false 时执行的代码
+} 
+```
+
+画个流程图表示一下：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-04.png)
+
+
+来写个示例：
+
+```java
+public class IfElseIfExample {
+    public static void main(String[] args) {
+        int age = 31;
+        if (age < 30) {
+            System.out.println("青春年华");
+        } else if (age >= 30 && age < 40 ) {
+            System.out.println("而立之年");
+        } else if (age >= 40 && age < 50 ) {
+            System.out.println("不惑之年");
+        } else {
+            System.out.println("知天命");
+        }
+    }
+}
+```
+
+输出：
+
+```
+而立之年
+```
+
+#### **4）if 嵌套语句**
+
+if 嵌套语句的格式如下：
+
+```java
+if(外侧条件){    
+     // 外侧条件为 true 时执行的代码 
+          if(内侧条件){  
+             // 内侧条件为 true 时执行的代码
+    }    
+}  
+```
+
+画个流程图表示一下：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-05.png)
+
+
+来写个示例：
+
+```java
+public class NestedIfExample {
+    public static void main(String[] args) {
+        int age = 20;
+        boolean isGirl = true;
+        if (age >= 20) {
+            if (isGirl) {
+                System.out.println("女生法定结婚年龄");
+            }
+        }
+    }
+}
+```
+
+输出：
+
+```
+女生法定结婚年龄
+```
+
+### 02、switch 语句
+
+switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int、long，或者对应的包装器类型 Byte、Short、Integer、Long，以及字符串和枚举。
+
+来看一下 switch 语句的格式：
+
+```java
+switch(变量) {    
+case 可选值1:    
+ // 可选值1匹配后执行的代码;    
+ break;  // 该关键字是可选项
+case 可选值2:    
+ // 可选值2匹配后执行的代码;    
+ break;  // 该关键字是可选项
+......    
+    
+default: // 该关键字是可选项     
+ // 所有可选值都不匹配后执行的代码 
+}    
+```
+
+- 变量可以有 1 个或者 N 个值。
+
+- 值类型必须和变量类型是一致的，并且值是确定的。
+
+- 值必须是唯一的，不能重复，否则编译会出错。
+
+- break 关键字是可选的，如果没有，则执行下一个 case，如果有，则跳出 switch 语句。
+
+- default 关键字也是可选的。
+
+
+
+画个流程图：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-06.png)
+
+
+
+来个示例：
+
+```java
+public class Switch1 {
+    public static void main(String[] args) {
+        int age = 20;
+        switch (age) {
+            case 20 :
+                System.out.println("上学");
+                break;
+            case 24 :
+                System.out.println("苏州工作");
+                break;
+            case 30 :
+                System.out.println("洛阳工作");
+                break;
+            default:
+                System.out.println("未知");
+                break; // 可省略
+        }
+    }
+}
+```
+
+输出：
+
+```
+上学
+```
+
+当两个值要执行的代码相同时，可以把要执行的代码写在下一个 case 语句中，而上一个 case 语句中什么也没有，来看一下示例：
+
+```java
+public class Switch2 {
+    public static void main(String[] args) {
+        String name = "沉默王二";
+        switch (name) {
+            case "詹姆斯":
+                System.out.println("篮球运动员");
+                break;
+            case "穆里尼奥":
+                System.out.println("足球教练");
+                break;
+            case "沉默王二":
+            case "沉默王三":
+                System.out.println("乒乓球爱好者");
+                break;
+            default:
+                throw new IllegalArgumentException(
+                        "名字没有匹配项");
+
+        }
+    }
+}
+```
+
+输出：
+
+```
+乒乓球爱好者
+```
+
+枚举作为 switch 语句的变量也很常见，来看例子：
+
+```java
+public class SwitchEnumDemo {
+    public enum PlayerTypes {
+        TENNIS,
+        FOOTBALL,
+        BASKETBALL,
+        UNKNOWN
+    }
+
+    public static void main(String[] args) {
+        System.out.println(createPlayer(PlayerTypes.BASKETBALL));
+    }
+
+    private static String createPlayer(PlayerTypes playerType) {
+        switch (playerType) {
+            case TENNIS:
+                return "网球运动员费德勒";
+            case FOOTBALL:
+                return "足球运动员C罗";
+            case BASKETBALL:
+                return "篮球运动员詹姆斯";
+            case UNKNOWN:
+                throw new IllegalArgumentException("未知");
+            default:
+                throw new IllegalArgumentException(
+                        "运动员类型: " + playerType);
+
+        }
+    }
+}
+```
+
+输出：
+
+```
+篮球运动员詹姆斯
+```
+
+### 03、for 循环
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-07.png)
+
+#### **1）普通 for 循环**
+
+普通的 for 循环可以分为 4 个部分：
+
+1）初始变量：循环开始执行时的初始条件。
+
+2）条件：循环每次执行时要判断的条件，如果为 true，就执行循环体；如果为 false，就跳出循环。当然了，条件是可选的，如果没有条件，则会一直循环。
+
+3）循环体：循环每次要执行的代码块，直到条件变为 false。
+
+4）自增/自减：初始变量变化的方式。
+
+来看一下普通 for 循环的格式：
+
+```java
+for(初始变量;条件;自增/自减){  
+// 循环体
+}  
+```
+
+画个流程图：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-08.png)
+
+
+来个示例：
+
+```java
+public class ForExample {
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("沉默王三好美啊");
+        }
+    }
+}
+```
+
+输出：
+
+```
+沉默王三好美啊
+沉默王三好美啊
+沉默王三好美啊
+沉默王三好美啊
+沉默王三好美啊
+```
+
+“哎呀，二哥，你真的是变着法夸我啊。”
+
+“非也非也，三妹，你看不出我其实在夸我自己吗？循环语句还可以嵌套呢，这样就可以打印出更好玩的呢，你要不要看看？”
+
+“好呀好呀！”
+
+“看好了啊。”
+
+```java
+public class PyramidForExample {
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0;j<= i;j++) {
+                System.out.print("❤");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+打印出什么玩意呢？
+
+```
+❤
+❤❤
+❤❤❤
+❤❤❤❤
+❤❤❤❤❤
+```
+
+“哇，太不可思议了，二哥。”
+
+“嘿嘿。”
+
+#### **2）for-each**
+
+for-each 循环通常用于遍历数组和集合，它的使用规则比普通的 for 循环还要简单，不需要初始变量，不需要条件，不需要下标来自增或者自减。来看一下语法：
+
+```java
+for(元素类型 元素 : 数组或集合){  
+// 要执行的代码
+}  
+```
+
+
+来看一下示例：
+
+```java
+public class ForEachExample {
+    public static void main(String[] args) {
+        String[] strs = {"沉默王二", "一枚有趣的程序员"};
+
+        for (String str : strs) {
+            System.out.println(str);
+        }
+    }
+}
+```
+
+输出：
+
+```
+沉默王二
+一枚有趣的程序员
+```
+
+“呀，二哥，你开始王哥卖瓜了啊。”
+
+“嘿嘿，三妹，你这样说哥会脸红的。”
+
+#### **3）无限 for 循环**
+
+“三妹，你想不想体验一下无限 for 循环的威力，也就是死循环。”
+
+“二哥，那会有什么样的后果啊？”
+
+“来，看看就知道了。”
+
+```java
+public class InfinitiveForExample {
+    public static void main(String[] args) {
+        for(;;){
+            System.out.println("停不下来。。。。");
+        }
+    }
+}
+```
+
+输出：
+
+```
+停不下来。。。。
+停不下来。。。。
+停不下来。。。。
+停不下来。。。。
+```
+
+一旦运行起来，就停不下来了，除非强制停止。
+
+### 04、while 循环
+
+来看一下 while 循环的格式：
+
+```java
+while(条件){  
+//循环体  
+}  
+```
+
+画个流程图：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-09.png)
+
+来个示例：
+
+```java
+public class WhileExample {
+    public static void main(String[] args) {
+        int i = 0;
+        while (true) {
+            System.out.println("沉默王三");
+            i++;
+            if (i == 5) {
+                break;
+            }
+        }
+    }
+}
+```
+
+“三妹，你猜猜会输出几次？”
+
+“五次吗？”
+
+“对了，你可真聪明。”
+
+```
+沉默王三
+沉默王三
+沉默王三
+沉默王三
+沉默王三
+```
+
+“三妹，你想不想体验一下无限 while 循环的威力，也就是死循环。”
+
+“二哥，那会有什么样的后果啊？”
+
+“来，看看就知道了。”
+
+```java
+public class InfinitiveWhileExample {
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("停不下来。。。。");
+        }
+    }
+}
+```
+
+输出：
+
+```
+停不下来。。。。
+停不下来。。。。
+停不下来。。。。
+停不下来。。。。
+```
+
+把 while 的条件设置为 true，并且循环体中没有 break 关键字的话，程序一旦运行起来，就根本停不下来了，除非强制停止。
+
+### 05、do-while 循环
+
+来看一下 do-while 循环的格式：
+
+```java
+do{  
+// 循环体
+}while(提交);  
+```
+
+画个流程图：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-10.png)
+
+来个示例：
+
+```java
+public class DoWhileExample {
+    public static void main(String[] args) {
+        int i = 0;
+        do {
+            System.out.println("沉默王三");
+            i++;
+            if (i == 5) {
+                break;
+            }
+        } while (true);
+    }
+}
+```
+
+“三妹，你猜猜会输出几次？”
+
+“五次吗？”
+
+“对了，你可真聪明。”
+
+```
+沉默王三
+沉默王三
+沉默王三
+沉默王三
+沉默王三
+```
+
+“三妹，你想不想体验一下无限 do-while 循环的威力......”
+
+“二哥，又来啊，我都腻了。”
+
+“来吧，例行公事，就假装看看嘛。”
+
+```java
+public class InfinitiveDoWhileExample {
+    public static void main(String[] args) {
+        do {
+            System.out.println("停不下来。。。。");
+        } while (true);
+    }
+}
+```
+
+输出：
+
+```
+停不下来。。。。
+停不下来。。。。
+停不下来。。。。
+停不下来。。。。
+```
+
+把 do-while 的条件设置为 true，并且循环体中没有 break 关键字的话，程序一旦运行起来，就根本停不下来了，除非强制停止。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-11.png)
+
+### 06、break
+
+break 关键字通常用于中断循环或 switch 语句，它在指定条件下中断程序的当前流程。如果是内部循环，则仅中断内部循环。
+
+可以将 break 关键字用于所有类型循环语句中，比如说 for 循环、while 循环，以及 do-while 循环。
+
+来画个流程图感受一下：
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-12.png)
+
+
+用在 for 循环中的示例：
+
+```java
+for (int i = 1; i <= 10; i++) {
+    if (i == 5) {
+        break;
+    }
+    System.out.println(i);
+}
+```
+
+用在嵌套 for 循环中的示例：
+
+```java
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i == 2 && j == 2) {
+            break;
+        }
+        System.out.println(i + " " + j);
+    }
+}
+```
+
+用在 while 循环中的示例：
+
+```java
+int i = 1;
+while (i <= 10) {
+    if (i == 5) {
+        i++;
+        break;
+    }
+    System.out.println(i);
+    i++;
+}
+```
+
+用在 do-while 循环中的示例：
+
+```java
+int j = 1;
+do {
+    if (j == 5) { 
+        j++;
+        break;
+    }
+    System.out.println(j);
+    j++;
+} while (j <= 10);
+```
+
+用在 switch 语句中的示例：
+
+```java
+switch (age) {
+        case 20 :
+          System.out.println("上学");
+          break;
+        case 24 :
+          System.out.println("苏州工作");
+          break;
+        case 30 :
+          System.out.println("洛阳工作");
+          break;
+       default:
+         System.out.println("未知");
+         break; // 可省略
+}
+```
+
+### 07、continue
+
+当我们需要在 for 循环或者 （do）while 循环中立即跳转到下一个循环时，就可以使用 continue 关键字，通常用于跳过指定条件下的循环体，如果循环是嵌套的，仅跳过当前循环。
+
+来个示例：
+
+```java
+public class ContinueDemo {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i == 5) {
+                // 使用 continue 关键字
+                continue;// 5 将会被跳过
+            }
+            System.out.println(i);
+        }
+    }
+}
+```
+
+输出：
+
+```
+1
+2
+3
+4
+6
+7
+8
+9
+10
+```
+
+“二哥，5 真的被跳过了呀。”
+
+“那必须滴。不然就是 bug。”
+
+再来个循环嵌套的例子。
+
+```java
+public class ContinueInnerDemo {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 1; j <= 3; j++) {
+                if (i == 2 && j == 2) {
+                    //  当i=2，j=2时跳过
+                    continue;
+                }
+                System.out.println(i + " " + j);
+            }
+        }
+    }
+}
+```
+
+打印出什么玩意呢？
+
+```
+1 1
+1 2
+1 3
+2 1
+2 3
+3 1
+3 2
+3 3
+```
+
+“2 2” 没有输出，被跳过了。
+
+再来看一下 while 循环时 continue 的使用示例：
+
+```java
+public class ContinueWhileDemo {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i <= 10) {
+            if (i == 5) {
+                i++;
+                continue;
+            }
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+```
+
+输出：
+
+```
+1
+2
+3
+4
+6
+7
+8
+9
+10
+```
+
+注意：如果把 if 条件中的“i++”省略掉的话，程序就会进入死循环，一直在 continue。
+
+最后，再来看一下 do-while 循环时 continue 的使用示例：
+
+```java
+public class ContinueDoWhileDemo {
+    public static void main(String[] args) {
+        int i=1;
+        do{
+            if(i==5){
+                i++;
+                continue;
+            }
+            System.out.println(i);
+            i++;
+        }while(i<=10);
+    }
+}
+
+```
+
+输出：
+
+```
+1
+2
+3
+4
+6
+7
+8
+9
+10
+```
+
+注意：同样的，如果把 if 条件中的“i++”省略掉的话，程序就会进入死循环，一直在 continue。
+
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 3.6 Java运算符
+
+“二哥，让我盲猜一下哈，运算符是不是指的就是加减乘除啊？”三妹的脸上泛着甜甜的笑容，我想她一定对提出的问题很有自信。
+
+“是的，三妹。运算符在 Java 中占据着重要的位置，对程序的执行有着很大的帮助。除了常见的加减乘除，还有许多其他类型的运算符，来看下面这张思维导图。”
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-01.png)
+
+
+### 01、算数运算符
+
+算术运算符除了最常见的加减乘除，还有一个取余的运算符，用于得到除法运算后的余数，来串代码感受下。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class ArithmeticOperator {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 5;
+
+        System.out.println(a + b);//15
+        System.out.println(a - b);//5
+        System.out.println(a * b);//50
+        System.out.println(a / b);//2
+        System.out.println(a % b);//0
+
+        b = 3;
+        System.out.println(a + b);//13
+        System.out.println(a - b);//7
+        System.out.println(a * b);//30
+        System.out.println(a / b);//3
+        System.out.println(a % b);//1
+    }
+}
+```
+
+对于初学者来说，加法（+）、减法（-）、乘法（*）很好理解，但除法（/）和取余（%）会有一点点疑惑。在以往的认知里，10/3 是除不尽的，结果应该是 3.333333...，而不应该是 3。相应的，余数也不应该是 1。这是为什么呢？
+
+因为数字在程序中可以分为两种，一种是整型，一种是浮点型（不清楚的同学可以回头看看[数据类型那篇](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)），整型和整型的运算结果就是整型，不会出现浮点型。否则，就会出现浮点型。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class ArithmeticOperator {
+    public static void main(String[] args) {
+        int a = 10;
+        float c = 3.0f;
+        double d = 3.0;
+        System.out.println(a / c); // 3.3333333
+        System.out.println(a / d); // 3.3333333333333335
+        System.out.println(a % c); // 1.0
+        System.out.println(a % d); // 1.0
+    }
+}
+```
+
+需要注意的是，当浮点数除以 0 的时候，结果为 Infinity 或者 NaN。
+
+```
+System.out.println(10.0 / 0.0); // Infinity
+System.out.println(0.0 / 0.0); // NaN
+```
+
+Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数字（Not a Number）。
+
+
+当整数除以 0 的时候（`10 / 0`），会抛出异常：
+
+```
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at com.itwanger.eleven.ArithmeticOperator.main(ArithmeticOperator.java:32)
+```
+
+所以整数在进行除法运算时，需要先判断除数是否为 0，以免程序抛出异常。
+
+算术运算符中还有两种特殊的运算符，自增运算符（++）和自减运算符（--），它们也叫做一元运算符，只有一个操作数。
+
+```java
+public class UnaryOperator1 {
+    public static void main(String[] args) {
+        int x = 10;
+        System.out.println(x++);//10 (11)  
+        System.out.println(++x);//12  
+        System.out.println(x--);//12 (11)  
+        System.out.println(--x);//10  
+    }
+}
+```
+
+一元运算符可以放在数字的前面或者后面，放在前面叫前自增（前自减），放在后面叫后自增（后自减）。
+
+前自增和后自增是有区别的，拿 `int y = ++x` 这个表达式来说（x = 10），它可以拆分为 `x = x+1 = 11; y = x = 11`，所以表达式的结果为 `x = 11, y = 11`。拿 `int y = x++` 这个表达式来说（x = 10），它可以拆分为 `y = x = 10; x = x+1 = 11`，所以表达式的结果为 `x = 11, y = 10`。
+
+```java
+int x = 10;
+int y = ++x;
+System.out.println(y + " " + x);// 11 11
+
+x = 10;
+y = x++;
+System.out.println(y + " " + x);// 10 11
+```
+
+对于前自减和后自减来说，同学们可以自己试一把。
+
+
+### 02、关系运算符
+
+关系运算符用来比较两个操作数，返回结果为 true 或者 false。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-02.png)
+
+来看示例：
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class RelationOperator {
+    public static void main(String[] args) {
+        int a = 10, b = 20;
+        System.out.println(a == b); // false
+        System.out.println(a != b); // true
+        System.out.println(a > b); // false
+        System.out.println(a < b); // true
+        System.out.println(a >= b); // false
+        System.out.println(a <= b); // true
+    }
+}
+```
+
+### 03、位运算符
+
+在学习位运算符之前，需要先学习一下二进制，因为位运算符操作的不是整型数值（int、long、short、char、byte）本身，而是整型数值对应的二进制。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class BitOperator {
+    public static void main(String[] args) {
+        System.out.println(Integer.toBinaryString(60)); // 111100
+        System.out.println(Integer.toBinaryString(13)); // 1101
+    }
+}
+```
+
+ 从程序的输出结果可以看得出来，60 的二进制是 0011 1100（用 0 补到 8 位），13 的二进制是 0000 1101。
+
+PS：现代的二进制记数系统由戈特弗里德·威廉·莱布尼茨于 1679 年设计。莱布尼茨是德意志哲学家、数学家，历史上少见的通才。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-03.png)
+
+来看示例：
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class BitOperator {
+    public static void main(String[] args) {
+        int a = 60, b = 13;
+        System.out.println("a 的二进制：" + Integer.toBinaryString(a)); // 111100
+        System.out.println("b 的二进制：" + Integer.toBinaryString(b)); // 1101
+
+        int c = a & b;
+        System.out.println("a & b：" + c + "，二进制是：" + Integer.toBinaryString(c));
+
+        c = a | b;
+        System.out.println("a | b：" + c + "，二进制是：" + Integer.toBinaryString(c));
+
+        c = a ^ b;
+        System.out.println("a ^ b：" + c + "，二进制是：" + Integer.toBinaryString(c));
+
+        c = ~a;
+        System.out.println("~a：" + c + "，二进制是：" + Integer.toBinaryString(c));
+
+        c = a << 2;
+        System.out.println("a << 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
+
+        c = a >> 2;
+        System.out.println("a >> 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
+
+        c = a >>> 2;
+        System.out.println("a >>> 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
+    }
+}
+```
+
+对于初学者来说，位运算符无法从直观上去计算出结果，不像加减乘除那样。因为我们日常接触的都是十进制，位运算的时候需要先转成二进制，然后再计算出结果。
+
+鉴于此，初学者在写代码的时候其实很少会用到位运算。对于编程高手来说，为了提高程序的性能，会在一些地方使用位运算。比如说，HashMap 在计算哈希值的时候：
+
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+如果对位运算一点都不懂的话，遇到这样的源码就很吃力。所以说，虽然位运算用的少，但还是要懂。
+
+1）按位左移运算符：
+
+```java
+public class LeftShiftOperator {
+    public static void main(String[] args) {
+        System.out.println(10<<2);//10*2^2=10*4=40  
+        System.out.println(10<<3);//10*2^3=10*8=80  
+        System.out.println(20<<2);//20*2^2=20*4=80  
+        System.out.println(15<<4);//15*2^4=15*16=240  
+    }
+}
+```
+
+`10<<2` 等于 10 乘以 2 的 2 次方；`10<<3` 等于 10 乘以 2 的 3 次方。
+
+2）按位右移运算符：
+
+```java
+public class RightShiftOperator {
+    public static void main(String[] args) {
+        System.out.println(10>>2);//10/2^2=10/4=2
+        System.out.println(20>>2);//20/2^2=20/4=5
+        System.out.println(20>>3);//20/2^3=20/8=2
+    }
+}
+```
+
+`10>>2` 等于 10 除以 2 的 2 次方；`20>>2` 等于 20 除以 2 的 2 次方。
+
+### 04、逻辑运算符
+
+逻辑与运算符（&&）：多个条件中只要有一个为 false 结果就为 false。
+
+逻辑或运算符（||）：多个条件只要有一个为 true 结果就为 true。
+
+```java
+public class LogicalOperator {
+    public static void main(String[] args) {
+        int a=10;
+        int b=5;
+        int c=20;
+        System.out.println(a<b&&a<c);//false && true = false
+
+        System.out.println(a>b||a<c);//true || true = true
+    }
+}
+```
+
+逻辑非运算符（!）：用来反转条件的结果，如果条件为 true，则逻辑非运算符将得到 false。
+
+单逻辑与运算符（&）：很少用，因为不管第一个条件为 true 还是 false，依然会检查第二个。
+
+单逻辑或运算符（|）：也会检查第二个条件。
+
+也就是说，& 和 | 性能不如 && 和 ||，但用法一样：
+
+```java
+public class LogicalOperator1 {
+    public static void main(String[] args) {
+        int a=10;
+        int b=5;
+        int c=20;
+        System.out.println(a<b&a<c);//false & true = false
+
+        System.out.println(a>b|a<c);//true | true = true  
+    }
+}
+```
+
+### 05、赋值运算符
+
+赋值操作符恐怕是 Java 中使用最频繁的操作符了，它就是把操作符右侧的值赋值给左侧的变量。来看示例：
+
+```java
+public class AssignmentOperator {
+    public static void main(String[] args) {
+        int a=10;
+        int b=20;
+        a+=4;//a=a+4 (a=10+4)  
+        b-=4;//b=b-4 (b=20-4)  
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+```
+
+不过在进行数值的赋值时，需要小点心，比如说下面这种情况：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-04.png)
+
+编译器之所以提示错误，是因为 = 右侧的算术表达式默认为 int 类型，左侧是 short 类型的时候需要进行强转。
+
+```java
+public class AssignmentOperator1 {
+    public static void main(String[] args) {
+        short a = 10;
+        short b = 10;
+//a+=b;//a=a+b internally so fine
+        a = (short)(a + b);
+        System.out.println(a);
+    }
+}
+```
+
+除此之外，还会有边界问题，比如说，两个非常大的 int 相乘，结果可能就超出了 int 的范围：
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class BigIntMulti {
+    public static void main(String[] args) {
+        int a = Integer.MAX_VALUE;
+        int b = 10000;
+        int c = a * b;
+        System.out.println(c); // -10000
+    }
+}
+```
+
+程序输出的结果为 -10000，这个答案很明显不是我们想要的结果，虽然可以通过右侧表达式强转 long 的方法解决：
+
+```
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ */
+public class BigIntMulti {
+    public static void main(String[] args) {
+        int a = Integer.MAX_VALUE;
+        int b = 10000;
+        long c = (long)a * b;
+        System.out.println(c); // 21474836470000
+    }
+}
+```
+
+但尽量不要这样做，结果非常大的时候，尽量提前使用相应的类型进行赋值。
+
+```java
+long a = Integer.MAX_VALUE - 1;
+long b = 10000;
+long c = a * b;
+System.out.println(c); // 21474836460000
+```
+
+### 06、三元运算符
+
+三元运算符用于替代 if-else，可以使用一行代码完成条件判断的要求。来看示例：
+
+```java
+public class TernaryOperator {
+    public static void main(String[] args) {
+        int a=2;
+        int b=5;
+        int min=(a<b)?a:b;
+        System.out.println(min);
+    }
+}
+```
+
+如果 ? 前面的条件为 true，则结果为 : 前的值，否则为 : 后的值。
+
+“好了，三妹，关于 Java 运算符就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
+
+“差不多，二哥，我需要写点 demo 练习会。”
+
 
 ---
 
