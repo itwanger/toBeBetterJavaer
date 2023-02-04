@@ -1,6 +1,6 @@
 ---
 title: 13 道 Java HashMap 精选面试题👍
-shortTitle: 13 道 Java HashMap 精选面试题👍
+shortTitle: 13道HashMap精选面试题👍
 category:
   - 求职面试
 tag:

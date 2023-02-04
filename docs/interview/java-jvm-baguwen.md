@@ -1,6 +1,6 @@
 ---
 title: Java 虚拟机背诵版八股文必看🍉
-shortTitle: Java 虚拟机背诵版八股文必看🍉
+shortTitle: JVM背诵版八股文🍉
 category:
   - 求职面试
 tag:
