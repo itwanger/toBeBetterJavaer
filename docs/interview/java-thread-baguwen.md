@@ -1,6 +1,6 @@
 ---
 title: Java 并发编程背诵版八股文必看🍉
-shortTitle: Java 并发编程背诵版八股文必看🍉
+shortTitle: 并发编程背诵版八股文🍉
 category:
   - 求职面试
 tag:

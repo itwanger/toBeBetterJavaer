@@ -1,6 +1,6 @@
 ---
 title: Java 基础背诵版八股文必看🍉
-shortTitle: Java 基础背诵版八股文必看🍉
+shortTitle: Java基础背诵版八股文🍉
 category:
   - 求职面试
 tag:
