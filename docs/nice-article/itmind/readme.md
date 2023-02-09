@@ -54,6 +54,10 @@ head:
 
 - [Sublime 激活码](sublimetextzcmpjazjcqckyxbxt.md)
 
+## termius
+
+- [termius macOS破解版](termius-macos.md)
+
 ## 免责声明
 
 >以上内容全部来源于网络上其他人的整理，我这里只是收集整理了他们的链接，如有侵权，马上联系我，我立马删除对应链接。我的邮箱：<a href="mailto:www.qing_gee@163.com">www.qing_gee@163.com</a>

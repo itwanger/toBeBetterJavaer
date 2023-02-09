@@ -26,6 +26,7 @@ export const sidebarConfig = sidebar({
     "webstormjhmwebstormwdzsjhmxbxt",
     "visualstudiopxbazjcnfvisualstudiojhmmyxbxt",
     "sublimetextzcmpjazjcqckyxbxt",
+    "termius-macos",
   ],
   "/pdf/": [
     "java",

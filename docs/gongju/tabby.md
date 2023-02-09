@@ -1,6 +1,6 @@
 ---
 title: Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k
-shortTitle: Tabby：一款逼格更高的开源终端工具
+shortTitle: Tabby：开源终端工具
 category:
   - Java企业级开发
 tag:
