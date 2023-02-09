@@ -1,6 +1,6 @@
 ---
 title: WindTerm：新一代开源免费的终端工具，GitHub星标6.6k+，太酷了！
-shortTitle: WindTerm：新一代开源免费的终端工具
+shortTitle: WindTerm：新一代终端工具
 category:
   - Java企业级开发
 tag:
