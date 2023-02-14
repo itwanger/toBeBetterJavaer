@@ -36,6 +36,10 @@
 > - [Java程序员进阶之路在线阅读](https://docsify.tobebetterjavaer.com)
 > - 👍推荐[免费下载1000本计算机经典书籍](https://github.com/itwanger/JavaBooks)
 
+# 二哥的编程星球
+
+[二哥的编程星球](https://mp.weixin.qq.com/s/hXXBTPPkFj2VMg_GXqn4EA)已经有 **1700 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/CljCSezUgoBXb-T9wbIGww)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长，冲冲冲。
+
 # 知识库地图
 
 > 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
