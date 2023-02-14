@@ -18,7 +18,7 @@ head:
   </a><br>
   <a href="https://tobebetterjavaer.com/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
   <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
-  <a href="https://tobebetterjavaer.com/zhishixingqiu/" target="_blank"><img src="https://img.shields.io/badge/二哥的-编程星球-critical?style=for-the-badge"></a>
+  <a href="https://tobebetterjavaer.com/zhishixingqiu/" target="_blank"><img src="https://img.shields.io/badge/学习圈子-立即加入-critical?style=for-the-badge"></a>
   <a href="https://tobebetterjavaer.com/download/java.html" target="_blank"><img src="https://img.shields.io/badge/计算机经典电子书-下载-yellow.svg?style=for-the-badge" alt="无套路下载"></a>
   <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="Java程序员进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a><br><br>
 <a href="https://github.com/itwanger/toBeBetterJavaer">Github</a> |
@@ -46,9 +46,9 @@ head:
 
 **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
 
-## 二哥的编程星球
+#知识库的学习圈子
 
-[二哥的编程星球](https://mp.weixin.qq.com/s/hXXBTPPkFj2VMg_GXqn4EA)已经有 **1700 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://mp.weixin.qq.com/s/CljCSezUgoBXb-T9wbIGww)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长，冲冲冲。
+一个人可以走得很快，但一群人才能走得更远。知识库的学习圈子已经有 **1700 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读知识库的配套专栏、向作者提问、帮你制定学习计划、和球友一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
 ## 知识库地图
 
