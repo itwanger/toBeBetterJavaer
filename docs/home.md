@@ -437,6 +437,7 @@ head:
 - [12 道 Redis 精选面试题👍](interview/redis-12.md)
 - [40 道 Nginx 精选面试题👍](interview/nginx-40.md)
 - [60 道 MySQL 精选面试题👍](interview/mysql-60.md)
+- [15 道 MySQL 索引精选面试题👍](interview/mysql-suoyin-15.md)
 - [17 道 Dubbo 精选面试题👍](interview/dubbo-17.md)
 - [40 道 Kafka 精选面试题👍](interview/kafka-40.md)
 - [Java 基础背诵版八股文必看🍉](interview/java-basic-baguwen.md)
