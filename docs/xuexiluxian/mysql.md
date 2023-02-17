@@ -10,11 +10,11 @@ description: MySQL学习资料 | 学习路线 | 注意事项，MySQL需要学什
 head:
   - - meta
     - name: keywords
-      content: MySQL,学习路线
+      content: MySQL,学习路线,mysql教程,mysql面试
 ---
 
 
-MySQL 在校招面试中，被问到的频率非常高；在日常开发中，MySQL 的使用频率也非常高，几乎是 Java 后端开发必须掌握的技术栈，所以 MySQL 也被二哥归纳到了**Java 后端四大件**中。
+MySQL 不管是校招还是社招面试中，被问到的频率都非常高；在日常开发中，MySQL 的使用频率也非常高，几乎是 Java 后端开发必须掌握的技术栈，所以 MySQL 也被二哥归纳到了**Java 后端四大件**中。
 
 ## 第一阶段：SQL
 

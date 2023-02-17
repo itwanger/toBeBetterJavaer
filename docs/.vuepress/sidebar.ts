@@ -64,6 +64,7 @@ export const sidebarConfig = sidebar({
     "bigdata",
     "android",
     "mysql",
+    "redis",
     "donet",
   ],
   "/sidebar/sanfene/": [
