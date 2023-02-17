@@ -563,6 +563,7 @@ export const sidebarConfig = sidebar({
           prefix: "mysql/",
           children: [
             "redis-shuju-yizhixing",
+            "lijie-shiwu",
             "shiwu-shixian",
           ],
         },
