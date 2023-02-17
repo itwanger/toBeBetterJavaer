@@ -560,11 +560,10 @@ export const sidebarConfig = sidebar({
         {
           text: "MySQL",
           collapsible: true,
+          prefix: "mysql/",
           children: [
-            {
-              text: "MySQL和Redis数据一致性",
-              link: "mysql/redis-shuju-yizhixing"
-            },
+            "redis-shuju-yizhixing",
+            "shiwu-shixian",
           ],
         },
         {
