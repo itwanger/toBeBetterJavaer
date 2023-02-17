@@ -397,6 +397,7 @@
 ## MySQL
 
 - [如何保障MySQL和Redis的数据一致性？](docs/mysql/redis-shuju-yizhixing.md)
+- [从根上理解 MySQL 的事务](docs/mysql/lijie-shiwu.md)
 - [浅入深出 MySQL 中事务的实现](docs/mysql/shiwu-shixian.md)
 
 ## Redis
