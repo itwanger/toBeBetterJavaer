@@ -617,9 +617,10 @@ export const sidebarConfig = sidebar({
           children: [
             "java-34",
             "java-hashmap-13",
-            "redis-12",
             "mysql-60",
             "mysql-suoyin-15",
+            "redis-12",
+            "nginx-40",
             "dubbo-17",
             "kafka-40",
             "java-basic-baguwen",
