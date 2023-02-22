@@ -1,6 +1,6 @@
 ---
-title: 浅入浅出Java数组
-shortTitle: Java数组
+title: 一文吃透Java数组
+shortTitle: 吃透Java数组
 category:
   - Java核心
 tag:
