@@ -1,6 +1,6 @@
 ![](https://cdn.tobebetterjavaer.com/paicoding/adbd4b9992d0656dfe743da0b4adc63e.png)
 
-# 第一章：小册简介
+# 第一章：《二哥的Java进阶之路》小册简介
 
 > PS：为了增加这份小册的趣味性，我特意为此追加了两个虚拟角色，一个二哥，一个三妹，二哥负责教，三妹负责学。这样大家在学习 Java 的时候代入感会更强烈一些，希望这样的设定能博得大家的欢心。
 
@@ -40,7 +40,7 @@
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/b6b7a842ad161392851e4ec1c8525667.png)
 
-你也可以到技术派的[教程栏](https://paicoding.com/column)里阅读。
+你也可以到技术派的[教程栏](https://paicoding.com/column/5/1)里阅读。
 
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/497845a726c2563809c5d78e2b88cdc7.png)
@@ -176,7 +176,7 @@ public class HelloWorld {
 
 下图是号称史上最惨的 23 届秋招 Java 岗的薪资状况，像 22 届的薪资待遇远比这个好得多。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
 
 24 届及以后的起薪肯定会比这个好得多，这上面大专、普本的案例比较少，是因为网上爆的人比较少，但其实这部分群体也是非常大的，所以，学习 Java 还是很有“**钱秃**”的。
 
@@ -411,23 +411,23 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 先说 Windows 用户，在电脑桌面 右键点击 “此电脑”的“属性”选项
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a0a78e05-886f-425a-8ba9-d27314f7a21c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a0a78e05-886f-425a-8ba9-d27314f7a21c.png)
 
 选择“高级系统设置”选项
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-fdc94ada-ae44-4a93-ba0d-92860119ad9c.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-fdc94ada-ae44-4a93-ba0d-92860119ad9c.png)
 
 点击下面的“环境变量”选项
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-919eb8f0-9869-450c-a6cb-50318dd3e2e5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-919eb8f0-9869-450c-a6cb-50318dd3e2e5.png)
 
 点击“系统变量”下面的”新建“选项
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a4c05c3e-f305-4d6a-96d2-fe345e980c3b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a4c05c3e-f305-4d6a-96d2-fe345e980c3b.png)
 
 在”变量名“处填上”Java_Home“，”变量值“为JDK安装路径，比如说”D:\Program Files\Java\jdk1.8.0_91“
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-26be5706-036d-4fae-99fa-d5f14b7380d4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-26be5706-036d-4fae-99fa-d5f14b7380d4.png)
 
 参考链接：https://www.cnblogs.com/cnwutianhao/p/5487758.html
 
@@ -582,13 +582,13 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 1.  打开 [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/download/#section=mac)，点击Download按钮
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
 
 2.  选择 Community 版本（也就是社区版、免费版了，旗舰版需要激活，你可以戳这里[激活](https://tobebetterjavaer.com/nice-article/itmind/)）。
   
 确定后点击 Download 下载
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-b17d0ff0-d33c-4d19-86e0-cd491c0cc613.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-b17d0ff0-d33c-4d19-86e0-cd491c0cc613.png)
 
 
 如何查看 Mac 电脑是 Intel 还是 Apple Silicon 的 CPU？
@@ -600,41 +600,41 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 瞧，我这里就是英特尔芯片的（Intel）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-3977e9b4-9c26-4e00-bc88-1ac1f2f89d5e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-3977e9b4-9c26-4e00-bc88-1ac1f2f89d5e.png)
 
 
 3.  打开如下页面，IntelliJ IDEA 便会开始自动下载。若未开始自动下载，可以点击如下红框内的 direct link。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-5b074f76-71c7-405e-871e-de1ee1d6376e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-5b074f76-71c7-405e-871e-de1ee1d6376e.png)
 
 
 中文页面如下所示：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-f88924e5-6470-4d44-8f85-922875a3c565.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-f88924e5-6470-4d44-8f85-922875a3c565.png)
 
 4.  IntelliJ IDEA下载完成，在下载文件夹内便会出现 ideaIC-2020.3.2.dmg 的文件。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7aec8534-ea7b-41f5-bc68-e6d2fb20e6c1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7aec8534-ea7b-41f5-bc68-e6d2fb20e6c1.png)
 
 #### 02、安装 IDEA
 
 1.  双击 ideaIC-2020.3.2.dmg 文件开始安装
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-23195fb7-3a1c-4466-bf17-4f681ef0be5e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-23195fb7-3a1c-4466-bf17-4f681ef0be5e.png)
 
 2.  把 IntelliJ IDEA CE.app 拖入 Applications 文件夹
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7bd55d3b-54ce-4e4e-8e21-aa94f15d105a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7bd55d3b-54ce-4e4e-8e21-aa94f15d105a.png)
 
 3.  在 Applications 中可以找到 IntelliJ IDEA CE.app，说明安装完成
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-96c1a054-8429-416a-ad5d-7fa3f360c19f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-96c1a054-8429-416a-ad5d-7fa3f360c19f.png)
 
 #### 03、打开 IDEA
 
 首次打开 IntelliJ IDEA 后展现的第一个页面如下所示。至此，IntelliJ IDEA下载、安装和打开就搞定了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7637a241-8524-4e0a-bb2a-a3bd1c575c9a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7637a241-8524-4e0a-bb2a-a3bd1c575c9a.png)
 
 
 -----
@@ -655,23 +655,23 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 打开 Intellij IDEA，新建一个学习 Java 的项目，点击 File → New → Project。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3810664d-49fb-4bed-ad32-3cb962ab5201.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3810664d-49fb-4bed-ad32-3cb962ab5201.png)
 
 选择 JDK 版本，比如之前我们[安装的 JDK 8](https://tobebetterjavaer.com/overview/jdk-install-config.html)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3773144f-ba5a-4639-8747-70eb815f1ccd.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3773144f-ba5a-4639-8747-70eb815f1ccd.png)
 
 你也可以选择 JDK 11 或者最新的 JDK 17 或者添加新的 JDK 版本，但（不建议）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-85e3860b-3207-45c1-85d6-09c7cfd83c77.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-85e3860b-3207-45c1-85d6-09c7cfd83c77.png)
 
 然后点击「next」，直到填写项目名字，比如说 tobebetterjavaerdemo。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-aad8ff0b-61e4-4dc1-9f5b-70f64f34a49b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-aad8ff0b-61e4-4dc1-9f5b-70f64f34a49b.png)
 
 然后点击 finish，之后就可以看到我们新建的项目界面了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-5ef6024a-86e4-4fb7-860c-526ed867ab4a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-5ef6024a-86e4-4fb7-860c-526ed867ab4a.png)
 
 如果你的 Intellij IDEA 主题和二哥不一样，没关系，当然了，如果你也是个有颜值追求的家伙，可以安装 Vuesion Theme 插件，安装方法[戳这里](https://tobebetterjavaer.com/ide/shenji-chajian-10.html)。
 
@@ -681,15 +681,15 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 右键 src 目录，在菜单中依次选择 New → Java Class。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3dcc212c-bc06-49b0-989a-d3d129586064.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3dcc212c-bc06-49b0-989a-d3d129586064.png)
 
 填写 Class 名，也就是类名（不知道类名是啥，后面会讲），注意大小写敏感，然后按下 enter 键。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-c4e95c3f-1832-4fc5-bfe7-ce5def0129e2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-c4e95c3f-1832-4fc5-bfe7-ce5def0129e2.png)
 
 就会出现这样的代码。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-380bd820-3b92-4195-86cc-1af30836ce38.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-380bd820-3b92-4195-86cc-1af30836ce38.png)
 
 注释是二哥配置好的，你如果没配置可能没有，`public class HelloWorld {}` 是 Intellij IDEA 帮我们自动生成的。
 
@@ -697,27 +697,27 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 
 Intellij IDEA 就会帮我们自动生成 main 方法，也就是这段代码。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-e0acad2b-1735-42d9-b843-5d65d48c0946.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-e0acad2b-1735-42d9-b843-5d65d48c0946.png)
 
 然后在 main 方法中键入 `so` 等出现提示后键入 enter 键。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-9733e9ba-9e38-41d6-8a58-e73062ee9ed2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-9733e9ba-9e38-41d6-8a58-e73062ee9ed2.png)
 
 Intellij IDEA 就会帮我们自动添加 `System.out.println()`，这是一个向控制台输出的方法（小白先不管它是什么意思，后面会讲）。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-8eb1a438-88d8-4ea2-8861-af96862518fc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-8eb1a438-88d8-4ea2-8861-af96862518fc.png)
 
 接着在 `println()` 的小括号中键入 `"Hello World"`，注意是英文的双引号，中文的会报错哦，三妹。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-f5aa5fd1-4498-4022-b6e6-cc50f23dacb7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-f5aa5fd1-4498-4022-b6e6-cc50f23dacb7.png)
 
 然后在 HelloWorld.java 的代码编辑器，也就是光标所在的位置右键，选择「Run 'HelloWorld.main()'」。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-98e26e22-4811-4546-a88f-59a67d2d93ca.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-98e26e22-4811-4546-a88f-59a67d2d93ca.png)
 
 等 Intellij IDEA 编译&运行后就可以在控制台看到这样的输出内容。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-39d0d413-a2c6-4238-bead-f29183d271c7.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-39d0d413-a2c6-4238-bead-f29183d271c7.png)
 
 这就表明我们的第一个 Java 代码完成了，恭喜自己一下吧，三妹！
 
@@ -1449,7 +1449,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 用图来表示一下，左侧是栈，右侧是堆。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
 
 这里再补充一些额外的知识点，能看懂就继续吸收，看不懂可以先去学下一节，以后再来补，没关系的。学习就是这样，可以跳过，可以温故。
 
@@ -1474,7 +1474,7 @@ public void test()
 
 我来画个图表示下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
 
 应该一目了然了吧？
 
@@ -3111,6 +3111,212 @@ int index = Arrays.binarySearch(anArray, 4);
 ```
 
 “除了一维数组，还有二维数组，三妹你可以去研究下，比如说用二维数组打印一下杨辉三角。”说完，我就去阳台上休息了，留三妹在那里学习，不能打扰她。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 聊聊Java的二维数组
+
+“二哥，今天我们简单过一下二维数组吧，挺简单的。”三妹放下手机对我说。
+
+“好啊，本来不打算讲了，因为开发中用的其实不多，也很简单，就从一维到二维，也没啥可讲的，就简单聊聊吧。”我掐灭了手中的华子，长呼一口烟，飘过三妹的头顶，引起一阵轻微的咳嗽声（😂）
+
+### 什么是二维数组
+
+二维数组是一种数据类型，可以存储多行和多列的数据。它由一系列的行和列组成，每个元素都可以通过一个行索引和列索引来访问。例如，一个3行4列的二维数组可以表示为以下形式：
+
+```java
+array = [
+  [a, b, c, d],
+  [e, f, g, h],
+  [i, j, k, l]
+]
+```
+
+在这个例子中，第一行有4个元素，第二行有4个元素，第三行有4个元素，每个元素都有一个行索引和一个列索引。例如，元素 array[1][2] 是第2行第3列的元素，它的值是 g。
+
+使用二维数组可以有效地存储和处理表格数据，如矩阵、图像、地图等等。
+
+### 如何在 Java 中声明一个二维数组
+
+要在 Java 中创建二维数组，你必须指定要存储在数组中的数据类型，后跟两个方括号和数组的名称。
+
+语法如下所示：
+
+```txt
+data_type[][] array_name;
+```
+
+让我们看一个代码示例。
+
+```java
+int[][] oddNumbers = { {1, 3, 5, 7}, {9, 11, 13, 15} };
+```
+
+
+### 如何在 Java 中访问二维数组中的元素
+
+我们可以使用两个方括号来访问二维中的元素。
+
+第一个表示我们要从中访问元素的数组，而第二个表示我们要访问的元素索引。
+
+让我们用一个例子来简化上面的解释：
+
+```java
+int[][] oddNumbers = { {1, 3, 5, 7}, {9, 11, 13, 15} };
+
+System.out.println(oddNumbers[0][0]);
+// 1
+```
+
+在上面的示例中，`oddNumbers` 数组中有两个数组——`{1, 3, 5, 7}` 和 `{9, 11, 13, 15}`。
+
+第一个数组——`{1, 3, 5, 7}`——用 0 表示。
+
+第二个数组——`{9, 11, 13, 15}`——用 1 表示。
+
+第一个数组是 0，第二个是 1，第三个是 2，依此类推。
+
+因此，要访问第一个数组中的项目，我们将 0 分配给第一个方括号。由于我们试图访问数组中的第一项，我们将使用它的索引，即 0：`oddNumbers[0][0]`。
+
+让我们进一步分解它。
+
+这是访问元素的代码：`oddNumbers[?][?]`。
+
+我在两个方括号中都加上了问号——随着进展填写它们。
+
+假设我们要访问第二个数组中的元素，我们的代码将如下所示：`oddNumbers[1][?]`。
+
+现在我们要在第二个数组（`{9, 11, 13, 15}`）中尝试访问其中一个元素。就像一维数组一样，每个元素都有一个从零开始的索引。
+
+因此，要访问第三个元素 `13`，我们将其索引号传递给第二个方括号：`oddNumbers[1][2]`。
+
+来看这样一个例子：
+
+```java
+int[][] oddNumbers = { {1, 3, 5, 7}, {9, 11, 13, 15}, {17, 19, 21, 23} };
+```
+
+我们的目标是访问第三个数组中的 21。访问方式仍然通过问号来表示：`oddNumbers[?][?]`。
+
+我们首先给第一个问号一个指向要访问的特定数组的值。
+
+数组 0 => `{1, 3, 5, 7}`
+
+数组 1 => `{9, 11, 13, 15}`
+
+数组 2 => `{17, 19, 21, 23}`
+
+我们要查找的数字在第三个数组中，所以是：`oddNumbers[2][?]`。
+
+第二个方括号的值将指向要访问的元素。为此，我们必须指定元素的索引。以下是该数组中的索引：
+
+17 => 索引 0
+
+19 => 索引 1
+
+21 => 索引 2
+
+23 => 索引 3
+
+21 的索引为 2，因此我们可以将其添加到第二个方括号：`oddNumbers[2][2]`。当你将其打印到控制台时，将会打印出 21。
+
+代码如下所示：
+
+```java
+int[][] oddNumbers = { {1, 3, 5, 7}, {9, 11, 13, 15}, {17, 19, 21, 23} };
+
+System.out.println(oddNumbers[2][2]);
+// 21
+```
+
+你可以使用嵌套循环，遍历二维数组中的所有项目。这是一个例子：
+
+```java
+int[][] oddNumbers = { {1, 3, 5, 7}, {9, 11, 13, 15}, {17, 19, 21, 23} };
+
+for(int i = 0; i < oddNumbers.length; i++){
+    for(int j = 0; j < oddNumbers[i].length; j++){
+        System.out.println(oddNumbers[i][j]);
+    }   
+}
+
+// 1
+// 3
+// 5
+// 7
+// 9
+// 11
+// 13
+// 15
+// 17
+// 19
+// 21
+// 23
+```
+
+上面的代码将会打印出 `oddNumbers` 数组中的所有项目。
+
+### 二维数组打印杨辉三角
+
+“三妹，上次学一维数组的时候留了一道题，要你尝试用二维数组打印杨辉三角，你试过了吗？”
+
+“搞过了，你看我的代码。”
+
+```java
+import java.util.Scanner;
+
+public class YangHuiTriangle {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("请输入要打印的行数：");
+        int n = input.nextInt();
+        printYangHuiTriangle(n);
+    }
+
+    public static void printYangHuiTriangle(int n) {
+        int[][] triangle = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            // 每行的第一个和最后一个数字都是1
+            triangle[i][0] = 1;
+            triangle[i][i] = 1;
+
+            for (int j = 1; j < i; j++) {
+                // 其他数字是上一行的两个数字之和
+                triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+            }
+        }
+
+        // 打印杨辉三角
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(triangle[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
+
+“这段代码使用了一个二维数组来存储杨辉三角中的数字。首先，程序要求用户输入要打印的行数，然后调用 printYangHuiTriangle 方法来生成和打印杨辉三角。在 printYangHuiTriangle 方法中，程序使用了一个嵌套的 for 循环来计算杨辉三角中的每个数字，并将结果存储在二维数组 triangle 中。最后，程序再次使用循环来遍历数组并打印出杨辉三角中的数字。”三妹认真地解释道。
+
+“哎呀，不错呀，代码写的挺标准，都知道用 Scanner 类和控制台交互了呀！”见三妹有这样的表现，我忍不住心里乐开了花，这些天的学习也终于有了成果啊，真不错！
+
+```
+请输入要打印的行数：6
+1 
+1 1 
+1 2 1 
+1 3 3 1 
+1 4 6 4 1 
+1 5 10 10 5 1 
+```
 
 ----
 

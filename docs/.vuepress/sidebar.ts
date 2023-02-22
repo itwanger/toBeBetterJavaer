@@ -96,6 +96,7 @@ export const sidebarConfig = sidebar({
           text: "2.1 Java概述及环境配置",
           collapsible: true,
           children: [
+          "readme",
           "what-is-java",
           "java-history",
           "java-can-do-what",
