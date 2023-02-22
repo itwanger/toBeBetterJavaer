@@ -1,6 +1,6 @@
 ---
-title: 为什么String是不可变的？
-shortTitle: 为什么String是不可变的？
+title: 聊聊 Java 字符串，以及为什么String是不可变的？
+shortTitle: 聊聊字符串以及为什么不可变
 category:
   - Java核心
 tag:
@@ -11,6 +11,8 @@ head:
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,不可变
 ---
+
+## 4.4 聊聊Java字符串，以及为什么String是不可变的？
 
 我正坐在沙发上津津有味地读刘欣大佬的《码农翻身》——Java 帝国这一章，门铃响了。起身打开门一看，是三妹，她从学校回来了。
 
@@ -23,6 +25,8 @@ head:
 “好，那就开始吧。”三妹已经准备好坐在了电脑桌的边上。
 
 我应了一声后走到电脑桌前坐下来，顺手打开 Intellij IDEA，并找到了 String 的源码。
+
+### 关于 String 类
 
 ```java
 public final class String
@@ -42,9 +46,11 @@ public final class String
 
 “第四，StringBuffer、StringBuilder 和 String 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
 
-“第五，Java 9 以前，[String 是用 char 型数组实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码](https://tobebetterjavaer.com/basic-extra-meal/jdk9-char-byte-string.html)。在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
+“第五，Java 9 以前，String 是用 char 型数组实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码，可以戳[这篇了解详情](https://tobebetterjavaer.com/basic-extra-meal/jdk9-char-byte-string.html)。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
 
 “第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 HashMap 的键值。”
+
+### 为什么String不可变
 
 “String 可能是 Java 中使用频率最高的引用类型了，因此 String 类的设计者可以说是用心良苦。”
 

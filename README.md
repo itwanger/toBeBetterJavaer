@@ -116,7 +116,7 @@
 - [一文吃透Java数组](docs/array/array.md)
 - [聊聊Java的二维数组](docs/array/double-array.md)
 - [如何优雅地打印Java数组？](docs/array/print.md)
-- [为什么String是不可变的？](docs/string/immutable.md)
+- [聊聊Java字符串，以及为什么String是不可变的？](docs/string/immutable.md)
 - [深入理解Java字符串常量池](docs/string/constant-pool.md)
 - [深入解析String.intern()方法](docs/string/intern.md)
 - [Java如何判断两个字符串是否相等？](docs/string/equals.md)
