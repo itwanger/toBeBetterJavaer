@@ -15,7 +15,7 @@ category:
 
 分库分表是由`分库`和`分表`这两个独立概念组成的，只不过通常分库与分表的操作会同时进行，以至于我们习惯性的将它们合在一起叫做分库分表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-c3a750c7-150d-4c2c-bec4-29a94dda8423.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-c3a750c7-150d-4c2c-bec4-29a94dda8423.jpg)
 
 通过一定的规则，将原本数据量大的数据库拆分成多个单独的数据库，将原本数据量大的表拆分成若干个数据表，使得单一的库、表性能达到最优的效果（响应速度快），以此提升整体数据库性能。
 
@@ -41,7 +41,7 @@ category:
 show variables like '%max_connections%'
 ```
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-48c9b75b-2089-4cfb-b157-260713d69bf1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-48c9b75b-2089-4cfb-b157-260713d69bf1.jpg)
 
 将原本单数据库按不同业务拆分成订单库、物流库、积分库等不仅可以有效分摊数据库读写压力，也提高了系统容错性。
 
@@ -53,7 +53,7 @@ show variables like '%max_connections%'
 
 阿里的开发手册中有条建议，单表行数超 500 万行或者单表容量超过 2GB，就推荐分库分表，然而理想和实现总是有差距的，阿里这种体量的公司不差钱当然可以这么用，实际上很多公司单表数据几千万、亿级别仍然不选择分库分表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-3a864a5a-3aa8-4745-ac0c-ac6f648a177b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-3a864a5a-3aa8-4745-ac0c-ac6f648a177b.jpg)
 
 ## 什么时候分库分表
 
@@ -79,7 +79,7 @@ show variables like '%max_connections%'
 
 分库与分表可以从：垂直（纵向）和 水平（横向）两种纬度进行拆分。下边我们以经典的订单业务举例，看看如何拆分。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-31b3e1b1-b4b7-4876-8b9b-97bf1aa2e536.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-31b3e1b1-b4b7-4876-8b9b-97bf1aa2e536.jpg)
 
 ### 垂直拆分
 
@@ -89,7 +89,7 @@ show variables like '%max_connections%'
 
 按业务类型对数据分离，剥离为多个数据库，像订单、支付、会员、积分相关等表放在对应的订单库、支付库、会员库、积分库。不同业务禁止跨库直连，获取对方业务数据一律通过`API`接口交互，这也是微服务拆分的一个重要依据。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-8695272b-4623-4ce7-8825-cd38668f79d3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-8695272b-4623-4ce7-8825-cd38668f79d3.jpg)
 
 
 垂直分库很大程度上取决于业务的划分，但有时候业务间的划分并不是那么清晰，比如：电商中订单数据的拆分，其他很多业务都依赖于订单数据，有时候界线不是很好划分。
@@ -102,7 +102,7 @@ show variables like '%max_connections%'
 
 例如：一张`t_order`订单表上有几十个字段，其中订单金额相关字段计算频繁，为了不影响订单表`t_order`的性能，就可以把订单金额相关字段拆出来单独维护一个`t_order_price_expansion`扩展表，这样每张表只存储原表的一部分字段，通过订单号`order_no`做关联，再将拆分出来的表路由到不同的库中。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-f50b5f28-134d-42d7-96e8-4952859f9040.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-f50b5f28-134d-42d7-96e8-4952859f9040.jpg)
 
 数据库它是以行为单位将数据加载到内存中，这样拆分以后核心表大多是访问频率较高的字段，而且字段长度也都较短，因而可以加载更多数据到内存中，减少磁盘 IO，增加索引查询的命中率，进一步提升数据库性能。
 
@@ -114,7 +114,7 @@ show variables like '%max_connections%'
 
 水平分库是把同一个表按一定规则拆分到不同的数据库中，每个库可以位于不同的服务器上，以此实现水平扩展，是一种常见的提升数据库性能的方式。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-a0889565-df94-421f-b91c-3a0198f0d5eb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-a0889565-df94-421f-b91c-3a0198f0d5eb.jpg)
 
 例如：`db_orde_1`、`db_order_2`两个数据库内有完全相同的`t_order`表，我们在访问某一笔订单时可以通过对订单的订单编号取模的方式 `订单编号 mod 2 （数据库实例数）` ，指定该订单应该在哪个数据库中操作。
 
@@ -126,11 +126,11 @@ show variables like '%max_connections%'
 
 例如：一张`t_order`订单表有 900 万数据，经过水平拆分出来三个表，`t_order_1`、`t_order_2`、`t_order_3`，每张表存有数据 300 万，以此类推。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-7bb10c9b-04c6-4707-ba2c-c4e2081ddeb3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-7bb10c9b-04c6-4707-ba2c-c4e2081ddeb3.jpg)
 
 水平分表尽管拆分了表，但子表都还是在同一个数据库实例中，只是解决了单一表数据量过大的问题，并没有将拆分后的表分散到不同的机器上，还在竞争同一个物理机的 CPU、内存、网络 IO 等。要想进一步提升性能，就需要将拆分后的表分散到不同的数据库中，达到分布式的效果。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-c8c3c2a2-3365-42e9-aa40-3a29d2bb7ca3.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-c8c3c2a2-3365-42e9-aa40-3a29d2bb7ca3.jpg)
 
 ## 数据存在哪个库的表
 
@@ -146,7 +146,7 @@ show variables like '%max_connections%'
 
 以`t_order`订单表为例，先给数据库从 0 到 N-1 进行编号，对 `t_order`订单表中`order_no`订单编号字段进行取模`hash(order_no) mod N`，得到余数`i`。`i=0`存第一个库，`i=1`存第二个库，`i=2`存第三个库，以此类推。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-3ff496c7-81bd-4fa8-a599-c486fa2c57e6.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-3ff496c7-81bd-4fa8-a599-c486fa2c57e6.jpg)
 
 同一笔订单数据会落在同一个库、表里，查询时用相同的规则，用`t_order`订单编号作为查询条件，就能快速的定位到数据。
 
@@ -166,7 +166,7 @@ show variables like '%max_connections%'
 
 用户表`t_user`被拆分成`t_user_1`、`t_user_2`、`t_user_3`三张表，后续将`user_id`范围为 1 ~ 1000w 的用户数据放入`t_user_1`，1000~ 2000w 放入`t_user_2`，2000~3000w 放入`t_user_3`，以此类推。按日期范围划分同理。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-693c9b52-4b99-4ec8-a195-422c47d6b3cb.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-693c9b52-4b99-4ec8-a195-422c47d6b3cb.jpg)
 
 #### 优点
 
@@ -183,7 +183,7 @@ show variables like '%max_connections%'
 
 这次我们先通过范围算法定义每个库的用户表`t_user`只存 1000w 数据，第一个`db_order_1`库存放`userId`从 1 ~ 1000w，第二个库 1000~2000w，第三个库 2000~3000w，以此类推。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-72c25f39-4896-40e3-a43c-10be9edbb58a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-72c25f39-4896-40e3-a43c-10be9edbb58a.jpg)
 
 每个库里再把用户表`t_user`拆分成`t_user_1`、`t_user_2`、`t_user_3`等，对`userd`进行取模路由到对应的表中。
 
@@ -207,7 +207,7 @@ show variables like '%max_connections%'
 
 比如：我们要查询 11、12 月的订单数据，如果两个月的数据是分散到了不同的数据库实例，则要查询两个数据库相关的数据，在对数据合并排序、分页，过程繁琐复杂。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-33ac555d-4a40-4421-9d8a-5257d0407d58.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-33ac555d-4a40-4421-9d8a-5257d0407d58.jpg)
 
 ### 事务一致性
 
@@ -233,13 +233,13 @@ show variables like '%max_connections%'
 
 `client`模式指分库分表的逻辑都在你的系统应用内部进行控制，应用会将拆分后的 SQL 直连多个数据库进行操作，然后本地进行数据的合并汇总等操作。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-b143b653-cf7c-473e-be98-e790f2fcb097.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-b143b653-cf7c-473e-be98-e790f2fcb097.jpg)
 
 ### 代理模式
 
 `proxy`代理模式将应用程序与 MySQL 数据库隔离，业务方的应用不在需要直连数据库，而是连接 proxy 代理服务，代理服务实现了 MySQL 的协议，对业务方来说代理服务就是数据库，它会将 SQL 分发到具体的数据库进行执行，并返回结果。该服务内有分库分表的配置，根据配置自动创建分片表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-119e9419-7aa3-4266-828a-2d54dea0a340.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-haohdxtwsyyfkfb-119e9419-7aa3-4266-828a-2d54dea0a340.jpg)
 
 ### 如何抉择
 

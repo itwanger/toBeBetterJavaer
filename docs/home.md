@@ -42,7 +42,9 @@ head:
 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 
 - [**Java程序员进阶之路在线阅读网站（新版，推荐👍）**](https://tobebetterjavaer.com/)
-- [Java程序员进阶之路在线阅读](https://docsify.tobebetterjavaer.com)
+- [技术派之Java程序员进阶之路专栏](https://paicoding.com/column)（二哥的另外一个网站）
+
+如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](https://tobebetterjavaer.com/overview/readme.html)
 
 **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
 

@@ -33,8 +33,9 @@
 > 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 > 
 > - [**Java程序员进阶之路在线阅读网站（新版，推荐👍）**](https://tobebetterjavaer.com/)
-> - [Java程序员进阶之路在线阅读](https://docsify.tobebetterjavaer.com)
-> - 👍推荐[免费下载1000本计算机经典书籍](https://github.com/itwanger/JavaBooks)
+> - [技术派之Java程序员进阶之路专栏](https://paicoding.com/column)（二哥的另外一个网站）
+>
+> 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](docs/overview/readme.md)
 
 # 知识库的学习圈子
 

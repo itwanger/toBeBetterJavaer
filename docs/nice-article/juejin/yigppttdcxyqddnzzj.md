@@ -61,13 +61,13 @@ head:
 
 时间来到了同年的 8 月份，我决定**离职**了。休息整顿了一个月。周末逛逛南京，爱上了这座城市。有了前一份工作的经验。不再是无头的苍蝇了。面试更加得心应手了。同年 10 月。我进入了第 2 个公司。新成立了一个项目组。做一个新的项目，前端是我和另一个女生。她在工作上对我帮助挺大的。我们互相交流，互相帮助。让我很快就适应了这个**新公司**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-db4ad2ea-9106-4740-9d97-a3c51fd25c34.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-db4ad2ea-9106-4740-9d97-a3c51fd25c34.jpg)
 
 ## 涨工资
 
 公司每年有 2 次**涨薪**机会，第二年 3 月，收到了邮件，涨了 1500，真的真的很兴奋。慢慢的工作更加得心应手了。房租到期我搬到了离公司 2 站地，房租也涨了。后来公司搬家了，我也又跟着公司搬到了附近。又入手了一个二手小电车，每天骑车上下班。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-31da3813-4840-4f44-95e6-f4d28aff3c38.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-31da3813-4840-4f44-95e6-f4d28aff3c38.jpg)
 
 ## 安全感
 
@@ -78,20 +78,20 @@ head:
 
 过完年之后，公司又有新的项目需求了，我和他被分到一个项目组。**他是后端，我是前端**。之前不在一个组，没怎么接触过，由于项目急，每天需要加班。就这样开始熟络了。工作之外，他也经常找我聊天，约我吃饭，我当时觉得我跟他不可能，因为他比我小。或许是他的坚定。让我感觉到了有在一起的可能性。之前他是我们公认的脾气好。我觉得人也不错。后面就答应了，**在一起**了。在一次节假日的时候去了长沙。感受到了湘菜的魅力，长沙不愧是美食天地。好符合我的口味。好喜欢这座城市。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-8988d15c-ea85-4e56-88e4-613bf183982c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-8988d15c-ea85-4e56-88e4-613bf183982c.jpg)
 
 ## 2022 年，结婚
 
 一切都按正常的轨迹发展。在相恋了 2 年后，我们决定结婚了。那个参加哥哥姐姐的婚礼的小女孩，终于**结婚**了。婚礼定在了元旦。婚礼不久就过年了，由于老家疫情严重，这也是我 27 年来第一次没有在家过年。结婚之后一切似乎没有改变。依然是两个人过着自己的小日子。后面我们休了**婚假**，打算去厦门，云南等。规划好之后。第一站去了厦门。第一次坐飞机，第一次看到了海，第一次早起看日出。第二站打算去云南，就在前一天收到信息航班被取消了，疫情之后，好难呀。想去的三亚也有疫情，打开地图看哪里没有疫情，临时决定去了重庆。感受到了火一样的城市。8D 城市的魅力。玩了 2 天，南京也有疫情了，家人让我们赶紧回来。旅行被提前结束了。呜呜呜~~~~
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-71ed4294-04e7-41ef-ad0d-df6d80861473.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-71ed4294-04e7-41ef-ad0d-df6d80861473.jpg)
 
 
 ## 展望 2023
 
 如今又临近春节，国家突然在 12.7 号放开了管控，不再做核酸。高铁也不查验核酸。13 号正式下线了行程码，这是历史性的一大决定，可是每个人突然都慌了，药断货了，抗原检测断货了，越来越多的消息，某某办公室阳了，某城市沦陷 了。大家开始疯狂囤药。哦，又是兵荒马乱的一年。2023 年我希望我们可以从一屋二人变成三口之家。制定的计划都能完成。每年有时间和机会出去旅游。定期存款。**工作顺利**。家人**身体健康**。多运动，增强抵抗力。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-69d85eac-fdd4-4955-87ca-40b8fdcf5ca5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-yigppttdcxyqddnzzj-69d85eac-fdd4-4955-87ca-40b8fdcf5ca5.jpg)
 
 
 > 参考链接：[https://juejin.cn/post/7180244150741106745](https://juejin.cn/post/7180244150741106745)，整理：沉默王二

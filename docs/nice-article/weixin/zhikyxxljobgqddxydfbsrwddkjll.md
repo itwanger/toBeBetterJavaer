@@ -42,7 +42,7 @@ PowerJob可以被认为是第三代任务调度框架，在任务调度的基础
 
 ## 同类产品对比
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-8277a9a2-c8b9-41c4-b436-a3ba21867ec7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-8277a9a2-c8b9-41c4-b436-a3ba21867ec7.jpg)
 
 ## 适用场景
 
@@ -54,7 +54,7 @@ PowerJob可以被认为是第三代任务调度框架，在任务调度的基础
 
 ## 整体架构
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-ac9cb85b-6956-4053-90a9-e3d5080753dc.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-ac9cb85b-6956-4053-90a9-e3d5080753dc.jpg)
 
 ## 快速开始
 
@@ -68,7 +68,7 @@ git clone https://github.com/KFCFans/PowerJob.git
 
 导入 IDE，源码结构如下，我们需要启动调度服务器（powerjob-server），同时在samples工程中编写自己的处理器代码
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-64202e6a-a1bb-4b4b-bff2-acac46bd5be8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-64202e6a-a1bb-4b4b-bff2-acac46bd5be8.jpg)
 
 ## 启动调度服务器
 
@@ -114,7 +114,7 @@ oms.instance.metadata.cache.size=1024
 
 注册应用：点击主页应用注册按钮，填入 oms-test和控制台密码（用于进入控制台），注册示例应用（当然你也可以注册其他的appName，只是别忘记在示例程序中同步修改～）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-895acdb6-a020-4055-977a-a92c6e95c81a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-895acdb6-a020-4055-977a-a92c6e95c81a.jpg)
 
 ## 编写示例代码
 
@@ -174,19 +174,19 @@ public class StandaloneProcessorDemo implements BasicProcessor {
 
 在首页输入框输入配置的应用名称，成功操作后会正式进入前端管理界面。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-4621ad34-757c-45b6-94e5-0af5df2a5df0.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-4621ad34-757c-45b6-94e5-0af5df2a5df0.jpg)
 
 点击任务管理 -> 新建任务（右上角），开始创建任务。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-0224b9f9-9656-41de-b702-8c754e1cfc9d.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-0224b9f9-9656-41de-b702-8c754e1cfc9d.jpg)
 
 完成任务创建后，即可在控制台看到刚才创建的任务，如果觉得等待调度太过于漫长，可以直接点击运行按钮，立即运行本任务。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-766e7fcc-a0a8-4bd3-8c2a-1a3c6719ed50.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-766e7fcc-a0a8-4bd3-8c2a-1a3c6719ed50.jpg)
 
 前往任务示例边栏，查看任务的运行状态和在线日志
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-71757cad-61c3-4461-8bc9-19e0c13f5489.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zhikyxxljobgqddxydfbsrwddkjll-71757cad-61c3-4461-8bc9-19e0c13f5489.jpg)
 
 基础的教程到这里也就结束了～更多功能示例可见官方文档，工作流、MapReduce、容器等高级特性等你来探索！
 
