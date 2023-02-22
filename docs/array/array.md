@@ -179,7 +179,15 @@ for (int element : anArray) {
 List<Integer> aList = Arrays.asList(anArray);
 ```
 
-但需要注意的是，该方法返回的 ArrayList 并不是 `java.util.ArrayList`，它其实是  Arrays 类的一个内部类：
+不过需要注意的是，Arrays.asList 的参数需要是 Integer 数组，而 anArray 目前是 int 类型，我们需要换另外一种方式。
+
+```java
+List<Integer> aList = Arrays.stream(anArray).boxed().collect(Collectors.toList());
+```
+
+这又涉及到了 Java [流](https://tobebetterjavaer.com/java8/stream.html)的知识，后面会讲到。
+
+还有一个需要注意的是，Arrays.asList 方法返回的 ArrayList 并不是 `java.util.ArrayList`，它其实是  Arrays 类的一个内部类：
 
 ```java
 private static class ArrayList<E> extends AbstractList<E>

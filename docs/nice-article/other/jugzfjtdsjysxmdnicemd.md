@@ -19,7 +19,7 @@ head:
 
 支付中心系统对内为各个业务线提供统一的支付、退款等服务，对外对接三方支付或银行服务实现资金的流转。如下图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-9c32842a-41fd-4f1a-a123-a92404293f60.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-9c32842a-41fd-4f1a-a123-a92404293f60.jpg)
 
 大部分公司基本都是这样的架构，主要有以下几方面的优点：
 
@@ -32,7 +32,7 @@ head:
 
 ## 支付流程
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-e71f752f-0e51-41e4-8cc5-b451c7ba2b92.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-e71f752f-0e51-41e4-8cc5-b451c7ba2b92.jpg)
 
 上图展示了用户支付的主要流程，分为三个步骤：
 
@@ -48,11 +48,11 @@ head:
 2.  收银台将订单信息缓存并入库，然后将订单标识拼装到收银台URL上返回给订单系统。
 3.  订单系统接收到收银台地址跳转到收银台页面。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-3f1f54cf-6599-41ee-8785-bef138dec976.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-3f1f54cf-6599-41ee-8785-bef138dec976.png)
 
  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-7a9d4ac8-605f-4d4c-983e-a995f35a6d12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-7a9d4ac8-605f-4d4c-983e-a995f35a6d12.png)
 
 上图展示了两个业务线（景区业务线，酒店业务线）唤起的收银台页面，大概可以分为三个区域：
 
@@ -69,11 +69,11 @@ head:
 3.  收银台携带支付中心返回的参数，调用三方接口，唤起三方收银台，
 4.  用户输入密码，立即支付。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-a6680af0-0545-4201-a891-70a97d6f4ce0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-a6680af0-0545-4201-a891-70a97d6f4ce0.png)
 
  
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-16e90ae5-35a4-4c62-8a4a-e00a4abb61a8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-16e90ae5-35a4-4c62-8a4a-e00a4abb61a8.png)
 
 ### 3\. 支付结果处理
 
@@ -114,7 +114,7 @@ RocketMQ 支持消息延时发送，社区版不支持任意等级的延迟，�
 
 比如支付单30分钟过期，在支付单创建成功后发送延迟消息（延时等级为 16），消费者在30分钟后会拉取到该消息然后执行关闭逻辑。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-838b1274-4706-49bd-8563-5dac7a871068.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-838b1274-4706-49bd-8563-5dac7a871068.jpg)
 
 RocketMQ 延时队列，无论在数据安全性和及时性都有明显的优势，但是目前社区版没有支持任意级别的延迟。
 
@@ -124,7 +124,7 @@ RocketMQ 延时队列，无论在数据安全性和及时性都有明显的优�
 
 三方支付系统支付成功后99.9%的情况下都会回调通知我们，但也难免有意外，比如三方延迟回调或者三方系统宕机，为了保证支付结果的实时性，三方支付也要求我们不能完全依赖于回调接口，所以我们需要定时的调用主动查询接口来查询三方的支付结果。这里我们也是使用的 RocketMQ 延时队列实现的：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-427e4d4f-f1ba-4034-9cfe-232578d12820.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-427e4d4f-f1ba-4034-9cfe-232578d12820.jpg)
 
 1.  调用三方支付创单成功后，发送<支付主动查询>延时MQ消息。
 2.  消费消息，判断支付状态是否到达终态，如果到达终态，则返回处理成功，否则调用三方支付查询接口，如果支付成功则处理成功业务，返回处理成功。
@@ -186,7 +186,7 @@ public void sendDelayRetry(RetryMessage<?> retryMessage) {
 
 在回调通知上游系统支付结果时，可能会回调失败，比如网络异常或上游系统发生短时故障，如果发生这种情况我们单靠简单的重试是无法完全解决问题的。为了尽可能的通知成功，我们需要针对没有通知成功的数据，每隔一段时间通知一次，那这个需求和我们上一个问题差不多，所以可以复用我们的延时重试框架。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-2b24479e-6e4f-411a-9bd2-5041489fa2e5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-2b24479e-6e4f-411a-9bd2-5041489fa2e5.jpg)
 
 流程和`保证支付结果实时`的差不多，不再赘述。
 
@@ -200,7 +200,7 @@ public void sendDelayRetry(RetryMessage<?> retryMessage) {
 
 就支付而言，无论何种支付产品，都是走的同一个支付流程，那我们就可以定义一个支付流程的模板，然后每种支付产品实现这个模板中特定步骤来实现自己的特定需求。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-20806632-6fb5-4428-9b73-6d4df9110c93.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-20806632-6fb5-4428-9b73-6d4df9110c93.jpg)
 
 ### 策略
 
@@ -208,7 +208,7 @@ public void sendDelayRetry(RetryMessage<?> retryMessage) {
 
 在支付系统中，支付结果主动查询需要查询不同的渠道，比如支付宝，微信，银联等，每个渠道查询的方式和参数不尽相同，可以将每种渠道查询封装成不同的策略类，然后根据查询条件来调用不同的策略类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-43eda189-64ab-48dd-a5ff-16680c2849ba.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-43eda189-64ab-48dd-a5ff-16680c2849ba.jpg)
 
 查询策略有两个策略接口，`callChannel`功能是组装查询参数和查询三方，`execute` 是处理三方返回的结果统一为支付中心状态。（因`callChannel`有其他地方共用所以分开了两个方法）。
 
@@ -251,7 +251,7 @@ public class PayQueryStrategyContext {
 - ✌️：[秋招 13 家 offer，手到擒来](https://mp.weixin.qq.com/s/LKkvcSdhMyXAGgtqEak0Zw)
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-dd1174d4-d141-4056-94cb-c1b523a69078.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-jugzfjtdsjysxmdnicemd-dd1174d4-d141-4056-94cb-c1b523a69078.png)
 
 
 >参考链接：[https://www.mdnice.com/writing/81727aec77394ee2a9c99f029cc212e6](https://www.mdnice.com/writing/81727aec77394ee2a9c99f029cc212e6)，整理：沉默王二

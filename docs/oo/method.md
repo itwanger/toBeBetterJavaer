@@ -294,13 +294,13 @@ protected native Object clone() throws CloneNotSupportedException;
 
 JNI 一开始是为了本地已编译语言，尤其是 C 和 C++而设计的，但是它并不妨碍你使用其他语言，只要调用约定受支持就可以了。使用 Java 与本地已编译的代码交互，通常会丧失平台可移植性，但是，有些情况下这样做是可以接受的，甚至是必须的，比如，使用一些旧的库，与硬件、操作系统进行交互，或者为了提高程序的性能。JNI 标准至少保证本地代码能工作能在任何 Java 虚拟机实现下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-67e26e52-bf45-4126-a516-1e768632aaa8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-67e26e52-bf45-4126-a516-1e768632aaa8.jpg)
 
 通过 JNI，我们就可以通过 Java 程序（代码）调用到操作系统相关的技术实现的库函数，从而与其他技术和系统交互；同时其他技术和系统也可以通过 JNI 提供的相应原生接口调用 Java 应用系统内部实现的功能。
 
 在 Windows 上，一般可执行的应用程序都是基于 native 的 PE 结构，Windows 上的 JVM 也是基于 native 结构实现的。Java 应用体系都是构建于 JVM 之上。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-61f0597a-b164-4128-a55d-1ee65189eae1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-61f0597a-b164-4128-a55d-1ee65189eae1.jpg)
 
 “二哥，等一下，Java 不是跨平台的吗？如果用 JNI，那么程序不就失去了跨平台的优点？”不得不说，三妹这个问题起到好处。
 
@@ -359,23 +359,23 @@ public class HelloJNI {
 
 这时候如果我们直接运行该程序，会报“A Java Exception has occurred”错误：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-b5a7e2d8-5bae-45ae-8225-6c21090b506a.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-b5a7e2d8-5bae-45ae-8225-6c21090b506a.jpg)
 
 #### 二、使用 javac 命令编译 java 类，生成.class 文件
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-1131ccf8-e4d0-4e4c-b7f6-659f0906c5d4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-1131ccf8-e4d0-4e4c-b7f6-659f0906c5d4.jpg)
 
 执行上述命令后，生成 HelloJNI.class 文件：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-b015e4ae-d636-42ef-93e7-381e33587ea9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-b015e4ae-d636-42ef-93e7-381e33587ea9.jpg)
 
 #### 三、使用 javah -jni java 类名 生成扩展名为 h 的头文件
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-0f2755b6-45ad-44d6-88ff-2eb3fa5cba3b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-0f2755b6-45ad-44d6-88ff-2eb3fa5cba3b.jpg)
 
 执行上述命令后，在 D:/JNI 目录下会多出一个 HelloJNI.h 文件：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-7798a73c-1fdf-4f08-9d29-9ee5dfaa8a1b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-7798a73c-1fdf-4f08-9d29-9ee5dfaa8a1b.jpg)
 
 #### 四、使用 C 语言实现本地方法 　　如果不想安装 Visual Studio，需要在 Windows 平台安装 gcc。
 
@@ -385,7 +385,7 @@ public class HelloJNI {
 
 安装完成之后注意配置环境变量，在 cmd 中输入 `g++ -v`，如果出现如下信息，则安装配置完成：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-43b26326-e461-4b55-b029-d8b8e745ecbe.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-43b26326-e461-4b55-b029-d8b8e745ecbe.jpg)
 
 接着输入如下命令：
 
@@ -395,15 +395,15 @@ gcc -m64  -Wl,--add-stdcall-alias -I"C:\Program Files\Java\jdk1.8.0_152\include"
 
 \-m64 表示生成 dll 库是 64 位的。后面的路径表示本机安装的 JDK 路径。生成之后多了一个 helloJNI.dll 文件
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-07eabf6b-166a-4537-9521-8781887e4ad7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-07eabf6b-166a-4537-9521-8781887e4ad7.jpg)
 
 最后运行 HelloJNI：输出 Hello JNI! 大功告成。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-541e9154-1643-42f7-9baf-357405466711.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-541e9154-1643-42f7-9baf-357405466711.jpg)
 
 ### **4、JNI 调用 C 的流程图**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-a2103240-def4-460f-a12c-8f74e08e2b1b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/method-a2103240-def4-460f-a12c-8f74e08e2b1b.jpg)
 
 
 ### **5、native 关键字**

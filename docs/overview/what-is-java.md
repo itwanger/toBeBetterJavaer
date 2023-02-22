@@ -93,7 +93,7 @@ public class HelloWorld {
 
 下图是号称史上最惨的 23 届秋招 Java 岗的薪资状况，像 22 届的薪资待遇远比这个好得多。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
 
 24 届及以后的起薪肯定会比这个好得多，这上面大专、普本的案例比较少，是因为网上爆的人比较少，但其实这部分群体也是非常大的，所以，学习 Java 还是很有“**钱秃**”的。
 

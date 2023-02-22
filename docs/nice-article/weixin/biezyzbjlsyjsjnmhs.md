@@ -14,7 +14,7 @@ category:
 
 因此，本文我们将从基础理论出发，介绍 MySQL 按照逻辑角度的索引分类和实现，通过数据结构的实现原理阐述不同结构对建立索引带来的优劣势，同时针对物理存储的方式对索引的组织特点和应用场景进行分析。最后根据不同的应用场景尽可能的探究如何建立起高性能的索引。文章结构如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-ca4a39fa-125f-427c-8f95-cd9c73f215c1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-ca4a39fa-125f-427c-8f95-cd9c73f215c1.jpg)
 
 ## 1、概念
 
@@ -146,7 +146,7 @@ ALTER TABLE 'table_name' ADD INDEX index_name('col1','col2','col3');
 
 顾名思义，哈希索引是通过哈希表实现的。哈希表的特点在之前的文章「九大数据结构」中已经详细介绍过。通过哈希表的键值之间的对应关系，能够在查询时精确匹配索引的所有列。哈希索引将所有的根据索引列计算出来的哈希码存储在索引中，同时将指向每个数据行的指针保存在哈希表中。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-84aaf574-f4db-4d7d-928a-7383c73ee177.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-84aaf574-f4db-4d7d-928a-7383c73ee177.jpg)
 
 上图是通过哈希索引查询行数据的示意图，可以发现哈希索引同样会发生哈希冲突，并且是通过链地址法解决冲突的。当发送冲突时，还需要对链表进行遍历对比，才能够找到最终的结果。
 
@@ -178,7 +178,7 @@ BTree 实际上是一颗多叉平衡搜索树。从名字可以看出，BTree �
 
 一颗常见的BTree树见下图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-f74b6bfa-578e-44c3-985e-4d57906e82c5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-f74b6bfa-578e-44c3-985e-4d57906e82c5.jpg)
 
 这是一颗三阶的BTree，可通过键值的大小排序进行数据的查询和检索，其中叶子节点的指针都为空，因此省略没画。从上图可以发现，BTree 的树形状相较于我们之前常见的二叉树等结构，更为扁平和矮胖。
 
@@ -202,7 +202,7 @@ BTree 相较于其它的二叉树结构，对磁盘的 I/O 次数已经非常少
 
 B+Tree 一看就是在 BTree 的基础上做了改进，那么到底改变了什么呢。废话不多说，先上图。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-5fab50bb-6d39-442a-8cef-15065b01bd76.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-5fab50bb-6d39-442a-8cef-15065b01bd76.jpg)
 
 上图实际上是一种带有顺序索引的 B+Tree，与最基本的 B+Tree 的区别就在于叶子节点是否通过指针相连。一般数据库中常用的结构都是这种带有顺序索引的 B+Tree。后文探讨的也都是带顺序索引的 B+Tree 结构。
 
@@ -252,21 +252,21 @@ B+Tree 在作为索引结构时能够带来的好处有：
 
 举个例子吧。假设有这么一个数据表。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-54f42b37-df84-4626-89bf-1462ac209a57.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-54f42b37-df84-4626-89bf-1462ac209a57.jpg)
 
 那么采用聚簇索引的存储方式，对应的主键索引为：（主键为ID）
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-9dab4387-1918-46a3-bf3a-3c5af30a6765.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-9dab4387-1918-46a3-bf3a-3c5af30a6765.jpg)
 
 对应的辅助索引为：（键值为Name，大概的意思）：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-e3a967b6-22dd-4b93-b8a2-1cbd7909cedf.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-e3a967b6-22dd-4b93-b8a2-1cbd7909cedf.jpg)
 
 所以当使用`where ID = 7`这样的条件查找主键，则按照B+树的检索算法即可查找到对应的叶节点，之后获得行数据。对Name列进行条件搜索，则需要两个步骤：第一步在辅助索引B+树中检索Name，到达其叶子节点获取对应的主键。第二步使用主键在主键索引B+树种再执行一次B+树检索操作，最终到达叶子节点即可获取整行数据。
 
 最后把以上过程整理总结一下，聚簇索引实际上的过程就分为以下两个过程。现在这个图应该能够看懂了吧。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-b43e9398-6b55-4ea3-8d72-e5a6ae00b23f.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-b43e9398-6b55-4ea3-8d72-e5a6ae00b23f.jpg)
 
 #### 非聚簇索引
 
@@ -280,7 +280,7 @@ B+Tree 在作为索引结构时能够带来的好处有：
 
 同样，对非聚簇索引的检索过程来个总结。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-b9692b1c-7a5d-48d3-9826-60928eb8f25c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-biezyzbjlsyjsjnmhs-b9692b1c-7a5d-48d3-9826-60928eb8f25c.jpg)
 
 无论是主键索引还是辅助索引的检索过程，都只需要通过相应的 B+Tree 进行搜索即可获得数据对应的物理地址，然后经过依次磁盘 I/O 就可访问数据。
 

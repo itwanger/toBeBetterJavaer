@@ -27,7 +27,7 @@ category:
 
 期间投递了 100+企业，收到笔试 30+，给面试机会的只有 12 家，其中只有 3 个明确的 offer，分别是古茗、腾讯云智 腾讯会议、滴滴 网约车。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-e7bbc8a1-a0f4-4249-b117-b9d9c2478100.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-e7bbc8a1-a0f4-4249-b117-b9d9c2478100.jpg)
 
 ## 三、秋招经历
 
@@ -37,7 +37,7 @@ category:
 
 这一等便等到八月，投了一波简历，主要是这些公司。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-5c4f1075-b99b-4f05-8422-e64ad53cd63c.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-5c4f1075-b99b-4f05-8422-e64ad53cd63c.jpg)
 
 后来发现投出去的简历石沉大海，了无音讯，我有点慌了，所以后来一有空就投简历。
 
@@ -59,7 +59,7 @@ category:
 
 十月中旬我收到了古茗的 offer，这也是我第一个秋招 offer，对我而言，地点薪资我都挺满意。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-f9f4eb0b-8184-484e-815b-11700001a0f8.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-f9f4eb0b-8184-484e-815b-11700001a0f8.jpg)
 
 古茗给了我一周的时间考虑，考虑到薪资和地点都挺不错，其他面试进度不明朗，就和古茗签了三方。
 
@@ -75,13 +75,13 @@ category:
 
 这时候我已经去古茗实习了，经过半个月的实习，个人感觉古茗团队氛围挺不错的，业务处于上升期，但也和互联网其他公司一样卷，9 点到 9 点半上班，一般都是八九点下班，我们组的其他正式员工一般都加班到十点甚至更晚，leader 也非常热爱工作，往往能加班到凌晨。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-bb1326b2-c74a-4dd5-8e25-83bc83b28a4b.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-bb1326b2-c74a-4dd5-8e25-83bc83b28a4b.jpg)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-a2713f02-b5e6-422d-84d5-102dde846bd9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-a2713f02-b5e6-422d-84d5-102dde846bd9.jpg)
 
 这期间，滴滴网约车部门给我发了 offer：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-5e756b16-11c0-4e4a-a59e-6009ddfee965.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-5e756b16-11c0-4e4a-a59e-6009ddfee965.jpg)
 
 这个选择我也非常纠结，古茗离家近，氛围好，有在乎的人；滴滴虽然名声臭了，但毕竟瘦死的骆驼比马大，薪资也更高。
 
@@ -323,7 +323,7 @@ category:
 
 我的一个技巧是就是将知识点整理成知识脑图，形成自己的知识架构体系。根据知识点整理成不同的知识脑图，比如 JVM 原理、操作系统、计算机网络等。这样的好处就在于可以根据面试官的问题快速定位到脑海中的知识体系，从脑海中调出相关知识，有针对性、有条理的回答问题。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-4604c470-98c1-4d47-9ece-f01e64139a40.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-jqzzjbkxxdcgqyddhdkfoffer-4604c470-98c1-4d47-9ece-f01e64139a40.jpg)
 
 ## 总结
 
