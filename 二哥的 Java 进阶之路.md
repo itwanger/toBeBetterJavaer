@@ -3497,3 +3497,298 @@ System.out.println(Arrays.deepToString(deepArray));
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 4.4 聊聊Java字符串，以及为什么String是不可变的？
+
+我正坐在沙发上津津有味地读刘欣大佬的《码农翻身》——Java 帝国这一章，门铃响了。起身打开门一看，是三妹，她从学校回来了。
+
+“三妹，你回来的真及时，今天我们打算讲 Java 中的字符串呢。”等三妹换鞋的时候我说。
+
+“哦，可以呀，哥。听说字符串的细节特别多，什么字符串常量池了、字符串不可变性了、字符串拼接了、字符串长度限制了等等，你最好慢慢讲，否则我可能一时半会消化不了。”三妹的态度显得很诚恳。
+
+“嗯，我已经想好了，今天就只带你大概认识一下字符串，再说说为什么 String 是不可变的，其他的细节咱们后面再慢慢讲，保证你能及时消化。”
+
+“好，那就开始吧。”三妹已经准备好坐在了电脑桌的边上。
+
+我应了一声后走到电脑桌前坐下来，顺手打开 Intellij IDEA，并找到了 String 的源码。
+
+### 关于 String 类
+
+```java
+public final class String
+    implements java.io.Serializable, Comparable<String>, CharSequence {
+    @Stable
+    private final byte[] value;
+    private final byte coder;
+    private int hash;
+}
+```
+
+“第一，String 类是 final 的，意味着它不能被子类继承。”
+
+“第二，String 类实现了 Serializable 接口，意味着它可以序列化。”
+
+“第三，String 类实现了 Comparable 接口，意味着最好不要用‘==’来比较两个字符串是否相等，而应该用 `compareTo()` 方法去比较。”
+
+“第四，StringBuffer、StringBuilder 和 String 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
+
+“第五，Java 9 以前，String 是用 char 型数组实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码，可以戳[这篇了解详情](https://tobebetterjavaer.com/basic-extra-meal/jdk9-char-byte-string.html)。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
+
+“第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 HashMap 的键值。”
+
+### 为什么String不可变
+
+“String 可能是 Java 中使用频率最高的引用类型了，因此 String 类的设计者可以说是用心良苦。”
+
+比如说 String 的不可变性。
+
+- String 类被 final 关键字修饰，所以它不会有子类，这就意味着没有子类可以重写它的方法，改变它的行为。
+- String 类的数据存储在 `byte[]` 数组中，而这个数组也被 final 关键字修饰了，这就表示 String 对象是没法被修改的，只要初始化一次，值就确定了。
+
+“哥，为什么要这样设计呢？”三妹有些不解。
+
+“我先简单来说下，三妹，能懂最好，不能懂后面再细说。”
+
+第一，可以保证 String 对象的安全性，避免被篡改，毕竟像密码这种隐私信息一般就是用字符串存储的。
+
+第二，保证哈希值不会频繁变更。毕竟要经常作为哈希表的键值，经常变更的话，哈希表的性能就会很差劲。
+
+第三，可以实现字符串常量池。
+
+“由于字符串的不可变性，String 类的一些方法实现最终都返回了新的字符串对象。”等三妹稍微缓了一会后，我继续说到。
+
+“就拿 `substring()` 方法来说。”
+
+```java
+public String substring(int beginIndex) {
+    if (beginIndex < 0) {
+        throw new StringIndexOutOfBoundsException(beginIndex);
+    }
+    int subLen = length() - beginIndex;
+    if (subLen < 0) {
+        throw new StringIndexOutOfBoundsException(subLen);
+    }
+    if (beginIndex == 0) {
+        return this;
+    }
+    return isLatin1() ? StringLatin1.newString(value, beginIndex, subLen)
+            : StringUTF16.newString(value, beginIndex, subLen);
+}
+
+// StringLatin1.newString 
+public static String newString(byte[] val, int index, int len) {
+    return new String(Arrays.copyOfRange(val, index, index + len),
+            LATIN1);
+}
+
+// UTF16.newString
+public static String newString(byte[] val, int index, int len) {
+    if (String.COMPACT_STRINGS) {
+        byte[] buf = compress(val, index, len);
+        if (buf != null) {
+            return new String(buf, LATIN1);
+        }
+    }
+    int last = index + len;
+    return new String(Arrays.copyOfRange(val, index << 1, last << 1), UTF16);
+}
+```
+
+`substring()` 方法用于截取字符串，不管是 Latin1 字符还是 UTF16 字符，最终返回的都是 new 出来的新字符串对象。
+
+“还有 `concat()` 方法。”
+
+```java
+public String concat(String str) {
+    int olen = str.length();
+    if (olen == 0) {
+        return this;
+    }
+    if (coder() == str.coder()) {
+        byte[] val = this.value;
+        byte[] oval = str.value;
+        int len = val.length + oval.length;
+        byte[] buf = Arrays.copyOf(val, len);
+        System.arraycopy(oval, 0, buf, val.length, oval.length);
+        return new String(buf, coder);
+    }
+    int len = length();
+    byte[] buf = StringUTF16.newBytesFor(len + olen);
+    getBytes(buf, 0, UTF16);
+    str.getBytes(buf, len, UTF16);
+    return new String(buf, UTF16);
+}
+```
+
+`concat()` 方法用于拼接字符串，不管编码是否一致，最终也返回的是新的字符串对象。
+
+“`replace()` 替换方法其实也一样，三妹，你可以自己一会看一下源码，也是返回新的字符串对象。”
+
+“这就意味着，不管是截取、拼接，还是替换，都不是在原有的字符串上进行的，而是重新生成了新的字符串对象。也就是说，这些操作执行过后，**原来的字符串对象并没有发生改变**。”
+
+“三妹，你记住，String 对象一旦被创建后就固定不变了，对 String 对象的任何修改都不会影响到原来的字符串对象，都会生成新的字符串对象。”
+
+“嗯嗯，记住了，哥。”三妹很乖。
+
+“那今天就先讲到这吧，后面我们再对每一个细分领域深入地展开一下。你可以找一些资料先预习下，我出去散会心。。。。。”
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 深入理解Java的字符串常量池
+
+“三妹，今天我们来学习一下字符串常量池，这是字符串中非常关键的一个知识点。”我话音未落，青岛路小学那边传来了嘹亮的歌声就钻进了我的耳朵，“唱 ~ 山 ~ 歌 ~”，我都有点情不自禁地哼唱起来了。
+
+三妹赶紧拦住我说，“好了，开始吧，哥。”
+
+### new String("二哥")创建了几个对象
+
+“先从这道面试题开始吧！”
+
+```java
+String s = new String("二哥");
+```
+
+“这行代码创建了几个对象？”
+
+“不就一个吗？”三妹不假思索地回答。
+
+“不，两个！”我直接否定了三妹的答案，“使用 new 关键字创建一个字符串对象时，Java 虚拟机会先在字符串常量池中查找有没有‘二哥’这个字符串对象，如果有，就不会在字符串常量池中创建‘二哥’这个对象了，直接在堆中创建一个‘二哥’的字符串对象，然后将堆中这个‘二哥’的对象地址返回赋值给变量 s。”
+
+“如果没有，先在字符串常量池中创建一个‘二哥’的字符串对象，然后再在堆中创建一个‘二哥’的字符串对象，然后将堆中这个‘二哥’的字符串对象地址返回赋值给变量 s。”
+
+我画图表示一下，会更加清楚。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-6dee151e-3a13-4f85-b870-3c9d1797557a.png)
+
+在Java中，栈上存储的是基本数据类型的变量和对象的引用，而对象本身则存储在堆上。
+
+对于这行代码 `String s = new String("二哥");`，它创建了两个对象：一个是字符串对象 "二哥"，它被添加到了字符串常量池中，另一个是通过 new String() 构造函数创建的字符串对象 "二哥"，它被分配在堆内存中，同时引用变量 s 存储在栈上，它指向堆内存中的字符串对象 "二哥"。
+
+“**为什么要先在字符串常量池中创建对象，然后再在堆上创建呢**？这样不就多此一举了？”三妹敏锐地发现了问题。
+
+我回答，“是的。由于字符串的使用频率实在是太高了，所以 Java 虚拟机为了提高性能和减少内存开销，在创建字符串对象的时候进行了一些优化，特意为字符串开辟了一块空间——也就是字符串常量池。”
+
+### 字符串常量池的作用
+
+通常情况下，我们会采用双引号的方式来创建字符串对象，而不是通过 new 关键字的方式，就像下面👇🏻这样，这样就不会多此一举：
+
+```java
+String s = "三妹";
+```
+
+当执行 `String s = "三妹"` 时，Java 虚拟机会先在字符串常量池中查找有没有“三妹”这个字符串对象，如果有，则不创建任何对象，直接将字符串常量池中这个“三妹”的对象地址返回，赋给变量 s；如果没有，在字符串常量池中创建“三妹”这个对象，然后将其地址返回，赋给变量 s。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-80ca8b18-2446-431e-98e3-b194e1c608e3.png)
+
+Java 虚拟机创建了一个字符串对象 "三妹"，它被添加到了字符串常量池中，同时引用变量 s 存储在栈上，它指向字符串常量池中的字符串对象 "三妹"。你看，是不是省了一步，比之前高效了。
+
+
+“哦，我明白了，哥。”三妹突然插话到，“有了字符串常量池，就可以通过双引号的方式直接创建字符串对象，不用再通过 new 的方式在堆中创建对象了，对吧？”
+
+“是滴。new 的方式始终会创建一个对象，不管字符串的内容是否已经存在，而双引号的方式会重复利用字符串常量池中已经存在的对象。”我说。
+
+来看下面这个例子：
+
+```java
+String s = new String("二哥");
+String s1 = new String("二哥");
+```
+
+按照我们之前的分析，这两行代码会创建三个对象，字符串常量池中一个，堆上两个。
+
+再来看下面这个例子：
+
+```java
+String s = "三妹";
+String s1 = "三妹";
+```
+
+这两行代码只会创建一个对象，就是字符串常量池中的那个。这样的话，性能肯定就提高了！
+
+### 字符串常量池在内存中的什么位置呢？
+
+“那哥，字符串常量池在内存中的什么位置呢？”三妹问。
+
+我说，“三妹，你这个问题问得好呀！”
+
+分为三个阶段。
+
+#### Java 7 之前
+
+在 Java 7 之前，字符串常量池位于永久代（Permanent Generation）的内存区域中，主要用来存储一些字符串常量（静态数据的一种）。永久代是 Java 堆（Java Heap）的一部分，用于存储类信息、方法信息、常量池信息等静态数据。
+
+而 Java 堆是 JVM 中存储对象实例和数组的内存区域，也就是说，永久代是 Java 堆的一个子区域。
+
+换句话说，永久代中存储的静态数据与堆中存储的对象实例和数组是分开的，它们有不同的生命周期和分配方式。
+
+但是，永久代和堆的大小是相互影响的，因为它们都使用了 JVM 堆内存，因此它们的大小都受到 JVM 堆大小的限制。
+
+于是，当我们创建一个字符串常量时，它会被储存在永久代的字符串常量池中。如果我们创建一个普通字符串对象，则它将被储存在堆中。如果字符串对象的内容是一个已经存在于字符串常量池中的字符串常量，那么这个对象会指向已经存在的字符串常量，而不是重新创建一个新的字符串对象。
+
+画幅图，大概就是这个样子。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-ed6518ec-1d51-4718-ab8a-e1e2cda774bd.png)
+
+
+#### Java 7
+
+需要注意的是，永久代的大小是有限的，并且很难准确地确定一个应用程序需要多少永久代空间。如果我们在应用程序中使用了大量的类、方法、常量等静态数据，就有可能导致永久代空间不足。这种情况下，JVM 就会抛出 OutOfMemoryError 错误。
+
+因此，从 Java 7 开始，为了解决永久代空间不足的问题，将字符串常量池从永久代中移动到堆中。这个改变也是为了更好地支持动态语言的运行时特性。
+
+再画幅图，大概就是这样子。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-f5231378-a442-421e-a470-8256da1715e8.png)
+
+#### Java 8
+
+到了 Java 8，永久代（PermGen）被取消，并由元空间（Metaspace）取代。元空间是一块本机内存区域，和 JVM 内存区域是分开的。不过，元空间的作用依然和之前的永久代一样，用于存储类信息、方法信息、常量池信息等静态数据。
+
+与永久代不同，元空间具有一些优点，例如：
+
+- 它不会导致 OutOfMemoryError 错误，因为元空间的大小可以动态调整。
+- 元空间使用本机内存，而不是 JVM 堆内存，这可以避免堆内存的碎片化问题。
+- 元空间中的垃圾收集与堆中的垃圾收集是分离的，这可以避免应用程序在运行过程中因为进行类加载和卸载而频繁地触发 Full GC。
+
+再画幅图，对比来看一下，就会一目了然。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-422e3214-97df-41ec-bcb5-132cfc76b669.png)
+
+### 永久代、方法区、元空间
+
+
+“哥，能再简单给我解释一下方法区，永久代和元空间的概念吗？有点模糊。”三妹说。
+
+“可以呀。”
+
+- 方法区是 Java 虚拟机规范中的一个概念，就像是一个[接口](https://tobebetterjavaer.com/oo/interface.html)吧；
+- 永久代是 HotSpot 虚拟机中对方法区的一个实现，就像是接口的实现类；
+- Java 8 的时候，移除了永久代，取而代之的是元空间，是方法区的另外一种实现，更灵活了。
+
+永久代是放在运行时数据区中的，所以它的大小受到 Java 虚拟机本身大小的限制，所以 Java 8 之前，会经常遇到 `java.lang.OutOfMemoryError: PremGen Space` 的异常，PremGen Space 就是方法区的意思；而元空间是直接放在内存中的，所以只受本机可用内存的限制。
+
+“明白了吧，三妹？”我问。
+
+“嗯嗯。”三妹回答。
+
+“那关于字符串常量池，就先说这么多吧，是不是还挺有意思的。”我说。
+
+“是的，我现在是彻底搞懂了字符串常量池，哥，你真棒！”三妹说。
+
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
