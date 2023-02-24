@@ -28,6 +28,8 @@ head:
 
 “三妹啊，听我慢慢来给你解释。”
 
+### Java 的由来
+
 Java 是一门计算机编程语言，高级、健壮、面向对象，并且非常安全。它由 Sun 公司在 1995 年开发，主力开发叫 James Gosling，被称为 Java 之父，就是下图这位，头秃的厉害。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-01.png)
@@ -69,6 +71,33 @@ public class HelloWorld {
 “三妹啊，先不要着急，Hello World 这段代码以后再慢慢消化，现在就是让它来给你打个招呼。”
 
 “好吧。”
+
+### Java 是编译型语言还是解释型语言
+
+“二哥，你之前给我看了 .class 文件和 .java 源代码，它们之间的关系是什么样的呢？”三妹还是挺喜欢学习的嘛，发现的问题都很关键。
+
+“不错不错，都能挖掘到这个点了。”
+
+.java 是源代码，也就是我们开发人员可以看懂的，可以编写的；.class 是字节码文件，是经过 javac 编译后的文件，是交给 [JVM](https://tobebetterjavaer.com/jvm/what-is-jvm.html) 执行的文件。
+
+[JVM到底是如何运行Java代码的？](https://tobebetterjavaer.com/jvm/how-run-java-code.html)
+
+上面👆🏻这篇文章会详细讲解运行的过程。
+
+“三妹，这里再顺带给你讲一下，Java 是编译型语言还是解释型语言。”
+
+“好啊，我正要问这个‘编译’到底是怎么回事呢？”
+
+Java的第一道工序是通过javac命令把Java源码编译成字节码，之后，我们可以通过java命令运行字节码，此时就有2种处理方式了。
+
+- 1、字节码由JVM逐条解释执行。
+- 2、部分字节码可能由 [JIT，即时编译，戳链接了解](https://tobebetterjavaer.com/jvm/jit.html) 编译为机器指令直接执行。
+
+也就是说，为了跨平台，Java源代码首先会编译成字节码，字节码不是机器语言，需要JVM来解释。有了JVM这个中间层，Java的运行效率就没有直接把源代码编译为机器码来得效率更高，这个应该能理解吗，多了中间商嘛。所以为了提高效率，JVM引入了 JIT 编译器，把一些经常执行的字节码直接搞成机器码。
+
+所以，Java是解释和编译并存。但通常来说，我们会说“Java 是编译型语言”，尽管这样并不准确，主要是 JIT 是后面才出现的，“先入为主嘛”。
+
+### 学 Java 有钱途吗？
 
 “二哥，学 Java 到底有没有前途啊？我毕业以后能不能找到工作啊？”
 
