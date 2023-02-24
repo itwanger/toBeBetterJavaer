@@ -126,6 +126,7 @@ export const sidebarConfig = sidebar({
           "string/immutable",
           "string/constant-pool",
           "string/intern",
+          "string/builder-buffer",
           "string/equals",
           "string/join",
           "string/split",

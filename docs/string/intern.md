@@ -131,7 +131,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 - 在 StringBuilder 对象上调用 append("三妹")，将 "三妹" 追加到 StringBuilder 中。
 - 在 StringBuilder 对象上调用 toString() 方法，将 StringBuilder 转换为一个新的字符串对象，内容为 "二哥三妹"。
 
-关于 StringBuilder，我们随后会详细地讲到。今天先了解到这。
+关于 [StringBuilder](https://tobebetterjavaer.com/string/builder-buffer.html)，我们随后会详细地讲到。今天先了解到这。
 
 不过需要注意的是，尽管 intern 可以确保所有具有相同内容的字符串共享相同的内存空间，但也不要烂用 intern，因为任何的缓存池都是有大小限制的，不能无缘无故就占用了相对稀缺的缓存空间，导致其他字符串没有坑位可占。
 
