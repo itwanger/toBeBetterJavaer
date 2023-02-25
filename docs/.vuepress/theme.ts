@@ -102,13 +102,13 @@ export default hopeTheme({
       tasklist: true,
 
       // 启用图片懒加载
-      imageLazyload: true,
+      imgLazyload: true,
       // 启用图片标记
-      imageMark: true,
+      imgMark: true,
       // 启用图片大小
-      imageSize: true,
+      imgSize: true,
       // 启用图片标题
-      imageTitle: true,
+      figure: true,
 
       // 自定义对齐
       align: true,

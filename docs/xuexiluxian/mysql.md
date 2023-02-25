@@ -112,7 +112,7 @@ SQL 学完，再学 MySQL 就会更加丝滑，学习曲线会平滑一些。
 
 >[https://t.zsxq.com/04eMf6AMZ](https://t.zsxq.com/04eMf6AMZ)
 
-Windows 的话，在 Java 程序员进阶之路上分享过破解方法：
+Windows 的话，在 Java程序员进阶之路上分享过破解方法：
 
 >[https://tobebetterjavaer.com/nice-article/itmind/navicatzxbwindowspjbjc.html](https://tobebetterjavaer.com/nice-article/itmind/navicatzxbwindowspjbjc.html)
 
@@ -200,7 +200,7 @@ Windows 的话，在 Java 程序员进阶之路上分享过破解方法：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/mysql-5338019d-a197-4438-8c0e-934a45794d91.png)
 
->星球同学可以到星球的百度网盘里取，地址在《Java 程序员进阶之路》知识星球的[置顶链接](https://t.zsxq.com/07N3NbmEe)里。
+>星球同学可以到星球的百度网盘里取，地址在《Java程序员进阶之路》知识星球的[置顶链接](https://t.zsxq.com/07N3NbmEe)里。
 
 学完以上这些，MySQL 的能力基本上会有质的飞跃，也就会有一种豁然开朗的感觉。当然，这部分学习起来十分吃力，主要是很多内容没有实际的应用场景。但最起码有个印象，万一用到了，再系统的翻翻书，看看网上的案例就会好很多。
 

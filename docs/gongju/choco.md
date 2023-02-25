@@ -32,7 +32,7 @@ head:
 
 看着他熟练地在命令行里安装 JDK 的样子，我的嘴角开始微微上扬，真不错！这次总算招到了一个靠谱的。
 
-于是我就安排他做一个记录，打算发表在我的小破站《Java 程序员进阶之路》上。从他嘴里了解到，他用的命令行软件管理器叫 chocolatey，这是一个Windows下的命令行软件管理器，在 GitHub 上已经收获 8.2k+的星标，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
+于是我就安排他做一个记录，打算发表在我的小破站《Java程序员进阶之路》上。从他嘴里了解到，他用的命令行软件管理器叫 chocolatey，这是一个Windows下的命令行软件管理器，在 GitHub 上已经收获 8.2k+的星标，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-92ee5dda-830f-47fd-8770-7a765ef30b5a.png)

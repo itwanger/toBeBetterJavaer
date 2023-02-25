@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://tobebetterjavaer.com">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-01.png" width="260px" alt="Java 程序员进阶之路">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png" width="200px" alt="Java程序员进阶之路">
   </a>
 </p>
 
@@ -17,7 +17,7 @@
 
 # 为什么会有这个开源知识库
 
-> 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java 程序员进阶之路😄。
+> 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java程序员进阶之路😄。
 >  
 >  知识库旨在为学习 Java 的小伙伴提供一系列：
 >  - **优质的原创 Java 教程**
@@ -520,7 +520,7 @@
 
 # 知识库搭建
 
-> 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java 程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
+> 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
 
 
 - [购买云服务器](docs/szjy/buy-cloud-server.md)
@@ -535,7 +535,7 @@
 
 >- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
 >- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
->- Java 程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
+>- Java程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
 
 ## 心路历程
 
@@ -567,7 +567,7 @@
 
 ### 捐赠鼓励
 
-开源不易，如果《Java 程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
+开源不易，如果《Java程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
     <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">

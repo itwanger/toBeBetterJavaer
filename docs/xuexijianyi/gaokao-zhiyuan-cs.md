@@ -2,7 +2,7 @@
 title: 如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？
 shortTitle: 如何填报计算机大类高考填志愿?
 description: 如何填报计算机大类高考填志愿，计科、人工智能、软工、大数据、物联网、网络工程该怎么选？
-tags:
+tag:
   - 学习建议
 category:
   - 学习建议
@@ -117,7 +117,7 @@ JSP 的年代，都是Java 后端的小伙伴直接把前端的活也给干了�
 
 **跟着需求去学习，才能真正学好计算机科学**。
 
-我也会给你推荐《CSAPP》这本黑皮书，毕竟永远的神，但如果你没有编程基础就去啃，你可能很快就会被劝退的；反而，一开始，你读一读我写的《[Java 程序员进阶之路](https://tobebetterjavaer.com/)》，或者去 B 站上看尚硅谷或者动力节点这些培训机构的 Java 视频课，没准你会越学越觉得有信心——这么简单的东西，我这么聪明，还能学不会？你会有这种自信的错觉的！
+我也会给你推荐《CSAPP》这本黑皮书，毕竟永远的神，但如果你没有编程基础就去啃，你可能很快就会被劝退的；反而，一开始，你读一读我写的《[Java程序员进阶之路](https://tobebetterjavaer.com/)》，或者去 B 站上看尚硅谷或者动力节点这些培训机构的 Java 视频课，没准你会越学越觉得有信心——这么简单的东西，我这么聪明，还能学不会？你会有这种自信的错觉的！
 
 反而一开始去啃 CSAPP，你会感觉，老天！我特么是个废材啊，我学的什么鬼玩意，这竟然看不懂，学不会？
 
@@ -147,7 +147,7 @@ JSP 的年代，都是Java 后端的小伙伴直接把前端的活也给干了�
 
 先说 Java 吧。
 
-可以先看看我的《Java 程序员进阶之路》，里面涵盖了 Java 所有的知识点，包括 Java 语法、Java 集合框架、Java IO、Java 并发编程和 Java 虚拟机、Java 企业级开发所需要的知识，比如说 Git、Spring Boot，以及 MySql、Redis 等等。
+可以先看看我的《Java程序员进阶之路》，里面涵盖了 Java 所有的知识点，包括 Java 语法、Java 集合框架、Java IO、Java 并发编程和 Java 虚拟机、Java 企业级开发所需要的知识，比如说 Git、Spring Boot，以及 MySql、Redis 等等。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-21e1cfcd-d772-48cd-b8c2-994c19e13ed6.png)

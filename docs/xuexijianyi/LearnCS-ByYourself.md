@@ -70,9 +70,9 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-ad65b6e6-7880-4c6d-9af2-24597046a77d.png)
 
 
-可以直接看二哥的 [Java 程序员进阶之路](https://tobebetterjavaer.com/)，这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路😄
+可以直接看二哥的 [Java程序员进阶之路](https://tobebetterjavaer.com/)，这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准Java程序员进阶之路😄
 
-有了 Java 程序员进阶之路，你甚至不用去看《Java核心技术卷一》。
+有了 Java程序员进阶之路，你甚至不用去看《Java核心技术卷一》。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-52514452-0643-4c42-8e61-616ff04ed56c.png)
 
@@ -89,7 +89,7 @@ head:
 *   第九章的集合、链表、队列、Map、栈、算法；
 *   第十二章的并发编程、线程、同步、synchronized、volatile、原子性、死锁、阻塞队列、CurrentHashMap、CopyOnWriteArrayList、线程池、Callable与Future、fork-join框架、进程；
 
-因为这本书里囊括的 Java 基础知识，《Java 程序员进阶之路》网站上都囊括了！再推荐两套学习 Java 的视频，戳链接可直达。
+因为这本书里囊括的 Java 基础知识，《Java程序员进阶之路》网站上都囊括了！再推荐两套学习 Java 的视频，戳链接可直达。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/LearnCS-ByYourself-4f7920ff-0dd4-4070-af9d-9f19796efb6c.png)

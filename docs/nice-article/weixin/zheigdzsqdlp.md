@@ -9,7 +9,7 @@ category:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-zheigdzsqdlp-990bdd58-fd4f-4b36-9106-b6ef28a62a4c.png)
 
 作者：沉默王二<br>
-Java 程序员进阶之路：https://tobebetterjavaer.com
+Java程序员进阶之路：https://tobebetterjavaer.com
 
 大家好，我是二哥呀！
 

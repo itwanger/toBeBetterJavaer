@@ -39,7 +39,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 
 说回我自己，当时入门语言是 Java，零基础，真的是硬着头皮上的。学习资料就一本《Java 编程思想》，真上头。
 
-好在自己坚持了下来，万分幸运。如果你是Java 初学者的话，那就无脑上《[Java 程序员进阶之路](https://tobebetterjavaer.com/home.html)》就好了，从头刷到尾，基本上 Java 的核心知识就全部掌握了。
+好在自己坚持了下来，万分幸运。如果你是Java 初学者的话，那就无脑上《[Java程序员进阶之路](https://tobebetterjavaer.com/home.html)》就好了，从头刷到尾，基本上 Java 的核心知识就全部掌握了。
 
 你甚至都不用去看书或者看视频。当然了，如果你需要，我后面也会推荐。
 
@@ -64,7 +64,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 * Python，如果打算走人工智能、数据分析，学历比较硬核的话，Python 是必学的，也非常容易入门上手。
 * Go，这些年收到很多读者要求进公司后转 Go 岗，就能间接的说明 Go 语言这些年发展是非常迅速的。
 
-为了照顾大家的学习方向，Java 程序员进阶之路把所有的学习路线都整理了出来，戳链接：[https://tobebetterjavaer.com/xuexiluxian/](https://tobebetterjavaer.com/xuexiluxian/)
+为了照顾大家的学习方向，Java程序员进阶之路把所有的学习路线都整理了出来，戳链接：[https://tobebetterjavaer.com/xuexiluxian/](https://tobebetterjavaer.com/xuexiluxian/)
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-1c762f54-f797-4880-b327-98b9cf1893b2.png)
@@ -82,7 +82,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 
 无（必须的话就 On Java 8）
 
-不过，看 [Java 程序员进阶之路](https://tobebetterjavaer.com/home.html)不香吗？
+不过，看 [Java程序员进阶之路](https://tobebetterjavaer.com/home.html)不香吗？
 
 同时推荐 B 站尚学堂的这套免费课程，可以说包含了 Java 的全部内容了。
 
@@ -312,7 +312,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 
 > 1，2，3，6，7，8，9 章
 
-我在《Java 程序员进阶之路》网站上也分享有[操作系统的学习路线](https://tobebetterjavaer.com/xuexiluxian/os.html)，可以围观。
+我在《Java程序员进阶之路》网站上也分享有[操作系统的学习路线](https://tobebetterjavaer.com/xuexiluxian/os.html)，可以围观。
 
 那理解了计算机系统有什么用呢？
 

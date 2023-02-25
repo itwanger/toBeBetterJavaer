@@ -65,7 +65,7 @@ head:
 
 - 第07节：Spring Boot 整合 Redis 缓存✔️地址：[https://t.zsxq.com/EYBiMBM](https://t.zsxq.com/EYBiMBM)
 - 第06节：Spring Boot 中使用过滤器、拦截器、监听器✔️地址：[https://t.zsxq.com/bE6ynMV](https://t.zsxq.com/bE6ynMV)
-- Java 程序员进阶之路（[https://tobebetterjavaer.com/](https://tobebetterjavaer.com/)）图片压缩，在调查 CDN 日志的时候发现，两三点还有小伙伴在学习✔️地址：[https://t.zsxq.com/jqrJyFQ](https://t.zsxq.com/jqrJyFQ)
+- Java程序员进阶之路（[https://tobebetterjavaer.com/](https://tobebetterjavaer.com/)）图片压缩，在调查 CDN 日志的时候发现，两三点还有小伙伴在学习✔️地址：[https://t.zsxq.com/jqrJyFQ](https://t.zsxq.com/jqrJyFQ)
 - 第05节，Spring Boot如何开启事务支持✔️ 笔记地址：[https://t.zsxq.com/jiMZ7QF](https://t.zsxq.com/jiMZ7QF)
 - 第04节，Spring Boot 整合 Thymeleaf 模板引擎✔️笔记地址：[https://t.zsxq.com/QVjU3BQ](https://t.zsxq.com/QVjU3BQ)
 - 《Java 面试指南》面试官喜欢什么样的求职者✔️笔记地址：[https://t.zsxq.com/6iuzn6I](https://t.zsxq.com/6iuzn6I)

@@ -1006,7 +1006,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 ## 八、详解 sparse-checkout 命令
 
-前天不是搭建了一个《Java 程序员进阶之路》的网站嘛，其中用到了 Git 来作为云服务器和 GitHub 远程仓库之间的同步工具。
+前天不是搭建了一个《Java程序员进阶之路》的网站嘛，其中用到了 Git 来作为云服务器和 GitHub 远程仓库之间的同步工具。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/git/sparse-checkout-01.png)
 
@@ -1019,7 +1019,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 ### 1、使用 Git 中遇到的一个大麻烦
 
-首先给大家通报一下，一天前[上线的《Java 程序员进阶之路》网站](https://tobebetterjavaer.com)，目前访问次数已经突破 1000 了。
+首先给大家通报一下，一天前[上线的《Java程序员进阶之路》网站](https://tobebetterjavaer.com)，目前访问次数已经突破 1000 了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/git/sparse-checkout-03.png)
 
@@ -1066,7 +1066,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 付费七牛云或者阿里云图床的小伙伴不妨试试这种方式，能白票咱绝不花一分冤枉钱。
 
-那也就是说，《Java 程序员进阶之路》网站上的图片都是通过 GitHub 图床加载的，不需要将图片从 GitHub 仓库拉取到云服务器上。要知道，一台云服务器的空间是极其昂贵的，能省的空间咱必须得省。
+那也就是说，《Java程序员进阶之路》网站上的图片都是通过 GitHub 图床加载的，不需要将图片从 GitHub 仓库拉取到云服务器上。要知道，一台云服务器的空间是极其昂贵的，能省的空间咱必须得省。
 
 ### 2、学习 Git 中遇到的一个大惊喜
 

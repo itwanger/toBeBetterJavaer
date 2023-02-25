@@ -17,7 +17,7 @@ head:
 
 刷着忘着，忘着刷着，不刷怕考到，最后刷的秀发都稀疏了。
 
-等找到了工作后才恍然大悟，原来当初根本不用那么辛苦。这不，刚好有小伙伴在《[Java 程序员进阶之路](https://tobebetterjavaer.com/zhishixingqiu/)》知识星球上问我算法的学习路线，我就毫不保留地把我算法方面的学习经验分享出来，希望能给大家一点点启发和帮助。
+等找到了工作后才恍然大悟，原来当初根本不用那么辛苦。这不，刚好有小伙伴在《[Java程序员进阶之路](https://tobebetterjavaer.com/zhishixingqiu/)》知识星球上问我算法的学习路线，我就毫不保留地把我算法方面的学习经验分享出来，希望能给大家一点点启发和帮助。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/algorithm-59f3bc36-4e6c-48c0-86e5-8afdd6165147.png)
 
