@@ -128,7 +128,7 @@ head:
 - [聊聊Java字符串，以及为什么String是不可变的？](string/immutable.md)
 - [深入理解Java字符串常量池](string/constant-pool.md)
 - [深入解析String.intern()方法](string/intern.md)
-- [聊聊String、StringBuilder、StringBuffer 三兄弟](docs/string/builder-buffer.md)
+- [聊聊String、StringBuilder、StringBuffer 三兄弟](string/builder-buffer.md)
 - [Java如何判断两个字符串是否相等？](string/equals.md)
 - [最优雅的Java字符串拼接是哪种方式？](string/join.md)
 - [如何在Java中优雅地分割String字符串？](string/split.md)
