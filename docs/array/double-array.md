@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java二维数组,数组
 ---
 
-## 4.2 聊聊Java的二维数组
+# 4.2 聊聊Java的二维数组
 
 “二哥，今天我们简单过一下二维数组吧，挺简单的。”三妹放下手机对我说。
 

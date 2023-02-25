@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java保留字,Java关键字,关键字,保留字
 ---
 
-## 3.1 Java中常用的48个关键字和2个保留字
+# 3.1 Java中常用的48个关键字和2个保留字
 
 “二哥，就之前你给我展示的 Java 代码中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
 

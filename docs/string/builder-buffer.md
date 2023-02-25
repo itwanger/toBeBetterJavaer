@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,StringBuilder,StringBuffer,string stringbuilder,string stringbuffer,string stringbuilder stringbuffer
 ---
 
-## 聊聊String、StringBuilder、StringBuffer 三兄弟
+# 4.7 聊聊String、StringBuilder、StringBuffer 三兄弟
 
 “哥，[上一篇深入理解 String.intern()](https://tobebetterjavaer.com/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 

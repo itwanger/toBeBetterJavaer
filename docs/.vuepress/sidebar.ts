@@ -96,7 +96,8 @@ export const sidebarConfig = sidebar({
           text: "2.1 Java概述及环境配置",
           collapsible: true,
           children: [
-          "readme",
+          // readme小写一定要带上.md，否则找不到
+          "readme.md",
           "what-is-java",
           "java-history",
           "java-can-do-what",
@@ -122,6 +123,7 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           children: [
           "array/array",
+          "array/double-array",
           "array/print",
           "string/immutable",
           "string/constant-pool",
