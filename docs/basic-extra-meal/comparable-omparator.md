@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,泛型
 ---
 
-那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[Java 程序员进阶之路](https://tobebetterjavaer.com/)》专栏上看到过这题😆。
+那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[Java程序员进阶之路](https://tobebetterjavaer.com/)》专栏上看到过这题😆。
 
 Comparable 和 Comparator 是 Java 的两个接口，从名字上我们就能够读出来它们俩的相似性：以某种方式来比较两个对象。但它们之间到底有什么区别呢？请随我来，打怪进阶喽！
 

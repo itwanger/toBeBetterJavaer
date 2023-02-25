@@ -39,7 +39,7 @@ head:
 
 大数据框架大多采用 Java 语言开发，并且几乎全部的框架都会提供 Java API。
 
-学 Java 的话，不用多说，直接上《[Java 程序员进阶之路](https://tobebetterjavaer.com/)》网站就 OK 了。
+学 Java 的话，不用多说，直接上《[Java程序员进阶之路](https://tobebetterjavaer.com/)》网站就 OK 了。
 
 如果想读纸质书的话，推荐《[on Java 8](https://book.douban.com/subject/30217317/)》。
 
@@ -73,7 +73,7 @@ Scala 是一门综合了面向对象和函数式编程概念的静态类型的�
 
 ### 3）构建工具
 
-Maven，Java 程序员进阶之路上有教程：[https://tobebetterjavaer.com/maven/maven.html](https://tobebetterjavaer.com/maven/maven.html)
+Maven，Java程序员进阶之路上有教程：[https://tobebetterjavaer.com/maven/maven.html](https://tobebetterjavaer.com/maven/maven.html)
 
 ### 4）框架学习
 
@@ -131,7 +131,7 @@ Maven，Java 程序员进阶之路上有教程：[https://tobebetterjavaer.com/m
 
 ### 1、Java
 
-这个没毛病，看 [Java 程序员进阶之路](https://tobebetterjavaer.com/home.html)就好了，Spring Boot 也要能掌握，看星球的《编程喵 🐱 实战项目笔记》就好了。
+这个没毛病，看 [Java程序员进阶之路](https://tobebetterjavaer.com/home.html)就好了，Spring Boot 也要能掌握，看星球的《编程喵 🐱 实战项目笔记》就好了。
 
 ### 2、MySQL
 

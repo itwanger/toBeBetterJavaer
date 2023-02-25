@@ -12,7 +12,7 @@ tag:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/hangzhou-1.png)
 
-有小伙伴在公众号后台私信催，还有小伙伴在二哥的《Java 程序员进阶之路》的开源专栏提交了 issue，那今天必须得来整一波了。
+有小伙伴在公众号后台私信催，还有小伙伴在二哥的《Java程序员进阶之路》的开源专栏提交了 issue，那今天必须得来整一波了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/hangzhou-2.png)
 

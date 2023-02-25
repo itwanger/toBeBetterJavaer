@@ -95,7 +95,7 @@ head:
 
 2014 年，我开始坚持写作，通过一点一滴的分享，一步一个脚印的积累，“沉默王二”这个 IP 在技术圈的影响力渐渐地扩散了开来。
 
-下图是我在 GitHub 上取得的一些成绩：《**Java 程序员进阶之路**》开源知识库已获得 4k+ 的 star 数，多次上榜 trending 榜单。
+下图是我在 GitHub 上取得的一些成绩：《**Java程序员进阶之路**》开源知识库已获得 4k+ 的 star 数，多次上榜 trending 榜单。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9251b490-0d8a-4133-8207-480d1aa7f254.png)
 
@@ -208,7 +208,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-1f5d0f9b-ea96-499b-9fbf-f5231487c158.png)
 
-还有球友按照二哥的《**Java 程序员进阶之路**》知识库总结的思维导图。
+还有球友按照二哥的《**Java程序员进阶之路**》知识库总结的思维导图。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f45bec90-057e-40c8-bbe2-0df746de3ffb.png)
 

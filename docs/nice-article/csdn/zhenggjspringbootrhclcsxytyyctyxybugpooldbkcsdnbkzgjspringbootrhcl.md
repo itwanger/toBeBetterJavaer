@@ -18,7 +18,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/csdn-zhenggjspringbootrhclcsxytyyctyxybugpooldbkcsdnbkzgjspringbootrhcl-69c3cc92-4d31-467b-a15d-33e43fd4bade.png)
 
 作者：沉默王二<br>
-Java 程序员进阶之路：https://tobebetterjavaer.com
+Java程序员进阶之路：https://tobebetterjavaer.com
 
 大家好，我是二哥呀！
 

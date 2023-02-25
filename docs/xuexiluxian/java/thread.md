@@ -65,9 +65,9 @@ head:
 
 ## 三、硬核 Java 并发学习资料
 
-### **1）Java 程序员进阶之路**
+### **1）Java程序员进阶之路**
 
-学 Java，当然要找 Java 程序员进阶之路，网址我贴下面了哈：
+学 Java，当然要找 Java程序员进阶之路，网址我贴下面了哈：
 
 >[https://tobebetterjavaer.com/home.html#java并发编程](https://tobebetterjavaer.com/home.html#java并发编程)
 
@@ -136,7 +136,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-7.png)
 
-为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java 程序员进阶之路》上，面渣逆袭 Java 并发篇：
+为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java程序员进阶之路》上，面渣逆袭 Java 并发篇：
 
 >[https://tobebetterjavaer.com/sidebar/sanfene/javathread.html](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
 

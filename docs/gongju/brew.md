@@ -14,7 +14,7 @@ head:
 
 ## 前言（废话）
 
-本来打算在公司偷偷摸摸给星球的用户写一篇编程喵整合 MongoDB 的文章，结果在通过 brew 安装 MongoDB 的时候竟然报错了。原因很简单，公司这台 Mac 上的 homebrew 环境没有配置好。刚好 Java 程序员进阶之路上缺少这样一篇内容。
+本来打算在公司偷偷摸摸给星球的用户写一篇编程喵整合 MongoDB 的文章，结果在通过 brew 安装 MongoDB 的时候竟然报错了。原因很简单，公司这台 Mac 上的 homebrew 环境没有配置好。刚好 Java程序员进阶之路上缺少这样一篇内容。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-c6756a26-8767-4135-be4c-b31d42de2a89.png)
 

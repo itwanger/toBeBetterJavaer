@@ -2,7 +2,7 @@
 title: 程序员 35 岁危机，如何破局 ？
 shortTitle: 程序员 35 岁危机，如何破局 ？
 description: 工作可以是事业、是热爱，也可以只是一份工作，给自己留出转身的空间很有必要！
-tags:
+tag:
   - 学习建议
 category:
   - 学习建议
@@ -15,7 +15,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a1c73ba1-4f12-4bb9-a64b-14bb7cc86ec5.png)
 
 作者：沉默王二<br>
-Java 程序员进阶之路：https://tobebetterjavaer.com
+Java程序员进阶之路：https://tobebetterjavaer.com
 
 大家好，我是二哥呀！今天周六，咱精神就不要绷那么紧了，来谈一个超级“轻松”的话题：35 岁中年危机。
 

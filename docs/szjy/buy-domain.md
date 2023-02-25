@@ -9,7 +9,7 @@ shortTitle: 购买域名&域名解析
 
 购买域名可以通过多个服务商，比如说阿里云、百度云、腾讯云。
 
-我这里以阿里云为例，购入一个 [tobebetterjavaer.com](https://tobebetterjavaer.com/) 的域名（寓意 Java 程序员进阶之路）。
+我这里以阿里云为例，购入一个 [tobebetterjavaer.com](https://tobebetterjavaer.com/) 的域名（寓意 Java程序员进阶之路）。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-yuming-jiexi-02.png)
 

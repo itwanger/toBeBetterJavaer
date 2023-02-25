@@ -2,7 +2,7 @@
 title: 不到 20 人的 IT 公司该去吗？
 shortTitle: 不到 20 人的 IT 公司该去吗？
 author: Shawn
-tags:
+tag:
   - 学习建议
 category:
   - 学习建议

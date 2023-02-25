@@ -2,7 +2,7 @@
 title: 如何看待「虾皮中国」于2022年9月19日大裁员？
 shortTitle: 如何看待「虾皮中国」于2022年9月19日大裁员？
 description: 只能说幸好没去。我每年都会面几个公司拿几个offer，一方面是了解市场情况，看看有没有好机会，另一方面…
-tags:
+tag:
   - 优质文章
 author: BigMoyan
 category:

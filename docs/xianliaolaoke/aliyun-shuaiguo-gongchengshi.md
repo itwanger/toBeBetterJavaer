@@ -36,7 +36,7 @@
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/aliyun-shuaiguo-gongchengshi-6.png)
 
-之前给大家提到过，二哥的小破站《Java 程序员进阶之路》的图床是用 GitHub+jsDelivr 做的，免费啊，可以白嫖啊，所以我觉得用起来很爽！
+之前给大家提到过，二哥的小破站《Java程序员进阶之路》的图床是用 GitHub+jsDelivr 做的，免费啊，可以白嫖啊，所以我觉得用起来很爽！
 
 但直到有一天，有个小伙伴提了一个 issue，说 jsDelivr 撤出了国内节点，导致部分图片不显示或者加载缓慢，我就坐立不安、寝食难安了！
 

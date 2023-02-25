@@ -80,7 +80,7 @@ tag:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-0056fcd2-afa4-475e-ad69-95b84b90b8c7.png)
 
-10 月 11 日，收到《Java 程序员进阶之路》专栏在 GitHub 上开源以来的两笔大额打赏。
+10 月 11 日，收到《Java程序员进阶之路》专栏在 GitHub 上开源以来的两笔大额打赏。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-7e6d9918-6d94-45ef-9afa-42882f79944d.png)
 
@@ -159,7 +159,7 @@ B 站我一定做到一万粉——这个 flag 不能到。
 
 展望 2022 年，有太多的期待了。
 
-这不，新的惊喜就是《Java 程序员进阶之路》专栏第一次上了 GitHub 的 trending 榜单！
+这不，新的惊喜就是《Java程序员进阶之路》专栏第一次上了 GitHub 的 trending 榜单！
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/csdn-1000wan-8868c50f-d622-4f1f-a92b-13cf95edd786.png)
 
@@ -167,7 +167,7 @@ B 站我一定做到一万粉——这个 flag 不能到。
 
 对于这个开源专栏，我投入了大量的心血，一开始的名字叫《教妹学 Java》，主打 Java 的入门级路线，一直连载了近 100篇原创内容。
 
-后来有朋友建议我，要想走国际化的话，就必须得换个名字，得和国际接轨，于是我就想破脑袋，征求了很多朋友的建议，改成这个《Java 程序员进阶之路》了，因为我之前出版过一本技术书《Web 全栈开发进阶之路》，叫这个名字刚好也非常适合。
+后来有朋友建议我，要想走国际化的话，就必须得换个名字，得和国际接轨，于是我就想破脑袋，征求了很多朋友的建议，改成这个《Java程序员进阶之路》了，因为我之前出版过一本技术书《Web 全栈开发进阶之路》，叫这个名字刚好也非常适合。
 
 英文名字叫 toBeBetterJavaer， 前后呼应，一气呵成。
 

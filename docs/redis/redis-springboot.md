@@ -430,7 +430,7 @@ public class PostTagController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
     @ApiOperation("修改标签")
-    @CachePut(value = "codingmore", key = "'codingmore:postags:'+#postAddTagParam.postTagId")
+    @CachePut(value = "codingmore", key = "'codingmore:postag:'+#postAddTagParam.postTagId")
     public ResultObject<String> update(@Valid PostTagParam postAddTagParam) {
         if (postAddTagParam.getPostTagId() == null) {
             return ResultObject.failed("标签id不能为空");
@@ -454,11 +454,11 @@ public class PostTagController {
 注意看 @CachePut 注解这行代码：
 
 ```java
-@CachePut(value = "codingmore", key = "'codingmore:postags:'+#postAddTagParam.postTagId")
+@CachePut(value = "codingmore", key = "'codingmore:postag:'+#postAddTagParam.postTagId")
 ```
 
 - value：缓存名称，也就是缓存的命名空间，value 这里应该换成 namespace 更好一点；
-- key：用于在命名空间中缓存的 key 值，可以使用 SpEL 表达式，比如说 `'codingmore:postags:'+#postAddTagParam.postTagId`；
+- key：用于在命名空间中缓存的 key 值，可以使用 SpEL 表达式，比如说 `'codingmore:postag:'+#postAddTagParam.postTagId`；
 - 还有两个属性 unless 和 condition 暂时没用到，分别表示条件符合则不缓存，条件符合则缓存。
 
 **第五步**，启动服务器端，启动客户端，修改标签进行测试。
@@ -647,7 +647,7 @@ public class RedisServiceImpl implements RedisService {
 
 ----
 
-更多内容，只针对《Java 程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《Java程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 

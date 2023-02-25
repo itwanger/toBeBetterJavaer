@@ -2,7 +2,7 @@
 title: Mac下载和安装IntelliJ IDEA（JetBrains为专业开发者提供的Java IDE）_anniewhite的博客-CSDN博客_download intellij idea for apple silicon for bette
 shortTitle: Mac下载和安装IntelliJ IDEA（JetBrains为专业开发者提供的Java IDE）_anniewhite的博客-CSDN博客_download intellij idea for apple silicon for bette
 description: 目录下载IntelliJ IDEA安装IntelliJ IDEA打开IntelliJ IDEA下载IntelliJ IDEA打开https://www.jetbrains.com/idea/，点击Download按钮选择Community版本，确认使用带有英特尔芯片的Mac，点击Download查看MAC电脑用的是Intel还是Apple Silicon 的CPU？在Mac上，单击菜单栏左上角的[Apple]图标，然后选择“关于本机”（About This Mac）选项。如果在“芯片”部分
-tags:
+tag:
   - 优质文章
 category:
   - CSDN

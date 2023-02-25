@@ -68,9 +68,9 @@ head:
 
 ## 三、硬核 JVM 学习资料
 
-### **1）Java 程序员进阶之路**
+### **1）Java程序员进阶之路**
 
-学 Java，怎么能少得了二哥的小破站《Java 程序员进阶之路》，网址我贴下面了哈：
+学 Java，怎么能少得了二哥的小破站《Java程序员进阶之路》，网址我贴下面了哈：
 
 >[https://tobebetterjavaer.com/home.html#java虚拟机](https://tobebetterjavaer.com/home.html#java虚拟机)
 
@@ -159,7 +159,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
 
 
-为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java 程序员进阶之路》上，面渣逆袭 Java 虚拟机篇：
+为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java程序员进阶之路》上，面渣逆袭 Java 虚拟机篇：
 
 >[https://tobebetterjavaer.com/sidebar/sanfene/jvm.html](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)
 

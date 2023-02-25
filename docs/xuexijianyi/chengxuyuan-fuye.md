@@ -3,7 +3,7 @@ title: 大裁员下，程序员如何做“副业”？
 shortTitle: 大裁员下，程序员如何做“副业”？
 category:
   - 学习建议
-tags:
+tag:
   - 学习建议
 author: 杨成功
 ---

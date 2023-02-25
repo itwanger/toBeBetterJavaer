@@ -1,7 +1,7 @@
 ---
 title: 如何获得高并发的经验？
 shortTitle: 如何获得高并发的经验？
-tags:
+tag:
   - 学习建议
 author: hsmcomputer
 category:

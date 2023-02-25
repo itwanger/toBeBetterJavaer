@@ -12,7 +12,7 @@ head:
       content: 知识星球,沉默王二,Java程序员进阶之路,编程,Java,IT,计算机专业
 ---
 
-### 沉默王二知识星球-Java 程序员进阶之路八月第一周打卡总结
+### 沉默王二知识星球-Java程序员进阶之路八月第一周打卡总结
 
 最近来了不少新的球友，一定要记得看星球置顶帖：[https://t.zsxq.com/03N3NbmEe](https://t.zsxq.com/03N3NbmEe)
 
@@ -97,7 +97,7 @@ head:
 
 上期总结：[https://t.zsxq.com/04ZvrrRBE](https://t.zsxq.com/04ZvrrRBE)
 
-### 沉默王二知识星球-Java 程序员进阶之路八月第二周打卡总结
+### 沉默王二知识星球-Java程序员进阶之路八月第二周打卡总结
 
 《Java 版LeetCode 题解》：
 
@@ -146,7 +146,7 @@ head:
 
 上期总结：[https://t.zsxq.com/05amiUfu7](https://t.zsxq.com/05amiUfu7)
 
-### 沉默王二知识星球-Java 程序员进阶之路八月第三周打卡总结
+### 沉默王二知识星球-Java程序员进阶之路八月第三周打卡总结
 
 《Java 版LeetCode 题解》：
 
@@ -207,7 +207,7 @@ head:
 
 上期总结：[https://t.zsxq.com/05amiUfu7](https://t.zsxq.com/05amiUfu7)
 
-### 沉默王二知识星球-Java 程序员进阶之路八月第四周打卡总结
+### 沉默王二知识星球-Java程序员进阶之路八月第四周打卡总结
 
 《Java 版LeetCode 题解》：
 

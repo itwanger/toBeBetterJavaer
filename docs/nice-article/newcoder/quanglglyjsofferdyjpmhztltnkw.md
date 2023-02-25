@@ -15,7 +15,7 @@ head:
 ![](https://files.mdnice.com/user/3903/3f5a9697-26a8-462b-aac4-4c873e65f041.png)
 
 作者：沉默王二<br>
-Java 程序员进阶之路：https://tobebetterjavaer.com
+Java程序员进阶之路：https://tobebetterjavaer.com
 
 大家好，我是二哥呀。
 

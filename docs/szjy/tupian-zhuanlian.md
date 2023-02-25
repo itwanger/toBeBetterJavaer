@@ -16,7 +16,7 @@
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-3.png)
 
-还有一些博客平台是没有转链功能的，比如说二哥的静态小破站《Java 程序员进阶之路》。怎么办呢？我一开始的解决方案是：
+还有一些博客平台是没有转链功能的，比如说二哥的静态小破站《Java程序员进阶之路》。怎么办呢？我一开始的解决方案是：
 
 - 先将图片手动一张张下载到本地
 - 再将本地图片上传到 GitHub 指定的仓库
@@ -176,7 +176,7 @@ writer.flush();
 
 不得不说，懂点技术，还是非常爽的。撸了几行代码，解放了双手，可以干点正经事了（狗头）。
 
-这不，重新把《Java 程序员进阶之路》的小破站整理排版了一下，新增了不少优质的内容。学习 Java 的小伙伴可以开卷了，有需要增加的内容也欢迎提交 issue 啊！
+这不，重新把《Java程序员进阶之路》的小破站整理排版了一下，新增了不少优质的内容。学习 Java 的小伙伴可以开卷了，有需要增加的内容也欢迎提交 issue 啊！
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-11.png)
 

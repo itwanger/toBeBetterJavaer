@@ -5,7 +5,7 @@ description: 面渣逆袭系列继续，两万字+三十图，详解RocketMQ面�
 author: 三分恶
 category:
   - 面渣逆袭
-tags:
+tag:
   - 面渣逆袭
 head:
   - - meta

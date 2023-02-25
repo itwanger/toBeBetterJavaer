@@ -2,7 +2,7 @@
 title: 一条 SQL 查询语句是如何执行的 | CS-Wiki
 shortTitle: 一条 SQL 查询语句是如何执行的 | CS-Wiki
 description: 致力打造完善的后端知识体系. Not only an Interview-Guide, but also a Learning-Direction.
-tags:
+tag:
   - 优质文章
 category:
   - 其他网站

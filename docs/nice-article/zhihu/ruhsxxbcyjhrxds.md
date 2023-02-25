@@ -2,7 +2,7 @@
 title: 如何使学习变成一件很热血的事？
 shortTitle: 如何使学习变成一件很热血的事？
 description: 我有一个挺要好的朋友，在国内top3的互联网公司，做到架构师的位置。他是我生活中，唯一亲见的，“矮挫穷…
-tags:
+tag:
   - 优质文章
 author: 沈世钧 
 category:

@@ -1,14 +1,14 @@
 ![](https://cdn.tobebetterjavaer.com/paicoding/adbd4b9992d0656dfe743da0b4adc63e.png)
 
-# 第一章：《二哥的Java进阶之路》小册简介
+# 第一章：《Java程序员进阶之路》小册简介
 
 > PS：为了增加这份小册的趣味性，我特意为此追加了两个虚拟角色，一个二哥，一个三妹，二哥负责教，三妹负责学。这样大家在学习 Java 的时候代入感会更强烈一些，希望这样的设定能博得大家的欢心。
 
-三妹：“二哥，帮读者朋友们问一下哈，为什么会有《二哥的Java进阶之路》这份小册呢？”
+三妹：“二哥，帮读者朋友们问一下哈，为什么会有《Java程序员进阶之路》这份小册呢？”
 
 *二哥巴拉巴拉 ing...*
 
-小册的内容主要来源于我的开源知识库《[Java程序员进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，已托管在 GitHub 上，目前已经收获 6000+ star，深受读者喜爱。小册之所以叫《二哥的Java进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
+小册的内容主要来源于我的开源知识库《[Java程序员进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，已托管在 GitHub 上，目前已经收获 6000+ star，深受读者喜爱。小册之所以叫《Java程序员进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
 
 如果你是第一次阅读这份小册，肯定又会问，“二哥是哪个鸟人？”
 
@@ -56,7 +56,7 @@
 
 **附提交 issue 的方式**：
 
-第一步，点击链接 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer) 跳转到 Java 程序员进阶之路的仓库，见下图，点击 issue 标签。
+第一步，点击链接 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer) 跳转到 Java程序员进阶之路的仓库，见下图，点击 issue 标签。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/5f6b3fe691819623fe1f23e80d001b4a.png)
 
@@ -70,7 +70,7 @@
 
 **附提交 PR 的方式**
 
-在 [Java 程序员进阶之路](https://tobebetterjavaer.com/)网站上，每一篇文章底部都会有一个编辑此页的链接，比如《[一文吃透Java数组](https://tobebetterjavaer.com/array/array.html)》这篇。
+在 [Java程序员进阶之路](https://tobebetterjavaer.com/)网站上，每一篇文章底部都会有一个编辑此页的链接，比如《[一文吃透Java数组](https://tobebetterjavaer.com/array/array.html)》这篇。
 
 点击编辑此页
 
@@ -209,7 +209,7 @@ Java的第一道工序是通过javac命令把Java源码编译成字节码，之�
 
 24 届及以后的起薪肯定会比这个好得多，这上面大专、普本的案例比较少，是因为网上爆的人比较少，但其实这部分群体也是非常大的，所以，学习 Java 还是很有“**钱秃**”的。
 
-“噢噢噢噢，那好吧，我先跟着《[Java 程序员进阶之路](https://tobebetterjavaer.com/)》学起来！”
+“噢噢噢噢，那好吧，我先跟着《[Java程序员进阶之路](https://tobebetterjavaer.com/)》学起来！”
 
 ----
 
