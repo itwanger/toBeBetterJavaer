@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java数组,java打印数组
 ---
 
-## 4.3 如何优雅地打印Java数组？
+# 4.3 如何优雅地打印Java数组？
 
 “哥，[之前听你说，数组也是一个对象](https://tobebetterjavaer.com/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 

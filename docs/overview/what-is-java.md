@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,Java简介
 ---
 
-## 2.1 Java简介，什么是 Java？
+# 2.1 Java简介，什么是 Java？
 
 “二哥，到底什么是 Java？给我说说呗。”
 

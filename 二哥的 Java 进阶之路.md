@@ -3669,7 +3669,7 @@ public String concat(String str) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 深入理解Java的字符串常量池
+## 4.5 深入理解Java的字符串常量池
 
 “三妹，今天我们来学习一下字符串常量池，这是字符串中非常关键的一个知识点。”我话音未落，青岛路小学那边传来了嘹亮的歌声就钻进了我的耳朵，“唱 ~ 山 ~ 歌 ~”，我都有点情不自禁地哼唱起来了。
 
@@ -3822,7 +3822,7 @@ String s1 = "三妹";
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 深入解析String.intern()方法
+## 4.6 深入解析String.intern()方法
 
 “哥，你发给我的那篇文章我看了，结果直接把我给看得不想学 Java 了！”三妹气冲冲地说。
 
@@ -3961,7 +3961,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 聊聊String、StringBuilder、StringBuffer 三兄弟
+## 4.7 聊聊String、StringBuilder、StringBuffer 三兄弟
 
 “哥，[上一篇深入理解 String.intern()](https://tobebetterjavaer.com/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 
