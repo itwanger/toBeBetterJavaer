@@ -53,6 +53,8 @@ export const sidebarConfig = sidebar({
         "jvm",
       ],
     },
+    "mysql",
+    "redis",
     "c",
     "ccc",
     "python",
@@ -63,8 +65,6 @@ export const sidebarConfig = sidebar({
     "lanqiaobei",
     "bigdata",
     "android",
-    "mysql",
-    "redis",
     "donet",
   ],
   "/sidebar/sanfene/": [
