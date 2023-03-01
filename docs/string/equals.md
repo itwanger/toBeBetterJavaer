@@ -9,9 +9,10 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,equals
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,equals,java equals,java string 比较,java字符串比较
 ---
 
+# 4.8 Java如何判断两个字符串是否相等？
 
 “二哥，如何比较两个字符串相等啊？”三妹问。
 
@@ -53,11 +54,11 @@ public boolean equals(Object obj) {
 
 但实际情况中，有不少类重写了 `.equals()` 方法，因为比较内存地址的要求比较严格，不太符合现实中所有的场景需求。拿 String 类来说，我们在比较字符串的时候，的确只想判断它们俩的内容是相等的就可以了，并不想比较它们俩是不是同一个对象。
 
-况且，字符串有字符串常量池的概念，本身就推荐使用 `String s = "字符串"` 这种形式来创建字符串对象，而不是通过 new 关键字的方式，因为可以把字符串缓存在字符串常量池中，方便下次使用。
+况且，字符串有[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)的概念，本身就推荐使用 `String s = "字符串"` 这种形式来创建字符串对象，而不是通过 new 关键字的方式，因为可以把字符串缓存在字符串常量池中，方便下次使用，不用遇到 new 就在堆上开辟一块新的空间。
 
 “哦，我明白了。”三妹说。
 
-“那就来看一下 `.equals()` 方法的源码吧。”我说。
+“那就来看一下 String 类的 `.equals()` 方法的源码吧。”我说。
 
 ```java
 public boolean equals(Object anObject) {
@@ -92,7 +93,39 @@ public static boolean equals(byte[] value, byte[] other) {
 }
 ```
 
-我的 JDK 版本是 Java 17，也就是最新的 LTS（长期支持）版本。该版本中，String 类使用字节数组实现的，所以比较两个字符串的内容是否相等时，可以先比较字节数组的长度是否相等，不相等就直接返回 false；否则就遍历两个字符串的字节数组，只有有一个字节不相等，就返回 false。
+这个 JDK 版本是 Java 17，也就是最新的 LTS（长期支持）版本。该版本中，String 类使用字节数组实现的，所以比较两个字符串的内容是否相等时，可以先比较字节数组的长度是否相等，不相等就直接返回 false；否则就遍历两个字符串的字节数组，只有有一个字节不相等，就返回 false。
+
+这是 Java 8 中的 equals 方法源码：
+
+```java
+public boolean equals(Object anObject) {
+    // 判断是否为同一对象
+    if (this == anObject) {
+        return true;
+    }
+    // 判断对象是否为 String 类型
+    if (anObject instanceof String) {
+        String anotherString = (String)anObject;
+        int n = value.length;
+        // 判断字符串长度是否相等
+        if (n == anotherString.value.length) {
+            char v1[] = value;
+            char v2[] = anotherString.value;
+            int i = 0;
+            // 判断每个字符是否相等
+            while (n-- != 0) {
+                if (v1[i] != v2[i])
+                    return false;
+                i++;
+            }
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+JDK 8 比 JDK 17 更容易懂一些：首先判断两个对象是否为同一个对象，如果是，则返回 true。接着，判断对象是否为 String 类型，如果不是，则返回 false。如果对象为 String 类型，则比较两个字符串的长度是否相等，如果长度不相等，则返回 false。如果长度相等，则逐个比较每个字符是否相等，如果都相等，则返回 true，否则返回 false。
 
 “嗯，二哥，这段源码不难理解。”三妹自信地说。
 
@@ -106,8 +139,7 @@ new String("小萝莉").equals("小萝莉")
 
 “输出什么呢？”我问。
 
-“`.equals()` 比较的是两个字符串对象的内容是否相等，所以结果为 true。”三妹答。
-
+“`.equals()` 比较的是两个字符串对象的内容是否相等，所以结果为 true。”三妹不假思索地答到。
 
 
 第二题：
@@ -142,6 +174,8 @@ new String("小萝莉") == new String("小萝莉")
 
 “由于‘小’和‘萝莉’都在字符串常量池，所以编译器在遇到‘+’操作符的时候将其自动优化为“小萝莉”，所以返回 true。”
 
+PS：至于为什么，查看这篇[String、StringBuilder、StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)
+
 第六题：
 
 ```java
@@ -149,6 +183,8 @@ new String("小萝莉").intern() == "小萝莉"
 ```
 
 “`new String("小萝莉")` 在执行的时候，会先在字符串常量池中创建对象，然后再在堆中创建对象；执行 `intern()` 方法的时候发现字符串常量池中已经有了‘小萝莉’这个对象，所以就直接返回字符串常量池中的对象引用了，那再与字符串常量池中的‘小萝莉’比较，当然会返回 true 了。”三妹说。
+
+PS：[intern](https://tobebetterjavaer.com/string/intern.html) 方法我们之前已经深究过了。
 
 哇，不得不说，三妹前几节的字符串相关内容都完全学会了呀！
 
@@ -219,6 +255,45 @@ public boolean contentEquals(CharSequence cs) {
 ```
 
 从源码上可以看得出，如果 cs 是 StringBuffer，该方法还会进行同步，非常的智能化；如果是 String 的话，其实调用的还是 `equals()` 方法。当然了，这也就意味着使用该方法进行比较的时候，多出来了很多步骤，性能上有些损失。
+
+同样来看一下 JDK 8 的源码：
+
+```java
+public boolean contentEquals(CharSequence cs) {
+    // argument can be any CharSequence implementation
+    if (cs.length() != value.length) {
+        return false;
+    }
+    // Argument is a StringBuffer, StringBuilder or String
+    if (cs instanceof AbstractStringBuilder) {
+        char v1[] = value;
+        char v2[] = ((AbstractStringBuilder)cs).getValue();
+        int i = 0;
+        int n = value.length;
+        while (n-- != 0) {
+            if (v1[i] != v2[i])
+                return false;
+            i++;
+        }
+        return true;
+    }
+    // Argument is a String
+    if (cs.equals(this))
+        return true;
+    // Argument is a non-String, non-AbstractStringBuilder CharSequence
+    char v1[] = value;
+    int i = 0;
+    int n = value.length;
+    while (n-- != 0) {
+        if (v1[i] != cs.charAt(i))
+            return false;
+        i++;
+    }
+    return true;
+}
+```
+
+同样更容易理解一些：首先判断参数长度是否相等，不相等则返回 false。如果参数是 AbstractStringBuilder 的实例，则取出其 char 数组，遍历比较两个 char 数组的每个元素是否相等。如果参数是 String 的实例，则直接调用 equals 方法比较两个字符串是否相等。如果参数是其他实现了 CharSequence 接口的对象，则遍历比较两个对象的每个字符是否相等。
 
 “是的，总体上感觉还是 `Objects.equals()` 比较舒服。”三妹的眼睛是雪亮的，发现了这个方法的优点。
 
