@@ -1,11 +1,18 @@
 ---
-title: 面渣逆袭：分布式十二问！万字图文详解！
-shortTitle: 面渣逆袭：分布式十二问！万字图文详解！
-description: 面渣逆袭系列继续，分布式十二问来袭！
-author: 老三
+title: 面渣逆袭（分布式面试题八股文）必看👍
+shortTitle: 面渣逆袭-分布式
 category:
-  - 微信公众号
+  - 面渣逆袭
+tag:
+  - 面渣逆袭
+description: 图文详解 12 道分布式面试高频题，这次面试，一定吊打面试官
+head:
+  - - meta
+    - name: keywords
+      content: Java,分布式,Java面试题,分布式面试题,面试题,八股文,java
 ---
+
+> 图文详解 12 道分布式面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/nLwHEmVGtl-2FDugMqYs3A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/d84tWIjbcGKhwUptzkO2hQ)。
 
 
 ## 分布式理论
@@ -14,7 +21,7 @@ category:
 
 CAP原则又称CAP定理，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性）这3个基本需求，最多只能同时满足其中的2个。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCdZmfO7KVowmD2tush38epucvYsPvW6O5E2NX3q61wgGqZwtNXoicICQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-6b0609de-e2ce-4778-b76f-018af80c617f.jpg)
 
 
 选项|描述|
@@ -27,7 +34,7 @@ Partition tolerance（分区容错性）|分布式系统在遇到任何网络分
 
 首先对于分布式系统，分区是必然存在的，所谓分区指的是分布式系统可能出现的字区域网络不通，成为孤立区域的的情况。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MC69TMFQdSvLOPnrI2APAgNgfcicqIBNQjkgpE1xMXRWHk1eglE2XqOyg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-49bf971a-63ae-4b45-bb9e-8af84dff7219.jpg)
 
 
 那么分区容错性（**P**）就必须要满足，因为如果要牺牲分区容错性，就得把服务和资源放到一个机器，或者一个“同生共死”的集群，那就违背了分布式的初衷。
@@ -39,7 +46,7 @@ Partition tolerance（分区容错性）|分布式系统在遇到任何网络分
 *   在满足`一致性` 的时候，N1和N2的数据要求值一样的，D1=D2。
 *   在满足`可用性`的时候，无论访问N1还是N2，都能获取及时的响应。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MC9182SeVyibhTFU28bLicsBKFvZRu2Mmj6vmmJQ6RjPpY4fLLdbiclup2Q/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-428f55c0-368d-4d07-a5a5-a17f7bd327b7.jpg)
 
 
 假如现在有这样的场景：
@@ -93,7 +100,7 @@ AP模型常见应用：
 
 BASE（Basically Available、Soft state、Eventual consistency）是基于CAP理论逐步演化而来的，核心思想是即便不能达到强一致性（Strong consistency），也可以根据应用特点采用适当的方式来达到最终一致性（Eventual consistency）的效果。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MC9toQL797XV4y2AGVhD7UOHHEib1ygHjloS5KSHEYK4P2HkFvpzIocvQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-6220689c-2cbc-447c-a313-2435943df0fe.jpg)
 
 BASE的主要含义：
 
@@ -111,6 +118,12 @@ BASE的主要含义：
 
 上面说了软状态，但是不应该一直都是软状态。在一定时间后，应该到达一个最终的状态，保证所有副本保持数据一致性，从而达到数据的最终一致性。这个时间取决于网络延时、系统负载、数据复制方案设计等等因素。
 
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
 ## 分布式锁
 
 单体时代，可以直接用本地锁来实现对竞争资源的加锁，分布式环境下就要用到分布式锁了。
@@ -119,7 +132,7 @@ BASE的主要含义：
 
 常见的分布式锁实现方案有三种：`MySQL分布式锁`、`ZooKepper分布式锁`、`Redis分布式锁`。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCfRw8QqtbDZB9RB1Os7MmGzBhXxE1drUbMl2pbxZn1vqxP5bZqX93Fw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-dba9586e-1e4c-44c9-9825-f117d5c10228.jpg)
 
 #### 5.1 MySQL分布式锁如何实现呢？
 
@@ -137,7 +150,7 @@ ZooKeeper也是常见分布式锁实现方法。
 
 ZooKeeper的数据节点和文件目录类似，例如有一个lock节点，在此节点下建立子节点是可以保证先后顺序的，即便是两个进程同时申请新建节点，也会按照先后顺序建立两个节点。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCv1TKIEPVp52wTlFr6vCr7cMGCTGTIAofxBwKaiboVPZKLVcXQNwkm4Q/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-726d933e-3fa7-4458-ab70-41d09218535c.jpg)
 
 
 所以我们可以用此特性实现分布式锁。以某个资源为目录，然后这个目录下面的节点就是我们需要获取锁的客户端，每个服务在目录下创建节点，如果它的节点，序号在目录下最小，那么就获取到锁，否则等待。释放锁，就是删除服务创建的节点。
@@ -166,18 +179,24 @@ set resourceName value ex 5 nx
 
 当然，一般生产中都是使用Redission客户端，非常良好地封装了分布式锁的api，而且支持RedLock。
 
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
 ## 分布式事务
 
 ### 6.什么是分布式事务?
 
 分布式事务是相对本地事务而言的，对于本地事务，利用数据库本身的事务机制，就可以保证事务的ACID特性。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCyeZVemywLKVAuI42E12yhB4jyedlbXuF01qYmaM9hSbicwiaJ4GfJsOg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-b3eeb567-0493-49e2-a21e-dd8d64f347fa.jpg)
 
 
 而在分布式环境下，会涉及到多个数据库。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCKbkl09899pNe48rJsRw1dLgB7emJnzZUb5TQ7icibJibdly43ibfhDDzEA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-7e6aab86-57d4-49d5-91fd-14349b07a4c3.jpg)
 
 
 分布式事务其实就是将对同一库事务的概念扩大到了对多个库的事务。目的是为了保证分布式系统中的数据一致性。
@@ -201,14 +220,14 @@ set resourceName value ex 5 nx
 *   **TM（Transaction Manager）**：事务管理器（全局事务管理）
 *   **RM（Resource Manager）**：资源管理器（数据库）
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCQNdeHlplNMIPlchYPOocNxqe4oDRPaK0YPOIAcdlg6g6WaEx0ojdNw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-7898a153-42a6-4133-be1e-1ccbe9f12540.jpg)
 
 
 XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供资源管理器与事务管理器之间进行通信的标准接口。
 
 两阶段提交的思路可以概括为：参与者将操作成败通知协调者，再由协调者根据所有参与者的反馈情况决定各参与者是否要提交操作还是回滚操作。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MChicdkhOibkoWpwFibtZXoIjCiaRgibU8X3MB6mUobcz2AVicuvfsnlDRcYOA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-d7288027-b0c9-41ec-9ed4-c9d9091be7b9.jpg)
 
 
 *   准备阶段：事务管理器要求每个涉及到事务的数据库预提交(precommit)此操作，并反映是否可以提交
@@ -228,7 +247,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 
 三阶段提交有这么三个阶段：`CanCommit`，`PreCommit`，`DoCommit`三个阶段
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCJNxY9Pw2qkBgXf9Y3ABbxLy8gAJmVLArFHicbmzvKQKwWnZo6nvsCnw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-73061466-8f9c-44eb-9a3f-a41f4de98668.jpg)
 
 
 *   **CanCommit**：准备阶段。协调者向参与者发送commit请求，参与者如果可以提交就返回Yes响应，否则返回No响应。
@@ -247,7 +266,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 
 **TCC（Try Confirm Cancel）** ，是两阶段提交的一个变种，针对每个操作，都需要有一个其对应的确认和取消操作，当操作成功时调用确认操作，当操作失败时调用取消操作，类似于二阶段提交，只不过是这里的提交和回滚是针对业务上的，所以基于TCC实现的分布式事务也可以看做是对业务的一种补偿机制。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCVtsmNAqhSRicSPu9JGo4UWy9icFqqA6jrwXbEtlp52iaKm0cUzO3Lj1Vw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-719faa5d-9709-43ff-8831-c6fa42c5d424.jpg)
 
 
 *   **Try**：尝试待执行的业务。订单系统将当前订单状态设置为支付中，库存系统校验当前剩余库存数量是否大于1，然后将可用库存数量设置为库存剩余数量-1，。
@@ -265,7 +284,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 
 例如，可以在订单库新增一个消息表，将新增订单和新增消息放到一个事务里完成，然后通过轮询的方式去查询消息表，将消息推送到MQ，库存服务去消费MQ。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCSMFChxIWDYQORqnBwd9N6EciaHusQnDknyRWMyjcicNWjRMxc0t7KuXQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-73a460d6-90d7-493f-9fe9-1c6120952c47.jpg)
 
 
 **执行流程：**
@@ -288,7 +307,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 
 消息事务一定要保证业务操作与消息发送的一致性，如果业务操作成功，这条消息也一定投递成功。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCVyh3LENJicib1lcNtd0GcvFbg7oABZWlwVpDxfAf5oJlrSCJ1mkJbyDQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-b4cad82c-f9f9-407e-9e60-a2a35dd09b2f.jpg)
 
 **执行流程：**
 
@@ -308,7 +327,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 
 以支付通知为例，业务系统调用支付平台进行支付，支付平台进行支付，进行操作支付之后支付平台会去同步通知业务系统支付操作是否成功，如果不成功，会一直异步重试，但是会有一个最大通知次数，如果超过这个次数后还是通知失败，就不再通知，业务系统自行调用支付平台提供一个查询接口，供业务系统进行查询支付操作是否成功。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCeEoiat9IoCYklLtW4SCtQ8icjFg0mtFNjB0bk2Ribibo1BDdwXbuGoa2MA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-14edc9f7-2cbe-4790-95f4-97a3d0176c2c.jpg)
 
 
 **执行流程：**
@@ -325,7 +344,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 
 **Seata** 的设计目标是对业务无侵入，因此它是从业务无侵入的两阶段提交（全局事务）着手，在传统的两阶段上进行改进，他把一个分布式事务理解成一个包含了若干分支事务的全局事务。而全局事务的职责是协调它管理的分支事务达成一致性，要么一起成功提交，要么一起失败回滚。也就是一荣俱荣一损俱损~
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCStkr8lx7ALaVmhVcKuCene0WRiaZ4I9p39z6Fa48y5U8z8gOMXzZFgw/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-4ecb026d-2604-4fe4-9e7c-b2d328ce4356.jpg)
 
 
 **Seata** 中存在这么几种重要角色：
@@ -334,7 +353,7 @@ XA协议采用**两阶段提交**方式来管理分布式事务。XA接口提供
 *   **TM（Transaction Manager）**：事务管理者。用于开启、提交或回滚事务。
 *   **RM（Resource Manager）**：资源管理器。用于分支事务上的资源管理，向 **TC** 注册分支事务，上报分支事务的状态，接收 **TC** 的命令来提交或者回滚分支事务。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCK9IOBB6kGgV9gwwlWabcf6EAuEHy6ZNlp4MXTjcH2uN6PkOYFyTVlQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-68593970-056f-4334-864a-1f153a4278b1.jpg)
 
 
 S'eata整体执行流程：
@@ -347,6 +366,13 @@ S'eata整体执行流程：
 6.  服务B开始执行分支事务
 7.  全局事务调用处理结束后，**TM** 会根据有误异常情况，向 **TC** 发起全局事务的提交或回滚
 8.  **TC** 协调其管辖之下的所有分支事务，决定是提交还是回滚
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 分布式一致性算法
 
@@ -370,16 +396,16 @@ S'eata整体执行流程：
 
 在实际中，一个节点可以同时充当不同角色。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCINLhLsU3n0BwlHYRlKMC3UlWrtaJls9Vwibv7gbta5hR1Y1Hgw4WXEA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-e791ca85-9d8b-4beb-b7dd-8e23ed5c9ec4.jpg)
 
 
 提议者提出提案，提案=编号+value，可以表示为\[M,V\]，每个提案都有唯一编号，而且编号的大小是趋势递增的。
 
 ##### 算法流程
 
-Paxos算法包含两个阶段，第一阶段\*\*Prepare(准备)**、第二阶段**Accept(接受)\*\*。
+Paxos算法包含两个阶段，第一阶段 **Prepare(准备)** 、第二阶段 **Accept(接受)** 。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCCmIxuMtW7xfXdQ0GkOLKSyAcU2NlJj469fSYHAnhrCKREFQficprrvA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-89545387-0043-4cb6-a178-5bd7330ee4ba.jpg)
 
 
 ###### Prepare(准备)阶段
@@ -407,10 +433,8 @@ Paxos算法包含两个阶段，第一阶段\*\*Prepare(准备)**、第二阶段
 
 所以Paxos算法的整体详细流程如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCnuGcR8nVJDQffhFoW0icUg2NxkmYXia0sHuLicEhicPD37HEibP75Mhx6tA/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-53377006-1d4d-4b55-93d1-d4138339044c.jpg)
 
-
-算法的流程模拟，可以查看参考\[13\]。
 
 #### Paxos算法有什么缺点吗？怎么优化？
 
@@ -444,7 +468,7 @@ Multi Paxos算法思想，简单说就是在多个提议者的情况下，选出
 
 三类角色的变迁图如下：
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCmoPDbguBaRHyhCZhmCeX38FxMUd0Qtd69viapR6SjZ99AMLmZ3chbdg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-ef4dd655-1693-485f-aca6-494b89dfb57b.jpg)
 
 
 ##### Leader选举过程
@@ -457,10 +481,16 @@ Follower将其当前term加一然后转换为Candidate。它首先给自己投�
 *   收到了Leader的消息，表示有其它服务器已经抢先当选了Leader；
 *   没有Server赢得多数的选票，Leader选举失败，等待选举时间超时（`Election Timeout`）后发起下一次选举。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MC53m1S1v9v7OQMNDuLZjFgkOCkThu2GK7cOYmsbTgjeY0w10Kux3RZQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-996430a8-29f7-4c40-82b6-e4e33316289c.jpg)
 
 
 选出 `Leader` 后，`Leader` 通过 **定期** 向所有 `Follower` 发送 **心跳信息** 维持其统治。若 `Follower` 一段时间未收到 `Leader` 的 **心跳**，则认为 `Leader` 可能已经挂了，然后再次发起 **选举** 过程。
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 分布式设计
 
@@ -488,17 +518,19 @@ PS:幂等和防重有些不同，防重强调的防止数据重复，幂等强�
 
 ### 怎么保证接口幂等性？
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MC37tGRA4fGNibDiaSIZ8Ozj9b5ng2yaDRSkonSd389kkcYppsm7kDamTg/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-91db1e86-9bc6-4b58-9c42-e6541d04c5b8.jpg)
 
 
 1.  insert前先select
 
 在保存数据的接口中，在`insert`前，先根据`requestId`等字段先`select`一下数据。如果该数据已存在，则直接返回，如果不存在，才执行  `insert`操作。
+
 2.  加唯一索引
 
 加唯一索引是个非常简单但很有效的办法，如果重复插入数据的话，就会抛出异常，为了保证幂等性，一般需要捕获这个异常。
 
 如果是`java`程序需要捕获：`DuplicateKeyException`异常，如果使用了`spring`框架还需要捕获：`MySQLIntegrityConstraintViolationException`异常。
+
 3.  加悲观锁
 
 更新逻辑，比如更新用户账户余额，可以加悲观锁，把对应用户的哪一行数据锁住。同一时刻只允许一个请求获得锁，其他请求则等待。
@@ -508,6 +540,7 @@ select * from user id=123 for update;
 ```
 
 这种方式有一个缺点，获取不到锁的请求一般只能报失败，比较难保证接口返回相同值。
+
 4.  加乐观锁
 
 更新逻辑，也可以用乐观锁，性能更好。可以在表中增加一个`timestamp`或者`version`字段，例如`version`:
@@ -519,20 +552,30 @@ update user set amount=amount+100,version=version+1 where id=123 and vers
 ```
 
 更新成功后，version增加，重复更新请求进来就无法更新了。
+
 5.  建防重表
 
 有时候表中并非所有的场景都不允许产生重复的数据，只有某些特定场景才不允许。这时候，就可以使用防重表的方式。
 
 例如消息消费中，创建防重表，存储消息的唯一ID，消费时先去查询是否已经消费，已经消费直接返回成功。
+
 6.  状态机
 
 有些业务表是有状态的，比如订单表中有：1-下单、2-已支付、3-完成、4-撤销等状态，可以通过限制状态的流动来完成幂等。
+
 7.  分布式锁
 
 直接在数据库上加锁的做法性能不够友好，可以使用分布式锁的方式，目前最流行的分布式锁实现是通过Redis，具体实现一般都是使用Redission框架。
+
 8.  token机制
 
 请求接口之前，需要先获取一个唯一的token，再带着这个token去完成业务操作，服务端根据这个token是否存在，来判断是否是重复的请求。
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 分布式限流
 
@@ -550,7 +593,7 @@ update user set amount=amount+100,version=version+1 where id=123 and vers
 
 **算法实现**：可以准备一个队列来保存暂时处理不了的请求，然后通过一个线程池定期从队列中获取请求来执行。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCR0L7zzzIv7CCCwDJ2hqb4O8pKXe6Poqe6mSE9kcE1koXgnxWYmicd2w/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-32b12c10-9b9a-45f1-af72-a6446223fb21.jpg)
 
 
 *   令牌桶算法
@@ -561,14 +604,20 @@ update user set amount=amount+100,version=version+1 where id=123 and vers
 
 Guava RateLimiter是一个谷歌提供的限流，其基于令牌桶算法，比较适用于单实例的系统。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/PMZOEonJxWcP0zQGiaUvTrZEyBtkUL4MCGKIOJr3OlZLffQvVic6lgNqAgT50RxKCeHJWVNvnWR7aLV2trA5JHjQ/640?wx_fmt=png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//fenbushi-b80e74ed-9b0a-4327-9ea0-3bef4da76634.jpg)
 
-
-* * *
 
 这一期的分布式面试题就整理到这里了，主要是偏理论的一些问题，分布式其实是个很大的类型，比如分布式调用、分布式治理……
 
 所以，这篇文章只是个开始，后面还会有分布式调用（RPC）、微服务相关的主题文章，敬请期待。
 
 
->参考链接：[https://mp.weixin.qq.com/s?__biz=MzkwODE5ODM0Ng==&mid=2247493152&idx=1&sn=72cfe516f12d08c356050f1b2e94bb0b&chksm=c0cf0e85f7b8879352887b781747204058ceafbed7dd7c6797d257682f535d921e415b2424a8#rd](https://mp.weixin.qq.com/s?__biz=MzkwODE5ODM0Ng==&mid=2247493152&idx=1&sn=72cfe516f12d08c356050f1b2e94bb0b&chksm=c0cf0e85f7b8879352887b781747204058ceafbed7dd7c6797d257682f535d921e415b2424a8#rd)，出处：三分恶，整理：沉默王二
+> 图文详解 12 道分布式面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/nLwHEmVGtl-2FDugMqYs3A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/d84tWIjbcGKhwUptzkO2hQ)。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
