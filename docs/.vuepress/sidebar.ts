@@ -80,6 +80,7 @@ export const sidebarConfig = sidebar({
     "os",
     "network",
     "rocketmq",
+    "fenbushi",
   ],
   // 必须放在最后面
   "/": [
