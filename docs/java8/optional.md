@@ -144,10 +144,10 @@ Java 11 后还可以通过方法 `isEmpty()` 判断与 `isPresent()` 相反的�
 
 ```java
 Optional<String> opt = Optional.of("沉默王二");
-System.out.println(opt.isPresent()); // 输出：false
+System.out.println(opt.isEmpty()); // 输出：false
 
 Optional<String> optOrNull = Optional.ofNullable(null);
-System.out.println(opt.isPresent()); // 输出：true
+System.out.println(opt.isEmpty()); // 输出：true
 ```
 
 ## 05、非空表达式
