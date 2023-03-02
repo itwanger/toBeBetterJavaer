@@ -104,12 +104,13 @@
 
 ## Java基础语法
 
-- [Java中常用的48个关键字 & 2个保留字](docs/basic-extra-meal/48-keywords.md)
+- [简单过一下Java中常用的48个关键字和2个保留字](docs/basic-extra-meal/48-keywords.md)
 - [Java注释](docs/basic-grammar/javadoc.md)
-- [Java中的数据类型](docs/basic-grammar/basic-data-type.md)
-- [Java 数据类型转换](docs/basic-grammar/type-cast.md)
-- [Java流程控制语句](docs/basic-grammar/flow-control.md)
+- [Java中的数据类型（8种基本数据类型和引用数据类型）](docs/basic-grammar/basic-data-type.md)
+- [Java数据类型转换（强制类型转换+自动类型转换）](docs/basic-grammar/type-cast.md)
+- [聊聊Java基本数据类型缓存池](docs/basic-extra-meal/int-cache.md)
 - [Java运算符](docs/basic-grammar/operator.md)
+- [Java流程控制语句](docs/basic-grammar/flow-control.md)
 
 ## 数组&字符串
 
@@ -123,6 +124,7 @@
 - [Java如何判断两个字符串是否相等？](docs/string/equals.md)
 - [最优雅的Java字符串拼接是哪种方式？](docs/string/join.md)
 - [如何在Java中优雅地分割String字符串？](docs/string/split.md)
+- [Java 9为什么要将String的底层实现由char数组改成了byte数组?](docs/basic-extra-meal/jdk9-char-byte-string.md)
 
 ## Java面向对象编程
 
@@ -201,7 +203,6 @@
 
 - [Java命名规范](docs/basic-extra-meal/java-naming.md)
 - [彻底弄懂Java中的Unicode和UTF-8编码](docs/basic-extra-meal/java-unicode.md)
-- [Java中new Integer与Integer.valueOf的区别](docs/basic-extra-meal/int-cache.md)
 - [深入剖析Java中的拆箱和装箱](docs/basic-extra-meal/box.md)
 - [一文彻底讲明白的Java中的浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
 - [深入理解Java中的hashCode方法](docs/basic-extra-meal/hashcode.md)
@@ -209,7 +210,6 @@
 - [Java重写（Overriding）时应当遵守的11条规则](docs/basic-extra-meal/Overriding.md)
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
 - [详解Java中Comparable和Comparator接口的区别](docs/basic-extra-meal/comparable-omparator.md)
-- [jdk9为什么要将String的底层实现由char数组改成了byte数组?](docs/basic-extra-meal/jdk9-char-byte-string.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 - [Java 中，先有Class还是先有Object？](docs/basic-extra-meal/class-object.md)
 - [详解Java中instanceof关键字的用法](docs/basic-extra-meal/instanceof.md)
