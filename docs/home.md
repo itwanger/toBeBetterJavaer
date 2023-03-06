@@ -143,7 +143,7 @@ head:
 - [简单过了一下Java中的包](oo/package.md)
 - [Java中的变量：局部变量、成员变量、静态变量、常量](oo/var.md)
 - [Java中的方法：实例方法、静态方法、抽象方法](oo/method.md)
-- [手把手将你用 C语言实现 Java native 方法](oo/native-method.md)
+- [手把手教你用 C语言实现 Java native 方法](oo/native-method.md)
 - [Java中的构造方法：对象创建时的必经之路](oo/construct.md)
 - [聊一聊Java中的访问权限修饰符](oo/access-control.md)
 - [Java中的代码初始化块：对成员变量进行更复杂的赋值](oo/code-init.md)
