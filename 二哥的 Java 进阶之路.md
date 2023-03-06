@@ -5359,3 +5359,1335 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.1 Java中的类和对象
+
+“二哥，那天我在图书馆复习《Java进阶之路》的时候，刚好碰见一个学长，他问我有没有‘对象’，我说还没有啊。结果你猜他说什么，‘要不要我给你 new 一个啊？’我当时就懵了，new 是啥意思啊，二哥？”三妹满是疑惑的问我。
+
+“哈哈，三妹，你学长还挺幽默啊。new 是 Java 中的一个关键字，用来把类变成对象。”我笑着对三妹说，“对象和类是 Java 中最基本的两个概念，可以说撑起了面向对象编程（OOP）的一片天。”
+
+### 01、面向过程和面向对象
+
+三妹是不是要问，什么是 OOP？
+
+OOP 的英文全称是 Object Oriented Programming，要理解它的话，就要先理解面向对象，要想理解面向对象的话，就要先理解面向过程，因为一开始没有面向对象的编程语言，都是面向过程。
+
+举个简单点的例子来区分一下面向过程和面向对象。
+
+有一天，你想吃小碗汤了，怎么办呢？有两个选择：
+
+1）自己买食材，豆腐皮啊、肉啊、蒜苔啊等等，自己动手做。
+
+2）到饭店去，只需要对老板喊一声，“来份小碗汤。”
+
+第一种就是面向过程，第二种就是面向对象。
+
+面向过程有什么劣势呢？假如你买了小碗汤的食材，临了又想吃宫保鸡丁了，你是不是还得重新买食材？
+
+面向对象有什么优势呢？假如你不想吃小碗汤了，你只需要对老板说，“我那个小碗汤如果没做的话，换成宫保鸡丁吧！”
+
+面向过程是流程化的，一步一步，上一步做完了，再做下一步。
+
+面向对象是模块化的，我做我的，你做你的，我需要你做的话，我就告诉你一声。我不需要知道你到底怎么做，只看功劳不看苦劳。
+
+不过，如果追到底的话，面向对象的底层其实还是面向过程，只不过把面向过程进行了抽象化，封装成了类，方便我们的调用。
+
+### 02、类
+
+对象可以是现实中看得见的任何物体，比如说，一只特立独行的猪；也可以是想象中的任何虚拟物体，比如说能七十二变的孙悟空。
+
+Java 通过类（class）来定义这些物体，这些物体有什么状态，通过字段来定义，比如说比如说猪的颜色是纯色还是花色；这些物体有什么行为，通过方法来定义，比如说猪会吃，会睡觉。
+
+来，定义一个简单的类给你看看。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ *
+ * @author 沉默王二
+ * @date 2020/11/19
+ */
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    private void eat() {
+    }
+
+    private void sleep() {
+    }
+
+    private void dadoudou() {
+    }
+}
+```
+
+一个类可以包含：
+
+- 字段（Filed）
+- 方法（Method）
+- 构造方法（Constructor）
+
+在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员变量——在类内部但在方法外部，方法内部的叫临时变量。
+
+成员变量有时候也叫做实例变量，在编译时不占用内存空间，在运行时获取内存，也就是说，只有在对象实例化（`new Person()`）后，字段才会获取到内存，这也正是它被称作“实例”变量的原因。
+
+方法有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
+
+那三妹是不是要问，“怎么没有构造方法呢？”
+
+的确在 Person 类的源码文件（.java）中没看到，但在反编译后的字节码文件（.class）中是可以看得到的。
+
+```java
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+package com.itwanger.twentythree;
+
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    public Person() {
+    }
+
+    private void eat() {
+    }
+
+    private void sleep() {
+    }
+
+    private void dadoudou() {
+    }
+}
+```
+
+`public Person(){}` 就是默认的构造方法，因为是空的构造方法（方法体中没有内容），所以可以缺省。Java 聪明就聪明在这，有些很死板的代码不需要开发人员添加，它会偷偷地做了。
+
+### 03、new 一个对象
+
+创建 Java 对象时，需要用到 `new` 关键字。
+
+```java
+Person person = new Person();
+```
+
+这行代码就通过 Person 类创建了一个 Person 对象。所有**对象**在创建的时候都会在**堆内存中分配空间**。
+
+创建对象的时候，需要一个 `main()` 方法作为入口， `main()` 方法可以在当前类中，也可以在另外一个类中。
+
+第一种：`main()` 方法直接放在 Person 类中。
+
+```java
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    private void eat() {}
+    private void sleep() {}
+    private void dadoudou() {}
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        System.out.println(person.name);
+        System.out.println(person.age);
+        System.out.println(person.sex);
+    }
+}
+```
+
+输出结果如下所示：
+
+```
+null
+0
+0
+```
+
+第二种：`main()` 方法不在 Person 类中，而在另外一个类中。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/16-01.png)
+
+实际开发中，我们通常不在当前类中直接创建对象并使用它，而是放在使用对象的类中，比如说上图中的 PersonTest 类。
+
+可以把 PersonTest 类和 Person 类放在两个文件中，也可以放在一个文件（命名为 PersonTest.java）中，就像下面这样。
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class PersonTest {
+    public static void main(String[] args) {
+        Person person = new Person();
+    }
+}
+
+class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    private void eat() {}
+    private void sleep() {}
+    private void dadoudou() {}
+}
+```
+
+### 04、初始化对象
+
+在之前的例子中，程序输出结果为：
+
+```
+null
+0
+0
+```
+
+为什么会有这样的输出结果呢？因为 Person 对象没有初始化，因此输出了 String 的默认值 null，int 的默认值 0。
+
+那怎么初始化 Person 对象（对字段赋值）呢？
+
+#### 第一种：通过对象的引用变量。
+
+```java
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.name = "沉默王二";
+        person.age = 18;
+        person.sex = 1;
+        
+        System.out.println(person.name);
+        System.out.println(person.age);
+        System.out.println(person.sex);
+    }
+}
+```
+
+person 被称为对象 Person 的引用变量，见下图：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/16-02.png)
+
+通过对象的引用变量，可以直接对字段进行初始化（`person.name = "沉默王二"`），所以以上代码输出结果如下所示：
+
+```
+沉默王二
+18
+1
+```
+
+#### 第二种：通过方法初始化。
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    public void initialize(String n, int a, int s) {
+        name = n;
+        age = a;
+        sex = s;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.initialize("沉默王二",18,1);
+
+        System.out.println(person.name);
+        System.out.println(person.age);
+        System.out.println(person.sex);
+    }
+}
+```
+
+在 Person 类中新增方法 `initialize()`，然后在新建对象后传参进行初始化（`person.initialize("沉默王二", 18, 1)`）。
+
+#### 第三种：通过构造方法初始化。
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    public Person(String name, int age, int sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person("沉默王二", 18, 1);
+
+        System.out.println(person.name);
+        System.out.println(person.age);
+        System.out.println(person.sex);
+    }
+}
+```
+
+这也是最标准的一种做法，直接在 new 的时候把参数传递过去。
+
+补充一点知识，匿名对象。匿名对象意味着没有引用变量，它只能在创建的时候被使用一次。
+
+```java
+new Person();
+```
+
+可以直接通过匿名对象调用方法：
+
+```java
+new Person().initialize("沉默王二", 18, 1);
+```
+
+### 05、关于对象
+
+#### **1）抽象的历程**
+
+所有编程语言都是一种抽象，甚至可以说，我们能够解决的问题的复杂程度取决于抽象的类型和质量。
+
+Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java 提供了灵感。它有 5 个基本特征：
+
+- 万物皆对象。
+- 一段程序实际上就是多个对象通过发送消息的方式来告诉彼此该做什么。
+- 通过组合的方式，可以将多个对象封装成其他更为基础的对象。
+- 对象是通过类实例化的。
+- 同一类型的对象可以接收相同的消息。
+
+总结一句话就是：
+
+>状态+行为+标识=对象，每个对象在内存中都会有一个唯一的地址。
+
+#### **2）对象具有接口**
+
+所有的对象，都可以被归为一类，并且同一类对象拥有一些共同的行为和特征。在 Java 中，class 关键字用来定义一个类型。
+
+创建抽象数据类型是面向对象编程的一个基本概念。你可以创建某种类型的变量，Java 中称之为对象或者实例，然后你就可以操作这些变量，Java 中称之为发送消息或者发送请求，最后对象决定自己该怎么做。
+
+类描述了一系列具有相同特征和行为的对象，从宽泛的概念上来说，类其实就是一种自定义的数据类型。
+
+一旦创建了一个类，就可以用它创建任意多个对象。面向对象编程语言遇到的最大一个挑战就是，如何把现实/虚拟的元素抽象为 Java 中的对象。
+
+对象能够接收什么样的请求是由它的接口定义的。具体是怎么做到的，就由它的实现方法来实现。
+
+#### **3）访问权限修饰符**
+
+类的创建者有时候也被称为 API 提供者，对应的，类的使用者就被称为 API 调用者。
+
+JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 API 的提供者（Java 多线程部分的作者 Doug Lea 是被 Java 程序员敬佩的一个大佬），我们这些 Java 语言的使用者，说白了就是 JDK 的调用者。
+
+当然了，假如我们也提供了新的类给其他调用者，我们也就成为了新的创建者。
+
+API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏其他所有不必要的信息，之所以要这么做，是因为如果这些信息对调用者是不可见的，那么创建者就可以随意修改隐藏的信息，而不用担心对调用者的影响。
+ 
+这里就必须要讲到 Java 的权限修饰符。
+
+访问权限修饰符的第一个作用是，防止类的调用者接触到他们不该接触的内部实现；第二个作用是，让类的创建者可以轻松修改内部机制而不用担心影响到调用者的使用。
+
+- public
+- private
+- protected
+
+还有一种“默认”的权限修饰符，是缺省的，它修饰的类可以访问同一个包下面的其他类。
+
+#### **4）组合**
+
+我们可以把一个创建好的类作为另外一个类的成员变量来使用，利用已有的类组成成一个新的类，被称为“复用”，组合代表的关系是 has-a 的关系。
+
+#### **5）继承**
+
+继承是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
+
+常见的例子，就是形状可以有子类圆形、方形、三角形，它们的基础接口是相同的，比如说都有一个 `draw()` 的方法，子类可以继承这个方法实现自己的绘制方法。
+
+如果子类只是重写了父类的方法，那么它们之间的关系就是 is-a 的关系，但如果子类增加了新的方法，那么它们之间的关系就变成了 is-like-a 的关系。
+
+#### **6）多态**
+
+比如说有一个父类Shape
+
+```java
+public class Shape {
+    public void draw() {
+        System.out.println("形状");
+    }
+}
+```
+
+子类Circle
+
+```java
+public class Circle extends Shape{
+    @Override
+    public void draw() {
+        System.out.println("圆形");
+    }
+}
+```
+
+子类Line
+
+```java
+public class Line extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("线");
+    }
+}
+```
+
+测试类
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Shape shape1 = new Line();
+        shape1.draw();
+        Shape shape2 = new Circle();
+        shape2.draw();
+    }
+}
+```
+
+运行结果：
+
+```
+线
+圆形
+```
+
+在测试类中，shape1 的类型为 Shape，shape2 的类型也为 Shape，但调用 `draw()` 方法后，却能自动调用子类 Line 和 Circle 的 `draw()` 方法，这是为什么呢？
+
+其实就是 Java 中的多态。
+
+### 06、小结
+
+“怎么样，三妹，是不是对 Java 有了更深入更清晰的理解？”终于讲完了，我深呼了一口气，好舒畅啊！
+
+“是的，哥，感觉 Java 也就那么回事嘛。”哎呀，三妹有点狂了起来，“万物皆对象，除了基本数据类型。”
+
+“哇，三妹，你可以啊，都会自己梳理总结了。”我倍感欣慰，觉得果然是劳有所获，你讲的认真，听众就能理解和 get，满足了。
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.2 Java中的包
+
+“三妹，这一节，我们简单过一下 Java 中的包，也就是 package，这个一点就透，很好掌握。”我放下手中的雪碧，翻开笔记本，登上 GitHub，点开《二哥的 Java 进阶之路》，找到这篇「Java 中的包」，开始滔滔不绝起来。
+
+“二哥，你等一下。”让我打开思维导图做一下笔记📒。
+
+### 关于包
+
+在前面的代码中，我们把类和接口命名为`Person`、`Student`、`Hello`等简单的名字。
+
+在团队开发中，如果小明写了一个`Person`类，小红也写了一个`Person`类，现在，小白既想用小明的`Person`，也想用小红的`Person`，怎么办？
+
+如果小军写了一个`Arrays`类，恰好 JDK 也自带了一个`Arrays`类，如何解决类名冲突？
+
+在 Java 中，我们使用`package`来解决名字冲突。
+
+Java 定义了一种名字空间，称之为包：`package`。一个类总是属于某个包，类名（比如`Person`）只是一个简写，真正的完整类名是`包名.类名`。
+
+例如：
+
+小明的`Person`类存放在包`ming`下面，因此，完整类名是`ming.Person`；
+
+小红的`Person`类存放在包`hong`下面，因此，完整类名是`hong.Person`；
+
+小军的`Arrays`类存放在包`mr.jun`下面，因此，完整类名是`mr.jun.Arrays`；
+
+JDK 的`Arrays`类存放在包`java.util`下面，因此，完整类名是`java.util.Arrays`。
+
+在定义`class`的时候，我们需要在第一行声明这个`class`属于哪个包。
+
+小明的`Person.java`文件：
+
+```java
+package ming; // 申明包名ming
+
+public class Person {
+}
+```
+
+小军的`Arrays.java`文件：
+
+```java
+package mr.jun; // 申明包名mr.jun
+
+public class Arrays {
+}
+```
+
+在 Java 虚拟机执行的时候，JVM 只看完整类名，因此，只要包名不同，类就不同。
+
+包可以是多层结构，用`.`隔开。例如：`java.util`。
+
+
+>要特别注意：包没有父子关系。java.util和java.util.zip是不同的包，两者没有任何继承关系。
+
+
+没有定义包名的`class`，它使用的是默认包，非常容易引起名字冲突，因此，不推荐不写包名的做法。
+
+我们还需要按照包结构把上面的 Java 文件组织起来。假设以`package_sample`作为根目录，`src`作为源码目录，那么所有文件结构就是：
+
+```ascii
+package_sample
+└─ src
+    ├─ hong
+    │  └─ Person.java
+    │  ming
+    │  └─ Person.java
+    └─ mr
+       └─ jun
+          └─ Arrays.java
+```
+
+即所有 Java 文件对应的目录层次要和包的层次一致。
+
+编译后的`.class`文件也需要按照包结构存放。如果使用 IDE，把编译后的`.class`文件放到`bin`目录下，那么，编译的文件结构就是：
+
+```ascii
+package_sample
+└─ bin
+   ├─ hong
+   │  └─ Person.class
+   │  ming
+   │  └─ Person.class
+   └─ mr
+      └─ jun
+         └─ Arrays.class
+```
+
+编译的命令相对比较复杂，我们需要在`src`目录下执行`javac`命令：
+
+```
+javac -d ../bin ming/Person.java hong/Person.java mr/jun/Arrays.java
+```
+
+在 IDE 中，会自动根据包结构编译所有 Java 源码，所以不必担心使用命令行编译的复杂命令。
+
+### 包的作用域
+
+位于同一个包的类，可以访问包作用域的字段和方法。
+
+不用`public`、`protected`、`private`修饰的字段和方法就是包作用域。例如，`Person`类定义在`hello`包下面：
+
+```java
+package hello;
+
+public class Person {
+    // 包作用域:
+    void hello() {
+        System.out.println("Hello!");
+    }
+}
+```
+
+`Main`类也定义在`hello`包下面，就可以直接访问 Person 类：
+
+```java
+package hello;
+
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.hello(); // 可以调用，因为Main和Person在同一个包
+    }
+}
+```
+
+### 导入包
+
+在一个`class`中，我们总会引用其他的`class`。例如，小明的`ming.Person`类，如果要引用小军的`mr.jun.Arrays`类，他有三种写法：
+
+第一种，直接写出完整类名，例如：
+
+```java
+// Person.java
+package ming;
+
+public class Person {
+    public void run() {
+        mr.jun.Arrays arrays = new mr.jun.Arrays();
+    }
+}
+```
+
+很显然，每次都要写完整的类名比较痛苦。
+
+因此，第二种写法是用`import`语句，导入小军的`Arrays`，然后写简单类名：
+
+```java
+// Person.java
+package ming;
+
+// 导入完整类名:
+import mr.jun.Arrays;
+
+public class Person {
+    public void run() {
+        Arrays arrays = new Arrays();
+    }
+}
+```
+
+在写`import`的时候，可以使用`*`，表示把这个包下面的所有`class`都导入进来（但不包括子包的`class`）：
+
+```java
+// Person.java
+package ming;
+
+// 导入mr.jun包的所有class:
+import mr.jun.*;
+
+public class Person {
+    public void run() {
+        Arrays arrays = new Arrays();
+    }
+}
+```
+
+我们一般不推荐这种写法，因为在导入了多个包后，很难看出`Arrays`类属于哪个包。
+
+还有一种`import static`的语法，它可以导入一个类的静态字段和静态方法：
+
+```java
+package main;
+
+// 导入System类的所有静态字段和静态方法:
+import static java.lang.System.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // 相当于调用System.out.println(…)
+        out.println("Hello, world!");
+    }
+}
+```
+
+`import static`很少使用。
+
+Java 编译器最终编译出的`.class`文件只使用 *完整类名*，因此，在代码中，当编译器遇到一个`class`名称时：
+
+- 如果是完整类名，就直接根据完整类名查找这个`class`；
+- 如果是简单类名，按下面的顺序依次查找：
+    - 查找当前`package`是否存在这个`class`；
+    - 查找`import`的包是否包含这个`class`；
+    - 查找`java.lang`包是否包含这个`class`。
+
+如果按照上面的规则还无法确定类名，则编译报错。
+
+我们来看一个例子：
+
+```java
+// Main.java
+package test;
+
+import java.text.Format;
+
+public class Main {
+    public static void main(String[] args) {
+        java.util.List list; // ok，使用完整类名 -> java.util.List
+        Format format = null; // ok，使用import的类 -> java.text.Format
+        String s = "hi"; // ok，使用java.lang包的String -> java.lang.String
+        System.out.println(s); // ok，使用java.lang包的System -> java.lang.System
+        MessageFormat mf = null; // 编译错误：无法找到MessageFormat: MessageFormat cannot be resolved to a type
+    }
+}
+```
+
+因此，编写 class 的时候，编译器会自动帮我们做两个 import 动作：
+
+- 默认自动`import`当前`package`的其他`class`；
+- 默认自动`import java.lang.*`。
+
+
+>注意：自动导入的是java.lang包，但类似java.lang.reflect这些包仍需要手动导入。
+
+
+如果有两个`class`名称相同，例如，`mr.jun.Arrays`和`java.util.Arrays`，那么只能`import`其中一个，另一个必须写完整类名。
+
+### 包的最佳实践
+
+为了避免名字冲突，我们需要确定唯一的包名。推荐的做法是使用倒置的域名来确保唯一性。例如：
+
+- org.apache
+- org.apache.commons.log
+- com.tobebetterjavaer.sample
+
+子包就可以根据功能自行命名。
+
+要注意不要和`java.lang`包的类重名，即自己的类不要使用这些名字：
+
+- String
+- System
+- Runtime
+- ...
+
+要注意也不要和 JDK 常用类重名：
+
+- java.util.List
+- java.text.Format
+- java.math.BigInteger
+- ...
+
+
+### 小结
+
+Java 内建的`package`机制是为了避免`class`命名冲突；
+
+JDK 的核心类使用`java.lang`包，编译器会自动导入；
+
+JDK 的其它常用类定义在`java.util.*`，`java.math.*`，`java.text.*`，……；
+
+包名推荐使用倒置的域名，例如`org.apache`。
+
+---
+
+> 参考链接：[https://www.liaoxuefeng.com/wiki/1252599548343744/1260467032946976](https://www.liaoxuefeng.com/wiki/1252599548343744/1260467032946976)，整理：沉默王二
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.3 Java中的变量
+
+“二哥，听说 Java 变量在以后的日子里经常用，能不能提前给我透露透露？”三妹咪了一口麦香可可奶茶后对我说。
+
+“三妹啊，搬个凳子坐我旁边，听二哥来给你慢慢说啊。”
+
+Java 变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的[数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)（Java 分为两种数据类型：基本数据类型和引用数据类型）。变量按照作用域的范围又可分为三种类型：局部变量，成员变量和静态变量。
+
+比如说，`int data = 88;`，其中 data 就是一个变量，它的值为 88，类型为整型（int）。
+
+
+### 01、局部变量
+
+在方法体内声明的变量被称为局部变量，该变量只能在该方法内使用，类中的其他方法并不知道该变量。来看下面这个示例：
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class LocalVariable {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 10;
+        int c = a + b;
+        System.out.println(c);
+    }
+}
+```
+
+其中 a、b、c 就是局部变量，它们只能在当前这个 main 方法中使用。
+
+声明局部变量时的注意事项：
+
+- 局部变量声明在方法、构造方法或者语句块中。
+- 局部变量在方法、构造方法、或者语句块被执行的时候创建，当它们执行完成后，将会被销毁。
+- 访问修饰符不能用于局部变量。
+- 局部变量只在声明它的方法、构造方法或者语句块中可见。
+- 局部变量是在栈上分配的。
+- 局部变量没有默认值，所以局部变量被声明后，必须经过初始化，才可以使用。
+
+### 02、成员变量
+
+在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。来看下面这个示例：
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class InstanceVariable {
+    int data = 88;
+    public static void main(String[] args) {
+        InstanceVariable iv = new InstanceVariable();
+        System.out.println(iv.data); // 88
+    }
+}
+```
+
+其中 iv 是一个变量，它是一个引用类型的变量。`new` 关键字可以创建一个类的实例（也称为对象），通过“=”操作符赋值给 iv 这个变量，iv 就成了这个对象的引用，通过 `iv.data` 就可以访问成员变量了。
+
+声明成员变量时的注意事项：
+
+- 成员变量声明在一个类中，但在方法、构造方法和语句块之外。
+- 当一个对象被实例化之后，每个成员变量的值就跟着确定。
+- 成员变量在对象创建的时候创建，在对象被销毁的时候销毁。
+- 成员变量的值应该至少被一个方法、构造方法或者语句块引用，使得外部能够通过这些方式获取实例变量信息。
+- 成员变量可以声明在使用前或者使用后。
+- 访问修饰符可以修饰成员变量。
+- 成员变量对于类中的方法、构造方法或者语句块是可见的。一般情况下应该把成员变量设为私有。通过使用访问修饰符可以使成员变量对子类可见；成员变量具有默认值。数值型变量的默认值是 0，布尔型变量的默认值是 false，引用类型变量的默认值是 null。变量的值可以在声明时指定，也可以在构造方法中指定。
+
+### 03、静态变量
+
+通过 static 关键字声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class StaticVariable {
+    static int data = 99;
+    public static void main(String[] args) {
+        System.out.println(StaticVariable.data); // 99
+    }
+}
+```
+
+其中 data 就是静态变量，通过`类名.静态变量`就可以访问了，不需要创建类的实例。
+
+声明静态变量时的注意事项：
+
+- 静态变量在类中以 static 关键字声明，但必须在方法构造方法和语句块之外。
+- 无论一个类创建了多少个对象，类只拥有静态变量的一份拷贝。
+- 静态变量除了被声明为常量外很少使用。
+- 静态变量储存在静态存储区。
+- 静态变量在程序开始时创建，在程序结束时销毁。
+- 与成员变量具有相似的可见性。但为了对类的使用者可见，大多数静态变量声明为 public 类型。
+- 静态变量的默认值和实例变量相似。
+- 静态变量还可以在静态语句块中初始化。
+
+### 04、常量
+
+在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 final 关键字修饰的成员变量。常量的值一旦给定就无法改变！
+
+常量在程序运行过程中主要有 2 个作用：
+
+- 代表常数，便于修改（例如：圆周率的值，`final double PI = 3.14`）
+- 增强程序的可读性（例如：常量 UP、DOWN 用来代表上和下，`final int UP = 0`）
+
+Java 要求常量名必须大写。来看下面这个示例：
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class FinalVariable {
+    final String CHEN = "沉";
+    static final String MO = "默";
+    public static void main(String[] args) {
+        FinalVariable fv = new FinalVariable();
+        System.out.println(fv.CHEN);
+        System.out.println(MO);
+    }
+}
+```
+
+“好了，三妹，关于 Java 变量就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
+
+“是啊，二哥，我想以后还会再见到它们吧？”
+
+“那见的次数可就多了，就好像你每天眨眼的次数一样多。”
+
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.4 Java中的方法
+
+“二哥，这一节我们学什么呢？”三妹满是期待的问我。
+
+“这一节我们来了解一下 Java 中的方法——什么是方法？如何声明方法？方法有哪几种？什么是实例方法？什么是静态方法？什么是抽象方法？什么是本地方法？”我笑着对三妹说，“我开始了啊，你要注意力集中啊。”
+
+### 01、Java中的方法是什么？
+
+方法用来实现代码的可重用性，我们编写一次方法，并多次使用它。通过增加或者删除方法中的一部分代码，就可以提高整体代码的可读性。
+
+只有方法被调用时，它才会执行。Java 中最有名的方法当属 `main()` 方法，这是程序的入口。
+
+### 02、如何声明方法？
+
+方法的声明反映了方法的一些信息，比如说可见性、返回类型、方法名和参数。如下图所示。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
+
+**访问权限**：它指定了方法的可见性。Java 提供了四种访问权限修饰符：
+
+- public：该方法可以被所有类访问。
+- private：该方法只能在定义它的类中访问。
+- protected：该方法可以被同一个包中的类，或者不同包中的子类访问。
+- default：该方法如果没有使用任何访问权限修饰符，Java 默认它使用 default 修饰符，该方法只能被同一个包中类可见。
+
+**返回类型**：方法返回的数据类型，可以是基本数据类型、对象和集合，如果不需要返回数据，则使用 void 关键字。
+
+**方法名**：方法名最好反应出方法的功能，比如，我们要创建一个将两个数字相减的方法，那么方法名最好是 subtract。
+
+方法名最好是一个动词，并且以小写字母开头。如果方法名包含两个以上单词，那么第一个单词最好是动词，然后是形容词或者名词，并且要以驼峰式的命名方式命名。比如：
+
+- 一个单词的方法名：`sum()`
+- 多个单词的方法名：`stringComparision()`
+
+一个方法可能与同一个类中的另外一个方法同名，这被称为方法重载。
+
+**参数**：参数被放在一个圆括号内，如果有多个参数，可以使用逗号隔开。参数包含两个部分，参数类型和参数名。如果方法没有参数，圆括号是空的。
+
+**方法签名**：每一个方法都有一个签名，包括方法名和参数。
+
+**方法体**：方法体放在一对花括号内，把一些代码放在一起，用来执行特定的任务。
+
+### 03、方法有哪几种？
+
+方法可以分为两种，一种叫标准类库方法，一种叫用户自定义方法。
+
+#### **1）预先定义方法**
+
+Java 提供了大量预先定义好的方法供我们调用，也称为标准类库方法，或者内置方法。比如说 String 类的 `length()`、`equals()`、`compare()` 方法，以及我们在初学 Java 阶段最常用的 `println()` 方法，用来在控制台打印信息。
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class PredefinedMethodDemo {
+    public static void main(String[] args) {
+        System.out.println("沉默王二，一枚有趣的程序员");
+    }
+}
+```
+
+在上面的代码中，我们使用了两个预先定义的方法，`main()` 方法是程序运行的入口，`println()` 方法是 `PrintStream` 类的一个方法。这些方法已经提前定义好了，所以我们可以直接使用它们。
+
+我们可以通过集成开发工具查看预先定义方法的方法签名，当我们把鼠标停留在 `println()` 方法上面时，就会显示下图中的内容：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-02.png)
+
+`println()` 方法的访问权限修饰符是 public，返回类型为 void，方法名为 println，参数为 `String x`，以及 Javadoc（方法是干嘛的）。
+
+预先定义方法让编程变得简单了起来，我们只需要在实现某些功能的时候直接调用这些方法即可，不需要重新编写。
+
+Java 的一个非常大的优势，就是，JDK 的设计者（开发者）为我们提供了大量的标准类库方法，这对于初学编程的新手来说极其友好；不仅如此，GitHub/码云上也有大量可以直接拿到生产环境下使用的第三方类库，比如说 hutool 啊、Apache 包啊、一线大厂或者顶级开发大佬贡献的类库，比如说 Druid、Gson 等等。
+
+但如果你想从一个初级开发者（俗称调包侠）晋升为一名优秀的 Java 工程师，那就需要深入研究这些源码，并掌握，最好是能自己写出来这些源码，最起码能自定义一些源码，以便为我们所用。
+
+#### **2）用户自定义方法**
+
+当预先定义方法无法满足我们的要求时，就需要自定义一些方法，比如说，我们来定义这样一个方法，用来检查数字是偶数还是奇数。
+
+```java
+public static void findEvenOdd(int num) {
+    if (num % 2 == 0) {
+        System.out.println(num + " 是偶数");
+    } else {
+        System.out.println(num + " 是奇数");
+    }
+}
+```
+
+方法名叫做 `findEvenOdd`，访问权限修饰符是 public，并且是静态的（static），返回类型是 void，参数有一个整型（int）的 num。方法体中有一个 if else 语句，如果 num 可以被 2 整除，那么就打印这个数字是偶数，否则就打印这个数字是奇数。
+
+方法被定义好后，如何被调用呢？
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class EvenOddDemo {
+    public static void main(String[] args) {
+        findEvenOdd(10);
+        findEvenOdd(11);
+    }
+
+    public static void findEvenOdd(int num) {
+        if (num % 2 == 0) {
+            System.out.println(num + " 是偶数");
+        } else {
+            System.out.println(num + " 是奇数");
+        }
+    }
+}
+```
+
+`main()` 方法是程序的入口，并且是静态的，那么就可以直接调用同样是静态方法的 `findEvenOdd()`。
+
+当一个方法被 static 关键字修饰时，它就是一个静态方法。换句话说，静态方法是属于类的，不属于类实例的（不需要通过 new 关键字创建对象来调用，直接通过类名就可以调用）。
+
+### 04、什么是实例方法？
+
+没有使用 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class InstanceMethodExample {
+    public static void main(String[] args) {
+        InstanceMethodExample instanceMethodExample = new InstanceMethodExample();
+        System.out.println(instanceMethodExample.add(1, 2));
+    }
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+`add()` 方法是一个实例方法，需要创建 InstanceMethodExample 对象来访问。
+
+实例方法有两种特殊类型：
+
+- getter 方法
+- setter 方法
+
+getter 方法用来获取私有变量（private 修饰的字段）的值，setter 方法用来设置私有变量的值。
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class Person {
+    private String name;
+    private int age;
+    private int sex;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+}
+```
+
+getter 方法以 get 开头，setter 方法以 set 开头。
+
+### 05、什么是静态方法？
+
+相应的，有 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰的方法就叫做静态方法。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ *
+ * @author 沉默王二
+ * @date 8/9/22
+ */
+public class StaticMethodExample {
+    public static void main(String[] args) {
+        System.out.println(add(1,2));
+    }
+
+    public static int add(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+StaticMethodExample 类中，mian 和 add 方法都是静态方法，不同的是，main 方法是程序的入口。当我们调用静态方法的时候，就不需要 new 出来类的对象，就可以直接调用静态方法了，一些工具类的方法都是静态方法，比如说 hutool 工具类库，里面有大量的静态方法可以直接调用。
+
+> Hutool 的目标是使用一个工具方法代替一段复杂代码，从而最大限度的避免“复制粘贴”代码的问题，彻底改变我们写代码的方式。
+
+以计算 MD5 为例：
+
+- 👴【以前】打开搜索引擎 -> 搜“Java MD5 加密” -> 打开某篇博客-> 复制粘贴 -> 改改好用
+- 👦【现在】引入 Hutool -> SecureUtil.md5()
+
+Hutool 的存在就是为了减少代码搜索成本，避免网络上参差不齐的代码出现导致的 bug。
+
+### 06、什么是抽象方法？
+
+没有方法体的方法被称为抽象方法，它总是在抽象类中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+abstract class AbstractDemo {
+    abstract void display();
+}
+```
+
+当一个类继承了抽象类后，就必须重写抽象方法：
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class MyAbstractDemo extends AbstractDemo {
+    @Override
+    void display() {
+        System.out.println("重写了抽象方法");
+    }
+
+    public static void main(String[] args) {
+        MyAbstractDemo myAbstractDemo = new MyAbstractDemo();
+        myAbstractDemo.display();
+    }
+}
+```
+
+输出结果如下所示：
+
+```
+重写了抽象方法
+```
+
+“关于方法，我们就讲到这里吧，学会了类/变量/方法，基本上就可以做一个入门级的 Java 程序员了。”我面露微笑，继续对三妹说，“继续加油吧！”
+
+“好的，谢谢二哥你的细心帮助。”
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+# 5.5 Java中的本地方法
+
+“三妹，之前我们学习了 Java 中的基本方法，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
+
+“听起来挺有意思的。”三妹很期待。
+
+“我会教你用 C语言实现一个 native 方法。”我继续说到，“C语言是另外一种编程语言，你可以点这个[链接](https://tobebetterjavaer.com/xuexiluxian/c.html)去了解和学习。让我们开始吧”
+
+类似 Thread 类中的 `private native start0()` 方法；
+
+又或者 Object.class 类中的 getClass() 方法、hashCode()方法、clone() 方法，其中方法签名如下：
+
+```java
+public final native Class<?> getClass();
+public native int hashCode();
+protected native Object clone() throws CloneNotSupportedException;
+```
+
+也就是用【native】关键词修饰的方法，多数情况下不需要用 Java 语言实现。
+
+“二哥，为什么要用 native 来修饰方法呢，这样做有什么用？”三妹很乖，但这个问题也问的很掷地有声。
+
+“好的，三妹，我们一步步来扒拉”。
+
+### **1、JNI：Java Native Interface**
+
+在介绍 native 之前，我们先了解什么是 JNI。
+
+一般情况下，我们完全可以使用 Java 语言编写程序，但某些情况下，Java 可能满足不了需求，或者不能更好的满足需求，比如：
+
+- ①、标准的 Java 类库不支持。
+- ②、我们已经用另一种语言，比如说 C/C++ 编写了一个类库，如何用 Java 代码调用呢？
+- ③、某些运行次数特别多的方法，为了加快性能，需要用更接近硬件的语言（比如汇编）编写。
+
+上面这三种需求，说到底就是如何用 Java 代码调用不同语言编写的代码。那么 JNI 应运而生了。
+
+从 Java 1.1 开始，Java Native Interface (JNI)标准就成为 Java 平台的一部分，它允许 Java 代码和其他语言编写的代码进行交互。
+
+JNI 一开始是为了本地已编译语言，尤其是 C 和 C++而设计的，但是它并不妨碍你使用其他语言，只要调用约定受支持就可以了。使用 Java 与本地已编译的代码交互，通常会丧失平台可移植性，但是，有些情况下这样做是可以接受的，甚至是必须的，比如，使用一些旧的库，与硬件、操作系统进行交互，或者为了提高程序的性能。JNI 标准至少保证本地代码能工作能在任何 Java 虚拟机实现下。
+
+![](https://files.mdnice.com/user/3903/2673e6dd-5c85-4d17-b8a1-b6429706cde0.png)
+
+通过 JNI，我们就可以通过 Java 程序（代码）调用到操作系统相关的技术实现的库函数，从而与其他技术和系统交互；同时其他技术和系统也可以通过 JNI 提供的相应原生接口调用 Java 应用系统内部实现的功能。
+
+“二哥，等一下，Java 不是跨平台的吗？如果用 JNI，那么程序不就失去了跨平台的优点？”不得不说，三妹这个问题起到好处。
+
+“确实是这样的。”我掐灭了中指和无名指之间的烟头，继续娓娓道来。
+
+JNI 的缺点：
+
+- ①、程序不再跨平台。要想跨平台，必须在不同的系统环境下重新编译本地语言部分。
+- ②、程序不再是绝对安全的，本地代码的不当使用可能导致整个程序崩溃。一个通用规则是，你应该让本地方法集中在少数几个类当中。这样就降低了 Java 和 C/C++ 之间的耦合性。
+
+目前来讲使用 JNI 的缺点相对于优点还是可以接受的，可能后面随着 Java 的技术发展，我们不在需要 JNI，但是目前 JDK 还是一直提供了对 JNI 标准的支持。
+
+### **2、用 C 语言编写程序本地方法**
+
+“上面讲解了什么是 JNI，接下来我们来写个例子：如何用 Java 代码调用本地的 C 程序。”我扭头对三妹说，“你注意📢看。”
+
+>官方文档如下：[https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/jniTOC.html](https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/jniTOC.html)
+
+步骤如下： 　　 
+
+①、编写带有 native 方法的 Java 类，生成.java 文件；
+
+②、使用 javac 命令编译所编写的 Java 类，生成.class 文件；
+
+③、使用 javah -jni java 类名 生成扩展名为 h 的头文件，也即生成 .h 文件；
+
+④、使用 C/C++（或者其他编程想语言）实现本地方法，创建 .h 文件的实现，也就是创建 .cpp 文件实现.h 文件中的方法；
+
+⑤、将 C/C++ 编写的文件生成动态连接库，生成 dll 文件；
+
+下面我们通过一个 HelloWorld 程序的调用来完成这几个步骤。
+
+#### 01）编写带有 native 方法的 Java 类 HelloJNI.java
+
+在 `/Users/itwanger/Documents/Github/javabetter/testjni` 目录下创建 HelloJNI.java 文件，内容如下所示。
+
+```java
+public class HelloJNI {
+    static {
+        System.loadLibrary("hello"); // 加载名为 libhello.dylib 的动态链接库
+    }
+
+    // 定义本地方法
+    private native void helloJNI();
+
+    public static void main(String[] args) {
+        new HelloJNI().helloJNI(); // 调用本地方法
+    }
+}
+```
+
+**PS：后面执行的命令都将在 testjni 的目录下**。
+
+解释一下这段代码：
+
+`private native void helloJNI()`：用 native 声明的方法告知 JVM 调用该方法在外部定义，也就是我们会用 C 语言去实现。
+
+`System.loadLibrary("hello")`：加载动态库，参数 hello 是动态库的名字。我们可以这样理解：程序中的方法 helloJNI() 在程序中没有实现，但是我们下面要调用这个方法，怎么办呢？
+
+我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://tobebetterjavaer.com/oo/static.html)，后面会讲到。
+
+#### 2）编译 HelloJNI.java
+
+在命令行通过 `javac HelloJNI.java` 来编译源代码。
+
+![](https://files.mdnice.com/user/3903/693f96cb-132a-4958-b155-1e3685723621.png)
+
+#### 03）使用 `javah -jni HelloJNI` 生成扩展名为 h 的头文件
+
+![](https://files.mdnice.com/user/3903/0d99c05e-4bf6-44e8-916a-96471d743f4b.png)
+
+>PS：Java 9 以后，javah 被弃用，取而代之的是使用 -h 选项来生成头文件，例如 `javac -h . ClassName.java`。
+
+执行完毕后，会在 HelloJNI.java 所在目录下生成一个名为 HelloJNI.h 的头文件。打开 HelloJNI.h 文件，可以看到如下代码。　　
+
+![](https://files.mdnice.com/user/3903/4dafe442-71d1-41df-b04c-e96d892f39ad.png)
+
+看不懂没关系，无所谓，直到它是自动生成的就好。
+
+#### 04）使用 C 语言实现本地方法 
+
+创建一个 C 文件 HelloJNI.c，实现本地方法 sayHello。
+
+```c
+#include <stdio.h>
+#include <jni.h>
+#include "HelloJNI.h"
+
+JNIEXPORT void JNICALL Java_HelloJNI_helloJNI(JNIEnv *env, jobject obj) {
+    printf("Hello, JNI!\n");
+    return;
+}
+```
+
+注意，这里需要引入 JNI 头文件，并且实现的方法名称需要与在 Java 中声明的名称一致（`HelloJNI_helloJNI` HelloJNI 类的 helloJNI 方法）。
+
+#### 05）编写编译脚本 compile.sh
+
+```sh
+#!/bin/bash
+
+# 编译 HelloJNI.c 文件
+gcc -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -shared -o libhello.dylib HelloJNI.c
+
+# 把生成的 libhello.dylib 文件拷贝到当前目录
+cp libhello.dylib .
+```
+
+注意事项：
+
+- `$JAVA_HOME` 是 JDK 的安装路径，需要根据实际情况修改。
+- 在 macOS 上，动态链接库（hello）的后缀是 .dylib，而不是 Linux 上的 .so。
+
+
+这里的 -I 选项是为了告诉编译器头文件的位置，`$JAVA_HOME` 是 Java 安装目录的路径。
+
+
+#### 06）执行编译脚本
+
+```
+sh compile.sh
+```
+
+执行完毕后，会在当前目录下生成一个名为 libhello.dylib 的动态链接库。
+
+![](https://files.mdnice.com/user/3903/ccf86ab7-6dae-4ea2-9649-6dfb1bd977d9.png)
+
+#### 07）运行 HelloJNI
+
+执行`java HelloJNI`命令运行 HelloJNI，如果一切正常，就会在终端上输出 Hello, JNI!。
+
+![](https://files.mdnice.com/user/3903/b10c0b70-6105-492d-819a-6e66c69021dd.png)
+
+### **3、JNI 调用 C 的流程图**
+
+![](https://files.mdnice.com/user/3903/124a3a78-dc5f-445f-94cb-31194c498ec2.png)
+
+
+### **4、native 关键字**
+
+“三妹，现在应该知道什么是 native 了吧？”我问三妹。
+
+“嗯嗯，我来简述一下，二哥你看看我说的是否正确。”
+
+native 用来修饰方法，用 native 声明的方法表示该方法的实现在外部定义，可以用任何语言去实现它，比如说 C/C++。 简单地讲，一个 native Method 就是一个 Java 调用非 Java 代码的接口。
+
+native 语法：
+
+- ①、修饰方法的位置必须在返回类型之前，和其余的方法控制符前后关系不受限制。
+- ②、不能用 abstract 修饰，也没有方法体，也没有左右大括号。
+- ③、返回值可以是任意类型
+
+“三妹，你学的不错嘛。”我对三妹的学习能力感到非常的欣慰，“**我们在日常编程中看到 native 修饰的方法，只需要知道这个方法的作用是什么，至于别的就不用管了，操作系统会给我们实现，初学的时候也不需要太过深入**。”
+
+>- Windows 下安装 gcc 教程：[http://blog.csdn.net/altland/article/details/63252757](https://blog.csdn.net/altland/article/details/63252757)
+>- native 参考链接：[https://www.zhihu.com/question/28001771/answer/2049534464](https://www.zhihu.com/question/28001771/answer/2049534464)
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
