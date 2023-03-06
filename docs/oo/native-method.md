@@ -1,7 +1,7 @@
 ---
-title: 手把手将你用 C语言实现 Java native 方法
+title: 手把手教你用 C语言实现 Java native 方法
 shortTitle: 用C语言实现本地方法
-description: Java程序员进阶之路，小白的零基础Java教程，手把手将你用 C语言实现 Java native 方法
+description: Java程序员进阶之路，小白的零基础Java教程，手把手教你用 C语言实现 Java native 方法
 category:
   - Java 核心
 tag:
@@ -52,7 +52,7 @@ protected native Object clone() throws CloneNotSupportedException;
 
 JNI 一开始是为了本地已编译语言，尤其是 C 和 C++而设计的，但是它并不妨碍你使用其他语言，只要调用约定受支持就可以了。使用 Java 与本地已编译的代码交互，通常会丧失平台可移植性，但是，有些情况下这样做是可以接受的，甚至是必须的，比如，使用一些旧的库，与硬件、操作系统进行交互，或者为了提高程序的性能。JNI 标准至少保证本地代码能工作能在任何 Java 虚拟机实现下。
 
-![](https://files.mdnice.com/user/3903/2673e6dd-5c85-4d17-b8a1-b6429706cde0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-2a6fd1da-8b64-4fe1-bf3b-fbb117774549.png)
 
 通过 JNI，我们就可以通过 Java 程序（代码）调用到操作系统相关的技术实现的库函数，从而与其他技术和系统交互；同时其他技术和系统也可以通过 JNI 提供的相应原生接口调用 Java 应用系统内部实现的功能。
 
@@ -120,17 +120,17 @@ public class HelloJNI {
 
 在命令行通过 `javac HelloJNI.java` 来编译源代码。
 
-![](https://files.mdnice.com/user/3903/693f96cb-132a-4958-b155-1e3685723621.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-41e11e7f-31c1-4611-9b85-63ec211ff31b.png)
 
 #### 03）使用 `javah -jni HelloJNI` 生成扩展名为 h 的头文件
 
-![](https://files.mdnice.com/user/3903/0d99c05e-4bf6-44e8-916a-96471d743f4b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-0b08bf51-7bd9-4d06-a0dc-4262c1a71fd5.png)
 
 >PS：Java 9 以后，javah 被弃用，取而代之的是使用 -h 选项来生成头文件，例如 `javac -h . ClassName.java`。
 
 执行完毕后，会在 HelloJNI.java 所在目录下生成一个名为 HelloJNI.h 的头文件。打开 HelloJNI.h 文件，可以看到如下代码。　　
 
-![](https://files.mdnice.com/user/3903/4dafe442-71d1-41df-b04c-e96d892f39ad.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-e5c34f63-84df-4a99-96e1-b45ea04929df.png)
 
 看不懂没关系，无所谓，直到它是自动生成的就好。
 
@@ -180,17 +180,17 @@ sh compile.sh
 
 执行完毕后，会在当前目录下生成一个名为 libhello.dylib 的动态链接库。
 
-![](https://files.mdnice.com/user/3903/ccf86ab7-6dae-4ea2-9649-6dfb1bd977d9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-e93c8fa8-6e33-4374-81da-8bd9360d1bb4.png)
 
 #### 07）运行 HelloJNI
 
 执行`java HelloJNI`命令运行 HelloJNI，如果一切正常，就会在终端上输出 Hello, JNI!。
 
-![](https://files.mdnice.com/user/3903/b10c0b70-6105-492d-819a-6e66c69021dd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-34beba0f-8fe8-48d0-aa48-b25c1b504b59.png)
 
 ### **3、JNI 调用 C 的流程图**
 
-![](https://files.mdnice.com/user/3903/124a3a78-dc5f-445f-94cb-31194c498ec2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-6673cf73-c4dd-4434-b821-0d705f756a73.png)
 
 
 ### **4、native 关键字**
