@@ -1,6 +1,6 @@
 ---
 title: 深入理解Java中的注解
-shortTitle: 深入理解Java中的注解
+shortTitle: Java注解
 category:
   - Java核心
 tag:
@@ -9,12 +9,14 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,注解,annotation
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,注解,annotation,java 注解,java annotation
 ---
+
+# 5.22 Java注解
 
 “二哥，这节讲注解吗？”三妹问。
 
-“是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？但你知道怎么自定义一个注解吗？”
+“是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？[方法重写](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)的时候用到过。但你知道怎么自定义一个注解吗？”
 
 三妹毫不犹豫地摇摇头，摆摆手，不好意思地承认自己的确没有自定义过。
 
@@ -37,7 +39,7 @@ public class AutowiredTest {
 }
 ```
 
-注意到 `@Autowired` 这个注解了吧？它本来是为 Spring 容器注入 Bean 的，现在被我无情地扔在了字段 name 的身上，但这段代码所在的项目中并没有启用 Spring，意味着 `@Autowired` 注解此时只是一个摆设。
+注意到 `@Autowired` 这个注解了吧？它本来是为 Spring（后面会讲）容器注入 Bean 的，现在被我无情地扔在了字段 name 的身上，但这段代码所在的项目中并没有启用 Spring，意味着 `@Autowired` 注解此时只是一个摆设。
 
 “既然只是个摆设，那你这个地方为什么还要用 `@Autowired` 呢？”三妹好奇地问。
 
