@@ -114,12 +114,14 @@ head:
 
 ### Java基础语法
 
-- [Java中常用的48个关键字 & 2个保留字](basic-extra-meal/48-keywords.md)
+- [简单过一下Java中常用的48个关键字和2个保留字](basic-extra-meal/48-keywords.md)
 - [Java注释](basic-grammar/javadoc.md)
-- [Java 中的数据类型](basic-grammar/basic-data-type.md)
-- [Java 数据类型转换](basic-grammar/type-cast.md)
-- [Java流程控制语句](basic-grammar/flow-control.md)
+- [Java中的数据类型（8种基本数据类型和引用数据类型）](basic-grammar/basic-data-type.md)
+- [Java数据类型转换（强制类型转换+自动类型转换）](basic-grammar/type-cast.md)
+- [聊聊Java基本数据类型缓存池](basic-extra-meal/int-cache.md)
 - [Java运算符](basic-grammar/operator.md)
+- [Java流程控制语句](basic-grammar/flow-control.md)
+
 
 ### 数组&字符串
 
@@ -133,27 +135,33 @@ head:
 - [Java如何判断两个字符串是否相等？](string/equals.md)
 - [最优雅的Java字符串拼接是哪种方式？](string/join.md)
 - [如何在Java中优雅地分割String字符串？](string/split.md)
+- [Java 9为什么要将String的底层实现由char数组改成了byte数组?](basic-extra-meal/jdk9-char-byte-string.md)
 
 ### 面向对象编程
 
-- [怎么理解Java中的类和对象？](oo/object-class.md)
-- [Java 包，优雅地解决类名冲突](oo/package.md)
+- [一文彻底讲清楚Java中的类和对象](oo/object-class.md)
+- [简单过了一下Java中的包](oo/package.md)
 - [Java中的变量：局部变量、成员变量、静态变量、常量](oo/var.md)
 - [Java中的方法：实例方法、静态方法、抽象方法](oo/method.md)
-- [Java中的构造方法：对象创建时的必经之路](oo/construct.md)
+- [聊聊Java中的可变参数](basic-extra-meal/varables.md)
+- [手把手教你用 C语言实现 Java native 方法](oo/native-method.md)
+- [构造方法：Java对象创建时的必经之路](oo/construct.md)
 - [聊一聊Java中的访问权限修饰符](oo/access-control.md)
-- [Java中的代码初始化块：对成员变量进行更复杂的赋值](oo/code-init.md)
+- [Java中的代码初始化块](oo/code-init.md)
 - [Java抽象类，看这一篇就够了，豁然开朗](oo/abstract.md)
 - [Java接口，看这一篇就够了，简单易懂](oo/interface.md)
-- [Java 抽象类和接口的区别，看这一篇就够了](oo/abstract-vs-interface.md)
-- [Java内部类详解：成员内部类、局部内部类、匿名内部类、静态内部类](oo/inner-class.md)
-- [Java中this和super的用法总结](oo/this-super.md)
-- [Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了](basic-extra-meal/override-overload.md)
-- [一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
-- [一文彻底搞懂 Java final 关键字](oo/final.md)
-- [这次彻底搞清楚了 Java 的三大特征之一：封装](oo/encapsulation.md)
-- [一万字彻底搞懂 Java 继承（三大特征之一）](oo/extends-bigsai.md)
-- [几句话，直观解释清楚 Java 多态（三大特征之一）](oo/polymorphism.md)
+- [Java 抽象类和接口的区别](oo/abstract-vs-interface.md)
+- [聊聊Java内部类：成员内部类、局部内部类、匿名内部类、静态内部类](oo/inner-class.md)
+- [聊聊 Java 封装](oo/encapsulation.md)
+- [深入理解 Java 继承](oo/extends-bigsai.md)
+- [聊聊 Java 多态](oo/polymorphism.md)
+- [Java中this和super关键字的用法总结](oo/this-super.md)
+- [详解 static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
+- [一文彻底搞懂 final 关键字](oo/final.md)
+- [聊聊instanceof关键字](basic-extra-meal/instanceof.md)
+- [聊聊Java中的不可变对象](basic-extra-meal/immutable.md)
+- [方法重写 Override 和方法重载 Overload 有什么区别？](basic-extra-meal/override-overload.md)
+- [深入理解Java中的注解](basic-extra-meal/annotation.md)
 
 ### 集合框架（容器）
 
@@ -211,7 +219,6 @@ head:
 
 - [Java命名规范](basic-extra-meal/java-naming.md)
 - [彻底弄懂Java中的Unicode和UTF-8编码](basic-extra-meal/java-unicode.md)
-- [Java中new Integer与Integer.valueOf的区别](basic-extra-meal/int-cache.md)
 - [深入剖析Java中的拆箱和装箱](basic-extra-meal/box.md)
 - [一文彻底讲明白的Java中的浅拷贝与深拷贝](basic-extra-meal/deep-copy.md)
 - [深入理解Java中的hashCode方法](basic-extra-meal/hashcode.md)
@@ -219,16 +226,10 @@ head:
 - [Java重写（Overriding）时应当遵守的11条规则](basic-extra-meal/Overriding.md)
 - [Java到底是值传递还是引用传递？](basic-extra-meal/pass-by-value.md)
 - [详解Java中Comparable和Comparator接口的区别](basic-extra-meal/comparable-omparator.md)
-- [jdk9为什么要将String的底层实现由char数组改成了byte数组?](basic-extra-meal/jdk9-char-byte-string.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
-- [Java 中，先有Class还是先有Object？](basic-extra-meal/class-object.md)
-- [详解Java中instanceof关键字的用法](basic-extra-meal/instanceof.md)
 - [instanceof关键字是如何实现的？](basic-extra-meal/instanceof-jvm.md)
-- [深入理解Java中的不可变对象](basic-extra-meal/immutable.md)
-- [Java中可变参数的使用](basic-extra-meal/varables.md)
 - [深入理解Java中的泛型](basic-extra-meal/generic.md)
 - [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
-- [深入理解Java中的注解](basic-extra-meal/annotation.md)
 - [新来个技术总监，彻底把 Java 枚举(enum)讲清楚了](basic-extra-meal/enum.md)
 - [大白话说清楚Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
 

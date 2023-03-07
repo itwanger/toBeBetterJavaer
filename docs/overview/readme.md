@@ -1,6 +1,6 @@
 # 第一章：小册简介
 
-![](https://cdn.tobebetterjavaer.com/paicoding/adbd4b9992d0656dfe743da0b4adc63e.png)
+![](https://files.mdnice.com/user/3903/ac95f39b-aeff-4fd0-be95-0f0020c36b4a.jpg)
 
 > PS：为了增加这份小册的趣味性，我特意为此追加了两个虚拟角色，一个二哥，一个三妹，二哥负责教，三妹负责学。这样大家在学习 Java 的时候代入感会更强烈一些，希望这样的设定能博得大家的欢心。
 

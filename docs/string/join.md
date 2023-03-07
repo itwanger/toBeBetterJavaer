@@ -9,15 +9,18 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,字符串拼接
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,字符串拼接,java字符串拼接,java string拼接
 ---
 
+# 4.9 字符串拼接
 
-“哥，你让我看的《[Java 开发手册](https://tobebetterjavaer.com/nice-article/weixin/sulwgalcpdssbjavakfsc.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
+“哥，你让我看的《[Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 
-“好的，三妹，哥来慢慢给你讲。”我回答。
+“其实这个问题，我们之前已经[聊过](https://tobebetterjavaer.com/string/builder-buffer.html)。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
 
-三妹能在学习的过程中不断地发现问题，让我感到非常的开心。其实很多时候，我们不应该只是把知识点记在心里，还应该问一问自己，到底是为什么，只有迈出去这一步，才能真正的成长起来。
+PS：三妹能在学习的过程中不断地发现问题，让我感到非常的开心。其实很多时候，我们不应该只是把知识点记在心里，还应该问一问自己，到底是为什么，只有迈出去这一步，才能真正的成长起来。
+
+### javap 探究+号操作符拼接字符串的本质
 
 “+ 号操作符其实被 Java 在编译的时候重新解释了，换一种说法就是，+ 号操作符是一种语法糖，让字符串的拼接变得更简便了。”一边给三妹解释，我一边在 Intellij IDEA 中敲出了下面这段代码。
 
@@ -66,9 +69,9 @@ class Demo {
 
 “然后看标号为 17 的这行，是一个 invokevirtual 指令，用于调用对象的方法，也就是 StringBuilder 对象的 `append()` 方法。”
 
-“也就意味着把 chenmo 这个字符串添加到 StringBuilder 对象中了。”
+“也就意味着把 chenmo（"沉默"）这个字符串添加到 StringBuilder 对象中了。”
 
-“再往下看，标号为 21 的这行，又调用了一次 `append()` 方法，意味着把 wanger 这个字符串添加到 StringBuilder 对象中了。”
+“再往下看，标号为 21 的这行，又调用了一次 `append()` 方法，意味着把 wanger（"王二"）这个字符串添加到 StringBuilder 对象中了。”
 
 换成 Java 代码来表示的话，大概是这个样子：
 
@@ -77,14 +80,14 @@ class Demo {
     public static void main(String[] args) {
         String chenmo = "沉默";
         String wanger = "王二";
-        System.out.println((new StringBuilder(String.valueOf(chenmo))).append(wanger).toString());
+        System.out.println((new StringBuilder(chenmo)).append(wanger).toString());
     }
 }
 ```
 
 “哦，原来编译的时候把“+”号操作符替换成了 StringBuilder 的 `append()` 方法啊。”三妹恍然大悟。
 
-“是的，不过到了 Java 9，情况发生了一些改变，同样的代码，字节码指令完全不同了。”我说。
+“是的，不过到了 Java 9（不是长期支持版本，所以我会拿 Java 11 来演示），情况发生了一些改变，同样的代码，字节码指令完全不同了。”我说。
 
 同样的代码，在 Java 11 的环境下，字节码指令是这样的：
 
@@ -129,6 +132,8 @@ public class com.itwanger.thirtyseven.Demo {
 “哥，你别再说了，再说我就听不懂了。”三妹打断了我的话。
 
 “好吧，总之就是 Java 9 以后，JDK 用了另外一种方法来动态解释 + 号操作符，具体的实现方式在字节码指令层面已经看不到了，所以我就以 Java 8 来继续讲解吧。”
+
+### 为什么要编译为 StringBuilder.append
 
 “再回到《Java 开发手册》上的那段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。原因就在于循环体内如果用 + 号操作符的话，就会产生大量的 StringBuilder 对象，不仅占用了更多的内存空间，还会让 Java 虚拟机不停的进行垃圾回收，从而降低了程序的性能。”
 
@@ -176,6 +181,8 @@ for (int i = 0; i < 100000; i++) {
 “是的，这下明白了原因吧？”我说。
 
 “是的，哥，原来如此。”
+
+### append方法源码解析
 
 “好了，三妹，来看一下 StringBuilder 类的 `append()` 方法的源码吧！”
 
@@ -240,17 +247,9 @@ str.getChars(0, len, value, count)
 
 5）更新数组的长度 count。
 
-“说到 StringBuilder 就必须得提一嘴 StringBuffer，两者就像是孪生双胞胎，该有的都有，只不过大哥 StringBuffer 因为多呼吸两口新鲜空气，所以是线程安全的。”我说，“它里面的方法基本上都加了 synchronized 关键字来做同步。”
+### String.concat 拼接字符串
 
-```java
-public synchronized StringBuffer append(String str) {
-    toStringCache = null;
-    super.append(str);
-    return this;
-}
-```
-
-“除了可以使用 + 号操作符，StringBuilder 和 StringBuilder 的 `append()` 方法，还有其他的字符串拼接方法吗？”三妹问。
+“除了可以使用 + 号操作符，StringBuilder 的 `append()` 方法，还有其他的字符串拼接方法吗？”三妹问。
 
 “有啊，比如说 String 类的 `concat()` 方法，有点像 StringBuilder 类的 `append()` 方法。”
 
@@ -285,13 +284,15 @@ public String concat(String str) {
 
 “和 `+` 号操作符相比，`concat()` 方法在遇到字符串为 null 的时候，会抛出 NullPointerException，而“+”号操作符会把 null 当做是“null”字符串来处理。”
 
-如果拼接的字符串是一个空字符串（""），那么 concat 的效率要更高一点,毕竟不需要 `new  StringBuilder` 对象。
+如果拼接的字符串是一个空字符串（""），那么 concat 的效率要更高一点,毕竟不需要 `new StringBuilder` 对象。
 
 如果拼接的字符串非常多，`concat()` 的效率就会下降，因为创建的字符串对象越来越多。
 
 “还有吗？”三妹似乎对字符串拼接很感兴趣。
 
 “有，当然有。”
+
+### String.join 拼接字符串
 
 String 类有一个静态方法 `join()`，可以这样来使用。
 
@@ -326,6 +327,8 @@ public static String join(CharSequence delimiter, CharSequence... elements) {
 ```
 
 里面新建了一个叫 StringJoiner 的对象，然后通过 for-each 循环把可变参数添加了进来，最后调用 `toString()` 方法返回 String。
+
+### StringUtils.join 拼接字符串
 
 “实际的工作中，`org.apache.commons.lang3.StringUtils` 的 `join()` 方法也经常用来进行字符串拼接。”
 
@@ -372,7 +375,7 @@ public static String join(final Object[] array, String separator, final int star
 
 内部使用的仍然是 StringBuilder。
 
-“好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了字节码指令后我们再详细地讲一次。”我说。
+“好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)后我们再详细地讲一次。”我说。
 
 “嗯，哥，你休息吧，我把这些例子再重新跑一遍。”三妹说。
 

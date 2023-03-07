@@ -1,6 +1,6 @@
 ---
-title: Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了
-shortTitle: Java 方法重写和方法重载的区别
+title: 方法重写 Override 和方法重载 Overload 有什么区别？
+shortTitle: 方法重写和方法重载
 description: Java程序员进阶之路，小白的零基础Java教程，Java 中方法重写 Override 和方法重载 Overload 的区别
 category:
   - Java 核心
@@ -9,16 +9,16 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,方法重写,方法重载,Override,Overload
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,方法重写,方法重载,Override,Overload,java 方法重载 方法重写,java Override Overload,java 方法重载,java 方法重写
 ---
 
-## 01、开篇
+# 5.21 方法重写和方法重载
 
 入冬的夜，总是来得特别的早。我静静地站在阳台，目光所及之处，不过是若隐若现的钢筋混凝土，还有那毫无情调的灯光。
 
 “哥，别站在那发呆了。今天学啥啊，七点半我就要回学校了，留给你的时间不多了，你要抓紧哦。”三妹傲娇的声音一下子把我从游离的状态拉回到了现实。
 
-“今天要学习 Java 中的方法重载与方法重写。”我迅速地走到电脑前面，打开一份 Excel 文档，看了一下《教妹学 Java》的进度，然后对三妹说。
+“今天要学习 Java 中的方法重载与方法重写。”我迅速地走到电脑前面，打开一份 Excel 文档，看了一下《教妹学 Java（二哥的 Java 进阶之路前身）》的进度，然后对三妹说。
 
 “如果一个类有多个名字相同但参数个数不同的方法，我们通常称这些方法为方法重载。 ”我面带着朴实无华的微笑继续说，“如果方法的功能是一样的，但参数不同，使用相同的名字可以提高程序的可读性。”
 
@@ -34,7 +34,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
 
-## 02、方法重载
+### 01、方法重载
 
 “三妹，你仔细听哦。”我缓了一口气后继续说道。
 
@@ -144,7 +144,7 @@ String[] args
 
 “由于可以通过改变参数类型的方式实现方法重载，那么当传递的参数没有找到匹配的方法时，就会发生隐式的类型转换。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-03.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/override-overload-0d30f41f-1f53-4988-b506-731d79ed16d1.png)
 
 “如上图所示，byte 可以向上转换为 short、int、long、float 和 double，short 可以向上转换为 int、long、float 和 double，char 可以向上转换为 int、long、float 和 double，依次类推。”
 
@@ -223,7 +223,7 @@ public class OverloadingTypePromotion2 {
 
 “不明确，编译器会很为难，究竟是把第一个 20 从 int 转成 long 呢，还是把第二个 20 从 int 转成 long，智障了！所以，不能写这样让编译器左右为难的代码。”
 
-## 03、方法重写
+### 02、方法重写
 
 “三妹，累吗？我们稍微休息一下吧。”我把眼镜摘下来，放到桌子上，闭上了眼睛，开始胡思乱想起来。
 
@@ -296,7 +296,7 @@ class Vehicle {
 
 “Bike 重写了 `run()` 方法，也就意味着，Bike 可以跑出自己的风格。”
 
-## 04、总结
+### 03、总结
 
 “好了，三妹，我来简单做个总结。”我瞥了一眼电脑右上角的时钟，离三妹离开的时间不到 10 分钟了。
 

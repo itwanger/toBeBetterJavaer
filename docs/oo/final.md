@@ -1,6 +1,6 @@
 ---
-title: 一文彻底搞懂 Java final 关键字
-shortTitle: 一文彻底搞懂Java final关键字
+title: 一文彻底搞懂 final 关键字
+shortTitle: final关键字
 description: Java程序员进阶之路，小白的零基础Java教程，一文彻底搞懂 Java final 关键字
 category:
   - Java 核心
@@ -9,9 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,final,静态变量,静态方法,静态代码块,静态内部类
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,final,静态变量,静态方法,静态代码块,静态内部类,java final
 ---
 
+# 5.18 final关键字
 
 “哥，今天学什么呢？”
 
@@ -21,7 +22,7 @@ head:
 
 “好吧。”我摊摊手，表示很无辜，真的是所有的决定都交给我这个哥哥了，如果决定错了，锅得背上。
 
-## 01、final 变量
+### 01、final 变量
 
 “好了，我们先来看 final 修饰的变量吧！”
 
@@ -104,7 +105,7 @@ public class ArgFinalTest {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-04.png)
 
-## 02、final 方法
+### 02、final 方法
 
 “被 final 修饰的方法不能被重写。如果我们在设计一个类的时候，认为某些方法不应该被重写，就应该把它设计成 final 的。”
 
@@ -144,7 +145,7 @@ public class Actor {
 
 “那必须啊，谁叫我是你妹呢。”
 
-## 03、final 类
+### 03、final 类
 
 “如果一个类使用了 final 关键字修饰，那么它就无法被继承.....”
 
@@ -204,14 +205,11 @@ System.out.println(writer.getName()); // 沉默王二
 
 “Writer 的 name 字段的默认值是 null，但可以通过 settter 方法将其更改为沉默王二。也就是说，如果一个类只是 final 的，那么它并不是不可变的全部条件。”
 
-“关于不可变类，我之前也单独讲过一篇，你一会去看看。”
+“关于不可变类，我们留到后面来细讲。”
 
 [不可变类](https://tobebetterjavaer.com/basic-extra-meal/immutable.html)
 
 “把一个类设计成 final 的，有其安全方面的考虑，但不应该故意为之，因为把一个类定义成 final 的，意味着它没办法继承，假如这个类的一些方法存在一些问题的话，我们就无法通过重写的方式去修复它。”
-
-
-------
 
 “三妹，final 关键字我们就学到这里吧，你一会再学习一下 Java 字符串为什么是不可变的和不可变类。”我揉一揉犯困的双眼，疲惫地给三妹说，“学完这两个知识点，你会对 final 的认知更清晰一些。”
 

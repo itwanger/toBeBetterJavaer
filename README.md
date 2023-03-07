@@ -104,12 +104,13 @@
 
 ## Java基础语法
 
-- [Java中常用的48个关键字 & 2个保留字](docs/basic-extra-meal/48-keywords.md)
+- [简单过一下Java中常用的48个关键字和2个保留字](docs/basic-extra-meal/48-keywords.md)
 - [Java注释](docs/basic-grammar/javadoc.md)
-- [Java中的数据类型](docs/basic-grammar/basic-data-type.md)
-- [Java 数据类型转换](docs/basic-grammar/type-cast.md)
-- [Java流程控制语句](docs/basic-grammar/flow-control.md)
+- [Java中的数据类型（8种基本数据类型和引用数据类型）](docs/basic-grammar/basic-data-type.md)
+- [Java数据类型转换（强制类型转换+自动类型转换）](docs/basic-grammar/type-cast.md)
+- [聊聊Java基本数据类型缓存池](docs/basic-extra-meal/int-cache.md)
 - [Java运算符](docs/basic-grammar/operator.md)
+- [Java流程控制语句](docs/basic-grammar/flow-control.md)
 
 ## 数组&字符串
 
@@ -123,28 +124,33 @@
 - [Java如何判断两个字符串是否相等？](docs/string/equals.md)
 - [最优雅的Java字符串拼接是哪种方式？](docs/string/join.md)
 - [如何在Java中优雅地分割String字符串？](docs/string/split.md)
+- [Java 9为什么要将String的底层实现由char数组改成了byte数组?](docs/basic-extra-meal/jdk9-char-byte-string.md)
 
 ## Java面向对象编程
 
-- [怎么理解Java中的类和对象？](docs/oo/object-class.md)
-- [Java 包，优雅地解决类名冲突](docs/oo/package.md)
+- [一文彻底讲清楚Java中的类和对象](docs/oo/object-class.md)
+- [简单过了一下Java中的包](docs/oo/package.md)
 - [Java中的变量：局部变量、成员变量、静态变量、常量](docs/oo/var.md)
 - [Java中的方法：实例方法、静态方法、抽象方法](docs/oo/method.md)
-- [Java中的构造方法：对象创建时的必经之路](docs/oo/construct.md)
+- [聊聊Java中的可变参数](docs/basic-extra-meal/varables.md)
+- [手把手教你用 C语言实现 Java native 方法](docs/oo/native-method.md)
+- [构造方法：Java对象创建时的必经之路](docs/oo/construct.md)
 - [聊一聊Java中的访问权限修饰符](docs/oo/access-control.md)
-- [Java中的代码初始化块：对成员变量进行更复杂的赋值](docs/oo/code-init.md)
+- [Java中的代码初始化块](docs/oo/code-init.md)
 - [Java抽象类，看这一篇就够了，豁然开朗](docs/oo/abstract.md)
 - [Java接口，看这一篇就够了，简单易懂](docs/oo/interface.md)
-- [Java 抽象类和接口的区别，看这一篇就够了](docs/oo/abstract-vs-interface.md)
-- [Java内部类详解：成员内部类、局部内部类、匿名内部类、静态内部类](docs/oo/inner-class.md)
-- [Java中this和super的用法总结](docs/oo/this-super.md)
-- [Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了](docs/basic-extra-meal/override-overload.md)
-- [一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类](docs/oo/static.md)
-- [一文彻底搞懂 Java final 关键字](docs/oo/final.md)
-- [这次彻底搞清楚了 Java 的三大特征之一：封装](docs/oo/encapsulation.md)
-- [一万字彻底搞懂 Java 继承（三大特征之一）](docs/oo/extends-bigsai.md)
-- [几句话，直观解释清楚 Java 多态（三大特征之一）](docs/oo/polymorphism.md)
-
+- [Java 抽象类和接口的区别](docs/oo/abstract-vs-interface.md)
+- [聊聊Java内部类：成员内部类、局部内部类、匿名内部类、静态内部类](docs/oo/inner-class.md)
+- [聊聊 Java 封装](docs/oo/encapsulation.md)
+- [深入理解 Java 继承](docs/oo/extends-bigsai.md)
+- [聊聊 Java 多态](docs/oo/polymorphism.md)
+- [Java中this和super关键字的用法总结](docs/oo/this-super.md)
+- [详解 static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](docs/oo/static.md)
+- [一文彻底搞懂 final 关键字](docs/oo/final.md)
+- [聊聊instanceof关键字](docs/basic-extra-meal/instanceof.md)
+- [聊聊Java中的不可变对象](docs/basic-extra-meal/immutable.md)
+- [方法重写 Override 和方法重载 Overload 有什么区别？](docs/basic-extra-meal/override-overload.md)
+- [深入理解Java中的注解](docs/basic-extra-meal/annotation.md)
 
 ## 集合框架（容器）
 
@@ -201,7 +207,6 @@
 
 - [Java命名规范](docs/basic-extra-meal/java-naming.md)
 - [彻底弄懂Java中的Unicode和UTF-8编码](docs/basic-extra-meal/java-unicode.md)
-- [Java中new Integer与Integer.valueOf的区别](docs/basic-extra-meal/int-cache.md)
 - [深入剖析Java中的拆箱和装箱](docs/basic-extra-meal/box.md)
 - [一文彻底讲明白的Java中的浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
 - [深入理解Java中的hashCode方法](docs/basic-extra-meal/hashcode.md)
@@ -209,16 +214,10 @@
 - [Java重写（Overriding）时应当遵守的11条规则](docs/basic-extra-meal/Overriding.md)
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
 - [详解Java中Comparable和Comparator接口的区别](docs/basic-extra-meal/comparable-omparator.md)
-- [jdk9为什么要将String的底层实现由char数组改成了byte数组?](docs/basic-extra-meal/jdk9-char-byte-string.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
-- [Java 中，先有Class还是先有Object？](docs/basic-extra-meal/class-object.md)
-- [详解Java中instanceof关键字的用法](docs/basic-extra-meal/instanceof.md)
 - [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
-- [深入理解Java中的不可变对象](docs/basic-extra-meal/immutable.md)
-- [Java中可变参数的使用](docs/basic-extra-meal/varables.md)
 - [深入理解Java中的泛型](docs/basic-extra-meal/generic.md)
 - [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
-- [深入理解Java中的注解](docs/basic-extra-meal/annotation.md)
 - [新来个技术总监，彻底把 Java 枚举(enum)讲清楚了](docs/basic-extra-meal/enum.md)
 - [大白话说清楚Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
 
