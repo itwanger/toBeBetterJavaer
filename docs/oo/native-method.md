@@ -12,9 +12,9 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java native,java本地方法,java native method
 ---
 
-# 5.5 Java中的本地方法
+# 5.6 Java中的本地方法
 
-“三妹，之前我们学习了 Java 中的基本方法，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
+“三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 
 “听起来挺有意思的。”三妹很期待。
 
@@ -116,7 +116,7 @@ public class HelloJNI {
 
 我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://tobebetterjavaer.com/oo/static.html)，后面会讲到。
 
-#### 2）编译 HelloJNI.java
+#### 02）编译 HelloJNI.java
 
 在命令行通过 `javac HelloJNI.java` 来编译源代码。
 
