@@ -614,7 +614,7 @@ UItimate 为付费版，可以免费试用，主要针对的是 Web 和企业开
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
 
 2.  选择 Community 版本（也就是社区版、免费版了，旗舰版需要激活，你可以戳这里[激活](https://tobebetterjavaer.com/nice-article/itmind/)）。
-  
+
 确定后点击 Download 下载
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-b17d0ff0-d33c-4d19-86e0-cd491c0cc613.png)
@@ -5360,6 +5360,8 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
+# 第五章：面向对象编程
+
 ## 5.1 Java中的类和对象
 
 “二哥，那天我在图书馆复习《Java进阶之路》的时候，刚好碰见一个学长，他问我有没有‘对象’，我说还没有啊。结果你猜他说什么，‘要不要我给你 new 一个啊？’我当时就懵了，new 是啥意思啊，二哥？”三妹满是疑惑的问我。
@@ -5695,7 +5697,7 @@ JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 AP
 当然了，假如我们也提供了新的类给其他调用者，我们也就成为了新的创建者。
 
 API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏其他所有不必要的信息，之所以要这么做，是因为如果这些信息对调用者是不可见的，那么创建者就可以随意修改隐藏的信息，而不用担心对调用者的影响。
- 
+
 这里就必须要讲到 Java 的权限修饰符。
 
 访问权限修饰符的第一个作用是，防止类的调用者接触到他们不该接触的内部实现；第二个作用是，让类的创建者可以轻松修改内部机制而不用担心影响到调用者的使用。
@@ -6078,7 +6080,7 @@ JDK 的其它常用类定义在`java.util.*`，`java.math.*`，`java.text.*`，�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.3 Java中的变量
+## 5.3Java中的变量
 
 “二哥，听说 Java 变量在以后的日子里经常用，能不能提前给我透露透露？”三妹咪了一口麦香可可奶茶后对我说。
 
@@ -6484,9 +6486,149 @@ public class MyAbstractDemo extends AbstractDemo {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-# 5.5 Java中的本地方法
+## 5.5 Java中的可变参数
 
-“三妹，之前我们学习了 Java 中的基本方法，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
+为了让铁粉们能白票到阿里云的服务器，我当了整整两天的客服，真正体验到了什么叫做“为人民群众谋福利”的不易和辛酸。正在我眼睛红肿打算要休息之际，三妹跑过来问：“Java 的可变参数究竟是怎么一回事？”我一下子又清醒了，我爱 Java，我爱传道解惑，也享受三妹的赞许（😂）。
+
+可变参数是 Java 1.5 的时候引入的功能，它允许方法使用任意多个、类型相同（`is-a`）的值作为参数。就像下面这样。
+
+```java
+public static void main(String[] args) {
+    print("沉");
+    print("沉", "默");
+    print("沉", "默", "王");
+    print("沉", "默", "王", "二");
+}
+
+public static void print(String... strs) {
+    for (String s : strs)
+        System.out.print(s);
+    System.out.println();
+}
+```
+
+静态方法 `print()` 就使用了可变参数，所以 `print("沉")` 可以，`print("沉", "默")` 也可以，甚至 3 个、 4 个或者更多个字符串都可以作为参数传递给 `print()` 方法。
+
+说到可变参数，我想起来阿里巴巴开发手册上有这样一条规约。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-01.png)
+
+意思就是尽量不要使用可变参数，如果要用的话，可变参数必须要在参数列表的最后一位。既然坑位有限，只能在最后，那么可变参数就只能有一个（悠着点，悠着点）。如果可变参数不在最后一位，IDE 就会提示对应的错误，如下图所示。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-02.png)
+
+可变参数看起来就像是个语法糖，它背后究竟隐藏了什么呢？让我们来一探究竟，在追求真理这条路上我们要执着。
+
+其实也很简单。**当使用可变参数的时候，实际上是先创建了一个数组，该数组的大小就是可变参数的个数，然后将参数放入数组当中，再将数组传递给被调用的方法**。
+
+这就是为什么可以使用数组作为参数来调用带有可变参数的方法的根本原因。代码如下所示。
+
+```java
+public static void main(String[] args) {
+    print(new String[]{"沉"});
+    print(new String[]{"沉", "默"});
+    print(new String[]{"沉", "默", "王"});
+    print(new String[]{"沉", "默", "王", "二"});
+}
+
+public static void print(String... strs) {
+    for (String s : strs)
+        System.out.print(s);
+    System.out.println();
+}
+```
+
+那如果方法的参数是一个数组，然后像使用可变参数那样去调用方法的时候，能行得通吗？
+
+“三妹，给你留个思考题：一般什么时候使用可变参数呢？”
+
+可变参数，可变参数，顾名思义，当一个方法需要处理任意多个相同类型的对象时，就可以定义可变参数。Java 中有一个很好的例子，就是 String 类的 `format()` 方法，就像下面这样。
+
+```java
+System.out.println(String.format("年纪是: %d", 18));
+System.out.println(String.format("年纪是: %d 名字是: %s", 18, "沉默王二"));
+```
+
+`%d` 表示将整数格式化为 10 进制整数，`%s` 表示输出字符串。
+
+如果不使用可变参数，那需要格式化的参数就必须使用“+”号操作符拼接起来了。麻烦也就惹上身了。
+
+在实际的项目代码中，[slf4j](https://tobebetterjavaer.com/gongju/slf4j.html) 的日志输出就经常要用到可变参数（[log4j](https://tobebetterjavaer.com/gongju/log4j.html) 就没法使用可变参数，日志中需要记录多个参数时就痛苦不堪了）。就像下面这样。
+
+```java
+protected Logger logger = LoggerFactory.getLogger(getClass());
+logger.debug("名字是{}", mem.getName());
+logger.debug("名字是{}，年纪是{}", mem.getName(), mem.getAge());
+```
+
+查看源码就可以发现，`debug()` 方法使用了可变参数。
+
+```java
+public void debug(String format, Object... arguments);
+```
+
+“那在使用可变参数的时候有什么注意事项吗？”三妹问。
+
+有的。我们要避免重载带有可变参数的方法——这样很容易让编译器陷入自我怀疑中。
+
+```java
+public static void main(String[] args) {
+    print(null);
+}
+
+public static void print(String... strs) {
+    for (String a : strs)
+        System.out.print(a);
+    System.out.println();
+}
+
+public static void print(Integer... ints) {
+    for (Integer i : ints)
+        System.out.print(i);
+    System.out.println();
+}
+```
+
+这时候，编译器完全不知道该调用哪个 `print()` 方法，`print(String... strs)` 还是 `print(Integer... ints)`，傻傻分不清。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-03.png)
+
+假如真的需要重载带有可变参数的方法，就必须在调用方法的时候给出明确的指示，不要让编译器去猜。
+
+```java
+public static void main(String[] args) {
+    String [] strs = null;
+    print(strs);
+
+    Integer [] ints = null;
+    print(ints);
+}
+
+public static void print(String... strs) {
+}
+
+public static void print(Integer... ints) {
+}
+```
+
+上面这段代码是可以编译通过的。因为编译器知道参数是 String 类型还是 Integer 类型，只不过为了运行时不抛出 `NullPointerException`，两个 `print()` 方法的内部要做好判空操作。
+
+“好了，关于可变参数，我们就先讲到这里吧。三妹，你都理解了吧？”
+
+“嗯嗯，不难，我理解了，哥。”三妹最近的学习状态真不错，能看得出来，她有在认真地做笔记📒。
+
+---
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.6 Java中的本地方法
+
+“三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 
 “听起来挺有意思的。”三妹很期待。
 
@@ -6524,7 +6666,7 @@ protected native Object clone() throws CloneNotSupportedException;
 
 JNI 一开始是为了本地已编译语言，尤其是 C 和 C++而设计的，但是它并不妨碍你使用其他语言，只要调用约定受支持就可以了。使用 Java 与本地已编译的代码交互，通常会丧失平台可移植性，但是，有些情况下这样做是可以接受的，甚至是必须的，比如，使用一些旧的库，与硬件、操作系统进行交互，或者为了提高程序的性能。JNI 标准至少保证本地代码能工作能在任何 Java 虚拟机实现下。
 
-![](https://files.mdnice.com/user/3903/2673e6dd-5c85-4d17-b8a1-b6429706cde0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-2a6fd1da-8b64-4fe1-bf3b-fbb117774549.png)
 
 通过 JNI，我们就可以通过 Java 程序（代码）调用到操作系统相关的技术实现的库函数，从而与其他技术和系统交互；同时其他技术和系统也可以通过 JNI 提供的相应原生接口调用 Java 应用系统内部实现的功能。
 
@@ -6588,21 +6730,21 @@ public class HelloJNI {
 
 我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://tobebetterjavaer.com/oo/static.html)，后面会讲到。
 
-#### 2）编译 HelloJNI.java
+#### 02）编译 HelloJNI.java
 
 在命令行通过 `javac HelloJNI.java` 来编译源代码。
 
-![](https://files.mdnice.com/user/3903/693f96cb-132a-4958-b155-1e3685723621.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-41e11e7f-31c1-4611-9b85-63ec211ff31b.png)
 
 #### 03）使用 `javah -jni HelloJNI` 生成扩展名为 h 的头文件
 
-![](https://files.mdnice.com/user/3903/0d99c05e-4bf6-44e8-916a-96471d743f4b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-0b08bf51-7bd9-4d06-a0dc-4262c1a71fd5.png)
 
 >PS：Java 9 以后，javah 被弃用，取而代之的是使用 -h 选项来生成头文件，例如 `javac -h . ClassName.java`。
 
 执行完毕后，会在 HelloJNI.java 所在目录下生成一个名为 HelloJNI.h 的头文件。打开 HelloJNI.h 文件，可以看到如下代码。　　
 
-![](https://files.mdnice.com/user/3903/4dafe442-71d1-41df-b04c-e96d892f39ad.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-e5c34f63-84df-4a99-96e1-b45ea04929df.png)
 
 看不懂没关系，无所谓，直到它是自动生成的就好。
 
@@ -6652,17 +6794,17 @@ sh compile.sh
 
 执行完毕后，会在当前目录下生成一个名为 libhello.dylib 的动态链接库。
 
-![](https://files.mdnice.com/user/3903/ccf86ab7-6dae-4ea2-9649-6dfb1bd977d9.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-e93c8fa8-6e33-4374-81da-8bd9360d1bb4.png)
 
 #### 07）运行 HelloJNI
 
 执行`java HelloJNI`命令运行 HelloJNI，如果一切正常，就会在终端上输出 Hello, JNI!。
 
-![](https://files.mdnice.com/user/3903/b10c0b70-6105-492d-819a-6e66c69021dd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-34beba0f-8fe8-48d0-aa48-b25c1b504b59.png)
 
 ### **3、JNI 调用 C 的流程图**
 
-![](https://files.mdnice.com/user/3903/124a3a78-dc5f-445f-94cb-31194c498ec2.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-6673cf73-c4dd-4434-b821-0d705f756a73.png)
 
 
 ### **4、native 关键字**
@@ -6687,6 +6829,2869 @@ native 语法：
 ---
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.7 Java中的构造方法
+
+“三妹，[上一节](https://tobebetterjavaer.com/oo/method.html)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”刚吃完中午饭，虽然有些困意，但趁机学个 10 分钟也是不错的，睡眠会更心满意足一些，于是我面露微笑地对三妹说。
+
+“在 Java 中，构造方法是一种特殊的方法，当一个类被实例化的时候，就会调用构造方法。只有在构造方法被调用的时候，对象才会被分配内存空间。每次使用 `new` 关键字创建对象的时候，构造方法至少会被调用一次。”
+
+“如果你在一个类中没有看见构造方法，并不是因为构造方法不存在，而是被缺省了，编译器会给这个类提供一个默认的构造方法。就是说，Java 有两种类型的构造方法：**无参构造方法和有参构造方法**。”
+
+“注意，之所以叫它构造方法，是因为对象在创建的时候，需要通过构造方法初始化值——描写对象有哪些初始化状态。”
+
+“哥，你缓缓，一口气说这么多，也真有你的。”三妹听得聚精会神，但也知道关心她这个既当哥又当老师的二哥了。
+
+### 01、创建构造方法的规则
+
+构造方法必须符合以下规则：
+
+- 构造方法的名字必须和类名一样；
+- 构造方法没有返回类型，包括 void；
+- 构造方法不能是抽象的（abstract）、静态的（static）、最终的（final）、同步的（synchronized）。
+
+简单解析一下最后一条规则。
+
+- 由于构造方法不能被子类继承，所以用 final 和 abstract 关键字修饰没有意义；
+- 构造方法用于初始化一个对象，所以用 static 关键字修饰没有意义；
+- 多个线程不会同时创建内存地址相同的同一个对象，所以用 synchronized 关键字修饰没有必要。
+
+构造方法的语法格式如下：
+
+```java
+class class_name {
+    public class_name(){}    // 默认无参构造方法
+    public ciass_name([paramList]){}    // 定义有参数列表的构造方法
+    …
+    // 类主体
+}
+```
+
+值得注意的是，如果用 void 声明构造方法的话，编译时不会报错，但 Java 会把这个所谓的“构造方法”当成普通方法来处理。
+
+```java
+/**
+ * 微信搜索「沉默王二」，回复 Java
+ *
+ * @author 沉默王二
+ * @date 2020/11/26
+ */
+public class Demo {
+    void Demo(){ }
+}
+```
+
+`void Demo(){}` 看起来很符合构造方法的写法（与类名相同），但其实只是一个不符合规范的普通方法，方法名的首字母使用了大写，方法体为空，它并不是默认的无参构造方法，可以通过反编译后的字节码验证。
+
+```java
+public class Demo {
+    public Demo() {
+    }
+
+    void Demo() {
+    }
+}
+```
+
+`public Demo() {}` 才是真正的无参构造方法。
+
+不过，可以使用[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)（private、protected、public、default）来修饰构造方法，访问权限修饰符决定了构造方法的创建方式。
+
+
+### 02、默认构造方法
+
+如果一个构造方法中没有任何参数，那么它就是一个默认构造方法，也称为无参构造方法。
+
+```java
+/**
+ * @author 微信搜「沉默王二」，回复关键字 PDF
+ */
+public class Bike {
+    Bike(){
+        System.out.println("一辆自行车被创建");
+    }
+
+    public static void main(String[] args) {
+        Bike bike = new Bike();
+    }
+}
+```
+
+在上面这个例子中，我们为 Bike 类中创建了一个无参的构造方法，它在我们创建对象的时候被调用。
+
+程序输出结果如下所示：
+
+```
+一辆自行车被创建
+```
+
+通常情况下，无参构造方法是可以缺省的，我们开发者并不需要显式的声明无参构造方法，把这项工作交给编译器就可以了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/18-01.png)
+
+“二哥，默认构造方法的目的是什么？它为什么是一个空的啊？”三妹疑惑地看着我，提出了这个尖锐的问题。
+
+“三妹啊，默认构造方法的目的主要是为对象的字段提供默认值，看下面这个例子你就明白了。”我胸有成竹地回答道。
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class Person {
+    private String name;
+    private int age;
+
+    public static void main(String[] args) {
+        Person p = new Person();
+        System.out.println("姓名 " + p.name + " 年龄 " + p.age);
+    }
+}
+```
+
+输出结果如下所示：
+
+```
+姓名 null 年龄 0
+```
+
+在上面的例子中，默认构造方法初始化了 name 和 age 的值，name 是 String 类型，所以默认值为 null，age 是 int 类型，所以默认值为 0。如果没有默认构造方法的话，这项工作就无法完成了。
+
+
+### 03、有参构造方法
+
+有参数的构造方法被称为有参构造方法，参数可以有一个或多个。有参构造方法可以为不同的对象提供不同的值。当然，也可以提供相同的值。
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class ParamConstructorPerson {
+    private String name;
+    private int age;
+
+    public ParamConstructorPerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void out() {
+        System.out.println("姓名 " + name + " 年龄 " + age);
+    }
+
+    public static void main(String[] args) {
+        ParamConstructorPerson p1 = new ParamConstructorPerson("沉默王二",18);
+        p1.out();
+
+        ParamConstructorPerson p2 = new ParamConstructorPerson("沉默王三",16);
+        p2.out();
+    }
+}
+```
+
+在上面的例子中，构造方法有两个参数（name 和 age），这样的话，我们在创建对象的时候就可以直接为 name 和 age 赋值了。
+
+```java
+new ParamConstructorPerson("沉默王二",18);
+new ParamConstructorPerson("沉默王三",16);
+```
+
+如果没有有参构造方法的话，就需要通过 setter 方法给字段赋值了。
+
+
+### 04、重载构造方法
+
+在 Java 中，构造方法和方法类似，只不过没有返回类型。它也可以像方法一样被[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。构造方法的重载也很简单，只需要提供不同的参数列表即可。编译器会通过参数的数量来决定应该调用哪一个构造方法。
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class OverloadingConstrutorPerson {
+    private String name;
+    private int age;
+    private int sex;
+
+    public OverloadingConstrutorPerson(String name, int age, int sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    public OverloadingConstrutorPerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void out() {
+        System.out.println("姓名 " + name + " 年龄 " + age + " 性别 " + sex);
+    }
+
+    public static void main(String[] args) {
+        OverloadingConstrutorPerson p1 = new OverloadingConstrutorPerson("沉默王二",18, 1);
+        p1.out();
+
+        OverloadingConstrutorPerson p2 = new OverloadingConstrutorPerson("沉默王三",16);
+        p2.out();
+    }
+}
+```
+
+创建对象的时候，如果传递的是三个参数，那么就会调用 `OverloadingConstrutorPerson(String name, int age, int sex)` 这个构造方法；如果传递的是两个参数，那么就会调用 `OverloadingConstrutorPerson(String name, int age)` 这个构造方法。
+
+
+### 05、构造方法和方法的区别
+
+构造方法和方法之间的区别还是蛮多的，比如说下面这些：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/18-02.png)
+
+
+
+### 06、复制对象
+
+复制一个对象可以通过下面三种方式完成：
+
+- 通过构造方法
+- 通过对象的值
+- 通过 Object 类的 `clone()` 方法
+
+#### 1）通过构造方法
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class CopyConstrutorPerson {
+    private String name;
+    private int age;
+
+    public CopyConstrutorPerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public CopyConstrutorPerson(CopyConstrutorPerson person) {
+        this.name = person.name;
+        this.age = person.age;
+    }
+
+    public void out() {
+        System.out.println("姓名 " + name + " 年龄 " + age);
+    }
+
+    public static void main(String[] args) {
+        CopyConstrutorPerson p1 = new CopyConstrutorPerson("沉默王二",18);
+        p1.out();
+
+        CopyConstrutorPerson p2 = new CopyConstrutorPerson(p1);
+        p2.out();
+    }
+}
+```
+
+在上面的例子中，有一个参数为 CopyConstrutorPerson 的构造方法，可以把该参数的字段直接复制到新的对象中，这样的话，就可以在 new 关键字创建新对象的时候把之前的 p1 对象传递过去。
+
+#### 2）通过对象的值
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class CopyValuePerson {
+    private String name;
+    private int age;
+
+    public CopyValuePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public CopyValuePerson() {
+    }
+
+    public void out() {
+        System.out.println("姓名 " + name + " 年龄 " + age);
+    }
+
+    public static void main(String[] args) {
+        CopyValuePerson p1 = new CopyValuePerson("沉默王二",18);
+        p1.out();
+
+        CopyValuePerson p2 = new CopyValuePerson();
+        p2.name = p1.name;
+        p2.age = p1.age;
+        
+        p2.out();
+    }
+}
+```
+
+这种方式比较粗暴，直接拿 p1 的字段值复制给 p2 对象（`p2.name = p1.name`）。
+
+#### 3）通过 Object 类的 `clone()` 方法
+
+```java
+/**
+ * @author 沉默王二，一枚有趣的程序员
+ */
+public class ClonePerson implements Cloneable {
+    private String name;
+    private int age;
+
+    public ClonePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public void out() {
+        System.out.println("姓名 " + name + " 年龄 " + age);
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        ClonePerson p1 = new ClonePerson("沉默王二",18);
+        p1.out();
+
+        ClonePerson p2 = (ClonePerson) p1.clone();
+        p2.out();
+    }
+}
+```
+
+通过 `clone()` 方法复制对象的时候，ClonePerson 必须先实现 Cloneable 接口的 `clone()` 方法，然后再调用 `clone()` 方法（`ClonePerson p2 = (ClonePerson) p1.clone()`）。
+
+>拓展阅读：[浅拷贝与深拷贝](https://tobebetterjavaer.com/basic-extra-meal/deep-copy.html)
+
+### 07、ending
+
+“二哥，我能问一些问题吗？”三妹精神焕发，没有丝毫的疲惫。
+
+“当然可以啊，你问。”我很欣赏三妹孜孜不倦的态度。
+
+“构造方法真的不返回任何值吗？”
+
+“构造方法虽然没有返回值，但返回的是类的对象。”
+
+“构造方法只能完成字段初始化的工作吗？”
+
+“初始化字段只是构造方法的一种工作，它还可以做更多，比如启动线程，调用其他方法等。”
+
+“好的，二哥，我的问题问完了，今天的学习可以结束了！”三妹一脸得意的样子。
+
+“那你记得复习下一节的内容哦。”感受到三妹已经学到了知识，我也很欣慰。
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.8 Java中的访问权限修饰符
+
+“我们先来讨论一下为什么需要访问权限控制。其实之前我们在讲类和对象的时候有提到，今天我们来详细地聊一聊，三妹。”我开门见山地说，“三妹，你打开思维导图，记得做笔记哦。”
+
+“好的。”三妹应声回答。
+
+考虑两个场景：
+
+场景 1：工程师 A 编写了一个类 ClassA，但是工程师 A 并不希望 ClassA 被其他类都访问到，该如何处理呢？
+
+场景 2：工程师 A 编写了一个类 ClassA，其中有两个方法 fun1、fun2，工程师只想让 fun1 对外可见，也就是说，如果别的工程师来调用 ClassA，只可以调用方法 fun1，该怎么处理呢？
+
+此时，访问权限控制便可以起到作用了。
+
+在 Java 中，提供了四种访问权限控制：
+
+- 默认访问权限（包访问权限）
+- public
+- private
+- protected
+
+类只可以用默认访问权限和 public 修饰。比如说：
+
+```java
+public class Wanger{}
+```
+
+或者
+
+```java
+class Wanger{}
+```
+
+但变量和方法则都可以修饰。
+
+### 1. 修饰类
+
+- 默认访问权限（包访问权限）：用来修饰类的话，表示该类只对同一个包中的其他类可见。
+- public：用来修饰类的话，表示该类对其他所有的类都可见。
+
+
+例 1：
+
+Main.java:
+
+```java
+package com.tobetterjavaer.test1;
+
+public class Main {
+	public static void main(String\[\] args) {
+
+		People people = new People("Tom");
+		System.out.println(people.getName());
+	}
+
+}
+```
+
+People.java
+
+```java
+package com.tobetterjavaer.test1;
+
+class People {//默认访问权限（包访问权限）
+
+	private String name = null;
+
+	public People(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+```
+
+从代码可以看出，修饰 People 类采用的是默认访问权限，而由于 People 类和 Main 类在同一个包中，因此 People 类对于 Main 类是可见的。
+
+例子 2：
+
+People.java
+
+```java
+package com.tobetterjavaer.test2;
+
+class People {//默认访问权限（包访问权限）
+
+	private String name = null;
+
+	public People(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+```
+
+此时 People 类和 Main 类不在同一个包中，会发生什么情况呢？
+
+下面是 Main 类中的提示的错误：
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi-154ae82f-72a5-45fc-ad3c-e1eb575d8572.png)
+
+
+提示 Peolple 类在 Main 类中不可见。从这里就可以看出，如果用默认访问权限去修饰一个类，该类只对同一个包中的其他类可见，对于不同包中的类是不可见的。
+
+正如上图的快速修正提示所示，将 People 类的默认访问权限更改为 public 的话，People 类对于 Main 类便可见了。
+
+### 2. 修饰方法和变量
+
+- 默认访问权限（包访问权限）：如果一个类的方法或变量被包访问权限修饰，也就意味着只能在同一个包中的其他类中显示地调用该类的方法或者变量，在不同包中的类中不能显式地调用该类的方法或变量。
+- private：如果一个类的方法或者变量被 private 修饰，那么这个类的方法或者变量只能在该类本身中被访问，在类外以及其他类中都不能显式的进行访问。
+- protected：如果一个类的方法或者变量被 protected 修饰，对于同一个包的类，这个类的方法或变量是可以被访问的。对于不同包的类，只有继承于该类的类才可以访问到该类的方法或者变量。
+- public：被 public 修饰的方法或者变量，在任何地方都是可见的。
+
+
+例 3：
+
+Main.java 没有变化
+
+People.java
+
+```java
+package com.tobebetterjavaer.test1;
+
+public class People {
+
+	private String name = null;
+
+	public People(String name) {
+		this.name = name;
+	}
+
+	String getName() {    //默认访问权限（包访问权限）
+		return name;
+	}
+
+	void setName(String name) {   //默认访问权限（包访问权限）
+		this.name = name;
+	}
+}
+```
+
+此时在 Main 类是可以显示调用方法 getName 和 setName 的。
+
+但是如果 People 类和 Main 类不在同一个包中：
+
+```java
+package com.tobebetterjavaer.test2;    //与Main类处于不同包中
+
+public class People {
+
+	private String name = null;
+
+	public People(String name) {
+		this.name = name;
+	}
+
+	String getName() {    //默认访问权限（包访问权限）
+		return name;
+	}
+
+	void setName(String name) {   //默认访问权限（包访问权限）
+		this.name = name;
+	}
+}
+```
+
+此时在 Main 类中会提示错误：
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi-b3e9dc56-53e8-42f1-b8ee-35115edfe7e7.png)
+
+
+由此可以看出，如果用默认访问权限来修饰类的方法或者变量，则只能在同一个包的其他类中进行访问。
+
+例 4:
+
+People.java
+
+```java
+package com.tobebetterjavaer.test1;
+
+public class People {
+
+	private String name = null;
+
+	public People(String name) {
+		this.name = name;
+	}
+
+	protected String getName() {
+		return name;
+	}
+
+	protected void setName(String name) {
+		this.name = name;
+	}
+}
+```
+
+此时是可以在 Main 中显示调用方法 getName 和 setName 的。
+
+如果 People 类和 Main 类处于不同包中：
+
+```java
+package com.tobebetterjavaer.test2;
+
+public class People {
+
+	private String name = null;
+
+	public People(String name) {
+		this.name = name;
+	}
+
+	protected String getName() {
+		return name;
+	}
+
+	protected void setName(String name) {
+		this.name = name;
+	}
+}
+```
+
+则会在 Main 中报错：
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi-b1d4b7ed-fc87-47d4-bdd9-3f6a8ea96100.png)
+
+
+如果在 com.cxh.test1 中定一个类 Man 继承 People，则可以在类 Man 中显示调用方法 getName 和 setName：
+
+```java
+package com.tobebetterjavaer.test1;
+
+import com.tobebetterjavaer.test2.People;
+
+public class Man extends People {
+
+    public Man(String name){
+        super(name);
+    }
+
+    public String toString() {
+        return getName();
+    }
+}
+```
+
+补充一些关于 Java 包和类文件的知识：
+
+1）Java 中的包主要是为了防止类文件命名冲突以及方便进行代码组织和管理；
+
+2）对于一个 Java 源代码文件，如果存在 public 类的话，只能有一个 public 类，且此时源代码文件的名称必须和 public 类的名称完全相同。
+
+另外，如果还存在其他类，这些类在包外是不可见的。如果源代码文件没有 public 类，则源代码文件的名称可以随意命名。
+
+“三妹，理解了吧？”我问三妹。
+
+“是的，很简单，换句话说，不想让别人看的就 private，想让人看的就 public，想同一个班级/部门看的就默认，想让下一级看的就 protected，对吧？哥”三妹很自信地回答。
+
+“不错不错，总结得有那味了。”
+
+>原文链接：[https://www.cnblogs.com/dolphin0520/p/3734915.html](https://www.cnblogs.com/dolphin0520/p/3734915.html) 作者: Matrix海子，编辑：沉默王二
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.9 Java中的代码初始化块
+
+“哥，今天我们要学习的内容是‘代码初始化块’，对吧？”看来三妹已经提前预习了我上次留给她的作业。
+
+“是的，三妹。代码初始化块用于初始化一些成员变量。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块。”
+
+“可以直接通过‘=’操作符对成员变量进行初始化，但通过代码初始化块可以做更多的事情，比如说打印出成员变量初始化后的值。”
+
+“三妹，来看下面的代码，我们可以直接通过 `=` 操作符对成员变量进行初始化。”
+
+```java
+class Bike{  
+    int speed=100;  
+}  
+```
+
+“哥，那为什么还需要代码初始化块呢？”三妹眨了眨眼睛，不解地问。
+
+“我们可以通过代码初始化块执行一个更复杂的操作，比如为集合填充值。来看下面这段代码。”
+
+```java
+public class Bike {
+    List<String> list;
+
+    {
+        list = new ArrayList<>();
+        list.add("沉默王二");
+        list.add("沉默王三");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Bike().list);
+    }
+}
+```
+
+“如果只使用‘=’操作符的话，是没办法完成集合初始化的，对吧？‘=’ 后面只能 new 出集合，却没办法填充值，代码初始化就可以完成这项工作。”
+
+“构造方法执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
+
+“不要着急，三妹，先来看下面这个例子。”
+
+```java
+public class Car {
+    Car() {
+        System.out.println("构造方法");
+    }
+
+    {
+        System.out.println("代码初始化块");
+    }
+
+    public static void main(String[] args) {
+        new Car();
+    }
+}
+```
+
+“我们来看一下程序的输出结果就一下子明白了。”
+
+```
+代码初始化块
+构造方法
+```
+
+“从输出结果看上去，仿佛代码初始化块执行得更早，对吧？事实上是这样子吗？”我露出神秘的微笑，问三妹。
+
+“难道我看到的是假象吗？”三妹睁大了眼睛。
+
+“不是的，对象在初始化的时候会先调用构造方法，这是毫无疑问的，只不过，构造方法在执行的时候会把代码初始化块放在构造方法中其他代码之前，所以，先看到了‘代码初始化块’，后看到了‘’构造方法’。”
+
+说完这句话，我打开 draw.io，使上了吃奶的劲，画出了下面这幅图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/22-01.png)
+
+“哦，原来如此啊！”三妹仿佛发现了新大陆，意味深长地说，“编译器把代码初始化块放到了构造方法中，怪不得。”
+
+等三妹明白彻底搞明白后，我对她继续说道：“对于代码初始化来说，它有三个规则。”
+
+- 类实例化的时候执行代码初始化块；
+- 实际上，代码初始化块是放在构造方法中执行的，只不过比较靠前；
+- 代码初始化块里的执行顺序是从前到后的。
+
+“这些规则不用死记硬背，大致了解一下就行了。我们继续来看下面这段代码。”话音刚落，我就在新版的 IDEA 中噼里啪啦地敲了起来，新版真香。
+
+```java
+class A {
+    A () {
+        System.out.println("父类构造方法");
+    }
+}
+public class B extends A{
+    B() {
+        System.out.println("子类构造方法");
+    }
+
+    {
+        System.out.println("代码初始化块");
+    }
+
+    public static void main(String[] args) {
+        new B();
+    }
+}
+```
+
+“来看一下输出结果。”
+
+```
+父类构造方法
+代码初始化块
+子类构造方法
+```
+
+“在默认情况下，子类的构造方法在执行的时候会主动去调用父类的构造方法。也就是说，其实是构造方法先执行的，再执行的代码初始化块。”
+
+“这个例子再次印证了之前的第二条规则：代码初始化块是放在构造方法中执行的，只不过比较靠前。”
+
+“好了，今天就先讲到这吧，中午休息一下，下午的精神会更足。”刚对三妹说完这句话，我的哈欠就上来了，好困。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.10 Java抽象类
+
+“二哥，你这明显加快了更新的频率呀！”三妹对于我最近的肝劲由衷的佩服了起来。
+
+“哈哈，是呀，我要给广大的学弟学妹们一个完整的 Java 学习体系，记住我们的口号，**学 Java 就上二哥的 Java 进阶之路**。”我对未来充满了信心。
+
+“那就开始吧。”三妹说。
+
+### 01、定义抽象类
+
+定义抽象类的时候需要用到关键字 `abstract`，放在 `class` 关键字前，就像下面这样。
+
+```java
+abstract class AbstractPlayer {
+}
+```
+
+关于抽象类的命名，《[阿里的 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有强调，“抽象类命名要使用 Abstract 或 Base 开头”，这条规约还是值得遵守的，真正做到名如其意。
+
+### 02、抽象类的特征
+
+抽象类是不能实例化的，尝试通过 `new` 关键字实例化的话，编译器会报错，提示“类是抽象的，不能实例化”。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-01.png)
+
+虽然抽象类不能实例化，但可以有子类。子类通过 `extends` 关键字来继承抽象类。就像下面这样。
+
+```java
+public class BasketballPlayer extends AbstractPlayer {
+}
+```
+
+如果一个类定义了一个或多个抽象方法，那么这个类必须是抽象类。
+
+当我们尝试在一个普通类中定义抽象方法的时候，编译器会有两处错误提示。第一处在类级别上，提示“这个类必须通过 `abstract` 关键字定义”，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-02.png)
+
+第二处在尝试定义 abstract 的方法上，提示“抽象方法所在的类不是抽象的”，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-03.png)
+
+抽象类中既可以定义抽象方法，也可以定义普通方法，就像下面这样：
+
+```java
+public abstract class AbstractPlayer {
+    abstract void play();
+    
+    public void sleep() {
+        System.out.println("运动员也要休息而不是挑战极限");
+    }
+}
+```
+
+抽象类派生的子类必须实现父类中定义的抽象方法。比如说，抽象类 AbstractPlayer 中定义了 `play()` 方法，子类 BasketballPlayer 中就必须实现。
+
+```java
+public class BasketballPlayer extends AbstractPlayer {
+    @Override
+    void play() {
+        System.out.println("我是张伯伦，篮球场上得过 100 分");
+    }
+}
+```
+
+如果没有实现的话，编译器会提示“子类必须实现抽象方法”，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-04.png)
+
+### 03、抽象类的应用场景
+
+“二哥，抽象方法我明白了，那什么时候使用抽象方法呢？能给我讲讲它的应用场景吗？”三妹及时的插话道。
+
+“这问题问的恰到好处呀！”我扶了扶眼镜继续说。
+
+#### **01）第一种场景**
+
+当我们希望一些通用的功能被多个子类复用的时候，就可以使用抽象类。比如说，AbstractPlayer 抽象类中有一个普通的方法 `sleep()`，表明所有运动员都需要休息，那么这个方法就可以被子类复用。
+
+```java
+abstract class AbstractPlayer {
+    public void sleep() {
+        System.out.println("运动员也要休息而不是挑战极限");
+    }
+}
+```
+
+子类 BasketballPlayer 继承了 AbstractPlayer 类：
+
+```java
+class BasketballPlayer extends AbstractPlayer {
+}
+```
+
+也就拥有了 `sleep()` 方法。BasketballPlayer 的对象可以直接调用父类的 `sleep()` 方法：
+
+```java
+BasketballPlayer basketballPlayer = new BasketballPlayer();
+basketballPlayer.sleep();
+```
+
+子类 FootballPlayer 继承了 AbstractPlayer 类：
+
+```java
+class FootballPlayer extends AbstractPlayer {
+}
+```
+
+也拥有了 `sleep()` 方法，FootballPlayer 的对象也可以直接调用父类的 `sleep()` 方法：
+
+```java
+FootballPlayer footballPlayer = new FootballPlayer();
+footballPlayer.sleep();
+```
+
+这样是不是就实现了代码的复用呢？
+
+#### **02）第二种场景**
+
+当我们需要在抽象类中定义好 API，然后在子类中扩展实现的时候就可以使用抽象类。比如说，AbstractPlayer  抽象类中定义了一个抽象方法 `play()`，表明所有运动员都可以从事某项运动，但需要对应子类去扩展实现，表明篮球运动员打篮球，足球运动员踢足球。
+
+```java
+abstract class AbstractPlayer {
+    abstract void play();
+}
+```
+
+BasketballPlayer 继承了 AbstractPlayer 类，扩展实现了自己的 `play()` 方法。
+
+```java
+public class BasketballPlayer extends AbstractPlayer {
+    @Override
+    void play() {
+        System.out.println("我是张伯伦，我篮球场上得过 100 分，");
+    }
+}
+```
+
+FootballPlayer 继承了 AbstractPlayer 类，扩展实现了自己的 `play()` 方法。
+
+```java
+public class FootballPlayer extends AbstractPlayer {
+    @Override
+    void play() {
+        System.out.println("我是C罗，我能接住任意高度的头球");
+    }
+}
+```
+
+为了进一步展示抽象类的特性，我们再来看一个具体的示例。
+
+>PS：[网站](https://tobebetterjavaer.com/oo/abstract.html)评论区说涉及到了文件的读写以及 Java 8 的新特性，不适合新人，如果觉得自己实在是看不懂，跳过，等学了 IO 流再来看也行。如果说是为了复习 Java 基础知识，就不存在这个问题了。
+
+假设现在有一个文件，里面的内容非常简单，只有一个“Hello World”，现在需要有一个读取器将内容从文件中读取出来，最好能按照大写的方式，或者小写的方式来读。
+
+这时候，最好定义一个抽象类 BaseFileReader：
+
+```java
+/**
+ * 抽象类，定义了一个读取文件的基础框架，其中 mapFileLine 是一个抽象方法，具体实现需要由子类来完成
+ */
+abstract class BaseFileReader {
+    protected Path filePath; // 定义一个 protected 的 Path 对象，表示读取的文件路径
+
+    /**
+     * 构造方法，传入读取的文件路径
+     * @param filePath 读取的文件路径
+     */
+    protected BaseFileReader(Path filePath) {
+        this.filePath = filePath;
+    }
+
+    /**
+     * 读取文件的方法，返回一个字符串列表
+     * @return 字符串列表，表示文件的内容
+     * @throws IOException 如果文件读取出错，抛出该异常
+     */
+    public List<String> readFile() throws IOException {
+        return Files.lines(filePath) // 使用 Files 类的 lines 方法，读取文件的每一行
+                .map(this::mapFileLine) // 对每一行应用 mapFileLine 方法，将其转化为指定的格式
+                .collect(Collectors.toList()); // 将处理后的每一行收集到一个字符串列表中，返回
+    }
+
+    /**
+     * 抽象方法，子类需要实现该方法，将文件中的每一行转化为指定的格式
+     * @param line 文件中的每一行
+     * @return 转化后的字符串
+     */
+    protected abstract String mapFileLine(String line);
+}
+```
+
+- filePath 为文件路径，使用 protected 修饰，表明该成员变量可以在需要时被子类访问到。
+
+- `readFile()` 方法用来读取文件，方法体里面调用了抽象方法 `mapFileLine()`——需要子类来扩展实现大小写的不同读取方式。
+
+在我看来，BaseFileReader 类设计的就非常合理，并且易于扩展，子类只需要专注于具体的大小写实现方式就可以了。
+
+小写的方式：
+
+```java
+class LowercaseFileReader extends BaseFileReader {
+    protected LowercaseFileReader(Path filePath) {
+        super(filePath);
+    }
+
+    @Override
+    protected String mapFileLine(String line) {
+        return line.toLowerCase();
+    }
+}
+```
+
+大写的方式：
+
+```java
+class UppercaseFileReader extends BaseFileReader {
+    protected UppercaseFileReader(Path filePath) {
+        super(filePath);
+    }
+
+    @Override
+    protected String mapFileLine(String line) {
+        return line.toUpperCase();
+    }
+}
+```
+
+从文件里面一行一行读取内容的代码被子类复用了。与此同时，子类只需要专注于自己该做的工作，LowercaseFileReader 以小写的方式读取文件内容，UppercaseFileReader 以大写的方式读取文件内容。
+
+来看一下测试类 FileReaderTest：
+
+```java
+public class FileReaderTest {
+    public static void main(String[] args) throws URISyntaxException, IOException {
+        URL location = FileReaderTest.class.getClassLoader().getResource("helloworld.txt");
+        Path path = Paths.get(location.toURI());
+        BaseFileReader lowercaseFileReader = new LowercaseFileReader(path);
+        BaseFileReader uppercaseFileReader = new UppercaseFileReader(path);
+        System.out.println(lowercaseFileReader.readFile());
+        System.out.println(uppercaseFileReader.readFile());
+    }
+}
+```
+
+在项目的 resource 目录下建一个文本文件，名字叫 helloworld.txt，里面的内容就是“Hello World”。文件的具体位置如下图所示，我用的集成开发环境是 Intellij IDEA。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-05.png)
+
+
+在 resource 目录下的文件可以通过 `ClassLoader.getResource()` 的方式获取到 URI 路径，然后就可以取到文本内容了。
+
+输出结果如下所示：
+
+```
+[hello world]
+[HELLO WORLD]
+```
+
+### 04、抽象类总结
+
+好了，对于抽象类我们简单总结一下：
+
+- 1、抽象类不能被实例化。
+- 2、抽象类应该至少有一个抽象方法，否则它没有任何意义。
+- 3、抽象类中的抽象方法没有方法体。
+- 4、抽象类的子类必须给出父类中的抽象方法的具体实现，除非该子类也是抽象类。
+
+“完了吗？二哥”三妹似乎还沉浸在聆听教诲的快乐中。
+
+“是滴，这次我们系统化的学习了抽象类，可以说面面俱到了。三妹你可以把代码敲一遍，加强了一些印象，电脑交给你了。”说完，我就跑到阳台去抽烟了。
+
+“呼。。。。。”一个大大的眼圈飘散开来，又是愉快的一天~
+
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.11 Java接口
+
+“今天开始讲 Java 的接口。”我对三妹说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://tobebetterjavaer.com/oo/abstract.html)，另外一种就是今天的主角——[接口](https://tobebetterjavaer.com/oo/interface.html)。”
+
+“二哥，开讲之前，先恭喜你呀。我看你朋友圈说《[Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》开源知识库在 GitHub 上收到了第一笔赞赏呀，虽然只有一块钱，但我也替你感到开心。”三妹的脸上洋溢着自信的微笑，仿佛这钱是打给她的一样。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-01.png)
+
+>PS：2021-04-29到2023-02-11期间，《二哥的 Java 进阶之路》收到了 58 笔赞赏，真的非常感谢大家的认可和支持😍，我会继续肝下去的。
+
+“是啊，早上起来的时候看到这条信息，还真的是挺开心的，虽然只有一块钱，但是开源的第一笔，也是我人生当中的第一笔，真的非常感谢这个读者，值得纪念的一天。”我自己也掩饰不住内心的激动。
+
+“有了这份鼓励，我相信你更新下去的动力更足了！”三妹今天说的话真的是特别令人喜欢。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-02.png)
+
+“是呀是呀，让我们开始吧！”
+
+### 01、定义接口
+
+“接口是什么呀？”三妹顺着我的话题及时的插话到。
+
+接口通过 interface 关键字来定义，它可以包含一些常量和方法，来看下面这个示例。
+
+```java
+public interface Electronic {
+    // 常量
+    String LED = "LED";
+
+    // 抽象方法
+    int getElectricityUse();
+
+    // 静态方法
+    static boolean isEnergyEfficient(String electtronicType) {
+        return electtronicType.equals(LED);
+    }
+
+    // 默认方法
+    default void printDescription() {
+        System.out.println("电子");
+    }
+}
+```
+
+来看一下这段代码反编译后的字节码。
+
+```java
+public interface Electronic
+{
+
+    public abstract int getElectricityUse();
+
+    public static boolean isEnergyEfficient(String electtronicType)
+    {
+        return electtronicType.equals("LED");
+    }
+
+    public void printDescription()
+    {
+        System.out.println("\u7535\u5B50");
+    }
+
+    public static final String LED = "LED";
+}
+```
+
+发现没？接口中定义的所有变量或者方法，都会自动添加上 `public` 关键字。
+
+接下来，我来一一解释下 Electronic 接口中的核心知识点。
+
+**1）接口中定义的变量会在编译的时候自动加上 `public static final` 修饰符**（注意看一下反编译后的字节码），也就是说上例中的 LED 变量其实就是一个常量。
+
+Java 官方文档上有这样的声明：
+
+>Every field declaration in the body of an interface is implicitly public, static, and final.
+
+换句话说，接口可以用来作为常量类使用，还能省略掉 `public static final`，看似不错的一种选择，对吧？
+
+不过，这种选择并不可取。因为接口的本意是对方法进行抽象，而常量接口会对子类中的变量造成命名空间上的“污染”。
+
+**2）没有使用 `private`、`default` 或者 `static` 关键字修饰的方法是隐式抽象的**，在编译的时候会自动加上 `public abstract` 修饰符。也就是说上例中的 `getElectricityUse()` 其实是一个抽象方法，没有方法体——这是定义接口的本意。
+
+**3）从 Java 8 开始，接口中允许有静态方法**，比如说上例中的 `isEnergyEfficient()` 方法。
+
+静态方法无法由（实现了该接口的）类的对象调用，它只能通过接口名来调用，比如说 `Electronic.isEnergyEfficient("LED")`。
+
+接口中定义静态方法的目的是为了提供一种简单的机制，使我们不必创建对象就能调用方法，从而提高接口的竞争力。
+
+**4）接口中允许定义 `default` 方法**也是从 Java 8 开始的，比如说上例中的 `printDescription()` 方法，它始终由一个代码块组成，为，实现该接口而不覆盖该方法的类提供默认实现。既然要提供默认实现，就要有方法体，换句话说，默认方法后面不能直接使用“;”号来结束——编译器会报错。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-03.png)
+
+“为什么要在接口中定义默认方法呢？”三妹好奇地问到。
+
+允许在接口中定义默认方法的理由很充分，因为一个接口可能有多个实现类，这些类就必须实现接口中定义的抽象类，否则编译器就会报错。假如我们需要在所有的实现类中追加某个具体的方法，在没有 `default` 方法的帮助下，我们就必须挨个对实现类进行修改。
+
+由之前的例子我们就可以得出下面这些结论：
+
+- 接口中允许定义变量
+- 接口中允许定义抽象方法
+- 接口中允许定义静态方法（Java 8 之后）
+- 接口中允许定义默认方法（Java 8 之后）
+
+除此之外，我们还应该知道：
+
+**1）接口不允许直接实例化**，否则编译器会报错。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-04.png)
+
+需要定义一个类去实现接口，见下例。
+
+```java
+public class Computer implements Electronic {
+
+    public static void main(String[] args) {
+        new Computer();
+    }
+
+    @Override
+    public int getElectricityUse() {
+        return 0;
+    }
+}
+```
+
+然后再实例化。
+
+```
+Electronic e = new Computer();
+```
+
+**2）接口可以是空的**，既可以不定义变量，也可以不定义方法。最典型的例子就是 Serializable 接口，在 `java.io` 包下。
+
+```java
+public interface Serializable {
+}
+```
+
+Serializable 接口用来为序列化的具体实现提供一个标记，也就是说，只要某个类实现了 Serializable 接口，那么它就可以用来序列化了。
+
+**3）不要在定义接口的时候使用 final 关键字**，否则会报编译错误，因为接口就是为了让子类实现的，而 final 阻止了这种行为。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-05.png)
+
+**4）接口的抽象方法不能是 private、protected 或者 final**，否则编译器都会报错。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-06.png)
+
+**5）接口的变量是隐式 `public static final`（常量）**，所以其值无法改变。
+
+### 02、接口的作用
+
+“接口可以做什么呢？”三妹见缝插针，问的很及时。
+
+**第一，使某些实现类具有我们想要的功能**，比如说，实现了 Cloneable 接口的类具有拷贝的功能，实现了 Comparable 或者 Comparator 的类具有比较功能。
+
+Cloneable 和 Serializable 一样，都属于标记型接口，它们内部都是空的。实现了 Cloneable 接口的类可以使用 `Object.clone()` 方法，否则会抛出 CloneNotSupportedException。
+
+```java
+public class CloneableTest implements Cloneable {
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        CloneableTest c1 = new CloneableTest();
+        CloneableTest c2 = (CloneableTest) c1.clone();
+    }
+}
+```
+
+运行后没有报错。现在把 `implements Cloneable` 去掉。
+
+```java
+public class CloneableTest {
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        CloneableTest c1 = new CloneableTest();
+        CloneableTest c2 = (CloneableTest) c1.clone();
+
+    }
+}
+```
+
+运行后抛出 CloneNotSupportedException：
+
+```
+Exception in thread "main" java.lang.CloneNotSupportedException: com.cmower.baeldung.interface1.CloneableTest
+	at java.base/java.lang.Object.clone(Native Method)
+	at com.cmower.baeldung.interface1.CloneableTest.clone(CloneableTest.java:6)
+	at com.cmower.baeldung.interface1.CloneableTest.main(CloneableTest.java:11)
+```
+
+
+**第二，Java 原则上只支持单一继承，但通过接口可以实现多重继承的目的**。
+
+如果有两个类共同继承（extends）一个父类，那么父类的方法就会被两个子类重写。然后，如果有一个新类同时继承了这两个子类，那么在调用重写方法的时候，编译器就不能识别要调用哪个类的方法了。这也正是著名的菱形问题，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-07.png)
+
+
+简单解释下，ClassC 同时继承了 ClassA 和 ClassB，ClassC 的对象在调用 ClassA 和 ClassB 中重写的方法时，就不知道该调用 ClassA 的方法，还是 ClassB 的方法。
+
+接口没有这方面的困扰。来定义两个接口，Fly 接口会飞，Run 接口会跑。
+
+```java
+public interface Fly {
+    void fly();
+}
+public interface Run {
+    void run();
+}
+```
+
+然后让 Pig 类同时实现这两个接口。
+
+```java
+public class Pig implements Fly,Run{
+    @Override
+    public void fly() {
+        System.out.println("会飞的猪");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("会跑的猪");
+    }
+}
+```
+
+在某种形式上，接口实现了多重继承的目的：现实世界里，猪的确只会跑，但在雷军的眼里，站在风口的猪就会飞，这就需要赋予这只猪更多的能力，通过抽象类是无法实现的，只能通过接口。
+
+**第三，实现多态**。
+
+什么是多态呢？通俗的理解，就是同一个事件发生在不同的对象上会产生不同的结果，鼠标左键点击窗口上的 X 号可以关闭窗口，点击超链接却可以打开新的网页。
+
+多态可以通过继承（`extends`）的关系实现，也可以通过接口的形式实现。
+
+Shape 接口表示一个形状。
+
+```java
+public interface Shape {
+    String name();
+}
+```
+
+Circle 类实现了 Shape 接口，并重写了 `name()` 方法。
+
+```java
+public class Circle implements Shape {
+    @Override
+    public String name() {
+        return "圆";
+    }
+}
+```
+
+Square 类也实现了 Shape 接口，并重写了 `name()` 方法。
+
+```java
+public class Square implements Shape {
+    @Override
+    public String name() {
+        return "正方形";
+    }
+}
+```
+
+然后来看测试类。
+
+```java
+List<Shape> shapes = new ArrayList<>();
+Shape circleShape = new Circle();
+Shape squareShape = new Square();
+
+shapes.add(circleShape);
+shapes.add(squareShape);
+
+for (Shape shape : shapes) {
+    System.out.println(shape.name());
+}
+```
+
+这就实现了多态，变量 circleShape、squareShape 的引用类型都是 Shape，但执行 `shape.name()` 方法的时候，Java 虚拟机知道该去调用 Circle 的 `name()` 方法还是 Square 的 `name()` 方法。
+
+说一下多态存在的 3 个前提：
+
+- 1、要有继承关系，比如说 Circle 和 Square 都实现了 Shape 接口。
+- 2、子类要重写父类的方法，Circle 和 Square 都重写了 `name()` 方法。
+- 3、父类引用指向子类对象，circleShape 和 squareShape 的类型都为 Shape，但前者指向的是 Circle 对象，后者指向的是 Square 对象。
+
+然后，我们来看一下测试结果：
+
+```
+圆
+正方形
+```
+
+也就意味着，尽管在 for 循环中，shape 的类型都为 Shape，但在调用 `name()` 方法的时候，它知道 Circle 对象应该调用 Circle 类的 `name()` 方法，Square 对象应该调用 Square 类的 `name()` 方法。
+
+### 03、接口的三种模式
+
+**在编程领域，好的设计模式能够让我们的代码事半功倍**。在使用接口的时候，经常会用到三种模式，分别是策略模式、适配器模式和工厂模式。
+
+#### 1）策略模式
+
+策略模式的思想是，针对一组算法，将每一种算法封装到具有共同接口的实现类中，接口的设计者可以在不影响调用者的情况下对算法做出改变。示例如下：
+
+```java
+// 接口：教练
+interface Coach {
+    // 方法：防守
+    void defend();
+}
+
+// 何塞·穆里尼奥
+class Hesai implements Coach {
+
+    @Override
+    public void defend() {
+        System.out.println("防守赢得冠军");
+    }
+}
+
+// 德普·瓜迪奥拉
+class Guatu implements Coach {
+
+    @Override
+    public void defend() {
+        System.out.println("进攻就是最好的防守");
+    }
+}
+
+public class Demo {
+    // 参数为接口
+    public static void defend(Coach coach) {
+        coach.defend();
+    }
+    
+    public static void main(String[] args) {
+        // 为同一个方法传递不同的对象
+        defend(new Hesai());
+        defend(new Guatu());
+    }
+}
+```
+
+`Demo.defend()` 方法可以接受不同风格的 Coach，并根据所传递的参数对象的不同而产生不同的行为，这被称为“策略模式”。
+
+#### 2）适配器模式
+
+适配器模式的思想是，针对调用者的需求对原有的接口进行转接。生活当中最常见的适配器就是HDMI（英语：`High Definition Multimedia Interface`，中文：高清多媒体接口）线，可以同时发送音频和视频信号。适配器模式的示例如下：
+
+```java
+interface Coach {
+    void defend();
+    void attack();
+}
+
+// 抽象类实现接口，并置空方法
+abstract class AdapterCoach implements Coach {
+    public void defend() {};
+    public void attack() {};
+}
+
+// 新类继承适配器
+class Hesai extends AdapterCoach {
+    public void defend() {
+        System.out.println("防守赢得冠军");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Coach coach = new Hesai();
+        coach.defend();
+    }
+}
+```
+Coach 接口中定义了两个方法（`defend()` 和 `attack()`），如果类直接实现该接口的话，就需要对两个方法进行实现。
+
+如果我们只需要对其中一个方法进行实现的话，就可以使用一个抽象类作为中间件，即适配器（AdapterCoach），用这个抽象类实现接口，并对抽象类中的方法置空（方法体只有一对花括号），这时候，新类就可以绕过接口，继承抽象类，我们就可以只对需要的方法进行覆盖，而不是接口中的所有方法。
+
+#### 3）工厂模式
+
+所谓的工厂模式理解起来也不难，就是什么工厂生产什么，比如说宝马工厂生产宝马，奔驰工厂生产奔驰，A 级学院毕业 A 级教练，C 级学院毕业 C 级教练。示例如下：
+
+```java
+// 教练
+interface Coach {
+    void command();
+}
+
+// 教练学院
+interface CoachFactory {
+    Coach createCoach();
+}
+
+// A级教练
+class ACoach implements Coach {
+
+    @Override
+    public void command() {
+        System.out.println("我是A级证书教练");
+    }
+    
+}
+
+// A级教练学院
+class ACoachFactory implements CoachFactory {
+
+    @Override
+    public Coach createCoach() {
+        return new ACoach();
+    }
+    
+}
+
+// C级教练
+class CCoach implements Coach {
+
+    @Override
+    public void command() {
+        System.out.println("我是C级证书教练");
+    }
+    
+}
+
+// C级教练学院
+class CCoachFactory implements CoachFactory {
+
+    @Override
+    public Coach createCoach() {
+        return new CCoach();
+    }
+    
+}
+
+public class Demo {
+    public static void create(CoachFactory factory) {
+        factory.createCoach().command();
+    }
+    
+    public static void main(String[] args) {
+        // 对于一支球队来说，需要什么样的教练就去找什么样的学院
+        // 学院会介绍球队对应水平的教练。
+        create(new ACoachFactory());
+        create(new CCoachFactory());
+    }
+}
+```
+
+有两个接口，一个是 Coach（教练），可以 `command()`（指挥球队）；另外一个是 CoachFactory（教练学院），能 `createCoach()`（教出一名优秀的教练）。然后 ACoach 类实现 Coach 接口，ACoachFactory 类实现 CoachFactory 接口；CCoach 类实现 Coach 接口，CCoachFactory 类实现 CoachFactory 接口。当需要 A 级教练时，就去找 A 级教练学院；当需要 C 级教练时，就去找 C 级教练学院。
+
+依次类推，我们还可以用 BCoach 类实现 Coach 接口，BCoachFactory 类实现 CoachFactory 接口，从而不断地丰富教练的梯队。
+
+“怎么样三妹，一下子接收这么多知识点不容易吧？”
+
+“其实还好啊，二哥你讲的这么细致，我都做好笔记📒了，学习嘛，认真一点，效果就会好很多了。”
+
+三妹这种积极乐观的态度真的让我感觉到“付出就会有收获”，💪🏻。
+
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.12 抽象类和接口的区别
+
+“三妹，通过前面两篇，我们已经深入地了解了 Java [抽象类](https://tobebetterjavaer.com/oo/abstract.html)和 Java [接口](https://tobebetterjavaer.com/oo/interface.html)，那这篇我们来重点说一下抽象类和接口之间的区别。”我放下手中的鼠标和键盘，转向右手边，对三妹说。
+
+“好啊。我挺想总结一波的，也算是对抽象类和接口做个了结。”三妹回应到。
+
+### 01、抽象类
+
+在 Java 中，通过关键字 `abstract` 定义的类叫做抽象类。Java 是一门面向对象的语言，因此所有的对象都是通过类来描述的；但反过来，并不是所有的类都是用来描述对象的，抽象类就是其中的一种。
+
+以下示例展示了一个简单的抽象类：
+
+```java
+// 个人认为，一名教练必须攻守兼备
+abstract class Coach {
+	public abstract void defend();
+
+	public abstract void attack();
+}
+```
+
+### 02、接口
+
+我们知道，有抽象方法的类被称为抽象类，也就意味着抽象类中还能有不是抽象方法的方法。这样的类就不能算作纯粹的接口，尽管它也可以提供接口的功能——只能说抽象类是普通类与接口之间的一种中庸之道。
+
+**接口（英文：Interface），在 Java 中是一个抽象类型，是抽象方法的集合**；接口通过关键字 `interface` 来定义。接口与抽象类的不同之处在于：
+
+- 1、抽象类可以有方法体的方法，但接口没有（Java 8 以前）。
+- 2、接口中的成员变量隐式为 `static final`，但抽象类不是的。
+- 3、一个类可以实现多个接口，但只能继承一个抽象类。
+
+以下示例展示了一个简单的接口：
+
+```java
+// 隐式的abstract
+interface Coach {
+	// 隐式的public
+	void defend();
+	void attack();
+}
+```
+
+- 接口是隐式抽象的，所以声明时没有必要使用 `abstract` 关键字；
+- 接口的每个方法都是隐式抽象的，所以同样不需要使用 `abstract` 关键字；
+- 接口中的方法都是隐式 `public` 的。
+
+### 03、两者差别
+
+“哦，我理解了哥。那我再问一下，抽象类和接口有什么差别呢？”
+
+“哇，三妹呀，你这个问题恰到好处，问到了点子上。”我不由得为三妹竖起了大拇指。
+
+#### 1）语法层面上
+
+- 抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；
+- 抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是public static final类型的；
+- 接口中不能含有静态代码块，而抽象类可以有静态代码块；
+- 一个类只能继承一个抽象类，而一个类却可以实现多个接口。
+
+#### 2）设计层面上
+
+抽象类是对一种事物的抽象，即对类抽象，继承抽象类的子类和抽象类本身是一种 `is-a` 的关系。而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。
+
+举个简单的例子，飞机和鸟是不同类的事物，但是它们都有一个共性，就是都会飞。那么在设计的时候，可以将飞机设计为一个类Airplane，将鸟设计为一个类Bird，但是不能将 飞行 这个特性也设计为类，因此它只是一个行为特性，并不是对一类事物的抽象描述。
+
+此时可以将 飞行 设计为一个接口Fly，包含方法fly()，然后Airplane和Bird分别根据自己的需要实现Fly这个接口。然后至于有不同种类的飞机，比如战斗机、民用飞机等直接继承Airplane即可，对于鸟也是类似的，不同种类的鸟直接继承Bird类即可。从这里可以看出，继承是一个 "是不是"的关系，而 接口 实现则是 "有没有"的关系。如果一个类继承了某个抽象类，则子类必定是抽象类的种类，而接口实现则是有没有、具备不具备的关系，比如鸟是否能飞（或者是否具备飞行这个特点），能飞行则可以实现这个接口，不能飞行就不实现这个接口。
+
+接口是对类的某种行为的一种抽象，接口和类之间并没有很强的关联关系，举个例子来说，所有的类都可以实现 `Serializable` 接口，从而具有序列化的功能，但不能说所有的类和 Serializable 之间是 `is-a` 的关系。
+
+抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。什么是模板式设计？最简单例子，大家都用过ppt里面的模板，如果用模板A设计了ppt B和ppt C，ppt B和ppt C公共的部分就是模板A了，如果它们的公共部分需要改动，则只需要改动模板A就可以了，不需要重新对ppt B和ppt C进行改动。而辐射式设计，比如某个电梯都装了某种报警器，一旦要更新报警器，就必须全部更新。也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。
+
+>参考链接：[https://www.cnblogs.com/dolphin0520/p/3811437.html](https://www.cnblogs.com/dolphin0520/p/3811437.html)
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.13 Java内部类
+
+“在 Java 中，可以将一个类定义在另外一个类里面或者一个方法里面，这样的类叫做内部类。”我放下手中的枸杞杯，对三妹说，“一般来说，内部类分为成员内部类、局部内部类、匿名内部类和静态内部类。”
+
+### **1）成员内部类**
+
+成员内部类是最常见的内部类，看下面的代码：
+
+```java
+class Wanger {
+    int age = 18;
+    
+    class Wangxiaoer {
+        int age = 81;
+    }
+}
+```
+
+看起来内部类 Wangxiaoer 就好像 Wanger 的一个成员，成员内部类可以无限制访问外部类的所有成员属性。
+
+```java
+public class Wanger {
+    int age = 18;
+    private String name = "沉默王二";
+    static double money = 1;
+
+    class Wangxiaoer {
+        int age = 81;
+        
+        public void print() {
+            System.out.println(name);
+            System.out.println(money);
+        }
+    }
+}
+```
+
+内部类可以随心所欲地访问外部类的成员，但外部类想要访问内部类的成员，就不那么容易了，必须先创建一个成员内部类的对象，再通过这个对象来访问：
+
+```java
+public class Wanger {
+    int age = 18;
+    private String name = "沉默王二";
+    static double money = 1;
+
+    public Wanger () {
+        new Wangxiaoer().print();
+    }
+
+    class Wangxiaoer {
+        int age = 81;
+
+        public void print() {
+            System.out.println(name);
+            System.out.println(money);
+        }
+    }
+}
+```
+
+这也就意味着，如果想要在静态方法中访问成员内部类的时候，就必须先得创建一个外部类的对象，因为内部类是依附于外部类的。
+
+```java
+public class Wanger {
+    int age = 18;
+    private String name = "沉默王二";
+    static double money = 1;
+
+    public Wanger () {
+        new Wangxiaoer().print();
+    }
+
+    public static void main(String[] args) {
+        Wanger wanger = new Wanger();
+        Wangxiaoer xiaoer = wanger.new Wangxiaoer();
+        xiaoer.print();
+    }
+
+    class Wangxiaoer {
+        int age = 81;
+
+        public void print() {
+            System.out.println(name);
+            System.out.println(money);
+        }
+    }
+}
+```
+
+这种创建内部类的方式在实际开发中并不常用，因为内部类和外部类紧紧地绑定在一起，使用起来非常不便。
+
+### **2）局部内部类**
+
+局部内部类是定义在一个方法或者一个作用域里面的类，所以局部内部类的生命周期仅限于作用域内。
+
+```java
+public class Wangsan {
+    public Wangsan print() {
+        class Wangxiaosan extends Wangsan{
+            private int age = 18;
+        }
+        return new Wangxiaosan();
+    }
+}
+```
+
+局部内部类就好像一个局部变量一样，它是不能被权限修饰符修饰的，比如说 public、protected、private 和 static 等。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/inner-class-26fc0242-134a-4588-a52d-7da962fc3fb9.png)
+
+### **3）匿名内部类**
+
+匿名内部类是我们平常用得最多的，尤其是启动多线程的时候，会经常用到，并且 IDE 也会帮我们自动生成。
+
+```java
+public class ThreadDemo {
+    public static void main(String[] args) {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+            }
+        });
+        t.start();
+    }
+}
+```
+
+匿名内部类就好像一个方法的参数一样，用完就没了，以至于我们都不需要为它专门写一个构造方法，它的名字也是由系统自动命名的。仔细观察编译后的字节码文件也可以发现，匿名内部类连名字都不配拥有，哈哈，直接借用的外部类，然后 `$1` 就搞定了。
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/inner-class-c0b9bdf5-cb12-45fc-b362-cb14d5d44fdc.png)
+
+
+匿名内部类是唯一一种没有构造方法的类。就上面的写法来说，匿名内部类也不允许我们为其编写构造方法，因为它就像是直接通过 new 关键字创建出来的一个对象。
+
+匿名内部类的作用主要是用来继承其他类或者实现接口，并不需要增加额外的方法，方便对继承的方法进行实现或者重写。
+
+### **4）静态内部类**
+
+静态内部类和成员内部类类似，只是多了一个 static 关键字。
+
+```java
+public class Wangsi {
+    static int age;
+    double money;
+    
+    static class Wangxxiaosi {
+        public Wangxxiaosi (){
+            System.out.println(age);
+        }
+    }
+}
+```
+
+由于 static 关键字的存在，静态内部类是不允许访问外部类中非 static 的变量和方法的，这一点也非常好理解：你一个静态的内部类访问我非静态的成员变量干嘛？
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/inner-class-69523196-37fe-43c6-a52e-5a8c94fdd2d8.png)
+
+“为什么要使用内部类呢？”三妹问。
+
+三妹这个问题问的非常妙，是时候引经据典了。
+
+在《Think in java》中有这样一句话：
+
+>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响。
+
+在我们程序设计中有时候会存在一些使用接口很难解决的问题，这个时候我们可以利用内部类提供的、可以继承多个具体的或者抽象的类的能力来解决这些程序设计问题。可以这样说，接口只是解决了部分问题，而内部类使得多重继承的解决方案变得更加完整。
+
+使用内部类还能够为我们带来如下特性：
+
+- 1、内部类可以使用多个实例，每个实例都有自己的状态信息，并且与其他外围对象的信息相互独立。
+- 2、在单个外部类中，可以让多个内部类以不同的方式实现同一个接口，或者继承同一个类。
+- 3、创建内部类对象的时刻并不依赖于外部类对象的创建。
+- 4、内部类并没有令人迷惑的“is-a”关系，他就是一个独立的实体。
+- 5、内部类提供了更好的封装，除了该外围类，其他类都不能访问。
+
+>参考链接：[https://www.cnblogs.com/dolphin0520/p/3811445.html](https://www.cnblogs.com/dolphin0520/p/3811445.html)，作者：Matrix海 子，编辑：沉默王二
+
+
+----
+
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.14 Java封装
+
+“三妹，准备好了没，我们这节来讲 Java 封装，算是 Java 的三大特征之一，理清楚了，对以后的编程有较大的帮助。”我对三妹说。
+
+“好的，哥，准备好了。”三妹一边听我说，一边迅速地打开了 XMind，看来一边学习一边总结思维导图这个高效的学习方式三妹已经牢记在心了。
+
+封装从字面上来理解就是包装的意思，专业点就是信息隐藏，**是指利用抽象将数据和基于数据的操作封装在一起，使其构成一个不可分割的独立实体**。
+
+数据被保护在类的内部，尽可能地隐藏内部的实现细节，只保留一些对外接口使之与外部发生联系。
+
+其他对象只能通过已经授权的操作来与这个封装的对象进行交互。也就是说用户是无需知道对象内部的细节（当然也无从知道），但可以通过该对象对外的提供的接口来访问该对象。
+
+使用封装有 4 大好处：
+
+- 1、良好的封装能够减少耦合。
+- 2、类内部的结构可以自由修改。
+- 3、可以对成员进行更精确的控制。
+- 4、隐藏信息，实现细节。
+
+首先我们先来看两个类。
+
+Husband.java
+
+```java
+public class Husband {
+    
+    /*
+     * 对属性的封装
+     * 一个人的姓名、性别、年龄、妻子都是这个人的私有属性
+     */
+    private String name ;
+    private String sex ;
+    private int age ;
+    private Wife wife;
+    
+    /*
+     * setter()、getter()是该对象对外开发的接口
+     */
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setWife(Wife wife) {
+        this.wife = wife;
+    }
+}
+```
+
+Wife.java
+
+```java
+public class Wife {
+    private String name;
+    private int age;
+    private String sex;
+    private Husband husband;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setHusband(Husband husband) {
+        this.husband = husband;
+    }
+
+    public Husband getHusband() {
+        return husband;
+    }
+    
+}
+```
+
+可以看得出， Husband 类里面的 wife 属性是没有 getter()的，同时 Wife  类的 age 属性也是没有 getter()方法的。至于理由我想三妹你是懂的。
+
+没有哪个女人愿意别人知道她的年龄。
+
+所以封装把一个对象的属性私有化，同时提供一些可以被外界访问的属性的方法，如果不想被外界方法，我们大可不必提供方法给外界访问。
+
+但是如果一个类没有提供给外界任何可以访问的方法，那么这个类也没有什么意义了。
+
+比如我们将一个房子看做是一个对象，里面有漂亮的装饰，如沙发、电视剧、空调、茶桌等等都是该房子的私有属性，但是如果我们没有那些墙遮挡，是不是别人就会一览无余呢？没有一点儿隐私！
+
+因为存在那个遮挡的墙，我们既能够有自己的隐私而且我们可以随意的更改里面的摆设而不会影响到外面的人。
+
+但是如果没有门窗，一个包裹的严严实实的黑盒子，又有什么存在的意义呢？所以通过门窗别人也能够看到里面的风景。所以说门窗就是房子对象留给外界访问的接口。
+
+通过这个我们还不能真正体会封装的好处。现在我们从程序的角度来分析封装带来的好处。如果我们不使用封装，那么该对象就没有 setter()和 getter()，那么 Husband 类应该这样写：
+
+```java
+public class Husband {
+    public String name ;
+    public String sex ;
+    public int age ;
+    public Wife wife;
+}
+```
+
+我们应该这样来使用它：
+
+```java
+Husband husband = new Husband();
+husband.age = 30;
+husband.name = "张三";
+husband.sex = "男";    //貌似有点儿多余
+```
+
+但是哪天如果我们需要修改 Husband，例如将 age 修改为 String 类型的呢？你只有一处使用了这个类还好，如果你有几十个甚至上百个这样地方，你是不是要改到崩溃。如果使用了封装，我们完全可以不需要做任何修改，只需要稍微改变下 Husband 类的 setAge()方法即可。
+
+```java
+public class Husband {
+    
+    /*
+     * 对属性的封装
+     * 一个人的姓名、性别、年龄、妻子都是这个人的私有属性
+     */
+    private String name ;
+    private String sex ;
+    private String age ;    /* 改成 String类型的*/
+    private Wife wife;
+    
+    public String getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        //转换即可
+        this.age = String.valueOf(age);
+    }
+    
+    /** 省略其他属性的setter、getter **/
+    
+}
+```
+
+其他的地方依然这样引用( husband.setAge(22) )保持不变。
+
+到了这里我们确实可以看出，**封装确实可以使我们更容易地修改类的内部实现，而无需修改使用了该类的代码**。
+
+我们再看这个好处：**封装可以对成员变量进行更精确的控制**。
+
+还是那个 Husband，一般来说我们在引用这个对象的时候是不容易出错的，但是有时你迷糊了，写成了这样：
+
+```java
+Husband husband = new Husband();
+husband.age = 300;
+```
+
+也许你是因为粗心写成了这样，你发现了还好，如果没有发现那就麻烦大了，谁见过 300 岁的老妖怪啊！
+
+但是使用封装我们就可以避免这个问题，我们对 age 的访问入口做一些控制(setter)如：
+
+```java
+public class Husband {
+    
+    /*
+     * 对属性的封装
+     * 一个人的姓名、性别、年龄、妻子都是这个人的私有属性
+     */
+    private String name ;
+    private String sex ;
+    private int age ;    /* 改成 String类型的*/
+    private Wife wife;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if(age > 120){
+            System.out.println("ERROR：error age input....");    //提示錯誤信息
+        }else{
+            this.age = age;
+        }
+        
+    }
+    
+    /** 省略其他属性的setter、getter **/
+    
+}
+```
+
+上面都是对 setter 方法的控制，其实通过封装我们也能够对对象的出口做出很好的控制。例如性别在数据库中一般都是以 1、0 的方式来存储的，但是在前台我们又不能展示 1、0，这里我们只需要在 getter()方法里面做一些转换即可。
+
+```java
+public String getSexName() {
+    if("0".equals(sex)){
+        sexName = "女";
+    }
+    else if("1".equals(sex)){
+        sexName = "男";
+    }
+    return sexName;
+}
+```
+
+在使用的时候我们只需要使用 sexName 即可实现正确的性别显示。同理也可以用于针对不同的状态做出不同的操作。
+
+```java
+public String getCzHTML(){
+    if("1".equals(zt)){
+        czHTML = "<a href='javascript:void(0)' onclick='qy("+id+")'>启用</a>";
+    }
+    else{
+        czHTML = "<a href='javascript:void(0)' onclick='jy("+id+")'>禁用</a>";
+    }
+    return czHTML;
+}
+```
+
+“好了，关于封装我们就暂时就聊这么多吧。”我喝了一口普洱茶后，对三妹说。
+
+“好的，哥，我懂了。”
+
+> 参考链接：[https://www.cnblogs.com/chenssy/p/3351835.html](https://www.cnblogs.com/chenssy/p/3351835.html)，整理：沉默王二
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.15 Java继承
+
+“三妹，今天我们继续来学习 Java 的三大特征之一：继承，之前学习[抽象类](https://tobebetterjavaer.com/oo/abstract.html)的时候我们已经接触过这个概念，不过，我们今天我们来认真地聊一聊。”慢吞吞说完这句开篇词后，我对三妹做了一个打开 XMind 的手势提醒（其实就是瞎比划）。
+
+“懂了，哥，我这就打开。”三妹一边说，一边打开了 XMind，开始正襟危坐了起来。
+
+在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、**继承**、[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e848763d-0357-438f-9bb7-c07e776c9980.png)
+
+### 01、什么是继承
+
+**继承**（英语：inheritance）是面向对象软件技术中的一个概念。它使得**复用以前的代码非常容易。**
+
+Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承就是子类继承父类的属性和方法，使得子类对象（实例）具有父类的属性和方法，或子类从父类继承方法，使得子类具有父类相同的方法**。
+
+我们来举个例子：动物有很多种，是一个比较大的概念。在动物的种类中，我们熟悉的有猫(Cat)、狗(Dog)等动物，它们都有动物的一般特征（比如能够吃东西，能够发出声音），不过又在细节上有区别（不同动物的吃的不同，叫声不一样）。
+
+在 Java 语言中实现 Cat 和 Dog 等类的时候，就需要继承 Animal 这个类。继承之后 Cat、Dog 等具体动物类就是子类，Animal 类就是父类。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-bf43b473-4a05-4727-a543-c4edd44e5437.png)
+
+### 02、为什么需要继承
+
+三妹，你可能会问**为什么需要继承**？
+
+如果仅仅只有两三个类，每个类的属性和方法很有限的情况下确实没必要实现继承，但事情并非如此，事实上一个系统中往往有很多个类并且有着很多相似之处，比如猫和狗同属动物，或者学生和老师同属人。各个类可能又有很多个相同的属性和方法，这样的话如果每个类都重新写不仅代码显得很乱，代码工作量也很大。
+
+这时继承的优势就出来了：可以直接使用父类的属性和方法，自己也可以有自己新的属性和方法满足拓展，父类的方法如果自己有需求更改也可以重写。这样**使用继承不仅大大的减少了代码量，也使得代码结构更加清晰可见**。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-eeee7ea3-30d5-4bb1-9c9d-5e3bf427e805.png)
+
+所以这样从代码的层面上来看我们设计这个完整的 Animal 类是这样的：
+
+```java
+class Animal
+{
+    public int id;
+    public String name;
+    public int age;
+    public int weight;
+
+    public Animal(int id, String name, int age, int weight) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+    }
+    //这里省略get set方法
+    public void sayHello()
+    {
+        System.out.println("hello");
+    }
+    public void eat()
+    {
+        System.out.println("I'm eating");
+    }
+    public void sing()
+    {
+        System.out.println("sing");
+    }
+}
+```
+
+而 Dog，Cat，Chicken 类可以这样设计：
+
+```java
+class Dog extends Animal//继承animal
+{
+    public Dog(int id, String name, int age, int weight) {
+        super(id, name, age, weight);//调用父类构造方法
+    }
+}
+class Cat extends Animal{
+
+    public Cat(int id, String name, int age, int weight) {
+        super(id, name, age, weight);//调用父类构造方法
+    }
+}
+class Chicken extends Animal{
+
+    public Chicken(int id, String name, int age, int weight) {
+        super(id, name, age, weight);//调用父类构造方法
+    }
+    //鸡下蛋
+    public void layEggs()
+    {
+        System.out.println("我是老母鸡下蛋啦，咯哒咯！咯哒咯！");
+    }
+}
+```
+
+各自的类继承 Animal 后可以直接使用 Animal 类的属性和方法而不需要重复编写，各个类如果有自己的方法也可很容易地拓展。
+
+### 03、继承的分类
+
+继承分为单继承和多继承，Java 语言只支持类的单继承，但可以通过实现接口的方式达到多继承的目的。**这个我们之前在讲接口的时候就提到过，这里我们再聊一下。**
+
+继承 | 定义 | 优缺点 |
+---| ---- | ------ |
+单继承![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-62bbc6a2-4e0e-4150-9f83-fceb65c56667.png)|一个子类只拥有一个父类|优点：在类层次结构上比较清晰<br>缺点：结构的丰富度有时不能满足使用需求|
+多继承（Java 不支持，但可以用其它方式满足多继承使用需求）![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e2ebc65a-5385-44a0-8ef3-a1b17e0252f1.png)|一个子类拥有多个直接的父类|优点：子类的丰富度很高<br>缺点：容易造成混乱|
+
+#### **单继承**
+
+单继承，一个子类只有一个父类，如我们上面讲过的 Animal 类和它的子类。**单继承在类层次结构上比较清晰，但缺点是结构的丰富度有时不能满足使用需求**。
+
+#### **多继承**
+
+多继承，一个子类有多个直接的父类。这样做的好处是子类拥有所有父类的特征，**子类的丰富度很高，但是缺点就是容易造成混乱**。下图为一个混乱的例子。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ab4c9fef-63be-4bba-a871-7e5fb9bf711a.png)
+
+Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方式，**分别是**内部类、多层继承和实现接口。
+
+[内部类](https://tobebetterjavaer.com/oo/inner-class.html)可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
+
+**多层继承：**子类继承父类，父类如果还继承其他的类，那么这就叫**多层继承**。这样子类就会拥有所有被继承类的属性和方法。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d3789496-09f8-4a62-8424-e5c45e224320.png)
+
+[实现接口](https://tobebetterjavaer.com/oo/interface.html)无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
+
+类和接口相比，**类就是一个实体，有属性和方法，而接口更倾向于一组方法**。举个例子，就拿斗罗大陆的唐三来看，他存在的继承关系可能是这样的：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c06ece50-32e5-4b03-a31b-05ef03592d0c.png)
+
+### 04、如何实现继承
+
+#### **extends 关键字**
+
+在 Java 中，类的继承是单一继承，也就是说一个子类只能拥有一个父类，所以**extends**只能继承一个类。其使用语法为：
+
+```java
+class 子类名 extends 父类名{}
+```
+
+例如 Dog 类继承 Animal 类，它是这样的：
+
+```java
+class Animal{} //定义Animal类
+class Dog extends Animal{} //Dog类继承Animal类
+```
+
+子类继承父类后，就拥有父类的非私有的**属性和方法**。如果不明白，请看这个案例，在 IDEA 下创建一个项目，创建一个 test 类做测试，分别创建 Animal 类和 Dog 类，Animal 作为父类写一个 sayHello()方法，Dog 类继承 Animal 类之后就可以调用 sayHello()方法。具体代码为：
+
+```java
+class Animal {
+    public void  sayHello()//父类的方法
+    {
+        System.out.println("hello,everybody");
+    }
+}
+class Dog extends Animal//继承animal
+{ }
+public class test {
+    public static void main(String[] args) {
+       Dog dog=new Dog();
+       dog.sayHello();
+    }
+}
+```
+
+点击运行的时候 Dog 子类可以直接使用 Animal 父类的方法。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2ba4864f-af39-4bd7-b59c-db53ec1c38f6.png)
+
+#### **implements 关键字**
+
+使用 implements 关键字可以变相使 Java 拥有多继承的特性，使用范围为类实现接口的情况，一个类可以实现多个接口(接口与接口之间用逗号分开)。
+
+我们来看一个案例，创建一个 test2 类做测试，分别创建 doA 接口和 doB 接口，doA 接口声明 sayHello()方法，doB 接口声明 eat()方法，创建 Cat2 类实现 doA 和 doB 接口，并且在类中需要重写 sayHello()方法和 eat()方法。具体代码为：
+
+```java
+interface doA{
+     void sayHello();
+}
+interface doB{
+     void eat();
+    //以下会报错 接口中的方法不能具体定义只能声明
+    //public void eat(){System.out.println("eating");}
+}
+class Cat2 implements  doA,doB{
+    @Override//必须重写接口内的方法
+    public void sayHello() {
+        System.out.println("hello!");
+    }
+    @Override
+    public void eat() {
+        System.out.println("I'm eating");
+    }
+}
+public class test2 {
+    public static void main(String[] args) {
+        Cat2 cat=new Cat2();
+        cat.sayHello();
+        cat.eat();
+    }
+}
+```
+
+Cat 类实现 doA 和 doB 接口的时候，需要实现其声明的方法，点击运行结果如下，这就是一个类实现接口的简单案例：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-32bdceb5-e838-47cb-ad96-b7453abae6a5.png)
+
+### 05、继承的特点
+
+继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://tobebetterjavaer.com/oo/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://tobebetterjavaer.com/oo/this-super.html)。
+
+创建完这个对象之后，再调用**重写**父类后的方法，注意[重写和重载的区别](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
+
+#### this 和 super 关键字
+
+>[后面](https://tobebetterjavaer.com/oo/this-super.html)会详细讲，这里先来简单了解一下。
+
+this 和 super 关键字是继承中**非常重要的知识点**，分别表示当前对象的引用和父类对象的引用，两者有很大相似又有一些区别。
+
+**this 表示当前对象，是指向自己的引用。**
+
+```java
+this.属性 // 调用成员变量，要区别成员变量和局部变量
+this.() // 调用本类的某个方法
+this() // 表示调用本类构造方法
+```
+
+**super 表示父类对象，是指向父类的引用。**
+
+```java
+super.属性 // 表示父类对象中的成员变量
+super.方法() // 表示父类对象中定义的方法
+super() // 表示调用父类构造方法
+```
+
+#### 构造方法
+
+[构造方法](https://tobebetterjavaer.com/oo/construct.html)是一种特殊的方法，**它是一个与类同名的方法**。在继承中**构造方法是一种比较特殊的方法**（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。
+
+继承中的构造方法有以下几点需要注意：
+
+**父类的构造方法不能被继承：**
+
+因为构造方法语法是**与类同名**，而继承则不更改方法名，如果子类继承父类的构造方法，那明显与构造方法的语法冲突了。比如 Father 类的构造方法名为 Father()，Son 类如果继承 Father 类的构造方法 Father()，那就和构造方法定义：**构造方法与类同名**冲突了，所以在子类中不能继承父类的构造方法，但子类会调用父类的构造方法。
+
+**子类的构造过程必须调用其父类的构造方法：**
+
+Java 虚拟机**构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，**这被称为**内存叠加**。而 Java 虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须调用 super()即父类的构造方法。就比如一个简单的继承案例应该这么写：
+
+```java
+class A{
+    public String name;
+    public A() {//无参构造
+    }
+    public A (String name){//有参构造
+    }
+}
+class B extends A{
+    public B() {//无参构造
+       super();
+    }
+    public B(String name) {//有参构造
+      //super();
+       super(name);
+    }
+}
+```
+
+**如果子类的构造方法中没有显示地调用父类构造方法，则系统默认调用父类无参数的构造方法。**
+
+你可能有时候在写继承的时候子类并没有使用 super()调用，程序依然没问题，其实这样是为了节省代码，系统执行时会自动添加父类的无参构造方式，如果不信的话我们对上面的类稍作修改执行：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-33980b57-857b-4428-8b27-47d6d5060f29.png)
+
+#### 方法重写(Override)
+
+[方法重写](https://tobebetterjavaer.com/basic-extra-meal/Overriding.html)也就是子类中出现和父类中一模一样的方法(包括返回值类型，方法名，参数列表)，它建立在继承的基础上。你可以理解为方法的**外壳不变，但是核心内容重写**。
+
+在这里提供一个简单易懂的方法重写案例：
+
+```java
+class E1{
+    public void doA(int a){
+        System.out.println("这是父类的方法");
+    }
+}
+class E2 extends E1{
+    @Override
+    public void doA(int a) {
+        System.out.println("我重写父类方法，这是子类的方法");
+    }
+}
+```
+
+其中`@Override` 注解显示声明该方法为注解方法，可以帮你检查重写方法的语法正确性，当然如果不加也是可以的，但建议加上。
+
+#### 方法重载(Overload)
+
+如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
+
+重载可以通常理解为完成同一个事情的方法名相同，但是参数列表不同其他条件也可能不同。一个简单的方法重载的例子，类 E3 中的 add()方法就是一个重载方法。
+
+```java
+class E3{
+    public int add(int a,int b){
+        return a+b;
+    }
+    public double add(double a,double b) {
+        return a+b;
+    }
+    public int add(int a,int b,int c) {
+        return a+b+c;
+    }
+}
+```
+
+### 06、继承与修饰符
+
+Java 修饰符的作用就是对类或类成员进行修饰或限制，每个修饰符都有自己的作用，而在继承中可能有些特殊修饰符使得被修饰的属性或方法不能被继承，或者继承需要一些其他的条件。
+
+Java 语言提供了很多修饰符，修饰符用来定义类、方法或者变量，通常放在语句的最前端。主要分为以下两类：
+
+- [访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，也就是 public、private、protected 等
+- 非访问修饰符，也就是 static、final、abstract 等
+
+#### 访问修饰符
+
+Java 子类重写继承的方法时，**不可以降低方法的访问权限**，**子类继承父类的访问修饰符作用域不能比父类小**，也就是更加开放，假如父类是 protected 修饰的，其子类只能是 protected 或者 public，绝对不能是 default(默认的访问范围)或者 private。所以在继承中需要重写的方法不能使用 private 修饰词修饰。
+
+如果还是不太清楚可以看几个小案例就很容易搞懂，写一个 A1 类中用四种修饰词实现四个方法，用子类 A2 继承 A1，重写 A1 方法时候你就会发现父类私有方法不能重写，非私有方法重写使用的修饰符作用域不能变小(大于等于)。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ec684196-f877-46af-9f1e-087a5d313beb.png)
+
+正确的案例应该为：
+
+```java
+class A1 {
+    private void doA(){ }
+    void doB(){}//default
+    protected void doC(){}
+    public void doD(){}
+}
+class A2 extends A1{
+
+    @Override
+    public void doB() { }//继承子类重写的方法访问修饰符权限可扩大
+
+    @Override
+    protected void doC() { }//继承子类重写的方法访问修饰符权限可和父类一致
+
+    @Override
+    public void doD() { }//不可用protected或者default修饰
+}
+```
+
+还要注意的是，**继承当中子类抛出的异常必须是父类抛出的异常或父类抛出异常的子异常**。下面的一个案例四种方法测试可以发现子类方法的异常不可大于父类对应方法抛出异常的范围。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-6d5118fb-0807-4d78-a767-d6c4282e4b2b.png)
+
+正确的案例应该为：
+
+```java
+class B1{
+    public void doA() throws Exception{}
+    public void doB() throws Exception{}
+    public void doC() throws IOException{}
+    public void doD() throws IOException{}
+}
+class B2 extends B1{
+    //异常范围和父类可以一致
+    @Override
+    public void doA() throws Exception { }
+    //异常范围可以比父类更小
+    @Override
+    public void doB() throws IOException { }
+    //异常范围 不可以比父类范围更大
+    @Override
+    public void doC() throws IOException { }//不可抛出Exception等比IOException更大的异常
+    @Override
+    public void doD() throws IOException { }
+}
+```
+
+#### 非访问修饰符
+
+访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对 static、final、abstract 修饰符进行介绍。
+
+[static 修饰符](https://tobebetterjavaer.com/oo/static.html)
+
+static 翻译为“静态的”，能够与变量，方法和类一起使用，**称为静态变量，静态方法(也称为类变量、类方法)**。如果在一个类中使用 static 修饰变量或者方法的话，它们**可以直接通过类访问，不需要创建一个类的对象来访问成员。**
+
+我们在设计类的时候可能会使用静态方法，有很多工具类比如`Math`，`Arrays`等类里面就写了很多静态方法。
+
+可以看以下的案例证明上述规则：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-6a6ab068-2ef1-401a-ab2f-86a84b29dbbb.png)
+
+源代码为：
+
+```java
+class C1{
+    public  int a;
+    public C1(){}
+   // public static C1(){}// 构造方法不允许被声明为static
+    public static void doA() {}
+    public static void doB() {}
+}
+class C2 extends C1{
+    public static  void doC()//静态方法中不存在当前对象，因而不能使用this和super。
+    {
+        //System.out.println(super.a);
+    }
+    public static void doA(){}//静态方法能被静态方法重写
+   // public void doB(){}//静态方法不能被非静态方法重写
+}
+```
+
+[final 修饰符](https://tobebetterjavaer.com/oo/final.html)
+
+final 变量：
+
+- final 表示"最后的、最终的"含义，**变量一旦赋值后，不能被重新赋值**。被 final 修饰的实例变量必须显式指定初始值(即不能只声明)。final 修饰符通常和 static 修饰符一起使用来创建类常量。
+
+final 方法：
+
+- **父类中的 final 方法可以被子类继承，但是不能被子类重写**。声明 final 方法的主要目的是防止该方法的内容被修改。
+
+final 类：
+
+- **final 类不能被继承**，没有类能够继承 final 类的任何特性。
+
+所以无论是变量、方法还是类被 final 修饰之后，都有代表最终、最后的意思。内容无法被修改。
+
+[abstract 修饰符](https://tobebetterjavaer.com/oo/abstract.html)
+
+abstract 英文名为“抽象的”，主要用来修饰类和方法，称为抽象类和抽象方法。
+
+**抽象方法**：有很多不同类的方法是相似的，但是具体内容又不太一样，所以我们只能抽取他的声明，没有具体的方法体，即抽象方法可以表达概念但无法具体实现。
+
+**抽象类**：**有抽象方法的类必须是抽象类**，抽象类可以表达概念但是无法构造实体的类。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c9cd573a-39e9-40a0-b6f5-6a0fe925487d.png)
+
+比如我们可以这样设计一个 People 抽象类以及一个抽象方法，在子类中具体完成：
+
+```java
+abstract class People{
+    public abstract void sayHello();//抽象方法
+}
+class Chinese extends People{
+    @Override
+    public void sayHello() {//实现抽象方法
+        System.out.println("你好");
+    }
+}
+class Japanese extends People{
+    @Override
+    public void sayHello() {//实现抽象方法
+        System.out.println("口你七哇");
+    }
+}
+class American extends People{
+    @Override
+    public void sayHello() {//实现抽象方法
+        System.out.println("hello");
+    }
+}
+```
+
+### 07、Object 类和转型
+
+提到 Java 继承，不得不提及所有类的根类：Object(java.lang.Object)类，如果一个类没有显式声明它的父类（即没有写 extends xx），那么默认这个类的父类就是 Object 类，任何类都可以使用 Object 类的方法，创建的类也可和 Object 进行向上、向下转型，所以 Object 类是掌握和理解继承所必须的知识点。
+
+Java 向上和向下转型在 Java 中运用很多，也是建立在继承的基础上，所以 Java 转型也是掌握和理解继承所必须的知识点。
+
+#### Object 类概述
+
+1.  Object 是类层次结构的**根类**，所有的类都隐式的继承自 Object 类。
+2.  Java 中，所有的对象都拥有 Object 的默认方法。
+3.  Object 类有一个[构造方法](https://tobebetterjavaer.com/oo/construct.html)，并且是**无参构造方法**。
+
+Object 是 Java 所有类的父类，是整个类继承结构的顶端，也是最抽象的一个类。
+
+像 toString()、equals()、hashCode()、wait()、notify()、getClass()等都是 Object 的方法。你以后可能会经常碰到，但其中遇到更多的就是 toString()方法和 equals()方法，我们经常需要重写这两种方法满足我们的使用需求。
+
+toString()方法表示返回该对象的字符串，由于各个对象构造不同所以需要重写，如果不重写的话默认返回`类名@hashCode`格式。
+
+**如果重写 toString()方法后**直接调用 toString()方法就可以返回我们自定义的该类转成字符串类型的内容输出，而不需要每次都手动的拼凑成字符串内容输出，大大简化输出操作。
+
+equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了euqals()方法，通过[字符串的内容比较是否相等](https://tobebetterjavaer.com/string/equals.html)。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
+
+#### 向上转型
+
+**向上转型** : 通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换。用一张图就能很好地表示向上转型的逻辑：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png)
+
+父类引用变量指向子类对象后，只能使用父类已声明的方法，但方法如果被重写会执行子类的方法，如果方法未被重写那么将执行父类的方法。
+
+#### 向下转型
+
+**向下转型** : 通过父类对象(大范围)实例化子类对象(小范围)，在书写上父类对象需要加括号`()`强制转换为子类类型。但父类引用变量实际引用必须是子类对象才能成功转型，这里也用一张图就能很好表示向下转型的逻辑：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png)
+
+子类引用变量指向父类引用变量指向的对象后(一个 Son()对象)，就完成向下转型，就可以调用一些子类特有而父类没有的方法 。
+
+在这里写一个向上转型和向下转型的案例：
+
+```java
+Object object=new Integer(666);//向上转型
+
+Integer i=(Integer)object;//向下转型Object->Integer，object的实质还是指向Integer
+
+String str=(String)object;//错误的向下转型，虽然编译器不会报错但是运行会报错
+```
+
+### 08、子父类初始化顺序
+
+在 Java 继承中，父子类初始化先后顺序为：
+
+1.  父类中静态成员变量和静态代码块
+2.  子类中静态成员变量和静态代码块
+3.  父类中普通成员变量和代码块，父类的构造方法
+4.  子类中普通成员变量和代码块，子类的构造方法
+
+总的来说，就是**静态>非静态，父类>子类，非构造方法>构造方法**。同一类别（例如普通变量和普通代码块）成员变量和代码块执行从前到后，需要注意逻辑。
+
+这个也不难理解，静态变量也称类变量，可以看成一个全局变量，静态成员变量和静态代码块在类加载的时候就初始化，而非静态变量和代码块在对象创建的时候初始化。所以静态快于非静态初始化。
+
+而在创建子类对象的时候需要先创建父类对象，所以父类优先于子类。
+
+而在调用构造方法的时候，是对成员变量进行一些初始化操作，所以普通成员变量和代码块优于构造方法执行。
+
+至于更深层次为什么这个顺序，就要更深入了解 JVM 执行流程啦。下面一个测试代码为：
+
+```java
+class Father{
+    public Father() {
+        System.out.println(++b1+"父类构造方法");
+    }//父类构造方法 第四
+    static int a1=0;//父类static 第一 注意顺序
+    static {
+        System.out.println(++a1+"父类static");
+    }
+    int b1=a1;//父类成员变量和代码块 第三
+    {
+        System.out.println(++b1+"父类代码块");
+    }
+}
+class Son extends Father{
+    public Son() {
+        System.out.println(++b2+"子类构造方法");
+    }//子类构造方法 第六
+    static {//子类static第二步
+        System.out.println(++a1+"子类static");
+    }
+    int b2=b1;//子类成员变量和代码块 第五
+    {
+        System.out.println(++b2 + "子类代码块");
+    }
+}
+public class test9 {
+    public static void main(String[] args) {
+        Son son=new Son();
+    }
+}
+```
+
+执行结果：
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d23e0bbf-a4a4-4d20-ad21-f437fcee1c82.png)
+
+### 09、结语
+
+好啦，三妹，本次继承就介绍到这里啦，Java 面向对象三大特征之一继承——优秀的你已经掌握。
+
+封装：是对类的封装，封装是对类的属性和方法进行封装，只对外暴露方法而不暴露具体使用细节，所以我们一般设计类成员变量时候大多设为私有而通过一些 get、set 方法去读写。
+
+继承：子类继承父类，即“子承父业”，子类拥有父类除私有的所有属性和方法，自己还能在此基础上拓展自己新的属性和方法。主要目的是**复用代码**。
+
+**多态**：多态是同一个行为具有多个不同表现形式或形态的能力。即一个父类可能有若干子类，各子类实现父类方法有多种多样，调用父类方法时，父类引用变量指向不同子类实例而执行不同方法，这就是所谓父类方法是多态的。
+
+最后送你一张图捋一捋其中的关系吧。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+
+“好的，二哥，我来消化一下，今天内容真不少。你先去休息一下。”三妹回应到。
+
+> 参考链接：[https://bbs.huaweicloud.com/blogs/271358](https://bbs.huaweicloud.com/blogs/271358)，作者：bigsai，整理：沉默王二
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.16 Java多态
+
+“三妹啊，前面聊完了 Java 的[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，今天我们来继续聊多态，也是 Java 三大特性的最后一个特性，搞懂它，Java 面向对象编程基本上就能轻松拿捏了。”我对三妹说。
+
+“哥，你继续。”
+
+Java 多态是指在面向对象编程中，同一个类的对象在不同情况下表现出不同的行为和状态。
+
+- 子类可以继承父类的属性和方法，子类对象可以直接使用父类中的方法和变量。
+- 子类可以对从父类继承的方法进行重新实现，使得子类对象调用这个方法时表现出不同的行为。
+- 可以将子类对象赋给父类类型的变量，这样就可以通过父类类型的变量调用子类中重写的方法，实现多态。
+
+“很枯燥，有没有？再具体的分析一下。”
+
+### 01、多态是什么
+
+在我刻板的印象里，西游记里的那段孙悟空和二郎神的精彩对战就能很好的解释“多态”这个词：一个孙悟空，能七十二变；一个二郎神，也能七十二变；他们都可以变成不同的形态，但只需要悄悄地喊一声“变”。
+
+Java的多态是什么呢？其实就是一种能力——同一个行为具有不同的表现形式；换句话说就是，执行一段代码，Java 在运行时能根据对象的不同产生不同的结果。和孙悟空和二郎神都只需要喊一声“变”，然后就变了，并且每次变得还不一样；一个道理。
+
+多态的前提条件有三个：
+
+*   子类继承父类
+*   子类覆盖父类的方法
+*   父类引用指向子类对象
+
+多态的一个简单应用，来看程序清单1-1：
+
+```java
+//子类继承父类
+public class Wangxiaoer extends Wanger {
+    public void write() { // 子类覆盖父类方法
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
+
+        for (Wanger wanger : wangers) {
+            // 对象是王二的时候输出：勿忘国耻
+            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
+            wanger.write();
+        }
+    }
+}
+
+class Wanger {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+}
+```
+
+### 02、多态与后期绑定
+
+现在，我们来思考一个问题：程序清单1-1在执行 `wanger.write()` 时，由于编译器只有一个 Wanger 引用，它怎么知道究竟该调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
+
+答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是Java的方法调用机制能找到正确的方法体，然后执行出正确的结果。
+
+多态机制提供的一个重要的好处程序具有良好的扩展性。来看程序清单2-1：
+
+```java
+//子类继承父类
+public class Wangxiaoer extends Wanger {
+    public void write() { // 子类覆盖父类方法
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+    
+    public void eat() {
+        System.out.println("我不喜欢读书，我就喜欢吃");
+    }
+
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
+
+        for (Wanger wanger : wangers) {
+            // 对象是王二的时候输出：勿忘国耻
+            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
+            wanger.write();
+        }
+    }
+}
+
+class Wanger {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+    
+    public void read() {
+        System.out.println("每周读一本好书");
+    }
+}
+```
+
+在程序清单 2-1 中，我们在 Wanger 类中增加了 read() 方法，在 Wangxiaoer 类中增加了eat()方法，但这丝毫不会影响到 write() 方法的调用。write() 方法忽略了周围代码发生的变化，依然正常运行。这让我想起了金庸《倚天屠龙记》里九阳真经的口诀：“他强由他强，清风拂山岗；他横由他横，明月照大江。”
+
+多态的这个优秀的特性，让我们在修改代码的时候不必过于紧张，因为多态是一项让程序员“将改变的与未改变的分离开来”的重要特性。
+
+### 03、多态与构造方法
+
+在构造方法中调用多态方法，会产生一个奇妙的结果，我们来看程序清单3-1：
+
+```java
+public class Wangxiaosan extends Wangsan {
+    private int age = 3;
+    public Wangxiaosan(int age) {
+        this.age = age;
+        System.out.println("王小三的年龄：" + this.age);
+    }
+    
+    public void write() { // 子类覆盖父类方法
+        System.out.println("我小三上幼儿园的年龄是：" + this.age);
+    }
+    
+    public static void main(String[] args) {
+        new Wangxiaosan(4);
+//      上幼儿园之前
+//      我小三上幼儿园的年龄是：0
+//      上幼儿园之后
+//      王小三的年龄：4
+    }
+}
+
+class Wangsan {
+    Wangsan () {
+        System.out.println("上幼儿园之前");
+        write();
+        System.out.println("上幼儿园之后");
+    }
+    public void write() {
+        System.out.println("老子上幼儿园的年龄是3岁半");
+    }
+}
+```
+
+从输出结果上看，是不是有点诧异？明明在创建 Wangxiaosan 对象的时候，年龄传递的是 4，但输出结果既不是“老子上幼儿园的年龄是 3 岁半”，也不是“我小三上幼儿园的年龄是：4”。
+
+为什么？
+
+因为在创建子类对象时，会先去调用父类的构造方法，而父类构造方法中又调用了被子类覆盖的多态方法，由于父类并不清楚子类对象中的属性值是什么，于是把int类型的属性暂时初始化为 0，然后再调用子类的构造方法（子类构造方法知道王小二的年龄是 4）。
+
+### 04、多态与向下转型
+
+向下转型是指将父类引用强转为子类类型；这是不安全的，因为有的时候，父类引用指向的是父类对象，向下转型就会抛出 ClassCastException，表示类型转换失败；但如果父类引用指向的是子类对象，那么向下转型就是成功的。
+
+来看程序清单4-1：
+
+```java
+public class Wangxiaosi extends Wangsi {
+    public void write() {
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+
+    public void eat() {
+        System.out.println("我不喜欢读书，我就喜欢吃");
+    }
+
+    public static void main(String[] args) {
+        Wangsi[] wangsis = { new Wangsi(), new Wangxiaosi() };
+
+        // wangsis[1]能够向下转型
+        ((Wangxiaosi) wangsis[1]).write();
+        // wangsis[0]不能向下转型
+        ((Wangxiaosi)wangsis[0]).write();
+    }
+}
+
+class Wangsi {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+
+    public void read() {
+        System.out.println("每周读一本好书");
+    }
+}
+```
+
+“好了，三妹，到此为止，我们就将 Java 的三大特性，封装继承多态全部讲完了，希望你能重新把他们梳理一下。”
+
+“好的，二哥，遵命。”三妹顽皮地笑了。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 

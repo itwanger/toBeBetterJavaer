@@ -1,6 +1,6 @@
 ---
-title: 详解Java中可变参数的使用
-shortTitle: 详解Java中可变参数的使用
+title: 聊聊Java中的可变参数
+shortTitle: Java中的可变参数
 category:
   - Java核心
 tag:
@@ -9,12 +9,12 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,可变参数
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,可变参数,java 可变参数
 ---
 
-# 详解Java中可变参数的使用
+# 5.5 Java中的可变参数
 
-为了让铁粉们能白票到阿里云的服务器，老王当了整整两天的客服，真正体验到了什么叫做“为人民群众谋福利”的不易和辛酸。正在他眼睛红肿打算要休息之际，小二跑过来问他：“Java 的可变参数究竟是怎么一回事？”老王一下子又清醒了，他爱 Java，他爱传道解惑，他爱这群尊敬他的读者。
+为了让铁粉们能白票到阿里云的服务器，我当了整整两天的客服，真正体验到了什么叫做“为人民群众谋福利”的不易和辛酸。正在我眼睛红肿打算要休息之际，三妹跑过来问：“Java 的可变参数究竟是怎么一回事？”我一下子又清醒了，我爱 Java，我爱传道解惑，也享受三妹的赞许（😂）。
 
 可变参数是 Java 1.5 的时候引入的功能，它允许方法使用任意多个、类型相同（`is-a`）的值作为参数。就像下面这样。
 
@@ -43,10 +43,7 @@ public static void print(String... strs) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-02.png)
 
-
-
-
-可变参数看起来就像是个语法糖，它背后究竟隐藏了什么呢？老王想要一探究竟，它在追求真理这条路上一直很执着。
+可变参数看起来就像是个语法糖，它背后究竟隐藏了什么呢？让我们来一探究竟，在追求真理这条路上我们要执着。
 
 其实也很简单。**当使用可变参数的时候，实际上是先创建了一个数组，该数组的大小就是可变参数的个数，然后将参数放入数组当中，再将数组传递给被调用的方法**。
 
@@ -69,11 +66,7 @@ public static void print(String... strs) {
 
 那如果方法的参数是一个数组，然后像使用可变参数那样去调用方法的时候，能行得通吗？
 
-*留个思考题，大家也可以去试一试*
-
-
-
-那一般什么时候使用可变参数呢？
+“三妹，给你留个思考题：一般什么时候使用可变参数呢？”
 
 可变参数，可变参数，顾名思义，当一个方法需要处理任意多个相同类型的对象时，就可以定义可变参数。Java 中有一个很好的例子，就是 String 类的 `format()` 方法，就像下面这样。
 
@@ -86,7 +79,7 @@ System.out.println(String.format("年纪是: %d 名字是: %s", 18, "沉默王�
 
 如果不使用可变参数，那需要格式化的参数就必须使用“+”号操作符拼接起来了。麻烦也就惹上身了。
 
-在实际的项目代码中，开源包 slf4j.jar 的日志输出就经常要用到可变参数（log4j 就没法使用可变参数，日志中需要记录多个参数时就痛苦不堪了）。就像下面这样。
+在实际的项目代码中，[slf4j](https://tobebetterjavaer.com/gongju/slf4j.html) 的日志输出就经常要用到可变参数（[log4j](https://tobebetterjavaer.com/gongju/log4j.html) 就没法使用可变参数，日志中需要记录多个参数时就痛苦不堪了）。就像下面这样。
 
 ```java
 protected Logger logger = LoggerFactory.getLogger(getClass());
@@ -100,7 +93,7 @@ logger.debug("名字是{}，年纪是{}", mem.getName(), mem.getAge());
 public void debug(String format, Object... arguments);
 ```
 
-那在使用可变参数的时候有什么注意事项吗？
+“那在使用可变参数的时候有什么注意事项吗？”三妹问。
 
 有的。我们要避免重载带有可变参数的方法——这样很容易让编译器陷入自我怀疑中。
 
@@ -126,7 +119,6 @@ public static void print(Integer... ints) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-03.png)
 
-
 假如真的需要重载带有可变参数的方法，就必须在调用方法的时候给出明确的指示，不要让编译器去猜。
 
 ```java
@@ -146,6 +138,10 @@ public static void print(Integer... ints) {
 ```
 
 上面这段代码是可以编译通过的。因为编译器知道参数是 String 类型还是 Integer 类型，只不过为了运行时不抛出 `NullPointerException`，两个 `print()` 方法的内部要做好判空操作。
+
+“好了，关于可变参数，我们就先讲到这里吧。三妹，你都理解了吧？”
+
+“嗯嗯，不难，我理解了，哥。”三妹最近的学习状态真不错，能看得出来，她有在认真地做笔记📒。
 
 ---
 
