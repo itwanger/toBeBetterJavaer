@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,equals,java equals,java string 比较,java字符串比较
 ---
 
-# 4.8 Java如何判断两个字符串是否相等？
+# 4.8 如何判断两个字符串是否相等？
 
 “二哥，如何比较两个字符串相等啊？”三妹问。
 
