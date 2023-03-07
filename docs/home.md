@@ -159,6 +159,7 @@ head:
 - [详解 static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
 - [一文彻底搞懂 final 关键字](oo/final.md)
 - [聊聊instanceof关键字](basic-extra-meal/instanceof.md)
+- [聊聊Java中的不可变对象](basic-extra-meal/immutable.md)
 - [Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了](basic-extra-meal/override-overload.md)
 
 ### 集合框架（容器）
@@ -226,7 +227,6 @@ head:
 - [详解Java中Comparable和Comparator接口的区别](basic-extra-meal/comparable-omparator.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 - [instanceof关键字是如何实现的？](basic-extra-meal/instanceof-jvm.md)
-- [深入理解Java中的不可变对象](basic-extra-meal/immutable.md)
 - [Java中可变参数的使用](basic-extra-meal/varables.md)
 - [深入理解Java中的泛型](basic-extra-meal/generic.md)
 - [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
