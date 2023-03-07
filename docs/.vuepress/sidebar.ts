@@ -163,6 +163,7 @@ export const sidebarConfig = sidebar({
           "basic-extra-meal/instanceof",
           "basic-extra-meal/immutable",
           "basic-extra-meal/override-overload",
+          "basic-extra-meal/annotation",
           ],
         },
         {
@@ -253,7 +254,6 @@ export const sidebarConfig = sidebar({
           "instanceof-jvm",
           "generic",
           "true-generic",
-          "annotation",
           "enum",
           "fanshe",
           ],

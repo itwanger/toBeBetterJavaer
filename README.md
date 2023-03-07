@@ -149,8 +149,8 @@
 - [一文彻底搞懂 final 关键字](docs/oo/final.md)
 - [聊聊instanceof关键字](docs/basic-extra-meal/instanceof.md)
 - [聊聊Java中的不可变对象](docs/basic-extra-meal/immutable.md)
-- [Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了](docs/basic-extra-meal/override-overload.md)
-
+- [方法重写 Override 和方法重载 Overload 有什么区别？](docs/basic-extra-meal/override-overload.md)
+- [深入理解Java中的注解](docs/basic-extra-meal/annotation.md)
 
 ## 集合框架（容器）
 
@@ -218,7 +218,6 @@
 - [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
 - [深入理解Java中的泛型](docs/basic-extra-meal/generic.md)
 - [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
-- [深入理解Java中的注解](docs/basic-extra-meal/annotation.md)
 - [新来个技术总监，彻底把 Java 枚举(enum)讲清楚了](docs/basic-extra-meal/enum.md)
 - [大白话说清楚Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
 
