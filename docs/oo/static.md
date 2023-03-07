@@ -1,6 +1,6 @@
 ---
-title: 一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类
-shortTitle: 一文彻底搞懂Java static关键字
+title: 详解 static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类
+shortTitle: static关键字
 description: Java程序员进阶之路，小白的零基础Java教程，一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类
 category:
   - Java 核心
@@ -9,10 +9,12 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,static,java静态变量,java静态方法,java静态代码块,java静态内部类
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,static,java静态变量,java静态方法,java静态代码块,java静态内部类,java static
 ---
 
-“哥，你牙龈肿痛轻点没？周一的《教妹学 Java》（Java程序员进阶之路的前身）你都没有更新，偷懒了呀！”三妹关心地问我。
+# 5.17 static关键字
+
+“哥，你牙龈肿痛轻点没？周一的《教妹学 Java》（二哥的Java进阶之路前身）你都没有更新，偷懒了呀！”三妹关心地问我。
 
 “今天周四了，吃了三天的药，疼痛已经减轻不少，咱妈还给我打了电话，让我买点牛黄解毒片下下火。”我面带着微笑对三妹说，“学习可不能落下，今天我们来学 Java 中 `static` 关键字吧。”
 
@@ -22,7 +24,7 @@ head:
 
 “static 关键字的作用可以用一句话来描述：‘**方便在没有创建对象的情况下进行调用**，包括变量和方法’。也就是说，只要类被加载了，就可以通过类名进行访问。”我扶了扶沉重眼镜，继续说到，“static 可以用来修饰类的成员变量，以及成员方法。我们一个个来看。”
 
-## 01、静态变量
+### 01、静态变量
 
 “如果在声明变量的时候使用了 static 关键字，那么这个变量就被称为静态变量。静态变量只在类加载的时候获取一次内存空间，这使得静态变量很节省内存空间。”家里的暖气有点足，我跑去开了一点窗户后继续说道。
 
@@ -150,7 +152,7 @@ public class StaticCounter {
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-03.png)
 
 
-## 02、静态方法
+### 02、静态方法
 
 “说完静态变量，我们来说静态方法。”说完，我准备点一支华子来抽，三妹阻止了我，她指一指烟盒上的「吸烟有害身体健康」，我笑了。
 
@@ -226,7 +228,7 @@ public class StaticMethodStudent {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-06.png)
 
-## 03、静态代码块
+### 03、静态代码块
 
 “三妹，站起来活动一下，我的脖子都有点僵硬了。”
 
@@ -307,7 +309,7 @@ public class StaticBlockDemo {
 
 “静态代码块在初始集合的时候，真的非常有用。在实际的项目开发中，通常使用静态代码块来加载配置文件到内存当中。”
 
-## 04、静态内部类
+### 04、静态内部类
 
 “三妹啊，除了以上只写，static 还有一个不太常用的功能——静态内部类。”
 

@@ -145,8 +145,9 @@
 - [深入理解 Java 继承](docs/oo/extends-bigsai.md)
 - [聊聊 Java 多态](docs/oo/polymorphism.md)
 - [Java中this和super关键字的用法总结](docs/oo/this-super.md)
-- [一文彻底搞懂 Java static 关键字：静态变量、静态方法、静态代码块、静态内部类](docs/oo/static.md)
-- [一文彻底搞懂 Java final 关键字](docs/oo/final.md)
+- [详解 static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](docs/oo/static.md)
+- [一文彻底搞懂 final 关键字](docs/oo/final.md)
+- [聊聊instanceof关键字](docs/basic-extra-meal/instanceof.md)
 - [Java 方法重写 Override 和方法重载 Overload 的区别，一下子就明白了](docs/basic-extra-meal/override-overload.md)
 
 
@@ -213,7 +214,6 @@
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
 - [详解Java中Comparable和Comparator接口的区别](docs/basic-extra-meal/comparable-omparator.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
-- [详解Java中instanceof关键字的用法](docs/basic-extra-meal/instanceof.md)
 - [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
 - [深入理解Java中的不可变对象](docs/basic-extra-meal/immutable.md)
 - [深入理解Java中的泛型](docs/basic-extra-meal/generic.md)
