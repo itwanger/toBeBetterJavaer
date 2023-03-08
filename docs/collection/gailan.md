@@ -469,8 +469,93 @@ for (String element : queue) {
 这里先来一段通过实现 Comparator 接口按照年龄姓名排序的优先级队列吧。
 
 ```java
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+class Student {
+    private String name;
+    private int chineseScore;
+    private int mathScore;
+
+    public Student(String name, int chineseScore, int mathScore) {
+        this.name = name;
+        this.chineseScore = chineseScore;
+        this.mathScore = mathScore;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getChineseScore() {
+        return chineseScore;
+    }
+
+    public int getMathScore() {
+        return mathScore;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", 总成绩=" + (chineseScore + mathScore) +
+                '}';
+    }
+}
+
+class StudentComparator implements Comparator<Student> {
+    @Override
+    public int compare(Student s1, Student s2) {
+        // 比较总成绩
+        return Integer.compare(s2.getChineseScore() + s2.getMathScore(),
+                s1.getChineseScore() + s1.getMathScore());
+    }
+}
+
+public class PriorityQueueComparatorExample {
+
+    public static void main(String[] args) {
+        // 创建一个按照总成绩排序的优先级队列
+        PriorityQueue<Student> queue = new PriorityQueue<>(new StudentComparator());
+
+        // 添加元素
+        queue.offer(new Student("王二", 80, 90));
+        System.out.println(queue);
+        queue.offer(new Student("陈清扬", 95, 95));
+        System.out.println(queue);
+        queue.offer(new Student("小驼铃", 90, 95));
+        System.out.println(queue);
+        queue.offer(new Student("沉默", 90, 80));
+        System.out.println(queue);
+    }
+}
 ```
 
+Student 是一个学生对象，包含姓名、语文成绩和数学成绩。
+
+StudentComparator 实现了 Comparator 接口，对总成绩做了一个排序。
+
+PriorityQueue 是一个优先级队列，参数为 StudentComparator，然后我们添加了 4 个学生对象进去。
+
+来看一下输出结果：
+
+```
+[Student{name='王二', 总成绩=170}]
+[Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}]
+[Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}, Student{name='小驼铃', 总成绩=185}]
+[Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}, Student{name='小驼铃', 总成绩=185}, Student{name='沉默', 总成绩=170}]
+```
+
+如果你是第一次接触优先级队列的话，会对这个结果感到惊诧，因为小驼铃的总成绩明显高过王二，却排在第三，这是因为优先级队列在进行比较的时候，会拿队首的元素来与当前的元素相比，因为之前 陈清扬 的总分是 190 它排在第一，所以当小驼铃和它比较的时候，就会停留在当前的位置。
+
+![](https://files.mdnice.com/user/3903/892c871f-a95b-4c00-8421-76401d9bdc40.png)
+
+换句话说，优先级队列只能保证最大（或者最小）的那个数在队首，却不能保证队列一直按照从大到小（或者从小到大，由Comparator指定）的顺序来依次排列。
+
+这一点需要注意。想要讲清楚，并不容易，因为它会涉及到**小根堆**这个数据结构，我们暂时就先到这个程度，否则可能就会被卡壳到这里。
+
+后面我们再找机会讲。
 
 
 ## 04、Map
