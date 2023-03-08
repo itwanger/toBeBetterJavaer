@@ -551,71 +551,211 @@ PriorityQueue 是一个优先级队列，参数为 StudentComparator，然后我
 
 ![](https://files.mdnice.com/user/3903/892c871f-a95b-4c00-8421-76401d9bdc40.png)
 
-换句话说，优先级队列只能保证最大（或者最小）的那个数在队首，却不能保证队列一直按照从大到小（或者从小到大，由Comparator指定）的顺序来依次排列。
-
-这一点需要注意。想要讲清楚，并不容易，因为它会涉及到**小根堆**这个数据结构，我们暂时就先到这个程度，否则可能就会被卡壳到这里。
-
-后面我们再找机会讲。
-
-
-## 04、Map
-
-> Map 保存的是键值对，键要求保持唯一性，值可以重复。
-
-### **1）HashMap**
-
-HashMap 实现了 Map 接口，根据键的 HashCode 值来存储数据，具有很快的访问速度，最多允许一个 null 键。
-
-HashMap 不论是在学习还是工作当中，使用频率都是相当高的。随着 JDK 版本的不断更新，HashMap 的底层也优化了很多次，JDK 8 的时候引入了红黑树。
+如果我们换一下元素的插入顺序，结果就又会不大相同。
 
 ```java
-final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-               boolean evict) {
-    HashMap.Node<K,V>[] tab; HashMap.Node<K,V> p; int n, i;
-    if ((tab = table) == null || (n = tab.length) == 0)
-        n = (tab = resize()).length;
-    if ((p = tab[i = (n - 1) & hash]) == null)
-        tab[i] = newNode(hash, key, value, null);
-    else {
-        HashMap.Node<K,V> e; K k;
-        if (p.hash == hash &&
-                ((k = p.key) == key || (key != null && key.equals(k))))
-            e = p;
-        else if (p instanceof HashMap.TreeNode)
-            e = ((HashMap.TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
-        else {
-            for (int binCount = 0; ; ++binCount) {
-                if ((e = p.next) == null) {
-                    p.next = newNode(hash, key, value, null);
-                    if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
-                        treeifyBin(tab, hash);
-                    break;
-                }
-                if (e.hash == hash &&
-                        ((k = e.key) == key || (key != null && key.equals(k))))
-                    break;
-                p = e;
-            }
-        }
-    return null;
+// 添加元素
+queue.offer(new Student("王二", 80, 90));
+System.out.println(queue);
+queue.offer(new Student("沉默", 90, 80));
+System.out.println(queue);
+queue.offer(new Student("小驼铃", 90, 95));
+System.out.println(queue);
+queue.offer(new Student("陈清扬", 95, 95));
+System.out.println(queue);
+```
+
+来看一下结果：
+
+```
+[Student{name='王二', 总成绩=170}]
+[Student{name='王二', 总成绩=170}, Student{name='沉默', 总成绩=170}]
+[Student{name='小驼铃', 总成绩=185}, Student{name='沉默', 总成绩=170}, Student{name='王二', 总成绩=170}]
+[Student{name='陈清扬', 总成绩=190}, Student{name='小驼铃', 总成绩=185}, Student{name='王二', 总成绩=170}, Student{name='沉默', 总成绩=170}]
+```
+
+发现没，这次碰巧就会按照从大到小的顺序输出了，这主要是因为 PriorityQueue 是基于堆（heap）这个数据结构的，堆是一种树形数据结构，其中每个节点的值都不大于或不小于其子节点的值。[这块知识我们后面会讲到](https://tobebetterjavaer.com/collection/PriorityQueue.html#总体介绍)，这里先简单了解一下。
+
+
+### 04、Map
+
+Map 保存的是键值对，键要求保持唯一性，值可以重复。
+
+#### **1）HashMap**
+
+HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。[后面会详细聊到](https://tobebetterjavaer.com/collection/hashmap.html)。
+
+这里先大致了解一下 HashMap 的特点：
+
+- HashMap 中的键和值都可以为 null。如果键为 null，则将该键映射到哈希表的第一个位置。
+- 可以使用迭代器或者 forEach 方法遍历 HashMap 中的键值对。
+- HashMap 有一个初始容量和一个负载因子。初始容量是指哈希表的初始大小，负载因子是指哈希表在扩容之前可以存储的键值对数量与哈希表大小的比率。默认的初始容量是 16，负载因子是 0.75。
+
+来个简单的增删改查吧。
+
+```java
+// 创建一个 HashMap 对象
+HashMap<String, String> hashMap = new HashMap<>();
+
+// 添加键值对
+hashMap.put("沉默", "cenzhong");
+hashMap.put("王二", "wanger");
+hashMap.put("陈清扬", "chenqingyang");
+
+// 获取指定键的值
+String value1 = hashMap.get("沉默");
+System.out.println("沉默对应的值为：" + value1);
+
+// 修改键对应的值
+hashMap.put("沉默", "chenmo");
+String value2 = hashMap.get("沉默");
+System.out.println("修改后沉默对应的值为：" + value2);
+
+// 删除指定键的键值对
+hashMap.remove("王二");
+
+// 遍历 HashMap
+for (String key : hashMap.keySet()) {
+    String value = hashMap.get(key);
+    System.out.println(key + " 对应的值为：" + value);
 }
 ```
 
-一旦 HashMap 发生哈希冲突，就把相同键位的地方改成链表，如果链表的长度超过 8，就该用红黑树。
+#### **2）LinkedHashMap**
 
-### **2）LinkedHashMap**
+HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的Map，就要用到 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
 
-大多数情况下，只要不涉及线程安全问题，Map基本都可以使用HashMap，不过HashMap有一个问题，就是迭代HashMap的顺序并不是HashMap放置的顺序，也就是无序。HashMap的这一缺点往往会带来困扰，因为有些场景，我们期待一个有序的Map。
+LinkedHashMap 可以看作是 HashMap + LinkedList 的合体，它使用了哈希表来存储数据，又用了双向链表来维持顺序。
 
-于是 LinkedHashMap 就闪亮登场了。LinkedHashMap 是 HashMap 的子类，内部使用链表来记录插入/访问元素的顺序。
+来一个简单的例子。
 
-LinkedHashMap 可以看作是 HashMap + LinkedList 的合体，它使用了 哈希表来存储数据，又用了双向链表来维持顺序。
+```java
+// 创建一个 LinkedHashMap，插入的键值对为 沉默 王二 陈清扬
+LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
+linkedHashMap.put("沉默", "cenzhong");
+linkedHashMap.put("王二", "wanger");
+linkedHashMap.put("陈清扬", "chenqingyang");
 
-### **3）TreeMap**
+// 遍历 LinkedHashMap
+for (String key : linkedHashMap.keySet()) {
+    String value = linkedHashMap.get(key);
+    System.out.println(key + " 对应的值为：" + value);
+}
+```
 
-HashMap 是无序的，所以遍历的时候元素的顺序也是不可测的。TreeMap 是有序的，它在内部会对键进行排序，所以遍历的时候就可以得到预期的顺序。
+来看输出结果：
 
-为了保证顺序，TreeMap 的键必须要实现 Comparable 接口或者 Comparator 接口。
+```
+沉默 对应的值为：cenzhong
+王二 对应的值为：wanger
+陈清扬 对应的值为：chenqingyang
+```
+
+从结果中可以看得出来，LinkedHashMap 维持了键值对的插入顺序，对吧？为了和 LinkedHashMap 做对比，我们用同样的数据试验一下 HashMap。
+
+```java
+// 创建一个HashMap，插入的键值对为 沉默 王二 陈清扬
+HashMap<String, String> hashMap = new HashMap<>();
+hashMap.put("沉默", "cenzhong");
+hashMap.put("王二", "wanger");
+hashMap.put("陈清扬", "chenqingyang");
+
+// 遍历 HashMap
+for (String key : hashMap.keySet()) {
+    String value = hashMap.get(key);
+    System.out.println(key + " 对应的值为：" + value);
+}
+```
+
+来看输出结果：
+
+```
+沉默 对应的值为：cenzhong
+陈清扬 对应的值为：chenqingyang
+王二 对应的值为：wanger
+```
+
+HashMap 没有维持键值对的插入顺序，对吧？
+
+#### **3）TreeMap**
+
+[TreeMap](https://tobebetterjavaer.com/collection/treemap.html) 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
+
+同样来一个增删改查的 demo：
+
+```java
+// 创建一个 TreeMap 对象
+Map<String, String> treeMap = new TreeMap<>();
+
+// 向 TreeMap 中添加键值对
+treeMap.put("沉默", "cenzhong");
+treeMap.put("王二", "wanger");
+treeMap.put("陈清扬", "chenqingyang");
+
+// 查找键值对
+String name = "沉默";
+if (treeMap.containsKey(name)) {
+    System.out.println("找到了 " + name + ": " + treeMap.get(name));
+} else {
+    System.out.println("没有找到 " + name);
+}
+
+// 修改键值对
+name = "王二";
+if (treeMap.containsKey(name)) {
+    System.out.println("修改前的 " + name + ": " + treeMap.get(name));
+    treeMap.put(name, "newWanger");
+    System.out.println("修改后的 " + name + ": " + treeMap.get(name));
+} else {
+    System.out.println("没有找到 " + name);
+}
+
+// 删除键值对
+name = "陈清扬";
+if (treeMap.containsKey(name)) {
+    System.out.println("删除前的 " + name + ": " + treeMap.get(name));
+    treeMap.remove(name);
+    System.out.println("删除后的 " + name + ": " + treeMap.get(name));
+} else {
+    System.out.println("没有找到 " + name);
+}
+
+// 遍历 TreeMap
+for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+与 HashMap 不同的是，TreeMap 会按照键的顺序来进行排序。
+
+```java
+// 创建一个 TreeMap 对象
+Map<String, String> treeMap = new TreeMap<>();
+
+// 向 TreeMap 中添加键值对
+treeMap.put("c", "cat");
+treeMap.put("a", "apple");
+treeMap.put("b", "banana");
+
+// 遍历 TreeMap
+for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+```
+
+来看输出结果：
+
+```
+a: apple
+b: banana
+c: cat
+```
+
+默认情况下，已经按照键的自然顺序排过了。
+
+“好了，三妹，关于集合框架，我们就先聊到这，随后我们会针对常用的容器进行详细地讲解，比如说 ArrayList、LinkedList、HashMap 等。”
+
+“哇，二哥，这篇讲的东西可真不少，虽然都是比较基础的，但对于我一个小白来说，还是需要花点时间去消化的。”三妹嘟嘟嘴说到。
 
 ----
 
