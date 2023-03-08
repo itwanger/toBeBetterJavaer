@@ -165,7 +165,7 @@ head:
 
 ### 集合框架（容器）
 
-- [Java 集合框架（容器）体系结构](collection/gailan.md)
+- [聊聊Java的集合框架](collection/gailan.md)
 - [衡量Java集合框架执行效率的重要标准：时间复杂度](collection/time-complexity.md)
 - [Java ArrayList详解（附源码分析）](collection/arraylist.md)
 - [Java LinkedList详解（附源码分析）](collection/linkedlist.md)
