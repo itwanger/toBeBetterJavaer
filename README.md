@@ -155,7 +155,7 @@
 ## 集合框架（容器）
 
 - [聊聊Java的集合框架](docs/collection/gailan.md)
-- [衡量Java集合框架执行效率的重要标准：时间复杂度](docs/collection/time-complexity.md)
+- [简单聊一下时间复杂度](docs/collection/time-complexity.md)
 - [Java ArrayList详解（附源码分析）](docs/collection/arraylist.md)
 - [Java LinkedList详解（附源码分析）](docs/collection/linkedlist.md)
 - [面试官问我Java中ArrayList和LinkedList的区别，我和他扯了半小时](docs/collection/list-war-2.md)

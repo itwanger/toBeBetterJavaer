@@ -170,8 +170,8 @@ export const sidebarConfig = sidebar({
           text: "2.5 集合框架（容器）",
           collapsible: true,
           children: [
-          
           "collection/gailan",
+          "collection/time-complexity",
           "collection/arraylist",
           "collection/linkedlist",
           "collection/list-war-2",
