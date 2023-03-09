@@ -24,7 +24,7 @@ head:
 
 Java 这门编程语言和别的编程语言，比如说 C语言的不同之处就在这里，如果是 C语言的话，你就必须得动手实现自己的 ArrayList，原生的库函数里面是没有的。
 
-### 创建 ArrayList
+### 01、创建 ArrayList
 
 “二哥，**如何创建一个 ArrayList 啊**？”三妹问。
 
@@ -56,7 +56,7 @@ List<String> alist = new ArrayList<>(20);
 
 这样做的好处是，可以有效地避免在添加新的元素时进行不必要的扩容。
 
-### 向 ArrayList 中添加元素
+### 02、向 ArrayList 中添加元素
 
 “二哥，**那怎么向 ArrayList 中添加一个元素呢**？”三妹继续问。
 
@@ -203,7 +203,7 @@ ArrayList 在第一次执行 add 后会扩容为 10，那 ArrayList 第二次扩
 
 答案是添加第 11 个元素时，大家可以尝试分析一下这个过程。
 
-### 右移操作符
+### 03、右移操作符
 
 “oldCapacity 等于 10，`oldCapacity >> 1` 这个表达式等于多少呢？三妹你知道吗？”我问三妹。
 
@@ -245,7 +245,7 @@ ArrayList 在第一次执行 add 后会扩容为 10，那 ArrayList 第二次扩
 
 ![](https://files.mdnice.com/user/3903/5c7ad981-03f4-4b86-a452-f77f6f8c25ce.png)
 
-### 向 ArrayList 的指定位置添加元素
+### 04、向 ArrayList 的指定位置添加元素
 
 除了 `add(E e)` 方法，还可以通过 `add(int index, E element)` 方法把元素添加到 ArrayList 的指定位置：
 
@@ -301,7 +301,7 @@ System.arraycopy(elementData, index, elementData, index + 1, size - index);
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-01.png)
 
-### 更新 ArrayList 中的元素
+### 05、更新 ArrayList 中的元素
 
 “二哥，那怎么**更新 ArrayList 中的元素**呢？”三妹继续问。
 
@@ -335,7 +335,7 @@ public E set(int index, E element) {
 
 该方法会先对指定的下标进行检查，看是否越界，然后替换新值并返回旧值。
 
-### 删除 ArrayList 中的元素
+### 06、删除 ArrayList 中的元素
 
 “二哥，那怎么**删除 ArrayList 中的元素**呢？”三妹继续问。
 
@@ -430,7 +430,7 @@ private void fastRemove(int index) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-02.png)
 
-### 查找 ArrayList 中的元素
+### 07、查找 ArrayList 中的元素
 
 “二哥，那怎么**查找 ArrayList 中的元素**呢？”三妹继续问。
 
@@ -499,7 +499,7 @@ public boolean contains(Object o) {
 }
 ```
 
-### 二分查找法
+### 08、二分查找法
 
 如果 ArrayList 中的元素是经过排序的，就可以使用二分查找法，效率更快。
 
@@ -530,27 +530,77 @@ System.out.println(copy);
 int index = Collections.binarySearch(copy, "b");
 ```
 
-## ArrayList 增删改查的时间复杂度
+### 09、ArrayList增删改查时的时间复杂度
 
-“最后，三妹，我来简单总结一下 ArrayList 的时间复杂度吧，方便后面学习 LinkedList 时对比。”我喝了一口水后补充道。
+“最后，三妹，我们来简单总结一下 ArrayList 的时间复杂度吧，方便后面学习 LinkedList 时对比。”我喝了一口水后补充道。
 
-1）通过下标（也就是 `get(int index)`）访问一个元素的时间复杂度为 O(1)，因为是直达的，无论数据增大多少倍，耗时都不变。
+#### 1）查询
+
+时间复杂度为 O(1)，因为 ArrayList 内部使用数组来存储元素，所以可以直接根据索引来访问元素。
 
 ```java
+/**
+ * 返回列表中指定位置的元素。
+ *
+ * @param index 要返回的元素的索引
+ * @return 列表中指定位置的元素
+ * @throws IndexOutOfBoundsException 如果索引超出范围（index < 0 || index >= size()）
+ */
 public E get(int index) {
-    rangeCheck(index);
+    rangeCheck(index); // 检查索引是否合法
+    return elementData(index); // 调用 elementData 方法获取元素
+}
 
-    return elementData(index);
+/**
+ * 返回列表中指定位置的元素。
+ * 此方法不进行边界检查，因此只应由内部方法和迭代器调用。
+ *
+ * @param index 要返回的元素的索引
+ * @return 列表中指定位置的元素
+ */
+E elementData(int index) {
+    return (E) elementData[index]; // 返回指定索引位置上的元素
 }
 ```
 
-2）默认添加一个元素（调用 `add()` 方法时）的时间复杂度为 O(1)，因为是直接添加到数组末尾的，但需要考虑到数组扩容时消耗的时间。
+#### 2）插入
 
-3）删除一个元素（调用 `remove(Object)` 方法时）的时间复杂度为 O(n)，因为要遍历列表，数据量增大几倍，耗时也增大几倍；如果是通过下标删除元素时，要考虑到数组的移动和复制所消耗的时间。
+添加一个元素（调用 `add()` 方法时）的时间复杂度最好情况为 O(1)，最坏情况为 O(n)。
 
-4）查找一个未排序的列表时间复杂度为 O(n)（调用 `indexOf()` 或者 `lastIndexOf()` 方法时），因为要遍历列表；查找排序过的列表时间复杂度为 O(log n)，因为可以使用二分查找法，当数据增大 n 倍时，耗时增大 logn 倍（这里的 log 是以 2 为底的，每找一次排除一半的可能）。
+- 如果在列表末尾添加元素，时间复杂度为 O(1)。
+- 如果要在列表的中间或开头插入元素，则需要将插入位置之后的元素全部向后移动一位，时间复杂度为 O(n)。
 
-## 总结
+#### 3）删除
+
+删除一个元素（调用 `remove(Object)` 方法时）的时间复杂度最好情况 O(1)，最坏情况 O(n)。
+
+- 如果要删除列表末尾的元素，时间复杂度为 O(1)。
+- 如果要删除列表中间或开头的元素，则需要将删除位置之后的元素全部向前移动一位，时间复杂度为 O(n)。
+
+
+#### 4）修改
+
+修改一个元素（调用 `set()`方法时）与查询操作类似，可以直接根据索引来访问元素，时间复杂度为 O(1)。
+
+```java
+/**
+ * 用指定元素替换列表中指定位置的元素。
+ *
+ * @param index 要替换元素的索引
+ * @param element 要放入列表中的元素
+ * @return 原来在指定位置上的元素
+ * @throws IndexOutOfBoundsException 如果索引超出范围（index < 0 || index >= size()）
+ */
+public E set(int index, E element) {
+    rangeCheck(index); // 检查索引是否合法
+
+    E oldValue = elementData(index); // 获取原来在指定位置上的元素
+    elementData[index] = element; // 将指定位置上的元素替换为新元素
+    return oldValue; // 返回原来在指定位置上的元素
+}
+```
+
+### 10、总结
 
 ArrayList，如果有个中文名的话，应该叫动态数组，也就是可增长的数组，可调整大小的数组。动态数组克服了静态数组的限制，静态数组的容量是固定的，只能在首次创建的时候指定。而动态数组会随着元素的增加自动调整大小，更符合实际的开发需求。
 
@@ -559,6 +609,8 @@ ArrayList，如果有个中文名的话，应该叫动态数组，也就是可�
 要想掌握扩容机制，就必须得读源码，也就肯定会遇到 `oldCapacity >> 1`，有些初学者会选择跳过，虽然不影响整体上的学习，但也错过了一个精进的机会。
 
 计算机内部是如何表示十进制数的，右移时又发生了什么，静下心来去研究一下，你就会发现，哦，原来这么有趣呢？
+
+“好了，三妹，这一节我们就学到这里，收工！”
 
 ----
 
