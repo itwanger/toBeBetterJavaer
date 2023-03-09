@@ -17,20 +17,50 @@ head:
 
 大家好，我是二哥呀。
 
-今天爬上来宣传一下我的编程星球- Java程序员进阶之路。用一句话来做个总结吧，这是一个**编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+今天爬上来给大家推荐一下我的编程星球。用一句话来做个总结吧，这是一个**编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
 
-目前已经有 1300 多名球友加入了，讲良心话，这个发展速度远远超出了二哥的预期，按照目前的发展速度，2023 年底应该有 3000 名球友加入，随着人数的增长，**星球的票价也会调整到 109 元**，所以想要加入的小伙伴这次一定要抓紧了，目前是最大优惠力度（文末有优惠券，不要再犹豫了）。
+也是得到了很多小伙伴的认可，所以才敢如此“胆大包天”推荐给大家。
 
-那在正式上线前，二哥已经默默筹备了 2 个多月时间，紧锣密鼓地撰写了星球专属的三个专栏：《**Java 面试指南**》、《**编程喵实战项目笔记**》（SpringBoot+Vue 的前后端分离项目，附源码）、《**二哥的 LeetCode 刷题笔记**》（Java版本）。
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png)
 
-在正式运营的这段时间里，我又补充了不少章节，目前三个专栏也越来越完整和饱满了。给大家看一下一屏截图能装得下的目录结构。
+目前已经有 1900 多名球友加入了，讲良心话，这个发展速度远远超出了二哥的预期，随着人数的增长，**星球的票价也会调整到 119 元**，所以想要加入的小伙伴这次一定要抓紧了，目前是最大优惠力度 89 元（文中有优惠券，不要再犹豫了，一开始优惠完可只需要 69 元）。
+
+星球目前上线了 4 个专栏：《**Java 面试指南**》、《技术派实战教程》（微服务版本）、《**编程喵实战项目笔记**》（SpringBoot+Vue 的前后端分离项目，附源码）、《**二哥的 LeetCode 刷题笔记**》（Java版本）。
+
+目前 4 个专栏也越来越完整和饱满了。给大家看一下一屏截图能装得下的目录结构。
 
 先来看一下《Java 面试指南》的部分目录（还有技术提升篇、职场修炼篇、面经分享篇、精选面试题篇、场景设计题篇，没有截图出来），可以说非常的良心。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fc80913b-48bd-453d-b7a9-7c84a4a98231.png)
 
-再来看一下《编程喵实战项目笔记》的部分目录，可以说非常的扎实。
+再来看《技术派》的，这个项目上线后，一直广受好评，球友们的认可度也非常高。
 
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-75e5d61a-55e8-46b8-a261-31bd0d86b81a.png)
+
+这是部分目录（共计 120 篇，大厂篇、基础篇、进阶篇、工程篇，全部落地）。
+
+- 技术派问题反馈及解决方案（⭐️⭐️⭐️）
+- 技术派系统架构、功能模块一览（⭐️⭐️⭐️⭐️⭐️）
+- 技术派产品调研，让你了解产品诞生背后的故事（⭐️⭐️⭐️）
+- 技术派整体架构方案设计全过程（⭐️⭐️⭐️）
+- 技术方案详细设计（⭐️⭐️⭐️⭐️）
+- 技术派项目管理流程（⭐️⭐️⭐️⭐️）
+- 技术派项目管理研发阶段（⭐️⭐️⭐️）
+- 通过技术派项目讲解 MVC 分层架构的应用（⭐️⭐️⭐️⭐️）
+- 技术派中的事务使用实例（上新⭐️⭐️⭐️）
+- 事务使用的 7 条注意事项（上新⭐️⭐️⭐️）
+- 技术派的数据库表自动初始化实现方案（⭐️⭐️⭐️⭐️⭐️）
+- 技术派项目工程搭建手册（⭐️⭐️⭐️⭐️）
+- 技术派本地多机器部署开发教程（⭐️⭐️）
+- 技术派服务器部署指导手册（⭐️⭐️）
+- 技术派的 MVC 分层架构（⭐️⭐️）
+- 技术派 Docker 本机部署开发手册（⭐️⭐️⭐️）
+
+欣赏一下技术派实战项目的首页吧，绝壁清新、高级、上档次！
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-72345f90-68dc-421d-97c5-0ebf411212ae.png)
+
+再来看一下《编程喵实战项目笔记》的部分目录，可以说非常的扎实。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
 
@@ -39,25 +69,50 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c706bc3e-2a1e-4cea-ae33-40f8e08f052d.png)
 
-看到这就迫不及待想要加入的小伙伴，可以直接扫下面这个二维码。星球目前定价 99 元，上次申请的 20 元优惠券还剩下一些，**等于说只需要 79 元的价格就可以加入，每天不到 0.22 元，划算**！
+看到这就迫不及待想要加入的小伙伴，可以直接扫下面这个二维码。星球目前定价 99 元，上次申请的  10 元优惠券还剩下一些，**等于说只需要 89 元的价格就可以加入，每天不到 0.25 元，划算**！
 
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-58daac7b-5314-42f5-91a2-8a9e17c94905.png)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-20.png)
-
-随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，所以星球也会即将涨价到 109 元，所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理。
+随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，所以星球也会即将涨价到 119 元，所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理。
 
 ## 一、星球还能给你提供什么服务呢？
 
-除了上面提供的三份高质量专栏，星球还可以给你提供以下服务：
+除了上面提供的4份高质量专栏，星球还可以给你提供以下服务：
 
-
-**2）星球为你提供了一对一的免费提问交流**，帮你解答各种疑难杂症，包括制定学习计划、指导职业规划、解决项目 bug 等等。
+**2）星球为你提供了一对一的免费提问交流**，帮你解答各种疑难杂症，包括制定学习计划、指导职业规划、解决项目bug、offer选择、面试求职等等。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-888fc104-e8d0-483d-8626-43ed57bb7b58.png)
 
+**3）星球为你提供一个可以写到简历上，可以提高你实战经验、再也不用担心烂大街的原创项目——技术派**，无论你是编程小白，还是有一定工作经验的同学，这个实战项目都会帮你完成技术上的进阶提升。
 
-**3）星球会定期整理和分享优质的学习资料，包括 PDF&视频教程&简历模板&实战项目&学习资料**等等。
+这是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
+
+到了找工作的季节，很多小伙伴简历上没有项目经验可写，这个很吃亏。虽然 GitHub 和码云上已经有不少优秀的开源项目，但大多数没有成熟且体系化的教程，总不能直接下载到本地跑一下 main 方法就算学习了吧？
+
+二哥要负责到底！我会更新一系列的教程，不仅包含项目的开发文档，还会包括 Java、Go 语言、Spring、MySQL、Redis、微服务&分布式、消息队列、操作系统、计算机网络、数据结构与算法等内容。
+
+总之一句话：**学编程，就上技术派**😁。
+
+这绝不是我在口嗨哈，给大家看一下技术派的系统架构图，就知道我们有多用心。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-0fd231fe-a124-47b5-a488-b039175d4ce2.png)
+
+代码严格按照大厂的规范要求来，组织结构清晰、项目文档齐全、代码注释到位，你想学不到知识都难！
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-cec2d52d-4a81-4bb2-bbad-d6d985f0d819.png)
+
+只要你本地安装好 JDK 8（以上版本均可），MySQL（5.x/8.x+），配置好 Maven，导入项目源码后，直接运行 main 方法就可以轻松在本地跑起来，你甚至不需要额外手动创建数据库，不用在浏览器地址栏键入 `localhost:8080`，只要轻轻一点控制台提供的链接就可以访问了。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-b178a28d-dda2-4d6b-b20e-779e91ae55e0.png)
+
+总之，二哥会把整个 Java 后端的技术栈全部帮你搞定。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f685f773-d450-4072-a601-6028683cb72b.png)
+
+
+**4）星球会定期整理和分享优质的学习资料，包括 PDF&视频教程&简历模板&实战项目&学习资料**等等。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-61038545-a81e-47c7-9ff8-344ab843af7f.png)
 
@@ -66,11 +121,11 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-49508f06-bb55-4102-82da-61305eae241a.png)
 
 
-**4）星球为你提供了容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，并且会帮你再三确认。
+**5）星球为你提供了容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，并且会帮你再三确认。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-7d196fda-9555-4f53-8a8e-500b49ea0fc1.png)
 
-**5）星球为你创造了沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
+**6）星球为你创造了沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e4f4b7ec-5852-487c-afb6-570f49af4ad5.png)
 
@@ -85,8 +140,7 @@ head:
 
 如果你符合上面的任意一条，那二哥非常欢迎你加入我们的学习圈子，共同进步，报团取暖，为成为更好的自己付出实践、付出努力、付出汗水。
 
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-20.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png)
 
 
 ## 二、为什么要创建知识星球呢？
@@ -95,17 +149,23 @@ head:
 
 2014 年，我开始坚持写作，通过一点一滴的分享，一步一个脚印的积累，“沉默王二”这个 IP 在技术圈的影响力渐渐地扩散了开来。
 
-下图是我在 GitHub 上取得的一些成绩：《**Java程序员进阶之路**》开源知识库已获得 4k+ 的 star 数，多次上榜 trending 榜单。
+下图是我在 GitHub 上取得的一些成绩：《**二哥的Java进阶之路**》开源知识库已获得 7k+ 的 star 数，多次上榜 trending 榜单。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9251b490-0d8a-4133-8207-480d1aa7f254.png)
 
-下图是我的原创公号「**沉默王二**」在二十次幂「技术公众号」中上周的排名（22 名），放在全国范围内，也是非常优秀了。目前已有超 11 万读者订阅，原创文章数量 775 篇，大家可以感受下这个原创力度是什么概念。
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-13492432-ea99-4405-b6f3-4ecd4b74a6d7.png)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-8344a475-6316-4810-ad50-884f3f13b8e5.png)
 
-下图是我在 CSDN 上取得的一些成绩：**CSDN 两届博客之星**，1200 多万的博客访问量，38 万粉丝关注。
+下图是我的原创公号「**沉默王二**」在二十次幂「技术公众号」中上周的排名（7 名），放在全国范围内，也是非常优秀了。目前已有超 12 万读者订阅，原创文章数量 849 篇，大家可以感受下这个原创力度是什么概念。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-79818296-a0b5-4838-979e-d16e1d08a9bd.png)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a381a4ae-c928-4ecb-a9c4-d85c289ccb7b.png)
+
+
+下图是我在 CSDN 上取得的一些成绩：**CSDN 两届博客之星**，1200 多万的博客访问量，40 万粉丝关注。
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-78a63b2b-8e29-4fde-a185-82a6889b7808.png)
+
 
 下图是我在知乎上取得的一些成绩：**近 2000 万的访问量**，Java 领域优质创作者。
 
@@ -147,9 +207,13 @@ head:
 
 反正我自己就是这么一个体会，每天看到球友们在群里打卡总结自己的学习成果，总感觉不好好学习就对不起自己，不好好输出就对不起球友们。总之，有一群热爱的小伙伴在一起，学习、求知、进步的道路上再也不会缺少动力和激情。
 
-下定决心加入的小伙伴，可以直接扫下面这个二维码。**星球定价 99 元，减去 20 元的优惠券，等于说只需要 79 元的价格就可以加入，每天不到 0.22 元**，真的超级划算！
+下定决心加入的小伙伴，可以直接扫下面这个二维码。**星球定价 99 元，减去 10 元的优惠券，等于说只需要 89 元的价格就可以加入，每天不到 0.25 元**，真的超级划算！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-20.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png)
+
+真的不要再犹豫了，这是之前球友加入时候的感慨！眼瞅着优惠券从 30 到 20，再到现在的 10 元。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-d6554f45-f747-4108-863e-bb7c7e9a0478.png)
 
 ## 三、什么是知识星球？
 
@@ -162,7 +226,7 @@ head:
 星球内部目前已经沉淀了非常多的内容，比如说**置顶帖「知识图谱」里就汇聚了以往球友的提问及我的回答，可以说非常全面**，覆盖有：
 
 - 学习资料：PDF&视频教程&简历模板&实战项目
-- 学生党：方向选择&实习&秋招&offer 选择&考研&专升本&培训班
+- 学生党：方向选择&实习&秋招&offer选择&考研&专升本&培训班
 - 工作党：转行&求职&人生规划
 - 学习计划、学习路线等等
 
@@ -190,7 +254,7 @@ head:
 
 可以说是干货满满、价值连城、物超所值，如果你能够认真读完每个章节的话，相信你一定会大有所获，**感谢自己近一年内性价比最高的一笔投资**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-20.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png)
 
 ## 四、星球里有哪些可爱的球友？
 
@@ -225,23 +289,21 @@ head:
 
 ## 五、如何加入成为共同进步的球友？
 
-星球目前的定价可以说非常的良心，**仅需 99 元/年，并且会送你 30 元的优惠券（杜绝割韭菜）**，但提供的服务和内容远远超出了 69元这个价格可以承载的价值。扣除了星球手续费，发了各种福利之后，几乎就是纯粹做公益。
+星球目前的定价可以说非常的良心，**仅需 99 元/年，并且会送你 10 元的优惠券（杜绝割韭菜）**，但提供的服务和内容远远超出了 89元这个价格可以承载的价值。
 
-随着时间推移，星球积累的干货资源越来越多，我花在星球上的时间也会越来越多。于是，我会将星球的定价慢慢调整为了 **109/年**！后续会将星球的价格调整为 **119/年**，想要加入的小伙伴一定要尽早。
+随着时间推移，星球积累的干货资源越来越多，我花在星球上的时间也会越来越多。于是，我会将星球的定价慢慢调整为了 **119/年**！后续会将星球的价格调整为 **139/年**，想要加入的小伙伴一定要尽早。
 
-目前已经有 1300+ 人加入星球，随着加入的人数增加，这个定价还会继续调整，越早加入越划算！
+目前已经有 1900+ 人加入星球，随着加入的人数增加，这个定价还会继续调整，越早加入越划算！
 
-你可以添加我的微信（没有手机号再申请微信，故使用企业微信。不过，请放心，这个号的消息也是我本人处理，平时最常看这个微信）领取星球专属优惠券，限时 **79/年** 加入（续费半价）！
+你可以添加我的微信（没有手机号再申请微信，故使用企业微信。不过，请放心，这个号的消息也是我本人处理，平时最常看这个微信）领取星球专属优惠券，限时 **89/年** 加入（续费半价）！
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png)
 
 
-或者你也可以微信扫码或者长按自动识别领取 20 元优惠券，**79/年** 加入！
+或者你也可以微信扫码或者长按自动识别领取 10 元优惠券，**89/年** 加入！
 
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-20.png)
-
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-58daac7b-5314-42f5-91a2-8a9e17c94905.png)
 
 对了，**加入星球后记得花 10 分钟时间看一下星球置顶贴，你会发现物超所值**！
 
