@@ -170,7 +170,7 @@ head:
 - [Java ArrayList详解（附源码分析）](collection/arraylist.md)
 - [Java LinkedList详解（附源码分析）](collection/linkedlist.md)
 - [聊聊ArrayList和LinkedList的区别](collection/list-war-2.md)
-- [海康威视一面：Java中Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
+- [迭代器Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
 - [为什么阿里巴巴强制不要在foreach里执行删除操作？还不是因为fail-fast](collection/fail-fast.md)
 - [Java HashMap详解（附源码分析）](collection/hashmap.md)
 - [Java LinkedHashMap详解（附源码分析）](collection/linkedhashmap.md)
