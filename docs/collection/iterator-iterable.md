@@ -1,6 +1,6 @@
 ---
-title: 海康威视一面：Java中Iterator和Iterable有什么区别？
-shortTitle: Iterator和Iterable有什么区别？
+title: 迭代器Iterator和Iterable有什么区别？
+shortTitle: 迭代器Iterator和Iterable
 category:
   - Java核心
 tag:
@@ -9,15 +9,18 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java中I
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Iterable,Iterator
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Iterable,Iterator,java Iterable,java Iterator,Iterable Iterator,java Iterable Iterator,java迭代器
 ---
 
+# 6.6 迭代器Iterator和Iterable
+
+>PS: 这篇同样来换一个风格，一起来欣赏。
 
 那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？
 
-小二表示很开心，因为他3 天前刚好在《Java程序员进阶之路》上读过这篇文章，所以回答得胸有成竹。
+小二表示很开心，因为他3 天前刚好在《[二哥的Java进阶之路](https://tobebetterjavaer.com/collection/iterator-iterable.html)》上读过这篇文章，所以回答得胸有成竹。
 
-以下↓是文章的内容。
+以下↓是小二当时读过的文章内容，他印象深刻。
 
 ----
 
@@ -48,7 +51,7 @@ for (String str : list) {
 }
 ```
 
-第一种我们略过，第二种用的是 Iterator，第三种看起来是 for-each，其实背后也是 Iterator，看一下反编译后的代码就明白了。
+第一种我们略过，第二种用的是 Iterator，第三种看起来是 for-each，其实背后也是 Iterator，看一下反编译后的代码（如下所示）就明白了。
 
 ```java
 Iterator var3 = list.iterator();
@@ -59,9 +62,9 @@ while(var3.hasNext()) {
 }
 ```
 
-for-each 只不过是个语法糖，让我们在遍历 List 的时候代码更简洁明了。
+for-each 只不过是个语法糖，让我们开发者在遍历 List 的时候可以写更少的代码，更简洁明了。
 
-Iterator 是个接口，JDK 1.2 的时候就有了，用来改进 Enumeration：
+Iterator 是个接口，JDK 1.2 的时候就有了，用来改进 Enumeration 接口：
 
 - 允许删除元素（增加了 remove 方法）
 - 优化了方法名（Enumeration 中是 hasMoreElements 和 nextElement，不简洁）
@@ -81,7 +84,7 @@ public interface Iterator<E> {
 }
 ```
 
-JDK 1.8 时，Iterable 接口中新增了 forEach 方法：
+JDK 1.8 时，Iterable 接口中新增了 forEach 方法。该方法接受一个 Consumer 对象作为参数，用于对集合中的每个元素执行指定的操作。该方法的实现方式是使用 for-each 循环遍历集合中的元素，对于每个元素，调用 Consumer 对象的 accept 方法执行指定的操作。
 
 ```java
 default void forEach(Consumer<? super T> action) {
@@ -91,6 +94,8 @@ default void forEach(Consumer<? super T> action) {
     }
 }
 ```
+
+该方法实现时首先会对 action 参数进行非空检查，如果为 null 则抛出 NullPointerException 异常。然后使用 for-each 循环遍历集合中的元素，并对每个元素调用 action.accept(t) 方法执行指定的操作。由于 Iterable 接口是 Java 集合框架中所有集合类型的基本接口，因此该方法可以被所有实现了 Iterable 接口的集合类型使用。
 
 它对 Iterable 的每个元素执行给定操作，具体指定的操作需要自己写Consumer接口通过accept方法回调出来。
 
@@ -144,30 +149,85 @@ public Iterator<E> iterator() {
 返回的对象 Itr 是个内部类，实现了 Iterator 接口，并且按照自己的方式重写了 hasNext、next、remove 等方法。
 
 ```java
+/**
+ * ArrayList 迭代器的实现，内部类。
+ */
 private class Itr implements Iterator<E> {
 
+    /**
+     * 游标位置，即下一个元素的索引。
+     */
+    int cursor;
+
+    /**
+     * 上一个元素的索引。
+     */
+    int lastRet = -1;
+
+    /**
+     * 预期的结构性修改次数。
+     */
+    int expectedModCount = modCount;
+
+    /**
+     * 判断是否还有下一个元素。
+     *
+     * @return 如果还有下一个元素，则返回 true，否则返回 false。
+     */
     public boolean hasNext() {
         return cursor != size;
     }
 
+    /**
+     * 获取下一个元素。
+     *
+     * @return 列表中的下一个元素。
+     * @throws NoSuchElementException 如果没有下一个元素，则抛出 NoSuchElementException 异常。
+     */
     @SuppressWarnings("unchecked")
     public E next() {
+        // 获取 ArrayList 对象的内部数组
         Object[] elementData = ArrayList.this.elementData;
+        // 记录当前迭代器的位置
+        int i = cursor;
+        if (i >= size) {
+            throw new NoSuchElementException();
+        }
+        // 将游标位置加 1，为下一次迭代做准备
         cursor = i + 1;
+        // 记录上一个元素的索引
         return (E) elementData[lastRet = i];
     }
 
+    /**
+     * 删除最后一个返回的元素。
+     * 迭代器只能删除最后一次调用 next 方法返回的元素。
+     *
+     * @throws ConcurrentModificationException 如果在最后一次调用 next 方法之后列表结构被修改，则抛出 ConcurrentModificationException 异常。
+     * @throws IllegalStateException         如果在调用 next 方法之前没有调用 remove 方法，或者在同一次迭代中多次调用 remove 方法，则抛出 IllegalStateException 异常。
+     */
     public void remove() {
+        // 检查在最后一次调用 next 方法之后是否进行了结构性修改
+        if (expectedModCount != modCount) {
+            throw new ConcurrentModificationException();
+        }
+        // 如果上一次调用 next 方法之前没有调用 remove 方法，则抛出 IllegalStateException 异常
+        if (lastRet < 0) {
+            throw new IllegalStateException();
+        }
         try {
+            // 调用 ArrayList 对象的 remove(int index) 方法删除上一个元素
             ArrayList.this.remove(lastRet);
+            // 将游标位置设置为上一个元素的位置
             cursor = lastRet;
+            // 将上一个元素的索引设置为 -1，表示没有上一个元素
             lastRet = -1;
+            // 更新预期的结构性修改次数
             expectedModCount = modCount;
         } catch (IndexOutOfBoundsException ex) {
             throw new ConcurrentModificationException();
         }
     }
-
 }
 ```
 
@@ -224,14 +284,42 @@ public interface ListIterator<E> extends Iterator<E> {
 这是因为有些 List 可能会有多种遍历方式，比如说 LinkedList，除了支持正序的遍历方式，还支持逆序的遍历方式——DescendingIterator：
 
 ```java
+/**
+ * ArrayList 逆向迭代器的实现，内部类。
+ */
 private class DescendingIterator implements Iterator<E> {
+
+    /**
+     * 使用 ListItr 对象进行逆向遍历。
+     */
     private final ListItr itr = new ListItr(size());
+
+    /**
+     * 判断是否还有下一个元素。
+     *
+     * @return 如果还有下一个元素，则返回 true，否则返回 false。
+     */
     public boolean hasNext() {
         return itr.hasPrevious();
     }
+
+    /**
+     * 获取下一个元素。
+     *
+     * @return 列表中的下一个元素。
+     * @throws NoSuchElementException 如果没有下一个元素，则抛出 NoSuchElementException 异常。
+     */
     public E next() {
         return itr.previous();
     }
+
+    /**
+     * 删除最后一个返回的元素。
+     * 迭代器只能删除最后一次调用 next 方法返回的元素。
+     *
+     * @throws UnsupportedOperationException 如果列表不支持删除操作，则抛出 UnsupportedOperationException 异常。
+     * @throws IllegalStateException         如果在调用 next 方法之前没有调用 remove 方法，或者在同一次迭代中多次调用 remove 方法，则抛出 IllegalStateException 异常。
+     */
     public void remove() {
         itr.remove();
     }
@@ -245,7 +333,6 @@ Iterator it = list.descendingIterator();
 while (it.hasNext()) {
 }
 ```
------
 
 好了，关于Iterator与Iterable我们就先聊这么多，总结两点：
 
