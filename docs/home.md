@@ -169,7 +169,7 @@ head:
 - [简单聊一下时间复杂度](collection/time-complexity.md)
 - [Java ArrayList详解（附源码分析）](collection/arraylist.md)
 - [Java LinkedList详解（附源码分析）](collection/linkedlist.md)
-- [面试官问我Java中ArrayList和LinkedList的区别，我和他扯了半小时](collection/list-war-2.md)
+- [聊聊ArrayList和LinkedList的区别](collection/list-war-2.md)
 - [海康威视一面：Java中Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
 - [为什么阿里巴巴强制不要在foreach里执行删除操作？还不是因为fail-fast](collection/fail-fast.md)
 - [Java HashMap详解（附源码分析）](collection/hashmap.md)
