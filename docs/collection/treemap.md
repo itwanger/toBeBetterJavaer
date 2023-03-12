@@ -1,6 +1,6 @@
 ---
 title: Java TreeMap详解（附源码分析）
-shortTitle: TreeMap详解
+shortTitle: TreeMap
 category:
   - Java核心
 tag:
@@ -9,10 +9,12 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java Tre
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,TreeMap
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,TreeMap,java treemap
 ---
 
+# 5.10 TreeMap
 
+>下面有请王老师上台，来给大家讲一讲 TreeMap，鼓掌了！
 
 TreeMap，虽然也是个 Map，但存在感太低了。我做程序员这十多年里，HashMap 用了超过十年，TreeMap 只用了多字里那么一小会儿一小会儿，真的是，太惨了。
 
