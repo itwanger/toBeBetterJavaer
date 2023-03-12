@@ -164,7 +164,7 @@
 - [Java HashMap详解（附源码分析）](docs/collection/hashmap.md)
 - [Java LinkedHashMap详解（附源码分析）](docs/collection/linkedhashmap.md)
 - [Java TreeMap详解（附源码分析）](docs/collection/treemap.md)
-- [详解 Java 中的堆和队列（Stack and Queue 附源码分析）](docs/collection/arraydeque.md)
+- [详解 Java 中的双端队列（ArrayDeque附源码分析）](docs/collection/arraydeque.md)
 - [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](docs/collection/PriorityQueue.md)
 - [Java WeakHashMap详解（附源码分析）](docs/collection/WeakHashMap.md)
 

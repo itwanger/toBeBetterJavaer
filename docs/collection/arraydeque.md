@@ -1,6 +1,6 @@
 ---
-title: 详解 Java 中的堆和队列（ArrayDeque附源码分析）
-shortTitle: 详解ArrayDeque
+title: 详解 Java 中的双端队列（ArrayDeque附源码分析）
+shortTitle: ArrayDeque
 category:
   - Java核心
 tag:
@@ -9,10 +9,26 @@ description: Java程序员进阶之路，小白的零基础Java教程，详解 J
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,ArrayDeque,堆,队列
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque
 ---
 
-Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它是个接口名字）。当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*；既然*Queue*只是一个接口，当需要使用队列时也就首选*ArrayDeque*了（次选是[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)）。
+# 5.11 ArrayDeque
+
+>好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
+
+Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它只是个接口名字，和类还不一样）。
+
+```java
+public interface Queue<E> extends Collection<E> {}
+```
+
+当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*，原因我们第一次讲[集合框架](https://tobebetterjavaer.com/collection/gailan.html)的时候，其实已经聊过了；
+
+![](https://files.mdnice.com/user/3903/ebc95ae8-73c0-45cf-acd2-ec4df4677a22.png)
+
+也就是说，当需要使用队列的时候，请首选*ArrayDeque*，次选[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)，是的没错，[我们前面也讲了](https://tobebetterjavaer.com/collection/gailan.html)，LinkedList不只是个 List，还是一个 Queue。
+
+
 
 ## 总体介绍
 
