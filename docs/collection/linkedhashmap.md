@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,LinkedHashMap,java LinkedHashMap
 ---
 
-# 5.9 LinkedHashMap
+# 6.10 LinkedHashMap
 
 >这篇继续换个文风来写，给大家一点新鲜的空气。
 

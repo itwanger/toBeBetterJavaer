@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Iterable,Iterator,java Iterable,java Iterator,Iterable Iterator,java Iterable Iterator,java迭代器
 ---
 
-# 6.6 迭代器Iterator和Iterable
+# 6.7 迭代器Iterator和Iterable
 
 >PS: 这篇同样来换一个风格，一起来欣赏。
 
