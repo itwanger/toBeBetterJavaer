@@ -22,15 +22,150 @@ Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它只是�
 public interface Queue<E> extends Collection<E> {}
 ```
 
-当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*，原因我们第一次讲[集合框架](https://tobebetterjavaer.com/collection/gailan.html)的时候，其实已经聊过了；
+当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*（双端队列），原因我们第一次讲[集合框架](https://tobebetterjavaer.com/collection/gailan.html)的时候，其实已经聊过了，Stack 是一个“原始”类，它的核心方法上都加了 `synchronized` 关键字以确保线程安全，当我们不需要线程安全（比如说单线程环境下）性能就会比较差。
 
 ![](https://files.mdnice.com/user/3903/ebc95ae8-73c0-45cf-acd2-ec4df4677a22.png)
 
-也就是说，当需要使用队列的时候，请首选*ArrayDeque*，次选[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)，是的没错，[我们前面也讲了](https://tobebetterjavaer.com/collection/gailan.html)，LinkedList不只是个 List，还是一个 Queue。
+也就是说，当需要使用栈时候，请首选*ArrayDeque*。
 
+```java
+// 声明一个双端队列
+ArrayDeque<String> stack = new ArrayDeque<>();
 
+// 增加元素
+stack.push("沉默");
+stack.push("王二");
+stack.push("陈清扬");
 
-## 总体介绍
+// 获取栈顶元素
+String top = stack.peek();
+System.out.println("栈顶元素为：" + top); // 陈清扬
+
+// 弹出栈顶元素
+String pop = stack.pop();
+System.out.println("弹出的元素为：" + pop); // 陈清扬
+
+// 修改栈顶元素
+stack.pop();
+stack.push("小明");
+System.out.println("修改后的栈为：" + stack); // [沉默, 小明]
+
+// 遍历队列查找元素
+Iterator<String> iterator = stack.iterator();
+int index = -1;
+String target = "王二";
+while (iterator.hasNext()) {
+    String element = iterator.next();
+    index++;
+    if (element.equals(target)) {
+        break;
+    }
+}
+
+if (index == -1) {
+    System.out.println("元素 " + target + " 不存在于队列中");
+} else {
+    System.out.println("元素 " + target + " 在队列中的位置为：" + index);
+}
+```
+
+在上面的示例中，我们先创建了一个 ArrayDeque 对象，然后使用 push 方法向栈中添加了三个元素。接着使用 peek 方法获取栈顶元素，使用 pop 方法弹出栈顶元素，使用 pop 和 push 方法修改栈顶元素，使用迭代器查找元素在栈中的位置。
+
+ArrayDeque 又实现了 Deque 接口（Deque 又实现了 Queue 接口）：
+
+```java
+public class ArrayDeque<E> extends AbstractCollection<E>
+                           implements Deque<E>, Cloneable, Serializable
+{}
+```
+
+因此，当我们需要使用队列的时候，也可以选择 ArrayDeque。
+
+```java
+ArrayDeque<String> queue = new ArrayDeque<>();
+
+// 增加元素
+queue.offer("沉默");
+queue.offer("王二");
+queue.offer("陈清扬");
+
+// 获取队首元素
+String front = queue.peek();
+System.out.println("队首元素为：" + front); // 沉默
+
+// 弹出队首元素
+String poll = queue.poll();
+System.out.println("弹出的元素为：" + poll); // 沉默
+
+// 修改队列中的元素
+queue.poll();
+queue.offer("小明");
+System.out.println("修改后的队列为：" + queue); // [陈清扬, 小明]
+
+// 查找元素
+Iterator<String> iterator = queue.iterator();
+int index = 0;
+while (iterator.hasNext()) {
+    String element = iterator.next();
+    if (element.equals("王二")) {
+        System.out.println("元素在队列中的位置为：" + index); // 0
+        break;
+    }
+    index++;
+}
+```
+
+在上面的示例中，我们先创建了一个 ArrayDeque 对象，然后使用 offer 方法向队列中添加了三个元素。接着使用 peek 方法获取队首元素，使用 poll 方法弹出队首元素，使用 poll 和 offer 方法修改队列中的元素，使用迭代器查找元素在队列中的位置。
+
+[我们前面讲了](https://tobebetterjavaer.com/collection/gailan.html)，LinkedList不只是个 List，还是一个 Queue，它也实现了 Deque 接口。
+
+```java
+public class LinkedList<E>
+    extends AbstractSequentialList<E>
+    implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+{}
+```
+
+所以，当我们需要使用队列时，还可以选择[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)。
+
+```java
+// 创建一个 LinkedList 对象
+LinkedList<String> queue = new LinkedList<>();
+
+// 添加元素
+queue.offer("沉默");
+queue.offer("王二");
+queue.offer("陈清扬");
+System.out.println(queue); // 输出 [沉默, 王二, 陈清扬]
+
+// 删除元素
+queue.poll();
+System.out.println(queue); // 输出 [王二, 陈清扬]
+
+// 修改元素：LinkedList 中的元素不支持直接修改，需要先删除再添加
+String first = queue.poll();
+queue.offer("王大二");
+System.out.println(queue); // 输出 [陈清扬, 王大二]
+
+// 查找元素：LinkedList 中的元素可以使用 get() 方法进行查找
+System.out.println(queue.get(0)); // 输出 陈清扬
+System.out.println(queue.contains("沉默")); // 输出 false
+
+// 查找元素：使用迭代器的方式查找陈清扬
+// 使用迭代器依次遍历元素并查找
+Iterator<String> iterator = queue.iterator();
+while (iterator.hasNext()) {
+    String element = iterator.next();
+    if (element.equals("陈清扬")) {
+        System.out.println("找到了：" + element);
+        break;
+    }
+}
+```
+
+在使用 LinkedList 作为队列时，可以使用 offer() 方法将元素添加到队列的末尾，使用 poll() 方法从队列的头部删除元素，使用迭代器或者 poll() 方法依次遍历元素。
+
+### 栈和队列
 
 要讲栈和队列，首先要讲*Deque*接口。*Deque*的含义是“double ended queue”，即双端队列，它既可以当作栈使用，也可以当作队列使用。下表列出了*Deque*与*Queue*相对应的接口：
 
@@ -68,19 +203,19 @@ public interface Queue<E> extends Collection<E> {}
 
 *ArrayDeque*是非线程安全的（not thread-safe），当多个线程同时使用的时候，需要手动同步；另外，该容器不允许放入`null`元素。
 
-![ArrayDeque_base.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
 
 
 上图中我们看到，**`head`指向首端第一个有效元素，`tail`指向尾端第一个可以插入元素的空位**。因为是循环数组，所以`head`不一定总等于 0，`tail`也不一定总是比`head`大。
 
-## 方法剖析
+### 方法剖析
 
-### addFirst()
+#### addFirst()
 
 `addFirst(E e)`的作用是在*Deque*的首端插入元素，也就是在`head`的前面插入元素，在空间足够且下标没有越界的情况下，只需要将`elements[--head] = e`即可。
 
 
-![ArrayDeque_addFirst.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
 
 实际需要考虑：
 
@@ -101,28 +236,17 @@ public void addFirst(E e) {
 }
 ```
 
-```
-//addFirst(E e)
-public void addFirst(E e) {
-    if (e == null)//不允许放入null
-        throw new NullPointerException();
-    elements[head = (head - 1) & (elements.length - 1)] = e;//2.下标是否越界
-    if (head == tail)//1.空间是否够用
-        doubleCapacity();//扩容
-}
-```
-
 上述代码我们看到，**空间问题是在插入之后解决的**，因为`tail`总是指向下一个可插入的空位，也就意味着`elements`数组至少有一个空位，所以插入元素的时候不用考虑空间问题。
 
 下标越界的处理解决起来非常简单，`head = (head - 1) & (elements.length - 1)`就可以了，**这段代码相当于取余，同时解决了`head`为负值的情况**。因为`elements.length`必需是`2`的指数倍，`elements - 1`就是二进制低位全`1`，跟`head - 1`相与之后就起到了取模的作用，如果`head - 1`为负数（其实只可能是-1），则相当于对其取相对于`elements.length`的补码。
 
 下面再说说扩容函数`doubleCapacity()`，其逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。过程如下图所示：
 
-![ArrayDeque_doubleCapacity.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
 
 图中我们看到，复制分两次进行，第一次复制`head`右边的元素，第二次复制`head`左边的元素。
 
-```
+```java
 //doubleCapacity()
 private void doubleCapacity() {
     assert head == tail;
@@ -141,13 +265,19 @@ private void doubleCapacity() {
 }
 ```
 
-### addLast()
+该方法的实现中，首先检查 head 和 tail 是否相等，如果不相等则抛出异常。然后计算出 head 右边的元素个数 r，以及新的容量 newCapacity，如果 newCapacity 太大则抛出异常。
+
+接下来创建一个新的 Object 数组 a，将原有 ArrayDeque 中 head 右边的元素复制到 a 的前面（即图中绿色部分），将 head 左边的元素复制到 a 的后面（即图中灰色部分）。最后将 elements 数组替换为 a，head 设置为 0，tail 设置为 n（即新容量的长度）。
+
+需要注意的是，由于 elements 数组被替换为 a 数组，因此在方法调用结束后，原有的 elements 数组将不再被引用，会被垃圾回收器回收。
+
+#### addLast()
 
 `addLast(E e)`的作用是在*Deque*的尾端插入元素，也就是在`tail`的位置插入元素，由于`tail`总是指向下一个可以插入的空位，因此只需要`elements[tail] = e;`即可。插入完成后再检查空间，如果空间已经用光，则调用`doubleCapacity()`进行扩容。
 
-![ArrayDeque_addLast.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
 
-```
+```java
 public void addLast(E e) {
     if (e == null)//不允许放入null
         throw new NullPointerException();
@@ -159,11 +289,11 @@ public void addLast(E e) {
 
 下标越界处理方式`addFirt()`中已经讲过，不再赘述。
 
-### pollFirst()
+#### pollFirst()
 
 `pollFirst()`的作用是删除并返回*Deque*首端元素，也即是`head`位置处的元素。如果容器不空，只需要直接返回`elements[head]`即可，当然还需要处理下标的问题。由于`ArrayDeque`中不允许放入`null`，当`elements[head] == null`时，意味着容器为空。
 
-```
+```java
 public E pollFirst() {
     E result = elements[head];
     if (result == null)//null值意味着deque为空
@@ -174,11 +304,11 @@ public E pollFirst() {
 }
 ```
 
-### pollLast()
+#### pollLast()
 
 `pollLast()`的作用是删除并返回*Deque*尾端元素，也即是`tail`位置前面的那个元素。
 
-```
+```java
 public E pollLast() {
     int t = (tail - 1) & (elements.length - 1);//tail的上一个位置是最后一个元素
     E result = elements[t];
@@ -190,25 +320,53 @@ public E pollLast() {
 }
 ```
 
-### peekFirst()
+#### peekFirst()
 
 `peekFirst()`的作用是返回但不删除*Deque*首端元素，也即是`head`位置处的元素，直接返回`elements[head]`即可。
 
-```
+```java
 public E peekFirst() {
     return elements[head]; // elements[head] is null if deque empty
 }
 ```
 
-### peekLast()
+#### peekLast()
 
 `peekLast()`的作用是返回但不删除*Deque*尾端元素，也即是`tail`位置前面的那个元素。
 
-```
+```java
 public E peekLast() {
     return elements[(tail - 1) & (elements.length - 1)];
 }
 ```
+
+### 小结
+
+当需要实现先进先出(FIFO)或者先进后出(LIFO)的数据结构时，可以考虑使用 ArrayDeque。以下是一些使用 ArrayDeque 的场景：
+
+- 管理任务队列：如果需要实现一个任务队列，可以使用 ArrayDeque 来存储任务元素。在队列头部添加新任务元素，从队列尾部取出任务进行处理，可以保证任务按照先进先出的顺序执行。
+- 实现栈：ArrayDeque 可以作为栈的实现方式，支持 push、pop、peek 等操作，可以用于需要后进先出的场景。
+- 实现缓存：在需要缓存一定数量的数据时，可以使用 ArrayDeque。当缓存的数据量超过容量时，可以从队列头部删除最老的数据，从队列尾部添加新的数据。
+- 实现事件处理器：ArrayDeque 可以作为事件处理器的实现方式，支持从队列头部获取事件进行处理，从队列尾部添加新的事件。
+
+简单总结一下吧。
+
+ArrayDeque 是 Java 标准库中的一种双端队列实现，底层基于数组实现。与 LinkedList 相比，ArrayDeque 的性能更优，因为它使用连续的内存空间存储元素，可以更好地利用 CPU 缓存，在大多数情况下也更快。
+
+为什么这么说呢？
+
+因为ArrayDeque 的底层实现是数组，而 LinkedList 的底层实现是链表。数组是一段连续的内存空间，而链表是由多个节点组成的，每个节点存储数据和指向下一个节点的指针。因此，在使用 LinkedList 时，需要频繁进行内存分配和释放，而 ArrayDeque 在创建时就一次性分配了连续的内存空间，不需要频繁进行内存分配和释放，这样可以更好地利用 CPU 缓存，提高访问效率。
+
+现代计算机CPU对于数据的局部性有很强的依赖，如果需要访问的数据在内存中是连续存储的，那么就可以利用CPU的缓存机制，提高访问效率。而当数据存储在不同的内存块里时，每次访问都需要从内存中读取，效率会受到影响。
+
+当然了，使用 ArrayDeque 时，数组复制操作也是需要考虑的性能消耗之一。
+
+当 ArrayDeque 的元素数量超过了初始容量时，会触发扩容操作。扩容操作会创建一个新的数组，并将原有元素复制到新数组中。扩容操作的时间复杂度为 O(n)。
+
+不过，ArrayDeque 的扩容策略（当 ArrayDeque 中的元素数量达到数组容量时，就需要进行扩容操作，扩容时会将数组容量扩大为原来的两倍）可以在一定程度上减少数组复制的次数和时间消耗，同时保证 ArrayDeque 的性能和空间利用率。
+
+ArrayDeque 不仅支持常见的队列操作，如添加元素、删除元素、获取队列头部元素、获取队列尾部元素等。同时，它还支持栈操作，如 push、pop、peek 等。这使得 ArrayDeque 成为一种非常灵活的数据结构，可以用于各种场景的数据存储和处理。
+
 
 >参考链接：[https://github.com/CarpenterLee/JCFInternals](https://github.com/CarpenterLee/JCFInternals)，作者：李豪，整理：沉默王二
 
