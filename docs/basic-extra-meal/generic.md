@@ -18,7 +18,7 @@ head:
 
 “三妹啊，听哥慢慢给你讲啊。”我说。
 
-Java 在 1.5 时增加了泛型机制，据说专家们为此花费了 5 年左右的时间（听起来很不容易）。有了泛型之后，尤其是对集合类的使用，就变得更规范了。
+Java 在 1.5 时增加了泛型机制，据说专家们为此花费了 5 年左右的时间（听起来是相当不容易）。有了泛型之后，尤其是对集合类的使用，就变得更规范了。
 
 看下面这段简单的代码。
 
@@ -66,11 +66,11 @@ String str = (String)list.get(0);
 
 对比一下，你就能明显地感受到泛型的优秀之处：使用**类型参数**解决了元素的不确定性——参数类型为 String 的集合中是不允许存放其他类型元素的，取出数据的时候也不需要强制类型转换了。
 
+### 动手设计一个泛型
+
 “二哥，那怎么才能设计一个泛型呢？”
 
-“三妹啊，你一个小白只要会用泛型就行了，还想设计泛型啊？！不过，既然你想了解，那么哥义不容辞。”
-
-
+“三妹啊，你一个小白只要会用泛型就行了，还想设计泛型啊？！不过，既然你想了解，哥义不容辞。”
 
 首先，我们来按照泛型的标准重新设计一下 `Arraylist` 类。
 
@@ -143,6 +143,8 @@ for (String str : strs) {
 }
 ```
 
+### 泛型限定符
+
 然后，我们再来说说泛型变量的限定符 `extends`。
 
 在解释这个限定符之前，我们假设有三个类，它们之间的定义是这样的。
@@ -187,13 +189,15 @@ list.add(new Wangxiaoer());
 
 也就是说，限定符 `extends` 可以缩小泛型的类型范围。
 
+### 类型擦除
+
 “哦，明白了。”三妹若有所思的点点头，“二哥，听说虚拟机没有泛型？”
 
 “三妹，你功课做得可以啊。哥可以肯定地回答你，虚拟机是没有泛型的。”
 
 “怎么确定虚拟机有没有泛型呢？”三妹问。
 
-“只要我们把泛型类的字节码进行反编译就看到了！”用反编译工具将 class 文件反编译后，我说，“三妹，你看。”
+“只要我们把泛型类的字节码进行反编译就看到了！”用反编译工具（我写这篇文章的时候用的是 jad，你也可以用其他的工具）将 class 文件反编译后，我说，“三妹，你看。”
 
 ```java
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
@@ -334,6 +338,8 @@ public class Cmower {
 
 有句俗话叫做：“百闻不如一见”，但即使见到了也未必为真——泛型的擦除问题就可以很好地佐证这个观点。
 
+### 泛型通配符
+
 “哦，明白了。二哥，听说泛型还有通配符？”
 
 “三妹啊，哥突然觉得你很适合作一枚可爱的程序媛啊！你这预习的功课做得可真到家啊，连通配符都知道！”
@@ -343,23 +349,29 @@ public class Cmower {
 我们来看下面这段代码。
 
 ```java
+// 定义一个泛型类 Arraylist<E>，E 表示元素类型
 class Arraylist<E> {
+    // 私有成员变量，存储元素数组和元素数量
     private Object[] elementData;
     private int size = 0;
 
+    // 构造函数，传入初始容量 initialCapacity，创建一个指定容量的 Object 数组
     public Arraylist(int initialCapacity) {
         this.elementData = new Object[initialCapacity];
     }
 
+    // 添加元素到数组末尾，返回添加成功与否
     public boolean add(E e) {
         elementData[size++] = e;
         return true;
     }
 
+    // 获取指定下标的元素
     public E get(int index) {
         return (E) elementData[index];
     }
-    
+
+    // 查找指定元素第一次出现的下标，如果找不到则返回 -1
     public int indexOf(Object o) {
         if (o == null) {
             for (int i = 0; i < size; i++)
@@ -372,11 +384,13 @@ class Arraylist<E> {
         }
         return -1;
     }
-    
+
+    // 判断指定元素是否在数组中出现
     public boolean contains(Object o) {
         return indexOf(o) >= 0;
     }
-    
+
+    // 将数组中的元素转化成字符串输出
     public String toString() {
         StringBuilder sb = new StringBuilder();
         
@@ -390,10 +404,12 @@ class Arraylist<E> {
         return sb.toString();
     }
 
+    // 返回数组中元素的数量
     public int size() {
         return size;
     }
-    
+
+    // 修改指定下标的元素，返回修改前的元素
     public E set(int index, E element) {
         E oldValue = (E) elementData[index];
         elementData[index] = element;
@@ -464,13 +480,138 @@ list3.add(new Wangxiaoer());
 
 需要注意的是，无法从 `Arraylist<? super Wanger>` 这样类型的 list3 中取出数据。
 
-“三妹，关于泛型，这里还有一篇很不错的文章，你等会去看一下。”我说。
+### 小结
 
->[https://www.pdai.tech/md/java/basic/java-basic-x-generic.html](https://www.pdai.tech/md/java/basic/java-basic-x-generic.html)
+好了，三妹，关于泛型，我们再来做一个简单的总结。
 
-“对泛型机制讲的也很透彻，你结合二哥给你讲的这些，再深入的学习一下。”
+在 Java 中，泛型是一种强类型约束机制，可以在编译期间检查类型安全性，并且可以提高代码的复用性和可读性。
 
-“好的，二哥。”
+#### 1）类型参数化
+
+泛型的本质是参数化类型，也就是说，在定义类、接口或方法时，可以使用一个或多个类型参数来表示参数化类型。
+
+例如这样可以定义一个泛型类。
+
+```java
+public class Box<T> {
+    private T value;
+
+    public Box(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+}
+```
+
+在这个例子中，<T> 表示类型参数，可以在类中任何需要使用类型的地方使用 T 代替具体的类型。通过使用泛型，我们可以创建一个可以存储任何类型对象的盒子。
+
+```java
+Box<Integer> intBox = new Box<>(123);
+Box<String> strBox = new Box<>("Hello, world!");
+```
+
+泛型在实际开发中的应用非常广泛，例如集合框架中的 List、Set、Map 等容器类，以及并发框架中的 Future、Callable 等工具类都使用了泛型。
+
+#### 2）类型擦除
+
+在 Java 的泛型机制中，有两个重要的概念：类型擦除和通配符。
+
+泛型在编译时会将泛型类型擦除，将泛型类型替换成 Object 类型。这是为了向后兼容，避免对原有的 Java 代码造成影响。
+
+例如，对于下面的代码：
+
+```java
+List<Integer> intList = new ArrayList<>();
+intList.add(123);
+int value = intList.get(0);
+```
+
+在编译时，Java 编译器会将泛型类型 List<Integer> 替换成 List<Object>，将 get 方法的返回值类型 Integer 替换成 Object，生成的字节码与下面的代码等价：
+
+```java
+List intList = new ArrayList();
+intList.add(Integer.valueOf(123));
+int value = (Integer) intList.get(0);
+```
+
+Java 泛型只在编译时起作用，运行时并不会保留泛型类型信息。
+
+#### 3）通配符
+
+通配符用于表示某种未知的类型，例如 List<?> 表示一个可以存储任何类型对象的 List，但是不能对其中的元素进行添加操作。通配符可以用来解决类型不确定的情况，例如在方法参数或返回值中使用。
+
+使用通配符可以使方法更加通用，同时保证类型安全。
+
+例如，定义一个泛型方法：
+
+```java
+public static void printList(List<?> list) {
+    for (Object obj : list) {
+        System.out.print(obj + " ");
+    }
+    System.out.println();
+}
+```
+
+这个方法可以接受任意类型的 List，例如 List<Integer>、List<String> 等等。
+
+##### 上限通配符
+
+泛型还提供了上限通配符 <? extends T>，表示通配符只能接受 T 或 T 的子类。使用上限通配符可以提高程序的类型安全性。
+
+例如，定义一个方法，只接受 Number 及其子类的 List：
+
+```java
+public static void printNumberList(List<? extends Number> list) {
+    for (Number num : list) {
+        System.out.print(num + " ");
+    }
+    System.out.println();
+}
+```
+
+这个方法可以接受 List<Integer>、List<Double> 等等。
+
+##### 下限通配符
+
+下限通配符（Lower Bounded Wildcards）用 super 关键字来声明，其语法形式为 <? super T>，其中 T 表示类型参数。它表示的是该类型参数必须是某个指定类的超类（包括该类本身）。
+
+当我们需要往一个泛型集合中添加元素时，如果使用的是上限通配符，集合中的元素类型可能会被限制，从而无法添加某些类型的元素。但是，如果我们使用下限通配符，可以将指定类型的子类型添加到集合中，保证了元素的完整性。
+
+举个例子，假设有一个类 Animal，以及两个子类 Dog 和 Cat。现在我们有一个 List<? super Dog> 集合，它的类型参数必须是 Dog 或其父类类型。我们可以向该集合中添加 Dog 类型的元素，也可以添加它的子类。但是，不能向其中添加 Cat 类型的元素，因为 Cat 不是 Dog 的子类。
+
+下面是一个使用下限通配符的示例：
+
+```java
+List<? super Dog> animals = new ArrayList<>();
+
+// 可以添加 Dog 类型的元素和其子类型元素
+animals.add(new Dog());
+animals.add(new Bulldog());
+
+// 不能添加 Cat 类型的元素
+animals.add(new Cat()); // 编译报错
+```
+
+需要注意的是，虽然使用下限通配符可以添加某些子类型元素，但是在读取元素时，我们只能确保其是 Object 类型的，无法确保其是指定类型或其父类型。因此，在读取元素时需要进行类型转换，如下所示：
+
+```java
+List<? super Dog> animals = new ArrayList<>();
+animals.add(new Dog());
+
+// 读取元素时需要进行类型转换
+Object animal = animals.get(0);
+Dog dog = (Dog) animal;
+```
+
+总的来说，Java 的泛型机制是一种非常强大的类型约束机制，可以在编译时检查类型安全性，并提高代码的复用性和可读性。但是，在使用泛型时也需要注意类型擦除和通配符等问题，以确保代码的正确性。
 
 ----
 
