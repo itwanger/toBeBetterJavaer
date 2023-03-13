@@ -134,8 +134,6 @@ List 的实现类还有一个 Vector，是一个元老级的类，比 ArrayList 
 
 ```java
 public synchronized boolean add(E e) {
-    modCount++;
-    ensureCapacityHelper(elementCount + 1);
     elementData[elementCount++] = e;
     return true;
 }
@@ -144,6 +142,8 @@ public synchronized boolean add(E e) {
 这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)那样。JDK 源码也说了：
 
 >如果不需要线程安全，建议使用ArrayList代替Vector。
+
+![](https://files.mdnice.com/user/3903/22514cd2-10a5-4ce5-bea2-6276f858c2a1.png)
 
 Stack 是 Vector 的一个子类，本质上也是由动态数组实现的，只不过还实现了先进后出的功能（在 get、set、add 方法的基础上追加了 pop「返回并移除栈顶的元素」、peek「只返回栈顶元素」等方法），所以叫栈。
 
@@ -169,7 +169,7 @@ public synchronized E peek() {
 }
 ```
 
-不过，由于 Stack 执行效率比较低（方法上同样加了 synchronized 关键字，上面你也看到了），就被双端队列 ArrayDeque 取代了（下面会介绍）。
+不过，由于 Stack 执行效率比较低（方法上同样加了 synchronized 关键字），就被双端队列 ArrayDeque 取代了（下面会介绍）。
 
 ### 02、Set
 
@@ -527,7 +527,9 @@ public class PriorityQueueComparatorExample {
         queue.offer(new Student("小驼铃", 90, 95));
         System.out.println(queue);
         queue.offer(new Student("沉默", 90, 80));
-        System.out.println(queue);
+        while (!queue.isEmpty()) {
+            System.out.print(queue.poll() + " ");
+        }
     }
 }
 ```
@@ -544,37 +546,10 @@ PriorityQueue 是一个优先级队列，参数为 StudentComparator，然后我
 [Student{name='王二', 总成绩=170}]
 [Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}]
 [Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}, Student{name='小驼铃', 总成绩=185}]
-[Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}, Student{name='小驼铃', 总成绩=185}, Student{name='沉默', 总成绩=170}]
+Student{name='陈清扬', 总成绩=190} Student{name='小驼铃', 总成绩=185} Student{name='沉默', 总成绩=170} Student{name='王二', 总成绩=170} 
 ```
 
-如果你是第一次接触优先级队列的话，会对这个结果感到惊诧，因为小驼铃的总成绩明显高过王二，却排在第三，这是因为优先级队列在进行比较的时候，会拿队首的元素来与当前的元素相比，因为之前 陈清扬 的总分是 190 它排在第一，所以当小驼铃和它比较的时候，就会停留在当前的位置。
-
-![](https://files.mdnice.com/user/3903/892c871f-a95b-4c00-8421-76401d9bdc40.png)
-
-如果我们换一下元素的插入顺序，结果就又会不大相同。
-
-```java
-// 添加元素
-queue.offer(new Student("王二", 80, 90));
-System.out.println(queue);
-queue.offer(new Student("沉默", 90, 80));
-System.out.println(queue);
-queue.offer(new Student("小驼铃", 90, 95));
-System.out.println(queue);
-queue.offer(new Student("陈清扬", 95, 95));
-System.out.println(queue);
-```
-
-来看一下结果：
-
-```
-[Student{name='王二', 总成绩=170}]
-[Student{name='王二', 总成绩=170}, Student{name='沉默', 总成绩=170}]
-[Student{name='小驼铃', 总成绩=185}, Student{name='沉默', 总成绩=170}, Student{name='王二', 总成绩=170}]
-[Student{name='陈清扬', 总成绩=190}, Student{name='小驼铃', 总成绩=185}, Student{name='王二', 总成绩=170}, Student{name='沉默', 总成绩=170}]
-```
-
-发现没，这次碰巧就会按照从大到小的顺序输出了，这主要是因为 PriorityQueue 是基于堆（heap）这个数据结构的，堆是一种树形数据结构，其中每个节点的值都不大于或不小于其子节点的值。[这块知识我们后面会讲到](https://tobebetterjavaer.com/collection/PriorityQueue.html#总体介绍)，这里先简单了解一下。
+我们使用 offer 方法添加元素，最后用 while 循环遍历元素（通过 poll 方法取出元素），从结果可以看得出，[PriorityQueue](https://tobebetterjavaer.com/collection/PriorityQueue.html)按照学生的总成绩由高到低进行了排序。
 
 
 ### 04、Map

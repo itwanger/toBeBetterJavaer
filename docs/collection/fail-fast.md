@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,fail-fast,java foreach 删除元素
 ---
 
-# 6.7 为什么不能在foreach里删除元素？
+# 6.8 为什么不能在foreach里删除元素？
 
 >这篇文章同样采用小二去面试的形式，给大家换个胃口。
 

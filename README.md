@@ -159,6 +159,7 @@
 - [Java ArrayList详解（附源码分析）](docs/collection/arraylist.md)
 - [Java LinkedList详解（附源码分析）](docs/collection/linkedlist.md)
 - [聊聊ArrayList和LinkedList的区别](docs/collection/list-war-2.md)
+- [深入理解Java中的泛型](docs/basic-extra-meal/generic.md)
 - [迭代器Iterator和Iterable有什么区别？](docs/collection/iterator-iterable.md)
 - [为什么不能在foreach里执行删除操作？](docs/collection/fail-fast.md)
 - [Java HashMap详解（附源码分析）](docs/collection/hashmap.md)
@@ -166,6 +167,7 @@
 - [Java TreeMap详解（附源码分析）](docs/collection/treemap.md)
 - [详解 Java 中的双端队列（ArrayDeque附源码分析）](docs/collection/arraydeque.md)
 - [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](docs/collection/PriorityQueue.md)
+- [详解Java中Comparable和Comparator接口的区别](docs/basic-extra-meal/comparable-omparator.md)
 - [Java WeakHashMap详解（附源码分析）](docs/collection/WeakHashMap.md)
 
 ## Java IO
@@ -213,10 +215,8 @@
 - [为什么重写equals方法的时候必须要重写hashCode方法？](docs/basic-extra-meal/equals-hashcode.md)
 - [Java重写（Overriding）时应当遵守的11条规则](docs/basic-extra-meal/Overriding.md)
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
-- [详解Java中Comparable和Comparator接口的区别](docs/basic-extra-meal/comparable-omparator.md)
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 - [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
-- [深入理解Java中的泛型](docs/basic-extra-meal/generic.md)
 - [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
 - [新来个技术总监，彻底把 Java 枚举(enum)讲清楚了](docs/basic-extra-meal/enum.md)
 - [大白话说清楚Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
