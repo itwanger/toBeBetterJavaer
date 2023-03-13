@@ -100,8 +100,6 @@ export const sidebarConfig = sidebar({
           // readme小写一定要带上.md，否则找不到
           "readme.md",
           "what-is-java",
-          "java-history",
-          "java-can-do-what",
           "jdk-install-config",
           "IDEA-install-config",
           "hello-world",

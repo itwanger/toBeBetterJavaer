@@ -94,9 +94,7 @@
 
 ## Java概述及环境配置
 
-- [Java简介，什么是 Java？](docs/overview/what-is-java.md)
-- [Java发展简史](docs/overview/java-history.md)
-- [学Java还有前途吗？](docs/overview/java-can-do-what.md)
+- [Java简介](docs/overview/what-is-java.md)
 - [安装Java开发工具包JDK](docs/overview/jdk-install-config.md)
 - [安装集成开发环境Intellij IDEA](docs/overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](docs/overview/hello-world.md)

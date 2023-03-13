@@ -1,6 +1,6 @@
 ---
 title: 安装集成开发环境Intellij IDEA
-shortTitle: 安装集成开发环境IDEA
+shortTitle: 安装IDEA
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Intellij IDEA安装,IDEA安装,idea,Intellij IDEA
 ---
 
-# 2.5 安装集成开发环境Intellij IDEA
+# 2.3 安装IDEA
 
 IntelliJ IDEA 简称 IDEA，是业界公认为最好的 Java 集成开发工具，尤其是在代码自动提示、代码重构、代码版本管理、单元测试、代码分析等方面有着亮眼的发挥。
 
