@@ -184,7 +184,6 @@ export const sidebarConfig = sidebar({
           "collection/arraydeque",
           "collection/PriorityQueue",
           "basic-extra-meal/comparable-omparator",
-          "collection/WeakHashMap",
          
           ],
         },
