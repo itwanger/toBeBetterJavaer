@@ -178,7 +178,7 @@ head:
 - [Java TreeMap详解（附源码分析）](collection/treemap.md)
 - [详解 Java 中的双端队列（ArrayDeque附源码分析）](collection/arraydeque.md)
 - [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](collection/PriorityQueue.md)
-- [详解Java中Comparable和Comparator接口的区别](basic-extra-meal/comparable-omparator.md)
+- [Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
 
 
 ### Java输入输出
