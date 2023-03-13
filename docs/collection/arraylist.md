@@ -243,7 +243,7 @@ ArrayList 在第一次执行 add 后会扩容为 10，那 ArrayList 第二次扩
 
 你可以通过在 ArrayList 中添加第 11 个元素来 debug 验证一下。
 
-![](https://files.mdnice.com/user/3903/5c7ad981-03f4-4b86-a452-f77f6f8c25ce.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraylist-d01f248c-114f-47e3-af18-7135feac2a5e.png)
 
 ### 04、向 ArrayList 的指定位置添加元素
 

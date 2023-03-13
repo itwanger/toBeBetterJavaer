@@ -24,7 +24,7 @@ public interface Queue<E> extends Collection<E> {}
 
 当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*（双端队列），原因我们第一次讲[集合框架](https://tobebetterjavaer.com/collection/gailan.html)的时候，其实已经聊过了，Stack 是一个“原始”类，它的核心方法上都加了 `synchronized` 关键字以确保线程安全，当我们不需要线程安全（比如说单线程环境下）性能就会比较差。
 
-![](https://files.mdnice.com/user/3903/ebc95ae8-73c0-45cf-acd2-ec4df4677a22.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraydeque-51e3552c-af39-4d00-8494-1ff0a4913357.png)
 
 也就是说，当需要使用栈时候，请首选*ArrayDeque*。
 

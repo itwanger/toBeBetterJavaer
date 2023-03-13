@@ -143,7 +143,7 @@ public synchronized boolean add(E e) {
 
 >如果不需要线程安全，建议使用ArrayList代替Vector。
 
-![](https://files.mdnice.com/user/3903/22514cd2-10a5-4ce5-bea2-6276f858c2a1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
 
 Stack 是 Vector 的一个子类，本质上也是由动态数组实现的，只不过还实现了先进后出的功能（在 get、set、add 方法的基础上追加了 pop「返回并移除栈顶的元素」、peek「只返回栈顶元素」等方法），所以叫栈。
 
