@@ -2,41 +2,70 @@
 title: 支付宝二面：使用 try-catch 捕获异常会影响性能吗？大部分人都会答错！
 shortTitle: 支付宝二面：使用 try-catch 捕获异常会影响性能吗？大部分人都会答错！
 description: 扯什么 try-catch 性能问题？
-author: 是Yes呀
+author: 是yes呀
 category:
   - 微信公众号
-head:
 ---
 
-“yes，你看着这鬼代码，竟然在 for 循环里面搞了个 `try-catch`，不知道`try-catch`有性能损耗吗？”老陈煞有其事地指着屏幕里的代码：
+“二哥，你看着这鬼代码，竟然在 for 循环里面搞了个 `try-catch`，不知道`try-catch`有性能损耗吗？” 老王煞有其事地指着屏幕里的代码：
 
 ```
- for (int i = 0; i < 5000; i++) {     try {         dosth     } catch (Exception e) {         e.printStackTrace();     } }
+ for (int i = 0; i < 5000; i++) {
+     try {
+         dosth
+     } catch (Exception e) {
+         e.printStackTrace();
+     }
+ }
 ```
 
-我探过头去看了眼代码，“那老陈你觉得该怎么改？”
+我探过头去看了眼代码，“那 老王你觉得该怎么改？”
 
-“当然是把 `try-catch` 提到外面啊！”老陈脑子都不转一下，脱口而出。
+“当然是把 `try-catch` 提到外面啊！” 老王脑子都不转一下，脱口而出。
 
 “你是不是傻？且不说性能，这代码的目的明显是让循环内部单次调用出错不影响循环的运行，你其到外面业务逻辑不就变了吗！”
 
-老陈挠了挠他的地中海，“好像也是啊！”
+ 老王挠了挠他的地中海，“好像也是啊！”
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/eSdk75TK4nGlicp5nqtD0gsibIg8XCZk8V8dYibzJPUyLTOiaflK9O1oNu5ynX77ecE8GZBJMCu4FDOdZNMz66lJEw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
-“回过头来，catch 整个 for 循环和在循环内部 catch，在不出错的情况下，其实性能差不多。” 我喝一口咖啡不经意地提到，准备在老陈前面秀一下。
+“回过头来，catch 整个 for 循环和在循环内部 catch，在不出错的情况下，其实性能差不多。” 我喝一口咖啡不经意地提到，准备在 老王前面秀一下。
 
-“啥意思？”老陈有点懵地看着我，“`try-catch`是有性能损耗的，我可是看过网上资料的！”
+“啥意思？” 老王有点懵地看着我，“`try-catch`是有性能损耗的，我可是看过网上资料的！”
 
-果然，老陈上钩了，我二话不说直接打开 idea，一顿操作敲了以下代码：
+果然， 老王上钩了，我二话不说直接打开 idea，一顿操作敲了以下代码：
 
 ```
-public class TryCatchTest {    @Benchmark    public void tryfor(Blackhole blackhole) {        try {            for (int i = 0; i < 5000; i++) {                blackhole.consume(i);            }        } catch (Exception e) {            e.printStackTrace();        }    }    @Benchmark    public void fortry(Blackhole blackhole) {        for (int i = 0; i < 5000; i++) {            try {                blackhole.consume(i);            } catch (Exception e) {                e.printStackTrace();            }        }    }}
+public class TryCatchTest {
+
+    @Benchmark
+    public void tryfor(Blackhole blackhole) {
+        try {
+            for (int i = 0; i < 5000; i++) {
+                blackhole.consume(i);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Benchmark
+    public void fortry(Blackhole blackhole) {
+        for (int i = 0; i < 5000; i++) {
+            try {
+                blackhole.consume(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
 ```
 
-“BB 不如 show code，看到没，老陈，我把 `try-catch` 从 for 循环里面提出来跟在for循环里面做个对比跑一下，你猜猜两个差多少？”
+“BB 不如 show code，看到没， 老王，我把 `try-catch` 从 for 循环里面提出来跟在for循环里面做个对比跑一下，你猜猜两个差多少？”
 
-“切，肯定 tryfor 性能好，想都不用想，不是的话我倒立洗头！”老陈信誓旦旦道。
+“切，肯定 tryfor 性能好，想都不用想，不是的话我倒立洗头！” 老王信誓旦旦道。
 
 我懒得跟他BB，直接开始了 benchmark，跑的结果如下：
 
@@ -51,9 +80,9 @@ public class TryCatchTest {    @Benchmark    public void tryfor(
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/eSdk75TK4nGlicp5nqtD0gsibIg8XCZk8Vu2NibLGzzsxxHx057xxdUleWkw0CzatjkicV5ATY8ibgZzg1OfwibnlERg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
-老陈一看傻了：“说好的性能影响呢？怎么没了？”
+ 老王一看傻了：“说好的性能影响呢？怎么没了？”
 
-我直接一个javap，让老陈看看，其实两个实现在字节码层面没啥区别：
+我直接一个javap，让 老王看看，其实两个实现在字节码层面没啥区别：
 
 > tryfor 的字节码
 
@@ -69,7 +98,7 @@ public class TryCatchTest {    @Benchmark    public void tryfor(
 
 所以从字节码层面来看，没抛错两者的执行效率其实没啥差别。
 
-“那为什么网上流传着`try-catch`会有性能问题的说法啊？”老陈觉得非常奇怪。
+“那为什么网上流传着`try-catch`会有性能问题的说法啊？” 老王觉得非常奇怪。
 
 这个说法确实有，在《Effective Java》这本书里就提到了 `try-catch` 性能问题：
 
@@ -107,13 +136,13 @@ public class TryCatchTest {    @Benchmark    public void tryfor(
 2.  for循环内用  `try-catch` 和用 `try-catch` 包裹整个 for 循环性能差不多，但是其实两者本质上是业务处理方式的不同，跟性能扯不上关系，关键看你的业务流程处理。
 3.  虽然知道`try-catch`会有性能影响，但是业务上不需要避讳其使用，业务实现优先（只要不是书中举例的那种逆天代码就行），非特殊情况下性能都是其次，有意识地避免大范围的`try-catch`，只 catch 需要的部分即可（没把握全 catch 也行，代码安全执行第一）。
 
-“好了，老陈你懂了没？”
+“好了， 老王你懂了没？”
 
-“行啊yes，BB是一套一套的，走请你喝燕麦拿铁！” 老陈一把拉起我，我直接一个挣脱，“少来，我刚喝过咖啡，你那个倒立洗头，赶紧的！”我立马意识到老陈想岔开话题。
+“行啊二哥，BB是一套一套的，走请你喝燕麦拿铁！”  老王一把拉起我，我直接一个挣脱，“少来，我刚喝过咖啡，你那个倒立洗头，赶紧的！”我立马意识到 老王想岔开话题。
 
 “洗洗洗，我们先喝个咖啡，晚上回去给你洗！”
 
-晚上22点，老陈发来一张图片：
+晚上22点， 老王发来一张图片：
 
 ![](https://mmbiz.qpic.cn/mmbiz_png/eSdk75TK4nGlicp5nqtD0gsibIg8XCZk8VYrrLRlutAIJAJ2riaIVHud9fNwSlibJ2hGWd7ZEbZWN2gibbardhnRwBQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
