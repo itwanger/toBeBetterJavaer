@@ -1,0 +1,1 @@
+import{_ as e,W as a,X as n}from"./framework-bb7be5cb.js";const i={};function c(t,o){return a(),n("div")}const r=e(i,[["render",c],["__file","mianshiguan-bigfile-miaochuan.html.vue"]]);export{r as default};
