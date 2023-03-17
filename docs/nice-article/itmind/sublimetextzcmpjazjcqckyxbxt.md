@@ -1,6 +1,6 @@
 ---
 title: Sublime Text 注册码破解安装教程（亲测可用）-Java程序员进阶之路
-shortTitle: Sublime Text 注册码破解安装教程（亲测可用）-Java程序员进阶之路
+shortTitle: Sublime Text 注册码
 description: Sublime Text 注册码破解安装教程（亲测可用）
 tag:
   - 优质文章

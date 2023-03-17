@@ -1,5 +1,5 @@
 ---
-title: 看完这篇，Java IO 不再混乱！
+title: Java IO分类
 shortTitle: IO 分类
 category:
   - Java核心
