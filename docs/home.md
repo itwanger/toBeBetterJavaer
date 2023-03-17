@@ -181,8 +181,8 @@ head:
 
 ### Java输入输出
 
-- [看完这篇，Java IO 不再混乱！](io/shangtou.md)
-- [详解 File、Path、Paths、Files 四个类，Java操作文件不再难](io/file-path.md)
+- [Java IO分类](io/shangtou.md)
+- [详解Java File](io/file-path.md)
 - [文件的世界，一切皆字节流（Stream）](io/stream.md)
 - [Java字符流Reader和Writer的故事](io/reader-writer.md)
 - [Java缓冲流（Buffered）：读写速度有了质的飞升](io/buffer.md)
