@@ -1,5 +1,5 @@
 ---
-title: Java IO分类
+title: Java IO 的分类
 shortTitle: IO 分类
 category:
   - Java核心
@@ -608,7 +608,7 @@ try (PrintWriter pw = new PrintWriter(buffer)) {
 System.out.println(buffer.toString());
 ```
 
-### **7）对象序列化/反序列化**
+#### **7）对象序列化/反序列化**
 
 序列化本质上是将一个 Java 对象转成字节数组，然后可以将其保存到文件中，或者通过网络传输到远程。
 
@@ -647,7 +647,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 - 使用 toByteArray() 方法将缓冲区中的数据转换成字节数组。
 - 使用 Arrays.toString() 方法将字节数组转换成字符串，并输出到控制台。
 
-### **8）转换**
+#### **8）转换**
 
 InputStreamReader 是从字节流到字符流的桥连接，它使用指定的字符集读取字节并将它们解码为字符。
 

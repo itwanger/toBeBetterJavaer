@@ -18847,7 +18847,7 @@ try (PrintWriter pw = new PrintWriter(buffer)) {
 System.out.println(buffer.toString());
 ```
 
-### **7）对象序列化/反序列化**
+#### **7）对象序列化/反序列化**
 
 序列化本质上是将一个 Java 对象转成字节数组，然后可以将其保存到文件中，或者通过网络传输到远程。
 
@@ -18886,7 +18886,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 - 使用 toByteArray() 方法将缓冲区中的数据转换成字节数组。
 - 使用 Arrays.toString() 方法将字节数组转换成字符串，并输出到控制台。
 
-### **8）转换**
+#### **8）转换**
 
 InputStreamReader 是从字节流到字符流的桥连接，它使用指定的字符集读取字节并将它们解码为字符。
 
@@ -18938,5 +18938,705 @@ out.close();
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.2 File
+
+在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。那么 File 类可以说是其基石，我们必须得先来了解下。
+
+`java.io.File` 类是专门对文件进行操作的类，注意只能对文件本身进行操作，不能对文件内容进行操作，想要操作内容，必须借助输入输出流。
+
+`File` 类是文件和目录的抽象表示，主要用于文件和目录的创建、查找和删除等操作。
+
+怎么理解上面两句话？其实很简单！
+
+第一句是说 File 跟流无关，File 类不能对文件进行读和写，也就是输入和输出！
+
+第二句是说 File 可以表示`D:\\文件目录1`与`D:\\文件目录1\\文件.txt`，前者是文件夹（Directory，或者叫目录）后者是文件(file)，File 类就是用来操作它俩的。
+
+### File 构造方法
+
+在 Java 中，一切皆是对象，File 类也不例外，不论是哪个对象都应该从该对象的构造说起，所以我们来分析分析`File`类的构造方法。
+
+比较常用的构造方法有三个：
+
+1、 `File(String pathname)` ：通过给定的**路径**来创建新的 File 实例。
+
+2、 `File(String parent, String child)` ：从**父路径（字符串）和子路径**创建新的 File 实例。
+
+3、 `File(File parent, String child)` ：从**父路径（File）和子路径名字符串**创建新的 File 实例。
+
+看文字描述不够生动、不够形象、不得劲？没事，通过举例马上就生动形象了，代码如下：
+
+```java
+// 文件路径名
+String path = "/Users/username/123.txt";
+File file1 = new File(path);
+// 文件路径名
+String path2 = "/Users/username/1/2.txt";
+File file2 = new File(path2); -------------相当于/Users/username/1/2.txt
+// 通过父路径和子路径字符串
+String parent = "/Users/username/aaa";
+String child = "bbb.txt";
+File file3 = new File(parent, child); --------相当于/Users/username/aaa/bbb.txt
+// 通过父级File对象和子路径字符串
+File parentDir = new File("/Users/username/aaa");
+String child = "bbb.txt";
+File file4 = new File(parentDir, child); --------相当于/Users/username/aaa/bbb.txt
+```
+
+注意，macOS 路径使用正斜杠（`/`）作为路径分隔符，而 Windows 路径使用反斜杠（`\`）作为路径分隔符。所以在遇到路径分隔符的时候，不要直接去写`/`或者`\`。
+
+Java 中提供了一个跨平台的方法来获取路径分隔符，即使用 `File.separator`，这个属性会根据操作系统自动返回正确的路径分隔符。
+
+File 类的注意点：
+
+1.  一个 File 对象代表硬盘中实际存在的一个文件或者目录。
+2.  File 类的构造方法不会检验这个文件或目录是否真实存在，因此无论该路径下是否存在文件或者目录，都不影响 File 对象的创建。
+
+### File 常用方法
+
+File 的常用方法主要分为获取功能、获取绝对路径和相对路径、判断功能、创建删除功能的方法。
+
+#### **1）获取功能的方法**
+
+1、`getAbsolutePath()` ：返回此 File 的绝对路径。
+
+2、`getPath()` ：结果和 getAbsolutePath 一致。
+
+3、`getName()` ：返回文件名或目录名。
+
+4、`length()` ：返回文件长度，以字节为单位。
+
+测试代码如下【注意测试以你自己的电脑文件夹为准】：
+
+```java
+File f = new File("/Users/username/aaa/bbb.java");     
+System.out.println("文件绝对路径:"+f.getAbsolutePath());
+System.out.println("文件构造路径:"+f.getPath());
+System.out.println("文件名称:"+f.getName());
+System.out.println("文件长度:"+f.length()+"字节");
+
+File f2 = new File("/Users/username/aaa");     
+System.out.println("目录绝对路径:"+f2.getAbsolutePath());
+System.out.println("目录构造路径:"+f2.getPath());
+System.out.println("目录名称:"+f2.getName());
+System.out.println("目录长度:"+f2.length());
+```
+
+注意：`length()` 表示文件的长度，`File` 对象表示目录的时候，返回值并无意义。
+
+#### **2）绝对路径和相对路径**
+
+绝对路径是从文件系统的根目录开始的完整路径，它描述了一个文件或目录在文件系统中的确切位置。在 Windows 系统中，绝对路径通常以盘符（如 C:）开始，例如 "`C:\Program Files\Java\jdk1.8.0_291\bin\java.exe`"。在 macOS 和 Linux 系统中，绝对路径通常以斜杠（`/`）开始，例如 "`/usr/local/bin/python3`"。
+
+相对路径是相对于当前工作目录的路径，它描述了一个文件或目录与当前工作目录之间的位置关系。在 Java 中，相对路径通常是相对于当前 Java 程序所在的目录，例如 "`config/config.properties`"。如果当前工作目录是 "`/Users/username/project`"，那么相对路径 "`config/config.properties`" 就表示 "`/Users/username/project/config/config.properties`"。
+
+注意：
+
+- 在 Windows 操作系统中，文件系统默认是不区分大小写的，即在文件系统中，文件名和路径的大小写可以混合使用。例如，"`C:\Users\username\Documents\example.txt`" 和 "`C:\Users\Username\Documents\Example.txt`" 表示的是同一个文件。但是，Windows 操作系统提供了一个区分大小写的选项，可以在格式化磁盘时选择启用，这样文件系统就会区分大小写。
+- 在 macOS 和 Linux 等 Unix 系统中，文件系统默认是区分大小写的。例如，在 macOS 系统中，"`/Users/username/Documents/example.txt`" 和 "`/Users/username/Documents/Example.txt`" 表示的是两个不同的文件。
+
+
+```java
+// 绝对路径示例
+File absoluteFile = new File("/Users/username/example/test.txt");
+System.out.println("绝对路径：" + absoluteFile.getAbsolutePath());
+
+// 相对路径示例
+File relativeFile = new File("example/test.txt");
+System.out.println("相对路径：" + relativeFile.getPath());
+```
+
+#### **3）判断功能的方法**
+
+1、 `exists()` ：判断文件或目录是否存在。
+
+2、 `isDirectory()` ：判断是否为目录。
+
+3、`isFile()` ：判断是否为文件。
+
+方法演示，代码如下：
+
+```java
+File file = new File("/Users/username/example");
+
+// 判断文件或目录是否存在
+if (file.exists()) {
+    System.out.println("文件或目录存在");
+} else {
+    System.out.println("文件或目录不存在");
+}
+
+// 判断是否是目录
+if (file.isDirectory()) {
+    System.out.println("是目录");
+} else {
+    System.out.println("不是目录");
+}
+
+// 判断是否是文件
+if (file.isFile()) {
+    System.out.println("是文件");
+} else {
+    System.out.println("不是文件");
+}
+```
+
+#### **4）创建、删除功能的方法**
+
+*   `createNewFile()` ：文件不存在，创建一个新的空文件并返回`true`，文件存在，不创建文件并返回`false`。
+*   `delete()` ：删除文件或目录。如果是目录，只有目录为空才能删除。
+*   `mkdir()` ：只能创建一级目录，如果父目录不存在，则创建失败。返回 true 表示创建成功，返回 false 表示创建失败。
+*   `mkdirs()` ：可以创建多级目录，如果父目录不存在，则会一并创建。返回 true 表示创建成功，返回 false 表示创建失败或目录已经存在。
+
+**开发中一般用**`mkdirs()`;
+
+方法测试，代码如下：
+
+```java
+// 创建文件
+File file = new File("/Users/username/example/test.txt");
+if (file.createNewFile()) {
+    System.out.println("创建文件成功：" + file.getAbsolutePath());
+} else {
+    System.out.println("创建文件失败：" + file.getAbsolutePath());
+}
+
+// 删除文件
+if (file.delete()) {
+    System.out.println("删除文件成功：" + file.getAbsolutePath());
+} else {
+    System.out.println("删除文件失败：" + file.getAbsolutePath());
+}
+
+// 创建多级目录
+File directory = new File("/Users/username/example/subdir1/subdir2");
+if (directory.mkdirs()) {
+    System.out.println("创建目录成功：" + directory.getAbsolutePath());
+} else {
+    System.out.println("创建目录失败：" + directory.getAbsolutePath());
+}
+```
+
+#### 5）目录的遍历
+
+*   `String[] list()` ：返回一个 String 数组，表示该 File 目录中的所有子文件或目录。
+*   `File[] listFiles()` ：返回一个 File 数组，表示该 File 目录中的所有的子文件或目录。
+
+```java
+File directory = new File("/Users/itwanger/Documents/Github/paicoding");
+
+// 列出目录下的文件名
+String[] files = directory.list();
+System.out.println("目录下的文件名：");
+for (String file : files) {
+    System.out.println(file);
+}
+
+// 列出目录下的文件和子目录
+File[] filesAndDirs = directory.listFiles();
+System.out.println("目录下的文件和子目录：");
+for (File fileOrDir : filesAndDirs) {
+    if (fileOrDir.isFile()) {
+        System.out.println("文件：" + fileOrDir.getName());
+    } else if (fileOrDir.isDirectory()) {
+        System.out.println("目录：" + fileOrDir.getName());
+    }
+}
+```
+
+**listFiles**在获取指定目录下的文件或者子目录时必须满足下面两个条件：
+
+- 1. **指定的目录必须存在**
+- 2. **指定的必须是目录。否则容易引发NullPointerException异常**
+
+#### 6）递归遍历
+
+不说啥了，直接上代码：
+
+```java
+public static void main(String[] args) {
+    File directory = new File("/Users/itwanger/Documents/Github/paicoding");
+
+    // 递归遍历目录下的文件和子目录
+    traverseDirectory(directory);
+}
+
+public static void traverseDirectory(File directory) {
+    // 列出目录下的所有文件和子目录
+    File[] filesAndDirs = directory.listFiles();
+
+    // 遍历每个文件和子目录
+    for (File fileOrDir : filesAndDirs) {
+        if (fileOrDir.isFile()) {
+            // 如果是文件，输出文件名
+            System.out.println("文件：" + fileOrDir.getName());
+        } else if (fileOrDir.isDirectory()) {
+            // 如果是目录，递归遍历子目录
+            System.out.println("目录：" + fileOrDir.getName());
+            traverseDirectory(fileOrDir);
+        }
+    }
+}
+```
+
+### Apache FileUtils 类
+
+FileUtils 类是 Apache Commons IO 库中的一个类，提供了一些更为方便的方法来操作文件或目录。
+
+#### **1）复制文件或目录：**
+
+```java
+File srcFile = new File("path/to/src/file");
+File destFile = new File("path/to/dest/file");
+// 复制文件
+FileUtils.copyFile(srcFile, destFile);
+// 复制目录
+FileUtils.copyDirectory(srcFile, destFile);
+```
+
+#### **2）删除文件或目录：**
+
+```java
+File file = new File("path/to/file");
+// 删除文件或目录
+FileUtils.delete(file);
+```
+
+需要注意的是，如果要删除一个非空目录，需要先删除目录中的所有文件和子目录。
+
+#### **3）移动文件或目录：**
+
+```java
+File srcFile = new File("path/to/src/file");
+File destFile = new File("path/to/dest/file");
+// 移动文件或目录
+FileUtils.moveFile(srcFile, destFile);
+```
+
+#### **4）查询文件或目录的信息：**
+
+```java
+File file = new File("path/to/file");
+// 获取文件或目录的修改时间
+Date modifyTime = FileUtils.lastModified(file);
+// 获取文件或目录的大小
+long size = FileUtils.sizeOf(file);
+// 获取文件或目录的扩展名
+String extension = FileUtils.getExtension(file.getName());
+```
+
+### Hutool FileUtil 类
+
+FileUtil 类是 [Hutool](https://hutool.cn) 工具包中的文件操作工具类，提供了一系列简单易用的文件操作方法，可以帮助 Java 开发者快速完成文件相关的操作任务。
+
+FileUtil类包含以下几类操作工具：
+
+- 文件操作：包括文件目录的新建、删除、复制、移动、改名等
+- 文件判断：判断文件或目录是否非空，是否为目录，是否为文件等等。
+- 绝对路径：针对ClassPath中的文件转换为绝对路径文件。
+- 文件名：主文件名，扩展名的获取
+- 读操作：包括 getReader、readXXX 操作
+- 写操作：包括 getWriter、writeXXX 操作
+
+下面是 FileUtil 类中一些常用的方法：
+
+1、copyFile：复制文件。该方法可以将指定的源文件复制到指定的目标文件中。
+
+```java
+File dest = FileUtil.file("FileUtilDemo2.java");
+```
+
+2、move：移动文件或目录。该方法可以将指定的源文件或目录移动到指定的目标文件或目录中。
+
+```java
+FileUtil.move(file, dest, true);
+```
+
+3、del：删除文件或目录。该方法可以删除指定的文件或目录，如果指定的文件或目录不存在，则会抛出异常。
+
+```java
+FileUtil.del(file);
+```
+
+4、rename：重命名文件或目录。该方法可以将指定的文件或目录重命名为指定的新名称。
+
+```java
+FileUtil.rename(file, "FileUtilDemo3.java", true);
+```
+
+5、readLines：从文件中读取每一行数据。
+
+```java
+FileUtil.readLines(file, "UTF-8").forEach(System.out::println);
+```
+
+更多方法，可以去看一下 hutool 的源码，里面有非常多实用的方法，多看看，绝对能提升不少编程水平。
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.3 字节流
+
+我们必须得明确一点，一切文件（文本、视频、图片）的数据都是以二进制的形式存储的，传输时也是。所以，字节流可以传输任意类型的文件数据。
+
+### 字节输出流（OutputStream）
+
+`java.io.OutputStream` 是**字节输出流**的**超类**（父类），我们来看一下它定义的一些共性方法：
+
+1、 `close()` ：关闭此输出流并释放与此流相关联的系统资源。
+
+2、 `flush()` ：刷新此输出流并强制缓冲区的字节被写入到目的地。
+
+3、 `write(byte[] b)`：将 b.length 个字节从指定的字节数组写入此输出流。
+
+4、 `write(byte[] b, int off, int len)` ：从指定的字节数组写入 len 字节到此输出流，从偏移量 off开始。 **也就是说从off个字节数开始一直到len个字节结束**
+
+### FileOutputStream类
+
+`OutputStream` 有很多子类，我们从最简单的一个子类 FileOutputStream 开始。看名字就知道是文件输出流，用于将数据写入到文件。
+
+#### **1）FileOutputStrea 的构造方法**
+
+1、使用文件名创建 FileOutputStream 对象。
+
+```java
+String fileName = "example.txt";
+FileOutputStream fos = new FileOutputStream(fileName);
+```
+
+以上代码使用文件名 "example.txt" 创建一个 FileOutputStream 对象，将数据写入到该文件中。**如果文件不存在，则创建一个新文件；如果文件已经存在，则覆盖原有文件**。
+
+2、使用文件对象创建 FileOutputStream 对象。
+
+```java
+File file = new File("example.txt");
+FileOutputStream fos = new FileOutputStream(file);
+```
+
+FileOutputStream 的使用示例：
+
+```java
+FileOutputStream fos = null;
+try {
+  fos = new FileOutputStream("example.txt");
+  fos.write("沉默王二".getBytes());
+} catch (IOException e) {
+  e.printStackTrace();
+} finally {
+  if (fos != null) {
+    try {
+      fos.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+以上代码创建了一个 FileOutputStream 对象，将字符串 "沉默王二" 写入到 example.txt 文件中，并在最后关闭了输出流。
+ 
+
+#### **2）FileOutputStream 写入字节数据**
+
+使用 FileOutputStream 写入字节数据主要通过 `write` 方法：
+
+```java
+write(int b)
+write(byte[] b)
+write(byte[] b,int off,int len)  //从`off`索引开始，`len`个字节
+```
+ 
+
+①、**写入字节**：`write(int b)` 方法，每次可以写入一个字节，代码如下：
+
+```java
+// 使用文件名称创建流对象
+FileOutputStream fos = new FileOutputStream("fos.txt");     
+// 写出数据
+fos.write(97); // 第1个字节
+fos.write(98); // 第2个字节
+fos.write(99); // 第3个字节
+// 关闭资源
+fos.close();
+```
+
+字符 a 的 [ASCII 值](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)为 97，字符 b 的ASCII 值为 98，字符 b 的ASCII 值为 99。也就是说，以上代码可以写成：
+
+```java
+// 使用文件名称创建流对象
+FileOutputStream fos = new FileOutputStream("fos.txt");     
+// 写出数据
+fos.write('a'); // 第1个字节
+fos.write('b'); // 第2个字节
+fos.write('c'); // 第3个字节
+// 关闭资源
+fos.close();
+```
+
+当使用 `write(int b)` 方法写出一个字节时，参数 b 表示要写出的字节的整数值。由于一个字节只有8位，因此参数 b 的取值范围应该在 0 到 255 之间，超出这个范围的值将会被截断。例如，如果参数 b 的值为 -1，那么它会被截断为 255，如果参数 b 的值为 256，那么它会被截断为 0。
+
+在将参数 b 写入输出流中时，write(int b) 方法只会将参数 b 的低8位写入，而忽略高24位。这是因为在 Java 中，整型类型（包括 byte、short、int、long）在内存中以二进制补码形式表示。当将一个整型值传递给 write(int b) 方法时，方法会将该值转换为 byte 类型，只保留二进制补码的低8位，而忽略高24位。
+
+例如，如果要写出的整数为 0x12345678，它的二进制补码表示为 0001 0010 0011 0100 0101 0110 0111 1000。当使用 write(int b) 方法写出该整数时，只会将二进制补码的低8位 0111 1000 写出，而忽略高24位 0001 0010 0011 0100 0101 0110。这就是参数 b 的高24位被忽略的原因。
+
+0111 1000 是一个8位的二进制数，它对应的十进制数是 120，对应的 ASCII 码字符是小写字母 "x"。在 ASCII 码表中，小写字母 "x" 的十进制 ASCII 码值为 120。因此，如果使用 write(int b) 方法写出一个字节值为 0x78（十进制为 120），那么写出的结果就是小写字母 "x"。
+
+我们来验证一下：
+
+```java
+FileOutputStream fos = null;
+try {
+    fos = new FileOutputStream("example.txt");
+
+    fos.write(120);
+    fos.write('x');
+    fos.write(0x12345678);
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    if (fos != null) {
+        try {
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+来看一下结果：
+
+![](https://cdn.tobebetterjavaer.com/studymore/stream-20230318105229.png)
+
+果然是 3 个 x。
+
+②、**写入字节数组**：`write(byte[] b)`，代码示例：
+
+```java
+// 使用文件名称创建流对象
+FileOutputStream fos = new FileOutputStream("fos.txt");     
+// 字符串转换为字节数组
+byte[] b = "沉默王二有点帅".getBytes();
+// 写入字节数组数据
+fos.write(b);
+// 关闭资源
+fos.close();
+```
+ 
+
+③、**写入指定长度字节数组**：`write(byte[] b, int off, int len)`，代码示例：
+
+```java
+// 使用文件名称创建流对象
+FileOutputStream fos = new FileOutputStream("fos.txt");     
+// 字符串转换为字节数组
+byte[] b = "abcde".getBytes();
+// 从索引2开始，2个字节。索引2是c，两个字节，也就是cd。
+fos.write(b,2,2);
+// 关闭资源
+fos.close();
+```
+ 
+
+#### **3）FileOutputStream实现数据追加、换行**
+
+在上面的代码示例中，每次运行程序都会创建新的输出流对象，于是文件中的数据也会被清空。如果想保留目标文件中的数据，还能继续**追加新数据**，该怎么办呢？以及如何实现**换行**呢？
+
+其实很简单。
+
+我们来学习`FileOutputStream`的另外两个构造方法，如下：
+
+1、使用文件名和追加标志创建 FileOutputStream 对象
+
+```java
+String fileName = "example.txt";
+boolean append = true;
+FileOutputStream fos = new FileOutputStream(fileName, append);
+```
+
+以上代码使用文件名 "example.txt" 和追加标志创建一个 FileOutputStream 对象，将数据追加到该文件的末尾。如果文件不存在，则创建一个新文件；如果文件已经存在，则在文件末尾追加数据。
+
+2、使用文件对象和追加标志创建 FileOutputStream 对象
+
+```java
+File file = new File("example.txt");
+boolean append = true;
+FileOutputStream fos = new FileOutputStream(file, append);
+```
+
+以上代码使用文件对象和追加标志创建一个 FileOutputStream 对象，将数据追加到该文件的末尾。
+
+这两个构造方法，第二个参数中都需要传入一个boolean类型的值，`true` 表示追加数据，`false` 表示不追加也就是清空原有数据。
+
+实现数据追加代码如下：
+
+```java
+// 使用文件名称创建流对象
+FileOutputStream fos = new FileOutputStream("fos.txt",true);     
+// 字符串转换为字节数组
+byte[] b = "abcde".getBytes();
+// 写出从索引2开始，2个字节。索引2是c，两个字节，也就是cd。
+fos.write(b);
+// 关闭资源
+fos.close();
+```
+
+多次运行代码，你会发现数据在不断地追加。
+
+在 Windows 系统中，换行符号是`\r\n`，具体代码如下：
+
+```java
+String filename = "example.txt";
+FileOutputStream fos = new FileOutputStream(filename, true);  // 追加模式
+String content = "沉默王二\r\n";  // 使用回车符和换行符的组合
+fos.write(content.getBytes());
+fos.close();
+```
+
+在 macOS 系统中，换行符是 `\n`，具体代码如下：
+
+```java
+String filename = "example.txt";
+FileOutputStream fos = new FileOutputStream(filename, true);  // 追加模式
+String content = "沉默王二\n";  // 只使用换行符
+fos.write(content.getBytes());
+fos.close();
+```
+
+这里再唠一唠回车符和换行符。
+ 
+回车符（`\r`）和换行符（`\n`）是计算机中常见的控制字符，用于表示一行的结束或者换行的操作。它们在不同的操作系统和编程语言中的使用方式可能有所不同。
+
+在 Windows 系统中，通常使用回车符和换行符的组合（`\r\n`）来表示一行的结束。在文本文件中，每行的末尾都会以一个回车符和一个换行符的组合结束。这是由于早期的打印机和终端设备需要回车符和换行符的组合来完成一行的结束和换行操作。在 Windows 中，文本编辑器和命令行终端等工具都支持使用回车符和换行符的组合来表示一行的结束。
+
+而在 macOS 和 Linux 系统中，通常只使用换行符（`\n`）来表示一行的结束。在文本文件中，每行的末尾只有一个换行符。这是由于早期 Unix 系统中的终端设备只需要换行符来完成一行的结束和跨行操作。在 macOS 和 Linux 中，文本编辑器和终端等工具都支持使用换行符来表示一行的结束。
+
+在编程语言中，通常也会使用回车符和换行符来进行字符串的操作。例如，在 Java 中，字符串中的回车符可以用 "`\r`" 来表示，换行符可以用 "`\n`" 来表示。在通过输入输出流进行文件读写时，也需要注意回车符和换行符的使用方式和操作系统的差异。
+
+### 字节输入流（InputStream）
+
+`java.io.InputStream` 是**字节输入流**的**超类**（父类），我们来看一下它的一些共性方法：
+
+1、`close()` ：关闭此输入流并释放与此流相关的系统资源。
+
+2、`int read()`： 从输入流读取数据的下一个字节。
+
+3、`read(byte[] b)`： 该方法返回的 int 值代表的是读取了多少个字节，读到几个返回几个，读取不到返回-1
+
+### FileInputStream类
+
+InputStream 有很多子类，我们从最简单的一个子类 FileInputStream 开始。看名字就知道是文件输入流，用于将数据从文件中读取数据。
+
+#### 1）FileInputStream的构造方法
+
+1、`FileInputStream(String name)`：创建一个 FileInputStream 对象，并打开指定名称的文件进行读取。文件名由 name 参数指定。如果文件不存在，将会抛出 FileNotFoundException 异常。
+
+2、`FileInputStream(File file)`：创建一个 FileInputStream 对象，并打开指定的 File 对象表示的文件进行读取。
+
+代码示例如下：
+ 
+```java
+// 创建一个 FileInputStream 对象
+FileInputStream fis = new FileInputStream("test.txt");
+
+// 读取文件内容
+int data;
+while ((data = fis.read()) != -1) {
+    System.out.print((char) data);
+}
+
+// 关闭输入流
+fis.close();
+```
+
+#### 2）FileInputStream读取字节数据
+
+①、**读取字节**：`read()`方法会读取一个字节并返回其整数表示。如果已经到达文件的末尾，则返回 -1。如果在读取时发生错误，则会抛出 IOException 异常。
+
+代码示例如下：
+
+```java
+// 创建一个 FileInputStream 对象
+FileInputStream fis = new FileInputStream("test.txt");
+
+// 读取文件内容
+int data;
+while ((data = fis.read()) != -1) {
+    System.out.print((char) data);
+}
+
+// 关闭输入流
+fis.close();
+```
+ 
+
+②、**使用字节数组读取**：`read(byte[] b)` 方法会从输入流中最多读取 b.length 个字节，并将它们存储到缓冲区数组 b 中。
+
+代码示例如下：
+
+```java
+// 创建一个 FileInputStream 对象
+FileInputStream fis = new FileInputStream("test.txt");
+
+// 读取文件内容到缓冲区
+byte[] buffer = new byte[1024];
+int count;
+while ((count = fis.read(buffer)) != -1) {
+    System.out.println(new String(buffer, 0, count));
+}
+
+// 关闭输入流
+fis.close();
+```
+
+#### 3）字节流FileInputstream复制图片
+
+原理很简单，就是把图片信息读入到字节输入流中，再通过字节输出流写入到文件中。
+
+代码示例如下所示：
+
+```java
+// 创建一个 FileInputStream 对象以读取原始图片文件
+FileInputStream fis = new FileInputStream("original.jpg");
+
+// 创建一个 FileOutputStream 对象以写入复制后的图片文件
+FileOutputStream fos = new FileOutputStream("copy.jpg");
+
+// 创建一个缓冲区数组以存储读取的数据
+byte[] buffer = new byte[1024];
+int count;
+
+// 读取原始图片文件并将数据写入复制后的图片文件
+while ((count = fis.read(buffer)) != -1) {
+    fos.write(buffer, 0, count);
+}
+
+// 关闭输入流和输出流
+fis.close();
+fos.close();
+```
+ 
+上面的代码创建了一个 FileInputStream 对象以读取原始图片文件，并创建了一个 FileOutputStream 对象以写入复制后的图片文件。然后，使用 while 循环逐个读取原始图片文件中的字节，并将其写入复制后的图片文件中。最后，关闭输入流和输出流释放资源。
+
+### 小结
+
+InputStream 是字节输入流的抽象类，它定义了读取字节数据的方法，如 `read()`、`read(byte[] b)`、`read(byte[] b, int off, int len)` 等。OutputStream 是字节输出流的抽象类，它定义了写入字节数据的方法，如 `write(int b)`、`write(byte[] b)`、`write(byte[] b, int off, int len)` 等。这两个抽象类是字节流的基础。
+
+FileInputStream 是从文件中读取字节数据的流，它继承自 InputStream。FileOutputStream 是将字节数据写入文件的流，它继承自 OutputStream。这两个类是字节流最常用的实现类之一。
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
