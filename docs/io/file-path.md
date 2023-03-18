@@ -1,5 +1,5 @@
 ---
-title: 详解Java File
+title: Java File：IO 流的开始与结束
 shortTitle: File
 category:
   - Java核心
@@ -70,7 +70,7 @@ File 类的注意点：
 
 File 的常用方法主要分为获取功能、获取绝对路径和相对路径、判断功能、创建删除功能的方法。
 
-**1）获取功能的方法**
+#### **1）获取功能的方法**
 
 1、`getAbsolutePath()` ：返回此 File 的绝对路径。
 
@@ -98,7 +98,7 @@ System.out.println("目录长度:"+f2.length());
 
 注意：`length()` 表示文件的长度，`File` 对象表示目录的时候，返回值并无意义。
 
-**2）绝对路径和相对路径**
+#### **2）绝对路径和相对路径**
 
 绝对路径是从文件系统的根目录开始的完整路径，它描述了一个文件或目录在文件系统中的确切位置。在 Windows 系统中，绝对路径通常以盘符（如 C:）开始，例如 "`C:\Program Files\Java\jdk1.8.0_291\bin\java.exe`"。在 macOS 和 Linux 系统中，绝对路径通常以斜杠（`/`）开始，例如 "`/usr/local/bin/python3`"。
 
@@ -120,7 +120,7 @@ File relativeFile = new File("example/test.txt");
 System.out.println("相对路径：" + relativeFile.getPath());
 ```
 
-**3）判断功能的方法**
+#### **3）判断功能的方法**
 
 1、 `exists()` ：判断文件或目录是否存在。
 
@@ -155,7 +155,7 @@ if (file.isFile()) {
 }
 ```
 
-**4）创建、删除功能的方法**
+#### **4）创建、删除功能的方法**
 
 *   `createNewFile()` ：文件不存在，创建一个新的空文件并返回`true`，文件存在，不创建文件并返回`false`。
 *   `delete()` ：删除文件或目录。如果是目录，只有目录为空才能删除。
@@ -191,7 +191,7 @@ if (directory.mkdirs()) {
 }
 ```
 
-### 5）目录的遍历
+#### 5）目录的遍历
 
 *   `String[] list()` ：返回一个 String 数组，表示该 File 目录中的所有子文件或目录。
 *   `File[] listFiles()` ：返回一个 File 数组，表示该 File 目录中的所有的子文件或目录。
@@ -223,7 +223,7 @@ for (File fileOrDir : filesAndDirs) {
 - 1. **指定的目录必须存在**
 - 2. **指定的必须是目录。否则容易引发NullPointerException异常**
 
-### 6）递归遍历
+#### 6）递归遍历
 
 不说啥了，直接上代码：
 
@@ -257,7 +257,7 @@ public static void traverseDirectory(File directory) {
 
 FileUtils 类是 Apache Commons IO 库中的一个类，提供了一些更为方便的方法来操作文件或目录。
 
-**1）复制文件或目录：**
+#### **1）复制文件或目录：**
 
 ```java
 File srcFile = new File("path/to/src/file");
@@ -268,7 +268,7 @@ FileUtils.copyFile(srcFile, destFile);
 FileUtils.copyDirectory(srcFile, destFile);
 ```
 
-**2）删除文件或目录：**
+#### **2）删除文件或目录：**
 
 ```java
 File file = new File("path/to/file");
@@ -278,7 +278,7 @@ FileUtils.delete(file);
 
 需要注意的是，如果要删除一个非空目录，需要先删除目录中的所有文件和子目录。
 
-**3）移动文件或目录：**
+#### **3）移动文件或目录：**
 
 ```java
 File srcFile = new File("path/to/src/file");
@@ -287,7 +287,7 @@ File destFile = new File("path/to/dest/file");
 FileUtils.moveFile(srcFile, destFile);
 ```
 
-**4）查询文件或目录的信息：**
+#### **4）查询文件或目录的信息：**
 
 ```java
 File file = new File("path/to/file");
