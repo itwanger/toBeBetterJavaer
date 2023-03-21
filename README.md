@@ -173,7 +173,7 @@
 - [Java File：IO 流的开始与结束](docs/io/file-path.md)
 - [字节流：Java IO 的基石](docs/io/stream.md)
 - [字符流：Reader和Writer的故事](docs/io/reader-writer.md)
-- [Java缓冲流（Buffered）：读写速度有了质的飞升](docs/io/buffer.md)
+- [缓冲流：Java IO 的读写效率有了质的飞升](docs/io/buffer.md)
 - [Java转换流，解决字符与字节之间编码、解码的乱码问题](docs/io/char-byte.md)
 - [Java序列化流，字节和对象之间的序列化和反序列化](docs/io/serialize.md)
 - [Java Serializable：明明就一个空的接口嘛](docs/io/Serializbale.md)
