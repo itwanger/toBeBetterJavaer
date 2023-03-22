@@ -186,7 +186,7 @@ head:
 - [字节流：Java IO 的基石](io/stream.md)
 - [字符流：Reader和Writer的故事](io/reader-writer.md)
 - [缓冲流：Java IO 的读写效率有了质的飞升](io/buffer.md)
-- [Java转换流，解决字符与字节之间编码、解码的乱码问题](io/char-byte.md)
+- [转换流：Java 字节流和字符流的桥梁](io/char-byte.md)
 - [Java序列化流，字节和对象之间的序列化和反序列化](io/serialize.md)
 - [Java Serializable：明明就一个空的接口嘛](io/Serializbale.md)
 - [招银面试官：说说Java transient关键字](io/transient.md)
