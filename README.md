@@ -175,10 +175,10 @@
 - [字符流：Reader和Writer的故事](docs/io/reader-writer.md)
 - [缓冲流：Java IO 的读写效率有了质的飞升](docs/io/buffer.md)
 - [转换流：Java 字节流和字符流的桥梁](docs/io/char-byte.md)
-- [Java序列化流，字节和对象之间的序列化和反序列化](docs/io/serialize.md)
-- [Java Serializable：明明就一个空的接口嘛](docs/io/Serializbale.md)
-- [招银面试官：说说Java transient关键字](docs/io/transient.md)
-- [Java打印流：PrintStream & PrintWriter](docs/io/print.md)
+- [打印流：PrintStream & PrintWriter](docs/io/print.md)
+- [序列流：字节和对象之间的序列化和反序列化](docs/io/serialize.md)
+- [Serializable：明明就一个空的接口嘛](docs/io/Serializbale.md)
+- [Java transient关键字](docs/io/transient.md)
 
 ## 异常处理
 
