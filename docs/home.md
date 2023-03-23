@@ -178,7 +178,6 @@ head:
 - [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](collection/PriorityQueue.md)
 - [Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
 
-
 ### Java输入输出
 
 - [Java IO 的分类](io/shangtou.md)
@@ -187,10 +186,10 @@ head:
 - [字符流：Reader和Writer的故事](io/reader-writer.md)
 - [缓冲流：Java IO 的读写效率有了质的飞升](io/buffer.md)
 - [转换流：Java 字节流和字符流的桥梁](io/char-byte.md)
-- [Java序列化流，字节和对象之间的序列化和反序列化](io/serialize.md)
-- [Java Serializable：明明就一个空的接口嘛](io/Serializbale.md)
-- [招银面试官：说说Java transient关键字](io/transient.md)
-- [Java打印流：PrintStream & PrintWriter](io/print.md)
+- [打印流：PrintStream & PrintWriter](io/print.md)
+- [序列流：字节和对象之间的序列化和反序列化](io/serialize.md)
+- [Serializable：明明就一个空的接口嘛](io/Serializbale.md)
+- [说说Java transient关键字](io/transient.md)
 
 
 ### 异常处理
