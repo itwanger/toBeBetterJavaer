@@ -187,7 +187,7 @@ head:
 - [缓冲流：Java IO 的读写效率有了质的飞升](io/buffer.md)
 - [转换流：Java 字节流和字符流的桥梁](io/char-byte.md)
 - [打印流：PrintStream & PrintWriter](io/print.md)
-- [序列流：字节和对象之间的序列化和反序列化](io/serialize.md)
+- [序列流：Java 对象的序列化和反序列化](io/serialize.md)
 - [Serializable：明明就一个空的接口嘛](io/Serializbale.md)
 - [说说Java transient关键字](io/transient.md)
 

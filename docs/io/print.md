@@ -1,16 +1,15 @@
 ---
-title: 打印流：PrintStream & PrintWriter
+title: 打印流：PrintStream 和 PrintWriter
 shortTitle: 打印流
 category:
   - Java核心
 tag:
   - Java IO
-description: Java程序员进阶之路，小白的零基础Java教程，Java打印流：PrintStream & PrintWriter
+description: Java程序员进阶之路，小白的零基础Java教程，Java打印流：PrintStream 和 PrintWriter
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,打印流,PrintStream,PrintWriter,java 打印流
-
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,打印流,PrintStream,PrintWriter,java 打印流,java PrintStream,java PrintWriter
 ---
 
 # 7.7 打印流
