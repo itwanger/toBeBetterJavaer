@@ -189,7 +189,7 @@ head:
 - [打印流：PrintStream & PrintWriter](io/print.md)
 - [序列流：Java 对象的序列化和反序列化](io/serialize.md)
 - [Serializable：明明就一个空的接口嘛](io/Serializbale.md)
-- [说说Java transient关键字](io/transient.md)
+- [说说 Java 的 transient 关键字](io/transient.md)
 
 
 ### 异常处理

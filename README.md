@@ -178,7 +178,7 @@
 - [打印流：PrintStream & PrintWriter](docs/io/print.md)
 - [序列流：Java 对象的序列化和反序列化](docs/io/serialize.md)
 - [Serializable：明明就一个空的接口嘛](docs/io/Serializbale.md)
-- [Java transient关键字](docs/io/transient.md)
+- [说说 Java 的 transient 关键字](docs/io/transient.md)
 
 ## 异常处理
 
