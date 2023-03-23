@@ -1,6 +1,6 @@
 ---
-title: Java序列化流，字节和对象之间的序列化和反序列化
-shortTitle: Java序列化流(序列化和反序列化)
+title: 序列流：Java 对象的序列化和反序列化
+shortTitle: 序列流(序列化和反序列化)
 category:
   - Java核心
 tag:
@@ -9,225 +9,206 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java序�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,序列化流,java序列化,java反序列化,ObjectOutputStream,ObjectInputStream
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,序列化流,java序列化,java反序列化,ObjectOutputStream,ObjectInputStream,java 序列流
 ---
 
-序列化有什么好处呢？可以把对象写入文本文件或者在网络中传输。
+# 7.8 序列流(序列化和反序列化)
 
-如何实现序列化呢？让被序列化的对象所属类实现[Serializbale序列化接口](https://tobebetterjavaer.com/io/Serializbale.html)。
+Java 的序列流（ObjectInputStream 和 ObjectOutputStream）是一种可以将 Java 对象序列化和反序列化的流。
 
-接着我们来继续聊序列化和反序列化。
+序列化是指将一个对象转换为一个字节序列（包含`对象的数据`、`对象的类型`和`对象中存储的属性`等信息），以便在网络上传输或保存到文件中，或者在程序之间传递。在 Java 中，序列化通过实现 java.io.Serializable 接口来实现，只有实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)的对象才能被序列化。
 
-## 何谓序列化
+反序列化是指将一个字节序列转换为一个对象，以便在程序中使用。
 
-Java 提供了一种对象**序列化**的机制。用一个字节序列可以表示一个对象，该字节序列包含该`对象的数据`、`对象的类型`和`对象中存储的属性`等信息。字节序列写出到文件之后，相当于文件中**持久保存**了一个对象的信息。
+![](https://cdn.tobebetterjavaer.com/stutymore/serialize-20230323105551.png)
 
-反之，该字节序列还可以从文件中读取回来，重构对象，对它进行**反序列化**。`对象的数据`、`对象的类型`和`对象中存储的数据`信息，都可以用来在内存中创建对象。看图理解序列化：
+### 01、ObjectOutputStream
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/serialize-8a1b6818-5f58-4057-b521-f8ba670d72a1.png)
+`java.io.ObjectOutputStream` 继承自 OutputStream 类，因此可以将序列化后的字节序列写入到文件、网络等输出流中。
 
-## ObjectOutputStream类
+来看 ObjectOutputStream 的构造方法：
+`ObjectOutputStream(OutputStream out)`
 
-`java.io.ObjectOutputStream` 类，将Java对象的原始数据类型写出到文件,实现对象的持久存储。
-
-### 构造方法
-
-`public ObjectOutputStream(OutputStream out)` ： 创建一个指定OutputStream的ObjectOutputStream。
-
-构造代码如下：
+该构造方法接收一个 OutputStream 对象作为参数，用于将序列化后的字节序列输出到指定的输出流中。例如：
 
 ```java
-FileOutputStream fileOut = new FileOutputStream("aa.txt");
-ObjectOutputStream out = new ObjectOutputStream(fileOut);
+FileOutputStream fos = new FileOutputStream("file.txt");
+ObjectOutputStream oos = new ObjectOutputStream(fos);
 ```
- 
 
-### 序列化操作
+一个对象要想序列化，必须满足两个条件:
 
-1.  一个对象要想序列化，必须满足两个条件:
+- 该类必须实现[`java.io.Serializable` 接口](https://tobebetterjavaer.com/io/Serializbale.html)，否则会抛出`NotSerializableException` 。
+- 该类的所有字段都必须是可序列化的。如果一个字段不需要序列化，则需要使用[`transient` 关键字](https://tobebetterjavaer.com/io/transient.html)进行修饰。
 
-- 该类必须实现[`java.io.Serializable` 接口](https://tobebetterjavaer.com/io/Serializbale.html)，`Serializable` 是一个标记接口，不实现此接口的类将不会使任何状态序列化或反序列化，会抛出`NotSerializableException` 。
-
-- 该类的所有属性都必须是可序列化的。如果有一个属性不需要可序列化，则该属性必须注明是瞬态的，使用[`transient` 关键字](https://tobebetterjavaer.com/io/transient.html)修饰。
+使用示例如下：
 
 ```java
-public class Employee implements java.io.Serializable {
+public class Employee implements Serializable {
     public String name;
     public String address;
     public transient int age; // transient瞬态修饰成员,不会被序列化
-    public void addressCheck() {
-      	System.out.println("Address  check : " + name + " -- " + address);
+}
+```
+
+接下来，来聊聊 `writeObject (Object obj)` 方法，该方法是 ObjectOutputStream 类中用于将对象序列化成字节序列并输出到输出流中的方法，可以处理对象之间的引用关系、继承关系、静态字段和 transient 字段。
+
+```java
+public class ObjectOutputStreamDemo {
+    public static void main(String[] args) {
+        Person person = new Person("沉默王二", 20);
+        try {
+            FileOutputStream fos = new FileOutputStream("logs/person.dat");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(person);
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+class Person implements Serializable {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
 ```
- 
 
-2.写出对象方法
+上面的代码中，首先创建了一个 Person 对象，然后使用 FileOutputStream 和 ObjectOutputStream 将 Person 对象序列化并输出到 person.dat 文件中。在 Person 类中，实现了 Serializable 接口，表示该类可以进行对象序列化。
 
-`public final void writeObject (Object obj)` : 将指定的对象写出。
+### 02、ObjectInputStream
+
+ObjectInputStream 可以读取 ObjectOutputStream 写入的字节流，并将其反序列化为相应的对象（包含`对象的数据`、`对象的类型`和`对象中存储的属性`等信息）。
+
+说简单点就是，序列化之前是什么样子，反序列化后就是什么样子。
+
+来看一下构造方法：`ObjectInputStream(InputStream in)` ： 创建一个指定 InputStream 的 ObjectInputStream。
+
+其中，ObjectInputStream 的 readObject 方法用来读取指定文件中的对象，示例如下：
 
 ```java
-public class SerializeDemo{
-   	public static void main(String [] args)   {
-    	Employee e = new Employee();
-    	e.name = "zhangsan";
-    	e.address = "beiqinglu";
-    	e.age = 20; 
-    	try {
-      		// 创建序列化流对象
-          ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("employee.txt"));
-        	// 写出对象
-        	out.writeObject(e);
-        	// 释放资源
-        	out.close();
-        	fileOut.close();
-        	System.out.println("Serialized data is saved"); // 姓名，地址被序列化，年龄没有被序列化。
-        } catch(IOException i)   {
-            i.printStackTrace();
-        }
-   	}
+String filename = "logs/person.dat"; // 待反序列化的文件名
+try (FileInputStream fileIn = new FileInputStream(filename);
+     ObjectInputStream in = new ObjectInputStream(fileIn)) {
+     // 从指定的文件输入流中读取对象并反序列化
+     Object obj = in.readObject();
+     // 将反序列化后的对象强制转换为指定类型
+     Person p = (Person) obj;
+     // 打印反序列化后的对象信息
+     System.out.println("Deserialized Object: " + p);
+} catch (IOException | ClassNotFoundException e) {
+     e.printStackTrace();
 }
-输出结果：
-Serialized data is saved
 ```
- 
 
-## ObjectInputStream类
+我们首先指定了待反序列化的文件名（前面通过 ObjectOutputStream 序列化后的文件），然后创建了一个 FileInputStream 对象和一个 ObjectInputStream 对象。接着我们调用 ObjectInputStream 的 readObject 方法来读取指定文件中的对象，并将其强制转换为 Person 类型。最后我们打印了反序列化后的对象信息。
 
-ObjectInputStream反序列化流，将之前使用ObjectOutputStream序列化的原始数据恢复为对象。
+### 03、Kryo
 
-### 构造方法
+实际开发中，很少使用 JDK 自带的序列化和反序列化，这是因为：
 
-`public ObjectInputStream(InputStream in)` ： 创建一个指定InputStream的ObjectInputStream。
+- 可移植性差：Java 特有的，无法跨语言进行序列化和反序列化。
+- 性能差：序列化后的字节体积大，增加了传输/保存成本。
+- 安全问题：攻击者可以通过构造恶意数据来实现远程代码执行，从而对系统造成严重的安全威胁。相关阅读：[Java 反序列化漏洞之殇](https://cryin.github.io/blog/secure-development-java-deserialization-vulnerability/) 。
 
-### 反序列化操作1
+Kryo 是一个优秀的 Java 序列化和反序列化库，具有高性能、高效率和易于使用和扩展等特点，有效地解决了 JDK 自带的序列化机制的痛点。
 
-如果能找到一个对象的class文件，我们可以进行反序列化操作，调用`ObjectInputStream`读取对象的方法：
+>GitHub 地址：[https://github.com/EsotericSoftware/kryo](https://github.com/EsotericSoftware/kryo)
 
-*   `public final Object readObject ()` : 读取一个对象。
+使用示例：
+
+第一步，在 pom.xml 中引入依赖。
+
+```
+<!-- 引入 Kryo 序列化工具 -->
+<dependency>
+     <groupId>com.esotericsoftware</groupId>
+     <artifactId>kryo</artifactId>
+     <version>5.4.0</version>
+</dependency>
+```
+
+第二步，创建一个 Kryo 对象，并使用 `register()` 方法将对象进行注册。然后，使用 `writeObject()` 方法将 Java 对象序列化为二进制流，再使用 `readObject()` 方法将二进制流反序列化为 Java 对象。最后，输出反序列化后的 Java 对象。
 
 ```java
-public class DeserializeDemo {
-   public static void main(String [] args)   {
-        Employee e = null;
-        try {		
-             // 创建反序列化流
-             FileInputStream fileIn = new FileInputStream("employee.txt");
-             ObjectInputStream in = new ObjectInputStream(fileIn);
-             // 读取一个对象
-             e = (Employee) in.readObject();
-             // 释放资源
-             in.close();
-             fileIn.close();
-        }catch(IOException i) {
-             // 捕获其他异常
-             i.printStackTrace();
-             return;
-        }catch(ClassNotFoundException c)  {
-        	// 捕获类找不到异常
-             System.out.println("Employee class not found");
-             c.printStackTrace();
-             return;
-        }
-        // 无异常,直接打印输出
-        System.out.println("Name: " + e.name);	// zhangsan
-        System.out.println("Address: " + e.address); // beiqinglu
-        System.out.println("age: " + e.age); // 0
+public class KryoDemo {
+    public static void main(String[] args) throws FileNotFoundException {
+        Kryo kryo = new Kryo();
+        kryo.register(KryoParam.class);
+
+        KryoParam object = new KryoParam("沉默王二", 123);
+
+        Output output = new Output(new FileOutputStream("logs/kryo.bin"));
+        kryo.writeObject(output, object);
+        output.close();
+
+        Input input = new Input(new FileInputStream("logs/kryo.bin"));
+        KryoParam object2 = kryo.readObject(input, KryoParam.class);
+        System.out.println(object2);
+        input.close();
+    }
+}
+
+class KryoParam {
+    private String name;
+    private int age;
+
+    public KryoParam() {
+    }
+
+    public KryoParam(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "KryoParam{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
 ```
- 
 
-**JVM可以反序列化的对象，必须是能够找到class文件的类。如果找不到该类的class文件，则抛出一个 `ClassNotFoundException` 异常。**
+### 04、小结
 
-### 反序列化操作2
+本节我们介绍了 Java 的序列化机制，并推荐了一款高性能的 Java 类库 Kryo 来取代 JDK 自带的序列化机制，已经在 Twitter、Groupon、Yahoo 以及多个著名开源项目（如 Hive、Storm）中广泛使用。
 
-另外，当JVM反序列化对象时，能找到class文件，但是class文件在序列化对象之后发生了修改，那么反序列化操作也会失败，抛出一个`InvalidClassException`异常。发生这个异常的原因如下：
-
-> 1、该类的序列版本号与从流中读取的类描述符的版本号不匹配
-> 
-> 2、该类包含未知数据类型
-> 
-> 2、该类没有可访问的无参数构造方法
-
-`Serializable` 接口给需要序列化的类，提供了一个序列版本号。`serialVersionUID` 该版本号的目的在于验证序列化的对象和对应类是否版本匹配。
-
-```java
-public class Employee implements java.io.Serializable {
-     // 加入序列版本号
-     private static final long serialVersionUID = 1L;
-     public String name;
-     public String address;
-     // 添加新的属性 ,重新编译, 可以反序列化,该属性赋为默认值.
-     public int eid; 
-
-     public void addressCheck() {
-         System.out.println("Address  check : " + name + " -- " + address);
-     }
-}
-```
- 
-
-## 序列化集合练习
-
-1.  将存有多个自定义对象的集合序列化操作，保存到`list.txt`文件中。
-2.  反序列化`list.txt` ，并遍历集合，打印对象信息。
-
-### 案例分析
-
-1.  把若干学生对象 ，保存到集合中。
-2.  把集合序列化。
-3.  反序列化读取时，只需要读取一次，转换为集合类型。
-4.  遍历集合，可以打印所有的学生信息
-
-### 案例代码实现
-
-```java
-public class SerTest {
-	public static void main(String[] args) throws Exception {
-		// 创建 学生对象
-		Student student = new Student("老王", "laow");
-		Student student2 = new Student("老张", "laoz");
-		Student student3 = new Student("老李", "laol");
-
-		ArrayList<Student> arrayList = new ArrayList<>();
-		arrayList.add(student);
-		arrayList.add(student2);
-		arrayList.add(student3);
-		// 序列化操作
-		// serializ(arrayList);
-		
-		// 反序列化  
-		ObjectInputStream ois  = new ObjectInputStream(new FileInputStream("list.txt"));
-		// 读取对象,强转为ArrayList类型
-		ArrayList<Student> list  = (ArrayList<Student>)ois.readObject();
-		
-      	for (int i = 0; i < list.size(); i++ ){
-          	Student s = list.get(i);
-        	System.out.println(s.getName()+"--"+ s.getPwd());
-      	}
-	}
-
-	private static void serializ(ArrayList<Student> arrayList) throws Exception {
-		// 创建 序列化流 
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("list.txt"));
-		// 写出对象
-		oos.writeObject(arrayList);
-		// 释放资源
-		oos.close();
-	}
-}
-```
-
-
->参考链接：[https://www.cnblogs.com/yichunguo/p/11775270.html](https://www.cnblogs.com/yichunguo/p/11775270.html)，整理：沉默王二
-
+以上，希望能帮助到大家。
 
 ---------
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
