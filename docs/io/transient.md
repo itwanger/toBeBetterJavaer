@@ -1,6 +1,6 @@
 ---
-title: 招银面试官：说说Java transient关键字
-shortTitle: Java transient关键字
+title: 招银面试官：说说Java 的 transient关键字
+shortTitle: transient关键字
 category:
   - Java核心
 tag:
@@ -9,43 +9,27 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java tra
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,transient
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,transient,java transient
 ---
 
-害，小二最熟的是 Java，但很多 Java 基础知识都不知道，比如 transient 关键字以前就没用到过，所以不知道它的作用是什么，今天去招银面试的时候，面试官问到了这个：说说 Java transient 关键字吧，结果小二直接懵逼了。
+# 7.10 transient关键字
+
+害，小二最熟的是 Java，但很多 Java 基础知识都不知道，比如 transient 关键字以前就没用到过，所以不知道它的作用是什么，今天去招银面试的时候，面试官问到了这个：说说 Java 的 transient 关键字吧，结果小二直接懵逼了。
 
 下面是他自己面试凉了以后回去做的总结，分享出来，大家一起涨下姿势~~~好了，废话不多说，下面开始：
 
-## 1\. transient 的作用及使用方法
+### 01、transient 的作用及使用方法
 
-我们都知道一个对象只要实现了 Serilizable 接口，这个对象就可以被序列化，java 的这种序列化模式为开发者提供了很多便利，我们可以不必关系具体序列化的过程，只要这个类实现了 Serilizable 接口，这个类的所有属性和方法都会自动序列化。
+我们知道，一个对象只要实现了 [Serilizable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，它就可以被[序列化](https://tobebetterjavaer.com/io/serialize.html)。
 
-然而在实际开发过程中，我们常常会遇到这样的问题，这个类的有些属性需要序列化，而其他属性不需要被序列化，打个比方，如果一个用户有一些敏感信息（如密码，银行卡号等），为了安全起见，不希望在网络操作（主要涉及到序列化操作，本地序列化缓存也适用）中被传输，这些信息对应的变量就可以加上 transient 关键字。
+在实际开发过程中，我们常常会遇到这样的问题，一个类的有些字段需要序列化，有些字段不需要，比如说用户的一些敏感信息（如密码、银行卡号等），为了安全起见，不希望在网络操作中传输或者持久化到磁盘文件中，那这些字段就可以加上 `transient` 关键字。
 
-换句话说，这个字段的生命周期仅存于调用者的内存中而不会写到磁盘里持久化。
+需要注意的是，被 transient 关键字修饰的成员变量在反序列化时会被自动初始化为默认值，例如基本数据类型为 0，引用类型为 null。
 
-总之，java 的 transient 关键字为我们提供了便利，你只需要实现 Serilizable 接口，将不需要序列化的属性前添加关键字 transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。
-
-示例 code 如下：
+来看示例：
 
 ```java
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-
-/**
- * @description 使用transient关键字不序列化某个变量
- *        注意读取的时候，读取数据的顺序一定要和存放数据的顺序保持一致
- *        
- * @author Alexia
- * @date  2013-10-15
- */
 public class TransientTest {
-    
     public static void main(String[] args) {
         
         User user = new User();
@@ -58,7 +42,7 @@ public class TransientTest {
         
         try {
             ObjectOutputStream os = new ObjectOutputStream(
-                    new FileOutputStream("C:/user.txt"));
+                    new FileOutputStream("user.txt"));
             os.writeObject(user); // 将User对象写进文件
             os.flush();
             os.close();
@@ -69,7 +53,7 @@ public class TransientTest {
         }
         try {
             ObjectInputStream is = new ObjectInputStream(new FileInputStream(
-                    "C:/user.txt"));
+                    "user.txt"));
             user = (User) is.readObject(); // 从流中读取User的数据
             is.close();
             
@@ -116,44 +100,27 @@ class User implements Serializable {
 
 ```
 read before Serializable:
-username: Alexia
-password: 123456 read after Serializable:
-username: Alexia
+username: 沉默王二
+password: 123456 
+read after Serializable:
+username: 沉默王二
 password: null
 ```
 
 密码字段为 null，说明反序列化时根本没有从文件中获取到信息。
 
-## 2\. transient 使用小结
+### 02、transient 使用小结
 
-1）一旦变量被 transient 修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。
+1）一旦字段被 transient 修饰，成员变量将不再是对象持久化的一部分，该变量的值在序列化后无法访问。
 
-2）transient 关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被 transient 关键字修饰的。变量如果是用户自定义类变量，则该类需要实现 Serializable 接口。
+2）transient 关键字只能修饰字段，而不能修饰方法和类。
 
-3）被 transient 关键字修饰的变量不能被序列化，一个静态变量不管是否被 transient 修饰，均不能被序列化。
+3）被 transient 关键字修饰的字段不能被序列化，一个静态变量（[static关键字](https://tobebetterjavaer.com/oo/static.html)修饰）不管是否被 transient 修饰，均不能被序列化，[前面讲到过](https://tobebetterjavaer.com/io/Serializbale.html)。
 
-第三点可能有些人很迷惑，因为发现在 User 类中的 username 字段前加上 static 关键字后，程序运行结果依然不变，即 static 类型的 username 也读出来为“Alexia”了，这不与第三点说的矛盾吗？
-
-实际上是这样的：第三点确实没错（一个静态变量不管是否被 transient 修饰，均不能被序列化），反序列化后类中 static 型变量 username 的值为当前 JVM 中对应 static 变量的值，这个值是 JVM 中的，不是反序列化得出的，不相信？好吧，下面我来证明：
+来看示例：
 
 ```java
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-
-/**
- * @description 使用transient关键字不序列化某个变量
- *        注意读取的时候，读取数据的顺序一定要和存放数据的顺序保持一致
- *        
- * @author Alexia
- * @date  2013-10-15
- */
 public class TransientTest {
-    
     public static void main(String[] args) {
         
         User user = new User();
@@ -166,7 +133,7 @@ public class TransientTest {
         
         try {
             ObjectOutputStream os = new ObjectOutputStream(
-                    new FileOutputStream("C:/user.txt"));
+                    new FileOutputStream("user.txt"));
             os.writeObject(user); // 将User对象写进文件
             os.flush();
             os.close();
@@ -177,10 +144,10 @@ public class TransientTest {
         }
         try {
             // 在反序列化之前改变username的值
-            User.username = "jmwang";
+            User.username = "沉默王三";
             
             ObjectInputStream is = new ObjectInputStream(new FileInputStream(
-                    "C:/user.txt"));
+                    "user.txt"));
             user = (User) is.readObject(); // 从流中读取User的数据
             is.close();
             
@@ -219,7 +186,6 @@ class User implements Serializable {
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
-
 }
 ```
 
@@ -227,38 +193,23 @@ class User implements Serializable {
 
 ```
 read before Serializable:
-username: Alexia
-password: 123456 read after Serializable:
-username: jmwang
+username: 沉默王二
+password: 123456 
+read after Serializable:
+username: 沉默王三
 password: null
 ```
 
-这说明反序列化后类中 static 型变量 username 的值为当前 JVM 中对应 static 变量的值，为修改后 jmwang，而不是序列化时的值 沉默王二。
+序列化前，static 修饰的 username 为 沉默王二，然后我们在反序列化前将其修改为 沉默王三 了，如果说 static 修饰的字段能保持状态的话，反序列化后应该是 沉默王二，对吧？
 
-## 3\. transient 使用细节——被 transient 关键字修饰的变量真的不能被序列化吗？
+但结果是 沉默王三，这就证明了我们之前的结论：**static 修饰的字段不能被序列化**。
+
+### 03、transient 修饰的字段真的不能被序列化？
 
 思考下面的例子：
 
 ```java
-import java.io.Externalizable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-
-/**
- * @descripiton Externalizable接口的使用
- * 
- * @author Alexia
- * @date 2013-10-15
- *
- */
 public class ExternalizableTest implements Externalizable {
-
     private transient String content = "是的，我将会被序列化，不管我是否被transient关键字修饰";
 
     @Override
@@ -290,19 +241,27 @@ public class ExternalizableTest implements Externalizable {
 }
 ```
 
-content 变量会被序列化吗？好吧，我把答案都输出来了，是的，运行结果就是：
+来看下输出结果：
 
 ```
 是的，我将会被序列化，不管我是否被transient关键字修饰
 ```
 
-这是为什么呢，不是说类的变量被 transient 关键字修饰以后将不能序列化了吗？
+这是为什么呢？不是说 transient 关键字修饰的字段不能序列化吗？
 
-我们知道在 Java 中，对象的序列化可以通过实现两种接口来实现，若实现的是 Serializable 接口，则所有的序列化将会自动进行，若实现的是 Externalizable 接口，则没有任何东西可以自动序列化，需要在 writeExternal 方法中进行手工指定所要序列化的变量，这与是否被 transient 修饰无关。
+我先说结论，这是因为我们使用了 Externalizable 接口而不是 Serializable接口，这个[知识点我们前面其实也讲到过](https://tobebetterjavaer.com/io/Serializbale.html)。
 
-因此第二个例子输出的是变量 content 初始化的内容，而不是 null。
+在 Java 中，对象的序列化可以通过实现两种接口来实现，如果实现的是 Serializable 接口，则所有的序列化将会自动进行，如果实现的是 Externalizable 接口，则需要在 writeExternal 方法中指定要序列化的字段，与 transient 关键字修饰无关。
 
-> 参考链接：[https://www.cnblogs.com/lanxuezaipiao/p/3369962.html](https://www.cnblogs.com/lanxuezaipiao/p/3369962.html)，整理：沉默王二
+因此例子输出的是变量 content 的内容，而不是 null。
+
+### 04、小结
+
+transient 关键字用于修饰类的成员变量，在序列化对象时，被修饰的成员变量不会被序列化和保存到文件中。其作用是告诉 JVM 在序列化对象时不需要将该变量的值持久化，这样可以避免一些安全或者性能问题。但是，transient 修饰的成员变量在反序列化时会被初始化为其默认值（如 int 类型会被初始化为 0，引用类型会被初始化为 null），因此需要在程序中进行适当的处理。
+
+transient 关键字和 static 关键字都可以用来修饰类的成员变量。其中，transient 关键字表示该成员变量不参与序列化和反序列化，而 static 关键字表示该成员变量是属于类的，不属于对象的，因此不需要序列化和反序列化。
+
+在 Serializable 和 Externalizable 接口中，transient 关键字的表现也不同，在 Serializable 中表示该成员变量不参与序列化和反序列化，在 Externalizable 中不起作用，因为 Externalizable 接口需要实现 readExternal 和 writeExternal 方法，需要手动完成序列化和反序列化的过程。
 
 ---------
 
