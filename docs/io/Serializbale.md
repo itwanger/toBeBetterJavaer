@@ -1,6 +1,6 @@
 ---
 title: Java Serializable：明明就一个空的接口嘛
-shortTitle: Serializable 接口
+shortTitle: Serializable接口
 category:
   - Java核心
 tag:
@@ -9,33 +9,37 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java序�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Serializable
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
 ---
 
+# 7.9 Serializable接口
 
-对于 Java 的序列化，我一直停留在最浅显的认知上——把那个要序列化的类实现 `Serializbale` 接口就可以了。我不愿意做更深入的研究，因为会用就行了嘛。
+对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://tobebetterjavaer.com/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
 
+我似乎不愿意做更深入的研究，因为会用就行了嘛。
 
 但随着时间的推移，见到 `Serializbale` 的次数越来越多，我便对它产生了浓厚的兴趣。是时候花点时间研究研究了。
 
-## 01、先来点理论
-
-
+### 01、先来点理论
 
 Java 序列化是 JDK 1.1 时引入的一组开创性的特性，用于将 Java 对象转换为字节数组，便于存储或传输。此后，仍然可以将字节数组转换回 Java 对象原有的状态。
 
-序列化的思想是“冻结”对象状态，然后写到磁盘或者在网络中传输；反序列化的思想是“解冻”对象状态，重新获得可用的 Java 对象。
+序列化的思想是“冻结”对象状态，然后写到磁盘或者在网络中传输；[反序列化](https://tobebetterjavaer.com/io/serialize.html)的思想是“解冻”对象状态，重新获得可用的 Java 对象。
 
-再来看看序列化 `Serializbale` 接口的定义：
+序列化有一条规则，就是要序列化的对象必须实现 `Serializbale` 接口，否则就会报 NotSerializableException 异常。
+
+好，来看看 `Serializbale` 接口的定义吧：
 
 ```java
 public interface Serializable {
 }
 ```
 
-明明就一个空的接口嘛，竟然能够保证实现了它的“类的对象”被序列化和反序列化？
+没别的了！
 
-## 02、再来点实战
+明明就一个空的接口嘛，竟然能够保证实现了它的“类对象”被序列化和反序列化？
+
+### 02、再来点实战
 
 在回答上述问题之前，我们先来创建一个类（只有两个字段，和对应的 `getter/setter`），用于序列化和反序列化。
 
@@ -62,34 +66,28 @@ class Wanger {
 }
 ```
 
-再来创建一个测试类，通过 `ObjectOutputStream` 将“18 岁的王二”写入到文件当中，实际上就是一种序列化的过程；再通过 `ObjectInputStream` 将“18 岁的王二”从文件中读出来，实际上就是一种反序列化的过程。
+再来创建一个测试类，通过 `ObjectOutputStream` 将“18 岁的王二”写入到文件当中，实际上就是一种序列化的过程；再通过 `ObjectInputStream` 将“18 岁的王二”从文件中读出来，实际上就是一种反序列化的过程。（前面我们学习[序列流](https://tobebetterjavaer.com/io/serialize.html)的时候也讲过）
 
 ```java
-public class Test {
+// 初始化
+Wanger wanger = new Wanger();
+wanger.setName("王二");
+wanger.setAge(18);
+System.out.println(wanger);
 
-    public static void main(String[] args) {
-      // 初始化
-        Wanger wanger = new Wanger();
-        wanger.setName("王二");
-        wanger.setAge(18);
-        System.out.println(wanger);
+// 把对象写到文件中
+try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chenmo"));){
+    oos.writeObject(wanger);
+} catch (IOException e) {
+    e.printStackTrace();
+}
 
-        // 把对象写到文件中
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chenmo"));){
-            oos.writeObject(wanger);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // 从文件中读出对象
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("chenmo")));){
-            Wanger wanger1 = (Wanger) ois.readObject();
-            System.out.println(wanger1);
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
+// 从文件中读出对象
+try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("chenmo")));){
+    Wanger wanger1 = (Wanger) ois.readObject();
+    System.out.println(wanger1);
+} catch (IOException | ClassNotFoundException e) {
+    e.printStackTrace();
 }
 ```
 
@@ -104,22 +102,31 @@ java.io.NotSerializableException: com.cmower.java_demo.xuliehua.Wanger
 
 顺着堆栈信息，我们来看一下 `ObjectOutputStream` 的 `writeObject0()` 方法。其部分源码如下：
 
-```
+```java
+// 判断对象是否为字符串类型，如果是，则调用 writeString 方法进行序列化
 if (obj instanceof String) {
     writeString((String) obj, unshared);
-} else if (cl.isArray()) {
+}
+// 判断对象是否为数组类型，如果是，则调用 writeArray 方法进行序列化
+else if (cl.isArray()) {
     writeArray(obj, desc, unshared);
-} else if (obj instanceof Enum) {
+}
+// 判断对象是否为枚举类型，如果是，则调用 writeEnum 方法进行序列化
+else if (obj instanceof Enum) {
     writeEnum((Enum<?>) obj, desc, unshared);
-} else if (obj instanceof Serializable) {
+}
+// 判断对象是否为可序列化类型，如果是，则调用 writeOrdinaryObject 方法进行序列化
+else if (obj instanceof Serializable) {
     writeOrdinaryObject(obj, desc, unshared);
+}
+// 如果对象不能被序列化，则抛出 NotSerializableException 异常
+else {
+if (extendedDebugInfo) {
+    throw new NotSerializableException(
+        cl.getName() + "\n" + debugInfoStack.toString());
 } else {
-    if (extendedDebugInfo) {
-        throw new NotSerializableException(
-            cl.getName() + "\n" + debugInfoStack.toString());
-    } else {
-        throw new NotSerializableException(cl.getName());
-    }
+    throw new NotSerializableException(cl.getName());
+}
 }
 ```
 
@@ -141,28 +148,36 @@ class Wanger implements Serializable{
 以 `ObjectOutputStream` 为例吧，它在序列化的时候会依次调用 `writeObject()`→`writeObject0()`→`writeOrdinaryObject()`→`writeSerialData()`→`invokeWriteObject()`→`defaultWriteFields()`。
 
 ```java
-private void defaultWriteFields(Object obj, ObjectStreamClass desc)
-        throws IOException
-    {
-        Class<?> cl = desc.forClass();
-        desc.checkDefaultSerialize();
+private void defaultWriteFields(Object obj, ObjectStreamClass desc) throws IOException {
+    // 获取对象的类，并检查是否可以进行默认的序列化
+    Class<?> cl = desc.forClass();
+    desc.checkDefaultSerialize();
 
-        int primDataSize = desc.getPrimDataSize();
-        desc.getPrimFieldValues(obj, primVals);
-        bout.write(primVals, 0, primDataSize, false);
+    // 获取对象的基本类型字段的数量，以及这些字段的值
+    int primDataSize = desc.getPrimDataSize();
+    desc.getPrimFieldValues(obj, primVals);
+    // 将基本类型字段的值写入输出流
+    bout.write(primVals, 0, primDataSize, false);
 
-        ObjectStreamField[] fields = desc.getFields(false);
-        Object[] objVals = new Object[desc.getNumObjFields()];
-        int numPrimFields = fields.length - objVals.length;
-        desc.getObjFieldValues(obj, objVals);
-        for (int i = 0; i < objVals.length; i++) {
-          
-            try {
-                writeObject0(objVals[i],
-                             fields[numPrimFields + i].isUnshared());
+    // 获取对象的非基本类型字段的值
+    ObjectStreamField[] fields = desc.getFields(false);
+    Object[] objVals = new Object[desc.getNumObjFields()];
+    int numPrimFields = fields.length - objVals.length;
+    desc.getObjFieldValues(obj, objVals);
+    // 循环写入对象的非基本类型字段的值
+    for (int i = 0; i < objVals.length; i++) {
+        // 调用 writeObject0 方法将对象的非基本类型字段序列化写入输出流
+        try {
+            writeObject0(objVals[i], fields[numPrimFields + i].isUnshared());
+        }
+        // 如果在写入过程中出现异常，则将异常包装成 IOException 抛出
+        catch (IOException ex) {
+            if (abortIOException == null) {
+                abortIOException = ex;
             }
         }
     }
+}
 ```
 
 那怎么反序列化呢？
@@ -170,35 +185,53 @@ private void defaultWriteFields(Object obj, ObjectStreamClass desc)
 以 `ObjectInputStream` 为例，它在反序列化的时候会依次调用 `readObject()`→`readObject0()`→`readOrdinaryObject()`→`readSerialData()`→`defaultReadFields()`。
 
 ```java
-private void defaultWriteFields(Object obj, ObjectStreamClass desc)
-        throws IOException
-    {
-        Class<?> cl = desc.forClass();
-        desc.checkDefaultSerialize();
+private void defaultReadFields(Object obj, ObjectStreamClass desc) throws IOException {
+    // 获取对象的类，并检查对象是否属于该类
+    Class<?> cl = desc.forClass();
+    if (cl != null && obj != null && !cl.isInstance(obj)) {
+        throw new ClassCastException();
+    }
 
-        int primDataSize = desc.getPrimDataSize();
-        desc.getPrimFieldValues(obj, primVals);
-        bout.write(primVals, 0, primDataSize, false);
+    // 获取对象的基本类型字段的数量和值
+    int primDataSize = desc.getPrimDataSize();
+    if (primVals == null || primVals.length < primDataSize) {
+        primVals = new byte[primDataSize];
+    }
+    // 从输入流中读取基本类型字段的值，并存储在 primVals 数组中
+    bin.readFully(primVals, 0, primDataSize, false);
+    if (obj != null) {
+        // 将 primVals 数组中的基本类型字段的值设置到对象的相应字段中
+        desc.setPrimFieldValues(obj, primVals);
+    }
 
-        ObjectStreamField[] fields = desc.getFields(false);
-        Object[] objVals = new Object[desc.getNumObjFields()];
-        int numPrimFields = fields.length - objVals.length;
-        desc.getObjFieldValues(obj, objVals);
-        for (int i = 0; i < objVals.length; i++) {
-          
-            try {
-                writeObject0(objVals[i],
-                             fields[numPrimFields + i].isUnshared());
-            }
+    // 获取对象的非基本类型字段的数量和值
+    int objHandle = passHandle;
+    ObjectStreamField[] fields = desc.getFields(false);
+    Object[] objVals = new Object[desc.getNumObjFields()];
+    int numPrimFields = fields.length - objVals.length;
+    // 循环读取对象的非基本类型字段的值
+    for (int i = 0; i < objVals.length; i++) {
+        // 调用 readObject0 方法读取对象的非基本类型字段的值
+        ObjectStreamField f = fields[numPrimFields + i];
+        objVals[i] = readObject0(Object.class, f.isUnshared());
+        // 如果该字段是一个引用字段，则将其标记为依赖该对象
+        if (f.getField() != null) {
+            handles.markDependency(objHandle, passHandle);
         }
     }
+    if (obj != null) {
+        // 将 objVals 数组中的非基本类型字段的值设置到对象的相应字段中
+        desc.setObjFieldValues(obj, objVals);
+    }
+    passHandle = objHandle;
+}
 ```
 
 我想看到这，你应该会恍然大悟的“哦”一声了。`Serializable` 接口之所以定义为空，是因为它只起到了一个标识的作用，告诉程序实现了它的对象是可以被序列化的，但真正序列化和反序列化的操作并不需要它来完成。
 
-## 03、再来点注意事项
+### 03、再来点注意事项
 
-开门见山的说吧，`static` 和 `transient` 修饰的字段是不会被序列化的。
+开门见山的说吧，[`static`](https://tobebetterjavaer.com/oo/static.html) 和 [`transient`](https://tobebetterjavaer.com/io/transient.html) 修饰的字段是不会被序列化的。
 
 为什么呢？我们先来证明，再来解释原因。
 
@@ -247,9 +280,13 @@ try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(
 } catch (IOException | ClassNotFoundException e) {
     e.printStackTrace();
 }
-// Wanger{name=王二,age=18,pre=沉默,meizi=王三}
-// Wanger{name=王二,age=18,pre=不沉默,meizi=null}
+```
 
+输出结果：
+
+```
+Wanger{name=王二,age=18,pre=沉默,meizi=王三}
+Wanger{name=王二,age=18,pre=不沉默,meizi=null}
 ```
 
 从结果的对比当中，我们可以发现：
@@ -266,19 +303,32 @@ try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(
 
 ```java
 private static ObjectStreamField[] getDefaultSerialFields(Class<?> cl) {
+    // 获取该类中声明的所有字段
     Field[] clFields = cl.getDeclaredFields();
     ArrayList<ObjectStreamField> list = new ArrayList<>();
     int mask = Modifier.STATIC | Modifier.TRANSIENT;
 
+    // 遍历所有字段，将非 static 和 transient 的字段添加到 list 中
+    for (int i = 0; i < clFields.length; i++) {
+        Field field = clFields[i];
+        int mods = field.getModifiers();
+        if ((mods & mask) == 0) {
+            // 根据字段名、字段类型和字段是否可序列化创建一个 ObjectStreamField 对象
+            ObjectStreamField osf = new ObjectStreamField(field.getName(), field.getType(), !Serializable.class.isAssignableFrom(cl));
+            list.add(osf);
+        }
+    }
+
     int size = list.size();
+    // 如果 list 为空，则返回一个空的 ObjectStreamField 数组，否则将 list 转换为 ObjectStreamField 数组并返回
     return (size == 0) ? NO_FIELDS :
         list.toArray(new ObjectStreamField[size]);
 }
 ```
 
-看到 `Modifier.STATIC | Modifier.TRANSIENT`，是不是感觉更好了呢？
+看到 `Modifier.STATIC | Modifier.TRANSIENT` 了吧，这两个修饰符标记的字段就没有被放入到序列化的字段中，明白了吧？
 
-## 04、再来点干货
+### 04、再来点干货
 
 除了 `Serializable` 之外，Java 还提供了一个序列化接口 `Externalizable`（念起来有点拗口）。
 
@@ -335,7 +385,6 @@ java.io.InvalidClassException: com.cmower.java_demo.xuliehua1.Wanger; no valid c
 ```
 
 2）新增了两个方法 `writeExternal()` 和 `readExternal()`，实现 `Externalizable` 接口所必须的。
-
 
 然后，我们再在测试类中打印序列化前和反序列化后的对象。
 
@@ -395,7 +444,20 @@ public void readExternal(ObjectInput in) throws IOException, ClassNotFoundExcept
 >序列化前：Wanger{name=王二,age=18}
 序列化后：Wanger{name=王二,age=18}
 
-## 05、再来点甜点
+总结一下：
+
+Externalizable 和 Serializable 都是用于实现 Java 对象的序列化和反序列化的接口，但是它们有以下区别：
+
+①、Serializable 是 Java 标准库提供的接口，而 Externalizable 是 Serializable 的子接口；
+
+![](https://cdn.tobebetterjavaer.com/stutymore/Serializbale-20230323161831.png)
+
+
+②、Serializable 接口不需要实现任何方法，只需要将需要序列化的类标记为 Serializable 即可，而 Externalizable 接口需要实现 writeExternal 和 readExternal 两个方法；
+
+③、Externalizable 接口提供了更高的序列化控制能力，可以在序列化和反序列化过程中对对象进行自定义的处理，如对一些敏感信息进行加密和解密。
+
+### 05、再来点甜点
 
 让我先问问你吧，你知道 ` private static final long serialVersionUID = -2095916884810199532L;` 这段代码的作用吗？
 
@@ -508,7 +570,7 @@ local class serialVersionUID = -3818877437117647968
 
 异常堆栈信息里面告诉我们，本地的序列化 ID 为 -3818877437117647968，和持久化文件里面读取到的序列化 ID 仍然不一致，无法反序列化。这说明什么呢？使用 `@SuppressWarnings("serial")` 注解时，该注解会为被序列化类自动生成一个随机的序列化 ID。
 
-由此可以证明，Java 虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，还有一个非常重要的因素就是序列化 ID 是否一致。
+由此可以证明，**Java 虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，还有一个非常重要的因素就是序列化 ID 是否一致**。
 
 也就是说，如果没有特殊需求，采用默认的序列化 ID（1L）就可以，这样可以确保代码一致时反序列化成功。
 
@@ -519,18 +581,16 @@ class Wanger implements Serializable {
 }
 ```
 
-## 06、再来点总结
+### 06、再来点总结
 
 写这篇文章之前，我真没想到：“空空其身”的`Serializable` 竟然有这么多可以研究的内容！
 
 写完这篇文章之后，我不由得想起理科状元曹林菁说说过的一句话：“在学习中再小的问题也不放过，每个知识点都要总结”——说得真真真真的对啊！
-
 
 ---------
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
