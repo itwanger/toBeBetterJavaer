@@ -367,5 +367,4 @@ FileInputStream 是从文件中读取字节数据的流，它继承自 InputStre
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

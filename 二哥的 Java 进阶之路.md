@@ -19638,5 +19638,2305 @@ FileInputStream 是从文件中读取字节数据的流，它继承自 InputStre
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.4 字符流
+
+字符流 Reader 和 Writer 的故事要从它们的类关系图开始，来看图。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/reader-writer-20230320164938.png)
+
+字符流是一种用于读取和写入字符数据的输入输出流。与字节流不同，字符流以字符为单位读取和写入数据，而不是以字节为单位。常用来处理文本信息。
+
+如果用字节流直接读取中文，可能会遇到乱码问题，见下例：
+
+```java
+//FileInputStream为操作文件的字符输入流
+FileInputStream inputStream = new FileInputStream("a.txt");//内容为“沉默王二是傻 X”
+
+int len;
+while ((len=inputStream.read())!=-1){
+    System.out.print((char)len);
+}
+```
+
+来看运行结果：
+
+```
+运行结果：   æ²é»çäºæ¯å» X
+```
+ 
+看一下截图：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
+
+
+之所以出现乱码是因为在字节流中，一个字符通常由多个字节组成，而不同的字符编码使用的字节数不同。如果我们使用了错误的字符编码，或者在读取和写入数据时没有正确处理字符编码的转换，就会导致读取出来的中文字符出现乱码。
+
+例如，当我们使用默认的字符编码（见上例）读取一个包含中文字符的文本文件时，就会出现乱码。因为默认的字符编码通常是 ASCII 编码，它只能表示英文字符，而不能正确地解析中文字符。
+
+那使用字节流该如何正确地读出中文呢？见下例。
+
+```java
+try (FileInputStream inputStream = new FileInputStream("a.txt")) {
+    byte[] bytes = new byte[1024];
+    int len;
+    while ((len = inputStream.read(bytes)) != -1) {
+        System.out.print(new String(bytes, 0, len));
+    }
+}
+```
+ 
+为什么这种方式就可以呢？
+
+因为我们拿 String 类进行了解码，查看`new String(byte bytes[], int offset, int length)`的源码就可以发现，该构造方法有解码功能：
+
+```java
+public String(byte bytes[], int offset, int length) {
+    checkBounds(bytes, offset, length);
+    this.value = StringCoding.decode(bytes, offset, length);
+}
+```
+
+继续追看 `StringCoding.decode()` 方法调用的 `defaultCharset()` 方法，会发现默认编码是`UTF-8`，代码如下
+
+```java
+public static Charset defaultCharset() {
+    if (defaultCharset == null) {
+        synchronized (Charset.class) {
+            if (cs != null)
+                defaultCharset = cs;
+            else
+                defaultCharset = forName("UTF-8");
+        }
+    }
+    return defaultCharset;
+}
+static char[] decode(byte[] ba, int off, int len) {
+    String csn = Charset.defaultCharset().name();
+    try {
+        // use charset name decode() variant which provides caching.
+        return decode(csn, ba, off, len);
+    } catch (UnsupportedEncodingException x) {
+        warnUnsupportedCharset(csn);
+    }
+}
+```
+
+在 Java 中，常用的字符编码有 ASCII、ISO-8859-1、UTF-8、UTF-16 等。其中，ASCII 和 ISO-8859-1 只能表示部分字符，而 UTF-8 和 UTF-16 可以表示所有的 Unicode 字符，包括中文字符。
+
+当我们使用 `new String(byte bytes[], int offset, int length)` 将字节流转换为字符串时，Java 会根据 UTF-8 的规则将每 3 个字节解码为一个中文字符，从而正确地解码出中文。
+
+尽管字节流也有办法解决乱码问题，但不够直接，于是就有了字符流，`专门用于处理文本`文件（音频、图片、视频等为非文本文件）。
+
+从另一角度来说：**字符流 = 字节流 + 编码表**
+
+### 01、字符输入流（Reader）
+
+`java.io.Reader`是**字符输入流**的**超类**（父类），它定义了字符输入流的一些共性方法：
+
+- 1、`close()`：关闭此流并释放与此流相关的系统资源。
+- 2、`read()`：从输入流读取一个字符。
+- 3、`read(char[] cbuf)`：从输入流中读取一些字符，并将它们存储到字符数组 `cbuf`中
+
+FileReader 是 Reader 的子类，用于从文件中读取字符数据。它的主要特点如下：
+
+- 可以通过构造方法指定要读取的文件路径。
+- 每次可以读取一个或多个字符。
+- 可以读取 Unicode 字符集中的字符，通过指定字符编码来实现字符集的转换。
+
+#### 1）FileReader构造方法
+
+- 1、`FileReader(File file)`：创建一个新的 FileReader，参数为**File对象**。
+- 2、`FileReader(String fileName)`：创建一个新的 FileReader，参数为文件名。
+
+代码示例如下：
+
+```java
+// 使用File对象创建流对象
+File file = new File("a.txt");
+FileReader fr = new FileReader(file);
+
+// 使用文件名称创建流对象
+FileReader fr = new FileReader("b.txt");
+```
+
+#### 2）FileReader读取字符数据
+
+①、**读取字符**：`read`方法，每次可以读取一个字符，返回读取的字符（转为 int 类型），当读取到文件末尾时，返回`-1`。代码示例如下：
+
+```java
+// 使用文件名称创建流对象
+FileReader fr = new FileReader("abc.txt");
+// 定义变量，保存数据
+int b;
+// 循环读取
+while ((b = fr.read())!=-1) {
+    System.out.println((char)b);
+}
+// 关闭资源
+fr.close();
+```
+
+②、**读取指定长度的字符**：`read(char[] cbuf, int off, int len)`，并将其存储到字符数组中。其中，cbuf 表示存储读取结果的字符数组，off 表示存储结果的起始位置，len 表示要读取的字符数。代码示例如下：
+
+```java
+File textFile = new File("docs/约定.md");
+// 给一个 FileReader 的示例
+// try-with-resources FileReader
+try(FileReader reader = new FileReader(textFile);) {
+    // read(char[] cbuf)
+    char[] buffer = new char[1024];
+    int len;
+    while ((len = reader.read(buffer, 0, buffer.length)) != -1) {
+        System.out.print(new String(buffer, 0, len));
+    }
+}
+```
+
+在这个例子中，使用 FileReader 从文件中读取字符数据，并将其存储到一个大小为 1024 的字符数组中。每次读取 len 个字符，然后使用 String 构造方法将其转换为字符串并输出。
+
+FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resouces.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
+
+### 02、字符输出流（Writer）
+
+`java.io.Writer` 是**字符输出流**类的**超类**（父类），可以将指定的字符信息写入到目的地，来看它定义的一些共性方法：
+
+- 1、`write(int c)` 写入单个字符。
+- 2、`write(char[] cbuf)` 写入字符数组。
+- 3、`write(char[] cbuf, int off, int len)` 写入字符数组的一部分，off为开始索引，len为字符个数。
+- 4、`write(String str)` 写入字符串。
+- 5、`write(String str, int off, int len)` 写入字符串的某一部分，off 指定要写入的子串在 str 中的起始位置，len 指定要写入的子串的长度。
+- 6、`flush()` 刷新该流的缓冲。
+- 7、`close()` 关闭此流，但要先刷新它。
+
+`java.io.FileWriter` 类是 Writer 的子类，用来将字符写入到文件。
+
+#### 1）FileWriter 构造方法
+
+- `FileWriter(File file)`： 创建一个新的 FileWriter，参数为要读取的File对象。
+- `FileWriter(String fileName)`： 创建一个新的 FileWriter，参数为要读取的文件的名称。
+
+代码示例如下：
+
+```java
+// 第一种：使用File对象创建流对象
+File file = new File("a.txt");
+FileWriter fw = new FileWriter(file);
+
+// 第二种：使用文件名称创建流对象
+FileWriter fw = new FileWriter("b.txt");
+```
+
+#### 2）FileWriter写入数据
+
+①、**写入字符**：`write(int b)` 方法，每次可以写出一个字符，代码示例如下：
+
+```java
+FileWriter fw = null;
+try {
+    fw = new FileWriter("output.txt");
+    fw.write(72); // 写入字符'H'的ASCII码
+    fw.write(101); // 写入字符'e'的ASCII码
+    fw.write(108); // 写入字符'l'的ASCII码
+    fw.write(108); // 写入字符'l'的ASCII码
+    fw.write(111); // 写入字符'o'的ASCII码
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (fw != null) {
+            fw.close();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+在这个示例代码中，首先创建一个 FileWriter 对象 fw，并指定要写入的文件路径 "output.txt"。然后使用 fw.write() 方法将字节写入文件中，这里分别写入字符'H'、'e'、'l'、'l'、'o'的 ASCII 码。最后在 finally 块中关闭 FileWriter 对象，释放资源。
+
+需要注意的是，使用 `write(int b)` 方法写入的是一个字节，而不是一个字符。如果需要写入字符，可以使用 `write(char cbuf[])` 或 `write(String str)` 方法。
+
+②、**写入字符数组**：`write(char[] cbuf)` 方法，将指定字符数组写入输出流。代码示例如下：
+
+```java
+FileWriter fw = null;
+try {
+    fw = new FileWriter("output.txt");
+    char[] chars = {'H', 'e', 'l', 'l', 'o'};
+    fw.write(chars); // 将字符数组写入文件
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (fw != null) {
+            fw.close();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+③、**写入指定字符数组**：`write(char[] cbuf, int off, int len)` 方法，将指定字符数组的一部分写入输出流。代码示例如下（重复的部分就不写了哈，参照上面的部分）：
+
+```java
+fw = new FileWriter("output.txt");
+    char[] chars = {'H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!'};
+fw.write(chars, 0, 5); // 将字符数组的前 5 个字符写入文件
+```
+
+使用 `fw.write()` 方法将字符数组的前 5 个字符写入文件中。
+
+④、**写入字符串**：`write(String str)` 方法，将指定字符串写入输出流。代码示例如下：
+
+```java
+fw = new FileWriter("output.txt");
+String str = "沉默王二";
+fw.write(str); // 将字符串写入文件
+```
+
+⑤、**写入指定字符串**：`write(String str, int off, int len)` 方法，将指定字符串的一部分写入输出流。代码示例如下（try-with-resources形式）：
+
+```java
+String str = "沉默王二真的帅啊！";
+try (FileWriter fw = new FileWriter("output.txt")) {
+    fw.write(str, 0, 5); // 将字符串的前 5 个字符写入文件
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+>【注意】如果不关闭资源，数据只是保存到缓冲区，并未保存到文件中。
+
+#### 3）关闭close和刷新flush
+
+因为 FileWriter 内置了缓冲区 ByteBuffer，所以如果不关闭输出流，就无法把字符写入到文件中。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/reader-writer-20230320183546.png)
+
+但是关闭了流对象，就无法继续写数据了。如果我们既想写入数据，又想继续使用流，就需要 `flush` 方法了。
+
+`flush` ：刷新缓冲区，流对象可以继续使用。
+
+`close` ：先刷新缓冲区，然后通知系统释放资源。流对象不可以再被使用了。
+
+flush还是比较有趣的，来段代码体会体会：
+
+```java
+//源   也就是输入流【读取流】 读取a.txt文件
+FileReader fr=new FileReader("abc.txt");  //必须要存在a.txt文件，否则报FileNotFoundException异常
+//目的地  也就是输出流
+FileWriter fw=new FileWriter("b.txt");  //系统会自动创建b.txt，因为它是输出流！
+int len;
+while((len=fr.read())!=-1){
+    fw.write(len);
+}
+//注意这里是没有使用close关闭流，开发中不能这样做，但是为了更好的体会flush的作用
+```
+ 
+运行效果是怎么样的呢？答案是b.txt文件中依旧是空的，并没有任何东西。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
+
+原因我们前面已经说过了。**编程就是这样，不去敲，永远学不会**！！！所以一定要去敲，多敲啊！！！
+
+在以上的代码中再添加下面三句代码，b.txt文件就能复制到源文件的数据了！
+ 
+```java
+fr.close();
+fw.flush();
+fw.close();
+```
+
+`flush()`这个方法是清空缓存的意思，用于清空缓冲区的数据流，进行流的操作时，数据先被读到内存中，然后再把数据写到文件中。
+
+你可以使用下面的代码示例再体验一下：
+
+```java
+// 使用文件名称创建流对象
+FileWriter fw = new FileWriter("fw.txt");
+// 写出数据，通过flush
+fw.write('刷'); // 写出第1个字符
+fw.flush();
+fw.write('新'); // 继续写出第2个字符，写出成功
+fw.flush();
+
+// 写出数据，然后close
+fw.write('关'); // 写出第1个字符
+fw.close();
+fw.write('闭'); // 继续写出第2个字符,【报错】java.io.IOException: Stream closed
+fw.close();
+```
+ 
+注意，即便是flush方法写出了数据，操作的最后还是要调用close方法，释放系统资源。当然你也可以用 try-with-resources 的方式。
+
+#### 4）FileWriter的续写和换行
+
+**续写和换行**：操作类似于[FileOutputStream操作](https://tobebetterjavaer.com/io/stream.html)，直接上代码：
+
+```java
+// 使用文件名称创建流对象，可以续写数据
+FileWriter fw = new FileWriter("fw.txt",true);     
+// 写出字符串
+fw.write("沉默王二");
+// 写出换行
+fw.write("\r\n");
+// 写出字符串
+fw.write("是傻 X");
+// 关闭资源
+fw.close();
+```
+
+输出结果如下所示：
+
+```
+输出结果:
+沉默王二
+是傻 X
+```
+ 
+
+#### 5）文本文件复制
+
+直接上代码：
+
+```java
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CopyFile {
+    public static void main(String[] args) throws IOException {
+        //创建输入流对象
+        FileReader fr=new FileReader("aa.txt");//文件不存在会抛出java.io.FileNotFoundException
+        //创建输出流对象
+        FileWriter fw=new FileWriter("copyaa.txt");
+        /*创建输出流做的工作：
+         *      1、调用系统资源创建了一个文件
+         *      2、创建输出流对象
+         *      3、把输出流对象指向文件        
+         * */
+        //文本文件复制，一次读一个字符
+        copyMethod1(fr, fw);
+        //文本文件复制，一次读一个字符数组
+        copyMethod2(fr, fw);
+        
+        fr.close();
+        fw.close();
+    }
+
+    public static void copyMethod1(FileReader fr, FileWriter fw) throws IOException {
+        int ch;
+        while((ch=fr.read())!=-1) {//读数据
+            fw.write(ch);//写数据
+        }
+        fw.flush();
+    }
+
+    public static void copyMethod2(FileReader fr, FileWriter fw) throws IOException {
+        char chs[]=new char[1024];
+        int len=0;
+        while((len=fr.read(chs))!=-1) {//读数据
+            fw.write(chs,0,len);//写数据
+        }
+        fw.flush();
+    }
+}
+```
+
+### 03、IO异常的处理
+
+我们在学习的过程中可能习惯把异常抛出，而实际开发中建议使用`try...catch...finally` 代码块，处理异常部分，格式代码如下：
+
+```java
+// 声明变量
+FileWriter fw = null;
+try {
+    //创建流对象
+    fw = new FileWriter("fw.txt");
+    // 写出数据
+    fw.write("二哥真的帅"); //哥敢摸si
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    try {
+        if (fw != null) {
+            fw.close();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+或者直接使用 try-with-resources 的方式。
+
+```java
+try (FileWriter fw = new FileWriter("fw.txt")) {
+    // 写出数据
+    fw.write("二哥真的帅"); //哥敢摸si
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+在这个代码中，try-with-resources 会在 try 块执行完毕后自动关闭 FileWriter 对象 fw，不需要手动关闭流。如果在 try 块中发生了异常，也会自动关闭流并抛出异常。因此，使用 try-with-resources 可以让代码更加简洁、安全和易读。
+
+###  04、小结
+
+Writer 和 Reader 是 Java I/O 中用于字符输入输出的抽象类，它们提供了一系列方法用于读取和写入字符数据。它们的区别在于 Writer 用于将字符数据写入到输出流中，而 Reader 用于从输入流中读取字符数据。
+
+Writer 和 Reader 的常用子类有 FileWriter、FileReader，可以将字符流写入和读取到文件中。
+
+在使用 Writer 和 Reader 进行字符输入输出时，需要注意字符编码的问题。
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.5 缓冲流
+
+Java 的缓冲流是对字节流和字符流的一种封装，通过在内存中开辟缓冲区来提高 I/O 操作的效率。Java 通过 BufferedInputStream 和 BufferedOutputStream 来实现字节流的缓冲，通过 BufferedReader 和 BufferedWriter 来实现字符流的缓冲。
+
+缓冲流的工作原理是将数据先写入缓冲区中，当缓冲区满时再一次性写入文件或输出流，或者当缓冲区为空时一次性从文件或输入流中读取一定量的数据。这样可以减少系统的 I/O 操作次数，提高系统的 I/O 效率，从而提高程序的运行效率。
+
+### 01、字节缓冲流
+
+BufferedInputStream 和 BufferedOutputStream 属于字节缓冲流，强化了字节流 InputStream 和 OutputStream，关于字节流，我们前面已经详细地讲过了，可以[戳这个链接](https://tobebetterjavaer.com/io/stream.html)去温习。
+
+#### 1）构造方法
+
+*   `BufferedInputStream(InputStream in)` ：创建一个新的缓冲输入流，注意参数类型为**InputStream**。
+*   `BufferedOutputStream(OutputStream out)`： 创建一个新的缓冲输出流，注意参数类型为**OutputStream**。
+
+代码示例如下：
+
+```java
+// 创建字节缓冲输入流，先声明字节流
+FileInputStream fps = new FileInputStream(b.txt);
+BufferedInputStream bis = new BufferedInputStream(fps)
+
+// 创建字节缓冲输入流（一步到位）
+BufferedInputStream bis = new BufferedInputStream(new FileInputStream("b.txt"));
+
+// 创建字节缓冲输出流（一步到位）
+BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("b.txt"));
+```
+
+#### 2）缓冲流的高效
+
+我们通过复制一个 370M+ 的大文件，来测试缓冲流的效率。为了做对比，我们先用基本流来实现一下，代码如下：
+
+```java
+// 记录开始时间
+long start = System.currentTimeMillis();
+// 创建流对象
+try (FileInputStream fis = new FileInputStream("py.mp4");//exe文件够大
+        FileOutputStream fos = new FileOutputStream("copyPy.mp4")){
+    // 读写数据
+    int b;
+    while ((b = fis.read()) != -1) {
+        fos.write(b);
+    }
+}
+// 记录结束时间
+long end = System.currentTimeMillis();
+System.out.println("普通流复制时间:"+(end - start)+" 毫秒");
+```
+
+不好意思，我本机比较菜，10 分钟还在复制中。切换到缓冲流试一下，代码如下：
+
+```java
+// 记录开始时间
+long start = System.currentTimeMillis();
+// 创建流对象
+try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream("py.mp4"));
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("copyPy.mp4"));){
+    // 读写数据
+    int b;
+    while ((b = bis.read()) != -1) {
+        bos.write(b);
+    }
+}
+// 记录结束时间
+long end = System.currentTimeMillis();
+System.out.println("缓冲流复制时间:"+(end - start)+" 毫秒");
+```
+ 
+只需要 8016 毫秒，如何更快呢？
+
+可以换数组的方式来读写，这个我们前面也有讲到，代码如下：
+
+```java
+// 记录开始时间
+long start = System.currentTimeMillis();
+// 创建流对象
+try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream("py.mp4"));
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("copyPy.mp4"));){
+    // 读写数据
+    int len;
+    byte[] bytes = new byte[8*1024];
+    while ((len = bis.read(bytes)) != -1) {
+        bos.write(bytes, 0 , len);
+    }
+}
+// 记录结束时间
+long end = System.currentTimeMillis();
+System.out.println("缓冲流使用数组复制时间:"+(end - start)+" 毫秒");
+```
+
+这下就更快了，只需要 521 毫秒。
+ 
+#### 3）为什么字节缓冲流会这么快？
+
+
+传统的 Java IO 是阻塞模式的，它的工作状态就是“读/写，等待，读/写，等待。。。。。。”
+
+字节缓冲流解决的就是这个问题：**一次多读点多写点，减少读写的频率，用空间换时间**。
+
+- 减少系统调用次数：在使用字节缓冲流时，数据不是立即写入磁盘或输出流，而是先写入缓冲区，当缓冲区满时再一次性写入磁盘或输出流。这样可以减少系统调用的次数，从而提高 I/O 操作的效率。
+- 减少磁盘读写次数：在使用字节缓冲流时，当需要读取数据时，缓冲流会先从缓冲区中读取数据，如果缓冲区中没有足够的数据，则会一次性从磁盘或输入流中读取一定量的数据。同样地，当需要写入数据时，缓冲流会先将数据写入缓冲区，如果缓冲区满了，则会一次性将缓冲区中的数据写入磁盘或输出流。这样可以减少磁盘读写的次数，从而提高 I/O 操作的效率。
+- 提高数据传输效率：在使用字节缓冲流时，由于数据是以块的形式进行传输，因此可以减少数据传输的次数，从而提高数据传输的效率。
+
+我们来看 BufferedInputStream 的 read 方法：
+
+```java
+public synchronized int read() throws IOException {
+    if (pos >= count) {     // 如果当前位置已经到达缓冲区末尾
+        fill();             // 填充缓冲区
+        if (pos >= count)   // 如果填充后仍然到达缓冲区末尾，说明已经读取完毕
+            return -1;      // 返回 -1 表示已经读取完毕
+    }
+    return getBufIfOpen()[pos++] & 0xff; // 返回当前位置的字节，并将位置加 1
+}
+```
+
+这段代码主要有两部分：
+
+- `fill()`：该方法会将缓冲 buf 填满。
+- `getBufIfOpen()[pos++] & 0xff`：返回当前读取位置 pos 处的字节（`getBufIfOpen()`返回的是 buffer 数组，是 byte 类型），并将其与 0xff 进行位与运算。这里的目的是将读取到的字节 b 当做无符号的字节处理，因为 Java 的 byte 类型是有符号的，而将 b 与 0xff 进行位与运算，就可以将其转换为无符号的字节，其范围为 0 到 255。
+
+>byte & 0xFF 我们一会再细讲。
+
+再来看 FileInputStream 的 read 方法：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-20230321154534.png)
+
+在这段代码中，`read0()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)，它的实现是由底层操作系统提供的，并不是 Java 语言实现的。在不同的操作系统上，`read0()` 方法的实现可能会有所不同，但是它们的功能都是相同的，都是用于**读取一个字节**。
+
+再来看一下 BufferedOutputStream 的 `write(byte b[], int off, int len)` 方法：
+
+```java
+public synchronized void write(byte b[], int off, int len) throws IOException {
+    if (len >= buf.length) {    // 如果写入的字节数大于等于缓冲区长度
+        /* 如果请求的长度超过了输出缓冲区的大小，
+           先刷新缓冲区，然后直接将数据写入。
+           这样可以避免缓冲流级联时的问题。*/
+        flushBuffer();          // 先刷新缓冲区
+        out.write(b, off, len); // 直接将数据写入输出流
+        return;
+    }
+    if (len > buf.length - count) { // 如果写入的字节数大于空余空间
+        flushBuffer();              // 先刷新缓冲区
+    }
+    System.arraycopy(b, off, buf, count, len); // 将数据拷贝到缓冲区中
+    count += len;                             // 更新计数器
+}
+```
+
+首先，该方法会检查写入的字节数是否大于等于缓冲区长度，如果是，则先将缓冲区中的数据刷新到磁盘中，然后直接将数据写入输出流。这样做是为了避免缓冲流级联时的问题，即缓冲区的大小不足以容纳写入的数据时，可能会引发级联刷新，导致效率降低。
+
+>级联问题（Cascade Problem）是指在一组缓冲流（Buffered Stream）中，由于缓冲区的大小不足以容纳要写入的数据，导致数据被分割成多个部分，并分别写入到不同的缓冲区中，最终需要逐个刷新缓冲区，从而导致性能下降的问题。
+
+其次，如果写入的字节数小于缓冲区长度，则检查缓冲区中剩余的空间是否足够容纳要写入的字节数，如果不够，则先将缓冲区中的数据刷新到磁盘中。然后，使用 `System.arraycopy()` 方法将要写入的数据拷贝到缓冲区中，并更新计数器 count。
+
+最后，如果写入的字节数小于缓冲区长度且缓冲区中还有剩余空间，则直接将要写入的数据拷贝到缓冲区中，并更新计数器 count。
+
+也就是说，只有当 buf 写满了，才会 flush，将数据刷到磁盘，默认一次刷 8192 个字节。
+
+```java
+public BufferedOutputStream(OutputStream out) {
+    this(out, 8192);
+}
+```
+
+如果 buf 没有写满，会继续写 buf。
+
+对比一下 FileOutputStream 的 write 方法，同样是本地方法，一次只能写入一个字节。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-20230321162808.png)
+
+当把 BufferedOutputStream 和 BufferedInputStream 配合起来使用后，就减少了大量的读写次数，尤其是 `byte[] bytes = new byte[8*1024]`，就相当于缓冲区的空间有 8 个 1024 字节，那读写效率就会大大提高。
+
+#### 4）`byte & 0xFF`
+
+byte 类型通常被用于存储二进制数据，例如读取和写入文件、网络传输等场景。在这些场景下，byte 类型的变量可以用来存储数据流中的每个字节，从而进行读取和写入操作。
+
+byte 类型是有符号的，即其取值范围为 -128 到 127。如果我们希望得到的是一个无符号的 byte 值，就需要使用 `byte & 0xFF` 来进行转换。
+
+这是因为 0xFF 是一个无符号的整数，它的二进制表示为 11111111。当一个 byte 类型的值与 0xFF 进行位与运算时，会将 byte 类型的值转换为一个无符号的整数，其范围为 0 到 255。
+
+0xff 是一个十六进制的数，相当于二进制的 11111111，& 运算符的意思是：如果两个操作数的对应位为 1，则输出 1，否则为 0；由于 0xff 有 8 个 1，单个 byte 转成 int 其实就是将 byte 和 int 类型的 255 进行(&)与运算。
+
+例如，如果我们有一个 byte 类型的变量 b，其值为 -1，那么 b & 0xFF 的结果就是 255。这样就可以将一个有符号的 byte 类型的值转换为一个无符号的整数。
+
+& 运算是一种二进制数据的计算方式, 两个操作位都为1，结果才为1，否则结果为0. 在上面的 `getBufIfOpen()[pos++] & 0xff` 计算过程中, byte 有 8bit, OXFF 是16进制的255, 表示的是 int 类型, int 有 32bit.
+
+如果 `getBufIfOpen()[pos++]` 为 -118, 那么其原码表示为
+
+```
+00000000 00000000 00000000 10001010
+```
+
+反码为
+
+```
+11111111 11111111 11111111 11110101
+```
+
+补码为
+
+```
+11111111 11111111 11111111 11110110
+```
+
+0XFF 表示16进制的数据255, 原码, 反码, 补码都是一样的, 其二进制数据为
+
+```
+00000000 00000000 00000000 11111111
+```
+
+0XFF 和 -118 进行&运算后结果为
+
+```
+00000000 00000000 00000000 11110110
+```
+
+还原为原码后为
+
+```
+00000000 00000000 00000000 10001010
+```
+
+其表示的 int 值为 138，可见将 byte 类型的 -118 与 0XFF 进行与运算后值由 -118 变成了 int 类型的 138，其中低8位和byte的-118完全一致。
+
+顺带聊一下 原码、反码和补码。
+
+①、原码
+
+原码就是符号位加上真值的绝对值，即用第一位表示符号，其余位表示值。比如如果是8位二进制:
+
+```
+[+1]原 = 0000 0001
+
+[-1]原 = 1000 0001
+```
+
+第一位是符号位。因为第一位是符号位，所以8位二进制数的取值范围就是：
+
+```
+[1111 1111 , 0111 1111]
+```
+
+即
+
+```
+[-127 , 127]
+```
+
+②、反码
+
+反码的表示方法是：
+
+- 正数的反码是其本身
+- 负数的反码是在其原码的基础上，符号位不变，其余各个位取反。
+
+
+例如：
+
+```
+[+1] = [00000001]原 = [00000001]反
+
+[-1] = [10000001]原 = [11111110]反
+```
+
+可见如果一个反码表示的是负数，人脑无法直观的看出来它的数值。通常要将其转换成原码再计算。
+
+③、补码
+
+补码的表示方法是：
+
+- 正数的补码就是其本身
+- 负数的补码是在其原码的基础上，符号位不变，其余各位取反，最后+1。(即在反码的基础上+1)
+
+```
+[+1] = [00000001]原 = [00000001]反 = [00000001]补
+
+[-1] = [10000001]原 = [11111110]反 = [11111111]补
+```
+
+对于负数，补码表示方式也是人脑无法直观看出其数值的。通常也需要转换成原码在计算其数值。
+
+从上面可以看到：
+
+- 对于正数：原码，反码，补码都是一样的
+- 对于负数：原码，反码，补码都是不一样的
+
+### 02、字符缓冲流
+
+BufferedReader 类继承自 Reader 类，提供了一些便捷的方法，例如 `readLine()` 方法可以一次读取一行数据，而不是一个字符一个字符地读取。
+
+BufferedWriter 类继承自 Writer 类，提供了一些便捷的方法，例如 `newLine()` 方法可以写入一个系统特定的行分隔符。
+
+#### 1）构造方法
+
+*   `BufferedReader(Reader in)` ：创建一个新的缓冲输入流，注意参数类型为**Reader**。
+*   `BufferedWriter(Writer out)`： 创建一个新的缓冲输出流，注意参数类型为**Writer**。
+
+代码示例如下：
+
+```java
+// 创建字符缓冲输入流
+BufferedReader br = new BufferedReader(new FileReader("b.txt"));
+// 创建字符缓冲输出流
+BufferedWriter bw = new BufferedWriter(new FileWriter("b.txt"));
+```
+
+#### 2）字符缓冲流特有方法
+
+字符缓冲流的基本方法与[普通字符流](https://tobebetterjavaer.com/io/reader-writer.html)调用方式一致，这里不再赘述，我们来看字符缓冲流**特有**的方法。
+
+*   BufferedReader：`String readLine()`: **读一行数据**，读取到最后返回 null
+*   BufferedWriter：`newLine()`: **换行**，由系统定义换行符。
+
+来看 `readLine()`方法的代码示例：
+
+```java
+// 创建流对象
+BufferedReader br = new BufferedReader(new FileReader("a.txt"));
+// 定义字符串,保存读取的一行文字
+String line  = null;
+// 循环读取,读取到最后返回null
+while ((line = br.readLine())!=null) {
+    System.out.print(line);
+    System.out.println("------");
+}
+// 释放资源
+br.close();
+```
+
+再来看 `newLine()` 方法的代码示例：
+
+```java
+// 创建流对象
+BfferedWriter bw = new BufferedWriter(new FileWriter("b.txt"));
+// 写出数据
+bw.write("沉");
+// 写出换行
+bw.newLine();
+bw.write("默");
+bw.newLine();
+bw.write("王");
+bw.newLine();
+bw.write("二");
+bw.newLine();
+// 释放资源
+bw.close();
+```
+
+### 03、字符缓冲流练习
+
+来欣赏一下我写的这篇诗：
+
+> 6.岑夫子，丹丘生，将进酒，杯莫停。
+> 
+> 1.君不见黄河之水天上来，奔流到海不复回。
+> 
+> 8.钟鼓馔玉不足贵，但愿长醉不愿醒。
+> 
+> 3.人生得意须尽欢，莫使金樽空对月。
+> 
+> 5.烹羊宰牛且为乐，会须一饮三百杯。
+> 
+> 2.君不见高堂明镜悲白发，朝如青丝暮成雪。
+> 
+> 7.与君歌一曲，请君为我倾耳听。
+> 
+> 4.天生我材必有用，千金散尽还复来。
+
+欣赏完了没？
+
+估计你也看出来了，这是李白写的《将进酒》，不是我王二写的。😝
+
+不过，顺序是乱的，还好，我都编了号。那如何才能按照正确的顺序来呢？
+
+来看代码实现：
+
+```java
+// 创建map集合,保存文本数据,键为序号,值为文字
+HashMap<String, String> lineMap = new HashMap<>();
+
+// 创建流对象  源
+BufferedReader br = new BufferedReader(new FileReader("logs/test.log"));
+//目标
+BufferedWriter bw = new BufferedWriter(new FileWriter("logs/test1.txt"));
+
+// 读取数据
+String line;
+while ((line = br.readLine())!=null) {
+    // 解析文本
+    if (line.isEmpty()) {
+        continue;
+    }
+    String[] split = line.split(Pattern.quote("."));
+    // 保存到集合
+    lineMap.put(split[0], split[1]);
+}
+// 释放资源
+br.close();
+
+// 遍历map集合
+for (int i = 1; i <= lineMap.size(); i++) {
+    String key = String.valueOf(i);
+    // 获取map中文本
+    String value = lineMap.get(key);
+    // 写出拼接文本
+    bw.write(key+"."+value);
+    // 写出换行
+    bw.newLine();
+}
+// 释放资源
+bw.close();
+```
+
+这里面用到的知识都是我们前面学过的，比如说 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)，[字符串分割](https://tobebetterjavaer.com/string/split.html)，包括刚刚学习的字符缓冲流。
+ 
+
+来看输出结果
+
+```
+1.君不见黄河之水天上来，奔流到海不复回。
+2.君不见高堂明镜悲白发，朝如青丝暮成雪。
+3.人生得意须尽欢，莫使金樽空对月。
+4.天生我材必有用，千金散尽还复来。
+5.烹羊宰牛且为乐，会须一饮三百杯。
+6.岑夫子，丹丘生，将进酒，杯莫停。
+7.与君歌一曲，请君为我倾耳听。
+8.钟鼓馔玉不足贵，但愿长醉不愿醒。
+```
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.6 转换流
+
+转换流可以将一个[字节流](https://tobebetterjavaer.com/io/stream.html)包装成[字符流](https://tobebetterjavaer.com/io/reader-writer.html)，或者将一个字符流包装成字节流。这种转换通常用于处理文本数据，如读取文本文件或将数据从网络传输到应用程序。
+
+转换流主要有两种类型：InputStreamReader 和 OutputStreamWriter。
+
+InputStreamReader 将一个字节输入流转换为一个字符输入流，而 OutputStreamWriter 将一个字节输出流转换为一个字符输出流。它们使用指定的字符集将字节流和字符流之间进行转换。常用的字符集包括 UTF-8、GBK、ISO-8859-1 等。
+
+![](https://cdn.tobebetterjavaer.com/studymore/char-byte-20230322165959.png)
+
+### 01、编码和解码
+
+在计算机中，数据通常以二进制形式存储和传输。
+
+- 编码就是将原始数据（比如说文本、图像、视频、音频等）转换为二进制形式。
+- 解码就是将二进制数据转换为原始数据，是一个反向的过程。
+
+常见的编码和解码方式有很多，举几个例子：
+
+- ASCII 编码和解码：在计算机中，常常使用 ASCII 码来表示字符，如键盘上的字母、数字和符号等。例如，字母 A 对应的 ASCII 码是 65，字符 + 对应的 ASCII 码是 43。
+- Unicode 编码和解码：Unicode 是一种字符集，支持多种语言和字符集。在计算机中，Unicode 可以使用 UTF-8、UTF-16 等编码方式将字符转换为二进制数据进行存储和传输。
+- Base64 编码和解码：Base64 是一种将二进制数据转换为 ASCII 码的编码方式。它将 3 个字节的二进制数据转换为 4 个 ASCII 字符，以便在网络传输中使用。例如，将字符串 "Hello, world!" 进行 Base64 编码后，得到的结果是 "SGVsbG8sIHdvcmxkIQ=="。
+- 图像编码和解码：在图像处理中，常常使用 JPEG、PNG、GIF 等编码方式将图像转换为二进制数据进行存储和传输。在解码时，可以将二进制数据转换为图像，以便显示或处理。
+- 视频编码和解码：在视频处理中，常常使用 H.264、AVC、MPEG-4 等编码方式将视频转换为二进制数据进行存储和传输。在解码时，可以将二进制数据转换为视频，以便播放或处理。
+
+简单一点说就是：
+
+- 编码：字符(能看懂的)-->字节(看不懂的)
+- 解码：字节(看不懂的)-->字符(能看懂的)
+
+我用代码来表示一下：
+
+```java
+String str = "沉默王二";
+String charsetName = "UTF-8";
+
+// 编码
+byte[] bytes = str.getBytes(Charset.forName(charsetName));
+System.out.println("编码: " + bytes);
+
+// 解码
+String decodedStr = new String(bytes, Charset.forName(charsetName));
+System.out.println("解码: " + decodedStr);
+```
+
+在这个示例中，首先定义了一个字符串变量 str 和一个字符集名称 charsetName。然后，使用 `Charset.forName()` 方法获取指定字符集的 Charset 对象。接着，使用字符串的 getBytes() 方法将字符串编码为指定字符集的字节数组。最后，使用 `new String()` 方法将字节数组解码为字符串。
+
+需要注意的是，在编码和解码过程中，要保证使用相同的字符集，以便正确地转换数据。
+
+### 02、字符集
+
+Charset：字符集，是一组字符的集合，每个字符都有一个唯一的编码值，也称为码点。
+
+常见的字符集包括 ASCII、Unicode 和 GBK，而 Unicode 字符集包含了多种编码方式，比如说 UTF-8、UTF-16。
+
+![](https://cdn.tobebetterjavaer.com/studymore/char-byte-20230322174312.png)
+
+#### **ASCII 字符集**
+
+ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）字符集是一种最早的字符集，包含 128 个字符，其中包括控制字符、数字、英文字母以及一些标点符号。ASCII 字符集中的每个字符都有一个唯一的 7 位二进制编码（由 0 和 1 组成），可以表示为十进制数或十六进制数。
+
+ASCII 编码方式是一种固定长度的编码方式，每个字符都使用 7 位二进制编码来表示。ASCII 编码只能表示英文字母、数字和少量的符号，不能表示其他语言的文字和符号，因此在全球范围内的应用受到了很大的限制。
+
+#### Unicode 字符集
+
+Unicode 包含了世界上几乎所有的字符，用于表示人类语言、符号和表情等各种信息。Unicode 字符集中的每个字符都有一个唯一的码点（code point），用于表示该字符在字符集中的位置，可以用十六进制数表示。
+
+为了在计算机中存储和传输 Unicode 字符集中的字符，需要使用一种编码方式。UTF-8、UTF-16 和 UTF-32 都是 Unicode 字符集的编码方式，用于将 Unicode 字符集中的字符转换成字节序列，以便于存储和传输。它们的差别在于使用的字节长度不同。
+
+- UTF-8 是一种可变长度的编码方式，对于 ASCII 字符（码点范围为 `0x00~0x7F`），使用一个字节表示，对于其他 Unicode 字符，使用两个、三个或四个字节表示。UTF-8 编码方式被广泛应用于互联网和计算机领域，因为它可以有效地压缩数据，适用于网络传输和存储。
+- UTF-16 是一种固定长度的编码方式，对于基本多语言平面（Basic Multilingual Plane，Unicode 字符集中的一个码位范围，包含了世界上大部分常用的字符，总共包含了超过 65,000 个码位）中的字符（码点范围为 `0x0000~0xFFFF`），使用两个字节表示，对于其他 Unicode 字符，使用四个字节表示。
+- UTF-32 是一种固定长度的编码方式，对于所有 Unicode 字符，使用四个字节表示。
+
+#### GBK 字符集
+
+GBK 包含了 GB2312 字符集中的字符，同时还扩展了许多其他汉字字符和符号，共收录了 21,913 个字符。GBK 采用双字节编码方式，每个汉字占用 2 个字节，其中高字节和低字节都使用了 8 位，因此 GBK 编码共有 `2^16=65536` 种可能的编码，其中大部分被用于表示汉字字符。
+
+GBK 编码是一种变长的编码方式，对于 ASCII 字符（码位范围为 0x00 到 0x7F），使用一个字节表示，对于其他字符，使用两个字节表示。GBK 编码中的每个字节都可以采用 0x81 到 0xFE 之间的任意一个值，因此可以表示 `2^15=32768` 个字符。为了避免与 ASCII 码冲突，GBK 编码的第一个字节采用了 0x81 到 0xFE 之间除了 0x7F 的所有值，第二个字节采用了 0x40 到 0x7E 和 0x80 到 0xFE 之间的所有值，共 94 个值。
+
+GB2312 的全名是《信息交换用汉字编码字符集基本集》，也被称为“国标码”。采用了双字节编码方式，每个汉字占用 2 个字节，其中高字节和低字节都使用了 8 位，因此 GB2312 编码共有 `2^16=65536` 种可能的编码，其中大部分被用于表示汉字字符。GB2312 编码中的每个字节都可以采用 0xA1 到 0xF7 之间的任意一个值，因此可以表示 126 个字符。
+
+GB2312 是一个较为简单的字符集，只包含了常用的汉字和符号，因此对于一些较为罕见的汉字和生僻字，GB2312 不能满足需求，现在已经逐渐被 GBK、GB18030 等字符集所取代。
+
+GB18030 是最新的中文码表。收录汉字 70244 个，采用多字节编码，每个字可以由 1 个、2 个或 4 个字节组成。支持中国国内少数民族的文字，同时支持繁体汉字以及日韩汉字等。
+
+### 03、乱码
+
+当使用不同的编码方式读取或者写入文件时，就会出现乱码问题，来看示例。
+
+```java
+String s = "沉默王二！";
+
+try {
+    // 将字符串按GBK编码方式保存到文件中
+    OutputStreamWriter out = new OutputStreamWriter(
+            new FileOutputStream("logs/test_utf8.txt"), "GBK");
+    out.write(s);
+    out.close();
+
+    FileReader fileReader = new FileReader("logs/test_utf8.txt");
+    int read;
+    while ((read = fileReader.read()) != -1) {
+        System.out.print((char)read);
+    }
+    fileReader.close();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+在上面的示例代码中，首先定义了一个包含中文字符的字符串，然后将该字符串按 GBK 编码方式保存到文件中，接着将文件按默认编码方式（UTF-8）读取，并显示内容。此时就会出现乱码问题，显示为“��Ĭ������”。
+
+这是因为文件中的 GBK 编码的字符在使用 UTF-8 编码方式解析时无法正确解析，从而导致出现乱码问题。
+
+那如何才能解决乱码问题呢？
+
+这就引出我们今天的主角了——转换流。
+
+### 04、InputStreamReader
+
+`java.io.InputStreamReader` 是 Reader 类的子类。它的作用是将字节流（InputStream）转换为字符流（Reader），同时支持指定的字符集编码方式，从而实现字符流与字节流之间的转换。
+
+#### 1）构造方法
+
+- `InputStreamReader(InputStream in)`: 创建一个使用默认字符集的字符流。
+- `InputStreamReader(InputStream in, String charsetName)`: 创建一个指定字符集的字符流。
+
+代码示例如下：
+
+```java
+InputStreamReader isr = new InputStreamReader(new FileInputStream("in.txt"));
+InputStreamReader isr2 = new InputStreamReader(new FileInputStream("in.txt") , "GBK");
+```
+
+#### 2）解决编码问题
+
+下面是一个使用 InputStreamReader 解决乱码问题的示例代码：
+
+```java
+String s = "沉默王二！";
+
+try {
+    // 将字符串按GBK编码方式保存到文件中
+    OutputStreamWriter outUtf8 = new OutputStreamWriter(
+            new FileOutputStream("logs/test_utf8.txt"), "GBK");
+    outUtf8.write(s);
+    outUtf8.close();
+
+    // 将字节流转换为字符流，使用GBK编码方式
+    InputStreamReader isr = new InputStreamReader(new FileInputStream("logs/test_utf8.txt"), "GBK");
+    // 读取字符流
+    int c;
+    while ((c = isr.read()) != -1) {
+        System.out.print((char) c);
+    }
+    isr.close();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+由于使用了 InputStreamReader 对字节流进行了编码方式的转换，因此在读取字符流时就可以正确地解析出中文字符，避免了乱码问题。
+
+### 05、OutputStreamWriter
+
+`java.io.OutputStreamWriter` 是 Writer 的子类，字面看容易误以为是转为字符流，其实是将字符流转换为字节流，是字符流到字节流的桥梁。
+
+- `OutputStreamWriter(OutputStream in)`: 创建一个使用默认字符集的字符流。
+- `OutputStreamWriter(OutputStream in, String charsetName)`：创建一个指定字符集的字符流。
+
+代码示例如下：
+
+```java
+OutputStreamWriter isr = new OutputStreamWriter(new FileOutputStream("a.txt"));
+OutputStreamWriter isr2 = new OutputStreamWriter(new FileOutputStream("b.txt") , "GBK");
+```
+
+通常为了提高读写效率，我们会在转换流上再加一层[缓冲流](https://tobebetterjavaer.com/io/buffer.html)，来看代码示例：
+
+```java
+try {
+    // 从文件读取字节流，使用UTF-8编码方式
+    FileInputStream fis = new FileInputStream("test.txt");
+    // 将字节流转换为字符流，使用UTF-8编码方式
+    InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+    // 使用缓冲流包装字符流，提高读取效率
+    BufferedReader br = new BufferedReader(isr);
+    // 创建输出流，使用UTF-8编码方式
+    FileOutputStream fos = new FileOutputStream("output.txt");
+    // 将输出流包装为转换流，使用UTF-8编码方式
+    OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+    // 使用缓冲流包装转换流，提高写入效率
+    BufferedWriter bw = new BufferedWriter(osw);
+
+    // 读取输入文件的每一行，写入到输出文件中
+    String line;
+    while ((line = br.readLine()) != null) {
+        bw.write(line);
+        bw.newLine(); // 每行结束后写入一个换行符
+    }
+
+    // 关闭流
+    br.close();
+    bw.close();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+在上面的示例代码中，首先使用 FileInputStream 从文件中读取字节流，使用 UTF-8 编码方式进行读取。然后，使用 InputStreamReader 将字节流转换为字符流，使用 UTF-8 编码方式进行转换。接着，使用 BufferedReader 包装字符流，提高读取效率。然后，创建 FileOutputStream 用于输出文件，使用 UTF-8 编码方式进行创建。接着，使用 OutputStreamWriter 将输出流转换为字符流，使用 UTF-8 编码方式进行转换。最后，使用 BufferedWriter 包装转换流，提高写入效率。
+
+### 06、小结
+
+InputStreamReader 和 OutputStreamWriter 是将字节流转换为字符流或者将字符流转换为字节流。通常用于解决字节流和字符流之间的转换问题，可以将字节流以指定的字符集编码方式转换为字符流，或者将字符流以指定的字符集编码方式转换为字节流。
+
+InputStreamReader 类的常用方法包括：
+
+- `read()`：从输入流中读取一个字符的数据。
+- `read(char[] cbuf, int off, int len)`：从输入流中读取 len 个字符的数据到指定的字符数组 cbuf 中，从 off 位置开始存放。
+- `ready()`：返回此流是否已准备好读取。
+- `close()`：关闭输入流。
+
+OutputStreamWriter 类的常用方法包括：
+
+- `write(int c)`：向输出流中写入一个字符的数据。
+- `write(char[] cbuf, int off, int len)`：向输出流中写入指定字符数组 cbuf 中的 len 个字符，从 off 位置开始。
+- `flush()`：将缓冲区的数据写入输出流中。
+- `close()`：关闭输出流。
+
+在使用转换流时，需要指定正确的字符集编码方式，否则可能会导致数据读取或写入出现乱码。
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.7 打印流
+
+在我的职业生涯中， `System.out.println()` 的使用频率恐怕不亚于 main 方法的使用频率。其中 `System.out` 返回的正是打印流 `PrintStream` 。
+
+除此之外，还有它还有一个孪生兄弟，PrintWriter。PrintStream 是 OutputStream 的子类，PrintWriter 是 Writer 的子类，也就是说，一个[字节流](https://tobebetterjavaer.com/io/stream.html)，一个是[字符流](https://tobebetterjavaer.com/io/reader-writer.html)。
+
+打印流具有以下几个特点：
+
+* 可以自动进行数据类型转换：打印流可以将各种数据类型转换为字符串，并输出到指定的输出流中。
+* 可以自动进行换行操作：打印流可以在输出字符串的末尾自动添加换行符，方便输出多个字符串时的格式控制。
+* 可以输出到控制台或者文件中：打印流可以将数据输出到控制台或者文件中，方便调试和日志记录（尽管生产环境下更推荐使用 [Logback](https://tobebetterjavaer.com/gongju/logback.html)、ELK 等）。
+
+PrintStream 类的常用方法包括：
+
+- `print()`：输出一个对象的字符串表示形式。
+- `println()`：输出一个对象的字符串表示形式，并在末尾添加一个换行符。
+- `printf()`：使用指定的格式字符串和参数输出格式化的字符串。
+
+来一个示例体验一下。
+
+```java
+PrintStream ps = System.out;
+ps.println("沉默王二");
+ps.print("沉 ");
+ps.print("默 ");
+ps.print("王 ");
+ps.print("二 ");
+ps.println();
+
+ps.printf("姓名：%s，年龄：%d，成绩：%f", "沉默王二", 18, 99.9);
+```
+
+在这个示例中，我们创建了一个 PrintStream 对象 ps，它输出到控制台。我们使用 ps 的 print 和 println 方法输出了一些字符串。
+
+使用 printf 方法输出了一个格式化字符串，其中 %s、%d 和 %.2f 分别表示字符串、整数和浮点数的格式化输出。我们使用逗号分隔的参数列表指定了要输出的值。
+
+来详细说说 printf 方法哈。
+
+```java
+public PrintStream printf(String format, Object... args);
+```
+
+其中，format 参数是格式化字符串，args 参数是要输出的参数列表。格式化字符串包含了普通字符和转换说明符。普通字符是指除了转换说明符之外的字符，它们在输出时直接输出。转换说明符是由百分号（%）和一个或多个字符组成的，用于指定输出的格式和数据类型。
+
+下面是 Java 的常用转换说明符及对应的输出格式：
+
+- `%s`：输出一个字符串。
+- `%d` 或 `%i`：输出一个十进制整数。
+- `%x` 或 `%X`：输出一个十六进制整数，`%x` 输出小写字母，`%X` 输出大写字母。
+- `%f` 或 `%F`：输出一个浮点数。
+- `%e` 或 `%E`：输出一个科学计数法表示的浮点数，`%e` 输出小写字母 e，`%E` 输出大写字母 E。
+- `%g` 或 `%G`：输出一个浮点数，自动选择 `%f` 或 `%e/%E` 格式输出。
+- `%c`：输出一个字符。
+- `%b`：输出一个布尔值。
+- `%h`：输出一个哈希码（16进制）。
+- `%n`：换行符。
+
+除了转换说明符之外，Java 的 printf 方法还支持一些修饰符，用于指定输出的宽度、精度、对齐方式等。
+
+- 宽度修饰符：用数字指定输出的最小宽度，如果输出的数据不足指定宽度，则在左侧或右侧填充空格或零。
+- 精度修饰符：用点号（.）和数字指定浮点数或字符串的精度，对于浮点数，指定小数点后的位数，对于字符串，指定输出的字符数。
+- 对齐修饰符：用减号（-）或零号（0）指定输出的对齐方式，减号表示左对齐，零号表示右对齐并填充零。
+
+下面是一些示例：
+
+```java
+int num = 123;
+System.out.printf("%5d\n", num); // 输出 "  123"
+System.out.printf("%-5d\n", num); // 输出 "123  "
+System.out.printf("%05d\n", num); // 输出 "00123"
+
+double pi = Math.PI;
+System.out.printf("%10.2f\n", pi); // 输出 "      3.14"
+System.out.printf("%-10.4f\n", pi); // 输出 "3.1416    "
+
+String name = "沉默王二";
+System.out.printf("%10s\n", name); // 输出 "     沉默王二"
+System.out.printf("%-10s\n", name); // 输出 "沉默王二     "
+```
+
+具体来说，
+
+- 我们使用 `%5d` 来指定输出的整数占据 5 个字符的宽度，不足部分在左侧填充空格。
+- 使用 `%-5d` 来指定输出的整数占据 5 个字符的宽度，不足部分在右侧填充空格。
+- 使用 `%05d` 来指定输出的整数占据 5 个字符的宽度，不足部分在左侧填充 0。
+- 使用 `%10.2f` 来指定输出的浮点数占据 10 个字符的宽度，保留 2 位小数，不足部分在左侧填充空格。
+- 使用 `%-10.4f` 来指定输出的浮点数占据 10 个字符的宽度，保留 4 位小数，不足部分在右侧填充空格。
+- 使用 `%10s` 来指定输出的字符串占据 10 个字符的宽度，不足部分在左侧填充空格。
+- 使用 `%-10s` 来指定输出的字符串占据 10 个字符的宽度，不足部分在右侧填充空格。
+
+接下来，我们给出一个 PrintWriter 的示例：
+
+```java
+PrintWriter writer = new PrintWriter(new FileWriter("output.txt"));
+writer.println("沉默王二");
+writer.printf("他的年纪为 %d.\n", 18);
+writer.close();
+```
+
+首先，我们创建一个 PrintWriter 对象，它的构造函数接收一个 Writer 对象作为参数。在这里，我们使用 FileWriter 来创建一个输出文件流，并将其作为参数传递给 PrintWriter 的构造函数。然后，我们使用 PrintWriter 的 println 和 printf 方法来输出两行内容，其中 printf 方法可以接收格式化字符串。最后，我们调用 PrintWriter 的 close 方法来关闭输出流。
+
+我们也可以不创建 FileWriter 对象，直接指定文件名。
+
+```java
+PrintWriter pw = new PrintWriter("output.txt");
+pw.println("沉默王二");
+pw.printf("他的年纪为 %d.\n", 18);
+pw.close();
+```
+
+好，关于打印流我们就说这么多，比较简单。至于 printf 的一些规则，用到的时候可以再查使用说明或者看 API 文档就可以了，记不住没关系。
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.8 序列流(序列化和反序列化)
+
+Java 的序列流（ObjectInputStream 和 ObjectOutputStream）是一种可以将 Java 对象序列化和反序列化的流。
+
+序列化是指将一个对象转换为一个字节序列（包含`对象的数据`、`对象的类型`和`对象中存储的属性`等信息），以便在网络上传输或保存到文件中，或者在程序之间传递。在 Java 中，序列化通过实现 java.io.Serializable 接口来实现，只有实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)的对象才能被序列化。
+
+反序列化是指将一个字节序列转换为一个对象，以便在程序中使用。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/serialize-20230323105551.png)
+
+### 01、ObjectOutputStream
+
+`java.io.ObjectOutputStream` 继承自 OutputStream 类，因此可以将序列化后的字节序列写入到文件、网络等输出流中。
+
+来看 ObjectOutputStream 的构造方法：
+`ObjectOutputStream(OutputStream out)`
+
+该构造方法接收一个 OutputStream 对象作为参数，用于将序列化后的字节序列输出到指定的输出流中。例如：
+
+```java
+FileOutputStream fos = new FileOutputStream("file.txt");
+ObjectOutputStream oos = new ObjectOutputStream(fos);
+```
+
+一个对象要想序列化，必须满足两个条件:
+
+- 该类必须实现[`java.io.Serializable` 接口](https://tobebetterjavaer.com/io/Serializbale.html)，否则会抛出`NotSerializableException` 。
+- 该类的所有字段都必须是可序列化的。如果一个字段不需要序列化，则需要使用[`transient` 关键字](https://tobebetterjavaer.com/io/transient.html)进行修饰。
+
+使用示例如下：
+
+```java
+public class Employee implements Serializable {
+    public String name;
+    public String address;
+    public transient int age; // transient瞬态修饰成员,不会被序列化
+}
+```
+
+接下来，来聊聊 `writeObject (Object obj)` 方法，该方法是 ObjectOutputStream 类中用于将对象序列化成字节序列并输出到输出流中的方法，可以处理对象之间的引用关系、继承关系、静态字段和 transient 字段。
+
+```java
+public class ObjectOutputStreamDemo {
+    public static void main(String[] args) {
+        Person person = new Person("沉默王二", 20);
+        try {
+            FileOutputStream fos = new FileOutputStream("logs/person.dat");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(person);
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+class Person implements Serializable {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+```
+
+上面的代码中，首先创建了一个 Person 对象，然后使用 FileOutputStream 和 ObjectOutputStream 将 Person 对象序列化并输出到 person.dat 文件中。在 Person 类中，实现了 Serializable 接口，表示该类可以进行对象序列化。
+
+### 02、ObjectInputStream
+
+ObjectInputStream 可以读取 ObjectOutputStream 写入的字节流，并将其反序列化为相应的对象（包含`对象的数据`、`对象的类型`和`对象中存储的属性`等信息）。
+
+说简单点就是，序列化之前是什么样子，反序列化后就是什么样子。
+
+来看一下构造方法：`ObjectInputStream(InputStream in)` ： 创建一个指定 InputStream 的 ObjectInputStream。
+
+其中，ObjectInputStream 的 readObject 方法用来读取指定文件中的对象，示例如下：
+
+```java
+String filename = "logs/person.dat"; // 待反序列化的文件名
+try (FileInputStream fileIn = new FileInputStream(filename);
+     ObjectInputStream in = new ObjectInputStream(fileIn)) {
+     // 从指定的文件输入流中读取对象并反序列化
+     Object obj = in.readObject();
+     // 将反序列化后的对象强制转换为指定类型
+     Person p = (Person) obj;
+     // 打印反序列化后的对象信息
+     System.out.println("Deserialized Object: " + p);
+} catch (IOException | ClassNotFoundException e) {
+     e.printStackTrace();
+}
+```
+
+我们首先指定了待反序列化的文件名（前面通过 ObjectOutputStream 序列化后的文件），然后创建了一个 FileInputStream 对象和一个 ObjectInputStream 对象。接着我们调用 ObjectInputStream 的 readObject 方法来读取指定文件中的对象，并将其强制转换为 Person 类型。最后我们打印了反序列化后的对象信息。
+
+### 03、Kryo
+
+实际开发中，很少使用 JDK 自带的序列化和反序列化，这是因为：
+
+- 可移植性差：Java 特有的，无法跨语言进行序列化和反序列化。
+- 性能差：序列化后的字节体积大，增加了传输/保存成本。
+- 安全问题：攻击者可以通过构造恶意数据来实现远程代码执行，从而对系统造成严重的安全威胁。相关阅读：[Java 反序列化漏洞之殇](https://cryin.github.io/blog/secure-development-java-deserialization-vulnerability/) 。
+
+Kryo 是一个优秀的 Java 序列化和反序列化库，具有高性能、高效率和易于使用和扩展等特点，有效地解决了 JDK 自带的序列化机制的痛点。
+
+>GitHub 地址：[https://github.com/EsotericSoftware/kryo](https://github.com/EsotericSoftware/kryo)
+
+使用示例：
+
+第一步，在 pom.xml 中引入依赖。
+
+```
+<!-- 引入 Kryo 序列化工具 -->
+<dependency>
+     <groupId>com.esotericsoftware</groupId>
+     <artifactId>kryo</artifactId>
+     <version>5.4.0</version>
+</dependency>
+```
+
+第二步，创建一个 Kryo 对象，并使用 `register()` 方法将对象进行注册。然后，使用 `writeObject()` 方法将 Java 对象序列化为二进制流，再使用 `readObject()` 方法将二进制流反序列化为 Java 对象。最后，输出反序列化后的 Java 对象。
+
+```java
+public class KryoDemo {
+    public static void main(String[] args) throws FileNotFoundException {
+        Kryo kryo = new Kryo();
+        kryo.register(KryoParam.class);
+
+        KryoParam object = new KryoParam("沉默王二", 123);
+
+        Output output = new Output(new FileOutputStream("logs/kryo.bin"));
+        kryo.writeObject(output, object);
+        output.close();
+
+        Input input = new Input(new FileInputStream("logs/kryo.bin"));
+        KryoParam object2 = kryo.readObject(input, KryoParam.class);
+        System.out.println(object2);
+        input.close();
+    }
+}
+
+class KryoParam {
+    private String name;
+    private int age;
+
+    public KryoParam() {
+    }
+
+    public KryoParam(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "KryoParam{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+```
+
+### 04、小结
+
+本节我们介绍了 Java 的序列化机制，并推荐了一款高性能的 Java 类库 Kryo 来取代 JDK 自带的序列化机制，已经在 Twitter、Groupon、Yahoo 以及多个著名开源项目（如 Hive、Storm）中广泛使用。
+
+以上，希望能帮助到大家。
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.9 Serializable接口
+
+对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://tobebetterjavaer.com/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
+
+我似乎不愿意做更深入的研究，因为会用就行了嘛。
+
+但随着时间的推移，见到 `Serializbale` 的次数越来越多，我便对它产生了浓厚的兴趣。是时候花点时间研究研究了。
+
+### 01、先来点理论
+
+Java 序列化是 JDK 1.1 时引入的一组开创性的特性，用于将 Java 对象转换为字节数组，便于存储或传输。此后，仍然可以将字节数组转换回 Java 对象原有的状态。
+
+序列化的思想是“冻结”对象状态，然后写到磁盘或者在网络中传输；[反序列化](https://tobebetterjavaer.com/io/serialize.html)的思想是“解冻”对象状态，重新获得可用的 Java 对象。
+
+序列化有一条规则，就是要序列化的对象必须实现 `Serializbale` 接口，否则就会报 NotSerializableException 异常。
+
+好，来看看 `Serializbale` 接口的定义吧：
+
+```java
+public interface Serializable {
+}
+```
+
+没别的了！
+
+明明就一个空的接口嘛，竟然能够保证实现了它的“类对象”被序列化和反序列化？
+
+### 02、再来点实战
+
+在回答上述问题之前，我们先来创建一个类（只有两个字段，和对应的 `getter/setter`），用于序列化和反序列化。
+
+```java
+class Wanger {
+    private String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
+
+再来创建一个测试类，通过 `ObjectOutputStream` 将“18 岁的王二”写入到文件当中，实际上就是一种序列化的过程；再通过 `ObjectInputStream` 将“18 岁的王二”从文件中读出来，实际上就是一种反序列化的过程。（前面我们学习[序列流](https://tobebetterjavaer.com/io/serialize.html)的时候也讲过）
+
+```java
+// 初始化
+Wanger wanger = new Wanger();
+wanger.setName("王二");
+wanger.setAge(18);
+System.out.println(wanger);
+
+// 把对象写到文件中
+try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chenmo"));){
+    oos.writeObject(wanger);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+
+// 从文件中读出对象
+try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("chenmo")));){
+    Wanger wanger1 = (Wanger) ois.readObject();
+    System.out.println(wanger1);
+} catch (IOException | ClassNotFoundException e) {
+    e.printStackTrace();
+}
+```
+
+不过，由于 `Wanger` 没有实现 `Serializbale` 接口，所以在运行测试类的时候会抛出异常，堆栈信息如下：
+
+```
+java.io.NotSerializableException: com.cmower.java_demo.xuliehua.Wanger
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at com.cmower.java_demo.xuliehua.Test.main(Test.java:21)
+```
+
+顺着堆栈信息，我们来看一下 `ObjectOutputStream` 的 `writeObject0()` 方法。其部分源码如下：
+
+```java
+// 判断对象是否为字符串类型，如果是，则调用 writeString 方法进行序列化
+if (obj instanceof String) {
+    writeString((String) obj, unshared);
+}
+// 判断对象是否为数组类型，如果是，则调用 writeArray 方法进行序列化
+else if (cl.isArray()) {
+    writeArray(obj, desc, unshared);
+}
+// 判断对象是否为枚举类型，如果是，则调用 writeEnum 方法进行序列化
+else if (obj instanceof Enum) {
+    writeEnum((Enum<?>) obj, desc, unshared);
+}
+// 判断对象是否为可序列化类型，如果是，则调用 writeOrdinaryObject 方法进行序列化
+else if (obj instanceof Serializable) {
+    writeOrdinaryObject(obj, desc, unshared);
+}
+// 如果对象不能被序列化，则抛出 NotSerializableException 异常
+else {
+if (extendedDebugInfo) {
+    throw new NotSerializableException(
+        cl.getName() + "\n" + debugInfoStack.toString());
+} else {
+    throw new NotSerializableException(cl.getName());
+}
+}
+```
+
+也就是说，`ObjectOutputStream` 在序列化的时候，会判断被序列化的对象是哪一种类型，字符串？数组？枚举？还是 `Serializable`，如果全都不是的话，抛出 `NotSerializableException`。
+
+假如 `Wanger` 实现了 `Serializable` 接口，就可以序列化和反序列化了。
+
+```java
+class Wanger implements Serializable{
+    private static final long serialVersionUID = -2095916884810199532L;
+    
+    private String name;
+    private int age;
+}
+```
+
+具体怎么序列化呢？
+
+以 `ObjectOutputStream` 为例吧，它在序列化的时候会依次调用 `writeObject()`→`writeObject0()`→`writeOrdinaryObject()`→`writeSerialData()`→`invokeWriteObject()`→`defaultWriteFields()`。
+
+```java
+private void defaultWriteFields(Object obj, ObjectStreamClass desc) throws IOException {
+    // 获取对象的类，并检查是否可以进行默认的序列化
+    Class<?> cl = desc.forClass();
+    desc.checkDefaultSerialize();
+
+    // 获取对象的基本类型字段的数量，以及这些字段的值
+    int primDataSize = desc.getPrimDataSize();
+    desc.getPrimFieldValues(obj, primVals);
+    // 将基本类型字段的值写入输出流
+    bout.write(primVals, 0, primDataSize, false);
+
+    // 获取对象的非基本类型字段的值
+    ObjectStreamField[] fields = desc.getFields(false);
+    Object[] objVals = new Object[desc.getNumObjFields()];
+    int numPrimFields = fields.length - objVals.length;
+    desc.getObjFieldValues(obj, objVals);
+    // 循环写入对象的非基本类型字段的值
+    for (int i = 0; i < objVals.length; i++) {
+        // 调用 writeObject0 方法将对象的非基本类型字段序列化写入输出流
+        try {
+            writeObject0(objVals[i], fields[numPrimFields + i].isUnshared());
+        }
+        // 如果在写入过程中出现异常，则将异常包装成 IOException 抛出
+        catch (IOException ex) {
+            if (abortIOException == null) {
+                abortIOException = ex;
+            }
+        }
+    }
+}
+```
+
+那怎么反序列化呢？
+
+以 `ObjectInputStream` 为例，它在反序列化的时候会依次调用 `readObject()`→`readObject0()`→`readOrdinaryObject()`→`readSerialData()`→`defaultReadFields()`。
+
+```java
+private void defaultReadFields(Object obj, ObjectStreamClass desc) throws IOException {
+    // 获取对象的类，并检查对象是否属于该类
+    Class<?> cl = desc.forClass();
+    if (cl != null && obj != null && !cl.isInstance(obj)) {
+        throw new ClassCastException();
+    }
+
+    // 获取对象的基本类型字段的数量和值
+    int primDataSize = desc.getPrimDataSize();
+    if (primVals == null || primVals.length < primDataSize) {
+        primVals = new byte[primDataSize];
+    }
+    // 从输入流中读取基本类型字段的值，并存储在 primVals 数组中
+    bin.readFully(primVals, 0, primDataSize, false);
+    if (obj != null) {
+        // 将 primVals 数组中的基本类型字段的值设置到对象的相应字段中
+        desc.setPrimFieldValues(obj, primVals);
+    }
+
+    // 获取对象的非基本类型字段的数量和值
+    int objHandle = passHandle;
+    ObjectStreamField[] fields = desc.getFields(false);
+    Object[] objVals = new Object[desc.getNumObjFields()];
+    int numPrimFields = fields.length - objVals.length;
+    // 循环读取对象的非基本类型字段的值
+    for (int i = 0; i < objVals.length; i++) {
+        // 调用 readObject0 方法读取对象的非基本类型字段的值
+        ObjectStreamField f = fields[numPrimFields + i];
+        objVals[i] = readObject0(Object.class, f.isUnshared());
+        // 如果该字段是一个引用字段，则将其标记为依赖该对象
+        if (f.getField() != null) {
+            handles.markDependency(objHandle, passHandle);
+        }
+    }
+    if (obj != null) {
+        // 将 objVals 数组中的非基本类型字段的值设置到对象的相应字段中
+        desc.setObjFieldValues(obj, objVals);
+    }
+    passHandle = objHandle;
+}
+```
+
+我想看到这，你应该会恍然大悟的“哦”一声了。`Serializable` 接口之所以定义为空，是因为它只起到了一个标识的作用，告诉程序实现了它的对象是可以被序列化的，但真正序列化和反序列化的操作并不需要它来完成。
+
+### 03、再来点注意事项
+
+开门见山的说吧，[`static`](https://tobebetterjavaer.com/oo/static.html) 和 [`transient`](https://tobebetterjavaer.com/io/transient.html) 修饰的字段是不会被序列化的。
+
+为什么呢？我们先来证明，再来解释原因。
+
+首先，在 `Wanger` 类中增加两个字段。
+
+```java
+class Wanger implements Serializable {
+    private static final long serialVersionUID = -2095916884810199532L;
+
+    private String name;
+    private int age;
+
+    public static String pre = "沉默";
+    transient String meizi = "王三";
+
+    @Override
+    public String toString() {
+        return "Wanger{" + "name=" + name + ",age=" + age + ",pre=" + pre + ",meizi=" + meizi + "}";
+    }
+}
+```
+
+其次，在测试类中打印序列化前和反序列化后的对象，并在序列化后和反序列化前改变 `static` 字段的值。具体代码如下：
+
+```java
+// 初始化
+Wanger wanger = new Wanger();
+wanger.setName("王二");
+wanger.setAge(18);
+System.out.println(wanger);
+
+// 把对象写到文件中
+try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chenmo"));){
+        oos.writeObject(wanger);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+   
+    // 改变 static 字段的值
+Wanger.pre ="不沉默";
+
+// 从文件中读出对象
+try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("chenmo")));){
+    Wanger wanger1 = (Wanger) ois.readObject();
+    System.out.println(wanger1);
+} catch (IOException | ClassNotFoundException e) {
+    e.printStackTrace();
+}
+```
+
+输出结果：
+
+```
+Wanger{name=王二,age=18,pre=沉默,meizi=王三}
+Wanger{name=王二,age=18,pre=不沉默,meizi=null}
+```
+
+从结果的对比当中，我们可以发现：
+
+1）序列化前，`pre` 的值为“沉默”，序列化后，`pre` 的值修改为“不沉默”，反序列化后，`pre` 的值为“不沉默”，而不是序列化前的状态“沉默”。
+
+为什么呢？因为序列化保存的是对象的状态，而 `static` 修饰的字段属于类的状态，因此可以证明序列化并不保存 `static` 修饰的字段。
+
+2）序列化前，`meizi` 的值为“王三”，反序列化后，`meizi` 的值为 `null`，而不是序列化前的状态“王三”。
+
+为什么呢？`transient` 的中文字义为“临时的”（论英语的重要性），它可以阻止字段被序列化到文件中，在被反序列化后，`transient` 字段的值被设为初始值，比如 `int` 型的初始值为 0，对象型的初始值为 `null`。
+
+如果想要深究源码的话，你可以在 `ObjectStreamClass` 中发现下面这样的代码：
+
+```java
+private static ObjectStreamField[] getDefaultSerialFields(Class<?> cl) {
+    // 获取该类中声明的所有字段
+    Field[] clFields = cl.getDeclaredFields();
+    ArrayList<ObjectStreamField> list = new ArrayList<>();
+    int mask = Modifier.STATIC | Modifier.TRANSIENT;
+
+    // 遍历所有字段，将非 static 和 transient 的字段添加到 list 中
+    for (int i = 0; i < clFields.length; i++) {
+        Field field = clFields[i];
+        int mods = field.getModifiers();
+        if ((mods & mask) == 0) {
+            // 根据字段名、字段类型和字段是否可序列化创建一个 ObjectStreamField 对象
+            ObjectStreamField osf = new ObjectStreamField(field.getName(), field.getType(), !Serializable.class.isAssignableFrom(cl));
+            list.add(osf);
+        }
+    }
+
+    int size = list.size();
+    // 如果 list 为空，则返回一个空的 ObjectStreamField 数组，否则将 list 转换为 ObjectStreamField 数组并返回
+    return (size == 0) ? NO_FIELDS :
+        list.toArray(new ObjectStreamField[size]);
+}
+```
+
+看到 `Modifier.STATIC | Modifier.TRANSIENT` 了吧，这两个修饰符标记的字段就没有被放入到序列化的字段中，明白了吧？
+
+### 04、再来点干货
+
+除了 `Serializable` 之外，Java 还提供了一个序列化接口 `Externalizable`（念起来有点拗口）。
+
+两个接口有什么不一样的吗？试一试就知道了。
+
+首先，把 `Wanger` 类实现的接口  `Serializable` 替换为 `Externalizable`。
+
+```java
+class Wanger implements Externalizable {
+	private String name;
+	private int age;
+
+	public Wanger() {
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Wanger{" + "name=" + name + ",age=" + age + "}";
+	}
+
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+
+	}
+
+}
+```
+
+实现 `Externalizable` 接口的 `Wanger` 类和实现 `Serializable` 接口的 `Wanger` 类有一些不同：
+
+1）新增了一个无参的构造方法。
+
+使用 `Externalizable` 进行反序列化的时候，会调用被序列化类的无参构造方法去创建一个新的对象，然后再将被保存对象的字段值复制过去。否则的话，会抛出以下异常：
+
+```
+java.io.InvalidClassException: com.cmower.java_demo.xuliehua1.Wanger; no valid constructor
+	at java.io.ObjectStreamClass$ExceptionInfo.newInvalidClassException(ObjectStreamClass.java:150)
+	at java.io.ObjectStreamClass.checkDeserialize(ObjectStreamClass.java:790)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1782)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1353)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:373)
+	at com.cmower.java_demo.xuliehua1.Test.main(Test.java:27)
+```
+
+2）新增了两个方法 `writeExternal()` 和 `readExternal()`，实现 `Externalizable` 接口所必须的。
+
+然后，我们再在测试类中打印序列化前和反序列化后的对象。
+
+```java
+// 初始化
+Wanger wanger = new Wanger();
+wanger.setName("王二");
+wanger.setAge(18);
+System.out.println(wanger);
+
+// 把对象写到文件中
+try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chenmo"));) {
+	oos.writeObject(wanger);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
+// 从文件中读出对象
+try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("chenmo")));) {
+	Wanger wanger1 = (Wanger) ois.readObject();
+	System.out.println(wanger1);
+} catch (IOException | ClassNotFoundException e) {
+	e.printStackTrace();
+}
+// Wanger{name=王二,age=18}
+// Wanger{name=null,age=0}
+```
+
+从输出的结果看，反序列化后得到的对象字段都变成了默认值，也就是说，序列化之前的对象状态没有被“冻结”下来。
+
+为什么呢？因为我们没有为 `Wanger` 类重写具体的 `writeExternal()` 和 `readExternal()` 方法。那该怎么重写呢？
+
+```java
+@Override
+public void writeExternal(ObjectOutput out) throws IOException {
+	out.writeObject(name);
+	out.writeInt(age);
+}
+
+@Override
+public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+	name = (String) in.readObject();
+	age = in.readInt();
+}
+```
+
+1）调用 `ObjectOutput` 的 `writeObject()` 方法将字符串类型的 `name` 写入到输出流中；
+
+2）调用 `ObjectOutput` 的 `writeInt()` 方法将整型的 `age` 写入到输出流中；
+
+3）调用 `ObjectInput` 的 `readObject()` 方法将字符串类型的 `name` 读入到输入流中；
+
+4）调用 `ObjectInput` 的 `readInt()` 方法将字符串类型的 `age` 读入到输入流中；
+
+再运行一次测试了类，你会发现对象可以正常地序列化和反序列化了。
+
+>序列化前：Wanger{name=王二,age=18}
+序列化后：Wanger{name=王二,age=18}
+
+总结一下：
+
+Externalizable 和 Serializable 都是用于实现 Java 对象的序列化和反序列化的接口，但是它们有以下区别：
+
+①、Serializable 是 Java 标准库提供的接口，而 Externalizable 是 Serializable 的子接口；
+
+![](https://cdn.tobebetterjavaer.com/stutymore/Serializbale-20230323161831.png)
+
+
+②、Serializable 接口不需要实现任何方法，只需要将需要序列化的类标记为 Serializable 即可，而 Externalizable 接口需要实现 writeExternal 和 readExternal 两个方法；
+
+③、Externalizable 接口提供了更高的序列化控制能力，可以在序列化和反序列化过程中对对象进行自定义的处理，如对一些敏感信息进行加密和解密。
+
+### 05、再来点甜点
+
+让我先问问你吧，你知道 ` private static final long serialVersionUID = -2095916884810199532L;` 这段代码的作用吗？
+
+嗯......
+
+`serialVersionUID` 被称为序列化 ID，它是决定 Java 对象能否反序列化成功的重要因子。在反序列化时，Java 虚拟机会把字节流中的 `serialVersionUID` 与被序列化类中的 `serialVersionUID` 进行比较，如果相同则可以进行反序列化，否则就会抛出序列化版本不一致的异常。
+
+当一个类实现了 `Serializable` 接口后，IDE 就会提醒该类最好产生一个序列化 ID，就像下面这样：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/Serializbale-7a9a05f6-a65c-46b0-b4d7-8b619297f351.jpg)
+
+1）添加一个默认版本的序列化 ID：
+
+```java
+private static final long serialVersionUID = 1L。
+```
+
+2）添加一个随机生成的不重复的序列化 ID。
+
+```java
+private static final long serialVersionUID = -2095916884810199532L;
+```
+
+3）添加 `@SuppressWarnings` 注解。
+
+```java
+@SuppressWarnings("serial")
+```
+
+怎么选择呢？
+
+首先，我们采用第二种办法，在被序列化类中添加一个随机生成的序列化 ID。
+
+```java
+class Wanger implements Serializable {
+	private static final long serialVersionUID = -2095916884810199532L;
+	
+	private String name;
+	private int age;
+
+	// 其他代码忽略
+}
+```
+
+然后，序列化一个 `Wanger` 对象到文件中。
+
+```java
+// 初始化
+Wanger wanger = new Wanger();
+wanger.setName("王二");
+wanger.setAge(18);
+System.out.println(wanger);
+
+// 把对象写到文件中
+try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("chenmo"));) {
+	oos.writeObject(wanger);
+} catch (IOException e) {
+	e.printStackTrace();
+}
+```
+
+这时候，我们悄悄地把 `Wanger` 类的序列化 ID 偷梁换柱一下，嘿嘿。
+
+```java
+// private static final long serialVersionUID = -2095916884810199532L;
+private static final long serialVersionUID = -2095916884810199533L;
+```
+
+好了，准备反序列化吧。
+
+```java
+try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("chenmo")));) {
+	Wanger wanger = (Wanger) ois.readObject();
+	System.out.println(wanger);
+} catch (IOException | ClassNotFoundException e) {
+	e.printStackTrace();
+}
+```
+
+哎呀，出错了。
+
+```
+java.io.InvalidClassException:  local class incompatible: stream classdesc 
+serialVersionUID = -2095916884810199532,
+local class serialVersionUID = -2095916884810199533
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1521)
+	at com.cmower.java_demo.xuliehua1.Test.main(Test.java:27)
+```
+
+异常堆栈信息里面告诉我们，从持久化文件里面读取到的序列化 ID 和本地的序列化 ID 不一致，无法反序列化。
+
+那假如我们采用第三种方法，为 `Wanger` 类添加个 `@SuppressWarnings("serial")` 注解呢？
+
+```java
+@SuppressWarnings("serial")
+class Wanger implements Serializable {
+// 省略其他代码
+}
+```
+
+好了，再来一次反序列化吧。可惜依然报错。
+
+```
+java.io.InvalidClassException:  local class incompatible: stream classdesc 
+serialVersionUID = -2095916884810199532, 
+local class serialVersionUID = -3818877437117647968
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1521)
+	at com.cmower.java_demo.xuliehua1.Test.main(Test.java:27)
+```
+
+异常堆栈信息里面告诉我们，本地的序列化 ID 为 -3818877437117647968，和持久化文件里面读取到的序列化 ID 仍然不一致，无法反序列化。这说明什么呢？使用 `@SuppressWarnings("serial")` 注解时，该注解会为被序列化类自动生成一个随机的序列化 ID。
+
+由此可以证明，**Java 虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，还有一个非常重要的因素就是序列化 ID 是否一致**。
+
+也就是说，如果没有特殊需求，采用默认的序列化 ID（1L）就可以，这样可以确保代码一致时反序列化成功。
+
+```java
+class Wanger implements Serializable {
+	private static final long serialVersionUID = 1L;
+// 省略其他代码
+}
+```
+
+### 06、再来点总结
+
+写这篇文章之前，我真没想到：“空空其身”的`Serializable` 竟然有这么多可以研究的内容！
+
+写完这篇文章之后，我不由得想起理科状元曹林菁说说过的一句话：“在学习中再小的问题也不放过，每个知识点都要总结”——说得真真真真的对啊！
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 7.10 transient关键字
+
+害，小二最熟的是 Java，但很多 Java 基础知识都不知道，比如 transient 关键字以前就没用到过，所以不知道它的作用是什么，今天去招银面试的时候，面试官问到了这个：说说 Java 的 transient 关键字吧，结果小二直接懵逼了。
+
+下面是他自己面试凉了以后回去做的总结，分享出来，大家一起涨下姿势~~~好了，废话不多说，下面开始：
+
+### 01、transient 的作用及使用方法
+
+我们知道，一个对象只要实现了 [Serilizable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，它就可以被[序列化](https://tobebetterjavaer.com/io/serialize.html)。
+
+在实际开发过程中，我们常常会遇到这样的问题，一个类的有些字段需要序列化，有些字段不需要，比如说用户的一些敏感信息（如密码、银行卡号等），为了安全起见，不希望在网络操作中传输或者持久化到磁盘文件中，那这些字段就可以加上 `transient` 关键字。
+
+需要注意的是，被 transient 关键字修饰的成员变量在反序列化时会被自动初始化为默认值，例如基本数据类型为 0，引用类型为 null。
+
+来看示例：
+
+```java
+public class TransientTest {
+    public static void main(String[] args) {
+        
+        User user = new User();
+        user.setUsername("沉默王二");
+        user.setPasswd("123456");
+        
+        System.out.println("read before Serializable: ");
+        System.out.println("username: " + user.getUsername());
+        System.err.println("password: " + user.getPasswd());
+        
+        try {
+            ObjectOutputStream os = new ObjectOutputStream(
+                    new FileOutputStream("user.txt"));
+            os.writeObject(user); // 将User对象写进文件
+            os.flush();
+            os.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream(
+                    "user.txt"));
+            user = (User) is.readObject(); // 从流中读取User的数据
+            is.close();
+            
+            System.out.println("\nread after Serializable: ");
+            System.out.println("username: " + user.getUsername());
+            System.err.println("password: " + user.getPasswd());
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class User implements Serializable {
+    private static final long serialVersionUID = 8294180014912103005L;  
+    
+    private String username;
+    private transient String passwd;
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getPasswd() {
+        return passwd;
+    }
+    
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
+    }
+
+}
+```
+
+输出为：
+
+```
+read before Serializable:
+username: 沉默王二
+password: 123456 
+read after Serializable:
+username: 沉默王二
+password: null
+```
+
+密码字段为 null，说明反序列化时根本没有从文件中获取到信息。
+
+### 02、transient 使用小结
+
+1）一旦字段被 transient 修饰，成员变量将不再是对象持久化的一部分，该变量的值在序列化后无法访问。
+
+2）transient 关键字只能修饰字段，而不能修饰方法和类。
+
+3）被 transient 关键字修饰的字段不能被序列化，一个静态变量（[static关键字](https://tobebetterjavaer.com/oo/static.html)修饰）不管是否被 transient 修饰，均不能被序列化，[前面讲到过](https://tobebetterjavaer.com/io/Serializbale.html)。
+
+来看示例：
+
+```java
+public class TransientTest {
+    public static void main(String[] args) {
+        
+        User user = new User();
+        user.setUsername("沉默王二");
+        user.setPasswd("123456");
+        
+        System.out.println("read before Serializable: ");
+        System.out.println("username: " + user.getUsername());
+        System.err.println("password: " + user.getPasswd());
+        
+        try {
+            ObjectOutputStream os = new ObjectOutputStream(
+                    new FileOutputStream("user.txt"));
+            os.writeObject(user); // 将User对象写进文件
+            os.flush();
+            os.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            // 在反序列化之前改变username的值
+            User.username = "沉默王三";
+            
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream(
+                    "user.txt"));
+            user = (User) is.readObject(); // 从流中读取User的数据
+            is.close();
+            
+            System.out.println("\nread after Serializable: ");
+            System.out.println("username: " + user.getUsername());
+            System.err.println("password: " + user.getPasswd());
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class User implements Serializable {
+    private static final long serialVersionUID = 8294180014912103005L;  
+    
+    public static String username;
+    private transient String passwd;
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getPasswd() {
+        return passwd;
+    }
+    
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
+    }
+}
+```
+
+运行结果为：
+
+```
+read before Serializable:
+username: 沉默王二
+password: 123456 
+read after Serializable:
+username: 沉默王三
+password: null
+```
+
+序列化前，static 修饰的 username 为 沉默王二，然后我们在反序列化前将其修改为 沉默王三 了，如果说 static 修饰的字段能保持状态的话，反序列化后应该是 沉默王二，对吧？
+
+但结果是 沉默王三，这就证明了我们之前的结论：**static 修饰的字段不能被序列化**。
+
+### 03、transient 修饰的字段真的不能被序列化？
+
+思考下面的例子：
+
+```java
+public class ExternalizableTest implements Externalizable {
+    private transient String content = "是的，我将会被序列化，不管我是否被transient关键字修饰";
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(content);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException,
+            ClassNotFoundException {
+        content = (String) in.readObject();
+    }
+
+    public static void main(String[] args) throws Exception {
+        
+        ExternalizableTest et = new ExternalizableTest();
+        ObjectOutput out = new ObjectOutputStream(new FileOutputStream(
+                new File("test")));
+        out.writeObject(et);
+
+        ObjectInput in = new ObjectInputStream(new FileInputStream(new File(
+                "test")));
+        et = (ExternalizableTest) in.readObject();
+        System.out.println(et.content);
+
+        out.close();
+        in.close();
+    }
+}
+```
+
+来看下输出结果：
+
+```
+是的，我将会被序列化，不管我是否被transient关键字修饰
+```
+
+这是为什么呢？不是说 transient 关键字修饰的字段不能序列化吗？
+
+我先说结论，这是因为我们使用了 Externalizable 接口而不是 Serializable接口，这个[知识点我们前面其实也讲到过](https://tobebetterjavaer.com/io/Serializbale.html)。
+
+在 Java 中，对象的序列化可以通过实现两种接口来实现，如果实现的是 Serializable 接口，则所有的序列化将会自动进行，如果实现的是 Externalizable 接口，则需要在 writeExternal 方法中指定要序列化的字段，与 transient 关键字修饰无关。
+
+因此例子输出的是变量 content 的内容，而不是 null。
+
+### 04、小结
+
+transient 关键字用于修饰类的成员变量，在序列化对象时，被修饰的成员变量不会被序列化和保存到文件中。其作用是告诉 JVM 在序列化对象时不需要将该变量的值持久化，这样可以避免一些安全或者性能问题。但是，transient 修饰的成员变量在反序列化时会被初始化为其默认值（如 int 类型会被初始化为 0，引用类型会被初始化为 null），因此需要在程序中进行适当的处理。
+
+transient 关键字和 static 关键字都可以用来修饰类的成员变量。其中，transient 关键字表示该成员变量不参与序列化和反序列化，而 static 关键字表示该成员变量是属于类的，不属于对象的，因此不需要序列化和反序列化。
+
+在 Serializable 和 Externalizable 接口中，transient 关键字的表现也不同，在 Serializable 中表示该成员变量不参与序列化和反序列化，在 Externalizable 中不起作用，因为 Externalizable 接口需要实现 readExternal 和 writeExternal 方法，需要手动完成序列化和反序列化的过程。
+
+---------
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
