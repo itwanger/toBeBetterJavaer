@@ -21,7 +21,7 @@ head:
 
 也是得到了很多小伙伴的认可，所以才敢如此“胆大包天”推荐给大家。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png" title="二哥的编程星球" width="200" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png" title="二哥的编程星球" width="300" />
 
 目前已经有 1900 多名球友加入了，讲良心话，这个发展速度远远超出了二哥的预期，随着人数的增长，**星球的票价也会调整到 119 元**，所以想要加入的小伙伴这次一定要抓紧了，目前是最大优惠力度 89 元（文中有优惠券，不要再犹豫了，一开始优惠完可只需要 69 元）。
 
@@ -71,7 +71,7 @@ head:
 
 看到这就迫不及待想要加入的小伙伴，可以直接扫下面这个二维码。星球目前定价 99 元，上次申请的  10 元优惠券还剩下一些，**等于说只需要 89 元的价格就可以加入，每天不到 0.25 元，划算**！
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-58daac7b-5314-42f5-91a2-8a9e17c94905.png" title="二哥的编程星球" width="200" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-58daac7b-5314-42f5-91a2-8a9e17c94905.png" title="二哥的编程星球" width="300" />
 
 随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，所以星球也会即将涨价到 119 元，所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理。
 
@@ -140,7 +140,7 @@ head:
 
 如果你符合上面的任意一条，那二哥非常欢迎你加入我们的学习圈子，共同进步，报团取暖，为成为更好的自己付出实践、付出努力、付出汗水。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png" title="二哥的编程星球" width="200" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png" title="二哥的编程星球" width="300" />
 
 
 ## 二、为什么要创建知识星球呢？
@@ -209,7 +209,7 @@ head:
 
 下定决心加入的小伙伴，可以直接扫下面这个二维码。**星球定价 99 元，减去 10 元的优惠券，等于说只需要 89 元的价格就可以加入，每天不到 0.25 元**，真的超级划算！
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png" title="二哥的编程星球" width="200" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png" title="二哥的编程星球" width="300" />
 
 真的不要再犹豫了，这是之前球友加入时候的感慨！眼瞅着优惠券从 30 到 20，再到现在的 10 元。
 
@@ -254,7 +254,7 @@ head:
 
 可以说是干货满满、价值连城、物超所值，如果你能够认真读完每个章节的话，相信你一定会大有所获，**感谢自己近一年内性价比最高的一笔投资**。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png" title="二哥的编程星球" width="200" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-284dda85-afd9-426d-9627-56d3c287dc7d.png" title="二哥的编程星球" width="300" />
 
 ## 四、星球里有哪些可爱的球友？
 
@@ -297,12 +297,12 @@ head:
 
 你可以添加我的微信（没有手机号再申请微信，故使用企业微信。不过，请放心，这个号的消息也是我本人处理，平时最常看这个微信）领取星球专属优惠券，限时 **89/年** 加入（续费半价）！
 
-<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png" title="二哥的编程星球" width="200" />
+<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png" title="二哥的编程星球" width="300" />
 
 
 或者你也可以微信扫码或者长按自动识别领取 10 元优惠券，**89/年** 加入！
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-58daac7b-5314-42f5-91a2-8a9e17c94905.png" title="二哥的编程星球" width="200" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-58daac7b-5314-42f5-91a2-8a9e17c94905.png" title="二哥的编程星球" width="300" />
 
 对了，**加入星球后记得花 10 分钟时间看一下星球置顶贴，你会发现物超所值**！
 
