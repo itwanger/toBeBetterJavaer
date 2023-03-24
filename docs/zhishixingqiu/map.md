@@ -34,6 +34,7 @@ head:
 ## 学习资料：
 
 ### 视频教程
+- [视频教程：技术派到底该怎么学习，直播回放](https://t.zsxq.com/0czKk7UMr)
 - [视频教程：多线程实战的学习视频](https://t.zsxq.com/053fiemE2)
 - [视频教程：左神算法与数据结构、若依、黑马Redis、百战就业班、架构师等，已经放在星球的百度网盘中，请自取](https://t.zsxq.com/08rEo9Pdu)
 - [视频教程：若依项目（Spring Boot、Spring Cloud）](https://t.zsxq.com/05A2VZzzZ)
@@ -53,6 +54,7 @@ head:
 - [PDF：kafka 核心知识点大梳理（月伴飞鱼）](https://t.zsxq.com/07u76ybYj)
 - [PDF：面渣逆袭 Java 基础、集合框架、并发编程、JVM、Spring、MyBatis、MySQL、Redis、操作系统、计算机网络（三分恶）](https://t.zsxq.com/04FuZrRVf)
 - [PDF：面渣逆袭 RocketMQ（三分恶）](https://t.zsxq.com/04qZrb662)
+- [PDF：面渣逆袭分布式（三分恶）](https://t.zsxq.com/0cnpBjrfD)
 - [PDF：尚硅谷/动力节点/黑马/百战课程表](https://t.zsxq.com/04iaqrjaY)
 
 ### 简历
@@ -61,6 +63,7 @@ head:
 - [简历：项目经历模板](https://t.zsxq.com/06R7qbybQ)
 - [简历：有关编程界有哪些含金量的证呢？](https://t.zsxq.com/0aklpdu11)
 - [简历：2 到 3 年工作经验的模板](https://t.zsxq.com/07sufD61G)
+- [简历：2023年03月14日简历修改，附不错的简历](https://t.zsxq.com/0cbxCJkHV)
 - [简历：修改建议 2022年11月28日](https://t.zsxq.com/08dHlcRQe)
 - [简历：修改2023年02月28日](https://t.zsxq.com/0bW8jS8oo)
 - [简历：2023年02月20日（有两份不错，一份专业技能）](https://t.zsxq.com/0bltwoTNp)
@@ -118,6 +121,7 @@ head:
 - [温馨学习计划：跳槽，图文并茂，非常全面](https://t.zsxq.com/0bx1xL5nD)
 - [moon 学习计划：跳槽，冲大厂，女](https://t.zsxq.com/09jcN2PeW)
 - [张松学习计划：跳槽，3 年工作经验](https://t.zsxq.com/08PDXuGX3)
+- [老乡学习计划：跳槽，冲大厂，河大毕业，工作一年](https://t.zsxq.com/0cdjvHrPI)
 - [贪欢学习计划：跳槽，之前外包](https://t.zsxq.com/08cN09lyv)
 - [clay学习计划：跳槽，2 年工作经验](https://t.zsxq.com/0bw9CGqei)
 - [伍冲学习计划：跳槽，2.5 年工作经验](https://t.zsxq.com/0a0zcwZwh)
@@ -131,6 +135,8 @@ head:
 ## 学生党：
 
 ### 秋招&春招
+- [校招：到底去美团客户端，还是用友和宁德时代的后端，我又迷茫了？](https://t.zsxq.com/0c9e58oHD)
+- [校招：英硕软开在读，打算回国工作，重点需要准备哪些？](https://t.zsxq.com/0cxL85X0P)
 - [春招：末流本科大四，有点混，考公还没上岸，还有希望走计算机吗？](https://t.zsxq.com/0cOciZxzO)
 - [校招：中上游 985 研一，想冲微软亚马逊这类外企的 C++后端开发，如何准备算法、系统设计、计算机基础？](https://t.zsxq.com/0bh6t4dGB)
 - [春招：二本，很绝望，马上毕业了，有挂科，有毕设，还要春招，我该怎么办？？](https://t.zsxq.com/0bsPeBybL)
@@ -150,6 +156,7 @@ head:
 - [秋招：本硕土木，自学转码，项目怎么准备？要学分布式吗？](https://t.zsxq.com/043NjQFM3)
 
 ### offer选择
+- [offer 选择：北京上海北京，三个 offer 怎么选？](https://t.zsxq.com/0c5jHy1On)
 - [offer 选择：末流 985 硕，选美团到家测开还是外企 line go 后端开发？](https://t.zsxq.com/0bxWyJN17)
 - [offer 选择：宁德时代测开 vs 华为手机测试/软开大数据，怎么选？](https://t.zsxq.com/0bAWFtc8N)
 - [offer选择：23 届硕士，国企银联数据 Java 开发（26 万），叠纸游戏测试（30 万），怎么选？](https://t.zsxq.com/0anAi04HA)
@@ -176,6 +183,7 @@ head:
 - [考研：复试如何准备？](https://t.zsxq.com/0b75MBMMN)
 
 ### 实习
+- [实习：美本cs大四，准备国内 Java 后端开发实习，如何准备？](https://t.zsxq.com/0c0Qmh4Ee)
 - [实习：双一流大二计科，大三学长去蔚来 B站实习了，自己有点焦虑，怎么办？](https://t.zsxq.com/0b5CPZa4n)
 - [实习：民办二本，大三下，暑期想找到实习，目标中小厂，如何准备？](https://t.zsxq.com/0cnLUZnom)
 - [实习：双非大三，如何准备暑期实习？](https://t.zsxq.com/0boZ7AoBL)
@@ -191,6 +199,7 @@ head:
 - [实习：算法转 Java，要不要找实习提高一下秋招竞争力？](https://t.zsxq.com/04MFmy7Uf)
 
 ### 专升本
+- [专升本：专科，计划学习的东西非常多，但很多没有掌握，马上毕业找工作了，很迷茫，怎么办？](https://t.zsxq.com/0c76m89bV)
 - [专升本：专科大三，在外包公司实习，虽然很难，但也想通过进组考试，给这位球友鼓励吧！](https://t.zsxq.com/0cijIFXFT)
 - [专升本：想从事大数据开发，学 Python 还是 Java，要不要考研？](https://t.zsxq.com/0bfhBHXB3)
 - [专升本：做Java开发，升本还是直接就业？](https://t.zsxq.com/0bFiCgKiE)
@@ -256,6 +265,8 @@ head:
 - [学生党：零基础，先从哪一点开始学习呢？](https://t.zsxq.com/07ZFxmf1d)
 
 ### 方向选择
+- [方向选择：23届二本院校，运维还是大数据？](https://t.zsxq.com/0cPfA6XXJ)
+- [方向选择：专升本后在一家银行外包，领导让学后端，但我想专注前端，该怎么办？](https://t.zsxq.com/0cWVL3SXK)
 - [方向选择：研一计算机，本科学过 Java，也搞过算法竞赛，导师想要走算法，我想做开发，怎么选择？](https://t.zsxq.com/0c5ZUmXKw)
 - [方向选择：读博当老师还是研究生秋招计算机？](https://t.zsxq.com/0cQW92yZB)
 - [方向选择：考研两次没上岸，学了 Java 工资不满意，我是三战考研，还是继续卷 Java？](https://t.zsxq.com/0ch8M9OLN)
@@ -291,6 +302,8 @@ head:
 ## 工作党：
 
 ### 求职
+- [求职：二线城市做开发，工作很累，想跳槽，我该怎么办？](https://t.zsxq.com/0cCCw49xt)
+- [求职：今天不学习明天变辣鸡？当前的工作不是很满意，是离职准备还是骑驴找马？](https://t.zsxq.com/0cKsNtEZl)
 - [求职：工作七年，感觉遇到了瓶颈，想跳槽，该如何准备？](https://t.zsxq.com/0btndH6TI)
 - [求职：二本大四，实习中，考公成绩没出来，想学习 Java 如何快速达到面试要求？](https://t.zsxq.com/0bvgSm1NX)
 - [求职：用友金融一年经验，想提高自己，按照大厂的标准，求指导？](https://t.zsxq.com/0bbuMTNZz)
@@ -349,6 +362,8 @@ head:
 - [人生规划：毕业到现在还没找到工作，我该何去何从？](https://t.zsxq.com/04iaqrBYb)
 
 ### 转行
+- [转行：培训班、大专学历，基础非常不扎实，投简历没人要，我该怎么办？](https://t.zsxq.com/0ccga1SeD)
+- [转行：测试转开发，如何准备？](https://t.zsxq.com/0bAopKYPf)
 - [转行：测试转开发，如何准备？](https://t.zsxq.com/0bAopKYPf)
 - [转行：通过搭建 Web 网站的方式学习 Java 后端知识，该怎么准备？](https://t.zsxq.com/0bPxV7w4I)
 - [转行：考研失败、培训，想从工业视觉转 Java 开发，该如何准备？](https://t.zsxq.com/0bDlbRvRJ)
@@ -375,6 +390,7 @@ head:
 
 
 ### 工作党
+- [工作党：私企、代码量很少，SQLBoy，很焦虑，怎么办？](https://t.zsxq.com/0cKw9cWy1)
 - [工作党：如何提升自己的文笔，应付周报？](https://t.zsxq.com/0cRn2QCqU)
 - [工作党：20 年双非毕业，想要面试前突击，找到 1 家 1.8w 的自研工作，怎么准备？](https://t.zsxq.com/0byomFAAg)
 - [工作党：刚参加工作，没有学习动力该怎么办？](https://t.zsxq.com/0bWBHQqhE)
@@ -474,6 +490,8 @@ head:
 - [优质面经篇：工作 8 年，面试了 30 家，这份硬核面经分享给球友们](https://t.zsxq.com/09rkRe9IZ)
 - [优质面经篇：Java大数据开发面经分享：16 天 5 面，从华为 od 到鹅厂](https://t.zsxq.com/0al4lBgdO)
 
+### 技术派
+- [技术派整合本地缓存之Guava](https://t.zsxq.com/0ckw9l8Tn)
 ### 二哥的LeetCode刷题笔记
 - [076.最小覆盖子串](https://t.zsxq.com/0bd1lYWMh)
 - [075.颜色分类](https://t.zsxq.com/0bHB7T1kU)
@@ -524,6 +542,7 @@ head:
 - [沉默王二：如何运营好个人网站？](https://t.zsxq.com/08AzyGpNd)
 
 ## 技术细节
+- [技术细节： ELK 收集日志](https://t.zsxq.com/0cR1DRfD7)
 - [技术细节：学习 Spring Boot 的时候，应该怎么学习？源码看不太懂](https://t.zsxq.com/0bBlSeqMi)
 - [技术细节：百度春招笔试，给定一个有n个元素的无序数组，将其分为k个子数组。问各个子数组元素的平均值之和的最小值是多少？](https://t.zsxq.com/0c2uHcUgt)
 - [技术细节：想了解一下 RabbitMQ 的returnCallback 时机](https://t.zsxq.com/0bkxqr9EF)
@@ -722,10 +741,6 @@ head:
 - [独孤孤独](https://t.zsxq.com/04y7MNfyN)
 - [小豪（大三）](https://t.zsxq.com/06qNB66ea)
 - [落霞](https://t.zsxq.com/04NnMNV7U)
-
-
-
-
 
 
 
