@@ -42,7 +42,7 @@
 一个人可以走得很快，但一群人才能走得更远。知识库的学习圈子已经有 **2000 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读知识库的配套专栏、向作者提问、帮你制定学习计划、和球友一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
 <a href="https://tobebetterjavaer.com/zhishixingqiu/">
-  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.png" width="300" alt="Java程序员进阶之路">
+  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" width="300">
 </a>
 
 # 知识库地图
