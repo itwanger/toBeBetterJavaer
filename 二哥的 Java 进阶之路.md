@@ -21940,3 +21940,1805 @@ transient 关键字和 static 关键字都可以用来修饰类的成员变量�
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+# 第八章：异常处理
+
+## 8.1 Java异常处理
+
+### 01、什么是异常
+
+“二哥，今天就要学习异常了吗？”三妹问。
+
+“是的。只有正确地处理好异常，才能保证程序的可靠性，所以异常的学习还是很有必要的。”我说。
+
+“那到底什么是异常呢？”三妹问。
+
+“异常是指中断程序正常执行的一个不确定的事件。当异常发生时，程序的正常执行流程就会被打断。一般情况下，程序都会有很多条语句，如果没有异常处理机制，前面的语句一旦出现了异常，后面的语句就没办法继续执行了。”
+
+“有了异常处理机制后，程序在发生异常的时候就不会中断，我们可以对异常进行捕获，然后改变程序执行的流程。”
+
+“除此之外，异常处理机制可以保证我们向用户提供友好的提示信息，而不是程序原生的异常信息——用户根本理解不了。”
+
+“不过，站在开发者的角度，我们更希望看到原生的异常信息，因为这有助于我们更快地找到 bug 的根源，反而被过度包装的异常信息会干扰我们的视线。”
+
+“Java 语言在一开始就提供了相对完善的异常处理机制，这种机制大大降低了编写可靠程序的门槛，这也是 Java 之所以能够流行的原因之一。”
+
+“那导致程序抛出异常的原因有哪些呢？”三妹问。
+
+比如说：
+
+- 程序在试图打开一个不存在的文件；
+- 程序遇到了网络连接问题；
+- 用户输入了糟糕的数据；
+- 程序在处理算术问题时没有考虑除数为 0 的情况；
+
+等等等等。
+
+挑个最简单的原因来说吧。
+
+```java
+public class Demo {
+    public static void main(String[] args) {
+        System.out.println(10/0);
+    }
+}
+```
+
+这段代码在运行的时候抛出的异常信息如下所示：
+
+```
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at com.itwanger.s41.Demo.main(Demo.java:8)
+```
+
+“你看，三妹，这个原生的异常信息对用户来说，显然是不太容易理解的，但对于我们开发者来说，简直不要太直白了——很容易就能定位到异常发生的根源。”
+
+### 02、Exception和Error的区别
+
+“哦，我知道了。下一个问题，我经常看到一些文章里提到 Exception 和 Error，二哥你能帮我解释一下它们之间的区别吗？”三妹问。
+
+“这是一个好问题呀，三妹！”
+
+从单词的释义上来看，error 为错误，exception 为异常，错误的等级明显比异常要高一些。
+
+从程序的角度来看，也的确如此。
+
+Error 的出现，意味着程序出现了严重的问题，而这些问题不应该再交给 Java 的异常处理机制来处理，程序应该直接崩溃掉，比如说 OutOfMemoryError，内存溢出了，这就意味着程序在运行时申请的内存大于系统能够提供的内存，导致出现的错误，这种错误的出现，对于程序来说是致命的。
+
+Exception 的出现，意味着程序出现了一些在可控范围内的问题，我们应当采取措施进行挽救。
+
+比如说之前提到的 ArithmeticException，很明显是因为除数出现了 0 的情况，我们可以选择捕获异常，然后提示用户不应该进行除 0 操作，当然了，更好的做法是直接对除数进行判断，如果是 0 就不进行除法运算，而是告诉用户换一个非 0 的数进行运算。
+
+### 03、checked和unchecked异常
+
+“三妹，还能想到其他的问题吗？”
+
+“嗯，不用想，二哥，我已经提前做好预习工作了。”三妹自信地说，“异常又可以分为 checked 和 unchecked，它们之间又有什么区别呢？”
+
+“哇，三妹，果然又是一个好问题呢。”
+
+checked 异常（检查型异常）在源代码里必须显式地捕获或者抛出，否则编译器会提示你进行相应的操作；而 unchecked 异常（非检查型异常）就是所谓的运行时异常，通常是可以通过编码进行规避的，并不需要显式地捕获或者抛出。
+
+“我先画一幅思维导图给你感受一下。”
+
+![](https://cdn.tobebetterjavaer.com/studymore/gailan-20230326090207.png)
+
+首先，Exception 和 Error 都继承了 Throwable 类。换句话说，只有 Throwable 类（或者子类）的对象才能使用 throw 关键字抛出，或者作为 catch 的参数类型。
+
+面试中经常问到的一个问题是，NoClassDefFoundError 和 ClassNotFoundException 有什么区别？
+
+“三妹你知道吗？”
+
+“不知道，二哥，你解释下呗。”
+
+它们都是由于系统运行时找不到要加载的类导致的，但是触发的原因不一样。
+
+- NoClassDefFoundError：程序在编译时可以找到所依赖的类，但是在运行时找不到指定的类文件，导致抛出该错误；原因可能是 jar 包缺失或者调用了初始化失败的类。
+- ClassNotFoundException：当动态加载 Class 对象的时候找不到对应的类时抛出该异常；原因可能是要加载的类不存在或者类名写错了。
+
+
+其次，像 IOException、ClassNotFoundException、SQLException 都属于 checked 异常；像 RuntimeException 以及子类 ArithmeticException、ClassCastException、ArrayIndexOutOfBoundsException、NullPointerException，都属于 unchecked 异常。
+
+unchecked 异常可以不在程序中显示处理，就像之前提到的 ArithmeticException 就是的；但 checked 异常必须显式处理。
+
+比如说下面这行代码：
+
+```java
+Class clz = Class.forName("com.itwanger.s41.Demo1");
+```
+
+如果没做处理，比如说在 Intellij IDEA 环境下，就会提示你这行代码可能会抛出 `java.lang.ClassNotFoundException`。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/gailan-02.png)
+
+建议你要么使用 try-catch 进行捕获：
+
+```java
+try {
+    Class clz = Class.forName("com.itwanger.s41.Demo1");
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+}
+```
+
+注意打印异常堆栈信息的 `printStackTrace()` 方法，该方法会将异常的堆栈信息打印到标准的控制台下，如果是测试环境，这样的写法还 OK，如果是生产环境，这样的写法是不可取的，必须使用日志框架把异常的堆栈信息输出到日志系统中，否则可能没办法跟踪。
+
+要么在方法签名上使用 throws 关键字抛出：
+
+```java
+public class Demo1 {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class clz = Class.forName("com.itwanger.s41.Demo1");
+    }
+}
+```
+
+这样做的好处是不需要对异常进行捕获处理，只需要交给 Java 虚拟机来处理即可；坏处就是没法针对这种情况做相应的处理。
+
+“二哥，针对 checked 异常，我在知乎上看到一个帖子，说 Java 中的 checked 很没有必要，这种异常在编译期要么 try-catch，要么 throws，但又不一定会出现异常，你觉得这样的设计有意义吗？”三妹提出了一个很尖锐的问题。
+
+“哇，这种问题问的好。”我不由得对三妹心生敬佩。
+
+“的确，checked 异常在业界是有争论的，它假设我们捕获了异常，并且针对这种情况作了相应的处理，但有些时候，根本就没法处理。”我说，“就拿上面提到的 ClassNotFoundException 异常来说，我们假设对其进行了 try-catch，可真的出现了 ClassNotFoundException 异常后，我们也没多少的可操作性，再 `Class.forName()` 一次？”
+
+另外，checked 异常也不兼容函数式编程，后面如果你写 Lambda/Stream 代码的时候，就会体验到这种苦涩。
+
+当然了，checked 异常并不是一无是处，尤其是在遇到 IO 或者网络异常的时候，比如说进行 Socket 链接，我大致写了一段：
+
+```java
+public class Demo2 {
+    private String mHost;
+    private int mPort;
+    private Socket mSocket;
+    private final Object mLock = new Object();
+
+    public void run() {
+    }
+
+    private void initSocket() {
+        while (true) {
+            try {
+                Socket socket = new Socket(mHost, mPort);
+                synchronized (mLock) {
+                    mSocket = socket;
+                }
+                break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
+
+当发生 IOException 的时候，socket 就重新尝试连接，否则就 break 跳出循环。意味着如果 IOException 不是 checked 异常，这种写法就略显突兀，因为 IOException 没办法像 ArithmeticException 那样用一个 if 语句判断除数是否为 0 去规避。
+
+或者说，强制性的 checked 异常可以让我们在编程的时候去思考，遇到这种异常的时候该怎么更优雅的去处理。显然，Socket 编程中，肯定是会遇到 IOException 的，假如 IOException 是非检查型异常，就意味着开发者也可以不考虑，直接跳过，交给 Java 虚拟机来处理，但我觉得这样做肯定更不合适。
+
+### 04、关于 throw 和 throws
+
+“二哥，你能告诉我 throw 和 throws 两个关键字的区别吗？”三妹问。
+
+“throw 关键字，用于主动地抛出异常；正常情况下，当除数为 0 的时候，程序会主动抛出 ArithmeticException；但如果我们想要除数为 1 的时候也抛出 ArithmeticException，就可以使用 throw 关键字主动地抛出异常。”我说。
+
+```java
+throw new exception_class("error message");
+```
+
+语法也非常简单，throw 关键字后跟上 new 关键字，以及异常的类型还有参数即可。
+
+举个例子。
+
+```java
+public class ThrowDemo {
+    static void checkEligibilty(int stuage){
+        if(stuage<18) {
+            throw new ArithmeticException("年纪未满 18 岁，禁止观影");
+        } else {
+            System.out.println("请认真观影!!");
+        }
+    }
+
+    public static void main(String args[]){
+        checkEligibilty(10);
+        System.out.println("愉快地周末..");
+    }
+}
+```
+
+这段代码在运行的时候就会抛出以下错误：
+
+```
+Exception in thread "main" java.lang.ArithmeticException: 年纪未满 18 岁，禁止观影
+    at com.itwanger.s43.ThrowDemo.checkEligibilty(ThrowDemo.java:9)
+    at com.itwanger.s43.ThrowDemo.main(ThrowDemo.java:16)
+```
+
+“throws 关键字的作用就和 throw 完全不同。”我说，“前面的小节里已经讲了 checked exception 和 unchecked exception，也就是检查型异常和非检查型异常；对于检查型异常来说，如果你没有做处理，编译器就会提示你。”
+
+`Class.forName()` 方法在执行的时候可能会遇到 `java.lang.ClassNotFoundException` 异常，一个检查型异常，如果没有做处理，IDEA 就会提示你，要么在方法签名上声明，要么放在 try-catch 中。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/throw-throws-01.png)
+
+“那什么情况下使用 throws 而不是 try-catch 呢？”三妹问。
+
+“假设现在有这么一个方法 `myMethod()`，可能会出现 ArithmeticException 异常，也可能会出现 NullPointerException。这种情况下，可以使用 try-catch 来处理。”我回答。
+
+```java
+public void myMethod() {
+    try {
+        // 可能抛出异常 
+    } catch (ArithmeticException e) {
+        // 算术异常
+    } catch (NullPointerException e) {
+        // 空指针异常
+    }
+}
+```
+
+“但假设有好几个类似 `myMethod()` 的方法，如果为每个方法都加上 try-catch，就会显得非常繁琐。代码就会变得又臭又长，可读性就差了。”我继续说。
+
+“一个解决办法就是，使用 throws 关键字，在方法签名上声明可能会抛出的异常，然后在调用该方法的地方使用 try-catch 进行处理。”
+
+```java
+public static void main(String args[]){
+    try {
+        myMethod1();
+    } catch (ArithmeticException e) {
+        // 算术异常
+    } catch (NullPointerException e) {
+        // 空指针异常
+    }
+}
+public static void myMethod1() throws ArithmeticException, NullPointerException{
+    // 方法签名上声明异常
+}
+```
+
+“好了，我来总结下 throw 和 throws 的区别，三妹，你记一下。”
+
+ 1）throws 关键字用于声明异常，它的作用和 try-catch 相似；而 throw 关键字用于显式的抛出异常。
+
+2）throws 关键字后面跟的是异常的名字；而 throw 关键字后面跟的是异常的对象。
+
+示例。
+
+```java
+throws ArithmeticException;
+```
+
+```java
+throw new ArithmeticException("算术异常");
+```
+
+3）throws 关键字出现在方法签名上，而 throw 关键字出现在方法体里。
+
+4）throws 关键字在声明异常的时候可以跟多个，用逗号隔开；而 throw 关键字每次只能抛出一个异常。
+
+### 05、关于 try-catch-finally
+
+“二哥，之前你讲了异常处理机制，这一节讲什么呢？”三妹问。
+
+“该讲 try-catch-finally 了。”我说，“try 关键字后面会跟一个大括号 `{}`，我们把一些可能发生异常的代码放到大括号里；`try` 块后面一般会跟 `catch` 块，用来处理发生异常的情况；当然了，异常不一定会发生，为了保证发不发生异常都能执行一些代码，就会跟一个 `finally` 块。”
+
+“具体该怎么用呀，二哥？”三妹问。
+
+“别担心，三妹，我一一来说明下。”我说。
+
+`try` 块的语法很简单：
+
+```java
+try{
+// 可能发生异常的代码
+}
+```
+
+“注意啊，三妹，如果一些代码确定不会抛出异常，就尽量不要把它包裹在 `try` 块里，因为加了异常处理的代码执行起来要比没有加的花费更多的时间。”
+
+`catch` 块的语法也很简单：
+
+```java
+try{
+// 可能发生异常的代码
+}catch (exception(type) e(object)){
+// 异常处理代码
+}
+```
+
+一个 `try` 块后面可以跟多个 `catch` 块，用来捕获不同类型的异常并做相应的处理，当 try 块中的某一行代码发生异常时，之后的代码就不再执行，而是会跳转到异常对应的 catch 块中执行。
+
+如果一个 try 块后面跟了多个与之关联的 catch 块，那么应该把特定的异常放在前面，通用型的异常放在后面，不然编译器会提示错误。举例来说。
+
+```java
+static void test() {
+    int num1, num2;
+    try {
+        num1 = 0;
+        num2 = 62 / num1;
+        System.out.println(num2);
+        System.out.println("try 块的最后一句");
+    } catch (ArithmeticException e) {
+        // 算术运算发生时跳转到这里
+        System.out.println("除数不能为零");
+    } catch (Exception e) {
+        // 通用型的异常意味着可以捕获所有的异常，它应该放在最后面，
+        System.out.println("异常发生了");
+    }
+    System.out.println("try-catch 之外的代码.");
+}
+```
+
+“为什么 Exception 不能放到 ArithmeticException 前面呢？”三妹问。
+
+“因为 ArithmeticException 是 Exception 的子类，它更具体，我们看到就这个异常就知道是发生了算术错误，而 Exception 比较泛，它隐藏了具体的异常信息，我们看到后并不确定到底是发生了哪一种类型的异常，对错误的排查很不利。”我说，“再者，如果把通用型的异常放在前面，就意味着其他的 catch 块永远也不会执行，所以编译器就直接提示错误了。”
+
+“再给你举个例子，注意看，三妹。”
+
+```java
+static void test1 () {
+    try{
+        int arr[]=new int[7];
+        arr[4]=30/0;
+        System.out.println("try 块的最后");
+    } catch(ArithmeticException e){
+        System.out.println("除数必须是 0");
+    } catch(ArrayIndexOutOfBoundsException e){
+        System.out.println("数组越界了");
+    } catch(Exception e){
+        System.out.println("一些其他的异常");
+    }
+    System.out.println("try-catch 之外");
+}
+```
+
+这段代码在执行的时候，第一个 catch 块会执行，因为除数为零；我再来稍微改动下代码。
+
+```java
+static void test1 () {
+    try{
+        int arr[]=new int[7];
+        arr[9]=30/1;
+        System.out.println("try 块的最后");
+    } catch(ArithmeticException e){
+        System.out.println("除数必须是 0");
+    } catch(ArrayIndexOutOfBoundsException e){
+        System.out.println("数组越界了");
+    } catch(Exception e){
+        System.out.println("一些其他的异常");
+    }
+    System.out.println("try-catch 之外");
+}
+```
+
+“我知道，二哥，第二个 catch 块会执行，因为没有发生算术异常，但数组越界了。”三妹没等我把代码运行起来就说出了答案。
+
+“三妹，你说得很对，我再来改一下代码。”
+
+```java
+static void test1 () {
+    try{
+        int arr[]=new int[7];
+        arr[9]=30/1;
+        System.out.println("try 块的最后");
+    } catch(ArithmeticException | ArrayIndexOutOfBoundsException e){
+        System.out.println("除数必须是 0");
+    }
+    System.out.println("try-catch 之外");
+}
+```
+
+“当有多个 catch 的时候，也可以放在一起，用竖划线 `|` 隔开，就像上面这样。”我说。
+
+“这样不错呀，看起来更简洁了。”三妹说。
+
+`finally` 块的语法也不复杂。
+
+```java
+try {
+    // 可能发生异常的代码
+}catch {
+   // 异常处理
+}finally {
+   // 必须执行的代码
+}
+```
+
+在没有 [`try-with-resources`](https://tobebetterjavaer.com/exception/try-with-resources.html) 之前，finally 块常用来关闭一些连接资源，比如说 socket、数据库链接、IO 输入输出流等。
+
+```java
+OutputStream osf = new FileOutputStream( "filename" );
+OutputStream osb = new BufferedOutputStream(opf);
+ObjectOutput op = new ObjectOutputStream(osb);
+try{
+    output.writeObject(writableObject);
+} finally{
+    op.close();
+}
+```
+
+“三妹，注意，使用 finally 块的时候需要遵守这些规则。”
+
+- finally 块前面必须有 try 块，不要把 finally 块单独拉出来使用。编译器也不允许这样做。
+- finally 块不是必选项，有 try 块的时候不一定要有 finally 块。
+- 如果 finally 块中的代码可能会发生异常，也应该使用 try-catch 进行包裹。
+- 即便是 try 块中执行了 return、break、continue 这些跳转语句，finally 块也会被执行。
+
+“真的吗，二哥？”三妹对最后一个规则充满了疑惑。
+
+“来试一下就知道了。”我说。
+
+```java
+static int test2 () {
+    try {
+        return 112;
+    }
+    finally {
+        System.out.println("即使 try 块有 return，finally 块也会执行");
+    }
+}
+```
+
+来看一下输出结果：
+
+```
+即使 try 块有 return，finally 块也会执行
+```
+
+“那，会不会有不执行 finally 的情况呀？”三妹很好奇。
+
+“有的。”我斩钉截铁地回答。
+
+- 遇到了死循环。
+- 执行了 `System. exit()` 这行代码。
+
+`System.exit()` 和 `return` 语句不同，前者是用来退出程序的，后者只是回到了上一级方法调用。
+
+“三妹，来看一下源码的文档注释就全明白了！”
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/try-catch-finally-01.png)
+
+至于参数 status 的值也很好理解，如果是异常退出，设置为非 0 即可，通常用 1 来表示；如果是想正常退出程序，用 0 表示即可。
+
+### 06、小结
+
+Java 的异常处理是一种重要的机制，可以帮助我们处理程序执行期间发生的错误❎或异常。
+
+异常分为两类：Checked Exception 和 Unchecked Exception，其中 Checked Exception 需要在代码中显式地处理或声明抛出，而 Unchecked Exception 不需要在代码中显式地处理或声明抛出。异常处理通常使用 try-catch-finally 块来处理，也可以使用 throws 关键字将异常抛出给调用者处理。
+
+下面是 Java 异常处理的一些总结：
+
+- 使用 try-catch 块捕获并处理异常，可以避免程序因异常而崩溃。
+- 可以使用多个 catch 块来捕获不同类型的异常，并进行不同的处理。
+- 可以使用 finally 块来执行一些必要的清理工作，无论是否发生异常都会执行。
+- 可以使用 throw 关键字手动抛出异常，用于在程序中明确指定某些异常情况。
+- 可以使用 throws 关键字将异常抛出给调用者处理，用于在方法签名中声明可能会出现的异常。
+- Checked Exception 通常是由于外部因素导致的问题，需要在代码中显式地处理或声明抛出。
+- Unchecked Exception 通常是由于程序内部逻辑或数据异常导致的，可以不处理或者在需要时进行处理。
+- 在处理异常时，应该根据具体的异常类型进行处理，例如可以尝试重新打开文件、重新建立网络连接等操作。
+- 异常处理应该根据具体的业务需求和设计原则进行，避免过度捕获和处理异常，从而降低程序的性能和可维护性。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 8.2 try-with-resources
+
+“二哥，终于等到你讲 try-with-resources 了！”三妹夸张的表情让我有些吃惊。
+
+“三妹，不要激动呀！开讲之前，我们还是要来回顾一下 try–catch-finally，好做个铺垫。”我说，“来看看这段代码吧。”
+
+```java
+public class TrycatchfinallyDecoder {
+    public static void main(String[] args) {
+        BufferedReader br = null;
+        try {
+            String path = TrycatchfinallyDecoder.class.getResource("/牛逼.txt").getFile();
+            String decodePath = URLDecoder.decode(path,"utf-8");
+            br = new BufferedReader(new FileReader(decodePath));
+
+            String str = null;
+            while ((str =br.readLine()) != null) {
+                System.out.println(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+```
+
+“我简单来解释下。”等三妹看完这段代码后，我继续说，“在 try 块中读取文件中的内容，并一行一行地打印到控制台。如果文件找不到或者出现 IO 读写错误，就在 catch 中捕获并打印错误的堆栈信息。最后，在 finally 中关闭缓冲字符读取器对象 BufferedReader，有效杜绝了资源未被关闭的情况下造成的严重性能后果。”
+
+“在 Java 7 之前，try–catch-finally 的确是确保资源会被及时关闭的最佳方法，无论程序是否会抛出异常。”
+
+三妹点了点头，表示同意。
+
+“不过，这段代码还是有些臃肿，尤其是 finally 中的代码。”我说，“况且，try–catch-finally 至始至终存在一个严重的隐患：try 中的 `br.readLine()` 有可能会抛出 `IOException`，finally 中的 `br.close()` 也有可能会抛出 `IOException`。假如两处都不幸地抛出了 IOException，那程序的调试任务就变得复杂了起来，到底是哪一处出了错误，就需要花一番功夫，这是我们不愿意看到的结果。”
+
+“我来给你演示下，三妹。”
+
+“首先，我们来定义这样一个类 MyfinallyReadLineThrow，它有两个方法，分别是 `readLine()` 和 `close()`，方法体都是主动抛出异常。”
+
+```java
+class MyfinallyReadLineThrow {
+    public void close() throws Exception {
+        throw new Exception("close");
+    }
+
+    public void readLine() throws Exception {
+        throw new Exception("readLine");
+    }
+}
+```
+
+“然后在 `main()` 方法中使用 try-catch-finally 的方式调用 MyfinallyReadLineThrow 的 `readLine()` 和 `close()` 方法。”
+
+```java
+public class TryfinallyCustomReadLineThrow {
+    public static void main(String[] args) throws Exception {
+        MyfinallyReadLineThrow myThrow = null;
+        try {
+            myThrow = new MyfinallyReadLineThrow();
+            myThrow.readLine();
+        } finally {
+            myThrow.close();
+        }
+    }
+}
+```
+
+运行上述代码后，错误堆栈如下所示：
+
+```
+Exception in thread "main" java.lang.Exception: close
+	at com.cmower.dzone.trycatchfinally.MyfinallyOutThrow.close(TryfinallyCustomOutThrow.java:17)
+	at com.cmower.dzone.trycatchfinally.TryfinallyCustomOutThrow.main(TryfinallyCustomOutThrow.java:10)
+```
+
+“看出来问题了吗，三妹？”
+
+“啊？`readLine()` 方法的异常信息竟然被 `close()` 方法的堆栈信息吃了！”
+
+“不错啊，三妹，火眼金睛，的确，这会让我们误以为要调查的目标是 `close()` 方法而不是 `readLine()` 方法——尽管它也是应该怀疑的对象。”
+
+“但有了 try-with-resources 后，这些问题就迎刃而解了。前提条件只有一个，就是需要释放的资源（比如 BufferedReader）实现了 AutoCloseable 接口。”
+
+```java
+try (BufferedReader br = new BufferedReader(new FileReader(decodePath));) {
+    String str = null;
+    while ((str =br.readLine()) != null) {
+        System.out.println(str);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+“你瞧，三妹，finally 块消失了，取而代之的是把要释放的资源写在 try 后的 `()` 中。如果有多个资源（BufferedReader 和 PrintWriter）需要释放的话，可以直接在 `()` 中添加。”
+
+```java
+try (BufferedReader br = new BufferedReader(new FileReader(decodePath));
+     PrintWriter writer = new PrintWriter(new File(writePath))) {
+    String str = null;
+    while ((str =br.readLine()) != null) {
+        writer.print(str);
+    }
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+“如果想释放自定义资源的话，只要让它实现 AutoCloseable 接口，并提供 `close()` 方法即可。”
+
+```java
+public class TrywithresourcesCustom {
+    public static void main(String[] args) {
+        try (MyResource resource = new MyResource();) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class MyResource implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        System.out.println("关闭自定义资源");
+    }
+}
+```
+
+来看一下代码运行后的输出结果：
+
+```
+关闭自定义资源
+```
+
+“好神奇呀！”三妹欣喜若狂，“在 `try ()` 中只是 new 了一个 MyResource 的对象，其他什么也没干，`close()` 方法就执行了！”
+
+“想知道为什么吗？三妹。”
+
+“当然想啊。”
+
+“来看看反编译后的字节码吧。”
+
+```java
+class MyResource implements AutoCloseable {
+    MyResource() {
+    }
+
+    public void close() throws Exception {
+        System.out.println("关闭自定义资源");
+    }
+}
+
+public class TrywithresourcesCustom {
+    public TrywithresourcesCustom() {
+    }
+
+    public static void main(String[] args) {
+        try {
+            MyResource resource = new MyResource();
+            resource.close();
+        } catch (Exception var2) {
+            var2.printStackTrace();
+        }
+
+    }
+}
+```
+
+“啊，原来如此。编译器主动为 try-with-resources 进行了变身，在 try 中调用了 `close()` 方法。”
+
+“是这样的。接下来，我们在 `MyResourceOut` 类中再添加一个 `out()` 方法。”
+
+```java
+class MyResourceOut implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        System.out.println("关闭自定义资源");
+    }
+
+    public void out() throws Exception{
+        System.out.println("沉默王二，一枚有趣的程序员");
+    }
+}
+```
+
+“这次，我们在 try 中调用一下 `out()` 方法。”
+
+```java
+public class TrywithresourcesCustomOut {
+    public static void main(String[] args) {
+        try (MyResourceOut resource = new MyResourceOut();) {
+            resource.out();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+“再来看一下反编译的字节码。”
+
+```java
+public class TrywithresourcesCustomOut {
+    public TrywithresourcesCustomOut() {
+    }
+
+    public static void main(String[] args) {
+        try {
+            MyResourceOut resource = new MyResourceOut();
+
+            try {
+                resource.out();
+            } catch (Throwable var5) {
+                try {
+                    resource.close();
+                } catch (Throwable var4) {
+                    var5.addSuppressed(var4);
+                }
+
+                throw var5;
+            }
+
+            resource.close();
+        } catch (Exception var6) {
+            var6.printStackTrace();
+        }
+
+    }
+}
+```
+
+“这次，`catch` 块主动调用了 `resource.close()`，并且有一段很关键的代码 ` var5.addSuppressed(var4)`。”
+
+“这是为了什么呢？”三妹问。
+
+“当一个异常被抛出的时候，可能有其他异常因为该异常而被抑制住，从而无法正常抛出。这时可以通过 `addSuppressed()` 方法把这些被抑制的方法记录下来，然后被抑制的异常就会出现在抛出的异常的堆栈信息中，可以通过 `getSuppressed()` 方法来获取这些异常。这样做的好处是不会丢失任何异常，方便我们进行调试。”我说。
+
+“有没有想到之前的那个例子——在 try-catch-finally 中，`readLine()` 方法的异常信息竟然被 `close()` 方法的堆栈信息吃了。现在有了 try-with-resources，再来看看和 `readLine()` 方法一致的 `out()` 方法会不会被 `close()` 吃掉吧。”
+
+```java
+class MyResourceOutThrow implements AutoCloseable {
+    @Override
+    public void close() throws Exception {
+        throw  new Exception("close()");
+    }
+
+    public void out() throws Exception{
+        throw new Exception("out()");
+    }
+}
+```
+
+“调用这 2 个方法。”
+
+```java
+public class TrywithresourcesCustomOutThrow {
+    public static void main(String[] args) {
+        try (MyResourceOutThrow resource = new MyResourceOutThrow();) {
+            resource.out();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+“程序输出的结果如下所示。”
+
+```
+java.lang.Exception: out()
+	at com.cmower.dzone.trycatchfinally.MyResourceOutThrow.out(TrywithresourcesCustomOutThrow.java:20)
+	at com.cmower.dzone.trycatchfinally.TrywithresourcesCustomOutThrow.main(TrywithresourcesCustomOutThrow.java:6)
+	Suppressed: java.lang.Exception: close()
+		at com.cmower.dzone.trycatchfinally.MyResourceOutThrow.close(TrywithresourcesCustomOutThrow.java:16)
+		at com.cmower.dzone.trycatchfinally.TrywithresourcesCustomOutThrow.main(TrywithresourcesCustomOutThrow.java:5)
+```
+
+“瞧，这次不会了，`out()` 的异常堆栈信息打印出来了，并且 `close()` 方法的堆栈信息上加了一个关键字 `Suppressed`，一目了然。”
+
+“三妹，怎么样？是不是感觉 try-with-resources 好用多了！我来简单总结下哈，在处理必须关闭的资源时，始终有限考虑使用 try-with-resources，而不是 try–catch-finally。前者产生的代码更加简洁、清晰，产生的异常信息也更靠谱。”
+
+“靠谱！”三妹说。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 8.3 异常处理的20个最佳实践
+
+“三妹啊，今天我来给你传授 20 个异常处理的最佳实践经验，以免你以后在开发中采坑。”我面带着微笑对三妹说。
+
+“好啊，二哥，我洗耳恭听。”三妹也微微一笑，欣然接受。
+
+“好，那哥就不废话了。开整。”
+
+### 01、尽量不要捕获 RuntimeException
+
+[阿里出品的 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上这样规定：
+
+>尽量不要 catch RuntimeException，比如 NullPointerException、IndexOutOfBoundsException 等等，应该用预检查的方式来规避。
+
+正例：
+
+```java
+if (obj != null) {
+  //...
+}
+```
+
+反例：
+
+```java
+try { 
+  obj.method(); 
+} catch (NullPointerException e) {
+  //...
+}
+```
+
+“哦，那如果有些异常预检查不出来呢？”三妹问。
+
+“的确会存在这样的情况，比如说 NumberFormatException，虽然也属于 RuntimeException，但没办法预检查，所以还是应该用 catch 捕获处理。”我说。
+
+### 02、尽量使用 try-with-resource 来关闭资源
+
+当需要关闭资源时，尽量不要使用 try-catch-finally，禁止在 try 块中直接关闭资源。
+
+反例：
+
+```java
+public void doNotCloseResourceInTry() {
+    FileInputStream inputStream = null;
+    try {
+        File file = new File("./tmp.txt");
+        inputStream = new FileInputStream(file);
+        inputStream.close();
+    } catch (FileNotFoundException e) {
+        log.error(e);
+    } catch (IOException e) {
+        log.error(e);
+    }
+}
+```
+
+“为什么呢？”三妹问。
+
+“原因也很简单，因为一旦 `close()` 之前发生了异常，那么资源就无法关闭。直接使用 [try-with-resource](https://tobebetterjavaer.com/exception/try-with-resources.html) 来处理是最佳方式。”我说。
+
+```java
+public void automaticallyCloseResource() {
+    File file = new File("./tmp.txt");
+    try (FileInputStream inputStream = new FileInputStream(file);) {
+    } catch (FileNotFoundException e) {
+        log.error(e);
+    } catch (IOException e) {
+        log.error(e);
+    }
+}
+```
+
+“除非资源没有实现 AutoCloseable 接口。”我补充道。
+
+“那这种情况下怎么办呢？”三妹问。
+
+“就在 finally 块关闭流。”我说。
+
+```java
+public void closeResourceInFinally() {
+    FileInputStream inputStream = null;
+    try {
+        File file = new File("./tmp.txt");
+        inputStream = new FileInputStream(file);
+    } catch (FileNotFoundException e) {
+        log.error(e);
+    } finally {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                log.error(e);
+            }
+        }
+    }
+}
+```
+
+### 03、不要捕获 Throwable
+
+Throwable 是 exception 和 error 的父类，如果在 catch 子句中捕获了 Throwable，很可能把超出程序处理能力之外的错误也捕获了。
+
+```java
+public void doNotCatchThrowable() {
+    try {
+    } catch (Throwable t) {
+        // 不要这样做
+    }
+}
+```
+
+“到底为什么啊？”三妹问。
+
+“因为有些 error 是不需要程序来处理，程序可能也处理不了，比如说 OutOfMemoryError 或者 StackOverflowError，前者是因为 Java 虚拟机无法申请到足够的内存空间时出现的非正常的错误，后者是因为线程申请的栈深度超过了允许的最大深度出现的非正常错误，如果捕获了，就掩盖了程序应该被发现的严重错误。”我说。
+
+“打个比方，一匹马只能拉一车厢的货物，拉两车厢可能就挂了，但一 catch，就发现不了问题了。”我补充道。
+
+### 04、不要省略异常信息的记录
+
+很多时候，由于疏忽大意，我们很容易捕获了异常却没有记录异常信息，导致程序上线后真的出现了问题却没有记录可查。
+
+```java
+public void doNotIgnoreExceptions() {
+    try {
+    } catch (NumberFormatException e) {
+        // 没有记录异常
+    }
+}
+```
+
+应该把错误信息记录下来。
+
+```java
+public void logAnException() {
+    try {
+    } catch (NumberFormatException e) {
+        log.error("哦，错误竟然发生了: " + e);
+    }
+}
+```
+
+### 05、不要记录了异常又抛出了异常
+
+这纯属画蛇添足，并且容易造成错误信息的混乱。
+
+反例：
+
+```java
+try {
+} catch (NumberFormatException e) {
+    log.error(e);
+    throw e;
+}
+```
+
+要抛出就抛出，不要记录，记录了又抛出，等于多此一举。
+
+反例：
+
+```java
+public void wrapException(String input) throws MyBusinessException {
+    try {
+    } catch (NumberFormatException e) {
+        throw new MyBusinessException("错误信息描述：", e);
+    }
+}
+```
+
+这种也是一样的道理，既然已经捕获了，就不要在方法签名上抛出了。
+
+### 06、不要在 finally 块中使用 return
+
+[阿里出品的 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上这样规定：
+
+>try 块中的 return 语句执行成功后，并不会马上返回，而是继续执行 finally 块中的语句，如果 finally 块中也存在 return 语句，那么 try 块中的 return 就将被覆盖。
+
+反例：
+
+```java
+private int x = 0;
+public int checkReturn() {
+    try {
+        return ++x;
+    } finally {
+        return ++x;
+    }
+}
+```
+
+“哦，确实啊，try 块中 x 返回的值为 1，到了 finally 块中就返回 2 了。”三妹说。
+
+“是这样的。”我点点头。
+
+### 07、抛出具体定义的检查性异常而不是 Exception
+
+```java
+public void foo() throws Exception { //错误方式
+}
+```
+
+一定要避免出现上面的代码，它破坏了检查性（checked）异常的目的。声明的方法应该尽可能抛出具体的检查性异常。
+
+例如，如果一个方法可能会抛出 SQLException 异常，应该显式地声明抛出 SQLException 而不是 Exception 类型的异常。这样可以让其他开发者更好地理解代码的意图和异常处理的方式，并且可以根据 SQLException 的定义和文档来确定异常的处理方式和策略。
+
+### 08、捕获具体的子类而不是捕获 Exception 类
+
+```java
+try {
+   someMethod();
+} catch (Exception e) { //错误方式
+   LOGGER.error("method has failed", e);
+}
+```
+
+如果在 catch 块中捕获 Exception 类型的异常，会将所有异常都捕获，从而可能会给程序带来不必要的麻烦。具体来说，如果捕获 Exception 类型的异常，可能会导致以下问题：
+
+- 难以识别和定位异常：如果捕获 Exception 类型的异常，可能会捕获到一些不应该被处理的异常，从而导致程序难以识别和定位异常。
+- 难以调试和排错：如果捕获 Exception 类型的异常，可能会使得调试和排错变得更加困难，因为无法确定具体的异常类型和异常发生的原因。
+
+下面举一个例子来说明为什么应该尽可能地捕获具体的子类而不是 Exception 类型的异常。
+
+假设我们有一个方法 `readFromFile(String filePath)`，用于从指定文件中读取数据。在方法实现过程中，可能会出现两种异常：FileNotFoundException 和 IOException。
+
+如果在方法中使用以下 catch 块来捕获异常：
+
+```java
+try {
+    // 读取数据的代码
+} catch (Exception e) {
+    // 异常处理的代码
+}
+```
+
+这样做会捕获所有类型的异常，包括 Checked Exception 和 Unchecked Exception。这可能会导致以下问题：
+
+- 发生 RuntimeException 类型的异常时，也会被捕获，从而可能会掩盖实际的异常信息。
+- 在调试和排错时，无法确定异常的具体类型和发生原因，从而增加了调试和排错的难度。
+- 在程序运行时，可能会捕获一些不需要处理的异常（如 NullPointerException、IllegalArgumentException 等），从而降低程序的性能和稳定性。
+
+因此，为了更好地定位和处理异常，应该尽可能地捕获具体的子类，例如：
+
+```java
+try {
+    // 读取数据的代码
+} catch (FileNotFoundException e) {
+    // 处理文件未找到异常的代码
+} catch (IOException e) {
+    // 处理输入输出异常的代码
+}
+```
+这样做可以更准确地捕获异常，从而提高程序的健壮性和稳定性。
+
+### 09、自定义异常时不要丢失堆栈跟踪
+
+```java
+catch (NoSuchMethodException e) {
+   throw new MyServiceException("Some information: " + e.getMessage());  //错误方式
+}
+```
+
+这破坏了原始异常的堆栈跟踪，正确的做法是：
+
+```java
+catch (NoSuchMethodException e) {
+   throw new MyServiceException("Some information: " , e);  //正确方式
+}
+```
+
+例如，下面是一个自定义异常类，它重写了 printStackTrace() 方法来打印堆栈跟踪信息：
+
+```java
+public class MyException extends Exception {
+    public MyException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    @Override
+    public void printStackTrace() {
+        System.err.println("MyException:");
+        super.printStackTrace();
+    }
+}
+```
+
+这样做可以保留堆栈跟踪信息，同时也可以提供自定义的异常信息。在抛出 MyException 异常时，可以得到完整的堆栈跟踪信息，从而更好地定位和解决异常。
+
+### 10、finally 块中不要抛出任何异常
+
+```java
+try {
+  someMethod();  //Throws exceptionOne
+} finally {
+  cleanUp();    //如果finally还抛出异常，那么exceptionOne将永远丢失
+}
+```
+
+finally 块用于定义一段代码，无论 try 块中是否出现异常，都会被执行。finally 块通常用于释放资源、关闭文件等必须执行的操作。
+
+如果在 finally 块中抛出异常，可能会导致原始异常被掩盖。比如说上例中，一旦 cleanup 抛出异常，someMethod 中的异常将会被覆盖。
+
+### 11、不要在生产环境中使用 `printStackTrace()`
+
+在 Java 中，`printStackTrace()` 方法用于将异常的堆栈跟踪信息输出到标准错误流中。这个方法对于调试和排错非常有用。但在生产环境中，不应该使用 `printStackTrace()` 方法，因为它可能会导致以下问题：
+
+- `printStackTrace()` 方法将异常的堆栈跟踪信息输出到标准错误流中，这可能会暴露敏感信息，如文件路径、用户名、密码等。
+- `printStackTrace()` 方法会将堆栈跟踪信息输出到标准错误流中，这可能会影响程序的性能和稳定性。在高并发的生产环境中，大量的异常堆栈跟踪信息可能会导致系统崩溃或出现意外的行为。
+- 由于生产环境中往往是多线程、分布式的复杂系统，`printStackTrace()` 方法输出的堆栈跟踪信息可能并不完整或准确。
+
+在生产环境中，应该使用日志系统来记录异常信息，例如 [log4j](https://tobebetterjavaer.com/gongju/log4j.html)、[slf4j](https://tobebetterjavaer.com/gongju/slf4j.html)、[logback](https://tobebetterjavaer.com/gongju/logback.html) 等。日志系统可以将异常信息记录到文件或数据库中，而不会暴露敏感信息，也不会影响程序的性能和稳定性。同时，日志系统也提供了更多的功能，如级别控制、滚动日志、邮件通知等。
+
+```java
+例如，可以使用 logback 记录异常信息，如下所示：
+try {
+    // some code
+} catch (Exception e) {
+    logger.error("An error occurred: ", e);
+}
+```
+
+### 12、对于不打算处理的异常，直接使用 try-finally，不用 catch
+
+```java
+try {
+  method1();  // 会调用 Method 2
+} finally {
+  cleanUp();    //do cleanup here
+}
+```
+
+如果 method1 正在访问 Method 2，而 Method 2 抛出一些你不想在 Method 1 中处理的异常，但是仍然希望在发生异常时进行一些清理，可以直接在 finally 块中进行清理，不要使用 catch 块。
+
+### 13、记住早 throw 晚 catch 原则
+
+“早 throw, 晚 catch” 是 Java 中的一种异常处理原则。这个原则指的是在代码中尽可能早地抛出异常，以便在异常发生时能够及时地处理异常。同时，在 catch 块中尽可能晚地捕获异常，以便在捕获异常时能够获得更多的上下文信息，从而更好地处理异常。
+
+来举个 “早 throw” 例子，如果一个方法需要传递参数，并且该参数必须满足一定的条件，如果参数不符合条件，则应该立即抛出异常，而不是在方法中进行其他操作。这可以确保异常在发生时能够及时被处理，避免更严重的问题。
+
+再来举个“晚 catch”的例子，如果一个方法调用了其他方法，可能会抛出异常，如果在方法内部立即捕获异常，则可能会导致对异常的处理不充分。
+
+来看这段代码：
+
+```java
+public class ExceptionDemo1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        try {
+            int num = parseInt(str);
+            System.out.println("转换结果：" + num);
+        } catch (NumberFormatException e) {
+            System.out.println("转换失败：" + e.getMessage());
+        }
+    }
+
+    public static int parseInt(String str) {
+        if (str == null || "".equals(str)) {
+            throw new NullPointerException("字符串为空");
+        }
+        if (!str.matches("\\d+")) {
+            throw new NumberFormatException("字符串不是数字");
+        }
+        return Integer.parseInt(str);
+    }
+}
+```
+
+这个示例中，定义了一个 `parseInt()` 方法，用于将字符串转换为整数。在该方法中，首先检测字符串是否为空，如果为空，则立即抛出 NullPointerException 异常。然后，检测字符串是否为数字，如果不是数字，则抛出 NumberFormatException 异常。最后，使用 `Integer.parseInt()` 方法将字符串转换为整数，并返回。
+
+在示例的 `main()` 方法中，调用 `parseInt()` 方法，并使用 try-catch 块捕获可能抛出的 NumberFormatException 异常。如果转换成功，则输出转换结果，否则输出转换失败信息。
+
+这个示例使用了 “早 throw, 晚 catch” 的原则，在 `parseInt()` 方法中尽可能早地抛出异常，在 `main()` 方法中尽可能晚地捕获异常，以便在捕获异常时能够获得更多的上下文信息，从而更好地处理异常。
+
+运行该示例，输入一个数字字符串，可以看到输出转换结果。如果输入一个非数字字符串，则输出转换失败信息。
+
+### 14、只抛出和方法相关的异常
+
+相关性对于保持代码的整洁非常重要。一种尝试读取文件的方法，如果抛出 NullPointerException，那么它不会给用户提供有价值的信息。相反，如果这种异常被包裹在自定义异常中，则会更好。NoSuchFileFoundException 则对该方法的用户更有用。
+
+```java
+public class Demo {
+    public static void main(String[] args) {
+        try {
+            int result = divide(10, 0);
+            System.out.println("The result is: " + result);
+        } catch (ArithmeticException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static int divide(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return a / b;
+    }
+}
+```
+
+在该示例中，只抛出了和方法相关的异常 ArithmeticException，这可以使代码更加清晰和易于维护。
+
+### 15、切勿在代码中使用异常来进行流程控制
+
+在代码中使用异常来进行流程控制会导致代码的可读性、可维护性和性能出现问题。
+
+```java
+public class Demo {
+    public static void main(String[] args) {
+        String input = "1,2,3,a,5";
+        String[] values = input.split(",");
+        for (String value : values) {
+            try {
+                int num = Integer.parseInt(value);
+                System.out.println(num);
+            } catch (NumberFormatException e) {
+                System.err.println(value + " is not a valid number");
+            }
+        }
+    }
+}
+```
+
+虽然这个示例可以正确地处理输入字符串中的非数字字符，但是它使用异常进行流程控制，这就导致代码变得混乱、难以理解。应该使用其他合适的[控制结构](https://tobebetterjavaer.com/basic-grammar/flow-control.html)（如 if、switch、循环等）来管理程序的流程。
+
+### 16、尽早验证用户输入以在请求处理的早期捕获异常
+
+例如：在用户注册的业务中，如果按照这样来做：
+
+1.  验证用户
+2.  插入用户
+3.  验证地址
+4.  插入地址
+5.  如果出问题回滚一切
+
+这是不正确的做法，它会使数据库在各种情况下处于不一致的状态，应该首先验证所有内容，然后再进行数据库更新。正确的做法是：
+
+1.  验证用户
+2.  验证地址
+3.  插入用户
+4.  插入地址
+5.  如果问题回滚一切
+
+举个例子，我们用 JDBC 的方式往数据库插入数据，那么最好是先 validate 再 insert，而不是 validateUserInput、insertUserData、validateAddressInput、insertAddressData。
+
+```java
+Connection conn = null;
+try {
+    // Connect to the database
+    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "username", "password");
+
+    // Start a transaction
+    conn.setAutoCommit(false);
+
+    // Validate user input
+    validateUserInput();
+
+    // Insert user data
+    insertUserData(conn);
+
+    // Validate address input
+    validateAddressInput();
+
+    // Insert address data
+    insertAddressData(conn);
+
+    // Commit the transaction if everything is successful
+    conn.commit();
+
+} catch (SQLException e) {
+    // Rollback the transaction if there is an error
+    if (conn != null) {
+        try {
+            conn.rollback();
+        } catch (SQLException ex) {
+            System.err.println("Error: " + ex.getMessage());
+        }
+    }
+    System.err.println("Error: " + e.getMessage());
+} finally {
+    // Close the database connection
+    if (conn != null) {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+}
+```
+
+### 17、一个异常只能包含在一个日志中
+
+不要这样做：
+
+```java
+log.debug("Using cache sector A");
+log.debug("Using retry sector B");
+```
+
+在单线程环境中，这样看起来没什么问题，但如果在多线程环境中，这两行紧挨着的代码中间可能会输出很多其他的内容，导致问题查起来会很难受。应该这样做：
+
+```java
+LOGGER.debug("Using cache sector A, using retry sector B");
+```
+
+### 18、将所有相关信息尽可能地传递给异常
+
+有用的异常消息和堆栈跟踪非常重要，如果你的日志不能定位异常位置，那要日志有什么用呢？
+
+```java
+// Log exception message and stack trace
+LOGGER.debug("Error reading file", e);
+```
+
+应该尽量把 `String message, Throwable cause` 异常信息和堆栈都输出。
+
+### 19、终止掉被中断线程
+
+```java
+while (true) {
+  try {
+    Thread.sleep(100000);
+  } catch (InterruptedException e) {} //别这样做
+  doSomethingCool();
+}
+```
+
+InterruptedException 提示应该停止程序正在做的事情，比如事务超时或线程池被关闭等。
+
+应该尽最大努力完成正在做的事情，并完成当前执行的线程，而不是忽略 InterruptedException。修改后的程序如下：
+
+```java
+while (true) {
+  try {
+    Thread.sleep(100000);
+  } catch (InterruptedException e) {
+    break;
+  }
+}
+doSomethingCool();
+```
+
+### 20、对于重复的 try-catch，使用模板方法
+
+类似的 catch 块是无用的，只会增加代码的重复性，针对这样的问题可以使用模板方法。
+
+例如，在尝试关闭数据库连接时的异常处理。
+
+```java
+class DBUtil{
+    public static void closeConnection(Connection conn){
+        try{
+            conn.close();
+        } catch(Exception ex){
+            //Log Exception - Cannot close connection
+        }
+    }
+}
+```
+
+这类的方法将在应用程序很多地方使用。不要把这块代码放的到处都是，而是定义上面的方法，然后像下面这样使用它：
+
+```java
+public void dataAccessCode() {
+    Connection conn = null;
+    try{
+        conn = getConnection();
+        ....
+    } finally{
+        DBUtil.closeConnection(conn);
+    }
+}
+```
+
+“好了，三妹，关于异常处理实践就先讲这 20 条吧，实际开发中你还会碰到其他的一些坑，自己踩一踩可能印象更深刻一些。”我说。
+
+“那万一到时候我工作后被领导骂了怎么办？”三妹委屈地说。
+
+“新人嘛，总要写几个 bug 才能对得起新人这个称号嘛。”我轻描淡写地说。
+
+“好吧。”三妹无奈地叹了口气。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 8.4 空指针的传说
+
+**空指针**，号称天下最强刺客。
+
+他原本不叫这个名字，空指针原本复姓**异常**，空指针只不过是他的武器，但他杀戮过多，渐渐地人们只记住了空指针这三个字。
+
+天下武功，唯快不破，空指针的针，以快和诡异著称，稍有不慎，便是伤亡。
+
+... ...
+
+我叫王二，我来到这个奇怪的世界已经一年了，我等了一年，穿越附赠的老爷爷、戒指、系统什么的我到现在都没发现。
+
+而且这个世界看起来也太奇怪了，这里好像叫什么 **Java** 大陆，我只知道这个世界的最强者叫做 **Object**，听说是什么道祖级的存在，我也不知道是什么意思，毕竟我现在好像还是个菜鸡，别的主角一年都应该要飞升仙界了吧，我还连个小火球都放不出来。
+
+哦，对了，上面的那段话是我在茶馆喝茶的时候听说书的先生说的，总觉得空指针这个名字怪怪的，好像在什么地方听说过。
+
+我的头痛的毛病又犯了，我已经记不起来我为什么来到这里了，我只记得我的名字叫王二，其他的，我只感觉这个奇怪的世界有一种熟悉，但是我什么都记不起来了。
+
+算了，得过且过吧。
+
+我准备去找空指针了，虽然听说他很可怕，但是好像听说他不是嗜杀之人，应该不会滥杀无辜吧，目前为止，我也只对这三个字有熟悉的感觉了，我一定要找到他，找回我的记忆！
+
+我打听了很久，原来空指针是**异常组织**的三代嫡传，异常组织是这个世界上最恐怖的杀手组织，空指针就是异常现在最出色的刺客。
+
+听说空指针出生的时候，脖子上就挂着一根针，整个 Java 大陆雪下一月不停，Linux 森林多块陆地直接沉陷，于是他的父亲 **RuntimeException** 就给他起了空指针这个名字。
+
+空指针出生的天生异象也引起了异常组织高层的注意，听说他的祖父 **Exception**，还有整个异常组织的领军人物 **Throwable** 都亲自接见了空指针，并且认为空指针天赋异禀，未来可期。
+
+要知道，**Throwable** 可是 **Object** 亲自任命的异常组织头领。作为 Object 最值得信任的亲信，跟随 Object 万年以来，所有的脏活累活都依靠 Thrwoable 创立的异常组织来处理，真可谓一人之下，万人之上。
+
+Throwable 只有两个亲子，就是 Error 和 Exception，传说中 Error 心狠手辣，手下无一活口，见过 Error 的人还能活下来的寥寥无几。
+
+整个大陆只有他们恐怖的传说，谁也不知道他们什么时候出现，但是一旦他们出现，基本宣告着你已经是个死人了。
+
+而我听说过最恐怖的就是`OutOfMemoryError` 和 `StackOverflowError` 这两位刺客，因为大陆上永远有一座风云榜悬挂在帝都门口，而这两位，一直位居杀手榜榜首位置，空指针也只只能屈居第三而已。当然，大陆不少人都认为空指针会后来居上。
+
+我的消息只是打听到这么多，接下来的日子，我走过无数的城市、荒野，我穿过沙漠、丛林，这一天，终于，我来到了大陆的帝都--**堆**。
+
+这个名字听起来也有点耳熟，不管他，先进城再说。
+
+进城后我发现这里非常诡异，整座城市好像都非常年轻，好像连一个成年人都没有！街道上熙熙攘攘竟然都是年轻人。
+
+带着疑惑，我走进了一家叫做*同福客栈*的酒楼。
+
+”客官，打尖还是住店啊？“一个小二模样的*小孩*带着一丝谄媚的对我说。
+
+”住店，带我去最好的房间，这些钱先押你这里，不够再跟我要。“一路走来，对于这些地方的行情我也算轻车熟路了。
+
+”小朋友，这里是怎么回事？你们这里没有大人吗？“我一边走一边问这个只有我一半身高的小孩，根据我目测，他身高不超过1米，应该还只有七八岁的样子，难道这里的商人如此黑心，竟然雇佣童工，不过这也不貌似不对，因为周围的客人好像也都是这般年纪，他们竟然还有在抽烟喝酒的！
+
+”客官可真幽默，不过我看客官应该是刚来帝都，不瞒您说，整个帝都就基本没有超过15岁的人，超过15的据说都在叫做老年区的养老去了！就拿我来说吧，我今年可不小了，我都8岁了，像我这般年纪的已经半截腿迈进棺材咯。哎，这身子也是一年不如一年了。“
+
+看着这个小二一脸认真的样子，我越发觉得这座城市诡异起来了！8岁，什么鬼？8岁不是应该在家里看喜羊羊吗？！还半截腿迈进棺材！
+
+”可是你看我比你高这么多，你不觉得奇怪吗？“我奇怪的问他。
+
+”有什么好奇怪的，要不是我小时候喝多了三鹿，没准我也长这么高了！“小二有点生气的对我说。
+
+行吧，再说两句把他激怒了，跳起来打我膝盖就大事不妙了。
+
+接下来的几天，经过我的打探，原来我在的地方是叫做年轻区，整个帝都就只有这两个区域，年轻区的人年龄确实没有超过15岁的，有些人刚出生没几天就死了，对此，生活在这里的人也见怪不怪了。对于他们来说，寄希望能活到超过15岁进入老年区养老就是他们的梦想。
+
+我在怀疑是不是异常组织在这里暗杀，可是发现结果并不是，这里的人貌似已经习惯了，生活对他们来说就是随便活活就好了，每次的死亡对于他们来说毫无征兆，可能刚踢着球呢，就突然挂了，有的上着厕所突然就死了，临死前连个屁股都没擦，不说了，有点恶心。
+
+就在我等的不耐烦想打算去老年区看看的时候，一个穿着黑衣的人找到了我。
+
+”你是谁？“我警惕的问他。
+
+”本座IOException。“黑衣人神情冰冷的看着我说。
+
+”你找我什么事？“
+
+”这些你不用知道，跟我走一趟吧！“
+
+我刚想说话拒绝，开什么玩笑，跟你们异常组打交道的人非死即残，谁要跟你去。
+
+但是由不得我拒绝，我只感觉一阵天旋地转，我感觉我在天上飞，然后我就失去了意识。当我醒来的时候，我发现我躺在一张巨大的床上，桌子上点着一支檀香，整个房间只有一张桌子、一把椅子和我躺的地方。
+
+房间很小，应该只有10几个平方，但是我竟然又有一种熟悉的感觉，这种感觉萦绕在我心头挥散不去。
+
+没等我再想更多，房门打开了。
+
+”是你，你把我带来干什么？“
+
+”走吧，有人要见你。“
+
+还是不容我抗拒，如果我的战斗力是5的话，我想，IO他该有好几万了吧。
+
+又是这该死的眩晕感，不过这次没有几秒钟，我就发现我在一个花园里，花园中间一个身穿黄袍的中年人正在慢悠悠的喝茶。在他身上我感受不到任何强大的气息，甚至不如IOException给我的压迫感强烈。这是谁？
+
+不等我思绪飘飞，IOException弯腰躬身说道：”陛下，人带过来了。“
+
+”嗯，你退下吧。“中年人转过身来，脸上丝毫看不出情绪的说道。
+
+我大概猜到了这是哪里了，于是也放下心来，在这里，或许能找到我的答案。
+
+反正他要对我怎么样，我也没有办法反抗，我径直坐到他的对面，看着他说：”您就是Object陛下吧，不知找我所谓何事？“
+
+中年人也不在意，没有正面回答我的问题，反而略带一丝调侃的说道：”不用咬文嚼字，说点正常人的话吧。“
+
+... ...
+
+这不按套路出牌啊，我这不是来久了，模仿你们古代人说话嘛，怎么还埋怨起我来了？！
+
+”那我就直说了，我想知道空指针在哪里。“
+
+”空指针就在皇宫轮值，你找他干嘛？“
+
+”我暂时不能说“
+
+”呵呵，你就不好奇我为什么知道你，为什么又把你带过来？“
+
+”好奇，可是我就是不想问。“
+
+Object喝了口茶，不紧不慢的回道：”年轻人有性格是好事，可是过刚易折的道理你应该明白。“
+
+”我不明白，我在这里反正也没看见什么老人，当然，除了你。“我理所当然的认为这肯定是Object搞得鬼，整个帝都都是小朋友，要是没有猫腻，骗鬼呢！
+
+Object听到这话，皱了皱眉，他沉默了一会儿，缓缓站起身子走到一颗柳树下，背着手说道：“你不知道这一切是为什么吗？”
+
+废话，我当然不知道了，我知道还能问你吗？！
+
+又是沉默... ...这个气氛让我感觉很不舒服。就在我受不了想说话的时候，Object突然说了一句：“带他去见空指针吧。”
+
+“是，陛下！”突然，一个身穿红袍的枯瘦老者出现在我背后，把我吓了一跳。
+
+我也不想再多生事端，直觉告诉我这里不是久留之地，虽然有点莫名其妙，我还是跟着红袍老者来走了。
+
+... ...
+
+“陛下，是他吗？”一个光头大汉的身影在半空若影若现的说道。
+
+“还不能确定... 不过，留给我们的时间不多了，下一次的轮回就快来了。”
+
+“轮回，又是轮回。我们还有希望吗？”大汉呢喃着，不知道是对自己说还是对中年人说。
+
+中年人依然背着手，抬头望着漫天的柳絮说道：“这一世，该是个了断了。”
+
+... ...
+
+没多久，他把我带到一个房间门口，也是面无表情的说道：“进去吧，空指针就在里面。”
+
+我挺住脚步，转过身问他：“你是谁？我们是不是见过？”
+
+红袍老者怪异一笑：“也许吧，老夫`IndexOutOfBoundsException`，空指针便是我好友。”
+
+这个名字可真长，我听说过他，据传闻他的实力也非常之强，可能不下于空指针，都是以诡异的出手角度著称，不过相比于空指针的大名，他好像更低调，难怪在皇宫当个老太监一般。
+
+我也不在多想，点点头，走进了房间。刚进房间，我就看见一个一身白衣的身影背对着我，笔直的身影好像要冲破天际，身上的气势强大无比，至少在我见过的所有人里足以排进前三了。空指针，果然名不虚传！
+
+我走到房间中央，环目四望才发现这好像是一座祠堂的样子，就在我还在打量四周之际，一道清冷的声音传到我的耳边：
+
+“你身上的气息让我非常讨厌！”
+
+他转过身来，我发现我根本看不清空指针长什么样子，他的脸好像打上了马赛克。听到他的话，我心里的疑惑更多了，我只是觉得他的气息让我感到非常熟悉，他的话让我有点莫名其妙。于是我试探道：
+
+“你知道我是谁？”
+
+听到我的话，他一步步走进我，在我身边闻了闻，这让我什么一紧，虽然我想搞清楚我身上的问题，但是我不是出卖肉体的人，我退后一步说：
+
+“你想干嘛？”
+
+空指针皱紧了眉头，仿佛自言自语道：“不对，不对，这是... 规则的气息？可是他明明身上没有任何能量波动。”
+
+我见他好像魔怔了，仿佛在思考什么，于是迈步走到他刚才站立的地方看着前面，原来，这是他们的族谱！这里是异常的祠堂！
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/npe-1.jpg)
+
+看完这张族谱，我恍然大悟，好像明白了什么。突然，我的脑袋里出现了一个冰冷的机器声音：“获取异常族谱，历练完成度+100。”
+
+我Kao，系统，这是系统啊，我不禁内牛满面，啥任务系统啊，一点提示都没有，我赶紧喊道：
+
+“系统，系统，还在吗？在线等，挺着急的。”可是没有任何回复！这啥破系统！就在我想破口大骂的时候，空指针看到我和个二傻子似的大呼小叫，突然一脸不可思议的对着我说：
+
+“你明悟了规则？”
+
+我愣了愣，嗯？难道我不是战5渣了？规则之力？好像是很高端的样子啊？
+
+“撒豆成兵！”
+
+“呼风！”
+
+”唤雨！“
+
+”临兵斗者皆阵列在前！“
+
+一点反应都没有。。。啥玩意儿？还规则之力？九字真言都没用啊？
+
+空指针好像都蒙了，他敲了敲太阳穴，无语的看着我说：
+
+”你不是来找我的吗？说完你的问题，然后给我滚！“
+
+对啊，这系统把我整的我都忘记我来干嘛的了，我赶紧说：
+
+”你认识我对不对，你是不是觉得我有一种熟悉的感觉？我想知道我的来历！“
+
+空指针又愣了愣，他看着我，沉默了一会儿，回道：“不知道！”
+
+我有点奇怪，看他一脸便秘的表情应该是见过我的，他一定在撒谎，既然如此...
+
+“那你告诉我你们有什么办法能在你们异常的攻击下防身吧？”
+
+空指针大怒，刚想起身说话，空中突然传来一道声音：答应他的要求！
+
+他冷哼一声，丢给我一本书，上面写着**catch**一个字，还有一块写着**catch**的令牌，冰冷的说到：“你想知道的都在这里了。”说完，拂袖而去。
+
+我看着桌子上的这本书，想了想还是翻阅起来。
+
+原来`Exception` 和它的儿子们，除了`RuntimeException` 一支，都叫作`Checked Exception`，我还能用catch令牌来对抗他们的攻击！包括空指针，以后我就不怕他们了！
+
+可是，他为什么要给我，看他刚才的样子都想打我了，又突然给了我这些？还有他一直在说的规则之力又是什么？这座城市为什么又这么诡异？
+
+>转载链接：[https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg](https://mp.weixin.qq.com/s/PDfd8HRtDZafXl47BCxyGg)，作者：艾小仙
+
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 8.5 try-catch会影响性能吗？
+
+“二哥，你看着这鬼代码，竟然在 for 循环里面搞了个 `try-catch`，不知道`try-catch`有性能损耗吗？” 老王煞有其事地指着屏幕里的代码：
+
+```java
+ for (int i = 0; i < 5000; i++) {
+     try {
+         dosth
+     } catch (Exception e) {
+         e.printStackTrace();
+     }
+ }
+```
+
+我探过头去看了眼代码，“那 老王你觉得该怎么改？”
+
+“当然是把 `try-catch` 提到外面啊！” 老王脑子都不转一下，脱口而出。
+
+“你是不是傻？且不说性能，这代码的目的明显是让循环内部单次调用出错不影响循环的运行，你移到外面，业务逻辑不就变了吗！”
+
+老王挠了挠他的地中海，“好像也是啊！”
+
+“回过头来，catch 整个 for 循环和在循环内部 catch，在不出错的情况下，其实性能差不多。” 我喝一口咖啡不经意地提到，准备在 老王前面秀一下。
+
+“啥意思？” 老王有点懵地看着我，“`try-catch`是有性能损耗的，我可是看过网上资料的！”
+
+果然， 老王上钩了，我二话不说直接打开 idea，一顿操作敲了以下代码：
+
+```java
+public class TryCatchTest {
+    // 用 @Benchmark 注解标记一个方法作为基准测试方法
+    @Benchmark
+    public void tryfor(Blackhole blackhole) {
+        // 使用 try-catch 语句包装一个 for 循环
+        try {
+            for (int i = 0; i < 1000; i++) {
+                // 在循环中调用 Blackhole.consume() 方法
+                blackhole.consume(i);
+            }
+        } catch (Exception e) {
+            // 捕获异常并打印堆栈跟踪信息
+            e.printStackTrace();
+        }
+    }
+
+    // 用 @Benchmark 注解标记另一个方法作为基准测试方法
+    @Benchmark
+    public void fortry(Blackhole blackhole) {
+        // 使用 for 循环包装一个 try-catch 语句
+        for (int i = 0; i < 1000; i++) {
+            try {
+                // 在 try 块中调用 Blackhole.consume() 方法
+                blackhole.consume(i);
+            } catch (Exception e) {
+                // 捕获异常并打印堆栈跟踪信息
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
+
+在这里，请允许我补充一些概念，以便大家能更好的理解这段代码。
+
+>第一个：`@Benchmark` 是一个来自于 JMH（Java Microbenchmark Harness）库的注解，用来标记一个方法作为基准测试方法。JMH 是一个专门用于编写 [Java 微基准测试](https://hezhiqiang8909.gitbook.io/java/docs/javalib/jmh)的工具包，包含了一些用于测试 Java 代码性能和微调 JVM 的工具和库。使用 `@Benchmark` 注解标记的方法将被 JMH 自动识别为基准测试方法，并在运行时进行基准测试。在基准测试期间，JMH 会运行被标记的方法多次，并测量方法的执行时间、吞吐量、延迟等指标，并生成统计结果。
+
+>第二个：在 JMH 进行基准测试时，为了避免 JIT 编译器优化掉测试代码中的某些操作，我们需要在测试代码中使用一些占位符，以便让编译器认为这些操作是有意义的，不应该被优化掉。`Blackhole.consume()` 方法就是这样的一个占位符。它用来占用一些 CPU 时间和内存空间，以确保测试结果的准确性和可靠性。
+
+“BB 不如 show code，看到没， 老王，我把 `try-catch` 从 for 循环里面提出来跟在for循环里面做个对比跑一下，你猜猜两个差多少？”
+
+“切，肯定 tryfor 性能好，想都不用想，不是的话我倒立洗头！” 老王信誓旦旦道。
+
+我懒得跟他BB，直接开始了 benchmark，跑的结果如下：
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326204136.png)
+
+可以看到，两者的性能（数字越大越好）其实差不多：551063.024 VS 551525.861。
+
+在这里，简单普及一下 JMH 的使用指南。
+
+>第一步，在 pom.xml 文件中加入依赖。
+
+```
+<!-- 引入 JMH 工具包 -->
+<dependency>
+    <groupId>org.openjdk.jmh</groupId>
+    <artifactId>jmh-core</artifactId>
+    <version>1.35</version>
+</dependency>
+
+<dependency>
+    <groupId>org.openjdk.jmh</groupId>
+    <artifactId>jmh-generator-annprocess</artifactId>
+    <version>1.35</version>
+</dependency>
+```
+
+>第二步，Intellij IDEA 中安装 JMH 插件。
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326200811.png)
+
+>第三步，在代码编辑器中点击这个带有时间和运行的图标。然后静静等待结果就可以了，我本机（32G 内存 Intel i7 跑了 16 分钟，贼慢，因为 JMH 比较喜欢追求公平公正😂）
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326200922.png)
+
+老王一看傻了：“说好的性能影响呢？怎么没了？”
+
+我直接一个javap，让 老王看看，其实两个实现在字节码层面没啥区别：
+
+> tryfor 的字节码
+
+异常表记录的是 0 - 20 行，如果这些行里面的代码出现问题，直接跳到 23 行处理。
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326202911.png)
+
+> fortry 的字节码
+
+差别也就是异常表的范围小点，包的是 9-14 行，其它跟 tryfor 都差不多。
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326203005.png)
+
+所以从字节码层面来看，没抛错两者的执行效率其实没啥差别。
+
+“那为什么网上流传着`try-catch`会有性能问题的说法啊？” 老王觉得非常奇怪。
+
+这个说法确实有，在《Effective Java》这本书里就提到了 `try-catch` 性能问题：
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326203449.png)
+
+正所谓听话不能听一半，以前读书时候最怕的就是一知半解，因为完全理解选择题能选对，完全不懂蒙可能蒙对，一知半解必定选到错误的选项！
+
+《Effective Java》书中说的其实是不要用 `try-catch` 来代替正常的代码，书中的举例了正常的 for 循环肯定这样实现：
+
+```java
+ for ( Mountain m : range )
+    m.climb();
+```
+
+但有个卧龙偏偏不这样实现，要通过  `try-catch` 拐着弯来实现循环：
+
+```java
+ /* Horrible abuse of exceptions. Don't ever do this! */
+try {
+    int i = 0;
+    while ( true )
+        range[i++].climb();
+} catch ( ArrayIndexOutOfBoundsException e ) {
+}
+```
+
+这操作我只能说有点逆天，这两个实现的对比就有性能损耗了。
+
+我们直接再跑下有`try-catch` 的代码和没 `try-catch`的 for 循环区别，代码如下：
+
+```java
+public class TryCatchTest1 {
+    @Benchmark
+    public void fornotry(Blackhole blackhole) {
+        for (int i = 0; i < 1000; i++) {
+            blackhole.consume(i);
+        }
+    }
+
+    @Benchmark
+    public void tryfor(Blackhole blackhole) {
+        for (int i = 0; i < 1000; i++) {
+            try {
+                blackhole.consume(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+```
+
+结果如下：
+
+![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326210303.png)
+
++-差不多，直接看前面的分数对比，没有 `ry-catch` 的性能确实好些，这也和书中说的 `try-catch` 会影响 JVM 一些特定的优化说法吻合，但是具体没有说影响哪些优化，我猜测可能是指令重排之类的。
+
+好了，我再总结下有关 `try-catch` 性能问题说法：
+
+1.  `try-catch` 相比较没 `try-catch`，确实有一定的性能影响，但是旨在不推荐我们用 `try-catch` 来代替正常能不用 `try-catch` 的实现，而不是不让用 `try-catch`。
+2.  for循环内用  `try-catch` 和用 `try-catch` 包裹整个 for 循环性能差不多，但是其实两者本质上是业务处理方式的不同，跟性能扯不上关系，关键看你的业务流程处理。
+3.  虽然知道`try-catch`会有性能影响，但是业务上不需要避讳其使用，业务实现优先（只要不是书中举例的那种逆天代码就行），非特殊情况下性能都是其次，有意识地避免大范围的`try-catch`，只 catch 需要的部分即可（没把握全 catch 也行，代码安全执行第一）。
+
+“好了， 老王你懂了没？”
+
+“行啊二哥，BB是一套一套的，走请你喝燕麦拿铁！”  老王一把拉起我，我直接一个挣脱，“少来，我刚喝过咖啡，你那个倒立洗头，赶紧的！”我立马意识到 老王想岔开话题。
+
+“洗洗洗，我们先喝个咖啡，晚上回去给你洗！”
+
+>转载链接：[https://mp.weixin.qq.com/s/H870jLz32oEI_HCMVt1m5Q](https://mp.weixin.qq.com/s/H870jLz32oEI_HCMVt1m5Q)，出处：沉默王二，作者：yes，修订和优化：沉默王二
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+# 第九章：常用工具类
+
