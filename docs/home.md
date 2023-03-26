@@ -48,16 +48,7 @@ head:
 
 **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
 
-## 知识库的学习圈子
-
-一个人可以走得很快，但一群人才能走得更远。知识库的学习圈子已经有 **2000 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读知识库的配套专栏、向作者提问、帮你制定学习计划、和球友一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
-
-<a href="https://tobebetterjavaer.com/zhishixingqiu/">
-  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" width="300">
-</a>
-
 ## 知识库地图
-
 
 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
@@ -100,6 +91,14 @@ head:
 - [面渣逆袭（计算机网络八股文面试题）必看👍](sidebar/sanfene/network.md)
 - [面渣逆袭（RocketMQ八股文面试题）必看👍](sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](sidebar/sanfene/fenbushi.md)
+
+## 二哥的编程星球
+
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **2000 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+
+<a href="https://tobebetterjavaer.com/zhishixingqiu/">
+  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
+</a>
 
 
 ## Java 核心
