@@ -1,5 +1,5 @@
 ---
-title: Java程序员进阶之路x沉默王二
+title: 二哥的Java进阶之路x沉默王二
 isOriginal: true
 headerDepth: 1
 description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶
