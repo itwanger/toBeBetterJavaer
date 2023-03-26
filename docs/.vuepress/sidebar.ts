@@ -211,6 +211,7 @@ export const sidebarConfig = sidebar({
           "try-with-resources",
           "shijian",
           "npe",
+          "try-catch-xingneng",
           ],
         },
         {

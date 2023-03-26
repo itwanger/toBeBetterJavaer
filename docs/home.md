@@ -200,7 +200,9 @@ head:
 - [一文彻底搞懂Java异常处理，YYDS](exception/gailan.md)
 - [深入理解 Java 中的 try-with-resources](exception/try-with-resources.md)
 - [Java异常处理的20个最佳实践](exception/shijian.md)
-- [Java空指针NullPointerException的传说](exception/npe.md)
+- [空指针NullPointerException的传说](exception/npe.md)
+- [空指针NullPointerException的传说](exception/try-catch-xingneng.md)
+- [try-catch 捕获异常真的会影响性能吗？](exception/npe.md)
 
 ### 常用工具类
 
