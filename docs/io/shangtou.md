@@ -641,7 +641,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 具体的执行过程如下：
 
 - 创建一个 ByteArrayOutputStream 对象 buffer，用于存储数据。
-- 使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resouces.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
+- 使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
 - 使用 writeUTF() 方法将字符串 "沉默王二" 写入到缓冲区中。
 - 当 try-with-resources 语句执行完毕时，会自动调用 output 的 close() 方法关闭输出流，释放资源。
 - 使用 toByteArray() 方法将缓冲区中的数据转换成字节数组。
