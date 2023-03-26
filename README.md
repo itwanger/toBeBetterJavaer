@@ -37,14 +37,6 @@
 >
 > 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](docs/overview/readme.md)
 
-# 知识库的学习圈子
-
-一个人可以走得很快，但一群人才能走得更远。知识库的学习圈子已经有 **2000 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读知识库的配套专栏、向作者提问、帮你制定学习计划、和球友一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
-
-<a href="https://tobebetterjavaer.com/zhishixingqiu/">
-  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zsxq-hb.jpg" width="300">
-</a>
-
 # 知识库地图
 
 > 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
@@ -90,6 +82,14 @@
 - [面渣逆袭（计算机网络八股文面试题）必看👍](docs/sidebar/sanfene/network.md)
 - [面渣逆袭（RocketMQ八股文面试题）必看👍](docs/sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](docs/sidebar/sanfene/fenbushi.md)
+
+# 知识库的学习圈子
+
+一个人可以走得很快，但一群人才能走得更远。[知识库的学习圈子](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **2000 多名** 小伙伴加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读知识库的配套专栏、向作者提问、帮你制定学习计划、和其他小伙伴一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+
+<a href="https://tobebetterjavaer.com/zhishixingqiu/">
+  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
+</a>
 
 # Java核心
 
