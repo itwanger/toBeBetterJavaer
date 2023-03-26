@@ -168,7 +168,7 @@ try(FileReader reader = new FileReader(textFile);) {
 
 在这个例子中，使用 FileReader 从文件中读取字符数据，并将其存储到一个大小为 1024 的字符数组中。每次读取 len 个字符，然后使用 String 构造方法将其转换为字符串并输出。
 
-FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resouces.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
+FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
 
 ### 02、字符输出流（Writer）
 

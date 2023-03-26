@@ -1,18 +1,20 @@
 ---
-title: 深入理解 Java 中的 try-with-resouces 语法糖
-shortTitle: try-with-resouces
+title: 深入理解 Java 中的 try with resources
+shortTitle: try-with-resources
 category:
   - Java核心
 tag:
   - 异常处理
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解 Java 中的 try-with-resouces 语法糖
+description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解 Java 中的 try-with-resources 语法糖
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,try-with-resouces
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,try-with-resources,java try-with-resources,java try with resources
 ---
 
-“二哥，终于等到你讲 try-with-resouces 了！”三妹夸张的表情让我有些吃惊。
+# 8.2 try-with-resources
+
+“二哥，终于等到你讲 try-with-resources 了！”三妹夸张的表情让我有些吃惊。
 
 “三妹，不要激动呀！开讲之前，我们还是要来回顾一下 try–catch-finally，好做个铺垫。”我说，“来看看这段代码吧。”
 
@@ -218,7 +220,7 @@ public class TrywithresourcesCustomOut {
 
 “再来看一下反编译的字节码。”
 
-```
+```java
 public class TrywithresourcesCustomOut {
     public TrywithresourcesCustomOut() {
     }
@@ -296,10 +298,9 @@ java.lang.Exception: out()
 
 “瞧，这次不会了，`out()` 的异常堆栈信息打印出来了，并且 `close()` 方法的堆栈信息上加了一个关键字 `Suppressed`，一目了然。”
 
-“三妹，怎么样？是不是感觉 try-with-resouces 好用多了！我来简单总结下哈，在处理必须关闭的资源时，始终有限考虑使用 try-with-resources，而不是 try–catch-finally。前者产生的代码更加简洁、清晰，产生的异常信息也更靠谱。”
+“三妹，怎么样？是不是感觉 try-with-resources 好用多了！我来简单总结下哈，在处理必须关闭的资源时，始终有限考虑使用 try-with-resources，而不是 try–catch-finally。前者产生的代码更加简洁、清晰，产生的异常信息也更靠谱。”
 
 “靠谱！”三妹说。
-
 
 ----
 

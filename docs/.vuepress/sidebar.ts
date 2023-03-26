@@ -208,7 +208,7 @@ export const sidebarConfig = sidebar({
           prefix:"exception/",
           children: [
           "gailan",
-          "try-with-resouces",
+          "try-with-resources",
           "shijian",
           "npe",
           ],
