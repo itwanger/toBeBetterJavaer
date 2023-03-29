@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,不可变
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,不可变
 ---
 
 # 4.4 Java字符串及不可变性

@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java变量,局部变量,成员变量,静态变量,常量,变量
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java变量,局部变量,成员变量,静态变量,常量,变量
 ---
 
 # 5.3 Java中的变量

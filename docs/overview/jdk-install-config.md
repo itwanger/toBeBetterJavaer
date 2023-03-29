@@ -1,5 +1,5 @@
 ---
-title: 安装Java开发工具包JDK
+title: 安装Java开发工具包JDK（Windows+macOS）
 shortTitle: 安装JDK
 category:
   - Java核心
@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，JDK的�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,JDK 安装,jdk
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JDK 安装,jdk,java JDK,java jdk安装
 ---
 
 # 2.2 安装JDK
@@ -28,7 +28,7 @@ head:
 
 真的是人生无常，大肠包小肠啊。
 
-### JVM、JRE、JDK 有什么关系
+### 01、JVM、JRE、JDK有什么关系
 
 JDK（Java Development Kit）是用于开发 Java 应用程序的软件环境。里面包含运行时环境（JRE）和其他 Java 开发所需的工具，比如说解释器（java）、编译器（javac）、文档生成器（javadoc）等等。
 
@@ -89,7 +89,7 @@ macOS 用户直接往后翻。
 
 上面这种下载 JDK 安装配置的方式没啥技术含量，所以下面我给大家推荐两种高级的：
 
-### Windows 用户
+### 02、Windows安装JDK
 
 Windows 用户建议先安装 Chocolatey，这是一个Windows下的命令行软件管理器，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
 
@@ -99,7 +99,7 @@ Windows 用户建议先安装 Chocolatey，这是一个Windows下的命令行软
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-80a6ced8-c25d-4371-8096-b95be48af768)
 
-### macOS 用户
+### 03、macOS安装JDK
 
 macOS 用户建议先安装 Homebrew，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
 

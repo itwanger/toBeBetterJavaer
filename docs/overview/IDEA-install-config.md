@@ -1,5 +1,5 @@
 ---
-title: 安装集成开发环境Intellij IDEA
+title: 安装集成开发环境Intellij IDEA（Windows+macOS）
 shortTitle: 安装IDEA
 category:
   - Java核心
@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Intellij
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Intellij IDEA安装,IDEA安装,idea,Intellij IDEA
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Intellij IDEA安装,IDEA安装,idea,Intellij IDEA,idea windows,idea macos
 ---
 
 # 2.3 安装IDEA

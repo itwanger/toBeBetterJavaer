@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Git入门,Git教程,git
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Git入门,Git教程,git
 ---
 
 # 1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java序�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
 ---
 
 # 7.9 Serializable接口

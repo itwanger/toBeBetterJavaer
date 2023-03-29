@@ -1,14 +1,26 @@
-# 第一章：小册简介
+---
+title: 《二哥的Java进阶之路，GitHub星标7000+》小册简介
+shortTitle: 小册简介
+category:
+  - Java核心
+tag:
+  - Java概述
+description: Java进阶之路，小白的零基础Java教程，二哥的Java进阶之路小册简介
+head:
+  - - meta
+    - name: keywords
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf
+---
 
-![](https://files.mdnice.com/user/3903/ac95f39b-aeff-4fd0-be95-0f0020c36b4a.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230329183204.png)
 
 > PS：为了增加这份小册的趣味性，我特意为此追加了两个虚拟角色，一个二哥，一个三妹，二哥负责教，三妹负责学。这样大家在学习 Java 的时候代入感会更强烈一些，希望这样的设定能博得大家的欢心。
 
-三妹：“二哥，帮读者朋友们问一下哈，为什么会有《Java程序员进阶之路》这份小册呢？”
+三妹：“二哥，帮读者朋友们问一下哈，为什么会有《二哥的Java进阶之路》这份小册呢？”
 
 *二哥巴拉巴拉 ing...*
 
-小册的内容主要来源于我的开源知识库《[Java程序员进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，已托管在 GitHub 上，目前已经收获 6000+ star，深受读者喜爱。小册之所以叫《Java程序员进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
+小册的内容主要来源于我的开源知识库《[Java程序员进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，已托管在 GitHub 上，目前已经收获 7000+ star，深受读者喜爱。小册之所以叫《二哥的Java进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
 
 如果你是第一次阅读这份小册，肯定又会问，“二哥是哪个鸟人？”
 
@@ -38,7 +50,7 @@
 
 首页见下图：
 
-![](https://cdn.tobebetterjavaer.com/paicoding/b6b7a842ad161392851e4ec1c8525667.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230329183438.png)
 
 你也可以到技术派的[教程栏](https://paicoding.com/column)里阅读。
 

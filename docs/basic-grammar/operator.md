@@ -1,6 +1,6 @@
 ---
-title: Java 运算符
-shortTitle: Java 运算符
+title: 一文彻底搞清楚Java运算符
+shortTitle: Java运算符
 category:
   - Java核心
 tag:
@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，本文�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,运算符,java运算符
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,运算符,java运算符
 ---
 
 # 3.6 Java运算符
@@ -21,7 +21,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-01.png)
 
 
-### 01、算数运算符
+### 01、算术运算符
 
 算术运算符除了最常见的加减乘除，还有一个取余的运算符，用于得到除法运算后的余数，来串代码感受下。
 
@@ -81,7 +81,7 @@ System.out.println(0.0 / 0.0); // NaN
 Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数字（Not a Number）。
 
 
-当整数除以 0 的时候（`10 / 0`），会抛出异常：
+当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)：
 
 ```
 Exception in thread "main" java.lang.ArithmeticException: / by zero

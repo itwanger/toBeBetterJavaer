@@ -1,6 +1,6 @@
 ---
 title: Java Collections：专为集合框架而生的工具类
-shortTitle: Collections工具类
+shortTitle: Collections
 category:
   - Java核心
 tag:
@@ -9,22 +9,22 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,Collections,集合框架
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Collections,集合框架,java Collections
 ---
 
+# 9.4 Collections
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
-还记得我们前面讲过的 [Arrays 工具类](https://mp.weixin.qq.com/s/9dYmKXEErZbyPJ_GxwWYug)吗？可以回去温习下。
+还记得我们前面讲过的 [Arrays 工具类](https://tobebetterjavaer.com/common-tool/arrays.html)吗？可以回去温习下。
 
 Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之后就可以看到它提供的方法了，大致看一下方法名和参数就能知道这个方法是干嘛的。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-01.png)
 
 为了节省大家的学习时间，我将这些方法做了一些分类，并列举了一些简单的例子。
 
-## 01、排序操作
+### 01、排序操作
 
 - `reverse(List list)`：反转顺序
 - `shuffle(List list)`：洗牌，将顺序打乱
@@ -71,7 +71,7 @@ System.out.println("交换后：" + list);
 交换后：[沉默王三, 沉默王二, 沉默王四, 沉默王六, 沉默王五]
 ```
 
-## 02、查找操作
+### 02、查找操作
 
 - `binarySearch(List list, Object key)`：二分查找法，前提是 List 已经排序过了
 - `max(Collection coll)`：返回最大元素
@@ -110,9 +110,9 @@ System.out.println("填充后的结果：" + list);
 填充后的结果：[沉默王八, 沉默王八, 沉默王八, 沉默王八, 沉默王八]
 ```
 
-## 03、同步控制
+### 03、同步控制
 
-[HashMap 是线程不安全](https://mp.weixin.qq.com/s/qk_neCdzM3aB6pVWVTHhNw)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
+[HashMap 是线程不安全](https://tobebetterjavaer.com/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-02.png)
 
@@ -122,7 +122,7 @@ System.out.println("填充后的结果：" + list);
 SynchronizedList synchronizedList = Collections.synchronizedList(list);
 ```
 
-看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 synchronized 关键字加了一层锁而已。
+看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 [synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)加了一层锁而已。
 
 ```java
 static class SynchronizedList<E>
@@ -133,24 +133,28 @@ static class SynchronizedList<E>
     final List<E> list;
 
     SynchronizedList(List<E> list) {
-        super(list);
-        this.list = list;
+        super(list); // 调用父类 SynchronizedCollection 的构造方法，传入 list
+        this.list = list; // 初始化成员变量 list
     }
 
+    // 获取指定索引处的元素
     public E get(int index) {
-        synchronized (mutex) {return list.get(index);}
+        synchronized (mutex) {return list.get(index);} // 加锁，调用 list 的 get 方法获取元素
     }
     
+    // 在指定索引处插入指定元素
     public void add(int index, E element) {
-        synchronized (mutex) {list.add(index, element);}
+        synchronized (mutex) {list.add(index, element);} // 加锁，调用 list 的 add 方法插入元素
     }
+    
+    // 移除指定索引处的元素
     public E remove(int index) {
-        synchronized (mutex) {return list.remove(index);}
+        synchronized (mutex) {return list.remove(index);} // 加锁，调用 list 的 remove 方法移除元素
     }
 }
 ```
 
-那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 Vector、Hashtable 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
+那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 [Vector、Hashtable](https://tobebetterjavaer.com/collection/gailan.html) 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
 
 ```java
 public class Vector<E>
@@ -158,33 +162,35 @@ public class Vector<E>
     implements List<E>, RandomAccess, Cloneable, java.io.Serializable
 {
 
+    // 获取指定索引处的元素
     public synchronized E get(int index) {
-        if (index >= elementCount)
+        if (index >= elementCount) // 如果索引超出了列表的大小，则抛出数组下标越界异常
             throw new ArrayIndexOutOfBoundsException(index);
 
-        return elementData(index);
+        return elementData(index); // 返回指定索引处的元素
     }
 
+    // 移除指定索引处的元素
     public synchronized E remove(int index) {
-        modCount++;
-        if (index >= elementCount)
+        modCount++; // 修改计数器，标识列表已被修改
+        if (index >= elementCount) // 如果索引超出了列表的大小，则抛出数组下标越界异常
             throw new ArrayIndexOutOfBoundsException(index);
-        E oldValue = elementData(index);
+        E oldValue = elementData(index); // 获取指定索引处的元素
 
-        int numMoved = elementCount - index - 1;
-        if (numMoved > 0)
+        int numMoved = elementCount - index - 1; // 计算需要移动的元素个数
+        if (numMoved > 0) // 如果需要移动元素
             System.arraycopy(elementData, index+1, elementData, index,
-                             numMoved);
-        elementData[--elementCount] = null; // Let gc do its work
+                             numMoved); // 将数组中的元素向左移动一位
+        elementData[--elementCount] = null; // 将最后一个元素设置为 null，等待垃圾回收
 
-        return oldValue;
+        return oldValue; // 返回被移除的元素
     }
 }
 ```
 
-正确的做法是使用并发包下的 CopyOnWriteArrayList、ConcurrentHashMap。这些我们放到并发编程时再讲。
+正确的做法是使用并发包下的 [CopyOnWriteArrayList](https://tobebetterjavaer.com/thread/CopyOnWriteArrayList.html)、[ConcurrentHashMap](https://tobebetterjavaer.com/thread/ConcurrentHashMap.html)。这些我们放到并发编程时再讲。
 
-## 04、不可变集合
+### 04、不可变集合
 
 - `emptyXxx()`：制造一个空的不可变集合
 - `singletonXxx()`：制造一个只有一个元素的不可变集合
@@ -219,7 +225,7 @@ public static final <T> List<T> emptyList() {
 public static final List EMPTY_LIST = new EmptyList<>();
 ```
 
-## 05、其他
+### 05、其他
 
 还有两个方法比较常用：
 
@@ -253,7 +259,6 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 可能有人会说，工具类没什么鸟用，不过是调用下方法而已，但这就大错特错了：如果要你来写，你能写出来 Collections 这样一个工具类吗？
 
 这才是高手要思考的一个问题。
-
 
 ----
 

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，详解 J
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,优先级队列,PriorityQueue,java 优先级队列,java PriorityQueue
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,优先级队列,PriorityQueue,java 优先级队列,java PriorityQueue
 ---
 
 # 6.13 PriorityQueue

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java Arr
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,ArrayList,ArrayList源码,java arraylist
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,ArrayList,ArrayList源码,java arraylist
 ---
 
 # 6.3 ArrayList

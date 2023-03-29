@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java的�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 优势,特点,java前途
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java 优势,特点,java前途
 ---
 
 # 2.3 学 Java 还有前途吗？

@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，详解 F
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,file,paths,files,path,java文件,java目录,java文件增删改查,java file,java paths,java files
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,file,paths,files,path,java文件,java目录,java文件增删改查,java file,java paths,java files
 ---
 
 ### Path 接口与Paths 类

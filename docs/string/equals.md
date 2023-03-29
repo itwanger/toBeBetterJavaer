@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java字符串,String,equals,java equals,java string 比较,java字符串比较
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,equals,java equals,java string 比较,java字符串比较
 ---
 
 # 4.8 如何判断两个字符串是否相等？
