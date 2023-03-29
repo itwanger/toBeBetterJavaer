@@ -1,4 +1,4 @@
-![](https://files.mdnice.com/user/3903/ac95f39b-aeff-4fd0-be95-0f0020c36b4a.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230329183204.png)
 
 # 第一章：小册简介
 
@@ -18,7 +18,7 @@
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/readme-ece0be3e-d176-447c-bff9-59d9f02c7a65.jpg)
 
-《**二哥的Java进阶之路**》是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发（包括开发/构建/测试、JavaWeb、SSM、Spring Boot、Linux、Nginx、Docker、k8s、微服务&分布式、消息队列等）、Java 面试等核心内容。据说每一个优秀的 Java 程序员都喜欢这份小册，风趣幽默、通俗易懂。总之一句话：学 Java，就认准《二哥的 Java 进阶之路》😄。
+《**二哥的 Java 进阶之路**》是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发（包括开发/构建/测试、JavaWeb、SSM、Spring Boot、Linux、Nginx、Docker、k8s、微服务&分布式、消息队列等）、Java 面试等核心内容。据说每一个优秀的 Java 程序员都喜欢这份小册，风趣幽默、通俗易懂。总之一句话：学 Java，就认准《二哥的 Java 进阶之路》😄。
 
 小册旨在为学习 Java 的小伙伴提供一系列：
 
@@ -38,9 +38,9 @@
 
 首页见下图：
 
-![](https://cdn.tobebetterjavaer.com/paicoding/b6b7a842ad161392851e4ec1c8525667.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230329183438.png)
 
-你也可以到技术派的[教程栏](https://paicoding.com/column/5/1)里阅读。
+你也可以到技术派的[教程栏](https://paicoding.com/column)里阅读。
 
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/497845a726c2563809c5d78e2b88cdc7.png)
@@ -111,7 +111,7 @@
 
 “三妹啊，听我慢慢来给你解释。”
 
-### Java 的由来
+### 01、Java由来
 
 Java 是一门计算机编程语言，高级、健壮、面向对象，并且非常安全。它由 Sun 公司在 1995 年开发，主力开发叫 James Gosling，被称为 Java 之父，就是下图这位，头秃的厉害。
 
@@ -155,7 +155,7 @@ public class HelloWorld {
 
 “好吧。”
 
-### Java 是编译型语言还是解释型语言
+### 02、Java是编译型还是解释型
 
 “二哥，你之前给我看了 .class 文件和 .java 源代码，它们之间的关系是什么样的呢？”三妹还是挺喜欢学习的嘛，发现的问题都很关键。
 
@@ -180,7 +180,7 @@ Java的第一道工序是通过javac命令把Java源码编译成字节码，之�
 
 所以，Java是解释和编译并存。但通常来说，我们会说“Java 是编译型语言”，尽管这样并不准确，主要是 JIT 是后面才出现的，“先入为主嘛”。
 
-### Java 发展简史
+### 03、Java发展简史
 
 20 世纪 90 年代，单片式计算机系统诞生。单片式计算机系统不仅廉价（之前的计算机非常庞大，并且昂贵），而且功能强大，可以大幅度提升消费性电子产品的智能化程度。
 
@@ -252,7 +252,7 @@ Java 在云时代面临着以 Go 语言为主的容器（Docker 等技术）生�
 
 虽然 Java 和 C++，C 一样，都“老”了，被其他语言不断地挑战，但只有强者才有机会接受挑战，对吧？我相信，Java 的未来依然很光明。
 
-### 学 Java 有钱途吗？
+### 04、学Java有钱途吗？
 
 “二哥，学 Java 到底有没有前途啊？我毕业以后能不能找到工作啊？”
 
@@ -283,7 +283,7 @@ Java 在云时代面临着以 Go 语言为主的容器（Docker 等技术）生�
 
 “噢噢噢噢，那好吧，我先跟着《[Java程序员进阶之路](https://tobebetterjavaer.com/)》学起来！”
 
-### Java的特性
+### 05、Java特性
 
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。
 
@@ -323,7 +323,7 @@ Java 适用于网络/分布式环境，为了达到这个目标，在安全方�
 
 Java 在多线程方面做得非常突出，只要操作系统支持，Java 中的线程就可以利用多个处理器，带来了更好的交互响应和实时行为。
 
-### Java 应用领域
+### 06、Java应用领域
 
 “二哥，那 Java 还会继续流行下去吗？”三妹眨了眨她的长睫毛，对我说。
 
@@ -388,7 +388,7 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 真的是人生无常，大肠包小肠啊。
 
-### JVM、JRE、JDK 有什么关系
+### 01、JVM、JRE、JDK有什么关系
 
 JDK（Java Development Kit）是用于开发 Java 应用程序的软件环境。里面包含运行时环境（JRE）和其他 Java 开发所需的工具，比如说解释器（java）、编译器（javac）、文档生成器（javadoc）等等。
 
@@ -449,7 +449,7 @@ macOS 用户直接往后翻。
 
 上面这种下载 JDK 安装配置的方式没啥技术含量，所以下面我给大家推荐两种高级的：
 
-### Windows 用户
+### 02、Windows安装JDK
 
 Windows 用户建议先安装 Chocolatey，这是一个Windows下的命令行软件管理器，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
 
@@ -459,7 +459,7 @@ Windows 用户建议先安装 Chocolatey，这是一个Windows下的命令行软
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-80a6ced8-c25d-4371-8096-b95be48af768)
 
-### macOS 用户
+### 03、macOS安装JDK
 
 macOS 用户建议先安装 Homebrew，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
 
@@ -1145,7 +1145,7 @@ public class LocalVar {
 | float    | 0.0f     | 4字节 |
 | double   | 0.0      | 8字节 |
 
-### 比特和字节
+### 01、比特和字节
 
 那三妹可能要问，“比特和字节是什么鬼？”
 
@@ -1167,11 +1167,11 @@ public class LocalVar {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-03.png)
 
-### 基本数据类型
+### 02、基本数据类型
 
 接下来，我们再来详细地了解一下 8 种基本数据类型。
 
-#### 01、布尔
+#### 1）布尔
 
 布尔（boolean）仅用于存储两个值：true 和 false，也就是真和假，通常用于条件的判断。代码示例：
 
@@ -1179,7 +1179,7 @@ public class LocalVar {
 boolean flag = true;
 ```
 
-#### 02、byte
+#### 2）byte
 
 byte 的取值范围在 -128 和 127 之间，包含 127。最小值为 -128，最大值为 127，默认值为 0。
 
@@ -1191,7 +1191,7 @@ byte a = 10;
 byte b = -10;
 ```
 
-#### 03、short
+#### 3）short
 
 short 的取值范围在 -32,768 和 32,767 之间，包含 32,767。最小值为 -32,768，最大值为 32,767，默认值为 0。代码示例：
 
@@ -1200,7 +1200,7 @@ short s = 10000;
 short r = -5000;
 ```
 
-#### 04、int
+#### 3）int
 
 int 的取值范围在 -2,147,483,648（-2 ^ 31）和 2,147,483,647（2 ^ 31 -1）（含）之间，默认值为 0。如果没有特殊需求，整型数据就用 int。代码示例：
 
@@ -1209,7 +1209,7 @@ int a = 100000;
 int b = -200000;
 ```
 
-#### 05、long
+#### 5）long
 
 long 的取值范围在 -9,223,372,036,854,775,808(-2^63) 和 9,223,372,036,854,775,807(2^63 -1)（含）之间，默认值为 0。如果 int 存储不下，就用 long，整型数据就用 int。代码示例：
 
@@ -1220,7 +1220,7 @@ long b = -200000L;
 
 为了和 int 作区分，long 型变量在声明的时候，末尾要带上大写的“L”。不用小写的“l”，是因为小写的“l”容易和数字“1”混淆。
 
-#### 06、float
+#### 6）float
 
 float 是单精度的浮点数，遵循 IEEE 754（二进制浮点数算术标准），取值范围是无限的，默认值为 0.0f。float 不适合用于精确的数值，比如说货币。代码示例：
 
@@ -1230,7 +1230,7 @@ float f1 = 234.5f;
 
 为了和 double 作区分，float 型变量在声明的时候，末尾要带上小写的“f”。不需要使用大写的“F”，是因为小写的“f”很容易辨别。
 
-#### 07、double
+#### 7）double
 
 double 是双精度的浮点数，遵循 IEEE 754（二进制浮点数算术标准），取值范围也是无限的，默认值为 0.0。double 同样不适合用于精确的数值，比如说货币。代码示例：
 
@@ -1252,7 +1252,7 @@ Tips：单精度是这样的格式，1 位符号，8 位指数，23 位小数，
 
 >一个数由若干位数字组成，其中影响测量精度的数字称作有效数字，也称有效数位。有效数字指科学计算中用以表示一个浮点数精度的那些数字。一般地，指一个用小数形式表示的浮点数中，从第一个非零的数字算起的所有数字。如 1.24 和 0.00124 的有效数字都有 3 位。
 
-#### 08、char
+#### 8）char
 
 char 可以表示一个 16 位的 Unicode 字符，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。代码示例：
 
@@ -1267,7 +1267,7 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 [关于字符编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
 
 
-### 关于 int 和 char 类型互转
+### 03、int 和 char 类型互转
 
 这里整理一波 int 和 char 类型的互转，它们之间比较特殊。也会在以后的学习当中经常遇到。
 
@@ -1301,7 +1301,7 @@ public class SimpleTesting {
 
 radix 为基数，十进制为 10，十六进制为 16。
 
-3）可以使用 int 的包装器类型 Integer 的 toString() 方法+String 的 CharAt() 方法转成 char
+3）可以使用 int 的包装器类型 Integer 的 `toString()` 方法+String 的 `charAt()` 方法转成 char
 
 ```java
 public class SimpleTesting {
@@ -1324,7 +1324,7 @@ int a = 'a';
 因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)。
 
 
-### 引用数据类型
+### 04、引用数据类型
 
 基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的。
 
@@ -1417,7 +1417,7 @@ List 是一个非常典型的接口：
 public interface List<E> extends Collection<E> {}
 ```
 
-而 ArrayList 是 List 接口的一个实现：
+而 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 是 List 接口的一个实现：
 
 ```java
 public class ArrayList<E> extends AbstractList<E>
@@ -1443,7 +1443,7 @@ public class ArrayList<E> extends AbstractList<E>
 - 1、变量名指向的是存储对象的内存地址，在栈上。
 - 2、内存地址指向的对象存储在堆上。
 
-### 堆和栈
+### 05、堆和栈
 
 看到这，三妹是不是又要问，“堆是什么，栈又是什么？”
 
@@ -1510,7 +1510,7 @@ public void test()
 
 数据类型转换发生在所赋值的数值类型和接收数据的变量类型不一致的时候，它需要从一种数据类型转换成另一种数据类型。数据类型的转换可以分为隐式转换（自动类型转换）和显式转换（强制类型转换）两种。
 
-### 自动类型转换
+### 01、自动类型转换
 
 如果以下 2 个条件都满足，那么将一种类型的数据赋给另外一种类型的变量的时候，将会发生自动类型转换（automatic type conversion）。
 
@@ -1571,7 +1571,7 @@ b = (byte)(b*2);
 
 注意：char 类型比较特殊，char 自动转换成 int、long、float 和 double，但 byte 和 short 不能自动转换为 char，而且 char 也不能自动转换为 byte 或 short。
 
-### 强制类型转换
+### 02、强制类型转换
 
 尽管自动类型转换是很有帮助的，但并不能满足所有的编程需要。
 
@@ -1808,7 +1808,7 @@ Exception in thread "main" java.lang.AssertionError
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-01.png)
 
 
-### 01、算数运算符
+### 01、算术运算符
 
 算术运算符除了最常见的加减乘除，还有一个取余的运算符，用于得到除法运算后的余数，来串代码感受下。
 
@@ -1868,7 +1868,7 @@ System.out.println(0.0 / 0.0); // NaN
 Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数字（Not a Number）。
 
 
-当整数除以 0 的时候（`10 / 0`），会抛出异常：
+当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)：
 
 ```
 Exception in thread "main" java.lang.ArithmeticException: / by zero
@@ -2179,7 +2179,7 @@ public class TernaryOperator {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-# 3.7 Java流程控制语句
+## 3.7 Java流程控制语句
 
 “二哥，流程控制语句都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
 
@@ -2188,7 +2188,6 @@ public class TernaryOperator {
 ### 01、if-else 相关
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-01.png)
-
 
 #### **1）if 语句**
 
@@ -2208,14 +2207,10 @@ if(布尔表达式){
 来写个示例：
 
 ```java
-public class IfExample {
-    public static void main(String[] args) {
-        int age = 20;
-        if (age < 30) {
-            System.out.println("青春年华");
-        }
+int age = 20;
+    if (age < 30) {
+        System.out.println("青春年华");
     }
-}
 ```
 
 输出：
@@ -2240,19 +2235,14 @@ if(布尔表达式){
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-03.png)
 
-
 来写个示例：
 
 ```java
-public class IfElseExample {
-    public static void main(String[] args) {
-        int age = 31;
-        if (age < 30) {
-            System.out.println("青春年华");
-        } else {
-            System.out.println("而立之年");
-        }
-    }
+int age = 31;
+if (age < 30) {
+    System.out.println("青春年华");
+} else {
+    System.out.println("而立之年");
 }
 ```
 
@@ -2265,15 +2255,11 @@ public class IfElseExample {
 除了这个例子之外，还有一个判断闰年（被 4 整除但不能被 100 整除或者被 400 整除）的例子：
 
 ```java
-public class LeapYear {
-    public static void main(String[] args) {
-        int year = 2020;
-        if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
-            System.out.println("闰年");
-        } else {
-            System.out.println("普通年份");
-        }
-    }
+int year = 2020;
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+    System.out.println("闰年");
+} else {
+    System.out.println("普通年份");
 }
 ```
 
@@ -2286,13 +2272,9 @@ public class LeapYear {
 如果执行语句比较简单的话，可以使用三元运算符来代替 if-else 语句，如果条件为 true，返回 ? 后面 : 前面的值；如果条件为 false，返回 : 后面的值。
 
 ```java
-public class IfElseTernaryExample {
-    public static void main(String[] args) {
-        int num = 13;
-        String result = (num % 2 == 0) ? "偶数" : "奇数";
-        System.out.println(result);
-    }
-}
+int num = 13;
+String result = (num % 2 == 0) ? "偶数" : "奇数";
+System.out.println(result);
 ```
 
 输出：
@@ -2324,23 +2306,18 @@ else{
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-04.png)
 
-
 来写个示例：
 
 ```java
-public class IfElseIfExample {
-    public static void main(String[] args) {
-        int age = 31;
-        if (age < 30) {
-            System.out.println("青春年华");
-        } else if (age >= 30 && age < 40 ) {
-            System.out.println("而立之年");
-        } else if (age >= 40 && age < 50 ) {
-            System.out.println("不惑之年");
-        } else {
-            System.out.println("知天命");
-        }
-    }
+int age = 31;
+if (age < 30) {
+    System.out.println("青春年华");
+} else if (age >= 30 && age < 40 ) {
+    System.out.println("而立之年");
+} else if (age >= 40 && age < 50 ) {
+    System.out.println("不惑之年");
+} else {
+    System.out.println("知天命");
 }
 ```
 
@@ -2371,15 +2348,11 @@ if(外侧条件){
 来写个示例：
 
 ```java
-public class NestedIfExample {
-    public static void main(String[] args) {
-        int age = 20;
-        boolean isGirl = true;
-        if (age >= 20) {
-            if (isGirl) {
-                System.out.println("女生法定结婚年龄");
-            }
-        }
+int age = 20;
+boolean isGirl = true;
+if (age >= 20) {
+    if (isGirl) {
+        System.out.println("女生法定结婚年龄");
     }
 }
 ```
@@ -2392,7 +2365,7 @@ public class NestedIfExample {
 
 ### 02、switch 语句
 
-switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int、long，或者对应的包装器类型 Byte、Short、Integer、Long，以及字符串和枚举。
+switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int 或者 char，或者对应的包装器类型 Byte、Short、Integer、Character，以及[字符串](https://tobebetterjavaer.com/string/immutable.html)和[枚举](https://tobebetterjavaer.com/basic-extra-meal/enum.html)类型。
 
 来看一下 switch 语句的格式：
 
@@ -2412,44 +2385,32 @@ default: // 该关键字是可选项
 ```
 
 - 变量可以有 1 个或者 N 个值。
-
 - 值类型必须和变量类型是一致的，并且值是确定的。
-
 - 值必须是唯一的，不能重复，否则编译会出错。
-
 - break 关键字是可选的，如果没有，则执行下一个 case，如果有，则跳出 switch 语句。
-
 - default 关键字也是可选的。
-
-
 
 画个流程图：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-06.png)
 
-
-
 来个示例：
 
 ```java
-public class Switch1 {
-    public static void main(String[] args) {
-        int age = 20;
-        switch (age) {
-            case 20 :
-                System.out.println("上学");
-                break;
-            case 24 :
-                System.out.println("苏州工作");
-                break;
-            case 30 :
-                System.out.println("洛阳工作");
-                break;
-            default:
-                System.out.println("未知");
-                break; // 可省略
-        }
-    }
+int age = 20;
+switch (age) {
+    case 20 :
+        System.out.println("上学");
+        break;
+    case 24 :
+        System.out.println("苏州工作");
+        break;
+    case 30 :
+        System.out.println("洛阳工作");
+        break;
+    default:
+        System.out.println("未知");
+        break; // 可省略
 }
 ```
 
@@ -2462,26 +2423,22 @@ public class Switch1 {
 当两个值要执行的代码相同时，可以把要执行的代码写在下一个 case 语句中，而上一个 case 语句中什么也没有，来看一下示例：
 
 ```java
-public class Switch2 {
-    public static void main(String[] args) {
-        String name = "沉默王二";
-        switch (name) {
-            case "詹姆斯":
-                System.out.println("篮球运动员");
-                break;
-            case "穆里尼奥":
-                System.out.println("足球教练");
-                break;
-            case "沉默王二":
-            case "沉默王三":
-                System.out.println("乒乓球爱好者");
-                break;
-            default:
-                throw new IllegalArgumentException(
-                        "名字没有匹配项");
+String name = "沉默王二";
+switch (name) {
+    case "詹姆斯":
+        System.out.println("篮球运动员");
+        break;
+    case "穆里尼奥":
+        System.out.println("足球教练");
+        break;
+    case "沉默王二":
+    case "沉默王三":
+        System.out.println("乒乓球爱好者");
+        break;
+    default:
+        throw new IllegalArgumentException(
+                "名字没有匹配项");
 
-        }
-    }
 }
 ```
 
@@ -2563,12 +2520,8 @@ for(初始变量;条件;自增/自减){
 来个示例：
 
 ```java
-public class ForExample {
-    public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            System.out.println("沉默王三好美啊");
-        }
-    }
+for (int i = 0; i < 5; i++) {
+    System.out.println("沉默王三好美啊");
 }
 ```
 
@@ -2591,15 +2544,11 @@ public class ForExample {
 “看好了啊。”
 
 ```java
-public class PyramidForExample {
-    public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0;j<= i;j++) {
-                System.out.print("❤");
-            }
-            System.out.println();
-        }
+for (int i = 0; i < 5; i++) {
+    for (int j = 0;j<= i;j++) {
+        System.out.print("❤");
     }
+    System.out.println();
 }
 ```
 
@@ -2627,18 +2576,13 @@ for(元素类型 元素 : 数组或集合){
 }  
 ```
 
-
 来看一下示例：
 
 ```java
-public class ForEachExample {
-    public static void main(String[] args) {
-        String[] strs = {"沉默王二", "一枚有趣的程序员"};
+String[] strs = {"沉默王二", "一枚有趣的程序员"};
 
-        for (String str : strs) {
-            System.out.println(str);
-        }
-    }
+for (String str : strs) {
+    System.out.println(str);
 }
 ```
 
@@ -2662,12 +2606,8 @@ public class ForEachExample {
 “来，看看就知道了。”
 
 ```java
-public class InfinitiveForExample {
-    public static void main(String[] args) {
-        for(;;){
-            System.out.println("停不下来。。。。");
-        }
-    }
+for(;;){
+    System.out.println("停不下来。。。。");
 }
 ```
 
@@ -2699,16 +2639,12 @@ while(条件){
 来个示例：
 
 ```java
-public class WhileExample {
-    public static void main(String[] args) {
-        int i = 0;
-        while (true) {
-            System.out.println("沉默王三");
-            i++;
-            if (i == 5) {
-                break;
-            }
-        }
+int i = 0;
+while (true) {
+    System.out.println("沉默王三");
+    i++;
+    if (i == 5) {
+        break;
     }
 }
 ```
@@ -2734,12 +2670,8 @@ public class WhileExample {
 “来，看看就知道了。”
 
 ```java
-public class InfinitiveWhileExample {
-    public static void main(String[] args) {
-        while (true) {
-            System.out.println("停不下来。。。。");
-        }
-    }
+while (true) {
+    System.out.println("停不下来。。。。");
 }
 ```
 
@@ -2771,18 +2703,14 @@ do{
 来个示例：
 
 ```java
-public class DoWhileExample {
-    public static void main(String[] args) {
-        int i = 0;
-        do {
-            System.out.println("沉默王三");
-            i++;
-            if (i == 5) {
-                break;
-            }
-        } while (true);
+int i = 0;
+do {
+    System.out.println("沉默王三");
+    i++;
+    if (i == 5) {
+        break;
     }
-}
+} while (true);
 ```
 
 “三妹，你猜猜会输出几次？”
@@ -2806,13 +2734,9 @@ public class DoWhileExample {
 “来吧，例行公事，就假装看看嘛。”
 
 ```java
-public class InfinitiveDoWhileExample {
-    public static void main(String[] args) {
-        do {
-            System.out.println("停不下来。。。。");
-        } while (true);
-    }
-}
+do {
+    System.out.println("停不下来。。。。");
+} while (true);
 ```
 
 输出：
@@ -2836,9 +2760,7 @@ break 关键字通常用于中断循环或 switch 语句，它在指定条件下
 
 来画个流程图感受一下：
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-12.png)
-
 
 用在 for 循环中的示例：
 
@@ -2896,18 +2818,18 @@ do {
 
 ```java
 switch (age) {
-        case 20 :
-          System.out.println("上学");
-          break;
-        case 24 :
-          System.out.println("苏州工作");
-          break;
-        case 30 :
-          System.out.println("洛阳工作");
-          break;
-       default:
-         System.out.println("未知");
-         break; // 可省略
+    case 20 :
+        System.out.println("上学");
+        break;
+    case 24 :
+        System.out.println("苏州工作");
+        break;
+    case 30 :
+        System.out.println("洛阳工作");
+        break;
+    default:
+        System.out.println("未知");
+        break; // 可省略
 }
 ```
 
@@ -2918,16 +2840,12 @@ switch (age) {
 来个示例：
 
 ```java
-public class ContinueDemo {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            if (i == 5) {
-                // 使用 continue 关键字
-                continue;// 5 将会被跳过
-            }
-            System.out.println(i);
-        }
+for (int i = 1; i <= 10; i++) {
+    if (i == 5) {
+        // 使用 continue 关键字
+        continue;// 5 将会被跳过
     }
+    System.out.println(i);
 }
 ```
 
@@ -2952,17 +2870,13 @@ public class ContinueDemo {
 再来个循环嵌套的例子。
 
 ```java
-public class ContinueInnerDemo {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j <= 3; j++) {
-                if (i == 2 && j == 2) {
-                    //  当i=2，j=2时跳过
-                    continue;
-                }
-                System.out.println(i + " " + j);
-            }
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i == 2 && j == 2) {
+            //  当i=2，j=2时跳过
+            continue;
         }
+        System.out.println(i + " " + j);
     }
 }
 ```
@@ -2985,18 +2899,14 @@ public class ContinueInnerDemo {
 再来看一下 while 循环时 continue 的使用示例：
 
 ```java
-public class ContinueWhileDemo {
-    public static void main(String[] args) {
-        int i = 1;
-        while (i <= 10) {
-            if (i == 5) {
-                i++;
-                continue;
-            }
-            System.out.println(i);
-            i++;
-        }
+int i = 1;
+while (i <= 10) {
+    if (i == 5) {
+        i++;
+        continue;
     }
+    System.out.println(i);
+    i++;
 }
 ```
 
@@ -3019,20 +2929,15 @@ public class ContinueWhileDemo {
 最后，再来看一下 do-while 循环时 continue 的使用示例：
 
 ```java
-public class ContinueDoWhileDemo {
-    public static void main(String[] args) {
-        int i=1;
-        do{
-            if(i==5){
-                i++;
-                continue;
-            }
-            System.out.println(i);
-            i++;
-        }while(i<=10);
+int i=1;
+do{
+    if(i==5){
+        i++;
+        continue;
     }
-}
-
+    System.out.println(i);
+    i++;
+}while(i<=10);
 ```
 
 输出：
@@ -3051,7 +2956,6 @@ public class ContinueDoWhileDemo {
 
 注意：同样的，如果把 if 条件中的“i++”省略掉的话，程序就会进入死循环，一直在 continue。
 
-
 ---
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
@@ -3062,7 +2966,7 @@ public class ContinueDoWhileDemo {
 
 # 第四章：数组&字符串
 
-## 4.1 一文吃透Java数组
+## 4.1 Java数组
 
 “二哥，我看你公众号的一篇文章里提到，[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 
@@ -3318,7 +3222,7 @@ int index = Arrays.binarySearch(anArray, 4);
 
 “好啊，本来不打算讲了，因为开发中用的其实不多，也很简单，就从一维到二维，也没啥可讲的，就简单聊聊吧。”我掐灭了手中的华子，长呼一口烟，飘过三妹的头顶，引起一阵轻微的咳嗽声（😂）
 
-### 什么是二维数组
+### 01、什么是二维数组
 
 二维数组是一种数据类型，可以存储多行和多列的数据。它由一系列的行和列组成，每个元素都可以通过一个行索引和列索引来访问。例如，一个3行4列的二维数组可以表示为以下形式：
 
@@ -3334,7 +3238,7 @@ array = [
 
 使用二维数组可以有效地存储和处理表格数据，如矩阵、图像、地图等等。
 
-### 如何在 Java 中声明一个二维数组
+### 02、创建二维数组
 
 要在 Java 中创建二维数组，你必须指定要存储在数组中的数据类型，后跟两个方括号和数组的名称。
 
@@ -3351,7 +3255,7 @@ int[][] oddNumbers = { {1, 3, 5, 7}, {9, 11, 13, 15} };
 ```
 
 
-### 如何在 Java 中访问二维数组中的元素
+###  03、访问二维数组中的元素
 
 我们可以使用两个方括号来访问二维中的元素。
 
@@ -3454,7 +3358,7 @@ for(int i = 0; i < oddNumbers.length; i++){
 
 上面的代码将会打印出 `oddNumbers` 数组中的所有项目。
 
-### 二维数组打印杨辉三角
+### 04、二维数组打印杨辉三角
 
 “三妹，上次学一维数组的时候留了一道题，要你尝试用二维数组打印杨辉三角，你试过了吗？”
 
@@ -6065,7 +5969,7 @@ JDK 的其它常用类定义在`java.util.*`，`java.math.*`，`java.text.*`，�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.3Java中的变量
+## 5.3 Java中的变量
 
 “二哥，听说 Java 变量在以后的日子里经常用，能不能提前给我透露透露？”三妹咪了一口麦香可可奶茶后对我说。
 
@@ -11135,6 +11039,297 @@ public class JsonFieldTest {
 
 “嗯，你好好复习下，我看会《编译原理》。”说完我拿起桌子边上的一本书就走了。
 
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.23 Java枚举
+
+“今天我们来学习枚举吧，三妹！”我说，“同学让你去她家玩了两天，感觉怎么样呀？”
+
+“心情放松了不少。”三妹说，“可以开始学 Java 了，二哥。”
+
+“OK。”
+
+“枚举（enum），是 Java 1.5 时引入的关键字，它表示一种特殊类型的类，继承自 java.lang.Enum。”
+
+“我们来新建一个枚举 PlayerType。”
+
+```java
+public enum PlayerType {
+    TENNIS,
+    FOOTBALL,
+    BASKETBALL
+}
+```
+
+“二哥，我没看到有继承关系呀！”
+
+“别着急，看一下反编译后的字节码，你就明白了。”
+
+```java
+public final class PlayerType extends Enum
+{
+
+    public static PlayerType[] values()
+    {
+        return (PlayerType[])$VALUES.clone();
+    }
+
+    public static PlayerType valueOf(String name)
+    {
+        return (PlayerType)Enum.valueOf(com/cmower/baeldung/enum1/PlayerType, name);
+    }
+
+    private PlayerType(String s, int i)
+    {
+        super(s, i);
+    }
+
+    public static final PlayerType TENNIS;
+    public static final PlayerType FOOTBALL;
+    public static final PlayerType BASKETBALL;
+    private static final PlayerType $VALUES[];
+
+    static 
+    {
+        TENNIS = new PlayerType("TENNIS", 0);
+        FOOTBALL = new PlayerType("FOOTBALL", 1);
+        BASKETBALL = new PlayerType("BASKETBALL", 2);
+        $VALUES = (new PlayerType[] {
+            TENNIS, FOOTBALL, BASKETBALL
+        });
+    }
+}
+```
+
+“看到没？Java 编译器帮我们做了很多隐式的工作，不然手写一个枚举就没那么省心省事了。”
+
+- 要继承 Enum 类；
+- 要写构造方法；
+- 要声明静态变量和数组；
+- 要用 static 块来初始化静态变量和数组；
+- 要提供静态方法，比如说 `values()` 和  `valueOf(String name)`。
+
+“确实，作为开发者，我们的代码量减少了，枚举看起来简洁明了。”三妹说。
+
+“既然枚举是一种特殊的类，那它其实是可以定义在一个类的内部的，这样它的作用域就可以限定于这个外部类中使用。”我说。
+
+```java
+public class Player {
+    private PlayerType type;
+    public enum PlayerType {
+        TENNIS,
+        FOOTBALL,
+        BASKETBALL
+    }
+    
+    public boolean isBasketballPlayer() {
+      return getType() == PlayerType.BASKETBALL;
+    }
+
+    public PlayerType getType() {
+        return type;
+    }
+
+    public void setType(PlayerType type) {
+        this.type = type;
+    }
+}
+```
+
+PlayerType 就相当于 Player 的内部类。
+
+由于枚举是 final 的，所以可以确保在 Java 虚拟机中仅有一个常量对象，基于这个原因，我们可以使用“==”运算符来比较两个枚举是否相等，参照 `isBasketballPlayer()` 方法。
+
+“那为什么不使用 `equals()` 方法判断呢？”三妹问。
+
+```java
+if(player.getType().equals(Player.PlayerType.BASKETBALL)){};
+```
+
+“我来给你解释下。”
+
+“==”运算符比较的时候，如果两个对象都为 null，并不会发生 `NullPointerException`，而 `equals()` 方法则会。
+
+另外， “==”运算符会在编译时进行检查，如果两侧的类型不匹配，会提示错误，而 `equals()` 方法则不会。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-01.png)
+
+“枚举还可用于 switch 语句，和基本数据类型的用法一致。”我说。
+
+```java
+switch (playerType) {
+    case TENNIS:
+        return "网球运动员费德勒";
+    case FOOTBALL:
+        return "足球运动员C罗";
+    case BASKETBALL:
+        return "篮球运动员詹姆斯";
+    case UNKNOWN:
+        throw new IllegalArgumentException("未知");
+    default:
+        throw new IllegalArgumentException(
+                "运动员类型: " + playerType);
+
+}
+```
+
+“如果枚举中需要包含更多信息的话，可以为其添加一些字段，比如下面示例中的 name，此时需要为枚举添加一个带参的构造方法，这样就可以在定义枚举时添加对应的名称了。”我继续说。
+
+```java
+public enum PlayerType {
+    TENNIS("网球"),
+    FOOTBALL("足球"),
+    BASKETBALL("篮球");
+
+    private String name;
+
+    PlayerType(String name) {
+        this.name = name;
+    }
+}
+```
+
+“get 了吧，三妹？”
+
+“嗯，比较好理解。”
+
+“那接下来，我就来说点不一样的。”
+
+“来吧，我准备好了。”
+
+“EnumSet 是一个专门针对枚举类型的 [Set 接口](https://tobebetterjavaer.com/collection/gailan.html)（后面会讲）的实现类，它是处理枚举类型数据的一把利器，非常高效。”我说，“从名字上就可以看得出，EnumSet 不仅和 Set 有关系，和枚举也有关系。”
+
+“因为 EnumSet 是一个抽象类，所以创建 EnumSet 时不能使用 new 关键字。不过，EnumSet 提供了很多有用的静态工厂方法。”
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-02.png)
+
+“来看下面这个例子，我们使用 `noneOf()` 静态工厂方法创建了一个空的 PlayerType 类型的 EnumSet；使用 `allOf()` 静态工厂方法创建了一个包含所有 PlayerType 类型的 EnumSet。”
+
+```java
+public class EnumSetTest {
+    public enum PlayerType {
+        TENNIS,
+        FOOTBALL,
+        BASKETBALL
+    }
+
+    public static void main(String[] args) {
+        EnumSet<PlayerType> enumSetNone = EnumSet.noneOf(PlayerType.class);
+        System.out.println(enumSetNone);
+
+        EnumSet<PlayerType> enumSetAll = EnumSet.allOf(PlayerType.class);
+        System.out.println(enumSetAll);
+    }
+}
+```
+
+“来看一下输出结果。”
+
+```java
+[]
+[TENNIS, FOOTBALL, BASKETBALL]
+```
+
+有了 EnumSet 后，就可以使用 Set 的一些方法了，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-03.png)
+
+“除了 EnumSet，还有 EnumMap，是一个专门针对枚举类型的 Map 接口的实现类，它可以将枚举常量作为键来使用。EnumMap 的效率比 HashMap 还要高，可以直接通过数组下标（枚举的 ordinal 值）访问到元素。”
+
+“和 EnumSet 不同，EnumMap 不是一个抽象类，所以创建 EnumMap 时可以使用 new 关键字。”
+
+```java
+EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
+```
+
+有了 EnumMap 对象后就可以使用 Map 的一些方法了，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-04.png)
+
+和 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)（后面会讲）的使用方法大致相同，来看下面的例子。
+
+```java
+EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
+enumMap.put(PlayerType.BASKETBALL,"篮球运动员");
+enumMap.put(PlayerType.FOOTBALL,"足球运动员");
+enumMap.put(PlayerType.TENNIS,"网球运动员");
+System.out.println(enumMap);
+
+System.out.println(enumMap.get(PlayerType.BASKETBALL));
+System.out.println(enumMap.containsKey(PlayerType.BASKETBALL));
+System.out.println(enumMap.remove(PlayerType.BASKETBALL));
+```
+
+“来看一下输出结果。”
+
+```
+{TENNIS=网球运动员, FOOTBALL=足球运动员, BASKETBALL=篮球运动员}
+篮球运动员
+true
+篮球运动员
+```
+
+“除了以上这些，《Effective Java》这本书里还提到了一点，如果要实现单例的话，最好使用枚举的方式。”我说。
+
+“等等二哥，单例是什么？”三妹没等我往下说，就连忙问道。
+
+“单例（Singleton）用来保证一个类仅有一个对象，并提供一个访问它的全局访问点，在一个进程中。因为这个类只有一个对象，所以就不能再使用 `new` 关键字来创建新的对象了。”
+
+“Java 标准库有一些类就是单例，比如说 Runtime 这个类。”
+
+```java
+Runtime runtime = Runtime.getRuntime();
+```
+
+“Runtime 类可以用来获取 Java 程序运行时的环境。”
+
+“关于单例，懂了些吧？”我问三妹。
+
+“噢噢噢噢。”三妹点了点头。
+
+“通常情况下，实现单例并非易事，来看下面这种写法。”
+
+```java
+public class Singleton {  
+    private volatile static Singleton singleton; 
+    private Singleton (){}  
+    public static Singleton getSingleton() {  
+    if (singleton == null) {
+        synchronized (Singleton.class) { 
+        if (singleton == null) {  
+            singleton = new Singleton(); 
+        }  
+        }  
+    }  
+    return singleton;  
+    }  
+}
+```
+
+“要用到 [volatile](https://tobebetterjavaer.com/thread/volatile.html)、[synchronized](https://tobebetterjavaer.com/thread/synchronized-1.html) 关键字等等，但枚举的出现，让代码量减少到极致。”
+
+```java
+public enum EasySingleton{
+    INSTANCE;
+}
+```
+
+“就这？”三妹睁大了眼睛。
+
+“对啊，枚举默认实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，因此 Java 虚拟机可以保证该类为单例，这与传统的实现方式不大相同。传统方式中，我们必须确保单例在反序列化期间不能创建任何新实例。”我说。
+
+“好了，关于枚举就讲这么多吧，三妹，你把这些代码都手敲一遍吧！”
+
+“好勒，这就安排。二哥，你去休息吧。”
+
+“嗯嗯。”讲了这么多，必须跑去抽烟机那里安排一根华子了。
 
 ----
 
@@ -23742,3 +23937,1427 @@ public class TryCatchTest1 {
 
 # 第九章：常用工具类
 
+#9.1 Scanner
+
+Java 的 Scanner 类是一个方便在控制台扫描用户输入的工具类，虽然它也可以扫描文件内容，但我们通常更喜欢它扮演前面的角色，因为扫描文件可以通过[文件流](https://tobebetterjavaer.com/io/file-path.html)来完成。
+
+接下来，我们通过几个简单的示例讲一下 Scanner 类。
+
+### 01、扫描控制台输入
+
+通常，我们会使用 Scanner 类来扫描控制台输入，尤其是对于初学 Java 的人来说，这样会非常的酷，因为终于可以拿到我们自己想要输入的数据了。
+
+来看下面的示例：
+
+```java
+Scanner scanner = new Scanner(System.in); // 创建 Scanner 对象，从标准输入流中读取数据
+System.out.print("请输入一个整数：");
+int num = scanner.nextInt(); // 获取用户输入的整数
+System.out.println("您输入的整数是：" + num);
+scanner.nextLine(); // 读取换行符，避免影响下一次读取
+System.out.print("请输入一个字符串：");
+String str = scanner.nextLine(); // 获取用户输入的字符串
+System.out.println("您输入的字符串是：" + str);
+scanner.close(); // 关闭 Scanner 对象
+```
+
+运行后就可以在控制台交互了，对于新手来说，估计会觉得比较有趣。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329150001.png)
+
+其中 System.in 返回的是一个[字节输入流](https://tobebetterjavaer.com/io/stream.html) InputStream，和 System.out 刚好对应。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329151635.png)
+
+#### 1）nextLine
+
+`nextLine()` 方法会扫描输入流中的字符，直到遇到行末尾的换行符 `\n`，然后将该行的内容作为字符串返回，同时，`nextLine()` 会将 Scanner 对象的位置移动到下一行的开头，以便下一次读取数据时从下一行的开头开始读取。
+
+```java
+Scanner scanner = new Scanner(System.in); // 创建 Scanner 对象，从标准输入流中读取数据
+System.out.println("请输入多行文本，以空行结束：");
+StringBuilder sb = new StringBuilder(); // 创建 StringBuilder 对象，用于保存读取的文本
+String line = scanner.nextLine(); // 读取输入流中的第一行
+while (!line.isEmpty()) { // 如果读取的行不为空，则继续读取下一行
+    sb.append(line).append("\n"); // 将当前行的内容添加到 StringBuilder 对象中，并换行
+    line = scanner.nextLine(); // 读取下一行
+}
+System.out.println("您输入的文本是：\n" + sb.toString()); // 打印读取的文本
+scanner.close(); // 关闭 Scanner 对象
+```
+
+#### 2）nextInt
+
+`nextInt()` 用于从输入流中读取下一个整数并返回，如果输入流中没有整数，或者不是整数，将抛出 InputMismatchException 异常。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329153155.png)
+
+#### 3）其他方法
+
+除了以上两个常用的方法，Scanner 类中还有一些其他的方法：
+
+- `boolean hasNext()`：检查输入流是否还有下一个标记。
+- `boolean hasNextLine()`：检查输入流是否还有下一行。
+- `String next()`：读取输入流中的下一个标记（使用默认的分隔符，通常是空格或换行符）。
+- `double nextDouble()`：读取输入流中的下一个双精度浮点数。
+
+来个 demo 吧。
+
+```java
+Scanner scanner = new Scanner(System.in); // 创建 Scanner 对象，从标准输入流中读取数据
+System.out.print("请输入一个整数：");
+if (scanner.hasNextInt()) { // 判断输入流中是否有下一个整数
+    int num = scanner.nextInt(); // 读取输入流中的下一个整数
+    System.out.println("您输入的整数是：" + num);
+} else {
+    System.out.println("输入的不是整数！");
+}
+scanner.nextLine(); // 读取输入流中的换行符
+
+System.out.print("请输入多个单词，以空格分隔：");
+while (scanner.hasNext()) { // 判断输入流中是否还有下一个标记
+    String word = scanner.next(); // 读取输入流中的下一个单词
+    System.out.println("您输入的单词是：" + word);
+}
+scanner.nextLine(); // 读取输入流中的换行符
+
+System.out.print("请输入一个实数：");
+if (scanner.hasNextDouble()) { // 判断输入流中是否有下一个实数
+    double num = scanner.nextDouble(); // 读取输入流中的下一个实数
+    System.out.println("您输入的实数是：" + num);
+} else {
+    System.out.println("输入的不是实数！");
+}
+scanner.nextLine(); // 读取输入流中的换行符
+
+System.out.print("请输入一个字符串：");
+if (scanner.hasNextLine()) { // 判断输入流中是否有下一行
+    String line = scanner.nextLine(); // 读取输入流中的下一行
+    System.out.println("您输入的字符串是：" + line);
+} else {
+    System.out.println("输入的不是字符串！");
+}
+scanner.close(); // 关闭 Scanner 对象
+```
+
+### 02、扫描文件
+
+当然了，Scanner 也是可以用来扫描文件的，方式也非常的简单，以下是代码示例：
+
+```java
+try {
+    // 创建 File 对象，表示要扫描的文件
+    File file = new File("docs/安装环境.md");
+    Scanner scanner = new Scanner(file); // 创建 Scanner 对象，从文件中读取数据
+    while (scanner.hasNextLine()) { // 判断文件中是否有下一行
+        String line = scanner.nextLine(); // 读取文件中的下一行
+        System.out.println(line); // 打印读取的行
+    }
+    scanner.close(); // 关闭 Scanner 对象
+} catch (FileNotFoundException e) {
+    System.out.println("文件不存在！");
+}
+```
+
+在上面的示例中，我们首先创建了一个 File 对象，表示要扫描的文件。然后，我们使用 Scanner 类的构造方法来创建 Scanner 对象，将文件作为参数传递给构造方法。在 while 循环中，我们使用 `hasNextLine()` 方法来判断文件中是否有下一行，如果有，则使用 `nextLine()` 方法读取该行字符串，并使用 `println()` 方法将其打印出来。最后，我们在程序结束前使用 `close()` 方法关闭 Scanner 对象。
+
+除了使用循环+nextLine，我们还可以使用 useDelimiter 方法设置文件结束符 `\Z` 来读取整个文件。
+
+```java
+// 创建 File 对象，表示要扫描的文件
+Scanner scanner = new Scanner(new File("docs/安装环境.md")); // 创建 Scanner 对象，从文件中读取数据
+scanner.useDelimiter("\\Z"); // 设置分隔符为文件结尾
+if (scanner.hasNext()) { // 判断文件中是否有下一行
+    String content = scanner.next(); // 读取文件中的下一行
+    System.out.println(content); // 打印读取的行
+}
+scanner.close(); // 关闭 Scanner 对象
+```
+
+正则表达式中的 `\Z` 表示输入的结尾，也就是文件结束符。在 Scanner 类中，我们可以使用 `\Z` 作为分隔符，以便读取整个文件内容。
+
+### 03、查找匹配项
+
+除了上面提到的扫描控制台输入流、文件，Scanner 还提供了另外四个以 find 开头的查找匹配项的方法：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329162213.png)
+
+来看示例：
+
+```java
+String input = "good good study, day day up.";
+Scanner scanner = new Scanner(input);
+String result;
+
+// 使用 findInLine() 方法查找字符串中的单词
+result = scanner.findInLine("study");
+System.out.println("findInLine(): " + result); // 输出 "study"
+
+// 使用 findWithinHorizon() 方法查找字符串中的单词
+scanner = new Scanner(input);
+result = scanner.findWithinHorizon("study", 20);
+System.out.println("findWithinHorizon(): " + result); // 输出 "study"
+
+scanner.close(); // 关闭 Scanner 对象
+```
+
+在上面的示例中，我们首先创建了一个字符串 input，表示要查找的文本。然后，我们使用 Scanner 类的构造方法创建 Scanner 对象，并将 input 作为输入流传递给该对象。接着，我们使用 `findInLine()` 方法和 `findWithinHorizon()` 方法分别查找字符串中的单词 "study"。其中，`findInLine()` 方法在当前行中查找匹配项，而 `findWithinHorizon()` 方法在指定的限制范围内查找匹配项。在本例中，我们将查找的范围限制为前 20 个字符。
+
+需要注意的是，`findInLine()` 方法和 `findWithinHorizon()` 方法都返回找到的匹配项。如果没有找到匹配项，则返回 null。此外，`findInLine()` 方法和 `findWithinHorizon()` 方法都会忽略默认的分隔符，因此需要使用正则表达式来指定查找的模式。在本例中，我们使用了字符串 "study" 作为查找的模式。
+
+当然我们也可以使用正则表达式，比如说我们要在下面的文件中查找 openjdk 这个关键字。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329163743.png)
+
+代码就可以这样写：
+
+```java
+// 创建 File 对象，表示要扫描的文件
+Scanner scanner = new Scanner(new File("docs/安装环境.md")); // 创建 Scanner 对象，从文件中读取数据
+Pattern pattern = Pattern.compile("op..jdk");
+String result;
+while ((result = scanner.findWithinHorizon(pattern, 0)) != null) {
+    System.out.println("findWithinHorizon(): " + result);
+}
+```
+
+我们用正则表达式 pattern 来表示 `openjdk` 这个关键字，`op..jdk` 中的 `.` 表示任意字符，可以通过查找正则表达式去了解。
+
+然后我们使用 while 循环来查找文件中所有的 `openjdk`，其中 findWithinHorizon 方法的第二个参数如果为 0 则表示忽略边界，如果没找到，会返回 null。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329165146.png)
+
+由于文件中有两个 openjdk 关键字，所以输出结果如下所示：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329165213.png)
+
+### 04、小结
+
+总之，Scanner 类是一个功能强大的输入处理工具类，不仅可以扫描控制台的输入流，还可以扫描文件，并且提供了多种方法来读取不同类型的数据，比如 `next()`, `nextInt()`, `nextLine()`, `nextDouble()` 等。
+
+除此之外，还可以通过 `useDelimiter()` 方法设置分隔符，通过 `findInLine()`, `findWithinHorizon()` 查找匹配项等。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.2 Arrays
+
+“哥，数组专用工具类是专门用来操作[数组](https://tobebetterjavaer.com/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
+
+“是滴，这里说的数组专用工具类指的是 `java.util.Arrays` 类，基本上常见的数组操作，这个类都提供了静态方法可供直接调用。毕竟数组本身想完成这些操作还是挺麻烦的，有了这层封装，就方便多了。”在回答三妹的同时，我打开 Intellij IDEA，找到了 Arrays 类的源码。
+
+```java
+package java.util;
+/**
+ * @author Josh Bloch
+ * @author Neal Gafter
+ * @author John Rose
+ * @since  1.2
+ */
+public class Arrays {}
+```
+
+“具体来说，数组操作可分为以下 9 种。”
+
+- 创建数组
+- 比较数组
+- 数组排序
+- 数组检索
+- 数组转流
+- 打印数组
+- 数组转 List
+- setAll（没想好中文名）
+- parallelPrefix（没想好中文名）
+
+“我们来一个一个学习。”
+
+### 01、创建数组
+
+使用 Arrays 类创建数组可以通过以下三个方法：
+
+- copyOf，复制指定的数组，截取或用 null 填充
+- copyOfRange，复制指定范围内的数组到一个新的数组
+- fill，对数组进行填充
+
+#### 1）copyOf
+
+直接来看例子：
+
+```java
+String[] intro = new String[] { "沉", "默", "王", "二" };
+String[] revised = Arrays.copyOf(intro, 3);
+String[] expanded = Arrays.copyOf(intro, 5);
+System.out.println(Arrays.toString(revised));
+System.out.println(Arrays.toString(expanded));
+```
+
+revised 和 expanded 是复制后的新数组，长度分别是 3 和 5，指定的数组长度是 4。来看一下输出结果：
+
+```
+[沉, 默, 王]
+[沉, 默, 王, 二, null]
+```
+
+看到没？revised 截取了最后一位，因为长度是 3 嘛；expanded 用 null 填充了一位，因为长度是 5。
+
+ArrayList（内部的数据结构用的就是数组）源码中的 `grow()` 方法就调用了 `copyOf()` 方法：当 ArrayList 初始大小不满足元素的增长时就会扩容。
+
+```java
+private Object[] grow(int minCapacity) {
+    return elementData = Arrays.copyOf(elementData,
+            newCapacity(minCapacity));
+}
+```
+
+#### 2）copyOfRange
+
+直接来看例子：
+
+```java
+String[] intro = new String[] { "沉", "默", "王", "二" };
+String[] abridgement = Arrays.copyOfRange(intro, 0, 3);
+System.out.println(Arrays.toString(abridgement));
+```
+
+`copyOfRange()` 方法需要三个参数，第一个是指定的数组，第二个是起始位置（包含），第三个是截止位置（不包含）。来看一下输出结果：
+
+```java
+[沉, 默, 王]
+```
+
+0 的位置是“沉”，3 的位置是“二”，也就是说截取了从 0 位（包含）到 3 位（不包含）的数组元素。那假如说下标超出了数组的长度，会发生什么呢？
+
+```java
+String[] abridgementExpanded = Arrays.copyOfRange(intro, 0, 6);
+System.out.println(Arrays.toString(abridgementExpanded));
+```
+
+结束位置此时为 6，超出了指定数组的长度 4，来看一下输出结果：
+
+```
+[沉, 默, 王, 二, null, null]
+```
+
+仍然使用了 null 进行填充。
+
+“为什么要这么做呢？”经过这段时间的学习，三妹的眼光越来越毒辣了，问的问题都恰到好处。
+
+“嗯，我想是 Arrays 的设计者考虑到了数组越界的问题，不然每次调用 Arrays 类就要先判断很多次长度，很麻烦。”稍作思考后，我给出了这样一个回答。
+
+#### 3）fill
+
+直接来看例子：
+
+```java
+String[] stutter = new String[4];
+Arrays.fill(stutter, "沉默王二");
+System.out.println(Arrays.toString(stutter));
+```
+
+使用 new 关键字创建了一个长度为 4 的数组，然后使用 `fill()` 方法将 4 个位置填充为“沉默王二”，来看一下输出结果：
+
+```
+[沉默王二, 沉默王二, 沉默王二, 沉默王二]
+```
+
+如果想要一个元素完全相同的数组时， `fill()` 方法就派上用场了。
+
+### 02、比较数组
+
+Arrays 类的 `equals()` 方法用来判断两个数组是否相等，来看下面这个例子：
+
+```java
+String[] intro = new String[] { "沉", "默", "王", "二" };
+boolean result = Arrays.equals(new String[] { "沉", "默", "王", "二" }, intro);
+System.out.println(result);
+boolean result1 = Arrays.equals(new String[] { "沉", "默", "王", "三" }, intro);
+System.out.println(result1);
+```
+
+输出结果如下所示：
+
+```
+true
+false
+```
+
+指定的数组为沉默王二四个字，比较的数组一个是沉默王二，一个是沉默王三，所以 result 为 true，result1 为 false。
+
+简单看一下 `equals()` 方法的源码：
+
+```java
+public static boolean equals(Object[] a, Object[] a2) {
+    if (a==a2)
+        return true;
+    if (a==null || a2==null)
+        return false;
+
+    int length = a.length;
+    if (a2.length != length)
+        return false;
+
+    for (int i=0; i<length; i++) {
+        if (!Objects.equals(a[i], a2[i]))
+            return false;
+    }
+
+    return true;
+}
+```
+
+因为数组是一个对象，所以先使用“==”操作符进行判断，如果不相等，再判断是否为 null，其中一个为 null，返回 false；紧接着判断 length，不等的话，返回 false；否则的话，依次调用 `Objects.equals()` 比较相同位置上的元素是否相等。
+
+“这段代码还是非常严谨的，对吧？三妹，这也就是我们学习源码的意义，欣赏的同时，可以学习源码作者清晰的编码思路。”我语重心长地给三妹讲。
+
+除了 `equals()` 方法，还有另外一个诀窍可以判断两个数组是否相等，尽管可能会出现误差。那就是 `Arrays.hashCode()` 方法，先来看一下该方法的源码：
+
+```java
+public static int hashCode(Object a[]) {
+    if (a == null)
+        return 0;
+
+    int result = 1;
+
+    for (Object element : a)
+        result = 31 * result + (element == null ? 0 : element.hashCode());
+
+    return result;
+}
+``` 
+
+哈希算法本身是非常严谨的，所以如果两个数组的哈希值相等，那几乎可以判断两个数组是相等的。
+
+```java
+String[] intro = new String[] { "沉", "默", "王", "二" };
+
+System.out.println(Arrays.hashCode(intro));
+System.out.println(Arrays.hashCode(new String[] { "沉", "默", "王", "二" }));
+```
+
+来看一下输出结果：
+
+```
+868681617
+868681617
+```
+
+两个数组的哈希值相等，毕竟元素是一样的。但这样确实不够严谨，优先使用 `Objects.equals()` 方法，当我们想快速确认两个数组是否相等时，可以通过比较 hashCode 来确认——算是投机取巧吧，高收益高风险，哈哈。
+
+### 03、数组排序
+
+Arrays 类的 `sort()` 方法用来对数组进行排序，来看下面这个例子：
+
+```java
+String[] intro1 = new String[] { "chen", "mo", "wang", "er" };
+String[] sorted = Arrays.copyOf(intro1, 4);
+Arrays.sort(sorted);
+System.out.println(Arrays.toString(sorted));
+```
+
+由于排序会改变原有的数组，所以我们使用了 `copyOf()` 方法重新复制了一份。来看一下输出结果：
+
+```
+[chen, er, mo, wang]
+```
+
+可以看得出，按照的是首字母的升序进行排列的。基本数据类型是按照双轴快速排序的，引用数据类型是按照 TimSort 排序的，使用了 Peter McIlroy 的“乐观排序和信息理论复杂性”中的技术。
+
+“哥，你说的这些排序算法我都不太懂啊！”三妹眨巴眨巴眼睛说。
+
+“不要紧的，后面学了数据结构与算法后，就明白了，现在了解这个东西即可。”我赶紧甩出了安抚大法。
+
+### 04、数组检索
+
+数组排序后就可以使用 Arrays 类的 `binarySearch()` 方法进行二分查找了。否则的话，只能线性检索，效率就会低很多。
+
+```java
+String[] intro1 = new String[] { "chen", "mo", "wang", "er" };
+String[] sorted = Arrays.copyOf(intro1, 4);
+Arrays.sort(sorted);
+int exact = Arrays.binarySearch(sorted, "wang");
+System.out.println(exact);
+int caseInsensitive = Arrays.binarySearch(sorted, "Wang", String::compareToIgnoreCase);
+System.out.println(caseInsensitive);
+```
+
+ `binarySearch()` 方法既可以精确检索，也可以模糊检索，比如说忽略大小写。来看一下输出结果：
+
+```
+3
+3
+```
+
+排序后的结果是 `[chen, er, mo, wang]`，所以检索出来的下标是 3。
+
+“三妹，记住了，以后如果要从数组或者集合中查找元素的话，尽量先排序，然后使用二分查找法，这样能提高检索的效率。”
+
+三妹若有所思的点了点头。
+
+### 05、数组转流
+
+“流是什么呀？”三妹好奇的问。
+
+“流的英文单词是 Stream，它可以极大提高 Java 程序员的生产力，让程序员写出高效、干净、简洁的代码。 这种风格将要处理的集合看作是一种流，想象一下水流在管道中流过的样子，我们可以在管道中对流进行处理，比如筛选、排序等等。[Stream 具体怎么使用](https://tobebetterjavaer.com/java8/stream.html)，我们留到后面再详细地讲，这里你先有一个大致的印象就可以了。”我回答到。
+
+
+Arrays 类的 `stream()` 方法可以将数组转换成流：
+
+```java
+String[] intro = new String[] { "沉", "默", "王", "二" };
+System.out.println(Arrays.stream(intro).count());
+```
+
+还可以为 `stream()` 方法指定起始下标和结束下标：
+
+```java
+System.out.println(Arrays.stream(intro, 1, 2).count());
+```
+
+如果下标的范围有误的时候，比如说从 2 到 1 结束，则程序会抛出 ArrayIndexOutOfBoundsException 异常：
+
+```
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: origin(2) > fence(1)
+	at java.base/java.util.Spliterators.checkFromToBounds(Spliterators.java:387)
+```
+
+### 06、打印数组
+
+因为数组是一个对象，直接 `System.out.println` 的话，结果是这样的：
+
+```
+[Ljava.lang.String;@3d075dc0
+```
+
+[最优雅的打印方式](https://tobebetterjavaer.com/array/print.html)，是使用 `Arrays.toString()`，其实前面讲过。来看一下该方法的源码：
+
+```java
+public static String toString(Object[] a) {
+    if (a == null)
+        return "null";
+
+    int iMax = a.length - 1;
+    if (iMax == -1)
+        return "[]";
+
+    StringBuilder b = new StringBuilder();
+    b.append('[');
+    for (int i = 0; ; i++) {
+        b.append(String.valueOf(a[i]));
+        if (i == iMax)
+            return b.append(']').toString();
+        b.append(", ");
+    }
+}
+```
+
+- 先判断 null，是的话，直接返回“null”字符串；
+- 获取数组的长度，如果数组的长度为 0（ 等价于 length - 1 为 -1），返回中括号“[]”，表示数组为空的；
+- 如果数组既不是 null，长度也不为 0，就声明 StringBuilder 对象，然后添加一个数组的开始标记“[”，之后再遍历数组，把每个元素添加进去；其中一个小技巧就是，当遇到末尾元素的时候（i == iMax），不再添加逗号和空格“, ”，而是添加数组的闭合标记“]”。
+
+“哥，我能不能问一个问题呀？”
+
+“你问啊。”
+
+“就是为什么判断数组长度为 0 的时候判断的是减 1 后比较 -1 呢？为什么不直接比较 0 呢？”
+
+“呀，你这个问题问的很妙啊！”我想到三妹说一句“respect”，很强！“其实是和遍历数组的时候判断 `i == iMax` 有关了，否则这里就要用 `i == iMax -1` 来判断是否到达数组的最后一个元素了。”
+
+“哦----------”三妹似乎明白了什么。
+
+### 07、数组转 List
+
+尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的[集合框架 List](https://tobebetterjavaer.com/collection/gailan.html) 中封装了很多常用的方法。
+
+```java
+String[] intro = new String[] { "沉", "默", "王", "二" };
+List<String> rets = Arrays.asList(intro);
+System.out.println(rets.contains("二"));
+```
+
+不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  [`java.util.ArrayList`](https://tobebetterjavaer.com/collection/arraylist.html)，它的长度是固定的，无法进行元素的删除或者添加。
+
+```java
+rets.add("三");
+rets.remove("二");
+```
+
+这个在编码的时候一定要注意，否则在执行这两个方法的时候，会抛出异常：
+
+```
+Exception in thread "main" java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.add(AbstractList.java:153)
+	at java.base/java.util.AbstractList.add(AbstractList.java:111)
+```
+
+要想操作元素的话，需要多一步转化，转成真正的 `java.util.ArrayList`：
+
+```java
+List<String> rets1 = new ArrayList<>(Arrays.asList(intro));
+rets1.add("三");
+rets1.remove("二");
+```
+
+### 08、setAll
+
+Java 8 新增了 `setAll()` 方法，它提供了一个[函数式编程](https://tobebetterjavaer.com/java8/Lambda.html)的入口，可以对数组的元素进行填充：
+
+```java
+int[] array = new int[10];
+Arrays.setAll(array, i -> i * 10);
+System.out.println(Arrays.toString(array));
+```
+
+“这段代码什么意思呢？”三妹问。
+
+i 就相当于是数组的下标，值从 0 开始，到 9 结束，那么 `i * 10` 就意味着值从 0 * 10 开始，到 9 * 10 结束，来看一下输出结果：
+
+```
+[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+``` 
+
+可以用来为新数组填充基于原来数组的新元素。
+
+### 09、parallelPrefix
+
+`parallelPrefix()` 方法和 `setAll()` 方法一样，也是 Java 8 之后提供的，提供了一个函数式编程的入口，通过遍历数组中的元素，将当前下标位置上的元素与它之前下标的元素进行操作，然后将操作后的结果覆盖当前下标位置上的元素。
+
+```java
+int[] arr = new int[] { 1, 2, 3, 4};
+Arrays.parallelPrefix(arr, (left, right) -> left + right);
+System.out.println(Arrays.toString(arr));
+```
+
+上面代码中有一个 Lambda 表达式（`(left, right) -> left + right`），是什么意思呢？上面这段代码等同于：
+
+```java
+int[] arr = new int[]{1, 2, 3, 4};
+Arrays.parallelPrefix(arr, (left, right) -> {
+    System.out.println(left + "，" + right);
+    return left + right;
+});
+System.out.println(Arrays.toString(arr));
+```
+
+来看一下输出结果就明白了：
+
+```
+1，2
+3，3
+6，4
+[1, 3, 6, 10]
+```
+
+也就是说， Lambda 表达式执行了三次：
+
+- 第一次是 1 和 2 相加，结果是 3，替换下标为 1 的位置
+- 第二次是 3 和 3 相加，结果是 6，也就是第一次的结果和下标为 2 的元素相加的结果
+- 第三次是 6 和 4 相加，结果是 10，也就是第二次的结果和下标为 3 的元素相加的结果
+
+
+### 10、总结
+
+“好了，三妹，就先学到这吧。如果你以后翻 Java 源码的时候，只要是用到数组的，尤其是 ArrayList 类，就可以看到 Arrays 类的很多影子。”
+
+“嗯嗯，我先复习一下这节的内容。哥，你去休息吧。”
+
+我来到客厅，坐到沙发上，捧起黄永玉先生的《无愁河上的浪荡汉子·八年卷 1》看了起来，津津有味。。。。。。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.3 Objects
+
+Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://tobebetterjavaer.com/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
+
+### 对象判空
+
+在 Java 中，万物皆对象，对象的判空可以说无处不在。Objects 的 `isNull` 方法用于判断对象是否为空，而 `nonNull` 方法判断对象是否不为空。例如：
+
+```java
+Integer integer = new Integer(1);
+
+if (Objects.isNull(integer)) {
+    System.out.println("对象为空");
+}
+
+if (Objects.nonNull(integer)) {
+    System.out.println("对象不为空");
+}
+```
+
+### 对象为空时抛异常
+
+如果我们想在对象为空时，抛出[空指针异常](https://tobebetterjavaer.com/exception/npe.html)，可以使用 Objects 的 `requireNonNull` 方法。例如：
+
+```java
+Integer integer1 = new Integer(128);
+
+Objects.requireNonNull(integer1);
+Objects.requireNonNull(integer1, "参数不能为空");
+Objects.requireNonNull(integer1, () -> "参数不能为空");
+```
+
+### 判断两个对象是否相等
+
+我们经常需要判断两个对象是否相等，Objects 给我们提供了 `equals` 方法，能非常方便的实现：
+
+```java
+Integer integer1 = new Integer(1);
+Integer integer2 = new Integer(1);
+
+System.out.println(Objects.equals(integer1, integer2));
+```
+
+执行结果：
+
+```java
+true
+```
+
+但使用这个方法有坑，比如例子改成：
+
+```java
+Integer integer1 = new Integer(1);
+Long integer2 = new Long(1);
+
+System.out.println(Objects.equals(integer1, integer2));
+```
+
+执行结果：
+
+```java
+false
+```
+
+不过，需要注意的是，虽然 `Objects.equals()` 方法本身是用来避免坑的，因为它可以处理 null 值的比较，而不会抛出空指针异常。然而，这并不意味着它没有任何潜在问题。实际上，`Objects.equals()` 方法的一个潜在问题是依赖于被比较对象的 `equals()` 方法实现。
+
+当两个对象的类没有正确实现 `equals()` 方法时，`Objects.equals()` 方法可能会产生不符合预期的结果。举个例子：
+
+```java
+public class ObjectsDemo1 {
+    public static void main(String[] args) {
+        Person person1 = new Person("沉默王二", 18);
+        Person person2 = new Person("沉默王二", 18);
+
+        System.out.println(Objects.equals(person1, person2)); // 输出：false
+    }
+}
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+在上面的例子中，我们创建了一个名为 Person 的类，但是没有重写 `equals()` 方法。然后我们创建了两个具有相同属性的 Person 对象，并使用 `Objects.equals()` 方法比较它们。尽管这两个对象的属性是相同的，但输出结果却是 false。这是因为 `Objects.equals()` 方法依赖于对象的 `equals()` 方法，而在这个例子中，Person 类没有正确地实现 `equals()` 方法，所以默认情况下会使用 Object 类的 `equals()` 方法，它只比较对象引用是否相同。
+
+为了解决这个问题，我们需要在 Person 类中重写 `equals()` 方法：
+
+```java
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) {
+        return true;
+    }
+    if (obj == null || getClass() != obj.getClass()) {
+        return false;
+    }
+    Person person = (Person) obj;
+    return age == person.age && Objects.equals(name, person.name);
+}
+```
+
+现在，当我们使用 `Objects.equals()` 方法比较两个具有相同属性的 Person 对象时，输出将是 true，符合我们的预期。
+
+### 获取对象的hashCode
+
+如果你想获取某个对象的 hashCode，可以使用 Objects 的 `hashCode` 方法。例如：
+
+```java
+String str = new String("沉默王二");
+System.out.println(Objects.hashCode(str));
+```
+
+执行结果：
+
+```java
+867758096
+```
+
+### 比较两个对象
+
+`compare()` 方法用于比较两个对象，通常用于自定义排序。它需要一个[比较器 (Comparator) ](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)作为参数。如果比较器为 null，则使用自然顺序。以下是一个 `compare()` 方法的示例：
+
+```java
+class ObjectsCompareDemo {
+    public static void main(String[] args) {
+        PersonCompare person1 = new PersonCompare("itwanger", 30);
+        PersonCompare person2 = new PersonCompare("chenqingyang", 25);
+
+        Comparator<PersonCompare> ageComparator = Comparator.comparingInt(p -> p.age);
+        int ageComparisonResult = Objects.compare(person1, person2, ageComparator);
+        System.out.println("年龄排序: " + ageComparisonResult); // 输出：1（表示 person1 的 age 在 person2 之后）
+    }
+}
+
+class PersonCompare {
+    String name;
+    int age;
+
+    PersonCompare(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+### 比较两个数组
+
+`deepEquals()` 用于比较两个[数组类型](https://tobebetterjavaer.com/array/array.html)的对象，当对象是非数组的话，行为和 `equals()` 一致。
+
+```java
+int[] array1 = {1, 2, 3};
+int[] array2 = {1, 2, 3};
+int[] array3 = {1, 2, 4};
+
+System.out.println(Objects.deepEquals(array1, array2)); // 输出：true（因为 array1 和 array2 的内容相同）
+System.out.println(Objects.deepEquals(array1, array3)); // 输出：false（因为 array1 和 array3 的内容不同）
+
+// 对于非数组对象，deepEquals() 的行为与 equals() 相同
+String string1 = "hello";
+String string2 = "hello";
+String string3 = "world";
+
+System.out.println(Objects.deepEquals(string1, string2)); // 输出：true（因为 string1 和 string2 相同）
+System.out.println(Objects.deepEquals(string1, string3)); // 输出：false（因为 string1 和 string3 不同）
+```
+
+再来个[二维数组](https://tobebetterjavaer.com/array/double-array.html)的：
+
+```java
+String[][] nestedArray1 = {{"A", "B"}, {"C", "D"}};
+String[][] nestedArray2 = {{"A", "B"}, {"C", "D"}};
+String[][] nestedArray3 = {{"A", "B"}, {"C", "E"}};
+
+System.out.println(Objects.deepEquals(nestedArray1, nestedArray2)); // 输出：true (因为嵌套数组元素相同)
+System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：false (因为嵌套数组元素不同)
+```
+
+### 小结
+
+除了上面提到的这些方法，Objects 还提供了一些其他的方法，比如说 toString，感兴趣的话可以试一下。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/Objects-83489814-9784-4274-841a-27ee75c046ac.jpg)
+
+总之，Objects 类提供的这些方法在许多情况下还是非常有用得，可以简化代码并减少出错的可能性。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.4 Collections
+
+Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
+
+还记得我们前面讲过的 [Arrays 工具类](https://tobebetterjavaer.com/common-tool/arrays.html)吗？可以回去温习下。
+
+Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之后就可以看到它提供的方法了，大致看一下方法名和参数就能知道这个方法是干嘛的。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-01.png)
+
+为了节省大家的学习时间，我将这些方法做了一些分类，并列举了一些简单的例子。
+
+### 01、排序操作
+
+- `reverse(List list)`：反转顺序
+- `shuffle(List list)`：洗牌，将顺序打乱
+- `sort(List list)`：自然升序
+- `sort(List list, Comparator c)`：按照自定义的比较器排序
+- `swap(List list, int i, int j)`：将 i 和 j 位置的元素交换位置
+
+来看例子：
+
+```java
+List<String> list = new ArrayList<>();
+list.add("沉默王二");
+list.add("沉默王三");
+list.add("沉默王四");
+list.add("沉默王五");
+list.add("沉默王六");
+
+System.out.println("原始顺序：" + list);
+
+// 反转
+Collections.reverse(list);
+System.out.println("反转后：" + list);
+
+// 洗牌
+Collections.shuffle(list);
+System.out.println("洗牌后：" + list);
+
+// 自然升序
+Collections.sort(list);
+System.out.println("自然升序后：" + list);
+
+// 交换
+Collections.swap(list, 2,4);
+System.out.println("交换后：" + list);
+```
+
+输出后：
+
+```
+原始顺序：[沉默王二, 沉默王三, 沉默王四, 沉默王五, 沉默王六]
+反转后：[沉默王六, 沉默王五, 沉默王四, 沉默王三, 沉默王二]
+洗牌后：[沉默王五, 沉默王二, 沉默王六, 沉默王三, 沉默王四]
+自然升序后：[沉默王三, 沉默王二, 沉默王五, 沉默王六, 沉默王四]
+交换后：[沉默王三, 沉默王二, 沉默王四, 沉默王六, 沉默王五]
+```
+
+### 02、查找操作
+
+- `binarySearch(List list, Object key)`：二分查找法，前提是 List 已经排序过了
+- `max(Collection coll)`：返回最大元素
+- `max(Collection coll, Comparator comp)`：根据自定义比较器，返回最大元素
+- `min(Collection coll)`：返回最小元素
+- `min(Collection coll, Comparator comp)`：根据自定义比较器，返回最小元素
+- `fill(List list, Object obj)`：使用指定对象填充
+- `frequency(Collection c, Object o)`：返回指定对象出现的次数
+
+来看例子：
+
+```java
+System.out.println("最大元素：" + Collections.max(list));
+System.out.println("最小元素：" + Collections.min(list));
+System.out.println("出现的次数：" + Collections.frequency(list, "沉默王二"));
+
+// 没有排序直接调用二分查找，结果是不确定的
+System.out.println("排序前的二分查找结果：" + Collections.binarySearch(list, "沉默王二"));
+Collections.sort(list);
+// 排序后，查找结果和预期一致
+System.out.println("排序后的二分查找结果：" + Collections.binarySearch(list, "沉默王二"));
+
+Collections.fill(list, "沉默王八");
+System.out.println("填充后的结果：" + list);
+```
+
+输出后：
+
+```
+原始顺序：[沉默王二, 沉默王三, 沉默王四, 沉默王五, 沉默王六]
+最大元素：沉默王四
+最小元素：沉默王三
+出现的次数：1
+排序前的二分查找结果：0
+排序后的二分查找结果：1
+填充后的结果：[沉默王八, 沉默王八, 沉默王八, 沉默王八, 沉默王八]
+```
+
+### 03、同步控制
+
+[HashMap 是线程不安全](https://tobebetterjavaer.com/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-02.png)
+
+使用起来也非常的简单：
+
+```java
+SynchronizedList synchronizedList = Collections.synchronizedList(list);
+```
+
+看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 [synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)加了一层锁而已。
+
+```java
+static class SynchronizedList<E>
+    extends SynchronizedCollection<E>
+    implements List<E> {
+    private static final long serialVersionUID = -7754090372962971524L;
+
+    final List<E> list;
+
+    SynchronizedList(List<E> list) {
+        super(list); // 调用父类 SynchronizedCollection 的构造方法，传入 list
+        this.list = list; // 初始化成员变量 list
+    }
+
+    // 获取指定索引处的元素
+    public E get(int index) {
+        synchronized (mutex) {return list.get(index);} // 加锁，调用 list 的 get 方法获取元素
+    }
+    
+    // 在指定索引处插入指定元素
+    public void add(int index, E element) {
+        synchronized (mutex) {list.add(index, element);} // 加锁，调用 list 的 add 方法插入元素
+    }
+    
+    // 移除指定索引处的元素
+    public E remove(int index) {
+        synchronized (mutex) {return list.remove(index);} // 加锁，调用 list 的 remove 方法移除元素
+    }
+}
+```
+
+那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 [Vector、Hashtable](https://tobebetterjavaer.com/collection/gailan.html) 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
+
+```java
+public class Vector<E>
+    extends AbstractList<E>
+    implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+{
+
+    // 获取指定索引处的元素
+    public synchronized E get(int index) {
+        if (index >= elementCount) // 如果索引超出了列表的大小，则抛出数组下标越界异常
+            throw new ArrayIndexOutOfBoundsException(index);
+
+        return elementData(index); // 返回指定索引处的元素
+    }
+
+    // 移除指定索引处的元素
+    public synchronized E remove(int index) {
+        modCount++; // 修改计数器，标识列表已被修改
+        if (index >= elementCount) // 如果索引超出了列表的大小，则抛出数组下标越界异常
+            throw new ArrayIndexOutOfBoundsException(index);
+        E oldValue = elementData(index); // 获取指定索引处的元素
+
+        int numMoved = elementCount - index - 1; // 计算需要移动的元素个数
+        if (numMoved > 0) // 如果需要移动元素
+            System.arraycopy(elementData, index+1, elementData, index,
+                             numMoved); // 将数组中的元素向左移动一位
+        elementData[--elementCount] = null; // 将最后一个元素设置为 null，等待垃圾回收
+
+        return oldValue; // 返回被移除的元素
+    }
+}
+```
+
+正确的做法是使用并发包下的 [CopyOnWriteArrayList](https://tobebetterjavaer.com/thread/CopyOnWriteArrayList.html)、[ConcurrentHashMap](https://tobebetterjavaer.com/thread/ConcurrentHashMap.html)。这些我们放到并发编程时再讲。
+
+### 04、不可变集合
+
+- `emptyXxx()`：制造一个空的不可变集合
+- `singletonXxx()`：制造一个只有一个元素的不可变集合
+- `unmodifiableXxx()`：为指定集合制作一个不可变集合
+
+举个例子：
+
+```java
+List emptyList = Collections.emptyList();
+emptyList.add("非空");
+System.out.println(emptyList);
+```
+
+这段代码在执行的时候就抛出错误了。
+
+```
+Exception in thread "main" java.lang.UnsupportedOperationException
+	at java.util.AbstractList.add(AbstractList.java:148)
+	at java.util.AbstractList.add(AbstractList.java:108)
+	at com.itwanger.s64.Demo.main(Demo.java:61)
+```
+
+这是因为 `Collections.emptyList()` 会返回一个 Collections 的内部类 EmptyList，而 EmptyList 并没有重写父类 AbstractList 的 `add(int index, E element)` 方法，所以执行的时候就抛出了不支持该操作的 UnsupportedOperationException 了。
+
+这是从分析 add 方法源码得出的原因。除此之外，emptyList 方法是 final 的，返回的 EMPTY_LIST 也是 final 的，种种迹象表明 emptyList 返回的就是不可变对象，没法进行增伤改查。
+
+```java
+public static final <T> List<T> emptyList() {
+    return (List<T>) EMPTY_LIST;
+}
+
+public static final List EMPTY_LIST = new EmptyList<>();
+```
+
+### 05、其他
+
+还有两个方法比较常用：
+
+- `addAll(Collection<? super T> c, T... elements)`，往集合中添加元素
+- `disjoint(Collection<?> c1, Collection<?> c2)`，判断两个集合是否没有交集
+
+举个例子：
+
+```java
+List<String> allList = new ArrayList<>();
+Collections.addAll(allList, "沉默王九","沉默王十","沉默王二");
+System.out.println("addAll 后：" + allList);
+
+System.out.println("是否没有交集：" + (Collections.disjoint(list, allList) ? "是" : "否"));
+```
+
+输出后：
+
+```
+原始顺序：[沉默王二, 沉默王三, 沉默王四, 沉默王五, 沉默王六]
+addAll 后：[沉默王九, 沉默王十, 沉默王二]
+是否没有交集：否
+```
+
+整体上，Collections 工具类作为集合框架的大管家，提供了一些非常便利的方法供我们调用，也非常容易掌握，没什么难点，看看方法的注释就能大致明白干嘛的。
+
+不过，工具就放在那里，用是一回事，为什么要这么用就是另外一回事了。能不能提高自己的编码水平，很大程度上取决于你到底有没有去钻一钻源码，看这些设计 JDK 的大师们是如何写代码的，学会一招半式，在工作当中还是能很快脱颖而出的。
+
+恐怕 JDK 的设计者是这个世界上最好的老师了，文档写得不能再详细了，代码写得不能再优雅了，基本上都达到了性能上的极致。
+
+可能有人会说，工具类没什么鸟用，不过是调用下方法而已，但这就大错特错了：如果要你来写，你能写出来 Collections 这样一个工具类吗？
+
+这才是高手要思考的一个问题。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.6 Guava
+
+### 01、前世今生
+
+你好呀，我是 Guava。
+
+我由 Google 公司开源，目前在 GitHub 上已经有 39.9k 的铁粉了，由此可以证明我的受欢迎程度。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-01.png)
+
+我的身体里主要包含有这些常用的模块：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等。新版的 JDK 中已经直接把我引入了，可想而知我有多优秀，忍不住骄傲了。
+
+这么说吧，学好如何使用我，能让你在编程中变得更快乐，写出更优雅的代码！
+
+### 02、引入 Guava
+
+如果你要在 Maven 项目使用我的话，需要先在 pom.xml 文件中引入我的依赖。
+
+```
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>30.1-jre</version>
+</dependency>
+```
+
+一点要求，JDK 版本需要在 8 以上。
+
+### 03、基本工具
+
+Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“[null 真糟糕](https://tobebetterjavaer.com/exception/npe.html)”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
+
+
+代码示例如下所示。
+
+```java
+Optional<Integer> possible = Optional.of(5);
+possible.isPresent(); // returns true
+possible.get(); // returns 5
+```
+
+我大哥 Java 在 JDK 8 中新增了 [Optional 类](https://tobebetterjavaer.com/java8/optional.html)，显然是从我这借鉴过去的，不过他的和我的有些不同。
+
+- 我的 Optional 是 abstract 的，意味着我可以有子类对象；我大哥的是 final 的，意味着没有子类对象。
+- 我的 Optional 实现了 Serializable 接口，可以序列化；我大哥的没有。
+- 我的一些方法和我大哥的也不尽相同。
+
+使用 Optional 除了赋予 null 语义，增加了可读性，最大的优点在于它是一种傻瓜式的防护。Optional 迫使你积极思考引用缺失的情况，因为你必须显式地从 Optional 获取引用。
+
+除了 Optional 之外，我还提供了：
+
+- 参数校验
+- 常见的 Object 方法，比如说 Objects.equals、Objects.hashCode，JDK 7 引入的 Objects 类提供同样的方法，当然也是从我这借鉴的灵感。
+- 更强大的比较器
+
+### 04、集合
+
+首先我来说一下，为什么需要不可变集合。
+
+- 保证线程安全。在并发程序中，使用不可变集合既保证线程的安全性，也大大地增强了并发时的效率（跟并发锁方式相比）。
+- 如果一个对象不需要支持修改操作，不可变的集合将会节省空间和时间的开销。
+- 可以当作一个常量来对待，并且集合中的对象在以后也不会被改变。
+
+与 JDK 中提供的不可变集合相比，我提供的 Immutable 才是真正的不可变，我为什么这么说呢？来看下面这个示例。
+
+下面的代码利用 JDK 的 [`Collections.unmodifiableList(list)`](https://tobebetterjavaer.com/common-tool/collections.html) 得到一个不可修改的集合 unmodifiableList。
+
+```java
+List list = new ArrayList();
+list.add("雷军");
+list.add("乔布斯");
+
+List unmodifiableList = Collections.unmodifiableList(list);
+unmodifiableList.add("马云");
+```
+
+运行代码将会出现以下异常：
+
+```
+Exception in thread "main" java.lang.UnsupportedOperationException
+	at java.base/java.util.Collections$UnmodifiableCollection.add(Collections.java:1060)
+	at com.itwanger.guava.NullTest.main(NullTest.java:29)
+```
+
+很好，执行 `unmodifiableList.add()` 的时候抛出了 UnsupportedOperationException 异常，说明 `Collections.unmodifiableList()` 返回了一个不可变集合。但真的是这样吗？
+
+你可以把 `unmodifiableList.add()` 换成 `list.add()`。
+
+```java
+List list = new ArrayList();
+list.add("雷军");
+list.add("乔布斯");
+
+List unmodifiableList = Collections.unmodifiableList(list);
+list.add("马云");
+```
+
+再次执行的话，程序并没有报错，并且你会发现 unmodifiableList 中真的多了一个元素。说明什么呢？
+
+`Collections.unmodifiableList(…)` 实现的不是真正的不可变集合，当原始集合被修改后，不可变集合里面的元素也是跟着发生变化。
+
+我就不会犯这种错，来看下面的代码。
+
+```java
+List<String> stringArrayList = Lists.newArrayList("雷军","乔布斯");
+ImmutableList<String> immutableList = ImmutableList.copyOf(stringArrayList);
+immutableList.add("马云");
+```
+
+尝试 `immutableList.add()` 的时候会抛出 `UnsupportedOperationException`。我在源码中已经把 `add()` 方法废弃了。
+
+```java
+/**
+  * Guaranteed to throw an exception and leave the collection unmodified.
+  *
+  * @throws UnsupportedOperationException always
+  * @deprecated Unsupported operation.
+  */
+@CanIgnoreReturnValue
+@Deprecated
+@Override
+public final boolean add(E e) {
+  throw new UnsupportedOperationException();
+}
+```
+
+尝试 `stringArrayList.add()` 修改原集合的时候 immutableList 并不会因此而发生改变。
+
+除了不可变集合以外，我还提供了新的集合类型，比如说：
+
+- Multiset，可以多次添加相等的元素。当把 Multiset 看成普通的 Collection 时，它表现得就像无序的 ArrayList；当把 Multiset 看作 `Map<E, Integer>` 时，它也提供了符合性能期望的查询操作。
+- Multimap，可以很容易地把一个键映射到多个值。
+- BiMap，一种特殊的 Map，可以用 `inverse()` 反转 
+ `BiMap<K, V>` 的键值映射；保证值是唯一的，因此 `values()` 返回 Set 而不是普通的 Collection。
+
+### 05、字符串处理
+
+字符串表示字符的不可变序列，创建后就不能更改。在我们日常的工作中，字符串的使用非常频繁，熟练的对其操作可以极大的提升我们的工作效率。
+
+我提供了连接器——Joiner，可以用分隔符把字符串序列连接起来。下面的代码将会返回“雷军; 乔布斯”，你可以使用 `useForNull(String)` 方法用某个字符串来替换 null，而不像 `skipNulls()` 方法那样直接忽略 null。
+
+```java
+Joiner joiner = Joiner.on("; ").skipNulls();
+return joiner.join("雷军", null, "乔布斯");
+```
+
+我还提供了拆分器—— Splitter，可以按照指定的分隔符把字符串序列进行拆分。
+
+```java
+Splitter.on(',')
+        .trimResults()
+        .omitEmptyStrings()
+        .split("雷军,乔布斯,,   沉默王二");
+```
+
+### 06、缓存
+
+缓存在很多场景下都是相当有用的。你应该知道，检索一个值的代价很高，尤其是需要不止一次获取值的时候，就应当考虑使用缓存。
+
+我提供的 Cache 和 ConcurrentMap 很相似，但也不完全一样。最基本的区别是 ConcurrentMap 会一直保存所有添加的元素，直到显式地移除。相对地，我提供的 Cache 为了限制内存占用，通常都设定为自动回收元素。
+
+如果你愿意消耗一些内存空间来提升速度，你能预料到某些键会被查询一次以上，缓存中存放的数据总量不会超出内存容量，就可以使用 Cache。
+
+来个示例你感受下吧。
+
+```java
+@Test
+public void testCache() throws ExecutionException, InterruptedException {
+
+    CacheLoader cacheLoader = new CacheLoader<String, Animal>() {
+        // 如果找不到元素，会调用这里
+        @Override
+        public Animal load(String s) {
+            return null;
+        }
+    };
+    LoadingCache<String, Animal> loadingCache = CacheBuilder.newBuilder()
+        .maximumSize(1000) // 容量
+        .expireAfterWrite(3, TimeUnit.SECONDS) // 过期时间
+        .removalListener(new MyRemovalListener()) // 失效监听器
+        .build(cacheLoader); //
+    loadingCache.put("狗", new Animal("旺财", 1));
+    loadingCache.put("猫", new Animal("汤姆", 3));
+    loadingCache.put("狼", new Animal("灰太狼", 4));
+
+    loadingCache.invalidate("猫"); // 手动失效
+
+    Animal animal = loadingCache.get("狼");
+    System.out.println(animal);
+    Thread.sleep(4 * 1000);
+    // 狼已经自动过去，获取为 null 值报错
+    System.out.println(loadingCache.get("狼"));
+}
+
+/**
+ * 缓存移除监听器
+ */
+class MyRemovalListener implements RemovalListener<String, Animal> {
+
+    @Override
+    public void onRemoval(RemovalNotification<String, Animal> notification) {
+        String reason = String.format("key=%s,value=%s,reason=%s", notification.getKey(), notification.getValue(), notification.getCause());
+        System.out.println(reason);
+    }
+}
+
+class Animal {
+    private String name;
+    private Integer age;
+
+    public Animal(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+CacheLoader 中重写了 load 方法，这个方法会在查询缓存没有命中时被调用，我这里直接返回了 null，其实这样会在没有命中时抛出 CacheLoader returned null for key 异常信息。
+
+MyRemovalListener 作为缓存元素失效时的监听类，在有元素缓存失效时会自动调用 onRemoval 方法，这里需要注意的是这个方法是同步方法，如果这里耗时较长，会阻塞直到处理完成。
+
+LoadingCache 就是缓存的主要操作对象了，常用的就是其中的 put 和 get 方法了。
+
+### 07、集合工具
+
+`com.google.common.collect`包下的集合工具：`Lists`也非常强大。
+
+#### 创建空集合
+
+有时候，我们想创建一个空集合。这时可以用Lists的`newArrayList`方法，例如：
+```java
+List<Integer> list = Lists.newArrayList();
+```
+
+#### 快速初始化集合
+
+有时候，我们想给一个集合中初始化一些元素。这时可以用Lists的newArrayList方法，例如：
+```java
+List<Integer> list = Lists.newArrayList(1, 2, 3);
+```
+执行结果：
+```java
+[1, 2, 3]
+```
+
+#### 笛卡尔积
+
+如果你想将两个集合做`笛卡尔积`，Lists的`cartesianProduct`方法可以帮你实现：
+```java
+List<Integer> list1 = Lists.newArrayList(1, 2, 3);
+List<Integer> list2 = Lists.newArrayList(4,5);
+List<List<Integer>> productList = Lists.cartesianProduct(list1,list2);
+System.out.println(productList);
+```
+执行结果：
+```java
+[[1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]]
+```
+
+#### 分页
+
+如果你想将一个`大集合`分成若干个`小集合`，可以使用Lists的`partition`方法：
+
+```java
+List<Integer> list = Lists.newArrayList(1, 2, 3, 4, 5);
+List<List<Integer>> partitionList = Lists.partition(list, 2);
+System.out.println(partitionList);
+```
+
+执行结果：
+
+```java
+[[1, 2], [3, 4], [5]]
+```
+
+这个例子中，list有5条数据，我将list集合按大小为2，分成了3页，即变成3个小集合。
+
+这个是我最喜欢的方法之一，经常在项目中使用。
+
+比如有个需求：现在有5000个id，需要调用批量用户查询接口，查出用户数据。但如果你直接查5000个用户，单次接口响应时间可能会非常慢。如果改成分页处理，每次只查500个用户，异步调用10次接口，就不会有单次接口响应慢的问题。
+
+#### 流处理
+
+如果我们想把某个集合转换成另外一个接口，可以使用Lists的 `transform`方法。例如：
+
+```java
+List<String> list = Lists.newArrayList("a","b","c");
+List<String> transformList = Lists.transform(list, x -> x.toUpperCase());
+System.out.println(transformList);
+```
+
+将小写字母转换成了大写字母。
+
+#### 颠倒顺序
+
+Lists的有颠倒顺序的方法`reverse`。例如：
+
+```java
+List<Integer> list = Lists.newArrayList(3, 1, 2);
+List<Integer> reverseList = Lists.reverse(list);
+System.out.println(reverseList);
+```
+
+执行结果：
+
+```java
+[2, 1, 3]
+```
+
+list的原始顺序是312，使用`reverse`方法颠倒顺序之后，变成了213。
+
+Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣的小伙伴，可以仔细研究一下。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
+
+### 07、尾声
+
+上面介绍了我认为最常用的功能，作为 Google 公司开源的 Java 开发核心库，个人觉得实用性还是很高的（不然呢？嘿嘿嘿）。引入到你的项目后不仅能快速的实现一些开发中常用的功能，而且还可以让代码更加的优雅简洁。
+
+我觉得适用于每一个 Java 项目，至于其他的一些功能，比如说散列、事件总线、数学运算、反射，就等待你去发掘了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-03.png)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

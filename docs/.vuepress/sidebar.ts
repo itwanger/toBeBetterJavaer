@@ -162,6 +162,7 @@ export const sidebarConfig = sidebar({
           "basic-extra-meal/immutable",
           "basic-extra-meal/override-overload",
           "basic-extra-meal/annotation",
+          "basic-extra-meal/enum",
           ],
         },
         {
@@ -182,7 +183,6 @@ export const sidebarConfig = sidebar({
           "collection/arraydeque",
           "collection/PriorityQueue",
           "basic-extra-meal/comparable-omparator",
-         
           ],
         },
         {
@@ -219,11 +219,13 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           prefix:"common-tool/",
           children: [
-          "arrays",
-          "collections",
-          "hutool",
-          "guava",
-          "utils",
+            "scanner",
+            "arrays",
+            "Objects",
+            "collections",
+            "hutool",
+            "guava",
+            "utils",
           ],
         },
         {
@@ -252,7 +254,6 @@ export const sidebarConfig = sidebar({
           "jdk-while-for-wuxian-xunhuan",
           "instanceof-jvm",
           "true-generic",
-          "enum",
           "fanshe",
           ],
         },

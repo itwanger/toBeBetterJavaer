@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java tra
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,transient,java transient
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,transient,java transient
 ---
 
 # 7.10 transient关键字

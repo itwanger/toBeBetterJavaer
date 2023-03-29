@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,static,java静态变量,java静态方法,java静态代码块,java静态内部类,java static
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,static,java静态变量,java静态方法,java静态代码块,java静态内部类,java static
 ---
 
 # 5.17 static关键字

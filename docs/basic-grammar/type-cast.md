@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java 数
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 简介,数据类型转换,强制数据类型转换,自动类型转换,java类型转换
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java 简介,数据类型转换,强制数据类型转换,自动类型转换,java类型转换
 ---
 
 # 3.4 Java数据类型转换
@@ -20,7 +20,7 @@ head:
 
 数据类型转换发生在所赋值的数值类型和接收数据的变量类型不一致的时候，它需要从一种数据类型转换成另一种数据类型。数据类型的转换可以分为隐式转换（自动类型转换）和显式转换（强制类型转换）两种。
 
-### 自动类型转换
+### 01、自动类型转换
 
 如果以下 2 个条件都满足，那么将一种类型的数据赋给另外一种类型的变量的时候，将会发生自动类型转换（automatic type conversion）。
 
@@ -81,7 +81,7 @@ b = (byte)(b*2);
 
 注意：char 类型比较特殊，char 自动转换成 int、long、float 和 double，但 byte 和 short 不能自动转换为 char，而且 char 也不能自动转换为 byte 或 short。
 
-### 强制类型转换
+### 02、强制类型转换
 
 尽管自动类型转换是很有帮助的，但并不能满足所有的编程需要。
 

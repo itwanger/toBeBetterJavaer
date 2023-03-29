@@ -1,6 +1,6 @@
 ---
 title: Java Arrays：专为数组而生的工具类
-shortTitle: Arrays工具类
+shortTitle: Arrays
 category:
   - Java核心
 tag:
@@ -9,11 +9,12 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,java,Arrays,数组
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Arrays,数组,java arrays,java 数组
 ---
 
+# 9.2 Arrays
 
-“哥，数组专用工具类是专门用来操作数组的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
+“哥，数组专用工具类是专门用来操作[数组](https://tobebetterjavaer.com/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
 
 “是滴，这里说的数组专用工具类指的是 `java.util.Arrays` 类，基本上常见的数组操作，这个类都提供了静态方法可供直接调用。毕竟数组本身想完成这些操作还是挺麻烦的，有了这层封装，就方便多了。”在回答三妹的同时，我打开 Intellij IDEA，找到了 Arrays 类的源码。
 
@@ -42,7 +43,7 @@ public class Arrays {}
 
 “我们来一个一个学习。”
 
-## 01、创建数组
+### 01、创建数组
 
 使用 Arrays 类创建数组可以通过以下三个方法：
 
@@ -50,7 +51,7 @@ public class Arrays {}
 - copyOfRange，复制指定范围内的数组到一个新的数组
 - fill，对数组进行填充
 
-### 1）copyOf
+#### 1）copyOf
 
 直接来看例子：
 
@@ -80,7 +81,7 @@ private Object[] grow(int minCapacity) {
 }
 ```
 
-### 2）copyOfRange
+#### 2）copyOfRange
 
 直接来看例子：
 
@@ -115,8 +116,7 @@ System.out.println(Arrays.toString(abridgementExpanded));
 
 “嗯，我想是 Arrays 的设计者考虑到了数组越界的问题，不然每次调用 Arrays 类就要先判断很多次长度，很麻烦。”稍作思考后，我给出了这样一个回答。
 
-
-### 3）fill
+#### 3）fill
 
 直接来看例子：
 
@@ -134,7 +134,7 @@ System.out.println(Arrays.toString(stutter));
 
 如果想要一个元素完全相同的数组时， `fill()` 方法就派上用场了。
 
-## 02、比较数组
+### 02、比较数组
 
 Arrays 类的 `equals()` 方法用来判断两个数组是否相等，来看下面这个例子：
 
@@ -215,7 +215,7 @@ System.out.println(Arrays.hashCode(new String[] { "沉", "默", "王", "二" }))
 
 两个数组的哈希值相等，毕竟元素是一样的。但这样确实不够严谨，优先使用 `Objects.equals()` 方法，当我们想快速确认两个数组是否相等时，可以通过比较 hashCode 来确认——算是投机取巧吧，高收益高风险，哈哈。
 
-## 03、数组排序
+### 03、数组排序
 
 Arrays 类的 `sort()` 方法用来对数组进行排序，来看下面这个例子：
 
@@ -238,7 +238,7 @@ System.out.println(Arrays.toString(sorted));
 
 “不要紧的，后面学了数据结构与算法后，就明白了，现在了解这个东西即可。”我赶紧甩出了安抚大法。
 
-## 04、数组检索
+### 04、数组检索
 
 数组排序后就可以使用 Arrays 类的 `binarySearch()` 方法进行二分查找了。否则的话，只能线性检索，效率就会低很多。
 
@@ -265,11 +265,11 @@ System.out.println(caseInsensitive);
 
 三妹若有所思的点了点头。
 
-## 05、数组转流
+### 05、数组转流
 
 “流是什么呀？”三妹好奇的问。
 
-“流的英文单词是 Stream，它可以极大提高 Java 程序员的生产力，让程序员写出高效、干净、简洁的代码。 这种风格将要处理的集合看作是一种流，想象一下水流在管道中流过的样子，我们可以在管道中对流进行处理，比如筛选、排序等等。Stream 具体怎么使用，我们留到后面再详细地讲，这里你先有一个大致的印象就可以了。”我回答到。
+“流的英文单词是 Stream，它可以极大提高 Java 程序员的生产力，让程序员写出高效、干净、简洁的代码。 这种风格将要处理的集合看作是一种流，想象一下水流在管道中流过的样子，我们可以在管道中对流进行处理，比如筛选、排序等等。[Stream 具体怎么使用](https://tobebetterjavaer.com/java8/stream.html)，我们留到后面再详细地讲，这里你先有一个大致的印象就可以了。”我回答到。
 
 
 Arrays 类的 `stream()` 方法可以将数组转换成流：
@@ -292,7 +292,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: origin(2) >
 	at java.base/java.util.Spliterators.checkFromToBounds(Spliterators.java:387)
 ```
 
-## 06、打印数组
+### 06、打印数组
 
 因为数组是一个对象，直接 `System.out.println` 的话，结果是这样的：
 
@@ -300,7 +300,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: origin(2) >
 [Ljava.lang.String;@3d075dc0
 ```
 
-最优雅的打印方式，是使用 `Arrays.toString()`，来看一下该方法的源码：
+[最优雅的打印方式](https://tobebetterjavaer.com/array/print.html)，是使用 `Arrays.toString()`，其实前面讲过。来看一下该方法的源码：
 
 ```java
 public static String toString(Object[] a) {
@@ -336,9 +336,9 @@ public static String toString(Object[] a) {
 
 “哦----------”三妹似乎明白了什么。
 
-## 07、数组转 List
+### 07、数组转 List
 
-尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的集合框架 List 中封装了很多常用的方法。
+尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的[集合框架 List](https://tobebetterjavaer.com/collection/gailan.html) 中封装了很多常用的方法。
 
 ```java
 String[] intro = new String[] { "沉", "默", "王", "二" };
@@ -346,7 +346,7 @@ List<String> rets = Arrays.asList(intro);
 System.out.println(rets.contains("二"));
 ```
 
-不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  `java.util.ArrayList`，它的长度是固定的，无法进行元素的删除或者添加。
+不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  [`java.util.ArrayList`](https://tobebetterjavaer.com/collection/arraylist.html)，它的长度是固定的，无法进行元素的删除或者添加。
 
 ```java
 rets.add("三");
@@ -369,9 +369,9 @@ rets1.add("三");
 rets1.remove("二");
 ```
 
-## 08、setAll
+### 08、setAll
 
-Java 8 新增了 `setAll()` 方法，它提供了一个函数式编程的入口，可以对数组的元素进行填充：
+Java 8 新增了 `setAll()` 方法，它提供了一个[函数式编程](https://tobebetterjavaer.com/java8/Lambda.html)的入口，可以对数组的元素进行填充：
 
 ```java
 int[] array = new int[10];
@@ -389,7 +389,7 @@ i 就相当于是数组的下标，值从 0 开始，到 9 结束，那么 `i * 
 
 可以用来为新数组填充基于原来数组的新元素。
 
-## 09、parallelPrefix
+### 09、parallelPrefix
 
 `parallelPrefix()` 方法和 `setAll()` 方法一样，也是 Java 8 之后提供的，提供了一个函数式编程的入口，通过遍历数组中的元素，将当前下标位置上的元素与它之前下标的元素进行操作，然后将操作后的结果覆盖当前下标位置上的元素。
 
@@ -426,14 +426,13 @@ System.out.println(Arrays.toString(arr));
 - 第三次是 6 和 4 相加，结果是 10，也就是第二次的结果和下标为 3 的元素相加的结果
 
 
-## 10、总结
+### 10、总结
 
 “好了，三妹，就先学到这吧。如果你以后翻 Java 源码的时候，只要是用到数组的，尤其是 ArrayList 类，就可以看到 Arrays 类的很多影子。”
 
 “嗯嗯，我先复习一下这节的内容。哥，你去休息吧。”
 
 我来到客厅，坐到沙发上，捧起黄永玉先生的《无愁河上的浪荡汉子·八年卷 1》看了起来，津津有味。。。。。。
-
 
 ----
 

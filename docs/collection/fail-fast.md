@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，为什�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,fail-fast,java foreach 删除元素
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,fail-fast,java foreach 删除元素
 ---
 
 # 6.8 为什么不能在foreach里删除元素？

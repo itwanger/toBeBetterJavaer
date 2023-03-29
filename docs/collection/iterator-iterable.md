@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java中I
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Iterable,Iterator,java Iterable,java Iterator,Iterable Iterator,java Iterable Iterator,java迭代器
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Iterable,Iterator,java Iterable,java Iterator,Iterable Iterator,java Iterable Iterator,java迭代器
 ---
 
 # 6.7 迭代器Iterator和Iterable

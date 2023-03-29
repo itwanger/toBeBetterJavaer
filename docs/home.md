@@ -163,6 +163,7 @@ head:
 - [聊聊Java中的不可变对象](basic-extra-meal/immutable.md)
 - [方法重写 Override 和方法重载 Overload 有什么区别？](basic-extra-meal/override-overload.md)
 - [深入理解Java中的注解](basic-extra-meal/annotation.md)
+- [Java枚举：小小enum，优雅而干净](basic-extra-meal/enum.md)
 
 ### 集合框架（容器）
 
@@ -205,10 +206,12 @@ head:
 
 ### 常用工具类
 
+- [Java Scanner：扫描控制台输入的工具类](common-tool/scanner.md)
 - [Java Arrays：专为数组而生的工具类](common-tool/arrays.md)
-- [Java Collections：专为集合框架而生的工具类](common-tool/collections.md)
+- [Objects：专为操作Java对象而生的工具类](common-tool/Objects.md)
+- [Java Collections：专为集合而生的工具类](common-tool/collections.md)
 - [Hutool：国产良心工具包，让你的Java变得更甜](common-tool/hutool.md)
-- [Guava：Google开源的工具库，太强大了](common-tool/guava.md)
+- [Guava：Google开源的Java工具库，太强大了](common-tool/guava.md)
 - [这10个工具类，让我的开发效率提升了50%](common-tool/utils.md)
 
 ### Java新特性
@@ -230,7 +233,6 @@ head:
 - [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
 - [instanceof关键字是如何实现的？](basic-extra-meal/instanceof-jvm.md)
 - [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
-- [新来个技术总监，彻底把 Java 枚举(enum)讲清楚了](basic-extra-meal/enum.md)
 - [大白话说清楚Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
 
 ### Java网络编程

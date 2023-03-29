@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java IO 
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java IO,io,输入输出流
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,io,输入输出流
 ---
 
 # 7.1 IO 分类

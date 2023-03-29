@@ -9,7 +9,7 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java 中
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java入门,教程,Java 简介,Java数据类型,基本数据类型,引用数据类型,数据类型
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java 简介,Java数据类型,基本数据类型,引用数据类型,数据类型
 ---
 
 # 3.3 Java中的数据类型
@@ -74,7 +74,7 @@ public class LocalVar {
 | float    | 0.0f     | 4字节 |
 | double   | 0.0      | 8字节 |
 
-### 比特和字节
+### 01、比特和字节
 
 那三妹可能要问，“比特和字节是什么鬼？”
 
@@ -96,11 +96,11 @@ public class LocalVar {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-03.png)
 
-### 基本数据类型
+### 02、基本数据类型
 
 接下来，我们再来详细地了解一下 8 种基本数据类型。
 
-#### 01、布尔
+#### 1）布尔
 
 布尔（boolean）仅用于存储两个值：true 和 false，也就是真和假，通常用于条件的判断。代码示例：
 
@@ -108,7 +108,7 @@ public class LocalVar {
 boolean flag = true;
 ```
 
-#### 02、byte
+#### 2）byte
 
 byte 的取值范围在 -128 和 127 之间，包含 127。最小值为 -128，最大值为 127，默认值为 0。
 
@@ -120,7 +120,7 @@ byte a = 10;
 byte b = -10;
 ```
 
-#### 03、short
+#### 3）short
 
 short 的取值范围在 -32,768 和 32,767 之间，包含 32,767。最小值为 -32,768，最大值为 32,767，默认值为 0。代码示例：
 
@@ -129,7 +129,7 @@ short s = 10000;
 short r = -5000;
 ```
 
-#### 04、int
+#### 3）int
 
 int 的取值范围在 -2,147,483,648（-2 ^ 31）和 2,147,483,647（2 ^ 31 -1）（含）之间，默认值为 0。如果没有特殊需求，整型数据就用 int。代码示例：
 
@@ -138,7 +138,7 @@ int a = 100000;
 int b = -200000;
 ```
 
-#### 05、long
+#### 5）long
 
 long 的取值范围在 -9,223,372,036,854,775,808(-2^63) 和 9,223,372,036,854,775,807(2^63 -1)（含）之间，默认值为 0。如果 int 存储不下，就用 long，整型数据就用 int。代码示例：
 
@@ -149,7 +149,7 @@ long b = -200000L;
 
 为了和 int 作区分，long 型变量在声明的时候，末尾要带上大写的“L”。不用小写的“l”，是因为小写的“l”容易和数字“1”混淆。
 
-#### 06、float
+#### 6）float
 
 float 是单精度的浮点数，遵循 IEEE 754（二进制浮点数算术标准），取值范围是无限的，默认值为 0.0f。float 不适合用于精确的数值，比如说货币。代码示例：
 
@@ -159,7 +159,7 @@ float f1 = 234.5f;
 
 为了和 double 作区分，float 型变量在声明的时候，末尾要带上小写的“f”。不需要使用大写的“F”，是因为小写的“f”很容易辨别。
 
-#### 07、double
+#### 7）double
 
 double 是双精度的浮点数，遵循 IEEE 754（二进制浮点数算术标准），取值范围也是无限的，默认值为 0.0。double 同样不适合用于精确的数值，比如说货币。代码示例：
 
@@ -181,7 +181,7 @@ Tips：单精度是这样的格式，1 位符号，8 位指数，23 位小数，
 
 >一个数由若干位数字组成，其中影响测量精度的数字称作有效数字，也称有效数位。有效数字指科学计算中用以表示一个浮点数精度的那些数字。一般地，指一个用小数形式表示的浮点数中，从第一个非零的数字算起的所有数字。如 1.24 和 0.00124 的有效数字都有 3 位。
 
-#### 08、char
+#### 8）char
 
 char 可以表示一个 16 位的 Unicode 字符，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。代码示例：
 
@@ -196,7 +196,7 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 [关于字符编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
 
 
-### 关于 int 和 char 类型互转
+### 03、int 和 char 类型互转
 
 这里整理一波 int 和 char 类型的互转，它们之间比较特殊。也会在以后的学习当中经常遇到。
 
@@ -230,7 +230,7 @@ public class SimpleTesting {
 
 radix 为基数，十进制为 10，十六进制为 16。
 
-3）可以使用 int 的包装器类型 Integer 的 toString() 方法+String 的 CharAt() 方法转成 char
+3）可以使用 int 的包装器类型 Integer 的 `toString()` 方法+String 的 `charAt()` 方法转成 char
 
 ```java
 public class SimpleTesting {
@@ -253,7 +253,7 @@ int a = 'a';
 因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)。
 
 
-### 引用数据类型
+### 04、引用数据类型
 
 基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的。
 
@@ -346,7 +346,7 @@ List 是一个非常典型的接口：
 public interface List<E> extends Collection<E> {}
 ```
 
-而 ArrayList 是 List 接口的一个实现：
+而 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 是 List 接口的一个实现：
 
 ```java
 public class ArrayList<E> extends AbstractList<E>
@@ -372,7 +372,7 @@ public class ArrayList<E> extends AbstractList<E>
 - 1、变量名指向的是存储对象的内存地址，在栈上。
 - 2、内存地址指向的对象存储在堆上。
 
-### 堆和栈
+### 05、堆和栈
 
 看到这，三妹是不是又要问，“堆是什么，栈又是什么？”
 
