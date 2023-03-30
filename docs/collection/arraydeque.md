@@ -1,6 +1,6 @@
 ---
 title: 详解 Java 中的双端队列（ArrayDeque附源码分析）
-shortTitle: ArrayDeque
+shortTitle: 双端队列ArrayDeque
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque
 ---
 
-# 6.12 ArrayDeque
+# 6.12 双端队列ArrayDeque
 
 >好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
 

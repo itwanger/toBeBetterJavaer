@@ -1,5 +1,5 @@
 ---
-title: Comparable和Comparator的区别
+title: Java 中Comparable和Comparator的区别
 shortTitle: Comparable和Comparator
 category:
   - Java核心

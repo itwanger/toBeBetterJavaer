@@ -1,6 +1,6 @@
 ---
-title: 聊聊Java的集合框架
-shortTitle: Java的集合框架
+title: 聊聊Java的集合框架的构成（概览）
+shortTitle: 集合框架的构成
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,集合框架,容器,java 集合框架，java集合,java容器
 ---
 
-# 6.1 Java的集合框架
+# 6.1 集合框架的构成
 
 眼瞅着三妹的王者荣耀杀得正嗨，我趁机喊到：“别打了，三妹，我们来一起学习 Java 的集合框架吧。”
 

@@ -1,6 +1,6 @@
 ---
-title: Java IO 的分类
-shortTitle: IO 分类
+title: 一文彻底搞清楚Java IO 的分类
+shortTitle: IO分类
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,io,输入输出流
 ---
 
-# 7.1 IO 分类
+# 7.1 IO分类
 
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
 

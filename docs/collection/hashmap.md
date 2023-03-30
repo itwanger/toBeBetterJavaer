@@ -1,6 +1,6 @@
 ---
 title: Java HashMap详解（附源码分析）
-shortTitle: HashMap
+shortTitle: HashMap详解（附源码）
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,HashMap,java hashmap
 ---
 
-# 6.9 HashMap
+# 6.9 HashMap详解（附源码）
 
 这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://tobebetterjavaer.com/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 

@@ -1,6 +1,6 @@
 ---
 title: 简单聊一下时间复杂度
-shortTitle: 时间复杂度
+shortTitle: 关于时间复杂度
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,时间复杂度,java 时间复杂度
 ---
 
-# 6.2 时间复杂度
+# 6.2 关于时间复杂度
 
 “二哥，为什么要讲时间复杂度呀？”三妹问。
 

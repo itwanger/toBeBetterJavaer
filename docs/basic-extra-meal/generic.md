@@ -1,6 +1,6 @@
 ---
 title: 深入理解Java中的泛型
-shortTitle: 泛型
+shortTitle: 关于Java泛型
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,泛型,java 泛型,java generic
 ---
 
-# 6.6 泛型
+# 6.6 关于Java泛型
 
 “二哥，为什么要设计泛型啊？”三妹开门见山地问。
 

@@ -1,6 +1,6 @@
 ---
 title: Java LinkedList详解（附源码分析）
-shortTitle: LinkedList
+shortTitle: LinkedList详解（附源码）
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,LinkedList,LinkedList源码,java linkedlist
 ---
 
-# 6.4 LinkedList
+# 6.4 LinkedList详解（附源码）
 
 >这篇换个表达方式，一起来欣赏。
 

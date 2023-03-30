@@ -1,6 +1,6 @@
 ---
 title: Java File：IO 流的开始与结束
-shortTitle: File
+shortTitle: 关于File
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,file,java文件,java目录,java文件增删改查,java file
 ---
 
-# 7.2 File
+# 7.2 关于File
 
 在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。那么 File 类可以说是其基石，我们必须得先来了解下。
 

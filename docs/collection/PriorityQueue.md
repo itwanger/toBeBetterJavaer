@@ -1,6 +1,6 @@
 ---
 title: 详解 Java 中的优先级队列（PriorityQueue 附源码分析）
-shortTitle: PriorityQueue
+shortTitle: 优先级队列PriorityQueue
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,优先级队列,PriorityQueue,java 优先级队列,java PriorityQueue
 ---
 
-# 6.13 PriorityQueue
+# 6.13 优先级队列PriorityQueue
 
 >继续有请王老师，来上台给大家讲讲优先级队列 PriorityQueue。
 

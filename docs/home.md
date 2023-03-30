@@ -167,7 +167,7 @@ head:
 
 ### 集合框架（容器）
 
-- [聊聊Java的集合框架](collection/gailan.md)
+- [聊聊Java的集合框架的构成（概览）](collection/gailan.md)
 - [简单聊一下时间复杂度](collection/time-complexity.md)
 - [Java ArrayList详解（附源码分析）](collection/arraylist.md)
 - [Java LinkedList详解（附源码分析）](collection/linkedlist.md)
@@ -221,7 +221,7 @@ head:
 - [Java 8 Optional最佳指南](java8/optional.md)
 - [深入浅出Java 8 Lambda表达式](java8/Lambda.md)
 
-### Java重要知识点
+### 重要知识点
 
 - [Java命名规范](basic-extra-meal/java-naming.md)
 - [彻底弄懂Java中的Unicode和UTF-8编码](basic-extra-meal/java-unicode.md)

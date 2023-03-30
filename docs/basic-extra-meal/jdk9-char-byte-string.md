@@ -1,6 +1,6 @@
 ---
 title: Java 9为什么要将String的底层实现由char数组改成了byte数组?
-shortTitle: String的底层实现由char改成了byte?
+shortTitle: String的底层实现为什么由char改成了byte?
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,string,char,byte,java string 底层实现,java字符串源码,java string char,java string byte,java string char byte,java 
 ---
 
-# 4.11 Java 9为什么要将String的底层实现由char数组改成了byte数组?
+# 4.11 String的底层实现为什么由char改成了byte?
 
 “二哥，最近在我阅读 Java 11 的字符串源码，发现和 Java 8 的有很大不同。”三妹的脸上洋溢着青春的微笑😊，甜美地说道：“String 类的源码已经由 `char[]` 优化为了 `byte[]` 来存储字符串内容，为什么要这样做呢？”
 
