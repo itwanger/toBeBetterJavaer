@@ -112,7 +112,6 @@ head:
 - [安装集成开发环境Intellij IDEA](overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](overview/hello-world.md)
 
-
 ### Java基础语法
 
 - [简单过一下Java中常用的48个关键字和2个保留字](basic-extra-meal/48-keywords.md)
@@ -122,7 +121,6 @@ head:
 - [聊聊Java基本数据类型缓存池](basic-extra-meal/int-cache.md)
 - [Java运算符](basic-grammar/operator.md)
 - [Java流程控制语句](basic-grammar/flow-control.md)
-
 
 ### 数组&字符串
 
@@ -182,7 +180,7 @@ head:
 - [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](collection/PriorityQueue.md)
 - [Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
 
-### Java输入输出
+### Java IO
 
 - [Java IO 的分类](io/shangtou.md)
 - [Java File：IO 流的开始与结束](io/file-path.md)
@@ -194,7 +192,6 @@ head:
 - [序列流：Java 对象的序列化和反序列化](io/serialize.md)
 - [Serializable：明明就一个空的接口嘛](io/Serializbale.md)
 - [说说 Java 的 transient 关键字](io/transient.md)
-
 
 ### 异常处理
 
@@ -220,6 +217,21 @@ head:
 - [Java 8 Stream流详细用法](java8/stream.md)
 - [Java 8 Optional最佳指南](java8/optional.md)
 - [深入浅出Java 8 Lambda表达式](java8/Lambda.md)
+- [Java 14 开箱，新特性Record、instanceof、switch香香香香](java8/java14.md)
+
+### Java网络编程
+
+- [Java网络编程的基础：计算机网络](socket/network-base.md)
+- [Java Socket：飞鸽传书的网络套接字](socket/socket.md)
+- [牛逼，用Java Socket手撸了一个HTTP服务器](socket/http.md)
+
+### Java NIO
+
+- [为什么我们要使用 Java NIO？](nio/why.md)
+- [Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)](nio/rumen.md)
+- [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
+- [使用Java NIO完成网络通信](nio/network-connect.md)
+- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](nio/BIONIOAIO.md)
 
 ### 重要知识点
 
@@ -236,22 +248,8 @@ head:
 - [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
 - [大白话说清楚Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
 
-### Java网络编程
-
-- [Java Socket：飞鸽传书的网络套接字](socket/socket.md)
-- [牛逼，用Java Socket手撸了一个HTTP服务器](socket/http.md)
-
-### Java NIO
-
-- [为什么我们要使用 Java NIO？](nio/why.md)
-- [Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)](nio/rumen.md)
-- [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
-- [使用Java NIO完成网络通信](nio/network-connect.md)
-- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](nio/BIONIOAIO.md)
-
 
 ### Java并发编程
-
 
 - [室友打了一把王者就学会了创建Java线程的3种方式](thread/wangzhe-thread.md)
 - [Java线程的6种状态及切换(透彻讲解)](thread/thread-state-and-method.md)
