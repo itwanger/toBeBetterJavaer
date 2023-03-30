@@ -1,6 +1,6 @@
 ---
-title: 其他常用工具类：IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils
-shortTitle: 其他常用工具类
+title: 其他常用Java工具类：IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils
+shortTitle: 其他常用Java工具类
 category:
   - Java核心
 tag:
@@ -12,15 +12,19 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,工具类,轮子,java 工具类
 ---
 
-# 9.7 其他常用工具类
+# 9.7 其他常用Java工具类
 
-### IpUtil：获取本机Ip
+除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/common-tool/arrays.html)、[Objects](https://tobebetterjavaer.com/common-tool/Objects.html)、[Collections](https://tobebetterjavaer.com/common-tool/collections.html)、[Scanner](https://tobebetterjavaer.com/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/common-tool/hutool.html)、[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
 
-获取本机Ip算是比较常见的一个需求场景了，比如业务报警，可能就会带上出问题的机器IP，方便直接上去看日志定位问题，那么问题来了，如何获取机器IP呢？
+当然了，如果能好好看一下它们的源码，对技术功底的提升，也是有很大帮助的。
+
+### IpUtil：获取本机 Ip
+
+获取本机 IP 算是比较常见的一个需求场景了，比如业务报警，可能就会带上出问题的机器 IP，方便直接上去看日志定位问题，那么问题来了，如何获取机器 IP 呢？
 
 #### 1. 基本方法
 
-如何获取机器Ip？如果了解InetAddress这个工具类，就很容易写出一个简单的工具类，如下
+如何获取机器 IP？如果了解 InetAddress 这个工具类，就很容易写出一个简单的工具类，如下
 
 ```java
 public static String getLocalIP() {
@@ -34,17 +38,15 @@ public static String getLocalIP() {
 
 上面的实现有问题么？
 
-当然没问题，拿我本机和阿里服务器执行一下，并没有问题如实的输出了预期的IP
+当然没问题，拿我本机和阿里服务器执行一下，并没有问题如实的输出了预期的 IP
 
 本机执行后截图如下：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-f35dc96f-b8ac-43d3-9393-0ff565e85fb9.jpg)
 
-
 阿里云机器执行后截图如下：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-f50b0de2-cf0d-4e9b-8f10-838ea4b47fd8.jpg)
-
 
 再问一句，那是否就真的没有问题了呢？在某些情况下，可能返回的是 `127.0.0.1`
 
@@ -54,7 +56,7 @@ public static String getLocalIP() {
 
 #### 2. 进阶版
 
-做一点简单的改动，获取IpV4的地址，源码如下
+做一点简单的改动，获取 IpV4 的地址，源码如下
 
 ```java
 /**
@@ -85,9 +87,7 @@ public static String getLocalIpByNetcard() {
 
 再次测试，输出如下
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/IpUtil-cd2f2acb-a6ea-4675-82a8-95a7e05c8498.jpg)
-
 
 #### 3. 完整工具类
 
@@ -133,29 +133,29 @@ public class IpUtil {
 }
 ```
 
-### CollectionUtils：Spring和Apache都有提供的集合工具类
+### CollectionUtils：Spring 和 Apache 都有提供的集合工具类
 
 对集合操作，除了前面说的`Collections`工具类之后，`CollectionUtils`工具类也非常常用。
 
-目前比较主流的是`spring`的`org.springframework.util`包下的CollectionUtils工具类。
+目前比较主流的是`spring`的`org.springframework.util`包下的 CollectionUtils 工具类。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-3433117c-4ab2-4ac4-bf5b-4b729d87fc9a.jpg)
 
-和`apache`的`org.apache.commons.collections`包下的CollectionUtils工具类。
+和`apache`的`org.apache.commons.collections`包下的 CollectionUtils 工具类。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-1bc7dfe9-f459-47bb-ae4b-2a25d4be96c1.jpg)
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/CollectionUtils-2b8630a3-141b-4f18-9f54-5a37fc818420.jpg)
 
-> 我个人更推荐使用apache的包下的CollectionUtils工具类，因为它的工具更多更全面。
+> 我个人更推荐使用 apache 的包下的 CollectionUtils 工具类，因为它的工具更多更全面。
 
-举个简单的例子，`spring`的CollectionUtils工具类没有判断集合不为空的方法。而`apache`的CollectionUtils工具类却有。
+举个简单的例子，`spring`的 CollectionUtils 工具类没有判断集合不为空的方法。而`apache`的 CollectionUtils 工具类却有。
 
-下面我们以`apache`的CollectionUtils工具类为例，介绍一下常用方法。
+下面我们以`apache`的 CollectionUtils 工具类为例，介绍一下常用方法。
 
 #### 集合判空
 
-通过CollectionUtils工具类的`isEmpty`方法可以轻松判断集合是否为空，`isNotEmpty`方法判断集合不为空。
+通过 CollectionUtils 工具类的`isEmpty`方法可以轻松判断集合是否为空，`isNotEmpty`方法判断集合不为空。
 
 ```java
 List<Integer> list = new ArrayList<>();
@@ -220,15 +220,15 @@ System.out.println(subtractList);
 
 在我们的代码中经常需要对字符串判空，截取字符串、转换大小写、分隔字符串、比较字符串、去掉多余空格、拼接字符串、使用正则表达式等等。
 
-如果只用String类提供的那些方法，我们需要手写大量的额外代码，不然容易出现各种异常。
+如果只用 String 类提供的那些方法，我们需要手写大量的额外代码，不然容易出现各种异常。
 
 现在有个好消息是：`org.apache.commons.lang3`包下的`StringUtils`工具类，给我们提供了非常丰富的选择。
 
 #### 字符串判空
 
-其实空字符串，不只是null一种，还有""，" "，"null"等等，多种情况。
+其实空字符串，不只是 null 一种，还有""，" "，"null"等等，多种情况。
 
-StringUtils给我们提供了多个判空的静态方法，例如：
+StringUtils 给我们提供了多个判空的静态方法，例如：
 
 ```java
  String str1 = null;
@@ -280,13 +280,13 @@ false
 true
 ```
 
-示例中的：`isEmpty`、`isNotEmpty`、`isBlank`和`isNotBlank`，这4个判空方法你们可以根据实际情况使用。
+示例中的：`isEmpty`、`isNotEmpty`、`isBlank`和`isNotBlank`，这 4 个判空方法你们可以根据实际情况使用。
 
 > 优先推荐使用`isBlank`和`isNotBlank`方法，因为它会把`" "`也考虑进去。
 
 #### 分隔字符串
 
-分隔字符串是常见需求，如果直接使用String类的split方法，就可能会出现空指针异常。
+分隔字符串是常见需求，如果直接使用 String 类的 split 方法，就可能会出现空指针异常。
 
 ```java
 String str1 = null;
@@ -302,7 +302,7 @@ Exception in thread "main" java.lang.NullPointerException
 \tat com.sue.jump.service.test1.UtilTest.main(UtilTest.java:21)
 ```
 
-使用StringUtils的split方法会返回null，而使用String的split方法会报指针异常。
+使用 StringUtils 的 split 方法会返回 null，而使用 String 的 split 方法会报指针异常。
 
 #### 判断是否纯数字
 
@@ -351,17 +351,17 @@ a,b,c
 
 ### MDC：一个线程安全的参数传递工具类
 
-`MDC`是`org.slf4j`包下的一个类，它的全称是Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
+`MDC`是`org.slf4j`包下的一个类，它的全称是 Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
 
-MDC的底层是用了`ThreadLocal`来保存数据的。
+MDC 的底层是用了`ThreadLocal`来保存数据的。
 
 我们可以用它传递参数。
 
-例如现在有这样一种场景：我们使用`RestTemplate`调用远程接口时，有时需要在`header`中传递信息，比如：traceId，source等，便于在查询日志时能够串联一次完整的请求链路，快速定位问题。
+例如现在有这样一种场景：我们使用`RestTemplate`调用远程接口时，有时需要在`header`中传递信息，比如：traceId，source 等，便于在查询日志时能够串联一次完整的请求链路，快速定位问题。
 
 这种业务场景就能通过`ClientHttpRequestInterceptor`接口实现，具体做法如下：
 
-第一步，定义一个LogFilter拦截所有接口请求，在MDC中设置traceId：
+第一步，定义一个 LogFilter 拦截所有接口请求，在 MDC 中设置 traceId：
 
 ```java
 public class LogFilter implements Filter {
@@ -383,7 +383,7 @@ public class LogFilter implements Filter {
 }
 ```
 
-第二步，实现`ClientHttpRequestInterceptor`接口，MDC中获取当前请求的traceId，然后设置到header中：
+第二步，实现`ClientHttpRequestInterceptor`接口，MDC 中获取当前请求的 traceId，然后设置到 header 中：
 
 ```java
 public class RestTemplateInterceptor implements ClientHttpRequestInterceptor {
@@ -416,7 +416,7 @@ public class RestTemplateConfiguration {
 }
 ```
 
-其中MdcUtil其实是利用MDC工具在ThreadLocal中存储和获取traceId
+其中 MdcUtil 其实是利用 MDC 工具在 ThreadLocal 中存储和获取 traceId
 
 ```java
 public class MdcUtil {
@@ -433,21 +433,21 @@ public class MdcUtil {
 }
 ```
 
-当然，这个例子中没有演示MdcUtil类的add方法具体调的地方，我们可以在filter中执行接口方法之前，生成traceId，调用MdcUtil类的add方法添加到MDC中，然后在同一个请求的其他地方就能通过MdcUtil类的get方法获取到该traceId。
+当然，这个例子中没有演示 MdcUtil 类的 add 方法具体调的地方，我们可以在 filter 中执行接口方法之前，生成 traceId，调用 MdcUtil 类的 add 方法添加到 MDC 中，然后在同一个请求的其他地方就能通过 MdcUtil 类的 get 方法获取到该 traceId。
 
-能使用MDC保存traceId等参数的根本原因是，用户请求到应用服务器，Tomcat会从线程池中分配一个线程去处理该请求。
+能使用 MDC 保存 traceId 等参数的根本原因是，用户请求到应用服务器，Tomcat 会从线程池中分配一个线程去处理该请求。
 
-那么该请求的整个过程中，保存到MDC的ThreadLocal中的参数，也是该线程独享的，所以不会有线程安全问题。
+那么该请求的整个过程中，保存到 MDC 的 ThreadLocal 中的参数，也是该线程独享的，所以不会有线程安全问题。
 
 ### ClassUtils
 
-spring的`org.springframework.util`包下的`ClassUtils`类，它里面有很多让我们惊喜的功能。
+spring 的`org.springframework.util`包下的`ClassUtils`类，它里面有很多让我们惊喜的功能。
 
 它里面包含了类和对象相关的很多非常实用的方法。
 
 #### 获取对象的所有接口
 
-如果你想获取某个对象的所有接口，可以使用ClassUtils的`getAllInterfaces`方法。例如：
+如果你想获取某个对象的所有接口，可以使用 ClassUtils 的`getAllInterfaces`方法。例如：
 
 ```java
 Class<?>[] allInterfaces = ClassUtils.getAllInterfaces(new User());
@@ -455,7 +455,7 @@ Class<?>[] allInterfaces = ClassUtils.getAllInterfaces(new User());
 
 #### 获取某个类的包名
 
-如果你想获取某个类的包名，可以使用ClassUtils的`getPackageName`方法。例如：
+如果你想获取某个类的包名，可以使用 ClassUtils 的`getPackageName`方法。例如：
 
 ```java
 String packageName = ClassUtils.getPackageName(User.class);
@@ -464,7 +464,7 @@ System.out.println(packageName);
 
 #### 判断某个类是否内部类
 
-如果你想判断某个类是否内部类，可以使用ClassUtils的`isInnerClass`方法。例如：
+如果你想判断某个类是否内部类，可以使用 ClassUtils 的`isInnerClass`方法。例如：
 
 ```java
 System.out.println(ClassUtils.isInnerClass(User.class));
@@ -472,25 +472,25 @@ System.out.println(ClassUtils.isInnerClass(User.class));
 
 #### 判断对象是否代理对象
 
-如果你想判断对象是否代理对象，可以使用ClassUtils的`isCglibProxy`方法。例如：
+如果你想判断对象是否代理对象，可以使用 ClassUtils 的`isCglibProxy`方法。例如：
 
 ```java
 System.out.println(ClassUtils.isCglibProxy(new User()));
 ```
 
-ClassUtils还有很多有用的方法，等待着你去发掘。感兴趣的朋友，可以看看下面内容：
+ClassUtils 还有很多有用的方法，等待着你去发掘。感兴趣的朋友，可以看看下面内容：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
 
 ### BeanUtils
 
-spring给我们提供了一个`JavaBean`的工具类，它在`org.springframework.beans`包下面，它的名字叫做：`BeanUtils`。
+spring 给我们提供了一个`JavaBean`的工具类，它在`org.springframework.beans`包下面，它的名字叫做：`BeanUtils`。
 
 让我们一起看看这个工具可以带给我们哪些惊喜。
 
 #### 拷贝对象的属性
 
-曾几何时，你有没有这样的需求：把某个对象中的所有属性，都拷贝到另外一个对象中。这时就能使用BeanUtils的`copyProperties`方法。例如：
+曾几何时，你有没有这样的需求：把某个对象中的所有属性，都拷贝到另外一个对象中。这时就能使用 BeanUtils 的`copyProperties`方法。例如：
 
 ```java
 User user1 = new User();
@@ -505,7 +505,7 @@ System.out.println(user2);
 
 #### 实例化某个类
 
-如果你想通过反射实例化一个类的对象，可以使用BeanUtils的`instantiateClass`方法。例如：
+如果你想通过反射实例化一个类的对象，可以使用 BeanUtils 的`instantiateClass`方法。例如：
 
 ```java
 User user = BeanUtils.instantiateClass(User.class);
@@ -514,7 +514,7 @@ System.out.println(user);
 
 #### 获取指定类的指定方法
 
-如果你想获取某个类的指定方法，可以使用BeanUtils的`findDeclaredMethod`方法。例如：
+如果你想获取某个类的指定方法，可以使用 BeanUtils 的`findDeclaredMethod`方法。例如：
 
 ```java
 Method declaredMethod = BeanUtils.findDeclaredMethod(User.class, "getId");
@@ -523,7 +523,7 @@ System.out.println(declaredMethod.getName());
 
 #### 获取指定方法的参数
 
-如果你想获取某个方法的参数，可以使用BeanUtils的`findPropertyForMethod`方法。例如：
+如果你想获取某个方法的参数，可以使用 BeanUtils 的`findPropertyForMethod`方法。例如：
 
 ```java
 Method declaredMethod = BeanUtils.findDeclaredMethod(User.class, "getId");
@@ -531,7 +531,7 @@ PropertyDescriptor propertyForMethod = BeanUtils.findPropertyForMethod(declaredM
 System.out.println(propertyForMethod.getName());
 ```
 
-如果你对BeanUtils比较感兴趣，可以看看下面内容：
+如果你对 BeanUtils 比较感兴趣，可以看看下面内容：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
 
@@ -539,11 +539,11 @@ System.out.println(propertyForMethod.getName());
 
 有时候，我们需要在项目中使用`反射`功能，如果使用最原始的方法来开发，代码量会非常多，而且很麻烦，它需要处理一大堆异常以及访问权限等问题。
 
-好消息是spring给我们提供了一个`ReflectionUtils`工具，它在`org.springframework.util`包下面。
+好消息是 spring 给我们提供了一个`ReflectionUtils`工具，它在`org.springframework.util`包下面。
 
 #### 获取方法
 
-如果你想获取某个类的某个方法，可以使用ReflectionUtils类的`findMethod`方法。例如：
+如果你想获取某个类的某个方法，可以使用 ReflectionUtils 类的`findMethod`方法。例如：
 
 ```java
 Method method = ReflectionUtils.findMethod(User.class, "getId");
@@ -551,7 +551,7 @@ Method method = ReflectionUtils.findMethod(User.class, "getId");
 
 #### 获取字段
 
-如果你想获取某个类的某个字段，可以使用ReflectionUtils类的`findField`方法。例如：
+如果你想获取某个类的某个字段，可以使用 ReflectionUtils 类的`findField`方法。例如：
 
 ```java
 Field field = ReflectionUtils.findField(User.class, "id");
@@ -559,7 +559,7 @@ Field field = ReflectionUtils.findField(User.class, "id");
 
 #### 执行方法
 
-如果你想通过反射调用某个方法，传递参数，可以使用ReflectionUtils类的`invokeMethod`方法。例如：
+如果你想通过反射调用某个方法，传递参数，可以使用 ReflectionUtils 类的`invokeMethod`方法。例如：
 
 ```java
  ReflectionUtils.invokeMethod(method, springContextsUtil.getBean(beanName), param);
@@ -567,29 +567,29 @@ Field field = ReflectionUtils.findField(User.class, "id");
 
 #### 判断字段是否常量
 
-如果你想判断某个字段是否常量，可以使用ReflectionUtils类的`isPublicStaticFinal`方法。例如：
+如果你想判断某个字段是否常量，可以使用 ReflectionUtils 类的`isPublicStaticFinal`方法。例如：
 
 ```java
 Field field = ReflectionUtils.findField(User.class, "id");
 System.out.println(ReflectionUtils.isPublicStaticFinal(field));
 ```
 
-#### 判断是否equals方法
+#### 判断是否 equals 方法
 
-如果你想判断某个方法是否equals方法，可以使用ReflectionUtils类的`isEqualsMethod`方法。例如：
+如果你想判断某个方法是否 equals 方法，可以使用 ReflectionUtils 类的`isEqualsMethod`方法。例如：
 
 ```java
 Method method = ReflectionUtils.findMethod(User.class, "getId");
 System.out.println(ReflectionUtils.isEqualsMethod(method));
-```        
+```
 
 当然这个类还有不少有趣的方法，感兴趣的朋友，可以看看下面内容：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
 
-----
+---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
