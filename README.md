@@ -197,11 +197,12 @@
 
 - [Java Scanner：扫描控制台输入的工具类](docs/common-tool/scanner.md)
 - [Java Arrays：专为数组而生的工具类](docs/common-tool/arrays.md)
+- [Apache StringUtils：专为Java字符串而生的工具类](docs/common-tool/StringUtils.md)
 - [Objects：专为操作Java对象而生的工具类](docs/common-tool/Objects.md)
 - [Java Collections：专为集合而生的工具类](docs/common-tool/collections.md)
 - [Hutool：国产良心工具包，让你的Java变得更甜](docs/common-tool/hutool.md)
 - [Guava：Google开源的Java工具库，太强大了](docs/common-tool/guava.md)
-- [其他常用Java工具类：IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils](docs/common-tool/utils.md)
+- [其他常用Java工具类：IpUtil、MDC、ClassUtils、BeanUtils、ReflectionUtils](docs/common-tool/utils.md)
 
 ## Java新特性
 

@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Collections,集合框架,java Collections
 ---
 
-# 9.4 Collections
+# 9.5 Collections
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
@@ -249,6 +249,93 @@ System.out.println("是否没有交集：" + (Collections.disjoint(list, allList
 addAll 后：[沉默王九, 沉默王十, 沉默王二]
 是否没有交集：否
 ```
+
+### 06、CollectionUtils：Spring 和 Apache 都有提供的集合工具类
+
+对集合操作，除了前面说的 JDK 原生 `Collections` 工具类，`CollectionUtils`工具类也很常用。
+
+目前比较主流的是`Spring`的`org.springframework.util`包下的 CollectionUtils 工具类。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330101919.png)
+
+和`Apache`的`org.apache.commons.collections`包下的 CollectionUtils 工具类。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330103825.png)
+
+Maven 坐标如下：
+
+```
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.4</version>
+</dependency>
+```
+
+Apache 的方法比 Spring 的更多一些，我们就以 Apache 的为例，来介绍一下常用的方法。
+
+#### 集合判空
+
+通过 CollectionUtils 工具类的`isEmpty`方法可以轻松判断集合是否为空，`isNotEmpty`方法判断集合不为空。
+
+```java
+List<Integer> list = new ArrayList<>();
+list.add(2);
+list.add(1);
+list.add(3);
+
+if (CollectionUtils.isEmpty(list)) {
+    System.out.println("集合为空");
+}
+
+if (CollectionUtils.isNotEmpty(list)) {
+    System.out.println("集合不为空");
+}
+```
+
+#### 对两个集合进行操作
+
+有时候我们需要对已有的两个集合进行操作，比如取交集或者并集等。
+
+```java
+List<Integer> list = new ArrayList<>();
+list.add(2);
+list.add(1);
+list.add(3);
+
+List<Integer> list2 = new ArrayList<>();
+list2.add(2);
+list2.add(4);
+
+//获取并集
+Collection<Integer> unionList = CollectionUtils.union(list, list2);
+System.out.println(unionList);
+
+//获取交集
+Collection<Integer> intersectionList = CollectionUtils.intersection(list, list2);
+System.out.println(intersectionList);
+
+//获取交集的补集
+Collection<Integer> disjunctionList = CollectionUtils.disjunction(list, list2);
+System.out.println(disjunctionList);
+
+//获取差集
+Collection<Integer> subtractList = CollectionUtils.subtract(list, list2);
+System.out.println(subtractList);
+```
+
+执行结果：
+
+```java
+[1, 2, 3, 4]
+[2]
+[1, 3, 4]
+[1, 3]
+```
+
+说句实话，对两个集合的操作，在实际工作中用得挺多的，特别是很多批量的场景中。以前我们需要写一堆代码，但没想到有现成的轮子。
+
+### 07、小结
 
 整体上，Collections 工具类作为集合框架的大管家，提供了一些非常便利的方法供我们调用，也非常容易掌握，没什么难点，看看方法的注释就能大致明白干嘛的。
 

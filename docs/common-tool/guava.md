@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Guava,java guava,google guava
 ---
 
-# 9.6 Guava
+# 9.7 Guava
 
 ### 01、前世今生
 
@@ -329,7 +329,7 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
 
-### 07、尾声
+### 08、尾声
 
 上面介绍了我认为最常用的功能，作为 Google 公司开源的 Java 开发核心库，个人觉得实用性还是很高的（不然呢？嘿嘿嘿）。引入到你的项目后不仅能快速的实现一些开发中常用的功能，而且还可以让代码更加的优雅简洁。
 
