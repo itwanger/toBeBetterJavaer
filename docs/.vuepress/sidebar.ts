@@ -237,10 +237,32 @@ export const sidebarConfig = sidebar({
           "stream",
           "optional",
           "Lambda",
+          "java14",
           ],
         },
         {
-          text: "2.10 Java重要知识点",
+          text: "2.10 网络编程",
+          collapsible: true,
+          prefix: "socket/",
+          children: [
+            "socket",
+            "http",
+          ],
+        },
+        {
+          text: "2.11 NIO",
+          collapsible: true,
+          prefix: "nio/",
+          children: [
+            "why",
+            "rumen",
+            "moxing",
+            "network-connect",
+            "BIONIOAIO",
+          ],
+        },
+        {
+          text: "2.12 重要知识点",
           prefix:"basic-extra-meal/",
           collapsible: true,
           children: [
@@ -256,27 +278,6 @@ export const sidebarConfig = sidebar({
           "instanceof-jvm",
           "true-generic",
           "fanshe",
-          ],
-        },
-        {
-          text: "2.11 网络编程",
-          collapsible: true,
-          prefix: "socket/",
-          children: [
-            "socket",
-            "http",
-          ],
-        },
-        {
-          text: "2.12 NIO",
-          collapsible: true,
-          prefix: "nio/",
-          children: [
-            "why",
-            "rumen",
-            "moxing",
-            "network-connect",
-            "BIONIOAIO",
           ],
         },
         {

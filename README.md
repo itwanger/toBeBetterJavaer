@@ -209,6 +209,21 @@
 - [Java 8 Stream流详细用法](docs/java8/stream.md)
 - [Java 8 Optional最佳指南](docs/java8/optional.md)
 - [深入浅出Java 8 Lambda表达式](docs/java8/Lambda.md)
+- [Java 14 开箱，新特性Record、instanceof、switch香香香香](docs/java8/java14.md)
+
+## Java网络编程
+
+- [Java网络编程的基础：计算机网络](docs/socket/network-base.md)
+- [Java Socket：飞鸽传书的网络套接字](docs/socket/socket.md)
+- [牛逼，用Java Socket手撸了一个HTTP服务器](docs/socket/http.md)
+
+## Java NIO
+
+- [为什么我们要使用 Java NIO？](docs/nio/why.md)
+- [Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)](docs/nio/rumen.md)
+- [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](docs/nio/moxing.md)
+- [使用Java NIO完成网络通信](docs/nio/network-connect.md)
+- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/nio/BIONIOAIO.md)
 
 ## 重要知识点
 
@@ -224,20 +239,6 @@
 - [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
 - [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
 - [大白话说清楚Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
-
-## Java网络编程
-
-- [Java Socket：飞鸽传书的网络套接字](docs/socket/socket.md)
-- [牛逼，用Java Socket手撸了一个HTTP服务器](docs/socket/http.md)
-
-## Java NIO
-
-- [为什么我们要使用 Java NIO？](docs/nio/why.md)
-- [Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)](docs/nio/rumen.md)
-- [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](docs/nio/moxing.md)
-- [使用Java NIO完成网络通信](docs/nio/network-connect.md)
-- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](docs/nio/BIONIOAIO.md)
-
 
 ## Java并发编程
 

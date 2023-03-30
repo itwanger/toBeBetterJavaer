@@ -9,27 +9,28 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Http,Java,Socket,服务器,Servlet
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,http,socket http,http 服务器
 ---
 
+# 11.3 用Socket撸一个HTTP服务器
 
-作为一个java后端，提供http服务可以说是基本技能之一了，但是你真的了解http协议么？你知道知道如何手撸一个http服务器么？tomcat的底层是怎么支持http服务的呢？大名鼎鼎的Servlet又是什么东西呢，该怎么使用呢？
+作为一个 Java 后端，提供 HTTP 服务可以说是基本技能之一了，但是你真的了解 HTTP 协议么？你知道知道如何手撸一个 HTTP 服务器么？tomcat 的底层是怎么支持 HTTP 服务的呢？大名鼎鼎的 Servlet 又是什么东西呢，该怎么使用呢？
 
-在初学java时，socket编程是逃不掉的一章；虽然在实际业务项目中，使用这个的可能性基本为0，本篇博文将主要介绍如何使用socket来实现一个简单的http服务器功能，提供常见的get/post请求支持，并再此过程中了解下http协议
+在初学 Java 时，Socket 编程是逃不掉的一章；虽然在实际业务项目中，使用这个的可能性基本为 0，本篇博文将主要介绍如何使用 Socket 来实现一个简单的 HTTP 服务器功能，提供常见的 get/post 请求支持，并再此过程中了解下 HTTP 协议
 
-## I. Http服务器从0到1
+## I. HTTP 服务器从 0 到 1
 
-既然我们的目标是借助socket来搭建http服务器，那么我们首先需要确认两点，一是如何使用socket；另一个则是http协议如何，怎么解析数据；下面分别进行说明
+既然我们的目标是借助 Socket 来搭建 HTTP 服务器，那么我们首先需要确认两点，一是如何使用 Socket；另一个则是 HTTP 协议如何，怎么解析数据；下面分别进行说明
 
-### 1\. socket编程基础
+### 1\. Socket 编程基础
 
-我们这里主要是利用ServerSocket来绑定端口，提供tcp服务，基本使用姿势也比较简单，一般套路如下
+我们这里主要是利用 ServerSocket 来绑定端口，提供 tcp 服务，基本使用姿势也比较简单，一般套路如下
 
-*   创建ServerSocket对象，绑定监听端口
-*   通过accept()方法监听客户端请求
-*   连接建立后，通过输入流读取客户端发送的请求信息
-*   通过输出流向客户端发送乡音信息
-*   关闭相关资源
+- 创建 ServerSocket 对象，绑定监听端口
+- 通过 accept()方法监听客户端请求
+- 连接建立后，通过输入流读取客户端发送的请求信息
+- 通过输出流向客户端发送乡音信息
+- 关闭相关资源
 
 对应的伪代码如下:
 
@@ -48,12 +49,12 @@ out.flush();;
 socket.close()
 ```
 
-### 2\. http协议
+### 2\. HTTP 协议
 
-我们上面的ServerSocket走的是TCP协议，HTTP协议本身是在TCP协议之上的一层，对于我们创建http服务器而言，最需要关注的无非两点
+我们上面的 ServerSocket 走的是 TCP 协议，HTTP 协议本身是在 TCP 协议之上的一层，对于我们创建 HTTP 服务器而言，最需要关注的无非两点
 
-*   请求的数据怎么按照http的协议解析出来
-*   如何按照http协议，返回数据
+- 请求的数据怎么按照 HTTP 的协议解析出来
+- 如何按照 HTTP 协议，返回数据
 
 所以我们需要知道数据格式的规范了
 
@@ -69,20 +70,20 @@ socket.close()
 
 不管是请求消息还是相应消息，都可以划分为三部分，这就为我们后面的处理简化了很多
 
-*   第一行：状态行
-*   第二行到第一个空行：header（请求头/相应头)
-*   剩下所有：正文
+- 第一行：状态行
+- 第二行到第一个空行：header（请求头/相应头)
+- 剩下所有：正文
 
-### 3\. http服务器设计
+### 3\. HTTP 服务器设计
 
-接下来开始进入正题，基于socket创建一个http服务器，使用socket基本没啥太大的问题，我们需要额外关注以下几点
+接下来开始进入正题，基于 Socket 创建一个 HTTP 服务器，使用 Socket 基本没啥太大的问题，我们需要额外关注以下几点
 
-*   对请求数据进行解析
-*   封装返回结果
+- 对请求数据进行解析
+- 封装返回结果
 
 #### a. 请求数据解析
 
-我们从socket中拿到所有的数据，然后解析为对应的http请求，我们先定义个Request对象，内部保存一些基本的HTTP信息，接下来重点就是将socket中的所有数据都捞出来，封装为request对象
+我们从 Socket 中拿到所有的数据，然后解析为对应的 HTTP 请求，我们先定义个 Request 对象，内部保存一些基本的 HTTP 信息，接下来重点就是将 Socket 中的所有数据都捞出来，封装为 request 对象
 
 ```java
 @Data
@@ -96,7 +97,7 @@ public static class Request {
      */
     private String uri;
     /**
-     * http版本
+     * HTTP版本
      */
     private String version;
 
@@ -112,13 +113,13 @@ public static class Request {
 }
 ```
 
-根据前面的http协议介绍，解析过程如下，我们先看请求行的解析过程
+根据前面的 HTTP 协议介绍，解析过程如下，我们先看请求行的解析过程
 
-**请求行**，包含三个基本要素：请求方法 + URI + http版本，用空格进行分割，所以解析代码如下
+**请求行**，包含三个基本要素：请求方法 + URI + HTTP 版本，用空格进行分割，所以解析代码如下
 
 ```java
 /**
- * 根据标准的http协议，解析请求行
+ * 根据标准的HTTP协议，解析请求行
  *
  * @param reader
  * @param request
@@ -136,7 +137,7 @@ private static void decodeRequestLine(BufferedReader reader, Request request) th
 
 ```java
 /**
- * 根据标准http协议，解析请求头
+ * 根据标准HTTP协议，解析请求头
  *
  * @param reader
  * @param request
@@ -163,7 +164,7 @@ private static void decodeRequestHeader(BufferedReader reader, Request request) 
 
 ```java
 /**
- * 根据标注http协议，解析正文
+ * 根据标注HTTP协议，解析正文
  *
  * @param reader
  * @param request
@@ -185,11 +186,11 @@ private static void decodeRequestMessage(BufferedReader reader, Request request)
 
 注意下上面我的使用姿势，首先是根据请求头中的`Content-Type`的值，来获得正文的数据大小，因此我们获取的方式是创建一个这么大的`char[]`来读取流中所有数据，如果我们的数组比实际的小，则读不完；如果大，则数组中会有一些空的数据；
 
-**最后将上面的几个解析封装一下**，完成request解析
+**最后将上面的几个解析封装一下**，完成 request 解析
 
 ```java
 /**
- * http的请求可以分为三部分
+ * HTTP的请求可以分为三部分
  *
  * 第一行为请求行: 即 方法 + URI + 版本
  * 第二部分到一个空行为止，表示请求头
@@ -211,15 +212,15 @@ public static Request parse2request(InputStream reqStream) throws IOException {
 }
 ```
 
-#### b. 请求任务HttpTask
+#### b. 请求任务 HttpTask
 
-每个请求，单独分配一个任务来干这个事情，就是为了支持并发，对于ServerSocket而言，接收到了一个请求，那就创建一个HttpTask任务来实现http通信
+每个请求，单独分配一个任务来干这个事情，就是为了支持并发，对于 ServerSocket 而言，接收到了一个请求，那就创建一个 HttpTask 任务来实现 HTTP 通信
 
-那么这个httptask干啥呢？
+那么这个 httptask 干啥呢？
 
-*   从请求中捞数据
-*   响应请求
-*   封装结果并返回
+- 从请求中捞数据
+- 响应请求
+- 封装结果并返回
 
 ```java
 public class HttpTask implements Runnable {
@@ -315,9 +316,9 @@ private static void buildResponseMessage(Response response, StringBuilder string
 }
 ```
 
-#### c. http服务搭建
+#### c. HTTP 服务搭建
 
-前面的基本上把该干的事情都干了，剩下的就简单了，创建`ServerSocket`，绑定端口接收请求，我们在线程池中跑这个http服务
+前面的基本上把该干的事情都干了，剩下的就简单了，创建`ServerSocket`，绑定端口接收请求，我们在线程池中跑这个 HTTP 服务
 
 ```java
 public class BasicHttpServer {
@@ -378,13 +379,13 @@ public class BasicHttpServer {
 }
 ```
 
-到这里，一个基于socket实现的http服务器基本上就搭建完了，接下来就可以进行测试了
+到这里，一个基于 Socket 实现的 HTTP 服务器基本上就搭建完了，接下来就可以进行测试了
 
 ### 4\. 测试
 
 做这个服务器，主要是基于项目 [quick-fix](https://github.com/liuyueyi/quick-fix) 产生的，这个项目主要是为了解决应用内部服务访问与数据订正，我们在这个项目的基础上进行测试
 
-一个完成的post请求如下
+一个完成的 post 请求如下
 
 ![2.gif](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
 
@@ -396,21 +397,18 @@ public class BasicHttpServer {
 
 ### 0\. 项目源码
 
-*   [quick-fix](https://github.com/liuyueyi/quick-fix)
-*   相关代码:
-*   com.git.hui.fix.core.endpoint.BasicHttpServer
-*   com.git.hui.fix.core.endpoint.HttpMessageParser
-*   com.git.hui.fix.core.endpoint.HttpTask
+- [quick-fix](https://github.com/liuyueyi/quick-fix)
+- 相关代码:
+- com.git.hui.fix.core.endpoint.BasicHttpServer
+- com.git.hui.fix.core.endpoint.HttpMessageParser
+- com.git.hui.fix.core.endpoint.HttpTask
 
+> 参考链接：[https://liuyueyi.github.io/hexblog/2018/12/30/181230-%E4%BD%BF%E7%94%A8Java-Socket%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAhttp%E6%9C%8D%E5%8A%A1%E5%99%A8/](https://liuyueyi.github.io/hexblog/2018/12/30/181230-%E4%BD%BF%E7%94%A8Java-Socket%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAhttp%E6%9C%8D%E5%8A%A1%E5%99%A8/)，整理：沉默王二
 
+---
 
->参考链接：[https://liuyueyi.github.io/hexblog/2018/12/30/181230-%E4%BD%BF%E7%94%A8Java-Socket%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAhttp%E6%9C%8D%E5%8A%A1%E5%99%A8/](https://liuyueyi.github.io/hexblog/2018/12/30/181230-%E4%BD%BF%E7%94%A8Java-Socket%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAhttp%E6%9C%8D%E5%8A%A1%E5%99%A8/)，整理：沉默王二
-
----------
-
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
