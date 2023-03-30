@@ -1,6 +1,6 @@
 ---
 title: Java LinkedHashMap详解（附源码分析）
-shortTitle: LinkedHashMap
+shortTitle: LinkedHashMap详解（附源码）
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,LinkedHashMap,java LinkedHashMap
 ---
 
-# 6.10 LinkedHashMap
+# 6.10 LinkedHashMap详解（附源码）
 
 >这篇继续换个文风来写，给大家一点新鲜的空气。
 

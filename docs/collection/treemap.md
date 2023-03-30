@@ -1,6 +1,6 @@
 ---
 title: Java TreeMap详解（附源码分析）
-shortTitle: TreeMap
+shortTitle: TreeMap详解（附源码）
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,TreeMap,java treemap
 ---
 
-# 6.11 TreeMap
+# 6.11 TreeMap详解（附源码）
 
 >下面有请王老师上台，来给大家讲一讲 TreeMap，鼓掌了！
 

@@ -1,5 +1,5 @@
 ---
-title: 为什么不能在foreach里执行删除操作？
+title: Java为什么不能在foreach里执行删除操作？
 shortTitle: 为什么不能在foreach里删除元素？
 category:
   - Java核心

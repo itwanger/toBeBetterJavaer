@@ -1,5 +1,5 @@
 ---
-title: 聊聊ArrayList和LinkedList的区别
+title: 聊聊Java中ArrayList和LinkedList的区别
 shortTitle: ArrayList和LinkedList的区别
 category:
   - Java核心

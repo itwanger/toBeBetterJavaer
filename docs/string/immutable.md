@@ -1,6 +1,6 @@
 ---
 title: 聊聊 Java 字符串，以及为什么String是不可变的？
-shortTitle: 聊聊字符串以及为什么不可变
+shortTitle: 字符串为什么不可变
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,不可变
 ---
 
-# 4.4 Java字符串及不可变性
+# 4.4 字符串为什么不可变
 
 我正坐在沙发上津津有味地读刘欣大佬的《码农翻身》——Java 帝国这一章，门铃响了。起身打开门一看，是三妹，她从学校回来了。
 

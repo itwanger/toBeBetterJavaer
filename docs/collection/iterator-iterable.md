@@ -1,5 +1,5 @@
 ---
-title: 迭代器Iterator和Iterable有什么区别？
+title: Java迭代器Iterator和Iterable有什么区别？
 shortTitle: 迭代器Iterator和Iterable
 category:
   - Java核心

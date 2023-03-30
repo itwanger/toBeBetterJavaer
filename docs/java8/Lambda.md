@@ -9,15 +9,16 @@ description: Java程序员进阶之路，小白的零基础Java教程，从入�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java8,lambda
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java8,lambda,java lambda
 ---
 
+# 10.3 Lambda表达式
 
 今天分享的主题是《Lambda 表达式入门》，这也是之前一些读者留言强烈要求我写一写的，不好意思，让你们久等了，现在来满足你们，为时不晚吧？
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-1.jpg)
 
-## 01、初识 Lambda
+### 01、初识 Lambda
 
 Lambda 表达式描述了一个代码块（或者叫匿名方法），可以将其作为参数传递给构造方法或者普通方法以便后续执行。考虑下面这段代码：
 
@@ -74,7 +75,7 @@ public class LamadaTest {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-2.jpg)
 
-## 02、Lambda 语法
+### 02、Lambda 语法
 
 每个 Lambda 表达式都遵循以下法则：
 
@@ -141,6 +142,7 @@ public static void main(String[] args) {
 和匿名内部类一样，不要在 Lambda 表达式主体内对方法内的局部变量进行修改，否则编译也不会通过：Lambda 表达式中使用的变量必须是 final 的。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-3.jpg)
+
 这个问题发生的原因是因为 Java 规范中是这样规定的：
 
 >Any local variable, formal parameter, or exception parameter used but not declared in a lambda expression
@@ -181,7 +183,7 @@ c = 2;
 
 下面我们来详细地一一介绍下。
 
-### 01）把 limit 变量声明为 static
+#### 01）把 limit 变量声明为 static
 
 要想把 limit 变量声明为 static，就必须将 limit 变量放在 `main()` 方法外部，因为 `main()` 方法本身是 static 的。完整的代码示例如下所示。
 
@@ -212,7 +214,7 @@ public class ModifyVariable2StaticInsideLambda {
 
 OK，该方案是可行的。
 
-### 02）把 limit 变量声明为 AtomicInteger
+#### 02）把 limit 变量声明为 AtomicInteger
 
 AtomicInteger 可以确保 int 值的修改是原子性的，可以使用 `set()` 方法设置一个新的 int 值，`get()` 方法获取当前的 int 值。
 
@@ -243,7 +245,7 @@ public class ModifyVariable2AtomicInsideLambda {
 
 OK，该方案也是可行的。
 
-### 03）使用数组
+#### 03）使用数组
 
 使用数组的方式略带一些欺骗的性质，在声明数组的时候设置为 final，但更改 int 的值时却修改的是数组的一个元素。
 
@@ -274,7 +276,7 @@ public class ModifyVariable2ArrayInsideLambda {
 
 OK，该方案也是可行的。
 
-## 03、Lambda 和 this 关键字
+### 03、Lambda 和 this 关键字
 
 Lambda 表达式并不会引入新的作用域，这一点和匿名内部类是不同的。也就是说，Lambda 表达式主体内使用的 this 关键字和其所在的类实例相同。
 
@@ -346,7 +348,7 @@ this = com.cmower.java_demo.journal.LamadaTest@3feba861
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-4.jpg)
 
-## 04、最后
+### 04、最后
 
 尽管 Lambda 表达式在简化 Java 编程方面做了很多令人惊讶的努力，但在某些情况下，不当的使用仍然会导致不必要的混乱，大家伙慎用。
 

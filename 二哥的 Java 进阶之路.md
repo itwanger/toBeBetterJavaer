@@ -3594,7 +3594,7 @@ System.out.println(Arrays.deepToString(deepArray));
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 4.4 Java字符串及不可变性
+## 4.4 字符串为什么不可变
 
 我正坐在沙发上津津有味地读刘欣大佬的《码农翻身》——Java 帝国这一章，门铃响了。起身打开门一看，是三妹，她从学校回来了。
 
@@ -3889,7 +3889,7 @@ String s1 = "三妹";
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 4.6 深入解析String.intern()方法
+## 4.6 String.intern()方法
 
 “哥，你发给我的那篇文章我看了，结果直接把我给看得不想学 Java 了！”三妹气冲冲地说。
 
@@ -5135,7 +5135,7 @@ if (cmower.contains("，")) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 4.11 Java 9为什么要将String的底层实现由char数组改成了byte数组?
+## 4.11 String的底层实现为什么由char改成了byte?
 
 “二哥，最近在我阅读 Java 11 的字符串源码，发现和 Java 8 的有很大不同。”三妹的脸上洋溢着青春的微笑😊，甜美地说道：“String 类的源码已经由 `char[]` 优化为了 `byte[]` 来存储字符串内容，为什么要这样做呢？”
 
@@ -11341,7 +11341,7 @@ public enum EasySingleton{
 
 # 第六章：集合框架（容器）
 
-## 6.1 Java的集合框架
+## 6.1 集合框架的构成
 
 眼瞅着三妹的王者荣耀杀得正嗨，我趁机喊到：“别打了，三妹，我们来一起学习 Java 的集合框架吧。”
 
@@ -12069,7 +12069,7 @@ c: cat
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.2 时间复杂度
+## 6.2 关于时间复杂度
 
 “二哥，为什么要讲时间复杂度呀？”三妹问。
 
@@ -12235,7 +12235,7 @@ public static int fib(int n) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.3 ArrayList
+## 6.3 ArrayList详解（附源码）
 
 “二哥，听说今天我们开讲 ArrayList 了？好期待哦！”三妹明知故问，这个托配合得依然天衣无缝。
 
@@ -12843,7 +12843,7 @@ ArrayList，如果有个中文名的话，应该叫动态数组，也就是可�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.4 LinkedList
+## 6.4 LinkedList详解（附源码）
 
 >这篇换个表达方式，一起来欣赏。
 
@@ -14208,7 +14208,7 @@ private class ListItr implements ListIterator<E> {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.6 泛型
+## 6.6 关于Java泛型
 
 “二哥，为什么要设计泛型啊？”三妹开门见山地问。
 
@@ -15477,7 +15477,7 @@ list = list.stream().filter(s -> !s.equals("陈清扬")).collect(Collectors.toLi
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.9 HashMap
+## 6.9 HashMap详解（附源码）
 
 这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://tobebetterjavaer.com/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 
@@ -16673,7 +16673,7 @@ HashMap是Java中最常用的集合之一，它是一种键值对存储的数据
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.10 LinkedHashMap
+## 6.10 LinkedHashMap详解（附源码）
 
 >这篇继续换个文风来写，给大家一点新鲜的空气。
 
@@ -17135,7 +17135,7 @@ LinkedHashMap 还提供了两个构造方法来指定排序方式，分别是按
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.11 TreeMap
+## 6.11 TreeMap详解（附源码）
 
 >下面有请王老师上台，来给大家讲一讲 TreeMap，鼓掌了！
 
@@ -17568,7 +17568,7 @@ headMap、tailMap、subMap方法分别获取了小于3、大于等于4、大于�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.12 ArrayDeque
+## 6.12 双端队列ArrayDeque
 
 >好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
 
@@ -17935,7 +17935,7 @@ ArrayDeque 不仅支持常见的队列操作，如添加元素、删除元素、
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.13 PriorityQueue
+## 6.13 优先级队列PriorityQueue
 
 >继续有请王老师，来上台给大家讲讲优先级队列 PriorityQueue。
 
@@ -18446,7 +18446,7 @@ public void sort(Comparator<? super E> c) {
 
 # 第七章：IO
 
-## 7.1 IO 分类
+## 7.1 IO分类
 
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
 
@@ -19136,7 +19136,7 @@ out.close();
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 7.2 File
+## 7.2 关于File
 
 在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。那么 File 类可以说是其基石，我们必须得先来了解下。
 
@@ -26557,3 +26557,1021 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+# 第十章：Java新特性
+
+## 10.1 Stream流
+
+两个星期以前，就有读者强烈要求我写一篇 Java Stream 流的文章，我说市面上不是已经有很多了吗，结果你猜他怎么说：“就想看你写的啊！”你看你看，多么苍白的喜欢啊。那就“勉为其难”写一篇吧，嘻嘻。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/stream-1.jpg)
+
+单从“Stream”这个单词上来看，它似乎和 java.io 包下的 InputStream 和 OutputStream 有些关系。实际上呢，没毛关系。Java 8 新增的 Stream 是为了解放程序员操作集合（Collection）时的生产力，之所以能解放，很大一部分原因可以归功于同时出现的 Lambda 表达式——极大的提高了编程效率和程序可读性。
+
+Stream 究竟是什么呢？
+
+>Stream 就好像一个高级的迭代器，但只能遍历一次，就好像一江春水向东流；在流的过程中，对流中的元素执行一些操作，比如“过滤掉长度大于 10 的字符串”、“获取每个字符串的首字母”等。
+
+要想操作流，首先需要有一个数据源，可以是数组或者集合。每次操作都会返回一个新的流对象，方便进行链式操作，但原有的流对象会保持不变。
+
+流的操作可以分为两种类型：
+
+1）中间操作，可以有多个，每次返回一个新的流，可进行链式操作。
+
+2）终端操作，只能有一个，每次执行完，这个流也就用光光了，无法执行下一个操作，因此只能放在最后。
+
+来举个例子。
+
+```java
+List<String> list = new ArrayList<>();
+list.add("武汉加油");
+list.add("中国加油");
+list.add("世界加油");
+list.add("世界加油");
+
+long count = list.stream().distinct().count();
+System.out.println(count);
+```
+
+`distinct()` 方法是一个中间操作（去重），它会返回一个新的流（没有共同元素）。
+
+```java
+Stream<T> distinct();
+```
+
+`count()` 方法是一个终端操作，返回流中的元素个数。
+
+```java
+long count();
+```
+
+中间操作不会立即执行，只有等到终端操作的时候，流才开始真正地遍历，用于映射、过滤等。通俗点说，就是一次遍历执行多个操作，性能就大大提高了。
+
+理论部分就扯这么多，下面直接进入实战部分。
+
+### 01、创建流
+
+如果是数组的话，可以使用 `Arrays.stream()` 或者 `Stream.of()` 创建流；如果是集合的话，可以直接使用 `stream()` 方法创建流，因为该方法已经添加到 Collection 接口中。
+
+```java
+public class CreateStreamDemo {
+    public static void main(String[] args) {
+        String[] arr = new String[]{"武汉加油", "中国加油", "世界加油"};
+        Stream<String> stream = Arrays.stream(arr);
+
+        stream = Stream.of("武汉加油", "中国加油", "世界加油");
+
+        List<String> list = new ArrayList<>();
+        list.add("武汉加油");
+        list.add("中国加油");
+        list.add("世界加油");
+        stream = list.stream();
+    }
+}
+```
+
+查看 Stream 源码的话，你会发现 `of()` 方法内部其实调用了 `Arrays.stream()` 方法。
+
+```java
+public static<T> Stream<T> of(T... values) {
+    return Arrays.stream(values);
+}
+```
+
+另外，集合还可以调用 `parallelStream()` 方法创建并发流，默认使用的是 `ForkJoinPool.commonPool()`线程池。
+
+```java
+List<Long> aList = new ArrayList<>();
+Stream<Long> parallelStream = aList.parallelStream();
+```
+
+### 02、操作流
+
+Stream 类提供了很多有用的操作流的方法，我来挑一些常用的给你介绍一下。
+
+#### 1）过滤
+
+通过 `filter()` 方法可以从流中筛选出我们想要的元素。
+
+```java
+public class FilterStreamDemo {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("周杰伦");
+        list.add("王力宏");
+        list.add("陶喆");
+        list.add("林俊杰");
+        Stream<String> stream = list.stream().filter(element -> element.contains("王"));
+        stream.forEach(System.out::println);
+    }
+}
+```
+
+`filter()` 方法接收的是一个 Predicate（Java 8 新增的一个函数式接口，接受一个输入参数返回一个布尔值结果）类型的参数，因此，我们可以直接将一个 Lambda 表达式传递给该方法，比如说 `element -> element.contains("王")` 就是筛选出带有“王”的字符串。
+
+`forEach()` 方法接收的是一个 Consumer（Java 8 新增的一个函数式接口，接受一个输入参数并且无返回的操作）类型的参数，`类名 :: 方法名`是 Java 8 引入的新语法，`System.out` 返回 PrintStream 类，println 方法你应该知道是打印的。
+
+`stream.forEach(System.out::println);` 相当于在 for 循环中打印，类似于下面的代码：
+
+```java
+for (String s : strs) {
+    System.out.println(s);
+}
+```
+
+很明显，一行代码看起来更简洁一些。来看一下程序的输出结果：
+
+```
+王力宏
+```
+
+#### 2）映射 
+
+如果想通过某种操作把一个流中的元素转化成新的流中的元素，可以使用 `map()` 方法。
+
+```java
+public class MapStreamDemo {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("周杰伦");
+        list.add("王力宏");
+        list.add("陶喆");
+        list.add("林俊杰");
+        Stream<Integer> stream = list.stream().map(String::length);
+        stream.forEach(System.out::println);
+    }
+}
+```
+
+`map()` 方法接收的是一个 Function（Java 8 新增的一个函数式接口，接受一个输入参数 T，返回一个结果 R）类型的参数，此时参数 为 String 类的 length 方法，也就是把 `Stream<String>` 的流转成一个 `Stream<Integer>` 的流。
+
+程序输出的结果如下所示：
+
+```
+3
+3
+2
+3
+```
+
+#### 3）匹配
+
+Stream 类提供了三个方法可供进行元素匹配，它们分别是：
+
+- `anyMatch()`，只要有一个元素匹配传入的条件，就返回 true。
+
+- `allMatch()`，只有有一个元素不匹配传入的条件，就返回 false；如果全部匹配，则返回 true。
+
+- `noneMatch()`，只要有一个元素匹配传入的条件，就返回 false；如果全部不匹配，则返回 true。
+
+```java
+public class MatchStreamDemo {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("周杰伦");
+        list.add("王力宏");
+        list.add("陶喆");
+        list.add("林俊杰");
+
+        boolean  anyMatchFlag = list.stream().anyMatch(element -> element.contains("王"));
+        boolean  allMatchFlag = list.stream().allMatch(element -> element.length() > 1);
+        boolean  noneMatchFlag = list.stream().noneMatch(element -> element.endsWith("沉"));
+        System.out.println(anyMatchFlag);
+        System.out.println(allMatchFlag);
+        System.out.println(noneMatchFlag);
+    }
+}
+```
+
+因为“王力宏”以“王”字开头，所以 anyMatchFlag 应该为 true；因为“周杰伦”、“王力宏”、“陶喆”、“林俊杰”的字符串长度都大于 1，所以 allMatchFlag 为 true；因为 4 个字符串结尾都不是“沉”，所以 noneMatchFlag  为 true。
+
+程序输出的结果如下所示：
+
+```
+true
+true
+true
+```
+
+#### 4）组合
+
+`reduce()` 方法的主要作用是把 Stream 中的元素组合起来，它有两种用法：
+
+- `Optional<T> reduce(BinaryOperator<T> accumulator)`
+
+没有起始值，只有一个参数，就是运算规则，此时返回 [Optional](https://mp.weixin.qq.com/s/PqK0KNVHyoEtZDtp5odocA)。
+
+- `T reduce(T identity, BinaryOperator<T> accumulator)`
+
+有起始值，有运算规则，两个参数，此时返回的类型和起始值类型一致。
+
+来看下面这个例子。
+
+```java
+public class ReduceStreamDemo {
+    public static void main(String[] args) {
+        Integer[] ints = {0, 1, 2, 3};
+        List<Integer> list = Arrays.asList(ints);
+
+        Optional<Integer> optional = list.stream().reduce((a, b) -> a + b);
+        Optional<Integer> optional1 = list.stream().reduce(Integer::sum);
+        System.out.println(optional.orElse(0));
+        System.out.println(optional1.orElse(0));
+
+        int reduce = list.stream().reduce(6, (a, b) -> a + b);
+        System.out.println(reduce);
+        int reduce1 = list.stream().reduce(6, Integer::sum);
+        System.out.println(reduce1);
+    }
+}
+```
+
+运算规则可以是 [Lambda 表达式](https://mp.weixin.qq.com/s/ozr0jYHIc12WSTmmd_vEjw)（比如 `(a, b) -> a + b`），也可以是类名::方法名（比如 `Integer::sum`）。
+
+程序运行的结果如下所示：
+
+```java
+6
+6
+12
+12
+```
+
+0、1、2、3 在没有起始值相加的时候结果为 6；有起始值 6 的时候结果为 12。
+
+### 03、转换流
+
+既然可以把集合或者数组转成流，那么也应该有对应的方法，将流转换回去——`collect()` 方法就满足了这种需求。
+
+```java
+public class CollectStreamDemo {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("周杰伦");
+        list.add("王力宏");
+        list.add("陶喆");
+        list.add("林俊杰");
+
+        String[] strArray = list.stream().toArray(String[]::new);
+        System.out.println(Arrays.toString(strArray));
+
+        List<Integer> list1 = list.stream().map(String::length).collect(Collectors.toList());
+        List<String> list2 = list.stream().collect(Collectors.toCollection(ArrayList::new));
+        System.out.println(list1);
+        System.out.println(list2);
+
+        String str = list.stream().collect(Collectors.joining(", ")).toString();
+        System.out.println(str);
+    }
+}
+```
+
+`toArray()` 方法可以将流转换成数组，你可能比较好奇的是 `String[]::new`，它是什么东东呢？来看一下 `toArray()` 方法的源码。
+
+```java
+<A> A[] toArray(IntFunction<A[]> generator);
+```
+
+也就是说 `String[]::new` 是一个 IntFunction，一个可以产生所需的新数组的函数，可以通过反编译字节码看看它到底是什么：
+
+```java
+String[] strArray = (String[])list.stream().toArray((x$0) -> {
+    return new String[x$0];
+});
+System.out.println(Arrays.toString(strArray));
+```
+
+也就是相当于返回了一个指定长度的字符串数组。
+
+当我们需要把一个集合按照某种规则转成另外一个集合的时候，就可以配套使用 `map()` 方法和 `collect()` 方法。
+
+```java
+List<Integer> list1 = list.stream().map(String::length).collect(Collectors.toList());
+```
+
+通过 `stream()` 方法创建集合的流后，再通过 `map(String:length)` 将其映射为字符串长度的一个新流，最后通过 `collect()` 方法将其转换成新的集合。
+
+Collectors 是一个收集器的工具类，内置了一系列收集器实现，比如说 `toList()` 方法将元素收集到一个新的 `java.util.List` 中；比如说 `toCollection()` 方法将元素收集到一个新的 ` java.util.ArrayList` 中；比如说 `joining()` 方法将元素收集到一个可以用分隔符指定的字符串中。
+
+来看一下程序的输出结果：
+
+```java
+[周杰伦, 王力宏, 陶喆, 林俊杰]
+[3, 3, 2, 3]
+[周杰伦, 王力宏, 陶喆, 林俊杰]
+周杰伦, 王力宏, 陶喆, 林俊杰
+```
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/stream-2.jpg)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 10.2 Optional最佳指南
+
+想学习，永远都不晚，尤其是针对 Java 8 里面的好东西，Optional 就是其中之一，该类提供了一种用于表示可选值而非空引用的类级别解决方案。作为一名 Java 程序员，我真的是烦透了 [NullPointerException（NPE）](https://tobebetterjavaer.com/exception/npe.html)，尽管和它熟得就像一位老朋友，知道它也是迫不得已——程序正在使用一个对象却发现这个对象的值为 null，于是 Java 虚拟机就怒发冲冠地把它抛了出来当做替罪羊。
+
+当然了，我们程序员是富有责任心的，不会坐视不管，于是就有了大量的 null 值检查。尽管有时候这种检查完全没有必要，但我们已经习惯了例行公事。终于，Java 8 看不下去了，就引入了 Optional，以便我们编写的代码不再那么刻薄呆板。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
+
+
+### 01、没有 Optional 会有什么问题
+
+我们来模拟一个实际的应用场景。小王第一天上班，领导老马就给他安排了一个任务，要他从数据库中根据会员 ID 拉取一个会员的姓名，然后将姓名打印到控制台。虽然是新来的，但这个任务难不倒小王，于是他花了 10 分钟写下了这段代码：
+
+```java
+public class WithoutOptionalDemo {
+    class Member {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
+    public static void main(String[] args) {
+        Member mem = getMemberByIdFromDB();
+        if (mem != null) {
+            System.out.println(mem.getName());
+        }
+    }
+
+    public static Member getMemberByIdFromDB() {
+        // 当前 ID 的会员不存在
+        return null;
+    }
+}
+```
+
+由于当前 ID 的会员不存在，所以 `getMemberByIdFromDB()` 方法返回了 null 来作为没有获取到该会员的结果，那就意味着在打印会员姓名的时候要先对 mem 判空，否则就会抛出 NPE 异常，不信？让小王把 `if (mem != null)` 去掉试试，控制台立马打印错误堆栈给你颜色看看。
+
+```
+Exception in thread "main" java.lang.NullPointerException
+	at com.cmower.dzone.optional.WithoutOptionalDemo.main(WithoutOptionalDemo.java:24)
+```
+
+### 02、Optional 是如何解决这个问题的
+
+小王把代码提交后，就兴高采烈地去找老马要新的任务了。本着虚心学习的态度，小王请求老马看一下自己的代码，于是老王就告诉他应该尝试一下 Optional，可以避免没有必要的 null 值检查。现在，让我们来看看小王是如何通过 Optional 来解决上述问题的。
+
+```java
+public class OptionalDemo {
+    public static void main(String[] args) {
+        Optional<Member> optional = getMemberByIdFromDB();
+        optional.ifPresent(mem -> {
+            System.out.println("会员姓名是：" + mem.getName());
+        });
+    }
+
+    public static Optional<Member> getMemberByIdFromDB() {
+        boolean hasName = true;
+        if (hasName) {
+            return Optional.of(new Member("沉默王二"));
+        }
+        return Optional.empty();
+    }
+}
+class Member {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    // getter / setter
+}
+```
+
+`getMemberByIdFromDB()` 方法返回了 `Optional<Member>` 作为结果，这样就表明 Member 可能存在，也可能不存在，这时候就可以在 Optional 的 `ifPresent()` 方法中使用 Lambda 表达式来直接打印结果。
+
+Optional 之所以可以解决 NPE 的问题，是因为它明确的告诉我们，不需要对它进行判空。它就好像十字路口的路标，明确地告诉你该往哪走。
+
+### 03、创建 Optional 对象
+
+1）可以使用静态方法 `empty()` 创建一个空的 Optional 对象
+
+```java
+Optional<String> empty = Optional.empty();
+System.out.println(empty); // 输出：Optional.empty
+```
+
+2）可以使用静态方法 `of()` 创建一个非空的 Optional 对象
+
+```java
+Optional<String> opt = Optional.of("沉默王二");
+System.out.println(opt); // 输出：Optional[沉默王二]
+```
+
+当然了，传递给 `of()` 方法的参数必须是非空的，也就是说不能为 null，否则仍然会抛出 NullPointerException。
+
+```java
+String name = null;
+Optional<String> optnull = Optional.of(name);
+```
+
+3）可以使用静态方法 `ofNullable()` 创建一个即可空又可非空的 Optional 对象
+
+```java
+String name = null;
+Optional<String> optOrNull = Optional.ofNullable(name);
+System.out.println(optOrNull); // 输出：Optional.empty
+```
+
+`ofNullable()` 方法内部有一个三元表达式，如果为参数为 null，则返回私有常量 EMPTY；否则使用 new 关键字创建了一个新的 Optional 对象——不会再抛出 NPE 异常了。
+
+### 04、判断值是否存在
+
+可以通过方法 `isPresent()` 判断一个 Optional 对象是否存在，如果存在，该方法返回 true，否则返回 false——取代了 `obj != null` 的判断。
+
+```java
+Optional<String> opt = Optional.of("沉默王二");
+System.out.println(opt.isPresent()); // 输出：true
+
+Optional<String> optOrNull = Optional.ofNullable(null);
+System.out.println(opt.isPresent()); // 输出：false
+```
+
+Java 11 后还可以通过方法 `isEmpty()` 判断与 `isPresent()` 相反的结果。
+
+```java
+Optional<String> opt = Optional.of("沉默王二");
+System.out.println(opt.isPresent()); // 输出：false
+
+Optional<String> optOrNull = Optional.ofNullable(null);
+System.out.println(opt.isPresent()); // 输出：true
+```
+
+### 05、非空表达式
+
+Optional 类有一个非常现代化的方法——`ifPresent()`，允许我们使用函数式编程的方式执行一些代码，因此，我把它称为非空表达式。如果没有该方法的话，我们通常需要先通过 `isPresent()` 方法对 Optional 对象进行判空后再执行相应的代码：
+
+```java
+Optional<String> optOrNull = Optional.ofNullable(null);
+if (optOrNull.isPresent()) {
+    System.out.println(optOrNull.get().length());
+}
+```
+
+有了 `ifPresent()` 之后，情况就完全不同了，可以直接将 Lambda 表达式传递给该方法，代码更加简洁，更加直观。
+
+```java
+Optional<String> opt = Optional.of("沉默王二");
+opt.ifPresent(str -> System.out.println(str.length()));
+```
+
+Java 9 后还可以通过方法 `ifPresentOrElse(action, emptyAction)` 执行两种结果，非空时执行 action，空时执行 emptyAction。
+
+```java
+Optional<String> opt = Optional.of("沉默王二");
+opt.ifPresentOrElse(str -> System.out.println(str.length()), () -> System.out.println("为空"));
+```
+
+### 06、设置（获取）默认值
+
+有时候，我们在创建（获取） Optional 对象的时候，需要一个默认值，`orElse()` 和 `orElseGet()` 方法就派上用场了。
+
+`orElse()` 方法用于返回包裹在 Optional 对象中的值，如果该值不为 null，则返回；否则返回默认值。该方法的参数类型和值得类型一致。
+
+```java
+String nullName = null;
+String name = Optional.ofNullable(nullName).orElse("沉默王二");
+System.out.println(name); // 输出：沉默王二
+```
+
+`orElseGet()` 方法与 `orElse()` 方法类似，但参数类型不同。如果 Optional 对象中的值为 null，则执行参数中的函数。
+
+```java
+String nullName = null;
+String name = Optional.ofNullable(nullName).orElseGet(()->"沉默王二");
+System.out.println(name); // 输出：沉默王二
+```
+
+从输出结果以及代码的形式上来看，这两个方法极其相似，这不免引起我们的怀疑，Java 类库的设计者有必要这样做吗？
+
+假设现在有这样一个获取默认值的方法，很传统的方式。
+
+```java
+public static String getDefaultValue() {
+    System.out.println("getDefaultValue");
+    return "沉默王二";
+}
+```
+
+然后，通过 `orElse()` 方法和 `orElseGet()` 方法分别调用 `getDefaultValue()` 方法返回默认值。
+
+```java
+public static void main(String[] args) {
+    String name = null;
+    System.out.println("orElse");
+    String name2 = Optional.ofNullable(name).orElse(getDefaultValue());
+
+    System.out.println("orElseGet");
+    String name3 = Optional.ofNullable(name).orElseGet(OrElseOptionalDemo::getDefaultValue);
+}
+```
+
+注：`类名 :: 方法名`是 Java 8 引入的语法，方法名后面是没有 `()` 的，表明该方法并不一定会被调用。
+
+输出结果如下所示：
+
+```java
+orElse
+getDefaultValue
+
+orElseGet
+getDefaultValue
+```
+
+输出结果是相似的，没什么太大的不同，这是在 Optional 对象的值为 null 的情况下。假如 Optional 对象的值不为 null 呢？
+
+```java
+public static void main(String[] args) {
+    String name = "沉默王三";
+    System.out.println("orElse");
+    String name2 = Optional.ofNullable(name).orElse(getDefaultValue());
+
+    System.out.println("orElseGet");
+    String name3 = Optional.ofNullable(name).orElseGet(OrElseOptionalDemo::getDefaultValue);
+}
+```
+
+输出结果如下所示：
+
+```java
+orElse
+getDefaultValue
+orElseGet
+```
+
+咦，`orElseGet()` 没有去调用 `getDefaultValue()`。哪个方法的性能更佳，你明白了吧？
+
+### 07、获取值
+
+直观从语义上来看，`get()` 方法才是最正宗的获取 Optional 对象值的方法，但很遗憾，该方法是有缺陷的，因为假如 Optional 对象的值为 null，该方法会抛出 NoSuchElementException 异常。这完全与我们使用 Optional 类的初衷相悖。
+
+```java
+public class GetOptionalDemo {
+    public static void main(String[] args) {
+        String name = null;
+        Optional<String> optOrNull = Optional.ofNullable(name);
+        System.out.println(optOrNull.get());
+    }
+}
+```
+
+这段程序在运行时会抛出异常：
+
+```
+Exception in thread "main" java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:141)
+	at com.cmower.dzone.optional.GetOptionalDemo.main(GetOptionalDemo.java:9)
+```
+
+尽管抛出的异常是 NoSuchElementException 而不是 NPE，但在我们看来，显然是在“五十步笑百步”。建议 `orElseGet()` 方法获取 Optional 对象的值。
+
+### 08、过滤值
+
+小王通过 Optional 类对之前的代码进行了升级，完成后又兴高采烈地跑去找老马要任务了。老马觉得这小伙子不错，头脑灵活，又干活积极，很值得培养，就又交给了小王一个新的任务：用户注册时对密码的长度进行检查。
+
+小王拿到任务后，乐开了花，因为他刚要学习 Optional 类的 `filter()` 方法，这就派上了用场。
+
+```java
+public class FilterOptionalDemo {
+    public static void main(String[] args) {
+        String password = "12345";
+        Optional<String> opt = Optional.ofNullable(password);
+        System.out.println(opt.filter(pwd -> pwd.length() > 6).isPresent());
+    }
+}
+```
+
+`filter()` 方法的参数类型为 Predicate（Java 8 新增的一个函数式接口），也就是说可以将一个 Lambda 表达式传递给该方法作为条件，如果表达式的结果为 false，则返回一个 EMPTY 的 Optional 对象，否则返回过滤后的 Optional 对象。
+
+在上例中，由于 password 的长度为 5 ，所以程序输出的结果为 false。假设密码的长度要求在 6 到 10 位之间，那么还可以再追加一个条件。来看小王增加难度后的代码。
+
+
+```java
+Predicate<String> len6 = pwd -> pwd.length() > 6;
+Predicate<String> len10 = pwd -> pwd.length() < 10;
+
+password = "1234567";
+opt = Optional.ofNullable(password);
+boolean result = opt.filter(len6.and(len10)).isPresent();
+System.out.println(result);
+```
+
+这次程序输出的结果为 true，因为密码变成了 7 位，在 6 到 10 位之间。想象一下，假如小王使用 if-else 来完成这个任务，代码该有多冗长。
+
+### 09、转换值
+
+小王检查完了密码的长度，仍然觉得不够尽兴，觉得要对密码的强度也进行检查，比如说密码不能是“password”，这样的密码太弱了。于是他又开始研究起了 `map()` 方法，该方法可以按照一定的规则将原有 Optional 对象转换为一个新的 Optional 对象，原有的 Optional 对象不会更改。
+
+先来看小王写的一个简单的例子：
+
+```java
+public class OptionalMapDemo {
+    public static void main(String[] args) {
+        String name = "沉默王二";
+        Optional<String> nameOptional = Optional.of(name);
+        Optional<Integer> intOpt = nameOptional
+                .map(String::length);
+        
+        System.out.println( intOpt.orElse(0));
+    }
+}
+```
+
+在上面这个例子中，`map()` 方法的参数 `String::length`，意味着要 将原有的字符串类型的 Optional 按照字符串长度重新生成一个新的 Optional 对象，类型为 Integer。
+
+搞清楚了 `map()` 方法的基本用法后，小王决定把 `map()` 方法与 `filter()` 方法结合起来用，前者用于将密码转化为小写，后者用于判断长度以及是否是“password”。
+
+```java
+public class OptionalMapFilterDemo {
+    public static void main(String[] args) {
+        String password = "password";
+        Optional<String>  opt = Optional.ofNullable(password);
+
+        Predicate<String> len6 = pwd -> pwd.length() > 6;
+        Predicate<String> len10 = pwd -> pwd.length() < 10;
+        Predicate<String> eq = pwd -> pwd.equals("password");
+
+        boolean result = opt.map(String::toLowerCase).filter(len6.and(len10 ).and(eq)).isPresent();
+        System.out.println(result);
+    }
+}
+```
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/optional-2.jpg)
+
+好了，我亲爱的读者朋友，以上就是本文的全部内容了——可以说是史上最佳 Optional 指南了，能看到这里的都是最优秀的程序员，二哥必须要伸出大拇指为你点个赞。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 10.3 Lambda表达式
+
+今天分享的主题是《Lambda 表达式入门》，这也是之前一些读者留言强烈要求我写一写的，不好意思，让你们久等了，现在来满足你们，为时不晚吧？
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-1.jpg)
+
+### 01、初识 Lambda
+
+Lambda 表达式描述了一个代码块（或者叫匿名方法），可以将其作为参数传递给构造方法或者普通方法以便后续执行。考虑下面这段代码：
+
+```java
+() -> System.out.println("沉默王二")
+```
+
+来从左到右解释一下，`()` 为 Lambda 表达式的参数列表（本例中没有参数），`->` 标识这串代码为 Lambda 表达式（也就是说，看到 `->` 就知道这是 Lambda），`System.out.println("沉默王二")` 为要执行的代码，即将“沉默王二”打印到标准输出流。
+
+有点 Java 基础的同学应该不会对 Runnable 接口感到陌生，这是多线程的一个基础接口，它的定义如下：
+
+```java
+@FunctionalInterface
+public interface Runnable
+{
+   public abstract void run();
+}
+```
+
+Runnable 接口非常简单，仅有一个抽象方法 `run()`；细心的同学会发现一个陌生的注解 `@FunctionalInterface`，这个注解是什么意思呢？
+
+我看了它的源码，里面有这样一段注释：
+
+>Note that instances of functional interfaces can be created with lambda expressions, method references, or constructor references.
+
+大致的意思就是说，通过 `@FunctionalInterface` 标记的接口可以通过 Lambda 表达式创建实例。具体怎么表现呢？
+
+原来我们创建一个线程并启动它是这样的：
+
+```java
+public class LamadaTest {
+    public static void main(String[] args) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("沉默王二");
+            }
+        }).start();
+    }
+}
+```
+
+通过 Lambda 表达式呢？只需要下面这样：
+
+```java
+public class LamadaTest {
+    public static void main(String[] args) {
+        new Thread(() -> System.out.println("沉默王二")).start();
+    }
+}
+```
+
+是不是很妙！比起匿名内部类，Lambda 表达式不仅易于理解，更大大简化了必须编写的代码数量。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-2.jpg)
+
+### 02、Lambda 语法
+
+每个 Lambda 表达式都遵循以下法则：
+
+```
+( parameter-list ) -> { expression-or-statements }
+```
+
+`()` 中的 `parameter-list` 是以逗号分隔的参数。你可以指定参数的类型，也可以不指定（编译器会根据上下文进行推断）。Java 11 后，还可以使用 `var` 关键字作为参数类型，有点 JavaScript 的味道。
+
+`->` 相当于 Lambda 的标识符，就好像见到圣旨就见到了皇上。
+
+`{}` 中的 `expression-or-statements` 为 Lambda 的主体，可以是一行语句，也可以多行。
+
+可以通过 Lambda 表达式干很多事情，比如说
+
+1）为变量赋值，示例如下：
+
+```java
+Runnable r = () -> { System.out.println("沉默王二"); };
+r.run();
+```
+
+2）作为 return 结果，示例如下：
+
+```java
+static FileFilter getFilter(String ext)
+{
+    return (pathname) -> pathname.toString().endsWith(ext);
+}
+```
+
+3）作为数组元素，示例如下：
+
+```java
+final PathMatcher matchers[] =
+{
+        (path) -> path.toString().endsWith("txt"),
+        (path) -> path.toString().endsWith("java")
+};
+```
+
+4）作为普通方法或者构造方法的参数，示例如下：
+
+```java
+new Thread(() -> System.out.println("沉默王二")).start();
+```
+
+需要注意 Lambda 表达式的作用域范围。
+
+```java
+public static void main(String[] args) {
+
+    int limit = 10;
+    Runnable r = () -> {
+        int limit = 5;
+        for (int i = 0; i < limit; i++)
+            System.out.println(i);
+    };
+}
+```
+
+上面这段代码在编译的时候会提示错误：变量 limit 已经定义过了。
+
+和匿名内部类一样，不要在 Lambda 表达式主体内对方法内的局部变量进行修改，否则编译也不会通过：Lambda 表达式中使用的变量必须是 final 的。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-3.jpg)
+
+这个问题发生的原因是因为 Java 规范中是这样规定的：
+
+>Any local variable, formal parameter, or exception parameter used but not declared in a lambda expression
+must either be declared final or be effectively final [(§4.12.4)](http://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.12.4),
+or a compile-time error occurs where the use is attempted.
+
+大致的意思就是说，Lambda 表达式中要用到的，但又未在 Lambda 表达式中声明的变量，必须声明为 final 或者是 effectively final，否则就会出现编译错误。
+
+关于 final 和 effectively final 的区别，可能有些小伙伴不太清楚，这里多说两句。
+
+```java
+final int a;
+a = 1;
+// a = 2;
+// 由于 a 是 final 的，所以不能被重新赋值
+
+int b;
+b = 1;
+// b 此后再未更改
+// b 就是 effectively final
+
+int c;
+c = 1;
+// c 先被赋值为 1，随后又被重新赋值为 2
+c = 2;
+// c 就不是 effectively final
+```
+
+明白了 final 和 effectively final 的区别后，我们了解到，如果把 limit 定义为 final，那就无法在 Lambda 表达式中修改变量的值。那有什么好的解决办法呢？既能让编译器不发出警告，又能修改变量的值。
+
+思前想后，试来试去，我终于找到了 3 个可行的解决方案：
+
+1）把 limit 变量声明为 static。
+
+2）把 limit 变量声明为 AtomicInteger。
+
+3）使用数组。
+
+下面我们来详细地一一介绍下。
+
+#### 01）把 limit 变量声明为 static
+
+要想把 limit 变量声明为 static，就必须将 limit 变量放在 `main()` 方法外部，因为 `main()` 方法本身是 static 的。完整的代码示例如下所示。
+
+```java
+public class ModifyVariable2StaticInsideLambda {
+    static int limit = 10;
+    public static void main(String[] args) {
+        Runnable r = () -> {
+            limit = 5;
+            for (int i = 0; i < limit; i++) {
+                System.out.println(i);
+            }
+        };
+        new Thread(r).start();
+    }
+}
+```
+
+来看一下程序输出的结果：
+
+```
+0
+1
+2
+3
+4
+```
+
+OK，该方案是可行的。
+
+#### 02）把 limit 变量声明为 AtomicInteger
+
+AtomicInteger 可以确保 int 值的修改是原子性的，可以使用 `set()` 方法设置一个新的 int 值，`get()` 方法获取当前的 int 值。
+
+```java
+public class ModifyVariable2AtomicInsideLambda {
+    public static void main(String[] args) {
+        final AtomicInteger limit = new AtomicInteger(10);
+        Runnable r = () -> {
+            limit.set(5);
+            for (int i = 0; i < limit.get(); i++) {
+                System.out.println(i);
+            }
+        };
+        new Thread(r).start();
+    }
+}
+```
+
+来看一下程序输出的结果：
+
+```
+0
+1
+2
+3
+4
+```
+
+OK，该方案也是可行的。
+
+#### 03）使用数组
+
+使用数组的方式略带一些欺骗的性质，在声明数组的时候设置为 final，但更改 int 的值时却修改的是数组的一个元素。
+
+```java
+public class ModifyVariable2ArrayInsideLambda {
+    public static void main(String[] args) {
+        final int [] limits = {10};
+        Runnable r = () -> {
+            limits[0] = 5;
+            for (int i = 0; i < limits[0]; i++) {
+                System.out.println(i);
+            }
+        };
+        new Thread(r).start();
+    }
+}
+```
+
+来看一下程序输出的结果：
+
+```
+0
+1
+2
+3
+4
+```
+
+OK，该方案也是可行的。
+
+### 03、Lambda 和 this 关键字
+
+Lambda 表达式并不会引入新的作用域，这一点和匿名内部类是不同的。也就是说，Lambda 表达式主体内使用的 this 关键字和其所在的类实例相同。
+
+来看下面这个示例。
+
+```java
+public class LamadaTest {
+    public static void main(String[] args) {
+        new LamadaTest().work();
+    }
+
+    public void work() {
+        System.out.printf("this = %s%n", this);
+
+        Runnable r = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                System.out.printf("this = %s%n", this);
+            }
+        };
+        new Thread(r).start();
+        new Thread(() -> System.out.printf("this = %s%n", this)).start();
+    }
+}
+```
+
+Tips：`%s` 代表当前位置输出字符串，`%n` 代表换行符，也可以使用 `\n` 代替，但 `%n` 是跨平台的。
+
+`work()` 方法中的代码可以分为 3 个部分：
+
+1）单独的 this 关键字
+
+```java
+System.out.printf("this = %s%n", this);
+```
+
+其中 this 为 `main()` 方法中通过 new 关键字创建的 LamadaTest 对象——`new LamadaTest()`。
+
+2）匿名内部类中的 this 关键字
+
+```java
+Runnable r = new Runnable()
+{
+    @Override
+    public void run()
+    {
+        System.out.printf("this = %s%n", this);
+    }
+};
+```
+
+其中 this 为 `work()` 方法中通过 new 关键字创建的 Runnable 对象——`new Runnable(){...}`。
+
+3）Lambda 表达式中的 this 关键字
+
+其中 this 关键字和 1）中的相同。
+
+我们来看一下程序的输出结果：
+
+```java
+this = com.cmower.java_demo.journal.LamadaTest@3feba861
+this = com.cmower.java_demo.journal.LamadaTest$1@64f033cb
+this = com.cmower.java_demo.journal.LamadaTest@3feba861
+```
+
+符合我们分析的预期。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-4.jpg)
+
+### 04、最后
+
+尽管 Lambda 表达式在简化 Java 编程方面做了很多令人惊讶的努力，但在某些情况下，不当的使用仍然会导致不必要的混乱，大家伙慎用。
+
+好了，我亲爱的读者朋友们，以上就是本文的全部内容了。能在疫情期间坚持看技术文，二哥必须要伸出大拇指为你点个赞👍。原创不易，如果觉得有点用的话，请不要吝啬你手中**点赞**的权力——因为这将是我写作的最强动力。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+# 第十一章：重要知识点
+
