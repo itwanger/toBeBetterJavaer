@@ -24575,7 +24575,182 @@ System.out.println(Arrays.toString(arr));
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.3 Objects
+## 9.3 Apache StringUtils
+
+`字符串`（[String](https://tobebetterjavaer.com/string/immutable.html)）在我们的日常工作中，用得非常非常非常多。
+
+在我们的代码中经常需要对字符串判空，截取字符串、转换大小写、[分隔字符串](https://tobebetterjavaer.com/string/split.html)、[比较字符串](https://tobebetterjavaer.com/string/equals.html)、去掉多余空格、[拼接字符串](https://tobebetterjavaer.com/string/join.html)、使用正则表达式等等。
+
+如果只用 String 类提供的那些方法，我们需要手写大量的额外代码，不然容易出现各种异常。
+
+现在有个好消息是：`org.apache.commons.lang3`包下的`StringUtils`工具类，给我们提供了非常丰富的选择。
+
+Maven 坐标：
+
+```
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.12.0</version>
+</dependency>
+```
+
+StringUtils 提供了非常多实用的方法，大概有下图的四页到五页，我只截了两页，实在是太多了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/StringUtils-20230330111122.png)
+
+接下来，我们来拿一些常用的方法举例说明。
+
+### 字符串判空
+
+其实空字符串，不只是 null 一种，还有""，" "，"null"等等，多种情况。
+
+StringUtils 给我们提供了多个判空的静态方法，例如：
+
+```java
+String str1 = null;
+String str2 = "";
+String str3 = " ";
+String str4 = "abc";
+System.out.println(StringUtils.isEmpty(str1));
+System.out.println(StringUtils.isEmpty(str2));
+System.out.println(StringUtils.isEmpty(str3));
+System.out.println(StringUtils.isEmpty(str4));
+System.out.println("=====");
+System.out.println(StringUtils.isNotEmpty(str1));
+System.out.println(StringUtils.isNotEmpty(str2));
+System.out.println(StringUtils.isNotEmpty(str3));
+System.out.println(StringUtils.isNotEmpty(str4));
+System.out.println("=====");
+System.out.println(StringUtils.isBlank(str1));
+System.out.println(StringUtils.isBlank(str2));
+System.out.println(StringUtils.isBlank(str3));
+System.out.println(StringUtils.isBlank(str4));
+System.out.println("=====");
+System.out.println(StringUtils.isNotBlank(str1));
+System.out.println(StringUtils.isNotBlank(str2));
+System.out.println(StringUtils.isNotBlank(str3));
+System.out.println(StringUtils.isNotBlank(str4));
+```
+
+执行结果：
+
+```java
+true
+true
+false
+false
+=====
+false
+false
+true
+true
+=====
+true
+true
+true
+false
+=====
+false
+false
+false
+true
+```
+
+示例中的：`isEmpty`、`isNotEmpty`、`isBlank`和`isNotBlank`，这 4 个判空方法你们可以根据实际情况使用。
+
+优先推荐使用`isBlank`和`isNotBlank`方法，因为它会把`" "`也考虑进去。
+
+### 分隔字符串
+
+分隔字符串是常见需求，如果直接使用 String 类的 split 方法，就可能会出现空指针异常。
+
+```java
+String str1 = null;
+System.out.println(StringUtils.split(str1,","));
+System.out.println(str1.split(","));
+```
+
+执行结果：
+
+```java
+null
+Exception in thread "main" java.lang.NullPointerException
+\tat com.sue.jump.service.test1.UtilTest.main(UtilTest.java:21)
+```
+
+使用 StringUtils 的 split 方法会返回 null，而使用 String 的 split 方法会报指针异常。
+
+### 判断是否纯数字
+
+给定一个字符串，判断它是否为纯数字，可以使用`isNumeric`方法。例如：
+
+```java
+String str1 = "123";
+String str2 = "123q";
+String str3 = "0.33";
+System.out.println(StringUtils.isNumeric(str1));
+System.out.println(StringUtils.isNumeric(str2));
+System.out.println(StringUtils.isNumeric(str3));
+```
+
+执行结果：
+
+```java
+true
+false
+false
+```
+
+### 将集合拼接成字符串
+
+有时候，我们需要将某个集合的内容，拼接成一个字符串，然后输出，这时可以使用`join`方法。例如：
+
+```java
+List<String> list = Lists.newArrayList("a", "b", "c");
+List<Integer> list2 = Lists.newArrayList(1, 2, 3);
+System.out.println(StringUtils.join(list, ","));
+System.out.println(StringUtils.join(list2, " "));
+```
+
+执行结果：
+
+```java
+a,b,c
+1 2 3
+```
+
+### 其他方法
+
+这里再列举一些，其他的方法可以自己去研究一下。
+
+- `trim(String str)`：去除字符串首尾的空白字符。
+- `trimToEmpty(String str)`：去除字符串首尾的空白字符，如果字符串为 null，则返回空字符串。
+- `trimToNull(String str)`：去除字符串首尾的空白字符，如果结果为空字符串，则返回 null。
+- `equals(String str1, String str2)`：比较两个字符串是否相等。
+- `equalsIgnoreCase(String str1, String str2)`：比较两个字符串是否相等，忽略大小写。
+- `startsWith(String str, String prefix)`：检查字符串是否以指定的前缀开头。
+- `endsWith(String str, String suffix)`：检查字符串是否以指定的后缀结尾。
+- `contains(String str, CharSequence seq)`：检查字符串是否包含指定的字符序列。
+- `indexOf(String str, CharSequence seq)`：返回指定字符序列在字符串中首次出现的索引，如果没有找到，则返回 -1。
+- `lastIndexOf(String str, CharSequence seq)`：返回指定字符序列在字符串中最后一次出现的索引，如果没有找到，则返回 -1。
+- `substring(String str, int start, int end)`：截取字符串中指定范围的子串。
+- `replace(String str, String searchString, String replacement)`：替换字符串中所有出现的搜索字符串为指定的替换字符串。
+- `replaceAll(String str, String regex, String replacement)`：使用正则表达式替换字符串中所有匹配的部分。
+- `join(Iterable<?> iterable, String separator)`：使用指定的分隔符将可迭代对象中的元素连接为一个字符串。
+- `split(String str, String separator)`：使用指定的分隔符将字符串分割为一个字符串数组。
+- `capitalize(String str)`：将字符串的第一个字符转换为大写。
+- `uncapitalize(String str)`：将字符串的第一个字符转换为小写。
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.4 Objects
 
 Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://tobebetterjavaer.com/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
 
@@ -24773,7 +24948,7 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.4 Collections
+## 9.5 Collections
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
@@ -25011,6 +25186,93 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 是否没有交集：否
 ```
 
+### 06、CollectionUtils：Spring 和 Apache 都有提供的集合工具类
+
+对集合操作，除了前面说的 JDK 原生 `Collections` 工具类，`CollectionUtils`工具类也很常用。
+
+目前比较主流的是`Spring`的`org.springframework.util`包下的 CollectionUtils 工具类。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330101919.png)
+
+和`Apache`的`org.apache.commons.collections`包下的 CollectionUtils 工具类。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330103825.png)
+
+Maven 坐标如下：
+
+```
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.4</version>
+</dependency>
+```
+
+Apache 的方法比 Spring 的更多一些，我们就以 Apache 的为例，来介绍一下常用的方法。
+
+#### 集合判空
+
+通过 CollectionUtils 工具类的`isEmpty`方法可以轻松判断集合是否为空，`isNotEmpty`方法判断集合不为空。
+
+```java
+List<Integer> list = new ArrayList<>();
+list.add(2);
+list.add(1);
+list.add(3);
+
+if (CollectionUtils.isEmpty(list)) {
+    System.out.println("集合为空");
+}
+
+if (CollectionUtils.isNotEmpty(list)) {
+    System.out.println("集合不为空");
+}
+```
+
+#### 对两个集合进行操作
+
+有时候我们需要对已有的两个集合进行操作，比如取交集或者并集等。
+
+```java
+List<Integer> list = new ArrayList<>();
+list.add(2);
+list.add(1);
+list.add(3);
+
+List<Integer> list2 = new ArrayList<>();
+list2.add(2);
+list2.add(4);
+
+//获取并集
+Collection<Integer> unionList = CollectionUtils.union(list, list2);
+System.out.println(unionList);
+
+//获取交集
+Collection<Integer> intersectionList = CollectionUtils.intersection(list, list2);
+System.out.println(intersectionList);
+
+//获取交集的补集
+Collection<Integer> disjunctionList = CollectionUtils.disjunction(list, list2);
+System.out.println(disjunctionList);
+
+//获取差集
+Collection<Integer> subtractList = CollectionUtils.subtract(list, list2);
+System.out.println(subtractList);
+```
+
+执行结果：
+
+```java
+[1, 2, 3, 4]
+[2]
+[1, 3, 4]
+[1, 3]
+```
+
+说句实话，对两个集合的操作，在实际工作中用得挺多的，特别是很多批量的场景中。以前我们需要写一堆代码，但没想到有现成的轮子。
+
+### 07、小结
+
 整体上，Collections 工具类作为集合框架的大管家，提供了一些非常便利的方法供我们调用，也非常容易掌握，没什么难点，看看方法的注释就能大致明白干嘛的。
 
 不过，工具就放在那里，用是一回事，为什么要这么用就是另外一回事了。能不能提高自己的编码水平，很大程度上取决于你到底有没有去钻一钻源码，看这些设计 JDK 的大师们是如何写代码的，学会一招半式，在工作当中还是能很快脱颖而出的。
@@ -25029,7 +25291,558 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.6 Guava
+## 9.6 Hutool
+
+读者群里有个小伙伴感慨说，“Hutool 这款开源类库太厉害了，基本上该有该的工具类，它里面都有。”讲真的，我平常工作中也经常用 Hutool，它确实可以帮助我们简化每一行代码，使 Java 拥有函数式语言般的优雅，让 Java 语言变得“甜甜的”。
+
+Hutool 的作者在[官网](https://hutool.cn/)上说，Hutool 是 Hu+tool 的自造词（好像不用说，我们也能猜得到），“Hu”用来致敬他的“前任”公司，“tool”就是工具的意思，谐音就有意思了，“糊涂”，寓意追求“万事都作糊涂观，无所谓失，无所谓得”（一个开源类库，上升到了哲学的高度，作者厉害了）。
+
+看了一下开发团队的一个成员介绍，一个 Java 后端工具的作者竟然爱前端、爱数码，爱美女，嗯嗯嗯，确实“难得糊涂”（手动狗头）。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-01.png)
+
+废话就说到这，来吧，实操走起！
+
+### 01、引入 Hutool
+
+Maven 项目只需要在 pom.xml 文件中添加以下依赖即可。
+
+```
+<dependency>
+    <groupId>cn.hutool</groupId>
+    <artifactId>hutool-all</artifactId>
+    <version>5.4.3</version>
+</dependency>
+```
+
+Hutool 的设计思想是尽量减少重复的定义，让项目中的 util 包尽量少。一个好的轮子可以在很大程度上避免“复制粘贴”，从而节省我们开发人员对项目中公用类库和公用工具方法的封装时间。同时呢，成熟的开源库也可以最大限度的避免封装不完善带来的 bug。
+
+就像作者在官网上说的那样：
+
+- 以前，我们打开搜索引擎 -> 搜“Java MD5 加密” -> 打开某篇博客 -> 复制粘贴 -> 改改，变得好用些
+- 有了 Hutool 以后呢，引入 Hutool -> 直接 `SecureUtil.md5()`
+
+Hutool 对不仅对 JDK 底层的文件、流、加密解密、转码、正则、线程、XML等做了封装，还提供了以下这些组件：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-02.png)
+
+非常多，非常全面，鉴于此，我只挑选一些我喜欢的来介绍下（偷偷地告诉你，我就是想偷懒）。
+
+### 02、类型转换
+
+类型转换在 Java 开发中很常见，尤其是从 HttpRequest 中获取参数的时候，前端传递的是整型，但后端只能先获取到字符串，然后再调用 `parseXXX()` 方法进行转换，还要加上判空，很繁琐。
+
+Hutool 的 Convert 类可以简化这个操作，可以将任意可能的类型转换为指定类型，同时第二个参数 defaultValue 可用于在转换失败时返回一个默认值。
+
+```java
+String param = "10";
+int paramInt = Convert.toInt(param);
+int paramIntDefault = Convert.toInt(param, 0);
+```
+
+把字符串转换成日期：
+
+```java
+String dateStr = "2020年09月29日";
+Date date = Convert.toDate(dateStr);
+```
+
+把字符串转成 Unicode：
+
+```java
+String unicodeStr = "沉默王二";
+String unicode = Convert.strToUnicode(unicodeStr);
+```
+
+### 03、日期时间
+
+JDK 自带的 Date 和 Calendar 不太好用，Hutool 封装的 DateUtil 用起来就舒服多了！
+
+获取当前日期：
+
+```java
+Date date = DateUtil.date();
+```
+
+`DateUtil.date()` 返回的其实是 DateTime，它继承自 Date 对象，重写了 `toString()` 方法，返回 `yyyy-MM-dd HH:mm:ss` 格式的字符串。
+
+有些小伙伴是不是想看看我写这篇文章的时间，输出一下给大家看看：
+
+```
+System.out.println(date);// 2020-09-29 04:28:02
+```
+
+字符串转日期：
+
+```java
+String dateStr = "2020-09-29";
+Date date = DateUtil.parse(dateStr);
+```
+
+`DateUtil.parse()` 会自动识别一些常用的格式，比如说：
+
+- yyyy-MM-dd HH:mm:ss
+- yyyy-MM-dd
+- HH:mm:ss
+- yyyy-MM-dd HH:mm
+- yyyy-MM-dd HH:mm:ss.SSS
+
+还可以识别带中文的：
+
+- 年月日时分秒
+
+格式化时间差：
+
+```java
+String dateStr1 = "2020-09-29 22:33:23";
+Date date1 = DateUtil.parse(dateStr1);
+
+String dateStr2 = "2020-10-01 23:34:27";
+Date date2 = DateUtil.parse(dateStr2);
+
+long betweenDay = DateUtil.between(date1, date2, DateUnit.MS);
+
+// 输出：2天1小时1分4秒
+String formatBetween = DateUtil.formatBetween(betweenDay, BetweenFormater.Level.SECOND);
+```
+
+星座和属相：
+
+```java
+// 射手座
+String zodiac = DateUtil.getZodiac(Month.DECEMBER.getValue(), 10);
+// 蛇
+String chineseZodiac = DateUtil.getChineseZodiac(1989);
+```
+
+### 04、IO 流相关
+
+[IO 操作包括读和写](https://tobebetterjavaer.com/io/shangtou.html)，应用的场景主要包括网络操作和文件操作，原生的 Java 类库区分[字符流](https://tobebetterjavaer.com/io/reader-writer.html)和[字节流](https://tobebetterjavaer.com/io/stream.html)，字节流 InputStream 和 OutputStream 就有很多很多种，使用起来让人头皮发麻。
+
+Hutool 封装了流操作工具类 IoUtil、文件读写操作工具类 FileUtil、文件类型判断工具类 FileTypeUtil 等等。
+
+```java
+BufferedInputStream in = FileUtil.getInputStream("hutool/origin.txt");
+BufferedOutputStream out = FileUtil.getOutputStream("hutool/to.txt");
+long copySize = IoUtil.copy(in, out, IoUtil.DEFAULT_BUFFER_SIZE);
+```
+
+在 IO 操作中，文件的操作相对来说是比较复杂的，但使用频率也很高，几乎所有的项目中都躺着一个叫 FileUtil 或者 FileUtils 的工具类。Hutool 的 FileUtil 类包含以下几类操作：
+
+- 文件操作：包括文件目录的新建、删除、复制、移动、改名等
+- 文件判断：判断文件或目录是否非空，是否为目录，是否为文件等等
+- 绝对路径：针对 ClassPath 中的文件转换为绝对路径文件
+- 文件名：主文件名，扩展名的获取
+- 读操作：包括 getReader、readXXX 操作
+- 写操作：包括 getWriter、writeXXX 操作
+
+顺带说说 classpath。
+
+在实际编码当中，我们通常需要从某些文件里面读取一些数据，比如配置文件、文本文件、图片等等，那这些文件通常放在什么位置呢？
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-03.png)
+
+放在项目结构图中的 resources 目录下，当项目编译后，会出现在 classes 目录下。对应磁盘上的目录如下图所示：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-04.png)
+
+当我们要读取文件的时候，我是不建议使用绝对路径的，因为操作系统不一样的话，文件的路径标识符也是不一样的。最好使用相对路径。
+
+假设在 `src/resources` 下放了一个文件 origin.txt，文件的路径参数如下所示：
+
+```java
+FileUtil.getInputStream("origin.txt")
+```
+
+假设文件放在 `src/resources/hutool` 目录下，则路径参数改为：
+
+```java
+FileUtil.getInputStream("hutool/origin.txt")
+```
+
+### 05、字符串工具
+
+Hutool 封装的字符串工具类 StrUtil 和 Apache Commons Lang 包中的 StringUtils 类似，作者认为优势在于 Str 比 String 短，尽管我不觉得。不过，我倒是挺喜欢其中的一个方法的：
+
+```java
+String template = "{}，一枚沉默但有趣的程序员，喜欢他的文章的话，请微信搜索{}";
+String str = StrUtil.format(template, "沉默王二", "沉默王二");
+// 沉默王二，一枚沉默但有趣的程序员，喜欢他的文章的话，请微信搜索沉默王二
+```
+
+### 06、反射工具
+
+反射机制可以让 Java 变得更加灵活，因此在某些情况下，反射可以做到事半功倍的效果。Hutool 封装的反射工具 ReflectUtil 包括：
+
+- 获取构造方法
+- 获取字段
+- 获取字段值
+- 获取方法
+- 执行方法（对象方法和静态方法）
+
+```java
+package com.itwanger.hutool.reflect;
+
+import cn.hutool.core.util.ReflectUtil;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class ReflectDemo {
+    private int id;
+
+    public ReflectDemo() {
+        System.out.println("构造方法");
+    }
+
+    public void print() {
+        System.out.println("我是沉默王二");
+    }
+
+    public static void main(String[] args) throws IllegalAccessException {
+        // 构建对象
+        ReflectDemo reflectDemo = ReflectUtil.newInstance(ReflectDemo.class);
+
+        // 获取构造方法
+        Constructor[] constructors = ReflectUtil.getConstructors(ReflectDemo.class);
+        for (Constructor constructor : constructors) {
+            System.out.println(constructor.getName());
+        }
+
+        // 获取字段
+        Field field = ReflectUtil.getField(ReflectDemo.class, "id");
+        field.setInt(reflectDemo, 10);
+        // 获取字段值
+        System.out.println(ReflectUtil.getFieldValue(reflectDemo, field));
+
+        // 获取所有方法
+        Method[] methods = ReflectUtil.getMethods(ReflectDemo.class);
+        for (Method m : methods) {
+            System.out.println(m.getName());
+        }
+
+        // 获取指定方法
+        Method method = ReflectUtil.getMethod(ReflectDemo.class, "print");
+        System.out.println(method.getName());
+
+
+        // 执行方法
+        ReflectUtil.invoke(reflectDemo, "print");
+    }
+}
+```
+
+### 07、压缩工具
+
+在 Java 中，对文件、文件夹打包压缩是一件很繁琐的事情，Hutool 封装的 ZipUtil 针对 java.util.zip 包做了优化，可以使用一个方法搞定压缩和解压，并且自动处理文件和目录的问题，不再需要用户判断，大大简化的压缩解压的复杂度。
+
+```java
+ZipUtil.zip("hutool", "hutool.zip");
+File unzip = ZipUtil.unzip("hutool.zip", "hutoolzip");
+```
+
+### 08、身份证工具
+
+Hutool 封装的 IdcardUtil 可以用来对身份证进行验证，支持大陆 15 位、18 位身份证，港澳台 10 位身份证。
+
+```java
+String ID_18 = "321083197812162119";
+String ID_15 = "150102880730303";
+
+boolean valid = IdcardUtil.isValidCard(ID_18);
+boolean valid15 = IdcardUtil.isValidCard(ID_15);
+```
+
+### 09、扩展 HashMap
+
+Java 中的 HashMap 是强类型的，而 Hutool 封装的 Dict 对键的类型要求没那么严格。
+
+```java
+Dict dict = Dict.create()
+        .set("age", 18)
+        .set("name", "沉默王二")
+        .set("birthday", DateTime.now());
+
+int age = dict.getInt("age");
+String name = dict.getStr("name");
+```
+
+### 10、控制台打印
+
+本地编码的过程中，经常需要使用 `System.out` 打印结果，但是往往一些复杂的对象不支持直接打印，比如说数组，需要调用 `Arrays.toString`。Hutool 封装的 Console 类借鉴了 JavaScript 中的 `console.log()`，使得打印变成了一个非常便捷的方式。
+
+```java
+public class ConsoleDemo {
+    public static void main(String[] args) {
+        // 打印字符串
+        Console.log("沉默王二，一枚有趣的程序员");
+
+        // 打印字符串模板
+        Console.log("洛阳是{}朝古都",13);
+
+        int [] ints = {1,2,3,4};
+        // 打印数组
+        Console.log(ints);
+    }
+}
+```
+
+### 11、字段验证器
+
+做 Web 开发的时候，后端通常需要对表单提交过来的数据进行验证。Hutool 封装的 Validator 可以进行很多有效的条件验证：
+
+- 是不是邮箱
+- 是不是 IP V4、V6
+- 是不是电话号码
+- 等等
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-05.png)
+
+```java
+Validator.isEmail("沉默王二");
+Validator.isMobile("itwanger.com");
+```
+
+### 12、双向查找 Map
+
+[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 中提供了一种特殊的 Map 结构，叫做 BiMap，实现了一种双向查找的功能，可以根据 key 查找 value，也可以根据 value 查找 key，Hutool 也提供这种 Map 结构。
+
+```java
+BiMap<String, String> biMap = new BiMap<>(new HashMap<>());
+biMap.put("wanger", "沉默王二");
+biMap.put("wangsan", "沉默王三");
+
+// get value by key
+biMap.get("wanger");
+biMap.get("wangsan");
+
+// get key by value
+biMap.getKey("沉默王二");
+biMap.getKey("沉默王三");
+```
+
+在实际的开发工作中，其实我更倾向于使用 Guava 的 BiMap，而不是 Hutool 的。这里提一下，主要是我发现了 Hutool 在线文档上的一处错误，提了个 issue（从中可以看出我一颗一丝不苟的心和一双清澈明亮的大眼睛啊）。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-06.png)
+
+### 13、图片工具
+
+Hutool 封装的 ImgUtil 可以对图片进行缩放、裁剪、转为黑白、加水印等操作。
+
+缩放图片：
+
+```java
+ImgUtil.scale(
+        FileUtil.file("hutool/wangsan.jpg"),
+        FileUtil.file("hutool/wangsan_small.jpg"),
+        0.5f
+);
+```
+
+裁剪图片：
+
+```java
+ImgUtil.cut(
+        FileUtil.file("hutool/wangsan.jpg"),
+        FileUtil.file("hutool/wangsan_cut.jpg"),
+        new Rectangle(200, 200, 100, 100)
+);
+```
+
+添加水印：
+
+```java
+ImgUtil.pressText(//
+        FileUtil.file("hutool/wangsan.jpg"),
+        FileUtil.file("hutool/wangsan_logo.jpg"),
+        "沉默王二", Color.WHITE,
+        new Font("黑体", Font.BOLD, 100),
+        0,
+        0,
+        0.8f
+);
+```
+
+趁机让大家欣赏一下二哥帅气的真容。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-07.png)
+
+### 14、配置文件
+
+>众所周知，Java 中广泛应用的配置文件 Properties 存在一个特别大的诟病：不支持中文。每次使用时，如果想存放中文字符，就必须借助 IDE 相关插件才能转为 Unicode 符号，而这种反人类的符号在命令行下根本没法看。
+
+于是，Hutool 的 Setting 运用而生。Setting 除了兼容 Properties 文件格式外，还提供了一些特有功能，这些功能包括：
+
+- 各种编码方式支持
+- 变量支持
+- 分组支持
+
+先整个配置文件 example.setting，内容如下：
+
+```
+name=沉默王二
+age=18
+```
+
+再来读取和更新配置文件：
+
+```java
+public class SettingDemo {
+    private final static String SETTING = "hutool/example.setting";
+    public static void main(String[] args) {
+        // 初始化 Setting
+        Setting setting = new Setting(SETTING);
+
+        // 读取
+        setting.getStr("name", "沉默王二");
+
+        // 在配置文件变更时自动加载
+        setting.autoLoad(true);
+
+        // 通过代码方式增加键值对
+        setting.set("birthday", "2020年09月29日");
+        setting.store(SETTING);
+    }
+}
+```
+
+### 15、日志工厂
+
+Hutool 封装的日志工厂 LogFactory 兼容了各大日志框架，使用起来也非常简便。
+
+```java
+public class LogDemo {
+    private static final Log log = LogFactory.get();
+
+    public static void main(String[] args) {
+        log.debug("难得糊涂");
+    }
+}
+```
+
+先通过 `LogFactory.get()` 自动识别引入的日志框架，从而创建对应日志框架的门面 Log 对象，然后调用 `debug()`、`info()` 等方法输出日志。
+
+如果不想创建 Log 对象的话，可以使用 StaticLog，顾名思义，一个提供了静态方法的日志类。
+
+```java
+StaticLog.info("爽啊 {}.", "沉默王二的文章");
+```
+
+### 16、缓存工具
+
+CacheUtil 是 Hutool 封装的创建缓存的快捷工具类，可以创建不同的缓存对象：
+
+- FIFOCache：先入先出，元素不停的加入缓存直到缓存满为止，当缓存满时，清理过期缓存对象，清理后依旧满则删除先入的缓存。
+
+```java
+Cache<String, String> fifoCache = CacheUtil.newFIFOCache(3);
+fifoCache.put("key1", "沉默王一");
+fifoCache.put("key2", "沉默王二");
+fifoCache.put("key3", "沉默王三");
+fifoCache.put("key4", "沉默王四");
+
+// 大小为 3，所以 key3 放入后 key1 被清除
+String value1 = fifoCache.get("key1");
+```
+
+- LFUCache，最少使用，根据使用次数来判定对象是否被持续缓存，当缓存满时清理过期对象，清理后依旧满的情况下清除最少访问的对象并将其他对象的访问数减去这个最少访问数，以便新对象进入后可以公平计数。
+
+```java
+Cache<String, String> lfuCache = CacheUtil.newLFUCache(3);
+
+lfuCache.put("key1", "沉默王一");
+// 使用次数+1
+lfuCache.get("key1");
+lfuCache.put("key2", "沉默王二");
+lfuCache.put("key3", "沉默王三");
+lfuCache.put("key4", "沉默王四");
+
+// 由于缓存容量只有 3，当加入第 4 个元素的时候，最少使用的将被移除（2,3被移除）
+String value2 = lfuCache.get("key2");
+String value3 = lfuCache.get("key3");
+```
+
+- LRUCache，最近最久未使用，根据使用时间来判定对象是否被持续缓存，当对象被访问时放入缓存，当缓存满了，最久未被使用的对象将被移除。
+
+```java
+Cache<String, String> lruCache = CacheUtil.newLRUCache(3);
+
+lruCache.put("key1", "沉默王一");
+lruCache.put("key2", "沉默王二");
+lruCache.put("key3", "沉默王三");
+// 使用时间近了
+lruCache.get("key1");
+lruCache.put("key4", "沉默王四");
+
+// 由于缓存容量只有 3，当加入第 4 个元素的时候，最久使用的将被移除（2）
+String value2 = lruCache.get("key2");
+System.out.println(value2);
+```
+
+### 17、加密解密
+
+加密分为三种：
+
+- 对称加密（symmetric），例如：AES、DES 等
+- 非对称加密（asymmetric），例如：RSA、DSA 等
+- 摘要加密（digest），例如：MD5、SHA-1、SHA-256、HMAC 等
+
+Hutool 针对这三种情况都做了封装：
+
+- 对称加密 SymmetricCrypto
+- 非对称加密 AsymmetricCrypto
+- 摘要加密 Digester
+
+快速加密工具类 SecureUtil 有以下这些方法：
+
+1）对称加密
+
+- SecureUtil.aes
+- SecureUtil.des
+
+2）非对称加密
+
+- SecureUtil.rsa
+- SecureUtil.dsa
+
+3）摘要加密
+
+- SecureUtil.md5
+- SecureUtil.sha1
+- SecureUtil.hmac
+- SecureUtil.hmacMd5
+- SecureUtil.hmacSha1
+
+只写一个简单的例子作为参考：
+
+```java
+public class SecureUtilDemo {
+    static AES aes = SecureUtil.aes();
+    public static void main(String[] args) {
+        String encry = aes.encryptHex("沉默王二");
+        System.out.println(encry);
+        String oo = aes.decryptStr(encry);
+        System.out.println(oo);
+    }
+}
+```
+
+### 18、其他类库
+
+Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步封装，比如邮件工具 MailUtil，二维码工具 QrCodeUtil，Emoji 工具 EmojiUtil，小伙伴们可以参考 Hutool 的官方文档：https://www.hutool.cn/
+
+项目源码地址：[https://github.com/looly/hutool](https://github.com/looly/hutool)
+
+----
+
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.7 Guava
 
 ### 01、前世今生
 
@@ -25346,7 +26159,7 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
 
-### 07、尾声
+### 08、尾声
 
 上面介绍了我认为最常用的功能，作为 Google 公司开源的 Java 开发核心库，个人觉得实用性还是很高的（不然呢？嘿嘿嘿）。引入到你的项目后不仅能快速的实现一些开发中常用的功能，而且还可以让代码更加的优雅简洁。
 
@@ -25357,6 +26170,389 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 ----
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 9.8 其他常用 Java 工具类
+
+除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/common-tool/arrays.html)、[Objects](https://tobebetterjavaer.com/common-tool/Objects.html)、[Collections](https://tobebetterjavaer.com/common-tool/collections.html)、[Scanner](https://tobebetterjavaer.com/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/common-tool/hutool.html)、[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
+
+当然了，如果能好好看一下它们的源码，对技术功底的提升，也是有很大帮助的。
+
+### IpUtil：获取本机 Ip
+
+获取本机 IP 算是比较常见的一个需求场景了，比如业务报警，可能就会带上出问题的机器 IP，方便直接上去看日志定位问题，那么问题来了，如何获取机器 IP 呢？
+
+#### 1. 基本方法
+
+如何获取机器 IP？如果了解 InetAddress 这个工具类，就很容易写出一个简单的工具类，如下
+
+```java
+public static String getLocalIP() {
+    try {
+        return InetAddress.getLocalHost().getHostAddress();
+    } catch (UnknownHostException e) {
+        throw new RuntimeException(e);
+    }
+}
+```
+
+上面的实现有问题么？
+
+当然没问题，拿我本机和阿里服务器执行一下，并没有问题如实的输出了预期的 IP
+
+本机执行后截图如下：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330093633.png)
+
+阿里云机器执行后截图如下：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330095801.png)
+
+#### 2. 进阶版
+
+做一点简单的改动，获取 IPV4 的地址，源码如下
+
+```java
+public static String getLocalIpByNetcard() {
+    try {
+        // 枚举所有的网络接口
+        for (Enumeration<NetworkInterface> e = NetworkInterface.getNetworkInterfaces(); e.hasMoreElements(); ) {
+            // 获取当前网络接口
+            NetworkInterface item = e.nextElement();
+
+            // 遍历当前网络接口的所有地址
+            for (InterfaceAddress address : item.getInterfaceAddresses()) {
+                // 忽略回环地址和未启用的网络接口
+                if (item.isLoopback() || !item.isUp()) {
+                    continue;
+                }
+
+                // 如果当前地址是 IPv4 地址，则返回其字符串表示
+                if (address.getAddress() instanceof Inet4Address) {
+                    Inet4Address inet4Address = (Inet4Address) address.getAddress();
+                    return inet4Address.getHostAddress();
+                }
+            }
+        }
+
+        // 如果没有找到任何 IPv4 地址，则返回本地主机地址
+        return InetAddress.getLocalHost().getHostAddress();
+    } catch (SocketException | UnknownHostException e) {
+        // 抛出运行时异常
+        throw new RuntimeException(e);
+    }
+}
+```
+
+需要注意的是，这段代码只返回本机的 IPv4 地址，并且只返回第一个符合条件的地址。如果本机有多个网络接口或者每个接口有多个地址，则可能无法返回预期的地址。此外，如果找不到任何 IPv4 地址，则会返回本地主机地址。
+
+再次测试，输出如下
+
+![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330100334.png)
+
+#### 3. 完整工具类
+
+```java
+import java.net.*;
+import java.util.Enumeration;
+
+public class IPUtil {
+    public static final String DEFAULT_IP = "127.0.0.1";
+
+    /**
+     * 直接根据第一个网卡地址作为其内网ipv4地址，避免返回 127.0.0.1
+     *
+     * @return 第一个符合条件的内网 IPv4 地址
+     */
+    public static String getLocalIpByNetcard() {
+        try {
+            // 枚举所有的网络接口
+            for (Enumeration<NetworkInterface> e = NetworkInterface.getNetworkInterfaces(); e.hasMoreElements(); ) {
+                // 获取当前网络接口
+                NetworkInterface item = e.nextElement();
+                // 遍历当前网络接口的所有地址
+                for (InterfaceAddress address : item.getInterfaceAddresses()) {
+                    // 忽略回环地址和未启用的网络接口
+                    if (item.isLoopback() || !item.isUp()) {
+                        continue;
+                    }
+                    // 如果当前地址是 IPv4 地址，则返回其字符串表示
+                    if (address.getAddress() instanceof Inet4Address) {
+                        Inet4Address inet4Address = (Inet4Address) address.getAddress();
+                        return inet4Address.getHostAddress();
+                    }
+                }
+            }
+            // 如果没有找到符合条件的地址，则返回本地主机地址
+            return InetAddress.getLocalHost().getHostAddress();
+        } catch (SocketException | UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 获取本地主机地址
+     *
+     * @return 本地主机地址
+     */
+    public static String getLocalIP() {
+        try {
+            return InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+IPUtil 类中定义了两个方法，分别是 `getLocalIpByNetcard()` 和 `getLocalIP()`。前者是获取本机的内网 IPv4 地址，避免了返回 127.0.0.1 的问题。后者是获取本地主机地址，如果本机有多个 IP 地址，则可能返回其中的任意一个。
+
+### MDC：一个线程安全的参数传递工具类
+
+`MDC` 是 [`org.slf4j`](https://tobebetterjavaer.com/gongju/slf4j.html) 包下的一个类，它的全称是 Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
+
+MDC 的底层是用了 [`ThreadLocal`](https://tobebetterjavaer.com/thread/ThreadLocal.html) 来保存数据的。
+
+我们可以用它传递参数。
+
+例如现在有这样一种场景：我们使用`RestTemplate`调用远程接口时，有时需要在`header`中传递信息，比如：traceId，source 等，便于在查询日志时能够串联一次完整的请求链路，快速定位问题。
+
+这种业务场景就能通过`ClientHttpRequestInterceptor`接口实现，具体做法如下：
+
+第一步，定义一个 LogFilter 拦截所有接口请求，在 MDC 中设置 traceId：
+
+```java
+public class LogFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        MdcUtil.add(UUID.randomUUID().toString());
+        System.out.println("记录请求日志");
+        chain.doFilter(request, response);
+        System.out.println("记录响应日志");
+    }
+
+    @Override
+    public void destroy() {
+    }
+}
+```
+
+第二步，实现`ClientHttpRequestInterceptor`接口，MDC 中获取当前请求的 traceId，然后设置到 header 中：
+
+```java
+public class RestTemplateInterceptor implements ClientHttpRequestInterceptor {
+
+    @Override
+    public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
+        request.getHeaders().set("traceId", MdcUtil.get());
+        return execution.execute(request, body);
+    }
+}
+```
+
+第三步，定义配置类，配置上面定义的`RestTemplateInterceptor`类：
+
+```java
+@Configuration
+public class RestTemplateConfiguration {
+
+    @Bean
+    public RestTemplate restTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setInterceptors(Collections.singletonList(restTemplateInterceptor()));
+        return restTemplate;
+    }
+
+    @Bean
+    public RestTemplateInterceptor restTemplateInterceptor() {
+        return new RestTemplateInterceptor();
+    }
+}
+```
+
+其中 MdcUtil 其实是利用 MDC 工具在 ThreadLocal 中存储和获取 traceId
+
+```java
+public class MdcUtil {
+
+    private static final String TRACE_ID = "TRACE_ID";
+
+    public static String get() {
+        return MDC.get(TRACE_ID);
+    }
+
+    public static void add(String value) {
+        MDC.put(TRACE_ID, value);
+    }
+}
+```
+
+当然，这个例子中没有演示 MdcUtil 类的 add 方法具体调的地方，我们可以在 filter 中执行接口方法之前，生成 traceId，调用 MdcUtil 类的 add 方法添加到 MDC 中，然后在同一个请求的其他地方就能通过 MdcUtil 类的 get 方法获取到该 traceId。
+
+能使用 MDC 保存 traceId 等参数的根本原因是，用户请求到应用服务器，Tomcat 会从线程池中分配一个线程去处理该请求。
+
+那么该请求的整个过程中，保存到 MDC 的 ThreadLocal 中的参数，也是该线程独享的，所以不会有线程安全问题。
+
+### ClassUtils
+
+spring 的`org.springframework.util`包下的`ClassUtils`类，它里面有很多让我们惊喜的功能。
+
+它里面包含了类和对象相关的很多非常实用的方法。
+
+#### 获取对象的所有接口
+
+如果你想获取某个对象的所有接口，可以使用 ClassUtils 的`getAllInterfaces`方法。例如：
+
+```java
+Class<?>[] allInterfaces = ClassUtils.getAllInterfaces(new User());
+```
+
+#### 获取某个类的包名
+
+如果你想获取某个类的包名，可以使用 ClassUtils 的`getPackageName`方法。例如：
+
+```java
+String packageName = ClassUtils.getPackageName(User.class);
+System.out.println(packageName);
+```
+
+#### 判断某个类是否内部类
+
+如果你想判断某个类是否内部类，可以使用 ClassUtils 的`isInnerClass`方法。例如：
+
+```java
+System.out.println(ClassUtils.isInnerClass(User.class));
+```
+
+#### 判断对象是否代理对象
+
+如果你想判断对象是否代理对象，可以使用 ClassUtils 的`isCglibProxy`方法。例如：
+
+```java
+System.out.println(ClassUtils.isCglibProxy(new User()));
+```
+
+ClassUtils 还有很多有用的方法，等待着你去发掘。感兴趣的小伙伴，可以看看下面的内容：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
+
+### BeanUtils
+
+Spring 给我们提供了一个`JavaBean`的工具类，它在`org.springframework.beans`包下面，它的名字叫做：`BeanUtils`。
+
+让我们一起看看这个工具可以带给我们哪些惊喜。
+
+#### 拷贝对象的属性
+
+曾几何时，你有没有这样的需求：把某个对象中的所有属性，都拷贝到另外一个对象中。这时就能使用 BeanUtils 的`copyProperties`方法。例如：
+
+```java
+User user1 = new User();
+user1.setId(1L);
+user1.setName("沉默王二");
+user1.setAddress("中国");
+
+User user2 = new User();
+BeanUtils.copyProperties(user1, user2);
+System.out.println(user2);
+```
+
+#### 实例化某个类
+
+如果你想通过反射实例化一个类的对象，可以使用 BeanUtils 的`instantiateClass`方法。例如：
+
+```java
+User user = BeanUtils.instantiateClass(User.class);
+System.out.println(user);
+```
+
+#### 获取指定类的指定方法
+
+如果你想获取某个类的指定方法，可以使用 BeanUtils 的`findDeclaredMethod`方法。例如：
+
+```java
+Method declaredMethod = BeanUtils.findDeclaredMethod(User.class, "getId");
+System.out.println(declaredMethod.getName());
+```
+
+#### 获取指定方法的参数
+
+如果你想获取某个方法的参数，可以使用 BeanUtils 的`findPropertyForMethod`方法。例如：
+
+```java
+Method declaredMethod = BeanUtils.findDeclaredMethod(User.class, "getId");
+PropertyDescriptor propertyForMethod = BeanUtils.findPropertyForMethod(declaredMethod);
+System.out.println(propertyForMethod.getName());
+```
+
+如果你对 BeanUtils 比较感兴趣，可以看看下面内容：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
+
+### ReflectionUtils
+
+有时候，我们需要在项目中使用`反射`功能，如果使用最原始的方法来开发，代码量会非常多，而且很麻烦，它需要处理一大堆异常以及访问权限等问题。
+
+好消息是 Spring 给我们提供了一个`ReflectionUtils`工具，它在`org.springframework.util`包下面。
+
+#### 获取方法
+
+如果你想获取某个类的某个方法，可以使用 ReflectionUtils 类的`findMethod`方法。例如：
+
+```java
+Method method = ReflectionUtils.findMethod(User.class, "getId");
+```
+
+#### 获取字段
+
+如果你想获取某个类的某个字段，可以使用 ReflectionUtils 类的`findField`方法。例如：
+
+```java
+Field field = ReflectionUtils.findField(User.class, "id");
+```
+
+#### 执行方法
+
+如果你想通过反射调用某个方法，传递参数，可以使用 ReflectionUtils 类的`invokeMethod`方法。例如：
+
+```java
+ ReflectionUtils.invokeMethod(method, springContextsUtil.getBean(beanName), param);
+```
+
+#### 判断字段是否常量
+
+如果你想判断某个字段是否常量，可以使用 ReflectionUtils 类的`isPublicStaticFinal`方法。例如：
+
+```java
+Field field = ReflectionUtils.findField(User.class, "id");
+System.out.println(ReflectionUtils.isPublicStaticFinal(field));
+```
+
+#### 判断是否 equals 方法
+
+如果你想判断某个方法是否 equals 方法，可以使用 ReflectionUtils 类的`isEqualsMethod`方法。例如：
+
+```java
+Method method = ReflectionUtils.findMethod(User.class, "getId");
+System.out.println(ReflectionUtils.isEqualsMethod(method));
+```
+
+当然这个类还有不少有趣的方法，感兴趣的朋友，可以看看下面内容：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
+
+>参考链接：[https://juejin.cn/post/7102418518599008286](https://juejin.cn/post/7102418518599008286) 作者：苏三，编辑：沉默王二
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
