@@ -221,6 +221,7 @@ export const sidebarConfig = sidebar({
           children: [
             "scanner",
             "arrays",
+            "StringUtils",
             "Objects",
             "collections",
             "hutool",
