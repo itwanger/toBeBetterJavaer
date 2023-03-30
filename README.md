@@ -201,7 +201,7 @@
 - [Java Collections：专为集合而生的工具类](docs/common-tool/collections.md)
 - [Hutool：国产良心工具包，让你的Java变得更甜](docs/common-tool/hutool.md)
 - [Guava：Google开源的Java工具库，太强大了](docs/common-tool/guava.md)
-- [其他常用工具类：IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils](docs/common-tool/utils.md)
+- [其他常用Java工具类：IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils](docs/common-tool/utils.md)
 
 ## Java新特性
 
