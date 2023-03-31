@@ -245,6 +245,7 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           prefix: "socket/",
           children: [
+            "network-base",
             "socket",
             "http",
           ],
