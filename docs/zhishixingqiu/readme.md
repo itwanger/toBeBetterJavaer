@@ -123,9 +123,13 @@ head:
 
 **2）星球为你提供了一对一的免费提问交流**，帮你解答各种疑难杂症，包括制定学习计划、指导职业规划、解决项目bug、offer选择、面试求职等等。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-888fc104-e8d0-483d-8626-43ed57bb7b58.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-81415632-4c56-489a-8a63-01fdb3186b34.png)
 
 **3）星球为你提供一个可以写到简历上，可以提高你实战经验、再也不用担心烂大街的原创项目——技术派**，无论你是编程小白，还是有一定工作经验的同学，这个实战项目都会帮你完成技术上的进阶提升。
+
+官宣第一天，由于访问人数过多，服务器直接被打爆，呜呜呜。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-a246af8b-c3f7-4d18-8f06-26f3340b2dcb.png)
 
 这是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
 
@@ -164,7 +168,11 @@ head:
 
 **5）星球为你提供了容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，并且会帮你再三确认。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-7d196fda-9555-4f53-8a8e-500b49ea0fc1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-7ce91710-fccc-48ef-84fa-3b1197e1468f.png)
+
+手把手教你写简历，同时还会整理一些有教程易上手，能写到简历上的实战项目，保证不会烂大街。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-9721240d-4dd9-4aca-8625-8e52f72ae1b8.png)
 
 **6）星球为你创造了沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
 
@@ -209,11 +217,9 @@ head:
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-78a63b2b-8e29-4fde-a185-82a6889b7808.png)
 
 
-下图是我在知乎上取得的一些成绩：**近 2000 万的访问量**，Java 领域优质创作者。
+下图是我在知乎上取得的一些成绩：**2000 多万的访问量**，Java 领域优质创作者。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-d0cf037f-15e0-42d2-aad2-993a0d366057.png)
-
-
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-72171fb6-fae1-4e56-9213-f9635ab4d41e.png)
 
 二哥来自农村（下图是我老家的样子，小学以前就住在那隐约可见的窑洞里），小时候没少吃苦，真的是吃不饱穿不暖，洗澡都是问题。
 
@@ -261,30 +267,27 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-9fe4a9ee-ec14-4160-8e07-c09c49b9ac79.png)
 
-星球内部目前已经沉淀了非常多的内容，比如说**置顶帖「知识图谱」里就汇聚了以往球友的提问及我的回答，可以说非常全面**，覆盖有：
+星球的知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
-- 学习资料：PDF&视频教程&简历模板&实战项目
-- 学生党：方向选择&实习&秋招&offer选择&考研&专升本&培训班
-- 工作党：转行&求职&人生规划
-- 学习计划、学习路线等等
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-98f959f2-5f0f-48e0-a305-bfcdab29cf7e.png)
 
-见下图：
+学习计划、春招&秋招、考研、实习、专升本、offer 选择：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c53fa5ec-b62d-4277-845a-ff753b3191c4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-da726b20-569e-402e-b990-1a16c1c2c1fb.png)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-261849eb-3b83-44e2-87ef-207be45467ca.png)
+工作党、求职、职业规划、转行建议，这里都有。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-c9461581-b7df-45fe-9765-30e58774020d.png)
 
 知识星球 APP 的界面长这个样子：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-f78d85d1-bfcb-41bd-8d9a-dba9078294f2.png)
 
-你可以戳顶部的「**去提问**」向二哥提问（学习计划/学习路线/offer 选择/简历指导/职业规划/秋招/考研/技术细节），有问必答，并且每个回答都会尽心尽力，力求给你最大的帮助。下面是已经回复过的提问，我都放在了星球的置顶帖「知识图谱」里。
+你可以戳顶部的「**去提问**」向二哥提问（学习计划/学习路线/offer 选择/简历指导/职业规划/秋招/考研/技术细节），有问必答，并且每个回答都会尽心尽力，力求给你最大的帮助。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-47d2e851-ef02-401d-906d-2d17f01fb69b.png)
+坐镇二哥编程星球的嘉宾也都是业内的巨头，二哥的好朋友！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e45a41e4-8ec3-4016-937c-e41da6b18f6a.png)
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-ad53044a-5c96-46b7-b9c2-c12f0cf9b34a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-5cdbe82d-36a4-4182-bc5c-3e3ceb405dd9.png)
 
 除此之外，你可以参与打卡，养成良好的学习习惯，你还可以阅读星球的精华贴和优质专栏《Java 面试指南》、《编程喵实战项目笔记》（SpringBoot+Vue 的前后端分离项目，附源码）、《二哥的 LeetCode 刷题笔记》。
 
@@ -317,6 +320,10 @@ head:
 还有这位球友的内容输出，硬核到可以出书的程度。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-a31656db-1862-4d36-aee3-708bcce1c04e.png)
+
+还有球友整理的 Redis 思维导图，基本上可以说是非常硬核。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu//readme-4d41dca1-60b1-4bf8-92a6-33678bb492a1.png)
 
 球友们也都非常活跃，动不动就把楼盖起来，赞点的也是毫不吝啬。
 
