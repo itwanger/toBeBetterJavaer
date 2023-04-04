@@ -1,6 +1,6 @@
 ---
-title: Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)
-shortTitle: Java NIO快速入门
+title: 详解Java NIO的Buffer缓冲区和Channel管道
+shortTitle: Buffer和Channel
 category:
   - Java核心
 tag:
@@ -9,331 +9,360 @@ description: Java程序员进阶之路，小白的零基础Java教程，Java NIO
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,nio,buffer,channel,selector
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,nio,buffer,channel,selector,java nio,java buffer,java channel
 ---
 
-首先我们来看看**IO和NIO的区别**：
+# 12.3 Buffer 和 Channel
 
+首先我们来看看**IO 和 NIO 的区别**：
 
+- 可简单认为：**IO 是面向流的处理，NIO 是面向块(缓冲区)的处理**
+- 面向流的 I/O 系统**一次一个字节地处理数据**。
+- 一个面向块(缓冲区)的 I/O 系统**以块的形式处理数据**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-90c84f53-f82d-43dd-87c5-4477e540fa57.jpg)
+NIO 主要有**三个核心部分组成**：
 
+- **buffer 缓冲区**
+- **Channel 管道**
+- **Selector 选择器**
 
-
-*   可简单认为：**IO是面向流的处理，NIO是面向块(缓冲区)的处理**
-
-*   面向流的I/O 系统**一次一个字节地处理数据**。
-*   一个面向块(缓冲区)的I/O系统**以块的形式处理数据**。
-
-
-
-NIO主要有**三个核心部分组成**：
-
-*   **buffer缓冲区**
-*   **Channel管道**
-*   **Selector选择器**
-
-## buffer缓冲区和Channel管道
-
-在NIO中并不是以流的方式来处理数据的，而是以buffer缓冲区和Channel管道**配合使用**来处理数据。
+在 NIO 中，并不是以流的方式来处理数据的，而是以 buffer 缓冲区和 Channel 管道**配合使用**来处理数据的。
 
 简单理解一下：
 
-*   Channel管道比作成铁路，buffer缓冲区比作成火车(运载着货物)
+可以把 Channel 管道比作铁路，buffer 缓冲区比作成火车(运载着货物)
 
-而我们的NIO就是**通过Channel管道运输着存储数据的Buffer缓冲区的来实现数据的处理**！
+而我们的 NIO 就是**通过 Channel 管道运输着存储数据的 Buffer 缓冲区的来实现数据的处理**！
 
-*   要时刻记住：Channel不与数据打交道，它只负责运输数据。与数据打交道的是Buffer缓冲区
+要时刻记住：Channel 不与数据打交道，它只负责运输数据。与数据打交道的是 Buffer 缓冲区
 
-*   **Channel-->运输**
-*   **Buffer-->数据**
+- **Channel-->运输**
+- **Buffer-->数据**
 
+相对于传统 IO 而言，**流是单向的**。对于 NIO 而言，有了 Channel 管道这个概念，我们的**读写都是双向**的(铁路上的火车能从广州去北京、自然就能从北京返还到广州)！
 
+### buffer 缓冲区核心要点
 
-相对于传统IO而言，**流是单向的**。对于NIO而言，有了Channel管道这个概念，我们的**读写都是双向**的(铁路上的火车能从广州去北京、自然就能从北京返还到广州)！
+我们来看看 Buffer 缓冲区有什么值得我们注意的地方。
 
-### buffer缓冲区核心要点
+Buffer 是缓冲区的抽象类：
 
-我们来看看Buffer缓冲区有什么值得我们注意的地方。
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404151539.png)
 
-Buffer是缓冲区的抽象类：
+其中 ByteBuffer 是**用得最多的实现类**(在管道中读写字节数据)。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404152253.png)
 
+拿到一个缓冲区我们往往会做什么？很简单，就是**读取缓冲区的数据/写数据到缓冲区中**。所以，缓冲区的核心方法就是 put 和 get：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-436aa175-3586-4457-b93c-70b21ff122dc.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404152445.png)
 
+Buffer 类维护了 4 个核心变量来提供**关于其所包含的数组信息**。它们是：
 
+- 容量 Capacity **缓冲区能够容纳的数据元素的最大数量**。容量在缓冲区创建时被设定，并且永远不能被改变。(不能被改变的原因也很简单，底层是数组嘛)
+- 上界 Limit **缓冲区里的数据的总数**，代表了当前缓冲区中一共有多少数据。
+- 位置 Position **下一个要被读或写的元素的位置**。Position 会自动由相应的 `get()`和 `put()`函数更新。
+- 标记 Mark 一个备忘位置。**用于记录上一次读写的位置**。
 
-其中ByteBuffer是**用得最多的实现类**(在管道中读写字节数据)。
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-4bf73cdc-b5e2-4866-ac68-cc57602be5e8.jpg)
-
-
-
-拿到一个缓冲区我们往往会做什么？很简单，就是**读取缓冲区的数据/写数据到缓冲区中**。所以，缓冲区的核心方法就是:
-
-*   put()
-*   get()
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-7229ef4c-a27d-4f90-97d0-8abbfda810a0.jpg)
-
-
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-df9f0bdf-3afe-42dc-9e7e-459484d7cb8e.jpg)
-
-
-
-Buffer类维护了4个核心变量属性来提供**关于其所包含的数组的信息**。它们是：
-
-*   容量Capacity
-
-*   **缓冲区能够容纳的数据元素的最大数量**。容量在缓冲区创建时被设定，并且永远不能被改变。(不能被改变的原因也很简单，底层是数组嘛)
-
-*   上界Limit
-
-*   **缓冲区里的数据的总数**，代表了当前缓冲区中一共有多少数据。
-
-*   位置Position
-
-*   **下一个要被读或写的元素的位置**。Position会自动由相应的 `get( )`和 `put( )`函数更新。
-
-*   标记Mark
-
-*   一个备忘位置。**用于记录上一次读写的位置**。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-85991ca3-99bd-4e56-a84e-e58af4d8aac9.jpg)
-
-
-
-### buffer代码演示
+### buffer 代码演示
 
 首先展示一下**是如何创建缓冲区的，核心变量的值是怎么变化的**。
 
 ```java
-public static void main(String[] args) {
+// 创建一个缓冲区
+ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
-        // 创建一个缓冲区         
-        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+// 看一下初始时4个核心变量的值
+System.out.println("初始时-->limit--->"+byteBuffer.limit());
+System.out.println("初始时-->position--->"+byteBuffer.position());
+System.out.println("初始时-->capacity--->"+byteBuffer.capacity());
+System.out.println("初始时-->mark--->" + byteBuffer.mark());
 
-        // 看一下初始时4个核心变量的值         
-        System.out.println("初始时-->limit--->"+byteBuffer.limit());
-        System.out.println("初始时-->position--->"+byteBuffer.position());
-        System.out.println("初始时-->capacity--->"+byteBuffer.capacity());
-        System.out.println("初始时-->mark--->" + byteBuffer.mark());
+System.out.println("--------------------------------------");
 
-        System.out.println("--------------------------------------");
+// 添加一些数据到缓冲区中
+String s = "沉默王二";
+byteBuffer.put(s.getBytes());
 
-        // 添加一些数据到缓冲区中         
-        String s = "沉默王二";
-        byteBuffer.put(s.getBytes());
-
-        // 看一下初始时4个核心变量的值         
-        System.out.println("put完之后-->limit--->"+byteBuffer.limit());
-        System.out.println("put完之后-->position--->"+byteBuffer.position());
-        System.out.println("put完之后-->capacity--->"+byteBuffer.capacity());
-        System.out.println("put完之后-->mark--->" + byteBuffer.mark());
-    }
+// 看一下初始时4个核心变量的值
+System.out.println("put完之后-->limit--->"+byteBuffer.limit());
+System.out.println("put完之后-->position--->"+byteBuffer.position());
+System.out.println("put完之后-->capacity--->"+byteBuffer.capacity());
+System.out.println("put完之后-->mark--->" + byteBuffer.mark());
 ```
 
 运行结果：
 
+```
+初始时-->limit--->1024
+初始时-->position--->0
+初始时-->capacity--->1024
+初始时-->mark--->java.nio.HeapByteBuffer[pos=0 lim=1024 cap=1024]
+--------------------------------------
+put完之后-->limit--->1024
+put完之后-->position--->12
+put完之后-->capacity--->1024
+put完之后-->mark--->java.nio.HeapByteBuffer[pos=12 lim=1024 cap=1024]
+```
 
+现在**我想要从缓存区拿数据**，怎么拿呀？？NIO 给了我们一个`flip()`方法。这个方法可以**改动 position 和 limit 的位置**！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-cbf8b617-f71c-47f7-bc20-72d46306349f.jpg)
-
-
-
-现在**我想要从缓存区拿数据**，怎么拿呀？？NIO给了我们一个`flip()`方法。这个方法可以**改动position和limit的位置**！
-
-还是上面的代码，我们`flip()`一下后，再看看4个核心属性的值会发生什么变化：
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-571a843f-1334-4fcb-bbae-90dbbe31ac8c.jpg)
-
-
-
-很明显的是：
-
-*   **limit变成了position的位置了**
-*   **而position变成了0**
-
-看到这里的同学可能就会想到了：当调用完`filp()`时：**limit是限制读到哪里，而position是从哪里读**
-
-一般我们称`filp()`为**“切换成读模式”**
-
-*   每当要从缓存区的时候读取数据时，就调用`filp()`**“切换成读模式”**。
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-b7d1a7d4-f2a7-4635-b5a8-9d10733df5f3.jpg)
-
-
-
-切换成读模式之后，我们就可以读取缓冲区的数据了：
+在之前代码的基础上，我们`flip()`一下。
 
 ```java
-// 创建一个limit()大小的字节数组(因为就只有limit这么多个数据可读)  
+// flip()方法
+byteBuffer.flip();
+System.out.println("flip()方法之后-->limit--->"+byteBuffer.limit());
+System.out.println("flip()方法之后-->position--->"+byteBuffer.position());
+System.out.println("flip()方法之后-->capacity--->"+byteBuffer.capacity());
+System.out.println("flip()方法之后-->mark--->" + byteBuffer.mark());
+```
+
+再看看 4 个核心属性的值会发生什么变化：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404153844.png)
+
+在调用 `flip()` 之后，limit 变为当前 position 的值（12），position 重置为 0。这意味着你可以从缓冲区的开始位置读取刚刚写入的数据，直到 limit 指定的位置。capacity 保持不变（1024）。
+
+假设我们有一个初始容量为 1024 的 ByteBuffer。
+
+**初始状态**:
+
+```
+position = 0
+limit = 1024
+capacity = 1024
+```
+
+**添加数据 "沉默王二" 后**:
+
+由于 "沉默王二" 为 UTF-8 编码，一个汉字占 3 个字节，共有 4 个汉字，所以占用 12 个字节。
+
+```
+position = 12
+limit = 1024
+capacity = 1024
+```
+
+**调用 `flip()` 方法后**:
+
+```
+position = 0
+limit = 12
+capacity = 1024
+```
+
+用一幅图来表示就是。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404155658.png)
+
+当切换成读模式之后，我们就可以读取缓冲区的数据了：
+
+```java
+// 创建一个limit()大小的字节数组(因为就只有limit这么多个数据可读)
 byte[] bytes = new byte[byteBuffer.limit()];
-
-// 将读取的数据装进我们的字节数组中         
+// 将读取的数据装进我们的字节数组中
 byteBuffer.get(bytes);
-
-// 输出数据         
+// 输出数据
 System.out.println(new String(bytes, 0, bytes.length));
 ```
 
+输出后的结果：
 
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-40d60cff-e87b-4180-a350-7dc5a5207156.jpg)
-
-
+```
+沉默王二
+```
 
 随后输出一下核心变量的值看看：
 
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404160130.png)
 
+**读完如何还想写数据到缓冲区**，那就使用`clear()` 方法，这个方法会“清空”缓冲区，数据没有真正被清空，只是被**遗忘**掉了
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c0fc49ea-bc74-43e8-8f16-d26b93e731bf.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404160412.png)
 
+### FileChannel 通道核心要点
 
-
-**读完我们还想写数据到缓冲区**，那就使用`clear()`函数，这个函数会“清空”缓冲区：
-
-*   数据没有真正被清空，只是被**遗忘**掉了
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-6567241c-8ca6-492d-a4d1-45e6b275e75e.jpg)
-
-
-
-### FileChannel通道核心要点
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-275c9588-216a-416f-934e-f3fbe54fda43.jpg)
-
-
-
-Channel通道**只负责传输数据、不直接操作数据的**。操作数据都是通过Buffer缓冲区来进行操作！
+Channel 通道**只负责传输数据、不直接操作数据**。操作数据都是通过 Buffer 缓冲区来进行操作！
 
 ```java
-// 1. 通过本地IO的方式来获取通道         
-FileInputStream fileInputStream = new FileInputStream("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是这么简单.md");
-
-// 得到文件的输入通道         
-FileChannel inchannel = fileInputStream.getChannel();
-
-// 2. jdk1.7后通过静态方法.open()获取通道         
-FileChannel.open(Paths.get("F:\\3yBlog\\JavaEE常用框架\\Elasticsearch就是这么简单2.md"), StandardOpenOption.WRITE);
+FileChannel.open(Paths.get("docs/配套教程.md"), StandardOpenOption.WRITE);
 ```
 
-使用**FileChannel配合缓冲区**实现文件复制的功能：
+这里我们用到了 [Paths](https://tobebetterjavaer.com/nio/paths-files.html)，这个后面也会讲到。
 
+使用**FileChannel 配合缓冲区**实现文件复制的功能：
 
+```java
+try (FileChannel sourceChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger.txt"), StandardOpenOption.READ);
+    FileChannel destinationChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger1.txt"), StandardOpenOption.WRITE, StandardOpenOption.CREATE)) {
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-741d14cb-4ea6-43cb-aacc-4fa3297cedba.jpg)
+  ByteBuffer buffer = ByteBuffer.allocate(1024);
 
+  while (sourceChannel.read(buffer) != -1) {
+      buffer.flip();
+      destinationChannel.write(buffer);
+      buffer.clear();
+  }
+}
+```
 
+我们创建一个容量为 1024 的 ByteBuffer 作为缓冲区。在循环中，我们从源文件的 FileChannel 读取数据到缓冲区。当 read() 方法返回 -1 时，表示已经到达文件末尾。读取数据后，我们调用 `flip()` 方法，以便在缓冲区中准备好要写入的数据。然后，我们将缓冲区的内容写入目标文件的 FileChannel。在写入完成后，我们调用 `clear()` 方法重置缓冲区，以便在下一次迭代中重用它。
 
 使用**内存映射文件**的方式实现**文件复制**的功能(直接操作缓冲区)：
 
+```java
+try (FileChannel sourceChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger.txt"), StandardOpenOption.READ);
+      FileChannel destinationChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger2.txt"), StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.READ)) {
 
+    long fileSize = sourceChannel.size();
+    MappedByteBuffer sourceMappedBuffer = sourceChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileSize);
+    MappedByteBuffer destinationMappedBuffer = destinationChannel.map(FileChannel.MapMode.READ_WRITE, 0, fileSize);
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c8020177-39b4-405b-abc0-c908ab7cf73d.jpg)
+    for (int i = 0; i < fileSize; i++) {
+        byte b = sourceMappedBuffer.get(i);
+        destinationMappedBuffer.put(i, b);
+    }
+}
+```
 
-
+源文件的 MappedByteBuffer 设置为只读模式（READ_ONLY），而目标文件的 MappedByteBuffer 设置为读写模式（READ_WRITE）。在循环中，我们逐字节地从源文件的 MappedByteBuffer 读取数据并将其写入目标文件的 MappedByteBuffer。这样就实现了文件复制功能。利用内存映射文件实现的文件复制，可能会比使用 ByteBuffer 的方法更快。
 
 通道之间通过`transfer()`实现数据的传输(直接操作缓冲区)：
 
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-2ce868f7-691e-419e-a443-e25131b2785a.jpg)
-
-
+```java
+try (FileChannel sourceChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger.txt"), StandardOpenOption.READ);
+      FileChannel destinationChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger3.txt"), StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.READ)) {
+    sourceChannel.transferTo(0, sourceChannel.size(), destinationChannel);
+} catch (IOException e) {
+    throw new RuntimeException(e);
+}
+```
 
 ### 直接与非直接缓冲区
 
-*   非直接缓冲区是**需要**经过一个：copy的阶段的(从内核空间copy到用户空间)
-*   直接缓冲区**不需要**经过copy阶段，也可以理解成--->**内存映射文件**，(上面的图片也有过例子)。
+直接缓冲区和非直接缓冲区的差别主要在于它们在内存中的存储方式。这里给出了直接缓冲区和非直接缓冲区的简要概述和区别：
 
+非直接缓冲区：
 
+- 分配在 JVM 堆内存中
+- 受到垃圾回收的管理
+- 在读写操作时，需要将数据从堆内存复制到操作系统的本地内存，再进行 I/O 操作
+- 创建： `ByteBuffer.allocate(int capacity)`
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c51af71c-759c-40de-9d92-92fffa2d075d.jpg)
+直接缓冲区：
 
+- 分配在操作系统的本地内存中
+- 不受垃圾回收的管理
+- 在读写操作时，直接在本地内存中进行，避免了数据复制，提高了性能
+- 创建： `ByteBuffer.allocateDirect(int capacity)`
 
+除此之外，就是前面提到的 `FileChannel.map()` 方法。
 
+### scatter 和 gather
 
+Scatter 和 Gather 是 Java NIO 中两种高效的 I/O 操作，用于将数据分散到多个缓冲区或从多个缓冲区中收集数据。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-c6181e11-8960-46f3-a4b5-8233d013499c.jpg)
+Scatter（分散）：它将从 Channel 读取的数据分散（写入）到多个缓冲区。这种操作可以在读取数据时将其分散到不同的缓冲区，有助于处理结构化数据。例如，我们可以将消息头、消息体和消息尾分别写入不同的缓冲区。
 
+Gather（聚集）：与 Scatter 相反，它将多个缓冲区中的数据聚集（读取）并写入到一个 Channel。这种操作允许我们在发送数据时从多个缓冲区中聚集数据。例如，我们可以将消息头、消息体和消息尾从不同的缓冲区中聚集到一起并写入到同一个 Channel。
 
+来写一个完整的 demo，先看 Server。
 
-使用直接缓冲区有两种方式：
+```java
+// 创建一个ServerSocketChannel
+ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+serverSocketChannel.socket().bind(new InetSocketAddress(9000));
 
-*   缓冲区创建的时候分配的是直接缓冲区
-*   在FileChannel上调用`map()`方法，将文件直接映射到内存中创建
+// 接受连接
+SocketChannel socketChannel = serverSocketChannel.accept();
 
+// Scatter：分散读取数据到多个缓冲区
+ByteBuffer headerBuffer = ByteBuffer.allocate(128);
+ByteBuffer bodyBuffer = ByteBuffer.allocate(1024);
 
+ByteBuffer[] buffers = {headerBuffer, bodyBuffer};
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-16943811-2190-4fc9-82f9-df34c06c22d2.jpg)
+long bytesRead = socketChannel.read(buffers);
 
+// 输出缓冲区数据
+headerBuffer.flip();
+while (headerBuffer.hasRemaining()) {
+    System.out.print((char) headerBuffer.get());
+}
 
+System.out.println();
 
-### scatter和gather、字符集
+bodyBuffer.flip();
+while (bodyBuffer.hasRemaining()) {
+    System.out.print((char) bodyBuffer.get());
+}
 
-这个知识点我感觉用得挺少的，不过很多教程都有说这个知识点，我也拿过来说说吧：
+// Gather：聚集数据从多个缓冲区写入到Channel
+ByteBuffer headerResponse = ByteBuffer.wrap("Header Response".getBytes());
+ByteBuffer bodyResponse = ByteBuffer.wrap("Body Response".getBytes());
 
-*   分散读取(scatter)：将一个通道中的数据分散读取到多个缓冲区中
-*   聚集写入(gather)：将多个缓冲区中的数据集中写入到一个通道中
+ByteBuffer[] responseBuffers = {headerResponse, bodyResponse};
 
+long bytesWritten = socketChannel.write(responseBuffers);
 
+// 关闭连接
+socketChannel.close();
+serverSocketChannel.close();
+```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-d2b8a337-3c1b-4bce-ae8d-ed107a3676a2.jpg)
+再来看 Client：
 
+```java
+// 创建一个SocketChannel
+SocketChannel socketChannel = SocketChannel.open();
+socketChannel.connect(new InetSocketAddress("localhost", 9000));
 
+// 发送数据到服务器
+String header = "Header Content";
+String body = "Body Content";
 
+ByteBuffer headerBuffer = ByteBuffer.wrap(header.getBytes());
+ByteBuffer bodyBuffer = ByteBuffer.wrap(body.getBytes());
 
+ByteBuffer[] buffers = {headerBuffer, bodyBuffer};
+socketChannel.write(buffers);
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-e0916f2c-2ce9-4be6-b071-754301a09642.jpg)
+// 从服务器接收数据
+ByteBuffer headerResponseBuffer = ByteBuffer.allocate(128);
+ByteBuffer bodyResponseBuffer = ByteBuffer.allocate(1024);
 
+ByteBuffer[] responseBuffers = {headerResponseBuffer, bodyResponseBuffer};
 
+long bytesRead = socketChannel.read(responseBuffers);
 
-分散读取
+// 输出接收到的数据
+headerResponseBuffer.flip();
+while (headerResponseBuffer.hasRemaining()) {
+    System.out.print((char) headerResponseBuffer.get());
+}
 
+bodyResponseBuffer.flip();
+while (bodyResponseBuffer.hasRemaining()) {
+    System.out.print((char) bodyResponseBuffer.get());
+}
 
+// 关闭连接
+socketChannel.close();
+```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-886e1838-3404-4bfb-84c9-36cffa19aa19.jpg)
+在这个示例中，我们使用了 Scattering 从 SocketChannel 分散读取数据到多个缓冲区，并使用 Gathering 将数据从多个缓冲区聚集写入到 SocketChannel。通过这种方式，我们可以方便地处理多个缓冲区中的数据。
 
+### 小结
 
+Java NIO 中的 Buffer 和 Channel 是 NIO 系统的核心组件。Buffer 负责存储数据，提供了对数据的读写操作。它有多种类型，如 ByteBuffer、CharBuffer、IntBuffer 等，以支持不同的数据类型。Channel 代表了与 I/O 设备（如文件或套接字）之间的连接。它提供了从源设备到 Buffer 的数据读取能力和从 Buffer 到目标设备的数据写入能力。Channel 可以是可读、可写或同时可读写的。NIO 使用这两个组件进行高效的数据传输，以提高 I/O 操作的性能。
 
-聚集写入
+> 参考链接：[https://www.zhihu.com/question/29005375/answer/667616386](https://www.zhihu.com/question/29005375/answer/667616386)，整理：沉默王二
 
+---
 
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-aba6d233-f294-4d1f-b389-dd174e76d1b0.jpg)
-
-
-
-字符集(只要编码格式和解码格式一致，就没问题了)
-
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/rumen-dba55dfc-48df-4111-884d-d67227b7723a.jpg)
-
->参考链接：[https://www.zhihu.com/question/29005375/answer/667616386](https://www.zhihu.com/question/29005375/answer/667616386)，整理：沉默王二
-
----------
-
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
