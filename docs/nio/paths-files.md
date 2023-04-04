@@ -1,6 +1,6 @@
 ---
-title: 详解 Java 中的File、Paths、Files三个类
-shortTitle: File、Paths、Files
+title: 聊聊 Java 中的Paths、Files
+shortTitle: Paths和Files
 category:
   - Java核心
 tag:
@@ -12,244 +12,351 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,file,paths,files,path,java文件,java目录,java文件增删改查,java file,java paths,java files
 ---
 
-### Path 接口与Paths 类
+# 12.4 Paths和Files
 
-Path 是 Java NIO.2 中的一个类，用于表示文件系统中的路径。它提供了一种平台无关的方式来操作文件系统中的路径，包括创建、修改、查询和删除文件或目录等操作。
+Paths和Files在 Java 7 的时候引入，作为对 `java.io.File` 类的补充和改进。
 
-#### 创建 Path 对象
+### Paths 类
 
-可以使用名为 Paths.get() 创建 Path 实例，get()方法是 Path 实例的工厂方法，一个示例如下：
+Paths类主要用于操作文件和目录路径。它提供了一些静态方法，用于创建`java.nio.file.Path`实例，代表文件系统中的路径。
+
+下面是 Paths 的一个示例。
 
 ```java
-// 使用绝对路径创建
-Path absolutePath = Paths.get("/Users/username/test/1.txt");
-// 使用相对路径创建
-Path relativePath = Paths.get("test", "1.txt");
-System.out.println(absolutePath.equals(relativePath)); // true
+// 创建一个Path实例，表示当前目录下的一个文件
+Path path = Paths.get("example.txt");
+
+// 创建一个绝对路径
+Path absolutePath = Paths.get("/home/user/example.txt");
+```
+
+java.nio.file.Path接口在Java NIO.2中代表一个文件系统中的路径。它提供了一系列方法来操作和查询路径。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404181334.png)
+
+下面是 Paths 和 Path 一起使用的实例：
+
+```java
+Path path = Paths.get("docs/配套教程.md");
+
+// 获取文件名
+System.out.println("File name: " + path.getFileName());
+
+// 获取父目录
+System.out.println("Parent: " + path.getParent());
+
+// 获取根目录
+System.out.println("Root: " + path.getRoot());
+
+// 将路径与另一个路径结合
+Path newPath = path.resolve("config/app.properties");
+System.out.println("Resolved path: " + newPath);
+
+// 简化路径
+Path normalizedPath = newPath.normalize();
+System.out.println("Normalized path: " + normalizedPath);
+
+// 将相对路径转换为绝对路径
+Path absolutePath = path.toAbsolutePath();
+System.out.println("Absolute path: " + absolutePath);
+
+// 计算两个路径之间的相对路径
+Path basePath = Paths.get("/docs/");
+Path targetPath = Paths.get("/docs/imgs/itwanger");
+Path relativePath = basePath.relativize(targetPath);
+System.out.println("Relative path: " + relativePath);
 ```
  
+### Files 类
 
-Paths 类只有2个方法：
+`java.nio.file.Files`类提供了大量静态方法，用于处理文件系统中的文件和目录。这些方法包括文件的创建、删除、复制、移动等操作，以及读取和设置文件属性。
 
-方法|描述|
----|---|
-static Path get(String first, String... more)|将路径字符串或在连接时形成路径字符串的字符串序列转换为路径。|
-static Path (URI uri)|将给定URI转换为路径对象。|
-
-Path 接口部分方法：
-
-方法|描述|
----|---|
-boolean endsWith(Path other)|测试此路径是否以给定路径结束。|
-boolean equals(Object other)|取决于文件系统的实现。一般不区分大小写，有时区分。 不访问文件系统。|
-Path normalize()|返回一个路径，该路径消除了冗余的名称元素，比如'.'， '..'|
-Path toAbsolutePath()|返回绝对路径。|
-File toFile()|转换为 File 对象。|
-String toString()|返回的路径字符串。|
-
->注意，假如路径为 `D:\\..\\..\\.\\p2\\core\\cache\\binary`，normalize 返回 `D:\\p2\\core\\cache\\binary`
- 
-
-## Files 类
-
-NIO 文件类(java.nio.file.Files)为操作文件系统中的文件提供了几种方法，File 类与 java.nio.file.Path 类一起工作，需要了解 Path 类，然后才能使用 Files 类。
-
-### 判断文件是否存在
+下面展示一个 Files 和 Paths 一起使用的示例：
 
 ```java
-static boolean exists(Path path, LinkOption... options)
+// 创建一个Path实例
+Path path = Paths.get("logs/javabetter/itwanger4.txt");
+
+// 创建一个新文件
+Files.createFile(path);
+
+// 检查文件是否存在
+boolean exists = Files.exists(path);
+System.out.println("File exists: " + exists);
+
+// 删除文件
+Files.delete(path);
 ```
- 
 
-options 参数用于指示，在文件是符号链接的情况下，如何处理该符号链接，默认是处理符号链接的。其中 LinkOption 对象是一个枚举类，定义如何处理符号链接的选项。整个类只有一个 `NOFOLLOW_LINKS;` 常量，代表不跟随符号链接。
+以下是一些常用方法及其示例：
 
->符号链接（软链接、Symbolic link）是一类特殊的文件， 其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用。一个符号链接文件仅包含有一个文本字符串，其被操作系统解释为一条指向另一个文件或者目录的路径。它是一个独立文件，其存在并不依赖于目标文件。如果删除一个符号链接，它指向的目标文件不受影响。如果目标文件被移动、重命名或者删除，任何指向它的符号链接仍然存在，但是它们将会指向一个不复存在的文件。这种情况被有时被称为被遗弃。
-
-### createDirectory(Path path) 创建目录
+1、`exists(Path path, LinkOption... options)`：检查文件或目录是否存在。
 
 ```java
-Path output = Paths.get("D:\\test\\output");
-Path newDir = Files.createDirectory(output);
-// Files.createDirectories(output); 
-// 这个方法可以一并创建不存在的父目录
-System.out.println(output == newDir); // true
-System.out.println(Files.exists(output)); // true
+Path path = Paths.get("file.txt");
+boolean exists = Files.exists(path);
+System.out.println("File exists: " + exists);
 ```
- 
 
-如果创建目录成功，则返回指向新创建的路径的 Path 实例，此实例和参数是同一个实例。
+LinkOption 是一个枚举类，它定义了如何处理文件系统链接的选项。它位于 java.nio.file 包中。LinkOption 主要在与文件或目录的路径操作相关的方法中使用，以控制这些方法如何处理符号链接。符号链接是一种特殊类型的文件，它在 Unix 和类 Unix 系统（如 Linux 和 macOS）上很常见。在 Windows 上，类似的概念被称为快捷方式。
 
-如果该目录已存在，则抛出 FileAlreadyExistsException 。 如果出现其他问题，可能会抛出IOException ，例如，如果所需的新目录的父目录不存在。
-
-### 复制文件
-
-一共有 3 个复制方法：
+2、`createFile(Path path, FileAttribute<?>... attrs)`：创建一个新的空文件。
 
 ```java
-static long copy(Path source, OutputStream out)；
-static Path copy(Path source, Path target, CopyOption... options)；
-static long copy(InputStream in, Path target, CopyOption... options)
+Path newPath = Paths.get("newFile.txt");
+Files.createFile(newPath);
 ```
- 
 
-其中 CopyOption 选项可以选择指定复制模式，一般是其子枚举类 StandardCopyOption 提供选项，有 3 种模式，第二个参数是可变形参，可以多个组合一起使用：
-
-1.  `ATOMIC_MOVE` :原子复制，不会被线程调度机制打断的操作；一旦开始，就一直运行到结束;
-2.  `COPY_ATTRIBUTES` ：同时复制属性，默认是不复制属性的;
-3.  `REPLACE_EXISTING` ：重写模式，会覆盖已存在的目的文件;
-
-一个例子如下：
+FileAttribute 是一个泛型接口，用于处理各种不同类型的属性。在使用 FileAttribute 时，你需要为其提供一个特定的实现。`java.nio.file.attribute` 包中的 PosixFileAttributes 类提供了 POSIX（Portable Operating System Interface，定义了许多与文件系统相关的操作，包括文件和目录的创建、删除、读取和修改。）文件属性的实现。
 
 ```java
-Path sourcePath = Paths.get("D:\\test\\source.txt"); // 源文件必须先存在
-Path desPath = Paths.get("D:\\test\\des.txt"); // 目的文件可以不存在
-Files.copy(sourcePath, desPath); // 默认情况，如果目的文件已存在则抛出异常
-Files.copy(sourcePath, desPath, StandardCopyOption.REPLACE_EXISTING); // 覆盖模式
+Path path = Paths.get("fileWithPermissions.txt");
+
+Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rw-r-----");
+FileAttribute<Set<PosixFilePermission>> fileAttribute = PosixFilePermissions.asFileAttribute(permissions);
+
+Files.createFile(path, fileAttribute);
 ```
- 
 
-注意：复制文件夹的时候，只能复制空文件夹，如果文件夹非空，需要递归复制，否则只能得到一个空文件夹，而文件夹里面的文件不会被复制。
+PosixFileAttributes 接口提供了获取 POSIX 文件属性的方法，如文件所有者、文件所属的组以及文件的访问权限。以上示例会创建一个读写属性的文件。
 
-
-### 移动文件/文件夹
-
-只有 1 个移动文件或文件夹的方法：
+3、`createDirectory(Path dir, FileAttribute<?>... attrs)`：创建一个新的目录。
 
 ```java
-static Path move(Path source, Path target, CopyOption... options);
+Path newDir = Paths.get("newDirectory");
+Files.createDirectory(newDir);
 ```
- 
 
-如果文件是符号链接，则移动符号链接本身，而不是符号链接指向的实际文件。
-
-和移动文件一样，也存在第三个可选参数 CopyOption ，参考上述。如果移动文件失败，可能会抛出 IOException，例如，如果文件已存在于目标路径中，并且遗漏了覆盖选项，或者要移动的源文件不存在等。
-
-和复制文件夹不一样，如果文件夹里面有内容，复制只会复制空文件夹，而移动会把文件夹里面的所有东西一起移动过去，以下是一个移动文件夹的示例:
+4、`delete(Path path)`：删除文件或目录。
 
 ```java
-// 移动 s 目录到一个不存在的新目录
-Path s = Paths.get("D:\\s");
-Path d = Paths.get("D:\\test\\test");
-Files.createDirectories(d.getParent());
-Files.move(s, d);
+Path pathToDelete = Paths.get("fileToDelete.txt");
+Files.delete(pathToDelete);
 ```
- 
 
-和 Linux mv 命令一样，重命名文件与移动文件方式相同，移动文件还可以将文件移动到不同的目录并可以同时更改其名称。 另外 java.io.File 类也可以使用它的 renameTo() 方法来实现移动文件，但现在 java.nio.file.Files 类中也有文件移动功能。
-
-### 删除文件/文件夹
+5、`copy(Path source, Path target, CopyOption... options)`：复制文件或目录。
 
 ```java
-static void delete(Path path);
-static boolean deleteIfExists(Path path); // 如果文件被此方法删除则返回 true
+Path sourcePath = Paths.get("sourceFile.txt");
+Path targetPath = Paths.get("targetFile.txt");
+Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
 ```
- 
 
-如果文件是目录，则该目录必须为空才能删除。
+在 Java NIO 中，有两个实现了 CopyOption 接口的枚举类：StandardCopyOption 和 LinkOption。
 
-### Files.walkFileTree() 静态方法
+StandardCopyOption 枚举类提供了以下两个选项：
 
-删除和复制文件夹的时候，如果文件夹为空，那么会删除失败或者只能复制空文件夹，此时可以使用 walkFileTree() 方法进行遍历文件树，然后在 FileVisitor 对象的 visitFile() 方法中执行删除或复制文件操作。
+- REPLACE_EXISTING：如果目标文件已经存在，该选项会使 `Files.copy()` 方法替换目标文件。如果不指定此选项，`Files.copy()` 方法在目标文件已存在时将抛出 FileAlreadyExistsException。
+- COPY_ATTRIBUTES：此选项表示在复制文件时，尽可能地复制文件的属性（如文件时间戳、权限等）。如果不指定此选项，那么目标文件将具有默认的属性。
 
-Files 类有 2 个重载的 walkFileTree() 方法，如下：
+6、`move(Path source, Path target, CopyOption... options)`：移动或重命名文件或目录。
 
 ```java
-static Path walkFileTree(Path start,
-                                FileVisitor<? super Path> visitor)；
-
-static Path walkFileTree(Path start,
-                                Set<FileVisitOption> options,
-                                int maxDepth,
-                                FileVisitor<? super Path> visitor)；
+Path sourcePath = Paths.get("sourceFile.txt");
+Path targetPath = Paths.get("targetFile.txt");
+Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
 ```
- 
 
-将 Path 实例和 FileVisitor 作为参数，walkfiletree() 方法可以递归遍历目录树。Path 实例指向要遍历的目录。在遍历期间调用 FileVisitor ，首先介绍 FileVisitor 接口：
+7、`readAllLines(Path path, Charset cs)`：读取文件的所有行到一个字符串列表。
 
 ```java
-public interface FileVisitor<T> {
-    
-    FileVisitResult preVisitDirectory(T dir, BasicFileAttributes attrs) throws IOException;
+Path path = Paths.get("file.txt");
+List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+lines.forEach(System.out::println);
+```
 
-    FileVisitResult visitFile(T file, BasicFileAttributes attrs) throws IOException;
-    
-    FileVisitResult visitFileFailed(T file, IOException exc) throws IOException;
-    
-    FileVisitResult postVisitDirectory(T dir, IOException exc) throws IOException;
+8、`write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options)`：将字符串列表写入文件。
+
+```java
+Path path = Paths.get("file.txt");
+List<String> lines = Arrays.asList("沉默王二 1", "沉默王二 2", "沉默王二 3");
+Files.write(path, lines, StandardCharsets.UTF_8);
+```
+
+OpenOption 是 Java NIO 中一个用于配置文件操作的接口。它提供了在使用 `Files.newByteChannel()`、`Files.newInputStream()`、`Files.newOutputStream()`、`AsynchronousFileChannel.open()` 和 `FileChannel.open()` 方法时定制行为的选项。
+
+在 Java NIO 中，有两个实现了 OpenOption 接口的枚举类：StandardOpenOption 和 LinkOption。
+
+StandardOpenOption 枚举类提供了以下几个选项：
+
+- READ：以读取模式打开文件。
+- WRITE：以写入模式打开文件。
+- APPEND：以追加模式打开文件。
+- TRUNCATE_EXISTING：在打开文件时，截断文件的内容，使其长度为0。仅适用于 WRITE 或 APPEND 模式。
+- CREATE：当文件不存在时创建文件。如果文件已存在，则打开文件。
+- CREATE_NEW：当文件不存在时创建文件。如果文件已存在，抛出 FileAlreadyExistsException。
+- DELETE_ON_CLOSE：在关闭通道时删除文件。
+- SPARSE：提示文件系统创建一个稀疏文件。
+- SYNC：要求每次更新文件的内容或元数据时都进行同步。
+- DSYNC：要求每次更新文件内容时都进行同步。
+
+8、`newBufferedReader(Path path, Charset cs) 和 newBufferedWriter(Path path, Charset cs, OpenOption... options)`：创建 BufferedReader 和 BufferedWriter 对象以读取和写入文件。
+
+```java
+Path path = Paths.get("file.txt");
+
+// Read file
+try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+}
+
+// Write file
+Path outputPath = Paths.get("outputFile.txt");
+try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
+    writer.write("沉默王二");
 }
 ```
- 
 
-必须自己实现 FileVisitor 接口，并将其实现的实例传递给 walkFileTree() 方法。在目录遍历期间，将在不同的时间调用 FileVisitor 实现的 4 个方法，代表对遍历到的文件或目录进行什么操作。如果不需要使用到所有方法，可以扩展 SimpleFileVisitor 类，该类包含 FileVisitor 接口中所有方法的默认实现。
+#### Files.walkFileTree() 静态方法
+
+这个方法可以递归地访问目录结构中的所有文件和目录，并允许您对这些文件和目录执行自定义操作。使用 walkFileTree 方法时，需要提供一个起始路径（起始目录）和一个实现了 FileVisitor 接口的对象。FileVisitor 接口包含四个方法，它们在遍历过程中的不同阶段被调用：
+
+- preVisitDirectory：在访问目录之前调用。
+- postVisitDirectory：在访问目录之后调用。
+- visitFile：在访问文件时调用。
+- visitFileFailed：在访问文件失败时调用。
+
+来看下面这个示例：
 
 ```java
-Files.walkFileTree(inputPath, new FileVisitor<Path>() {
-    // 访问文件夹之前调用此方法
-    @Override
-    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-        System.out.println("pre visit dir:" + dir);
-        return FileVisitResult.CONTINUE;
+public class WalkFileTreeExample {
+    public static void main(String[] args) {
+        Path startingDir = Paths.get("docs");
+        MyFileVisitor fileVisitor = new MyFileVisitor();
+
+        try {
+            Files.walkFileTree(startingDir, fileVisitor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    // 访问的每个文件都会调用此方法，只针对文件，不会对目录执行
-    @Override
-    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        return FileVisitResult.CONTINUE;
-    }
+    private static class MyFileVisitor extends SimpleFileVisitor<Path> {
+        @Override
+        public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+            System.out.println("准备访问目录: " + dir);
+            return FileVisitResult.CONTINUE;
+        }
 
-    // 访问文件失败会调用此方法，只针对文件，不会对目录执行
-    @Override
-    public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-        return FileVisitResult.CONTINUE;
-    }
+        @Override
+        public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+            System.out.println("正在访问目录: " + dir);
+            return FileVisitResult.CONTINUE;
+        }
 
-    // 访问文件夹之后会调用此方法
-    @Override
-    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-        return FileVisitResult.CONTINUE;
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            System.out.println("访问文件: " + file);
+            return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+            System.err.println("访问文件失败: " + file);
+            return FileVisitResult.CONTINUE;
+        }
     }
-});
+}
 ```
- 
 
-这四个方法都返回一个 FileVisitResult 枚举实例。FileVisitResult 枚举包含以下四个选项：
+运行结果如下：
+
+```
+准备访问目录: docs
+访问文件: docs/安装环境.md
+准备访问目录: docs/imgs
+访问文件: docs/imgs/init_03.jpg
+准备访问目录: docs/imgs/itwanger
+访问文件: docs/imgs/itwanger/tongzhishu.jpeg
+访问文件: docs/imgs/itwanger/tongzhishu1.jpeg
+访问文件: docs/imgs/itwanger/tongzhishu1.pdf
+正在访问目录: docs/imgs/itwanger
+访问文件: docs/imgs/init_02.jpg
+访问文件: docs/imgs/init_00.jpg
+访问文件: docs/imgs/init_01.jpg
+访问文件: docs/imgs/init_04.jpg
+正在访问目录: docs/imgs
+访问文件: docs/服务器启动教程.md
+访问文件: docs/配套教程.md
+访问文件: docs/约定.md
+访问文件: docs/本地开发环境配置教程.md
+访问文件: docs/前端工程结构说明.md
+正在访问目录: docs
+```
+
+在这个示例中，我们创建了一个名为 MyFileVisitor 的自定义 FileVisitor 类，它扩展了 SimpleFileVisitor 类。SimpleFileVisitor 是 FileVisitor 接口的一个实现，它提供了一些默认的行为。我们可以覆盖 SimpleFileVisitor 中的方法以实现自己的逻辑。在这个例子中，我们只是打印出了访问的文件和目录。然后，我们使用 Files.walkFileTree 方法遍历文件树。这个方法会遍历整个目录结构，并调用 MyFileVisitor 中的相应方法。
+
+其中，FileVisitResult 枚举包含以下四个选项：
 
 *   CONTINUE ： 继续
 *   TERMINATE ： 终止
 *   SKIP\_SIBLINGS ： 跳过兄弟节点，然后继续
 *   SKIP\_SUBTREE ： 跳过子树（不访问此目录的条目），然后继续，仅在 preVisitDirectory 方法返回时才有意义，除此以外和 CONTINUE 相同。
 
-通过返回其中一个值，被调用的方法可以决定文件遍历时接下来应该做什么。
+#### 搜索文件
 
-### 搜索文件
-
-walkFileTree() 方法还可以用于搜索文件，下面这个例子扩展了 SimpleFileVisitor 来查找一个名为 input.txt 的文件：
+`walkFileTree()` 方法还可以用于搜索文件，下面这个例子扩展了 SimpleFileVisitor 来查找一个名为 itwanger.txt 的文件：
 
 ```java
-Path rootPath = Paths.get("D:\\test");
-String fileToFind = File.separator + "input.txt";
+public class FindFileWithWalkFileTree {
+    public static void main(String[] args) {
+        Path startingDir = Paths.get("logs");
+        String targetFileName = "itwanger.txt";
+        FindFileVisitor findFileVisitor = new FindFileVisitor(targetFileName);
 
-Files.walkFileTree(rootPath, new SimpleFileVisitor<Path>() {
-    @Override
-    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        String fileString = file.toAbsolutePath().toString();
-        System.out.println("pathString: " + fileString);
-
-        if (fileString.endsWith(fileToFind)) {
-            System.out.println("file found at path: " + fileString);
-            return FileVisitResult.TERMINATE;
+        try {
+            Files.walkFileTree(startingDir, findFileVisitor);
+            if (findFileVisitor.isFileFound()) {
+                System.out.println("找到文件了: " + findFileVisitor.getFoundFilePath());
+            } else {
+                System.out.println("ooh，文件没找到");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return FileVisitResult.CONTINUE;
     }
-});
+
+    private static class FindFileVisitor extends SimpleFileVisitor<Path> {
+        private String targetFileName;
+        private Path foundFilePath;
+
+        public FindFileVisitor(String targetFileName) {
+            this.targetFileName = targetFileName;
+        }
+
+        public boolean isFileFound() {
+            return foundFilePath != null;
+        }
+
+        public Path getFoundFilePath() {
+            return foundFilePath;
+        }
+
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            String fileName = file.getFileName().toString();
+            if (fileName.equals(targetFileName)) {
+                foundFilePath = file;
+                return FileVisitResult.TERMINATE;
+            }
+            return FileVisitResult.CONTINUE;
+        }
+    }
+}
 ```
- 
 
-同理，删除有内容的目录时，可以重写 visitFile() 方法，并在里面执行删除文件操作，重写 postVisitDirectory() 方法，并在里面执行删除目录操作即可。
+在主方法中，我们使用 Files.walkFileTree 方法遍历文件树，并传递一个起始目录和 FindFileVisitor 实例。遍历完成后，我们检查是否找到了目标文件，如果找到了，就打印出它的路径。
 
-### Files 类中的其他方法
+搜索结果如下所示：
 
-Files 类包含许多其他有用的函数，例如用于创建符号链接，确定文件大小，设置文件权限等的函数。有关java.nio.file.Files 类的详细信息，请查看 [JavaDoc](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html)
+![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404190926.png)
+
+### 小结
+
+Paths 和 Files 是 Java NIO 中的两个核心类。Paths 提供了一系列静态方法，用于操作路径（Path 对象）。它可以将字符串或 URI 转换为 Path 对象，方便后续操作。Files 类提供了丰富的文件操作方法，如文件的创建、删除、移动、复制、读取和写入等。这些方法支持各种选项和属性，如覆盖、保留属性和符号链接处理。Files 还支持文件遍历（如 walkFileTree 方法），可以处理文件目录树。总之，Paths 和 Files 为文件和目录操作提供了简洁、高效的方法。
 
 ---------
 
