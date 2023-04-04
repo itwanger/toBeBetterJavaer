@@ -227,7 +227,7 @@ head:
 
 ### Java NIO
 
-- [为什么我们要使用 Java NIO？](nio/why.md)
+- [Java 中的 NIO 比传统 IO 强在哪里？](nio/why.md)
 - [如何给女朋友解释什么是 BIO、NIO 和 AIO？](nio/BIONIOAIO.md)
 - [Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)](nio/rumen.md)
 - [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
