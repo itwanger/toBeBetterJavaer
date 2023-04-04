@@ -1,6 +1,6 @@
 ---
-title: 如何给女朋友解释清楚BIO、NIO和AIO？
-shortTitle: BIO、NIO和AIO之间的区别
+title: 如何给女朋友解释清楚Java 中的BIO、NIO和AIO？
+shortTitle: BIO、NIO和AIO的区别
 category:
   - Java核心
 tag:
@@ -9,9 +9,12 @@ description: Java程序员进阶之路，小白的零基础Java教程，BIO、NI
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,IO,BIO,NIO,AIO
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,IO,BIO,NIO,AIO,java nio,java bio,java aio,nio bio aio
 ---
 
+# 12.2 BIO、NIO和AIO的区别
+
+>上篇，我们了解了 NIO 和传统 IO 的区别，那这篇我们来了解BIO、NIO和AIO的区别，新手也很容易混淆。
 
 周末午后，在家里面进行电话面试，我问了面试者几个关于 IO 的问题，其中包括什么是 BIO、NIO 和 AIO？三者有什么区别？具体如何使用等问题，但是面试者回答的并不是很满意。于是我在面试评价中写道："对 Java 的 IO 提醒理解不够深入"。恰好被女朋友看到了。
 
@@ -19,43 +22,29 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-2.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-3.gif)
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-4.jpg)
 
-Java IO
+### Java IO与BIO、NIO
 
-IO，常协作 I/O，是 Input/Output 的简称，即输入/输出。通常指数据在内部存储器（内存）和外部存储器（硬盘、优盘等）或其他周边设备之间的输入和输出。
+IO，常写作 I/O，是 Input/Output 的简称，即输入/输出。通常指数据在内部存储器（内存）和外部存储器（硬盘、优盘等）或其他周边设备之间的输入和输出。
 
 输入/输出是信息处理系统（例如计算机）与外部世界（可能是人类或另一信息处理系统）之间的通信。
 
 输入是系统接收的信号或数据，输出则是从其发送的信号或数据。
 
-在 Java 中，提供了一系列 API，可以供开发者来读写外部数据或文件。我们称这些 API 为 Java IO。
+在 Java 中，提供了一系列 API，可以供开发者来读写外部数据或文件。我们称这些 API 为 [Java IO](https://tobebetterjavaer.com/io/shangtou.html)。
 
 IO 是 Java 中比较重要，且比较难的知识点，主要是因为随着 Java 的发展，目前有三种 IO 共存。分别是 BIO、NIO 和 AIO。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-5.jpg)
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-6.gif)
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-7.gif)
-
-Java BIO
-
 BIO 全称Block-IO 是一种**同步且阻塞**的通信模式。是一个比较传统的通信方式，模式简单，使用方便。但并发处理能力低，通信耗时，依赖网速。
 
-Java NIO
-
-Java NIO，全程 Non-Block IO ，是 Java SE 1.4 版以后，针对网络传输效能优化的新功能。是一种**非阻塞同步**的通信模式。
+[Java NIO](https://tobebetterjavaer.com/nio/why.html)，全程 Non-Block IO ，是 Java SE 1.4 版以后，针对网络传输效能优化的新功能。是一种**非阻塞同步**的通信模式。
 
 NIO 与原来的 I/O 有同样的作用和目的, 他们之间最重要的区别是数据打包和传输的方式。原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。
 
 面向流的 I/O 系统一次一个字节地处理数据。一个输入流产生一个字节的数据，一个输出流消费一个字节的数据。
 
 面向块的 I/O 系统以块的形式处理数据。每一个操作都在一步中产生或者消费一个数据块。按块处理数据比按(流式的)字节处理数据要快得多。但是面向块的 I/O 缺少一些面向流的 I/O 所具有的优雅性和简单性。
-
-Java AIO
 
 Java AIO，全程 Asynchronous IO，是**异步非阻塞**的 IO。是一种非阻塞异步的通信模式。
 
@@ -67,9 +56,8 @@ Java AIO，全程 Asynchronous IO，是**异步非阻塞**的 IO。是一种非�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-10.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-11.gif)
 
-三种 IO 的区别
+### 三种 IO 的区别
 
 首先，我们站在宏观的角度，重新画一下重点：
 
@@ -97,7 +85,7 @@ Java AIO，全程 Asynchronous IO，是**异步非阻塞**的 IO。是一种非�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-15.jpg)
 
-适用场景
+#### 适用场景
 
 BIO 方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4 以前的唯一选择，但程序直观简单易理解。
 
@@ -105,11 +93,7 @@ NIO 方式适用于连接数目多且连接比较短（轻操作）的架构，�
 
 AIO 方式适用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用 OS 参与并发操作，编程比较复杂，JDK7 开始支持。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-16.gif)
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-17.gif)
-
-使用方式
+#### 使用方式
 
 使用 BIO 实现文件的读取和写入。
 
@@ -156,7 +140,7 @@ try {
 
 ```java
 static void readNIO() {
-    String pathname = "C:\\Users\\adew\\Desktop\\jd-gui.cfg";
+    String pathname = "jd-gui.cfg";
     FileInputStream fin = null;
     try {
         fin = new FileInputStream(new File(pathname));
@@ -226,7 +210,7 @@ static void writeNIO() {
 ```java
 public class ReadFromFile {
   public static void main(String[] args) throws Exception {
-    Path file = Paths.get("/usr/a.txt");
+    Path file = Paths.get("a.txt");
     AsynchronousFileChannel channel = AsynchronousFileChannel.open(file);
 
     ByteBuffer buffer = ByteBuffer.allocate(100_000);
@@ -279,22 +263,28 @@ public class WriteToFile {
 }
 ```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-18.gif)
+解释下这段代码。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-19.gif)
+ReadFromFile 示例使用 AsynchronousFileChannel 读取一个文件。与同步 I/O 不同，异步 I/O 允许程序在等待文件操作完成时执行其他任务。在此示例中，`ProfitCalculator.calculateTax()` 方法在等待文件读取操作完成时被执行。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-20.gif)
+- 打开一个 AsynchronousFileChannel。
+- 分配一个 ByteBuffer 用于存储文件内容。
+- 使用 `channel.read()` 方法异步读取文件。这将返回一个 Future 对象，表示文件读取操作的结果。
+- 在等待文件读取操作完成时，执行其他任务（在这个例子中是 `ProfitCalculator.calculateTax()` 方法）。
+- 使用 `result.get()` 方法等待文件读取操作完成并获取结果。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-21.jpg)
+WriteToFile 示例使用 AsynchronousFileChannel 向一个文件写入数据。代码中使用了一个 CompletionHandler 来处理文件写入操作的完成。
+
+- 打开一个 AsynchronousFileChannel。
+- 创建一个 CompletionHandler，用于处理文件写入操作的完成。`completed()` 方法在操作成功完成时调用，failed() 方法在操作失败时调用。
+- 使用 `fileChannel.write()` 方法异步写入数据，并将 CompletionHandler 传递给此方法。
+- 当文件写入操作完成时，CompletionHandler 的相应方法将被调用。
 
 滴滴滴，水开了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-22.jpg)
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-23.jpg)
-
-
-
 
 
 >参考链接：[https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ](https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ)

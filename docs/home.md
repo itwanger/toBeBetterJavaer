@@ -228,8 +228,9 @@ head:
 ### Java NIO
 
 - [Java 中的 NIO 比传统 IO 强在哪里？](nio/why.md)
-- [如何给女朋友解释什么是 BIO、NIO 和 AIO？](nio/BIONIOAIO.md)
-- [Java NIO 快速入门(buffer缓冲区、Channel管道、Selector选择器)](nio/rumen.md)
+- [一文彻底解释清楚Java 中的BIO、NIO和AIO？](nio/BIONIOAIO.md)
+- [详解Java NIO的Buffer缓冲区和Channel管道](nio/rumen.md)
+- [详解 Java 中的Paths、Files](nio/paths-files.md)
 - [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
 - [使用Java NIO完成网络通信](nio/network-connect.md)
 
