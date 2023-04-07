@@ -288,6 +288,7 @@ export const sidebarConfig = sidebar({
           prefix: "thread/",
           children: [
           "wangzhe-thread",
+          "callable-future-futuretask",
           "thread-state-and-method",
           "thread-group-and-thread-priority",
           "why-need-thread",

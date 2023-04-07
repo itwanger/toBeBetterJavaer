@@ -1,5 +1,5 @@
 ---
-title: 阿里面试官👤：为什么要分库分表？
+title: 阿里面试官：为什么要分库分表？
 shortTitle: 为什么要分库分表？
 author: 苏三呀
 category:

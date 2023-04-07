@@ -254,6 +254,7 @@ head:
 ### Java并发编程
 
 - [室友打了一把王者就学会了创建Java线程的3种方式](thread/wangzhe-thread.md)
+- [聊聊可以返回结果的创建线程的三个关键类：Callable、Future和FutureTask](thread/callable-future-futuretask.md)
 - [Java线程的6种状态及切换(透彻讲解)](thread/thread-state-and-method.md)
 - [线程组是什么？线程优先级如何设置？](thread/thread-group-and-thread-priority.md)
 - [进程与线程的区别是什么？](thread/why-need-thread.md)
