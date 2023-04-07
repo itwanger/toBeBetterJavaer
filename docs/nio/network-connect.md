@@ -12,19 +12,112 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,nio,网络通信
 ---
 
+# 12.5 Paths 和 Files
+
 ## NIO基础继续讲解
 
-回到我们最开始的图：
+SocketChannel 和 ServerSocketChannel 是 NIO 在网络套接字应用中两个重要的类，[之前也曾体验过](https://tobebetterjavaer.com/nio/nio-better-io.html)，这里重点讲一下。
+
+SocketChannel 是一个可连接到 TCP 网络套接字的通道，用于非阻塞模式下的客户端网络通信。在非阻塞模式下，SocketChannel 在建立连接、读取和写入数据时都不会阻塞当前线程。SocketChannel 可以和 Selector 一起使用，让我们可以用单个线程处理多个客户端连接。
+
+Scatter 和 Gather 是 Java NIO 中两种高效的 I/O 操作，用于将数据分散到多个缓冲区或从多个缓冲区中收集数据。
+
+Scatter（分散）：它将从 Channel 读取的数据分散（写入）到多个缓冲区。这种操作可以在读取数据时将其分散到不同的缓冲区，有助于处理结构化数据。例如，我们可以将消息头、消息体和消息尾分别写入不同的缓冲区。
+
+Gather（聚集）：与 Scatter 相反，它将多个缓冲区中的数据聚集（读取）并写入到一个 Channel。这种操作允许我们在发送数据时从多个缓冲区中聚集数据。例如，我们可以将消息头、消息体和消息尾从不同的缓冲区中聚集到一起并写入到同一个 Channel。
+
+来写一个完整的 demo，先看 Server。
+
+```java
+// 创建一个ServerSocketChannel
+ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+serverSocketChannel.socket().bind(new InetSocketAddress(9000));
+
+// 接受连接
+SocketChannel socketChannel = serverSocketChannel.accept();
+
+// Scatter：分散读取数据到多个缓冲区
+ByteBuffer headerBuffer = ByteBuffer.allocate(128);
+ByteBuffer bodyBuffer = ByteBuffer.allocate(1024);
+
+ByteBuffer[] buffers = {headerBuffer, bodyBuffer};
+
+long bytesRead = socketChannel.read(buffers);
+
+// 输出缓冲区数据
+headerBuffer.flip();
+while (headerBuffer.hasRemaining()) {
+    System.out.print((char) headerBuffer.get());
+}
+
+System.out.println();
+
+bodyBuffer.flip();
+while (bodyBuffer.hasRemaining()) {
+    System.out.print((char) bodyBuffer.get());
+}
+
+// Gather：聚集数据从多个缓冲区写入到Channel
+ByteBuffer headerResponse = ByteBuffer.wrap("Header Response".getBytes());
+ByteBuffer bodyResponse = ByteBuffer.wrap("Body Response".getBytes());
+
+ByteBuffer[] responseBuffers = {headerResponse, bodyResponse};
+
+long bytesWritten = socketChannel.write(responseBuffers);
+
+// 关闭连接
+socketChannel.close();
+serverSocketChannel.close();
+```
+
+再来看 Client：
+
+```java
+// 创建一个SocketChannel
+SocketChannel socketChannel = SocketChannel.open();
+socketChannel.connect(new InetSocketAddress("localhost", 9000));
+
+// 发送数据到服务器
+String header = "Header Content";
+String body = "Body Content";
+
+ByteBuffer headerBuffer = ByteBuffer.wrap(header.getBytes());
+ByteBuffer bodyBuffer = ByteBuffer.wrap(body.getBytes());
+
+ByteBuffer[] buffers = {headerBuffer, bodyBuffer};
+socketChannel.write(buffers);
+
+// 从服务器接收数据
+ByteBuffer headerResponseBuffer = ByteBuffer.allocate(128);
+ByteBuffer bodyResponseBuffer = ByteBuffer.allocate(1024);
+
+ByteBuffer[] responseBuffers = {headerResponseBuffer, bodyResponseBuffer};
+
+long bytesRead = socketChannel.read(responseBuffers);
+
+// 输出接收到的数据
+headerResponseBuffer.flip();
+while (headerResponseBuffer.hasRemaining()) {
+    System.out.print((char) headerResponseBuffer.get());
+}
+
+bodyResponseBuffer.flip();
+while (bodyResponseBuffer.hasRemaining()) {
+    System.out.print((char) bodyResponseBuffer.get());
+}
+
+// 关闭连接
+socketChannel.close();
+```
+
+在这个示例中，我们使用了 Scattering 从 SocketChannel 分散读取数据到多个缓冲区，并使用 Gathering 将数据从多个缓冲区聚集写入到 SocketChannel。通过这种方式，我们可以方便地处理多个缓冲区中的数据。
 
 
+前面我们讲了 Java NIO 的文件 IO [FileChannel](https://tobebetterjavaer.com/nio/buffer-channel.html)，这篇我们来讲 Java NIO 的网络 IO：SocketChannel 和ServerSocketChannel。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nio/network-connect-bb1bd676-8aeb-4428-9498-230a05ee717d.jpg)
+以及异步的 AsynchronousSocketChannel 和AsynchronousServerSocketChannel。
 
-
-
-NIO被叫为 `no-blocking io`，其实是在**网络这个层次中理解的**，对于**FileChannel来说一样是阻塞**。
-
-我们前面也仅仅讲解了FileChannel，对于我们网络通信是还有几个Channel的~
+分别对应阻塞 IO 中对应的 Socket 和 ServerSocket
 
 
 

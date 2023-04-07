@@ -1,24 +1,25 @@
 ---
-title: 聊聊 Java 中的Paths、Files
+title: 聊聊 Java NIO 中的Paths 和 Files - 沉默王二 - java进阶之路
 shortTitle: Paths和Files
 category:
   - Java核心
 tag:
   - Java IO
-description: Java程序员进阶之路，小白的零基础Java教程，详解 File、Path、Paths、Files，操作文件不再难
+description: Paths 和 Files 是 Java NIO 中的两个核心类。Paths 提供了一系列静态方法，用于操作路径（Path 对象）。Files 类提供了丰富的文件操作方法，如文件的创建、删除、移动、复制、读取和写入等。Files 还支持文件遍历（如 walkFileTree 方法），可以处理文件目录树。
+author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,file,paths,files,path,java文件,java目录,java文件增删改查,java file,java paths,java files
+      content: Java,nio,paths,files,path
 ---
 
-# 12.4 Paths和Files
+# 12.4 Paths 和 Files
 
-Paths和Files在 Java 7 的时候引入，作为对 `java.io.File` 类的补充和改进。
+Paths 和 Files 在 Java 7 的时候引入，作为对 [`java.io.File` 类](https://tobebetterjavaer.com/io/file-path.html)的补充和改进。
 
 ### Paths 类
 
-Paths类主要用于操作文件和目录路径。它提供了一些静态方法，用于创建`java.nio.file.Path`实例，代表文件系统中的路径。
+Paths 类主要用于操作文件和目录路径。它提供了一些静态方法，用于创建`java.nio.file.Path`实例，代表文件系统中的路径。
 
 下面是 Paths 的一个示例。
 
@@ -30,7 +31,7 @@ Path path = Paths.get("example.txt");
 Path absolutePath = Paths.get("/home/user/example.txt");
 ```
 
-java.nio.file.Path接口在Java NIO.2中代表一个文件系统中的路径。它提供了一系列方法来操作和查询路径。
+java.nio.file.Path 接口在 Java NIO.2 中代表一个文件系统中的路径。它提供了一系列方法来操作和查询路径。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404181334.png)
 
@@ -66,7 +67,7 @@ Path targetPath = Paths.get("/docs/imgs/itwanger");
 Path relativePath = basePath.relativize(targetPath);
 System.out.println("Relative path: " + relativePath);
 ```
- 
+
 ### Files 类
 
 `java.nio.file.Files`类提供了大量静态方法，用于处理文件系统中的文件和目录。这些方法包括文件的创建、删除、复制、移动等操作，以及读取和设置文件属性。
@@ -182,7 +183,7 @@ StandardOpenOption 枚举类提供了以下几个选项：
 - READ：以读取模式打开文件。
 - WRITE：以写入模式打开文件。
 - APPEND：以追加模式打开文件。
-- TRUNCATE_EXISTING：在打开文件时，截断文件的内容，使其长度为0。仅适用于 WRITE 或 APPEND 模式。
+- TRUNCATE_EXISTING：在打开文件时，截断文件的内容，使其长度为 0。仅适用于 WRITE 或 APPEND 模式。
 - CREATE：当文件不存在时创建文件。如果文件已存在，则打开文件。
 - CREATE_NEW：当文件不存在时创建文件。如果文件已存在，抛出 FileAlreadyExistsException。
 - DELETE_ON_CLOSE：在关闭通道时删除文件。
@@ -291,10 +292,10 @@ public class WalkFileTreeExample {
 
 其中，FileVisitResult 枚举包含以下四个选项：
 
-*   CONTINUE ： 继续
-*   TERMINATE ： 终止
-*   SKIP\_SIBLINGS ： 跳过兄弟节点，然后继续
-*   SKIP\_SUBTREE ： 跳过子树（不访问此目录的条目），然后继续，仅在 preVisitDirectory 方法返回时才有意义，除此以外和 CONTINUE 相同。
+- CONTINUE ： 继续
+- TERMINATE ： 终止
+- SKIP_SIBLINGS ： 跳过兄弟节点，然后继续
+- SKIP_SUBTREE ： 跳过子树（不访问此目录的条目），然后继续，仅在 preVisitDirectory 方法返回时才有意义，除此以外和 CONTINUE 相同。
 
 #### 搜索文件
 
@@ -358,9 +359,9 @@ public class FindFileWithWalkFileTree {
 
 Paths 和 Files 是 Java NIO 中的两个核心类。Paths 提供了一系列静态方法，用于操作路径（Path 对象）。它可以将字符串或 URI 转换为 Path 对象，方便后续操作。Files 类提供了丰富的文件操作方法，如文件的创建、删除、移动、复制、读取和写入等。这些方法支持各种选项和属性，如覆盖、保留属性和符号链接处理。Files 还支持文件遍历（如 walkFileTree 方法），可以处理文件目录树。总之，Paths 和 Files 为文件和目录操作提供了简洁、高效的方法。
 
----------
+---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
