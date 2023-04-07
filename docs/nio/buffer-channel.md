@@ -334,9 +334,170 @@ ByteBuffer.allocate和ByteBuffer.allocateDirect直接的差异。
 
 非直接缓冲区存储在JVM内部，数据需要从应用程序（Java）复制到非直接缓冲区，再复制到内核缓冲区，最后发送到设备（磁盘/网络）。而对于直接缓冲区，数据可以直接从应用程序（Java）复制到内核缓冲区，无需经过JVM的非直接缓冲区。
 
+#### 异步文件通道 AsynchronousFileChannel
+
+AsynchronousFileChannel 是 Java 7 引入的一个异步文件通道类，提供了对文件的异步读、写、打开和关闭等操作。
+
+可以通过 `AsynchronousFileChannel.open()` 方法打开一个异步文件通道，该方法接受一个 [Path 对象](https://tobebetterjavaer.com/nio/paths-files.html)和一组打开选项（如 StandardOpenOption.READ、StandardOpenOption.WRITE 等）作为参数。
+
+```java
+Path file = Paths.get("example.txt");
+AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(file, StandardOpenOption.READ, StandardOpenOption.WRITE);
+```
+
+AsynchronousFileChannel 提供了两种异步操作的方式：
+
+**①、Future 方式**：使用 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来跟踪异步操作的完成情况。当我们调用一个异步操作（如 `read()` 或 `write()`）时，它会立即返回一个 Future 对象。可以使用这个对象来检查操作是否完成，以及获取操作的结果。这种方式适用于不需要在操作完成时立即执行其他操作的场景。
+
+举个例子：
+
+```java
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+long position = 0;
+Future<Integer> result = fileChannel.read(buffer, position);
+
+while (!result.isDone()) {
+    // 执行其他操作
+}
+
+int bytesRead = result.get();
+System.out.println("Bytes read: " + bytesRead);
+```
+
+**②、CompletionHandler 方式**，使用一个实现了 CompletionHandler 接口的对象来处理异步操作的完成。我们需要提供一个 CompletionHandler 实现类，重写 `completed()` 和 `failed()` 方法，分别处理操作成功和操作失败的情况。当异步操作完成时，系统会自动调用相应的方法。这种方式适用于需要在操作完成时立即执行其他操作的场景。
+
+举个例子：
+
+```java
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+long position = 0;
+
+fileChannel.read(buffer, position, buffer, new CompletionHandler<Integer, ByteBuffer>() {
+    @Override
+    public void completed(Integer result, ByteBuffer attachment) {
+        System.out.println("Bytes read: " + result);
+    }
+
+    @Override
+    public void failed(Throwable exc, ByteBuffer attachment) {
+        System.err.println("Read failed");
+        exc.printStackTrace();
+    }
+});
+```
+
+来看完整的示例，采用 Future 的形式。
+
+```java
+Path path = Paths.get("docs/配套教程.md");
+
+try (AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ)) {
+    ByteBuffer buffer = ByteBuffer.allocate(1024);
+    long position = 0;
+
+    while (true) {
+        Future<Integer> result = fileChannel.read(buffer, position);
+
+        while (!result.isDone()) {
+            // 在这里可以执行其他任务，例如处理其他 I/O 操作
+        }
+
+        int bytesRead = result.get();
+        if (bytesRead <= 0) {
+            break;
+        }
+
+        position += bytesRead;
+        buffer.flip();
+
+        byte[] data = new byte[buffer.limit()];
+        buffer.get(data);
+        System.out.println(new String(data));
+
+        buffer.clear();
+    }
+}
+```
+
+在这个示例中，我们使用 `AsynchronousFileChannel.read()` 方法发起异步读取操作。这个方法会返回一个 `Future<Integer>` 对象，表示读取操作的结果。我们可以通过调用 `isDone()` 方法来检查异步操作是否完成。完成后，我们可以通过调用 `get()` 方法获取实际读取的字节数。
+
+然后我们来看 CompletionHandler 接口的形式：
+
+```java
+public static void readAllBytes(Path path) throws IOException, InterruptedException {
+    AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);
+    ByteBuffer buffer = ByteBuffer.allocate(1024);
+    AtomicLong position = new AtomicLong(0);
+    CountDownLatch latch = new CountDownLatch(1);
+
+    fileChannel.read(buffer, position.get(), null, new CompletionHandler<Integer, Object>() {
+        @Override
+        public void completed(Integer bytesRead, Object attachment) {
+            if (bytesRead > 0) {
+                position.addAndGet(bytesRead);
+                buffer.flip();
+                byte[] data = new byte[buffer.limit()];
+                buffer.get(data);
+                System.out.print(new String(data));
+                buffer.clear();
+
+                fileChannel.read(buffer, position.get(), attachment, this);
+            } else {
+                latch.countDown();
+                try {
+                    fileChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override
+        public void failed(Throwable exc, Object attachment) {
+            System.out.println("Error: " + exc.getMessage());
+            latch.countDown();
+        }
+    });
+
+    latch.await();
+}
+```
+
+1、在 readAllBytes 方法中，我们使用 `AsynchronousFileChannel.open()` 方法以读取模式打开异步文件通道。
+
+2、创建一个大小为 1024 的 ByteBuffer 来存储从文件中读取的数据。
+
+3、使用 [AtomicLong](https://tobebetterjavaer.com/thread/atomic.html) 类型的 position 变量来记录当前读取的文件位置。初始值为 0。
+
+4、创建一个 [CountDownLatch](https://tobebetterjavaer.com/thread/CountDownLatch.html) 对象，用于在异步操作完成时通知主线程。初始值为 1。
+
+5、使用 `fileChannel.read()` 方法启动异步读取操作。这个方法的参数包括：用于存储数据的缓冲区、当前读取位置、附加对象（在这个例子中不需要，所以传递 null）以及一个实现了 CompletionHandler 接口的对象，用于在读取操作完成时回调。
+
+6、CompletionHandler 接口有两个方法：`completed()` 和 `failed()`。在读取操作成功完成时调用 `completed()` 方法；如果读取操作失败，调用 `failed()` 方法。
+
+7、在 `completed()` 方法中，我们首先检查 bytesRead（本次读取的字节数）是否大于 0。如果大于 0，说明还有数据需要读取。
+
+- 更新 position 变量，将其增加 bytesRead。
+- 将缓冲区翻转（`flip()`），以便我们可以从中读取数据。
+- 创建一个新的字节数组，其大小等于缓冲区的限制（`limit()`）。
+- 从缓冲区中获取数据并将其存储在新创建的字节数组中。
+- 将字节数组转换为字符串并输出。
+- 清除缓冲区，以便我们可以继续读取更多数据。
+- 再次调用 fileChannel.read() 方法，以继续从文件中读取数据。
+
+8、如果 bytesRead 等于或小于 0，说明我们已经读取完文件中的所有数据。此时，我们需要：调用 `latch.countDown()` 方法，以通知主线程异步操作已完成。关闭 fileChannel。
+
+9、如果读取操作失败，我们将在 `failed()` 方法中输出错误信息并调用 `latch.countDown()` 方法通知主线程。
+
+10、最后，我们调用 `latch.await()` 方法来等待异步操作完成。主线程将在此处阻塞，直到 latch 的计数变为 0。
+
 ### 小结
 
-Java NIO 中的 Buffer 和 Channel 是 NIO 系统的核心组件。Buffer 负责存储数据，提供了对数据的读写操作。它有多种类型，如 ByteBuffer、CharBuffer、IntBuffer 等，以支持不同的数据类型。Channel 代表了与 I/O 设备（如文件或套接字）之间的连接。它提供了从源设备到 Buffer 的数据读取能力和从 Buffer 到目标设备的数据写入能力。Channel 可以是可读、可写或同时可读写的。NIO 使用这两个组件进行高效的数据传输，以提高 I/O 操作的性能。
+Java NIO 中的 Buffer 和 Channel 是 NIO 系统的核心组件。Buffer 负责存储数据，提供了对数据的读写操作。它有多种类型，如 ByteBuffer、CharBuffer、IntBuffer 等，以支持不同的数据类型。
+
+Channel 代表了与 I/O 设备（如文件或套接字）之间的连接。它提供了从源设备到 Buffer 的数据读取能力和从 Buffer 到目标设备的数据写入能力。Channel 可以是可读、可写或同时可读写的，我们详细介绍了文件通道 FileChannel 和异步文件通道 AsynchronousFileChannel。
+
+总之，NIO 使用 Buffer 和 Channel 这两个组件来进行高效的数据传输，以提高 I/O 操作的性能。
 
 > 参考链接：[https://www.zhihu.com/question/29005375/answer/667616386](https://www.zhihu.com/question/29005375/answer/667616386)，整理：沉默王二
 
