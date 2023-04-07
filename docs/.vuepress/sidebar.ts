@@ -255,11 +255,12 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           prefix: "nio/",
           children: [
-            "why",
-            "rumen",
+            "nio-better-io",
+            "BIONIOAIO",
+            "buffer-channel",
+            "paths-files",
             "moxing",
             "network-connect",
-            "BIONIOAIO",
           ],
         },
         {
