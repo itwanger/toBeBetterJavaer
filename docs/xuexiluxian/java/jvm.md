@@ -17,6 +17,10 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
 
+如果觉得这本书太厚了，可以阅读我公众号上的这篇文章，对 JVM 会有一个系统的梳理。
+
+[JVM 核心知识点总结](https://mp.weixin.qq.com/s/zOdiefZpkpa2dxpcBLlc6A)
+
 在金三银四/金九银十的跳槽季中，很多小伙伴都会忍不住蠢蠢欲动，其中 JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家。
 
 ## 一、为什么要学习 JVM？

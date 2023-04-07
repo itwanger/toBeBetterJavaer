@@ -83,6 +83,12 @@ head:
 
 >视频地址：[https://www.bilibili.com/video/BV16J411h7Rd](https://www.bilibili.com/video/BV16J411h7Rd)
 
+还有尚硅谷宋红康老师讲的这个视频。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230406095805.png)
+
+>视频地址：[https://www.bilibili.com/video/BV1Kw411Z7dF/](https://www.bilibili.com/video/BV1Kw411Z7dF/)
+
 ### **3）书籍**
 
 纸质书只推荐一本《[Java 并发编程实战](https://book.douban.com/subject/10484692/)》，豆瓣评分 9.0。不过这本书确实有点老了，基本上是按照 Java 6 来讲解的，希望出版社能早点出 2.0 版。
