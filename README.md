@@ -224,7 +224,7 @@
 - [详解Java NIO的Buffer缓冲区和Channel通道](docs/nio/buffer-channel.md)
 - [聊聊 Java NIO中的Paths、Files](docs/nio/paths-files.md)
 - [Java NIO 网络编程实践：从入门到精通](docs/nio/network-connect.md)
-- [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](docs/nio/moxing.md)
+- [一文彻底理解Java IO模型](docs/nio/moxing.md)
 
 ## 重要知识点
 

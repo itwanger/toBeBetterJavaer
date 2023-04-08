@@ -1,5 +1,5 @@
 ---
-title: 一文彻底解释清楚Java 中的NIO、BIO和AIO - 沉默王二 - java进阶之路
+title: 一文彻底解释清楚Java 中的NIO、BIO和AIO
 shortTitle: NIO和BIO、AIO的区别
 category:
   - Java核心

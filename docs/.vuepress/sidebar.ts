@@ -259,8 +259,8 @@ export const sidebarConfig = sidebar({
             "BIONIOAIO",
             "buffer-channel",
             "paths-files",
-            "moxing",
             "network-connect",
+            "moxing",
           ],
         },
         {

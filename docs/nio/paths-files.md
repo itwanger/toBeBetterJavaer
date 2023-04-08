@@ -1,5 +1,5 @@
 ---
-title: 聊聊 Java NIO 中的Paths 和 Files - 沉默王二 - java进阶之路
+title: 聊聊 Java NIO 中的Paths 和 Files
 shortTitle: Paths和Files
 category:
   - Java核心
