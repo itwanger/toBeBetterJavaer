@@ -1,15 +1,15 @@
 ---
-title: 安装Java开发工具包JDK（Windows+macOS）
+title: Windows和macOS下安装JDK教程：原生安装与包管理器（高级）
 shortTitle: 安装JDK
 category:
   - Java核心
 tag:
   - Java概述
-description: Java程序员进阶之路，小白的零基础Java教程，JDK的安装和配置
+description: 本文详细介绍了在Windows和macOS平台上安装JDK的两种方法：使用原始安装包手动配置环境变量和通过包管理器（如Chocolatey和Homebrew）一键式安装。我们将对比这两种方法的优缺点，帮助您选择最适合自己的JDK安装方式。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JDK 安装,jdk,java JDK,java jdk安装
+      content: JDK安装, Windows, macOS, Chocolatey, Homebrew, 环境变量, Java开发环境, 包管理器
 ---
 
 # 2.2 安装 JDK
@@ -122,32 +122,49 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 ```
 
-通过 `vim ~/.zshrc`
+通过 `vim ~/.zshrc` 把以上内容添加到配置文件中并保存（source 下可以立即生效）
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408165518.png)
 
-添加：
+之后通过以下方式添加 JDK 到 jenv 中：
 
 ```
 jenv add /usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home/
 ```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-b126c35d-edab-48a9-9543-831cfd0a51c6.png)
+JDK 的安装路径可以通过两种方法 get 到。
 
-JDK 的安装路径可以通过下图的位置查找。
+一般情况下，JDK 的默认安装路径为 `/Library/Java/JavaVirtualMachines/`，进入该目录就可以看到。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-a32accec-4044-480c-a8c8-3781bc5048b5.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408173945.png)
 
-管理：
+还可以通过以下命令获取当前安装的 JDK 路径。
 
 ```
-jenv versions
-jenv global 17.0.3
+/usr/libexec/java_home
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408174048.png)
+
+添加 JDK 的路径后可以通过 `jenv versions` 查看所有添加到 jenv 进行管理的 JDK 版本。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408174158.png)
+
+带 `*` 的表示当前默认的 JDK 版本。
+
+可以通过 `jenv global xxx` 切换全局的 JDK 版本。
+
+```
+jenv global 17
 ```
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
 
-是不是贼方便？再也不用整这 `echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc` 玩意了！爽，实在是爽！
+是不是贼方便？再也不用整这 `echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc` 玩意添加 JDK 到 PATH 环境变量了！
+
+想用哪个 JDK 版本可以随时切换。
+
+爽，实在是爽！
 
 ---
 
