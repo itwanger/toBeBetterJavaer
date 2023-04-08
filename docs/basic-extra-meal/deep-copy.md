@@ -1,29 +1,33 @@
 ---
-title: 一文彻底讲明白的Java中的浅拷贝与深拷贝
-shortTitle: Java中的浅拷贝与深拷贝
+title: 深入理解Java浅拷贝与深拷贝：实战案例与技巧
+shortTitle: 深入理解Java浅拷贝与深拷贝
 category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，一文彻底讲明白的Java中的浅拷贝与深拷贝
+description: 本文详细讨论了Java中的浅拷贝和深拷贝概念，解析了它们如何在实际编程中应用。文章通过实例演示了如何实现浅拷贝与深拷贝，以帮助读者更好地理解这两种拷贝方式在Java编程中的作用与应用场景。
+author: 沉默王二
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,深拷贝,浅拷贝
 ---
 
+# 13.4 深入理解Java浅拷贝与深拷贝
+
 “哥，听说浅拷贝和深拷贝是 Java 面试中经常会被问到的一个问题，是这样吗？”
 
-“还真的是，而且了解浅拷贝和深拷贝的原理，对 Java 是值传递还是引用传递也会有更深的理解。”我肯定地回答。
+“还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://tobebetterjavaer.com/basic-extra-meal/pass-by-value.html)也会有更深的理解。”我肯定地回答。
 
 “不管是浅拷贝还是深拷贝，都可以通过调用 Object 类的 `clone()` 方法来完成。”我一边说，一边打开 Intellij IDEA，并找到了 `clone()` 方法的源码。
 
 ```java
-@HotSpotIntrinsicCandidate
 protected native Object clone() throws CloneNotSupportedException;
 ```
 
-其中 `@HotSpotIntrinsicCandidate` 是 Java 9 引入的一个注解，被它标注的方法，在 HotSpot 虚拟机中会有一套高效的实现。需要注意的是，`clone()` 方法同时是一个本地（`native`）方法，它的具体实现会交给 HotSpot 虚拟机，那就意味着虚拟机在运行该方法的时候，会将其替换为更高效的 C/C++ 代码，进而调用操作系统去完成对象的克隆工作。
+需要注意的是，`clone()` 方法同时是一个本地（`native`）方法，它的具体实现会交给 HotSpot 虚拟机，那就意味着虚拟机在运行该方法的时候，会将其替换为更高效的 C/C++ 代码，进而调用操作系统去完成对象的克隆工作。
+
+>Java 9 后，该方法会被标注 `@HotSpotIntrinsicCandidate` 注解，被该注解标注的方法，在 HotSpot 虚拟机中会有一套高效的实现。
 
 “哥，那你就先说浅拷贝吧！”
 
@@ -47,7 +51,6 @@ class Writer implements Cloneable{
 ```
 
 Writer 类有两个字段，分别是 int 类型的 age，和 String 类型的 name。然后重写了 `toString()` 方法，方便打印对象的具体信息。
-
 
 “为什么要实现 Cloneable 接口呢？”三妹开启了十万个为什么的模式。
 
@@ -314,9 +317,9 @@ writer2：Writer@6d00a15d age=18, name='二哥', book=Book@51efea79 bookName='�
 
 “那有没有好的办法呢？”三妹急切的问。
 
-“当然有了，利用序列化。”我胸有成竹的回答，“序列化是将对象写到流中便于传输，而反序列化则是将对象从流中读取出来。”
+“当然有了，利用[序列化](https://tobebetterjavaer.com/io/serialize.html)。”我胸有成竹的回答，“序列化是将对象写到流中便于传输，而反序列化则是将对象从流中读取出来。”
 
-“写入流中的对象就是对原始对象的拷贝。需要注意的是，每个要序列化的类都要实现 Serializable 接口，该接口和 Cloneable 接口类似，都是标记型接口。”
+“写入流中的对象就是对原始对象的拷贝。需要注意的是，每个要序列化的类都要实现 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，该接口和 Cloneable 接口类似，都是标记型接口。”
 
 来看例子。
 

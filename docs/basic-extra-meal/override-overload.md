@@ -296,6 +296,366 @@ class Vehicle {
 
 “Bike 重写了 `run()` 方法，也就意味着，Bike 可以跑出自己的风格。”
 
+好，接下来说一下重写时应当遵守的 12 条规则，应当谨记哦。
+
+#### **规则一：只能重写继承过来的方法**。
+
+因为重写是在子类重新实现从父类[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
+
+Animal 类有 `move()`、`eat()` 和 `sleep()` 三个方法：
+
+```java
+public class Animal {
+    public void move() { }
+
+    protected void eat() { }
+    
+    void sleep(){ }
+}
+```
+
+Dog 类来重写这三个方法：
+
+```java
+public class Dog extends Animal {
+    public void move() { }
+
+    protected void eat() { }
+
+    void sleep(){ }
+}
+```
+
+OK，完全没有问题。但如果父类中的方法是 private 的，就行不通了。
+
+```java
+public class Animal {
+    private void move() { }
+}
+```
+
+此时，Dog 类中的 `move()` 方法就不再是一个重写方法了，因为父类的 `move()` 方法是 private 的，对子类并不可见。
+
+```java
+public class Dog extends Animal {
+    public void move() { }
+}
+```
+
+#### **规则二：final、static 的方法不能被重写**。
+
+一个方法是 [final](https://tobebetterjavaer.com/oo/final.html) 的就意味着它无法被子类继承到，所以就没办法重写。
+
+```java
+public class Animal {
+    final void move() { }
+}
+```
+
+由于父类 Animal 中的 `move()` 是 final 的，所以子类在尝试重写该方法的时候就出现编译错误了！
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
+
+同样的，如果一个方法是 [static](https://tobebetterjavaer.com/oo/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
+
+```java
+public class Animal {
+    final void move() { }
+}
+```
+
+重写的目的在于根据对象的类型不同而表现出多态，而静态方法不需要创建对象就可以使用。没有了对象，重写所需要的“对象的类型”也就没有存在的意义了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
+
+#### **规则三：重写的方法必须有相同的参数列表**。
+
+```java
+public class Animal {
+    void eat(String food) { }
+}
+```
+
+Dog 类中的 `eat()` 方法保持了父类方法 `eat()` 的同一个调调，都有一个参数——String 类型的 food。
+
+```java
+public class Dog extends Animal {
+    public void eat(String food) { }
+}
+```
+
+一旦子类没有按照这个规则来，比如说增加了一个参数：
+
+```java
+public class Dog extends Animal {
+    public void eat(String food, int amount) { }
+}
+```
+
+这就不再是重写的范畴了，当然也不是重载的范畴，因为重载考虑的是同一个类。
+
+**规则四：重写的方法必须返回相同的类型**。
+
+父类没有返回类型：
+
+```java
+public class Animal {
+    void eat(String food) { }
+}
+```
+
+子类尝试返回 String：
+
+```java
+public class Dog extends Animal {
+    public String eat(String food) {
+        return null;
+    }
+}
+```
+
+于是就编译出错了（返回类型不兼容）。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
+
+#### **规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
+
+可以这样来理解：
+
+- 如果被重写的方法是 default，那么重写的方法可以是 default、protected 或者 public。
+- 如果被重写的方法是 protected，那么重写的方法只能是 protected 或者 public。
+- 如果被重写的方法是 public， 那么重写的方法就只能是 public。
+
+举个例子，父类中的方法是 protected：
+
+```java
+public class Animal {
+    protected void eat() { }
+}
+```
+
+子类中的方法可以是 public：
+
+```java
+public class Dog extends Animal {
+    public void eat() { }
+}
+```
+
+如果子类中的方法用了更严格的权限修饰符，编译器就报错了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
+
+#### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
+
+举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何[异常](https://tobebetterjavaer.com/exception/gailan.html)。这条规则只适用于可检查的异常。
+
+可检查（checked）异常必须在源代码中显式地进行捕获处理，不检查（unchecked）异常就是所谓的运行时异常，比如说 NullPointerException、ArrayIndexOutOfBoundsException 之类的，不会在编译器强制要求。
+
+父类抛出 IOException：
+
+```java
+public class Animal {
+    protected void eat() throws IOException { }
+}
+```
+
+子类抛出 FileNotFoundException 是可以满足重写的规则的，因为 FileNotFoundException 是 IOException 的子类。
+
+```java
+public class Dog extends Animal {
+   public void eat() throws FileNotFoundException { }
+}
+```
+
+如果子类抛出了一个新的异常，并且是一个 checked 异常：
+
+```java
+public class Dog extends Animal {
+   public void eat() throws FileNotFoundException, InterruptedException { }
+}
+```
+
+那编译器就会提示错误：
+
+```
+Error:(9, 16) java: com.itwanger.overriding.Dog中的eat()无法覆盖com.itwanger.overriding.Animal中的eat()
+  被覆盖的方法未抛出java.lang.InterruptedException
+```
+
+但如果子类抛出的是一个 unchecked 异常，那就没有冲突：
+
+```java
+public class Dog extends Animal {
+   public void eat() throws FileNotFoundException, IllegalArgumentException { }
+}
+```
+
+如果子类抛出的是一个更高级别的异常：
+
+```java
+public class Dog extends Animal {
+   public void eat() throws Exception { }
+}
+```
+
+编译器同样会提示错误，因为 Exception 是 IOException 的父类。
+
+```
+Error:(9, 16) java: com.itwanger.overriding.Dog中的eat()无法覆盖com.itwanger.overriding.Animal中的eat()
+  被覆盖的方法未抛出java.lang.Exception
+```
+
+#### **规则七：可以在子类中通过 super 关键字来调用父类中被重写的方法**。
+
+子类继承父类的方法而不是重新实现是很常见的一种做法，在这种情况下，可以按照下面的形式调用父类的方法：
+
+```java
+super.overriddenMethodName();
+```
+
+来看例子。
+
+```java
+public class Animal {
+    protected void eat() { }
+}
+```
+
+子类重写了 `eat()` 方法，然后在子类的 `eat()` 方法中，可以在方法体的第一行通过 `super.eat()` 调用父类的方法，然后再增加属于自己的代码。
+
+```java
+public class Dog extends Animal {
+   public void eat() {
+       super.eat();
+       // Dog-eat
+   }
+}
+```
+
+#### **规则八：构造方法不能被重写**。
+
+因为[构造方法](https://tobebetterjavaer.com/oo/construct.html)很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
+
+#### **规则九：如果一个类继承了抽象类，抽象类中的抽象方法必须在子类中被重写**。
+
+先来看这样一个接口：
+
+```java
+public interface Animal {
+    void move();
+}
+```
+
+接口中的方法默认都是抽象方法，通过反编译是可以看得到的：
+
+```java
+public interface Animal
+{
+    public abstract void move();
+}
+```
+
+如果一个抽象类实现了 Animal 接口，`move()` 方法不是必须被重写的：
+
+```java
+public abstract class AbstractDog implements Animal {
+    protected abstract void bark();
+}
+```
+
+但如果一个类继承了抽象类 AbstractDog，那么 Animal 接口中的 `move()` 方法和抽象类 AbstractDog 中的抽象方法 `bark()` 都必须被重写：
+
+```java
+public class BullDog extends AbstractDog {
+ 
+    public void move() {}
+ 
+    protected void bark() {}
+}
+```
+
+#### **规则十：synchronized 关键字对重写规则没有任何影响**。
+
+[synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
+
+#### **规则十一：strictfp 关键字对重写规则没有任何影响**。
+
+如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 strictfp 关键字。因此 strictfp 关键字和重写规则无关。
+
+strictfp（strict floating-point）是 Java 中的一个关键字，用于限制浮点数计算的精度和舍入行为。当你在类、接口或方法上使用 strictfp 时，该范围内的所有浮点数计算将遵循 IEEE 754 标准的规定，以确保跨平台的浮点数计算的一致性。
+
+不同的硬件平台和 JVM 实现可能对浮点数计算的精度和舍入行为有差异，这可能导致在不同环境中运行相同的浮点数计算代码产生不同的结果。使用 strictfp 关键字可以确保在所有平台上获得相同的浮点数计算结果，避免计算结果的不一致问题。
+
+但请注意，使用 strictfp 可能会对性能产生影响，因为可能需要更多的计算和转换来确保遵循 IEEE 754 标准。因此，在使用 strictfp 时，需要权衡精度和一致性与性能之间的关系。
+
+```java
+public strictfp class MyClass {
+    public static void main(String[] args) {
+        double a = 0.1;
+        double b = 0.2;
+        double result = a + b;
+        System.out.println("Result: " + result);
+    }
+}
+```
+
+输出：
+
+```
+Result: 0.30000000000000004
+```
+
+在这个示例中，MyClass 类被声明为 strictfp，因此类中的所有浮点数计算都将遵循 IEEE 754 标准。
+
+在大多数现代操作系统上，使用 strictfp 可能不会产生显著差异，因为大家都遵循 IEEE 754 标准，除非是一些较旧的硬件平台。
+
+IEEE 754 标准（IEEE Standard for Floating-Point Arithmetic）是一个定义浮点数表示和运算的国际标准。由国际电气和电子工程师协会（IEEE）制定，首次发布于1985年。
+
+IEEE 754 标准主要规定了以下几个方面：
+
+浮点数表示：标准定义了两种浮点数格式，单精度（32位）和双精度（64位）。这两种格式分别由符号位、指数位和尾数位组成，用于表示浮点数的大小和精度。
+
+四舍五入和舍入模式：标准定义了多种舍入模式，例如向最接近的数舍入（Round to Nearest, Ties to Even）、向零舍入（Round toward Zero）、向正无穷舍入（Round toward +∞）和向负无穷舍入（Round toward -∞）等。这些模式指导了浮点数计算过程中如何处理精度损失和舍入误差。
+
+特殊值：标准定义了一些特殊的浮点数值，如正无穷（+∞）、负无穷（-∞）和非数值（NaN）。这些特殊值用于表示浮点数计算中可能出现的溢出、下溢和未定义结果等情况。
+
+浮点数运算：标准规定了浮点数的基本运算（加、减、乘、除）和比较运算（等于、不等于、大于、小于、大于等于、小于等于）的行为和结果。这些运算需要遵循标准中规定的表示、舍入和特殊值处理规则。
+
+来看示例
+
+```java
+public class Ieee754Demo {
+
+    public static void main(String[] args) {
+        float a = 0.1f;
+        float b = 0.2f;
+        float c = a + b;
+
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = a + b = " + c);
+
+        double x = 1.0 / 0.0;
+        double y = -1.0 / 0.0;
+        double z = 0.0 / 0.0;
+
+        System.out.println("x = 1.0 / 0.0 = " + x);
+        System.out.println("y = -1.0 / 0.0 = " + y);
+        System.out.println("z = 0.0 / 0.0 = " + z);
+    }
+}
+```
+
+输出结果：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/override-overload-20230408151129.png)
+
+我们可以看到 IEEE 754 标准中的浮点数表示和运算：
+
+- 单精度浮点数的加法：变量 a 和 b 分别存储了 0.1 和 0.2，它们的和 c 等于 0.3。由于浮点数表示的精度限制，c 的实际值可能与理论值略有误差。
+- 特殊值：变量 x、y 和 z 分别存储了正无穷（+∞）、负无穷（-∞）和非数值（NaN）。这些特殊值是由除法运算产生的，当被除数为 0 或结果无法表示时，会返回相应的特殊值。
+
 ### 03、总结
 
 “好了，三妹，我来简单做个总结。”我瞥了一眼电脑右上角的时钟，离三妹离开的时间不到 10 分钟了。

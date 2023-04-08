@@ -12,11 +12,13 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,hashcode,equals
 ---
 
+# 13.5 为什么重写equals的时候必须重写hashCode
+
 “二哥，我在读《Effective Java》 的时候，第 11 条规约说重写 equals 的时候必须要重写 hashCode 方法，这是为什么呀？”三妹单刀直入地问。
 
 “三妹啊，这个问题问得非常好，因为它也是面试中经常考的一个知识点。今天哥就带你来梳理一下。”我说。
 
-Java 是一门面向对象的编程语言，所有的类都会默认继承自 Object 类，而 Object 的中文意思就是“对象”。
+Java 是一门面向对象的编程语言，所有的类都会默认继承自 [Object 类](https://tobebetterjavaer.com/oo/object-class.html)，而 Object 的中文意思就是“对象”。
 
 Object 类中有这么两个方法：
 
@@ -24,14 +26,15 @@ Object 类中有这么两个方法：
 public native int hashCode();
 
 public boolean equals(Object obj) {
-        return (this == obj);
+    return (this == obj);
 }
 ```
-1）hashCode 方法
+
+**1）hashCode 方法**
 
 这是一个本地方法，用来返回对象的哈希值（一个整数）。在 Java 程序执行期间，对同一个对象多次调用该方法必须返回相同的哈希值。
 
-2）equals 方法
+**2）equals 方法**
 
 对于任何非空引用 x 和 y，当且仅当 x 和 y 引用的是同一个对象时，equals 方法才返回 true。
 
@@ -41,13 +44,13 @@ public boolean equals(Object obj) {
 
 第一，如果两个对象调用 equals 方法返回的结果为 true，那么两个对象调用 hashCode 方法返回的结果也必然相同——来自 hashCode 方法的 doc 文档。
 
-第二，每当重写 equals 方法时，hashCode 方法也需要重写，以便维护上一条规约。
+第二，每当重写 [equals 方法](https://tobebetterjavaer.com/string/equals.html)时，[hashCode 方法](https://tobebetterjavaer.com/basic-extra-meal/hashcode.html)也需要重写，以便维护上一条规约。
 
 “哦，这样讲的话，两个方法确实关联上了，但究竟是为什么呢？”三妹抛出了终极一问。
 
-“hashCode 方法的作用是用来获取哈希值，而该哈希值的作用是用来确定对象在哈希表中的索引位置。”我说。
+“hashCode 方法的作用是用来获取哈希值，而该哈希值的作用是用来确定[对象在哈希表中的索引位置（HashMap 的时候会讲）](https://tobebetterjavaer.com/collection/hashmap.html)。”我说。
 
-哈希表的典型代表就是 HashMap，它存储的是键值对，能根据键快速地检索出对应的值。
+哈希表的典型代表就是 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)，它存储的是键值对，能根据键快速地检索出对应的值。
 
 ```java
 public V get(Object key) {
@@ -61,14 +64,20 @@ public V get(Object key) {
 ```java
 final HashMap.Node<K,V> getNode(int hash, Object key) {
     HashMap.Node<K,V>[] tab; HashMap.Node<K,V> first, e; int n; K k;
+    // 判断 HashMap 的 table 是否为 null 以及 table 长度是否大于 0
     if ((tab = table) != null && (n = tab.length) > 0 &&
+            // 根据 hash 值计算出在 table 中的索引位置，并获取第一个节点
             (first = tab[(n - 1) & hash]) != null) {
-        if (first.hash == hash && // always check first node
+        // 判断第一个节点的 hash 值是否与给定 hash 相等，如果相等，则检查 key 是否相等
+        if (first.hash == hash &&
                 ((k = first.key) == key || (key != null && key.equals(k))))
             return first;
+        // 如果不相等，获取当前节点的下一个节点
         if ((e = first.next) != null) {
+            // 如果当前节点为 TreeNode 类型（红黑树），则调用 TreeNode 的 getTreeNode 方法查找
             if (first instanceof HashMap.TreeNode)
                 return ((HashMap.TreeNode<K,V>)first).getTreeNode(hash, key);
+            // 如果不是红黑树节点，遍历链表查找
             do {
                 if (e.hash == hash &&
                         ((k = e.key) == key || (key != null && key.equals(k))))
@@ -76,6 +85,7 @@ final HashMap.Node<K,V> getNode(int hash, Object key) {
             } while ((e = e.next) != null);
         }
     }
+    // 如果没有找到对应的节点，则返回 null
     return null;
 }
 ```
@@ -90,7 +100,7 @@ HashMap 是通过拉链法来解决哈希冲突的，也就是如果发生哈希
 
 “O(n) 和 O(1) 是什么呀？”三妹有些不解。
 
-“这是时间复杂度的一种表示方法，随后二哥专门给你讲一下。简单说一下 n 和 1 的意思，很显然，n 和 1 都代表的是代码执行的次数，假如数据规模为 n，n 就代表需要执行 n 次，1 就代表只需要执行一次。”我解释道。
+“这是[时间复杂度](https://tobebetterjavaer.com/collection/time-complexity.html)的一种表示方法，随后二哥专门给你讲一下。简单说一下 n 和 1 的意思，很显然，n 和 1 都代表的是代码执行的次数，假如数据规模为 n，n 就代表需要执行 n 次，1 就代表只需要执行一次。”我解释道。
 
 “三妹，你想一下，如果没有哈希表，但又需要这样一个数据结构，它里面存放的数据是不允许重复的，该怎么办呢？”我问。
 
@@ -98,7 +108,7 @@ HashMap 是通过拉链法来解决哈希冲突的，也就是如果发生哈希
 
 “这种方法当然是可行的，就像 `if ((e = first.next) != null) {}` 子句中那样，但如果数据量特别特别大，性能就会很差，最好的解决方案还是 HashMap。”
 
-HashMap 本质上是通过数组实现的，当我们要从 HashMap 中获取某个值时，实际上是要获取数组中某个位置的元素，而位置是通过键来确定的。
+HashMap 本质上是通过[数组](https://tobebetterjavaer.com/array/array.html)实现的，当我们要从 HashMap 中获取某个值时，实际上是要获取数组中某个位置的元素，而位置是通过键来确定的。
 
 ```java
 public V put(K key, V value) {
@@ -109,16 +119,30 @@ public V put(K key, V value) {
 这是 HashMap 的 put 方法，会将键值对放入到数组当中。它会调用 putVal 方法：
 
 ```java
-final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
-               boolean evict) {
-    HashMap.Node<K,V>[] tab; HashMap.Node<K,V> p; int n, i;
-    if ((tab = table) == null || (n = tab.length) == 0)
-        n = (tab = resize()).length;
-    if ((p = tab[i = (n - 1) & hash]) == null)
-        tab[i] = newNode(hash, key, value, null);
-    else {
-        // 拉链
+final HashMap.Node<K,V> getNode(int hash, Object key) {
+    HashMap.Node<K,V>[] tab; HashMap.Node<K,V> first, e; int n; K k;
+    // 判断 HashMap 的 table 是否为 null 以及 table 长度是否大于 0
+    if ((tab = table) != null && (n = tab.length) > 0 &&
+            // 根据 hash 值计算出在 table 中的索引位置，并获取第一个节点
+            (first = tab[(n - 1) & hash]) != null) {
+        // 判断第一个节点的 hash 值是否与给定 hash 相等，如果相等，则检查 key 是否相等
+        if (first.hash == hash &&
+                ((k = first.key) == key || (key != null && key.equals(k))))
+            return first;
+        // 如果不相等，获取当前节点的下一个节点
+        if ((e = first.next) != null) {
+            // 如果当前节点为 TreeNode 类型（红黑树），则调用 TreeNode 的 getTreeNode 方法查找
+            if (first instanceof HashMap.TreeNode)
+                return ((HashMap.TreeNode<K,V>)first).getTreeNode(hash, key);
+            // 如果不是红黑树节点，遍历链表查找
+            do {
+                if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                    return e;
+            } while ((e = e.next) != null);
+        }
     }
+    // 如果没有找到对应的节点，则返回 null
     return null;
 }
 ```

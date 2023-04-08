@@ -98,7 +98,8 @@
 
 ## Java概述及环境配置
 
-- [Java简介](docs/overview/what-is-java.md)
+- [《二哥Java进阶之路》小册简介](overview/readme.md)
+- [一文让你彻底了解Java（简史、特性、前景）](docs/overview/what-is-java.md)
 - [安装Java开发工具包JDK](docs/overview/jdk-install-config.md)
 - [安装集成开发环境Intellij IDEA](docs/overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](docs/overview/hello-world.md)
@@ -228,18 +229,14 @@
 
 ## 重要知识点
 
-- [Java命名规范](docs/basic-extra-meal/java-naming.md)
-- [彻底弄懂Java中的Unicode和UTF-8编码](docs/basic-extra-meal/java-unicode.md)
-- [深入剖析Java中的拆箱和装箱](docs/basic-extra-meal/box.md)
-- [一文彻底讲明白的Java中的浅拷贝与深拷贝](docs/basic-extra-meal/deep-copy.md)
-- [深入理解Java中的hashCode方法](docs/basic-extra-meal/hashcode.md)
-- [为什么重写equals方法的时候必须要重写hashCode方法？](docs/basic-extra-meal/equals-hashcode.md)
-- [Java重写（Overriding）时应当遵守的11条规则](docs/basic-extra-meal/Overriding.md)
+- [Java命名规范：编写可读性强的代码](docs/basic-extra-meal/java-naming.md)
+- [解决中文乱码：字符编码全攻略 - ASCII、Unicode、UTF-8、GB2312详解](docs/basic-extra-meal/java-unicode.md)
+- [深入浅出Java拆箱与装箱：理解自动类型转换与包装类的关系](docs/basic-extra-meal/box.md)
+- [深入理解Java浅拷贝与深拷贝：实战案例与技巧](docs/basic-extra-meal/deep-copy.md)
+- [Java hashCode方法解析：C++实现的高效本地方法](docs/basic-extra-meal/hashcode.md)
 - [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
-- [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](docs/basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
-- [instanceof关键字是如何实现的？](docs/basic-extra-meal/instanceof-jvm.md)
-- [Java不能实现真正泛型的原因是什么？](docs/basic-extra-meal/true-generic.md)
-- [大白话说清楚Java反射：入门、使用、原理](docs/basic-extra-meal/fanshe.md)
+- [Java 泛型背后的秘密：为什么无法实现真正的泛型？](docs/basic-extra-meal/true-generic.md)
+- [Java 反射详解：动态创建实例、调用方法和访问字段](docs/basic-extra-meal/fanshe.md)
 
 ## Java并发编程
 

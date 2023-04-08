@@ -29,7 +29,6 @@ head:
 
 ## 为什么会有这个开源知识库
 
-
 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java程序员进阶之路😄。
  
  知识库旨在为学习 Java 的小伙伴提供一系列：
@@ -107,7 +106,8 @@ head:
 
 ### Java概述及环境配置
 
-- [Java简介](overview/what-is-java.md)
+- [《二哥Java进阶之路》小册简介](overview/readme.md)
+- [一文让你彻底了解Java（简史、特性、前景）](overview/what-is-java.md)
 - [安装Java开发工具包JDK](overview/jdk-install-config.md)
 - [安装集成开发环境Intellij IDEA](overview/IDEA-install-config.md)
 - [编写第一个Java程序：Hello World](overview/hello-world.md)
@@ -234,21 +234,16 @@ head:
 - [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
 - [使用Java NIO完成网络通信](nio/network-connect.md)
 
-
 ### 重要知识点
 
-- [Java命名规范](basic-extra-meal/java-naming.md)
-- [彻底弄懂Java中的Unicode和UTF-8编码](basic-extra-meal/java-unicode.md)
-- [深入剖析Java中的拆箱和装箱](basic-extra-meal/box.md)
-- [一文彻底讲明白的Java中的浅拷贝与深拷贝](basic-extra-meal/deep-copy.md)
-- [深入理解Java中的hashCode方法](basic-extra-meal/hashcode.md)
-- [为什么重写equals方法的时候必须要重写hashCode方法？](basic-extra-meal/equals-hashcode.md)
-- [Java重写（Overriding）时应当遵守的11条规则](basic-extra-meal/Overriding.md)
+- [Java命名规范：编写可读性强的代码](basic-extra-meal/java-naming.md)
+- [解决中文乱码：字符编码全攻略 - ASCII、Unicode、UTF-8、GB2312详解](basic-extra-meal/java-unicode.md)
+- [深入浅出Java拆箱与装箱：理解自动类型转换与包装类的关系](basic-extra-meal/box.md)
+- [深入理解Java浅拷贝与深拷贝：实战案例与技巧](basic-extra-meal/deep-copy.md)
+- [Java hashCode方法解析：C++实现的高效本地方法](basic-extra-meal/hashcode.md)
 - [Java到底是值传递还是引用传递？](basic-extra-meal/pass-by-value.md)
-- [为什么JDK源码中，无限循环大多使用for(;;)而不是while(true)?](basic-extra-meal/jdk-while-for-wuxian-xunhuan.md)
-- [instanceof关键字是如何实现的？](basic-extra-meal/instanceof-jvm.md)
-- [Java不能实现真正泛型的原因是什么？](basic-extra-meal/true-generic.md)
-- [大白话说清楚Java反射：入门、使用、原理](basic-extra-meal/fanshe.md)
+- [Java 泛型背后的秘密：为什么无法实现真正的泛型？](basic-extra-meal/true-generic.md)
+- [Java 反射详解：动态创建实例、调用方法和访问字段](basic-extra-meal/fanshe.md)
 
 
 ### Java并发编程
