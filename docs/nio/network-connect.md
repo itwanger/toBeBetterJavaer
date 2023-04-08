@@ -1,16 +1,16 @@
 ---
-title: Java NIO 网络编程实践：从入门到精通 - 沉默王二 - java进阶之路
+title: Java NIO 网络编程实践：从入门到精通
 shortTitle: NIO 网络编程实践
 category:
   - Java核心
 tag:
   - Java NIO
-description: Java程序员进阶之路，小白的零基础Java教程，使用Java NIO完成网络通信
+description: Java NIO 网络编程实践涉及 SocketChannel、ServerSocketChannel、阻塞与非阻塞模式、Scatter 和 Gather 数据传输、异步套接字通道（AsynchronousSocketChannel 和 AsynchronousServerSocketChannel），以及简单聊天室实现。NIO 提供了高效、灵活且可扩展的 I/O 处理方式，适用于大型应用程序和高并发场景。
 author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: java,nio,网络编程
+      content: java,nio,网络编程,SocketChannel,ServerSocketChannel,AsynchronousSocketChannel,AsynchronousServerSocketChannel,聊天室
 ---
 
 # 12.5 NIO 网络编程实践
@@ -388,20 +388,490 @@ socketChannel.close();
 
 在这个示例中，我们使用了 Scattering 从 SocketChannel 分散读取数据到多个缓冲区，并使用 Gathering 将数据从多个缓冲区聚集写入到 SocketChannel。通过这种方式，我们可以方便地处理多个缓冲区中的数据。
 
-### 异步
+### 异步套接字通道 AsynchronousSocketChannel 和 AsynchronousServerSocketChannel
 
+AsynchronousSocketChannel 和 AsynchronousServerSocketChannel 是 Java 7 引入的异步 I/O 类，分别用于处理异步客户端 Socket 和服务器端 ServerSocket。异步 I/O 允许在 I/O 操作进行时执行其他任务，并在操作完成时接收通知，提高了并发处理能力。
 
+来看一个简单的示例，先看服务器端。
+
+```java
+public class AsynchronousServer {
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open();
+        server.bind(new InetSocketAddress("localhost", 5000));
+
+        System.out.println("服务器端启动");
+
+        server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
+            @Override
+            public void completed(AsynchronousSocketChannel client, Void attachment) {
+                // 接收下一个连接请求
+                server.accept(null, this);
+
+                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                Future<Integer> readResult = client.read(buffer);
+
+                try {
+                    readResult.get();
+                    buffer.flip();
+                    String message = new String(buffer.array(), 0, buffer.remaining());
+                    System.out.println("接收到的消息: " + message);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void failed(Throwable exc, Void attachment) {
+                exc.printStackTrace();
+            }
+        });
+
+        // 为了让服务器继续运行，我们需要阻止 main 线程退出
+        Thread.currentThread().join();
+    }
+}
+```
+
+代码结构和之前讲到的[异步文件通道 AsynchronousFileChannel](https://tobebetterjavaer.com/nio/buffer-channel.html) 比较相似，异步服务单套接字通道 AsynchronousServerSocketChannel 接收客户端连接，每当收到一个新的连接时，会调用 `completed()` 方法，然后读取客户端发送的数据并将其打印到控制台。
+
+来简单分析一下吧。
+
+①、创建了一个 AsynchronousServerSocketChannel 实例并将其打开。这个通道将用于监听客户端连接。
+
+```java
+AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open();
+```
+
+②、调用 `accept()` 方法来接收客户端连接。这个方法需要一个 CompletionHandler 实例，当客户端连接成功时，`completed()` 方法会被调用。
+
+```java
+server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() { ... });
+```
+
+③、实现 CompletionHandler，I/O 操作成功时，会调用 `completed()` 方法；当 I/O 操作失败时，会调用 `failed()` 方法。
+
+```java
+new CompletionHandler<AsynchronousSocketChannel, Void>() {
+    @Override
+    public void completed(AsynchronousSocketChannel client, Void attachment) { ... }
+
+    @Override
+    public void failed(Throwable exc, Void attachment) { ... }
+}
+```
+
+在 completed 方法中，我们首先调用 `server.accept()` 来接收下一个连接请求。然后，我们创建一个缓冲区 ByteBuffer 并使用 `client.read()` 从客户端读取数据。在这个示例中，我们使用了一个 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来等待读取操作完成。当读取完成时，我们将缓冲区的内容打印到控制台。
+
+④、为了让服务器继续运行并接收客户端连接，我们需要阻止 main 线程退出。
+
+```java
+Thread.currentThread().join();
+```
+
+再来看客户端的：
+
+```java
+public class AsynchronousClient {
+
+    public static void main(String[] args) {
+        try {
+            AsynchronousSocketChannel client = AsynchronousSocketChannel.open();
+            Future<Void> connectResult = client.connect(new InetSocketAddress("localhost", 5000));
+            connectResult.get(); // 等待连接完成
+
+            String message = "沉默王二，在吗？";
+            ByteBuffer buffer = ByteBuffer.wrap(message.getBytes(StandardCharsets.UTF_8));
+            Future<Integer> writeResult = client.write(buffer);
+            writeResult.get(); // 等待发送完成
+
+            System.out.println("消息发送完毕");
+
+            client.close();
+        } catch (IOException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+就是简单的连接和写入数据，就不多做解释了。这里先运行一下 Server 端，然后再运行一下客户端，看一下结果。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407161351.png)
 
 ### 简单的聊天室
 
+我们来通过 SocketChannel 和 ServerSocketChannel 实现一个 0.1 版的聊天室，先说一下需求，比较简单，服务端启动监听客户端请求，当客户端向服务器端发送信息后，服务器端接收到后把客户端消息回显给客户端，比较呆瓜，但可以先来看一下。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407164326.png)
 
+我们来看服务器端代码：
+
+```java
+public class ChatServer {
+    private Selector selector;
+    private ServerSocketChannel serverSocketChannel;
+    private static final int PORT = 8080;
+
+    public ChatServer() {
+        try {
+            selector = Selector.open();
+            serverSocketChannel = ServerSocketChannel.open();
+            serverSocketChannel.socket().bind(new InetSocketAddress(PORT));
+            serverSocketChannel.configureBlocking(false);
+            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            System.out.println("聊天室服务端启动了 " + PORT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void start() {
+        try {
+            while (true) {
+                if (selector.select() > 0) {
+                    Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+                    while (iterator.hasNext()) {
+                        SelectionKey key = iterator.next();
+                        iterator.remove();
+                        handleKey(key);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleKey(SelectionKey key) throws IOException {
+        if (key.isAcceptable()) {
+            SocketChannel socketChannel = serverSocketChannel.accept();
+            socketChannel.configureBlocking(false);
+            socketChannel.register(selector, SelectionKey.OP_READ);
+            System.out.println("客户端连接上了: " + socketChannel.getRemoteAddress());
+        } else if (key.isReadable()) {
+            SocketChannel socketChannel = (SocketChannel) key.channel();
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+            int read = socketChannel.read(buffer);
+            if (read > 0) {
+                buffer.flip();
+                String msg = new String(buffer.array(), 0, read);
+                System.out.println("客户端说: " + msg);
+                socketChannel.write(ByteBuffer.wrap(("服务端回复: " + msg).getBytes()));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new ChatServer().start();
+    }
+}
+```
+
+解释一下代码逻辑：
+
+1、创建一个 ServerSocketChannel，并将其绑定到指定端口。
+
+2、将 ServerSocketChannel 设置为非阻塞模式。
+
+3、创建一个 Selector，并将 ServerSocketChannel 注册到它上面，监听 OP_ACCEPT 事件（等待客户端连接）。
+
+4、无限循环，等待感兴趣的事件发生。
+
+5、使用 `Selector.select()` 方法，等待已注册的通道中有事件发生。
+
+6、获取到发生事件的通道的 SelectionKey。
+
+7、判断 SelectionKey 的事件类型：
+
+- a. 如果是 OP_ACCEPT 事件，说明有新的客户端连接进来。接受新的连接，并将新连接的 SocketChannel 注册到 Selector 上，监听 OP_READ 事件。
+- b. 如果是 OP_READ 事件，说明客户端发送了消息。读取客户端发送的消息，并将其返回给客户端。
+处理完毕后，清除已处理的 SelectionKey。
+
+再来看一下客户端的代码：
+
+```java
+public class ChatClient {
+    private Selector selector;
+    private SocketChannel socketChannel;
+    private static final String HOST = "localhost";
+    private static final int PORT = 8080;
+
+    public ChatClient() {
+        try {
+            selector = Selector.open();
+            socketChannel = SocketChannel.open(new InetSocketAddress(HOST, PORT));
+            socketChannel.configureBlocking(false);
+            socketChannel.register(selector, SelectionKey.OP_READ);
+            System.out.println("连接到聊天室了");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void start() {
+        new Thread(() -> {
+            try {
+                while (true) {
+                    if (selector.select() > 0) {
+                        for (SelectionKey key : selector.selectedKeys()) {
+                            selector.selectedKeys().remove(key);
+                            if (key.isReadable()) {
+                                readMessage();
+                            }
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in
+        ))) {
+            String input;
+            while ((input = reader.readLine()) != null) {
+                sendMessage(input);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void sendMessage(String message) throws IOException {
+        if (message != null && !message.trim().isEmpty()) {
+            ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
+            socketChannel.write(buffer);
+        }
+    }
+
+    private void readMessage() throws IOException {
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        int read = socketChannel.read(buffer);
+        if (read > 0) {
+            buffer.flip();
+            String msg = new String(buffer.array(), 0, read);
+            System.out.println(msg);
+        }
+    }
+
+    public static void main(String[] args) {
+        new ChatClient().start();
+    }
+}
+```
+
+解释一下代码逻辑：
+
+1、创建一个 SocketChannel，并连接到指定的服务器地址和端口。
+
+2、将 SocketChannel 设置为非阻塞模式。
+
+3、创建一个 Selector，并将 SocketChannel 注册到它上面，监听 OP_READ 事件（等待接收服务器的消息）。
+
+4、启动一个新线程用于读取用户在控制台输入的消息，并发送给服务器。
+
+5、无限循环，等待感兴趣的事件发生。
+
+6、使用` Selector.select()` 方法，等待已注册的通道中有事件发生。
+
+7、获取到发生事件的通道的 SelectionKey。
+
+8、判断 SelectionKey 的事件类型：
+
+- a. 如果是 OP_READ 事件，说明服务器发送了消息。读取服务器发送的消息，并在控制台显示。
+处理完毕后，清除已处理的 SelectionKey。
+
+来看运行后的效果。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407164913.png)
+
+好，接下来，我们来升级一下需求，也就是 0.2 版聊天室，要求服务器端也能从控制台敲入信息主动发送给客户端。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407165110.png)
+
+来看服务器端代码：
+
+```java
+public class Chat2Server {
+
+    public static void main(String[] args) throws IOException {
+        // 创建一个 ServerSocketChannel
+        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        serverSocketChannel.configureBlocking(false);
+        serverSocketChannel.bind(new InetSocketAddress(8080));
+
+        // 创建一个 Selector
+        Selector selector = Selector.open();
+        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        System.out.println("聊天室服务端启动了");
+
+        // 客户端连接
+        AtomicReference<SocketChannel> clientRef = new AtomicReference<>();
+
+        // 从控制台读取输入并发送给客户端
+        Thread sendMessageThread = new Thread(() -> {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+                while (true) {
+                    System.out.println("输入服务器端消息: ");
+                    String message = reader.readLine();
+                    SocketChannel client = clientRef.get();
+                    if (client != null && client.isConnected()) {
+                        ByteBuffer buffer = ByteBuffer.wrap((message + "\n").getBytes());
+                        client.write(buffer);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        sendMessageThread.start();
+
+        while (true) {
+            int readyChannels = selector.select();
+
+            if (readyChannels == 0) {
+                continue;
+            }
+
+            Set<SelectionKey> selectedKeys = selector.selectedKeys();
+            Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+
+            while (keyIterator.hasNext()) {
+                SelectionKey key = keyIterator.next();
+
+                if (key.isAcceptable()) {
+                    // 接受客户端连接
+                    SocketChannel client = serverSocketChannel.accept();
+                    System.out.println("客户端已连接");
+                    client.configureBlocking(false);
+                    client.register(selector, SelectionKey.OP_READ);
+                    clientRef.set(client);
+                } else if (key.isReadable()) {
+                    // 读取客户端消息
+                    SocketChannel channel = (SocketChannel) key.channel();
+                    ByteBuffer buffer = ByteBuffer.allocate(1024);
+                    int bytesRead = channel.read(buffer);
+
+                    if (bytesRead > 0) {
+                        buffer.flip();
+                        byte[] bytes = new byte[buffer.remaining()];
+                        buffer.get(bytes);
+                        String message = new String(bytes).trim();
+                        System.out.println("客户端消息: " + message);
+                    }
+                }
+                keyIterator.remove();
+            }
+        }
+    }
+}
+```
+
+再来看客户端代码：
+
+```java
+public class Chat2Client {
+
+    public static void main(String[] args) throws IOException {
+        // 创建一个 SocketChannel
+        SocketChannel socketChannel = SocketChannel.open();
+        socketChannel.configureBlocking(false);
+        socketChannel.connect(new InetSocketAddress("localhost", 8080));
+
+        // 创建一个 Selector
+        Selector selector = Selector.open();
+        socketChannel.register(selector, SelectionKey.OP_CONNECT);
+
+        // 从控制台读取输入并发送给服务器端
+        Thread sendMessageThread = new Thread(() -> {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+                while (true) {
+                    System.out.println("输入客户端消息: ");
+                    String message = reader.readLine();
+                    if (socketChannel.isConnected()) {
+                        ByteBuffer buffer = ByteBuffer.wrap((message + "\n").getBytes());
+                        socketChannel.write(buffer);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        sendMessageThread.start();
+
+        while (true) {
+            int readyChannels = selector.select();
+
+            if (readyChannels == 0) {
+                continue;
+            }
+
+            Set<SelectionKey> selectedKeys = selector.selectedKeys();
+            Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+
+            while (keyIterator.hasNext()) {
+                SelectionKey key = keyIterator.next();
+
+                if (key.isConnectable()) {
+                    // 连接到服务器
+                    socketChannel.finishConnect();
+                    socketChannel.register(selector, SelectionKey.OP_READ);
+                    System.out.println("已连接到服务器");
+                } else if (key.isReadable()) {
+                    // 读取服务器端消息
+                    ByteBuffer buffer = ByteBuffer.allocate(1024);
+                    int bytesRead = socketChannel.read(buffer);
+
+                    if (bytesRead > 0) {
+                        buffer.flip();
+                        byte[] bytes = new byte[buffer.remaining()];
+                        buffer.get(bytes);
+                        String message = new String(bytes).trim();
+                        System.out.println("服务器端消息: " + message);
+                    }
+                }
+                keyIterator.remove();
+            }
+        }
+    }
+}
+```
+
+运行 Server，再运行 Client，交互信息如下：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407180853.png)
+
+我们使用了 Selector 和非阻塞 I/O，这使得服务器可以同时处理多个连接。所以我们在 Intellij IDEA 中可以再配置一个客户端，见下图（填上这四项内容）。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407181717.png)
+
+然后启动，就可以完成一个 Server 和多个 Client 交互了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407181906.png)
+
+OK，关于聊天室，我们就先讲到这里。
+
+### 小结
+
+前面我们了解到，Java NIO 在文件 IO 上的性能其实和传统 IO 差不多，甚至在处理大文件的时候还有些甘拜下风，但 NIO 的主要作用体现在网络 IO 上，像 [Netty](https://tobebetterjavaer.com/netty/rumen.html) 框架底层其实就是 NIO，我们来做一下简单的总结吧。
+
+SocketChannel（用于 TCP 连接）和 ServerSocketChannel（用于监听和接受新的 TCP 连接）可以用来替代传统的 Socket 和 ServerSocket 类，提供非阻塞模式。
+
+NIO 支持阻塞和非阻塞模式。非阻塞模式允许程序在等待 I/O 时执行其他任务，从而提高并发性能。非阻塞模式的实现依赖于 Selector，它可以监控多个通道上的 I/O 事件。
+
+NIO 支持将数据分散到多个 Buffer（Scatter）或从多个 Buffer 收集数据（Gather），提供了更高效的数据传输方式。
+
+Java NIO.2 引入了 AsynchronousSocketChannel 和 AsynchronousServerSocketChannel，这些类提供了基于回调的异步 I/O 操作。异步套接字通道可以在完成 I/O 操作时自动触发回调函数，从而实现高效的异步处理。
+
+最后，我们使用 NIO 实现了简单的聊天室功能。通过 ServerSocketChannel 和 SocketChannel 创建服务端和客户端，实现互相发送和接收消息。在处理多个客户端时，可以使用 Selector 来管理多个客户端连接，提高并发性能。
+
+总之，Java NIO 网络编程实践提供了更高效、灵活且可扩展的 I/O 处理方式，对于大型应用程序和高并发场景具有显著优势。
 
 ---------
 
 最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

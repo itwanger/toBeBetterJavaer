@@ -1,5 +1,5 @@
 ---
-title: 详解Java NIO的Buffer缓冲区和Channel通道 - 沉默王二 - java进阶之路
+title: 详解Java NIO的Buffer缓冲区和Channel通道
 shortTitle: Buffer和Channel
 category:
   - Java核心
@@ -326,11 +326,12 @@ public class FileChannelTransferToLoopExampleWithPaths {
 
 ByteBuffer.allocate和ByteBuffer.allocateDirect直接的差异。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-20230406183808.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406183808.png)
+
 
 直接缓冲区和非直接缓冲区之间的差异。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-20230406182921.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406182921.png)
 
 非直接缓冲区存储在JVM内部，数据需要从应用程序（Java）复制到非直接缓冲区，再复制到内核缓冲区，最后发送到设备（磁盘/网络）。而对于直接缓冲区，数据可以直接从应用程序（Java）复制到内核缓冲区，无需经过JVM的非直接缓冲区。
 

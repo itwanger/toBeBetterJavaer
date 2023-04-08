@@ -1,5 +1,5 @@
 ---
-title: Java NIO 比传统 IO 强在哪里？ - 沉默王二 - java进阶之路
+title: Java NIO 比传统 IO 强在哪里？
 shortTitle: NIO和IO的区别
 category:
   - Java核心
