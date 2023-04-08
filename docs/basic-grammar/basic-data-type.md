@@ -105,7 +105,8 @@ public class LocalVar {
 布尔（boolean）仅用于存储两个值：true 和 false，也就是真和假，通常用于条件的判断。代码示例：
 
 ```java
-boolean flag = true;
+boolean hasMoney = true;
+boolean hasGirlFriend = false;
 ```
 
 #### 2）byte

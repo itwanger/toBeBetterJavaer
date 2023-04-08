@@ -108,14 +108,14 @@ head:
 
 - [《二哥Java进阶之路》小册简介](overview/readme.md)
 - [一文让你彻底了解Java（简史、特性、前景）](overview/what-is-java.md)
-- [安装Java开发工具包JDK](overview/jdk-install-config.md)
-- [安装集成开发环境Intellij IDEA](overview/IDEA-install-config.md)
-- [编写第一个Java程序：Hello World](overview/hello-world.md)
+- [Windows和macOS下安装JDK教程：原生安装与包管理器（高级）](overview/jdk-install-config.md)
+- [提升Java开发效率：在macOS和Windows上轻松安装Intellij IDEA](overview/IDEA-install-config.md)
+- [Java新手入门：使用IDEA编写第一个程序Hello World](overview/hello-world.md)
 
 ### Java基础语法
 
-- [简单过一下Java中常用的48个关键字和2个保留字](basic-extra-meal/48-keywords.md)
-- [Java注释](basic-grammar/javadoc.md)
+- [Java编程基础：48个关键字及2个保留字全解析](basic-extra-meal/48-keywords.md)
+- [了解Java注释：单行、多行与文档注释的使用方法](basic-grammar/javadoc.md)
 - [Java中的数据类型（8种基本数据类型和引用数据类型）](basic-grammar/basic-data-type.md)
 - [Java数据类型转换（强制类型转换+自动类型转换）](basic-grammar/type-cast.md)
 - [聊聊Java基本数据类型缓存池](basic-extra-meal/int-cache.md)

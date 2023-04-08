@@ -1,15 +1,15 @@
 ---
-title: 编写第一个Java程序：Hello World
+title: Java新手入门：使用IDEA编写第一个程序Hello World
 shortTitle: 第一个Java程序
 category:
   - Java核心
 tag:
   - Java概述
-description: Java程序员进阶之路，小白的零基础Java教程，编写第一个Java程序：Hello World
+description: 本文将带您了解如何使用Intellij IDEA编写和运行第一个Java程序：Hello World。通过简单的步骤和详细的截图，您将快速掌握Intellij IDEA的基本使用方法，顺利迈出Java编程的第一步。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Hello World
+      content: Java,Intellij IDEA, Java程序, Hello World, 编写, 运行, Java新手, 入门教程
 ---
 
 # 2.4 第一个 Java 程序
@@ -20,7 +20,7 @@ head:
 
 “好的，那我们直接开始。”
 
-打开 Intellij IDEA，新建一个学习 Java 的项目，点击 File → New → Project。
+打开 [Intellij IDEA](https://tobebetterjavaer.com/overview/IDEA-install-config.html)，新建一个学习 Java 的项目，点击 File → New → Project。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3810664d-49fb-4bed-ad32-3cb962ab5201.png)
 
@@ -102,31 +102,33 @@ public class HelloWorld {
 }
 ```
 
-IDEA 会自动保存，在代码编辑面板中右键，在弹出的菜单中选择「Run 'HelloWorld.main()'」，如下图所示：
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/four-01.png)
-
-等代码编译结束后，就可以在 Run 面板里看到下面的内容：
-
-```
-三妹，少看手机少打游戏，好好学，美美哒。
-```
-
-“二哥，上面这段代码的输出结果虽然令我非常开心，但是有好多生疏的关键字令我感到困惑，能给我解释一下吗？”
-
-“当然没问题啊。”
-
-- class 关键字：用于在 Java 中声明一个类。
-- public 关键字：一个表示可见性的访问修饰符。
-- static 关键字：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
+- class 关键字：用于在 Java 中声明一个[类](https://tobebetterjavaer.com/oo/object-class.html)。
+- public 关键字：一个表示可见性的[访问修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
+- [static 关键字](https://tobebetterjavaer.com/oo/static.html)：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
 - void 关键字：表示该方法不返回任何值。
 - main 关键字：表示该方法为主方法，也就是程序运行的入口。`main()` 方法由 Java 虚拟机执行，配合上 static 关键字后，可以不用创建对象就可以调用，可以节省不少内存空间。
-- `String [] args`：`main()` 方法的参数，类型为 String 数组，参数名为 args。
-- `System.out.println()`：一个 Java 语句，一般情况下是将传递的参数打印到控制台。System 是 java.lang 包中的一个 final 类，该类提供的设施包括标准输入，标准输出和错误输出流等等。out 是 System 类的静态成员字段，类型为 PrintStream，它与主机的标准输出控制台进行映射。println 是 PrintStream 类的一个方法，通过调用 print 方法并添加一个换行符实现的。
+- `String [] args`：`main()` 方法的参数，类型为 [String](https://tobebetterjavaer.com/string/immutable.html) [数组](https://tobebetterjavaer.com/array/array.html)，参数名为 args。
+- `System.out.println()`：一个 Java 语句，一般情况下是将传递的参数打印到控制台。System 是 java.lang 包中的一个 final 类，该类提供的设施包括标准输入，标准输出和错误输出流等等。out 是 System 类的静态成员字段，类型为 [PrintStream](https://tobebetterjavaer.com/io/print.html)，它与主机的标准输出控制台进行映射。println 是 PrintStream 类的一个方法，通过调用 print 方法并添加一个换行符实现的。
 
-“实在记不住也没关系，我们后面还会讲哦。”我的话令三妹感到非常开心。
+“实在记不住也没关系，我们后面还会讲哦（可以跳转的地方都会展开细讲）。”我的话令三妹感到非常开心。
 
-“二哥，你之前给我看了 .class 文件和 .java 源代码，它们之间的关系是什么样的呢？”三妹还是挺喜欢学习的嘛，发现的问题都很关键。
+好，接下来再告诉你一点额外的知识点（如果觉得比较难可跳过），三妹。
+
+在 Intellij IDEA 的 terminal 面板中，可以看到对应的 java 源代码文件和编译后的 .class 文件。
+
+可以在对应的文件上右键选择 open in terminal 打开。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408184558.png)
+
+可以通过 pwd 命令查看当前包路径，通过 ls 命令查看包路径下面有哪些文件。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408184256.png)
+
+class 文件在 target 目录下，classes 为 src/main 目录下的 class 文件；test-classes 为 src/test 目录下的 class 文件。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408184835.png)
+
+“二哥，.class 文件和 .java 源代码，它们之间的关系是什么样的呢？”三妹还是挺喜欢学习的嘛，发现的问题都很关键。
 
 “不错不错，都能挖掘到这个点了。”
 
@@ -136,12 +138,45 @@ IDEA 会自动保存，在代码编辑面板中右键，在弹出的菜单中选
 
 “好啊，我正要问这个‘编译’到底是怎么回事呢？”
 
-Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码，之后，我们可以通过 java 命令运行字节码，此时就有 2 种处理方式了。
+Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码。
+
+比如说我们可以主动执行 `javac Hello.java` 命令将源代码文件编译为 Hello.class 文件（用 Intellij IDEA 的话，并不需要我们主动去编译「javac」，直接运行就可以自动生成 .class 文件）。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408185202.png)
+
+之后，我们可以通过 java 命令运行字节码（比如说 `java Hello`），此时就有 2 种处理方式了。
 
 - 1、字节码由 JVM 逐条解释执行。
 - 2、部分字节码可能由 [JIT（即时编译，戳链接了解](https://tobebetterjavaer.com/jvm/jit.html)）编译为机器指令直接执行。
 
-也就是说，为了跨平台，Java 源代码首先会编译成字节码，字节码不是机器语言，需要 JVM 来解释。有了 JVM 这个中间层，Java 的运行效率就没有直接把源代码编译为机器码来得效率更高，这个应该能理解吗，多了中间商嘛。所以为了提高效率，JVM 引入了 JIT 编译器，把一些经常执行的字节码直接搞成机器码。
+①、逐条解释执行：
+
+逐条解释执行是 Java 虚拟机的基本执行模式。在这种模式下，Java 虚拟机会逐条读取字节码文件中的指令，并将其解释为对应的底层操作。解释执行的优点是实现简单，启动速度较快，但由于每次执行都需要对字节码进行解释，因此执行效率相对较低。
+
+总结一下逐条解释执行的特点：
+
+- 实现简单
+- 启动速度较快
+- 执行效率较低
+
+②、JIT 即时编译：
+
+为了提高 Java 程序的执行效率，Java 虚拟机引入了即时编译（[JIT，Just-In-Time Compilation](https://tobebetterjavaer.com/jvm/jit.html)）技术。在 JIT 模式下，Java 虚拟机会在运行时将频繁执行的字节码编译为本地机器码，这样就可以直接在硬件上运行，而不需要再次解释。这样做的结果是显著提高了程序的执行速度。需要注意的是，JIT 编译器并不会编译所有的字节码，而是根据一定的策略，仅编译被频繁调用的代码段（热点代码）。
+
+总结一下 JIT 即时编译的特点：
+
+- 提高执行效率
+- 编译热点代码
+- 动态优化
+
+实际上，现代 Java 虚拟机（如 HotSpot）通常会结合这两种执行方式，即解释执行和 JIT 即时编译。在程序运行初期，Java 虚拟机会采用解释执行，以减少启动时间。随着程序的运行，Java 虚拟机会识别出热点代码并使用 JIT 编译器将其编译为本地机器码，从而提高程序的执行效率。这种结合策略称为混合模式。
+
+
+也就是说，为了跨平台，Java 源代码首先会编译成字节码，字节码不是机器语言，需要 JVM 来解释。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408190024.png)
+
+有了 JVM 这个中间层，Java 的运行效率就没有直接把源代码编译为机器码来得效率更高，这个应该能理解吗，多了中间商嘛。所以为了提高效率，JVM 引入了 JIT 编译器，把一些经常执行的字节码直接搞成机器码。
 
 所以，Java 是解释和编译并存。但通常来说，我们会说“Java 是编译型语言”，尽管这样并不准确，主要是 JIT 是后面才出现的，“先入为主嘛”。
 
