@@ -1,19 +1,21 @@
 ---
-title: 深入剖析Java中的拆箱和装箱
+title: 深入浅出Java拆箱与装箱：理解自动类型转换与包装类的关系
 shortTitle: 深入剖析Java中的拆箱和装箱
 category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入剖析Java中的拆箱和装箱
+description: 拆箱与装箱是Java自动类型转换的重要概念。拆箱是将包装类对象转换为其对应的基本数据类型，而装箱是将基本数据类型转换为相应的包装类对象。本文详细介绍了拆箱和装箱的过程、原理以及Java中的包装类，以帮助您更好地理解这两个概念
+author: 沉默王二
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,装箱,拆箱,包装类型
 ---
 
+# 13.3 深入剖析Java中的拆箱和装箱
 
-“哥，听说 Java 的每个基本类型都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
+“哥，听说 Java 的每个[基本类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
 
 “是的，三妹。基本类型和包装类型的区别主要有以下 4 点，我来带你学习一下。”我回答说。我们家的斜对面刚好是一所小学，所以时不时还能听到朗朗的读书声，让人心情非常愉快。
 
@@ -52,9 +54,9 @@ class Writer {
 
 “那为什么 POJO 的字段必须要用包装类型呢？”三妹问。
 
-“《阿里巴巴 Java 开发手册》上有详细的说明，你看。”我打开 PDF，并翻到了对应的内容，指着屏幕念道。
+“《[阿里巴巴 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有详细的说明，你看。”我打开 PDF，并翻到了对应的内容，指着屏幕念道。
 
->数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 NullPointerException 的异常。
+>数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 [NullPointerException 的异常](https://tobebetterjavaer.com/exception/npe.html)。
 
 “什么是自动拆箱呢？”
 
@@ -73,11 +75,11 @@ List<Integer> list = new ArrayList<>();
 
 “为什么呢？”三妹及时地问道。
 
-“因为泛型在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
+“因为[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
 
 “那，接下来，我们来说第三点，**基本类型比包装类型更高效**。”我喝了一口茶继续说道。
 
-“作为局部变量时，基本类型在栈中直接存储的具体数值，而包装类型则存储的是堆中的引用。”我一边说着，一边打开 `draw.io` 画起了图。
+“作为局部变量时，基本类型在栈中直接存储的具体数值，而包装类型则存储的是堆中的引用。”我一边说着，一边打开 [`draw.io`](https://app.diagrams.net/) 画起了图。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/box-01.png)
 
@@ -113,7 +115,7 @@ System.out.println(chenmo.equals(wanger )); // true
 
 “两个包装类型在使用“==”进行判断的时候，判断的是其指向的地址是否相等，由于是两个对象，所以地址是不同的。”
 
-“而 chenmo.equals(wanger) 的输出结果为 true，是因为 equals() 方法内部比较的是两个 int 值是否相等。”
+“而 `chenmo.equals(wanger)` 的输出结果为 true，是因为 `equals()` 方法内部比较的是两个 int 值是否相等。”
 
 ```java
 private final int value;
@@ -193,7 +195,7 @@ System.out.println(c == d);
 
 “为什么会这样呀？”三妹急切地问。
 
-“你说的没错，自动装箱是通过 Integer.valueOf() 完成的，我们来看看这个方法的源码就明白为什么了。”
+“你说的没错，自动装箱是通过 `Integer.valueOf()` 完成的，我们来看看这个方法的源码就明白为什么了。”
 
 ```java
 public static Integer valueOf(int i) {
@@ -203,7 +205,7 @@ public static Integer valueOf(int i) {
 }
 ```
 
-是不是看到了一个之前从来没见过的类——IntegerCache？
+是不是看到了一个之前从来没见过的类——[IntegerCache](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)？
 
 “难道说是 Integer 的缓存类？”三妹做出了自己的判断。
 

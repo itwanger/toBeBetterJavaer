@@ -1,18 +1,19 @@
 ---
-title: Java命名规范
+title: Java命名规范：编写可读性强的代码
 shortTitle: Java命名规范
 category:
   - Java核心
 tag:
   - Java语法基础
-description: Java程序员进阶之路，小白的零基础Java教程，Java命名规范，告别编码 5 分钟，命名 2 小时
+description: 本文介绍了Java编程中的命名规范，以帮助程序员编写可读性强、易于维护的代码。我们将从变量、方法、类和接口命名等方面讲解最佳实践，以便在项目中保持一致的代码风格。学习并实践这些命名规范，将使你成为更出色的Java程序员。
+author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java命名规范,命名规范
+      content: Java,Java命名规范, 变量命名, 方法命名, 类命名, 接口命名, 代码风格, 代码质量
 ---
 
-## 3.2 Java命名规范
+# 13.1 Java命名规范
 
 “二哥，Java 中的命名约定都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
 
@@ -36,7 +37,6 @@ head:
 - 点分隔符之间有且仅有一个自然语义的英语单词
 - 包名统一使用单数形式，比如说 `com.itwanger.util` 不能是 `com.itwanger.utils`
 - 在最新的 Java 编程规范中，要求开发人员在自己定义的包名前加上唯一的前缀。由于互联网上的域名是不会重复的，所以多数开发人员采用自己公司（或者个人博客）在互联网上的域名称作为包的唯一前缀。比如我文章中出现的代码示例的包名就是 `package com.itwanger`。
-
 
 ### 02、类（class）
 
@@ -118,7 +118,6 @@ class Son extends ConfusingName {
 ```java
 static final int MIN_AGE = 18;  
 ```
-
 
 ### 06、方法（method）
 

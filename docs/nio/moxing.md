@@ -6,6 +6,7 @@ category:
 tag:
   - Java NIO
 description: I/O 模型包括阻塞 I/O、非阻塞 I/O、多路复用、信号驱动和异步 I/O。阻塞 I/O 操作等待数据传输完成，非阻塞 I/O 操作不等待，可执行其他任务。多路复用适用于高并发和高吞吐量场景，信号驱动依赖信号通知应用程序。异步 I/O 由内核负责数据传输，应用程序无需等待。
+author: 沉默王二
 head:
   - - meta
     - name: keywords

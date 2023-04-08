@@ -1,47 +1,43 @@
 ---
-title: 深入理解Java中的hashCode方法
-shortTitle: 深入理解Java中的hashCode方法
+title: Java hashCode方法解析：C++实现的高效本地方法
+shortTitle: Java hashCode方法解析
 category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解Java中的hashCode方法
+description: hashCode是Java 所有类都有的方法，它会返回一个整数哈希码，表示对象在内存中的近似位置。相等的对象应具有相同哈希码，因此自定义类时需同时重写hashCode()和equals()方法。
+author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,hashcode
+      content: java,hashcode,equals
 ---
 
-
-
-假期结束了，需要快速切换到工作的状态投入到新的一天当中。放假的时候痛快地玩耍，上班的时候积极的工作，这应该是我们大多数“现代人”该有的生活状态。
-
-我之所以费尽心思铺垫了前面这段话，就是想告诉大家，技术文虽迟但到，来吧，学起来~
+# 13.5 Java hashCode方法解析
 
 今天我们来谈谈 Java 中的 `hashCode()` 方法。众所周知，Java 是一门面向对象的编程语言，所有的类都会默认继承自 Object 类，而 Object 的中文意思就是“对象”。
 
 Object 类中就包含了 `hashCode()` 方法：
 
 ```java
-@HotSpotIntrinsicCandidate
 public native int hashCode();
 ```
 
-意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个本地方法（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
+意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
 
-具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 GitHub 上 OpenJDK 的仓库中下载）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
+具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 [GitHub 上 OpenJDK 的仓库中下载](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/runtime/synchronizer.cpp)）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-1.png)
 
-并且 `hashCode()` 方法被 `@HotSpotIntrinsicCandidate` 注解修饰，说明它在 HotSpot 虚拟机中有一套高效的实现，基于 CPU 指令。
+Java 9 之后，`hashCode()` 方法会被 `@HotSpotIntrinsicCandidate` 注解修饰，表明它在 HotSpot 虚拟机中有一套高效的实现，基于 CPU 指令。
 
-那大家有没有想过这样一个问题：为什么 Object 类需要一个 `hashCode()` 方法呢？
+那大家有没有想过这样一个问题：**为什么 Object 类需要一个 `hashCode()` 方法呢**？
 
-在 Java 中，`hashCode()` 方法的主要作用就是为了配合哈希表使用的。
+在 Java 中，`hashCode()` 方法的主要作用就是为了配合[哈希表](https://tobebetterjavaer.com/collection/hashmap.html)使用的。
 
 哈希表（Hash Table），也叫散列表，是一种可以通过关键码值（key-value）直接访问的数据结构，它最大的特点就是可以快速实现查找、插入和删除。其中用到的算法叫做哈希，就是把任意长度的输入，变换成固定长度的输出，该输出就是哈希值。像 MD5、SHA1 都用的是哈希算法。
 
-像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 HashMap 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
+像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
 
 大家想一下，如果没有哈希表，但又需要这样一个数据结构，它里面存放的数据是不允许重复的，该怎么办呢？
 
@@ -74,22 +70,18 @@ static final int hash(Object key) {
 public int hashCode() {
     int h = hash;
     if (h == 0 && value.length > 0) {
-        hash = h = isLatin1() ? StringLatin1.hashCode(value)
-                : StringUTF16.hashCode(value);
-    }
-    return h;
-}
-public static int hashCode(byte[] value) {
-    int h = 0;
-    int length = value.length >> 1;
-    for (int i = 0; i < length; i++) {
-        h = 31 * h + getChar(value, i);
+        char val[] = value;
+
+        for (int i = 0; i < value.length; i++) {
+            h = 31 * h + val[i];
+        }
+        hash = h;
     }
     return h;
 }
 ```
 
-可想而知，经过这么一系列复杂的运算，再加上 JDK 作者这种大师级别的设计，哈希冲突的概率我相信已经降到了最低。
+可想而知，经过这么一系列复杂的运算，再加上 JDK 作者这种大师级别的设计，哈希冲突的概率我相信已经降到了最低（我们在 HashMap 中深入探讨过）。
 
 当然了，从理论上来说，对于两个不同对象，它们通过 `hashCode()` 方法计算后的值可能相同。因此，不能使用 `hashCode()` 方法来判断两个对象是否相等，必须得通过 `equals()` 方法。
 
@@ -155,7 +147,7 @@ HashMap 的 `get()` 方法会调用 `hash(key.hashCode())` 计算对象的哈希
  }
 ```
 
-Objects 类的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
+[Objects 类](https://tobebetterjavaer.com/common-tool/Objects.html)的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
 
 ```java
 public static int hashCode(Object a[]) {
@@ -181,36 +173,33 @@ public static int hashCode(Object a[]) {
 
 《Java 编程思想》这本圣经中有一段话，对 `hashCode()` 方法进行了一段描述。
 
->设计 `hashCode()` 时最重要的因素就是：无论何时，对同一个对象调用 `hashCode()` 都应该生成同样的值。如果在将一个对象用 `put()` 方法添加进 HashMap 时产生一个 `hashCode()` 值，而用 `get()` 方法取出时却产生了另外一个  `hashCode()` 值，那么就无法重新取得该对象了。所以，如果你的 `hashCode()` 方法依赖于对象中易变的数据，用户就要当心了，因为此数据发生变化时，`hashCode()` 就会生成一个不同的哈希值，相当于产生了一个不同的键。
+> 设计 `hashCode()` 时最重要的因素就是：无论何时，对同一个对象调用 `hashCode()` 都应该生成同样的值。如果在将一个对象用 `put()` 方法添加进 HashMap 时产生一个 `hashCode()` 值，而用 `get()` 方法取出时却产生了另外一个 `hashCode()` 值，那么就无法重新取得该对象了。所以，如果你的 `hashCode()` 方法依赖于对象中易变的数据，用户就要当心了，因为此数据发生变化时，`hashCode()` 就会生成一个不同的哈希值，相当于产生了一个不同的键。
 
 也就是说，如果在重写 `hashCode()` 和 `equals()` 方法时，对象中某个字段容易发生改变，那么最好舍弃这些字段，以免产生不可预期的结果。
 
 好。有了上面这些内容作为基础后，我们回头再来看看本地方法 `hashCode()` 的 C++ 源码。
 
-```java
+```cpp
 static inline intptr_t get_next_hash(Thread* current, oop obj) {
   intptr_t value = 0;
   if (hashCode == 0) {
-    // This form uses global Park-Miller RNG.
-    // On MP system we'll have lots of RW access to a global, so the
-    // mechanism induces lots of coherency traffic.
+    // 这种形式使用全局的 Park-Miller 随机数生成器。
+    // 在 MP 系统上，我们将对全局变量进行大量的读写访问，因此该机制会引发大量的一致性通信。
     value = os::random();
   } else if (hashCode == 1) {
-    // This variation has the property of being stable (idempotent)
-    // between STW operations.  This can be useful in some of the 1-0
-    // synchronization schemes.
+    // 这种变体在 STW（Stop The World）操作之间具有稳定（幂等）的特性。
+    // 在一些 1-0 同步方案中，这可能很有用。
     intptr_t addr_bits = cast_from_oop<intptr_t>(obj) >> 3;
     value = addr_bits ^ (addr_bits >> 5) ^ GVars.stw_random;
   } else if (hashCode == 2) {
-    value = 1;            // for sensitivity testing
+    value = 1;            // 用于敏感性测试
   } else if (hashCode == 3) {
     value = ++GVars.hc_sequence;
   } else if (hashCode == 4) {
     value = cast_from_oop<intptr_t>(obj);
   } else {
-    // Marsaglia's xor-shift scheme with thread-specific state
-    // This is probably the best overall implementation -- we'll
-    // likely make this the default in future releases.
+    // Marsaglia 的异或移位方案，具有线程特定的状态
+    // 这可能是最好的整体实现 -- 我们可能会在未来的版本中将其设为默认实现。
     unsigned t = current->_hashStateX;
     t ^= (t << 11);
     current->_hashStateX = current->_hashStateY;
@@ -238,9 +227,17 @@ static inline intptr_t get_next_hash(Thread* current, oop obj) {
 - `hashCode == 4`，与创建对象的内存位置有关，原样输出。
 - `hashCode == 5`，默认值，支持多线程，使用了 Marsaglia 的 xor-shift 算法产生伪随机数。所谓的 xor-shift 算法，简单来说，看起来就是一个移位寄存器，每次移入的位由寄存器中若干位取异或生成。所谓的伪随机数，不是完全随机的，但是真随机生成比较困难，所以只要能通过一定的随机数统计检测，就可以当作真随机数来使用。
 
-----
+这里简单总结下。
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+在 Java 中，`hashCode()`方法是定义在 `java.lang.Object` 类中的一个方法，该类是所有 Java 所有类的父类。因此，每个 Java 对象都可以调用 `hashCode()`方法。`hashCode()`方法主要用于支持哈希表（如 java.util.HashMap），这些数据结构使用哈希算法能实现快速查找、插入和删除操作。
+
+`hashCode()`方法的主要目的是返回一个整数，这个整数称为哈希码，它代表了对象在内存中的一种近似表示。哈希码用于将对象映射到哈希表中的一个特定的位置。两个相等的对象（根据 [`equals()`方法比较](https://tobebetterjavaer.com/string/equals.html)）应该具有相同的哈希码。然而，具有相同哈希码的两个对象并不一定相等。
+
+当你创建一个自定义类并覆盖 `equals()`方法时，通常也需要覆盖 `hashCode()`方法，以确保相等的对象具有相同的哈希码。这有助于提高哈希表在使用自定义类的对象作为键时的准确性。
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
