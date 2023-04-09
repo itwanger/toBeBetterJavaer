@@ -1,6 +1,6 @@
 ---
 title: Java编程基础：48个关键字及2个保留字全解析
-shortTitle: 48个关键字和2个保留字
+shortTitle: Java关键字和保留字
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java, 关键字, 保留字, 编程基础
 ---
 
-# 3.1 48个关键字和2个保留字
+# 3.1 Java关键字和保留字
 
 “二哥，就[之前你给我展示的 Java 代码](https://tobebetterjavaer.com/overview/hello-world.html)中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
 

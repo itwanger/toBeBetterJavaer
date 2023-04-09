@@ -1,18 +1,18 @@
 ---
-title: 如何在Java中优雅地分割String字符串？
-shortTitle: Java字符串分割
+title: 如何在Java中拆分字符串：详解String类的split()方法
+shortTitle: String拆分
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，如何在Java中优雅地分割String字符串？
+description: 在Java编程中，字符串分割是常见的操作。本文详细讲解了如何使用String类中的split()方法来分割字符串，以及如何利用正则表达式进行高级分割。掌握字符串分割技巧，让你在处理文本数据时更加高效和灵活。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,拆分字符串
+      content: Java,字符串,String,字符串拆分
 ---
 
-# 4.10 字符串分割
+# 4.11 String拆分
 
 “哥，我感觉字符串拆分没什么可讲的呀，直接上 String 类的 `split()` 方法不就可以了！”三妹毫不客气地说。
 

@@ -1,15 +1,15 @@
 ---
-title: Java流程控制语句（if/switch判断语句和while/do-while/for循环语句）
+title: Java流程控制语句详解：带你轻松学会各类控制结构
 shortTitle: Java流程控制语句
 category:
   - Java核心
 tag:
   - Java语法基础
-description: Java程序员进阶之路，小白的零基础Java教程，Java流程控制语句（if/switch判断语句和while/do-while/for循环语句）
+description: 本文全面讲解了Java流程控制语句，包括if、switch、while、for等结构。通过学习本文，你将了解到Java流程控制语句的基本概念、语法结构和使用场景，帮助你在实际编程过程中更加灵活地运用各类控制结构。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java流程控制语句,Java判断语句,Java循环语句,if,switch,while,do-while,for
+      content: Java, 流程控制语句, if, switch, while, for, 控制结构, 编程基础, 语法结构
 ---
 
 # 3.7 Java流程控制语句
@@ -41,9 +41,9 @@ if(布尔表达式){
 
 ```java
 int age = 20;
-    if (age < 30) {
-        System.out.println("青春年华");
-    }
+if (age < 30) {
+    System.out.println("青春年华");
+}
 ```
 
 输出：
@@ -167,8 +167,8 @@ if 嵌套语句的格式如下：
 ```java
 if(外侧条件){    
      // 外侧条件为 true 时执行的代码 
-          if(内侧条件){  
-             // 内侧条件为 true 时执行的代码
+    if(内侧条件){  
+        // 内侧条件为 true 时执行的代码
     }    
 }  
 ```
@@ -788,6 +788,10 @@ do{
 ```
 
 注意：同样的，如果把 if 条件中的“i++”省略掉的话，程序就会进入死循环，一直在 continue。
+
+### 08、小结
+
+本文全面讲解了Java流程控制语句，包括if、switch、while、for等结构。通过学习本文，你将了解到Java流程控制语句的基本概念、语法结构和使用场景，帮助你在实际编程过程中更加灵活地运用各类控制结构。
 
 ---
 

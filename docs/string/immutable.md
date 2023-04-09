@@ -1,63 +1,33 @@
 ---
-title: 聊聊 Java 字符串，以及为什么String是不可变的？
-shortTitle: 字符串为什么不可变
+title: 为什么Java字符串String是不可变的？
+shortTitle: String为什么不可变
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，为什么String是不可变的？
+description: 本文深入探讨了Java String 类的不可变性及其背后的设计原则。我们将了解不可变字符串如何提高代码的安全性、性能和可维护性，以及为什么Java选择了这种设计。探索String类的内部实现，理解为何Java字符串是不可变的。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,不可变
+      content: Java, String, 不可变, 字符串
 ---
 
-# 4.4 字符串为什么不可变
+# 4.5 String为什么不可变
 
-我正坐在沙发上津津有味地读刘欣大佬的《码农翻身》——Java 帝国这一章，门铃响了。起身打开门一看，是三妹，她从学校回来了。
+String 可能是 Java 中使用频率最高的引用类型了，因此 String 类的设计者可以说是用心良苦。
 
-“三妹，你回来的真及时，今天我们打算讲 Java 中的字符串呢。”等三妹换鞋的时候我说。
+比如说 String 的不可变性。
 
-“哦，可以呀，哥。听说字符串的细节特别多，什么字符串常量池了、字符串不可变性了、字符串拼接了、字符串长度限制了等等，你最好慢慢讲，否则我可能一时半会消化不了。”三妹的态度显得很诚恳。
-
-“嗯，我已经想好了，今天就只带你大概认识一下字符串，再说说为什么 String 是不可变的，其他的细节咱们后面再慢慢讲，保证你能及时消化。”
-
-“好，那就开始吧。”三妹已经准备好坐在了电脑桌的边上。
-
-我应了一声后走到电脑桌前坐下来，顺手打开 Intellij IDEA，并找到了 String 的源码。
-
-### 关于 String 类
+- String 类被 [final 关键字](https://tobebetterjavaer.com/oo/final.html)修饰，所以它不会有子类，这就意味着没有子类可以[重写](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)它的方法，改变它的行为。
+- String 类的数据存储在 `char[]` 数组中，而这个数组也被 final 关键字修饰了，这就表示 String 对象是没法被修改的，只要初始化一次，值就确定了。
 
 ```java
 public final class String
     implements java.io.Serializable, Comparable<String>, CharSequence {
-    @Stable
-    private final byte[] value;
-    private final byte coder;
-    private int hash;
+    /** The value is used for character storage. */
+    private final char value[];
 }
 ```
-
-“第一，String 类是 final 的，意味着它不能被子类继承。”
-
-“第二，String 类实现了 Serializable 接口，意味着它可以序列化。”
-
-“第三，String 类实现了 Comparable 接口，意味着最好不要用‘==’来比较两个字符串是否相等，而应该用 `compareTo()` 方法去比较。”
-
-“第四，StringBuffer、StringBuilder 和 String 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
-
-“第五，Java 9 以前，String 是用 char 型数组实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码，可以戳[这篇了解详情](https://tobebetterjavaer.com/basic-extra-meal/jdk9-char-byte-string.html)。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
-
-“第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 HashMap 的键值。”
-
-### 为什么String不可变
-
-“String 可能是 Java 中使用频率最高的引用类型了，因此 String 类的设计者可以说是用心良苦。”
-
-比如说 String 的不可变性。
-
-- String 类被 final 关键字修饰，所以它不会有子类，这就意味着没有子类可以重写它的方法，改变它的行为。
-- String 类的数据存储在 `byte[]` 数组中，而这个数组也被 final 关键字修饰了，这就表示 String 对象是没法被修改的，只要初始化一次，值就确定了。
 
 “哥，为什么要这样设计呢？”三妹有些不解。
 
@@ -65,9 +35,83 @@ public final class String
 
 第一，可以保证 String 对象的安全性，避免被篡改，毕竟像密码这种隐私信息一般就是用字符串存储的。
 
-第二，保证哈希值不会频繁变更。毕竟要经常作为哈希表的键值，经常变更的话，哈希表的性能就会很差劲。
+以下是一个简单的 Java 示例，演示了字符串的不可变性如何有助于保证 String 对象的安全性。在本例中，我们创建了一个简单的 User 类，该类使用 String 类型的字段存储用户名和密码。同时，我们使用一个静态方法 getUserCredentials 从外部获取用户凭据。
 
-第三，可以实现字符串常量池。
+```java
+class User {
+    private String username;
+    private String password;
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
+
+public class StringSecurityExample {
+    public static void main(String[] args) {
+        String username = "沉默王二";
+        String password = "123456";
+        User user = new User(username, password);
+
+        // 获取用户凭据
+        String[] credentials = getUserCredentials(user);
+
+        // 尝试修改从 getUserCredentials 返回的用户名和密码字符串
+        credentials[0] = "陈清扬";
+        credentials[1] = "612311";
+
+        // 输出原始 User 对象中的用户名和密码
+        System.out.println("原始用户名: " + user.getUsername()); // 输出 "JohnDoe"
+        System.out.println("原始密码: " + user.getPassword()); // 输出 "mySecurePassword"
+    }
+
+    public static String[] getUserCredentials(User user) {
+        String[] credentials = new String[2];
+        credentials[0] = user.getUsername();
+        credentials[1] = user.getPassword();
+        return credentials;
+    }
+}
+```
+
+在这个示例中，尽管我们尝试修改 getUserCredentials 返回的字符串数组（即用户名和密码），但原始 User 对象中的用户名和密码保持不变。这证明了字符串的不可变性有助于保护 String 对象的安全性。
+
+第二，保证哈希值不会频繁变更。毕竟要经常作为[哈希表](https://tobebetterjavaer.com/collection/hashmap.html)的键值，经常变更的话，哈希表的性能就会很差劲。
+
+在 String 类中，哈希值是在第一次计算时缓存的，后续对该哈希值的请求将直接使用缓存值。这有助于提高哈希表等数据结构的性能。以下是一个简单的示例，演示了字符串的哈希值缓存机制：
+
+```java
+String text1 = "沉默王二";
+String text2 = "沉默王二";
+
+// 计算字符串 text1 的哈希值，此时会进行计算并缓存哈希值
+int hashCode1 = text1.hashCode();
+System.out.println("第一次计算 text1 的哈希值: " + hashCode1);
+
+// 再次计算字符串 text1 的哈希值，此时直接返回缓存的哈希值
+int hashCode1Cached = text1.hashCode();
+System.out.println("第二次计算: " + hashCode1Cached);
+
+// 计算字符串 text2 的哈希值，由于字符串常量池的存在，实际上 text1 和 text2 指向同一个字符串对象
+// 所以这里直接返回缓存的哈希值
+int hashCode2 = text2.hashCode();
+System.out.println("text2 直接使用缓存: " + hashCode2);
+```
+
+在这个示例中，我们创建了两个具有相同内容的字符串 text1 和 text2。首次计算 text1 的哈希值时，会进行实际计算并缓存该值。当我们再次计算 text1 的哈希值或计算具有相同内容的 text2 的哈希值时，将直接返回缓存的哈希值，而不进行重新计算。
+
+由于 String 对象是不可变的，其哈希值在创建后不会发生变化。这使得 String 类可以缓存哈希值，提高哈希表等数据结构的性能。如果 String 是可变的，那么在每次修改时都需要重新计算哈希值，这会降低性能。
+
+第三，可以实现[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)，Java 会将相同内容的字符串存储在字符串常量池中。这样，具有相同内容的字符串变量可以指向同一个 String 对象，节省内存空间。
 
 “由于字符串的不可变性，String 类的一些方法实现最终都返回了新的字符串对象。”等三妹稍微缓了一会后，我继续说到。
 
@@ -78,37 +122,15 @@ public String substring(int beginIndex) {
     if (beginIndex < 0) {
         throw new StringIndexOutOfBoundsException(beginIndex);
     }
-    int subLen = length() - beginIndex;
+    int subLen = value.length - beginIndex;
     if (subLen < 0) {
         throw new StringIndexOutOfBoundsException(subLen);
     }
-    if (beginIndex == 0) {
-        return this;
-    }
-    return isLatin1() ? StringLatin1.newString(value, beginIndex, subLen)
-            : StringUTF16.newString(value, beginIndex, subLen);
-}
-
-// StringLatin1.newString 
-public static String newString(byte[] val, int index, int len) {
-    return new String(Arrays.copyOfRange(val, index, index + len),
-            LATIN1);
-}
-
-// UTF16.newString
-public static String newString(byte[] val, int index, int len) {
-    if (String.COMPACT_STRINGS) {
-        byte[] buf = compress(val, index, len);
-        if (buf != null) {
-            return new String(buf, LATIN1);
-        }
-    }
-    int last = index + len;
-    return new String(Arrays.copyOfRange(val, index << 1, last << 1), UTF16);
+    return (beginIndex == 0) ? this : new String(value, beginIndex, subLen);
 }
 ```
 
-`substring()` 方法用于截取字符串，不管是 Latin1 字符还是 UTF16 字符，最终返回的都是 new 出来的新字符串对象。
+`substring()` 方法用于截取字符串，最终返回的都是 new 出来的新字符串对象。
 
 “还有 `concat()` 方法。”
 

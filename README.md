@@ -109,25 +109,25 @@
 
 - [Java编程基础：48个关键字及2个保留字全解析](docs/basic-extra-meal/48-keywords.md)
 - [了解Java注释：单行、多行与文档注释的使用方法](docs/basic-grammar/javadoc.md)
-- [Java中的数据类型（8种基本数据类型和引用数据类型）](docs/basic-grammar/basic-data-type.md)
-- [Java数据类型转换（强制类型转换+自动类型转换）](docs/basic-grammar/type-cast.md)
-- [聊聊Java基本数据类型缓存池](docs/basic-extra-meal/int-cache.md)
-- [Java运算符](docs/basic-grammar/operator.md)
-- [Java流程控制语句](docs/basic-grammar/flow-control.md)
+- [Java数据类型全解析：基本数据类型与引用数据类型](docs/basic-grammar/basic-data-type.md)
+- [Java数据类型转换：自动类型转换与强制类型转换](docs/basic-grammar/type-cast.md)
+- [Java基本数据类型缓存池剖析（IntegerCache）](docs/basic-extra-meal/int-cache.md)
+- [Java运算符详解：掌握各类运算符的使用与技巧](docs/basic-grammar/operator.md)
+- [Java流程控制语句详解：带你轻松学会各类控制结构](docs/basic-grammar/flow-control.md)
 
 ## 数组&字符串
 
-- [一文吃透Java数组](docs/array/array.md)
-- [聊聊Java的二维数组](docs/array/double-array.md)
+- [掌握Java数组：一个非常特殊的对象](docs/array/array.md)
+- [掌握 Java二维数组：从基本概念到实际应用](docs/array/double-array.md)
 - [如何优雅地打印Java数组？](docs/array/print.md)
-- [聊聊Java字符串，以及为什么String是不可变的？](docs/string/immutable.md)
+- [深入解读String类源码及其应用技巧](docs/string/string-source.md)
+- [为什么Java字符串String是不可变的？](docs/string/immutable.md)
 - [深入理解Java字符串常量池](docs/string/constant-pool.md)
-- [深入解析String.intern()方法](docs/string/intern.md)
-- [聊聊String、StringBuilder、StringBuffer 三兄弟](docs/string/builder-buffer.md)
-- [Java如何判断两个字符串是否相等？](docs/string/equals.md)
-- [最优雅的Java字符串拼接是哪种方式？](docs/string/join.md)
-- [如何在Java中优雅地分割String字符串？](docs/string/split.md)
-- [Java 9为什么要将String的底层实现由char数组改成了byte数组?](docs/basic-extra-meal/jdk9-char-byte-string.md)
+- [Java 字符串优化：详解 String.intern() 方法](docs/string/intern.md)
+- [聊聊 Java String、StringBuilder、StringBuffer 三兄弟](docs/string/builder-buffer.md)
+- [字符串相等判断：Java中的equals()与==的区别与用法](docs/string/equals.md)
+- [最优雅的Java字符串String拼接是哪种方式？](docs/string/join.md)
+- [如何在Java中拆分字符串：详解String类的split()方法](docs/string/split.md)
 
 ## Java面向对象编程
 

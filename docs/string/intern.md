@@ -1,18 +1,18 @@
 ---
-title: 深入解析String.intern()方法
-shortTitle: 深入解析String.intern()方法
+title: Java 字符串优化：详解 String.intern() 方法
+shortTitle: 详解 String.intern 方法
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入解析String.intern()方法
+description: 本文详细解析了 Java 中 String.intern() 方法的工作原理和应用场景。了解 String.intern() 如何优化字符串处理性能，减少内存开销，并探讨其在实际开发中的使用技巧。深入了解字符串常量池和 String.intern() 方法之间的关联，以更好地应用于 Java 编程。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,intern,string intern,java intern,java string intern
+      content: Java,字符串,String,intern,string intern,java intern,java string intern,String.intern
 ---
 
-# 4.6 String.intern()方法
+# 4.7 详解 String.intern() 方法
 
 “哥，你发给我的那篇文章我看了，结果直接把我给看得不想学 Java 了！”三妹气冲冲地说。
 

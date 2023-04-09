@@ -1,18 +1,18 @@
 ---
-title: 聊聊Java的二维数组
-shortTitle: 二维数组
+title: 掌握 Java二维数组：从基本概念到实际应用
+shortTitle: 掌握Java二维数组
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java二维数组
+description: 本文深入讲解了Java二维数组的基本概念、创建方法、初始化方法以及常用操作。通过阅读本文，您将了解到如何定义二维数组、创建和初始化二维数组，以及如何进行二维数组的常见操作，如添加、删除、查询等。本文将帮助您快速掌握Java二维数组的使用方法和技巧（打印杨辉三角）。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java二维数组,数组
+      content: Java, 二维数组, 创建二维数组, 初始化二维数组, 数组操作, 多维数组
 ---
 
-# 4.2 二维数组
+# 4.2 掌握Java二维数组
 
 “二哥，今天我们简单过一下二维数组吧，挺简单的。”三妹放下手机对我说。
 

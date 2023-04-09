@@ -1,18 +1,18 @@
 ---
-title: Java中的数据类型（8种基本数据类型和引用数据类型）
-shortTitle: Java中的数据类型
+title: Java数据类型全解析：基本数据类型与引用数据类型
+shortTitle: Java数据类型
 category:
   - Java核心
 tag:
   - Java语法基础
-description: Java程序员进阶之路，小白的零基础Java教程，Java 中的数据类型（8 种基本数据类型和引用数据类型）
+description: 本文详细探讨了Java数据类型，包括比特与字节、基本数据类型、单精度与双精度、int与char互转、包装器类型、引用数据类型以及堆与栈的内存模型。通过阅读本文，您将全面了解Java数据类型的概念与使用方法，为Java编程打下坚实基础。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java 简介,Java数据类型,基本数据类型,引用数据类型,数据类型
+      content: Java, 数据类型, 比特, 字节, 基本数据类型, 引用数据类型, 单精度, 双精度, int, char, 包装器类型, 堆, 栈, 内存模型, 类型转换
 ---
 
-# 3.3 Java中的数据类型
+# 3.3 Java 数据类型
 
 “Java 是一种静态类型的编程语言，这意味着所有变量必须在使用之前声明好，也就是必须得先指定变量的类型和名称。”我吸了一口麦香可可奶茶后对三妹说。
 
@@ -63,16 +63,16 @@ public class LocalVar {
 
 瞧见没，int 作为成员变量时或者静态变量时的默认值是 0。那不同的基本数据类型，是有不同的默认值和大小的，来个表格感受下。
 
-| 数据类型 | 默认值   | 大小  |
-| -------- | -------- | ----- |
-| boolean  | false    | 1比特 |
-| char     | '\u0000' | 2字节 |
-| byte     | 0        | 1字节 |
-| short    | 0        | 2字节 |
-| int      | 0        | 4字节 |
-| long     | 0L       | 8字节 |
-| float    | 0.0f     | 4字节 |
-| double   | 0.0      | 8字节 |
+| 数据类型 | 默认值   | 大小   |
+| -------- | -------- | ------ |
+| boolean  | false    | 1 比特 |
+| char     | '\u0000' | 2 字节 |
+| byte     | 0        | 1 字节 |
+| short    | 0        | 2 字节 |
+| int      | 0        | 4 字节 |
+| long     | 0L       | 8 字节 |
+| float    | 0.0f     | 4 字节 |
+| double   | 0.0      | 8 字节 |
 
 ### 01、比特和字节
 
@@ -111,136 +111,153 @@ boolean hasGirlFriend = false;
 
 #### 2）byte
 
-byte 的取值范围在 -128 和 127 之间，包含 127。最小值为 -128，最大值为 127，默认值为 0。
+一个字节可以表示 2^8 = 256 个不同的值。由于 byte 是有符号的，它的值可以是负数或正数，其取值范围是 -128 到 127（包括 -128 和 127）。
 
-在网络传输的过程中，为了节省空间，常用字节来作为数据的传输方式。代码示例：
-
+在网络传输、大文件读写时，为了节省空间，常用字节来作为数据的传输方式。代码示例：
 
 ```java
-byte a = 10;
-byte b = -10;
+byte b; // 声明一个 byte 类型变量
+b = 10; // 将值 10 赋给变量 b
+byte c = -100; // 声明并初始化一个 byte 类型变量 c，赋值为 -100
 ```
 
 #### 3）short
 
-short 的取值范围在 -32,768 和 32,767 之间，包含 32,767。最小值为 -32,768，最大值为 32,767，默认值为 0。代码示例：
+short 的取值范围在 -32,768 和 32,767 之间，包含 32,767。代码示例：
 
 ```java
-short s = 10000;
-short r = -5000;
+short s; // 声明一个 short 类型变量
+s = 1000; // 将值 1000 赋给变量 s
+short t = -2000; // 声明并初始化一个 short 类型变量 t，赋值为 -2000
 ```
+
+实际开发中，short 比较少用，整型用 int 就 OK。
 
 #### 3）int
 
-int 的取值范围在 -2,147,483,648（-2 ^ 31）和 2,147,483,647（2 ^ 31 -1）（含）之间，默认值为 0。如果没有特殊需求，整型数据就用 int。代码示例：
+int 的取值范围在 -2,147,483,648（-2 ^ 31）和 2,147,483,647（2 ^ 31 -1）（含）之间。如果没有特殊需求，整型数据就用 int。代码示例：
 
 ```java
-int a = 100000;
-int b = -200000;
+int i; // 声明一个 int 类型变量
+i = 1000000; // 将值 1000000 赋给变量 i
+int j = -2000000; // 声明并初始化一个 int 类型变量 j，赋值为 -2000000
 ```
 
 #### 5）long
 
-long 的取值范围在 -9,223,372,036,854,775,808(-2^63) 和 9,223,372,036,854,775,807(2^63 -1)（含）之间，默认值为 0。如果 int 存储不下，就用 long，整型数据就用 int。代码示例：
+long 的取值范围在 -9,223,372,036,854,775,808(-2^63) 和 9,223,372,036,854,775,807(2^63 -1)（含）之间。如果 int 存储不下，就用 long。代码示例：
 
 ```java
-long a = 100000L; 
-long b = -200000L;
+long l; // 声明一个 long 类型变量
+l = 100000000000L; // 将值 100000000000L 赋给变量 l（注意要加上 L 后缀）
+long m = -20000000000L; // 声明并初始化一个 long 类型变量 m，赋值为 -20000000000L
 ```
 
 为了和 int 作区分，long 型变量在声明的时候，末尾要带上大写的“L”。不用小写的“l”，是因为小写的“l”容易和数字“1”混淆。
 
 #### 6）float
 
-float 是单精度的浮点数，遵循 IEEE 754（二进制浮点数算术标准），取值范围是无限的，默认值为 0.0f。float 不适合用于精确的数值，比如说货币。代码示例：
+float 是单精度的浮点数（单精度浮点数的有效数字大约为 6 到 7 位），32 位（4 字节），遵循 IEEE 754（二进制浮点数算术标准），取值范围为 1.4E-45 到 3.4E+38。float 不适合用于精确的数值，比如说金额。代码示例：
 
 ```java
-float f1 = 234.5f;
+float f; // 声明一个 float 类型变量
+f = 3.14159f; // 将值 3.14159f 赋给变量 f（注意要加上 f 后缀）
+float g = -2.71828f; // 声明并初始化一个 float 类型变量 g，赋值为 -2.71828f
 ```
 
 为了和 double 作区分，float 型变量在声明的时候，末尾要带上小写的“f”。不需要使用大写的“F”，是因为小写的“f”很容易辨别。
 
 #### 7）double
 
-double 是双精度的浮点数，遵循 IEEE 754（二进制浮点数算术标准），取值范围也是无限的，默认值为 0.0。double 同样不适合用于精确的数值，比如说货币。代码示例：
+double 是双精度浮点数（双精度浮点数的有效数字大约为 15 到 17 位），占 64 位（8 字节），也遵循 IEEE 754 标准，取值范围大约 ±4.9E-324 到 ±1.7976931348623157E308。double 同样不适合用于精确的数值，比如说金额。
+
+代码示例：
 
 ```java
-double d1 = 12.3
+double myDouble = 3.141592653589793;
 ```
 
-那精确的数值用什么表示呢？最好使用 BigDecimal，它可以表示一个任意大小且精度完全准确的浮点数。针对货币类型的数值，也可以先乘以 100 转成整型进行处理。
+在进行金融计算或需要精确小数计算的场景中，可以使用 [BigDecimal 类](https://tobebetterjavaer.com/basic-grammar/bigdecimal-biginteger.html)来避免浮点数舍入误差。BigDecimal 可以表示一个任意大小且精度完全准确的浮点数。
 
-Tips：单精度是这样的格式，1 位符号，8 位指数，23 位小数，有效位数为 7 位。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-04.png)
-
-双精度是这样的格式，1 位符号，11 位指数，52 为小数，有效位数为 16 位。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-05.png)
-
-取值范围取决于指数位，计算精度取决于小数位（尾数）。小数位越多，则能表示的数越大，那么计算精度则越高。
-
->一个数由若干位数字组成，其中影响测量精度的数字称作有效数字，也称有效数位。有效数字指科学计算中用以表示一个浮点数精度的那些数字。一般地，指一个用小数形式表示的浮点数中，从第一个非零的数字算起的所有数字。如 1.24 和 0.00124 的有效数字都有 3 位。
+> 在实际开发中，如果不是特别大的金额（精确到 0.01 元，也就是一分钱），一般建议乘以 100 转成整型进行处理。
 
 #### 8）char
 
-char 可以表示一个 16 位的 Unicode 字符，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。代码示例：
+char 用于表示 Unicode 字符，占 16 位（2 字节）的存储空间，取值范围为 0 到 65,535。
+
+代码示例：
 
 ```java
 char letterA = 'A'; // 用英文的单引号包裹住。
 ```
 
-那三妹可能要问，“char 既然只有一个字符，为什么占 2 个字节呢？”
+注意，字符字面量应该用单引号（''）包围，而不是双引号（""），因为[双引号表示字符串字面量](https://tobebetterjavaer.com/string/constant-pool.html)。
 
-“主要是因为 Java 使用的是 Unicode 字符集而不是 ASCII 字符集。字符集也可以叫编码，编码不同，实际占用的字节就会不同。”
+### 03、单精度和双精度
 
-[关于字符编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
+单精度（single-precision）和双精度（double-precision）是指两种不同精度的浮点数表示方法。
 
+单精度是这样的格式，1 位符号，8 位指数，23 位小数。
 
-### 03、int 和 char 类型互转
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-04.png)
 
-这里整理一波 int 和 char 类型的互转，它们之间比较特殊。也会在以后的学习当中经常遇到。
+单精度浮点数通常占用 32 位（4 字节）存储空间。数值范围大约是 ±1.4E-45 到 ±3.4028235E38，精度大约为 6 到 9 位有效数字。
+
+双精度是这样的格式，1 位符号，11 位指数，52 为小数。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-05.png)
+
+双精度浮点数通常占用 64 位（8 字节）存储空间，数值范围大约是 ±4.9E-324 到 ±1.7976931348623157E308，精度大约为 15 到 17 位有效数字。
+
+计算精度取决于小数位（尾数）。小数位越多，则能表示的数越大，那么计算精度则越高。
+
+一个数由若干位数字组成，其中影响测量精度的数字称作有效数字，也称有效数位。有效数字指科学计算中用以表示一个浮点数精度的那些数字。一般地，指一个用小数形式表示的浮点数中，从第一个非零的数字算起的所有数字。如 1.24 和 0.00124 的有效数字都有 3 位。
+
+以下是确定有效数字的一些基本规则：
+
+- 非零数字总是有效的。
+- 位于两个非零数字之间的零是有效的。
+- 对于小数，从左侧开始的第一个非零数字之前的零是无效的。
+- 对于整数，从右侧开始的第一个非零数字之后的零是无效的。
+
+下面是一些示例，说明如何确定有效数字：
+
+- 1234：4 个有效数字（所有数字都是非零数字）
+- 1002：4 个有效数字（零位于两个非零数字之间）
+- 0.00234：3 个有效数字（从左侧开始的前两个零是无效的）
+- 1200：2 个有效数字（从右侧开始的两个零是无效的）
+
+### 04、int 和 char 类型互转
+
+int 和 char 之间比较特殊，可以互转，也会在以后的学习当中经常遇到。
 
 1）可以通过[强制类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)将整型 int 转换为字符 char。
 
 ```java
-public class SimpleTesting {
-    public static void main(String[] args) {
-        int value_int = 65;
-        char value_char  = (char) value_int;
-        System.out.println(value_char);
-    }
-} 
+int value_int = 65;
+char value_char  = (char) value_int;
+System.out.println(value_char);
 ```
 
 输出 `A`(其 [ASCII 值](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)可以通过整数 65 来表示)。
 
-2）可以使用 `Character.forDigit()` 方法将整型 int 转换为字符 char。
+2）可以使用 `Character.forDigit()` 方法将整型 int 转换为字符 char，参数 radix 为基数，十进制为 10，十六进制为 16。。
 
 ```java
-public class SimpleTesting {
-    public static void main(String[] args) {
-        //radix 10 is for decimal number, for hexa use radix 16 
-        int radix = 10; 
-        int value_int = 6;
-        char value_char = Character.forDigit(value_int , radix);
-        System.out.println(value_char );
-    }
-}
+int radix = 10;
+int value_int = 6;
+char value_char = Character.forDigit(value_int , radix);
+System.out.println(value_char );
 ```
 
-radix 为基数，十进制为 10，十六进制为 16。
+Character 为 char 的包装器类型。我们随后会讲。
 
-3）可以使用 int 的包装器类型 Integer 的 `toString()` 方法+String 的 `charAt()` 方法转成 char
+3）可以使用 int 的包装器类型 Integer 的 `toString()` 方法+String 的 `charAt()` 方法转成 char。
 
 ```java
-public class SimpleTesting {
-    public static void main(String[] args) {
-        int value_int = 1;
-        char value_char = Integer.toString(value_int).charAt(0);
+int value_int = 1;
+char value_char = Integer.toString(value_int).charAt(0);
 System.out.println(value_char );
-    }
-}
 ```
 
 4）char 转 int
@@ -251,14 +268,66 @@ System.out.println(value_char );
 int a = 'a';
 ```
 
-因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)。
+因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)，后面会细讲。
 
+### 05、包装器类型
 
-### 04、引用数据类型
+包装器类型（Wrapper Types）是 Java 中的一种特殊类型，用于将基本数据类型（如 int、float、char 等）转换为对应的[对象类型](https://tobebetterjavaer.com/oo/object-class.html)。
 
-基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的。
+Java 提供了以下包装器类型，与基本数据类型一一对应：
 
-String 是最典型的引用数据类型，所以我们就拿 String 类举例，看下面这段代码：
+- Byte（对应 byte）
+- Short（对应 short）
+- Integer（对应 int）
+- Long（对应 long）
+- Float（对应 float）
+- Double（对应 double）
+- Character（对应 char）
+- Boolean（对应 boolean）
+
+包装器类型允许我们使用基本数据类型提供的各种实用方法，并兼容需要对象类型的场景。例如，我们可以使用 Integer 类的 parseInt 方法将字符串转换为整数，或使用 Character 类的 isDigit 方法检查字符是否为数字，还有前面提到的 `Character.forDigit()` 方法。
+
+下面是一个简单的示例，演示了如何使用包装器类型：
+
+```java
+// 使用 Integer 包装器类型
+Integer integerValue = new Integer(42);
+System.out.println("整数值: " + integerValue);
+
+// 将字符串转换为整数
+String numberString = "123";
+int parsedNumber = Integer.parseInt(numberString);
+System.out.println("整数值: " + parsedNumber);
+
+// 使用 Character 包装器类型
+Character charValue = new Character('A');
+System.out.println("字符: " + charValue);
+
+// 检查字符是否为数字
+char testChar = '9';
+if (Character.isDigit(testChar)) {
+System.out.println("字符是个数字.");
+}
+```
+
+上面的示例中，我们创建了一个 [Integer 类型](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)的对象 integerValue 并为其赋值 42。然后，我们将其值打印到控制台。
+
+我们有一个包含数字的[字符串](https://tobebetterjavaer.com/string/immutable.html) numberString。我们使用 `Integer.parseInt()` 方法将其转换为整数 parsedNumber。然后，我们将转换后的值打印到控制台。
+
+我们有一个字符变量 testChar，并为其赋值字符 '9'。我们使用 `Character.isDigit()` 方法检查 testChar 是否为数字字符。如果是数字字符，我们将输出一条消息到控制台。
+
+从 Java 5 开始，[自动装箱（Autoboxing）和自动拆箱（Unboxing）机制](https://tobebetterjavaer.com/basic-extra-meal/box.html)允许我们在基本数据类型和包装器类型之间自动转换，无需显式地调用构造方法或转换方法（链接里会细讲）。
+
+```java
+Integer integerValue = 42; // 自动装箱，等同于 new Integer(42)
+int primitiveValue = integerValue; // 自动拆箱，等同于 integerValue.intValue()
+```
+
+### 06、引用数据类型
+
+基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的（学完数组&字符串，以及面向对象编程后会更加清楚，这里先简单过一下）。
+
+[String](https://tobebetterjavaer.com/string/immutable.html) 是最典型的引用数据类型，所以我们就拿 String 类举例，看下面这段代码：
 
 ```java
 /**
@@ -287,20 +356,13 @@ null 在 Java 中是一个很神奇的存在，在你以后的程序生涯中，
 
 也就是说，引用数据类型的默认值为 null，包括数组和接口。
 
-那三妹是不是很好奇，为什么数组和接口也是引用数据类型啊？
+那你是不是很好奇，为什么[数组](https://tobebetterjavaer.com/array/array.html)和[接口](https://tobebetterjavaer.com/oo/interface.html)也是引用数据类型啊？
 
 先来看数组：
 
 ```java
-/**
- * @author 微信搜「沉默王二」，回复关键字 java
- */
-public class ArrayDemo {
-    public static void main(String[] args) {
-        int [] arrays = {1,2,3};
-        System.out.println(arrays);
-    }
-}
+int [] arrays = {1,2,3};
+System.out.println(arrays);
 ```
 
 arrays 是一个 int 类型的数组，对吧？打印结果如下所示：
@@ -330,18 +392,11 @@ public final class String
 再来看接口：
 
 ```java
-/**
- * @author 微信搜「沉默王二」，回复关键字 Java
- */
-public class IntefaceDemo {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        System.out.println(list);
-    }
-}
+List<String> list = new ArrayList<>();
+System.out.println(list);
 ```
 
-List 是一个非常典型的接口：
+[List](https://tobebetterjavaer.com/collection/gailan.html) 是一个非常典型的接口：
 
 ```java
 public interface List<E> extends Collection<E> {}
@@ -373,7 +428,7 @@ public class ArrayList<E> extends AbstractList<E>
 - 1、变量名指向的是存储对象的内存地址，在栈上。
 - 2、内存地址指向的对象存储在堆上。
 
-### 05、堆和栈
+### 07、堆和栈
 
 看到这，三妹是不是又要问，“堆是什么，栈又是什么？”
 
@@ -381,7 +436,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 堆是在程序运行时在内存中申请的空间（可理解为动态的过程）；切记，不是在编译时；因此，Java 中的对象就放在这里，这样做的好处就是：
 
->当需要一个对象时，只需要通过 new 关键字写一行代码即可，当执行这行代码时，会自动在内存的“堆”区分配空间——这样就很灵活。
+> 当需要一个对象时，只需要通过 new 关键字写一行代码即可，当执行这行代码时，会自动在内存的“堆”区分配空间——这样就很灵活。
 
 栈，能够和处理器（CPU，也就是脑子）直接关联，因此访问速度更快。既然访问速度快，要好好利用啊！Java 就把对象的引用放在栈里。为什么呢？因为引用的使用频率高吗？
 
@@ -424,9 +479,13 @@ public void test()
 
 “好了，三妹，关于 Java 中的数据类型就先说这么多吧，你是不是已经清楚了？”转动了一下僵硬的脖子后，我对三妹说。
 
+### 08、小结
+
+本文详细探讨了 Java 数据类型，包括比特与字节、基本数据类型、单精度与双精度、int 与 char 互转、包装器类型、引用数据类型以及堆与栈的内存模型。通过阅读本文，你将全面了解 Java 数据类型的概念与使用方法，为 Java 编程打下坚实基础。
+
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 

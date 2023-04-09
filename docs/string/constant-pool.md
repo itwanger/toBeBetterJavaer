@@ -1,18 +1,18 @@
 ---
-title: 深入理解Java的字符串常量池
-shortTitle: Java字符串常量池
+title: 深入理解Java字符串String常量池
+shortTitle: 深入理解Java字符串常量池
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解Java字符串常量池
+description: 本文详细介绍了Java字符串常量池的概念和工作原理。了解字符串常量池如何提高程序性能和内存利用率，探讨其在Java开发中的实际应用。学习Java字符串常量池的特性，更深入地理解Java内存管理和优化策略。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,java String,java常量池,java字符串常量池,string常量池
+      content: Java,java字符串,java String,java常量池,java字符串常量池,string常量池,字符串常量池
 ---
 
-# 4.5 深入理解Java的字符串常量池
+# 4.6 深入理解Java字符串常量池
 
 “三妹，今天我们来学习一下字符串常量池，这是字符串中非常关键的一个知识点。”我话音未落，青岛路小学那边传来了嘹亮的歌声就钻进了我的耳朵，“唱 ~ 山 ~ 歌 ~”，我都有点情不自禁地哼唱起来了。
 
@@ -26,7 +26,7 @@ head:
 String s = new String("二哥");
 ```
 
-“这行代码创建了几个对象？”
+“这行代码创建了几个[对象](https://tobebetterjavaer.com/oo/object-class.html)？”
 
 “不就一个吗？”三妹不假思索地回答。
 

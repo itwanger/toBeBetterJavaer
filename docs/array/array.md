@@ -1,18 +1,18 @@
 ---
-title: 一文吃透Java数组（非常特殊的对象）
-shortTitle: Java数组
+title: 掌握Java数组：一个非常特殊的对象
+shortTitle: 掌握Java数组
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java数组
+description: 本文详细介绍了Java数组，包括数组的基本概念、创建方法、初始化方法以及常用操作。学习本文内容，您将掌握Java数组的定义、如何创建和初始化数组，以及如何进行数组元素的添加、删除、查询等操作，为您的Java编程之旅打下坚实基础。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java数组,数组
+      content: Java, 数组, 创建数组, 初始化数组, 数组操作
 ---
 
-# 4.1 Java数组
+# 4.1 掌握Java数组
 
 “二哥，我看你公众号的一篇文章里提到，[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 

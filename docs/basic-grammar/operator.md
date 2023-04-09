@@ -1,15 +1,15 @@
 ---
-title: 一文彻底搞清楚Java运算符
+title: Java运算符详解：掌握各类运算符的使用与技巧
 shortTitle: Java运算符
 category:
   - Java核心
 tag:
   - Java语法基础
-description: Java程序员进阶之路，小白的零基础Java教程，本文主要介绍Java 中的运算符(算术运算符、关系运算符、赋值运算符、逻辑运算符、位运算符)的使用
+description: 本文全面介绍了Java运算符，包括算术运算符、关系运算符、逻辑运算符、位运算符、赋值运算符等。通过阅读本文，您将了解到Java运算符的分类、用法和优先级，以及如何在实际开发中灵活运用各类运算符提高编程效率。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,运算符,java运算符
+      content: Java, 运算符, 算术运算符, 关系运算符, 逻辑运算符, 位运算符, 赋值运算符, 运算符用法, 运算符优先级
 ---
 
 # 3.6 Java运算符
@@ -26,28 +26,21 @@ head:
 算术运算符除了最常见的加减乘除，还有一个取余的运算符，用于得到除法运算后的余数，来串代码感受下。
 
 ```java
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class ArithmeticOperator {
-    public static void main(String[] args) {
-        int a = 10;
-        int b = 5;
+int a = 10;
+int b = 5;
 
-        System.out.println(a + b);//15
-        System.out.println(a - b);//5
-        System.out.println(a * b);//50
-        System.out.println(a / b);//2
-        System.out.println(a % b);//0
+System.out.println(a + b);//15
+System.out.println(a - b);//5
+System.out.println(a * b);//50
+System.out.println(a / b);//2
+System.out.println(a % b);//0
 
-        b = 3;
-        System.out.println(a + b);//13
-        System.out.println(a - b);//7
-        System.out.println(a * b);//30
-        System.out.println(a / b);//3
-        System.out.println(a % b);//1
-    }
-}
+b = 3;
+System.out.println(a + b);//13
+System.out.println(a - b);//7
+System.out.println(a * b);//30
+System.out.println(a / b);//3
+System.out.println(a % b);//1
 ```
 
 对于初学者来说，加法（+）、减法（-）、乘法（*）很好理解，但除法（/）和取余（%）会有一点点疑惑。在以往的认知里，10/3 是除不尽的，结果应该是 3.333333...，而不应该是 3。相应的，余数也不应该是 1。这是为什么呢？
@@ -55,31 +48,23 @@ public class ArithmeticOperator {
 因为数字在程序中可以分为两种，一种是整型，一种是浮点型（不清楚的同学可以回头看看[数据类型那篇](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)），整型和整型的运算结果就是整型，不会出现浮点型。否则，就会出现浮点型。
 
 ```java
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class ArithmeticOperator {
-    public static void main(String[] args) {
-        int a = 10;
-        float c = 3.0f;
-        double d = 3.0;
-        System.out.println(a / c); // 3.3333333
-        System.out.println(a / d); // 3.3333333333333335
-        System.out.println(a % c); // 1.0
-        System.out.println(a % d); // 1.0
-    }
-}
+int a = 10;
+float c = 3.0f;
+double d = 3.0;
+System.out.println(a / c); // 3.3333333
+System.out.println(a / d); // 3.3333333333333335
+System.out.println(a % c); // 1.0
+System.out.println(a % d); // 1.0
 ```
 
 需要注意的是，当浮点数除以 0 的时候，结果为 Infinity 或者 NaN。
 
-```
+```java
 System.out.println(10.0 / 0.0); // Infinity
 System.out.println(0.0 / 0.0); // NaN
 ```
 
 Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数字（Not a Number）。
-
 
 当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)：
 
@@ -93,15 +78,11 @@ Exception in thread "main" java.lang.ArithmeticException: / by zero
 算术运算符中还有两种特殊的运算符，自增运算符（++）和自减运算符（--），它们也叫做一元运算符，只有一个操作数。
 
 ```java
-public class UnaryOperator1 {
-    public static void main(String[] args) {
-        int x = 10;
-        System.out.println(x++);//10 (11)  
-        System.out.println(++x);//12  
-        System.out.println(x--);//12 (11)  
-        System.out.println(--x);//10  
-    }
-}
+int x = 10;
+System.out.println(x++);//10 (11)  
+System.out.println(++x);//12  
+System.out.println(x--);//12 (11)  
+System.out.println(--x);//10  
 ```
 
 一元运算符可以放在数字的前面或者后面，放在前面叫前自增（前自减），放在后面叫后自增（后自减）。
@@ -118,8 +99,7 @@ y = x++;
 System.out.println(y + " " + x);// 10 11
 ```
 
-对于前自减和后自减来说，同学们可以自己试一把。
-
+对于前自减和后自减来说，你可以自己试一把。
 
 ### 02、关系运算符
 
@@ -130,20 +110,13 @@ System.out.println(y + " " + x);// 10 11
 来看示例：
 
 ```java
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class RelationOperator {
-    public static void main(String[] args) {
-        int a = 10, b = 20;
-        System.out.println(a == b); // false
-        System.out.println(a != b); // true
-        System.out.println(a > b); // false
-        System.out.println(a < b); // true
-        System.out.println(a >= b); // false
-        System.out.println(a <= b); // true
-    }
-}
+int a = 10, b = 20;
+System.out.println(a == b); // false
+System.out.println(a != b); // true
+System.out.println(a > b); // false
+System.out.println(a < b); // true
+System.out.println(a >= b); // false
+System.out.println(a <= b); // true
 ```
 
 ### 03、位运算符
@@ -151,15 +124,8 @@ public class RelationOperator {
 在学习位运算符之前，需要先学习一下二进制，因为位运算符操作的不是整型数值（int、long、short、char、byte）本身，而是整型数值对应的二进制。
 
 ```java
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class BitOperator {
-    public static void main(String[] args) {
-        System.out.println(Integer.toBinaryString(60)); // 111100
-        System.out.println(Integer.toBinaryString(13)); // 1101
-    }
-}
+System.out.println(Integer.toBinaryString(60)); // 111100
+System.out.println(Integer.toBinaryString(13)); // 1101
 ```
 
  从程序的输出结果可以看得出来，60 的二进制是 0011 1100（用 0 补到 8 位），13 的二进制是 0000 1101。
@@ -171,37 +137,30 @@ PS：现代的二进制记数系统由戈特弗里德·威廉·莱布尼茨于 1
 来看示例：
 
 ```java
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class BitOperator {
-    public static void main(String[] args) {
-        int a = 60, b = 13;
-        System.out.println("a 的二进制：" + Integer.toBinaryString(a)); // 111100
-        System.out.println("b 的二进制：" + Integer.toBinaryString(b)); // 1101
+int a = 60, b = 13;
+System.out.println("a 的二进制：" + Integer.toBinaryString(a)); // 111100
+System.out.println("b 的二进制：" + Integer.toBinaryString(b)); // 1101
 
-        int c = a & b;
-        System.out.println("a & b：" + c + "，二进制是：" + Integer.toBinaryString(c));
+int c = a & b;
+System.out.println("a & b：" + c + "，二进制是：" + Integer.toBinaryString(c));
 
-        c = a | b;
-        System.out.println("a | b：" + c + "，二进制是：" + Integer.toBinaryString(c));
+c = a | b;
+System.out.println("a | b：" + c + "，二进制是：" + Integer.toBinaryString(c));
 
-        c = a ^ b;
-        System.out.println("a ^ b：" + c + "，二进制是：" + Integer.toBinaryString(c));
+c = a ^ b;
+System.out.println("a ^ b：" + c + "，二进制是：" + Integer.toBinaryString(c));
 
-        c = ~a;
-        System.out.println("~a：" + c + "，二进制是：" + Integer.toBinaryString(c));
+c = ~a;
+System.out.println("~a：" + c + "，二进制是：" + Integer.toBinaryString(c));
 
-        c = a << 2;
-        System.out.println("a << 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
+c = a << 2;
+System.out.println("a << 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
 
-        c = a >> 2;
-        System.out.println("a >> 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
+c = a >> 2;
+System.out.println("a >> 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
 
-        c = a >>> 2;
-        System.out.println("a >>> 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
-    }
-}
+c = a >>> 2;
+System.out.println("a >>> 2：" + c + "，二进制是：" + Integer.toBinaryString(c));
 ```
 
 对于初学者来说，位运算符无法从直观上去计算出结果，不像加减乘除那样。因为我们日常接触的都是十进制，位运算的时候需要先转成二进制，然后再计算出结果。
@@ -220,14 +179,10 @@ static final int hash(Object key) {
 1）按位左移运算符：
 
 ```java
-public class LeftShiftOperator {
-    public static void main(String[] args) {
-        System.out.println(10<<2);//10*2^2=10*4=40  
-        System.out.println(10<<3);//10*2^3=10*8=80  
-        System.out.println(20<<2);//20*2^2=20*4=80  
-        System.out.println(15<<4);//15*2^4=15*16=240  
-    }
-}
+System.out.println(10<<2);//10*2^2=10*4=40  
+System.out.println(10<<3);//10*2^3=10*8=80  
+System.out.println(20<<2);//20*2^2=20*4=80  
+System.out.println(15<<4);//15*2^4=15*16=240 
 ```
 
 `10<<2` 等于 10 乘以 2 的 2 次方；`10<<3` 等于 10 乘以 2 的 3 次方。
@@ -235,13 +190,9 @@ public class LeftShiftOperator {
 2）按位右移运算符：
 
 ```java
-public class RightShiftOperator {
-    public static void main(String[] args) {
-        System.out.println(10>>2);//10/2^2=10/4=2
-        System.out.println(20>>2);//20/2^2=20/4=5
-        System.out.println(20>>3);//20/2^3=20/8=2
-    }
-}
+System.out.println(10>>2);//10/2^2=10/4=2
+System.out.println(20>>2);//20/2^2=20/4=5
+System.out.println(20>>3);//20/2^3=20/8=2
 ```
 
 `10>>2` 等于 10 除以 2 的 2 次方；`20>>2` 等于 20 除以 2 的 2 次方。
@@ -253,16 +204,12 @@ public class RightShiftOperator {
 逻辑或运算符（||）：多个条件只要有一个为 true 结果就为 true。
 
 ```java
-public class LogicalOperator {
-    public static void main(String[] args) {
-        int a=10;
-        int b=5;
-        int c=20;
-        System.out.println(a<b&&a<c);//false && true = false
+int a=10;
+int b=5;
+int c=20;
+System.out.println(a<b&&a<c);//false && true = false
 
-        System.out.println(a>b||a<c);//true || true = true
-    }
-}
+System.out.println(a>b||a<c);//true || true = true
 ```
 
 逻辑非运算符（!）：用来反转条件的结果，如果条件为 true，则逻辑非运算符将得到 false。
@@ -274,16 +221,12 @@ public class LogicalOperator {
 也就是说，& 和 | 性能不如 && 和 ||，但用法一样：
 
 ```java
-public class LogicalOperator1 {
-    public static void main(String[] args) {
-        int a=10;
-        int b=5;
-        int c=20;
-        System.out.println(a<b&a<c);//false & true = false
+int a=10;
+int b=5;
+int c=20;
+System.out.println(a<b&a<c);//false & true = false
 
-        System.out.println(a>b|a<c);//true | true = true  
-    }
-}
+System.out.println(a>b|a<c);//true | true = true  
 ```
 
 ### 05、赋值运算符
@@ -291,16 +234,12 @@ public class LogicalOperator1 {
 赋值操作符恐怕是 Java 中使用最频繁的操作符了，它就是把操作符右侧的值赋值给左侧的变量。来看示例：
 
 ```java
-public class AssignmentOperator {
-    public static void main(String[] args) {
-        int a=10;
-        int b=20;
-        a+=4;//a=a+4 (a=10+4)  
-        b-=4;//b=b-4 (b=20-4)  
-        System.out.println(a);
-        System.out.println(b);
-    }
-}
+int a=10;
+int b=20;
+a+=4;//a=a+4 (a=10+4)  
+b-=4;//b=b-4 (b=20-4)  
+System.out.println(a);
+System.out.println(b);
 ```
 
 不过在进行数值的赋值时，需要小点心，比如说下面这种情况：
@@ -310,47 +249,29 @@ public class AssignmentOperator {
 编译器之所以提示错误，是因为 = 右侧的算术表达式默认为 int 类型，左侧是 short 类型的时候需要进行强转。
 
 ```java
-public class AssignmentOperator1 {
-    public static void main(String[] args) {
-        short a = 10;
-        short b = 10;
+short a = 10;
+short b = 10;
 //a+=b;//a=a+b internally so fine
-        a = (short)(a + b);
-        System.out.println(a);
-    }
-}
+a = (short)(a + b);
+System.out.println(a);
 ```
 
 除此之外，还会有边界问题，比如说，两个非常大的 int 相乘，结果可能就超出了 int 的范围：
 
 ```java
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class BigIntMulti {
-    public static void main(String[] args) {
-        int a = Integer.MAX_VALUE;
-        int b = 10000;
-        int c = a * b;
-        System.out.println(c); // -10000
-    }
-}
+int a = Integer.MAX_VALUE;
+int b = 10000;
+int c = a * b;
+System.out.println(c); // -10000
 ```
 
 程序输出的结果为 -10000，这个答案很明显不是我们想要的结果，虽然可以通过右侧表达式强转 long 的方法解决：
 
-```
-/**
- * 微信搜索「沉默王二」，回复 Java
- */
-public class BigIntMulti {
-    public static void main(String[] args) {
-        int a = Integer.MAX_VALUE;
-        int b = 10000;
-        long c = (long)a * b;
-        System.out.println(c); // 21474836470000
-    }
-}
+```java
+int a = Integer.MAX_VALUE;
+int b = 10000;
+long c = (long)a * b;
+System.out.println(c); // 21474836470000
 ```
 
 但尽量不要这样做，结果非常大的时候，尽量提前使用相应的类型进行赋值。
@@ -367,14 +288,10 @@ System.out.println(c); // 21474836460000
 三元运算符用于替代 if-else，可以使用一行代码完成条件判断的要求。来看示例：
 
 ```java
-public class TernaryOperator {
-    public static void main(String[] args) {
-        int a=2;
-        int b=5;
-        int min=(a<b)?a:b;
-        System.out.println(min);
-    }
-}
+int a=2;
+int b=5;
+int min=(a<b)?a:b;
+System.out.println(min);
 ```
 
 如果 ? 前面的条件为 true，则结果为 : 前的值，否则为 : 后的值。
@@ -383,6 +300,9 @@ public class TernaryOperator {
 
 “差不多，二哥，我需要写点 demo 练习会。”
 
+### 07、小结
+
+本文全面介绍了Java运算符，包括算术运算符、关系运算符、逻辑运算符、位运算符、赋值运算符等。通过阅读本文，您将了解到Java运算符的分类、用法和优先级，以及如何在实际开发中灵活运用各类运算符提高编程效率。
 
 ---
 

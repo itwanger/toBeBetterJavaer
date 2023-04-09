@@ -1,18 +1,18 @@
 ---
-title: 最优雅的Java字符串拼接是哪种方式？
-shortTitle: Java字符串拼接
+title: 最优雅的Java字符串String拼接是哪种方式？
+shortTitle: String拼接
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，最优雅的Java字符串拼接是哪种方式？
+description: Java字符串拼接是日常编程中的常见任务。本文详细介绍了Java中不同的字符串拼接方法，包括+号操作符、String.concat、StringBuilder
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,字符串拼接,java字符串拼接,java string拼接
+      content: Java,字符串,String,字符串拼接,java字符串拼接,java string拼接
 ---
 
-# 4.9 字符串拼接
+# 4.10 String拼接
 
 “哥，你让我看的《[Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 

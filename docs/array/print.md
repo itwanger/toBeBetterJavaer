@@ -5,14 +5,14 @@ category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，如何优雅地打印Java数组？
+description: 本文将向您展示如何在Java中优雅地打印数组内容。我们将介绍不同的方法来输出数组，包括使用for循环、增强型for循环以及Java内置的Arrays.toString()和Arrays.deepToString()方法。通过本文，您将学会如何简便快捷地打印Java数组，提高编程效率和代码可读性。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java数组,java打印数组
+      content: Java, 数组打印, 输出数组, Arrays.toString, Arrays.deepToString
 ---
 
-# 4.3 如何优雅地打印Java数组？
+# 4.3 打印Java数组
 
 “哥，[之前听你说，数组也是一个对象](https://tobebetterjavaer.com/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 
