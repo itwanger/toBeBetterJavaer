@@ -1,18 +1,18 @@
 ---
-title: 聊聊String、StringBuilder、StringBuffer 三兄弟
-shortTitle: String与StringBuilder和StringBuffer
+title: 聊聊 Java String、StringBuilder、StringBuffer 三兄弟
+shortTitle: StringBuilder和StringBuffer
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，聊聊String与StringBuilder和StringBuffer 三兄弟
+description: 在本文中，我们将详细探讨 Java 中 String、StringBuilder 和 StringBuffer 的差异和使用场景。学习如何根据实际需求选择正确的字符串处理类，了解它们在性能、线程安全和内存开销方面的优缺点。本文还将解析它们的内部实现，帮助你更好地理解 Java 字符串处理的原理和最佳实践。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,StringBuilder,StringBuffer,string stringbuilder,string stringbuffer,string stringbuilder stringbuffer
+      content: Java,String,StringBuilder,StringBuffer
 ---
 
-# 4.7 String、StringBuilder、StringBuffer
+# 4.8 String、StringBuilder、StringBuffer
 
 “哥，[上一篇深入理解 String.intern()](https://tobebetterjavaer.com/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 
@@ -44,7 +44,7 @@ public final class StringBuffer extends AbstractStringBuilder implements Seriali
 
 不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以执行效率会比较低。
 
-于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 `ThreadLocal` 来避免多线程冲突。”
+于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 [`ThreadLocal`](https://tobebetterjavaer.com/thread/ThreadLocal.html) 来避免多线程冲突。”
 
 ```java
 public final class StringBuilder extends AbstractStringBuilder
@@ -182,9 +182,9 @@ public AbstractStringBuilder append(String str) {
 }
 ```
 
-append(String str) 方法将指定字符串追加到当前字符序列中。如果指定字符串为 null，则追加字符串 "null"；否则会检查指定字符串的长度，然后根据当前字符序列中的字符数和指定字符串的长度来判断是否需要扩容。
+`append(String str)` 方法将指定字符串追加到当前字符序列中。如果指定字符串为 null，则追加字符串 "null"；否则会检查指定字符串的长度，然后根据当前字符序列中的字符数和指定字符串的长度来判断是否需要扩容。
 
-如果需要扩容，则会调用 ensureCapacityInternal(int minimumCapacity) 方法进行扩容。扩容之后，将指定字符串的字符拷贝到字符序列中。
+如果需要扩容，则会调用 `ensureCapacityInternal(int minimumCapacity) `方法进行扩容。扩容之后，将指定字符串的字符拷贝到字符序列中。
 
 来看一下 ensureCapacityInternal 方法：
 

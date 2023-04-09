@@ -43,7 +43,7 @@ head:
 - [**Java程序员进阶之路在线阅读网站（新版，推荐👍）**](https://tobebetterjavaer.com/)
 - [技术派之Java程序员进阶之路专栏](https://paicoding.com/column/5/1)（二哥的另外一个网站）
 
-如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](https://tobebetterjavaer.com/overview/readme.html)
+如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](https://tobebetterjavaer.com/overview/)
 
 **转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
 
@@ -116,25 +116,25 @@ head:
 
 - [Java编程基础：48个关键字及2个保留字全解析](basic-extra-meal/48-keywords.md)
 - [了解Java注释：单行、多行与文档注释的使用方法](basic-grammar/javadoc.md)
-- [Java中的数据类型（8种基本数据类型和引用数据类型）](basic-grammar/basic-data-type.md)
-- [Java数据类型转换（强制类型转换+自动类型转换）](basic-grammar/type-cast.md)
-- [聊聊Java基本数据类型缓存池](basic-extra-meal/int-cache.md)
-- [Java运算符](basic-grammar/operator.md)
-- [Java流程控制语句](basic-grammar/flow-control.md)
+- [Java数据类型全解析：基本数据类型与引用数据类型](basic-grammar/basic-data-type.md)
+- [Java数据类型转换：自动类型转换与强制类型转换](basic-grammar/type-cast.md)
+- [Java基本数据类型缓存池剖析（IntegerCache）](basic-extra-meal/int-cache.md)
+- [Java运算符详解：掌握各类运算符的使用与技巧](basic-grammar/operator.md)
+- [Java流程控制语句详解：带你轻松学会各类控制结构](basic-grammar/flow-control.md)
 
 ### 数组&字符串
 
-- [一文吃透Java数组](array/array.md)
-- [聊聊Java的二维数组](array/double-array.md)
+- [掌握Java数组：一个非常特殊的对象](array/array.md)
+- [掌握 Java二维数组：从基本概念到实际应用](array/double-array.md)
 - [如何优雅地打印Java数组？](array/print.md)
-- [聊聊Java字符串，以及为什么String是不可变的？](string/immutable.md)
-- [深入理解Java字符串常量池](string/constant-pool.md)
-- [深入解析String.intern()方法](string/intern.md)
-- [聊聊String、StringBuilder、StringBuffer 三兄弟](string/builder-buffer.md)
-- [Java如何判断两个字符串是否相等？](string/equals.md)
-- [最优雅的Java字符串拼接是哪种方式？](string/join.md)
-- [如何在Java中优雅地分割String字符串？](string/split.md)
-- [Java 9为什么要将String的底层实现由char数组改成了byte数组?](basic-extra-meal/jdk9-char-byte-string.md)
+- [深入解读String类源码及其应用技巧](string/string-source.md)
+- [为什么Java字符串String是不可变的？](string/immutable.md)
+- [深入理解Java字符串String常量池](string/constant-pool.md)
+- [Java 字符串优化：详解 String.intern() 方法](string/intern.md)
+- [聊聊 Java String、StringBuilder、StringBuffer 三兄弟](string/builder-buffer.md)
+- [字符串相等判断：Java中的equals()与==的区别与用法](string/equals.md)
+- [最优雅的Java字符串String拼接是哪种方式？](string/join.md)
+- [如何在Java中拆分字符串：详解String类的split()方法](string/split.md)
 
 ### 面向对象编程
 

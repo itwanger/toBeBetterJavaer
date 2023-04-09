@@ -1,18 +1,18 @@
 ---
-title: Java如何判断两个字符串是否相等？
-shortTitle: 如何判断两个字符串是否相等？
+title: 字符串相等判断：Java中的equals()与==的区别与用法
+shortTitle: String相等判断
 category:
   - Java核心
 tag:
   - 数组&字符串
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java如何判断两个字符串是否相等？
+description: 在Java中，判断两个字符串是否相等需要注意不同的比较方法。本文详细介绍了如何使用equals()方法和==操作符来比较字符串，以及它们之间的区别和适用场景。掌握正确的字符串相等判断方法，避免常见的错误和陷阱。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java字符串,String,equals,java equals,java string 比较,java字符串比较
+      content: Java,string,Java字符串, 字符串比较, equals, ==, 字符串相等
 ---
 
-# 4.8 如何判断两个字符串是否相等？
+# 4.9 String相等判断
 
 “二哥，如何比较两个字符串相等啊？”三妹问。
 

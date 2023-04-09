@@ -125,6 +125,7 @@ export const sidebarConfig = sidebar({
           "array/array",
           "array/double-array",
           "array/print",
+          "string/string-source",
           "string/immutable",
           "string/constant-pool",
           "string/intern",
@@ -132,7 +133,6 @@ export const sidebarConfig = sidebar({
           "string/equals",
           "string/join",
           "string/split",
-          "basic-extra-meal/jdk9-char-byte-string",
           ],
         },
         {

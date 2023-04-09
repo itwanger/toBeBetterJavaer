@@ -1,15 +1,15 @@
 ---
-title: 聊聊Java基本数据类型缓存池
+title: Java基本数据类型缓存池剖析（IntegerCache）
 shortTitle: Java基本数据类型缓存池
 category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java基本数据类型缓存池
+description: 本文详细介绍了Java基本数据类型缓存池，包括其工作原理、应用场景以及如何使用缓存池提高内存利用效率。通过本文，您将了解到Java基本数据类型缓存池的优化策略和实践，掌握如何在实际开发中合理使用缓存池，提高程序性能。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Integer,java数据类型缓存池,java IntegerCache,Java 基本数据类型缓存池
+      content: Java, 基本数据类型, 缓存池, 内存优化, 缓存池原理, 缓存池应用, 缓存池实践
 ---
 
 # 3.5 基本数据类型缓存池
@@ -113,9 +113,9 @@ private static class IntegerCache {
 }
 ```
 
-详细解释下：当我们通过 Integer.valueOf() 方法获取整数对象时，会先检查该整数是否在 IntegerCache 中，如果在，则返回缓存中的对象，否则创建一个新的对象并缓存起来。
+详细解释下：当我们通过 `Integer.valueOf()` 方法获取整数对象时，会先检查该整数是否在 IntegerCache 中，如果在，则返回缓存中的对象，否则创建一个新的对象并缓存起来。
 
-需要注意的是，如果使用 new Integer() 创建对象，即使值在 -128 到 127 范围内，也不会被缓存，每次都会创建新的对象。因此，推荐使用 Integer.valueOf() 方法获取整数对象。
+需要注意的是，如果使用 `new Integer()` 创建对象，即使值在 -128 到 127 范围内，也不会被缓存，每次都会创建新的对象。因此，推荐使用 `Integer.valueOf()` 方法获取整数对象。
 
 [学习 static 关键字](https://tobebetterjavaer.com/oo/static.html)的时候，会详细解释静态代码块，你暂时先记住，三妹，静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
 
