@@ -1,7 +1,7 @@
 ---
 title: 方法重写 Override 和方法重载 Overload 有什么区别？
-shortTitle: 方法重写和方法重载
-description: Java程序员进阶之路，小白的零基础Java教程，Java 中方法重写 Override 和方法重载 Overload 的区别
+shortTitle: Java方法重写和方法重载
+description: 本文深入剖析了Java编程中的方法重写Override和方法重载Overload，探讨了它们的概念、区别以及在实际应用中的用途。通过详细的示例和解释，帮助读者更好地理解和掌握Java面向对象编程中的方法重载与重写技巧。
 category:
   - Java 核心
 tag:
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,方法重写,方法重载,Override,Overload,java 方法重载 方法重写,java Override Overload,java 方法重载,java 方法重写
+      content: Java,方法重写,方法重载,Override,Overload,java 方法重载 方法重写,java Override Overload,java 方法重载,java 方法重写
 ---
 
-# 5.21 方法重写和方法重载
+# 5.19 Java方法重写和方法重载
 
 入冬的夜，总是来得特别的早。我静静地站在阳台，目光所及之处，不过是若隐若现的钢筋混凝土，还有那毫无情调的灯光。
 
@@ -606,8 +606,9 @@ public class BullDog extends AbstractDog {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

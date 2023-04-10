@@ -1,18 +1,18 @@
 ---
 title: Java Collections：专为集合框架而生的工具类
-shortTitle: Collections
+shortTitle: Collections工具类
 category:
   - Java核心
 tag:
   - 常用工具类
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java Collections：专为集合框架而生的工具类
+description: 本文详细介绍了Java中的Collections工具类，阐述了它在集合操作中的实际应用和优势。通过具体的代码示例，展示了如何使用Collections类处理集合的排序、查找、反转等常见问题。掌握Collections工具类的技巧，让您在Java编程中轻松应对各种集合操作，提高开发效率。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Collections,集合框架,java Collections
 ---
 
-# 9.5 Collections
+# 9.5 Collections工具类
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
@@ -349,9 +349,10 @@ System.out.println(subtractList);
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

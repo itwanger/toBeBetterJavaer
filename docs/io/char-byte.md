@@ -1,15 +1,15 @@
 ---
-title: 转换流：Java 字节流和字符流的桥梁
+title: Java 转换流：Java 字节流和字符流的桥梁
 shortTitle: 转换流
 category:
   - Java核心
 tag:
   - Java IO
-description: Java程序员进阶之路，小白的零基础Java教程，Java转换流，解决字符与字节之间编码、解码的乱码问题
+description: 本文详细介绍了 Java 转换流在 IO 操作中的重要作用，阐述了其如何有效地将字节流与字符流相互转换。同时，文章还提供了转换流的实际应用示例和常用方法。阅读本文，将帮助您更深入地了解 Java 转换流及其在 Java 编程中的关键地位，提高数据处理的灵活性和效率。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,转换流,InputStreamReader,OutputStreamWriter,乱码,编码,解码,java转换流
+      content: Java,Java IO,转换流,InputStreamReader,OutputStreamWriter,乱码,编码,解码,java转换流
 ---
 
 # 7.6 转换流
@@ -247,6 +247,6 @@ OutputStreamWriter 类的常用方法包括：
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -1,7 +1,7 @@
 ---
-title: Java中的代码初始化块
-shortTitle: Java中的代码初始化块
-description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java中的代码初始化块：对成员变量进行更复杂的赋值
+title: Java代码初始化块：了解实例初始化和静态初始化的过程
+shortTitle: Java代码初始化块
+description: 在Java中，代码初始化块是一个特殊的代码片段，用于在对象创建时进行一些初始化操作。主要分为实例初始化块和静态初始化块。本文详细介绍了这两种初始化块的作用、使用场景和注意事项，帮助您编写更加健壮和高效的Java代码。
 category:
   - Java 核心
 tag:
@@ -9,14 +9,14 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java代码初始化块,代码初始化块
+      content: Java,代码初始化块, 实例初始化, 静态初始化
 ---
 
-# 5.9 Java中的代码初始化块
+# 5.9 Java代码初始化块
 
 “哥，今天我们要学习的内容是‘代码初始化块’，对吧？”看来三妹已经提前预习了我上次留给她的作业。
 
-“是的，三妹。代码初始化块用于初始化一些成员变量。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块。”
+“是的，三妹。代码初始化块用于初始化一些[成员变量](https://tobebetterjavaer.com/oo/var.html)。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块，又称实例初始化块，主要和静态初始化块做区分。”
 
 “可以直接通过‘=’操作符对成员变量进行初始化，但通过代码初始化块可以做更多的事情，比如说打印出成员变量初始化后的值。”
 
@@ -50,7 +50,7 @@ public class Bike {
 
 “如果只使用‘=’操作符的话，是没办法完成集合初始化的，对吧？‘=’ 后面只能 new 出集合，却没办法填充值，代码初始化就可以完成这项工作。”
 
-“构造方法执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
+“[构造方法](https://tobebetterjavaer.com/oo/construct.html)执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
 
 “不要着急，三妹，先来看下面这个例子。”
 
@@ -130,12 +130,74 @@ public class B extends A{
 
 “这个例子再次印证了之前的第二条规则：代码初始化块是放在构造方法中执行的，只不过比较靠前。”
 
+除了这种实例化代码初始化块，还有静态初始化，不过我们会放到 [static 关键字](https://tobebetterjavaer.com/oo/static.html)中去讲，这里先大致了解一下。
+
+下面是一个 Java 示例代码，演示实例初始化块和静态初始化块的用法：
+
+```java
+public class Example {
+    // 静态变量
+    public static int staticVar = 1;
+    // 实例变量
+    public int instanceVar = 2;
+
+    // 静态初始化块
+    static {
+        System.out.println("执行静态初始化块");
+        staticVar = 3;
+    }
+
+    // 实例初始化块
+    {
+        System.out.println("执行实例初始化块");
+        instanceVar = 4;
+    }
+
+    // 构造方法
+    public Example() {
+        System.out.println("执行构造方法");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("执行main方法");
+
+        Example e1 = new Example();
+        Example e2 = new Example();
+
+        System.out.println("e1的静态变量：" + e1.staticVar);
+        System.out.println("e1的实例变量：" + e1.instanceVar);
+        System.out.println("e2的静态变量：" + e2.staticVar);
+        System.out.println("e2的实例变量：" + e2.instanceVar);
+    }
+}
+```
+
+在这个示例代码中，有一个静态变量 staticVar 和一个实例变量 instanceVar，以及一个静态初始化块和一个实例初始化块。在静态初始化块中，我们打印了一条消息并修改了静态变量的值；在实例初始化块中，我们也打印了一条消息并修改了实例变量的值。
+
+来看一下执行结果：
+
+```
+执行静态初始化块
+执行main方法
+执行实例初始化块
+执行构造方法
+执行实例初始化块
+执行构造方法
+e1的静态变量：3
+e1的实例变量：4
+e2的静态变量：3
+e2的实例变量：4
+```
+
+从输出结果可以看出，静态初始化块在类加载时执行，只会执行一次，并且优先于实例初始化块和构造方法的执行；实例初始化块在每次创建对象时执行，在构造方法之前执行。
+
 “好了，今天就先讲到这吧，中午休息一下，下午的精神会更足。”刚对三妹说完这句话，我的哈欠就上来了，好困。
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

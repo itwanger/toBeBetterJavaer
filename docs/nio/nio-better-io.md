@@ -1,6 +1,6 @@
 ---
 title: Java NIO 比传统 IO 强在哪里？
-shortTitle: NIO和IO的区别
+shortTitle: NIO比IO强在哪？
 category:
   - Java核心
 tag:
@@ -10,10 +10,10 @@ author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: java,nio,io
+      content: java,nio,io,Java NIO, 传统IO, 非阻塞模式, 缓冲区, 通道, 选择器
 ---
 
-# 12.1 NIO和IO的区别
+# 12.1 NIO比IO强在哪？
 
 我花了几天时间去了解**NIO 的核心知识**，期间看了《Java 编程思想》和《疯狂 Java 讲义》中的 NIO 模块。**但是**，看完之后还是很**迷**，不知道 NIO 是干嘛用的，网上的资料和书上的知识点没有很好地对应上。
 
@@ -341,6 +341,6 @@ public class TestClient {
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

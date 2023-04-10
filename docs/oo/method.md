@@ -1,7 +1,7 @@
 ---
-title: Java中的方法：实例方法、静态方法、抽象方法
+title: Java方法：实例方法、静态方法与抽象方法的区别与应用
 shortTitle: Java中的方法
-description: Java程序员进阶之路，小白的零基础Java教程，Java中的方法：实例方法、静态方法、抽象方法
+description: Java中的方法分为实例方法、静态方法和抽象方法。本文将详细介绍这三种方法类型的特点、使用场景以及在实际编程中的应用。通过了解并掌握这些方法类型，您将能够更加熟练地编写高质量的Java代码。
 category:
   - Java 核心
 tag:
@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,方法,实例方法,静态方法,抽象方法,java方法
+      content: Java,方法,实例方法,静态方法,抽象方法,java方法
 ---
 
 # 5.4 Java中的方法
@@ -30,7 +30,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
 
-**访问权限**：它指定了方法的可见性。Java 提供了四种访问权限修饰符：
+**访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)：
 
 - public：该方法可以被所有类访问。
 - private：该方法只能在定义它的类中访问。
@@ -230,7 +230,7 @@ Hutool 的存在就是为了减少代码搜索成本，避免网络上参差不�
 
 ### 06、什么是抽象方法？
 
-没有方法体的方法被称为抽象方法，它总是在抽象类中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
+没有方法体的方法被称为抽象方法，它总是在[抽象类](https://tobebetterjavaer.com/oo/abstract.html)中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
 
 ```java
 /**
@@ -274,6 +274,6 @@ public class MyAbstractDemo extends AbstractDemo {
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -52,10 +52,10 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230329183438.png)
 
-你也可以到技术派的[教程栏](https://paicoding.com/column)里阅读。
+你也可以到技术派的[教程栏（戳这里）](https://paicoding.com/column)里阅读。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/497845a726c2563809c5d78e2b88cdc7.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230410215012.png)
 
 如果你在阅读过程中感觉这份小册写的还不错，甚至有亿点点收获，请肆无忌惮地把这份小册分享给你的同事、同学、舍友、朋友，让他们也进步亿点点，赠人玫瑰手有余香嘛。
 

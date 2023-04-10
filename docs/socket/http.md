@@ -1,7 +1,7 @@
 ---
 title: 牛逼，用Java Socket手撸了一个HTTP服务器
-shortTitle: 用Socket撸一个HTTP服务器
-description: 作为一个java后端，提供http服务可以说是基本技能之一了，但是你真的了解http协议么？你知道知道如何手撸一个http服务器么？tomcat的底层是怎么支持http服务的呢？大名鼎鼎的Servlet又是什么东西呢，该怎么使用呢？ 在初学java时，socket编程是逃不掉的一章；虽然在实际业务项目中，使用这个的可能性基本为0，本篇博文将主要介绍如何使用socket来实现一个简单的http服务器
+shortTitle: 用Socket实现一个HTTP服务器
+description: 本文详细讲解了如何使用Java Socket编程技术手动构建一个HTTP服务器。从服务器的基本概念开始，逐步深入到具体的实现方法，以及服务器与客户端的交互过程。通过本文，您将学会使用Java Socket编程技巧，手撸一个简易的HTTP服务器，并掌握网络编程的核心技术。
 category:
   - Java核心
 tag:
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,http,socket http,http 服务器,java 服务器
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,http,socket http,http 服务器,java 服务器,HTTP服务器
 ---
 
-# 11.3 用Socket撸一个HTTP服务器
+# 11.3 用Socket实现一个HTTP服务器
 
 作为一个 Java 后端，提供 HTTP 服务可以说是基本技能之一了，但是你真的了解 HTTP 协议么？你知道知道如何手撸一个 HTTP 服务器么？Tomcat 的底层是怎么支持 HTTP 服务的呢？大名鼎鼎的 Servlet 又是什么东西呢，该怎么使用呢？
 
@@ -582,6 +582,6 @@ public class BasicHttpServer {
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

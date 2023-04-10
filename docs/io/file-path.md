@@ -1,20 +1,20 @@
 ---
-title: Java File：IO 流的开始与结束
-shortTitle: 关于File
+title: Java File：IO 流的起点与终点
+shortTitle: 文件流
 category:
   - Java核心
 tag:
   - Java IO
-description: Java程序员进阶之路，小白的零基础Java教程，详解 File、Path、Paths、Files，操作文件不再难
+description: 本文详细介绍了 Java File 类，阐述了其在 IO 流操作中的关键角色，作为输入输出操作的起点与终点。同时，文章还提供了 Java File 类的实际应用示例和常用方法。阅读本文，将帮助您更深入地了解 Java File 类及其在 Java 编程中的重要性，提高文件操作效率。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java IO,file,java文件,java目录,java文件增删改查,java file
+      content: Java,Java IO,文件流, file,java文件,java目录,java文件增删改查,java file
 ---
 
-# 7.2 关于 File
+# 7.2 文件流
 
-在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。那么 File 类可以说是其基石，我们必须得先来了解下。
+在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。
 
 `java.io.File` 类是专门对文件进行操作的类，注意只能对文件本身进行操作，不能对文件内容进行操作，想要操作内容，必须借助输入输出流。
 
@@ -463,6 +463,6 @@ FileUtil.readLines(file, "UTF-8").forEach(System.out::println);
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

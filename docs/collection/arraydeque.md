@@ -1,18 +1,18 @@
 ---
 title: 详解 Java 中的双端队列（ArrayDeque附源码分析）
-shortTitle: 双端队列ArrayDeque
+shortTitle: 双端队列ArrayDeque详解
 category:
   - Java核心
 tag:
   - 集合框架（容器）
-description: Java程序员进阶之路，小白的零基础Java教程，详解 Java 中的堆和队列（Stack and Queue 附源码分析）
+description: 本文详细解析了 Java 中的双端队列 ArrayDeque 的实现原理、功能特点以及源码，为您提供了 ArrayDeque 的实际应用示例和性能优化建议。阅读本文，将帮助您更深入地理解双端队列在 Java 编程中的应用，从而在实际编程中充分发挥其优势。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque
+      content: Java,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque,源码分析, 实现原理
 ---
 
-# 6.12 双端队列ArrayDeque
+# 6.12 双端队列ArrayDeque详解
 
 >好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
 
@@ -373,8 +373,9 @@ ArrayDeque 不仅支持常见的队列操作，如添加元素、删除元素、
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

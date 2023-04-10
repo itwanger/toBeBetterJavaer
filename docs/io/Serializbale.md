@@ -1,18 +1,18 @@
 ---
-title: Java Serializable：明明就一个空的接口嘛
-shortTitle: Serializable接口
+title: Java Serializable 接口：明明就一个空的接口嘛
+shortTitle: 序列接口Serializable
 category:
   - Java核心
 tag:
   - Java IO
-description: Java程序员进阶之路，小白的零基础Java教程，Java序列化流，字节和对象之间的序列化和反序列化
+description: 本文详细介绍了 Java Serializable 接口的实际作用与意义，阐述了虽然它是一个空接口，但在 Java 对象序列化中具有重要的标记作用。同时，文章还提供了 Serializable 接口的实际应用示例和序列化机制。阅读本文，将帮助您更深入地了解 Serializable 接口在 Java 编程中的关键地位，有效实现对象的序列化与反序列化。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
 ---
 
-# 7.9 Serializable接口
+# 7.9 序列接口Serializable
 
 对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://tobebetterjavaer.com/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
 
@@ -589,8 +589,9 @@ class Wanger implements Serializable {
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

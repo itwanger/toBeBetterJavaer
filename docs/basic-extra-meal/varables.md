@@ -1,18 +1,18 @@
 ---
-title: 聊聊Java中的可变参数
-shortTitle: Java中的可变参数
+title: Java可变参数详解：实现更灵活的方法调用
+shortTitle: Java可变参数
 category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，详解Java中可变参数的使用
+description: Java中的可变参数允许您在方法中传入不确定数量的参数，使得方法调用更加灵活。本文将详细介绍可变参数的使用方式、原理以及在实际编程中的应用示例。掌握可变参数的使用，将有助于提高您的Java编程技巧。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,可变参数,java 可变参数
+      content: java,可变参数
 ---
 
-# 5.5 Java中的可变参数
+# 5.5 Java可变参数
 
 为了让铁粉们能白票到阿里云的服务器，我当了整整两天的客服，真正体验到了什么叫做“为人民群众谋福利”的不易和辛酸。正在我眼睛红肿打算要休息之际，三妹跑过来问：“Java 的可变参数究竟是怎么一回事？”我一下子又清醒了，我爱 Java，我爱传道解惑，也享受三妹的赞许（😂）。
 
@@ -35,7 +35,7 @@ public static void print(String... strs) {
 
 静态方法 `print()` 就使用了可变参数，所以 `print("沉")` 可以，`print("沉", "默")` 也可以，甚至 3 个、 4 个或者更多个字符串都可以作为参数传递给 `print()` 方法。
 
-说到可变参数，我想起来阿里巴巴开发手册上有这样一条规约。
+说到可变参数，我想起来[阿里巴巴开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上有这样一条规约。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-01.png)
 
@@ -146,8 +146,9 @@ public static void print(Integer... ints) {
 ---
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

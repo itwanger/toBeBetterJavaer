@@ -1,18 +1,18 @@
 ---
 title: 其他常用Java工具类：IPUtil、CollectionUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils
-shortTitle: 其他常用Java工具类
+shortTitle: 其他常用工具类
 category:
   - Java核心
 tag:
   - 常用工具类
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，这10个工具类，让我的开发效率提升了50%
+description: 描述：本文详细介绍了Java编程中常用的一些工具类，如IpUtil、MDC、ClassUtils、BeanUtils、ReflectionUtils等。通过具体的代码示例，阐述了这些工具类在实际应用中的优势和使用方法。掌握这些实用的Java工具类，让您在Java编程中轻松应对各种开发任务，提高开发效率。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,工具类,轮子,java 工具类,java IPUtil,java CollectionUtils
 ---
 
-# 9.8 其他常用 Java 工具类
+# 9.8 其他常用工具类
 
 除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/common-tool/arrays.html)、[Objects](https://tobebetterjavaer.com/common-tool/Objects.html)、[Collections](https://tobebetterjavaer.com/common-tool/collections.html)、[Scanner](https://tobebetterjavaer.com/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/common-tool/hutool.html)、[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
 
@@ -391,6 +391,6 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

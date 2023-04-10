@@ -6,7 +6,7 @@ category:
   - 博客园
 ---
 
-# Callable、Future 和 FutureTask
+# 14.2 Callable、Future 和 FutureTask
 
 [在前面的文章中](https://tobebetterjavaer.com/thread/wangzhe-thread.html)我们讲述了创建线程的 3 种方式，一种是直接继承 Thread，一种就是实现 Runnable 接口，另外一种是 实现Callable 接口。
 
@@ -16,7 +16,7 @@ category:
 
 而自从 Java 1.5 开始，就提供了 Callable 和 Future，通过它们可以在任务执行完毕之后得到任务执行结果，之前我们简单聊过 Callable。今天我们就再来详细地讨论一下 Callable、Future 和 FutureTask 三个类的使用方法。
 
-## 一.Callable 与 Runnable
+### 一.Callable 与 Runnable
 
 先说一下 `java.lang.Runnable` 吧，它是一个接口，在它里面只声明了一个 run()方法：
 
@@ -52,7 +52,7 @@ Future<?> submit(Runnable task);
 
 一般情况下我们使用第一个 submit 方法和第三个 submit 方法，第二个 submit 方法很少使用。
 
-## 二.Future
+### 二.Future
 
 Future 就是对于具体的 Runnable 或者 Callable 任务的执行结果进行取消、查询是否完成、获取结果。必要时可以通过 get 方法获取执行结果，该方法会阻塞直到任务返回结果。
 
@@ -87,7 +87,7 @@ public interface Future<V> {
 
 因为 Future 只是一个接口，所以是无法直接用来创建对象使用的，因此就有了下面的 FutureTask。
 
-## 三.FutureTask
+### 三.FutureTask
 
 我们先来看一下 FutureTask 的实现：
 
@@ -226,8 +226,9 @@ class Task implements Callable<Integer>{
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

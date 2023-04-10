@@ -1,7 +1,7 @@
 ---
 title: Java抽象类，看这一篇就够了，豁然开朗
 shortTitle: Java抽象类
-description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java抽象类
+description: Java抽象类是面向对象编程的一种核心概念，它用于声明具有共同特征的类的基本结构。抽象类可以包含抽象方法和具体方法，以实现代码重用和逻辑抽象。本文详细介绍了Java抽象类的定义、使用场景、继承规则和实例，助您更好地理解和应用抽象类。
 category:
   - Java 核心
 tag:
@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java抽象类,抽象类
+      content: Java,Java抽象类,抽象类,抽象方法, 继承
 ---
 
 # 5.10 Java抽象类
@@ -290,8 +290,9 @@ public class FileReaderTest {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
