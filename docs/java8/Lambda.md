@@ -1,18 +1,18 @@
 ---
-title: 深入浅出Java 8 Lambda表达式
-shortTitle: Lambda表达式
+title: 深入浅出Java 8 Lambda表达式：探索函数式编程的魅力
+shortTitle: 深入浅出Lambda表达式
 category:
   - Java核心
 tag:
   - Java新特性
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入浅出Java 8 Lambda表达式
+description: 本文详细介绍了Java 8引入的Lambda表达式，阐述了Lambda表达式的设计目的和用法。通过实际的代码示例，展示了如何使用Lambda表达式来简化代码，提高编程效率。学习本文，让您快速掌握Java 8 Lambda表达式的使用技巧，享受函数式编程带来的编程乐趣。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java8,lambda,java lambda
+      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java8,lambda,java lambda,Lambda表达式, 函数式编程
 ---
 
-# 10.3 Lambda表达式
+# 10.3 深入浅出Lambda表达式
 
 今天分享的主题是《Lambda 表达式入门》，这也是之前一些读者留言强烈要求我写一写的，不好意思，让你们久等了，现在来满足你们，为时不晚吧？
 
@@ -356,8 +356,9 @@ this = com.cmower.java_demo.journal.LamadaTest@3feba861
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

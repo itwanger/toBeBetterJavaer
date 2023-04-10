@@ -1,18 +1,18 @@
 ---
 title: Hutool：国产良心工具包，让你的Java变得更甜
-shortTitle: Hutool
+shortTitle: Hutool工具类库
 category:
   - Java核心
 tag:
   - 常用工具类
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Hutool：国产良心工具包，让你的Java变得更甜
+description: 本文详细介绍了国产Java工具包Hutool，阐述了它在简化Java编程中的实际应用和优势。通过具体的代码示例，展示了如何使用Hutool解决字符串处理、集合操作、日期时间处理等常见问题。学习Hutool的技巧，让您在Java编程中更加轻松、高效，享受编程的乐趣。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Hutool,java hutool
 ---
 
-# 9.6 Hutool
+# 9.6 Hutool工具类库
 
 读者群里有个小伙伴感慨说，“Hutool 这款开源类库太厉害了，基本上该有该的工具类，它里面都有。”讲真的，我平常工作中也经常用 Hutool，它确实可以帮助我们简化每一行代码，使 Java 拥有函数式语言般的优雅，让 Java 语言变得“甜甜的”。
 
@@ -557,9 +557,10 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

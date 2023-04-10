@@ -1,7 +1,7 @@
 ---
-title: Java变量：局部变量、成员变量、静态变量、常量
+title: Java变量：了解局部变量、成员变量、静态变量和常量的特点与用途
 shortTitle: Java中的变量
-description: Java程序员进阶之路，小白的零基础Java教程，Java变量：局部变量、成员变量、静态变量、常量
+description: Java中的变量分为局部变量、成员变量、静态变量和常量。这篇文章将详细解析这些变量类型的特点、使用场景以及如何在实际编程中应用。通过掌握各类变量的使用，可以更好地编写高质量、易读的Java代码。
 category:
   - Java 核心
 tag:
@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java变量,局部变量,成员变量,静态变量,常量,变量
+      content: Java,Java变量,局部变量,成员变量,静态变量,常量,变量
 ---
 
 # 5.3 Java中的变量
@@ -54,7 +54,7 @@ public class LocalVariable {
 
 ### 02、成员变量
 
-在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。来看下面这个示例：
+在类内部但在方法体外声明的变量称为成员变量，或者实例变量，或者字段。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。来看下面这个示例：
 
 ```java
 /**
@@ -83,7 +83,7 @@ public class InstanceVariable {
 
 ### 03、静态变量
 
-通过 static 关键字声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
+通过 [static 关键字](https://tobebetterjavaer.com/oo/static.html)声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
 
 ```java
 /**
@@ -112,7 +112,7 @@ public class StaticVariable {
 
 ### 04、常量
 
-在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 final 关键字修饰的成员变量。常量的值一旦给定就无法改变！
+在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 [final 关键字](https://tobebetterjavaer.com/oo/final.html)修饰的成员变量。常量的值一旦给定就无法改变！
 
 常量在程序运行过程中主要有 2 个作用：
 
@@ -146,8 +146,9 @@ public class FinalVariable {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

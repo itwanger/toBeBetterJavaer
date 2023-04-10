@@ -92,12 +92,13 @@ export const sidebarConfig = sidebar({
       text: "二、Java核心",
       collapsible: true,
       children: [
+        // readme小写一定要带上.md，否则找不到
+        // Java核心开始
         {
           prefix: "overview/",
           text: "2.1 Java概述及环境配置",
           collapsible: true,
           children: [
-          // readme小写一定要带上.md，否则找不到
           "readme.md",
           "what-is-java",
           "jdk-install-config",
@@ -150,11 +151,8 @@ export const sidebarConfig = sidebar({
           "oo/code-init",
           "oo/abstract",
           "oo/interface",
-          "oo/abstract-vs-interface",
           "oo/inner-class",
-          "oo/encapsulation",
-          "oo/extends-bigsai",
-          "oo/polymorphism",
+          "oo/encapsulation-inheritance-polymorphism",
           "oo/this-super",
           "oo/static",
           "oo/final",
@@ -186,7 +184,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "2.6 IO",
+          text: "2.6 Java IO",
           collapsible: true,
           prefix:"io/",
           children: [
@@ -264,7 +262,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "2.12 重要知识点",
+          text: "2.12 Java重要知识点",
           prefix:"basic-extra-meal/",
           collapsible: true,
           children: [
@@ -341,9 +339,9 @@ export const sidebarConfig = sidebar({
           "oom",
           "cpu-percent-100",
           "zongjie",
-          
           ],
         },
+        //Java核心结束
       ],
     },
     {

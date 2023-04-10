@@ -13,6 +13,8 @@ head:
       content: Java,JVM,Java虚拟机,Java虚拟机学习路线,Java学习路线,Java教程,Java开发,Java入门
 ---
 
+# JVM学习路线
+
 2020 年的时候，通读了一遍周志明老师的《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》第三版，读完之后受益匪浅，这让我对 Java 虚拟机有了一个更完整的认识。毫无疑问，《深入理解 Java 虚拟机》是 JVM 书籍中最好的一本书了，国产技术书的天花板。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
@@ -72,11 +74,11 @@ head:
 
 ## 三、硬核 JVM 学习资料
 
-### **1）Java程序员进阶之路**
+### **1）Java进阶之路**
 
-学 Java，怎么能少得了二哥的小破站《Java程序员进阶之路》，网址我贴下面了哈：
+学 Java，怎么能少得了《二哥的Java进阶之路》，网址我贴下面了哈：
 
->[https://tobebetterjavaer.com/home.html#java虚拟机](https://tobebetterjavaer.com/home.html#java虚拟机)
+>[https://tobebetterjavaer.com/home.html](https://tobebetterjavaer.com/home.html)
 
 进去直接找「Java 核心」里面的 Java 虚拟机就对了。我按照前面的思维导图整理了 19 篇文章，全部都是硬核级别的，跟着学就对了。
 
@@ -95,6 +97,17 @@ head:
 >视频地址：[https://www.bilibili.com/video/BV1PJ411n7xZ](https://www.bilibili.com/video/BV1PJ411n7xZ)
 
 友情提示，对于找工作面试的小伙伴，看 p01-p203、p266-301 就够了！
+
+还有黑马的这份 JVM 视频教程，1 万+的点赞量，确实很牛逼了。
+
+- 1. JVM 内存结构的组成、各部分功能作用，学会利用内存诊断工具排查内存相关问题；
+- 2. JVM 的招牌功能-垃圾回收机制是如何工作的，如何进行垃圾回收调优；
+- 3. Java 程序从编译为字节码到加载到运行的全流程，各个阶段的优化处理；
+- 4. 了解 Java 内存模型相关知识，见识多线程并发读写共享数据时的问题和 Java 的解决方案。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410211836.png)
+
+>视频地址：[https://www.bilibili.com/video/BV1yE411Z7AP](https://www.bilibili.com/video/BV1yE411Z7AP)
 
 再推荐一个狂神说的，40多万的播放量，算是一个面向 JVM 面试的突击版。像一些常见的 JVM 面试题，视频里都有讲到，比如说：
 
@@ -122,7 +135,7 @@ head:
 
 全书分为五个部分，第一部分为走近 Java，主要是对 JVM 的发展历史进行了介绍，其中第二部分自动内存管理和第三部分虚拟机执行子系统需要重点掌握，这两部分的内容也是最多的。
 
-第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://t.zsxq.com/iYRNrJu)（我前面也做了学习路线的总结）这块内容结合起来学习。
+第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://tobebetterjavaer.com/xuexiluxian/java/thread.html)（我前面也做了学习路线的总结）这块内容结合起来学习。
 
 可以配合 GitHub 上这个开源的阅读笔记学习：
 
@@ -151,19 +164,32 @@ head:
 
 需要的小伙伴可以微信搜索「**沉默王二**」回复关键字「**java**」就可以拉取到了。
 
-**5）付费专栏**
+### **5）付费专栏**
+
+二哥的技术派团队成员楼仔出品的《JVM 手册》，暂时只对《[技术派星球（戳链接有优惠券）](https://paicoding.com/article/detail/169)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410212958.png)
+
+介绍一下技术派星球提供的服务内容，技术派项目学习教程，后续会采用连载的方式，让你从 0 到 1 也能搭建一套自己的网站；技术派项目答疑解惑，让你快速上手该项目，小白也能懂；向楼仔、二哥和大厂嘉宾 1 对 1 交流提问，告别迷茫；个人成长路线、职业规划和建议，帮助你有计划学习；简历指导，让你的简历也能脱颖而出，收获更多面试机会；需求方案、技术架构设计提供参考建议，对标大厂。
+
+这是 PDF 的大致内容，想要加入星球的用户，可以提前感受一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410213258.png)
 
 郑雨迪老师在极客时间上开了一门《深入拆解Java虚拟机》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11htX)去购买，反正我自己感觉质量还不错。
 
+<a href="http://gk.link/a/11htX" target="_blank">
+<img src="https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410212606.png" />
+</a>
 
 ## 四、JVM 八股文
 
-这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
+这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
 
 
-为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java程序员进阶之路》上，面渣逆袭 Java 虚拟机篇：
+为了方便大家的阅读和背诵，我已经将其整理到了《二哥的Java进阶之路》上，面渣逆袭 Java 虚拟机篇：
 
 >[https://tobebetterjavaer.com/sidebar/sanfene/jvm.html](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)
 
@@ -202,6 +228,8 @@ JVM 相关的知识已经成为面试必考的科目了，但老实讲，JVM 相
 
 听我这么一说，是不是一下子就清晰多了！
 
+**Java 虚拟机虽然难学，但如果你能坚持学下去，内功自然而然就提升了一大截**。
+
 另外，需要 Java 学习资料的话，可以直接戳我整理的这个 GitHub/码云仓库——📚Java程序员必读书单整理，附下载地址，助力每一个Java程序员构建属于自己的知识体系。包括但不限于Java、设计模式、计算机网络、操作系统、数据库、数据结构与算法、大数据、架构、面试等等。
 
 - GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks)
@@ -211,13 +239,12 @@ JVM 相关的知识已经成为面试必考的科目了，但老实讲，JVM 相
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/java-books.jpg)
 
-**Java 虚拟机虽然难学，但如果你能坚持学下去，内功自然而然就提升了一大截**。
-
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

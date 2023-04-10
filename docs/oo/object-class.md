@@ -1,15 +1,15 @@
 ---
-title: 一文彻底讲清楚Java中的类和对象
+title: Java面向对象编程基础：探讨类和对象的概念与实现
 shortTitle: Java中的类和对象
 category:
   - Java核心
 tag:
   - 面向对象编程
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，怎么理解Java中的类和对象？
+description: Java中的类和对象是面向对象编程的核心元素。本文将详细介绍Java中类和对象的概念、创建方式以及如何使用和管理这些实例。通过深入理解类和对象的设计与实现，为学习更高级的Java编程技巧打下坚实的基础。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java类和对象,class,object,java class,java object,java class object,类和对象,object class
+      content: Java,类和对象, 面向对象编程
 ---
 
 # 5.1 Java中的类和对象
@@ -81,13 +81,13 @@ public class Person {
 - 方法（Method）
 - 构造方法（Constructor）
 
-在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员变量——在类内部但在方法外部，方法内部的叫临时变量。
+在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员[变量](https://tobebetterjavaer.com/oo/var.html)——在类内部但在方法外部，方法内部的叫临时变量。
 
 成员变量有时候也叫做实例变量，在编译时不占用内存空间，在运行时获取内存，也就是说，只有在对象实例化（`new Person()`）后，字段才会获取到内存，这也正是它被称作“实例”变量的原因。
 
-方法有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
+[方法](https://tobebetterjavaer.com/oo/method.html)有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
 
-那三妹是不是要问，“怎么没有构造方法呢？”
+那三妹是不是要问，“怎么没有[构造方法](https://tobebetterjavaer.com/oo/construct.html)呢？”
 
 的确在 Person 类的源码文件（.java）中没看到，但在反编译后的字节码文件（.class）中是可以看得到的。
 
@@ -336,7 +336,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 一旦创建了一个类，就可以用它创建任意多个对象。面向对象编程语言遇到的最大一个挑战就是，如何把现实/虚拟的元素抽象为 Java 中的对象。
 
-对象能够接收什么样的请求是由它的接口定义的。具体是怎么做到的，就由它的实现方法来实现。
+对象能够接收什么样的请求是由它的[接口](https://tobebetterjavaer.com/oo/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
 
 #### **3）访问权限修饰符**
 
@@ -344,11 +344,13 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 API 的提供者（Java 多线程部分的作者 Doug Lea 是被 Java 程序员敬佩的一个大佬），我们这些 Java 语言的使用者，说白了就是 JDK 的调用者。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/object-class-20230410094307.png)
+
 当然了，假如我们也提供了新的类给其他调用者，我们也就成为了新的创建者。
 
 API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏其他所有不必要的信息，之所以要这么做，是因为如果这些信息对调用者是不可见的，那么创建者就可以随意修改隐藏的信息，而不用担心对调用者的影响。
  
-这里就必须要讲到 Java 的权限修饰符。
+这里就必须要讲到 [Java 的权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
 
 访问权限修饰符的第一个作用是，防止类的调用者接触到他们不该接触的内部实现；第二个作用是，让类的创建者可以轻松修改内部机制而不用担心影响到调用者的使用。
 
@@ -364,7 +366,7 @@ API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏�
 
 #### **5）继承**
 
-继承是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
+[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
 
 常见的例子，就是形状可以有子类圆形、方形、三角形，它们的基础接口是相同的，比如说都有一个 `draw()` 的方法，子类可以继承这个方法实现自己的绘制方法。
 
@@ -426,7 +428,7 @@ public class Test {
 
 在测试类中，shape1 的类型为 Shape，shape2 的类型也为 Shape，但调用 `draw()` 方法后，却能自动调用子类 Line 和 Circle 的 `draw()` 方法，这是为什么呢？
 
-其实就是 Java 中的多态。
+其实就是 Java 中的[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。
 
 ### 06、小结
 
@@ -439,8 +441,9 @@ public class Test {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

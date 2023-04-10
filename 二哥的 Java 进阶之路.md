@@ -341,9 +341,9 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -503,9 +503,9 @@ jenv global 17
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -641,9 +641,9 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 
 -----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -819,9 +819,9 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -1690,9 +1690,9 @@ public class Circle {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -1864,9 +1864,9 @@ public class Test {
 
 -----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -2343,9 +2343,9 @@ public void test()
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -2475,9 +2475,9 @@ System.out.println("一共付给收银员" + res2 + "元");
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -2648,9 +2648,9 @@ Exception in thread "main" java.lang.AssertionError
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -2948,9 +2948,9 @@ System.out.println(min);
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -3737,9 +3737,9 @@ do{
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -3997,9 +3997,9 @@ int index = Arrays.binarySearch(anArray, 4);
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -4203,9 +4203,9 @@ public class YangHuiTriangle {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -4375,9 +4375,9 @@ System.out.println(Arrays.deepToString(deepArray));
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -4811,9 +4811,9 @@ public String trim() {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -4976,9 +4976,9 @@ public String concat(String str) {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -5128,9 +5128,9 @@ String s1 = "三妹";
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -5267,9 +5267,9 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -5486,9 +5486,9 @@ void expandCapacity(int minimumCapacity) {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -5780,9 +5780,9 @@ public boolean contentEquals(CharSequence cs) {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -6155,9 +6155,9 @@ public static String join(final Object[] array, String separator, final int star
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -6373,17 +6373,17 @@ if (cmower.contains("，")) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 # 第五章：面向对象编程
 
-## 5.1 Java中的类和对象
+# 5.1 Java中的类和对象
 
-“二哥，那天我在图书馆复习《Java进阶之路》的时候，刚好碰见一个学长，他问我有没有‘对象’，我说还没有啊。结果你猜他说什么，‘要不要我给你 new 一个啊？’我当时就懵了，new 是啥意思啊，二哥？”三妹满是疑惑的问我。
+#“二哥，那天我在图书馆复习《Java进阶之路》的时候，刚好碰见一个学长，他问我有没有‘对象’，我说还没有啊。结果你猜他说什么，‘要不要我给你 new 一个啊？’我当时就懵了，new 是啥意思啊，二哥？”三妹满是疑惑的问我。
 
 “哈哈，三妹，你学长还挺幽默啊。new 是 Java 中的一个关键字，用来把类变成对象。”我笑着对三妹说，“对象和类是 Java 中最基本的两个概念，可以说撑起了面向对象编程（OOP）的一片天。”
 
@@ -6450,13 +6450,13 @@ public class Person {
 - 方法（Method）
 - 构造方法（Constructor）
 
-在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员变量——在类内部但在方法外部，方法内部的叫临时变量。
+在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员[变量](https://tobebetterjavaer.com/oo/var.html)——在类内部但在方法外部，方法内部的叫临时变量。
 
 成员变量有时候也叫做实例变量，在编译时不占用内存空间，在运行时获取内存，也就是说，只有在对象实例化（`new Person()`）后，字段才会获取到内存，这也正是它被称作“实例”变量的原因。
 
-方法有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
+[方法](https://tobebetterjavaer.com/oo/method.html)有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
 
-那三妹是不是要问，“怎么没有构造方法呢？”
+那三妹是不是要问，“怎么没有[构造方法](https://tobebetterjavaer.com/oo/construct.html)呢？”
 
 的确在 Person 类的源码文件（.java）中没看到，但在反编译后的字节码文件（.class）中是可以看得到的。
 
@@ -6705,7 +6705,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 一旦创建了一个类，就可以用它创建任意多个对象。面向对象编程语言遇到的最大一个挑战就是，如何把现实/虚拟的元素抽象为 Java 中的对象。
 
-对象能够接收什么样的请求是由它的接口定义的。具体是怎么做到的，就由它的实现方法来实现。
+对象能够接收什么样的请求是由它的[接口](https://tobebetterjavaer.com/oo/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
 
 #### **3）访问权限修饰符**
 
@@ -6713,11 +6713,13 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 API 的提供者（Java 多线程部分的作者 Doug Lea 是被 Java 程序员敬佩的一个大佬），我们这些 Java 语言的使用者，说白了就是 JDK 的调用者。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/object-class-20230410094307.png)
+
 当然了，假如我们也提供了新的类给其他调用者，我们也就成为了新的创建者。
 
 API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏其他所有不必要的信息，之所以要这么做，是因为如果这些信息对调用者是不可见的，那么创建者就可以随意修改隐藏的信息，而不用担心对调用者的影响。
 
-这里就必须要讲到 Java 的权限修饰符。
+这里就必须要讲到 [Java 的权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
 
 访问权限修饰符的第一个作用是，防止类的调用者接触到他们不该接触的内部实现；第二个作用是，让类的创建者可以轻松修改内部机制而不用担心影响到调用者的使用。
 
@@ -6733,7 +6735,7 @@ API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏�
 
 #### **5）继承**
 
-继承是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
+[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
 
 常见的例子，就是形状可以有子类圆形、方形、三角形，它们的基础接口是相同的，比如说都有一个 `draw()` 的方法，子类可以继承这个方法实现自己的绘制方法。
 
@@ -6795,7 +6797,7 @@ public class Test {
 
 在测试类中，shape1 的类型为 Shape，shape2 的类型也为 Shape，但调用 `draw()` 方法后，却能自动调用子类 Line 和 Circle 的 `draw()` 方法，这是为什么呢？
 
-其实就是 Java 中的多态。
+其实就是 Java 中的[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。
 
 ### 06、小结
 
@@ -6804,15 +6806,6 @@ public class Test {
 “是的，哥，感觉 Java 也就那么回事嘛。”哎呀，三妹有点狂了起来，“万物皆对象，除了基本数据类型。”
 
 “哇，三妹，你可以啊，都会自己梳理总结了。”我倍感欣慰，觉得果然是劳有所获，你讲的认真，听众就能理解和 get，满足了。
-
-----
-
-
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 5.2 Java中的包
 
@@ -7093,11 +7086,14 @@ JDK 的其它常用类定义在`java.util.*`，`java.math.*`，`java.text.*`，�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+
+
 
 ## 5.3 Java中的变量
 
@@ -7141,7 +7137,7 @@ public class LocalVariable {
 
 ### 02、成员变量
 
-在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。来看下面这个示例：
+在类内部但在方法体外声明的变量称为成员变量，或者实例变量，或者字段。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。来看下面这个示例：
 
 ```java
 /**
@@ -7170,7 +7166,7 @@ public class InstanceVariable {
 
 ### 03、静态变量
 
-通过 static 关键字声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
+通过 [static 关键字](https://tobebetterjavaer.com/oo/static.html)声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
 
 ```java
 /**
@@ -7199,7 +7195,7 @@ public class StaticVariable {
 
 ### 04、常量
 
-在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 final 关键字修饰的成员变量。常量的值一旦给定就无法改变！
+在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 [final 关键字](https://tobebetterjavaer.com/oo/final.html)修饰的成员变量。常量的值一旦给定就无法改变！
 
 常量在程序运行过程中主要有 2 个作用：
 
@@ -7233,9 +7229,9 @@ public class FinalVariable {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -7257,12 +7253,12 @@ public class FinalVariable {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
 
-**访问权限**：它指定了方法的可见性。Java 提供了四种访问权限修饰符：
+**访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)：
 
 - public：该方法可以被所有类访问。
 - private：该方法只能在定义它的类中访问。
 - protected：该方法可以被同一个包中的类，或者不同包中的子类访问。
-- default：该方法如果没有使用任何访问权限修饰符，Java 默认它使用 default 修饰符，该方法只能被同一个包中类可见。
+- default：如果一个方法没有使用任何访问权限修饰符，那么它是 package-private 的，意味着该方法只能被同一个包中的类可见。
 
 **返回类型**：方法返回的数据类型，可以是基本数据类型、对象和集合，如果不需要返回数据，则使用 void 关键字。
 
@@ -7457,7 +7453,7 @@ Hutool 的存在就是为了减少代码搜索成本，避免网络上参差不�
 
 ### 06、什么是抽象方法？
 
-没有方法体的方法被称为抽象方法，它总是在抽象类中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
+没有方法体的方法被称为抽象方法，它总是在[抽象类](https://tobebetterjavaer.com/oo/abstract.html)中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
 
 ```java
 /**
@@ -7501,11 +7497,11 @@ public class MyAbstractDemo extends AbstractDemo {
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.5 Java中的可变参数
+## 5.5 Java可变参数
 
 为了让铁粉们能白票到阿里云的服务器，我当了整整两天的客服，真正体验到了什么叫做“为人民群众谋福利”的不易和辛酸。正在我眼睛红肿打算要休息之际，三妹跑过来问：“Java 的可变参数究竟是怎么一回事？”我一下子又清醒了，我爱 Java，我爱传道解惑，也享受三妹的赞许（😂）。
 
@@ -7528,7 +7524,7 @@ public static void print(String... strs) {
 
 静态方法 `print()` 就使用了可变参数，所以 `print("沉")` 可以，`print("沉", "默")` 也可以，甚至 3 个、 4 个或者更多个字符串都可以作为参数传递给 `print()` 方法。
 
-说到可变参数，我想起来阿里巴巴开发手册上有这样一条规约。
+说到可变参数，我想起来[阿里巴巴开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上有这样一条规约。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-01.png)
 
@@ -7639,13 +7635,13 @@ public static void print(Integer... ints) {
 ---
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.6 Java中的本地方法
+## 5.6 Java native方法
 
 “三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 
@@ -7849,11 +7845,11 @@ native 语法：
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.7 Java中的构造方法
+## 5.7 Java构造方法
 
 “三妹，[上一节](https://tobebetterjavaer.com/oo/method.html)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”刚吃完中午饭，虽然有些困意，但趁机学个 10 分钟也是不错的，睡眠会更心满意足一些，于是我面露微笑地对三妹说。
 
@@ -8210,15 +8206,15 @@ public class ClonePerson implements Cloneable {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.8 Java中的访问权限修饰符
+## 5.8 Java访问权限修饰符
 
-“我们先来讨论一下为什么需要访问权限控制。其实之前我们在讲类和对象的时候有提到，今天我们来详细地聊一聊，三妹。”我开门见山地说，“三妹，你打开思维导图，记得做笔记哦。”
+“我们先来讨论一下为什么需要访问权限控制。其实之前我们在讲[类和对象](https://tobebetterjavaer.com/oo/object-class.html)的时候有提到，今天我们来详细地聊一聊，三妹。”我开门见山地说，“三妹，你打开思维导图，记得做笔记哦。”
 
 “好的。”三妹应声回答。
 
@@ -8497,17 +8493,17 @@ public class Man extends People {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.9 Java中的代码初始化块
+## 5.9 Java代码初始化块
 
 “哥，今天我们要学习的内容是‘代码初始化块’，对吧？”看来三妹已经提前预习了我上次留给她的作业。
 
-“是的，三妹。代码初始化块用于初始化一些成员变量。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块。”
+“是的，三妹。代码初始化块用于初始化一些[成员变量](https://tobebetterjavaer.com/oo/var.html)。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块，又称实例初始化块，主要和静态初始化块做区分。”
 
 “可以直接通过‘=’操作符对成员变量进行初始化，但通过代码初始化块可以做更多的事情，比如说打印出成员变量初始化后的值。”
 
@@ -8541,7 +8537,7 @@ public class Bike {
 
 “如果只使用‘=’操作符的话，是没办法完成集合初始化的，对吧？‘=’ 后面只能 new 出集合，却没办法填充值，代码初始化就可以完成这项工作。”
 
-“构造方法执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
+“[构造方法](https://tobebetterjavaer.com/oo/construct.html)执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
 
 “不要着急，三妹，先来看下面这个例子。”
 
@@ -8621,13 +8617,74 @@ public class B extends A{
 
 “这个例子再次印证了之前的第二条规则：代码初始化块是放在构造方法中执行的，只不过比较靠前。”
 
+除了这种实例化代码初始化块，还有静态初始化，不过我们会放到 [static 关键字](https://tobebetterjavaer.com/oo/static.html)中去讲，这里先大致了解一下。
+
+下面是一个 Java 示例代码，演示实例初始化块和静态初始化块的用法：
+
+```java
+public class Example {
+    // 静态变量
+    public static int staticVar = 1;
+    // 实例变量
+    public int instanceVar = 2;
+
+    // 静态初始化块
+    static {
+        System.out.println("执行静态初始化块");
+        staticVar = 3;
+    }
+
+    // 实例初始化块
+    {
+        System.out.println("执行实例初始化块");
+        instanceVar = 4;
+    }
+
+    // 构造方法
+    public Example() {
+        System.out.println("执行构造方法");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("执行main方法");
+
+        Example e1 = new Example();
+        Example e2 = new Example();
+
+        System.out.println("e1的静态变量：" + e1.staticVar);
+        System.out.println("e1的实例变量：" + e1.instanceVar);
+        System.out.println("e2的静态变量：" + e2.staticVar);
+        System.out.println("e2的实例变量：" + e2.instanceVar);
+    }
+}
+```
+
+在这个示例代码中，有一个静态变量 staticVar 和一个实例变量 instanceVar，以及一个静态初始化块和一个实例初始化块。在静态初始化块中，我们打印了一条消息并修改了静态变量的值；在实例初始化块中，我们也打印了一条消息并修改了实例变量的值。
+
+来看一下执行结果：
+
+```
+执行静态初始化块
+执行main方法
+执行实例初始化块
+执行构造方法
+执行实例初始化块
+执行构造方法
+e1的静态变量：3
+e1的实例变量：4
+e2的静态变量：3
+e2的实例变量：4
+```
+
+从输出结果可以看出，静态初始化块在类加载时执行，只会执行一次，并且优先于实例初始化块和构造方法的执行；实例初始化块在每次创建对象时执行，在构造方法之前执行。
+
 “好了，今天就先讲到这吧，中午休息一下，下午的精神会更足。”刚对三妹说完这句话，我的哈欠就上来了，好困。
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -8909,9 +8966,9 @@ public class FileReaderTest {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -9382,23 +9439,9 @@ public class Demo {
 
 三妹这种积极乐观的态度真的让我感觉到“付出就会有收获”，💪🏻。
 
+### 04、抽象类和接口的区别
 
-----
-
-
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
-## 5.12 抽象类和接口的区别
-
-“三妹，通过前面两篇，我们已经深入地了解了 Java [抽象类](https://tobebetterjavaer.com/oo/abstract.html)和 Java [接口](https://tobebetterjavaer.com/oo/interface.html)，那这篇我们来重点说一下抽象类和接口之间的区别。”我放下手中的鼠标和键盘，转向右手边，对三妹说。
-
-“好啊。我挺想总结一波的，也算是对抽象类和接口做个了结。”三妹回应到。
-
-### 01、抽象类
+简单总结一下抽象类和接口的区别。
 
 在 Java 中，通过关键字 `abstract` 定义的类叫做抽象类。Java 是一门面向对象的语言，因此所有的对象都是通过类来描述的；但反过来，并不是所有的类都是用来描述对象的，抽象类就是其中的一种。
 
@@ -9412,8 +9455,6 @@ abstract class Coach {
 	public abstract void attack();
 }
 ```
-
-### 02、接口
 
 我们知道，有抽象方法的类被称为抽象类，也就意味着抽象类中还能有不是抽象方法的方法。这样的类就不能算作纯粹的接口，尽管它也可以提供接口的功能——只能说抽象类是普通类与接口之间的一种中庸之道。
 
@@ -9438,16 +9479,14 @@ interface Coach {
 - 接口的每个方法都是隐式抽象的，所以同样不需要使用 `abstract` 关键字；
 - 接口中的方法都是隐式 `public` 的。
 
-### 03、两者差别
-
 “哦，我理解了哥。那我再问一下，抽象类和接口有什么差别呢？”
 
 “哇，三妹呀，你这个问题恰到好处，问到了点子上。”我不由得为三妹竖起了大拇指。
 
 #### 1）语法层面上
 
-- 抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；
-- 抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是public static final类型的；
+- 抽象类可以提供成员方法的实现细节，而接口中只能存在 public abstract 方法；
+- 抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的；
 - 接口中不能含有静态代码块，而抽象类可以有静态代码块；
 - 一个类只能继承一个抽象类，而一个类却可以实现多个接口。
 
@@ -9455,26 +9494,24 @@ interface Coach {
 
 抽象类是对一种事物的抽象，即对类抽象，继承抽象类的子类和抽象类本身是一种 `is-a` 的关系。而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。
 
-举个简单的例子，飞机和鸟是不同类的事物，但是它们都有一个共性，就是都会飞。那么在设计的时候，可以将飞机设计为一个类Airplane，将鸟设计为一个类Bird，但是不能将 飞行 这个特性也设计为类，因此它只是一个行为特性，并不是对一类事物的抽象描述。
+举个简单的例子，飞机和鸟是不同类的事物，但是它们都有一个共性，就是都会飞。那么在设计的时候，可以将飞机设计为一个类 Airplane，将鸟设计为一个类 Bird，但是不能将 飞行 这个特性也设计为类，因此它只是一个行为特性，并不是对一类事物的抽象描述。
 
-此时可以将 飞行 设计为一个接口Fly，包含方法fly()，然后Airplane和Bird分别根据自己的需要实现Fly这个接口。然后至于有不同种类的飞机，比如战斗机、民用飞机等直接继承Airplane即可，对于鸟也是类似的，不同种类的鸟直接继承Bird类即可。从这里可以看出，继承是一个 "是不是"的关系，而 接口 实现则是 "有没有"的关系。如果一个类继承了某个抽象类，则子类必定是抽象类的种类，而接口实现则是有没有、具备不具备的关系，比如鸟是否能飞（或者是否具备飞行这个特点），能飞行则可以实现这个接口，不能飞行就不实现这个接口。
+此时可以将 飞行 设计为一个接口 Fly，包含方法 fly()，然后 Airplane 和 Bird 分别根据自己的需要实现 Fly 这个接口。然后至于有不同种类的飞机，比如战斗机、民用飞机等直接继承 Airplane 即可，对于鸟也是类似的，不同种类的鸟直接继承 Bird 类即可。从这里可以看出，继承是一个 "是不是"的关系，而 接口 实现则是 "有没有"的关系。如果一个类继承了某个抽象类，则子类必定是抽象类的种类，而接口实现则是有没有、具备不具备的关系，比如鸟是否能飞（或者是否具备飞行这个特点），能飞行则可以实现这个接口，不能飞行就不实现这个接口。
 
-接口是对类的某种行为的一种抽象，接口和类之间并没有很强的关联关系，举个例子来说，所有的类都可以实现 `Serializable` 接口，从而具有序列化的功能，但不能说所有的类和 Serializable 之间是 `is-a` 的关系。
+接口是对类的某种行为的一种抽象，接口和类之间并没有很强的关联关系，举个例子来说，所有的类都可以实现 [`Serializable` 接口](https://tobebetterjavaer.com/io/Serializbale.html)，从而具有序列化的功能，但不能说所有的类和 Serializable 之间是 `is-a` 的关系。
 
-抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。什么是模板式设计？最简单例子，大家都用过ppt里面的模板，如果用模板A设计了ppt B和ppt C，ppt B和ppt C公共的部分就是模板A了，如果它们的公共部分需要改动，则只需要改动模板A就可以了，不需要重新对ppt B和ppt C进行改动。而辐射式设计，比如某个电梯都装了某种报警器，一旦要更新报警器，就必须全部更新。也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。
-
->参考链接：[https://www.cnblogs.com/dolphin0520/p/3811437.html](https://www.cnblogs.com/dolphin0520/p/3811437.html)
+抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。什么是模板式设计？最简单例子，大家都用过 ppt 里面的模板，如果用模板 A 设计了 ppt B 和 ppt C，ppt B 和 ppt C 公共的部分就是模板 A 了，如果它们的公共部分需要改动，则只需要改动模板 A 就可以了，不需要重新对 ppt B 和 ppt C 进行改动。而辐射式设计，比如某个电梯都装了某种报警器，一旦要更新报警器，就必须全部更新。也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。
 
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.13 Java内部类
+## 5.12 Java内部类
 
 “在 Java 中，可以将一个类定义在另外一个类里面或者一个方法里面，这样的类叫做内部类。”我放下手中的枸杞杯，对三妹说，“一般来说，内部类分为成员内部类、局部内部类、匿名内部类和静态内部类。”
 
@@ -9614,7 +9651,7 @@ public class ThreadDemo {
 
 ### **4）静态内部类**
 
-静态内部类和成员内部类类似，只是多了一个 static 关键字。
+静态内部类和成员内部类类似，只是多了一个 [static 关键字](https://tobebetterjavaer.com/oo/static.html)。
 
 ```java
 public class Wangsi {
@@ -9658,15 +9695,19 @@ public class Wangsi {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.14 Java封装
+## 5.13 Java封装继承多态
 
-“三妹，准备好了没，我们这节来讲 Java 封装，算是 Java 的三大特征之一，理清楚了，对以后的编程有较大的帮助。”我对三妹说。
+在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)、[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
+
+### 1）封装
+
+“三妹，准备好了没，我们来讲 Java 封装，算是 Java 的三大特征之一，理清楚了，对以后的编程有较大的帮助。”我对三妹说。
 
 “好的，哥，准备好了。”三妹一边听我说，一边迅速地打开了 XMind，看来一边学习一边总结思维导图这个高效的学习方式三妹已经牢记在心了。
 
@@ -9772,7 +9813,7 @@ public class Wife {
 }
 ```
 
-可以看得出， Husband 类里面的 wife 属性是没有 getter()的，同时 Wife  类的 age 属性也是没有 getter()方法的。至于理由我想三妹你是懂的。
+可以看得出， Husband 类里面的 wife 属性是没有 `getter()`的，同时 Wife  类的 age 属性也是没有 `getter()`方法的。至于理由我想三妹你是懂的。
 
 没有哪个女人愿意别人知道她的年龄。
 
@@ -9786,7 +9827,7 @@ public class Wife {
 
 但是如果没有门窗，一个包裹的严严实实的黑盒子，又有什么存在的意义呢？所以通过门窗别人也能够看到里面的风景。所以说门窗就是房子对象留给外界访问的接口。
 
-通过这个我们还不能真正体会封装的好处。现在我们从程序的角度来分析封装带来的好处。如果我们不使用封装，那么该对象就没有 setter()和 getter()，那么 Husband 类应该这样写：
+通过这个我们还不能真正体会封装的好处。现在我们从程序的角度来分析封装带来的好处。如果我们不使用封装，那么该对象就没有 `setter()`和 `getter()`，那么 Husband 类应该这样写：
 
 ```java
 public class Husband {
@@ -9806,7 +9847,7 @@ husband.name = "张三";
 husband.sex = "男";    //貌似有点儿多余
 ```
 
-但是哪天如果我们需要修改 Husband，例如将 age 修改为 String 类型的呢？你只有一处使用了这个类还好，如果你有几十个甚至上百个这样地方，你是不是要改到崩溃。如果使用了封装，我们完全可以不需要做任何修改，只需要稍微改变下 Husband 类的 setAge()方法即可。
+但是哪天如果我们需要修改 Husband，例如将 age 修改为 String 类型的呢？你只有一处使用了这个类还好，如果你有几十个甚至上百个这样地方，你是不是要改到崩溃。如果使用了封装，我们完全可以不需要做任何修改，只需要稍微改变下 Husband 类的 `setAge()`方法即可。
 
 ```java
 public class Husband {
@@ -9834,7 +9875,7 @@ public class Husband {
 }
 ```
 
-其他的地方依然这样引用( husband.setAge(22) )保持不变。
+其他的地方依然这样引用( `husband.setAge(22)` )保持不变。
 
 到了这里我们确实可以看出，**封装确实可以使我们更容易地修改类的内部实现，而无需修改使用了该类的代码**。
 
@@ -9881,7 +9922,7 @@ public class Husband {
 }
 ```
 
-上面都是对 setter 方法的控制，其实通过封装我们也能够对对象的出口做出很好的控制。例如性别在数据库中一般都是以 1、0 的方式来存储的，但是在前台我们又不能展示 1、0，这里我们只需要在 getter()方法里面做一些转换即可。
+上面都是对 setter 方法的控制，其实通过封装我们也能够对对象的出口做出很好的控制。例如性别在数据库中一般都是以 1、0 的方式来存储的，但是在前台我们又不能展示 1、0，这里我们只需要在 `getter()`方法里面做一些转换即可。
 
 ```java
 public String getSexName() {
@@ -9915,26 +9956,9 @@ public String getCzHTML(){
 
 > 参考链接：[https://www.cnblogs.com/chenssy/p/3351835.html](https://www.cnblogs.com/chenssy/p/3351835.html)，整理：沉默王二
 
+### 2）继承
 
-----
-
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
-## 5.15 Java继承
-
-“三妹，今天我们继续来学习 Java 的三大特征之一：继承，之前学习[抽象类](https://tobebetterjavaer.com/oo/abstract.html)的时候我们已经接触过这个概念，不过，我们今天我们来认真地聊一聊。”慢吞吞说完这句开篇词后，我对三妹做了一个打开 XMind 的手势提醒（其实就是瞎比划）。
-
-“懂了，哥，我这就打开。”三妹一边说，一边打开了 XMind，开始正襟危坐了起来。
-
-在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、**继承**、[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e848763d-0357-438f-9bb7-c07e776c9980.png)
-
-### 01、什么是继承
+#### 01、什么是继承
 
 **继承**（英语：inheritance）是面向对象软件技术中的一个概念。它使得**复用以前的代码非常容易。**
 
@@ -9946,7 +9970,7 @@ Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承�
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-bf43b473-4a05-4727-a543-c4edd44e5437.png)
 
-### 02、为什么需要继承
+#### 02、为什么需要继承
 
 三妹，你可能会问**为什么需要继承**？
 
@@ -10018,7 +10042,7 @@ class Chicken extends Animal{
 
 各自的类继承 Animal 后可以直接使用 Animal 类的属性和方法而不需要重复编写，各个类如果有自己的方法也可很容易地拓展。
 
-### 03、继承的分类
+#### 03、继承的分类
 
 继承分为单继承和多继承，Java 语言只支持类的单继承，但可以通过实现接口的方式达到多继承的目的。**这个我们之前在讲接口的时候就提到过，这里我们再聊一下。**
 
@@ -10027,11 +10051,11 @@ class Chicken extends Animal{
 单继承![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-62bbc6a2-4e0e-4150-9f83-fceb65c56667.png)|一个子类只拥有一个父类|优点：在类层次结构上比较清晰<br>缺点：结构的丰富度有时不能满足使用需求|
 多继承（Java 不支持，但可以用其它方式满足多继承使用需求）![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e2ebc65a-5385-44a0-8ef3-a1b17e0252f1.png)|一个子类拥有多个直接的父类|优点：子类的丰富度很高<br>缺点：容易造成混乱|
 
-#### **单继承**
+##### **单继承**
 
 单继承，一个子类只有一个父类，如我们上面讲过的 Animal 类和它的子类。**单继承在类层次结构上比较清晰，但缺点是结构的丰富度有时不能满足使用需求**。
 
-#### **多继承**
+##### **多继承**
 
 多继承，一个子类有多个直接的父类。这样做的好处是子类拥有所有父类的特征，**子类的丰富度很高，但是缺点就是容易造成混乱**。下图为一个混乱的例子。
 
@@ -10051,9 +10075,9 @@ Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c06ece50-32e5-4b03-a31b-05ef03592d0c.png)
 
-### 04、如何实现继承
+#### 04、如何实现继承
 
-#### **extends 关键字**
+##### **extends 关键字**
 
 在 Java 中，类的继承是单一继承，也就是说一个子类只能拥有一个父类，所以**extends**只能继承一个类。其使用语法为：
 
@@ -10091,7 +10115,7 @@ public class test {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2ba4864f-af39-4bd7-b59c-db53ec1c38f6.png)
 
-#### **implements 关键字**
+##### **implements 关键字**
 
 使用 implements 关键字可以变相使 Java 拥有多继承的特性，使用范围为类实现接口的情况，一个类可以实现多个接口(接口与接口之间用逗号分开)。
 
@@ -10129,13 +10153,13 @@ Cat 类实现 doA 和 doB 接口的时候，需要实现其声明的方法，点
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-32bdceb5-e838-47cb-ad96-b7453abae6a5.png)
 
-### 05、继承的特点
+#### 05、继承的特点
 
 继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://tobebetterjavaer.com/oo/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://tobebetterjavaer.com/oo/this-super.html)。
 
 创建完这个对象之后，再调用**重写**父类后的方法，注意[重写和重载的区别](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
 
-#### this 和 super 关键字
+##### this 和 super 关键字
 
 >[后面](https://tobebetterjavaer.com/oo/this-super.html)会详细讲，这里先来简单了解一下。
 
@@ -10157,7 +10181,7 @@ super.方法() // 表示父类对象中定义的方法
 super() // 表示调用父类构造方法
 ```
 
-#### 构造方法
+##### 构造方法
 
 [构造方法](https://tobebetterjavaer.com/oo/construct.html)是一种特殊的方法，**它是一个与类同名的方法**。在继承中**构造方法是一种比较特殊的方法**（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。
 
@@ -10196,7 +10220,7 @@ class B extends A{
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-33980b57-857b-4428-8b27-47d6d5060f29.png)
 
-#### 方法重写(Override)
+##### 方法重写(Override)
 
 [方法重写](https://tobebetterjavaer.com/basic-extra-meal/Overriding.html)也就是子类中出现和父类中一模一样的方法(包括返回值类型，方法名，参数列表)，它建立在继承的基础上。你可以理解为方法的**外壳不变，但是核心内容重写**。
 
@@ -10218,7 +10242,7 @@ class E2 extends E1{
 
 其中`@Override` 注解显示声明该方法为注解方法，可以帮你检查重写方法的语法正确性，当然如果不加也是可以的，但建议加上。
 
-#### 方法重载(Overload)
+##### 方法重载(Overload)
 
 如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
 
@@ -10238,7 +10262,7 @@ class E3{
 }
 ```
 
-### 06、继承与修饰符
+#### 06、继承与修饰符
 
 Java 修饰符的作用就是对类或类成员进行修饰或限制，每个修饰符都有自己的作用，而在继承中可能有些特殊修饰符使得被修饰的属性或方法不能被继承，或者继承需要一些其他的条件。
 
@@ -10247,7 +10271,7 @@ Java 语言提供了很多修饰符，修饰符用来定义类、方法或者变
 - [访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，也就是 public、private、protected 等
 - 非访问修饰符，也就是 static、final、abstract 等
 
-#### 访问修饰符
+##### 访问修饰符
 
 Java 子类重写继承的方法时，**不可以降低方法的访问权限**，**子类继承父类的访问修饰符作用域不能比父类小**，也就是更加开放，假如父类是 protected 修饰的，其子类只能是 protected 或者 public，绝对不能是 default(默认的访问范围)或者 private。所以在继承中需要重写的方法不能使用 private 修饰词修饰。
 
@@ -10305,7 +10329,7 @@ class B2 extends B1{
 }
 ```
 
-#### 非访问修饰符
+##### 非访问修饰符
 
 访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对 static、final、abstract 修饰符进行介绍。
 
@@ -10391,13 +10415,13 @@ class American extends People{
 }
 ```
 
-### 07、Object 类和转型
+#### 07、Object 类和转型
 
 提到 Java 继承，不得不提及所有类的根类：Object(java.lang.Object)类，如果一个类没有显式声明它的父类（即没有写 extends xx），那么默认这个类的父类就是 Object 类，任何类都可以使用 Object 类的方法，创建的类也可和 Object 进行向上、向下转型，所以 Object 类是掌握和理解继承所必须的知识点。
 
 Java 向上和向下转型在 Java 中运用很多，也是建立在继承的基础上，所以 Java 转型也是掌握和理解继承所必须的知识点。
 
-#### Object 类概述
+##### Object 类概述
 
 1.  Object 是类层次结构的**根类**，所有的类都隐式的继承自 Object 类。
 2.  Java 中，所有的对象都拥有 Object 的默认方法。
@@ -10415,7 +10439,7 @@ equals()方法主要比较两个对象是否相等，因为对象的相等不一
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
 
-#### 向上转型
+##### 向上转型
 
 **向上转型** : 通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换。用一张图就能很好地表示向上转型的逻辑：
 
@@ -10423,7 +10447,7 @@ equals()方法主要比较两个对象是否相等，因为对象的相等不一
 
 父类引用变量指向子类对象后，只能使用父类已声明的方法，但方法如果被重写会执行子类的方法，如果方法未被重写那么将执行父类的方法。
 
-#### 向下转型
+##### 向下转型
 
 **向下转型** : 通过父类对象(大范围)实例化子类对象(小范围)，在书写上父类对象需要加括号`()`强制转换为子类类型。但父类引用变量实际引用必须是子类对象才能成功转型，这里也用一张图就能很好表示向下转型的逻辑：
 
@@ -10441,7 +10465,7 @@ Integer i=(Integer)object;//向下转型Object->Integer，object的实质还是�
 String str=(String)object;//错误的向下转型，虽然编译器不会报错但是运行会报错
 ```
 
-### 08、子父类初始化顺序
+#### 08、子父类初始化顺序
 
 在 Java 继承中，父子类初始化先后顺序为：
 
@@ -10497,38 +10521,8 @@ public class test9 {
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d23e0bbf-a4a4-4d20-ad21-f437fcee1c82.png)
 
-### 09、结语
 
-好啦，三妹，本次继承就介绍到这里啦，Java 面向对象三大特征之一继承——优秀的你已经掌握。
-
-封装：是对类的封装，封装是对类的属性和方法进行封装，只对外暴露方法而不暴露具体使用细节，所以我们一般设计类成员变量时候大多设为私有而通过一些 get、set 方法去读写。
-
-继承：子类继承父类，即“子承父业”，子类拥有父类除私有的所有属性和方法，自己还能在此基础上拓展自己新的属性和方法。主要目的是**复用代码**。
-
-**多态**：多态是同一个行为具有多个不同表现形式或形态的能力。即一个父类可能有若干子类，各子类实现父类方法有多种多样，调用父类方法时，父类引用变量指向不同子类实例而执行不同方法，这就是所谓父类方法是多态的。
-
-最后送你一张图捋一捋其中的关系吧。
-
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
-
-“好的，二哥，我来消化一下，今天内容真不少。你先去休息一下。”三妹回应到。
-
-> 参考链接：[https://bbs.huaweicloud.com/blogs/271358](https://bbs.huaweicloud.com/blogs/271358)，作者：bigsai，整理：沉默王二
-
-
-----
-
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
-## 5.16 Java多态
-
-“三妹啊，前面聊完了 Java 的[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，今天我们来继续聊多态，也是 Java 三大特性的最后一个特性，搞懂它，Java 面向对象编程基本上就能轻松拿捏了。”我对三妹说。
-
-“哥，你继续。”
+### 3）多态
 
 Java 多态是指在面向对象编程中，同一个类的对象在不同情况下表现出不同的行为和状态。
 
@@ -10538,7 +10532,7 @@ Java 多态是指在面向对象编程中，同一个类的对象在不同情况
 
 “很枯燥，有没有？再具体的分析一下。”
 
-### 01、多态是什么
+#### 01、多态是什么
 
 在我刻板的印象里，西游记里的那段孙悟空和二郎神的精彩对战就能很好的解释“多态”这个词：一个孙悟空，能七十二变；一个二郎神，也能七十二变；他们都可以变成不同的形态，但只需要悄悄地喊一声“变”。
 
@@ -10578,7 +10572,7 @@ class Wanger {
 }
 ```
 
-### 02、多态与后期绑定
+#### 02、多态与后期绑定
 
 现在，我们来思考一个问题：程序清单1-1在执行 `wanger.write()` 时，由于编译器只有一个 Wanger 引用，它怎么知道究竟该调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
 
@@ -10624,7 +10618,7 @@ class Wanger {
 
 多态的这个优秀的特性，让我们在修改代码的时候不必过于紧张，因为多态是一项让程序员“将改变的与未改变的分离开来”的重要特性。
 
-### 03、多态与构造方法
+#### 03、多态与构造方法
 
 在构造方法中调用多态方法，会产生一个奇妙的结果，我们来看程序清单3-1：
 
@@ -10667,7 +10661,7 @@ class Wangsan {
 
 因为在创建子类对象时，会先去调用父类的构造方法，而父类构造方法中又调用了被子类覆盖的多态方法，由于父类并不清楚子类对象中的属性值是什么，于是把int类型的属性暂时初始化为 0，然后再调用子类的构造方法（子类构造方法知道王小二的年龄是 4）。
 
-### 04、多态与向下转型
+#### 04、多态与向下转型
 
 向下转型是指将父类引用强转为子类类型；这是不安全的，因为有的时候，父类引用指向的是父类对象，向下转型就会抛出 ClassCastException，表示类型转换失败；但如果父类引用指向的是子类对象，那么向下转型就是成功的。
 
@@ -10708,15 +10702,558 @@ class Wangsi {
 
 “好的，二哥，遵命。”三妹顽皮地笑了。
 
+### 4）小结
+
+好啦，三妹，本次继承就介绍到这里啦，Java 面向对象三大特征之一继承——优秀的你已经掌握。
+
+封装：是对类的封装，封装是对类的属性和方法进行封装，只对外暴露方法而不暴露具体使用细节，所以我们一般设计类成员变量时候大多设为私有而通过一些 get、set 方法去读写。
+
+继承：子类继承父类，即“子承父业”，子类拥有父类除私有的所有属性和方法，自己还能在此基础上拓展自己新的属性和方法。主要目的是**复用代码**。
+
+**多态**：多态是同一个行为具有多个不同表现形式或形态的能力。即一个父类可能有若干子类，各子类实现父类方法有多种多样，调用父类方法时，父类引用变量指向不同子类实例而执行不同方法，这就是所谓父类方法是多态的。
+
+最后送你一张图捋一捋其中的关系吧。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+
+“好的，二哥，我来消化一下，今天内容真不少。你先去休息一下。”三妹回应到。
+
+> 参考链接：[https://bbs.huaweicloud.com/blogs/271358](https://bbs.huaweicloud.com/blogs/271358)，作者：bigsai，整理：沉默王二
+
+
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.17 static关键字
+## 5.14 Java this和super关键字
+
+“哥，被喊大舅子的感觉怎么样啊？”三妹不怀好意地对我说，她眼睛里充满着不屑。
+
+“说实话，这种感觉还不错。”我有点难为情的回答她，“不过，有一点令我感到些许失落。大家的焦点似乎都是你的颜值，完全忽略了我的盛世美颜啊！”
+
+“哥，你想啥呢，那是因为你文章写得好，不然谁认识我是谁啊！有你这样的哥哥，我还是挺自豪的。”三妹郑重其事地说，“话说今天咱学啥呢？”
+
+“三妹啊，你这句话说得我喜欢。今天来学习一下 Java 中的 this 关键字吧。”喝了一口农夫山泉后，我对三妹说。
+
+“this 关键字有很多种用法，其中最常用的一个是，它可以作为引用变量，指向当前对象。”我面带着朴实无华的微笑继续说，“除此之外， this 关键字还可以完成以下工作。”
+
+- 调用当前类的方法；
+- `this()` 可以调用当前类的构造方法；
+- this 可以作为参数在方法中传递；
+- this 可以作为参数在构造方法中传递；
+- this 可以作为方法的返回值，返回当前类的对象。
+
+### 01、 指向当前对象
+
+“三妹，来看下面这段代码。”话音刚落，我就在键盘上噼里啪啦一阵敲。
+
+```java
+public class WithoutThisStudent {
+    String name;
+    int age;
+
+    WithoutThisStudent(String name, int age) {
+        name = name;
+        age = age;
+    }
+
+    void out() {
+        System.out.println(name+" " + age);
+    }
+
+    public static void main(String[] args) {
+        WithoutThisStudent s1 = new WithoutThisStudent("沉默王二", 18);
+        WithoutThisStudent s2 = new WithoutThisStudent("沉默王三", 16);
+
+        s1.out();
+        s2.out();
+    }
+}
+```
+
+“在上面的例子中，构造方法的参数名和实例变量名相同，由于没有使用 this 关键字，所以无法为实例变量赋值。”我抬起右手的食指，指着屏幕上的 name 和 age 对着三妹说。
+
+“来看一下程序的输出结果。”
+
+```
+null 0
+null 0
+```
+
+“从结果中可以看得出来，尽管创建对象的时候传递了参数，但实例变量并没有赋值。这是因为如果构造方法中没有使用 this 关键字的话，name 和 age 指向的并不是实例变量而是参数本身。”我把脖子扭向右侧，看着三妹说。
+
+“那怎么解决这个问题呢？哥。”三妹着急地问。
+
+“如果参数名和实例变量名产生了冲突.....”我正准备给出答案，三妹打断了我。
+
+“难道用 this 吗？”三妹脱口而出。
+
+“哇，越来越棒了呀，你。”我感觉三妹在学习 Java 这条道路上逐渐有了自己主动思考的意愿。
+
+“是的，来看加上 this 关键字后的代码。”
+
+安静的屋子里又响起了一阵噼里啪啦的键盘声。
+
+```java
+public class WithThisStudent {
+    String name;
+    int age;
+
+    WithThisStudent(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void out() {
+        System.out.println(name+" " + age);
+    }
+
+    public static void main(String[] args) {
+        WithThisStudent s1 = new WithThisStudent("沉默王二", 18);
+        WithThisStudent s2 = new WithThisStudent("沉默王三", 16);
+
+        s1.out();
+        s2.out();
+    }
+}
+```
+
+“再来看一下程序的输出结果。”
+
+```
+沉默王二 18
+沉默王三 16
+```
+
+“这次，实例变量有值了，在构造方法中，`this.xxx` 指向的就是实例变量，而不再是参数本身了。”我慢吞吞地说着，“当然了，如果参数名和实例变量名不同的话，就不必使用 this 关键字，但我建议使用 this 关键字，这样的代码更有意义。”
+
+### 02、调用当前类的方法
+
+“仔细听，三妹，看我敲键盘的速度是不是够快。”
+
+```java
+public class InvokeCurrentClassMethod {
+    void method1() {}
+    void method2() {
+        method1();
+    }
+
+    public static void main(String[] args) {
+        new InvokeCurrentClassMethod().method1();
+    }
+}
+```
+
+“仔细瞧，三妹，上面这段代码中没有见到 this 关键字吧？”我面带着神秘的微笑，准备给三妹变个魔术。
+
+“确实没有，哥，我确认过了。”
+
+“那接下来，神奇的事情就要发生了。”我突然感觉刘谦附身了。
+
+我快速的在 classes 目录下找到 InvokeCurrentClassMethod.class 文件，然后双击打开（IDEA 默认会使用 FernFlower 打开字节码文件）。
+
+```java
+public class InvokeCurrentClassMethod {
+    public InvokeCurrentClassMethod() {
+    }
+
+    void method1() {
+    }
+
+    void method2() {
+        this.method1();
+    }
+
+    public static void main(String[] args) {
+        (new InvokeCurrentClassMethod()).method1();
+    }
+}
+```
+
+“瞪大眼睛仔细瞧，三妹，`this` 关键字是不是出现了？”
+
+“哇，真的呢，好神奇啊！”三妹为了配合我的演出，也是十二分的卖力。
+
+“我们可以在一个类中使用 this 关键字来调用另外一个方法，如果没有使用的话，编译器会自动帮我们加上。”我对自己深厚的编程功底充满自信，“在源代码中，`method2()` 在调用 `method1()` 的时候并没有使用 this 关键字，但通过反编译后的字节码可以看得到。”
+
+### 03、调用当前类的构造方法
+
+“再来看下面这段代码。”
+
+```java
+public class InvokeConstrutor {
+    InvokeConstrutor() {
+        System.out.println("hello");
+    }
+
+    InvokeConstrutor(int count) {
+        this();
+        System.out.println(count);
+    }
+
+    public static void main(String[] args) {
+        InvokeConstrutor invokeConstrutor = new InvokeConstrutor(10);
+    }
+}
+```
+
+“在有参构造方法 `InvokeConstrutor(int count)` 中，使用了 `this()` 来调用无参构造方法 `InvokeConstrutor()`。”这次，我换成了左手的食指，指着屏幕对三妹说，“`this()` 可用于调用当前类的构造方法——构造方法可以重用了。”
+
+“来看一下输出结果。”
+
+```
+hello
+10
+```
+
+“真的啊，无参构造方法也被调用了，所以程序输出了 hello。”三妹看到输出结果后不假思索地说。
+
+“也可以在无参构造方法中使用 `this()` 并传递参数来调用有参构造方法。”话音没落，我就在键盘上敲了起来，“来看下面这段代码。”
+
+```java
+public class InvokeParamConstrutor {
+    InvokeParamConstrutor() {
+        this(10);
+        System.out.println("hello");
+    }
+
+    InvokeParamConstrutor(int count) {
+        System.out.println(count);
+    }
+
+    public static void main(String[] args) {
+        InvokeParamConstrutor invokeConstrutor = new InvokeParamConstrutor();
+    }
+}
+```
+
+“再来看一下程序的输出结果。”
+
+```
+10
+hello
+```
+
+“不过，需要注意的是，`this()` 必须放在构造方法的第一行，否则就报错了。”
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/20-01.png)
+
+### 04、作为参数在方法中传递
+
+“来看下面这段代码。”
+
+```java
+public class ThisAsParam {
+    void method1(ThisAsParam p) {
+        System.out.println(p);
+    }
+
+    void method2() {
+        method1(this);
+    }
+
+    public static void main(String[] args) {
+        ThisAsParam thisAsParam = new ThisAsParam();
+        System.out.println(thisAsParam);
+        thisAsParam.method2();
+    }
+}
+```
+
+“`this` 关键字可以作为参数在方法中传递，此时，它指向的是当前类的对象。”一不小心，半个小时过去了，我感到嗓子冒烟，于是赶紧又喝了一口水，润润嗓子后继续说道。
+
+“来看一下输出结果，你就明白了，三妹。”
+
+```
+com.itwanger.twentyseven.ThisAsParam@77459877
+com.itwanger.twentyseven.ThisAsParam@77459877
+```
+
+“`method2()` 调用了 `method1()`，并传递了参数 this，`method1()` 中打印了当前对象的字符串。 `main()` 方法中打印了 thisAsParam 对象的字符串。从输出结果中可以看得出来，两者是同一个对象。”
+
+### 05、作为参数在构造方法中传递
+
+“继续来看代码。”
+
+```java
+public class ThisAsConstrutorParam {
+    int count = 10;
+
+    ThisAsConstrutorParam() {
+        Data data = new Data(this);
+        data.out();
+    }
+
+    public static void main(String[] args) {
+        new ThisAsConstrutorParam();
+    }
+}
+
+class Data {
+    ThisAsConstrutorParam param;
+    Data(ThisAsConstrutorParam param) {
+        this.param = param;
+    }
+
+    void out() {
+        System.out.println(param.count);
+    }
+}
+```
+
+“在构造方法 `ThisAsConstrutorParam()` 中，我们使用 this 关键字作为参数传递给了 Data 对象，它其实指向的就是 `new ThisAsConstrutorParam()` 这个对象。”
+
+“`this` 关键字也可以作为参数在构造方法中传递，它指向的是当前类的对象。当我们需要在多个类中使用一个对象的时候，这非常有用。”
+
+“来看一下输出结果。”
+
+```
+10
+```
+
+### 06、作为方法的返回值
+
+“需要休息会吗？三妹”
+
+“没事的，哥，我的注意力还是很集中的，你继续讲吧。”
+
+“好的，那来继续看代码。”
+
+```java
+public class ThisAsMethodResult {
+    ThisAsMethodResult getThisAsMethodResult() {
+        return this;
+    }
+    
+    void out() {
+        System.out.println("hello");
+    }
+
+    public static void main(String[] args) {
+        new ThisAsMethodResult().getThisAsMethodResult().out();
+    }
+}
+```
+
+“`getThisAsMethodResult()` 方法返回了 this 关键字，指向的就是 `new ThisAsMethodResult()` 这个对象，所以可以紧接着调用 `out()` 方法——达到了链式调用的目的，这也是 this 关键字非常经典的一种用法。”
+
+“链式调用的形式在 JavaScript 代码更加常见。”为了向三妹证实这一点，我打开了 jQuery 的源码。
+
+“原来这么多链式调用啊！”三妹感叹到。
+
+“是的。”我点点头，然后指着 `getThisAsMethodResult()` 方法的返回值对三妹说，“需要注意的是，`this` 关键字作为方法的返回值的时候，方法的返回类型为类的类型。”
+
+“来看一下输出结果。”
+
+```
+hello
+```
+
+“那么，关于 this 关键字的介绍，就到此为止了。”我活动了一下僵硬的脖子后，对三妹说，“如果你学习劲头还可以的话，我们顺带把 super 关键字捎带着过一下，怎么样？”
+
+“不用了吧，听说 super 关键字更简单，我自己看看就行了，不用你讲了！”
+
+“不不不，三妹啊，你得假装听一下，不然我怎么向读者们交差。”
+
+“噢噢噢噢。”三妹意味深长地笑了。
+
+### 07、super 关键字
+
+“super 关键字的用法主要有三种。”
+
+- 指向父类对象；
+- 调用父类的方法；
+- `super()` 可以调用父类的构造方法。
+
+“其实和 this 有些相似，只不过用意不大相同。”我端起水瓶，咕咚咕咚又喝了几大口，好渴。“每当创建一个子类对象的时候，也会隐式的创建父类对象，由 super 关键字引用。”
+
+“如果父类和子类拥有同样名称的字段，super 关键字可以用来访问父类的同名字段。”
+
+“来看下面这段代码。”
+
+```java
+public class ReferParentField {
+    public static void main(String[] args) {
+        new Dog().printColor();
+    }
+}
+
+class Animal {
+    String color = "白色";
+}
+
+class Dog extends Animal {
+    String color = "黑色";
+
+    void printColor() {
+        System.out.println(color);
+        System.out.println(super.color);
+    }
+}
+```
+
+“父类 Animal 中有一个名为 color 的字段，子类 Dog 中也有一个名为 color 的字段，子类的 `printColor()` 方法中，通过 super 关键字可以访问父类的 color。”
+
+“来看一下输出结果。”
+
+```
+黑色
+白色
+```
+
+“当子类和父类的方法名相同时，可以使用 super 关键字来调用父类的方法。换句话说，super 关键字可以用于方法重写时访问到父类的方法。”
+
+
+```java
+public class ReferParentMethod {
+    public static void main(String[] args) {
+        new Dog().work();
+    }
+}
+
+class Animal {
+    void eat() {
+        System.out.println("吃...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void eat() {
+        System.out.println("吃...");
+    }
+
+    void bark() {
+        System.out.println("汪汪汪...");
+    }
+
+    void work() {
+        super.eat();
+        bark();
+    }
+}  
+```
+
+“瞧，三妹。父类 Animal 和子类 Dog 中都有一个名为 `eat()` 的方法，通过 `super.eat()` 可以访问到父类的 `eat()` 方法。”
+
+等三妹在自我消化的时候，我在键盘上又敲完了一串代码。
+
+```java
+public class ReferParentConstructor {
+    public static void main(String[] args) {
+        new Dog();
+    }
+}
+
+class Animal {
+    Animal(){
+        System.out.println("动物来了");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        super();
+        System.out.println("狗狗来了");
+    }
+}
+```
+
+“子类 Dog 的构造方法中，第一行代码为 `super()`，它就是用来调用父类的构造方法的。”
+
+“来看一下输出结果。”
+
+```
+动物来了
+狗狗来了
+```
+
+“当然了，在默认情况下，`super()` 是可以省略的，编译器会主动去调用父类的构造方法。也就是说，子类即使不使用 `super()` 主动调用父类的构造方法，父类的构造方法仍然会先执行。”
+
+```java
+public class ReferParentConstructor {
+    public static void main(String[] args) {
+        new Dog();
+    }
+}
+
+class Animal {
+    Animal(){
+        System.out.println("动物来了");
+    }
+}
+
+class Dog extends Animal {
+    Dog() {
+        System.out.println("狗狗来了");
+    }
+}
+```
+
+“输出结果和之前一样。”
+
+```
+动物来了
+狗狗来了
+```
+
+“`super()` 也可以用来调用父类的有参构造方法，这样可以提高代码的可重用性。”
+
+```java
+class Person {
+    int id;
+    String name;
+
+    Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+class Emp extends Person {
+    float salary;
+
+    Emp(int id, String name, float salary) {
+        super(id, name);
+        this.salary = salary;
+    }
+
+    void display() {
+        System.out.println(id + " " + name + " " + salary);
+    }
+}
+
+public class CallParentParamConstrutor {
+    public static void main(String[] args) {
+        new Emp(1, "沉默王二", 20000f).display();
+    }
+}
+```
+
+“Emp 类继承了 Person 类，也就继承了 id 和 name 字段，当在 Emp 中新增了 salary 字段后，构造方法中就可以使用 `super(id, name)` 来调用父类的有参构造方法。”
+
+“来看一下输出结果。”
+
+```
+1 沉默王二 20000.0
+```
+
+三妹点了点头，所有所思。
+
+----
+
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 5.15 Java static关键字
 
 “哥，你牙龈肿痛轻点没？周一的《教妹学 Java》（二哥的Java进阶之路前身）你都没有更新，偷懒了呀！”三妹关心地问我。
 
@@ -11055,13 +11592,13 @@ public class Singleton {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.18 final关键字
+## 5.16 Java final关键字
 
 “哥，今天学什么呢？”
 
@@ -11188,7 +11725,7 @@ public class Actor {
 
 “一个类是 final 的，和一个类不是 final，但它所有的方法都是 final 的，考虑一下，它们之间有什么区别？”
 
-“我能想到的一点，就是前者不能被继承，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
+“我能想到的一点，就是前者不能被[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
 
 “嗯嗯嗯，没毛病没毛病，进步很大啊！”
 
@@ -11272,13 +11809,13 @@ System.out.println(writer.getName()); // 沉默王二
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.19 instanceof关键字
+## 5.17 Java instanceof关键字
 
 “三妹，今天我们来过一个非常简单的知识点，instanceof关键字。”
 
@@ -11420,13 +11957,13 @@ if (obj instanceof String s) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.20 Java中的不可变对象
+## 5.18 Java不可变对象
 
 “二哥，你能给我说说为什么 String 是 immutable 类（不可变对象）吗？我想研究它，想知道为什么它就不可变了，这种强烈的愿望就像想研究浩瀚的星空一样。但无奈自身功力有限，始终觉得雾里看花终隔一层。”三妹的这句话里满是彩虹屁的味道。
 
@@ -11631,13 +12168,13 @@ public Book getBook() {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.21 方法重写和方法重载
+## 5.19 Java方法重写和方法重载
 
 入冬的夜，总是来得特别的早。我静静地站在阳台，目光所及之处，不过是若隐若现的钢筋混凝土，还有那毫无情调的灯光。
 
@@ -11921,6 +12458,293 @@ class Vehicle {
 
 “Bike 重写了 `run()` 方法，也就意味着，Bike 可以跑出自己的风格。”
 
+好，接下来说一下重写时应当遵守的 12 条规则，应当谨记哦。
+
+#### **规则一：只能重写继承过来的方法**。
+
+因为重写是在子类重新实现从父类[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
+
+Animal 类有 `move()`、`eat()` 和 `sleep()` 三个方法：
+
+```java
+public class Animal {
+    public void move() { }
+
+    protected void eat() { }
+    
+    void sleep(){ }
+}
+```
+
+Dog 类来重写这三个方法：
+
+```java
+public class Dog extends Animal {
+    public void move() { }
+
+    protected void eat() { }
+
+    void sleep(){ }
+}
+```
+
+OK，完全没有问题。但如果父类中的方法是 private 的，就行不通了。
+
+```java
+public class Animal {
+    private void move() { }
+}
+```
+
+此时，Dog 类中的 `move()` 方法就不再是一个重写方法了，因为父类的 `move()` 方法是 private 的，对子类并不可见。
+
+```java
+public class Dog extends Animal {
+    public void move() { }
+}
+```
+
+#### **规则二：final、static 的方法不能被重写**。
+
+一个方法是 [final](https://tobebetterjavaer.com/oo/final.html) 的就意味着它无法被子类继承到，所以就没办法重写。
+
+```java
+public class Animal {
+    final void move() { }
+}
+```
+
+由于父类 Animal 中的 `move()` 是 final 的，所以子类在尝试重写该方法的时候就出现编译错误了！
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
+
+同样的，如果一个方法是 [static](https://tobebetterjavaer.com/oo/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
+
+```java
+public class Animal {
+    final void move() { }
+}
+```
+
+重写的目的在于根据对象的类型不同而表现出多态，而静态方法不需要创建对象就可以使用。没有了对象，重写所需要的“对象的类型”也就没有存在的意义了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
+
+#### **规则三：重写的方法必须有相同的参数列表**。
+
+```java
+public class Animal {
+    void eat(String food) { }
+}
+```
+
+Dog 类中的 `eat()` 方法保持了父类方法 `eat()` 的同一个调调，都有一个参数——String 类型的 food。
+
+```java
+public class Dog extends Animal {
+    public void eat(String food) { }
+}
+```
+
+一旦子类没有按照这个规则来，比如说增加了一个参数：
+
+```java
+public class Dog extends Animal {
+    public void eat(String food, int amount) { }
+}
+```
+
+这就不再是重写的范畴了，当然也不是重载的范畴，因为重载考虑的是同一个类。
+
+**规则四：重写的方法必须返回相同的类型**。
+
+父类没有返回类型：
+
+```java
+public class Animal {
+    void eat(String food) { }
+}
+```
+
+子类尝试返回 String：
+
+```java
+public class Dog extends Animal {
+    public String eat(String food) {
+        return null;
+    }
+}
+```
+
+于是就编译出错了（返回类型不兼容）。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
+
+#### **规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
+
+可以这样来理解：
+
+- 如果被重写的方法是 default，那么重写的方法可以是 default、protected 或者 public。
+- 如果被重写的方法是 protected，那么重写的方法只能是 protected 或者 public。
+- 如果被重写的方法是 public， 那么重写的方法就只能是 public。
+
+举个例子，父类中的方法是 protected：
+
+```java
+public class Animal {
+    protected void eat() { }
+}
+```
+
+子类中的方法可以是 public：
+
+```java
+public class Dog extends Animal {
+    public void eat() { }
+}
+```
+
+如果子类中的方法用了更严格的权限修饰符，编译器就报错了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
+
+#### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
+
+举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何[异常](https://tobebetterjavaer.com/exception/gailan.html)。这条规则只适用于可检查的异常。
+
+可检查（checked）异常必须在源代码中显式地进行捕获处理，不检查（unchecked）异常就是所谓的运行时异常，比如说 NullPointerException、ArrayIndexOutOfBoundsException 之类的，不会在编译器强制要求。
+
+父类抛出 IOException：
+
+```java
+public class Animal {
+    protected void eat() throws IOException { }
+}
+```
+
+子类抛出 FileNotFoundException 是可以满足重写的规则的，因为 FileNotFoundException 是 IOException 的子类。
+
+```java
+public class Dog extends Animal {
+   public void eat() throws FileNotFoundException { }
+}
+```
+
+如果子类抛出了一个新的异常，并且是一个 checked 异常：
+
+```java
+public class Dog extends Animal {
+   public void eat() throws FileNotFoundException, InterruptedException { }
+}
+```
+
+那编译器就会提示错误：
+
+```
+Error:(9, 16) java: com.itwanger.overriding.Dog中的eat()无法覆盖com.itwanger.overriding.Animal中的eat()
+  被覆盖的方法未抛出java.lang.InterruptedException
+```
+
+但如果子类抛出的是一个 unchecked 异常，那就没有冲突：
+
+```java
+public class Dog extends Animal {
+   public void eat() throws FileNotFoundException, IllegalArgumentException { }
+}
+```
+
+如果子类抛出的是一个更高级别的异常：
+
+```java
+public class Dog extends Animal {
+   public void eat() throws Exception { }
+}
+```
+
+编译器同样会提示错误，因为 Exception 是 IOException 的父类。
+
+```
+Error:(9, 16) java: com.itwanger.overriding.Dog中的eat()无法覆盖com.itwanger.overriding.Animal中的eat()
+  被覆盖的方法未抛出java.lang.Exception
+```
+
+#### **规则七：可以在子类中通过 super 关键字来调用父类中被重写的方法**。
+
+子类继承父类的方法而不是重新实现是很常见的一种做法，在这种情况下，可以按照下面的形式调用父类的方法：
+
+```java
+super.overriddenMethodName();
+```
+
+来看例子。
+
+```java
+public class Animal {
+    protected void eat() { }
+}
+```
+
+子类重写了 `eat()` 方法，然后在子类的 `eat()` 方法中，可以在方法体的第一行通过 `super.eat()` 调用父类的方法，然后再增加属于自己的代码。
+
+```java
+public class Dog extends Animal {
+   public void eat() {
+       super.eat();
+       // Dog-eat
+   }
+}
+```
+
+#### **规则八：构造方法不能被重写**。
+
+因为[构造方法](https://tobebetterjavaer.com/oo/construct.html)很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
+
+#### **规则九：如果一个类继承了抽象类，抽象类中的抽象方法必须在子类中被重写**。
+
+先来看这样一个接口：
+
+```java
+public interface Animal {
+    void move();
+}
+```
+
+接口中的方法默认都是抽象方法，通过反编译是可以看得到的：
+
+```java
+public interface Animal
+{
+    public abstract void move();
+}
+```
+
+如果一个抽象类实现了 Animal 接口，`move()` 方法不是必须被重写的：
+
+```java
+public abstract class AbstractDog implements Animal {
+    protected abstract void bark();
+}
+```
+
+但如果一个类继承了抽象类 AbstractDog，那么 Animal 接口中的 `move()` 方法和抽象类 AbstractDog 中的抽象方法 `bark()` 都必须被重写：
+
+```java
+public class BullDog extends AbstractDog {
+ 
+    public void move() {}
+ 
+    protected void bark() {}
+}
+```
+
+#### **规则十：synchronized 关键字对重写规则没有任何影响**。
+
+[synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
+
+#### **规则十一：strictfp 关键字对重写规则没有任何影响**。
+
+如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 [strictfp 关键字，之前讲过](https://tobebetterjavaer.com/basic-extra-meal/48-keywords.html)。因此 strictfp 关键字和重写规则无关。
+
 ### 03、总结
 
 “好了，三妹，我来简单做个总结。”我瞥了一眼电脑右上角的时钟，离三妹离开的时间不到 10 分钟了。
@@ -11944,13 +12768,13 @@ class Vehicle {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.22 Java注解
+## 5.20 Java注解
 
 “二哥，这节讲注解吗？”三妹问。
 
@@ -12172,13 +12996,13 @@ public class JsonFieldTest {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 5.23 Java枚举
+## 5.21 Java枚举（enum）
 
 “今天我们来学习枚举吧，三妹！”我说，“同学让你去她家玩了两天，感觉怎么样呀？”
 
@@ -12463,15 +13287,17 @@ public enum EasySingleton{
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-# 第六章：集合框架（容器）
+# 第六章：Java 集合框架
 
-## 6.1 集合框架的构成
+
+
+## 6.1 List、Set、Map、队列，全面解析
 
 眼瞅着三妹的王者荣耀杀得正嗨，我趁机喊到：“别打了，三妹，我们来一起学习 Java 的集合框架吧。”
 
@@ -13193,13 +14019,13 @@ c: cat
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.2 关于时间复杂度
+## 6.2 时间复杂度，了解下
 
 “二哥，为什么要讲时间复杂度呀？”三妹问。
 
@@ -13359,9 +14185,9 @@ public static int fib(int n) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -13596,7 +14422,7 @@ ArrayList 在第一次执行 add 后会扩容为 10，那 ArrayList 第二次扩
 
 你可以通过在 ArrayList 中添加第 11 个元素来 debug 验证一下。
 
-![](https://files.mdnice.com/user/3903/5c7ad981-03f4-4b86-a452-f77f6f8c25ce.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraylist-d01f248c-114f-47e3-af18-7135feac2a5e.png)
 
 ### 04、向 ArrayList 的指定位置添加元素
 
@@ -13967,9 +14793,9 @@ ArrayList，如果有个中文名的话，应该叫动态数组，也就是可�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -14453,9 +15279,9 @@ public E get(int index) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -15332,13 +16158,13 @@ private class ListItr implements ListIterator<E> {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.6 关于Java泛型
+## 6.6 Java泛型，深入解析
 
 “二哥，为什么要设计泛型啊？”三妹开门见山地问。
 
@@ -15670,7 +16496,7 @@ public class Cmower {
 
 “三妹啊，哥突然觉得你很适合作一枚可爱的程序媛啊！你这预习的功课做得可真到家啊，连通配符都知道！”
 
-通配符使用英文的问号（?）来表示。在我们创建一个泛型对象时，可以使用关键字 `extends` 限定子类，也可以使用关键字 `super` 限定父类。
+通配符使用英文的问号`（?）`来表示。在我们创建一个泛型对象时，可以使用关键字 `extends` 限定子类，也可以使用关键字 `super` 限定父类。
 
 我们来看下面这段代码。
 
@@ -15836,7 +16662,7 @@ public class Box<T> {
 }
 ```
 
-在这个例子中，<T> 表示类型参数，可以在类中任何需要使用类型的地方使用 T 代替具体的类型。通过使用泛型，我们可以创建一个可以存储任何类型对象的盒子。
+在这个例子中，`<T>` 表示类型参数，可以在类中任何需要使用类型的地方使用 T 代替具体的类型。通过使用泛型，我们可以创建一个可以存储任何类型对象的盒子。
 
 ```java
 Box<Integer> intBox = new Box<>(123);
@@ -15859,7 +16685,7 @@ intList.add(123);
 int value = intList.get(0);
 ```
 
-在编译时，Java 编译器会将泛型类型 List<Integer> 替换成 List<Object>，将 get 方法的返回值类型 Integer 替换成 Object，生成的字节码与下面的代码等价：
+在编译时，Java 编译器会将泛型类型 `List<Integer>` 替换成 `List<Object>`，将 get 方法的返回值类型 Integer 替换成 Object，生成的字节码与下面的代码等价：
 
 ```java
 List intList = new ArrayList();
@@ -15871,7 +16697,7 @@ Java 泛型只在编译时起作用，运行时并不会保留泛型类型信息
 
 #### 3）通配符
 
-通配符用于表示某种未知的类型，例如 List<?> 表示一个可以存储任何类型对象的 List，但是不能对其中的元素进行添加操作。通配符可以用来解决类型不确定的情况，例如在方法参数或返回值中使用。
+通配符用于表示某种未知的类型，例如 `List<?>` 表示一个可以存储任何类型对象的 List，但是不能对其中的元素进行添加操作。通配符可以用来解决类型不确定的情况，例如在方法参数或返回值中使用。
 
 使用通配符可以使方法更加通用，同时保证类型安全。
 
@@ -15886,11 +16712,11 @@ public static void printList(List<?> list) {
 }
 ```
 
-这个方法可以接受任意类型的 List，例如 List<Integer>、List<String> 等等。
+这个方法可以接受任意类型的 List，例如 `List<Integer>`、`List<String>` 等等。
 
 ##### 上限通配符
 
-泛型还提供了上限通配符 <? extends T>，表示通配符只能接受 T 或 T 的子类。使用上限通配符可以提高程序的类型安全性。
+泛型还提供了上限通配符 `<? extends T>`，表示通配符只能接受 T 或 T 的子类。使用上限通配符可以提高程序的类型安全性。
 
 例如，定义一个方法，只接受 Number 及其子类的 List：
 
@@ -15903,15 +16729,15 @@ public static void printNumberList(List<? extends Number> list) {
 }
 ```
 
-这个方法可以接受 List<Integer>、List<Double> 等等。
+这个方法可以接受 `List<Integer>`、`List<Double>` 等等。
 
 ##### 下限通配符
 
-下限通配符（Lower Bounded Wildcards）用 super 关键字来声明，其语法形式为 <? super T>，其中 T 表示类型参数。它表示的是该类型参数必须是某个指定类的超类（包括该类本身）。
+下限通配符（Lower Bounded Wildcards）用 super 关键字来声明，其语法形式为 `<? super T>`，其中 T 表示类型参数。它表示的是该类型参数必须是某个指定类的超类（包括该类本身）。
 
 当我们需要往一个泛型集合中添加元素时，如果使用的是上限通配符，集合中的元素类型可能会被限制，从而无法添加某些类型的元素。但是，如果我们使用下限通配符，可以将指定类型的子类型添加到集合中，保证了元素的完整性。
 
-举个例子，假设有一个类 Animal，以及两个子类 Dog 和 Cat。现在我们有一个 List<? super Dog> 集合，它的类型参数必须是 Dog 或其父类类型。我们可以向该集合中添加 Dog 类型的元素，也可以添加它的子类。但是，不能向其中添加 Cat 类型的元素，因为 Cat 不是 Dog 的子类。
+举个例子，假设有一个类 Animal，以及两个子类 Dog 和 Cat。现在我们有一个 `List<? super Dog>` 集合，它的类型参数必须是 Dog 或其父类类型。我们可以向该集合中添加 Dog 类型的元素，也可以添加它的子类。但是，不能向其中添加 Cat 类型的元素，因为 Cat 不是 Dog 的子类。
 
 下面是一个使用下限通配符的示例：
 
@@ -15941,13 +16767,13 @@ Dog dog = (Dog) animal;
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.7 迭代器Iterator和Iterable
+## 6.7 Iterator和Iterable的区别
 
 >PS: 这篇同样来换一个风格，一起来欣赏。
 
@@ -16277,13 +17103,13 @@ while (it.hasNext()) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.8 为什么不能在foreach里删除元素？
+## 6.8 Java foreach 循环陷阱
 
 >这篇文章同样采用小二去面试的形式，给大家换个胃口。
 
@@ -16601,9 +17427,9 @@ list = list.stream().filter(s -> !s.equals("陈清扬")).collect(Collectors.toLi
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -17797,9 +18623,9 @@ HashMap是Java中最常用的集合之一，它是一种键值对存储的数据
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -18259,9 +19085,9 @@ LinkedHashMap 还提供了两个构造方法来指定排序方式，分别是按
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -18289,7 +19115,7 @@ TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了
    1   6     14
       / \    /
      4   7  13
-```  
+```
 
 在上面这个二叉查找树中，根节点是 8，左子树节点包括 3、1、6、4 和 7，右子树节点包括 10、14 和 13。
 
@@ -18692,13 +19518,13 @@ headMap、tailMap、subMap方法分别获取了小于3、大于等于4、大于�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.12 双端队列ArrayDeque
+## 6.12 双端队列ArrayDeque详解
 
 >好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
 
@@ -19059,13 +19885,13 @@ ArrayDeque 不仅支持常见的队列操作，如添加元素、删除元素、
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.13 优先级队列PriorityQueue
+## 6.13 优先级队列PriorityQueue详解
 
 >继续有请王老师，来上台给大家讲讲优先级队列 PriorityQueue。
 
@@ -19380,13 +20206,13 @@ PriorityQueue 是一个非常常用的数据结构，它是一种特殊的堆（
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 6.14 Comparable和Comparator
+## 6.14 Comparable和Comparator的区别
 
 >在前面学习[优先级队列](https://tobebetterjavaer.com/collection/PriorityQueue.html)的时候，我们曾提到过 Comparable和Comparator，那这篇继续以面试官的角度去切入，一起来看。
 
@@ -19568,15 +20394,17 @@ public void sort(Comparator<? super E> c) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-# 第七章：IO
+# 第七章：Java IO
 
-## 7.1 IO分类
+
+
+## 7.1 IO 分类
 
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
 
@@ -20205,7 +21033,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 具体的执行过程如下：
 
 - 创建一个 ByteArrayOutputStream 对象 buffer，用于存储数据。
-- 使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resouces.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
+- 使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
 - 使用 writeUTF() 方法将字符串 "沉默王二" 写入到缓冲区中。
 - 当 try-with-resources 语句执行完毕时，会自动调用 output 的 close() 方法关闭输出流，释放资源。
 - 使用 toByteArray() 方法将缓冲区中的数据转换成字节数组。
@@ -20260,15 +21088,15 @@ out.close();
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 7.2 关于File
+## 7.2 文件流
 
-在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。那么 File 类可以说是其基石，我们必须得先来了解下。
+在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。
 
 `java.io.File` 类是专门对文件进行操作的类，注意只能对文件本身进行操作，不能对文件内容进行操作，想要操作内容，必须借助输入输出流。
 
@@ -20717,7 +21545,7 @@ FileUtil.readLines(file, "UTF-8").forEach(System.out::println);
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -20780,7 +21608,7 @@ try {
 ```
 
 以上代码创建了一个 FileOutputStream 对象，将字符串 "沉默王二" 写入到 example.txt 文件中，并在最后关闭了输出流。
- 
+
 
 #### **2）FileOutputStream 写入字节数据**
 
@@ -20791,7 +21619,7 @@ write(int b)
 write(byte[] b)
 write(byte[] b,int off,int len)  //从`off`索引开始，`len`个字节
 ```
- 
+
 
 ①、**写入字节**：`write(int b)` 方法，每次可以写入一个字节，代码如下：
 
@@ -20868,7 +21696,7 @@ fos.write(b);
 // 关闭资源
 fos.close();
 ```
- 
+
 
 ③、**写入指定长度字节数组**：`write(byte[] b, int off, int len)`，代码示例：
 
@@ -20882,7 +21710,7 @@ fos.write(b,2,2);
 // 关闭资源
 fos.close();
 ```
- 
+
 
 #### **3）FileOutputStream实现数据追加、换行**
 
@@ -20950,7 +21778,7 @@ fos.close();
 ```
 
 这里再唠一唠回车符和换行符。
- 
+
 回车符（`\r`）和换行符（`\n`）是计算机中常见的控制字符，用于表示一行的结束或者换行的操作。它们在不同的操作系统和编程语言中的使用方式可能有所不同。
 
 在 Windows 系统中，通常使用回车符和换行符的组合（`\r\n`）来表示一行的结束。在文本文件中，每行的末尾都会以一个回车符和一个换行符的组合结束。这是由于早期的打印机和终端设备需要回车符和换行符的组合来完成一行的结束和换行操作。在 Windows 中，文本编辑器和命令行终端等工具都支持使用回车符和换行符的组合来表示一行的结束。
@@ -20980,7 +21808,7 @@ InputStream 有很多子类，我们从最简单的一个子类 FileInputStream 
 2、`FileInputStream(File file)`：创建一个 FileInputStream 对象，并打开指定的 File 对象表示的文件进行读取。
 
 代码示例如下：
- 
+
 ```java
 // 创建一个 FileInputStream 对象
 FileInputStream fis = new FileInputStream("test.txt");
@@ -21014,7 +21842,7 @@ while ((data = fis.read()) != -1) {
 // 关闭输入流
 fis.close();
 ```
- 
+
 
 ②、**使用字节数组读取**：`read(byte[] b)` 方法会从输入流中最多读取 b.length 个字节，并将它们存储到缓冲区数组 b 中。
 
@@ -21061,7 +21889,7 @@ while ((count = fis.read(buffer)) != -1) {
 fis.close();
 fos.close();
 ```
- 
+
 上面的代码创建了一个 FileInputStream 对象以读取原始图片文件，并创建了一个 FileOutputStream 对象以写入复制后的图片文件。然后，使用 while 循环逐个读取原始图片文件中的字节，并将其写入复制后的图片文件中。最后，关闭输入流和输出流释放资源。
 
 ### 小结
@@ -21072,9 +21900,9 @@ FileInputStream 是从文件中读取字节数据的流，它继承自 InputStre
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -21103,7 +21931,7 @@ while ((len=inputStream.read())!=-1){
 ```
 运行结果：   æ²é»çäºæ¯å» X
 ```
- 
+
 看一下截图：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
@@ -21124,7 +21952,7 @@ try (FileInputStream inputStream = new FileInputStream("a.txt")) {
     }
 }
 ```
- 
+
 为什么这种方式就可以呢？
 
 因为我们拿 String 类进行了解码，查看`new String(byte bytes[], int offset, int length)`的源码就可以发现，该构造方法有解码功能：
@@ -21234,7 +22062,7 @@ try(FileReader reader = new FileReader(textFile);) {
 
 在这个例子中，使用 FileReader 从文件中读取字符数据，并将其存储到一个大小为 1024 的字符数组中。每次读取 len 个字符，然后使用 String 构造方法将其转换为字符串并输出。
 
-FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resouces.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
+FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
 
 ### 02、字符输出流（Writer）
 
@@ -21373,7 +22201,7 @@ while((len=fr.read())!=-1){
 }
 //注意这里是没有使用close关闭流，开发中不能这样做，但是为了更好的体会flush的作用
 ```
- 
+
 运行效果是怎么样的呢？答案是b.txt文件中依旧是空的，并没有任何东西。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
@@ -21381,7 +22209,7 @@ while((len=fr.read())!=-1){
 原因我们前面已经说过了。**编程就是这样，不去敲，永远学不会**！！！所以一定要去敲，多敲啊！！！
 
 在以上的代码中再添加下面三句代码，b.txt文件就能复制到源文件的数据了！
- 
+
 ```java
 fr.close();
 fw.flush();
@@ -21407,7 +22235,7 @@ fw.close();
 fw.write('闭'); // 继续写出第2个字符,【报错】java.io.IOException: Stream closed
 fw.close();
 ```
- 
+
 注意，即便是flush方法写出了数据，操作的最后还是要调用close方法，释放系统资源。当然你也可以用 try-with-resources 的方式。
 
 #### 4）FileWriter的续写和换行
@@ -21434,7 +22262,7 @@ fw.close();
 沉默王二
 是傻 X
 ```
- 
+
 
 #### 5）文本文件复制
 
@@ -21532,9 +22360,9 @@ Writer 和 Reader 的常用子类有 FileWriter、FileReader，可以将字符�
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -21606,7 +22434,7 @@ try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream("py.m
 long end = System.currentTimeMillis();
 System.out.println("缓冲流复制时间:"+(end - start)+" 毫秒");
 ```
- 
+
 只需要 8016 毫秒，如何更快呢？
 
 可以换数组的方式来读写，这个我们前面也有讲到，代码如下：
@@ -21630,7 +22458,7 @@ System.out.println("缓冲流使用数组复制时间:"+(end - start)+" 毫秒")
 ```
 
 这下就更快了，只需要 521 毫秒。
- 
+
 #### 3）为什么字节缓冲流会这么快？
 
 
@@ -21954,7 +22782,7 @@ bw.close();
 ```
 
 这里面用到的知识都是我们前面学过的，比如说 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)，[字符串分割](https://tobebetterjavaer.com/string/split.html)，包括刚刚学习的字符缓冲流。
- 
+
 
 来看输出结果
 
@@ -21971,9 +22799,9 @@ bw.close();
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -22212,7 +23040,7 @@ OutputStreamWriter 类的常用方法包括：
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -22330,9 +23158,9 @@ pw.close();
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -22531,13 +23359,13 @@ class KryoParam {
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 7.9 Serializable接口
+## 7.9 序列接口Serializable
 
 对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://tobebetterjavaer.com/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
 
@@ -23114,9 +23942,9 @@ class Wanger implements Serializable {
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -23373,15 +24201,18 @@ transient 关键字和 static 关键字都可以用来修饰类的成员变量�
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 # 第八章：异常处理
 
-## 8.1 Java异常处理
+
+
+
+## 8.1 Java异常处理全面解析
 
 ### 01、什么是异常
 
@@ -23857,9 +24688,9 @@ Java 的异常处理是一种重要的机制，可以帮助我们处理程序执
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -24155,9 +24986,9 @@ java.lang.Exception: out()
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -24745,9 +25576,9 @@ public void dataAccessCode() {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -24968,9 +25799,9 @@ Object听到这话，皱了皱眉，他沉默了一会儿，缓缓站起身子�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -25168,19 +25999,22 @@ public class TryCatchTest1 {
 
 “洗洗洗，我们先喝个咖啡，晚上回去给你洗！”
 
->转载链接：[https://mp.weixin.qq.com/s/H870jLz32oEI_HCMVt1m5Q](https://mp.weixin.qq.com/s/H870jLz32oEI_HCMVt1m5Q)，出处：沉默王二，作者：yes，修订和优化：沉默王二
+>转载链接：[https://mp.weixin.qq.com/s/H870jLz32oEI_HCMVt1m5Q](https://mp.weixin.qq.com/s/H870jLz32oEI_HCMVt1m5Q)，作者：yes，修订和优化：沉默王二
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
+
+
 # 第九章：常用工具类
 
-#9.1 Scanner
+
+## 9.1 Scanner工具类
 
 Java 的 Scanner 类是一个方便在控制台扫描用户输入的工具类，虽然它也可以扫描文件内容，但我们通常更喜欢它扮演前面的角色，因为扫描文件可以通过[文件流](https://tobebetterjavaer.com/io/file-path.html)来完成。
 
@@ -25382,13 +26216,13 @@ while ((result = scanner.findWithinHorizon(pattern, 0)) != null) {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.2 Arrays
+## 9.2 Arrays工具类
 
 “哥，数组专用工具类是专门用来操作[数组](https://tobebetterjavaer.com/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
 
@@ -25571,7 +26405,7 @@ public static int hashCode(Object a[]) {
 
     return result;
 }
-``` 
+```
 
 哈希算法本身是非常严谨的，所以如果两个数组的哈希值相等，那几乎可以判断两个数组是相等的。
 
@@ -25761,7 +26595,7 @@ i 就相当于是数组的下标，值从 0 开始，到 9 结束，那么 `i * 
 
 ```
 [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
-``` 
+```
 
 可以用来为新数组填充基于原来数组的新元素。
 
@@ -25812,13 +26646,13 @@ System.out.println(Arrays.toString(arr));
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.3 Apache StringUtils
+## 9.3 StringUtils工具类
 
 `字符串`（[String](https://tobebetterjavaer.com/string/immutable.html)）在我们的日常工作中，用得非常非常非常多。
 
@@ -25987,13 +26821,13 @@ a,b,c
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.4 Objects
+## 9.4 Objects工具类
 
 Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://tobebetterjavaer.com/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
 
@@ -26185,13 +27019,13 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.5 Collections
+## 9.5 Collections工具类
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
@@ -26528,13 +27362,13 @@ System.out.println(subtractList);
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.6 Hutool
+## 9.6 Hutool工具类库
 
 读者群里有个小伙伴感慨说，“Hutool 这款开源类库太厉害了，基本上该有该的工具类，它里面都有。”讲真的，我平常工作中也经常用 Hutool，它确实可以帮助我们简化每一行代码，使 Java 拥有函数式语言般的优雅，让 Java 语言变得“甜甜的”。
 
@@ -27079,13 +27913,13 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.7 Guava
+## 9.7 Guava工具库
 
 ### 01、前世今生
 
@@ -27412,13 +28246,13 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 9.8 其他常用 Java 工具类
+## 9.8 其他常用工具类
 
 除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/common-tool/arrays.html)、[Objects](https://tobebetterjavaer.com/common-tool/Objects.html)、[Collections](https://tobebetterjavaer.com/common-tool/collections.html)、[Scanner](https://tobebetterjavaer.com/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/common-tool/hutool.html)、[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
 
@@ -27797,13 +28631,18 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
+
+
 # 第十章：Java新特性
 
-## 10.1 Stream流
+
+
+
+## 10.1 掌握Stream流
 
 两个星期以前，就有读者强烈要求我写一篇 Java Stream 流的文章，我说市面上不是已经有很多了吗，结果你猜他怎么说：“就想看你写的啊！”你看你看，多么苍白的喜欢啊。那就“勉为其难”写一篇吧，嘻嘻。
 
@@ -28109,9 +28948,9 @@ Collectors 是一个收集器的工具类，内置了一系列收集器实现，
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -28460,13 +29299,13 @@ public class OptionalMapFilterDemo {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 10.3 Lambda表达式
+## 10.3 深入浅出Lambda表达式
 
 今天分享的主题是《Lambda 表达式入门》，这也是之前一些读者留言强烈要求我写一写的，不好意思，让你们久等了，现在来满足你们，为时不晚吧？
 
@@ -28810,9 +29649,9 @@ this = com.cmower.java_demo.journal.LamadaTest@3feba861
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -29073,15 +29912,18 @@ public class NewTextBlock {
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-# 第十一章：网络编程
 
-## 11.1 计算机网络
+
+# 第十一章：Java 网络编程
+
+
+## 11.1 了解网络编程的基础知识
 
 在学习 Java 网络编程之前，我们先来了解什么是计算机网络。
 
@@ -29217,13 +30059,13 @@ UDP 协议（User Datagram Protocol）是一种数据报文协议，它是无连
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 11.2 Java Socket
+## 11.2 网络编程的核心套接字Socket
 
 在古代，由于通信不便利，一些聪明的人就利用鸽子会飞且飞得比较快、会辨认方向的优点，对其进行了驯化，用来进行消息的传递——也就是所谓的“飞鸽传书”。而在 Java 中，网络套接字（Socket）扮演了同样的角色。
 
@@ -29599,13 +30441,13 @@ public class UDPClient {
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 11.3 用Socket撸一个HTTP服务器
+## 11.3 用Socket实现一个HTTP服务器
 
 作为一个 Java 后端，提供 HTTP 服务可以说是基本技能之一了，但是你真的了解 HTTP 协议么？你知道知道如何手撸一个 HTTP 服务器么？Tomcat 的底层是怎么支持 HTTP 服务的呢？大名鼎鼎的 Servlet 又是什么东西呢，该怎么使用呢？
 
@@ -30175,9 +31017,5037 @@ public class BasicHttpServer {
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
+
+
 # 第十二章：Java NIO
+
+
+
+
+## 12.1 NIO比IO强在哪？
+
+我花了几天时间去了解**NIO 的核心知识**，期间看了《Java 编程思想》和《疯狂 Java 讲义》中的 NIO 模块。**但是**，看完之后还是很**迷**，不知道 NIO 是干嘛用的，网上的资料和书上的知识点没有很好地对应上。
+
+我这里先给大家展示一副传统 IO 和 NIO 的对比图，感受一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/nio-better-io-20230406180538.png)
+
+[传统 IO](https://tobebetterjavaer.com/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html) 进行网络传输。
+
+NIO 使用[通道（Channel）和缓冲区（Buffer）](https://tobebetterjavaer.com/nio/buffer-channel.html)进行文件操作，以及使用 SocketChannel 和 ServerSocketChannel 进行网络传输。
+
+传统 IO 采用阻塞式模型，对于每个连接，都需要创建一个独立的线程来处理读写操作。当一个线程在等待 I/O 操作时，无法执行其他任务。这会导致大量线程的创建和销毁，以及上下文切换，降低了系统性能。
+
+NIO 使用非阻塞模型，允许线程在等待 I/O 时执行其他任务。这种模式通过使用选择器（Selector）来监控多个通道（Channel）上的 I/O 事件，实现了更高的性能和可伸缩性。
+
+### 01、NIO 和传统 IO 在操作文件时的差异
+
+JDK 1.4 中，`java.nio.*包`引入新的 Java I/O 库，其目的是**提高速度**。实际上，“旧”的 I/O 包已经使用 NIO**重新实现过，即使我们不显式的使用 NIO 编程，也能从中受益**。
+
+- nio 翻译成 no-blocking io 或者 new io 都无所谓啦，都说得通~
+
+在《Java 编程思想》读到“即使我们不显式的使用 NIO 编程，也能从中受益”的时候，我是挺在意的，所以：我们**测试**一下使用 NIO 复制文件和[传统 IO 复制文件](https://tobebetterjavaer.com/io/file-path.html) 的性能：
+
+```java
+public class SimpleFileTransferTest {
+
+    // 使用传统的 I/O 方法传输文件
+    private long transferFile(File source, File des) throws IOException {
+        long startTime = System.currentTimeMillis();
+
+        if (!des.exists())
+            des.createNewFile();
+
+        // 创建输入输出流
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(source));
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(des));
+
+        // 使用数组传输数据
+        byte[] bytes = new byte[1024 * 1024];
+        int len;
+        while ((len = bis.read(bytes)) != -1) {
+            bos.write(bytes, 0, len);
+        }
+
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+
+    // 使用 NIO 方法传输文件
+    private long transferFileWithNIO(File source, File des) throws IOException {
+        long startTime = System.currentTimeMillis();
+
+        if (!des.exists())
+            des.createNewFile();
+
+        // 创建随机存取文件对象
+        RandomAccessFile read = new RandomAccessFile(source, "rw");
+        RandomAccessFile write = new RandomAccessFile(des, "rw");
+
+        // 获取文件通道
+        FileChannel readChannel = read.getChannel();
+        FileChannel writeChannel = write.getChannel();
+
+        // 创建并使用 ByteBuffer 传输数据
+        ByteBuffer byteBuffer = ByteBuffer.allocate(1024 * 1024);
+        while (readChannel.read(byteBuffer) > 0) {
+            byteBuffer.flip();
+            writeChannel.write(byteBuffer);
+            byteBuffer.clear();
+        }
+
+        // 关闭文件通道
+        writeChannel.close();
+        readChannel.close();
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+
+    public static void main(String[] args) throws IOException {
+        SimpleFileTransferTest simpleFileTransferTest = new SimpleFileTransferTest();
+        File sourse = new File("[电影天堂www.dygod.cn]猜火车-cd1.rmvb");
+        File des = new File("io.avi");
+        File nio = new File("nio.avi");
+
+        // 比较传统的 I/O 和 NIO 传输文件的时间
+        long time = simpleFileTransferTest.transferFile(sourse, des);
+        System.out.println(time + "：普通字节流时间");
+
+        long timeNio = simpleFileTransferTest.transferFileWithNIO(sourse, nio);
+        System.out.println(timeNio + "：NIO时间");
+    }
+}
+```
+
+先解释一下这段代码，里面出现的 [RandomAccessFile](https://tobebetterjavaer.com/io/file-path.html) 我们之前讲过，FileChannel 是 Java NIO（New I/O）库中的一个类，它提供了对文件的高效 I/O 操作，支持随机访问文件，允许在文件的任意位置进行读写操作。
+
+与 RandomAccessFile 不同，FileChannel 使用了[缓冲区（ByteBuffer）](https://tobebetterjavaer.com/nio/buffer-channel.html)进行数据传输。
+
+好，在我给出实际的结论之前，你是否会有这样的结论：
+
+- 对于较小的文件，NIO 和普通 IO 之间的性能差异可能不会非常明显，因为文件本身较小，复制过程较快。
+- 对于较大的文件，使用 NIO 的性能可能会明显优于普通 IO。因为 NIO 使用了更高效的缓冲区和通道机制，可以在内存中进行更快的数据传输。
+
+然而实际的结果，却会令你大跌眼镜：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/why-20230331191748.png)
+
+文件越大的情况下，竟然普通字节流（传统 IO）的速度更快(当然了，个人测试，或许不是很准)，那还要 NIO 做什么呢？况且 NIO 的学习成本也比传统 IO 要高一些。
+
+那这意味着我们**可以不使用/学习 NIO 了吗**？
+
+答案是**否定**的，IO 操作往往在**两个场景**下会用到：
+
+- 文件 IO
+- 网络 IO
+
+而 NIO 的**魅力主要体现在网络中**！
+
+NIO（New I/O）的设计目标是解决传统 I/O（BIO，Blocking I/O）在处理大量并发连接时的性能瓶颈。传统 I/O 在网络通信中主要使用阻塞式 I/O，为每个连接分配一个线程。当连接数量增加时，系统性能将受到严重影响，线程资源成为关键瓶颈。而 NIO 提供了非阻塞 I/O 和 I/O 多路复用，可以在单个线程中处理多个并发连接，从而在网络传输中显著提高性能。
+
+以下是 NIO 在网络传输中优于传统 I/O 的原因：
+
+①、NIO 支持非阻塞 I/O，这意味着在执行 I/O 操作时，线程不会被阻塞。这使得在网络传输中可以有效地管理大量并发连接（数千甚至数百万）。而在操作文件时，这个优势没有那么明显，因为文件读写通常不涉及大量并发操作。
+
+②、NIO 支持 I/O 多路复用，这意味着一个线程可以同时监视多个通道（如套接字），并在 I/O 事件（如可读、可写）准备好时处理它们。这大大提高了网络传输中的性能，因为单个线程可以高效地管理多个并发连接。操作文件时这个优势也无法提现出来。
+
+③、NIO 提供了 [ByteBuffer 类](https://tobebetterjavaer.com/nio/buffer-channel.html)，可以高效地管理缓冲区。这在网络传输中很重要，因为数据通常是以字节流的形式传输。操作文件的时候，虽然也有缓冲区，但优势仍然不够明显。
+
+### 02、NIO 和传统 IO 在网络传输中的差异
+
+来看服务器端代码的差别。
+
+IO，用的[套接字](https://tobebetterjavaer.com/socket/socket.html)，代码比较简单，我就不加注释了，之前学过，应该都能看得懂，用 while 循环监听客户端 Socket：
+
+```java
+public class IOServer {
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(8080);
+
+            while (true) {
+                Socket client = serverSocket.accept();
+                InputStream in = client.getInputStream();
+                OutputStream out = client.getOutputStream();
+
+                byte[] buffer = new byte[1024];
+                int bytesRead = in.read(buffer);
+                out.write(buffer, 0, bytesRead);
+
+                in.close();
+                out.close();
+                client.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+NIO，这部分我加上注释，主要用到的是 ServerSocketChannel 和 Selector：
+
+```java
+public class NIOServer {
+    public static void main(String[] args) {
+        try {
+            // 创建 ServerSocketChannel
+            ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+            // 绑定端口
+            serverSocketChannel.bind(new InetSocketAddress(8081));
+            // 设置为非阻塞模式
+            serverSocketChannel.configureBlocking(false);
+
+            // 创建 Selector
+            Selector selector = Selector.open();
+            // 将 ServerSocketChannel 注册到 Selector，关注 OP_ACCEPT 事件
+            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+            // 无限循环，处理事件
+            while (true) {
+                // 阻塞直到有事件发生
+                selector.select();
+                // 获取发生事件的 SelectionKey
+                Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+                while (iterator.hasNext()) {
+                    SelectionKey key = iterator.next();
+                    // 处理完后，从 selectedKeys 集合中移除
+                    iterator.remove();
+
+                    // 判断事件类型
+                    if (key.isAcceptable()) {
+                        // 有新的连接请求
+                        ServerSocketChannel server = (ServerSocketChannel) key.channel();
+                        // 接受连接
+                        SocketChannel client = server.accept();
+                        // 设置为非阻塞模式
+                        client.configureBlocking(false);
+                        // 将新的 SocketChannel 注册到 Selector，关注 OP_READ 事件
+                        client.register(selector, SelectionKey.OP_READ);
+                    } else if (key.isReadable()) {
+                        // 有数据可读
+                        SocketChannel client = (SocketChannel) key.channel();
+                        // 创建 ByteBuffer 缓冲区
+                        ByteBuffer buffer = ByteBuffer.allocate(1024);
+                        // 从 SocketChannel 中读取数据并写入 ByteBuffer
+                        client.read(buffer);
+                        // 翻转 ByteBuffer，准备读取
+                        buffer.flip();
+                        // 将数据从 ByteBuffer 写回到 SocketChannel
+                        client.write(buffer);
+                        // 关闭连接
+                        client.close();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+上面的代码创建了一个基于 Java NIO 的简单 TCP 服务器。它使用 [ServerSocketChannel 和 Selector（后面会讲）](https://tobebetterjavaer.com/nio/buffer-channel.html) 实现了非阻塞 I/O 和 I/O 多路复用。服务器循环监听事件，当有新的连接请求时，接受连接并将新的 SocketChannel 注册到 Selector，关注 OP_READ 事件。当有数据可读时，从 SocketChannel 中读取数据并写入 ByteBuffer，然后将数据从 ByteBuffer 写回到 SocketChannel。
+
+这里简单说一下 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html)，以及 ServerSocketChannel 和 SocketChannel。
+
+Socket 和 ServerSocket 是传统的阻塞式 I/O 编程方式，用于建立和管理 TCP 连接。
+
+- Socket：表示客户端套接字，负责与服务器端建立连接并进行数据的读写。
+- ServerSocket：表示服务器端套接字，负责监听客户端连接请求。当有新的连接请求时，ServerSocket 会创建一个新的 Socket 实例，用于与客户端进行通信。
+
+在传统阻塞式 I/O 编程中，每个连接都需要一个单独的线程进行处理，这导致了在高并发场景下的性能问题。在接下来的客户端测试用例中会看到。
+
+为了解决传统阻塞式 I/O 的性能问题，Java NIO 引入了 [ServerSocketChannel 和 SocketChannel](https://tobebetterjavaer.com/nio/network-connect.html)。它们是非阻塞 I/O，可以在单个线程中处理多个连接。
+
+- ServerSocketChannel：类似于 ServerSocket，表示服务器端套接字通道。它负责监听客户端连接请求，并可以设置为非阻塞模式，这意味着在等待客户端连接请求时不会阻塞线程。
+- SocketChannel：类似于 Socket，表示客户端套接字通道。它负责与服务器端建立连接并进行数据的读写。SocketChannel 也可以设置为非阻塞模式，在读写数据时不会阻塞线程。
+
+再来简单说一下 [Selector](https://tobebetterjavaer.com/nio/buffer-channel.html)，后面会再细讲。
+
+Selector 是 Java NIO 中的一个关键组件，用于实现 [I/O 多路复用](https://tobebetterjavaer.com/nio/moxing.html)。它允许在单个线程中同时监控多个 ServerSocketChannel 和 SocketChannel，并通过 SelectionKey 标识关注的事件。当某个事件发生时，Selector 会将对应的 SelectionKey 添加到已选择的键集合中。通过使用 Selector，可以在单个线程中同时处理多个连接，从而有效地提高 I/O 操作的性能，特别是在高并发场景下。
+
+客户端测试用例：
+
+```java
+public class TestClient {
+    public static void main(String[] args) throws InterruptedException {
+        int clientCount = 10000;
+        ExecutorService executorServiceIO = Executors.newFixedThreadPool(10);
+        ExecutorService executorServiceNIO = Executors.newFixedThreadPool(10);
+
+        // 使用传统 IO 的客户端
+        Runnable ioClient = () -> {
+            try {
+                Socket socket = new Socket("localhost", 8080);
+                OutputStream out = socket.getOutputStream();
+                InputStream in = socket.getInputStream();
+                out.write("Hello, 沉默王二 IO!".getBytes());
+                byte[] buffer = new byte[1024];
+                in.read(buffer);
+                in.close();
+                out.close();
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
+
+        // 使用 NIO 的客户端
+        Runnable nioClient = () -> {
+            try {
+                SocketChannel socketChannel = SocketChannel.open();
+                socketChannel.connect(new InetSocketAddress("localhost", 8081));
+                ByteBuffer buffer = ByteBuffer.wrap("Hello, 沉默王二 NIO!".getBytes());
+                socketChannel.write(buffer);
+                buffer.clear();
+                socketChannel.read(buffer);
+                socketChannel.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
+
+        // 分别测试 NIO 和传统 IO 的服务器性能
+        long startTime, endTime;
+
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < clientCount; i++) {
+            executorServiceIO.execute(ioClient);
+        }
+        executorServiceIO.shutdown();
+        executorServiceIO.awaitTermination(1, TimeUnit.MINUTES);
+        endTime = System.currentTimeMillis();
+        System.out.println("传统 IO 服务器处理 " + clientCount + " 个客户端耗时: " + (endTime - startTime) + "ms");
+
+        startTime = System.currentTimeMillis();
+        for (int i = 0; i < clientCount; i++) {
+            executorServiceNIO.execute(nioClient);
+        }
+        executorServiceNIO.shutdown();
+        executorServiceNIO.awaitTermination(1, TimeUnit.MINUTES);
+        endTime = System.currentTimeMillis();
+        System.out.println("NIO 服务器处理 " + clientCount + " 个客户端耗时: " + (endTime - startTime) + "ms");
+    }
+}
+```
+
+在这个简单的性能测试中，我们使用固定线程池（10个线程）来模拟客户端并发请求。分别测试 NIO 和传统 IO 服务器处理 10000 个客户端请求所需的时间。来看一下结果。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/why-20230404141335.png)
+
+可以看得出，NIO 比 传统 IO 差不多快一倍的时间。当然了，这是放在我本地测试的，如果服务端放在生产环境下，这个结果会有所不同，但我在本地跑了几次，结果差不多是这样的结果。
+
+这说明 NIO 在网络传输中的性能确实要优于传统 IO 的。
+
+### 03、小结
+
+本篇内容主要讲了 NIO（New IO）和传统 IO 之间的差异，包括 IO 模型、操作文件、网络传输等方面。
+
+- 传统 I/O 采用阻塞式模型，线程在 I/O 操作期间无法执行其他任务。NIO 使用非阻塞模型，允许线程在等待 I/O 时执行其他任务，通过选择器（Selector）监控多个通道（Channel）上的 I/O 事件，提高性能和可伸缩性。
+- 传统 I/O 使用基于字节流或字符流的类（如 FileInputStream、BufferedReader 等）进行文件读写。NIO 使用通道（Channel）和缓冲区（Buffer）进行文件操作，NIO 在性能上的优势并不大。
+- 传统 I/O 使用 Socket 和 ServerSocket 进行网络传输，存在阻塞问题。NIO 提供了 SocketChannel 和 ServerSocketChannel，支持非阻塞网络传输，提高了并发处理能力。
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.2 BIO、NIO 和 AIO 的区别
+
+> 上篇，我们了解了 [NIO 和传统 IO 的区别](https://tobebetterjavaer.com/nio/nio-better-io.html)，那这篇我们来了解 BIO、NIO 和 AIO 的区别，新手也很容易混淆，我们换一个方式来讲，讲给女朋友听👂。
+
+周末午后，在家里面进行电话面试，我问了面试者几个关于 IO 的问题，其中包括什么是 BIO、NIO 和 AIO？三者有什么区别？具体如何使用等问题，但是面试者回答的并不是很满意。于是我在面试评价中写道："对 Java 的 IO 提醒理解不够深入"。恰好被女朋友看到了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-1.jpg)
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-2.jpg)
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-4.jpg)
+
+### Java IO 与 BIO、NIO
+
+IO，常写作 I/O，是 Input/Output 的简称，即输入/输出。通常指数据在内部存储器（内存）和外部存储器（硬盘、优盘等）或其他周边设备之间的输入和输出。
+
+输入/输出是信息处理系统（例如计算机）与外部世界（可能是人类或另一信息处理系统）之间的通信。
+
+输入是系统接收的信号或数据，输出则是从其发送的信号或数据。
+
+在 Java 中，提供了一系列 API，可以供开发者来读写外部数据或文件。我们称这些 API 为 [Java IO](https://tobebetterjavaer.com/io/shangtou.html)。
+
+IO 是 Java 中比较重要，且比较难的知识点，主要是因为随着 Java 的发展，目前有三种 IO 共存。分别是 BIO、NIO 和 AIO。
+
+BIO 全称 Block-IO 是一种**同步且阻塞**的通信模式。是一个比较传统的通信方式，模式简单，使用方便。但并发处理能力低，通信耗时，依赖网速。
+
+[Java NIO](https://tobebetterjavaer.com/nio/nio-better-io.html)，全程 Non-Block IO ，是 Java SE 1.4 版以后，针对网络传输效能优化的新功能。是一种**非阻塞同步**的通信模式。
+
+NIO 与原来的 I/O 有同样的作用和目的, 他们之间最重要的区别是数据打包和传输的方式。原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。
+
+面向流的 I/O 系统一次一个字节地处理数据。一个输入流产生一个字节的数据，一个输出流消费一个字节的数据。
+
+面向块的 I/O 系统以块的形式处理数据。每一个操作都在一步中产生或者消费一个数据块。按块处理数据比按(流式的)字节处理数据要快得多。但是面向块的 I/O 缺少一些面向流的 I/O 所具有的优雅性和简单性。
+
+Java AIO，全称 Asynchronous IO，是**异步非阻塞**的 IO。是一种非阻塞异步的通信模式。
+
+在 NIO 的基础上引入了新的异步通道的概念，并提供了异步文件通道和异步套接字通道的实现。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-8.jpg)
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-9.jpg)
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-10.jpg)
+
+### 三种 IO 的区别
+
+首先，我们站在宏观的角度，重新画一下重点：
+
+**BIO （Blocking I/O）：同步阻塞 I/O 模式。**
+
+**NIO （New I/O）：同步非阻塞模式。**
+
+**AIO （Asynchronous I/O）：异步非阻塞 I/O 模型。**
+
+同步阻塞模式：这种模式下，我们的工作模式是先来到厨房，开始烧水，并坐在水壶面前一直等着水烧开。
+
+同步非阻塞模式：这种模式下，我们的工作模式是先来到厨房，开始烧水，但是我们不一直坐在水壶前面等，而是回到客厅看电视，然后每隔几分钟到厨房看一下水有没有烧开。
+
+异步非阻塞 I/O 模型：这种模式下，我们的工作模式是先来到厨房，开始烧水，我们不一直坐在水壶前面等，也不隔一段时间去看一下，而是在客厅看电视，水壶上面有个开关，水烧开之后他会通知我。
+
+阻塞 VS 非阻塞：人是否坐在水壶前面一直等。
+
+同步 VS 异步：水壶是不是在水烧开之后主动通知人。
+
+#### 适用场景
+
+BIO 方式适用于连接数目比较小且固定的架构，这种方式对服务器资源要求比较高，并发局限于应用中，JDK1.4 以前的唯一选择，但程序直观简单易理解。
+
+NIO 方式适用于连接数目多且连接比较短（轻操作）的架构，比如聊天服务器，并发局限于应用中，编程比较复杂，JDK1.4 开始支持。
+
+AIO 方式适用于连接数目多且连接比较长（重操作）的架构，比如相册服务器，充分调用 OS 参与并发操作，编程比较复杂，JDK7 开始支持。
+
+#### 使用方式
+
+使用 BIO 实现文件的读取和写入。
+
+```java
+public class BioFileDemo {
+    public static void main(String[] args) {
+        BioFileDemo demo = new BioFileDemo();
+        demo.writeFile();
+        demo.readFile();
+    }
+
+    // 使用 BIO 写入文件
+    public void writeFile() {
+        String filename = "logs/itwanger/paicoding.txt";
+        try {
+            FileWriter fileWriter = new FileWriter(filename);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            bufferedWriter.write("学编程就上技术派");
+            bufferedWriter.newLine();
+
+            System.out.println("写入完成");
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 使用 BIO 读取文件
+    public void readFile() {
+        String filename = "logs/itwanger/paicoding.txt";
+        try {
+            FileReader fileReader = new FileReader(filename);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println("读取的内容: " + line);
+            }
+
+            bufferedReader.close();
+            fileReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+这个示例展示了如何使用 Java 中的传统阻塞 I/O（BIO）对文件进行读写操作。在 `writeFile()` 方法中，我们首先创建一个 FileWriter 对象，并使用 BufferedWriter 进行缓冲写入。接着，使用 `bufferedWriter.write()` 方法将字符串写入文件，然后调用 `bufferedWriter.newLine()` 方法添加换行符。最后，关闭 BufferedWriter 和 FileWriter。在 `readFile()` 方法中，我们创建一个 FileReader 对象，并使用 BufferedReader 进行缓冲读取。然后通过调用 `bufferedReader.readLine()` 方法循环读取文件内容，直到返回 null 表示读取完毕。最后，关闭 BufferedReader 和 FileReader。
+
+接下来是 NIO 的。
+
+```java
+public class NioFileDemo {
+    public static void main(String[] args) {
+        NioFileDemo demo = new NioFileDemo();
+        demo.writeFile();
+        demo.readFile();
+    }
+
+    // 使用 NIO 写入文件
+    public void writeFile() {
+        Path path = Paths.get("logs/itwanger/paicoding.txt");
+        try {
+            FileChannel fileChannel = FileChannel.open(path, EnumSet.of(StandardOpenOption.CREATE, StandardOpenOption.WRITE));
+
+            ByteBuffer buffer = StandardCharsets.UTF_8.encode("学编程就上技术派");
+            fileChannel.write(buffer);
+
+            System.out.println("写入完成");
+            fileChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 使用 NIO 读取文件
+    public void readFile() {
+        Path path = Paths.get("logs/itwanger/paicoding.txt");
+        try {
+            FileChannel fileChannel = FileChannel.open(path, StandardOpenOption.READ);
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+            int bytesRead = fileChannel.read(buffer);
+            while (bytesRead != -1) {
+                buffer.flip();
+                System.out.println("读取的内容: " + StandardCharsets.UTF_8.decode(buffer));
+                buffer.clear();
+                bytesRead = fileChannel.read(buffer);
+            }
+
+            fileChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+这个示例演示了如何使用 NIO 的 [FileChannel](https://tobebetterjavaer.com/nio/buffer-channel.html) 对文件进行读写操作。在 `writeFile()` 方法中，我们首先打开文件通道并指定创建和写入选项。接着，将要写入的字符串转换为 ByteBuffer，然后使用 `fileChannel.write()` 方法将其写入文件。在 `readFile()` 方法中，我们打开文件通道并指定读取选项，然后创建一个 ByteBuffer 用于存储读取到的数据。使用 `fileChannel.read()` 方法循环读取文件内容，直到返回 -1 表示读取完毕。在循环中，我们翻转缓冲区，将其解码为字符串并打印，然后清空缓冲区以进行下一次读取。最后，关闭文件通道。
+
+使用 AIO 实现文件的读取和写入
+
+```java
+public class AioDemo {
+
+    public static void main(String[] args) {
+        AioDemo demo = new AioDemo();
+        demo.writeFile();
+        demo.readFile();
+    }
+
+    // 使用 AsynchronousFileChannel 写入文件
+    public void writeFile() {
+        // 使用 Paths.get() 获取文件路径
+        Path path = Paths.get("logs/itwanger/paicoding.txt");
+        try {
+            // 用 AsynchronousFileChannel.open() 打开文件通道，指定写入和创建文件的选项。
+            AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.WRITE, StandardOpenOption.CREATE);
+
+            // 将要写入的字符串（"学编程就上技术派"）转换为 ByteBuffer。
+            ByteBuffer buffer = StandardCharsets.UTF_8.encode("学编程就上技术派");
+            // 调用 fileChannel.write() 方法将 ByteBuffer 中的内容写入文件。这是一个异步操作，因此需要使用 Future 对象等待写入操作完成。
+            Future<Integer> result = fileChannel.write(buffer, 0);
+            // 等待写操作完成
+            result.get();
+
+            System.out.println("写入完成");
+            fileChannel.close();
+        } catch (IOException | InterruptedException | java.util.concurrent.ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 使用 AsynchronousFileChannel 读取文件
+    public void readFile() {
+        Path path = Paths.get("logs/itwanger/paicoding.txt");
+        try {
+            // 指定读取文件的选项。
+            AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);
+            // 创建一个 ByteBuffer，用于存储从文件中读取的数据。
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+            // 调用 fileChannel.read() 方法从文件中异步读取数据。该方法接受一个 CompletionHandler 对象，用于处理异步操作完成后的回调。
+            fileChannel.read(buffer, 0, buffer, new CompletionHandler<Integer, ByteBuffer>() {
+                @Override
+                public void completed(Integer result, ByteBuffer attachment) {
+                    // 在 CompletionHandler 的 completed() 方法中，翻转 ByteBuffer（attachment.flip()），然后使用 Charset.forName("UTF-8").decode() 将其解码为字符串并打印。最后，清空缓冲区并关闭文件通道。
+                    attachment.flip();
+                    System.out.println("读取的内容: " + StandardCharsets.UTF_8.decode(attachment));
+                    attachment.clear();
+                    try {
+                        fileChannel.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void failed(Throwable exc, ByteBuffer attachment) {
+                    // 如果异步读取操作失败，CompletionHandler 的 failed() 方法将被调用，打印错误信息。
+                    System.out.println("读取失败");
+                    exc.printStackTrace();
+                }
+            });
+
+            // 等待异步操作完成
+            Thread.sleep(1000);
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+这段代码展示了一个名为 AioDemo 的类，包含两个方法：`writeFile()` 和 `readFile()`。这两个方法分别使用 AsynchronousFileChannel 对文件进行异步写入和读取操作。代码的具体含义我都加到注释当中了，注意查看。
+
+滴滴滴，水开了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-22.jpg)
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-23.jpg)
+
+### 小结
+
+BIO（Blocking I/O）：采用阻塞式 I/O 模型，线程在执行 I/O 操作时被阻塞，无法处理其他任务，适用于连接数较少且稳定的场景。
+
+NIO（New I/O 或 Non-blocking I/O）：使用非阻塞 I/O 模型，线程在等待 I/O 时可执行其他任务，通过 Selector 监控多个 Channel 上的事件，提高性能和可伸缩性，适用于高并发场景。
+
+AIO（Asynchronous I/O）：采用异步 I/O 模型，线程发起 I/O 请求后立即返回，当 I/O 操作完成时通过回调函数通知线程，进一步提高了并发处理能力，适用于高吞吐量场景。
+
+> 参考链接：[https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ](https://mp.weixin.qq.com/s/QQxrr5yP8X9YdFqIwXDoQQ)
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.3 Buffer和Channel
+
+首先我们再来回顾一下 [IO 和 NIO 的区别](https://tobebetterjavaer.com/nio/nio-better-io.html)：
+
+- 可简单认为：**IO 是面向流的处理，NIO 是面向块(缓冲区)的处理**
+- 面向流的 I/O 系统**一次一个字节地处理数据**。
+- 一个面向块(缓冲区)的 I/O 系统**以块的形式处理数据**。
+
+NIO 主要有**两个核心部分组成**：
+
+- **Buffer 缓冲区**
+- **Channel 通道**
+
+在 NIO 中，并不是以流的方式来处理数据的，而是以 buffer 缓冲区和 Channel 通道**配合使用**来处理数据的。
+
+简单理解一下：
+
+可以把 Channel 通道比作铁路，buffer 缓冲区比作成火车(运载着货物)
+
+而我们的 NIO 就是**通过 Channel 通道运输着存储数据的 Buffer 缓冲区的来实现数据的处理**！
+
+要时刻记住：Channel 不与数据打交道，它只负责运输数据。与数据打交道的是 Buffer 缓冲区
+
+- **Channel-->运输**
+- **Buffer-->数据**
+
+相对于传统 IO 而言，**流是单向的**。对于 NIO 而言，有了 Channel 通道这个概念，我们的**读写都是双向**的(铁路上的火车能从广州去北京、自然就能从北京返还到广州)！
+
+### Buffer 缓冲区
+
+我们来看看 Buffer 缓冲区有什么值得我们注意的地方。
+
+Buffer 是缓冲区的抽象类：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404151539.png)
+
+其中 ByteBuffer 是**用得最多的实现类**(在通道中读写字节数据)。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404152253.png)
+
+拿到一个缓冲区我们往往会做什么？很简单，就是**读取缓冲区的数据/写数据到缓冲区中**。所以，缓冲区的核心方法就是 put 和 get：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404152445.png)
+
+Buffer 类维护了 4 个核心变量来提供**关于其所包含的数组信息**。它们是：
+
+- 容量 Capacity **缓冲区能够容纳的数据元素的最大数量**。容量在缓冲区创建时被设定，并且永远不能被改变。(不能被改变的原因也很简单，底层是数组嘛)
+- 上界 Limit **缓冲区里的数据的总数**，代表了当前缓冲区中一共有多少数据。
+- 位置 Position **下一个要被读或写的元素的位置**。Position 会自动由相应的 `get()`和 `put()`函数更新。
+- 标记 Mark 一个备忘位置。**用于记录上一次读写的位置**。
+
+首先展示一下**是如何创建缓冲区的，核心变量的值是怎么变化的**。
+
+```java
+// 创建一个缓冲区
+ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+
+// 看一下初始时4个核心变量的值
+System.out.println("初始时-->limit--->"+byteBuffer.limit());
+System.out.println("初始时-->position--->"+byteBuffer.position());
+System.out.println("初始时-->capacity--->"+byteBuffer.capacity());
+System.out.println("初始时-->mark--->" + byteBuffer.mark());
+
+System.out.println("--------------------------------------");
+
+// 添加一些数据到缓冲区中
+String s = "沉默王二";
+byteBuffer.put(s.getBytes());
+
+// 看一下初始时4个核心变量的值
+System.out.println("put完之后-->limit--->"+byteBuffer.limit());
+System.out.println("put完之后-->position--->"+byteBuffer.position());
+System.out.println("put完之后-->capacity--->"+byteBuffer.capacity());
+System.out.println("put完之后-->mark--->" + byteBuffer.mark());
+```
+
+运行结果：
+
+```
+初始时-->limit--->1024
+初始时-->position--->0
+初始时-->capacity--->1024
+初始时-->mark--->java.nio.HeapByteBuffer[pos=0 lim=1024 cap=1024]
+--------------------------------------
+put完之后-->limit--->1024
+put完之后-->position--->12
+put完之后-->capacity--->1024
+put完之后-->mark--->java.nio.HeapByteBuffer[pos=12 lim=1024 cap=1024]
+```
+
+现在**我想要从缓存区拿数据**，怎么拿呀？？NIO 给了我们一个`flip()`方法。这个方法可以**改动 position 和 limit 的位置**！
+
+在之前代码的基础上，我们`flip()`一下。
+
+```java
+// flip()方法
+byteBuffer.flip();
+System.out.println("flip()方法之后-->limit--->"+byteBuffer.limit());
+System.out.println("flip()方法之后-->position--->"+byteBuffer.position());
+System.out.println("flip()方法之后-->capacity--->"+byteBuffer.capacity());
+System.out.println("flip()方法之后-->mark--->" + byteBuffer.mark());
+```
+
+再看看 4 个核心属性的值会发生什么变化：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404153844.png)
+
+在调用 `flip()` 之后，limit 变为当前 position 的值（12），position 重置为 0。这意味着你可以从缓冲区的开始位置读取刚刚写入的数据，直到 limit 指定的位置。capacity 保持不变（1024）。
+
+假设我们有一个初始容量为 1024 的 ByteBuffer。
+
+**初始状态**:
+
+```
+position = 0
+limit = 1024
+capacity = 1024
+```
+
+**添加数据 "沉默王二" 后**:
+
+由于 "沉默王二" 为 UTF-8 编码，一个汉字占 3 个字节，共有 4 个汉字，所以占用 12 个字节。
+
+```
+position = 12
+limit = 1024
+capacity = 1024
+```
+
+**调用 `flip()` 方法后**:
+
+```
+position = 0
+limit = 12
+capacity = 1024
+```
+
+用一幅图来表示就是。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404155658.png)
+
+当切换成读模式之后，我们就可以读取缓冲区的数据了：
+
+```java
+// 创建一个limit()大小的字节数组(因为就只有limit这么多个数据可读)
+byte[] bytes = new byte[byteBuffer.limit()];
+// 将读取的数据装进我们的字节数组中
+byteBuffer.get(bytes);
+// 输出数据
+System.out.println(new String(bytes, 0, bytes.length));
+```
+
+输出后的结果：
+
+```
+沉默王二
+```
+
+随后输出一下核心变量的值看看：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404160130.png)
+
+**读完如何还想写数据到缓冲区**，那就使用`clear()` 方法，这个方法会“清空”缓冲区，数据没有真正被清空，只是被**遗忘**掉了
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404160412.png)
+
+### Channel 通道
+
+Channel 通道**只负责传输数据、不直接操作数据**。操作数据都是通过 Buffer 缓冲区来进行操作！通常，通道可以分为两大类：文件通道和套接字通道。
+
+FileChannel：用于文件 I/O 的通道，支持文件的读、写和追加操作。FileChannel 允许在文件的任意位置进行数据传输，支持文件锁定以及内存映射文件等高级功能。FileChannel 无法设置为非阻塞模式，因此它只适用于阻塞式文件操作。
+
+SocketChannel：用于 TCP 套接字 I/O 的通道。SocketChannel 支持非阻塞模式，可以与 Selector（下文会讲）一起使用，实现高效的网络通信。SocketChannel 允许连接到远程主机，进行数据传输。
+
+与之匹配的有ServerSocketChannel：用于监听 TCP 套接字连接的通道。与 SocketChannel 类似，ServerSocketChannel 也支持非阻塞模式，并可以与 Selector 一起使用。ServerSocketChannel 负责监听新的连接请求，接收到连接请求后，可以创建一个新的 SocketChannel 以处理数据传输。
+
+DatagramChannel：用于 UDP 套接字 I/O 的通道。DatagramChannel 支持非阻塞模式，可以发送和接收数据报包，适用于无连接的、不可靠的网络通信。
+
+这篇我们主要来讲 FileChannel，SocketChannel、ServerSocketChannel 和 DatagramChannel 会放到[后面的章节中](https://tobebetterjavaer.com/nio/network-connect.html)讲解。
+
+#### 文件通道 FileChannel
+
+可以通过下面的方式打开一个通道。
+
+```java
+FileChannel.open(Paths.get("docs/配套教程.md"), StandardOpenOption.WRITE);
+```
+
+这里我们用到了 [Paths](https://tobebetterjavaer.com/nio/paths-files.html)，这个后面也会讲到。
+
+①、使用**FileChannel 配合 ByteBuffer 缓冲区**实现文件复制的功能：
+
+```java
+try (FileChannel sourceChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger.txt"), StandardOpenOption.READ);
+    FileChannel destinationChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger1.txt"), StandardOpenOption.WRITE, StandardOpenOption.CREATE)) {
+
+  ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+  while (sourceChannel.read(buffer) != -1) {
+      buffer.flip();
+      destinationChannel.write(buffer);
+      buffer.clear();
+  }
+}
+```
+
+我们创建一个容量为 1024 的 ByteBuffer 作为缓冲区。在循环中，我们从源文件的 FileChannel 读取数据到缓冲区。当 `read()` 方法返回 -1 时，表示已经到达文件末尾。
+
+读取数据后，我们调用 `flip()` 方法，以便在缓冲区中准备好要写入的数据。然后，我们将缓冲区的内容写入目标文件的 FileChannel（`write()` 方法）。在写入完成后，我们调用 `clear()` 方法重置缓冲区，以便在下一次迭代中重用它。
+
+②、使用**内存映射文件（MappedByteBuffer）**的方式实现**文件复制**的功能(直接操作缓冲区)：
+
+```java
+try (FileChannel sourceChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger.txt"), StandardOpenOption.READ);
+      FileChannel destinationChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger2.txt"), StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.READ)) {
+
+    long fileSize = sourceChannel.size();
+    MappedByteBuffer sourceMappedBuffer = sourceChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileSize);
+    MappedByteBuffer destinationMappedBuffer = destinationChannel.map(FileChannel.MapMode.READ_WRITE, 0, fileSize);
+
+    for (int i = 0; i < fileSize; i++) {
+        byte b = sourceMappedBuffer.get(i);
+        destinationMappedBuffer.put(i, b);
+    }
+}
+```
+
+MappedByteBuffer 是 Java NIO 中的一个类，它继承自 `java.nio.ByteBuffer`。MappedByteBuffer 用于表示一个内存映射文件，即将文件的一部分或全部映射到内存中，以便通过直接操作内存来实现对文件的读写。这种方式可以提高文件 I/O 的性能，因为操作系统可以直接在内存和磁盘之间传输数据，无需通过 Java 应用程序进行额外的数据拷贝。
+
+通常与 FileChannel 一起使用，可以通过调用 FileChannel 的 `map()` 方法创建 MappedByteBuffer 对象。`map()` 方法接受三个参数：映射模式（FileChannel.MapMode）映射起始位置和映射的长度。
+
+映射模式包括只读模式（READ_ONLY）、读写模式（READ_WRITE）和专用模式（PRIVATE）。
+
+我们设置源文件的 MappedByteBuffer 为只读模式（READ_ONLY），目标文件的 MappedByteBuffer 为读写模式（READ_WRITE）。
+
+在循环中，我们逐字节地从源文件的 MappedByteBuffer 读取数据并将其写入目标文件的 MappedByteBuffer。这样就实现了文件复制功能。利用内存映射文件（MappedByteBuffer）实现的文件复制，可能会比使用 ByteBuffer 的方法更快。
+
+需要注意的是，使用 MappedByteBuffer 进行文件操作时，数据的修改可能不会立即写入磁盘。可以通过调用 MappedByteBuffer 的 `force()` 方法将数据立即写回磁盘。
+
+③、通道之间通过`transfer()`实现数据的传输(直接操作缓冲区)：
+
+```java
+try (FileChannel sourceChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger.txt"), StandardOpenOption.READ);
+      FileChannel destinationChannel = FileChannel.open(Paths.get("logs/javabetter/itwanger3.txt"), StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.READ)) {
+    sourceChannel.transferTo(0, sourceChannel.size(), destinationChannel);
+} catch (IOException e) {
+    throw new RuntimeException(e);
+}
+```
+
+FileChannel 的 `transferTo()` 方法是一个高效的文件传输方法，它允许将文件的一部分或全部内容直接从源文件通道传输到目标通道（通常是另一个文件通道或网络通道）。这种传输方式可以避免将文件数据在用户空间和内核空间之间进行多次拷贝，提高了文件传输的性能。
+
+`transferTo()` 方法接受以下三个参数：
+
+- position：源文件中开始传输的位置。
+- count：要传输的字节数。
+- target：接收数据的目标通道。
+
+需要注意的是，`transferTo()` 方法可能无法一次传输所有请求的字节。在实际应用中，你可能需要使用循环来确保所有字节都被传输。
+
+```java
+public class FileChannelTransferToLoopExampleWithPaths {
+    public static void main(String[] args) {
+        Path sourcePath = Paths.get("logs/itwanger/paicoding.txt");
+        Path destinationPath = Paths.get("logs/itwanger/paicoding_copy.txt");
+
+        // 使用 try-with-resources 语句确保通道资源被正确关闭
+        try (FileChannel sourceChannel = FileChannel.open(sourcePath, StandardOpenOption.READ);
+             FileChannel destinationChannel = FileChannel.open(destinationPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
+
+            long position = 0;
+            long count = sourceChannel.size();
+
+            // 循环传输，直到所有字节都被传输
+            while (position < count) {
+                long transferred = sourceChannel.transferTo(position, count - position, destinationChannel);
+                position += transferred;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+此外，`transferTo()` 方法在底层使用了操作系统提供的零拷贝功能（如 Linux 的 `sendfile()` 系统调用），可以大幅提高文件传输性能。但是，不同操作系统和 JVM 实现可能会影响零拷贝的可用性和性能，因此实际性能可能因环境而异。
+
+零拷贝（Zero-Copy）是一种优化数据传输性能的技术，它最大限度地减少了在数据传输过程中的 CPU 和内存开销。在传统的数据传输过程中，数据通常需要在用户空间和内核空间之间进行多次拷贝，这会导致额外的 CPU 和内存开销。零拷贝技术通过避免这些多余的拷贝操作，实现了更高效的数据传输。
+
+在 Java 中，零拷贝技术主要应用于文件和网络 I/O。FileChannel 类的 `transferTo()` 和 `transferFrom()` 方法就利用了零拷贝技术，可以在文件和网络通道之间高效地传输数据。详细参考：[深入剖析Linux IO原理和几种零拷贝机制的实现](https://zhuanlan.zhihu.com/p/83398714)
+
+#### 直接与非直接缓冲区
+
+直接缓冲区和非直接缓冲区的差别主要在于它们在内存中的存储方式。这里给出了直接缓冲区和非直接缓冲区的简要概述和区别：
+
+非直接缓冲区：
+
+- 分配在 JVM 堆内存中
+- 受到垃圾回收的管理
+- 在读写操作时，需要将数据从堆内存复制到操作系统的本地内存，再进行 I/O 操作
+- 创建： `ByteBuffer.allocate(int capacity)`
+
+直接缓冲区：
+
+- 分配在操作系统的本地内存中
+- 不受垃圾回收的管理
+- 在读写操作时，直接在本地内存中进行，避免了数据复制，提高了性能
+- 创建： `ByteBuffer.allocateDirect(int capacity)`
+- 还有前面提到的 `FileChannel.map()` 方法，会返回一个类型为 MappedByteBuffer 的直接缓冲区。
+
+ByteBuffer.allocate和ByteBuffer.allocateDirect直接的差异。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406183808.png)
+
+
+直接缓冲区和非直接缓冲区之间的差异。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406182921.png)
+
+非直接缓冲区存储在JVM内部，数据需要从应用程序（Java）复制到非直接缓冲区，再复制到内核缓冲区，最后发送到设备（磁盘/网络）。而对于直接缓冲区，数据可以直接从应用程序（Java）复制到内核缓冲区，无需经过JVM的非直接缓冲区。
+
+#### 异步文件通道 AsynchronousFileChannel
+
+AsynchronousFileChannel 是 Java 7 引入的一个异步文件通道类，提供了对文件的异步读、写、打开和关闭等操作。
+
+可以通过 `AsynchronousFileChannel.open()` 方法打开一个异步文件通道，该方法接受一个 [Path 对象](https://tobebetterjavaer.com/nio/paths-files.html)和一组打开选项（如 StandardOpenOption.READ、StandardOpenOption.WRITE 等）作为参数。
+
+```java
+Path file = Paths.get("example.txt");
+AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(file, StandardOpenOption.READ, StandardOpenOption.WRITE);
+```
+
+AsynchronousFileChannel 提供了两种异步操作的方式：
+
+**①、Future 方式**：使用 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来跟踪异步操作的完成情况。当我们调用一个异步操作（如 `read()` 或 `write()`）时，它会立即返回一个 Future 对象。可以使用这个对象来检查操作是否完成，以及获取操作的结果。这种方式适用于不需要在操作完成时立即执行其他操作的场景。
+
+举个例子：
+
+```java
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+long position = 0;
+Future<Integer> result = fileChannel.read(buffer, position);
+
+while (!result.isDone()) {
+    // 执行其他操作
+}
+
+int bytesRead = result.get();
+System.out.println("Bytes read: " + bytesRead);
+```
+
+**②、CompletionHandler 方式**，使用一个实现了 CompletionHandler 接口的对象来处理异步操作的完成。我们需要提供一个 CompletionHandler 实现类，重写 `completed()` 和 `failed()` 方法，分别处理操作成功和操作失败的情况。当异步操作完成时，系统会自动调用相应的方法。这种方式适用于需要在操作完成时立即执行其他操作的场景。
+
+举个例子：
+
+```java
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+long position = 0;
+
+fileChannel.read(buffer, position, buffer, new CompletionHandler<Integer, ByteBuffer>() {
+    @Override
+    public void completed(Integer result, ByteBuffer attachment) {
+        System.out.println("Bytes read: " + result);
+    }
+
+    @Override
+    public void failed(Throwable exc, ByteBuffer attachment) {
+        System.err.println("Read failed");
+        exc.printStackTrace();
+    }
+});
+```
+
+来看完整的示例，采用 Future 的形式。
+
+```java
+Path path = Paths.get("docs/配套教程.md");
+
+try (AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ)) {
+    ByteBuffer buffer = ByteBuffer.allocate(1024);
+    long position = 0;
+
+    while (true) {
+        Future<Integer> result = fileChannel.read(buffer, position);
+
+        while (!result.isDone()) {
+            // 在这里可以执行其他任务，例如处理其他 I/O 操作
+        }
+
+        int bytesRead = result.get();
+        if (bytesRead <= 0) {
+            break;
+        }
+
+        position += bytesRead;
+        buffer.flip();
+
+        byte[] data = new byte[buffer.limit()];
+        buffer.get(data);
+        System.out.println(new String(data));
+
+        buffer.clear();
+    }
+}
+```
+
+在这个示例中，我们使用 `AsynchronousFileChannel.read()` 方法发起异步读取操作。这个方法会返回一个 `Future<Integer>` 对象，表示读取操作的结果。我们可以通过调用 `isDone()` 方法来检查异步操作是否完成。完成后，我们可以通过调用 `get()` 方法获取实际读取的字节数。
+
+然后我们来看 CompletionHandler 接口的形式：
+
+```java
+public static void readAllBytes(Path path) throws IOException, InterruptedException {
+    AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);
+    ByteBuffer buffer = ByteBuffer.allocate(1024);
+    AtomicLong position = new AtomicLong(0);
+    CountDownLatch latch = new CountDownLatch(1);
+
+    fileChannel.read(buffer, position.get(), null, new CompletionHandler<Integer, Object>() {
+        @Override
+        public void completed(Integer bytesRead, Object attachment) {
+            if (bytesRead > 0) {
+                position.addAndGet(bytesRead);
+                buffer.flip();
+                byte[] data = new byte[buffer.limit()];
+                buffer.get(data);
+                System.out.print(new String(data));
+                buffer.clear();
+
+                fileChannel.read(buffer, position.get(), attachment, this);
+            } else {
+                latch.countDown();
+                try {
+                    fileChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override
+        public void failed(Throwable exc, Object attachment) {
+            System.out.println("Error: " + exc.getMessage());
+            latch.countDown();
+        }
+    });
+
+    latch.await();
+}
+```
+
+1、在 readAllBytes 方法中，我们使用 `AsynchronousFileChannel.open()` 方法以读取模式打开异步文件通道。
+
+2、创建一个大小为 1024 的 ByteBuffer 来存储从文件中读取的数据。
+
+3、使用 [AtomicLong](https://tobebetterjavaer.com/thread/atomic.html) 类型的 position 变量来记录当前读取的文件位置。初始值为 0。
+
+4、创建一个 [CountDownLatch](https://tobebetterjavaer.com/thread/CountDownLatch.html) 对象，用于在异步操作完成时通知主线程。初始值为 1。
+
+5、使用 `fileChannel.read()` 方法启动异步读取操作。这个方法的参数包括：用于存储数据的缓冲区、当前读取位置、附加对象（在这个例子中不需要，所以传递 null）以及一个实现了 CompletionHandler 接口的对象，用于在读取操作完成时回调。
+
+6、CompletionHandler 接口有两个方法：`completed()` 和 `failed()`。在读取操作成功完成时调用 `completed()` 方法；如果读取操作失败，调用 `failed()` 方法。
+
+7、在 `completed()` 方法中，我们首先检查 bytesRead（本次读取的字节数）是否大于 0。如果大于 0，说明还有数据需要读取。
+
+- 更新 position 变量，将其增加 bytesRead。
+- 将缓冲区翻转（`flip()`），以便我们可以从中读取数据。
+- 创建一个新的字节数组，其大小等于缓冲区的限制（`limit()`）。
+- 从缓冲区中获取数据并将其存储在新创建的字节数组中。
+- 将字节数组转换为字符串并输出。
+- 清除缓冲区，以便我们可以继续读取更多数据。
+- 再次调用 fileChannel.read() 方法，以继续从文件中读取数据。
+
+8、如果 bytesRead 等于或小于 0，说明我们已经读取完文件中的所有数据。此时，我们需要：调用 `latch.countDown()` 方法，以通知主线程异步操作已完成。关闭 fileChannel。
+
+9、如果读取操作失败，我们将在 `failed()` 方法中输出错误信息并调用 `latch.countDown()` 方法通知主线程。
+
+10、最后，我们调用 `latch.await()` 方法来等待异步操作完成。主线程将在此处阻塞，直到 latch 的计数变为 0。
+
+### 小结
+
+Java NIO 中的 Buffer 和 Channel 是 NIO 系统的核心组件。Buffer 负责存储数据，提供了对数据的读写操作。它有多种类型，如 ByteBuffer、CharBuffer、IntBuffer 等，以支持不同的数据类型。
+
+Channel 代表了与 I/O 设备（如文件或套接字）之间的连接。它提供了从源设备到 Buffer 的数据读取能力和从 Buffer 到目标设备的数据写入能力。Channel 可以是可读、可写或同时可读写的，我们详细介绍了文件通道 FileChannel 和异步文件通道 AsynchronousFileChannel。
+
+总之，NIO 使用 Buffer 和 Channel 这两个组件来进行高效的数据传输，以提高 I/O 操作的性能。
+
+> 参考链接：[https://www.zhihu.com/question/29005375/answer/667616386](https://www.zhihu.com/question/29005375/answer/667616386)，整理：沉默王二
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.4 Paths 和 Files
+
+Paths 和 Files 在 Java 7 的时候引入，作为对 [`java.io.File` 类](https://tobebetterjavaer.com/io/file-path.html)的补充和改进。
+
+### Paths 类
+
+Paths 类主要用于操作文件和目录路径。它提供了一些静态方法，用于创建`java.nio.file.Path`实例，代表文件系统中的路径。
+
+下面是 Paths 的一个示例。
+
+```java
+// 创建一个Path实例，表示当前目录下的一个文件
+Path path = Paths.get("example.txt");
+
+// 创建一个绝对路径
+Path absolutePath = Paths.get("/home/user/example.txt");
+```
+
+java.nio.file.Path 接口在 Java NIO.2 中代表一个文件系统中的路径。它提供了一系列方法来操作和查询路径。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404181334.png)
+
+下面是 Paths 和 Path 一起使用的实例：
+
+```java
+Path path = Paths.get("docs/配套教程.md");
+
+// 获取文件名
+System.out.println("File name: " + path.getFileName());
+
+// 获取父目录
+System.out.println("Parent: " + path.getParent());
+
+// 获取根目录
+System.out.println("Root: " + path.getRoot());
+
+// 将路径与另一个路径结合
+Path newPath = path.resolve("config/app.properties");
+System.out.println("Resolved path: " + newPath);
+
+// 简化路径
+Path normalizedPath = newPath.normalize();
+System.out.println("Normalized path: " + normalizedPath);
+
+// 将相对路径转换为绝对路径
+Path absolutePath = path.toAbsolutePath();
+System.out.println("Absolute path: " + absolutePath);
+
+// 计算两个路径之间的相对路径
+Path basePath = Paths.get("/docs/");
+Path targetPath = Paths.get("/docs/imgs/itwanger");
+Path relativePath = basePath.relativize(targetPath);
+System.out.println("Relative path: " + relativePath);
+```
+
+### Files 类
+
+`java.nio.file.Files`类提供了大量静态方法，用于处理文件系统中的文件和目录。这些方法包括文件的创建、删除、复制、移动等操作，以及读取和设置文件属性。
+
+下面展示一个 Files 和 Paths 一起使用的示例：
+
+```java
+// 创建一个Path实例
+Path path = Paths.get("logs/javabetter/itwanger4.txt");
+
+// 创建一个新文件
+Files.createFile(path);
+
+// 检查文件是否存在
+boolean exists = Files.exists(path);
+System.out.println("File exists: " + exists);
+
+// 删除文件
+Files.delete(path);
+```
+
+以下是一些常用方法及其示例：
+
+1、`exists(Path path, LinkOption... options)`：检查文件或目录是否存在。
+
+```java
+Path path = Paths.get("file.txt");
+boolean exists = Files.exists(path);
+System.out.println("File exists: " + exists);
+```
+
+LinkOption 是一个枚举类，它定义了如何处理文件系统链接的选项。它位于 java.nio.file 包中。LinkOption 主要在与文件或目录的路径操作相关的方法中使用，以控制这些方法如何处理符号链接。符号链接是一种特殊类型的文件，它在 Unix 和类 Unix 系统（如 Linux 和 macOS）上很常见。在 Windows 上，类似的概念被称为快捷方式。
+
+2、`createFile(Path path, FileAttribute<?>... attrs)`：创建一个新的空文件。
+
+```java
+Path newPath = Paths.get("newFile.txt");
+Files.createFile(newPath);
+```
+
+FileAttribute 是一个泛型接口，用于处理各种不同类型的属性。在使用 FileAttribute 时，你需要为其提供一个特定的实现。`java.nio.file.attribute` 包中的 PosixFileAttributes 类提供了 POSIX（Portable Operating System Interface，定义了许多与文件系统相关的操作，包括文件和目录的创建、删除、读取和修改。）文件属性的实现。
+
+```java
+Path path = Paths.get("fileWithPermissions.txt");
+
+Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rw-r-----");
+FileAttribute<Set<PosixFilePermission>> fileAttribute = PosixFilePermissions.asFileAttribute(permissions);
+
+Files.createFile(path, fileAttribute);
+```
+
+PosixFileAttributes 接口提供了获取 POSIX 文件属性的方法，如文件所有者、文件所属的组以及文件的访问权限。以上示例会创建一个读写属性的文件。
+
+3、`createDirectory(Path dir, FileAttribute<?>... attrs)`：创建一个新的目录。
+
+```java
+Path newDir = Paths.get("newDirectory");
+Files.createDirectory(newDir);
+```
+
+4、`delete(Path path)`：删除文件或目录。
+
+```java
+Path pathToDelete = Paths.get("fileToDelete.txt");
+Files.delete(pathToDelete);
+```
+
+5、`copy(Path source, Path target, CopyOption... options)`：复制文件或目录。
+
+```java
+Path sourcePath = Paths.get("sourceFile.txt");
+Path targetPath = Paths.get("targetFile.txt");
+Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+```
+
+在 Java NIO 中，有两个实现了 CopyOption 接口的枚举类：StandardCopyOption 和 LinkOption。
+
+StandardCopyOption 枚举类提供了以下两个选项：
+
+- REPLACE_EXISTING：如果目标文件已经存在，该选项会使 `Files.copy()` 方法替换目标文件。如果不指定此选项，`Files.copy()` 方法在目标文件已存在时将抛出 FileAlreadyExistsException。
+- COPY_ATTRIBUTES：此选项表示在复制文件时，尽可能地复制文件的属性（如文件时间戳、权限等）。如果不指定此选项，那么目标文件将具有默认的属性。
+
+6、`move(Path source, Path target, CopyOption... options)`：移动或重命名文件或目录。
+
+```java
+Path sourcePath = Paths.get("sourceFile.txt");
+Path targetPath = Paths.get("targetFile.txt");
+Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+```
+
+7、`readAllLines(Path path, Charset cs)`：读取文件的所有行到一个字符串列表。
+
+```java
+Path path = Paths.get("file.txt");
+List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+lines.forEach(System.out::println);
+```
+
+8、`write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options)`：将字符串列表写入文件。
+
+```java
+Path path = Paths.get("file.txt");
+List<String> lines = Arrays.asList("沉默王二 1", "沉默王二 2", "沉默王二 3");
+Files.write(path, lines, StandardCharsets.UTF_8);
+```
+
+OpenOption 是 Java NIO 中一个用于配置文件操作的接口。它提供了在使用 `Files.newByteChannel()`、`Files.newInputStream()`、`Files.newOutputStream()`、`AsynchronousFileChannel.open()` 和 `FileChannel.open()` 方法时定制行为的选项。
+
+在 Java NIO 中，有两个实现了 OpenOption 接口的枚举类：StandardOpenOption 和 LinkOption。
+
+StandardOpenOption 枚举类提供了以下几个选项：
+
+- READ：以读取模式打开文件。
+- WRITE：以写入模式打开文件。
+- APPEND：以追加模式打开文件。
+- TRUNCATE_EXISTING：在打开文件时，截断文件的内容，使其长度为 0。仅适用于 WRITE 或 APPEND 模式。
+- CREATE：当文件不存在时创建文件。如果文件已存在，则打开文件。
+- CREATE_NEW：当文件不存在时创建文件。如果文件已存在，抛出 FileAlreadyExistsException。
+- DELETE_ON_CLOSE：在关闭通道时删除文件。
+- SPARSE：提示文件系统创建一个稀疏文件。
+- SYNC：要求每次更新文件的内容或元数据时都进行同步。
+- DSYNC：要求每次更新文件内容时都进行同步。
+
+8、`newBufferedReader(Path path, Charset cs) 和 newBufferedWriter(Path path, Charset cs, OpenOption... options)`：创建 BufferedReader 和 BufferedWriter 对象以读取和写入文件。
+
+```java
+Path path = Paths.get("file.txt");
+
+// Read file
+try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+}
+
+// Write file
+Path outputPath = Paths.get("outputFile.txt");
+try (BufferedWriter writer = Files.newBufferedWriter(outputPath, StandardCharsets.UTF_8)) {
+    writer.write("沉默王二");
+}
+```
+
+#### Files.walkFileTree() 静态方法
+
+这个方法可以递归地访问目录结构中的所有文件和目录，并允许您对这些文件和目录执行自定义操作。使用 walkFileTree 方法时，需要提供一个起始路径（起始目录）和一个实现了 FileVisitor 接口的对象。FileVisitor 接口包含四个方法，它们在遍历过程中的不同阶段被调用：
+
+- preVisitDirectory：在访问目录之前调用。
+- postVisitDirectory：在访问目录之后调用。
+- visitFile：在访问文件时调用。
+- visitFileFailed：在访问文件失败时调用。
+
+来看下面这个示例：
+
+```java
+public class WalkFileTreeExample {
+    public static void main(String[] args) {
+        Path startingDir = Paths.get("docs");
+        MyFileVisitor fileVisitor = new MyFileVisitor();
+
+        try {
+            Files.walkFileTree(startingDir, fileVisitor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static class MyFileVisitor extends SimpleFileVisitor<Path> {
+        @Override
+        public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+            System.out.println("准备访问目录: " + dir);
+            return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+            System.out.println("正在访问目录: " + dir);
+            return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            System.out.println("访问文件: " + file);
+            return FileVisitResult.CONTINUE;
+        }
+
+        @Override
+        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+            System.err.println("访问文件失败: " + file);
+            return FileVisitResult.CONTINUE;
+        }
+    }
+}
+```
+
+运行结果如下：
+
+```
+准备访问目录: docs
+访问文件: docs/安装环境.md
+准备访问目录: docs/imgs
+访问文件: docs/imgs/init_03.jpg
+准备访问目录: docs/imgs/itwanger
+访问文件: docs/imgs/itwanger/tongzhishu.jpeg
+访问文件: docs/imgs/itwanger/tongzhishu1.jpeg
+访问文件: docs/imgs/itwanger/tongzhishu1.pdf
+正在访问目录: docs/imgs/itwanger
+访问文件: docs/imgs/init_02.jpg
+访问文件: docs/imgs/init_00.jpg
+访问文件: docs/imgs/init_01.jpg
+访问文件: docs/imgs/init_04.jpg
+正在访问目录: docs/imgs
+访问文件: docs/服务器启动教程.md
+访问文件: docs/配套教程.md
+访问文件: docs/约定.md
+访问文件: docs/本地开发环境配置教程.md
+访问文件: docs/前端工程结构说明.md
+正在访问目录: docs
+```
+
+在这个示例中，我们创建了一个名为 MyFileVisitor 的自定义 FileVisitor 类，它扩展了 SimpleFileVisitor 类。SimpleFileVisitor 是 FileVisitor 接口的一个实现，它提供了一些默认的行为。我们可以覆盖 SimpleFileVisitor 中的方法以实现自己的逻辑。在这个例子中，我们只是打印出了访问的文件和目录。然后，我们使用 Files.walkFileTree 方法遍历文件树。这个方法会遍历整个目录结构，并调用 MyFileVisitor 中的相应方法。
+
+其中，FileVisitResult 枚举包含以下四个选项：
+
+- CONTINUE ： 继续
+- TERMINATE ： 终止
+- SKIP_SIBLINGS ： 跳过兄弟节点，然后继续
+- SKIP_SUBTREE ： 跳过子树（不访问此目录的条目），然后继续，仅在 preVisitDirectory 方法返回时才有意义，除此以外和 CONTINUE 相同。
+
+#### 搜索文件
+
+`walkFileTree()` 方法还可以用于搜索文件，下面这个例子扩展了 SimpleFileVisitor 来查找一个名为 itwanger.txt 的文件：
+
+```java
+public class FindFileWithWalkFileTree {
+    public static void main(String[] args) {
+        Path startingDir = Paths.get("logs");
+        String targetFileName = "itwanger.txt";
+        FindFileVisitor findFileVisitor = new FindFileVisitor(targetFileName);
+
+        try {
+            Files.walkFileTree(startingDir, findFileVisitor);
+            if (findFileVisitor.isFileFound()) {
+                System.out.println("找到文件了: " + findFileVisitor.getFoundFilePath());
+            } else {
+                System.out.println("ooh，文件没找到");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static class FindFileVisitor extends SimpleFileVisitor<Path> {
+        private String targetFileName;
+        private Path foundFilePath;
+
+        public FindFileVisitor(String targetFileName) {
+            this.targetFileName = targetFileName;
+        }
+
+        public boolean isFileFound() {
+            return foundFilePath != null;
+        }
+
+        public Path getFoundFilePath() {
+            return foundFilePath;
+        }
+
+        @Override
+        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            String fileName = file.getFileName().toString();
+            if (fileName.equals(targetFileName)) {
+                foundFilePath = file;
+                return FileVisitResult.TERMINATE;
+            }
+            return FileVisitResult.CONTINUE;
+        }
+    }
+}
+```
+
+在主方法中，我们使用 Files.walkFileTree 方法遍历文件树，并传递一个起始目录和 FindFileVisitor 实例。遍历完成后，我们检查是否找到了目标文件，如果找到了，就打印出它的路径。
+
+搜索结果如下所示：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404190926.png)
+
+### 小结
+
+Paths 和 Files 是 Java NIO 中的两个核心类。Paths 提供了一系列静态方法，用于操作路径（Path 对象）。它可以将字符串或 URI 转换为 Path 对象，方便后续操作。Files 类提供了丰富的文件操作方法，如文件的创建、删除、移动、复制、读取和写入等。这些方法支持各种选项和属性，如覆盖、保留属性和符号链接处理。Files 还支持文件遍历（如 walkFileTree 方法），可以处理文件目录树。总之，Paths 和 Files 为文件和目录操作提供了简洁、高效的方法。
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.6 Java IO模型
+
+Java 的 IO 分为两大类，一类是[传统的 IO](https://tobebetterjavaer.com/io/shangtou.html)（Blocking IO），一类是 [NIO](https://tobebetterjavaer.com/nio/nio-better-io.html) （New IO）。
+
+传统的 IO 基于字节流和字符流，以阻塞式 IO 操作为主。常用的类有 FileInputStream、FileOutputStream、InputStreamReader、OutputStreamWriter 等。这些类在读写数据时，会导致执行线程阻塞，直到操作完成。
+
+Java NIO 是 Java 1.4 版本引入的，基于通道（Channel）和缓冲区（Buffer）进行操作，采用非阻塞式 IO 操作，允许线程在等待 IO 时执行其他任务。常见的 NIO 类有 ByteBuffer、FileChannel、SocketChannel、ServerSocketChannel 等。
+
+### 阻塞 IO 和非阻塞 IO
+
+那什么是阻塞式 IO，什么是非阻塞 IO 呢？
+
+阻塞 I/O（Blocking I/O）：在这种模型中，I/O 操作是阻塞的，即执行 I/O 操作时，线程会被阻塞，直到操作完成。在阻塞 I/O 模型中，每个连接都需要一个线程来处理。因此，对于大量并发连接的场景，阻塞 I/O 模型的性能较差。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408110408.png)
+
+非阻塞 I/O（Non-blocking I/O）：在这种模型中，I/O 操作不会阻塞线程。当数据尚未准备好时，I/O 调用会立即返回。线程可以继续执行其他任务，然后在适当的时候再次尝试执行 I/O 操作。非阻塞 I/O 模型允许单个线程同时处理多个连接，但可能需要在应用程序级别进行复杂的调度和管理。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408110433.png)
+
+### 内核空间和用户空间
+
+在上面的两幅图中，涉及到了两个概念：内核空间和用户空间。我们之前在[介绍非直接缓冲区的时候](https://tobebetterjavaer.com/nio/buffer-channel.html)，有这样一副图片。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406182813.png)
+
+其中的非直接缓冲区（JVM）就是在用户空间中，内核缓冲区（OS）就是在内核空间上。
+
+内核空间是操作系统内核的专用内存区域，用于存储内核代码、数据结构和运行内核级别的系统调用。内核空间具有较高的权限级别，能够直接访问硬件资源和底层系统服务。一般来说，内核空间是受到严格保护的，用户级别的程序不能直接访问内核空间，以确保操作系统的稳定性和安全性。
+
+用户空间是为用户级别的应用程序和服务分配的内存区域。它包含了应用程序的代码、数据和运行时堆栈。用户空间与内核空间相对隔离，具有较低的权限级别，不能直接访问内核空间或硬件资源。应用程序需要通过系统调用与内核空间进行交互，请求操作系统提供的服务。
+
+内核空间和用户空间的划分有助于操作系统实现内存保护和权限控制，确保系统运行的稳定性和安全性。当用户程序需要访问系统资源或执行特权操作时，它需要通过系统调用切换到内核空间，由内核代理执行相应的操作。这种设计可以防止恶意或错误的用户程序直接访问内核空间，从而破坏系统的稳定性和安全性。同时，这种划分也提高了操作系统的可扩展性，因为内核空间和用户空间可以独立地进行扩展和优化。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408114300.png)
+
+
+### 多路复用、信号驱动、异步 IO
+
+除了前面提到的阻塞 IO 和非阻塞 IO 模型，还有另外三种 IO 模型，分别是多路复用、信号驱动和异步 IO。
+
+#### 多路复用
+
+I/O 多路复用（I/O Multiplexing）模型使用操作系统提供的多路复用功能（如 select、poll、epoll 等），使得单个线程可以同时处理多个 I/O 事件。当某个连接上的数据准备好时，操作系统会通知应用程序。这样，应用程序可以在一个线程中处理多个并发连接，而不需要为每个连接创建一个线程。
+
+- select 是 Unix 系统中最早的 I/O 多路复用技术。它允许一个线程同时监视多个文件描述符（如[套接字](https://tobebetterjavaer.com/socket/socket.html)），并等待某个文件描述符上的 I/O 事件（如可读、可写或异常）。select 的主要问题是性能受限，特别是在处理大量文件描述符时。这是因为它使用一个位掩码来表示文件描述符集，每次调用都需要传递这个掩码，并在内核和用户空间之间进行复制。
+
+- poll 是对 select 的改进。它使用一个文件描述符数组而不是位掩码来表示文件描述符集。这样可以避免 select 中的性能问题。然而，poll 仍然需要遍历整个文件描述符数组，以检查每个文件描述符的状态。因此，在处理大量文件描述符时，性能仍然受限。
+
+- epoll 是 Linux 中的一种高性能 I/O 多路复用技术。它通过在内核中维护一个事件表来避免遍历文件描述符数组的性能问题。当某个文件描述符上的 I/O 事件发生时，内核会将该事件添加到事件表中。应用程序可以使用 epoll_wait 函数来获取已准备好的 I/O 事件，而无需遍历整个文件描述符集。这种方法大大提高了在大量并发连接下的性能。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408115158.png)
+
+在 Java NIO 中，I/O 多路复用主要通过 Selector 类实现。Selector 能够监控多个 Channel（通道）上的 I/O 事件，如连接、读取和写入。这使得一个线程可以处理多个并发连接，提高了程序的性能和可伸缩性。
+
+以下是 Java NIO 中 I/O 多路复用的应用：
+
+①、首先，需要创建一个 Selector 对象。
+
+```java
+Selector selector = Selector.open();
+```
+
+②、然后，需要将 Channel 注册到 Selector。每个 Channel 必须配置为非阻塞模式，才能与 Selector 一起使用。在注册 Channel 时，还需要指定感兴趣的 I/O 事件，如 SelectionKey.OP_ACCEPT（接受连接）、SelectionKey.OP_READ（读取数据）等。
+
+```java
+ServerSocketChannel serverChannel = ServerSocketChannel.open();
+serverChannel.configureBlocking(false);
+serverChannel.bind(new InetSocketAddress(8080));
+
+// 注册感兴趣的事件
+serverChannel.register(selector, SelectionKey.OP_ACCEPT);
+```
+
+③、接下来，使用 Selector 的 `select()` 方法等待 I/O 事件。`select()` 方法会阻塞，直到至少有一个 Channel 上的事件发生。当有事件发生时，可以通过调用 `selectedKeys()` 方法获取已准备好进行 I/O 操作的 Channel 的 SelectionKey 集合。
+
+```java
+while (true) {
+    int readyChannels = selector.select();
+    if (readyChannels == 0) continue;
+
+    Set<SelectionKey> selectedKeys = selector.selectedKeys();
+    Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+
+    while (keyIterator.hasNext()) {
+        SelectionKey key = keyIterator.next();
+
+        if (key.isAcceptable()) {
+            // 处理接受连接事件
+        } else if (key.isReadable()) {
+            // 处理读取数据事件
+        } else if (key.isWritable()) {
+            // 处理写入数据事件
+        }
+        keyIterator.remove();
+    }
+}
+```
+
+④、最后，根据 SelectionKey 的状态，执行相应的 I/O 操作。例如，如果 SelectionKey 表示 Channel 已准备好接受新的连接，可以调用 ServerSocketChannel 的 `accept()` 方法。如果 SelectionKey 表示 Channel 已准备好读取数据，可以从 SocketChannel 中读取数据。
+
+```java
+if (key.isAcceptable()) {
+    SocketChannel socketChannel = serverSocketChannel.accept();
+    socketChannel.configureBlocking(false);
+    socketChannel.register(selector, SelectionKey.OP_READ);
+    System.out.println("客户端连接上了: " + socketChannel.getRemoteAddress());
+}
+```
+
+完整的代码示例可以看之前的章节：[Java NIO 网络编程实践](https://tobebetterjavaer.com/nio/network-connect.html)
+
+#### 信号驱动
+
+信号驱动 I/O（Signal-driven I/O）模型中，应用程序可以向操作系统注册一个信号处理函数，当某个 I/O 事件发生时，操作系统会发送一个信号通知应用程序。应用程序在收到信号后处理相应的 I/O 事件。这种模型与非阻塞 I/O 类似，也需要在应用程序级别进行事件管理和调度。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408115251.png)
+
+多路复用和信号驱动的差别主要在事件通知机制和引用场景上。
+
+多路复用模型允许一个线程同时管理多个 I/O 连接。这是通过使用特殊的系统调用（如 select、poll 和 epoll）实现的，它们能够监视多个文件描述符上的 I/O 事件。当某个 I/O 事件发生时，这些系统调用会返回，通知应用程序执行相应的 I/O 操作。I/O 多路复用模型适用于高并发、低延迟和高吞吐量的场景，因为它能够有效地减少线程数量和上下文切换开销。
+
+信号驱动模型依赖于信号（如 SIGIO）来通知应用程序 I/O 事件的发生。在这个模型中，应用程序首先设置文件描述符为信号驱动模式，并为相应的信号注册处理函数。当 I/O 事件发生时，内核会发送一个信号给应用程序，触发信号处理函数的执行。然后，应用程序可以在信号处理函数中执行相应的 I/O 操作。I/O 信号驱动模型适用于低并发、低延迟和低吞吐量的场景，因为它需要为每个 I/O 事件创建一个信号和信号处理函数。
+
+Linux 的内核将所有外部设备都看做一个文件来操作，对一个文件的读写操作会调用内核提供的系统命令(api)，返回一个 file descriptor（fd，文件描述符）。而对一个Socket的读写也会有响应的描述符，称为 socket fd（Socket文件描述符），描述符就是一个数字，指向内核中的一个结构体（文件路径，数据区等一些属性）。
+
+在Linux下对文件的操作是利用文件描述符(file descriptor)来实现的。
+
+#### 异步 IO
+
+异步 I/O（Asynchronous I/O）模型与同步 I/O 模型的主要区别在于，异步 I/O 操作会在后台运行，当操作完成时，操作系统会通知应用程序。应用程序不需要等待 I/O 操作的完成，可以继续执行其他任务。这种模型适用于处理大量并发连接，且可以简化应用程序的设计和开发。
+
+- 同步：在执行 I/O 操作时，应用程序需要等待操作的完成。同步操作会导致线程阻塞，直到操作完成。同步 I/O 包括阻塞 I/O、非阻塞 I/O 和 I/O 多路复用。
+- 异步：在执行 I/O 操作时，应用程序不需要等待操作的完成。异步操作允许应用程序在 I/O 操作进行时继续执行其他任务。异步 I/O 模型包括信号驱动 I/O 和异步 I/O。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408115328.png)
+
+假设你现在是个大厨（炖个老母鸡汤，切点土豆丝/姜丝/葱丝）：
+
+- 同步/阻塞：你站在锅边，一直等到汤炖好，期间不能做其他事情，直到汤炖好才去处理其他任务。
+- 同步/非阻塞：你不断地查看锅里的汤，看是否炖好。在检查的间隙，你可以处理其他任务，如切菜。但你需要不断地切换任务，确保汤炖好了就可以处理。
+- 异步/信号驱动：你给锅安装一个传感器，当汤炖好时，传感器会发出信号提醒你。在此期间，你可以处理其他任务，而不用担心错过汤炖好的时机。
+- 异步 I/O：你请了一个助手，让他负责炖汤。当汤炖好时，助手会通知你。你可以专心处理其他任务，而无需关心炖汤的过程。
+
+### 小结
+
+简单总结一下，IO 模型主要有五种：阻塞 I/O、非阻塞 I/O、多路复用、信号驱动和异步 I/O。
+
+- 阻塞 I/O：应用程序执行 I/O 操作时，会一直等待数据传输完成，期间无法执行其他任务。
+- 非阻塞 I/O：应用程序执行 I/O 操作时，如果数据未准备好，立即返回错误状态，不等待数据传输完成，可执行其他任务。
+- 多路复用：允许一个线程同时管理多个 I/O 连接，适用于高并发、低延迟和高吞吐量场景，减少线程数量和上下文切换开销。
+- 信号驱动：依赖信号通知应用程序 I/O 事件，适用于低并发、低延迟和低吞吐量场景，需要为每个 I/O 事件创建信号和信号处理函数。
+- 异步 I/O：应用程序发起 I/O 操作后，内核负责数据传输过程，完成后通知应用程序。应用程序无需等待数据传输，可执行其他任务。
+
+---------
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.5 NIO 实现简易版聊天室
+
+在此之前，我们曾利用 Java 的套接字 Socket 和 ServerSocket 完成[网络编程](https://tobebetterjavaer.com/socket/socket.html)，但 Socket 和 ServerSocket 是基于 Java IO 的，在网络编程方面，性能会比较差。[原因我们在之前也讲过](https://tobebetterjavaer.com/nio/nio-better-io.html)。
+
+那 Java NIO 的 SocketChannel 和 ServerSocketChannel 性能怎么样呢？
+
+### SocketChannel 和 ServerSocketChannel
+
+在学习 NIO 的[第一讲里](https://tobebetterjavaer.com/nio/nio-better-io.html)，我们已经介绍过 SocketChannel 和 ServerSocketChannel了，这里再简单补充下。
+
+ServerSocketChannel 用于创建服务器端套接字，而 SocketChannel 用于创建客户端套接字。它们都支持阻塞和非阻塞模式，通过设置其 blocking 属性来切换。阻塞模式下，读/写操作会一直阻塞直到完成，而非阻塞模式下，读/写操作会立即返回。
+
+阻塞模式：
+
+- 优点：编程简单，适合低并发场景。
+- 缺点：性能较差，不适合高并发场景。
+
+非阻塞模式：
+
+- 优点：性能更好，适合高并发场景。
+- 缺点：编程相对复杂。
+
+我们来看一个简单的示例（阻塞模式下）：
+
+先来看 Server 端的：
+
+```java
+public class BlockingServer {
+    public static void main(String[] args) throws IOException {
+        // 创建服务器套接字
+        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        // 绑定端口
+        serverSocketChannel.socket().bind(new InetSocketAddress(8080));
+        // 设置为阻塞模式（默认为阻塞模式）
+        serverSocketChannel.configureBlocking(true);
+
+        while (true) {
+            // 接收客户端连接
+            SocketChannel socketChannel = serverSocketChannel.accept();
+            // 分配缓冲区
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+            // 读取数据
+            int bytesRead = socketChannel.read(buffer);
+            while (bytesRead != -1) {
+                buffer.flip();
+                System.out.println(StandardCharsets.UTF_8.decode(buffer));
+                buffer.clear();
+                bytesRead = socketChannel.read(buffer);
+            }
+            // 关闭套接字
+            socketChannel.close();
+        }
+    }
+}
+```
+
+简单解释一下这段代码，也比较好理解。
+
+首先创建服务器端套接字ServerSocketChannel，然后绑定 8080 端口，接着使用 while 循环监听客户端套接字。如果接收到客户端连接 SocketChannel，就从通道里读取数据到缓冲区 ByteBuffer，一直读到通道里没有数据，关闭当前通道。
+
+其中 `serverSocketChannel.configureBlocking(true)` 用来设置通道为阻塞模式（可以缺省）。
+
+再来看客户端的：
+
+```java
+public class BlockingClient {
+    public static void main(String[] args) throws IOException {
+        // 创建客户端套接字
+        SocketChannel socketChannel = SocketChannel.open();
+        // 连接服务器
+        socketChannel.connect(new InetSocketAddress("localhost", 8080));
+        // 分配缓冲区
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+        // 向服务器发送数据
+        buffer.put("沉默王二，这是来自客户端的消息。".getBytes(StandardCharsets.UTF_8));
+        buffer.flip();
+        socketChannel.write(buffer);
+        // 清空缓冲区
+        buffer.clear();
+
+        // 关闭套接字
+        socketChannel.close();
+    }
+}
+```
+
+客户端代码就更简单了，建立通道 SocketChannel，连接服务器，然后在缓冲区里放一段数据，之后写入到通道中，关闭套接字。
+
+先运行 BlockingServer，再运行 BlockingClient，可以在 Server 端的控制台收到以下信息。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407124624.png)
+
+好，我们再来看非阻塞模式下的示例。
+
+先来看 Server 端：
+
+```java
+public class NonBlockingServer {
+    public static void main(String[] args) throws IOException {
+        // 创建服务器套接字
+        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        // 绑定端口
+        serverSocketChannel.socket().bind(new InetSocketAddress(8080));
+        // 设置为非阻塞模式
+        serverSocketChannel.configureBlocking(false);
+
+        // 创建选择器
+        Selector selector = Selector.open();
+        // 注册服务器套接字到选择器
+        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+        while (true) {
+            selector.select();
+            Set<SelectionKey> selectedKeys = selector.selectedKeys();
+            Iterator<SelectionKey> iterator = selectedKeys.iterator();
+
+            while (iterator.hasNext()) {
+                SelectionKey key = iterator.next();
+                iterator.remove();
+
+                if (key.isAcceptable()) {
+                    // 接收客户端连接
+                    SocketChannel socketChannel = serverSocketChannel.accept();
+                    socketChannel.configureBlocking(false);
+                    socketChannel.register(selector, SelectionKey.OP_READ);
+                }
+
+                if (key.isReadable()) {
+                    // 读取数据
+                    SocketChannel socketChannel = (SocketChannel) key.channel();
+                    ByteBuffer buffer = ByteBuffer.allocate(1024);
+                    int bytesRead = socketChannel.read(buffer);
+
+                    if (bytesRead != -1) {
+                        buffer.flip();
+                        System.out.print(StandardCharsets.UTF_8.decode(buffer));
+                        buffer.clear();
+                    } else {
+                        // 客户端已断开连接，取消选择键并关闭通道
+                        key.cancel();
+                        socketChannel.close();
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+与之前阻塞模式相同的，我们就不再赘述了，只说不同的。
+
+①、首先，创建一个 ServerSocketChannel，并将其设置为非阻塞模式。
+
+```java
+ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+serverSocketChannel.configureBlocking(false);
+```
+
+②、创建一个 Selector 实例，用于处理多个通道的事件。
+
+```java
+Selector selector = Selector.open();
+```
+
+③、将 ServerSocketChannel 注册到 Selector 上，并设置感兴趣的事件为 OP_ACCEPT。这意味着当有新的客户端连接请求时，Selector 会通知我们。
+
+```java
+serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+```
+
+看一下 OP_ACCEPT 的注释：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407130621.png)
+
+
+④、循环处理 Selector 中的事件。首先调用 `selector.select()` 方法来等待感兴趣的事件发生。这个方法会阻塞，直到至少有一个感兴趣的事件发生。
+
+```java
+while (true) {
+    int readyChannels = selector.select();
+    if (readyChannels == 0) {
+        continue;
+    }
+    // ...
+}
+```
+
+⑤、当 `selector.select()` 返回时，我们可以通过 `selector.selectedKeys()` 获取所有已就绪的事件，并对其进行迭代处理。在处理事件时，根据 SelectionKey 的类型来执行相应的操作。
+
+```java
+Set<SelectionKey> selectedKeys = selector.selectedKeys();
+Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+while (keyIterator.hasNext()) {
+    SelectionKey key = keyIterator.next();
+    // 处理事件
+    // ...
+    keyIterator.remove();
+}
+```
+
+⑥、当 SelectionKey 的类型为 OP_ACCEPT 时，说明有新的客户端连接请求。此时，我们需要接受新的连接，并将新创建的 SocketChannel 设置为非阻塞模式。然后，将该 SocketChannel 注册到 Selector 上，并设置感兴趣的事件为 OP_READ。
+
+```java
+if (key.isAcceptable()) {
+    ServerSocketChannel server = (ServerSocketChannel) key.channel();
+    SocketChannel client = server.accept();
+    client.configureBlocking(false);
+    client.register(selector, SelectionKey.OP_READ);
+}
+```
+
+⑦、当 SelectionKey 的类型为 OP_READ 时，说明有客户端发送了数据。我们需要从 SocketChannel 中读取数据，并进行相应的处理。
+
+```java
+if (key.isReadable()) {
+    SocketChannel client = (SocketChannel) key.channel();
+    ByteBuffer buffer = ByteBuffer.allocate(1024);
+    int bytesRead = client.read(buffer);
+    // 对读取到的数据进行处理
+    // ...
+}
+```
+
+⑧、（如果可以的话）当 SelectionKey 的类型为 OP_WRITE 时，说明可以向客户端发送数据。我们可以将要发送的数据写入 SocketChannel。
+
+```java
+if (key.isWritable()) {
+    SocketChannel client = (SocketChannel) key.channel();
+    ByteBuffer buffer = ByteBuffer.wrap("你好，客户端".getBytes());
+   client.write(buffer);
+}
+```
+
+不过，本例中并没有这一步。如果需要的话，可以按照这样的方式向客户端写入数据。
+
+⑨、在服务器停止运行时，需要关闭 Selector 和 ServerSocketChannel，释放资源。
+
+```java
+key.cancel();
+socketChannel.close();
+```
+
+好，接下来，我们来看客户端的。
+
+```java
+public class NonBlockingClient {
+    public static void main(String[] args) throws IOException {
+        // 创建客户端套接字
+        SocketChannel socketChannel = SocketChannel.open();
+        // 设置为非阻塞模式
+        socketChannel.configureBlocking(false);
+        // 连接服务器
+        socketChannel.connect(new InetSocketAddress("localhost", 8080));
+
+        while (!socketChannel.finishConnect()) {
+            // 等待连接完成
+        }
+
+        // 分配缓冲区
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+        // 向服务器发送数据
+        String message = "你好，沉默王二，这是来自客户端的消息。";
+        buffer.put(message.getBytes(StandardCharsets.UTF_8));
+        buffer.flip();
+        socketChannel.write(buffer);
+        // 清空缓冲区
+        buffer.clear();
+
+        // 关闭套接字
+        socketChannel.close();
+    }
+}
+```
+
+客户端代码依然比较简单，我们直接略过，不再解释。然后运行 Server，再运行 Client。可以运行多次，结果如下：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407131553.png)
+
+### Scatter 和 Gather
+
+Scatter 和 Gather 是 Java NIO 中两种高效的 I/O 操作，用于将数据分散到多个缓冲区或从多个缓冲区中收集数据。
+
+Scatter（分散）：它将从 Channel 读取的数据分散（写入）到多个缓冲区。这种操作可以在读取数据时将其分散到不同的缓冲区，有助于处理结构化数据。例如，我们可以将消息头、消息体和消息尾分别写入不同的缓冲区。
+
+Gather（聚集）：与 Scatter 相反，它将多个缓冲区中的数据聚集（读取）并写入到一个 Channel。这种操作允许我们在发送数据时从多个缓冲区中聚集数据。例如，我们可以将消息头、消息体和消息尾从不同的缓冲区中聚集到一起并写入到同一个 Channel。
+
+来写一个完整的 demo，先看 Server。
+
+```java
+// 创建一个ServerSocketChannel
+ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+serverSocketChannel.socket().bind(new InetSocketAddress(9000));
+
+// 接受连接
+SocketChannel socketChannel = serverSocketChannel.accept();
+
+// Scatter：分散读取数据到多个缓冲区
+ByteBuffer headerBuffer = ByteBuffer.allocate(128);
+ByteBuffer bodyBuffer = ByteBuffer.allocate(1024);
+
+ByteBuffer[] buffers = {headerBuffer, bodyBuffer};
+
+long bytesRead = socketChannel.read(buffers);
+
+// 输出缓冲区数据
+headerBuffer.flip();
+while (headerBuffer.hasRemaining()) {
+    System.out.print((char) headerBuffer.get());
+}
+
+System.out.println();
+
+bodyBuffer.flip();
+while (bodyBuffer.hasRemaining()) {
+    System.out.print((char) bodyBuffer.get());
+}
+
+// Gather：聚集数据从多个缓冲区写入到Channel
+ByteBuffer headerResponse = ByteBuffer.wrap("Header Response".getBytes());
+ByteBuffer bodyResponse = ByteBuffer.wrap("Body Response".getBytes());
+
+ByteBuffer[] responseBuffers = {headerResponse, bodyResponse};
+
+long bytesWritten = socketChannel.write(responseBuffers);
+
+// 关闭连接
+socketChannel.close();
+serverSocketChannel.close();
+```
+
+再来看 Client：
+
+```java
+// 创建一个SocketChannel
+SocketChannel socketChannel = SocketChannel.open();
+socketChannel.connect(new InetSocketAddress("localhost", 9000));
+
+// 发送数据到服务器
+String header = "Header Content";
+String body = "Body Content";
+
+ByteBuffer headerBuffer = ByteBuffer.wrap(header.getBytes());
+ByteBuffer bodyBuffer = ByteBuffer.wrap(body.getBytes());
+
+ByteBuffer[] buffers = {headerBuffer, bodyBuffer};
+socketChannel.write(buffers);
+
+// 从服务器接收数据
+ByteBuffer headerResponseBuffer = ByteBuffer.allocate(128);
+ByteBuffer bodyResponseBuffer = ByteBuffer.allocate(1024);
+
+ByteBuffer[] responseBuffers = {headerResponseBuffer, bodyResponseBuffer};
+
+long bytesRead = socketChannel.read(responseBuffers);
+
+// 输出接收到的数据
+headerResponseBuffer.flip();
+while (headerResponseBuffer.hasRemaining()) {
+    System.out.print((char) headerResponseBuffer.get());
+}
+
+bodyResponseBuffer.flip();
+while (bodyResponseBuffer.hasRemaining()) {
+    System.out.print((char) bodyResponseBuffer.get());
+}
+
+// 关闭连接
+socketChannel.close();
+```
+
+在这个示例中，我们使用了 Scattering 从 SocketChannel 分散读取数据到多个缓冲区，并使用 Gathering 将数据从多个缓冲区聚集写入到 SocketChannel。通过这种方式，我们可以方便地处理多个缓冲区中的数据。
+
+### 异步套接字通道 AsynchronousSocketChannel 和 AsynchronousServerSocketChannel
+
+AsynchronousSocketChannel 和 AsynchronousServerSocketChannel 是 Java 7 引入的异步 I/O 类，分别用于处理异步客户端 Socket 和服务器端 ServerSocket。异步 I/O 允许在 I/O 操作进行时执行其他任务，并在操作完成时接收通知，提高了并发处理能力。
+
+来看一个简单的示例，先看服务器端。
+
+```java
+public class AsynchronousServer {
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+        AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open();
+        server.bind(new InetSocketAddress("localhost", 5000));
+
+        System.out.println("服务器端启动");
+
+        server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
+            @Override
+            public void completed(AsynchronousSocketChannel client, Void attachment) {
+                // 接收下一个连接请求
+                server.accept(null, this);
+
+                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                Future<Integer> readResult = client.read(buffer);
+
+                try {
+                    readResult.get();
+                    buffer.flip();
+                    String message = new String(buffer.array(), 0, buffer.remaining());
+                    System.out.println("接收到的消息: " + message);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void failed(Throwable exc, Void attachment) {
+                exc.printStackTrace();
+            }
+        });
+
+        // 为了让服务器继续运行，我们需要阻止 main 线程退出
+        Thread.currentThread().join();
+    }
+}
+```
+
+代码结构和之前讲到的[异步文件通道 AsynchronousFileChannel](https://tobebetterjavaer.com/nio/buffer-channel.html) 比较相似，异步服务单套接字通道 AsynchronousServerSocketChannel 接收客户端连接，每当收到一个新的连接时，会调用 `completed()` 方法，然后读取客户端发送的数据并将其打印到控制台。
+
+来简单分析一下吧。
+
+①、创建了一个 AsynchronousServerSocketChannel 实例并将其打开。这个通道将用于监听客户端连接。
+
+```java
+AsynchronousServerSocketChannel server = AsynchronousServerSocketChannel.open();
+```
+
+②、调用 `accept()` 方法来接收客户端连接。这个方法需要一个 CompletionHandler 实例，当客户端连接成功时，`completed()` 方法会被调用。
+
+```java
+server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() { ... });
+```
+
+③、实现 CompletionHandler，I/O 操作成功时，会调用 `completed()` 方法；当 I/O 操作失败时，会调用 `failed()` 方法。
+
+```java
+new CompletionHandler<AsynchronousSocketChannel, Void>() {
+    @Override
+    public void completed(AsynchronousSocketChannel client, Void attachment) { ... }
+
+    @Override
+    public void failed(Throwable exc, Void attachment) { ... }
+}
+```
+
+在 completed 方法中，我们首先调用 `server.accept()` 来接收下一个连接请求。然后，我们创建一个缓冲区 ByteBuffer 并使用 `client.read()` 从客户端读取数据。在这个示例中，我们使用了一个 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来等待读取操作完成。当读取完成时，我们将缓冲区的内容打印到控制台。
+
+④、为了让服务器继续运行并接收客户端连接，我们需要阻止 main 线程退出。
+
+```java
+Thread.currentThread().join();
+```
+
+再来看客户端的：
+
+```java
+public class AsynchronousClient {
+
+    public static void main(String[] args) {
+        try {
+            AsynchronousSocketChannel client = AsynchronousSocketChannel.open();
+            Future<Void> connectResult = client.connect(new InetSocketAddress("localhost", 5000));
+            connectResult.get(); // 等待连接完成
+
+            String message = "沉默王二，在吗？";
+            ByteBuffer buffer = ByteBuffer.wrap(message.getBytes(StandardCharsets.UTF_8));
+            Future<Integer> writeResult = client.write(buffer);
+            writeResult.get(); // 等待发送完成
+
+            System.out.println("消息发送完毕");
+
+            client.close();
+        } catch (IOException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+就是简单的连接和写入数据，就不多做解释了。这里先运行一下 Server 端，然后再运行一下客户端，看一下结果。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407161351.png)
+
+### 简单的聊天室
+
+我们来通过 SocketChannel 和 ServerSocketChannel 实现一个 0.1 版的聊天室，先说一下需求，比较简单，服务端启动监听客户端请求，当客户端向服务器端发送信息后，服务器端接收到后把客户端消息回显给客户端，比较呆瓜，但可以先来看一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407164326.png)
+
+我们来看服务器端代码：
+
+```java
+public class ChatServer {
+    private Selector selector;
+    private ServerSocketChannel serverSocketChannel;
+    private static final int PORT = 8080;
+
+    public ChatServer() {
+        try {
+            selector = Selector.open();
+            serverSocketChannel = ServerSocketChannel.open();
+            serverSocketChannel.socket().bind(new InetSocketAddress(PORT));
+            serverSocketChannel.configureBlocking(false);
+            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            System.out.println("聊天室服务端启动了 " + PORT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void start() {
+        try {
+            while (true) {
+                if (selector.select() > 0) {
+                    Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+                    while (iterator.hasNext()) {
+                        SelectionKey key = iterator.next();
+                        iterator.remove();
+                        handleKey(key);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleKey(SelectionKey key) throws IOException {
+        if (key.isAcceptable()) {
+            SocketChannel socketChannel = serverSocketChannel.accept();
+            socketChannel.configureBlocking(false);
+            socketChannel.register(selector, SelectionKey.OP_READ);
+            System.out.println("客户端连接上了: " + socketChannel.getRemoteAddress());
+        } else if (key.isReadable()) {
+            SocketChannel socketChannel = (SocketChannel) key.channel();
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+            int read = socketChannel.read(buffer);
+            if (read > 0) {
+                buffer.flip();
+                String msg = new String(buffer.array(), 0, read);
+                System.out.println("客户端说: " + msg);
+                socketChannel.write(ByteBuffer.wrap(("服务端回复: " + msg).getBytes()));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new ChatServer().start();
+    }
+}
+```
+
+解释一下代码逻辑：
+
+1、创建一个 ServerSocketChannel，并将其绑定到指定端口。
+
+2、将 ServerSocketChannel 设置为非阻塞模式。
+
+3、创建一个 Selector，并将 ServerSocketChannel 注册到它上面，监听 OP_ACCEPT 事件（等待客户端连接）。
+
+4、无限循环，等待感兴趣的事件发生。
+
+5、使用 `Selector.select()` 方法，等待已注册的通道中有事件发生。
+
+6、获取到发生事件的通道的 SelectionKey。
+
+7、判断 SelectionKey 的事件类型：
+
+- a. 如果是 OP_ACCEPT 事件，说明有新的客户端连接进来。接受新的连接，并将新连接的 SocketChannel 注册到 Selector 上，监听 OP_READ 事件。
+- b. 如果是 OP_READ 事件，说明客户端发送了消息。读取客户端发送的消息，并将其返回给客户端。
+处理完毕后，清除已处理的 SelectionKey。
+
+再来看一下客户端的代码：
+
+```java
+public class ChatClient {
+    private Selector selector;
+    private SocketChannel socketChannel;
+    private static final String HOST = "localhost";
+    private static final int PORT = 8080;
+
+    public ChatClient() {
+        try {
+            selector = Selector.open();
+            socketChannel = SocketChannel.open(new InetSocketAddress(HOST, PORT));
+            socketChannel.configureBlocking(false);
+            socketChannel.register(selector, SelectionKey.OP_READ);
+            System.out.println("连接到聊天室了");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void start() {
+        new Thread(() -> {
+            try {
+                while (true) {
+                    if (selector.select() > 0) {
+                        for (SelectionKey key : selector.selectedKeys()) {
+                            selector.selectedKeys().remove(key);
+                            if (key.isReadable()) {
+                                readMessage();
+                            }
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in
+        ))) {
+            String input;
+            while ((input = reader.readLine()) != null) {
+                sendMessage(input);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void sendMessage(String message) throws IOException {
+        if (message != null && !message.trim().isEmpty()) {
+            ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
+            socketChannel.write(buffer);
+        }
+    }
+
+    private void readMessage() throws IOException {
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        int read = socketChannel.read(buffer);
+        if (read > 0) {
+            buffer.flip();
+            String msg = new String(buffer.array(), 0, read);
+            System.out.println(msg);
+        }
+    }
+
+    public static void main(String[] args) {
+        new ChatClient().start();
+    }
+}
+```
+
+解释一下代码逻辑：
+
+1、创建一个 SocketChannel，并连接到指定的服务器地址和端口。
+
+2、将 SocketChannel 设置为非阻塞模式。
+
+3、创建一个 Selector，并将 SocketChannel 注册到它上面，监听 OP_READ 事件（等待接收服务器的消息）。
+
+4、启动一个新线程用于读取用户在控制台输入的消息，并发送给服务器。
+
+5、无限循环，等待感兴趣的事件发生。
+
+6、使用` Selector.select()` 方法，等待已注册的通道中有事件发生。
+
+7、获取到发生事件的通道的 SelectionKey。
+
+8、判断 SelectionKey 的事件类型：
+
+- a. 如果是 OP_READ 事件，说明服务器发送了消息。读取服务器发送的消息，并在控制台显示。
+处理完毕后，清除已处理的 SelectionKey。
+
+来看运行后的效果。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407164913.png)
+
+好，接下来，我们来升级一下需求，也就是 0.2 版聊天室，要求服务器端也能从控制台敲入信息主动发送给客户端。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407165110.png)
+
+来看服务器端代码：
+
+```java
+public class Chat2Server {
+
+    public static void main(String[] args) throws IOException {
+        // 创建一个 ServerSocketChannel
+        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        serverSocketChannel.configureBlocking(false);
+        serverSocketChannel.bind(new InetSocketAddress(8080));
+
+        // 创建一个 Selector
+        Selector selector = Selector.open();
+        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        System.out.println("聊天室服务端启动了");
+
+        // 客户端连接
+        AtomicReference<SocketChannel> clientRef = new AtomicReference<>();
+
+        // 从控制台读取输入并发送给客户端
+        Thread sendMessageThread = new Thread(() -> {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+                while (true) {
+                    System.out.println("输入服务器端消息: ");
+                    String message = reader.readLine();
+                    SocketChannel client = clientRef.get();
+                    if (client != null && client.isConnected()) {
+                        ByteBuffer buffer = ByteBuffer.wrap((message + "\n").getBytes());
+                        client.write(buffer);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        sendMessageThread.start();
+
+        while (true) {
+            int readyChannels = selector.select();
+
+            if (readyChannels == 0) {
+                continue;
+            }
+
+            Set<SelectionKey> selectedKeys = selector.selectedKeys();
+            Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+
+            while (keyIterator.hasNext()) {
+                SelectionKey key = keyIterator.next();
+
+                if (key.isAcceptable()) {
+                    // 接受客户端连接
+                    SocketChannel client = serverSocketChannel.accept();
+                    System.out.println("客户端已连接");
+                    client.configureBlocking(false);
+                    client.register(selector, SelectionKey.OP_READ);
+                    clientRef.set(client);
+                } else if (key.isReadable()) {
+                    // 读取客户端消息
+                    SocketChannel channel = (SocketChannel) key.channel();
+                    ByteBuffer buffer = ByteBuffer.allocate(1024);
+                    int bytesRead = channel.read(buffer);
+
+                    if (bytesRead > 0) {
+                        buffer.flip();
+                        byte[] bytes = new byte[buffer.remaining()];
+                        buffer.get(bytes);
+                        String message = new String(bytes).trim();
+                        System.out.println("客户端消息: " + message);
+                    }
+                }
+                keyIterator.remove();
+            }
+        }
+    }
+}
+```
+
+再来看客户端代码：
+
+```java
+public class Chat2Client {
+
+    public static void main(String[] args) throws IOException {
+        // 创建一个 SocketChannel
+        SocketChannel socketChannel = SocketChannel.open();
+        socketChannel.configureBlocking(false);
+        socketChannel.connect(new InetSocketAddress("localhost", 8080));
+
+        // 创建一个 Selector
+        Selector selector = Selector.open();
+        socketChannel.register(selector, SelectionKey.OP_CONNECT);
+
+        // 从控制台读取输入并发送给服务器端
+        Thread sendMessageThread = new Thread(() -> {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+                while (true) {
+                    System.out.println("输入客户端消息: ");
+                    String message = reader.readLine();
+                    if (socketChannel.isConnected()) {
+                        ByteBuffer buffer = ByteBuffer.wrap((message + "\n").getBytes());
+                        socketChannel.write(buffer);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        sendMessageThread.start();
+
+        while (true) {
+            int readyChannels = selector.select();
+
+            if (readyChannels == 0) {
+                continue;
+            }
+
+            Set<SelectionKey> selectedKeys = selector.selectedKeys();
+            Iterator<SelectionKey> keyIterator = selectedKeys.iterator();
+
+            while (keyIterator.hasNext()) {
+                SelectionKey key = keyIterator.next();
+
+                if (key.isConnectable()) {
+                    // 连接到服务器
+                    socketChannel.finishConnect();
+                    socketChannel.register(selector, SelectionKey.OP_READ);
+                    System.out.println("已连接到服务器");
+                } else if (key.isReadable()) {
+                    // 读取服务器端消息
+                    ByteBuffer buffer = ByteBuffer.allocate(1024);
+                    int bytesRead = socketChannel.read(buffer);
+
+                    if (bytesRead > 0) {
+                        buffer.flip();
+                        byte[] bytes = new byte[buffer.remaining()];
+                        buffer.get(bytes);
+                        String message = new String(bytes).trim();
+                        System.out.println("服务器端消息: " + message);
+                    }
+                }
+                keyIterator.remove();
+            }
+        }
+    }
+}
+```
+
+运行 Server，再运行 Client，交互信息如下：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407180853.png)
+
+我们使用了 Selector 和非阻塞 I/O，这使得服务器可以同时处理多个连接。所以我们在 Intellij IDEA 中可以再配置一个客户端，见下图（填上这四项内容）。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407181717.png)
+
+然后启动，就可以完成一个 Server 和多个 Client 交互了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407181906.png)
+
+OK，关于聊天室，我们就先讲到这里。
+
+### 小结
+
+前面我们了解到，Java NIO 在文件 IO 上的性能其实和传统 IO 差不多，甚至在处理大文件的时候还有些甘拜下风，但 NIO 的主要作用体现在网络 IO 上，像 [Netty](https://tobebetterjavaer.com/netty/rumen.html) 框架底层其实就是 NIO，我们来做一下简单的总结吧。
+
+SocketChannel（用于 TCP 连接）和 ServerSocketChannel（用于监听和接受新的 TCP 连接）可以用来替代传统的 Socket 和 ServerSocket 类，提供非阻塞模式。
+
+NIO 支持阻塞和非阻塞模式。非阻塞模式允许程序在等待 I/O 时执行其他任务，从而提高并发性能。非阻塞模式的实现依赖于 Selector，它可以监控多个通道上的 I/O 事件。
+
+NIO 支持将数据分散到多个 Buffer（Scatter）或从多个 Buffer 收集数据（Gather），提供了更高效的数据传输方式。
+
+Java NIO.2 引入了 AsynchronousSocketChannel 和 AsynchronousServerSocketChannel，这些类提供了基于回调的异步 I/O 操作。异步套接字通道可以在完成 I/O 操作时自动触发回调函数，从而实现高效的异步处理。
+
+最后，我们使用 NIO 实现了简单的聊天室功能。通过 ServerSocketChannel 和 SocketChannel 创建服务端和客户端，实现互相发送和接收消息。在处理多个客户端时，可以使用 Selector 来管理多个客户端连接，提高并发性能。
+
+总之，Java NIO 网络编程实践提供了更高效、灵活且可扩展的 I/O 处理方式，对于大型应用程序和高并发场景具有显著优势。
+
+---------
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+
+
+# 第十三章：Java 重要知识点
+
+
+
+
+## 13.1 Java命名规范
+
+“二哥，Java 中的命名约定都有哪些呢？”三妹的脸上泛着甜甜的笑容，她开始对接下来要学习的内容充满期待了，这正是我感到欣慰的地方。
+
+“对于我们中国人来说，名字也是有讲究的，比如说我叫沉默王二，你就叫沉默王三，哈哈。”我笑着对三妹说。
+
+命名约定决定我们使用什么样的标识符来命名包、类、字段、方法等等，虽然这个规则不是强制的，可以遵守，也可以不遵守，但如果不遵守的话，就会带来很多不必要的麻烦。
+
+起个好的名字，就好像穿一件得体的衣服，呈现给人的用户体验是完全不一样的。 
+
+好的命名可以让你的代码更易读，包括你自己和你的小伙伴，看一眼，不用想太多，就能明白代码是干嘛的。
+
+拿我这个笔名“沉默王二”来举例吧，读起来我就觉得朗朗上口，读者看到这个笔名就知道我是一个什么样的人——对不熟的人保持沉默，对熟的人妙语连珠，哈哈。
+
+>当然了，如果你暂时记不住也没关系，后面再回头来记一下就好了。
+
+### 01、包（package）
+
+包的命名应该遵守以下规则：
+
+- 应该全部是小写字母
+- 点分隔符之间有且仅有一个自然语义的英语单词
+- 包名统一使用单数形式，比如说 `com.itwanger.util` 不能是 `com.itwanger.utils`
+- 在最新的 Java 编程规范中，要求开发人员在自己定义的包名前加上唯一的前缀。由于互联网上的域名是不会重复的，所以多数开发人员采用自己公司（或者个人博客）在互联网上的域名称作为包的唯一前缀。比如我文章中出现的代码示例的包名就是 `package com.itwanger`。
+
+### 02、类（class）
+
+类的命名应该遵守以下规则：
+
+- 必须以大写字母开头
+- 最好是一个名词，比如说 System
+- 类名使用 UpperCamelCase（驼峰式命名）风格
+- 尽量不要省略成单词的首字母，但以下情形例外：DO/BO/DTO/VO/AO/PO/UID 等
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/fifteen-01.png)
+
+另外，如果是抽象类的话，使用 Abstract 或 Base 开头；如果是异常类的话，使用 Exception 结尾；如果是测试类的话，使用 Test 结尾。
+
+### 03、接口（interface）
+
+接口的命名应该遵守以下规则：
+
+- 必须以大写字母开头
+- 最好是一个形容词，比如说 Runnable
+- 尽量不要省略成单词的首字母
+
+来看个例子：
+
+```java
+interface Printable {}
+```
+
+接口和实现类之间也有一些规则：
+
+- 实现类用 Impl 的后缀与接口区别，比如说 CacheServiceImpl 实现 CacheService 接口
+- 或者，AbstractTranslator 实现 Translatable 接口
+
+### 04、字段（field）和变量（variable）
+
+字段和变量的命名应该遵守以下规则：
+
+- 必须以小写字母开头
+- 可以包含多个单词，第一个单词的首字母小写，其他的单词首字母大写，比如说 `firstName`
+- 最好不要使用单个字符，比如说 `int a`，除非是局部变量
+- 类型与中括号紧挨相连来表示数组，比如说 `int[] arrayDemo`，main 方法中字符串数组参数不应该写成 `String args[]`
+- POJO 类中的任何布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误，我自己知道的有 fastjson
+- 避免在子类和父类的成员变量之间、或者不同代码块的局部变量之间采用完全相同的命名，使可理解性降低。子类、父类成员变量名相同，即使是 public 类型的变量也能够通过编译，另外，局部变量在同一方法内的不同代码块中同名也是合法的，这些情况都要避免。
+
+反例：
+
+```java
+public class ConfusingName {
+    public int stock;
+
+    // 非 setter/getter 的参数名称，不允许与本类成员变量同名
+    public void get(String alibaba) {
+        if (condition) {
+            final int money = 666;
+// ...
+        }
+        for (int i = 0; i < 10; i++) {
+// 在同一方法体中，不允许与其它代码块中的 money 命名相同 final int money = 15978;
+// ...
+        }
+    }
+}
+
+class Son extends ConfusingName {
+// 不允许与父类的成员变量名称相同 public int stock;
+}
+```
+
+### 05、常量（constant）
+
+常量的命名应该遵守以下规则：
+
+- 应该全部是大写字母
+- 可以包含多个单词，单词之间使用“_”连接，比如说 `MAX_PRIORITY`，力求语义表达完整清楚，不要嫌名字长
+- 可以包含数字，但不能以数字开头
+
+来看个例子：
+
+```java
+static final int MIN_AGE = 18;  
+```
+
+### 06、方法（method）
+
+方法的命名应该遵守以下规则：
+
+- 必须以小写字母开头
+- 最好是一个动词，比如说 `print()`
+- 可以包含多个单词，第一个单词的首字母小写，其他的单词首字母大写，比如说 `actionPerformed()`
+
+来看个例子：
+
+```java
+void writeBook(){}
+```
+
+Service/DAO 层的方法命名规约：
+
+- 获取单个对象的方法用 get 做前缀
+- 获取多个对象的方法用 list 做前缀，复数结尾，如：listObjects
+- 获取统计值的方法用 count 做前缀
+- 插入的方法用 save/insert 做前缀
+- 删除的方法用 remove/delete 做前缀
+- 修改的方法用 update 做前缀
+
+
+### 07、总结
+
+除了以上这些规则以外，还有一些共同的规则需要遵守，比如说：
+
+- 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束。反例：`_name / __name / $name / name_ / name$ / name__`
+- 所有编程相关的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式。反例：`DaZhePromotion [打折] / getPingfenByName() [评分] / String fw[福娃] / int 某变量 = 3`
+- 代码和注释中都要避免使用任何语言的种族歧视性词语。反例：`RIBENGUIZI / Asan / blackList / whiteList / slave`
+- 方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格。
+- 杜绝完全不规范的缩写，避免望文不知义。反例：AbstractClass “缩写”成 AbsClass；condition “缩写”成 condi；Function 缩写”成 Fu，此类随意缩写严重降低了代码的可阅读性。
+- 为了达到代码自解释的目标，任何自定义编程元素在命名时，使用尽量完整的单词组合来表达。
+- 在常量与变量的命名时，表示类型的名词放在词尾，以提升辨识度。正例：`startTime / workQueue / nameList / TERMINATED_THREAD_COUNT`
+- 如果模块、接口、类、方法使用了设计模式，在命名时需体现出具体模式。 将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。比如说：`public class OrderFactory;public class LoginProxy;public class ResourceObserver;`
+- 枚举类名带上 Enum 后缀，枚举成员名称需要全大写，单词间用下划线隔开。枚举其实就是特殊的常量类，且构造方法被默认强制是私有。比如说：`枚举名字为 ProcessStatusEnum 的成员名称：SUCCESS / UNKNOWN_REASON`。
+
+-----
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 13.2 中文乱码及字符编码全攻略
+
+就在昨天，我在[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)里看到这样一张截图，有球友反馈说支付宝的理财页面出现了中文乱码，估计不少小伙伴和我一样，都惊呆了😮！阿里这种大厂还能出现这种低级错误？
+
+![](https://cdn.tobebetterjavaer.com/stutymore/java-unicode-20230408135521.png)
+
+难道昨天的人力都投入到“通义千问”的突然发布上了？
+
+那借这个机会，我就来和大家探讨一下，中文乱码是怎么出现的，以及如何快速解决乱码问题。
+
+### 什么是中文乱码
+
+Q：什么是中文乱码？
+
+GPT4：中文乱码是指在计算机系统或软件中，由于字符编码不一致或处理不当，导致中文字符无法正常显示，出现乱码现象。这种现象通常表现为中文字符被替换成其他不相关的字符、符号或乱码。
+
+比如说，历史上著名的“锟斤拷”同学，就是中文乱码的绝佳代言人。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-06.png)
+
+### 什么是字符编码
+
+Q：那什么是字符编码呢？
+
+GPT4：字符编码（Character Encoding）是一种规则或约定，它将字符（如字母、数字、标点符号等）映射到计算机中的二进制数据。简单来说，字符编码就是将人类可读的字符转换为计算机可以处理的二进制数据的过程。
+
+对于计算机来说，只认 0 和 1，所有的信息最终都是一个二进制数。一个二进制数要么是 0，要么是 1。8 个二进制数放在一起是一个字节，就会组合出 256 种状态，也就是 2 的 8 次方（`2^8`），从 00000000 到 11111111。
+
+为了让计算机能够识别和处理各种字符，需要使用字符编码来对字符进行编码和解码。常见的字符编码包括 ASCII、UTF-8、UTF-16、GBK、GB2312 等。
+
+![](https://cdn.tobebetterjavaer.com/studymore/char-byte-20230322174312.png)
+
+#### **1）ASCII**
+
+ASCII 码由电报码发展而来，第一版标准发布于 1963 年，最后一次更新则是在 1986 年，至今为止共定义了 128 个字符。其中 33 个字符无法显示在一般的设备上，需要用特殊的设备才能显示。
+
+ASCII 码的局限在于只能显示 26 个基本拉丁字母、阿拉伯数字和英式标点符号，因此只能用于显示现代美国英语，对于其他一些语言则无能无力，比如在法语中，字母上方有注音符号，它就无法用 ASCII 码表示。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-01.png)
+
+PS：拉丁字母（也称为罗马字母）是多数欧洲语言采用的字母系统，是世界上最通行的字母文字系统，是罗马文明的成果之一。
+
+虽然名称上叫作拉丁字母，但拉丁文中并没有用 J、U 和 W 这三个字母。
+
+在我的印象中，可能说拉丁字母多少有些陌生，说英语字母可能就有直观的印象了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-02.png)
+
+阿拉伯数字，我们都很熟悉了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-03.png)
+
+但是，阿拉伯数字并非起源于阿拉伯，而是起源于古印度。学过历史的你应该有一些印象，阿拉伯分布于西亚和北非，以阿拉伯语为主要语言，以伊斯兰教为主要信仰。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-04.png)
+
+处在这样的地理位置，做起东亚和欧洲的一些生意就很有优势，于是阿拉伯数字就由阿拉伯人传到了欧洲，因此得名。
+
+英式标点符号，也叫英文标点符号，和中文标点符号很相近。标点符号是辅助文字记录语言的符号，是书面语的组成部分，用来表示停顿、加强语气等。
+
+英文标点符号在 16 世纪时，分为朗诵学派和句法学派，主要由古典时期的希腊文和拉丁文演变而来，在 17 世纪后进入稳定阶段。俄文的标点符号依据希腊文而来，到了 18 世纪后也采用了英文标点符号。
+
+在很多人的印象中，古文是没有标点符号的，但管锡华博士研究指出，**中国早在先秦时代就有标点符号了**，后来融合了一些英文标点符号后，逐渐形成了现在的中文标点符号。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-05.png)
+
+
+#### **2）Unicode**
+
+这个世界上，除了英语，还有法语、葡萄牙语、西班牙语、德语、俄语、阿拉伯语、韩语、日语等等等等。ASCII 码用来表示英语是绰绰有余的，但其他这些语言就没办法了。
+
+像我的主人二哥的母语——中文，就博大精深，与其对应的汉字数量很多很多，东汉的《说文解字》收字 9353 个，清朝《康熙字典》收字 47035 个，当代的《汉语大字典》收字 60370 个。1994 年中华书局、中国友谊出版公司出版的《中华字海》收字 85568 个。
+
+>常用字大概 2500 个，次常用字 1000 个。
+
+一个字节只能表示 256 种符号，所以如果拿 ASCII 码来表示汉字的话，是远远不够用的，那就必须要用更多的字节。简体中文常见的编码方式是 GB2312，使用两个字节表示一个汉字，理论上最多可以表示 256 x 256 = 65536 个符号。
+
+要知道，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。
+
+- 编码就是将原始数据（比如说文本、图像、视频、音频等）转换为二进制形式。
+- 解码就是将二进制数据转换为原始数据，是一个反向的过程。
+
+如果有一种编码，将世界上所有的符号都纳入其中。每一个符号都给予一个独一无二的编码，那么乱码问题就会彻底消失。
+
+这个艰巨的任务由谁来完成呢？**Unicode**，中文译作万国码、国际码、统一码、单一码，就像它的名字都表示的，这是一种所有符号的编码。
+
+Unicode 至今仍在不断增修，每个新版本都会加入更多新的字符。目前最新的版本为 2020 年 3 月公布的 13.0，收录了 13 万个字符。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-07.png)
+
+Unicode 是一个很大的集合，现在的规模可以容纳 100 多万个符号。每个符号的编码都不一样，比如，`U+0639`表示阿拉伯字母 `Ain`，`U+0041` 表示英语的大写字母 `A`，`U+4E25` 表示汉字`严`。
+
+具体的符号对应表，可以查询：
+
+>- unicode.org：[http://www.unicode.org](http://www.unicode.org)
+>- 汉字对应表：[ttp://www.chi2ko.com/tool/CJK.htm](http://www.chi2ko.com/tool/CJK.htm)
+
+曾有人这样说：
+
+>Unicode 支持的字符上限是 65536 个，Unicode 字符必须占两个字节。
+
+但这是一种误解，记住，Unicode 只是一个用来映射字符和数字的标准。它对支持字符的数量没有限制，也不要求字符必须占两个、三个或者其它任意数量的字节，所以它可以无穷大。
+
+#### 3）UTF-8
+
+Unicode 虽然统一了全世界字符的编码，但没有规定如何存储。如果统一规定的话，每个符号就要用 3 个或 4 个字节表示，因为 2 个字节只能表示 65536 个，根本表示不全。
+
+那怎么办呢？
+
+UTF（Unicode Transformation Formats，Unicode 的编码方式）来了！最常见的就是 UTF-8 和 UTF-16。
+
+在 UTF-8 中，0-127 号的字符用 1 个字节来表示，使用和 ASCII 相同的编码。只有 128 号及以上的字符才用 2 个、3 个或者 4 个字节来表示。
+
+如果只有一个字节，那么最高的比特位为 0；如果有多个字节，那么第一个字节从最高位开始，连续有几个比特位的值为 1，就使用几个字节编码，剩下的字节均以 10 开头。
+
+具体的表现形式为：
+
+- 0xxxxxxx：一个字节；
+- 110xxxxx 10xxxxxx：两个字节编码形式（开始两个 1）；
+- 1110xxxx 10xxxxxx 10xxxxxx：三字节编码形式（开始三个 1）；
+- 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx：四字节编码形式（开始四个 1）。
+
+也就是说，UTF-8 是一种可变长度的编码方式——这是它的优势也是劣势。
+
+怎么讲呢？优势就是它包罗万象，劣势就是浪费空间。举例来说吧，UTF-8 采用了 3 个字节（`256*256*256=16777216`）来编码常用的汉字，但常用的汉字没有这么多，这对于计算机来说，就是一种严重的资源浪费。
+
+#### 4）GB2312
+
+基于这样的考虑，中国国家标准总局于 1980 年发布了 GB2312 编码，即中华人民共和国国家标准简体中文字符集。GB2312 标准共收录 6763 个汉字（2 个字节就够用了），其中一级汉字 3755 个，二级汉字 3008 个；同时收录了包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在内的 682 个字符。
+
+GB2312 的出现，基本满足了汉字的计算机处理需求。对于人名、古汉语等方面出现的罕用字和繁体字，GB2312 不能处理，就有了 GBK（K 为“扩展”的汉语拼音（kuòzhǎn）第一个声母）。
+
+### 中文乱码是如何出现的？
+
+Q：来一串出现中文乱码的 demo，中文为沉默王二
+
+GPT4：下面是一个可能导致中文乱码的示例。首先使用 GBK 编码将中文字符串 "沉默王二" 转换为字节数组，然后使用 UTF-8 编码将字节数组转回字符串。这将导致字符串在解码时出现乱码。
+
+```java
+public class EncodingDemo {
+    public static void main(String[] args) {
+        String originalStr = "沉默王二";
+        String encodedStr = "";
+
+        try {
+            byte[] bytes = originalStr.getBytes("GBK");
+            encodedStr = new String(bytes, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("转码前: " + originalStr);
+        System.out.println("转码后: " + encodedStr);
+    }
+}
+```
+
+程序会输出什么呢？
+
+```
+转码前: 沉默王二
+转码后: ��Ĭ����
+```
+
+嘿嘿，乱码来了！在 Unicode 中，� 是一个特殊的符号，它用来表示无法显示，它的十六进制是 `0xEF 0xBF 0xBD`。那么两个 �� 就是 `0xEF 0xBF 0xBD 0xEF 0xBF 0xBD`，如果用 GBK 进行解码的话，就是大名鼎鼎的“**锟斤拷**”。
+
+可以通过代码来验证一下：
+
+```java
+// 输出 efbfbdefbfbd
+char[] kuijinkao = HexUtil.encodeHex("��", StandardCharsets.UTF_8);
+System.out.println(kuijinkao);
+// 借助 hutool 转成二进制
+byte[] testBytes = HexUtil.decodeHex(kuijinkao);
+// 使用 GBK 解码
+String testResult = new String(testBytes, Charset.forName("GBK"));
+// 输出锟斤拷
+System.out.println(testResult);
+```
+
+来看一下输出结果：
+
+```java
+efbfbdefbfbd
+锟斤拷
+```
+
+所以，以后再见到**锟斤拷**，第一时间想到 UTF-8 和 GBK 的转换问题准没错。
+
+### 如何解决中文乱码呢？
+
+Q：如何解决中文乱码呢？
+
+GPT4：解决中文乱码问题需要确保在编码和解码过程中使用相同的字符编码。这是一个修改过的示例，展示了如何避免中文乱码问题：
+
+```java
+String originalStr = "沉默王二";
+
+byte[] bytes = originalStr.getBytes(StandardCharsets.UTF_8);
+String encodedStr = new String(bytes, StandardCharsets.UTF_8);
+
+System.out.println("正确转码前: " + originalStr);
+System.out.println("正确转码后: " + encodedStr);
+```
+
+输出结果：
+
+```java
+正确转码前: 沉默王二
+正确转码后: 沉默王二
+```
+
+除此之外，以下是一些避免乱码的实践：
+
+- 使用统一的字符编码，如 UTF-8。它包含了所有 Unicode 字符，并且广泛支持。确保在所有平台和系统上使用相同的编码。
+- 在处理文本文件时，始终明确指定字符编码。例如，在 Java 中使用 InputStreamReader、OutputStreamWriter 时，指定编码参数。
+- 在 HTML、XML 等文档中，指定字符编码。例如，在 HTML 页面中添加 `<meta charset="UTF-8">`。
+- 对于数据库，确保使用正确的字符集。在创建数据库和表时，明确指定字符集，如 utf8mb4。
+
+当与第三方服务通信时，确保双方使用相同的字符编码。在处理 API 请求和响应时，检查字符编码是否匹配。
+
+Q：针对支付宝这种生产环境事故，如何快速定位并解决问题呢？
+
+GPT4：
+
+1、收集信息：了解问题的具体表现，例如哪些页面或功能受到影响，问题的严重程度，以及用户反馈。这将有助于快速定位问题范围。
+
+2、检查日志：查看服务器日志和应用程序日志，检查是否存在异常信息或错误。日志信息有助于识别问题发生的时间和具体原因。
+
+3、复现问题：在测试环境中尝试复现问题，以便更深入地了解问题细节。如果无法复现问题，可能需要进一步收集生产环境的详细信息。
+
+4、定位问题：根据收集到的信息，确定问题可能发生的代码或系统部分。检查相关代码，特别是涉及字符编码、数据传输、数据库操作的部分。
+
+5、解决问题：修复问题代码，确保字符编码在整个系统中保持一致。进行单元测试和集成测试，验证问题是否已解决。
+
+6、部署修复：将修复后的代码部署到生产环境。为了避免影响正常服务，可以考虑先在一个小规模的生产环境中进行验证，然后逐步扩大部署范围。
+
+7、监控：在修复后持续关注系统运行状况，确保问题已得到解决。收集用户反馈，确认用户满意度。
+
+8、总结经验：针对此次问题，总结经验教训，分析问题产生的根本原因，优化开发和测试流程，避免类似问题再次发生。
+
+----
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 13.3 深入剖析Java中的拆箱和装箱
+
+“哥，听说 Java 的每个[基本类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
+
+“是的，三妹。基本类型和包装类型的区别主要有以下 4 点，我来带你学习一下。”我回答说。我们家的斜对面刚好是一所小学，所以时不时还能听到朗朗的读书声，让人心情非常愉快。
+
+“三妹，你准备好了吗？我们开始吧。”
+
+“第一，**包装类型可以为 null，而基本类型不可以**。别小看这一点区别，它使得包装类型可以应用于 POJO 中，而基本类型则不行。”
+
+“POJO 是什么呢？”遇到不会的就问，三妹在这一点上还是非常兢兢业业的。
+
+“POJO 的英文全称是 Plain Ordinary Java Object，翻译一下就是，简单无规则的 Java 对象，只有字段以及对应的 setter 和 getter 方法。”
+
+```java
+class Writer {
+	private Integer age;
+	private String name;
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+```
+
+和 POJO 类似的，还有数据传输对象 DTO（Data Transfer Object，泛指用于展示层与服务层之间的数据传输对象）、视图对象 VO（View Object，把某个页面的数据封装起来）、持久化对象 PO（Persistant Object，可以看成是与数据库中的表映射的 Java 对象）。
+
+“那为什么 POJO 的字段必须要用包装类型呢？”三妹问。
+
+“《[阿里巴巴 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有详细的说明，你看。”我打开 PDF，并翻到了对应的内容，指着屏幕念道。
+
+>数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 [NullPointerException 的异常](https://tobebetterjavaer.com/exception/npe.html)。
+
+“什么是自动拆箱呢？”
+
+“自动拆箱指的是，将包装类型转为基本类型，比如说把 Integer 对象转换成 int 值；对应的，把基本类型转为包装类型，则称为自动装箱。”
+
+“哦。”
+
+“那接下来，我们来看第二点不同。**包装类型可用于泛型，而基本类型不可以**，否则就会出现编译错误。”一边说着，我一边在 Intellij IDEA 中噼里啪啦地敲了起来。
+
+“三妹，你瞧，编译器提示错误了。”
+
+```java
+List<int> list = new ArrayList<>(); // 提示 Syntax error, insert "Dimensions" to complete ReferenceType
+List<Integer> list = new ArrayList<>();
+```
+
+“为什么呢？”三妹及时地问道。
+
+“因为[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
+
+“那，接下来，我们来说第三点，**基本类型比包装类型更高效**。”我喝了一口茶继续说道。
+
+“作为局部变量时，基本类型在栈中直接存储的具体数值，而包装类型则存储的是堆中的引用。”我一边说着，一边打开 [`draw.io`](https://app.diagrams.net/) 画起了图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/box-01.png)
+
+很显然，相比较于基本类型而言，包装类型需要占用更多的内存空间，不仅要存储对象，还要存储引用。假如没有基本类型的话，对于数值这类经常使用到的数据来说，每次都要通过 new 一个包装类型就显得非常笨重。
+
+“三妹，你想知道程序运行时，数据都存储在什么地方吗？”
+
+“嗯嗯，哥，你说说呗。”
+
+“通常来说，有 4 个地方可以用来存储数据。”
+
+1）寄存器。这是最快的存储区，因为它位于 CPU 内部，用来暂时存放参与运算的数据和运算结果。
+
+2）栈。位于 RAM（Random Access Memory，也叫主存，与 CPU 直接交换数据的内部存储器）中，速度仅次于寄存器。但是，在分配内存的时候，存放在栈中的数据大小与生存周期必须在编译时是确定的，缺乏灵活性。基本数据类型的值和对象的引用通常存储在这块区域。
+
+3）堆。也位于 RAM 区，可以动态分配内存大小，编译器不必知道要从堆里分配多少存储空间，生存周期也不必事先告诉编译器，Java 的垃圾收集器会自动收走不再使用的数据，因此可以得到更大的灵活性。但是，运行时动态分配内存和销毁对象都需要占用时间，所以效率比栈低一些。new 创建的对象都会存储在这块区域。
+
+4）磁盘。如果数据完全存储在程序之外，就可以不受程序的限制，在程序没有运行时也可以存在。像文件、数据库，就是通过持久化的方式，让对象存放在磁盘上。当需要的时候，再反序列化成程序可以识别的对象。
+
+“能明白吗？三妹？”
+
+“这节讲完后，我再好好消化一下。”
+
+“那好，我们来说第四点，**两个包装类型的值可以相同，但却不相等**。”
+
+```java
+Integer chenmo = new Integer(10);
+Integer wanger = new Integer(10);
+
+System.out.println(chenmo == wanger); // false
+System.out.println(chenmo.equals(wanger )); // true
+```
+
+“两个包装类型在使用“==”进行判断的时候，判断的是其指向的地址是否相等，由于是两个对象，所以地址是不同的。”
+
+“而 `chenmo.equals(wanger)` 的输出结果为 true，是因为 `equals()` 方法内部比较的是两个 int 值是否相等。”
+
+```java
+private final int value;
+
+public int intValue() {
+    return value;
+}
+public boolean equals(Object obj) {
+    if (obj instanceof Integer) {
+        return value == ((Integer)obj).intValue();
+    }
+    return false;
+}
+```
+
+虽然 chenmo 和 wanger 的值都是 10，但他们并不相等。换句话说就是：将“==”操作符应用于包装类型比较的时候，其结果很可能会和预期的不符。
+
+“三妹，瞧，`((Integer)obj).intValue()` 这段代码就是用来自动拆箱的。下面，我们来详细地说一说自动装箱和自动拆箱。”
+
+既然有基本类型和包装类型，肯定有些时候要在它们之间进行转换。把基本类型转换成包装类型的过程叫做装箱（boxing）。反之，把包装类型转换成基本类型的过程叫做拆箱（unboxing）。
+
+在 Java 1.5 之前，开发人员要手动进行装拆箱，比如说：
+
+```java
+Integer chenmo = new Integer(10); // 手动装箱
+int wanger = chenmo.intValue();  // 手动拆箱
+```
+
+Java 1.5 为了减少开发人员的工作，提供了自动装箱与自动拆箱的功能。这下就方便了。
+
+```jav
+Integer chenmo  = 10;  // 自动装箱
+int wanger = chenmo;     // 自动拆箱
+```
+
+来看一下反编译后的代码。
+
+```java
+Integer chenmo = Integer.valueOf(10);
+int wanger = chenmo.intValue();
+```
+
+也就是说，自动装箱是通过 `Integer.valueOf()` 完成的；自动拆箱是通过 `Integer.intValue()` 完成的。
+
+“嗯，三妹，给你出一道面试题吧。”
+
+```java
+// 1）基本类型和包装类型
+int a = 100;
+Integer b = 100;
+System.out.println(a == b);
+
+// 2）两个包装类型
+Integer c = 100;
+Integer d = 100;
+System.out.println(c == d);
+
+// 3）
+c = 200;
+d = 200;
+System.out.println(c == d);
+```
+
+“给你 3 分钟时间，你先思考下，我去抽根华子，等我回来，然后再来分析一下为什么。”
+
+。。。。。。
+
+“嗯，哥，你过来吧，我说一说我的想法。”
+
+第一段代码，基本类型和包装类型进行 == 比较，这时候 b 会自动拆箱，直接和 a 比较值，所以结果为 true。
+
+第二段代码，两个包装类型都被赋值为了 100，这时候会进行自动装箱，按照你之前说的，将“==”操作符应用于包装类型比较的时候，其结果很可能会和预期的不符，我想结果可能为 false。
+
+第三段代码，两个包装类型重新被赋值为了 200，这时候仍然会进行自动装箱，我想结果仍然为 false。
+
+“嗯嗯，三妹，你分析的很有逻辑，但第二段代码的结果为 true，是不是感到很奇怪？”
+
+“为什么会这样呀？”三妹急切地问。
+
+“你说的没错，自动装箱是通过 `Integer.valueOf()` 完成的，我们来看看这个方法的源码就明白为什么了。”
+
+```java
+public static Integer valueOf(int i) {
+    if (i >= IntegerCache.low && i <= IntegerCache.high)
+        return IntegerCache.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+}
+```
+
+是不是看到了一个之前从来没见过的类——[IntegerCache](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)？
+
+“难道说是 Integer 的缓存类？”三妹做出了自己的判断。
+
+“是的，来看一下 IntegerCache 的源码吧。”
+
+```java
+private static class IntegerCache {
+    static final int low = -128;
+    static final int high;
+    static final Integer cache[];
+
+    static {
+        // high value may be configured by property
+        int h = 127;
+        int i = parseInt(integerCacheHighPropValue);
+        i = Math.max(i, 127);
+        h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
+        high = h;
+
+        cache = new Integer[(high - low) + 1];
+        int j = low;
+        for(int k = 0; k < cache.length; k++)
+            cache[k] = new Integer(j++);
+
+        // range [-128, 127] must be interned (JLS7 5.1.7)
+        assert IntegerCache.high >= 127;
+    }
+}
+```
+
+大致瞟一下这段代码你就全明白了。-128 到 127 之间的数会从 IntegerCache 中取，然后比较，所以第二段代码（100 在这个范围之内）的结果是 true，而第三段代码（200 不在这个范围之内，所以 new 出来了两个 Integer 对象）的结果是 false。
+
+“三妹，看完上面的分析之后，我希望你记住一点：**当需要进行自动装箱时，如果数字在 -128 至 127 之间时，会直接使用缓存中的对象，而不是重新创建一个对象**。”
+
+“自动装拆箱是一个很好的功能，大大节省了我们开发人员的精力，但也会引发一些麻烦，比如下面这段代码，性能就很差。”
+
+```java
+long t1 = System.currentTimeMillis();
+Long sum = 0L;
+for (int i = 0; i < Integer.MAX_VALUE;i++) {
+    sum += i;
+}
+long t2 = System.currentTimeMillis();        
+System.out.println(t2-t1);
+```
+
+“知道为什么吗？三妹。”
+
+“难道是因为 sum 被声明成了包装类型 Long 而不是基本类型 long。”三妹若有所思。
+
+“是滴，由于 sum 是个 Long 型，而 i 为 int 类型，`sum += i` 在执行的时候，会先把 i 强转为 long 型，然后再把 sum 拆箱为 long 型进行相加操作，之后再自动装箱为 Long 型赋值给 sum。”
+
+“三妹，你可以试一下，把 sum 换成 long 型比较一下它们运行的时间。”
+
+。。。。。。
+
+“哇，sum 为 Long 型的时候，足足运行了 5825 毫秒；sum 为 long 型的时候，只需要 679 毫秒。”
+
+“好了，三妹，今天的主题就先讲到这吧。我再去来根华子。”
+
+----
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 13.4 深入理解Java浅拷贝与深拷贝
+
+“哥，听说浅拷贝和深拷贝是 Java 面试中经常会被问到的一个问题，是这样吗？”
+
+“还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://tobebetterjavaer.com/basic-extra-meal/pass-by-value.html)也会有更深的理解。”我肯定地回答。
+
+“不管是浅拷贝还是深拷贝，都可以通过调用 Object 类的 `clone()` 方法来完成。”我一边说，一边打开 Intellij IDEA，并找到了 `clone()` 方法的源码。
+
+```java
+protected native Object clone() throws CloneNotSupportedException;
+```
+
+需要注意的是，`clone()` 方法同时是一个本地（`native`）方法，它的具体实现会交给 HotSpot 虚拟机，那就意味着虚拟机在运行该方法的时候，会将其替换为更高效的 C/C++ 代码，进而调用操作系统去完成对象的克隆工作。
+
+>Java 9 后，该方法会被标注 `@HotSpotIntrinsicCandidate` 注解，被该注解标注的方法，在 HotSpot 虚拟机中会有一套高效的实现。
+
+“哥，那你就先说浅拷贝吧！”
+
+“好的呀。直接上实战代码。”
+
+```java
+class Writer implements Cloneable{
+    private int age;
+    private String name;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) + "{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+```
+
+Writer 类有两个字段，分别是 int 类型的 age，和 String 类型的 name。然后重写了 `toString()` 方法，方便打印对象的具体信息。
+
+“为什么要实现 Cloneable 接口呢？”三妹开启了十万个为什么的模式。
+
+Cloneable 接口是一个标记接口，它肚子里面是空的：
+
+```java
+public interface Cloneable {
+}
+```
+
+只是，如果一个类没有实现 Cloneable 接口，即便它重写了 `clone()` 方法，依然是无法调用该方法进行对象克隆的，程序在执行 `clone()` 方法的时候会抛出 CloneNotSupportedException 异常。
+
+```java
+Exception in thread "main" java.lang.CloneNotSupportedException
+```
+
+标记接口的作用其实很简单，用来表示某个功能在执行的时候是合法的。
+
+“哦，我悟了！”三妹看来是彻底明白了我说的内容。
+
+“接着，来测试类。”
+
+```java
+class TestClone {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Writer writer1 = new Writer(18,"二哥");
+        Writer writer2 = (Writer) writer1.clone();
+
+        System.out.println("浅拷贝后：");
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+
+        writer2.setName("三妹");
+
+        System.out.println("调整了 writer2 的 name 后：");
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+    }
+}
+```
+
+- 通过 new 关键字声明了一个 Writer 对象（18 岁的二哥），将其赋值给 writer1。
+- 通过调用 `clone()` 方法进行对象拷贝，并将其赋值给 writer2。
+- 之后打印 writer1 和 writer2。
+- 将 writer2 的 name 字段调整为“三妹”。
+- 再次打印。
+
+来看一下输出结果。
+
+```
+浅拷贝后：
+writer1：Writer@68837a77{age=18, name='二哥'}
+writer2：Writer@b97c004{age=18, name='二哥'}
+调整了 writer2 的 name 后：
+writer1：Writer@68837a77{age=18, name='二哥'}
+writer2：Writer@b97c004{age=18, name='三妹'}
+```
+
+可以看得出，浅拷贝后，writer1 和 writer2 引用了不同的对象，但值是相同的，说明拷贝成功。之后，修改了 writer2 的 name 字段，直接上图就明白了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/deep-copy-01.png)
+
+ 之前的例子中，Writer 类只有两个字段，没有引用类型字段。那么，我们再来看另外一个例子，为 Writer 类增加一个自定义的引用类型字段 Book，先来看 Book 的定义。
+
+```java
+class Book {
+    private String bookName;
+    private int price;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) +
+                " bookName='" + bookName + '\'' +
+                ", price=" + price +
+                '}';
+    }
+}
+```
+
+有两个字段，分别是 String 类型的 bookName 和 int 类型的 price。
+
+然后来看 Writer 类的定义。
+
+```java
+class Writer implements Cloneable{
+    private int age;
+    private String name;
+    private Book book;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) +
+                " age=" + age +
+                ", name='" + name + '\'' +
+                ", book=" + book +
+                '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+```
+
+比之前的例子多了一个自定义类型的字段 book，`clone()` 方法并没有任何改变。
+
+再来看测试类。
+
+```java
+class TestClone {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Writer writer1 = new Writer(18,"二哥");
+        Book book1 = new Book("编译原理",100);
+        writer1.setBook(book1);
+
+        Writer writer2 = (Writer) writer1.clone();
+        System.out.println("浅拷贝后：");
+
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+
+        Book book2 = writer2.getBook();
+        book2.setBookName("永恒的图灵");
+        book2.setPrice(70);
+        System.out.println("writer2.book 变更后：");
+
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+    }
+}
+```
+
+- 通过 new 关键字声明了一个 Writer 对象（18 岁的二哥），将其赋值给 writer1。
+- 通过 new 关键字声明了一个 Book 对象（100 块的编译原理），将其赋值给 book1。
+- 将 writer1 的 book 字段设置为 book1。
+- 通过调用 `clone()` 方法进行对象拷贝，并将其赋值给 writer2。
+- 之后打印 writer1 和 writer2。
+- 获取 writer2 的 book 字段，并将其赋值给 book2。
+- 将 book2 的 bookName 字段调整为“永恒的图灵”，price 字段调整为 70。
+- 再次打印。
+
+来看一下输出结果。
+
+```
+浅拷贝后：
+writer1：Writer@68837a77 age=18, name='二哥', book=Book@32e6e9c3 bookName='编译原理', price=100}}
+writer2：Writer@6d00a15d age=18, name='二哥', book=Book@32e6e9c3 bookName='编译原理', price=100}}
+writer2.book 变更后：
+writer1：Writer@68837a77 age=18, name='二哥', book=Book@32e6e9c3 bookName='永恒的图灵', price=70}}
+writer2：Writer@36d4b5c age=18, name='二哥', book=Book@32e6e9c3 bookName='永恒的图灵', price=70}}
+```
+
+与之前例子不同的是，writer2.book 变更后，writer1.book 也发生了改变。这是因为字符串 String 是不可变对象，一个新的值必须在字符串常量池中开辟一段新的内存空间，而自定义对象的内存地址并没有发生改变，只是对应的字段值发生了改变，见下图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/deep-copy-02.png)
+
+“哇，哥，果真一图胜千言，我明白了。”三妹似乎对我画的图很感兴趣呢，“那你继续说深拷贝吧！”
+
+“嗯，三妹，你有没有注意到，浅拷贝克隆的对象中，引用类型的字段指向的是同一个，当改变任何一个对象，另外一个对象也会随之改变，除去字符串的特殊性外。”
+
+“深拷贝和浅拷贝不同的，深拷贝中的引用类型字段也会克隆一份，当改变任何一个对象，另外一个对象不会随之改变。”
+
+“明白了这一点后，我们再来看例子。”
+
+```java
+class Book implements Cloneable{
+    private String bookName;
+    private int price;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) +
+                " bookName='" + bookName + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+```
+
+注意，此时的 Book 类和浅拷贝时不同，重写了 `clone()` 方法，并实现了 Cloneable 接口。为的就是深拷贝的时候也能够克隆该字段。
+
+```java
+class Writer implements Cloneable{
+    private int age;
+    private String name;
+    private Book book;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) +
+                " age=" + age +
+                ", name='" + name + '\'' +
+                ", book=" + book +
+                '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Writer writer = (Writer) super.clone();
+        writer.setBook((Book) writer.getBook().clone());
+        return writer;
+    }
+}
+```
+
+注意，此时 Writer 类也与之前的不同，`clone()` 方法当中，不再只调用 Object 的 `clone()` 方法对 Writer 进行克隆了，还对 Book 也进行了克隆。
+
+来看测试类。
+
+```java
+class TestClone {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Writer writer1 = new Writer(18,"二哥");
+        Book book1 = new Book("编译原理",100);
+        writer1.setBook(book1);
+
+        Writer writer2 = (Writer) writer1.clone();
+        System.out.println("深拷贝后：");
+
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+
+        Book book2 = writer2.getBook();
+        book2.setBookName("永恒的图灵");
+        book2.setPrice(70);
+        System.out.println("writer2.book 变更后：");
+
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+    }
+}
+```
+
+这个测试类和之前的浅拷贝的测试类就完全一样了，但运行结果是不同的。
+
+```
+深拷贝后：
+writer1：Writer@6be46e8f age=18, name='二哥', book=Book@5056dfcb bookName='编译原理', price=100}}
+writer2：Writer@6d00a15d age=18, name='二哥', book=Book@51efea79 bookName='编译原理', price=100}}
+writer2.book 变更后：
+writer1：Writer@6be46e8f age=18, name='二哥', book=Book@5056dfcb bookName='编译原理', price=100}}
+writer2：Writer@6d00a15d age=18, name='二哥', book=Book@51efea79 bookName='永恒的图灵', price=70}}
+```
+
+不只是 writer1 和 writer2 是不同的对象，它们中的 book 也是不同的对象。所以，改变了 writer2 中的 book 并不会影响到 writer1。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/deep-copy-03.png)
+
+不过，通过 `clone()` 方法实现的深拷贝比较笨重，因为要将所有的引用类型都重写 `clone()` 方法，当嵌套的对象比较多的时候，就废了！
+
+“那有没有好的办法呢？”三妹急切的问。
+
+“当然有了，利用[序列化](https://tobebetterjavaer.com/io/serialize.html)。”我胸有成竹的回答，“序列化是将对象写到流中便于传输，而反序列化则是将对象从流中读取出来。”
+
+“写入流中的对象就是对原始对象的拷贝。需要注意的是，每个要序列化的类都要实现 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，该接口和 Cloneable 接口类似，都是标记型接口。”
+
+来看例子。
+
+```java
+class Book implements Serializable {
+    private String bookName;
+    private int price;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) +
+                " bookName='" + bookName + '\'' +
+                ", price=" + price +
+                '}';
+    }
+}
+```
+
+Book 需要实现 Serializable 接口。
+
+```java
+class Writer implements Serializable {
+    private int age;
+    private String name;
+    private Book book;
+
+    // getter/setter 和构造方法都已省略
+
+    @Override
+    public String toString() {
+        return super.toString().substring(26) +
+                " age=" + age +
+                ", name='" + name + '\'' +
+                ", book=" + book +
+                '}';
+    }
+
+    //深度拷贝
+    public Object deepClone() throws IOException, ClassNotFoundException {
+        // 序列化
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+
+        oos.writeObject(this);
+
+        // 反序列化
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+
+        return ois.readObject();
+    }
+}
+```
+
+Writer 类也需要实现 Serializable 接口，并且在该类中，增加了一个 `deepClone()` 的方法，利用 OutputStream 进行序列化，InputStream 进行反序列化，这样就实现了深拷贝。
+
+来看示例。
+
+```java
+class TestClone {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Writer writer1 = new Writer(18,"二哥");
+        Book book1 = new Book("编译原理",100);
+        writer1.setBook(book1);
+
+        Writer writer2 = (Writer) writer1.deepClone();
+        System.out.println("深拷贝后：");
+
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+
+        Book book2 = writer2.getBook();
+        book2.setBookName("永恒的图灵");
+        book2.setPrice(70);
+        System.out.println("writer2.book 变更后：");
+
+        System.out.println("writer1：" + writer1);
+        System.out.println("writer2：" + writer2);
+    }
+}
+```
+
+与之前测试类不同的是，调用了 `deepClone()` 方法。
+
+```
+深拷贝后：
+writer1：Writer@9629756 age=18, name='二哥', book=Book@735b5592 bookName='编译原理', price=100}}
+writer2：Writer@544fe44c age=18, name='二哥', book=Book@31610302 bookName='编译原理', price=100}}
+writer2.book 变更后：
+writer1：Writer@9629756 age=18, name='二哥', book=Book@735b5592 bookName='编译原理', price=100}}
+writer2：Writer@544fe44c age=18, name='二哥', book=Book@31610302 bookName='永恒的图灵', price=70}}
+```
+
+测试结果和之前用 `clone()` 方法实现的深拷贝类似。
+
+“不过，三妹，需要注意，由于是序列化涉及到输入流和输出流的读写，在性能上要比 HotSpot 虚拟机实现的 `clone()` 方法差很多。”我语重心长地说。
+
+“好的，二哥，你先去休息吧，让我来琢磨一会，总结一下浅拷贝和深拷贝之间的差异。”
+
+“嗯嗯。”
+
+
+----
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 13.5 Java hashCode方法解析
+
+今天我们来谈谈 Java 中的 `hashCode()` 方法。众所周知，Java 是一门面向对象的编程语言，所有的类都会默认继承自 Object 类，而 Object 的中文意思就是“对象”。
+
+Object 类中就包含了 `hashCode()` 方法：
+
+```java
+public native int hashCode();
+```
+
+意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
+
+具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 [GitHub 上 OpenJDK 的仓库中下载](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/runtime/synchronizer.cpp)）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-1.png)
+
+Java 9 之后，`hashCode()` 方法会被 `@HotSpotIntrinsicCandidate` 注解修饰，表明它在 HotSpot 虚拟机中有一套高效的实现，基于 CPU 指令。
+
+那大家有没有想过这样一个问题：**为什么 Object 类需要一个 `hashCode()` 方法呢**？
+
+在 Java 中，`hashCode()` 方法的主要作用就是为了配合[哈希表](https://tobebetterjavaer.com/collection/hashmap.html)使用的。
+
+哈希表（Hash Table），也叫散列表，是一种可以通过关键码值（key-value）直接访问的数据结构，它最大的特点就是可以快速实现查找、插入和删除。其中用到的算法叫做哈希，就是把任意长度的输入，变换成固定长度的输出，该输出就是哈希值。像 MD5、SHA1 都用的是哈希算法。
+
+像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
+
+大家想一下，如果没有哈希表，但又需要这样一个数据结构，它里面存放的数据是不允许重复的，该怎么办呢？
+
+要不使用 `equals()` 方法进行逐个比较？这种方案当然是可行的。但如果数据量特别特别大，采用 `equals()` 方法进行逐个对比的效率肯定很低很低，最好的解决方案就是哈希表。
+
+拿 HashMap 来说吧。当我们要在它里面添加对象时，先调用这个对象的 `hashCode()` 方法，得到对应的哈希值，然后将哈希值和对象一起放到 HashMap 中。当我们要再添加一个新的对象时：
+
+- 获取对象的哈希值；
+- 和之前已经存在的哈希值进行比较，如果不相等，直接存进去；
+- 如果有相等的，再调用 `equals()` 方法进行对象之间的比较，如果相等，不存了；
+- 如果不等，说明哈希冲突了，增加一个链表，存放新的对象；
+- 如果链表的长度大于 8，转为红黑树来处理。
+
+就这么一套下来，调用 `equals()` 方法的频率就大大降低了。也就是说，只要哈希算法足够的高效，把发生哈希冲突的频率降到最低，哈希表的效率就特别的高。
+
+来看一下 HashMap 的哈希算法：
+
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+先调用对象的 `hashCode()` 方法，然后对该值进行右移运算，然后再进行异或运算。
+
+通常来说，String 会用来作为 HashMap 的键进行哈希运算，因此我们再来看一下 String 的 `hashCode()` 方法：
+
+```java
+public int hashCode() {
+    int h = hash;
+    if (h == 0 && value.length > 0) {
+        char val[] = value;
+
+        for (int i = 0; i < value.length; i++) {
+            h = 31 * h + val[i];
+        }
+        hash = h;
+    }
+    return h;
+}
+```
+
+可想而知，经过这么一系列复杂的运算，再加上 JDK 作者这种大师级别的设计，哈希冲突的概率我相信已经降到了最低（我们在 HashMap 中深入探讨过）。
+
+当然了，从理论上来说，对于两个不同对象，它们通过 `hashCode()` 方法计算后的值可能相同。因此，不能使用 `hashCode()` 方法来判断两个对象是否相等，必须得通过 `equals()` 方法。
+
+也就是说：
+
+- 如果两个对象调用 `equals()` 方法得到的结果为 true，调用 `hashCode()` 方法得到的结果必定相等；
+- 如果两个对象调用 `hashCode()` 方法得到的结果不相等，调用 `equals()` 方法得到的结果必定为 false；
+
+反之：
+
+- 如果两个对象调用 `equals()` 方法得到的结果为 false，调用 `hashCode()` 方法得到的结果不一定不相等；
+- 如果两个对象调用 `hashCode()` 方法得到的结果相等，调用 `equals()` 方法得到的结果不一定为 true；
+
+来看下面这段代码。
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Student s1 = new Student(18, "张三");
+        Map<Student, Integer> scores = new HashMap<>();
+        scores.put(s1, 98);
+        System.out.println(scores.get(new Student(18, "张三")));
+    }
+}
+ class Student {
+    private int age;
+    private String name;
+
+     public Student(int age, String name) {
+         this.age = age;
+         this.name = name;
+     }
+
+     @Override
+     public boolean equals(Object o) {
+         Student student = (Student) o;
+         return age == student.age &&
+                 Objects.equals(name, student.name);
+     }
+ }
+```
+
+我们重写了 Student 类的 `equals()` 方法，如果两个学生的年纪和姓名相同，我们就认为是同一个学生，虽然很离谱，但我们就是这么草率。
+
+在 `main()` 方法中，18 岁的张三考试得了 98 分，很不错的成绩，我们把张三和成绩放到了 HashMap 中，然后准备输出张三的成绩：
+
+```
+null
+```
+
+很不巧，结果为 null，而不是预期当中的 98。这是为什么呢？
+
+原因就在于重写 `equals()` 方法的时候没有重写 `hashCode()` 方法。默认情况下，`hashCode()` 方法是一个本地方法，会返回对象的存储地址，显然 `put()` 中的 s1 和 `get()` 中的 `new Student(18, "张三")` 是两个对象，它们的存储地址肯定是不同的。
+
+HashMap 的 `get()` 方法会调用 `hash(key.hashCode())` 计算对象的哈希值，虽然两个不同的 `hashCode()` 结果经过 `hash()` 方法计算后有可能得到相同的结果，但这种概率微乎其微，所以就导致 `scores.get(new Student(18, "张三"))` 无法得到预期的值 18。
+
+怎么解决这个问题呢？很简单，重写 `hashCode()` 方法。
+
+```java
+ @Override
+ public int hashCode() {
+     return Objects.hash(age, name);
+ }
+```
+
+[Objects 类](https://tobebetterjavaer.com/common-tool/Objects.html)的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
+
+```java
+public static int hashCode(Object a[]) {
+ if (a == null)
+     return 0;
+
+ int result = 1;
+
+ for (Object element : a)
+     result = 31 * result + (element == null ? 0 : element.hashCode());
+
+ return result;
+}
+```
+
+代码似乎很简单，归纳出的数学公式如下所示（n 为字符串长度）。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-2.png)
+
+注意：31 是个奇质数，不大不小，一般质数都非常适合哈希计算，偶数相当于移位运算，容易溢出，造成数据信息丢失。
+
+这就意味着年纪和姓名相同的情况下，会得到相同的哈希值。`scores.get(new Student(18, "张三"))` 就会返回 98 的预期值了。
+
+《Java 编程思想》这本圣经中有一段话，对 `hashCode()` 方法进行了一段描述。
+
+> 设计 `hashCode()` 时最重要的因素就是：无论何时，对同一个对象调用 `hashCode()` 都应该生成同样的值。如果在将一个对象用 `put()` 方法添加进 HashMap 时产生一个 `hashCode()` 值，而用 `get()` 方法取出时却产生了另外一个 `hashCode()` 值，那么就无法重新取得该对象了。所以，如果你的 `hashCode()` 方法依赖于对象中易变的数据，用户就要当心了，因为此数据发生变化时，`hashCode()` 就会生成一个不同的哈希值，相当于产生了一个不同的键。
+
+也就是说，如果在重写 `hashCode()` 和 `equals()` 方法时，对象中某个字段容易发生改变，那么最好舍弃这些字段，以免产生不可预期的结果。
+
+好。有了上面这些内容作为基础后，我们回头再来看看本地方法 `hashCode()` 的 C++ 源码。
+
+```cpp
+static inline intptr_t get_next_hash(Thread* current, oop obj) {
+  intptr_t value = 0;
+  if (hashCode == 0) {
+    // 这种形式使用全局的 Park-Miller 随机数生成器。
+    // 在 MP 系统上，我们将对全局变量进行大量的读写访问，因此该机制会引发大量的一致性通信。
+    value = os::random();
+  } else if (hashCode == 1) {
+    // 这种变体在 STW（Stop The World）操作之间具有稳定（幂等）的特性。
+    // 在一些 1-0 同步方案中，这可能很有用。
+    intptr_t addr_bits = cast_from_oop<intptr_t>(obj) >> 3;
+    value = addr_bits ^ (addr_bits >> 5) ^ GVars.stw_random;
+  } else if (hashCode == 2) {
+    value = 1;            // 用于敏感性测试
+  } else if (hashCode == 3) {
+    value = ++GVars.hc_sequence;
+  } else if (hashCode == 4) {
+    value = cast_from_oop<intptr_t>(obj);
+  } else {
+    // Marsaglia 的异或移位方案，具有线程特定的状态
+    // 这可能是最好的整体实现 -- 我们可能会在未来的版本中将其设为默认实现。
+    unsigned t = current->_hashStateX;
+    t ^= (t << 11);
+    current->_hashStateX = current->_hashStateY;
+    current->_hashStateY = current->_hashStateZ;
+    current->_hashStateZ = current->_hashStateW;
+    unsigned v = current->_hashStateW;
+    v = (v ^ (v >> 19)) ^ (t ^ (t >> 8));
+    current->_hashStateW = v;
+    value = v;
+  }
+
+  value &= markWord::hash_mask;
+  if (value == 0) value = 0xBAD;
+  assert(value != markWord::no_hash, "invariant");
+  return value;
+}
+```
+
+如果没有 C++ 基础的话，不用细致去看每一行代码，我们只通过表面去了解一下 `get_next_hash()` 这个方法就行。其中的 `hashCode` 变量是 JVM 启动时的一个全局参数，可以通过它来切换哈希值的生成策略。
+
+- `hashCode==0`，调用操作系统 OS 的 `random()` 方法返回随机数。
+- `hashCode == 1`，在 STW（stop-the-world）操作中，这种策略通常用于同步方案中。利用对象地址进行计算，使用不经常更新的随机数（`GVars.stw_random`）参与其中。
+- `hashCode == 2`，使用返回 1，用于某些情况下的测试。
+- `hashCode == 3`，从 0 开始计算哈希值，不是线程安全的，多个线程可能会得到相同的哈希值。
+- `hashCode == 4`，与创建对象的内存位置有关，原样输出。
+- `hashCode == 5`，默认值，支持多线程，使用了 Marsaglia 的 xor-shift 算法产生伪随机数。所谓的 xor-shift 算法，简单来说，看起来就是一个移位寄存器，每次移入的位由寄存器中若干位取异或生成。所谓的伪随机数，不是完全随机的，但是真随机生成比较困难，所以只要能通过一定的随机数统计检测，就可以当作真随机数来使用。
+
+这里简单总结下。
+
+在 Java 中，`hashCode()`方法是定义在 `java.lang.Object` 类中的一个方法，该类是所有 Java 所有类的父类。因此，每个 Java 对象都可以调用 `hashCode()`方法。`hashCode()`方法主要用于支持哈希表（如 java.util.HashMap），这些数据结构使用哈希算法能实现快速查找、插入和删除操作。
+
+`hashCode()`方法的主要目的是返回一个整数，这个整数称为哈希码，它代表了对象在内存中的一种近似表示。哈希码用于将对象映射到哈希表中的一个特定的位置。两个相等的对象（根据 [`equals()`方法比较](https://tobebetterjavaer.com/string/equals.html)）应该具有相同的哈希码。然而，具有相同哈希码的两个对象并不一定相等。
+
+当你创建一个自定义类并覆盖 `equals()`方法时，通常也需要覆盖 `hashCode()`方法，以确保相等的对象具有相同的哈希码。这有助于提高哈希表在使用自定义类的对象作为键时的准确性。
+
+---
+
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 13.6 Java是值传递还是引用传递？
+
+“哥，说说 Java 到底是值传递还是引用传递吧？”三妹一脸的困惑，看得出来她被这个问题折磨得不轻。
+
+“说实在的，我在一开始学 Java 的时候也被这个问题折磨得够呛，总以为[基本数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)在传参的时候是值传递，而引用类型是引用传递。”我对三妹袒露了心声，为的就是让她不再那么焦虑，她哥当年也是这么过来的。
+
+[C 语言](https://tobebetterjavaer.com/xuexiluxian/c.html)是很多编程语言的母胎，包括 Java，那么对于 C 语言来说，所有的方法参数都是“通过值”传递的，也就是说，传递给被调用方法的参数值存放在临时变量中，而不是存放在原来的变量中。这就意味着，被调用的方法不能修改调用方法中变量的值，而只能修改其私有变量的临时副本的值。
+
+Java 继承了 C 语言这一特性，因此 Java 是按照值来传递的。
+
+接下来，我们必须得搞清楚，到底什么是值传递（pass by value），什么是引用传递（pass by reference），否则，讨论 Java 到底是值传递还是引用传递就显得毫无意义。
+
+当一个参数按照值的方式在两个方法之间传递时，调用者和被调用者其实是用的两个不同的变量——被调用者中的变量（原始值）是调用者中变量的一份拷贝，对它们当中的任何一个变量修改都不会影响到另外一个变量，据说 Fortran 语言是通过引用传递的。
+
+“Fortran 语言？”三妹睁大了双眼，似乎听见了什么新的名词。
+
+“是的，Fortran 语言，1957 年由 IBM 公司开发，是世界上第一个被正式采用并流传至今的高级编程语言。”
+
+当一个参数按照引用传递的方式在两个方法之间传递时，调用者和被调用者其实用的是同一个变量，当该变量被修改时，双方都是可见的。
+
+“我们之所以容易搞不清楚 Java 到底是值传递还是引用传递，主要是因为 Java 中的两类数据类型的叫法容易引发误会，比如说 int 是基本类型，说它是值传递的，我们就很容易理解；但对于引用类型，比如说 String，说它也是值传递的时候，我们就容易弄不明白。”
+
+我们来看看基本数据类型和引用数据类型之间的差别。
+
+```java
+int age = 18;
+String name = "二哥";
+```
+
+age 是基本类型，值就保存在变量中，而 name 是引用类型，变量中保存的是对象的地址。一般称这种变量为对象的引用，引用存放在栈中，而对象存放在堆中。
+
+这里说的栈和堆，是指内存中的一块区域，和数据结构中的栈和堆不一样。栈是由编译器自动分配释放的，所以适合存放编译期就确定生命周期的数据；而堆中存放的数据，编译器是不需要知道生命周期的，创建后的回收工作由垃圾收集器来完成。
+
+“画幅图。”
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-01.png)
+
+当用 = 赋值运算符改变 age 和 name 的值时。
+
+```java
+age = 16;
+name = "三妹";
+```
+
+对于基本类型 age，赋值运算符会直接改变变量的值，原来的值被覆盖。
+
+对于引用类型 name，赋值运算符会改变对象引用中保存的地址，原来的地址被覆盖，但原来的对象不会被覆盖。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-02.png)
+
+“三妹，注意听，接下来，我们来说说基本数据类型的参数传递。”
+
+Java 有 8 种基本数据类型，分别是 int、long、byte、short、float、double 、char 和 boolean，就拿 int 类型来举例吧。
+
+```java
+class PrimitiveTypeDemo {
+    public static void main(String[] args) {
+        int age = 18;
+        modify(age);
+        System.out.println(age);
+    }
+
+    private static void modify(int age1) {
+        age1 = 30;
+    }
+}
+```
+
+1）`main()` 方法中的 age 为基本类型，所以它的值 18 直接存储在变量中。
+
+2）调用 `modify()` 方法的时候，将会把 age 的值 18 复制给形参 age1。
+
+3）`modify()` 方法中，对 age1  做出了修改。
+
+4）回到 `main()` 方法中，age 的值仍然为 18，并没有发生改变。
+
+如果我们想让 age 的值发生改变，就需要这样做。
+
+```java
+class PrimitiveTypeDemo1 {
+    public static void main(String[] args) {
+        int age = 18;
+        age = modify(age);
+        System.out.println(age);
+    }
+
+    private static int modify(int age1) {
+        age1 = 30;
+        return age1;
+    }
+}
+```
+
+第一，让 `modify()` 方法有返回值；
+
+第二，使用赋值运算符重新对 age 进行赋值。
+
+“好了，再来说说引用类型的参数传递。”
+
+就以 String 为例吧。
+
+```java
+class ReferenceTypeDemo {
+    public static void main(String[] args) {
+        String name = "二哥";
+        modify(name);
+        System.out.println(name);
+    }
+
+    private static void modify(String name1) {
+        name1 = "三妹";
+    }
+}
+```
+
+在调用 `modify()` 方法的时候，形参 name1 复制了 name 的地址，指向的是堆中“二哥”的位置。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-03.png)
+
+当 `modify()` 方法调用结束后，改变了形参 name1 的地址，但 `main()` 方法中 name 并没有发生改变。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-04.png)
+
+总结：
+
+- Java 中的参数传递是按值传递的。
+- 如果参数是基本类型，传递的是基本类型的字面量值的拷贝。
+- 如果参数是引用类型，传递的是引用的对象在堆中地址的拷贝。
+
+“好了，三妹，今天的学习就到这吧。”
+
+----
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.7 Java为什么无法实现真正的泛型
+
+“二哥，为啥 Java 不能实现真正的泛型啊？”三妹开门见山地问。
+
+简单来回顾一下[类型擦除](https://tobebetterjavaer.com/basic-extra-meal/generic.html)，看下面这段代码。
+
+```java
+public class Cmower {
+    public static void method(ArrayList<String> list) {
+        System.out.println("Arraylist<String> list");
+    }
+
+    public static void method(ArrayList<Date> list) {
+        System.out.println("Arraylist<Date> list");
+    }
+}
+```
+
+“三妹，你是不是认为 `ArrayList<String> list` 和 `ArrayList<Date> list` 是两种不同的类型，因为 String 和 Date 是不同的类。”我问。
+
+“嗯。”三妹点点头。
+
+但由于类型擦除的原因，以上代码是不会编译通过的——编译器会提示一个错误：
+
+```
+>'method(ArrayList<String>)' clashes with 'method(ArrayList<Date>)'; both methods have same erasure
+```
+
+也就是说，两个 `method()` 方法经过类型擦除后的方法签名是完全相同的，Java 是不允许这样做的。
+
+也就是说，按照我们的假设：如果 Java 能够实现真正意义上的泛型，两个 `method()` 方法是可以同时存在的，就好像方法重载一样。
+
+```java
+public class Cmower {
+    public static void method(String list) {
+    }
+
+    public static void method(Date list) {
+    }
+}
+```
+
+“为什么 Java 不能实现真正意义上的泛型呢？背后的原因是什么？快告诉我呀！”三妹着急了。
+
+“保持耐心，好不好？”我安慰道。
+
+**第一，兼容性**
+
+Java 在 2004 年已经积累了较为丰富的生态，如果把现有的类修改为泛型类，需要让所有的用户重新修改源代码并且编译，这就会导致 Java 1.4 之前打下的江山可能会完全覆灭。
+
+想象一下，你的代码原来运行的好好的，就因为 JDK 的升级，导致所有的源代码都无法编译通过并且无法运行，是不是会非常痛苦？
+
+类型擦除就完美实现了兼容性，Java 1.5 之后的类可以使用泛型，而 Java 1.4 之前没有使用泛型的类也可以保留，并且不用做任何修改就能在新版本的 Java 虚拟机上运行。
+
+老用户不受影响，新用户可以自由地选择使用泛型，可谓一举两得。
+
+**第二，不是“实现不了”**。Pizza，1996 年的实验语言，在 Java 的基础上扩展了泛型。
+
+>Pizza 教程地址：[http://pizzacompiler.sourceforge.net/doc/tutorial.html](http://pizzacompiler.sourceforge.net/doc/tutorial.html)
+
+“1996 年？”三妹表示很吃惊。
+
+“嗯，你那会还没出生。”我说，“插一下 Java 的版本历史吧，你好有一个时间线上的观念。”
+
+- 1995年5月23日，Java语言诞生
+- 1996年1月，JDK1.0 诞生
+- 1997年2月18日，JDK1.1发布
+- 1998年2月，JDK1.1被下载超过2,000,000次
+- 2000年5月8日，JDK1.3发布
+- 2000年5月29日，JDK1.4发布
+- 2004年9月30日18:00 PM，J2SE1.5 发布
+
+也就是说，Pizza 在 JDK 1.0 的版本上就实现了“真正意义上的”泛型，我引过来两段例子，你一看就明白了。
+
+首先是 StoreSomething，一个泛型类，标识符是大写字母 A 而不是我们熟悉的大写字母 T。
+
+```java
+class StoreSomething<A> {
+     A something;
+
+     StoreSomething(A something) {
+         this.something = something;
+     }
+
+     void set(A something) {
+         this.something = something;
+     }
+
+     A get() {
+         return something;
+     }
+}
+```
+
+这个 A 呢，可以是任何合法的 Java 类型：
+
+```java
+StoreSomething<String> a = new StoreSomething("I'm a string!");
+StoreSomething<int> b = new StoreSomething(17+4);
+
+b.set(9);
+
+int i = b.get();
+String s = a.get();
+```
+
+对吧？这就是我们想要的“真正意义上的泛型”，A 不仅仅可以是引用类型 String，还可以是基本数据类型。要知道，Java 的泛型不允许是基本数据类型，只能是包装器类型。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/generic/true-generic-01.png)
+
+除此之外，Pizza 的泛型还可以直接使用 `new` 关键字进行声明，并且 Pizza 编译器会从构造方法的参数上推断出具体的对象类型，究竟是 String 还是 int。要知道，Java 的泛型因为类型擦除的原因，程序员是无法知道一个 ArrayList 究竟是 `ArrayList<String>` 还是 `ArrayList<Integer>` 的。
+
+```java
+ArrayList<Integer> ints = new ArrayList<Integer>();
+ArrayList<String> strs = new ArrayList<String>();
+
+System.out.println(ints.getClass());
+System.out.println(strs.getClass());
+```
+
+输出结果：
+
+```
+class java.util.ArrayList
+class java.util.ArrayList
+```
+
+都是 ArrayList 而已。
+
+“那 Pizza 这种“真正意义上的泛型”为什么没有被 Java 采纳呢？”三妹很关心这个问题。
+
+事实上，Java 的核心开发组对 Pizza 的泛型设计非常感兴趣，并且与 Pizza 的设计者 Martin 和 Phil 取得了联系，新合作了一个项目 Generic Java，争取在 Java 中添加泛型支持，但不引入 Pizza 的其他功能，比如说函数式编程。
+
+*这里再补充一点维基百科上的资料，Martin Odersky 是一名德国计算机科学家，他和其他人一起设计了 Scala 编程语言，以及 Generic Java（还有之前的 Pizza），他实现的 Generic Java 编译器成为了 Java 编译器 javac 的基础。*
+
+站在马后炮的思维来看，Pizza 的泛型设计和函数式编程非常具有历史前瞻性。然而 Java 的核心开发组在当时似乎并不想把函数式编程引入到 Java 中。
+
+以至于 Java 在 1.4 之前仍然是不支持泛型的。
+
+“为什么 Java 1.5 的时候又突然支持泛型了呢？”三妹问。
+
+“当然是到了不支持不行的时候了。”我说。
+
+没有泛型之前，我们可以这样写代码：
+
+```java
+ArrayList list = new ArrayList();
+list.add("沉默王二");
+list.add(new Date());
+```
+
+不管是 String 类型，还是 Date 类型，都可以一股脑塞进 ArrayList 当中，这看起来似乎很方便，但取的时候就悲剧了。
+
+```java
+String s = list.get(1);
+```
+
+这样取行吗？不行。还得加上强制转换。
+
+```java
+String s = (String) list.get(1);
+```
+
+但我们知道，这行代码在运行的时候必然会出错：
+
+```
+Exception in thread "main" java.lang.ClassCastException: java.util.Date cannot be cast to java.lang.String
+```
+
+这就又回到“兼容性”的问题了。
+
+Java 语言和其他编程语言不一样，有着沉重的历史包袱，1.5 之前已经有大量的程序部署在生产环境下了，这时候如果一刀切，原来没有使用泛型的代码直接扼杀了，后果不堪想象。
+
+Java 一直以来都强调兼容性，我认为这也是 Java 之所以能被广泛使用的主要原因之一，开发者不必担心 Java 版本升级的问题，一个在 JDK 1.4 上可以跑的代码，放在 JDK 1.5 上仍然可以跑。
+
+这里必须得说明一点，J2SE1.5 的发布，是 Java 语言发展史上的重要里程碑，为了表示该版本的重要性，J2SE1.5 也正式更名为 Java SE 5.0，往后去就是 Java SE 6.0，Java SE 7.0。。。。
+
+但 Java 并不支持高版本 JDK 编译生成的字节码文件在低版本的 JRE（Java 运行时环境）上跑。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/generic/true-generic-02.png)
+
+
+针对泛型，兼容性具体表现在什么地方呢？来看下面这段代码。
+
+```java
+ArrayList<Integer> ints = new ArrayList<Integer>();
+ArrayList<String> strs = new ArrayList<String>();
+ArrayList list;
+list = ints;
+list = strs;
+```
+
+“兼容性表现在上面这段代码必须得能够编译运行。怎么办呢？”我扭头看了一下旁边的三妹，继续说。
+
+“只能搞类型擦除了！”我妹肯定地回答。
+
+“是滴。”
+
+编译前进行泛型检测，`ArrayList<Integer>` 只能放 Integer，`ArrayList<String>` 只能放 String，取的时候就不用担心类型强转出错了。
+
+但编译后的字节码文件里，是没有泛型的，放的都是 Object。
+
+Java 神奇就神奇在这，表面上万物皆对象，但为了性能上的考量，又存在 int、double 这种原始类型，但原始类型又没办法和 Object 兼容，于是我们就只能写 `ArrayList<Integer>` 这样很占用内存空间的代码。
+
+这恐怕也是 Java 泛型被吐槽的原因之一了。
+
+一个好消息是 Valhalla 项目正在努力解决这些因为泛型擦除带来的历史遗留问题。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/generic/true-generic-03.png)
+
+
+Project Valhalla：正在进行当中的 OpenJDK 项目，计划给未来的 Java 添加改进的泛型支持。
+
+>源码地址：[http://openjdk.java.net/projects/valhalla/](http://openjdk.java.net/projects/valhalla/)
+
+让我们拭目以待吧！
+
+“怎么样？三妹，这下全部都明白了吧！”我问。
+
+“嗯嗯。二哥，你讲得可真棒👍”三妹夸奖得我有点小开心，嘿嘿。
+
+---
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 12.8 掌握 Java 反射
+
+“二哥，什么是反射呀？”三妹开门见山地问。
+
+“要想知道什么是反射，就需要先来了解什么是‘正射’。”我笑着对三妹说，“一般情况下，我们在使用某个类之前已经确定它到底是个什么类了，拿到手就直接可以使用 `new` 关键字来调用构造方法进行初始化，之后使用这个类的对象来进行操作。”
+
+```java
+Writer writer = new Writer();
+writer.setName("沉默王二");
+```
+
+像上面这个例子，就可以理解为“正射”。而反射就意味着一开始我们不知道要初始化的类到底是什么，也就没法直接使用 `new` 关键字创建对象了。
+
+我们只知道这个类的一些基本信息，就好像我们看电影的时候，为了抓住一个犯罪嫌疑人，警察就会问一些目击证人，根据这些证人提供的信息，找专家把犯罪嫌疑人的样貌给画出来——这个过程，就可以称之为**反射**。
+
+```java
+Class clazz = Class.forName("com.itwanger.s39.Writer");
+Method method = clazz.getMethod("setName", String.class);
+Constructor constructor = clazz.getConstructor();
+Object object = constructor.newInstance();
+method.invoke(object,"沉默王二");
+```
+
+像上面这个例子，就可以理解为“反射”。
+
+“反射的写法比正射复杂得多啊！”三妹感慨地说。
+
+“是的，反射的成本是要比正射的高得多。”我说，“反射的缺点主要有两个。”
+
+- **破坏封装**：由于反射允许访问私有字段和私有方法，所以可能会破坏封装而导致安全问题。
+- **性能开销**：由于反射涉及到动态解析，因此无法执行 Java 虚拟机优化，再加上反射的写法的确要复杂得多，所以性能要比“正射”差很多，在一些性能敏感的程序中应该避免使用反射。
+
+“那反射有哪些好处呢？”三妹问。
+
+反射的主要应用场景有：
+
+- **开发通用框架**：像 Spring，为了保持通用性，通过配置文件来加载不同的对象，调用不同的方法。
+- **动态代理**：在面向切面编程中，需要拦截特定的方法，就会选择动态代理的方式，而动态代理的底层技术就是反射。
+- **注解**：注解本身只是起到一个标记符的作用，它需要利用发射机制，根据标记符去执行特定的行为。
+
+“好了，来看一下完整的例子吧。”我对三妹说。
+
+Writer 类，有两个字段，然后还有对应的 getter/setter。
+
+```java
+public class Writer {
+    private int age;
+    private String name;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+
+测试类：
+
+```java
+public class ReflectionDemo1 {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Writer writer = new Writer();
+        writer.setName("沉默王二");
+        System.out.println(writer.getName());
+
+        Class clazz = Class.forName("com.itwanger.s39.Writer");
+        Constructor constructor = clazz.getConstructor();
+        Object object = constructor.newInstance();
+
+        Method setNameMethod = clazz.getMethod("setName", String.class);
+        setNameMethod.invoke(object, "沉默王二");
+        Method getNameMethod = clazz.getMethod("getName");
+        System.out.println(getNameMethod.invoke(object));
+    }
+}
+```
+
+来看一下输出结果：
+
+```
+沉默王二
+沉默王二
+```
+
+只不过，反射的过程略显曲折了一些。
+
+第一步，获取反射类的 Class 对象：
+
+```java
+Class clazz = Class.forName("com.itwanger.s39.Writer");
+```
+
+第二步，通过  Class 对象获取构造方法 Constructor 对象：
+
+```java
+Constructor constructor = clazz.getConstructor();
+```
+
+第三步，通过 Constructor 对象初始化反射类对象：
+
+```java
+Object object = constructor.newInstance();
+```
+
+第四步，获取要调用的方法的 Method 对象：
+
+```java
+Method setNameMethod = clazz.getMethod("setName", String.class);
+Method getNameMethod = clazz.getMethod("getName");
+```
+
+第五步，通过 `invoke()` 方法执行：
+
+```java
+setNameMethod.invoke(object, "沉默王二");
+getNameMethod.invoke(object)
+```
+
+“三妹，你看，经过这五个步骤，基本上就掌握了反射的使用方法。”我说。
+
+“好像反射也没什么复杂的啊！”三妹说。
+
+我先对三妹点点头，然后说：“是的，掌握反射的基本使用方法确实不难，但要理解整个反射机制还是需要花一点时间去了解一下 Java 虚拟机的类加载机制的。”
+
+要想使用反射，首先需要获得反射类的 Class 对象，每一个类，不管它最终生成了多少个对象，这些对象只会对应一个 Class 对象，这个 Class 对象是由 Java 虚拟机生成的，由它来获悉整个类的结构信息。
+
+也就是说，`java.lang.Class` 是所有反射 API 的入口。
+
+而方法的反射调用，最终是由 Method 对象的 `invoke()` 方法完成的，来看一下源码（JDK 8 环境下）。
+
+```java
+public Object invoke(Object obj, Object... args)
+        throws IllegalAccessException, IllegalArgumentException,
+        InvocationTargetException {
+    // 如果方法不允许被覆盖，进行权限检查
+    if (!override) {
+        if (!Reflection.quickCheckMemberAccess(clazz, modifiers)) {
+            Class<?> caller = Reflection.getCallerClass();
+            // 检查调用者是否具有访问权限
+            checkAccess(caller, clazz, obj, modifiers);
+        }
+    }
+    // 获取方法访问器（从 volatile 变量中读取）
+    MethodAccessor ma = methodAccessor;
+    if (ma == null) {
+        // 如果访问器为空，尝试获取方法访问器
+        ma = acquireMethodAccessor();
+    }
+    // 使用方法访问器调用方法，并返回结果
+    return ma.invoke(obj, args);
+}
+```
+
+两个嵌套的 if 语句是用来进行权限检查的。
+
+`invoke()` 方法实际上是委派给 MethodAccessor 接口来完成的。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-01.png)
+
+MethodAccessor 接口有三个实现类，其中的 MethodAccessorImpl 是一个抽象类，另外两个具体的实现类继承了这个抽象类。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-02.png)
+
+- NativeMethodAccessorImpl：通过本地方法来实现反射调用；
+- DelegatingMethodAccessorImpl：通过委派模式来实现反射调用；
+
+通过 debug 的方式进入 `invoke()` 方法后，可以看到第一次反射调用会生成一个委派实现 DelegatingMethodAccessorImpl，它在生成的时候会传递一个本地实现 NativeMethodAccessorImpl。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-03.png)
+
+也就是说，`invoke()` 方法在执行的时候，会先调用 DelegatingMethodAccessorImpl，然后调用 NativeMethodAccessorImpl，最后再调用实际的方法。
+
+“为什么不直接调用本地实现呢？”三妹问。
+
+“之所以采用委派实现，是为了能够在本地实现和动态实现之间切换。动态实现是另外一种反射调用机制，它是通过生成字节码的形式来实现的。如果反射调用的次数比较多，动态实现的效率就会更高，因为本地实现需要经过 Java 到 C/C++ 再到 Java 之间的切换过程，而动态实现不需要；但如果反射调用的次数比较少，反而本地实现更快一些。”我说。
+
+“那临界点是多少呢？”三妹问。
+
+“默认是 15 次。”我说，“可以通过 `-Dsun.reflect.inflationThreshold` 参数类调整。”
+
+来看下面这个例子。
+
+```java
+Method setAgeMethod = clazz.getMethod("setAge", int.class);
+for (int i = 0;i < 20; i++) {
+    setAgeMethod.invoke(object, 18);
+}
+```
+
+在 `invoke()` 方法处加断点进入 debug 模式，当 i = 15 的时候，也就是第 16 次执行的时候，会进入到 if 条件分支中，改变 DelegatingMethodAccessorImpl 的委派模式 delegate 为 `(MethodAccessorImpl)(new MethodAccessorGenerator()).generateMethod()`，而之前的委派模式 delegate 为 NativeMethodAccessorImpl。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/fanshe/fanshe-04.png)
+
+“这下明白了吧？三妹。”我说，“接下来，我们再来熟悉一下反射当中常用的 API。”
+
+**1）获取反射类的 Class 对象**
+
+`Class.forName()`，参数为反射类的完全限定名。
+
+```java
+Class c1 = Class.forName("com.itwanger.s39.ReflectionDemo3");
+System.out.println(c1.getCanonicalName());
+
+Class c2 = Class.forName("[D");
+System.out.println(c2.getCanonicalName());
+
+Class c3 = Class.forName("[[Ljava.lang.String;");
+System.out.println(c3.getCanonicalName());
+```
+
+来看一下输出结果：
+
+```
+com.itwanger.s39.ReflectionDemo3
+double[]
+java.lang.String[][]
+```
+
+类名 + `.class`，只适合在编译前就知道操作的 Class。。
+
+```java
+Class c1 = ReflectionDemo3.class;
+System.out.println(c1.getCanonicalName());
+
+Class c2 = String.class;
+System.out.println(c2.getCanonicalName());
+
+Class c3 = int[][][].class;
+System.out.println(c3.getCanonicalName());
+```
+
+来看一下输出结果：
+
+```java
+com.itwanger.s39.ReflectionDemo3
+java.lang.String
+int[][][]
+```
+
+**2）创建反射类的对象**
+
+通过反射来创建对象的方式有两种：
+
+- 用 Class 对象的 `newInstance()` 方法。
+- 用 Constructor 对象的 `newInstance()` 方法。
+
+```java
+Class c1 = Writer.class;
+Writer writer = (Writer) c1.newInstance();
+
+Class c2 = Class.forName("com.itwanger.s39.Writer");
+Constructor constructor = c2.getConstructor();
+Object object = constructor.newInstance();
+```
+
+**3）获取构造方法**
+
+Class 对象提供了以下方法来获取构造方法 Constructor 对象：
+
+- `getConstructor()`：返回反射类的特定 public 构造方法，可以传递参数，参数为构造方法参数对应 Class 对象；缺省的时候返回默认构造方法。
+- `getDeclaredConstructor()`：返回反射类的特定构造方法，不限定于 public 的。
+- `getConstructors()`：返回类的所有 public 构造方法。
+- `getDeclaredConstructors()`：返回类的所有构造方法，不限定于 public 的。
+
+```java
+Class c2 = Class.forName("com.itwanger.s39.Writer");
+Constructor constructor = c2.getConstructor();
+
+Constructor[] constructors1 = String.class.getDeclaredConstructors();
+for (Constructor c : constructors1) {
+    System.out.println(c);
+}
+```
+
+**4）获取字段**
+
+大体上和获取构造方法类似，把关键字 Constructor 换成 Field 即可。
+
+```java
+Method setNameMethod = clazz.getMethod("setName", String.class);
+Method getNameMethod = clazz.getMethod("getName");
+```
+
+**5）获取方法**
+
+大体上和获取构造方法类似，把关键字 Constructor 换成 Method 即可。
+
+```java
+Method[] methods1 = System.class.getDeclaredMethods();
+Method[] methods2 = System.class.getMethods();
+```
+
+“注意，三妹，如果你想反射访问私有字段和（构造）方法的话，需要使用 `Constructor/Field/Method.setAccessible(true)` 来绕开 Java 语言的访问限制。”我说。
+
+“好的，二哥。还有资料可以参考吗？”三妹问。
+
+“有的，有两篇文章写得非常不错，你在学习反射的时候可以作为参考。”我说。
+
+第一篇：深入理解 Java 反射和动态代理
+
+>链接：[https://dunwu.github.io/javacore/basics/java-reflection.html](https://dunwu.github.io/javacore/basics/java-reflection.html)
+
+第二篇：大白话说Java反射：入门、使用、原理：
+
+>链接：[https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html](https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html)
+
+这里简单总结下。
+
+反射是 Java 中的一个强大特性，它允许在运行时检查和操作[类](https://tobebetterjavaer.com/oo/object-class.html)、[接口](https://tobebetterjavaer.com/oo/interface.html)、[字段](https://tobebetterjavaer.com/oo/var.html)和[方法](https://tobebetterjavaer.com/oo/method.html)。反射是 Java 的核心组件，支持各种框架和库的实现，如 Spring、Hibernate 等。使用反射，可以在运行时动态地创建对象、调用方法和访问字段，而无需在编译时了解这些对象的具体实现。
+
+反射的主要类位于 `java.lang.reflect` 包中，主要包括以下几个关键类：
+
+- Class：代表一个类或接口，包含了类的结构信息（如名称、构造函数、方法、字段等）。通过 Class 对象，可以获取类的元数据并操作类的实例。
+- Constructor：代表类的[构造方法](https://tobebetterjavaer.com/oo/construct.html)，用于创建类的实例。
+- Method：代表类的方法，可以通过它调用类的实例方法。
+- Field：代表类的字段，可以获取或修改字段的值。
+- Modifier：包含方法、字段和类的[访问修饰符（如 public、private 等）](https://tobebetterjavaer.com/oo/access-control.html)。
+
+使用反射时，需要注意以下几点：
+
+- 性能：反射操作通常比直接操作对象的方法和字段慢，因为涉及到额外的间接调用和动态解析。因此，在关注性能的场景中，慎用反射。
+- 安全性：通过反射，可以访问和操作类的私有字段和方法，这可能导致安全问题。因此，使用反射时要确保代码的安全性。
+- 维护性：反射使代码变得更加复杂，可能导致难以维护。在使用反射时要确保代码的可读性和可维护性。
+
+尽管反射存在上述问题，但在某些场景下（如框架开发、动态代理等），它仍然是非常有用的工具。
+
+来一个完整的 demo 示例吧。
+
+```java
+class Person {
+    private String name;
+    private int age;
+
+    public Person() {
+    }
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    private void privateMethod() {
+        System.out.println("私有方法");
+    }
+}
+
+public class ReflectionDemo {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException,
+            IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+        // 获取 Person 类的 Class 对象
+        Class<?> personClass = Class.forName("com.github.paicoding.forum.test.javabetter.importance.Person");
+
+        // 获取并打印类名
+        System.out.println("类名: " + personClass.getName());
+
+        // 获取构造函数
+        Constructor<?> constructor = personClass.getConstructor(String.class, int.class);
+
+        // 使用构造函数创建 Person 对象实例
+        Object personInstance = constructor.newInstance("沉默王二", 30);
+
+        // 获取并调用 getName 方法
+        Method getNameMethod = personClass.getMethod("getName");
+        String name = (String) getNameMethod.invoke(personInstance);
+        System.out.println("名字: " + name);
+
+        // 获取并调用 setAge 方法
+        Method setAgeMethod = personClass.getMethod("setAge", int.class);
+        setAgeMethod.invoke(personInstance, 35);
+
+        // 获取并访问 age 字段
+        Field ageField = personClass.getDeclaredField("age");
+        ageField.setAccessible(true);
+        int age = ageField.getInt(personInstance);
+        System.out.println("年纪: " + age);
+
+        // 获取并调用私有方法
+        Method privateMethod = personClass.getDeclaredMethod("privateMethod");
+        privateMethod.setAccessible(true);
+        privateMethod.invoke(personInstance);
+    }
+}
+```
+
+在这个示例中，我们首先通过 `Class.forName()` 方法获取 Person 类的 Class 对象。接着，我们获取了 Person 类的构造方法、方法和字段，并使用这些反射对象来创建实例、调用方法和访问字段。注意，在访问私有方法和字段时，我们需要调用 `setAccessible(true)` 方法来允许访问。
+
+“好了，三妹，关于反射，就先讲到这里吧。”
+
+----
+
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+
+# 第十四章：Java并发编程
+
+限于《二哥的 Java 进阶之路》.pdf 篇幅的原因，目前已经 32 余万字，我 32G 内存的电脑，每次想更新这份小册，都嗡嗡嗡直叫的厉害！所以 Java 并发编程的 PDF 暂时只对《[二哥的编程星球（戳链接有优惠券）](https://tobebetterjavaer.com/zhishixingqiu/)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410210802.png)
+
+一句话介绍一下二哥的编程星球，这是一个编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。这是 PDF 的大致内容，想要加入星球的用户，可以提前感受一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410211343.png)
+
+如果你不想付费，也没关系，你完全可以到《[二哥的 Java 进阶之路](https://tobebetterjavaer.com/home.html)》网站查看并发编程板块，内容虽然不同，但质量也是完全有保障。
+
+众所周知，Java 并发是 Java 程序员必须懂但又很难懂的一块知识点。一般来说，很少有人敢说自己精通 Java 并发的，一是容易被面试官吊打，二是并发编程涉及到操作系统、内存、CPU 等计算机专业比较核心的内容，比较考验一个程序员的内功。
+
+这里就顺带给你盘点一下 Java 并发到底该如何从入门到精通，请及时用鸡毛掸子把收藏夹里的灰清理一下。在阅读过程中，如果有所帮助，麻烦默默收藏和主动转发，算是对我码字的这份坚持的亿点点鼓励。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-1.gif)
+
+
+## 一、为什么要学 Java 并发？
+
+有句话不知道当讲不当讲，先讲了再说，就是“如果你只想 CURD，那么 Java 并发不学也罢！”但其实呢，大家都已经被教育的很有涵养了，工作中拧不拧螺丝不重要，重要的是面试一定要会造火箭，不然面试的机会都很难捞得到。
+
+那作为 Java 体系中非常重要的一环，Java 并发自然是必须要掌握的，最起码也得会起个多线程吧？哈哈哈。高级点的，像平常开发中用到的 Tomcat 服务器、消息中间件、RPC 框架等等，它们的底层都涉及到了并发编程。
+
+当然了，Java 并发涉及到东西实在是不少，包括操作系统的知识，Java 虚拟机的一些知识，Java 线程模型的知识，多线程相关的关键字，比如说 synchronized、volatile 等，还有锁的知识、JDK 提供的工具类等等，学起来还是非常容易令人头大的。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-2.png)
+
+因此，我们需要一些高效的学习路线图，以及一些优质的学习资源，从而减少我们学习Java 并发编程所投入的时间和精力。
+
+## 二、Java 并发学习路线图
+
+这是我最近整理的一张关于 Java 并发编程的思维导图，大的方向可以分为三个部分：线程基础、理论基础、工具类 JUC。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-map.png)
+
+线程基础部分包括：
+
+- 线程的创建方式
+- 线程的状态切换
+- 线程的基本操作
+- 线程组和线程优先级
+
+理论基础包括：
+
+- 进程和线程的区别
+- 多线程解决了什么问题，又带来了什么问题？
+- 如何解决并发问题？包括 Java 内存模型，以及两个常见的关键字 volatile 和 synchronized
+
+工具类 JUC 包括：
+
+- 锁 Lock 系的 AQS、ReentrantLock、ReentrantReadWriteLock、Condition、LockSupport
+- 并发容器系的 ConcurrentHashMap、ConcurrentLinkedQueue、CopyOnWriteArrayList、ThreadLocal、BlockingQueue
+- 线程池系的 ThreadPoolExecutor、ScheduledThreadPoolExecutor
+- 原子系的 AtomicInteger、AtomicIntegerArray、AtomicReference 等等
+- 通信工具系的倒计时器 CountDownLatch、循环栅栏 CyclicBarrier、资源访问控制 Semaphore、数据交换 Exchanger、移相器Phaser
+- Fork/Join框架
+
+最后再来个经典的生产者消费者模式进行实践，整个 Java 并发体系就学得非常扎实了！
+
+## 三、硬核 Java 并发学习资料
+
+### **1）Java进阶之路**
+
+学 Java，当然要找二哥的Java进阶之路，网址我贴下面了哈：
+
+>[https://tobebetterjavaer.com/home.html](https://tobebetterjavaer.com/home.html)
+
+进去直接找 Java 核心里面的 Java 并发编程就对了。我按照前面的思维导图整理了 29 篇文章，全部都是硬核级别的，跟着学就对了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410204505.png)
+
+### **2）视频**
+
+懂的都懂，看视频到 B 站。黑马的《Java并发编程》评价还不错，300 多个小节，我觉得讲的比较好的有三部分：synchronized优化原理、AQS和线程池。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-4.png)
+
+>视频地址：[https://www.bilibili.com/video/BV16J411h7Rd](https://www.bilibili.com/video/BV16J411h7Rd)
+
+还有尚硅谷宋红康老师讲的这个视频。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230406095805.png)
+
+>视频地址：[https://www.bilibili.com/video/BV1Kw411Z7dF/](https://www.bilibili.com/video/BV1Kw411Z7dF/)
+
+### **3）书籍**
+
+纸质书只推荐一本《[Java 并发编程实战](https://book.douban.com/subject/10484692/)》，豆瓣评分 9.0。不过这本书确实有点老了，基本上是按照 Java 6 来讲解的，希望出版社能早点出 2.0 版。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-5.png)
+
+《Java 并发编程实战》这本书从总体上来看，分两条主线：
+
+- 介绍 Java 并发包的重要组件和原理
+- 如何利用这些组件来保证线程安全
+
+到底该如何获得线程安全呢？背会并理解下面这段话：
+
+>Writing thread-safe code is, at its core, about managing access to state, and in particular to shared, mutable state.
+
+如果发现不是很好懂，想从国内作者下手的话，可以尝试一下《[Java并发编程的艺术](https://book.douban.com/subject/26591326/)》和《[图解Java并发编程](https://book.douban.com/subject/35634953/)》这两本书，虽然豆瓣上评分一般，但对于构建 Java 并发的知识体系还是有很大帮助的。
+
+之后，再去啃《Java 并发编程实战》就会发现没有以前那么费劲了，这本书之所以被誉为 Java 并发编程的圣经，确实可以看得出作者在并发编程方面有着丰富的经验。
+
+### **4）开源电子书**
+
+推荐 RedSpider社区的[深入浅出 Java 多线程](http://concurrent.redspider.group/RedSpider.html)，比Java 并发编程实战更通俗易懂一些，因为里面穿插了很多精美的手绘图。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-6.png)
+
+>GitHub地址：[https://github.com/RedSpider1/concurrent](https://github.com/RedSpider1/concurrent)
+
+考虑到有些小伙伴可能需要 [PDF 版本](https://tobebetterjavaer.com/pdf/java-concurrent.html)，我花了一周的时间整理了一份，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**并发**」就可以拉取到了。
+
+![扫码关注后回复「并发」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+再推荐一份 GitHub 上星标 3.6k+ 的 Java 并发知识点总结：
+
+>[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency)
+
+仓库里有一句话我非常喜欢，也分享给各位小伙伴：
+
+>努力的意义，就是，在以后的日子里，放眼望去全是自己喜欢的人和事！
+
+
+### **5）付费专栏**
+
+王宝令老师在极客时间上开了一门《Java 并发编程实战》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11cBH)去购买。
+
+<a href="http://gk.link/a/11cBH" target="_blank">
+<img src="https://cdn.tobebetterjavaer.com/stutymore/thread-20230410204829.png" />
+</a>
+
+
+## 四、优质八股文
+
+这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶滴滴的面渣逆袭](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-7.png)
+
+为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java进阶之路》上，面渣逆袭 Java 并发篇：
+
+>[https://tobebetterjavaer.com/sidebar/sanfene/javathread.html](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
+
+Java 并发编程八股文（背诵版）：
+
+>[https://tobebetterjavaer.com/baguwen/java-thread.html](https://tobebetterjavaer.com/baguwen/java-thread.html)
+
+这两份八股文的质量都非常高，来看一下AQS了解多少小节下的内容，图文并茂，非常容易消化和吸收。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-8.png)
+
+诚实点说，如果能把这两份八股文背会的话，简历上就真的敢写“精通”Java 并发了。
+
+## 五、Java 并发学习心得
+
+Java 提供的并发组件，大致可以分为两类：
+
+- 从预防阶段下手，防止错误发生，比如说 synchronized 关键字
+- 一旦发生错误能及时重试，比如说 CAS
+
+对于线程数量比较多的并发场景，采用预防的措施会比较合理，这样大部分线程就不会因为小概率时间的 CAS 重试浪费掉大量的 CPU 周期；在线程数量小的时候，CAS 的意义就比较大，因为预防措施带来的线程切换要比 CAS 等待的开销更大。
+
+想要学好 Java 并发编程，就必须得对下图中提到的基础概念进行充分的理解。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-9.jpg)
+
+在我看来，并发编程主要是用来解决这两个痛点的：
+
+- 多个线程对同一变量造成的不一致问题；
+- 为提高性能，计算机的很多执行单元都配备了缓存，那势必会影响并发编程的数据一致性。
+
+需要提醒一点的是，多线程并发虽然是用来解决性能问题的，但并不意味着所有情况下都需要开启多线程，有时候反而会适得其反，那如果不是特别要求，尽量不要过早开启多线程。
+
+并发编程是 Java 体系当中相对难掌握的一块知识点，比较考验一名程序员的内功，其实并发编程最早的应用领域就是操作系统的实现。
+
+如果你已经有一定的编程经验，建议先学一下《计算机组成原理》，对操作系统、内存、CPU 先进行一些大致的了解，然后再来学习 Java 并发编程，可能就会感觉舒服多了！
+
+结合我多年的工作经验来看，并发编程可以抽象成**三个核心问题：分工、同步和互斥**。
+
+1）分工
+
+分工指的是如何高效地拆解任务并分配给线程，像并发编程领域的一些设计模式，比如说生产者与消费者就是用来进行分工的。
+
+2）同步
+
+同步指的是线程之间如何协作，一个线程执行完了一个任务，要通知另外一个线程开工。还拿生产者-消费者模型来说吧，当队列满的时候，生产者线程等待，当队列不满的时候，生产者线程需要被唤醒重新执行；当队列空的时候，消费者线程开始等待，不空的时候，消费者线程被重新唤醒。
+
+3）互斥
+
+互斥指的是保证同一时刻只有一个线程访问共享资源，是解决线程安全问题的杀手锏。
+
+当多个线程同时访问一个共享变量的时候，很容易出现“线程安全”问题，因为结果可能是不确定的——导致出现这个问题的根源就是可见性、有序性和原子性——为了解决它们，Java 引入了内存模型的概念，可以在一定程度上缓解“线程安全”的问题，但要想完全解决“线程安全”问题，还得靠互斥。
+
+互斥的核心技术就是锁，比如说 synchronized，还有各种 Lock。
+
+锁可以解决线程安全的问题，但同时也就意味着程序的性能要受到影响。
+
+因此，Java 提供了针对不同场景下的锁，比如说读写锁 ReadWriteLock，可以解决多线程同时读，但只有一个线程能写的问题；但 ReadWriteLock 也有自己的问题，就是如果有线程正在读，写线程需要等待度线程释放锁后才能获得写锁，也就是读的过程中不允许写，属于一种悲观的读锁。
+
+为了进一步提升并发执行的效率，Java 8 引入了一个新的读写锁 StampedLock，与ReadWriteLock 相比，StampedLock的优势在于读的过程中也允许获取写锁后写入，但带来的问题就是可能读的数据不一致，需要一点额外的代码来判断读的过程中是否有写入，本质上是一种乐观的锁。
+
+乐观锁的意思就是估计读的过程中大概率不会有写入，而悲观锁则是读的过程中拒绝有写入，两者的区别就在于性能上会有差异，乐观锁需要针对小概率事件进行多一步的检测，但性能也会有所提升；悲观锁更能保证“线程安全性”。
+
+听我这么一说，是不是一下子就清晰多了！
+
+# 第十五章：JVM（Java 虚拟机）
+
+同样限于《二哥的 Java 进阶之路》.pdf 篇幅的原因，目前已经 32 余万字，我 32G 内存的电脑，每次想更新这份小册，都嗡嗡嗡直叫的厉害！二哥的技术派团队成员楼仔出品的《JVM 手册》，暂时只对《[技术派星球（戳链接有优惠券）](https://paicoding.com/article/detail/169)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410212958.png)
+
+介绍一下技术派星球提供的服务内容，技术派项目学习教程，后续会采用连载的方式，让你从 0 到 1 也能搭建一套自己的网站；技术派项目答疑解惑，让你快速上手该项目，小白也能懂；向楼仔、二哥和大厂嘉宾 1 对 1 交流提问，告别迷茫；个人成长路线、职业规划和建议，帮助你有计划学习；简历指导，让你的简历也能脱颖而出，收获更多面试机会；需求方案、技术架构设计提供参考建议，对标大厂。
+
+这是 PDF 的大致内容，想要加入星球的用户，可以提前感受一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410213258.png)
+
+如果你不想付费，也没关系，你完全可以到《[二哥的 Java 进阶之路](https://tobebetterjavaer.com/home.html)》网站查看 JVM 板块的内容，内容虽然不同，但质量也是完全有保障。
+
+2020 年的时候，通读了一遍周志明老师的《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》第三版，读完之后受益匪浅，这让我对 Java 虚拟机有了一个更完整的认识。毫无疑问，《深入理解 Java 虚拟机》是 JVM 书籍中最好的一本书了，国产技术书的天花板。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
+
+如果觉得这本书太厚了，可以阅读我公众号上的这篇文章，对 JVM 会有一个系统的梳理。
+
+[JVM 核心知识点总结](https://mp.weixin.qq.com/s/zOdiefZpkpa2dxpcBLlc6A)
+
+在金三银四/金九银十的跳槽季中，很多小伙伴都会忍不住蠢蠢欲动，其中 JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家。
+
+## 一、为什么要学习 JVM？
+
+曾经我对 JVM 也是感到非常的头痛，完全搞不懂该怎么入门，只是听说《深入理解 Java 虚拟机》这本书很吊，但真读起来，却需要极大的耐心和定力，否则很快就会在读完第一章 JVM 的简史后放弃。
+
+那首先，我们就要搞清楚，为什么要学习 JVM ？
+
+第一，当然是面试要考，这一点毫无疑问，尤其是对于要参加校招的应届生来说，JVM 是绕不过去的，必须得学。
+
+第二，如果你想成为公司不可或缺的顶梁柱，那 JVM 你得学，因为一般情况下，遇到的问题基本上 Google 下就能解决了，可一旦遇到 JVM 性能调优，就必须得有能查 OOM 的原因、能看懂字节码的老鸟出马了。
+
+应用程序一旦上线，出问题是板上钉钉的事，除了数据库、网络、代码逻辑上的问题，剩下的就有内存溢出啊，频繁 GC 导致的性能瓶颈啊等棘手问题。
+
+遇到这种问题，你就必须得能看懂 GC 日志，明白什么是老年代、永久代、元数据区等，这些都是 Java 虚拟机方面的知识。
+
+明白了学习 JVM 的重要性，那我们就开搞吧！
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-4cbbdc72-3bdd-4b14-9d8d-ecd7764afb11.png)
+
+
+## 二、JVM 学习路线图
+
+这是我最近整理的一张关于 JVM 的思维导图，大的方向可以分为三个部分：字节码与类的加载、内存与垃圾回收、性能监控和调优。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-b4ec034b-9f20-40b9-a2a3-e77afffd2abf.png)
+
+字节码与类的加载包括：
+
+- 类的加载机制（类的加载过程、类加载器、双亲委派模型）
+- 字节码（类文件结构、字节码指令、字节码执行引擎、实战字节码）
+
+内存与垃圾回收包括：
+
+- JVM 内存结构
+- 垃圾回收算法
+- 垃圾回收机制
+- 垃圾收集器
+
+性能监控和调优包括：
+
+- 调优指标
+- 调优对象
+- 调优工具
+- JIT 优化
+
+有理论知识，有动手实战，基本上可以把 JVM 这块学的非常扎实了。
+
+
+## 三、硬核 JVM 学习资料
+
+### **1）Java进阶之路**
+
+学 Java，怎么能少得了《二哥的Java进阶之路》，网址我贴下面了哈：
+
+>[https://tobebetterjavaer.com/home.html](https://tobebetterjavaer.com/home.html)
+
+进去直接找「Java 核心」里面的 Java 虚拟机就对了。我按照前面的思维导图整理了 19 篇文章，全部都是硬核级别的，跟着学就对了。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-cc84fead-278b-46aa-a8ab-a3b07acefc12.png)
+
+### **2）视频**
+
+懂的都懂，看视频到 B 站。先推荐宋红康老师的 JVM 全套教程，200多万的播放量，还是非常受欢迎的。全套课程分为：
+
+- 内存与垃圾回收篇
+- 字节码与类的加载篇
+- 性能监控和调优篇
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-59c829ce-7fe3-45a5-b074-35dacb08941e.png)
+
+>视频地址：[https://www.bilibili.com/video/BV1PJ411n7xZ](https://www.bilibili.com/video/BV1PJ411n7xZ)
+
+友情提示，对于找工作面试的小伙伴，看 p01-p203、p266-301 就够了！
+
+还有黑马的这份 JVM 视频教程，1 万+的点赞量，确实很牛逼了。
+
+- 1. JVM 内存结构的组成、各部分功能作用，学会利用内存诊断工具排查内存相关问题；
+- 2. JVM 的招牌功能-垃圾回收机制是如何工作的，如何进行垃圾回收调优；
+- 3. Java 程序从编译为字节码到加载到运行的全流程，各个阶段的优化处理；
+- 4. 了解 Java 内存模型相关知识，见识多线程并发读写共享数据时的问题和 Java 的解决方案。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410211836.png)
+
+>视频地址：[https://www.bilibili.com/video/BV1yE411Z7AP](https://www.bilibili.com/video/BV1yE411Z7AP)
+
+再推荐一个狂神说的，40多万的播放量，算是一个面向 JVM 面试的突击版。像一些常见的 JVM 面试题，视频里都有讲到，比如说：
+
+- 什么是 JVM？
+- 说一说类加载器？
+- 栈和堆的区别是什么？
+- JDK 8 和之前发生了什么变化？
+- 新生代和老年代是干嘛的？
+- From区和 To区什么区别？
+- 如何排查 OOM？
+- 说说垃圾回收算法
+- 说说  JVM 内存结构 
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-be0910d8-7669-46cb-b8b9-2399162e723d.png)
+
+>视频地址：[https://www.bilibili.com/video/BV1iJ411d7jS](https://www.bilibili.com/video/BV1iJ411d7jS)
+
+### **3）书籍**
+
+纸质书只推荐一本周志明老师的神书《[深入理解 Java 虚拟机](https://book.douban.com/subject/34907497/)》，基本上学习 JVM 的小伙伴人手一本。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-3f6065c5-2fbf-4107-804e-393b32a4f9ab.png)
+
+这是一部从工作原理和工程实践两个维度深入剖析JVM的著作，是计算机领域公认的经典。
+
+全书分为五个部分，第一部分为走近 Java，主要是对 JVM 的发展历史进行了介绍，其中第二部分自动内存管理和第三部分虚拟机执行子系统需要重点掌握，这两部分的内容也是最多的。
+
+第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://tobebetterjavaer.com/xuexiluxian/java/thread.html)（我前面也做了学习路线的总结）这块内容结合起来学习。
+
+可以配合 GitHub 上这个开源的阅读笔记学习：
+
+>[https://github.com/TangBean/understanding-the-jvm](https://github.com/TangBean/understanding-the-jvm)
+
+### **4）开源电子书**
+
+推荐 doocs 社区的 [JVM 底层原理最全知识总结](https://doocs.github.io/jvm/)，算是《深入理解 Java 虚拟机》这本书的一个精简知识点梳理。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-f2e2e5c4-c193-4af5-b1bc-fea8df2006af.png)
+
+
+>GitHub 地址：[https://github.com/doocs/jvm](https://github.com/doocs/jvm)
+
+考虑到有些小伙伴可能需要 PDF 版本，我都整理好了，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**java**」就可以拉取到了。
+
+![扫码关注后回复「java」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+再推荐一份 GitHub 上开源的 Java 虚拟机知识点总结：
+
+>[https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/Java_虚拟机.md](https://github.com/heibaiying/Full-Stack-Notes/blob/master/notes/Java_虚拟机.md)
+
+为了方便大家的学习，我也将其整理成了 PDF，内容包含了 Java 内存区域、垃圾收集算法、经典垃圾收集器、虚拟机类加载机制、程序编译和代码优化，手绘图也非常的漂亮。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-2beabbe4-2ddd-4180-8690-1bc3224e6b41.png)
+
+需要的小伙伴可以微信搜索「**沉默王二**」回复关键字「**java**」就可以拉取到了。
+
+### **5）付费专栏**
+
+郑雨迪老师在极客时间上开了一门《深入拆解Java虚拟机》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11htX)去购买，反正我自己感觉质量还不错。
+
+<a href="http://gk.link/a/11htX" target="_blank">
+<img src="https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410212606.png" />
+</a>
+
+## 四、JVM 八股文
+
+这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
+
+
+为了方便大家的阅读和背诵，我已经将其整理到了《二哥的Java进阶之路》上，面渣逆袭 Java 虚拟机篇：
+
+>[https://tobebetterjavaer.com/sidebar/sanfene/jvm.html](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)
+
+Java 虚拟机八股文（背诵版）：
+
+>[https://tobebetterjavaer.com/baguwen/jvm.html](https://tobebetterjavaer.com/baguwen/jvm.html)
+
+诚实点说，如果能把这两份八股文背会/理解的话，简历上就真的敢写“精通”Java 虚拟机了。
+
+## 五、学习 JVM 的一点小心得
+
+和 C++ 相比，Java 的内存管理机制可以说是一大特色，Java 开发不再需要自己去写代码手动释放内存，甚至你想自己干，JVM 都不给你这个机会，虚拟机完全掌握了 Java 内存的控制权。
+
+这看起来挺美好的，但并不意味着Java 开发就可以随意写代码，随意使用内存，从我多年的使用体验来看，内存溢出和内存泄露还是会时不时发生的，尤其是初学阶段，尤其在开启多线程的情况下。
+
+一旦出现内存溢出或者内存泄露，排查问题还是挺困难的，所以知道逊尼基到底是怎么管理内存的就变得十分重要了。
+
+[JVM 的垃圾回收](https://tobebetterjavaer.com/jvm/gc.html)，其实就是收拾那些不再使用的 Java 对象，把他们曾经占用的内存重新释放出来。所以我们要搞清楚：
+
+- [对象是如何创建的](https://tobebetterjavaer.com/jvm/whereis-the-object.html)？对象是如何被访问的？到底哪些对象是废弃的？于是我们就需要搞清楚对象的生和死。
+- 这些废弃了的对象到底放在哪？于是就需要了解[JVM 的内存结构](https://tobebetterjavaer.com/jvm/neicun-jiegou.html)：方法区、堆、程序计数器、虚拟机栈和本地方法栈。
+- 这些废弃了的对象会不会造成内存泄露（OOM，OutOfMemoryError）？于是我们就需要了解每个分区的 OOM。
+- 这些废弃了对象什么时候被回收？于是我们就需要了解垃圾回收算法，比如说清除算法、复制算法、标记整理算法和分代收集算法。
+
+知道了一个对象在内存中的生和死，我们还需要知道类是如何在内存中变成对象的？对象的方法是如何执行的？
+
+于是我们开始学习 Java 虚拟机的执行过程，学习[字节码文件](https://tobebetterjavaer.com/jvm/class-file-jiegou.html)（ .class 文件），学习[类的加载机制](https://tobebetterjavaer.com/jvm/class-load.html)，学习[虚拟机栈的栈帧结构](https://tobebetterjavaer.com/jvm/how-jvm-run-zijiema-zhiling.html)，学习方法的调用过程，学习[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)等等。
+
+为了监控虚拟机和故障排查，我们需要学习[常用的 JDK 命令行工具](https://tobebetterjavaer.com/jvm/problem-tools.html)，掌握必要的线上问题排查方法；此外，还需要了解 JIT (Just In Time)并不是简单的将热点代码编译成机器码就收工的，它还会对代码的执行进行优化（[方法内联和逃逸分析](https://tobebetterjavaer.com/jvm/jit.html)）。
+
+JVM 相关的知识已经成为面试必考的科目了，但老实讲，JVM 相关的知识还真的不太好用在项目中，或者说不太好在项目中体现出来。
+
+那这里给大家推荐一个实战项目，基于 Spring Boot 的在线 Java IDE，可以远程执行 Java 代码并将程序的运行结果反馈出来。涉及了 Java 类文件的结构、Java 类加载器和 Java 类的热替换等 JVM 相关的技术。
+
+>[https://github.com/TangBean/OnlineExecutor](https://github.com/TangBean/OnlineExecutor)
+
+听我这么一说，是不是一下子就清晰多了！
+
+**Java 虚拟机虽然难学，但如果你能坚持学下去，内功自然而然就提升了一大截**。
 

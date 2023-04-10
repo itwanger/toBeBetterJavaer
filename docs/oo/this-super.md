@@ -1,7 +1,7 @@
 ---
-title: Java中this和super关键字的用法总结
-shortTitle: this和super
-description: Java程序员进阶之路，小白的零基础Java教程，Java中this和super的用法总结
+title: 详解Java this与super关键字的用法与区别
+shortTitle: Java this和super关键字
+description: 本文详细介绍了Java中的this和super关键字，包括它们的概念、作用以及如何在实际编程中使用。通过对比分析this和super关键字的区别，本文旨在帮助读者深入理解Java面向对象编程中的相关概念，提升编程技能。
 category:
   - Java 核心
 tag:
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,this,super,java this super,java this,java super,this super
+      content: Java,this,super,java this super,java this,java super,this super,this关键字, super关键字
 ---
 
-# 5.17 this和super
+# 5.14 Java this和super关键字
 
 “哥，被喊大舅子的感觉怎么样啊？”三妹不怀好意地对我说，她眼睛里充满着不屑。
 
@@ -530,8 +530,9 @@ public class CallParentParamConstrutor {
 ----
 
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

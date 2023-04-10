@@ -1,7 +1,7 @@
 ---
-title: 简单过了一下 Java 中的包
+title: Java中的包：如何创建、导入和使用 package 来优化代码结构
 shortTitle: Java中的包
-description: Java程序员进阶之路，小白的零基础Java教程，Java包可以优雅地解决类名冲突
+description: Java中的包是一种用于组织和管理代码的机制，可以帮助开发者更有效地处理复杂的项目。本文将详细讲解Java包的概念、创建、导入以及使用方法，以及如何通过包提高代码可读性和模块化。掌握Java包的使用技巧，为更高级的Java编程打下坚实基础。
 category:
   - Java 核心
 tag:
@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,包,import,package
+      content: Java,Java编程, 包, 代码组织, 代码管理, 包创建, 包导入,包,import,package
 ---
 
 # 5.2 Java中的包
@@ -291,8 +291,9 @@ JDK 的其它常用类定义在`java.util.*`，`java.math.*`，`java.text.*`，�
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

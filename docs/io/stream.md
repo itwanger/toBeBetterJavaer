@@ -1,15 +1,15 @@
 ---
-title: 字节流：Java IO 的基石
+title: Java 字节流：Java IO 的基石
 shortTitle: 字节流
 category:
   - Java核心
 tag:
   - Java IO
-description: Java程序员进阶之路，小白的零基础Java教程，文件的世界，一切皆字节流 OutputStream、InputStream
+description: 本文详细介绍了字节流在 Java IO 操作中的核心作用，阐述了字节流在处理各种输入输出任务时的重要性。同时，文章还提供了字节流的实际应用示例和常用方法。阅读本文，将帮助您更深入地了解字节流及其在 Java 编程中的关键地位，提高 IO 操作效率。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,IO,OutputStream,InputStream,字节流,java 字节流
+      content: Java,IO,java io,OutputStream,InputStream,字节流,java 字节流, 输入输出
 ---
 
 # 7.3 字节流
@@ -363,8 +363,9 @@ FileInputStream 是从文件中读取字节数据的流，它继承自 InputStre
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

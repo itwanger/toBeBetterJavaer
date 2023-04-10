@@ -1,6 +1,6 @@
 ---
-title: 手把手教你用 C语言实现 Java native 方法
-shortTitle: 用C语言实现本地方法
+title: 手把手教你用 C语言实现 Java native 本地方法
+shortTitle: Java native方法
 description: Java程序员进阶之路，小白的零基础Java教程，手把手教你用 C语言实现 Java native 方法
 category:
   - Java 核心
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java native,java本地方法,java native method
+      content: Java, C语言, Native方法, JNI,native,本地方法,java native method
 ---
 
-# 5.6 Java中的本地方法
+# 5.6 Java native方法
 
 “三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 
@@ -216,6 +216,6 @@ native 语法：
 
 最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

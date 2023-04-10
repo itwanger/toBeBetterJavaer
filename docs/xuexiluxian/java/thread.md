@@ -13,10 +13,11 @@ head:
       content: Java,并发编程,并发编程学习路线,Java多线程,学习路线,Java学习路线,Java教程,Java开发,Java入门
 ---
 
+# Java并发编程
 
 众所周知，Java 并发是 Java 程序员必须懂但又很难懂的一块知识点。一般来说，很少有人敢说自己精通 Java 并发的，一是容易被面试官吊打，二是并发编程涉及到操作系统、内存、CPU 等计算机专业比较核心的内容，比较考验一个程序员的内功。
 
-今天这篇文章就来给大家盘点一下 Java 并发到底该如何从入门到精通，请及时用鸡毛掸子把收藏夹里的灰清理一下。在阅读过程中，如果有所帮助，麻烦点赞/收藏和转发，算是对我码字的这份坚持的亿点点鼓励。
+今天这篇内容就来给大家盘点一下 Java 并发到底该如何从入门到精通，请及时用鸡毛掸子把收藏夹里的灰清理一下。在阅读过程中，如果有所帮助，麻烦默默收藏和主动转发，算是对我码字的这份坚持的亿点点鼓励。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-1.gif)
 
@@ -65,15 +66,15 @@ head:
 
 ## 三、硬核 Java 并发学习资料
 
-### **1）Java程序员进阶之路**
+### **1）Java进阶之路**
 
-学 Java，当然要找 Java程序员进阶之路，网址我贴下面了哈：
+学 Java，当然要找二哥的Java进阶之路，网址我贴下面了哈：
 
->[https://tobebetterjavaer.com/home.html#java并发编程](https://tobebetterjavaer.com/home.html#java并发编程)
+>[https://tobebetterjavaer.com/home.html](https://tobebetterjavaer.com/home.html)
 
-进去直接找 Java 核心里面的 Java 并发编程就对了。我按照前面的思维导图整理了 27 篇文章，全部都是硬核级别的，跟着学就对了。
+进去直接找 Java 核心里面的 Java 并发编程就对了。我按照前面的思维导图整理了 29 篇文章，全部都是硬核级别的，跟着学就对了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-map-1.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410204505.png)
 
 ### **2）视频**
 
@@ -108,8 +109,6 @@ head:
 
 之后，再去啃《Java 并发编程实战》就会发现没有以前那么费劲了，这本书之所以被誉为 Java 并发编程的圣经，确实可以看得出作者在并发编程方面有着丰富的经验。
 
-
-
 ### **4）开源电子书**
 
 推荐 RedSpider社区的[深入浅出 Java 多线程](http://concurrent.redspider.group/RedSpider.html)，比Java 并发编程实战更通俗易懂一些，因为里面穿插了很多精美的手绘图。
@@ -118,7 +117,7 @@ head:
 
 >GitHub地址：[https://github.com/RedSpider1/concurrent](https://github.com/RedSpider1/concurrent)
 
-考虑到有些小伙伴可能需要 [PDF 版本](https://mp.weixin.qq.com/s/pxKrjw_5NTdZfHOKCkwn8w)，我花了一周的时间整理了一份，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**并发**」就可以拉取到了。
+考虑到有些小伙伴可能需要 [PDF 版本](https://tobebetterjavaer.com/pdf/java-concurrent.html)，我花了一周的时间整理了一份，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**并发**」就可以拉取到了。
 
 ![扫码关注后回复「并发」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -133,16 +132,28 @@ head:
 
 ### **5）付费专栏**
 
+技术派楼仔出品的《Java 并发编程》小册，暂时只对《[二哥的编程星球（戳链接有优惠券）](https://tobebetterjavaer.com/zhishixingqiu/)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410210802.png)
+
+一句话介绍一下二哥的编程星球，这是一个编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。这是 PDF 的大致内容，想要加入星球的用户，可以提前感受一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410211343.png)
+
 王宝令老师在极客时间上开了一门《Java 并发编程实战》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11cBH)去购买。
+
+<a href="http://gk.link/a/11cBH" target="_blank">
+<img src="https://cdn.tobebetterjavaer.com/stutymore/thread-20230410204829.png" />
+</a>
 
 
 ## 四、优质八股文
 
-这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
+这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶滴滴的面渣逆袭](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-7.png)
 
-为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java程序员进阶之路》上，面渣逆袭 Java 并发篇：
+为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java进阶之路》上，面渣逆袭 Java 并发篇：
 
 >[https://tobebetterjavaer.com/sidebar/sanfene/javathread.html](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
 
@@ -221,9 +232,9 @@ Java 提供的并发组件，大致可以分为两类：
 
 ---------
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
 
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

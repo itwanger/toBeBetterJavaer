@@ -1,7 +1,7 @@
 ---
-title: 一文彻底搞懂 final 关键字
-shortTitle: final关键字
-description: Java程序员进阶之路，小白的零基础Java教程，一文彻底搞懂 Java final 关键字
+title: 一文彻底搞懂 Java final 关键字
+shortTitle: Java final关键字
+description: 本文详细讲解了Java中的final关键字，包括其作用、用法、使用场景以及注意事项。文章通过实例解析，帮助读者深入理解final关键字在Java编程中的重要性，提高编程水平和技巧。
 category:
   - Java 核心
 tag:
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,final,静态变量,静态方法,静态代码块,静态内部类,java final
+      content: Java,final,final关键字
 ---
 
-# 5.18 final关键字
+# 5.16 Java final关键字
 
 “哥，今天学什么呢？”
 
@@ -139,7 +139,7 @@ public class Actor {
 
 “一个类是 final 的，和一个类不是 final，但它所有的方法都是 final 的，考虑一下，它们之间有什么区别？”
 
-“我能想到的一点，就是前者不能被继承，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
+“我能想到的一点，就是前者不能被[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
 
 “嗯嗯嗯，没毛病没毛病，进步很大啊！”
 
@@ -223,8 +223,9 @@ System.out.println(writer.getName()); // 沉默王二
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

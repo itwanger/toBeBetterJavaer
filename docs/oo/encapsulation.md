@@ -1,7 +1,7 @@
 ---
-title: 聊聊Java封装
-shortTitle: Java 封装
-description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：封装
+title: 聊聊Java封装：Java面向对象核心概念
+shortTitle: Java封装
+description: 本文详细介绍了Java封装的概念和重要性。封装是Java面向对象编程的核心之一，通过封装可以保护类内部的数据，实现高内聚低耦合。文章将讨论如何通过访问权限控制、类设计等技巧来实现封装，以提高代码质量和可维护性。
 category:
   - Java 核心
 tag:
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java封装
+      content: Java,封装
 ---
 
-# 5.14 Java封装
+# 5.13 Java封装
 
 “三妹，准备好了没，我们这节来讲 Java 封装，算是 Java 的三大特征之一，理清楚了，对以后的编程有较大的帮助。”我对三妹说。
 
@@ -120,7 +120,7 @@ public class Wife {
 }
 ```
 
-可以看得出， Husband 类里面的 wife 属性是没有 getter()的，同时 Wife  类的 age 属性也是没有 getter()方法的。至于理由我想三妹你是懂的。
+可以看得出， Husband 类里面的 wife 属性是没有 `getter()`的，同时 Wife  类的 age 属性也是没有 `getter()`方法的。至于理由我想三妹你是懂的。
 
 没有哪个女人愿意别人知道她的年龄。
 
@@ -134,7 +134,7 @@ public class Wife {
 
 但是如果没有门窗，一个包裹的严严实实的黑盒子，又有什么存在的意义呢？所以通过门窗别人也能够看到里面的风景。所以说门窗就是房子对象留给外界访问的接口。
 
-通过这个我们还不能真正体会封装的好处。现在我们从程序的角度来分析封装带来的好处。如果我们不使用封装，那么该对象就没有 setter()和 getter()，那么 Husband 类应该这样写：
+通过这个我们还不能真正体会封装的好处。现在我们从程序的角度来分析封装带来的好处。如果我们不使用封装，那么该对象就没有 `setter()`和 `getter()`，那么 Husband 类应该这样写：
 
 ```java
 public class Husband {
@@ -154,7 +154,7 @@ husband.name = "张三";
 husband.sex = "男";    //貌似有点儿多余
 ```
 
-但是哪天如果我们需要修改 Husband，例如将 age 修改为 String 类型的呢？你只有一处使用了这个类还好，如果你有几十个甚至上百个这样地方，你是不是要改到崩溃。如果使用了封装，我们完全可以不需要做任何修改，只需要稍微改变下 Husband 类的 setAge()方法即可。
+但是哪天如果我们需要修改 Husband，例如将 age 修改为 String 类型的呢？你只有一处使用了这个类还好，如果你有几十个甚至上百个这样地方，你是不是要改到崩溃。如果使用了封装，我们完全可以不需要做任何修改，只需要稍微改变下 Husband 类的 `setAge()`方法即可。
 
 ```java
 public class Husband {
@@ -182,7 +182,7 @@ public class Husband {
 }
 ```
 
-其他的地方依然这样引用( husband.setAge(22) )保持不变。
+其他的地方依然这样引用( `husband.setAge(22)` )保持不变。
 
 到了这里我们确实可以看出，**封装确实可以使我们更容易地修改类的内部实现，而无需修改使用了该类的代码**。
 
@@ -229,7 +229,7 @@ public class Husband {
 }
 ```
 
-上面都是对 setter 方法的控制，其实通过封装我们也能够对对象的出口做出很好的控制。例如性别在数据库中一般都是以 1、0 的方式来存储的，但是在前台我们又不能展示 1、0，这里我们只需要在 getter()方法里面做一些转换即可。
+上面都是对 setter 方法的控制，其实通过封装我们也能够对对象的出口做出很好的控制。例如性别在数据库中一般都是以 1、0 的方式来存储的，但是在前台我们又不能展示 1、0，这里我们只需要在 `getter()`方法里面做一些转换即可。
 
 ```java
 public String getSexName() {
@@ -266,8 +266,9 @@ public String getCzHTML(){
 
 ----
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+GitHub 上标星 7500+ 的开源知识库《二哥的 Java 进阶之路》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7500+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **111** 即可免费领取。
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -138,60 +138,57 @@ head:
 
 ### 面向对象编程
 
-- [一文彻底讲清楚Java中的类和对象](oo/object-class.md)
-- [简单过了一下Java中的包](oo/package.md)
-- [Java中的变量：局部变量、成员变量、静态变量、常量](oo/var.md)
-- [Java中的方法：实例方法、静态方法、抽象方法](oo/method.md)
-- [聊聊Java中的可变参数](basic-extra-meal/varables.md)
-- [手把手教你用 C语言实现 Java native 方法](oo/native-method.md)
-- [构造方法：Java对象创建时的必经之路](oo/construct.md)
-- [聊一聊Java中的访问权限修饰符](oo/access-control.md)
-- [Java中的代码初始化块](oo/code-init.md)
+- [Java面向对象编程基础：探讨类和对象的概念与实现](oo/object-class.md)
+- [Java中的包：如何创建、导入和使用 package 来优化代码结构](oo/package.md)
+- [Java变量：了解局部变量、成员变量、静态变量和常量的特点与用途](oo/var.md)
+- [Java方法：实例方法、静态方法与抽象方法的区别与应用](oo/method.md)
+- [Java可变参数详解：实现更灵活的方法调用](basic-extra-meal/varables.md)
+- [手把手教你用 C语言实现 Java native 本地方法](oo/native-method.md)
+- [Java构造方法：打开Java对象创建之门的钥匙](oo/construct.md)
+- [Java访问权限修饰符：掌握封装的核心原则](oo/access-control.md)
+- [Java代码初始化块：了解实例初始化和静态初始化的过程](oo/code-init.md)
 - [Java抽象类，看这一篇就够了，豁然开朗](oo/abstract.md)
 - [Java接口，看这一篇就够了，简单易懂](oo/interface.md)
-- [Java 抽象类和接口的区别](oo/abstract-vs-interface.md)
-- [聊聊Java内部类：成员内部类、局部内部类、匿名内部类、静态内部类](oo/inner-class.md)
-- [聊聊 Java 封装](oo/encapsulation.md)
-- [深入理解 Java 继承](oo/extends-bigsai.md)
-- [聊聊 Java 多态](oo/polymorphism.md)
-- [Java中this和super关键字的用法总结](oo/this-super.md)
-- [详解 static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
-- [一文彻底搞懂 final 关键字](oo/final.md)
-- [聊聊instanceof关键字](basic-extra-meal/instanceof.md)
+- [Java内部类：成员内部类、局部内部类、匿名内部类、静态内部类](oo/inner-class.md)
+- [深入理解Java三大特性：封装、继承和多态](oo/encapsulation-inheritance-polymorphism.md)
+- [详解Java this与super关键字的用法与区别](oo/this-super.md)
+- [详解Java static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
+- [详解Java final 关键字](oo/final.md)
+- [掌握Java instanceof关键字](basic-extra-meal/instanceof.md)
 - [聊聊Java中的不可变对象](basic-extra-meal/immutable.md)
 - [方法重写 Override 和方法重载 Overload 有什么区别？](basic-extra-meal/override-overload.md)
-- [深入理解Java中的注解](basic-extra-meal/annotation.md)
+- [深入理解Java中的注解：从原理到实践掌握注解技巧](basic-extra-meal/annotation.md)
 - [Java枚举：小小enum，优雅而干净](basic-extra-meal/enum.md)
 
 ### 集合框架（容器）
 
-- [聊聊Java的集合框架的构成（概览）](collection/gailan.md)
-- [简单聊一下时间复杂度](collection/time-complexity.md)
-- [Java ArrayList详解（附源码分析）](collection/arraylist.md)
-- [Java LinkedList详解（附源码分析）](collection/linkedlist.md)
-- [聊聊ArrayList和LinkedList的区别](collection/list-war-2.md)
-- [深入理解Java中的泛型](basic-extra-meal/generic.md)
-- [迭代器Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
-- [为什么不能在foreach里执行删除操作？](collection/fail-fast.md)
-- [Java HashMap详解（附源码分析）](collection/hashmap.md)
-- [Java LinkedHashMap详解（附源码分析）](collection/linkedhashmap.md)
-- [Java TreeMap详解（附源码分析）](collection/treemap.md)
-- [详解 Java 中的双端队列（ArrayDeque附源码分析）](collection/arraydeque.md)
-- [详解 Java 中的优先级队列（PriorityQueue 附源码分析）](collection/PriorityQueue.md)
-- [Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
+- [Java集合框架：List、Set、Map、队列——全面解析](collection/gailan.md)
+- [时间复杂度：评估 Java集合框架的执行效率](collection/time-complexity.md)
+- [深入探讨 Java ArrayList：从源码分析到实践应用](collection/arraylist.md)
+- [深入探讨 Java LinkedList：从源码分析到实践应用](collection/linkedlist.md)
+- [ArrayList和LinkedList的区别：如何选择？](collection/list-war-2.md)
+- [Java 泛型深入解析：理解泛型原理与实际应用方法](basic-extra-meal/generic.md)
+- [Java迭代器Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
+- [阿里Java开发规约：禁止在foreach里执行元素的删除操作](collection/fail-fast.md)
+- [Java HashMap详解：源码分析与实际应用指南](collection/hashmap.md)
+- [Java LinkedHashMap详解：从源码分析到实践应用](collection/linkedhashmap.md)
+- [Java TreeMap详解：从源码分析到实践应用](collection/treemap.md)
+- [Java 双端队列 ArrayDeque详解：从源码分析到实践应用](collection/arraydeque.md)
+- [Java 优先级队列PriorityQueue详解：从源码分析到实践应用](collection/PriorityQueue.md)
+- [Java Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
 
 ### Java IO
 
-- [Java IO 的分类](io/shangtou.md)
-- [Java File：IO 流的开始与结束](io/file-path.md)
-- [字节流：Java IO 的基石](io/stream.md)
-- [字符流：Reader和Writer的故事](io/reader-writer.md)
-- [缓冲流：Java IO 的读写效率有了质的飞升](io/buffer.md)
-- [转换流：Java 字节流和字符流的桥梁](io/char-byte.md)
-- [打印流：PrintStream & PrintWriter](io/print.md)
-- [序列流：Java 对象的序列化和反序列化](io/serialize.md)
-- [Serializable：明明就一个空的接口嘛](io/Serializbale.md)
-- [说说 Java 的 transient 关键字](io/transient.md)
+- [深入了解 Java IO：各种流的分类与实际应用](io/shangtou.md)
+- [Java File：IO 流的起点与终点](io/file-path.md)
+- [Java 字节流：Java IO 的基石](io/stream.md)
+- [Java 字符流：Reader和Writer的故事](io/reader-writer.md)
+- [Java 缓冲流：Java IO 的读写效率有了质的飞升](io/buffer.md)
+- [Java 转换流：Java 字节流和字符流的桥梁](io/char-byte.md)
+- [Java 打印流：PrintStream & PrintWriter](io/print.md)
+- [Java 序列流：Java 对象的序列化和反序列化](io/serialize.md)
+- [Java Serializable 接口：明明就一个空的接口嘛](io/Serializbale.md)
+- [深入探讨 Java transient 关键字：掌控序列化时的字段选择权](io/transient.md)
 
 ### 异常处理
 
@@ -214,9 +211,9 @@ head:
 
 ### Java新特性
 
-- [Java 8 Stream流详细用法](java8/stream.md)
-- [Java 8 Optional最佳指南](java8/optional.md)
-- [深入浅出Java 8 Lambda表达式](java8/Lambda.md)
+- [Java 8 Stream流：掌握流式编程的精髓](java8/stream.md)
+- [Java 8 Optional最佳指南：解决空指针问题的优雅之选](java8/optional.md)
+- [深入浅出Java 8 Lambda表达式：探索函数式编程的魅力](java8/Lambda.md)
 - [Java 14 开箱，新特性Record、instanceof、switch香香香香](java8/java14.md)
 
 ### Java网络编程
@@ -234,7 +231,7 @@ head:
 - [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
 - [使用Java NIO完成网络通信](nio/network-connect.md)
 
-### 重要知识点
+### Java重要知识点
 
 - [Java命名规范：编写可读性强的代码](basic-extra-meal/java-naming.md)
 - [解决中文乱码：字符编码全攻略 - ASCII、Unicode、UTF-8、GB2312详解](basic-extra-meal/java-unicode.md)
