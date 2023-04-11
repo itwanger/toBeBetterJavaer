@@ -57,6 +57,10 @@ head:
 - 小册中会有一个虚拟人物，三妹，当然她的原型也是真实存在的，目的就是通过我们之间的对话，来增强文章的趣味性，以便你能更轻松地获取知识。
 - 最重要的一点，“光看不练假把戏”，请在阅读的过程中把该敲的代码敲了，把该记的笔记记了，语雀、思维导图、GitHub 仓库都可以，养成好的学习习惯。
 
+这里展示一下暗黑版的 PDF 视图，大家先感受一下，手绘图都画得非常用心。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411224013.png)
+
 如果你喜欢在线阅读，请戳下面这个网址：
 
 > [https://tobebetterjavaer.com](https://tobebetterjavaer.com)
