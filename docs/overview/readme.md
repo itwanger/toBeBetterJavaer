@@ -12,9 +12,9 @@ head:
       content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf
 ---
 
-# 第一章：小册简介
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-fengmian.png)
+
+# 第一章：小册简介
 
 以上就是小册的封面了，自我感觉还不错哈，简洁大方，但包含的信息又足够的丰富：
 
@@ -76,6 +76,10 @@ head:
 如果这份小册有幸被更多人看得到，我的虚荣心也会得到恰当的满足，嘿嘿😜
 
 ## 如何获取最新版？
+
+小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，可以说凝聚了二哥十多年来学习 Java 的心血，33 万+，绝对不虚市面上任何一本 Java 实体书！
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-wecom-temp-cbe8e183acdd8daa542c94ab7f4a7eec.png)
 
 小册会持续保持**更新**，如果想获得最新版，请在我的微信公众号 **沉默王二** 后台回复 **222** 获取（你懂我的意思吧，我肯定是足够二才有这样的勇气定义这样一个关键字）！
 
