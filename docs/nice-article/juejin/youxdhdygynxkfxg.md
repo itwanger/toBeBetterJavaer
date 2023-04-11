@@ -332,4 +332,4 @@ public List<XxxResponse> list(List<Long> userIds) {
 这篇内容大部分参考了掘金上一个网友的代码案例，我基本上每条都在本地代码库里查了一遍，还不错，基本上遵循了这些优秀的开发习惯，也希望球友们都能参照。做个优雅的代码骑士。
 
 
-> 参考链接：[https://juejin.cn/post/7072252275002966030](https://juejin.cn/post/7072252275002966030)，整理：沉默王二
+> 参考链接：[https://juejin.cn/post/707225227600+2966030](https://juejin.cn/post/707225227600+2966030)，整理：沉默王二

@@ -169,7 +169,7 @@ Lombok就会为我们自动生成所有属性的Getter和Setter方法，无需�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kanlwcydideacjtsyksqqazl-3a3bc955-09b1-4459-bdd9-782f5260e356.jpg)
 
-其内置了一个终端工具，提示还挺全的，如果你想在IDEA里管理Linux服务器，不妨可以试试，具体使用可以参考[CloudToolkit插件的使用](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500584&idx=1&sn=14ab8fa74ed8391a5cb91449f699123a&scene=21#wechat_redirect) 。
+其内置了一个终端工具，提示还挺全的，如果你想在IDEA里管理Linux服务器，不妨可以试试，具体使用可以参考[CloudToolkit插件的使用](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+584&idx=1&sn=14ab8fa74ed8391a5cb91449f699123a&scene=21#wechat_redirect) 。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kanlwcydideacjtsyksqqazl-1fdbe59d-f2a3-4c49-ba08-2da45166b01b.jpg)
 
@@ -189,7 +189,7 @@ Lombok就会为我们自动生成所有属性的Getter和Setter方法，无需�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kanlwcydideacjtsyksqqazl-718d5959-84f3-464c-a6d8-017d31372ff0.jpg)
 
-通过它能自动打包应用的镜像，jar包会直接上传到远程服务器并打包成镜像，具体使用可以参考[IDEA官方Docker插件的使用](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500482&idx=1&sn=713a30c88cea125f4768e6a0df939600&scene=21#wechat_redirect) 。
+通过它能自动打包应用的镜像，jar包会直接上传到远程服务器并打包成镜像，具体使用可以参考[IDEA官方Docker插件的使用](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+482&idx=1&sn=713a30c88cea125f4768e6a0df939600&scene=21#wechat_redirect) 。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-kanlwcydideacjtsyksqqazl-1736f431-5fb8-46da-a31e-af78bbf89aa8.jpg)
 

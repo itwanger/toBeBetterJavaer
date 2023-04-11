@@ -225,12 +225,12 @@ public Class AResponse{
 
 ## 推荐阅读
 
-*   [阿里出品！SpringBoot应用自动化部署神器，IDEA版Jenkins？](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500584&idx=1&sn=14ab8fa74ed8391a5cb91449f699123a&scene=21#wechat_redirect)
-*   [不要再重复造轮子了！这17个Java常用工具类，让生产力爆表！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500513&idx=1&sn=5b6cb49477f411bcde02b8601e50968b&scene=21#wechat_redirect)
-*   [再见命令行！一键部署应用到远程服务器，IDEA官方Docker插件真香！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500482&idx=1&sn=713a30c88cea125f4768e6a0df939600&scene=21#wechat_redirect)
-*   [再见收费的Navicat！这款开源的数据库管理工具界面更炫酷！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500148&idx=1&sn=e49cb3da841bf35c331f9e378d8cffdd&scene=21#wechat_redirect)
-*   [还在从零开始搭建项目？这款升级版快速开发脚手架值得一试！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500084&idx=1&sn=5bd4e684af3cfede8f332c423a478abf&scene=21#wechat_redirect)
-*   [别再用过时的方式了！全新版本Spring Security，这样用才够优雅！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500055&idx=1&sn=3faa578dd23b296cdb4dbd19910d2a46&scene=21#wechat_redirect)
+*   [阿里出品！SpringBoot应用自动化部署神器，IDEA版Jenkins？](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+584&idx=1&sn=14ab8fa74ed8391a5cb91449f699123a&scene=21#wechat_redirect)
+*   [不要再重复造轮子了！这17个Java常用工具类，让生产力爆表！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+513&idx=1&sn=5b6cb49477f411bcde02b8601e50968b&scene=21#wechat_redirect)
+*   [再见命令行！一键部署应用到远程服务器，IDEA官方Docker插件真香！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+482&idx=1&sn=713a30c88cea125f4768e6a0df939600&scene=21#wechat_redirect)
+*   [再见收费的Navicat！这款开源的数据库管理工具界面更炫酷！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+148&idx=1&sn=e49cb3da841bf35c331f9e378d8cffdd&scene=21#wechat_redirect)
+*   [还在从零开始搭建项目？这款升级版快速开发脚手架值得一试！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+84&idx=1&sn=5bd4e684af3cfede8f332c423a478abf&scene=21#wechat_redirect)
+*   [别再用过时的方式了！全新版本Spring Security，这样用才够优雅！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+55&idx=1&sn=3faa578dd23b296cdb4dbd19910d2a46&scene=21#wechat_redirect)
 *   [重磅更新！Mall实战教程全面升级，瞬间高大上了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499376&idx=1&sn=3ed28795cdd35fbaa3506e74a56703b0&scene=21#wechat_redirect)
 *   [40K+Star！Mall电商实战项目开源回忆录！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247486684&idx=1&sn=807fd808adac8019eb2095ba088efe54&scene=21#wechat_redirect)
 
@@ -238,4 +238,4 @@ public Class AResponse{
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-xinlgjszjszzdwjkzsymjlxyhjbyll-938d5f07-9996-4215-abe6-4d029c00414e.jpg)
 
->转载链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd)，出处：macrozheng，整理：沉默王二
+>转载链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+626&idx=1&sn=149f436a3c80414c949ad4ad9a7ebb77&chksm=fc2c7f5acb5bf64cee6ddf2e13ec9cfa2f0bdad617708226e72619c9f955ef82d81030a5fbc5#rd)，出处：macrozheng，整理：沉默王二

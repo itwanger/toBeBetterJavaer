@@ -603,4 +603,4 @@ public class UserAmountMessageListener implements RedisMessageListener {
 
 
 
->参考链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500794&idx=2&sn=c3e404938b5f348514286576b6977d66&chksm=fc2c7ff2cb5bf6e44f9ba46bae686a8a3f45bf03840926d2b9db9d0e9b278016b54ce689f12d#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500794&idx=2&sn=c3e404938b5f348514286576b6977d66&chksm=fc2c7ff2cb5bf6e44f9ba46bae686a8a3f45bf03840926d2b9db9d0e9b278016b54ce689f12d#rd)
+>参考链接：[https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+794&idx=2&sn=c3e404938b5f348514286576b6977d66&chksm=fc2c7ff2cb5bf6e44f9ba46bae686a8a3f45bf03840926d2b9db9d0e9b278016b54ce689f12d#rd](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+794&idx=2&sn=c3e404938b5f348514286576b6977d66&chksm=fc2c7ff2cb5bf6e44f9ba46bae686a8a3f45bf03840926d2b9db9d0e9b278016b54ce689f12d#rd)

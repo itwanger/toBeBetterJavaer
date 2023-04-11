@@ -325,7 +325,7 @@ public class ThreadPoolConfig {
 *   [JetBrains正式宣布：产品涨价！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247501215&idx=1&sn=cd5e281cde81c8873b4bd19979d40191&scene=21#wechat_redirect)
 *   [当开发同事辞职，接手到垃圾代码怎么办?](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247501139&idx=1&sn=21d24ce2dff862350eadfd876a3ea585&scene=21#wechat_redirect)
 *   [还在用命令行看日志？快用Kibana吧，可视化日志分析YYDS！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247501074&idx=1&sn=629db39555b3d344f928b87abecbba69&scene=21#wechat_redirect)
-*   [Mall电商实战项目全面升级！支持最新版SpringBoot，干掉循环依赖...](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500820&idx=1&sn=9895bd4c39b90d45eb2a10efedb236ac&scene=21#wechat_redirect)
+*   [Mall电商实战项目全面升级！支持最新版SpringBoot，干掉循环依赖...](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+820&idx=1&sn=9895bd4c39b90d45eb2a10efedb236ac&scene=21#wechat_redirect)
 *   [重磅更新！Mall实战教程全面升级，瞬间高大上了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499376&idx=1&sn=3ed28795cdd35fbaa3506e74a56703b0&scene=21#wechat_redirect)
 *   [40K+Star！Mall电商实战项目开源回忆录！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247486684&idx=1&sn=807fd808adac8019eb2095ba088efe54&scene=21#wechat_redirect)
 

@@ -117,7 +117,7 @@ head:
 
 **推荐👍** ：[Github掘金计划：Github上的一些优质项目搜罗](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIwNDgzMzI3Mg==&action=getalbum&album_id=1571213952619954180&token=2007747701&lang=zh_CN#wechat_redirect&__biz=MzIwNDgzMzI3Mg==#wechat_redirect)
 
-我是 Guide哥，拥抱开源，喜欢烹饪。Github 接近 10w 点赞的开源项目 JavaGuide 的作者。未来几年，希望持续完善 JavaGuide，争取能够帮助更多学习 Java 的小伙伴！共勉！凎！**[点击查看我的2020年工作汇报！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247500763&idx=1&sn=8f5bd15a82c45e8dc9216eb57a7f3652&scene=21&token=2072948470&lang=zh_CN#wechat_redirect)**
+我是 Guide哥，拥抱开源，喜欢烹饪。Github 接近 10w 点赞的开源项目 JavaGuide 的作者。未来几年，希望持续完善 JavaGuide，争取能够帮助更多学习 Java 的小伙伴！共勉！凎！**[点击查看我的2020年工作汇报！](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247600+763&idx=1&sn=8f5bd15a82c45e8dc9216eb57a7f3652&scene=21&token=2072948470&lang=zh_CN#wechat_redirect)**
 
 **
 
