@@ -1,6 +1,6 @@
 ---
 title: 深入理解Java三大特性：封装、继承和多态
-shortTitle: Java继承
+shortTitle: Java封装继承多态
 description: 本文详细解析Java面向对象编程的三大核心特性：封装、继承和多态。文章将分别介绍这三个特性的概念、原理以及在实际开发中的应用场景，通过实例帮助读者更好地理解和掌握Java面向对象编程的基本技巧。
 category:
   - Java 核心
