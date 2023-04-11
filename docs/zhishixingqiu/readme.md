@@ -21,7 +21,7 @@ head:
 
 也是得到了很多小伙伴的认可，所以才敢如此“胆大包天”推荐给大家。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png" title="二哥的编程星球" width="300" />
+<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png" title="二哥的编程星球" width="260" />
 
 目前已经有 2000 多名球友加入了，讲良心话，这个发展速度远远超出了二哥的预期，**所以星球的票价从 99 元上调至 119 元了**，想要加入的小伙伴这次一定要抓紧，目前是最大优惠力度 89 元（限时发放涨价后的第一波优惠券 30 元，抢完会将优惠券下调至 20 元，千万不要再犹豫了，一开始优惠完可只需要 69 元）。
 

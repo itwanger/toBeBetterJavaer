@@ -116,11 +116,11 @@ https://github.com/beekeeper-studio/beekeeper-studio/
 推荐阅读
 ----
 
-*   [还在从零开始搭建项目？这款升级版快速开发脚手架值得一试！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500084&idx=1&sn=5bd4e684af3cfede8f332c423a478abf&scene=21#wechat_redirect)
-*   [新来了个技术总监，把Redis当MQ用，是水平欠缺么？](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500067&idx=1&sn=8edab30e461646436c0699a10d7ea6d3&scene=21#wechat_redirect)
-*   [别再用过时的方式了！全新版本Spring Security，这样用才够优雅！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500055&idx=1&sn=3faa578dd23b296cdb4dbd19910d2a46&scene=21#wechat_redirect)
-*   [IDEA 官宣全新默认 UI ！体验了一把，被惊艳到了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500010&idx=1&sn=d88da6cabffea66fc49ddf36883386c0&scene=21#wechat_redirect)
-*   [电商项目中的优惠券系统这样设计，同事直呼 666 ！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247500006&idx=1&sn=92439b568765675d38cb8fff00b97c13&scene=21#wechat_redirect)
+*   [还在从零开始搭建项目？这款升级版快速开发脚手架值得一试！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+84&idx=1&sn=5bd4e684af3cfede8f332c423a478abf&scene=21#wechat_redirect)
+*   [新来了个技术总监，把Redis当MQ用，是水平欠缺么？](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+67&idx=1&sn=8edab30e461646436c0699a10d7ea6d3&scene=21#wechat_redirect)
+*   [别再用过时的方式了！全新版本Spring Security，这样用才够优雅！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+55&idx=1&sn=3faa578dd23b296cdb4dbd19910d2a46&scene=21#wechat_redirect)
+*   [IDEA 官宣全新默认 UI ！体验了一把，被惊艳到了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+10&idx=1&sn=d88da6cabffea66fc49ddf36883386c0&scene=21#wechat_redirect)
+*   [电商项目中的优惠券系统这样设计，同事直呼 666 ！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247600+6&idx=1&sn=92439b568765675d38cb8fff00b97c13&scene=21#wechat_redirect)
 *   [线上项目出BUG没法调试？这款阿里开源的诊断神器，自带IDEA插件真香！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499910&idx=1&sn=05c3177e74009bcaf309d5abd27ec4d5&scene=21#wechat_redirect)
 *   [重磅更新！Mall实战教程全面升级，瞬间高大上了！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247499376&idx=1&sn=3ed28795cdd35fbaa3506e74a56703b0&scene=21#wechat_redirect)
 *   [40K+Star！Mall电商实战项目开源回忆录！](https://mp.weixin.qq.com/s?__biz=MzU1Nzg4NjgyMw==&mid=2247486684&idx=1&sn=807fd808adac8019eb2095ba088efe54&scene=21#wechat_redirect)
