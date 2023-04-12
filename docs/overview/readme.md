@@ -61,6 +61,10 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411224013.png)
 
+这是 epub 版本的阅读效果，感觉左右翻动的效果好舒服，一次可以看两页，真的就像在读纸质版书籍一样，体验非常棒。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230412002314.png)
+
 如果你喜欢在线阅读，请戳下面这个网址：
 
 > [https://tobebetterjavaer.com](https://tobebetterjavaer.com)
