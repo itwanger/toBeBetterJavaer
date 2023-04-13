@@ -214,7 +214,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411113706.png)
 
 你可以添加我的微信（没有⼿机号再申请微信，故使⽤企业微信。不过，请放⼼，这个号的消息也是
-我本⼈处理，平时最常看这个微信）领取星球专属优惠券(推荐)，限时 80/年 加⼊(续费半价)！
+我本⼈处理，平时最常看这个微信）领取星球专属优惠券(推荐)，限时 89/年 加⼊(续费半价)！
 
 <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png" title="二哥的编程星球" width="300" />
 
