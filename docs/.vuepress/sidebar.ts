@@ -662,6 +662,7 @@ export const sidebarConfig = sidebar({
           prefix: "cityselect/",
           collapsible: true,
           children: [
+            "wuhan",
             "beijing",
             "chengdu",
             "guangzhou",
