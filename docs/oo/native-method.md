@@ -1,7 +1,7 @@
 ---
 title: 手把手教你用 C语言实现 Java native 本地方法
 shortTitle: Java native方法
-description: Java程序员进阶之路，小白的零基础Java教程，手把手教你用 C语言实现 Java native 方法
+description: 掌握C语言实现Java native方法的技巧，提升Java程序性能，深入理解Java Native Interface (JNI)。跟随我们的手把手教程，轻松实现跨语言编程。
 category:
   - Java 核心
 tag:

@@ -18,7 +18,7 @@ head:
 
 那天，小二去阿里面试，面试官老王一上来就甩给了他一道面试题：为什么阿里的 Java 开发手册里会强制不要在 foreach 里进行元素的删除操作？
 
-![](https://img-blog.csdnimg.cn/20191202223028397.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/fail-fast-20230428073517.png)
 
 小二听完这句话就乐了。为什么呢？因为一天前他刚在《[二哥的Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》上看到过这道题的答案。
 
