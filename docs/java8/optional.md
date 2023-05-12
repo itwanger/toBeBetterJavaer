@@ -138,17 +138,17 @@ Optional<String> opt = Optional.of("沉默王二");
 System.out.println(opt.isPresent()); // 输出：true
 
 Optional<String> optOrNull = Optional.ofNullable(null);
-System.out.println(opt.isPresent()); // 输出：false
+System.out.println(optOrNull.isPresent()); // 输出：false
 ```
 
 Java 11 后还可以通过方法 `isEmpty()` 判断与 `isPresent()` 相反的结果。
 
 ```java
 Optional<String> opt = Optional.of("沉默王二");
-System.out.println(opt.isPresent()); // 输出：false
+System.out.println(opt.isEmpty()); // 输出：false
 
 Optional<String> optOrNull = Optional.ofNullable(null);
-System.out.println(opt.isPresent()); // 输出：true
+System.out.println(optOrNull.isEmpty()); // 输出：true
 ```
 
 ### 05、非空表达式
@@ -180,7 +180,7 @@ opt.ifPresentOrElse(str -> System.out.println(str.length()), () -> System.out.pr
 
 有时候，我们在创建（获取） Optional 对象的时候，需要一个默认值，`orElse()` 和 `orElseGet()` 方法就派上用场了。
 
-`orElse()` 方法用于返回包裹在 Optional 对象中的值，如果该值不为 null，则返回；否则返回默认值。该方法的参数类型和值得类型一致。
+`orElse()` 方法用于返回包裹在 Optional 对象中的值，如果该值不为 null，则返回；否则返回默认值。该方法的参数类型和值的类型一致。
 
 ```java
 String nullName = null;
