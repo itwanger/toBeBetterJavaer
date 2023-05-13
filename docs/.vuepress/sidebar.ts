@@ -89,7 +89,7 @@ export const sidebarConfig = sidebar({
       link: "home",
     },
     {
-      text: "二、Java核心",
+      text: "二、Java基础",
       collapsible: true,
       children: [
         // readme小写一定要带上.md，否则找不到
@@ -345,7 +345,7 @@ export const sidebarConfig = sidebar({
       ],
     },
     {
-      text: "三、Java企业级开发",
+      text: "三、Java进阶",
       collapsible: true,
       children: [
         {
