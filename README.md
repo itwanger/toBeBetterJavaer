@@ -98,7 +98,7 @@
 
 ## Java概述及环境配置
 
-- [《二哥Java进阶之路》小册简介](overview/readme.md)
+- [《二哥Java进阶之路》小册简介](docs/overview/readme.md)
 - [一文让你彻底了解Java（简史、特性、前景）](docs/overview/what-is-java.md)
 - [Windows和macOS下安装JDK教程：原生安装与包管理器（高级）](docs/overview/jdk-install-config.md)
 - [提升Java开发效率：在macOS和Windows上轻松安装Intellij IDEA](docs/overview/IDEA-install-config.md)
