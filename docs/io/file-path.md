@@ -431,6 +431,7 @@ FileUtil 类包含以下几类操作工具：
 
 ```java
 File dest = FileUtil.file("FileUtilDemo2.java");
+FileUtil.copyFile(file, dest);
 ```
 
 2、move：移动文件或目录。该方法可以将指定的源文件或目录移动到指定的目标文件或目录中。
