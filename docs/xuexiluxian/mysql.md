@@ -214,7 +214,7 @@ Windows 的话，在 Java程序员进阶之路上分享过破解方法：
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/mysql-eb464848-e5d9-4611-8b32-2fe799e7ca68.png)
 
 
-## 第三阶段：面试突击/实战运用
+## 第四阶段：面试突击/实战运用
 
 学习可以是功利性质的（当然也可以是因为纯粹的热爱），如果不是为了高薪，我们又何苦学这么多呢？
 
