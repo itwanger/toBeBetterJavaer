@@ -192,7 +192,7 @@ public class TryCatchTest1 {
 
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326210303.png)
 
-+-差不多，直接看前面的分数对比，没有 `ry-catch` 的性能确实好些，这也和书中说的 `try-catch` 会影响 JVM 一些特定的优化说法吻合，但是具体没有说影响哪些优化，我猜测可能是指令重排之类的。
++-差不多，直接看前面的分数对比，没有 `try-catch` 的性能确实好些，这也和书中说的 `try-catch` 会影响 JVM 一些特定的优化说法吻合，但是具体没有说影响哪些优化，我猜测可能是指令重排之类的。
 
 好了，我再总结下有关 `try-catch` 性能问题说法：
 
