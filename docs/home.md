@@ -93,12 +93,19 @@ head:
 
 ## 二哥的编程星球
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **2000 多名** 球友加入了，如果你也需要一个良好的学习氛围，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个编程学习指南+ Java 项目实战+ LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。里面已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **2800 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
 
 <a href="https://tobebetterjavaer.com/zhishixingqiu/">
   <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
 </a>
 
+知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的四件大事，对你的求职和学习都会很有帮助：
+
+
+- ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://mp.weixin.qq.com/s/3yUT9v3BAdf4rfdfWYbfPw)
+- ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
+- ✌️：[官宣：二哥的AI项目星搭小星上线了~](https://mp.weixin.qq.com/s/lVbfKycCQaFDO0Lqi8cvIg)
+- ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
 
 ## Java基础
 
@@ -106,80 +113,81 @@ head:
 
 ### Java概述及环境配置
 
-- [《二哥Java进阶之路》小册简介](overview/readme.md)
-- [一文让你彻底了解Java（简史、特性、前景）](overview/what-is-java.md)
-- [Windows和macOS下安装JDK教程：原生安装与包管理器（高级）](overview/jdk-install-config.md)
-- [提升Java开发效率：在macOS和Windows上轻松安装Intellij IDEA](overview/IDEA-install-config.md)
-- [Java新手入门：使用IDEA编写第一个程序Hello World](overview/hello-world.md)
+- [《二哥的Java进阶之路》小册简介](overview/readme.md)
+- [Java简史、特性、前景](overview/what-is-java.md)
+- [Windows和macOS下安装JDK教程](overview/jdk-install-config.md)
+- [在macOS和Windows上安装Intellij IDEA](overview/IDEA-install-config.md)
+- [编写第一个程序Hello World](overview/hello-world.md)
+
 
 ### Java基础语法
 
-- [Java编程基础：48个关键字及2个保留字全解析](basic-extra-meal/48-keywords.md)
-- [了解Java注释：单行、多行与文档注释的使用方法](basic-grammar/javadoc.md)
-- [Java数据类型全解析：基本数据类型与引用数据类型](basic-grammar/basic-data-type.md)
-- [Java数据类型转换：自动类型转换与强制类型转换](basic-grammar/type-cast.md)
+- [48个关键字及2个保留字全解析](basic-extra-meal/48-keywords.md)
+- [了解Java注释](basic-grammar/javadoc.md)
+- [基本数据类型与引用数据类型](basic-grammar/basic-data-type.md)
+- [自动类型转换与强制类型转换](basic-grammar/type-cast.md)
 - [Java基本数据类型缓存池剖析（IntegerCache）](basic-extra-meal/int-cache.md)
-- [Java运算符详解：掌握各类运算符的使用与技巧](basic-grammar/operator.md)
-- [Java流程控制语句详解：带你轻松学会各类控制结构](basic-grammar/flow-control.md)
+- [Java运算符详解](basic-grammar/operator.md)
+- [Java流程控制语句详解](basic-grammar/flow-control.md)
 
 ### 数组&字符串
 
-- [掌握Java数组：一个非常特殊的对象](array/array.md)
-- [掌握 Java二维数组：从基本概念到实际应用](array/double-array.md)
+- [掌握Java数组](array/array.md)
+- [掌握 Java二维数组](array/double-array.md)
 - [如何优雅地打印Java数组？](array/print.md)
-- [深入解读String类源码及其应用技巧](string/string-source.md)
-- [为什么Java字符串String是不可变的？](string/immutable.md)
-- [深入理解Java字符串String常量池](string/constant-pool.md)
-- [Java 字符串优化：详解 String.intern() 方法](string/intern.md)
-- [聊聊 Java String、StringBuilder、StringBuffer 三兄弟](string/builder-buffer.md)
-- [字符串相等判断：Java中的equals()与==的区别与用法](string/equals.md)
-- [最优雅的Java字符串String拼接是哪种方式？](string/join.md)
-- [如何在Java中拆分字符串：详解String类的split()方法](string/split.md)
+- [深入解读String类源码](string/string-source.md)
+- [为什么Java字符串是不可变的？](string/immutable.md)
+- [深入理解Java字符串常量池](string/constant-pool.md)
+- [详解 String.intern() 方法](string/intern.md)
+- [String、StringBuilder、StringBuffer](string/builder-buffer.md)
+- [Java中equals()与==的区别](string/equals.md)
+- [最优雅的Java字符串拼接是哪种方式？](string/join.md)
+- [如何在Java中拆分字符串？](string/split.md)
 
-### 面向对象编程
+### Java面向对象编程
 
-- [Java面向对象编程基础：探讨类和对象的概念与实现](oo/object-class.md)
-- [Java中的包：如何创建、导入和使用 package 来优化代码结构](oo/package.md)
-- [Java变量：了解局部变量、成员变量、静态变量和常量的特点与用途](oo/var.md)
-- [Java方法：实例方法、静态方法与抽象方法的区别与应用](oo/method.md)
-- [Java可变参数详解：实现更灵活的方法调用](basic-extra-meal/varables.md)
+- [类和对象](oo/object-class.md)
+- [Java中的包](oo/package.md)
+- [Java变量](oo/var.md)
+- [Java方法](oo/method.md)
+- [Java可变参数详解](basic-extra-meal/varables.md)
 - [手把手教你用 C语言实现 Java native 本地方法](oo/native-method.md)
-- [Java构造方法：打开Java对象创建之门的钥匙](oo/construct.md)
-- [Java访问权限修饰符：掌握封装的核心原则](oo/access-control.md)
-- [Java代码初始化块：了解实例初始化和静态初始化的过程](oo/code-init.md)
-- [Java抽象类，看这一篇就够了，豁然开朗](oo/abstract.md)
-- [Java接口，看这一篇就够了，简单易懂](oo/interface.md)
-- [Java内部类：成员内部类、局部内部类、匿名内部类、静态内部类](oo/inner-class.md)
+- [Java构造方法](oo/construct.md)
+- [Java访问权限修饰符](oo/access-control.md)
+- [Java代码初始化块](oo/code-init.md)
+- [Java抽象类](oo/abstract.md)
+- [Java接口](oo/interface.md)
+- [Java内部类](oo/inner-class.md)
 - [深入理解Java三大特性：封装、继承和多态](oo/encapsulation-inheritance-polymorphism.md)
-- [详解Java this与super关键字的用法与区别](oo/this-super.md)
-- [详解Java static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](oo/static.md)
+- [详解Java this与super关键字](oo/this-super.md)
+- [详解Java static 关键字](oo/static.md)
 - [详解Java final 关键字](oo/final.md)
 - [掌握Java instanceof关键字](basic-extra-meal/instanceof.md)
 - [聊聊Java中的不可变对象](basic-extra-meal/immutable.md)
 - [方法重写 Override 和方法重载 Overload 有什么区别？](basic-extra-meal/override-overload.md)
-- [深入理解Java中的注解：从原理到实践掌握注解技巧](basic-extra-meal/annotation.md)
+- [深入理解Java中的注解](basic-extra-meal/annotation.md)
 - [Java枚举：小小enum，优雅而干净](basic-extra-meal/enum.md)
 
 ### 集合框架（容器）
 
 - [Java集合框架：List、Set、Map、队列——全面解析](collection/gailan.md)
-- [时间复杂度：评估 Java集合框架的执行效率](collection/time-complexity.md)
-- [深入探讨 Java ArrayList：从源码分析到实践应用](collection/arraylist.md)
-- [深入探讨 Java LinkedList：从源码分析到实践应用](collection/linkedlist.md)
-- [ArrayList和LinkedList的区别：如何选择？](collection/list-war-2.md)
-- [Java 泛型深入解析：理解泛型原理与实际应用方法](basic-extra-meal/generic.md)
+- [时间复杂度](collection/time-complexity.md)
+- [深入探讨 Java ArrayList](collection/arraylist.md)
+- [深入探讨 Java LinkedList](collection/linkedlist.md)
+- [ArrayList和LinkedList的区别](collection/list-war-2.md)
+- [Java 泛型深入解析](basic-extra-meal/generic.md)
 - [Java迭代器Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
-- [阿里Java开发规约：禁止在foreach里执行元素的删除操作](collection/fail-fast.md)
-- [Java HashMap详解：源码分析与实际应用指南](collection/hashmap.md)
-- [Java LinkedHashMap详解：从源码分析到实践应用](collection/linkedhashmap.md)
-- [Java TreeMap详解：从源码分析到实践应用](collection/treemap.md)
-- [Java 双端队列 ArrayDeque详解：从源码分析到实践应用](collection/arraydeque.md)
-- [Java 优先级队列PriorityQueue详解：从源码分析到实践应用](collection/PriorityQueue.md)
+- [为什么禁止在foreach里执行元素的删除操作？](collection/fail-fast.md)
+- [Java HashMap详解](collection/hashmap.md)
+- [Java LinkedHashMap详解](collection/linkedhashmap.md)
+- [Java TreeMap详解](collection/treemap.md)
+- [Java 双端队列 ArrayDeque详解](collection/arraydeque.md)
+- [Java 优先级队列PriorityQueue详解](collection/PriorityQueue.md)
 - [Java Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
 
 ### Java IO
 
-- [深入了解 Java IO：各种流的分类与实际应用](io/shangtou.md)
+- [深入了解 Java IO](io/shangtou.md)
 - [Java File：IO 流的起点与终点](io/file-path.md)
 - [Java 字节流：Java IO 的基石](io/stream.md)
 - [Java 字符流：Reader和Writer的故事](io/reader-writer.md)
@@ -188,7 +196,7 @@ head:
 - [Java 打印流：PrintStream & PrintWriter](io/print.md)
 - [Java 序列流：Java 对象的序列化和反序列化](io/serialize.md)
 - [Java Serializable 接口：明明就一个空的接口嘛](io/Serializbale.md)
-- [深入探讨 Java transient 关键字：掌控序列化时的字段选择权](io/transient.md)
+- [深入探讨 Java transient 关键字](io/transient.md)
 
 ### 异常处理
 
@@ -227,20 +235,20 @@ head:
 - [Java NIO 比传统 IO 强在哪里？](nio/nio-better-io.md)
 - [一文彻底解释清楚Java 中的NIO、BIO和AIO](nio/BIONIOAIO.md)
 - [详解Java NIO的Buffer缓冲区和Channel通道](nio/buffer-channel.md)
-- [聊聊 Java 中的Paths、Files](nio/paths-files.md)
-- [一文彻底理解Java IO模型(阻塞IO非阻塞IO/IO多路复用)](nio/moxing.md)
-- [使用Java NIO完成网络通信](nio/network-connect.md)
+- [聊聊 Java NIO中的Paths、Files](nio/paths-files.md)
+- [Java NIO 网络编程实践：从入门到精通](nio/network-connect.md)
+- [一文彻底理解Java IO模型](nio/moxing.md)
 
-### Java重要知识点
+### 重要知识点
 
 - [Java命名规范：编写可读性强的代码](basic-extra-meal/java-naming.md)
 - [解决中文乱码：字符编码全攻略 - ASCII、Unicode、UTF-8、GB2312详解](basic-extra-meal/java-unicode.md)
-- [深入浅出Java拆箱与装箱：理解自动类型转换与包装类的关系](basic-extra-meal/box.md)
-- [深入理解Java浅拷贝与深拷贝：实战案例与技巧](basic-extra-meal/deep-copy.md)
-- [Java hashCode方法解析：C++实现的高效本地方法](basic-extra-meal/hashcode.md)
+- [深入浅出Java拆箱与装箱](basic-extra-meal/box.md)
+- [深入理解Java浅拷贝与深拷贝](basic-extra-meal/deep-copy.md)
+- [Java hashCode方法解析](basic-extra-meal/hashcode.md)
 - [Java到底是值传递还是引用传递？](basic-extra-meal/pass-by-value.md)
-- [Java 泛型背后的秘密：为什么无法实现真正的泛型？](basic-extra-meal/true-generic.md)
-- [Java 反射详解：动态创建实例、调用方法和访问字段](basic-extra-meal/fanshe.md)
+- [为什么无法实现真正的泛型？](basic-extra-meal/true-generic.md)
+- [Java 反射详解](basic-extra-meal/fanshe.md)
 
 
 ### Java并发编程

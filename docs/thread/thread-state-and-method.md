@@ -12,21 +12,17 @@ head:
       content: Java,并发编程,多线程,Thread,线程状态
 ---
 
-## 操作系统中的线程状态转换
-
-首先我们来看看操作系统中的线程状态转换。
-
-> 在现在的操作系统中，线程是被视为轻量级进程的，所以**操作系统线程的状态其实和操作系统进程的状态是一致的**。
+我们先来看看操作系统中的线程状态转换。在操作系统中，线程被视为轻量级的进程，所以**操作系统的线程状态其实和操作系统的进程状态是一致的**。
 
 ![系统进程/线程转换图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-state-and-method-f60caaad-ad47-4edc-8d0a-ab736c2e8500.png)
 
-操作系统线程主要有以下三个状态：
+操作系统的线程主要有以下三个状态：
 
-- 就绪状态(ready)：线程正在等待使用CPU，经调度程序调用之后可进入running状态。
+- 就绪状态(ready)：线程正在等待使用CPU，经调度程序调用之后进入running状态。
 - 执行状态(running)：线程正在使用CPU。
 - 等待状态(waiting): 线程经过等待事件的调用或者正在等待其他资源（如I/O）。  
 
-## Java线程的6个状态
+然后我们来看Java线程的6个状态：
 
 ```java
 // Thread.State 源码
@@ -40,7 +36,8 @@ public enum State {
 }
 ```
 ### NEW
-处于NEW状态的线程此时尚未启动。这里的尚未启动指的是还没调用Thread实例的start()方法。  
+
+处于NEW状态的线程此时尚未启动。这里的尚未启动指的是还没调用Thread实例的`start()`方法。  
 
 ```java
 private void testStateNew() {
@@ -48,14 +45,15 @@ private void testStateNew() {
     System.out.println(thread.getState()); // 输出 NEW 
 }
 ```
-从上面可以看出，只是创建了线程而并没有调用start()方法，此时线程处于NEW状态。
 
-**关于start()的两个引申问题**
+从上面可以看出，只是创建了线程而并没有调用start方法，此时线程处于NEW状态。
 
-1. 反复调用同一个线程的start()方法是否可行？
-2. 假如一个线程执行完毕（此时处于TERMINATED状态），再次调用这个线程的start()方法是否可行？
+**关于start的两个引申问题**
 
-要分析这两个问题，我们先来看看start()的源码：
+1. 反复调用同一个线程的start方法是否可行？
+2. 假如一个线程执行完毕（此时处于TERMINATED状态），再次调用这个线程的start方法是否可行？
+
+要分析这两个问题，我们先来看看`start()`的源码：
 
 ```java
 public synchronized void start() {
