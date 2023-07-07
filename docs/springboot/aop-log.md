@@ -66,9 +66,7 @@ execution(modifiers-pattern? ret-type-pattern declaring-type-pattern?
 @Pointcut("execution(public * com.codingmore.controller.*.*(..))")
 ```
 
- 表示 `com.codingmore.controller` 包下的所有 public 方法都要应用切面的通知。
-
-
+表示 `com.codingmore.controller` 包下的所有 public 方法都要应用切面的通知。
 
 ### 三、实操 AOP 记录接口访问日志
 
