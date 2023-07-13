@@ -9,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,http,socket http,http 服务器,java 服务器,HTTP服务器
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,http,socket http,http 服务器,java 服务器,HTTP服务器
 ---
 
 # 11.3 用Socket实现一个HTTP服务器
@@ -24,7 +24,7 @@ head:
 
 #### 1\. Socket 编程基础
 
-我们这里主要是利用 [ServerSocket](https://tobebetterjavaer.com/socket/socket.html) 来绑定端口，提供 TCP 服务，基本使用姿势也比较简单，一般套路如下
+我们这里主要是利用 [ServerSocket](https://javabetter.cn/socket/socket.html) 来绑定端口，提供 TCP 服务，基本使用姿势也比较简单，一般套路如下
 
 - 创建 ServerSocket 对象，绑定监听端口
 - 通过 `accept()` 方法监听客户端请求
@@ -49,11 +49,11 @@ out.flush();;
 socket.close()
 ```
 
-具体的代码，我们前面的章节详细地讲过了，第一次来的小伙伴可以[戳链接](https://tobebetterjavaer.com/socket/socket.html)去学习一下。
+具体的代码，我们前面的章节详细地讲过了，第一次来的小伙伴可以[戳链接](https://javabetter.cn/socket/socket.html)去学习一下。
 
 #### 2\. HTTP 协议
 
-ServerSocket 走的是 [TCP 协议](https://tobebetterjavaer.com/socket/network-base.html)，HTTP 协议本身是在 TCP 协议之上的一层。
+ServerSocket 走的是 [TCP 协议](https://javabetter.cn/socket/network-base.html)，HTTP 协议本身是在 TCP 协议之上的一层。
 
 TCP 是一种面向连接的、可靠的、基于字节流的传输层协议。TCP 在两个网络节点之间提供了一条可靠的通信信道，确保数据在传输过程中不会丢失、重复或乱序。TCP 使用握手过程建立连接，通过确认和重传机制确保数据可靠传输，并使用流量控制和拥塞控制算法来优化网络性能。
 
@@ -580,7 +580,7 @@ public class BasicHttpServer {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

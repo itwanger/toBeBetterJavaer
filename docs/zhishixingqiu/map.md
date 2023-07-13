@@ -1,5 +1,5 @@
 ---
-title: 📚沉默王二-知识星球-Java程序员进阶之路图谱（包含球友提问&精华主题&星球专栏&坦白从宽，持续更新...）
+title: 📚沉默王二-知识星球-二哥的Java进阶之路图谱（包含球友提问&精华主题&星球专栏&坦白从宽，持续更新...）
 shortTitle: 📚沉默王二-知识星球图谱
 category:
   - 知识星球
@@ -9,7 +9,7 @@ description: 沉默王二-知识星球图谱（包含学习路线 & 球友提问
 head:
   - - meta
     - name: keywords
-      content: 知识星球,沉默王二,Java程序员进阶之路,编程,Java,IT,计算机专业
+      content: 知识星球,沉默王二,二哥的Java进阶之路,编程,Java,IT,计算机专业
 ---
 
 **非常感谢球友的认可和支持**，为了方便索引，我将球友们之前的问题进行了汇总分类，相信你可以根据自己的情况找到对应的提问&回答（请善用 Ctrl+F 哦）。
@@ -419,21 +419,21 @@ head:
 
 ## 学习路线
 
-- [Java学习路线一条龙版](https://tobebetterjavaer.com/xuexiluxian/java/yitiaolong.html)
-- [Java并发编程学习路线](https://tobebetterjavaer.com/xuexiluxian/java/thread.html)
-- [Java虚拟机学习路线](https://tobebetterjavaer.com/xuexiluxian/java/jvm.html)
+- [Java学习路线一条龙版](https://javabetter.cn/xuexiluxian/java/yitiaolong.html)
+- [Java并发编程学习路线](https://javabetter.cn/xuexiluxian/java/thread.html)
+- [Java虚拟机学习路线](https://javabetter.cn/xuexiluxian/java/jvm.html)
 - [MySQL该怎么学啊？](https://t.zsxq.com/07meuVzJi)
 - [Redis学习路线](https://t.zsxq.com/0bqT0xZyw)
-- [C语言学习路线](https://tobebetterjavaer.com/xuexiluxian/c.html)
-- [C++学习路线](https://tobebetterjavaer.com/xuexiluxian/ccc.html)
-- [Python学习路线](https://tobebetterjavaer.com/xuexiluxian/python.html)
-- [Go 语言学习路线](https://tobebetterjavaer.com/xuexiluxian/go.html)
-- [操作系统学习路线](https://tobebetterjavaer.com/xuexiluxian/os.html)
-- [前端学习路线](https://tobebetterjavaer.com/xuexiluxian/qianduan.html)
-- [数据结构与算法学习路线](https://tobebetterjavaer.com/xuexiluxian/algorithm.html)
-- [蓝桥杯学习路线](https://tobebetterjavaer.com/xuexiluxian/lanqiaobei.html)
-- [大数据学习路线](https://tobebetterjavaer.com/xuexiluxian/bigdata.html)
-- [Android 安卓学习路线](https://tobebetterjavaer.com/xuexiluxian/android.html)
+- [C语言学习路线](https://javabetter.cn/xuexiluxian/c.html)
+- [C++学习路线](https://javabetter.cn/xuexiluxian/ccc.html)
+- [Python学习路线](https://javabetter.cn/xuexiluxian/python.html)
+- [Go 语言学习路线](https://javabetter.cn/xuexiluxian/go.html)
+- [操作系统学习路线](https://javabetter.cn/xuexiluxian/os.html)
+- [前端学习路线](https://javabetter.cn/xuexiluxian/qianduan.html)
+- [数据结构与算法学习路线](https://javabetter.cn/xuexiluxian/algorithm.html)
+- [蓝桥杯学习路线](https://javabetter.cn/xuexiluxian/lanqiaobei.html)
+- [大数据学习路线](https://javabetter.cn/xuexiluxian/bigdata.html)
+- [Android 安卓学习路线](https://javabetter.cn/xuexiluxian/android.html)
 - [.net该如何学习？](https://t.zsxq.com/08DW5HpWP)
 - [计算机考研 408 统考该如何准备？](https://t.zsxq.com/07AmamMJa)
 - [XCPC/蓝桥杯/天梯赛 算法类竞赛该怎么入门？](https://t.zsxq.com/07ujUnEIm)
@@ -576,22 +576,22 @@ head:
 ## 开发工具
 
 - [推荐几款在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
-- [三种上Google、GitHub的方式，你懂的](https://tobebetterjavaer.com/nice-article/itmind/shangwang.html)
+- [三种上Google、GitHub的方式，你懂的](https://javabetter.cn/nice-article/itmind/shangwang.html)
 - [macOS Navicat 绿色版](https://t.zsxq.com/04eMf6AMZ)
-- [IDEA、Navicat、Typora、xshell 免费](https://tobebetterjavaer.com/nice-article/itmind/)
+- [IDEA、Navicat、Typora、xshell 免费](https://javabetter.cn/nice-article/itmind/)
 
 ## 城市选择
-- [北京都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/beijing.html)
-- [广州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/guangzhou.html)
-- [深圳都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/shenzhen.html)
-- [西安都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/xian.html)
-- [青岛都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/qingdao.html)
-- [郑州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/zhengzhou.html)
-- [苏州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/suzhou.html)
-- [南京都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/nanjing.html)
-- [杭州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/hangzhou.html)
-- [成都都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/chengdu.html)
-- [济南都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/jinan.html)
+- [北京都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/beijing.html)
+- [广州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/guangzhou.html)
+- [深圳都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/shenzhen.html)
+- [西安都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/xian.html)
+- [青岛都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/qingdao.html)
+- [郑州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/zhengzhou.html)
+- [苏州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/suzhou.html)
+- [南京都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/nanjing.html)
+- [杭州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/hangzhou.html)
+- [成都都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/chengdu.html)
+- [济南都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/jinan.html)
 
 ## 其他主题
 - [其他主题：学习知识的时候一下子学完，还是渐进式学习？](https://t.zsxq.com/0bJHm5XY4)
@@ -610,7 +610,7 @@ head:
 - [其他主题：怎样才能找到女朋友？](https://t.zsxq.com/06yBujaey)
 - [其他主题：有什么 Java 相关的证书对于求职有帮助？](https://t.zsxq.com/06uBMZzZZ)
 - [其他主题：请问哪个招聘网站比较好呢？](https://t.zsxq.com/078WqmDsU)
-- [其他主题：Java程序员进阶之路中基础的内容不理解怎么办？](https://t.zsxq.com/07XASWxOL)
+- [其他主题：二哥的Java进阶之路中基础的内容不理解怎么办？](https://t.zsxq.com/07XASWxOL)
 - [其他主题：ChatGPT注册+使用攻略](https://t.zsxq.com/0bdah3lqK)
 
 

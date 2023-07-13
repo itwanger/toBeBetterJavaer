@@ -41,6 +41,6 @@ Navicat 16 macOS 永久破解，软件已集成破解文件于一体，只需下
 
 ## 破解汇总
 
-- [Navicat 16 macOS 破解](https://tobebetterjavaer.com/nice-article/itmind/navicatmacyjpx.html)
-- [Navicat 16 Windows 破解](https://tobebetterjavaer.com/nice-article/itmind/navicatzxbwindowspjbjc.html)
-- [更多靠谱破解教程，戳这里！！（破解目录汇总）](https://tobebetterjavaer.com/nice-article/itmind/)
+- [Navicat 16 macOS 破解](https://javabetter.cn/nice-article/itmind/navicatmacyjpx.html)
+- [Navicat 16 Windows 破解](https://javabetter.cn/nice-article/itmind/navicatzxbwindowspjbjc.html)
+- [更多靠谱破解教程，戳这里！！（破解目录汇总）](https://javabetter.cn/nice-article/itmind/)

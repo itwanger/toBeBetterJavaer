@@ -20,11 +20,11 @@ head:
 
 “好的，那我们直接开始。”
 
-打开 [Intellij IDEA](https://tobebetterjavaer.com/overview/IDEA-install-config.html)，新建一个学习 Java 的项目，点击 File → New → Project。
+打开 [Intellij IDEA](https://javabetter.cn/overview/IDEA-install-config.html)，新建一个学习 Java 的项目，点击 File → New → Project。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3810664d-49fb-4bed-ad32-3cb962ab5201.png)
 
-选择 JDK 版本，比如之前我们[安装的 JDK 8](https://tobebetterjavaer.com/overview/jdk-install-config.html)。
+选择 JDK 版本，比如之前我们[安装的 JDK 8](https://javabetter.cn/overview/jdk-install-config.html)。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3773144f-ba5a-4639-8747-70eb815f1ccd.png)
 
@@ -40,7 +40,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-5ef6024a-86e4-4fb7-860c-526ed867ab4a.png)
 
-如果你的 Intellij IDEA 主题和二哥不一样，没关系，当然了，如果你也是个有颜值追求的家伙，可以安装 Vuesion Theme 插件，安装方法[戳这里](https://tobebetterjavaer.com/ide/shenji-chajian-10.html)。
+如果你的 Intellij IDEA 主题和二哥不一样，没关系，当然了，如果你也是个有颜值追求的家伙，可以安装 Vuesion Theme 插件，安装方法[戳这里](https://javabetter.cn/ide/shenji-chajian-10.html)。
 
 “OK，到这里，我们已经把学习 Java 的环境准备好了，接下来就可以写第一个 Hello World 程序了。”我自信地对三妹说。
 
@@ -102,13 +102,13 @@ public class HelloWorld {
 }
 ```
 
-- class 关键字：用于在 Java 中声明一个[类](https://tobebetterjavaer.com/oo/object-class.html)。
-- public 关键字：一个表示可见性的[访问修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
-- [static 关键字](https://tobebetterjavaer.com/oo/static.html)：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
+- class 关键字：用于在 Java 中声明一个[类](https://javabetter.cn/oo/object-class.html)。
+- public 关键字：一个表示可见性的[访问修饰符](https://javabetter.cn/oo/access-control.html)。
+- [static 关键字](https://javabetter.cn/oo/static.html)：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
 - void 关键字：表示该方法不返回任何值。
 - main 关键字：表示该方法为主方法，也就是程序运行的入口。`main()` 方法由 Java 虚拟机执行，配合上 static 关键字后，可以不用创建对象就可以调用，可以节省不少内存空间。
-- `String [] args`：`main()` 方法的参数，类型为 [String](https://tobebetterjavaer.com/string/immutable.html) [数组](https://tobebetterjavaer.com/array/array.html)，参数名为 args。
-- `System.out.println()`：一个 Java 语句，一般情况下是将传递的参数打印到控制台。System 是 java.lang 包中的一个 final 类，该类提供的设施包括标准输入，标准输出和错误输出流等等。out 是 System 类的静态成员字段，类型为 [PrintStream](https://tobebetterjavaer.com/io/print.html)，它与主机的标准输出控制台进行映射。println 是 PrintStream 类的一个方法，通过调用 print 方法并添加一个换行符实现的。
+- `String [] args`：`main()` 方法的参数，类型为 [String](https://javabetter.cn/string/immutable.html) [数组](https://javabetter.cn/array/array.html)，参数名为 args。
+- `System.out.println()`：一个 Java 语句，一般情况下是将传递的参数打印到控制台。System 是 java.lang 包中的一个 final 类，该类提供的设施包括标准输入，标准输出和错误输出流等等。out 是 System 类的静态成员字段，类型为 [PrintStream](https://javabetter.cn/io/print.html)，它与主机的标准输出控制台进行映射。println 是 PrintStream 类的一个方法，通过调用 print 方法并添加一个换行符实现的。
 
 “实在记不住也没关系，我们后面还会讲哦（可以跳转的地方都会展开细讲）。”我的话令三妹感到非常开心。
 
@@ -132,7 +132,7 @@ class 文件在 target 目录下，classes 为 src/main 目录下的 class 文�
 
 “不错不错，都能挖掘到这个点了。”
 
-.java 是源代码，也就是我们开发人员可以看懂的，可以编写的；.class 是字节码文件，是经过 javac 编译后的文件，是交给 [JVM](https://tobebetterjavaer.com/jvm/what-is-jvm.html) 执行的文件。
+.java 是源代码，也就是我们开发人员可以看懂的，可以编写的；.class 是字节码文件，是经过 javac 编译后的文件，是交给 [JVM](https://javabetter.cn/jvm/what-is-jvm.html) 执行的文件。
 
 “三妹，这里再顺带给你讲一下，Java 是编译型语言还是解释型语言。”
 
@@ -147,7 +147,7 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 之后，我们可以通过 java 命令运行字节码（比如说 `java Hello`），此时就有 2 种处理方式了。
 
 - 1、字节码由 JVM 逐条解释执行。
-- 2、部分字节码可能由 [JIT（即时编译，戳链接了解](https://tobebetterjavaer.com/jvm/jit.html)）编译为机器指令直接执行。
+- 2、部分字节码可能由 [JIT（即时编译，戳链接了解](https://javabetter.cn/jvm/jit.html)）编译为机器指令直接执行。
 
 ①、逐条解释执行：
 
@@ -161,7 +161,7 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 
 ②、JIT 即时编译：
 
-为了提高 Java 程序的执行效率，Java 虚拟机引入了即时编译（[JIT，Just-In-Time Compilation](https://tobebetterjavaer.com/jvm/jit.html)）技术。在 JIT 模式下，Java 虚拟机会在运行时将频繁执行的字节码编译为本地机器码，这样就可以直接在硬件上运行，而不需要再次解释。这样做的结果是显著提高了程序的执行速度。需要注意的是，JIT 编译器并不会编译所有的字节码，而是根据一定的策略，仅编译被频繁调用的代码段（热点代码）。
+为了提高 Java 程序的执行效率，Java 虚拟机引入了即时编译（[JIT，Just-In-Time Compilation](https://javabetter.cn/jvm/jit.html)）技术。在 JIT 模式下，Java 虚拟机会在运行时将频繁执行的字节码编译为本地机器码，这样就可以直接在硬件上运行，而不需要再次解释。这样做的结果是显著提高了程序的执行速度。需要注意的是，JIT 编译器并不会编译所有的字节码，而是根据一定的策略，仅编译被频繁调用的代码段（热点代码）。
 
 总结一下 JIT 即时编译的特点：
 
@@ -184,7 +184,7 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

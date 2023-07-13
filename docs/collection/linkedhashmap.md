@@ -18,11 +18,11 @@ head:
 
 俗话说了，“金无足赤人无完人”，HashMap 也不例外，有一种需求它就满足不了，假如我们需要一个按照插入顺序来排列的键值对集合，那 HashMap 就无能为力了。那该怎么办呢？必须得上今天这篇文章的主角：LinkedHashMap。
 
-同学们好啊，还记得 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 那篇吗？我自己感觉写得非常棒啊，既通俗易懂，又深入源码，真的是分析得透透彻彻、清清楚楚、明明白白的。（一不小心又甩了三个成语，有文化吧？）HashMap 哪哪都好，真的，只要你想用键值对，第一时间就应该想到它。
+同学们好啊，还记得 [HashMap](https://javabetter.cn/collection/hashmap.html) 那篇吗？我自己感觉写得非常棒啊，既通俗易懂，又深入源码，真的是分析得透透彻彻、清清楚楚、明明白白的。（一不小心又甩了三个成语，有文化吧？）HashMap 哪哪都好，真的，只要你想用键值对，第一时间就应该想到它。
 
 为了提高查找效率，HashMap 在插入的时候对键做了一次哈希算法，这就导致插入的元素是无序的。
 
-对这一点还不太明白的同学，可以再回到 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 那一篇，看看 hash 方法，再看看我对 `put()` 方法的讲解，就能明白了，我们这里再来回顾一下。
+对这一点还不太明白的同学，可以再回到 [HashMap](https://javabetter.cn/collection/hashmap.html) 那一篇，看看 hash 方法，再看看我对 `put()` 方法的讲解，就能明白了，我们这里再来回顾一下。
 
 ```java
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
@@ -94,7 +94,7 @@ static class Entry<K,V> extends HashMap.Node<K,V> {
 }
 ```
 
-关于双向链表，同学们可以回头看一遍我写的 [LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 那篇文章，会对理解本篇的 LinkedHashMap 有很大的帮助。
+关于双向链表，同学们可以回头看一遍我写的 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 那篇文章，会对理解本篇的 LinkedHashMap 有很大的帮助。
 
 用 LinkedHashMap 替换 HashMap，再来对比一下输出结果。
 
@@ -127,7 +127,7 @@ Key: chenqingyang, Value: 陈清扬
 
 ### 01、插入顺序
 
-在 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 那篇文章里，我有讲解到一点，不知道同学们记不记得，就是 null 会插入到 HashMap 的第一位。
+在 [HashMap](https://javabetter.cn/collection/hashmap.html) 那篇文章里，我有讲解到一点，不知道同学们记不记得，就是 null 会插入到 HashMap 的第一位。
 
 ```java
 Map<String, String> hashMap = new HashMap<>();
@@ -251,7 +251,7 @@ LinkedHashMap 不仅能够维持插入顺序，还能够维持访问顺序。访
 LinkedHashMap<String, String> map = new LinkedHashMap<>(16, .75f, true);
 ```
 
-第一个参数和第二个参数，看过 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 的同学们应该很熟悉了，指的是初始容量和负载因子。
+第一个参数和第二个参数，看过 [HashMap](https://javabetter.cn/collection/hashmap.html) 的同学们应该很熟悉了，指的是初始容量和负载因子。
 
 第三个参数如果为 true 的话，就表示 LinkedHashMap 要维护访问顺序；否则，维护插入顺序。默认是 false。
 
@@ -468,7 +468,7 @@ LinkedHashMap 还提供了两个构造方法来指定排序方式，分别是按
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -12,7 +12,7 @@ head:
 ---
 
 > [二哥编程知识星球](https://mp.weixin.qq.com/s/3RVsFZ17F0JzoHCLKbQgGw) （戳链接加入）正式上线了，来和 **310 多名** 小伙伴一起打怪升级吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。<br><br>
-> Java程序员进阶之路网址：[https://tobebetterjavaer.com](https://tobebetterjavaer.com)
+> 二哥的Java进阶之路网址：[https://javabetter.cn](https://javabetter.cn)
 
 
 常见的消息队列很多，主要包括 RabbitMQ、Kafka、RocketMQ 和 ActiveMQ。这篇文章只讲 RabbitMQ，属于基础入门篇，但是肯定不 Low，太 Low 的文章我也不会写。

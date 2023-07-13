@@ -3,7 +3,7 @@ import navbar from "./navbar";
 import { sidebarConfig } from "./sidebar";
 
 export default hopeTheme({
-  hostname: "https://tobebetterjavaer.com",
+  hostname: "https://javabetter.cn",
   // 网站图标
   logo: "https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-02.png",
   // Git 仓库和编辑链接

@@ -26,7 +26,7 @@ head:
 String s = new String("二哥");
 ```
 
-“这行代码创建了几个[对象](https://tobebetterjavaer.com/oo/object-class.html)？”
+“这行代码创建了几个[对象](https://javabetter.cn/oo/object-class.html)？”
 
 “不就一个吗？”三妹不假思索地回答。
 
@@ -142,7 +142,7 @@ String s1 = "三妹";
 
 “可以呀。”
 
-- 方法区是 Java 虚拟机规范中的一个概念，就像是一个[接口](https://tobebetterjavaer.com/oo/interface.html)吧；
+- 方法区是 Java 虚拟机规范中的一个概念，就像是一个[接口](https://javabetter.cn/oo/interface.html)吧；
 - 永久代是 HotSpot 虚拟机中对方法区的一个实现，就像是接口的实现类；
 - Java 8 的时候，移除了永久代，取而代之的是元空间，是方法区的另外一种实现，更灵活了。
 
@@ -159,7 +159,7 @@ String s1 = "三妹";
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

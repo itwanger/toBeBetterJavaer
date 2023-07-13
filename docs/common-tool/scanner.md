@@ -9,12 +9,12 @@ description: 本文深入剖析了Java中的Scanner类，详细介绍了其用�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Scanner,输入,java Scanner,java 扫描
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Scanner,输入,java Scanner,java 扫描
 ---
 
 # 9.1 Scanner工具类
 
-Java 的 Scanner 类是一个方便在控制台扫描用户输入的工具类，虽然它也可以扫描文件内容，但我们通常更喜欢它扮演前面的角色，因为扫描文件可以通过[文件流](https://tobebetterjavaer.com/io/file-path.html)来完成。
+Java 的 Scanner 类是一个方便在控制台扫描用户输入的工具类，虽然它也可以扫描文件内容，但我们通常更喜欢它扮演前面的角色，因为扫描文件可以通过[文件流](https://javabetter.cn/io/file-path.html)来完成。
 
 接下来，我们通过几个简单的示例讲一下 Scanner 类。
 
@@ -40,7 +40,7 @@ scanner.close(); // 关闭 Scanner 对象
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329150001.png)
 
-其中 System.in 返回的是一个[字节输入流](https://tobebetterjavaer.com/io/stream.html) InputStream，和 System.out 刚好对应。
+其中 System.in 返回的是一个[字节输入流](https://javabetter.cn/io/stream.html) InputStream，和 System.out 刚好对应。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329151635.png)
 
@@ -214,7 +214,7 @@ while ((result = scanner.findWithinHorizon(pattern, 0)) != null) {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

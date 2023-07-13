@@ -24,7 +24,7 @@ head:
 
 “好是好，但我就是看不懂！”三妹委屈地说，“哥，还是你亲自给我讲讲吧？”
 
-“好吧，上次学的[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)你都搞清楚了吧？”
+“好吧，上次学的[字符串常量池](https://javabetter.cn/string/constant-pool.html)你都搞清楚了吧？”
 
 “嗯。”三妹微微的点了点头。
 
@@ -131,7 +131,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 - 在 StringBuilder 对象上调用 append("三妹")，将 "三妹" 追加到 StringBuilder 中。
 - 在 StringBuilder 对象上调用 toString() 方法，将 StringBuilder 转换为一个新的字符串对象，内容为 "二哥三妹"。
 
-关于 [StringBuilder](https://tobebetterjavaer.com/string/builder-buffer.html)，我们随后会详细地讲到。今天先了解到这。
+关于 [StringBuilder](https://javabetter.cn/string/builder-buffer.html)，我们随后会详细地讲到。今天先了解到这。
 
 不过需要注意的是，尽管 intern 可以确保所有具有相同内容的字符串共享相同的内存空间，但也不要烂用 intern，因为任何的缓存池都是有大小限制的，不能无缘无故就占用了相对稀缺的缓存空间，导致其他字符串没有坑位可占。
 
@@ -145,7 +145,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

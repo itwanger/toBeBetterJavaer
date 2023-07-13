@@ -16,7 +16,7 @@ head:
 
 “二哥，为什么要讲时间复杂度呀？”三妹问。
 
-“因为接下来要用到啊。后面我们学习 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html)、[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 的时候，会比较两者在增删改查时的执行效率，而时间复杂度是衡量执行效率的一个重要标准。”我说。
+“因为接下来要用到啊。后面我们学习 [ArrayList](https://javabetter.cn/collection/arraylist.html)、[LinkedList](https://javabetter.cn/collection/linkedlist.html) 的时候，会比较两者在增删改查时的执行效率，而时间复杂度是衡量执行效率的一个重要标准。”我说。
 
 “到时候跑一下代码，统计一下前后的时间差不更准确吗？”三妹反问道。
 
@@ -172,7 +172,7 @@ public static int fib(int n) {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

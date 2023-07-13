@@ -9,14 +9,14 @@ description: 本文详细介绍了Apache StringUtils工具类，深入分析了�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Apache StringUtils,java StringUtils
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Apache StringUtils,java StringUtils
 ---
 
 # 9.3 StringUtils工具类
 
-`字符串`（[String](https://tobebetterjavaer.com/string/immutable.html)）在我们的日常工作中，用得非常非常非常多。
+`字符串`（[String](https://javabetter.cn/string/immutable.html)）在我们的日常工作中，用得非常非常非常多。
 
-在我们的代码中经常需要对字符串判空，截取字符串、转换大小写、[分隔字符串](https://tobebetterjavaer.com/string/split.html)、[比较字符串](https://tobebetterjavaer.com/string/equals.html)、去掉多余空格、[拼接字符串](https://tobebetterjavaer.com/string/join.html)、使用正则表达式等等。
+在我们的代码中经常需要对字符串判空，截取字符串、转换大小写、[分隔字符串](https://javabetter.cn/string/split.html)、[比较字符串](https://javabetter.cn/string/equals.html)、去掉多余空格、[拼接字符串](https://javabetter.cn/string/join.html)、使用正则表达式等等。
 
 如果只用 String 类提供的那些方法，我们需要手写大量的额外代码，不然容易出现各种异常。
 
@@ -181,7 +181,7 @@ a,b,c
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

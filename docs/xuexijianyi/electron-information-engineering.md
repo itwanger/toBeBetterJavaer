@@ -68,13 +68,13 @@ IC 就是半导体元件产品的统称，主要分为数字 IC 和模拟 IC。�
 *   自己的努力
 *   **选择了计算机专业**
 
-**这里也分享一套非常完整的计算机必读的经典书籍，对计算机专业的同学会有非常大的帮助，这也是我十多年编程生涯里留下的宝藏**：[计算机经典书单](https://tobebetterjavaer.com/download/java.html)
+**这里也分享一套非常完整的计算机必读的经典书籍，对计算机专业的同学会有非常大的帮助，这也是我十多年编程生涯里留下的宝藏**：[计算机经典书单](https://javabetter.cn/download/java.html)
 
 **里面的书单真的非常 nice，不管是学习编程的新手，还是工作多年的老手，应该都很有帮助**：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/electron-information-engineering-e40c4215-3078-42b3-8ab6-fe84c34d0a07.jpg)
 
-戳：[计算机必读经典书单（可 download）！](https://tobebetterjavaer.com/download/java.html)
+戳：[计算机必读经典书单（可 download）！](https://javabetter.cn/download/java.html)
 
 这里重申一下我学习计算机的理论观点吧，如果要转计算机的话，我想对你快速建立起自己的知识体系很有帮助！
 
@@ -96,9 +96,9 @@ IC 就是半导体元件产品的统称，主要分为数字 IC 和模拟 IC。�
 
 ### 一、Java 语言基础
 
-初学者可以到通过《[Java程序员进阶之路](https://tobebetterjavaer.com)》进行学习，也就是本站，这是一个风趣幽默、通俗易懂的 Java 教程，对 Java 初学者极度友好和舒适，内容包括但不限于 Java 语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等核心知识点。
+初学者可以到通过《[二哥的Java进阶之路](https://javabetter.cn)》进行学习，也就是本站，这是一个风趣幽默、通俗易懂的 Java 教程，对 Java 初学者极度友好和舒适，内容包括但不限于 Java 语法、Java 集合框架、Java IO、Java 并发编程、Java 虚拟机等核心知识点。
 
->更详细的学习路线戳：[https://tobebetterjavaer.com/xuexiluxian/java/yitiaolong.html](https://tobebetterjavaer.com/xuexiluxian/java/yitiaolong.html)
+>更详细的学习路线戳：[https://javabetter.cn/xuexiluxian/java/yitiaolong.html](https://javabetter.cn/xuexiluxian/java/yitiaolong.html)
 
 ### 二、开发框架
 
@@ -209,7 +209,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 如果不是天赋异禀，不要怕，一开始就是抄题，先把别人的解题思路照着敲出来。刷的题多了，尽量控制一下刷题的时间，掐个点，不能让自己一直想、一直写下去，如果半个小时没有解出来，就果断放弃，去背别人的答案，不要觉得不好意思，等到真的熟了，再去想自己的解题思路。
 
->更详细的学习路线戳：[https://tobebetterjavaer.com/xuexiluxian/algorithm.html](https://tobebetterjavaer.com/xuexiluxian/algorithm.html)
+>更详细的学习路线戳：[https://javabetter.cn/xuexiluxian/algorithm.html](https://javabetter.cn/xuexiluxian/algorithm.html)
 
 ### 六、操作系统
 
@@ -264,7 +264,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexijianyi/electron-information-engineering-cdccae94-aca8-4e88-b241-0b6d95dee5f9.jpg)
 
->更详细的学习路线戳：[https://tobebetterjavaer.com/xuexiluxian/os.html](https://tobebetterjavaer.com/xuexiluxian/os.html)
+>更详细的学习路线戳：[https://javabetter.cn/xuexiluxian/os.html](https://javabetter.cn/xuexiluxian/os.html)
 
 借这个机会，我希望把多年来整理的硬核学习资料分享出来，帮助到更多小伙伴，包括**编程语言的入门教程，操作系统、计算机网络、数据结构与算法这种偏基础的硬核知识，以及能“吊打”面试官的八股文：**
 
@@ -298,7 +298,7 @@ IoC（Inverse of Control），也就是控制反转，是一种设计思想，�
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

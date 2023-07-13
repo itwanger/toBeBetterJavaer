@@ -14,7 +14,7 @@ head:
 
 # 4.3 打印Java数组
 
-“哥，[之前听你说，数组也是一个对象](https://tobebetterjavaer.com/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
+“哥，[之前听你说，数组也是一个对象](https://javabetter.cn/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 
 “是的，因此数组也就没有机会覆盖 `Object.toString()` 方法。如果尝试直接打印数组的话，输出的结果并不是我们预期的结果。”我接着三妹的话继续说。
 
@@ -65,7 +65,7 @@ public final class String
 
 ### stream 流打印 Java 数组
 
-“我们来看第一种打印数组的方法，使用时髦一点的[Stream 流](https://tobebetterjavaer.com/java8/stream.html)。”
+“我们来看第一种打印数组的方法，使用时髦一点的[Stream 流](https://javabetter.cn/java8/stream.html)。”
 
 第一种形式：
 
@@ -93,7 +93,7 @@ Arrays.stream(cmowers).forEach(System.out::println);
 一枚有趣的程序员
 ```
 
-没错，这三种方式都可以轻松胜任本职工作，并且显得有点高大上，毕竟用到了 Stream，以及 [lambda 表达式](https://tobebetterjavaer.com/java8/Lambda.html)。
+没错，这三种方式都可以轻松胜任本职工作，并且显得有点高大上，毕竟用到了 Stream，以及 [lambda 表达式](https://javabetter.cn/java8/Lambda.html)。
 
 ### for 循环打印 Java 数组
 
@@ -111,7 +111,7 @@ for (String s : cmowers) {
 
 ### Arrays 工具类打印 Java 数组
 
-“哥，你难道忘了[上一篇](https://tobebetterjavaer.com/common-tool/arrays.html)在讲 Arrays 工具类的时候，提到过另外一种方法 `Arrays.toString()` 吗？”三妹看我一直说不到点子上，有点着急了。
+“哥，你难道忘了[上一篇](https://javabetter.cn/common-tool/arrays.html)在讲 Arrays 工具类的时候，提到过另外一种方法 `Arrays.toString()` 吗？”三妹看我一直说不到点子上，有点着急了。
 
 “当然没有了，我认为 `Arrays.toString()` 是打印数组的最佳方式，没有之一。”我的情绪有点激动。
 
@@ -178,7 +178,7 @@ System.out.println(Arrays.deepToString(deepArray));
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

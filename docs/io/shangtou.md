@@ -54,7 +54,7 @@ Java 中是通过流处理IO 的，那么什么是流？
 
 具体还要看字符编码，比如说在 UTF-8 编码下，一个英文字母（不分大小写）为一个字节，一个中文汉字为三个字节；在 Unicode 编码中，一个英文字母为一个字节，一个中文汉字为两个字节。
 
->PS：关于字符编码，可以看前面的章节：[锟斤拷](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
+>PS：关于字符编码，可以看前面的章节：[锟斤拷](https://javabetter.cn/basic-extra-meal/java-unicode.html)
 
 明白了字节与字符的区别，再来看字节流和字符流就会轻松多了。
 
@@ -641,7 +641,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 具体的执行过程如下：
 
 - 创建一个 ByteArrayOutputStream 对象 buffer，用于存储数据。
-- 使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
+- 使用 [try-with-resources](https://javabetter.cn/exception/try-with-resources.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
 - 使用 writeUTF() 方法将字符串 "沉默王二" 写入到缓冲区中。
 - 当 try-with-resources 语句执行完毕时，会自动调用 output 的 close() 方法关闭输出流，释放资源。
 - 使用 toByteArray() 方法将缓冲区中的数据转换成字节数组。
@@ -696,7 +696,7 @@ out.close();
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

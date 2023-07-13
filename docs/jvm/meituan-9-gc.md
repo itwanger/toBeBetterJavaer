@@ -5,11 +5,11 @@ category:
   - Java核心
 tag:
   - Java虚拟机
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，Java中9种常见的CMS GC问题分析与解决
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，Java中9种常见的CMS GC问题分析与解决
 head:
   - - meta
     - name: keywords
-      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机,cms
+      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,cms
 ---
  
 # Java中9种常见的CMS GC问题分析与解决
@@ -1549,7 +1549,7 @@ gperftools 是 Google 开发的一款非常实用的工具集，它的原理是�
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-7aeb1bd968da52f7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-除了项目本身的原因，还可能有外部依赖导致的泄漏，如 Netty 和 Spring Boot，详细情况可以学习下这两篇文章：《[疑案追踪：Spring Boot内存泄露排查记](http://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=26517600+37&idx=2&sn=847fb15d4413354355c33a46a7bccf55&chksm=bd12a7d88a652ecea5789073973abb9545e76a8972c843968a6efd1fb3a918ef07eed8abb37e&scene=21#wechat_redirect)》、《[Netty堆外内存泄露排查盛宴](http://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651749037&idx=2&sn=d1d6b0348eea5cd80e2c7a56c8a61fa9&chksm=bd12a3e08a652af684fd8d96e81fc0e0fded69dd847051e6b0f791f3726da0415c9552ee2615&scene=21#wechat_redirect)》。
+除了项目本身的原因，还可能有外部依赖导致的泄漏，如 Netty 和 Spring Boot，详细情况可以学习下这两篇文章：《[疑案追踪：Spring Boot内存泄露排查记](http://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=26518700+37&idx=2&sn=847fb15d4413354355c33a46a7bccf55&chksm=bd12a7d88a652ecea5789073973abb9545e76a8972c843968a6efd1fb3a918ef07eed8abb37e&scene=21#wechat_redirect)》、《[Netty堆外内存泄露排查盛宴](http://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651749037&idx=2&sn=d1d6b0348eea5cd80e2c7a56c8a61fa9&chksm=bd12a3e08a652af684fd8d96e81fc0e0fded69dd847051e6b0f791f3726da0415c9552ee2615&scene=21#wechat_redirect)》。
 
 **4.8.4 小结**
 
@@ -1719,7 +1719,7 @@ JNI 产生的 GC 问题较难排查，需要谨慎使用。
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

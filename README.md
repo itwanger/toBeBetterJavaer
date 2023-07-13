@@ -1,23 +1,23 @@
 
 <p align="center">
-  <a href="https://tobebetterjavaer.com">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png" width="200px" alt="Java程序员进阶之路">
+  <a href="https://javabetter.cn">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png" width="200px" alt="二哥的Java进阶之路">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://tobebetterjavaer.com/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
+  <a href="https://javabetter.cn/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
   <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
-  <a href="https://tobebetterjavaer.com/zhishixingqiu/" target="_blank"><img src="https://img.shields.io/badge/学习圈子-立即加入-critical?style=for-the-badge"></a>
-  <a href="https://tobebetterjavaer.com/download/java.html" target="_blank"><img src="https://img.shields.io/badge/计算机经典电子书-下载-yellow.svg?style=for-the-badge" alt="无套路下载"></a>
-  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="Java程序员进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a><br><br>
+  <a href="https://javabetter.cn/zhishixingqiu/" target="_blank"><img src="https://img.shields.io/badge/学习圈子-立即加入-critical?style=for-the-badge"></a>
+  <a href="https://javabetter.cn/download/java.html" target="_blank"><img src="https://img.shields.io/badge/计算机经典电子书-下载-yellow.svg?style=for-the-badge" alt="无套路下载"></a>
+  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="二哥的Java进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a><br><br>
   <a href="https://github.com/itwanger/toBeBetterJavaer">Github</a> |
   <a href="https://gitee.com/itwanger/toBeBetterJavaer">Gitee</a>
 </p>
 
 # 为什么会有这个开源知识库
 
-> 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 Java程序员进阶之路😄。
+> 知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 二哥的Java进阶之路😄。
 >  
 >  知识库旨在为学习 Java 的小伙伴提供一系列：
 >  - **优质的原创 Java 教程**
@@ -32,8 +32,9 @@
 > 
 > 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 > 
-> - [**Java程序员进阶之路在线阅读网站（新版，推荐👍）**](https://tobebetterjavaer.com/)
-> - [技术派之Java程序员进阶之路专栏](https://paicoding.com/column/5/1)（二哥的另外一个网站）
+> - [**二哥的Java进阶之路在线阅读网站（新版，域名好记，推荐👍）**](https://javabetter.cn)
+> - [老版 Java 程序员进阶之路在线阅读网址](https://javabetter.cn)（老的域名长，难记）
+> - [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)（二哥的另外一个开源实战项目技术派的专栏）
 >
 > 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](docs/overview/readme.md)
 
@@ -85,9 +86,9 @@
 
 # 知识库的学习圈子
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)已经有 **2800 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://tobebetterjavaer.com/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **2800 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://javabetter.cn/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
 
-<a href="https://tobebetterjavaer.com/zhishixingqiu/">
+<a href="https://javabetter.cn/zhishixingqiu/">
   <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
 </a>
 
@@ -529,7 +530,7 @@
 
 # 知识库搭建
 
-> 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《Java程序员进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
+> 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《二哥的Java进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
 
 
 - [购买云服务器](docs/szjy/buy-cloud-server.md)
@@ -544,7 +545,7 @@
 
 >- 作者是一名普通普通普通普通三连的 Java 后端开发者，热爱学习，热爱分享
 >- 参加工作以后越来越理解交流和分享的重要性，在不停地汲取营养的同时，也希望帮助到更多的小伙伴们
->- Java程序员进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
+>- 二哥的Java进阶之路，不仅是作者自学 Java 以来所有的原创文章和学习资料的大聚合，更是作者向这个世界传播知识的一个窗口。
 
 ## 心路历程
 
@@ -557,7 +558,7 @@
 
 ### 原创公众号
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
@@ -577,7 +578,7 @@
 
 ### 捐赠鼓励
 
-开源不易，如果《Java程序员进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
+开源不易，如果《二哥的Java进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
     <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
@@ -587,7 +588,23 @@
 
 时间|小伙伴|赞赏金额
 ---|---|---
-2023--03-17|*昌|8 元
+2023-07-02|*晴|1元
+2023-06-26|*雨|6.66元
+2023-06-21|*航|6元
+2023-06-21|*狼|3元
+2023-06-19|*定|2元
+2023-06-18|*道|5元
+2023-06-16|* 文|1元
+2023-06-14|G*e|66.6元
+2023-06-07|*.|0.5元
+2023-05-23|*W|5元
+2023-05-19|*飞|6元
+2023-05-10|c*r|1元
+2023-04-26|r*J|10.24元
+2023-04-22|*明|1元
+2023-04-09|* 刀|10元
+2023-04-03|*意|0.02元
+2023-03-17|*昌|8 元
 2023-03-16|~*~|66.6 元
 2023-03-15|*枫|6.6 元
 2023-03-10|十年|1 元

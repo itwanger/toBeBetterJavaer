@@ -137,7 +137,7 @@ public class BindingResultAspect {
 }
 ```
 
-这里涉及到了 Spring AOP 的知识，我在前面的文章里讲解过了，戳这个链接可以直达：[Spring AOP 扫盲](https://tobebetterjavaer.com/springboot/aop-log.html)
+这里涉及到了 Spring AOP 的知识，我在前面的文章里讲解过了，戳这个链接可以直达：[Spring AOP 扫盲](https://javabetter.cn/springboot/aop-log.html)
 
 第四步，访问登录接口，用户名和密码都不传入的情况下，就会返回“用户名不能为空”的提示信息。
 

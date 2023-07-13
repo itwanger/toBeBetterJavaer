@@ -10,14 +10,14 @@ author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,深拷贝,浅拷贝
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,深拷贝,浅拷贝
 ---
 
 # 13.4 深入理解Java浅拷贝与深拷贝
 
 “哥，听说浅拷贝和深拷贝是 Java 面试中经常会被问到的一个问题，是这样吗？”
 
-“还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://tobebetterjavaer.com/basic-extra-meal/pass-by-value.html)也会有更深的理解。”我肯定地回答。
+“还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://javabetter.cn/basic-extra-meal/pass-by-value.html)也会有更深的理解。”我肯定地回答。
 
 “不管是浅拷贝还是深拷贝，都可以通过调用 Object 类的 `clone()` 方法来完成。”我一边说，一边打开 Intellij IDEA，并找到了 `clone()` 方法的源码。
 
@@ -317,9 +317,9 @@ writer2：Writer@6d00a15d age=18, name='二哥', book=Book@51efea79 bookName='�
 
 “那有没有好的办法呢？”三妹急切的问。
 
-“当然有了，利用[序列化](https://tobebetterjavaer.com/io/serialize.html)。”我胸有成竹的回答，“序列化是将对象写到流中便于传输，而反序列化则是将对象从流中读取出来。”
+“当然有了，利用[序列化](https://javabetter.cn/io/serialize.html)。”我胸有成竹的回答，“序列化是将对象写到流中便于传输，而反序列化则是将对象从流中读取出来。”
 
-“写入流中的对象就是对原始对象的拷贝。需要注意的是，每个要序列化的类都要实现 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，该接口和 Cloneable 接口类似，都是标记型接口。”
+“写入流中的对象就是对原始对象的拷贝。需要注意的是，每个要序列化的类都要实现 [Serializable 接口](https://javabetter.cn/io/Serializbale.html)，该接口和 Cloneable 接口类似，都是标记型接口。”
 
 来看例子。
 
@@ -426,7 +426,7 @@ writer2：Writer@544fe44c age=18, name='二哥', book=Book@31610302 bookName='�
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

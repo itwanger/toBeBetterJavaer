@@ -1,7 +1,7 @@
 ---
 title: 深入理解 Java 继承
 shortTitle: Java继承
-description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：继承
+description: 二哥的Java进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：继承
 category:
   - Java 核心
 tag:
@@ -9,16 +9,16 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,继承,inheritance
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,继承,inheritance
 ---
 
 # 5.14 Java封装继承多态
 
-“三妹，今天我们继续来学习 Java 的三大特征之一：继承，之前学习[抽象类](https://tobebetterjavaer.com/oo/abstract.html)的时候我们已经接触过这个概念，不过，我们今天我们来认真地聊一聊。”慢吞吞说完这句开篇词后，我对三妹做了一个打开 XMind 的手势提醒（其实就是瞎比划）。
+“三妹，今天我们继续来学习 Java 的三大特征之一：继承，之前学习[抽象类](https://javabetter.cn/oo/abstract.html)的时候我们已经接触过这个概念，不过，我们今天我们来认真地聊一聊。”慢吞吞说完这句开篇词后，我对三妹做了一个打开 XMind 的手势提醒（其实就是瞎比划）。
 
 “懂了，哥，我这就打开。”三妹一边说，一边打开了 XMind，开始正襟危坐了起来。
 
-在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、**继承**、[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
+在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://javabetter.cn/oo/encapsulation.html)、**继承**、[多态](https://javabetter.cn/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e848763d-0357-438f-9bb7-c07e776c9980.png)
 
@@ -127,13 +127,13 @@ class Chicken extends Animal{
 
 Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方式，**分别是**内部类、多层继承和实现接口。
 
-[内部类](https://tobebetterjavaer.com/oo/inner-class.html)可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
+[内部类](https://javabetter.cn/oo/inner-class.html)可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
 
 **多层继承：**子类继承父类，父类如果还继承其他的类，那么这就叫**多层继承**。这样子类就会拥有所有被继承类的属性和方法。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d3789496-09f8-4a62-8424-e5c45e224320.png)
 
-[实现接口](https://tobebetterjavaer.com/oo/interface.html)无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
+[实现接口](https://javabetter.cn/oo/interface.html)无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
 
 类和接口相比，**类就是一个实体，有属性和方法，而接口更倾向于一组方法**。举个例子，就拿斗罗大陆的唐三来看，他存在的继承关系可能是这样的：
 
@@ -219,13 +219,13 @@ Cat 类实现 doA 和 doB 接口的时候，需要实现其声明的方法，点
 
 ### 05、继承的特点
 
-继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://tobebetterjavaer.com/oo/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://tobebetterjavaer.com/oo/this-super.html)。
+继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://javabetter.cn/oo/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://javabetter.cn/oo/this-super.html)。
 
-创建完这个对象之后，再调用**重写**父类后的方法，注意[重写和重载的区别](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
+创建完这个对象之后，再调用**重写**父类后的方法，注意[重写和重载的区别](https://javabetter.cn/basic-extra-meal/override-overload.html)。
 
 #### this 和 super 关键字
 
->[后面](https://tobebetterjavaer.com/oo/this-super.html)会详细讲，这里先来简单了解一下。
+>[后面](https://javabetter.cn/oo/this-super.html)会详细讲，这里先来简单了解一下。
 
 this 和 super 关键字是继承中**非常重要的知识点**，分别表示当前对象的引用和父类对象的引用，两者有很大相似又有一些区别。
 
@@ -247,7 +247,7 @@ super() // 表示调用父类构造方法
 
 #### 构造方法
 
-[构造方法](https://tobebetterjavaer.com/oo/construct.html)是一种特殊的方法，**它是一个与类同名的方法**。在继承中**构造方法是一种比较特殊的方法**（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。
+[构造方法](https://javabetter.cn/oo/construct.html)是一种特殊的方法，**它是一个与类同名的方法**。在继承中**构造方法是一种比较特殊的方法**（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。
 
 继承中的构造方法有以下几点需要注意：
 
@@ -286,7 +286,7 @@ class B extends A{
 
 #### 方法重写(Override)
 
-[方法重写](https://tobebetterjavaer.com/basic-extra-meal/Overriding.html)也就是子类中出现和父类中一模一样的方法(包括返回值类型，方法名，参数列表)，它建立在继承的基础上。你可以理解为方法的**外壳不变，但是核心内容重写**。
+[方法重写](https://javabetter.cn/basic-extra-meal/Overriding.html)也就是子类中出现和父类中一模一样的方法(包括返回值类型，方法名，参数列表)，它建立在继承的基础上。你可以理解为方法的**外壳不变，但是核心内容重写**。
 
 在这里提供一个简单易懂的方法重写案例：
 
@@ -308,7 +308,7 @@ class E2 extends E1{
 
 #### 方法重载(Overload)
 
-如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
+如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的[重载](https://javabetter.cn/basic-extra-meal/override-overload.html)。
 
 重载可以通常理解为完成同一个事情的方法名相同，但是参数列表不同其他条件也可能不同。一个简单的方法重载的例子，类 E3 中的 add()方法就是一个重载方法。
 
@@ -332,7 +332,7 @@ Java 修饰符的作用就是对类或类成员进行修饰或限制，每个修
 
 Java 语言提供了很多修饰符，修饰符用来定义类、方法或者变量，通常放在语句的最前端。主要分为以下两类：
 
-- [访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，也就是 public、private、protected 等
+- [访问权限修饰符](https://javabetter.cn/oo/access-control.html)，也就是 public、private、protected 等
 - 非访问修饰符，也就是 static、final、abstract 等
 
 #### 访问修饰符
@@ -397,7 +397,7 @@ class B2 extends B1{
 
 访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对 static、final、abstract 修饰符进行介绍。
 
-[static 修饰符](https://tobebetterjavaer.com/oo/static.html)
+[static 修饰符](https://javabetter.cn/oo/static.html)
 
 static 翻译为“静态的”，能够与变量，方法和类一起使用，**称为静态变量，静态方法(也称为类变量、类方法)**。如果在一个类中使用 static 修饰变量或者方法的话，它们**可以直接通过类访问，不需要创建一个类的对象来访问成员。**
 
@@ -427,7 +427,7 @@ class C2 extends C1{
 }
 ```
 
-[final 修饰符](https://tobebetterjavaer.com/oo/final.html)
+[final 修饰符](https://javabetter.cn/oo/final.html)
 
 final 变量：
 
@@ -443,7 +443,7 @@ final 类：
 
 所以无论是变量、方法还是类被 final 修饰之后，都有代表最终、最后的意思。内容无法被修改。
 
-[abstract 修饰符](https://tobebetterjavaer.com/oo/abstract.html)
+[abstract 修饰符](https://javabetter.cn/oo/abstract.html)
 
 abstract 英文名为“抽象的”，主要用来修饰类和方法，称为抽象类和抽象方法。
 
@@ -489,7 +489,7 @@ Java 向上和向下转型在 Java 中运用很多，也是建立在继承的基
 
 1.  Object 是类层次结构的**根类**，所有的类都隐式的继承自 Object 类。
 2.  Java 中，所有的对象都拥有 Object 的默认方法。
-3.  Object 类有一个[构造方法](https://tobebetterjavaer.com/oo/construct.html)，并且是**无参构造方法**。
+3.  Object 类有一个[构造方法](https://javabetter.cn/oo/construct.html)，并且是**无参构造方法**。
 
 Object 是 Java 所有类的父类，是整个类继承结构的顶端，也是最抽象的一个类。
 
@@ -499,7 +499,7 @@ toString()方法表示返回该对象的字符串，由于各个对象构造不�
 
 **如果重写 toString()方法后**直接调用 toString()方法就可以返回我们自定义的该类转成字符串类型的内容输出，而不需要每次都手动的拼凑成字符串内容输出，大大简化输出操作。
 
-equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了euqals()方法，通过[字符串的内容比较是否相等](https://tobebetterjavaer.com/string/equals.html)。
+equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了euqals()方法，通过[字符串的内容比较是否相等](https://javabetter.cn/string/equals.html)。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
 
@@ -606,7 +606,7 @@ public class test9 {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

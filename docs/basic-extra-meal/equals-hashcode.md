@@ -5,11 +5,11 @@ category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，为什么重写equals方法的时候必须要重写hashCode方法
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，为什么重写equals方法的时候必须要重写hashCode方法
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,hashcode,equals
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,hashcode,equals
 ---
 
 # 13.5 为什么重写equals的时候必须重写hashCode
@@ -18,7 +18,7 @@ head:
 
 “三妹啊，这个问题问得非常好，因为它也是面试中经常考的一个知识点。今天哥就带你来梳理一下。”我说。
 
-Java 是一门面向对象的编程语言，所有的类都会默认继承自 [Object 类](https://tobebetterjavaer.com/oo/object-class.html)，而 Object 的中文意思就是“对象”。
+Java 是一门面向对象的编程语言，所有的类都会默认继承自 [Object 类](https://javabetter.cn/oo/object-class.html)，而 Object 的中文意思就是“对象”。
 
 Object 类中有这么两个方法：
 
@@ -44,13 +44,13 @@ public boolean equals(Object obj) {
 
 第一，如果两个对象调用 equals 方法返回的结果为 true，那么两个对象调用 hashCode 方法返回的结果也必然相同——来自 hashCode 方法的 doc 文档。
 
-第二，每当重写 [equals 方法](https://tobebetterjavaer.com/string/equals.html)时，[hashCode 方法](https://tobebetterjavaer.com/basic-extra-meal/hashcode.html)也需要重写，以便维护上一条规约。
+第二，每当重写 [equals 方法](https://javabetter.cn/string/equals.html)时，[hashCode 方法](https://javabetter.cn/basic-extra-meal/hashcode.html)也需要重写，以便维护上一条规约。
 
 “哦，这样讲的话，两个方法确实关联上了，但究竟是为什么呢？”三妹抛出了终极一问。
 
-“hashCode 方法的作用是用来获取哈希值，而该哈希值的作用是用来确定[对象在哈希表中的索引位置（HashMap 的时候会讲）](https://tobebetterjavaer.com/collection/hashmap.html)。”我说。
+“hashCode 方法的作用是用来获取哈希值，而该哈希值的作用是用来确定[对象在哈希表中的索引位置（HashMap 的时候会讲）](https://javabetter.cn/collection/hashmap.html)。”我说。
 
-哈希表的典型代表就是 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)，它存储的是键值对，能根据键快速地检索出对应的值。
+哈希表的典型代表就是 [HashMap](https://javabetter.cn/collection/hashmap.html)，它存储的是键值对，能根据键快速地检索出对应的值。
 
 ```java
 public V get(Object key) {
@@ -100,7 +100,7 @@ HashMap 是通过拉链法来解决哈希冲突的，也就是如果发生哈希
 
 “O(n) 和 O(1) 是什么呀？”三妹有些不解。
 
-“这是[时间复杂度](https://tobebetterjavaer.com/collection/time-complexity.html)的一种表示方法，随后二哥专门给你讲一下。简单说一下 n 和 1 的意思，很显然，n 和 1 都代表的是代码执行的次数，假如数据规模为 n，n 就代表需要执行 n 次，1 就代表只需要执行一次。”我解释道。
+“这是[时间复杂度](https://javabetter.cn/collection/time-complexity.html)的一种表示方法，随后二哥专门给你讲一下。简单说一下 n 和 1 的意思，很显然，n 和 1 都代表的是代码执行的次数，假如数据规模为 n，n 就代表需要执行 n 次，1 就代表只需要执行一次。”我解释道。
 
 “三妹，你想一下，如果没有哈希表，但又需要这样一个数据结构，它里面存放的数据是不允许重复的，该怎么办呢？”我问。
 
@@ -108,7 +108,7 @@ HashMap 是通过拉链法来解决哈希冲突的，也就是如果发生哈希
 
 “这种方法当然是可行的，就像 `if ((e = first.next) != null) {}` 子句中那样，但如果数据量特别特别大，性能就会很差，最好的解决方案还是 HashMap。”
 
-HashMap 本质上是通过[数组](https://tobebetterjavaer.com/array/array.html)实现的，当我们要从 HashMap 中获取某个值时，实际上是要获取数组中某个位置的元素，而位置是通过键来确定的。
+HashMap 本质上是通过[数组](https://javabetter.cn/array/array.html)实现的，当我们要从 HashMap 中获取某个值时，实际上是要获取数组中某个位置的元素，而位置是通过键来确定的。
 
 ```java
 public V put(K key, V value) {
@@ -262,7 +262,7 @@ result = (31*1 + Integer(18).hashCode()) * 31 + String("张三").hashCode();
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

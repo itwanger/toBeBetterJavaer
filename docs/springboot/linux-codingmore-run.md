@@ -10,7 +10,7 @@ shortTitle: 一键部署编程喵到生产环境
 
 ## 云服务器
 
-我们需要一台云服务器，我之前白嫖过一台丐版的，1 核1G 内存，并且已经安装了宝塔面板（安装教程戳[链接🔗](https://tobebetterjavaer.com/szjy/install-baota-mianban.html)）。
+我们需要一台云服务器，我之前白嫖过一台丐版的，1 核1G 内存，并且已经安装了宝塔面板（安装教程戳[链接🔗](https://javabetter.cn/szjy/install-baota-mianban.html)）。
 
 这是从宝塔面板首页看到的服务器配置详情。
 
@@ -54,7 +54,7 @@ DB 文件放在 coding-more/doc 目录下。
 
 ## Nginx
 
-[Nginx](https://tobebetterjavaer.com/nginx/nginx.html) 是一个高性能的 HTTP 和反向代理 Web 服务器，基本上就变成了一个服务器必须安装的前置条件之一。
+[Nginx](https://javabetter.cn/nginx/nginx.html) 是一个高性能的 HTTP 和反向代理 Web 服务器，基本上就变成了一个服务器必须安装的前置条件之一。
 
 宝塔面板中安装 Nginx 比较简单，直接在软件商店中搜「Nginx」就可以点击安装了。
 
@@ -272,7 +272,7 @@ OK，这样就可以验证我们的 admin 端服务也正确运行了。
 
 域名+端口号虽然可以访问，但不够优雅，我们想直接访问域名 codingmore.top，该怎么办呢？
 
-可以使用 [Nginx](https://tobebetterjavaer.com/nginx/nginx.html) 进行端口转发。
+可以使用 [Nginx](https://javabetter.cn/nginx/nginx.html) 进行端口转发。
 
 Nginx 的实现原理是，用 Nginx 监听 80 端口，当有 HTTP 请求到来时，将 HTTP 请求的 HOST 等信息与配置文件进行匹配并转发给对应的端口。
 

@@ -17,7 +17,7 @@ head:
 
 **PS: 本教程最新更新时间: 2022年12月19日**
 
-[Intellij idea激活码,Webstorm激活码,Pycharm激活码,Typora破解,Xmind,Beyond Compare破解版](https://tobebetterjavaer.com/nice-article/itmind/)
+[Intellij idea激活码,Webstorm激活码,Pycharm激活码,Typora破解,Xmind,Beyond Compare破解版](https://javabetter.cn/nice-article/itmind/)
 
 2018.2-2022版本用下面的激活码直接复制粘贴到 activation code 即可激活软件，如果是新的版本，换新激活码的时候 code with me 也要激活一次
 
@@ -53,8 +53,8 @@ KIS4IYQMNW-eyJsaWNlbnNlSWQiOiJLSVM0SVlRTU5XIiwibGljZW5zZWVOYW1lIjoi5rC45LmF5r+A5
 
 这些也可以用
 
-[2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
+[2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）](https://javabetter.cn/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
 
-[一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+[一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!](https://javabetter.cn/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
 
-[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)
+[2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）](https://javabetter.cn/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)

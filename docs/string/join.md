@@ -14,9 +14,9 @@ head:
 
 # 4.10 String拼接
 
-“哥，你让我看的《[Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
+“哥，你让我看的《[Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 
-“其实这个问题，我们之前已经[聊过](https://tobebetterjavaer.com/string/builder-buffer.html)。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
+“其实这个问题，我们之前已经[聊过](https://javabetter.cn/string/builder-buffer.html)。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
 
 PS：三妹能在学习的过程中不断地发现问题，让我感到非常的开心。其实很多时候，我们不应该只是把知识点记在心里，还应该问一问自己，到底是为什么，只有迈出去这一步，才能真正的成长起来。
 
@@ -375,13 +375,13 @@ public static String join(final Object[] array, String separator, final int star
 
 内部使用的仍然是 StringBuilder。
 
-“好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)后我们再详细地讲一次。”我说。
+“好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)后我们再详细地讲一次。”我说。
 
 “嗯，哥，你休息吧，我把这些例子再重新跑一遍。”三妹说。
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

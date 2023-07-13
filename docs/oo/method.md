@@ -30,7 +30,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
 
-**访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)：
+**访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://javabetter.cn/oo/access-control.html)：
 
 - public：该方法可以被所有类访问。
 - private：该方法只能在定义它的类中访问。
@@ -131,7 +131,7 @@ public class EvenOddDemo {
 
 ### 04、什么是实例方法？
 
-没有使用 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
+没有使用 [static 关键字](https://javabetter.cn/oo/static.html)修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
 
 ```java
 /**
@@ -197,7 +197,7 @@ getter 方法以 get 开头，setter 方法以 set 开头。
 
 ### 05、什么是静态方法？
 
-相应的，有 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰的方法就叫做静态方法。
+相应的，有 [static 关键字](https://javabetter.cn/oo/static.html)修饰的方法就叫做静态方法。
 
 ```java
 /**
@@ -230,7 +230,7 @@ Hutool 的存在就是为了减少代码搜索成本，避免网络上参差不�
 
 ### 06、什么是抽象方法？
 
-没有方法体的方法被称为抽象方法，它总是在[抽象类](https://tobebetterjavaer.com/oo/abstract.html)中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
+没有方法体的方法被称为抽象方法，它总是在[抽象类](https://javabetter.cn/oo/abstract.html)中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
 
 ```java
 /**
@@ -272,7 +272,7 @@ public class MyAbstractDemo extends AbstractDemo {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

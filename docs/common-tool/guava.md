@@ -9,7 +9,7 @@ description: 描述：本文详细介绍了Google开源的Java工具库Guava，�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Guava,java guava,google guava
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Guava,java guava,google guava
 ---
 
 # 9.7 Guava工具库
@@ -42,7 +42,7 @@ head:
 
 ### 03、基本工具
 
-Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“[null 真糟糕](https://tobebetterjavaer.com/exception/npe.html)”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
+Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“[null 真糟糕](https://javabetter.cn/exception/npe.html)”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
 
@@ -55,7 +55,7 @@ possible.isPresent(); // returns true
 possible.get(); // returns 5
 ```
 
-我大哥 Java 在 JDK 8 中新增了 [Optional 类](https://tobebetterjavaer.com/java8/optional.html)，显然是从我这借鉴过去的，不过他的和我的有些不同。
+我大哥 Java 在 JDK 8 中新增了 [Optional 类](https://javabetter.cn/java8/optional.html)，显然是从我这借鉴过去的，不过他的和我的有些不同。
 
 - 我的 Optional 是 abstract 的，意味着我可以有子类对象；我大哥的是 final 的，意味着没有子类对象。
 - 我的 Optional 实现了 Serializable 接口，可以序列化；我大哥的没有。
@@ -79,7 +79,7 @@ possible.get(); // returns 5
 
 与 JDK 中提供的不可变集合相比，我提供的 Immutable 才是真正的不可变，我为什么这么说呢？来看下面这个示例。
 
-下面的代码利用 JDK 的 [`Collections.unmodifiableList(list)`](https://tobebetterjavaer.com/common-tool/collections.html) 得到一个不可修改的集合 unmodifiableList。
+下面的代码利用 JDK 的 [`Collections.unmodifiableList(list)`](https://javabetter.cn/common-tool/collections.html) 得到一个不可修改的集合 unmodifiableList。
 
 ```java
 List list = new ArrayList();
@@ -339,7 +339,7 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -77,7 +77,7 @@ for (String s : list) {
 }
 ```
 
-简单介绍一下 ArrayList 的特征，[后面还会详细讲](https://tobebetterjavaer.com/collection/arraylist.html)。
+简单介绍一下 ArrayList 的特征，[后面还会详细讲](https://javabetter.cn/collection/arraylist.html)。
 
 - ArrayList 是由数组实现的，支持随机存取，也就是可以通过下标直接存取元素；
 - 从尾部插入和删除元素会比较快捷，从中间插入和删除元素会比较低效，因为涉及到数组元素的复制和移动；
@@ -120,7 +120,7 @@ for (String s : list) {
 }
 ```
 
-不过，LinkedList 和 ArrayList 仍然有较大的不同，[后面也会详细地讲](https://tobebetterjavaer.com/collection/linkedlist.html)。
+不过，LinkedList 和 ArrayList 仍然有较大的不同，[后面也会详细地讲](https://javabetter.cn/collection/linkedlist.html)。
 
 - LinkedList 是由双向链表实现的，不支持随机存取，只能从一端开始遍历，直到找到需要的元素后返回；
 - 任意位置插入和删除元素都很方便，因为只需要改变前一个节点和后一个节点的引用即可，不像 ArrayList 那样需要复制和移动数组元素；
@@ -139,7 +139,7 @@ public synchronized boolean add(E e) {
 }
 ```
 
-这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)那样。JDK 源码也说了：
+这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://javabetter.cn/string/builder-buffer.html)那样。JDK 源码也说了：
 
 >如果不需要线程安全，建议使用ArrayList代替Vector。
 
@@ -241,7 +241,7 @@ System.out.println("HashSet after modification: " + set); // output: [陈清扬,
 
 #### **2）LinkedHashSet**
 
-LinkedHashSet 虽然继承自 HashSet，其实是由 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) 实现的。
+LinkedHashSet 虽然继承自 HashSet，其实是由 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html) 实现的。
 
 这是 LinkedHashSet 的无参构造方法：
 
@@ -251,7 +251,7 @@ public LinkedHashSet() {
 }
 ```
 
-[super](https://tobebetterjavaer.com/oo/this-super.html) 的意思是它将调用父类的 HashSet 的一个有参构造方法：
+[super](https://javabetter.cn/oo/this-super.html) 的意思是它将调用父类的 HashSet 的一个有参构造方法：
 
 ```java
 HashSet(int initialCapacity, float loadFactor, boolean dummy) {
@@ -259,7 +259,7 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
 }
 ```
 
-看到 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) 了吧，这个我们后面会去讲。
+看到 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html) 了吧，这个我们后面会去讲。
 
 好吧，来看一段 LinkedHashSet 的增删改查吧。
 
@@ -289,7 +289,7 @@ LinkedHashSet是一种基于哈希表实现的Set接口，它继承自HashSet，
 
 #### **3）TreeSet**
 
-“二哥，不用你讲了，我能猜到，TreeSet 是由 [TreeMap（后面会讲）](https://tobebetterjavaer.com/collection/treemap.html) 实现的，只不过同样操作的键位，值由一个固定的 Object 对象填充。”
+“二哥，不用你讲了，我能猜到，TreeSet 是由 [TreeMap（后面会讲）](https://javabetter.cn/collection/treemap.html) 实现的，只不过同样操作的键位，值由一个固定的 Object 对象填充。”
 
 哇，三妹都学会了推理。
 
@@ -464,7 +464,7 @@ for (String element : queue) {
 }
 ```
 
-要想有优先级，元素就需要实现 [Comparable 接口或者 Comparator 接口](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)（我们后面会讲）。
+要想有优先级，元素就需要实现 [Comparable 接口或者 Comparator 接口](https://javabetter.cn/basic-extra-meal/comparable-omparator.html)（我们后面会讲）。
 
 这里先来一段通过实现 Comparator 接口按照年龄姓名排序的优先级队列吧。
 
@@ -549,7 +549,7 @@ PriorityQueue 是一个优先级队列，参数为 StudentComparator，然后我
 Student{name='陈清扬', 总成绩=190} Student{name='小驼铃', 总成绩=185} Student{name='沉默', 总成绩=170} Student{name='王二', 总成绩=170} 
 ```
 
-我们使用 offer 方法添加元素，最后用 while 循环遍历元素（通过 poll 方法取出元素），从结果可以看得出，[PriorityQueue](https://tobebetterjavaer.com/collection/PriorityQueue.html)按照学生的总成绩由高到低进行了排序。
+我们使用 offer 方法添加元素，最后用 while 循环遍历元素（通过 poll 方法取出元素），从结果可以看得出，[PriorityQueue](https://javabetter.cn/collection/PriorityQueue.html)按照学生的总成绩由高到低进行了排序。
 
 
 ### 04、Map
@@ -558,7 +558,7 @@ Map 保存的是键值对，键要求保持唯一性，值可以重复。
 
 #### **1）HashMap**
 
-HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。[后面会详细聊到](https://tobebetterjavaer.com/collection/hashmap.html)。
+HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。[后面会详细聊到](https://javabetter.cn/collection/hashmap.html)。
 
 这里先大致了解一下 HashMap 的特点：
 
@@ -598,7 +598,7 @@ for (String key : hashMap.keySet()) {
 
 #### **2）LinkedHashMap**
 
-HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的Map，就要用到 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
+HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的Map，就要用到 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
 
 LinkedHashMap 可以看作是 HashMap + LinkedList 的合体，它使用了哈希表来存储数据，又用了双向链表来维持顺序。
 
@@ -654,7 +654,7 @@ HashMap 没有维持键值对的插入顺序，对吧？
 
 #### **3）TreeMap**
 
-[TreeMap](https://tobebetterjavaer.com/collection/treemap.html) 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
+[TreeMap](https://javabetter.cn/collection/treemap.html) 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
 
 同样来一个增删改查的 demo：
 
@@ -734,7 +734,7 @@ c: cat
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -15,7 +15,7 @@ head:
 
 # 12.6 Java IO模型
 
-Java 的 IO 分为两大类，一类是[传统的 IO](https://tobebetterjavaer.com/io/shangtou.html)（Blocking IO），一类是 [NIO](https://tobebetterjavaer.com/nio/nio-better-io.html) （New IO）。
+Java 的 IO 分为两大类，一类是[传统的 IO](https://javabetter.cn/io/shangtou.html)（Blocking IO），一类是 [NIO](https://javabetter.cn/nio/nio-better-io.html) （New IO）。
 
 传统的 IO 基于字节流和字符流，以阻塞式 IO 操作为主。常用的类有 FileInputStream、FileOutputStream、InputStreamReader、OutputStreamWriter 等。这些类在读写数据时，会导致执行线程阻塞，直到操作完成。
 
@@ -35,7 +35,7 @@ Java NIO 是 Java 1.4 版本引入的，基于通道（Channel）和缓冲区（
 
 ### 内核空间和用户空间
 
-在上面的两幅图中，涉及到了两个概念：内核空间和用户空间。我们之前在[介绍非直接缓冲区的时候](https://tobebetterjavaer.com/nio/buffer-channel.html)，有这样一副图片。
+在上面的两幅图中，涉及到了两个概念：内核空间和用户空间。我们之前在[介绍非直接缓冲区的时候](https://javabetter.cn/nio/buffer-channel.html)，有这样一副图片。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406182813.png)
 
@@ -58,7 +58,7 @@ Java NIO 是 Java 1.4 版本引入的，基于通道（Channel）和缓冲区（
 
 I/O 多路复用（I/O Multiplexing）模型使用操作系统提供的多路复用功能（如 select、poll、epoll 等），使得单个线程可以同时处理多个 I/O 事件。当某个连接上的数据准备好时，操作系统会通知应用程序。这样，应用程序可以在一个线程中处理多个并发连接，而不需要为每个连接创建一个线程。
 
-- select 是 Unix 系统中最早的 I/O 多路复用技术。它允许一个线程同时监视多个文件描述符（如[套接字](https://tobebetterjavaer.com/socket/socket.html)），并等待某个文件描述符上的 I/O 事件（如可读、可写或异常）。select 的主要问题是性能受限，特别是在处理大量文件描述符时。这是因为它使用一个位掩码来表示文件描述符集，每次调用都需要传递这个掩码，并在内核和用户空间之间进行复制。
+- select 是 Unix 系统中最早的 I/O 多路复用技术。它允许一个线程同时监视多个文件描述符（如[套接字](https://javabetter.cn/socket/socket.html)），并等待某个文件描述符上的 I/O 事件（如可读、可写或异常）。select 的主要问题是性能受限，特别是在处理大量文件描述符时。这是因为它使用一个位掩码来表示文件描述符集，每次调用都需要传递这个掩码，并在内核和用户空间之间进行复制。
 
 - poll 是对 select 的改进。它使用一个文件描述符数组而不是位掩码来表示文件描述符集。这样可以避免 select 中的性能问题。然而，poll 仍然需要遍历整个文件描述符数组，以检查每个文件描述符的状态。因此，在处理大量文件描述符时，性能仍然受限。
 
@@ -123,7 +123,7 @@ if (key.isAcceptable()) {
 }
 ```
 
-完整的代码示例可以看之前的章节：[Java NIO 网络编程实践](https://tobebetterjavaer.com/nio/network-connect.html)
+完整的代码示例可以看之前的章节：[Java NIO 网络编程实践](https://javabetter.cn/nio/network-connect.html)
 
 #### 信号驱动
 
@@ -169,7 +169,7 @@ Linux 的内核将所有外部设备都看做一个文件来操作，对一个�
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

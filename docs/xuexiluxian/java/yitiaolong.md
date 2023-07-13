@@ -75,7 +75,7 @@ Maven 是一个项目管理和自动化构建工具，基于项目对象模型�
 
 安装和配置教程直接看我写过的这篇文章[10分钟，掌握项目构建神器Maven](https://mp.weixin.qq.com/s/3umZOaI4l0EIZ5RgtEDchw)就好了。
 
-另外，我推荐大家使用 GitHub/码云来作为私有的代码仓库，特别方便，免费还可以云同步。还不太熟悉[Git 命令](https://tobebetterjavaer.com/git/git-qiyuan.html)的话，可以下载[GitHub 桌面版](https://desktop.github.com/)来傻瓜式地操作。
+另外，我推荐大家使用 GitHub/码云来作为私有的代码仓库，特别方便，免费还可以云同步。还不太熟悉[Git 命令](https://javabetter.cn/git/git-qiyuan.html)的话，可以下载[GitHub 桌面版](https://desktop.github.com/)来傻瓜式地操作。
 
 这一套软件安装完成后，基本上开发 Java 的必备工具就齐活了。接下来，就可以放心大胆的进入 Java 的世界了。
 
@@ -83,19 +83,19 @@ Maven 是一个项目管理和自动化构建工具，基于项目对象模型�
 
 “冰冻三尺非一日之寒”，要想把 Java 学好，还是需要花费一番功夫的。Java 语言的知识点非常多，而我们又时间紧迫，意味着只能挑重点、挑实用，不能面面俱到，**一些不常用的知识点可以直接 pass 掉**。
 
-我这里给大家贴一张《Java程序员进阶之路》的导航地图，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源等，基本上你要的 Java 学习资源，这里都有，没有的，后面我也会补充上。
+我这里给大家贴一张《二哥的Java进阶之路》的导航地图，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源等，基本上你要的 Java 学习资源，这里都有，没有的，后面我也会补充上。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-c80191bf-ab08-4a28-898f-ea7ffff3f966.png)
 
 Java 是一门面向对象的编程语言，所以三大特性：封装、继承、多态是必须要掌握的，然后是异常处理、IO、集合、并发编程和 Java 虚拟机。只要这些内容掌握了，可以说 Java 语言本身的核心知识就全部掌握了。
 
-这些知识该怎么学呢？当然是直接上二哥的 Java程序员进阶之路了，内容非常的全面和硬核，截图给大家鉴赏一下。
+这些知识该怎么学呢？当然是直接上二哥的 二哥的Java进阶之路了，内容非常的全面和硬核，截图给大家鉴赏一下。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-a5436c4a-6464-4065-ae0d-50755c4184df.png)
 
 记住我们的网址：
 
->[https://tobebetterjavaer.com/](https://tobebetterjavaer.com/home.html#java核心)
+>[https://javabetter.cn/](https://javabetter.cn/home.html#java核心)
 
 
 这其中的难点是并发编程和 JVM，显然这两部分的内容学起来并不容易，但却最能考验一名 Java 后端工程师的功底了。
@@ -172,7 +172,7 @@ JSP 在实际开发中，主要是作为 MVC 模型中的V（View）层出现的
 
 1、熟悉常见数据结构的概念，比如说数组、堆栈、链表、哈希表等。
 
-2、了解常用数据结构之间的差异，比如说 [ArrayList 和 LinkedList](https://tobebetterjavaer.com/collection/list-war-2.html)。
+2、了解常用数据结构之间的差异，比如说 [ArrayList 和 LinkedList](https://javabetter.cn/collection/list-war-2.html)。
 
 3、关注常用数据结构的外围算法，比如说如何对 List 和 Map 进行查找。
 
@@ -282,7 +282,7 @@ B 站上浙江大学的一个数据结构课非常不错，很系统很经典。
 
 学习的过程，就好像登山一样，大概有 80% 的人在这个过程中会掉队。那么请相信我，只要目标明确，努力加上坚持，再加上一点点好运气，你就能登顶！
 
-最后说一句哈，大家学习 Java，是为了什么，我想大多数不是为了兴趣，是吧？是为了找工作，那么终极的一步，我们需要在找工作之前刷一波面试题，然后找工作的机会也会提升很多。Java程序员进阶之路上也为大家精心准备了面渣逆袭篇。
+最后说一句哈，大家学习 Java，是为了什么，我想大多数不是为了兴趣，是吧？是为了找工作，那么终极的一步，我们需要在找工作之前刷一波面试题，然后找工作的机会也会提升很多。二哥的Java进阶之路上也为大家精心准备了面渣逆袭篇。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-314e94ce-aa9d-4f09-831b-d1395c4fc07a.png)
@@ -290,7 +290,7 @@ B 站上浙江大学的一个数据结构课非常不错，很系统很经典。
 
 通过上面这幅图就能感受得到，非常全面，非常精彩。
 
->学习地址：[面渣逆袭](https://tobebetterjavaer.com/sidebar/sanfene/nixi.html)
+>学习地址：[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)
 
 衷心的希望，大家都能在学习 Java 的这条路上快乐一些，纯粹一些，少听少看一些那些焦虑文，什么 35 岁，什么学历歧视，沉下心来，多学习一点知识，让自己变强一点，比什么都好！
 
@@ -309,7 +309,7 @@ B 站上浙江大学的一个数据结构课非常不错，很系统很经典。
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

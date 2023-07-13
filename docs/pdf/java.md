@@ -49,7 +49,7 @@ tag:
 - 《C 陷阱与缺陷》
 - 《C Primer Plus》
 ### Java 语言
-- 《二哥的 Java程序员进阶之路》，GitHub 上已经开源，持续更新
+- 《二哥的 二哥的Java进阶之路》，GitHub 上已经开源，持续更新
 - 《Java 编程思想》
 - 《深入浅出 Java 多线程》
 - 《深入理解 Java 虚拟机》

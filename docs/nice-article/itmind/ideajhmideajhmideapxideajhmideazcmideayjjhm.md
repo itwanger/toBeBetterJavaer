@@ -52,6 +52,6 @@ head:
 
 这里提供几个**最新的激活码**，有需要的朋友可以试试，先到先用：
 
-[2022Intellij IDEA 最新激活码,IDEA 稳定专属激活码(持续更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
+[2022Intellij IDEA 最新激活码,IDEA 稳定专属激活码(持续更新）](https://javabetter.cn/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
 
-[一个可以无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+[一个可以无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定!](https://javabetter.cn/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)

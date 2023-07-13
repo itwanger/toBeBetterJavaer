@@ -45,7 +45,7 @@ System.out.println(a % b);//1
 
 对于初学者来说，加法（+）、减法（-）、乘法（*）很好理解，但除法（/）和取余（%）会有一点点疑惑。在以往的认知里，10/3 是除不尽的，结果应该是 3.333333...，而不应该是 3。相应的，余数也不应该是 1。这是为什么呢？
 
-因为数字在程序中可以分为两种，一种是整型，一种是浮点型（不清楚的同学可以回头看看[数据类型那篇](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)），整型和整型的运算结果就是整型，不会出现浮点型。否则，就会出现浮点型。
+因为数字在程序中可以分为两种，一种是整型，一种是浮点型（不清楚的同学可以回头看看[数据类型那篇](https://javabetter.cn/basic-grammar/basic-data-type.html)），整型和整型的运算结果就是整型，不会出现浮点型。否则，就会出现浮点型。
 
 ```java
 int a = 10;
@@ -66,7 +66,7 @@ System.out.println(0.0 / 0.0); // NaN
 
 Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数字（Not a Number）。
 
-当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)：
+当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://javabetter.cn/exception/gailan.html)：
 
 ```
 Exception in thread "main" java.lang.ArithmeticException: / by zero
@@ -306,7 +306,7 @@ System.out.println(min);
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

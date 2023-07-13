@@ -10,7 +10,7 @@ tag:
 
 # 5.7 Java构造方法
 
-“三妹，[上一节](https://tobebetterjavaer.com/oo/method.html)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”刚吃完中午饭，虽然有些困意，但趁机学个 10 分钟也是不错的，睡眠会更心满意足一些，于是我面露微笑地对三妹说。
+“三妹，[上一节](https://javabetter.cn/oo/method.html)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”刚吃完中午饭，虽然有些困意，但趁机学个 10 分钟也是不错的，睡眠会更心满意足一些，于是我面露微笑地对三妹说。
 
 “在 Java 中，构造方法是一种特殊的方法，当一个类被实例化的时候，就会调用构造方法。只有在构造方法被调用的时候，对象才会被分配内存空间。每次使用 `new` 关键字创建对象的时候，构造方法至少会被调用一次。”
 
@@ -73,7 +73,7 @@ public class Demo {
 
 `public Demo() {}` 才是真正的无参构造方法。
 
-不过，可以使用[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)（private、protected、public、default）来修饰构造方法，访问权限修饰符决定了构造方法的创建方式。
+不过，可以使用[访问权限修饰符](https://javabetter.cn/oo/access-control.html)（private、protected、public、default）来修饰构造方法，访问权限修饰符决定了构造方法的创建方式。
 
 
 ### 02、默认构造方法
@@ -178,7 +178,7 @@ new ParamConstructorPerson("沉默王三",16);
 
 ### 04、重载构造方法
 
-在 Java 中，构造方法和方法类似，只不过没有返回类型。它也可以像方法一样被[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。构造方法的重载也很简单，只需要提供不同的参数列表即可。编译器会通过参数的数量来决定应该调用哪一个构造方法。
+在 Java 中，构造方法和方法类似，只不过没有返回类型。它也可以像方法一样被[重载](https://javabetter.cn/basic-extra-meal/override-overload.html)。构造方法的重载也很简单，只需要提供不同的参数列表即可。编译器会通过参数的数量来决定应该调用哪一个构造方法。
 
 ```java
 /**
@@ -342,7 +342,7 @@ public class ClonePerson implements Cloneable {
 
 通过 `clone()` 方法复制对象的时候，ClonePerson 必须先实现 Cloneable 接口的 `clone()` 方法，然后再调用 `clone()` 方法（`ClonePerson p2 = (ClonePerson) p1.clone()`）。
 
->拓展阅读：[浅拷贝与深拷贝](https://tobebetterjavaer.com/basic-extra-meal/deep-copy.html)
+>拓展阅读：[浅拷贝与深拷贝](https://javabetter.cn/basic-extra-meal/deep-copy.html)
 
 ### 07、ending
 
@@ -365,7 +365,7 @@ public class ClonePerson implements Cloneable {
 ----
 
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

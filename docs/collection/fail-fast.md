@@ -83,7 +83,7 @@ final void checkForComodification() {
 
 为什么会执行 `checkForComodification` 方法呢？
 
-是因为 for-each 本质上是个语法糖，底层是通过[迭代器 Iterator](https://tobebetterjavaer.com/collection/iterator-iterable.html) 配合 while 循环实现的，来看一下反编译后的字节码。
+是因为 for-each 本质上是个语法糖，底层是通过[迭代器 Iterator](https://javabetter.cn/collection/iterator-iterable.html) 配合 while 循环实现的，来看一下反编译后的字节码。
 
 ```java
 List<String> list = new ArrayList();
@@ -319,7 +319,7 @@ while (itr.hasNext()) {
 }
 ```
 
-除此之外，我们还可以采用 [Stream 流](https://tobebetterjavaer.com/java8/stream.html)的filter() 方法来过滤集合中的元素，然后再通过 collect() 方法将过滤后的元素收集到一个新的集合中。
+除此之外，我们还可以采用 [Stream 流](https://javabetter.cn/java8/stream.html)的filter() 方法来过滤集合中的元素，然后再通过 collect() 方法将过滤后的元素收集到一个新的集合中。
 
 ```java
 List<String> list = new ArrayList<>(Arrays.asList("沉默", "王二", "陈清扬"));
@@ -330,7 +330,7 @@ list = list.stream().filter(s -> !s.equals("陈清扬")).collect(Collectors.toLi
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -20,7 +20,7 @@ Java 的缓冲流是对字节流和字符流的一种封装，通过在内存中
 
 ### 01、字节缓冲流
 
-BufferedInputStream 和 BufferedOutputStream 属于字节缓冲流，强化了字节流 InputStream 和 OutputStream，关于字节流，我们前面已经详细地讲过了，可以[戳这个链接](https://tobebetterjavaer.com/io/stream.html)去温习。
+BufferedInputStream 和 BufferedOutputStream 属于字节缓冲流，强化了字节流 InputStream 和 OutputStream，关于字节流，我们前面已经详细地讲过了，可以[戳这个链接](https://javabetter.cn/io/stream.html)去温习。
 
 #### 1）构造方法
 
@@ -140,7 +140,7 @@ public synchronized int read() throws IOException {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/buffer-20230321154534.png)
 
-在这段代码中，`read0()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)，它的实现是由底层操作系统提供的，并不是 Java 语言实现的。在不同的操作系统上，`read0()` 方法的实现可能会有所不同，但是它们的功能都是相同的，都是用于**读取一个字节**。
+在这段代码中，`read0()` 方法是一个[本地方法](https://javabetter.cn/oo/native-method.html)，它的实现是由底层操作系统提供的，并不是 Java 语言实现的。在不同的操作系统上，`read0()` 方法的实现可能会有所不同，但是它们的功能都是相同的，都是用于**读取一个字节**。
 
 再来看一下 BufferedOutputStream 的 `write(byte b[], int off, int len)` 方法：
 
@@ -322,7 +322,7 @@ BufferedWriter bw = new BufferedWriter(new FileWriter("b.txt"));
 
 #### 2）字符缓冲流特有方法
 
-字符缓冲流的基本方法与[普通字符流](https://tobebetterjavaer.com/io/reader-writer.html)调用方式一致，这里不再赘述，我们来看字符缓冲流**特有**的方法。
+字符缓冲流的基本方法与[普通字符流](https://javabetter.cn/io/reader-writer.html)调用方式一致，这里不再赘述，我们来看字符缓冲流**特有**的方法。
 
 *   BufferedReader：`String readLine()`: **读一行数据**，读取到最后返回 null
 *   BufferedWriter：`newLine()`: **换行**，由系统定义换行符。
@@ -427,7 +427,7 @@ for (int i = 1; i <= lineMap.size(); i++) {
 bw.close();
 ```
 
-这里面用到的知识都是我们前面学过的，比如说 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)，[字符串分割](https://tobebetterjavaer.com/string/split.html)，包括刚刚学习的字符缓冲流。
+这里面用到的知识都是我们前面学过的，比如说 [HashMap](https://javabetter.cn/collection/hashmap.html)，[字符串分割](https://javabetter.cn/string/split.html)，包括刚刚学习的字符缓冲流。
  
 
 来看输出结果
@@ -445,7 +445,7 @@ bw.close();
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

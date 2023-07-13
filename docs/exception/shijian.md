@@ -22,7 +22,7 @@ head:
 
 ### 01、尽量不要捕获 RuntimeException
 
-[阿里出品的 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上这样规定：
+[阿里出品的 Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)上这样规定：
 
 >尽量不要 catch RuntimeException，比如 NullPointerException、IndexOutOfBoundsException 等等，应该用预检查的方式来规避。
 
@@ -71,7 +71,7 @@ public void doNotCloseResourceInTry() {
 
 “为什么呢？”三妹问。
 
-“原因也很简单，因为一旦 `close()` 之前发生了异常，那么资源就无法关闭。直接使用 [try-with-resource](https://tobebetterjavaer.com/exception/try-with-resources.html) 来处理是最佳方式。”我说。
+“原因也很简单，因为一旦 `close()` 之前发生了异常，那么资源就无法关闭。直接使用 [try-with-resource](https://javabetter.cn/exception/try-with-resources.html) 来处理是最佳方式。”我说。
 
 ```java
 public void automaticallyCloseResource() {
@@ -185,7 +185,7 @@ public void wrapException(String input) throws MyBusinessException {
 
 ### 06、不要在 finally 块中使用 return
 
-[阿里出品的 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上这样规定：
+[阿里出品的 Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)上这样规定：
 
 >try 块中的 return 语句执行成功后，并不会马上返回，而是继续执行 finally 块中的语句，如果 finally 块中也存在 return 语句，那么 try 块中的 return 就将被覆盖。
 
@@ -321,7 +321,7 @@ finally 块用于定义一段代码，无论 try 块中是否出现异常，都�
 - `printStackTrace()` 方法会将堆栈跟踪信息输出到标准错误流中，这可能会影响程序的性能和稳定性。在高并发的生产环境中，大量的异常堆栈跟踪信息可能会导致系统崩溃或出现意外的行为。
 - 由于生产环境中往往是多线程、分布式的复杂系统，`printStackTrace()` 方法输出的堆栈跟踪信息可能并不完整或准确。
 
-在生产环境中，应该使用日志系统来记录异常信息，例如 [log4j](https://tobebetterjavaer.com/gongju/log4j.html)、[slf4j](https://tobebetterjavaer.com/gongju/slf4j.html)、[logback](https://tobebetterjavaer.com/gongju/logback.html) 等。日志系统可以将异常信息记录到文件或数据库中，而不会暴露敏感信息，也不会影响程序的性能和稳定性。同时，日志系统也提供了更多的功能，如级别控制、滚动日志、邮件通知等。
+在生产环境中，应该使用日志系统来记录异常信息，例如 [log4j](https://javabetter.cn/gongju/log4j.html)、[slf4j](https://javabetter.cn/gongju/slf4j.html)、[logback](https://javabetter.cn/gongju/logback.html) 等。日志系统可以将异常信息记录到文件或数据库中，而不会暴露敏感信息，也不会影响程序的性能和稳定性。同时，日志系统也提供了更多的功能，如级别控制、滚动日志、邮件通知等。
 
 ```java
 例如，可以使用 logback 记录异常信息，如下所示：
@@ -434,7 +434,7 @@ public class Demo {
 }
 ```
 
-虽然这个示例可以正确地处理输入字符串中的非数字字符，但是它使用异常进行流程控制，这就导致代码变得混乱、难以理解。应该使用其他合适的[控制结构](https://tobebetterjavaer.com/basic-grammar/flow-control.html)（如 if、switch、循环等）来管理程序的流程。
+虽然这个示例可以正确地处理输入字符串中的非数字字符，但是它使用异常进行流程控制，这就导致代码变得混乱、难以理解。应该使用其他合适的[控制结构](https://javabetter.cn/basic-grammar/flow-control.html)（如 if、switch、循环等）来管理程序的流程。
 
 ### 16、尽早验证用户输入以在请求处理的早期捕获异常
 
@@ -596,7 +596,7 @@ public void dataAccessCode() {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

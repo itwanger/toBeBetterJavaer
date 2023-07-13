@@ -39,13 +39,13 @@ leader 最好，毕竟关系比较近，没有包袱。
 
 说回我自己，当时入门语言是 Java，零基础，真的是硬着头皮上的。学习资料就一本《Java 编程思想》，真上头。
 
-好在自己坚持了下来，万分幸运。如果你是Java 初学者的话，那就无脑上《[Java程序员进阶之路](https://tobebetterjavaer.com/home.html)》就好了，从头刷到尾，基本上 Java 的核心知识就全部掌握了。
+好在自己坚持了下来，万分幸运。如果你是Java 初学者的话，那就无脑上《[二哥的Java进阶之路](https://javabetter.cn/home.html)》就好了，从头刷到尾，基本上 Java 的核心知识就全部掌握了。
 
 你甚至都不用去看书或者看视频。当然了，如果你需要，我后面也会推荐。
 
 入门编程的话，建议的首选语言有四个：Java、C语言、Python、JavaScript。
 
->学习路线戳这个链接：[https://tobebetterjavaer.com/xuexiluxian/](https://tobebetterjavaer.com/xuexiluxian/)
+>学习路线戳这个链接：[https://javabetter.cn/xuexiluxian/](https://javabetter.cn/xuexiluxian/)
 
 国内的大部分高校会选择 C语言，但其实 Python 和 JavaScript 也是非常不错的选择。
 
@@ -64,7 +64,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 * Python，如果打算走人工智能、数据分析，学历比较硬核的话，Python 是必学的，也非常容易入门上手。
 * Go，这些年收到很多读者要求进公司后转 Go 岗，就能间接的说明 Go 语言这些年发展是非常迅速的。
 
-为了照顾大家的学习方向，Java程序员进阶之路把所有的学习路线都整理了出来，戳链接：[https://tobebetterjavaer.com/xuexiluxian/](https://tobebetterjavaer.com/xuexiluxian/)
+为了照顾大家的学习方向，二哥的Java进阶之路把所有的学习路线都整理了出来，戳链接：[https://javabetter.cn/xuexiluxian/](https://javabetter.cn/xuexiluxian/)
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-1c762f54-f797-4880-b327-98b9cf1893b2.png)
@@ -82,7 +82,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 
 无（必须的话就 On Java 8）
 
-不过，看 [Java程序员进阶之路](https://tobebetterjavaer.com/home.html)不香吗？
+不过，看 [二哥的Java进阶之路](https://javabetter.cn/home.html)不香吗？
 
 同时推荐 B 站尚学堂的这套免费课程，可以说包含了 Java 的全部内容了。
 
@@ -93,7 +93,7 @@ leader 最好，毕竟关系比较近，没有包袱。
 
 学习一门语言和框架我认为最好的方式就是做项目，做项目除了锻炼我们开发能力外，在找实习和找工作时候也是和面试官很好的切入点。
 
-[二哥的编程星球里有一份编程喵🐱的实战（Spring Boot+Vue 的前后端分离）项目笔记，戳链接加入](https://tobebetterjavaer.com/zhishixingqiu/)
+[二哥的编程星球里有一份编程喵🐱的实战（Spring Boot+Vue 的前后端分离）项目笔记，戳链接加入](https://javabetter.cn/zhishixingqiu/)
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-b194758a-53cf-4c5f-8533-12e4ed603f46.png)
@@ -101,8 +101,8 @@ leader 最好，毕竟关系比较近，没有包袱。
 
 Spring IoC 和 AOP 是核心，如何理解，看我这篇文章：
 
-- 👉 [Spring AOP 扫盲](https://tobebetterjavaer.com/springboot/aop-log.html)
-- 👉 [Spring IoC扫盲](https://tobebetterjavaer.com/springboot/ioc.html)
+- 👉 [Spring AOP 扫盲](https://javabetter.cn/springboot/aop-log.html)
+- 👉 [Spring IoC扫盲](https://javabetter.cn/springboot/ioc.html)
 
 
 你可以去 Github 上找一些感兴趣的项目入手，或者是跟着一些课程视频做项目。比如我们习以为常的博客系统，你可以亲自动手实现感受一下做一个博客的全过程。
@@ -282,7 +282,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/cnblog-wosrhtgzjdbcnld-68ec93ac-1855-4813-affe-b3b6484ca157.png)
 
-电子版的话可以[戳这里](https://tobebetterjavaer.com/nice-article/weixin-shejmsnb.html)。
+电子版的话可以[戳这里](https://javabetter.cn/nice-article/weixin-shejmsnb.html)。
 
 也可以直接到这个网站 [Refactoring Guru](https://refactoring.guru) 刷设计模式，制作的真心不错。
 
@@ -312,7 +312,7 @@ Redis 是世界上最受欢迎的非关系型数据库之一，常常用来当�
 
 > 1，2，3，6，7，8，9 章
 
-我在《Java程序员进阶之路》网站上也分享有[操作系统的学习路线](https://tobebetterjavaer.com/xuexiluxian/os.html)，可以围观。
+我在《二哥的Java进阶之路》网站上也分享有[操作系统的学习路线](https://javabetter.cn/xuexiluxian/os.html)，可以围观。
 
 那理解了计算机系统有什么用呢？
 
@@ -396,7 +396,7 @@ B 站中英文版本：[https://www.bilibili.com/video/av21376839/](https://www.
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

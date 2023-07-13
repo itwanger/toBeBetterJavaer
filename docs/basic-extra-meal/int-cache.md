@@ -117,7 +117,7 @@ private static class IntegerCache {
 
 需要注意的是，如果使用 `new Integer()` 创建对象，即使值在 -128 到 127 范围内，也不会被缓存，每次都会创建新的对象。因此，推荐使用 `Integer.valueOf()` 方法获取整数对象。
 
-[学习 static 关键字](https://tobebetterjavaer.com/oo/static.html)的时候，会详细解释静态代码块，你暂时先记住，三妹，静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
+[学习 static 关键字](https://javabetter.cn/oo/static.html)的时候，会详细解释静态代码块，你暂时先记住，三妹，静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
 
 在静态代码块中，low 为 -128，也就是缓存池的最小值；high 默认为 127，也就是缓存池的最大值，共计 256 个。
 
@@ -179,7 +179,7 @@ Exception in thread "main" java.lang.AssertionError
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

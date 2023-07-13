@@ -332,15 +332,15 @@ Method[] methods2 = System.class.getMethods();
 
 这里简单总结下。
 
-反射是 Java 中的一个强大特性，它允许在运行时检查和操作[类](https://tobebetterjavaer.com/oo/object-class.html)、[接口](https://tobebetterjavaer.com/oo/interface.html)、[字段](https://tobebetterjavaer.com/oo/var.html)和[方法](https://tobebetterjavaer.com/oo/method.html)。反射是 Java 的核心组件，支持各种框架和库的实现，如 Spring、Hibernate 等。使用反射，可以在运行时动态地创建对象、调用方法和访问字段，而无需在编译时了解这些对象的具体实现。
+反射是 Java 中的一个强大特性，它允许在运行时检查和操作[类](https://javabetter.cn/oo/object-class.html)、[接口](https://javabetter.cn/oo/interface.html)、[字段](https://javabetter.cn/oo/var.html)和[方法](https://javabetter.cn/oo/method.html)。反射是 Java 的核心组件，支持各种框架和库的实现，如 Spring、Hibernate 等。使用反射，可以在运行时动态地创建对象、调用方法和访问字段，而无需在编译时了解这些对象的具体实现。
 
 反射的主要类位于 `java.lang.reflect` 包中，主要包括以下几个关键类：
 
 - Class：代表一个类或接口，包含了类的结构信息（如名称、构造函数、方法、字段等）。通过 Class 对象，可以获取类的元数据并操作类的实例。
-- Constructor：代表类的[构造方法](https://tobebetterjavaer.com/oo/construct.html)，用于创建类的实例。
+- Constructor：代表类的[构造方法](https://javabetter.cn/oo/construct.html)，用于创建类的实例。
 - Method：代表类的方法，可以通过它调用类的实例方法。
 - Field：代表类的字段，可以获取或修改字段的值。
-- Modifier：包含方法、字段和类的[访问修饰符（如 public、private 等）](https://tobebetterjavaer.com/oo/access-control.html)。
+- Modifier：包含方法、字段和类的[访问修饰符（如 public、private 等）](https://javabetter.cn/oo/access-control.html)。
 
 使用反射时，需要注意以下几点：
 
@@ -430,7 +430,7 @@ public class ReflectionDemo {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
