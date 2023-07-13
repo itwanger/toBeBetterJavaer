@@ -140,9 +140,9 @@ joiner.join(array);
 joiner.join(list);
 ```
 
-关于字符串拼接内部的工作原理，可以参考《Java程序员进阶之路》上的帖子：
+关于字符串拼接内部的工作原理，可以参考《二哥的Java进阶之路》上的帖子：
 
->https://tobebetterjavaer.com/string/join.html
+>https://javabetter.cn/string/join.html
 
 ### 字符串拆分
 
@@ -167,9 +167,9 @@ splitter.omitEmptyStrings().splitToList("ab,,b,c")
 
 `StringUtils` 内部还有其他常用的方法，小伙伴可以自行查看其 API。
 
-关于字符串拆分内部的工作原理，可以参考《Java程序员进阶之路》上的帖子：
+关于字符串拆分内部的工作原理，可以参考《二哥的Java进阶之路》上的帖子：
 
->https://tobebetterjavaer.com/string/split.html
+>https://javabetter.cn/string/split.html
 
 ## 二、日期相关工具类
 

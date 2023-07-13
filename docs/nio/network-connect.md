@@ -15,13 +15,13 @@ head:
 
 # 12.5 NIO 实现简易版聊天室
 
-在此之前，我们曾利用 Java 的套接字 Socket 和 ServerSocket 完成[网络编程](https://tobebetterjavaer.com/socket/socket.html)，但 Socket 和 ServerSocket 是基于 Java IO 的，在网络编程方面，性能会比较差。[原因我们在之前也讲过](https://tobebetterjavaer.com/nio/nio-better-io.html)。
+在此之前，我们曾利用 Java 的套接字 Socket 和 ServerSocket 完成[网络编程](https://javabetter.cn/socket/socket.html)，但 Socket 和 ServerSocket 是基于 Java IO 的，在网络编程方面，性能会比较差。[原因我们在之前也讲过](https://javabetter.cn/nio/nio-better-io.html)。
 
 那 Java NIO 的 SocketChannel 和 ServerSocketChannel 性能怎么样呢？
 
 ### SocketChannel 和 ServerSocketChannel
 
-在学习 NIO 的[第一讲里](https://tobebetterjavaer.com/nio/nio-better-io.html)，我们已经介绍过 SocketChannel 和 ServerSocketChannel了，这里再简单补充下。
+在学习 NIO 的[第一讲里](https://javabetter.cn/nio/nio-better-io.html)，我们已经介绍过 SocketChannel 和 ServerSocketChannel了，这里再简单补充下。
 
 ServerSocketChannel 用于创建服务器端套接字，而 SocketChannel 用于创建客户端套接字。它们都支持阻塞和非阻塞模式，通过设置其 blocking 属性来切换。阻塞模式下，读/写操作会一直阻塞直到完成，而非阻塞模式下，读/写操作会立即返回。
 
@@ -434,7 +434,7 @@ public class AsynchronousServer {
 }
 ```
 
-代码结构和之前讲到的[异步文件通道 AsynchronousFileChannel](https://tobebetterjavaer.com/nio/buffer-channel.html) 比较相似，异步服务单套接字通道 AsynchronousServerSocketChannel 接收客户端连接，每当收到一个新的连接时，会调用 `completed()` 方法，然后读取客户端发送的数据并将其打印到控制台。
+代码结构和之前讲到的[异步文件通道 AsynchronousFileChannel](https://javabetter.cn/nio/buffer-channel.html) 比较相似，异步服务单套接字通道 AsynchronousServerSocketChannel 接收客户端连接，每当收到一个新的连接时，会调用 `completed()` 方法，然后读取客户端发送的数据并将其打印到控制台。
 
 来简单分析一下吧。
 
@@ -462,7 +462,7 @@ new CompletionHandler<AsynchronousSocketChannel, Void>() {
 }
 ```
 
-在 completed 方法中，我们首先调用 `server.accept()` 来接收下一个连接请求。然后，我们创建一个缓冲区 ByteBuffer 并使用 `client.read()` 从客户端读取数据。在这个示例中，我们使用了一个 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来等待读取操作完成。当读取完成时，我们将缓冲区的内容打印到控制台。
+在 completed 方法中，我们首先调用 `server.accept()` 来接收下一个连接请求。然后，我们创建一个缓冲区 ByteBuffer 并使用 `client.read()` 从客户端读取数据。在这个示例中，我们使用了一个 [Future](https://javabetter.cn/thread/callable-future-futuretask.html) 对象来等待读取操作完成。当读取完成时，我们将缓冲区的内容打印到控制台。
 
 ④、为了让服务器继续运行并接收客户端连接，我们需要阻止 main 线程退出。
 
@@ -854,7 +854,7 @@ OK，关于聊天室，我们就先讲到这里。
 
 ### 小结
 
-前面我们了解到，Java NIO 在文件 IO 上的性能其实和传统 IO 差不多，甚至在处理大文件的时候还有些甘拜下风，但 NIO 的主要作用体现在网络 IO 上，像 [Netty](https://tobebetterjavaer.com/netty/rumen.html) 框架底层其实就是 NIO，我们来做一下简单的总结吧。
+前面我们了解到，Java NIO 在文件 IO 上的性能其实和传统 IO 差不多，甚至在处理大文件的时候还有些甘拜下风，但 NIO 的主要作用体现在网络 IO 上，像 [Netty](https://javabetter.cn/netty/rumen.html) 框架底层其实就是 NIO，我们来做一下简单的总结吧。
 
 SocketChannel（用于 TCP 连接）和 ServerSocketChannel（用于监听和接受新的 TCP 连接）可以用来替代传统的 Socket 和 ServerSocket 类，提供非阻塞模式。
 
@@ -870,7 +870,7 @@ Java NIO.2 引入了 AsynchronousSocketChannel 和 AsynchronousServerSocketChann
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

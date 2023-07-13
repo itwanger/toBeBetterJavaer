@@ -5,11 +5,11 @@ category:
   - Java核心
 tag:
   - Java重要知识点
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，jdk9为什么要将String的底层实现由char数组改成了byte数组?
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，jdk9为什么要将String的底层实现由char数组改成了byte数组?
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,string,char,byte,java string 底层实现,java字符串源码,java string char,java string byte,java string char byte,java 
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,string,char,byte,java string 底层实现,java字符串源码,java string char,java string byte,java string char byte,java 
 ---
 
 # 4.11 String的底层实现为什么由char改成了byte?
@@ -36,7 +36,7 @@ head:
 
 ### 为什么能节省内存空间？
 
-众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 [编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
+众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 [编码](https://javabetter.cn/basic-extra-meal/java-unicode.html)，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
 
 也就是说，使用 `char[]` 来表示 String 就会导致，即使 String 中的字符只用一个字节就能表示，也得占用两个字节。
 
@@ -120,7 +120,7 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

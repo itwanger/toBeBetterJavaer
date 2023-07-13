@@ -7,7 +7,7 @@ title: 给域名配置HTTPS证书
 shortTitle: 给域名配置HTTPS证书
 ---
 
-上一次，我们完成[域名解析](https://tobebetterjavaer.com/szjy/buy-domain.html)后，发现浏览器地址栏里的域名被提示为不安全，就是因为它还是个宝宝，没有从 HTTP 升级为 HTTPS。
+上一次，我们完成[域名解析](https://javabetter.cn/szjy/buy-domain.html)后，发现浏览器地址栏里的域名被提示为不安全，就是因为它还是个宝宝，没有从 HTTP 升级为 HTTPS。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-01.png)
 
@@ -71,11 +71,11 @@ FreeSSL.cn 是一个提供免费HTTPS证书申请的网站，网址如下：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-14.png)
 
-使用 [Tabby 终端](https://tobebetterjavaer.com/gongju/tabby.html)的「SFTP」将证书上传到网站的云服务器。
+使用 [Tabby 终端](https://javabetter.cn/gongju/tabby.html)的「SFTP」将证书上传到网站的云服务器。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-15.png)
 
-打开[宝塔面板](https://tobebetterjavaer.com/szjy/install-baota-mianban.html)，准备配置 Nginx 的 SSL 证书。将以下信息复制到 Nginx 的配置文件中，保存后重新加载配置。
+打开[宝塔面板](https://javabetter.cn/szjy/install-baota-mianban.html)，准备配置 Nginx 的 SSL 证书。将以下信息复制到 Nginx 的配置文件中，保存后重新加载配置。
 
 ```
 # HTTPS server
@@ -104,7 +104,7 @@ server {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-16.png)
 
-在地址栏访问 [https://tobebetterjavaer.com](https://tobebetterjavaer.com) 就可以看到我们的域名已经升级为 HTTPS 了（安全锁的小图标也显示出来了）。
+在地址栏访问 [https://javabetter.cn](https://javabetter.cn) 就可以看到我们的域名已经升级为 HTTPS 了（安全锁的小图标也显示出来了）。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-17.png)
 
@@ -127,7 +127,7 @@ server {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-19.png)
 
-再次刷新原来的 HTTP 访问链接，可以看到已经跳转到 HTTPS 了，如果你查看地址栏的话，也会看到地址变成了 [https://tobebetterjavaer.com](https://tobebetterjavaer.com。
+再次刷新原来的 HTTP 访问链接，可以看到已经跳转到 HTTPS 了，如果你查看地址栏的话，也会看到地址变成了 [https://javabetter.cn](https://javabetter.cn。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-https-20.png)
 
@@ -140,7 +140,7 @@ server {
 
 希望能给学习 Java 的小伙伴提供一点点帮助，二哥就感觉值了！
 
-到此为止，《Java程序员进阶之路》网站的硬件设施就全部完善了，她已经是个成熟的宝宝了。
+到此为止，《二哥的Java进阶之路》网站的硬件设施就全部完善了，她已经是个成熟的宝宝了。
 
 希望百度和谷歌等搜索引擎尽快收录，后面也会去学习一些 SEO 方面的知识，提高一下网站的排名，让网站获得更多的流量，从而提升品牌的影响力。
 

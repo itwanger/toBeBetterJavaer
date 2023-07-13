@@ -168,7 +168,7 @@ public enum PlayerType {
 
 “来吧，我准备好了。”
 
-“EnumSet 是一个专门针对枚举类型的 [Set 接口](https://tobebetterjavaer.com/collection/gailan.html)（后面会讲）的实现类，它是处理枚举类型数据的一把利器，非常高效。”我说，“从名字上就可以看得出，EnumSet 不仅和 Set 有关系，和枚举也有关系。”
+“EnumSet 是一个专门针对枚举类型的 [Set 接口](https://javabetter.cn/collection/gailan.html)（后面会讲）的实现类，它是处理枚举类型数据的一把利器，非常高效。”我说，“从名字上就可以看得出，EnumSet 不仅和 Set 有关系，和枚举也有关系。”
 
 “因为 EnumSet 是一个抽象类，所以创建 EnumSet 时不能使用 new 关键字。不过，EnumSet 提供了很多有用的静态工厂方法。”
 
@@ -217,7 +217,7 @@ EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-04.png)
 
-和 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)（后面会讲）的使用方法大致相同，来看下面的例子。
+和 [HashMap](https://javabetter.cn/collection/hashmap.html)（后面会讲）的使用方法大致相同，来看下面的例子。
 
 ```java
 EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
@@ -277,7 +277,7 @@ public class Singleton {
 }
 ```
 
-“要用到 [volatile](https://tobebetterjavaer.com/thread/volatile.html)、[synchronized](https://tobebetterjavaer.com/thread/synchronized-1.html) 关键字等等，但枚举的出现，让代码量减少到极致。”
+“要用到 [volatile](https://javabetter.cn/thread/volatile.html)、[synchronized](https://javabetter.cn/thread/synchronized-1.html) 关键字等等，但枚举的出现，让代码量减少到极致。”
 
 ```java
 public enum EasySingleton{
@@ -287,7 +287,7 @@ public enum EasySingleton{
 
 “就这？”三妹睁大了眼睛。
 
-“对啊，枚举默认实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，因此 Java 虚拟机可以保证该类为单例，这与传统的实现方式不大相同。传统方式中，我们必须确保单例在反序列化期间不能创建任何新实例。”我说。
+“对啊，枚举默认实现了 [Serializable 接口](https://javabetter.cn/io/Serializbale.html)，因此 Java 虚拟机可以保证该类为单例，这与传统的实现方式不大相同。传统方式中，我们必须确保单例在反序列化期间不能创建任何新实例。”我说。
 
 “好了，关于枚举就讲这么多吧，三妹，你把这些代码都手敲一遍吧！”
 
@@ -297,7 +297,7 @@ public enum EasySingleton{
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

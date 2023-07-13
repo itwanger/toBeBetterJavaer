@@ -10,7 +10,7 @@ tagline: 技术文通俗易懂，吹水文风趣幽默。
 projects:
   - icon: project
     name: 进阶之路
-    desc: Java程序员进阶之路
+    desc: 二哥的Java进阶之路
     link: /home.md
 
   - icon: link

@@ -14,9 +14,9 @@ head:
 
 # 6.14 Comparable和Comparator的区别
 
->在前面学习[优先级队列](https://tobebetterjavaer.com/collection/PriorityQueue.html)的时候，我们曾提到过 Comparable和Comparator，那这篇继续以面试官的角度去切入，一起来看。
+>在前面学习[优先级队列](https://javabetter.cn/collection/PriorityQueue.html)的时候，我们曾提到过 Comparable和Comparator，那这篇继续以面试官的角度去切入，一起来看。
 
-那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[二哥的Java进阶之路](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)》上看到过这题😆。
+那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[二哥的Java进阶之路](https://javabetter.cn/basic-extra-meal/comparable-omparator.html)》上看到过这题😆。
 
 Comparable 和 Comparator 是 Java 的两个接口，从名字上我们就能够读出来它们俩的相似性：以某种方式来比较两个对象。
 
@@ -66,7 +66,7 @@ public class Cmower implements Comparable<Cmower> {
 
 程序输出的结果是“沉默王三比较年轻有为”，因为他比沉默王二小三岁。这个结果有什么凭证吗？
 
-凭证就在于 `compareTo()` 方法，该方法的返回值可能为负数，零或者正数，代表的意思是该对象按照排序的规则小于、等于或者大于要比较的对象。如果指定对象的类型与此对象不能进行比较，则引发 `ClassCastException` 异常（自从有了[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)，这种情况就少有发生了）。
+凭证就在于 `compareTo()` 方法，该方法的返回值可能为负数，零或者正数，代表的意思是该对象按照排序的规则小于、等于或者大于要比较的对象。如果指定对象的类型与此对象不能进行比较，则引发 `ClassCastException` 异常（自从有了[泛型](https://javabetter.cn/basic-extra-meal/generic.html)，这种情况就少有发生了）。
 
 ### 02、Comparator
 
@@ -176,7 +176,7 @@ public void sort(Comparator<? super E> c) {
 }
 ```
 
-可以看到，参数就是一个 Comparator 接口，并且使用了[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html) `Comparator<? super E> c`。
+可以看到，参数就是一个 Comparator 接口，并且使用了[泛型](https://javabetter.cn/basic-extra-meal/generic.html) `Comparator<? super E> c`。
 
 ### 03、到底该用哪一个？
 
@@ -194,7 +194,7 @@ public void sort(Comparator<? super E> c) {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

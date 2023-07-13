@@ -9,7 +9,7 @@ description: 本文详细介绍了国产Java工具包Hutool，阐述了它在简
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Hutool,java hutool
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Hutool,java hutool
 ---
 
 # 9.6 Hutool工具类库
@@ -138,7 +138,7 @@ String chineseZodiac = DateUtil.getChineseZodiac(1989);
 
 ### 04、IO 流相关
 
-[IO 操作包括读和写](https://tobebetterjavaer.com/io/shangtou.html)，应用的场景主要包括网络操作和文件操作，原生的 Java 类库区分[字符流](https://tobebetterjavaer.com/io/reader-writer.html)和[字节流](https://tobebetterjavaer.com/io/stream.html)，字节流 InputStream 和 OutputStream 就有很多很多种，使用起来让人头皮发麻。
+[IO 操作包括读和写](https://javabetter.cn/io/shangtou.html)，应用的场景主要包括网络操作和文件操作，原生的 Java 类库区分[字符流](https://javabetter.cn/io/reader-writer.html)和[字节流](https://javabetter.cn/io/stream.html)，字节流 InputStream 和 OutputStream 就有很多很多种，使用起来让人头皮发麻。
 
 Hutool 封装了流操作工具类 IoUtil、文件读写操作工具类 FileUtil、文件类型判断工具类 FileTypeUtil 等等。
 
@@ -327,7 +327,7 @@ Validator.isMobile("itwanger.com");
 
 ### 12、双向查找 Map
 
-[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 中提供了一种特殊的 Map 结构，叫做 BiMap，实现了一种双向查找的功能，可以根据 key 查找 value，也可以根据 value 查找 key，Hutool 也提供这种 Map 结构。
+[Guava](https://javabetter.cn/common-tool/guava.html) 中提供了一种特殊的 Map 结构，叫做 BiMap，实现了一种双向查找的功能，可以根据 key 查找 value，也可以根据 value 查找 key，Hutool 也提供这种 Map 结构。
 
 ```java
 BiMap<String, String> biMap = new BiMap<>(new HashMap<>());
@@ -557,7 +557,7 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

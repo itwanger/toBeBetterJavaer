@@ -14,7 +14,7 @@ head:
 
 # 6.5 ArrayList和LinkedList的区别
 
-“终于，二哥，我们要聊 [LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 和 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 之间的差别了，我期待了很久。”三妹嘟囔着说。
+“终于，二哥，我们要聊 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 和 [ArrayList](https://javabetter.cn/collection/arraylist.html) 之间的差别了，我期待了很久。”三妹嘟囔着说。
 
 “其实经过前面两节的分析，差别已经很清晰了。”我喃喃道。
 
@@ -76,7 +76,7 @@ E elementData(int index) {
 }
 ```
 
-ArrayList 还实现了 Cloneable 接口，这表明 ArrayList 是支持[拷贝](https://tobebetterjavaer.com/basic-extra-meal/deep-copy.html)的。ArrayList 内部的确也重写了 Object 类的 `clone()` 方法。
+ArrayList 还实现了 Cloneable 接口，这表明 ArrayList 是支持[拷贝](https://javabetter.cn/basic-extra-meal/deep-copy.html)的。ArrayList 内部的确也重写了 Object 类的 `clone()` 方法。
 
 ```java
 /**
@@ -98,7 +98,7 @@ public Object clone() {
 }
 ```
 
-ArrayList 还实现了 [Serializable](https://tobebetterjavaer.com/io/Serializbale.html) 接口，同样是一个标记接口：
+ArrayList 还实现了 [Serializable](https://javabetter.cn/io/Serializbale.html) 接口，同样是一个标记接口：
 
 ```java
 public interface Serializable {
@@ -107,7 +107,7 @@ public interface Serializable {
 
 内部也是空的，标记“实现了这个接口的类支持序列化”。序列化是什么意思呢？Java 的序列化是指，将对象转换成以字节序列的形式来表示，这些字节序中包含了对象的字段和方法。序列化后的对象可以被写到数据库、写到文件，也可用于网络传输。
 
-眼睛雪亮的小伙伴可能会注意到，ArrayList 中的关键字段 elementData 使用了 [transient 关键字](https://tobebetterjavaer.com/io/transient.html)修饰，这个关键字的作用是，让它修饰的字段不被序列化。
+眼睛雪亮的小伙伴可能会注意到，ArrayList 中的关键字段 elementData 使用了 [transient 关键字](https://javabetter.cn/io/transient.html)修饰，这个关键字的作用是，让它修饰的字段不被序列化。
 
 这不前后矛盾吗？一个类既然实现了 Serilizable 接口，肯定是想要被序列化的，对吧？那为什么保存关键数据的 elementData 又不想被序列化呢?
 
@@ -115,7 +115,7 @@ public interface Serializable {
 
 ArrayList 不想像数组这样活着，它想能屈能伸，所以它实现了动态扩容。一旦在添加元素的时候，发现容量用满了 `s == elementData.length`，就按照原来数组的 1.5 倍（`oldCapacity >> 1`）进行扩容。扩容之后，再将原有的数组复制到新分配的内存地址上 `Arrays.copyOf(elementData, newCapacity)`。
 
-这部分源码我们在之前讲 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的时候就已经讲的很清楚了，这里就一笔带过。
+这部分源码我们在之前讲 [ArrayList](https://javabetter.cn/collection/arraylist.html) 的时候就已经讲的很清楚了，这里就一笔带过。
 
 动态扩容意味着什么？
 
@@ -211,7 +211,7 @@ public class LinkedList<E>
 }
 ```
 
- LinkedList 内部定义了一个 Node 节点，它包含 3 个部分：元素内容 item，前引用 prev 和后引用 next。这个在讲 [LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 的时候也讲过了，这里略过。
+ LinkedList 内部定义了一个 Node 节点，它包含 3 个部分：元素内容 item，前引用 prev 和后引用 next。这个在讲 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 的时候也讲过了，这里略过。
 
 LinkedList 还实现了 Cloneable 接口，这表明 LinkedList 是支持拷贝的。
 
@@ -276,7 +276,7 @@ void linkLast(E e) {
 
 ArrayList 新增元素有两种情况，一种是直接将元素添加到数组末尾，一种是将元素插入到指定位置。
 
-添加到数组末尾的源码（这部分前面讲 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的时候讲过了，这里再温故一下）：
+添加到数组末尾的源码（这部分前面讲 [ArrayList](https://javabetter.cn/collection/arraylist.html) 的时候讲过了，这里再温故一下）：
 
 ```java
 public boolean add(E e) {
@@ -793,7 +793,7 @@ public int indexOf(Object o) {
 
 需要遍历整个链表，和 ArrayList 的 `indexOf()` 类似。
 
-那在我们对集合遍历的时候，通常有两种做法，一种是使用 for 循环，一种是使用[迭代器（Iterator）](https://tobebetterjavaer.com/collection/iterator-iterable.html)。
+那在我们对集合遍历的时候，通常有两种做法，一种是使用 for 循环，一种是使用[迭代器（Iterator）](https://javabetter.cn/collection/iterator-iterable.html)。
 
 如果使用的是 for 循环，可想而知 LinkedList 在 get 的时候性能会非常差，因为每一次外层的 for 循环，都要执行一次 `node(int)` 方法进行前后半段的遍历。
 
@@ -885,7 +885,7 @@ private class ListItr implements ListIterator<E> {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

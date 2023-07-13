@@ -14,7 +14,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/newcoder-shangamjyhjzqzglzyfxnkw-1568572d-3fc7-458b-8892-b67d6bdba6c5.png)
 
 作者：沉默王二<br>
-Java程序员进阶之路：https://tobebetterjavaer.com
+二哥的Java进阶之路：https://javabetter.cn
 
 大家好，我是二哥呀。
 

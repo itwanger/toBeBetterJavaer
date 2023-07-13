@@ -1,15 +1,15 @@
 ---
-title: 五月总结-沉默王二-Java程序员进阶之路-知识星球
+title: 五月总结-沉默王二-二哥的Java进阶之路-知识星球
 shortTitle: 知识星球五月总结
 category:
   - 知识星球
 tag:
   - 知识星球
-description: 沉默王二的编程知识星球-Java程序员进阶之路-五月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
+description: 沉默王二的编程知识星球-二哥的Java进阶之路-五月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 head:
   - - meta
     - name: keywords
-      content: 知识星球,沉默王二,Java程序员进阶之路,编程,Java,IT,计算机专业
+      content: 知识星球,沉默王二,二哥的Java进阶之路,编程,Java,IT,计算机专业
 ---
 
 ### 第一周打卡总结
@@ -65,7 +65,7 @@ head:
 
 - 第07节：Spring Boot 整合 Redis 缓存✔️地址：[https://t.zsxq.com/EYBiMBM](https://t.zsxq.com/EYBiMBM)
 - 第06节：Spring Boot 中使用过滤器、拦截器、监听器✔️地址：[https://t.zsxq.com/bE6ynMV](https://t.zsxq.com/bE6ynMV)
-- Java程序员进阶之路（[https://tobebetterjavaer.com/](https://tobebetterjavaer.com/)）图片压缩，在调查 CDN 日志的时候发现，两三点还有小伙伴在学习✔️地址：[https://t.zsxq.com/jqrJyFQ](https://t.zsxq.com/jqrJyFQ)
+- 二哥的Java进阶之路（[https://javabetter.cn/](https://javabetter.cn/)）图片压缩，在调查 CDN 日志的时候发现，两三点还有小伙伴在学习✔️地址：[https://t.zsxq.com/jqrJyFQ](https://t.zsxq.com/jqrJyFQ)
 - 第05节，Spring Boot如何开启事务支持✔️ 笔记地址：[https://t.zsxq.com/jiMZ7QF](https://t.zsxq.com/jiMZ7QF)
 - 第04节，Spring Boot 整合 Thymeleaf 模板引擎✔️笔记地址：[https://t.zsxq.com/QVjU3BQ](https://t.zsxq.com/QVjU3BQ)
 - 《Java 面试指南》面试官喜欢什么样的求职者✔️笔记地址：[https://t.zsxq.com/6iuzn6I](https://t.zsxq.com/6iuzn6I)

@@ -21,7 +21,7 @@ PS: 本教程最新更新时间: 2022年8月8日~
 
 笔者试了网上几乎所有的 Pycharm 破解方案，发现这种靠谱的破解方法，都配上了详细的图文教程，在这里分享给大家。
 
-[👉**【推荐】永久激活 Pycharm （补丁）**](https://tobebetterjavaer.com/nice-article/xshellazpjbjcxshellpxffxbxt.html)，即本文教程所写的，具体步骤**跟着下面的图文教程一步一步来就行，一分钟即可搞定，过程也非常简单**。无图无真相，下面是成功激活后的截图：
+[👉**【推荐】永久激活 Pycharm （补丁）**](https://javabetter.cn/nice-article/xshellazpjbjcxshellpxffxbxt.html)，即本文教程所写的，具体步骤**跟着下面的图文教程一步一步来就行，一分钟即可搞定，过程也非常简单**。无图无真相，下面是成功激活后的截图：
 
 > PS: 补丁的原理实际上是暴力拦截了 Pycharm 的剩余使用期网络请求，实际上等于永久激活，激活到的哪天的配置，之前版本z大是开放出来的，可以通过配置文件随意修改，比如改成激活到 2099 年，最新的版本无了，可能是太高调了，怕被官方搞，其实都是一样的。还是要感谢z大的补丁~ 无敌~ nbility。
 
@@ -154,7 +154,7 @@ IHMWLMSEAL-eyJsaWNlbnNlSWQiOiJJSE1XTE1TRUFMIiwibGljZW5zZWVOYW1lIjoidHJlbmRzIHJhY
 
 Jetbrains 每个产品对应激活码都不一样，其他 IDE, 如 IDEA、Webstrom 等激活码可点击下面链接获取：
 
-[👉《Jetbrains 其他产品对应激活码》](https://tobebetterjavaer.com/nice-article/itmind/)
+[👉《Jetbrains 其他产品对应激活码》](https://javabetter.cn/nice-article/itmind/)
 
 复制激活码后填入，点击 Activate 按钮完成激活：
 
@@ -201,7 +201,7 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 
 PS: 本文激活码需要在运行激活脚本以后，搭配使用，不了解的小伙伴，可参考下文：
 
-👉 [《Jetbrains 激活教程》](https://tobebetterjavaer.com/nice-article/itmind/)
+👉 [《Jetbrains 激活教程》](https://javabetter.cn/nice-article/itmind/)
 
 ## 声明
 

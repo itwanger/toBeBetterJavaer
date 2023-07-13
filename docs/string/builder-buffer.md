@@ -14,11 +14,11 @@ head:
 
 # 4.8 String、StringBuilder、StringBuffer
 
-“哥，[上一篇深入理解 String.intern()](https://tobebetterjavaer.com/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
+“哥，[上一篇深入理解 String.intern()](https://javabetter.cn/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 
 “好啊，它们之间的关系还真的是挺和谐的。”看着三妹好奇的样子，我感到学技术就应该是这个样子才对。
 
-由于字符串是不可变的，所以当遇到[字符串拼接](https://tobebetterjavaer.com/string/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
+由于字符串是不可变的，所以当遇到[字符串拼接](https://javabetter.cn/string/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
 
 于是 Java 就设计了一个专门用来解决此问题的 StringBuffer 类。
 
@@ -42,9 +42,9 @@ public final class StringBuffer extends AbstractStringBuilder implements Seriali
 }
 ```
 
-不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以执行效率会比较低。
+不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://javabetter.cn/thread/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以执行效率会比较低。
 
-于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 [`ThreadLocal`](https://tobebetterjavaer.com/thread/ThreadLocal.html) 来避免多线程冲突。”
+于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 [`ThreadLocal`](https://javabetter.cn/thread/ThreadLocal.html) 来避免多线程冲突。”
 
 ```java
 public final class StringBuilder extends AbstractStringBuilder
@@ -70,7 +70,7 @@ public final class StringBuilder extends AbstractStringBuilder
 
 实际开发中，StringBuilder 的使用频率也是远高于 StringBuffer，甚至可以这么说，StringBuilder 完全取代了 StringBuffer。
 
-[之前我们也曾聊过](https://tobebetterjavaer.com/overview/what-is-java.html)，Java 是一门解释型的编程语言，所以当编译器遇到 `+` 号这个操作符的时候，会将 `new String("二哥") + new String("三妹")` 这行代码编译为以下代码：
+[之前我们也曾聊过](https://javabetter.cn/overview/what-is-java.html)，Java 是一门解释型的编程语言，所以当编译器遇到 `+` 号这个操作符的时候，会将 `new String("二哥") + new String("三妹")` 这行代码编译为以下代码：
 
 ```java
 new StringBuilder().append("二哥").append("三妹").toString();
@@ -78,7 +78,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 这个过程是我们看不见的，但这正是 Java 的“智能”之处，它可以在编译的时候偷偷地帮我们做很多优化，这样既可以提高我们的开发效率（`+` 号写起来比创建 StringBuilder 对象便捷得多），也不会影响 JVM 的执行效率。
 
-当然了，如果我们使用 [javap](https://tobebetterjavaer.com/jvm/bytecode.html) 反编译 `new String("二哥") + new String("三妹")` 的字节码的时候，也是能看出 StringBuilder 的影子的。
+当然了，如果我们使用 [javap](https://javabetter.cn/jvm/bytecode.html) 反编译 `new String("二哥") + new String("三妹")` 的字节码的时候，也是能看出 StringBuilder 的影子的。
 
 ```
 0: new           #2                  // class java/lang/StringBuilder
@@ -129,7 +129,7 @@ public StringBuilder() {
 }
 ```
 
-随着字符串的拼接，value 数组的长度会不断增加，因此在 StringBuilder 对象的实现中，value 数组的长度是可以[动态扩展的，就像ArrayList那样](https://tobebetterjavaer.com/collection/arraylist.html)。
+随着字符串的拼接，value 数组的长度会不断增加，因此在 StringBuilder 对象的实现中，value 数组的长度是可以[动态扩展的，就像ArrayList那样](https://javabetter.cn/collection/arraylist.html)。
 
 继续来看 StringBuilder 的 toString 方法：
 
@@ -215,7 +215,7 @@ void expandCapacity(int minimumCapacity) {
 
 在进行扩容之前，`ensureCapacityInternal(int minimumCapacity)` 方法会先检查当前字符序列的容量是否足够，如果不足就会调用 `expandCapacity(int minimumCapacity)` 方法进行扩容。`expandCapacity(int minimumCapacity)` 方法首先计算出新容量，然后使用 `Arrays.copyOf(char[] original, int newLength)` 方法将原字符数组扩容到新容量的大小。
 
-关于扩容，后面在讲[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html)的时候会再次说明，今天就先聊到这吧。
+关于扩容，后面在讲[ArrayList](https://javabetter.cn/collection/arraylist.html)的时候会再次说明，今天就先聊到这吧。
 
 “我想，关于 String、StringBuilder、StringBuilder 之间的差别，你都搞清楚了吧？”我问。
 
@@ -225,7 +225,7 @@ void expandCapacity(int minimumCapacity) {
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -14,11 +14,11 @@ head:
 
 # 5.6 Java native方法
 
-“三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
+“三妹，之前我们学习了 Java 中的[基本方法](https://javabetter.cn/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 
 “听起来挺有意思的。”三妹很期待。
 
-“我会教你用 C语言实现一个 native 方法。”我继续说到，“C语言是另外一种编程语言，你可以点这个[链接](https://tobebetterjavaer.com/xuexiluxian/c.html)去了解和学习。让我们开始吧”
+“我会教你用 C语言实现一个 native 方法。”我继续说到，“C语言是另外一种编程语言，你可以点这个[链接](https://javabetter.cn/xuexiluxian/c.html)去了解和学习。让我们开始吧”
 
 类似 Thread 类中的 `private native start0()` 方法；
 
@@ -114,7 +114,7 @@ public class HelloJNI {
 
 `System.loadLibrary("hello")`：加载动态库，参数 hello 是动态库的名字。我们可以这样理解：程序中的方法 helloJNI() 在程序中没有实现，但是我们下面要调用这个方法，怎么办呢？
 
-我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://tobebetterjavaer.com/oo/static.html)，后面会讲到。
+我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://javabetter.cn/oo/static.html)，后面会讲到。
 
 #### 02）编译 HelloJNI.java
 
@@ -214,7 +214,7 @@ native 语法：
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

@@ -412,7 +412,7 @@ try {
 }
 ```
 
-在没有 [`try-with-resources`](https://tobebetterjavaer.com/exception/try-with-resources.html) 之前，finally 块常用来关闭一些连接资源，比如说 socket、数据库链接、IO 输入输出流等。
+在没有 [`try-with-resources`](https://javabetter.cn/exception/try-with-resources.html) 之前，finally 块常用来关闭一些连接资源，比如说 socket、数据库链接、IO 输入输出流等。
 
 ```java
 OutputStream osf = new FileOutputStream( "filename" );
@@ -488,7 +488,7 @@ Java 的异常处理是一种重要的机制，可以帮助我们处理程序执
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

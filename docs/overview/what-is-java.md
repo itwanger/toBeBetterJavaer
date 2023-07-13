@@ -54,7 +54,7 @@ James Gosling 回忆说，“Java”是一个叫 Mark Opperman 的人提议的�
 
 “三妹啊，马上就来。”
 
->我噼里啪啦在键盘上一阵狂按，详细见[https://tobebetterjavaer.com/overview/hello-world.html](https://tobebetterjavaer.com/overview/hello-world.html)
+>我噼里啪啦在键盘上一阵狂按，详细见[https://javabetter.cn/overview/hello-world.html](https://javabetter.cn/overview/hello-world.html)
 
 “好，你看，就这样子。”
 
@@ -254,11 +254,11 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 24 届及以后的起薪肯定会比这个好得多，这上面大专、普本的案例比较少，是因为网上爆的人比较少，但其实这部分群体也是非常大的，所以，学习 Java 还是很有“**钱秃**”的。
 
-“噢噢噢噢，那好吧，我先跟着《[Java进阶之路](https://tobebetterjavaer.com/)》学起来！”
+“噢噢噢噢，那好吧，我先跟着《[Java进阶之路](https://javabetter.cn/)》学起来！”
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

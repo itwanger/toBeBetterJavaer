@@ -480,7 +480,7 @@ public E get(int index) {
 
 无论外人怎么看待我们，在我眼里，师兄永远都是一哥，我敬重他，他也愿意保护我。
 
-[好戏在后头](https://tobebetterjavaer.com/collection/list-war-2.html)，等着瞧吧。
+[好戏在后头](https://javabetter.cn/collection/list-war-2.html)，等着瞧吧。
 
 我这里先简单聊一下，权当抛砖引玉。
 
@@ -492,7 +492,7 @@ public E get(int index) {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

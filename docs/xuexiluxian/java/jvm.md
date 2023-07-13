@@ -78,7 +78,7 @@ head:
 
 学 Java，怎么能少得了《二哥的Java进阶之路》，网址我贴下面了哈：
 
->[https://tobebetterjavaer.com/home.html](https://tobebetterjavaer.com/home.html)
+>[https://javabetter.cn/home.html](https://javabetter.cn/home.html)
 
 进去直接找「Java 核心」里面的 Java 虚拟机就对了。我按照前面的思维导图整理了 19 篇文章，全部都是硬核级别的，跟着学就对了。
 
@@ -135,7 +135,7 @@ head:
 
 全书分为五个部分，第一部分为走近 Java，主要是对 JVM 的发展历史进行了介绍，其中第二部分自动内存管理和第三部分虚拟机执行子系统需要重点掌握，这两部分的内容也是最多的。
 
-第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://tobebetterjavaer.com/xuexiluxian/java/thread.html)（我前面也做了学习路线的总结）这块内容结合起来学习。
+第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://javabetter.cn/xuexiluxian/java/thread.html)（我前面也做了学习路线的总结）这块内容结合起来学习。
 
 可以配合 GitHub 上这个开源的阅读笔记学习：
 
@@ -184,18 +184,18 @@ head:
 
 ## 四、JVM 八股文
 
-这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
+这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://javabetter.cn/sidebar/sanfene/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
 
 
 为了方便大家的阅读和背诵，我已经将其整理到了《二哥的Java进阶之路》上，面渣逆袭 Java 虚拟机篇：
 
->[https://tobebetterjavaer.com/sidebar/sanfene/jvm.html](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)
+>[https://javabetter.cn/sidebar/sanfene/jvm.html](https://javabetter.cn/sidebar/sanfene/jvm.html)
 
 Java 虚拟机八股文（背诵版）：
 
->[https://tobebetterjavaer.com/baguwen/jvm.html](https://tobebetterjavaer.com/baguwen/jvm.html)
+>[https://javabetter.cn/baguwen/jvm.html](https://javabetter.cn/baguwen/jvm.html)
 
 诚实点说，如果能把这两份八股文背会/理解的话，简历上就真的敢写“精通”Java 虚拟机了。
 
@@ -207,18 +207,18 @@ Java 虚拟机八股文（背诵版）：
 
 一旦出现内存溢出或者内存泄露，排查问题还是挺困难的，所以知道逊尼基到底是怎么管理内存的就变得十分重要了。
 
-[JVM 的垃圾回收](https://tobebetterjavaer.com/jvm/gc.html)，其实就是收拾那些不再使用的 Java 对象，把他们曾经占用的内存重新释放出来。所以我们要搞清楚：
+[JVM 的垃圾回收](https://javabetter.cn/jvm/gc.html)，其实就是收拾那些不再使用的 Java 对象，把他们曾经占用的内存重新释放出来。所以我们要搞清楚：
 
-- [对象是如何创建的](https://tobebetterjavaer.com/jvm/whereis-the-object.html)？对象是如何被访问的？到底哪些对象是废弃的？于是我们就需要搞清楚对象的生和死。
-- 这些废弃了的对象到底放在哪？于是就需要了解[JVM 的内存结构](https://tobebetterjavaer.com/jvm/neicun-jiegou.html)：方法区、堆、程序计数器、虚拟机栈和本地方法栈。
+- [对象是如何创建的](https://javabetter.cn/jvm/whereis-the-object.html)？对象是如何被访问的？到底哪些对象是废弃的？于是我们就需要搞清楚对象的生和死。
+- 这些废弃了的对象到底放在哪？于是就需要了解[JVM 的内存结构](https://javabetter.cn/jvm/neicun-jiegou.html)：方法区、堆、程序计数器、虚拟机栈和本地方法栈。
 - 这些废弃了的对象会不会造成内存泄露（OOM，OutOfMemoryError）？于是我们就需要了解每个分区的 OOM。
 - 这些废弃了对象什么时候被回收？于是我们就需要了解垃圾回收算法，比如说清除算法、复制算法、标记整理算法和分代收集算法。
 
 知道了一个对象在内存中的生和死，我们还需要知道类是如何在内存中变成对象的？对象的方法是如何执行的？
 
-于是我们开始学习 Java 虚拟机的执行过程，学习[字节码文件](https://tobebetterjavaer.com/jvm/class-file-jiegou.html)（ .class 文件），学习[类的加载机制](https://tobebetterjavaer.com/jvm/class-load.html)，学习[虚拟机栈的栈帧结构](https://tobebetterjavaer.com/jvm/how-jvm-run-zijiema-zhiling.html)，学习方法的调用过程，学习[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)等等。
+于是我们开始学习 Java 虚拟机的执行过程，学习[字节码文件](https://javabetter.cn/jvm/class-file-jiegou.html)（ .class 文件），学习[类的加载机制](https://javabetter.cn/jvm/class-load.html)，学习[虚拟机栈的栈帧结构](https://javabetter.cn/jvm/how-jvm-run-zijiema-zhiling.html)，学习方法的调用过程，学习[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)等等。
 
-为了监控虚拟机和故障排查，我们需要学习[常用的 JDK 命令行工具](https://tobebetterjavaer.com/jvm/problem-tools.html)，掌握必要的线上问题排查方法；此外，还需要了解 JIT (Just In Time)并不是简单的将热点代码编译成机器码就收工的，它还会对代码的执行进行优化（[方法内联和逃逸分析](https://tobebetterjavaer.com/jvm/jit.html)）。
+为了监控虚拟机和故障排查，我们需要学习[常用的 JDK 命令行工具](https://javabetter.cn/jvm/problem-tools.html)，掌握必要的线上问题排查方法；此外，还需要了解 JIT (Just In Time)并不是简单的将热点代码编译成机器码就收工的，它还会对代码的执行进行优化（[方法内联和逃逸分析](https://javabetter.cn/jvm/jit.html)）。
 
 JVM 相关的知识已经成为面试必考的科目了，但老实讲，JVM 相关的知识还真的不太好用在项目中，或者说不太好在项目中体现出来。
 
@@ -241,7 +241,7 @@ JVM 相关的知识已经成为面试必考的科目了，但老实讲，JVM 相
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

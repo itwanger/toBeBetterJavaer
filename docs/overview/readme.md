@@ -9,7 +9,7 @@ description: Java进阶之路，小白的零基础Java教程，二哥的Java进�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf
 ---
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-fengmian.png)
@@ -20,7 +20,7 @@ head:
 
 - 小册名字：二哥的 Java 进阶之路
 - 小册作者：沉默王二
-- 小册品质：能在 GitHub 取得 7600+ star 自认为品质是有目共睹的，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
+- 小册品质：能在 GitHub 取得 8700+ star 自认为品质是有目共睹的，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
 - 小册风格：通俗易懂、风趣幽默、深度解析，新手可以拿来入门，老手可以拿来进阶，重要的知识，比如说面试高频的内容会从应用到源码挖个底朝天，还会穿插介绍一些计算机底层知识，力求讲个明白）
 - 小册简介：这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路😄
 - 小册品位：底部用了梵高 1889 年的《星空》（the starry night），绝美的漩涡星空，耀眼的月亮，宁静的村庄，还有一颗燃烧着火焰的巨大柏树，我想小册的艺术品位也是恰到好处的。
@@ -32,7 +32,7 @@ head:
 
 *二哥巴拉巴拉 ing...*
 
-小册的内容主要来源于我的开源知识库《[Java程序员进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，目前在 GitHub 上收获 7600+ star，深受读者喜爱。小册之所以叫《二哥的Java进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
+小册的内容主要来源于我的开源知识库《[二哥的Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，目前在 GitHub 上收获 8700+ star，深受读者喜爱。小册之所以叫《二哥的Java进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
 
 如果有读者是第一次阅读这份小册，肯定又会问，“二哥是哪个鸟人？”
 
@@ -40,7 +40,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/readme-ece0be3e-d176-447c-bff9-59d9f02c7a65.jpg)
 
-《**二哥的 Java 进阶之路**》是我自学 Java 以来所有原创文章和学习资料的大聚合。[在线网站](https://tobebetterjavaer.com/)和 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)里的内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发（包括开发/构建/测试、JavaWeb、SSM、Spring Boot、Linux、Nginx、Docker、k8s、微服务&分布式、消息队列等）、Java 面试等核心内容。这也是小册最终版会覆盖的内容。
+《**二哥的 Java 进阶之路**》是我自学 Java 以来所有原创文章和学习资料的大聚合。[在线网站](https://javabetter.cn/)和 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)里的内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发（包括开发/构建/测试、JavaWeb、SSM、Spring Boot、Linux、Nginx、Docker、k8s、微服务&分布式、消息队列等）、Java 面试等核心内容。这也是小册最终版会覆盖的内容。
 
 小册旨在为学习 Java 的小伙伴提供一系列：
 
@@ -67,7 +67,7 @@ head:
 
 如果你喜欢在线阅读，请戳下面这个网址：
 
-> [https://tobebetterjavaer.com](https://tobebetterjavaer.com)
+> [https://javabetter.cn](https://javabetter.cn)
 
 首页见下图，同样简洁、清新、方便沉浸式阅读：
 
@@ -95,7 +95,7 @@ head:
 
 ## 面试指南（配套教程）
 
-《Java 面试指南》是[二哥编程星球的](https://tobebetterjavaer.com/zhishixingqiu/)的一个内部小册，和《Java 进阶之路》内容互补。相比开源的版本来说，《Java 面试指南》添加了下面这些板块和内容：
+《Java 面试指南》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个内部小册，和《Java 进阶之路》内容互补。相比开源的版本来说，《Java 面试指南》添加了下面这些板块和内容：
 
 - 面试准备篇（20+篇），手把手教你如何准备面试。
 - 职场修炼篇（10+篇），手摸手教你如何在职场中如鱼得水。
@@ -211,7 +211,7 @@ head:
 
 一年前，星球的定价是 99 元一年，第一批优惠券的额度是 30 元，等于说 69 元的低价就可以加入，再扣除掉星球手续费，几乎就是纯粹做公益。
 
-随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://tobebetterjavaer.com/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://tobebetterjavaer.com/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
+随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://javabetter.cn/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
 
 目前星球已经 2100+ 人了，所以星球也涨价到了 119 元，后续会讲星球的价格调整为 139 元/年，所以想加入的小伙伴一定要趁早。
 

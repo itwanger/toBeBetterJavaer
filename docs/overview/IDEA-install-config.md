@@ -34,7 +34,7 @@ IntelliJ IDEA 的官方下载地址为：[https://www.jetbrains.com/idea/downloa
 
 UItimate 为付费版，主要针对的是企业级开发用户；Community 为免费版，主要针对的是个人用户。
 
-> 需要激活的戳这里[激活](https://tobebetterjavaer.com/nice-article/itmind/)
+> 需要激活的戳这里[激活](https://javabetter.cn/nice-article/itmind/)
 
 功能上的差别如下图所示。
 
@@ -88,7 +88,7 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
 
-2、选择 Community 版本，旗舰版需要激活，你可以戳这里[激活](https://tobebetterjavaer.com/nice-article/itmind/)）。
+2、选择 Community 版本，旗舰版需要激活，你可以戳这里[激活](https://javabetter.cn/nice-article/itmind/)）。
 
 确定后点击 Download 下载
 
@@ -143,7 +143,7 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

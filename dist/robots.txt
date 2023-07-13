@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://tobebetterjavaer.com/sitemap.xml
+Sitemap: https://javabetter.cn/sitemap.xml

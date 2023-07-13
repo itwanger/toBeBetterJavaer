@@ -109,7 +109,7 @@ public void testTransaction() {
 
 声明式事务将事务管理代码从业务方法中抽离了出来，以声明式的方式来实现事务管理，对于开发者来说，声明式事务显然比编程式事务更易用、更好用。
 
-当然了，要想实现事务管理和业务代码的抽离，就必须得用到 Spring 当中最关键最核心的技术之一，[AOP](https://tobebetterjavaer.com/springboot/aop-log.html)，其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，执行完目标方法之后根据执行的情况提交或者回滚。 
+当然了，要想实现事务管理和业务代码的抽离，就必须得用到 Spring 当中最关键最核心的技术之一，[AOP](https://javabetter.cn/springboot/aop-log.html)，其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，执行完目标方法之后根据执行的情况提交或者回滚。 
 
 **声明式事务虽然优于编程式事务，但也有不足，声明式事务管理的粒度是方法级别，而编程式事务是可以精确到代码块级别的**。
 
@@ -322,7 +322,7 @@ TransactionDefinition 中一共定义了 5 种事务隔离级别：
 
 默认情况下，事务只在出现运行时异常（Runtime Exception）时回滚，以及 Error，出现检查异常（checked exception，需要主动捕获处理或者向上抛出）时不回滚。
 
-[checked和unchecked异常](https://tobebetterjavaer.com/exception/gailan.html#%E4%B8%89%E3%80%81checked%E5%92%8Cunchecked%E5%BC%82%E5%B8%B8)
+[checked和unchecked异常](https://javabetter.cn/exception/gailan.html#%E4%B8%89%E3%80%81checked%E5%92%8Cunchecked%E5%BC%82%E5%B8%B8)
 
 如果你想要回滚特定的异常类型的话，可以这样设置：
 
@@ -419,7 +419,7 @@ logging:
 
 ----
 
-更多内容，只针对《Java程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《二哥的Java进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://javabetter.cn/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 

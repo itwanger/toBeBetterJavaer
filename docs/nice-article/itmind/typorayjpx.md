@@ -68,6 +68,6 @@ PS: 破解文件页面提取人数过多，导致分享的百度网盘链接容�
 
 #### 其他
 
-- [Typora Windows 版永久破解](https://tobebetterjavaer.com/nice-article/itmind/typorayjpx.html)
-- [Typora macOS 版永久破解](https://tobebetterjavaer.com/nice-article/typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom.html)
-- [破解合集](https://tobebetterjavaer.com/nice-article/itmind/)
+- [Typora Windows 版永久破解](https://javabetter.cn/nice-article/itmind/typorayjpx.html)
+- [Typora macOS 版永久破解](https://javabetter.cn/nice-article/typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom.html)
+- [破解合集](https://javabetter.cn/nice-article/itmind/)

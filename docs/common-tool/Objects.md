@@ -9,12 +9,12 @@ description: 本文详细介绍了Java中的Objects工具类，阐述了它在�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Objects,java objects
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Objects,java objects
 ---
 
 # 9.4 Objects工具类
 
-Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://tobebetterjavaer.com/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
+Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://javabetter.cn/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
 
 ### 对象判空
 
@@ -34,7 +34,7 @@ if (Objects.nonNull(integer)) {
 
 ### 对象为空时抛异常
 
-如果我们想在对象为空时，抛出[空指针异常](https://tobebetterjavaer.com/exception/npe.html)，可以使用 Objects 的 `requireNonNull` 方法。例如：
+如果我们想在对象为空时，抛出[空指针异常](https://javabetter.cn/exception/npe.html)，可以使用 Objects 的 `requireNonNull` 方法。例如：
 
 ```java
 Integer integer1 = new Integer(128);
@@ -137,7 +137,7 @@ System.out.println(Objects.hashCode(str));
 
 ### 比较两个对象
 
-`compare()` 方法用于比较两个对象，通常用于自定义排序。它需要一个[比较器 (Comparator) ](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)作为参数。如果比较器为 null，则使用自然顺序。以下是一个 `compare()` 方法的示例：
+`compare()` 方法用于比较两个对象，通常用于自定义排序。它需要一个[比较器 (Comparator) ](https://javabetter.cn/basic-extra-meal/comparable-omparator.html)作为参数。如果比较器为 null，则使用自然顺序。以下是一个 `compare()` 方法的示例：
 
 ```java
 class ObjectsCompareDemo {
@@ -164,7 +164,7 @@ class PersonCompare {
 
 ### 比较两个数组
 
-`deepEquals()` 用于比较两个[数组类型](https://tobebetterjavaer.com/array/array.html)的对象，当对象是非数组的话，行为和 `equals()` 一致。
+`deepEquals()` 用于比较两个[数组类型](https://javabetter.cn/array/array.html)的对象，当对象是非数组的话，行为和 `equals()` 一致。
 
 ```java
 int[] array1 = {1, 2, 3};
@@ -183,7 +183,7 @@ System.out.println(Objects.deepEquals(string1, string2)); // 输出：true（因
 System.out.println(Objects.deepEquals(string1, string3)); // 输出：false（因为 string1 和 string3 不同）
 ```
 
-再来个[二维数组](https://tobebetterjavaer.com/array/double-array.html)的：
+再来个[二维数组](https://javabetter.cn/array/double-array.html)的：
 
 ```java
 String[][] nestedArray1 = {{"A", "B"}, {"C", "D"}};
@@ -204,7 +204,7 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

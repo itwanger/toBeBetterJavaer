@@ -50,7 +50,7 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 总之，是把官方给吃了。
 
-如果你用[谷歌](https://tobebetterjavaer.com/nice-article/itmind/)去搜“JDK”关键字，能搜到官方的下载链接。
+如果你用[谷歌](https://javabetter.cn/nice-article/itmind/)去搜“JDK”关键字，能搜到官方的下载链接。
 
 > [https://www.oracle.com/java/technologies/downloads/](https://www.oracle.com/java/technologies/downloads/)
 
@@ -95,7 +95,7 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 再说一种高级点的安装方法。
 
-Windows 用户建议先安装 [Chocolatey](https://tobebetterjavaer.com/gongju/choco.html)，这是一个 Windows 下的命令行软件管理器，可以方便开发者像在 Linux 下使用 yum 命令来安装软件，或者像在 macOS 下使用 brew 命令来安装软件，非常酷炫。
+Windows 用户建议先安装 [Chocolatey](https://javabetter.cn/gongju/choco.html)，这是一个 Windows 下的命令行软件管理器，可以方便开发者像在 Linux 下使用 yum 命令来安装软件，或者像在 macOS 下使用 brew 命令来安装软件，非常酷炫。
 
 安装完成后，直接执行 `choco install jdk8` 就可以安装 JDK 8 了，并且会自动将 Java 加入到环境变量中，不用再去「我的电脑」「环境变量」中新建 JAVA_HOME 并复制 JDK 安装路径配置 PATH 变量了
 
@@ -103,7 +103,7 @@ Windows 用户建议先安装 [Chocolatey](https://tobebetterjavaer.com/gongju/c
 
 ### 03、macOS 安装 JDK
 
-macOS 用户建议先安装 [Homebrew](https://tobebetterjavaer.com/gongju/brew.html)，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
+macOS 用户建议先安装 [Homebrew](https://javabetter.cn/gongju/brew.html)，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
 
 安装完成后，直接执行 `brew install openjdk@8` 就可以安装 JDK 8 了。
 
@@ -168,7 +168,7 @@ jenv global 17
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

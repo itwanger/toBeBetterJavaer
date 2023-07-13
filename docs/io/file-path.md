@@ -364,7 +364,7 @@ try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
 
 接下来，我们使用 writeUTF 方法将字符串"Hello, 沉默王二!"写入文件。然后，我们使用 seek 方法将文件指针移动到文件开头，并使用 readUTF 方法读取文件内容。输出应该是"Hello, 沉默王二!"。
 
-最后，我们使用[try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html)语句确保 RandomAccessFile 在操作完成后被正确关闭。
+最后，我们使用[try-with-resources](https://javabetter.cn/exception/try-with-resources.html)语句确保 RandomAccessFile 在操作完成后被正确关闭。
 
 ### Apache FileUtils 类
 
@@ -462,7 +462,7 @@ FileUtil.readLines(file, "UTF-8").forEach(System.out::println);
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

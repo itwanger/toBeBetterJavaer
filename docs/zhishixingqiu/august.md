@@ -1,18 +1,18 @@
 ---
-title: 八月总结-沉默王二-Java程序员进阶之路-知识星球
+title: 八月总结-沉默王二-二哥的Java进阶之路-知识星球
 shortTitle: 知识星球八月总结
 category:
   - 知识星球
 tag:
   - 知识星球
-description: 沉默王二的编程知识星球-Java程序员进阶之路-八月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
+description: 沉默王二的编程知识星球-二哥的Java进阶之路-八月总结，这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。
 head:
   - - meta
     - name: keywords
-      content: 知识星球,沉默王二,Java程序员进阶之路,编程,Java,IT,计算机专业
+      content: 知识星球,沉默王二,二哥的Java进阶之路,编程,Java,IT,计算机专业
 ---
 
-### 沉默王二知识星球-Java程序员进阶之路八月第一周打卡总结
+### 沉默王二知识星球-二哥的Java进阶之路八月第一周打卡总结
 
 最近来了不少新的球友，一定要记得看星球置顶帖：[https://t.zsxq.com/03N3NbmEe](https://t.zsxq.com/03N3NbmEe)
 
@@ -97,7 +97,7 @@ head:
 
 上期总结：[https://t.zsxq.com/04ZvrrRBE](https://t.zsxq.com/04ZvrrRBE)
 
-### 沉默王二知识星球-Java程序员进阶之路八月第二周打卡总结
+### 沉默王二知识星球-二哥的Java进阶之路八月第二周打卡总结
 
 《Java 版LeetCode 题解》：
 
@@ -146,7 +146,7 @@ head:
 
 上期总结：[https://t.zsxq.com/05amiUfu7](https://t.zsxq.com/05amiUfu7)
 
-### 沉默王二知识星球-Java程序员进阶之路八月第三周打卡总结
+### 沉默王二知识星球-二哥的Java进阶之路八月第三周打卡总结
 
 《Java 版LeetCode 题解》：
 
@@ -207,7 +207,7 @@ head:
 
 上期总结：[https://t.zsxq.com/05amiUfu7](https://t.zsxq.com/05amiUfu7)
 
-### 沉默王二知识星球-Java程序员进阶之路八月第四周打卡总结
+### 沉默王二知识星球-二哥的Java进阶之路八月第四周打卡总结
 
 《Java 版LeetCode 题解》：
 

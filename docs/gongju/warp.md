@@ -20,7 +20,7 @@ head:
 
 那本期给大家推荐的这款终端——Warp——绝对会让你大开眼界，用完爱不释手！
 
->还记得之前给大家推荐的 [Tabby](https://tobebetterjavaer.com/gongju/tabby.html) 吗？是时候喜新厌旧了。
+>还记得之前给大家推荐的 [Tabby](https://javabetter.cn/gongju/tabby.html) 吗？是时候喜新厌旧了。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/warp-e0411889-e506-480f-a719-eba4f2d229b4.png)

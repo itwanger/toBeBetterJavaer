@@ -5,11 +5,11 @@ category:
   - Java核心
 tag:
   - Java虚拟机
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，深入理解JVM的内存结构
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，深入理解JVM的内存结构
 head:
   - - meta
     - name: keywords
-      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机,内存结构
+      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,内存结构
 ---
 
 # 深入理解JVM的内存结构
@@ -60,7 +60,7 @@ Java 虚拟机栈中是一个个栈帧，每个栈帧对应一个被调用的方
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-4ea2a60a-05df-4ed1-8109-99ae23acefd1.png)
 
-[Java 虚拟机栈](https://tobebetterjavaer.com/jvm/how-jvm-run-zijiema-zhiling.md)
+[Java 虚拟机栈](https://javabetter.cn/jvm/how-jvm-run-zijiema-zhiling.md)
 
 ### 04、堆
 
@@ -112,7 +112,7 @@ JDK 8 的时候，HotSpot 移除了永久代，也就是说方法区不存在了
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

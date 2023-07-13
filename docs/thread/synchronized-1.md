@@ -65,7 +65,7 @@ public class AccountingSync implements Runnable {
  */
 ```
 
-如果在函数 increase()前不加 synchronized，因为 i++不具备原子性，所以最终结果会小于 2000000，具体分析可以参考文章《[volatile](https://tobebetterjavaer.com/thread/volatile.html)》。下面这点非常重要：
+如果在函数 increase()前不加 synchronized，因为 i++不具备原子性，所以最终结果会小于 2000000，具体分析可以参考文章《[volatile](https://javabetter.cn/thread/volatile.html)》。下面这点非常重要：
 
 > 一个对象只有一把锁，当一个线程获取了该对象的锁之后，其他线程无法获取该对象的锁，所以无法访问该对象的其他 synchronized 实例方法，但是其他线程还是可以访问该实例对象的其他非 synchronized 方法。
 
@@ -281,7 +281,7 @@ public class AccountingSync implements Runnable{
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

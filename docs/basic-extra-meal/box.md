@@ -10,12 +10,12 @@ author: 沉默王二
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,装箱,拆箱,包装类型
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,装箱,拆箱,包装类型
 ---
 
 # 13.3 深入剖析Java中的拆箱和装箱
 
-“哥，听说 Java 的每个[基本类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
+“哥，听说 Java 的每个[基本类型](https://javabetter.cn/basic-grammar/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
 
 “是的，三妹。基本类型和包装类型的区别主要有以下 4 点，我来带你学习一下。”我回答说。我们家的斜对面刚好是一所小学，所以时不时还能听到朗朗的读书声，让人心情非常愉快。
 
@@ -54,9 +54,9 @@ class Writer {
 
 “那为什么 POJO 的字段必须要用包装类型呢？”三妹问。
 
-“《[阿里巴巴 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有详细的说明，你看。”我打开 PDF，并翻到了对应的内容，指着屏幕念道。
+“《[阿里巴巴 Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上有详细的说明，你看。”我打开 PDF，并翻到了对应的内容，指着屏幕念道。
 
->数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 [NullPointerException 的异常](https://tobebetterjavaer.com/exception/npe.html)。
+>数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 [NullPointerException 的异常](https://javabetter.cn/exception/npe.html)。
 
 “什么是自动拆箱呢？”
 
@@ -75,7 +75,7 @@ List<Integer> list = new ArrayList<>();
 
 “为什么呢？”三妹及时地问道。
 
-“因为[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
+“因为[泛型](https://javabetter.cn/basic-extra-meal/generic.html)在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
 
 “那，接下来，我们来说第三点，**基本类型比包装类型更高效**。”我喝了一口茶继续说道。
 
@@ -205,7 +205,7 @@ public static Integer valueOf(int i) {
 }
 ```
 
-是不是看到了一个之前从来没见过的类——[IntegerCache](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)？
+是不是看到了一个之前从来没见过的类——[IntegerCache](https://javabetter.cn/basic-extra-meal/int-cache.html)？
 
 “难道说是 Integer 的缓存类？”三妹做出了自己的判断。
 
@@ -268,7 +268,7 @@ System.out.println(t2-t1);
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -15,7 +15,7 @@ head:
 
 # 12.4 Paths 和 Files
 
-Paths 和 Files 在 Java 7 的时候引入，作为对 [`java.io.File` 类](https://tobebetterjavaer.com/io/file-path.html)的补充和改进。
+Paths 和 Files 在 Java 7 的时候引入，作为对 [`java.io.File` 类](https://javabetter.cn/io/file-path.html)的补充和改进。
 
 ### Paths 类
 
@@ -361,7 +361,7 @@ Paths 和 Files 是 Java NIO 中的两个核心类。Paths 提供了一系列静
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
