@@ -5,11 +5,11 @@ category:
   - Java核心
 tag:
   - Java虚拟机
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，JVM到底是如何运行Java代码的？
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，JVM到底是如何运行Java代码的？
 head:
   - - meta
     - name: keywords
-      content: Java,JavaSE,教程,Java程序员进阶之路,jvm,Java虚拟机
+      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机
 ---
 
 # JVM到底是如何运行Java代码的？
@@ -148,7 +148,7 @@ Java 字节码是沟通 JVM 与 Java 代码的桥梁，下面使用 javap 来稍
 8 return
 ```
 
-Java 虚拟机采用基于栈的架构，其指令由操作码和操作数组成。这些[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)，就叫作 opcode。其中，getstatic、ldc、invokevirtual、return 等，就是 opcode，可以看到是比较容易理解的。
+Java 虚拟机采用基于栈的架构，其指令由操作码和操作数组成。这些[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)，就叫作 opcode。其中，getstatic、ldc、invokevirtual、return 等，就是 opcode，可以看到是比较容易理解的。
 
 我们继续使用 hexdump 看一下字节码的二进制内容。与以上字节码对应的二进制，就是下面这几个数字：
 
@@ -171,9 +171,9 @@ opcode 有一个字节的长度(0~255)，意味着指令集的操作码个数不
 
 JVM 就是靠解析这些 opcode 和操作数来完成程序的执行的。当我们使用 Java 命令运行 .class 文件的时候，实际上就相当于启动了一个 JVM 进程。
 
-然后 JVM 会翻译这些字节码，它有两种执行方式。常见的就是解释执行，将 opcode + 操作数翻译成机器代码；另外一种执行方式就是 [JIT](https://tobebetterjavaer.com/jvm/jit.html)，也就是我们常说的即时编译，它会在一定条件下将字节码编译成机器码之后再执行。
+然后 JVM 会翻译这些字节码，它有两种执行方式。常见的就是解释执行，将 opcode + 操作数翻译成机器代码；另外一种执行方式就是 [JIT](https://javabetter.cn/jvm/jit.html)，也就是我们常说的即时编译，它会在一定条件下将字节码编译成机器码之后再执行。
 
-这些 .class 文件会被加载、存放到 metaspace 中，等待被调用，这里会有一个[类加载器](https://tobebetterjavaer.com/jvm/class-load.html)的概念。
+这些 .class 文件会被加载、存放到 metaspace 中，等待被调用，这里会有一个[类加载器](https://javabetter.cn/jvm/class-load.html)的概念。
 
 而 JVM 的程序运行，都是在栈上完成的，这和其他普通程序的执行是类似的，同样分为堆和栈。比如我们现在运行到了 main 方法，就会给它分配一个栈帧。当退出方法体时，会弹出相应的栈帧。你会发现，大多数字节码指令，就是不断的对栈帧进行操作。
 

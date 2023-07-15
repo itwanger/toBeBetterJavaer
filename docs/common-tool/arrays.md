@@ -9,12 +9,12 @@ description: 本文详细介绍了Java中的Arrays工具类，阐述了它在数
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Arrays,数组,java arrays,java 数组
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Arrays,数组,java arrays,java 数组
 ---
 
 # 9.2 Arrays工具类
 
-“哥，数组专用工具类是专门用来操作[数组](https://tobebetterjavaer.com/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
+“哥，数组专用工具类是专门用来操作[数组](https://javabetter.cn/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
 
 “是滴，这里说的数组专用工具类指的是 `java.util.Arrays` 类，基本上常见的数组操作，这个类都提供了静态方法可供直接调用。毕竟数组本身想完成这些操作还是挺麻烦的，有了这层封装，就方便多了。”在回答三妹的同时，我打开 Intellij IDEA，找到了 Arrays 类的源码。
 
@@ -269,7 +269,7 @@ System.out.println(caseInsensitive);
 
 “流是什么呀？”三妹好奇的问。
 
-“流的英文单词是 Stream，它可以极大提高 Java 程序员的生产力，让程序员写出高效、干净、简洁的代码。 这种风格将要处理的集合看作是一种流，想象一下水流在管道中流过的样子，我们可以在管道中对流进行处理，比如筛选、排序等等。[Stream 具体怎么使用](https://tobebetterjavaer.com/java8/stream.html)，我们留到后面再详细地讲，这里你先有一个大致的印象就可以了。”我回答到。
+“流的英文单词是 Stream，它可以极大提高 Java 程序员的生产力，让程序员写出高效、干净、简洁的代码。 这种风格将要处理的集合看作是一种流，想象一下水流在管道中流过的样子，我们可以在管道中对流进行处理，比如筛选、排序等等。[Stream 具体怎么使用](https://javabetter.cn/java8/stream.html)，我们留到后面再详细地讲，这里你先有一个大致的印象就可以了。”我回答到。
 
 
 Arrays 类的 `stream()` 方法可以将数组转换成流：
@@ -300,7 +300,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: origin(2) >
 [Ljava.lang.String;@3d075dc0
 ```
 
-[最优雅的打印方式](https://tobebetterjavaer.com/array/print.html)，是使用 `Arrays.toString()`，其实前面讲过。来看一下该方法的源码：
+[最优雅的打印方式](https://javabetter.cn/array/print.html)，是使用 `Arrays.toString()`，其实前面讲过。来看一下该方法的源码：
 
 ```java
 public static String toString(Object[] a) {
@@ -338,7 +338,7 @@ public static String toString(Object[] a) {
 
 ### 07、数组转 List
 
-尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的[集合框架 List](https://tobebetterjavaer.com/collection/gailan.html) 中封装了很多常用的方法。
+尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的[集合框架 List](https://javabetter.cn/collection/gailan.html) 中封装了很多常用的方法。
 
 ```java
 String[] intro = new String[] { "沉", "默", "王", "二" };
@@ -346,7 +346,7 @@ List<String> rets = Arrays.asList(intro);
 System.out.println(rets.contains("二"));
 ```
 
-不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  [`java.util.ArrayList`](https://tobebetterjavaer.com/collection/arraylist.html)，它的长度是固定的，无法进行元素的删除或者添加。
+不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  [`java.util.ArrayList`](https://javabetter.cn/collection/arraylist.html)，它的长度是固定的，无法进行元素的删除或者添加。
 
 ```java
 rets.add("三");
@@ -371,7 +371,7 @@ rets1.remove("二");
 
 ### 08、setAll
 
-Java 8 新增了 `setAll()` 方法，它提供了一个[函数式编程](https://tobebetterjavaer.com/java8/Lambda.html)的入口，可以对数组的元素进行填充：
+Java 8 新增了 `setAll()` 方法，它提供了一个[函数式编程](https://javabetter.cn/java8/Lambda.html)的入口，可以对数组的元素进行填充：
 
 ```java
 int[] array = new int[10];
@@ -436,7 +436,7 @@ System.out.println(Arrays.toString(arr));
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -7,7 +7,7 @@ tag:
 ---
 
 
-一般在使用 Spring Boot 开发前后端分离项目的时候，都会用到 [Swagger](https://tobebetterjavaer.com/springboot/swagger.html)（戳链接详细了解）。
+一般在使用 Spring Boot 开发前后端分离项目的时候，都会用到 [Swagger](https://javabetter.cn/springboot/swagger.html)（戳链接详细了解）。
 
 但随着系统功能的不断增加，接口数量的爆炸式增长，Swagger 的使用体验就会变得越来越差，比如请求参数为 JSON 的时候没办法格式化，返回结果没办法折叠，还有就是没有提供搜索功能。
 
@@ -102,7 +102,7 @@ public class Knife4jController {
 }
 ```
 
-第四步，由于 springfox 3.0.x 版本 和 Spring Boot 2.6.x 版本有冲突，所以还需要先解决这个 bug，一共分两步（在[Swagger](https://tobebetterjavaer.com/springboot/swagger.html) 那篇已经解释过了，这里不再赘述，但防止有小伙伴在学习的时候再次跳坑，这里就重复一下步骤）。
+第四步，由于 springfox 3.0.x 版本 和 Spring Boot 2.6.x 版本有冲突，所以还需要先解决这个 bug，一共分两步（在[Swagger](https://javabetter.cn/springboot/swagger.html) 那篇已经解释过了，这里不再赘述，但防止有小伙伴在学习的时候再次跳坑，这里就重复一下步骤）。
 
 先在 application.yml 文件中加入：
 
@@ -230,7 +230,7 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 
 ----
 
-更多内容，只针对《Java程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《二哥的Java进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://javabetter.cn/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 

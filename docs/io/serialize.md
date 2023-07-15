@@ -16,7 +16,7 @@ head:
 
 Java 的序列流（ObjectInputStream 和 ObjectOutputStream）是一种可以将 Java 对象序列化和反序列化的流。
 
-序列化是指将一个对象转换为一个字节序列（包含`对象的数据`、`对象的类型`和`对象中存储的属性`等信息），以便在网络上传输或保存到文件中，或者在程序之间传递。在 Java 中，序列化通过实现 java.io.Serializable 接口来实现，只有实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)的对象才能被序列化。
+序列化是指将一个对象转换为一个字节序列（包含`对象的数据`、`对象的类型`和`对象中存储的属性`等信息），以便在网络上传输或保存到文件中，或者在程序之间传递。在 Java 中，序列化通过实现 java.io.Serializable 接口来实现，只有实现了 [Serializable 接口](https://javabetter.cn/io/Serializbale.html)的对象才能被序列化。
 
 反序列化是指将一个字节序列转换为一个对象，以便在程序中使用。
 
@@ -38,8 +38,8 @@ ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 一个对象要想序列化，必须满足两个条件:
 
-- 该类必须实现[`java.io.Serializable` 接口](https://tobebetterjavaer.com/io/Serializbale.html)，否则会抛出`NotSerializableException` 。
-- 该类的所有字段都必须是可序列化的。如果一个字段不需要序列化，则需要使用[`transient` 关键字](https://tobebetterjavaer.com/io/transient.html)进行修饰。
+- 该类必须实现[`java.io.Serializable` 接口](https://javabetter.cn/io/Serializbale.html)，否则会抛出`NotSerializableException` 。
+- 该类的所有字段都必须是可序列化的。如果一个字段不需要序列化，则需要使用[`transient` 关键字](https://javabetter.cn/io/transient.html)进行修饰。
 
 使用示例如下：
 
@@ -207,7 +207,7 @@ class KryoParam {
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

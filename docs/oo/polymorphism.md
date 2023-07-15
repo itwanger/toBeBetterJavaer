@@ -1,7 +1,7 @@
 ---
 title: 聊聊 Java 多态
 shortTitle: Java多态
-description: Java程序员进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：多态
+description: 二哥的Java进阶之路，小白的零基础Java教程，认真聊聊 Java的三大特征：多态
 category:
   - Java 核心
 tag:
@@ -9,12 +9,12 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Java多态,多态
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,Java多态,多态
 ---
 
 # 5.16 Java多态
 
-“三妹啊，前面聊完了 Java 的[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，今天我们来继续聊多态，也是 Java 三大特性的最后一个特性，搞懂它，Java 面向对象编程基本上就能轻松拿捏了。”我对三妹说。
+“三妹啊，前面聊完了 Java 的[封装](https://javabetter.cn/oo/encapsulation.html)、[继承](https://javabetter.cn/oo/extends-bigsai.html)，今天我们来继续聊多态，也是 Java 三大特性的最后一个特性，搞懂它，Java 面向对象编程基本上就能轻松拿捏了。”我对三妹说。
 
 “哥，你继续。”
 
@@ -198,7 +198,7 @@ class Wangsi {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

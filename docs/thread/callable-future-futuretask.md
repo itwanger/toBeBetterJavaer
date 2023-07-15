@@ -14,7 +14,7 @@ head:
 
 # 14.2 获取线程执行结果
 
-[在第一节：初步掌握 Java 多线程中](https://tobebetterjavaer.com/thread/wangzhe-thread.html)，我们讲述了创建线程的 3 种方式，一种是直接继承 Thread，一种是实现 Runnable 接口，另外一种是实现 Callable 接口。
+[在第一节：初步掌握 Java 多线程中](https://javabetter.cn/thread/wangzhe-thread.html)，我们讲述了创建线程的 3 种方式，一种是直接继承 Thread，一种是实现 Runnable 接口，另外一种是实现 Callable 接口。
 
 前 2 种方式都有一个缺陷：在执行完任务之后无法获取执行结果。
 
@@ -42,7 +42,7 @@ public interface Callable<V> {
 }
 ```
 
-可以看到，`call()` 方法返回的类型是一个 V 类型的[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)。
+可以看到，`call()` 方法返回的类型是一个 V 类型的[泛型](https://javabetter.cn/basic-extra-meal/generic.html)。
 
 那怎么使用 Callable 呢？
 
@@ -219,7 +219,7 @@ Result of task5: 500
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

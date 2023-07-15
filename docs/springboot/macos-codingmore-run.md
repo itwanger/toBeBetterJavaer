@@ -125,7 +125,7 @@ shortTitle: macOS下如何运行编程喵源码
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-ad8efde7-a420-4fe9-922d-fb63b650e535.png)
 
-针对[星球用户](https://tobebetterjavaer.com/zhishixingqiu/)，我会开放自己的 accessKeyId 和 accessKeySecret，请勿外泄，免得被恶意攻击。
+针对[星球用户](https://javabetter.cn/zhishixingqiu/)，我会开放自己的 accessKeyId 和 accessKeySecret，请勿外泄，免得被恶意攻击。
 
 ## 下载编程喵（codingmore）源码
 
@@ -247,7 +247,7 @@ DB 文件放在 coding-more/doc 目录下。
 
 ### 03、OSS
 
-非[星球用户](https://tobebetterjavaer.com/zhishixingqiu/)需要自己购买阿里云的 OSS 服务和 CDN 服务。[星球用户](https://tobebetterjavaer.com/zhishixingqiu/)可以直接私信我获取 accessKeyId 和 accessKeySecret。
+非[星球用户](https://javabetter.cn/zhishixingqiu/)需要自己购买阿里云的 OSS 服务和 CDN 服务。[星球用户](https://javabetter.cn/zhishixingqiu/)可以直接私信我获取 accessKeyId 和 accessKeySecret。
 
 然后修改 `codingmore-admin/src/main/resources/application-dev.yml` 文件中的 aliyun.cdn、oss 等。
 
@@ -301,7 +301,7 @@ DB 文件放在 coding-more/doc 目录下。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-10a4a4f6-a18b-4394-8e9d-ba107f37cb69.png)
 
-[星球用户](https://tobebetterjavaer.com/zhishixingqiu/)可以直接私信我获取超级管理员的密码。登录后就可以看到文章列表啦。
+[星球用户](https://javabetter.cn/zhishixingqiu/)可以直接私信我获取超级管理员的密码。登录后就可以看到文章列表啦。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-fc38e67c-05a0-4895-a761-391465986797.png)

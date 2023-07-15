@@ -70,7 +70,7 @@ head:
 
 学 Java，当然要找二哥的Java进阶之路，网址我贴下面了哈：
 
->[https://tobebetterjavaer.com/home.html](https://tobebetterjavaer.com/home.html)
+>[https://javabetter.cn/home.html](https://javabetter.cn/home.html)
 
 进去直接找 Java 核心里面的 Java 并发编程就对了。我按照前面的思维导图整理了 29 篇文章，全部都是硬核级别的，跟着学就对了。
 
@@ -117,7 +117,7 @@ head:
 
 >GitHub地址：[https://github.com/RedSpider1/concurrent](https://github.com/RedSpider1/concurrent)
 
-考虑到有些小伙伴可能需要 [PDF 版本](https://tobebetterjavaer.com/pdf/java-concurrent.html)，我花了一周的时间整理了一份，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**并发**」就可以拉取到了。
+考虑到有些小伙伴可能需要 [PDF 版本](https://javabetter.cn/pdf/java-concurrent.html)，我花了一周的时间整理了一份，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**并发**」就可以拉取到了。
 
 ![扫码关注后回复「并发」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
@@ -132,7 +132,7 @@ head:
 
 ### **5）付费专栏**
 
-技术派楼仔出品的《Java 并发编程》小册，暂时只对《[二哥的编程星球（戳链接有优惠券）](https://tobebetterjavaer.com/zhishixingqiu/)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
+技术派楼仔出品的《Java 并发编程》小册，暂时只对《[二哥的编程星球（戳链接有优惠券）](https://javabetter.cn/zhishixingqiu/)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410210802.png)
 
@@ -149,17 +149,17 @@ head:
 
 ## 四、优质八股文
 
-这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶滴滴的面渣逆袭](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
+这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶滴滴的面渣逆袭](https://javabetter.cn/sidebar/sanfene/javathread.html)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-7.png)
 
 为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java进阶之路》上，面渣逆袭 Java 并发篇：
 
->[https://tobebetterjavaer.com/sidebar/sanfene/javathread.html](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
+>[https://javabetter.cn/sidebar/sanfene/javathread.html](https://javabetter.cn/sidebar/sanfene/javathread.html)
 
 Java 并发编程八股文（背诵版）：
 
->[https://tobebetterjavaer.com/baguwen/java-thread.html](https://tobebetterjavaer.com/baguwen/java-thread.html)
+>[https://javabetter.cn/baguwen/java-thread.html](https://javabetter.cn/baguwen/java-thread.html)
 
 这两份八股文的质量都非常高，来看一下AQS了解多少小节下的内容，图文并茂，非常容易消化和吸收。
 
@@ -232,7 +232,7 @@ Java 提供的并发组件，大致可以分为两类：
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

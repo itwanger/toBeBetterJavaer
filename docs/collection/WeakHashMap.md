@@ -5,15 +5,15 @@ category:
   - Java核心
 tag:
   - 集合框架（容器）
-description: Java程序员进阶之路，小白的零基础Java教程，Java WeakHashMap详解（附源码分析）
+description: 二哥的Java进阶之路，小白的零基础Java教程，Java WeakHashMap详解（附源码分析）
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,WeakHashMap
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,WeakHashMap
 ---
 
 
-在Java中，我们一般都会使用到Map，比如[HashMap](https://tobebetterjavaer.com/collection/hashmap.html)这样的具体实现。更高级一点，我们可能会使用WeakHashMap。
+在Java中，我们一般都会使用到Map，比如[HashMap](https://javabetter.cn/collection/hashmap.html)这样的具体实现。更高级一点，我们可能会使用WeakHashMap。
 
 WeakHashMap其实和HashMap大多数行为是一样的，只是WeakHashMap不会阻止GC回收key对象（不是value），那么WeakHashMap是怎么做到的呢，这就是我们研究的主要问题。
 
@@ -154,7 +154,7 @@ I/MainActivity(10202): dumpWeakInfo weakInfo.size=1
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

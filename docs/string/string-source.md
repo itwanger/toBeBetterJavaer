@@ -18,13 +18,13 @@ head:
 
 “三妹，你回来的真及时，今天我们打算讲 Java 中的字符串呢。”等三妹换鞋的时候我说。
 
-“哦，可以呀，哥。听说字符串的细节特别多，什么[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)了、字符串不可变性了、[字符串拼接](https://tobebetterjavaer.com/string/join.html)了、字符串长度限制了等等，你最好慢慢讲，否则我可能一时半会消化不了。”三妹的态度显得很诚恳。
+“哦，可以呀，哥。听说字符串的细节特别多，什么[字符串常量池](https://javabetter.cn/string/constant-pool.html)了、字符串不可变性了、[字符串拼接](https://javabetter.cn/string/join.html)了、字符串长度限制了等等，你最好慢慢讲，否则我可能一时半会消化不了。”三妹的态度显得很诚恳。
 
 “嗯，我已经想好了，今天就只带你大概认识一下字符串，主要读一读它的源码，其他的细节咱们后面再慢慢讲，保证你能及时消化。”
 
 “好，那就开始吧。”三妹已经准备好坐在了电脑桌的边上。
 
-我应了一声后走到电脑桌前坐下来，顺手打开 [Intellij IDEA](https://tobebetterjavaer.com/overview/IDEA-install-config.html)，并找到了 String 的源码（Java 8）。
+我应了一声后走到电脑桌前坐下来，顺手打开 [Intellij IDEA](https://javabetter.cn/overview/IDEA-install-config.html)，并找到了 String 的源码（Java 8）。
 
 ### String 类的声明
 
@@ -34,11 +34,11 @@ public final class String
 }
 ```
 
-“第一，String 类是 [final](https://tobebetterjavaer.com/oo/final.html) 的，意味着它不能被子类继承。”
+“第一，String 类是 [final](https://javabetter.cn/oo/final.html) 的，意味着它不能被子类继承。”
 
-“第二，String 类实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，意味着它可以[序列化](https://tobebetterjavaer.com/io/serialize.html)。”
+“第二，String 类实现了 [Serializable 接口](https://javabetter.cn/io/Serializbale.html)，意味着它可以[序列化](https://javabetter.cn/io/serialize.html)。”
 
-“第三，String 类实现了 [Comparable 接口](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)，意味着最好不要用‘==’来[比较两个字符串是否相等](https://tobebetterjavaer.com/string/equals.html)，而应该用 `compareTo()` 方法去比较。”
+“第三，String 类实现了 [Comparable 接口](https://javabetter.cn/basic-extra-meal/comparable-omparator.html)，意味着最好不要用‘==’来[比较两个字符串是否相等](https://javabetter.cn/string/equals.html)，而应该用 `compareTo()` 方法去比较。”
 
 因为 == 是用来比较两个对象的地址，这个在讲字符串比较的时候会详细讲。如果只是说比较字符串内容的话，可以使用 String 类的 equals 方法：
 
@@ -66,7 +66,7 @@ public boolean equals(Object anObject) {
 }
 ```
 
-“第四，[StringBuffer、StringBuilder 和 String](https://tobebetterjavaer.com/string/builder-buffer.html) 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
+“第四，[StringBuffer、StringBuilder 和 String](https://javabetter.cn/string/builder-buffer.html) 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
 
 ### String 类的底层实现
 
@@ -74,7 +74,7 @@ public boolean equals(Object anObject) {
 private final char value[];
 ```
 
-“第五，Java 9 以前，String 是用 char 型[数组](https://tobebetterjavaer.com/array/array.html)实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
+“第五，Java 9 以前，String 是用 char 型[数组](https://javabetter.cn/array/array.html)实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
 
 >Latin1（Latin-1）是一种单字节字符集（即每个字符只使用一个字节的编码方式），也称为ISO-8859-1（国际标准化组织8859-1），它包含了西欧语言中使用的所有字符，包括英语、法语、德语、西班牙语、葡萄牙语、意大利语等等。在Latin1编码中，每个字符使用一个8位（即一个字节）的编码，可以表示256种不同的字符，其中包括ASCII字符集中的所有字符，即0x00到0x7F，以及其他西欧语言中的特殊字符，例如é、ü、ñ等等。由于Latin1只使用一个字节表示一个字符，因此在存储和传输文本时具有较小的存储空间和较快的速度
 
@@ -106,7 +106,7 @@ public final class String
 
 那也就是说优化 String 节省内存空间是非常有必要的，如果是去优化一个使用频率没有 String 这么高的类，就没什么必要，对吧？
 
-众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 [编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
+众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 [编码](https://javabetter.cn/basic-extra-meal/java-unicode.html)，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
 
 也就是说，使用 `char[]` 来表示 String 就会导致，即使 String 中的字符只用一个字节就能表示，也得占用两个字节。
 
@@ -180,7 +180,7 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 ### String 类的 hashCode 方法
 
-“第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 的键值。”
+“第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 [HashMap](https://javabetter.cn/collection/hashmap.html) 的键值。”
 
 来看 String 类的 hashCode 方法。
 
@@ -213,7 +213,7 @@ H(s) = (s[0] * 31^(n-1)) + (s[1] * 31^(n-2)) + ... + (s[n-1] * 31^0)
 
 31倍哈希法的优点在于简单易实现，计算速度快，同时也比较均匀地分布在哈希表中。
 
-[hashCode 方法](https://tobebetterjavaer.com/basic-extra-meal/hashcode.html)，我们会在另外一个章节里详细讲，戳前面的链接了解。
+[hashCode 方法](https://javabetter.cn/basic-extra-meal/hashcode.html)，我们会在另外一个章节里详细讲，戳前面的链接了解。
 
 我们可以通过以下方法模拟 String 的 hashCode 方法：
 
@@ -263,7 +263,7 @@ public String substring(int beginIndex) {
 }
 ```
 
-substring 方法首先检查参数的有效性，如果参数无效，则抛出 StringIndexOutOfBoundsException [异常](https://tobebetterjavaer.com/exception/gailan.html)。接下来，方法根据参数计算子字符串的长度。如果子字符串长度小于零，抛出StringIndexOutOfBoundsException异常。
+substring 方法首先检查参数的有效性，如果参数无效，则抛出 StringIndexOutOfBoundsException [异常](https://javabetter.cn/exception/gailan.html)。接下来，方法根据参数计算子字符串的长度。如果子字符串长度小于零，抛出StringIndexOutOfBoundsException异常。
 
 如果 beginIndex 为 0，且 endIndex 等于字符串的长度，说明子串与原字符串相同，因此直接返回原字符串。否则，使用 value 数组（原字符串的字符数组）的一部分创建一个新的 String 对象并返回。
 
@@ -438,11 +438,11 @@ public String trim() {
 
 举例：`"  沉默王二   ".trim()` 会返回"沉默王二"
 
-除此之外，还有 [split](https://tobebetterjavaer.com/string/split.html)、[equals](https://tobebetterjavaer.com/string/equals.html)、[join](https://tobebetterjavaer.com/string/join.html) 等这些方法，我们后面会一一来细讲。
+除此之外，还有 [split](https://javabetter.cn/string/split.html)、[equals](https://javabetter.cn/string/equals.html)、[join](https://javabetter.cn/string/join.html) 等这些方法，我们后面会一一来细讲。
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

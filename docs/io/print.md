@@ -16,13 +16,13 @@ head:
 
 在我的职业生涯中， `System.out.println()` 的使用频率恐怕不亚于 main 方法的使用频率。其中 `System.out` 返回的正是打印流 `PrintStream` 。
 
-除此之外，还有它还有一个孪生兄弟，PrintWriter。PrintStream 是 OutputStream 的子类，PrintWriter 是 Writer 的子类，也就是说，一个[字节流](https://tobebetterjavaer.com/io/stream.html)，一个是[字符流](https://tobebetterjavaer.com/io/reader-writer.html)。
+除此之外，还有它还有一个孪生兄弟，PrintWriter。PrintStream 是 OutputStream 的子类，PrintWriter 是 Writer 的子类，也就是说，一个[字节流](https://javabetter.cn/io/stream.html)，一个是[字符流](https://javabetter.cn/io/reader-writer.html)。
 
 打印流具有以下几个特点：
 
 * 可以自动进行数据类型转换：打印流可以将各种数据类型转换为字符串，并输出到指定的输出流中。
 * 可以自动进行换行操作：打印流可以在输出字符串的末尾自动添加换行符，方便输出多个字符串时的格式控制。
-* 可以输出到控制台或者文件中：打印流可以将数据输出到控制台或者文件中，方便调试和日志记录（尽管生产环境下更推荐使用 [Logback](https://tobebetterjavaer.com/gongju/logback.html)、ELK 等）。
+* 可以输出到控制台或者文件中：打印流可以将数据输出到控制台或者文件中，方便调试和日志记录（尽管生产环境下更推荐使用 [Logback](https://javabetter.cn/gongju/logback.html)、ELK 等）。
 
 PrintStream 类的常用方法包括：
 
@@ -126,7 +126,7 @@ pw.close();
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

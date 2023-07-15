@@ -139,7 +139,7 @@ public class Actor {
 
 “一个类是 final 的，和一个类不是 final，但它所有的方法都是 final 的，考虑一下，它们之间有什么区别？”
 
-“我能想到的一点，就是前者不能被[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
+“我能想到的一点，就是前者不能被[继承](https://javabetter.cn/oo/extends-bigsai.html)，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
 
 “嗯嗯嗯，没毛病没毛病，进步很大啊！”
 
@@ -171,7 +171,7 @@ public final class String
 
 “想了解更详细的原因，可以一会看看我之前写的这篇文章。”
 
-[为什么 Java 字符串是不可变的？](https://tobebetterjavaer.com/string/immutable.html)
+[为什么 Java 字符串是不可变的？](https://javabetter.cn/string/immutable.html)
 
 “任何尝试从 final 类继承的行为将会引发编译错误。来看这段代码。”
 
@@ -207,7 +207,7 @@ System.out.println(writer.getName()); // 沉默王二
 
 “关于不可变类，我们留到后面来细讲。”
 
-[不可变类](https://tobebetterjavaer.com/basic-extra-meal/immutable.html)
+[不可变类](https://javabetter.cn/basic-extra-meal/immutable.html)
 
 “把一个类设计成 final 的，有其安全方面的考虑，但不应该故意为之，因为把一个类定义成 final 的，意味着它没办法继承，假如这个类的一些方法存在一些问题的话，我们就无法通过重写的方式去修复它。”
 
@@ -223,7 +223,7 @@ System.out.println(writer.getName()); // 沉默王二
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

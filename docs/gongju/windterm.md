@@ -12,7 +12,7 @@ head:
       content: 辅助工具,GitHub,终端,WindTerm,WindTerm 教程,WindTerm 终端,Java企业级开发
 ---
 
-继 [Tabby](https://tobebetterjavaer.com/gongju/tabby.html)、[Warp](https://tobebetterjavaer.com/gongju/warp.html) 后，今天再来给大家推荐一款终端神器——WindTerm，完全开源，在 GitHub 上已经收获 6.6k 的 star。
+继 [Tabby](https://javabetter.cn/gongju/tabby.html)、[Warp](https://javabetter.cn/gongju/warp.html) 后，今天再来给大家推荐一款终端神器——WindTerm，完全开源，在 GitHub 上已经收获 6.6k 的 star。
 
 >[https://github.com/kingToolbox/WindTerm](https://github.com/kingToolbox/WindTerm)
 

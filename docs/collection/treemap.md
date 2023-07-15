@@ -16,13 +16,13 @@ head:
 
 >下面有请王老师上台，来给大家讲一讲 TreeMap，鼓掌了！
 
-之前 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) 那篇文章里提到过了，HashMap 是无序的，所以有了 LinkedHashMap，加上了双向链表后，就可以保持元素的插入顺序和访问顺序，那 TreeMap 呢？
+之前 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html) 那篇文章里提到过了，HashMap 是无序的，所以有了 LinkedHashMap，加上了双向链表后，就可以保持元素的插入顺序和访问顺序，那 TreeMap 呢？
 
 TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了 Comparator 接口的自定义顺序。
 
 可能有些同学不了解红黑树，我这里来普及一下：
 
-> 红黑树（英语：Red–black tree）是一种自平衡的二叉查找树（Binary Search Tree），结构复杂，但却有着良好的性能，完成查找、插入和删除的[时间复杂度](https://tobebetterjavaer.com/collection/time-complexity.html)均为 log(n)。
+> 红黑树（英语：Red–black tree）是一种自平衡的二叉查找树（Binary Search Tree），结构复杂，但却有着良好的性能，完成查找、插入和删除的[时间复杂度](https://javabetter.cn/collection/time-complexity.html)均为 log(n)。
 
 二叉查找树是一种常见的树形结构，它的每个节点都包含一个键值对。每个节点的左子树节点的键值小于该节点的键值，右子树节点的键值大于该节点的键值，这个特性使得二叉查找树非常适合进行数据的查找和排序操作。
 
@@ -103,7 +103,7 @@ TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了
 
 这种极度不平衡的二叉查找树会导致查找、插入和删除操作的效率急剧下降，因为每次操作都只能在右子树中进行，而左子树几乎没有被利用到。
 
-查找的效率就要从 log(n) 变成 o(n) 了（戳[这里](https://tobebetterjavaer.com/collection/time-complexity.html)了解时间复杂度），对吧？
+查找的效率就要从 log(n) 变成 o(n) 了（戳[这里](https://javabetter.cn/collection/time-complexity.html)了解时间复杂度），对吧？
 
 必须要平衡一下，对吧？于是就有了平衡二叉树，左右两个子树的高度差的绝对值不超过 1，就像下图这样：
 
@@ -415,7 +415,7 @@ headMap、tailMap、subMap方法分别获取了小于3、大于等于4、大于�
 
 ### 04、如何选择 Map
 
-在学习 TreeMap 之前，我们已经学习了 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 和 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) ，那如何从它们三个中间选择呢？
+在学习 TreeMap 之前，我们已经学习了 [HashMap](https://javabetter.cn/collection/hashmap.html) 和 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html) ，那如何从它们三个中间选择呢？
 
 需要考虑以下因素：
 
@@ -439,7 +439,7 @@ headMap、tailMap、subMap方法分别获取了小于3、大于等于4、大于�
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

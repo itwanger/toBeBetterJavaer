@@ -9,7 +9,7 @@ description: 描述：本文详细介绍了Java网络编程中的核心概念—
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,socket,网络编程,java socket,java 网络编程
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,socket,网络编程,java socket,java 网络编程
 ---
 
 # 11.2 网络编程的核心套接字Socket
@@ -231,7 +231,7 @@ try {
 
 ### 05、加入多线程
 
-[多线程](https://tobebetterjavaer.com/thread/wangzhe-thread.html)我们后面会详细讲，这里就主要是写个例子，好让大家感觉更有趣一些，其实也非常简单。
+[多线程](https://javabetter.cn/thread/wangzhe-thread.html)我们后面会详细讲，这里就主要是写个例子，好让大家感觉更有趣一些，其实也非常简单。
 
 来看服务端：
 
@@ -388,7 +388,7 @@ public class UDPClient {
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

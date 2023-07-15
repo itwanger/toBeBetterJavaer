@@ -1,5 +1,5 @@
 ---
-title: 一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!-Java程序员进阶之路
+title: 一个可以无限重置 IDEA 30天试用期的方法， 暴力无解，简单又稳定!-二哥的Java进阶之路
 shortTitle: 无限重置 IDEA
 description: 本教程最新更新时间 2022年6月12日~  这里提供几个最新的激活码，有需要的朋友可以试试，先到先用：  2022Intellij IDEA最新激活码,IDEA稳定专属激活码(持续更新）  2022Intellij IDEA日更最新激活码、稳定专属激活码(每日更新）
 tag:
@@ -42,7 +42,7 @@ IDEA 目前已经更新到最新的 2021.1.3 版本了，群里的小伙伴私�
 
 大家都知道 Jetbrains 家的产品有一个很良心的地方，会允许你试用`30`天（这个数字写死在代码里了）以评估是否你真的需要为它而付费。
 
-z 大的破解补丁项目已经停止更新了，但是提供了另外一个方法让我们可以使用 IDEA : [无限重置 IDEA 30 天试用期的方法](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)，再也不用为激活码、安装参数过期发愁了~
+z 大的破解补丁项目已经停止更新了，但是提供了另外一个方法让我们可以使用 IDEA : [无限重置 IDEA 30 天试用期的方法](https://javabetter.cn/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)，再也不用为激活码、安装参数过期发愁了~
 
 仅以下文记录本人 IntelliJ IDEA 2021.1.3 版本的激活破解全过程，步骤非常详细哟~
 
@@ -198,8 +198,8 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 
 这里再提供几个**最新的激活码**，有需要的朋友可以试试，先到先用：
 
-[2022Intellij IDEA 最新激活码,IDEA 稳定专属激活码(持续更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
+[2022Intellij IDEA 最新激活码,IDEA 稳定专属激活码(持续更新）](https://javabetter.cn/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
 
-[一个可以无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+[一个可以无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定!](https://javabetter.cn/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
 
-[2022Intellij IDEA 日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)
+[2022Intellij IDEA 日更最新激活码、稳定专属激活码(每日更新）](https://javabetter.cn/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)

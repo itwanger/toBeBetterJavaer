@@ -117,7 +117,7 @@ JSP 的年代，都是Java 后端的小伙伴直接把前端的活也给干了�
 
 **跟着需求去学习，才能真正学好计算机科学**。
 
-我也会给你推荐《CSAPP》这本黑皮书，毕竟永远的神，但如果你没有编程基础就去啃，你可能很快就会被劝退的；反而，一开始，你读一读我写的《[Java程序员进阶之路](https://tobebetterjavaer.com/)》，或者去 B 站上看尚硅谷或者动力节点这些培训机构的 Java 视频课，没准你会越学越觉得有信心——这么简单的东西，我这么聪明，还能学不会？你会有这种自信的错觉的！
+我也会给你推荐《CSAPP》这本黑皮书，毕竟永远的神，但如果你没有编程基础就去啃，你可能很快就会被劝退的；反而，一开始，你读一读我写的《[二哥的Java进阶之路](https://javabetter.cn/)》，或者去 B 站上看尚硅谷或者动力节点这些培训机构的 Java 视频课，没准你会越学越觉得有信心——这么简单的东西，我这么聪明，还能学不会？你会有这种自信的错觉的！
 
 反而一开始去啃 CSAPP，你会感觉，老天！我特么是个废材啊，我学的什么鬼玩意，这竟然看不懂，学不会？
 
@@ -147,7 +147,7 @@ JSP 的年代，都是Java 后端的小伙伴直接把前端的活也给干了�
 
 先说 Java 吧。
 
-可以先看看我的《Java程序员进阶之路》，里面涵盖了 Java 所有的知识点，包括 Java 语法、Java 集合框架、Java IO、Java 并发编程和 Java 虚拟机、Java 企业级开发所需要的知识，比如说 Git、Spring Boot，以及 MySql、Redis 等等。
+可以先看看我的《二哥的Java进阶之路》，里面涵盖了 Java 所有的知识点，包括 Java 语法、Java 集合框架、Java IO、Java 并发编程和 Java 虚拟机、Java 企业级开发所需要的知识，比如说 Git、Spring Boot，以及 MySql、Redis 等等。
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu/gaoktzyjsjjkrgznrgdsjwlwwlgcgzyx-21e1cfcd-d772-48cd-b8c2-994c19e13ed6.png)
@@ -294,7 +294,7 @@ B 站上的这个[计算机网络微课堂](https://www.bilibili.com/video/BV1c4
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

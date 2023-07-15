@@ -14,7 +14,7 @@ head:
 
 # 4.1 掌握Java数组
 
-“二哥，我看你公众号的一篇文章里提到，[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
+“二哥，我看你公众号的一篇文章里提到，[ArrayList](https://javabetter.cn/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 
 “的确是的，看 ArrayList 的源码就一清二楚了。”我一边说，一边打开 Intellij IDEA，并找到了 ArrayList 的源码。
 
@@ -73,9 +73,9 @@ int anOtherArray[];
 int[] anArray = new int[10];
 ```
 
-看到了没？上面这行代码中使用了 new 关键字，这就意味着数组的确是一个对象，只有对象的创建才会用到 new 关键字，[基本数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)是不用的。然后，我们需要在方括号中指定数组的长度。
+看到了没？上面这行代码中使用了 new 关键字，这就意味着数组的确是一个对象，只有对象的创建才会用到 new 关键字，[基本数据类型](https://javabetter.cn/basic-grammar/basic-data-type.html)是不用的。然后，我们需要在方括号中指定数组的长度。
 
-这时候，数组中的每个元素都会被初始化为默认值，int 类型的就为 0，Object 类型的就为 null。 不同数据类型的默认值不同，可以参照[之前的文章](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)。
+这时候，数组中的每个元素都会被初始化为默认值，int 类型的就为 0，Object 类型的就为 null。 不同数据类型的默认值不同，可以参照[之前的文章](https://javabetter.cn/basic-grammar/basic-data-type.html)。
 
 另外，还可以使用大括号的方式，直接初始化数组中的元素：
 
@@ -185,7 +185,7 @@ List<Integer> aList = Arrays.asList(anArray);
 List<Integer> aList = Arrays.stream(anArray).boxed().collect(Collectors.toList());
 ```
 
-这又涉及到了 Java [流](https://tobebetterjavaer.com/java8/stream.html)的知识，后面会讲到。
+这又涉及到了 Java [流](https://javabetter.cn/java8/stream.html)的知识，后面会讲到。
 
 还有一个需要注意的是，Arrays.asList 方法返回的 ArrayList 并不是 `java.util.ArrayList`，它其实是  Arrays 类的一个内部类：
 
@@ -264,7 +264,7 @@ int index = Arrays.binarySearch(anArray, 4);
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

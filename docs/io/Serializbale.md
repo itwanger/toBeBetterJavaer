@@ -9,12 +9,12 @@ description: 本文详细介绍了 Java Serializable 接口的实际作用与意
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
 ---
 
 # 7.9 序列接口Serializable
 
-对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://tobebetterjavaer.com/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
+对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://javabetter.cn/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
 
 我似乎不愿意做更深入的研究，因为会用就行了嘛。
 
@@ -24,7 +24,7 @@ head:
 
 Java 序列化是 JDK 1.1 时引入的一组开创性的特性，用于将 Java 对象转换为字节数组，便于存储或传输。此后，仍然可以将字节数组转换回 Java 对象原有的状态。
 
-序列化的思想是“冻结”对象状态，然后写到磁盘或者在网络中传输；[反序列化](https://tobebetterjavaer.com/io/serialize.html)的思想是“解冻”对象状态，重新获得可用的 Java 对象。
+序列化的思想是“冻结”对象状态，然后写到磁盘或者在网络中传输；[反序列化](https://javabetter.cn/io/serialize.html)的思想是“解冻”对象状态，重新获得可用的 Java 对象。
 
 序列化有一条规则，就是要序列化的对象必须实现 `Serializbale` 接口，否则就会报 NotSerializableException 异常。
 
@@ -66,7 +66,7 @@ class Wanger {
 }
 ```
 
-再来创建一个测试类，通过 `ObjectOutputStream` 将“18 岁的王二”写入到文件当中，实际上就是一种序列化的过程；再通过 `ObjectInputStream` 将“18 岁的王二”从文件中读出来，实际上就是一种反序列化的过程。（前面我们学习[序列流](https://tobebetterjavaer.com/io/serialize.html)的时候也讲过）
+再来创建一个测试类，通过 `ObjectOutputStream` 将“18 岁的王二”写入到文件当中，实际上就是一种序列化的过程；再通过 `ObjectInputStream` 将“18 岁的王二”从文件中读出来，实际上就是一种反序列化的过程。（前面我们学习[序列流](https://javabetter.cn/io/serialize.html)的时候也讲过）
 
 ```java
 // 初始化
@@ -231,7 +231,7 @@ private void defaultReadFields(Object obj, ObjectStreamClass desc) throws IOExce
 
 ### 03、再来点注意事项
 
-开门见山的说吧，[`static`](https://tobebetterjavaer.com/oo/static.html) 和 [`transient`](https://tobebetterjavaer.com/io/transient.html) 修饰的字段是不会被序列化的。
+开门见山的说吧，[`static`](https://javabetter.cn/oo/static.html) 和 [`transient`](https://javabetter.cn/io/transient.html) 修饰的字段是不会被序列化的。
 
 为什么呢？我们先来证明，再来解释原因。
 
@@ -589,7 +589,7 @@ class Wanger implements Serializable {
 
 ---------
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

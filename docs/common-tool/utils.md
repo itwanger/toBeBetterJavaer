@@ -9,12 +9,12 @@ description: 描述：本文详细介绍了Java编程中常用的一些工具类
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,工具类,轮子,java 工具类,java IPUtil,java CollectionUtils
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,工具类,轮子,java 工具类,java IPUtil,java CollectionUtils
 ---
 
 # 9.8 其他常用工具类
 
-除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/common-tool/arrays.html)、[Objects](https://tobebetterjavaer.com/common-tool/Objects.html)、[Collections](https://tobebetterjavaer.com/common-tool/collections.html)、[Scanner](https://tobebetterjavaer.com/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/common-tool/hutool.html)、[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
+除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://javabetter.cn/common-tool/arrays.html)、[Objects](https://javabetter.cn/common-tool/Objects.html)、[Collections](https://javabetter.cn/common-tool/collections.html)、[Scanner](https://javabetter.cn/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://javabetter.cn/common-tool/hutool.html)、[Guava](https://javabetter.cn/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
 
 当然了，如果能好好看一下它们的源码，对技术功底的提升，也是有很大帮助的。
 
@@ -149,9 +149,9 @@ IPUtil 类中定义了两个方法，分别是 `getLocalIpByNetcard()` 和 `getL
 
 ### MDC：一个线程安全的参数传递工具类
 
-`MDC` 是 [`org.slf4j`](https://tobebetterjavaer.com/gongju/slf4j.html) 包下的一个类，它的全称是 Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
+`MDC` 是 [`org.slf4j`](https://javabetter.cn/gongju/slf4j.html) 包下的一个类，它的全称是 Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
 
-MDC 的底层是用了 [`ThreadLocal`](https://tobebetterjavaer.com/thread/ThreadLocal.html) 来保存数据的。
+MDC 的底层是用了 [`ThreadLocal`](https://javabetter.cn/thread/ThreadLocal.html) 来保存数据的。
 
 我们可以用它传递参数。
 
@@ -389,7 +389,7 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

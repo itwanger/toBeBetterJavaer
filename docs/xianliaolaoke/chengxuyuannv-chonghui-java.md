@@ -40,9 +40,9 @@
 
 第一，精通 Java 语言，现在的招聘要求基本上都这样，精通是常态。针对这种“无理”的要求，办法只有一个，就是去背八股文！先背会再说。面试官问的你能答上来就表明你是精通。
 
-那二哥的小破站，**Java程序员进阶之路**，基本上把 Java 的高频面试题都覆盖了，包括 Java 基础、Java 集合框架、Java 并发、Java 虚拟机等，去背就对了。
+那二哥的小破站，**二哥的Java进阶之路**，基本上把 Java 的高频面试题都覆盖了，包括 Java 基础、Java 集合框架、Java 并发、Java 虚拟机等，去背就对了。
 
->https://tobebetterjavaer.com/
+>https://javabetter.cn/
 
 第二，熟练使用 Spring 全家桶，包括 Spring Boot 和 Spring Cloud，以及分布式、微服务、云原生等等。
 

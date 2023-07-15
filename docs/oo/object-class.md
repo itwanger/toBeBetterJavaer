@@ -81,13 +81,13 @@ public class Person {
 - 方法（Method）
 - 构造方法（Constructor）
 
-在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员[变量](https://tobebetterjavaer.com/oo/var.html)——在类内部但在方法外部，方法内部的叫临时变量。
+在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员[变量](https://javabetter.cn/oo/var.html)——在类内部但在方法外部，方法内部的叫临时变量。
 
 成员变量有时候也叫做实例变量，在编译时不占用内存空间，在运行时获取内存，也就是说，只有在对象实例化（`new Person()`）后，字段才会获取到内存，这也正是它被称作“实例”变量的原因。
 
-[方法](https://tobebetterjavaer.com/oo/method.html)有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
+[方法](https://javabetter.cn/oo/method.html)有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
 
-那三妹是不是要问，“怎么没有[构造方法](https://tobebetterjavaer.com/oo/construct.html)呢？”
+那三妹是不是要问，“怎么没有[构造方法](https://javabetter.cn/oo/construct.html)呢？”
 
 的确在 Person 类的源码文件（.java）中没看到，但在反编译后的字节码文件（.class）中是可以看得到的。
 
@@ -336,7 +336,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 一旦创建了一个类，就可以用它创建任意多个对象。面向对象编程语言遇到的最大一个挑战就是，如何把现实/虚拟的元素抽象为 Java 中的对象。
 
-对象能够接收什么样的请求是由它的[接口](https://tobebetterjavaer.com/oo/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
+对象能够接收什么样的请求是由它的[接口](https://javabetter.cn/oo/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
 
 #### **3）访问权限修饰符**
 
@@ -350,7 +350,7 @@ JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 AP
 
 API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏其他所有不必要的信息，之所以要这么做，是因为如果这些信息对调用者是不可见的，那么创建者就可以随意修改隐藏的信息，而不用担心对调用者的影响。
  
-这里就必须要讲到 [Java 的权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
+这里就必须要讲到 [Java 的权限修饰符](https://javabetter.cn/oo/access-control.html)。
 
 访问权限修饰符的第一个作用是，防止类的调用者接触到他们不该接触的内部实现；第二个作用是，让类的创建者可以轻松修改内部机制而不用担心影响到调用者的使用。
 
@@ -366,7 +366,7 @@ API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏�
 
 #### **5）继承**
 
-[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
+[继承](https://javabetter.cn/oo/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
 
 常见的例子，就是形状可以有子类圆形、方形、三角形，它们的基础接口是相同的，比如说都有一个 `draw()` 的方法，子类可以继承这个方法实现自己的绘制方法。
 
@@ -428,7 +428,7 @@ public class Test {
 
 在测试类中，shape1 的类型为 Shape，shape2 的类型也为 Shape，但调用 `draw()` 方法后，却能自动调用子类 Line 和 Circle 的 `draw()` 方法，这是为什么呢？
 
-其实就是 Java 中的[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。
+其实就是 Java 中的[多态](https://javabetter.cn/oo/polymorphism.html)。
 
 ### 06、小结
 
@@ -441,7 +441,7 @@ public class Test {
 ----
 
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

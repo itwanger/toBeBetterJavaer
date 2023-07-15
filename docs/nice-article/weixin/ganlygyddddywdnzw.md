@@ -8,7 +8,7 @@ category:
 ---
 
 > [二哥编程知识星球](https://mp.weixin.qq.com/s/vZwDdRc21ot7SSjDo4CXJQ) （戳链接加入）正式上线了，来和 **270 多名** 小伙伴一起打怪升级吧！这是一个 Java 学习指南 + 编程实战的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，冲冲冲。<br><br>
-> Java程序员进阶之路网址：[https://tobebetterjavaer.com](https://tobebetterjavaer.com)
+> 二哥的Java进阶之路网址：[https://javabetter.cn](https://javabetter.cn)
 
 不 BB，直接上思维导图！
 
@@ -704,7 +704,7 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

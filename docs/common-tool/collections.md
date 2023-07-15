@@ -9,14 +9,14 @@ description: 本文详细介绍了Java中的Collections工具类，阐述了它�
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Java入门,教程,java,Collections,集合框架,java Collections
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Collections,集合框架,java Collections
 ---
 
 # 9.5 Collections工具类
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
-还记得我们前面讲过的 [Arrays 工具类](https://tobebetterjavaer.com/common-tool/arrays.html)吗？可以回去温习下。
+还记得我们前面讲过的 [Arrays 工具类](https://javabetter.cn/common-tool/arrays.html)吗？可以回去温习下。
 
 Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之后就可以看到它提供的方法了，大致看一下方法名和参数就能知道这个方法是干嘛的。
 
@@ -112,7 +112,7 @@ System.out.println("填充后的结果：" + list);
 
 ### 03、同步控制
 
-[HashMap 是线程不安全](https://tobebetterjavaer.com/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
+[HashMap 是线程不安全](https://javabetter.cn/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-02.png)
 
@@ -122,7 +122,7 @@ System.out.println("填充后的结果：" + list);
 SynchronizedList synchronizedList = Collections.synchronizedList(list);
 ```
 
-看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 [synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)加了一层锁而已。
+看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)加了一层锁而已。
 
 ```java
 static class SynchronizedList<E>
@@ -154,7 +154,7 @@ static class SynchronizedList<E>
 }
 ```
 
-那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 [Vector、Hashtable](https://tobebetterjavaer.com/collection/gailan.html) 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
+那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 [Vector、Hashtable](https://javabetter.cn/collection/gailan.html) 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
 
 ```java
 public class Vector<E>
@@ -188,7 +188,7 @@ public class Vector<E>
 }
 ```
 
-正确的做法是使用并发包下的 [CopyOnWriteArrayList](https://tobebetterjavaer.com/thread/CopyOnWriteArrayList.html)、[ConcurrentHashMap](https://tobebetterjavaer.com/thread/ConcurrentHashMap.html)。这些我们放到并发编程时再讲。
+正确的做法是使用并发包下的 [CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)。这些我们放到并发编程时再讲。
 
 ### 04、不可变集合
 
@@ -349,7 +349,7 @@ System.out.println(subtractList);
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

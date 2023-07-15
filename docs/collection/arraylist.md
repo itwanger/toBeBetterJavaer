@@ -274,7 +274,7 @@ public void add(int index, E element) {
 }
 ```
 
-`add(int index, E element)`方法会调用到一个非常重要的[本地方法](https://tobebetterjavaer.com/oo/native-method.html) `System.arraycopy()`，它会对数组进行复制（要插入位置上的元素往后复制）。
+`add(int index, E element)`方法会调用到一个非常重要的[本地方法](https://javabetter.cn/oo/native-method.html) `System.arraycopy()`，它会对数组进行复制（要插入位置上的元素往后复制）。
 
 来细品一下。
 
@@ -405,7 +405,7 @@ public boolean remove(Object o) {
 注意：
 
 - 有相同元素时，只会删除第一个。
-- 判断两个元素是否相等，可以参考[Java如何判断两个字符串是否相等](https://tobebetterjavaer.com/string/equals.html)
+- 判断两个元素是否相等，可以参考[Java如何判断两个字符串是否相等](https://javabetter.cn/string/equals.html)
 
 继续往后面跟，来看一下 `fastRemove()` 方法：
 
@@ -503,7 +503,7 @@ public boolean contains(Object o) {
 
 如果 ArrayList 中的元素是经过排序的，就可以使用二分查找法，效率更快。
 
-[`Collections`](https://tobebetterjavaer.com/common-tool/collections.html) 类的 `sort()` 方法可以对 ArrayList 进行排序，该方法会按照字母顺序对 String 类型的列表进行排序。如果是自定义类型的列表，还可以指定 Comparator 进行排序。
+[`Collections`](https://javabetter.cn/common-tool/collections.html) 类的 `sort()` 方法可以对 ArrayList 进行排序，该方法会按照字母顺序对 String 类型的列表进行排序。如果是自定义类型的列表，还可以指定 Comparator 进行排序。
 
 这里先简单地了解一下，后面会详细地讲。
 
@@ -614,7 +614,7 @@ ArrayList，如果有个中文名的话，应该叫动态数组，也就是可�
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

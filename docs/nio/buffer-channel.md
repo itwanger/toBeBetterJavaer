@@ -15,7 +15,7 @@ head:
 
 # 12.3 Buffer和Channel
 
-首先我们再来回顾一下 [IO 和 NIO 的区别](https://tobebetterjavaer.com/nio/nio-better-io.html)：
+首先我们再来回顾一下 [IO 和 NIO 的区别](https://javabetter.cn/nio/nio-better-io.html)：
 
 - 可简单认为：**IO 是面向流的处理，NIO 是面向块(缓冲区)的处理**
 - 面向流的 I/O 系统**一次一个字节地处理数据**。
@@ -191,7 +191,7 @@ SocketChannel：用于 TCP 套接字 I/O 的通道。SocketChannel 支持非阻�
 
 DatagramChannel：用于 UDP 套接字 I/O 的通道。DatagramChannel 支持非阻塞模式，可以发送和接收数据报包，适用于无连接的、不可靠的网络通信。
 
-这篇我们主要来讲 FileChannel，SocketChannel、ServerSocketChannel 和 DatagramChannel 会放到[后面的章节中](https://tobebetterjavaer.com/nio/network-connect.html)讲解。
+这篇我们主要来讲 FileChannel，SocketChannel、ServerSocketChannel 和 DatagramChannel 会放到[后面的章节中](https://javabetter.cn/nio/network-connect.html)讲解。
 
 #### 文件通道 FileChannel
 
@@ -201,7 +201,7 @@ DatagramChannel：用于 UDP 套接字 I/O 的通道。DatagramChannel 支持非
 FileChannel.open(Paths.get("docs/配套教程.md"), StandardOpenOption.WRITE);
 ```
 
-这里我们用到了 [Paths](https://tobebetterjavaer.com/nio/paths-files.html)，这个后面也会讲到。
+这里我们用到了 [Paths](https://javabetter.cn/nio/paths-files.html)，这个后面也会讲到。
 
 ①、使用**FileChannel 配合 ByteBuffer 缓冲区**实现文件复制的功能：
 
@@ -339,7 +339,7 @@ ByteBuffer.allocate和ByteBuffer.allocateDirect直接的差异。
 
 AsynchronousFileChannel 是 Java 7 引入的一个异步文件通道类，提供了对文件的异步读、写、打开和关闭等操作。
 
-可以通过 `AsynchronousFileChannel.open()` 方法打开一个异步文件通道，该方法接受一个 [Path 对象](https://tobebetterjavaer.com/nio/paths-files.html)和一组打开选项（如 StandardOpenOption.READ、StandardOpenOption.WRITE 等）作为参数。
+可以通过 `AsynchronousFileChannel.open()` 方法打开一个异步文件通道，该方法接受一个 [Path 对象](https://javabetter.cn/nio/paths-files.html)和一组打开选项（如 StandardOpenOption.READ、StandardOpenOption.WRITE 等）作为参数。
 
 ```java
 Path file = Paths.get("example.txt");
@@ -348,7 +348,7 @@ AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(file, Standar
 
 AsynchronousFileChannel 提供了两种异步操作的方式：
 
-**①、Future 方式**：使用 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来跟踪异步操作的完成情况。当我们调用一个异步操作（如 `read()` 或 `write()`）时，它会立即返回一个 Future 对象。可以使用这个对象来检查操作是否完成，以及获取操作的结果。这种方式适用于不需要在操作完成时立即执行其他操作的场景。
+**①、Future 方式**：使用 [Future](https://javabetter.cn/thread/callable-future-futuretask.html) 对象来跟踪异步操作的完成情况。当我们调用一个异步操作（如 `read()` 或 `write()`）时，它会立即返回一个 Future 对象。可以使用这个对象来检查操作是否完成，以及获取操作的结果。这种方式适用于不需要在操作完成时立即执行其他操作的场景。
 
 举个例子：
 
@@ -468,9 +468,9 @@ public static void readAllBytes(Path path) throws IOException, InterruptedExcept
 
 2、创建一个大小为 1024 的 ByteBuffer 来存储从文件中读取的数据。
 
-3、使用 [AtomicLong](https://tobebetterjavaer.com/thread/atomic.html) 类型的 position 变量来记录当前读取的文件位置。初始值为 0。
+3、使用 [AtomicLong](https://javabetter.cn/thread/atomic.html) 类型的 position 变量来记录当前读取的文件位置。初始值为 0。
 
-4、创建一个 [CountDownLatch](https://tobebetterjavaer.com/thread/CountDownLatch.html) 对象，用于在异步操作完成时通知主线程。初始值为 1。
+4、创建一个 [CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html) 对象，用于在异步操作完成时通知主线程。初始值为 1。
 
 5、使用 `fileChannel.read()` 方法启动异步读取操作。这个方法的参数包括：用于存储数据的缓冲区、当前读取位置、附加对象（在这个例子中不需要，所以传递 null）以及一个实现了 CompletionHandler 接口的对象，用于在读取操作完成时回调。
 
@@ -504,7 +504,7 @@ Channel 代表了与 I/O 设备（如文件或套接字）之间的连接。它�
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

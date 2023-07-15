@@ -14,7 +14,7 @@ head:
 
 # 7.6 转换流
 
-转换流可以将一个[字节流](https://tobebetterjavaer.com/io/stream.html)包装成[字符流](https://tobebetterjavaer.com/io/reader-writer.html)，或者将一个字符流包装成字节流。这种转换通常用于处理文本数据，如读取文本文件或将数据从网络传输到应用程序。
+转换流可以将一个[字节流](https://javabetter.cn/io/stream.html)包装成[字符流](https://javabetter.cn/io/reader-writer.html)，或者将一个字符流包装成字节流。这种转换通常用于处理文本数据，如读取文本文件或将数据从网络传输到应用程序。
 
 转换流主要有两种类型：InputStreamReader 和 OutputStreamWriter。
 
@@ -189,7 +189,7 @@ OutputStreamWriter isr = new OutputStreamWriter(new FileOutputStream("a.txt"));
 OutputStreamWriter isr2 = new OutputStreamWriter(new FileOutputStream("b.txt") , "GBK");
 ```
 
-通常为了提高读写效率，我们会在转换流上再加一层[缓冲流](https://tobebetterjavaer.com/io/buffer.html)，来看代码示例：
+通常为了提高读写效率，我们会在转换流上再加一层[缓冲流](https://javabetter.cn/io/buffer.html)，来看代码示例：
 
 ```java
 try {
@@ -245,7 +245,7 @@ OutputStreamWriter 类的常用方法包括：
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

@@ -23,7 +23,7 @@ Object 类中就包含了 `hashCode()` 方法：
 public native int hashCode();
 ```
 
-意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
+意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个[本地方法](https://javabetter.cn/oo/native-method.html)（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
 
 具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 [GitHub 上 OpenJDK 的仓库中下载](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/runtime/synchronizer.cpp)）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
 
@@ -33,11 +33,11 @@ Java 9 之后，`hashCode()` 方法会被 `@HotSpotIntrinsicCandidate` 注解修
 
 那大家有没有想过这样一个问题：**为什么 Object 类需要一个 `hashCode()` 方法呢**？
 
-在 Java 中，`hashCode()` 方法的主要作用就是为了配合[哈希表](https://tobebetterjavaer.com/collection/hashmap.html)使用的。
+在 Java 中，`hashCode()` 方法的主要作用就是为了配合[哈希表](https://javabetter.cn/collection/hashmap.html)使用的。
 
 哈希表（Hash Table），也叫散列表，是一种可以通过关键码值（key-value）直接访问的数据结构，它最大的特点就是可以快速实现查找、插入和删除。其中用到的算法叫做哈希，就是把任意长度的输入，变换成固定长度的输出，该输出就是哈希值。像 MD5、SHA1 都用的是哈希算法。
 
-像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
+像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 [HashMap](https://javabetter.cn/collection/hashmap.html) 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
 
 大家想一下，如果没有哈希表，但又需要这样一个数据结构，它里面存放的数据是不允许重复的，该怎么办呢？
 
@@ -147,7 +147,7 @@ HashMap 的 `get()` 方法会调用 `hash(key.hashCode())` 计算对象的哈希
  }
 ```
 
-[Objects 类](https://tobebetterjavaer.com/common-tool/Objects.html)的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
+[Objects 类](https://javabetter.cn/common-tool/Objects.html)的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
 
 ```java
 public static int hashCode(Object a[]) {
@@ -231,13 +231,13 @@ static inline intptr_t get_next_hash(Thread* current, oop obj) {
 
 在 Java 中，`hashCode()`方法是定义在 `java.lang.Object` 类中的一个方法，该类是所有 Java 所有类的父类。因此，每个 Java 对象都可以调用 `hashCode()`方法。`hashCode()`方法主要用于支持哈希表（如 java.util.HashMap），这些数据结构使用哈希算法能实现快速查找、插入和删除操作。
 
-`hashCode()`方法的主要目的是返回一个整数，这个整数称为哈希码，它代表了对象在内存中的一种近似表示。哈希码用于将对象映射到哈希表中的一个特定的位置。两个相等的对象（根据 [`equals()`方法比较](https://tobebetterjavaer.com/string/equals.html)）应该具有相同的哈希码。然而，具有相同哈希码的两个对象并不一定相等。
+`hashCode()`方法的主要目的是返回一个整数，这个整数称为哈希码，它代表了对象在内存中的一种近似表示。哈希码用于将对象映射到哈希表中的一个特定的位置。两个相等的对象（根据 [`equals()`方法比较](https://javabetter.cn/string/equals.html)）应该具有相同的哈希码。然而，具有相同哈希码的两个对象并不一定相等。
 
 当你创建一个自定义类并覆盖 `equals()`方法时，通常也需要覆盖 `hashCode()`方法，以确保相等的对象具有相同的哈希码。这有助于提高哈希表在使用自定义类的对象作为键时的准确性。
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

@@ -21,9 +21,9 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/nio-better-io-20230406180538.png)
 
-[传统 IO](https://tobebetterjavaer.com/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html) 进行网络传输。
+[传统 IO](https://javabetter.cn/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://javabetter.cn/socket/socket.html) 进行网络传输。
 
-NIO 使用[通道（Channel）和缓冲区（Buffer）](https://tobebetterjavaer.com/nio/buffer-channel.html)进行文件操作，以及使用 SocketChannel 和 ServerSocketChannel 进行网络传输。
+NIO 使用[通道（Channel）和缓冲区（Buffer）](https://javabetter.cn/nio/buffer-channel.html)进行文件操作，以及使用 SocketChannel 和 ServerSocketChannel 进行网络传输。
 
 传统 IO 采用阻塞式模型，对于每个连接，都需要创建一个独立的线程来处理读写操作。当一个线程在等待 I/O 操作时，无法执行其他任务。这会导致大量线程的创建和销毁，以及上下文切换，降低了系统性能。
 
@@ -35,7 +35,7 @@ JDK 1.4 中，`java.nio.*包`引入新的 Java I/O 库，其目的是**提高速
 
 - nio 翻译成 no-blocking io 或者 new io 都无所谓啦，都说得通~
 
-在《Java 编程思想》读到“即使我们不显式的使用 NIO 编程，也能从中受益”的时候，我是挺在意的，所以：我们**测试**一下使用 NIO 复制文件和[传统 IO 复制文件](https://tobebetterjavaer.com/io/file-path.html) 的性能：
+在《Java 编程思想》读到“即使我们不显式的使用 NIO 编程，也能从中受益”的时候，我是挺在意的，所以：我们**测试**一下使用 NIO 复制文件和[传统 IO 复制文件](https://javabetter.cn/io/file-path.html) 的性能：
 
 ```java
 public class SimpleFileTransferTest {
@@ -108,9 +108,9 @@ public class SimpleFileTransferTest {
 }
 ```
 
-先解释一下这段代码，里面出现的 [RandomAccessFile](https://tobebetterjavaer.com/io/file-path.html) 我们之前讲过，FileChannel 是 Java NIO（New I/O）库中的一个类，它提供了对文件的高效 I/O 操作，支持随机访问文件，允许在文件的任意位置进行读写操作。
+先解释一下这段代码，里面出现的 [RandomAccessFile](https://javabetter.cn/io/file-path.html) 我们之前讲过，FileChannel 是 Java NIO（New I/O）库中的一个类，它提供了对文件的高效 I/O 操作，支持随机访问文件，允许在文件的任意位置进行读写操作。
 
-与 RandomAccessFile 不同，FileChannel 使用了[缓冲区（ByteBuffer）](https://tobebetterjavaer.com/nio/buffer-channel.html)进行数据传输。
+与 RandomAccessFile 不同，FileChannel 使用了[缓冲区（ByteBuffer）](https://javabetter.cn/nio/buffer-channel.html)进行数据传输。
 
 好，在我给出实际的结论之前，你是否会有这样的结论：
 
@@ -140,13 +140,13 @@ NIO（New I/O）的设计目标是解决传统 I/O（BIO，Blocking I/O）在处
 
 ②、NIO 支持 I/O 多路复用，这意味着一个线程可以同时监视多个通道（如套接字），并在 I/O 事件（如可读、可写）准备好时处理它们。这大大提高了网络传输中的性能，因为单个线程可以高效地管理多个并发连接。操作文件时这个优势也无法提现出来。
 
-③、NIO 提供了 [ByteBuffer 类](https://tobebetterjavaer.com/nio/buffer-channel.html)，可以高效地管理缓冲区。这在网络传输中很重要，因为数据通常是以字节流的形式传输。操作文件的时候，虽然也有缓冲区，但优势仍然不够明显。
+③、NIO 提供了 [ByteBuffer 类](https://javabetter.cn/nio/buffer-channel.html)，可以高效地管理缓冲区。这在网络传输中很重要，因为数据通常是以字节流的形式传输。操作文件的时候，虽然也有缓冲区，但优势仍然不够明显。
 
 ### 02、NIO 和传统 IO 在网络传输中的差异
 
 来看服务器端代码的差别。
 
-IO，用的[套接字](https://tobebetterjavaer.com/socket/socket.html)，代码比较简单，我就不加注释了，之前学过，应该都能看得懂，用 while 循环监听客户端 Socket：
+IO，用的[套接字](https://javabetter.cn/socket/socket.html)，代码比较简单，我就不加注释了，之前学过，应该都能看得懂，用 while 循环监听客户端 Socket：
 
 ```java
 public class IOServer {
@@ -236,9 +236,9 @@ public class NIOServer {
 }
 ```
 
-上面的代码创建了一个基于 Java NIO 的简单 TCP 服务器。它使用 [ServerSocketChannel 和 Selector（后面会讲）](https://tobebetterjavaer.com/nio/buffer-channel.html) 实现了非阻塞 I/O 和 I/O 多路复用。服务器循环监听事件，当有新的连接请求时，接受连接并将新的 SocketChannel 注册到 Selector，关注 OP_READ 事件。当有数据可读时，从 SocketChannel 中读取数据并写入 ByteBuffer，然后将数据从 ByteBuffer 写回到 SocketChannel。
+上面的代码创建了一个基于 Java NIO 的简单 TCP 服务器。它使用 [ServerSocketChannel 和 Selector（后面会讲）](https://javabetter.cn/nio/buffer-channel.html) 实现了非阻塞 I/O 和 I/O 多路复用。服务器循环监听事件，当有新的连接请求时，接受连接并将新的 SocketChannel 注册到 Selector，关注 OP_READ 事件。当有数据可读时，从 SocketChannel 中读取数据并写入 ByteBuffer，然后将数据从 ByteBuffer 写回到 SocketChannel。
 
-这里简单说一下 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html)，以及 ServerSocketChannel 和 SocketChannel。
+这里简单说一下 [Socket 和 ServerSocket](https://javabetter.cn/socket/socket.html)，以及 ServerSocketChannel 和 SocketChannel。
 
 Socket 和 ServerSocket 是传统的阻塞式 I/O 编程方式，用于建立和管理 TCP 连接。
 
@@ -247,14 +247,14 @@ Socket 和 ServerSocket 是传统的阻塞式 I/O 编程方式，用于建立和
 
 在传统阻塞式 I/O 编程中，每个连接都需要一个单独的线程进行处理，这导致了在高并发场景下的性能问题。在接下来的客户端测试用例中会看到。
 
-为了解决传统阻塞式 I/O 的性能问题，Java NIO 引入了 [ServerSocketChannel 和 SocketChannel](https://tobebetterjavaer.com/nio/network-connect.html)。它们是非阻塞 I/O，可以在单个线程中处理多个连接。
+为了解决传统阻塞式 I/O 的性能问题，Java NIO 引入了 [ServerSocketChannel 和 SocketChannel](https://javabetter.cn/nio/network-connect.html)。它们是非阻塞 I/O，可以在单个线程中处理多个连接。
 
 - ServerSocketChannel：类似于 ServerSocket，表示服务器端套接字通道。它负责监听客户端连接请求，并可以设置为非阻塞模式，这意味着在等待客户端连接请求时不会阻塞线程。
 - SocketChannel：类似于 Socket，表示客户端套接字通道。它负责与服务器端建立连接并进行数据的读写。SocketChannel 也可以设置为非阻塞模式，在读写数据时不会阻塞线程。
 
-再来简单说一下 [Selector](https://tobebetterjavaer.com/nio/buffer-channel.html)，后面会再细讲。
+再来简单说一下 [Selector](https://javabetter.cn/nio/buffer-channel.html)，后面会再细讲。
 
-Selector 是 Java NIO 中的一个关键组件，用于实现 [I/O 多路复用](https://tobebetterjavaer.com/nio/moxing.html)。它允许在单个线程中同时监控多个 ServerSocketChannel 和 SocketChannel，并通过 SelectionKey 标识关注的事件。当某个事件发生时，Selector 会将对应的 SelectionKey 添加到已选择的键集合中。通过使用 Selector，可以在单个线程中同时处理多个连接，从而有效地提高 I/O 操作的性能，特别是在高并发场景下。
+Selector 是 Java NIO 中的一个关键组件，用于实现 [I/O 多路复用](https://javabetter.cn/nio/moxing.html)。它允许在单个线程中同时监控多个 ServerSocketChannel 和 SocketChannel，并通过 SelectionKey 标识关注的事件。当某个事件发生时，Selector 会将对应的 SelectionKey 添加到已选择的键集合中。通过使用 Selector，可以在单个线程中同时处理多个连接，从而有效地提高 I/O 操作的性能，特别是在高并发场景下。
 
 客户端测试用例：
 
@@ -339,7 +339,7 @@ public class TestClient {
 
 ---
 
-最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://tobebetterjavaer.com/pdf/programmer-111.html)
+最近整理了一份牛逼的学习资料，包括但不限于 Java 基础部分（JVM、Java 集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类 Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是 2022 年全网最全的学习和找工作的 PDF 资源了](https://javabetter.cn/pdf/programmer-111.html)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

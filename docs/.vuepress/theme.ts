@@ -3,7 +3,7 @@ import navbar from "./navbar";
 import { sidebarConfig } from "./sidebar";
 
 export default hopeTheme({
-  hostname: "https://tobebetterjavaer.com",
+  hostname: "https://javabetter.cn",
   // 网站图标
   logo: "https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-02.png",
   // Git 仓库和编辑链接
@@ -57,7 +57,7 @@ export default hopeTheme({
   sidebar: sidebarConfig,
 
   // 页脚支持
-  footer: '<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-1</a>'
+  footer: '<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-4</a>'
   +'<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/beian.png" height="15px" width="15px" />'
   +'<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41030502000411">'
   +'<span>豫公网安备 41030502000411号</span>'

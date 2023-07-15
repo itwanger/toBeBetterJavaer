@@ -16,7 +16,7 @@ head:
 
 “哥，今天我们要学习的内容是‘代码初始化块’，对吧？”看来三妹已经提前预习了我上次留给她的作业。
 
-“是的，三妹。代码初始化块用于初始化一些[成员变量](https://tobebetterjavaer.com/oo/var.html)。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块，又称实例初始化块，主要和静态初始化块做区分。”
+“是的，三妹。代码初始化块用于初始化一些[成员变量](https://javabetter.cn/oo/var.html)。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块，又称实例初始化块，主要和静态初始化块做区分。”
 
 “可以直接通过‘=’操作符对成员变量进行初始化，但通过代码初始化块可以做更多的事情，比如说打印出成员变量初始化后的值。”
 
@@ -50,7 +50,7 @@ public class Bike {
 
 “如果只使用‘=’操作符的话，是没办法完成集合初始化的，对吧？‘=’ 后面只能 new 出集合，却没办法填充值，代码初始化就可以完成这项工作。”
 
-“[构造方法](https://tobebetterjavaer.com/oo/construct.html)执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
+“[构造方法](https://javabetter.cn/oo/construct.html)执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
 
 “不要着急，三妹，先来看下面这个例子。”
 
@@ -130,7 +130,7 @@ public class B extends A{
 
 “这个例子再次印证了之前的第二条规则：代码初始化块是放在构造方法中执行的，只不过比较靠前。”
 
-除了这种实例化代码初始化块，还有静态初始化，不过我们会放到 [static 关键字](https://tobebetterjavaer.com/oo/static.html)中去讲，这里先大致了解一下。
+除了这种实例化代码初始化块，还有静态初始化，不过我们会放到 [static 关键字](https://javabetter.cn/oo/static.html)中去讲，这里先大致了解一下。
 
 下面是一个 Java 示例代码，演示实例初始化块和静态初始化块的用法：
 
@@ -195,7 +195,7 @@ e2的实例变量：4
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -22,7 +22,7 @@ Spring 官方提供了 Spring Initializr 的方式来创建 Spring Boot 项目�
 
 来解释一下 Spring Initializr 初始化界面中的关键选项。
 
-1）Project：项目的构建方式，可以选择 [Maven](https://tobebetterjavaer.com/maven/maven.html)（安装方式可以戳链接） 和 Gradle（构建脚本基于 Groovy 或者 Kotlin 等语言来编写，而不是传统的 XML）。编程喵默认采用的 Maven。
+1）Project：项目的构建方式，可以选择 [Maven](https://javabetter.cn/maven/maven.html)（安装方式可以戳链接） 和 Gradle（构建脚本基于 Groovy 或者 Kotlin 等语言来编写，而不是传统的 XML）。编程喵默认采用的 Maven。
 
 2）Language：项目的开发语言，可以选择 Java、Kotlin（JetBrains开发的可以在 JVM 上运行的编程语言）、Groovy（可以作为 Java 平台的脚本语言来使用）。默认 Java 即可。
 
@@ -193,7 +193,7 @@ OK，现在可以访问到了。也就表明我们的第一个 Spring Boot 项�
 
 ----
 
-更多内容，只针对《Java程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《二哥的Java进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://javabetter.cn/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ----
 

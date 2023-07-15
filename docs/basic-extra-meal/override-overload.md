@@ -300,7 +300,7 @@ class Vehicle {
 
 #### **规则一：只能重写继承过来的方法**。
 
-因为重写是在子类重新实现从父类[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
+因为重写是在子类重新实现从父类[继承](https://javabetter.cn/oo/extends-bigsai.html)过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
 
 Animal 类有 `move()`、`eat()` 和 `sleep()` 三个方法：
 
@@ -344,7 +344,7 @@ public class Dog extends Animal {
 
 #### **规则二：final、static 的方法不能被重写**。
 
-一个方法是 [final](https://tobebetterjavaer.com/oo/final.html) 的就意味着它无法被子类继承到，所以就没办法重写。
+一个方法是 [final](https://javabetter.cn/oo/final.html) 的就意味着它无法被子类继承到，所以就没办法重写。
 
 ```java
 public class Animal {
@@ -356,7 +356,7 @@ public class Animal {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
 
-同样的，如果一个方法是 [static](https://tobebetterjavaer.com/oo/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
+同样的，如果一个方法是 [static](https://javabetter.cn/oo/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
 
 ```java
 public class Animal {
@@ -448,7 +448,7 @@ public class Dog extends Animal {
 
 #### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
 
-举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何[异常](https://tobebetterjavaer.com/exception/gailan.html)。这条规则只适用于可检查的异常。
+举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何[异常](https://javabetter.cn/exception/gailan.html)。这条规则只适用于可检查的异常。
 
 可检查（checked）异常必须在源代码中显式地进行捕获处理，不检查（unchecked）异常就是所谓的运行时异常，比如说 NullPointerException、ArrayIndexOutOfBoundsException 之类的，不会在编译器强制要求。
 
@@ -535,7 +535,7 @@ public class Dog extends Animal {
 
 #### **规则八：构造方法不能被重写**。
 
-因为[构造方法](https://tobebetterjavaer.com/oo/construct.html)很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
+因为[构造方法](https://javabetter.cn/oo/construct.html)很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
 
 #### **规则九：如果一个类继承了抽象类，抽象类中的抽象方法必须在子类中被重写**。
 
@@ -577,11 +577,11 @@ public class BullDog extends AbstractDog {
 
 #### **规则十：synchronized 关键字对重写规则没有任何影响**。
 
-[synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
+[synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
 
 #### **规则十一：strictfp 关键字对重写规则没有任何影响**。
 
-如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 [strictfp 关键字，之前讲过](https://tobebetterjavaer.com/basic-extra-meal/48-keywords.html)。因此 strictfp 关键字和重写规则无关。
+如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 [strictfp 关键字，之前讲过](https://javabetter.cn/basic-extra-meal/48-keywords.html)。因此 strictfp 关键字和重写规则无关。
 
 ### 03、总结
 
@@ -606,7 +606,7 @@ public class BullDog extends AbstractDog {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

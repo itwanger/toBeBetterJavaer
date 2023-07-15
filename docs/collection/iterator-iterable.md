@@ -18,7 +18,7 @@ head:
 
 那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？
 
-小二表示很开心，因为他3 天前刚好在《[二哥的Java进阶之路](https://tobebetterjavaer.com/collection/iterator-iterable.html)》上读过这篇文章，所以回答得胸有成竹。
+小二表示很开心，因为他3 天前刚好在《[二哥的Java进阶之路](https://javabetter.cn/collection/iterator-iterable.html)》上读过这篇文章，所以回答得胸有成竹。
 
 以下↓是小二当时读过的文章内容，他印象深刻。
 
@@ -342,7 +342,7 @@ while (it.hasNext()) {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

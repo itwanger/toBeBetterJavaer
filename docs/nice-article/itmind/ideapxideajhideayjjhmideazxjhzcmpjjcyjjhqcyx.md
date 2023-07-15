@@ -24,13 +24,13 @@ head:
 
 笔者试了网上几乎所有的 IDEA 破解方案，发现两种靠谱的破解方法（这两种都是亲测成功的），都配上了详细的图文教程，在这里分享给大家，小伙伴们二选一即可：
 
-- 第一种：[👉 无限重置 IDEA 30 天试用期（补丁）](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)；
+- 第一种：[👉 无限重置 IDEA 30 天试用期（补丁）](https://javabetter.cn/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)；
 
 **PS: 此种方法仅适用于 IDEA 2021.2.2 (包含 2021.2.2 版本) 以下版本，可下载 IDEA 历史版本来使用**。
 
 历史版本下载链接：[https://www.jetbrains.com/idea/download/other.html](https://www.jetbrains.com/idea/download/other.html)
 
-- 第二种： [👉【推荐】永久激活 IDEA （补丁）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)，即本文教程所写的，具体步骤**跟着下面的图文教程一步一步来就行，一分钟即可搞定，过程也非常简单**。无图无真相，下面截图是成功激活后的画面：
+- 第二种： [👉【推荐】永久激活 IDEA （补丁）](https://javabetter.cn/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)，即本文教程所写的，具体步骤**跟着下面的图文教程一步一步来就行，一分钟即可搞定，过程也非常简单**。无图无真相，下面截图是成功激活后的画面：
 
 PS: **补丁的原理实际上是暴力拦截了 IDEA 的剩余使用期网络请求，实际上等于永久激活，激活到的哪天的配置，之前版本 z 大是开放出来的，可以通过配置文件随意修改，比如改成激活到 2099 年，最新的版本无了，可能是太高调了，怕被官方搞，其实都是一样的。还是要感谢 z 大的补丁~ 无敌~ nbility~。**
 
@@ -178,7 +178,7 @@ PS: install-all-users.vbs 为系统所有用户安装，不太推荐。`unistall
 
 Jetbrains 每个产品对应激活码都不一样，其他 IDE, 如 Pycharm、Webstrom 等激活码可点击下面链接获取：
 
-[👉《Jetbrains 其他产品对应激活码》](https://tobebetterjavaer.com/nice-article/itmind/)
+[👉《Jetbrains 其他产品对应激活码》](https://javabetter.cn/nice-article/itmind/)
 
 复制激活码后填入，点击 Activate 按钮完成激活：
 
@@ -203,7 +203,7 @@ PS: 有部分小伙伴反应，重启 IDEA 填入激活码依然无法激活，�
 
 也可以手动关闭升级提示，这样就可以防止控制不住自己升级了，如何关闭，参考下面的文章：
 
-[👉《IntelliJ IDEA 如何关闭更新提示？》](https://tobebetterjavaer.com/nice-article/itmind/intellijidearhgbgxdsxbxt.html)
+[👉《IntelliJ IDEA 如何关闭更新提示？》](https://javabetter.cn/nice-article/itmind/intellijidearhgbgxdsxbxt.html)
 
 ## 激活成功后，补丁文件夹能不能删掉或者移动？
 
@@ -233,9 +233,9 @@ PS: 破解补丁页面提取人数过多，导致分享的百度网盘链接容�
 
 这里再提供几个**最新的激活码**，有需要的朋友可以试试，先到先用：
 
-[2022Intellij IDEA 最新激活码,IDEA 稳定专属激活码(持续更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
+[2022Intellij IDEA 最新激活码,IDEA 稳定专属激活码(持续更新）](https://javabetter.cn/nice-article/itmind/ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx.html)
 
-[一个可以无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定!](https://tobebetterjavaer.com/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
+[一个可以无限重置 IDEA 30 天试用期的方法， 暴力无解，简单又稳定!](https://javabetter.cn/nice-article/itmind/yigkymxczideatsyqdffblwxjcywdxbxt.html)
 
-[2022Intellij IDEA 日更最新激活码、稳定专属激活码(每日更新）](https://tobebetterjavaer.com/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)
+[2022Intellij IDEA 日更最新激活码、稳定专属激活码(每日更新）](https://javabetter.cn/nice-article/itmind/ideapjazjczxjhmzcmyjjhcxgxz.html)
 

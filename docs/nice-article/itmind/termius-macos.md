@@ -16,7 +16,7 @@ head:
 ---
 
 
-termius 是一款非常值得推荐的 SSH/SFTP 跨平台终端工具，其十分亮眼的功能是可以上传文件夹，这是其他几款终端工具都不具备的，比如说 macOS 自带的终端、号称 21 世纪最强终端的 [wrap](https://tobebetterjavaer.com/gongju/warp.html)、完全开源的 [tabby](https://tobebetterjavaer.com/gongju/tabby.html)、[WindTerm](https://tobebetterjavaer.com/gongju/windterm.html)。
+termius 是一款非常值得推荐的 SSH/SFTP 跨平台终端工具，其十分亮眼的功能是可以上传文件夹，这是其他几款终端工具都不具备的，比如说 macOS 自带的终端、号称 21 世纪最强终端的 [wrap](https://javabetter.cn/gongju/warp.html)、完全开源的 [tabby](https://javabetter.cn/gongju/tabby.html)、[WindTerm](https://javabetter.cn/gongju/windterm.html)。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/itmind//termius-macos-da746c37-59e6-41d8-820a-76cfcd3393f3.png)
 

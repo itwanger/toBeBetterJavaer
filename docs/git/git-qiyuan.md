@@ -5,11 +5,11 @@ category:
   - 开发/构建工具
 tag:
   - Git
-description: Java程序员进阶之路，小白的零基础Java教程，从入门到进阶，1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,Java程序员进阶之路,Java进阶之路,Git入门,Git教程,git
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Git入门,Git教程,git
 ---
 
 # 1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
@@ -1006,7 +1006,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 ## 八、详解 sparse-checkout 命令
 
-前天不是搭建了一个《Java程序员进阶之路》的网站嘛，其中用到了 Git 来作为云服务器和 GitHub 远程仓库之间的同步工具。
+前天不是搭建了一个《二哥的Java进阶之路》的网站嘛，其中用到了 Git 来作为云服务器和 GitHub 远程仓库之间的同步工具。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/git/sparse-checkout-01.png)
 
@@ -1019,7 +1019,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 ### 1、使用 Git 中遇到的一个大麻烦
 
-首先给大家通报一下，一天前[上线的《Java程序员进阶之路》网站](https://tobebetterjavaer.com)，目前访问次数已经突破 1000 了。
+首先给大家通报一下，一天前[上线的《二哥的Java进阶之路》网站](https://javabetter.cn)，目前访问次数已经突破 1000 了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/git/sparse-checkout-03.png)
 
@@ -1066,7 +1066,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 付费七牛云或者阿里云图床的小伙伴不妨试试这种方式，能白票咱绝不花一分冤枉钱。
 
-那也就是说，《Java程序员进阶之路》网站上的图片都是通过 GitHub 图床加载的，不需要将图片从 GitHub 仓库拉取到云服务器上。要知道，一台云服务器的空间是极其昂贵的，能省的空间咱必须得省。
+那也就是说，《二哥的Java进阶之路》网站上的图片都是通过 GitHub 图床加载的，不需要将图片从 GitHub 仓库拉取到云服务器上。要知道，一台云服务器的空间是极其昂贵的，能省的空间咱必须得省。
 
 ### 2、学习 Git 中遇到的一个大惊喜
 
@@ -1169,7 +1169,7 @@ Git 是真的牛逼，Linus 是真的牛逼，神不愧是神！
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

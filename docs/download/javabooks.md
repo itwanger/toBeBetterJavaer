@@ -4,7 +4,7 @@
   <a href="https://www.zhihu.com/people/cmower"><img src="https://img.shields.io/badge/知乎-沉默王二-informational.svg?style=for-the-badge" alt="知乎"></a>
   <a href="https://blog.csdn.net/qing_gee"><img src="https://img.shields.io/badge/CSDN-沉默王二-important.svg?style=for-the-badge" alt="CSDN"></a>
   <a href="https://space.bilibili.com/513340480"><img src="https://img.shields.io/badge/哔哩哔哩-沉默王二-9cf?style=for-the-badge" alt="哔哩哔哩"></a>
-  <a href="https://github.com/itwanger/toBeBetterJavaer"><img src="https://img.shields.io/badge/GitHub-Java程序员进阶之路-critical.svg?style=for-the-badge" alt="Java程序员进阶之路"></a> 
+  <a href="https://github.com/itwanger/toBeBetterJavaer"><img src="https://img.shields.io/badge/GitHub-二哥的Java进阶之路-critical.svg?style=for-the-badge" alt="二哥的Java进阶之路"></a> 
   <a href="https://github.com/itwanger/JavaBooks"><img src="https://img.shields.io/badge/PDF-免费计算机书籍-lightgrey.svg?style=for-the-badge" alt="免费PDF"></a>
 </p>
 
@@ -14,23 +14,23 @@
 本仓库**持续更新**中，后续会陆续分享更多经典电子书，**强烈建议大家 Star 下本仓库**，下次找书可以直接 **Ctrl + F**，找书再也不愁 ！ 
 
 
-#### 2、🔥🔥🔥Java程序员进阶之路
+#### 2、🔥🔥🔥二哥的Java进阶之路
 
-我把**自己近 10 年来学习编程的所有原创文章和学习资料**做成了一个网站，适用于**计算机校招应届生以及毕业三年之内的社招求职党**，<a href="https://tobebetterjavaer.com/" target="_blank">传送门</a>
+我把**自己近 10 年来学习编程的所有原创文章和学习资料**做成了一个网站，适用于**计算机校招应届生以及毕业三年之内的社招求职党**，<a href="https://javabetter.cn/" target="_blank">传送门</a>
 
 <div align="center">
-  <a href="https://tobebetterjavaer.com/home.html">
+  <a href="https://javabetter.cn/home.html">
   <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png" target="_blank">
   </a>
 </div>
 
   
 
-#### 3、👍🏻一位美团后端研发工程师的面渣逆袭手册，<a href="https://tobebetterjavaer.com/sidebar/sanfene/nixi.html" target="_blank">点此一键免费获取</a> 
+#### 3、👍🏻一位美团后端研发工程师的面渣逆袭手册，<a href="https://javabetter.cn/sidebar/sanfene/nixi.html" target="_blank">点此一键免费获取</a> 
 
-#### 4、⭐可能是2022年全网最全的学习和找工作的PDF资源，<a href="https://tobebetterjavaer.com/pdf/" target="_blank">点此一键免费获取</a> 
+#### 4、⭐可能是2022年全网最全的学习和找工作的PDF资源，<a href="https://javabetter.cn/pdf/" target="_blank">点此一键免费获取</a> 
 
-#### 5、😜发现一个相当不错的计算机各类种语言&学科学习路线， <a href="https://tobebetterjavaer.com/xuexiluxian/" target="_blank">点此查看</a>
+#### 5、😜发现一个相当不错的计算机各类种语言&学科学习路线， <a href="https://javabetter.cn/xuexiluxian/" target="_blank">点此查看</a>
 
 #### 6、赞赏
 
@@ -117,7 +117,7 @@
 
 ## 入门
 
-- Java程序员进阶之路       [百度云下载链接](https://pan.baidu.com/s/1UkyKSmQ_oabpY6HJZyl7pw)  密码:v0i5
+- 二哥的Java进阶之路       [百度云下载链接](https://pan.baidu.com/s/1UkyKSmQ_oabpY6HJZyl7pw)  密码:v0i5
 - GitHub 上标星 115k+ 的 Java 教程       [百度云下载链接](https://pan.baidu.com/s/1rT0l5ynzAQLF--efyRHzQw)  密码:dz95
 - Head First Java       [百度云下载链接](https://pan.baidu.com/s/14VZolSYQcyGKaG2WRpPB_w) 提取码:c07s 
 - Java 核心技术卷       [百度云下载链接](https://pan.baidu.com/s/1Um_boa6CusUAfjIY6x6Gzw) 提取码:1fvj 

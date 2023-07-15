@@ -9,15 +9,15 @@ shortTitle: 购买域名&域名解析
 
 购买域名可以通过多个服务商，比如说阿里云、百度云、腾讯云。
 
-我这里以阿里云为例，购入一个 [tobebetterjavaer.com](https://tobebetterjavaer.com/) 的域名（寓意 Java程序员进阶之路）。
+我这里以阿里云为例，购入一个 [tobebetterjavaer.com](https://javabetter.cn/) 的域名（寓意 二哥的Java进阶之路）。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-yuming-jiexi-02.png)
 
-在此之前呢，我已经购买了一台阿里云的服务器，2核4G内存的轻量级云服务器。就是[上次带大家白票的那波](https://tobebetterjavaer.com/szjy/buy-cloud-server.html)，我自己也购入了一台。
+在此之前呢，我已经购买了一台阿里云的服务器，2核4G内存的轻量级云服务器。就是[上次带大家白票的那波](https://javabetter.cn/szjy/buy-cloud-server.html)，我自己也购入了一台。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-yuming-jiexi-03.png)
 
-这台服务器上目前已经安装了[宝塔面板](https://tobebetterjavaer.com/szjy/install-baota-mianban.html)、[Nginx](https://tobebetterjavaer.com/nginx/nginx.html)，并且可以通过 IP 地址成功访问 80 端口。
+这台服务器上目前已经安装了[宝塔面板](https://javabetter.cn/szjy/install-baota-mianban.html)、[Nginx](https://javabetter.cn/nginx/nginx.html)，并且可以通过 IP 地址成功访问 80 端口。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-yuming-jiexi-04.png)
 
@@ -53,8 +53,8 @@ shortTitle: 购买域名&域名解析
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tobebetterjavaer-yuming-jiexi-09.png)
 
-- 主机记录 @ 表示可以直接通过不带 www 的域名访问，也就是 [tobebetterjavaer.com](https://tobebetterjavaer.com/)；
-- 主机记录 www 表示可以带 www 的域名访问，也就是 [www.tobebetterjavaer.com](https://tobebetterjavaer.com/)
+- 主机记录 @ 表示可以直接通过不带 www 的域名访问，也就是 [tobebetterjavaer.com](https://javabetter.cn/)；
+- 主机记录 www 表示可以带 www 的域名访问，也就是 [www.tobebetterjavaer.com](https://javabetter.cn/)
 
 TTL 为缓存时间，数值越小，表示修改记录生效的时间越快，默认为10分钟。
 

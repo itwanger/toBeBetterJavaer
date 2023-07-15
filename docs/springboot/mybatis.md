@@ -11,9 +11,9 @@ ORM 框架的本质是简化操作数据库的编码工作，常用的框架有�
 
 Hibernate 的特点是所有的 SQL 通过 Java 代码生成，发展到最顶端的就是 Spring Data JPA，基本上根据方法名就可以生成对应的 SQL 了。
 
-[Spring Boot 整合 JPA](https://tobebetterjavaer.com/springboot/jpa.html)
+[Spring Boot 整合 JPA](https://javabetter.cn/springboot/jpa.html)
 
-MyBatis 早些时候用起来比较繁琐，需要各种配置文件，需要实体类和 DAO 的映射关联，经过不断地演化和改进，可以通过 [generator](https://tobebetterjavaer.com/kaiyuan/auto-generator.html) 自动生成实体类、配置文件和 DAO 层代码，简化了不少开发工作。
+MyBatis 早些时候用起来比较繁琐，需要各种配置文件，需要实体类和 DAO 的映射关联，经过不断地演化和改进，可以通过 [generator](https://javabetter.cn/kaiyuan/auto-generator.html) 自动生成实体类、配置文件和 DAO 层代码，简化了不少开发工作。
 
 随着 [MyBatis-Plus](https://baomidou.com/) 的出现，又进一步加速了 MyBatis 的发展。经过 MyBatis-Plus 的增强，开发者只需要简单的配置，就可以快速进行单表的 CRUD 操作；同时，MyBatis-Plus又提供了代码生成、自动分页、逻辑删除、自动填充等丰富功能，进一步简化了开发工作。
 
@@ -324,14 +324,14 @@ void testPostDelete() {
 
 ### 通过 MyBatis-Plus 增强
 
-MyBatis 属于半自动的 ORM 框架，实现一些简单的 CRUD 也是需要编写 SQL 语句，那如果想省掉这些步骤的话，可以选择 [JPA](https://tobebetterjavaer.com/springboot/jpa.html)，也可以选择国人开源的 MyBatis-Plus（简称 MP）。
+MyBatis 属于半自动的 ORM 框架，实现一些简单的 CRUD 也是需要编写 SQL 语句，那如果想省掉这些步骤的话，可以选择 [JPA](https://javabetter.cn/springboot/jpa.html)，也可以选择国人开源的 MyBatis-Plus（简称 MP）。
 
 MP 提供了诸多优秀的特性，比如说：
 
 *   强大的 CRUD 操作：内置了通用的 mapper、service，可通过少量的配置实现大部分常用的 CRUD，不用再编写 SQL 语句。
 *   支持主键自动生成
 *   支持 ActiveRecord 模式：实体类只需继承 Model 类即可进行强大的 CRUD 操作
-*   [强大的代码生成器](https://tobebetterjavaer.com/kaiyuan/auto-generator.html)：可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码
+*   [强大的代码生成器](https://javabetter.cn/kaiyuan/auto-generator.html)：可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码
 *   内置分页插件
 *   内置性能分析插件：可输出 SQL 语句以及其执行时间
 
@@ -379,7 +379,7 @@ BaseMapper里提供的方法如下：
 
 ----
 
-更多内容，只针对《Java程序员进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://tobebetterjavaer.com/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+更多内容，只针对《二哥的Java进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://javabetter.cn/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
 
 ### 源码路径
 

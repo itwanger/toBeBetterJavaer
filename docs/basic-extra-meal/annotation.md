@@ -16,7 +16,7 @@ head:
 
 “二哥，这节讲注解吗？”三妹问。
 
-“是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？[方法重写](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)的时候用到过。但你知道怎么自定义一个注解吗？”
+“是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？[方法重写](https://javabetter.cn/basic-extra-meal/override-overload.html)的时候用到过。但你知道怎么自定义一个注解吗？”
 
 三妹毫不犹豫地摇摇头，摆摆手，不好意思地承认自己的确没有自定义过。
 
@@ -234,7 +234,7 @@ public class JsonFieldTest {
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

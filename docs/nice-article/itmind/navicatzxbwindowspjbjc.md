@@ -159,6 +159,6 @@ head:
 
 # 有什么安装问题可以向我们咨询。
 
-- [Navicat 16 macOS 破解](https://tobebetterjavaer.com/nice-article/itmind/navicatmacyjpx.html)
-- [Navicat 16 Windows 破解](https://tobebetterjavaer.com/nice-article/itmind/navicatzxbwindowspjbjc.html)
-- [更多靠谱破解教程，戳这里！！（破解目录汇总）](https://tobebetterjavaer.com/nice-article/itmind/)
+- [Navicat 16 macOS 破解](https://javabetter.cn/nice-article/itmind/navicatmacyjpx.html)
+- [Navicat 16 Windows 破解](https://javabetter.cn/nice-article/itmind/navicatzxbwindowspjbjc.html)
+- [更多靠谱破解教程，戳这里！！（破解目录汇总）](https://javabetter.cn/nice-article/itmind/)

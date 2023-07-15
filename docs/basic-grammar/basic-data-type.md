@@ -24,13 +24,13 @@ Java 中的数据类型可分为 2 种：
 
 2）**引用数据类型**。
 
-除了基本数据类型以外的类型，都是所谓的引用类型。常见的有[数组](https://tobebetterjavaer.com/array/array.html)（对，没错，数组是引用类型，后面我们会讲）、class（也就是[类](https://tobebetterjavaer.com/oo/object-class.html)），以及[接口](https://tobebetterjavaer.com/oo/interface.html)（指向的是实现接口的类的对象）。
+除了基本数据类型以外的类型，都是所谓的引用类型。常见的有[数组](https://javabetter.cn/array/array.html)（对，没错，数组是引用类型，后面我们会讲）、class（也就是[类](https://javabetter.cn/oo/object-class.html)），以及[接口](https://javabetter.cn/oo/interface.html)（指向的是实现接口的类的对象）。
 
 来个思维导图，感受下。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
-[变量](https://tobebetterjavaer.com/oo/var.html)可以分为局部变量、成员变量、静态变量。
+[变量](https://javabetter.cn/oo/var.html)可以分为局部变量、成员变量、静态变量。
 
 当变量是局部变量的时候，必须得先初始化，否则编译器不允许你使用它。拿 int 来举例吧，看下图。
 
@@ -177,7 +177,7 @@ double 是双精度浮点数（双精度浮点数的有效数字大约为 15 到
 double myDouble = 3.141592653589793;
 ```
 
-在进行金融计算或需要精确小数计算的场景中，可以使用 [BigDecimal 类](https://tobebetterjavaer.com/basic-grammar/bigdecimal-biginteger.html)来避免浮点数舍入误差。BigDecimal 可以表示一个任意大小且精度完全准确的浮点数。
+在进行金融计算或需要精确小数计算的场景中，可以使用 [BigDecimal 类](https://javabetter.cn/basic-grammar/bigdecimal-biginteger.html)来避免浮点数舍入误差。BigDecimal 可以表示一个任意大小且精度完全准确的浮点数。
 
 > 在实际开发中，如果不是特别大的金额（精确到 0.01 元，也就是一分钱），一般建议乘以 100 转成整型进行处理。
 
@@ -191,7 +191,7 @@ char 用于表示 Unicode 字符，占 16 位（2 字节）的存储空间，取
 char letterA = 'A'; // 用英文的单引号包裹住。
 ```
 
-注意，字符字面量应该用单引号（''）包围，而不是双引号（""），因为[双引号表示字符串字面量](https://tobebetterjavaer.com/string/constant-pool.html)。
+注意，字符字面量应该用单引号（''）包围，而不是双引号（""），因为[双引号表示字符串字面量](https://javabetter.cn/string/constant-pool.html)。
 
 ### 03、单精度和双精度
 
@@ -231,7 +231,7 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 
 int 和 char 之间比较特殊，可以互转，也会在以后的学习当中经常遇到。
 
-1）可以通过[强制类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)将整型 int 转换为字符 char。
+1）可以通过[强制类型转换](https://javabetter.cn/basic-grammar/type-cast.html)将整型 int 转换为字符 char。
 
 ```java
 int value_int = 65;
@@ -239,7 +239,7 @@ char value_char  = (char) value_int;
 System.out.println(value_char);
 ```
 
-输出 `A`(其 [ASCII 值](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)可以通过整数 65 来表示)。
+输出 `A`(其 [ASCII 值](https://javabetter.cn/basic-extra-meal/java-unicode.html)可以通过整数 65 来表示)。
 
 2）可以使用 `Character.forDigit()` 方法将整型 int 转换为字符 char，参数 radix 为基数，十进制为 10，十六进制为 16。。
 
@@ -268,11 +268,11 @@ System.out.println(value_char );
 int a = 'a';
 ```
 
-因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)，后面会细讲。
+因为发生了[自动类型转换](https://javabetter.cn/basic-grammar/type-cast.html)，后面会细讲。
 
 ### 05、包装器类型
 
-包装器类型（Wrapper Types）是 Java 中的一种特殊类型，用于将基本数据类型（如 int、float、char 等）转换为对应的[对象类型](https://tobebetterjavaer.com/oo/object-class.html)。
+包装器类型（Wrapper Types）是 Java 中的一种特殊类型，用于将基本数据类型（如 int、float、char 等）转换为对应的[对象类型](https://javabetter.cn/oo/object-class.html)。
 
 Java 提供了以下包装器类型，与基本数据类型一一对应：
 
@@ -310,13 +310,13 @@ System.out.println("字符是个数字.");
 }
 ```
 
-上面的示例中，我们创建了一个 [Integer 类型](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)的对象 integerValue 并为其赋值 42。然后，我们将其值打印到控制台。
+上面的示例中，我们创建了一个 [Integer 类型](https://javabetter.cn/basic-extra-meal/int-cache.html)的对象 integerValue 并为其赋值 42。然后，我们将其值打印到控制台。
 
-我们有一个包含数字的[字符串](https://tobebetterjavaer.com/string/immutable.html) numberString。我们使用 `Integer.parseInt()` 方法将其转换为整数 parsedNumber。然后，我们将转换后的值打印到控制台。
+我们有一个包含数字的[字符串](https://javabetter.cn/string/immutable.html) numberString。我们使用 `Integer.parseInt()` 方法将其转换为整数 parsedNumber。然后，我们将转换后的值打印到控制台。
 
 我们有一个字符变量 testChar，并为其赋值字符 '9'。我们使用 `Character.isDigit()` 方法检查 testChar 是否为数字字符。如果是数字字符，我们将输出一条消息到控制台。
 
-从 Java 5 开始，[自动装箱（Autoboxing）和自动拆箱（Unboxing）机制](https://tobebetterjavaer.com/basic-extra-meal/box.html)允许我们在基本数据类型和包装器类型之间自动转换，无需显式地调用构造方法或转换方法（链接里会细讲）。
+从 Java 5 开始，[自动装箱（Autoboxing）和自动拆箱（Unboxing）机制](https://javabetter.cn/basic-extra-meal/box.html)允许我们在基本数据类型和包装器类型之间自动转换，无需显式地调用构造方法或转换方法（链接里会细讲）。
 
 ```java
 Integer integerValue = 42; // 自动装箱，等同于 new Integer(42)
@@ -327,7 +327,7 @@ int primitiveValue = integerValue; // 自动拆箱，等同于 integerValue.intV
 
 基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的（学完数组&字符串，以及面向对象编程后会更加清楚，这里先简单过一下）。
 
-[String](https://tobebetterjavaer.com/string/immutable.html) 是最典型的引用数据类型，所以我们就拿 String 类举例，看下面这段代码：
+[String](https://javabetter.cn/string/immutable.html) 是最典型的引用数据类型，所以我们就拿 String 类举例，看下面这段代码：
 
 ```java
 /**
@@ -352,11 +352,11 @@ null
 null
 ```
 
-null 在 Java 中是一个很神奇的存在，在你以后的程序生涯中，见它的次数不会少，尤其是伴随着令人烦恼的“[空指针异常](https://tobebetterjavaer.com/exception/npe.html)”，也就是所谓的 `NullPointerException`。
+null 在 Java 中是一个很神奇的存在，在你以后的程序生涯中，见它的次数不会少，尤其是伴随着令人烦恼的“[空指针异常](https://javabetter.cn/exception/npe.html)”，也就是所谓的 `NullPointerException`。
 
 也就是说，引用数据类型的默认值为 null，包括数组和接口。
 
-那你是不是很好奇，为什么[数组](https://tobebetterjavaer.com/array/array.html)和[接口](https://tobebetterjavaer.com/oo/interface.html)也是引用数据类型啊？
+那你是不是很好奇，为什么[数组](https://javabetter.cn/array/array.html)和[接口](https://javabetter.cn/oo/interface.html)也是引用数据类型啊？
 
 先来看数组：
 
@@ -396,13 +396,13 @@ List<String> list = new ArrayList<>();
 System.out.println(list);
 ```
 
-[List](https://tobebetterjavaer.com/collection/gailan.html) 是一个非常典型的接口：
+[List](https://javabetter.cn/collection/gailan.html) 是一个非常典型的接口：
 
 ```java
 public interface List<E> extends Collection<E> {}
 ```
 
-而 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 是 List 接口的一个实现：
+而 [ArrayList](https://javabetter.cn/collection/arraylist.html) 是 List 接口的一个实现：
 
 ```java
 public class ArrayList<E> extends AbstractList<E>
@@ -458,7 +458,7 @@ public class ArrayList<E> extends AbstractList<E>
 String a = new String("沉默王二")
 ```
 
-这段代码会先在堆里创建一个 沉默王二的字符串对象，然后再把对象的引用 a 放到栈里面。这里面还会涉及到[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)，后面会讲。
+这段代码会先在堆里创建一个 沉默王二的字符串对象，然后再把对象的引用 a 放到栈里面。这里面还会涉及到[字符串常量池](https://javabetter.cn/string/constant-pool.html)，后面会讲。
 
 那么对于这样一段代码，有基本数据类型的变量，有引用类型的变量，堆和栈都是如何存储他们的呢？
 
@@ -485,7 +485,7 @@ public void test()
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

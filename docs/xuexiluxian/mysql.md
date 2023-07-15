@@ -112,9 +112,9 @@ SQL 学完，再学 MySQL 就会更加丝滑，学习曲线会平滑一些。
 
 >[https://t.zsxq.com/04eMf6AMZ](https://t.zsxq.com/04eMf6AMZ)
 
-Windows 的话，在 Java程序员进阶之路上分享过破解方法：
+Windows 的话，在 二哥的Java进阶之路上分享过破解方法：
 
->[https://tobebetterjavaer.com/nice-article/itmind/navicatzxbwindowspjbjc.html](https://tobebetterjavaer.com/nice-article/itmind/navicatzxbwindowspjbjc.html)
+>[https://javabetter.cn/nice-article/itmind/navicatzxbwindowspjbjc.html](https://javabetter.cn/nice-article/itmind/navicatzxbwindowspjbjc.html)
 
 **破解方法请勿外传，保密就对了**。
 
@@ -200,7 +200,7 @@ Windows 的话，在 Java程序员进阶之路上分享过破解方法：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/mysql-5338019d-a197-4438-8c0e-934a45794d91.png)
 
->星球同学可以到星球的百度网盘里取，地址在《Java程序员进阶之路》知识星球的[置顶链接](https://t.zsxq.com/07N3NbmEe)里。
+>星球同学可以到星球的百度网盘里取，地址在《二哥的Java进阶之路》知识星球的[置顶链接](https://t.zsxq.com/07N3NbmEe)里。
 
 学完以上这些，MySQL 的能力基本上会有质的飞跃，也就会有一种豁然开朗的感觉。当然，这部分学习起来十分吃力，主要是很多内容没有实际的应用场景。但最起码有个印象，万一用到了，再系统的翻翻书，看看网上的案例就会好很多。
 
@@ -220,7 +220,7 @@ Windows 的话，在 Java程序员进阶之路上分享过破解方法：
 
 那既然学了 MySQL，就要检验学习成果，怎么检验呢？
 
-准备面试的同学可以刷一波《[面渣逆袭 MySQL 篇](https://tobebetterjavaer.com/sidebar/sanfene/mysql.html)》，准备和面试官来回拉扯哈。
+准备面试的同学可以刷一波《[面渣逆袭 MySQL 篇](https://javabetter.cn/sidebar/sanfene/mysql.html)》，准备和面试官来回拉扯哈。
 
 星球用户可以在星球的[知识图谱](https://t.zsxq.com/04FuZrRVf)里获取 PDF 版本。
 
@@ -233,7 +233,7 @@ Windows 的话，在 Java程序员进阶之路上分享过破解方法：
 
 ----
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

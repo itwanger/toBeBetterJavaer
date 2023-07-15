@@ -54,7 +54,7 @@ public boolean equals(Object obj) {
 
 但实际情况中，有不少类重写了 `.equals()` 方法，因为比较内存地址的要求比较严格，不太符合现实中所有的场景需求。拿 String 类来说，我们在比较字符串的时候，的确只想判断它们俩的内容是相等的就可以了，并不想比较它们俩是不是同一个对象。
 
-况且，字符串有[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)的概念，本身就推荐使用 `String s = "字符串"` 这种形式来创建字符串对象，而不是通过 new 关键字的方式，因为可以把字符串缓存在字符串常量池中，方便下次使用，不用遇到 new 就在堆上开辟一块新的空间。
+况且，字符串有[字符串常量池](https://javabetter.cn/string/constant-pool.html)的概念，本身就推荐使用 `String s = "字符串"` 这种形式来创建字符串对象，而不是通过 new 关键字的方式，因为可以把字符串缓存在字符串常量池中，方便下次使用，不用遇到 new 就在堆上开辟一块新的空间。
 
 “哦，我明白了。”三妹说。
 
@@ -174,7 +174,7 @@ new String("小萝莉") == new String("小萝莉")
 
 “由于‘小’和‘萝莉’都在字符串常量池，所以编译器在遇到‘+’操作符的时候将其自动优化为“小萝莉”，所以返回 true。”
 
-PS：至于为什么，查看这篇[String、StringBuilder、StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)
+PS：至于为什么，查看这篇[String、StringBuilder、StringBuffer](https://javabetter.cn/string/builder-buffer.html)
 
 第六题：
 
@@ -184,7 +184,7 @@ new String("小萝莉").intern() == "小萝莉"
 
 “`new String("小萝莉")` 在执行的时候，会先在字符串常量池中创建对象，然后再在堆中创建对象；执行 `intern()` 方法的时候发现字符串常量池中已经有了‘小萝莉’这个对象，所以就直接返回字符串常量池中的对象引用了，那再与字符串常量池中的‘小萝莉’比较，当然会返回 true 了。”三妹说。
 
-PS：[intern](https://tobebetterjavaer.com/string/intern.html) 方法我们之前已经深究过了。
+PS：[intern](https://javabetter.cn/string/intern.html) 方法我们之前已经深究过了。
 
 哇，不得不说，三妹前几节的字符串相关内容都完全学会了呀！
 
@@ -299,7 +299,7 @@ public boolean contentEquals(CharSequence cs) {
 
 ---
 
-GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://tobebetterjavaer.com/overview/)
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
