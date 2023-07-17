@@ -94,7 +94,6 @@
 
 知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的三件大事，对你的求职和学习都会很有帮助：
 
-
 - ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://mp.weixin.qq.com/s/3yUT9v3BAdf4rfdfWYbfPw)
 - ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
 - ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
@@ -111,7 +110,6 @@
 - [Windows和macOS下安装JDK教程](docs/overview/jdk-install-config.md)
 - [在macOS和Windows上安装Intellij IDEA](docs/overview/IDEA-install-config.md)
 - [编写第一个程序Hello World](docs/overview/hello-world.md)
-
 
 ## Java基础语法
 

@@ -400,13 +400,7 @@ b 线程状态仍然不固定（RUNNABLE 或 BLOCKED）。
 
 > 在线程中断机制里，当其他线程通知需要被中断的线程后，线程中断的状态被设置为 true，但是具体被要求中断的线程要怎么处理，完全由被中断线程自己而定，可以在合适的实际处理中断请求，也可以完全不处理继续执行下去。
 
----
-
-> 编辑：沉默王二，内容大部分来源以下三个开源仓库：
->
-> - [深入浅出 Java 多线程](http://concurrent.redspider.group/)
-> - [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
-> - [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+编辑：沉默王二，原文内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
 
 ---
 
