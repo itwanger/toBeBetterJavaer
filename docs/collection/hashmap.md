@@ -14,7 +14,7 @@ head:
 
 # 6.9 HashMap详解（附源码）
 
-这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
+这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabebetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 
 HashMap 是 Java 中常用的数据结构之一，用于存储键值对。在 HashMap 中，每个键都映射到一个唯一的值，可以通过键来快速访问对应的值。
 
@@ -108,7 +108,7 @@ public V put(K key, V value) {
 
 为了方便大家直观的感受，我这里画了一副图，16 个方格子（可以把它想象成一个一个桶），每个格子都有一个编号，对应大小为 16 的数组下标（索引）。
 
-![](https://files.mdnice.com/user/3903/65e8110b-71b1-4146-b2fa-7fc4ee8530af.png)
+![](https://cdn.tobebetterjavaer.com/paicoding/3d8ff1f5dc43cc065edb76902156d02b.png)
 
 现在，我们要把 key 为 “chenmo”，value 为“沉默”的键值对放到这 16 个格子中的一个。
 
@@ -120,7 +120,7 @@ public V put(K key, V value) {
 
 答案是 8，也就是说 `map.put("chenmo", "沉默")` 会把key 为 “chenmo”，value 为“沉默”的键值对放到下标为 8 的位置上（也就是索引为 8 的桶上）。
 
-![](https://files.mdnice.com/user/3903/e23299c2-a11f-4f0f-a4e5-138fa1fdb331.png)
+![](https://cdn.tobebetterjavaer.com/paicoding/fcc9cb8f8252f712d72406f7ffb83a89.png)
 
 这样大家就会对 HashMap 存放键值对（元素）的时候有一个大致的印象。其中的一点是，hash 方法对计算键值对的位置起到了至关重要的作用。
 
@@ -338,7 +338,7 @@ hash 方法的原理是，先获取 key 对象的 hashCode 值，然后将其高
 
 好，理解了 hash 方法后我们来看第二个问题，HashMap 的扩容机制。
 
-大家都知道，数组一旦初始化后大小就无法改变了，所以就有了 [ArrayList](https://javabetter.cn/collection/arraylist.html)这种“动态数组”，可以自动扩容。
+大家都知道，数组一旦初始化后大小就无法改变了，所以就有了 [ArrayList](https://javabebetter.cn/collection/arraylist.html)这种“动态数组”，可以自动扩容。
 
 HashMap 的底层用的也是数组。向 HashMap 里不停地添加元素，当数组无法装载更多元素时，就需要对数组进行扩容，以便装入更多的元素；除此之外，容量的提升也会相应地提高查询效率，因为“桶（坑）”更多了嘛，原来需要通过链表存储的（查询的时候需要遍历），扩容后可能就有自己专属的“坑位”了（直接就能查出来）。
 
@@ -383,7 +383,7 @@ wanger的hash值 : -795084437 的索引 : 11
 - fangxiaowan（方小婉）和 yaoxiaojuan（姚小娟）的索引都是 6；
 - chenqingyang（陈清扬）和yexin（叶辛）的索引都是 9
 
-这就意味着，要采用拉链法（后面会讲）将他们放在同一个索引的链表上。查询的时候，就不能直接通过索引的方式直接拿到（[时间复杂度](https://javabetter.cn/collection/time-complexity.html)为 O(1)），而要通过遍历的方式（时间复杂度为 O(n)）。
+这就意味着，要采用拉链法（后面会讲）将他们放在同一个索引的链表上。查询的时候，就不能直接通过索引的方式直接拿到（[时间复杂度](https://javabebetter.cn/collection/time-complexity.html)为 O(1)），而要通过遍历的方式（时间复杂度为 O(n)）。
 
 那假如把数组的长度由 16 扩容为 32 呢？
 
@@ -818,9 +818,9 @@ more: less than 1 in ten million
 
 为了便于大家的理解，这里来重温一下 HashMap 的拉链法和红黑树结构。
 
-Java 8 之前，HashMap 使用链表来解决冲突，即当两个或者多个键映射到同一个桶时，它们被放在同一个桶的链表上。当链表上的节点（Node）过多时，链表会变得很长，查找的效率（[LinkedList](https://javabetter.cn/collection/linkedlist.html) 的查找效率为 O（n））就会受到影响。
+Java 8 之前，HashMap 使用链表来解决冲突，即当两个或者多个键映射到同一个桶时，它们被放在同一个桶的链表上。当链表上的节点（Node）过多时，链表会变得很长，查找的效率（[LinkedList](https://javabebetter.cn/collection/linkedlist.html) 的查找效率为 O（n））就会受到影响。
 
-Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为红黑树（节点为TreeNode），红黑树（在讲[TreeMap](https://javabetter.cn/collection/treemap.html)时会细说）是一种高效的平衡树结构，能够在 O(log n) 的时间内完成插入、删除和查找等操作。这种结构在节点数很多时，可以提高 HashMap 的性能和可伸缩性。
+Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为红黑树（节点为TreeNode），红黑树（在讲[TreeMap](https://javabebetter.cn/collection/treemap.html)时会细说）是一种高效的平衡树结构，能够在 O(log n) 的时间内完成插入、删除和查找等操作。这种结构在节点数很多时，可以提高 HashMap 的性能和可伸缩性。
 
 好，有了这个背景，我们来把上面的 doc 文档翻译为中文：
 
@@ -923,7 +923,7 @@ HashMap 的加载因子（load factor，直译为加载因子，意译为负载�
 
 ### 04、线程不安全
 
-其实这个问题也不用说太多，但考虑到[面试的时候有些面试官会问](https://javabetter.cn/interview/java-hashmap-13.html)，那就简单说一下。
+其实这个问题也不用说太多，但考虑到[面试的时候有些面试官会问](https://javabebetter.cn/interview/java-hashmap-13.html)，那就简单说一下。
 
 三方面原因：
 
@@ -1184,25 +1184,25 @@ final Node<K,V>[] resize() {
 
 HashMap 是线程不安全的主要是因为它在进行插入、删除和扩容等操作时可能会导致链表的结构发生变化，从而破坏了 HashMap 的不变性。具体来说，如果在一个线程正在遍历 HashMap 的链表时，另外一个线程对该链表进行了修改（比如添加了一个节点），那么就会导致链表的结构发生变化，从而破坏了当前线程正在进行的遍历操作，可能导致遍历失败或者出现死循环等问题。
 
-为了解决这个问题，Java 提供了线程安全的 HashMap 实现类 [ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)。ConcurrentHashMap 内部采用了分段锁（Segment），将整个 Map 拆分为多个小的 HashMap，每个小的 HashMap 都有自己的锁，不同的线程可以同时访问不同的小 Map，从而实现了线程安全。在进行插入、删除和扩容等操作时，只需要锁住当前小 Map，不会对整个 Map 进行锁定，提高了并发访问的效率。
+为了解决这个问题，Java 提供了线程安全的 HashMap 实现类 [ConcurrentHashMap](https://javabebetter.cn/thread/ConcurrentHashMap.html)。ConcurrentHashMap 内部采用了分段锁（Segment），将整个 Map 拆分为多个小的 HashMap，每个小的 HashMap 都有自己的锁，不同的线程可以同时访问不同的小 Map，从而实现了线程安全。在进行插入、删除和扩容等操作时，只需要锁住当前小 Map，不会对整个 Map 进行锁定，提高了并发访问的效率。
 
 ### 05、总结
 
 HashMap是Java中最常用的集合之一，它是一种键值对存储的数据结构，可以根据键来快速访问对应的值。以下是对HashMap的总结：
 
 - HashMap采用数组+链表/红黑树的存储结构，能够在O(1)的时间复杂度内实现元素的添加、删除、查找等操作。
-- HashMap是线程不安全的，因此在多线程环境下需要使用[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)来保证线程安全。
+- HashMap是线程不安全的，因此在多线程环境下需要使用[ConcurrentHashMap](https://javabebetter.cn/thread/ConcurrentHashMap.html)来保证线程安全。
 - HashMap的扩容机制是通过扩大数组容量和重新计算hash值来实现的，扩容时需要重新计算所有元素的hash值，因此在元素较多时扩容会影响性能。
 - 在Java 8中，HashMap的实现引入了拉链法、树化等机制来优化大量元素存储的情况，进一步提升了性能。
 - HashMap中的key是唯一的，如果要存储重复的key，则后面的值会覆盖前面的值。
 - HashMap的初始容量和加载因子都可以设置，初始容量表示数组的初始大小，加载因子表示数组的填充因子。一般情况下，初始容量为16，加载因子为0.75。
-- HashMap在遍历时是无序的，因此如果需要有序遍历，可以使用[TreeMap](https://javabetter.cn/collection/treemap.html)。
+- HashMap在遍历时是无序的，因此如果需要有序遍历，可以使用[TreeMap](https://javabebetter.cn/collection/treemap.html)。
 
 综上所述，HashMap是一种高效的数据结构，具有快速查找和插入元素的能力，但需要注意线程安全和性能问题。
 
 ----
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 7600+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://javabebetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
