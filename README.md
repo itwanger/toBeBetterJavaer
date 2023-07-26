@@ -248,7 +248,7 @@
 - [Java线程的6种状态及切换(透彻讲解)](docs/thread/thread-state-and-method.md)
 - [线程组是什么？线程优先级如何设置？](docs/thread/thread-group-and-thread-priority.md)
 - [进程与线程的区别是什么？](docs/thread/why-need-thread.md)
-- [并发编程带来了哪些问题？](docs/thread/thread-bring-some-problem.md)
+- [并发编程（多线程）带来了哪些问题？](docs/thread/thread-bring-some-problem.md)
 - [全面理解Java的内存模型（JMM）](docs/thread/jmm.md)
 - [Java并发编程volatile关键字解析](docs/thread/volatile.md)
 - [Java中的synchronized锁的到底是什么？](docs/thread/synchronized.md)
