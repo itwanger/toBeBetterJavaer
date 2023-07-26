@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,内存模型
 ---
 
-# 14.7 面试官：说说 Java 的内存模型（JMM）
+# 14.7 Java的内存模型（JMM）
 
 某年某月的某一天，小二去蚂蚁金服面试了，一上来，面试官老王就问他：『说说什么是 Java 的内存模型(JMM)吧？』
 
@@ -285,7 +285,7 @@ System.out.println(sum);
 - 会改变程序执行结果的重排序，比如 A -> C，JMM 要求编译器和处理器都禁止这种重排序。
 - 不会改变程序执行结果的重排序，比如 A -> B，JMM 对编译器和处理器不做要求，允许这种重排序。
 
-> 编辑：沉默王二，编辑前的内容来源于朋友雷小帅的开源仓库 [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)，强烈推荐。
+> 编辑：沉默王二，编辑前的内容部分来源于朋友雷小帅的开源仓库 [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)，强烈推荐。部分内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
 
 ---
 
