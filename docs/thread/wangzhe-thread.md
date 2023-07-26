@@ -1,6 +1,6 @@
 ---
 title: 室友打了一把王者就学会了 Java 多线程
-shortTitle: 初步掌握 Java 多线程
+shortTitle: 初步了解 Java 多线程
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread
 ---
 
-# 14.1 初步掌握 Java 多线程
+# 14.1 初步了解 Java 多线程
 
 对于 Java 初学者来说，多线程的很多概念听起来就很难理解。比方说：
 
