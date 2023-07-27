@@ -1,6 +1,6 @@
 ---
 title: 获取 Java 线程执行结果：Callable、Future和FutureTask
-shortTitle: 如何获取线程执行结果？
+shortTitle: 获取线程的执行结果
 description: 本文深入解释了如何在Java中使用Callable、Future和FutureTask来获取多线程执行结果。无论你是Java新手还是经验丰富的开发者，你都能在这里找到有用的信息和技巧。点击了解更多。
 category:
   - Java核心
@@ -12,7 +12,7 @@ head:
       content: Java, 多线程, Callable, Future, FutureTask, 线程执行结果
 ---
 
-# 14.2 如何获取线程执行结果？
+# 14.2 获取线程的执行结果
 
 [在第一节：初步掌握 Java 多线程中](https://javabetter.cn/thread/wangzhe-thread.html)，我们讲述了创建线程的 3 种方式，一种是直接继承 Thread，一种是实现 Runnable 接口，另外一种是实现 Callable 接口。
 

@@ -252,13 +252,13 @@ head:
 
 ### Java并发编程
 
-- [室友打了一把王者就学会了创建Java线程的3种方式](thread/wangzhe-thread.md)
-- [聊聊可以返回结果的创建线程的三个关键类：Callable、Future和FutureTask](thread/callable-future-futuretask.md)
+- [创建Java线程的3种方式](thread/wangzhe-thread.md)
+- [获取线程的执行结果](thread/callable-future-futuretask.md)
 - [Java线程的6种状态及切换(透彻讲解)](thread/thread-state-and-method.md)
-- [线程组是什么？线程优先级如何设置？](thread/thread-group-and-thread-priority.md)
-- [进程与线程的区别是什么？](thread/why-need-thread.md)
-- [并发编程带来了哪些问题？](thread/thread-bring-some-problem.md)
-- [全面理解Java的内存模型（JMM）](thread/jmm.md)
+- [线程组和线程优先级](thread/thread-group-and-thread-priority.md)
+- [进程与线程的区别](thread/why-need-thread.md)
+- [多线程带来了哪些问题？](thread/thread-bring-some-problem.md)
+- [Java的内存模型（JMM）](thread/jmm.md)
 - [Java volatile关键字解析](thread/volatile.md)
 - [Java synchronized 关键字解析](thread/synchronized-1.md)
 - [Java中的synchronized锁的到底是什么？](thread/synchronized.md)

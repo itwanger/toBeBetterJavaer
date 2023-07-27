@@ -1,7 +1,7 @@
 ---
-title: 线程组和线程优先级
+title: 如何通过线程组管理线程，以及如何设置线程的优先级
 shortTitle: 线程组和线程优先级
-description: 线程组是什么？线程优先级如何设置？
+description: Java 提供了 ThreadGroup 类来创建一组相关的线程，使线程组管理更方便。每个 Java 线程都有一个优先级，这个优先级会影响到操作系统为这个线程分配处理器时间的顺序。
 category:
   - Java核心
 tag:
@@ -16,9 +16,9 @@ head:
 
 ### 线程组(ThreadGroup)
 
-Java用ThreadGroup来表示线程组，我们可以使用线程组对线程进行批量控制。
+Java 用 ThreadGroup 来表示线程组，我们可以使用线程组对线程进行批量控制。
 
-ThreadGroup和Thread的关系就如同他们的字面意思一样简单粗暴，每个Thread必然存在于一个ThreadGroup中，Thread不能独立于ThreadGroup存在。执行`main()`方法的线程名字是main，如果在new Thread时没有显式指定，那么默认将父线程（当前执行new Thread的线程）线程组设置为自己的线程组。 
+ThreadGroup 和 Thread 的关系就如同他们的字面意思一样简单粗暴，每个 Thread 必然存在于一个 ThreadGroup 中，Thread 不能独立于 ThreadGroup 存在。执行`main()`方法的线程名字是 main，如果在 new Thread 时没有显式指定，那么默认将父线程（当前执行 new Thread 的线程）线程组设置为自己的线程组。
 
 示例代码：
 
@@ -44,13 +44,13 @@ testThread线程名字：Thread-0
 执行main方法线程名字：main
 ```
 
-ThreadGroup是一个标准的**向下引用**的树状结构，这样设计可以**防止"上级"线程被"下级"线程引用而无法有效地被GC回收**。
+ThreadGroup 是一个标准的**向下引用**的树状结构，这样设计可以**防止"上级"线程被"下级"线程引用而无法有效地被 GC 回收**。
 
 ### 线程的优先级
 
-线程优先级可以指定，范围是1~10。但并不是所有的操作系统都支持10级优先级的划分（比如有些操作系统只支持3级划分：低、中、高），Java只是给操作系统一个优先级的**参考值**，线程最终**在操作系统中的优先级**还是由操作系统决定。
+线程优先级可以指定，范围是 1~10。但并不是所有的操作系统都支持 10 级优先级的划分（比如有些操作系统只支持 3 级划分：低、中、高），Java 只是给操作系统一个优先级的**参考值**，线程最终**在操作系统中的优先级**还是由操作系统决定。
 
-Java默认的线程优先级为5，线程的执行顺序由调度程序来决定，线程的优先级会在线程被调用之前设定。
+Java 默认的线程优先级为 5，线程的执行顺序由调度程序来决定，线程的优先级会在线程被调用之前设定。
 
 通常情况下，高优先级的线程将会比低优先级的线程有**更高的概率**得到执行。`Thread`类的`setPriority()`方法可以用来设定线程的优先级。
 
@@ -61,6 +61,7 @@ Thread b = new Thread();
 b.setPriority(10);
 System.out.println("我是设置过的线程优先级："+b.getPriority());
 ```
+
 输出结果：
 
 ```java
@@ -68,11 +69,11 @@ System.out.println("我是设置过的线程优先级："+b.getPriority());
 我是设置过的线程优先级：10
 ```
 
-既然有10个级别来设定线程的优先级，那是不是可以在业务实现的时候，采用这种方法来指定线程执行的先后顺序呢？
+既然有 10 个级别来设定线程的优先级，那是不是可以在业务实现的时候，采用这种方法来指定线程执行的先后顺序呢？
 
 对于这个问题，答案是：No!
 
-Java中的优先级不是特别的可靠，**Java程序中对线程所设置的优先级只是给操作系统一个建议，操作系统不一定会采纳。而真正的调用顺序，是由操作系统的线程调度算法来决定的**。
+Java 中的优先级不是特别的可靠，**Java 程序中对线程所设置的优先级只是给操作系统一个建议，操作系统不一定会采纳。而真正的调用顺序，是由操作系统的线程调度算法来决定的**。
 
 我们通过代码来验证一下：
 
@@ -112,17 +113,17 @@ MyThread当前线程：线程9,优先级：9
 MyThread当前线程：线程10,优先级：10
 ```
 
-Java提供了一个**线程调度器**来监视和控制处于**RUNNABLE状态**的线程。
+Java 提供了一个**线程调度器**来监视和控制处于**RUNNABLE 状态**的线程。
 
 - 线程的调度策略采用**抢占式**的方式，优先级高的线程会比优先级低的线程有更大的几率优先执行。
 - 在优先级相同的情况下，会按照“先到先得”的原则执行。
-- 每个Java程序都有一个默认的主线程，就是通过JVM启动的第一个线程——main线程。
+- 每个 Java 程序都有一个默认的主线程，就是通过 JVM 启动的第一个线程——main 线程。
 
 还有一种特殊的线程，叫做**守护线程（Daemon）**，守护线程默认的优先级比较低。
 
 - 如果某线程是守护线程，那如果所有的非守护线程都结束了，这个守护线程也会自动结束。
 - 当所有的非守护线程结束时，守护线程会自动关闭，这就免去了还要继续关闭子线程的麻烦。
-- 线程默认是非守护线程，可以通过Thread类的setDaemon方法来设置为守护线程。
+- 线程默认是非守护线程，可以通过 Thread 类的 setDaemon 方法来设置为守护线程。
 
 ### 线程组和线程优先级之间的关系
 
@@ -141,6 +142,7 @@ thread.setPriority(10);
 System.out.println("线程组的优先级是：" + group.getMaxPriority());
 System.out.println("线程的优先级是：" + thread.getPriority());
 ```
+
 输出：
 
 ```
@@ -205,11 +207,11 @@ public class ThreadGroup implements Thread.UncaughtExceptionHandler {
     boolean destroyed; // 是否被销毁
     boolean daemon; // 是否守护线程
     boolean vmAllowSuspension; // 是否可以中断
- 
+
     int nUnstartedThreads = 0; // 还未启动的线程
     int nthreads; // ThreadGroup中线程数目
     Thread threads[]; // ThreadGroup中的线程
- 
+
     int ngroups; // 线程组数目
     ThreadGroup groups[]; // 线程组数组
 }
@@ -219,7 +221,7 @@ public class ThreadGroup implements Thread.UncaughtExceptionHandler {
 
 ```java
 // 私有构造方法
-private ThreadGroup() { 
+private ThreadGroup() {
     this.name = "system";
     this.maxPriority = Thread.MAX_PRIORITY;
     this.parent = null;
@@ -264,20 +266,19 @@ public final void checkAccess() {
 }
 ```
 
-这里涉及到`SecurityManager`这个类，它是Java的安全管理器，它允许应用程序在执行一个可能不安全或敏感的操作前确定该操作是什么，以及是否是在允许执行该操作的安全上下文中执行它。应用程序可以允许或不允许该操作。
+这里涉及到`SecurityManager`这个类，它是 Java 的安全管理器，它允许应用程序在执行一个可能不安全或敏感的操作前确定该操作是什么，以及是否是在允许执行该操作的安全上下文中执行它。应用程序可以允许或不允许该操作。
 
 比如引入了第三方类库，但是并不能保证它的安全性。
 
-其实Thread类也有一个checkAccess方法，不过是用来当前运行的线程是否有权限修改被调用的这个线程实例。（Determines if the currently running thread has permission to modify this thread.）
+其实 Thread 类也有一个 checkAccess 方法，不过是用来当前运行的线程是否有权限修改被调用的这个线程实例。（Determines if the currently running thread has permission to modify this thread.）
 
 总结一下，线程组是一个树状的结构，每个线程组下面可以有多个线程或者线程组。线程组可以起到统一控制线程的优先级和检查线程权限的作用。
 
 编辑：沉默王二，原文内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
 
-----
+---
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
