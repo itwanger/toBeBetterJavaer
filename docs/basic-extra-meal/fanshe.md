@@ -116,7 +116,18 @@ public class ReflectionDemo1 {
 Class clazz = Class.forName("com.itwanger.s39.Writer");
 ```
 
-第二步，通过  Class 对象获取构造方法 Constructor 对象：
+在 Java 中，Class 对象是一种特殊的对象，它代表了程序中的类和接口。
+
+Java 中的每个类型（包括类、接口、数组以及基础类型）在 JVM 中都有一个唯一的 Class 对象与之对应。这个 Class 对象被创建的时机是在 JVM 加载类时，由 JVM 自动完成。
+
+Class 对象中包含了与类相关的很多信息，如类的名称、类的父类、类实现的接口、类的构造方法、类的方法、类的字段等等。这些信息通常被称为元数据（metadata）。
+
+除了前面提到的，通过类的全名获取 Class 对象，还有以下两种方式：
+
+- 如果你有一个类的实例，你可以通过调用该实例的`getClass()`方法获取 Class 对象。例如：`String str = "Hello World"; Class cls = str.getClass();`
+- 如果你有一个类的字面量（即类本身），你可以直接获取 Class 对象。例如：`Class cls = String.class;`
+
+第二步，通过 Class 对象获取构造方法 Constructor 对象：
 
 ```java
 Constructor constructor = clazz.getConstructor();
@@ -324,11 +335,11 @@ Method[] methods2 = System.class.getMethods();
 
 第一篇：深入理解 Java 反射和动态代理
 
->链接：[https://dunwu.github.io/javacore/basics/java-reflection.html](https://dunwu.github.io/javacore/basics/java-reflection.html)
+> 链接：[https://dunwu.github.io/javacore/basics/java-reflection.html](https://dunwu.github.io/javacore/basics/java-reflection.html)
 
-第二篇：大白话说Java反射：入门、使用、原理：
+第二篇：大白话说 Java 反射：入门、使用、原理：
 
->链接：[https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html](https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html)
+> 链接：[https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html](https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html)
 
 这里简单总结下。
 
@@ -428,12 +439,10 @@ public class ReflectionDemo {
 
 “好了，三妹，关于反射，就先讲到这里吧。”
 
-----
+---
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
