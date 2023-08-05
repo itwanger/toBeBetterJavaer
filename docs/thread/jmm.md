@@ -285,7 +285,7 @@ System.out.println(sum);
 - 会改变程序执行结果的重排序，比如 A -> C，JMM 要求编译器和处理器都禁止这种重排序。
 - 不会改变程序执行结果的重排序，比如 A -> B，JMM 对编译器和处理器不做要求，允许这种重排序。
 
-> 编辑：沉默王二，编辑前的内容部分来源于朋友雷小帅的开源仓库 [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)，强烈推荐。部分内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
+> 编辑：沉默王二，编辑前的内容部分来源于朋友雷小帅的开源仓库 [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)，强烈推荐。部分内容来源于朋友小七萤火虫开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
 
 ---
 
