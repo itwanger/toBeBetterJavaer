@@ -145,7 +145,7 @@ head:
 
 怎么样，进程和线程的概念就彻底搞懂了吧？再遇到面试官问这个问题，就直接吊打他吧。
 
-编辑：沉默王二，部分内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。还有一部分图片来源于阮一峰的博客，地址戳[这里](https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)。
+编辑：沉默王二，部分内容来源于朋友小七萤火虫开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。还有一部分图片来源于阮一峰的博客，地址戳[这里](https://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)。
 
 ---
 
