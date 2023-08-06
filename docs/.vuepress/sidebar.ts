@@ -294,7 +294,6 @@ export const sidebarConfig = sidebar({
           "cas",
           "aqs",
           "lock",
-          "suo",
           "pianxiangsuo",
           "reentrantLock",
           "ReentrantReadWriteLock",

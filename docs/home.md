@@ -264,7 +264,7 @@ head:
 - [synchronized锁的到底是什么？](thread/synchronized.md)
 - [CAS详解](thread/cas.md)
 - [AQS详解](thread/aqs.md)
-- [大致了解下Java的锁接口和锁](thread/lock.md)
+- [JUC 包下的那些锁](thread/lock.md)
 - [公司空降一个美团大佬，彻底把Java中的锁”讲清楚了](thread/suo.md)
 - [Java 15 终于把难搞的偏向锁移除了](thread/pianxiangsuo.md)
 - [深入理解Java并发重入锁ReentrantLock](thread/reentrantLock.md)
