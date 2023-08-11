@@ -264,7 +264,7 @@ Monitor是线程私有的数据结构，每一个线程都有一个可用monitor
 
 ### 5\. 可重入锁 VS 非可重入锁
 
-可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提锁对象得是同一个对象或者class），不会因为之前已经获取过还没释放而阻塞。Java中ReentrantLock和synchronized都是可重入锁，可重入锁的一个优点是可一定程度避免死锁。下面用示例代码来进行分析：
+可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提：锁的是同一个对象或者class），不会因为之前已经获取过还没释放而阻塞。Java中[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)和[synchronized](https://javabetter.cn/thread/synchronized-1.html)都是可重入锁，可重入锁的一个优点是可一定程度避免死锁。下面用示例代码来进行分析：
 
 ```Java
 public class Widget {

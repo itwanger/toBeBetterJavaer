@@ -28,28 +28,28 @@ head:
 
 ### 锁的几种分类
 
-Java提供了种类丰富的锁，每种锁因其特性的不同，在适当的场景下能够展现出非常高的效率。我们可以通过特性将锁进行分组归类。
+Java 提供了种类丰富的锁，每种锁因其特性的不同，在适当的场景下能够展现出非常高的效率。我们可以通过特性将锁进行分组归类。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-b2ded433-defd-4535-b767-fd2e5be0b5b9.png)
 
 #### 乐观锁 VS 悲观锁
 
-乐观锁与悲观锁是一种广义上的概念，体现了看待线程同步的不同角度。在Java和数据库中都有此概念对应的实际应用。
+乐观锁与悲观锁是一种广义上的概念，体现了看待线程同步的不同角度。在 Java 和数据库中都有此概念对应的实际应用。
 
-先说概念。对于同一个数据的并发操作，悲观锁认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改。Java中，synchronized关键字和Lock的实现类都是悲观锁。
+先说概念。对于同一个数据的并发操作，悲观锁认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改。Java 中，[synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)和[Lock 的实现类](https://javabetter.cn/thread/lock.html)都是悲观锁。
 
-而乐观锁认为自己在使用数据时不会有别的线程修改数据，所以不会添加锁，只是在更新数据的时候去判断之前有没有别的线程更新了这个数据。如果这个数据没有被更新，当前线程将自己修改的数据成功写入。如果数据已经被其他线程更新，则根据不同的实现方式执行不同的操作（例如报错或者自动重试）。
+而乐观锁认为自己在使用数据时不会有别的线程修改数据，所以不会加锁，只是在更新数据的时候会去判断之前有没有别的线程更新了这个数据。如果这个数据没有被更新，当前线程将自己修改的数据写入。如果数据已经被其他线程更新，则根据不同的实现方式执行不同的操作（例如报错或者自动重试）。
 
-乐观锁在Java中是通过使用无锁编程来实现，最常采用的是CAS算法，Java原子类中的递增操作就通过CAS自旋实现的。
+乐观锁在 Java 中是通过使用无锁编程来实现，最常采用的是[CAS 算法](https://javabetter.cn/thread/cas.html)，[Java 原子类](https://javabetter.cn/thread/atomic.html)中的递增操作就通过 CAS 自旋实现的。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-840de182-83e2-4639-868a-bd5cc984575f.png)
 
-根据从上面的概念描述我们可以发现：
+根据上面的概念描述我们可以发现：
 
-*   悲观锁适合写操作多的场景，先加锁可以保证写操作时数据正确。
-*   乐观锁适合读操作多的场景，不加锁的特点能够使其读操作的性能大幅提升。
+- 悲观锁适合写操作多的场景，先加锁可以保证写操作时数据正确。
+- 乐观锁适合读操作多的场景，不加锁的特点能够使其读操作的性能大幅提升。
 
-光说概念有些抽象，我们来看下乐观锁和悲观锁的调用方式示例：
+光说概念有些抽象，我们来看下乐观锁和悲观锁的调用方式：
 
 ```Java
 // ------------------------- 悲观锁的调用方式 -------------------------
@@ -69,31 +69,30 @@ public void modifyPublicResources() {
 private AtomicInteger atomicInteger = new AtomicInteger();  // 需要保证多个线程使用的是同一个AtomicInteger
 atomicInteger.incrementAndGet(); //执行自增1
 ```
- 
 
-通过调用方式示例，我们可以发现悲观锁基本都是在显式的锁定之后再操作同步资源，而乐观锁则直接去操作同步资源。那么，为何乐观锁能够做到不锁定同步资源也可以正确的实现线程同步呢？我们通过介绍乐观锁的主要实现方式 “CAS” 的技术原理来为大家解惑。
+通过调用方式的举例，我们可以发现悲观锁基本都是在显式的锁定之后再操作同步资源，而乐观锁则直接去操作同步资源。那么，为何乐观锁能够做到不锁定同步资源也可以正确的实现线程同步呢？我们这里再次来温习一下 [“CAS” 的技术原理](https://javabetter.cn/thread/cas.html)，之前也讲过，就当是复习了。
 
-CAS全称 Compare And Swap（比较与交换），是一种无锁算法。在不使用锁（没有线程被阻塞）的情况下实现多线程之间的变量同步。java.util.concurrent包中的原子类就是通过CAS来实现了乐观锁。
+CAS 全称 Compare And Swap（比较与交换），是一种无锁算法。在不使用锁（没有线程被阻塞）的情况下实现多线程之间的变量同步。`java.util.concurrent`包中的原子类就是通过 CAS 实现的乐观锁。
 
-CAS算法涉及到三个操作数：
+CAS 算法涉及到三个操作数：
 
-*   需要读写的内存值 V。
-*   进行比较的值 A。
-*   要写入的新值 B。
+- 需要读写的内存值 V。
+- 进行比较的值 A。
+- 要写入的新值 B。
 
-当且仅当 V 的值等于 A 时，CAS通过原子方式用新值B来更新V的值（“比较+更新”整体是一个原子操作），否则不会执行任何操作。一般情况下，“更新”是一个不断重试的操作。
+当且仅当 V 的值等于 A 时，CAS 通过原子方式用新值 B 来更新 V 的值（“比较+更新”整体是一个原子操作），否则不会执行任何操作。一般情况下，“更新”是一个不断重试的操作。
 
-之前提到java.util.concurrent包中的原子类，就是通过CAS来实现了乐观锁，那么我们进入原子类AtomicInteger的源码，看一下AtomicInteger的定义：
+之前提到`java.util.concurrent`包中的原子类，就是通过 CAS 实现的乐观锁，那么我们进入原子类 AtomicInteger 的源码，来看一下 AtomicInteger 的定义：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-86e17b45-2993-48df-b7cd-ee86bb15c922.png)
 
 根据定义我们可以看出各属性的作用：
 
-*   unsafe： 获取并操作内存的数据。
-*   valueOffset： 存储value在AtomicInteger中的偏移量。
-*   value： 存储AtomicInteger的int值，该属性需要借助volatile关键字保证其在线程间是可见的。
+- unsafe： 获取并操作内存的数据。
+- valueOffset： 存储 value 在 AtomicInteger 中的偏移量。
+- value： 存储 AtomicInteger 的 int 值，该属性需要借助 volatile 关键字保证其在线程间是可见的。
 
-接下来，我们查看AtomicInteger的自增函数incrementAndGet()的源码时，发现自增函数底层调用的是unsafe.getAndAddInt()。但是由于JDK本身只有Unsafe.class，只通过class文件中的参数名，并不能很好的了解方法的作用，所以我们通过OpenJDK 8 来查看Unsafe的源码：
+接下来，我们查看 AtomicInteger 的自增方法`incrementAndGet()`，发现自增方法底层调用的是`unsafe.getAndAddInt()`。但是由于 JDK 本身只有 Unsafe.class，通过 class 文件中的参数名，并不能很好地了解方法的作用，所以我们通过 OpenJDK 8 来查看 Unsafe 的源码：
 
 ```Java
 // ------------------------- JDK 8 -------------------------
@@ -121,29 +120,85 @@ public final int getAndAddInt(Object o, long offset, int delta) {
    return v;
 }
 ```
- 
 
-根据OpenJDK 8的源码我们可以看出，getAndAddInt()循环获取给定对象o中的偏移量处的值v，然后判断内存值是否等于v。如果相等则将内存值设置为 v + delta，否则返回false，继续循环进行重试，直到设置成功才能退出循环，并且将旧值返回。整个“比较+更新”操作封装在compareAndSwapInt()中，在JNI里是借助于一个CPU指令完成的，属于原子操作，可以保证多个线程都能够看到同一个变量的修改值。
+根据 OpenJDK 8 的源码我们可以看出，`getAndAddInt()`循环获取给定对象 o 中的偏移量处的值 v，然后判断内存值是否等于 v。如果相等则将内存值设置为 v + delta，否则返回 false，继续循环进行重试，直到设置成功才能退出循环，并且将旧值返回。
 
-后续JDK通过CPU的cmpxchg指令，去比较寄存器中的 A 和 内存中的值 V。如果相等，就把要写入的新值 B 存入内存中。如果不相等，就将内存值 V 赋值给寄存器中的值 A。然后通过Java代码中的while循环再次调用cmpxchg指令进行重试，直到设置成功为止。
+整个“比较+更新”操作都封装在`compareAndSwapInt()`中，在 JNI 里是借助于一个 CPU 指令完成的，属于原子操作，可以保证多个线程都能够看到同一个变量的修改值。
 
-CAS虽然很高效，但是它也存在三大问题，这里也简单说一下：
+后续 JDK 通过 CPU 的 cmpxchg 指令，去比较寄存器中的 A 和 内存中的值 V。如果相等，就把要写入的新值 B 存入内存中。如果不相等，就将内存值 V 赋值给寄存器中的值 A。然后通过 Java 代码中的 while 循环再次调用 cmpxchg 指令进行重试，直到设置成功为止。
 
-1.  **ABA问题**。CAS需要在操作值的时候检查内存值是否发生变化，没有发生变化才会更新内存值。但是如果内存值原来是A，后来变成了B，然后又变成了A，那么CAS进行检查时会发现值没有发生变化，但是实际上是有变化的。ABA问题的解决思路就是在变量前面添加版本号，每次变量更新的时候都把版本号加一，这样变化过程就从“A－B－A”变成了“1A－2B－3A”。
-*   JDK从1.5开始提供了AtomicStampedReference类来解决ABA问题，具体操作封装在compareAndSet()中。compareAndSet()首先检查当前引用和当前标志与预期引用和预期标志是否相等，如果都相等，则以原子方式将引用值和标志的值设置为给定的更新值。
-2.  **循环时间长开销大**。CAS操作如果长时间不成功，会导致其一直自旋，给CPU带来非常大的开销。
-3.  **只能保证一个共享变量的原子操作**。对一个共享变量执行操作时，CAS能够保证原子操作，但是对多个共享变量操作时，CAS是无法保证操作的原子性的。
-*   Java从1.5开始JDK提供了AtomicReference类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行CAS操作。
+CAS 虽然很高效，但是它也存在三大问题，[我们前面也讲过](https://javabetter.cn/thread/cas.html)，不知道大家还记得不：
+
+1.  **ABA 问题**。CAS 需要在操作值的时候检查内存值是否发生变化，没有发生变化才会更新内存值。但是如果内存值原来是 A，后来变成了 B，然后又变成了 A，那么 CAS 进行检查时会发现值没有发生变化，但是实际上是有变化的。ABA 问题的解决思路就是在变量前面添加版本号，每次变量更新的时候都把版本号加一，这样变化过程就从“A－B－A”变成了“1A－2B－3A”。JDK 从 1.5 开始提供了 AtomicStampedReference 类来解决 ABA 问题，具体操作封装在`compareAndSet()`中。`compareAndSet()`首先检查当前引用和当前标志与预期引用和预期标志是否相等，如果都相等，则以原子方式将引用值和标志的值设置为给定的更新值。
+2.  **循环时间长开销大**。CAS 操作如果长时间不成功，会导致其一直自旋，给 CPU 带来非常大的开销。
+3.  **只能保证一个共享变量的原子操作**。对一个共享变量执行操作时，CAS 能够保证原子操作，但是对多个共享变量操作时，CAS 是无法保证操作的原子性的。Java 从 1.5 开始 JDK 提供了 AtomicReference 类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行 CAS 操作。
+
+#### 自旋锁 VS 适应性自旋锁
+
+阻塞或唤醒一个 Java 线程需要操作系统切换 CPU 状态来完成，这种状态转换需要耗费处理器时间。如果同步代码块中的内容过于简单，状态转换消耗的时间有可能比用户代码执行的时间还要长。
+
+在许多场景中，同步资源的锁定时间很短，为了这一小段时间去切换线程，线程挂起和恢复线程花费的时间可能会让系统得不偿失。如果物理机器有多个处理器，能够让两个或以上的线程同时并行执行，我们就可以让后面那个请求锁的线程不放弃 CPU 的执行时间，看看持有锁的线程是否会很快释放锁。
+
+为了让当前线程“稍等一下”，我们需要让当前线程进行自旋，如果在自旋完成后前面锁定同步资源的线程已经释放了锁，那么当前线程就可以不用阻塞而是直接获取同步资源，从而避免切换线程的开销。这就是自旋锁。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-be0964a8-856a-45c9-ab75-ce9505c2e237.png)
+
+自旋锁本身是有缺点的，它不能代替阻塞。自旋等待虽然避免了线程切换的开销，但它要占用处理器时间。如果锁被占用的时间很短，自旋等待的效果就会非常好。反之，如果锁被占用的时间很长，那么自旋的线程只会白白浪费处理器资源。所以，自旋等待的时间必须要有一定的限度，如果自旋超过了限定次数（默认是 10 次，可以使用-XX:PreBlockSpin 来更改）没有成功获得锁，就应当挂起线程。
+
+自旋锁的实现原理同样也是 CAS，AtomicInteger 中调用 unsafe 进行自增操作的源码中的 do-while 循环就是一个自旋操作，如果修改数值失败则通过循环来执行自旋，直至修改成功。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-0756521c-becf-4657-ab42-1973d74e9c73.png)
+
+自旋锁在 JDK1.4.2 中引入，使用`-XX:+UseSpinning`来开启。JDK 6 中变为默认开启，并且引入了自适应的自旋锁（适应性自旋锁）。
+
+自适应意味着自旋的时间（次数）不再固定，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定。如果在同一个锁对象上，自旋刚刚成功获得过锁，并且持有锁的线程正在运行中，那么虚拟机就会认为这次自旋也是很有可能再次成功的，进而它将允许自旋等待更长的时间。如果对于某个锁，自旋很少成功获得过，那在以后尝试获取这个锁时将可能省略掉自旋过程，直接阻塞线程，避免浪费处理器资源。
+
+#### 无锁 VS 偏向锁 VS 轻量级锁 VS 重量级锁
+
+这四种锁是指锁的状态，专门针对 synchronized 的。我们在[synchronized 锁的到底是什么](https://javabetter.cn/thread/synchronized.html)一文中已经详细地介绍过，这里就不再赘述了。
 
 #### 可重入锁和非可重入锁
 
-所谓重入锁，顾名思义。就是支持重新进入的锁，也就是说这个锁支持一个**线程对资源重复加锁**。
+可重入锁又名递归锁，是指同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提：锁的是同一个对象或者 class），不会因为之前已经获取过还没释放而阻塞。Java 中[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)和[synchronized](https://javabetter.cn/thread/synchronized-1.html)都是可重入锁，可重入锁的一个优点就是可以一定程度避免死锁。下面用示例代码来进行分析：
 
-synchronized 关键字使用的是重入锁。比如说，你在一个 synchronized 实例方法里面调用另一个本实例的 synchronized 实例方法，它可以重新进入这个锁，不会出现任何异常。
+```Java
+public class Widget {
+    public synchronized void doSomething() {
+        System.out.println("方法1执行...");
+        doOthers();
+    }
 
-如果我们在继承 AQS 实现同步器的时候，没有考虑到占有锁的线程再次获取锁的场景，可能就会导致线程阻塞，那这个就是一个“非可重入锁”。
+    public synchronized void doOthers() {
+        System.out.println("方法2执行...");
+    }
+}
+```
 
-[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 的中文意思就是可重入锁。
+在上面的代码中，类中的两个方法都是被内置锁 synchronized 修饰的，`doSomething()`方法中调用了`doOthers()`方法。因为内置锁是可重入的，所以同一个线程在调用`doOthers()`时可以直接获得当前对象的锁，进入`doOthers()`进行操作。
+
+如果是一个不可重入锁，那么当前线程在调用`doOthers()`之前，需要将执行`doSomething()`时获取当前对象的锁释放掉，实际上该对象锁已经被当前线程所持有，且无法释放。所以此时会出现死锁。
+
+那为什么可重入锁就可以在嵌套调用时自动获得锁呢？
+
+还是打水的例子，有多个人在排队打水，此时管理员允许锁和同一个人的多个水桶绑定。这个人用多个水桶打水时，第一个水桶和锁绑定并打完水之后，第二个水桶也可以直接和锁绑定并开始打水，所有的水桶都打完水之后打水人才会将锁还给管理员。这个人的所有打水流程都能够成功执行，后续等待的人也能够打到水。这就是可重入锁。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-35dc49bf-87c9-4133-b68f-269fb0508f75.png)
+
+但如果是非可重入锁的话，此时管理员只允许锁和同一个人的一个水桶绑定。第一个水桶和锁绑定打完水之后并不会释放锁，导致第二个水桶不能和锁绑定也无法打水。当前线程出现死锁，整个等待队列中的所有线程都无法被唤醒。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-08479ca1-5d43-475c-8592-9f183e52cc26.png)
+
+之前我们说过 ReentrantLock 和 synchronized 都是重入锁，那么我们通过重入锁 ReentrantLock 以及非可重入锁 NonReentrantLock 的源码来对比分析一下为什么非可重入锁在重复调用同步资源时会出现死锁。
+
+首先[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)和 NonReentrantLock 都继承了父类[AQS](https://javabetter.cn/thread/aqs.html)，其父类 AQS 中维护了一个同步状态 status 来计数重入次数，status 初始值为 0。
+
+当线程尝试获取锁时，可重入锁先尝试获取并更新 status 值，如果`status == 0`表示没有其他线程在执行同步代码，则把 status 置为 1，当前线程开始执行。如果`status != 0`，则判断当前线程是否获取到了这个锁，如果是的话执行`status+1`，且当前线程可以再次获取锁。
+
+而非可重入锁是直接获取并尝试更新当前 status 的值，如果`status != 0`的话会导致其获取锁失败，当前线程阻塞。
+
+释放锁时，可重入锁同样会先获取当前 status 的值，在当前线程是持有锁的线程的前提下。如果`status-1 == 0`，则表示当前线程所有重复获取锁的操作都已经执行完毕，然后该线程才会真正释放锁。而非可重入锁则是在确定当前线程是持有锁的线程之后，直接将 status 置为 0，将锁释放。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-d6e12a34-c889-45e1-83bf-a4d7e36eedde.png)
 
 #### 公平锁与非公平锁
 
@@ -155,15 +210,113 @@ ReentrantLock 支持非公平锁和公平锁两种。
 
 #### 读写锁和排它锁
 
-我们前面讲到的 synchronized 用的锁和 ReentrantLock，其实都是“排它锁”。也就是说，这些锁在同一时刻只允许一个线程进行访问。
+我们前面讲到的 [synchronized](https://javabetter.cn/thread/synchronized.html) 用的锁和 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，其实都是“排它锁”。也就是说，这些锁在同一时刻只允许一个线程进行访问。
 
 而读写锁可以在同一时刻允许多个读线程访问。Java 提供了 [ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html) 类作为读写锁的默认实现，内部维护了两个锁：一个读锁，一个写锁。通过分离读锁和写锁，使得在“读多写少”的环境下，大大地提高了性能。
 
 > 注意，即使用读写锁，在写线程访问时，所有的读线程和其它写线程均被阻塞。
 
-**可见，只有 synchronized 是远远不能满足多样化的业务对锁的要求的**。接下来我们介绍一下 JDK 中有关锁的一些接口和类。
+排它锁也叫独享锁，如果线程 T 对数据 A 加上排它锁后，则其他线程不能再对 A 加任何类型的锁。获得排它锁的线程即能读数据又能修改数据。
 
-### JUC包下的那些锁
+与之对应的，就是共享锁，指该锁可被多个线程所持有。如果线程 T 对数据 A 加上共享锁后，则其他线程只能对 A 再加共享锁，不能加排它锁。获得共享锁的线程只能读数据，不能修改数据。
+
+独享锁与共享锁也是通过[AQS](https://javabetter.cn/thread/aqs.html)来实现的，通过实现不同的方法，来实现独享或者共享。
+
+下图为 ReentrantReadWriteLock 的部分源码（后面也会细讲）：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-baa93e76-ac90-4955-8955-50dabc6efbdd.png)
+
+我们看到[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)有两把锁：ReadLock 和 WriteLock，由词知意，一个读锁一个写锁，合称“读写锁”。再进一步观察可以发现 ReadLock 和 WriteLock 是靠内部类 Sync 实现的锁。Sync 是 AQS 的一个子类，这种结构在[CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html)、[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)、Semaphore 里面也都存在。
+
+在 ReentrantReadWriteLock 里面，读锁和写锁的锁主体都是 Sync，但读锁和写锁的加锁方式不一样。读锁是共享锁，写锁是独享锁。读锁的共享锁可保证并发读非常高效，而读写、写读、写写的过程互斥，因为读锁和写锁是分离的。所以 ReentrantReadWriteLock 的并发性相比一般的互斥锁有了很大提升。
+
+那读锁和写锁的具体加锁方式有什么区别呢？
+
+在了解源码之前我们需要回顾一下其他知识。 在最开始提及 AQS 的时候我们也提到了 state 字段（int 类型，32 位），该字段用来描述有多少线程持有锁。
+
+在独享锁中，这个值通常是 0 或者 1（如果是重入锁的话 state 值就是重入的次数），在共享锁中 state 就是持有锁的数量。但是在 ReentrantReadWriteLock 中有读、写两把锁，所以需要在一个整型变量 state 上分别描述读锁和写锁的数量（或者也可以叫状态）。
+
+于是将 state 变量“按位切割”切分成了两个部分，高 16 位表示读锁状态（读锁个数），低 16 位表示写锁状态（写锁个数）。如下图所示：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-62e2bf55-452e-4353-9635-0ea368e355dd.png)
+
+了解了概念之后我们再来看代码，先看写锁的加锁源码：
+
+```Java
+protected final boolean tryAcquire(int acquires) {
+	Thread current = Thread.currentThread();
+	int c = getState(); // 取到当前锁的个数
+	int w = exclusiveCount(c); // 取写锁的个数w
+	if (c != 0) { // 如果已经有线程持有了锁(c!=0)
+    // (Note: if c != 0 and w == 0 then shared count != 0)
+		if (w == 0 || current != getExclusiveOwnerThread()) // 如果写线程数（w）为0（换言之存在读锁） 或者持有锁的线程不是当前线程就返回失败
+			return false;
+		if (w + exclusiveCount(acquires) > MAX_COUNT)    // 如果写入锁的数量大于最大数（65535，2的16次方-1）就抛出一个Error。
+      throw new Error("Maximum lock count exceeded");
+		// Reentrant acquire
+    setState(c + acquires);
+    return true;
+  }
+  if (writerShouldBlock() || !compareAndSetState(c, c + acquires)) // 如果当且写线程数为0，并且当前线程需要阻塞那么就返回失败；或者如果通过CAS增加写线程数失败也返回失败。
+		return false;
+	setExclusiveOwnerThread(current); // 如果c=0，w=0或者c>0，w>0（重入），则设置当前线程或锁的拥有者
+	return true;
+}
+```
+
+- 这段代码首先取到当前锁的个数 c，然后再通过 c 来获取写锁的个数 w。因为写锁是低 16 位，所以取低 16 位的最大值与当前的 c 做与运算（ `int w = exclusiveCount©;` ），高 16 位和 0 与运算后是 0，剩下的就是低位运算的值，同时也是持有写锁的线程数目。
+- 在取到写锁线程的数目后，首先判断是否已经有线程持有了锁。如果已经有线程持有了锁(c!=0)，则查看当前写锁线程的数目，如果写线程数为 0（即此时存在读锁）或者持有锁的线程不是当前线程就返回失败（涉及到公平锁和非公平锁的实现）。
+- 如果写入锁的数量大于最大数（65535，2 的 16 次方-1）就抛出一个 Error。
+- 如果当前写线程数为 0（那么读线程也应该为 0，因为上面已经处理`c!=0`的情况），并且当前线程需要阻塞那么就返回失败；如果通过 CAS 增加写线程数失败也返回失败。
+- 如果 c=0,w=0 或者 c>0,w>0（重入），则设置当前线程或锁的拥有者，返回成功！
+
+`tryAcquire()`除了重入条件（当前线程为获取写锁的线程）之外，增加了一个读锁是否存在的判断。如果存在读锁，则写锁不能被获取，原因在于：必须确保写锁的操作对读锁可见，如果允许读锁在已被获取的情况下对写锁的获取，那么正在运行的其他读线程就无法感知到当前写线程的操作。
+
+因此，只有等待其他读线程都释放了读锁，写锁才能被当前线程获取，而写锁一旦被获取，则其他读写线程的后续访问均被阻塞。写锁的释放与 ReentrantLock 的释放过程基本类似，每次释放均减少写状态，当写状态为 0 时表示写锁已被释放，然后等待的读写线程才能够继续访问读写锁，同时前次写线程的修改对后续的读写线程可见。
+
+接着是读锁的代码：
+
+```Java
+protected final int tryAcquireShared(int unused) {
+    Thread current = Thread.currentThread();
+    int c = getState();
+    if (exclusiveCount(c) != 0 &&
+        getExclusiveOwnerThread() != current)
+        return -1;                                   // 如果其他线程已经获取了写锁，则当前线程获取读锁失败，进入等待状态
+    int r = sharedCount(c);
+    if (!readerShouldBlock() &&
+        r < MAX_COUNT &&
+        compareAndSetState(c, c + SHARED_UNIT)) {
+        if (r == 0) {
+            firstReader = current;
+            firstReaderHoldCount = 1;
+        } else if (firstReader == current) {
+            firstReaderHoldCount++;
+        } else {
+            HoldCounter rh = cachedHoldCounter;
+            if (rh == null || rh.tid != getThreadId(current))
+                cachedHoldCounter = rh = readHolds.get();
+            else if (rh.count == 0)
+                readHolds.set(rh);
+            rh.count++;
+        }
+        return 1;
+    }
+    return fullTryAcquireShared(current);
+}
+```
+
+可以看到在`tryAcquireShared(int unused)`方法中，如果其他线程已经获取了写锁，则当前线程获取读锁失败，进入等待状态。如果当前线程获取了写锁或者写锁未被获取，则当前线程（线程安全，依靠 CAS 保证）增加读状态，成功获取读锁。读锁的每次释放（线程安全的，可能有多个读线程同时释放读锁）均减少读状态，减少的值是“`1<<16`”。所以读写锁才能实现读读的过程共享，而读写、写读、写写的过程互斥。
+
+此时，我们再回头看一下互斥锁 ReentrantLock 中公平锁和非公平锁的加锁源码：
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-7fa4ea6b-02ef-4fd4-992d-9ed08e5d4c76.png)
+
+我们发现在 ReentrantLock 虽然有公平锁和非公平锁两种，但是它们添加的都是独享锁。根据源码所示，当某一个线程调用 lock 方法获取锁时，如果同步资源没有被其他线程锁住，那么当前线程在使用 CAS 更新 state 成功后就会成功抢占该资源。而如果公共资源被占用且不是被当前线程占用，那么就会加锁失败。所以可以确定 ReentrantLock 无论读操作还是写操作，添加的锁都是都是独享锁。
+
+**综上，只有 synchronized 是远远不能满足多样化的业务对锁的要求的**。接下来我们介绍一下 JDK 中有关锁的一些接口和类。
+
+### JUC 包下的那些锁
 
 众所周知，JDK 中关于并发的类大多都在`java.util.concurrent`（以下简称 JUC）包下。
 
@@ -225,28 +378,28 @@ Condition newCondition();
 
 那为什么既然有 Object 的监视器方法了，还要用 Condition 呢？这里有一个二者简单的对比：
 
-| 对比项                                         | Object 监视器                  | Condition                                                         |
-| ---------------------------------------------- | ------------------------------ | ----------------------------------------------------------------- |
-| 前置条件                                       | 获取对象的锁                   | 调用 Lock.lock 获取锁，调用 Lock.newCondition 获取 Condition 对象 |
-| 调用方式                                       | 直接调用，比如 `object.notify()` | 直接调用，比如 `condition.await()`                                  |
-| 等待队列的个数                                 | 一个                           | 多个                                                              |
-| 当前线程释放锁进入等待状态                     | 支持                           | 支持                                                              |
-| 当前线程释放锁进入等待状态，在等待状态中不中断 | 不支持                         | 支持                                                              |
-| 当前线程释放锁并进入超时等待状态               | 支持                           | 支持                                                              |
-| 当前线程释放锁并进入等待状态直到将来的某个时间 | 不支持                         | 支持                                                              |
-| 唤醒等待队列中的一个线程                       | 支持                           | 支持                                                              |
-| 唤醒等待队列中的全部线程                       | 支持                           | 支持                                                              |
+| 对比项                                         | Object 监视器                    | Condition                                                         |
+| ---------------------------------------------- | -------------------------------- | ----------------------------------------------------------------- |
+| 前置条件                                       | 获取对象的锁                     | 调用 Lock.lock 获取锁，调用 Lock.newCondition 获取 Condition 对象 |
+| 调用方式                                       | 直接调用，比如 `object.notify()` | 直接调用，比如 `condition.await()`                                |
+| 等待队列的个数                                 | 一个                             | 多个                                                              |
+| 当前线程释放锁进入等待状态                     | 支持                             | 支持                                                              |
+| 当前线程释放锁进入等待状态，在等待状态中不中断 | 不支持                           | 支持                                                              |
+| 当前线程释放锁并进入超时等待状态               | 支持                             | 支持                                                              |
+| 当前线程释放锁并进入等待状态直到将来的某个时间 | 不支持                           | 支持                                                              |
+| 唤醒等待队列中的一个线程                       | 支持                             | 支持                                                              |
+| 唤醒等待队列中的全部线程                       | 支持                             | 支持                                                              |
 
 Condition 和 Object 的 wait/notify 基本相似。其中，Condition 的 await 方法对应的是 Object 的 wait 方法，而 Condition 的**signal/signalAll**方法则对应 Object 的 notify/`notifyAll()`。但 Condition 类似于 Object 的等待/通知机制的加强版。我们来看看主要的方法：
 
-| 方法名称               | 描述                                                                                                                                                                                                                                   |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 方法名称                 | 描述                                                                                                                                                                                                                                     |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `await()`                | 当前线程进入等待状态直到被通知（signal）或者中断；当前线程进入运行状态并从 `await()`方法返回的场景包括：（1）其他线程调用相同 Condition 对象的 signal/signalAll 方法，并且当前线程被唤醒；（2）其他线程调用 interrupt 方法中断当前线程； |
-| `awaitUninterruptibly()` | 当前线程进入等待状态直到被通知，在此过程中对中断信号不敏感，不支持中断当前线程                                                                                                                                                         |
-| awaitNanos(long)       | 当前线程进入等待状态，直到被通知、中断或者超时。如果返回值小于等于 0，可以认定就是超时了                                                                                                                                               |
-| awaitUntil(Date)       | 当前线程进入等待状态，直到被通知、中断或者超时。如果没到指定时间被通知，则返回 true，否则返回 false                                                                                                                                    |
-| signal()               | 唤醒一个等待在 Condition 上的线程，被唤醒的线程在方法返回前必须获得与 Condition 对象关联的锁                                                                                                                                           |
-| signalAll()            | 唤醒所有等待在 Condition 上的线程，能够从 await()等方法返回的线程必须先获得与 Condition 对象关联的锁                                                                                                                                   |
+| `awaitUninterruptibly()` | 当前线程进入等待状态直到被通知，在此过程中对中断信号不敏感，不支持中断当前线程                                                                                                                                                           |
+| awaitNanos(long)         | 当前线程进入等待状态，直到被通知、中断或者超时。如果返回值小于等于 0，可以认定就是超时了                                                                                                                                                 |
+| awaitUntil(Date)         | 当前线程进入等待状态，直到被通知、中断或者超时。如果没到指定时间被通知，则返回 true，否则返回 false                                                                                                                                      |
+| signal()                 | 唤醒一个等待在 Condition 上的线程，被唤醒的线程在方法返回前必须获得与 Condition 对象关联的锁                                                                                                                                             |
+| signalAll()              | 唤醒所有等待在 Condition 上的线程，能够从 await()等方法返回的线程必须先获得与 Condition 对象关联的锁                                                                                                                                     |
 
 #### ReentrantLock
 
@@ -304,17 +457,15 @@ public class Counter {
 }
 ```
 
-在这个示例中，Counter类使用了一个ReentrantLock来保护count变量的访问。increment方法首先获取锁，然后增加计数，并在finally块中释放锁。这确保了即使方法中抛出异常，锁也会被正确释放。
+在这个示例中，Counter 类使用了一个 ReentrantLock 来保护 count 变量的访问。increment 方法首先获取锁，然后增加计数，并在 finally 块中释放锁。这确保了即使方法中抛出异常，锁也会被正确释放。
 
-在main方法中，我们创建了两个线程来并发执行increment操作。由于使用了锁，因此对count变量的访问是串行化的，结果是正确的。
+在 main 方法中，我们创建了两个线程来并发执行 increment 操作。由于使用了锁，因此对 count 变量的访问是串行化的，结果是正确的。
 
-这个示例展示了ReentrantLock的基本用法。与synchronized关键字相比，ReentrantLock提供了更高的灵活性，例如可中断的锁获取、公平锁选项、锁的定时获取等。
+这个示例展示了 ReentrantLock 的基本用法。与 synchronized 关键字相比，ReentrantLock 提供了更高的灵活性，例如可中断的锁获取、公平锁选项、锁的定时获取等。
 
 来看一下最终输出结果：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806103823.png)
-
-
 
 #### ReentrantReadWriteLock
 
@@ -429,9 +580,9 @@ public class SharedResource {
 }
 ```
 
-在上述代码中，我们定义了一个SharedResource类，该类使用ReentrantReadWriteLock来保护其内部数据。write方法获取写锁，并更新共享数据。read方法获取读锁，并读取共享数据。
+在上述代码中，我们定义了一个 SharedResource 类，该类使用 ReentrantReadWriteLock 来保护其内部数据。write 方法获取写锁，并更新共享数据。read 方法获取读锁，并读取共享数据。
 
-在main方法中，我们创建了两个读线程和一个写线程。由于ReentrantReadWriteLock允许多个读取操作同时进行，因此读线程可以同时运行。然而，写入操作会被串行化，并且在写入操作进行时，读取操作将被阻塞。
+在 main 方法中，我们创建了两个读线程和一个写线程。由于 ReentrantReadWriteLock 允许多个读取操作同时进行，因此读线程可以同时运行。然而，写入操作会被串行化，并且在写入操作进行时，读取操作将被阻塞。
 
 来看一下输出结果：
 
@@ -564,7 +715,7 @@ StampedLock 用这个 long 类型的变量的前 7 位（LG_READERS）来表示�
 
 我们来一个 StampedLock 和 ReentrantReadWriteLock 的对比使用示例。
 
-使用ReentrantReadWriteLock。
+使用 ReentrantReadWriteLock。
 
 ```java
 public class SharedResourceWithReentrantReadWriteLock {
@@ -616,15 +767,15 @@ public class SharedResourceWithReentrantReadWriteLock {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806105654.png)
 
-1、可重入性：ReentrantReadWriteLock支持可重入，即在一个线程中可以多次获取读锁或写锁。StampedLock则不支持可重入。
+1、可重入性：ReentrantReadWriteLock 支持可重入，即在一个线程中可以多次获取读锁或写锁。StampedLock 则不支持可重入。
 
-2、乐观读锁：StampedLock提供了乐观读锁机制，允许一个线程在没有任何写入操作发生的情况下读取数据，从而提高了性能。而ReentrantReadWriteLock没有提供这样的机制。
+2、乐观读锁：StampedLock 提供了乐观读锁机制，允许一个线程在没有任何写入操作发生的情况下读取数据，从而提高了性能。而 ReentrantReadWriteLock 没有提供这样的机制。
 
-3、锁降级：StampedLock提供了从写锁到读锁的降级功能，这在某些场景下可以提供额外的灵活性。ReentrantReadWriteLock不直接提供这样的功能。
+3、锁降级：StampedLock 提供了从写锁到读锁的降级功能，这在某些场景下可以提供额外的灵活性。ReentrantReadWriteLock 不直接提供这样的功能。
 
-4、API复杂性：由于提供了乐观读锁和锁降级功能，StampedLock的API相对复杂一些，需要更小心地使用以避免死锁和其他问题。ReentrantReadWriteLock的API相对更直观和容易使用。
+4、API 复杂性：由于提供了乐观读锁和锁降级功能，StampedLock 的 API 相对复杂一些，需要更小心地使用以避免死锁和其他问题。ReentrantReadWriteLock 的 API 相对更直观和容易使用。
 
-综上所述，StampedLock提供了更高的性能和灵活性，但也带来了更复杂的使用方式。ReentrantReadWriteLock则相对简单和直观，特别适用于没有高并发读的场景。
+综上所述，StampedLock 提供了更高的性能和灵活性，但也带来了更复杂的使用方式。ReentrantReadWriteLock 则相对简单和直观，特别适用于没有高并发读的场景。
 
 ### 其他工具类
 
@@ -709,7 +860,7 @@ CountDownLatch 有一个计数器，可以通过`countDown()`方法对计数器�
 
 CountDownLatch 一般用来控制线程等待，它可以让某个线程一直等待直到倒计时结束，再开始执行。
 
-来看一个CountDownLatch的使用示例：
+来看一个 CountDownLatch 的使用示例：
 
 ```java
 public class InitializationDemo {
@@ -771,7 +922,7 @@ public class InitializationDemo {
 
 CyclicBarrier 是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点（common barrier point）。
 
-CyclicBarrier 可以用于多线程计算数据，最后合并计算结果的应用场景。比如我们用一个 Excel 保存了用户所有银行流水，每个 sheet 保存一个账户近一年的每笔银行流水，现在需要统计用户的日均银行流水，先用多线程处理每个 sheet 里的银行流水，都执行完之后，得到每个 sheet 的日均银行流水，最后，再用barrierAction 用这些线程的计算结果，计算出整个 Excel 的日均银行流水。
+CyclicBarrier 可以用于多线程计算数据，最后合并计算结果的应用场景。比如我们用一个 Excel 保存了用户所有银行流水，每个 sheet 保存一个账户近一年的每笔银行流水，现在需要统计用户的日均银行流水，先用多线程处理每个 sheet 里的银行流水，都执行完之后，得到每个 sheet 的日均银行流水，最后，再用 barrierAction 用这些线程的计算结果，计算出整个 Excel 的日均银行流水。
 
 CyclicBarrier 的计数器可以通过`reset()`方法重置，所以它能处理循环使用的场景。比如，我们将一个大任务分成 10 个小任务，用 10 个线程分别执行这 10 个小任务，当 10 个小任务都执行完之后，再合并这 10 个小任务的结果，这个时候就可以用 CyclicBarrier 来实现。
 
@@ -938,7 +1089,7 @@ Thread 2 完成了第三步操作
 
 JUC 包下的锁接口和锁类，可以说是 Java 并发编程的核心，也是面试中经常会问到的知识点。所以，一定要掌握好。
 
-> 编辑：沉默王二，编辑前的内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
+> 编辑：沉默王二，编辑前的内容来源于朋友小七萤火虫开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐；还有一部分内容来源于[美团点评后端工程师家琪的这篇文章](https://tech.meituan.com/2018/11/15/java-lock.html)，强烈推荐。
 
 ---
 
