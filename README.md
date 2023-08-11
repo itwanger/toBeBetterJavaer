@@ -258,7 +258,6 @@
 - [JUC 包下的那些锁](docs/thread/lock.md)
 - [JDK15 移除了偏向锁](docs/thread/pianxiangsuo.md)
 - [重入锁ReentrantLock](docs/thread/reentrantLock.md)
-- [深入理解Java并发重入锁ReentrantLock](docs/thread/reentrantLock.md)
 - [深入理解Java并发读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
 - [深入理解Java并发线程协作类Condition](docs/thread/condition.md)
 - [深入理解Java并发线程线程阻塞唤醒类LockSupport](docs/thread/LockSupport.md)
