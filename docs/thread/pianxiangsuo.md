@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,偏向锁
 ---
 
-# 14.14 JDK15 移除了偏向锁
+# 14.11 JDK15 移除了偏向锁
 
 在 JDK 1.5 之前，面对 Java 并发问题， [synchronized](https://javabetter.cn/thread/synchronized-1.html) 是一招鲜的解决方案：
 

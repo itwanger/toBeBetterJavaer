@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,锁
 ---
 
-# 14.13 JUC 包下的那些锁
+# 14.14 JUC 包下的那些锁
 
 前面我们介绍了 Java 原生的锁——基于对象的锁，它一般是配合 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)来使用的。实际上，Java 在`java.util.concurrent.locks`包下，还为我们提供了几个关于锁的类和接口。它们有更强大的功能或更高的性能。
 
