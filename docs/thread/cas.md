@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,cas
 ---
 
-# 14.11 乐观锁 CAS
+# 14.12 乐观锁 CAS
 
 在并发编程中，我们都知道`i++`操作是非线程安全的，这是因为 `i++`操作不是原子操作，我们之前在讲[多线程带来了什么问题](https://javabetter.cn/thread/thread-bring-some-problem.html)中有讲到，大家应该还记得吧？
 
