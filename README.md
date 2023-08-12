@@ -259,7 +259,7 @@
 - [JUC 包下的那些锁](docs/thread/lock.md)
 - [重入锁ReentrantLock](docs/thread/reentrantLock.md)
 - [读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
-- [深入理解Java并发线程协作类Condition](docs/thread/condition.md)
+- [协作类Condition](docs/thread/condition.md)
 - [深入理解Java并发线程线程阻塞唤醒类LockSupport](docs/thread/LockSupport.md)
 - [简单聊聊Java的并发集合容器](docs/thread/map.md)
 - [吊打Java并发面试官之ConcurrentHashMap](docs/thread/ConcurrentHashMap.md)
