@@ -128,7 +128,7 @@ for (String s : list) {
 
 #### **3）Vector 和 Stack**
 
-List 的实现类还有一个 Vector，是一个元老级的类，比 ArrayList 出现得更早。ArrayList 和 Vector 非常相似，只不过 Vector 是线程安全的，像 get、set、add 这些方法都加了 `synchronized` 关键字，就导致执行执行效率会比较低，所以现在已经很少用了。
+List 的实现类还有一个 Vector，是一个元老级的类，比 ArrayList 出现得更早。ArrayList 和 Vector 非常相似，只不过 Vector 是线程安全的，像 get、set、add 这些方法都加了 `synchronized` 关键字，就导致执行效率会比较低，所以现在已经很少用了。
 
 我就不写太多代码了，只看一下 add 方法的源码就明白了。
 
