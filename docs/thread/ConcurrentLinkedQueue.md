@@ -1,7 +1,7 @@
 ---
-title: 吊打Java并发面试官之ConcurrentLinkedQueue
+title: 吊打Java并发面试官之线程安全的队列实现ConcurrentLinkedQueue
 shortTitle: ConcurrentLinkedQueue
-description: 吊打Java并发面试官之ConcurrentLinkedQueue
+description: ConcurrentLinkedQueue 是 Java 的 java.util.concurrent 包中的一种线程安全的队列实现。它使用非阻塞算法来确保多线程环境下的高并发性能。
 category:
   - Java核心
 tag:
@@ -12,6 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentLinkedQueue
 ---
 
+# 14.21 ConcurrentLinkedQueue
 
 队列是我们常用的一种数据结构，为了解决线程安全的问题，Doug Lea大师为我们准备了ConcurrentLinkedQueue这个线程安全的队列。从类名就可以看的出来实现队列的数据结构是链式。
 
