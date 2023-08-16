@@ -245,7 +245,7 @@
 
 - [创建Java线程的3种方式](docs/thread/wangzhe-thread.md)
 - [获取线程的执行结果](docs/thread/callable-future-futuretask.md)
-- [Java线程的6种状态及切换(透彻讲解)](docs/thread/thread-state-and-method.md)
+- [Java线程的6种状态及切换](docs/thread/thread-state-and-method.md)
 - [线程组和线程优先级](docs/thread/thread-group-and-thread-priority.md)
 - [进程与线程的区别](docs/thread/why-need-thread.md)
 - [多线程带来了哪些问题？](docs/thread/thread-bring-some-problem.md)
@@ -261,7 +261,7 @@
 - [读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
 - [协作类Condition](docs/thread/condition.md)
 - [线程阻塞唤醒类LockSupport](docs/thread/LockSupport.md)
-- [简单聊聊Java的并发集合容器](docs/thread/map.md)
+- [Java的并发容器](docs/thread/map.md)
 - [吊打Java并发面试官之ConcurrentHashMap](docs/thread/ConcurrentHashMap.md)
 - [吊打Java并发面试官之ConcurrentLinkedQueue](docs/thread/ConcurrentLinkedQueue.md)
 - [吊打Java并发面试官之CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
