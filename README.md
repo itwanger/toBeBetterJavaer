@@ -263,7 +263,7 @@
 - [线程阻塞唤醒类LockSupport](docs/thread/LockSupport.md)
 - [Java的并发容器](docs/thread/map.md)
 - [ConcurrentHashMap](docs/thread/ConcurrentHashMap.md)
-- [吊打Java并发面试官之ConcurrentLinkedQueue](docs/thread/ConcurrentLinkedQueue.md)
+- [ConcurrentLinkedQueue](docs/thread/ConcurrentLinkedQueue.md)
 - [吊打Java并发面试官之CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
 - [吊打Java并发面试官之ThreadLocal](docs/thread/ThreadLocal.md)
 - [吊打Java并发面试官之BlockingQueue](docs/thread/BlockingQueue.md)

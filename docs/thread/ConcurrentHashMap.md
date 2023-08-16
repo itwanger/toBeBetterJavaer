@@ -1,7 +1,7 @@
 ---
-title: 吊打Java并发面试官之ConcurrentHashMap
+title: 吊打Java并发面试官之ConcurrentHashMap（线程安全的哈希表）
 shortTitle: ConcurrentHashMap
-description: 吊打Java并发面试官之ConcurrentHashMap
+description: ConcurrentHashMap 是 Java 并发包 (java.util.concurrent) 中的一种线程安全的哈希表实现。它通过分段锁技术或更先进的并发控制技术，使得多个线程可以同时读写映射，从而提高了性能
 category:
   - Java核心
 tag:
