@@ -20,7 +20,7 @@ Google＞Bing＞微信搜索＞百度搜索
 
 我个人一般是这样的一个排序规则，没有歧视啊（注意，真的没有「认真脸」）。
 
-那要想使用 Google，就必须得学会咳血上网。有些互联网公司的 VPN 会自带咳血上网的功能，有些大学也会，如果公司/大学没有提供 VPN，可以参照这篇。
+那要想使用 Google，就必须得学会内网穿透。有些互联网公司的 VPN 会自带咳血上网的功能，有些大学也会，如果公司/大学没有提供 VPN，可以参照这篇。
 
 ## 下载安装 Clash
 
@@ -39,17 +39,13 @@ macOS 直接双击打开 dmg 文件进行安装。
 
 ## 购买服务
 
-我选用的都是付费版本，这样觉得踏实稳定一些。
+我选用的都是付费版本，这样觉得踏实稳定一些，另外下面这些地址仅供学习使用，请勿传播，也不保证长期有效，地址也会不定期变更（你懂的）
 
->PS:地址会不定期变更（你懂的）
+### 服务 1：wgetcloud
 
-### 服务 1：饿饭 cc 云服务
+有个读者推荐我用这个，说比较稳定，GPT 不会封号，最近用了俩月，就是有点贵，一个月五六十，没有前面几个便宜，但好像确实是稳定一些。
 
-你可以通过以下地址购买饿饭 cc 云服务：
-
-[https://api.efanapi.com/aff.php?aff=2849](https://api.efanapi.com/aff.php?aff=2849)
-
-我采购的是 B 计划 20G流量 每月，三年价格 330RMB。
+[https://invite.wgetcloud.ltd/auth/register?code=c3Y0](https://invite.wgetcloud.ltd/auth/register?code=c3Y0)
 
 ### 服务 2：树洞
 
@@ -69,11 +65,6 @@ macOS 直接双击打开 dmg 文件进行安装。
 
 自己按需购买即可。
 
-### 服务 4：wgetcloud
-
-有个读者推荐我用这个，说比较稳定，GPT 不会封号，最近用了俩月，就是有点贵，一个月五六十，没有前面几个便宜，但好像确实是稳定一些。
-
-[https://invite.wgetcloud.ltd/auth/register?code=c3Y0](https://invite.wgetcloud.ltd/auth/register?code=c3Y0)
 
 ## 配置服务
 

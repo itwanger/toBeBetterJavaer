@@ -68,7 +68,9 @@ public class ReentrantLock implements Lock, java.io.Serializable {
 }
 ```
 
-在锁机制的实现上，AQS 内部维护了一个同步队列，如果是独占式锁的话，所有获取锁失败的线程的尾插入到**同步队列**，同样的，condition 内部也是使用同样的方式，内部维护了一个 **等待队列**，所有调用 condition.await 方法的线程会加入到等待队列中，并且线程状态转换为等待状态。另外注意到 ConditionObject 中有两个成员变量：
+AQS 内部维护了一个同步队列，如果是独占式锁的话，所有获取锁失败的线程会尾插入到**同步队列**，同样的，Condition 内部也使用了同样的方式，内部维护了一个 **等待队列**，所有调用 await 方法的线程会加入到等待队列中，并且线程状态转换为等待状态。
+
+注意，ConditionObject 中有两个成员变量：
 
 ```java
 /** First node of condition queue. */
@@ -77,7 +79,7 @@ private transient Node firstWaiter;
 private transient Node lastWaiter;
 ```
 
-这样我们就可以看出来 ConditionObject 通过持有等待队列的头尾指针来管理等待队列。Node 类有这样一个属性：
+可以看的出来，ConditionObject 是通过持有等待队列的头尾指针来管理等待队列的。Node 类中有这样一个属性：
 
 ```java
 //后继节点
