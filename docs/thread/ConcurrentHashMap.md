@@ -873,6 +873,54 @@ private final void addCount(long x, int check) {
 }
 ```
 
+### ConcurrentHashMap 的代码示例
+
+假设我们想要构建一个线程安全的高并发统计用户访问次数的功能。在这里，ConcurrentHashMap是一个很好的选择，因为它提供了高并发性能。
+
+```java
+import java.util.concurrent.ConcurrentHashMap;
+
+public class UserVisitCounter {
+
+    private final ConcurrentHashMap<String, Integer> visitCountMap;
+
+    public UserVisitCounter() {
+        this.visitCountMap = new ConcurrentHashMap<>();
+    }
+
+    // 用户访问时调用的方法
+    public void userVisited(String userId) {
+        visitCountMap.compute(userId, (key, value) -> value == null ? 1 : value + 1);
+    }
+
+    // 获取用户的访问次数
+    public int getVisitCount(String userId) {
+        return visitCountMap.getOrDefault(userId, 0);
+    }
+
+    public static void main(String[] args) {
+        UserVisitCounter counter = new UserVisitCounter();
+
+        // 模拟用户访问
+        counter.userVisited("user1");
+        counter.userVisited("user1");
+        counter.userVisited("user2");
+
+        System.out.println("User1 visit count: " + counter.getVisitCount("user1")); // 输出: User1 visit count: 2
+        System.out.println("User2 visit count: " + counter.getVisitCount("user2")); // 输出: User2 visit count: 1
+    }
+}
+```
+
+在上述示例中：
+
+- 我们使用了ConcurrentHashMap来存储用户的访问次数。
+- 当用户访问时，我们通过userVisited方法更新访问次数。
+- 使用ConcurrentHashMap的compute方法可以确保原子地更新用户的访问次数。
+- 可以通过getVisitCount方法检索任何用户的访问次数。
+
+ConcurrentHashMap使我们能够无需担心并发问题就能构建这样一个高效的统计系统。
+
 ### 总结
 
 ConcurrentHashMap 是线程安全的，支持完全并发的读取，并且有很多线程可以同时执行写入。在早期版本（例如 JDK 1.7）中，ConcurrentHashMap 使用分段锁技术。整个哈希表被分成一些段（Segment），每个段独立加锁。这样，在不同段上的操作可以并发进行。从 JDK 1.8 开始，ConcurrentHashMap 的内部实现有了很大的变化。它放弃了分段锁技术，转而采用了更先进的并发控制策略，如 CAS 操作和红黑树等，进一步提高了并发性能。
