@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentHashMap
 ---
 
-# 14.20 ConcurrentHashMap
+# 14.20 并发容器ConcurrentHashMap
 
 [HashMap](https://javabetter.cn/collection/hashmap.html) 在多线程环境下扩容会出现 CPU 接近 100% 的情况，因为 HashMap 并不是线程安全的，我们可以通过 Collections 的`Map<K,V> synchronizedMap(Map<K,V> m)`将 HashMap 包装成一个线程安全的 map。
 

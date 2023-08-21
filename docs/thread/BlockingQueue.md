@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,BlockingQueue
 ---
 
-# 14.22 BlockingQueue
+# 14.22 阻塞队列 BlockingQueue
 
 BlockingQueue 是 Java 中的一个接口，它代表了一个线程安全的队列，不仅可以由多个线程并发访问，还添加了等待/通知机制，以便在队列为空时阻塞获取元素的线程，直到队列变得可用，或者在队列满时阻塞插入元素的线程，直到队列变得可用。
 

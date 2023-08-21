@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,CopyOnWriteArrayList
 ---
 
-## CopyOnWriteArrayList的简介
+# 14.23 并发容器 CopyOnWriteArrayList
 
 java学习者都清楚ArrayList并不是线程安全的，在读线程在读取ArrayList的时候如果有写线程在写数据的时候，基于fast-fail机制，会抛出**ConcurrentModificationException**异常，也就是说ArrayList并不是一个线程安全的容器，当然您可以用Vector,或者使用Collections的静态方法将ArrayList包装成一个线程安全的类，但是这些方式都是采用java关键字synchronzied对方法进行修饰，利用独占式锁来保证线程安全的。但是，由于独占式锁在同一时刻只有一个线程能够获取到对象监视器，很显然这种方式效率并不是太高。
 
