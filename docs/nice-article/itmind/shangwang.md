@@ -63,6 +63,14 @@ macOS 直接双击打开 dmg 文件进行安装。
 
 我采购的是匀加速服务-Lite 版 100G 流量每月，两年价格 35.95 美刀（约等于 257.44 RMB）
 
+### 服务 4：饿饭 cc 云服务
+
+你可以通过以下地址购买饿饭 cc 云服务：
+
+[https://api.efanapi.com/aff.php?aff=2849](https://api.efanapi.com/aff.php?aff=2849)
+
+我采购的是 B 计划 20G流量 每月，三年价格 330RMB。
+
 自己按需购买即可。
 
 
