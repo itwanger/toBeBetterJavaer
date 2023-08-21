@@ -188,7 +188,7 @@ CopyOnWriteArrayList 适用于读操作远远大于写操作的场景，比如�
 CopyOnWriteArrayList 也存在一些缺点，比如说内存占用问题和数据一致性问题，所以在开发的时候需要特别注意。
 
 
-> 编辑：沉默王二，部分内容来自于CL0610的 GitHub 仓库[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency/blob/master/19.%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BBlockingQueue/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BBlockingQueue.md)。
+> 编辑：沉默王二，部分内容来自于CL0610的 GitHub 仓库[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency/blob/master/20.%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BArrayBlockingQueue%E5%92%8CLinkedBlockingQueue%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BArrayBlockingQueue%E5%92%8CLinkedBlockingQueue%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3.md)。
 
 ---
 
