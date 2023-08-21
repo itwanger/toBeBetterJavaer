@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentLinkedQueue
 ---
 
-# 14.21 ConcurrentLinkedQueue
+# 14.21 非阻塞性队列ConcurrentLinkedQueue
 
 ConcurrentLinkedQueue 是 `java.util.concurrent`（JUC） 包下的一个线程安全的队列实现。基于非阻塞算法（Michael-Scott 非阻塞算法的一种变体），这意味着 ConcurrentLinkedQueue 不再使用传统的锁机制来保护数据安全，而是依靠底层原子的操作（如 [CAS](https://javabetter.cn/thread/cas.html)）来实现。
 
