@@ -1,7 +1,7 @@
 ---
 title: 吊打Java并发面试官之ThreadLocal
 shortTitle: ThreadLocal
-description: 吊打Java并发面试官之ThreadLocal
+description: ThreadLocal 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都可以有自己的独立副本，从而实现线程隔离，可以用于解决多线程中共享对象的线程安全问题。
 category:
   - Java核心
 tag:
@@ -12,9 +12,11 @@ head:
       content: Java,并发编程,多线程,Thread,ThreadLocal
 ---
 
-## ThreadLocal 的简介
+# 14.24 本地变量 ThreadLocal
 
-在多线程编程中通常解决线程安全的问题时，我们会利用 synchronzed 或者 lock 控制线程对临界区资源的同步顺序，但是这种加锁的方式会让未获取到锁的线程进行阻塞等待，很显然这种方式的时间效率并不是特别好。
+ThreadLocal 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。ThreadLocal 可以用于解决多线程中共享对象的线程安全问题。
+
+通常，我们会使用 [synchronzed 关键字](https://javabetter.cn/thread/synchronized-1.html) 或者 [lock](https://javabetter.cn/thread/lock.html) 来控制线程对临界区资源的同步顺序，但这种加锁的方式会让未获取到锁的线程进行阻塞，很显然，这种方式的时间效率不会特别高。
 
 **线程安全问题的核心在于多个线程会对同一个临界区共享资源进行操作**，那么，如果每个线程都使用自己的“共享资源”，各自使用各自的，互相不影响到彼此，即多个线程间达到隔离的状态，这样就不会出现线程安全的问题。
 

@@ -266,7 +266,7 @@
 - [非阻塞性队列ConcurrentLinkedQueue](docs/thread/ConcurrentLinkedQueue.md)
 - [阻塞队列BlockingQueue](docs/thread/BlockingQueue.md)
 - [并发容器CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
-- [吊打Java并发面试官之ThreadLocal](docs/thread/ThreadLocal.md)
+- [本地变量ThreadLocal](docs/thread/ThreadLocal.md)
 - [面试必备：Java线程池](docs/thread/pool.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
 - [深入剖析Java计划任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
