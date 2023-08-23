@@ -267,7 +267,7 @@
 - [阻塞队列BlockingQueue](docs/thread/BlockingQueue.md)
 - [并发容器CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
 - [本地变量ThreadLocal](docs/thread/ThreadLocal.md)
-- [面试必备：Java线程池](docs/thread/pool.md)
+- [线程池](docs/thread/pool.md)
 - [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
 - [深入剖析Java计划任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
 - [Java atomic包中的原子操作类总结](docs/thread/atomic.md)
