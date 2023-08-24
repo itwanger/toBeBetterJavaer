@@ -270,8 +270,8 @@
 - [线程池](docs/thread/pool.md)
 - [定时任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
 - [原子操作类Atomic](docs/thread/atomic.md)
-- [Unsafe](docs/thread/Unsafe.md)
-- [Java并发编程通信工具类CountDownLatch等一网打尽](docs/thread/CountDownLatch.md)
+- [魔法类 Unsafe](docs/thread/Unsafe.md)
+- [通信工具类](docs/thread/CountDownLatch.md)
 - [深入理解Java并发编程之Fork/Join框架](docs/thread/fork-join.md)
 - [从根上理解生产者-消费者模式](docs/thread/shengchanzhe-xiaofeizhe.md)
 
