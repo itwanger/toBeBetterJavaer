@@ -1,7 +1,7 @@
 ---
-title: 深入剖析Java计划任务ScheduledThreadPoolExecutor
+title: 深入剖析Java定时任务ScheduledThreadPoolExecutor
 shortTitle: ScheduledThreadPoolExecutor
-description: 深入剖析Java计划任务ScheduledThreadPoolExecutor
+description: ScheduledThreadPoolExecutor是Java并发包java.util.concurrent中的一个类，它是ThreadPoolExecutor的扩展，主要用于周期性的执行任务。它配备了一个特定的队列DelayedWorkQueue，用于保持那些需要被延迟执行的任务。
 category:
   - Java核心
 tag:
@@ -9,26 +9,27 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,并发编程,多线程,Thread,ScheduledThreadPoolExecutor
+      content: Java,并发编程,多线程,Thread,ScheduledThreadPoolExecutor,定时任务
 ---
 
-自 JDK 1.5 开始，JDK 提供了`ScheduledThreadPoolExecutor`类用于计划任务（又称定时任务），这个类有两个用途：
+# 14.26 定时任务 ScheduledThreadPoolExecutor
 
-- 在给定的延迟之后运行任务
-- 周期性重复执行任务
+定时任务 `ScheduledThreadPoolExecutor` 类有两个用途：指定时间延迟后执行任务；周期性重复执行任务。
 
-在这之前，是使用`Timer`类来完成定时任务的，但是`Timer`有缺陷：
+JDK 1.5 之前，主要使用`Timer`类来完成定时任务，但是`Timer`有以下缺陷：
 
 - Timer 是**单线程**模式；
-- 如果在执行任务期间某个 TimerTask 耗时较久，那么就会影响其它任务的调度；
+- 如果在执行任务期间某个 TimerTask 耗时较久，就会影响其它任务的调度；
 - Timer 的任务调度是基于绝对时间的，对**系统时间**敏感；
-- Timer 不会捕获执行 TimerTask 时所抛出的**异常**，由于 Timer 是单线程，所以一旦出现异常，则线程就会终止，其他任务也得不到执行。
+- Timer 不会捕获执行 TimerTask 时所抛出的**异常**，由于 Timer 是单线程的，所以一旦出现异常，线程就会终止，其他任务无法执行。
 
-所以 JDK 1.5 之后，大家就摒弃`Timer`,使用`ScheduledThreadPoolExecutor`吧。
+于是 JDK 1.5 之后，开发者就抛弃了 `Timer`，开始使用`ScheduledThreadPoolExecutor`。先通过下面这张图感受下。
 
-## 使用案例
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824085609.png)
 
-假设我有一个需求，指定时间给大家发送消息。那么我们会将消息（包含发送时间）存储在数据库中，然后想用一个定时任务，每隔 1 秒检查数据库在当前时间有没有需要发送的消息，那这个计划任务怎么写？下面是一个 Demo:
+### ScheduledThreadPoolExecutor 使用案例
+
+假设我们有这样一个需求，指定时间给其他人发送消息。那么我们会将消息（包含发送时间）存储在数据库中，然后用一个定时任务，每隔 1 秒检查数据库在当前时间有没有需要发送的消息，那这个计划任务怎么完成呢？下面是一个 Demo:
 
 ```java
 public class ThreadPool {
@@ -57,33 +58,32 @@ public class ThreadPool {
         return true;
     }
 }
-
 ```
 
-下面截取前面的输出（这个 demo 会一直运行下去）：
+下面截取一段输出（demo 会一直运行下去）：
 
 ```java
-2019-01-23 16:16:48
+2023-08-24 16:16:48
 大家注意了，我要发消息了
-2019-01-23 16:16:49
+2023-08-24 16:16:49
 大家注意了，我要发消息了
-2019-01-23 16:16:50
+2023-08-24 16:16:50
 大家注意了，我要发消息了
-2019-01-23 16:16:51
+2023-08-24 16:16:51
 大家注意了，我要发消息了
-2019-01-23 16:16:52
+2023-08-24 16:16:52
 大家注意了，我要发消息了
-2019-01-23 16:16:53
+2023-08-24 16:16:53
 大家注意了，我要发消息了
-2019-01-23 16:16:54
+2023-08-24 16:16:54
 大家注意了，我要发消息了
-2019-01-23 16:16:55
+2023-08-24 16:16:55
 大家注意了，我要发消息了
 ```
 
-这就是`ScheduledThreadPoolExecutor`的一个简单运用，想要知道奥秘，接下来的东西需要仔细的看哦。
+这就是 `ScheduledThreadPoolExecutor` 的一个简单运用，接下来我们来看看它的实现原理。
 
-## 类结构
+### ScheduledThreadPoolExecutor 的类结构
 
 ```java
 public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor
@@ -97,20 +97,54 @@ public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor
 }
 ```
 
-`ScheduledThreadPoolExecutor`继承了`ThreadPoolExecutor`，实现了`ScheduledExecutorService`。 线程池在之前的章节介绍过了，我们先看看`ScheduledExecutorService`。
+`ScheduledThreadPoolExecutor` 继承了[ThreadPoolExecutor](https://javabetter.cn/thread/pool.html)，并实现了`ScheduledExecutorService`接口。线程池 ThreadPoolExecutor 在之前介绍过了，相信大家都还有印象，接下来我们来看看 `ScheduledExecutorService` 接口。
 
 ```java
 public interface ScheduledExecutorService extends ExecutorService {
 
-    public ScheduledFuture<?> schedule(Runnable command,long delay, TimeUnit unit);
+    /**
+     * 安排一个Runnable任务在给定的延迟后执行。
+     *
+     * @param command 需要执行的任务
+     * @param delay 延迟时间
+     * @param unit 时间单位
+     * @return 可用于提取结果或取消的ScheduledFuture
+     */
+    public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit);
 
-    public <V> ScheduledFuture<V> schedule(Callable<V> callable,long delay, TimeUnit unit);
+    /**
+     * 安排一个Callable任务在给定的延迟后执行。
+     *
+     * @param callable 需要执行的任务
+     * @param delay 延迟时间
+     * @param unit 时间单位
+     * @return 可用于提取结果或取消的ScheduledFuture
+     */
+    public <V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit);
 
+    /**
+     * 安排一个Runnable任务在给定的初始延迟后首次执行，随后每个period时间间隔执行一次。
+     *
+     * @param command 需要执行的任务
+     * @param initialDelay 首次执行的初始延迟
+     * @param period 连续执行之间的时间间隔
+     * @param unit 时间单位
+     * @return 可用于提取结果或取消的ScheduledFuture
+     */
     public ScheduledFuture<?> scheduleAtFixedRate(Runnable command,
                                                   long initialDelay,
                                                   long period,
                                                   TimeUnit unit);
 
+    /**
+     * 安排一个Runnable任务在给定的初始延迟后首次执行，随后每次完成任务后等待指定的延迟再次执行。
+     *
+     * @param command 需要执行的任务
+     * @param initialDelay 首次执行的初始延迟
+     * @param delay 每次执行结束后的延迟时间
+     * @param unit 时间单位
+     * @return 可用于提取结果或取消的ScheduledFuture
+     */
     public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command,
                                                      long initialDelay,
                                                      long delay,
@@ -118,21 +152,27 @@ public interface ScheduledExecutorService extends ExecutorService {
 }
 ```
 
-`ScheduledExecutorService`实现了`ExecutorService` ,并增加若干定时相关的接口。 前两个方法用于单次调度执行任务，区别是有没有返回值。
+`ScheduledExecutorService` 接口继承了 `ExecutorService` 接口，并增加了几个定时相关的接口方法。前两个方法用于单次调度执行任务，区别是有没有返回值。
 
-重点理解一下后面两个方法：
+重点介绍一下后面两个方法：
 
-- scheduleAtFixedRate
+#### 01、scheduleAtFixedRate
 
-  该方法在`initialDelay`时长后第一次执行任务，以后每隔`period`时长，再次执行任务。注意，period 是从**任务开始执行算起**的。开始执行任务后，定时器每隔 period 时长**检查该任务是否完成**，如果完成则再次启动任务，否则等该任务结束后才再次启动任务。
+scheduleAtFixedRate 方法在`initialDelay`时长后第一次执行任务，以后每隔`period`时长再次执行任务。注意，period 是从**任务开始执行算起**的。开始执行任务后，定时器每隔 period 时长**检查该任务是否完成**，如果完成则再次启动任务，否则等该任务结束后才启动任务。看下图：
 
-- scheduleWithFixDelay
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824090447.png)
 
-  该方法在`initialDelay`时长后第一次执行任务，以后每当任务执行**完成后**，等待`delay`时长，再次执行任务。
+#### 02、scheduleWithFixDelay
 
-## 主要方法介绍
+该方法在`initialDelay`时长后第一次执行任务，以后每当任务执行**完成后**，等待`delay`时长，再次执行任务。看下图。
 
-### schedule
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824090513.png)
+
+相信大家能体会出来其中的差异。
+
+### ScheduledThreadPoolExecutor 的主要方法
+
+#### schedule
 
 ```java
 // delay时长后执行任务command，该任务只执行一次
@@ -148,13 +188,11 @@ public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) 
 }
 ```
 
-我们先看看里面涉及到的几个类和接口`ScheduledFuture`、 `RunnableScheduledFuture`、 `ScheduledFutureTask`的关系：
+我们先看看里面涉及到的几个类和接口的关系图谱：
 
-![类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
 
-我们先看看这几个接口和类：
-
-#### Delayed 接口
+##### Delayed 接口
 
 ```java
 // 继承Comparable接口，表示该类对象支持排序
@@ -166,7 +204,7 @@ public interface Delayed extends Comparable<Delayed> {
 
 `Delayed`接口很简单，继承了`Comparable`接口，表示对象是可以比较排序的。
 
-#### ScheduledFuture 接口
+##### ScheduledFuture 接口
 
 ```java
 // 仅仅继承了Delayed和Future接口，自己没有任何代码
@@ -174,9 +212,7 @@ public interface ScheduledFuture<V> extends Delayed, Future<V> {
 }
 ```
 
-没有添加其他方法。
-
-#### RunnableScheduledFuture 接口
+##### RunnableScheduledFuture 接口
 
 ```java
 public interface RunnableScheduledFuture<V> extends RunnableFuture<V>, ScheduledFuture<V> {    
@@ -185,9 +221,9 @@ public interface RunnableScheduledFuture<V> extends RunnableFuture<V>, Scheduled
 }
 ```
 
-#### ScheduledFutureTask 类
+##### ScheduledFutureTask 类
 
-回到`schecule`方法中，它创建了一个`ScheduledFutureTask`的对象，由上面的关系图可知，`ScheduledFutureTask`直接或者间接实现了很多接口，一起看看`ScheduledFutureTask`里面的实现方法吧。
+回到`schecule`方法中，它创建了一个`ScheduledFutureTask`对象，由上面的关系图可知，`ScheduledFutureTask`直接或者间接实现了很多接口，一起看看`ScheduledFutureTask`里面的实现方法吧。
 
 **构造方法**
 
@@ -281,15 +317,15 @@ public void run() {
 
 总结一下 run 方法的执行过程：
 
-1. 如果当前线程池运行状态不可以执行任务，取消该任务，然后直接返回，否则执行步骤 2；
+1. 如果当前线程池运行状态不运行执行任务，那么就取消该任务，然后直接返回，否则执行步骤 2；
 2. 如果不是周期性任务，调用 FutureTask 中的 run 方法执行，会设置执行结果，然后直接返回，否则执行步骤 3；
 3. 如果是周期性任务，调用 FutureTask 中的 runAndReset 方法执行，不会设置执行结果，然后直接返回，否则执行步骤 4 和步骤 5；
 4. 计算下次执行该任务的具体时间；
 5. 重复执行任务。
 
-`runAndReset`方法是为任务多次执行而设计的。`runAndReset`方法执行完任务后不会设置任务的执行结果，也不会去更新任务的状态，维持任务的状态为初始状态（**NEW**状态），这也是该方法和`FutureTask`的`run`方法的区别。
+`runAndReset`方法是为任务多次执行而设计的。`runAndReset`方法执行完任务后不会设置任务的执行结果，也不会去更新任务的状态，以及维持任务的状态为初始状态（**NEW**状态），这也是该方法和 [FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) `run`方法的区别。
 
-### scheduleAtFixedRate
+#### scheduleAtFixedRate
 
 我们看一下代码：
 
@@ -316,16 +352,39 @@ public ScheduledFuture<?> scheduleAtFixedRate(Runnable command,
     delayedExecute(t);
     return t;
 }
-
 ```
 
-`scheduleAtFixedRate`这个方法和`schedule`类似，不同点是`scheduleAtFixedRate`方法内部创建的是`ScheduledFutureTask`，带有初始延时和固定周期的任务 。
+`scheduleAtFixedRate`这个方法和`schedule`类似，不同点是`scheduleAtFixedRate`方法内部创建的是`ScheduledFutureTask`，带有初始延时和固定周期的任务。
 
-### scheduleWithFixedDelay
+#### scheduleWithFixedDelay
 
-`FixedDelay`也是通过`ScheduledFutureTask`体现的，唯一不同的地方在于创建的`ScheduledFutureTask`不同 。这里不再展示源码。
+`scheduleWithFixedDelay`也是通过`ScheduledFutureTask`体现的，唯一不同的地方在于创建的`ScheduledFutureTask`不同。
 
-### delayedExecute
+```java
+public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command,
+                                                     long initialDelay,
+                                                     long delay,
+                                                     TimeUnit unit) {
+    if (command == null || unit == null)
+      throw new NullPointerException();
+    if (delay <= 0)
+      throw new IllegalArgumentException();
+    // 创建一个有初始延时和固定时延的任务
+    ScheduledFutureTask<Void> sft =
+      new ScheduledFutureTask<Void>(command,
+                                    null,
+                                    triggerTime(initialDelay, unit),
+                                    unit.toNanos(-delay));
+    RunnableScheduledFuture<Void> t = decorateTask(command, sft);
+    // outerTask表示将会重新入队的任务
+    sft.outerTask = t;
+    // 稍后说明
+    delayedExecute(t);
+    return t;
+}
+```
+
+#### delayedExecute
 
 前面讲到的`schedule`、`scheduleAtFixedRate`和`scheduleWithFixedDelay`最后都调用了`delayedExecute`方法，该方法是定时任务执行的主要方法。 一起来看看源码：
 
@@ -361,19 +420,31 @@ void ensurePrestart() {
 }
 ```
 
-`ensurePrestart`方法主要是调用了`addWorker`，线程池中的工作线程是通过该方法来启动并执行任务的。 具体可以查看前面讲的线程池章节。
+`ensurePrestart`方法主要是调用了`addWorker` 方法，[线程池](https://javabetter.cn/thread/pool.html)中的工作线程就是通过该方法来启动并执行任务的。相信大家都还有印象。
 
-对于`ScheduledThreadPoolExecutor`，`worker`添加到线程池后会在等待队列上等待获取任务，这点是和`ThreadPoolExecutor`一致的。**但是 worker 是怎么从等待队列取定时任务的？**
+对于`ScheduledThreadPoolExecutor`，`worker`添加到线程池后会在等待队列中等待获取任务，这点是和`ThreadPoolExecutor`是一致的。**但是 worker 是怎么从等待队列取定时任务的呢？**
 
-因为`ScheduledThreadPoolExecutor`使用了`DelayedWorkQueue`保存等待的任务，该等待队列队首应该保存的是最近将要执行的任务，如果队首任务的开始执行时间还未到，`worker`也应该继续等待。
+### DelayedWorkQueue
 
-## DelayedWorkQueue
+`ScheduledThreadPoolExecutor`使用了`DelayedWorkQueue` 来保存等待的任务。
 
-`ScheduledThreadPoolExecutor`使用了`DelayedWorkQueue`保存等待的任务。
+该等待队列的队首应该保存的是**最近将要执行的任务**，所以`worker`只关心队首任务，如果队首任务的开始执行时间还未到，worker 也应该继续等待。
 
-该等待队列队首应该保存的是**最近将要执行的任务**，所以`worker`只关心队首任务即可，如果队首任务的开始执行时间还未到，worker 也应该继续等待。
+DelayedWorkQueue 是一个无界优先队列，使用数组存储，底层使用堆结构来实现优先队列的功能。
 
-DelayedWorkQueue 是一个无界优先队列，使用数组存储，底层是使用堆结构来实现优先队列的功能。我们先看看 DelayedWorkQueue 的声明和成员变量：
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824084212.png)
+
+可以转换成如下的数组：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824084245.png)
+
+在这种结构中，可以发现有如下特性。假设，索引值从 0 开始，子节点的索引值为 k，父节点的索引值为 p，则：
+
+- 一个节点的左子节点的索引为：k = p \* 2 + 1；
+- 一个节点的右子节点的索引为：k = (p + 1) \* 2；
+- 一个节点的父节点的索引为：p = (k - 1) / 2。
+
+我们来看看 DelayedWorkQueue 的声明和成员变量：
 
 ```java
 static class DelayedWorkQueue extends AbstractQueue<Runnable>
@@ -391,15 +462,19 @@ implements BlockingQueue<Runnable> {
 }
 ```
 
-当一个线程成为 leader，它只要等待队首任务的 delay 时间即可，其他线程会无条件等待。leader 取到任务返回前要通知其他线程，直到有线程成为新的 leader。每当队首的定时任务被其他更早需要执行的任务替换时，leader 设置为 null，其他等待的线程（被当前 leader 通知）和当前的 leader 重新竞争成为 leader。
+当一个线程成为 leader，它只需等待队首任务的 delay 时间即可，其他线程会无条件等待。leader 取到任务返回前要通知其他线程，直到有线程成为新的 leader。每当队首的定时任务被其他更早需要执行的任务替换，leader 就设置为 null，其他等待的线程（被当前 leader 通知）和当前的 leader 重新竞争成为 leader。
 
-同时，定义了锁 lock 和监视器 available 用于线程竞争成为 leader。
+> 所有线程都会有三种身份中的一种：leader、follower，以及一个干活中的状态：proccesser。它的基本原则是，永远最多只有一个 leader。所有 follower 都在等待成为 leader。线程池启动时会自动产生一个 Leader 负责等待网络 IO 事件，当有一个事件产生时，Leader 线程首先通知一个 Follower 线程将其提拔为新的 Leader，然后自己就去干活了，去处理这个网络事件，处理完毕后加入 Follower 线程等待队列，等待下次成为 Leader。这种方法可以增强 CPU 高速缓存相似性，及消除动态内存分配和线程间的数据交换。
 
-当一个新的任务成为队首，或者需要有新的线程成为 leader 时，available 监视器上的线程将会被通知，然后竞争成为 leader 线程。 有些类似于生产者-消费者模式。
+同时，定义了 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 锁 lock 和 [Condition](https://javabetter.cn/thread/condition.html) available 用于控制和通知下一个线程竞争成为 leader。
 
-接下来看看`DelayedWorkQueue`中几个比较重要的方法
+当一个新的任务成为队首，或者需要有新的线程成为 leader 时，available 监视器上的线程将会被通知，然后竞争成为 leader 线程。有些类似于[生产者-消费者模式](https://javabetter.cn/thread/shengchanzhe-xiaofeizhe.html)。
 
-### take
+DelayedWorkQueue 是一个优先级队列，它可以保证每次出队的任务都是当前队列中执行时间最靠前的，由于它是基于堆结构的队列，堆结构在执行插入和删除操作时的最坏时间复杂度是 `O(logN)`。
+
+接下来看看`DelayedWorkQueue`中几个比较重要的方法。
+
+#### take
 
 ```java
 public RunnableScheduledFuture take() throws InterruptedException {
@@ -447,25 +522,29 @@ public RunnableScheduledFuture take() throws InterruptedException {
 }
 ```
 
-`take`方法是什么时候调用的呢？在线程池的章节中，介绍了`getTask`方法，工作线程会循环地从`workQueue`中取任务。但计划任务却不同，因为如果一旦`getTask`方法取出了任务就开始执行了，而这时可能还没有到执行的时间，所以在`take`方法中，要保证只有在到指定的执行时间的时候任务才可以被取走。
+`take`方法是什么时候调用的呢？
+
+在讲解[线程池](https://javabetter.cn/thread/pool.html)的时候，我们介绍了`getTask`方法，工作线程会循环从`workQueue`中取任务。但计划任务却不同，因为一旦`getTask`方法取出了任务就开始执行了，而这时可能还没有到执行时间，所以在`take`方法中，要保证只有到指定的执行时间，任务才可以被取走。
 
 总结一下流程：
 
-1. 如果堆顶元素为空，在 available 条件上等待。
+1. 如果堆顶元素为空，在 available 上等待。
 2. 如果堆顶任务的执行时间已到，将堆顶元素替换为堆的最后一个元素并调整堆使其满足**最小堆**特性，同时设置任务在堆中索引为-1，返回该任务。
 3. 如果 leader 不为空，说明已经有线程成为 leader 了，其他线程都要在 available 监视器上等待。
 4. 如果 leader 为空，当前线程成为新的 leader，并等待直到堆顶任务执行时间到达。
 5. take 方法返回之前，将 leader 设置为空，并通知其他线程。
 
-再来说一下 leader 的作用，这里的 leader 是**为了减少不必要的定时等待**，当一个线程成为 leader 时，它只等待下一个节点的时间间隔，但其它线程无限期等待。 leader 线程必须在从`take()`或`poll()`返回之前 signal 其它线程，除非其他线程成为了 leader。
+再来说一下 leader 的作用，这里的 leader 是**为了减少不必要的定时等待**，当一个线程成为 leader 时，它只等待下一个节点的时间间隔，但其它线程无限期等待。 leader 线程必须在`take()`或`poll()`返回之前 signal 其它线程，除非其他线程成为了 leader。
 
-举例来说，如果没有 leader，那么在执行 take 时，都要执行`available.awaitNanos(delay)`，假设当前线程执行了该段代码，这时还没有 signal，第二个线程也执行了该段代码，则第二个线程也要被阻塞。但只有一个线程返回队首任务，其他的线程在`awaitNanos(delay)`之后，继续执行 for 循环，因为队首任务已经被返回了，所以这个时候的 for 循环拿到的队首任务是新的，又需要重新判断时间，又要继续阻塞。
+举例来说，如果没有 leader，那么在执行 take 时，都要执行`available.awaitNanos(delay)`，假设当前线程执行了该段代码，这时还没有 signal，第二个线程也执行了该段代码，则第二个线程也要被阻塞。
+
+但只有一个线程返回队首任务，其他的线程在`awaitNanos(delay)`之后，继续执行 for 循环，因为队首任务已经被返回了，所以这个时候的 for 循环拿到的队首任务是新的，又需要重新判断时间，又要继续阻塞。
 
 所以，为了不让多个线程频繁的做无用的定时等待，这里增加了 leader，如果 leader 不为空，则说明队列中第一个节点已经在等待出队，这时其它的线程会一直阻塞，减少了无用的阻塞（注意，在`finally`中调用了`signal()`来唤醒一个线程，而不是`signalAll()`）。
 
-### offer
+#### offer
 
-该方法往队列插入一个值，返回是否成功插入 。
+该方法往队列插入一个值，返回是否成功插入。
 
 ```java
 public boolean offer(Runnable x) {
@@ -501,11 +580,56 @@ public boolean offer(Runnable x) {
 }
 ```
 
-在堆中插入了一个节点，这个时候堆有可能不满足最小堆的定义，`siftUp`用于将堆调整为最小堆，这属于数据结构的基本内容，本文不做介绍。
+offer 方法实现了向延迟队列插入一个任务的操作，并保证整个队列仍然满足最小堆的性质。
 
-## 总结
+> 最小堆（Min Heap）是一个完全二叉树，其中每一个父节点的值都小于或等于其子节点的值。换句话说，在最小堆中，根节点（即树的顶部）是所有节点中的最小值。
 
-内部使用优化的 DelayQueue 来实现，由于使用队列来实现定时器，有出入队调整堆等操作，所以定时并不是非常非常精确。
+前面我们也提到过最小堆。我们来看一下用于调整堆的 siftUp 方法。
+
+```java
+private void siftUp(int k, RunnableScheduledFuture<?> key) {
+    while (k > 0) {
+        // 找到父节点的索引
+        int parent = (k - 1) >>> 1;
+        // 获取父节点
+        RunnableScheduledFuture<?> e = queue[parent];
+        // 如果key节点的执行时间大于父节点的执行时间，不需要再排序了
+        if (key.compareTo(e) >= 0)
+            break;
+        // 如果key.compareTo(e) < 0，说明key节点的执行时间小于父节点的执行时间，需要把父节点移到后面
+        queue[k] = e;
+        // 设置索引为k
+        setIndex(e, k);
+        k = parent;
+    }
+    // key设置为排序后的位置中
+    queue[k] = key;
+    setIndex(key, k);
+}
+```
+
+代码很好理解，就是循环的根据key节点与它的父节点来判断，如果key节点的执行时间小于父节点，则将两个节点交换，使执行时间靠前的节点排列在队列的前面。
+
+假设新入队的节点的延迟时间（调用getDelay()方法获得）是5，执行过程如下：
+
+1、先将新的节点添加到数组的尾部，这时新节点的索引k为7：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824091455.png)
+
+2、计算新父节点的索引：`parent = (k - 1) >>> 1`，parent = 3，那么`queue[3]`的时间间隔值为8，因为 `5 < 8` ，将执行`queue[7] = queue[3]`：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824091531.png)
+
+3、这时将k设置为3，继续循环，再次计算parent为1，`queue[1]`的时间间隔为3，因为 `5 > 3` ，这时退出循环，最终k为3：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824091558.png)
+
+可见，每次新增节点时，只是根据父节点来判断，而不会影响兄弟节点。
+
+
+### 总结
+
+`ScheduledThreadPoolExecutor`是一个定时任务的线程池，它的主要作用是周期性的执行任务。它的实现原理是通过`DelayedWorkQueue`来保存等待的任务，`DelayedWorkQueue`是一个无界优先队列，使用数组存储，底层使用堆结构来实现优先队列的功能。
 
 ---
 
@@ -514,6 +638,15 @@ public boolean offer(Runnable x) {
 > - [深入浅出 Java 多线程](http://concurrent.redspider.group/)
 > - [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
 > - [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+
+作者：ideabuffer
+链接：https://www.jianshu.com/p/925dba9f5969
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+http://www.ideabuffer.cn/categories/%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/J-U-C/
+
+https://www.cnblogs.com/java-chen-hao/p/10283413.html
 
 推荐阅读：[读者三友的 11 种延迟任务的实现方式](https://mp.weixin.qq.com/s/ZCANo-z1D3KrPjvBNJcGKA)
 
