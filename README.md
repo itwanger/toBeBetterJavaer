@@ -268,7 +268,7 @@
 - [并发容器CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
 - [本地变量ThreadLocal](docs/thread/ThreadLocal.md)
 - [线程池](docs/thread/pool.md)
-- [ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
+- [定时任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
 - [Java atomic包中的原子操作类总结](docs/thread/atomic.md)
 - [Java并发编程通信工具类CountDownLatch等一网打尽](docs/thread/CountDownLatch.md)
 - [深入理解Java并发编程之Fork/Join框架](docs/thread/fork-join.md)
