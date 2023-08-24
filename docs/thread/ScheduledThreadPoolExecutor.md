@@ -631,22 +631,10 @@ private void siftUp(int k, RunnableScheduledFuture<?> key) {
 
 `ScheduledThreadPoolExecutor`是一个定时任务的线程池，它的主要作用是周期性的执行任务。它的实现原理是通过`DelayedWorkQueue`来保存等待的任务，`DelayedWorkQueue`是一个无界优先队列，使用数组存储，底层使用堆结构来实现优先队列的功能。
 
----
+>编辑：沉默王二，原文内容来源于朋友小七萤火虫开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。其他参考链接如下：
 
-> 编辑：沉默王二，内容大部分来源以下三个开源仓库：
->
-> - [深入浅出 Java 多线程](http://concurrent.redspider.group/)
-> - [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
-> - [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
-
-作者：ideabuffer
-链接：https://www.jianshu.com/p/925dba9f5969
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-http://www.ideabuffer.cn/categories/%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/J-U-C/
-
-https://www.cnblogs.com/java-chen-hao/p/10283413.html
+- [ideabuffer](https://www.jianshu.com/p/925dba9f5969)
+- [博客园](https://www.cnblogs.com/java-chen-hao/p/10283413.html)
 
 推荐阅读：[读者三友的 11 种延迟任务的实现方式](https://mp.weixin.qq.com/s/ZCANo-z1D3KrPjvBNJcGKA)
 
