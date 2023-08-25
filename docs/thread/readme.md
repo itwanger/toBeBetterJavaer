@@ -1,15 +1,15 @@
 ---
-title: 《二哥的Java进阶之路》小册简介，GitHub星标9000+
+title: 《二哥的并发编程进阶之路》小册简介，GitHub星标9000+
 shortTitle: 小册简介
 category:
   - Java核心
 tag:
   - Java概述
-description: Java进阶之路，小白的零基础Java教程，二哥的Java进阶之路小册 Java 基础篇简介
+description: Java进阶之路，小白的零基础Java教程，二哥的Java进阶之路并发编程篇小册简介
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,java基础
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,并发编程
 ---
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-readme-fengmian.png)

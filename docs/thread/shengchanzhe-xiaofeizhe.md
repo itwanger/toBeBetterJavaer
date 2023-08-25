@@ -794,13 +794,7 @@ public class ProductorConsumer {
 
 还有 Condition 的 await/signalAll 方法的使用，以及使用 Condition 的 await/signalAll 实现生产者-消费者模型的示例代码。最后还讲解了使用 BlockingQueue 实现生产者-消费者模型的示例代码。
 
----
-
-> 编辑：沉默王二，内容大部分来源以下三个开源仓库：
->
-> - [深入浅出 Java 多线程](http://concurrent.redspider.group/)
-> - [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
-> - [Java 八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+> 编辑：沉默王二，部分内容来自于CL0610的 GitHub 仓库[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency/blob/master/27.一篇文章，让你彻底弄懂生产者--消费者问题/一篇文章，让你彻底弄懂生产者--消费者问题.md)，部分图片和内容来资源知乎[这篇帖子](https://zhuanlan.zhihu.com/p/73442055)。
 
 ---
 
