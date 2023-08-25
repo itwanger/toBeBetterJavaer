@@ -40,8 +40,8 @@ head:
 
 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 
-- [**二哥的Java进阶之路在线阅读网站（新版，推荐👍）**](https://javabetter.cn/)
-- [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)（二哥的另外一个网站）
+- [二哥的Java进阶之路在线网址（推荐👍）](https://javabetter.cn/)
+- [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)
 
 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](https://javabetter.cn/overview/)
 
