@@ -272,8 +272,8 @@
 - [原子操作类Atomic](docs/thread/atomic.md)
 - [魔法类 Unsafe](docs/thread/Unsafe.md)
 - [通信工具类](docs/thread/CountDownLatch.md)
-- [深入理解Java并发编程之Fork/Join框架](docs/thread/fork-join.md)
-- [从根上理解生产者-消费者模式](docs/thread/shengchanzhe-xiaofeizhe.md)
+- [Fork/Join](docs/thread/fork-join.md)
+- [生产者-消费者模式](docs/thread/shengchanzhe-xiaofeizhe.md)
 
 
 ## Java虚拟机
