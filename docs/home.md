@@ -45,7 +45,7 @@ head:
 
 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](https://javabetter.cn/overview/)
 
-**转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
+**转载须知** ：以下所有文章如非文末说明为转载皆为我（沉默王二）的原创，如果你需要转载，请在文末注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
 
 ## 知识库地图
 
@@ -252,9 +252,10 @@ head:
 
 ### Java并发编程
 
-- [创建Java线程的3种方式](thread/wangzhe-thread.md)
+- [并发编程小册简介](thread/readme.md)
+- [Java多线程入门](thread/wangzhe-thread.md)
 - [获取线程的执行结果](thread/callable-future-futuretask.md)
-- [Java线程的6种状态及切换](thread/thread-state-and-method.md)
+- [Java线程的6种状态](thread/thread-state-and-method.md)
 - [线程组和线程优先级](thread/thread-group-and-thread-priority.md)
 - [进程与线程的区别](thread/why-need-thread.md)
 - [多线程带来了哪些问题？](thread/thread-bring-some-problem.md)
@@ -265,7 +266,7 @@ head:
 - [JDK15 移除了偏向锁](thread/pianxiangsuo.md)
 - [CAS详解](thread/cas.md)
 - [AQS详解](thread/aqs.md)
-- [JUC 包下的那些锁](thread/lock.md)
+- [锁分类及 JUC 包下的那些锁](thread/lock.md)
 - [重入锁ReentrantLock](thread/reentrantLock.md)
 - [读写锁ReentrantReadWriteLock](thread/ReentrantReadWriteLock.md)
 - [协作类Condition](thread/condition.md)

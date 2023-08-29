@@ -12,7 +12,9 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentHashMap
 ---
 
-# 14.20 并发容器ConcurrentHashMap
+# 第二十节：并发容器ConcurrentHashMap
+
+ConcurrentHashMap 是 Java 并发包 (java.util.concurrent) 中的一种线程安全的哈希表实现。
 
 [HashMap](https://javabetter.cn/collection/hashmap.html) 在多线程环境下扩容会出现 CPU 接近 100% 的情况，因为 HashMap 并不是线程安全的，我们可以通过 Collections 的`Map<K,V> synchronizedMap(Map<K,V> m)`将 HashMap 包装成一个线程安全的 map。
 
@@ -36,11 +38,11 @@ public V put(K key, V value) {
 
 实际上，synchronzied 做了很多的优化，这个我们前面也讲过了，包括偏向锁、轻量级锁、重量级锁，可以依次向上升级锁状态，因此，synchronized 相较于 ReentrantLock 的性能其实差不多，甚至在某些情况更优。
 
-### JDK 1.7 和 JDK 1.8 中 ConcurrentHashMap 的区别
+## JDK 1.7 和 JDK 1.8 中 ConcurrentHashMap 的区别
 
 ConcurrentHashMap 在 JDK 1.7 和 JDK 1.8 中有一些区别。这里我们分开介绍一下。
 
-**JDK 1.7**
+### JDK 1.7
 
 ConcurrentHashMap 在 JDK 1.7 中，提供了一种粒度更细的加锁机制，这种机制叫分段锁「Lock Striping」。整个哈希表被分为多个段，每个段都独立锁定。读取操作不需要锁，写入操作仅锁定相关的段。这减小了锁冲突的几率，从而提高了并发性能。
 
@@ -99,7 +101,7 @@ put 方法
 - 插入或覆盖 HashEntry 对象。
 - 释放锁。
 
-**JDK 1.8**
+### JDK 1.8
 
 而在 JDK 1.8 中，ConcurrentHashMap 主要做了两个优化：
 
@@ -129,7 +131,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 }
 ```
 
-### **ConcurrentHashMap 的关键属性**
+## ConcurrentHashMap 的关键属性
 
 1、**table**，`volatile Node<K,V>[] table`:
 
@@ -168,9 +170,9 @@ static {
 }
 ```
 
-### **ConcurrentHashMap 的关键内部类**
+## ConcurrentHashMap 的关键内部类
 
-#### 1、Node
+### 1、Node
 
 Node 类实现了 Map.Entry 接口，主要存放 key-value 对，并且具有 next 域
 
@@ -186,7 +188,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 
 另外可以看出很多属性都是用 [volatile 关键字](https://javabetter.cn/thread/volatile.html)修饰的，也是为了保证内存可见性。
 
-#### 2、TreeNode
+### 2、TreeNode
 
 树节点，继承于承载数据的 Node 类。红黑树的操作是针对 TreeBin 类的，从该类的注释也可以看出，TreeBin 是对 TreeNode 的再一次封装，下面会提到。
 
@@ -204,7 +206,7 @@ static final class TreeNode<K,V> extends Node<K,V> {
 }
 ```
 
-#### 3、TreeBin
+### 3、TreeBin
 
 这个类并不负责用户的 key、value 信息，而是封装了很多 TreeNode 节点。实际的 ConcurrentHashMap “数组”中，存放的都是 TreeBin 对象，而不是 TreeNode 对象。
 
@@ -222,7 +224,7 @@ static final class TreeBin<K,V> extends Node<K,V> {
 }
 ```
 
-#### 4、ForwardingNode
+### 4、ForwardingNode
 
 在扩容时会出现的特殊节点，其 key、value、hash 全部为 null。并拥有 nextTable 引用的新 table 数组。
 
@@ -237,11 +239,11 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 }
 ```
 
-### CAS 的关键操作
+## CAS 的关键操作
 
 ConcurrentHashMap 会大量使用 CAS 来修改它的属性和进行一些操作。因此，在理解 ConcurrentHashMap 的方法前，我们需要了解几个常用的利用 CAS 算法来保障线程安全的操作。
 
-#### 1、tabAt
+### 1、tabAt
 
 ```java
 static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
@@ -251,7 +253,7 @@ static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
 
 该方法用来获取 table 数组中索引为 i 的 Node 元素。
 
-#### 2、casTabAt
+### 2、casTabAt
 
 ```java
 static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
@@ -262,7 +264,7 @@ static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
 
 利用 CAS 操作设置 table 数组中索引为 i 的元素
 
-#### 3、setTabAt
+### 3、setTabAt
 
 ```java
 static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
@@ -272,9 +274,9 @@ static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
 
 该方法用来设置 table 数组中索引为 i 的元素
 
-### ConcurrentHashMap 的重点方法
+## ConcurrentHashMap 的重点方法
 
-#### 构造方法
+### 构造方法
 
 ConcurrentHashMap 一共提供了以下 5 个构造方法：
 
@@ -333,7 +335,7 @@ private static final int tableSizeFor(int c) {
 
 另外，需要注意的是，**调用构造方法时并初始化 table 数组，而只算出了 table 数组的长度，当第一次向 ConcurrentHashMap 插入数据时才会真正的完成初始化，并创建 table 数组**。
 
-#### initTable 方法
+### initTable 方法
 
 直接上源码：
 
@@ -376,7 +378,7 @@ private final Node<K,V>[] initTable() {
 
 如果选择是无参的构造方法，这里在 new Node 数组的时候会使用默认大小`DEFAULT_CAPACITY`（16），然后乘以加载因子 0.75，结果为 12，也就是说数组当前的可用大小为 12。
 
-#### put 方法
+### put 方法
 
 调用 put 方法时会调用 putVal 方法，源码如下：
 
@@ -545,7 +547,7 @@ if (binCount != 0) {
 7. 插入完节点之后再次检查链表的长度，如果长度大于 8，就把这个链表转换成红黑树；
 8. 对当前容量大小进行检查，如果超过了临界值（实际大小\*加载因子）就需要扩容。
 
-#### get 方法
+### get 方法
 
 get 方法的源码如下：
 
@@ -580,7 +582,7 @@ public V get(Object key) {
 - 红黑树查找: 如果第一个节点的哈希值小于0，那么这个桶的数据结构是红黑树（Java 8 引入了树化结构来改进链表在哈希冲突时的性能）。在这种情况下，使用 find 方法在红黑树中查找键。
 - 链表查找: 如果前两个条件都不满足，那么代码将遍历该桶中的链表。如果在链表中找到了具有相同哈希值和键的元素，则返回其值。如果遍历完整个链表都未找到，则返回 null。
 
-#### transfer 方法
+### transfer 方法
 
 当 ConcurrentHashMap 容量不足的时候，需要对 table 进行扩容。这个方法的基本思想跟 HashMap 很像，但由于支持并发扩容，所以要复杂一些。transfer 方法源码如下：
 
@@ -746,7 +748,7 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
 
 ![ConcurrentHashMap扩容示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentHashMap-02.png)
 
-#### size 相关的方法
+### size 相关的方法
 
 对于 ConcurrentHashMap 来说，这个 table 里到底装了多少东西是不确定的，因为**不可能在调用 `size()` 方法的时候“stop the world”让其他线程都停下来去统计**，对于这个不确定的 size，ConcurrentHashMap 仍然花费了大量的力气。
 
@@ -873,7 +875,7 @@ private final void addCount(long x, int check) {
 }
 ```
 
-### ConcurrentHashMap 的代码示例
+## ConcurrentHashMap 的代码示例
 
 假设我们想要构建一个线程安全的高并发统计用户访问次数的功能。在这里，ConcurrentHashMap是一个很好的选择，因为它提供了高并发性能。
 
@@ -921,7 +923,7 @@ public class UserVisitCounter {
 
 ConcurrentHashMap使我们能够无需担心并发问题就能构建这样一个高效的统计系统。
 
-### 总结
+## 总结
 
 ConcurrentHashMap 是线程安全的，支持完全并发的读取，并且有很多线程可以同时执行写入。在早期版本（例如 JDK 1.7）中，ConcurrentHashMap 使用分段锁技术。整个哈希表被分成一些段（Segment），每个段独立加锁。这样，在不同段上的操作可以并发进行。从 JDK 1.8 开始，ConcurrentHashMap 的内部实现有了很大的变化。它放弃了分段锁技术，转而采用了更先进的并发控制策略，如 CAS 操作和红黑树等，进一步提高了并发性能。
 

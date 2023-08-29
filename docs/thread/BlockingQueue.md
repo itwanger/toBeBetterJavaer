@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,BlockingQueue
 ---
 
-# 14.22 阻塞队列 BlockingQueue
+# 第二十二节：阻塞队列 BlockingQueue
 
 BlockingQueue 是 Java 中的一个接口，它代表了一个线程安全的队列，不仅可以由多个线程并发访问，还添加了等待/通知机制，以便在队列为空时阻塞获取元素的线程，直到队列变得可用，或者在队列满时阻塞插入元素的线程，直到队列变得可用。
 
@@ -20,7 +20,7 @@ BlockingQueue 是 Java 中的一个接口，它代表了一个线程安全的队
 
 阻塞队列（BlockingQueue）被广泛用于“生产者-消费者”问题中，其原因是 BlockingQueue 提供了可阻塞的插入和移除方法。**当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止**。
 
-### 基本操作
+## 基本操作
 
 BlockingQueue 接口定义的方法如下所示：
 
@@ -55,7 +55,7 @@ BlockingQueue 接口定义的方法如下所示：
 
 
 
-### ArrayBlockingQueue
+## ArrayBlockingQueue
 
 BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBlockingDeque、LinkedBlockingQueue、LinkedTransferQueue、PriorityBlockingQueue、SynchronousQueue 等，我们先从 ArrayBlockingQueue 说起。
 
@@ -126,7 +126,7 @@ public ArrayBlockingQueue(int capacity, boolean fair) {
 }
 ```
 
-#### 1）put 方法详解
+### 1）put 方法详解
 
 `put(E e)`方法源码如下：
 
@@ -166,7 +166,7 @@ private void enqueue(E x) {
 
 enqueue 方法的逻辑同样很简单，先插入数据（`items[putIndex] = x`），然后通知被阻塞的消费者线程：当前队列中有数据可供消费（`notEmpty.signal()`）了。
 
-#### 2）take 方法详解
+### 2）take 方法详解
 
 take 方法的源码如下：
 
@@ -262,7 +262,7 @@ public class ArrayBlockingQueueTest {
 ![](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818155804.png)
 
 
-### LinkedBlockingQueue
+## LinkedBlockingQueue
 
 LinkedBlockingQueue 是一个基于链表的线程安全的阻塞队列：
 
@@ -334,7 +334,7 @@ static class Node<E> {
 
 03）`Node(E x)`: 这是节点类的构造方法，它接受一个元素 x 并将其赋值给 item 字段。
 
-#### 1）put 方法详解
+### 1）put 方法详解
 
 put 方法源码如下:
 
@@ -399,7 +399,7 @@ put 方法的逻辑基本上和 ArrayBlockingQueue 的一样。
 
 09）可能的唤醒消费者线程：如果插入操作将队列从空变为非空（`c == 0`），则调用 `signalNotEmpty();` 唤醒可能正在等待非空队列的消费者线程。
 
-#### 2）take 方法详解
+### 2）take 方法详解
 
 take 方法的源码如下：
 
@@ -452,7 +452,7 @@ public E take() throws InterruptedException {
 
 09）返回取出的元素：最后返回被取出的元素 x。
 
-#### 3）LinkedBlockingQueue 的使用示例
+### 3）LinkedBlockingQueue 的使用示例
 
 ```java
 public class LinkedBlockingQueueTest {
@@ -497,7 +497,7 @@ public class LinkedBlockingQueueTest {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818212205.png)
 
-### ArrayBlockingQueue 与 LinkedBlockingQueue 的比较
+## ArrayBlockingQueue 与 LinkedBlockingQueue 的比较
 
 **相同点**：ArrayBlockingQueue 和 LinkedBlockingQueue 都是通过 [Condition](https://javabetter.cn/thread/condition.html) 通知机制来实现可阻塞的插入和删除。
 
@@ -506,7 +506,7 @@ public class LinkedBlockingQueueTest {
 1. ArrayBlockingQueue 基于数组实现，而 LinkedBlockingQueue 基于链表实现；
 2. ArrayBlockingQueue 使用一个单独的 ReentrantLock 来控制对队列的访问，而 LinkedBlockingQueue 使用两个锁（putLock 和 takeLock），一个用于放入操作，另一个用于取出操作。这可以提供更细粒度的控制，并可能减少线程之间的竞争。
 
-### PriorityBlockingQueue
+## PriorityBlockingQueue
 
 PriorityBlockingQueue 是一个具有优先级排序特性的无界阻塞队列。元素在队列中的排序遵循自然排序或者通过提供的比较器进行定制排序。你可以通过实现 [Comparable](https://javabetter.cn/basic-extra-meal/comparable-omparator.html) 接口来定义自然排序。
 
@@ -553,7 +553,7 @@ Medium priority task
 Low priority task
 ```
 
-### SynchronousQueue
+## SynchronousQueue
 
 SynchronousQueue 是一个非常特殊的阻塞队列，它不存储任何元素。每一个插入操作必须等待另一个线程的移除操作，反之亦然。因此，SynchronousQueue 的内部实际上是空的，但它允许一个线程向另一个线程逐个传输元素。
 
@@ -599,7 +599,7 @@ Put successfully: SYNCHRONOUS_EVENT
 Taken: SYNCHRONOUS_EVENT
 ```
 
-### LinkedTransferQueue
+## LinkedTransferQueue
 
 LinkedTransferQueue 是一个基于链表结构的无界传输队列，实现了 TransferQueue 接口，它提供了一种强大的线程间交流机制。它的功能与其他阻塞队列类似，但还包括“转移”语义：允许一个元素直接从生产者传输给消费者，如果消费者已经在等待。如果没有等待的消费者，元素将入队。
 
@@ -649,7 +649,7 @@ public class LinkedTransferQueueDemo {
 消费者收到: Hello, World!
 ```
 
-### LinkedBlockingDeque
+## LinkedBlockingDeque
 
 LinkedBlockingDeque 是一个基于链表结构的双端阻塞队列。它同时支持从队列头部插入和移除元素，也支持从队列尾部插入和移除元素。因此，LinkedBlockingDeque 可以作为 FIFO 队列或 LIFO 队列来使用。
 
@@ -690,7 +690,7 @@ Item3
 Item2
 ```
 
-### DelayQueue
+## DelayQueue
 
 DelayQueue 是一个无界阻塞队列，用于存放实现了 Delayed 接口的元素，这些元素只能在其到期时才能从队列中取走。这使得 DelayQueue 成为实现时间基于优先级的调度服务的理想选择。
 
@@ -747,7 +747,7 @@ public class DelayQueueDemo {
 这是一个 5 秒延迟的元素
 ```
 
-### 总结
+## 总结
 
 本文介绍了 Java 中的阻塞队列，包括 ArrayBlockingQueue、LinkedBlockingQueue、PriorityBlockingQueue、SynchronousQueue、LinkedTransferQueue、LinkedBlockingDeque 和 DelayQueue。它们都是线程安全的，可以在多线程环境下使用。
 

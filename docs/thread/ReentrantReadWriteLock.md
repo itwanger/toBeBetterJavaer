@@ -12,7 +12,9 @@ head:
       content: Java,并发编程,多线程,Thread,读写锁,ReentrantReadWriteLock
 ---
 
-# 14.16 读写锁 ReentrantReadWriteLock
+# 第十六节：读写锁 ReentrantReadWriteLock
+
+ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问，或者阻塞所有的读写线程。这种锁的设计可以提高性能，特别是在数据结构中，读操作的数量远远超过写操作的情况下。
 
 在并发场景中，为了解决线程安全问题，我们通常会使用关键字 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 或者 JUC 包中实现了 Lock 接口的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)。但它们都是独占式获取锁，也就是在同一时刻只有一个线程能够获取锁。
 
@@ -79,9 +81,9 @@ try {
 
 我们带着这样的三个问题，再去了解下读写锁。
 
-### 写锁详解
+## 写锁详解
 
-#### 写锁的获取
+### 写锁的获取
 
 同步组件的实现聚合了同步器（[AQS](https://javabetter.cn/thread/aqs.html)），并通过重写同步器（AQS）中的方法实现同步组件的同步语义。
 
@@ -161,7 +163,7 @@ static int sharedCount(int c)    {
 
 好，现在我们回过头来看写锁获取方法 tryAcquire，其主要逻辑为：**当读锁已经被读线程获取或者写锁已经被其他写线程获取，则写锁获取失败；否则，获取成功并支持重入，增加写状态。**
 
-#### 写锁的释放
+### 写锁的释放
 
 写锁释放通过重写 [AQS](https://javabetter.cn/thread/aqs.html) 的 tryRelease 方法，源码为：
 
@@ -183,9 +185,9 @@ protected final boolean tryRelease(int releases) {
 
 源码的实现逻辑请看注释，不难理解，与 ReentrantLock 基本一致，这里需要注意的是，减少写状态 `int nextc = getState() - releases;` 只需要用**当前同步状态直接减去写状态，原因正是我们刚才所说的写状态是由同步状态的低 16 位表示的**。
 
-### 读锁详解
+## 读锁详解
 
-#### 读锁的获取
+### 读锁的获取
 
 看完了写锁，再来看看读锁，读锁不是独占式锁，即同一时刻该锁可以被多个读线程获取，也就是一种共享式锁。按照之前对 [AQS](https://javabetter.cn/thread/aqs.html) 的介绍，实现共享式同步组件的同步语义需要通过重写 AQS 的 tryAcquireShared 方法和 tryReleaseShared 方法。读锁的获取实现方法为：
 
@@ -246,7 +248,7 @@ protected final int tryAcquireShared(int unused) {
 
 如果 CAS 失败或者已经获取读锁的线程再次获取读锁时，是靠 fullTryAcquireShared 方法实现的，这段代码就不展开说了，有兴趣可以看看。
 
-#### 读锁的释放
+### 读锁的释放
 
 读锁释放的实现主要通过方法 tryReleaseShared，源码如下，主要逻辑请看注释：
 
@@ -285,7 +287,7 @@ protected final boolean tryReleaseShared(int unused) {
 }
 ```
 
-### 锁降级
+## 锁降级
 
 读写锁支持锁降级，**遵循按照获取写锁，获取读锁再释放写锁的次序，写锁能够降级成为读锁**，不支持锁升级，关于锁降级，下面的示例代码摘自 ReentrantWriteReadLock 源码：
 
@@ -330,7 +332,7 @@ void processCachedData() {
 
 这个流程结合了读锁和写锁的优点，确保了数据的一致性和可用性，同时允许在可能的情况下进行并发读取。使用读写锁的代码可能看起来比使用简单的互斥锁更复杂，但它提供了更精细的并发控制，可能会提高多线程应用程序的性能。
 
-### ReentrantReadWriteLock的使用
+## ReentrantReadWriteLock的使用
 
 ReentrantReadWriteLock 的使用非常简单，下面的代码展示了如何使用 ReentrantReadWriteLock 来实现一个线程安全的计数器：
 
@@ -418,7 +420,7 @@ public class CachedData {
 
 这样的结构允许在确保数据一致性的同时，实现并发读取的优势，从而提高多线程环境下的性能。
 
-### 总结
+## 总结
 
 ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问，或者阻塞所有的读写线程。这种锁的设计可以提高性能，特别是在数据结构中，读操作的数量远远超过写操作的情况下。
 

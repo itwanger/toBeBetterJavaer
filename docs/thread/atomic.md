@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,atomic,原子类,AtomicInteger,AtomicIntegerArray,LongAdder,AtomicReference
 ---
 
-# 14.27 原子操作类 Atomic
+# 第二十七节：原子操作类 Atomic
 
 我们前面讲过 [CAS](https://javabetter.cn/thread/cas.html)，相信大家都还有印象，Java 中的原子操作类，如 AtomicInteger 和 AtomicLong，底层就是利用 CAS 来确保变量更新的原子性的。
 
@@ -46,7 +46,7 @@ public void write() {
 
 你看，这下是不是就舒服多了，不用加锁，也能保证线程安全。OK，接下来，我们来看看原子操作类都有哪些？
 
-### 原子操作的基本数据类型
+## 原子操作的基本数据类型
 
 基本类型的原子操作主要有这些：
 
@@ -132,7 +132,7 @@ public final boolean compareAndSet(boolean expect, boolean update) {
 
 该方法尝试将当前值从expect设置为update，但这种设置只会在当前值确实为expect时成功。方法返回true表示更新成功，否则返回false。
 
-### 原子操作的数组类型
+## 原子操作的数组类型
 
 如果需要原子更新数组里的某个元素，atomic 也提供了相应的类：
 
@@ -172,7 +172,7 @@ public class AtomicDemo {
 
 通过 getAndAdd 方法将位置为 1 的元素加 5，从结果可以看出索引为 1 的元素变成了 7，该方法返回的也是相加之前的数为 2。
 
-### 原子操作的引用类型
+## 原子操作的引用类型
 
 如果需要原子更新引用类型的话，atomic 也提供了相关的类：
 
@@ -225,7 +225,7 @@ User{userName='b', age=2}
 
 首先将对象 User1 用 AtomicReference 进行封装，然后调用 getAndSet 方法进行赋值，从结果可以看出，该方法会原子更新 user 对象，变为 `User{userName='b', age=2}`。
 
-### 原子更新字段类型
+## 原子更新字段类型
 
 如果需要更新对象的某个字段，atomic 同样也提供了相应的原子操作类：
 
@@ -280,7 +280,7 @@ public class AtomicDemo {
 
 从示例中可以看出，创建`AtomicIntegerFieldUpdater`是通过它提供的静态方法进行创建的，`getAndAdd`方法会将指定的字段加上输入的值，并返回相加之前的值。user 对象中 age 字段原值为 1，加 5 之后变成了 6。
 
-### 总结
+## 总结
 
 Java 中的 java.util.concurrent.atomic 包提供了一系列类，这些类支持原子操作（即线程安全而无需同步）在单个变量上，这大大减少了并发编程的复杂性。
 

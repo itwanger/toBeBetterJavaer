@@ -243,8 +243,8 @@
 
 ## Java并发编程
 
-- [二哥的并发编程进阶之路小册简介](docs/thread/readme.md)
-- [创建Java线程的3种方式](docs/thread/wangzhe-thread.md)
+- [并发编程小册简介](docs/thread/readme.md)
+- [Java多线程入门](docs/thread/wangzhe-thread.md)
 - [获取线程的执行结果](docs/thread/callable-future-futuretask.md)
 - [Java线程的6种状态及切换](docs/thread/thread-state-and-method.md)
 - [线程组和线程优先级](docs/thread/thread-group-and-thread-priority.md)
@@ -257,7 +257,7 @@
 - [JDK15 移除了偏向锁](docs/thread/pianxiangsuo.md)
 - [CAS详解](docs/thread/cas.md)
 - [AQS详解](docs/thread/aqs.md)
-- [JUC 包下的那些锁](docs/thread/lock.md)
+- [锁分类及 JUC 包下的那些锁](docs/thread/lock.md)
 - [重入锁ReentrantLock](docs/thread/reentrantLock.md)
 - [读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
 - [协作类Condition](docs/thread/condition.md)
@@ -530,13 +530,22 @@
 
 > 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《二哥的Java进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
 
-
 - [购买云服务器](docs/szjy/buy-cloud-server.md)
 - [安装宝塔面板](docs/szjy/install-baota-mianban.md)
 - [购买域名&域名解析](docs/szjy/buy-domain.md)
 - [备案域名](docs/szjy/record-domain.md)
 - [给域名配置HTTPS证书](docs/szjy/https-domain.md)
 - [使用docsify+Git+GitHub+码云+阿里云服务器搭建知识库网站](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
+
+本知识库使用 VuePress 搭建，并基于[VuePress Theme Hope](https://theme-hope.vuejs.press/zh/)主题，你可以把[仓库](https://github.com/itwanger/toBeBetterJavaer)拉到本地后直接通过 `npm run docs:dev` 跑起来。
+
+>前提是你已经安装好 node.js 和 npm 环境。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162211.png)
+
+点击链接就可以在本地看到运行后的效果了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162301.png)
 
 
 # 联系作者

@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ScheduledThreadPoolExecutor,定时任务
 ---
 
-# 14.26 定时任务 ScheduledThreadPoolExecutor
+# 第二十六节：定时任务 ScheduledThreadPoolExecutor
 
 定时任务 `ScheduledThreadPoolExecutor` 类有两个用途：指定时间延迟后执行任务；周期性重复执行任务。
 
@@ -27,7 +27,7 @@ JDK 1.5 之前，主要使用`Timer`类来完成定时任务，但是`Timer`有�
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824085609.png)
 
-### ScheduledThreadPoolExecutor 使用案例
+## ScheduledThreadPoolExecutor 使用案例
 
 假设我们有这样一个需求，指定时间给其他人发送消息。那么我们会将消息（包含发送时间）存储在数据库中，然后用一个定时任务，每隔 1 秒检查数据库在当前时间有没有需要发送的消息，那这个计划任务怎么完成呢？下面是一个 Demo:
 
@@ -83,7 +83,7 @@ public class ThreadPool {
 
 这就是 `ScheduledThreadPoolExecutor` 的一个简单运用，接下来我们来看看它的实现原理。
 
-### ScheduledThreadPoolExecutor 的类结构
+## ScheduledThreadPoolExecutor 的类结构
 
 ```java
 public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor
@@ -156,13 +156,13 @@ public interface ScheduledExecutorService extends ExecutorService {
 
 重点介绍一下后面两个方法：
 
-#### 01、scheduleAtFixedRate
+### 01、scheduleAtFixedRate
 
 scheduleAtFixedRate 方法在`initialDelay`时长后第一次执行任务，以后每隔`period`时长再次执行任务。注意，period 是从**任务开始执行算起**的。开始执行任务后，定时器每隔 period 时长**检查该任务是否完成**，如果完成则再次启动任务，否则等该任务结束后才启动任务。看下图：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824090447.png)
 
-#### 02、scheduleWithFixDelay
+### 02、scheduleWithFixDelay
 
 该方法在`initialDelay`时长后第一次执行任务，以后每当任务执行**完成后**，等待`delay`时长，再次执行任务。看下图。
 
@@ -170,9 +170,9 @@ scheduleAtFixedRate 方法在`initialDelay`时长后第一次执行任务，以�
 
 相信大家能体会出来其中的差异。
 
-### ScheduledThreadPoolExecutor 的主要方法
+## ScheduledThreadPoolExecutor 的主要方法
 
-#### schedule
+### schedule
 
 ```java
 // delay时长后执行任务command，该任务只执行一次
@@ -192,7 +192,7 @@ public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
 
-##### Delayed 接口
+#### Delayed 接口
 
 ```java
 // 继承Comparable接口，表示该类对象支持排序
@@ -204,7 +204,7 @@ public interface Delayed extends Comparable<Delayed> {
 
 `Delayed`接口很简单，继承了`Comparable`接口，表示对象是可以比较排序的。
 
-##### ScheduledFuture 接口
+#### ScheduledFuture 接口
 
 ```java
 // 仅仅继承了Delayed和Future接口，自己没有任何代码
@@ -212,7 +212,7 @@ public interface ScheduledFuture<V> extends Delayed, Future<V> {
 }
 ```
 
-##### RunnableScheduledFuture 接口
+#### RunnableScheduledFuture 接口
 
 ```java
 public interface RunnableScheduledFuture<V> extends RunnableFuture<V>, ScheduledFuture<V> {    
@@ -221,7 +221,7 @@ public interface RunnableScheduledFuture<V> extends RunnableFuture<V>, Scheduled
 }
 ```
 
-##### ScheduledFutureTask 类
+#### ScheduledFutureTask 类
 
 回到`schecule`方法中，它创建了一个`ScheduledFutureTask`对象，由上面的关系图可知，`ScheduledFutureTask`直接或者间接实现了很多接口，一起看看`ScheduledFutureTask`里面的实现方法吧。
 
@@ -325,7 +325,7 @@ public void run() {
 
 `runAndReset`方法是为任务多次执行而设计的。`runAndReset`方法执行完任务后不会设置任务的执行结果，也不会去更新任务的状态，以及维持任务的状态为初始状态（**NEW**状态），这也是该方法和 [FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) `run`方法的区别。
 
-#### scheduleAtFixedRate
+### scheduleAtFixedRate
 
 我们看一下代码：
 
@@ -356,7 +356,7 @@ public ScheduledFuture<?> scheduleAtFixedRate(Runnable command,
 
 `scheduleAtFixedRate`这个方法和`schedule`类似，不同点是`scheduleAtFixedRate`方法内部创建的是`ScheduledFutureTask`，带有初始延时和固定周期的任务。
 
-#### scheduleWithFixedDelay
+### scheduleWithFixedDelay
 
 `scheduleWithFixedDelay`也是通过`ScheduledFutureTask`体现的，唯一不同的地方在于创建的`ScheduledFutureTask`不同。
 
@@ -384,7 +384,7 @@ public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command,
 }
 ```
 
-#### delayedExecute
+### delayedExecute
 
 前面讲到的`schedule`、`scheduleAtFixedRate`和`scheduleWithFixedDelay`最后都调用了`delayedExecute`方法，该方法是定时任务执行的主要方法。 一起来看看源码：
 
@@ -424,7 +424,7 @@ void ensurePrestart() {
 
 对于`ScheduledThreadPoolExecutor`，`worker`添加到线程池后会在等待队列中等待获取任务，这点是和`ThreadPoolExecutor`是一致的。**但是 worker 是怎么从等待队列取定时任务的呢？**
 
-### DelayedWorkQueue
+## DelayedWorkQueue
 
 `ScheduledThreadPoolExecutor`使用了`DelayedWorkQueue` 来保存等待的任务。
 
@@ -474,7 +474,7 @@ DelayedWorkQueue 是一个优先级队列，它可以保证每次出队的任务
 
 接下来看看`DelayedWorkQueue`中几个比较重要的方法。
 
-#### take
+### take
 
 ```java
 public RunnableScheduledFuture take() throws InterruptedException {
@@ -542,7 +542,7 @@ public RunnableScheduledFuture take() throws InterruptedException {
 
 所以，为了不让多个线程频繁的做无用的定时等待，这里增加了 leader，如果 leader 不为空，则说明队列中第一个节点已经在等待出队，这时其它的线程会一直阻塞，减少了无用的阻塞（注意，在`finally`中调用了`signal()`来唤醒一个线程，而不是`signalAll()`）。
 
-#### offer
+### offer
 
 该方法往队列插入一个值，返回是否成功插入。
 
@@ -627,7 +627,7 @@ private void siftUp(int k, RunnableScheduledFuture<?> key) {
 可见，每次新增节点时，只是根据父节点来判断，而不会影响兄弟节点。
 
 
-### 总结
+## 总结
 
 `ScheduledThreadPoolExecutor`是一个定时任务的线程池，它的主要作用是周期性的执行任务。它的实现原理是通过`DelayedWorkQueue`来保存等待的任务，`DelayedWorkQueue`是一个无界优先队列，使用数组存储，底层使用堆结构来实现优先队列的功能。
 

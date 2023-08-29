@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,LockSupport
 ---
 
-# 14.18 线程阻塞唤醒类 LockSupport
+# 第十八节：线程阻塞唤醒类 LockSupport
 
 LockSupport 位于`java.util.concurrent.locks`包下，我们只讲在[讲 Lock 包的时候也讲过](https://javabetter.cn/thread/lock.html)，大家还有印象没？
 
@@ -20,7 +20,7 @@ LockSupprot 是线程的阻塞原语，用来阻塞线程和唤醒线程。每�
 
 LockSupport 中的方法不多，这里将这些方法做一个总结：
 
-### **阻塞线程**
+## **阻塞线程**
 
 1. `void park()`：阻塞当前线程，如果调用 unpark 方法或线程被中断，则该线程将变得可运行。请注意，park 不会抛出 InterruptedException，因此线程必须单独检查其中断状态。
 2. `void park(Object blocker)`：功能同方法 1，入参增加一个 Object 对象，用来记录导致线程阻塞的对象，方便问题排查。
@@ -29,7 +29,7 @@ LockSupport 中的方法不多，这里将这些方法做一个总结：
 5. `void parkUntil(long deadline)`：阻塞当前线程直到某个指定的截止时间（以毫秒为单位），或直到被 unpark 调用，或线程被中断。
 6. `void parkUntil(Object blocker, long deadline)`：功能同方法 5，入参增加一个 Object 对象，用来记录导致线程阻塞的对象，方便问题排查。
 
-### **唤醒线程**
+## **唤醒线程**
 
 `void unpark(Thread thread)`：唤醒一个由 park 方法阻塞的线程。如果该线程未被阻塞，那么下一次调用 park 时将立即返回。这允许“先发制人”式的唤醒机制。
 
@@ -130,7 +130,7 @@ Thread is parked now
 Thread is unparked now
 ```
 
-### 总结
+## 总结
 
 LockSupport 提供了一种更底层和灵活的线程调度方式。它不依赖于同步块或特定的锁对象。可以用于构建更复杂的同步结构，例如自定义锁或并发容器。LockSupport.park 与 LockSupport.unpark 的组合使得线程之间的精确控制变得更容易，而不需要复杂的同步逻辑和对象监视。
 

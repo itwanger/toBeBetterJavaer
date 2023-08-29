@@ -1,6 +1,6 @@
 ---
-title: JUC包下的那些锁，弥补了synchronized 的不足
-shortTitle: JUC 包下的那些锁
+title: 锁分类以及 JUC 包下的锁介绍，一网打尽
+shortTitle: 锁分类及 JUC 包下的那些锁
 description: Java的并发包（java.util.concurrent，简称JUC）提供了许多并发工具类，包括一些用于并发编程的锁。
 category:
   - Java核心
@@ -9,14 +9,14 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,并发编程,多线程,Thread,锁
+      content: Java,并发编程,多线程,Thread,锁,JUC,ReentrantLock,StampedLock,ReadWriteLock,Condition,锁分类
 ---
 
-# 14.14 JUC 包下的那些锁
+# 第十四节：锁分类及 JUC 包下的那些锁
 
 前面我们介绍了 Java 原生的锁——基于对象的锁，它一般是配合 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)来使用的。实际上，Java 在`java.util.concurrent.locks`包下，还为我们提供了几个关于锁的类和接口。它们有更强大的功能或更高的性能。
 
-### synchronized 的不足之处
+## synchronized 的不足之处
 
 我们先来看看`synchronized`有什么不足之处。
 
@@ -26,13 +26,13 @@ head:
 
 而这些都是 locks 包下的锁可以解决的。
 
-### 锁的几种分类
+## 锁的几种分类
 
 Java 提供了种类丰富的锁，每种锁因其特性的不同，在适当的场景下能够展现出非常高的效率。我们可以通过特性将锁进行分组归类。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-b2ded433-defd-4535-b767-fd2e5be0b5b9.png)
 
-#### 乐观锁 VS 悲观锁
+### 乐观锁 VS 悲观锁
 
 乐观锁与悲观锁是一种广义上的概念，体现了看待线程同步的不同角度。在 Java 和数据库中都有此概念对应的实际应用。
 
@@ -133,7 +133,7 @@ CAS 虽然很高效，但是它也存在三大问题，[我们前面也讲过](h
 2.  **循环时间长开销大**。CAS 操作如果长时间不成功，会导致其一直自旋，给 CPU 带来非常大的开销。
 3.  **只能保证一个共享变量的原子操作**。对一个共享变量执行操作时，CAS 能够保证原子操作，但是对多个共享变量操作时，CAS 是无法保证操作的原子性的。Java 从 1.5 开始 JDK 提供了 AtomicReference 类来保证引用对象之间的原子性，可以把多个变量放在一个对象里来进行 CAS 操作。
 
-#### 自旋锁 VS 适应性自旋锁
+### 自旋锁 VS 适应性自旋锁
 
 阻塞或唤醒一个 Java 线程需要操作系统切换 CPU 状态来完成，这种状态转换需要耗费处理器时间。如果同步代码块中的内容过于简单，状态转换消耗的时间有可能比用户代码执行的时间还要长。
 
@@ -153,11 +153,11 @@ CAS 虽然很高效，但是它也存在三大问题，[我们前面也讲过](h
 
 自适应意味着自旋的时间（次数）不再固定，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定。如果在同一个锁对象上，自旋刚刚成功获得过锁，并且持有锁的线程正在运行中，那么虚拟机就会认为这次自旋也是很有可能再次成功的，进而它将允许自旋等待更长的时间。如果对于某个锁，自旋很少成功获得过，那在以后尝试获取这个锁时将可能省略掉自旋过程，直接阻塞线程，避免浪费处理器资源。
 
-#### 无锁 VS 偏向锁 VS 轻量级锁 VS 重量级锁
+### 无锁 VS 偏向锁 VS 轻量级锁 VS 重量级锁
 
 这四种锁是指锁的状态，专门针对 synchronized 的。我们在[synchronized 锁的到底是什么](https://javabetter.cn/thread/synchronized.html)一文中已经详细地介绍过，这里就不再赘述了。
 
-#### 可重入锁和非可重入锁
+### 可重入锁和非可重入锁
 
 可重入锁又名递归锁，是指同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提：锁的是同一个对象或者 class），不会因为之前已经获取过还没释放而阻塞。Java 中[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)和[synchronized](https://javabetter.cn/thread/synchronized-1.html)都是可重入锁，可重入锁的一个优点就是可以一定程度避免死锁。下面用示例代码来进行分析：
 
@@ -200,7 +200,7 @@ public class Widget {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-d6e12a34-c889-45e1-83bf-a4d7e36eedde.png)
 
-#### 公平锁与非公平锁
+### 公平锁与非公平锁
 
 这里的“公平”，其实通俗意义来说就是“先来后到”，也就是 FIFO。如果对一个锁来说，先对锁获取请求的线程一定会先被满足，后对锁获取请求的线程后被满足，那这个锁就是公平的。反之，那就是不公平的。
 
@@ -208,7 +208,7 @@ public class Widget {
 
 ReentrantLock 支持非公平锁和公平锁两种。
 
-#### 读写锁和排它锁
+### 读写锁和排它锁
 
 我们前面讲到的 [synchronized](https://javabetter.cn/thread/synchronized.html) 用的锁和 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，其实都是“排它锁”。也就是说，这些锁在同一时刻只允许一个线程进行访问。
 
@@ -316,7 +316,7 @@ protected final int tryAcquireShared(int unused) {
 
 **综上，只有 synchronized 是远远不能满足多样化的业务对锁的要求的**。接下来我们介绍一下 JDK 中有关锁的一些接口和类。
 
-### JUC 包下的那些锁
+## JUC 包下的那些锁
 
 众所周知，JDK 中关于并发的类大多都在`java.util.concurrent`（以下简称 JUC）包下。
 
@@ -324,7 +324,7 @@ protected final int tryAcquireShared(int unused) {
 
 而 juc.locks 包看名字就知道，是提供了一些并发锁的工具类的。前面我们介绍的 [AQS（AbstractQueuedSynchronizer）](https://javabetter.cn/thread/aqs.html)就是在这个包下。
 
-#### 抽象类 AQS/AQLS/AOS
+### 抽象类 AQS/AQLS/AOS
 
 这三个抽象类有一定的关系，所以这里放到一起讲。
 
@@ -355,7 +355,7 @@ protected final Thread getExclusiveOwnerThread() {
 }
 ```
 
-#### 接口 Condition/Lock/ReadWriteLock
+### 接口 Condition/Lock/ReadWriteLock
 
 juc.locks 包下共有三个接口：`Condition`、`Lock`、`ReadWriteLock`。
 
@@ -401,7 +401,7 @@ Condition 和 Object 的 wait/notify 基本相似。其中，Condition 的 await
 | signal()                 | 唤醒一个等待在 Condition 上的线程，被唤醒的线程在方法返回前必须获得与 Condition 对象关联的锁                                                                                                                                             |
 | signalAll()              | 唤醒所有等待在 Condition 上的线程，能够从 await()等方法返回的线程必须先获得与 Condition 对象关联的锁                                                                                                                                     |
 
-#### ReentrantLock
+### ReentrantLock
 
 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 是 Lock 接口的默认实现，实现了锁的基本功能。
 
@@ -467,7 +467,7 @@ public class Counter {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806103823.png)
 
-#### ReentrantReadWriteLock
+### ReentrantReadWriteLock
 
 ReentrantReadWriteLock 是 ReadWriteLock 接口的默认实现。它与 ReentrantLock 的功能类似，同样是可重入的，支持非公平锁和公平锁。不同的是，它还支持”读写锁“。
 
@@ -606,7 +606,7 @@ public class SharedResource {
 
 ReentrantReadWriteLock 实现了读写锁，但它有一个小弊端，就是在“写”操作的时候，其它线程不能写也不能读。我们称这种现象为“写饥饿”，将在下文的 StampedLock 类继续讨论这个问题。
 
-#### StampedLock
+### StampedLock
 
 `StampedLock` 类是 Java 8 才发布的，也是 Doug Lea 大神所写，有人称它为锁的性能之王。
 
@@ -777,11 +777,11 @@ public class SharedResourceWithReentrantReadWriteLock {
 
 综上所述，StampedLock 提供了更高的性能和灵活性，但也带来了更复杂的使用方式。ReentrantReadWriteLock 则相对简单和直观，特别适用于没有高并发读的场景。
 
-### 其他工具类
+## 其他工具类
 
 locks 包下的锁接口和锁类介绍完了，我们这里再讲一些 JUC 包下的其他工具类，比如 Condition、Semaphore、CountDownLatch、CyclicBarrier 等。
 
-#### Semaphore
+### Semaphore
 
 Semaphore 是一个计数信号量，它的作用是限制可以访问某些资源（物理或逻辑的）的线程数目。Semaphore 的构造方法可以指定信号量的数目，也可以指定是否是公平的。
 
@@ -852,7 +852,7 @@ public class ResourcePool {
 资源释放了 Thread-9
 ```
 
-#### CountDownLatch
+### CountDownLatch
 
 CountDownLatch 是一个同步工具类，它允许一个或多个线程一直等待，直到其他线程的操作执行完后再执行。
 
@@ -918,7 +918,7 @@ public class InitializationDemo {
 所有服务都准备好了
 ```
 
-#### CyclicBarrier
+### CyclicBarrier
 
 CyclicBarrier 是一个同步工具类，它允许一组线程互相等待，直到到达某个公共屏障点（common barrier point）。
 
@@ -978,7 +978,7 @@ Thread 1 已越过屏障.
 Thread 3 已越过屏障.
 ```
 
-#### Exchanger
+### Exchanger
 
 Exchanger 是一个用于线程间协作的工具类。Exchanger 用于进行线程间的数据交换。它提供一个同步点，在这个同步点，两个线程可以交换彼此的数据。这两个线程通过 exchange 方法交换数据，如果第一个线程先执行 exchange 方法，它会一直等待第二个线程也执行 exchange 方法，当两个线程都到达同步点时，这两个线程就可以交换数据，将本线程生产出来的数据传递给对方。
 
@@ -1028,7 +1028,7 @@ Thread 2 交换到了 data1
 Thread 1 交换到了 data2
 ```
 
-#### Phaser
+### Phaser
 
 Phaser 是一个同步工具类，它可以让多个线程在某个时刻一起完成任务。
 
@@ -1083,7 +1083,7 @@ Thread 3 完成了第三步操作
 Thread 2 完成了第三步操作
 ```
 
-### 小结
+## 小结
 
 本文介绍了 JUC 包下的锁接口和锁类，包括 Lock、ReadWriteLock、Condition、ReentrantLock、ReentrantReadWriteLock、StampedLock 等。还介绍了 JUC 包下的其他工具类，包括 Semaphore、CountDownLatch、CyclicBarrier、Exchanger、Phaser 等。
 

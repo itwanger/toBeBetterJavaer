@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,偏向锁
 ---
 
-# 14.11 JDK15 移除了偏向锁
+# 第十一节：JDK15 移除了偏向锁
 
 在 JDK 1.5 之前，面对 Java 并发问题， [synchronized](https://javabetter.cn/thread/synchronized-1.html) 是一招鲜的解决方案：
 
@@ -36,6 +36,8 @@ public void test(){
 
 `monitorenter` 指令是在编译后插入到同步代码块的开始位置；`monitorexit`是插入到方法结束和异常的位置(实际隐藏了[try-finally](https://javabetter.cn/exception/gailan.html))，每个对象都有一个 [monitor](https://javabetter.cn/thread/synchronized.html) 与之关联，当一个线程执行到 monitorenter 指令时，就会获得对象所对应的 `monitor` 的所有权，也就获得到了对象的锁。
 
+## 对象监视器
+
 这里再简单说一下 monitor 的概念。
 
 在 Java 中，monitor 可以被看作是一种守门人或保安，它确保同一时刻只有一个线程可以访问受保护的代码段。你可以将它想象成一个房间的门，门的里面有一些重要的东西，而 monitor 就是那个保护门的保安。
@@ -51,11 +53,11 @@ public void test(){
 
 有点竞争就找内核的行为很不好，会引起很大的开销，所以大家都叫它**重量级锁**，自然效率也很低，这也就给很多小伙伴留下了一个根深蒂固的印象 —— **synchronized 关键字相比于其他同步机制性能不好**
 
-### 锁的演变
+## 锁的演变
 
 来到 JDK 1.6，要怎样优化才能让锁变的轻量级一些？ 答案就是：
 
-#### 轻量级锁：CPU CAS
+### 轻量级锁：CPU CAS
 
 如果 CPU 通过简单的 [CAS](https://javabetter.cn/thread/cas.html) 能处理加锁/释放锁，这样就不会有上下文的切换，较重量级锁而言自然就轻了很多。但是当竞争很激烈，CAS 尝试再多也是浪费 CPU，权衡一下，不如升级成重量级锁，阻塞线程排队竞争，也就有了轻量级锁升级成重量级锁的过程
 
@@ -63,7 +65,7 @@ public void test(){
 
 HotSpot 的作者经过研究发现，大多数情况下，锁不仅不存在多线程竞争，而且总是由**同一个线程**多次获得，同一个线程反复获取锁，如果还按照轻量级锁的方式获取锁（CAS），也是有一定代价的，如何让这个代价更小一些呢？
 
-#### 偏向锁
+### 偏向锁
 
 偏向锁实际就是锁对象潜意识「偏心」同一个线程来访问，让锁对象记住线程 ID，当线程再次获取锁时，亮出身份，如果是同一个 ID 直接获取锁就好了，是一种 `load-and-test` 的过程，相较 CAS 自然又轻量级了一些。
 
@@ -90,7 +92,7 @@ HotSpot 的作者经过研究发现，大多数情况下，锁不仅不存在多
 
 想理解这些问题，需要先知道 Java 对象头的结构。
 
-### 认识 Java 对象头
+## 认识 Java 对象头
 
 其实关于对象头、偏向锁、轻量级锁、重量级锁，我们[前面在讲 synchronized](https://javabetter.cn/thread/synchronized.html)的时候就讲过，这里再加深一下印象。
 
@@ -109,8 +111,6 @@ Java 对象头最多由三部分构成：
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-c2642c2a-d51a-4a4d-bc4c-7ffc3d819441.jpg)
 
 有了这些基本信息，接下来我们就只需要弄清楚，MarkWord 中的锁信息是怎么变化的。
-
-### 认识偏向锁
 
 单纯的看上图，还是显得十分抽象，作为程序员的我们最喜欢用代码说话，贴心的 openjdk 官网提供了可以查看对象内存布局的工具 [JOL (java object layout)](https://search.maven.org/artifact/org.openjdk.jol/jol-core/0.16/jar)
 
@@ -134,7 +134,7 @@ Java 对象头最多由三部分构成：
 
 来看测试代码
 
-#### 场景 1
+### 场景 1
 
 ```java
 public static void main(String[] args) {
@@ -164,7 +164,7 @@ public static void main(String[] args) {
 
 我们可以通过参数 `-XX:BiasedLockingStartupDelay=0` 将延迟改为 0，但是**不建议**这么做。我们可以通过一张图来理解一下目前的情况：
 
-#### 场景 2
+### 场景 2
 
 那我们就代码延迟 5 秒来创建对象，来看看偏向是否生效
 
@@ -193,7 +193,7 @@ public static void main(String[] args) throws InterruptedException {
 
 那问题又来了，现在锁对象有具体偏向的线程，如果新的线程过来执行同步块会偏向新的线程吗？
 
-#### 场景 3
+### 场景 3
 
 ```java
 public static void main(String[] args) throws InterruptedException {
@@ -242,7 +242,7 @@ public static void main(String[] args) throws InterruptedException {
 
 从这样的运行结果上来看，偏向锁像是“**一锤子买卖**”，只要偏向了某个线程，后续其他线程尝试获取锁，都会变为轻量级锁，这样的偏向非常有局限性。**事实上并不是这样**，如果你仔细看标记 2（已偏向状态），还有个 epoch 我们没有提及，这个值就是打破这种局限性的关键，在了解 epoch 之前，我们还要了解一个概念——偏向撤销。
 
-#### 偏向撤销
+### 偏向撤销
 
 在真正讲解偏向撤销之前，需要和大家明确一个概念——偏向锁撤销和偏向锁释放是两码事
 
@@ -269,7 +269,7 @@ public static void main(String[] args) throws InterruptedException {
 
 很显然，这两种场景肯定会导致偏向撤销的，一个偏向撤销的成本无所谓，大量偏向撤销的成本是不能忽视的。那怎么办？既不想禁用偏向锁，还不想忍受大量撤销偏向增加的成本，这种方案就是设计一个**有阶梯的底线**
 
-#### 批量重偏向（bulk rebias）
+### 批量重偏向（bulk rebias）
 
 这是第一种场景的快速解决方案，以 class 为单位，为每个 class 维护一个偏向锁撤销计数器，每一次该 class 的对象发生偏向撤销操作时，该计数器 `+1`，当这个值达到重偏向阈值（默认 20）时：
 
@@ -290,7 +290,7 @@ JVM 就认为该 class 的偏向锁有问题，因此会进行批量重偏向, �
 
 **批量重偏向是第一阶梯底线，还有第二阶梯底线**
 
-#### 批量撤销（bulk revoke）
+### 批量撤销（bulk revoke）
 
 当达到重偏向阈值后，假设该 class 计数器继续增长，当其达到批量撤销的阈值后（默认 40）时，
 
@@ -317,13 +317,13 @@ BiasedLockingDecayTime = 25000
 
 到此，你应该对偏向锁有个基本的认识了。
 
-### HashCode 哪去了
+## HashCode 哪去了
 
 上面场景一，无锁状态，对象头中没有 hashcode；偏向锁状态，对象头还是没有 hashcode，那我们的 hashcode 哪去了？
 
 首先要知道，hashcode 不是创建对象就帮我们写到对象头中的，而是要经过**第一次**调用 `Object::hashCode()` 或者`System::identityHashCode(Object)` 才会存储在对象头中的。第一次**生成的 hashcode 后，该值应该是一直保持不变的**，但偏向锁又是来回更改锁对象的 markword，必定会对 hashcode 的生成有影响，那怎么办呢？，我们来用代码验证：
 
-#### 场景一
+### 场景一
 
 ```java
 public static void main(String[] args) throws InterruptedException {
@@ -351,7 +351,7 @@ public static void main(String[] args) throws InterruptedException {
 
 结论就是：即便初始化为可偏向状态的对象，一旦调用 `Object::hashCode()` 或者`System::identityHashCode(Object)` ，进入同步块就会直接使用轻量级锁
 
-#### 场景二
+### 场景二
 
 假如已偏向某一个线程，然后生成 hashcode，然后同一个线程又进入同步块，会发生什么呢？来看代码：
 
@@ -384,7 +384,7 @@ public static void main(String[] args) throws InterruptedException {
 
 结论就是：同场景一，会直接使用轻量级锁
 
-#### 场景三
+### 场景三
 
 那假如对象处于已偏向状态，在同步块中调用了那两个方法会发生什么呢？继续代码验证：
 
@@ -417,7 +417,7 @@ public static void main(String[] args) throws InterruptedException {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-3ec9d61b-891e-4f4a-bea1-e95e41816e5a.jpg)
 
-#### 调用 Object.wait 方法会发生什么？
+### 调用 Object.wait 方法会发生什么？
 
 Object 除了提供了上述 hashcode 方法，还有 `wait()` 方法，这也是我们在同步块中常用的，那这会对锁产生哪些影响呢？来看代码：
 
@@ -454,7 +454,7 @@ public static void main(String[] args) throws InterruptedException {
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/zhihu-nangdpxszybjavaycl-27f4d97f-526b-4949-9c28-e766af2fc7d3.jpg)
 
 
-### 再见偏向锁
+## 再见偏向锁
 
 看到这个副标题你可能有些慌，为啥要告别偏向锁，因为维护成本有些高了，来看 [Open JDK 官方声明，JEP 374: Deprecate and Disable Biased Locking](https://openjdk.java.net/jeps/374)
 
@@ -478,7 +478,7 @@ public static void main(String[] args) throws InterruptedException {
 
 偏向锁给 JVM 增加了巨大的复杂性，只有少数非常有经验的程序员才能理解整个过程，维护成本很高，大大阻碍了开发新特性的进程（换个角度理解，你掌握了，是不是就是那少数有经验的程序员了呢？哈哈）
 
-### 总结
+## 总结
 
 偏向锁可能就这样的走完了它的一生，有些小伙伴可能直接发问，都被 deprecated 了，JDK 都 17 了，还讲这么多干什么？
 
