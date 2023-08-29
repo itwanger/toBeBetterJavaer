@@ -1,6 +1,6 @@
 ---
 title: 从根上理解生产者-消费者模式
-shortTitle: 从根上理解生产者-消费者模式
+shortTitle: 生产者-消费者模式
 description: 生产者-消费者模式是计算机科学中一种常见的并发设计模式，常用于在生产者和消费者之间传递数据。在这种模式中，两个（或多个）进程共享一个固定大小的缓冲区，作为中间存储。生产者的任务是生成数据、将其放入缓冲区，而消费者的任务是从缓冲区中移除数据并消费它。
 category:
   - Java核心
@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,生产者-消费者,生产者消费者,生产者,消费者
 ---
 
-# 14.31 生产者-消费者模式
+# 第三十一节：生产者-消费者模式
 
 生产者-消费者模式是一个十分经典的多线程并发协作模式，弄懂生产者-消费者问题能够让我们对并发编程的理解加深。
 
@@ -31,7 +31,7 @@ head:
 2. 使用 Lock [Condition](https://javabetter.cn/thread/condition.html) 的 await/signal 消息通知机制；
 3. 使用 [BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 实现。
 
-### wait/notify 的消息通知机制
+## wait/notify 的消息通知机制
 
 可以通过 Object 对象的 wait 方法和 notify 方法或 notifyAll 方法来实现线程间的通信。
 
@@ -41,13 +41,13 @@ head:
 
 这些知识我们在讲 [Condition](https://javabetter.cn/thread/condition.html) 的时候其实讲到过，相信大家都还有印象。
 
-01、**wait**
+01、wait
 
 该方法用来将当前线程置入休眠状态，直到接到通知或被中断为止。
 
 在调用 wait 之前，线程必须获得该对象的监视器锁，即只能在**同步方法或同步块**中调用 wait 方法。调用 wait 方法之后，当前线程会释放锁。如果调用 wait 方法时，线程并未获取到锁的话，则会**抛出 IllegalMonitorStateException**异常。如果再次获取到锁的话，当前线程才能从 wait 方法处成功返回。
 
-02、**notify**
+02、notify
 
 该方法也需要在同步方法或同步块中调用，即在调用前，线程也必须获得该对象的对象级别锁，如果调用 notify 时没有持有适当的锁，也会抛出 **IllegalMonitorStateException**。
 
@@ -55,13 +55,13 @@ head:
 
 调用 notify 后，当前线程不会马上释放该对象锁，要等到程序退出同步块后，当前线程才会释放锁。
 
-03、**notifyAll**
+03、notifyAll
 
 该方法与 notify 方法的工作方式相同，重要的一点差异是：notifyAll 会使所有原来在该对象上 wait 线程统统退出 WAITTING 状态，使得他们全部从等待队列中移入到同步队列中去，等待下一次获取到对象监视器锁的机会。
 
 不过，wait/notify 消息通知存在这样一些问题。
 
-#### **1.notify 早期通知**
+### 1.notify 早期通知
 
 notify 通知的遗漏，即 threadA 还没开始 wait，threadB 已经 notify 了，这样，threadB 通知是没有任何响应的，当 threadB 退出 [synchronized 代码块](https://javabetter.cn/thread/synchronized-1.html)后，threadA 再开始 wait，便会一直阻塞等待，直到被别的线程打断。
 
@@ -199,7 +199,7 @@ public class EarlyNotify {
 
 **总结：在使用线程的等待/通知机制时，一般都要配合一个 boolean 变量值，在 notify 之前改变该 boolean 变量的值，让 wait 返回后能够退出 while 循环，或在通知被遗漏后不会被阻塞在 wait 方法处。**
 
-#### **2.等待 wait 的条件发生变化**
+### 2.等待 wait 的条件发生变化
 
 如果线程在等待时接收到了通知，但是之后等待的条件发生了变化，并没有再次对等待条件进行判断，也会导致程序出现错误。
 
@@ -363,7 +363,7 @@ public class ConditionChange {
 
 总结：在使用线程的等待/通知机制时，一般都要在 while 循环中调用 wait 方法，因此需要配合一个 boolean 变量，满足 while 循环的条件时进入 while 循环，执行 wait 方法，不满足 while 循环条件时，跳出循环，执行后面的代码。
 
-#### **3. “假死”状态**
+### 3. “假死”状态
 
 现象：如果是多消费者和多生产者情况，使用 notify 方法可能会出现“假死”的情况，即所有的线程都处于等待状态，无法被唤醒。
 
@@ -389,7 +389,7 @@ synchronized (sharedObject) {
 }
 ```
 
-#### wait/notifyAll 实现生产者-消费者
+### wait/notifyAll 实现生产者-消费者
 
 利用 wait/notifyAll 实现生产者和消费者代码如下：
 
@@ -510,7 +510,7 @@ public class ProductorConsumer {
 消费者pool-1-thread-10  退出wait
 ```
 
-### 使用 Condition 的 await/signalAll 实现生产者-消费者
+## 使用 Condition 的 await/signalAll 实现生产者-消费者
 
 参照 Object 的 wait 和 notify/notifyAll 方法，Condition 也提供了同样的方法，即 await 方法和 signal/signalAll 方法。这部分知识我们前面在讲 [Condition](https://javabetter.cn/thread/condition.html) 的时候也讲到过，相信大家都还有印象。
 
@@ -643,7 +643,7 @@ public class ProductorConsumer {
 消费者pool-1-thread-9  消费数据：-892558288
 ```
 
-### 使用 BlockingQueue 实现生产者-消费者
+## 使用 BlockingQueue 实现生产者-消费者
 
 在讲 [BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 的时候，我们就讲过，BlockingQueue 非常适合用来实现生产者-消费者模型。
 
@@ -760,23 +760,23 @@ public class ProductorConsumer {
 
 可以看出，使用 BlockingQueue 来实现生产者-消费者很简洁，这正是 BlockingQueue 的优势所在。
 
-### 生产者-消费者模式的应用场景
+## 生产者-消费者模式的应用场景
 
 生产者-消费者模式一般用于将生产数据的一方和消费数据的一方分割开来，将生产数据与消费数据的过程解耦开来。
 
-#### 01、Excutor 任务执行框架：
+### 01、Excutor 任务执行框架：
 
 通过将任务的提交和任务的执行解耦开来，提交任务的操作相当于生产者，执行任务的操作相当于消费者。
 
 例如使用 Excutor 构建 Web 服务器，用于处理线程的请求：生产者将任务提交给线程池，线程池创建线程处理任务，如果需要运行的任务数大于线程池的基本线程数，那么就把任务扔到阻塞队列（通过线程池+阻塞队列的方式比只使用一个阻塞队列的效率高很多，因为消费者能够处理就直接处理掉了，不用每个消费者都要先从阻塞队列中取出任务再执行）
 
-#### 02、消息中间件 MQ:
+### 02、消息中间件 MQ:
 
 双十一的时候，会产生大量的订单，那么不可能同时处理那么多的订单，需要将订单放入一个队列里面，然后由专门的线程处理订单。
 
 这里用户下单就是生产者，处理订单的线程就是消费者；再比如 12306 的抢票功能，先由一个容器存储用户提交的订单，然后再由专门处理订单的线程慢慢处理，这样可以在短时间内支持高并发服务。
 
-#### 03、任务的处理时间比较长的情况下：
+### 03、任务的处理时间比较长的情况下：
 
 比如上传附件并处理，那么这个时候可以将用户上传和处理附件分成两个过程，用一个队列暂时存储用户上传的附件，然后立刻返回用户上传成功，然后有专门的线程处理队列中的附件。
 
@@ -788,7 +788,7 @@ public class ProductorConsumer {
 - 异步：对于生产者和消费者来说能够各司其职，生产者只需要关心缓冲区是否还有数据，不需要等待消费者处理完；对于消费者来说，也只需要关注缓冲区的内容，不需要关注生产者，通过异步的方式支持高并发，将一个耗时的流程拆成生产和消费两个阶段，这样生产者因为执行 put 的时间比较短，可以支持高并发
 - 支持分布式：生产者和消费者通过队列进行通讯，所以不需要运行在同一台机器上，在分布式环境中可以通过 redis 的 list 作为队列，而消费者只需要轮询队列中是否有数据。同时还能支持集群的伸缩性，当某台机器宕掉的时候，不会导致整个集群宕掉
 
-### 总结
+## 总结
 
 本文主要讲解了线程的等待/通知机制，包括 wait/notify/notifyAll 方法的使用，以及使用 wait/notifyAll 实现生产者-消费者模型的示例代码。
 

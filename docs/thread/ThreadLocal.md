@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ThreadLocal
 ---
 
-# 14.24 本地变量 ThreadLocal
+# 第二十四节：本地变量 ThreadLocal
 
 ThreadLocal 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。ThreadLocal 可以用于解决多线程中共享对象的线程安全问题。
 
@@ -26,9 +26,9 @@ ThreadLocal 是 Java 中提供的一种用于实现线程局部变量的工具�
 
 顾名思义，**ThreadLocal 就是线程的“本地变量”，即每个线程都拥有该变量的一个副本，达到人手一份的目的，这样就可以避免共享资源的竞争**。
 
-### ThreadLocal 的源码分析
+## ThreadLocal 的源码分析
 
-#### set 方法
+### set 方法
 
 **set 方法用于设置当前线程中 ThreadLocal 的变量值**，该方法的源码如下：
 
@@ -83,7 +83,7 @@ void createMap(Thread t, T firstValue) {
 
 set 方法的重要性在于它确保了每个线程都有自己的变量副本。由于这些变量是存储在与线程关联的映射表中的，所以不同的线程之间的这些变量互不影响。
 
-#### get 方法
+### get 方法
 
 
 **get 方法用于获取当前线程中 ThreadLocal 的变量值**，同样的还是来看源码：
@@ -151,7 +151,7 @@ private static ThreadLocal<Integer> myThreadLocal = new ThreadLocal<Integer>() {
 
 整个 setInitialValue 方法的目的是确保每个线程在第一次尝试访问其 ThreadLocal 变量时都有一个合适的值。这种“懒惰”初始化的方法确保了仅在实际需要特定于线程的值时才创建这些值。
 
-#### remove 方法
+### remove 方法
 
 ```java
 public void remove() {
@@ -188,7 +188,7 @@ Updated Value
 Initial Value
 ```
 
-### ThreadLocalMap 的源码分析
+## ThreadLocalMap 的源码分析
 
 ThreadLocalMap 是 ThreadLocal 类的静态内部类，它是一个定制的哈希表，专门用于保存每个线程中的线程局部变量。
 
@@ -240,7 +240,7 @@ Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段�
 
 与 [ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)、[HashMap](https://javabetter.cn/collection/hashmap.html) 等容器一样，ThreadLocalMap 也是通过哈希表实现的。
 
-#### 哈希表
+### 哈希表
 
 哈希表是基于数组的，每个数组元素被称为一个“桶”（Bucket），桶中存储了键值对（Key-Value Pair），键是通过哈希函数生成的，理想的哈希函数可以均匀分布键，从而最大限度地减少冲突。
 
@@ -248,13 +248,13 @@ Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段�
 
 理想的哈希函数可以均匀分布键，从而最大限度地减少冲突。当两个或多个键的哈希值相同（即映射到同一个桶）时，称之为哈希冲突。常见的解决策略有拉链法和开放地址法。
 
-##### 拉链法
+#### 拉链法
 
 在讲 [HashMap](https://javabetter.cn/collection/hashmap.html) 的时候，我们详细讲过拉链法，相信大家都还有印象，我们这里简单回顾一下：当某项关键字通过哈希后落到哈希表中的某个位置，把该条数据添加到链表中，其他同样映射到这个位置的数据项也只需要添加到链表中。下面是示意图：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/ThreadLocal-20230822202707.png)
 
-##### 开放地址法
+#### 开放地址法
 
 开放地址法中，若数据不能直接存放在哈希函数计算出来的数组下标时，就需要寻找其他位置来存放。在开放地址法中有三种方式来寻找其他的位置，分别是「线性探测」、「二次探测」、「再哈希法」。
 
@@ -297,7 +297,7 @@ Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段�
 
 ThreadLocalMap 中的哈希值分散的比较均匀，很少会出现冲突。并且 ThreadLocalMap 经常需要清除无用的对象，冲突的概率就更小了。
 
-#### ThreadLocalMap 的 set 方法
+### ThreadLocalMap 的 set 方法
 
 好，在了解哈希表的相关知识后，我们再来看一下 set 方法。set 方法的源码如下：
 
@@ -343,7 +343,7 @@ private void set(ThreadLocal<?> key, Object value) {
 
 set 方法的关键部分**请看注释**，这里有几点需要注意：
 
-##### 01、ThreadLocal 的 hashcode
+#### 01、ThreadLocal 的 hashcode
 
 ```java
 private final int ThreadLocalHashCode = nextHashCode();
@@ -366,17 +366,17 @@ ThreadLocal 的 hashCode 是通过 `nextHashCode()` 方法获取的，该方法�
 - 递增分布：在 ThreadLocal 中，这个数字用于在哈希表中分散不同线程的哈希码，从而减少冲突。每当创建新的 ThreadLocal 对象时，都会将此值添加到上一个 ThreadLocal 的哈希码中。这个递增的步长有助于在哈希表中均匀地分配 ThreadLocal 对象。
 - 性能优化：通过使用这个特定的值，算法能够确保哈希码的均匀分布，从而减少哈希冲突的可能性。这对于哈希表的性能至关重要，因为冲突可能会降低查找的效率。
 
-##### 02、怎样确定新值插入的位置？
+#### 02、怎样确定新值插入的位置？
 
 通过这行代码：`key.ThreadLocalHashCode & (len-1)`。
 
 同 [HashMap](https://javabetter.cn/collection/hashmap.html) 一样，通过当前 key 的 hashcode 与哈希表大小相与。原理我们在 HashMap 的时候已经讲过了，不记得的小伙伴可以回去看一遍。
 
-##### 03、怎样解决 hash 冲突？
+#### 03、怎样解决 hash 冲突？
 
 通过 `nextIndex(i, len)`，该方法中的`((i + 1 < len) ? i + 1 : 0);` 能不断往后线性探测，当到哈希表末尾的时候再从 0 开始，成环形。
 
-##### 04、怎样解决“脏”Entry？
+#### 04、怎样解决“脏”Entry？
 
 我们知道，使用 ThreadLocal 有可能存在内存泄漏的问题，针对这种 key 为 null 的 Entry，我们称之为“stale entry”，直译为不新鲜的 entry，我把它理解为“脏 entry”。
 
@@ -390,7 +390,7 @@ ThreadLocal 的 hashCode 是通过 `nextHashCode()` 方法获取的，该方法�
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/ThreadLocal-20230822212010.png)
 
-##### 05、如何进行扩容？
+#### 05、如何进行扩容？
 
 和 [HashMap](https://javabetter.cn/collection/hashmap.html) 一样，ThreadLocalMap 也有扩容机制，那么它的 threshold 又是怎样确定的呢？
 
@@ -463,7 +463,7 @@ private void resize() {
 
 方法逻辑**请看注释**，新建的数组为原来数组长度的两倍，然后遍历旧数组中的 entry 并将其插入到新的数组中。注意，这段代码考虑得非常周全，**在扩容的过程中，针对脏 entry 会把 value 设为 null，以便被垃圾回收，解决隐藏的内存泄漏问题**。
 
-#### getEntry 方法
+### getEntry 方法
 
 getEntry 方法的源码如下：
 
@@ -510,7 +510,7 @@ private Entry getEntryAfterMiss(ThreadLocal<?> key, int i, Entry e) {
 
 getEntryAfterMiss 方法用于在发生哈希冲突的情况下继续在ThreadLocalMap中查找条目，通过开放寻址的策略，在哈希表中的其他位置查找，并适当地处理“脏”条目。
 
-#### remove 方法
+### remove 方法
 
 直接来看源码：
 
@@ -549,7 +549,7 @@ private void remove(ThreadLocal<?> key) {
 
 05、结束删除操作：一旦找到并删除了匹配的条目，方法返回。如果遍历整个哈希表都没有找到匹配的键，则该方法不执行任何操作并正常返回。
 
-### ThreadLocal 的使用场景
+## ThreadLocal 的使用场景
 
 ThreadLocal 的使用场景非常多，比如说：
 
@@ -613,7 +613,7 @@ public class UserAuthenticationService {
 
 这个示例定义了一个UserAuthenticationService类，该类使用ThreadLocal来保存与当前线程关联的用户登录信息。假设用户已经通过身份验证，将用户对象存储在currentUser ThreadLocal变量中。getCurrentUser方法用于检索与当前线程关联的用户信息。由于使用了ThreadLocal，因此不同的线程可以同时登录不同的用户，而不会相互干扰。
 
-### 总结
+## 总结
 
 ThreadLocal 是一个非常有用的工具类，它可以用于保存线程中的变量，这样在同一个线程中的任何地方都可以获取到线程中的变量。但是，ThreadLocal 也是一个非常容易被误用的工具类，如果没有使用好，就可能会造成内存泄漏的问题。
 

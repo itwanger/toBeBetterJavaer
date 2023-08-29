@@ -12,7 +12,9 @@ head:
       content: Java,并发编程,多线程,Thread,cas
 ---
 
-# 14.12 乐观锁 CAS
+# 第十二节：乐观锁 CAS
+
+CAS（Compare-and-Swap）是一种被广泛应用在并发控制中的算法，它是一种乐观锁的实现方式。CAS全称为“比较并交换”，是一种无锁的原子操作。
 
 在并发编程中，我们都知道`i++`操作是非线程安全的，这是因为 `i++`操作不是原子操作，我们之前在讲[多线程带来了什么问题](https://javabetter.cn/thread/thread-bring-some-problem.html)中有讲到，大家应该还记得吧？
 
@@ -30,7 +32,7 @@ head:
 
 `CAS` 是乐观锁，线程执行的时候不会加锁，它会假设此时没有冲突，然后完成某项操作；如果因为冲突失败了就重试，直到成功为止。
 
-### 乐观锁与悲观锁
+## 乐观锁与悲观锁
 
 锁可以从不同的角度来分类。比如我们在前面讲[synchronized 到底锁的是什么](https://javabetter.cn/thread/synchronized.html)的时候，提到过偏向锁、轻量级锁、重量级锁，对吧？乐观锁和悲观锁也是一种分类方式。
 
@@ -47,7 +49,7 @@ head:
 - 乐观锁多用于“读多写少“的环境，避免频繁加锁影响性能；
 - 悲观锁多用于”写多读少“的环境，避免频繁失败和重试影响性能。
 
-### 什么是 CAS
+## 什么是 CAS
 
 CAS 的全称是：比较并交换（Compare And Swap）。在 CAS 中，有这样三个值：
 
@@ -76,7 +78,7 @@ CAS 的全称是：比较并交换（Compare And Swap）。在 CAS 中，有这�
 
 **当多个线程同时使用 CAS 操作一个变量时，只有一个会胜出，并成功更新，其余均会失败，但失败的线程并不会被挂起，仅是被告知失败，并且允许再次尝试，当然也允许失败的线程放弃操作。**
 
-### Java 实现 CAS 的原理
+## Java 实现 CAS 的原理
 
 前面提到，CAS 是一种原子操作。那么 Java 是怎样来使用 CAS 的呢？我们知道，在 Java 中，如果一个[方法是 native 的](https://javabetter.cn/oo/native-method.html)，那 Java 就不负责具体实现它，而是交给底层的 JVM 使用 C 语言 或者 C++ 去实现。
 
@@ -94,7 +96,7 @@ Linux 的 X86 下主要是通过`cmpxchgl`这个指令在 CPU 上完成 CAS 操�
 
 除了上面提到的方法，Unsafe 里面还有其它的方法。比如支持线程挂起和恢复的`park`和`unpark` 方法， [LockSupport 类](https://javabetter.cn/thread/LockSupport.html)底层就调用了这两个方法。还有支持[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)操作的`allocateInstance()`方法。
 
-### 具体如何实现的呢？
+## 具体如何实现的呢？
 
 上面介绍了 Unsafe 类的几个支持 CAS 的方法。那 Java 具体是如何通过这几个方法来实现原子操作的呢？
 
@@ -181,11 +183,11 @@ public final int getAndAddInt(Object o, long offset, int delta) {
 
 这也好理解。前面我们说了，CAS 如果旧值 V 不等于预期值 E，就会更新失败。说明旧的值发生了变化。那我们当然需要返回的是被其他线程改变之后的旧值了，因此放在了 do 循环体内。
 
-### CAS 的三大问题
+## CAS 的三大问题
 
 尽管 CAS 提供了一种有效的同步手段，但也存在一些问题，主要有以下三个：
 
-#### ABA 问题
+### ABA 问题
 
 所谓的 ABA 问题，就是一个值原来是 A，变成了 B，又变回了 A。这个时候使用 CAS 是检查不出变化的，但实际上却被更新了两次。
 
@@ -225,7 +227,7 @@ public boolean compareAndSet(V   expectedReference,
 - 如果上述检查通过，也就是说当前的引用和标记与预期的相同，那么接下来就会检查新的引用和标记是否也与当前的相同。如果相同，那么实际上没有必要做任何改变，这个方法就会返回 true。
 - 如果新的引用或者标记与当前的不同，那么就会调用 casPair 方法来尝试更新 pair 对象。casPair 方法会尝试用 newReference 和 newStamp 创建的新的 Pair 对象替换当前的 pair 对象。如果替换成功，casPair 方法会返回 true；如果替换失败（也就是说在尝试替换的过程中，pair 对象已经被其他线程改变了），casPair 方法会返回 false。
 
-#### 循环时间长、开销大
+### 循环时间长、开销大
 
 CAS 多与自旋结合。如果自旋 CAS 长时间不成功，会占用大量的 CPU 资源。
 
@@ -240,7 +242,7 @@ pause 指令能让自旋失败时 cpu 睡眠一小段时间再继续自旋，从
 1. 使用`AtomicReference`类保证对象之间的原子性，把多个变量放到一个对象里面进行 CAS 操作；
 2. 使用锁。锁内的临界区代码可以保证只有当前线程能操作。
 
-### 总结
+## 总结
 
 CAS（Compare-and-Swap）是一种被广泛应用在并发控制中的算法，它是一种乐观锁的实现方式。CAS 全称为“比较并交换”，是一种无锁的原子操作。
 

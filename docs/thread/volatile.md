@@ -12,22 +12,22 @@ head:
       content: Java,并发编程,多线程,Thread,volatile
 ---
 
-# 14.8 volatile关键字
-
->今天这篇换个写作风格。
+# 第八节：volatile关键字
 
 “三妹啊，这节我们来学习 Java 中的 volatile 关键字吧，以及容易遇到的坑。”看着三妹好学的样子，我倍感欣慰。
 
 “好呀，哥。”三妹愉快的答应了。
 
-### volatile 变量的特性
+>这是我们在《[二哥的 Java 进阶之路基础篇](https://javabetter.cn/overview/)》中常见的对话模式。
+
+## volatile 变量的特性
 
 volatile 可以保证可见性，但不保证原子性：
 
 - 当写一个 volatile 变量时，[JMM](https://javabetter.cn/thread/jmm.html) 会把该线程本地内存中的变量强制刷新到主内存中去；
 - 这个写操作会导致其他线程中的 volatile 变量缓存无效。
 
-### volatile 会禁止指令重排
+## volatile 会禁止指令重排
 
 我们回顾一下，重排序需要遵守的规则：
 
@@ -99,9 +99,7 @@ class ReorderExample {
 
 这里 A 线程写一个 volatile 变量后，B 线程读同一个 volatile 变量。A 线程在写 volatile 变量之前所有可见的共享变量，在 B 线程读同一个 volatile 变量后，将立即变得对 B 线程可见。
 
-### volatile 不适用的场景
-
-#### 复合操作
+## volatile 不适用的场景
 
 下面是变量自加的示例：
 
@@ -140,9 +138,9 @@ inc output:8182
 
 “哦，你这样说我就理解了。”三妹点点头。
 
-#### 解决方法
+怎么解决呢？
 
-采用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)，把 `inc++` 拎出来单独加 synchronized 关键字：
+01、采用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)，把 `inc++` 拎出来单独加 synchronized 关键字：
 
 ```java
 public class volatileTest1 {
@@ -167,7 +165,7 @@ public class volatileTest1 {
 }
 ```
 
-采用 [Lock](https://javabetter.cn/thread/suo.html)，通过重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 对 `inc++` 加锁：
+02、采用 [Lock](https://javabetter.cn/thread/suo.html)，通过重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 对 `inc++` 加锁：
 
 ```java
 public class volatileTest2 {
@@ -195,7 +193,7 @@ public class volatileTest2 {
 }
 ```
 
-采用原子类 [AtomicInteger](https://javabetter.cn/thread/atomic.html) 来实现：
+03、采用原子类 [AtomicInteger](https://javabetter.cn/thread/atomic.html) 来实现：
 
 ```java
 public class volatileTest3 {
@@ -228,7 +226,7 @@ add lock, inc output:1000
 add AtomicInteger, inc output:1000
 ```
 
-### 单例模式的双重锁与volatile
+## 单例模式的双重锁
 
 这是一个使用"双重检查锁定"（double-checked locking）实现的单例模式（Singleton Pattern）的例子。
 
@@ -284,7 +282,7 @@ c. instance = memory   //设置instance指向刚分配的地址
 
 当线程 A 在执行第 5 行代码时，B 线程进来执行到第 2 行代码。假设此时 A 执行的过程中发生了指令重排序，即先执行了 a 和 c，没有执行 b。那么由于 A 线程执行了 c 导致 instance 指向了一段地址，所以 B 线程判断 instance 不为 null，会直接跳到第 6 行并返回一个未初始化的对象。
 
-### 小结
+## 小结
 
 “好了，三妹，我们来总结一下。”我舒了一口气说。
 

@@ -12,13 +12,13 @@ head:
       content: Java,并发编程,多线程,Thread,Unsafe
 ---
 
-# 14.28 魔法类 Unsafe
+# 第二十八节：魔法类 Unsafe
 
 前面我们在讲 [CAS](https://javabetter.cn/thread/cas.html) 和[原子操作 atomic 类](https://javabetter.cn/thread/atomic.html)的时候，都讲到了 Unsafe。
 
 Unsafe 是 Java 中一个非常特殊的类，它为 Java 提供了一种底层、"不安全"的机制来直接访问和操作内存、线程和对象。正如其名字所暗示的，Unsafe 提供了许多不安全的操作，因此它的使用应该非常小心，并限于那些确实需要使用这些底层操作的场景。
 
-### Unsafe 基础
+## Unsafe 基础
 
 首先我们来尝试获取一个 Unsafe 实例，如果按照`new`的方式去创建，不好意思，编译器会直接报错：
 
@@ -73,7 +73,7 @@ Exception in thread "main" java.lang.SecurityException: Unsafe
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/0eef691e60c3e4f5fa8f751356a0626c.png)
 
-#### 创建实例
+### 创建实例
 
 看到上面这些功能，你是不是已经有些迫不及待想要试一试了？
 
@@ -125,7 +125,7 @@ public native int getInt(Object o, long offset);
 
 但是细心的小伙伴可能发现了，这两个方法相对于我们平常写的普通方法，多了一个[native关键字](https://javabetter.cn/oo/native-method.html)修饰，并且没有具体的方法逻辑，那么它是怎么实现的呢？
 
-#### native 方法
+### native 方法
 
 native 方法我们讲过，这里简单回顾下。
 
@@ -143,11 +143,11 @@ Unsafe 类中的很多基础方法都属于`native`方法，那么为什么要�
 
 对于同一个`native`方法，不同的操作系统可能会通过不同的方式来实现，但是对于使用者来说是透明的，最终都会得到相同的结果。
 
-### Unsafe 应用
+## Unsafe 应用
 
 在对 Unsafe 的基础有了一定了解后，我们来看一下它的基本应用。
 
-#### 1、内存操作
+### 1、内存操作
 
 如果你写过`C`或者`C++`，一定对内存操作不会陌生，而 Java 是不允许直接对内存进行操作的，对象内存的分配和回收都是由`jvm`自己实现。但是在 Unsafe 中，提供的下列接口都可以直接进行内存操作：
 
@@ -212,7 +212,7 @@ addr: 2433733895744
 
 通用的操作内存方式是在`try`中执行对内存的操作，最后在`finally`块中进行内存的释放。
 
-#### 2、内存屏障
+### 2、内存屏障
 
 在介绍内存屏障前，需要知道编译器和 CPU 会在保证程序输出结果一致的情况下，会对代码进行重排序，从指令优化角度提升性能。
 
@@ -290,7 +290,7 @@ subThread change flag to:false
 
 上图中的流程就是子线程借助于主内存，将修改后的结果同步给了主线程，进而修改主线程中的工作空间，跳出循环。
 
-#### 3、对象操作
+### 3、对象操作
 
 **01**、对象成员属性的内存偏移量获取，以及字段属性值的修改，在上面的例子中我们已经测试过了。
 
@@ -372,7 +372,7 @@ public void objTest() throws Exception{
 
 在上面的例子中，如果将 A 类的构造方法改为`private`类型，将无法通过构造方法和反射创建对象，但`allocateInstance`方法仍然有效。
 
-#### 4、数组操作
+### 4、数组操作
 
 在 Unsafe 中，可以使用`arrayBaseOffset`方法获取数组中第一个元素的偏移地址，使用`arrayIndexScale`方法可以获取数组中元素间的偏移地址增量。使用下面的代码进行测试：
 
@@ -417,7 +417,7 @@ private void arrayTest() {
 
 第一个 String 的引用类型相对于对象的首地址的偏移量是就 16，之后每个元素在这个基础上加 4，正好对应了我们上面代码中的寻址过程，之后再使用前面说过的`getObject`方法，通过数组对象可以获得对象在堆中的首地址，再配合对象中变量的偏移量，就能获得每一个变量的引用。
 
-#### 5、CAS 操作
+### 5、CAS 操作
 
 在`juc`包的并发工具类中大量地使用了 CAS 操作，像在前面介绍的 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 和 [AQS](https://javabetter.cn/thread/aqs.html) 的文章中也多次提到了 CAS，其作为乐观锁在并发工具类中广泛发挥了作用。
 
@@ -474,7 +474,7 @@ private volatile int a;
 
 在`AtomicInteger`类的设计中，也是采用了将`compareAndSwapInt`的结果作为循环条件，直至修改成功才退出死循环的方式来实现的原子性的自增操作。
 
-#### 6、线程调度
+### 6、线程调度
 
 Unsafe 类中提供了`park`、`unpark`、`monitorEnter`、`monitorExit`、`tryMonitorEnter`方法进行线程调度，在前面介绍 [AQS](https://javabetter.cn/thread/aqs.html) 的文章中我们提到过使用 [LockSupport](https://javabetter.cn/thread/LockSupport.html) 挂起或唤醒指定线程。这个类我们前面也讲到了，这里再回顾一下。
 
@@ -543,7 +543,7 @@ park main mainThread
 
 `monitorEnter`方法用于获得对象锁，`monitorExit`用于释放对象锁，如果对一个没有被`monitorEnter`加锁的对象执行此方法，会抛出`IllegalMonitorStateException`异常。`tryMonitorEnter`方法尝试获取对象锁，如果成功则返回`true`，反之返回`false`。
 
-#### 7、Class 操作
+### 7、Class 操作
 
 Unsafe 对`Class`的相关操作主要包括类加载和静态变量的操作方法。
 
@@ -635,7 +635,7 @@ public native Class<?> defineAnonymousClass(Class<?> hostClass, byte[] dat
 
 在 JDK 15 发布的新特性中，在隐藏类（`Hidden classes`）一条中，指出将在未来的版本中弃用 Unsafe 的`defineAnonymousClass`方法。
 
-#### 8、系统信息
+### 8、系统信息
 
 Unsafe 中提供的`addressSize`和`pageSize`方法用于获取系统信息，调用`addressSize`方法会返回系统指针的大小，如果在 64 位系统下默认会返回 8，而 32 位系统则会返回 4。调用 pageSize 方法会返回内存页的大小，值为 2 的整数幂。使用下面的代码可以直接进行打印：
 
@@ -655,7 +655,7 @@ private void systemTest() {
 
 这两个方法的应用场景比较少，在`java.nio.Bits`类中，在使用`pageCount`计算所需的内存页的数量时，调用了`pageSize`方法获取内存页的大小。另外，在使用`copySwapMemory`方法拷贝内存时，调用了`addressSize`方法，检测 32 位系统的情况。
 
-### 总结
+## 总结
 
 在本文中，我们首先介绍了 Unsafe 的基本概念、工作原理，并在此基础上，对它的 API 进行了说明与实践。
 

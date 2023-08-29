@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ForkJoin,ForkJoinPool,ForkJoinTask
 ---
 
-# 14.30 Fork/Join
+# 第三十节：Fork/Join
 
 并发编程领域的任务可以分为三种：简单并行任务、聚合任务和批量并行任务，见下图。
 
@@ -24,7 +24,7 @@ head:
 
 由于分治这种任务模型的普遍性，Java 并发包提供了一种名为 Fork/Join 的并行计算框架，专门用于支持分治任务模型的应用。
 
-### 什么是分治任务模型
+## 什么是分治任务模型
 
 分治任务模型可分为两个阶段：一个阶段是 **任务分解**，就是迭代地将任务分解为子任务，直到子任务可以直接计算出结果；另一个阶段是 **结果合并**，即逐层合并子任务的执行结果，直到获得最终结果。下图是一个简化的分治任务模型图，你可以对照着理解。
 
@@ -32,7 +32,7 @@ head:
 
 在这个分治任务模型里，任务和分解后的子任务具有相似性，这种相似性往往体现在任务和子任务的算法是相同的，但是计算的数据规模是不同的。具备这种相似性的问题，我们往往都采用递归算法。
 
-### Fork/Join 的使用
+## Fork/Join 的使用
 
 Fork/Join 是一个并行计算框架，主要用于支持分治任务模型。在这个计算框架中，Fork 代表任务的分解，而 Join 代表结果的合并。
 
@@ -116,7 +116,7 @@ ForkJoinTask 有两个子类：RecursiveAction 和 RecursiveTask。
 17:29:10.336 [main] INFO tech.shuyi.javacodechip.forkjoinpool.ForkJoinDemo - Fibonacci 20 的结果是 6765
 ```
 
-### ForkJoinPool
+## ForkJoinPool
 
 Fork/Join 并行计算的核心组件是 ForkJoinPool。下面简单介绍一下 ForkJoinPool 的工作原理。
 
@@ -138,7 +138,7 @@ ForkJoinPool 中有一个数组形式的成员变量 `workQueue[]`，其对应�
 
 ForkJoinPool 中的任务队列采用双端队列的形式。工作线程从任务队列的一个端获取任务，而"窃取任务"从另一端进行消费。这种设计能够避免许多不必要的数据竞争。
 
-### 与ThreadPoolExecutor的比较
+## 与ThreadPoolExecutor的比较
 
 ForkJoinPool 与 ThreadPoolExecutor 有很多相似之处，例如都是线程池，都是用于执行任务的。但是，它们之间也有很多不同之处。
 
@@ -330,7 +330,7 @@ public class ForkJoinCalculator implements Calculator {
 
 因此对于没有父子任务依赖，但是希望获取到子任务执行结果的并行计算任务，就可以使用 ForkJoinPool 来实现。**在这种情况下，使用 ForkJoinPool 实现更多是代码实现方便，封装做得更加好。**
 
-### 模拟 MapReduce 统计单词数量
+## 模拟 MapReduce 统计单词数量
 
 MapReduce 是一个编程模型，同时也是一个处理和生成大数据集的处理框架。它源于 Google，用于支持在大型数据集上的分布式计算。这个框架主要由两个步骤组成：Map 步骤和 Reduce 步骤，这也是它名字的由来。
 
@@ -379,7 +379,7 @@ import java.util.concurrent.RecursiveTask;
 
 这个示例程序是对 Fork/Join 模型的简化，实际上在真正的 MapReduce 框架中，还涉及到数据划分、映射阶段、归约阶段等更多的步骤。但是通过此示例，大家可以初步了解如何使用 Fork/Join 并行计算框架来处理类似的任务。
 
-### 总结
+## 总结
 
 Fork/Join 并行计算框架主要解决的是分治任务。分治的核心思想是“分而治之”：将一个大的任务拆分成小的子任务去解决，然后再把子任务的结果聚合起来从而得到最终结果。这个过程非常类似于大数据处理中的 MapReduce，所以你可以把 Fork/Join 看作单机版的 MapReduce。
 

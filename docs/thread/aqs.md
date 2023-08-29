@@ -1,5 +1,5 @@
 ---
-title: 到底什么是AQS？
+title: 到底什么是AQS（抽象队列同步器）？
 shortTitle: 抽象队列同步器AQS
 description: AQS，即AbstractQueuedSynchronizer，是Java并发包java.util.concurrent的核心框架，全称为抽象队列同步器。这是一个用于构建锁和同步器的框架，很多同步类，例如ReentrantLock，Semaphore，CountDownLatch，FutureTask等都使用了AQS。
 category:
@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,AQS
 ---
 
-# 14.13 抽象队列同步器 AQS
+# 第十三节：抽象队列同步器 AQS
 
 **AQS**是`AbstractQueuedSynchronizer`的简称，即`抽象队列同步器`，从字面意思上理解:
 
@@ -26,7 +26,7 @@ AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高�
 
 当然了，我们也可以利用 AQS 轻松定制专属的同步器，只要实现它的几个`protected`方法就可以了。
 
-### AQS 的数据结构
+## AQS 的数据结构
 
 AQS 内部使用了一个 [volatile](https://javabetter.cn/thread/volatile.html) 的变量 state 来作为资源的标识。
 
@@ -55,7 +55,7 @@ AQS 内部使用了一个先进先出（FIFO）的[双端队列](https://javabet
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/aqs-20230805211157.png)
 
-### 资源共享模式
+## 资源共享模式
 
 资源有两种共享模式，或者说两种同步方式：
 
@@ -113,7 +113,7 @@ private Node addWaiter(Node mode) {
 
 注意：通过 Node 我们可以实现两个队列，一是通过 prev 和 next 实现 CLH 队列(线程同步队列、双向队列)，二是 nextWaiter 实现 Condition 条件上的等待线程队列(单向队列)，这个 Condition 主要用在 ReentrantLock 类中。
 
-### AQS 的主要源码解析
+## AQS 的主要源码解析
 
 AQS 的设计是基于**模板方法模式**的，它有一些方法必须要子类去实现的，它们主要有：
 
@@ -137,7 +137,7 @@ protected boolean tryAcquire(int arg) {
 
 而 AQS 实现了一系列主要的逻辑。下面我们从源码来分析一下获取和释放资源的主要逻辑：
 
-#### 获取资源
+### 获取资源
 
 获取资源的入口是 `acquire(int arg)`方法。arg 是要获取的资源个数，在独占模式下始终为 1。我们先来看看这个方法的逻辑：
 
@@ -244,7 +244,7 @@ LockSupport 类是 Java 6 引入的一个类，提供了基本的线程同步原
 
 ![acquire流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/aqs-a0689bb2-9b18-419d-9617-6d292fbd439d.jpg)
 
-#### 释放资源
+### 释放资源
 
 释放资源相比于获取资源来说，会简单许多。在 AQS 中只有一小段实现。源码：
 
@@ -284,6 +284,12 @@ private void unparkSuccessor(Node node) {
 在`java.util.concurrent.locks.ReentrantLock`的实现中，`tryRelease(arg)`会减少持有锁的数量，如果持有锁的数量变为0，释放锁并返回true。
 
 如果`tryRelease(arg)`成功释放了锁，那么接下来会检查队列的头结点。如果头结点存在并且waitStatus不为0（这意味着有线程在等待），那么会调用`unparkSuccessor(Node h)`方法来唤醒等待的线程。
+
+## 小结
+
+AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高效地构造出应用广泛的同步器，比如我们提到的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，Semaphore，[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)，SynchronousQueue，[FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) 等等皆是基于 AQS 的。
+
+当然了，我们也可以利用 AQS 轻松定制专属的同步器，只要实现它的几个`protected`方法就可以了。
 
 > 编辑：沉默王二，编辑前的内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。值得参考文章：[君哥聊技术：2万字 + 40 张图带你精通 Java AQS](https://mp.weixin.qq.com/s/EWm7unc4lsXIv0iS3o12kg)
 

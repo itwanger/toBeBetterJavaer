@@ -12,7 +12,9 @@ head:
       content: Java,并发编程,多线程,Thread,并发集合容器
 ---
 
-# 14.19 Java的并发容器
+# 第十九节：Java的并发容器
+
+Java 的并发集合容器提供了在多线程环境中高效访问和操作的数据结构。这些容器通过内部的同步机制实现了线程安全，使得开发者无需显式同步代码就能在并发环境下安全使用，比如说：ConcurrentHashMap、阻塞队列和 CopyOnWrite 容器等。
 
 java.util 包下提供了一些容器类（[集合框架](https://javabetter.cn/collection/gailan.html)），其中 Vector 和 Hashtable 是线程安全的，实现方式比较粗暴，通过在方法上加「[sychronized](https://javabetter.cn/thread/synchronized-1.html)」关键字实现。
 
@@ -59,15 +61,15 @@ public class TestVector {
 
 于是并发容器就应用而生了，它们是线程安全的，可以在多线程环境下高效地访问和操作数据，而不需要额外的同步措施。
 
-### 并发容器类
+## 并发容器类
 
 整体架构如下图所示：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/map-a6a020a3-4573-4cf8-b5ae-1541ae45801c.png)
 
-### 并发 Map
+## 并发 Map
 
-#### ConcurrentMap 接口
+### ConcurrentMap 接口
 
 ConcurrentMap 接口继承了 Map 接口，在 Map 接口的基础上又定义了四个方法：
 
@@ -97,7 +99,7 @@ public interface ConcurrentMap<K, V> extends Map<K, V> {
 
 **replace(K,V)：** 与上面的 replace 不同的是，此 replace 不会对 Map 中原有的 key-value 进行比较，如果 key 存在则直接替换；
 
-#### ConcurrentHashMap
+### ConcurrentHashMap
 
 ConcurrentHashMap 同 [HashMap](https://javabetter.cn/collection/hashmap.html) 一样，也是基于散列表的 map，但是它提供了一种与 Hashtable 完全不同的加锁策略，提供了更高效的并发性和伸缩性。
 
@@ -504,7 +506,7 @@ final V replaceNode(Object key, V value, Object cv) {
 
 后面我们还会单独再开一篇来详细介绍 [ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)，这篇就先分析到这里。
 
-#### ConcurrentSkipListMap
+### ConcurrentSkipListMap
 
 ConcurrentNavigableMap 接口继承了 NavigableMap 接口，这个接口提供了针对给定搜索目标返回最接近匹配项的导航方法。
 
@@ -516,7 +518,7 @@ ConcurrentSkipListMap 适用于需要线程安全的同时又需要元素有序�
 
 [時光以北这篇 ConcurrentSkipListMap 讲的很不错](https://juejin.cn/post/6844903958499033095)，可以学习。
 
-### 并发 Queue
+## 并发 Queue
 
 JDK 并没有提供线程安全的 List 类，因为对 List 来说，**很难去开发一个通用并且没有并发瓶颈的线程安全的 List**。因为即使简单的读操作，比如 `contains()`，也需要再搜索的时候锁住整个 list。
 
@@ -524,7 +526,7 @@ JDK 并没有提供线程安全的 List 类，因为对 List 来说，**很难�
 
 我们会在后面单独开一篇来详细介绍[ConcurrentLinkedQueue](https://javabetter.cn/thread/ConcurrentLinkedQueue.html)。
 
-### 并发 Set
+## 并发 Set
 
 ConcurrentSkipListSet 是线程安全的有序集合。底层是使用 ConcurrentSkipListMap 来实现。
 
@@ -534,7 +536,7 @@ ConcurrentSkipListSet 是线程安全的有序集合。底层是使用 Concurren
 Set<String> s = Sets.newConcurrentHashSet();
 ```
 
-### 阻塞队列
+## 阻塞队列
 
 我们假设一种场景，[生产者一直生产资源，消费者一直消费资源](https://javabetter.cn/thread/shengchanzhe-xiaofeizhe.html)，资源存储在一个缓冲池中，生产者将生产的资源存进缓冲池中，消费者从缓冲池中拿到资源进行消费，这就是大名鼎鼎的**生产者-消费者模式**。
 
@@ -548,7 +550,7 @@ Set<String> s = Sets.newConcurrentHashSet();
 
 BlockingQueue 一般用于生产者-消费者模式，生产者是往队列里添加元素的线程，消费者是从队列里拿元素的线程。**BlockingQueue 就是存放元素的容器**。
 
-#### BlockingQueue 的操作方法
+### BlockingQueue 的操作方法
 
 阻塞队列提供了四组不同的方法用于插入、移除、检查元素：
 
@@ -570,9 +572,9 @@ BlockingQueue 一般用于生产者-消费者模式，生产者是往队列里�
 
 我们会在后面单独开一篇[BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html)来细讲。
 
-#### BlockingQueue 的实现类
+### BlockingQueue 的实现类
 
-**ArrayBlockingQueue**
+#### ArrayBlockingQueue
 
 由**数组**结构组成的**有界**阻塞队列。内部结构是数组，具有数组的特性。
 
@@ -584,17 +586,17 @@ public ArrayBlockingQueue(int capacity, boolean fair){
 
 可以初始化队列大小，一旦初始化将不能改变。构造方法中的 fair 表示控制对象的内部锁是否采用公平锁，默认是**非公平锁**。
 
-**LinkedBlockingQueue**
+#### LinkedBlockingQueue
 
 由**链表**结构组成的**有界**阻塞队列。内部结构是链表，具有链表的特性。默认队列的大小是`Integer.MAX_VALUE`，也可以指定大小。此队列按照**先进先出**的原则对元素进行排序。
 
-**DelayQueue**
+#### DelayQueue
 
 该队列中的元素只有当其指定的延迟时间到了，才能够从队列中获取到该元素。注入其中的元素必须实现 `java.util.concurrent.Delayed` 接口。
 
 DelayQueue 是一个没有大小限制的队列，因此往队列中插入数据的操作（生产者）永远不会被阻塞，而只有获取数据的操作（消费者）才会被阻塞。
 
-**PriorityBlockingQueue**
+#### PriorityBlockingQueue
 
 基于优先级的无界阻塞队列（优先级的判断通过构造函数传入的 Compator 对象来决定），内部控制线程同步的锁采用的是非公平锁。
 
@@ -608,7 +610,7 @@ public PriorityBlockingQueue(int initialCapacity,
 }
 ```
 
-**SynchronousQueue**
+#### SynchronousQueue
 
 这个队列比较特殊，**没有任何内部容量**，甚至连一个队列的容量都没有。并且每个 put 必须等待一个 take，反之亦然。
 
@@ -629,7 +631,7 @@ public PriorityBlockingQueue(int initialCapacity,
 
 **PriorityBlockingQueue**不会阻塞数据生产者（因为队列是无界的），而只会在没有可消费的数据时阻塞数据的消费者。因此使用的时候要特别注意，**生产者生产数据的速度绝对不能快于消费者消费数据的速度，否则时间一长，会最终耗尽所有的可用堆内存空间。**对于使用默认大小的**LinkedBlockingQueue**也是一样的。
 
-#### 阻塞队列的原理
+### 阻塞队列的原理
 
 阻塞队列的原理很简单，利用了 Lock 锁的多条件（[Condition](https://javabetter.cn/thread/condition.html)）阻塞控制。接下来我们分析 ArrayBlockingQueue JDK 1.8 的源码。
 
@@ -744,7 +746,7 @@ take 操作和 put 操作类似，总结一下 take 操作的流程：
 2. 就算拿到锁了之后，也**不一定**会顺利进行 put/take 操作，需要判断**队列是否可用**（是否满/空），如果不可用，则会被阻塞，**并释放锁**。
 3. 在第 2 点被阻塞的线程会被唤醒，但是在唤醒之后，**依然需要拿到锁**才能继续往下执行，否则，自旋拿锁，拿到锁了再 while 判断队列是否可用（这也是为什么不用 if 判断，而使用 while 判断的原因）。
 
-#### 示例和使用场景
+### 示例和使用场景
 
 生产者-消费者模型：
 
@@ -825,7 +827,7 @@ public class Test {
 
 注意，这个例子中的输出结果看起来可能有问题，比如有几行在插入一个元素之后，队列的剩余空间不变。这是由于**System.out.println 语句没有锁**。考虑到这样的情况：线程 1 在执行完 put/take 操作后立即失去 CPU 时间片，然后切换到线程 2 执行 put/take 操作，执行完毕后回到线程 1 的 System.out.println 语句并输出，发现这个时候阻塞队列的 size 已经被线程 2 改变了，所以这个时候输出的 size 并不是当时线程 1 执行完 put/take 操作之后阻塞队列的 size，但可以确保的是 size 不会超过 10 个。实际上使用阻塞队列是没有问题的。
 
-#### 线程池中使用阻塞队列
+### 线程池中使用阻塞队列
 
 ```java
 public ThreadPoolExecutor(int corePoolSize,
@@ -842,7 +844,7 @@ Java 中的线程池就是使用阻塞队列实现的，我们在了解阻塞队
 
 > 注：上面提到的生产者-消费者模式，大家可以参考[生产者-消费者模型](https://javabetter.cn/thread/shengchanzhe-xiaofeizhe.html)，可以更好的理解阻塞队列。
 
-### CopyOnWrite 容器
+## CopyOnWrite 容器
 
 在聊 CopyOnWrite 容器之前我们先来谈谈什么是 CopyOnWrite 机制，CopyOnWrite 是计算机设计领域的一种优化策略，也是一种在并发场景下常用的设计思想——写入时复制。
 
@@ -854,7 +856,7 @@ CopyOnWrite 容器即**写时复制的容器**，当我们往一个容器中添�
 
 这样做的好处在于，我们可以在并发的场景下对容器进行"读操作"而不需要"加锁"，从而达到读写分离的目的。从 JDK 1.5 开始 Java 并发包里提供了两个使用 CopyOnWrite 机制实现的并发容器，分别是 [CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html) 和 CopyOnWriteArraySet。
 
-#### CopyOnWriteArrayList
+### CopyOnWriteArrayList
 
 **优点**：
 
@@ -939,7 +941,7 @@ public E get(int index) {
 
 由上可见“读操作”是没有加锁的，直接读取。
 
-#### CopyOnWrite 使用
+### CopyOnWrite 使用
 
 接下来，我们结合具体业务场景来实现一个 CopyOnWriteMap 的并发容器并且使用它。
 
@@ -1014,7 +1016,7 @@ public class BlackListServiceImpl {
 
 所以如果我们希望写入的数据马上能准确地读取，请不要使用 CopyOnWrite 容器。
 
-### 总结
+## 总结
 
 本文主要介绍了并发包中的三个重要的容器类，Map、阻塞队列和 CopyOnWrite 容器，Map 用于存储键值对，阻塞队列用于生产者-消费者模型，而 CopyOnWrite 容器用于“读多写少”的并发场景。
 

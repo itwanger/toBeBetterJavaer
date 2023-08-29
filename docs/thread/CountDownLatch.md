@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,CountDownLatch,Semaphore,Exchanger,CyclicBarrier,Phaser
 ---
 
-# 14.29 通信工具类
+# 第二十九节：通信工具类
 
 JDK 中提供了一些并发编程中常用的通信工具类以供我们开发者使用，比如说 CountDownLatch,Semaphore,Exchanger,CyclicBarrier,Phaser。
 
@@ -26,7 +26,7 @@ JDK 中提供了一些并发编程中常用的通信工具类以供我们开发�
 | CyclicBarrier  | 作用跟 CountDownLatch 类似，但是可以重复使用 |
 | Phaser         | 增强的 CyclicBarrier                         |
 
-### Semaphore
+## Semaphore
 
 Semaphore 翻译过来是信号的意思。顾名思义，这个工具类提供的功能就是多个线程彼此“传信号”。而这个“信号”是一个`int`类型的数据，也可以看成是一种“资源”。
 
@@ -47,7 +47,7 @@ public Semaphore(int permits, boolean fair) {
 
 每次 acquire，permits 就会减少一个或者多个。如果减少到了 0，再有其他线程来 acquire，那就要阻塞这个线程直到有其它线程 release permit 为止。
 
-#### Semaphore 使用案例
+### Semaphore 使用案例
 
 Semaphore 往往用于资源有限的场景中，去限制线程的数量。举个例子，我想限制同时只能有 3 个线程在工作：
 
@@ -130,13 +130,13 @@ public boolean tryAcquire(int permits, long timeout, TimeUnit unit)
 public boolean tryAcquire(long timeout, TimeUnit unit)
 ```
 
-#### Semaphore 原理
+### Semaphore 原理
 
 Semaphore 内部有一个继承了 [AQS](https://javabetter.cn/thread/aqs.html) 的同步器 Sync，重写了`tryAcquireShared`方法。在这个方法里，会去尝试获取资源。
 
 如果获取失败（想要的资源数量小于目前已有的资源数量），就会返回一个负数（代表尝试获取资源失败）。然后当前线程就会进入 AQS 的等待队列。
 
-### Exchanger
+## Exchanger
 
 Exchanger 类用于两个线程交换数据。它支持泛型，也就是说你可以在两个线程之间传送任何数据。先来一个案例看看如何使用，比如两个线程之间想要传送字符串：
 
@@ -196,7 +196,7 @@ public V exchange(V x, long timeout, TimeUnit unit)
 
 需要注意的是，exchange 是可以重复使用的。也就是说。两个线程可以使用 Exchanger 在内存中不断地再交换数据。
 
-### CountDownLatch
+## CountDownLatch
 
 先来解读一下 CountDownLatch 这个类名的意义。CountDown 代表计数递减，Latch 是“门闩”的意思。也有人把它称为“屏障”。而 CountDownLatch 这个类的作用也很贴合这个名字的意义，假设某个线程在执行任务之前，需要等待其它线程完成一些前置任务，必须等所有的前置任务都完成，才能开始执行本线程的任务。
 
@@ -212,7 +212,7 @@ public void countDown() // count - 1
 public long getCount() // 获取当前还有多少count
 ```
 
-#### CountDownLatch 案例
+### CountDownLatch 案例
 
 我们知道，玩游戏的时候，在游戏真正开始之前，一般会等待一些前置任务完成，比如“加载地图数据”，“加载人物模型”，“加载背景音乐”等等。只有当所有的东西都加载完成后，玩家才能真正进入游戏。下面我们就来模拟一下这个 demo。
 
@@ -275,13 +275,13 @@ public class CountDownLatchDemo {
 > 加载地图数据 - 任务完成  
 > 数据加载完成，正式开始游戏！
 
-#### CountDownLatch 原理
+### CountDownLatch 原理
 
 其实 CountDownLatch 类的原理挺简单的，内部同样是一个继承了 [AQS](https://javabetter.cn/thread/aqs.html) 的实现类 Sync，且实现起来还很简单，可能是 JDK 里面 AQS 的子类中最简单的实现了，有兴趣的小伙伴可以去看看这个内部类的源码。
 
 需要注意的是构造器中的**计数值（count）实际上就是闭锁需要等待的线程数量**。这个值只能被设置一次，而且 CountDownLatch**没有提供任何机制去重新设置这个计数值**。
 
-### CyclicBarrier
+## CyclicBarrier
 
 CyclicBarrirer 从名字上来理解是“循环屏障”的意思。前面提到了 CountDownLatch 一旦计数值`count`被降为 0 后，就不能再重新设置了，它只能起一次“屏障”的作用。而 CyclicBarrier 拥有 CountDownLatch 的所有功能，还可以使用`reset()`方法重置屏障。
 
@@ -292,7 +292,7 @@ CyclicBarrirer 从名字上来理解是“循环屏障”的意思。前面提�
 3. 如果在执行屏障操作过程中发生异常，则该异常将传播到当前线程中，其他线程会抛出 BrokenBarrierException，屏障被损坏。
 4. 如果超出指定的等待时间，当前线程会抛出 TimeoutException 异常，其他线程会抛出 BrokenBarrierException 异常。
 
-#### CyclicBarrier 案例
+### CyclicBarrier 案例
 
 我们同样用玩游戏的例子。如果玩一个游戏有多个“关卡”，那使用 CountDownLatch 显然不太合适，因为需要为每个关卡都创建一个实例。那我们可以使用 CyclicBarrier 来实现每个关卡的数据加载等待功能。
 
@@ -367,7 +367,7 @@ public CyclicBarrier(int parties, Runnable barrierAction) {
 }
 ```
 
-#### CyclicBarrier 原理
+### CyclicBarrier 原理
 
 CyclicBarrier 虽说功能与 CountDownLatch 类似，但是实现原理却完全不同，CyclicBarrier 内部使用的是 [Lock](https://javabetter.cn/thread/lock.html) + [Condition](https://javabetter.cn/thread/condition.html) 实现的等待/通知模式。详情可以查看这个方法的源码：
 
@@ -375,7 +375,7 @@ CyclicBarrier 虽说功能与 CountDownLatch 类似，但是实现原理却完�
 private int dowait(boolean timed, long nanos)
 ```
 
-### Phaser
+## Phaser
 
 Phaser 是 Java 7 中引入的一个并发同步工具，它提供了对动态数量的线程的同步能力，这与 CyclicBarrier 和 CountDownLatch 不同，因为它们都需要预先知道等待的线程数量。Phaser 是多阶段的，意味着它可以同步不同阶段的多个操作。
 
@@ -397,7 +397,7 @@ Phaser 是阶段性的，所以它有一个内部的阶段计数器。每当我�
 
 Phaser 的终止有两种途径，Phaser 维护的线程执行完毕或者`onAdvance()`返回`true`。
 
-#### Phaser 案例
+### Phaser 案例
 
 还是游戏的案例。假设我们游戏有三个关卡，但只有第一个关卡有新手教程，需要加载新手教程模块。但后面的第二个关卡和第三个关卡都不需要。我们可以用 Phaser 来做这个需求。
 
@@ -480,7 +480,7 @@ public class PhaserDemo {
 
 Phaser 类用来控制某个阶段的线程数量很有用，但它并不在意这个阶段具体有哪些线程 arrive，只要达到它当前阶段的 parties 值，就触发屏障。所以我这里的案例虽然制定了特定的线程（加载新手教程）来更直观地表述 Phaser 的功能，但其实 Phaser 是没有分辨具体是哪个线程的功能的，它在意的只是数量，这一点需要大家注意。
 
-#### Phaser 原理
+### Phaser 原理
 
 Phaser 类的原理相比起来要复杂得多。它内部使用了两个基于 [Fork-Join 框架](https://javabetter.cn/thread/fork-join.html)的原子类辅助：
 
@@ -495,7 +495,7 @@ static final class QNode implements ForkJoinPool.ManagedBlocker {
 
 有兴趣的小伙伴可以去看看 JDK 源代码，这里不做过多叙述。
 
-### 总结
+## 总结
 
 总的来说，CountDownLatch，CyclicBarrier，Phaser 是一个比一个强大，但也一个比一个复杂，需要根据自己的业务需求合理选择。
 

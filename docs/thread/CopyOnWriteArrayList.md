@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,CopyOnWriteArrayList
 ---
 
-# 14.23 并发容器 CopyOnWriteArrayList
+# 第二十三节：并发容器 CopyOnWriteArrayList
 
 学过 [ArrayList](https://javabetter.cn/collection/arraylist.html) 的小伙伴应该记得，ArrayList 是一个线程不安全的容器，如果在多线程环境下使用，需要手动加锁，或者使用 `Collections.synchronizedList()` 方法将其转换为线程安全的容器。
 
@@ -24,7 +24,7 @@ CopyOnWriteArrayList 是线程安全的，可以在多线程环境下使用。Co
 
 由于在修改时创建了新的副本，所以读取操作不需要锁定。这使得在多读取者和少写入者的情况下读取操作非常高效。当然，由于每次写操作都会创建一个新的数组副本，所以会增加存储和时间的开销。如果写操作非常频繁，性能会受到影响。
 
-### 什么是 CopyOnWrite
+## 什么是 CopyOnWrite
 
 大家应该还记得读写锁 [ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html) 吧？读写锁是通过读写分离的思想来实现的，即读写锁将读写操作分别加锁，从而实现读写操作的并发执行。
 
@@ -36,7 +36,7 @@ CopyOnWriteArrayList 是线程安全的，可以在多线程环境下使用。Co
 
 我们在介绍[并发容器](https://javabetter.cn/thread/map.html)的时候，也曾提到过，相信大家都还有印象。
 
-### CopyOnWriteArrayList 的实现原理
+## CopyOnWriteArrayList 的实现原理
 
 OK，接下来我们来看一下 CopyOnWriteArrayList 的源码。顾名思义，实际上 CopyOnWriteArrayList 内部维护的就是一个数组：
 
@@ -47,7 +47,7 @@ private transient volatile Object[] array;
 
 该数组被 [volatile](https://javabetter.cn/thread/volatile.html) 修饰，能够保证数据的内存可见性。
 
-#### get 方法
+### get 方法
 
 get 方法的源码如下：
 
@@ -69,7 +69,7 @@ private E get(Object[] a, int index) {
 
 get 方法的实现非常简单，几乎就是一个“单线程”，没有添加任何的线程安全控制，没有[加锁](https://javabetter.cn/thread/lock.html)也没有 [CAS](https://javabetter.cn/thread/cas.html) 操作，原因就是所有的读线程只会读取容器中的数据，并不会进行修改。
 
-#### add 方法
+### add 方法
 
 add 方法的源码如下：
 
@@ -124,7 +124,7 @@ final void setArray(Object[] a) {
 
 04、最后，在 finally 块中释放锁，以便其他线程可以访问和修改列表。
 
-### CopyOnWriteArrayList 的使用
+## CopyOnWriteArrayList 的使用
 
 CopyOnWriteArrayList 的使用非常简单，和 ArrayList 的使用几乎一样，只是在创建对象的时候需要使用 CopyOnWriteArrayList 的构造方法，如下所示：
 
@@ -138,7 +138,7 @@ for (String element : list) {
 }
 ```
 
-### CopyOnWriteArrayList 的缺点
+## CopyOnWriteArrayList 的缺点
 
 CopyOnWrite 容器有很多优点，但是同时也存在两个问题，即内存占用问题和数据一致性问题。所以在开发的时候需要特别注意。
 
@@ -179,7 +179,7 @@ CopyOnWrite 容器有很多优点，但是同时也存在两个问题，即内�
 
 **如果读线程能够立即读到新添加的数据就叫数据实时性**。当对第 5 行的断点放开后，读线程感知到了数据的变化，所以读到了完整的数据 1,2,3,4，这叫**数据最终一致性**，尽管有可能中间间隔了好几秒才感知到。
 
-### 总结
+## 总结
 
 CopyOnWriteArrayList 是一个线程安全的变体，它是 Java 的 ArrayList 类的并发版本。这个类的线程安全是通过一个简单但强大的想法实现的：每当列表修改时，就创建列表的一个新副本。
 
