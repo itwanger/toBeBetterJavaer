@@ -12,29 +12,34 @@ head:
       content: Java,并发编程,多线程,Thread,volatile
 ---
 
-# 第八节：volatile关键字
+# 第八节：volatile 关键字
 
 “三妹啊，这节我们来学习 Java 中的 volatile 关键字吧，以及容易遇到的坑。”看着三妹好学的样子，我倍感欣慰。
 
 “好呀，哥。”三妹愉快的答应了。
 
->这是我们在《[二哥的 Java 进阶之路基础篇](https://javabetter.cn/overview/)》中常见的对话模式。
+> 这是我们在《[二哥的 Java 进阶之路基础篇](https://javabetter.cn/overview/)》中常见的对话模式，老读者应该对这种模式不陌生。
 
-## volatile 变量的特性
+在讲[并发编程带来了哪些问题的时候](https://javabetter.cn/thread/thread-bring-some-problem.html)，我们提到了可见性和原子性，那我现在可以直接告诉大家了：volatile 可以保证可见性，但不保证原子性：
 
-volatile 可以保证可见性，但不保证原子性：
-
-- 当写一个 volatile 变量时，[JMM](https://javabetter.cn/thread/jmm.html) 会把该线程本地内存中的变量强制刷新到主内存中去；
+- 当写一个 volatile 变量时，[JMM](https://javabetter.cn/thread/jmm.html) 会把该线程在本地内存中的变量强制刷新到主内存中去；
 - 这个写操作会导致其他线程中的 volatile 变量缓存无效。
 
 ## volatile 会禁止指令重排
 
-我们回顾一下，重排序需要遵守的规则：
+在讲 [JMM](https://javabetter.cn/thread/jmm.html) 的时候，我们提到了指令重排，相信大家都还有印象，我们来回顾一下重排序需要遵守的规则：
 
 - 重排序不会对存在数据依赖关系的操作进行重排序。比如：`a=1;b=a;` 这个指令序列，因为第二个操作依赖于第一个操作，所以在编译时和处理器运行时这两个操作不会被重排序。
 - 重排序是为了优化性能，但是不管怎么重排序，单线程下程序的执行结果不能被改变。比如：`a=1;b=2;c=a+b` 这三个操作，第一步 (a=1) 和第二步 (b=2) 由于不存在数据依赖关系，所以可能会发生重排序，但是 c=a+b 这个操作是不会被重排序的，因为需要保证最终的结果一定是 c=a+b=3。
 
-使用 volatile 关键字修饰共享变量可以禁止这种重排序。如果用 volatile 修饰共享变量，在编译时，会在指令序列中插入内存屏障来禁止重排序，规则如下：
+使用 volatile 关键字修饰共享变量可以禁止这种重排序。怎么做到的呢？
+
+当我们使用 volatile 关键字来修饰一个变量时，Java 内存模型会插入内存屏障（一个处理器指令，可以对 CPU 或编译器重排序做出约束）来确保以下两点：
+
+- 写屏障（Write Barrier）：当一个 volatile 变量被写入时，写屏障确保在该屏障之前的所有变量的写入操作都提交到主内存。
+- 读屏障（Read Barrier）：当读取一个 volatile 变量时，读屏障确保在该屏障之后的所有读操作都从主内存中读取。
+
+换句话说：
 
 - 当程序执行到 volatile 变量的读操作或者写操作时，在其前面操作的更改肯定已经全部进行，且结果对后面的操作可见；在其后面的操作肯定还没有进行；
 - 在进行指令优化时，不能将 volatile 变量的语句放在其后面执行，也不能把 volatile 变量后面的语句放到其前面执行。
@@ -60,7 +65,7 @@ class ReorderExample {
 }
 ```
 
-因为重排序影响，所以最终的输出可能是 0，具体分析请参考[上一篇](https://javabetter.cn/thread/jmm.html)，如果引入 volatile，我们再看一下代码：
+因为重排序影响，所以最终的输出可能是 0，重排序请参考[上一篇 JMM 的介绍](https://javabetter.cn/thread/jmm.html)，如果引入 volatile，我们再看一下代码：
 
 ```java
 class ReorderExample {
@@ -79,13 +84,11 @@ class ReorderExample {
 }
 ```
 
-这个时候，volatile 禁止指令重排序也有一些规则，这个过程建立的 [happens before 关系](https://javabetter.cn/thread/jmm.html) 如下：
+这时候，volatile 会禁止指令重排序，这个过程建立在 happens before 关系（[上一篇介绍过了](https://javabetter.cn/thread/jmm.html)）的基础上：
 
 1.  根据程序次序规则，1 happens before 2; 3 happens before 4。
 2.  根据 volatile 规则，2 happens before 3。
 3.  根据 happens before 的传递性规则，1 happens before 4。
-
->在 Java 中，"happens-before" 是一个用于描述两个或多个操作之间的偏序关系的概念，它来自于 Java 内存模型 ([上一篇](https://javabetter.cn/thread/jmm.html)有详细讲)。"happens-before" 关系可以确保在并发环境中的内存可见性，即一个线程中的写操作对于另一个线程中的读操作是可见的。
 
 上述 happens before 关系的图形化表现形式如下：
 
@@ -134,13 +137,13 @@ inc output:8182
 
 “为什么呀？二哥？” 看到这个结果，三妹疑惑地问。
 
-“因为 inc++不是一个[原子性操作](https://javabetter.cn/thread/thread-bring-some-problem.html)（前面讲过），由读取、加、赋值 3 步组成，所以结果并不能达到 10000。”我耐心地回答。
+“因为 inc++不是一个原子性操作（[前面讲过](https://javabetter.cn/thread/thread-bring-some-problem.html)），由读取、加、赋值 3 步组成，所以结果并不能达到 10000。”我耐心地回答。
 
 “哦，你这样说我就理解了。”三妹点点头。
 
 怎么解决呢？
 
-01、采用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)，把 `inc++` 拎出来单独加 synchronized 关键字：
+01、采用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)（下一篇会讲，戳链接直达），把 `inc++` 拎出来单独加 synchronized 关键字：
 
 ```java
 public class volatileTest1 {
@@ -165,7 +168,7 @@ public class volatileTest1 {
 }
 ```
 
-02、采用 [Lock](https://javabetter.cn/thread/suo.html)，通过重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 对 `inc++` 加锁：
+02、采用 [Lock](https://javabetter.cn/thread/suo.html)，通过重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 对 `inc++` 加锁（后面都会细讲，戳链接直达）：
 
 ```java
 public class volatileTest2 {
@@ -193,7 +196,7 @@ public class volatileTest2 {
 }
 ```
 
-03、采用原子类 [AtomicInteger](https://javabetter.cn/thread/atomic.html) 来实现：
+03、采用原子类 [AtomicInteger](https://javabetter.cn/thread/atomic.html)（后面也会细讲，戳链接直达）来实现：
 
 ```java
 public class volatileTest3 {
@@ -226,7 +229,7 @@ add lock, inc output:1000
 add AtomicInteger, inc output:1000
 ```
 
-## 单例模式的双重锁
+## volatile 实现单例模式的双重锁
 
 这是一个使用"双重检查锁定"（double-checked locking）实现的单例模式（Singleton Pattern）的例子。
 
@@ -268,7 +271,7 @@ public class penguin {
 - 初始化对象。
 - 将 m_penguin 指向分配的内存空间。
 
-如果不使用 volatile 关键字，JVM 可能会对这三个子步骤进行指令重排序，如果步骤2和步骤3被重排序，那么线程A可能在对象还没有被初始化完成时，线程B已经开始使用这个对象，从而导致问题。而使用 volatile 关键字可以防止这种指令重排序。
+如果不使用 volatile 关键字，JVM 可能会对这三个子步骤进行指令重排序，如果步骤 2 和步骤 3 被重排序，那么线程 A 可能在对象还没有被初始化完成时，线程 B 已经开始使用这个对象，从而导致问题。而使用 volatile 关键字可以防止这种指令重排序。
 
 伪代码代码如下：
 
@@ -296,12 +299,11 @@ volatile 可以保证线程可见性且提供了一定的有序性，但是无�
 
 最后，我们学习了 volatile 不适用的场景，以及解决的方法，并解释了双重检查锁定实现的单例模式为何需要使用 volatile。
 
->编辑：沉默王二，编辑前的内容主要来自于二哥的[技术派](https://paicoding.com/)团队成员楼仔，原文链接戳：[volatile](https://paicoding.com/column/4/2)。
+> 编辑：沉默王二，编辑前的内容主要来自于二哥的[技术派](https://paicoding.com/)团队成员楼仔，原文链接戳：[volatile](https://paicoding.com/column/4/2)。
 
-----
+---
 
-GitHub 上标星 9000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 9000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

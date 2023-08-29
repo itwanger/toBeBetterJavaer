@@ -26,7 +26,7 @@ synchronized 关键字最主要有以下 3 种应用方式：
 - 同步静态方法，为当前类加锁（锁的是 [Class 对象](https://javabetter.cn/basic-extra-meal/fanshe.html)），进入同步代码前要获得当前类的锁；
 - 同步代码块，指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。
 
-## 同步方法
+## synchronized同步方法
 
 通过在方法声明中加入 synchronized 关键字，可以保证在任意时刻，只有一个线程能执行该方法。
 
@@ -122,7 +122,7 @@ public class AccountingSyncBad implements Runnable {
 
 参考：[对象和类](https://javabetter.cn/oo/object-class.html)
 
-## 同步静态方法
+## synchronized同步静态方法
 
 当 synchronized 同步[静态方法](https://javabetter.cn/oo/static.html)时，锁的是当前类的 Class 对象，不属于某个对象。当前类的 Class 对象锁被获取，不影响实例对象锁的获取，两者互不影响，本质上是 this 和 Class 的不同。
 
@@ -171,7 +171,7 @@ public class AccountingSyncClass implements Runnable {
 
 注意代码中的 increase4Obj 方法是实例方法，其对象锁是当前实例对象（this），如果别的线程调用该方法，将不会产生互斥现象，毕竟锁的对象不同，这种情况下可能会发生[线程安全问题](https://javabetter.cn/thread/thread-bring-some-problem.html)(操作了共享静态变量 i)。
 
-## 同步代码块
+## synchronized同步代码块
 
 某些情况下，我们编写的方法代码量比较多，存在一些比较耗时的操作，而需要同步的代码块只有一小部分，如果直接对整个方法进行同步，可能会得不偿失，此时我们可以使用同步代码块的方式对需要同步的代码进行包裹。
 
@@ -232,7 +232,7 @@ synchronized(AccountingSync.class){
 }
 ```
 
-## 禁止指令重排分析
+## synchronized禁止指令重排
 
 指令重排我们前面讲 [JMM](https://javabetter.cn/thread/jmm.html) 的时候讲过， 这里我们再结合 synchronized 关键字来讲一下。
 
@@ -267,7 +267,7 @@ class MonitorExample {
 
 上图表示在线程 A 释放了锁之后，随后线程 B 获取同一个锁。在上图中，2 happens before 5。因此，线程 A 在释放锁之前所有可见的共享变量，在线程 B 获取同一个锁之后，将立刻变得对 B 线程可见。
 
-## 可重入锁
+## synchronized属于可重入锁
 
 从互斥锁的设计上来说，当一个线程试图操作一个由其他线程持有的对象锁的临界资源时，将会处于阻塞状态，但当一个线程再次请求自己持有对象锁的临界资源时，这种情况属于重入锁，请求将会成功。
 
