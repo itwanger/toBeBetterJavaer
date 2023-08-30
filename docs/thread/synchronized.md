@@ -1,6 +1,6 @@
 ---
 title: synchronized到底锁的什么？偏向锁、轻量级锁、重量级锁到底是什么？
-shortTitle: 进击的synchronized
+shortTitle: synchronized的四种锁状态
 description: Java中的每一个对象都可以作为一个锁，这是synchronized实现同步的基础。当我们调用一个用synchronized关键字修饰的方法时，我们需要获取这个方法所在对象的锁。只有获取了这个锁，才可以执行这个方法。如果锁已经被其他线程获取，那么就会进入阻塞状态，直到锁被释放。
 category:
   - Java核心
@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,synchronized,偏向锁,轻量级锁,重量级锁,锁
 ---
 
-# 第十节：进击的synchronized
+# 第十节：synchronized的四种锁状态
 
 前面一节我们讲了 [synchronized 关键字的基本使用](https://javabetter.cn/thread/synchronized-1.html)，它能用来同步方法和代码块，那 synchronized 到底锁的是什么呢？随着 JDK 版本的升级，synchronized 又做出了哪些改变呢？“synchronized 性能很差”的谣言真的存在吗？
 

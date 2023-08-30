@@ -9,20 +9,20 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java,并发编程,多线程,Thread,AQS
+      content: Java,并发编程,多线程,Thread,AQS,抽象队列同步器
 ---
 
 # 第十三节：抽象队列同步器 AQS
 
-**AQS**是`AbstractQueuedSynchronizer`的简称，即`抽象队列同步器`，从字面意思上理解:
+**AQS**是`AbstractQueuedSynchronizer`的简称，即`抽象队列同步器`，从字面上可以这样理解:
 
 - 抽象：抽象类，只实现一些主要逻辑，有些方法由子类实现；
-- 队列：使用先进先出（FIFO）队列存储数据；
+- 队列：使用先进先出（FIFO）的队列存储数据；
 - 同步：实现了同步的功能。
 
 那 AQS 有什么用呢？
 
-AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高效地构造出应用广泛的同步器，比如我们提到的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，Semaphore，[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)，SynchronousQueue，[FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) 等等皆是基于 AQS 的。
+AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高效地构造出应用广泛的同步器，比如我们后面会细讲的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，Semaphore，[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)，SynchronousQueue，[FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) 等等，都是基于 AQS 的。
 
 当然了，我们也可以利用 AQS 轻松定制专属的同步器，只要实现它的几个`protected`方法就可以了。
 
@@ -45,26 +45,26 @@ setState()
 compareAndSetState()
 ```
 
-这三种操作均是原子操作，其中 compareAndSetState 的实现依赖于 Unsafe 的 `compareAndSwapInt()` 方法。
+这三种操作均是原子操作，其中 compareAndSetState 的实现依赖于 [Unsafe](https://javabetter.cn/thread/Unsafe.html) 的 `compareAndSwapInt()` 方法。
 
 AQS 内部使用了一个先进先出（FIFO）的[双端队列](https://javabetter.cn/collection/arraydeque.html)，并使用了两个指针 head 和 tail 用于标识队列的头部和尾部。其数据结构如下图所示：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/aqs-c294b5e3-69ef-49bb-ac56-f825894746ab.png)
 
-但它并不是直接储存线程，而是储存拥有线程的 Node 节点。
+但它并不直接储存线程，而是储存拥有线程的 Node 节点。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/aqs-20230805211157.png)
 
-## 资源共享模式
+## AQS 的 Node 节点
 
 资源有两种共享模式，或者说两种同步方式：
 
-- 独占模式（Exclusive）：资源是独占的，一次只能有一个线程获取。如 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)。
-- 共享模式（Share）：同时可以被多个线程获取，具体的资源个数可以通过参数指定。如 Semaphore/[CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html)。
+- 独占模式（Exclusive）：资源是独占的，一次只能有一个线程获取。如 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)（后面会细讲，戳链接直达）。
+- 共享模式（Share）：同时可以被多个线程获取，具体的资源个数可以通过参数指定。如 [Semaphore/CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html)（戳链接直达，后面会细讲）。
 
-一般情况下，子类只需要根据需求实现其中一种模式就可以，当然也有同时实现两种模式的同步类，如`ReadWriteLock`。
+一般情况下，子类只需要根据需求实现其中一种模式就可以，当然也有同时实现两种模式的同步类，如 [ReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)。
 
-AQS 中关于这两种资源共享模式的定义源码（均在内部类 Node 中）。我们来看看 Node 的结构：
+AQS 中关于这两种资源共享模式的定义源码均在内部类 Node 中。我们来看看 Node 的结构：
 
 ```java
 static final class Node {
@@ -111,9 +111,44 @@ private Node addWaiter(Node mode) {
 }
 ```
 
-注意：通过 Node 我们可以实现两个队列，一是通过 prev 和 next 实现 CLH 队列(线程同步队列、双向队列)，二是 nextWaiter 实现 Condition 条件上的等待线程队列(单向队列)，这个 Condition 主要用在 ReentrantLock 类中。
+通过 Node 我们可以实现两种队列：
 
-## AQS 的主要源码解析
+1）一是通过 prev 和 next 实现 CLH（Craig, Landin, and Hagersten）队列（线程同步队列、双向队列）。
+
+在 CLH 锁中，每个等待的线程都会有一个关联的 Node，每个 Node 有一个 prev 和 next 指针。当一个线程尝试获取锁并失败时，它会将自己添加到队列的尾部并自旋，等待前一个节点的线程释放锁。类似下面这样。
+
+```java
+public class CLHLock {
+    private volatile Node tail;
+    private ThreadLocal<Node> myNode = ThreadLocal.withInitial(Node::new);
+    private ThreadLocal<Node> myPred = new ThreadLocal<>();
+
+    public void lock() {
+        Node node = myNode.get();
+        node.locked = true;
+        // 把自己放到队尾，并取出前面的节点
+        Node pred = tail;
+        myPred.set(pred);
+        while (pred.locked) {
+            // 自旋等待
+        }
+    }
+
+    public void unlock() {
+        Node node = myNode.get();
+        node.locked = false;
+        myNode.set(myPred.get());
+    }
+
+    private static class Node {
+        private volatile boolean locked;
+    }
+}
+```
+
+2）二是通过 nextWaiter 实现 [Condition](https://javabetter.cn/thread/condition.html)（后面会细讲，戳链接直达）上的等待线程队列（单向队列），这个 Condition 主要用在 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 类中。
+
+## AQS 的源码解析
 
 AQS 的设计是基于**模板方法模式**的，它有一些方法必须要子类去实现的，它们主要有：
 
@@ -131,7 +166,7 @@ protected boolean tryAcquire(int arg) {
 }
 ```
 
-这里不使用抽象方法的目的是：避免强迫子类中把所有的抽象方法都实现一遍，减少无用功，这样子类只需要实现自己关心的抽象方法即可，比如 Semaphore 只需要实现 tryAcquire 方法而不用实现其余不需要用到的模版方法：
+这里不使用抽象方法的目的是：避免强迫子类中把所有的抽象方法都实现一遍，减少无用功，这样子类只需要实现自己关心的抽象方法即可，比如 [信号 Semaphore](https://javabetter.cn/thread/CountDownLatch.html) 只需要实现 tryAcquire 方法而不用实现其余不需要用到的模版方法：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/aqs-20230805211732.png)
 
@@ -287,9 +322,83 @@ private void unparkSuccessor(Node node) {
 
 ## 小结
 
-AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高效地构造出应用广泛的同步器，比如我们提到的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，Semaphore，[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)，SynchronousQueue，[FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) 等等皆是基于 AQS 的。
+AQS 是一个用来构建锁和同步器的框架，使用 AQS 能简单且高效地构造出应用广泛的同步器，比如我们提到的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，[Semaphore](https://javabetter.cn/thread/CountDownLatch.html)，[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)，SynchronousQueue，[FutureTask](https://javabetter.cn/thread/callable-future-futuretask.html) 等等皆是基于 AQS 的。
 
 当然了，我们也可以利用 AQS 轻松定制专属的同步器，只要实现它的几个`protected`方法就可以了。
+
+来个互斥锁（同一时刻只允许一个线程持有锁）。
+
+```java
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+
+public class Mutex {
+
+    private static class Sync extends AbstractQueuedSynchronizer {
+        @Override
+        protected boolean tryAcquire(int arg) {
+            if (compareAndSetState(0, 1)) {
+                setExclusiveOwnerThread(Thread.currentThread());
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        protected boolean tryRelease(int arg) {
+            if (getState() == 0) {
+                throw new IllegalMonitorStateException();
+            }
+            setExclusiveOwnerThread(null);
+            setState(0);
+            return true;
+        }
+
+        @Override
+        protected boolean isHeldExclusively() {
+            return getState() == 1;
+        }
+    }
+
+    private final Sync sync = new Sync();
+
+    public void lock() {
+        sync.acquire(1);
+    }
+
+    public void unlock() {
+        sync.release(1);
+    }
+
+    public boolean isLocked() {
+        return sync.isHeldExclusively();
+    }
+}
+```
+
+上面的 Mutex 类是一个互斥锁。它内部使用了一个 Sync 类，该类继承自 AQS。
+
+- tryAcquire：尝试获取资源。如果当前状态为0（未锁定），那么设置为1（锁定），并设置当前线程为独占资源的线程。
+- tryRelease：尝试释放资源。设置状态为0并清除持有资源的线程。
+- isHeldExclusively：判断当前资源是否被独占。
+
+假设有一个线程不安全的资源，我们需要确保在任何时刻只有一个线程能访问它，那么就可以使用这个 Mutex 锁来确保线程安全。
+
+```java
+public class Resource {
+    private Mutex mutex = new Mutex();
+
+    public void use() {
+        mutex.lock();
+        try {
+            // 对资源的操作
+        } finally {
+            mutex.unlock();
+        }
+    }
+}
+```
+
+在上述场景中，我们为一个不安全的资源添加了一个互斥锁，确保同一时刻只有一个线程可以使用这个资源，从而确保线程安全。
 
 > 编辑：沉默王二，编辑前的内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。值得参考文章：[君哥聊技术：2万字 + 40 张图带你精通 Java AQS](https://mp.weixin.qq.com/s/EWm7unc4lsXIv0iS3o12kg)
 
