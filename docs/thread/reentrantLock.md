@@ -119,7 +119,7 @@ protected final boolean tryAcquire(int acquires) {
 
 ## ReentrantLock 的使用
 
-ReentrantLock 的使用方式与 synchronized 关键字类似，都是通过加锁和释放锁来实现同步的。我们来看看 ReentrantLock 的使用方式，以非公平锁为例：
+ReentrantLock 的使用方式与 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 关键字类似，都是通过加锁和释放锁来实现同步的。我们来看看 ReentrantLock 的使用方式，以非公平锁为例：
 
 ```java
 public class ReentrantLockTest {
@@ -181,70 +181,97 @@ private static final ReentrantLock lock = new ReentrantLock(true);
 
 需要注意的是，使用 ReentrantLock 时，必须在 finally 块中手动释放锁。
 
-## Condition 接口
+## ReentrantLock 与 synchronized
 
-[Condition 接口](https://javabetter.cn/thread/condition.html)是与 Lock 绑定的，可以理解为一个 Lock 对象可以绑定多个 Condition 对象，Condition 接口提供了类似于 Object 的 wait、notify、notifyAll 等方法，与 Lock 一起使用可以实现等待/通知模式，比如实现一个阻塞队列：
+ReentrantLock 与 synchronized 关键字都是用来实现同步的，那么它们之间有什么区别呢？我们来看看它们的对比：
+
+- **ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字**；
+- **ReentrantLock 可以实现选择性通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)（后面会细讲，戳链接直达）），而 synchronized 只能唤醒一个线程或者唤醒全部线程**；
+- **ReentrantLock 是可重入锁，而 synchronized 不是**；
+- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
+- ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。synchronized: 在某些情况下，性能可能稍差一些，但随着 JDK 版本的升级，性能差距已经不大了。
+
+以下是一个简单的性能比较demo：
 
 ```java
-public class BlockingQueue<T> {
-    private final Lock lock = new ReentrantLock();
-    private final Condition notFull = lock.newCondition();
-    private final Condition notEmpty = lock.newCondition();
-    private final Object[] items = new Object[100];
-    private int putptr, takeptr, count;
+import java.util.concurrent.locks.ReentrantLock;
 
-    public void put(T t) throws InterruptedException {
+public class PerformanceTest {
+    private static final int NUM_THREADS = 10;
+    private static final int NUM_INCREMENTS = 1_000_000;
+
+    private int count1 = 0;
+    private int count2 = 0;
+
+    private final ReentrantLock lock = new ReentrantLock();
+    private final Object syncLock = new Object();
+
+    public void increment1() {
         lock.lock();
         try {
-            while (count == items.length) {
-                notFull.await();
-            }
-            items[putptr] = t;
-            if (++putptr == items.length) {
-                putptr = 0;
-            }
-            ++count;
-            notEmpty.signal();
+            count1++;
         } finally {
             lock.unlock();
         }
     }
 
-    public T take() throws InterruptedException {
-        lock.lock();
-        try {
-            while (count == 0) {
-                notEmpty.await();
-            }
-            Object x = items[takeptr];
-            if (++takeptr == items.length) {
-                takeptr = 0;
-            }
-            --count;
-            notFull.signal();
-            return (T) x;
-        } finally {
-            lock.unlock();
+    public void increment2() {
+        synchronized (syncLock) {
+            count2++;
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        PerformanceTest test = new PerformanceTest();
+        
+        // Test ReentrantLock
+        long startTime = System.nanoTime();
+        Thread[] threads = new Thread[NUM_THREADS];
+        for (int i = 0; i < NUM_THREADS; i++) {
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < NUM_INCREMENTS; j++) {
+                    test.increment1();
+                }
+            });
+            threads[i].start();
+        }
+        for (Thread thread : threads) {
+            thread.join();
+        }
+        long endTime = System.nanoTime();
+        System.out.println("ReentrantLock time: " + (endTime - startTime) + " ns");
+
+        // Test synchronized
+        startTime = System.nanoTime();
+        for (int i = 0; i < NUM_THREADS; i++) {
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < NUM_INCREMENTS; j++) {
+                    test.increment2();
+                }
+            });
+            threads[i].start();
+        }
+        for (Thread thread : threads) {
+            thread.join();
+        }
+        endTime = System.nanoTime();
+        System.out.println("synchronized time: " + (endTime - startTime) + " ns");
     }
 }
 ```
 
-代码很简单，就是一个阻塞队列的实现，put 方法用来向队列中添加元素，take 方法用来从队列中获取元素。我们来看看 put 方法的实现，首先获取锁，然后判断队列是否已满，如果已满则调用 `notFull.await()` 方法阻塞当前线程，直到队列不满，然后将元素添加到队列中，最后调用 `notEmpty.signal()` 方法唤醒一个等待的线程。take 方法的实现与 put 方法类似，不再赘述。
+来看输出结果：
 
-## 与 synchronized 关键字的比较
+```
+ReentrantLock time: 269913857 ns
+synchronized  time: 350595013 ns
+```
 
-ReentrantLock 与 synchronized 关键字都是用来实现同步的，那么它们之间有什么区别呢？我们来看看它们的对比：
-
-- **ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字，synchronized 是内置的语言实现**；
-- **ReentrantLock 可以实现选择性通知（锁可以绑定多个 Condition），而 synchronized 只能唤醒一个线程或者唤醒全部线程**；
-- **ReentrantLock 是可重入锁，而 synchronized 不是**；
-- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。synchronized: 自动释放锁。当同步块执行完毕时，JVM 会自动释放锁，不需要手动操作。
-- ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。ynchronized: 在某些情况下，性能可能稍差一些，但在现代 JVM 实现中，性能差距通常不大。
+这个测试在两种锁机制下尝试执行多次增量操作，然后测量所需的时间。
 
 ## 小结
 
-本篇主要介绍了 ReentrantLock 的实现原理，以及与 synchronized 关键字的比较。ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字，synchronized 是内置的语言实现。ReentrantLock 可以实现选择性通知（锁可以绑定多个 Condition），而 synchronized 只能唤醒一个线程或者唤醒全部线程。ReentrantLock 是可重入锁，而 synchronized 不是。ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。synchronized: 自动释放锁。当同步块执行完毕时，JVM 会自动释放锁，不需要手动操作。ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。ynchronized: 在某些情况下，性能可能稍差一些，但在现代 JVM 实现中，性能差距通常不大。
+本篇主要介绍了 ReentrantLock 的实现原理，以及与 synchronized 关键字的比较。
 
 >编辑：沉默王二，编辑前的内容主要来自于CL0610的 GitHub 仓库[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency/blob/master/10.彻底理解ReentrantLock/彻底理解ReentrantLock.md)
 
