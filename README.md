@@ -257,7 +257,7 @@
 - [深入浅出偏向锁](docs/thread/pianxiangsuo.md)
 - [CAS详解](docs/thread/cas.md)
 - [AQS详解](docs/thread/aqs.md)
-- [锁分类及 JUC 包下的那些锁](docs/thread/lock.md)
+- [锁分类和 JUC](docs/thread/lock.md)
 - [重入锁ReentrantLock](docs/thread/reentrantLock.md)
 - [读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
 - [协作类Condition](docs/thread/condition.md)
