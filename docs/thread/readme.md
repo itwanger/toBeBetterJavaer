@@ -14,7 +14,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-readme-fengmian.png)
 
-# 第一节：小册简介
+# 第零节：小册简介
 
 以上就是小册的封面了，自我感觉还不错哈，简洁大方，但包含的信息又足够的丰富：
 

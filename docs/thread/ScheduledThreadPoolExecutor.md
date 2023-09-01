@@ -627,7 +627,7 @@ private void siftUp(int k, RunnableScheduledFuture<?> key) {
 可见，每次新增节点时，只是根据父节点来判断，而不会影响兄弟节点。
 
 
-## 总结
+## 小结
 
 `ScheduledThreadPoolExecutor`是一个定时任务的线程池，它的主要作用是周期性的执行任务。它的实现原理是通过`DelayedWorkQueue`来保存等待的任务，`DelayedWorkQueue`是一个无界优先队列，使用数组存储，底层使用堆结构来实现优先队列的功能。
 

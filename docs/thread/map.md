@@ -242,7 +242,7 @@ CopyOnWrite 容器即**写时复制的容器**，当我们往一个容器中添�
 
 这样做的好处在于，我们可以在并发的场景下对容器进行"读操作"而不需要"加锁"，从而达到读写分离的目的。从 JDK 1.5 开始 Java 并发包里提供了两个使用 CopyOnWrite 机制实现的并发容器，分别是 [CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)（后面会细讲，戳链接直达） 和 CopyOnWriteArraySet（不常用）。
 
-## 总结
+## 小结
 
 本文主要介绍了并发包中的三个重要的容器类，Map、阻塞队列和 CopyOnWrite 容器，Map 用于存储键值对，阻塞队列用于生产者-消费者模型，而 CopyOnWrite 容器用于“读多写少”的并发场景。
 
