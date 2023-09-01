@@ -297,7 +297,7 @@ Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段�
 
 ThreadLocalMap 中的哈希值分散的比较均匀，很少会出现冲突。并且 ThreadLocalMap 经常需要清除无用的对象，冲突的概率就更小了。
 
-### ThreadLocalMap 的 set 方法
+### set 方法
 
 好，在了解哈希表的相关知识后，我们再来看一下 set 方法。set 方法的源码如下：
 

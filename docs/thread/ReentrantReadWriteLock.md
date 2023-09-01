@@ -1,7 +1,7 @@
 ---
 title: 深入理解Java并发读写锁ReentrantReadWriteLock
-shortTitle: 读写锁ReentrantReadWriteLock
-description: ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问，或者阻塞所有的读写线程。这种锁的设计可以提高性能，特别是在数据结构中，读操作的数量远远超过写操作的情况下。
+shortTitle: ReentrantReadWriteLock
+description: ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问，或者阻塞所有的读写线程。这种锁的设计可以提高性能，特别是在读操作的数量远远超过写操作的情况下。
 category:
   - Java核心
 tag:
@@ -14,7 +14,7 @@ head:
 
 # 第十六节：读写锁 ReentrantReadWriteLock
 
-ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问，或者阻塞所有的读写线程。这种锁的设计可以提高性能，特别是在数据结构中，读操作的数量远远超过写操作的情况下。
+ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问（会阻塞所有的读写线程）。这种锁的设计可以提高性能，特别是在读操作的数量远远超过写操作的情况下。
 
 在并发场景中，为了解决线程安全问题，我们通常会使用关键字 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 或者 JUC 包中实现了 Lock 接口的 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)。但它们都是独占式获取锁，也就是在同一时刻只有一个线程能够获取锁。
 
@@ -85,9 +85,7 @@ try {
 
 ### 写锁的获取
 
-同步组件的实现聚合了同步器（[AQS](https://javabetter.cn/thread/aqs.html)），并通过重写同步器（AQS）中的方法实现同步组件的同步语义。
-
-因此，写锁的实现依然也是采用这种方式。在同一时刻写锁是不能被多个线程获取的，很显然写锁是独占式锁，而实现写锁的同步语义是通过重写 AQS 中的 tryAcquire 方法实现的。源码为:
+同一时刻，ReentrantReadWriteLock 的写锁是不能被多个线程获取的，很显然 ReentrantReadWriteLock 的写锁是独占式锁，而实现写锁的同步语义是通过重写 [AQS](https://javabetter.cn/thread/aqs.html) 中的 tryAcquire 方法实现的。源码为:
 
 ```java
 protected final boolean tryAcquire(int acquires) {
@@ -332,7 +330,7 @@ void processCachedData() {
 
 这个流程结合了读锁和写锁的优点，确保了数据的一致性和可用性，同时允许在可能的情况下进行并发读取。使用读写锁的代码可能看起来比使用简单的互斥锁更复杂，但它提供了更精细的并发控制，可能会提高多线程应用程序的性能。
 
-## ReentrantReadWriteLock的使用
+## 使用读写锁
 
 ReentrantReadWriteLock 的使用非常简单，下面的代码展示了如何使用 ReentrantReadWriteLock 来实现一个线程安全的计数器：
 

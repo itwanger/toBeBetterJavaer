@@ -216,6 +216,8 @@ dequeue 方法主要做了两件事情：
 
 从以上分析可以看出，put 和 take 方法主要通过 [Condition](https://javabetter.cn/thread/condition.html) 的通知机制来完成阻塞式的数据生产和消费。
 
+### 3）使用示例
+
 OK，我们再来看一个 ArrayBlockingQueue 的使用示例：
 
 ```java
@@ -452,7 +454,7 @@ public E take() throws InterruptedException {
 
 09）返回取出的元素：最后返回被取出的元素 x。
 
-### 3）LinkedBlockingQueue 的使用示例
+### 3）使用示例
 
 ```java
 public class LinkedBlockingQueueTest {

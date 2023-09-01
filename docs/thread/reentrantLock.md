@@ -89,7 +89,9 @@ public ReentrantLock(boolean fair) {
 }
 ```
 
-在非公平锁获取时（nonfairTryAcquire 方法），只是简单的获取了一下当前状态然后做了一些逻辑处理，并没有考虑到当前同步队列中线程等待的情况。我们来看看公平锁的处理逻辑是怎样的，核心方法为：
+在非公平锁获取时（nonfairTryAcquire 方法），只是简单的获取了一下当前状态然后做了一些逻辑处理，并没有考虑到当前同步队列中线程等待的情况。
+
+我们来看看公平锁的处理逻辑是怎样的，核心方法为：
 
 ```java
 protected final boolean tryAcquire(int acquires) {
@@ -179,15 +181,46 @@ private static final ReentrantLock lock = new ReentrantLock(true);
 - 公平锁: 按照线程请求锁的顺序获取锁，即先到先得。
 - 非公平锁: 线程获取锁的顺序可能与请求锁的顺序不同，可能导致某些线程获取锁的速度较快。
 
-需要注意的是，使用 ReentrantLock 时，必须在 finally 块中手动释放锁。
+需要注意的是，使用 ReentrantLock 时，锁必须在 try 代码块开始之前获取，并且加锁之前不能有异常抛出，否则在 finally 块中就无法释放锁（ReentrantLock 的锁必须在 finally 中手动释放）。
+
+错误❎示例：
+
+```java
+Lock lock = new XxxLock();
+// ...
+try {
+    // 如果在此抛出异常，会直接执行 finally 块的代码
+    doSomething();
+    // 不管锁是否成功，finally 块都会执行
+    lock.lock();
+    doOthers();
+
+} finally {
+    lock.unlock();
+} 
+```
+
+正确✅示例：
+
+```java
+Lock lock = new XxxLock();
+// ...
+lock.lock();
+try {
+    doSomething();
+    doOthers();
+} finally {
+    lock.unlock();
+}
+```
+
 
 ## ReentrantLock 与 synchronized
 
 ReentrantLock 与 synchronized 关键字都是用来实现同步的，那么它们之间有什么区别呢？我们来看看它们的对比：
 
 - **ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字**；
-- **ReentrantLock 可以实现选择性通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)（后面会细讲，戳链接直达）），而 synchronized 只能唤醒一个线程或者唤醒全部线程**；
-- **ReentrantLock 是可重入锁，而 synchronized 不是**；
+- **ReentrantLock 可以实现多路选择通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)（后面会细讲，戳链接直达）），而 synchronized 只能通过 wait 和 notify/notifyAll 方法唤醒一个线程或者唤醒全部线程（单路通知）**；
 - ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
 - ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。synchronized: 在某些情况下，性能可能稍差一些，但随着 JDK 版本的升级，性能差距已经不大了。
 

@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentLinkedQueue
 ---
 
-# 第二十一节：非阻塞性队列ConcurrentLinkedQueue
+# 第二十一节：非阻塞队列ConcurrentLinkedQueue
 
 ConcurrentLinkedQueue 是 `java.util.concurrent`（JUC） 包下的一个线程安全的队列实现。基于非阻塞算法（Michael-Scott 非阻塞算法的一种变体），这意味着 ConcurrentLinkedQueue 不再使用传统的锁机制来保护数据安全，而是依靠底层原子的操作（如 [CAS](https://javabetter.cn/thread/cas.html)）来实现。
 
@@ -20,7 +20,7 @@ Michael-Scott 由 Maged M. Michael 和 Michael L. Scott 在 1996 年提出，在
 
 好，接下来一起来看一下 ConcurrentLinkedQueue 的源码实现。
 
-## Node
+## 节点类Node
 
 先从它的节点类 Node 看起，好明白 ConcurrentLinkedQueue 的底层数据结构。Node 类的源码如下：
 
@@ -87,7 +87,7 @@ boolean casNext(Node<E> cmp, Node<E> val) {
 
 Unsafe 允许分配、释放和访问本机内存，就像使用 C 语言中的 malloc 和 free 一样。我们在讲 [CAS](https://javabetter.cn/thread/cas.html) 的时候有详细讲过，相信大家都还有印象。
 
-## offer 方法
+## offer方法
 
 ConcurrentLinkedQueue 是一种先进先出（FIFO，First-In-First-Out）的队列，offer 方法用于在队列尾部插入一个元素。如果成功添加元素，则返回 true。下面是这个方法的一般定义：
 
@@ -174,7 +174,7 @@ public boolean offer(E e) {
 }
 ```
 
-### 单线程执行角度分析：
+### 单线程执行角度分析
 
 我们再从**单线程的角度**分析 offer 1 的过程。
 
@@ -230,7 +230,7 @@ p = (p != t && t != (t = tail)) ? t : q;
 
 在单线程环境下，`p = (p != t && t != (t = tail)) ? t : q;`这行代码永远不会将 p 赋值为 t，我们试着在**多线程**的环境下继续分析。
 
-### 多线程执行角度分析：
+### 多线程执行角度分析
 
 在**多线程环境**下，`p = (p != t && t != (t = tail)) ? t : q;` 这行代码就有意思了。 
 
@@ -244,7 +244,7 @@ p = (p != t && t != (t = tail)) ? t : q;
 
 当`if (p == q)`为 true 时，说明 p 节点的 next 也指向它自己，这种节点称之为**哨兵节点**，**这种节点在队列中存在的价值不大，一般表示要删除的节点或者空节点**。为了能够更好地理解这种情况，我们先看看 poll 方法的执行过程，再回过头来看，总之这是一个很有意思的事情。
 
-## poll 方法
+## poll方法
 
 poll 方法的源码如下：
 
@@ -294,7 +294,7 @@ public E poll() {
 
 6、移动到下一个节点：将p设置为q，即下一个节点，并继续循环。
 
-### 单线程执行角度分析：
+### 单线程执行角度分析
 
 为了便于分析，我把代码注释删掉了，并标上行号。
 
@@ -368,7 +368,7 @@ Node1 的 next 指向它自己，head 指向了 Node3。
 2. **如果当前 head、h 和 p 指向的节点 item 为 null 的话，说明该节点不是真正待删除的节点，那么应该继续寻找 item 不为 null 的节点。通过让 q 指向 p 的下一个节点（q = p.next）进行试探，若找到则通过 updateHead 方法更新 head 节点以及构造哨兵节点（`通过updateHead方法的h.lazySetNext(h)`）**。
 
 
-### **多线程执行情况分析：**
+### 多线程执行情况分析
 
 现在回过头来看 poll 方法的源码，有这样一部分：
 
@@ -435,7 +435,7 @@ thread1 先执行到第 8 行代码`if ((q = p.next) == null)`，由于队列为
 
 线程 A 执行判断 `if (p == q)` 为 true，继续执行 `p = (t != (t = tail)) ? t : head;`，由于 tail 没有发生改变，所以 p 被赋值为 head，重新从 head 开始完成插入操作。
 
-## HOPS 设计
+## 延迟更新策略
 
 通过上面对 offer 和 poll 方法的分析，我们发现 tail 和 head 是延迟更新的，两者更新的触发时机为：
 
@@ -453,7 +453,7 @@ thread1 先执行到第 8 行代码`if ((q = p.next) == null)`，由于队列为
 
 对 head 的更新也是同样的道理，虽然这样设计会多出在循环中定位尾节点的操作，但总体来说，读的操作效率要远远高于写的效率，因此，多出来的定位尾节点的性能损耗相对就很小了。
 
-### ConcurrentLinkedQueue 使用示例
+## 使用示例
 
 ```java
 public class ConcurrentLinkedQueueTest {

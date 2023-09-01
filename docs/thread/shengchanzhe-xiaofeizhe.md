@@ -389,7 +389,7 @@ synchronized (sharedObject) {
 }
 ```
 
-### wait/notifyAll 实现生产者-消费者
+## wait/notifyAll 实现生产者-消费者
 
 利用 wait/notifyAll 实现生产者和消费者代码如下：
 
@@ -510,7 +510,7 @@ public class ProductorConsumer {
 消费者pool-1-thread-10  退出wait
 ```
 
-## 使用 Condition 的 await/signalAll 实现生产者-消费者
+## await/signalAll 实现生产者-消费者
 
 参照 Object 的 wait 和 notify/notifyAll 方法，Condition 也提供了同样的方法，即 await 方法和 signal/signalAll 方法。这部分知识我们前面在讲 [Condition](https://javabetter.cn/thread/condition.html) 的时候也讲到过，相信大家都还有印象。
 
@@ -643,7 +643,7 @@ public class ProductorConsumer {
 消费者pool-1-thread-9  消费数据：-892558288
 ```
 
-## 使用 BlockingQueue 实现生产者-消费者
+## BlockingQueue 实现生产者-消费者
 
 在讲 [BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 的时候，我们就讲过，BlockingQueue 非常适合用来实现生产者-消费者模型。
 
