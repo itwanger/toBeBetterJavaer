@@ -1,5 +1,5 @@
 ---
-title: Java atomic包中的原子操作类（ AtomicInteger）总结
+title: Java atomic包中的原子操作类（AtomicInteger）总结
 shortTitle: 原子操作类Atomic
 description: Java 中的 java.util.concurrent.atomic 包提供了一系列类，这些类支持原子操作（即线程安全而无需同步）在单个变量上，这大大减少了并发编程的复杂性。
 category:

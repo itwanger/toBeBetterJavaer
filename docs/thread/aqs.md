@@ -47,7 +47,7 @@ compareAndSetState()
 
 这三种操作均是原子操作，其中 compareAndSetState 的实现依赖于 [Unsafe](https://javabetter.cn/thread/Unsafe.html) 的 `compareAndSwapInt()` 方法。
 
-AQS 内部使用了一个先进先出（FIFO）的[双端队列](https://javabetter.cn/collection/arraydeque.html)，并使用了两个指针 head 和 tail 用于标识队列的头部和尾部。其数据结构如下图所示：
+AQS 内部使用了一个先进先出（FIFO）的[双端队列](https://javabetter.cn/collection/arraydeque.html)，并使用了两个引用 head 和 tail 用于标识队列的头部和尾部。其数据结构如下图所示：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/aqs-c294b5e3-69ef-49bb-ac56-f825894746ab.png)
 
@@ -110,6 +110,16 @@ private Node addWaiter(Node mode) {
     // 其它代码省略
 }
 ```
+
+这里面的 waitStatus 是用来标记当前节点的状态的，它有以下几种状态：
+
+- CANCELLED：表示当前节点（对应的线程）已被取消。当等待超时或被中断，会触发进入为此状态，进入该状态后节点状态不再变化；
+- SIGNAL：后面节点等待当前节点唤醒；
+- CONDITION：[Condition](https://javabetter.cn/thread/condition.html)（后面会细讲，戳链接直达）中使用，当前线程阻塞在Condition，如果其他线程调用了Condition的signal方法，这个节点将从等待队列转移到同步队列队尾，等待获取同步锁；
+- PROPAGATE：共享模式，前置节点唤醒后面节点后，唤醒操作无条件传播下去；
+- 0：中间状态，当前节点后面的节点已经唤醒，但是当前节点线程还没有执行完成。
+
+
 
 通过 Node 我们可以实现两种队列：
 
@@ -177,31 +187,41 @@ protected boolean tryAcquire(int arg) {
 获取资源的入口是 `acquire(int arg)`方法。arg 是要获取的资源个数，在独占模式下始终为 1。我们先来看看这个方法的逻辑：
 
 ```java
-public final void acquire(int arg) {
+public final void accquire(int arg) {
+    // tryAcquire 再次尝试获取锁资源，如果尝试成功，返回true，尝试失败返回false
     if (!tryAcquire(arg) &&
+        // 走到这，代表获取锁资源失败，需要将当前线程封装成一个Node，追加到AQS的队列中
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+        // 线程中断
         selfInterrupt();
 }
 ```
 
-首先调用 tryAcquire 尝试去获取资源。前面提到了这个方法是在子类中具体实现的。
+首先调用 tryAcquire 尝试去获取资源。前面提到了这个方法是在子类中具体实现的，可以直接进入 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 中 查看。
 
 如果获取资源失败，就通过 `addWaiter(Node.EXCLUSIVE)` 方法把这个线程插入到等待队列中。其中传入的参数代表要插入的 Node 是独占式的。这个方法的具体实现：
 
 ```java
 private Node addWaiter(Node mode) {
-    Node node = new Node(Thread.currentThread(), mode);
-    // Try the fast path of enq; backup to full enq on failure
-    Node pred = tail;
-    if (pred != null) {
-        node.prev = pred;
-        if (compareAndSetTail(pred, node)) {
-            pred.next = node;
-            return node;
-        }
-    }
-    enq(node);
-    return node;
+ //创建 Node 类，并且设置 thread 为当前线程，设置为排它锁
+ Node node = new Node(Thread.currentThread(), mode);
+ // 获取 AQS 中队列的尾部节点
+ Node pred = tail;
+ // 如果 tail == null，说明是空队列，
+ // 不为 null，说明现在队列中有数据，
+ if (pred != null) {
+  // 将当前节点的 prev 指向刚才的尾部节点，那么当前节点应该设置为尾部节点
+  node.prev = pred;
+  // CAS 将 tail 节点设置为当前节点
+  if (compareAndSetTail(pred, node)) {
+   // 将之前尾节点的 next 设置为当前节点
+   pred.next = node;
+   // 返回当前节点
+   return node;
+  }
+ }
+ enq(node);
+ return node;
 }
 
 // 自旋CAS插入等待队列
@@ -400,7 +420,7 @@ public class Resource {
 
 在上述场景中，我们为一个不安全的资源添加了一个互斥锁，确保同一时刻只有一个线程可以使用这个资源，从而确保线程安全。
 
-> 编辑：沉默王二，编辑前的内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。值得参考文章：[君哥聊技术：2万字 + 40 张图带你精通 Java AQS](https://mp.weixin.qq.com/s/EWm7unc4lsXIv0iS3o12kg)
+> 编辑：沉默王二，编辑前的内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。值得参考文章：[君哥聊技术：2万字 + 40 张图带你精通 Java AQS](https://mp.weixin.qq.com/s/EWm7unc4lsXIv0iS3o12kg)，[阿 Q 说代码：20张图带你彻底了解加锁和解锁](https://mp.weixin.qq.com/s/3tqBo47GtG3ljdrig2b8AA)
 
 ---
 

@@ -27,7 +27,7 @@ JDK 1.5 之前，主要使用`Timer`类来完成定时任务，但是`Timer`有�
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824085609.png)
 
-## ScheduledThreadPoolExecutor 使用案例
+## 使用案例
 
 假设我们有这样一个需求，指定时间给其他人发送消息。那么我们会将消息（包含发送时间）存储在数据库中，然后用一个定时任务，每隔 1 秒检查数据库在当前时间有没有需要发送的消息，那这个计划任务怎么完成呢？下面是一个 Demo:
 
@@ -83,7 +83,7 @@ public class ThreadPool {
 
 这就是 `ScheduledThreadPoolExecutor` 的一个简单运用，接下来我们来看看它的实现原理。
 
-## ScheduledThreadPoolExecutor 的类结构
+## 类结构
 
 ```java
 public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor
@@ -170,7 +170,7 @@ scheduleAtFixedRate 方法在`initialDelay`时长后第一次执行任务，以�
 
 相信大家能体会出来其中的差异。
 
-## ScheduledThreadPoolExecutor 的主要方法
+## 主要方法
 
 ### schedule
 

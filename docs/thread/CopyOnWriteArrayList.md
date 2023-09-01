@@ -36,7 +36,7 @@ CopyOnWriteArrayList 是线程安全的，可以在多线程环境下使用。Co
 
 我们在介绍[并发容器](https://javabetter.cn/thread/map.html)的时候，也曾提到过，相信大家都还有印象。
 
-## CopyOnWriteArrayList 的实现原理
+## CopyOnWriteArrayList原理
 
 OK，接下来我们来看一下 CopyOnWriteArrayList 的源码。顾名思义，实际上 CopyOnWriteArrayList 内部维护的就是一个数组：
 

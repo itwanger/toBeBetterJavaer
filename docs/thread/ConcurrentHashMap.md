@@ -36,9 +36,9 @@ public V put(K key, V value) {
 
 为什么不用 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 而是 synchronzied 呢？
 
-实际上，synchronzied 做了很多的优化，这个我们前面也讲过了，包括偏向锁、轻量级锁、重量级锁，可以依次向上升级锁状态，因此，synchronized 相较于 ReentrantLock 的性能其实差不多，甚至在某些情况更优。
+实际上，synchronzied 做了很多的优化，[这个我们前面也讲过了](https://javabetter.cn/thread/synchronized.html)，包括偏向锁、轻量级锁、重量级锁，可以依次向上升级锁状态，因此，synchronized 相较于 ReentrantLock 的性能其实差不多，甚至在某些情况更优。
 
-## JDK 1.7 和 JDK 1.8 中 ConcurrentHashMap 的区别
+## ConcurrentHashMap 的变化
 
 ConcurrentHashMap 在 JDK 1.7 和 JDK 1.8 中有一些区别。这里我们分开介绍一下。
 
@@ -131,7 +131,7 @@ static class Node<K,V> implements Map.Entry<K,V> {
 }
 ```
 
-## ConcurrentHashMap 的关键属性
+## ConcurrentHashMap的字段
 
 1、**table**，`volatile Node<K,V>[] table`:
 
@@ -170,7 +170,7 @@ static {
 }
 ```
 
-## ConcurrentHashMap 的关键内部类
+## ConcurrentHashMap的内部类
 
 ### 1、Node
 
@@ -239,7 +239,7 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 }
 ```
 
-## CAS 的关键操作
+## ConcurrentHashMap的CAS
 
 ConcurrentHashMap 会大量使用 CAS 来修改它的属性和进行一些操作。因此，在理解 ConcurrentHashMap 的方法前，我们需要了解几个常用的利用 CAS 算法来保障线程安全的操作。
 
@@ -274,7 +274,7 @@ static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
 
 该方法用来设置 table 数组中索引为 i 的元素
 
-## ConcurrentHashMap 的重点方法
+## ConcurrentHashMap的方法
 
 ### 构造方法
 
@@ -875,7 +875,7 @@ private final void addCount(long x, int check) {
 }
 ```
 
-## ConcurrentHashMap 的代码示例
+## ConcurrentHashMap示例
 
 假设我们想要构建一个线程安全的高并发统计用户访问次数的功能。在这里，ConcurrentHashMap是一个很好的选择，因为它提供了高并发性能。
 
