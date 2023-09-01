@@ -749,7 +749,7 @@ public class DelayQueueDemo {
 这是一个 5 秒延迟的元素
 ```
 
-## 总结
+## 小结
 
 本文介绍了 Java 中的阻塞队列，包括 ArrayBlockingQueue、LinkedBlockingQueue、PriorityBlockingQueue、SynchronousQueue、LinkedTransferQueue、LinkedBlockingDeque 和 DelayQueue。它们都是线程安全的，可以在多线程环境下使用。
 

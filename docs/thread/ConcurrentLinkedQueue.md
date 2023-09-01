@@ -482,7 +482,7 @@ queue当前的大小为：4
 
 
 
-## 总结
+## 小结
 
 ConcurrentLinkedQueue 是一种先进先出（FIFO，First-In-First-Out）的队列，它是一个基于链接节点的无界线程安全队列。该队列的元素遵循先进先出的原则。头是最先加入的，尾是最近加入的。该队列不允许 null 元素。
 

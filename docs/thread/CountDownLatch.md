@@ -495,7 +495,7 @@ static final class QNode implements ForkJoinPool.ManagedBlocker {
 
 有兴趣的小伙伴可以去看看 JDK 源代码，这里不做过多叙述。
 
-## 总结
+## 小结
 
 总的来说，CountDownLatch，CyclicBarrier，Phaser 是一个比一个强大，但也一个比一个复杂，需要根据自己的业务需求合理选择。
 

@@ -280,7 +280,7 @@ public class AtomicDemo {
 
 从示例中可以看出，创建`AtomicIntegerFieldUpdater`是通过它提供的静态方法进行创建的，`getAndAdd`方法会将指定的字段加上输入的值，并返回相加之前的值。user 对象中 age 字段原值为 1，加 5 之后变成了 6。
 
-## 总结
+## 小结
 
 Java 中的 java.util.concurrent.atomic 包提供了一系列类，这些类支持原子操作（即线程安全而无需同步）在单个变量上，这大大减少了并发编程的复杂性。
 

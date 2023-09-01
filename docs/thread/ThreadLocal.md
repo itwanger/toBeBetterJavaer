@@ -613,7 +613,7 @@ public class UserAuthenticationService {
 
 这个示例定义了一个UserAuthenticationService类，该类使用ThreadLocal来保存与当前线程关联的用户登录信息。假设用户已经通过身份验证，将用户对象存储在currentUser ThreadLocal变量中。getCurrentUser方法用于检索与当前线程关联的用户信息。由于使用了ThreadLocal，因此不同的线程可以同时登录不同的用户，而不会相互干扰。
 
-## 总结
+## 小结
 
 ThreadLocal 是一个非常有用的工具类，它可以用于保存线程中的变量，这样在同一个线程中的任何地方都可以获取到线程中的变量。但是，ThreadLocal 也是一个非常容易被误用的工具类，如果没有使用好，就可能会造成内存泄漏的问题。
 
