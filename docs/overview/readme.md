@@ -1,5 +1,5 @@
 ---
-title: 《二哥的Java进阶之路》小册简介，GitHub星标9300+，共计 32 万余字，500+张手绘图，500+张手绘图
+title: 《二哥的Java进阶之路》小册简介，GitHub星标9300+，共计 32 万余字，500+张手绘图
 shortTitle: 小册简介
 category:
   - Java核心

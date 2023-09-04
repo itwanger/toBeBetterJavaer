@@ -72,7 +72,7 @@ head:
 
 >[https://javabetter.cn/home.html](https://javabetter.cn/home.html)
 
-进去直接找 Java 核心里面的 Java 并发编程就对了。我按照前面的思维导图整理了 29 篇文章，全部都是硬核级别的，跟着学就对了。
+进去直接找 Java 并发编程就对了。我按照前面的思维导图整理了 31 篇内容，全部都是硬核级别的，跟着学就对了。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410204505.png)
 
@@ -132,15 +132,17 @@ head:
 
 ### **5）付费专栏**
 
-技术派楼仔出品的《Java 并发编程》小册，暂时只对《[二哥的编程星球（戳链接有优惠券）](https://javabetter.cn/zhishixingqiu/)》用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
+《[第一版二哥的并发编程进阶之路.pdf](https://javabetter.cn/thread/)》也发布了，包括线程的基本概念和使用方法、Java的内存模型、sychronized、volatile、CAS、AQS、ReentrantLock、线程池、并发容器、ThreadLocal、生产者消费者模型等面试和开发必须掌握的内容，共计 15 万余字，200+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，二哥的并发编程进阶之路.pdf](https://javabetter.cn/thread/)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410210802.png)
+[加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
 
 一句话介绍一下二哥的编程星球，这是一个编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。这是 PDF 的大致内容，想要加入星球的用户，可以提前感受一下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/thread-20230410211343.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904115241.png)
 
-王宝令老师在极客时间上开了一门《Java 并发编程实战》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11cBH)去购买。
+王宝令老师在极客时间上开了一门《Java 并发编程实战》的付费专栏，质量还是挺高的，喜欢的小伙伴也可以戳[链接](http://gk.link/a/11cBH)去购买。
 
 <a href="http://gk.link/a/11cBH" target="_blank">
 <img src="https://cdn.tobebetterjavaer.com/stutymore/thread-20230410204829.png" />

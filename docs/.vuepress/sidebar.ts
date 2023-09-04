@@ -281,7 +281,7 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           prefix: "thread/",
           children: [
-            "readme",
+            "readme.md",
             "wangzhe-thread",
             "callable-future-futuretask",
             "thread-state-and-method",
