@@ -1,6 +1,6 @@
 ---
 title: 📚沉默王二-知识星球-二哥的Java进阶之路图谱（包含球友提问&精华主题&星球专栏&坦白从宽，持续更新...）
-shortTitle: 📚沉默王二-知识星球图谱
+shortTitle: 知识星球图谱
 category:
   - 知识星球
 tag:
@@ -18,32 +18,37 @@ head:
 
 也欢迎你做一个简单的自我介绍，让二哥了解你，方便后续的交流沟通。我会按照下面这样一个索引来整理。
 
-- 学习资料：PDF&视频教程&简历模板&实战项目&我在B站上大学
+
+- 学习资料：开发工具&PDF&视频教程&简历模板&实战项目&我在B站上大学
 - 学习计划
-- 学生党：秋招&春招&offer选择&考研&实习&专升本&培训班
-- 工作党：方向选择&转行&求职&人生规划
 - 学习路线：Java、C++、MySQL、C语言、Go 语言、Python、操作系统、大数据、计算机考研、测开/测试、前端
-- 星球专栏：Java 面试指南、技术派教程、Spring Boot 实战笔记、二哥的 LeetCode 刷题笔记
+- 学生党：秋招&春招&offer选择&考研&实习&专升本&培训班
+- 工作党：方向选择&转行&求职&职业规划
+- 星球专栏（[强烈推荐语雀阅读](https://t.zsxq.com/6iuzn6I)）：Java面试指南、技术派教程、编程喵实战笔记、二哥的LeetCode刷题笔记
 - 球友分享
 - 技术细节
-- 开发工具
 - 城市选择
 - 其他主题
 - 坦白从宽
-
 ## 学习资料：
-
+### 生产力工具
+- [生产力工具：GitHub Copilot X ](https://t.zsxq.com/0eJdlQvq1)
+- [生产力工具：ChatGPT注册+使用攻略](https://t.zsxq.com/0bdah3lqK)
+- [生产力工具：各种 ChatGPT 相关的资源，让你的生产力 up up up!](https://t.zsxq.com/0dAfFZfY1)
+- [生产力工具：IDEA、Navicat、Typora、xshell 免费](https://tobebetterjavaer.com/nice-article/itmind/)
+- [生产力工具：在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
 ### 视频教程
 - [视频教程：技术派到底该怎么学习，直播回放](https://t.zsxq.com/0czKk7UMr)
 - [视频教程：多线程实战的学习视频](https://t.zsxq.com/053fiemE2)
 - [视频教程：左神算法与数据结构、若依、黑马Redis、百战就业班、架构师等，已经放在星球的百度网盘中，请自取](https://t.zsxq.com/08rEo9Pdu)
-- [视频教程：若依项目（Spring Boot、Spring Cloud）](https://t.zsxq.com/05A2VZzzZ)
-- [视频教程：尚硅谷、大厂学院全（含课件）](https://t.zsxq.com/05zZR7qb2)
+- [视频教程：doe分享的若依项目（Spring Boot、Spring Cloud）](https://t.zsxq.com/05A2VZzzZ)
+- [视频教程：doe分享的尚硅谷、大厂学院全（含课件）](https://t.zsxq.com/05zZR7qb2)
 - [视频教程：培根分享的某马、某谷 Java、大数据全套资源](https://t.zsxq.com/09JizrS4A)
 - [视频教程：贪欢分享的某图全套资源](https://t.zsxq.com/0aFI7CeUH)
 
 ### PDF
-
+- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 7700+](https://t.zsxq.com/0dtIIf9AE)
+- [PDF：jiajin，图灵程序丛书 300 本](https://t.zsxq.com/0dqkRziD4)
 - [PDF：aL 分享的杨一涛操作系统笔记，全彩版](https://t.zsxq.com/09PHnc5Cm)
 - [PDF：阿里 Redis 最佳实践](https://t.zsxq.com/09FXZTVfq)
 - [PDF：Elasticsearch 实战手册](https://t.zsxq.com/09Iteeb5o)
@@ -56,13 +61,17 @@ head:
 - [PDF：面渣逆袭 RocketMQ（三分恶）](https://t.zsxq.com/04qZrb662)
 - [PDF：面渣逆袭分布式（三分恶）](https://t.zsxq.com/0cnpBjrfD)
 - [PDF：尚硅谷/动力节点/黑马/百战课程表](https://t.zsxq.com/04iaqrjaY)
+- [PDF：lmeng：并发编程笔记](https://t.zsxq.com/0e4m0YvWb)
+- [PDF：尽余欢：JVM 脑图](https://t.zsxq.com/0eQXo2bB9)
 
 ### 简历
-- [简历：书写、投递、面试复盘、offer 选择的注意事项](https://t.zsxq.com/0btGIjHnb)
-- [简历：基本信息、专业技能、实习经历、荣誉奖项模板](https://t.zsxq.com/07eet6DJ1)
-- [简历：项目经历模板](https://t.zsxq.com/06R7qbybQ)
-- [简历：有关编程界有哪些含金量的证呢？](https://t.zsxq.com/0aklpdu11)
+- [简历：基本信息、专业技能、实习经历、工作经验、项目经历、教育背景、荣誉奖项模板](https://t.zsxq.com/07eet6DJ1)
 - [简历：2 到 3 年工作经验的模板](https://t.zsxq.com/07sufD61G)
+- [简历：书写、投递、面试复盘、offer 选择的注意事项](https://t.zsxq.com/0btGIjHnb)
+- [简历：有关编程界有哪些含金量的证呢？](https://t.zsxq.com/0aklpdu11)
+- [简历：2023年05月12日简历修改建议](https://t.zsxq.com/0eqhIjfol)
+- [简历：修改建议2023年04月13日](https://t.zsxq.com/0d5PxDeFd)
+- [简历：约摸 58 份，真的麻了](https://t.zsxq.com/0d2Z91T9Q)
 - [简历：2023年03月14日简历修改，附不错的简历](https://t.zsxq.com/0cbxCJkHV)
 - [简历：修改建议 2022年11月28日](https://t.zsxq.com/08dHlcRQe)
 - [简历：修改2023年02月28日](https://t.zsxq.com/0bW8jS8oo)
@@ -71,7 +80,7 @@ head:
 - [简历：2023年01月30 日至 2023年01月31日凌晨简历修改建议](https://t.zsxq.com/0aHpt9Rh1)
 - [简历：2023年01月06日简历修改建议](https://t.zsxq.com/0aF1MVMQ6)
 - [简历：2023年02月08日 简历修改建议](https://t.zsxq.com/0bnqxqlEq)
-
+- [简历：2023年05月29日简历修改建议](https://t.zsxq.com/0eYGpjomQ)
 
 ### 实战项目
 - [实战项目：动态线程池Hippo4j](https://t.zsxq.com/0cxSCwt9e)
@@ -82,7 +91,7 @@ head:
 - [实战项目：一些可以写到简历上的实战项目](https://t.zsxq.com/04JIQr3Rn)
 - [实战项目：一些可以作为毕设的实战项目](https://t.zsxq.com/07X49ztIN)
 - [实战项目：某马新课《学成在线》](https://t.zsxq.com/0bI38aQJa)
-
+- [实战项目：一个 Spring Boot+websocket 实现的聊天室](https://t.zsxq.com/0ek7Dx6hW)
 ### 我在B站上大学
 
 - [我在B站上大学：计算机科学技术和编程语言（Java、C语言、C++、Python、JavaScript 等等）篇](https://t.zsxq.com/08u7xOcEi)
@@ -91,6 +100,9 @@ head:
 - [我在 B站上大学：Java后端开发篇（JavaWeb/SSM/Spring Boot/微服务/消息队列/运维部署/RPC/ES/Zookeeper/SpringSecurity）](https://t.zsxq.com/09961HekU)
 
 ### 学习资料
+
+- [学习资料：echo整理的MySQL思维导图和笔记](https://t.zsxq.com/0dZUffRMx)
+- [学习资料：静以修身整理的 Redis 思维导图，很顶](https://t.zsxq.com/0dKhmDSq4)
 - [学习资料：突击算法 50 题](https://t.zsxq.com/0axU6HN5v)
 - [学习资料：大数据的面试题](https://t.zsxq.com/0b9syabcr)
 - [学习资料：spring入门以及升阶的书籍pdf](https://t.zsxq.com/0bVgl98Et)
@@ -108,6 +120,9 @@ head:
 - [学习计划：一条可靠的Java工程师学习路线](https://t.zsxq.com/0953MmhtB)
 - [问鼎考研计划：考的 408、已上岸某 211 计算机专业](https://t.zsxq.com/09HA2ss8Q)
 - [尽余欢学习计划：冲大厂秋招，普通本科](https://t.zsxq.com/0bvOuJcW8)
+- [有的放矢的学习计划：双非，计划 6 月份上岸，冲！](https://t.zsxq.com/0cc4Sw0lD)
+- [清晰的学习计划：冲秋招](https://t.zsxq.com/0ct669oBg)
+- [hisir 的近 3 月学习计划，大三，冲实习/秋招](https://t.zsxq.com/0ce6UKn1V)
 - [Dot学习计划：冲大厂秋招，研三](https://t.zsxq.com/05Yrjeiaq)
 - [jasmine学习计划：冲中厂春招，专升本，考研完 ](https://t.zsxq.com/0bp0E5wfF)
 - [很强学习计划：冲大厂春招，实习中](https://t.zsxq.com/08Ndty5N7)
@@ -121,6 +136,7 @@ head:
 - [温馨学习计划：跳槽，图文并茂，非常全面](https://t.zsxq.com/0bx1xL5nD)
 - [moon 学习计划：跳槽，冲大厂，女](https://t.zsxq.com/09jcN2PeW)
 - [张松学习计划：跳槽，3 年工作经验](https://t.zsxq.com/08PDXuGX3)
+- [谁还不是小仙女学习计划：女生，换一家心仪的工作，图文并茂，可收藏](https://t.zsxq.com/0eMNmRaWA)
 - [老乡学习计划：跳槽，冲大厂，河大毕业，工作一年](https://t.zsxq.com/0cdjvHrPI)
 - [贪欢学习计划：跳槽，之前外包](https://t.zsxq.com/08cN09lyv)
 - [clay学习计划：跳槽，2 年工作经验](https://t.zsxq.com/0bw9CGqei)
@@ -132,9 +148,45 @@ head:
 - [TYLER🎸จุ๊学习计划：转行，机械转码](https://t.zsxq.com/0aN5Cnrh0)
 - [与君鲨鲨学习计划：寒假学习](https://t.zsxq.com/09PAVamSf)
 
+## 学习路线
+- [学习路线：Scala](https://t.zsxq.com/0eqRzydNO)
+- [学习路线：RPC](https://t.zsxq.com/0es4SRrsG)
+- [Java学习路线一条龙版](https://tobebetterjavaer.com/xuexiluxian/java/yitiaolong.html)
+- [Java并发编程学习路线](https://tobebetterjavaer.com/xuexiluxian/java/thread.html)
+- [Java虚拟机学习路线](https://tobebetterjavaer.com/xuexiluxian/java/jvm.html)
+- [MySQL该怎么学啊？](https://t.zsxq.com/07meuVzJi)
+- [Redis学习路线](https://t.zsxq.com/0bqT0xZyw)
+- [C语言学习路线](https://tobebetterjavaer.com/xuexiluxian/c.html)
+- [C++学习路线](https://t.zsxq.com/0dgIN72sj)
+- [Python学习路线](https://tobebetterjavaer.com/xuexiluxian/python.html)
+- [Go 语言学习路线](https://tobebetterjavaer.com/xuexiluxian/go.html)
+- [操作系统学习路线](https://tobebetterjavaer.com/xuexiluxian/os.html)
+- [前端学习路线](https://tobebetterjavaer.com/xuexiluxian/qianduan.html)
+- [数据结构与算法学习路线](https://tobebetterjavaer.com/xuexiluxian/algorithm.html)
+- [蓝桥杯学习路线](https://tobebetterjavaer.com/xuexiluxian/lanqiaobei.html)
+- [大数据学习路线](https://tobebetterjavaer.com/xuexiluxian/bigdata.html)
+- [Android 安卓学习路线](https://tobebetterjavaer.com/xuexiluxian/android.html)
+- [.net该如何学习？](https://t.zsxq.com/08DW5HpWP)
+- [计算机考研 408 统考该如何准备？](https://t.zsxq.com/07AmamMJa)
+- [XCPC/蓝桥杯/天梯赛 算法类竞赛该怎么入门？](https://t.zsxq.com/07ujUnEIm)
+- [有没有人工智能的学习路线或者推荐资料？](https://t.zsxq.com/07e2nUJmM)
+- [测试应该学点什么？有资料推荐吗？](https://t.zsxq.com/08Xk82GgI)
+- [QT 该如何学习？](https://t.zsxq.com/08uKn0Qsh)
 ## 学生党：
-
 ### 秋招&春招
+- [秋招：末流 985 硕、211 机械，实习准备的不充分，我要梭哈秋招还是找一家小公司实习，希望能给一些学习指导](https://t.zsxq.com/0eBd5uPpD)
+- [秋招： cpp 技术栈，但要转 Java，还有一个月入职，我该如何提升？](https://t.zsxq.com/0eDbDOwmH)
+- [秋招：中科院研 1，脱产，本科 211，感觉秋招会很难，我该怎么办？](https://t.zsxq.com/0ee1D8D6O)
+- [秋招：大三，一直以为毕业后再去找工作，现在知道还有秋招，我该如何准备呀？](https://t.zsxq.com/0ekRmCvUb)
+- [秋招：简历上写了两个项目，没有涉及到微服务&分布式，二哥能不能帮我捋一下优先级？](https://t.zsxq.com/0ePHgP7cE)
+- [秋招：半导体厂做软件开发怎么样？](https://t.zsxq.com/0eIVKa8ZK)
+- [春招：二本软工马上毕业，要不要梭哈SHEIN这家公司？春招学习的重点是什么？](https://t.zsxq.com/0dsMdjHFh)
+- [校招：211 本，985 硕 0，是否要找实习，什么时候准备秋招？](https://t.zsxq.com/0d6fO2UK4)
+- [秋招：研二，奔着秋招去，学习规划方面二哥能给一些建议吗？](https://t.zsxq.com/0dvXhvejh)
+- [校招：monty分享的计算机双非硕的秋招春招经历](https://t.zsxq.com/0dEetYGQD)
+- [春招：中游 211 非科班，去英国留学，我接下来该如何准备？](https://t.zsxq.com/0c3ShBZoT)
+- [春招：项目经历差，没实习经历，迷茫，我该怎么办？](https://t.zsxq.com/0dhRACH80)
+- [秋招：中游211，英国信息硕，24 年秋招如何准备？](https://t.zsxq.com/0d3ShBZoT)
 - [校招：到底去美团客户端，还是用友和宁德时代的后端，我又迷茫了？](https://t.zsxq.com/0c9e58oHD)
 - [校招：英硕软开在读，打算回国工作，重点需要准备哪些？](https://t.zsxq.com/0cxL85X0P)
 - [春招：末流本科大四，有点混，考公还没上岸，还有希望走计算机吗？](https://t.zsxq.com/0cOciZxzO)
@@ -156,6 +208,18 @@ head:
 - [秋招：本硕土木，自学转码，项目怎么准备？要学分布式吗？](https://t.zsxq.com/043NjQFM3)
 
 ### offer选择
+- [offer 选择：211 本，华夏银行科技子公司，鹏芯微，怎么选？](https://t.zsxq.com/0e1nZ1TTT)
+- [offer 选择：c9 计算机研究生，重庆本地人，30w+的智能驾驶软件开发还是工作压力小一点的证券金融科技岗？](https://t.zsxq.com/0e2UT5fcF)
+- [offer 选择：深圳比亚迪还是交通银行软件开发中心？](https://t.zsxq.com/0euz6uJA5)
+- [offer选择：华为 OD，1.5w，值得去吗？](https://t.zsxq.com/0e65gjlHx)
+- [offer 选择：考研失败，春招拿到金蝶的 offer，但不是互联网公司，我要去吗？](https://t.zsxq.com/0dN3pY5x7)
+- [offer 选择：末流 211 本科数学系，华为运维岗，大智慧大数据开发岗，北京君正 C++算法工程师，怎么选？](https://t.zsxq.com/0dWe7umhM)
+- [offer 选择：小公司，10k，转大数据开发还是继续 Java 后端开发？](https://t.zsxq.com/0dE1LdE06)
+- [offer 选择：北京新奥子公司 VS 深圳平安寿险，怎么选？](https://t.zsxq.com/0dfM3CGU0)
+- [offer 选择：双非硕，选择深圳比亚迪还是国企子公司，纠结？](https://t.zsxq.com/0dcbmUkuH)
+- [offer 选择：二战失利，接到国企 offer，工资不理想，要去吗？](https://t.zsxq.com/0cpZdquLk)
+- [offer 选择：普通211科班，C++方向，美团测开还是携程测开？](https://t.zsxq.com/0dlwaJCTu)
+- [offer 选择：WPS go 19k 还是理想 27k Java，怎么选择？](https://t.zsxq.com/0caJUpJx9)
 - [offer 选择：北京上海北京，三个 offer 怎么选？](https://t.zsxq.com/0c5jHy1On)
 - [offer 选择：末流 985 硕，选美团到家测开还是外企 line go 后端开发？](https://t.zsxq.com/0bxWyJN17)
 - [offer 选择：宁德时代测开 vs 华为手机测试/软开大数据，怎么选？](https://t.zsxq.com/0bAWFtc8N)
@@ -171,6 +235,11 @@ head:
 - [offer选择：985硕，字节年包36万，同花顺年包28 万，怎么选？](https://t.zsxq.com/07BpzO7aO)
 
 ### 考研
+- [考研：西南石油大学，班长，项目经验少，家里让考研，但我想工作，如何抉择？](https://t.zsxq.com/0eZskN0ln)
+- [考研：环境不好，在考研和就业之间犹豫了，我该如何抉择？](https://t.zsxq.com/0eSgNcngW)
+- [考研：绛雪分享的考研初试复习攻略](https://t.zsxq.com/0duO4wr6t)
+- [考研：双非硕值不值得？还是现在去找工作？害怕成为炮灰。](https://t.zsxq.com/0eY86SNYr)
+- [考研：有推荐的机构和课程吗？](https://t.zsxq.com/0d4ER76yb)
 - [考研：应该能上岸，双非硕，读研方向选人工智能、网络安全、嵌入式，还是？](https://t.zsxq.com/0bqUuLspY)
 - [考研：我该保研（本校不算好），还是冲更好学校的研究生？](https://t.zsxq.com/0akhDdipV)
 - [考研：择校应该选择外省还是本地，是追求 985 还是追求计算机专业强校，比如杭电？](https://t.zsxq.com/090q3L4hW)
@@ -183,6 +252,13 @@ head:
 - [考研：复试如何准备？](https://t.zsxq.com/0b75MBMMN)
 
 ### 实习
+- [实习：大三双非，国企实习，想秋招去大厂，我该如何准备？有没有比较靠谱的轮子项目？](https://t.zsxq.com/0emGqul3q)
+- [实习：中国航信，国企子公司，我要去吗？](https://t.zsxq.com/0e5P2wNBX)
+- [实习：本科大三，暑假是去找个实习，还是继续学习巩固基础呢？](https://t.zsxq.com/0eVutKiYm)
+- [实习：爬虫这个岗位的实习，前景怎么样？](https://t.zsxq.com/0d6SNi5dX)
+- [实习：大三，准备实习，每天背面经、刷题，Java 后端的学习顺序有建议吗？](https://t.zsxq.com/0dZcv4fdH)
+- [实习：日常实习遇搓，我该如何破局？](https://t.zsxq.com/0ct0S37o5j)
+- [实习：六月份就要去实习了，两个月时间我该重点学习哪些知识？](https://t.zsxq.com/0dtJ6ZafR)
 - [实习：美本cs大四，准备国内 Java 后端开发实习，如何准备？](https://t.zsxq.com/0c0Qmh4Ee)
 - [实习：双一流大二计科，大三学长去蔚来 B站实习了，自己有点焦虑，怎么办？](https://t.zsxq.com/0b5CPZa4n)
 - [实习：民办二本，大三下，暑期想找到实习，目标中小厂，如何准备？](https://t.zsxq.com/0cnLUZnom)
@@ -199,6 +275,10 @@ head:
 - [实习：算法转 Java，要不要找实习提高一下秋招竞争力？](https://t.zsxq.com/04MFmy7Uf)
 
 ### 专升本
+- [专升本：暑期在打工，但有一个小时可以学习，我该怎么利用？](https://t.zsxq.com/0eoFWcsIK)
+- [专升本：刚刚专升本考完试，是去找实习还是背面经准备项目？](https://t.zsxq.com/0eVHrgqtH)
+- [专升本：在学校只跟着课程走可以吗，还是要自己主动去学？](https://t.zsxq.com/0dIxGznU2)
+- [专升本：打卡半个月，自己写不出来代码，很迷茫，怎么办？](https://t.zsxq.com/0cMla9IMN)
 - [专升本：专科，计划学习的东西非常多，但很多没有掌握，马上毕业找工作了，很迷茫，怎么办？](https://t.zsxq.com/0c76m89bV)
 - [专升本：专科大三，在外包公司实习，虽然很难，但也想通过进组考试，给这位球友鼓励吧！](https://t.zsxq.com/0cijIFXFT)
 - [专升本：想从事大数据开发，学 Python 还是 Java，要不要考研？](https://t.zsxq.com/0bfhBHXB3)
@@ -210,6 +290,7 @@ head:
 - [专升本：专升本后考研，大厂还卡学历吗？](https://t.zsxq.com/0bTl9NjRu)
 
 ### 培训班
+- [培训班：培训中，学历大专，我该如何准备才能找到一份好的工作？](https://t.zsxq.com/0cbkLUnRA)
 - [培训班：该怎么准备 MES 这种岗位？](https://t.zsxq.com/0bBTmFSqo)
 - [培训班：大专，报了培训班，出去能找到工作吗，待遇如何？](https://t.zsxq.com/06AQVVNvb)
 - [培训班：达内，还剩最后一个月就要找工作了，很慌，怎么办？](https://t.zsxq.com/0423ZNrb6)
@@ -217,6 +298,21 @@ head:
 - [培训班：垃圾培训班，春节后找工作，我该如何自救？](https://t.zsxq.com/09o9GiCBx)
 
 ### 学生党
+- [学生党：校招和社招，哪个更重视学历？](https://t.zsxq.com/0e2UT5fcF)
+- [学生党：大一，我该如何更高效地学习 Spring Boot？](https://t.zsxq.com/0eGbz60BW)
+- [学生党：大三下了，基础还行，技术栈学了很多，也在实验室做项目，是出去实习，还是继续在学校？](https://t.zsxq.com/0eoTeyeTR)
+- [学生党：大三下，我是出去实习还是好好准备秋招？](https://t.zsxq.com/0ew5MD00a)
+- [学生党：非全研二，就业形势不好，技术学了不少，项目也做了，但还是不自信，我该如何调整？](https://t.zsxq.com/0ejXpgyNL)
+- [学生党：大三，技术栈该学的都学了，如果想去大厂的话，微服务要学吗，秋招实习春招有什么不同？](https://t.zsxq.com/0eb9ynhe4)
+- [学生党：计算机底层知识，对于我的长期发展有利吗，我不想功利地去学习？](https://t.zsxq.com/0e7V5Ja0A)
+- [学生党：如何学好 MySQL，用于药物靶点？](https://t.zsxq.com/0eYWaQLIV)
+- [学生党：川大材料转到软件工程，大学四年该如何规划，关于考研和就业，我该如何选择？](https://t.zsxq.com/0exUESbm9)
+- [学生党：华科大一，如何准备网络空间安全这个方向？](https://t.zsxq.com/0enbEI489)
+- [学生党：不准备考研，报了培训班，还是很迷茫，我该如何学习？](https://t.zsxq.com/0eFIzpOfg)
+- [学生党：请教一下学习方法，脑图总结、阅读源码、Java](https://t.zsxq.com/0evIxPXvU)
+- [学生党：如何参与顶级开源项目 gsoc？](https://t.zsxq.com/0dCCiYe8Q)
+- [学生党：985 研一，我可以学习技术派项目，并且写到简历上吗？](https://t.zsxq.com/0d6D4trlw)
+- [学生党：都说计算机很卷，我还能卷动吗？](https://t.zsxq.com/0cJ55rpKk)
 - [学生党：一本大三，考研、软开、网安，要如何安排才合理？](https://t.zsxq.com/0crz5Hukq)
 - [学生党：双非大四非科班，春招只有五六千，我想转行计算机，信心不足，我该怎么办？](https://t.zsxq.com/0cpMDz7VU)
 - [学生党：大三，准备考研，同时学习 Java，如何快速提升编码能力？](https://t.zsxq.com/0bhiPTCFn)
@@ -265,6 +361,16 @@ head:
 - [学生党：零基础，先从哪一点开始学习呢？](https://t.zsxq.com/07ZFxmf1d)
 
 ### 方向选择
+- [方向选择：软工大二，要选专业了，人工智能、软件开发、移动云计算，怎么选，想考研，想改变自己？](https://t.zsxq.com/0el5Pt7g1)
+- [方向选择：大三，当过兵，家里富裕，想过考公，下一步该怎么去做？](https://t.zsxq.com/0e5P2wNBX)
+- [方向选择：是继续搞算法，还是卷绩点+项目呢，大二了，打算考研](https://t.zsxq.com/0eoxw8lBk)
+- [方向选择：邮电大二，继续 Java 还是转 go 啊，不想考研](https://t.zsxq.com/0e8TMCuFe)
+- [方向选择：学生党，基础较差，学 MYDB 感觉吃力，要不要找一个大众的项目来做？](https://t.zsxq.com/0dIETrwJu)
+- [方向选择：入职美团的第一天，选 IOS 还是安卓？](https://t.zsxq.com/0doN6PgCZ)
+- [方向选择：考研（双非）还是秋招（本科有点摆烂）？](https://t.zsxq.com/0d5HaVW5D)
+- [方向选择：上海某211大三科班女生，考研还是直接就业，学 Java 还是转 C++？](https://t.zsxq.com/0dwVKVK7t)
+- [方向选择：到底是走运营岗，还是继续 Java 后端开发岗？](https://t.zsxq.com/0cGhJt1NR)
+- [方向选择：即将毕业，考研还是工作？](https://t.zsxq.com/0cNSbDe20)
 - [方向选择：23届二本院校，运维还是大数据？](https://t.zsxq.com/0cPfA6XXJ)
 - [方向选择：专升本后在一家银行外包，领导让学后端，但我想专注前端，该怎么办？](https://t.zsxq.com/0cWVL3SXK)
 - [方向选择：研一计算机，本科学过 Java，也搞过算法竞赛，导师想要走算法，我想做开发，怎么选择？](https://t.zsxq.com/0c5ZUmXKw)
@@ -302,6 +408,25 @@ head:
 ## 工作党：
 
 ### 求职
+- [求职：小工作一年了，提不起劲，想跳槽，我该如何准备？](https://t.zsxq.com/0e59WmpS4)
+- [求职：杭州一家小公司工作了 3 年，10k，想去北京或者天津发展，希望二哥给点建议](https://t.zsxq.com/0eLTkmQ1n)
+- [求职：创业公司，刚买了套 260 万的房子，也面上了一家济南的上市公司，但这边公司极力挽留，不知道怎么办了](https://t.zsxq.com/0eHJVhelP)
+- [求职：想去银行，我该如何准备呢？](https://t.zsxq.com/0eiUsJjOY)
+- [求职：大专，去了培训班，参加工作后一直被辞退，我该怎么办？](https://t.zsxq.com/0eNOrdY7N)
+- [求职：在国企，工作很舒适，但自己觉得提升很小，想跳出去，我该如何提升自己？](https://t.zsxq.com/0e4JvEbez)
+- [求职：工作两年，在长沙搞 Java，月薪 1 万，希望能涨薪 30-50%，我该如何做？](https://t.zsxq.com/0eLTkmQ1n)
+- [求职：小米二面遇到了一个 MySQL 优化的问题，被面试官敲打了，是我的问题吗？](https://t.zsxq.com/0eeUNW2Xc)
+- [求职：大专生，面道一家 15k 的公司，但是一家外包，写 CRUD，我要不要辞职重新找工作？](https://t.zsxq.com/0eXKUnARv)
+- [求职：公司倒闭，大环境不好，是继续投大城市还是继续济南？](https://t.zsxq.com/0eHJ3y2sV)
+- [求职：双非本，还有机会去华为吗？](https://t.zsxq.com/0exTJgKpS)
+- [求职：工作不是很满意，打算提升自己，是学 JVM、设计模式，还是 Java 后端四大件，从哪里入手？](https://t.zsxq.com/0d3ZPT2L2)
+- [求职：普通二本，16 年毕业，打算离开北京回济南，我应该选择 Java 后端开发还是测试岗？](https://t.zsxq.com/0dfkfmCfz)
+- [求职：三年经验的面试题刷哪些？小公司时间待长了，想快速面试成功，如何准备？](https://t.zsxq.com/0dVwVVfe0)
+- [求职：普通本科，目前拿到的 offer 不是很满意，想去一家自研或者不错的小厂，我该如何准备？](https://t.zsxq.com/0c75mat3J)
+- [求职：base 济南，想提高技术，去上海拿不错的薪水，该如何准备？](https://t.zsxq.com/0cmppCiVT)
+- [求职：关于简历上的技能清单、源码、微服务、数据结构与算法，该怎么去准备？](https://t.zsxq.com/0cvtVuSI0)
+- [求职：非全电子科大，想冲大厂，现实吗？](https://t.zsxq.com/0czSK1bwn)
+- [求职：这样做计划，3 个月后能上岸吗？](https://t.zsxq.com/0cTzRpJDx)
 - [求职：二线城市做开发，工作很累，想跳槽，我该怎么办？](https://t.zsxq.com/0cCCw49xt)
 - [求职：今天不学习明天变辣鸡？当前的工作不是很满意，是离职准备还是骑驴找马？](https://t.zsxq.com/0cKsNtEZl)
 - [求职：工作七年，感觉遇到了瓶颈，想跳槽，该如何准备？](https://t.zsxq.com/0btndH6TI)
@@ -338,32 +463,44 @@ head:
 - [求职：专升本后跳槽了 3 次，都不理想，现在要重新找工作，有什么建议吗？](https://t.zsxq.com/07ihR4f0J)
 - [求职：很多知识都忘记了，我该怎么办？](https://t.zsxq.com/088whpfTk)
 
-### 人生规划
-- [人生规划：工作 7 年，平凡而不甘平庸，我该如何蜕变？（全文六千字，这不是简单的提问，更是一篇小说）](https://t.zsxq.com/0chrrsplB)
-- [人生规划：学历 211，考研失败，抑郁症，外包，以后的路怎么走？](https://t.zsxq.com/0bW99oUPz)
-- [人生规划：车企，深圳 30w，合肥 26w，工作第七年，要回合肥吗？](https://t.zsxq.com/0b1XGmwHv)
-- [人生规划：高中辍学、大专毕业，想要提升技术，怎么做？](https://t.zsxq.com/0bM24MzVV)
-- [人生规划：杭州 10k，学习效果不明显，我该如何改变？](https://t.zsxq.com/0bDuPeqAW)
+### 职业规划
+- [职业规划：在国企工作，工作是很舒服，但工资少日子也无聊，我该如何破局？](https://t.zsxq.com/0eZs2KJxG)
+- [职业规划：毕业后一直在做安卓开发，但还是想转回 Java 后端，项目怎么办？面试经验不足怎么办？如何规划？](https://t.zsxq.com/0ezgC4KPN)
+- [职业规划：上海某中厂工作一年了，感觉编码能力却不如学生时期，很多技术栈前辈都封装好了，我该如何提升自己？](https://t.zsxq.com/0e2UT5fcF)
+- [职业规划：35 岁，大专生，在工厂干质检，很迷茫，还有机会去学编程吗，报班还是自学？](https://t.zsxq.com/0eg7tbssM)
+- [职业规划：成都工作 5 年了，薪资不满意，想跳槽，但又不太敢，怎么办？](https://t.zsxq.com/0eIcaJ0ru)
+- [职业规划：双非工作五年了，遇到瓶颈，目前在外包，希望 9-10 月跳槽，我该如何打基础？](https://t.zsxq.com/0d3yoj7Zh)
+- [职业规划：工资从 2500 到失业，去外卖去工厂，再到开发 12000 再失业，后面怎么走？](https://t.zsxq.com/0dWs5mT8P)
+- [职业规划：211、80 后女程序员，最近很迷茫，想换工作却没有勇气，后面怎么办？](https://t.zsxq.com/0d6ikwHlB)
+- [职业规划：普通 2 本，杭州一家小公司，薪资从 7k-17k，我想走技术管理岗，该如何准备？](https://t.zsxq.com/0deIJ9Nja)
+- [职业规划：工作 7 年，平凡而不甘平庸，我该如何蜕变？（全文六千字，这不是简单的提问，更是一篇小说）](https://t.zsxq.com/0chrrsplB)
+- [职业规划：学历 211，考研失败，抑郁症，外包，以后的路怎么走？](https://t.zsxq.com/0bW99oUPz)
+- [职业规划：车企，深圳 30w，合肥 26w，工作第七年，要回合肥吗？](https://t.zsxq.com/0b1XGmwHv)
+- [职业规划：高中辍学、大专毕业，想要提升技术，怎么做？](https://t.zsxq.com/0bM24MzVV)
+- [职业规划：杭州 10k，学习效果不明显，我该如何改变？](https://t.zsxq.com/0bDuPeqAW)
 - [人生规划：如何让自己变得更有自信呀](https://t.zsxq.com/0bgVXFlOv)
-- [人生规划：32 岁老码农，年前背刺，新工作不如意，我该怎么办？](https://t.zsxq.com/0b1MI6PlQ)
-- [人生规划：农商行降薪、成长受限，我想要突破自我，该如何做？](https://t.zsxq.com/0bFlz6RIa)
-- [人生规划：工作八年，女，该如何发展副业？](https://t.zsxq.com/0aBn5SkOm)
-- [人生规划：服务行业，希望通过写作打通副业，我该如何行动？](https://t.zsxq.com/0aCshJuQf)
-- [人生规划：休学，抑郁症，我该如何走出这种困局？](https://t.zsxq.com/0acPd9ZsW)
-- [人生规划：2023 年如何成为更好的自己？](https://t.zsxq.com/09BGUpSoY)
-- [人生规划：27 岁了，感觉一事无成，前途渺茫，我该怎么办？](https://t.zsxq.com/09YygKjmo)
-- [人生规划：银行科技岗一年，快废了，该如何有效提升自己呢？](https://t.zsxq.com/08gswn8SS)
-- [人生规划：工作了 7 年的程序媛，最近很迷茫，感觉学习有点跟不上，怎么办？](https://t.zsxq.com/08lj65rLH)
-- [人生规划：如果学习的时候感觉迷茫了该怎么办？](https://t.zsxq.com/08fkzZiJ2)
-- [人生规划：32 岁了，工作 4 年，技术一般，很难受，方向在哪？](https://t.zsxq.com/07iQnuvJm)
-- [人生规划：28 了，想追求自己的梦想成为程序开发者，怎么开始？](https://t.zsxq.com/07Yfe2Vvj)
-- [人生规划：工作 7 年了，不满现状，如何成为一名高级运维工程师？](https://t.zsxq.com/06ZBaaYBQ)
-- [人生规划：深圳工作三年了，想去大一点的公司，但学历大专基础又不扎实，我该怎么办？](https://t.zsxq.com/04fYNNv72)
-- [人生规划：毕业到现在还没找到工作，我该何去何从？](https://t.zsxq.com/04iaqrBYb)
+- [职业规划：32 岁老码农，年前背刺，新工作不如意，我该怎么办？](https://t.zsxq.com/0b1MI6PlQ)
+- [职业规划：农商行降薪、成长受限，我想要突破自我，该如何做？](https://t.zsxq.com/0bFlz6RIa)
+- [职业规划：工作八年，女，该如何发展副业？](https://t.zsxq.com/0aBn5SkOm)
+- [职业规划：服务行业，希望通过写作打通副业，我该如何行动？](https://t.zsxq.com/0aCshJuQf)
+- [职业规划：休学，抑郁症，我该如何走出这种困局？](https://t.zsxq.com/0acPd9ZsW)
+- [职业规划：2023 年如何成为更好的自己？](https://t.zsxq.com/09BGUpSoY)
+- [职业规划：27 岁了，感觉一事无成，前途渺茫，我该怎么办？](https://t.zsxq.com/09YygKjmo)
+- [职业规划：银行科技岗一年，快废了，该如何有效提升自己呢？](https://t.zsxq.com/08gswn8SS)
+- [职业规划：工作了 7 年的程序媛，最近很迷茫，感觉学习有点跟不上，怎么办？](https://t.zsxq.com/08lj65rLH)
+- [职业规划：如果学习的时候感觉迷茫了该怎么办？](https://t.zsxq.com/08fkzZiJ2)
+- [职业规划：32 岁了，工作 4 年，技术一般，很难受，方向在哪？](https://t.zsxq.com/07iQnuvJm)
+- [职业规划：28 了，想追求自己的梦想成为程序开发者，怎么开始？](https://t.zsxq.com/07Yfe2Vvj)
+- [职业规划：工作 7 年了，不满现状，如何成为一名高级运维工程师？](https://t.zsxq.com/06ZBaaYBQ)
+- [职业规划：深圳工作三年了，想去大一点的公司，但学历大专基础又不扎实，我该怎么办？](https://t.zsxq.com/04fYNNv72)
+- [职业规划：毕业到现在还没找到工作，我该何去何从？](https://t.zsxq.com/04iaqrBYb)
 
 ### 转行
+- [转行：技术支持岗，工作很轻松，但工资很一般，就很 emo，我该如何走出困局？](https://t.zsxq.com/0e7rgQoxX)
+- [转行：广州 30 岁，测试行业，比较枯燥，去个外包，可行吗？](https://t.zsxq.com/0eASUw8AS)
+- [转行：建筑行业裸辞，26 岁了，基础只有 C语言，想让二哥帮忙制定一个学习计划](https://t.zsxq.com/0eAc9nBZh)
+- [转行：末流二本，机械专业，debuff 叠满，如何学习编程？](https://t.zsxq.com/0ceVxM4r9)
 - [转行：培训班、大专学历，基础非常不扎实，投简历没人要，我该怎么办？](https://t.zsxq.com/0ccga1SeD)
-- [转行：测试转开发，如何准备？](https://t.zsxq.com/0bAopKYPf)
 - [转行：测试转开发，如何准备？](https://t.zsxq.com/0bAopKYPf)
 - [转行：通过搭建 Web 网站的方式学习 Java 后端知识，该怎么准备？](https://t.zsxq.com/0bPxV7w4I)
 - [转行：考研失败、培训，想从工业视觉转 Java 开发，该如何准备？](https://t.zsxq.com/0bDlbRvRJ)
@@ -390,6 +527,10 @@ head:
 
 
 ### 工作党
+- [工作党：工作大半年了，编码能力还是很弱，我该如何提高呢？](https://t.zsxq.com/0eAc9nBZh)
+- [工作党：刚参加工作（小公司），想提升，后面怎么做？](https://t.zsxq.com/0dWSTiWyh)
+- [工作党：入职前应该做哪些准备，才能更好地融入公司？](https://t.zsxq.com/0dl7eOlAA)
+- [工作党：普通一本，16 年毕业，目前在小公司做技术管理，技术和管理如何提升？](https://t.zsxq.com/0dBrpTeR9)
 - [工作党：私企、代码量很少，SQLBoy，很焦虑，怎么办？](https://t.zsxq.com/0cKw9cWy1)
 - [工作党：如何提升自己的文笔，应付周报？](https://t.zsxq.com/0cRn2QCqU)
 - [工作党：20 年双非毕业，想要面试前突击，找到 1 家 1.8w 的自研工作，怎么准备？](https://t.zsxq.com/0byomFAAg)
@@ -417,37 +558,22 @@ head:
 
 
 
-## 学习路线
 
-- [Java学习路线一条龙版](https://javabetter.cn/xuexiluxian/java/yitiaolong.html)
-- [Java并发编程学习路线](https://javabetter.cn/xuexiluxian/java/thread.html)
-- [Java虚拟机学习路线](https://javabetter.cn/xuexiluxian/java/jvm.html)
-- [MySQL该怎么学啊？](https://t.zsxq.com/07meuVzJi)
-- [Redis学习路线](https://t.zsxq.com/0bqT0xZyw)
-- [C语言学习路线](https://javabetter.cn/xuexiluxian/c.html)
-- [C++学习路线](https://javabetter.cn/xuexiluxian/ccc.html)
-- [Python学习路线](https://javabetter.cn/xuexiluxian/python.html)
-- [Go 语言学习路线](https://javabetter.cn/xuexiluxian/go.html)
-- [操作系统学习路线](https://javabetter.cn/xuexiluxian/os.html)
-- [前端学习路线](https://javabetter.cn/xuexiluxian/qianduan.html)
-- [数据结构与算法学习路线](https://javabetter.cn/xuexiluxian/algorithm.html)
-- [蓝桥杯学习路线](https://javabetter.cn/xuexiluxian/lanqiaobei.html)
-- [大数据学习路线](https://javabetter.cn/xuexiluxian/bigdata.html)
-- [Android 安卓学习路线](https://javabetter.cn/xuexiluxian/android.html)
-- [.net该如何学习？](https://t.zsxq.com/08DW5HpWP)
-- [计算机考研 408 统考该如何准备？](https://t.zsxq.com/07AmamMJa)
-- [XCPC/蓝桥杯/天梯赛 算法类竞赛该怎么入门？](https://t.zsxq.com/07ujUnEIm)
-- [有没有人工智能的学习路线或者推荐资料？](https://t.zsxq.com/07e2nUJmM)
-- [测试应该学点什么？有资料推荐吗？](https://t.zsxq.com/08Xk82GgI)
-- [QT 该如何学习？](https://t.zsxq.com/08uKn0Qsh)
+
 
 ## 星球专栏
 
 ### Java面试指南
+
+- [面试准备篇：如何写好简历？](https://t.zsxq.com/0eRf8wrmf)
 - [面试准备篇：面试的时候如果问职业规划应该怎么回答？](https://t.zsxq.com/0bzxws8u6)
 - [面试准备篇：有哪些顶级开源活动可以参加？](https://t.zsxq.com/0bFGLiI2i)
 - [面试准备篇：如何准备面试？](https://t.zsxq.com/06BqnQRVr)
 - [面试准备篇：如何优雅地介绍自己的项目经历?](https://t.zsxq.com/08KFne1ih)
+- [面试准备篇：如何参与开源之夏，顶级开源活动？](https://t.zsxq.com/0e2juKnM2)
+- [面试准备篇：🔥如何正确介绍自己的项目经验？](https://t.zsxq.com/0ejU33AWK)
+- [面试准备篇：软件技术领域就业大纲](https://t.zsxq.com/0eudEfZ7u)
+- [技术提升篇：阿零如何快速了解一个项目](https://t.zsxq.com/0dEkrM3uW)
 - [技术提升篇：深入理解Java的字符串常量池（图已重绘）](https://t.zsxq.com/0btE2Dzbo)
 - [技术提升篇：一条 SQL 查询语句是如何执行的？](https://t.zsxq.com/0btqvw6JA)
 - [技术提升篇：如何去阅读开源项目的源码？](https://t.zsxq.com/0bC7SrhAW)
@@ -485,14 +611,27 @@ head:
 - [场景设计题篇：说说 Spring Boot 实现接口幂等性有哪几种方案？](https://t.zsxq.com/07iTAsmLI)
 - [场景设计题篇：如何优雅地处理重复请求（并发请求）？](https://t.zsxq.com/07mQNNR7E)
 - [场景设计题篇：接口的幂等性怎么设计？](https://t.zsxq.com/06qFufQVb)
+- [优质面经篇：球友 MJ 的面经分享-160 题](https://t.zsxq.com/0cgyxlqiZ)
 - [优质面经篇：字节跳动后端面经，一面+二面+三面+HR 面](https://t.zsxq.com/06A6EU7yr)
 - [优质面经篇：秋招拿到嵌入式方面 12 个 offer 的经验贴（经纬恒润、研究所等等）](https://t.zsxq.com/09iNcEpCW)
 - [优质面经篇：工作 8 年，面试了 30 家，这份硬核面经分享给球友们](https://t.zsxq.com/09rkRe9IZ)
 - [优质面经篇：Java大数据开发面经分享：16 天 5 面，从华为 od 到鹅厂](https://t.zsxq.com/0al4lBgdO)
-
+- [优质面经篇：静以修身团子测开面经](https://t.zsxq.com/0dX9PMMge)
 ### 技术派
+- [技术派中的 Spring 事件监听机制及原理](https://t.zsxq.com/0eEYnVJDS)
+- [技术派整合Lombok，让代码更简洁](https://t.zsxq.com/0e3PZR67z)
+- [技术派整合MyBatis-Plus的基本使用](https://t.zsxq.com/0eZjgoutR)
+- [技术派是如何实现根据图片自动修改背景色的](https://t.zsxq.com/0ewG53okg)
+- [技术派中的跨域问题解决方案](https://t.zsxq.com/0eIcdp42Q)
+- [技术派之深入理解HikariCP](https://t.zsxq.com/0eZoO1uLC)
+- [技术派中是如何实现原生图片上传的](https://t.zsxq.com/0dyMMNX4M)
+- [技术派整合Knife4j，美化丑陋的Swagger](https://t.zsxq.com/0dHybUP1e)
+- [技术派中的全局异常处理](https://t.zsxq.com/0djLEL8pH)
+- [技术派中基于Redis的缓存示例](https://t.zsxq.com/0dSCIe1Hf)
 - [技术派整合本地缓存之Guava](https://t.zsxq.com/0ckw9l8Tn)
 ### 二哥的LeetCode刷题笔记
+- [078.子集](https://t.zsxq.com/0drYXLILi)
+- [077.组合](https://t.zsxq.com/0ci06mmKR)
 - [076.最小覆盖子串](https://t.zsxq.com/0bd1lYWMh)
 - [075.颜色分类](https://t.zsxq.com/0bHB7T1kU)
 - [074.搜索二维矩阵](https://t.zsxq.com/0bUu8uzjL)
@@ -528,6 +667,16 @@ head:
 - [044 通配符匹配](https://t.zsxq.com/06FYrJIA2)
 
 ## 球友分享
+- [马丁：如何把Hippo4j写到简历上？](https://t.zsxq.com/0eI13YdvE)
+- [上岸：银行面试，需要哪些注意点？](https://t.zsxq.com/0eZD9dFbK)
+- [echo：谷歌二面挂，我却看到了16岁的热爱](https://t.zsxq.com/0eWXWvcMU)
+- [静以修身：荆棘之路，无限进步~](https://t.zsxq.com/0eibj4o8v)
+- [金色框框：我的春招终于落幕了！哥们终于有offer了！！](https://t.zsxq.com/0enCUoxJU)
+- [阿零：一次公司内部分享的思考](https://t.zsxq.com/0evjvPAfV)
+- [美团测开实习两周的感受](https://t.zsxq.com/0eZcBatoN)
+- [尽余欢：jvm脑图](https://t.zsxq.com/0eQXo2bB9)
+- [十岁卖切糕：实习经验分享](https://t.zsxq.com/0dVYEoR24)
+- [孤独：涨薪 40%，面试心得](https://t.zsxq.com/0d4Y6tnTQ)
 - [Echo：我是如何拿到 Google 的面试邀请的？](https://t.zsxq.com/0a7ODcjBe)
 - [球友harden：我是如何上岸一家小公司的？](https://t.zsxq.com/053jQbQrb)
 - [球友乘风：网站挣了 200 美刀后的感触](https://t.zsxq.com/05QvZjEeM)
@@ -542,6 +691,11 @@ head:
 - [沉默王二：如何运营好个人网站？](https://t.zsxq.com/08AzyGpNd)
 
 ## 技术细节
+- [技术细节：一个亿的数据，走主键索引，MySQL 底层的 IO 次数是多少？](https://t.zsxq.com/0dCGOO3Qw)
+- [技术细节：default关键字与HandlerInterceptor](https://t.zsxq.com/0deIJ9Nja)
+- [技术细节：消息队列、定时任务还是 Redis 延迟队列？](https://t.zsxq.com/0cu5jkJtP)
+- [技术细节：如何在图片指定位置上填充文件并打印 PDF？](https://t.zsxq.com/0dI4qwNbx)
+- [技术细节：compareandset和compareandswap有什么区别](https://t.zsxq.com/0d09wTv7v)
 - [技术细节： ELK 收集日志](https://t.zsxq.com/0cR1DRfD7)
 - [技术细节：学习 Spring Boot 的时候，应该怎么学习？源码看不太懂](https://t.zsxq.com/0bBlSeqMi)
 - [技术细节：百度春招笔试，给定一个有n个元素的无序数组，将其分为k个子数组。问各个子数组元素的平均值之和的最小值是多少？](https://t.zsxq.com/0c2uHcUgt)
@@ -572,28 +726,23 @@ head:
 - [技术细节：rabbitmq如何重构一个类似于文件上传的服务?](https://t.zsxq.com/05bQfeIiM)
 - [技术细节：向上转型和多态](https://t.zsxq.com/062FaeiEu)
 
-
-## 开发工具
-
-- [推荐几款在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
-- [三种上Google、GitHub的方式，你懂的](https://javabetter.cn/nice-article/itmind/shangwang.html)
-- [macOS Navicat 绿色版](https://t.zsxq.com/04eMf6AMZ)
-- [IDEA、Navicat、Typora、xshell 免费](https://javabetter.cn/nice-article/itmind/)
-
 ## 城市选择
-- [北京都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/beijing.html)
-- [广州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/guangzhou.html)
-- [深圳都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/shenzhen.html)
-- [西安都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/xian.html)
-- [青岛都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/qingdao.html)
-- [郑州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/zhengzhou.html)
-- [苏州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/suzhou.html)
-- [南京都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/nanjing.html)
-- [杭州都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/hangzhou.html)
-- [成都都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/chengdu.html)
-- [济南都有哪些值得加入的IT互联网公司？](https://javabetter.cn/cityselect/jinan.html)
+- [武汉都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/wuhan.html)
+- [北京都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/beijing.html)
+- [广州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/guangzhou.html)
+- [深圳都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/shenzhen.html)
+- [西安都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/xian.html)
+- [青岛都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/qingdao.html)
+- [郑州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/zhengzhou.html)
+- [苏州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/suzhou.html)
+- [南京都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/nanjing.html)
+- [杭州都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/hangzhou.html)
+- [成都都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/chengdu.html)
+- [济南都有哪些值得加入的IT互联网公司？](https://tobebetterjavaer.com/cityselect/jinan.html)
 
 ## 其他主题
+- [其他主题：二哥你为啥不搞 ChatGPT 俱乐部？](https://t.zsxq.com/0dXx9KSna)
+- [其他主题：我该如何学好英语啊？](https://t.zsxq.com/0d4Fb4ajr)
 - [其他主题：学习知识的时候一下子学完，还是渐进式学习？](https://t.zsxq.com/0bJHm5XY4)
 - [其他主题：开源的仓库没人 star，很落寞，该怎么办？](https://t.zsxq.com/0b0dLVPch)
 - [其他主题：杭州菜鸟直管加班严重吗？](https://t.zsxq.com/0b8Nh714C)
@@ -610,11 +759,11 @@ head:
 - [其他主题：怎样才能找到女朋友？](https://t.zsxq.com/06yBujaey)
 - [其他主题：有什么 Java 相关的证书对于求职有帮助？](https://t.zsxq.com/06uBMZzZZ)
 - [其他主题：请问哪个招聘网站比较好呢？](https://t.zsxq.com/078WqmDsU)
-- [其他主题：二哥的Java进阶之路中基础的内容不理解怎么办？](https://t.zsxq.com/07XASWxOL)
-- [其他主题：ChatGPT注册+使用攻略](https://t.zsxq.com/0bdah3lqK)
+- [其他主题：Java程序员进阶之路中基础的内容不理解怎么办？](https://t.zsxq.com/07XASWxOL)
 
 
 ## 坦白从宽
+- 127、[甲木zuiynゞ：挚文集团（陌陌、探探）高开](https://t.zsxq.com/0eBDEkupb)
 - 126、[随风：大四，找到工作了](https://t.zsxq.com/0bU35SYLN)
 - 125、[安：想转行](https://t.zsxq.com/0brLLSaw4)
 - 124、[空格：双非二本计科专业大三](https://t.zsxq.com/0byW2YuwX)
