@@ -1,5 +1,5 @@
 ---
-title: 《二哥的并发编程进阶之路》小册简介，GitHub星标9000+
+title: 《二哥的并发编程进阶之路》小册简介，GitHub星标9000+，共计 15 万余字，200+张手绘图
 shortTitle: 并发编程小册简介
 category:
   - Java核心
@@ -12,19 +12,16 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,并发编程
 ---
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-readme-fengmian.png)
-
 # 第零节：小册简介
 
-以上就是小册的封面了，自我感觉还不错哈，简洁大方，但包含的信息又足够的丰富：
+来介绍一下《二哥的并发编程进阶之路》小册吧。小册主要围绕着 Java 中的并发编程/多线程展开，一共 31 个小节，15 万+字，图片 200+张，耗费了巨大的心血，以下是小册的个人信息。
 
 - 小册名字：二哥的并发编程进阶之路
 - 小册作者：沉默王二
-- 小册品质：能在 GitHub 取得 9000+ star 自认为品质是有目共睹的，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
-- 小册风格：通俗易懂、风趣幽默、深度解析，新手可以拿来入门，老手可以拿来进阶，重要的知识，比如说面试高频的内容会从应用到源码挖个底朝天，还会穿插介绍一些计算机底层知识，力求讲个明白）
+- 小册品质：该小册的内容来源于二哥在 GitHub 上开源的知识库《[Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，能在 GitHub 取得 9300+ star 可以说品质是有目共睹，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
+- 小册初衷：面试过小伙伴应该感受比较深，并发编程在 Java 岗的面试中占比挺大，尤其是去一些知名公司的话，像 volatile、sychronized、CAS、AQS、线程池、JUC 包、原子类、ThreadLocal、生产者-消费者模式等内容，都是面试中经常被考察的内容。另外，工作一两年后的初级程序员，如果想进阶为高级程序员，并发编程的内容也是完全绕不开的，二哥之所以花大力气整理《[并发编程小册](https://javabetter.cn/thread/)》的原因也在于此，就是希望能帮助大家轻松且深刻地掌握并发编程/多线程方面的知识。
 - 小册简介：主要针对并发编程进行讲解，包括并发编程的基础知识、并发编程的高级知识、并发编程的源码分析、并发编程的面试题等，内容涵盖了 Java 并发编程的方方面面，是一份非常适合 Java 并发编程的学习资料。
-- 小册品位：底部用了梵高 1889 年的《星空》（the starry night），绝美的漩涡星空，耀眼的月亮，宁静的村庄，还有一颗燃烧着火焰的巨大柏树，我想小册的艺术品位也是恰到好处的。
-- 小册说明：《二哥的并发编程进阶之路》是《[二哥的 Java 进阶之路](https://javabetter.cn/overview/)》的姐妹篇，原本打算放在一个小册，但内容太多了，压缩前的 PDF 足足 150M，所以只能分成两份小册，这样也方便读者朋友们按需阅读。
+- 小册说明：小册算是《[二哥的 Java 进阶之路基础篇](https://javabetter.cn/overview/)》的姐妹篇，可通过 [GitHub 阅读](https://github.com/itwanger/toBeBetterJavaer#java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B)或者[二哥的网站在线阅读](https://javabetter.cn/thread/)，同时提供 PDF 版本，15 万+字，手绘图 200+张，有亮白版、暗黑版和 epub 三个版本，前后耗费 3 个多月的时间，很不容易，希望你能好好珍惜。
 
 ## 小册包含哪些内容？
 
@@ -47,177 +44,141 @@ head:
 - 本地变量 ThreadLocal
 - 生产者消费者模型
 
-一共 31 篇内容，共计 33 万+ 字，绝对不虚市面上任何一本 Java 并发编程的实体书！用一张思维导图来做个总结吧。
+一共 31 篇内容，共计 15 万+ 字，用一张思维导图来做个总结吧。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-map.png)
 
 这里展示一下暗黑版的 PDF 视图，大家先感受一下，手绘图都画得非常用心。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411224013.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904115241.png)
 
 这是 epub 版本的阅读效果，感觉左右翻动的效果好舒服，一次可以看两页，真的就像在读纸质版书籍一样，体验非常棒。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230412002314.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904121834.png)
 
 如果你喜欢在线阅读，请戳下面这个网址：
 
 > [https://javabetter.cn/xuexiluxian/java/thread.html](https://javabetter.cn/xuexiluxian/java/thread.html)
 
-首页见下图，同样简洁、清新、方便沉浸式阅读：
-
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411102619.png)
-
-你也可以到技术派的[教程栏（戳这里）](https://paicoding.com/column)里阅读，目前正在连载更新中。
-
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230410215012.png)
-
->技术派是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，[代码完全开源（可戳）](https://github.com/itwanger/paicoding)，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
-
-如果你在阅读过程中感觉这份小册写的还不错，甚至有亿点点收获，**请肆无忌惮地把这份小册分享给你的同事、同学、舍友、朋友，让他们也进步亿点点，赠人玫瑰手有余香嘛**。
-
-如果这份小册有幸被更多人看得到，我的虚荣心也会得到恰当的满足，嘿嘿😜
+如果你在阅读过程中感觉这份小册写的还不错，甚至有亿点点收获，我的虚荣心也会得到恰当的满足😜
 
 ## 如何获取最新版？
 
-小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，可以说凝聚了二哥十多年来学习 Java 的心血，33 万+，绝对不虚市面上任何一本 Java 实体书！
+小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，绝对不虚市面上任何一本 Java 并发编程/多线程的实体书！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-wecom-temp-cbe8e183acdd8daa542c94ab7f4a7eec.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904122154.png)
 
-小册会持续保持**更新**，如果想获得最新版，请在我的微信公众号 **沉默王二** 后台回复 **222** 获取（你懂我的意思吧，我肯定是足够二才有这样的勇气定义这样一个关键字）！
+小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904122708.png)
 
 ## 面试指南（配套教程）
 
-《Java 面试指南》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个内部小册，和《Java 进阶之路》内容互补。相比开源的版本来说，《Java 面试指南》添加了下面这些板块和内容：
+《Java 面试指南》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个付费专栏，和《Java 进阶之路》上的内容可以形成很好的互补，截止到目前，已经更新 48 万字，可以说是满满的干货和诚意。
 
-- 面试准备篇（20+篇），手把手教你如何准备面试。
-- 职场修炼篇（10+篇），手摸手教你如何在职场中如鱼得水。
-- 技术提升篇（30+篇），手拉手教你如何成为团队不可或缺的技术攻坚小能手。
-- 面经分享篇（20+篇），手牵手教你如何在面试中知彼知己，百战不殆。
-- 场景设计篇（20+篇），手握手教你如何在面试中脱颖而出。
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904113349.png)
 
-### 内容概览
+一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
-#### 面试准备篇
+- 面试准备篇（25+篇），手把手教你如何准备面试。
+- 职场修炼篇（11+篇），手摸手教你如何在职场中如鱼得水。
+- 学习路线篇（13+篇），手勾手教你如何快速学习一门技术栈。
+- 技术提升篇（33+篇），手拉手教你如何成为团队不可或缺的技术攻坚小能手。
+- 面经分享篇（23+篇），手牵手教你如何在面试中知彼知己，百战不殆。
+- 场景设计篇（22+篇），手握手教你如何在面试中脱颖而出。
 
-所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 20+篇文章会系统地引导你该如何做准备。
+### 01、面试准备篇
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411111002.png)
+所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 25+篇内容会系统地引导你该如何做好面试准备。涉及到的主题有：简历、源码、LeetCode、项目经验、开源项目、高并发、证书、和 HR 对线、国企名单、公司投递名单、银行、谈薪等等面试常见问题。
 
-#### 职场修炼篇
+![如何准备面试](https://cdn.tobebetterjavaer.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
 
-如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？等等，都是大家迫切关心的问题，这 10+篇文章会一一为你揭晓答案。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411111200.png)
+![如何写好简历](https://cdn.tobebetterjavaer.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
 
-#### 技术提升篇
+
+![秋招投递名单](https://cdn.tobebetterjavaer.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
+
+
+### 02、职场修炼篇
+
+如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？如何赚零花钱？如何达到 30 万+年薪等等，都是大家迫切关心的问题，这 11+篇内容会一一为你揭晓答案。
+
+![](https://cdn.tobebetterjavaer.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
+
+### 03、技术提升篇
 
 编程能力、技术功底，是我们程序员安身立命之本，是我们求职/工作的最核心的武器。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411112059.png)
 
-#### 面经分享篇
+![](https://cdn.tobebetterjavaer.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
 
-知彼知己，方能百战不殆，我们必须得站在学长学姐的肩膀上，才能走得更远更快。
+### 04、面经分享篇
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411112435.png)
+知彼知己，方能百战不殆，我们必须得站在前辈的肩膀上，才能走得更远更快。他们在面试中遇到过哪些经典的问题，我们能不能提前演练一下，对临场发挥有着至关重要的作用。
 
-#### 场景设计题篇
 
-这里收录的都是精华，让天底下没有难背的八股文；场景设计题篇页都是面试中经常考察的大项，可以让你和面试官对线半小时（😁）
+![](https://cdn.tobebetterjavaer.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411112637.png)
+### 05、场景设计题篇
 
-### 星球其他资源
+有些面试官不喜欢问八股文，反而更喜欢结合项目问一些非常经典的场景题，这种场景题没有标准的答案，但却很能考察一名求职者的逻辑思维能力。
 
-除了《Java 面试指南》外，星球还提供了《编程喵实战项目笔记》、《二哥的 LeetCode 刷题笔记》，以及技术派实战项目配套的 120+篇硬核教程。
+![](https://cdn.tobebetterjavaer.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411113022.png)
+## 更多优质专栏
 
-这里重点介绍一下技术派吧，这个项目上线后，一直广受好评，读者朋友们的认可度非常高，项目配套的教程也足够的硬核。
+除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《技术派实战教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《算法突击 50 题》、《华为 OD 笔试 AB 卷题库》等五个额外的专栏。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-75e5d61a-55e8-46b8-a261-31bd0d86b81a.png)
+![](https://cdn.tobebetterjavaer.com/paicoding/bad32e202fd78ffb5555f2114de01eae.png)
 
-这是部分目录（共计 120 篇，大厂篇、基础篇、进阶篇、工程篇，全部落地）。
+### 01、技术派实战教程
 
-开篇：
+[技术派](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
 
-- 技术答疑（⭐️）
-- 技术派问题反馈及解决方案（⭐️）
-- 踩坑实录之本地缓存Caffeine采坑实录（⭐️）
-- 技术派系统架构、功能模块一览（⭐️⭐️⭐️⭐️⭐️）
+下面是《技术派教程》部分目录（包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇，目前已完成 80+篇），很多球友都反馈说光这套教程就值 599 元。
 
-大厂篇：
+![](https://cdn.tobebetterjavaer.com/paicoding/acdb224f141042a6c1c3990c794f7048.png)
 
-- 技术派产品调研，让你了解产品诞生背后的故事（⭐️⭐️）
-- 技术派产品设计（⭐️）
-- 技术派交互视觉设计（⭐️）
-- 技术派整体架构方案设计全过程（⭐️⭐️⭐️）
-- 技术方案详细设计（⭐️⭐️⭐️⭐️）
-- 技术派项目管理流程（⭐️⭐️）
-- 技术派项目管理研发阶段（⭐️⭐️⭐️）
+### 02、编程喵实战笔记
 
-基础篇：
+编程喵是一套成熟的学习教程网站，包括前台网站内容展示系统，以及后台网站内容管理系统，采用时下最流行的 Spring Boot + Vue 的前后端分离架构。配套的教程可以带你完成从小白到初级工程师的蜕变。
 
-- 技术派中实体对象 DO、DTO、VO 到底代表了什么（⭐️）
-- 通过技术派项目讲解 MVC 分层架构的应用（⭐️⭐️）
-- 技术派整合本地缓存之Guava（⭐️⭐️⭐️）
-- 技术派整合本地缓存之Caffeine（⭐️⭐️⭐️⭐️）
-- 技术派整合 Redis（⭐️）
-- 技术派中基于 Redis 的缓存示例（⭐️⭐️⭐️）
-- 技术派中基于Cacheable注解实现缓存示例（⭐️⭐️）
-- 技术派中的事务使用实例（⭐️⭐️⭐️）
-- 事务使用的 7 条注意事项（⭐️⭐️⭐️）
-- 技术派中的多配置文件说明（⭐️）
-- 技术派整合 Logback/lombok 配置日志输出（⭐️）
-- 技术派整合邮件服务实现邮件发送（⭐️）
-- Web 三大组件之 Filter 在技术派中的应用（⭐️）
-- Web 三大组件之 Servlet 在技术派中的应用（⭐️）
-- Web 三大组件之 listenter 在技术派中的应用（⭐️）
-- 技术派实时在线人数统计-单机版（⭐️）
 
-进阶篇：
+![](https://cdn.tobebetterjavaer.com/paicoding/3e64d96c828c65af6f2b6ea3c8be4b4c.png)
 
-- 技术派之扫码登录实现原理（⭐️）
-- 技术派身份验证之session与 cookie（⭐️）
-- 技术派中基于异常日志的报警通知（⭐️）
 
-扩展篇：
+### 03、二哥的 LeetCode 刷题笔记
 
-- 技术派的数据库表自动初始化实现方案（⭐️⭐️⭐️⭐️⭐️）
-- 技术派中基于 filter 实现请求日志记录（⭐️）
+《二哥的 LeetCode 刷题笔记》，不仅有详细地解题思路，还有完整的代码示例，力求教会你举一反三的解题能力。
 
-工程篇：
+![](https://cdn.tobebetterjavaer.com/paicoding/65f3dde54f15962b51f5ea4c1ecfea65.png)
 
-- 技术派项目工程搭建手册（⭐️⭐️⭐️⭐️）
-- 技术派本地多机器部署开发教程（⭐️⭐️）
-- 技术派服务器部署指导手册（⭐️⭐️）
-- 技术派的 MVC 分层架构（⭐️⭐️）
-- 技术派 Docker 本机部署开发手册（⭐️⭐️⭐️）
-- 技术派多环境配置管理（⭐️）
+### 04、算法突击 50 题
 
-欣赏一下技术派实战项目的首页吧，绝壁清新、高级、上档次！
+准备秋招/春招/社招的小伙伴不少，但往往时间比较紧张，很多小伙伴精力有限，所以我这里精选了 50 道高频算法题，作为笔试的重点突击题型，可以在短时间内最大效率地提升你的笔试通过率。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-72345f90-68dc-421d-97c5-0ebf411212ae.png)
 
-### 星球限时优惠
+![](https://cdn.tobebetterjavaer.com/paicoding/2cc34d528c2cddc50f768f1a0774ed59.png)
 
-一年前，星球的定价是 99 元一年，第一批优惠券的额度是 30 元，等于说 69 元的低价就可以加入，再扣除掉星球手续费，几乎就是纯粹做公益。
+
+### 05、华为 OD 笔试 AB 卷题库
+
+LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机考使用的是 ACM 模式，也就是需要手动编写输入输出的模式，更贴近机考的真实场景，所以我这里整理了一套完整的 AB 卷题库，帮助大家在最短的时间内快速提升机考的通过率。
+
+![](https://cdn.tobebetterjavaer.com/paicoding/cb1f91b3dd7397052c5e93dba914e140.png)
+
+## 星球限时优惠
+
+一年前，星球的定价还是 99 元一年，第一批优惠券的额度是 30 元，等于说 69 元的低价就可以加入，再扣除掉星球手续费，几乎就是纯粹做公益。
 
 随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://javabetter.cn/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
 
-目前星球已经 2100+ 人了，所以星球也涨价到了 119 元，后续会讲星球的价格调整为 139 元/年，所以想加入的小伙伴一定要趁早。
+目前星球已经 3300+ 人了，所以星球也涨价到了 129 元，后续会讲星球的价格调整为 149 元/年，所以想加入的小伙伴一定要趁早。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411113706.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904114419.png)
 
-你可以添加我的微信（没有⼿机号再申请微信，故使⽤企业微信。不过，请放⼼，这个号的消息也是
-我本⼈处理，平时最常看这个微信）领取星球专属优惠券(推荐)，限时 89/年 加⼊(续费半价)！
-
-<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png" title="二哥的编程星球" width="300" />
-
-
-或者你也可以微信扫码或者长按自动识别领取 30 元优惠券，**89/年** 加入！
+你可以微信扫码或者长按自动识别领取 30 元优惠券，**99/年** 加入，满 4000 人会涨价至 149 元，所以想要加入的话请趁早。
 
 <img src="https://cdn.tobebetterjavaer.com/stutymore/readme-20230411114734.png" title="二哥的编程星球" width="300" />
 
@@ -238,6 +199,6 @@ head:
 
 ## 更新记录
 
-### V1.0-2023年04月11日
+### V1.0 版 2023年09月04日
 
-第一版《二哥的 Java 进阶之路》正式完结发布！
+第一版《二哥的并发编程进阶之路》正式完结发布！
