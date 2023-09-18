@@ -59,6 +59,7 @@ export const sidebarConfig = sidebar({
     "network",
     "rocketmq",
     "fenbushi",
+    "weifuwu",
   ],
   // 必须放在最后面
   "/": [
