@@ -167,6 +167,10 @@ head:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-cdfba194-459d-4ec6-8b9f-07f6cca4ac80.png)
 
+* 微服务
+
+![](https://cdn.tobebetterjavaer.com/stutymore/nixi-20230918213033.png)
+
 
 吊大家胃口这么久，那么这本册子该如何获取呢？
 
