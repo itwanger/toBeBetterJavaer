@@ -1,20 +1,19 @@
 ---
-title: 面渣逆袭（Java基础篇面试题八股文）必看👍
+title: Java面试题之Java基础篇，53道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
+author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解53道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java
+      content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-
-
-> 图文详解 53 道Java基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+1.3 万字 44 张手绘图，详解53道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 ## Java 概述
 
@@ -1413,6 +1412,13 @@ reduced.ifPresent(System.out::println);
 
 **系列内容**：
 
+---
+
+*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+
+
+**系列内容**：
+
 - [面渣逆袭 Java SE 篇👍](https://javabetter.cn/sidebar/sanfene/javase.html)
 - [面渣逆袭 Java 集合框架篇👍](https://javabetter.cn/sidebar/sanfene/javathread.html)
 - [面渣逆袭 Java 并发编程篇👍](https://javabetter.cn/sidebar/sanfene/collection.html)
@@ -1424,6 +1430,8 @@ reduced.ifPresent(System.out::println);
 - [面渣逆袭操作系统篇👍](https://javabetter.cn/sidebar/sanfene/os.html)
 - [面渣逆袭计算机网络篇👍](https://javabetter.cn/sidebar/sanfene/network.html)
 - [面渣逆袭RocketMQ篇👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
+- [面渣逆袭分布式篇👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
+- [面渣逆袭微服务篇👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 
 ----
 

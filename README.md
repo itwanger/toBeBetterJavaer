@@ -94,6 +94,7 @@
 - [面渣逆袭（计算机网络八股文面试题）必看👍](docs/sidebar/sanfene/network.md)
 - [面渣逆袭（RocketMQ八股文面试题）必看👍](docs/sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](docs/sidebar/sanfene/fenbushi.md)
+- [面渣逆袭（微服务面试题八股文）必看👍](docs/sidebar/sanfene/weifuwu.md)
 
 # Java基础
 
