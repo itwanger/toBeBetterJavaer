@@ -195,7 +195,7 @@ head:
 
 Java 虚拟机八股文（背诵版）：
 
->[https://javabetter.cn/baguwen/jvm.html](https://javabetter.cn/baguwen/jvm.html)
+>[https://javabetter.cn/interview/java-jvm-baguwen.html](https://javabetter.cn/interview/java-jvm-baguwen.html)
 
 诚实点说，如果能把这两份八股文背会/理解的话，简历上就真的敢写“精通”Java 虚拟机了。
 

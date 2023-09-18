@@ -161,7 +161,7 @@ head:
 
 Java 并发编程八股文（背诵版）：
 
->[https://javabetter.cn/baguwen/java-thread.html](https://javabetter.cn/baguwen/java-thread.html)
+>[https://javabetter.cn/interview/java-thread-baguwen.html](https://javabetter.cn/interview/java-thread-baguwen.html)
 
 这两份八股文的质量都非常高，来看一下AQS了解多少小节下的内容，图文并茂，非常容易消化和吸收。
 
