@@ -3,31 +3,9 @@ export const sidebarConfig = sidebar({
   "/zhishixingqiu/": [
     "readme.md",
     "map",
-    "may",
-    "june",
-    "july",
-    "august"
+    "mianshi",
   ],
   // 你可以省略 .md 扩展名，以 / 结尾的路径会被推断为 /README.md(区分大小写)
-  "/nice-article/itmind/": [
-    "readme.md",
-    "shangwang.md",
-    "ideapxideajhideayjjhmideazxjhzcmpjjcyjjhqcyx",
-    "yigkymxczideatsyqdffblwxjcywdxbxt",
-    "ideapjazjczxjhmzcmyjjhcxgxz",
-    "ideajhmideajhmideapxideajhmideazcmideayjjhm",
-    "intellijidearhgbgxdsxbxt",
-    "navicatmacyjpx",
-    "navicatzxbwindowspjbjc",
-    "typorayjpx",
-    "typoramaczwpjbhyjjdkptmarkdownbjqmksimacsocom",
-    "xshellazpjbjcxshellpxffxbxt",
-    "pycharmjhpxmazjcnyrgxxbxt",
-    "webstormjhmwebstormwdzsjhmxbxt",
-    "visualstudiopxbazjcnfvisualstudiojhmmyxbxt",
-    "sublimetextzcmpjazjcqckyxbxt",
-    "termius-macos",
-  ],
   "/pdf/": [
     "java",
     "programmer-111",
@@ -81,6 +59,7 @@ export const sidebarConfig = sidebar({
     "network",
     "rocketmq",
     "fenbushi",
+    "weifuwu",
   ],
   // 必须放在最后面
   "/": [
@@ -281,37 +260,38 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           prefix: "thread/",
           children: [
-          "wangzhe-thread",
-          "callable-future-futuretask",
-          "thread-state-and-method",
-          "thread-group-and-thread-priority",
-          "why-need-thread",
-          "thread-bring-some-problem",
-          "jmm",
-          "volatile",
-          "synchronized-1",
-          "synchronized",
-          "cas",
-          "aqs",
-          "lock",
-          "suo",
-          "pianxiangsuo",
-          "reentrantLock",
-          "ReentrantReadWriteLock",
-          "condition",
-          "LockSupport",
-          "map",
-          "ConcurrentHashMap",
-          "ConcurrentLinkedQueue",
-          "CopyOnWriteArrayList",
-          "ThreadLocal",
-          "BlockingQueue",
-          "pool",
-          "ScheduledThreadPoolExecutor",
-          "atomic",
-          "CountDownLatch",
-          "fork-join",
-          "shengchanzhe-xiaofeizhe",
+            "readme.md",
+            "wangzhe-thread",
+            "callable-future-futuretask",
+            "thread-state-and-method",
+            "thread-group-and-thread-priority",
+            "why-need-thread",
+            "thread-bring-some-problem",
+            "jmm",
+            "volatile",
+            "synchronized-1",
+            "synchronized",
+            "pianxiangsuo",
+            "cas",
+            "aqs",
+            "lock",
+            "reentrantLock",
+            "ReentrantReadWriteLock",
+            "condition",
+            "LockSupport",
+            "map",
+            "ConcurrentHashMap",
+            "ConcurrentLinkedQueue",
+            "BlockingQueue",
+            "CopyOnWriteArrayList",
+            "ThreadLocal",
+            "pool",
+            "ScheduledThreadPoolExecutor",
+            "atomic",
+            "Unsafe",
+            "CountDownLatch",
+            "fork-join",
+            "shengchanzhe-xiaofeizhe",
           ],
         },
         {
@@ -353,13 +333,7 @@ export const sidebarConfig = sidebar({
           collapsible: true,
           children: [
             {
-              text: "3.1.1 Nginx",
-              children: [
-                "nginx/nginx",
-              ],
-            },
-            {
-              text: "3.1.2 IDE",
+              text: "3.1.1 IDE",
               collapsible: true,
               children: [
               "ide/4-debug-skill",
@@ -368,23 +342,85 @@ export const sidebarConfig = sidebar({
               ],
             },
             {
-              text: "3.1.3 Maven",
+              text: "3.1.2 Maven",
               collapsible: true,
               children: [
               "maven/maven",
               ],
             },
             {
-              text: "3.1.4 Git",
+              text: "3.1.3 Git",
               collapsible: true,
               children: [
               "git/git-qiyuan",
               ],
             },
+            {
+              text: "3.1.4 Nginx",
+              children: [
+                "nginx/nginx",
+              ],
+            },
           ],
         },
         {
-          text: "3.3 Spring",
+          text: "3.2 辅助工具",
+          collapsible: true,
+          children: [
+            "gongju/choco",
+            "gongju/brew",
+            "gongju/tabby",
+            "gongju/warp",
+            "gongju/windterm",
+            "gongju/chiner",
+            "gongju/DBeaver",
+          ],
+        },
+        {
+          text: "3.3 开源轮子",
+          collapsible: true,
+          children: [
+            {
+              text: "HTTP调用框架Forest",
+              link: "gongju/forest",
+            },
+            {
+              text: "单元测试Junit",
+              link: "gongju/junit",
+            },
+            {
+              text: "阿里开源的fastjson",
+              link: "gongju/fastjson",
+            },
+            {
+              text: "谷歌开源的Gson",
+              link: "gongju/gson",
+            },
+            {
+              text: "SpringBoot内置的Jackson",
+              link: "gongju/jackson",
+            },
+            {
+              text: "日志框架的鼻祖Log4j",
+              link: "gongju/log4j",
+            },
+            {
+              text: "高性能日志框架Log4j2",
+              link: "gongju/log4j2",
+            },
+            {
+              text: "Spring Boot内置的Logback",
+              link: "gongju/logback",
+            },
+            {
+              text: "日志门面SLF4J",
+              link: "gongju/slf4j",
+            },
+            
+          ],
+        },
+        {
+          text: "3.4 Spring全家桶",
           collapsible: true,
           children: [
             {
@@ -395,12 +431,6 @@ export const sidebarConfig = sidebar({
               text: "Spring IoC扫盲",
               link: "springboot/ioc",
             },
-          ],
-        },
-        {
-          text: "3.4 SpringBoot",
-          collapsible: true,
-          children: [
             {
               text: "搭建第一个Spring Boot项目",
               link: "springboot/initializr",
@@ -466,63 +496,29 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.6 辅助工具",
+          text: "3.6 MongoDB",
           collapsible: true,
           children: [
-            "gongju/choco",
-            "gongju/brew",
-            "gongju/tabby",
-            "gongju/warp",
-            "gongju/windterm",
-            "gongju/chiner",
-            "gongju/DBeaver",
+            "mongodb/rumen",
           ],
         },
         {
-          text: "3.7 开源轮子",
+          text: "3.7 消息队列",
           collapsible: true,
           children: [
             {
-              text: "HTTP调用框架Forest",
-              link: "gongju/forest",
+              text: "RabbitMQ入门",
+              link: "mq/rabbitmq-rumen"
             },
             {
-              text: "单元测试Junit",
-              link: "gongju/junit",
+              text: "如何保障消息不丢失",
+              link: "mq/100-budiushi"
             },
-            {
-              text: "阿里开源的fastjson",
-              link: "gongju/fastjson",
-            },
-            {
-              text: "谷歌开源的Gson",
-              link: "gongju/gson",
-            },
-            {
-              text: "SpringBoot内置的Jackson",
-              link: "gongju/jackson",
-            },
-            {
-              text: "日志框架的鼻祖Log4j",
-              link: "gongju/log4j",
-            },
-            {
-              text: "高性能日志框架Log4j2",
-              link: "gongju/log4j2",
-            },
-            {
-              text: "Spring Boot内置的Logback",
-              link: "gongju/logback",
-            },
-            {
-              text: "日志门面SLF4J",
-              link: "gongju/slf4j",
-            },
-            
+            "mq/kafka",
           ],
         },
         {
-          text: "3.8 分布式",
+          text: "3.8 微服务/分布式",
           collapsible: true,
           children: [
             {
@@ -539,62 +535,34 @@ export const sidebarConfig = sidebar({
             },
           ],
         },
-        {
-          text: "3.9 消息队列",
-          collapsible: true,
-          children: [
-            {
-              text: "RabbitMQ入门",
-              link: "mq/rabbitmq-rumen"
-            },
-            {
-              text: "如何保障消息不丢失",
-              link: "mq/100-budiushi"
-            },
-            "mq/kafka",
-          ],
-        },
       ],
     },
     {
-      text: "四、数据库",
+      text: "四、MySQL",
+      collapsible: true,
+      prefix: "mysql/",
+      children: [
+        "redis-shuju-yizhixing",
+        "lijie-shiwu",
+        "shiwu-shixian",
+      ],
+    },
+    {
+      text: "五、Redis",
       collapsible: true,
       children: [
         {
-          text: "MySQL",
-          collapsible: true,
-          prefix: "mysql/",
-          children: [
-            "redis-shuju-yizhixing",
-            "lijie-shiwu",
-            "shiwu-shixian",
-          ],
+          text: "Redis入门",
+          link: "redis/rumen"
         },
         {
-          text: "Redis",
-          collapsible: true,
-          children: [
-            {
-              text: "Redis入门",
-              link: "redis/rumen"
-            },
-            {
-              text: "缓存雪崩、穿透、击穿",
-              link: "redis/xuebeng-chuantou-jichuan"
-            },
-          ],
-        },
-        {
-          text: "MongoDB",
-          collapsible: true,
-          children: [
-            "mongodb/rumen",
-          ],
+          text: "缓存雪崩、穿透、击穿",
+          link: "redis/xuebeng-chuantou-jichuan"
         },
       ],
     },
     {
-      text: "五、计算机基础",
+      text: "六、计算机基础",
       collapsible: true,
       prefix: "cs/",
       children: [
@@ -609,7 +577,7 @@ export const sidebarConfig = sidebar({
       ],
     },
     {
-      text: "六、求职面试",
+      text: "七、求职面试",
       collapsible: true,
       children: [
         {
@@ -679,7 +647,7 @@ export const sidebarConfig = sidebar({
       ],
     },
     {
-      text: "七、学习建议",
+      text: "八、学习建议",
       collapsible: true,
       prefix: "xuexijianyi/",
       children: [
@@ -700,7 +668,7 @@ export const sidebarConfig = sidebar({
         ],
     },
     {
-      text: "八、知识库搭建",
+      text: "九、知识库搭建",
       collapsible: true,
       prefix: "szjy/",
       children: [
@@ -712,7 +680,7 @@ export const sidebarConfig = sidebar({
         ],
     },
     {
-      text: "九、联系作者",
+      text: "十、联系作者",
       collapsible: true,
       prefix: "about-the-author/",
       children: [
@@ -720,7 +688,6 @@ export const sidebarConfig = sidebar({
         "zhihu-1000wan",
         "csdn-1000wan",
         "readme.md",
-        
       ],
     },
   ],

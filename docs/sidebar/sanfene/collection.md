@@ -1,11 +1,12 @@
 ---
-title: 面渣逆袭（Java集合框架面试题八股文）必看👍
+title: Java面试题之Java集合框架篇（Java容器篇），30道Java集合框架八股文（7千字38张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java集合框架
+author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 图文详解 30 道Java集合框架面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+description: 下载次数超 1 万次，7200 字 38 张手绘图，详解 30 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
@@ -13,7 +14,7 @@ head:
 ---
 
 
-> 图文详解 30 道Java集合框架面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
+7200 字 38 张手绘图，详解 30 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
 
 ## 引言
 
@@ -123,7 +124,7 @@ CopyOnWriteArrayList采用了一种读写分离的并发策略。CopyOnWriteArra
 
 ![CopyOnWriteArrayList原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-7.png)
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -687,12 +688,14 @@ if (e != null) { // existing mapping for key
 - [面渣逆袭操作系统篇👍](https://javabetter.cn/sidebar/sanfene/os.html)
 - [面渣逆袭计算机网络篇👍](https://javabetter.cn/sidebar/sanfene/network.html)
 - [面渣逆袭RocketMQ篇👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
+- [面渣逆袭分布式篇👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
+- [面渣逆袭微服务篇👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 
 ----
 
 > 图文详解 30 道Java集合框架面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

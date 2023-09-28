@@ -12,7 +12,7 @@ head:
       content: Java, 多线程, Callable, Future, FutureTask, 线程执行结果
 ---
 
-# 14.2 获取线程的执行结果
+# 第二节：获取线程的执行结果
 
 [在第一节：初步掌握 Java 多线程中](https://javabetter.cn/thread/wangzhe-thread.html)，我们讲述了创建线程的 3 种方式，一种是直接继承 Thread，一种是实现 Runnable 接口，另外一种是实现 Callable 接口。
 
@@ -22,7 +22,7 @@ head:
 
 Java 1.5 提供了 Callable、Future、FutureTask，它们可以在任务执行完后得到执行结果，今天我们就来详细的了解一下。
 
-### 01、Callable 与 Runnable
+## 无返回值的 Runnable
 
 由于 `Runnable` 的 `run()` 方法的返回值为 void：
 
@@ -33,6 +33,8 @@ public interface Runnable {
 ```
 
 所以在执行完任务之后无法返回任何结果。
+
+## 有返回值的 Callable
 
 Callable 位于 `java.util.concurrent` 包下，也是一个接口，它定义了一个 `call()` 方法：
 
@@ -46,13 +48,13 @@ public interface Callable<V> {
 
 那怎么使用 Callable 呢？
 
-一般会配合 ExecutorService 来使用。
+一般会配合 [ExecutorService](https://javabetter.cn/thread/pool.html)（后面在讲线程池的时候会细讲，这里记住就行）来使用。
 
 ExecutorService 是一个接口，位于 `java.util.concurrent` 包下，它是 Java 线程池框架的核心接口，用来异步执行任务。它提供了一些关键方法用来进行线程管理。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/callable-future-futuretask-20230619105509.png)
 
-下面的例子就用到了 ExecutorService 的 submit 方法。
+下面的例子就用到了 [ExecutorService](https://javabetter.cn/thread/pool.html) 的 submit 方法。
 
 ```java
 // 创建一个包含5个线程的线程池
@@ -80,7 +82,7 @@ for (int i = 0; i < 10; i++) {
 executorService.shutdown();
 ```
 
-我们通过 Executors 工具类来创建一个 ExecutorService，然后向里面提交 Callable 任务，然后通过 Future 来获取执行结果。
+我们通过 [Executors 工具类](https://javabetter.cn/thread/pool.html)来创建一个 ExecutorService，然后向里面提交 Callable 任务，然后通过 Future 来获取执行结果。
 
 为了做对比，我们再来看一下使用 Runnable 的方式：
 
@@ -106,7 +108,7 @@ executorService.shutdown();
 
 可以看到，使用 Runnable 的方式要比 Callable 的方式简单一些，但是 Callable 的方式可以获取执行结果，这是 Runnable 做不到的。
 
-### 02、Future
+## 异步计算结果 Future 接口
 
 在前面的例子中，我们通过 Future 来获取 Callable 任务的执行结果，那么 Future 是什么呢？
 
@@ -145,7 +147,7 @@ public interface Future<V> {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/callable-future-futuretask-20230619111830.png)
 
-### 03、FutureTask
+## 异步计算结果 FutureTask 实现类
 
 我们来看一下 FutureTask 的实现：
 
@@ -172,7 +174,7 @@ public FutureTask(Runnable runnable, V result) {
 }
 ```
 
-来个例子
+当需要异步执行一个计算并在稍后的某个时间点获取其结果时，就可以使用 FutureTask。来个例子
 
 ```java
 // 创建一个固定大小的线程池
@@ -217,10 +219,14 @@ Result of task4: 400
 Result of task5: 500
 ```
 
+## 小结
+
+本文深入解释了如何在 Java 中使用 Callable、Future 和 FutureTask 来获取多线程执行结果。
+
 ---
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第二份 PDF 《[并发编程小册](https://javabetter.cn/thread/)》终于来了！包括线程的基本概念和使用方法、Java的内存模型、sychronized、volatile、CAS、AQS、ReentrantLock、线程池、并发容器、ThreadLocal、生产者消费者模型等面试和开发必须掌握的内容，共计 15 万余字，200+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，二哥的并发编程进阶之路.pdf](https://javabetter.cn/thread/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+[加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)

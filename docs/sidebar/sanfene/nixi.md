@@ -1,8 +1,7 @@
 ---
-title: 面渣逆袭必看，面试题八股文JavaSE、Java 集合框架、Java 并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式👍
+title: 面渣逆袭必看，面试题八股文Java基础、Java 集合框架、Java 并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务👍
 shortTitle: 面渣逆袭
-description: 面试前必读系列！包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式 等等。
-author: 三分恶
+description: 面试前必读系列！包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务 等等。
 category:
   - 面渣逆袭
 tag:
@@ -10,7 +9,7 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java面试题,JavaSE面试题,Java基础面试题,Java集合框架面试题,Java容器面试题,Java虚拟机面试题,JVM面试题,Spring面试题,Redis面试题,MyBatis面试题,MySQL面试题,操作系统面试题,OS面试题,计算机网络面试题,RocketMQ面试题,面试题,八股文,java,springboot,spring,jvm,redis,mybatis,mysql,操作系统,计算机网络,RocketMQ,分布式
+      content: Java面试题,JavaSE面试题,Java基础面试题,Java集合框架面试题,Java容器面试题,Java虚拟机面试题,JVM面试题,Spring面试题,Redis面试题,MyBatis面试题,MySQL面试题,操作系统面试题,OS面试题,计算机网络面试题,RocketMQ面试题,面试题,八股文,java,springboot,spring,jvm,redis,mybatis,mysql,操作系统,计算机网络,RocketMQ,分布式,微服务
 ---
 
 大家好，我是二哥呀，今天给大家隆重推荐一位美团后端研发工程师（网名三分恶，二哥非常好的一位朋友）的面渣逆袭手册。
@@ -24,7 +23,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-a1c872c8-ab8e-454f-b8ab-7bb3d1cab5f0.jpg)
 
 
-手册目前共有`Java语言`、`Java框架`、`计算机基础`、`数据库`、`中间件` 五大部分，涵盖了`Java基础`、`Java集合`、`Java并发`、`JVM`、`Spring`、`MyBatis`、`计算机网络`、`操作系统`、`MySQL`、`Redis`、`RocketMQ`、`分布式` 十二个章节，共有 1000 多页，可以说基本涵盖了面试的必问考点。
+手册目前共有`Java语言`、`Java框架`、`计算机基础`、`数据库`、`中间件` 五大部分，涵盖了`Java基础`、`Java集合`、`Java并发`、`JVM`、`Spring`、`MyBatis`、`计算机网络`、`操作系统`、`MySQL`、`Redis`、`RocketMQ`、`分布式`、微服务 十三个章节，共有 1000 多页，可以说基本涵盖了面试的必问考点。
 
 而且手册的内容不是杂乱无章的，每一部分都是循序渐进，由浅入深，看看目录就知道了：
 
@@ -104,6 +103,7 @@ head:
 - [面渣逆袭（计算机网络面试题八股文）必看👍](/sidebar/sanfene/network.md)
 - [面渣逆袭（RocketMQ面试题八股文）必看👍](/sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](/sidebar/sanfene/fenbushi.md)
+- - [面渣逆袭（微服务面试题八股文）必看👍](/sidebar/sanfene/weifuwu.md)
 
 ## PDF版阅读
 
@@ -167,9 +167,13 @@ head:
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-cdfba194-459d-4ec6-8b9f-07f6cca4ac80.png)
 
+* 微服务
+
+![](https://cdn.tobebetterjavaer.com/stutymore/nixi-20230918213033.png)
+
 
 吊大家胃口这么久，那么这本册子该如何获取呢？
 
-关注二哥的公众号：**沉默王二** ，👇👇👇，回复 **666**即可无套路获取！
+关注二哥的公众号：**沉默王二** ，👇👇👇，回复 **222**即可无套路获取！
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

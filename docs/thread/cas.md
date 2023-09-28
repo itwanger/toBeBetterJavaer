@@ -1,7 +1,7 @@
 ---
-title: Java实现CAS的原理
-shortTitle: Java实现CAS的原理
-description: Java实现CAS的原理
+title: 一文彻底搞清楚Java实现CAS的原理
+shortTitle: 乐观锁CAS
+description: CAS（Compare-and-Swap）是一种被广泛应用在并发控制中的算法，它是一种乐观锁的实现方式。CAS全称为“比较并交换”，是一种无锁的原子操作。
 category:
   - Java核心
 tag:
@@ -12,38 +12,46 @@ head:
       content: Java,并发编程,多线程,Thread,cas
 ---
 
-# Java实现CAS的原理
+# 第十二节：乐观锁 CAS
 
-在并发编程中我们都知道`i++`操作是非线程安全的，这是因为 `i++`操作不是原子操作。
+CAS（Compare-and-Swap）是一种乐观锁的实现方式，全称为“比较并交换”，是一种无锁的原子操作。
 
-如何保证原子性呢？常用的方法就是`加锁`。在Java语言中可以使用 `synchronized`和`CAS`实现加锁效果。
+在并发编程中，我们都知道`i++`操作是非线程安全的，这是因为 `i++`操作不是原子操作，我们之前在讲[多线程带来了什么问题](https://javabetter.cn/thread/thread-bring-some-problem.html)中有讲到，大家应该还记得吧？
 
-`synchronized`是悲观锁，线程开始执行第一步就是获取锁，一旦获得锁，其他的线程进入后就会阻塞等待锁。如果不好理解，举个生活中的例子：一个人进入厕所后首先把门锁上（获取锁），然后开始上厕所，这个时候有其他人来了只能在外面等（阻塞），就算再急也没用。上完厕所完事后把门打开（解锁），其他人就可以进入了。
+如何保证原子性呢？
+
+常见的做法就是加锁。
+
+在 Java 中，我们可以使用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)关键字 和 `CAS`（Compare-and-Swap）来实现加锁效果。
+
+`synchronized` 是悲观锁，尽管随着 JDK 版本的升级，synchronized 关键字已经“轻量级”了很多（[前面有细讲，戳链接回顾](https://javabetter.cn/thread/synchronized.html)），但依然是悲观锁，线程开始执行第一步就要获取锁，一旦获得锁，其他的线程进入后就会阻塞并等待锁。
+
+如果不好理解，我们来举个生活中的例子：一个人进入厕所后首先把门锁上（获取锁），然后开始上厕所，这个时候有其他人来了就只能在外面等（阻塞），就算再急也没用。上完厕所完事后把门打开（解锁），其他人就可以进入了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-973e8804-c713-43f6-9a63-4b9f2be54f10.png)
 
-`CAS`是乐观锁，线程执行的时候不会加锁，假设没有冲突去完成某项操作，如果因为冲突失败了就重试，最后直到成功为止。
+`CAS` 是乐观锁，线程执行的时候不会加锁，它会假设此时没有冲突，然后完成某项操作；如果因为冲突失败了就重试，直到成功为止。
 
+## 乐观锁与悲观锁
 
-## 乐观锁与悲观锁的概念
+锁可以从不同的角度来分类。比如我们在前面讲 [synchronized 四种锁状态](https://javabetter.cn/thread/synchronized.html)的时候，提到过偏向锁、轻量级锁、重量级锁，对吧？乐观锁和悲观锁也是一种分类方式。
 
-锁可以从不同的角度分类。其中，乐观锁和悲观锁是一种分类方式。
+### 悲观锁
 
-**悲观锁：**
+对于悲观锁来说，它总是认为每次访问共享资源时会发生冲突，所以必须对每次数据操作加上锁，以保证临界区的程序同一时间只能有一个线程在执行。
 
-悲观锁就是我们常说的锁。对于悲观锁来说，它总是认为每次访问共享资源时会发生冲突，所以必须对每次数据操作加上锁，以保证临界区的程序同一时间只能有一个线程在执行。
+### 乐观锁
 
-**乐观锁：**
+乐观锁，顾名思义，它是乐观派。乐观锁总是假设对共享资源的访问没有冲突，线程可以不停地执行，无需加锁也无需等待。一旦多个线程发生冲突，乐观锁通常使用一种称为 CAS 的技术来保证线程执行的安全性。
 
-乐观锁又称为“无锁”，顾名思义，它是乐观派。乐观锁总是假设对共享资源的访问没有冲突，线程可以不停地执行，无需加锁也无需等待。而一旦多个线程发生冲突，乐观锁通常是使用一种称为CAS的技术来保证线程执行的安全性。
+由于乐观锁假想操作中没有锁的存在，因此不太可能出现死锁的情况，换句话说，**乐观锁天生免疫死锁**。
 
-由于无锁操作中没有锁的存在，因此不可能出现死锁的情况，也就是说**乐观锁天生免疫死锁**。
+- 乐观锁多用于“读多写少“的环境，避免频繁加锁影响性能；
+- 悲观锁多用于”写多读少“的环境，避免频繁失败和重试影响性能。
 
-乐观锁多用于“读多写少“的环境，避免频繁加锁影响性能；而悲观锁多用于”写多读少“的环境，避免频繁失败和重试影响性能。
+## 什么是 CAS
 
-## CAS的概念
-
-CAS的全称是：比较并交换（Compare And Swap）。在CAS中，有这样三个值：
+在 CAS 中，有这样三个值：
 
 - V：要更新的变量(var)
 - E：预期值(expected)
@@ -51,30 +59,30 @@ CAS的全称是：比较并交换（Compare And Swap）。在CAS中，有这样�
 
 比较并交换的过程如下：
 
-判断V是否等于E，如果等于，将V的值设置为N；如果不等，说明已经有其它线程更新了V，则当前线程放弃更新，什么都不做。
+判断 V 是否等于 E，如果等于，将 V 的值设置为 N；如果不等，说明已经有其它线程更新了 V，于是当前线程放弃更新，什么都不做。
 
-所以这里的**预期值E本质上指的是“旧值”**。
+这里的**预期值 E 本质上指的是“旧值”**。
 
 我们以一个简单的例子来解释这个过程：
 
-1. 如果有一个多个线程共享的变量`i`原本等于5，我现在在线程A中，想把它设置为新的值6;
-2. 我们使用CAS来做这个事情；
-3. 首先我们用i去与5对比，发现它等于5，说明没有被其它线程改过，那我就把它设置为新的值6，此次CAS成功，`i`的值被设置成了6；
-4. 如果不等于5，说明`i`被其它线程改过了（比如现在`i`的值为2），那么我就什么也不做，此次CAS失败，`i`的值仍然为2。
+1. 如果有一个多个线程共享的变量`i`原本等于 5，我现在在线程 A 中，想把它设置为新的值 6;
+2. 我们使用 CAS 来做这个事情；
+3. 首先我们用 i 去与 5 对比，发现它等于 5，说明没有被其它线程改过，那我就把它设置为新的值 6，此次 CAS 成功，`i`的值被设置成了 6；
+4. 如果不等于 5，说明`i`被其它线程改过了（比如现在`i`的值为 2），那么我就什么也不做，此次 CAS 失败，`i`的值仍然为 2。
 
-在这个例子中，`i`就是V，5就是E，6就是N。
+在这个例子中，`i`就是 V，5 就是 E，6 就是 N。
 
-那有没有可能我在判断了`i`为5之后，正准备更新它的新值的时候，被其它线程更改了`i`的值呢？
+那有没有可能我在判断了`i`为 5 之后，正准备更新它的新值的时候，被其它线程更改了`i`的值呢？
 
-不会的。因为CAS是一种原子操作，它是一种系统原语，是一条CPU的原子指令，从CPU层面保证它的原子性
+不会的。因为 CAS 是一种原子操作，它是一种系统原语，是一条 CPU 的原子指令，从 CPU 层面已经保证它的原子性。
 
-**当多个线程同时使用CAS操作一个变量时，只有一个会胜出，并成功更新，其余均会失败，但失败的线程并不会被挂起，仅是被告知失败，并且允许再次尝试，当然也允许失败的线程放弃操作。**
+**当多个线程同时使用 CAS 操作一个变量时，只有一个会胜出，并成功更新，其余均会失败，但失败的线程并不会被挂起，仅是被告知失败，并且允许再次尝试，当然也允许失败的线程放弃操作。**
 
-## Java实现CAS的原理 - Unsafe类
+## CAS 的原理
 
-前面提到，CAS是一种原子操作。那么Java是怎样来使用CAS的呢？我们知道，在Java中，如果一个方法是native的，那Java就不负责具体实现它，而是交给底层的JVM使用c或者c++去实现。
+前面提到，CAS 是一种原子操作。那么 Java 是怎样来使用 CAS 的呢？我们知道，在 Java 中，如果一个[方法是 native 的](https://javabetter.cn/oo/native-method.html)，那 Java 就不负责具体实现它，而是交给底层的 JVM 使用 C 语言 或者 C++ 去实现。
 
-在Java中，有一个`Unsafe`类，它在`sun.misc`包中。它里面是一些`native`方法，其中就有几个关于CAS的：
+在 Java 中，有一个`Unsafe`类（[后面会细讲，戳链接直达](https://javabetter.cn/thread/Unsafe.html)），它在`sun.misc`包中。它里面都是一些`native`方法，其中就有几个是关于 CAS 的：
 
 ```java
 boolean compareAndSwapObject(Object o, long offset,Object expected, Object x);
@@ -82,46 +90,75 @@ boolean compareAndSwapInt(Object o, long offset,int expected,int x);
 boolean compareAndSwapLong(Object o, long offset,long expected,long x);
 ```
 
-当然，他们都是`public native`的。
+Unsafe 对 CAS 的实现是通过 C++ 实现的，它的具体实现和操作系统、CPU 都有关系。
 
-Unsafe中对CAS的实现是C++写的，它的具体实现和操作系统、CPU都有关系。
+Linux 的 X86 下主要是通过`cmpxchgl`这个指令在 CPU 上完成 CAS 操作的，但在多处理器情况下，必须使用`lock`指令加锁来完成。当然，不同的操作系统和处理器在实现方式上肯定会有所不同。
 
-Linux的X86下主要是通过`cmpxchgl`这个指令在CPU级完成CAS操作的，但在多处理器情况下必须使用`lock`指令加锁来完成。当然不同的操作系统和处理器的实现会有所不同，大家可以自行了解。
+>CMPXCHG是“Compare and Exchange”的缩写，它是一种原子指令，用于在多核/多线程环境中安全地修改共享数据。CMPXCHG在很多现代微处理器体系结构中都有，例如Intel x86/x64体系。对于32位操作数，这个指令通常写作CMPXCHG，而在64位操作数中，它被称为CMPXCHG8B或CMPXCHG16B。
 
-当然，Unsafe类里面还有其它方法用于不同的用途。比如支持线程挂起和恢复的`park`和`unpark`， LockSupport类底层就是调用了这两个方法。还有支持反射操作的`allocateInstance()`方法。
+除了上面提到的方法，Unsafe 里面还有其它的方法。比如支持线程挂起和恢复的`park`和`unpark` 方法， [LockSupport 类（后面会讲）](https://javabetter.cn/thread/LockSupport.html)底层就调用了这两个方法。还有支持[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)操作的`allocateInstance()`方法。
 
-## 原子操作-AtomicInteger类源码简析
+## CAS 如何实现原子操作？
 
-上面介绍了Unsafe类的几个支持CAS的方法。那Java具体是如何使用这几个方法来实现原子操作的呢？
+上面介绍了 Unsafe 类的几个支持 CAS 的方法。那 Java 具体是如何通过这几个方法来实现原子操作的呢？
 
-JDK提供了一些用于原子操作的类，在`java.util.concurrent.atomic`包下面。在JDK 11中，有如下17个类：
+JDK 提供了一些用于原子操作的类，在`java.util.concurrent.atomic`包下面。在 JDK 8 中，有以下这些类：
 
-![原子类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-f6a2281a-d322-4022-8c07-162ccc9dcede.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/cas-20230731195315.png)
 
-从名字就可以看得出来这些类大概的用途：
+从名字就可以看出来这些类大概的用途（[原子类后面会细讲，戳链接直达](https://javabetter.cn/thread/atomic.html)）：
 
 - 原子更新基本类型
 - 原子更新数组
 - 原子更新引用
 - 原子更新字段（属性）
 
-这里我们以`AtomicInteger`类的`getAndAdd(int delta)`方法为例，来看看Java是如何实现原子操作的。
+这里我们以`AtomicInteger`类的`getAndAdd(int delta)`方法为例，来看看 Java 是如何实现原子操作的。
 
-先看看这个方法的源码：
+先来看 getAndAdd 方法的源码：
 
 ```java
 public final int getAndAdd(int delta) {
-    return U.getAndAddInt(this, VALUE, delta);
+    return unsafe.getAndAddInt(this, valueOffset, delta);
 }
 ```
 
-这里的U其实就是一个`Unsafe`对象：
+这里的 unsafe 其实就是一个`Unsafe`对象：
 
 ```java
-private static final jdk.internal.misc.Unsafe U = jdk.internal.misc.Unsafe.getUnsafe();
+// setup to use Unsafe.compareAndSwapInt for updates
+private static final Unsafe unsafe = Unsafe.getUnsafe();
 ```
 
-所以其实`AtomicInteger`类的`getAndAdd(int delta)`方法是调用`Unsafe`类的方法来实现的：
+所以，`AtomicInteger`类的`getAndAdd()`方法是通过调用`Unsafe`类的方法实现的：
+
+```java
+public final int getAndAddInt(Object var1, long var2, int var4) {
+    int var5;
+    do {
+        var5 = this.getIntVolatile(var1, var2);
+    } while(!this.compareAndSwapInt(var1, var2, var5, var5 + var4));
+
+    return var5;
+}
+```
+
+让我们详细分析下这段代码，先看参数：
+
+- Object var1，这个参数代表你想要进行操作的对象。
+- long var2，这个参数是你想要操作的 var1 对象中的某个字段的偏移量。这个偏移量可以通过 Unsafe 类的 objectFieldOffset 方法获得。
+- int var4，这个参数是你想要增加的值。
+
+再来看方法执行的过程：
+
+- 首先，在 do while 循环开始，通过`this.getIntVolatile(var1, var2)`获取当前对象指定字段的值，将其存入临时变量 var5 中。这里的 getIntVolatile 方法能保证读操作的可见性，即读取的结果是最新的写入结果，不会因为 JVM 的优化策略（如[指令重排序](https://javabetter.cn/thread/jmm.html)）或者 CPU 的缓存导致读取到过期的数据。
+- 然后，执行`compareAndSwapInt(var1, var2, var5, var5 + var4)`进行 CAS 操作。如果对象 var1 在内存地址 var2 处的值等于预期值 var5，则将该位置的值更新为 var5 + var4，并返回 true；否则，不做任何操作并返回 false。
+- 如果 CAS 操作成功，说明我们成功地将 var1 对象的 var2 偏移量处的字段的值更新为 var5 + var4，并且这个更新操作是原子性的，因此我们跳出循环并返回原来的值 var5。
+- 如果 CAS 操作失败，说明在我们尝试更新值的时候，有其他线程修改了该字段的值，所以我们继续循环，重新获取该字段的值，然后再次尝试进行 CAS 操作。
+
+这里使用的是**do-while 循环**。这种循环不多见，它的目的是**保证循环体内的语句至少会被执行一遍**。这样才能保证 return 的值是我们期望的值。
+
+JDK 9 及其以后版本中，getAndAddInt 方法和 JDK 8 中的实现有所不同，我们就拿 JDK 11 的源码来做一个对比吧：
 
 ```java
 @HotSpotIntrinsicCandidate
@@ -134,107 +171,103 @@ public final int getAndAddInt(Object o, long offset, int delta) {
 }
 ```
 
-> 注：这个方法是在JDK 1.8才新增的。在JDK1.8之前，`AtomicInteger`源码实现有所不同，是基于for死循环的，有兴趣的读者可以自行了解一下。
+这个方法上面增加了 `@HotSpotIntrinsicCandidate` 注解。这个注解允许 HotSpot VM 自己来写汇编或 IR 编译器来实现该方法以提供更加的性能。
 
-我们来一步步解析这段源码。首先，对象`o`是`this`，也就是一个`AtomicInteger`对象。然后`offset`是一个常量`VALUE`。这个常量是在`AtomicInteger`类中声明的：
+> IR（Intermediate Representation）是一种用于帮助优化编译器的中间代码表示方法。编译器通常将源代码首先转化为 IR，然后对 IR 进行各种优化，最后将优化后的 IR 转化为目标代码。在 JVM（Java Virtual Machine）中，JIT（Just-In-Time）编译器将 Java 字节码（即.class 文件的内容）转化为 IR，然后对 IR 进行优化，最后将 IR 编译为机器码。这个过程在 Java 程序运行时进行，因此被称为“即时编译”。JVM 中的 C1 和 C2 编译器就是 IR 编译器。C1 编译器在编译时进行一些简单的优化，然后快速地将 IR 编译为机器码。C2 编译器在编译时进行更深入的优化，以获得更高的执行效率，但编译的时间也相对更长。
 
-```java
-private static final long VALUE = U.objectFieldOffset(AtomicInteger.class, "value");
-```
+也就是说，虽然表面上看到的是 weakCompareAndSet 和 compareAndSet，但是不排除 HotSpot VM 会手动来实现 weakCompareAndSet 真正功能的可能性。
 
-同样是调用的`Unsafe`的方法。从方法名字上来看，是得到了一个对象字段偏移量。
+简单来说，`weakCompareAndSet` 操作仅保留了`volatile` 自身变量的特性，而除去了 happens-before 规则带来的内存语义。换句话说，`weakCompareAndSet`**无法保证处理操作目标的 volatile 变量外的其他变量的执行顺序（编译器和处理器为了优化程序性能而对指令序列进行重新排序），同时也无法保证这些变量的可见性。** 但这在一定程度上可以提高性能。
 
-> 用于获取某个字段相对Java对象的“起始地址”的偏移量。
->
-> 一个java对象可以看成是一段内存，各个字段都得按照一定的顺序放在这段内存里，同时考虑到对齐要求，可能这些字段不是连续放置的，
->
-> 用这个方法能准确地告诉你某个字段相对于对象的起始内存地址的字节偏移量，因为是相对偏移量，所以它其实跟某个具体对象又没什么太大关系，跟class的定义和虚拟机的内存模型的实现细节更相关。
+再回到循环条件上来，可以看到它是在不断尝试去用 CAS 更新。如果更新失败，就继续重试。
 
-继续看源码。前面我们讲到，CAS是“无锁”的基础，它允许更新失败。所以经常会与while循环搭配，在失败后不断去重试。
+为什么要把获取“旧值”v 的操作放到循环体内呢？
 
-这里声明了一个v，也就是要返回的值。从`getAndAddInt`来看，它返回的应该是原来的值，而新的值的`v + delta`。
+这也好理解。前面我们说了，CAS 如果旧值 V 不等于预期值 E，就会更新失败。说明旧的值发生了变化。那我们当然需要返回的是被其他线程改变之后的旧值了，因此放在了 do 循环体内。
 
-这里使用的是**do-while循环**。这种循环不多见，它的目的是**保证循环体内的语句至少会被执行一遍**。这样才能保证return 的值`v`是我们期望的值。
+## CAS 的三大问题
 
-循环体的条件是一个CAS方法：
+尽管 CAS 提供了一种有效的同步手段，但也存在一些问题，主要有以下三个：ABA 问题、长时间自旋、多个共享变量的原子操作。
 
-```java
-public final boolean weakCompareAndSetInt(Object o, long offset,
-                                          int expected,
-                                          int x) {
-    return compareAndSetInt(o, offset, expected, x);
-}
+### ABA 问题
 
-public final native boolean compareAndSetInt(Object o, long offset,
-                                             int expected,
-                                             int x);
-```
+所谓的 ABA 问题，就是一个值原来是 A，变成了 B，又变回了 A。这个时候使用 CAS 是检查不出变化的，但实际上却被更新了两次。
 
-可以看到，最终其实是调用的我们之前说到了CAS `native`方法。那为什么要经过一层`weakCompareAndSetInt`呢？从JDK源码上看不出来什么。在JDK 8及之前的版本，这两个方法是一样的。
+ABA 问题的解决思路是在变量前面追加上**版本号或者时间戳**。从 JDK 1.5 开始，JDK 的 atomic 包里提供了一个类`AtomicStampedReference`类来解决 ABA 问题。
 
-> 而在JDK 9开始，这两个方法上面增加了@HotSpotIntrinsicCandidate注解。这个注解允许HotSpot VM自己来写汇编或IR编译器来实现该方法以提供性能。也就是说虽然外面看到的在JDK9中weakCompareAndSet和compareAndSet底层依旧是调用了一样的代码，但是不排除HotSpot VM会手动来实现weakCompareAndSet真正含义的功能的可能性。
-
-根据本文第一篇参考文章（文末链接），它跟`volatile`有关。
-
-简单来说，`weakCompareAndSet`操作仅保留了`volatile`自身变量的特性，而除去了happens-before规则带来的内存语义。也就是说，`weakCompareAndSet`**无法保证处理操作目标的volatile变量外的其他变量的执行顺序( 编译器和处理器为了优化程序性能而对指令序列进行重新排序 )，同时也无法保证这些变量的可见性。**这在一定程度上可以提高性能。
-
-再回到循环条件上来，可以看到它是在不断尝试去用CAS更新。如果更新失败，就继续重试。那为什么要把获取“旧值”v的操作放到循环体内呢？其实这也很好理解。前面我们说了，CAS如果旧值V不等于预期值E，它就会更新失败。说明旧的值发生了变化。那我们当然需要返回的是被其他线程改变之后的旧值了，因此放在了do循环体内。
-
-## CAS实现原子操作的三大问题
-
-这里介绍一下CAS实现原子操作的三大问题及其解决方案。
-
-### ABA问题
-
-所谓ABA问题，就是一个值原来是A，变成了B，又变回了A。这个时候使用CAS是检查不出变化的，但实际上却被更新了两次。
-
-ABA问题的解决思路是在变量前面追加上**版本号或者时间戳**。从JDK 1.5开始，JDK的atomic包里提供了一个类`AtomicStampedReference`类来解决ABA问题。
-
-这个类的`compareAndSet`方法的作用是首先检查当前引用是否等于预期引用，并且检查当前标志是否等于预期标志，如果二者都相等，才使用CAS设置为新的值和标志。
+这个类的`compareAndSet`方法的作用是首先检查当前引用是否等于预期引用，并且检查当前标志是否等于预期标志，如果二者都相等，才使用 CAS 设置为新的值和标志。
 
 ```java
 public boolean compareAndSet(V   expectedReference,
-                             V   newReference,
-                             int expectedStamp,
-                             int newStamp) {
+                              V   newReference,
+                              int expectedStamp,
+                              int newStamp) {
     Pair<V> current = pair;
     return
         expectedReference == current.reference &&
         expectedStamp == current.stamp &&
         ((newReference == current.reference &&
           newStamp == current.stamp) ||
-         casPair(current, Pair.of(newReference, newStamp)));
+          casPair(current, Pair.of(newReference, newStamp)));
 }
 ```
 
-### 循环时间长开销大
+先来看参数：
 
-CAS多与自旋结合。如果自旋CAS长时间不成功，会占用大量的CPU资源。
+- expectedReference：预期引用，也就是你认为原本应该在那个位置的引用。
+- newReference：新引用，如果预期引用正确，将被设置到该位置的新引用。
+- expectedStamp：预期标记，这是你认为原本应该在那个位置的标记。
+- newStamp：新标记，如果预期标记正确，将被设置到该位置的新标记。
 
-解决思路是让JVM支持处理器提供的**pause指令**。
+执行流程：
 
-pause指令能让自旋失败时cpu睡眠一小段时间再继续自旋，从而使得读操作的频率低很多,为解决内存顺序冲突而导致的CPU流水线重排的代价也会小很多。
+①、`Pair<V> current = pair;` 这行代码获取当前的 pair 对象，其中包含了引用和标记。
 
-### 只能保证一个共享变量的原子操作
+②、接下来的 return 语句做了几个检查：
 
-这个问题你可能已经知道怎么解决了。有两种解决方案：
+- `expectedReference == current.reference && expectedStamp == current.stamp`：首先检查当前的引用和标记是否和预期的引用和标记相同。如果二者中有任何一个不同，这个方法就会返回 false。
+- 如果上述检查通过，也就是说当前的引用和标记与预期的相同，那么接下来就会检查新的引用和标记是否也与当前的相同。如果相同，那么实际上没有必要做任何改变，这个方法就会返回 true。
+- 如果新的引用或者标记与当前的不同，那么就会调用 casPair 方法来尝试更新 pair 对象。casPair 方法会尝试用 newReference 和 newStamp 创建的新的 Pair 对象替换当前的 pair 对象。如果替换成功，casPair 方法会返回 true；如果替换失败（也就是说在尝试替换的过程中，pair 对象已经被其他线程改变了），casPair 方法会返回 false。
 
-1. 使用JDK 1.5开始就提供的`AtomicReference`类保证对象之间的原子性，把多个变量放到一个对象里面进行CAS操作；
+### 长时间自旋
+
+CAS 多与自旋结合。如果自旋 CAS 长时间不成功，会占用大量的 CPU 资源。
+
+解决思路是让 JVM 支持处理器提供的**pause 指令**。
+
+pause 指令能让自旋失败时 cpu 睡眠一小段时间再继续自旋，从而使得读操作的频率降低很多，为解决内存顺序冲突而导致的 CPU 流水线重排的代价也会小很多。
+
+### 多个共享变量的原子操作
+
+当对一个共享变量执行操作时，CAS 能够保证该变量的原子性。但是对于多个共享变量，CAS 就无法保证操作的原子性，这时通常有两种做法：
+
+1. 使用`AtomicReference`类保证对象之间的原子性，把多个变量放到一个对象里面进行 CAS 操作；
 2. 使用锁。锁内的临界区代码可以保证只有当前线程能操作。
 
+## 小结
+
+CAS（Compare-and-Swap）是一种被广泛应用在并发控制中的算法，它是一种乐观锁的实现方式。CAS 全称为“比较并交换”，是一种无锁的原子操作。
+
+CAS 的全称是：比较并交换（Compare And Swap）。在 CAS 中，有这样三个值：
+
+- V：要更新的变量(var)
+- E：预期值(expected)
+- N：新值(new)
+
+比较并交换的过程如下：
+
+判断 V 是否等于 E，如果等于，将 V 的值设置为 N；如果不等，说明已经有其它线程更新了 V，于是当前线程放弃更新，什么都不做。
+
+这里的**预期值 E 本质上指的是“旧值”**。
+
+CAS 虽好，但也有一些问题，比如说 ABA 问题、循环时间长开销大、只能保证一个共享变量的原子操作等。在开发中，我们要根据实际情况来选择使用 CAS 还是使用锁。
+
+> 编辑：沉默王二，编辑前的内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
 
 ---
 
->编辑：沉默王二，内容大部分来源以下三个开源仓库：
->- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
->- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
->- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第二份 PDF 《[并发编程小册](https://javabetter.cn/thread/)》终于来了！包括线程的基本概念和使用方法、Java的内存模型、sychronized、volatile、CAS、AQS、ReentrantLock、线程池、并发容器、ThreadLocal、生产者消费者模型等面试和开发必须掌握的内容，共计 15 万余字，200+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，二哥的并发编程进阶之路.pdf](https://javabetter.cn/thread/)
 
-----
+[加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
-
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)

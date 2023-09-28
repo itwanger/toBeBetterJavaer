@@ -163,7 +163,7 @@ synchronized是悲观锁，在操作同步资源之前需要给同步资源先�
 
 **Mark Word**：默认存储对象的HashCode，分代年龄和锁标志位信息。这些信息都是与对象自身定义无关的数据，所以Mark Word被设计成一个非固定的数据结构以便在极小的空间内存存储尽量多的数据。它会根据对象的状态复用自己的存储空间，也就是说在运行期间Mark Word里存储的数据会随着锁标志位的变化而变化。
 
-**Klass Point**：对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。
+**Klass Point**：对象指向它的类元数据的指针，虚拟机通过这个引用来确定这个对象是哪个类的实例。
 
 #### Monitor
 
@@ -264,7 +264,7 @@ Monitor是线程私有的数据结构，每一个线程都有一个可用monitor
 
 ### 5\. 可重入锁 VS 非可重入锁
 
-可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提锁对象得是同一个对象或者class），不会因为之前已经获取过还没释放而阻塞。Java中ReentrantLock和synchronized都是可重入锁，可重入锁的一个优点是可一定程度避免死锁。下面用示例代码来进行分析：
+可重入锁又名递归锁，是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁（前提：锁的是同一个对象或者class），不会因为之前已经获取过还没释放而阻塞。Java中[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)和[synchronized](https://javabetter.cn/thread/synchronized-1.html)都是可重入锁，可重入锁的一个优点是可一定程度避免死锁。下面用示例代码来进行分析：
 
 ```Java
 public class Widget {
@@ -431,7 +431,7 @@ protected final int tryAcquireShared(int unused) {
 
 ----
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

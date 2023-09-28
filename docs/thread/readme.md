@@ -1,97 +1,76 @@
 ---
-title: 《二哥的Java进阶之路》小册简介，GitHub星标9300+，共计 32 万余字，500+张手绘图
-shortTitle: 小册简介
+title: 《二哥的并发编程进阶之路》小册简介，GitHub星标9300+，共计 15 万余字，200+张手绘图
+shortTitle: 并发编程小册简介
 category:
   - Java核心
 tag:
   - Java概述
-description: Java进阶之路，小白的零基础Java教程，二哥的Java进阶之路小册 Java 基础篇简介
+description: Java进阶之路，小白的零基础Java教程，二哥的Java进阶之路并发编程篇小册简介
 head:
   - - meta
     - name: keywords
-      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,java基础
+      content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,并发编程
 ---
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-readme-fengmian.png)
+# 第零节：小册简介
 
-# 第一章：小册简介
+来介绍一下《二哥的并发编程进阶之路》小册吧。小册主要围绕着 Java 中的并发编程/多线程展开，一共 31 个小节，15 万+字，手绘图 200+张，耗费了巨大的心血，以下是小册的个人信息。
 
-以上就是《二哥的 Java 进阶之路》小册的封面了，自我感觉还不错哈，简洁大方，但包含的信息又足够的丰富：
-
-- 小册名字：二哥的 Java 进阶之路
+- 小册名字：二哥的并发编程进阶之路
 - 小册作者：沉默王二
-- 小册品质：能在 GitHub 取得 9300+ star，品质可以说是有目共睹，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
-- 小册风格：通俗易懂、风趣幽默、深度解析，新手可以拿来入门，老手可以拿来进阶，重要的知识，比如说面试高频的内容会从应用到源码挖个底朝天，还会穿插介绍一些计算机底层知识，力求讲个明白）
-- 小册简介：这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路😄
-- 小册品位：底部用了梵高 1889 年的《星空》（the starry night），绝美的漩涡星空，耀眼的月亮，宁静的村庄，还有一颗燃烧着火焰的巨大柏树，我想小册的艺术品位也是恰到好处的。
-- 小册角色：为了增加小册的趣味性，我特意为此追加了两个虚拟角色，一个二哥，一个三妹，二哥负责教，三妹负责学。这样大家在学习 Java 的时候代入感也会更强烈一些，希望这样的设定能博得大家的欢心。
+- 小册品质：该小册的内容来源于二哥在 GitHub 上开源的知识库《[Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，能在 GitHub 取得 9300+ star 可以说品质是有目共睹，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
+- 小册初衷：面试过小伙伴应该感受比较深，并发编程在 Java 岗的面试中占比挺大，尤其是去一些知名公司的话，像 volatile、sychronized、CAS、AQS、线程池、JUC 包、原子类、ThreadLocal、生产者-消费者模式等内容，都是面试中经常被考察的内容。另外，工作一两年后的初级程序员，如果想进阶为高级程序员，并发编程的内容也是完全绕不开的，二哥之所以花大力气整理《[并发编程小册](https://javabetter.cn/thread/)》的原因也在于此，就是希望能帮助大家轻松且深刻地掌握并发编程/多线程方面的知识。
+- 小册简介：主要针对并发编程进行讲解，包括并发编程的基础知识、并发编程的高级知识、并发编程的源码分析、并发编程的面试题等，内容涵盖了 Java 并发编程的方方面面，是一份非常适合 Java 并发编程的学习资料。
+- 小册说明：小册算是《[二哥的 Java 进阶之路基础篇](https://javabetter.cn/overview/)》的姐妹篇，可通过 [GitHub 阅读](https://github.com/itwanger/toBeBetterJavaer#java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B)或者[二哥的网站在线阅读](https://javabetter.cn/thread/)，同时提供 PDF 版本，15 万+字，手绘图 200+张，有亮白版、暗黑版和 epub 三个版本，前后耗费 3 个多月的时间，很不容易，希望你能好好珍惜。
 
 ## 小册包含哪些内容？
 
-三妹出场：“二哥，帮读者朋友们问一下哈，为什么会有《二哥的Java进阶之路》这份小册呢？”
+《二哥的并发编程进阶之路》主要包含下面这些内容：
 
-*二哥巴拉巴拉 ing...*
+- 线程的基本概念和使用方法
+- 进程和线程的区别
+- 多线程带来了哪些问题
+- Java的内存模型
+- sychronized 关键字
+- volatile 关键字
+- CAS 原理
+- AQS 原理
+- ReentrantLock
+- ReentrantReadWriteLock
+- Condition
+- CountDownLatch
+- 线程池
+- 并发容器（ConcurrentHashMap、ConcurrentLinkedQueue、BlockingQueue、CopyOnWriteArrayList）
+- 本地变量 ThreadLocal
+- 生产者消费者模型
 
-小册的内容主要来源于我的开源知识库《[二哥的Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，目前在 GitHub 上收获 9300+ star，深受读者喜爱。小册之所以叫《二哥的Java进阶之路》，是因为这样更方便小册的读者知道这份小册的作者是谁，IP 感更强烈一些。
+一共 31 篇内容，共计 15 万+ 字，用一张思维导图来做个总结吧。
 
-如果有读者是第一次阅读这份小册，肯定又会问，“二哥是哪个鸟人？”
-
-噢噢噢噢，正是鄙人了，一个英俊潇洒的男人（见下图），你可以通过我的微信公众号“**沉默王二**”了解更多关于我的信息，总之，就是一个非常喜欢王小波的程序员了，写得一手风趣幽默的技术文章，所以被读者“尊称”为二哥就对了。现实中，三妹也是真实存在的哦。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/readme-ece0be3e-d176-447c-bff9-59d9f02c7a65.jpg)
-
-《**二哥的 Java 进阶之路**》是我自学 Java 以来所有原创文章和学习资料的大聚合。[在线网站](https://javabetter.cn/)和 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)里的内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发（包括开发/构建/测试、JavaWeb、SSM、Spring Boot、Linux、Nginx、Docker、k8s、微服务&分布式、消息队列等）、Java 面试等核心内容。这也是小册最终版会覆盖的内容。
-
-小册旨在为学习 Java 的小伙伴提供一系列：
-
- - **优质的原创 Java 教程**
- - **全面清晰的 Java 学习路线**
- - **免费但靠谱的 Java 学习资料**
- - **精选的 Java 岗求职面试指南**
- - **Java 企业级开发所需的必备技术**
-
-接下来，送你 4 个“掏心掏肺”的阅读建议：
-
-- 如果你是零基础的小白，可以按照小册的顺序一路读下去，小册的内容安排都是经过我精心安排的；
-- 否则，请按照目录按需阅读，该跳过的跳过，该放慢节奏的放慢节奏。
-- 小册中会有一个虚拟人物，三妹，当然她的原型也是真实存在的，目的就是通过我们之间的对话，来增强文章的趣味性，以便你能更轻松地获取知识。
-- 最重要的一点，“光看不练假把戏”，请在阅读的过程中把该敲的代码敲了，把该记的笔记记了，语雀、思维导图、GitHub 仓库都可以，养成好的学习习惯。
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-map.png)
 
 这里展示一下暗黑版的 PDF 视图，大家先感受一下，手绘图都画得非常用心。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411224013.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904115241.png)
 
 这是 epub 版本的阅读效果，感觉左右翻动的效果好舒服，一次可以看两页，真的就像在读纸质版书籍一样，体验非常棒。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230412002314.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904121834.png)
 
 如果你喜欢在线阅读，请戳下面这个网址：
 
-> [https://javabetter.cn](https://javabetter.cn)
+> [https://javabetter.cn/xuexiluxian/java/thread.html](https://javabetter.cn/xuexiluxian/java/thread.html)
 
-首页见下图，同样简洁、清新、方便沉浸式阅读：
-
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411102619.png)
-
-你也可以到技术派的[教程栏（戳这里）](https://paicoding.com/column)里阅读，目前正在连载更新中。
-
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230410215012.png)
-
->技术派是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，[代码完全开源（可戳）](https://github.com/itwanger/paicoding)，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
-
-如果你在阅读过程中感觉这份小册写的还不错，甚至有亿点点收获，**请肆无忌惮地把这份小册分享给你的同事、同学、舍友、朋友，让他们也进步亿点点，赠人玫瑰手有余香嘛**。
-
-如果这份小册有幸被更多人看得到，我的虚荣心也会得到恰当的满足，嘿嘿😜
+如果你在阅读过程中感觉这份小册写的还不错，甚至有亿点点收获，我的虚荣心也会得到恰当的满足😜
 
 ## 如何获取最新版？
 
-小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，可以说凝聚了二哥十多年来学习 Java 的心血，33 万+ 字，500+张手绘图，绝对不虚市面上任何一本 Java 实体书！
+小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，绝对不虚市面上任何一本 Java 并发编程/多线程的实体书！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-wecom-temp-cbe8e183acdd8daa542c94ab7f4a7eec.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904122154.png)
 
-小册会持续保持**更新**，如果想获得最新版，请在我的微信公众号 **沉默王二** 后台回复 **222** 获取（你懂我的意思吧，我肯定是足够二才有这样的勇气定义这样一个关键字）！
+小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
 
 ## 面试指南（配套教程）
 
@@ -220,6 +199,6 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 ## 更新记录
 
-### V1.0-2023年04月11日
+### V1.0 版 2023年09月04日
 
-第一版《二哥的 Java 进阶之路》正式完结发布！
+第一版《二哥的并发编程进阶之路》正式完结发布！

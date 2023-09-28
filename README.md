@@ -32,9 +32,9 @@
 > 
 > 推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 > 
-> - [**二哥的Java进阶之路在线阅读网站（新版，域名好记，推荐👍）**](https://javabetter.cn)
-> - [老版 Java 程序员进阶之路在线阅读网址](https://javabetter.cn)（老的域名长，难记）
-> - [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)（二哥的另外一个开源实战项目技术派的专栏）
+> - [**二哥的Java进阶之路在线网站（新域名：javabetter.cn 好记，推荐👍）**](https://javabetter.cn)
+> - [老版 Java 程序员进阶之路在线网址（老域名 tobebetterjavaer.com 难记）](https://tobebetterjavaer.com)
+> - [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)
 >
 > 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](docs/overview/readme.md)
 
@@ -44,6 +44,17 @@
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **3400 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://javabetter.cn/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+
+<a href="https://javabetter.cn/zhishixingqiu/">
+  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
+</a>
+
+知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的三件大事，对你的求职和学习都会很有帮助：
+
+- ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://javabetter.cn/zhishixingqiu/mianshi.html)
+- ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
+- ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
 
 # 学习路线
 
@@ -83,20 +94,7 @@
 - [面渣逆袭（计算机网络八股文面试题）必看👍](docs/sidebar/sanfene/network.md)
 - [面渣逆袭（RocketMQ八股文面试题）必看👍](docs/sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](docs/sidebar/sanfene/fenbushi.md)
-
-# 知识库的学习圈子
-
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **2800 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://javabetter.cn/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
-
-<a href="https://javabetter.cn/zhishixingqiu/">
-  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
-</a>
-
-知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的三件大事，对你的求职和学习都会很有帮助：
-
-- ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://mp.weixin.qq.com/s/3yUT9v3BAdf4rfdfWYbfPw)
-- ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
-- ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
+- [面渣逆袭（微服务面试题八股文）必看👍](docs/sidebar/sanfene/weifuwu.md)
 
 # Java基础
 
@@ -243,38 +241,38 @@
 
 ## Java并发编程
 
-- [室友打了一把王者就学会了 Java 多线程](docs/thread/wangzhe-thread.md)
-- [获取 Java 线程执行结果：Callable、Future和FutureTask](docs/thread/callable-future-futuretask.md)
-- [Java线程的6种状态及切换(透彻讲解)](docs/thread/thread-state-and-method.md)
-- [线程组是什么？线程优先级如何设置？](docs/thread/thread-group-and-thread-priority.md)
-- [进程与线程的区别是什么？](docs/thread/why-need-thread.md)
-- [并发编程（多线程）带来了哪些问题？](docs/thread/thread-bring-some-problem.md)
-- [全面理解Java的内存模型（JMM）](docs/thread/jmm.md)
-- [Java volatile关键字解析](docs/thread/volatile.md)
-- [Java synchronized 关键字解析](docs/thread/synchronized-1.md)
-- [Java中的synchronized锁的到底是什么？](docs/thread/synchronized.md)
-- [Java实现CAS的原理](docs/thread/cas.md)
-- [Java并发AQS详解](docs/thread/aqs.md)
-- [大致了解下Java的锁接口和锁](docs/thread/lock.md)
-- [公司空降一个美团大佬，彻底把Java中的锁”讲清楚了](docs/thread/suo.md)
-- [Java 15 终于把难搞的偏向锁移除了](docs/thread/pianxiangsuo.md)
-- [深入理解Java并发重入锁ReentrantLock](docs/thread/reentrantLock.md)
-- [深入理解Java并发读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
-- [深入理解Java并发线程协作类Condition](docs/thread/condition.md)
-- [深入理解Java并发线程线程阻塞唤醒类LockSupport](docs/thread/LockSupport.md)
-- [简单聊聊Java的并发集合容器](docs/thread/map.md)
-- [吊打Java并发面试官之ConcurrentHashMap](docs/thread/ConcurrentHashMap.md)
-- [吊打Java并发面试官之ConcurrentLinkedQueue](docs/thread/ConcurrentLinkedQueue.md)
-- [吊打Java并发面试官之CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
-- [吊打Java并发面试官之ThreadLocal](docs/thread/ThreadLocal.md)
-- [吊打Java并发面试官之BlockingQueue](docs/thread/BlockingQueue.md)
-- [面试必备：Java线程池](docs/thread/pool.md)
-- [为什么阿里巴巴要禁用Executors创建线程池？](docs/thread/ali-executors.md)
-- [深入剖析Java计划任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
-- [Java atomic包中的原子操作类总结](docs/thread/atomic.md)
-- [Java并发编程通信工具类CountDownLatch等一网打尽](docs/thread/CountDownLatch.md)
-- [深入理解Java并发编程之Fork/Join框架](docs/thread/fork-join.md)
-- [从根上理解生产者-消费者模式](docs/thread/shengchanzhe-xiaofeizhe.md)
+- [并发编程小册简介](docs/thread/readme.md)
+- [Java多线程入门](docs/thread/wangzhe-thread.md)
+- [获取线程的执行结果](docs/thread/callable-future-futuretask.md)
+- [Java线程的6种状态及切换](docs/thread/thread-state-and-method.md)
+- [线程组和线程优先级](docs/thread/thread-group-and-thread-priority.md)
+- [进程与线程的区别](docs/thread/why-need-thread.md)
+- [多线程带来了哪些问题？](docs/thread/thread-bring-some-problem.md)
+- [Java的内存模型（JMM）](docs/thread/jmm.md)
+- [volatile关键字解析](docs/thread/volatile.md)
+- [synchronized关键字解析](docs/thread/synchronized-1.md)
+- [synchronized的四种锁状态](docs/thread/synchronized.md)
+- [深入浅出偏向锁](docs/thread/pianxiangsuo.md)
+- [CAS详解](docs/thread/cas.md)
+- [AQS详解](docs/thread/aqs.md)
+- [锁分类和 JUC](docs/thread/lock.md)
+- [重入锁ReentrantLock](docs/thread/reentrantLock.md)
+- [读写锁ReentrantReadWriteLock](docs/thread/ReentrantReadWriteLock.md)
+- [等待通知条件Condition](docs/thread/condition.md)
+- [线程阻塞唤醒类LockSupport](docs/thread/LockSupport.md)
+- [Java的并发容器](docs/thread/map.md)
+- [并发容器ConcurrentHashMap](docs/thread/ConcurrentHashMap.md)
+- [非阻塞队列ConcurrentLinkedQueue](docs/thread/ConcurrentLinkedQueue.md)
+- [阻塞队列BlockingQueue](docs/thread/BlockingQueue.md)
+- [并发容器CopyOnWriteArrayList](docs/thread/CopyOnWriteArrayList.md)
+- [本地变量ThreadLocal](docs/thread/ThreadLocal.md)
+- [线程池](docs/thread/pool.md)
+- [定时任务ScheduledThreadPoolExecutor](docs/thread/ScheduledThreadPoolExecutor.md)
+- [原子操作类Atomic](docs/thread/atomic.md)
+- [魔法类 Unsafe](docs/thread/Unsafe.md)
+- [通信工具类](docs/thread/CountDownLatch.md)
+- [Fork/Join](docs/thread/fork-join.md)
+- [生产者-消费者模式](docs/thread/shengchanzhe-xiaofeizhe.md)
 
 
 ## Java虚拟机
@@ -530,13 +528,22 @@
 
 > 从购买阿里云服务器+域名购买+域名备案+HTTP 升级到 HTTPS，全方面记录《二哥的Java进阶之路》知识库的诞生和改进过程，涉及到 docsify、Git、Linux 命令、GitHub 仓库等实用知识点。
 
-
 - [购买云服务器](docs/szjy/buy-cloud-server.md)
 - [安装宝塔面板](docs/szjy/install-baota-mianban.md)
 - [购买域名&域名解析](docs/szjy/buy-domain.md)
 - [备案域名](docs/szjy/record-domain.md)
 - [给域名配置HTTPS证书](docs/szjy/https-domain.md)
 - [使用docsify+Git+GitHub+码云+阿里云服务器搭建知识库网站](docs/szjy/tobebetterjavaer-wangzhan-shangxian.md)
+
+本知识库使用 VuePress 搭建，并基于[VuePress Theme Hope](https://theme-hope.vuejs.press/zh/)主题，你可以把[仓库](https://github.com/itwanger/toBeBetterJavaer)拉到本地后直接通过 `npm run docs:dev` 跑起来。
+
+>前提是你已经安装好 node.js 和 npm 环境。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162211.png)
+
+点击链接就可以在本地看到运行后的效果了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162301.png)
 
 
 # 联系作者
@@ -556,11 +563,14 @@
 
 ### 原创公众号
 
-最近整理了一份牛逼的学习资料，包括但不限于Java基础部分（JVM、Java集合框架、多线程），还囊括了 **数据库、计算机网络、算法与数据结构、设计模式、框架类Spring、Netty、微服务（Dubbo，消息队列） 网关** 等等等等……详情戳：[可以说是2022年全网最全的学习和找工作的PDF资源了](https://javabetter.cn/pdf/programmer-111.html)
+![](https://itwanger-oss.oss-cn-beijing.aliyuncs.com/paicoding/1_995464436_171_85_3_731480121_1577da7e9942707dbf727407411f7288_dd680c35.png)
 
-关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
     
     
 ### star趋势图
@@ -573,6 +583,115 @@
 - [paicoding](https://github.com/itwanger/paicoding)，⭐️一款好用又强大的开源社区，附详细教程，包括Java、Spring、MySQL、Redis、微服务&分布式、消息队列、操作系统、计算机网络、数据结构与算法等计算机专业核心知识点。学编程，就上技术派😁。
 - [Hippo4J](https://github.com/acmenlt/dynamic-threadpool)，🔥 强大的动态线程池，附带监控报警功能（没有依赖中间件），完全遵循阿里巴巴编码规范。
 - [JavaGuide](https://github.com/Snailclimb/JavaGuide)，「Java学习+面试指南」一份涵盖大部分 Java 程序员所需要掌握的核心知识。准备 Java 面试，首选 JavaGuide！
+
+### 捐赠鼓励
+
+开源不易，如果《二哥的Java进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
+
+<div align="left">
+    <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
+</div>
+
+:gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。
+
+时间|小伙伴|赞赏金额
+---|---|---
+2023-08-21|*氏|2元
+2023-08-18|*寻|1元
+2023-08-03|*寻|10.24元
+2023-08-02|*,|1元
+2023-07-24|m*l|3元
+2023-07-20|lzy|6元
+2023-07-14|s*!|2元
+2023-07-02|*晴|1元
+2023-06-26|*雨|6.66元
+2023-06-21|*航|6元
+2023-06-21|*狼|3元
+2023-06-19|*定|2元
+2023-06-18|*道|5元
+2023-06-16|* 文|1元
+2023-06-14|G*e|66.6元
+2023-06-07|*.|0.5元
+2023-05-23|*W|5元
+2023-05-19|*飞|6元
+2023-05-10|c*r|1元
+2023-04-26|r*J|10.24元
+2023-04-22|*明|1元
+2023-04-09|* 刀|10元
+2023-04-03|*意|0.02元
+2023--03-17|*昌|8 元
+2023-03-16|~*~|66.6 元
+2023-03-15|*枫|6.6 元
+2023-03-10|十年|1 元
+2023-03-04|*风|5 元
+2023-02-26|一个表情（emoji）|1 元
+2023-02-23|曹*n|5元
+2023-02-11|昵称加载中.|6.6元
+2023-02-09|*明|10元
+2023-02-09|*风|5元
+2023-02-09|*z|3元
+2023-02-09|*夫|10元
+2023-02-08|*宝|5 元
+2023-01-18|*念|0.01元
+2023-01-18|*来|1元
+2023-01-10|*A*t|1元
+2023-01-07|*忠|5元
+2023-12-02|g*g|0.1元
+2022-11-13|*王|5元
+2022-11-10|*车|1元
+2022-11-10|F*k|1元
+2022-11-05|*H|3元
+2022-11-04|*金|0.02元
+2022-11-04|*尘|15元
+2022-11-02|*峰|1元
+2022-10-29|~*~|6元
+2022-10-28|k*k|1元
+2022-10-20|*电|2元
+2022-10-15|*深|5元
+2022-09-30|*君|1元
+2022-09-28|*懂|1元
+2022-09-27|*府|1元
+2022-09-23|*问号（emogji）|5元
+2022-09-23|H*n|1元
+2022-09-23|*a|0.01元
+2022-09-08|*👀|20元
+2022-09-07|丹*1|20元
+2022-08-27|*夹|40元
+2022-07-06|体*P|2元
+2022-07-05|*谦|5元
+2022-06-18|*杰|2元
+2022-06-15|L*c|15元
+2022-06-10|*❤|1元
+2022-06-09|'*'|1元
+2022-06-07|*勇|1元
+2022-06-03|*鸭|1元
+2022-05-12|*烟|10元
+2022-04-25|*思|5元
+2022-04-20|w*n|1元
+2022-04-12|E*e|10 元
+2022-03-19|*风|9.9元
+2022-03-04|袁晓波|99元
+2022-02-17|*色|1元
+2022-02-17|M*y|1元
+2022-01-28|G*R|6.6元
+2022-01-20|*光|50元
+2022-01-14|*浩|1元
+2022-01-01|刚*好|3.6元
+2022-01-01|马*谊|6.6元
+2021-12-20|t*1|5 元
+2021-10-26|*猫|28 元
+2021-10-11|*人|28 元
+2021-09-28|*人|1 元
+2021-09-05|N*a|3 元
+2021-09-02|S*n|6.6 元
+2021-08-21|z*s|3 元
+2021-08-20|A*g|10 元
+2021-08-09|*滚|0.1 元
+2021-08-02|*秒|1 元
+2021-06-13|*7| 28 元
+2021-05-04|*学|169 元
+2021-04-29|p*e|2 元
+2021-04-28|追风筝的神|1 元
 
 ### 参与贡献
 

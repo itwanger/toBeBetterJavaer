@@ -12,11 +12,15 @@ head:
       content: Java,并发编程,多线程,Thread,线程组,线程优先级
 ---
 
-# 14.4 线程组和线程优先级
+# 第四节：线程组和线程优先级
 
-### 线程组(ThreadGroup)
+Java 提供了 ThreadGroup 类来创建一组相关的线程，使线程组管理更方便。每个 Java 线程都有一个优先级，这个优先级会影响到操作系统为这个线程分配处理器时间的顺序。
 
-Java 用 ThreadGroup 来表示线程组，我们可以使用线程组对线程进行批量控制。
+这篇内容将分别来介绍一下线程组和线程优先级。
+
+## 线程组(ThreadGroup)
+
+Java 用 ThreadGroup 来表示线程组，我们可以通过线程组对线程进行批量控制。
 
 ThreadGroup 和 Thread 的关系就如同他们的字面意思一样简单粗暴，每个 Thread 必然存在于一个 ThreadGroup 中，Thread 不能独立于 ThreadGroup 存在。执行`main()`方法的线程名字是 main，如果在 new Thread 时没有显式指定，那么默认将父线程（当前执行 new Thread 的线程）线程组设置为自己的线程组。
 
@@ -46,7 +50,125 @@ testThread线程名字：Thread-0
 
 ThreadGroup 是一个标准的**向下引用**的树状结构，这样设计可以**防止"上级"线程被"下级"线程引用而无法有效地被 GC 回收**。
 
-### 线程的优先级
+### 线程组的常用方法及数据结构
+
+#### 获取当前线程的线程组名字
+
+```java
+Thread.currentThread().getThreadGroup().getName()
+```
+
+#### 复制线程组
+
+```java
+// 获取当前的线程组
+ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
+// 复制一个线程组到一个线程数组（获取Thread信息）
+Thread[] threads = new Thread[threadGroup.activeCount()];
+threadGroup.enumerate(threads);
+```
+
+#### 线程组统一异常处理
+
+```java
+// 创建一个线程组，并重新定义异常
+ThreadGroup group = new ThreadGroup("testGroup") {
+    @Override
+    public void uncaughtException(Thread t, Throwable e) {
+        System.out.println(t.getName() + ": " + e.getMessage());
+    }
+};
+
+// 测试异常
+Thread thread = new Thread(group, () -> {
+    // 抛出 unchecked 异常
+    throw new RuntimeException("测试异常");
+});
+
+// 启动线程
+thread.start();
+```
+
+#### 线程组的数据结构
+
+线程组还可以包含其他的线程组，不仅仅是线程。首先看看 `ThreadGroup`源码中的成员变量。
+
+```java
+public class ThreadGroup implements Thread.UncaughtExceptionHandler {
+    private final ThreadGroup parent; // 父亲ThreadGroup
+    String name; // ThreadGroup 的名称
+    int maxPriority; // 最大优先级
+    boolean destroyed; // 是否被销毁
+    boolean daemon; // 是否守护线程
+    boolean vmAllowSuspension; // 是否可以中断
+
+    int nUnstartedThreads = 0; // 还未启动的线程
+    int nthreads; // ThreadGroup中线程数目
+    Thread threads[]; // ThreadGroup中的线程
+
+    int ngroups; // 线程组数目
+    ThreadGroup groups[]; // 线程组数组
+}
+```
+
+然后看看构造方法：
+
+```java
+// 私有构造方法
+private ThreadGroup() {
+    this.name = "system";
+    this.maxPriority = Thread.MAX_PRIORITY;
+    this.parent = null;
+}
+
+// 默认是以当前ThreadGroup作为parent ThreadGroup，新线程组的父线程组是目前正在运行线程的线程组。
+public ThreadGroup(String name) {
+    this(Thread.currentThread().getThreadGroup(), name);
+}
+
+// 构造方法
+public ThreadGroup(ThreadGroup parent, String name) {
+    this(checkParentAccess(parent), parent, name);
+}
+
+// 私有构造方法，主要的构造函数
+private ThreadGroup(Void unused, ThreadGroup parent, String name) {
+    this.name = name;
+    this.maxPriority = parent.maxPriority;
+    this.daemon = parent.daemon;
+    this.vmAllowSuspension = parent.vmAllowSuspension;
+    this.parent = parent;
+    parent.add(this);
+}
+```
+
+第三个构造方法里调用了`checkParentAccess`方法，来看看这个方法的源码：
+
+```java
+// 检查parent ThreadGroup
+private static Void checkParentAccess(ThreadGroup parent) {
+    parent.checkAccess();
+    return null;
+}
+
+// 判断当前运行的线程是否具有修改线程组的权限
+public final void checkAccess() {
+    SecurityManager security = System.getSecurityManager();
+    if (security != null) {
+        security.checkAccess(this);
+    }
+}
+```
+
+这里涉及到`SecurityManager`这个类，它是 Java 的安全管理器，它允许应用程序在执行一个可能不安全或敏感的操作前确定该操作是什么，以及是否允许在执行该操作的上下文中执行它。
+
+比如引入了第三方类库，但是并不能保证它的安全性。
+
+其实 Thread 类也有一个 checkAccess 方法，不过是用来当前运行的线程是否有权限修改被调用的这个线程实例。（Determines if the currently running thread has permission to modify this thread.）
+
+总结一下，线程组是一个树状的结构，每个线程组下面可以有多个线程或者线程组。线程组可以起到统一控制线程的优先级和检查线程权限的作用。
+
+## 线程的优先级
 
 线程优先级可以指定，范围是 1~10。但并不是所有的操作系统都支持 10 级优先级的划分（比如有些操作系统只支持 3 级划分：低、中、高），Java 只是给操作系统一个优先级的**参考值**，线程最终**在操作系统中的优先级**还是由操作系统决定。
 
@@ -125,7 +247,7 @@ Java 提供了一个**线程调度器**来监视和控制处于**RUNNABLE 状态
 - 当所有的非守护线程结束时，守护线程会自动关闭，这就免去了还要继续关闭子线程的麻烦。
 - 线程默认是非守护线程，可以通过 Thread 类的 setDaemon 方法来设置为守护线程。
 
-### 线程组和线程优先级之间的关系
+## 线程组和线程优先级之间的关系
 
 之前我们谈到一个线程必然存在于一个线程组中，那么当线程和线程组的优先级不一致的时候会怎样呢？我们来验证一下：
 
@@ -152,134 +274,16 @@ System.out.println("线程的优先级是：" + thread.getPriority());
 
 所以，如果某个线程的优先级大于线程所在**线程组的最大优先级**，那么该线程的优先级将会失效，取而代之的是线程组的最大优先级。
 
-### 线程组的常用方法及数据结构
+## 小结
 
-#### 线程组的常用方法
+Java 提供了 ThreadGroup 类来创建一组相关的线程，使线程组管理更方便；每个 Java 线程都有一个优先级，这个优先级会影响到操作系统为这个线程分配处理器时间的顺序。
 
-**获取当前线程的线程组名字**
-
-```java
-Thread.currentThread().getThreadGroup().getName()
-```
-
-**复制线程组**
-
-```java
-// 获取当前的线程组
-ThreadGroup threadGroup = Thread.currentThread().getThreadGroup();
-// 复制一个线程组到一个线程数组（获取Thread信息）
-Thread[] threads = new Thread[threadGroup.activeCount()];
-threadGroup.enumerate(threads);
-```
-
-**线程组统一异常处理**
-
-```java
-// 创建一个线程组，并重新定义异常
-ThreadGroup group = new ThreadGroup("testGroup") {
-    @Override
-    public void uncaughtException(Thread t, Throwable e) {
-        System.out.println(t.getName() + ": " + e.getMessage());
-    }
-};
-
-// 测试异常
-Thread thread = new Thread(group, () -> {
-    // 抛出 unchecked 异常
-    throw new RuntimeException("测试异常");
-});
-
-// 启动线程
-thread.start();
-```
-
-#### 线程组的数据结构
-
-线程组还可以包含其他的线程组，不仅仅是线程。
-
-首先看看 `ThreadGroup`源码中的成员变量
-
-```java
-public class ThreadGroup implements Thread.UncaughtExceptionHandler {
-    private final ThreadGroup parent; // 父亲ThreadGroup
-    String name; // ThreadGroup 的名称
-    int maxPriority; // 最大优先级
-    boolean destroyed; // 是否被销毁
-    boolean daemon; // 是否守护线程
-    boolean vmAllowSuspension; // 是否可以中断
-
-    int nUnstartedThreads = 0; // 还未启动的线程
-    int nthreads; // ThreadGroup中线程数目
-    Thread threads[]; // ThreadGroup中的线程
-
-    int ngroups; // 线程组数目
-    ThreadGroup groups[]; // 线程组数组
-}
-```
-
-然后看看构造方法：
-
-```java
-// 私有构造方法
-private ThreadGroup() {
-    this.name = "system";
-    this.maxPriority = Thread.MAX_PRIORITY;
-    this.parent = null;
-}
-
-// 默认是以当前ThreadGroup作为parent ThreadGroup，新线程组的父线程组是目前正在运行线程的线程组。
-public ThreadGroup(String name) {
-    this(Thread.currentThread().getThreadGroup(), name);
-}
-
-// 构造方法
-public ThreadGroup(ThreadGroup parent, String name) {
-    this(checkParentAccess(parent), parent, name);
-}
-
-// 私有构造方法，主要的构造函数
-private ThreadGroup(Void unused, ThreadGroup parent, String name) {
-    this.name = name;
-    this.maxPriority = parent.maxPriority;
-    this.daemon = parent.daemon;
-    this.vmAllowSuspension = parent.vmAllowSuspension;
-    this.parent = parent;
-    parent.add(this);
-}
-```
-
-第三个构造方法里调用了`checkParentAccess`方法，来看看这个方法的源码：
-
-```java
-// 检查parent ThreadGroup
-private static Void checkParentAccess(ThreadGroup parent) {
-    parent.checkAccess();
-    return null;
-}
-
-// 判断当前运行的线程是否具有修改线程组的权限
-public final void checkAccess() {
-    SecurityManager security = System.getSecurityManager();
-    if (security != null) {
-        security.checkAccess(this);
-    }
-}
-```
-
-这里涉及到`SecurityManager`这个类，它是 Java 的安全管理器，它允许应用程序在执行一个可能不安全或敏感的操作前确定该操作是什么，以及是否是在允许执行该操作的安全上下文中执行它。应用程序可以允许或不允许该操作。
-
-比如引入了第三方类库，但是并不能保证它的安全性。
-
-其实 Thread 类也有一个 checkAccess 方法，不过是用来当前运行的线程是否有权限修改被调用的这个线程实例。（Determines if the currently running thread has permission to modify this thread.）
-
-总结一下，线程组是一个树状的结构，每个线程组下面可以有多个线程或者线程组。线程组可以起到统一控制线程的优先级和检查线程权限的作用。
-
-编辑：沉默王二，原文内容来源于朋友开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
+>编辑：沉默王二，原文内容来源于朋友小七萤火虫开源的这个仓库：[深入浅出 Java 多线程](http://concurrent.redspider.group/)，强烈推荐。
 
 ---
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第二份 PDF 《[并发编程小册](https://javabetter.cn/thread/)》终于来了！包括线程的基本概念和使用方法、Java的内存模型、sychronized、volatile、CAS、AQS、ReentrantLock、线程池、并发容器、ThreadLocal、生产者消费者模型等面试和开发必须掌握的内容，共计 15 万余字，200+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，二哥的并发编程进阶之路.pdf](https://javabetter.cn/thread/)
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+[加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)

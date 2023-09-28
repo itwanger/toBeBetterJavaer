@@ -1,5 +1,5 @@
 ---
-title: Java HashMap详解：源码分析与实际应用指南
+title: Java HashMap详解：源码分析、hash 原理、扩容机制、加载因子、线程不安全
 shortTitle: HashMap详解（附源码）
 category:
   - Java核心
@@ -12,13 +12,11 @@ head:
       content: Java,HashMap,java hashmap, 源码分析, 实现原理
 ---
 
-
-
 # 6.9 HashMap详解（附源码）
 
-这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabebetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
+这篇文章将会详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabebetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 
-HashMap 是 Java 中常用的数据结构之一，用于存储键值对。在 HashMap 中，每个键都映射到一个唯一的值，可以通过键来快速访问对应的值。
+HashMap 是 Java 中常用的数据结构之一，用于存储键值对。在 HashMap 中，每个键都映射到一个唯一的值，可以通过键来快速访问对应的值，算法时间复杂度可以达到 O(1)。
 
 HashMap 不仅在日常开发中经常用到，在面试中也是重点考察的对象。
 
@@ -153,18 +151,74 @@ static final int hash(Object key) {
 
 取模运算（（“Modulo Operation”））和取余运算（（“Remainder Operation ”））是两种不同的运算方式，它们在计算机中的实现也不同。
 
-在数学中，取模运算和取余运算是等价的，都是计算一个数除以另一个数的余数。例如，10 mod 3 和 10 % 3 都等于 1，因为 10 除以 3 的余数是 1。
+在数学或算术中，这两者都被用来描述当一个数除以另一个数后所得的剩余部分。
 
-在计算机中，取模运算和取余运算的差别在于，当被除数为负数时，**取模运算的结果符号与被除数相同，取余运算的结果符号与除数相同**。
+在 Java 中，通常使用 % 运算符来表示取余（尽管实际操作可能是取模），用 `Math.floorMod()` 来表示取模。
 
-例如，-10 mod 3 的结果是 -1，而 -10 % 3 的结果是 2，因为 -10 除以 3 的余数是 -1，所以 -10 取模 3 的结果应该是 -1；而 -10 对 3 取余的结果是 2，因为：-10 ÷ 3 = -3 余 -1，由于除数为正数 3，余数的符号应与被除数的符号相同，因此余数应为正数 2，而不是 -1。
+不同之处：
 
-在 Java 中，取模运算使用 % 运算符，取余运算使用 `Math.floorMod()` 方法。例如，计算 -10 mod 3 和 -10 % 3 的结果：
+- 取余操作结果的符号与被除数的符号相同。比如 `-7 % 3 = -1`。
+- 取模操作结果的符号与除数的符号相同。比如 `Math.floorMod(-7, 3) = 2`。
+
+我们通过一个实际的例子来看一下。
 
 ```java
-int a = -10 % 3; // a = -1
-int b = Math.floorMod(-10, 3); // b = 2
+int a = -7;
+int b = 3;
+
+int remainder = a % b;
+int modulus = Math.floorMod(a, b);
+
+System.out.println("数字: a = " + a + ", b = " + b);
+System.out.println("取余 (%): " + remainder);
+System.out.println("取模 (Math.floorMod): " + modulus);
+
+a = 7;
+b = -3;
+
+remainder = a % b;
+modulus = Math.floorMod(a, b);
+
+System.out.println("\n数字: a = " + a + ", b = " + b);
+System.out.println("取余 (%): " + remainder);
+System.out.println("取模 (Math.floorMod): " + modulus);
 ```
+
+输出结果如下所示：
+
+```
+数字: a = -7, b = 3
+取余 (%): -1
+取模 (Math.floorMod): 2
+
+数字: a = 7, b = -3
+取余 (%): 1
+取模 (Math.floorMod): -2
+```
+
+为什么会有这样的结果呢？
+
+首先，我们来考虑一下常规除法。当我们将一个数除以另一个数时，我们得到一个商和一个余数。例如，当我们把7除以3时，我们得到商2和余数1，因为 \(7 = 3 × 2 + 1\)。
+
+现在，如果我们考虑负数，事情就变得复杂了。但是，让我们试着弄清楚为什么取模和取余的行为会有所不同。
+
+01、**取余**： 
+
+在Java中，当我们使用 `%` 运算符时，得到的是余数。余数的定义是基于常规除法的，所以它的符号总是与被除数相同。
+
+例如，对于 `-7 % 3`，余数是 `-1`。为什么？ 
+
+因为用3去除-7，可以得到商-2和余数-1，因为 \(-7 = 3 × (-2) - 1\)。
+
+02、**取模**：  
+
+取模的行为与取余类似，但关键的区别在于它是如何处理负数的。`Math.floorMod` 的工作原理是：在执行除法时，它会向下取整到最接近的整数。
+
+例如，对于 `Math.floorMod(-7, 3)`，结果是 `2`。为什么？  
+
+这里的关键是“向下取整”。当我们将-7除以3时，商是-2.33。向下取整意味着向负无穷方向取整，所以商是-3。余数是2，因为 \(-7 = 3 × (-3) + 2\)。
+
+这种区别主要是如何处理商的小数部分。在取余操作中，我们只是简单地丢弃小数部分，所以-7除以3的商是-2。而在取模操作中，我们向下取整，所以-7除以3的商是-3。
 
 需要注意的是，在数学中，取模运算和取余运算都有定义域的限制，即除数不能为 0。在计算机中，除数为 0 会抛出异常或返回 NaN（Not a Number）。
 
@@ -1204,7 +1258,7 @@ HashMap是Java中最常用的集合之一，它是一种键值对存储的数据
 
 ----
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://javabebetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://javabebetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

@@ -40,18 +40,31 @@ head:
 
 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 
-- [**二哥的Java进阶之路在线阅读网站（新版，推荐👍）**](https://javabetter.cn/)
-- [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)（二哥的另外一个网站）
+- [二哥的Java进阶之路在线网址（推荐👍）](https://javabetter.cn/)
+- [技术派之二哥的Java进阶之路专栏](https://paicoding.com/column/5/1)
 
 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](https://javabetter.cn/overview/)
 
-**转载须知** ：以下所有文章如非文首说明为转载皆为我（沉默王二）的原创，转载在文首注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
+**转载须知** ：以下所有文章如非文末说明为转载皆为我（沉默王二）的原创，如果你需要转载，请在文末注明出处，如发现恶意抄袭/搬运，会动用法律武器维护自己的权益。让我们一起维护一个良好的技术创作环境！
 
 ## 知识库地图
 
 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **3400 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://javabetter.cn/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+
+<a href="https://javabetter.cn/zhishixingqiu/">
+  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
+</a>
+
+知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的三件大事，对你的求职和学习都会很有帮助：
+
+
+- ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://javabetter.cn/zhishixingqiu/mianshi.html)
+- ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
+- ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
 
 ## 学习路线
 
@@ -90,21 +103,8 @@ head:
 - [面渣逆袭（计算机网络八股文面试题）必看👍](sidebar/sanfene/network.md)
 - [面渣逆袭（RocketMQ八股文面试题）必看👍](sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](sidebar/sanfene/fenbushi.md)
+- [面渣逆袭（微服务面试题八股文）必看👍](sidebar/sanfene/weifuwu.md)
 
-## 二哥的编程星球
-
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **2800 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://javabetter.cn/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
-
-<a href="https://javabetter.cn/zhishixingqiu/">
-  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
-</a>
-
-知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的三件大事，对你的求职和学习都会很有帮助：
-
-
-- ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://mp.weixin.qq.com/s/3yUT9v3BAdf4rfdfWYbfPw)
-- ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
-- ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
 
 ## Java基础
 
@@ -252,37 +252,38 @@ head:
 
 ### Java并发编程
 
-- [创建Java线程的3种方式](thread/wangzhe-thread.md)
+- [并发编程小册简介](thread/readme.md)
+- [Java多线程入门](thread/wangzhe-thread.md)
 - [获取线程的执行结果](thread/callable-future-futuretask.md)
-- [Java线程的6种状态及切换(透彻讲解)](thread/thread-state-and-method.md)
+- [Java线程的6种状态](thread/thread-state-and-method.md)
 - [线程组和线程优先级](thread/thread-group-and-thread-priority.md)
 - [进程与线程的区别](thread/why-need-thread.md)
 - [多线程带来了哪些问题？](thread/thread-bring-some-problem.md)
 - [Java的内存模型（JMM）](thread/jmm.md)
 - [volatile关键字解析](thread/volatile.md)
 - [synchronized关键字解析](thread/synchronized-1.md)
-- [synchronized锁的到底是什么？](thread/synchronized.md)
-- [Java实现CAS的原理](thread/cas.md)
-- [Java并发AQS详解](thread/aqs.md)
-- [大致了解下Java的锁接口和锁](thread/lock.md)
-- [公司空降一个美团大佬，彻底把Java中的锁”讲清楚了](thread/suo.md)
-- [Java 15 终于把难搞的偏向锁移除了](thread/pianxiangsuo.md)
-- [深入理解Java并发重入锁ReentrantLock](thread/reentrantLock.md)
-- [深入理解Java并发读写锁ReentrantReadWriteLock](thread/ReentrantReadWriteLock.md)
-- [深入理解Java并发线程协作类Condition](thread/condition.md)
-- [深入理解Java并发线程线程阻塞唤醒类LockSupport](thread/LockSupport.md)
-- [简单聊聊Java的并发集合容器](thread/map.md)
-- [吊打Java并发面试官之ConcurrentHashMap](thread/ConcurrentHashMap.md)
-- [吊打Java并发面试官之ConcurrentLinkedQueue](thread/ConcurrentLinkedQueue.md)
-- [吊打Java并发面试官之CopyOnWriteArrayList](thread/CopyOnWriteArrayList.md)
-- [吊打Java并发面试官之ThreadLocal](thread/ThreadLocal.md)
-- [吊打Java并发面试官之BlockingQueue](thread/BlockingQueue.md)
-- [面试必备：Java线程池](thread/pool.md)
-- [深入剖析Java计划任务ScheduledThreadPoolExecutor](thread/ScheduledThreadPoolExecutor.md)
-- [Java atomic包中的原子操作类总结](thread/atomic.md)
-- [Java并发编程通信工具类CountDownLatch等一网打尽](thread/CountDownLatch.md)
-- [深入理解Java并发编程之Fork/Join框架](thread/fork-join.md)
-- [从根上理解生产者-消费者模式](thread/shengchanzhe-xiaofeizhe.md)
+- [synchronized的四种锁状态](thread/synchronized.md)
+- [深入浅出偏向锁](thread/pianxiangsuo.md)
+- [CAS详解](thread/cas.md)
+- [AQS详解](thread/aqs.md)
+- [锁分类和 JUC](thread/lock.md)
+- [重入锁ReentrantLock](thread/reentrantLock.md)
+- [读写锁ReentrantReadWriteLock](thread/ReentrantReadWriteLock.md)
+- [等待通知条件Condition](thread/condition.md)
+- [线程阻塞唤醒类LockSupport](thread/LockSupport.md)
+- [Java的并发容器](thread/map.md)
+- [并发容器ConcurrentHashMap](thread/ConcurrentHashMap.md)
+- [非阻塞队列ConcurrentLinkedQueue](thread/ConcurrentLinkedQueue.md)
+- [阻塞队列BlockingQueue](thread/BlockingQueue.md)
+- [并发容器CopyOnWriteArrayList](thread/CopyOnWriteArrayList.md)
+- [本地变量ThreadLocal](thread/ThreadLocal.md)
+- [线程池](thread/pool.md)
+- [定时任务ScheduledThreadPoolExecutor](thread/ScheduledThreadPoolExecutor.md)
+- [原子操作类Atomic](thread/atomic.md)
+- [魔法类 Unsafe](thread/Unsafe.md)
+- [通信工具类](thread/CountDownLatch.md)
+- [Fork/Join](thread/fork-join.md)
+- [生产者-消费者模式](thread/shengchanzhe-xiaofeizhe.md)
 
 
 ### Java虚拟机

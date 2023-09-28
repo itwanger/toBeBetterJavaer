@@ -10,3 +10,4 @@ docs/.vuepress/.temp/
 images
 *.log
 package.json
+.yarn

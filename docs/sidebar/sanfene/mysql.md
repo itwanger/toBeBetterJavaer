@@ -1,7 +1,7 @@
 ---
-title: 面渣逆袭（MySQL面试题八股文）必看 👍
+title: MySQL面试题，66道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 66 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-> 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 69 张手绘图，详解 66 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ## 基础
 
@@ -211,7 +211,7 @@ MySQL 逻辑架构图主要分三层：
 - 语法解析之后，MySQL 的服务器会对查询的语句进行优化，确定执行的方案。
 - 完成查询优化后，按照生成的执行计划`调用数据库引擎接口`，返回执行结果。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -276,7 +276,7 @@ PS:MySQL8.0 都开始慢慢流行了，如果不是面试，MylSAM 其实可以�
 
 **7\.   外键支持**：MyISAM 不支持外键；InnoDB 支持外键。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -399,7 +399,7 @@ log buffer 的大小是有限的，如果不停的往这个有限大小的 log b
 
 所谓的**checkpoint 规则**，就是 checkpoint 触发后，将 buffer 中日志页都刷到磁盘。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -650,7 +650,7 @@ explain 是 sql 优化的利器，除了优化慢 sql，平时的 sql 编写，�
 - Using where：表示会在存储引擎检索之后再进行过滤
 - Using temporary ：表示对查询结果排序时会使用一个临时表。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -905,7 +905,7 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 
 索引条件下推优化可以减少存储引擎查询基础表的次数，也可以减少 MySQL 服务器从存储引擎接收数据的次数。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -1037,7 +1037,7 @@ InnoDB 的行锁的主要实现如下：
 
 当然，这只是一个简单的流程说明，实际上生产中的死锁千奇百怪，排查和解决起来没那么简单。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -1059,11 +1059,48 @@ GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https:
 
 ### 49.那 ACID 靠什么保证的呢？
 
-- 事务的**隔离性**是通过数据库锁的机制实现的。
-- 事务的**一致性**由 undo log 来保证：undo log 是逻辑日志，记录了事务的 insert、update、deltete 操作，回滚的时候做相反的 delete、update、insert 操作来恢复数据。
-- 事务的**原子性**和**持久性**由 redo log 来保证：redolog 被称作重做日志，是物理日志，事务提交的时候，必须先将事务的所有日志写入 redo log 持久化，到事务的提交操作才算完成。
+MySQL 通过事务管理和持久性存储机制来确保 ACID（原子性、一致性、隔离性和持久性）。
 
-![ACID 靠什么保证](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-61393d95-38d1-4c38-a7a9-4b9580a1f95d.jpg)
+01、原子性（Atomicity），如果事务的所有操作都成功执行，则事务被提交；如果事务中的任何操作失败，所有事务中的操作都会被回滚，使数据库返回到事务开始前的状态。
+
+undo log 是 InnoDB 存储引擎来确保事务原子性的关键机制，undo log 记录了事务发生之前的数据，如果事务失败，InnoDB 会根据 undo log 回滚数据。
+
+当事务开始修改数据时，InnoDB 首先会在`undo log`中记录旧值（即修改前的值）。
+
+- 如果事务顺利进行并最终提交，`undo log`会在某个时间点被清除。
+- 如果事务中的某个操作失败或者事务被明确地回滚，InnoDB 会使用`undo log`中的信息来撤销所有更改，确保数据的原子性。
+
+简而言之，`undo log`机制为 InnoDB 提供了一种在事务失败或被中断时恢复数据的手段，从而保证了事务的原子性。
+
+02、一致性（Consistency），保证在事务开始之前和事务成功完成之后，数据库处于一个一致的状态。中间的任何阶段，即使事务失败，也不应该使数据库处于不一致的状态。
+
+一致性是 ACID 的目的，也就是说，只要保证原子性、隔离性、持久性，自然也就保证了数据的一致性。
+
+03、隔离性 (Isolation)，MySQL 使用多种隔离级别来控制事务如何与其他并发事务隔离。InnoDB 存储引擎使用 MVCC (多版本并发控制) 机制来处理并发事务，确保每个事务都有自己的数据版本。
+
+换句话说，事务查看数据时，数据所处的状态要么是另一事务修改它之前的状态，要么是另一事务修改它之后的状态，事务不会查看到中间状态的数据。
+
+在 MVCC 中，每次更新记录时，都会生成记录的一个新版本，而不是覆盖老版本。每个版本都会有两个额外的属性：一个表示版本的创建时间（或事务ID），另一个表示版本的过期时间（或下一个版本的事务ID）。
+
+当事务尝试读取记录时，它会看到该事务开始时有效的那个版本。
+
+MVCC 通过提供数据版本来支持事务的隔离性。不同的事务会看到不同版本的数据行，这取决于事务的开始时间和它的隔离级别。
+
+对于如 "读未提交"（READ UNCOMMITTED）这样的较低隔离级别，事务可能会看到其他未提交事务所做的更改。但在更高的隔离级别，如 "可重复读"（REPEATABLE READ）或 "串行化"（SERIALIZABLE），事务不会看到其他事务所做的更改，直到它们被提交。
+
+04、持久性 (Durability)，由 MySQL 的存储引擎（如InnoDB）通过写入磁盘来确保。即使在系统崩溃之后，已提交事务的更改也不会丢失。
+
+InnoDB 使用“redo log”来记录数据的更改，在系统崩溃后，redo log 可用于恢复数据。
+
+redo log 是一种物理日志，记录了对数据页的物理更改。当事务进行写操作时，InnoDB 首先会写入 redo log，并不会立即修改数据文件。这种写入方式被称为“write-ahead logging”（先写日志）。
+
+当 redo log 填满或在某些其他情况下，InnoDB 会异步将这些更改刷新到数据文件中。
+
+系统崩溃时，由于数据可能还没有被真正写入数据文件，但已经在 redo log 中，因此系统可以在启动时使用这些日志来重新执行或“重做”这些更改，确保数据的持久性。
+
+即使数据库在事务提交后立即崩溃，由于事务的更改已经记录在 redo log 中，这些更改在数据库恢复时仍然是安全的。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20230919103025.png)
 
 
 
@@ -1178,7 +1215,7 @@ Read View 就是事务执行**快照读**时，产生的读视图，相当于某
 
 READ COMMITTED 是**每次读取数据前都生成一个 ReadView**，这样就能保证自己每次都能读到其它事务提交的数据；REPEATABLE READ 是在**第一次读取数据时生成一个 ReadView**，这样就能保证后续读取的结果完全一致。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -1400,7 +1437,7 @@ Hash 路由设计的复杂点主要体现在初始表数量的选取上，表数
 2.  UUID，这种最简单，但是不连续的主键插入会导致严重的页分裂，性能比较差。
 3.  分布式 ID，比较出名的就是 Twitter 开源的 sonwflake 雪花算法
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -1466,6 +1503,13 @@ GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https:
 
 **系列内容**：
 
+---
+
+*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
+
+
+**系列内容**：
+
 - [面渣逆袭 Java SE 篇👍](https://javabetter.cn/sidebar/sanfene/javase.html)
 - [面渣逆袭 Java 集合框架篇👍](https://javabetter.cn/sidebar/sanfene/javathread.html)
 - [面渣逆袭 Java 并发编程篇👍](https://javabetter.cn/sidebar/sanfene/collection.html)
@@ -1477,12 +1521,14 @@ GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https:
 - [面渣逆袭操作系统篇👍](https://javabetter.cn/sidebar/sanfene/os.html)
 - [面渣逆袭计算机网络篇👍](https://javabetter.cn/sidebar/sanfene/network.html)
 - [面渣逆袭RocketMQ篇👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
+- [面渣逆袭分布式篇👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
+- [面渣逆袭微服务篇👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 
 ----
 
 > 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

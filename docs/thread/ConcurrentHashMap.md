@@ -1,7 +1,7 @@
 ---
-title: 吊打Java并发面试官之ConcurrentHashMap
+title: 吊打Java并发面试官之ConcurrentHashMap（线程安全的哈希表）
 shortTitle: ConcurrentHashMap
-description: 吊打Java并发面试官之ConcurrentHashMap
+description: ConcurrentHashMap 是 Java 并发包 (java.util.concurrent) 中的一种线程安全的哈希表实现。它通过分段锁技术或更先进的并发控制技术，使得多个线程可以同时读写映射，从而提高了性能
 category:
   - Java核心
 tag:
@@ -12,63 +12,153 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentHashMap
 ---
 
-在使用HashMap时，在多线程情况下扩容会出现CPU接近100%的情况，因为hashmap并不是线程安全的，通常我们可以使用在java体系中古老的hashtable类，该类基本上所有的方法都采用synchronized进行线程安全的控制，可想而知，在高并发的情况下，每次只有一个线程能够获取对象监视器锁，这样的并发性能的确不令人满意。
+# 第二十节：并发容器ConcurrentHashMap
 
-另外一种方式通过Collections的`Map<K,V> synchronizedMap(Map<K,V> m)`将hashmap包装成一个线程安全的map。比如SynchronzedMap的put方法源码为：
+ConcurrentHashMap 是 Java 并发包 (java.util.concurrent) 中的一种线程安全的哈希表实现。
+
+[HashMap](https://javabetter.cn/collection/hashmap.html) 在多线程环境下扩容会出现 CPU 接近 100% 的情况，因为 HashMap 并不是线程安全的，我们可以通过 Collections 的`Map<K,V> synchronizedMap(Map<K,V> m)`将 HashMap 包装成一个线程安全的 map。
+
+比如 SynchronzedMap 的 put 方法源码就是加锁过的：
 
 ```java
-	public V put(K key, V value) {
-	    synchronized (mutex) {return m.put(key, value);}
-	}
+public V put(K key, V value) {
+    synchronized (mutex) {return m.put(key, value);}
+}
 ```
-实际上SynchronizedMap实现依然是采用synchronized独占式锁进行线程安全的并发控制的。同样，这种方案的性能也是令人不太满意的。针对这种境况，Doug Lea大师不遗余力的为我们创造了一些线程安全的并发容器，让每一个java开发人员倍感幸福。相对于hashmap来说，ConcurrentHashMap就是线程安全的map，其中**利用了锁分段的思想提高了并发度**。
 
+[synchronized 同步代码块](https://javabetter.cn/thread/synchronized-1.html)的方式我们前面也讲过了，大家应该都还有印象。
 
-ConcurrentHashMap在JDK1.6的版本网上资料很多，有兴趣的可以去看看。
-JDK 1.6版本关键要素：
+不过，这并不是最优雅的方式。Doug Lea 大师不遗余力的为我们创造了一些线程安全的并发容器，让每一个 Java 开发人员都倍感幸福。相对于 HashMap，ConcurrentHashMap 就是线程安全的 map，其中**利用了锁分段的思想大大提高了并发的效率**。
 
-1. segment继承了ReentrantLock充当锁的角色，为每一个segment提供了线程安全的保障；
-2. segment维护了哈希散列表的若干个桶，每个桶由HashEntry构成的链表。
+在介绍[并发容器](https://javabetter.cn/thread/map.html)的时候，我们也曾提到过 ConcurrentHashMap，它从 JDK 1.8 开始有了较大的变化，光是代码量就足足增加了很多。
 
-而到了JDK 1.8的ConcurrentHashMap就有了很大的变化，光是代码量就足足增加了很多。1.8版本舍弃了segment，并且大量使用了synchronized，以及CAS无锁操作以保证ConcurrentHashMap操作的线程安全性。
+1.8 版本舍弃了 segment，并且使用了大量的 [synchronized](https://javabetter.cn/thread/synchronized.html)，以及 [CAS 无锁操作](https://javabetter.cn/thread/cas.html)以保证 ConcurrentHashMap 的线程安全性。
 
-至于为什么不用ReentrantLock而是Synchronzied呢？实际上，synchronzied做了很多的优化，包括偏向锁，轻量级锁，重量级锁，可以依次向上升级锁状态，但不能降级，因此，使用synchronized相较于ReentrantLock的性能会持平甚至在某些情况更优，具体的性能测试可以去网上查阅一些资料。另外，底层数据结构改变为采用数组+链表+红黑树的数据形式。
+为什么不用 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 而是 synchronzied 呢？
 
-## 关键属性及类
+实际上，synchronzied 做了很多的优化，[这个我们前面也讲过了](https://javabetter.cn/thread/synchronized.html)，包括偏向锁、轻量级锁、重量级锁，可以依次向上升级锁状态，因此，synchronized 相较于 ReentrantLock 的性能其实差不多，甚至在某些情况更优。
 
-在了解ConcurrentHashMap的具体方法实现前，我们需要系统的来看一下几个关键的地方。
+## ConcurrentHashMap 的变化
 
-### **ConcurrentHashMap的关键属性**
+ConcurrentHashMap 在 JDK 1.7 和 JDK 1.8 中有一些区别。这里我们分开介绍一下。
 
-1. **table**
-`volatile Node<K,V>[] table`:
+### JDK 1.7
 
-装载Node的数组，作为ConcurrentHashMap的数据容器，采用懒加载的方式，直到第一次插入数据的时候才会进行初始化操作，数组的大小总是为2的幂次方。
+ConcurrentHashMap 在 JDK 1.7 中，提供了一种粒度更细的加锁机制，这种机制叫分段锁「Lock Striping」。整个哈希表被分为多个段，每个段都独立锁定。读取操作不需要锁，写入操作仅锁定相关的段。这减小了锁冲突的几率，从而提高了并发性能。
 
-2. **nextTable**
-`volatile Node<K,V>[] nextTable;` 
+这种机制的优点：在并发环境下将实现更高的吞吐量，而在单线程环境下只损失非常小的性能。
 
-扩容时使用，平时为null，只有在扩容的时候才为非null
+可以这样理解分段锁，就是**将数据分段，对每一段数据分配一把锁**。当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。
 
-3. **sizeCtl**
-`volatile int sizeCtl;`
+有些方法需要跨段，比如 `size()`、`isEmpty()`、`containsValue()`，它们可能需要锁定整个表而不仅仅是某个段，这需要按顺序锁定所有段，操作完后，再按顺序释放所有段的锁。如下图：
 
-该属性用来控制table数组的大小，根据是否初始化和是否正在扩容有几种情况：
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155810.png)
 
-- **当值为负数时：** 如果为-1表示正在初始化，如果为-N则表示当前正有N-1个线程进行扩容操作；
-- **当值为正数时：** 如果当前数组为null的话表示table在初始化过程中，sizeCtl表示为需要新建数组的长度；
-- 若已经初始化了，表示当前数据容器（table数组）可用容量也可以理解成临界值（插入节点数超过了该临界值就需要扩容），具体指为数组的长度n 乘以 加载因子loadFactor；
-- 当值为0时，即数组长度为默认初始值。
+ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组构成的。Segment 是一种可重入的锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，HashEntry 则用于存储键值对数据。
 
-4. `sun.misc.Unsafe U`
+一个 ConcurrentHashMap 里包含一个 Segment 数组，Segment 的结构和 HashMap 类似，是一种数组和链表结构， 一个 Segment 里包含一个 HashEntry 数组，每个 HashEntry 是一个链表结构的元素， 每个 Segment 守护着一个 HashEntry 数组里的元素，当对 HashEntry 数组的数据进行修改时，必须首先获得它对应的 Segment 锁。
 
-在ConcurrentHashMapde的实现中可以看到大量的U.compareAndSwapXXXX的方法去修改ConcurrentHashMap的一些属性。
+单一的 Segment 结构如下：
 
-这些方法实际上是利用了CAS算法保证了线程安全性，这是一种乐观策略，假设每一次操作都不会产生冲突，当且仅当冲突发生的时候再去尝试。
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160155.png)
 
-而CAS操作依赖于现代处理器指令集，通过底层**CMPXCHG**指令实现。CAS(V,O,N)核心思想为：**若当前变量实际值V与期望的旧值O相同，则表明该变量没被其他线程进行修改，因此可以安全的将新值N赋值给变量；若当前变量实际值V与期望的旧值O不相同，则表明该变量已经被其他线程做了处理，此时将新值N赋给变量操作就是不安全的，在进行重试**。
+像这样的 Segment 对象，在 ConcurrentHashMap 集合中有多少个呢？有 2 的 N 次方个，共同保存在一个名为 segments 的数组当中。 因此整个 ConcurrentHashMap 的结构如下：
 
-而在大量的同步组件和并发容器的实现中使用CAS是通过`sun.misc.Unsafe`类实现的，该类提供了一些可以直接操控内存和线程的底层操作，可以理解为java中的“指针”。该成员变量的获取是在静态代码块中：
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160223.png)
+
+可以说，ConcurrentHashMap 是一个二级哈希表。在一个总的哈希表下面，有若干个子哈希表。
+
+Case1：不同 Segment 的并发写入（可以并发执行）
+
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160301.png)
+
+Case2：同一 Segment 的一写一读（可以并发执行）
+
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160316.png)
+
+Case3：同一 Segment 的并发写入
+
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160331.png)
+
+Segment 的写入是需要上锁的，因此对同一 Segment 的并发写入会被阻塞。
+
+由此可见，ConcurrentHashMap 中每个 Segment 各自持有一把锁。在保证线程安全的同时降低了锁的粒度，让并发操作效率更高。
+
+ConcurrentHashMap 读写过程如下：
+
+get 方法
+
+- 为输入的 Key 做 Hash 运算，得到 hash 值。
+- 通过 hash 值，定位到对应的 Segment 对象
+- 再次通过 hash 值，定位到 Segment 当中数组的具体位置。
+
+put 方法
+
+- 为输入的 Key 做 Hash 运算，得到 hash 值。
+- 通过 hash 值，定位到对应的 Segment 对象
+- 获取可重入锁
+- 再次通过 hash 值，定位到 Segment 当中数组的具体位置。
+- 插入或覆盖 HashEntry 对象。
+- 释放锁。
+
+### JDK 1.8
+
+而在 JDK 1.8 中，ConcurrentHashMap 主要做了两个优化：
+
+- 同 [HashMap](https://javabetter.cn/collection/hashmap.html) 一样，链表也会在长度达到 8 的时候转化为红黑树，这样可以提升大量冲突时候的查询效率；
+- 以某个位置的头结点（链表的头结点或红黑树的 root 结点）为锁，配合自旋+ [CAS](https://javabetter.cn/thread/cas.html) 避免不必要的锁开销，进一步提升并发性能。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
+
+相比 JDK1.7 中的 ConcurrentHashMap，JDK1.8 中的 ConcurrentHashMap 取消了 Segment 分段锁，采用 CAS + synchronized 来保证并发安全性，整个容器只分为一个 Segment，即 table 数组。
+
+JDK1.8 中的 ConcurrentHashMap 对节点 Node 类中的共享变量，和 JDK1.7 一样，使用 volatile 关键字，保证多线程操作时，变量的可见性！
+
+```java
+static class Node<K,V> implements Map.Entry<K,V> {
+    final int hash;
+    final K key;
+    volatile V val;
+    volatile Node<K,V> next;
+
+    Node(int hash, K key, V val, Node<K,V> next) {
+        this.hash = hash;
+        this.key = key;
+        this.val = val;
+        this.next = next;
+    }
+......
+}
+```
+
+## ConcurrentHashMap的字段
+
+1、**table**，`volatile Node<K,V>[] table`:
+
+装载 Node 的数组，作为 ConcurrentHashMap 的底层容器，采用懒加载的方式，直到第一次插入数据的时候才会进行初始化操作，[数组的大小总是为 2 的幂次方](https://javabetter.cn/collection/hashmap.html)，讲 HashMap 的时候讲过。
+
+2、**nextTable**，`volatile Node<K,V>[] nextTable`
+
+扩容时使用，平时为 null，只有在扩容的时候才为非 null
+
+3、**sizeCtl**，`volatile int sizeCtl`
+
+该属性用来控制 table 数组的大小，根据是否初始化和是否正在扩容有几种情况：
+
+- **当值为负数时：** 如果为-1 表示正在初始化，如果为 -N 则表示当前正有 N-1 个线程进行扩容操作；
+- **当值为正数时：** 如果当前数组为 null 的话表示 table 在初始化过程中，sizeCtl 表示为需要新建数组的长度；若已经初始化了，表示当前数据容器（table 数组）可用容量，也可以理解成临界值（插入节点数超过了该临界值就需要扩容），具体指为数组的长度 n 乘以 加载因子 loadFactor；
+- 当值为 0 时，即数组长度为默认初始值。
+
+4、`sun.misc.Unsafe U`
+
+在 ConcurrentHashMap 的实现中，可以看到用了大量的 `U.compareAndSwapXXXX` 方法去修改 ConcurrentHashMap 的一些属性。
+
+这些方法实际上是利用了 [CAS 算法](https://javabetter.cn/thread/cas.html)用于保证线程安全性，这是一种乐观策略：假设每一次操作都不会产生冲突，当且仅当冲突发生的时候再去尝试。
+
+[我们前面也讲过了](https://javabetter.cn/thread/cas.html)，CAS 操作依赖于现代处理器指令集，通过底层的**CMPXCHG**指令实现。`CAS(V,O,N)`核心思想为：**若当前变量实际值 V 与期望的旧值 O 相同，则表明该变量没被其他线程进行修改，因此可以安全的将新值 N 赋值给变量；若当前变量实际值 V 与期望的旧值 O 不相同，则表明该变量已经被其他线程做了处理，此时将新值 N 赋给变量操作就是不安全的，在进行重试**。
+
+在并发容器中，CAS 是通过`sun.misc.Unsafe`类实现的，该类提供了一些可以直接操控内存和线程的底层操作，可以理解为 Java 中的“指针”。该成员变量的获取是在[静态代码块](https://javabetter.cn/oo/static.html)中：
+
 ```java
 static {
     try {
@@ -80,26 +170,27 @@ static {
 }
 ```
 
-### **ConcurrentHashMap中关键内部类**
+## ConcurrentHashMap的内部类
 
-#### 1. **Node**
+### 1、Node
 
-Node类实现了Map.Entry接口，主要存放key-value对，并且具有next域
+Node 类实现了 Map.Entry 接口，主要存放 key-value 对，并且具有 next 域
 
 ```java
 static class Node<K,V> implements Map.Entry<K,V> {
-        final int hash;
-        final K key;
-        volatile V val;
-        volatile Node<K,V> next;
-		......
+    final int hash;
+    final K key;
+    volatile V val;
+    volatile Node<K,V> next;
+    ......
 }
 ```
-另外可以看出很多属性都是用volatile进行修饰的，也就是为了保证内存可见性。
 
-#### 2. **TreeNode**
+另外可以看出很多属性都是用 [volatile 关键字](https://javabetter.cn/thread/volatile.html)修饰的，也是为了保证内存可见性。
 
-树节点，继承于承载数据的Node类。而红黑树的操作是针对TreeBin类的，从该类的注释也可以看出，也就是TreeBin会将TreeNode进行再一次封装
+### 2、TreeNode
+
+树节点，继承于承载数据的 Node 类。红黑树的操作是针对 TreeBin 类的，从该类的注释也可以看出，TreeBin 是对 TreeNode 的再一次封装，下面会提到。
 
 ```java
 **
@@ -114,9 +205,11 @@ static final class TreeNode<K,V> extends Node<K,V> {
 		......
 }
 ```
-#### 3. **TreeBin**
 
-这个类并不负责包装用户的key、value信息，而是包装的很多TreeNode节点。实际的ConcurrentHashMap“数组”中，存放的是TreeBin对象，而不是TreeNode对象。
+### 3、TreeBin
+
+这个类并不负责用户的 key、value 信息，而是封装了很多 TreeNode 节点。实际的 ConcurrentHashMap “数组”中，存放的都是 TreeBin 对象，而不是 TreeNode 对象。
+
 ```java
 static final class TreeBin<K,V> extends Node<K,V> {
         TreeNode<K,V> root;
@@ -130,10 +223,10 @@ static final class TreeBin<K,V> extends Node<K,V> {
 		......
 }
 ```
-#### 4. **ForwardingNode**
 
+### 4、ForwardingNode
 
-在扩容时才会出现的特殊节点，其key,value,hash全部为null。并拥有nextTable指针引用新的table数组。
+在扩容时会出现的特殊节点，其 key、value、hash 全部为 null。并拥有 nextTable 引用的新 table 数组。
 
 ```java
 static final class ForwardingNode<K,V> extends Node<K,V> {
@@ -146,21 +239,21 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 }
 ```
 
-## **CAS关键操作**
+## ConcurrentHashMap的CAS
 
+ConcurrentHashMap 会大量使用 CAS 来修改它的属性和进行一些操作。因此，在理解 ConcurrentHashMap 的方法前，我们需要了解几个常用的利用 CAS 算法来保障线程安全的操作。
 
-在上面我们提及到在ConcurrentHashMap中会大量使用CAS修改它的属性和一些操作。因此，在理解ConcurrentHashMap的方法前我们需要了解下面几个常用的利用CAS算法来保障线程安全的操作。
-
-### 1. **tabAt**
+### 1、tabAt
 
 ```java
 static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
     return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
 }
-```    
-该方法用来获取table数组中索引为i的Node元素。
+```
 
-### 2. **casTabAt**
+该方法用来获取 table 数组中索引为 i 的 Node 元素。
+
+### 2、casTabAt
 
 ```java
 static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
@@ -169,9 +262,9 @@ static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
 }
 ```
 
-利用CAS操作设置table数组中索引为i的元素
+利用 CAS 操作设置 table 数组中索引为 i 的元素
 
-### 3. **setTabAt**
+### 3、setTabAt
 
 ```java
 static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
@@ -179,22 +272,19 @@ static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
 }
 ```
 
-该方法用来设置table数组中索引为i的元素
+该方法用来设置 table 数组中索引为 i 的元素
 
+## ConcurrentHashMap的方法
 
-## 重点方法讲解
+### 构造方法
 
-在熟悉上面的这核心信息之后，我们接下来就来依次看看几个常用的方法是怎样实现的。
-
-### 实例构造器方法
-
-在使用ConcurrentHashMap第一件事自然而然就是new 出来一个ConcurrentHashMap对象，一共提供了如下几个构造器方法：
+ConcurrentHashMap 一共提供了以下 5 个构造方法：
 
 ```java
 // 1. 构造一个空的map，即table数组还未初始化，初始化放在第一次插入数据时，默认大小为16
 ConcurrentHashMap()
 // 2. 给定map的大小
-ConcurrentHashMap(int initialCapacity) 
+ConcurrentHashMap(int initialCapacity)
 // 3. 给定一个map
 ConcurrentHashMap(Map<? extends K, ? extends V> m)
 // 4. 给定map的大小以及加载因子
@@ -203,7 +293,7 @@ ConcurrentHashMap(int initialCapacity, float loadFactor)
 ConcurrentHashMap(int initialCapacity,float loadFactor, int concurrencyLevel)
 ```
 
-ConcurrentHashMap一共给我们提供了5中构造器方法，具体使用请看注释，我们来看看第2种构造器，传入指定大小时的情况，该构造器源码为：
+差别请看注释，我们来看看第 2 种构造方法，源码如下：
 
 ```java
 public ConcurrentHashMap(int initialCapacity) {
@@ -219,7 +309,11 @@ public ConcurrentHashMap(int initialCapacity) {
 }
 ```
 
-这段代码的逻辑请看注释，很容易理解，如果小于0就直接抛出异常，如果指定值大于了所允许的最大值的话就取最大值，否则，在对指定值做进一步处理。最后将cap赋值给sizeCtl,关于sizeCtl的说明请看上面的说明，**当调用构造器方法之后，sizeCtl的大小应该就代表了ConcurrentHashMap的大小，即table数组长度**。tableSizeFor做了哪些事情了？源码为：
+这段代码的逻辑请看注释，很容易理解，如果小于 0 就直接抛异常，如果指定值大于所允许的最大值就取最大值，否则再对指定值做进一步处理。最后将 cap 赋值给 sizeCtl。
+
+**当调用构造方法之后，sizeCtl 的大小就代表了 ConcurrentHashMap 的大小，即 table 数组的长度**。
+
+tableSizeFor 做了哪些事情呢？源码如下：
 
 ```java
 /**
@@ -237,11 +331,11 @@ private static final int tableSizeFor(int c) {
 }
 ```
 
-通过注释就很清楚了，该方法会将调用构造器方法时指定的大小转换成一个2的幂次方数，也就是说ConcurrentHashMap的大小一定是2的幂次方，比如，当指定大小为18时，为了满足2的幂次方特性，实际上concurrentHashMapd的大小为2的5次方（32）。
+注释写的很清楚，该方法会将构造方法指定的大小转换成一个 2 的幂次方数，也就是说 ConcurrentHashMap 的大小一定是 2 的幂次方，比如，当指定大小为 18 时，为了满足 2 的幂次方特性，实际上 ConcurrentHashMap 的大小为 2 的 5 次方（32）。
 
-另外，需要注意的是，**调用构造器方法的时候并未构造出table数组（可以理解为ConcurrentHashMap的数据容器），只是算出table数组的长度，当第一次向ConcurrentHashMap插入数据的时候才真正的完成初始化创建table数组的工作**。
+另外，需要注意的是，**调用构造方法时并初始化 table 数组，而只算出了 table 数组的长度，当第一次向 ConcurrentHashMap 插入数据时才会真正的完成初始化，并创建 table 数组**。
 
-### initTable方法
+### initTable 方法
 
 直接上源码：
 
@@ -273,17 +367,20 @@ private final Node<K,V>[] initTable() {
     return tab;
 }
 ```
-代码的逻辑请见注释，有可能存在一个情况是多个线程同时走到这个方法中，为了保证能够正确初始化，在第1步中会先通过if进行判断，若当前已经有一个线程正在初始化即sizeCtl值变为-1，这个时候其他线程在If判断为true从而调用Thread.yield()让出CPU时间片。
 
-正在进行初始化的线程会调用U.compareAndSwapInt方法将sizeCtl改为-1即正在初始化的状态。
+代码的逻辑请见注释。
 
-另外还需要注意的事情是，在第四步中会进一步计算数组中可用的大小即为数组实际大小n乘以加载因子0.75.可以看看这里乘以0.75是怎么算的，0.75为四分之三，这里`n - (n >>> 2)`是不是刚好是`n-(1/4)n=(3/4)n`，挺有意思的吧:)。
+可能存在这样一种情况，多个线程同时进入到这个方法，为了保证能够正确地初始化，第 1 步会先通过 if 进行判断，如果当前已经有一个线程正在初始化，这时候其他线程会调用 `Thread.yield()` 让出 CPU 时间片。
 
-如果选择是无参的构造器的话，这里在new Node数组的时候会使用默认大小为`DEFAULT_CAPACITY`（16），然后乘以加载因子0.75为12，也就是说数组的可用大小为12。
+正在进行初始化的线程会调用 `U.compareAndSwapInt` 方法将 sizeCtl 改为 -1，即正在初始化的状态。
 
-### put方法 
+另外还需要注意，在第四步中会进一步计算数组中可用的大小，即数组的实际大小 n 乘以加载因子 0.75，0.75 就是四分之三，这里`n - (n >>> 2)`刚好是`n-(1/4)n=(3/4)n`，挺有意思的吧？
 
-使用ConcurrentHashMap最长用的也应该是put和get方法了吧，我们先来看看put方法是怎样实现的。调用put方法时实际具体实现是putVal方法，源码如下：
+如果选择是无参的构造方法，这里在 new Node 数组的时候会使用默认大小`DEFAULT_CAPACITY`（16），然后乘以加载因子 0.75，结果为 12，也就是说数组当前的可用大小为 12。
+
+### put 方法
+
+调用 put 方法时会调用 putVal 方法，源码如下：
 
 ```java
 /** Implementation for put and putIfAbsent */
@@ -354,59 +451,30 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
             }
         }
     }
-	//8.对当前容量大小进行检查，如果超过了临界值（实际大小*加载因子）就需要扩容 
+	//8.对当前容量大小进行检查，如果超过了临界值（实际大小*加载因子）就需要扩容
     addCount(1L, binCount);
     return null;
 }
 ```
-put方法的代码量有点长，我们按照上面的分解的步骤一步步来看。
-
-**从整体而言，为了解决线程安全的问题，ConcurrentHashMap使用了synchronzied和CAS的方式**。
-
-在之前了解过HashMap以及1.8版本之前的ConcurrenHashMap都应该知道ConcurrentHashMap结构图，为了方面下面的讲解这里先直接给出，如果对这有疑问的话，可以在网上随便搜搜即可。
-
-![ConcurrentHashMap散列桶数组结构示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentHashMap-01.png)
-
-如图（图片摘自网络），ConcurrentHashMap是一个哈希桶数组，如果不出现哈希冲突的时候，每个元素均匀的分布在哈希桶数组中。当出现哈希冲突的时候，是**标准的链地址的解决方式**，将hash值相同的节点构成链表的形式，称为“拉链法”，另外，在1.8版本中为了防止拉链过长，当链表的长度大于8的时候会将链表转换成红黑树。
-
-table数组中的每个元素实际上是单链表的头结点或者红黑树的根节点。当插入键值对时首先应该定位到要插入的桶，即插入table数组的索引i处。那么，怎样计算得出索引i呢？当然是根据key的hashCode值。
 
 
-#### 1. spread()重哈希，以减小Hash冲突
+ConcurrentHashMap 是一个哈希桶数组，如果不出现哈希冲突的时候，每个元素均匀的分布在哈希桶数组中。当出现哈希冲突的时候，采用**拉链法的解决方案**，将 hash 值相同的节点转换成链表的形式，另外，在 JDK 1.8 版本中，为了防止拉链过长，当链表的长度大于 8 的时候会将链表转换成红黑树。
 
-我们知道对于一个hash表来说，hash值分散的不够均匀的话会大大增加哈希冲突的概率，从而影响到hash表的性能。因此通过spread方法进行了一次重hash从而大大减小哈希冲突的可能性。spread方法为：
+确定好数组的索引 i 后，可以调用 `tabAt()` 方法获取该位置上的元素，如果当前 Node 为 null 的话，可以直接用 casTabAt 方法将新值插入。
 
-```java
-static final int spread(int h) {
-    return (h ^ (h >>> 16)) & HASH_BITS;
-}
-```
+拉链法、确定索引 i 的知识在学习 [HashMap](https://javabetter.cn/collection/hashmap.html) 的时候就讲过，相信大家都还没有忘。
 
-该方法主要是**将key的hashCode的低16位于高16位进行异或运算**，这样不仅能够使得hash值能够分散能够均匀减小hash冲突的概率，另外只用到了异或运算，在性能开销上也能兼顾，做到平衡的trade-off。
+如果当前节点不为 null，且该节点为特殊节点（forwardingNode），就说明当前 concurrentHashMap 正在进行扩容操作。怎么确定当前这个 Node 是特殊节点呢？
 
-#### 2. 初始化table
-
-紧接着到第2步，会判断当前table数组是否初始化了，没有的话就调用initTable进行初始化，该方法在上面已经讲过了。
-
-#### 3. 能否直接将新值插入到table数组中
-
-从上面的结构示意图就可以看出存在这样一种情况，如果插入值待插入的位置刚好所在的table数组为null的话就可以直接将值插入即可。那么怎样根据hash确定在table中待插入的索引i呢？很显然可以通过hash值与数组的长度取模操作，从而确定新值插入到数组的哪个位置。而之前我们提过ConcurrentHashMap的大小总是2的幂次方，(n - 1) & hash运算等价于对长度n取模，也就是hash%n，但是位运算比取模运算的效率要高很多，Doug lea大师在设计并发容器的时候也是将性能优化到了极致，令人钦佩。
-
-确定好数组的索引i后，就可以可以tabAt()方法（该方法在上面已经说明了，有疑问可以回过头去看看）获取该位置上的元素，如果当前Node f为null的话，就可以直接用casTabAt方法将新值插入即可。
-
-#### 4.当前是否正在扩容
-
-如果当前节点不为null，且该节点为特殊节点（forwardingNode）的话，就说明当前concurrentHashMap正在进行扩容操作，关于扩容操作，下面会作为一个具体的方法进行讲解。
-
-那么怎样确定当前的这个Node是不是特殊的节点了？是通过判断该节点的hash值是不是等于-1（MOVED）,代码为`(fh = f.hash) == MOVED`，对MOVED的解释在源码上也写的很清楚了：
+通过判断该节点的 hash 值是不是等于 -1（MOVED）：
 
 ```java
 static final int MOVED     = -1; // hash for forwarding nodes
 ```
 
-#### 5. 当table[i]为链表的头结点，在链表中插入新值
+当 `table[i]` 不为 null 并且不是 forwardingNode 时，以及当前 Node 的 hash 值大于`0（fh >= 0）`时，说明当前节点为链表的头节点，那么向 ConcurrentHashMap 插入新值就是向这个链表插入新值。通过 `synchronized (f)` 的方式进行加锁以实现线程安全。
 
-在table[i]不为null并且不为forwardingNode时，并且当前Node f的hash值大于`0（fh >= 0）`的话说明当前节点f为当前桶的所有的节点组成的链表的头结点。那么接下来，要想向ConcurrentHashMap插入新值的话就是向这个链表插入新值。通过synchronized (f)的方式进行加锁以实现线程安全性。往链表中插入节点的部分代码为：
+往链表中插入节点的部分代码如下：
 
 ```java
 if (fh >= 0) {
@@ -432,11 +500,14 @@ if (fh >= 0) {
     }
 }
 ```
-这部分代码很好理解，就是两种情况：1. 在链表中如果找到了与待插入的键值对的key相同的节点，就直接覆盖即可；2. 如果直到找到了链表的末尾都没有找到的话，就直接将待插入的键值对追加到链表的末尾即可
 
-#### 6.当table[i]为红黑树的根节点，在红黑树中插入新值
+这部分代码很好理解，就两种情况：
 
-按照之前的数组+链表的设计方案，这里存在一个问题，即使负载因子和Hash算法设计的再合理，也免不了会出现拉链过长的情况，一旦出现拉链过长，甚至在极端情况下，查找一个节点会出现时间复杂度为O(n)的情况，则会严重影响ConcurrentHashMap的性能，于是，在JDK1.8版本中，对数据结构做了进一步的优化，引入了红黑树。而当链表长度太长（默认超过8）时，链表就转换为红黑树，利用红黑树快速增删改查的特点提高ConcurrentHashMap的性能，其中会用到红黑树的插入、删除、查找等算法。当table[i]为红黑树的树节点时的操作为：
+1. 如果在链表中找到了与待插入的 key 相同的节点，就直接覆盖；
+2. 如果找到链表的末尾都还没找到的话，直接将待插入的键值对追加到链表的末尾。
+
+
+当链表长度超过 8（默认值）时，链表就转换为红黑树，利用红黑树快速增删改查的特点可以提高 ConcurrentHashMap 的性能：
 
 ```java
 if (f instanceof TreeBin) {
@@ -451,11 +522,9 @@ if (f instanceof TreeBin) {
 }
 ```
 
-首先在if中通过`f instanceof TreeBin`判断当前table[i]是否是树节点，这下也正好验证了我们在最上面介绍时说的TreeBin会对TreeNode做进一步封装，对红黑树进行操作的时候针对的是TreeBin而不是TreeNode。这段代码很简单，调用putTreeVal方法完成向红黑树插入新节点，同样的逻辑，**如果在红黑树中存在于待插入键值对的Key相同（hash值相等并且equals方法判断为true）的节点的话，就覆盖旧值，否则就向红黑树追加新节点**。
+这段代码很简单，调用 putTreeVal 方法向红黑树插入新节点，同样的逻辑，**如果在红黑树中存在 Key 相同（hash 值相等并且 equals 方法判断为 true）的节点，就覆盖旧值，否则向红黑树追加新节点**。
 
-#### 7. 根据当前节点个数进行调整
-
-当完成数据新节点插入之后，会进一步对当前链表大小进行调整，这部分代码为：
+当完成数据新节点插入后，会进一步对当前链表大小进行调整：
 
 ```java
 if (binCount != 0) {
@@ -467,26 +536,20 @@ if (binCount != 0) {
 }
 ```
 
-很容易理解，如果当前链表节点个数大于等于8（TREEIFY_THRESHOLD）的时候，就会调用treeifyBin方法将tabel[i]（第i个散列桶）拉链转换成红黑树。
+至此，put 方法就分析完了，我们来做个总结：
 
-至此，关于Put方法的逻辑就基本说的差不多了，现在来做一些总结：
+1. 对每一个放入的值，先用 spread 方法对 key 的 hashcode 进行 hash 计算，由此来确定这个值在 table 中的位置；
+2. 如果当前 table 数组还未初始化，进行初始化操作；
+3. 如果这个位置是 null，那么使用 CAS 操作直接放入；
+4. 如果这个位置存在节点，说明发生了 hash 碰撞，先判断这个节点的类型，如果该节点 `==MOVED` 的话，说明正在进行扩容；
+5. 如果是链表节点（`fh>0`），先获取头节点，再依次向后遍历确定这个新加入节点的位置。如果遇到 key 相同的节点，直接覆盖。否则在链表尾插入；
+6. 如果这个节点的类型是 TreeBin，直接调用红黑树的插入方法插入新的节点；
+7. 插入完节点之后再次检查链表的长度，如果长度大于 8，就把这个链表转换成红黑树；
+8. 对当前容量大小进行检查，如果超过了临界值（实际大小\*加载因子）就需要扩容。
 
+### get 方法
 
-整体流程：
-
-1. 首先对于每一个放入的值，首先利用spread方法对key的hashcode进行一次hash计算，由此来确定这个值在      table中的位置；
-2. 如果当前table数组还未初始化，先将table数组进行初始化操作；
-3. 如果这个位置是null的，那么使用CAS操作直接放入；
-4. 如果这个位置存在结点，说明发生了hash碰撞，首先判断这个节点的类型。如果该节点fh==MOVED(代表forwardingNode,数组正在进行扩容)的话，说明正在进行扩容；
-5. 如果是链表节点（fh>0）,则得到的结点就是hash值相同的节点组成的链表的头节点。需要依次向后遍历确定这个新加入的值所在位置。如果遇到key相同的节点，则只需要覆盖该结点的value值即可。否则依次向后遍历，直到链表尾插入这个结点；
-6. 如果这个节点的类型是TreeBin的话，直接调用红黑树的插入方法进行插入新的节点；
-7. 插入完节点之后再次检查链表长度，如果长度大于8，就把这个链表转换成红黑树；
-8. 对当前容量大小进行检查，如果超过了临界值（实际大小*加载因子）就需要扩容。 
-
-
-### get方法
-
-看完了put方法再来看get方法就很容易了，用逆向思维去看就好，这样存的话我反过来这么取就好了。get方法源码为：
+get 方法的源码如下：
 
 ```java
 public V get(Object key) {
@@ -513,12 +576,15 @@ public V get(Object key) {
     return null;
 }
 ```
-代码的逻辑请看注释，首先先看当前的hash桶数组节点即table[i]是否为查找的节点，若是则直接返回；若不是，则继续再看当前是不是树节点？通过看节点的hash值是否为小于0，如果小于0则为树节点。如果是树节点在红黑树中查找节点；如果不是树节点，那就只剩下为链表的形式的一种可能性了，就向后遍历查找节点，若查找到则返回节点的value即可，若没有找到就返回null。
 
+- 哈希: 对传入的键的哈希值进行散列，这有助于减少哈希冲突的可能性。使用 spread 方法可以保证不同的键更均匀地分布在桶数组中。
+- 直接查找: 查找的第一步是检查键的哈希值是否位于表的正确位置。如果在该桶的第一个元素中找到了键，则直接返回该元素的值。这里使用了 == 操作符和 equals 方法来比较键，这有助于处理可能的 null 值和确保正确的相等性比较。
+- 红黑树查找: 如果第一个节点的哈希值小于0，那么这个桶的数据结构是红黑树（Java 8 引入了树化结构来改进链表在哈希冲突时的性能）。在这种情况下，使用 find 方法在红黑树中查找键。
+- 链表查找: 如果前两个条件都不满足，那么代码将遍历该桶中的链表。如果在链表中找到了具有相同哈希值和键的元素，则返回其值。如果遍历完整个链表都未找到，则返回 null。
 
-### transfer方法
+### transfer 方法
 
-当ConcurrentHashMap容量不足的时候，需要对table进行扩容。这个方法的基本思想跟HashMap是很像的，但是由于它是支持并发扩容的，所以要复杂的多。原因是它支持多线程进行扩容操作，而并没有加锁。我想这样做的目的不仅仅是为了满足concurrent的要求，而是希望利用并发处理去减少扩容带来的时间影响。transfer方法源码为：
+当 ConcurrentHashMap 容量不足的时候，需要对 table 进行扩容。这个方法的基本思想跟 HashMap 很像，但由于支持并发扩容，所以要复杂一些。transfer 方法源码如下：
 
 ```java
 private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
@@ -667,28 +733,26 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
     }
 }
 ```
-代码逻辑请看注释,整个扩容操作分为**两个部分**：
 
-**第一部分**是构建一个nextTable,它的容量是原来的两倍，这个操作是单线程完成的。新建table数组的代码为:`Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n << 1]`,在原容量大小的基础上右移一位。
+代码逻辑请看注释，整个扩容操作分为**两个部分**：
 
-**第二个部分**就是将原来table中的元素复制到nextTable中，主要是遍历复制的过程。
-根据运算得到当前遍历的数组的位置i，然后利用tabAt方法获得i位置的元素再进行判断：
+**第一部分**是构建一个 nextTable，它的容量是原来的两倍，这个操作是单线程完成的。
 
-1. 如果这个位置为空，就在原table中的i位置放入forwardNode节点，这个也是触发并发扩容的关键点；
-2. 如果这个位置是Node节点（fh>=0），如果它是一个链表的头节点，就把这个链表分裂成两个链表，把它们分别放在nextTable的i和i+n的位置上
-3. 如果这个位置是TreeBin节点（fh<0），也做一个反序处理，并且判断是否需要untreefi，把处理的结果分别放在nextTable的i和i+n的位置上
-4. 遍历过所有的节点以后就完成了复制工作，这时让nextTable作为新的table，并且更新sizeCtl为新容量的0.75倍 ，完成扩容。设置为新容量的0.75倍代码为 `sizeCtl = (n << 1) - (n >>> 1)`，仔细体会下是不是很巧妙，n<<1相当于n右移一位表示n的两倍即2n,n>>>1左右一位相当于n除以2即0.5n,然后两者相减为2n-0.5n=1.5n,是不是刚好等于新容量的0.75倍即2n*0.75=1.5n。最后用一个示意图来进行总结（图片摘自网络）：
+**第二个部分**是将原来 table 中的元素复制到 nextTable 中，主要是遍历复制的过程。
+得到当前遍历的数组位置 i，然后利用 tabAt 方法获得 i 位置的元素：
+
+1. 如果这个位置为空，就在原 table 中的 i 位置放入 forwardNode 节点，这个也是触发并发扩容的关键；
+2. 如果这个位置是 Node 节点（`fh>=0`），并且是链表的头节点，就把这个链表分裂成两个链表，把它们分别放在 nextTable 的 i 和 i+n 的位置上；
+3. 如果这个位置是 TreeBin 节点（`fh<0`），也做一个反序处理，并且判断是否需要 untreefi，把处理的结果分别放在 nextTable 的 i 和 i+n 的位置上；
+4. 遍历所有的节点，就完成复制工作，这时让 nextTable 作为新的 table，并且更新 sizeCtl 为新容量的 0.75 倍 ，完成扩容。
 
 ![ConcurrentHashMap扩容示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentHashMap-02.png)
 
+### size 相关的方法
 
+对于 ConcurrentHashMap 来说，这个 table 里到底装了多少东西是不确定的，因为**不可能在调用 `size()` 方法的时候“stop the world”让其他线程都停下来去统计**，对于这个不确定的 size，ConcurrentHashMap 仍然花费了大量的力气。
 
-
-### 与size相关的一些方法
-
-对于ConcurrentHashMap来说，这个table里到底装了多少东西其实是个不确定的数量，因为**不可能在调用size()方法的时候像GC的“stop the world”一样让其他线程都停下来让你去统计，因此只能说这个数量是个估计值。对于这个估计值**，ConcurrentHashMap也是大费周章才计算出来的。
-
-为了统计元素个数，ConcurrentHashMap定义了一些变量和一个内部类
+为了统计元素的个数，ConcurrentHashMap 定义了一些变量和一个内部类。
 
 ```java
 /**
@@ -700,11 +764,11 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
     CounterCell(long x) { value = x; }
 }
 
-/******************************************/ 
+/******************************************/
 
 /**
- * 实际上保存的是hashmap中的元素个数  利用CAS锁进行更新
- 但它并不用返回当前hashmap的元素个数 
+ * 实际上保存的是HashMap中的元素个数  利用CAS锁进行更新
+ 但它并不用返回当前HashMap的元素个数
 
  */
 private transient volatile long baseCount;
@@ -719,9 +783,7 @@ private transient volatile int cellsBusy;
 private transient volatile CounterCell[] counterCells;
 ```
 
-#### **mappingCount与size方法**
-
-**mappingCount**与**size**方法的类似  从给出的注释来看，应该使用mappingCount代替size方法 两个方法都没有直接返回basecount 而是统计一次这个值，而这个值其实也是一个大概的数值，因此可能在统计的时候有其他线程正在执行插入或删除操作。
+再来看如何统计的源码：
 
 ```java
 public int size() {
@@ -758,16 +820,20 @@ public long mappingCount() {
 }
 ```
 
+size 方法返回 Map 中的元素数量，但结果被限制在 Integer.MAX_VALUE 内。如果计算的大小超过这个值，则返回 Integer.MAX_VALUE。如果计算的大小小于0，则返回0。
 
+mappingCount 方法也返回 Map 中的元素数量，但允许返回一个 long 值，因此可以表示大于 Integer.MAX_VALUE 的数量。与 `size()` 方法类似，该方法也会忽略负值，返回0。
 
-#### **addCount方法**
+sumCount 方法计算 Map 的实际大小。ConcurrentHashMap 使用一个基础计数 baseCount 和一个 CounterCell 数组 counterCells 来跟踪大小。这种结构有助于减少多线程环境中的争用，因为不同的线程可能会更新不同的 CounterCell。
 
-在put方法结尾处调用了addCount方法，把当前ConcurrentHashMap的元素个数+1这个方法一共做了两件事,更新baseCount的值，检测是否进行扩容。
+在计算总和时，`sumCount()` 方法将 baseCount 与 counterCells 数组中的所有非空单元的值相加。
+
+在 put 方法结尾处调用了 addCount 方法，把当前 ConcurrentHashMap 的元素个数 +1，这个方法一共做了两件事，更新 baseCount 的值，检测是否进行扩容。
 
 ```java
 private final void addCount(long x, int check) {
     CounterCell[] as; long b, s;
-    //利用CAS方法更新baseCount的值 
+    //利用CAS方法更新baseCount的值
     if ((as = counterCells) != null ||
         !U.compareAndSwapLong(this, BASECOUNT, b = baseCount, s = b + x)) {
         CounterCell a; long v; int m;
@@ -809,37 +875,66 @@ private final void addCount(long x, int check) {
 }
 ```
 
+## ConcurrentHashMap示例
 
+假设我们想要构建一个线程安全的高并发统计用户访问次数的功能。在这里，ConcurrentHashMap是一个很好的选择，因为它提供了高并发性能。
 
-## 总结
+```java
+import java.util.concurrent.ConcurrentHashMap;
 
-JDK6,7中的ConcurrentHashmap主要使用Segment来实现减小锁粒度，分割成若干个Segment，在put的时候需要锁住Segment，get时候不加锁，使用volatile来保证可见性，当要统计全局时（比如size），首先会尝试多次计算modcount来确定，这几次尝试中，是否有其他线程进行了修改操作，如果没有，则直接返回size。如果有，则需要依次锁住所有的Segment来计算。
+public class UserVisitCounter {
 
-1.8之前put定位节点时要先定位到具体的segment，然后再在segment中定位到具体的桶。而在1.8的时候摒弃了segment臃肿的设计，直接针对的是Node[] tale数组中的每一个桶，进一步减小了锁粒度。并且防止拉链过长导致性能下降，当链表长度大于8的时候采用红黑树的设计。
+    private final ConcurrentHashMap<String, Integer> visitCountMap;
 
-主要设计上的变化有以下几点:
+    public UserVisitCounter() {
+        this.visitCountMap = new ConcurrentHashMap<>();
+    }
 
-1. 不采用segment而采用node，锁住node来实现减小锁粒度。
-2. 设计了MOVED状态 当resize的中过程中 线程2还在put数据，线程2会帮助resize。
-3. 使用3个CAS操作来确保node的一些操作的原子性，这种方式代替了锁。
-4. sizeCtl的不同值来代表不同含义，起到了控制的作用。
-5. 采用synchronized而不是ReentrantLock
+    // 用户访问时调用的方法
+    public void userVisited(String userId) {
+        visitCountMap.compute(userId, (key, value) -> value == null ? 1 : value + 1);
+    }
 
-更多关于1.7版本与1.8版本的ConcurrentHashMap的实现对比，可以参考[这篇文章](http://www.jianshu.com/p/e694f1e868ec)。
+    // 获取用户的访问次数
+    public int getVisitCount(String userId) {
+        return visitCountMap.getOrDefault(userId, 0);
+    }
 
+    public static void main(String[] args) {
+        UserVisitCounter counter = new UserVisitCounter();
+
+        // 模拟用户访问
+        counter.userVisited("user1");
+        counter.userVisited("user1");
+        counter.userVisited("user2");
+
+        System.out.println("User1 visit count: " + counter.getVisitCount("user1")); // 输出: User1 visit count: 2
+        System.out.println("User2 visit count: " + counter.getVisitCount("user2")); // 输出: User2 visit count: 1
+    }
+}
+```
+
+在上述示例中：
+
+- 我们使用了ConcurrentHashMap来存储用户的访问次数。
+- 当用户访问时，我们通过userVisited方法更新访问次数。
+- 使用ConcurrentHashMap的compute方法可以确保原子地更新用户的访问次数。
+- 可以通过getVisitCount方法检索任何用户的访问次数。
+
+ConcurrentHashMap使我们能够无需担心并发问题就能构建这样一个高效的统计系统。
+
+## 小结
+
+ConcurrentHashMap 是线程安全的，支持完全并发的读取，并且有很多线程可以同时执行写入。在早期版本（例如 JDK 1.7）中，ConcurrentHashMap 使用分段锁技术。整个哈希表被分成一些段（Segment），每个段独立加锁。这样，在不同段上的操作可以并发进行。从 JDK 1.8 开始，ConcurrentHashMap 的内部实现有了很大的变化。它放弃了分段锁技术，转而采用了更先进的并发控制策略，如 CAS 操作和红黑树等，进一步提高了并发性能。
+
+由于并发性质，ConcurrentHashMap 的大小计算可能不是精确的，但通常足够接近真实值。
+
+> 编辑：沉默王二，部分内容来自于CL0610的 GitHub 仓库[https://github.com/CL0610/Java-concurrency](https://github.com/CL0610/Java-concurrency/blob/master/14.%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BConcurrentHashMap(JDK%201.8%E7%89%88%E6%9C%AC)/%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8%E4%B9%8BConcurrentHashMap(JDK%201.8%E7%89%88%E6%9C%AC).md)，部分内容来自于这篇[初念初恋-ConcurrentHashMap](https://juejin.cn/post/7064061605185028110)，图片画的特别漂亮。
 
 ---
 
->编辑：沉默王二，内容大部分来源以下三个开源仓库：
->- [深入浅出 Java 多线程](http://concurrent.redspider.group/)
->- [并发编程知识总结](https://github.com/CL0610/Java-concurrency)
->- [Java八股文](https://github.com/CoderLeixiaoshuai/java-eight-part)
+GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第二份 PDF 《[并发编程小册](https://javabetter.cn/thread/)》终于来了！包括线程的基本概念和使用方法、Java的内存模型、sychronized、volatile、CAS、AQS、ReentrantLock、线程池、并发容器、ThreadLocal、生产者消费者模型等面试和开发必须掌握的内容，共计 15 万余字，200+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，二哥的并发编程进阶之路.pdf](https://javabetter.cn/thread/)
 
-----
+[加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-GitHub 上标星 8700+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 8700+ 的 Java 教程](https://javabetter.cn/overview/)
-
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
