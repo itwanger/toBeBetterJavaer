@@ -14,6 +14,8 @@ head:
 
 # 第零节：小册简介
 
+大家好，我是二哥呀。
+
 来介绍一下《二哥的并发编程进阶之路》小册吧。小册主要围绕着 Java 中的并发编程/多线程展开，一共 31 个小节，15 万+字，手绘图 200+张，耗费了巨大的心血，以下是小册的个人信息。
 
 - 小册名字：二哥的并发编程进阶之路
@@ -56,9 +58,9 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904121834.png)
 
-如果你喜欢在线阅读，请戳下面这个网址：
+如果你喜欢在线阅读，请访问下面这个网址：
 
-> [https://javabetter.cn/xuexiluxian/java/thread.html](https://javabetter.cn/xuexiluxian/java/thread.html)
+> [https://javabetter.cn/thread/](https://javabetter.cn/thread/)
 
 如果你在阅读过程中感觉这份小册写的还不错，甚至有亿点点收获，我的虚荣心也会得到恰当的满足😜
 
@@ -68,9 +70,21 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904122154.png)
 
-小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
+小册会持续保持**更新**，如果想获得最新版，请扫下面的优惠券加入[二哥的编程星球](https://mp.weixin.qq.com/s/-NvJWJD_kZVzTHWN3sPP7Q)。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
+
+然后通过下面这个链接获取 PDF。
+
+>PDF：[https://t.zsxq.com/12DwOxfyw](https://t.zsxq.com/12DwOxfyw)
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230922112407.png)
+
+或者你也可以通过星球的第一个置顶帖「[球友必看](https://t.zsxq.com/12rEo9Pdu)」在百度网盘和阿里云盘中下载。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230922113817.png)
+
+PDF 在星球发表后，也是得到了球友的一致认同，看看这点赞人数，一共 15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读，然后快速提升你在并发编程方面的编码能力和面试功底。
 
 ## 面试指南（配套教程）
 
@@ -172,9 +186,9 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 一年前，星球的定价还是 99 元一年，第一批优惠券的额度是 30 元，等于说 69 元的低价就可以加入，再扣除掉星球手续费，几乎就是纯粹做公益。
 
-随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://javabetter.cn/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
+随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://mp.weixin.qq.com/s/-NvJWJD_kZVzTHWN3sPP7Q)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
 
-目前星球已经 3300+ 人了，所以星球也涨价到了 129 元，后续会讲星球的价格调整为 149 元/年，所以想加入的小伙伴一定要趁早。
+目前星球已经 3500+ 人了，所以星球也涨价到了 129 元，后续会讲星球的价格调整为 149 元/年，所以想加入的小伙伴一定要趁早。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904114419.png)
 
