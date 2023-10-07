@@ -281,7 +281,7 @@ System.out.println(subStr);  // 输出 "world"
 
 ```java
 String str = "Hello, world!";
-String prefix = str.substring(0, 5);  // 提取前5个字符，即 "Hello,"
+String prefix = str.substring(0, 5);  // 提取前5个字符，即 "Hello"
 String suffix = str.substring(7);     // 提取从第7个字符开始的所有字符，即 "world!"
 ```
 
