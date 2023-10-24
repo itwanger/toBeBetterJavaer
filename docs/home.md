@@ -53,18 +53,20 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **3400 多名** 球友加入了，如果你也需要一个良好的学习环境，[戳链接](https://javabetter.cn/zhishixingqiu/)加入我们吧！这是一个**编程学习指南 + Java项目实战 + LeetCode刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **3700 多名** 球友加入了，如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。新人可免费体验 3 天，不满意可全额退款（星球官方机制😄）。
 
-<a href="https://javabetter.cn/zhishixingqiu/">
-  <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/map.png">
-</a>
+<img src="https://cdn.tobebetterjavaer.com/paicoding/7c0ac1af155d3c1a1df268a17813ca45.png" title="二哥的编程星球" width="400" />
 
-知识图谱里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。下面 👇🏻 是二哥最近一直在做的三件大事，对你的求职和学习都会很有帮助：
+这是一个**编程学习指南 + Java 项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231019155412.png)
 
-- ✌️：[官宣：二哥的Java面试指南+八股文发布了~](https://javabetter.cn/zhishixingqiu/mianshi.html)
-- ✌️：[官宣：二哥的实战项目技术派上线了~](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)
-- ✌️：[官宣：二哥的前端React项目2.0上线了~](https://mp.weixin.qq.com/s/MSFOGhBupTgpSSt6UDfRug)
+两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+
+- [二哥的Java面试指南专栏发布了✌️](https://javabetter.cn/zhishixingqiu/mianshi.html)
+- [二哥的原创实战项目技术派上线了✌️](https://mp.weixin.qq.com/s/AyRK5OWGYugS6s2vn2CPuA)
+- [2000+薪资待遇还不错的公司名单✌️](https://mp.weixin.qq.com/s/7JIKnYCYtYrpAXRTjU0LLw)
+- [二哥的并发编程小册发布了✌️](https://javabetter.cn/thread/)
 
 ## 学习路线
 

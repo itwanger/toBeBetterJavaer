@@ -1,25 +1,24 @@
 ---
 title: JVM到底是什么？
-shortTitle: JVM到底是什么？
+shortTitle: JVM是什么？
 category:
   - Java核心
 tag:
   - Java虚拟机
-description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，JVM到底是什么？
+description: JVM是Java程序执行的环境，它隐藏了底层操作系统和硬件的复杂性，提供了一个统一、稳定和安全的运行平台。
 head:
   - - meta
     - name: keywords
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机
 ---
 
-# JVM到底是什么？
+# 第一节：JVM 到底是什么？
 
-
-“二哥，之前的文章里提到 JVM，说实在的， 我还不知道它到底是干嘛的，你能给我普及一下吗？”三妹咪了一口麦香可可奶茶后对我说。
+“二哥，之前的文章里提到了 JVM，说实在的，我还不知道它到底是干嘛的，你能给我普及一下吗？”三妹咪了一口麦香可可奶茶后对我说。
 
 “三妹，不要担心，这篇文章来带你认识一下什么是 JVM，这也是 Java 中非常重要的一块知识，每个程序员都应该了解的。”说完最后这句话，我脸上忍不住泛起了一阵羞涩的红晕。
 
-看过《[Java 发展简史](https://mp.weixin.qq.com/s/Ctouw652iC0qtrmjen9aEw)》的小伙伴应该知道，Sun 在 1991 年成立了一个由詹姆斯·高斯林（James Gosling）领导的，名为“Green”的项目组，目的是开发一种能够在各种消费性电子产品上运行的程序架构。
+看过《[Java 发展简史](https://javabetter.cn/overview/what-is-java.html)》的小伙伴应该知道，Sun 在 1991 年成立了一个由詹姆斯·高斯林（James Gosling）领导的，名为“Green”的项目组，目的是开发一种能够在各种消费性电子产品上运行的程序架构。
 
 一开始，项目组打算使用 C++，但 C++ 无法达到跨平台的要求，比如在 Windows 系统下编译的 Hello.exe 无法直接拿到 Linux 环境下执行。
 
@@ -39,9 +38,9 @@ head:
 
 来个结合体呗，编译器和直译器一块上！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-03.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231019153456.png)
 
-编译器负责把 Java 源代码编译成字节码（不清楚的小伙伴可以点击链接查看[上一节](https://mp.weixin.qq.com/s/GYDFndO0Q1Nqzcc_Te61gw)），Java 虚拟机（Java Virtual Machine，简称 JVM） 负责把字节码转换成机器码。转换的时候，可以做一些压缩或者优化，这样的机器码跑起来就快多了。
+编译器负责把 Java 源代码编译成字节码（[字节码会在后面细讲](https://javabetter.cn/jvm/bytecode.html)），Java 虚拟机（Java Virtual Machine，简称 JVM） 负责把字节码转换成机器码。转换的时候，可以做一些压缩或者优化，这样的机器码跑起来就快多了。
 
 不仅跨平台的目的达到了，而且性能得到了优化。
 
@@ -51,7 +50,9 @@ head:
 
 记得上大学那会，由于没有 Linux 环境，但又需要在上面玩一些命令，于是就在 Windows 上装 Linux 的虚拟机，这个 JVM 就类似这种东西。
 
- 说白了，就是我们编写 Java 代码，编译 Java 代码，目的不是让它在 Linux、Windows 或者 MacOS 上跑，而是在 JVM 上跑。
+说白了，就是我们编写 Java 代码，编译 Java 代码，目的不是让它在 Linux、Windows 或者 MacOS 上跑，而是在 JVM 上跑。
+
+## 虚拟机家族
 
 说到这，三妹是不是想问，“都有哪些 Java 虚拟机呢？”来看下面这张思维导图：
 
@@ -93,6 +94,8 @@ HotSpot 的技术优势就在于热点代码探测技术（名字就从这来）
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-05.png)
 
+## JVM 长什么样
+
 解释了这么多 Java 虚拟机后，三妹是不是想问，“Java 虚拟机长什么样子呢？”
 
 Java 虚拟机虽然是虚拟的，但它的内部是可以划分为：
@@ -103,14 +106,12 @@ Java 虚拟机虽然是虚拟的，但它的内部是可以划分为：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-06.png)
 
-
-**1）类加载器**
-
+### 1）类加载器
 
 类加载器是 Java 虚拟机的一个子系统，用于加载类文件。每当我们运行一个 Java 程序，它都会由类加载器首先加载。
 
-一般来说，Java 程序员并不需要直接同类加载器进行交互。JVM 默认的行为就已经足够满足大多数情况的需求了。不过，如果遇到了需要和类加载器进行交互的情况，而对类加载器的机制又不是很了解的话，就不得不花大量的时间去调试 
- `ClassNotFoundException` 和 `NoClassDefFoundError` 等异常。
+一般来说，Java 程序员并不需要直接同类加载器进行交互。JVM 默认的行为就已经足够满足大多数情况的需求了。不过，如果遇到了需要和类加载器进行交互的情况，而对类加载器的机制又不是很了解的话，就不得不花大量的时间去调试
+`ClassNotFoundException` 和 `NoClassDefFoundError` 等异常。
 
 对于任意一个类，都需要由它的类加载器和这个类本身一同确定其在 JVM 中的唯一性。也就是说，如果两个类的加载器不同，即使两个类来源于同一个字节码文件，那这两个类就必定不相等（比如两个类的 Class 对象不 `equals`）。
 
@@ -144,19 +145,17 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 
 按理说，扩展类加载器的上层类加载器是启动类加载器，但启动类加载器是虚拟机的内置类加载器，通常表示为 null。
 
-**2）运行时数据区**
+### 2）运行时数据区
 
 来看下面这张图：
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-07.png)
 
-
-- PC寄存器（PC Register），也叫程序计数器（Program Counter Register），是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的信号指示器。
+- PC 寄存器（PC Register），也叫程序计数器（Program Counter Register），是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的信号指示器。
 
 - JVM 栈（Java Virtual Machine Stack），与 PC 寄存器一样，JVM 栈也是线程私有的。每一个 JVM 线程都有自己的 JVM 栈，这个栈与线程同时创建，它的生命周期与线程相同。
 
-- 本地方法栈（Native Method Stack），JVM 可能会使用到传统的栈来支持 Native 方法（使用 Java 语言以外的其它语言［C语言］编写的方法）的执行，这个栈就是本地方法栈。
+- 本地方法栈（Native Method Stack），JVM 可能会使用到传统的栈来支持 Native 方法（使用 Java 语言以外的其它语言［C 语言］编写的方法）的执行，这个栈就是本地方法栈。
 
 - 堆（Heap），在 JVM 中，堆是可供各条线程共享的运行时内存区域，也是供所有类实例和数据对象分配内存的区域。
 
@@ -164,8 +163,7 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 
 - 运行时常量池（Runtime Constant Pool），运行时常量池是每一个类或接口的常量池在运行时的表现形式，它包括了编译器可知的数值字面量，以及运行期解析后才能获得的方法或字段的引用。简而言之，当一个方法或者变量被引用时，JVM 通过运行时常量区来查找方法或者变量在内存里的实际地址。
 
-
-**3）执行引擎**
+### 3）执行引擎
 
 执行引擎包含了：
 
@@ -177,11 +175,27 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 
 “好的，二哥，我也觉得今天的知识量够了，我要好好消化几天。我会加油的！”三妹似乎对未来充满了希望，这正是我想看到的。
 
-----
+## 小结
 
-GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
+总的来说，JVM是Java程序执行的环境，它隐藏了底层操作系统和硬件的复杂性，提供了一个统一、稳定和安全的运行平台。
 
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+---
+
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **3700 多名** 球友加入了，如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。新人可免费体验 3 天，不满意可全额退款（星球官方机制😄）。
+
+<img src="https://cdn.tobebetterjavaer.com/paicoding/7c0ac1af155d3c1a1df268a17813ca45.png" title="二哥的编程星球" width="400" />
+
+这是一个**编程学习指南 + Java 项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231019155412.png)
+
+两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+
+- [二哥的Java面试指南专栏发布了✌️](https://javabetter.cn/zhishixingqiu/mianshi.html)
+- [二哥的原创实战项目技术派上线了✌️](https://mp.weixin.qq.com/s/AyRK5OWGYugS6s2vn2CPuA)
+- [2000+薪资待遇还不错的公司名单✌️](https://mp.weixin.qq.com/s/7JIKnYCYtYrpAXRTjU0LLw)
+- [二哥的并发编程小册发布了✌️](https://javabetter.cn/thread/)
+
+最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。

@@ -32,11 +32,9 @@ head:
 
 看着他熟练地在命令行里安装 JDK 的样子，我的嘴角开始微微上扬，真不错！这次总算招到了一个靠谱的。
 
-于是我就安排他做一个记录，打算发表在我的小破站《二哥的Java进阶之路》上。从他嘴里了解到，他用的命令行软件管理器叫 chocolatey，这是一个Windows下的命令行软件管理器，在 GitHub 上已经收获 8.2k+的星标，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
-
+于是我就安排他做一个记录，打算发表在我的小破站《二哥的 Java 进阶之路》上。从他嘴里了解到，他用的命令行软件管理器叫 chocolatey，这是一个 Windows 下的命令行软件管理器，在 GitHub 上已经收获 8.2k+的星标，可以方便开发者像在 Linux 下使用 yum 命令来安装软件，或者像在 macOS 下使用 brew 命令来安装软件，非常酷炫。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-92ee5dda-830f-47fd-8770-7a765ef30b5a.png)
-
 
 以下是他的记录，一起来欣赏下。
 
@@ -44,16 +42,15 @@ head:
 
 对于一名 Java 后端程序员来说，初学阶段，你可以选择在 IDE 中直接编译运行 Java 代码，但有时候也需要在 Shell 下编译和运行 Java 代码。
 
->Windows 下自带的 Shell 叫命令提示符，或者 cmd 或者 powershell，macOS 下叫终端 terminal。
+> Windows 下自带的 Shell 叫命令提示符，或者 cmd 或者 powershell，macOS 下叫终端 terminal。
 
-但当你需要在生产环境下部署 Java项目或者查看日志的话，就必然会用到 Shell，这个阶段，Shell 的使用频率高到可以用一个成语来形容——朝夕相伴。
+但当你需要在生产环境下部署 Java 项目或者查看日志的话，就必然会用到 Shell，这个阶段，Shell 的使用频率高到可以用一个成语来形容——朝夕相伴。
 
 一些第三方软件会在原生的 Shell 基础上提供更强大的功能，常见的有 tabby、Warp、xhsell、FinalShell、MobaXterm、Aechoterm、WindTerm、termius、iterm2 等等，有些只能在 Windows 上使用，有些只能在 macOS 上使用，有些支持全平台。还有 ohmyzsh 这种超神的 Shell 美化工具。
 
 这里，我们列举一些 Shell 的基本操作命令（Windows 和 macOS/Linux 有些许差异）：
 
 - 切换目录，可以使用 cd 命令切换目录，`cd ..` 返回上级目录。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-21db6ccd-3bec-4e8c-b72a-6cba674cae63.png)
 
@@ -67,24 +64,22 @@ head:
 
 - 命令历史，macOS/Linux 下可以使用 `history` 命令查看所有使用过的命令。Windows 可以按下 F7 键。
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-96eb0dde-c08c-4b52-9007-8f3130e22d94.png)
 
 - 解压文件，后缀名为“.zip”的文件是一个包含了其他文件的压缩包，macOS/Linux 系统自身已经提供了用于解压的 unzip 命令， Windows 的话需要手动安装。
 
-### 再来了解chocolatey
+### 再来了解 chocolatey
 
-先安装 chocolatey。这是一个Windows下的命令行软件管理器，可以方便开发者像在Linux下使用yum命令来安装软件，或者像在macOS下使用brew 命令来安装软件，非常酷炫。
+先安装 chocolatey。这是一个 Windows 下的命令行软件管理器，可以方便开发者像在 Linux 下使用 yum 命令来安装软件，或者像在 macOS 下使用 brew 命令来安装软件，非常酷炫。
 
->The biggest challenge is reducing duplication of effort, so users turn to Chocolatey for simplicity
+> The biggest challenge is reducing duplication of effort, so users turn to Chocolatey for simplicity
 
 传统的安装方式要么非常耗时，要么非常低效，在命令行安装软件除了简单高效，还能自动帮我们配置环境变量。
 
->- 官方地址：[https://chocolatey.org/](https://chocolatey.org/)
->- 安装文档：[https://chocolatey.org/install#individual](https://chocolatey.org/install#individual)
+> - 官方地址：[https://chocolatey.org/](https://chocolatey.org/)
+> - 安装文档：[https://chocolatey.org/install#individual](https://chocolatey.org/install#individual)
 
 第一步，以管理员的身份打开 cmd 命令行。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-3dae462d-56d1-4e80-9d47-bcba1c2ee292.png)
 
@@ -116,36 +111,34 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 可以通过上面提到的命令行的方式，也可以访问官方仓库进行筛选。
 
->[https://community.chocolatey.org/packages](https://community.chocolatey.org/packages)
+> [https://community.chocolatey.org/packages](https://community.chocolatey.org/packages)
 
 比如说我们来查找 Java。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-aa483180-e395-4753-b8ca-0479b05ec4b5.png)
 
-好，现在可以直接在shell中键入 `choco install jdk8` 来安装 JDK8 了，并且会自动将Java加入到环境变量中，不用再去「我的电脑」「环境变量」中新建 JAVA_HOME 并复制 JDK 安装路径配置 PATH 变量了，是不是非常 nice？
+好，现在可以直接在 shell 中键入 `choco install jdk8` 来安装 JDK8 了，并且会自动将 Java 加入到环境变量中，不用再去「我的电脑」「环境变量」中新建 JAVA_HOME 并复制 JDK 安装路径配置 PATH 变量了，是不是非常 nice？
 
-稍等片刻，键入 `java -version` 就可以确认Java是否安装成功了。
-
+稍等片刻，键入 `java -version` 就可以确认 Java 是否安装成功了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-ddc37a22-43d7-4e40-bcfd-7208f9d1df59.png)
 
-不得不承认！非常nice！
+不得不承认！非常 nice！
 
 再比如说安装 Redis，只需要找到 Redis 的安装命令在 Choco 下执行一下就 OK 了。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-9cd5f46e-054c-4e1e-bcbb-1d11e36accfe.png)
 
 安装 Git：
 
 ```
-choco install git.install 
+choco install git.install
 ```
 
 安装 node.js
 
 ```
-choco install nodejs.install 
+choco install nodejs.install
 ```
 
 安装 7zip
@@ -164,7 +157,6 @@ Choco 上的软件包也非常的多，基本上软件开发中常见的安装�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-0f43e407-68ab-4c2d-8fb9-7fb88ca638ec.png)
 
-
 ### 小结
 
 通过小二的实战笔记，我们可以了解到。
@@ -180,5 +172,3 @@ Choco 上的软件包也非常的多，基本上软件开发中常见的安装�
 如果不想特殊设置的话，Chocolatey 整体的操作与使用还是比较亲民的。就连刚接触软件开发的小白也可以直接使用，而且路人看着会觉得你特别厉害。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
-
