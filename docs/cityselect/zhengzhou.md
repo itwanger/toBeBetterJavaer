@@ -27,7 +27,7 @@ tag:
 
 ### 数字郑州
 
-![img](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/zhengzhou-b88e7ee0-5ab7-40af-8d1d-16cd3eae7b97.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/zhengzhou-b88e7ee0-5ab7-40af-8d1d-16cd3eae7b97.png)
 
 这个是阿里和郑州的政府合作的，目前评价大家对数字郑州的评价很不错呀，薪资也挺给力的，大家可以看下 Boss 上数字郑州的招聘岗位以及薪资报价呀。
 
@@ -35,7 +35,7 @@ tag:
 
 ### 中原银行
 
-![img](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/zhengzhou-db7b6919-2158-4846-914f-f30e028c0234.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/zhengzhou-db7b6919-2158-4846-914f-f30e028c0234.png)
 
 中原银行的工资比较高，在郑州生活的话去中原银行是很不错的选择，不过想进中原银行的话，不是校招想进去有点难。薪资水平可以看下 Boss 上的招聘薪资水平。
 
@@ -54,8 +54,6 @@ tag:
 新华三大部分情况下能双休，周末加班也有加班费，不过涨薪很缓慢。在网上看到一个帖子，有人问 offer 选西安中兴还算郑州新华三，中兴和华三的职工都在互相劝退，说这是一个送命题。薪资水平大家还是参考下Boss上的招聘薪资水平吧。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/zhengzhou-caa46657-f65d-4965-b553-c9f4502f3cc9.png)
-
-![点击并拖拽以移动](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/zhengzhou-62496f27-fe20-45c6-b116-90a38e607a09.jpg)
 
 ### UU 跑腿
 
