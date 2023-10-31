@@ -147,13 +147,20 @@ Windows、Linux、MacOS 等操作系统都有相应的 JDK，只要安装好了 
 
 ## 运行时
 
-当我们有了.class 文件也就是[字节码文件](https://javabetter.cn/jvm/class-file-jiegou.html)之后，就需要启动一个 JVM 实例来进一步加载解析.class 字节码。
+当有了.class 文件也就是[字节码文件](https://javabetter.cn/jvm/class-file-jiegou.html)之后，就需要启动一个 JVM 实例来进一步加载解析 .class 文件中的字节码。
 
-JVM 本质上是操作系统中的一个进程，因此要想通过 JVM 加载解析.class 文件，必须先启动一个 JVM 进程。JVM 进程启动之后通过[类加载器](https://javabetter.cn/jvm/class-load.html)加载 .class 文件，将字节码加载到 JVM 对应的内存空间，JVM 将字节码文件转化为汇编语言后再由硬件解析为机器语言最终最终交给 CPU 执行。
+JVM 本质上是操作系统中的一个进程，因此要想通过 JVM 加载解析字节码文件，就必须先启动一个 JVM 进程。JVM 进程启动之后通过[类加载器（后面会细讲）](https://javabetter.cn/jvm/class-load.html)加载字节码文件，然后将字节码加载到 JVM 对应的内存空间，再转化为汇编语言后由硬件解析为机器语言最终交给 CPU 执行。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231030194039.png)
 
-Java 字节码是沟通 JVM 与 Java 代码的桥梁，下面使用 [javap](https://javabetter.cn/jvm/bytecode.html)（从编译过的.class 文件中提取出源代码和元数据信息，并将其显示在命令行界面上，后面还会细讲） 来稍微看一下字节码。
+Java 字节码是 JVM 执行的指令集，每个指令由一个操作码（opcode）和零个或多个操作数（operands）组成。
+
+- 操作码：一个字节大小的指令，用于表示具体的操作（如加法、加载变量等）。
+- 操作数：跟随操作码，用于提供额外信息（如变量索引、常量值等）。
+
+下面使用 [javap](https://javabetter.cn/jvm/bytecode.html) 来稍微看一下 HelloWorld 程序的字节码。
+
+>javap 命令可以从编译后的 .class 文件中提取出源代码和元数据信息，并将其显示在命令行界面上。
 
 ```
 0 getstatic #2 <java/lang/System.out>
@@ -162,9 +169,30 @@ Java 字节码是沟通 JVM 与 Java 代码的桥梁，下面使用 [javap](http
 8 return
 ```
 
-Java 虚拟机采用基于栈的架构，其指令由操作码和操作数组成。这些[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)（后面会细讲），就叫作 opcode。其中，getstatic、ldc、invokevirtual、return 等，就是 opcode，可以看到是比较容易理解的。
+这段字节码的意思是调用 System.out.println 方法打印"Hello World"字符串。下面是详细的解释：
 
-我们继续使用 [hexdump](https://zh.wikipedia.org/wiki/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%82%A8)（一个在 Unix 和 Linux 系统中常用的工具，用于以十六进制的形式显示文件的内容）看一下字节码的二进制内容。与以上字节码对应的二进制，就是下面这几个数字：
+1. `0: getstatic #2 <java/lang/System.out>`
+   - 操作码：getstatic
+   - 操作数：#2
+   - 描述：这条指令的作用是获取静态字段，这里获取的是`java.lang.System`类的`out`静态字段，它是一个`PrintStream`类型的输出流。#2是一个指向常量池的索引，常量池里存储了`java/lang/System.out`的引用信息。执行这条指令后，`System.out`的引用会被压入操作数栈顶。
+
+2. `3: ldc #3 <Hello World>`
+   - 操作码：ldc
+   - 操作数：#3
+   - 描述：这条指令的作用是从常量池中加载一个常量值（这里是字符串"Hello World"）到操作数栈顶。#3是一个指向常量池的索引，常量池里存储了字符串"Hello World"的引用。执行这条指令后，字符串"Hello World"的引用会被压入操作数栈顶。
+
+3. `5: invokevirtual #4 <java/io/PrintStream.println>`
+   - 操作码：invokevirtual
+   - 操作数：#4
+   - 描述：这条指令的作用是调用实例方法。这里调用的是`PrintStream`类的`println`方法，用来打印字符串。#4是一个指向常量池的索引，常量池里存储了`java/io/PrintStream.println`方法的引用信息。需要注意的是，调用实例方法前，需要将对象引用和方法参数压入操作数栈。在这个例子中，`System.out`的引用和字符串"Hello World"已经被压入栈中，所以可以直接调用`println`方法。
+
+4. `8: return`
+   - 操作码：return
+   - 描述：这条指令的作用是从当前方法返回。因为这是一个`void`方法，所以不需要从操作数栈中弹出返回值。
+
+上面的 getstatic、ldc、invokevirtual、return 等就是 [字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)后面会细讲，这里就先简单了解下。
+
+大家可以使用 [hexdump](https://zh.wikipedia.org/wiki/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%82%A8)（一个在 Unix 和 Linux 系统中常用的工具，用于以十六进制的形式显示文件的内容）看一下字节码的二进制内容。与以上字节码对应的二进制，就是下面这几个数字：
 
 ```
 b2 00 02 12 03 b6 00 04 b1
@@ -172,28 +200,22 @@ b2 00 02 12 03 b6 00 04 b1
 
 > 注意：这里是二进制文件的 16 进制表示，也就是 hex，一般分析二进制文件都是以 hex 进行分析。
 
-我们可以看一下它们的对应关系。
+我们可以看一下字节码指令和二进制之间的对应关系，以及对应的语义。
 
 ```
 0xb2   getstatic       获取静态字段的值
 0x12   ldc             常量池中的常量值入栈
 0xb6   invokevirtual   运行时方法绑定调用方法
-0xb1   return          void 函数返回
+0xb1   return          void 方法返回
 ```
 
-opcode 有一个字节的长度(0~255)，意味着指令集的操作码个数不能操作 256 条。而紧跟在 opcode 后面的是被操作数。比如 b2 00 02，就代表了 `getstatic #2 <java/lang/System.out>`。
+JVM 就是靠解析这些操作码和操作数来完成程序的执行的。当我们使用 Java 命令运行 .class 文件的时候，实际上就相当于启动了一个 JVM 进程。
 
-JVM 就是靠解析这些 opcode 和操作数来完成程序的执行的。当我们使用 Java 命令运行 .class 文件的时候，实际上就相当于启动了一个 JVM 进程。
-
-然后 JVM 会翻译这些字节码，它有两种执行方式。常见的就是解释执行，将 opcode + 操作数翻译成机器代码；另外一种执行方式就是 [JIT（后面会细讲）](https://javabetter.cn/jvm/jit.html)，也就是我们常说的即时编译，它会在一定条件下将字节码编译成机器码之后再执行。
-
-这些 .class 文件会被加载、存放到 metaspace 中，等待被调用，这里会有一个[类加载器（后面会细讲）](https://javabetter.cn/jvm/class-load.html)的概念。
-
-而 JVM 的程序运行，都是在栈上完成的，这和其他普通程序的执行是类似的，同样分为堆和栈。比如我们现在运行到了 main 方法，就会给它分配一个栈帧。当退出方法体时，会弹出相应的栈帧。你会发现，大多数字节码指令，就是不断的对栈帧进行操作。
-
-而其他大块数据，是存放在堆上的。
+然后 JVM 会翻译这些字节码，它有两种执行方式。常见的就是解释执行，将操作码和操作数翻译成机器代码；另外一种执行方式就是 [JIT（后面会细讲）](https://javabetter.cn/jvm/jit.html)，也就是我们常说的即时编译，它会在一定条件下将字节码编译成机器码之后再执行。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
+
+
 
 ---
 
