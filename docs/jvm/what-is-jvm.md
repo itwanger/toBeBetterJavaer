@@ -1,6 +1,6 @@
 ---
-title: JVM到底是什么？
-shortTitle: JVM是什么？
+title: 大白话+手绘图带你认识 JVM，JVM到底是什么？
+shortTitle: 大白话带你认识JVM
 category:
   - Java核心
 tag:
@@ -12,11 +12,11 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机
 ---
 
-# 第一节：JVM 到底是什么？
+# 第一节：大白话带你认识 JVM
 
 “二哥，之前的文章里提到了 JVM，说实在的，我还不知道它到底是干嘛的，你能给我普及一下吗？”三妹咪了一口麦香可可奶茶后对我说。
 
-“三妹，不要担心，这篇文章来带你认识一下什么是 JVM，这也是 Java 中非常重要的一块知识，每个程序员都应该了解的。”说完最后这句话，我脸上忍不住泛起了一阵羞涩的红晕。
+“三妹，不要担心，这篇内容来带你认识一下什么是 JVM，这也是 Java 中非常重要的一块知识，每个程序员都应该了解的。”说完最后这句话，我脸上忍不住泛起了一阵羞涩的红晕。
 
 看过《[Java 发展简史](https://javabetter.cn/overview/what-is-java.html)》的小伙伴应该知道，Sun 在 1991 年成立了一个由詹姆斯·高斯林（James Gosling）领导的，名为“Green”的项目组，目的是开发一种能够在各种消费性电子产品上运行的程序架构。
 
@@ -52,7 +52,7 @@ head:
 
 说白了，就是我们编写 Java 代码，编译 Java 代码，目的不是让它在 Linux、Windows 或者 MacOS 上跑，而是在 JVM 上跑。
 
-## 虚拟机家族
+## JVM家族
 
 说到这，三妹是不是想问，“都有哪些 Java 虚拟机呢？”来看下面这张思维导图：
 
@@ -94,9 +94,9 @@ HotSpot 的技术优势就在于热点代码探测技术（名字就从这来）
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-05.png)
 
-## JVM 长什么样
+## JVM 内部结构
 
-解释了这么多 Java 虚拟机后，三妹是不是想问，“Java 虚拟机长什么样子呢？”
+了解了这么多 Java 虚拟机后，三妹是不是想问，“Java 虚拟机长什么样子呢？”
 
 Java 虚拟机虽然是虚拟的，但它的内部是可以划分为：
 
@@ -106,9 +106,15 @@ Java 虚拟机虽然是虚拟的，但它的内部是可以划分为：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-06.png)
 
+好，我们这三个结构再细化一下，如下图所示。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030185742.png)
+
 ### 1）类加载器
 
-类加载器是 Java 虚拟机的一个子系统，用于加载类文件。每当我们运行一个 Java 程序，它都会由类加载器首先加载。
+类加载器是 Java 虚拟机的一个子系统，用于加载类文件。每当我们运行一个 Java 程序，它都会由类加载器首先加载。类加载器负责将字节码文件加载到内存中，主要经历加载-》连接-》实例化三个阶段完成类加载操作（[后面会细讲](https://javabetter.cn/jvm/class-load.html)）。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030185834.png)
 
 一般来说，Java 程序员并不需要直接同类加载器进行交互。JVM 默认的行为就已经足够满足大多数情况的需求了。不过，如果遇到了需要和类加载器进行交互的情况，而对类加载器的机制又不是很了解的话，就不得不花大量的时间去调试
 `ClassNotFoundException` 和 `NoClassDefFoundError` 等异常。
@@ -147,9 +153,11 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 
 ### 2）运行时数据区
 
-来看下面这张图：
+JVM 定义了在 Java 程序运行期间需要使用到的内存区域，简单来说这块内存区域存放了字节码信息以及程序执行过程数据。来看下面这张图：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-07.png)
+
+来一一解释下。
 
 - PC 寄存器（PC Register），也叫程序计数器（Program Counter Register），是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的信号指示器。
 
@@ -161,21 +169,29 @@ jdk.internal.loader.ClassLoaders$PlatformClassLoader@2d209079
 
 - 方法区（Method area），在 JVM 中，被加载类型的信息都保存在方法区中。包括类型信息（Type Information）和方法列表（Method Tables）。方法区是所有线程共享的，所以访问方法区信息的方法必须是线程安全的。
 
-- 运行时常量池（Runtime Constant Pool），运行时常量池是每一个类或接口的常量池在运行时的表现形式，它包括了编译器可知的数值字面量，以及运行期解析后才能获得的方法或字段的引用。简而言之，当一个方法或者变量被引用时，JVM 通过运行时常量区来查找方法或者变量在内存里的实际地址。
+- [运行时常量池](https://javabetter.cn/string/constant-pool.html)（Runtime Constant Pool），运行时常量池是每一个类或接口的常量池在运行时的表现形式，它包括了编译器可知的数值字面量，以及运行期解析后才能获得的方法或字段的引用。简而言之，当一个方法或者变量被引用时，JVM 通过运行时常量区来查找方法或者变量在内存里的实际地址。
+
+不过需要说明的是在JDK 1.8及以后的版本中，方法区被移除了，取而代之的是元空间（Metaspace）。元空间与方法区的作用相似，都是存储类的结构信息，包括类的定义、方法的定义、字段的定义以及字节码指令。不同的是，元空间不再是JVM内存的一部分，而是通过本地内存（Native Memory）来实现的。在JVM启动时，元空间的大小由MaxMetaspaceSize参数指定，JVM在运行时会自动调整元空间的大小，以适应不同的程序需求。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030191213.png)
 
 ### 3）执行引擎
 
 执行引擎包含了：
 
 - 解释器：读取字节码流，然后执行指令。因为它是一行一行地解释和执行指令，所以它可以很快地解释字节码，但是执行起来会比较慢（毕竟要一行执行完再执行下一行）。
+- 即时（Just-In-Time，[JIT](https://javabetter.cn/jvm/jit.html)）编译器：即时编译器用来弥补解释器的缺点，提高性能。执行引擎首先按照解释执行的方式来执行，然后在合适的时候，即时编译器把整段字节码编译成本地代码。然后，执行引擎就没有必要再去解释执行方法了，它可以直接通过本地代码去执行。执行本地代码比一条一条进行解释执行的速度快很多。编译后的代码可以执行的很快，因为本地代码是保存在缓存里的。
+- [垃圾回收器](https://javabetter.cn/jvm/garbage-collector.html)，用来回收堆内存中的垃圾对象。
 
-- 即时（Just-In-Time，JIT）编译器：即时编译器用来弥补解释器的缺点，提高性能。执行引擎首先按照解释执行的方式来执行，然后在合适的时候，即时编译器把整段字节码编译成本地代码。然后，执行引擎就没有必要再去解释执行方法了，它可以直接通过本地代码去执行。执行本地代码比一条一条进行解释执行的速度快很多。编译后的代码可以执行的很快，因为本地代码是保存在缓存里的。
+字节码执行引擎从元空间获取字节码指令进行执行（[后面会细讲](https://javabetter.cn/jvm/how-run-java-code.html)）。当Java程序调用一个方法时，JVM会根据方法的描述符和方法所在的类在元空间中查找对应的字节码指令。字节码执行引擎从元空间获取字节码指令，然后执行这些指令。
+
+
+
+## 小结
 
 “三妹，关于 Java 虚拟机，今天我们就学到这吧，后面再展开讲，怎么样？”转动了一下僵硬的脖子后，我对三妹说，“Java 虚拟机是一块很大很深的内容，如果一上来学太多的话，我怕难倒你。”
 
 “好的，二哥，我也觉得今天的知识量够了，我要好好消化几天。我会加油的！”三妹似乎对未来充满了希望，这正是我想看到的。
-
-## 小结
 
 总的来说，JVM是Java程序执行的环境，它隐藏了底层操作系统和硬件的复杂性，提供了一个统一、稳定和安全的运行平台。
 
