@@ -290,8 +290,8 @@ head:
 
 ### Java虚拟机
 
-- [什么是JVM？](jvm/what-is-jvm.md)
-- [JVM到底是如何运行Java代码的？](jvm/how-run-java-code.md)
+- [大白话带你认识JVM](jvm/what-is-jvm.md)
+- [JVM是如何运行Java代码的？](jvm/how-run-java-code.md)
 - [我竟然不再抗拒Java的类加载机制了](jvm/class-load.md)
 - [详解Java的类文件（class文件）结构](jvm/class-file-jiegou.md)
 - [从javap的角度轻松看懂字节码](jvm/bytecode.md)

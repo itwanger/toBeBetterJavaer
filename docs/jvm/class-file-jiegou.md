@@ -66,6 +66,8 @@ class Hello {
 
 咦？完全看不懂的样子呢。它是 class 文件的一种十六进制形式，`xxd` 这个命令的神奇之处就是它能将一个给定文件转换成十六进制形式。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/class-file-jiegou-20231030194547.png)
+
 ### 01、魔数
 
 第一行中有一串特殊的字符 `cafebabe`，它就是一个魔数，是 JVM 识别 class 文件的标志，JVM 会在验证阶段检查 class 文件是否以该魔数开头，如果不是则会抛出 `ClassFormatError`。
