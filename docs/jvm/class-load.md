@@ -1,6 +1,6 @@
 ---
 title: 我竟然不再抗拒Java的类加载机制了
-shortTitle: 我竟然不再抗拒Java的类加载机制了
+shortTitle: Java类加载机制
 category:
   - Java核心
 tag:
@@ -12,40 +12,29 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,类加载机制
 ---
 
-# 我竟然不再抗拒Java的类加载机制了
+# 第三节：Java类加载机制
 
+[上一节](https://javabetter.cn/jvm/how-run-java-code.html)在讲 JVM 运行 Java 代码的时候，我们提到，JVM 需要将编译后的字节码文件加载到其内部的运行时数据区域中进行执行。这个过程涉及到了 Java 的类加载机制，也是面试常问的环节，所以我们来详细地讲一讲。
 
-### 01、字节码
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
 
-在聊 Java 类加载机制之前，需要先了解一下 Java 字节码，因为它和类加载机制息息相关。
+字节码我们[上一节](https://javabetter.cn/jvm/how-run-java-code.html)也讲过，它和类的加载机制息息相关，相信大家都还有印象。
 
-计算机只认识 0 和 1，所以任何语言编写的程序都需要编译成机器码才能被计算机理解，然后执行，Java 也不例外。
-
-Java 在诞生的时候喊出了一个非常牛逼的口号：“Write Once, Run Anywhere”，为了达成这个目的，Sun 公司发布了许多可以在不同平台（Windows、Linux）上运行的 Java 虚拟机（JVM）——负责载入和执行 Java 编译后的字节码。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/class-load-01.png)
-
-
-到底 Java 字节码是什么样子，我们借助一段简单的代码来看一看。
-
-源码如下：
+这里再给大家普及一个小技巧，可以通过 xxd 命令来查看字节码文件，先看下面这段代码。
 
 ```java
-package com.cmower.java_demo;
-
 public class Test {
-
     public static void main(String[] args) {
         System.out.println("沉默王二");
     }
-
 }
 ```
 
-代码编译通过后，通过 `xxd Test.class` 命令查看一下这个字节码文件。
+代码编译通过后，在命令行执行 `xxd Test.class`（macOS 用户可以直接执行，Windows 用户可以戳[这个链接](https://superuser.com/questions/497953/convert-hex-dump-of-file-to-binary-program-file-on-windows/638850#638850)获取替代品）就可以快速查看字节码的十六进制内容。
+
+>xxd 是一个用于在终端中创建十六进制转储（hex dump）或将十六进制转回二进制的工具。可通过[维基百科](https://zh.wikipedia.org/zh-sg/%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%82%A8)了解更多信息。
 
 ```
-xxd Test.class
 00000000: cafe babe 0000 0034 0022 0700 0201 0019  .......4."......
 00000010: 636f 6d2f 636d 6f77 6572 2f6a 6176 615f  com/cmower/java_
 00000020: 6465 6d6f 2f54 6573 7407 0004 0100 106a  demo/Test......j
@@ -55,35 +44,37 @@ xxd Test.class
 00000060: 000f 4c69 6e65 4e75 6d62 6572 5461 626c  ..LineNumberTabl
 ```
 
-感觉有点懵逼，对不对？
+这里只说一点，这段字节码中的 `cafe babe` 被称为“魔数”，是 JVM 识别 .class 文件（字节码文件）的标志，相信大家都知道，Java 的 logo 是一杯冒着热气的咖啡，是不是又关联上了？
 
-懵就对了。
+>文件格式的定制者可以自由选择魔数值（只要没用过），比如说 .png 文件的魔数是 `8950 4e47`。
 
-这段字节码中的 `cafe babe` 被称为“魔数”，是 JVM 识别 .class 文件的标志。文件格式的定制者可以自由选择魔数值（只要没用过），比如说 .png 文件的魔数是 `8950 4e47 `。
+至于字节码文件中的其他内容，暂时先不用去管，知道这是字节码的 16 机制内容就可以了。
 
-至于其他内容嘛，可以选择忘记了。
+## 类加载过程
 
-### 02、类加载过程
+知道什么是 Java 字节码后，我们来聊聊 Java 的类加载过程。
 
-了解了 Java 字节码后，我们来聊聊 Java 的类加载过程。
+![](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
 
-Java 的类加载过程可以分为 5 个阶段：载入、验证、准备、解析和初始化。这 5 个阶段一般是顺序发生的，但在动态绑定的情况下，解析阶段发生在初始化阶段之后。
+类从被加载到 JVM 开始，到卸载出内存，整个生命周期分为七个阶段，分别是加载、验证、准备、解析、初始化、使用和卸载。其中验证、准备和解析这三个阶段统称为连接。
 
-1）Loading（载入）
+除去使用和卸载，就是 Java 的类加载过程。这 5 个阶段一般是顺序发生的，但在动态绑定的情况下，解析阶段发生在初始化阶段之后（我们随后来解释）。
 
-JVM 在该阶段的主要目的是将字节码从不同的数据源（可能是 class 文件、也可能是 jar 包，甚至网络）转化为二进制字节流加载到内存中，并生成一个代表该类的 `java.lang.Class` 对象。
+### 1）Loading（载入）
 
-2）Verification（验证）
+JVM 在该阶段的主要目的是将字节码从不同的数据源（可能是 class 文件、也可能是 jar 包，甚至网络）转化为二进制字节流加载到内存中，并生成一个代表该类的 `java.lang.Class` 对象（在学[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)的时候有讲过）。
+
+### 2）Verification（验证）
 
 JVM 会在该阶段对二进制字节流进行校验，只有符合 JVM 字节码规范的才能被 JVM 正确执行。该阶段是保证 JVM 安全的重要屏障，下面是一些主要的检查。
 
-- 确保二进制字节流格式符合预期（比如说是否以 `cafe bene` 开头）。
-- 是否所有方法都遵守访问控制关键字的限定。
+- 确保二进制字节流格式符合预期（比如说是否以 `cafe bene` 开头，前面提到过）。
+- 是否所有方法都遵守[访问控制关键字](https://javabetter.cn/oo/access-control.html)的限定，protected、private 那些。
 - 方法调用的参数个数和类型是否正确。
 - 确保变量在使用之前被正确初始化了。
 - 检查变量是否被赋予恰当类型的值。
 
-3）Preparation（准备）
+### 3）Preparation（准备）
 
 JVM 会在该阶段对类变量（也称为静态变量，`static` 关键字修饰的）分配内存并初始化（对应数据类型的默认初始值，如 0、0L、null、false 等）。
 
@@ -99,7 +90,7 @@ chenmo 不会被分配内存，而 wanger 会；但 wanger 的初始值不是“
 
 需要注意的是，`static final` 修饰的变量被称作为常量，和类变量不同。常量一旦赋值就不会改变了，所以 cmower 在准备阶段的值为“沉默王二”而不是 `null`。
 
-4）Resolution（解析）
+### 4）Resolution（解析）
 
 该阶段将常量池中的符号引用转化为直接引用。
 
@@ -111,7 +102,7 @@ what？符号引用，直接引用？
 
 **直接引用**通过对符号引用进行解析，找到引用的实际内存地址。
 
-5）Initialization（初始化）
+### 5）Initialization（初始化）
 
 该阶段是类加载过程的最后一步。在准备阶段，类变量已经被赋过默认初始值，而在初始化阶段，类变量将被赋值为代码期望赋的值。换句话说，初始化阶段是执行类构造器方法的过程。
 
@@ -123,7 +114,7 @@ String cmower = new String("沉默王二");
 
 上面这段代码使用了 `new` 关键字来实例化一个字符串对象，那么这时候，就会调用 String 类的构造方法对 cmower 进行实例化。
 
-### 03、类加载器
+## 类加载器
 
 聊完类加载过程，就不得不聊聊类加载器。
 
@@ -170,7 +161,7 @@ sun.misc.Launcher$ExtClassLoader@15db9742
 按理说，扩展类加载器的上层类加载器是启动类加载器，但在我这个版本的 JDK 中， 扩展类加载器的 `getParent()` 返回 `null`。所以没有输出。
 
 
-### 04、双亲委派模型
+## 双亲委派模型
 
 如果以上三种类加载器不能满足要求的话，程序员还可以自定义类加载器（继承 `java.lang.ClassLoader` 类），它们之间的层级关系如下图所示。
 
@@ -184,11 +175,13 @@ PS：双亲委派模型突然让我联想到朱元璋同志，这个同志当上
 
 上文中曾提到，如果两个类的加载器不同，即使两个类来源于同一个字节码文件，那这两个类就必定不相等——双亲委派模型能够保证同一个类最终会被特定的类加载器加载。
 
-### 05、最后
+## 总结
 
 硬着头皮翻看了大量的资料，并且动手去研究以后，我发现自己竟然对 Java 类加载机制（JVM 将类的信息动态添加到内存并使用的一种机制）不那么抗拒了——真是蛮奇妙的一件事啊。
 
 也许学习就应该是这样，只要你敢于挑战自己，就能收获知识——就像山就在那里，只要你肯攀登，就能到达山顶。
+
+>参考链接：[详解Java类加载过程](https://anye3210.github.io/2021/08/02/%E8%AF%A6%E8%A7%A3Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/)
 
 ----
 
