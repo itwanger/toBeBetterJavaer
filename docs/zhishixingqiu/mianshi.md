@@ -12,9 +12,7 @@ head:
       content: 知识星球,沉默王二,二哥的Java进阶之路,编程,Java,IT,计算机专业,付费专栏
 ---
 
-大家好，我是二哥呀。
-
-今天给大家介绍一下[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的四大专栏《Java 面试指南》、《技术派实战教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》。
+大家好，我是二哥呀。今天给大家介绍一下[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的四大付费专栏《Java 面试指南》、《技术派实战教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》。
 
 以及两套高质量的 PDF：《二哥的 Java 进阶之路》.pdf、以及星球嘉宾三分恶的《面渣逆袭 Java 篇、Spring 全家桶篇、MySQL 篇、Redis 篇、分布式篇、消息队列篇、操作系统篇、计算机网络篇》.pdf。
 
@@ -80,13 +78,13 @@ head:
 
 ## 二、更多优质专栏
 
-除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《技术派实战教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《算法突击 50 题》、《华为 OD 笔试 AB 卷题库》等五个额外的专栏。
+除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《算法突击 50 题》、《华为 OD 笔试 AB 卷题库》等五个额外的专栏。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/bad32e202fd78ffb5555f2114de01eae.png)
 
 ### 01、技术派实战教程
 
-[技术派](https://mp.weixin.qq.com/s/B2VOZxj0HnKrO8GFIAggQg)是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
+[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
 
 下面是《技术派教程》部分目录（包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇，目前已完成 80+篇），很多球友都反馈说光这套教程就值 599 元。
 
@@ -179,7 +177,7 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 ## 五、二哥的 Java 进阶之路
 
-《二哥的 Java 进阶之路》可以说承载了二哥学习 Java 以来的所有心血，在 GitHub 已经取得 9300+ star，品质可以说是有目共睹的，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利，这又极大的衬托了这份知识库的含金量。
+《二哥的 Java 进阶之路》可以说承载了二哥学习 Java 以来的所有心血，在 GitHub 已经取得 10000+ star，品质可以说是有目共睹的，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利，这又极大的衬托了这份知识库的含金量。
 
 PDF 一共 33 万+字（typora 显示 330662 字）， 很多球友已经下载到本地学起来了！
 
@@ -249,5 +247,3 @@ PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜�
 
 
 最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。共勉 💪。
-
-![](https://cdn.tobebetterjavaer.com/paicoding/76137a685c778ed5d9849aa6c9e5ae8f.png)
