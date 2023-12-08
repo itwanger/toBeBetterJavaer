@@ -1,6 +1,6 @@
 ---
-title: 详解Java的类文件（class文件）结构
-shortTitle: 详解class文件结构
+title: 详解Java的类文件结构（.class文件的结构）
+shortTitle: Java类文件结构
 category:
   - Java核心
 tag:
@@ -12,10 +12,12 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,class
 ---
 
-# 详解Java的类文件（class文件）结构
+# 第四节：Java类文件结构
 
 
-大家好，我是二哥呀，今天我拿了一把小刀，准备解剖一下 Java 的 class 文件。
+大家好，我是二哥呀，今天我拿了一把小刀，准备带大家解剖一下 Java 的类文件结构，也就是 .class 文件的内容结构，虽然它实际上是一串连续的二进制，                         由 0 和 1 组成的，但我们仍然可以借助一些工具来看清楚它的真面目。
+
+>类文件结构=.class文件的结构=Class文件结构，这三个说法都是一个意思，.class是从文件后缀名的角度来说的，Class是从Java类的角度来说的，类文件结构就是 Class 的中文译名。
 
 CS 的世界里流行着这么一句话，“计算机科学领域的任何问题都可以通过增加一个中间层来解决”。对于 Java 来说，JVM 就是这么一个产物，“Write once, Run anywhere”之所以能实现，靠得就是 JVM，它能在不同的操作系统下运行同一份源代码编译后的 class 文件。
 
@@ -370,7 +372,7 @@ main 方法中调用了 foo 方法。通过 jclasslib 看一下它当中一个�
 
 ----
 
-GitHub 上标星 9300+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 9300+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
