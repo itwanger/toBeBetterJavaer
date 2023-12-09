@@ -1,18 +1,20 @@
 ---
+title: 5分钟带你深入浅出搞懂 Nginx
+shortTitle: Nginx 入门
 category:
   - Java企业级开发
 tag:
   - Nginx
-shortTitle: Nginx
+description: 本文是一篇通俗易懂、风趣幽默的 Nginx 入门教程，内容涵盖 Nginx 是什么、Nginx 的作用、Nginx 的安装、Nginx 的常用命令、Nginx 的配置、Nginx 的学习资料等知识点。学 Nginx，就认准二哥的 Java 进阶之路😄。
+head:
+  - - meta
+    - name: keywords
+      content: nginx,nginx入门,nginx教程,nginx配置,nginx反向代理,nginx负载均衡,nginx动静分离
 ---
 
-# 5分钟带你深入浅出搞懂 Nginx
-
-
-最近在搭建一个网站，就不可避免地要用到 Nginx，索性就出一期 Nginx 的入门教程，希望也可以帮助到大家~😁
+大家好，我是二哥呀。最近在搭建[技术派](https://paicoding.com/)网站，就不可避免地要用到 Nginx，索性就出一期 Nginx 的入门教程，希望也可以帮助到大家~😁
 
 作为开发者，相信大家都知道 Nginx 的重要性。Nginx 是一个高性能的 HTTP 和反向代理 Web 服务器，由俄罗斯的伊戈尔·赛索耶夫开发，第一个版本发布于 2004 年 10 月 4 日。
-
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-01.png)
 
@@ -28,7 +30,7 @@ Nginx 的特点是：
 
 基于这些特点，越来越多的网站开始使用 Nginx。于是，掌握 Nginx 就变成了开发者的一项必不可少的技能。
 
-### 一、Nginx 的作用
+## 一、Nginx 的作用
 
 **反向代理**是 Nginx 作为 Web 服务器最常用的功能之一。什么是反向代理呢？很多初学者在第一次遇到这个名词的时候总免不了出现很多问号。
 
@@ -44,7 +46,7 @@ Nginx 的特点是：
 
 与之相反，**反向代理是代理服务器的**，让大量的请求均衡地访问到某一台服务器上。
 
-举个例子，10 万个小二同时在访问 itwanger.com， 如果只有一台服务器的话，很容易就瘫痪了，于是高并发的情况下会有很多台服务器（假如 10 台吧）来接这个活，那怎么让 10 万个小二访问到这 10 台服务器呢？
+举个例子，10 万个小二同时在访问 [itwanger.com](https://www.itwanger.com/)， 如果只有一台服务器的话，很容易就瘫痪了，于是高并发的情况下会有很多台服务器（假如 10 台吧）来接这个活，那怎么让 10 万个小二访问到这 10 台服务器呢？
 
 这就需要一个反向代理服务器了，反向代理服务器让 1 万个小二访问服务器 A，1 万个小二访问服务器 B，1 个小二访问服务器 C，这样的话，每台服务器的压力就相应减小了，是不是很 nice？
 
@@ -62,17 +64,41 @@ Nginx 的特点是：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-05.png)
 
-### 二、Nginx 的安装
+## 二、Nginx 的安装
 
-针对不同的操作系统，Nginx 的安装各不相同。Windows 可以直接到官网下载 zip 绿色安装包，解压后就可以了。
+针对不同的操作系统，Nginx 的安装各不相同。
 
->http://nginx.org/en/download.html
+### Windows
 
-之前带大家白票过阿里云的服务器，有 Linux 服务器的话，直接通过[宝塔面板](https://mp.weixin.qq.com/s/ditN9J80rSWwnYRumwb4ww)这个神器就可以安装了。
+Windows 可以直接到官网下载 zip 绿色安装包，解压后就可以了。
 
-不过，如果在安装宝塔面板必备工具包的时候，如果选择了 phpmyadmin（MySQL 的管理工具），会覆盖掉 80 端口，就导致没办法直接通过默认配置的方式访问 Nginx 启动页面了。
+>[http://nginx.org/en/download.html](http://nginx.org/en/download.html)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-06.png)
+### macOS
+
+macOS 可以通过 Homebrew 来安装，之前没有安装的话可以戳[这个链接](https://javabetter.cn/gongju/brew.html)，终端的话，建议大家使用 [wrap](https://javabetter.cn/gongju/warp.html)，有 AI 提示，非常方便。
+
+安装命令如下：
+
+```
+brew install nginx
+```
+
+大体的过程就是，你问一下 wrap，我怎么安装 Nginx 啊，它就会告诉你完整的安装和启动步骤，并且会告诉你 Nginx 的配置文件在哪里。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/nginx-20231209205522.png)
+
+如果端口不是 80 的话，可以在配置文件里进行修改，比如说我改成了 8088。
+
+那安装成功后就可以通过 `http://localhost:8088` 来访问了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/nginx-20231209205810.png)
+
+### Linux
+
+Linux 的安装方式有很多种，每一家的服务器厂商都会有 doc 文档。比如说[腾讯云](https://curl.qcloud.com/gIsvte7E)的你搜一下 Nginx 关键字就可以看到了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/nginx-20231209210202.png)
 
 我这里以 macOS 环境为例，来演示一下。
 
@@ -98,7 +124,7 @@ Nginx 的特点是：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-10.png)
 
-### 三、Nginx 常用命令
+## 三、Nginx 常用命令
 
 通常来说，Nginx 一旦启动后，我们是很少让它退出的，使用最多的就是 reload 命令。当我们修改了配置文件，是需要执行一次 reload 命令让 Nginx 生效的。
 
@@ -107,12 +133,22 @@ nginx  启动
 nginx -s stop  停止
 nginx -s quit  安全退出
 nginx -s reload  重新加载配置文件
+nginx -t  检查配置文件是否正确
 ps aux|grep nginx  查看nginx进程
 ```
 
-要知道，Nginx 的 reload 对用户是无感的，这一点我觉得很牛逼~
+重点强调一下 `nginx -t` 命令，这个命令可以检查配置文件是否正确，如果正确的话，会输出以下信息。
 
-### 四、Nginx 的配置
+```
+nginx: the configuration file /usr/local/etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /usr/local/etc/nginx/nginx.conf test is successful
+```
+
+假如你忘记配置文件的位置，那这个命令就实在是太有用了。
+
+另外，Nginx 的 reload 对用户是无感的，这一点我觉得很牛逼，你重启了 Nginx，但用户就仿佛没有感觉，还在继续访问网站，这就是 Nginx 的优势。
+
+## 四、Nginx 的配置
 
 我们先来看一下 Nginx 的配置结构图：
 
@@ -165,13 +201,9 @@ http {
 }
 ```
 
-好，现在我们登录宝塔面板，尝试把默认的 server 配置复制到 Linux 服务器中的 Nginx 配置里。
+接下来，我们以生产环境 Linux 为例。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-11.png)
-
-简单解释一下。
-
-由于我的服务器上 80 端口是默认打开的，所以我将监听端口配置成了 80，如果你配置成其他端口的话，记得宝塔面板和云服务的安全组里把端口打开。
+由于我的服务器上 80 端口是默认打开的，所以我将监听端口配置成了 80，如果你配置成其他端口的话，记得云服务的安全组里把端口打开。
 
 root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件是我自定义的，来看一下内容。
 
@@ -192,9 +224,9 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/nginx-12.png)
 
-### 五、Nginx 的学习资料
+## 五、Nginx 的学习资料
 
-关于 Nginx 的负载均衡，还有动静分离，等到二哥的网站跑起来后，可以专门搞个视频给大家演示下，比较直观一点。Nginx 的入门非常简单，但有一说一，如果想要在工作中用好 Nginx，还是需要花费一番功夫的。
+关于 Nginx 的负载均衡，还有动静分离，我们以后有机会再讲。Nginx 的入门非常简单，但有一说一，如果想要在工作中用好 Nginx，还是需要花费一番功夫的。
 
 我这里再给大家推荐一些不错的学习资料吧。
 
@@ -210,7 +242,7 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 
 >https://www.bilibili.com/video/BV1ov41187bq
 
-**3）极客时间上的 Nginx100 讲**，讲的比较深一点，涉及到不少原理层面的东西。钱包比较鼓的话，可以去付费下。不过，听说在某个地方也可以白票。
+**3）极客时间上的 Nginx100 讲**，讲的比较深一点，涉及到不少原理层面的东西。钱包比较鼓的话，可以去付费下：[http://gk.link/a/12eru](http://gk.link/a/12eru)
 
 **4）Nginx 从入门到实践，万字详解**，图文版的，可以到掘金上看看这篇文章，内容基本上面面俱到了（可以看一下下面的目录），配合前面的视频课，拿下 Nginx 基本上是稳了。
 
@@ -220,6 +252,12 @@ root 我指定了 `/home/www` 目录，首页文件为 index.html。这个文件
 
 这些资料如果能全部过一遍的话，我要喊你 Nginx 小王子了，估计公司遇到 Nginx 问题的话，你肯定是解决问题的那一个。
 
+----
+
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

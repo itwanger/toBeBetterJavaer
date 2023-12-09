@@ -1,8 +1,15 @@
 ---
+title: 史上最通俗易懂的 Redis 入门教程
+shortTitle: Redis 入门
 category:
-  - 数据库
+  - Redis
 tag:
   - Redis
+description: 本文是一篇通俗易懂、风趣幽默的 Redis 入门教程，内容涵盖 Redis 是什么、安装 Redis、Redis 的数据结构、实操 Redis、在 Java 中使用 Redis 等核心知识点。学 Redis，就认准二哥的 Java 进阶之路😄。
+head:
+  - - meta
+    - name: keywords
+      content: Java,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque,源码分析, 实现原理
 ---
 
 # Redis入门(适合新手)
