@@ -553,15 +553,11 @@ export const sidebarConfig = sidebar({
     {
       text: "五、Redis",
       collapsible: true,
+      prefix: "redis/",
       children: [
-        {
-          text: "Redis入门",
-          link: "redis/rumen"
-        },
-        {
-          text: "缓存雪崩、穿透、击穿",
-          link: "redis/xuebeng-chuantou-jichuan"
-        },
+        "install",
+        "rumen",
+        "xuebeng-chuantou-jichuan",
       ],
     },
     {
