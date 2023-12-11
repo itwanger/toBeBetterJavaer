@@ -1256,6 +1256,10 @@ HashMap是Java中最常用的集合之一，它是一种键值对存储的数据
 
 综上所述，HashMap是一种高效的数据结构，具有快速查找和插入元素的能力，但需要注意线程安全和性能问题。
 
+那如果大家已经掌握了 HashMap，那可以刷一下 LeetCode 的第一题，会用到 HashMap、数组和 for 循环，我把题解链接放在了技术派上：
+
+> - [二哥的 LeetCode 刷题笔记：001.两数之和](https://paicoding.com/column/7/1)
+
 ----
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://javabebetter.cn/overview/)

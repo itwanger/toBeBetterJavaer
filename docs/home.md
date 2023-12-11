@@ -418,6 +418,7 @@ head:
 
 ### MySQL
 
+- [MySQL 的安装和连接](mysql/install.md)
 - [如何保障MySQL和Redis的数据一致性？](mysql/redis-shuju-yizhixing.md)
 - [从根上理解 MySQL 的事务](mysql/lijie-shiwu.md)
 - [浅入深出 MySQL 中事务的实现](mysql/shiwu-shixian.md)

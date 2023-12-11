@@ -544,6 +544,7 @@ export const sidebarConfig = sidebar({
       collapsible: true,
       prefix: "mysql/",
       children: [
+        "install",
         "redis-shuju-yizhixing",
         "lijie-shiwu",
         "shiwu-shixian",
