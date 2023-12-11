@@ -12,68 +12,13 @@ head:
       content: Java,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque,源码分析, 实现原理
 ---
 
-# Redis入门(适合新手)
-
-说起来，可能有些小伙伴会不相信，我是第一次用 Redis，真的。因为公司小，业务量小，Redis 根本派不上用场。不过，最近打算把系统升级一下，顺带把当下时髦的技术入个门，“与时俱进”嘛，虽然进的有“一点点”晚（注意双引号）。
-
 作为一名富有责任心的技术博主，我觉得有必要把我入门 Redis 的过程分享出来，供一些小伙伴作为参考。要是我哪里写错了，别客气，过来给我一巴掌，就行了（温柔点，别打肿，影响颜值就不好了）。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-fe7d042b-efed-469c-9460-fb3bc1d4c041.jpg)
 
-### 01、Redis 是什么
+前面我们已经讲了 Redis 的安装，参考这里：[Redis 安装，超详细](https://javabetter.cn/redis/install.html)
 
-Redis 是互联网技术领域中使用最广泛的存储中间件，它是 **Re**mote **Di**ctionary **S**ervice 三个单词中加粗字母的组合。你别说，组合起来后念着挺自然的。
-
-Redis 以超高的性能、完美的文档、简洁的源码著称，国内外很多大型互联网公司都在用，比如说阿里、腾讯、GitHub、Stack Overflow 等等。它的版本更新非常的快，功能也越来越强大，最初只是用来作为缓存数据库，现在已经可以用它来实现消息队列了。
-
-可以这么说吧，掌握 Redis 已经变成了一项后端工程师必须具备的基础技能。
-
-Redis 的作者是一名意大利人，网名 Antirez，长相还是过得去的，感兴趣的小伙伴可以 Google 一下。知道为什么 Redis 的默认端口是 6379 吗？
-
-据说是手机键盘上“MERZ”的位置决定的，小伙伴们可以打开自己手机上九宫格键盘感受一下。“MERZ”是什么意思呢？据说是“愚蠢”的意思。这？是不是感觉程序员的生活中还是有蛮多神秘色彩的？
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-ced599df-4791-4777-970f-20ceeeb39e68.jpg)
-
-### 02、安装 Redis
-
-Redis 针对不同的操作系统有不同的安装方式，我们这篇入门的文章就以 Windows 为例吧。
-
-下载地址如下：
-
-[https://github.com/MicrosoftArchive/redis/releases](https://github.com/MicrosoftArchive/redis/releases)
-
-Windows 最新的版本是 3.2.100。从下图中可以看得出，Redis 的体积非常的轻量级，还不到 6 M。体积越小，让我感觉 Redis 越牛逼，你是不是也有这种感觉？
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-a6709cca-d3a3-4381-b110-0ff37d384f27.jpg)
-
-有两种安装方式，第一种是 msi 的方式，双击运行后安装；第二种是免安装，绿色版，只需要把 zip 包解压就可以了。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-f3fc9852-7505-45ed-8ce2-d16f1d888251.jpg)
-
-里面有一份英文版的文档——Windows Service Documentation.docx，教我们如何安装 Redis 服务、如何启动、如何关闭，以及如何使用自定义端口启动服务。
-
-打开命令行，进入到当前解压后的目录，输入启动命令：
-
-```
-redis-server redis.windows.conf
-```
-
-然后你就会看到 Redis 启动后的欢迎画面，左边这个盒子感觉好有艺术感啊！有小伙伴知道是怎么生成的吗？
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-69b11133-7aac-4f8a-aa1e-9e8af576ad32.jpg)
-
-还有一些其他的提示信息：
-
-- Redis 当前的版本号为 3.2.100
-- 端口是 6379
-- 进程 ID，也就是 PID 为 12636
-- Redis 官方地址为：http://redis.io
-
-那如何停止服务呢？可以直接按下 `Ctrl+C` 组合键——粗暴、壁咚（当然可以直接点右上角的叉号）。
-
-PS：本来想用 Linux 版或者 OSX 版的，怕入门的小伙伴没有环境。后面可以整一个。
-
-### 03、Redis 的数据结构
+## 01、Redis 的数据结构
 
 Redis 有 5 种基础数据结构，String、Hash、List、Set、SortedSet，也是学 Redis 必须掌握的。除此之外，还有 HyperLogLog、Geo、Pub/Sub，算是高级数据结构了。我们这篇入门的文章就以 String 为例吧。
 
@@ -85,15 +30,11 @@ String 结构使用非常广泛，比如说把用户的登陆信息转成 JSON �
 
 >Redis 的 String 在内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配。如上图所示，当前字符串实际分配的空间为 capacity，一般高于实际的字符串长度 len。当字符串长度小于 1M 时，扩容是对现有空间的成倍增长；如果长度超过 1M 时，扩容一次只会多增加 1M 的空间。最大长度为 512M。
 
-### 04、实操 Redis
+## 02、实操 Redis
 
 好了好了，我估计很多小伙伴们已经整装待发，准备实操一把了。这就来。
 
-Redis 的解压目录下有一个名叫 redis-cli.exe 的文件，这是 Redis 自带的一个客户端工具，可以用来连接之前我们启动好的 Redis 服务。双击启动它。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-4fd63521-b07e-41c6-bcbd-b7acb2a81344.jpg)
-
-这个客户端还是非常智能的，当键入命令的时候，会跳出对应的提示
+进入 redis-cli 命令行客户端（怎么进入，前面[安装环节](https://javabetter.cn/redis/install.html)已经讲过了），这个客户端还是非常智能的，当键入命令的时候，会跳出对应的提示
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-6ca5d00d-4b5d-4475-a49c-9937e22f97af.jpg)
 
@@ -133,11 +74,11 @@ OK
 
 想了解 Redis 命令的具体使用方法，可以参考以下链接：
 
-[http://redisdoc.com/index.html](http://redisdoc.com/index.html)
+>[http://redisdoc.com/index.html](http://redisdoc.com/index.html)
 
 是 [Redis Command Reference](http://redis.io/commands) 和 [Redis Documentation](http://redis.io/documentation) 的中文翻译版，良心吧？
 
-### 05、在 Java 中使用 Redis
+## 03、在 Java 中使用 Redis
 
 有些小伙伴可能会问，“二哥，我是一名 Java 程序员，我该如何在 Java 中使用 Redis 呢？”这个问题问得好，这就来，这就来。
 
@@ -221,7 +162,7 @@ Jedis jedis = new Jedis("localhost", 6379);
 
 存储键值对用 `set()` 方法，获取键值对用 `get()` 方法，判断键值对是否存在用 `exists()` 方法，删除键值对用 `del()` 方法。
 
-3）Gson 是谷歌提供的一个开源库，可以将 Java 对象序列化为 JSON 字符串，同样可以将 JSON 字符串反序列化（解析）为匹配的 Java 对象。
+3）[Gson](https://javabetter.cn/gongju/gson.html) 是谷歌提供的一个开源库，可以将 Java 对象序列化为 JSON 字符串，同样可以将 JSON 字符串反序列化（解析）为匹配的 Java 对象。
 
 使用起来也非常简单，`toJson()` 方法将对象转成 JSON 字符串，`fromJson()` 方法将 JSON 字符串反序列化对象。
 
@@ -239,10 +180,17 @@ get：null
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-7135d995-f563-4021-b364-411b1be07b5a.jpg)
 
 
-### 06、鸣谢
+## 04、鸣谢
 
 好了，我亲爱的小伙伴们，以上就是本文的全部内容了，是不是看完后很想实操一把 Redis，赶快行动吧！如果你在学习的过程中遇到了问题，欢迎随时和我交流，虽然我也是个菜鸟，但我有热情啊。
 
 另外，如果你想写入门级别的文章，这篇就是最好的范例。
+
+----
+
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
