@@ -440,6 +440,14 @@ public String trim() {
 
 除此之外，还有 [split](https://javabetter.cn/string/split.html)、[equals](https://javabetter.cn/string/equals.html)、[join](https://javabetter.cn/string/join.html) 等这些方法，我们后面会一一来细讲。
 
+### 小结
+
+学完这一节，其实可以拿 LeetCode 的第三道题「[无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)」来练手，你可以通过暴力的方式，也就是两个 for 循环来解决。
+
+当然了，如果实在解不出来，题解我放到了技术派的「二哥的 LeetCode 刷题笔记」当中，你可以去参考。是对字符串和 for 循环的一次很好的练习。
+
+- [无重复字符的最长子串](https://paicoding.com/column/7/3)
+
 ---
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
