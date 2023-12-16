@@ -20,7 +20,9 @@ head:
 
 >PS：这里我们按照首字母的自然顺序排列来简述一下，了解即可，记不住没关系哦。这些关键字我们在后续的学习中会详细讲解的，直到你搞懂为止。
 
-**1、abstract：** 用于声明[抽象类](https://javabetter.cn/oo/abstract.html)，以及抽象方法。
+## 1、abstract：
+
+用于声明[抽象类](https://javabetter.cn/oo/abstract.html)，以及抽象方法。
 
 ```java
 abstract class Animal {
@@ -40,7 +42,9 @@ class Dog extends Animal {
 
 在这个示例中，我们创建了一个名为 Animal 的抽象类，其中包含一个抽象方法 `makeSound()` 和一个具体方法 `sleep()`。
 
-**2、boolean：** Java 中的一种基本数据类型，表示布尔值，即真（true）或假（false）。boolean 数据类型常用于判断条件、循环控制和逻辑运算等场景。
+## 2、boolean：
+
+Java 中的一种基本数据类型，表示布尔值，即真（true）或假（false）。boolean 数据类型常用于判断条件、循环控制和逻辑运算等场景。
 
 ```java
 boolean isStudent = true;
@@ -54,7 +58,9 @@ if (isStudent) {
 
 在这个示例中，我们定义了一个 boolean 变量：isStudent。通过 if 语句，我们可以根据这些变量的值进行不同的操作。
 
-**3、break：** 用于跳出循环结构（如 for、while 和 do-while 循环）或 switch 语句。当遇到 break 语句时，程序将立即跳出当前循环或 switch 语句，继续执行紧跟在循环或 switch 语句后面的代码。
+## 3、break：
+
+用于跳出循环结构（如 for、while 和 do-while 循环）或 switch 语句。当遇到 break 语句时，程序将立即跳出当前循环或 switch 语句，继续执行紧跟在循环或 switch 语句后面的代码。
 
 ```java
 for (int i = 0; i < 10; i++) {
@@ -68,7 +74,9 @@ System.out.println("Loop ended.");
 
 在这个示例中，我们使用 for 循环遍历 0 到 9 的整数。当 i 等于 5 时，我们使用 break 语句跳出循环。
 
-**4、byte：** 用于表示一个 8 位（1 字节）有符号整数。它的值范围是 -128（-2^7）到 127（2^7 - 1）。
+## 4、byte：
+
+用于表示一个 8 位（1 字节）有符号整数。它的值范围是 -128（-2^7）到 127（2^7 - 1）。
 
 由于 byte 类型占用的空间较小，它通常用于处理大量的数据，如文件读写、网络传输等场景，以节省内存空间。
 
@@ -79,11 +87,15 @@ byte maxByte = 127;
 
 在这个示例中，我们声明了三个 byte 类型的变量：minByte、maxByte，并分别赋予了不同的值。
 
-**5、case：** 通常与 switch 语句一起使用。switch 语句允许根据某个变量的值来选择执行不同的代码块。在 switch 语句中，case 用于标识每个可能的值和对应的代码块。
+## 5、case：
+
+通常与 switch 语句一起使用。switch 语句允许根据某个变量的值来选择执行不同的代码块。在 switch 语句中，case 用于标识每个可能的值和对应的代码块。
 
 例子我们直接放到 switch 中一起讲。
 
-**6、catch：** 用于捕获 try 语句中的[异常](https://javabetter.cn/exception/gailan.html)。在 try 块中可能会抛出异常，而在 catch 块中可以捕获这些异常并进行处理。catch 块可以有多个，每个 catch 块可以捕获特定类型的异常。在 catch 块中，可以根据需要进行异常处理，例如输出错误信息、进行日志记录、恢复程序状态等。
+## 6、catch：
+
+用于捕获 try 语句中的[异常](https://javabetter.cn/exception/gailan.html)。在 try 块中可能会抛出异常，而在 catch 块中可以捕获这些异常并进行处理。catch 块可以有多个，每个 catch 块可以捕获特定类型的异常。在 catch 块中，可以根据需要进行异常处理，例如输出错误信息、进行日志记录、恢复程序状态等。
 
 ```java
 try {
@@ -95,7 +107,9 @@ try {
 
 这个程序使用 try-catch 语句捕获 NumberFormatException 异常。在 try 块中，尝试将字符串 "abc" 转换为整数类型，由于这个字符串不是有效的数字格式，将会抛出 NumberFormatException 异常。在 catch 块中，捕获到了这个异常，并输出一条错误信息。
 
-**7、char：** 用于声明一个字符类型的变量。char 类型的变量可以存储任意的 [Unicode 字符](https://javabetter.cn/basic-extra-meal/java-unicode.html)，可以使用单引号将字符括起来来表示。
+## 7、char：
+
+用于声明一个字符类型的变量。char 类型的变量可以存储任意的 [Unicode 字符](https://javabetter.cn/basic-extra-meal/java-unicode.html)，可以使用单引号将字符括起来来表示。
 
 ```java
 char c = 'A';
@@ -103,7 +117,9 @@ char c = 'A';
 
 这个程序创建了一个 char 类型的变量 c，并将其赋值为大写字母 A。
 
-**8、class：** 用于声明一个[类](https://javabetter.cn/oo/object-class.html)。
+## 8、class：
+
+用于声明一个[类](https://javabetter.cn/oo/object-class.html)。
 
 ```java
 public class Person {
@@ -121,7 +137,9 @@ public class Person {
 }
 ```
 
-**9、continue：** 用于继续下一个循环，可以在指定条件下跳过其余代码。
+## 9、continue：
+
+用于继续下一个循环，可以在指定条件下跳过其余代码。
 
 ```java
 for (int i = 1; i <= 10; i++) {
@@ -132,9 +150,13 @@ for (int i = 1; i <= 10; i++) {
 }
 ```
 
-**10、default：** 用于指定 switch 语句中除去 case 条件之外的默认代码块。这个我们放到 switch 里一起演示。
+## 10、default：
 
-**11、do：** 通常和 while 关键字配合使用，do 后紧跟循环体。
+用于指定 switch 语句中除去 case 条件之外的默认代码块。这个我们放到 switch 里一起演示。
+
+## 11、do：
+
+通常和 while 关键字配合使用，do 后紧跟循环体。
 
 ```java
 int i = 1;
@@ -146,7 +168,9 @@ do {
 
 do-while 循环与 while 循环类似，不同之处在于 do-while 循环会先执行循环体中的代码，然后再检查循环条件。因此，do-while 循环至少会执行一次循环体中的代码。
 
-**12、double：** 用于声明一个双精度浮点类型的变量。
+## 12、double：
+
+用于声明一个双精度浮点类型的变量。
 
 ```java
 double a = 3.14;
@@ -154,7 +178,9 @@ double b = 2.0;
 double c = a + b;
 ```
 
-**13、else：** 用于指示 if 语句中的备用分支。
+## 13、else：
+
+用于指示 if 语句中的备用分支。
 
 ```java
 int score = 75;
@@ -165,7 +191,9 @@ if (score >= 60) {
 }
 ```
 
-**14、enum：** 用于定义一组固定的常量（[枚举](https://javabetter.cn/basic-extra-meal/enum.html)）。
+## 14、enum：
+
+用于定义一组固定的常量（[枚举](https://javabetter.cn/basic-extra-meal/enum.html)）。
 
 ```java
 public enum PlayerType {
@@ -175,7 +203,9 @@ public enum PlayerType {
 }
 ```
 
-**15、extends：** 用于指示一个类是从另一个类或接口[继承](https://javabetter.cn/oo/extends-bigsai.html)的。
+## 15、extends：
+
+用于指示一个类是从另一个类或接口[继承](https://javabetter.cn/oo/extends-bigsai.html)的。
 
 ```java
 class Animal {
@@ -201,7 +231,9 @@ public class ExtendsDemo {
 
 Animal 类中有一个 `eat()` 方法，输出字符串 "动物正在吃东西"。Dog 类继承自 Animal 类，并定义了一个 `bark()` 方法，输出字符串 "狗在汪汪叫"。
 
-**16、final：** [用于表示某个变量、方法或类是最终的，不能被修改或继承](https://javabetter.cn/oo/final.html)。
+## 16、final：
+
+[用于表示某个变量、方法或类是最终的，不能被修改或继承](https://javabetter.cn/oo/final.html)。
 
 ①、final 变量：表示一个常量，一旦被赋值，其值就不能再被修改。这在声明不可变的值时非常有用。
 
@@ -257,7 +289,9 @@ public class Main {
 }
 ```
 
-**17、finally：** 和 `try-catch` 配合使用，表示无论是否处理异常，总是执行 finally 块中的代码。
+## 17、finally：
+
+和 `try-catch` 配合使用，表示无论是否处理异常，总是执行 finally 块中的代码。
 
 ```java
 try {
@@ -269,7 +303,9 @@ try {
 }
 ```
 
-**18、float：** 表示单精度浮点数。
+## 18、float：
+
+表示单精度浮点数。
 
 ```java
 float f1 = 3.14f;   // 注意要在数字后面加上 f 表示这是一个 float 类型
@@ -278,7 +314,9 @@ float f2 = 1.23e-4f;   // 科学计数法表示小数
 
 在 Java 中，浮点数默认是 double 类型，如果要使用 float 类型的数据，需要在数字后面加上一个 f 或者 F，表示这是一个 float 类型的字面量。另外，也可以使用科学计数法表示浮点数，例如 1.23e-4 表示 0.000123。
 
-**19、for：** 用于声明一个 for 循环，如果循环次数是固定的，建议使用 for 循环。
+## 19、for：
+
+用于声明一个 for 循环，如果循环次数是固定的，建议使用 for 循环。
 
 ```java
 int[] arr = {1, 2, 3, 4, 5};
@@ -287,7 +325,9 @@ for (int i = 0; i < arr.length; i++) {
 }
 ```
 
-**20、if：** 用于指定条件，如果条件为真，则执行对应代码。
+## 20、if：
+
+用于指定条件，如果条件为真，则执行对应代码。
 
 ```java
 int n = -3;
@@ -300,7 +340,9 @@ if (n > 0) {
 }
 ```
 
-**21、implements：** 用于实现[接口](https://javabetter.cn/oo/interface.html)。
+## 21、implements：
+
+用于实现[接口](https://javabetter.cn/oo/interface.html)。
 
 下面是一个实现了 Runnable 接口的类的示例：
 
@@ -312,13 +354,17 @@ public class MyThread implements Runnable {
 }
 ```
 
-**22、import：** 用于导入对应的类或者接口。例如，如果要使用 Java 标准库中的 ArrayList 类，可以这样写：
+## 22、import：
+
+用于导入对应的类或者接口。例如，如果要使用 Java 标准库中的 ArrayList 类，可以这样写：
 
 ```java
 import java.util.ArrayList;
 ```
 
-**23、instanceof：** [用于判断对象是否属于某个类型（class）](https://javabetter.cn/basic-extra-meal/instanceof.html)。
+## 23、instanceof：
+
+[用于判断对象是否属于某个类型（class）](https://javabetter.cn/basic-extra-meal/instanceof.html)。
 
 ```java
 例如，假设有一个 Person 类和一个 Student 类，Student 类继承自 Person 类，可以使用 instanceof 运算符来判断一个对象是否为 Person 类或其子类的实例：
@@ -331,7 +377,9 @@ if (p instanceof Student) {
 }
 ```
 
-**24、int：** 用于表示整数值。
+## 24、int：
+
+用于表示整数值。
 
 ```java
 int x;           // 声明一个 int 类型的变量 x
@@ -339,7 +387,9 @@ x = 10;          // 将整数值 10 赋给变量 x
 int y = 20;     // 声明并初始化一个 int 类型的变量 y，赋值为整数值 20
 ```
 
-**25、interface：** 用于声明接口。会定义一组方法的签名（即方法名、参数列表和返回值类型），但没有方法体。其他类可以实现接口，并提供方法的具体实现。
+## 25、interface：
+
+用于声明接口。会定义一组方法的签名（即方法名、参数列表和返回值类型），但没有方法体。其他类可以实现接口，并提供方法的具体实现。
 
 ```java
 public interface MyInterface {
@@ -348,7 +398,9 @@ public interface MyInterface {
 }
 ```
 
-**26、long：** 用于表示长整数值。
+## 26、long：
+
+用于表示长整数值。
 
 ```java
 long x;           // 声明一个 long 类型的变量 x
@@ -356,13 +408,17 @@ x = 10000000000L; // 将长整数值 10000000000 赋给变量 x，需要在数�
 long y = 20000000000L; // 声明并初始化一个 long 类型的变量 y，赋值为长整数值 20000000000
 ```
 
-**27、native：** [用于声明一个本地方法](https://javabetter.cn/oo/native-method.html)，本地方法是指在 Java 代码中声明但在本地代码（通常是 C 或 C++ 代码）中实现的方法，它通常用于与操作系统或其他本地库进行交互。
+## 27、native：
+
+[用于声明一个本地方法](https://javabetter.cn/oo/native-method.html)，本地方法是指在 Java 代码中声明但在本地代码（通常是 C 或 C++ 代码）中实现的方法，它通常用于与操作系统或其他本地库进行交互。
 
 ```java
 public native void nativeMethod();
 ```
 
-**28、new：** 用于创建一个新的对象。
+## 28、new：
+
+用于创建一个新的对象。
 
 以下是使用 new 关键字创建对象实例的基本语法：
 
@@ -376,20 +432,26 @@ ClassName obj = new ClassName();
 int[] arr = new int[10];
 ```
 
-**29、null：** 如果一个变量是空的（什么引用也没有指向），就可以将它赋值为 null，和[空指针](https://javabetter.cn/exception/npe.html)异常息息相关。
+## 29、null：
+
+如果一个变量是空的（什么引用也没有指向），就可以将它赋值为 null，和[空指针](https://javabetter.cn/exception/npe.html)异常息息相关。
 
 ```java
 String str = null; // 声明一个字符串引用，初始化为 null
 MyClass obj = null; // 声明一个 MyClass 类型的引用，初始化为 null
 ```
 
-**30、package：** 用于声明类所在的[包](https://javabetter.cn/oo/package.html)。
+## 30、package：
+
+用于声明类所在的[包](https://javabetter.cn/oo/package.html)。
 
 ```java
 package com.example.mypackage;
 ```
 
-**31、private：** 一个[访问权限修饰符](https://javabetter.cn/oo/access-control.html)，表示方法或变量只对当前类可见。
+## 31、private：
+
+一个[访问权限修饰符](https://javabetter.cn/oo/access-control.html)，表示方法或变量只对当前类可见。
 
 ```java
 public class MyClass {
@@ -403,7 +465,9 @@ public class MyClass {
 
 在这个示例中，MyClass 类有一个私有属性 x 和一个私有方法 `foo()`。这些成员只能在 MyClass 类的内部访问和调用，对其他类不可见。
 
-**32、protected：** 一个访问权限修饰符，表示方法或变量对同一包内的类和所有子类可见。
+## 32、protected：
+
+一个访问权限修饰符，表示方法或变量对同一包内的类和所有子类可见。
 
 ```java
 package com.example.mypackage;
@@ -428,7 +492,9 @@ public class MySubClass extends MyBaseClass {
 
 在这个示例中，MyBaseClass 类有一个受保护的属性 x 和一个受保护的方法 `foo()`。这些成员可以被子类和同一包中的其他类访问和调用。MySubClass 类继承自 MyBaseClass 类，并可以访问和修改 MyBaseClass 中的受保护成员。
 
-**33、public：** 一个访问权限修饰符，除了可以声明方法和变量（所有类可见），还可以声明类。`main()` 方法必须声明为 public。
+## 33、public：
+
+一个访问权限修饰符，除了可以声明方法和变量（所有类可见），还可以声明类。`main()` 方法必须声明为 public。
 
 ```java
 public class MyClass {
@@ -442,7 +508,9 @@ public class MyClass {
 
 在这个示例中，MyClass 类有一个公有属性 x 和一个公有方法 `foo()`。这些成员可以被任何类访问和调用，无论这些类是否在同一个包中。
 
-**35、return：** 用于从方法中返回一个值或终止方法的执行。return 语句可以将方法的计算结果返回给调用者，或者在方法执行到某个特定条件时提前结束方法。
+## 35、return：
+
+用于从方法中返回一个值或终止方法的执行。return 语句可以将方法的计算结果返回给调用者，或者在方法执行到某个特定条件时提前结束方法。
 
 ```java
 public int add(int a, int b) {
@@ -464,14 +532,18 @@ public static boolean isEven(int number) {
 
 在这个示例中，我们定义了一个名为 isEven 的方法，该方法接收一个整数参数 number。如果 number 是偶数，我们使用 return 语句提前返回 true。否则，方法执行将继续，最后返回 false。
 
-**36、short：** 用于表示短整数，占用 2 个字节（16 位）的内存空间。
+## 36、short：
+
+用于表示短整数，占用 2 个字节（16 位）的内存空间。
 
 ```java
 short x = 10; // 声明一个 short 类型的变量 x，赋值为 10
 short y = 20; // 声明一个 short 类型的变量 y，赋值为 20
 ```
 
-**37、static：** 表示该变量或方法是[静态变量或静态方法](https://javabetter.cn/oo/static.html)。
+## 37、static：
+
+表示该变量或方法是[静态变量或静态方法](https://javabetter.cn/oo/static.html)。
 
 ```java
 public class MyClass {
@@ -485,7 +557,11 @@ public class MyClass {
 
 在这个示例中，MyClass 类有一个静态变量 x 和一个静态方法 `foo()`。这些成员属于类的成员，可以通过类名直接访问，不需要创建对象。
 
-**38、strictfp（strict floating-point）：** 并不常见，通常用于修饰一个方法，用于限制浮点数计算的精度和舍入行为。当你在类、接口或方法上使用 strictfp 时，该范围内的所有浮点数计算将遵循 IEEE 754 标准的规定，以确保跨平台的浮点数计算的一致性。
+## 38、strictfp：
+
+strict floating-point
+
+并不常见，通常用于修饰一个方法，用于限制浮点数计算的精度和舍入行为。当你在类、接口或方法上使用 strictfp 时，该范围内的所有浮点数计算将遵循 IEEE 754 标准的规定，以确保跨平台的浮点数计算的一致性。
 
 不同的硬件平台和 JVM 实现可能对浮点数计算的精度和舍入行为有差异，这可能导致在不同环境中运行相同的浮点数计算代码产生不同的结果。使用 strictfp 关键字可以确保在所有平台上获得相同的浮点数计算结果，避免计算结果的不一致问题。
 
@@ -558,7 +634,9 @@ public class Ieee754Demo {
 - 单精度浮点数的加法：变量 a 和 b 分别存储了 0.1 和 0.2，它们的和 c 等于 0.3。由于浮点数表示的精度限制，c 的实际值可能与理论值略有误差。
 - 特殊值：变量 x、y 和 z 分别存储了正无穷（+∞）、负无穷（-∞）和非数值（NaN）。这些特殊值是由除法运算产生的，当被除数为 0 或结果无法表示时，会返回相应的特殊值。
 
-**39、super：** 可用于[调用父类的方法或者字段](https://javabetter.cn/oo/this-super.html)。
+## 39、super：
+
+可用于[调用父类的方法或者字段](https://javabetter.cn/oo/this-super.html)。
 
 ```java
 class Animal {
@@ -589,7 +667,9 @@ public class Dog extends Animal {
 }
 ```
 
-**40、switch：** 用于根据某个变量的值选择执行不同的代码块。switch 语句通常与 case 和 default 一起使用。每个 case 子句表示一个可能的值和对应的代码块，而 default 子句用于处理不在 case 子句中的值。
+## 40、switch：
+
+用于根据某个变量的值选择执行不同的代码块。switch 语句通常与 case 和 default 一起使用。每个 case 子句表示一个可能的值和对应的代码块，而 default 子句用于处理不在 case 子句中的值。
 
 ```java
 public class Main {
@@ -628,7 +708,9 @@ public class Main {
 
 在这个示例中，我们定义了一个名为 dayOfWeek 的整数变量，并赋予了一个值。然后，我们使用 switch 语句根据 dayOfWeek 的值来输出对应的星期几。每个 case 子句表示 dayOfWeek 可能的值，后面紧跟着要执行的代码。使用 break 语句跳出 switch 语句，避免执行其他 case 子句的代码。如果 dayOfWeek 的值不在 case 子句中，default 子句将被执行。
 
-**41、synchronized：** [用于指定多线程代码中的同步方法、变量或者代码块](https://javabetter.cn/thread/synchronized-1.html)。
+## 41、synchronized：
+
+[用于指定多线程代码中的同步方法、变量或者代码块](https://javabetter.cn/thread/synchronized-1.html)。
 
 ```java
 public class MyClass {
@@ -646,7 +728,9 @@ public class MyClass {
 }
 ```
 
-**42、this：** [可用于在方法或构造方法中引用当前对象](https://javabetter.cn/oo/this-super.html)。
+## 42、this：
+
+[可用于在方法或构造方法中引用当前对象](https://javabetter.cn/oo/this-super.html)。
 
 ```java
 public class MyClass {
@@ -668,7 +752,9 @@ public class MyClass {
 
 在这个示例中，MyClass 类有一个私有成员变量 num，并定义了一个构造方法、一个方法和一个返回当前对象的方法。在构造方法中，使用 this 关键字引用当前对象的成员变量，并将传入的参数赋值给该成员变量。在方法 `doSomething()` 中，使用 this 关键字引用当前对象的成员变量，并输出该成员变量的值。在方法 `getThis()` 中，直接返回当前对象本身。
 
-**43、throw：** 主动抛出[异常](https://javabetter.cn/exception/gailan.html)。
+## 43、throw：
+
+主动抛出[异常](https://javabetter.cn/exception/gailan.html)。
 
 ```java
 public class MyClass {
@@ -681,7 +767,9 @@ public class MyClass {
 }
 ```
 
-**44、throws：** 用于声明异常。
+## 44、throws：
+
+用于声明异常。
 
 ```java
 public class MyClass {
@@ -694,7 +782,9 @@ public class MyClass {
 }
 ```
 
-**45、transient：**  [修饰的字段不会被序列化](https://javabetter.cn/io/transient.html)。
+## 45、transient：
+
+[修饰的字段不会被序列化](https://javabetter.cn/io/transient.html)。
 
 ```java
 public class MyClass implements Serializable {
@@ -723,7 +813,9 @@ public class MyClass implements Serializable {
 
 在这个示例中，MyClass 类实现了 Serializable 接口，表示该类的对象可以被序列化。该类有三个成员变量，分别是 id、name 和 password。其中，password 成员变量被标记为 transient，表示在序列化过程中忽略这个成员变量。
 
-**45、try：** 用于包裹要捕获异常的代码块。
+## 45、try：
+
+用于包裹要捕获异常的代码块。
 
 ```java
 try {
@@ -735,7 +827,9 @@ try {
 }
 ```
 
-**46、void：** 用于指定方法没有返回值。
+## 46、void：
+
+用于指定方法没有返回值。
 
 ```java
 public void doSomething() {
@@ -743,7 +837,9 @@ public void doSomething() {
 }
 ```
 
-**47、volatile：** 保证不同线程对它修饰的变量进行操作时的[可见性](https://javabetter.cn/thread/volatile.html)，即一个线程修改了某个变量的值，新值对其他线程来说是立即可见的。
+## 47、volatile：
+
+保证不同线程对它修饰的变量进行操作时的[可见性](https://javabetter.cn/thread/volatile.html)，即一个线程修改了某个变量的值，新值对其他线程来说是立即可见的。
 
 ```java
 public class MyThread extends Thread {
@@ -764,7 +860,9 @@ public class MyThread extends Thread {
 
 在这个示例中，MyThread 类继承了 Thread 类，重写了 `run()` 方法。MyThread 类有一个成员变量 running，被标记为 volatile，表示这个变量是共享的，可能会被多个线程同时访问。在 `run()` 方法中，使用 while 循环检查 running 变量的值，如果 running 为 true，就继续执行循环体中的代码。在另一个方法 `stopThread()` 中，将 running 变量的值设置为 false，表示需要停止线程。
 
-**48、while：** 如果循环次数不固定，建议使用 while 循环。
+## 48、while：
+
+如果循环次数不固定，建议使用 while 循环。
 
 ```java
 int i = 0;
@@ -775,7 +873,10 @@ while (i < 10) {
 ```
 
 
+
 “好了，三妹，关于 Java 中的关键字就先说这 48 个吧，这只是一个大概的介绍，后面还会对一些特殊的关键字单独拎出来详细地讲，比如说重要的 static、final 等等，有链接的都是后面会详细讲的。”转动了一下僵硬的脖子后，我对三妹说。
+
+## 49、goto 和 const：
 
 “除了这些关键字，Java 中还有两个非常特殊的保留字（goto 和 const），它们不能在程序中使用。”
 
