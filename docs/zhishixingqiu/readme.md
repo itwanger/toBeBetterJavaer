@@ -17,43 +17,96 @@ head:
 
 大家好，我是二哥呀。
 
-用一句话来做个介绍吧，二哥的编程星球是一个**编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子**，你可以阅读高质量的星球专栏、不限次数地向二哥提问、和球友一起打卡成长，除此之外，二哥还会帮你制定学习计划、修改简历，你甚至可以无限期享用星球免费为你提供的派聪明 AI 助手。
+一个好的学习圈子，不仅可以提升你的学习效率，带动你的学习热情，还能够让你在遇到困难的时候，及时得到帮助，从而让你的进阶之路走得更快、更稳、更远。
 
-也是得到了很多老球友的认可，所以才敢如此“信誓旦旦”地推荐给大家。下面这张截图可以看一下，应该能代表很多小伙伴的心声：球友很热心，二哥很耐心，在这个良好的学习环境里，进步是肉眼可见的、内心更是温暖的。
+二哥的编程星球正是这样一个学习圈子，一个**编程学习指南 + Java项目实战 + LeetCode 刷题的私密圈子**，你可以阅读高质量的星球专栏、不限次数地向二哥提问、和球友一起打卡成长，除此之外，二哥还会帮你制定学习计划、修改简历，你甚至可以无限期享用星球免费为你提供的派聪明 AI 助手。
+
+也是得到了很多球友的认可，才敢“信誓旦旦”地推荐给大家。下面这张截图应该能代表很多球友的心声：球友很热心，二哥很耐心，在这个优秀的编程圈子里，进步是肉眼可见的、内心更是温暖的。
 
 <img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png" title="二哥的编程星球" width="400" />
 
-星球最开始的定价是 99 元，第一波优惠券是 30 元，第二波是 20 元，第三波是 10 元，大家可以看一下这位球友的心路历程，**是真的后悔没有早一点入，享受更多的优惠和更早的服务**。
+星球最开始的定价是 99 元，第一波优惠券是 30 元，第二波是 20 元，第三波是 10 元，后来是 129 元，现在已经 4000+球友了，星球门票也涨到了 149 元，所以真的不要再犹豫了，看到立马加入就对了，每天不到 0.33 元（文末有优惠券），但对你的学习和求职真的会帮助特别大。
+
+学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。来星球的球友几乎都斩获不错的成绩，有美团、华为等大厂，也有 16k 的双非本、甚至 23k 的大专社招，我随便发几个球友报喜的截图给大家展示下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221211916.png)
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
+
+早就是优势，大家可以看一下这位球友的心路历程，**是真的后悔没有早一点入，享受更多的优惠和更早的服务**。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/d5a8a53f7d770649aef0294cc45840fa.png)
 
 ## 一、四份高质量专栏
 
-二哥的编程星球目前上线了四份高质量的付费专栏：《[Java面试指南](https://mp.weixin.qq.com/s/3yUT9v3BAdf4rfdfWYbfPw)》、《技术派实战教程》、《编程喵实战项目笔记》、《二哥的LeetCode刷题笔记》。
+二哥的编程星球目前已经上线了四份高质量的付费专栏：《[Java面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《编程喵实战项目笔记》和《二哥的LeetCode刷题笔记》。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/a53ce12d9f62d6935801b21688f63d4d.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221214200.png)
 
-目前 4 个专栏已经非常完整和饱满了。给大家看一下一屏截图能装得下的目录。
+目前 4 个专栏已经非常完整和饱满了。不管是学生党还是工作党，都是非常刚需的，尤其是在越来越激烈的面试竞争中，就像这位球友发出的感慨。
 
-先来看一下《[Java面试指南](https://mp.weixin.qq.com/s/3yUT9v3BAdf4rfdfWYbfPw)》的部分目录（还有技术提升篇、职场修炼篇、面经分享篇、精选面试题篇、场景设计题篇），可以说非常的良心。
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215635.png)
+
+学习和求职的路上，最怕的就是漫无目的和不知所措，有了方向和优质的学习资料，就像吃了蘑菇的超级马里奥，不仅可以承受更多的伤害，攻击力也会变大一倍。
+
+### 01、Java 面试指南
+
+截止到目前，《Java 面试指南》已经更新了 48万+字，可以说是满满的干货和诚意。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215721.png)
+
+一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
+
+- 面试准备篇（25+篇），手把手教你如何准备面试。
+- 职场修炼篇（11+篇），手摸手教你如何在职场中如鱼得水。
+- 学习路线篇（13+篇），手勾手教你如何快速学习一门技术栈。
+- 技术提升篇（33+篇），手拉手教你如何成为团队不可或缺的技术攻坚小能手。
+- 面经分享篇（23+篇），手牵手教你如何在面试中知彼知己，百战不殆。
+- 场景设计篇（22+篇），手握手教你如何在面试中脱颖而出。
+
+来看一下《[Java面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》的部分目录吧，可以说非常的良心。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fc80913b-48bd-453d-b7a9-7c84a4a98231.png)
 
-再来看《技术派教程》，[技术派这个项目上线后](https://mp.weixin.qq.com/s/ywJ0v_BG32HeJ3NpkTvk2w)，一直广受好评，球友们的认可度非常的高。
+秋招信息表中收集了 4000+ 多家可以投递的公司名单，包括银行、证券、互联网、国企、央企、通信各行各业，极大减轻了大家的信息筛选成本。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221214415.png)
+
+面经分享篇里几乎收录了所有知名大厂的面经，站在师兄师姐的肩膀上，你的面试准备路上就会少走很多弯路。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221214842.png)
+
+### 02、技术派教程
+
+技术派是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
+
+用户端首页：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215933.png)
+
+admin 端星球白名单：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220010.png)
+
+[技术派这个项目上线后](https://javabetter.cn/zhishixingqiu/paicoding.html)，一直广受好评，球友们的认可度非常的高。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/5e003694c23bd14416ff01b92f8c7440.png)
 
-下面是部分目录（预计更新 120 篇，包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇，目前已完成 70+篇）。
+下面是部分目录，已更新 120 篇，包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇等，很多球友都反馈说光这套教程就值 2999 元。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/f2b985dda7cb9e4c6e764940ef2887aa.png)
 
-再来看一下《编程喵实战项目笔记》，这个教程可以带你完成从小白到初级工程师的蜕变。
+### 03、编程喵实战项目笔记
+
+编程喵是一套成熟的学习教程网站，包括前台网站内容展示系统，以及后台网站内容管理系统，采用时下最流行的 Spring Boot + Vue 的前后端分离架构。配套的教程可以带你完成从小白到初级工程师的蜕变。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
 
-还有《二哥的 LeetCode 刷题笔记》，不仅有详细地解题思路，还有完整的代码示例，力求教会你举一反三的解题能力。
+### 04、二哥的 LeetCode 刷题笔记
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c706bc3e-2a1e-4cea-ae33-40f8e08f052d.png)
+《二哥的 LeetCode 刷题笔记》，不仅有详细地解题思路，还增加了 ACM 输入输出模式，方便大家在 IDEA 中进行调试，并且会模拟整个题解过程，让大家看完后会有一种“哦哦”恍然大悟的感觉，力求教会大家举一反三的解题能力。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215214.png)
 
 看到这就迫不及待想要加入的小伙伴，直接扫下面这个二维码，**新人直减 30 元，优惠完每天不到 0.28 元，真的划算**！
 
@@ -71,16 +124,39 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230401103014.png)
 
-**2）为你精挑细选了一些可以写到简历上，可以提高编程功底的优质实战项目**，比如说动态线程池 hippo4j、手写数据库 MYDB、Spring Boot 的前后端分离项目技术派等等，无论你是缺少项目经验的学生党，还是有一定经验的工作党，这些项目都能帮助你完成技术上的蜕变和提升。
+在星球里，二哥已经回答超过 1000 个问题了，这些问题包括如何准备面试，如何制定学习计划，如何选择 offer，以及职场规划等等。来看看球友们的提问得到二哥答复后的真实反馈吧。
 
-这里重点说一下技术派吧，这是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220302.png)
+
+也许这些问题正在困扰着你，影响着你的学习节奏和晋升节奏，但对于已经加入知识星球的球友们，已经通过提问的形式从困境里走了出来，迎来了新生。
+
+二哥的回复也非常的详细，有些回复的字数会超过 2000 字，甚至 4000 字，这是很多星主做不到，甚至不愿意去做的。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220341.png)
+
+**2）阵容强大的嘉宾**，有微信的、字节的、小米的、百度的、国企的、外企的、阿里的等等各方大佬。如果你的问题二哥解决不了，总有一个大佬能够帮你解决。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221224246.png)
+
+**3）为你精挑细选了一些可以写到简历上，可以提高编程功底的优质实战项目**，比如说动态线程池 hippo4j、手写数据库 MYDB、Spring Boot 的前后端分离项目技术派等等，无论你是缺少项目经验的学生党，还是有一定经验的工作党，这些项目都能帮助你完成技术上的蜕变和提升。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/aff517f8c5b8e25643d31f808c0e7c3c.png)
+
+今年秋招中的很多小伙伴已经凭借这两个项目斩获了诸多 offer，成了令人羡慕的 offer 收割机。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220412.png)
+
+看看技术派上线后球友们的反馈吧：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220431.png)
+
+我们还搞过一次视频直播，当时球友们都炸锅了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220451.png)
 
 每年一到找工作的季节，很多小伙伴的简历上总是没有亮眼的项目经验可写。虽然 GitHub 和码云上也有不少优秀的开源项目，但大多数没有成熟且体系化的教程，总不能直接下载到本地跑一下 main 方法就算学习了吧？
 
 技术派不是这样的，我们会为你提供详细的学习教程，从 0 到 1 带你体验真正的商业项目是如何从产品调研到最后落地的，项目中采用的关键技术都会通过详细的图文教程毫无保留的传授给你。
-
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/2e1a1927af18a0f5e2f3cb46a0c97dea.png)
 
@@ -97,7 +173,7 @@ head:
 
 多说一句，任何时候，**技术都是我们程序员的安身立命之本**，如果你能认认真真跟完技术派的源码和教程，相信你的编程功底会提升一大截。
 
-**3）星球会定期整理和分享优质的学习资料**，包括 PDF&视频教程&学习资料等等。
+**4）星球会定期整理和分享优质的学习资料**，包括 PDF&视频教程&学习资料等等。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/3cbc2bb998005caf04688842500768ee.png)
 
@@ -111,7 +187,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-49508f06-bb55-4102-82da-61305eae241a.png)
 
 
-**4）为你提供容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，打造一份投了就有声音的优质简历。
+**5）为你提供容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，打造一份投了就有声音的优质简历。
 
 
 ![看看这专业技能，多专业](https://cdn.tobebetterjavaer.com/paicoding/f42950edac8bf2fbdfe9111895ad687a.png)
@@ -121,11 +197,15 @@ head:
 
 
 
-**5）为你创造一个沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
+**6）为你创造一个沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e4f4b7ec-5852-487c-afb6-570f49af4ad5.png)
 
-下面是球友尽余欢总结的 JVM 思维导图，非常细心。
+学习的路上，最怕孤独和没有方向，而二哥的编程星球正好可以为大家提供这样一个学习环境。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220640.png)
+
+每天都会有很多球友积极打卡，分享自己一天的学习成果。下面是球友尽余欢总结的 JVM 思维导图，非常细心。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/0bba575b6b091b5ea738e8f1c86120fc.png)
 
@@ -138,9 +218,9 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/6e2e1083253db23bc9bf40af15916578.png)
 
-**6）无限期使用技术派的 AI 助手「派聪明」**，目前已经开通了讯飞星火和 OpenAI 双通道供大家学习使用。
+**7）无限期使用技术派的 AI 助手「派聪明」**，目前已经开通了讯飞星火和 OpenAI 双通道供大家学习使用。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/c1c2d384bdf502bf19305b52a5f6bf9d.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220823.png)
 
 二哥会在这个圈子里持续沉淀自己，同时也希望能帮助到更多想要进步的小伙伴：
 
@@ -163,11 +243,11 @@ head:
 
 2014 年，我开始坚持写作，并且一直坚持到现在，通过一点一滴的分享，一步一个脚印的积累，“沉默王二”这个 IP 在技术圈的影响力渐渐地扩散了开来。
 
-下图是我在 GitHub 上取得的一点成绩：《**二哥的Java进阶之路**》开源知识库收获了 8.6k+ 的 star 数，并且多次上榜 trending 榜单。
+下图是我在 GitHub 上取得的一点成绩：《**二哥的Java进阶之路**》开源知识库收获了 10k+ 的 star 数，并且多次上榜 trending 榜单。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/933120b12921fe2e0b54344fb842295a.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220956.png)
 
-下图是我的原创公号「**沉默王二**」在二十次幂「开发者」中的上周排名，放在全国范围内，能排到 TOP 5 非常不容易了吧。不靠学历、不靠大厂 title，能做出这个成绩，应该更适合普通人拿来作为参照物吧。
+下图是我的原创公号「**沉默王二**」在二十次幂「开发者」中的上周排名，放在全国范围内，能排到 TOP 5 非常不容易了吧。二哥来自农村，家境非常一般，也非天资聪慧，能做出这个成绩，应该更适合普通人拿来作为参照物吧。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/cb48e72599cfea25f1dcb5d19412388e.png)
 
@@ -184,7 +264,7 @@ head:
 ![](https://cdn.tobebetterjavaer.com/paicoding/8492cdb920bff30fd8890ab19c793447.png)
 
 
-二哥来自农村，小时候没少吃苦，真的是吃不饱穿不暖，所以非常珍惜现在拥有的一切。
+二哥来自农村，小时候没少吃苦，真的是吃不饱穿不暖，一点不夸张，所以非常珍惜现在拥有的一切。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-70b647a7-f2be-4c00-bf28-e8310b641690.png)
 
@@ -283,17 +363,45 @@ head:
 
 除了这些，还有很多很多，认真学习，积极向上的球友，处在这样的学习环境中，你很难不去进步，去成为更好的自己。
 
+有的在这里发表他们的面试经历。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221329.png)
+
+有的在这里发表他们的人生经历。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221345.png)
+
+有的在这里发表他们的学习笔记。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221401.png)
+
+有的在这里发表他们的工作经验。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221416.png)
+
+有的在这里发表他们的管理经验。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221432.png)
+
+有的在这里发表他们的实习经验。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221449.png)
+
+就像这位球友说的，之前一直一个人学习，很想找一个和编程相关的一个交流平台，一路寻找来到了这里，很喜欢这里的氛围，希望可以和大家一起学习进步!
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221506.png)
+
 ## 六、下定决心加入了
 
 相信看到这里的你已经迫不及待、下定决心加入二哥的编程星球了，扫下面的二维码或者长按识别付费后就可以加入了。
 
 <img src="https://cdn.tobebetterjavaer.com/paicoding/7c0ac1af155d3c1a1df268a17813ca45.png" title="二哥的编程星球" width="400" />
 
-星球目前定价**129 元/年，并且会送你 30 元的优惠券**，但提供的服务远远超出了 99元 这个价格可以承载的价值。
+星球目前定价**149 元/年，并且会送你 30 元的优惠券**，但提供的服务远远超出了 119元 这个价格可以承载的价值。
 
-随着时间推移，星球积累的干货会越来越多，加入星球的小伙伴也会越来越多，我花在星球上的时间也会越来越多。所以星球也会逐步提高门槛，下一次就是 **149 元/年**！再下一次就是 **159元/年**。
+随着时间推移，星球积累的干货会越来越多，加入星球的小伙伴也会越来越多，我花在星球上的时间也会越来越多。所以星球也会逐步提高门槛，下一次就是 **159 元/年**！再下一次就是 **169元/年**。
 
-加入后记得添加我的微信（扫下面的二维码），备注「**星球**」我会拉你进星球的 VIP 交流群，目前已经是第 4 群了。
+加入后记得添加我的微信（扫下面的二维码），备注「**星球**」我会拉你进星球的 VIP 交流群，目前已经是第 6 群了。
 
 <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png" title="二哥的编程星球" width="300" />
 
