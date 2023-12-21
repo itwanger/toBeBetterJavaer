@@ -1,16 +1,18 @@
 ---
-title: Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k
+title: Tabby：一款逼格更高的开源终端工具，GitHub 星标 50+k
 shortTitle: Tabby：开源终端工具
 category:
   - Java企业级开发
 tag:
   - 辅助工具
-description: Tabby：一款逼格更高的开源终端工具，GitHub 星标 21.4k
+description: Tabby：一款逼格更高的开源终端工具，GitHub 星标 50+k
 head:
   - - meta
     - name: keywords
       content: 辅助工具,GitHub,终端,Tabby,tabby 终端,tabby 教程,Java企业级开发
 ---
+
+大家好，我是二哥呀。
 
 作为一名 Java 后端开发，日常工作中免不了要和 Linux 服务器打交道，因为生产环境基本上都是部署在 Linux 环境下的。以前呢，我会选择 Xshell 来作为终端进行远程操作。
 
@@ -26,7 +28,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-01.png)
 
-GitHub 上已经有 21.4k 的 star 了，这说明 Tabby 非常的受欢迎：
+GitHub 上已经有 52.8k 的 star 了，这说明 Tabby 非常的受欢迎：
 
 >[https://github.com/eugeny/tabby](https://github.com/eugeny/tabby)
 
@@ -36,7 +38,7 @@ Tabby 是一个高度可定制化的 跨平台的终端工具，支持 Windows�
 
 ## 一、安装 Tabby
 
-直接到官网 [tabby.sh](https://tabby.sh/) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
+直接到官网 [tabby.sh](https://tabby.sh/) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.205。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-02.png)
 
@@ -63,8 +65,6 @@ Apple M1 是苹果公司的第一款基于ARM架构的自研处理器单片系�
 ## 二、SSH 连接
 
 SSH，也就是 Secure Shell（安全外壳协议），是一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境，通过在网络中创建安全隧道来实现 SSH 客户端和服务器端之间的连接。
-
-之前说要带大家玩转 Linux 服务器，我们先安装了[宝塔面板](https://mp.weixin.qq.com/s/ditN9J80rSWwnYRumwb4ww)这个神器。宝塔里面有自带的终端，但说实话，体验一般。
 
 那不妨我们就使用 Tabby 来与服务器建立一个 SSH 连接吧。
 
@@ -147,6 +147,9 @@ Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需
 SSH 连接和 SFTP 传输恐怕是我们操作 Linux 服务器最常用的两个功能了，那 Tabby 对这两个功能的支持非常的友好，足够的轻量级。关键它是跨平台的，Windows、macOS 都可以用，再把配置信息同步到云上后，多平台下切换起来简直不要太舒服。
 
 Windows 用户习惯用 Xshell，macOS 用户习惯用 iTerm2，但这两款工具都没办法跨平台，多平台操作的用户就可以选择 Tabby 来体验一下，真心不错。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/tabby-20231219193213.png)
+
 
 Tabby 的学习资料还比较少，所以希望二哥的这篇文章能给有需要的小伙伴提供一点点的帮助和启发。
 
