@@ -1,6 +1,6 @@
 ---
 title: 为什么Java字符串String是不可变的？
-shortTitle: String为什么不可变
+shortTitle: 字符串为什么不可变
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java, String, 不可变, 字符串
 ---
 
-# 4.5 String为什么不可变
+# 4.5 字符串为什么不可变
 
 String 可能是 Java 中使用频率最高的引用类型了，因此 String 类的设计者可以说是用心良苦。
 

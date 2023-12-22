@@ -1,6 +1,6 @@
 ---
 title: 字符串相等判断：Java中的equals()与==的区别与用法
-shortTitle: String相等判断
+shortTitle: 如何判断字符串相等
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,string,Java字符串, 字符串比较, equals, ==, 字符串相等
 ---
 
-# 4.9 String相等判断
+# 4.9 如何判断字符串相等
 
 “二哥，如何比较两个字符串相等啊？”三妹问。
 

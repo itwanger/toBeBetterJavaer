@@ -1,6 +1,6 @@
 ---
 title: 最优雅的Java字符串String拼接是哪种方式？
-shortTitle: String拼接
+shortTitle: 如何拼接字符串
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,字符串,String,字符串拼接,java字符串拼接,java string拼接
 ---
 
-# 4.10 String拼接
+# 4.10 如何拼接字符串
 
 “哥，你让我看的《[Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 
