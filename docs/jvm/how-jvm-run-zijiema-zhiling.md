@@ -27,7 +27,7 @@ head:
 
 一个线程中的方法调用链可能会很长，很多方法都处于执行状态。对于执行引擎来说，在活动线程中，只有位于栈顶的栈帧才是有效的，称为当前栈帧（Current Stack Frame），与这个栈帧相关联的方法成为当前方法。执行引擎运行的所有字节码指令对当前栈帧进行操作，在概念模型上，典型的栈帧结构如下图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-a58ee82e-c0b0-4c06-9606-f7a0f0df0de9)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-a58ee82e-c0b0-4c06-9606-f7a0f0df0de9.jpg)
 
 #### 局部变量表
 

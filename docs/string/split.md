@@ -1,6 +1,6 @@
 ---
 title: 如何在Java中拆分字符串：详解String类的split()方法
-shortTitle: String拆分
+shortTitle: 如何拆分字符串
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,字符串,String,字符串拆分
 ---
 
-# 4.11 String拆分
+# 4.11 如何拆分字符串
 
 “哥，我感觉字符串拆分没什么可讲的呀，直接上 String 类的 `split()` 方法不就可以了！”三妹毫不客气地说。
 

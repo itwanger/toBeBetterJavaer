@@ -1,6 +1,6 @@
 ---
 title: 深入理解Java字符串String常量池
-shortTitle: 深入理解Java字符串常量池
+shortTitle: 字符串常量池
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,java字符串,java String,java常量池,java字符串常量池,string常量池,字符串常量池
 ---
 
-# 4.6 深入理解Java字符串常量池
+# 4.6 字符串常量池
 
 “三妹，今天我们来学习一下字符串常量池，这是字符串中非常关键的一个知识点。”我话音未落，青岛路小学那边传来了嘹亮的歌声就钻进了我的耳朵，“唱 ~ 山 ~ 歌 ~”，我都有点情不自禁地哼唱起来了。
 

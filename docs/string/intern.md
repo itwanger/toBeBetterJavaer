@@ -1,6 +1,6 @@
 ---
 title: Java 字符串优化：详解 String.intern() 方法
-shortTitle: 详解 String.intern 方法
+shortTitle: String.intern详解
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,字符串,String,intern,string intern,java intern,java string intern,String.intern
 ---
 
-# 4.7 详解 String.intern() 方法
+# 4.7 String.intern详解
 
 “哥，你发给我的那篇文章我看了，结果直接把我给看得不想学 Java 了！”三妹气冲冲地说。
 

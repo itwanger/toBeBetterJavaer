@@ -1,6 +1,6 @@
 ---
 title: 深入解读String类源码及其应用技巧
-shortTitle: 解读String类源码
+shortTitle: 字符串源码解读
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java, String类, 源码, 源码解析, 字符串操作,String
 ---
 
-# 4.4 解读String类源码
+# 4.4 字符串源码解读
 
 我正坐在沙发上津津有味地读刘欣大佬的《码农翻身》——Java 帝国这一章，门铃响了。起身打开门一看，是三妹，她从学校回来了。
 

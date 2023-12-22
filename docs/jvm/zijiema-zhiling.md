@@ -5,33 +5,75 @@ category:
   - Java核心
 tag:
   - Java虚拟机
-description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，JVM字节码指令详解
+description: 这节我们详细地介绍了 Java 字节码指令，包括算术指令、类型转换指令、对象的创建和访问指令、方法调用和返回指令、操作数栈管理指令、控制转移指令、异常处理时的字节码指令、synchronized 的字节码指令等。
 head:
   - - meta
     - name: keywords
-      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,字节码
+      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,字节码,字节码指令
 ---
 
 # 第六节：字节码指令详解
 
-大家好，我是二哥呀。Java 字节码指令是 JVM 体系中非常难啃的一块硬骨头，我估计有些[球友](https://javabetter.cn/zhishixingqiu/)会有这样的疑惑，“这么难啃，我还能学会啊？”
+大家好，我是二哥呀。字节码指令是 JVM 体系中比较难啃的一块硬骨头，我估计有些[球友](https://javabetter.cn/zhishixingqiu/)会有这样的疑惑，“这么难啃，我还能学会啊？”
 
 讲良心话，不是我谦虚，一开始学 Java 字节码和 Java 虚拟机方面的知识我也头大！但硬着头皮学了一阵子之后，突然就开窍了，觉得好有意思，尤其是明白了 Java 代码在底层竟然是这样执行的时候，感觉既膨胀又飘飘然，浑身上下散发着自信的光芒！
 
-来吧，跟着二哥一起来学习吧，别畏难。[前面](https://javabetter.cn/jvm/vm-stack-register.html)我们已经讲过了，JVM 是基于栈结构的，这对理解对接下来的内容会很有帮助。
+来吧，跟着二哥一起来学习吧，别畏难。[前面](https://javabetter.cn/jvm/vm-stack-register.html)我们已经讲过了，JVM 是基于栈结构的字节码指令集，那今天我们就来继续来学习，**什么是字节码指令**。
 
-Java 字节码由操作码和操作数组成。
+Java 的字节码指令由操作码和操作数组成：
 
 - 操作码（Opcode）：一个字节长度（0-255，意味着指令集的操作码总数不可能超过 256 条），代表着某种特定的操作含义。
 - 操作数（Operands）：零个或者多个，紧跟在操作码之后，代表此操作需要的参数。
 
-由于 Java 虚拟机是基于栈而不是寄存器的结构，所以大多数指令都只有一个操作码。比如 `aload_0`（将局部变量表中下标为 0 的数据压入操作数栈中）就只有操作码没有操作数，而 `invokespecial #1`（调用成员方法或者构造方法，并传递常量池中下标为 1 的常量）就是由操作码和操作数组成的。
+由于 Java 虚拟机是基于栈而不是寄存器的结构，所以大多数字节码指令都只有一个操作码。比如 `aload_0` 就只有操作码没有操作数，而 `invokespecial #1` 则由操作码和操作数组成。
+
+- aload_0：将局部变量表中下标为 0 的数据压入操作数栈中
+- invokespecial #1：调用成员方法或者构造方法，并传递常量池中下标为 1 的常量
+
+字节码指令主要有以下几种，分别是：
+
+- 加载与存储指令
+- 算术指令
+- 类型转换指令
+- 对象的创建与访问指令
+- 方法调用和返回指令
+- 操作数栈管理指令
+- 控制转移指令
+
+我们来一一说明下。
 
 ## 加载与存储指令
 
-加载（load）和存储（store）相关的指令是使用最频繁的指令，用于将数据从栈帧的局部变量表和操作数栈之间来回传递。
+加载（load）和存储（store）指令是使用最频繁的指令，用于将数据从[栈帧的局部变量表和操作数栈](https://javabetter.cn/jvm/vm-stack-register.html)之间来回传递。
 
-**1）将局部变量表中的变量压入操作数栈中**
+看下面这段代码。
+
+```java
+public int add(int a, int b) {
+    int result = a + b;
+    return result;
+}
+```
+
+使用 javap 查看字节码指令（大致）如下：
+
+```
+public int add(int, int);
+    Code:
+       0: iload_1
+       1: iload_2
+       2: iadd
+       3: istore_3
+       4: ireturn
+```
+
+我用下面一幅图来给大家说明白字节码指令的执行过程：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/zijiema-zhiling-20231222162415.png)
+
+然后我们再来分析 load 和 store 指令的具体含义。
+
+### 1）将局部变量表中的变量压入操作数栈中
 
 - `xload_<n>`（x 为 i、l、f、d、a，n 默认为 0 到 3），表示将第 n 个局部变量压入操作数栈中。
 - xload（x 为 i、l、f、d、a），通过指定参数的形式，将局部变量压入操作数栈中，当使用这个指令时，表示局部变量的数量可能超过了 4 个
@@ -42,7 +84,7 @@ x 为操作码助记符，表明是哪一种数据类型。见下表所示。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-879da2f2-fb72-48a9-985e-5a28a9fc8814.png)
 
-像 arraylength 指令，没有操作码助记符，它没有代表数据类型的特殊字符，但操作数只能是一个数组类型的对象。
+像 arraylength 指令，就没有操作码助记符，它没有代表数据类型的特殊字符，但操作数只能是一个数组类型的对象。
 
 大部分的指令都不支持 byte、short 和 char，甚至没有任何指令支持 boolean 类型。编译器会将 byte 和 short 类型的数据带符号扩展（Sign-Extend）为 int 类型，将 boolean 和 char 零位扩展（Zero-Extend）为 int 类型。
 
@@ -54,22 +96,22 @@ private void load(int age, String name, long birthday, boolean sex) {
 }
 ```
 
-通过 jclasslib 看一下 `load()` 方法（4 个参数）的字节码指令。
+通过 [jclasslib](https://javabetter.cn/jvm/how-run-java-code.html) 看一下 `load()` 方法（4 个参数）的字节码指令。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-05bfae95-2a33-402c-9041-570093729c42.png)
 
-- iload_1：将局部变量表中下标为 1 的 int 变量压入操作数栈中。
-- aload_2：将局部变量表中下标为 2 的引用数据类型变量（此时为 String）压入操作数栈中。
-- lload_3：将局部变量表中下标为 3 的 long 型变量压入操作数栈中。
+- `iload_1`：将局部变量表中下标为 1 的 int 变量压入操作数栈中。
+- `aload_2`：将局部变量表中下标为 2 的引用数据类型变量（此时为 String）压入操作数栈中。
+- `lload_3`：将局部变量表中下标为 3 的 long 型变量压入操作数栈中。
 - iload 5：将局部变量表中下标为 5 的 int 变量（实际为 boolean）压入操作数栈中。
 
 通过查看局部变量表就能关联上了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-79d74946-ce9e-41d4-b889-bda861f847bc.png)
 
-**2）将常量池中的常量压入操作数栈中**
+### 2）将常量池中的常量压入操作数栈中
 
-根据数据类型和入栈内容的不同，此类又可以细分为 const 系列、push 系列和 Idc 指令。
+根据数据类型和入栈内容的不同，又可以细分为 const 系列、push 系列和 Idc 指令。
 
 **const 系列**，用于特殊的常量入栈，要入栈的常量隐含在指令本身。
 
@@ -103,14 +145,14 @@ public void pushConstLdc() {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-b34fc802-18bb-46a1-8d24-de2087c9b6bf.png)
 
-- iconst_m1：将 -1 入栈。范围 [-1,5]。
+- `iconst_m1`：将 -1 入栈。范围 [-1,5]。
 - bipush 127：将 127 入栈。范围 [-128,127]。
 - sipush 32767：将 32767 入栈。范围 [-32768,32767]。
-- ldc #6 <32768>：将常量池中下标为 6 的常量 32768 入栈。
+- `ldc #6 <32768>`：将常量池中下标为 6 的常量 32768 入栈。
 - aconst_null：将 null 入栈。
-- ldc #7 <沉默王二>：将常量池中下标为 7 的常量“沉默王二”入栈。
+- `ldc #7 <沉默王二>`：将常量池中下标为 7 的常量“沉默王二”入栈。
 
-**3）将栈顶的数据出栈并装入局部变量表中**
+### 3）将栈顶的数据出栈并装入局部变量表中
 
 主要是用来给局部变量赋值，这类指令主要以 store 的形式存在。
 
@@ -138,18 +180,20 @@ public void store(int age, String name) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-d955468c-d07d-47cd-b82b-c03ecea8753d.png)
 
-- istore_3：从操作数中弹出一个整数，并把它赋值给局部变量表中索引为 3 的变量。
+- `istore_3`：从操作数中弹出一个整数，并把它赋值给局部变量表中索引为 3 的变量。
 - astore 4：从操作数中弹出一个引用数据类型，并把它赋值给局部变量表中索引为 4 的变量。
 
 通过查看局部变量表就能关联上了。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-a08c20cb-c148-47c9-91e2-df37e68989a9.png)
 
-### 02、算术指令
+## 算术指令
 
 算术指令用于对两个操作数栈上的值进行某种特定运算，并把结果重新压入操作数栈。可以分为两类：整型数据的运算指令和浮点数据的运算指令。
 
-需要注意的是，**数据运算可能会导致溢出**，比如两个很大的正整数相加，很可能会得到一个负数。但 Java 虚拟机规范中并没有对这种情况给出具体结果，因此程序是不会显式报错的。所以，大家在开发过程中，如果涉及到较大的数据进行加法、乘法运算的时候，一定要注意！
+这一节可以回顾一下 [Java 运算符](https://javabetter.cn/basic-grammar/operator.html) ，就可以把一些非常简单的算术运算和 JVM 关联起来了。
+
+需要注意的是，**数据运算可能会导致溢出**，比如两个很大的正整数相加，很可能会得到一个负数。但 Java 虚拟机规范中并没有对这种情况给出具体结果，因此程序是不会显式报错的。所以，**大家在开发过程中，如果涉及到较大的数据进行加法、乘法运算的时候，一定要注意**！
 
 当发生溢出时，将会使用有符号的无穷大 Infinity 来表示；如果某个操作结果没有明确的数学定义的话，将会使用 NaN 值来表示。而且所有使用 NaN 作为操作数的算术操作，结果都会返回 NaN。
 
@@ -209,9 +253,9 @@ public void calculate(int age) {
 - irem，取余
 - iinc，自增的时候 +1，自减的时候 -1
 
-### 03、类型转换指令
+## 类型转换指令
 
-可以分为两种：
+类型转换指令可以分为两种：
 
 1）宽化，小类型向大类型转换，比如 `int–>long–>float–>double`，对应的指令有：i2l、i2f、i2d、l2f、l2d、f2d。
 
@@ -223,6 +267,8 @@ public void calculate(int age) {
 
 - 窄化很可能会发生精度丢失，毕竟是不同的数量级；
 - 但 Java 虚拟机并不会因此抛出运行时异常。
+
+>可以回想一下前面讲过的：[自动类型转换与强制类型转换](https://javabetter.cn/basic-grammar/type-cast.html)
 
 举例来说。
 
@@ -243,19 +289,19 @@ public void updown() {
 - i2d，int 宽化为 double
 - f2l， float 窄化为 long
 
-### 04、对象的创建和访问指令
+## 对象的创建和访问指令
 
 Java 是一门面向对象的编程语言，那么 Java 虚拟机是如何从字节码层面进行支持的呢？
 
-**1）创建指令**
+### 1）创建指令
 
-数组也是一种对象，但它创建的字节码指令和普通的对象不同。创建数组的指令有三种：
+[数组](https://javabetter.cn/array/array.html)是一种特殊的对象，它创建的字节码指令和普通对象的创建指令不同。创建数组的指令有三种：
 
 - newarray：创建基本数据类型的数组
 - anewarray：创建引用类型的数组
 - multianewarray：创建多维数组
 
-普通对象的创建指令只有一个，就是 `new`，它会接收一个操作数，指向常量池中的一个索引，表示要创建的类型。
+而对象的创建指令只有一个，就是 `new`，它会接收一个操作数，指向常量池中的一个索引，表示要创建的类型。
 
 举例来说。
 
@@ -275,9 +321,9 @@ public void newObject() {
 - `new #15 <java/io/File>`，创建一个 File 对象。
 - `newarray 10 (int)`，创建一个 int 类型的数组。
 
-**2）字段访问指令**
+### 2）字段访问指令
 
-字段可以分为两类，一类是成员变量，一类是静态变量（static 关键字修饰的），所以字段访问指令可以分为两类：
+[字段](https://javabetter.cn/oo/var.html)可以分为两类，一类是成员变量，一类是静态变量（也就是类变量），所以字段访问指令可以分为两类：
 
 - 访问静态变量：getstatic、putstatic。
 - 访问成员变量：getfield、putfield，需要创建对象后才能访问。
@@ -308,14 +354,14 @@ public class Writer {
 - `getstatic #2 <com/itwanger/jvm/Writer.mark>`，访问静态变量 mark
 - `getfield #6 <com/itwanger/jvm/Writer.name>`，访问成员变量 name
 
-### 05、方法调用和返回指令
+## 方法调用和返回指令
 
 方法调用指令有 5 个，分别用于不同的场景：
 
-- invokevirtual：用于调用对象的成员方法，根据对象的实际类型进行分派，支持多态。
-- invokeinterface：用于调用接口方法，会在运行时搜索由特定对象实现的接口方法进行调用。
-- invokespecial：用于调用一些需要特殊处理的方法，包括构造方法、私有方法和父类方法。
-- invokestatic：用于调用静态方法。
+- invokevirtual：用于调用对象的成员方法，根据对象的实际类型进行分派，支持[多态](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)。
+- invokeinterface：用于调用[接口](https://javabetter.cn/oo/interface.html)方法，会在运行时搜索由特定对象实现的接口方法进行调用。
+- invokespecial：用于调用一些需要特殊处理的方法，包括[构造方法](https://javabetter.cn/oo/construct.html)、私有方法和父类方法。
+- invokestatic：用于调用[静态方法](https://javabetter.cn/oo/method.html#_05%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95)。
 - invokedynamic：用于在运行时动态解析出调用点限定符所引用的方法，并执行。
 
 举例来说。
@@ -395,7 +441,7 @@ public class com.itwanger.jvm.InvokeExamples {
 
 InvokeExamples 类有 4 个方法，包括缺省的构造方法在内。
 
-1）`InvokeExamples()` 构造方法中
+### 1）invokespecial
 
 缺省的构造方法内部会调用超类 Object 的初始化构造方法：
 
@@ -403,13 +449,13 @@ InvokeExamples 类有 4 个方法，包括缺省的构造方法在内。
 `invokespecial #1 // Method java/lang/Object."<init>":()V`
 ```
 
-2）成员方法 `run()` 中
+### 2）invokeinterface和invokevirtual
 
 ```
 invokeinterface #5,  2  // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
 ```
 
-由于 ls 变量的引用类型为接口 List，所以 `ls.add()` 调用的是 `invokeinterface` 指令，等运行时再确定是不是接口 List 的实现对象 ArrayList 的 `add()` 方法。
+由于 ls 变量的引用类型为接口 List，所以 `ls.add()` 调用的是 `invokeinterface` 指令，等运行时再确定是不是接口 List 的实现对象 [ArrayList](https://javabetter.cn/collection/arraylist.html) 的 `add()` 方法。
 
 ```
 invokevirtual #7 // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
@@ -417,7 +463,7 @@ invokevirtual #7 // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
 
 由于 als 变量的引用类型已经确定为 ArrayList，所以 `als.add()` 方法调用的是 `invokevirtual` 指令。
 
-3）`main()` 方法中
+### 3）invokestatic
 
 ```
 invokestatic  #11 // Method print:()V
@@ -425,16 +471,70 @@ invokestatic  #11 // Method print:()V
 
 `print()` 方法是静态的，所以调用的是 `invokestatic` 指令。
 
-方法返回指令根据方法的返回值类型进行区分，常见的返回指令见下图。
+### invokedynamic
+
+`invokedynamic` 指令是 Java 7 引入的，主要是为了支持动态语言，比如 Groovy、Scala、JRuby 等。这些语言都是在运行时动态解析出调用点限定符所引用的方法，并执行。
+
+看下面这段代码，用到了 [Lambda 表达式](https://javabetter.cn/java8/Lambda.html)，Lambda 表达式的实现就依赖于 invokedynamic 指令：
+
+```java
+import java.util.function.Function;
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        // 使用 Lambda 表达式定义一个函数
+        Function<Integer, Integer> square = x -> x * x;
+
+        // 调用这个函数
+        int result = square.apply(5);
+
+        System.out.println(result); // 输出 25
+    }
+}
+```
+
+在这个例子中，Lambda 表达式 `x -> x * x` 定义了一个接受一个整数并返回其平方的函数。在编译这段代码时，编译器会使用 invokedynamic 指令来动态地绑定这个 Lambda 表达式。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/zijiema-zhiling-20231222170222.png)
+
+
+①、`invokedynamic #2,  0`：使用 `invokedynamic` 调用一个引导方法（Bootstrap Method），这个方法负责实现并返回一个 `Function` 接口的实例。这里的 Lambda 表达式 `x -> x * x` 被转换成了一个 `Function` 对象。引导方法在首次执行时会被调用，它负责生成一个 `CallSite`，该 `CallSite` 包含了指向具体实现 Lambda 表达式的方法句柄（Method Handle）。在这个例子中，这个方法句柄指向了 `lambda$main$0` 方法。
+
+②、`astore_1`：将 `invokedynamic` 指令的结果（Lambda 表达式的 `Function` 对象）存储到局部变量表的位置 1。
+
+③、Lambda 表达式的实现是：`lambda$main$0`，这是 Lambda 表达式 `x -> x * x` 的实际实现。它接收一个 `Integer` 对象作为参数，计算其平方，然后返回结果。
+
+```java
+public class LambdaExample {
+    public LambdaExample() {
+    }
+
+    public static void main(String[] args) {
+        Function<Integer, Integer> square = (x) -> {
+            return x * x;
+        };
+        int result = (Integer)square.apply(5);
+        System.out.println(result);
+    }
+}
+```
+
+其他指令这里就不再分析下去了，大家可以尝试一下，检验自己的学习成果。
+
+### 方法返回指令
+
+方法返回指令根据方法的返回值类型进行区分，常见的返回指令见下图，就是各种 return。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-37513fa2-fdba-45db-adfc-c18225c6ff8b.png)
 
-### 06、操作数栈管理指令
+
+
+## 操作数栈管理指令
 
 常见的操作数栈管理指令有 pop、dup 和 swap。
 
 - 将一个或两个元素从栈顶弹出，并且直接废弃，比如 pop，pop2；
-- 复制栈顶的一个或两个数值并将其重新压入栈顶，比如 dup，dup2，dup*×1，dup2*×1，dup*×2，dup2*×2；
+- 复制栈顶的一个或两个数值并将其重新压入栈顶，比如 dup，dup2，`dup*×1`，`dup2*×1`，`dup*×2`，`dup2*×2`；
 - 将栈最顶端的两个槽中的数值交换位置，比如 swap。
 
 这些指令不需要指明数据类型，因为是按照位置压入和弹出的。
@@ -454,16 +554,16 @@ public class Dup {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-642ca54e-5808-428d-9840-ebf478e95c17.png)
 
-- aload_0：将 this 入栈。
+- `aload_0`：将 this 入栈。
 - dup：复制栈顶的 this。
-- getfield #2：将常量池中下标为 2 的常量加载到栈上，同时将一个 this 出栈。
-- iconst_1：将常量 1 入栈。
+- `getfield #2`：将常量池中下标为 2 的常量加载到栈上，同时将一个 this 出栈。
+- `iconst_1`：将常量 1 入栈。
 - iadd：将栈顶的两个值相加后出栈，并将结果放回栈上。
-- dup_x1：复制栈顶的元素，并将其插入 this 下面。
-- putfield #2： 将栈顶的两个元素出栈，并将其赋值给字段 age。
+- `dup_x1`：复制栈顶的元素，并将其插入 this 下面。
+- `putfield #2`： 将栈顶的两个元素出栈，并将其赋值给字段 age。
 - ireturn：将栈顶的元素出栈返回。
 
-### 07、控制转移指令
+## 控制转移指令
 
 控制转移指令包括：
 
@@ -473,7 +573,9 @@ public class Dup {
 - 多条件分支跳转指令，专为 switch-case 语句设计的。
 - 无条件跳转指令，目前主要是 goto 指令。
 
-**1）比较指令**
+和之前学过《[流程控制语句](https://javabetter.cn/basic-grammar/flow-control.html)》就关联了起来。
+
+### 1）比较指令
 
 比较指令有：dcmpg，dcmpl、fcmpg、fcmpl、lcmp，指令的第一个字母代表的含义分别是 double、float、long。注意，没有 int 类型。
 
@@ -493,7 +595,7 @@ public void lcmp(long a, long b) {
 
 lcmp 用于两个 long 型的数据进行比较。
 
-**2）条件跳转指令**
+### 2）条件跳转指令
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-5de34f26-52ad-4e07-a20d-91ea92038984.png)
 
@@ -522,11 +624,11 @@ public void fi() {
 
 `3 ifne 12 (+9)` 的意思是，如果栈顶的元素不等于 0，跳转到第 12（3+9）行 `12 bipush 20`。
 
-**3）比较条件转指令**
+### 3）比较条件转指令
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-bfab6edd-d63f-45a7-8838-997e7630fa2a.png)
 
-前缀“if\_”后，以字符“i”开头的指令针对 int 型整数进行操作，以字符“a”开头的指令表示对象的比较。
+前缀“`if_`”后，以字符“i”开头的指令针对 int 型整数进行操作，以字符“a”开头的指令表示对象的比较。
 
 举例来说。
 
@@ -544,7 +646,7 @@ public void compare() {
 
 `11 if_icmple 18 (+7)` 的意思是，如果栈顶的两个 int 类型的数值比较的话，如果前者小于后者时跳转到第 18 行（11+7）。
 
-**4）多条件分支跳转指令**
+### 4）多条件分支跳转指令
 
 主要有 tableswitch 和 lookupswitch，前者要求多个条件分支值是连续的，它内部只存放起始值和终止值，以及若干个跳转偏移量，通过给定的操作数 index，可以立即定位到跳转偏移量位置，因此效率比较高；后者内部存放着各个离散的 case-offset 对，每次执行都要搜索全部的 case-offset 对，找到匹配的 case 值，并根据对应的 offset 计算跳转地址，因此效率较低。
 
@@ -573,21 +675,123 @@ public void switchTest(int select) {
 
 case 2 的时候没有 break，所以 case 2 和 case 3 是连续的，用的是 tableswitch。如果等于 1，跳转到 28 行；如果等于 2 和 3，跳转到 34 行，如果是 default，跳转到 40 行。
 
-**5）无条件跳转指令**
+### 5）无条件跳转指令
 
-goto 指令接收两个字节的操作数，共同组成一个带符号的整数，用于指定指令的偏移量，指令执行的目的就是跳转到偏移量给定的位置处。
+[goto 指令](https://javabetter.cn/basic-extra-meal/48-keywords.html)接收两个字节的操作数，共同组成一个带符号的整数，用于指定指令的偏移量，指令执行的目的就是跳转到偏移量给定的位置处。
 
 前面的例子里都出现了 goto 的身影，也很好理解。如果指令的偏移量特别大，超出了两个字节的范围，可以使用指令 goto_w，接收 4 个字节的操作数。
 
+## 异常处理时的字节码指令
+
+让我们通过一个简单的 Java 代码示例来说明异常处理时的字节码指令。
+
+```java
+public class ExceptionExample {
+    public void testException() {
+        try {
+            int a = 1 / 0; // 这将导致除以零的异常
+        } catch (ArithmeticException e) {
+            System.out.println("发生算术异常");
+        }
+    }
+}
+```
+
+编译上述代码后，使用 `javap -c ExceptionExample` 可以查看其字节码，大致如下：
+
+```java
+public void testException();
+  Code:
+    0: iconst_1
+    1: iconst_0
+    2: idiv
+    3: istore_1
+    4: goto 12
+    7: astore_1
+    8: getstatic     #2  // Field java/lang/System.out:Ljava/io/PrintStream;
+    11: ldc           #3  // String 发生算术异常
+    13: invokevirtual #4  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+    16: return
+  Exception table:
+    from    to  target type
+       0     4     7   Class java/lang/ArithmeticException
+```
+
+①、除法
+
+`0: iconst_1`、`1: iconst_0`、`2: idiv` 这三个指令是执行除法运算 `1 / 0`。前两个指令将常数 1 和 0 分别推送到操作数栈，然后 `idiv` 指令执行除法操作。
+
+`3: istore_1` 将除法的结果存储到局部变量表中（这里会发生异常，指令实际上不会执行）。
+
+②、异常处理
+
+`4: goto 12`：在 `try` 块的末尾，有一个 `goto` 指令跳过 `catch` 块的代码。
+
+`7: astore_1` 这是 `catch` 块的开始。如果捕获到异常，将异常对象存储到局部变量表。
+
+`8 - 13: getstatic, ldc, invokevirtual` 这些指令执行 `System.out.println("发生算术异常")`。
+
+`16: return` 方法返回。
+
+Exception table 这部分定义了异常处理器。在这个例子中，当在字节码偏移量 0 到 4 之间发生 `ArithmeticException` 时，控制跳转到偏移量 7，即 `catch` 块的开始。
+
+详细大家经过这里例子可以和前面学过的《[异常处理](https://javabetter.cn/exception/gailan.html)》关联起来。
+
+## synchronized 的字节码指令
+
+好，我们再来看一个关于 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 关键字的示例，就一个简单的同步代码块：
+
+```java
+public class SynchronizedExample {
+    public void syncBlockMethod() {
+        synchronized(this) {
+            // 同步块体
+        }
+    }
+}
+```
+
+对应的字节码大致如下：
+
+```java
+public void syncBlockMethod();
+  Code:
+    0: aload_0
+    1: dup
+    2: astore_1
+    3: monitorenter
+    4: aload_1
+    5: monitorexit
+    6: goto          14
+    9: astore        2
+    11: aload_1
+    12: monitorexit
+    13: aload         2
+    15: athrow
+    16: return
+  Exception table:
+    from    to  target type
+        4     6     9   any
+        9    13     9   any
+```
+
+`monitorenter / monitorexit` 这两个指令用于同步块的开始和结束。`monitorenter` 指令用于获取对象的监视器锁，`monitorexit` 指令用于释放锁。
+
+希望大家通过这个简单的示例，把前面学过的《[synchronized](https://javabetter.cn/thread/synchronized-1.html)》关键字关联起来。
+
+
 ---
 
-更多指令，可以阅读下面这篇文章：
+> 推荐阅读：[https://segmentfault.com/a/1190000037628881](https://segmentfault.com/a/1190000037628881)
 
-> https://segmentfault.com/a/1190000037628881
 
-> 路漫漫其修远兮，吾将上下而求索
+## 总结
 
-想要走得更远，Java 字节码这块就必须得硬碰硬地吃透，希望二哥的这些分享可以帮助到大家~
+路漫漫其修远兮，吾将上下而求索。
+
+这节我们详细地介绍了 Java 字节码指令，包括算术指令、类型转换指令、对象的创建和访问指令、方法调用和返回指令、操作数栈管理指令、控制转移指令、异常处理时的字节码指令、synchronized 的字节码指令等。
+
+想要走得更远，Java 字节码指令这块就必须得硬碰硬地吃透，希望二哥的这些分享可以帮助到大家~
 
 ---
 

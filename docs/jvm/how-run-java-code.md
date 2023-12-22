@@ -123,6 +123,8 @@ Windows、Linux、MacOS 等操作系统都有相应的 JDK，只要安装好了 
 
 build once，run anywhere。
 
+### jclasslib
+
 查看字节码，相比 IDEA 自带的「Show Bytecode」，我更推荐 `jclasslib` 这款插件，可以在 Intellij IDEA 插件市场中安装。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-07.png)

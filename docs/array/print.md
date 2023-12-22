@@ -1,6 +1,6 @@
 ---
 title: 如何优雅地打印Java数组？
-shortTitle: 打印Java数组
+shortTitle: 打印数组
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java, 数组打印, 输出数组, Arrays.toString, Arrays.deepToString
 ---
 
-# 4.3 打印Java数组
+# 4.3 打印数组
 
 “哥，[之前听你说，数组也是一个对象](https://javabetter.cn/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 
