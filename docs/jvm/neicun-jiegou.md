@@ -1,6 +1,6 @@
 ---
-title: 深入理解JVM的内存结构
-shortTitle: 深入理解JVM的内存结构
+title: 深入理解JVM的内存数据区
+shortTitle: 深入理解内存数据区
 category:
   - Java核心
 tag:
@@ -12,96 +12,276 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,内存结构
 ---
 
-# 深入理解JVM的内存结构
+# 第九节：深入理解内存数据区
 
-
-在谈 JVM 内存区域划分之前，我们先来看一下 Java 程序的具体执行过程，我画了一幅图。
+前面我们就讲过，Java 源代码文件经过编译器编译后会生成字节码文件，经过加载器加载完毕后会交给执行引擎执行。在执行的过程中，JVM 会划出来一块空间来存储程序执行期间需要用到的数据，这块空间一般被称为运行时数据区，见下图。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-dac0f4c1-8a7e-4309-a599-5664cdaf5016.png)
 
-Java 源代码文件经过编译器编译后生成字节码文件，然后交给 JVM 的类加载器，加载完毕后，交给执行引擎执行。在整个执行的过程中，JVM 会用一块空间来存储程序执行期间需要用到的数据，这块空间一般被称为运行时数据区，也就是常说的 JVM 内存。
+根据 Java 虚拟机规范的规定，运行时数据区可以分为以下几个部分：
 
-所以，当我们在谈 JVM 内存区域划分的时候，其实谈的就是这块空间——运行时数据区。
-
-大家应该对官方出品的《Java 虚拟机规范》有所了解吧？了解这个规范可以让我们更深入地理解 JVM。该规范主要包含 6 个部分，分别是：
-
-- 第一章：引言
-- 第二章：Java 虚拟机结构
-- 第三章：Java 虚拟机编译
-- 第四章：[Class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)
-- 第五章：加载、链接和初始化
-- 第六章：Java 虚拟机指令集
-- 第七章：操作码
-
-根据第二章 Java 虚拟机结构中的规定，运行时数据区可以分为以下几个部分，见下图。
+- 程序计数器（Program Counter Register）
+- Java 虚拟机栈（Java Virtual Machine Stacks）
+- 本地方法栈（Native Method Stack）
+- 堆（Heap）
+- 方法区（Method Area）与元空间（Metaspace）
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
 
 
-### 01、程序计数器
+## 程序计数器
 
-程序计数器（Program Counter Register）所占的内存空间不大，很小一块，可以看作是当前线程所执行的字节码指令的行号指示器。字节码解释器会在工作的时候改变这个计数器的值来选取下一条需要执行的字节码指令，像分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完成。
+程序计数器（Program Counter Register）所占的内存空间不大，很小很小一块，可以看作是当前线程所执行的[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)的行号指示器。字节码解释器会在工作的时候改变这个计数器的值来选取下一条需要执行的字节码指令，像分支、循环、跳转、异常处理、线程恢复等功能都需要依赖这个计数器来完成。
 
 在 JVM 中，多线程是通过线程轮流切换来获得 CPU 执行时间的，因此，在任一具体时刻，一个 CPU 的内核只会执行一条线程中的指令，因此，为了线程切换后能恢复到正确的执行位置，每个线程都需要有一个独立的程序计数器，并且不能互相干扰，否则就会影响到程序的正常执行次序。
 
-也就是说，我们要求程序计数器是线程私有的。
+也就是说，我们要求**程序计数器是线程私有的**。
 
-《Java 虚拟机规范》中规定，如果线程执行的是非本地（native）方法，则程序计数器中保存的是当前需要执行的指令地址；如果线程执行的是本地方法，则程序计数器中的值是 undefined。
+《Java 虚拟机规范》中规定，如果线程执行的是非本地方法，则程序计数器中保存的是当前需要执行的指令地址；如果线程执行的是本地方法，则程序计数器中的值是 undefined。
 
-为什么本地方法在程序计数器中的值是 undefined 的？因为本地方法大多是通过 C/C++ 实现的，并未编译成需要执行的字节码指令。
+为什么本地方法在程序计数器中的值是 undefined 的？因为[本地方法](https://javabetter.cn/oo/native-method.html)大多是通过 C/C++ 实现的，并未编译成需要执行的字节码指令。
 
-由于程序计数器中存储的数据所占的空间不会随程序的执行而发生大小上的改变，因此，程序计数器是不会发生内存溢出现象（OutOfMemory）的。
+我们来通过代码以及字节码指令来看看程序计数器的作用。
 
-### 02、Java 虚拟机栈
+```java
+public static int add(int a, int b) {
+    return a + b;
+}
+```
 
-Java 虚拟机栈中是一个个栈帧，每个栈帧对应一个被调用的方法。当线程执行一个方法时，会创建一个对应的栈帧，并将栈帧压入栈中。当方法执行完毕后，将栈帧从栈中移除。[栈](https://mp.weixin.qq.com/s/fc48Z5tSMlBHweYIS1UL0g)遵循的是后进先出的原则，所以线程当前执行的方法对应的栈帧必定在 Java 虚拟机栈的顶部。
+字节码指令大致如下：
 
-栈帧包含以下 5 个部分，见下图。
+```java
+0: iload_0      // 从局部变量表中加载变量 a 到操作数栈
+1: iload_1      // 从局部变量表中加载变量 b 到操作数栈
+2: iadd         // 两数相加
+3: ireturn      // 返回
+```
+
+现在，让我们逐步分析程序计数器是如何在执行这些指令时更新的：
+
+1. **初始状态**：当方法开始执行时，PC 计数器设置为 0，指向第一条指令 `0: iload_0`。
+
+2. **执行第一条指令**：
+   - 执行 `iload_0` 指令，将局部变量表中索引为 0 的整数（即方法的第一个参数 `a`）加载到操作数栈顶。
+   - 执行完成后，PC 计数器更新为 1，指向下一条指令 `1: iload_1`。
+
+3. **执行第二条指令**：
+   - 执行 `iload_1` 指令，将局部变量表中索引为 1 的整数（即方法的第二个参数 `b`）加载到操作数栈顶。
+   - 执行完成后，PC 计数器更新为 2，指向下一条指令 `2: iadd`。
+
+4. **执行第三条指令**：
+   - 执行 `iadd` 指令，弹出操作数栈顶的两个整数（即 `a` 和 `b`），将它们相加，然后将结果压入操作数栈顶。
+   - 执行完成后，PC 计数器更新为 3，指向下一条指令 `3: ireturn`。
+
+5. **执行最后一条指令：**
+   - 执行 `ireturn` 指令，弹出操作数栈顶的整数（即 `a + b` 的结果），并将这个值作为方法的返回值。
+   - 方法执行完成，控制权返回到方法调用者。
+
+
+## Java 虚拟机栈
+
+Java 虚拟机栈（JVM 栈）中是一个个[栈帧](https://javabetter.cn/jvm/stack-frame.html)，每个栈帧对应一个被调用的方法。当线程执行一个方法时，会创建一个对应的栈帧，并将栈帧压入栈中。当方法执行完毕后，将栈帧从栈中移除。
+
+栈帧包含以下 5 个部分，见下图。我们前面已经详细地讲过[栈帧](https://javabetter.cn/jvm/stack-frame.html)了，忘记的球友可以回头去看一下。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-4ea2a60a-05df-4ed1-8109-99ae23acefd1.png)
 
-[Java 虚拟机栈](https://javabetter.cn/jvm/how-jvm-run-zijiema-zhiling.md)
 
-### 04、堆
+假设我们有一个简单的 add 方法，如下所示：
 
-堆是所有线程共享的一块内存区域，在 Java 虚拟机启动的时候创建，用来存储对象（数组也是一种对象）。
+```java
+public int add(int a, int b) {
+    int result = a + b;
+    return result;
+}
+```
 
-以前，Java 中“几乎”所有的对象都会在堆中分配，但随着 JIT（Just-In-Time）编译器的发展和逃逸技术的逐渐成熟，所有的对象都分配到堆上渐渐变得不那么“绝对”了。从 JDK 7 开始，Java 虚拟机已经默认开启逃逸分析了，意味着如果某些方法中的对象引用没有被返回或者未被外面使用（也就是未逃逸出去），那么对象可以直接在栈上分配内存。
+当 `add` 方法被调用时，JVM 为这次方法调用创建一个新的栈帧。然后执行方法内的字节码指令，这部分我们前面已经讲过了，大家可以自己通过 [javap](https://javabetter.cn/jvm/bytecode.html) 查看字节码并模拟一下[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)执行的过程。
 
-简单解释一下 JIT 和逃逸分析。
+当 `add` 方法执行完毕后，对应的栈帧会从 JVM 栈中弹出。
+
+Java 虚拟机栈的特点如下：
+
+- **线程私有：** 每个线程都有自己的 JVM 栈，线程之间的栈是不共享的。
+- **栈溢出：** 如果栈的深度超过了 JVM 栈所允许的深度，将会抛出 `StackOverflowError`，这个我们讲[栈帧](https://javabetter.cn/jvm/stack-frame.html)的时候讲过了。
+
+大家可以猜一下 JVM 栈的默认大小是多少？
+
+还用我们之前的讲栈帧时候的例子：
+
+```java
+public class StackOverflowErrorTest1 {
+    private static AtomicInteger count = new AtomicInteger(0);
+    public static void main(String[] args) {
+        while (true) {
+            testStackOverflowError();
+        }
+    }
+
+    public static void testStackOverflowError() {
+        System.out.println(count.incrementAndGet());
+        testStackOverflowError();
+    }
+}
+```
+
+默认配置下，堆栈异常出现在 10886 次：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225143408.png)
+
+增加 `-Xss256k` 后，来试试。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225143746.png)
+
+1991 次出现了堆栈异常。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225143841.png)
+
+这之间存在什么关系呢？
+
+通过 `java -XX:+PrintFlagsFinal -version | grep ThreadStackSize` 这个命令可以查看 JVM 栈的默认大小。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225145929.png)
+
+其中 `ThreadStackSize` 的单位是字节，也就是说默认的 JVM 栈大小是 1024 KB，也就是 1M。
+
+也就是说，默认 1024 KB 的 JVM 栈可以执行 10885 次 `testStackOverflowError` 方法，而 256 KB 的 JVM 栈只能执行 1990 次 `testStackOverflowError` 方法，四五倍的样子。
+
+## 本地方法栈
+
+本地方法栈（Native Method Stack）与 Java 虚拟机栈类似，只不过 Java 虚拟机栈为虚拟机执行 Java 方法服务，而本地方法栈则为虚拟机使用到的 [Native 方法](https://javabetter.cn/oo/native-method.html)服务。
+
+## 堆
+
+堆是所有线程共享的一块内存区域，在  JVM 启动的时候创建，用来存储对象（数组也是一种对象）。
+
+以前，Java 中“几乎”所有的对象都会在堆中分配，但随着 [JIT](https://javabetter.cn/jvm/jit.html) 编译器的发展和逃逸技术的逐渐成熟，所有的对象都分配到堆上渐渐变得不那么“绝对”了。从 JDK 7 开始，Java 虚拟机已经默认开启逃逸分析了，意味着如果某些方法中的对象引用没有被返回或者未被外面使用（也就是未逃逸出去），那么对象可以直接在栈上分配内存。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225154450.png)
+
+栈就是前面提到的 JVM 栈（主要存储局部变量、方法参数、对象引用等），属于线程私有，通常随着方法调用的结束而消失，也就无需进行垃圾收集；堆前面也讲了，属于线程共享的内存区域，几乎所有的对象都在对上分配，生命周期不由单个方法调用所决定，可以在方法调用结束后继续存在，直到不在被任何变量引用，然后被垃圾收集器回收。
+
+简单解释一下 JIT 和逃逸分析（后面讲 [JIT](https://javabetter.cn/jvm/jit.html) 会细讲）。
 
 常见的编译型语言如 C++，通常会把代码直接编译成 CPU 所能理解的机器码来运行。而 Java 为了实现“一次编译，处处运行”的特性，把编译的过程分成两部分，首先它会先由 javac 编译成通用的中间形式——字节码，然后再由解释器逐条将字节码解释为机器码来执行。所以在性能上，Java 可能会干不过 C++ 这类编译型语言。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223155202.png)
+
 为了优化 Java 的性能 ，JVM 在解释器之外引入了 JIT 编译器：当程序运行时，解释器首先发挥作用，代码可以直接执行。随着时间推移，即时编译器逐渐发挥作用，把越来越多的代码编译优化成本地代码，来获取更高的执行效率。解释器这时可以作为编译运行的降级手段，在一些不可靠的编译优化出现问题时，再切换回解释执行，保证程序可以正常运行。
 
-逃逸分析（Escape Analysis），简单来讲就是，Hotspot 虚拟机可以分析新创建对象的使用范围，并决定是否在 Java 堆上分配内存的一项技术。
+逃逸分析（Escape Analysis）是一种编译器优化技术，用于判断对象的作用域和生命周期。如果编译器确定一个对象不会逃逸出方法或线程的范围，它可以选择在栈上分配这个对象，而不是在堆上。这样做可以减少垃圾回收的压力，并提高性能。
 
-堆是 Java 垃圾收集器管理的主要区域，因此也被称作 GC 堆（Garbage Collected Heap）。从垃圾回收的角度来看，由于垃圾收集器基本都采用了分代垃圾收集的算法，所以堆还可以细分为：新生代和老年代。新生代还可以细分为：Eden 空间、From Survivor、To Survivor 空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。
+我们来写一段可能触发栈分配的代码。
 
-堆这最容易出现的就是 OutOfMemoryError 错误，分为以下几种表现形式：
+```java
+public class EscapeAnalysisExample {
+
+    private static class Point {
+        private int x;
+        private int y;
+
+        Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        int calculate() {
+            return x + y;
+        }
+    }
+
+    public static void main(String[] args) {
+        int total = 0;
+        for (int i = 0; i < 1000000; i++) {
+            total += createAndCalculate();
+        }
+        System.out.println(total);
+    }
+
+    private static int createAndCalculate() {
+        Point p = new Point(1, 2);
+        return p.calculate();
+    }
+}
+```
+
+- createAndCalculate 方法创建了一个 Point 对象，并调用它的 calculate 方法。
+- Point 对象在 createAndCalculate 方法中创建，并且不会逃逸到该方法之外。
+- 如果 JVM 的逃逸分析确定 Point 对象不会逃逸出 createAndCalculate 方法，它可能会在栈上分配 Point 对象，而不是在堆上。
+
+堆我们前面已经讲过了，它除了是对象的聚集地，也是 [Java 垃圾收集器](https://javabetter.cn/jvm/gc.html)管理的主要区域，因此也被称作 GC 堆（Garbage Collected Heap）。从垃圾回收的角度来看，由于垃圾收集器基本都采用了分代垃圾收集的算法，所以堆还可以细分为：新生代和老年代。新生代还可以细分为：Eden 空间、From Survivor、To Survivor 空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。
+
+>不要担心，这些我们会放到后面[垃圾回收](https://javabetter.cn/jvm/gc.html)的章节来细讲。
+
+堆这最容易出现的就是 [OutOfMemoryError 错误](https://javabetter.cn/jvm/oom.html)，分为以下几种表现形式：
 
 - `OutOfMemoryError: GC Overhead Limit Exceeded`：当 JVM 花太多时间执行垃圾回收并且只能回收很少的堆空间时，就会发生该错误。
 - `java.lang.OutOfMemoryError: Java heap space`：假如在创建新的对象时, 堆内存中的空间不足以存放新创建的对象, 就会引发该错误。和本机的物理内存无关，和我们配置的虚拟机内存大小有关！
 
-### 05、元空间
+我们先来通过代码模拟一下堆内存溢出的情况。
 
-JDK 8 的时候，原有的方法区（更准确的说应该是永久代）被彻底移除，取而代之的是元空间。
+```java
+public class HeapSpaceErrorGenerator {
+    public static void main(String[] args) {
+        List<byte[]> bigObjects = new ArrayList<>();
+        try {
+            while (true) {
+                // 创建一个大约 10MB 的数组
+                byte[] bigObject = new byte[10 * 1024 * 1024];
+                bigObjects.add(bigObject);
+            }
+        } catch (OutOfMemoryError e) {
+            System.out.println("OutOfMemoryError 发生在 " + bigObjects.size() + " 对象后");
+            throw e;
+        }
+    }
+}
+```
 
-我们来说说方法区吧。方法区和堆一样，是线程共享的区域，它用来存储已经被 Java 虚拟机加载的类信息、常量、静态变量，以及便器编译后的代码等。
+通过 VM 参数设置堆内存大小为 `-Xmx128M`，然后运行程序。
 
-在有些地方，方法区也被称为永久代。但其实不能这么理解。
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160028.png)
 
->《Java 虚拟机规范》中只规定了有方法区这么一个概念和它的作用，并没有规定如何去实现它。那么不同的 Java 虚拟机可能就会有不同的实现。永久代是 HotSpot 对方法区的一种实现形式。也就是说，永久代只是 HotSpot 中的一个概念，而方法区则是 Java 虚拟机规范中的一个定义，一种规范。
+可以看到，堆内存溢出发生在 11 个对象后。
 
-换句话说，方法区和永久代的关系就像是 Java 中接口和类的关系，类实现了接口。
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
 
-在方法区中，还有一块非常重要的部分，也就是运行时常量池。在讲 [class 文件](https://mp.weixin.qq.com/s/uMEZ2Xwctx4n-_8zvtDp5A)的时候，提到了每个 class 文件都会有个常量池，用来存放字符串常量、类和接口的名字、字段名、常量等等。运行时常量池和 class 文件的常量池是一一对应的，它就是通过 class 文件中的常量池来构建的。
+默认的堆内存大小是多少呢？
 
-JDK 7 之前，运行时常量池中包含着字符串常量池，都在方法区。
+通过 `java -XX:+PrintFlagsFinal -version | grep HeapSize` 这个命令可以查看 JVM 堆的默认大小。
 
-JDK 7 的时候，字符串常量池从方法区中拿出来放到了堆中，运行时常量池中的其他东西还在方法区中。
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160212.png)
 
-JDK 8 的时候，HotSpot 移除了永久代，也就是说方法区不存在了，取而代之的是元空间。也就意味着字符串常量池在堆中，运行时常量池跑到了元空间。
+也可以通过下面这行代码获取：
+
+```java
+System.out.println(Runtime.getRuntime().maxMemory() / 1024.0 / 1024 + "MB");
+```
+
+大家可以通过上面的方法查看一下自己本机电脑的堆内存大小。
+
+## 元空间和方法区
+
+方法区是 Java 虚拟机规范上的一个逻辑区域，在不同的 JDK 版本上有着不同的实现。在 JDK 7 的时候，方法区被称为永久代（PermGen），而在 JDK 8 的时候，永久代被彻底移除，取而代之的是元空间。
+
+如果你在有些资料上依然看到了永久代，要么就是二哥这样在给你解释，要么就是内容过时了。
+
+>《Java 虚拟机规范》中只规定了有方法区这么一个概念和它的作用，并没有规定如何去实现它。不同的 Java 虚拟机可能就会有不同的实现。永久代是 HotSpot 对方法区的一种实现形式。也就是说，永久代是 HotSpot 旧版本中的一个实现，而方法区则是 Java 虚拟机规范中的一个定义，一种规范。
+
+换句话说，方法区和永久代的关系就像是 Java 中接口和类的关系，类实现了接口，接口还是那个接口，但实现已经完全升级了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223152739.png)
+
+JDK 7 之前，只有常量池的概念，都在方法区中。
+
+JDK 7 的时候，字符串常量池从方法区中拿出来放到了堆中，运行时常量池还在方法区中（也就是永久代中）。
+
+JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[字符串常量池](https://javabetter.cn/string/constant-pool.html)还在堆中，而运行时常量池跑到了元空间。
+
+### 运行时常量池
+
+方法区和堆一样，是线程共享的区域，用来存储已经被 Java 虚拟机加载的类信息、常量、静态变量，以及便器编译后的代码等。
 
 再来说说为什么要将永久代 (PermGen) 或者说方法区替换为元空间 (MetaSpace) 。
 
@@ -116,7 +296,7 @@ JDK 8 的时候，HotSpot 移除了永久代，也就是说方法区不存在了
 - 本地方法栈（Native Method Stack），JVM 可能会使用到传统的栈来支持 [Native 方法](https://javabetter.cn/oo/native-method.html)的执行，这个栈就是本地方法栈。
 - 堆（Heap），在 JVM 中，堆是可供各条线程共享的运行时内存区域，也是供所有类实例和数据对象分配内存的区域。
 - 方法区（Method area），在 JDK 7 及以前，习惯上把方法区，称为永久代。JDK 8 开始，使用元空间取代了永久代。**方法区是 JVM 中的一个逻辑区域**，它用于存储类的结构信息，包括类的定义、方法的定义、字段的定义以及字节码指令。不同的是，元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。
-- [运行时常量池](https://javabetter.cn/string/constant-pool.html)，运行时常量池是每一个类或接口的常量在运行时的表现形式，它包括了编译器可知的数值字面量，以及运行期解析后才能获得的方法或字段的引用。简而言之，当一个方法或者变量被引用时，JVM 通过运行时常量区来查找方法或者变量在内存里的实际地址。
+- [运行时常量池](https://javabetter.cn/jvm/neicun-jiegou.html)，运行时常量池是每一个类或接口的常量在运行时的表现形式，它包括了编译器可知的数值字面量，以及运行期解析后才能获得的方法或字段的引用。简而言之，当一个方法或者变量被引用时，JVM 通过运行时常量区来查找方法或者变量在内存里的实际地址。
 
 不过需要说明的是在 JDK 1.8 及以后的版本中，方法区被移除了，取而代之的是元空间（Metaspace）。元空间与方法区的作用相似，都是存储类的结构信息，包括类的定义、方法的定义、字段的定义以及字节码指令。不同的是，元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。在 JVM 启动时，元空间的大小由 MaxMetaspaceSize 参数指定，JVM 在运行时会自动调整元空间的大小，以适应不同的程序需求。
 
