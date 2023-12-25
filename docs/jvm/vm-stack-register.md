@@ -81,8 +81,6 @@ main 方法被执行的时候，JVM 会创建一个栈帧（Stack Frame），通
 
 另外，操作数栈的内容是临时的，它的生命周期和方法的生命周期是一样的，当方法执行结束后，操作数栈也会被销毁。
 
-操作数栈的深度都不会超过在 code 属性中的 maxstacks 数据项中设定的最大值，这个我们[前面也讲到过](https://javabetter.cn/jvm/bytecode.html)。
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231221152930.png)
 
 R 大曾在[知乎的贴子](https://www.zhihu.com/question/35777031)里提到过：
