@@ -31,7 +31,7 @@ head:
 - 在最上面放一个新盘子
 - 把顶部的盘子拿走
 
-这两件事情做起来很容易，但如果从中间或者底部抽出来一个盘子，就很难办到。如果我们想要拿到最下面的盘子，就必须把它上面的所有盘子都拿走，像这样的一个操作，我们称之为后进先出，也就是“Last In First Out”（简称LIFO）——最后的一个进的，最先出去。
+这两件事情做起来很容易，但如果从中间或者底部抽出来一个盘子，就很难办到。如果我们想要拿到最下面的盘子，就必须把它上面的所有盘子都拿走，像这样的一个操作，我们称之为后进先出，也就是“Last In First Out”（简称 LIFO）——最后的一个进的，最先出去。
 
 对于栈这样一个数据结构来说，它有两个常见的动作：
 
@@ -62,11 +62,11 @@ HotSpot VM 是基于栈的一种虚拟机，当 Java 程序运行时，HotSpot V
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231031143842.png)
 
-main方法被执行的时候，JVM会创建一个栈帧（Stack Frame），通过存储局部变量表、操作数栈、动态链接、方法出口等信息来支撑和完成方法的执行，栈帧就是虚拟机栈中的子单位。
+main 方法被执行的时候，JVM 会创建一个栈帧（Stack Frame），通过存储局部变量表、操作数栈、动态链接、方法出口等信息来支撑和完成方法的执行，栈帧就是虚拟机栈中的子单位。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231221152005.png)
 
-栈帧本身也是一种栈结构，用于支持虚拟机进行方法调用和方法执行，遵循 LIFO 的原则，每个栈帧都包含了一个方法的运行信息，每个方法从调用到执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈和出栈的过程。
+[栈帧](https://javabetter.cn/jvm/stack-frame.html)本身也是一种栈结构，用于支持虚拟机进行方法调用和方法执行，遵循 LIFO 的原则，每个栈帧都包含了一个方法的运行信息，每个方法从调用到执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈和出栈的过程。
 
 ![图片来源于网络，作者浣熊say](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231222175706.png)
 
@@ -81,13 +81,13 @@ main方法被执行的时候，JVM会创建一个栈帧（Stack Frame），通�
 
 另外，操作数栈的内容是临时的，它的生命周期和方法的生命周期是一样的，当方法执行结束后，操作数栈也会被销毁。
 
-操作数栈的深度都不会超过在code属性中的maxstacks数据项中设定的最大值，这个我们[前面也讲到过](https://javabetter.cn/jvm/bytecode.html)。
+操作数栈的深度都不会超过在 code 属性中的 maxstacks 数据项中设定的最大值，这个我们[前面也讲到过](https://javabetter.cn/jvm/bytecode.html)。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231221152930.png)
 
-R大曾在[知乎的贴子](https://www.zhihu.com/question/35777031)里提到过：
+R 大曾在[知乎的贴子](https://www.zhihu.com/question/35777031)里提到过：
 
->VM当初设计的时候非常重视代码传输和存储的开销，因为假定的应用场景是诸如手持设备、机顶盒之类的嵌入式应用，所以要代码尽量小；外加基于栈的实现更简单（无论是在源码编译器的一侧还是在虚拟机的一侧），而且主要设计者James Gosling的个人经验上也对这种做法非常熟悉（例如他之前实现过PostScript的虚拟机，也是基于栈的指令集），所以就选择了基于栈。
+> VM 当初设计的时候非常重视代码传输和存储的开销，因为假定的应用场景是诸如手持设备、机顶盒之类的嵌入式应用，所以要代码尽量小；外加基于栈的实现更简单（无论是在源码编译器的一侧还是在虚拟机的一侧），而且主要设计者 James Gosling 的个人经验上也对这种做法非常熟悉（例如他之前实现过 PostScript 的虚拟机，也是基于栈的指令集），所以就选择了基于栈。
 
 我们简单来看一下基于栈的虚拟机方法执行的过程，以下面的代码为例：
 
@@ -116,15 +116,14 @@ public class com.github.paicoding.forum.test.javabetter.jvm.Main {
 }
 ```
 
-
 我们用图来说明指令执行的过程，大致如下。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/zijiema-zhiling-20231216165442.png)
 
-- iload_0	将 33 压入操作数栈中
-- iload_1	将 44 压入操作数栈中
-- iadd	将操作数栈中的 33 和 44 弹出，相加后将结果 77 压入操作数栈中
-- istore_2	将栈顶的 77 弹出，存入局部变量表中下标为 2 的位置
+- iload_0 将 33 压入操作数栈中
+- iload_1 将 44 压入操作数栈中
+- iadd 将操作数栈中的 33 和 44 弹出，相加后将结果 77 压入操作数栈中
+- istore_2 将栈顶的 77 弹出，存入局部变量表中下标为 2 的位置
 
 关于字节码指令的具体释义，我们放到[下一节](https://javabetter.cn/jvm/zijiema-zhiling.html)去细讲，这里主要是带大家体会一下基于栈的虚拟机和基于寄存器的虚拟机之间的差别。
 
@@ -132,7 +131,7 @@ public class com.github.paicoding.forum.test.javabetter.jvm.Main {
 
 那除了有基于栈的虚拟机实现，当然也有基于寄存器的虚拟机实现，比如 LuaVM，负责执行 [Lua 语言](https://www.lua.org/about.html)，一门轻量级的脚本语言，可戳链接了解。
 
->5.0之前的Lua其实是用基于栈的指令集，到5.0才改为用基于寄存器的。出于两点考虑，一是减少数据移动次数，降低数据迁移带来的拷贝开销；二是减少虚拟指令条数，提高指令执行效率。
+> 5.0 之前的 Lua 其实是用基于栈的指令集，到 5.0 才改为用基于寄存器的。出于两点考虑，一是减少数据移动次数，降低数据迁移带来的拷贝开销；二是减少虚拟指令条数，提高指令执行效率。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/zijiema-zhiling-20231216163225.png)
 
@@ -144,11 +143,11 @@ public class com.github.paicoding.forum.test.javabetter.jvm.Main {
 brew install lua
 ```
 
->Windows 用户可以查看这个文档：[http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies](http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies)
+> Windows 用户可以查看这个文档：[http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies](http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies)
 
 也可以通过 Lua for Windows 来完成安装：
 
->[https://github.com/rjpcomputing/luaforwindows/releases](https://github.com/rjpcomputing/luaforwindows/releases)
+> [https://github.com/rjpcomputing/luaforwindows/releases](https://github.com/rjpcomputing/luaforwindows/releases)
 
 我们来编写一段简单的 lua 代码，保存为 example.lua。
 
@@ -181,7 +180,7 @@ main <example.lua:0,0> (6 instructions at 0x600002144080)
 2. LOADI 0 33：将整数 33 加载到寄存器 0。
 3. LOADI 1 44：将整数 44 加载到寄存器 1。
 4. ADD 2 0 1：将寄存器 0 和寄存器 1 中的值相加，并将结果存放在寄存器 2。对应于脚本中两个数值的加法操作。
-5. MMBIN 0 1 6; __add：这是一个元方法（metamethod）调用，用于处理加法操作。这指示 Lua 虚拟机查找并执行 `__add` 元方法。元方法是 Lua 中用于重载标准操作符的特殊方法。
+5. MMBIN 0 1 6; **add：这是一个元方法（metamethod）调用，用于处理加法操作。这指示 Lua 虚拟机查找并执行 `**add` 元方法。元方法是 Lua 中用于重载标准操作符的特殊方法。
 6. RETURN 3 1 1; 0 out：返回操作，将寄存器 3 中的值作为返回值。`1 1` 表示从寄存器 3 返回一个值，`0 out` 指没有额外的返回值。
 
 ## 小结
