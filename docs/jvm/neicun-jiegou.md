@@ -5,11 +5,11 @@ category:
   - Java核心
 tag:
   - Java虚拟机
-description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，深入理解JVM的内存结构
+description: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶，咱们从头到尾说一次Java虚拟机的内存数据区，程序计数器、Java虚拟机栈、本地方法栈、堆、方法区与元空间
 head:
   - - meta
     - name: keywords
-      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,内存结构
+      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,内存结构,内存数据区
 ---
 
 # 第九节：深入理解内存数据区
@@ -26,7 +26,7 @@ head:
 - 堆（Heap）
 - 方法区（Method Area）与元空间（Metaspace）
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225185616.png)
 
 
 ## 程序计数器
@@ -279,28 +279,64 @@ JDK 7 的时候，字符串常量池从方法区中拿出来放到了堆中，�
 
 JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[字符串常量池](https://javabetter.cn/string/constant-pool.html)还在堆中，而运行时常量池跑到了元空间。
 
+**为什么要废弃永久代，而使用元空间来进行替换呢？**
+
+旧版的 Hotspot 虚拟机是没有 JIT 的，而 Oracle 旗下的另外一款虚拟机 JRocket 是有的，那为了将 Java 帝国更好的传下去，Oracle 就想把庶长子 JRocket 的 JIT 技术融合到嫡长子 Hotspot 中。
+
+但 JRockit 虚拟机中并没有永久代的概念，因此新的 HotSpot 索性就不要永久代了，直接占用操作系统的一部分内存好了，并且把这块内存取名叫做元空间。
+
+元空间的大小不再受限于 JVM 启动时设置的最大堆大小，而是直接利用本地内存，也就是操作系统的内存。有效地解决了 OutOfMemoryError 错误。
+
+>可以通过 `java -XX:+PrintFlagsFinal -version | grep HeapSize` 查看 JVM 默认的堆内存大小。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225192753.png)
+
+当元空间的数据增长时，JVM 会请求操作系统分配更多的内存。如果内存空间足够，操作系统就会满足 JVM 的请求，从而影响元空间的动态扩展。
+
+除此之外，在永久代中的[垃圾回收](https://javabetter.cn/jvm/gc.html)效率较低，我们会在[垃圾回收](https://javabetter.cn/jvm/gc.html)的内容里详细讲到。
+
+那会不会出现元空间溢出的情况呢？
+
+答案是肯定的，这个我们留到[内存溢出](https://javabetter.cn/jvm/oom.html)的章节里来细讲。
+
 ### 运行时常量池
 
-方法区和堆一样，是线程共享的区域，用来存储已经被 Java 虚拟机加载的类信息、常量、静态变量，以及便器编译后的代码等。
+在讲字节码的时候，我们详细的讲过[常量池](https://javabetter.cn/jvm/bytecode.html)，它是字节码文件的资源仓库，先是一个常量池大小，从 1 到 n-1，0 为保留索引，然后是常量池项的集合，包括类信息、字段信息、方法信息、接口信息、字符串常量等。
 
-再来说说为什么要将永久代 (PermGen) 或者说方法区替换为元空间 (MetaSpace) 。
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225183354.png)
 
-第一，永久代放在 Java 虚拟机中，就会受到 Java 虚拟机内存大小的限制，而元空间使用的是本地内存，也就脱离了 Java 虚拟机内存的限制。
+运行时常量池，顾名思义，就是在运行时期间，JVM 会将字节码文件中的常量池加载到内存中，存放在运行时常量池中。
 
-第二，JDK 8 的时候，在 HotSpot 中融合了 JRockit 虚拟机，而 JRockit 中并没有永久代的概念，因此新的 HotSpot 就没有必要再开辟一块空间来作为永久代了。
+也就是说，常量池是在字节码文件中，而运行时常量池在元空间当中（JDK 8 及以后），讲的是一个东西，但形态不一样，就好像一个是固态，一个是液态；或者一个是模子，一个是模子里的锅碗瓢盆。
 
-来一一解释下。
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225184358.png)
+
+### 字符串常量池
+
+字符串常量池我们在讲[字符串](https://javabetter.cn/string/constant-pool.html)的时候已经详细讲过了，它的作用是存放字符串常量，也就是我们在代码中写的字符串。依然在堆中。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225184843.png)
+
+OK，方法区（不管是永久代还是元空间的实现）和堆一样，**是线程共享的区域**。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
+
+## 小结
+
+来总结一下运行时数据区的主要组成：
 
 - PC 寄存器（PC Register），也叫程序计数器（Program Counter Register），是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的信号指示器。
 - JVM 栈（Java Virtual Machine Stack），与 PC 寄存器一样，JVM 栈也是线程私有的。每一个 JVM 线程都有自己的 JVM 栈（也叫方法栈），这个栈与线程同时创建，它的生命周期与线程相同。
 - 本地方法栈（Native Method Stack），JVM 可能会使用到传统的栈来支持 [Native 方法](https://javabetter.cn/oo/native-method.html)的执行，这个栈就是本地方法栈。
 - 堆（Heap），在 JVM 中，堆是可供各条线程共享的运行时内存区域，也是供所有类实例和数据对象分配内存的区域。
-- 方法区（Method area），在 JDK 7 及以前，习惯上把方法区，称为永久代。JDK 8 开始，使用元空间取代了永久代。**方法区是 JVM 中的一个逻辑区域**，它用于存储类的结构信息，包括类的定义、方法的定义、字段的定义以及字节码指令。不同的是，元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。
+- 方法区（Method area），JDK 8 开始，使用元空间取代了永久代。**方法区是 JVM 中的一个逻辑区域**，用于存储类的结构信息，包括类的定义、方法的定义、字段的定义以及字节码指令。不同的是，元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。
 - [运行时常量池](https://javabetter.cn/jvm/neicun-jiegou.html)，运行时常量池是每一个类或接口的常量在运行时的表现形式，它包括了编译器可知的数值字面量，以及运行期解析后才能获得的方法或字段的引用。简而言之，当一个方法或者变量被引用时，JVM 通过运行时常量区来查找方法或者变量在内存里的实际地址。
 
-不过需要说明的是在 JDK 1.8 及以后的版本中，方法区被移除了，取而代之的是元空间（Metaspace）。元空间与方法区的作用相似，都是存储类的结构信息，包括类的定义、方法的定义、字段的定义以及字节码指令。不同的是，元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。在 JVM 启动时，元空间的大小由 MaxMetaspaceSize 参数指定，JVM 在运行时会自动调整元空间的大小，以适应不同的程序需求。
+在 JVM 启动时，元空间的大小由 MaxMetaspaceSize 参数指定，JVM 在运行时会自动调整元空间的大小，以适应不同的程序需求。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030191213.png)
+
+
 
 ----
 
