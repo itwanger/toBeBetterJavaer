@@ -279,6 +279,8 @@ JDK 7 的时候，字符串常量池从方法区中拿出来放到了堆中，�
 
 JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[字符串常量池](https://javabetter.cn/string/constant-pool.html)还在堆中，而运行时常量池跑到了元空间。
 
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+
 **为什么要废弃永久代，而使用元空间来进行替换呢？**
 
 旧版的 Hotspot 虚拟机是没有 JIT 的，而 Oracle 旗下的另外一款虚拟机 JRocket 是有的，那为了将 Java 帝国更好的传下去，Oracle 就想把庶长子 JRocket 的 JIT 技术融合到嫡长子 Hotspot 中。
@@ -291,11 +293,7 @@ JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[�
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225192753.png)
 
-当元空间的数据增长时，JVM 会请求操作系统分配更多的内存。如果内存空间足够，操作系统就会满足 JVM 的请求，从而影响元空间的动态扩展。
-
-除此之外，在永久代中的[垃圾回收](https://javabetter.cn/jvm/gc.html)效率较低，我们会在[垃圾回收](https://javabetter.cn/jvm/gc.html)的内容里详细讲到。
-
-那会不会出现元空间溢出的情况呢？
+当元空间的数据增长时，JVM 会请求操作系统分配更多的内存。如果内存空间足够，操作系统就会满足 JVM 的请求。那会不会出现元空间溢出的情况呢？
 
 答案是肯定的，这个我们留到[内存溢出](https://javabetter.cn/jvm/oom.html)的章节里来细讲。
 
