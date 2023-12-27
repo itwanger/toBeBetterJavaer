@@ -1,5 +1,5 @@
 ---
-title: 聊聊 Java String、StringBuilder、StringBuffer 三兄弟
+title: 聊聊 Java StringBuilder和StringBuffer 两兄弟
 shortTitle: StringBuilder和StringBuffer
 category:
   - Java核心
@@ -12,11 +12,13 @@ head:
       content: Java,String,StringBuilder,StringBuffer
 ---
 
-# 4.8 String、StringBuilder、StringBuffer
+# 4.8 StringBuilder和StringBuffer
 
 “哥，[上一篇深入理解 String.intern()](https://javabetter.cn/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 
 “好啊，它们之间的关系还真的是挺和谐的。”看着三妹好奇的样子，我感到学技术就应该是这个样子才对。
+
+### StringBuffer和StringBuilder的区别
 
 由于字符串是不可变的，所以当遇到[字符串拼接](https://javabetter.cn/string/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
 
@@ -42,7 +44,7 @@ public final class StringBuffer extends AbstractStringBuilder implements Seriali
 }
 ```
 
-不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://javabetter.cn/thread/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以执行效率会比较低。
+不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://javabetter.cn/thread/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以如果在非多线程环境下，执行效率就会比较低，因为加了没必要的锁。
 
 于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 [`ThreadLocal`](https://javabetter.cn/thread/ThreadLocal.html) 来避免多线程冲突。”
 
@@ -70,7 +72,9 @@ public final class StringBuilder extends AbstractStringBuilder
 
 实际开发中，StringBuilder 的使用频率也是远高于 StringBuffer，甚至可以这么说，StringBuilder 完全取代了 StringBuffer。
 
-[之前我们也曾聊过](https://javabetter.cn/overview/what-is-java.html)，Java 是一门解释型的编程语言，所以当编译器遇到 `+` 号这个操作符的时候，会将 `new String("二哥") + new String("三妹")` 这行代码编译为以下代码：
+### StringBuilder的使用
+
+[之前我们也曾聊过](https://javabetter.cn/overview/what-is-java.html)，Java 是一门解释型的编程语言，所以当编译器遇到 `+` 号这个操作符的时候，会将 `new String("二哥") + new String("三妹")` 这行代码解释为以下代码：
 
 ```java
 new StringBuilder().append("二哥").append("三妹").toString();
@@ -100,6 +104,8 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 可以看到 Java 编译器将字符串拼接操作（`+`）转换为了 StringBuilder 对象的 append 方法，然后再调用 StringBuilder 对象的 toString 方法返回拼接后的字符串。
 
+### StringBuilder的内部实现
+
 来看一下 StringBuilder 的 toString 方法：
 
 ```java
@@ -108,7 +114,7 @@ public String toString() {
 }
 ```
 
-value 是一个 char 类型的数组：
+value 是一个 char 类型的[数组](https://javabetter.cn/array/array.html)：
 
 ```java
 /**
@@ -150,27 +156,9 @@ public StringBuilder append(String str) {
 }
 ```
 
-实际上是调用了 AbstractStringBuilder 中的 append(String str) 方法。在 AbstractStringBuilder 中，append(String str) 方法会检查当前字符序列中的字符是否够用，如果不够用则会进行扩容，并将指定字符串追加到字符序列的末尾。
+实际上是调用了 AbstractStringBuilder 中的 `append(String str)` 方法。在 AbstractStringBuilder 中，`append(String str)` 方法会检查当前字符序列中的字符是否够用，如果不够用则会进行扩容，并将指定字符串追加到字符序列的末尾。
 
 ```java
-/**
- * Appends the specified string to this character sequence.
- * <p>
- * The characters of the {@code String} argument are appended, in order,
- * increasing the length of this sequence by the length of the argument.
- * If {@code str} is {@code null}, then the four characters {@code "null"}
- * are appended.
- * <p>
- * Let <i>n</i> be the length of this character sequence just prior to
- * execution of the {@code append} method. Then the character at index
- * <i>k</i> in this character sequence is equal to the character at index
- * <i>k</i> in the argument {@code str}, if <i>k</i> is less than
- * <i>n</i>; otherwise, it is equal to the character at index
- * <i>k-n</i> in the argument {@code str}.
- *
- * @param   str   a string.
- * @return  a reference to this object.
- */
 public AbstractStringBuilder append(String str) {
     if (str == null)
         return appendNull();
@@ -184,40 +172,49 @@ public AbstractStringBuilder append(String str) {
 
 `append(String str)` 方法将指定字符串追加到当前字符序列中。如果指定字符串为 null，则追加字符串 "null"；否则会检查指定字符串的长度，然后根据当前字符序列中的字符数和指定字符串的长度来判断是否需要扩容。
 
-如果需要扩容，则会调用 `ensureCapacityInternal(int minimumCapacity) `方法进行扩容。扩容之后，将指定字符串的字符拷贝到字符序列中。
+如果需要扩容，则会调用 `ensureCapacityInternal(int minimumCapacity) `方法。扩容之后，将指定字符串的字符拷贝到字符序列中。
 
 来看一下 ensureCapacityInternal 方法：
 
 ```java
 private void ensureCapacityInternal(int minimumCapacity) {
-    // overflow-conscious code
+    // 不够用了，扩容
     if (minimumCapacity - value.length > 0)
         expandCapacity(minimumCapacity);
 }
 
 void expandCapacity(int minimumCapacity) {
+    // 扩容策略：新容量为旧容量的两倍加上 2
     int newCapacity = value.length * 2 + 2;
+    // 如果新容量小于指定的最小容量，则新容量为指定的最小容量
     if (newCapacity - minimumCapacity < 0)
         newCapacity = minimumCapacity;
+    // 如果新容量小于 0，则新容量为 Integer.MAX_VALUE
     if (newCapacity < 0) {
         if (minimumCapacity < 0) // overflow
             throw new OutOfMemoryError();
         newCapacity = Integer.MAX_VALUE;
     }
+    // 将字符序列的容量扩容到新容量的大小
     value = Arrays.copyOf(value, newCapacity);
 }
 ```
 
 `ensureCapacityInternal(int minimumCapacity)` 方法用于确保当前字符序列的容量至少等于指定的最小容量 minimumCapacity。如果当前容量小于指定的容量，就会为字符序列分配一个新的内部数组。新容量的计算方式如下：
 
-- 如果指定的最小容量大于当前容量，则新容量为两倍的旧容量加上 2；
+- 如果指定的最小容量大于当前容量，则新容量为两倍的旧容量加上 2。为什么要加 2 呢？对于非常小的字符串（比如空的或只有一个字符的 StringBuilder），仅仅将容量加倍可能仍然不足以容纳更多的字符。在这种情况下，+ 2 提供了一个最小的增长量，确保即使对于很小的初始容量，扩容后也能至少添加一些字符而不需要立即再次扩容。
 - 如果指定的最小容量小于等于当前容量，则不会进行扩容，直接返回当前对象。
 
 在进行扩容之前，`ensureCapacityInternal(int minimumCapacity)` 方法会先检查当前字符序列的容量是否足够，如果不足就会调用 `expandCapacity(int minimumCapacity)` 方法进行扩容。`expandCapacity(int minimumCapacity)` 方法首先计算出新容量，然后使用 `Arrays.copyOf(char[] original, int newLength)` 方法将原字符数组扩容到新容量的大小。
 
-关于扩容，后面在讲[ArrayList](https://javabetter.cn/collection/arraylist.html)的时候会再次说明，今天就先聊到这吧。
+> - [Arrays](https://javabetter.cn/common-tool/arrays.html) 是 Java 中用于操作数组的工具类，后面也会讲到。
+> - 关于扩容，后面在讲[ArrayList](https://javabetter.cn/collection/arraylist.html)的时候会再次说明，到时候大家可以回头对比来看一下，因为 ArrayList 底部实现也是数组。
 
-“我想，关于 String、StringBuilder、StringBuilder 之间的差别，你都搞清楚了吧？”我问。
+### 小结
+
+“我想，关于 StringBuilder、StringBuilder 之间的差别，你都搞清楚了吧？”我问。
+
+“搞清楚的话，可以通过 LeetCode 的第六题《006.Z 字形变换》进行测试，我把题解放在了[技术派](https://paicoding.com/column/7/6)上，你可以作为参考。”
 
 “哥，你真棒！区别我是搞清楚了，你后面讲的源码扩容还没消化，我一会去加个餐，再细看一下。”三妹说。
 
