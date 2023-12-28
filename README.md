@@ -121,6 +121,7 @@
 - [Java基本数据类型缓存池剖析（IntegerCache）](docs/basic-extra-meal/int-cache.md)
 - [Java运算符详解](docs/basic-grammar/operator.md)
 - [Java流程控制语句详解](docs/basic-grammar/flow-control.md)
+- [Java 语法基础练习题](docs/basic-grammar/basic-exercise.md)
 
 ## 数组&字符串
 
