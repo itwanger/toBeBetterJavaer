@@ -20,7 +20,7 @@ head:
 
 ### StringBuffer和StringBuilder的区别
 
-由于字符串是不可变的，所以当遇到[字符串拼接](https://javabetter.cn/string/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
+由于[字符串是不可变的](https://javabetter.cn/string/immutable.html)，所以当遇到[字符串拼接](https://javabetter.cn/string/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
 
 于是 Java 就设计了一个专门用来解决此问题的 StringBuffer 类。
 
@@ -83,6 +83,8 @@ new StringBuilder().append("二哥").append("三妹").toString();
 这个过程是我们看不见的，但这正是 Java 的“智能”之处，它可以在编译的时候偷偷地帮我们做很多优化，这样既可以提高我们的开发效率（`+` 号写起来比创建 StringBuilder 对象便捷得多），也不会影响 JVM 的执行效率。
 
 当然了，如果我们使用 [javap](https://javabetter.cn/jvm/bytecode.html) 反编译 `new String("二哥") + new String("三妹")` 的字节码的时候，也是能看出 StringBuilder 的影子的。
+
+>[javap 和字节码](https://javabetter.cn/jvm/bytecode.html)会在后面讲 JVM 的时候详细讲解，戳链接了解详情。
 
 ```
 0: new           #2                  // class java/lang/StringBuilder
@@ -208,7 +210,45 @@ void expandCapacity(int minimumCapacity) {
 在进行扩容之前，`ensureCapacityInternal(int minimumCapacity)` 方法会先检查当前字符序列的容量是否足够，如果不足就会调用 `expandCapacity(int minimumCapacity)` 方法进行扩容。`expandCapacity(int minimumCapacity)` 方法首先计算出新容量，然后使用 `Arrays.copyOf(char[] original, int newLength)` 方法将原字符数组扩容到新容量的大小。
 
 > - [Arrays](https://javabetter.cn/common-tool/arrays.html) 是 Java 中用于操作数组的工具类，后面也会讲到。
-> - 关于扩容，后面在讲[ArrayList](https://javabetter.cn/collection/arraylist.html)的时候会再次说明，到时候大家可以回头对比来看一下，因为 ArrayList 底部实现也是数组。
+> - 关于扩容，后面在讲[ArrayList](https://javabetter.cn/collection/arraylist.html)的时候会再次说明，到时候你可以回头对比来看一下，因为 ArrayList 底部实现也是数组。
+
+### StringBuilder的 reverse 方法
+
+StringBuilder 还提供了一个 reverse 方法，用于反转当前字符序列中的字符。
+
+```java
+public StringBuilder reverse() {
+    super.reverse();
+    return this;
+}
+```
+
+也是调用了父类 AbstractStringBuilder 中的 `reverse()` 方法，我把一些非核心代码剔除掉了。
+
+```java
+public AbstractStringBuilder reverse() {
+    int n = count - 1; // 字符序列的最后一个字符的索引
+    // 遍历字符串的前半部分
+    for (int j = (n-1) >> 1; j >= 0; j--) {
+        int k = n - j; // 计算相对于 j 对称的字符的索引
+        char cj = value[j]; // 获取当前位置的字符
+        char ck = value[k]; // 获取对称位置的字符
+        value[j] = ck; // 交换字符
+        value[k] = cj; // 交换字符
+    }
+    return this; // 返回反转后的字符串构建器对象
+}
+```
+
+
+1. **初始化**： `n` 是字符串中最后一个字符的索引。
+2. **字符串反转**：
+   - 方法通过一个 `for` 循环遍历字符串的前半部分和后半部分，这是一个非常巧妙的点，比从头到尾遍历省了一半的时间。`(n-1) >> 1` 是 `(n-1) / 2` 的位运算表示，也就是字符串的前半部分的最后一个字符的索引。
+   - 在每次迭代中，计算出与当前索引 `j` 对称的索引 `k`，并交换这两个索引位置的字符。
+
+LeetCode 的第 7 题《[007.整数反转](https://leetcode-cn.com/problems/reverse-integer/)》要求我们反转一个整数，其实就可以借助 StringBuilder 的 reverse 方法来实现。
+
+>题解放在了[技术派](https://paicoding.com/column/7/7)上，可以参考。
 
 ### 小结
 

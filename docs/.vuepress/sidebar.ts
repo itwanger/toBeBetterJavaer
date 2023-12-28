@@ -98,6 +98,7 @@ export const sidebarConfig = sidebar({
           "basic-extra-meal/int-cache",
           "basic-grammar/operator",
           "basic-grammar/flow-control",
+          "basic-grammar/basic-exercise",
           ],
         },
         {
