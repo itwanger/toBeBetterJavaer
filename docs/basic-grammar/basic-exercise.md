@@ -60,10 +60,88 @@ public class ReverseInteger {
 }
 ```
 
-这道题其实是 LeetCode 的第 7 题，如果你想看看更多的解题思路，可以看看这篇文章：[LeetCode 7. 整数反转](https://paicoding.com/column/7/7)。
+这道题其实是 LeetCode 的第 7 题，如果你想看看更多的解题思路，可以看看这篇文章：[LeetCode 7. 整数反转](https://paicoding.com/column/7/7)，我放在技术派的《二哥的 LeetCode 刷题笔记》专栏中。
 
 这道题其实很好的考察了 int 的基本数据类型、取余和除法运算符，以及 if 和 while 语句的使用。
 
+### 字符串转换整数
+
+请你来实现一个 parseInt 方法，使其能将字符串转换成整数。
+
+示例 1（正数）:
+
+```
+输入: "42"
+输出: 42
+```
+
+示例 2（带空格的负数）:
+
+```
+输入: "   -42"
+输出: -42
+```
+
+示例 3（带非数字的字符）:
+
+```
+输入: "4193 with words"
+输出: 4193
+```
+
+示例 4（超出 int 范围）:
+
+```
+输入: "91283472332"
+输出: 2147483647
+```
+
+```java
+public class StringToInteger {
+    public static void main(String[] args) {
+        String str1 = "42";
+        String str2 = "   -42";
+        String str3 = "4193 with words";
+        String str4 = "91283472332";
+        System.out.println(parseInt(str1));
+        System.out.println(parseInt(str2));
+        System.out.println(parseInt(str3));
+        System.out.println(parseInt(str4));
+    }
+
+    public static int parseInt(String str) {
+        int index = 0; // 用于遍历字符串
+        int sign = 1; // 用于标记正负号
+        int total = 0; // 用于存储转换后的整数
+
+        // 1. 跳过前面的空格
+        while (index < str.length() && str.charAt(index) == ' ') index++;
+
+        // 2. 检查正负号
+        if (index < str.length() && (str.charAt(index) == '+' || str.charAt(index) == '-')) {
+            sign = str.charAt(index) == '+' ? 1 : -1;
+            index++;
+        }
+
+        // 3. 转换数字
+        while (index < str.length()) {
+            int digit = str.charAt(index) - '0'; // 获取当前字符对应的数字
+            if (digit < 0 || digit > 9) break; // 如果不是数字则退出循环
+            // 检查溢出：如果 total > Integer.MAX_VALUE/10 或 total == Integer.MAX_VALUE/10 且 digit > Integer.MAX_VALUE%10，则会溢出
+            if (total > Integer.MAX_VALUE / 10 || (total == Integer.MAX_VALUE / 10 && digit > Integer.MAX_VALUE % 10)) {
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            total = total * 10 + digit; // 将 digit 添加到 total 的最后
+            index++;
+        }
+        return total * sign; // 返回转换后的整数
+    }
+}
+```
+
+这道题其实是 LeetCode 的第 8 题，如果你想看看更多的解题思路，可以看看这篇文章：[LeetCode 8. 字符串转换整数 (atoi)](https://paicoding.com/column/7/8)，我放在技术派的《二哥的 LeetCode 刷题笔记》专栏中。
+
+这道题其实很好的字符与整数之间的转换，以及 if 和 while 语句的使用。超纲的内容就是字符串的处理，比如说去空格（`trim()`），比如说取字符（`charAt()`），但这些我们在[后面的章节](https://javabetter.cn/string/string-source.html)中都会讲到。
 
 ### 总结
 
