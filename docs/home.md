@@ -353,6 +353,7 @@ head:
 ### SpringBoot
 
 - [一分钟快速搭建Spring Boot项目](springboot/initializr.md)
+- [Spring Boot 整合 lombok](springboot/lombok.md)
 - [Spring Boot 整合 MySQL 和 Druid](springboot/mysql-druid.md)
 - [Spring Boot 整合 JPA](springboot/jpa.md)
 - [Spring Boot 整合 Thymeleaf 模板引擎](springboot/thymeleaf.md)
