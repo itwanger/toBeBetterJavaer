@@ -434,6 +434,75 @@ System.out.println(index2);       // 输出 8
 
 比如说 `charAt()` 用于返回指定索引处的字符。
 
+比如说 `parseInt()` 用于将字符串转换为整数，这也是非常常用的一个方法，尤其是遇到“数字字符串”转整数的时候。
+
+```java
+String text = "123";
+int number = Integer.parseInt(text);
+System.out.println(number);
+```
+
+可以简单看一下源码：
+
+```java
+public static int parseInt(String s, int radix) throws NumberFormatException {
+    // 如果字符串为空或基数不在有效范围内，抛出 NumberFormatException
+    if (s == null || radix < Character.MIN_RADIX || radix > Character.MAX_RADIX) {
+        throw new NumberFormatException();
+    }
+
+    int result = 0; // 用于存储解析结果的变量
+    boolean negative = false; // 标记数字是否为负数
+    int i = 0, len = s.length(); // i 是字符索引，len 是字符串长度
+    int limit = -Integer.MAX_VALUE; // 溢出检查的上限
+
+    if (len > 0) {
+        char firstChar = s.charAt(0); // 获取字符串的第一个字符
+        if (firstChar == '-') { // 如果是负号
+            negative = true; // 设置负数标记
+            limit = Integer.MIN_VALUE; // 调整溢出上限为 Integer 的最小值
+            i++;
+        } else if (firstChar == '+') { // 如果是正号
+            i++; // 仅跳过，不做额外操作
+        }
+
+        int multmin = limit / radix; // 计算溢出检查的临界值
+        while (i < len) {
+            // 将字符转换为对应的数字值
+            int digit = Character.digit(s.charAt(i++), radix);
+            if (digit < 0 || result < multmin || result * radix < limit + digit) {
+                // 如果字符不是有效数字或者结果溢出，抛出 NumberFormatException
+                throw new NumberFormatException();
+            }
+            // 累积结果
+            result = result * radix - digit;
+        }
+    } else {
+        // 如果字符串为空，抛出 NumberFormatException
+        throw new NumberFormatException();
+    }
+
+    // 根据正负号返回最终结果
+    return negative ? result : -result;
+}
+```
+
+简单解释一下：
+
+1. **空值检查**：首先检查输入字符串是否为 `null`，如果是，则抛出 `NumberFormatException`。
+
+2. **符号处理**：检查字符串的第一个字符以确定数字的符号（正或负）。如果字符串以“-”开头，则数字为负数，以“+”或数字开头则为正数。
+
+3. **数字转换**：遍历字符串中的每个字符，将字符转换为对应的数字。这是通过从字符中减去 '0' 的 ASCII 值来实现的。
+
+4. **结果计算**：计算最终的数字值。这是通过将每个数字乘以其位置权重（10 的幂）并累加到结果中来完成的。
+
+5. **溢出检查**：在整个转换过程中，代码会检查是否有溢出的风险。如果检测到溢出，将抛出 `NumberFormatException`。
+
+6. **返回结果**：根据数字的符号返回最终结果。
+
+这个源码对以后学习 LeetCode 的第八题「[字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)」非常有帮助，题解我已经放到技术派的《[二哥的 LeetCode 刷题笔记](https://paicoding.com/column/7/8)》中，可以作为参考。
+
 比如说 `getBytes()` 用于返回字符串的字节数组，可以指定编码方式，比如说：
 
 ```java

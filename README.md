@@ -343,6 +343,7 @@
 ## SpringBoot
 
 - [一分钟快速搭建Spring Boot项目](docs/springboot/initializr.md)
+- [Spring Boot 整合 lombok](docs/springboot/lombok.md)
 - [Spring Boot 整合 MySQL 和 Druid](docs/springboot/mysql-druid.md)
 - [Spring Boot 整合 JPA](docs/springboot/jpa.md)
 - [Spring Boot 整合 Thymeleaf 模板引擎](docs/springboot/thymeleaf.md)

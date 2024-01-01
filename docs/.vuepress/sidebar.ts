@@ -423,21 +423,22 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.4 Spring全家桶",
+          text: "3.4 Spring",
           collapsible: true,
           children: [
-            {
-              text: "Spring AOP扫盲",
-              link: "springboot/aop-log",
-            },
-            {
-              text: "Spring IoC扫盲",
-              link: "springboot/ioc",
-            },
+            "springboot/aop-log",
+            "springboot/ioc",
+          ],
+        },
+        {
+          text: "3.5 Spring Boot",
+          collapsible: true,
+          children: [
             {
               text: "搭建第一个Spring Boot项目",
               link: "springboot/initializr",
             },
+            "springboot/lombok",
             {
               text: "整合MySQL和Druid",
               link: "springboot/mysql-druid",
@@ -492,21 +493,21 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.5 Netty",
+          text: "3.6 Netty",
           collapsible: true,
           children: [
             "netty/rumen",
           ],
         },
         {
-          text: "3.6 MongoDB",
+          text: "3.7 MongoDB",
           collapsible: true,
           children: [
             "mongodb/rumen",
           ],
         },
         {
-          text: "3.7 消息队列",
+          text: "3.8 消息队列",
           collapsible: true,
           children: [
             {
@@ -521,7 +522,7 @@ export const sidebarConfig = sidebar({
           ],
         },
         {
-          text: "3.8 微服务/分布式",
+          text: "3.9 微服务/分布式",
           collapsible: true,
           children: [
             {
