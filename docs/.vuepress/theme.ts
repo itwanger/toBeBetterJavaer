@@ -12,6 +12,7 @@ export default hopeTheme({
   docsDir: "docs",
   // 以前的默认仓库分支名，方便提交 pr 和 issue
   docsBranch: "master",
+  breadcrumb: false,
 
   // 全屏按钮
   fullscreen: true,
@@ -86,11 +87,8 @@ export default hopeTheme({
   },
 
   plugins: {
-    // 启用博客自动摘要
-    blog: {
-      autoExcerpt: true,
-    },
-    // 该插件会监听页面滚动事件。当页面滚动至某个 标题锚点 后，如果存在对应的 标题链接 ，那么该插件会将路由 Hash 更改为该 标题锚点 。
+    // 该插件会监听页面滚动事件。
+    // 当页面滚动至某个 标题锚点 后，如果存在对应的 标题链接 ，那么该插件会将路由 Hash 更改为该 标题锚点 。
     activeHeaderLinks: true,
 
     mdEnhance: {
@@ -115,9 +113,6 @@ export default hopeTheme({
 
       // 支持幻灯片
       presentation: true,
-
-      // 链接检查
-      linkCheck: "always",
 
       // 你的 Markdown 行为与 GitHub 保持一致
       gfm: true,

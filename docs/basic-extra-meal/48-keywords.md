@@ -1,16 +1,4 @@
----
-title: Java编程基础：48个关键字及2个保留字全解析
-shortTitle: Java关键字和保留字
-category:
-  - Java核心
-tag:
-  - Java语法基础
-description: 本文详细介绍了Java编程语言中的48个关键字及2个保留字，包括它们的用途、特点和使用场景。通过了解这些关键字和保留字，您将更好地掌握Java编程的核心概念，提升编程技能。
-head:
-  - - meta
-    - name: keywords
-      content: Java, 关键字, 保留字, 编程基础
----
+
 
 # 3.1 Java关键字和保留字
 
