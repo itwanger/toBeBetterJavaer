@@ -1,6 +1,6 @@
 ---
 star: true
-title: 2023年最值得收藏的Python学习路线（建议收藏🔥）
+title: 2024年最值得收藏的Python学习路线（建议收藏🔥）
 shortTitle: Python学习路线
 category:
   - 学习路线

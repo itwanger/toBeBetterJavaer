@@ -1,6 +1,6 @@
 ---
 star: true
-title: 2023最新超详细Java学习路线一条龙版（建议收藏🔥）
+title: 2024年最新超详细Java学习路线一条龙版（建议收藏🔥）
 shortTitle: Java学习路线一条龙
 category:
   - 学习路线
