@@ -212,6 +212,7 @@ export const sidebarConfig = sidebar({
         {
           text: "2.9 Java新特性",
           prefix: "java8/",
+          link: "/java8/",
           collapsible: true,
           children: [
           "stream",
