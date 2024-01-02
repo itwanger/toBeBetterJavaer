@@ -1,6 +1,6 @@
 ---
 star: true
-title: 2023最新超详细的前端学习路线（建议收藏🔥）
+title: 2024年最新超详细的前端学习路线（建议收藏🔥）
 shortTitle: 前端学习路线
 category:
   - 学习路线
