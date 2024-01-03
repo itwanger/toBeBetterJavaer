@@ -243,7 +243,7 @@ System.out.println("count = "+count);
 int autoAdd(int count)
 {
     int temp = count;
-    count = coutn + 1;
+    count = count + 1;
     return temp;
 }
 ```
