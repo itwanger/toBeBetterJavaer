@@ -313,6 +313,7 @@ export const sidebarConfig = sidebar({
           "stack-frame",
           "neicun-jiegou",
           "gc",
+          "gc-collector",
           "hsdb",
           "asm",
           "compile-jdk",

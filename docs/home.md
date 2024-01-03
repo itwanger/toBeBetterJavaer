@@ -301,6 +301,7 @@ head:
 - [深入理解JVM的栈帧结构](jvm/stack-frame.md)
 - [深入理解JVM的内存结构](jvm/neicun-jiegou.md)
 - [深入理解JVM的垃圾回收机制](jvm/gc.md)
+- [深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](jvm/gc-collector.md)
 - [HSDB（Hotspot Debugger）从入门到实战](jvm/hsdb.md)
 - [史上最通俗易懂的ASM教程](jvm/asm.md)
 - [自己编译JDK](jvm/compile-jdk.md)
