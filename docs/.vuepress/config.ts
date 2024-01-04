@@ -102,6 +102,7 @@ export default defineUserConfig({
     }),
     // 留言
     commentPlugin({
+      comment: false,
       provider: "Giscus",
       repo :"itwanger/tobebetterjavaer-giscus",
       repoId:"R_kgDOHBJssg",

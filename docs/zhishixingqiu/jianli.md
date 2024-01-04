@@ -70,10 +70,10 @@ head:
 - 技术难点或者项目难点（这是面试官比较关心的）
 - 成果业绩（数据量化）
 
-我就直接拿二哥的[原创开源项目技术派](https://mp.weixin.qq.com/s/AyRK5OWGYugS6s2vn2CPuA)来展示吧，相信大家看完后就知道怎么去写了。
+我就直接拿二哥的[原创开源项目技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)来展示吧，相信大家看完后就知道怎么去写了。
 
 
-![](https://files.mdnice.com/user/3903/76e58a88-6810-41a3-b108-f6ed0ed6d07c.png?&cause=saveError!)
+![](https://cdn.tobebetterjavaer.com/images/20230602/d7d341c557e7470d9fb41245e5bb4209.png)
 
 
 项目名称：技术派社区项目（2023.7-2023.9）
