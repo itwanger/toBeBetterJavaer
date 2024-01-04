@@ -16,11 +16,11 @@ head:
 
 “哥，你让我看的《[Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 
-“其实这个问题，我们之前已经[聊过](https://javabetter.cn/string/builder-buffer.html)。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
+“其实这个问题，我们之前在 [StringBuilder](https://javabetter.cn/string/builder-buffer.html) 时已经聊过了。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
 
 PS：三妹能在学习的过程中不断地发现问题，让我感到非常的开心。其实很多时候，我们不应该只是把知识点记在心里，还应该问一问自己，到底是为什么，只有迈出去这一步，才能真正的成长起来。
 
-### javap 探究+号操作符拼接字符串的本质
+### +号操作符的本质
 
 “+ 号操作符其实被 Java 在编译的时候重新解释了，换一种说法就是，+ 号操作符是一种语法糖，让字符串的拼接变得更简便了。”一边给三妹解释，我一边在 Intellij IDEA 中敲出了下面这段代码。
 
@@ -34,7 +34,7 @@ class Demo {
 }
 ```
 
-在 Java 8 的环境下，使用 `javap -c Demo.class` 反编译字节码后，可以看到以下内容：
+在 Java 8 的环境下，使用 `javap -c Demo.class` 反编译[字节码](https://javabetter.cn/jvm/bytecode.html)后（字节码和 javap 我们会在 JVM 中详细讲，这里可以硬着头皮瞄一眼），可以看到以下内容：
 
 ```
 Compiled from "Demo.java"
@@ -64,6 +64,8 @@ class Demo {
       30: return
 }
 ```
+
+（如果你之前没有了解过[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)，可能会有一点压力，不过，不用担心，我们稍微解释一下就懂了）
 
 “你看，三妹，这里有一个 new 关键字，并且 class 类型为 `java/lang/StringBuilder`。”我指着标号为 9 的那行对三妹说，“这意味着新建了一个 StringBuilder 的对象。”
 
@@ -133,9 +135,55 @@ public class com.itwanger.thirtyseven.Demo {
 
 “好吧，总之就是 Java 9 以后，JDK 用了另外一种方法来动态解释 + 号操作符，具体的实现方式在字节码指令层面已经看不到了，所以我就以 Java 8 来继续讲解吧。”
 
+这里我们再多讲一点，如果是下面这段代码：
+
+```java
+class StringConcat {
+    public static void main(String[] args) {
+        int i = 11;
+        String s = i + "";
+        System.out.println(s);
+    }
+}
+```
+
+`+` 号操作符又是如何完成拼接呢？
+
+同样可以来通过 `javap -c StringConcat`看一下字节码指令：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/join-20240103204104.png)
+
+从上图中可以看到，`+` 号操作符被编译成了 `StringBuilder` 的 `append()` 方法。
+
+那如果是这样的代码：
+
+```java
+class StringConcat1 {
+    public static void main(String[] args) {
+        String s = 11 + "";
+        System.out.println(s);
+    }
+}
+```
+
+`+` 号操作符又是如何完成拼接呢？
+
+同样可以来通过 `javap -c StringConcat1`看一下字节码指令：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/join-20240103204403.png)
+
+StringBuilder 不见了？这是为什么呢？
+
+这是因为 + 连接操作的两个操作数都是编译时常量（一个是字面量整数 11，另一个是空字符串 ""），所以编译器能够在编译时就完成这个字符串连接操作。
+
+也就是说，字符串连接 11 + "" 被编译器优化处理了，编译器在编译阶段就将其解析为了字符串常量 "11"。
+
+
 ### 为什么要编译为 StringBuilder.append
 
-“再回到《Java 开发手册》上的那段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。原因就在于循环体内如果用 + 号操作符的话，就会产生大量的 StringBuilder 对象，不仅占用了更多的内存空间，还会让 Java 虚拟机不停的进行垃圾回收，从而降低了程序的性能。”
+“再回到《[Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上的那段内容：
+
+**循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符**。原因就在于循环体内如果用 + 号操作符的话，就会产生大量的 StringBuilder 对象，不仅占用了更多的内存空间，还会让 Java 虚拟机不停的进行垃圾回收，从而降低了程序的性能。”
 
 更好的写法就是在循环的外部新建一个 StringBuilder 对象，然后使用 `append()` 方法将循环体内的字符串添加进来：
 
@@ -237,9 +285,9 @@ private void ensureCapacityInternal(int minimumCapacity) {
 }
 ```
 
-由于字符串内部是用数组实现的，所以需要先判断拼接后的字符数组长度是否超过当前数组的长度，如果超过，先对数组进行扩容，然后把原有的值复制到新的数组中。
+由于字符串内部是用[数组](https://javabetter.cn/array/array.html)实现的，所以需要先判断拼接后的字符数组长度是否超过当前数组的长度，如果超过，先对数组进行扩容，然后把原有的值复制到新的数组中。
 
- 4）将拼接的字符串 str 复制到目标数组 value 中。
+4）将拼接的字符串 str 复制到目标数组 value 中。
 
 ```java
 str.getChars(0, len, value, count)

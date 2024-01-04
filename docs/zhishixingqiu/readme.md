@@ -23,7 +23,7 @@ head:
 
 也是得到了很多球友的认可，才敢“信誓旦旦”地推荐给大家。下面这张截图应该能代表很多球友的心声：球友很热心，二哥很耐心，在这个优秀的编程圈子里，进步是肉眼可见的、内心更是温暖的。
 
-<img src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png" title="二哥的编程星球" width="400" />
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-62021067-6503-4ed0-95d5-e45a3cef2b13.png)
 
 星球最开始的定价是 99 元，第一波优惠券是 30 元，第二波是 20 元，第三波是 10 元，后来是 129 元，现在已经 4000+球友了，星球门票也涨到了 149 元，所以真的不要再犹豫了，看到立马加入就对了，每天不到 0.33 元，但对你的学习和求职真的会帮助特别大。
 
@@ -411,7 +411,7 @@ admin 端星球白名单：
 
 加入后记得添加我的微信（扫下面的二维码），备注「**星球**」我会拉你进星球的 VIP 交流群，目前已经是第 6 群了。
 
-<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png" title="二哥的编程星球" width="300" />
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png)
 
 
 郑重声明（加粗加粗）：**如果感觉不值得或者不满意，这里郑重承诺可以免费体验三天，三天内知识星球 APP 右上角都可以直接全额退款(官方自动扣除手续费)！无任何套路**。

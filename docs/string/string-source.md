@@ -428,20 +428,55 @@ System.out.println(index2);       // 输出 8
 
 ### String 类的其他方法
 
-比如说 `length()` 用于返回字符串长度。
+①、比如说 `length()` 用于返回字符串长度。
 
-比如说 `isEmpty()` 用于判断字符串是否为空。
+②、比如说 `isEmpty()` 用于判断字符串是否为空。
 
-比如说 `charAt()` 用于返回指定索引处的字符。
+③、比如说 `charAt()` 用于返回指定索引处的字符。
 
-比如说 `getBytes()` 用于返回字符串的字节数组，可以指定编码方式，比如说：
+④、比如说 `valueOf()` 用于将其他类型的数据转换为字符串。
+
+```java
+String str = String.valueOf(123);  // 将整数 123 转换为字符串
+```
+
+valueOf 方法的背后其实调用的是包装器类的 toString 方法，比如说整数转为字符串调用的是 Integer 类的 toString 方法。
+
+```java
+public static String valueOf(int i) {
+    return Integer.toString(i);
+}
+```
+
+而 Integer 类的 toString 方法又调用了 Integer 类的静态方法 `toString(int i)`：
+
+```java
+public static String toString(int i) {
+    // 最小值返回 "-2147483648"
+    if (i == Integer.MIN_VALUE)
+        return "-2147483648";
+    // 整数的长度，负数的长度减 1
+    int size = (i < 0) ? stringSize(-i) + 1 : stringSize(i);
+    // 把整数复制到字符数组中
+    char[] buf = new char[size];
+    // 具体的复制过程
+    getChars(i, size, buf);
+    // 通过 new 返回字符串
+    return new String(buf, true);
+}
+```
+
+至于 getChars 方法，就是把整数复制到字符数组中的具体过程了，这里就不展开了。
+
+
+⑥、比如说 `getBytes()` 用于返回字符串的字节数组，可以指定编码方式，比如说：
 
 ```java
 String text = "沉默王二";
 System.out.println(Arrays.toString(text.getBytes(StandardCharsets.UTF_8)));
 ```
 
-比如说 `trim()` 用于去除字符串两侧的空白字符，来看源码：
+⑦、比如说 `trim()` 用于去除字符串两侧的空白字符，来看源码：
 
 ```java
 public String trim() {
