@@ -46,7 +46,13 @@
 
 一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **4200 多名** 球友加入了（戳[链接](https://javabetter.cn/zhishixingqiu/)了解详情），如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。新人可免费体验 3 天，不满意可全额退款（只能帮你到这里了😄）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/README-20240104090518.png)
+<p align="center">
+  <a href="https://javabetter.cn/zhishixingqiu/">
+    <kbd>
+      <img src="https://cdn.tobebetterjavaer.com/stutymore/README-20240104090518.png" width="400px" alt="星球优惠券">
+    </kbd>
+  </a>
+</p>
 
 这是一个**编程学习指南 + Java 项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
@@ -590,7 +596,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 开源不易，如果《二哥的Java进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="https://itwanger-oss.oss-cn-beijing.aliyuncs.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。
