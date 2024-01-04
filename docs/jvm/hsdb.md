@@ -1,6 +1,6 @@
 ---
-title: HSDB（Hotspot Debugger）从入门到实战
-shortTitle: HSDB从入门到实战
+title: 如何调试 JVM 运行时数据？HSDB（Hotspot Debugger）从入门到实战
+shortTitle: 如何调试 JVM 运行时数据？
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,HSDB
 ---
 
-# HSDB（Hotspot Debugger）从入门到实战
+# 第十三节：如何调试 JVM 运行时数据？
 
 `HSDB（Hotspot Debugger)`，是一款内置于 SA 中的 GUI 调试工具，可用于调试 JVM 运行时数据，从而进行故障排除。
 
@@ -350,9 +350,8 @@ jseval "st = sa.vm.stringTable;st.stringsDo(function (s) { if (sapkg.oops.OopUti
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/hsdb-47a42bfa-7645-4c9b-bcd8-aeabea1ae44f.png)
 
----
 
->参考链接：https://zzcoder.cn/2019/12/06/HSDB%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98/
+参考链接：https://juejin.cn/post/7072344870374866951
 
 ----
 
