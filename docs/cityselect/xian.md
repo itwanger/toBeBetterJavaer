@@ -277,9 +277,7 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 西安住建前段时间出了二手房交易参考价格，我贴在下面大家可以参考下，不过这个价格感觉低于市场价了。我感觉这直接打了个八折~西安住建发布二手房交易参考价格的链接在这里  https://mp.weixin.qq.com/s/Gis7kIJklWygTseztydDaw
 
-![image-20210720212848036](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-c22be12f-8426-487d-b256-96d7e8950762.png)
 
-![image-20210720212821035](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/xian-fb06e9b2-ba0b-46d3-b84a-5449a77dc6ae.png)
 
 ### 教育资源
 
@@ -313,6 +311,7 @@ ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtW
 
 综上所述，西安目前正处在高速上升的阶段，互联网行业相对北上广深杭还有一定的差距，相比与成都也还稍差一点。但是西安绝对是有潜力的，并且目前西安的房价还是比较友好的。大家如果能选择在西安发展，生活幸福感会比较高。
 
+更多西安的信息，可以戳这个链接：[西安互联网](https://github.com/madawei2699/xian-IT)
 
 >作者：大白，转载链接：[https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog](https://mp.weixin.qq.com/s/s0Ub1CHC9eEi0YrqPrnRog)
 
