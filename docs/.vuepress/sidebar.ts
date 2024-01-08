@@ -317,6 +317,7 @@ export const sidebarConfig = sidebar({
           "whereis-the-object",
           "jit",
           "console-tools",
+          "view-tools",
           "oom",
           "cpu-percent-100",
           "zongjie",

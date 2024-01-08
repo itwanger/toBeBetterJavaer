@@ -22,7 +22,7 @@ head:
 
 ## JDK 性能监控工具
 
-除了我们的老朋友 java 和 javac 命令，在 Java 的 bin 目录下，还有很多其他的命令行工具，比如说用于性能监控的 jps、jstat、jinfo、jmap、jhat、jstack、jcmd 等等。
+除了我们的老朋友 java 和 javac 命令，在 Java 的 bin 目录下，还有很多其他的命令行工具，比如说用于性能监控的 jps、jstat、jinfo、jmap、jstack、jcmd 等等。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106163547.png)
 
@@ -65,7 +65,7 @@ kill -9 pid
 | \-m      | 输出虚拟机进程启动时传递给主类 main() 方法的参数 |
 | \-v      | 输出虚拟机进程启动时的 JVM 参数                 |
 
-## jstat：查看 JVM 运行时信息
+### jstat：查看 JVM 运行时信息
 
 jstat（Java Virtual Machine Statistics Monitoring Tool）用于监控 JVM 的各种[运行时状态](https://javabetter.cn/jvm/neicun-jiegou.html)信息，提供有关垃圾回收、类加载、JIT 编译等运行数据。
 
@@ -128,7 +128,7 @@ jstat [ option vmid [interval[s|ms] [count]] ]
 | \-compiler         | 输出即时编译器编译过的方法、耗时等信息                                                                                       |
 | \-printcompilation | 输出已经被即时编译的方法                                                                                                     |
 
-## jinfo：查看虚拟机配置
+### jinfo：查看虚拟机配置
 
 jinfo（Configuration Info for Java）用于在补重启应用的情况下，调整虚拟机的各项参数，或者输出 Java 进程的详细信息。
 
@@ -170,7 +170,7 @@ jinfo [ option ] pid
 
 之所以把这个问题的解决思路同步上来，也是希望能给[球友们](https://javabetter.cn/zhishixingqiu/)提供一些日常遇到开发问题时的解决思路。
 
-## jmap：导出堆快照
+### jmap：导出堆快照
 
 jmap 命令用于生成堆转储快照（一般称为 heap dump 或 dump 文件）。堆转储包含了 [JVM 堆](https://javabetter.cn/jvm/neicun-jiegou.html)中所有对象的信息，包括类、属性、引用等。这对于分析内存泄漏和优化内存使用非常有帮助。
 
@@ -205,7 +205,7 @@ jmap [ option ] vmid
 | \-histo         | 显示堆中对象统计信息，包括类、实例数量、合计容量                           |
 | \-F             | 当虚拟机进程对 -dump 选项没有响应式，可以强制生成快照。Linux 平台          |
 
-## jstack：跟踪Java堆栈
+### jstack：跟踪Java堆栈
 
 jstack 用于打印出 JVM 中某个进程或远程调试服务的线程堆栈信息（一般称为 threaddump 或者 javacore 文件）。它常用于诊断应用程序中的线程问题，比如线程死锁、死循环或长时间等待。
 
@@ -279,7 +279,7 @@ class DeadLockDemo {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192123.png)
 
-## jcmd：多功能命令
+### jcmd：多功能命令
 
 jcmd 是一个多功能命令，可以用于收集堆转储、生成 JVM 和 Java 应用程序的性能数据，以及动态更改某些 Java 运行时参数。jcmd 提供的功能比其他单一命令，如 jstack, jmap, jstat 都要强大。
 
