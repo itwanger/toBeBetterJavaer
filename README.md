@@ -297,7 +297,7 @@
 - [Java 创建的对象到底放在哪？](docs/jvm/whereis-the-object.md)
 - [深入理解JIT（即时编译）](docs/jvm/jit.md)
 - [JVM 性能监控之命令行篇](docs/jvm/console-tools.md)
-- [Java问题诊断和排查工具](docs/jvm/problem-tools.md)
+- [JVM 性能监控之可视化篇](docs/jvm/view-tools.md)
 - [一次内存溢出排查优化实战](docs/jvm/oom.md)
 - [一次生产CPU 100% 排查优化实践](docs/jvm/cpu-percent-100.md)
 - [JVM 核心知识点总结](docs/jvm/zongjie.md)
