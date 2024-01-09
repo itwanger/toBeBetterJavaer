@@ -318,6 +318,7 @@ export const sidebarConfig = sidebar({
           "jit",
           "console-tools",
           "view-tools",
+          "arthas",
           "oom",
           "cpu-percent-100",
           "zongjie",
