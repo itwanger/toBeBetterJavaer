@@ -14,21 +14,87 @@ head:
 
 # 第十七节：OOM排查优化实战
 
-`OutOfMemoryError`，也就是臭名昭著的 OOM，相信很多球友都遇到过，相对于常见的业务异常（数组越界、[空指针](https://javabetter.cn/exception/npe.html)等）来说这类问题是很难定位和解决的。
+`OutOfMemoryError`，也就是臭名昭著的 OOM（内存溢出），相信很多球友都遇到过，相对于常见的业务异常，如[数组越界](https://javabetter.cn/array/array.html)、[空指针](https://javabetter.cn/exception/npe.html)等，OOM 问题更难难定位和解决。
 
-本文以最近碰到的一次线上内存溢出的定位、解决问题的方式展开；希望能对碰到类似问题的同学带来思路和帮助。
+这篇内容就以最近碰到的一次线上内存溢出的定位、解决问题的方式展开；希望能对碰到类似问题的[球友](https://javabetter.cn/zhishixingqiu/)带来思路和帮助。
 
 主要从`表现-->排查-->定位-->解决` 四个步骤来分析和解决问题。
 
+## 内存溢出和内存泄露
 
+在Java中，和内存相关的问题主要有两种，内存溢出和内存泄漏。
+
+- 内存溢出（Out Of Memory） ：就是申请内存时，JVM没有足够的内存空间。通俗说法就是去蹲坑发现坑位满了。
+- 内存泄露 （Memory Leak）：就是申请了内存，但是没有释放，导致内存空间浪费。通俗说法就是有人占着茅坑不拉屎。
+
+### 内存溢出
+
+在 JVM 的[内存区域](https://javabetter.cn/jvm/neicun-jiegou.html)中，除了程序计数器，其他的内存区域都有可能发生内存溢出。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+
+大家都知道，Java 堆中存储的都是对象，或者叫对象实例，那只要我们不断地创建对象，并且保证 GC Roots 到对象之间有可达路径来避免垃圾回收机制清除这些对象，那么就一定会产生内存溢出。
+
+比如说运行下面这段代码：
+
+```java
+public class OOM {
+    public static void main(String[] args) {
+        List<Object> list = new ArrayList<>();
+        while (true) {
+            list.add(new Object());
+        }
+    }
+}
+```
+
+运行程序的时候记得设置一下 VM 参数：`-Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError`，限制堆内存大小为 20M，并且不允许扩展，并且当发生 OOM 时 [dump 出当前内存的快照](https://javabetter.cn/jvm/console-tools.html)。
+
+运行结果如下：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/oom-20240109190409.png)
+
+我们在讲[运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)的时候也曾讲过。
+
+### 内存泄露
+
+内存泄露是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。
+
+简单来说，就是应该被[垃圾回收](https://javabetter.cn/jvm/gc.html)的对象没有回收掉，导致占用的内存越来越多，最终导致内存溢出。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/oom-20240109190934.png)
+
+在上图中：对象 X 引用对象 Y，X 的生命周期比 Y 的生命周期长，Y生命周期结束的时候，垃圾回收器不会回收对象Y。
+
+来看下面的例子：
+
+```java
+public class MemoryLeak {
+    public static void main(String[] args) {
+    try{
+        Connection conn =null;
+        Class.forName("com.mysql.jdbc.Driver");
+        conn =DriverManager.getConnection("url","","");
+        Statement stmt =conn.createStatement();
+        ResultSet rs =stmt.executeQuery("....");
+    } catch（Exception e）{//异常日志
+    } finally {
+        // 1．关闭结果集 Statement
+        // 2．关闭声明的对象 ResultSet
+        // 3．关闭连接 Connection
+    }
+}
+```
+
+创建的连接不再使用时，需要调用 close 方法关闭连接，只有连接被关闭后，GC 才会回收对应的对象（Connection，Statement，ResultSet，Session）。忘记关闭这些资源会导致持续占有内存，无法被 GC 回收。
 
 ## 表象
 
-最近我们生产上的一个应用不断的爆出内存溢出，并且随着业务量的增长出现的频次越来越高。
+最近，我们的生产环境不断爆出内存溢出的问题，并且随着业务量的增长，出现的频次越来越高。
 
-该程序的业务逻辑非常简单，就是从 Kafka 中将数据消费下来然后批量的做持久化操作。
+应用程序的业务逻辑非常简单，就是从 [Kafka](https://javabetter.cn/mq/kafka.html) 中将数据消费下来，然后批量的做持久化操作。
 
-而现象则是随着 Kafka 的消息越多，出现的异常的频次就越快。由于当时还有其他工作所以只能让运维做重启，并且监控好堆内存以及 GC 情况。
+OOM 现象则是随着 Kafka 的消息越多，出现的异常的频次就越快。由于当时还有其他工作所以只能让运维做重启，并且监控好堆内存以及 GC 情况。
 
 > 重启大法虽好，可是依然不能根本解决问题。
 
@@ -136,7 +202,8 @@ head:
 
 **你的点赞与转发是最大的支持。**
 
-原文链接：https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/
+- 参考链接1：[内存泄露的排查](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
+- 参考链接 2：[内存溢出和内存泄露](https://www.zhihu.com/question/40560123)
 
 ----
 
