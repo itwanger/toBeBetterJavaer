@@ -360,6 +360,21 @@ for (int element : array2) {
 
 很简单，很好理解，相信三妹你也能看懂。
 
+### 数组越界
+
+在我们进行数组操作的时候，最容易遇到的一个问题就是数组越界，也就是 ArrayIndexOutOfBoundsException [异常](https://javabetter.cn/exception/gailan.html)。
+
+```java
+int[] anArray = new int[] {1, 2, 3, 4, 5};
+System.out.println(anArray[5]);
+```
+
+上面这段代码就会抛出数组越界的异常，因为数组的索引是从 0 开始的，所以最大索引为 `length - 1`，也就是 4，所以当我们使用 5 作为索引的时候，就会抛出异常。
+
+所以在操作数组之前，一定要注意索引的范围。
+
+### 小结
+
 好，今天我们就先讲到这里，说完，我就跑去阳台来一根华子，留三妹在电脑前面练习了起来。
 
 ----
