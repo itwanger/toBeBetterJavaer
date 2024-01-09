@@ -1,6 +1,6 @@
 ---
-title: 一次内存溢出排查优化实战
-shortTitle: 一次内存溢出排查优化实战
+title: 一次内存溢出的排查优化实战，彻底干掉臭名昭著的 OOM
+shortTitle: OOM排查优化实战
 category:
   - Java核心
 tag:
@@ -12,11 +12,9 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,内存溢出
 ---
 
-# 一次内存溢出排查优化实战
+# 第十七节：OOM排查优化实战
 
-## 前言
-
-`OutOfMemoryError` 问题相信很多朋友都遇到过，相对于常见的业务异常（数组越界、空指针等）来说这类问题是很难定位和解决的。
+`OutOfMemoryError`，也就是臭名昭著的 OOM，相信很多球友都遇到过，相对于常见的业务异常（数组越界、[空指针](https://javabetter.cn/exception/npe.html)等）来说这类问题是很难定位和解决的。
 
 本文以最近碰到的一次线上内存溢出的定位、解决问题的方式展开；希望能对碰到类似问题的同学带来思路和帮助。
 
