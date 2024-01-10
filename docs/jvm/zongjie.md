@@ -60,7 +60,7 @@ HotSpot 在这个过程里移除掉永久代，并吸收了 JRockit 的 Java Mis
 
 ## 二、Java 内存区域
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zongjie-1d779fca-b6a4-4982-b746-2a8db7805645.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
 
 
 ### 2.1 程序计数器
