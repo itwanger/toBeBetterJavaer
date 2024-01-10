@@ -300,7 +300,7 @@
 - [JVM 性能监控之可视化篇](docs/jvm/view-tools.md)
 - [阿里开源的 Java 诊断神器 Arthas](docs/jvm/arthas.md)
 - [一次内存溢出排查优化实战](docs/jvm/oom.md)
-- [一次生产CPU 100% 排查优化实践](docs/jvm/cpu-percent-100.md)
+- [一次CPU 100% 排查优化实践](docs/jvm/cpu-percent-100.md)
 - [JVM 核心知识点总结](docs/jvm/zongjie.md)
 
 
