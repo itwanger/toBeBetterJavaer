@@ -19,35 +19,44 @@ head:
 
 ### 1.1 OpenJDK
 
-自 1996 年 `JDK 1.0` 发布以来，Sun 公司在大版本上发行了 `JDK 1.1`、`JDK 1.2`、`JDK 1.3`、`JDK 1.4`、`JDK 5`，`JDK 6` ，这些版本的 JDK 都可以统称为 SunJDK 。之后在 2006 年的 JavaOne 大会上，Sun 公司宣布将 Java 开源，在随后的一年多里，它陆续将 JDK 的各个部分在 GPL v2（GNU General Public License，version 2）协议下开源，并建立了 OpenJDK 组织来对这些代码进行独立的管理，这就是 OpenJDK 的来源，此时的 OpenJDK 拥有当时 sunJDK 7 的几乎全部代码。
+自 1996 年 `JDK 1.0` 发布以来，Sun 公司在大版本上发行了 `JDK 1.1`、`JDK 1.2`、`JDK 1.3`、`JDK 1.4`、`JDK 5`，`JDK 6` ，这些版本的 JDK 都可以统称为 SunJDK 。
+
+之后在 2006 年的 JavaOne 大会上，Sun 公司宣布将 Java 开源，在随后的一年多里，它陆续将 JDK 的各个部分在 GPL v2（GNU General Public License，version 2）协议下开源，并建立了 OpenJDK 组织来对这些代码进行独立的管理，这就是 OpenJDK 的来源，此时的 OpenJDK 拥有当时 sunJDK 7 的几乎全部代码。
 
 ### 1.2 OracleJDK
 
-在 JDK 7 的开发期间，由于各种原因的影响 Sun 公司市值一路下跌，已无力推进 JDK 7 的开发，JDK 7 的发布一直被推迟。之后在 2009 年 Sun 公司被 Oracle 公司所收购，为解决 JDK 7 长期跳票的问题，Oracle 将 JDK 7 中大部分未能完成的项目推迟到 JDK 8 ，并于 2011 年发布了JDK 7，在这之后由 Oracle 公司正常发行的 JDK 版本就由 SunJDK 改称为 Oracle JDK。 
+在 JDK 7 的开发期间，由于各种原因的影响，Sun 公司市值一路下跌，已无力推进 JDK 7 的开发，于是 JDK 7 的发布一直被推迟。
 
-在 2017 年 JDK 9 发布后，Oracle 公司宣布从此以后 JDK 将会在每年的 3 月和 9 月各发布一个大版本，即半年发行一个大版本，目的是为了避免众多功能被捆绑到一个 JDK 版本上而引发的无法交付的风险。
+之后在 2009 年 Sun 公司被 Oracle 公司收购，为解决 JDK 7 长期跳票的问题，Oracle 将 JDK 7 中大部分未能完成的项目推迟到 JDK 8 ，并于 2011 年发布了JDK 7，在这之后由 Oracle 公司正常发行的 JDK 版本就由 SunJDK 改称为 Oracle JDK。 
 
- 在 JDK 11 发布后，Oracle 同步调整了 JDK 的商业授权，宣布从 JDK 11 起将以前的商业特性全部开源给 OpenJDK ，这样 OpenJDK 11 和 OracleJDK 11 的代码和功能，在本质上就完全相同了。同时还宣布以后都会发行两个版本的 JDK ：
+在 2017 年 JDK 9 发布后，Oracle 公司宣布：以后 JDK 将会在每年的 3 月和 9 月各发布一个大版本，即半年发行一个大版本，目的是为了避免众多功能被捆绑到一个 JDK 版本上而引发的无法交付的风险。
+
+在 JDK 11 发布后，Oracle 同步调整了 JDK 的商业授权，宣布从 JDK 11 起，将以前的商业特性全部开源给 OpenJDK ，这样 OpenJDK 11 和 OracleJDK 11 的代码和功能，在本质上就完全相同了。
+
+同时还宣布以后会发行两个版本的 JDK ：
 
 + 一个是在 GPLv2 + CE 协议下由 Oracle 开源的 OpenJDK；
 + 一个是在 OTN 协议下正常发行的 OracleJDK。
 
 两者共享大部分源码，在功能上几乎一致。唯一的区别是 Oracle OpenJDK 可以在开发、测试或者生产环境中使用，但只有半年的更新支持；而 OracleJDK 对个人免费，但在生产环境中商用收费，可以有三年时间的更新支持。
 
+目前最新的长期支持的 JDK 是 JDK 21（LTS），详情可以参考[朋友 why 技术的帖子](https://www.cnblogs.com/thisiswhy/p/17714341.html)。
+
 ### 1.3 HotSpot VM
 
-它是 Sun/Oracle JDK 和 OpenJDK 中默认的虚拟机，也是目前使用最为广泛的虚拟机。最初由 Longview Technologies 公司设计发明，该公司在 1997 年被 Sun 公司收购，随后 Sun 公司在 2006 年开源 SunJDK 时也将 HotSpot 虚拟机一并进行了开源。之后 Oracle 收购 Sun 以后，建立了 HotRockit 项目，并将其收购的另外一家公司（BEA）的 JRockit 虚拟机中的优秀特性集成到 HotSpot 中。HotSpot 在这个过程里面移除掉永久代，并吸收了 JRockit 的 Java Mission Control 监控工具等功能。到 JDK 8 发行时，采用的就是集两者之长的 HotSpot VM 。
+它是 Sun/Oracle JDK 和 OpenJDK 中默认的虚拟机，也是目前使用最为广泛的虚拟机。
+
+最初由 Longview Technologies 公司设计发明，该公司在 1997 年被 Sun 公司收购，随后 Sun 公司在 2006 年开源 SunJDK 时也将 HotSpot 虚拟机一并进行了开源。
+
+Oracle 收购 Sun 以后，建立了 HotRockit 项目，并将其收购的另外一家公司（BEA）的 JRockit 虚拟机中的优秀特性集成到 [HotSpot 中](https://javabetter.cn/jvm/what-is-jvm.html)。
+
+HotSpot 在这个过程里移除掉永久代，并吸收了 JRockit 的 Java Mission Control 监控工具等功能。
+
+到 JDK 8 发行时，采用的就是集两者之长的 HotSpot VM。
 
 我们可以在自己的电脑上使用 `java -version` 来获得 JDK 的信息：
 
-```shell
-C:\Users> java -version
-java version "1.8.0_171"   # 如果是openJDK, 则这里会显示：openjdk version
-Java(TM) SE Runtime Environment (build 1.8.0_171-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode) # 使用的是HotSpot虚拟机，默认为服务端模式
-```
-
-
+![](https://cdn.tobebetterjavaer.com/stutymore/zongjie-20240110193338.png)
 
 ## 二、Java 内存区域
 

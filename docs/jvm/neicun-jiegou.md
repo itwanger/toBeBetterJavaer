@@ -24,9 +24,11 @@ head:
 - Java 虚拟机栈（Java Virtual Machine Stacks）
 - 本地方法栈（Native Method Stack）
 - 堆（Heap）
-- 方法区（Method Area）与元空间（Metaspace）
+- 方法区（Method Area）
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225185616.png)
+
+>JDK 8 开始，永久代被彻底移除，取而代之的是元空间。元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。也就是说，JDK 8 开始，方法区的实现就是元空间。
 
 
 ## 程序计数器
