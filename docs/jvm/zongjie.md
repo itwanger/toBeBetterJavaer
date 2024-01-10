@@ -12,7 +12,7 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机
 ---
 
-# JVM 核心知识点总结
+# 第十九节：JVM 核心知识点总结
 
 
 ## 一、基本概念
