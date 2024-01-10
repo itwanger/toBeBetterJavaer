@@ -163,6 +163,8 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 看到这个包自然就想到了 `Disruptor` 环形队列了。
 
+> [Disruptor](https://tech.meituan.com/2016/11/18/disruptor.html) 是一个高性能的异步处理框架，它的核心思想是：通过[无锁](https://javabetter.cn/thread/lock.html)的方式来实现高性能的并发处理，其性能是高于 JDK 的 [BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 的。
+
 再次 review 代码发现：从 Kafka 里取出的 700 条数据是直接往 Disruptor 里丢的。
 
 这里也就能说明为什么第一次模拟数据没复现问题了。

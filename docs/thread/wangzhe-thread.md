@@ -252,6 +252,41 @@ t3.start();
 
 如果其他线程都执行完毕，main 方法（主线程）也执行完毕，JVM 就会退出，也就是停止运行。如果 JVM 都停止运行了，守护线程自然也就停止了。
 
+### 4）yield()
+
+yield() 方法是一个静态方法，用于暗示当前线程愿意放弃其当前的时间片，允许其他线程执行。然而，它只是向线程调度器提出建议，调度器可能会忽略这个建议。具体行为取决于操作系统和 [JVM](https://javabetter.cn/jvm/what-is-jvm.html) 的线程调度策略。
+
+```java
+class YieldExample {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(YieldExample::printNumbers, "刘备");
+        Thread thread2 = new Thread(YieldExample::printNumbers, "关羽");
+
+        thread1.start();
+        thread2.start();
+    }
+
+    private static void printNumbers() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+
+            // 当 i 是偶数时，当前线程暂停执行
+            if (i % 2 == 0) {
+                System.out.println(Thread.currentThread().getName() + " 让出控制权...");
+                Thread.yield();
+            }
+        }
+    }
+}
+```
+
+运行结果：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20240110111338.png)
+
+从这个结果可以看得出来，即便有时候让出了控制权，其他线程也不一定会执行。
+
+
 ## 小结
 
 本文主要介绍了 Java 多线程的创建方式，以及线程的一些常用方法。最后再来看一下线程的生命周期吧，一图胜千言。
