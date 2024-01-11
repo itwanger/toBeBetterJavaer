@@ -26,7 +26,7 @@ head:
 - 堆（Heap）
 - 方法区（Method Area）
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225185616.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110194325.png)
 
 >JDK 8 开始，永久代被彻底移除，取而代之的是元空间。元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。也就是说，JDK 8 开始，方法区的实现就是元空间。
 
@@ -273,7 +273,7 @@ System.out.println(Runtime.getRuntime().maxMemory() / 1024.0 / 1024 + "MB");
 
 换句话说，方法区和永久代的关系就像是 Java 中接口和类的关系，类实现了接口，接口还是那个接口，但实现已经完全升级了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223152739.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110195211.png)
 
 JDK 7 之前，只有常量池的概念，都在方法区中。
 
