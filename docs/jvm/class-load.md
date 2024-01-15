@@ -1,6 +1,6 @@
 ---
 title: 一文彻底搞懂 Java 类加载机制（类加载器、类加载过程、双亲委派模型）
-shortTitle: Java类加载机制
+shortTitle: Java的类加载机制
 category:
   - Java核心
 tag:
@@ -9,10 +9,10 @@ description: Java的类加载机制通过类加载器和类加载过程的合作
 head:
   - - meta
     - name: keywords
-      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,类加载机制
+      content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,类加载机制,类加载器,类加载过程,双亲委派模型
 ---
 
-# 第三节：Java 类加载机制
+# 第三节：Java的类加载机制
 
 [上一节](https://javabetter.cn/jvm/how-run-java-code.html)在讲 JVM 运行 Java 代码的时候，我们提到，JVM 需要将编译后的字节码文件加载到其内部的运行时数据区域中进行执行。这个过程涉及到了 Java 的类加载机制（面试常问的知识点），所以我们来详细地讲一讲。
 
@@ -46,9 +46,11 @@ public class Test {
 
 这里只说一点，这段字节码中的 `cafe babe` 被称为“魔数”，是 JVM 识别 .class 文件（字节码文件）的标志，相信大家都知道，Java 的 logo 是一杯冒着热气的咖啡，是不是又关联上了？
 
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
+
 > 文件格式的定制者可以自由选择魔数值（只要没用过），比如说 .png 文件的魔数是 `8950 4e47`。
 
-至于字节码文件中的其他内容，暂时先不用去管，知道这是字节码的 16 机制内容就可以了。
+至于字节码文件中的其他内容，暂时先不用去管，我们后面会详细讲解。
 
 ## 类加载过程
 
@@ -62,7 +64,7 @@ public class Test {
 
 ### 1）Loading（载入）
 
-JVM 在该阶段的主要目的是将字节码从不同的数据源（可能是 class 文件、也可能是 jar 包，甚至网络）转化为二进制字节流加载到内存中，并生成一个代表该类的 `java.lang.Class` 对象（在学[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)的时候有讲过）。
+JVM 在该阶段的目的是将字节码从不同的数据源（可能是 class 文件、也可能是 jar 包，甚至网络）转化为二进制字节流加载到内存中，并生成一个代表该类的 `java.lang.Class` 对象（在学[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)的时候有讲过）。
 
 ### 2）Verification（验证）
 
@@ -73,10 +75,11 @@ JVM 会在该阶段对二进制字节流进行校验，只有符合 JVM 字节�
 - 方法调用的参数个数和类型是否正确。
 - 确保变量在使用之前被正确初始化了。
 - 检查变量是否被赋予恰当类型的值。
+- 还有更多。
 
 ### 3）Preparation（准备）
 
-JVM 会在该阶段对类变量（也称为[静态变量](https://javabetter.cn/oo/static.html)，`static` 关键字修饰的）分配内存并初始化（对应数据类型的默认初始值，如 0、0L、null、false 等）。
+JVM 会在该阶段对类变量（也称为[静态变量](https://javabetter.cn/oo/static.html)，`static` 关键字修饰的）分配内存并初始化，对应数据类型的默认初始值，如 0、0L、null、false 等。
 
 也就是说，假如有这样一段代码：
 
@@ -141,7 +144,7 @@ Java 本身是一个静态语言，但后面又加入了动态加载特性，因
 
 ### 5）Initialization（初始化）
 
-该阶段是类加载过程的最后一步。在准备阶段，类变量（静态变量）已经被赋过默认初始值（如 0、0.0、false、null），而在初始化阶段，类变量将被赋值为代码期望赋的值。换句话说，初始化阶段是执行类构造器方法（[javap](https://javabetter.cn/jvm/bytecode.html) 中看到的 `<clinit>()` 方法）的过程。
+该阶段是类加载过程的最后一步。在准备阶段，类变量已经被赋过默认初始值，而在初始化阶段，类变量将被赋值为代码期望赋的值。换句话说，初始化阶段是执行类构造器方法（[javap](https://javabetter.cn/jvm/bytecode.html) 中看到的 `<clinit>()` 方法）的过程。
 
 上面这段话可能说得很抽象，不好理解，我来举个例子。
 
@@ -161,10 +164,10 @@ public String(String original) {
 初始化时机包括以下这些：
 
 - 创建类的实例时。
-- 访问类的静态方法或静态字段时（除了final常量，它们在编译期就已经放入常量池）。
-- 使用java.lang.reflect包的方法对类进行反射调用时。
+- 访问类的静态方法或静态字段时（除了 final 常量，它们在编译期就已经放入常量池）。
+- 使用 java.lang.reflect 包的方法对类进行反射调用时。
 - 初始化一个类的子类（首先会初始化父类）。
-- JVM启动时，用户指定的主类（包含main方法的类）将被初始化。
+- JVM 启动时，用户指定的主类（包含 main 方法的类）将被初始化。
 
 ## 类加载器
 
@@ -272,16 +275,16 @@ public class CustomClassLoader extends ClassLoader {
 类加载器的层级结构如下图所示：
 
 ```
-    Bootstrap ClassLoader
-            ↑
-            │
-    Extension ClassLoader
-            ↑
-            │
-    System/Application ClassLoader
-            ↑
-            │
-    Custom ClassLoader
+Bootstrap ClassLoader
+        ↑
+        │
+Extension ClassLoader
+        ↑
+        │
+System/Application ClassLoader
+        ↑
+        │
+Custom ClassLoader
 ```
 
 这种层次关系被称作为**双亲委派模型**：如果一个类加载器收到了加载类的请求，它会先把请求委托给上层加载器去完成，上层加载器又会委托上上层加载器，一直到最顶层的类加载器；如果上层加载器无法完成类的加载工作时，当前类加载器才会尝试自己去加载这个类。
@@ -292,9 +295,9 @@ PS：双亲委派模型突然让我联想到朱元璋同志，这个同志当上
 
 上文中曾提到，如果两个类的加载器不同，即使两个类来源于同一个字节码文件，那这两个类就必定不相等——双亲委派模型能够保证同一个类最终会被特定的类加载器加载。
 
-## 总结
+## 小结
 
-Java的类加载机制通过类加载器和类加载过程的合作，确保了Java程序的动态加载、灵活性和安全性。双亲委派模型进一步增强了这种机制的安全性和类之间的协调性。
+Java 的类加载机制通过类加载器和类加载过程的合作，确保了 Java 程序的动态加载、灵活性和安全性。双亲委派模型进一步增强了这种机制的安全性和类之间的协调性。
 
 学习就是这样，只要你敢于挑战自己，就能收获知识——就像山就在那里，只要你肯攀登，就能到达山顶。
 
