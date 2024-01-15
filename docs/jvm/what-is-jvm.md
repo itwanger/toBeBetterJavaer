@@ -20,9 +20,9 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223101555.png)
 
-那就让我们开始吧！
+“JVM 在校招面试中的比重还是非常大的；同时，对于工作党来说，如果项目遇到内存泄露、CPU飙升的问题，也需要通过 JVM 的性能监控进行定位和解决。好，那就让我们开始吧！”我继续补充道。
 
-看过《[Java 发展简史](https://javabetter.cn/overview/what-is-java.html)》的三妹应该知道，Sun 在 1991 年成立了一个由詹姆斯·高斯林（James Gosling）领导的，名为“Green”的项目组，目的是开发一种能够在各种消费性电子产品上运行的程序架构。
+三妹，你看过《[Java 发展简史](https://javabetter.cn/overview/what-is-java.html)》应该知道，Sun 在 1991 年成立了一个由詹姆斯·高斯林（James Gosling）领导的，名为“Green”的项目组，目的是开发一种能够在各种消费性电子产品上运行的程序架构。
 
 一开始，项目组打算使用 C++，但 C++ 无法达到跨平台的要求，比如在 Windows 系统下编译的 Hello.exe 无法直接拿到 Linux 环境下执行。
 
@@ -32,11 +32,13 @@ head:
 
 怎么办呢？
 
-三妹不知道有没有听过直译器（解释器）这玩意？（估计你没听过）就是每跑一行代码就生成机器码，然后执行，比如说 Python 和 Ruby 用的就是直译器。在每个操作系统上装一个直译器就好了，跨平台的目的就达到了。
+三妹不知道有没有听过直译器（解释器）这玩意？（估计你没听过）就是每跑一行代码就生成机器码，然后执行，比如说 Python 和 Ruby 用的就是直译器。
+
+“那在每个操作系统上装一个直译器就好了，跨平台的目的就达到了啊。”三妹插话道。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-02.png)
 
-但直译器有个缺点，就是没法像编译器那样对一些热点代码进行优化，从而让机器码跑得更快一些。
+“但直译器有个缺点，就是没法像编译器那样对一些热点代码进行优化，从而让程序在机器上跑得更快一些。”我回答说。
 
 怎么办呢？
 
@@ -44,13 +46,13 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231019153456.png)
 
-编译器负责把 Java 源代码编译成[字节码](https://javabetter.cn/jvm/bytecode.html)，Java 虚拟机负责把字节码转换成机器码。转换的时候，可以做一些压缩或者优化，通过 [JIT](https://javabetter.cn/jvm/jit.html) 来完成，这样的机器码跑起来就快多了。
+编译器负责把 Java 源代码编译成[字节码](https://javabetter.cn/jvm/bytecode.html)，Java 虚拟机负责把字节码转换成机器码。转换的时候，可以做一些压缩或者优化，通过 [JIT](https://javabetter.cn/jvm/jit.html) 来完成，这样的程序跑起来就快多了。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223102608.png)
 
 >- Java 虚拟机：Java Virtual Machine，简称 JVM，也就是我们接下来要学习的重点。
->- 字节码：Bytecode，接下来会细讲。
->- JIT：Just-In-Time，即时编译器，后面会细讲。
+>- 字节码：[Bytecode](https://javabetter.cn/jvm/bytecode.html)，接下来会细讲。
+>- JIT：Just-In-Time，[即时编译器](https://javabetter.cn/jvm/jit.html)，后面会细讲。
 
 这样的话，不仅跨平台的目的达到了，而且性能得到了优化，两全其美！
 
@@ -58,7 +60,7 @@ head:
 
 虚拟机，顾名思义，就是虚拟的机器（多苍白的解释），反正就是看不见摸不着的机器，一个相对物理机的叫法，你把它想象成一个会执行字节码的怪兽吧。
 
-记得上大学那会，由于没有 Linux 环境，但又需要在上面玩一些命令，于是二哥就会在 Windows 上装一个 Linux 的虚拟机，这个 JVM 就类似这种东西。
+记得上大学那会，由于没有 Linux 环境，但又需要在上面玩一些命令，于是我就会在 Windows 上装一个 Linux 的虚拟机，这个 JVM 就类似这种东西。
 
 说白了，就是我们编写 Java 代码，编译 Java 代码，目的不是让它在 Linux、Windows 或者 MacOS 上跑，而是在 JVM 上跑。
 
@@ -107,15 +109,17 @@ JVM 大致可以划分为三个部门，分别是类加载器（Class Loader）�
 
 ### 类加载器
 
-类加载器是 JVM 最有权威的一个部门，相当于明朝时期的内阁，用来加载[类文件](https://javabetter.cn/jvm/what-is-jvm.html)，也就是 .class 文件。如果类文件加载失败，也就没有运行时数据区和执行引擎什么事了，它们什么也干不了。
+类加载器是 JVM 最有权威的一个部门，相当于明朝张居正时期的内阁，大全独揽，朝廷想干什么，都得经过我这关。
+
+好，类加载器用来加载[类文件](https://javabetter.cn/jvm/what-is-jvm.html)，也就是 .class 文件。如果类文件加载失败，也就没有运行时数据区和执行引擎什么事了，它们什么也干不了。
 
 类加载器负责将字节码文件加载到内存中，主要会经历加载->连接->实例化这三个阶段，我们会放在[后面的章节单独来讲](https://javabetter.cn/jvm/class-load.html)。
 
 ### 运行时数据区
 
-运行时数据区就相当于明朝时期的国库，国库里有钱，那执行引擎就能够继续执行字节码，国库里没钱就会抛出 OutOfMemoryError 异常。
+运行时数据区就相当于明朝时期的国库，国库里有钱，那接下来的执行引擎就能够继续执行字节码，国库里没钱就会抛出 OutOfMemoryError 异常。
 
-JVM 定义了 Java 程序运行期间需要使用到的内存区域，简单来说，这块内存区域存放了字节码信息以及程序执行过程的数据，垃圾收集器也会针对运行时数据区进行对象回收的工作。看下面这张图就能理解：
+JVM 定义了 Java 程序运行期间需要使用到的内存区域，简单来说，这块内存区域存放了字节码信息以及程序执行过程的数据，[垃圾收集器](https://javabetter.cn/jvm/gc-collector.html)也会针对运行时数据区进行对象回收的工作。看下面这张图就能理解（JVM 规范）：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-07.png)
 
@@ -141,7 +145,7 @@ JVM 定义了 Java 程序运行期间需要使用到的内存区域，简单来�
 
 ## 小结
 
-“三妹，关于 Java 虚拟机，今天我们就学到这吧，后面再展开细讲，怎么样？”转动了一下僵硬的脖子后，我对三妹说，“Java 虚拟机是一块很大很深的内容，如果一上来学太多的话，我怕难倒你。”
+“三妹，关于 JVM 是什么的话题我们就先讲到这，后面再展开细讲其中的每一个细节，怎么样？”转动了一下僵硬的脖子后，我对三妹说，“JVM 是一块很大很深的内容，如果一上来学太多的话，我怕难倒你（😁）。”
 
 “好的，二哥，我也觉得今天的知识量够了，我要好好消化几天。我会加油的！”三妹似乎对未来充满了希望，这正是我想看到的。
 
@@ -149,7 +153,7 @@ JVM 定义了 Java 程序运行期间需要使用到的内存区域，简单来�
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223154127.png)
 
-你把 Java 源代码编译后的字节码文件扔给它，它就可以在 JVM 中执行，不管你是在 Windows、Linux 还是 MacOS 环境下编译的，它都可以跑，屏蔽了底层操作系统的差异。
+我们把 Java 源代码编译后的字节码文件扔给它，它就可以在 JVM 中执行，不管是在 Windows、Linux 还是 MacOS 环境下编译的，它都可以跑，屏蔽了底层操作系统的差异。
 
 ---
 
