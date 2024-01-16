@@ -36,6 +36,6 @@ projects:
   - icon: zhongyaotishi
     name: 破解合集
     desc: 程序员常用工具聚集地
-    link: /nice-article/itmind/
+    link: https://paicoding.com/?category=%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7
 
 ---
