@@ -283,9 +283,10 @@
 
 ## Java虚拟机
 
+- [JVM小册简介](docs/jvm/readme.md)
 - [大白话带你认识JVM](docs/jvm/what-is-jvm.md)
 - [JVM是如何运行Java代码的？](docs/jvm/how-run-java-code.md)
-- [Java的类加载机制](docs/jvm/class-load.md)
+- [Java的类加载机制（付费）](docs/jvm/class-load-vip.md)
 - [Java的类文件结构](docs/jvm/class-file-jiegou.md)
 - [从javap的角度轻松看懂字节码](docs/jvm/bytecode.md)
 - [栈虚拟机与寄存器虚拟机](docs/jvm/vm-stack-register.md)
@@ -570,7 +571,7 @@
 
 ### 原创公众号
 
-![](https://itwanger-oss.oss-cn-beijing.aliyuncs.com/paicoding/1_995464436_171_85_3_731480121_1577da7e9942707dbf727407411f7288_dd680c35.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 

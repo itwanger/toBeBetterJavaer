@@ -155,21 +155,11 @@ JVM 定义了 Java 程序运行期间需要使用到的内存区域，简单来�
 
 我们把 Java 源代码编译后的字节码文件扔给它，它就可以在 JVM 中执行，不管是在 Windows、Linux 还是 MacOS 环境下编译的，它都可以跑，屏蔽了底层操作系统的差异。
 
----
+----
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **3700 多名** 球友加入了，如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。新人可免费体验 3 天，不满意可全额退款（星球官方机制 😄）。
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
-<img src="https://cdn.tobebetterjavaer.com/paicoding/7c0ac1af155d3c1a1df268a17813ca45.png" title="二哥的编程星球" width="400" />
 
-这是一个**编程学习指南 + Java 项目实战 + LeetCode 刷题的私密圈子**，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231019155412.png)
-
-两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
-
-- [二哥的 Java 面试指南专栏发布了 ✌️](https://javabetter.cn/zhishixingqiu/mianshi.html)
-- [二哥的原创实战项目技术派上线了 ✌️](https://mp.weixin.qq.com/s/AyRK5OWGYugS6s2vn2CPuA)
-- [2000+薪资待遇还不错的公司名单 ✌️](https://mp.weixin.qq.com/s/7JIKnYCYtYrpAXRTjU0LLw)
-- [二哥的并发编程小册发布了 ✌️](https://javabetter.cn/thread/)
-
-最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

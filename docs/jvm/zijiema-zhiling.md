@@ -12,7 +12,7 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,字节码,字节码指令
 ---
 
-# 第六节：字节码指令详解
+# 第七节：字节码指令详解
 
 大家好，我是二哥呀。字节码指令是 JVM 体系中比较难啃的一块硬骨头，我估计有些[球友](https://javabetter.cn/zhishixingqiu/)会有这样的疑惑，“这么难啃，我还能学会啊？”
 
@@ -785,7 +785,7 @@ public void syncBlockMethod();
 > 推荐阅读：[https://segmentfault.com/a/1190000037628881](https://segmentfault.com/a/1190000037628881)
 
 
-## 总结
+## 小结
 
 路漫漫其修远兮，吾将上下而求索。
 
