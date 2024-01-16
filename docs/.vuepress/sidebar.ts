@@ -303,9 +303,10 @@ export const sidebarConfig = sidebar({
           prefix: "jvm/",
           collapsible: true,
           children: [
+          "readme.md",
           "what-is-jvm",
           "how-run-java-code",
-          "class-load",
+          "class-load-vip",
           "class-file-jiegou",
           "bytecode",
           "vm-stack-register",

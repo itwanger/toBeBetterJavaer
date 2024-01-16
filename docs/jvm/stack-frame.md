@@ -313,7 +313,7 @@ public class StackOverflowErrorTest1 {
 ![](https://cdn.tobebetterjavaer.com/stutymore/stack-frame-20231224190542.png)
 
 
-## 总结
+## 小结
 
 栈帧是 JVM 中用于方法执行的数据结构，每当一个方法被调用时，JVM 会为该方法创建一个栈帧，并在方法执行完毕后销毁。
 

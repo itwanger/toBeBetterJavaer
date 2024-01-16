@@ -371,3 +371,12 @@ Java 应用性能分析工具，开源、火焰图、跨平台。
 本篇我们介绍了一些可视化的性能监控工具，包括 JConsole、VisualVM、Java Mission Control 等，阿里的 Arthas 我们留到后面单独去讲。
 
 > 参考链接：星球嘉宾三分恶 [性能监控工具-可视化工具篇](https://mp.weixin.qq.com/s/iqZ0KZILAvzmFXpw6gH3mA)
+
+----
+
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
