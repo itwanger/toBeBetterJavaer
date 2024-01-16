@@ -355,8 +355,10 @@ export const sidebarConfig = sidebar({
             {
               text: "3.1.3 Git",
               collapsible: true,
+              prefix: "git/",
               children: [
-              "git/git-qiyuan",
+              "git-qiyuan",
+              "port-22-to-443",
               ],
             },
             {
