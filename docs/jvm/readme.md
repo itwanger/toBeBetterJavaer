@@ -70,7 +70,11 @@ head:
 
 然后通过星球的第一个置顶帖「[球友必看](https://t.zsxq.com/12rEo9Pdu)」在百度网盘和阿里云盘中下载。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116133237.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116162610.png)
+
+或者通过👇🏻下面这个链接直接进行文件下载。
+
+>[https://t.zsxq.com/16bkDmROs](https://t.zsxq.com/16bkDmROs)
 
 或者你也可以通过星球的第一个置顶帖「[球友必看](https://t.zsxq.com/12rEo9Pdu)」在语雀中查看，我已经将内容同步上去。
 
