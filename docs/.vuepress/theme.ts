@@ -90,7 +90,10 @@ export default hopeTheme({
     // 该插件会监听页面滚动事件。
     // 当页面滚动至某个 标题锚点 后，如果存在对应的 标题链接 ，那么该插件会将路由 Hash 更改为该 标题锚点 。
     activeHeaderLinks: true,
-
+    // 启用博客
+    blog: true,
+    // pwa
+    pwa: true,
     mdEnhance: {
       // 添加选项卡支持
       tabs: true,

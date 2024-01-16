@@ -2,7 +2,7 @@
 title: 工作六年，我学会了用 Arthas 来辅助我的日常工作 
 shortTitle: 工作六年，我学会了用 Arthas 来辅助我的日常工作 
 description: 如何通过 arthas 来解决日常工作中的疑难问题，如何通过 arthas 处理工作以前需要 debug，需要打印日志才能找的 bug。 集合案例来谈谈如何使用 arthas 这些命令。
-tags:
+tag:
   - 优质文章
 author: uzong
 category:
