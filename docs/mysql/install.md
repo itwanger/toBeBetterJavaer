@@ -1,6 +1,6 @@
 ---
-title: MySQL 的安装
-shortTitle: MySQL 安装
+title: MySQL 的安装、启动、连接
+shortTitle: MySQL 安装启动连接
 description: MySQL 的安装，主要有 Windows 平台和 macOS 平台，服务器上的一般就是 Linux。
 category:
   - MySQL
@@ -12,7 +12,7 @@ head:
       content: mysql,MySQL,MySQL安装
 ---
 
-## MySQL 是什么
+# 第一节：MySQL 的安装、启动、连接
 
 MySQL 是一个关系型数据库，也是我们国内使用频率最高的一种数据库（没有之一），不管是校招还是社招，都是必考内容，并且考察项目会非常多，属于二哥一直强调的 Java 后端四大件之一。
 
@@ -244,7 +244,7 @@ cd C:\Program Files\MySQL\MySQL Server 8.0\bin
 
 ## 小结
 
-这篇内容详细地介绍了 Windows、macOS 和 Linux 平台下 MySQL 的安装和连接，算是为后面的《二哥的 MySQL 进阶之路》做好了铺垫，冲。
+这篇内容详细地介绍了 Windows、macOS 和 Linux 平台下 MySQL 的安装和连接，算是为后面的《[二哥的 MySQL 进阶之路](https://javabetter.cn/mysql/)》做好了铺垫，冲。
 
 ----
 
