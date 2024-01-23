@@ -190,7 +190,7 @@ Java 在多线程方面做得非常突出，只要操作系统支持，Java 中�
 
 “当然！这主要得益于 Java 广泛的应用场景。”我斩钉截铁地回答到。
 
-#### **大数据领域：**
+#### 大数据领域：
 
 与 Python 一样，Java 在大数据领域占据着主导地位，很多用于处理大规模数据的框架都是基于 Java 开发的。
 
@@ -201,20 +201,22 @@ Java 在多线程方面做得非常突出，只要操作系统支持，Java 中�
 - Deeplearning4j，用于构建各种类型的神经网络，可以与 Spark 集成，运行在 GPU（图形处理器）上。
 - Apache Storm，用于处理实时数据流，一个 Storm 节点可以在秒级处理数百万个作业。
 
-#### **物联网（IoT）领域：**
+#### 物联网（IoT）领域：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-02.png)
 
 Oracle 表示，灵活性和流行度是 IoT 程序员选择 Java 的主要原因。Java 提供了大量的 API 库，可以很容易应用到嵌入式应用程序中。相比其他编程语言，比如 C 语言，Java 在切换平台时更加顺畅，不容易出错。
 
-#### **金融服务领域：**
+比如 Samsung 的 SmartThings 平台就使用了 Java 来开发其智能家居解决方案的一部分。
+
+#### 金融服务领域：
 
 - 聊天机器人，由于可移植性、可维护性、可视化等诸多方面的因素，Java 成了开发聊天机器人最好的工具。
 - 欺诈检测和管理，银行和金融公司使用 AI（人工智能）工具来进行金融欺诈和信用卡欺诈检测，而 Java 常用来开发这些 AI 工具。
 - 交易系统，Java 虚拟机提供的动态运行时编译优化在很多情况下比编译型语言（如 C++）具有更好的性能，让交易系统运行得更顺畅。
 - 移动钱包，基于 AI 和 Java 算法开发的移动钱包，可以帮助用户在花钱时做出更智能的决策。
 
-#### **Web 领域：**
+#### Web 领域：
 
 Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 开发框架有很多：
 
@@ -222,6 +224,8 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 - Spring MVC 框架，是一种基于 Java 实现的 MVC（Model-View-Controller）设计模式的请求驱动类型的轻量级 Web 框架。
 - MyBatis 框架，一个优秀的数据持久层框架，可在实体类和 SQL 语句之间建立映射关系，是一种半自动化的 ORM（Object Relational Mapping，对象关系映射）实现。
 - JavaServer Faces 框架，由 Oracle 开发，能够将表示层与应用程序代码轻松连接，它提供了一个 API 集，用于表示和管理 UI 组件。
+- Spring Boot 框架，是 Spring 框架的扩展，可以轻松创建独立的、基于生产的 Spring 应用程序。
+- Spring Cloud 框架，是 Spring Boot 的扩展，用于构建分布式系统的工具集。
 
 总之，Oracle 宣称，Java 正运行在 97% 的企业计算机上——有点厉害的样子。
 
@@ -248,11 +252,15 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 这一切的一切，都让软件开发的效率大大的提高。
 
-下图是号称史上最惨的 2023 届秋招 Java 岗的薪资状况，像 22 届的薪资待遇远比这个好得多，但其实已经比很多其他行业好太多了。
+下图是号称史上最惨的 23 届秋招 Java 岗的薪资状况。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
 
-24 届及以后的起薪肯定会比这个好得多，这上面大专、普本的案例比较少，是因为网上爆的人比较少，但其实这部分群体也是非常大的，所以，学习 Java 还是很有“**钱秃**”的。
+24 届秋招 Java 岗的薪资情况。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/what-is-java-20240122121356.png)
+
+小红书的 Java 后端岗本科 985 能拿到 48 万的年包，还是很恐怖的，所以，学习 Java 还是很有“**钱秃**”的。
 
 “噢噢噢噢，那好吧，我先跟着《[Java进阶之路](https://javabetter.cn/)》学起来！”
 

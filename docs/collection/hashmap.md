@@ -1242,7 +1242,7 @@ HashMap 是线程不安全的主要是因为它在进行插入、删除和扩容
 
 为了解决这个问题，Java 提供了线程安全的 HashMap 实现类 [ConcurrentHashMap](https://javabebetter.cn/thread/ConcurrentHashMap.html)。ConcurrentHashMap 内部采用了分段锁（Segment），将整个 Map 拆分为多个小的 HashMap，每个小的 HashMap 都有自己的锁，不同的线程可以同时访问不同的小 Map，从而实现了线程安全。在进行插入、删除和扩容等操作时，只需要锁住当前小 Map，不会对整个 Map 进行锁定，提高了并发访问的效率。
 
-### 05、总结
+### 05、小结
 
 HashMap是Java中最常用的集合之一，它是一种键值对存储的数据结构，可以根据键来快速访问对应的值。以下是对HashMap的总结：
 
@@ -1256,9 +1256,10 @@ HashMap是Java中最常用的集合之一，它是一种键值对存储的数据
 
 综上所述，HashMap是一种高效的数据结构，具有快速查找和插入元素的能力，但需要注意线程安全和性能问题。
 
-那如果大家已经掌握了 HashMap，那可以刷一下 LeetCode 的第一题，会用到 HashMap、数组和 for 循环，我把题解链接放在了技术派上：
+那如果大家已经掌握了 HashMap，那可以刷一下 LeetCode 的第 001 题、013 题，会用到 HashMap、数组和 for 循环，我把题解链接放在了技术派上：
 
 > - [二哥的 LeetCode 刷题笔记：001.两数之和](https://paicoding.com/column/7/1)
+> - [二哥的 LeetCode 刷题笔记：013.罗马数字转整数](https://paicoding.com/column/7/13)
 
 ----
 
