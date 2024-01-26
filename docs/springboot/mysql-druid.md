@@ -22,6 +22,8 @@ MySQL 目前主推的版本是 8.0，参考手册的地址如下所示：
 
 ## 如何安装 MySQL
 
+我在讲 MySQL 的时候也有专门讲过，更详细：[MySQL 的安装(Windows、macOS、Linux)](https://javabetter.cn/mysql/install.html)
+
 如果有云服务器的话，建议安装在云服务器上，这样就可以长时间运行 MySQL 而不用担心服务重启的问题。按照步骤参照下面的文档。
 
 >[https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html](https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html)
@@ -244,9 +246,10 @@ Druid 是阿里巴巴开源的一款数据库连接池，结合了C3P0、DBCP �
 
 Druid 在 GitHub 上已经收获了 25.4k 的 star，可以说非常的知名，从简介上也能看得出，Druid 就是为了监控而生的。
 
->[https://github.com/alibaba/druid/](https://github.com/alibaba/druid/)
+> [https://github.com/alibaba/druid/](https://github.com/alibaba/druid/)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-a1f53d5b-1048-4707-bebc-1a59d7793880.png)
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-a1f53d5b-1048-4707-bebc-1a59d7793880.png#id=n2yqp&originHeight=552&originWidth=1100&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 Druid 包含了三个重要的组成部分：
 
@@ -256,7 +259,7 @@ Druid 包含了三个重要的组成部分：
 
 Spring Boot2.0 以上默认使用的是 Hikari 连接池，我们从之前的日志信息里就可以看得到。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-0982b47e-b211-41a6-ab88-355e1d2ae7be.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-0982b47e-b211-41a6-ab88-355e1d2ae7be.png#id=K9tfC&originHeight=564&originWidth=2744&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 那如果我们想使用 Druid 的话，该怎么整合呢？
 
@@ -274,17 +277,79 @@ Spring Boot2.0 以上默认使用的是 Hikari 连接池，我们从之前的日
 
 第二步，在 application.yml 文件中添加 Druid 配置。
 
-----
+```
+spring:
+  datasource:    
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #初始化连接池大小
+      initial-size: 5
+      #配置最小连接数
+      min-idle: 5
+      #配置最大连接数
+      max-active: 200
+      #配置连接等待超时时间
+      max-wait: 60000
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      #测试连接
+      validation-query: SELECT 1 FROM DUAL
+      #申请连接的时候检测，建议配置为true，不影响性能，并且保证安全
+      test-while-idle: true
+      #获取连接时执行检测，建议关闭，影响性能
+      test-on-borrow: false
+      #归还连接时执行检测，建议关闭，影响性能
+      test-on-return: false
+      #是否开启PSCache，PSCache对支持游标的数据库性能提升巨大，oracle建议开启，mysql下建议关闭
+      pool-prepared-statements: false
+      #开启poolPreparedStatements后生效
+      max-pool-prepared-statement-per-connection-size: 20
+      #配置扩展插件，常用的插件有=>stat:监控统计  log4j:日志  wall:防御sql注入
+      filters: stat,wall,slf4j
+      #打开mergeSql功能；慢SQL记录
+      connection-properties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      #配置DruidStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      #配置DruidStatViewServlet
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        #登录名
+        login-username: root
+        #登录密码
+        login-password: root
+```
 
-更多内容，只针对《二哥的Java进阶之路》星球用户开放，需要的小伙伴可以[戳链接🔗](https://javabetter.cn/zhishixingqiu/)加入我们的星球，一起学习，一起卷。。**编程喵**🐱是一个 Spring Boot+Vue 的前后端分离项目，融合了市面上绝大多数流行的技术要点。通过学习实战项目，你可以将所学的知识通过实践进行检验、你可以拓宽自己的技术边界，你可以掌握一个真正的实战项目是如何从 0 到 1 的。
+第三步，重启项目。在日志信息里可以看到 Druid 的初始化信息。
 
-----
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-06115c50-5741-482f-b5c0-45c55017098f.png#id=Wnc1o&originHeight=642&originWidth=2244&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-## 源码地址
+第四步，通过 `http://localhost:9002/druid/` 地址就可以在浏览器访问 Druid 的监控页面了，用户名和密码是我们在配置文件里指定的 root 和 root，登录后是这样的。
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-daaf401e-e4c4-4057-9b3b-d605eefb6eb3.png#id=C7ZKf&originHeight=1546&originWidth=2744&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+
+更多关于监控的配置信息，可以到 Druid 的 GitHub 仓库查看。
+
+> [https://github.com/alibaba/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98](https://github.com/alibaba/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+
+
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-a5db84fc-1030-4a38-824d-4e649ad2b768.png#id=hcluY&originHeight=1020&originWidth=1414&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+
+### 源码地址
 
 > - 编程喵 GitHub：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
-> - codingmore-mysql-druid：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-mysql)
+> - codingmore-mysql：[https://github.com/itwanger/codingmore-learning/tree/main/codingmore-mysql](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-mysql)
 
----
+
+----
+
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
