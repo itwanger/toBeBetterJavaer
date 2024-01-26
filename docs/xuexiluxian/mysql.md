@@ -112,9 +112,9 @@ SQL 学完，再学 MySQL 就会更加丝滑，学习曲线会平滑一些。
 
 >[https://t.zsxq.com/04eMf6AMZ](https://t.zsxq.com/04eMf6AMZ)
 
-Windows 的话，在 二哥的Java进阶之路上分享过破解方法：
+Windows 的话，在技术派上分享过破解方法：
 
->[https://javabetter.cn/nice-article/itmind/navicatzxbwindowspjbjc.html](https://javabetter.cn/nice-article/itmind/navicatzxbwindowspjbjc.html)
+>[https://paicoding.com/article/detail/411](https://paicoding.com/article/detail/411)
 
 **破解方法请勿外传，保密就对了**。
 

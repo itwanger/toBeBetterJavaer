@@ -22,7 +22,6 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-01.png)
 
-
 “完了没？三妹。”
 
 “完了好一会儿了，二哥，你图画得真慢，让我瞧瞧怎么样？”
@@ -139,9 +138,9 @@ public synchronized boolean add(E e) {
 }
 ```
 
-这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://javabetter.cn/string/builder-buffer.html)那样。JDK 源码也说了：
+这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder 取代 StringBuffer](https://javabetter.cn/string/builder-buffer.html)那样。JDK 源码也说了：
 
->如果不需要线程安全，建议使用ArrayList代替Vector。
+> 如果不需要线程安全，建议使用 ArrayList 代替 Vector。
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
 
@@ -175,7 +174,7 @@ public synchronized E peek() {
 
 Set 的特点是存取无序，不可以存放重复的元素，不可以用下标对元素进行操作，和 List 有很多不同。
 
-#### **1）HashSet**
+#### 1）HashSet
 
 HashSet 其实是由 HashMap 实现的，只不过值由一个固定的 Object 对象填充，而键用于操作。来简单看一下它的源码。
 
@@ -203,9 +202,7 @@ public class HashSet<E>
 }
 ```
 
-实际开发中，HashSet 并不常用，比如，如果我们需要按照顺序存储一组元素，那么ArrayList和LinkedList可能更适合；如果我们需要存储键值对并根据键进行查找，那么HashMap可能更适合。
-
-当然，在某些情况下，HashSet仍然是最好的选择。例如，当我们需要快速查找一个元素是否存在于某个集合中，并且我们不需要对元素进行排序时，HashSet可以提供高效的性能。
+实际开发中，HashSet 并不常用，比如，如果我们需要按照顺序存储一组元素，那么 ArrayList 和 LinkedList 可能更适合；如果我们需要存储键值对并根据键进行查找，那么 HashMap 可能更适合。
 
 来一段增删改查体验一下：
 
@@ -238,8 +235,33 @@ System.out.println("Modified set? " + (removeChenmo && addBuChenmo)); // output:
 System.out.println("HashSet after modification: " + set); // output: [陈清扬, 不沉默]
 ```
 
+HashSet 主要用于去重，比如，我们需要统计一篇文章中有多少个不重复的单词，就可以使用 HashSet 来实现。
 
-#### **2）LinkedHashSet**
+```java
+// 创建一个 HashSet 对象
+HashSet<String> set = new HashSet<>();
+
+// 添加元素
+set.add("沉默");
+set.add("王二");
+set.add("陈清扬");
+set.add("沉默");
+
+// 输出 HashSet 的元素个数
+System.out.println("HashSet size: " + set.size()); // output: 3
+
+// 遍历 HashSet
+for (String s : set) {
+    System.out.println(s);
+}
+```
+
+从上面的例子可以看得出，HashSet 会自动去重，因为它是用 HashMap 实现的，[HashMap](https://javabetter.cn/collection/hashmap.html) 的键是唯一的（哈希值），相同键的值会覆盖掉原来的值，于是第二次 `set.add("沉默")` 的时候就覆盖了第一次的 `set.add("沉默")`。
+
+我在《[LeetCode 的第 15 题：三数之和](https://paicoding.com/column/7/15)》的时候用到了 HashSet，大家可以通过链接去查看一下。
+
+
+#### 2）LinkedHashSet
 
 LinkedHashSet 虽然继承自 HashSet，其实是由 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html) 实现的。
 
@@ -283,11 +305,11 @@ boolean hasChenQingYang = set.contains("陈清扬");
 System.out.println("set包含陈清扬吗？" + hasChenQingYang);
 ```
 
-在以上代码中，我们首先创建了一个LinkedHashSet对象，然后使用add方法依次添加了三个元素：沉默、王二和陈清扬。接着，我们使用remove方法删除了王二这个元素，并使用remove和add方法修改了沉默这个元素。最后，我们使用contains方法查找了陈清扬这个元素是否存在于set中，并打印了结果。
+在以上代码中，我们首先创建了一个 LinkedHashSet 对象，然后使用 add 方法依次添加了三个元素：沉默、王二和陈清扬。接着，我们使用 remove 方法删除了王二这个元素，并使用 remove 和 add 方法修改了沉默这个元素。最后，我们使用 contains 方法查找了陈清扬这个元素是否存在于 set 中，并打印了结果。
 
-LinkedHashSet是一种基于哈希表实现的Set接口，它继承自HashSet，并且使用链表维护了元素的插入顺序。因此，它既具有HashSet的快速查找、插入和删除操作的优点，又可以维护元素的插入顺序。
+LinkedHashSet 是一种基于哈希表实现的 Set 接口，它继承自 HashSet，并且使用链表维护了元素的插入顺序。因此，它既具有 HashSet 的快速查找、插入和删除操作的优点，又可以维护元素的插入顺序。
 
-#### **3）TreeSet**
+#### 3）TreeSet
 
 “二哥，不用你讲了，我能猜到，TreeSet 是由 [TreeMap（后面会讲）](https://javabetter.cn/collection/treemap.html) 实现的，只不过同样操作的键位，值由一个固定的 Object 对象填充。”
 
@@ -335,7 +357,7 @@ System.out.println(set.contains("王二")); // 输出 false
 
 Queue，也就是队列，通常遵循先进先出（FIFO）的原则，新元素插入到队列的尾部，访问元素返回队列的头部。
 
-#### **1）ArrayDeque**
+#### 1）ArrayDeque
 
 从名字上可以看得出，ArrayDeque 是一个基于数组实现的双端队列，为了满足可以同时在数组两端插入或删除元素的需求，数组必须是循环的，也就是说数组的任何一点都可以被看作是起点或者终点。
 
@@ -345,7 +367,7 @@ Queue，也就是队列，通常遵循先进先出（FIFO）的原则，新元�
 
 head 指向队首的第一个有效的元素，tail 指向队尾第一个可以插入元素的空位，因为是循环数组，所以 head 不一定从是从 0 开始，tail 也不一定总是比 head 大。
 
-来一段ArrayDeque的增删改查吧。
+来一段 ArrayDeque 的增删改查吧。
 
 ```java
 // 创建一个ArrayDeque
@@ -368,7 +390,7 @@ boolean hasChenQingYang = deque.contains("陈清扬");
 System.out.println("deque包含陈清扬吗？" + hasChenQingYang);
 ```
 
-#### **2）LinkedList**
+#### 2）LinkedList
 
 LinkedList 一般应该归在 List 下，只不过，它也实现了 Deque 接口，可以作为队列来使用。等于说，LinkedList 同时实现了 Stack、Queue、PriorityQueue 的所有功能。
 
@@ -427,8 +449,7 @@ while (iterator.hasNext()) {
 
 在使用 LinkedList 作为队列时，可以使用 offer() 方法将元素添加到队列的末尾，使用 poll() 方法从队列的头部删除元素。另外，由于 LinkedList 是链表结构，不支持随机访问元素，因此不能使用下标访问元素，需要使用迭代器或者 poll() 方法依次遍历元素。
 
-
-#### **3）PriorityQueue**
+#### 3）PriorityQueue
 
 PriorityQueue 是一种优先级队列，它的出队顺序与元素的优先级有关，执行 remove 或者 poll 方法，返回的总是优先级最高的元素。
 
@@ -546,17 +567,16 @@ PriorityQueue 是一个优先级队列，参数为 StudentComparator，然后我
 [Student{name='王二', 总成绩=170}]
 [Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}]
 [Student{name='陈清扬', 总成绩=190}, Student{name='王二', 总成绩=170}, Student{name='小驼铃', 总成绩=185}]
-Student{name='陈清扬', 总成绩=190} Student{name='小驼铃', 总成绩=185} Student{name='沉默', 总成绩=170} Student{name='王二', 总成绩=170} 
+Student{name='陈清扬', 总成绩=190} Student{name='小驼铃', 总成绩=185} Student{name='沉默', 总成绩=170} Student{name='王二', 总成绩=170}
 ```
 
 我们使用 offer 方法添加元素，最后用 while 循环遍历元素（通过 poll 方法取出元素），从结果可以看得出，[PriorityQueue](https://javabetter.cn/collection/PriorityQueue.html)按照学生的总成绩由高到低进行了排序。
-
 
 ### 04、Map
 
 Map 保存的是键值对，键要求保持唯一性，值可以重复。
 
-#### **1）HashMap**
+#### 1）HashMap
 
 HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。[后面会详细聊到](https://javabetter.cn/collection/hashmap.html)。
 
@@ -596,9 +616,9 @@ for (String key : hashMap.keySet()) {
 }
 ```
 
-#### **2）LinkedHashMap**
+#### 2）LinkedHashMap
 
-HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的Map，就要用到 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
+HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的 Map，就要用到 [LinkedHashMap](https://javabetter.cn/collection/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
 
 LinkedHashMap 可以看作是 HashMap + LinkedList 的合体，它使用了哈希表来存储数据，又用了双向链表来维持顺序。
 
@@ -652,7 +672,7 @@ for (String key : hashMap.keySet()) {
 
 HashMap 没有维持键值对的插入顺序，对吧？
 
-#### **3）TreeMap**
+#### 3）TreeMap
 
 [TreeMap](https://javabetter.cn/collection/treemap.html) 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
 
@@ -732,10 +752,9 @@ c: cat
 
 “哇，二哥，这篇讲的东西可真不少，虽然都是比较基础的，但对于我一个小白来说，还是需要花点时间去消化的。”三妹嘟嘟嘴说到。
 
-----
+---
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 

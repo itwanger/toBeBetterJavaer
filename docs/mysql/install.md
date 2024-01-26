@@ -1,5 +1,5 @@
 ---
-title: MySQL 的安装、启动、连接
+title: MySQL 的安装、启动、连接(Windows、macOS 和 Linux)
 shortTitle: MySQL 安装启动连接
 description: MySQL 的安装，主要有 Windows 平台和 macOS 平台，服务器上的一般就是 Linux。
 category:
@@ -12,7 +12,7 @@ head:
       content: mysql,MySQL,MySQL安装
 ---
 
-# 第一节：MySQL 的安装、启动、连接
+# MySQL 的安装、启动、连接
 
 MySQL 是一个关系型数据库，也是我们国内使用频率最高的一种数据库（没有之一），不管是校招还是社招，都是必考内容，并且考察项目会非常多，属于二哥一直强调的 Java 后端四大件之一。
 
@@ -230,7 +230,21 @@ MySQL 的连接方式主要有两种：
 cd C:\Program Files\MySQL\MySQL Server 8.0\bin
 ```
 
-然后输入 `mysql -u root -p` 命令来连接 MySQL。随后输入密码就可以访问 MySQL 服务了。
+然后输入 `mysql -uroot -p` 命令来连接 MySQL。随后输入密码就可以访问 MySQL 服务了。
+
+如果是用 MySQL 安装包在 macOS 上安装，安装目录一般在 `/usr/local/mysql`，可以通过 `cd /usr/local/mysql/bin` 命令来进入 bin 目录，然后输入 `./mysql -uroot -p` 命令来连接 MySQL。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/install-20240125180325.png)
+
+`./mysql -uroot -p` 命令中的 `./` 表示当前目录，通过 `./mysql` 而不是 `mysql`
+
+使用 `./mysql -uroot -p` 命令时，前面的 `./` 表示当前目录。通过使用 `./`，可以明确告诉终端在当前目录中查找并执行 `mysql` 命令。
+
+在默认情况下，终端会在系统的 PATH 环境变量中查找可执行文件。然而，由于我使用的是 MySQL 安装包而不是 homebrew，当前目录（`.`）不包含在 PATH 环境变量中。这意味着如果直接输入 `mysql -uroot -p`，终端将无法找到 `mysql` 命令。
+
+通过使用 `./mysql`，可以绕过了 PATH 的限制，直接指定当前目录中的 `mysql` 可执行文件。这样，终端就能够找到并执行该命令。
+
+-u 表示用户名，-p 表示密码，如果密码为空，可以直接输入 `mysql -uroot` 命令来连接 MySQL。
 
 ### 图形化连接
 
