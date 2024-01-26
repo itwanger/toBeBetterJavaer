@@ -550,6 +550,7 @@ export const sidebarConfig = sidebar({
       prefix: "mysql/",
       children: [
         "install",
+        "database",
         "redis-shuju-yizhixing",
         "lijie-shiwu",
         "shiwu-shixian",
