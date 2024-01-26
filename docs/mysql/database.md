@@ -1,9 +1,9 @@
 ---
-title: MySQL数据库的基本操作，包括创建数据库、切换数据库、删除数据库
-shortTitle: MySQL数据库的基本操作
+title: MySQL数据库的基本操作，整合 Spring Boot
+shortTitle: MySQL 的数据库操作
 ---
 
-# MySQL数据库的基本操作
+# MySQL 的数据库操作
 
 [MySQL 安装完成并连接](https://javabetter.cn/mysql/install.html)成功后，就可以创建数据库进行操作了。
 
@@ -187,10 +187,9 @@ Java 原生代码需要你先下载一个 MySQL 的 JDBC 驱动，驱动的作�
 
 ```java
 class DatabaseCreator {
-
     private static final String URL = "jdbc:mysql://localhost:3306/?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "Codingmore123";
     private static final String DATABASE_NAME = "pai_coding";
 
     public static void main(String[] args) {
@@ -198,10 +197,10 @@ class DatabaseCreator {
              Statement stmt = conn.createStatement()) {
 
             if (!databaseExists(conn, DATABASE_NAME)) {
-                stmt.executeUpdate("CREATE DATABASE " + DATABASE_NAME);
-                System.out.println("Database created successfully");
+                stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + DATABASE_NAME);
+                System.out.println("数据库创建成功");
             } else {
-                System.out.println("Database already exists");
+                System.out.println("数据库已经存在");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -221,6 +220,24 @@ class DatabaseCreator {
     }
 }
 ```
+
+这里简单解释一下大家可能比较陌生的代码：
+
+先说 main 方法：
+
+①、`DriverManager.getConnection(URL, USER, PASSWORD)`：通过 JDBC 建立到 MySQL 服务器的连接。
+
+②、`conn.createStatement()`：创建一个 Statement 对象来执行 SQL 命令。
+
+③、`stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + DATABASE_NAME)`：执行 SQL 命令，创建数据库。这就和我们本篇的主题串起来了，哈哈😆。
+
+再说 databaseExists 方法：
+
+①、使用 Connection 对象的 `getMetaData()` 方法可以获取数据库的元数据。这个元数据包含了服务器上所有数据库的信息。
+
+②、`getCatalogs()` 方法可以获取服务器上所有数据库的列表，返回的 ResultSet 对象包含了服务器上每个数据库的名称。
+
+③、`resultSet.getString(1)` 方法可以获取当前行第一列的值，也就是数据库的名称。
 
 ### Spring Boot
 
@@ -244,51 +261,56 @@ spring:
     password: 123456
 ```
 
-然后在 Spring Boot 的启动类中创建数据库。
+然后在 Spring Boot 的测试类中进行数据库创建操作。
 
 ```java
-@SpringBootApplication
-public class PaiCodingApplication {
+@Slf4j
+@SpringBootTest(classes = QuickForumApplication.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+public class DatabaseCreationTest {
 
-    public static void main(String[] args) {
-        SpringApplication.run(PaiCodingApplication.class, args);
-    }
+    @Autowired
+    private DataSource dataSource;
 
-    @Bean
-    public CommandLineRunner initDatabase(DataSource dataSource) {
-        return args -> {
-            try (Connection conn = dataSource.getConnection();
-                 Statement stmt = conn.createStatement()) {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-                if (!databaseExists(conn, "pai_coding")) {
-                    stmt.executeUpdate("CREATE DATABASE pai_coding");
-                    System.out.println("Database created successfully");
-                } else {
-                    System.out.println("Database already exists");
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        };
-    }
-
-    private static boolean databaseExists(Connection conn, String dbName) throws SQLException {
-        ResultSet resultSet = conn.getMetaData().getCatalogs();
-
-        while (resultSet.next()) {
-            if (dbName.equals(resultSet.getString(1))) {
-                return true;
-            }
+    @Test
+    public void createDatabaseTest() throws SQLException {
+        String dbName = "pai_coding";
+        if (!databaseExists(dbName)) {
+            jdbcTemplate.execute("CREATE DATABASE IF NOT EXISTS " + dbName);
+            System.out.println("创建成功");
+        } else {
+            System.out.println("已存在");
         }
+    }
 
-        return false;
+    private boolean databaseExists(String dbName) throws SQLException {
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement()) {
+            ResultSet set = statement.executeQuery("select schema_name from information_schema.schemata where schema_name = '" + dbName + "'");
+            return set.next();
+        }
     }
 }
 ```
 
+这里也简单解释一下大家可能比较陌生的代码：
+
+①、`@Slf4j`：[Lombok 库](https://javabetter.cn/springboot/lombok.html)提供的注解，用于自动创建日志对象（比如 Logger）。
+
+②、`@SpringBootTest(classes = QuickForumApplication.class)`：表示这是一个 Spring Boot 的集成测试类，它会加载[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html) QuickForumApplication 类指定的 Spring Boot 应用程序上下文。
+
+③、`@RunWith(SpringJUnit4ClassRunner.class)`：使用 JUnit4 来支持 Spring 上下文测试。
+
+④、`@Autowired`：自动注入 DataSource 和 JdbcTemplate 对象。
+
 大家可以尝试下，看看能不能成功。
 
-更详细的参考答案和源码我放在了这个链接里：[Spring Boot 整合 MySQL 和 Druid](https://javabetter.cn/springboot/mysql-druid.html)
+关于 Spring Boot 的更多知识，可以参考：[Spring Boot 进阶之路](https://javabetter.cn/springboot/)
+
+源码：[DatabaseCreationTest](https://github.com/itwanger/paicoding/blob/main/paicoding-web/src/test/java/com/github/paicoding/forum/test/mysql1/DatabaseCreationTest.java)
 
 ## 小结
 
