@@ -1,5 +1,5 @@
 ---
-title: MySQL数据库的基本操作，整合 Spring Boot
+title: 利用Spring Boot实现MySQL数据库的自动创建，666
 shortTitle: MySQL 的数据库操作
 ---
 
