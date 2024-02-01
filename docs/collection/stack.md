@@ -280,6 +280,10 @@ public class Vector<E>
 
 虽然 Stack 类并不常用，但栈这个数据结构却很重要。在 Java 中，推荐使用 ArrayDeque 来代替 Stack，因为 [ArrayDeque](https://javabetter.cn/collection/arraydeque.html) 是非线程安全的，性能更好。
 
+如果想通过 LeetCode 进行练习的话，可以尝试一下这道题：
+
+[有效的括号](https://paicoding.com/column/7/20)，我把题解放到了技术派上，大家可以参考。
+
 ----
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
