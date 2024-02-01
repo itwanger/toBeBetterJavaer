@@ -29,6 +29,7 @@ head:
 ## 学习资料：
 
 ### 生产力工具
+
 - [生产力工具：GitHub Copilot X ](https://t.zsxq.com/0eJdlQvq1)
 - [生产力工具：Chat注册](https://t.zsxq.com/0bdah3lqK)
 - [生产力工具：升级Plus](https://paicoding.com/article/detail/400)
@@ -37,7 +38,9 @@ head:
 - [生产力工具：各种 ChatGPT 相关的资源，让你的生产力 up up up!](https://t.zsxq.com/0dAfFZfY1)
 - [生产力工具：IDEA、Navicat、Typora、xshell 免费](https://paicoding.com/?category=%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7)
 - [生产力工具：在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
+
 ### 视频教程
+
 - [视频教程：技术派到底该怎么学习，直播回放](https://t.zsxq.com/0czKk7UMr)
 - [视频教程：多线程实战的学习视频](https://t.zsxq.com/053fiemE2)
 - [视频教程：左神算法与数据结构、若依、黑马Redis、百战就业班、架构师等，已经放在星球的百度网盘中，请自取](https://t.zsxq.com/08rEo9Pdu)
@@ -47,8 +50,10 @@ head:
 - [视频教程：贪欢分享的某图全套资源](https://t.zsxq.com/0aFI7CeUH)
 
 ### PDF
+
+- [二哥的JVM进阶之路.pdf](https://t.zsxq.com/16bkDmROs)
 - [PDF：二哥的并发编程进阶之路.pdf ](https://t.zsxq.com/12DwOxfyw)
-- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 9500+](https://t.zsxq.com/0dtIIf9AE)
+- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 10000+](https://t.zsxq.com/0dtIIf9AE)
 - [PDF：jiajin，图灵程序丛书 300 本](https://t.zsxq.com/0dqkRziD4)
 - [PDF：aL 分享的杨一涛操作系统笔记，全彩版](https://t.zsxq.com/09PHnc5Cm)
 - [PDF：阿里 Redis 最佳实践](https://t.zsxq.com/09FXZTVfq)
@@ -70,8 +75,17 @@ head:
 - [PDF：keeplean：个人技能总结.pdf](https://t.zsxq.com/126cCfOwv)
 - [PDF：nolan：Spring 框架.pdf](https://t.zsxq.com/12C1P1hzH)
 - [PDF：nolan：智慧校园云端管理系统的设计和实现.pdf](https://t.zsxq.com/12lr2zRN6)
+- [PDF：阿森：高级语言怎么来的](https://t.zsxq.com/16KDaJnmF)
+- [PDF：龙渊：C语言模拟卷大题总结](https://t.zsxq.com/16CRZAslv)
+- [PDF：keeeplearing：头条项目话术](https://t.zsxq.com/16cLlkDBw)
+- [PDF：答案说明一切：Redis 面试项目回答](https://t.zsxq.com/16jM34VgK)
+- [PDF：阿森：Springsecurity 总结](https://t.zsxq.com/166nnY2Ne)
+- [PDF：axdmdyj：typescript](https://t.zsxq.com/16g72jEUh)
+- [PDF：远山归云海：面渣总结](https://t.zsxq.com/16MMXSpfJ)
+- [PDF：nolan：智慧校园云端管理系统设计和实现](https://t.zsxq.com/16lr2zRN6)
 
 ### 实战项目
+
 - [实战项目：一些手写 Java 轮子项目](https://t.zsxq.com/14mGqul3q)
 - [实战项目：手写数据库 MYDB](https://t.zsxq.com/0bhcI0Gs6)
 - [实战项目：技术派上线了！](https://t.zsxq.com/0bo3ugmma)
@@ -82,6 +96,7 @@ head:
 - [实战项目：一些可以作为毕设的实战项目](https://t.zsxq.com/07X49ztIN)
 - [实战项目：某马新课《学成在线》](https://t.zsxq.com/0bI38aQJa)
 - [实战项目：一个 Spring Boot+websocket 实现的聊天室](https://t.zsxq.com/0ek7Dx6hW)
+
 ### 我在B站上大学
 
 - [我在B站上大学：计算机科学技术和编程语言（Java、C语言、C++、Python、JavaScript 等等）篇](https://t.zsxq.com/08u7xOcEi)
@@ -90,6 +105,7 @@ head:
 - [我在 B站上大学：Java后端开发篇（JavaWeb/SSM/Spring Boot/微服务/消息队列/运维部署/RPC/ES/Zookeeper/SpringSecurity）](https://t.zsxq.com/09961HekU)
 
 ### 学习资料
+
 - [学习资料：Redis学习路线的补充](https://t.zsxq.com/12WooII5O)
 - [学习资料：小 Z：并发编程思维导图](https://t.zsxq.com/12GiQKIFK)
 - [学习资料：尽余欢：JVM 脑图](https://t.zsxq.com/0eQXo2bB9)
@@ -110,6 +126,10 @@ head:
 - [学习资料：尚硅谷的谷粒商城值得去学习吗](https://t.zsxq.com/0bNfmBBY0)
 
 ### 球友分享
+
+- [小米三面面经分享，已OC](https://t.zsxq.com/16EjHTIsH)
+- [Rayaizhe：星球第一天，介绍加分享](https://t.zsxq.com/16qwmCWMK)
+- [工科男小Y：秋招相关总结](https://t.zsxq.com/16Xy2K18k)
 - [金色框框：研究生规划分享](https://t.zsxq.com/12vUU05mO)
 - [messor：B站后端开发实习岗面试过程总结](https://t.zsxq.com/12iCaLoUy)
 - [泰勒裂开柿子:秋招求职——关于写简历，需要注意的一些细节](https://t.zsxq.com/12xrDQtqx)
@@ -158,12 +178,22 @@ head:
 - [沉默王二：面试记录表模板](https://t.zsxq.com/12d5MZ7Rc)
 - [沉默王二：派聪明上线了](https://t.zsxq.com/12ciPsya1)
 
-
 ### 简历
+
 - [简历：基本信息、专业技能、实习经历、工作经验、项目经历、教育背景、荣誉奖项模板](https://t.zsxq.com/07eet6DJ1)
 - [简历：2 到 3 年工作经验的模板](https://t.zsxq.com/07sufD61G)
 - [简历：书写、投递、面试复盘、offer 选择的注意事项](https://t.zsxq.com/0btGIjHnb)
 - [简历：有关编程界有哪些含金量的证呢？](https://t.zsxq.com/0aklpdu11)
+- [简历修改 2024年01月23日](https://t.zsxq.com/16e8nTt9x)
+- [2024年01月04日简历修改建议（1 万 2 千字）](https://t.zsxq.com/16VHWxLHK)
+- [2023年12月06日简历修改](https://t.zsxq.com/1657hRjdz)
+- [2023年11月27日简历修改](https://t.zsxq.com/1668rSjoB)
+- [2023年11月15日简历修改](https://t.zsxq.com/16QGVFOlP)
+- [2023年11月07日简历修改](https://t.zsxq.com/16BJBQ7Av)
+- [2023年11月01日简历修改建议](https://t.zsxq.com/16V697beL)
+- [简历修改 2023年10月16日](https://t.zsxq.com/16ISGRr47)
+- [2023年10月09日简历修改](https://t.zsxq.com/16SSYBhNO)
+- [2023年09月26日简历修改](https://t.zsxq.com/166G9VaCT)
 - [简历：2023年09月14日简历修改](https://t.zsxq.com/12vArWwje)
 - [简历：2023年08月28日简历修改建议](https://t.zsxq.com/12JoESFXO)
 - [简历：2023年08月22日简历修改](https://t.zsxq.com/12mr1Ct1D)
@@ -183,11 +213,11 @@ head:
 - [简历：2023年02月08日 简历修改建议](https://t.zsxq.com/0bnqxqlEq)
 - [简历：2023年05月29日简历修改建议](https://t.zsxq.com/0eYGpjomQ)
 
-
-
 ## 学习计划
+
 - [学习计划：一条可靠的Java工程师学习路线](https://t.zsxq.com/0953MmhtB)
 - [问鼎考研计划：考的 408、已上岸某 211 计算机专业](https://t.zsxq.com/09HA2ss8Q)
+- [问鼎：考研复试如何准备？](https://t.zsxq.com/16mNsCXWj)
 - [尽余欢学习计划：冲大厂秋招，普通本科](https://t.zsxq.com/0bvOuJcW8)
 - [211 研学习计划：秋招，有实习经历](https://t.zsxq.com/12vbWPVHI)
 - [有的放矢的学习计划：双非，计划 6 月份上岸，冲！](https://t.zsxq.com/0cc4Sw0lD)
@@ -225,6 +255,7 @@ head:
 - [YY学习计划：大二暑期](https://t.zsxq.com/120Q1tSrN)
 
 ## 学习路线
+
 - [学习路线：Scala](https://t.zsxq.com/0eqRzydNO)
 - [学习路线：RPC](https://t.zsxq.com/0es4SRrsG)
 - [Java学习路线一条龙版](https://tobebetterjavaer.com/xuexiluxian/java/yitiaolong.html)
@@ -248,6 +279,7 @@ head:
 - [有没有人工智能的学习路线或者推荐资料？](https://t.zsxq.com/07e2nUJmM)
 - [测试应该学点什么？有资料推荐吗？](https://t.zsxq.com/08Xk82GgI)
 - [QT 该如何学习？](https://t.zsxq.com/08uKn0Qsh)
+
 ## 学生党：
 ### 秋招&春招
 
@@ -315,6 +347,7 @@ head:
 - [校招：秋招投过这家公司，春招还能投吗？](https://t.zsxq.com/12gDPThzr)
 
 ### offer选择
+
 - [offer 选择：末流 211 本硕，哈尔滨国企还是深圳事业单位，怎么选？](https://t.zsxq.com/12Reh0Lmg)
 - [offer 选择：211 本，华夏银行科技子公司，鹏芯微，怎么选？](https://t.zsxq.com/0e1nZ1TTT)
 - [offer 选择：c9 计算机研究生，重庆本地人，30w+的智能驾驶软件开发还是工作压力小一点的证券金融科技岗？](https://t.zsxq.com/0e2UT5fcF)
@@ -343,6 +376,7 @@ head:
 - [offer选择：985硕，字节年包36万，同花顺年包28 万，怎么选？](https://t.zsxq.com/07BpzO7aO)
 
 ### 考研
+
 - [考研：985 大二计科，过去一年学了 C++、Linux、Python，下学期学 Java，我具体该怎么学，海外硕怎么样？](https://t.zsxq.com/12wNV20D9)
 - [考研：天津大学和佐治亚理工的中外合作，还是南航和南理？](https://t.zsxq.com/12E47WXvh)
 - [考研：408 知识点总结有吗？](https://t.zsxq.com/12ttJb6rD)
@@ -364,6 +398,8 @@ head:
 - [考研：复试如何准备？](https://t.zsxq.com/0b75MBMMN)
 
 ### 实习
+
+- [实习：拿到美团实习 offer 了，但感觉学不到东西，我该怎么办？](https://t.zsxq.com/16DrLnrME)
 - [实习：美国旧金山读研，想学 Java，一年后找到实习，该怎么丰富简历项目？](https://t.zsxq.com/12ZTeydzt)
 - [实习：985 数学研一，打算转 IT，考公？互联网还是国企？如何准备开发岗？](https://t.zsxq.com/12qmkHyMV)
 - [实习：211 计科大三，大一大二摆烂，大三醒悟，我该如何准备 Java 后端的实习？](https://t.zsxq.com/12X68o7c5)
@@ -393,6 +429,7 @@ head:
 - [实习：算法转 Java，要不要找实习提高一下秋招竞争力？](https://t.zsxq.com/04MFmy7Uf)
 
 ### 专升本
+
 - [专升本：简历上教育经历这块怎么写？Java 能从事哪些方向？](https://t.zsxq.com/126VgwuCZ)
 - [专升本：想去国企或者农商行，可能性大吗？](https://t.zsxq.com/129Du9yo7)
 - [专升本：江苏海洋大学大三，计划考研，同时想学技术留条后路，请给一些建议？](https://t.zsxq.com/12IkzSTzW)
@@ -773,9 +810,37 @@ head:
 
 ## 星球专栏
 
+### MySQL 进阶之路
+
+- [MySQL的数据库操作，如何通过 Spring Boot 实现自动初始化](https://t.zsxq.com/16IqRDbD6)
+- [MySQL 的安装启动和连接](https://t.zsxq.com/16inR0HKA)
+
+### JVM 进阶之路
+
+- [Java 的类加载机制](https://t.zsxq.com/16L8HtHFP)
+- [JVM如何运行Java代码？](https://t.zsxq.com/16POT8tIZ)
+- [JVM的发展简史](https://t.zsxq.com/16V5Z8BJb)
+- [JVM 核心知识点总结](https://t.zsxq.com/16hQb6QWQ)
+- [CPU 100%排查优化实战](https://t.zsxq.com/16WBIVuGu)
+- [内存泄露排查优化实战](https://t.zsxq.com/16FNpZi6L)
+- [JVM 性能监控之 Arthas 篇](https://t.zsxq.com/16hgAMn12)
+- [JVM 性能监控之可视化工具篇](https://t.zsxq.com/16txqDo2u)
+- [JVM 性能监控之命令行工具篇](https://t.zsxq.com/16tADtTl9)
+- [深入理解 JIT](https://t.zsxq.com/167hhm8Sa)
+- [Java创建的对象到底放在哪？](https://t.zsxq.com/160fzS7W8)
+- [深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://t.zsxq.com/16XpSJizp)
+- [深入理解 JVM 的垃圾回收机制](https://t.zsxq.com/16089DIFO)
+- [深入理解JVM的运行时数据区](https://t.zsxq.com/16L2V37bl)
+- [深入理解栈帧结构](https://t.zsxq.com/16vV9PlIQ)
+- [字节码指令详解](https://t.zsxq.com/16BfrjVWc)
+- [栈虚拟机和寄存器虚拟机](https://t.zsxq.com/16tHrZ4ZV)
+- [javap与字节码](https://t.zsxq.com/168jDWY33)
+- [Java类文件结构](https://t.zsxq.com/16lsUM6rQ)
+
 ### Java面试指南
 
-- [面试准备篇：如何写好简历？](https://t.zsxq.com/0eRf8wrmf)
+- [面试准备篇：什么是三方协议？](https://t.zsxq.com/169XlGpvv)
+- [面试准备篇：如何写好简历？](https://t.zsxq.com/16TKL7sCx)
 - [面试准备篇：秋招汇总信息表](https://t.zsxq.com/12D0BlPhl)
 - [面试准备篇：面试的时候如果问职业规划应该怎么回答？](https://t.zsxq.com/0bzxws8u6)
 - [面试准备篇：有哪些顶级开源活动可以参加？](https://t.zsxq.com/0bFGLiI2i)
@@ -834,7 +899,13 @@ head:
 - [优质面经篇：Java大数据开发面经分享：16 天 5 面，从华为 od 到鹅厂](https://t.zsxq.com/0al4lBgdO)
 - [优质面经篇：静以修身团子测开面经](https://t.zsxq.com/0dX9PMMge)
 - [学习计划篇：研 0 该如何规划自己的研究生生涯？](https://t.zsxq.com/121sPkUsu)
+
 ### 技术派
+
+- [技术派如何渲染 markdown？](https://t.zsxq.com/16sWZVb2S)
+- [技术派如何实现图片上传至 OSS ？复制粘贴上传图片、图片自动转链、30s 内防止重复上传](https://t.zsxq.com/16Y7O3Cer)
+- [技术派如何通过 ngrok 完成微信浏览器访问本地 127.0.0.1 服务？](https://t.zsxq.com/16p745JcM)
+- [技术派网站是如何配置 SSL 证书实现 HTTPS 访问的？](https://t.zsxq.com/16lZZWIdQ)
 - [技术派的Bean拷贝之MapStruct](https://t.zsxq.com/12igxP9CK)
 - [技术派是如何整合 Thymeleaf 模版引擎的？](https://t.zsxq.com/12BmqPJIR)
 - [技术派是如何解析请求参数的？](https://t.zsxq.com/1246DOwLm)
@@ -850,7 +921,9 @@ head:
 - [技术派中的全局异常处理](https://t.zsxq.com/0djLEL8pH)
 - [技术派中基于Redis的缓存示例](https://t.zsxq.com/0dSCIe1Hf)
 - [技术派整合本地缓存之Guava](https://t.zsxq.com/0ckw9l8Tn)
+
 ### 二哥的LeetCode刷题笔记
+
 - [080.删除有序数组中的重复项 II](https://t.zsxq.com/12vpB9Fto)
 - [079.单词搜索](https://t.zsxq.com/12nw9YJz2)
 - [078.子集](https://t.zsxq.com/1268hjbPl)
@@ -888,7 +961,24 @@ head:
 - [046.全排列](https://t.zsxq.com/07uBuzJa2)
 - [045.跳跃游戏](https://t.zsxq.com/07F2FiufI)
 - [044 通配符匹配](https://t.zsxq.com/06FYrJIA2)
-
+- [018.四数之和](https://t.zsxq.com/16AEpOFwx)
+- [017.电话号码的字母组合](https://t.zsxq.com/16qV3zPaa)
+- [016.最接近的三数之和](https://t.zsxq.com/16v7ZxijM)
+- [015.三数之和](https://t.zsxq.com/168RYseeT)
+- [014. 最长公共前缀](https://t.zsxq.com/16wod4WmY)
+- [013.罗马数字转整数](https://t.zsxq.com/16wvGs4pp)
+- [012.整数转罗马数字](https://t.zsxq.com/16cON7JJV)
+- [011.盛最多水的容器](https://t.zsxq.com/16Qg5h1Jw)
+- [010.正则式匹配](https://t.zsxq.com/16YNebGhx)
+- [009.回文数](https://t.zsxq.com/16i0gPstH)
+- [008.字符串转换整数(atoi)](https://t.zsxq.com/16yAnhxAY)
+- [007.整数反转](https://t.zsxq.com/16lijLHgD)
+- [006.Z 字形变换](https://t.zsxq.com/169UVMahl)
+- [005.最长回文子串](https://t.zsxq.com/16CKSePdo)
+- [004.寻找两个正序数组的中位数](https://t.zsxq.com/16S5uM2fa)
+- [003.无重复字符的最长子串](https://t.zsxq.com/16Wnhhe0p)
+- [002.两数相加](https://t.zsxq.com/16YEfAc87)
+- [001.两数之和](https://t.zsxq.com/16DtZwkAk)
 
 ## 技术细节
 - [技术细节：项目架构这块如何学习？](https://t.zsxq.com/129zPkD5y)

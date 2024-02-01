@@ -168,20 +168,21 @@ head:
 
 ### 集合框架（容器）
 
-- [Java集合框架：List、Set、Map、队列——全面解析](collection/gailan.md)
-- [时间复杂度](collection/time-complexity.md)
+- [Java集合框架概览，包括List、Set、Map、队列](collection/gailan.md)
 - [深入探讨 Java ArrayList](collection/arraylist.md)
 - [深入探讨 Java LinkedList](collection/linkedlist.md)
-- [ArrayList和LinkedList的区别](collection/list-war-2.md)
-- [Java 泛型深入解析](basic-extra-meal/generic.md)
-- [Java迭代器Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
-- [为什么禁止在foreach里执行元素的删除操作？](collection/fail-fast.md)
+- [Java Stack详解](collection/stack.md)
 - [Java HashMap详解](collection/hashmap.md)
 - [Java LinkedHashMap详解](collection/linkedhashmap.md)
 - [Java TreeMap详解](collection/treemap.md)
 - [Java 双端队列 ArrayDeque详解](collection/arraydeque.md)
 - [Java 优先级队列PriorityQueue详解](collection/PriorityQueue.md)
-- [Java Comparable和Comparator的区别](basic-extra-meal/comparable-omparator.md)
+- [Java Comparable和Comparator的区别](collection/comparable-omparator.md)
+- [时间复杂度，评估ArrayList和LinkedList的执行效率](collection/time-complexity.md)
+- [ArrayList和LinkedList的区别](collection/list-war-2.md)
+- [Java 泛型深入解析](basic-extra-meal/generic.md)
+- [Java迭代器Iterator和Iterable有什么区别？](collection/iterator-iterable.md)
+- [为什么禁止在foreach里执行元素的删除操作？](collection/fail-fast.md)
 
 ### Java IO
 

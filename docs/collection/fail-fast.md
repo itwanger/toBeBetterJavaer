@@ -12,7 +12,7 @@ head:
       content: Java,fail-fast,java foreach 删除元素,foreach 循环, 删除操作, 并发修改异常
 ---
 
-# 6.8 Java foreach 循环陷阱
+# 6.15 Java foreach 循环陷阱
 
 >这篇文章同样采用小二去面试的形式，给大家换个胃口。
 

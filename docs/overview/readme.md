@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,java基础
 ---
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-readme-fengmian.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/README-20240130071411.png)
 
 # 第一章：小册简介
 
