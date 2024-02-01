@@ -490,9 +490,12 @@ public E get(int index) {
 
 总之，各有各的好，且行且珍惜。
 
-如果你打算通过我来练练手，那么推荐你试一下 LeetCode 的 [002.两数相加](https://paicoding.com/column/7/2) 题目，我把题解链接放在了技术派上：
+### 04、LinkedList 的应用
+
+如果你打算通过我来练练手，那么推荐你试一下 LeetCode 的 [002.两数相加](https://paicoding.com/column/7/2)、[019.删除链表的第 N 个节点](https://paicoding.com/column/7/19) 题目，我把题解链接放在了技术派上：
 
 > - [002.两数相加](https://paicoding.com/column/7/2)
+> - [019.删除链表的第 N 个节点](https://paicoding.com/column/7/19)
 
 ----
 

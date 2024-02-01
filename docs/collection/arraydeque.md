@@ -12,7 +12,7 @@ head:
       content: Java,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque,源码分析, 实现原理
 ---
 
-# 6.12 双端队列ArrayDeque详解
+# 6.8 双端队列ArrayDeque详解
 
 >好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
 

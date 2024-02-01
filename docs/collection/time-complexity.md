@@ -1,6 +1,6 @@
 ---
-title: 时间复杂度：评估 Java集合框架的执行效率
-shortTitle: 时间复杂度，了解下
+title: 时间复杂度，评估ArrayList和LinkedList的执行效率
+shortTitle: 时间复杂度
 category:
   - Java核心
 tag:
@@ -12,7 +12,7 @@ head:
       content: Java,时间复杂度,java 时间复杂度,算法性能 大O表示法, 算法评估
 ---
 
-# 6.2 时间复杂度，了解下
+# 6.11 时间复杂度
 
 “二哥，为什么要讲时间复杂度呀？”三妹问。
 
