@@ -11,3 +11,4 @@ images
 *.log
 package.json
 .yarn
+*-vip.md
