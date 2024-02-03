@@ -62,7 +62,7 @@ public class Test {
 
 ## 付费内容
 
-以下内容为[二哥编程星球](https://javabetter.cn/jvm/)的付费内容（点击[链接](](https://javabetter.cn/jvm/))可以查看详细介绍和加入方式）。
+以下内容为[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的付费内容（点击[链接](](https://javabetter.cn/jvm/))可以查看详细介绍和加入方式）。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116130809.png)
 

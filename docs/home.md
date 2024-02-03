@@ -291,7 +291,7 @@ head:
 - [JVM小册简介](jvm/readme.md)
 - [大白话带你认识JVM](jvm/what-is-jvm.md)
 - [JVM是如何运行Java代码的？](jvm/how-run-java-code.md)
-- [Java的类加载机制（付费）](jvm/class-load-vip.md)
+- [Java的类加载机制（付费）](jvm/class-load.md)
 - [Java的类文件结构](jvm/class-file-jiegou.md)
 - [从javap的角度轻松看懂字节码](jvm/bytecode.md)
 - [栈虚拟机与寄存器虚拟机](jvm/vm-stack-register.md)

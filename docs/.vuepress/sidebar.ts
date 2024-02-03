@@ -327,7 +327,7 @@ export const sidebarConfig = sidebar({
           "readme.md",
           "what-is-jvm",
           "how-run-java-code",
-          "class-load-vip",
+          "class-load",
           "class-file-jiegou",
           "bytecode",
           "vm-stack-register",
