@@ -97,7 +97,7 @@ CREATE TABLE `test` (
 INSERT INTO `test` (`int10`, `int11`, `int`) VALUES (1234567890, 1234567890, 1234567890);
 ```
 
-[查询一下](https://javabetter.cn/mysql/simple-select.html)，似乎没有什么区别。
+[查询一下](https://javabetter.cn/mysql/select-simple.html)，似乎没有什么区别。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/data-type-20240202083253.png)
 
