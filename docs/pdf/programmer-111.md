@@ -1,6 +1,6 @@
 ---
 title: 👏下载→2022年全网最全关于程序员学习和找工作的PDF资源
-shortTitle: 👏下载→程序员学习找工作的PDF资源
+shortTitle: 👏下载→程序PDF合集
 category:
   - PDF
 tag:

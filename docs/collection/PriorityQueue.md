@@ -321,6 +321,12 @@ PriorityQueue 是一个非常常用的数据结构，它是一种特殊的堆（
 - 取出元素时按照优先级顺序（从小到大或者从大到小）进行取出。
 - 如果需要指定排序，元素必须实现 Comparable 接口或者传入一个 Comparator 来进行比较。
 
+可以通过 LeetCode 的第 23 题：[合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) 来练习 PriorityQueue 的使用。
+
+我把题解已经放到了技术派中，大家可以去作为参考。
+
+[合并K个升序链表](https://paicoding.com/column/7/23)
+
 > 参考链接：[https://github.com/CarpenterLee/JCFInternals](https://github.com/CarpenterLee/JCFInternals)，作者：李豪，整理：沉默王二
 
 

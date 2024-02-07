@@ -1,6 +1,6 @@
 ---
-title: 👏下载→深入浅出Java多线程PDF
-shortTitle: 👏下载→Java多线程PDF
+title: 👏下载→二哥的并发编程小册PDF
+shortTitle: 👏下载→二哥的并发编程小册PDF
 category:
   - PDF
 tag:

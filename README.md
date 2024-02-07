@@ -81,6 +81,7 @@
   * [大数据学习路线（建议收藏🔥）](docs/xuexiluxian/bigdata.md)
   * [Android 安卓学习路线（建议收藏🔥）](docs/xuexiluxian/android.md)
   * [.NET 学习路线（建议收藏🔥）](docs/xuexiluxian/donet.md)
+  * [Linux 学习路线（建议收藏🔥）](docs/xuexiluxian/linux.md)
   
 
 # 面渣逆袭
