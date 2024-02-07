@@ -65,6 +65,7 @@ export const sidebarConfig = sidebar({
     "bigdata",
     "android",
     "donet",
+    "linux",
   ],
   "/sidebar/sanfene/": [
     "nixi",
