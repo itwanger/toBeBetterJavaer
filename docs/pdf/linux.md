@@ -1,57 +1,50 @@
 ---
-title: 👏下载→BAT大佬的刷题笔记
-shortTitle: 👏下载→BAT大佬的刷题笔记
+title: 👏下载→常用高频 Linux 速查备忘手册
+shortTitle: 👏下载→Linux速查备忘手册
 category:
   - PDF
 tag:
   - PDF
-description: 下载BAT大佬的刷题笔记，下载 LeetCode 刷题笔记
+description: 常用高频 Linux 速查备忘手册，PDF 一共 40 页，包含了文件与目录、网络和进程管理、常见系统服务命令、磁盘和分区管理、系统信息和性能查看、包管理器等 6 大主题。几乎涵盖了工作中的所有场景
 head:
   - - meta
     - name: keywords
-      content: LeetCode 刷题笔记,力扣刷题笔记,leetcode Java刷题笔记,leetcode 刷题笔记github,leetcode pdf
+      content: Linux命令,linux命令速查手册,linux命令大全,linux命令大全pdf,linux命令大全中文版,linux命令大全中文版pdf,linux命令大全中文版pdf下载
 ---
 
-**大家应该都知道，现在的互联网公司面试，只要是研发岗位，基本上都跑不了算法题的折磨，所以大家在准备校招和社招的时候，或者业余时间，还是要多刷刷 LeetCode，保持状态的**。
+由于要给星球的用户写《MySQL 的进阶之路》，耗费了太多的精力，写这篇帖子的时候已经凌晨 1 点，实在肝不动了，我们就长话短说。
 
-需要刷题笔记的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**100**」就可以拉取到下载链接了。
+今天来给大家分享一个《**常用高频 Linux 速查备忘手册**》，有了它，再也不怕 Linux 上的常用命令记不住啦！
 
-![扫码关注后回复 100 关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+我会结合这十多年来的工作经验，把那些高频的、实用的 Linux 命令总结提炼出来，并且做成了两种版本的 PDF，一份暗黑版适合夜服，一份亮白的适合打印。
 
-> 二哥，去年校招前准备算法时，我在 LeetCode 上刷了很多题，但总感觉题虽然刷了很多，解题能力却没怎么提高，怎么解决这种刷题效率低下的问题呢？
+![](https://cdn.tobebetterjavaer.com/paicoding/13d706149c689feb44a4be26b9015ed4.png)
 
-这是三个月前一个读者给我的私信，他的困惑让我心有戚戚焉！于是我赶紧问了身边的一些就职于大厂的朋友，他们不约而同地给我推荐了这份刷题笔记。
+PDF 一共 40 页，包含了文件与目录、网络和进程管理、常见系统服务命令、磁盘和分区管理、系统信息和性能查看、包管理器等 6 大主题。几乎涵盖了工作中的所有场景：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-3660f789-59a4-4310-b565-8253be370904.jpg)
+![](https://cdn.tobebetterjavaer.com/paicoding/c679dab0aef20f24c9e627f0c700b7e6.png)
 
-细致地研究了一周后，我感觉发现了宝藏！赶紧发给了这位读者。前天，他回复我了，说：“二哥，你太强了，**这刷题笔记好使啊**。我按照上面提供的方法认真地刷了两个月的时间，惊奇地发现算法能力提高了，刷 LeetCode 上中等难度的题目基本不会被卡住了！”
-
-听他这么一说，我就有信心了，赶紧给我公众号的读者朋友们分享一下。
-
-这本笔记的作者在 LeetCode 刷了几百道题，并且将题目分门别类地整理好了。包含了 LeetCode Online Judge 所有题目的答案，所有的代码实现是非常优雅且执行效率极高的。
-
-不管你使用的编程语言是 Java、C++，还是 Go，都可以学习，适合刷题的同学反复学习。认真地揣摩其中的框架思维，你会发现，这是一本非常用心的刷题类书籍。笔记总共 1200 页，分编程技巧、线性表、字符串、栈队列、树、排序、查找、BFS、DFS、贪心、动态规划等。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-8941c10e-e9de-4b50-a6e8-7b50c2a142f7.jpg)
-
-每个章节都会先讲解框架思维，然后挑选非常典型的十几道 LeetCode 题进行实战讲解。这份笔记不仅排版十分精美，内容也异常充实，每一题都是细致的讲解，有时候还会配上图片，就怕你搞不懂，大大的良心啊！
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-f2a840fd-a372-4de9-b420-4335a9e0316e.jpg)
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-2e751738-1c8d-43b3-8e9b-d7593b62a55e.jpg)
-
-以前呢，我也很讨厌刷题，觉得这就像古代的八股文一样，又臭又刻板，但互联网的公司都喜欢这么考，因为确实也找不到更好的替代方案，那如果你不准备不去刷 LeetCode 的话，面试必定挂啊！
-
-经常刷题的读者可能会知道，Beats 100% 是很有难度的：
-
-*   代码要言简意赅，一针见血
-*   算法必须是最优解
-
-那**这份刷题笔记中所有题目的解答，都是 Beats 100%**，这一点非常难能可贵！也就是说，这份刷题笔记中的解答都是大厂考核时候的标准答案，如果说你吃透了这份刷题笔记，可以吊打面试官了——当然了，吃透会比较难，但如果能应付面试，就直了呀，不不不，就值了呀！
-
-二哥已经把这份刷题笔记下载好了，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**100**」就可以拉取到下载链接了（无套路，没加密）。
-
-![扫码关注后回复 100 关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+并且每一个命令我都在主机上和服务器上敲了一遍，以保证准确性，截图为证（网上我见过很多随意拼凑，完全不负责任的）：
 
 
-> 笔记版权归原作者（霜神）所有，出处：https://books.halfrost.com/leetcode/
+![](https://cdn.tobebetterjavaer.com/paicoding/6c55ba4a4a9c7b9b8fb49fc03dd839dd.png)
+
+针对每个命令，我也都给出了详细的解释，保证你会用的同时，还知道怎么一回事，理解命令背后的含义。
+
+![](https://cdn.tobebetterjavaer.com/paicoding/3bf56bf7b4a458163109213bfb4b552e.png)
+
+一共肝了数百条命令，你完全可以做个快捷方式放在桌面上，需要的时候就顺手查一查，比你去“度娘”上查一些乱七八糟的靠谱多了。
+
+![](https://cdn.tobebetterjavaer.com/paicoding/7d3279ad680675e756e588f40cf91d13.png)
+
+讲个笑话，PDF 内容没办法自动更新（😂），所以只能通过下面的方式，这也是我能提供给大家最便捷的方式了：
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Linux**》即可获取最新的 PDF 版本。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+获取方式见下图（我用的 PC 端微信截图，手机端差不多），百度网盘和阿里云盘都可以下载，看你顺手，无套路，纯分享：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/linux-vip-20240224094932.png)
+
+时间不早了，狗命要紧，后续我会整理更多的干货笔记，大家可以敬请期待~
