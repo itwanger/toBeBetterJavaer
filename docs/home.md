@@ -419,8 +419,15 @@ head:
 
 ### MySQL
 
-- [MySQL 的安装和连接](mysql/install.md)
-- [MySQL 的数据库操作](mysql/database.md)
+- [MySQL 的安装和连接，结合技术派实战项目来讲](mysql/install.md)
+- [MySQL 的数据库操作，利用 Spring Boot 实现数据库的自动创建](mysql/database.md)
+- [MySQL 表的基本操作，结合技术派的表自动初始化来讲](mysql/table.md)
+- [MySQL 的数据类型，4000 字 20 张手绘图，彻底掌握](mysql/data-type.md)
+- [MySQL 的字符集和比较规则，从跟上掌握](mysql/charset.md)
+- [MySQL bin目录下的那些可执行文件，包括备份数据库、导入 CSV 等](mysql/bin.md)
+- [MySQL 的字段属性，默认值、是否为空、主键、自增、ZEROLFILL等一网打尽](mysql/column.md)
+- [MySQL 的简单查询，开始踏上 SELECT 之旅](mysql/select-simple.md)
+- [MySQL 的 WEHRE 条件查询，重点搞懂 % 通配符](mysql/select-where.md)
 - [如何保障MySQL和Redis的数据一致性？](mysql/redis-shuju-yizhixing.md)
 - [从根上理解 MySQL 的事务](mysql/lijie-shiwu.md)
 - [浅入深出 MySQL 中事务的实现](mysql/shiwu-shixian.md)
