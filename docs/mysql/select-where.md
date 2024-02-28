@@ -1,6 +1,6 @@
 ---
-title: MySQL WHERE 条件查询，重点搞懂 % 通配符，MyBatis 中的 \# 和 $ 的区别，MySQL 会如何处理连续的 % 通配符
-shortTitle: MySQL WHERE条件查询
+title: （付费）MySQL WHERE 条件查询，重点搞懂 % 通配符，MyBatis 中的 \# 和 $ 的区别，MySQL 会如何处理连续的 % 通配符
+shortTitle: （付费）MySQL WHERE条件查询
 ---
 
 # MySQL WHERE 条件查询
@@ -262,137 +262,103 @@ select * from user where name = ?;
 select * from user where name = '${name}';
 ```
 
-当我们传入的参数是 `name = "王二"` 时，它将被解析为：
+。。。。。
 
-```sql
-select * from user where name = '王二';
-```
+## 付费内容
 
-`$` 会直接拼接参数的值，不会进行预处理。这就存在 SQL 注入的风险。
+以下内容为[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的付费内容（点击[链接](](https://javabetter.cn/jvm/))可以查看详细介绍和加入方式）。
 
-假如有这样的 SQL 语句：
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116130809.png)
 
-```xml
-select * from ${tableName} where name = #{name} 
-```
+加入二哥的编程星球后，你不仅可以阅读完整版的《二哥的 MySQL 进阶之路》内容，还可以阅读更多付费专栏，比如说《[技术派付费专栏](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[二哥的 LeetCode 刷题笔记](https://paicoding.com/column/7/1)》、《编程喵实战项目笔记》、《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》等等。
 
-当 tableName 为 `user; delete user; --` 时，它将被解析为：
+![](https://cdn.tobebetterjavaer.com/stutymore/class-load-vip-20240116135627.png)
 
-```sql
-select * from user; delete user; -- where name = ?;
-```
+除此之外，还可以为你提供：
 
-`--` 是 SQL 中的注释符，表示注释掉后面的内容。于是，一条本来是 SQL 查询的语句，变成了删除 user 表的语句。
+- **专属的一对一提问交流**，如何准备面试，如何制定学习计划，如何选择 offer，以及职场规划，都能得到我 1v1 的指导和建议；
+- **强大的嘉宾阵容**，有微信的、字节的、小米的、百度的、国企的、外企的、阿里的等等各方大佬。如果你的问题二哥解决不了，总有一个大佬能够帮你解决。
+- **为你精挑细选了一些可以写到简历上，可以提高编程功底的优质实战项目**，比如说动态线程池 hippo4j、手写数据库 MYDB、Spring Boot 的前后端分离项目技术派等等，无论你是缺少项目经验的学生党，还是有一定经验的工作党，这些项目都能帮助你完成技术上的蜕变和提升。
+- **星球会定期整理和分享优质的学习资料**，包括 PDF&视频教程&学习资料等等。
+- **为你提供容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，打造一份投了就有声音的优质简历。
+- **为你创造一个沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
 
-这是万万不能够的，当然了，这里讲的很浅，我们单独留一个传送门（里面再细讲）：
+学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。来星球的球友几乎都斩获不错的成绩，有美团、华为等大厂，也有 16k 的双非本、甚至 23k 的大专社招，我随便发几个球友报喜的截图给大家展示下。
 
-[MyBatis 中的 # 和 $](https://javabetter.cn/mybatis/dollar-vs-jing.html)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221211916.png)
 
-### 连续的%通配符
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
 
-我们这里来实验一下，假如查询条件中包含 `%` 通配符，MyBatis 会如何解析呢？MySQL 的执行结果又会怎么样呢？
+《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个付费专栏，和《Java 进阶之路》上的内容可以形成很好的互补，截止到目前，已经更新 48 万字，可以说是满满的干货和诚意。
 
-我们还是以[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)为例，假如我们要查询标题中包含“%0”的文章。
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904113349.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240225091030.png)
+一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
-#### MyBatis
+- 面试准备篇（25+篇），手把手教你如何准备面试。
+- 职场修炼篇（11+篇），手摸手教你如何在职场中如鱼得水。
+- 学习路线篇（13+篇），手勾手教你如何快速学习一门技术栈。
+- 技术提升篇（33+篇），手拉手教你如何成为团队不可或缺的技术攻坚小能手。
+- 面经分享篇（23+篇），手牵手教你如何在面试中知彼知己，百战不殆。
+- 场景设计篇（22+篇），手握手教你如何在面试中脱颖而出。
 
-先来看 MyBatis 生成的 SQL 语句：
+### 01、面试准备篇
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240225091214.png)
+所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 25+篇内容会系统地引导你该如何做好面试准备。涉及到的主题有：简历、源码、LeetCode、项目经验、开源项目、高并发、证书、和 HR 对线、国企名单、公司投递名单、银行、谈薪等等面试常见问题。
 
-我把关键的部分摘出来：
+![如何准备面试](https://cdn.tobebetterjavaer.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
 
-```java
-Preparing: select a.id  from article a where a.title like concat('%', ?, '%') order by a.update_time desc limit ?, ?
 
-Parameters: %0(String), 0(Long), 10(Long)
-```
+![如何写好简历](https://cdn.tobebetterjavaer.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
 
-可以看到，`#{}`是通过占位符 `?` 的方式进行拼接的。
 
-#### MySQL
+![秋招投递名单](https://cdn.tobebetterjavaer.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
 
-那最终 MySQL 执行的 SQL 语句又是什么样的？
 
-我们可以通过打开 MySQL 的通用查询日志（General Query Log）来辅助我们完成这项工作。
+### 02、职场修炼篇
 
-- 可以通过 `SHOW VARIABLES LIKE 'general_log';` 来查看通用查询日志是否开启。ON 为开启，OFF 为关闭。
-- 可以通过 `SHOW VARIABLES LIKE 'general_log_file';` 来查看通用查询日志的文件路径。
+如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？如何赚零花钱？如何达到 30 万+年薪等等，都是大家迫切关心的问题，这 11+篇内容会一一为你揭晓答案。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240225093736.png)
+![](https://cdn.tobebetterjavaer.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
 
-如果未开启的话，可以通过 `SET GLOBAL general_log = 'ON';` 来开启通用查询日志。
+### 03、技术提升篇
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240225093952.png)
+编程能力、技术功底，是我们程序员安身立命之本，是我们求职/工作的最核心的武器。
 
-然后执行上面的查询，就可以在通用查询日志中看到 MySQL 执行的 SQL 语句。
 
-可以通过文本工具打开日志文件，拉到最后，就可以找到对应的 SQL 语句。我的是 macOS，所以直接用 [vim](https://javabetter.cn/xuexiluxian/vim.html) 就可以打开。
+![](https://cdn.tobebetterjavaer.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240225094041.png)
+### 04、面经分享篇
 
-可以看到，最终 MySQL 执行的 SQL 语句是这样的（省略部分 SQL 内容）：
+知彼知己，方能百战不殆，我们必须得站在前辈的肩膀上，才能走得更远更快。他们在面试中遇到过哪些经典的问题，我们能不能提前演练一下，对临场发挥有着至关重要的作用。
 
-```sql
-select a.id  from article a where a.title like concat('%', '%0', '%') order by a.update_time desc limit 0, 10
-```
 
-#### 执行结果
+![](https://cdn.tobebetterjavaer.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
 
-前面我们讲了，在SQL的LIKE语句中，`%`是一个通配符，它可以匹配任意数量（包括零个）的字符。
+### 05、场景设计题篇
 
-那 MySQL 是如何处理 `%%0%` 的呢？
+有些面试官不喜欢问八股文，反而更喜欢结合项目问一些非常经典的场景题，这种场景题没有标准的答案，但却很能考察一名求职者的逻辑思维能力。
 
-它会将连续的`%`视为一个，因为它们的含义没有变化——仍然是匹配任意长度的字符序列。
+![](https://cdn.tobebetterjavaer.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
 
-- 'a.title LIKE '%0%'：匹配任何包含0的a.title。
-- 'a.title LIKE '%%0%'：效果同上，多出来的`%`并不改变匹配模式。
-- 'a.title LIKE '%%%0%%%'：即使更多的`%`被添加进来，匹配模式仍然相同。
+## 星球限时优惠
 
-我们来验证一下，查询 `%01%`、`%%01%`、`%%%01%`的结果是完全一样的，都是查询标题中包含“10”的文章。
+一年前，星球的定价还是 99 元一年，第一批优惠券的额度是 30 元，等于说 69 元的低价就可以加入，再扣除掉星球手续费，几乎就是纯粹做公益。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240225094921.png)
+随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://javabetter.cn/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
 
-所以，`%` 通配符可以连续出现，但是它们的含义是一样的，都是匹配任意长度的字符序列。这也是一个面试的考点，但实际使用中，应该尽量避免这种情况的出现，因为会让不懂的新手产生困惑。
+目前星球已经 4200+ 人了，所以星球也涨价到了 149 元，后续会讲星球的价格调整为 159 元/年，所以想加入的小伙伴一定要趁早。
 
-### \_ 通配符
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116130230.png)
 
-`_` 通配符其实算是一个占位符，比如说我们要查询标题为“分表”、“分库”的文章，可以这么写：
+你可以微信扫码或者长按自动识别领取 30 元优惠券（仅有 100 张），**119/年** 加入，满 5000 人会涨价至 159 元，所以想要加入的话请趁早。
 
-```sql
-SELECT title, user_id, create_time FROM article WHERE title LIKE '分_';
-```
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116131318.png)
 
-但它只会匹配一个字符，所以只能匹配“分表”或者“分库”，而不能匹配“分布式”。
+对了，**加入星球后记得花 10 分钟时间看一下星球的两个置顶贴，你会发现物超所值**！
 
-假如标题有这么几个：
+成功没有一蹴而就，没有一飞冲天，但只要你能够一步一个脚印，就能取得你心满意足的好结果，请给自己一个机会！
 
-- 分表
-- 分库
-- 分布式
-- MySQL 分库
-- MySQL 分表
+最后，把二哥的座右铭送给你：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。
 
-那么，`title LIKE '分_'` 就只会匹配到“分表”和“分库”，而不会匹配到“分布式”、“MySQL 分库”、“MySQL 分表”。
-
-所以，`_` 通配符在实际工作中并不常用。
-
-### 转义通配符
-
-如果我们要查询的字符串中本身就包含 `%` 或者 `_`，那么就需要对它们进行转义，否则会被误认为是通配符。
-
-MySQL 使用 `\` 作为转义字符，比如说，我们要查询标题中包含“%分布式%”的文章，可以这么写：
-
-```sql
-SELECT title, user_id, create_time FROM article WHERE title LIKE '%\%分布式\%%';
-```
-
-## 小结
-
-这一节，我们学习了一些简单的 WHERE 条件查询，包括比较查询操作符、区间查询、枚举查询、NULL 查询、逻辑操作符、通配符查询等。
-
-其中重点讲了 `%` 通配符的使用，包括 MyBatis 中的 `#` 和 `$` 的区别，以及 MySQL 会如何处理连续的 `%` 通配符。
-
-这两个都是面试中的考点，如果有时间的话，大家还是要结合源码进行深入拆解的，对提到编程功底也大有帮助。
+共勉 ⛽️。

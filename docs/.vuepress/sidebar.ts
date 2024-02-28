@@ -573,6 +573,13 @@ export const sidebarConfig = sidebar({
       children: [
         "install",
         "database",
+        "table",
+        "data-type",
+        "charset",
+        "bin",
+        "column",
+        "select-simple",
+        "select-where",
         "redis-shuju-yizhixing",
         "lijie-shiwu",
         "shiwu-shixian",

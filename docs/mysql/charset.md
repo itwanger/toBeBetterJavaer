@@ -1,6 +1,6 @@
 ---
-title: 从跟上理解 MySQL，彻底掌握MySQL的字符集和比较规则
-shortTitle: 字符集和比较规则（付费）
+title: （付费）从跟上理解 MySQL，彻底掌握MySQL的字符集和比较规则
+shortTitle: （付费）字符集和比较规则
 ---
 
 # MySQL 字符集和比较规则
