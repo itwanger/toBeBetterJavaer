@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as t,c,a as o}from"./app-f5953329.js";const s={},_=o("p",null,"简单查询",-1),l=[_];function n(r,a){return t(),c("div",null,l)}const f=e(s,[["render",n],["__file","simple-select.html.vue"]]);export{f as default};
