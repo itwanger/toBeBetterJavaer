@@ -49,6 +49,8 @@ JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数�
 
 执行引擎是 JVM 的心脏，负责执行字节码。它包括一个虚拟处理器，还包括即时编译器（JIT Compiler）和垃圾回收器（Garbage Collector）。
 
+>1. 腾讯 Java 后端实习一面原题：说说 JVM 的组织架构
+
 ## 二、内存管理
 
 ### 53.讲讲 JVM 的垃圾回收机制（补充）
@@ -1080,6 +1082,7 @@ Java 一般被称为“解释型语言”，因为 Java 代码在执行前，需
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-9a62fc02-1a6a-451e-bb2b-19fc086d5be0.png)
 
+> 1. 腾讯 Java 后端实习一面原题：说说 Java 解释执行的流程。
 
 ### 42.能说一下类的生命周期吗？
 

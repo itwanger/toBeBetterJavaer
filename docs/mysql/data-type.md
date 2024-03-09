@@ -1,6 +1,6 @@
 ---
 title: （付费）4000 字 20 张手绘图，结合技术派实战项目，彻底掌握 MySQL 的数据类型
-shortTitle: （付费）MySQL数据类型
+shortTitle: MySQL数据类型（付费）
 ---
 
 # MySQL数据类型

@@ -12,9 +12,9 @@ head:
       content: 程序员常用工具破解合集，学习资料、面试资料、简历资料大放送
 ---
 
-## 科学上网
+## 上网
 
-- [科学&&&上网](shangwang.md)
+- [访问 GitHub 的方式](shangwang.md)
 
 ## Intellij IDEA
 

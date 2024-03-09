@@ -1,6 +1,6 @@
 ---
 title: （付费）一文彻底搞懂 MySQL 字段定义时的属性设置
-shortTitle: （付费）字段都有哪些属性？
+shortTitle: 字段都有哪些属性（付费）
 ---
 
 # MySQL字段都有哪些属性？

@@ -1,6 +1,6 @@
 ---
 title: （付费）MySQL WHERE 条件查询，重点搞懂 % 通配符，MyBatis 中的 \# 和 $ 的区别，MySQL 会如何处理连续的 % 通配符
-shortTitle: （付费）MySQL WHERE条件查询
+shortTitle: MySQL WHERE条件查询（付费）
 ---
 
 # MySQL WHERE 条件查询

@@ -87,6 +87,8 @@ LIMIT 2;
 
 右联在这种情况下，其实比较别扭，因为可以直接使用左联来实现。
 
+>1. 腾讯 Java 后端实习一面原题：请说说 MySQL 的内联、左联、右联的区别。
+
 ### 3.说一下数据库的三大范式？
 
 ![数据库三范式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16e74a6b-a42a-464e-9b10-0252ee7ecc6e.jpg)
