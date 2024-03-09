@@ -131,6 +131,8 @@ Redis 的速度⾮常快，单机的 Redis 就可以⽀撑每秒十几万的并�
 
 ④、**高效的数据结构**，Redis 提供了多种高效的数据结构，如字符串（String）、列表（List）、集合（Set）、有序集合（Sorted Set）等，这些数据结构经过了高度优化，能够支持快速的数据操作。
 
+> 1. 腾讯 Java 后端实习一面原题：Redis 为什么读写性能高？
+
 ### 5.能说一下 I/O 多路复用吗？
 
 引用知乎上一个高赞的回答来解释什么是 I/O 多路复用。假设你是一个老师，让 30 个学生解答一道题目，然后检查学生做的是否正确，你有下面几个选择：
@@ -1235,6 +1237,8 @@ OK ... do something critical ...
 当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)（悟空聊架构：分布式锁中的王者方案 - Redisson）。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174708.png)
+
+> 1. 腾讯 Java 后端实习一面原题：分布式锁用了 Redis 的什么数据结构
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 

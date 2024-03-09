@@ -337,6 +337,8 @@ class WaitExample {
 }
 ```
 
+>1. 腾讯 Java 后端实习一面原题：说说 sleep 和 wait 的区别
+
 ### 6.线程有几种状态？
 
 在 Java 中，线程共有六种状态：
