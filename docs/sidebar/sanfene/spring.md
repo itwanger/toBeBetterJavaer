@@ -962,44 +962,47 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 19.说说什么是 AOP？
 
-AOP：面向切面编程。简单说，就是把一些业务逻辑中的相同的代码抽取到一个独立的模块中，让业务逻辑更加清爽。
+AOP，也就是 Aspect-oriented Programming，译为面向切面编程。
+
+简单点说，就是把一些业务逻辑中的相同代码抽取到一个独立的模块中，让业务逻辑更加清爽。
 
 ![横向抽取](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-09dbcda4-7c1b-42d6-8520-1a5fc84abbde.png)
 
-具体来说，假如我现在要 crud 写一堆业务，可是如何业务代码前后前后进行打印日志和参数的校验呢？
+举个例子，假如我们现在需要在业务代码开始前进行参数校验，在结束后打印日志，该怎么办呢？
 
-我们可以把`日志记录`和`数据校验`可重用的功能模块分离出来，然后在程序的执行的合适的地方动态地植入这些代码并执行。这样就简化了代码的书写。
+我们可以把`日志记录`和`数据校验`这两个功能抽取出来，形成一个切面，然后在业务代码中引入这个切面，这样就可以实现业务逻辑和通用逻辑的分离。
 
 ![AOP应用示例](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-4754b4c0-0356-4077-a2f9-55e246cf8ba0.png)
 
-业务逻辑代码中没有参和通用逻辑的代码，业务模块更简洁，只包含核心业务代码。实现了业务逻辑和通用逻辑的代码分离，便于维护和升级，降低了业务逻辑和通用逻辑的耦合性。
+业务代码不再关心这些通用逻辑，只需要关心自己的业务实现，这样就实现了业务逻辑和通用逻辑的分离。
 
-AOP 可以将遍布应用各处的功能分离出来形成可重用的组件。在编译期间、装载期间或运行期间实现在不修改源代码的情况下给程序动态添加功能。从而实现对业务逻辑的隔离，提高代码的模块化能力。
+我们来回顾一下 Java 语言的执行过程：
 
-![Java语言执行过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b9859e5-019c-4e87-a449-990d3deae135.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b9859e5-019c-4e87-a449-990d3deae135.png)
 
-AOP 的核心其实就是**动态代理**，如果是实现了接口的话就会使用 JDK 动态代理，否则使用 CGLIB 代理，主要应用于处理一些具有横切性质的系统级服务，如日志收集、事务管理、安全检查、缓存、对象池管理等。
+AOP 的核心其实就是**动态代理**，可以使用 JDK 的动态代理，也可以使用 CGLIB 代理，主要应用于一些具有横切性质的系统级服务，如日志收集、事务管理、安全检查、缓存、对象池管理等。
 
-> **AOP 有哪些核心概念？**
+> 可以继续追问：**AOP 有哪些核心概念？**
 
 - **切面**（Aspect）：类是对物体特征的抽象，切面就是对横切关注点的抽象
-- **连接点**（Joinpoint）：被拦截到的点，因为 Spring 只支持方法类型的连接点，所以在 Spring 中连接点指的就是被拦截到的方法，实际上连接点还可以是字段或者构造器
+- **连接点**（Join Point）：被拦截到的点，因为 Spring 只支持方法类型的连接点，所以在 Spring 中，连接点指的是被拦截到的方法，实际上连接点还可以是字段或者构造方法
 - **切点**（Pointcut）：对连接点进行拦截的定位
-- **通知**（Advice）：所谓通知指的就是指拦截到连接点之后要执行的代码，也可以称作**增强**
+- **通知**（Advice）：指拦截到连接点之后要执行的代码，也可以称作**增强**
 - **目标对象** （Target）：代理的目标对象
-- **织入**（Weabing）：织入是将增强添加到目标类的具体连接点上的过程。
+- **引介**（introduction）：一种特殊的增强，可以动态地为类添加一些属性和方法
+- **织入**（Weabing）：织入是将增强添加到目标类的具体连接点上的过程。可以分为 3 种类型的织入：
 
-  - 编译期织入：切面在目标类编译时被织入
 
-  - 类加载期织入：切面在目标类加载到 JVM 时被织入。需要特殊的类加载器，它可以在目标类被引入应用之前增强该目标类的字节码。
+①、编译期织入：切面在目标类编译时被织入。
 
-  - 运行期织入：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。SpringAOP 就是以这种方式织入切面。
+②、类加载期织入：切面在目标类加载到 JVM 时被织入。需要特殊的类加载器，它可以在目标类被引入应用之前增强该目标类的字节码。
 
-    Spring 采用运行期织入，而 AspectJ 采用编译期织入和类加载器织入。
+③、运行期织入：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。Spring AOP 就是以这种方式织入切面。
 
-- **引介**（introduction）：引介是一种特殊的增强，可以动态地为类添加一些属性和方法
+Spring 采用运行期织入，而 AspectJ 采用编译期织入和类加载器织入。
 
-> **AOP 有哪些环绕方式？**
+
+> 继续追问：**AOP 有哪些环绕方式？**
 
 AOP 一般有 **5 种**环绕方式：
 
@@ -1012,6 +1015,75 @@ AOP 一般有 **5 种**环绕方式：
 ![环绕方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-320fa34f-6620-419c-b17a-4f516a83caeb.png)
 
 多个切面的情况下，可以通过 @Order 指定先后顺序，数字越小，优先级越高。
+
+代码示例如下：
+
+```java
+@Aspect
+@Component
+public class WebLogAspect {
+
+    private final static Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
+
+    @Pointcut("@annotation(cn.fighter3.spring.aop_demo.WebLog)")
+    public void webLog() {}
+
+    @Before("webLog()")
+    public void doBefore(JoinPoint joinPoint) throws Throwable {
+        // 开始打印请求日志
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        // 打印请求相关参数
+        logger.info("========================================== Start ==========================================");
+        // 打印请求 url
+        logger.info("URL            : {}", request.getRequestURL().toString());
+        // 打印 Http method
+        logger.info("HTTP Method    : {}", request.getMethod());
+        // 打印调用 controller 的全路径以及执行方法
+        logger.info("Class Method   : {}.{}", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
+        // 打印请求的 IP
+        logger.info("IP             : {}", request.getRemoteAddr());
+        // 打印请求入参
+        logger.info("Request Args   : {}",new ObjectMapper().writeValueAsString(joinPoint.getArgs()));
+    }
+
+    @After("webLog()")
+    public void doAfter() throws Throwable {
+        // 结束后打个分隔线，方便查看
+        logger.info("=========================================== End ===========================================");
+    }
+
+    @Around("webLog()")
+    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        //开始时间
+        long startTime = System.currentTimeMillis();
+        Object result = proceedingJoinPoint.proceed();
+        // 打印出参
+        logger.info("Response Args  : {}", new ObjectMapper().writeValueAsString(result));
+        // 执行耗时
+        logger.info("Time-Consuming : {} ms", System.currentTimeMillis() - startTime);
+        return result;
+    }
+}
+```
+
+总结回答一下：
+
+AOP，也就是面向切面编程，是一种编程范式，旨在提高代码的模块化。比如说可以将日志记录、事务管理等分离出来，来提高代码的可重用性。
+
+AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知（Advice）、切点（Pointcut）和织入（Weaving）等。
+
+① 像日志打印、事务管理等都可以抽离为切面，可以声明在类的方法上。
+
+② 在 Spring AOP 中，连接点总是表示方法的执行。
+
+③ Spring AOP 支持五种类型的通知：前置通知、后置通知、环绕通知、异常通知、最终通知等。
+
+④ 在 AOP 中，切点用于指定我们想要在哪些连接点上执行通知的规则。
+
+⑤ 织入是指将切面应用到目标对象并创建新的代理对象的过程。Spring AOP 默认在运行时通过动态代理方式实现织入。
+
+像 `@Transactional` 注解，就是一个典型的 AOP 应用，它就是通过 AOP 来实现事务管理的。我们只需要在方法上添加 `@Transactional` 注解，Spring 就会在方法执行前后添加事务管理的逻辑。
 
 ### 20.说说你平时有用到 AOP 吗？
 
@@ -1493,19 +1565,29 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 29.Spring MVC 的工作流程？
 
+一图胜千言：
+
 ![Spring MVC的工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-e29a122b-db07-48b8-8289-7251032e87a1.png)
 
-1. 客户端向服务端发送一次请求，这个请求会先到前端控制器 DispatcherServlet(也叫中央控制器)。
-2. DispatcherServlet 接收到请求后会调用 HandlerMapping 处理器映射器。由此得知，该请求该由哪个 Controller 来处理（并未调用 Controller，只是得知）
-3. DispatcherServlet 调用 HandlerAdapter 处理器适配器，告诉处理器适配器应该要去执行哪个 Controller
-4. HandlerAdapter 处理器适配器去执行 Controller 并得到 ModelAndView(数据和视图)，并层层返回给 DispatcherServlet
-5. DispatcherServlet 将 ModelAndView 交给 ViewReslover 视图解析器解析，然后返回真正的视图。
-6. DispatcherServlet 将模型数据填充到视图中
-7. DispatcherServlet 将结果响应给客户端
+①、**发起请求**：客户端通过 HTTP 协议向服务器发起请求。
 
-**Spring MVC** 虽然整体流程复杂，但是实际开发中很简单，大部分的组件不需要开发人员创建和管理，只需要通过配置文件的方式完成配置即可，真正需要开发人员进行处理的只有 **Handler（Controller）** 、**View** 、**Model**。
+②、**前端控制器**：这个请求会先到前端控制器 DispatcherServlet，它是整个流程的入口点，负责接收请求并将其分发给相应的处理器。
 
-当然我们现在大部分的开发都是前后端分离，Restful 风格接口，后端只需要返回 Json 数据就行了。
+③、**处理器映射**：DispatcherServlet 调用 HandlerMapping 来确定哪个 Controller 应该处理这个请求。通常会根据请求的 URL 来确定。
+
+④、**处理器适配器**：一旦找到目标 Controller，DispatcherServlet 会使用 HandlerAdapter 来调用 Controller 的处理方法。
+
+⑤、**执行处理器**：Controller 处理请求，处理完后返回一个 ModelAndView 对象，其中包含模型数据和逻辑视图名。
+
+⑥、**视图解析器**：DispatcherServlet 接收到 ModelAndView 后，会使用 ViewResolver 来解析视图名称，找到具体的视图页面。
+
+⑦、**渲染视图**：视图使用模型数据渲染页面，生成最终的页面内容。
+
+⑧、**响应结果**：DispatcherServlet 将视图结果返回给客户端。
+
+**Spring MVC** 虽然整体流程复杂，但是实际开发中很简单，大部分的组件不需要我们开发人员创建和管理，真正需要处理的只有 **Controller** 、**View** 、**Model**。
+
+在前后端分离的情况下，步骤 ⑥、⑦、⑧ 会略有不同，后端通常只需要处理数据，并将 JSON 格式的数据返回给前端就可以了，而不是返回完整的视图页面。
 
 ### 30.SpringMVC Restful 风格的接口的流程是什么样的呢？
 
@@ -1554,18 +1636,23 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 31.介绍一下 SpringBoot，有哪些优点？
 
-Spring Boot 基于 Spring 开发，Spirng Boot 本身并不提供 Spring 框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于 Spring 框架的应用程序。它并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。
+Spring Boot 是一个开源的、用于简化 Spring 应用初始化和开发过程的框架。提供了一套默认配置，约定优于配置，来帮助我们快速搭建 Spring 项目骨架，极大地提高了我们的生产效率，再也不用为 Spring 的繁琐配置而烦恼了。
+
+以前的 Spring 开发需要配置大量的 xml 文件，并且需要引入大量的第三方 jar 包，还需要手动放到 classpath 下。
 
 ![SpringBoot图标](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d9164ee6-5c86-4313-8fd9-efb9acfa5f0b.png)
 
-Spring Boot 以`约定大于配置`核心思想开展工作，相比 Spring 具有如下优势：
+Spring Boot 的优点非常多，比如说：
 
-1. Spring Boot 可以快速创建独立的 Spring 应用程序。
-2. Spring Boot 内嵌了如 Tomcat，Jetty 和 Undertow 这样的容器，也就是说可以直接跑起来，用不着再做部署工作了。
-3. Spring Boot 无需再像 Spring 一样使用一堆繁琐的 xml 文件配置。
-4. Spring Boot 可以自动配置(核心)Spring。SpringBoot 将原有的 XML 配置改为 Java 配置，将 bean 注入改为使用注解注入的方式(@Autowire)，并将多个 xml、properties 配置浓缩在一个 appliaction.yml 配置文件中。
-5. Spring Boot 提供了一些现有的功能，如量度工具，表单数据验证以及一些外部配置这样的一些第三方功能。
-6. Spring Boot 可以快速整合常用依赖（开发库，例如 spring-webmvc、jackson-json、validation-api 和 tomcat 等），提供的 POM 可以简化 Maven 的配置。当我们引入核心依赖时，SpringBoot 会自引入其他依赖。
+1. 通过 Intellij IDEA 或者官方的 Spring Initializr 就可以快速创建新项目，只需要选择需要的依赖就可以五分钟内搭建一个项目骨架。
+2. Spring Boot 内嵌了 Tomcat、Jetty、Undertow 等容器，不需要在服务器上部署 WAR 包了，直接运行 jar 包就可以启动项目，超级方便。
+3. Spring Boot 无需再像以前一样在 web.xml、applicationContext.xml 等配置文件里配置大量的内容，大部分初始工作 Spring Boot 都帮我们做好了。例如，如果项目中添加了 spring-boot-starter-web，Spring Boot 会自动配置 Tomcat 和 Spring MVC。
+4. Spring Boot 允许我们通过 yaml 来管理应用的配置，比传统的 properties 文件更加简洁。
+5. Spring Boot 提供了一系列的 Starter，可以快速集成常用的框架，例如 Spring Data JPA、Spring Security、MyBatis 等。
+6. Spring Boot 提供了一系列的 Actuator，可以帮助我们监控和管理应用，比如健康检查、审计、统计等。
+7. 配合 Spring Cloud 可以快速构建微服务架构。
+
+> 1. 华为 OD 的面试中出现过该题：讲讲 Spring Boot 的特性。
 
 ### 32.SpringBoot 自动配置原理了解吗？
 
