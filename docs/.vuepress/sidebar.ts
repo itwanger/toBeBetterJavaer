@@ -28,6 +28,7 @@ export const sidebarConfig = sidebar({
   ],
   // 你可以省略 .md 扩展名，以 / 结尾的路径会被推断为 /README.md(区分大小写)
   "/pdf/": [
+    "linux",
     "java",
     "programmer-111",
     "java-concurrent",
@@ -82,6 +83,7 @@ export const sidebarConfig = sidebar({
     "rocketmq",
     "fenbushi",
     "weifuwu",
+    "shejimoshi",
   ],
   // 必须放在最后面
   "/": [

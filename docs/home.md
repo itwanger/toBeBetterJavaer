@@ -103,7 +103,7 @@ head:
 - [面渣逆袭（RocketMQ八股文面试题）必看👍](sidebar/sanfene/rocketmq.md)
 - [面渣逆袭（分布式面试题八股文）必看👍](sidebar/sanfene/fenbushi.md)
 - [面渣逆袭（微服务面试题八股文）必看👍](sidebar/sanfene/weifuwu.md)
-
+- [面渣逆袭（设计模式面试题八股文）必看👍](sidebar/sanfene/shejimoshi.md)
 
 ## Java基础
 

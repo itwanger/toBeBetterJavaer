@@ -866,6 +866,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 除了应用最广泛的ELK，还有一些其它的方案比如`Fluentd`、`Graylog`、`Loki`、`Filebeat`，一些云厂商也提供了付费方案，比如阿里云的`sls`。
 
+> 1.3 万字 33 张手绘图，详解 33 道微服务（Dubbo、Spring Cloud）面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/IgY6cU_5Xic-2KAAhxK9MA)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/S8_I9mDNh7XnnQaXJFr2CQ)。
+
+
 ---
 
 *没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
@@ -886,6 +889,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 - [面渣逆袭RocketMQ篇👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
 - [面渣逆袭分布式篇👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
 - [面渣逆袭微服务篇👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
+- [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
 
 ----
 
@@ -896,4 +900,3 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-> 1.3 万字 33 张手绘图，详解 33 道微服务（Dubbo、Spring Cloud）面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/IgY6cU_5Xic-2KAAhxK9MA)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/S8_I9mDNh7XnnQaXJFr2CQ)。

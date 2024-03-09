@@ -9,6 +9,7 @@ tag:
 
 # 📚PDF干货笔记，附下载地址
 
+- [👏下载→Linux速查备忘手册.pdf](linux.md)
 - [👏下载→超1000本计算机经典书籍分享](java.md)
 - [👏下载→2022年全网最全关于程序员学习和找工作的PDF资源](programmer-111.md)
 - [👏下载→深入浅出Java多线程PDF](java-concurrent.md)
