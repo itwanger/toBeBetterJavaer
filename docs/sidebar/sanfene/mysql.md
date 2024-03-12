@@ -87,7 +87,7 @@ LIMIT 2;
 
 右联在这种情况下，其实比较别扭，因为可以直接使用左联来实现。
 
->1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：请说说 MySQL 的内联、左联、右联的区别。
+> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：请说说 MySQL 的内联、左联、右联的区别。
 
 ### 3.说一下数据库的三大范式？
 
@@ -665,20 +665,160 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 索引
 
-索引可以说是 MySQL 面试中的重中之重，一定要彻底拿下。
+索引可以说是 MySQL 面试中的重中之重，务必要拿下啊，兄弟姐妹们。
 
 ### 27.能简单说一下索引的分类吗？
 
-从三个不同维度对索引分类：
+好的，可以从三个不同的维度对索引进行分类：
 
-![索引分类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-f650c0b8-9ebe-4e17-ac7e-b8eb121756a1.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
 
-例如从基本使用使用的角度来讲：
+#### 比如说从功能上分类：
 
-- 主键索引: InnoDB 主键是默认的索引，数据列不允许重复，不允许为 NULL，一个表只能有一个主键。
-- 唯一索引: 数据列不允许重复，允许为 NULL 值，一个表允许多个列创建唯一索引。
-- 普通索引: 基本的索引类型，没有唯一性的限制，允许为 NULL 值。
-- 组合索引：多列值组成一个索引，用于组合搜索，效率大于索引合并
+①、**主键索引**: 表中每行数据唯一标识的索引，强调列值的唯一性和非空性。
+
+当创建表的时候，可以直接指定主键索引：
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255)
+);
+```
+
+id 列被指定为主键索引，同时，MySQL 会自动为这个列创建一个聚簇索引（主键索引一定是聚簇索引）。
+
+推荐阅读：[松哥：再聊 MySQL 聚簇索引](https://mp.weixin.qq.com/s/F0cEzIqecF4sWg7ZRmHKRQ)
+
+可以通过 `show index from table_name` 查看索引信息，比如前面创建的 users 表：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312090221.png)
+
+- `Non_unique` 如果索引不能包含重复词，则为 0；如果可以，则为 1。这可以帮助我们区分是唯一索引还是普通索引。
+- `Key_name` 索引的名称。如果索引是主键，那么这个值是 PRIMARY。
+- `Column_name` 索引所包含的字段名。
+- `Index_type` 索引的类型，比如 BTREE、HASH 等。
+
+②、**唯一索引**: 保证数据列中每行数据的唯一性，但允许有空值。
+
+可以通过下面的语句创建唯一索引：
+
+```sql
+CREATE UNIQUE INDEX idx_username ON users(username);
+```
+
+同样可以通过 `show index from table_name` 确认索引信息：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312091008.png)
+
+`Non_unique` 为 0，表示这是一个唯一索引。
+
+③、**普通索引**: 基本的索引类型，用于加速查询。
+
+可以通过下面的语句创建普通索引：
+
+```sql
+CREATE INDEX idx_email ON users(email);
+```
+
+这次我们通过下面的语句一起把三个索引的关键信息查出来：
+
+```sql
+SELECT `TABLE_NAME` AS `Table`, `NON_UNIQUE`, `INDEX_NAME` AS `Key_name`, `COLUMN_NAME` AS `Column_name`, `INDEX_TYPE` AS `Index_type`
+FROM information_schema.statistics
+WHERE `TABLE_NAME` = 'users' AND `TABLE_SCHEMA` = DATABASE();
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312091632.png)
+
+可以确定 idx_email 是一个普通索引，因为 `Non_unique` 为 1。
+
+④、**全文索引**：特定于文本数据的索引，用于提高文本搜索的效率。
+
+假设有一个名为 articles 的表，下面这条语句在 content 列上创建了一个全文索引。
+
+```sql
+CREATE FULLTEXT INDEX idx_article_content ON articles(content);
+```
+
+#### 比如说从数据结构上分类：
+
+①、B+树索引：最常见的索引类型，一种将索引值按照一定的算法，存入一个树形的数据结构中（二叉树），每次查询都从树的根节点开始，一次遍历叶子节点，找到对应的值。查询效率是 O(logN)。
+
+也是 **InnoDB 存储引擎的默认索引类型**。
+
+B+ 树是 B 树的升级版，B+ 树中的非叶子节点都不存储数据，只存储索引。叶子节点中存储了所有的数据，并且构成了一个从小到大的有序双向链表，使得在完成一次树的遍历定位到范围查询的起点后，可以直接通过叶子节点间的指针顺序访问整个查询范围内的所有记录，而无需对树进行多次遍历。这在处理大范围的查询时特别高效。
+
+![一颗剽悍的种子：B+树的结构](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312092745.png)
+
+因为 B+ 树是 InnoDB 的默认索引类型，所以创建 B+ 树的时候不需要指定索引类型。
+
+```sql
+CREATE TABLE example_btree (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    INDEX name_index (name)
+) ENGINE=InnoDB;
+```
+
+想要了解 B 树和 B+树的更多区别，推荐阅读：
+
+- [GitHub：B 树和 B+树详解](https://github.com/wardseptember/notes/blob/master/docs/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E8%AF%A6%E8%A7%A3.md)
+- [思否：面试官问你 B 树和 B+树，就把这篇文章丢给他](https://segmentfault.com/a/1190000020416577)
+- [极客时间：为什么用 B+树来做索引？](https://time.geekbang.org/column/article/112298)
+- [一颗剽悍的种子：用16张图就给你讲明白MySQL为什么要用B+树做索引](https://mp.weixin.qq.com/s/muOwXKNTvPjXjrLsFRveIw)
+
+②、Hash 索引：基于哈希表的索引，查询效率可以达到 O(1)，但是只适合 = 和 in 查询，不适合范围查询。
+
+Hash 索引在原理上和 Java 中的 [HashMap](https://javabetter.cn/collection/hashmap.html) 类似，当发生哈希冲突的时候也是通过拉链法来解决。
+
+![业余码农：哈希索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312094537.png)
+
+可以通过下面的语句创建哈希索引：
+
+```sql
+CREATE TABLE example_hash (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    UNIQUE HASH (name)
+) ENGINE=MEMORY;
+```
+
+注意，我们这里创建的是 MEMORY 存储引擎，InnoDB 并不提供直接创建哈希索引的选项，因为 B+ 树索引能够很好地支持范围查询和等值查询，满足了大多数数据库操作的需要。
+
+不过，InnoDB 存储引擎内部使用了一种名为“自适应哈希索引”（Adaptive Hash Index, AHI）的技术。
+
+自适应哈希索引并不是由用户显式创建的，而是 InnoDB 根据数据访问的模式自动建立和管理的。当 InnoDB 发现某个索引被频繁访问时，会在内存中创建一个哈希索引，以加速对这个索引的访问。
+
+可以通过下面的语句查看自适应哈希索引的状态：
+
+```sql
+SHOW VARIABLES LIKE 'innodb_adaptive_hash_index';
+```
+
+如果返回的值是 ON，说明自适应哈希索引是开启的。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312095811.png)
+
+#### 比如说从存储位置上分类：
+
+①、聚簇索引：聚簇索引的叶子节点保存了一行记录的所有列信息。也就是说，聚簇索引的叶子节点中，包含了一个完整的记录行。
+
+![代码敲上天.：聚簇索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311231652.png)
+
+②、非聚簇索引：它的叶子节点只包含一个主键值，通过非聚簇索引查找记录要先找到主键，然后通过主键再到聚簇索引中找到对应的记录行，这个过程被称为回表。
+
+![代码敲上天.非聚簇索引，以 age 为索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311231611.png)
+
+InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管是主键索引，还是二级索引使用的都是非聚簇索引。推荐阅读：
+
+- [磊哥：聚簇索引和非聚簇索引有什么区别？](https://www.cnblogs.com/vipstone/p/16370305.html)
+- [浅谈聚簇索引与非聚簇索引](https://learnku.com/articles/50096)
+- [聚簇索引、非聚簇索引、联合索引、唯一索引](https://blog.csdn.net/m0_52226803/article/details/135494499)
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
 
 ### 28.为什么使用索引会加快查询？
 

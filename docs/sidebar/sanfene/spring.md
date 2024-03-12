@@ -35,7 +35,7 @@ Spring 有很多优点：
 
 ![Spring特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a0f0ef9d-3289-41ea-94c2-34b7e37ef854.png)
 
-1.  **IOC** 和 **DI** 的支持
+1.  **IoC** 和 **DI** 的支持
 
 Spring 的核心就是一个大的工厂容器，可以维护所有对象的创建和依赖关系，Spring 工厂用于生成 Bean，并且管理 Bean 的生命周期，实现**高内聚低耦合**的设计理念。
 
@@ -67,7 +67,7 @@ Spring 框架是分模块存在，除了最核心的`Spring Core Container`是�
 
 最主要的七大模块：
 
-1.  **Spring Core**：Spring 核心，它是框架最基础的部分，提供 IOC 和依赖注入 DI 特性。
+1.  **Spring Core**：Spring 核心，它是框架最基础的部分，提供 IoC 和依赖注入 DI 特性。
 2.  **Spring Context**：Spring 上下文容器，它是 BeanFactory 功能加强的一个子接口。
 3.  **Spring Web**：它提供 Web 应用开发的支持。
 4.  **Spring MVC**：它针对 Web 应用中 MVC 思想的实现。
@@ -133,38 +133,71 @@ Spring 框架中广泛使用了不同类型的设计模式，下面我们来看�
 6. **适配器模式** :Spring AOP 的增强或通知 (Advice) 使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 Controller。
 7. **策略模式**：Spring 中有一个 Resource 接口，它的不同实现类，会根据不同的策略去访问资源。
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## IOC
+## IoC
 
-### 5.说一说什么是 IOC？什么是 DI?
+### 5.说一说什么是 Io？什么是 DI？
 
-Java 是面向对象的编程语言，一个个实例对象相互合作组成了业务逻辑，原来，我们都是在代码里创建对象和对象的依赖。
+推荐阅读：[IoC 扫盲](https://javabetter.cn/springboot/ioc.html)
 
-所谓的**IOC**（控制反转）：就是由容器来负责控制对象的生命周期和对象间的关系。以前是我们想要什么，就自己创建什么，现在是我们需要什么，容器就给我们送来什么。
+所谓的**IoC**（控制反转，Inversion of Control），就是由容器来控制对象的生命周期和对象之间的关系。以前是我们想要什么就自己创建什么，现在是我们需要什么容器就帮我们送来什么。
 
-![引入IOC之前和引入IOC之后](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-619da277-c15e-4dd7-9f2b-dbd809a9aaa0.png)
+![引入IoC之前和引入IoC之后](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-619da277-c15e-4dd7-9f2b-dbd809a9aaa0.png)
 
-也就是说，控制对象生命周期的不再是引用它的对象，而是容器。对具体对象，以前是它控制其它对象，现在所有对象都被容器控制，所以这就叫**控制反转**。
+也就是说，控制对象生命周期的不再是引用它的对象，而是容器，这就叫**控制反转**。
 
 ![控制反转示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-440f5d0e-f4db-462c-97fb-d54407a354d5.png)
 
-**DI（依赖注入）**：指的是容器在实例化对象的时候把它依赖的类注入给它。有的说法 IOC 和 DI 是一回事，有的说法是 IOC 是思想，DI 是 IOC 的实现。
+talk is cheap，show me the code，我们来看一个例子，没有 IoC 之前：
 
-> **为什么要使用 IOC 呢？**
+```java
+我需要一个女朋友，刚好大街上突然看到了一个小姐姐，人很好看，于是我就自己主动上去搭讪，要她的微信号，找机会聊天关心她，然后约她出来吃饭，打听她的爱好，三观。。。
+```
 
-最主要的是两个字**解耦**，硬编码会造成对象间的过度耦合，使用 IOC 之后，我们可以不用关心对象间的依赖，专心开发应用就行。
+有了 IoC 之后：
 
-### 6.能简单说一下 Spring IOC 的实现机制吗？
+```java
+我需要一个女朋友，于是我就去找婚介所，告诉婚介所，我需要一个长的像赵露思的，会打 Dota2 的，于是婚介所在它的人才库里开始找，找不到它就直接说没有，找到它就直接介绍给我。
+```
+
+婚介所就相当于一个 IoC 容器，我就是一个对象，我需要的女朋友就是另一个对象，我不用关心女朋友是怎么来的，我只需要告诉婚介所我需要什么样的女朋友，婚介所就帮我去找。
+
+Spring 倡导的开发方式就是这样，所有的类创建都通过 Spring 容器来，不再是开发者去 new，去 = null 销毁，这些创建和销毁的工作都交给 Spring 容器来。
+
+于是，对于某个对象来说，以前是它控制它依赖的对象，现在是所有对象都被 Spring 控制，这就是**控制反转**。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310191630.png)
+
+**DI（依赖注入，Dependency Injection）**：有人说 IoC 和 DI 是一回事，有人说 IoC 是思想，DI 是 IoC 的实现。2004 年，Martin Fowler 在他的文章《控制反转容器&依赖注入模式》首次提出了依赖注入这个名词。
+
+> 控制反转这个词太宽泛，并不能很好地解释这个框架的具体实现，于是就想到了一个新名词：依赖注入。
+
+打个比方，你现在想吃韭菜馅的饺子，这时候就有人用针管往你吃的饺子里注入韭菜鸡蛋馅。就好像 A 类需要 B 类，以前是 A 类自己 new 一个 B 类，现在是有人把 B 类注入到 A 类里。
+
+**为什么要使用 IoC 呢？**
+
+在平时的 Java 开发中，如果我们要实现某一个功能，可能至少需要两个以上的对象来协助完成，在没有 Spring 之前，每个对象在需要它的合作对象时，需要自己 new 一个，比如说 A 要使用 B，A 就对 B 产生了依赖，也就是 A 和 B 之间存在了一种耦合关系。
+
+有了 Spring 之后，就不一样了，创建 B 的工作交给了 Spring 来完成，Spring 创建好了 B 对象后就放到容器中，A 告诉 Spring 我需要 B，Spring 就从容器中取出 B 交给 A 来使用。
+
+至于 B 是怎么来的，A 就不再关心了，Spring 容器想通过 newnew 创建 B 还是 new 创建 B，无所谓。
+
+这就是 IoC 的好处，它降低了对象之间的耦合度，使得程序更加灵活，更加易于维护。
+
+推荐阅读：[孤傲苍狼：谈谈对 Spring IOC 的理解](https://www.cnblogs.com/xdp-gacl/p/4249939.html)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说你对 AOP 和 IoC 的理解。
+
+### 6.能简单说一下 Spring IoC 的实现机制吗？
 
 PS:这道题老三在面试中被问到过，问法是“**你有自己实现过简单的 Spring 吗？**”
 
-Spring 的 IOC 本质就是一个大工厂，我们想想一个工厂是怎么运行的呢？
+Spring 的 IoC 本质就是一个大工厂，我们想想一个工厂是怎么运行的呢？
 
 ![工厂运行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-7678c40f-a48d-4bd5-80f8-e902ad688e11.png)
 
@@ -178,9 +211,9 @@ Spring 的 IOC 本质就是一个大工厂，我们想想一个工厂是怎么�
 
   在 Spring 里，也有这样的订单，它就是我们 bean 的定义和依赖关系，可以是 xml 形式，也可以是我们最熟悉的注解形式。
 
-我们简单地实现一个 mini 版的 Spring IOC：
+我们简单地实现一个 mini 版的 Spring IoC：
 
-![mini版本Spring IOC](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1d55c63d-2d12-43b1-9f43-428f5f4a1413.png)
+![mini版本Spring IoC](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1d55c63d-2d12-43b1-9f43-428f5f4a1413.png)
 
 **Bean 定义：**
 
@@ -281,59 +314,59 @@ Bean 通过一个配置文件定义，把它解析成一个类型。
 
 ![BeanFactory](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-c6b3b707-cf53-4c7c-a6f9-8560950806fc.png)
 
-  - 对象工厂，我们最**核心**的一个类，在它初始化的时候，创建了 bean 注册器，完成了资源的加载。
+- 对象工厂，我们最**核心**的一个类，在它初始化的时候，创建了 bean 注册器，完成了资源的加载。
 
-  - 获取 bean 的时候，先从单例缓存中取，如果没有取到，就创建并注册一个 bean
+- 获取 bean 的时候，先从单例缓存中取，如果没有取到，就创建并注册一个 bean
 
-    ```java
-    public class BeanFactory {
+  ```java
+  public class BeanFactory {
 
-        private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
+      private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
 
-        private BeanRegister beanRegister;
+      private BeanRegister beanRegister;
 
-        public BeanFactory() {
-            //创建bean注册器
-            beanRegister = new BeanRegister();
-            //加载资源
-            this.beanDefinitionMap = new ResourceLoader().getResource();
-        }
+      public BeanFactory() {
+          //创建bean注册器
+          beanRegister = new BeanRegister();
+          //加载资源
+          this.beanDefinitionMap = new ResourceLoader().getResource();
+      }
 
-        /**
-         * 获取bean
-         *
-         * @param beanName bean名称
-         * @return
-         */
-        public Object getBean(String beanName) {
-            //从bean缓存中取
-            Object bean = beanRegister.getSingletonBean(beanName);
-            if (bean != null) {
-                return bean;
-            }
-            //根据bean定义，创建bean
-            return createBean(beanDefinitionMap.get(beanName));
-        }
+      /**
+       * 获取bean
+       *
+       * @param beanName bean名称
+       * @return
+       */
+      public Object getBean(String beanName) {
+          //从bean缓存中取
+          Object bean = beanRegister.getSingletonBean(beanName);
+          if (bean != null) {
+              return bean;
+          }
+          //根据bean定义，创建bean
+          return createBean(beanDefinitionMap.get(beanName));
+      }
 
-        /**
-         * 创建Bean
-         *
-         * @param beanDefinition bean定义
-         * @return
-         */
-        private Object createBean(BeanDefinition beanDefinition) {
-            try {
-                Object bean = beanDefinition.getBeanClass().newInstance();
-                //缓存bean
-                beanRegister.registerSingletonBean(beanDefinition.getBeanName(), bean);
-                return bean;
-            } catch (InstantiationException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
-    ```
+      /**
+       * 创建Bean
+       *
+       * @param beanDefinition bean定义
+       * @return
+       */
+      private Object createBean(BeanDefinition beanDefinition) {
+          try {
+              Object bean = beanDefinition.getBeanClass().newInstance();
+              //缓存bean
+              beanRegister.registerSingletonBean(beanDefinition.getBeanName(), bean);
+              return bean;
+          } catch (InstantiationException | IllegalAccessException e) {
+              e.printStackTrace();
+          }
+          return null;
+      }
+  }
+  ```
 
 - 测试
 
@@ -448,7 +481,7 @@ ApplicationContext 包含 BeanFactory 的所有特性，通常推荐使用前者
 
 PS：这道题老三面试被问到过
 
-Spring 的 IOC 容器工作的过程，其实可以划分为两个阶段：**容器启动阶段**和**Bean 实例化阶段**。
+Spring 的 IoC 容器工作的过程，其实可以划分为两个阶段：**容器启动阶段**和**Bean 实例化阶段**。
 
 其中容器启动阶段主要做的工作是加载和解析配置文件，保存到对应的 Bean 定义中。
 
@@ -462,171 +495,289 @@ Spring 的 IOC 容器工作的过程，其实可以划分为两个阶段：**容
 
 ### 9.能说一下 Spring Bean 生命周期吗？
 
-可以看看：[Spring Bean 生命周期，好像人的一生。。](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
+推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
 
-在 Spring 中，基本容器 BeanFactory 和扩展容器 ApplicationContext 的实例化时机不太一样，BeanFactory 采用的是延迟初始化的方式，也就是只有在第一次 getBean()的时候，才会实例化 Bean；ApplicationContext 启动之后会实例化所有的 Bean 定义。
+在 Spring 中，基本容器 BeanFactory 和扩展容器 ApplicationContext 的实例化时机不太一样，BeanFactory 采用的是延迟初始化的方式，也就是说，只有在第一次 `getBean()` 获取 Bean 的时候，才会实例化 Bean。
 
-Spring IOC 中 Bean 的生命周期大致分为四个阶段：**实例化**（Instantiation）、**属性赋值**（Populate）、**初始化**（Initialization）、**销毁**（Destruction）。
+而 ApplicationContext 会在启动时预先创建并初始化所有的 Bean，并且包含了 BeanFactory 的所有功能，还增加了国际化支持、事件传播等功能。在 Spring Boot 项目中，一般使用的是 ApplicationContext。
 
-![Bean生命周期四个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
+![三分恶：BeanFactory 和 ApplicationContext 的不同](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311095813.png)
 
-我们再来看一个稍微详细一些的过程：
+Spring 中 Bean 的生命周期大致分为四个阶段：**实例化**（Instantiation）、**属性赋值**（Populate）、**初始化**（Initialization）、**销毁**（Destruction）。
 
-- **实例化**：第 1 步，实例化一个 Bean 对象
-- **属性赋值**：第 2 步，为 Bean 设置相关属性和依赖
-- **初始化**：初始化的阶段的步骤比较多，5、6 步是真正的初始化，第 3、4 步为在初始化前执行，第 7 步在初始化后执行，初始化完成之后，Bean 就可以被使用了
-- **销毁**：第 8~10 步，第 8 步其实也可以算到销毁阶段，但不是真正意义上的销毁，而是先在使用前注册了销毁的相关调用接口，为了后面第 9、10 步真正销毁 Bean 时再执行相应的方法
+![三分恶面渣逆袭：Bean生命周期四个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
 
-![SpringBean生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
+对应的完整步骤如下图所示：
 
-简单总结一下，Bean 生命周期里初始化的过程相对步骤会多一些，比如前置、后置的处理。
+![三分恶面渣逆袭：Spring Bean生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
 
-最后通过一个实例来看一下具体的细节：
-![Bean一生实例](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a3b7714e-38f2-433d-97c6-acb1d20f2887.png)
+> 可以通过 `@Component`、`@Service`、`@Repository`、`@Controller`等注解来定义 Bean。
 
-- 定义一个`PersonBean`类，实现`DisposableBean`,`InitializingBean`, `BeanFactoryAware`, `BeanNameAware`这 4 个接口，同时还有自定义的`init-method`和`destroy-method`。
+- **实例化**：Spring 容器根据 Bean 的定义创建 Bean 的实例，相当于执行构造方法，也就是 new 一个对象。
+- **属性赋值**：相当于执行 setter 方法为字段赋值。
+- **初始化**：初始化阶段允许执行自定义的逻辑，比如设置某些必要的属性值、开启资源、执行预加载操作等，以确保 Bean 在使用之前是完全配置好的。
+- **销毁**：相当于执行 `= null`，释放资源。
+
+可以在源码 `AbstractAutowireCapableBeanFactory` 中的 `doCreateBean` 方法中，看到 Bean 的前三个生命周期：
 
 ```java
-public class PersonBean implements InitializingBean, BeanFactoryAware, BeanNameAware, DisposableBean {
+protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args) throws BeanCreationException {
+    BeanWrapper instanceWrapper = null;
+    if (mbd.isSingleton()) {
+        instanceWrapper = (BeanWrapper)this.factoryBeanInstanceCache.remove(beanName);
+    }
 
-    /**
-     * 身份证号
-     */
-    private Integer no;
+    if (instanceWrapper == null) {
+        // 实例化阶段
+        instanceWrapper = this.createBeanInstance(beanName, mbd, args);
+    }
 
-    /**
-     * 姓名
-     */
+    ...
+
+    Object exposedObject = bean;
+
+    try {
+        // 属性赋值阶段
+        this.populateBean(beanName, mbd, instanceWrapper);
+        // 初始化阶段
+        exposedObject = this.initializeBean(beanName, exposedObject, mbd);
+    } catch (Throwable var18) {
+        ...
+    }
+
+    ...
+}
+```
+
+![三分恶面渣逆袭：Bean生命周期源码追踪](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d2da20a3-08d0-4648-b9a3-2fff8512b159.png)
+
+源码位置，见下图：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101430.png)
+
+至于销毁，是在容器关闭的时候调用的，详见 `ConfigurableApplicationContext` 的 `close` 方法。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101658.png)
+
+**请在一个已有的 Spring Boot 项目中通过单元测试的形式来展示 Spring Bean 的生命周期**。
+
+第一步，创建一个 LifecycleDemoBean 类：
+
+```java
+public class LifecycleDemoBean implements InitializingBean, DisposableBean {
+
+    // 使用@Value注解注入属性值，这里演示了如何从配置文件中读取值
+    // 如果配置文件中没有定义lifecycle.demo.bean.name，则使用默认值"default name"
+    @Value("${lifecycle.demo.bean.name:default name}")
     private String name;
 
-    public PersonBean() {
-        System.out.println("1.调用构造方法：我出生了！");
+    // 构造方法：在Bean实例化时调用
+    public LifecycleDemoBean() {
+        System.out.println("LifecycleDemoBean: 实例化");
     }
 
-    public Integer getNo() {
-        return no;
-    }
-
-    public void setNo(Integer no) {
-        this.no = no;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+    // 属性赋值：Spring通过反射调用setter方法为Bean的属性注入值
     public void setName(String name) {
+        System.out.println("LifecycleDemoBean: 属性赋值");
         this.name = name;
-        System.out.println("2.设置属性：我的名字叫"+name);
     }
 
-    @Override
-    public void setBeanName(String s) {
-        System.out.println("3.调用BeanNameAware#setBeanName方法:我要上学了，起了个学名");
+    // 使用@PostConstruct注解的方法：在Bean的属性赋值完成后调用，用于执行初始化逻辑
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("LifecycleDemoBean: @PostConstruct（初始化）");
     }
 
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("4.调用BeanFactoryAware#setBeanFactory方法：选好学校了");
-    }
-
+    // 实现InitializingBean接口：afterPropertiesSet方法在@PostConstruct注解的方法之后调用
+    // 用于执行更多的初始化逻辑
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("6.InitializingBean#afterPropertiesSet方法：入学登记");
+        System.out.println("LifecycleDemoBean: afterPropertiesSet（InitializingBean）");
     }
 
-    public void init() {
-        System.out.println("7.自定义init方法：努力上学ing");
+    // 自定义初始化方法：在XML配置或Java配置中指定，执行特定的初始化逻辑
+    public void customInit() {
+        System.out.println("LifecycleDemoBean: customInit（自定义初始化方法）");
     }
 
+    // 使用@PreDestroy注解的方法：在容器销毁Bean之前调用，用于执行清理工作
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("LifecycleDemoBean: @PreDestroy（销毁前）");
+    }
+
+    // 实现DisposableBean接口：destroy方法在@PreDestroy注解的方法之后调用
+    // 用于执行清理资源等销毁逻辑
     @Override
     public void destroy() throws Exception {
-        System.out.println("9.DisposableBean#destroy方法：平淡的一生落幕了");
+        System.out.println("LifecycleDemoBean: destroy（DisposableBean）");
     }
 
-    public void destroyMethod() {
-        System.out.println("10.自定义destroy方法:睡了，别想叫醒我");
+    // 自定义销毁方法：在XML配置或Java配置中指定，执行特定的清理逻辑
+    public void customDestroy() {
+        System.out.println("LifecycleDemoBean: customDestroy（自定义销毁方法）");
     }
+}
+```
 
-    public void work(){
-        System.out.println("Bean使用中：工作，只有对社会没有用的人才放假。。");
-    }
+#### ①、实例化
 
+实例化是创建 Bean 实例的过程，即在内存中为 Bean 对象分配空间。这一步是通过调用 Bean 的构造方法完成的。
+
+```java
+public LifecycleDemoBean() {
+    System.out.println("LifecycleDemoBean: 实例化");
 }
 ```
 
-- 定义一个`MyBeanPostProcessor`实现`BeanPostProcessor`接口。
+在这里，当 Spring 创建 LifecycleDemoBean 的实例时，会调用其无参数的构造方法，这个过程就是实例化。
+
+#### ②、属性赋值
+
+在实例化之后，Spring 将根据 Bean 定义中的配置信息，通过反射机制为 Bean 的属性赋值。
 
 ```java
-public class MyBeanPostProcessor implements BeanPostProcessor {
+@Value("${lifecycle.demo.bean.name:default name}")
+private String name;
 
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("5.BeanPostProcessor.postProcessBeforeInitialization方法：到学校报名啦");
-        return bean;
-    }
+public void setName(String name) {
+    System.out.println("LifecycleDemoBean: 属性赋值");
+    this.name = name;
+}
+```
 
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("8.BeanPostProcessor#postProcessAfterInitialization方法：终于毕业，拿到毕业证啦！");
-        return bean;
+`@Value`注解和 setter 方法体现了属性赋值的过程。`@Value`注解让 Spring 注入配置值（或默认值），setter 方法则是属性赋值的具体操作。
+
+#### ③、初始化
+
+初始化阶段允许执行自定义的初始化逻辑，比如检查必要的属性是否已经设置、开启资源等。Spring 提供了多种方式来配置初始化逻辑。
+
+1、使用 `@PostConstruct` 注解的方法
+
+```java
+@PostConstruct
+public void postConstruct() {
+    System.out.println("LifecycleDemoBean: @PostConstruct（初始化）");
+}
+```
+
+`@PostConstruct`注解的方法在 Bean 的所有属性都被赋值后，且用户自定义的初始化方法之前调用。
+
+2、实现 `InitializingBean` 接口的 `afterPropertiesSet` 方法
+
+```java
+@Override
+public void afterPropertiesSet() throws Exception {
+    System.out.println("LifecycleDemoBean: afterPropertiesSet（InitializingBean）");
+}
+```
+
+afterPropertiesSet 方法提供了另一种初始化 Bean 的方式，也是在所有属性赋值后调用。
+
+3、自定义初始化方法
+
+```java
+public void customInit() {
+    System.out.println("LifecycleDemoBean: customInit（自定义初始化方法）");
+}
+```
+
+需要在配置类中指定初始化方法：
+
+```java
+@Bean(initMethod = "customInit")
+public LifecycleDemoBean lifecycleDemoBean() {
+    return new LifecycleDemoBean();
+}
+```
+
+#### ④、销毁
+
+销毁阶段允许执行自定义的销毁逻辑，比如释放资源。类似于初始化阶段，Spring 也提供了多种方式来配置销毁逻辑。
+
+1、使用 `@PreDestroy` 注解的方法
+
+```java
+@PreDestroy
+public void preDestroy() {
+    System.out.println("LifecycleDemoBean: @PreDestroy（销毁前）");
+}
+```
+
+`@PreDestroy`注解的方法在 Bean 被销毁前调用。
+
+2、实现 `DisposableBean` 接口的 `destroy` 方法
+
+```java
+@Override
+public void destroy() throws Exception {
+    System.out.println("LifecycleDemoBean: destroy（DisposableBean）");
+}
+```
+
+destroy 方法提供了另一种销毁 Bean 的方式，也是在 Bean 被销毁前调用。
+
+3、自定义销毁方法
+
+```java
+public void customDestroy() {
+    System.out.println("LifecycleDemoBean: customDestroy（自定义销毁方法）");
+}
+```
+
+需要在配置类中指定销毁方法：
+
+```java
+@Bean(destroyMethod = "customDestroy")
+public LifecycleDemoBean lifecycleDemoBean() {
+    return new LifecycleDemoBean();
+}
+```
+
+第二步，注册 Bean 并指定自定义初始化方法和销毁方法：
+
+```java
+@Configuration
+public class LifecycleDemoConfig {
+
+    @Bean(initMethod = "customInit", destroyMethod = "customDestroy")
+    public LifecycleDemoBean lifecycleDemoBean() {
+        return new LifecycleDemoBean();
     }
 }
-
 ```
 
-- 配置文件，指定`init-method`和`destroy-method`属性
+第三步，编写单元测试：
 
 ```java
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+@SpringBootTest
+public class LifecycleDemoTest {
 
-    <bean name="myBeanPostProcessor" class="cn.fighter3.spring.life.MyBeanPostProcessor" />
-    <bean name="personBean" class="cn.fighter3.spring.life.PersonBean"
-          init-method="init" destroy-method="destroyMethod">
-        <property name="idNo" value= "80669865"/>
-        <property name="name" value="张铁钢" />
-    </bean>
+    @Autowired
+    private ApplicationContext context;
 
-</beans>
-```
-
-- 测试
-
-```java
-public class Main {
-
-    public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
-        PersonBean personBean = (PersonBean) context.getBean("personBean");
-        personBean.work();
-        ((ClassPathXmlApplicationContext) context).destroy();
+    @Test
+    public void testBeanLifecycle() {
+        System.out.println("获取LifecycleDemoBean实例...");
+        LifecycleDemoBean bean = context.getBean(LifecycleDemoBean.class);
     }
 }
-
 ```
 
-- 运行结果：
+运行单元测试，查看控制台输出：
 
 ```java
-1.调用构造方法：我出生了！
-2.设置属性：我的名字叫张铁钢
-3.调用BeanNameAware#setBeanName方法:我要上学了，起了个学名
-4.调用BeanFactoryAware#setBeanFactory方法：选好学校了
-5.BeanPostProcessor#postProcessBeforeInitialization方法：到学校报名啦
-6.InitializingBean#afterPropertiesSet方法：入学登记
-7.自定义init方法：努力上学ing
-8.BeanPostProcessor#postProcessAfterInitialization方法：终于毕业，拿到毕业证啦！
-Bean使用中：工作，只有对社会没有用的人才放假。。
-9.DisposableBean#destroy方法：平淡的一生落幕了
-10.自定义destroy方法:睡了，别想叫醒我
+LifecycleDemoBean: 实例化
+LifecycleDemoBean: @PostConstruct（初始化）
+LifecycleDemoBean: afterPropertiesSet（InitializingBean）
+LifecycleDemoBean: customInit（自定义初始化方法）
+获取LifecycleDemoBean实例...
+LifecycleDemoBean: @PreDestroy（销毁前）
+LifecycleDemoBean: destroy（DisposableBean）
+LifecycleDemoBean: customDestroy（自定义销毁方法）
 ```
 
-关于源码，Bean 创建过程可以查看`AbstractBeanFactory#doGetBean`方法，在这个方法里可以看到 Bean 的实例化，赋值、初始化的过程，至于最终的销毁，可以看看`ConfigurableApplicationContext#close()`。
-
-![Bean生命周期源码追踪](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d2da20a3-08d0-4648-b9a3-2fff8512b159.png)
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
 
 ### 10.Bean 定义和依赖定义有哪些方式？
 
@@ -757,7 +908,7 @@ Spring 支持**构造方法注入**、**属性注入**、**工厂方法注入**,
 
 > **什么是自动装配？**
 
-Spring IOC 容器知道所有 Bean 的配置信息，此外，通过 Java 反射机制还可以获知实现类的结构信息，如构造方法的结构、属性等信息。掌握所有 Bean 的这些信息后，Spring IOC 容器就可以按照某种规则对容器中的 Bean 进行自动装配，而无须通过显式的方式进行依赖配置。
+Spring IoC 容器知道所有 Bean 的配置信息，此外，通过 Java 反射机制还可以获知实现类的结构信息，如构造方法的结构、属性等信息。掌握所有 Bean 的这些信息后，Spring IoC 容器就可以按照某种规则对容器中的 Bean 进行自动装配，而无须通过显式的方式进行依赖配置。
 
 Spring 提供的这种方式，可以按照某些规则进行 Bean 的自动装配，`<bean>`元素提供了一个指定自动装配类型的属性：`autowire="<自动装配类型>"`
 
@@ -815,68 +966,145 @@ Spring 的 Bean 主要支持五种作用域：
 
 ### 15.说说循环依赖?
 
-> **什么是循环依赖？**
+**什么是循环依赖？**
 
-![Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
+先上图：
 
-Spring 循环依赖：简单说就是自己依赖自己，或者和别的 Bean 相互依赖。
+![三分恶面渣逆袭：Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
 
-![鸡和蛋](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-0035fd25-2972-4642-a8ec-ee44a566a5bd.png)
+A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
 
-只有单例的 Bean 才存在循环依赖的情况，**原型**(Prototype)情况下，Spring 会直接抛出异常。原因很简单，AB 循环依赖，A 实例化的时候，发现依赖 B，创建 B 实例，创建 B 的时候发现需要 A，创建 A1 实例……无限套娃，直接把系统干垮。
+![三分恶面渣逆袭：鸡和蛋](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-0035fd25-2972-4642-a8ec-ee44a566a5bd.png)
 
-> **Spring 可以解决哪些情况的循环依赖？**
+当然了，循环依赖只发生在 Singleton 作用域的 Bean 之间，因为如果是 Prototype 作用域的 Bean，Spring 会直接抛出异常。
 
-Spring 不支持基于构造器注入的循环依赖，但是假如 AB 循环依赖，如果一个是构造器注入，一个是 setter 注入呢？
+原因很简单，AB 循环依赖，A 实例化的时候，发现依赖 B，创建 B 实例，创建 B 的时候发现需要 A，创建 A1 实例……无限套娃。。。。
 
-看看几种情形：
+我们来看一个实例，先是 PrototypeBeanA：
 
-![循环依赖的几种情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-37bb576d-b4af-42ed-91f4-d846ceb012b6.png)
+```java
+@Component
+@Scope("prototype")
+public class PrototypeBeanA {
+    private final PrototypeBeanB prototypeBeanB;
 
-第四种可以而第五种不可以的原因是 Spring 在创建 Bean 时默认会根据自然排序进行创建，所以 A 会先于 B 进行创建。
+    @Autowired
+    public PrototypeBeanA(PrototypeBeanB prototypeBeanB) {
+        this.prototypeBeanB = prototypeBeanB;
+    }
+}
+```
 
-所以简单总结，当循环依赖的实例都采用 setter 方法注入的时候，Spring 可以支持，都采用构造器注入的时候，不支持，构造器注入和 setter 注入同时存在的时候，看天。
+然后是 PrototypeBeanB：
+
+```java
+@Component
+@Scope("prototype")
+public class PrototypeBeanB {
+    private final PrototypeBeanA prototypeBeanA;
+
+    @Autowired
+    public PrototypeBeanB(PrototypeBeanA prototypeBeanA) {
+        this.prototypeBeanA = prototypeBeanA;
+    }
+}
+```
+
+再然后是测试：
+
+```java
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @Bean
+    CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+        return args -> {
+            // 尝试获取PrototypeBeanA的实例
+            PrototypeBeanA beanA = ctx.getBean(PrototypeBeanA.class);
+        };
+    }
+}
+```
+
+运行结果：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310202703.png)
+
+在这个示例中，当 Spring 应用启动并尝试获取 PrototypeBeanA 或 PrototypeBeanB 的实例时，将会遇到问题。因为它们互相依赖，而 Spring 无法解决 Prototype 作用域 bean 的循环依赖问题。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
+
+**Spring 可以解决哪些情况的循环依赖？**
+
+看看这几种情形（AB 循环依赖）：
+
+![三分恶面渣逆袭：循环依赖的几种情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-37bb576d-b4af-42ed-91f4-d846ceb012b6.png)
+
+也就是说：
+
+- AB 均采用构造器注入，不支持
+- AB 均采用 setter 注入，支持
+- AB 均采用属性自动注入，支持
+- A 中注入的 B 为 setter 注入，B 中注入的 A 为构造器注入，支持
+- B 中注入的 A 为 setter 注入，A 中注入的 B 为构造器注入，不支持
+
+第四种可以，第五种不可以的原因是 Spring 在创建 Bean 时默认会根据自然排序进行创建，所以 A 会先于 B 进行创建。
+
+简单总结下，当循环依赖的实例都采用 setter 方法注入时，Spring 支持，都采用构造器注入的时候，不支持；构造器注入和 setter 注入同时存在的时候，看天（😂）。
+
+> 1. [Java 面试指南福分]
 
 ### 16.那 Spring 怎么解决循环依赖的呢？
 
-> PS：其实正确答案是开发人员做好设计，别让 Bean 循环依赖，但是没办法，面试官不想听这个。
+> 开发人员做好设计，别让 Bean 循环依赖，但面试官既然这么傻逼地问了这个问题，肯定不想听这个最正确的答案（😂）。只能硬着头皮作答了。
 
-我们都知道，单例 Bean 初始化完成，要经历三步：
+我们都知道，Singleton 的 Bean 要初始化完成，需要经历这三步：
 
-![Bean初始化步骤](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-867066f1-49d1-4e57-94f9-4c66a3a8797e.png)
+![三分恶面渣逆袭：Bean初始化步骤](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-867066f1-49d1-4e57-94f9-4c66a3a8797e.png)
 
-注入就发生在第二步，**属性赋值**，结合这个过程，Spring 通过**三级缓存**解决了循环依赖：
+注入发生在第二步，**属性赋值**，Spring 可以在这一步通过**三级缓存**来解决了循环依赖：
 
 1.  一级缓存 : `Map<String,Object>` **singletonObjects**，单例池，用于保存实例化、属性赋值（注入）、初始化完成的 bean 实例
 2.  二级缓存 : `Map<String,Object>` **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
-3.  三级缓存 : `Map<String,ObjectFactory<?>>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便于后面扩展有机会创建代理对象。
+3.  三级缓存 : `Map<String,ObjectFactory<?>>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便后面有机会创建代理对象。
 
-![三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
+![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
 
 我们来看一下三级缓存解决循环依赖的过程：
 
 当 A、B 两个类发生循环依赖时：
-![循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
+
+![三分恶面渣逆袭：循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
 
 A 实例的初始化过程：
 
-1. 创建 A 实例，实例化的时候把 A 对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然我这个对象还不完整，但是先曝光出来让大家知道
+①、创建 A 实例，实例化的时候把 A 的对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然我这个对象还不完整，但是先曝光出来让大家知道。
 
-![1](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
+![三分恶面渣逆袭：A 对象工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
 
-2. A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B
+②、A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B
 
-3. 同样，B 注⼊属性时发现依赖 A，它就会从缓存里找 A 对象。依次从⼀级到三级缓存查询 A，从三级缓存通过对象⼯⼚拿到 A，发现 A 虽然不太完善，但是存在，把 A 放⼊⼆级缓存，同时删除三级缓存中的 A，此时，B 已经实例化并且初始化完成，把 B 放入⼀级缓存。
+③、同样，B 注⼊属性时发现依赖 A，它就从缓存里找 A 对象。依次从⼀级到三级缓存查询 A。
 
-![2](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bf2507bf-96aa-4b88-a58b-7ec41d11bc70.png)
+发现可以从三级缓存中通过对象⼯⼚拿到 A，虽然 A 不太完善，但是存在，就把 A 放⼊⼆级缓存，同时删除三级缓存中的 A，此时，B 已经实例化并且初始化完成了，把 B 放入⼀级缓存。
 
-4. 接着 A 继续属性赋值，顺利从⼀级缓存拿到实例化且初始化完成的 B 对象，A 对象创建也完成，删除⼆级缓存中的 A，同时把 A 放⼊⼀级缓存
+![三分恶面渣逆袭：放入一级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bf2507bf-96aa-4b88-a58b-7ec41d11bc70.png)
 
-5. 最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象
+④、接着 A 继续属性赋值，顺利从⼀级缓存拿到实例化且初始化完成的 B 对象，A 对象创建也完成，删除⼆级缓存中的 A，同时把 A 放⼊⼀级缓存
 
-![5](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
+⑤、最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象
 
-所以，我们就知道为什么 Spring 能解决 setter 注入的循环依赖了，因为实例化和属性赋值是分开的，所以里面有操作的空间。如果都是构造器注入的化，那么都得在实例化这一步完成注入，所以自然是无法支持了。
+![三分恶面渣逆袭：AB 都好了](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
+
+到此，我们就知道为什么 Spring 能解决 setter 注入的循环依赖了，因为实例化和属性赋值是分开的，里面有操作的空间。
+
+如果都是构造器注入的话，那么都得在实例化这一步完成注入，没有可操作的空间。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 
 ### 17.为什么要三级缓存？⼆级不⾏吗？
 
@@ -932,7 +1160,7 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
   }
 ```
 
-* postProcessorPropertyValues()方法的源码如下，在该方法中，会先调用 findAutowiringMetadata()方法解析出 bean 中带有@Autowired 注解、@Inject 和@Value 注解的属性和方法。然后调用 metadata.inject()方法，进行属性填充。
+- postProcessorPropertyValues()方法的源码如下，在该方法中，会先调用 findAutowiringMetadata()方法解析出 bean 中带有@Autowired 注解、@Inject 和@Value 注解的属性和方法。然后调用 metadata.inject()方法，进行属性填充。
 
 ```java
   public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
@@ -951,8 +1179,7 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
   }
 ```
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
@@ -992,7 +1219,6 @@ AOP 的核心其实就是**动态代理**，可以使用 JDK 的动态代理，�
 - **引介**（introduction）：一种特殊的增强，可以动态地为类添加一些属性和方法
 - **织入**（Weabing）：织入是将增强添加到目标类的具体连接点上的过程。可以分为 3 种类型的织入：
 
-
 ①、编译期织入：切面在目标类编译时被织入。
 
 ②、类加载期织入：切面在目标类加载到 JVM 时被织入。需要特殊的类加载器，它可以在目标类被引入应用之前增强该目标类的字节码。
@@ -1000,7 +1226,6 @@ AOP 的核心其实就是**动态代理**，可以使用 JDK 的动态代理，�
 ③、运行期织入：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。Spring AOP 就是以这种方式织入切面。
 
 Spring 采用运行期织入，而 AspectJ 采用编译期织入和类加载器织入。
-
 
 > 继续追问：**AOP 有哪些环绕方式？**
 
@@ -1086,115 +1311,46 @@ AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知
 像 `@Transactional` 注解，就是一个典型的 AOP 应用，它就是通过 AOP 来实现事务管理的。我们只需要在方法上添加 `@Transactional` 注解，Spring 就会在方法执行前后添加事务管理的逻辑。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 AOP 的原理。
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说你对 AOP 和 IoC 的理解。
 
-### 20.说说你平时有用到 AOP 吗？
+### 20.你平时有用到 AOP 吗？
 
-PS：这道题老三的同事面试候选人的时候问到了，候选人说了一堆 AOP 原理，同事就势来一句，你能现场写一下 AOP 的应用吗？结果——场面一度很尴尬。虽然我对面试写这种百度就能出来的东西持保留意见，但是还是加上了这一问，毕竟招人最后都是要撸代码的。
+> PS：这道题我在面试候选人的时候问过。先问的 AOP 原理，候选人说了一堆，于是我就势来了这么一句，**你能现场写一个 AOP 的应用吗**？结果场面一度尴尬。虽然我对面试时，写这种百度一下就能出来的东西持保留意见，但招人最后都是要撸代码的，纸上谈兵没毛用（😂）。
 
-这里给出一个小例子，SpringBoot 项目中，利用 AOP 打印接口的入参和出参日志，以及执行时间，还是比较快捷的。
+这里给出一个小例子，在 SpringBoot 项目中，如何利用 AOP 打印接口的入参和出参日志，以及执行时间，其实[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中就有这个例子，我为此还写过详细地教程。
 
-- 引入依赖：引入 AOP 依赖
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180334.png)
 
-  ```java
-          <dependency>
-              <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-starter-aop</artifactId>
-          </dependency>
-  ```
+这里我就再啰嗦几句。
 
-- 自定义注解：自定义一个注解作为切点
+第一步，自定义一个注解作为切点
 
-  ```java
-  @Retention(RetentionPolicy.RUNTIME)
-  @Target({ElementType.METHOD})
-  @Documented
-  public @interface WebLog {
-  }
-  ```
+```java
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface MdcDot {
+    String bizCode() default "";
+}
+```
 
-- 配置 AOP 切面：
+第二步，配置 AOP 切面：
 
-  - @Aspect：标识切面
+- `@Aspect`：标识切面
+- `@Pointcut`：设置切点，这里以自定义注解为切点
+- `@Around`：环绕切点，打印方法签名和执行时间
 
-  - @Pointcut：设置切点，这里以自定义注解为切点，定义切点有很多其它种方式，自定义注解是比较常用的一种。
-  - @Before：在切点之前织入，打印了一些入参信息
-  - @Around：环绕切点，打印返回参数和接口执行时间
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180741.png)
 
-  ```java
-  @Aspect
-  @Component
-  public class WebLogAspect {
+第三步，在使用的地方加上自定义注解
 
-      private final static Logger logger         = LoggerFactory.getLogger(WebLogAspect.class);
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310181233.png)
 
-      /**
-       * 以自定义 @WebLog 注解为切点
-       **/
-      @Pointcut("@annotation(cn.fighter3.spring.aop_demo.WebLog)")
-      public void webLog() {}
+第四步，当接口被调用时，就可以看到对应的执行日志。
 
-      /**
-       * 在切点之前织入
-       */
-      @Before("webLog()")
-      public void doBefore(JoinPoint joinPoint) throws Throwable {
-          // 开始打印请求日志
-          ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-          HttpServletRequest request = attributes.getRequest();
-          // 打印请求相关参数
-          logger.info("========================================== Start ==========================================");
-          // 打印请求 url
-          logger.info("URL            : {}", request.getRequestURL().toString());
-          // 打印 Http method
-          logger.info("HTTP Method    : {}", request.getMethod());
-          // 打印调用 controller 的全路径以及执行方法
-          logger.info("Class Method   : {}.{}", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
-          // 打印请求的 IP
-          logger.info("IP             : {}", request.getRemoteAddr());
-          // 打印请求入参
-          logger.info("Request Args   : {}",new ObjectMapper().writeValueAsString(joinPoint.getArgs()));
-      }
-
-      /**
-       * 在切点之后织入
-       * @throws Throwable
-       */
-      @After("webLog()")
-      public void doAfter() throws Throwable {
-          // 结束后打个分隔线，方便查看
-          logger.info("=========================================== End ===========================================");
-      }
-
-      /**
-       * 环绕
-       */
-      @Around("webLog()")
-      public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-          //开始时间
-          long startTime = System.currentTimeMillis();
-          Object result = proceedingJoinPoint.proceed();
-          // 打印出参
-          logger.info("Response Args  : {}", new ObjectMapper().writeValueAsString(result));
-          // 执行耗时
-          logger.info("Time-Consuming : {} ms", System.currentTimeMillis() - startTime);
-          return result;
-      }
-
-  }
-  ```
-
-- 使用：只需要在接口上加上自定义注解
-
-  ```java
-      @GetMapping("/hello")
-      @WebLog(desc = "这是一个欢迎接口")
-      public String hello(String name){
-          return "Hello "+name;
-      }
-  ```
-
-* 执行结果：可以看到日志打印了入参、出参和执行时间
-![执行结果](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-9c14f774-44b9-41b3-a8c0-f2a54385f6ff.png)
+```
+2023-06-16 11:06:13,008 [http-nio-8080-exec-3] INFO |00000000.1686884772947.468581113|101|c.g.p.forum.core.mdc.MdcAspect.handle(MdcAspect.java:47) - 方法执行耗时: com.github.paicoding.forum.web.front.article.rest.ArticleRestController#recommend = 47
+```
 
 ### 21.说说 JDK 动态代理和 CGLIB 代理 ？
 
@@ -1359,7 +1515,7 @@ Spring AOP 属于`运行时增强`，主要具有如下特点：
 
 1.  基于动态代理来实现，默认如果使用接口的，用 JDK 提供的动态代理实现，如果是方法则使用 CGLIB 实现
 
-2.  Spring AOP 需要依赖 IOC 容器来管理，并且只能作用于 Spring 容器，使用纯 Java 代码实现
+2.  Spring AOP 需要依赖 IoC 容器来管理，并且只能作用于 Spring 容器，使用纯 Java 代码实现
 
 3.  在性能上，由于 Spring AOP 是基于**动态代理**来实现的，在容器启动时需要生成代理实例，在方法调用上也会增加栈的深度，使得 Spring AOP 的性能不如 AspectJ 的那么好。
 
@@ -1381,9 +1537,7 @@ AspectJ 属于**静态织入**，通过修改代码来实现，在实际运行�
 
 ![Spring AOP和AspectJ对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d1dbe9d9-c55f-4293-8622-d9759064d613.png)
 
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
@@ -1438,7 +1592,7 @@ Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，它适合绝大多�
 
 ![图片来源网易技术专栏](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-97493c7f-c596-4e98-a6a8-dab254d6d1ab.png)
 
-  事务拦截器`TransactionInterceptor`在`invoke`方法中，通过调用父类`TransactionAspectSupport`的`invokeWithinTransaction`方法进行事务处理，包括开启事务、事务提交、异常回滚。
+事务拦截器`TransactionInterceptor`在`invoke`方法中，通过调用父类`TransactionAspectSupport`的`invokeWithinTransaction`方法进行事务处理，包括开启事务、事务提交、异常回滚。
 
 ### 27.声明式事务在哪些情况下会失效？
 
@@ -1545,8 +1699,7 @@ private Integer A() throws Exception {
 org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
 ```
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
@@ -1591,7 +1744,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 在前后端分离的情况下，步骤 ⑥、⑦、⑧ 会略有不同，后端通常只需要处理数据，并将 JSON 格式的数据返回给前端就可以了，而不是返回完整的视图页面。
 
->1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说前端发起请求到 SpringMVC 的整个处理流程。
+> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说前端发起请求到 SpringMVC 的整个处理流程。
 
 ### 30.SpringMVC Restful 风格的接口的流程是什么样的呢？
 
@@ -1629,8 +1782,7 @@ PS:这是一道全新的八股，毕竟 ModelAndView 这种方式应该没人用
 
 6. 执行完请求后，返回的 ModealAndView 为 null，ServletServerHttpResponse 里也已经写入了响应，所以不用关心 View 的处理
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
@@ -1843,36 +1995,32 @@ SpringCloud 是 Spring 官方推出的微服务治理框架。
 
 ![SpringCloud](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b988a72-0739-4fed-b271-eaf12589444f.png)
 
-
-
->  图文详解 35 道Spring面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+> 图文详解 35 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 ---
 
-*没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟*。
-
+_没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
 **系列内容**：
 
-- [面渣逆袭 Java SE 篇👍](https://javabetter.cn/sidebar/sanfene/javase.html)
-- [面渣逆袭 Java 集合框架篇👍](https://javabetter.cn/sidebar/sanfene/javathread.html)
-- [面渣逆袭 Java 并发编程篇👍](https://javabetter.cn/sidebar/sanfene/collection.html)
-- [面渣逆袭 JVM 篇👍](https://javabetter.cn/sidebar/sanfene/jvm.html)
-- [面渣逆袭 Spring 篇👍](https://javabetter.cn/sidebar/sanfene/spring.html)
-- [面渣逆袭 Redis 篇👍](https://javabetter.cn/sidebar/sanfene/redis.html)
-- [面渣逆袭 MyBatis 篇👍](https://javabetter.cn/sidebar/sanfene/mybatis.html)
-- [面渣逆袭 MySQL 篇👍](https://javabetter.cn/sidebar/sanfene/mysql.html)
-- [面渣逆袭操作系统篇👍](https://javabetter.cn/sidebar/sanfene/os.html)
-- [面渣逆袭计算机网络篇👍](https://javabetter.cn/sidebar/sanfene/network.html)
-- [面渣逆袭RocketMQ篇👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
-- [面渣逆袭分布式篇👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
-- [面渣逆袭微服务篇👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
+- [面渣逆袭 Java SE 篇 👍](https://javabetter.cn/sidebar/sanfene/javase.html)
+- [面渣逆袭 Java 集合框架篇 👍](https://javabetter.cn/sidebar/sanfene/javathread.html)
+- [面渣逆袭 Java 并发编程篇 👍](https://javabetter.cn/sidebar/sanfene/collection.html)
+- [面渣逆袭 JVM 篇 👍](https://javabetter.cn/sidebar/sanfene/jvm.html)
+- [面渣逆袭 Spring 篇 👍](https://javabetter.cn/sidebar/sanfene/spring.html)
+- [面渣逆袭 Redis 篇 👍](https://javabetter.cn/sidebar/sanfene/redis.html)
+- [面渣逆袭 MyBatis 篇 👍](https://javabetter.cn/sidebar/sanfene/mybatis.html)
+- [面渣逆袭 MySQL 篇 👍](https://javabetter.cn/sidebar/sanfene/mysql.html)
+- [面渣逆袭操作系统篇 👍](https://javabetter.cn/sidebar/sanfene/os.html)
+- [面渣逆袭计算机网络篇 👍](https://javabetter.cn/sidebar/sanfene/network.html)
+- [面渣逆袭 RocketMQ 篇 👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
+- [面渣逆袭分布式篇 👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
+- [面渣逆袭微服务篇 👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
 
-----
+---
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
