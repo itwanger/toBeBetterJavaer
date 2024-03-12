@@ -146,7 +146,7 @@ JVM 执行 start 方法，会先创建一条线程，由创建出来的新线程
 
 唤醒线程主要有下面两个方法：
 
-①、`notify()`：一个线程 A 调用共享对象的 `notify()` 方法后，会唤醒一个在这个共享变量上调用 wait 系列方法后被挂起的线程。 
+①、`notify()`：一个线程 A 调用共享对象的 `notify()` 方法后，会唤醒一个在这个共享变量上调用 wait 系列方法后被挂起的线程。
 
 一个共享变量上可能会有多个线程在等待，具体唤醒哪个等待的线程是随机的。
 
@@ -172,7 +172,7 @@ Java 中的线程中断是一种线程间的协作模式，通过设置线程的
 - `boolean isInterrupted()` 方法： 检测当前线程是否被中断。
 - `boolean interrupted()` 方法： 检测当前线程是否被中断，与 isInterrupted 不同的是，该方法如果发现当前线程被中断，则会清除中断标志。
 
->可参考这篇帖子来进一步学习 [interrupt 方法](https://www.cnblogs.com/myseries/p/10918819.html)
+> 可参考这篇帖子来进一步学习 [interrupt 方法](https://www.cnblogs.com/myseries/p/10918819.html)
 
 假如面试官问：“**请说说 sleep 和 wait 的区别**，该如何回答呢？”
 
@@ -337,7 +337,7 @@ class WaitExample {
 }
 ```
 
->1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 sleep 和 wait 的区别
+> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 sleep 和 wait 的区别
 
 ### 6.线程有几种状态？
 
@@ -851,6 +851,92 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 锁
 
+### 61.聊聊线程同步
+
+> 2024年03月12日 新增
+
+所谓同步，即协同步调，按预定的先后次序访问共享资源，以免造成混乱。
+
+线程同步是多线程编程中的一个核心概念，它涉及到在多线程环境下如何安全地访问和修改共享资源的问题。
+
+当有一个线程在对内存进行操作时，其他线程都不可以对这个内存地址进行操作，直到该线程完成操作， 其他线程才能对该内存地址进行操作。
+
+如果多个线程同时读写某个共享资源（如变量、文件等），而没有适当的同步机制，就可能导致数据不一致、数据损坏等问题的出现。
+
+线程同步的实现方式有 6 种：互斥量、读写锁、条件变量、自旋锁、屏障、信号量。
+
+- **互斥量**：互斥量（mutex）是一种最基本的同步手段，本质上是一把锁，在访问共享资源前先对互斥量进行加锁，访问完后再解锁。对互斥量加锁后，任何其他试图再次对互斥量加锁的线程都会被阻塞，直到当前线程解锁。
+- **读写锁**：[读写锁](https://javabetter.cn/thread/ReentrantReadWriteLock.html)有三种状态，读模式加锁、写模式加锁和不加锁；一次只有一个线程可以占有写模式的读写锁，但是可以有多个线程同时占有读模式的读写锁。非常适合读多写少的场景。
+- **条件变量**：[条件变量](https://javabetter.cn/thread/condition.html)是一种同步手段，它允许线程在满足特定条件时才继续执行，否则进入等待状态。条件变量通常与互斥量一起使用，以防止竞争条件的发生。
+- **自旋锁**：自旋锁是一种锁的实现方式，它不会让线程进入睡眠状态，而是一直循环检测锁是否被释放。自旋锁适用于锁的持有时间非常短的情况。
+- 信号量：信号量（[Semaphore](https://javabetter.cn/thread/CountDownLatch.html)）本质上是一个计数器，用于为多个进程提供共享数据对象的访问。
+
+> 推荐阅读：[牛客：可能是全网最全的线程同步方式总结了](https://blog.nowcoder.net/n/7571c2a5ef82480380fea53875b8187b)
+
+在 Java 中，[synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)和 Lock 接口是用来实现线程同步的常用方式，我就以它俩来举例说明。
+
+#### synchronized 关键字
+
+当一个线程访问某对象的 synchronized 方法或代码块时，其他线程对该对象的所有 synchronized 方法或代码块的访问将被阻塞，直到第一个线程完成操作。
+
+synchronized 关键字就属于典型的互斥量，它保证了同一时间只有一个线程可以访问共享资源。
+
+```java
+public class Counter {
+    private int count = 0;
+
+    // 使用synchronized方法保证线程安全
+    public synchronized void increment() {
+        count++;
+    }
+
+    public synchronized int getCount() {
+        return count;
+    }
+}
+```
+
+在这个例子中，increment 方法和 getCount 方法都被标记为 synchronized。这意味着同一时间内只有一个线程可以执行这两个方法中的任意一个。
+
+在 JVM 的早期版本中，synchronized 是重量级的，因为线程阻塞和唤醒需要操作系统的介入。但在 JVM 的后续版本中，对 synchronized 进行了大量优化，如偏向锁、轻量级锁和适应性自旋等，所以现在的 synchronized 并不一定是重量级的，其性能在许多情况下都很好，可以大胆地用。
+
+#### Lock 接口
+
+Lock 接口提供了比 synchronized 关键字更灵活的锁操作。比如说我们可以用重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 来实现同样的功能。
+
+```java
+public class CounterWithLock {
+    private int count = 0;
+    private final Lock lock = new ReentrantLock();
+
+    public void increment() {
+        lock.lock();  // 获取锁
+        try {
+            count++;
+        } finally {
+            lock.unlock();  // 释放锁
+        }
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+```
+
+increment 方法先上锁，然后尝试增加 count 的值，在完成操作后释放锁。这样就可以保证 count 的操作是线程安全的。
+
+ReentrantLock 和 synchronized 都可以用来实现同步，但它们之间也存在一些区别：
+
+- **ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字**；
+- **ReentrantLock 可以实现多路选择通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)），而 synchronized 只能通过 wait 和 notify/notifyAll 方法唤醒一个线程或者唤醒全部线程（单路通知）**；
+- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。
+- synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
+- ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。
+- synchronized: 在某些情况下，性能可能稍差一些，但随着 JDK 版本的升级，性能差距已经不大了。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊线程同步
+
 ### 24.synchronized 用过吗？怎么使用？
 
 synchronized 经常用的，用来保证代码的原子性。
@@ -1289,38 +1375,101 @@ compareAndSwapInt 是一个 native 方法，基于 CAS 来操作 int 类型变�
 
 ### 37.线程死锁了解吗？该如何避免？
 
-死锁是指两个或两个以上的线程在执行过程中，因争夺资源而造成的互相等待的现象，在无外力作用的情况下，这些线程会一直相互等待而无法继续运行下去。
+死锁发生在多个线程相互等待对方释放锁资源，导致所有线程都无法继续执行。
 
-![死锁示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-47.png)
+![三分恶面渣逆袭：死锁示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-47.png)
 
-那么为什么会产生死锁呢？ 死锁的产生必须具备以下四个条件：
+#### 那么为什么会产生死锁呢？
 
-![死锁产生必备四条件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-48.png)
+讲个笑话，死锁的产生也不是你想产生就产生的，它是有条件的：
 
-- 互斥条件：指线程对己经获取到的资源进行它性使用，即该资源同时只由一个线程占用。如果此时还有其它线程请求获取获取该资源，则请求者只能等待，直至占有资源的线程释放该资源。
-- 请求并持有条件：指一个 线程己经持有了至少一个资源，但又提出了新的资源请求，而新资源己被其它线程占有，所以当前线程会被阻塞，但阻塞 的同时并不释放自己已经获取的资源。
-- 不可剥夺条件：指线程获取到的资源在自己使用完之前不能被其它线程抢占，只有在自己使用完毕后才由自己释放该资源。
-- 环路等待条件：指在发生死锁时，必然存在一个线程——资源的环形链，即线程集合 {T0，T1，T2,…… ，Tn} 中 T0 正在等待一 T1 占用的资源，Tl1 正在等待 T2 用的资源，…… Tn 在等待己被 T0 占用的资源。
+![三分恶面渣逆袭：死锁产生必备四条件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-48.png)
 
-该如何避免死锁呢？答案是**至少破坏死锁发生的一个条件**。
+- **互斥条件**：资源不能被多个线程共享，一次只能由一个线程使用。如果一个线程已经占用了一个资源，其他请求该资源的线程必须等待，直到资源被释放。
+- **持有并等待条件**：一个线程至少已经持有至少一个资源，且正在等待获取额外的资源，这些额外的资源被其他线程占有。
+- **不可剥夺条件**：资源不能被强制从一个线程中抢占过来，只能由持有资源的线程主动释放。
+- **循环等待条件**：存在一种线程资源的循环链，每个线程至少持有一个其他线程所需要的资源，然后又等待下一个线程所占有的资源。这形成了一个循环等待的环路。
 
-- 其中，互斥这个条件我们没有办法破坏，因为用锁为的就是互斥。不过其他三个条件都是有办法破坏掉的，到底如何做呢？
-- 对于“请求并持有”这个条件，可以一次性请求所有的资源。
-- 对于“不可剥夺”这个条件，占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源，这样不可抢占这个条件就破坏掉了。
-- 对于“环路等待”这个条件，可以靠按序申请资源来预防。所谓按序申请，是指资源是有线性顺序的，申请的时候可以先申请资源序号小的，再申请资源序号大的，这样线性化后就不存在环路了。
+#### 该如何避免死锁呢？
+
+理解产生死锁的这四个必要条件后，就可以采取相应的措施来避免死锁，换句话说，就是**至少破坏死锁发生的一个条件**。
+
+- **破坏互斥条件**：这通常不可行，因为加锁就是为了互斥。
+- **破坏持有并等待条件**：一种方法是要求线程在开始执行前一次性地申请所有需要的资源。
+- **破坏非抢占条件**：占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源。
+- **破坏循环等待条件**：对所有资源类型进行排序，强制每个线程按顺序申请资源，这样可以避免循环等待的发生。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：死锁如何避免？
 
 ### 38.那死锁问题怎么排查呢？
 
-可以使用 jdk 自带的命令行工具排查：
+首先从系统级别上排查，比如说在 Linux 生产环境中，可以先使用 top ps 等命令查看进程状态，看看是否有进程占用了过多的资源。
 
-1. 使用 jps 查找运行的 Java 进程：jps -l
-2. 使用 jstack 查看线程堆栈信息：jstack -l 进程 id
+接着，使用 JDK 自带的一些性能监控工具进行排查，比如说 jps、jstat、jinfo、jmap、jstack、jcmd 等等。
 
-基本就可以看到死锁的信息。
+比如说，使用 `jps -l` 查看当前 Java 进程，然后使用 `jstack 进程号` 查看当前 Java 进程的线程堆栈信息，看看是否有线程在等待锁资源。
 
-还可以利用图形化工具，比如 JConsole。出现线程死锁以后，点击 JConsole 线程面板的`检测到死锁`按钮，将会看到线程的死锁信息。
+来编写一个死锁程序：
 
-![线程死锁检测](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-49.png)
+```java
+class DeadLockDemo {
+    private static final Object lock1 = new Object();
+    private static final Object lock2 = new Object();
+
+    public static void main(String[] args) {
+        new Thread(() -> {
+            synchronized (lock1) {
+                System.out.println("线程1获取到了锁1");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (lock2) {
+                    System.out.println("线程1获取到了锁2");
+                }
+            }
+        }).start();
+
+        new Thread(() -> {
+            synchronized (lock2) {
+                System.out.println("线程2获取到了锁2");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (lock1) {
+                    System.out.println("线程2获取到了锁1");
+                }
+            }
+        }).start();
+    }
+}
+```
+
+创建了两个线程，每个线程都试图按照不同的顺序获取两个[锁（lock1 和 lock2）](https://javabetter.cn/thread/thread-bring-some-problem.html#%E6%B4%BB%E8%B7%83%E6%80%A7%E9%97%AE%E9%A2%98)。这种锁的获取顺序不一致很容易导致死锁。
+
+运行这段代码，果然卡住了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192010.png)
+
+运行 `jstack pid` 命令，可以看到死锁的线程信息。诚不欺我！
+
+![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192123.png)
+
+也可以使用一些可视化的性能监控工具，比如说 JConsole、VisualVM 等。
+
+![三分恶面渣逆袭：线程死锁检测](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-49.png)
+
+推荐阅读：
+
+- [JVM 性能监控工具之命令行篇](https://javabetter.cn/jvm/console-tools.html)
+- [JVM 性能监控工具之可视化篇](https://javabetter.cn/jvm/view-tools.html)
+- [阿里开源的 Java 诊断神器 Arthas](https://javabetter.cn/jvm/arthas.html)
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：发生死锁怎么排查？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 

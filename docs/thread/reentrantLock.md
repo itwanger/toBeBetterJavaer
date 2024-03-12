@@ -220,9 +220,11 @@ try {
 ReentrantLock 与 synchronized 关键字都是用来实现同步的，那么它们之间有什么区别呢？我们来看看它们的对比：
 
 - **ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字**；
-- **ReentrantLock 可以实现多路选择通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)（后面会细讲，戳链接直达）），而 synchronized 只能通过 wait 和 notify/notifyAll 方法唤醒一个线程或者唤醒全部线程（单路通知）**；
-- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
-- ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。synchronized: 在某些情况下，性能可能稍差一些，但随着 JDK 版本的升级，性能差距已经不大了。
+- **ReentrantLock 可以实现多路选择通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)），而 synchronized 只能通过 wait 和 notify/notifyAll 方法唤醒一个线程或者唤醒全部线程（单路通知）**；
+- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。
+- synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
+- ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。
+- synchronized: 在某些情况下，性能可能稍差一些，但随着 JDK 版本的升级，性能差距已经不大了。
 
 以下是一个简单的性能比较demo：
 
