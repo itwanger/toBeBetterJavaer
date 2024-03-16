@@ -1,19 +1,19 @@
 ---
-title: JVM面试题，50道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
+title: JVM面试题，53道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.5 万字 51 张手绘图，详解 50 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.5 万字 51 张手绘图，详解 53 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Java虚拟机,JVM,Java面试题,JVM面试题,java虚拟机面试题,八股文,java
 ---
 
-1.5 万字 51 张手绘图，详解 50 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+1.5 万字 51 张手绘图，详解 53 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
 ## 一、引言
 
@@ -29,7 +29,7 @@ Java 程序运行的时候，编译器将 Java 文件编译成平台无关的 Ja
 
 ![JVM跨语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-2.png)
 
-### 51.说说 JVM 的组织架构（补充）
+### 51.说说 JVM 的组织架构
 
 > 本题是增补的内容，by 2024 年 03 月 08 日；参照：[大白话带你认识 JVM](https://javabetter.cn/jvm/what-is-jvm.html)
 
@@ -53,7 +53,7 @@ JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数�
 
 ## 二、内存管理
 
-### 53.讲讲 JVM 的垃圾回收机制（补充）
+### 53.讲讲 JVM 的垃圾回收机制
 
 > 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 
@@ -1060,9 +1060,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 四、虚拟机执行
 
-### 52.说说解释执行和编译执行的区别（补充）
+### 52.说说解释执行和编译执行的区别
 
->2024年03月08日补充
+>2024年03月08日增补
 
 先说解释和编译的区别：
 
@@ -1218,7 +1218,7 @@ Tomact 是 web 容器，可能需要部署多个应用程序。不同的应用�
 
 所以，Tomcat 破坏了**双亲委派原则**，提供隔离的机制，为每个 web 容器单独提供一个 WebAppClassLoader 加载器。每一个 WebAppClassLoader 负责加载本身的目录下的 class 文件，加载不到时再交 CommonClassLoader 加载，这和双亲委派刚好相反。
 
-> 图文详解 50 道 Java 虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+> 图文详解 53 道 Java 虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
 ---
 

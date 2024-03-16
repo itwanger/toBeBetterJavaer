@@ -19,19 +19,26 @@ head:
 
 ### 1.说说什么是 Redis?
 
-![Redis图标](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-96e079f9-49a3-4c55-b0a4-47d043732b62.png)
+![三分恶面渣逆袭：Redis图标](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-96e079f9-49a3-4c55-b0a4-47d043732b62.png)
 
-Redis 是一种基于键值对（key-value）的 NoSQL 数据库。
+[Redis](https://javabetter.cn/redis/rumen.html) 是 **Re**mote **Di**ctionary **S**ervice 三个单词中加粗字母的组合，是一种基于键值对（key-value）的 NoSQL 数据库。
 
-比一般键值对数据库强大的地方，Redis 中的 value 支持 string（字符串）、hash（哈希）、 list（列表）、set（集合）、zset（有序集合）、Bitmaps（位图）、 HyperLogLog、GEO（地理信息定位）等多种数据结构，因此 Redis 可以满足很多的应用场景。
+但比一般的键值对，比如 [HashMap](https://javabetter.cn/collection/hashmap.html) 强大的多，Redis 中的 value 支持 string（字符串）、hash（哈希）、 list（列表）、set（集合）、zset（有序集合）、Bitmaps（位图）、 [HyperLogLog](https://www.cnblogs.com/54chensongxia/p/13803465.html)（基数估算）、GEO（地理信息定位）等多种数据结构。
 
-而且因为 Redis 会将所有数据都存放在内存中，所以它的读写性能非常出色。
+而且因为 Redis 的所有数据都存放在内存当中，所以它的读写性能非常出色。
 
-不仅如此，Redis 还可以将内存的数据利用快照和日志的形式保存到硬盘上，这样在发生类似断电或者机器故障的时候，内存中的数据不会“丢失”。
+不仅如此，Redis 还可以将内存数据持久化到硬盘上，这样在发生类似断电或者机器故障的时候，内存中的数据并不会“丢失”。
 
-除了上述功能以外，Redis 还提供了键过期、发布订阅、事务、流水线、Lua 脚本等附加功能。
+除此之外，Redis 还提供了键过期、发布订阅、事务、流水线、Lua 脚本等附加功能，是互联网技术领域中使用最广泛的缓存中间件。
 
-总之，Redis 是一款强大的性能利器。
+**Redis 和 MySQL 的区别**
+
+- Redis：数据存储在内存中的 NoSQL 数据库，读写性能非常好，是互联网技术领域中使用最广泛的缓存中间件。
+- MySQL：数据存储在硬盘中的关系型数据库，适用于需要事务支持和复杂查询的场景。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
 
 ### 2.Redis 可以用来干什么？
 
@@ -67,55 +74,71 @@ Redis 的应用一般会结合项目去问，以一个电商项目的用户服�
 
 ### 3.Redis 有哪些数据结构？
 
-![Redis基本数据结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-10434dc7-c7a3-4c1a-b484-de3fb37669ee.png)
+![三分恶面渣逆袭：Redis基本数据结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-10434dc7-c7a3-4c1a-b484-de3fb37669ee.png)
 Redis 有五种基本数据结构。
 
-**string**
+#### string
 
-字符串最基础的数据结构。字符串类型的值实际可以是字符串（简单的字符串、复杂的字符串（例如 JSON、XML））、数字 （整数、浮点数），甚至是二进制（图片、音频、视频），但是值最大不能超过 512MB。
+字符串是最基础的数据结构，key 是一个字符串，不用多说，value 可以是：
 
-字符串主要有以下几个典型使用场景：
+- 字符串（简单的字符串、复杂的字符串（例如 JSON、XML））
+- 数字 （整数、浮点数）
+- 甚至是二进制（图片、音频、视频），但最大不能超过 512MB。
+
+字符串主要有以下几个典型的使用场景：
 
 - 缓存功能
 - 计数
 - 共享 Session
 - 限速
 
-**hash**
+#### hash
 
-哈希类型是指键值本身又是一个键值对结构。
+键值对集合，key 是字符串，value 是一个 Map 集合，比如说 `value = {name: '沉默王二', age: 18}`，name 和 age 属于字段 field，沉默王二 和 18 属于值 value。
 
-哈希主要有以下典型应用场景：
+哈希主要有以下两个典型应用场景：
 
 - 缓存用户信息
 - 缓存对象
 
-**list**
+来感受一下，用户字符串类型存储用户信息和用哈希类型存储用户信息的区别：
 
-列表（list）类型是用来存储多个有序的字符串。列表是一种比较灵活的数据结构，它可以充当栈和队列的角色
+![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315115713.png)
 
-列表主要有以下几种使用场景：
+#### list
+
+list 是一个简单的字符串列表，按照插入顺序排序。可以添加一个元素到列表的头部（左边）或者尾部（右边）。
+
+列表主要有以下两个使用场景：
 
 - 消息队列
 - 文章列表
 
-**set**
+#### set
 
-集合（set）类型也是用来保存多个的字符串元素，但和列表类型不一 样的是，集合中不允许有重复元素，并且集合中的元素是无序的。
+集合是字符串的无序集合，集合中的元素是唯一的，不允许重复。和 Java 集合框架中的 Set 有相似之处。
 
-集合主要有如下使用场景：
+集合主要有以下两个使用场景：
 
 - 标签（tag）
 - 共同关注
 
-**sorted set**
+#### sorted set
 
-有序集合中的元素可以排序。但是它和列表使用索引下标作为排序依据不同的是，它给每个元素设置一个权重（score）作为排序的依据。
+Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 
-有序集合主要应用场景：
+![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120652.png)
+
+主要应用场景有：
 
 - 用户点赞统计
 - 用户排序
+
+比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就使用  Zset 来实现了用户月度活跃排行榜。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 
 ### 4.Redis 为什么快呢？
 
@@ -978,7 +1001,7 @@ Redis 发生阻塞，可以从以下几个方面排查：
 - 单个简单的 key 存储的 value 很大，size 超过 10KB
 - hash，set，zset，list 中存储过多的元素（以万为单位）
 
-推荐阅读：[阿里：发现并处理Redis的大Key和热Key](https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys)
+推荐阅读：[阿里：发现并处理 Redis 的大 Key 和热 Key](https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys)
 
 **大 key 会造成什么问题呢？**
 
@@ -999,11 +1022,11 @@ Redis 发生阻塞，可以从以下几个方面排查：
 
 源码地址：[https://github.com/sripathikrishnan/redis-rdb-tools/](https://github.com/sripathikrishnan/redis-rdb-tools/)
 
->rdb，全称 Redis DataBase，是 Redis 在内存中的数据格式的一种持久化存储方式。
+> rdb，全称 Redis DataBase，是 Redis 在内存中的数据格式的一种持久化存储方式。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309092121.png)
 
-推荐阅读：[RDB详解](https://redisbook.readthedocs.io/en/latest/internal/rdb.html)
+推荐阅读：[RDB 详解](https://redisbook.readthedocs.io/en/latest/internal/rdb.html)
 
 **如何处理大 key?**
 
@@ -1011,14 +1034,14 @@ Redis 发生阻塞，可以从以下几个方面排查：
 
 ①、**删除大 key**
 
-  - 当 Redis 版本大于 4.0 时，可使用 UNLINK 命令安全地删除大 Key，该命令能够以非阻塞的方式，逐步地清理传入的大 Key。
-  - 当 Redis 版本小于 4.0 时，建议通过 SCAN 命令执行增量迭代扫描 key，然后判断进行删除。
+- 当 Redis 版本大于 4.0 时，可使用 UNLINK 命令安全地删除大 Key，该命令能够以非阻塞的方式，逐步地清理传入的大 Key。
+- 当 Redis 版本小于 4.0 时，建议通过 SCAN 命令执行增量迭代扫描 key，然后判断进行删除。
 
 ②、**压缩和拆分 key**
 
-  - 当 vaule 是 string 时，比较难拆分，则使用序列化、压缩算法将 key 的大小控制在合理范围内，但是序列化和反序列化都会带来额外的性能消耗。
-  - 当 value 是 string，压缩之后仍然是大 key 时，则需要进行拆分，将一个大 key 分为不同的部分，记录每个部分的 key，使用 multiget 等操作实现事务读取。
-  - 当 value 是 list/set 等集合类型时，根据预估的数据规模来进行分片，不同的元素计算后分到不同的片。
+- 当 vaule 是 string 时，比较难拆分，则使用序列化、压缩算法将 key 的大小控制在合理范围内，但是序列化和反序列化都会带来额外的性能消耗。
+- 当 value 是 string，压缩之后仍然是大 key 时，则需要进行拆分，将一个大 key 分为不同的部分，记录每个部分的 key，使用 multiget 等操作实现事务读取。
+- 当 value 是 list/set 等集合类型时，根据预估的数据规模来进行分片，不同的元素计算后分到不同的片。
 
 > 1. 华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
 
@@ -1075,44 +1098,39 @@ brpop 是 rpop 的阻塞版本，list 为空的时候，它会一直阻塞，直
 
 ### 42.Redis 支持事务吗？
 
-Redis 提供了简单的事务，但它对事务 ACID 的支持并不完备。
+Redis 支持简单的事务，可以将多个命令打包，然后一次性的，按照顺序执行。
 
-multi 命令代表事务开始，exec 命令代表事务结束，它们之间的命令是原子顺序执行的：
+主要通过 multi、exec、discard、watch 等命令来实现：
 
-```java
-127.0.0.1:6379> multi
-OK
-127.0.0.1:6379> sadd user:a:follow user:b
-QUEUED
-127.0.0.1:6379> sadd user:b:fans user:a
-QUEUED
-127.0.0.1:6379> sismember user:a:follow user:b
-(integer) 0
-127.0.0.1:6379> exec 1) (integer) 1
-2) (integer) 1
-```
+- multi：标记一个事务块的开始
+- exec：执行所有事务块内的命令
+- discard：取消事务，放弃执行事务块内的所有命令
+- watch：监视一个或多个 key，如果在事务执行之前这个 key 被其他命令所改动，那么事务将被打断
 
-Redis 事务的原理，是所有的指令在 exec 之前不执行，而是缓存在
-服务器的一个事务队列中，服务器一旦收到 exec 指令，才开执行整个事务队列，执行完毕后一次性返回所有指令的运行结果。
-![Redis事务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2ed7ae21-16a6-4716-ac89-117a8c76d3db.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240314101439.png)
 
-因为 Redis 执行命令是单线程的，所以这组命令顺序执行，而且不会被其它线程打断。
+这里简单说一下 Redis 事务的原理：
+
+![三分恶面渣逆袭：Redis事务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2ed7ae21-16a6-4716-ac89-117a8c76d3db.png)
+
+- 使用 MULTI 命令开始一个事务。从这个命令执行之后开始，所有的后续命令都不会立即执行，而是被放入一个队列中。在这个阶段，Redis 只是记录下了这些命令。
+- 使用 EXEC 命令触发事务的执行。一旦执行了 EXEC，之前 MULTI 后队列中的所有命令会被原子地（atomic）执行。这里的“原子”意味着这些命令要么全部执行，要么（在出现错误时）全部不执行。
+- 如果在执行 EXEC 之前决定不执行事务，可以使用 DISCARD 命令来取消事务。这会清空事务队列并退出事务状态。
+- WATCH 命令用于实现乐观锁。WATCH 命令可以监视一个或多个键，如果在执行事务的过程中（即在执行 MULTI 之后，执行 EXEC 之前），被监视的键被其他命令改变了，那么当执行 EXEC 时，事务将被取消，并且返回一个错误。
 
 **Redis 事务的注意点有哪些？**
 
-需要注意的点有：
-
-- Redis 事务是不支持回滚的，不像 MySQL 的事务一样，要么都执行要么都不执行；
-
-- Redis 服务端在执行事务的过程中，不会被其他客户端发送来的命令请求打断。直到事务命令全部执行完毕才会执行其他客户端的命令。
+Redis 事务是不支持回滚的，不像 MySQL 的事务一样，要么都执行要么都不执行；一旦 EXEC 命令被调用，所有命令都会被执行，即使有些命令可能执行失败。失败的命令不会影响到其他命令的执行。
 
 **Redis 事务为什么不支持回滚？**
 
-Redis 的事务不支持回滚。
+引入事务回滚机制会大大增加 Redis 的复杂性，因为需要跟踪事务中每个命令的状态，并在发生错误时逆向执行命令以恢复原始状态。
 
-如果执行的命令有语法错误，Redis 会执行失败，这些问题可以从程序层面捕获并解决。但是如果出现其他问题，则依然会继续执行余下的命令。
+Redis 是一个基于内存的数据存储系统，其设计重点是实现高性能。事务回滚需要额外的资源和时间来管理和执行，这与 Redis 的设计目标相违背。因此，Redis 选择不支持事务回滚。
 
-这样做的原因是因为回滚需要增加很多工作，而不支持回滚则可以**保持简单、快速的特性**。
+换句话说，**就是我 Redis 不想支持事务，也没有这个必要**。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 事务
 
 ### 43.Redis 和 Lua 脚本的使用了解吗？
 
@@ -1252,38 +1270,96 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 46.说说 Redis 底层数据结构？
 
-Redis 有**动态字符串(sds)**、**链表(list)**、**字典(ht)**、**跳跃表(skiplist)**、**整数集合(intset)**、**压缩列表(ziplist)** 等底层数据结构。
+Redis 的底层数据结构有**动态字符串(sds)**、**链表(list)**、**字典(ht)**、**跳跃表(skiplist)**、**整数集合(intset)**、**压缩列表(ziplist)** 等。
 
-Redis 并没有使用这些数据结构来直接实现键值对数据库，而是基于这些数据结构创建了一个对象系统，来表示所有的 key-value。
+![三分恶面渣逆袭：Redis Object对应的映射](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a1b2d2f9-6895-4749-9bda-9314f08bca68.png)
 
-![redisObject对应的映射](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a1b2d2f9-6895-4749-9bda-9314f08bca68.png)
-我们常用的数据类型和编码对应的映射关系：
+来看一下 Redis 不同数据结构的底层实现：
 
-![类型-编码-结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7cf91aa9-8db5-4abe-803e-a9e8f3bcb9e4.png)
-简单看一下底层数据结构，如果对数据结构掌握不错的话，理解这些结构应该不是特别难：
+![三分恶面渣逆袭：类型-编码-结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7cf91aa9-8db5-4abe-803e-a9e8f3bcb9e4.png)
 
-1. **字符串**：redis 没有直接使⽤ C 语⾔传统的字符串表示，⽽是⾃⼰实现的叫做简单动态字符串 SDS 的抽象类型。
 
-   C 语⾔的字符串不记录⾃身的⻓度信息，⽽ SDS 则保存了⻓度信息，这样将获取字符串⻓度的时间由 O(N)降低到了 O(1)，同时可以避免缓冲区溢出和减少修改字符串⻓度时所需的内存重分配次数。
+#### 字符串
 
-![SDS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7c038f2c-b5ee-4229-9449-713fab3b1855.png)
+Redis 是通过 C语言实现的，但 Redis 并没有直接使用 C语言的字符串，而是自己实现了一种叫做动态字符串 SDS 的类型。
 
-2. **链表 linkedlist**：redis 链表是⼀个双向⽆环链表结构，很多发布订阅、慢查询、监视器功能都是使⽤到了链表来实现，每个链表的节点由⼀个 listNode 结构来表示，每个节点都有指向前置节点和后置节点的指针，同时表头节点的前置和后置节点都指向 NULL。
+```c
+struct sdshdr {
+    int len; // buf 中已使用的长度
+    int free; // buf 中未使用的长度
+    char buf[]; // 数据空间
+};
+```
 
-![链表linkedlist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-1adef9c0-8feb-4836-8997-84bda96e2498.png)
+因为 C 语⾔的字符串不记录⾃身的⻓度信息，当需要获取字符串⻓度时，需要遍历整个字符串，时间复杂度为 O(N)。
 
-3. **字典 dict**：⽤于保存键值对的抽象数据结构。Redis 使⽤ hash 表作为底层实现，一个哈希表里可以有多个哈希表节点，而每个哈希表节点就保存了字典里中的一个键值对。
-   每个字典带有两个 hash 表，供平时使⽤和 rehash 时使⽤，hash 表使⽤链地址法来解决键冲突，被分配到同⼀个索引位置的多个键值对会形成⼀个单向链表，在对 hash 表进⾏扩容或者缩容的时候，为了服务的可⽤性，rehash 的过程不是⼀次性完成的，⽽是渐进式的。
-   ![字典](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-9934b4a2-c253-4d42-acf4-c6c940840779.png)
+⽽ SDS 保存了⻓度信息，这样就将获取字符串⻓度的时间由 O(N) 降低到了 O(1)。
 
-4. **跳跃表 skiplist**：跳跃表是有序集合的底层实现之⼀，Redis 中在实现有序集合键和集群节点的内部结构中都是⽤到了跳跃表。Redis 跳跃表由 zskiplist 和 zskiplistNode 组成，zskiplist ⽤于保存跳跃表信息（表头、表尾节点、⻓度等），zskiplistNode ⽤于表示表跳跃节点，每个跳跃表节点的层⾼都是 1-32 的随机数，在同⼀个跳跃表中，多个节点可以包含相同的分值，但是每个节点的成员对象必须是唯⼀的，节点按照分值⼤⼩排序，如果分值相同，则按照成员对象的⼤⼩排序。
-   ![跳跃表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
-5. **整数集合 intset**：⽤于保存整数值的集合抽象数据结构，不会出现重复元素，底层实现为数组。
-   ![整数集合intset](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-833dbfb2-7c79-4e7b-a143-8a4a2936cdd8.png)
+![三分恶面渣逆袭：SDS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7c038f2c-b5ee-4229-9449-713fab3b1855.png)
 
-6. **压缩列表 ziplist**：压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
+#### 链表 linkedlist
+
+Redis 的链表是⼀个双向⽆环链表结构，和 Java 中的 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 类似。
+
+链表的节点由⼀个叫做 listNode 的结构来表示，每个节点都有指向其前置节点和后置节点的指针，同时头节点的前置和尾节点的后置均指向 null。
+
+![三分恶面渣逆袭：链表linkedlist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-1adef9c0-8feb-4836-8997-84bda96e2498.png)
+
+#### 字典 dict
+
+⽤于保存键值对的抽象数据结构。Redis 使⽤ hash 表作为底层实现，一个哈希表里可以有多个哈希表节点，而每个哈希表节点就保存了字典里中的一个键值对。
+
+每个字典带有两个 hash 表，供平时使⽤和 rehash 时使⽤，hash 表使⽤链地址法来解决键冲突，被分配到同⼀个索引位置的多个键值对会形成⼀个单向链表，在对 hash 表进⾏扩容或者缩容的时候，为了服务的可⽤性，rehash 的过程不是⼀次性完成的，⽽是渐进式的。
+
+![三分恶面渣逆袭：字典](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-9934b4a2-c253-4d42-acf4-c6c940840779.png)
+
+#### 跳跃表 skiplist
+
+推荐阅读：[全网最详细的跳表文章](https://www.jianshu.com/p/9d8296562806)
+
+跳跃表（也称跳表）是有序集合 Zset 的底层实现之⼀。在 Redis 7.0 之前，如果有序集合的元素个数小于 128 个，并且每个元素的值小于 64 字节时，Redis 会使用压缩列表作为 Zset 的底层实现，否则会使用跳表；在 Redis 7.0 之后，压缩列表已经废弃，交由 listpack 来替代。
+
+跳表由 zskiplist 和 zskiplistNode 组成，zskiplist ⽤于保存跳表的基本信息（表头、表尾、⻓度、层高等）。
+
+```c
+typedef struct zskiplist {
+    struct zskiplistNode *header, *tail;
+    unsigned long length;
+    int level;
+} zskiplist;
+```
+
+zskiplistNode ⽤于表示跳表节点，每个跳表节点的层⾼是不固定的，每个节点都有⼀个指向保存了当前节点的分值和成员对象的指针。
+
+```c
+typedef struct zskiplistNode {
+    sds ele;
+    double score;
+    struct zskiplistNode *backward;
+    struct zskiplistLevel {
+        struct zskiplistNode *forward;
+        unsigned int span;
+    } level[];
+} zskiplistNode;
+```
+   
+![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
+
+
+#### 整数集合 intset
+
+⽤于保存整数值的集合抽象数据结构，不会出现重复元素，底层实现为数组。
+
+![整数集合intset](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-833dbfb2-7c79-4e7b-a143-8a4a2936cdd8.png)
+
+#### 压缩列表 ziplist
+
+压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
 
 ![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 
 ### 47.Redis 的 SDS 和 C 中字符串相比有什么优势？
 

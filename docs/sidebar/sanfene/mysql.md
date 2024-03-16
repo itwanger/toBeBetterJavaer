@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，66道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，68道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 66 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 68 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 69 张手绘图，详解 66 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 69 张手绘图，详解 68 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ## 基础
 
@@ -227,6 +227,178 @@ alter table blogs modify content text CHARACTER SET utf8mb4 COLLATE ut
 9.  **DISTINCT**：去除重复数据，产生虚拟表 VT9
 10. **ORDER BY**：将虚拟表 VT9 中的记录按照<order_by_list>进行排序操作，产生虚拟表 VT10。11）
 11. **LIMIT**：取出指定行的记录，产生虚拟表 VT11，并返回给查询用户
+
+### 67.介绍一下 MySQL 的常用命令
+
+> 2024 年 03 月 13 日增补，说实话这个问题问的就不是很有水准，可以先向面试官确认一下，“您提到的常用命令是指数据库、表、数据这些增删改查的 SQL 命令吗？”
+
+得到确认答复后可以根据下面这张思维导图作答：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240313093551.png)
+
+#### 数据库操作命令
+
+①、**创建数据库**:
+
+```sql
+CREATE DATABASE database_name;
+```
+
+②、**删除数据库**:
+
+```sql
+DROP DATABASE database_name;
+```
+
+③、**选择数据库**:
+
+```sql
+USE database_name;
+```
+
+#### 表操作命令
+
+①、**创建表**:
+
+```sql
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+);
+```
+
+②、**删除表**:
+
+```sql
+DROP TABLE table_name;
+```
+
+③、**显示所有表**:
+
+```sql
+SHOW TABLES;
+```
+
+④、**查看表结构**:
+
+```sql
+DESCRIBE table_name;
+```
+
+⑤、**修改表**（添加列）:
+
+```sql
+ALTER TABLE table_name ADD column_name datatype;
+```
+
+#### 数据操作命令
+
+①、**插入数据**:
+
+```sql
+INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
+```
+
+②、**查询数据**:
+
+```sql
+SELECT column_names FROM table_name WHERE condition;
+```
+
+③、**更新数据**:
+
+```sql
+UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
+```
+
+④、**删除数据**:
+
+```sql
+DELETE FROM table_name WHERE condition;
+```
+
+#### 索引和约束
+
+①、**创建索引**:
+
+```sql
+CREATE INDEX index_name ON table_name (column_name);
+```
+
+②、**添加主键约束**:
+
+```sql
+ALTER TABLE table_name ADD PRIMARY KEY (column_name);
+```
+
+③、**添加外键约束**:
+
+```sql
+ALTER TABLE table_name ADD CONSTRAINT fk_name FOREIGN KEY (column_name) REFERENCES parent_table (parent_column_name);
+```
+
+#### 用户和权限管理
+
+①、**创建用户**:
+
+```sql
+CREATE USER 'username'@'host' IDENTIFIED BY 'password';
+```
+
+②、**授予权限**:
+
+```sql
+GRANT ALL PRIVILEGES ON database_name.table_name TO 'username'@'host';
+```
+
+③、**撤销权限**:
+
+```sql
+REVOKE ALL PRIVILEGES ON database_name.table_name FROM 'username'@'host';
+```
+
+④、**删除用户**:
+
+```sql
+DROP USER 'username'@'host';
+```
+
+#### 事务控制
+
+①、**开始事务**:
+
+```sql
+START TRANSACTION;
+```
+
+②、**提交事务**:
+
+```sql
+COMMIT;
+```
+
+③、**回滚事务**:
+
+```sql
+ROLLBACK;
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：介绍一下 MySQL 的常用命令
+
+### 68.介绍一下 MySQL bin 目录下的可执行文件
+
+> 2024 年 03 月 13 日增补
+
+推荐阅读：[MySQL bin 目录下的一些可执行文件](https://javabetter.cn/mysql/bin.html)
+
+- mysql：客户端程序，用于连接 MySQL 服务器
+- mysqldump：一个非常实用的 MySQL 数据库备份工具，用于创建一个或多个 MySQL 数据库级别的 SQL 转储文件，包括数据库的表结构和数据。对数据备份、迁移或恢复非常重要。
+- mysqladmin：mysql 后面加上 admin 就表明这是一个 MySQL 的管理工具，它可以用来执行一些管理操作，比如说创建数据库、删除数据库、查看 MySQL 服务器的状态等。
+- mysqlcheck：mysqlcheck 是 MySQL 提供的一个命令行工具，用于检查、修复、分析和优化数据库表，对数据库的维护和性能优化非常有用。
+- mysqlimport：用于从文本文件中导入数据到数据库表中，非常适合用于批量导入数据。
+- mysqlshow：用于显示 MySQL 数据库服务器中的数据库、表、列等信息。
+- mysqlbinlog：用于查看 MySQL 二进制日志文件的内容，可以用于恢复数据、查看数据变更等。
 
 ## 数据库架构
 
@@ -767,7 +939,7 @@ CREATE TABLE example_btree (
 - [GitHub：B 树和 B+树详解](https://github.com/wardseptember/notes/blob/master/docs/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E8%AF%A6%E8%A7%A3.md)
 - [思否：面试官问你 B 树和 B+树，就把这篇文章丢给他](https://segmentfault.com/a/1190000020416577)
 - [极客时间：为什么用 B+树来做索引？](https://time.geekbang.org/column/article/112298)
-- [一颗剽悍的种子：用16张图就给你讲明白MySQL为什么要用B+树做索引](https://mp.weixin.qq.com/s/muOwXKNTvPjXjrLsFRveIw)
+- [一颗剽悍的种子：用 16 张图就给你讲明白 MySQL 为什么要用 B+树做索引](https://mp.weixin.qq.com/s/muOwXKNTvPjXjrLsFRveIw)
 
 ②、Hash 索引：基于哈希表的索引，查询效率可以达到 O(1)，但是只适合 = 和 in 查询，不适合范围查询。
 
@@ -817,64 +989,120 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 - [浅谈聚簇索引与非聚簇索引](https://learnku.com/articles/50096)
 - [聚簇索引、非聚簇索引、联合索引、唯一索引](https://blog.csdn.net/m0_52226803/article/details/135494499)
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
 
 ### 28.为什么使用索引会加快查询？
 
-传统的查询方法，是按照表的顺序遍历的，不论查询几条数据，MySQL 需要将表的数据从头到尾遍历一遍。
+数据库存储在磁盘上，磁盘 I/O 是数据库操作中最耗时的部分之一。没有索引时，数据库会进行全表扫描（Sequential Scan），这意味着它必须读取表中的每一行数据来查找匹配的行（时间效率为 O(n)）。当表的数据量非常大时，就会导致大量的磁盘 I/O 操作。
 
-在我们添加完索引之后，MySQL 一般通过 BTREE 算法生成一个索引文件，在查询数据库时，找到索引文件进行遍历，在比较小的索引数据里查找，然后映射到对应的数据，能大幅提升查找的效率。
+有了索引，就可以直接跳到索引指示的数据位置，而不必扫描整张表，从而大大减少了磁盘 I/O 操作的次数。
 
-和我们通过书的目录，去查找对应的内容，一样的道理。
+MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构，而 B+ 树的查询效率非常高，时间复杂度为 O(logN)。
 
-![索引加快查询远离](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-6b9c9901-9bf3-46ed-a5c4-c1b781965c1e.jpg)
+索引文件相较于数据库文件，体积小得多，查到索引之后再映射到数据库记录，查询效率就会高很多。
+
+就好像我们通过书的目录，去查找对应的章节内容一样。
+
+![三分恶面渣逆袭：索引加快查询远离](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-6b9c9901-9bf3-46ed-a5c4-c1b781965c1e.jpg)
 
 ### 29.创建索引有哪些注意点？
 
-索引虽然是 sql 性能优化的利器，但是索引的维护也是需要成本的，所以创建索引，也要注意：
+尽管索引能提高查询性能，但不当的使用也会带来一系列问题。在加索引时需要注意以下几点：
 
-1.  索引应该建在查询应用频繁的字段
+①、选择合适的列作为索引
 
-在用于 where 判断、 order 排序和 join 的(on)字段上创建索引。
+- 经常作为查询条件（WHERE 子句）、排序条件（ORDER BY 子句）、分组条件（GROUP BY 子句）的列是建立索引的好候选。
+- 区分度低的字段，例如性别，不要建索引
+- 频繁更新的字段，不要作为主键或者索引
+- 不建议用无序的值(例如身份证、UUID )作为索引，当主键具有不确定性，会造成叶子节点频繁分裂，出现磁盘存储的碎片化
 
-2.  索引的个数应该适量
+②、避免过多的索引
 
-索引需要占用空间；更新时候也需要维护。
+- 每个索引都需要占用额外的磁盘空间。
+- 更新表（INSERT、UPDATE、DELETE 操作）时，所有的索引都需要被更新。
+- 维护索引文件需要成本；还会导致页分裂，IO 次数增多。
 
-3.  区分度低的字段，例如性别，不要建索引。
+③、利用前缀索引和索引列的顺序
 
-离散度太低的字段，扫描的行数降低的有限。
+- 对于字符串类型的列，可以考虑使用前缀索引来减少索引大小。
+- 在创建复合索引时，应该根据查询条件将最常用作过滤条件的列放在前面。
 
-4.  频繁更新的值，不要作为主键或者索引
-
-维护索引文件需要成本；还会导致页分裂，IO 次数增多。
-
-5.  组合索引把散列性高(区分度高)的值放在前面
-
-为了满足最左前缀匹配原则
-
-6.  创建组合索引，而不是修改单列索引。
-
-组合索引代替多个单列索引（对于单列索引，MySQL 基本只能使用一个索引，所以经常使用多个条件查询时更适合使用组合索引）
-
-7.  过长的字段，使用前缀索引。当字段值比较长的时候，建立索引会消耗很多的空间，搜索起来也会很慢。我们可以通过截取字段的前面一部分内容建立索引，这个就叫前缀索引。
-8.  不建议用无序的值(例如身份证、UUID )作为索引
-
-当主键具有不确定性，会造成叶子节点频繁分裂，出现磁盘存储的碎片化
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：索引的作用，加索引需要注意什么
 
 ### 30.索引哪些情况下会失效呢？
 
-- 查询条件包含 or，可能导致索引失效
-- 如果字段类型是字符串，where 时一定用引号括起来，否则会因为隐式类型转换，索引失效
-- like 通配符可能导致索引失效。
+- 查询条件包含 or，可能会导致索引失效
+- 如果字段类型是字符串，where 时一定要用引号括起来，否则会因为隐式类型转换，索引失效
+- like 通配符可能会导致索引失效。
 - 联合索引，查询时的条件列不是联合索引中的第一个列，索引失效。
 - 在索引列上使用 mysql 的内置函数，索引失效。
 - 对索引列运算（如，+、-、\*、/），索引失效。
-- 索引字段上使用（！= 或者 < >，not in）时，可能会导致索引失效。
+- 索引字段上使用（!= 或者 < >，not in）时，可能会导致索引失效。
 - 索引字段上使用 is null， is not null，可能导致索引失效。
-- 左连接查询或者右连接查询查询关联的字段编码格式不一样，可能导致索引失效。
-- MySQL 优化器估计使用全表扫描要比使用索引快,则不使用索引。
+- 左连接查询或者右连接查询关联的字段编码格式不一样，可能导致索引失效。
+- MySQL 优化器估计使用全表扫描要比使用索引快，则不使用索引。
+
+(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
+
+>2024年03月15日增补。
+
+这个查询会使用到联合索引 `(A,B,C)`，因为条件是按照索引列 `A`、`B`、`C` 的顺序来的，这是理想的使用场景。
+
+#### 索引的使用方式
+
+1. 对于 `A=?`：这个条件是一个精确匹配，MySQL 会使用索引来定位到满足条件 `A=?` 的记录。
+
+2. 对于 `B IN (?, ?)`：这个条件指定了 `B` 列可以取两个可能的值。MySQL 会利用索引来查找所有匹配 `A=?` 且 `B` 列为这两个值中任意一个的记录。
+
+3. 对于 `C>?`：这个条件是一个范围查询。在已经根据 `A` 和 `B` 筛选的基础上，MySQL 会继续利用索引来查找 `C` 列值大于指定值的记录。
+
+来验证一下。
+
+第一步，建表。
+
+```sql
+CREATE TABLE tbn (A INT, B INT, C INT, D TEXT);
+```
+
+第二步，创建索引。
+
+```sql
+CREATE INDEX idx_abc ON tbn (A, B, C);
+```
+
+第三步，插入数据。
+
+```sql
+INSERT INTO tbn VALUES (1, 2, 3, 'First');
+INSERT INTO tbn VALUES (1, 2, 4, 'Second');
+INSERT INTO tbn VALUES (1, 3, 5, 'Third');
+INSERT INTO tbn VALUES (2, 2, 3, 'Fourth');
+INSERT INTO tbn VALUES (2, 3, 4, 'Fifth');
+```
+
+第四步，执行查询。
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE A=1 AND B IN (2, 3) AND C>3\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240315140807.png)
+
+从 `EXPLAIN` 输出结果来看，我们可以得到 MySQL 是如何执行查询的一些关键信息：
+
+- **id**: 查询标识符，这里是 `1`。
+- **select_type**: 查询的类型，这里是 `SIMPLE`，表示这是一个简单的查询，没有使用子查询或复杂的联合查询。
+- **table**: 正在查询的表名，这里是 `tbn`。
+- **type**: 查询类型，这里是 `range`，表示 MySQL 使用了范围查找。这是因为查询条件包含了 `>` 操作符，使得 MySQL 需要在索引中查找满足范围条件的记录。
+- **possible_keys**: 可能被用来执行查询的索引，这里是 `idx_abc`，表示 MySQL 认为 `idx_abc` 索引可能会用于优化查询。
+- **key**: 实际用来执行查询的索引，也是 `idx_abc`，这意味着 MySQL 实际上使用了 `idx_abc` 联合索引来优化查询。
+- **key_len**: 使用索引的长度，这里是 `15` 字节，这提供了关于索引使用情况的一些信息，比如哪些列被用在了索引中。
+- **ref**: 显示哪些列或常量被用作索引查找的参考。
+- **rows**: MySQL 估计为了找到结果需要检查的行数，这里是 `2`。
+- **filtered**: 表示根据表的条件过滤后，剩余多少百分比的结果，这里是 `100.00`%，意味着所有扫描的行都会被返回。
+- **Extra**: 提供了关于查询执行的额外信息。`Using index condition` 表示 MySQL 使用了索引条件推送（Index Condition Pushdown，ICP），这是 MySQL 的一个优化方式，它允许在索引层面过滤数据，减少访问表数据的需要。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
 
 ### 31.索引不适合哪些场景呢？
 
@@ -891,38 +1119,50 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 
 ### 33.MySQL 索引用的什么数据结构了解吗？
 
-MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树结构的索引。
+MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引：
 
-- B+树：只有叶子节点才会存储数据，非叶子节点只存储键值。叶子节点之间使用双向指针连接，最底层的叶子节点形成了一个双向有序链表。
+- 所有的值都在叶子节点
+- 非叶子节点只存储键值
+- 叶子节点之间是双向链表
 
-![B+树索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-0a47bec7-1cf2-47d7-94e2-3cd82ce806c7.jpg)
+![三分恶面渣逆袭：B+树索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240315131617.png)
 
-在这张图里，有两个重点：
+在这张图中：
 
-- 最外面的方块，的块我们称之为一个磁盘块，可以看到每个磁盘块包含几个数据项（粉色所示）和指针（黄色/灰色所示），如根节点磁盘包含数据项 17 和 35，包含指针 P1、P2、P3，P1 表示小于 17 的磁盘块，P2 表示在 17 和 35 之间的磁盘块，P3 表示大于 35 的磁盘块。真实的数据存在于叶子节点即 3、4、5……、65。非叶子节点只不存储真实的数据，只存储指引搜索方向的数据项，如 17、35 并不真实存在于数据表中。
-- 叶子节点之间使用双向指针连接，最底层的叶子节点形成了一个双向有序链表，可以进行范围查询。
+- 最外面的方块，我们称之为磁盘块，每个磁盘块都会包含数据项和指针。
+- 如根节点磁盘块包含数据项 17 和 35，包含指针 P1、P2、P3
+- P1 表示小于 17 的磁盘块，P2 表示在 17 和 35 之间的磁盘块，P3 表示大于 35 的磁盘块
+- 真实的数据存在于叶子节点即 3、4、5……、65。
+- 非叶子节点不存储真实的数据，只存储指引搜索方向的数据项，如 17、35，在数据库表中并不存在。
+- 叶子节点形成了一个双向有序链表，可以进行范围查询。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 
 ### 34.那一棵 B+树能存储多少条数据呢？
 
-![B+树存储数据条数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16f3523d-20b0-4376-908d-ac40b329768f.jpg)
+推荐阅读：[清幽之地：InnoDB 一棵 B+树可以存放多少行数据？](https://juejin.cn/post/6904293886626103309)
 
-假设索引字段是 bigint 类型，长度为 8 字节。指针大小在 InnoDB 源码中设置为 6 字节，这样一共 14 字节。非叶子节点(一页)可以存储 16384/14=1170 个这样的 单元(键值+指针)，代表有 1170 个指针。
+![三分恶面渣逆袭：B+树存储数据条数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16f3523d-20b0-4376-908d-ac40b329768f.jpg)
 
-树深度为 2 的时候，有 1170^2 个叶子节点，可以存储的数据为 1170\*1170\*16=**21902400**。
+假如我们的主键 ID 是 bigint 类型，长度为 8 个字节。指针大小在 InnoDB 源码中设置为 6 字节，这样一共 14 字节。所以非叶子节点(一页)可以存储 16384/14=1170 个这样的单元(键值+指针)。
 
-在查找数据时一次页的查找代表一次 IO，也就是说，一张 2000 万左右的表，查询数据最多需要访问 3 次磁盘。
+一个指针指向一个存放记录的页，一页可以放 16 条数据，树深度为 2 的时候，可以存放 1170\*16=**18720** 条数据。
 
-所以在 InnoDB 中 B+ 树深度一般为 1-3 层，它就能满足千万级的数据存储。
+同理，树深度为 3 的时候，可以存储的数据为 1170\*1170\*16=**21902400**条记录。
+
+理论上，在 InnoDB 存储引擎中，B+树的高度一般为 2-4 层，就可以满足千万级数据的存储。查找数据的时候，一次页的查找代表一次 IO，当我们通过主键索引查询的时候，最多只需要 2-4 次 IO 就可以了。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 
 ### 35.为什么要用 B+ 树，而不用普通二叉树？
 
 可以从几个维度去看这个问题，查询是否够快，效率是否稳定，存储数据多少，以及查找磁盘次数。
 
-> **为什么不用普通二叉树？**
+**为什么不用普通二叉树？**
 
 普通二叉树存在退化的情况，如果它退化成链表，相当于全表扫描。平衡二叉树相比于二叉查找树来说，查找效率更稳定，总体的查找速度也更快。
 
-> **为什么不用平衡二叉树呢？**
+**为什么不用平衡二叉树呢？**
 
 读取数据的时候，是从磁盘读到内存。如果树这种数据结构作为索引，那每查找一次数据就需要从磁盘中读取一个节点，也就是一个磁盘块，但是平衡二叉树可是每个节点只存储一个键值和数据的，如果是 B+ 树，可以存储更多的节点数据，树的高度也会降低，因此读取磁盘的次数就降下来啦，查询效率就快。
 
@@ -1342,7 +1582,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![业务代码封装](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-771eb01f-3f1a-4437-8e1b-affe4de36ec3.jpg)
 
-目前开源的实现方案中，淘宝的 TDDL (Taobao Distributed Data Layer, 外号：头都大了）是比较有名的。
+目前开源的实现方案中，淘宝的 TDDL （Taobao Distributed Data Layer, 外号：头都大了）是比较有名的。
 
 2.  中间件封装
 
@@ -1564,7 +1804,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 也有可能是每个 sql 消耗资源并不多，但是突然之间，有大量的 session 连进来导致 cpu 飙升，这种情况就需要跟应用一起来分析为何连接数会激增，再做出相应的调整，比如说限制连接数等
 
-> 图文详解 66 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+> 图文详解 68 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ---
 
