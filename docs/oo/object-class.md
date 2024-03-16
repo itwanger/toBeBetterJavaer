@@ -308,9 +308,169 @@ new Person();
 new Person().initialize("沉默王二", 18, 1);
 ```
 
-### 05、关于对象
+### 05、关于 Object 类
 
-#### **1）抽象的历程**
+在 Java 中，经常提到一个词“万物皆对象”，其中的“万物”指的是 Java 中的所有类，而这些类都是 Object 类的子类。
+
+Object 主要提供了 11 个方法，大致可以分为六类：
+
+![三分恶面渣逆袭：Object类的方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-21.png)
+
+#### 对象比较：
+
+①、`public native int hashCode()` ：[native 方法](https://javabetter.cn/oo/native-method.html)，用于返回对象的哈希码。
+
+```java
+public native int hashCode();
+```
+
+按照约定，相等的对象必须具有相等的哈希码。如果重写了 equals 方法，就应该重写 hashCode 方法。可以使用 [Objects.hash()](https://javabetter.cn/common-tool/Objects.html#%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84hashcode) 方法来生成哈希码。
+
+```java
+public int hashCode() {
+    return Objects.hash(name, age);
+}
+```
+
+②、`public boolean equals(Object obj)`：用于比较 2 个对象的内存地址是否相等。
+
+```java
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+```
+
+如果比较的是两个对象的值是否相等，就要重写该方法，比如 [String 类](https://javabetter.cn/string/string-source.html)、Integer 类等都重写了该方法。举个例子，假如有一个 Person 类，我们认为只要年龄和名字相同，就是同一个人，那么就可以这样重写 equals 方法：
+
+```java
+class Person1 {
+    private String name;
+    private int age;
+
+    // 省略 gettter 和 setter 方法
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof Person1) {
+            Person1 p = (Person1) obj;
+            return this.name.equals(p.getName()) && this.age == p.getAge();
+        }
+        return false;
+    }
+}
+```
+
+#### 对象拷贝：
+
+`protected native Object clone() throws CloneNotSupportedException`：naitive 方法，返回此对象的一个副本。默认实现只做[浅拷贝](https://javabetter.cn/basic-extra-meal/deep-copy.html)，且类必须实现 Cloneable 接口。
+
+Object 本身没有实现 Cloneable 接口，所以在不重写 clone 方法的情况下直接直接调用该方法会发生 CloneNotSupportedException 异常。
+
+#### 对象转字符串：
+
+`public String toString()`：返回对象的字符串表示。默认实现返回类名@哈希码的十六进制表示，但通常会被重写以返回更有意义的信息。
+
+```java
+public String toString() {
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}
+```
+
+比如说一个 Person 类，我们可以重写 toString 方法，返回一个有意义的字符串：
+
+```java
+public String toString() {
+    return "Person{" +
+            "name='" + name + '\'' +
+            ", age=" + age +
+            '}';
+}
+```
+
+当然了，这项工作也可以直接交给 IDE，比如 IntelliJ IDEA，直接右键选择 Generate，然后选择 toString 方法，就会自动生成一个 toString 方法。
+
+也可以交给 [Lombok](https://javabetter.cn/springboot/lombok.html)，使用 @Data 注解，它会自动生成 toString 方法。
+
+数组也是一个对象，所以通常我们打印数组的时候，会看到诸如 `[I@1b6d3586` 这样的字符串，这个就是 int 数组的哈希码。
+
+#### 多线程调度：
+
+每个对象都可以调用 Object 的 wait/notify 方法来实现等待/通知机制。我们来写一个例子：
+
+```java
+public class WaitNotifyDemo {
+    public static void main(String[] args) {
+        Object lock = new Object();
+        new Thread(() -> {
+            synchronized (lock) {
+                System.out.println("线程1：我要等待");
+                try {
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("线程1：我被唤醒了");
+            }
+        }).start();
+        new Thread(() -> {
+            synchronized (lock) {
+                System.out.println("线程2：我要唤醒");
+                lock.notify();
+                System.out.println("线程2：我已经唤醒了");
+            }
+        }).start();
+    }
+}
+```
+
+解释一下：
+
+- 线程 1 先执行，它调用了 `lock.wait()` 方法，然后进入了等待状态。
+- 线程 2 后执行，它调用了 `lock.notify()` 方法，然后线程 1 被唤醒了。
+
+①、`public final void wait() throws InterruptedException`：调用该方法会导致当前线程等待，直到另一个线程调用此对象的`notify()`方法或`notifyAll()`方法。
+
+②、`public final native void notify()`：唤醒在此对象监视器上等待的单个线程。如果有多个线程等待，选择一个线程被唤醒。
+
+③、`public final native void notifyAll()`：唤醒在此对象监视器上等待的所有线程。
+
+④、`public final native void wait(long timeout) throws InterruptedException`：等待 timeout 毫秒，如果在 timeout 毫秒内没有被唤醒，会自动唤醒。
+
+⑥、`public final void wait(long timeout, int nanos) throws InterruptedException`：更加精确了，等待 timeout 毫秒和 nanos 纳秒，如果在 timeout 毫秒和 nanos 纳秒内没有被唤醒，会自动唤醒。
+
+#### 反射：
+
+推荐阅读：[二哥的 Java 进阶之路：掌握 Java 反射](https://javabetter.cn/basic-extra-meal/fanshe.html)
+
+`public final native Class<?> getClass()`：用于获取对象的类信息，如类名。比如说：
+
+```java
+public class GetClassDemo {
+    public static void main(String[] args) {
+        Person p = new Person();
+        Class<? extends Person> aClass = p.getClass();
+        System.out.println(aClass.getName());
+    }
+}
+```
+
+输出结果：
+
+```
+com.itwanger.Person
+```
+
+#### 垃圾回收：
+
+`protected void finalize() throws Throwable`：当垃圾回收器决定回收对象占用的内存时调用此方法。用于清理资源，但 Java 不推荐使用，因为它不可预测且容易导致问题，Java 9 开始已被弃用。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240313085055.png)
+
+### 06、关于对象一些小知识
+
+#### 1）抽象的历程
 
 所有编程语言都是一种抽象，甚至可以说，我们能够解决的问题的复杂程度取决于抽象的类型和质量。
 
@@ -326,7 +486,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 >状态+行为+标识=对象，每个对象在内存中都会有一个唯一的地址。
 
-#### **2）对象具有接口**
+#### 2）对象具有接口
 
 所有的对象，都可以被归为一类，并且同一类对象拥有一些共同的行为和特征。在 Java 中，class 关键字用来定义一个类型。
 
@@ -338,7 +498,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 对象能够接收什么样的请求是由它的[接口](https://javabetter.cn/oo/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
 
-#### **3）访问权限修饰符**
+#### 3）访问权限修饰符
 
 类的创建者有时候也被称为 API 提供者，对应的，类的使用者就被称为 API 调用者。
 
@@ -360,11 +520,11 @@ API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏�
 
 还有一种“默认”的权限修饰符，是缺省的，它修饰的类可以访问同一个包下面的其他类。
 
-#### **4）组合**
+#### 4）组合
 
 我们可以把一个创建好的类作为另外一个类的成员变量来使用，利用已有的类组成成一个新的类，被称为“复用”，组合代表的关系是 has-a 的关系。
 
-#### **5）继承**
+#### 5）继承
 
 [继承](https://javabetter.cn/oo/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
 
@@ -372,7 +532,7 @@ API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏�
 
 如果子类只是重写了父类的方法，那么它们之间的关系就是 is-a 的关系，但如果子类增加了新的方法，那么它们之间的关系就变成了 is-like-a 的关系。
 
-#### **6）多态**
+#### 6）多态
 
 比如说有一个父类Shape
 
@@ -430,7 +590,7 @@ public class Test {
 
 其实就是 Java 中的[多态](https://javabetter.cn/oo/polymorphism.html)。
 
-### 06、小结
+### 07、小结
 
 “怎么样，三妹，是不是对 Java 有了更深入更清晰的理解？”终于讲完了，我深呼了一口气，好舒畅啊！
 

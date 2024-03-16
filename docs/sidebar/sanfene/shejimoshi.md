@@ -15,13 +15,13 @@ head:
 
 ## 01、什么是责任链模式？
 
->推荐阅读：[责任链模式](https://refactoringguru.cn/design-patterns/chain-of-responsibility)
+>推荐阅读：[refactoringguru.cn：责任链模式](https://refactoringguru.cn/design-patterns/chain-of-responsibility)
 
 责任链模式（Chain of Responsibility Pattern）是一种行为设计模式，它使多个对象都有机会处理请求，从而避免了请求的发送者和接收者之间的耦合关系。
 
 请求会沿着一条链传递，直到有一个对象处理它为止。这种模式常用于处理不同类型的请求以及在不确定具体接收者的情况下将请求传递给多个对象中的一个。
 
-![图片来源于天未](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240309104732.png)
+![天未：图解 23 种设计模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240309104732.png)
 
 ### 基本概念
 
@@ -162,6 +162,217 @@ Standard Console::Logger: Error 级别
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 原题：请说说责任链模式。
 
+## 02、什么是工厂模式？
+
+>推荐阅读：[refactoringguru.cn：工厂模式](https://refactoringguru.cn/design-patterns/factory-method)
+
+工厂模式（Factory Pattern）属于创建型设计模式，主要用于创建对象，而不暴露创建对象的逻辑给客户端。
+
+其在父类中提供一个创建对象的方法， 允许子类决定实例化对象的类型。
+
+举例来说，卡车 Truck 和轮船 Ship 都必须实现运输工具 Transport 接口，该接口声明了一个名为 deliver 的方法。
+
+卡车都实现了 deliver 方法，但是卡车的 deliver 是在陆地上运输，而轮船的 deliver 是在海上运输。
+
+![refactoringguru.cn：工厂模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240314083451.png)
+
+调用工厂方法的代码（客户端代码）无需了解不同子类之间的差别，只管调用接口的 deliver 方法即可。
+
+### 工厂模式的主要类型
+
+①、**简单工厂模式**（Simple Factory）：它引入了创建者的概念，将实例化的代码从应用程序的业务逻辑中分离出来。简单工厂模式包括一个工厂类，它提供一个方法用于创建对象。
+
+```java
+class SimpleFactory {
+    public static Transport createTransport(String type) {
+        if ("truck".equalsIgnoreCase(type)) {
+            return new Truck();
+        } else if ("ship".equalsIgnoreCase(type)) {
+            return new Ship();
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        Transport truck = SimpleFactory.createTransport("truck");
+        truck.deliver();
+
+        Transport ship = SimpleFactory.createTransport("ship");
+        ship.deliver();
+    }
+}
+```
+
+②、**工厂方法模式**（Factory Method）：定义一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让类的实例化推迟到子类进行。
+
+```java
+interface Transport {
+    void deliver();
+}
+
+class Truck implements Transport {
+    @Override
+    public void deliver() {
+        System.out.println("在陆地上运输");
+    }
+}
+
+class Ship implements Transport {
+    @Override
+    public void deliver() {
+        System.out.println("在海上运输");
+    }
+}
+
+interface TransportFactory {
+    Transport createTransport();
+}
+
+class TruckFactory implements TransportFactory {
+    @Override
+    public Transport createTransport() {
+        return new Truck();
+    }
+}
+
+class ShipFactory implements TransportFactory {
+    @Override
+    public Transport createTransport() {
+        return new Ship();
+    }
+}
+
+public class FactoryMethodPatternDemo {
+    public static void main(String[] args) {
+        TransportFactory truckFactory = new TruckFactory();
+        Transport truck = truckFactory.createTransport();
+        truck.deliver();
+
+        TransportFactory shipFactory = new ShipFactory();
+        Transport ship = shipFactory.createTransport();
+        ship.deliver();
+    }
+}
+```
+
+### 应用场景
+
+1. **数据库访问层（DAL）组件**：工厂方法模式适用于数据库访问层，其中需要根据不同的数据库（如MySQL、PostgreSQL、Oracle）创建不同的数据库连接。工厂方法可以隐藏这些实例化逻辑，只提供一个统一的接口来获取数据库连接。
+2. **日志记录**：当应用程序需要实现多种日志记录方式（如向文件记录、数据库记录或远程服务记录）时，可以使用工厂模式来设计一个灵活的日志系统，根据配置或环境动态决定具体使用哪种日志记录方式。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下工厂模式，场景
+
+## 03、什么是单例模式？
+
+>推荐阅读：[refactoringguru.cn：单例模式](https://refactoringguru.cn/design-patterns/singleton)
+
+单例模式（Singleton Pattern）是一种创建型设计模式，它确保一个类只有一个实例，并提供一个全局访问点来获取该实例。单例模式主要用于控制对某些共享资源的访问，例如配置管理器、连接池、线程池、日志对象等。
+
+![refactoringguru.cn：单例模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240314085956.png)
+
+### 实现单例模式的关键点：
+
+1. **私有构造方法**：确保外部代码不能通过构造器创建类的实例。
+2. **私有静态实例变量**：持有类的唯一实例。
+3. **公有静态方法**：提供全局访问点以获取实例，如果实例不存在，则在内部创建。
+
+### 常见的单例模式实现：
+
+#### 01、饿汉式
+
+饿汉式单例（Eager Initialization）在类加载时就急切地创建实例，不管你后续用不用得到，这也是饿汉式的来源，简单但不支持延迟加载实例。
+
+```java
+public class Singleton {
+    private static final Singleton instance = new Singleton();
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        return instance;
+    }
+}
+```
+
+#### 02、懒汉式
+
+懒汉式单例（Lazy Initialization）在实际使用时才创建实例，“确实懒”（😂）。这种实现方式需要考虑线程安全问题，因此一般会带上 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)。
+
+```java
+public class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {}
+
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
+
+#### 03、双重检查锁定
+
+双重检查锁定（Double-Checked Locking）结合了懒汉式的延迟加载和线程安全，同时又减少了同步的开销，主要是用 synchronized 同步代码块来替代同步方法。
+
+```java
+public class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+当 instance 创建后，再次调用 getInstance 方法时，不会进入同步代码块，从而提高了性能。
+
+在 instance 前加上 [volatile 关键字](https://javabetter.cn/thread/volatile.html)，可以防止指令重排，因为 `instance = new Singleton()` 并不是一个原子操作，可能会被重排序，导致其他线程获取到未初始化完成的实例。
+
+#### 04、静态内部类
+
+利用 Java 的[静态内部类](https://javabetter.cn/oo/static.html)（Static Nested Class）和[类加载机制](https://javabetter.cn/jvm/class-load.html)来实现线程安全的延迟初始化。
+
+```java
+public class Singleton {
+    private Singleton() {}
+
+    private static class SingletonHolder {
+        private static final Singleton INSTANCE = new Singleton();
+    }
+
+    public static Singleton getInstance() {
+        return SingletonHolder.INSTANCE;
+    }
+}
+```
+
+当第一次加载 Singleton 类时并不会初始化 SingletonHolder，只有在第一次调用 getInstance 方法时才会导致 SingletonHolder 被加载，从而实例化 instance。
+
+#### 05、枚举
+
+使用[枚举（Enum）](https://javabetter.cn/basic-extra-meal/enum.html)实现单例是最简单的方式，也能防止反射攻击和序列化问题。
+
+```java
+public enum Singleton {
+    INSTANCE;
+    // 可以添加实例方法
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下单例模式，有几种
 
 ---
 
