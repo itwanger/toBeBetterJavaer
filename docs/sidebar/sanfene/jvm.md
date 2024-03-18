@@ -574,13 +574,14 @@ HotSpot 虚拟机提供了这个参数来设置。
 
 ### 24.知道有哪些垃圾收集器吗？
 
-主要垃圾收集器如下，图中标出了它们的工作区域、垃圾收集算法，以及配合关系。
+推荐阅读：[深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://javabetter.cn/jvm/gc-collector.html)
 
-![HotSpot虚拟机垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
+就目前来说，JVM 的垃圾收集器主要分为两大类：分代收集器和分区收集器，分代收集器的代表是 CMS，分区收集器的代表是 G1 和 ZGC。
 
-这些收集器里，面试的重点是两个——**CMS**和**G1**。
+![三分恶面渣逆袭：HotSpot虚拟机垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
 
-- Serial 收集器
+
+#### Serial 收集器
 
 Serial 收集器是最基础、历史最悠久的收集器。
 
@@ -590,7 +591,7 @@ Serial/Serial Old 收集器的运行过程如图：
 
 ![Serial/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
-- ParNew
+#### ParNew
 
 ParNew 收集器实质上是 Serial 收集器的多线程并行版本，使用多条线程进行垃圾收集。
 
@@ -598,29 +599,46 @@ ParNew/Serial Old 收集器运行示意图如下：
 
 ![ParNew/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
 
-- Parallel Scavenge
+#### Parallel Scavenge
 
 Parallel Scavenge 收集器是一款新生代收集器，基于标记-复制算法实现，也能够并行收集。和 ParNew 有些类似，但 Parallel Scavenge 主要关注的是垃圾收集的吞吐量——所谓吞吐量，就是 CPU 用于运行用户代码的时间和总消耗时间的比值，比值越大，说明垃圾收集的占比越小。
 
 ![吞吐量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-31.png)
 
-- Serial Old
+
+根据对象存活周期的不同会将内存划分为几块，一般是把 Java 堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。
+
+#### Serial Old
 
 Serial Old 是 Serial 收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。
 
-- Parallel Old
+#### Parallel Old
 
 Parallel Old 是 Parallel Scavenge 收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。
 
 ![Parallel Scavenge/Parallel Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
 
-- CMS 收集器
+#### CMS 收集器
 
-CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器，同样是老年代的收集器，采用标记-清除算法。
+以获取最短回收停顿时间为目标，采用“标记-清除”算法，分 4 大步进行垃圾收集，其中初始标记和重新标记会 STW，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
 
-- Garbage First 收集器
+![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228211056.png)
 
-Garbage First（简称 G1）收集器是垃圾收集器的一个颠覆性的产物，它开创了局部收集的设计思路和基于 Region 的内存布局形式。
+#### Garbage First 收集器
+
+G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。G1 有五个属性：分代、增量、并行、标记整理、STW。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+
+#### ZGC 收集器
+
+ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，它的目标是在不超过 10ms 的停顿时间内，为堆大小达到 16TB 的应用提供一种高吞吐量的垃圾收集器。
+
+ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转移阶段，还应用在并发标记阶段：将对象设置为已标记，传统的垃圾回收器需要进行一次内存访问，并将对象存活信息放在对象头中；而在ZGC中，只需要设置指针地址的第42-45位即可，并且因为是寄存器访问，所以速度比访问内存更快。
+
+![得物技术](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102142908.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：了解哪些垃圾回收器，只能回收一个代（新生代、老年代）吗，使用的jdk版本
 
 ### 25.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
 

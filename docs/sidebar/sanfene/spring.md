@@ -1,7 +1,7 @@
 ---
-title: Spring面试题，35道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
+title: Spring面试题，36道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Spring
-description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 35 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 36 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: Spring面试题,Spring,面试题,八股文,java,spring全家桶
 ---
 
-1.3 万字 63 张手绘图，详解 35 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+1.3 万字 63 张手绘图，详解 36 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 ## 基础
 
@@ -1808,57 +1808,93 @@ Spring Boot 的优点非常多，比如说：
 6. Spring Boot 提供了一系列的 Actuator，可以帮助我们监控和管理应用，比如健康检查、审计、统计等。
 7. 配合 Spring Cloud 可以快速构建微服务架构。
 
-> 1. 华为 OD 的面试中出现过该题：讲讲 Spring Boot 的特性。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经中出现过该题：讲讲 Spring Boot 的特性。
+
+### 36.SpringBoot 和 SpringMVC 的区别？
+
+Spring MVC 是基于 Spring 框架的一个模块，提供了一种 Model-View-Controller（模型-视图-控制器）的开发模式。
+
+Spring Boot 旨在简化 Spring 应用的配置和部署过程，提供了大量的自动配置选项，以及运行时环境的内嵌 Web 服务器，这样就可以更快速地开发一个 SpringMVC 的 Web 项目。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 和 SpringMVC 的区别
 
 ### 32.SpringBoot 自动配置原理了解吗？
 
-SpringBoot 开启自动配置的注解是`@EnableAutoConfiguration` ，启动类上的注解`@SpringBootApplication`是一个复合注解，包含了@EnableAutoConfiguration：
+在 Spring 中，自动装配是指容器利用反射技术，根据 Bean 的类型、名称等自动注入所需的依赖。
 
-![SpringBoot自动配置原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
+在 Spring 的 XML 配置文件中，可以通过 autowire 属性来指定自动装配的模式，如 byType、byName 等。
 
-- `EnableAutoConfiguration` 只是一个简单的注解，自动装配核心功能的实现实际是通过 `AutoConfigurationImportSelector`类
+也可以在 Java 类中使用`@Autowired`、`@Resource` 等注解来表明该成员变量或方法需要被自动装配。
 
-  ```java
-  @AutoConfigurationPackage //将main同级的包下的所有组件注册到容器中
-  @Import({AutoConfigurationImportSelector.class}) //加载自动装配类 xxxAutoconfiguration
-  public @interface EnableAutoConfiguration {
-      String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";
+在 Spring Boot 中，开启自动装配的注解是`@EnableAutoConfiguration`。
 
-      Class<?>[] exclude() default {};
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121711.png)
 
-      String[] excludeName() default {};
-  }
-  ```
+Spring Boot 项目为了进一步简化，直接通过 `@SpringBootApplication` 注解一步搞定，这个注解包含了 `@EnableAutoConfiguration` 注解。
 
-- `AutoConfigurationImportSelector`实现了`ImportSelector`接口，这个接口的作用就是收集需要导入的配置类，配合`@Import(）`就可以将相应的类导入到 Spring 容器中
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121651.png)
 
-- 获取注入类的方法是 selectImports()，它实际调用的是`getAutoConfigurationEntry`，这个方法是获取自动装配类的关键，主要流程可以分为这么几步：
-
-  1. 获取注解的属性，用于后面的排除
-  2. **获取所有需要自动装配的配置类的路径**：这一步是最关键的，从 META-INF/spring.factories 获取自动配置类的路径
-  3. 去掉重复的配置类和需要排除的重复类，把需要自动加载的配置类的路径存储起来
+①、`@EnableAutoConfiguration` 只是一个简单的注解，但是它的背后却是一个非常复杂的自动装配机制，它的核心是`AutoConfigurationImportSelector` 类。
 
 ```java
-    protected AutoConfigurationImportSelector.AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata annotationMetadata) {
-        if (!this.isEnabled(annotationMetadata)) {
-            return EMPTY_ENTRY;
-        } else {
-            //1.获取到注解的属性
-            AnnotationAttributes attributes = this.getAttributes(annotationMetadata);
-            //2.获取需要自动装配的所有配置类，读取META-INF/spring.factories，获取自动配置类路径
-            List<String> configurations = this.getCandidateConfigurations(annotationMetadata, attributes);
-            //3.1.移除重复的配置
-            configurations = this.removeDuplicates(configurations);
-            //3.2.处理需要排除的配置
-            Set<String> exclusions = this.getExclusions(annotationMetadata, attributes);
-            this.checkExcludedClasses(configurations, exclusions);
-            configurations.removeAll(exclusions);
-            configurations = this.getConfigurationClassFilter().filter(configurations);
-            this.fireAutoConfigurationImportEvents(configurations, exclusions);
-            return new AutoConfigurationImportSelector.AutoConfigurationEntry(configurations, exclusions);
-        }
-    }
+@AutoConfigurationPackage //将main同级的包下的所有组件注册到容器中
+@Import({AutoConfigurationImportSelector.class}) //加载自动装配类 xxxAutoconfiguration
+public @interface EnableAutoConfiguration {
+    String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";
+
+    Class<?>[] exclude() default {};
+
+    String[] excludeName() default {};
+}
 ```
+
+②、`AutoConfigurationImportSelector`实现了`ImportSelector`接口，这个接口的作用就是收集需要导入的配置类，配合`@Import(）`就将相应的类导入到 Spring 容器中。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316122134.png)
+
+③、获取注入类的方法是 `selectImports()`，它实际调用的是`getAutoConfigurationEntry`，这个方法是获取自动装配类的关键。
+
+```java
+protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata annotationMetadata) {
+    // 检查自动配置是否启用。如果@ConditionalOnClass等条件注解使得自动配置不适用于当前环境，则返回一个空的配置条目。
+    if (!isEnabled(annotationMetadata)) {
+        return EMPTY_ENTRY;
+    }
+
+    // 获取启动类上的@EnableAutoConfiguration注解的属性，这可能包括对特定自动配置类的排除。
+    AnnotationAttributes attributes = getAttributes(annotationMetadata);
+
+    // 从spring.factories中获取所有候选的自动配置类。这是通过加载META-INF/spring.factories文件中对应的条目来实现的。
+    List<String> configurations = getCandidateConfigurations(annotationMetadata, attributes);
+
+    // 移除配置列表中的重复项，确保每个自动配置类只被考虑一次。
+    configurations = removeDuplicates(configurations);
+
+    // 根据注解属性解析出需要排除的自动配置类。
+    Set<String> exclusions = getExclusions(annotationMetadata, attributes);
+
+    // 检查排除的类是否存在于候选配置中，如果存在，则抛出异常。
+    checkExcludedClasses(configurations, exclusions);
+
+    // 从候选配置中移除排除的类。
+    configurations.removeAll(exclusions);
+
+    // 应用过滤器进一步筛选自动配置类。过滤器可能基于条件注解如@ConditionalOnBean等来排除特定的配置类。
+    configurations = getConfigurationClassFilter().filter(configurations);
+
+    // 触发自动配置导入事件，允许监听器对自动配置过程进行干预。
+    fireAutoConfigurationImportEvents(configurations, exclusions);
+
+    // 创建并返回一个包含最终确定的自动配置类和排除的配置类的AutoConfigurationEntry对象。
+    return new AutoConfigurationEntry(configurations, exclusions);
+}
+```
+
+画张图来总结下：
+
+![三分恶面渣逆袭：SpringBoot自动配置原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 启动时为什么能够自动装配
 
 ### 33.如何自定义一个 SpringBoot Srarter?
 
@@ -1867,84 +1903,84 @@ SpringBoot 开启自动配置的注解是`@EnableAutoConfiguration` ，启动类
 1. 创建一个项目，命名为 demo-spring-boot-starter，引入 SpringBoot 相关依赖
 
 ```java
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+</dependency>
 ```
 
 2. 编写配置文件
 
-   这里定义了属性配置的前缀
+这里定义了属性配置的前缀
 
-   ```java
-   @ConfigurationProperties(prefix = "hello")
-   public class HelloProperties {
+```java
+@ConfigurationProperties(prefix = "hello")
+public class HelloProperties {
 
-       private String name;
+    private String name;
 
-       //省略getter、setter
-   }
-   ```
+    //省略getter、setter
+}
+```
 
 3. 自动装配
 
-   创建自动配置类 HelloPropertiesConfigure
+创建自动配置类 HelloPropertiesConfigure
 
-   ```java
-   @Configuration
-   @EnableConfigurationProperties(HelloProperties.class)
-   public class HelloPropertiesConfigure {
-   }
-   ```
+```java
+@Configuration
+@EnableConfigurationProperties(HelloProperties.class)
+public class HelloPropertiesConfigure {
+}
+```
 
 4. 配置自动类
 
-   在`/resources/META-INF/spring.factories`文件中添加自动配置类路径
+在`/resources/META-INF/spring.factories`文件中添加自动配置类路径
 
-   ```java
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-     cn.fighter3.demo.starter.configure.HelloPropertiesConfigure
-   ```
+```java
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    cn.fighter3.demo.starter.configure.HelloPropertiesConfigure
+```
 
 5. 测试
 
-   - 创建一个工程，引入自定义 starter 依赖
+- 创建一个工程，引入自定义 starter 依赖
 
-     ```java
-             <dependency>
-                 <groupId>cn.fighter3</groupId>
-                 <artifactId>demo-spring-boot-starter</artifactId>
-                 <version>0.0.1-SNAPSHOT</version>
-             </dependency>
-     ```
+```java
+       <dependency>
+           <groupId>cn.fighter3</groupId>
+           <artifactId>demo-spring-boot-starter</artifactId>
+           <version>0.0.1-SNAPSHOT</version>
+       </dependency>
+```
 
-   - 在配置文件里添加配置
+- 在配置文件里添加配置
 
-     ```
-     hello.name=张三
-     ```
+```
+hello.name=张三
+```
 
-   - 测试类
+- 测试类
 
-     ```java
-     @RunWith(SpringRunner.class)
-     @SpringBootTest
-     public class HelloTest {
-         @Autowired
-         HelloProperties helloProperties;
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class HelloTest {
+   @Autowired
+   HelloProperties helloProperties;
 
-         @Test
-         public void hello(){
-             System.out.println("你好，"+helloProperties.getName());
-         }
-     }
-     ```
+   @Test
+   public void hello(){
+       System.out.println("你好，"+helloProperties.getName());
+   }
+}
+```
 
 - 运行结果
 
@@ -1964,6 +2000,27 @@ SpringApplication 这个类主要做了以下四件事情：
 SpringBoot 启动大致流程如下 ：
 
 ![SpringBoot 启动大致流程-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-68744556-a1ba-4e1f-a092-1582875f0da6.png)
+
+#### 为什么 Spring Boot 在启动的时候能够找到 main 方法上的@SpringBootApplication 注解？
+
+Spring Boot 在启动时能够找到主类上的`@SpringBootApplication`注解，是因为它利用了 Java 的反射机制和类加载机制，结合 Spring 框架内部的一系列处理流程。
+
+当运行一个 Spring Boot 程序时，通常会调用主类中的`main`方法，这个方法会执行`SpringApplication.run()`，比如：
+
+```java
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+```
+
+`SpringApplication.run(Class<?> primarySource, String... args)`方法接收两个参数：第一个是主应用类（即包含`main`方法的类），第二个是命令行参数。`primarySource`参数提供了一个起点，Spring Boot 通过它来加载应用上下文。
+
+Spring Boot 利用 Java 反射机制来读取传递给`run`方法的类（`MyApplication.class`）。它会检查这个类上的注解，包括`@SpringBootApplication`。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：为什么 Spring Boot 启动时能找到 Main 类上面的注解
 
 ## Spring Cloud
 
@@ -1995,7 +2052,7 @@ SpringCloud 是 Spring 官方推出的微服务治理框架。
 
 ![SpringCloud](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b988a72-0739-4fed-b271-eaf12589444f.png)
 
-> 图文详解 35 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+> 图文详解 36 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 ---
 
