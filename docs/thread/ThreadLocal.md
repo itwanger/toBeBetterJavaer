@@ -14,7 +14,7 @@ head:
 
 # 第二十四节：本地变量 ThreadLocal
 
-ThreadLocal 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。ThreadLocal 可以用于解决多线程中共享对象的线程安全问题。
+是 Java 中提供的一种用于实现线程局部变量的工具类。它允许每个线程都拥有自己的独立副本，从而实现线程隔离，用于解决多线程中共享对象的线程安全问题。
 
 通常，我们会使用 [synchronzed 关键字](https://javabetter.cn/thread/synchronized-1.html) 或者 [lock](https://javabetter.cn/thread/lock.html) 来控制线程对临界区资源的同步顺序，但这种加锁的方式会让未获取到锁的线程进行阻塞，很显然，这种方式的时间效率不会特别高。
 

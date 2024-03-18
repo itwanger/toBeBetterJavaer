@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，60道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，62道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 60 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 62 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 60 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 62 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -441,56 +441,62 @@ ThreadLocal 其实应用场景不是很多，但却是被炸了千百遍的面�
 
 ### 10.ThreadLocal 是什么？
 
-ThreadLocal，也就是线程本地变量。如果你创建了一个 ThreadLocal 变量，那么访问这个变量的每个线程都会有这个变量的一个本地拷贝，多个线程操作这个变量的时候，实际是操作自己本地内存里面的变量，从而起到线程隔离的作用，避免了线程安全问题。
+[ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是 Java 中提供的一种用于实现线程局部变量的工具类。它允许每个线程都拥有自己的独立副本，从而实现线程隔离，用于解决多线程中共享对象的线程安全问题。
 
-![ThreadLocal线程副本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-11.png)
+![三分恶面渣逆袭：ThreadLocal线程副本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-11.png)
 
-- 创建
+使用 ThreadLocal 通常分为三步：
 
-创建了一个 ThreadLoca 变量 localVariable，任何一个线程都能并发访问 localVariable。
+①、创建 ThreadLocal 变量
 
 ```java
 //创建一个ThreadLocal变量
 public static ThreadLocal<String> localVariable = new ThreadLocal<>();
 ```
 
-- 写入
-
-线程可以在任何地方使用 localVariable，写入变量。
+②、设置 ThreadLocal 变量的值
 
 ```java
-localVariable.set("鄙人三某”);
+//设置ThreadLocal变量的值
+localVariable.set("沉默王二是沙雕");
 ```
 
-- 读取
-
-线程在任何地方读取的都是它写入的变量。
+③、获取 ThreadLocal 变量的值
 
 ```java
-localVariable.get();
+//获取ThreadLocal变量的值
+String value = localVariable.get();
 ```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 
 ### 11.你在工作中用到过 ThreadLocal 吗？
 
-有用到过的，用来做用户信息上下文的存储。
+有用到过的，用来存储用户信息。
 
-我们的系统应用是一个典型的 MVC 架构，登录后的用户每次访问接口，都会在请求头中携带一个 token，在控制层可以根据这个 token，解析出用户的基本信息。那么问题来了，假如在服务层和持久层都要用到用户信息，比如 rpc 调用、更新用户获取等等，那应该怎么办呢？
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316103919.png)
 
-一种办法是显式定义用户相关的参数，比如账号、用户名……这样一来，我们可能需要大面积地修改代码，多少有点瓜皮，那该怎么办呢？
+[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)是典型的 MVC 架构，登录后的用户每次访问接口，都会在请求头中携带一个 token，在控制层可以根据这个 token，解析出用户的基本信息。
 
-这时候我们就可以用到 ThreadLocal，在控制层拦截请求把用户信息存入 ThreadLocal，这样我们在任何一个地方，都可以取出 ThreadLocal 中存的用户数据。
+假如在服务层和持久层也要用到用户信息，就可以在控制层拦截请求把用户信息存入 ThreadLocal。
 
-![ThreadLoca存放用户上下文](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-12.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104501.png)
 
-很多其它场景的 cookie、session 等等数据隔离也都可以通过 ThreadLocal 去实现。
+这样我们在任何一个地方，都可以取出 ThreadLocal 中存的用户信息。
 
-我们常用的数据库连接池也用到了 ThreadLocal：
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104629.png)
 
-- 数据库连接池的连接交给 ThreadLoca 进行管理，保证当前线程的操作都是同一个 Connnection。
+很多其它场景的 cookie、session 等等数据隔离都可以通过 ThreadLocal 去实现。
+
+![三分恶面渣逆袭：ThreadLoca存放用户上下文](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-12.png)
+
+数据库连接池也可以用 ThreadLocal，将数据库连接池的连接交给 ThreadLocal 进行管理，能够保证当前线程的操作都是同一个 Connnection。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 
 ### 12.ThreadLocal 怎么实现的呢？
 
-我们看一下 ThreadLocal 的 set(T)方法，发现先获取到当前线程，再获取`ThreadLocalMap`，然后把元素存到这个 map 中。
+我们看一下 ThreadLocal 的 `set(T)`方法，发现先获取到当前线程，再获取`ThreadLocalMap`，然后把元素存到这个 map 中。
 
 ```java
     public void set(T value) {
@@ -515,7 +521,7 @@ public class Thread implements Runnable {
 }
 ```
 
-ThreadLocalMap 既然被称为 Map，那么毫无疑问它是<key,value>型的数据结构。我们都知道 map 的本质是一个个<key,value>形式的节点组成的数组，那 ThreadLocalMap 的节点是什么样的呢？
+ThreadLocalMap 既然被称为 Map，那么毫无疑问它是`<key,value>`型的数据结构。我们都知道 map 的本质是一个个`<key,value>`形式的节点组成的数组，那 ThreadLocalMap 的节点是什么样的呢？
 
 ```java
 static class Entry extends WeakReference<ThreadLocal<?>> {
@@ -544,7 +550,7 @@ key 的赋值，使用的是 WeakReference 的赋值。
 
 ![ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
 
-> 所以，怎么回答 ThreadLocal 原理？要答出这几个点：
+所以，怎么回答 ThreadLocal 原理？要答出这几个点：
 
 - Thread 类有一个类型为 ThreadLocal.ThreadLocalMap 的实例变量 threadLocals，每个线程都有一个属于自己的 ThreadLocalMap。
 - ThreadLocalMap 内部维护着 Entry 数组，每个 Entry 代表一个完整的对象，key 是 ThreadLocal 的弱引用，value 是 ThreadLocal 的泛型值。
@@ -553,37 +559,113 @@ key 的赋值，使用的是 WeakReference 的赋值。
 
 ### 13.ThreadLocal 内存泄露是怎么回事？
 
-我们先来分析一下使用 ThreadLocal 时的内存，我们都知道，在 JVM 中，栈内存线程私有，存储了对象的引用，堆内存线程共享，存储了对象实例。
+在 Java 虚拟机中，栈是线程私有的，堆是线程共享的。
 
-所以呢，栈中存储了 ThreadLocal、Thread 的引用，堆中存储了它们的具体实例。
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
 
-![ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
+每个 Thread 对象内部都有一个 ThreadLocal.ThreadLocalMap，用于存储与该线程相关的 ThreadLocal 变量。
 
-ThreadLocalMap 中使用的 key 为 ThreadLocal 的弱引用。
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316111000.png)
 
-> “弱引用：只要垃圾回收机制一运行，不管 JVM 的内存空间是否充足，都会回收该对象占用的内存。”
+ThreadLocalMap 是一个键值对集合，其中键是 ThreadLocal 对象的引用，值是使用 ThreadLocal 存储的数据。
 
-那么现在问题就来了，弱引用很容易被回收，如果 ThreadLocal（ThreadLocalMap 的 Key）被垃圾回收器回收了，但是 ThreadLocalMap 生命周期和 Thread 是一样的，它这时候如果不被回收，就会出现这种情况：ThreadLocalMap 的 key 没了，value 还在，这就会**造成了内存泄漏问题**。
+也就是说，栈中存储了 ThreadLocal 和 Thread 的引用，堆中存储了它们的具体实例。
 
-> 那怎么解决内存泄漏问题呢？
+![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
 
-很简单，使用完 ThreadLocal 后，及时调用 remove()方法释放内存空间。
+使用 ThreadLocal 发生内存泄露的原因可能是：
+
+**①、ThreadLocalMap 的生命周期过长**，在使用线程池等长生命周期的线程时，线程不会立即销毁。
+
+如果`ThreadLocal`变量在使用后没有被及时清理（通过调用`ThreadLocal`的`remove()`方法），那么`ThreadLocalMap`中的键值对会一直存在，即使外部已经没有对`ThreadLocal`对象的引用。
+
+这意味着`ThreadLocalMap`中的键值对无法被垃圾收集器回收，从而导致内存泄露。
+
+**②、ThreadLocal 对象生命周期结束，线程继续运行**。
+
+如果一个`ThreadLocal`对象已经不再被使用，但是线程仍然在运行，并且其`ThreadLocalMap`中还保留着对这个`ThreadLocal`对象的键的引用，这会导致`ThreadLocal`对象所引用的数据也无法被回收，因为`ThreadLocalMap`中的键是对`ThreadLocal`对象的弱引用（WeakReference），但值（存储的数据）是强引用。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ThreadLocal-01.png)
+
+举例说明一下：
 
 ```java
-ThreadLocal<String> localVariable = new ThreadLocal();
-try {
-    localVariable.set("鄙人三某”);
-    ……
-} finally {
-    localVariable.remove();
+public class ThreadLocalLeakExample {
+    private static final ThreadLocal<UserInfo> userThreadLocal = new ThreadLocal<>();
+
+    public static void main(String[] args) throws InterruptedException {
+        // 创建一个UserInfo对象并设置到ThreadLocal中
+        UserInfo userInfo = new UserInfo("沉默王二");
+        userThreadLocal.set(userInfo);
+
+        // 模拟在一段时间后，UserInfo不再被使用
+        // 在实际应用中，这可能是因为请求处理完毕等原因
+        userThreadLocal.remove(); // 假设这一行被遗忘或漏掉了
+
+        // 强制GC尝试回收
+        System.gc();
+
+        Thread.sleep(1000); // 等待GC完成，只是为了示例需要
+
+        // 模拟线程继续运行
+        System.out.println("线程继续执行");
+    }
 }
 ```
 
-> 那为什么 key 还要设计成弱引用？
+如果`userThreadLocal.remove();`这行代码被遗漏或者因为某些原因没有执行，即使 UserInfo 对象已经不再需要了，它也不会被垃圾回收器回收。这是因为 ThreadLocalMap 中对 UserInfo 的引用是一个强引用。虽然 ThreadLocal 对象本身（作为 ThreadLocalMap 的键）可能由于是弱引用而被回收，但由于 ThreadLocalMap 的值是强引用，所以 UserInfo 仍然被 ThreadLocalMap 所引用，阻止了其被垃圾回收。
 
-key 设计成弱引用同样是为了防止内存泄漏。
+强引用是 Java 中最常见的引用类型。如果一个对象具有强引用，垃圾收集器绝不会回收它。当内存空间不足时，Java 虚拟机宁愿抛出 OutOfMemoryError 错误，使程序异常终止，也不会回收这种对象。
 
-假如 key 被设计成强引用，如果 ThreadLocal Reference 被销毁，此时它指向 ThreadLoca 的强引用就没有了，但是此时 key 还强引用指向 ThreadLoca，就会导致 ThreadLocal 不能被回收，这时候就发生了内存泄漏的问题。
+```java
+Object obj = new Object();
+```
+
+弱引用需要用 java.lang.ref.WeakReference 类来实现。
+
+```java
+Object obj = new Object();
+WeakReference<Object> weakRef = new WeakReference<Object>(obj);
+
+obj = null; // 取消强引用
+```
+
+在取消 obj 的强引用之后，只剩下 obj 对象的弱引用 weakRef 了。在这种情况下，垃圾收集器在下一次执行时会回收 obj 对象。
+
+更多强引用和弱引用的区别，推荐阅读：[JVM 核心知识点总结](https://javabetter.cn/jvm/zongjie.html)
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316111309.png)
+
+**那怎么解决内存泄漏问题呢**？
+
+很简单，使用完 ThreadLocal 后，及时调用 `remove()` 方法释放内存空间。
+
+```java
+try {
+    threadLocal.set(value);
+    // 执行业务操作
+} finally {
+    threadLocal.remove(); // 确保能够执行清理
+}
+```
+
+**那为什么 key 要设计成弱引用**？
+
+在 ThreadLocal 的实现中，每个线程都持有一个对应的 ThreadLocalMap，用于存储与该线程相关联的 ThreadLocal 对象及其值。ThreadLocalMap 中的每个条目（Entry）都是一个键值对，其中键是 ThreadLocal 对象的引用，而值是线程特有的数据。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316112259.png)
+
+Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段用于存储与特定 ThreadLocal 对象关联的值。使用弱引用作为键允许垃圾收集器在不再需要的情况下回收 ThreadLocal 实例。
+
+![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
+
+上图中的实线表示强引用，虚线表示弱引用。每个线程都可以通过 ThreadLocals 获取到 ThreadLocalMap，而 ThreadLocalMap 实际上就是一个以 ThreadLocal 实例为 key，任意对象为 value 的 Entry 数组。
+
+当我们为 ThreadLocal 变量赋值时，实际上就是以当前 ThreadLocal 实例为 key，值为 Entry 往这个 ThreadLocalMap 中存放。
+
+注意，Entry 的 key 为弱引用，意味着当 ThreadLocal 外部强引用被置为 null（ThreadLocalInstance=null）时，根据可达性分析，ThreadLocal 实例此时没有任何一条链路引用它，所以系统 GC 的时候 ThreadLocal 会被回收。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 
 ### 14.ThreadLocalMap 的结构了解吗？
 
@@ -869,7 +951,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 61.聊聊线程同步
 
-> 2024年03月12日 新增
+> 2024 年 03 月 12 日 新增
 
 所谓同步，即协同步调，按预定的先后次序访问共享资源，以免造成混乱。
 
@@ -1485,7 +1567,6 @@ class DeadLockDemo {
 - [JVM 性能监控工具之可视化篇](https://javabetter.cn/jvm/view-tools.html)
 - [阿里开源的 Java 诊断神器 Arthas](https://javabetter.cn/jvm/arthas.html)
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：发生死锁怎么排查？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
@@ -1866,16 +1947,20 @@ ps:这个例子只是简单地进行了数据推送，实际上还可以结合�
 
 ### 48.线程池的拒绝策略有哪些？
 
-类比前面的例子，无法办理业务时的处理方式，帮助记忆：
+我现在去银行办理业务，被经历“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
 
-![四种策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
+![三分恶面渣逆袭：四种策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
 
-- AbortPolicy ：直接抛出异常，默认使用此策略
-- CallerRunsPolicy：用调用者所在的线程来执行任务
-- DiscardOldestPolicy：丢弃阻塞队列里最老的任务，也就是队列里靠前的任务
-- DiscardPolicy ：当前任务直接丢弃
+分别对应上了线程池中的四种拒绝策略：
 
-想实现自己的拒绝策略，实现 RejectedExecutionHandler 接口即可。
+- AbortPolicy：这是默认的拒绝策略。该策略会抛出一个 RejectedExecutionException 异常。也就对应着“我们系统瘫痪了”。
+- CallerRunsPolicy：该策略不会抛出异常，而是会让提交任务的线程（即调用 execute 方法的线程）自己来执行这个任务。也就对应着“谁叫你来办的你找谁去”。
+- DiscardOldestPolicy：策略会丢弃队列中最老的一个任务（即队列中等待最久的任务），然后尝试重新提交被拒绝的任务。也就对应着“看你比较急，去队里加个塞”。
+- DiscardPolicy：策略会默默地丢弃被拒绝的任务，不做任何处理也不抛出异常。也就对应着“今天没办法，不行你看改一天”。
+
+如果想实现自己的拒绝策略，实现 RejectedExecutionHandler 接口即可。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：说说并发编程中的拒绝策略，哪些情况对应用什么拒绝策略
 
 ### 49.线程池有哪几种工作队列？
 
@@ -2171,7 +2256,9 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 - 如果限制了配置中心的使用，也可以自己去扩展**ThreadPoolExecutor**，重写方法，监听线程池参数变化，来动态修改线程池参数。
 
-### 线程池调优了解吗？
+### 61.线程池调优了解吗？
+
+>2024年03月16日增补
 
 线程池配置没有固定的公式，通常事前会对线程池进行一定评估，常见的评估方案如下：
 
@@ -2186,6 +2273,34 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 ![线程池调优](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-82.png)
 
 具体的调优案例可以查看参考[7]美团技术博客。
+
+### 62.线程池在使用的时候需要注意什么
+
+>2024年03月16日增补
+
+我认为比较重要的关注点有 3 个：
+
+①、选择合适的线程池大小
+
+- **过小**的线程池可能会导致任务一直在排队
+- **过大**的线程池可能会导致大家都在竞争 CPU 资源，增加上下文切换的开销
+
+可以根据业务是 IO 密集型还是 CPU 密集型来选择线程池大小：
+
+- CPU 密集型：指的是任务主要使用来进行大量的计算，没有什么导致线程阻塞。一般这种场景的线程数设置为 CPU 核心数+1。
+- IO 密集型：当执行任务需要大量的 io，比如磁盘 io，网络 io，可能会存在大量的阻塞，所以在 IO 密集型任务中使用多线程可以大大地加速任务的处理。一般线程数设置为 2\*CPU 核心数。
+
+②、任务队列的选择
+
+- 使用有界队列可以避免资源耗尽的风险，但是可能会导致任务被拒绝
+- 使用无界队列虽然可以避免任务被拒绝，但是可能会导致内存耗尽
+
+一般需要设置有界队列的大小，比如 LinkedBlockingQueue 在构造的时候可以传入参数来限制队列中任务数据的大小，这样就不会因为无限往队列中扔任务导致系统的 oom。
+
+③、尽量使用自定义的线程池，而不是使用 Executors 创建的线程池，因为 newFixedThreadPool 线程池由于使用了 LinkedBlockingQueue，队列的容量默认无限大，实际使用中出现任务过多时会导致内存溢出；newCachedThreadPool 线程池由于核心线程数无限大，当任务过多的时候会导致创建大量的线程，可能机器负载过高导致服务宕机。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：线程池在使用的时候需要注意什么
+
 
 ### 58.你能设计实现一个线程池吗？
 
@@ -2296,7 +2411,7 @@ public class CountTask extends RecursiveTask<Integer> {
 
 ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法，在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果比较大，就必须分割成两个子任务，每个子任务在调用 fork 方法时，又会进 compute 方法，看看当前子任务是否需要继续分割成子任务，如果不需要继续分割，则执行当前子任务并返回结果。使用 join 方法会等待子任务执行完并得到其结果。
 
-> 图文详解 60 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+> 图文详解 62 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ---
 
