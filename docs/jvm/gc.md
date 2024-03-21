@@ -106,135 +106,118 @@ public class ReferenceCountingGC {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227103102.png)
 
-
 ### 可达性分析算法
 
-可达性分析算法（Reachability Analysis）的基本思路是，通过一些被称为引用链（GC Roots）的对象作为起点，然后向下搜索，搜索走过的路径被称为（Reference Chain），当一个对象到 GC Roots 之间没有任何引用相连时，即从 GC Roots 到该对象节点不可达，则证明该对象是需要垃圾收集的。
+可达性分析算法（Reachability Analysis）的基本思路是，通过 GC Roots 作为起点，然后向下搜索，搜索走过的路径被称为 Reference Chain（引用链），当一个对象到 GC Roots 之间没有任何引用相连时，即从 GC Roots 到该对象节点不可达，则证明该对象是需要垃圾收集的。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
 
 通过可达性算法，成功解决了引用计数无法解决的问题-“循环依赖”，只要你无法与 GC Root 建立直接或间接的连接，系统就会判定你为可回收对象。
 
-在 Java 语言中，可作为 GC Root 的对象包括以下 4 种：
+1. 推荐阅读：[GC Roots 是什么？](https://blog.csdn.net/weixin_38007185/article/details/108093716)
+2. 推荐阅读：[R 大的所谓“GC roots”](https://www.zhihu.com/question/53613423/answer/135743258)
 
-- 虚拟机栈中引用的对象
-- 本地方法栈引用的对象
-- 类静态变量引用的对象
-- 常量引用的对象
+所谓的 GC Roots，就是一组必须活跃的引用，不是对象，它们是程序运行时的起点，是一切引用链的源头。在 Java 中，GC Roots 包括以下几种：
 
-大家可以回想一下我们前面讲过的[JVM 运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)。
+- 虚拟机栈中的引用（方法的参数、局部变量等）
+- 本地方法栈中 JNI 的引用
+- 类静态变量
+- 运行时常量池中的常量（String 或 Class 类型）
+
+大家可以回想一下我们前面讲过的[JVM 运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)，关联起来就更容易理解了。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
 
-#### 1、虚拟机栈中引用的对象
+#### 1、虚拟机栈中的引用（方法的参数、局部变量等）
 
 来看下面这段代码：
 
 ```java
-public class StackLocalParameter {
-    // 构造方法
-    public StackLocalParameter(String name) {}
+public class StackReference {
+    public void greet() {
+        Object localVar = new Object(); // 这里的 localVar 是一个局部变量，存在于虚拟机栈中
+        System.out.println(localVar.toString());
+    }
 
-    public static void testGC() {
-        // 创建一个 StackLocalParameter 对象，引用存储在栈上，对象在堆上
-        StackLocalParameter s = new StackLocalParameter("localParameter");
-
-        // 将引用 s 设置为 null，使 StackLocalParameter 对象成为垃圾回收的候选对象
-        s = null;
-
-        // 此时，垃圾回收器可以回收之前创建的 StackLocalParameter 对象，
-        // 因为它不再有任何强引用指向它
+    public static void main(String[] args) {
+        new StackReference().greet();
     }
 }
 ```
 
-这个代码片段主要展示了 Java 中局部变量的生命周期和垃圾回收机制。当局部变量（如这里的 s）不再指向任何对象，或者变量本身离开了作用域，它指向的对象就可以被视为垃圾回收的候选对象。
+在 greet 方法中，localVar 是一个局部变量，存在于虚拟机栈中，可以被认为是 GC Roots。
 
->局部变量的引用存储在虚拟机栈中，而对象存储在堆中。
+在 greet 方法执行期间，localVar 引用的对象是活跃的，因为它是从 GC Roots 可达的。
 
-#### 2、本地方法栈中引用的对象
+当 greet 方法执行完毕后，localVar 的作用域结束，localVar 引用的 Object 对象不再由任何 GC Roots 引用（假设没有其他引用指向这个对象），因此它将有资格作为垃圾被回收掉 😁。
+
+#### 2、本地方法栈中 JNI 的引用
+
+Java 通过 JNI（Java Native Interface）提供了一种机制，允许 Java 代码调用本地代码（通常是 C 或 C++ 编写的代码）。
+
+当调用 Java 方法时，虚拟机会创建一个栈帧并压入虚拟机栈，而当它调用本地方法时，虚拟机会通过动态链接直接调用指定的本地方法。
+
+![pecuyu：动态链接](https://cdn.tobebetterjavaer.com/stutymore/gc-20240321085719.png)
+
+JNI 引用是在 Java 本地接口（JNI）代码中创建的引用，这些引用可以指向 Java 堆中的对象。
+
+```java
+// 假设的JNI方法
+public native void nativeMethod();
+
+// 假设在C/C++中实现的本地方法
+/*
+ * Class:     NativeExample
+ * Method:    nativeMethod
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_NativeExample_nativeMethod(JNIEnv *env, jobject thisObj) {
+    jobject localRef = (*env)->NewObject(env, ...); // 在本地方法栈中创建JNI引用
+    // localRef 引用的Java对象在本地方法执行期间是活跃的
+}
+```
+
+在本地（C/C++）代码中，localRef 是对 Java 对象的一个 JNI 引用，它在本地方法执行期间保持 Java 对象活跃，可以被认为是 GC Roots。
+
+一旦 JNI 方法执行完毕，除非这个引用是全局的（Global Reference），否则它指向的对象将会被作为垃圾回收掉（假设没有其他地方再引用这个对象）。
+
+#### 3、类静态变量
 
 来看下面这段代码：
 
 ```java
-public class NativeExample {
-    private native void nativeMethod(Object obj);
+public class StaticFieldReference {
+    private static Object staticVar = new Object(); // 类静态变量
 
-    public void exampleMethod() {
-        Object myObject = new Object();
-
-        // 调用本地方法，传递对象
-        nativeMethod(myObject);
-
-        // 即使在 Java 代码中不再使用 myObject，
-        // 只要 nativeMethod 还持有它的引用，它就不会被垃圾回收。
+    public static void main(String[] args) {
+        System.out.println(staticVar.toString());
     }
 }
 ```
 
-在这个示例中，nativeMethod 是一个本地方法，它从 Java 代码中接收一个对象引用。即使 Java 方法 exampleMethod 完成了对 myObject 的使用，只要本地方法 nativeMethod 还在执行并且持有对 myObject 的引用，myObject 就不会被回收。
+StaticFieldReference 类中的 staticVar 引用了一个 Object 对象，这个引用存储在元空间，可以被认为是 GC Roots。
 
-把本地方法栈中引用的对象作为 GC Root，是 JVM 保证 Java 与本地代码交互时内存安全的一个关键机制。
+只要 StaticFieldReference 类未被卸载，staticVar 引用的对象都不会被垃圾回收。如果 StaticFieldReference 类被卸载（这通常发生在其类加载器被垃圾回收时），那么 staticVar 引用的对象也将有资格被垃圾回收（如果没有其他引用指向这个对象）。
 
-#### 3、类静态变量引用的对象
-
-来看下面这段代码：
-
-```java
-public class MethodAreaStaicProperties {
-    // 静态变量的引用 m 存储在方法区中（JDK8 以后的元空间）
-    public static MethodAreaStaicProperties m;
-
-    // 构造方法
-    public MethodAreaStaicProperties(String name) {}
-
-    public static void testGC() {
-        // 创建一个 MethodAreaStaicProperties 实例
-        MethodAreaStaicProperties s = new MethodAreaStaicProperties("properties");
-
-        // 通过实例 s 设置静态变量 m 的值
-        // 此时，m 指向堆上的一个新 MethodAreaStaicProperties 实例
-        s.m = new MethodAreaStaicProperties("parameter");
-
-        // 将 s 置为 null
-        // 此时，s 指向的对象可以被垃圾回收，但静态变量 m 指向的对象不会被回收
-        s = null;
-
-        // 虽然 s 被置为 null，但 m 作为静态变量，仍然引用着一个 MethodAreaStaicProperties 实例
-        // 因此，这个由 m 引用的对象不会被垃圾回收
-    }
-}
-```
-
-在这个示例中，静态变量 m 指向堆上的一个 MethodAreaStaicProperties 实例。即使 s 被置为 null，但 m 仍然引用着一个对象实例，因此 m 引用的对象不会被垃圾回收。
-
->静态变量的引用通常存储在元空间，而对象仍然存储在堆中。
-
-#### 3、常量引用的对象
+#### 4、运行时常量池中的常量
 
 来看这段代码：
 
 ```java
-public class MethodAreaStaicProperties {
-    // 常量 m 的引用存储在方法区（JDK8 以后元空间）
-    public static final MethodAreaStaicProperties m = new MethodAreaStaicProperties("final");
+public class ConstantPoolReference {
+    public static final String CONSTANT_STRING = "Hello, World"; // 常量，存在于运行时常量池中
+    public static final Class<?> CONSTANT_CLASS = Object.class; // 类类型常量
 
-    // 构造方法
-    public MethodAreaStaicProperties(String name) {}
-
-    public static void testGC() {
-        // 创建 MethodAreaStaicProperties 类的实例
-        MethodAreaStaicProperties s = new MethodAreaStaicProperties("staticProperties");
-
-        // 将引用 s 设置为 null，这使得 s 指向的对象成为垃圾回收的候选对象
-        s = null;
-
-        // 常量 m 的对象不会被回收
+    public static void main(String[] args) {
+        System.out.println(CONSTANT_STRING);
+        System.out.println(CONSTANT_CLASS.getName());
     }
 }
 ```
 
-常量 m 应用的对象和 testGC 方法中的 s 其实不存在关系，所以局部变量 s 引用的对象回收和其没有任何关系。
+在 ConstantPoolReference 中，CONSTANT_STRING 和 CONSTANT_CLASS 作为常量存储在运行时常量池。它们可以用来作为 GC Roots。
+
+这些常量引用的对象（字符串"Hello, World"和 Object.class 类对象）在常量池中，只要包含这些常量的 ConstantPoolReference 类未被卸载，这些对象就不会被垃圾回收。
 
 ## Stop The World
 
@@ -366,9 +349,8 @@ JVM 并不强制要求对象年龄必须到 15 岁才会放入老年区，如果
 
 本篇内容我们从头到尾讲了一遍 JVM 的垃圾回收机制，包括垃圾回收的概念、垃圾判断算法、垃圾收集算法、Stop The World、新生代和老年代等等。
 
-
 > - 参考链接 1：[从头到尾再讲一次 Java 的垃圾回收](https://zhuanlan.zhihu.com/p/73628158)
-> - 参考链接 2：[详解Java的垃圾回收机制](https://segmentfault.com/a/1190000038256027)
+> - 参考链接 2：[详解 Java 的垃圾回收机制](https://segmentfault.com/a/1190000038256027)
 > - 参考链接 3：[三大垃圾收集算法](https://www.51cto.com/article/708223.html)
 
 ---

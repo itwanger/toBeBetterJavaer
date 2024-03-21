@@ -1354,158 +1354,177 @@ public @interface MdcDot {
 
 ### 21.说说 JDK 动态代理和 CGLIB 代理 ？
 
-Spring 的 AOP 是通过[动态代理](https://mp.weixin.qq.com/s/aZtfwik0weJN5JzYc-JxYg)来实现的，动态代理主要有两种方式 JDK 动态代理和 Cglib 动态代理，这两种动态代理的使用和原理有些不同。
+Spring 的 AOP 是通过[动态代理](https://mp.weixin.qq.com/s/aZtfwik0weJN5JzYc-JxYg)来实现的，动态代理主要有两种方式：JDK 动态代理和 CGLIB 代理。
 
-**JDK 动态代理**
+#### JDK 动态代理
 
-1.  **Interface**：对于 JDK 动态代理，目标类需要实现一个 Interface。
-2.  **InvocationHandler**：InvocationHandler 是一个接口，可以通过实现这个接口，定义横切逻辑，再通过反射机制（invoke）调用目标类的代码，在次过程，可能包装逻辑，对目标方法进行前置后置处理。
-3.  **Proxy**：Proxy 利用 InvocationHandler 动态创建一个符合目标类实现的接口的实例，生成目标类的代理对象。
+JDK 动态代理是基于接口的代理方式，它使用 Java 原生的 java.lang.reflect.Proxy 类和 java.lang.reflect.InvocationHandler 接口来创建和管理代理对象。
 
-**CgLib 动态代理**
+1. **基于 Interface**：JDK 动态代理要求目标对象必须实现一个或多个接口。代理对象不是直接继承自目标对象，而是实现了与目标对象相同的接口。
+2. **使用 InvocationHandler**：在调用代理对象的任何方法时，调用都会被转发到一个 InvocationHandler 实例的 invoke 方法。可以在这个 invoke 方法中定义拦截逻辑，比如方法调用前后执行的操作。
+3. **基于 Proxy**：Proxy 利用 InvocationHandler 动态创建一个符合目标类实现的接口实例，生成目标类的代理对象。
 
-1.  使用 JDK 创建代理有一大限制，它只能为接口创建代理实例，而 CgLib 动态代理就没有这个限制。
-2.  CgLib 动态代理是使用字节码处理框架 **ASM**，其原理是通过字节码技术为一个类创建子类，并在子类中采用方法拦截的技术拦截所有父类方法的调用，顺势织入横切逻辑。
-3.  **CgLib** 创建的动态代理对象性能比 JDK 创建的动态代理对象的性能高不少，但是 CGLib 在创建代理对象时所花费的时间却比 JDK 多得多，所以对于单例的对象，因为无需频繁创建对象，用 CGLib 合适，反之，使用 JDK 方式要更为合适一些。同时，由于 CGLib 由于是采用动态创建子类的方法，对于 final 方法，无法进行代理。
+#### CGLIB 动态代理
+
+CGLIB（Code Generation Library）是一个第三方代码生成库，它通过继承方式实现代理，不需要接口，被广泛应用于 Spring AOP 中，用于提供方法拦截操作。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240321105653.png)
+
+1. **基于继承**，CGLIB 通过在运行时生成目标对象的子类来创建代理对象，并在子类中覆盖非 final 的方法。因此，它不要求目标对象必须实现接口。
+2. **基于 ASM**，ASM 是一个 Java 字节码操作和分析框架，CGLIB 可以通过 ASM 读取目标类的字节码，然后修改字节码生成新的类。它在运行时动态生成一个被代理类的子类，并在子类中覆盖父类的方法，通过方法拦截技术插入增强代码。
+
+#### 如何选择？
+
+- 如果目标对象没有实现任何接口，则只能使用 CGLIB 代理。如果目标对象实现了接口，通常首选 JDK 动态代理。
+- 虽然 CGLIB 在代理类的生成过程中可能消耗更多资源，但在运行时具有较高的性能。对于性能敏感且代理对象创建频率不高的场景，可以考虑使用 CGLIB。
+- JDK 动态代理是 Java 原生支持的，不需要额外引入库。而 CGLIB 需要将 CGLIB 库作为依赖加入项目中。
+
+#### 举个例子
 
 我们来看一个常见的小场景，客服中转，解决用户问题：
 
-![用户向客服提问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-c5c4b247-62dd-43a2-a043-da51c58f77c8.png)
+![三分恶面渣逆袭：用户向客服提问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-c5c4b247-62dd-43a2-a043-da51c58f77c8.png)
 
-**JDK 动态代理实现：**
+①、JDK 动态代理实现：
 
-![JDK动态代理类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-65b14a3f-2653-463e-af77-a8875d3d635c.png)
+![三分恶面渣逆袭：JDK动态代理类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-65b14a3f-2653-463e-af77-a8875d3d635c.png)
 
-- 接口
+第一步，创建接口
 
-  ```java
-  public interface ISolver {
-      void solve();
-  }
-  ```
+```java
+public interface ISolver {
+    void solve();
+}
+```
 
-- 目标类:需要实现对应接口
+第二步，实现对应接口
 
-  ```java
-  public class Solver implements ISolver {
-      @Override
-      public void solve() {
-          System.out.println("疯狂掉头发解决问题……");
-      }
-  }
-  ```
+```java
+public class Solver implements ISolver {
+    @Override
+    public void solve() {
+        System.out.println("疯狂掉头发解决问题……");
+    }
+}
+```
 
-- 态代理工厂:ProxyFactory，直接用反射方式生成一个目标对象的代理对象，这里用了一个匿名内部类方式重写 InvocationHandler 方法，实现接口重写也差不多
+第三步，动态代理工厂:ProxyFactory，直接用反射方式生成一个目标对象的代理，这里用了一个匿名内部类方式重写 InvocationHandler 方法。
 
-  ```java
-  public class ProxyFactory {
+```java
+public class ProxyFactory {
 
-      // 维护一个目标对象
-      private Object target;
+    // 维护一个目标对象
+    private Object target;
 
-      public ProxyFactory(Object target) {
-          this.target = target;
-      }
+    public ProxyFactory(Object target) {
+        this.target = target;
+    }
 
-      // 为目标对象生成代理对象
-      public Object getProxyInstance() {
-          return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),
-                  new InvocationHandler() {
-                      @Override
-                      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                          System.out.println("请问有什么可以帮到您？");
+    // 为目标对象生成代理对象
+    public Object getProxyInstance() {
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),
+                new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                        System.out.println("请问有什么可以帮到您？");
 
-                          // 调用目标对象方法
-                          Object returnValue = method.invoke(target, args);
+                        // 调用目标对象方法
+                        Object returnValue = method.invoke(target, args);
 
-                          System.out.println("问题已经解决啦！");
-                          return null;
-                      }
-                  });
-      }
-  }
-  ```
+                        System.out.println("问题已经解决啦！");
+                        return null;
+                    }
+                });
+    }
+}
+```
 
-- 客户端：Client，生成一个代理对象实例，通过代理对象调用目标对象方法
+第五步，客户端：Client，生成一个代理对象实例，通过代理对象调用目标对象方法
 
-  ```java
-  public class Client {
-      public static void main(String[] args) {
-          //目标对象:程序员
-          ISolver developer = new Solver();
-          //代理：客服小姐姐
-          ISolver csProxy = (ISolver) new ProxyFactory(developer).getProxyInstance();
-          //目标方法：解决问题
-          csProxy.solve();
-      }
-  }
-  ```
+```java
+public class Client {
+    public static void main(String[] args) {
+        //目标对象:程序员
+        ISolver developer = new Solver();
+        //代理：客服小姐姐
+        ISolver csProxy = (ISolver) new ProxyFactory(developer).getProxyInstance();
+        //目标方法：解决问题
+        csProxy.solve();
+    }
+}
+```
 
-**Cglib 动态代理实现：**
+②、CGLIB 动态代理实现：
 
-![Cglib动态代理类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-74da87af-20d1-4a5b-a212-3837a15f0bab.png)
+![三分恶面渣逆袭：CGLIB动态代理类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-74da87af-20d1-4a5b-a212-3837a15f0bab.png)
 
-- 目标类：Solver，这里目标类不用再实现接口。
+第一步：定义目标类（Solver），目标类 Solver 定义了一个 solve 方法，模拟了解决问题的行为。目标类不需要实现任何接口，这与 JDK 动态代理的要求不同。
 
-  ```java
-  public class Solver {
+```java
+public class Solver {
 
-      public void solve() {
-          System.out.println("疯狂掉头发解决问题……");
-      }
-  }
-  ```
+    public void solve() {
+        System.out.println("疯狂掉头发解决问题……");
+    }
+}
+```
 
-- 动态代理工厂：
+第二步：动态代理工厂（ProxyFactory），ProxyFactory 类实现了 MethodInterceptor 接口，这是 CGLIB 提供的一个方法拦截接口，用于定义方法的拦截逻辑。
 
-  ```java
-  public class ProxyFactory implements MethodInterceptor {
+```java
+public class ProxyFactory implements MethodInterceptor {
 
-     //维护一个目标对象
-      private Object target;
+    //维护一个目标对象
+    private Object target;
 
-      public ProxyFactory(Object target) {
-          this.target = target;
-      }
+    public ProxyFactory(Object target) {
+        this.target = target;
+    }
 
-      //为目标对象生成代理对象
-      public Object getProxyInstance() {
-          //工具类
-          Enhancer en = new Enhancer();
-          //设置父类
-          en.setSuperclass(target.getClass());
-          //设置回调函数
-          en.setCallback(this);
-          //创建子类对象代理
-          return en.create();
-      }
+    //为目标对象生成代理对象
+    public Object getProxyInstance() {
+        //工具类
+        Enhancer en = new Enhancer();
+        //设置父类
+        en.setSuperclass(target.getClass());
+        //设置回调函数
+        en.setCallback(this);
+        //创建子类对象代理
+        return en.create();
+    }
 
-      @Override
-      public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-          System.out.println("请问有什么可以帮到您？");
-          // 执行目标对象的方法
-          Object returnValue = method.invoke(target, args);
-          System.out.println("问题已经解决啦！");
-          return null;
-      }
+    @Override
+    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+        System.out.println("请问有什么可以帮到您？");
+        // 执行目标对象的方法
+        Object returnValue = method.invoke(target, args);
+        System.out.println("问题已经解决啦！");
+        return null;
+    }
 
-  }
-  ```
+}
+```
 
-- 客户端：Client
+- ProxyFactory 接收一个 Object 类型的 target，即目标对象的实例。
+- 使用 CGLIB 的 Enhancer 类来生成目标类的子类（代理对象）。通过 setSuperclass 设置代理对象的父类为目标对象的类，setCallback 设置方法拦截器为当前对象（this），最后调用 create 方法生成并返回代理对象。
+- 重写 MethodInterceptor 接口的 intercept 方法以提供方法拦截逻辑。在目标方法执行前后添加自定义逻辑，然后通过 method.invoke 调用目标对象的方法。
 
-  ```java
-  public class Client {
-      public static void main(String[] args) {
-          //目标对象:程序员
-          Solver developer = new Solver();
-          //代理：客服小姐姐
-          Solver csProxy = (Solver) new ProxyFactory(developer).getProxyInstance();
-          //目标方法：解决问题
-          csProxy.solve();
-      }
-  }
-  ```
+第三步：客户端使用代理，首先创建目标对象（Solver 的实例），然后使用 ProxyFactory 创建该目标对象的代理。通过代理对象调用 solve 方法时，会先执行 intercept 方法中定义的逻辑，然后执行目标方法，最后再执行 intercept 方法中的后续逻辑。
+
+```java
+public class Client {
+    public static void main(String[] args) {
+        //目标对象:程序员
+        Solver developer = new Solver();
+        //代理：客服小姐姐
+        Solver csProxy = (Solver) new ProxyFactory(developer).getProxyInstance();
+        //目标方法：解决问题
+        csProxy.solve();
+    }
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：cglib 的原理
 
 ### 22.说说 Spring AOP 和 AspectJ AOP 区别?
 
@@ -1549,18 +1568,63 @@ Spring 事务的本质其实就是数据库对事务的支持，没有数据库�
 
 ### 23.Spring 事务的种类？
 
-Spring 支持`编程式事务`管理和`声明式`事务管理两种方式：
+在 Spring 中，事务管理可以分为两大类：声明式事务管理和编程式事务管理。
 
-![Spring事务分类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d3ee77fa-926d-4c39-91f8-a8b1544a9134.png)
+![三分恶面渣逆袭：Spring事务分类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d3ee77fa-926d-4c39-91f8-a8b1544a9134.png)
 
-1.  编程式事务
+#### 编程式事务管理
 
-编程式事务管理使用 TransactionTemplate，需要显式执行事务。
+编程式事务可以使用 TransactionTemplate 和 PlatformTransactionManager 来实现，需要显式执行事务。允许我们在代码中直接控制事务的边界，通过编程方式明确指定事务的开始、提交和回滚。
 
-2.  声明式事务
+```java
+public class AccountService {
+    private TransactionTemplate transactionTemplate;
 
-1.  声明式事务管理建立在 AOP 之上的。其本质是通过 AOP 功能，对方法前后进行拦截，将事务处理的功能编织到拦截的方法中，也就是在目标方法开始之前启动一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务
-1.  优点是不需要在业务逻辑代码中掺杂事务管理的代码，只需在配置文件中做相关的事务规则声明或通过 @Transactional 注解的方式，便可以将事务规则应用到业务逻辑中，减少业务代码的污染。唯一不足地方是，最细粒度只能作用到方法级别，无法做到像编程式事务那样可以作用到代码块级别。
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
+
+    public void transfer(final String out, final String in, final Double money) {
+        transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus status) {
+                // 转出
+                accountDao.outMoney(out, money);
+                // 转入
+                accountDao.inMoney(in, money);
+            }
+        });
+    }
+}
+```
+
+在上面的代码中，我们使用了 TransactionTemplate 来实现编程式事务，通过 execute 方法来执行事务，这样就可以在方法内部实现事务的控制。
+
+#### 声明式事务管理
+
+声明式事务是建立在 AOP 之上的。其本质是通过 AOP 功能，对方法前后进行拦截，将事务处理的功能编织到拦截的方法中，也就是在目标方法开始之前启动一个事务，在目标方法执行完之后根据执行情况提交或者回滚事务。
+
+相比较编程式事务，优点是不需要在业务逻辑代码中掺杂事务管理的代码， Spring 推荐通过 @Transactional 注解的方式来实现声明式事务管理，也是日常开发中最常用的。
+
+不足的地方是，声明式事务管理最细粒度只能作用到方法级别，无法像编程式事务那样可以作用到代码块级别。
+
+```java
+@Service
+public class AccountService {
+    @Autowired
+    private AccountDao accountDao;
+
+    @Transactional
+    public void transfer(String out, String in, Double money) {
+        // 转出
+        accountDao.outMoney(out, money);
+        // 转入
+        accountDao.inMoney(in, money);
+    }
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Spring 事务怎么实现的
 
 ### 24.Spring 的事务隔离级别？
 
@@ -1574,25 +1638,46 @@ Spring 的接口 TransactionDefinition 中定义了表示隔离级别的常量�
 
 ### 25.Spring 的事务传播机制？
 
-Spring 事务的传播机制说的是，当多个事务同时存在的时候——一般指的是多个事务方法相互调用时，Spring 如何处理这些事务的行为。
+事务的传播机制定义了在方法被另一个事务方法调用时，这个方法的事务行为应该如何。
 
-事务传播机制是使用简单的 ThreadLocal 实现的，所以，如果调用的方法是在新线程调用的，事务传播实际上是会失效的。
+Spring 提供了一系列事务传播行为，这些传播行为定义了事务的边界和事务上下文如何在方法调用链中传播。
 
-![7种事务传播机制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a6e2a8dc-9771-4d8b-9d91-76ddee98af1a.png)
+![三分恶面渣逆袭：6种事务传播机制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a6e2a8dc-9771-4d8b-9d91-76ddee98af1a.png)
 
-Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，它适合绝大多数情况，如果多个 ServiceX#methodX()都工作在事务环境下（均被 Spring 事务增强），且程序中存在调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的三个方法通过 Spring 的事务传播机制都工作在同一个事务中。
+- REQUIRED：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。Spring 的默认传播行为。
+- SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式执行。
+- MANDATORY：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。
+- REQUIRES_NEW：总是启动一个新的事务，如果当前存在事务，则将当前事务挂起。
+- NOT_SUPPORTED：总是以非事务方式执行，如果当前存在事务，则将当前事务挂起。
+- NESTED：如果当前存在事务，则在嵌套事务内执行。如果当前事务不存在，则行为与 REQUIRED 一样。嵌套事务是一个子事务，它依赖于父事务。父事务失败时，会回滚子事务所做的所有操作。但子事务异常不一定会导致父事务的回滚。
+
+事务传播机制是使用 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 实现的，所以，如果调用的方法是在新线程中的，事务传播会失效。
+
+Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `ServiceX#methodX()` 都工作在事务环境下，且程序中存在调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的 3 个方法都通过 Spring 的事务传播机制工作在同一个事务中。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的传播机制
 
 ### 26.声明式事务实现原理了解吗？
 
-就是通过 AOP/动态代理。
+Spring 的声明式事务管理是通过 AOP（面向切面编程）和代理机制实现的。
 
-- **在 Bean 初始化阶段创建代理对象**：Spring 容器在初始化每个单例 bean 的时候，会遍历容器中的所有 BeanPostProcessor 实现类，并执行其 postProcessAfterInitialization 方法，在执行 AbstractAutoProxyCreator 类的 postProcessAfterInitialization 方法时会遍历容器中所有的切面，查找与当前实例化 bean 匹配的切面，这里会获取事务属性切面，查找@Transactional 注解及其属性值，然后根据得到的切面创建一个代理对象，默认是使用 JDK 动态代理创建代理，如果目标类是接口，则使用 JDK 动态代理，否则使用 Cglib。
+第一步，**在 Bean 初始化阶段创建代理对象**：
 
-- **在执行目标方法时进行事务增强操作**：当通过代理对象调用 Bean 方法的时候，会触发对应的 AOP 增强拦截器，声明式事务是一种环绕增强，对应接口为`MethodInterceptor`，事务增强对该接口的实现为`TransactionInterceptor`，类图如下：
+Spring 容器在初始化单例 Bean 的时候，会遍历所有的 BeanPostProcessor 实现类，并执行其 postProcessAfterInitialization 方法。
+
+在执行 postProcessAfterInitialization 方法时会遍历容器中所有的切面，查找与当前 Bean 匹配的切面，这里会获取事务的属性切面，也就是 `@Transactional` 注解及其属性值。
+
+然后根据得到的切面创建一个代理对象，默认使用 JDK 动态代理创建代理，如果目标类是接口，则使用 JDK 动态代理，否则使用 Cglib。
+
+第二步，**在执行目标方法时进行事务增强操作**：
+
+当通过代理对象调用 Bean 方法的时候，会触发对应的 AOP 增强拦截器，声明式事务是一种环绕增强，对应接口为`MethodInterceptor`，事务增强对该接口的实现为`TransactionInterceptor`，类图如下：
 
 ![图片来源网易技术专栏](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-97493c7f-c596-4e98-a6a8-dab254d6d1ab.png)
 
-事务拦截器`TransactionInterceptor`在`invoke`方法中，通过调用父类`TransactionAspectSupport`的`invokeWithinTransaction`方法进行事务处理，包括开启事务、事务提交、异常回滚。
+事务拦截器`TransactionInterceptor`在`invoke`方法中，通过调用父类`TransactionAspectSupport`的`invokeWithinTransaction`方法进行事务处理，包括开启事务、事务提交、异常回滚等。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Spring 事务怎么实现的
 
 ### 27.声明式事务在哪些情况下会失效？
 
