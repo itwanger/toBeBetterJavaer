@@ -1,19 +1,19 @@
 ---
-title: Java面试题之Java基础篇，53道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
+title: Java面试题之Java基础篇，54道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解53道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解54道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-1.3 万字 44 张手绘图，详解 53 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+1.3 万字 44 张手绘图，详解 54 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 ## Java 概述
 
@@ -124,6 +124,47 @@ Java 基本数据类型范围和默认值：
 - [数组](https://javabetter.cn/array/array.html)（`[]`）
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
+
+### 54.float 是怎么表示小数的？
+
+推荐阅读：[计算机系统基础（四）浮点数](http://kaito-kidd.com/2018/08/08/computer-system-float-point/)
+
+`float`类型的小数在计算机中是通过 IEEE 754 标准的单精度浮点数格式来表示的。
+
+```
+V = (-1)^S * M * R^E
+```
+
+- S：符号位，0 代表正数，1 代表负数；
+- M：尾数部分，用于表示数值的精度；比如说 `1.25 * 2^2`；1.25 就是尾数；
+- R：基数，十进制中的基数是 10，二进制中的基数是 2；
+- E：指数部分，例如 10^-1 中的 -1 就是指数。
+
+这种表示方法可以将非常大或非常小的数值用有限的位数表示出来，但这也意味着可能会有精度上的损失。
+
+单精度浮点数占用 4 字节（32 位），这 32 位被分为三个部分：符号位、指数部分和尾数部分。
+
+![kaito：浮点数](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321112428.png)
+
+1. **符号位（Sign bit）**：1 位
+2. **指数部分（Exponent）**：10 位
+3. **尾数部分（Mantissa，或 Fraction）**：21 位
+
+按照这个规则，将十进制数 25.125 转换为浮点数，转换过程是这样的：
+
+1. 整数部分：25 转换为二进制是 11001；
+2. 小数部分：0.125 转换为二进制是 0.001；
+3. 用二进制科学计数法表示：\(25.125 = 1.001001 \times 2^4\)；
+
+符号位 S 是 0，表示正数；指数部分 E 是 4，转换为二进制是 100；尾数部分 M 是 1.001001。
+
+![kaito：25.125](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321113232.png)
+
+使用浮点数时需要注意，由于精度的限制，进行数学运算时可能会遇到舍入误差，特别是连续运算累积误差可能会变得显著。
+
+对于需要高精度计算的场景（如金融计算），可能需要考虑使用`BigDecimal`类来避免这种误差。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：float 是怎么表示小数的
 
 ### 8.自动类型转换、强制类型转换？看看这几行代码？
 
@@ -296,17 +337,65 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 17.重载（overload）和重写（override）的区别？
 
-方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。
+推荐阅读：[方法重写 Override 和方法重载 Overload 有什么区别？](https://javabetter.cn/basic-extra-meal/override-overload.html)
 
-- 重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；
+如果一个类有多个名字相同但参数个数不同的方法，我们通常称这些方法为方法重载。如果方法的功能是一样的，但参数不同，使用相同的名字可以提高程序的可读性。
 
-- 重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。
+如果子类具有和父类一样的方法（参数相同、返回类型相同、方法名相同，但方法体可能不同），我们称之为方法重写。 方法重写用于提供父类已经声明的方法的特殊实现，是实现多态的基础条件。
 
-方法重载的规则：
+方法重载的英文名叫 Overloading，方法重写的英文名叫 Overriding。
 
-1. 方法名一致，参数列表中参数的顺序，类型，个数不同。
-2. 重载与方法的返回值无关，存在于父类和子类，同类中。
-3. 可以抛出不同的异常，可以有不同修饰符。
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
+
+- 方法重载发生在同一个类中，同名的方法如果有不同的参数（参数类型不同、参数个数不同或者二者都不同）。
+- 方法重写发生在子类与父类之间，要求子类与父类具有相同的返回类型，方法名和参数列表，并且不能比父类的方法声明更多的异常，遵守里氏代换原则。
+
+#### 什么是里氏代换原则？
+
+里氏代换原则也被称为李氏替换原则（Liskov Substitution Principle, LSP），其规定，任何父类可以出现的地方，子类也一定可以出现。
+
+![里氏替换原则由芭芭拉·利斯科夫提出，照片摄于2010年](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321103119.png)
+
+LSP 是继承复用的基石，只有当子类可以替换掉父类，软件的单位功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。
+
+这意味着子类在扩展父类的功能时，不应改变父类原有的行为。例如，如果有一个方法接受一个父类对象作为参数，那么传入该方法的任何子类对象也都应该能使得方法正常工作。
+
+```java
+class Bird {
+    void fly() {
+        System.out.println("鸟正在飞");
+    }
+}
+
+class Duck extends Bird {
+    @Override
+    void fly() {
+        System.out.println("鸭子正在飞");
+    }
+}
+
+class Ostrich extends Bird {
+    // Ostrich违反了LSP，因为鸵鸟不会飞，但却继承了会飞的鸟类
+    @Override
+    void fly() {
+        throw new UnsupportedOperationException("鸵鸟不会飞");
+    }
+}
+```
+
+在这个例子中，Ostrich（鸵鸟）类违反了 LSP 原则，因为它改变了父类 Bird 的行为（即飞行）。设计时应该更加谨慎地使用继承关系，确保遵守 LSP 原则。
+
+除了李氏替换原则外，还有其他几个重要的面向对象设计原则，它们共同构成了 SOLID 原则，分别是：
+
+①、单一职责原则（Single Responsibility Principle, SRP），指一个类应该只有一个引起它变化的原因，即一个类只负责一项职责。这样做的目的是使类更加清晰，更容易理解和维护。
+
+②、开闭原则（Open-Closed Principle, OCP），指软件实体（类、模块、方法等）应该对扩展开放，对修改关闭。这意味着设计时应该易于扩展，添加新功能时，尽量不修改现有代码，而是通过添加新代码来实现。
+
+③、接口隔离原则（Interface Segregation Principle, ISP），指客户端不应该依赖它不需要的接口。这意味着设计接口时应该尽量精简，不应该设计臃肿庞大的接口。
+
+④、依赖倒置原则（Dependency Inversion Principle, DIP），指高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象。这意味着设计时应该尽量依赖接口或抽象类，而不是实现类。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：设计方法，李氏原则，还了解哪些设计原则
 
 ### 18.访问修饰符 public、private、protected、以及不写（默认）时的区别？
 
@@ -455,33 +544,56 @@ public class Person {
 
 ### 27.hashCode 与 equals?
 
-这个也是面试常问——“你重写过 hashcode 和 equals 么，为什么重写 equals 时必须重写 hashCode ⽅法？”
+这道题也是面试常问得——“你重写过 hashcode 和 equals 么，为什么重写 equals 时必须重写 hashCode ⽅法？”
 
-> 什么是 HashCode？
+#### 什么是 hashCode 方法？
 
-hashCode() 的作⽤是获取哈希码，也称为散列码；它实际上是返回⼀个 int 整数，定义在 Object 类中， 是一个本地⽅法，这个⽅法通常⽤来将对象的内存地址转换为整数之后返回。
+`hashCode()` 方法的作⽤是获取哈希码，它会返回⼀个 int 整数，定义在 [Object 类](https://javabetter.cn/oo/object-class.html)中， 是一个本地⽅法。
 
 ```java
 public native int hashCode();
 ```
 
-哈希码主要在哈希表这类集合映射的时候用到，哈希表存储的是键值对(key-value)，它的特点是：能根据“键”快速的映射到对应的“值”。这其中就利⽤到了哈希码！
+#### 为什么要有 hashCode 方法？
 
-> 为什么要有 hashCode？
+hashCode 方法主要用来获取对象的哈希码，哈希码是由对象的内存地址或者对象的属性计算出来的，它是⼀个 int 类型的整数，通常是不会重复的，因此可以用来作为键值对的建，以提高查询效率。
 
-上面已经讲了，主要是在哈希表这种结构中用的到。
+例如 [HashMap](https://javabetter.cn/collection/hashmap.html#_01%E3%80%81hash%E6%96%B9%E6%B3%95%E7%9A%84%E5%8E%9F%E7%90%86) 中的 key 就是通过 hashCode 来实现的，通过调用 hashCode 方法获取键的哈希码，并将其与右移 16 位的哈希码进行异或运算。
 
-例如 HashMap 怎么把 key 映射到对应的 value 上呢？用的就是哈希取余法，也就是拿哈希码和存储元素的数组的长度取余，获取 key 对应的 value 所在的下标位置。
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
 
-> 为什么重写 quals 时必须重写 hashCode ⽅法？
+#### 为什么重写 quals 时必须重写 hashCode ⽅法？
 
-如果两个对象相等，则 hashcode ⼀定也是相同的。两个对象相等，对两个对象分别调⽤ equals ⽅法都返回 true。反之，两个对象有相同的 hashcode 值，它们也不⼀定是相等的 。因此，**equals** ⽅法被覆盖过，则 **hashCode** ⽅法也必须被覆盖。
+维护 `equals()`和 `hashCode()`之间的一致性是至关重要的，因为基于哈希的集合类（如 HashSet、HashMap、Hashtable 等）依赖于这一点来正确存储和检索对象。
 
-hashCode() 的默认⾏为是对堆上的对象产⽣独特值。如果没有重写 hashCode() ，则该 class 的两个对象⽆论如何都不会相等（即使这两个对象指向相同的数据）
+具体地说，这些集合通过对象的哈希码将其存储在不同的“桶”中（底层数据结构是数组，哈希码用来确定下标），当查找对象时，它们使用哈希码确定在哪个桶中搜索，然后通过 `equals()`方法在桶中找到正确的对象。
 
-> 为什么两个对象有相同的 hashcode 值，它们也不⼀定是相等的？
+如果重写了 `equals()`方法而没有重写 `hashCode()`方法，那么被认为相等的对象可能会有不同的哈希码，从而导致无法在集合中正确处理这些对象。
 
-因为可能会**碰撞**， hashCode() 所使⽤的散列算法也许刚好会让多个对象传回相同的散列值。越糟糕的散列算法越容易碰撞，但这也与数据值域分布的特性有关（所谓碰撞也就是指的是不同的对象得到相同的 hashCode ）。
+#### 为什么两个对象有相同的 hashcode 值，它们也不⼀定相等？
+
+这主要是由于哈希码（hashCode）的本质和目的所决定的。
+
+哈希码是通过哈希函数将对象中映射成一个整数值，其主要目的是在哈希表中快速定位对象的存储位置。
+
+由于哈希函数将一个较大的输入域映射到一个较小的输出域，不同的输入值（即不同的对象）可能会产生相同的输出值（即相同的哈希码）。
+
+这种情况被称为哈希冲突。当两个不相等的对象发生哈希冲突时，它们会有相同的 hashCode。
+
+为了解决哈希冲突的问题，哈希表在处理键时，不仅会比较键对象的哈希码，还会使用 equals 方法来检查键对象是否真正相等。如果两个对象的哈希码相同，但通过 equals 方法比较结果为 false，那么这两个对象就不被视为相等。
+
+```java
+if (p.hash == hash &&
+    ((k = p.key) == key || (key != null && key.equals(k))))
+    e = p;
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：hashcode 和 equals 方法只重写一个行不行，只重写 equals 没重写 hashcode，map put 的时候会发生什么
 
 ### 28.Java 是值传递，还是引用传递？
 
@@ -939,21 +1051,31 @@ com.itwanger.Person
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240313085055.png)
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Object 有哪些常用的方法？
 
 ## 异常处理
 
 ### 39.Java 中异常处理体系?
 
-Java 的异常体系是分为多层的。
+推荐阅读：[一文彻底搞懂 Java 异常处理](https://javabetter.cn/exception/gailan.html)
 
-![Java异常体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-22.png)
+![三分恶面渣逆袭：Java异常体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-22.png)
 
-`Throwable`是 Java 语言中所有错误或异常的基类。 Throwable 又分为`Error`和`Exception`，其中 Error 是系统内部错误，比如虚拟机异常，是程序无法处理的。`Exception`是程序问题导致的异常，又分为两种：
+`Throwable` 是 Java 语言中所有错误和异常的基类。它有两个主要的子类：Error 和 Exception，这两个类分别代表了 Java 异常处理体系中的两个分支。
 
-- CheckedException 受检异常：编译器会强制检查并要求处理的异常。
-- RuntimeException 运行时异常：程序运行中出现异常，比如我们熟悉的空指针、数组下标越界等等
+Error 类代表那些严重的错误，这类错误通常是程序无法处理的。比如，OutOfMemoryError 表示内存不足，StackOverflowError 表示栈溢出。这些错误通常与 JVM 的运行状态有关，一旦发生，应用程序通常无法恢复。
+
+Exception 类代表程序可以处理的异常。它分为两大类：编译时异常（Checked Exception）和运行时异常（Runtime Exception）。
+
+①、编译时异常（Checked Exception）：这类异常在编译时必须被显式处理（捕获或声明抛出）。
+
+如果方法可能抛出某种编译时异常，但没有捕获它（try-catch）或没有在方法声明中用 throws 子句声明它，那么编译将不会通过。例如：IOException、SQLException 等。
+
+②、运行时异常（Runtime Exception）：这类异常在运行时抛出，它们都是 RuntimeException 的子类。对于运行时异常，Java 编译器不要求必须处理它们（即不需要捕获也不需要声明抛出）。
+
+运行时异常通常是由程序逻辑错误导致的，如 NullPointerException、IndexOutOfBoundsException 等。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Java 编译时异常和运行时异常的区别
 
 ### 40.异常的处理方式？
 
@@ -985,7 +1107,7 @@ try-catch 捕获异常的时候还可以选择加上 finally 语句块，finally
 
 ### 41.三道经典异常处理代码题
 
-> 题目 1
+#### 题目 1
 
 ```java
 public class TryDemo {
@@ -1004,11 +1126,23 @@ public class TryDemo {
 }
 ```
 
-执行结果：31。
+在`test()`方法中，首先有一个`try`块，接着是一个`catch`块（用于捕获异常），最后是一个`finally`块（无论是否捕获到异常，`finally`块总会执行）。
 
-try、catch。finally 的基础用法，在 return 前会先执行 finally 语句块，所以是先输出 finally 里的 3，再输出 return 的 1。
+①、`try`块中包含一条`return 1;`语句。正常情况下，如果`try`块中的代码能够顺利执行，那么方法将返回数字`1`。在这个例子中，`try`块中没有任何可能抛出异常的操作，因此它会正常执行完毕，并准备返回`1`。
 
-> 题目 2
+②、由于`try`块中没有异常发生，所以`catch`块中的代码不会执行。
+
+③、无论前面的代码是否发生异常，`finally`块总是会执行。在这个例子中，`finally`块包含一条`System.out.print("3");`语句，意味着在方法结束前，会在控制台打印出`3`。
+
+当执行`main`方法时，控制台的输出将会是：
+
+```
+31
+```
+
+这是因为`finally`块确保了它包含的`System.out.print("3");`会执行并打印`3`，随后`test()`方法返回`try`块中的值`1`，最终结果就是`31`。
+
+#### 题目 2
 
 ```java
 public class TryDemo {
@@ -1029,9 +1163,9 @@ public class TryDemo {
 
 try 返回前先执行 finally，结果 finally 里不按套路出牌，直接 return 了，自然也就走不到 try 里面的 return 了。
 
-finally 里面使用 return 仅存在于面试题中，实际开发这么写要挨吊的。
+注意：finally 里面使用 return 仅存在于面试题中，实际开发这么写要挨吊的（😂）。
 
-> 题目 3
+#### 题目 3
 
 ```java
 public class TryDemo {
@@ -1055,6 +1189,8 @@ public class TryDemo {
 大家可能会以为结果应该是 3，因为在 return 前会执行 finally，而 i 在 finally 中被修改为 3 了，那最终返回 i 不是应该为 3 吗？
 
 但其实，在执行 finally 之前，JVM 会先将 i 的结果暂存起来，然后 finally 执行完毕后，会返回之前暂存的结果，而不是返回 i，所以即使 i 已经被修改为 3，最终返回的还是之前暂存起来的结果 2。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：return 先执行还是 finally 先执行
 
 ## I/O
 
@@ -1552,7 +1688,7 @@ reduced.ifPresent(System.out::println);
 
 ![Java Stream流](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-38.png)
 
-> 图文详解 53 道 Java 基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+> 图文详解 54 道 Java 基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 ---
 

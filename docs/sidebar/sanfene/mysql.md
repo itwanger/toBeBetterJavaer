@@ -1028,6 +1028,7 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 - 在创建复合索引时，应该根据查询条件将最常用作过滤条件的列放在前面。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：索引的作用，加索引需要注意什么
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：查询和更新都频繁的字段是否适合创建索引，为什么
 
 ### 30.索引哪些情况下会失效呢？
 
@@ -1044,11 +1045,9 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 
 (A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
 
->2024年03月15日增补。
+> 2024 年 03 月 15 日增补。
 
 这个查询会使用到联合索引 `(A,B,C)`，因为条件是按照索引列 `A`、`B`、`C` 的顺序来的，这是理想的使用场景。
-
-#### 索引的使用方式
 
 1. 对于 `A=?`：这个条件是一个精确匹配，MySQL 会使用索引来定位到满足条件 `A=?` 的记录。
 
@@ -1102,7 +1101,50 @@ EXPLAIN SELECT * FROM tbn WHERE A=1 AND B IN (2, 3) AND C>3\G
 - **filtered**: 表示根据表的条件过滤后，剩余多少百分比的结果，这里是 `100.00`%，意味着所有扫描的行都会被返回。
 - **Extra**: 提供了关于查询执行的额外信息。`Using index condition` 表示 MySQL 使用了索引条件推送（Index Condition Pushdown，ICP），这是 MySQL 的一个优化方式，它允许在索引层面过滤数据，减少访问表数据的需要。
 
+联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引？
+
+> 2024 年 03 月 19 日增补
+
+我们通过实际的 SQL 来验证一下。
+
+示例 1（a=1,c=1）：
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131120.png)
+
+key 是 idx_abc，表明 a=1,c=1 会使用联合索引。但因为缺少了 B 字段的条件，所以 MySQL 可能无法利用索引来直接定位到精确的行，而是使用索引来缩小搜索范围。
+
+最终，MySQL 需要检查更多的行（rows: 3）来找到满足所有条件的结果集，但总体来说，使用索引明显比全表扫描要高效得多。
+
+示例 2（b=1,c=1）：
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131245.png)
+
+key 是 NULL，表明 b=1,c=1 不会使用联合索引。这是因为查询条件中涉及的字段 B 和 C 没有遵循之前定义的联合索引 idx_abc（A、B、C 顺序）的最左前缀原则。
+
+在 idx_abc 索引中，A 是最左边的列，但是查询没有包含 A，因此 MySQL 无法利用这个索引。
+
+示例 3（a=1,c=1,b=1）：
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1 AND B=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131306.png)
+
+key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
+
+并且 rows=1，因为查询条件包含了联合索引 idx_abc 中所有列的等值条件，并且条件的顺序与索引列的顺序相匹配，使得查询能够准确、快速地定位到目标数据。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引
 
 ### 31.索引不适合哪些场景呢？
 
@@ -1398,12 +1440,31 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 48.MySQL 事务的四大特性说一下？
 
-![事务四大特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-eaafb8b8-fbe6-42c0-9cc2-f2e04631b56c.jpg)
+![三分恶面渣逆袭：事务四大特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-eaafb8b8-fbe6-42c0-9cc2-f2e04631b56c.jpg)
 
-- 原子性：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。
-- 一致性：指在事务开始之前和事务结束以后，数据不会被破坏，假如 A 账户给 B 账户转 10 块钱，不管成功与否，A 和 B 的总金额是不变的。
-- 隔离性：多个事务并发访问时，事务之间是相互隔离的，即一个事务不影响其它事务运行效果。简言之，就是事务之间是进水不犯河水的。
-- 持久性：表示事务完成以后，该事务对数据库所作的操作更改，将持久地保存在数据库之中。
+#### 原子性：
+
+原子性子性意味着事务中的所有操作要么全部完成，要么全部不完成，它是不可分割的单位。如果事务中的任何一个操作失败了，整个事务都会回滚到事务开始之前的状态，如同这些操作从未被执行过一样。
+
+#### 一致性：
+
+一致性确保事务从一个一致的状态转换到另一个一致的状态。
+
+比如在银行转账事务中，无论发生什么，转账前后两个账户的总金额应保持不变。假如 A 账户（100 块）给 B 账户（10 块）转了 10 块钱，不管成功与否，A 和 B 的总金额都是 110 块。
+
+#### 隔离性：
+
+隔离性意味着并发执行的事务是彼此隔离的，一个事务的执行不会被其他事务干扰。就是事务之间是井水不犯河水的。
+
+隔离性主要是为了解决事务并发执行时可能出现的问题，如脏读、不可重复读、幻读等。
+
+数据库系统通过事务隔离级别（如读未提交、读已提交、可重复读、串行化）来实现事务的隔离性。
+
+#### 持久性：
+
+持久性确保事务一旦提交，它对数据库所做的更改就是永久性的，即使发生系统崩溃，数据库也能恢复到最近一次提交的状态。通常，持久性是通过数据库的恢复和日志机制来实现的，确保提交的事务更改不会丢失。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的四个特性，怎么理解事务一致性
 
 ### 49.那 ACID 靠什么保证的呢？
 

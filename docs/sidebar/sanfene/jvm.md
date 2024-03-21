@@ -19,19 +19,23 @@ head:
 
 ### 1.什么是 JVM?
 
-JVM——Java 虚拟机，它是 Java 实现平台无关性的基石。
+JVM，也就是 Java 虚拟机，它是 Java 实现跨平台的基石。
 
-Java 程序运行的时候，编译器将 Java 文件编译成平台无关的 Java 字节码文件（.class）,接下来对应平台 JVM 对字节码文件进行解释，翻译成对应平台匹配的机器指令并运行。
+Java 程序运行的时候，编译器会将 Java 源代码（.java）编译成平台无关的 Java 字节码文件（.class），接下来对应平台的 JVM 会对字节码文件进行解释，翻译成对应平台的机器指令并运行。
 
-![Java语言编译运行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-1.png)
+![三分恶面渣逆袭：Java语言编译运行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-1.png)
 
-同时 JVM 也是一个跨语言的平台，和语言无关，只和 class 的文件格式关联，任何语言，只要能翻译成符合规范的字节码文件，都能被 JVM 运行。
+同时，任何可以通过 Java 编译的语言，比如说 Groovy、Kotlin、Scala 等，都可以在 JVM 上运行。
 
-![JVM跨语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-2.png)
+![三分恶面渣逆袭：JVM跨语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-2.png)
 
-### 51.说说 JVM 的组织架构
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：有了解 JVM 吗
 
-> 本题是增补的内容，by 2024 年 03 月 08 日；参照：[大白话带你认识 JVM](https://javabetter.cn/jvm/what-is-jvm.html)
+### 51.说说 JVM 的组织架构（补充）
+
+> 本题是增补的内容，by 2024 年 03 月 08 日；
+
+推荐阅读：[大白话带你认识 JVM](https://javabetter.cn/jvm/what-is-jvm.html)
 
 JVM 大致可以划分为三个部门：类加载器、运行时数据区和执行引擎。
 
@@ -49,11 +53,11 @@ JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数�
 
 执行引擎是 JVM 的心脏，负责执行字节码。它包括一个虚拟处理器，还包括即时编译器（JIT Compiler）和垃圾回收器（Garbage Collector）。
 
->1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 JVM 的组织架构
+> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 JVM 的组织架构
 
 ## 二、内存管理
 
-### 53.讲讲 JVM 的垃圾回收机制
+### 53.讲讲 JVM 的垃圾回收机制（补充）
 
 > 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 
@@ -100,45 +104,59 @@ ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延
 
 ### 2.能说一下 JVM 的内存区域吗？
 
-JVM 内存区域最粗略的划分可以分为`堆`和`栈`，当然，按照虚拟机规范，可以划分为以下几个区域：
+推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
-![Java虚拟机运行时数据区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-3.png)
+JVM 的内存区域可以粗暴地划分为`堆`和`栈`，当然了，按照 Java 的虚拟机规范，可以再细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
 
-JVM 内存分为线程私有区和线程共享区，其中`方法区`和`堆`是线程共享区，`虚拟机栈`、`本地方法栈`和`程序计数器`是线程隔离的数据区。
+![三分恶面渣逆袭：Java虚拟机运行时数据区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-3.png)
 
-**1）程序计数器**
+其中`方法区`和`堆`是线程共享区，`虚拟机栈`、`本地方法栈`和`程序计数器`是线程私有的。
 
-程序计数器（Program Counter Register）也被称为 PC 寄存器，是一块较小的内存空间。
+#### 程序计数器
 
-它可以看作是当前线程所执行的字节码的行号指示器。
+程序计数器（Program Counter Register）也被称为 PC 寄存器，是一块较小的内存空间。它可以看作是当前线程所执行的字节码行号指示器。
 
-**2）Java 虚拟机栈**
+#### Java 虚拟机栈
 
-Java 虚拟机栈（Java Virtual Machine Stack）也是线程私有的，它的生命周期与线程相同。
+Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”，它的生命周期与线程相同。
 
-Java 虚拟机栈描述的是 Java 方法执行的线程内存模型：方法执行时，JVM 会同步创建一个栈帧，用来存储局部变量表、操作数栈、动态连接等。
+Java 虚拟机栈（JVM 栈）中是一个个[栈帧](https://javabetter.cn/jvm/stack-frame.html)，每个栈帧对应一个被调用的方法。当线程执行一个方法时，会创建一个对应的栈帧，并将栈帧压入栈中。当方法执行完毕后，将栈帧从栈中移除。
 
-![Java虚拟机栈](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-4.png)
+![三分恶面渣逆袭：Java虚拟机栈](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-4.png)
 
-**3）本地方法栈**
+#### 本地方法栈
 
-本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，其区别只是虚拟机栈为虚拟机执行 Java 方法（也就是字节码）服务，而本地方法栈则是为虚拟机使用到的本地（Native）方法服务。
+本地方法栈（Native Method Stacks）与虚拟机栈相似，区别在于虚拟机栈是为虚拟机执行 Java 方法服务的，而本地方法栈是为虚拟机使用到的本地（Native）方法服务的。
 
-Java 虚拟机规范允许本地方法栈被实现成固定大小的或者是根据计算动态扩展和收缩的。
+#### Java 堆
 
-**4）Java 堆**
+Java 堆（Java Heap）是虚拟机所管理的内存中最大的一块，被所有线程共享，在虚拟机启动时创建。
 
-对于 Java 应用程序来说，Java 堆（Java Heap）是虚拟机所管理的内存中最大的一块。Java 堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，Java 里“**几乎**”所有的对象实例都在这里分配内存。
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225154450.png)
 
-Java 堆是垃圾收集器管理的内存区域，因此一些资料中它也被称作“GC 堆”（Garbage Collected Heap，）。从回收内存的角度看，由于现代垃圾收集器大部分都是基于分代收集理论设计的，所以 Java 堆中经常会出现`新生代`、`老年代`、`Eden空间`、`From Survivor空间`、`To Survivor空间`等名词，需要注意的是这种划分只是根据垃圾回收机制来进行的划分，不是 Java 虚拟机规范本身制定的。
+以前，Java 中“几乎”所有的对象都会在堆中分配，但随着 JIT 编译器的发展和逃逸技术的逐渐成熟，所有的对象都分配到堆上渐渐变得不那么“绝对”了。
 
-![Java 堆内存结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-5.png)
+从 JDK 7 开始，Java 虚拟机已经默认开启逃逸分析了，意味着如果某些方法中的对象引用没有被返回或者未被外面使用（也就是未逃逸出去），那么对象可以直接在栈上分配内存。
 
-**5）方法区**
+Java 堆是[垃圾收集器](https://javabetter.cn/jvm/gc-collector.html)管理的内存区域，因此一些资料中它也被称作“GC 堆”（Garbage Collected Heap）。
 
-方法区是比较特别的一块区域，和堆类似，它也是各个线程共享的内存区域，用于存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。
+从回收内存的角度来看，由于垃圾收集器大部分都是基于分代收集理论设计的，所以 Java 堆中经常会出现`新生代`、`老年代`、`Eden空间`、`From Survivor空间`、`To Survivor空间`等名词。
 
-它特别在 Java 虚拟机规范对它的约束非常宽松，所以方法区的具体实现历经了许多变迁，例如 jdk1.7 之前使用永久代作为方法区的实现。
+![三分恶面渣逆袭：Java 堆内存结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-5.png)
+
+#### 方法区
+
+方法区是一块比较特别的区域，和堆类似，也是各个线程共享的内存区域，用于存储已被虚拟机加载的类型信息、常量、静态变量、[即时编译器](https://javabetter.cn/jvm/jit.html)编译后的代码缓存等。
+
+Java 虚拟机规范对它的约束非常宽松，所以方法区的具体实现历经了许多变迁，例如 JDK 1.7 时，方法区被永久代（Permanent Generation）所代替，而在 JDK 1.8 时，永久代被彻底移除，取而代之的是元空间（Metaspace）。
+
+**堆和栈的区别是什么**
+
+堆属于线程共享的内存区域，几乎所有的对象都在对上分配，生命周期不由单个方法调用所决定，可以在方法调用结束后继续存在，直到不在被任何变量引用，然后被垃圾收集器回收。
+
+栈就是前面提到的 JVM 栈（主要存储局部变量、方法参数、对象引用等），属于线程私有，通常随着方法调用的结束而消失，也就无需进行垃圾收集。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：堆和栈的区别是什么
 
 ### 3.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -208,19 +226,135 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 ### 8.能说一下对象的内存布局吗？
 
-在 HotSpot 虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。
+在 Java 中，对象的内存布局是由 Java 虚拟机规范定义的，但具体的实现细节可能因不同的 JVM 实现（如 HotSpot、OpenJ9 等）而异。
 
-![对象的存储布局](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-12.png)
+在 HotSpot 中，对象在堆内存中的存储布局可以划分为三个部分：对象头（Object Header）、实例数据（Instance Data）和对齐填充（Padding）。
 
-**对象头**主要由两部分组成：
+![三分恶面渣逆袭：对象的存储布局](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-12.png)
 
-- 第一部分存储对象自身的运行时数据：哈希码、GC 分代年龄、锁状态标志、线程持有的锁、偏向线程 ID、偏向时间戳等，官方称它为 Mark Word，它是个动态的结构，随着对象状态变化。
-- 第二部分是类型指针，指向对象的类元数据类型（即对象代表哪个类）。
-- 此外，如果对象是一个 Java 数组，那还应该有一块用于记录数组长度的数据
+①、**对象头**是每个对象都有的，包含三部分主要信息：
 
-**实例数据**用来存储对象真正的有效信息，也就是我们在程序代码里所定义的各种类型的字段内容，无论是从父类继承的，还是自己定义的。
+- **标记字**（Mark Word）：包含了对象自身的运行时数据，如哈希码（HashCode）、垃圾回收分代年龄、锁状态标志、线程持有的锁、偏向线程 ID 等信息。在 64 位操作系统下占 8 个字节，32 位操作系统下占 4 个字节。
+- **类型指针**（Class Pointer）：指向对象所属类的元数据的指针，JVM 通过这个指针来确定对象的类。在开启了压缩指针的情况下，这个指针可以被压缩。在开启指针压缩的情况下占 4 个字节，否则占 8 个字节。
+- **数组长度**（Array Length）：如果对象是数组类型，还会有一个额外的数组长度字段。占 4 个字节。
 
-**对齐填充**不是必须的，没有特别含义，仅仅起着占位符的作用。
+注意，启用压缩指针（`-XX:+UseCompressedOops`）可以减少对象头中类型指针的大小，从而减少对象总体大小，提高内存利用率。
+
+可以通过 `java -XX:+PrintFlagsFinal -version | grep UseCompressedOops` 命令来查看当前 JVM 是否开启了压缩指针。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320220408.png)
+
+如果压缩指针开启，会看到类似以下的输出，其中 bool UseCompressedOops 的值为 true。
+
+在 JDK 8 中，压缩指针默认是开启的，以减少 64 位应用中对象引用的内存占用。
+
+②、**实例数据**存储了对象的具体信息，即在类中定义的各种字段数据（不包括由父类继承的字段）。这部分的大小取决于对象的属性和它们的类型（如 int、long、引用类型等）。JVM 会对这些数据进行对齐，以确保高效的访问速度。
+
+③、**对齐填充**，为了使对象的总大小是 8 字节的倍数（这在大多数现代计算机体系结构中是最优访问边界），JVM 可能会在对象末尾添加一些填充。这部分是为了满足内存对齐的需求，并不包含任何具体的数据。
+
+**为什么非要进行 8 字节对齐呢？**
+
+这是因为 CPU 进行内存访问时，一次寻址的指针大小是 8 字节，正好是 L1 缓存行的大小。如果不进行内存对齐，则可能出现跨缓存行访问，导致额外的缓存行加载，降低了 CPU 的访问效率。
+
+![rickiyang：缓存行污染](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320222058.png)
+
+比如说上图中 obj1 占 6 个字节，由于没有对齐，导致这一行缓存中多了 2 个字节 obj2 的数据，当 CPU 访问 obj2 的时候，就会导致缓存行的刷新，这就是缓存行污染。
+
+也就说，8 字节对齐，是为了效率的提高，以空间换时间的一种方案。固然你还能够 16 字节对齐，可是 8 字节是最优选择。
+
+![rickiyang：000 结尾](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320222631.png)
+
+#### Object a = new object()的大小
+
+推荐阅读：[高端面试必备：一个 Java 对象占用多大内存 ](https://www.cnblogs.com/rickiyang/p/14206724.html)
+
+一般来说，对象的大小是由对象头、实例数据和对齐填充三个部分组成的。
+
+- 对象头的大小在 32 位 JVM 上是 8 字节，在 64 位 JVM 上是 16 字节（如果开启了压缩指针，就是 12 字节）。
+- 实例数据的大小取决于对象的属性和它们的类型。对于`new Object()`来说，Object 类本身没有实例字段，因此这部分可能非常小或者为零。
+- 对齐填充的大小取决于对象头和实例数据的大小，以确保对象的总大小是 8 字节的倍数。
+
+![rickiyang：Java 对象模型](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320221330.png)
+
+一般来说，目前的操作系统都是 64 位的，并且 JDK 8 中的压缩指针是默认开启的，因此在 64 位 JVM 上，`new Object()`的大小是 16 字节（12 字节的对象头 + 4 字节的对齐填充）。
+
+为了确认我们的推理，我们可以使用 [JOL](https://openjdk.org/projects/code-tools/jol/) 工具来查看对象的内存布局：
+
+> JOL 全称为 Java Object Layout，是分析 JVM 中对象布局的工具，该工具大量使用了 Unsafe、JVMTI 来解码布局情况。
+
+第一步，在 pom.xml 中引入 JOL 依赖：
+
+```xml
+<dependency>
+    <groupId>org.openjdk.jol</groupId>
+    <artifactId>jol-core</artifactId>
+    <version>0.9</version>
+</dependency>
+```
+
+第二步，使用 JOL 编写代码示例：
+
+```java
+public class JOLSample {
+    public static void main(String[] args) {
+        // 打印JVM详细信息（可选）
+        System.out.println(VM.current().details());
+
+        // 创建Object实例
+        Object obj = new Object();
+
+        // 打印Object实例的内存布局
+        String layout = ClassLayout.parseInstance(obj).toPrintable();
+        System.out.println(layout);
+    }
+}
+```
+
+第三步，运行代码，查看输出结果：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320223653.png)
+
+可以看到有 OFFSET、SIZE、TYPE DESCRIPTION、VALUE 这几个名词头，它们的含义分别是
+
+- OFFSET：偏移地址，单位字节；
+- SIZE：占用的内存大小，单位字节；
+- TYPE DESCRIPTION：类型描述，其中 object header 为对象头；
+- VALUE：对应内存中当前存储的值，二进制 32 位；
+
+从上面的结果能看到对象头是 12 个字节，还有 4 个字节的 padding，一共 16 个字节。我们的推理是正确的。
+
+#### 对象引用占多少大小？
+
+推荐阅读：[Object o = new Object()占多少个字节？](https://www.cnblogs.com/dijia478/p/14677243.html)
+
+在 64 位 JVM 上，未开启压缩指针时，对象引用占用 8 字节；开启压缩指针时，对象引用可被压缩到 4 字节。
+
+而 HotSpot JVM 默认开启了压缩指针，因此在 64 位 JVM 上，对象引用占用 4 字节。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320224701.png)
+
+我们可以通过下面这个例子来验证一下：
+
+```java
+class ReferenceSizeExample {
+    private static class ReferenceHolder {
+        Object reference;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(VM.current().details());
+        System.out.println(ClassLayout.parseClass(ReferenceHolder.class).toPrintable());
+    }
+}
+```
+
+运行代码，查看输出结果：
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320231059.png)
+
+ReferenceHolder.reference 字段位于偏移量 12，大小为 4 字节。这表明在当前的 JVM 配置下（64 位 JVM 且压缩指针开启），对象引用占用的内存大小为 4 字节。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：Object a = new object()的大小，对象引用占多少大小？
 
 ### 9.对象怎么访问定位？
 
@@ -398,14 +532,112 @@ ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，�
 目前 Java 虚拟机的主流垃圾回收器采取的是可达性分析算法。这个算法的实质在于将一系列 GC Roots 作为初始的存活对象合集（Gc Root Set），然后从该合集出发，探索所有能够被该集合引用到的对象，并将其加入到该集合中，这个过程我们也称之为标记（mark）。最终，未被探索到的对象便是死亡的，是可以回收的。
 ![GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
 
-### 14.Java 中可作为 GC Roots 的对象有哪几种？
+### 14.Java 中可作为 GC Roots 的引用有哪几种？
 
-可以作为 GC Roots 的主要有四种对象：
+1. 推荐阅读：[深入理解垃圾回收机制](https://javabetter.cn/jvm/gc.html)
+2. 推荐阅读：[R 大的所谓“GC roots”](https://www.zhihu.com/question/53613423/answer/135743258)
 
-- 虚拟机栈(栈帧中的本地变量表)中引用的对象
-- 方法区中类静态属性引用的对象
-- 方法区中常量引用的对象
-- 本地方法栈中 JNI 引用的对象
+所谓的 GC Roots，就是一组必须活跃的引用，不是对象，它们是程序运行时的起点，是一切引用链的源头。在 Java 中，GC Roots 包括以下几种：
+
+- 虚拟机栈中的引用（方法的参数、局部变量等）
+- 本地方法栈中 JNI 的引用
+- 类静态变量
+- 运行时常量池中的常量（String 或 Class 类型）
+
+![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+
+#### 1、虚拟机栈中的引用（方法的参数、局部变量等）
+
+来看下面这段代码：
+
+```java
+public class StackReference {
+    public void greet() {
+        Object localVar = new Object(); // 这里的 localVar 是一个局部变量，存在于虚拟机栈中
+        System.out.println(localVar.toString());
+    }
+
+    public static void main(String[] args) {
+        new StackReference().greet();
+    }
+}
+```
+
+在 greet 方法中，localVar 是一个局部变量，存在于虚拟机栈中，可以被认为是 GC Roots。
+
+在 greet 方法执行期间，localVar 引用的对象是活跃的，因为它是从 GC Roots 可达的。
+
+当 greet 方法执行完毕后，localVar 的作用域结束，localVar 引用的 Object 对象不再由任何 GC Roots 引用（假设没有其他引用指向这个对象），因此它将有资格作为垃圾被回收掉 😁。
+
+#### 2、本地方法栈中 JNI 的引用
+
+Java 通过 JNI（Java Native Interface）提供了一种机制，允许 Java 代码调用本地代码（通常是 C 或 C++ 编写的代码）。
+
+当调用 Java 方法时，虚拟机会创建一个栈帧并压入虚拟机栈，而当它调用本地方法时，虚拟机会通过动态链接直接调用指定的本地方法。
+
+![pecuyu：动态链接](https://cdn.tobebetterjavaer.com/stutymore/gc-20240321085719.png)
+
+JNI 引用是在 Java 本地接口（JNI）代码中创建的引用，这些引用可以指向 Java 堆中的对象。
+
+```java
+// 假设的JNI方法
+public native void nativeMethod();
+
+// 假设在C/C++中实现的本地方法
+/*
+ * Class:     NativeExample
+ * Method:    nativeMethod
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_NativeExample_nativeMethod(JNIEnv *env, jobject thisObj) {
+    jobject localRef = (*env)->NewObject(env, ...); // 在本地方法栈中创建JNI引用
+    // localRef 引用的Java对象在本地方法执行期间是活跃的
+}
+```
+
+在本地（C/C++）代码中，localRef 是对 Java 对象的一个 JNI 引用，它在本地方法执行期间保持 Java 对象活跃，可以被认为是 GC Roots。
+
+一旦 JNI 方法执行完毕，除非这个引用是全局的（Global Reference），否则它指向的对象将会被作为垃圾回收掉（假设没有其他地方再引用这个对象）。
+
+#### 3、类静态变量
+
+来看下面这段代码：
+
+```java
+public class StaticFieldReference {
+    private static Object staticVar = new Object(); // 类静态变量
+
+    public static void main(String[] args) {
+        System.out.println(staticVar.toString());
+    }
+}
+```
+
+StaticFieldReference 类中的 staticVar 引用了一个 Object 对象，这个引用存储在元空间，可以被认为是 GC Roots。
+
+只要 StaticFieldReference 类未被卸载，staticVar 引用的对象都不会被垃圾回收。如果 StaticFieldReference 类被卸载（这通常发生在其类加载器被垃圾回收时），那么 staticVar 引用的对象也将有资格被垃圾回收（如果没有其他引用指向这个对象）。
+
+#### 4、运行时常量池中的常量
+
+来看这段代码：
+
+```java
+public class ConstantPoolReference {
+    public static final String CONSTANT_STRING = "Hello, World"; // 常量，存在于运行时常量池中
+    public static final Class<?> CONSTANT_CLASS = Object.class; // 类类型常量
+
+    public static void main(String[] args) {
+        System.out.println(CONSTANT_STRING);
+        System.out.println(CONSTANT_CLASS.getName());
+    }
+}
+```
+
+在 ConstantPoolReference 中，CONSTANT_STRING 和 CONSTANT_CLASS 作为常量存储在运行时常量池。它们可以用来作为 GC Roots。
+
+这些常量引用的对象（字符串"Hello, World"和 Object.class 类对象）在常量池中，只要包含这些常量的 ConstantPoolReference 类未被卸载，这些对象就不会被垃圾回收。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：哪些对象可以作为 GC Roots
 
 ### 15.说一下对象有哪几种引用？
 
@@ -580,7 +812,6 @@ HotSpot 虚拟机提供了这个参数来设置。
 
 ![三分恶面渣逆袭：HotSpot虚拟机垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
 
-
 #### Serial 收集器
 
 Serial 收集器是最基础、历史最悠久的收集器。
@@ -604,7 +835,6 @@ ParNew/Serial Old 收集器运行示意图如下：
 Parallel Scavenge 收集器是一款新生代收集器，基于标记-复制算法实现，也能够并行收集。和 ParNew 有些类似，但 Parallel Scavenge 主要关注的是垃圾收集的吞吐量——所谓吞吐量，就是 CPU 用于运行用户代码的时间和总消耗时间的比值，比值越大，说明垃圾收集的占比越小。
 
 ![吞吐量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-31.png)
-
 
 根据对象存活周期的不同会将内存划分为几块，一般是把 Java 堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。
 
@@ -634,11 +864,18 @@ G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取�
 
 ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，它的目标是在不超过 10ms 的停顿时间内，为堆大小达到 16TB 的应用提供一种高吞吐量的垃圾收集器。
 
-ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转移阶段，还应用在并发标记阶段：将对象设置为已标记，传统的垃圾回收器需要进行一次内存访问，并将对象存活信息放在对象头中；而在ZGC中，只需要设置指针地址的第42-45位即可，并且因为是寄存器访问，所以速度比访问内存更快。
+ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转移阶段，还应用在并发标记阶段：将对象设置为已标记，传统的垃圾回收器需要进行一次内存访问，并将对象存活信息放在对象头中；而在 ZGC 中，只需要设置指针地址的第 42-45 位即可，并且因为是寄存器访问，所以速度比访问内存更快。
 
 ![得物技术](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102142908.png)
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：了解哪些垃圾回收器，只能回收一个代（新生代、老年代）吗，使用的jdk版本
+#### 垃圾回收器的作用是什么？
+
+垃圾回收器的核心作用是自动管理 Java 应用程序的运行时内存。它负责识别哪些内存是不再被应用程序使用的（即“垃圾”），并释放这些内存以便重新使用。
+
+这一过程减少了程序员手动管理内存的负担，降低了内存泄漏和溢出错误的风险。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：了解哪些垃圾回收器，只能回收一个代（新生代、老年代）吗，使用的 jdk 版本
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：垃圾回收器的作用是什么
 
 ### 25.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
 
@@ -1001,46 +1238,52 @@ jmap -dump:format=b,file=heap pid
 
 ### 40.有没有处理过内存泄漏问题？是如何定位的？
 
+推荐阅读：[一次内存溢出的排查优化实战](https://javabetter.cn/jvm/oom.html)
+
+在 Java 中，和内存相关的问题主要有两种，内存溢出和内存泄漏。
+
+- **内存溢出**（Out Of Memory）：就是申请内存时，JVM 没有足够的内存空间。通俗说法就是去蹲坑发现坑位满了。
+- **内存泄露**（Memory Leak）：就是申请了内存，但是没有释放，导致内存空间浪费。通俗说法就是有人占着茅坑不拉屎。
+
 内存泄漏是内在病源，外在病症表现可能有：
 
-- 应用程序长时间连续运行时性能严重下降
 - CPU 使用率飙升，甚至到 100%
-- 频繁 Full GC，各种报警，例如接口超时报警等
 - 应用程序抛出 `OutOfMemoryError` 错误
-- 应用程序偶尔会耗尽连接对象
 
-严重**内存泄漏**往往伴随频繁的 **Full GC**，所以分析排查内存泄漏问题首先还得从查看 Full GC 入手。主要有以下操作步骤：
+严重的**内存泄漏**往往伴随频繁的 **Full GC**，所以排查内存泄漏问题时，需要从 Full GC 入手。主要有以下操作步骤：
 
-1）使用 `jps` 查看运行的 Java 进程 ID
+第一步，使用 `jps` 查看运行的 Java 进程 ID
 
-2）使用`top -p [pid]` 查看进程使用 CPU 和 MEM 的情况
+第二步，使用`top -p [pid]` 查看进程使用 CPU 和内存占用情况
 
-3）使用 `top -Hp [pid]` 查看进程下的所有线程占 CPU 和 MEM 的情况
+第三步，使用 `top -Hp [pid]` 查看进程下的所有线程占用 CPU 和内存情况
 
-4）将线程 ID 转换为 16 进制：`printf "%x\n" [pid]`，输出的值就是线程栈信息中的 **nid**。
+第四步，将线程 ID 转换为 16 进制：`printf "%x\n" [pid]`，输出的值就是线程栈信息中的 **nid**。
 
-例如：`printf "%x\n" 29471`，换行输出 **731f**。
+> 例如：`printf "%x\n" 29471`，输出 **731f**。
 
-5）抓取线程栈：`jstack 29452 > 29452.txt`，可以多抓几次做个对比。
+第五步，抓取线程栈：`jstack 29452 > 29452.txt`，可以多抓几次做个对比。
 
-在线程栈信息中找到对应线程号的 16 进制值，如下是 **731f** 线程的信息。线程栈分析可使用 Visualvm 插件 **TDA**。
+在线程栈信息中找到对应线程号的 16 进制值，如下是 **731f** 线程的信息。线程栈分析可使用 VisualVM 插件 **TDA**。
 
 ```java
 "Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007fbe2c164000 nid=0x731f runnable [0x0000000000000000]
   java.lang.Thread.State: RUNNABLE
 ```
 
-6）使用`jstat -gcutil [pid] 5000 10` 每隔 5 秒输出 GC 信息，输出 10 次，查看 **YGC** 和 **Full GC** 次数。通常会出现 YGC 不增加或增加缓慢，而 Full GC 增加很快。
+第六步，使用`jstat -gcutil [pid] 5000 10` 每隔 5 秒输出 GC 信息，输出 10 次，查看 **YGC** 和 **Full GC** 次数。
 
-或使用 `jstat -gccause [pid] 5000` ，同样是输出 GC 摘要信息。
+通常会出现 YGC 不增加或增加缓慢，而 Full GC 增加很快。
+
+或使用 `jstat -gccause [pid] 5000` 输出 GC 摘要信息。
 
 或使用 `jmap -heap [pid]` 查看堆的摘要信息，关注老年代内存使用是否达到阀值，若达到阀值就会执行 Full GC。
 
-7）如果发现 `Full GC` 次数太多，就很大概率存在内存泄漏了
+如果发现 `Full GC` 次数太多，就很大概率存在内存泄漏了
 
-8）使用 `jmap -histo:live [pid]` 输出每个类的对象数量，内存大小(字节单位)及全限定类名。
+第八步，使用 `jmap -histo:live [pid]` 输出每个类的对象数量，内存大小(字节单位)及全限定类名。
 
-9）生成 `dump` 文件，借助工具分析哪 个对象非常多，基本就能定位到问题在那了
+第九步，生成 `dump` 文件，借助工具分析哪个对象非常多，基本就能定位到问题根源了。
 
 使用 jmap 生成 dump 文件：
 
@@ -1050,19 +1293,21 @@ Dumping heap to /root/dump ...
 Heap dump file created
 ```
 
-10）dump 文件分析
+第十步，dump 文件分析
 
 可以使用 **jhat** 命令分析：`jhat -port 8000 29471.dump`，浏览器访问 jhat 服务，端口是 8000。
 
-通常使用图形化工具分析，如 JDK 自带的 **jvisualvm**，从菜单 > 文件 > 装入 dump 文件。
+也可以使用图形化工具分析，如 JDK 自带的 **jvisualvm**，从菜单 > 文件 > 装入 dump 文件。
 
-或使用第三方式具分析的，如 **JProfiler** 也是个图形化工具，**GCViewer** 工具。Eclipse 或以使用 MAT 工具查看。或使用在线分析平台 **GCEasy**。
+或使用第三方式具分析的，如 **JProfiler**、**GCViewer** 工具。
 
-**注意**：如果 dump 文件较大的话，分析会占比较大的内存。
+或使用在线分析平台 **GCEasy**。
 
-11）在 dump 文析结果中查找存在大量的对象，再查对其的引用。
+> **注意**：如果 dump 文件较大的话，分析会占比较大的内存。
 
-基本上就可以定位到代码层的逻辑了。
+在 dump 文析结果中查找存在大量的对象，再查对其的引用。基本上就可以定位到代码层的逻辑了。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：什么是内存泄露
 
 ### 41.有没有处理过内存溢出问题？
 
@@ -1078,9 +1323,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 四、虚拟机执行
 
-### 52.说说解释执行和编译执行的区别
+### 52.说说解释执行和编译执行的区别（补充）
 
->2024年03月08日增补
+> 2024 年 03 月 08 日增补
 
 先说解释和编译的区别：
 
@@ -1112,7 +1357,7 @@ Java 一般被称为“解释型语言”，因为 Java 代码在执行前，需
 
 除去使用和卸载，就是 Java 的类加载过程。这 5 个阶段一般是顺序发生的，但在动态绑定的情况下，解析阶段发生在初始化阶段之后。
 
->参考：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
+> 参考：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
 
 #### 载入
 
@@ -1266,5 +1511,3 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
-

@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，62道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，63道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 62 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 63 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 62 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 63 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -145,7 +145,7 @@ JVM 执行 start 方法，会先创建一条线程，由创建出来的新线程
 
 ### 5.线程有哪些常用的调度方法？
 
-![线程常用调度方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-6.png)
+![三分恶面渣逆袭：线程常用调度方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-6.png)
 
 #### 线程等待与通知
 
@@ -182,26 +182,50 @@ Thread 类还提供了一个 `join()` 方法，意思是如果一个线程 A 执
 
 #### 线程中断
 
-Java 中的线程中断是一种线程间的协作模式，通过设置线程的中断标志并不能直接终止该线程的执行，而是被中断的线程会根据中断状态自行处理。
+推荐阅读：[interrupt 方法](https://www.cnblogs.com/myseries/p/10918819.html)
 
-- `void interrupt()` ：中断线程，例如，当线程 A 运行时，线程 B 可以调用线程 `interrupt()` 方法来设置线程的中断标志为 true 并立即返回。设置标志仅仅是设置标志, 线程 B 实际并没有被中断，会继续往下执行。
+Java 中的线程中断是一种线程间的协作模式，通过设置线程的中断标志并不能直接终止该线程的执行。被中断的线程会根据中断状态自行处理。
+
+- `void interrupt()` 方法：中断线程，例如，当线程 A 运行时，线程 B 可以调用线程 `interrupt()` 方法来设置线程的中断标志为 true 并立即返回。设置标志仅仅是设置标志, 线程 B 实际并没有被中断，会继续往下执行。
 - `boolean isInterrupted()` 方法： 检测当前线程是否被中断。
 - `boolean interrupted()` 方法： 检测当前线程是否被中断，与 isInterrupted 不同的是，该方法如果发现当前线程被中断，则会清除中断标志。
 
-> 可参考这篇帖子来进一步学习 [interrupt 方法](https://www.cnblogs.com/myseries/p/10918819.html)
+为了响应中断，线程的执行代码应该这样编写：
 
-假如面试官问：“**请说说 sleep 和 wait 的区别**，该如何回答呢？”
+```java
+public void run() {
+    try {
+        while (!Thread.currentThread().isInterrupted()) {
+            // 执行任务
+        }
+    } catch (InterruptedException e) {
+        // 线程被中断时的清理代码
+    } finally {
+        // 线程结束前的清理代码
+    }
+}
+```
+
+stop 方法用来强制线程停止执行，目前已经处于废弃状态，因为stop方法会导致线程立即停止，可能会在不一致的状态下释放锁，破坏对象的一致性，导致难以发现的错误和资源泄漏。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240321111407.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：怎么停止一个线程，interrupt和stop区别
+
+### 请说说 sleep 和 wait 的区别？（补充）
+
+>2024年03月21日增补
 
 答：`sleep()` 和 `wait()` 是 Java 中用于暂停当前线程的两个重要方法，sleep 是让当前线程休眠，不涉及对象类，也不需要获取对象的锁，属于 Thread 类的方法；wait 是让获得对象锁的线程实现等待，前提要获得对象的锁，属于 Object 类的方法。
 
 它们之间的区别主要有以下几点：
 
-① **所属类**：
+#### 所属类不同
 
 - `sleep()` 方法专属于 `Thread` 类。
 - `wait()` 方法专属于 `Object` 类。
 
-② **锁行为**：
+#### 锁行为不同
 
 当线程执行 sleep 方法时，它不会释放任何锁。也就是说，如果一个线程在持有某个对象的锁时调用了 sleep，它在睡眠期间仍然会持有这个锁。
 
@@ -292,19 +316,19 @@ Thread 1 醒来了，并且退出同步代码块
 
 这表明 waitingThread 在调用 wait 后确实释放了锁。
 
-③ **使用条件**：
+#### 使用条件不同
 
 - `sleep()` 方法可以在任何地方被调用。
 - `wait()` 方法必须在同步代码块或同步方法中被调用，这是因为调用 `wait()` 方法的前提是当前线程必须持有对象的锁。否则会抛出 `IllegalMonitorStateException` 异常。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240308154009.png)
 
-④ **唤醒方式**：
+#### 唤醒方式不同
 
 - `sleep()` 方法在指定的时间过后，线程会自动唤醒继续执行。
 - `wait()` 方法需要依靠 `notify()`、`notifyAll()` 方法或者 `wait()` 方法中指定的等待时间到期来唤醒线程。
 
-⑤ **异常**：
+#### 抛出异常不同
 
 - `sleep()` 方法在等待期间，如果线程被中断，会抛出 `InterruptedException`。
 - 如果线程被中断或等待时间到期时，`wait()` 方法同样会在等待期间抛出 `InterruptedException`。
@@ -805,21 +829,36 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## Java 内存模型
 
-### 18.说一下你对 Java 内存模型（JMM）的理解？
+### 18.说一下你对 Java 内存模型的理解？
 
-Java 内存模型（Java Memory Model，JMM），是一种抽象的模型，被定义出来屏蔽各种硬件和操作系统的内存访问差异。
+推荐阅读：[说说 Java 的内存模型](https://javabetter.cn/thread/jmm.html)
 
-JMM 定义了线程和主内存之间的抽象关系：线程之间的共享变量存储在`主内存`（Main Memory）中，每个线程都有一个私有的`本地内存`（Local Memory），本地内存中存储了该线程以读/写共享变量的副本。
+Java 内存模型（Java Memory Model）是一种抽象的模型，简称 JMM，主要用来定义多线程中变量的访问规则，用来解决变量的可见性、有序性和原子性问题，确保在并发环境中安全地访问共享变量。
 
-Java 内存模型的抽象图：
+![三分恶面渣逆袭：Java内存模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-19.png)
 
-![Java内存模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-19.png)
+JMM 定义了线程内存和主内存之间的抽象关系：线程之间的共享变量存储在`主内存`（Main Memory）中，每个线程都有一个私有的`本地内存`（Local Memory），本地内存中存储了共享变量的副本，用来进行线程内部的读写操作。
 
-本地内存是 JMM 的 一个抽象概念，并不真实存在。它其实涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化。
+- 当一个线程更改了本地内存中共享变量的副本后，它需要将这些更改刷新到主内存中，以确保其他线程可以看到这些更改。
+- 当一个线程需要读取共享变量时，它可能首先从本地内存中读取。如果本地内存中的副本是过时的，线程将从主内存中重新加载共享变量的最新值到本地内存中。
 
-![实际线程工作模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-20.png)
+本地内存是 JMM 中的一个抽象概念，并不真实存在。实际上，本地内存可能对应于 CPU 缓存、寄存器或者其他硬件和编译器优化。
 
-图里面的是一个双核 CPU 系统架构 ，每个核有自己的控制器和运算器，其中控制器包含一组寄存器和操作控制器，运算器执行算术逻辅运算。每个核都有自己的一级缓存，在有些架构里面还有一个所有 CPU 共享的二级缓存。 那么 Java 内存模型里面的工作内存，就对应这里的 Ll 缓存或者 L2 缓存或者 CPU 寄存器。
+![三分恶面渣逆袭：实际线程工作模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-20.png)
+
+对于一个双核 CPU 的系统架构，每个核都有自己的控制器和运算器，其中控制器包含一组寄存器和操作控制器，运算器执行算术逻辅运算。
+
+每个核都有自己的一级缓存，在有些架构里面还有一个所有 CPU 共享的二级缓存。
+
+Java 内存模型里面的本地内存，可能对应的事 L1 缓存或者 L2 缓存或者 CPU 寄存器。
+
+#### 为什么线程要用自己的内存？
+
+第一，在多线程环境中，如果所有线程都直接操作主内存中的共享变量，会引发更多的内存访问竞争，这不仅影响性能，还增加了线程安全问题的复杂度。通过让每个线程使用本地内存，可以减少对主内存的直接访问和竞争，从而提高程序的并发性能。
+
+第二，现代 CPU 为了优化执行效率，可能会对指令进行乱序执行（指令重排序）。使用本地内存（CPU 缓存和寄存器）可以在不影响最终执行结果的前提下，使得 CPU 有更大的自由度来乱序执行指令，从而提高执行效率。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：为什么线程要用自己的内存
 
 ### 19.说说你对原子性、可见性、有序性的理解？
 
@@ -2258,7 +2297,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 ### 61.线程池调优了解吗？
 
->2024年03月16日增补
+> 2024 年 03 月 16 日增补
 
 线程池配置没有固定的公式，通常事前会对线程池进行一定评估，常见的评估方案如下：
 
@@ -2276,7 +2315,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 ### 62.线程池在使用的时候需要注意什么
 
->2024年03月16日增补
+> 2024 年 03 月 16 日增补
 
 我认为比较重要的关注点有 3 个：
 
@@ -2300,7 +2339,6 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 ③、尽量使用自定义的线程池，而不是使用 Executors 创建的线程池，因为 newFixedThreadPool 线程池由于使用了 LinkedBlockingQueue，队列的容量默认无限大，实际使用中出现任务过多时会导致内存溢出；newCachedThreadPool 线程池由于核心线程数无限大，当任务过多的时候会导致创建大量的线程，可能机器负载过高导致服务宕机。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：线程池在使用的时候需要注意什么
-
 
 ### 58.你能设计实现一个线程池吗？
 
@@ -2411,7 +2449,7 @@ public class CountTask extends RecursiveTask<Integer> {
 
 ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法，在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果比较大，就必须分割成两个子任务，每个子任务在调用 fork 方法时，又会进 compute 方法，看看当前子任务是否需要继续分割成子任务，如果不需要继续分割，则执行当前子任务并返回结果。使用 join 方法会等待子任务执行完并得到其结果。
 
-> 图文详解 62 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+> 图文详解 63 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ---
 
