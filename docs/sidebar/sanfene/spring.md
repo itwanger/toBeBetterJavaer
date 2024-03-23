@@ -1655,7 +1655,14 @@ Spring 提供了一系列事务传播行为，这些传播行为定义了事务�
 
 Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `ServiceX#methodX()` 都工作在事务环境下，且程序中存在调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的 3 个方法都通过 Spring 的事务传播机制工作在同一个事务中。
 
+#### protected 和 private 加事务会生效吗
+
+在 Spring 中，**只有通过 Spring 容器的 AOP 代理调用的公开方法（public method）上的`@Transactional`注解才会生效**。
+
+如果在 protected、private 方法上使用`@Transactional`，这些事务注解将不会生效，原因：Spring 默认使用基于 JDK 的动态代理（当接口存在时）或基于 CGLIB 的代理（当只有类时）来实现事务。这两种代理机制都只能代理公开的方法。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的传播机制
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：事务传播，protected 和 private 加事务会生效吗,还有那些不生效的情况
 
 ### 26.声明式事务实现原理了解吗？
 
@@ -1681,13 +1688,13 @@ Spring 容器在初始化单例 Bean 的时候，会遍历所有的 BeanPostProc
 
 ### 27.声明式事务在哪些情况下会失效？
 
-![声明式事务的几种失效的情况](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-381e4ec9-a235-4cfa-9b4d-518095a7502a.png)
+![三分恶面渣逆袭：声明式事务的几种失效的情况](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-381e4ec9-a235-4cfa-9b4d-518095a7502a.png)
 
-**1、@Transactional 应用在非 public 修饰的方法上**
+#### 1、@Transactional 应用在非 public 修饰的方法上
 
 如果 Transactional 注解应用在非 public 修饰的方法上，Transactional 将会失效。
 
-是因为在 Spring AOP 代理时，TransactionInterceptor （事务拦截器）在目标方法执行前后进行拦截，DynamicAdvisedInterceptor（CglibAopProxy 的内部类）的 intercept 方法 或 JdkDynamicAopProxy 的 invoke 方法会间接调用 AbstractFallbackTransactionAttributeSource 的 **computeTransactionAttribute**方法，获取 Transactional 注解的事务配置信息。
+是因为在 Spring AOP 代理时，TransactionInterceptor （事务拦截器）在目标方法执行前后进行拦截，DynamicAdvisedInterceptor（CglibAopProxy 的内部类）的 intercept 方法或 JdkDynamicAopProxy 的 invoke 方法会间接调用 AbstractFallbackTransactionAttributeSource 的 **computeTransactionAttribute**方法，获取 Transactional 注解的事务配置信息。
 
 ```java
 protected TransactionAttribute computeTransactionAttribute(Method method,
@@ -1695,65 +1702,67 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
         // Don't allow no-public methods as required.
         if (allowPublicMethodsOnly() && !Modifier.isPublic(method.getModifiers())) {
         return null;
+    }
 }
 ```
 
-此方法会检查目标方法的修饰符是否为 public，不是 public 则不会获取@Transactional 的属性配置信息。
+此方法会检查目标方法的修饰符是否为 public，不是 public 则不会获取 @Transactional 的属性配置信息。
 
-**2、@Transactional 注解属性 propagation 设置错误**
+#### 2、@Transactional 注解属性 propagation 设置错误
 
-- TransactionDefinition.PROPAGATION_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。
-- TransactionDefinition.PROPAGATION_NOT_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。
-- TransactionDefinition.PROPAGATION_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。
+- TransactionDefinition.PROPAGATION_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务方式执行；错误使用场景：在业务逻辑必须运行在事务环境下以确保数据一致性的情况下使用 SUPPORTS。
+- TransactionDefinition.PROPAGATION_NOT_SUPPORTED：总是以非事务方式执行，如果当前存在事务，则挂起该事务。错误使用场景：在需要事务支持的操作中使用 NOT_SUPPORTED。
+- TransactionDefinition.PROPAGATION_NEVER：总是以非事务方式执行，如果当前存在事务，则抛出异常。错误使用场景：在应该在事务环境下执行的操作中使用 NEVER。
 
-**3、@Transactional 注解属性 rollbackFor 设置错误**
+#### 3、@Transactional 注解属性 rollbackFor 设置错误
 
-rollbackFor 可以指定能够触发事务回滚的异常类型。Spring 默认抛出了未检查 unchecked 异常（继承自 RuntimeException 的异常）或者 Error 才回滚事务，其他异常不会触发回滚事务。
+rollbackFor 用来指定能够触发事务回滚的异常类型。Spring 默认抛出未检查 unchecked 异常（继承自 RuntimeException 的异常）或者 Error 才回滚事务，其他异常不会触发回滚事务。
 
-![Spring默认支持的异常回滚](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-04053b02-3264-4d7f-b868-560a0333f08d.png)
+![三分恶面渣逆袭：Spring默认支持的异常回滚](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-04053b02-3264-4d7f-b868-560a0333f08d.png)
 
 ```java
 // 希望自定义的异常可以进行回滚
-@Transactional(propagation= Propagation.REQUIRED,rollbackFor= MyException.class
+@Transactional(propagation= Propagation.REQUIRED,rollbackFor= MyException.class)
 ```
 
 若在目标方法中抛出的异常是 rollbackFor 指定的异常的子类，事务同样会回滚。
 
-**4、同一个类中方法调用，导致@Transactional 失效**
+#### 4、同一个类中方法调用，导致@Transactional 失效
 
-开发中避免不了会对同一个类里面的方法调用，比如有一个类 Test，它的一个方法 A，A 再调用本类的方法 B（不论方法 B 是用 public 还是 private 修饰），但方法 A 没有声明注解事务，而 B 方法有。则外部调用方法 A 之后，方法 B 的事务是不会起作用的。这也是经常犯错误的一个地方。
+开发中避免不了会对同一个类里面的方法调用，比如有一个类 Test，它的一个方法 A，A 调用本类的方法 B（不论方法 B 是用 public 还是 private 修饰），但方法 A 没有声明注解事务，而 B 方法有。
 
-那为啥会出现这种情况？其实这还是由于使用 Spring AOP 代理造成的，因为只有当事务方法被当前类以外的代码调用时，才会由 Spring 生成的代理对象来管理。
+则外部调用方法 A 之后，方法 B 的事务是不会起作用的。这也是经常犯错误的一个地方。
+
+那为啥会出现这种情况呢？其实还是由 Spring AOP 代理造成的，因为只有事务方法被当前类以外的代码调用时，才会由 Spring 生成的代理对象来管理。
 
 ```java
  //@Transactional
-     @GetMapping("/test")
-     private Integer A() throws Exception {
-         CityInfoDict cityInfoDict = new CityInfoDict();
-         cityInfoDict.setCityName("2");
-         /**
-          * B 插入字段为 3的数据
-          */
-         this.insertB();
-        /**
-         * A 插入字段为 2的数据
-         */
-        int insert = cityInfoDictMapper.insert(cityInfoDict);
-        return insert;
-    }
+@GetMapping("/test")
+private Integer A() throws Exception {
+    CityInfoDict cityInfoDict = new CityInfoDict();
+    cityInfoDict.setCityName("2");
+    /**
+     * B 插入字段为 3的数据
+     */
+    this.insertB();
+    /**
+     * A 插入字段为 2的数据
+     */
+    int insert = cityInfoDictMapper.insert(cityInfoDict);
+    return insert;
+}
 
-    @Transactional()
-    public Integer insertB() throws Exception {
-        CityInfoDict cityInfoDict = new CityInfoDict();
-        cityInfoDict.setCityName("3");
-        cityInfoDict.setParentCityId(3);
+@Transactional()
+public Integer insertB() throws Exception {
+    CityInfoDict cityInfoDict = new CityInfoDict();
+    cityInfoDict.setCityName("3");
+    cityInfoDict.setParentCityId(3);
 
-        return cityInfoDictMapper.insert(cityInfoDict);
-    }
-
+    return cityInfoDictMapper.insert(cityInfoDict);
+}
 ```
 
-这种情况是最常见的一种@Transactional 注解失效场景
+这种情况是最常见的一种@Transactional 注解失效场景。
 
 ```java
 @Transactional
@@ -1775,7 +1784,6 @@ private Integer A() throws Exception {
         e.printStackTrace();
     }
 }
-
 ```
 
 如果 B 方法内部抛了异常，而 A 方法此时 try catch 了 B 方法的异常，那这个事务就不能正常回滚了，会抛出异常：
@@ -1783,6 +1791,8 @@ private Integer A() throws Exception {
 ```java
 org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
 ```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：事务传播，protected 和 private 加事务会生效吗,还有那些不生效的情况
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1805,9 +1815,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 29.Spring MVC 的工作流程？
 
-一图胜千言：
+Spring MVC 是基于模型-视图-控制器的 Web 框架，它的工作流程也主要是围绕着 Model、View、Controller 这三个组件展开的。
 
-![Spring MVC的工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-e29a122b-db07-48b8-8289-7251032e87a1.png)
+![三分恶面渣逆袭：Spring MVC的工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-e29a122b-db07-48b8-8289-7251032e87a1.png)
 
 ①、**发起请求**：客户端通过 HTTP 协议向服务器发起请求。
 
@@ -1830,6 +1840,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 在前后端分离的情况下，步骤 ⑥、⑦、⑧ 会略有不同，后端通常只需要处理数据，并将 JSON 格式的数据返回给前端就可以了，而不是返回完整的视图页面。
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说前端发起请求到 SpringMVC 的整个处理流程。
+> 2.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 SpringMVC 的流程吧
 
 ### 30.SpringMVC Restful 风格的接口的流程是什么样的呢？
 

@@ -12,9 +12,9 @@ head:
       content: Java,HashMap,java hashmap, 源码分析, 实现原理
 ---
 
-# 6.5 HashMap详解（附源码）
+# 6.5 HashMap 详解（附源码）
 
-这篇文章将会详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabebetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
+这篇文章将会详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap 的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabebetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 
 HashMap 是 Java 中常用的数据结构之一，用于存储键值对。在 HashMap 中，每个键都映射到一个唯一的值，可以通过键来快速访问对应的值，算法时间复杂度可以达到 O(1)。
 
@@ -64,7 +64,7 @@ HashMap 的实现原理是基于哈希表的，它的底层是一个数组，数
 
 当通过键查找值时，HashMap 也会根据键的哈希值计算出数组下标，并查找对应的值。
 
-### 01、hash方法的原理
+### 01、hash 方法的原理
 
 简单了解 HashMap 后，我们来讨论第一个问题：hash 方法的原理，对吃透 HashMap 会大有帮助。
 
@@ -118,7 +118,7 @@ public V put(K key, V value) {
 
 那“chenmo”这个 key 计算后的位置（索引）是多少呢？
 
-答案是 8，也就是说 `map.put("chenmo", "沉默")` 会把key 为 “chenmo”，value 为“沉默”的键值对放到下标为 8 的位置上（也就是索引为 8 的桶上）。
+答案是 8，也就是说 `map.put("chenmo", "沉默")` 会把 key 为 “chenmo”，value 为“沉默”的键值对放到下标为 8 的位置上（也就是索引为 8 的桶上）。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/fcc9cb8f8252f712d72406f7ffb83a89.png)
 
@@ -136,9 +136,9 @@ static final int hash(Object key) {
 下面是对该方法的一些解释：
 
 - 参数 key：需要计算哈希码的键值。
-- `key == null ? 0 : (h = key.hashCode()) ^ (h >>> 16)`：这是一个三目运算符，如果键值为null，则哈希码为0（依旧是说如果键为 null，则存放在第一个位置）；否则，通过调用`hashCode()`方法获取键的哈希码，并将其与右移16位的哈希码进行异或运算。
-- `^` 运算符：异或运算符是Java中的一种位运算符，它用于将两个数的二进制位进行比较，如果相同则为0，不同则为1。
-- `h >>> 16`：将哈希码向右移动16位，相当于将原来的哈希码分成了两个16位的部分。
+- `key == null ? 0 : (h = key.hashCode()) ^ (h >>> 16)`：这是一个三目运算符，如果键值为 null，则哈希码为 0（依旧是说如果键为 null，则存放在第一个位置）；否则，通过调用`hashCode()`方法获取键的哈希码，并将其与右移 16 位的哈希码进行异或运算。
+- `^` 运算符：异或运算符是 Java 中的一种位运算符，它用于将两个数的二进制位进行比较，如果相同则为 0，不同则为 1。
+- `h >>> 16`：将哈希码向右移动 16 位，相当于将原来的哈希码分成了两个 16 位的部分。
 - 最终返回的是经过异或运算后得到的哈希码值。
 
 这短短的一行代码，汇聚不少计算机巨佬们的聪明才智。
@@ -198,27 +198,27 @@ System.out.println("取模 (Math.floorMod): " + modulus);
 
 为什么会有这样的结果呢？
 
-首先，我们来考虑一下常规除法。当我们将一个数除以另一个数时，我们得到一个商和一个余数。例如，当我们把7除以3时，我们得到商2和余数1，因为 \(7 = 3 × 2 + 1\)。
+首先，我们来考虑一下常规除法。当我们将一个数除以另一个数时，我们得到一个商和一个余数。例如，当我们把 7 除以 3 时，我们得到商 2 和余数 1，因为 \(7 = 3 × 2 + 1\)。
 
 现在，如果我们考虑负数，事情就变得复杂了。但是，让我们试着弄清楚为什么取模和取余的行为会有所不同。
 
-01、**取余**： 
+01、**取余**：
 
-在Java中，当我们使用 `%` 运算符时，得到的是余数。余数的定义是基于常规除法的，所以它的符号总是与被除数相同。
+在 Java 中，当我们使用 `%` 运算符时，得到的是余数。余数的定义是基于常规除法的，所以它的符号总是与被除数相同。
 
-例如，对于 `-7 % 3`，余数是 `-1`。为什么？ 
+例如，对于 `-7 % 3`，余数是 `-1`。为什么？
 
-因为用3去除-7，可以得到商-2和余数-1，因为 \(-7 = 3 × (-2) - 1\)。
+因为用 3 去除-7，可以得到商-2 和余数-1，因为 \(-7 = 3 × (-2) - 1\)。
 
-02、**取模**：  
+02、**取模**：
 
 取模的行为与取余类似，但关键的区别在于它是如何处理负数的。`Math.floorMod` 的工作原理是：在执行除法时，它会向下取整到最接近的整数。
 
-例如，对于 `Math.floorMod(-7, 3)`，结果是 `2`。为什么？  
+例如，对于 `Math.floorMod(-7, 3)`，结果是 `2`。为什么？
 
-这里的关键是“向下取整”。当我们将-7除以3时，商是-2.33。向下取整意味着向负无穷方向取整，所以商是-3。余数是2，因为 \(-7 = 3 × (-3) + 2\)。
+这里的关键是“向下取整”。当我们将-7 除以 3 时，商是-2.33。向下取整意味着向负无穷方向取整，所以商是-3。余数是 2，因为 \(-7 = 3 × (-3) + 2\)。
 
-这种区别主要是如何处理商的小数部分。在取余操作中，我们只是简单地丢弃小数部分，所以-7除以3的商是-2。而在取模操作中，我们向下取整，所以-7除以3的商是-3。
+这种区别主要是如何处理商的小数部分。在取余操作中，我们只是简单地丢弃小数部分，所以-7 除以 3 的商是-2。而在取模操作中，我们向下取整，所以-7 除以 3 的商是-3。
 
 需要注意的是，在数学中，取模运算和取余运算都有定义域的限制，即除数不能为 0。在计算机中，除数为 0 会抛出异常或返回 NaN（Not a Number）。
 
@@ -229,9 +229,9 @@ HashMap 的取模运算有两处。
 ```java
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
     // 数组
-    HashMap.Node<K,V>[] tab; 
+    HashMap.Node<K,V>[] tab;
     // 元素
-    HashMap.Node<K,V> p; 
+    HashMap.Node<K,V> p;
 
     // n 为数组的长度 i 为下标
     int n, i;
@@ -252,9 +252,9 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 ```java
 final Node<K,V> getNode(int hash, Object key) {
     // 获取当前的数组和长度，以及当前节点链表的第一个节点（根据索引直接从数组中找）
-    Node<K,V>[] tab; 
-    Node<K,V> first, e; 
-    int n; 
+    Node<K,V>[] tab;
+    Node<K,V> first, e;
+    int n;
     K k;
     if ((tab = table) != null && (n = tab.length) > 0 &&
             (first = tab[(n - 1) & hash]) != null) {
@@ -286,7 +286,7 @@ final Node<K,V> getNode(int hash, Object key) {
 
 用 $2^n$ 替换下 b 就是：
 
->a % $2^n$ = a & ($2^n$-1)
+> a % $2^n$ = a & ($2^n$-1)
 
 我们来验证一下，假如 a = 14，b = 8，也就是 $2^3$，n=3。
 
@@ -296,30 +296,34 @@ final Node<K,V> getNode(int hash, Object key) {
 
 害，计算机就是这么讲道理，没办法，😝
 
-这也正好解释了为什么 HashMap 的数组长度要取 2 的整次方。
+这也正好解释了**为什么 HashMap 的数组长度要取 2 的整次方**。
 
 为什么会这样巧呢？
 
-因为（数组长度-1）正好相当于一个“低位掩码”——这个掩码的低位最好全是 1，这样 & 操作才有意义，否则结果就肯定是 0，那么 & 操作就没有意义了。
+因为（数组长度-1）正好相当于一个“低位掩码”——这个掩码的低位最好全是 1，这样 & 操作才有意义，否则结果就肯定是 0。
 
-> a&b 操作的结果是：a、b 中对应位同时为 1，则对应结果位为 1，否则为 0
+> a&b 操作的结果是：a、b 中对应位同时为 1，则对应结果位为 1，否则为 0。例如 5&3=1，5 的二进制是 0101，3 的二进制是 0011，5&3=0001=1。
 
-2 的整次幂刚好是偶数，偶数-1 是奇数，奇数的二进制最后一位是 1，保证了 hash &(length-1) 的最后一位可能为 0，也可能为 1（这取决于 h 的值），即 & 运算后的结果可能为偶数，也可能为奇数，这样便可以保证哈希值的均匀性。
+2 的整次幂刚好是偶数，偶数-1 是奇数，奇数的二进制最后一位是 1，保证了 `hash &(length-1)` 的最后一位可能为 0，也可能为 1（取决于 hash 的值），即 & 运算后的结果可能为偶数，也可能为奇数，这样便可以保证哈希值的均匀分布。
 
-& 操作的结果就是将哈希值的高位全部归零，只保留低位值，用来做数组下标访问。
+换句话说，& 操作的结果就是将哈希值的高位全部归零，只保留低位值。
 
-假设某哈希值为 `10100101 11000100 00100101`，用它来做取模运算，我们来看一下结果。HashMap 的初始长度为 16（内部是数组），16-1=15，二进制是 `00000000 00000000 00001111`（高位用 0 来补齐）：
+假设某哈希值的二进制为 `10100101 11000100 00100101`，用它来做 & 运算，我们来看一下结果。
+
+我们知道，HashMap 的初始长度为 16，16-1=15，二进制是 `00000000 00000000 00001111`（高位用 0 来补齐）：
 
 ```
 	 10100101 11000100 00100101
-&	00000000 00000000 00001111
+&	 00000000 00000000 00001111
 ----------------------------------
 	 00000000 00000000 00000101
 ```
 
-因为 15 的高位全部是 0，所以 & 运算后的高位结果肯定是 0，只剩下 4 个低位 `0101`，也就是十进制的 5，也就是将哈希值为 `10100101 11000100 00100101` 的键放在数组的第 5 位。
+因为 15 的高位全部是 0，所以 & 运算后的高位结果肯定也是 0，只剩下 4 个低位 `0101`，也就是十进制的 5。
 
-当然了，如果你是新手，上面这些 01 串没看懂，也没关系，记住取模运算就行了，记不住取模运算也没关系，记住**取模运算是为了计算数组的下标就可以了**。
+这样，哈希值为 `10100101 11000100 00100101` 的键就会放在数组的第 5 个位置上。
+
+当然了，如果你是新手，上面这些 01 串看不太懂，也没关系。记住 &运算是为了计算数组的下标就可以了。
 
 - put 的时候计算下标，把键值对放到对应的桶上。
 - get 的时候通过下标，把键值对从对应的桶上取出来。
@@ -390,7 +394,7 @@ hash 方法的原理是，先获取 key 对象的 hashCode 值，然后将其高
 
 总的来说，HashMap 的 hash 方法就是将 key 对象的 hashCode 值进行处理，得到最终的哈希值，并通过一定的算法映射到实际的存储位置上。这个过程决定了 HashMap 内部键值对的查找效率。
 
-### 02、HashMap的扩容机制
+### 02、HashMap 的扩容机制
 
 好，理解了 hash 方法后我们来看第二个问题，HashMap 的扩容机制。
 
@@ -437,7 +441,7 @@ wanger的hash值 : -795084437 的索引 : 11
 看到没？
 
 - fangxiaowan（方小婉）和 yaoxiaojuan（姚小娟）的索引都是 6；
-- chenqingyang（陈清扬）和yexin（叶辛）的索引都是 9
+- chenqingyang（陈清扬）和 yexin（叶辛）的索引都是 9
 
 这就意味着，要采用拉链法（后面会讲）将他们放在同一个索引的链表上。查询的时候，就不能直接通过索引的方式直接拿到（[时间复杂度](https://javabebetter.cn/collection/time-complexity.html)为 O(1)），而要通过遍历的方式（时间复杂度为 O(n)）。
 
@@ -458,12 +462,12 @@ wanger的hash值 : -795084437 的索引 : 11
 
 可以看到：
 
-- 虽然chenqingyang（陈清扬）和yexin（叶辛）的索引仍然是 9。
+- 虽然 chenqingyang（陈清扬）和 yexin（叶辛）的索引仍然是 9。
 - 但 fangxiaowan（方小婉）的索引为 6，yaoxiaojuan（姚小娟）的索引由 6 变为 22，各自都有坑了。
 
 当然了，数组是无法自动扩容的，所以如果要扩容的话，就需要新建一个大的数组，然后把之前小的数组的元素复制过去，并且要重新计算哈希值和重新分配桶（重新散列），这个过程也是挺耗时的。
 
-#### resize方法
+#### resize 方法
 
 HashMap 的扩容是通过 resize 方法来实现的，JDK 8 中融入了红黑树（链表长度超过 8 的时候，会将链表转化为红黑树来提高查询效率），对于新手来说，可能比较难理解。
 
@@ -506,7 +510,7 @@ void resize(int newCapacity) {
 
 转移完成后，方法将 HashMap 内部的数组引用 table 指向新数组 newTable，并重新计算阈值 threshold。新的阈值是新容量 newCapacity 乘以负载因子 loadFactor 的结果，但如果计算结果超过了 HashMap 支持的最大容量 MAXIMUM_CAPACITY，则将阈值设置为 MAXIMUM_CAPACITY + 1，这是因为 HashMap 的元素数量不能超过 MAXIMUM_CAPACITY。
 
-#### 新容量newCapacity
+#### 新容量 newCapacity
 
 那 newCapacity 是如何计算的呢？
 
@@ -547,7 +551,7 @@ b = a << 2
 
 实际上呢，二进制数左移后会变成原来的 2 倍、4 倍、8 倍，记住这个就好。
 
-#### transfer方法
+#### transfer 方法
 
 接下来，来说 transfer 方法，该方法用来转移，将旧的小数组元素拷贝到新的大数组中。
 
@@ -592,71 +596,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 注意，`e.next = newTable[i]`，也就是使用了单链表的头插入方式，同一位置上新元素总会被放在链表的头部位置；这样先放在一个索引上的元素最终会被放到链表的尾部，这就会导致**在旧数组中同一个链表上的元素，通过重新计算索引位置后，有可能被放到了新数组的不同位置上**。
 
-就这点上，Java 8 做了很大的优化（下面会讲）。
-
-现在假设 hash 算法就是简单的用键的哈希值（一个 int 值）和数组大小取模（也就是 `hashCode % table.length`）。
-
-继续假设：
-
-- 数组 table 的长度为 2
-- 键的哈希值为 3、7、5
-
-取模运算后，哈希冲突都到 table[1] 上了，因为余数为 1。那么扩容前的样子如下图所示。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
-
-数组的容量为 2， key 3、7、5 都在 table[1] 的链表上。
-
-假设负载因子（后面会细讲） loadFactor 为 1，也就是当元素的个数大于 table 的长度时进行扩容。
-
-扩容后的数组容量为 4。
-
-- key 3 取模（3%4）后是 3，放在 table[3] 上。
-- key 7 取模（7%4）后是 3，放在 table[3] 上的链表头部。
-- key 5 取模（5%4）后是 1，放在 table[1] 上。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
-
-按照我们的预期，扩容后的 7 仍然应该在 3 这条链表的后面，但实际上呢？ 7 跑到 3 这条链表的头部了。
-
-针对 JDK 7 中的这个情况，JDK 8 做了哪些优化呢？
-
-看下面这张图。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-03.png)
-
-n 为 table 的长度，默认值为 16。
-
-- n-1 也就是二进制的 0000 1111（1X$2^0$+1X$2^1$+1X$2^2$+1X$2^3$=1+2+4+8=15）；
-- key1 哈希值的最后 8 位为 0000 0101
-- key2 哈希值的最后 8 位为 0001 0101（和 key1 不同）
-- 做与运算后发生了哈希冲突，索引都在（0000 0101）上。
-
-扩容后为 32。
-
-- n-1 也就是二进制的 0001 1111（1X$2^0$+1X$2^1$+1X$2^2$+1X$2^3$+1X$2^4$=1+2+4+8+16=31），扩容前是 0000 1111。
-- key1 哈希值的低位为 0000 0101
-- key2 哈希值的低位为 0001 0101（和 key1 不同）
-- key1 做与运算后，索引为 0000 0101。
-- key2 做与运算后，索引为 0001 0101。
-
-新的索引就会发生这样的变化：
-
-- 原来的索引是 5（*0* 0101）
-- 原来的容量是 16
-- 扩容后的容量是 32
-- 扩容后的索引是 21（*1* 0101），也就是 5+16，也就是原来的索引+原来的容量
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-04.png)
-
-
-也就是说，JDK 8 不需要像 JDK 7 那样重新计算 hash，只需要看原来的hash值新增的那个bit是1还是0就好了，是0的话就表示索引没变，是1的话，索引就变成了“原索引+原来的容量”。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-05.png)
-
-JDK 8 的这个设计非常巧妙，既省去了重新计算hash的时间，同时，由于新增的1 bit是0还是1是随机的，因此扩容的过程，可以均匀地把之前的节点分散到新的位置上。
-
-woc，只能说 HashMap 的作者 Doug Lea、Josh Bloch、Arthur van Hoff、Neal Gafter 真的强——的一笔。
+为了解决这个问题，Java 8 做了很大的优化（讲扩容的时候会讲到）。
 
 #### Java 8 扩容
 
@@ -743,9 +683,9 @@ final Node<K,V>[] resize() {
 
 2、如果原来的数组 table 不为空，则根据扩容规则计算新数组长度 newCap 和新阈值 newThr，然后将原数组中的元素复制到新数组中。
 
-3、如果原来的数组 table 为空但阈值 oldThr 不为零，则说明是通过带参数构造函数创建的 HashMap，此时将阈值作为新数组长度 newCap。
+3、如果原来的数组 table 为空但阈值 oldThr 不为零，则说明是通过带参数构造方法创建的 HashMap，此时将阈值作为新数组长度 newCap。
 
-4、如果原来的数组 table 和阈值 oldThr 都为零，则说明是通过无参数构造函数创建的 HashMap，此时将默认初始容量 DEFAULT_INITIAL_CAPACITY（16）和默认负载因子 DEFAULT_LOAD_FACTOR（0.75）计算出新数组长度 newCap 和新阈值 newThr。
+4、如果原来的数组 table 和阈值 oldThr 都为零，则说明是通过无参数构造方法创建的 HashMap，此时将默认初始容量 `DEFAULT_INITIAL_CAPACITY（16）`和默认负载因子 `DEFAULT_LOAD_FACTOR（0.75）`计算出新数组长度 newCap 和新阈值 newThr。
 
 5、计算新阈值 threshold，并将其赋值给成员变量 threshold。
 
@@ -755,17 +695,128 @@ final Node<K,V>[] resize() {
 
 8、返回新数组 newTab。
 
+在 JDK 7 中，定位元素位置的代码是这样的：
+
+```java
+static int indexFor(int h, int length) {
+    // assert Integer.bitCount(length) == 1 : "length must be a non-zero power of 2";
+    return h & (length-1);
+}
+```
+
+其实就相当于用键的哈希值和数组大小取模，也就是 `hashCode % table.length`。
+
+那我们来假设：
+
+- 数组 table 的长度为 2
+- 键的哈希值为 3、7、5
+
+取模运算后，键发生了哈希冲突，都到 `table[1]` 上了。那么扩容前就是这个样子。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
+
+数组的容量为 2，key 为 3、7、5 的元素在 `table[1]` 上，需要通过拉链法来解决哈希冲突。
+
+假设负载因子 loadFactor 为 1，也就是当元素的个数大于 table 的长度时进行扩容。
+
+扩容后的数组容量为 4。
+
+- key 3 取模（3%4）后是 3，放在 `table[3]` 上。
+- key 7 取模（7%4）后是 3，放在 `table[3]` 上的链表头部。
+- key 5 取模（5%4）后是 1，放在 `table[1]` 上。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
+
+7 跑到 3 的前面了，因为 JDK 7 使用的是头插法。
+
+```java
+e.next = newTable[i];
+```
+
+同时，扩容后的 5 跑到了下标为 1 的位置。
+
+最好的情况就是，扩容后的 7 在 3 的后面，5 在 7 的后面，保持原来的顺序。
+
+JDK 8 完全扭转了这个局面，因为 JDK 8 的哈希算法进行了优化，当数组长度为 2 的幂次方时，能够很巧妙地解决 JDK 7 中遇到的问题。
+
+JDK 8 的扩容代码如下所示：
+
+```java
+Node<K,V>[] newTab = new Node[newCapacity];
+for (int j = 0; j < oldTab.length; j++) {
+    Node<K,V> e = oldTab[j];
+    if (e != null) {
+        int hash = e.hash;
+        int newIndex = hash & (newCapacity - 1); // 计算在新数组中的位置
+        // 将节点移动到新数组的对应位置
+        newTab[newIndex] = e;
+    }
+}
+```
+
+新索引的计算方式是 `hash & (newCapacity - 1)`，和 JDK 7 的 `h & (length-1)`没什么大的差别，差别主要在 hash 方法上，JDK 8 是这样：
+
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+过将键的`hashCode()`返回的 32 位哈希值与这个哈希值无符号右移 16 位的结果进行异或。
+
+JDK 7 是这样：
+
+```java
+final int hash(Object k) {
+    int h = hashSeed;
+    if (0 != h && k instanceof String) {
+        return sun.misc.Hashing.stringHash32((String) k);
+    }
+
+    h ^= k.hashCode();
+
+    // This function ensures that hashCodes that differ only by
+    // constant multiples at each bit position have a bounded
+    // number of collisions (approximately 8 at default load factor).
+    h ^= (h >>> 20) ^ (h >>> 12);
+    return h ^ (h >>> 7) ^ (h >>> 4);
+}
+```
+
+我们用 JDK 8 的哈希算法来计算一下哈希值，就会发现别有洞天。
+
+假设扩容前的数组长度为 16（n-1 也就是二进制的 0000 1111，1X$2^0$+1X$2^1$+1X$2^2$+1X$2^3$=1+2+4+8=15），key1 为 5（二进制为 0000 0101），key2 为 21（二进制为 0001 0101）。
+
+- key1 和 n-1 做 & 运算后为 0000 0101，也就是 5；
+- key2 和 n-1 做 & 运算后为 0000 0101，也就是 5。
+- 此时哈希冲突了，用拉链法来解决哈希冲突。
+
+现在，HashMap 进行了扩容，容量为原来的 2 倍，也就是 32（n-1 也就是二进制的 0001 1111，1X$2^0$+1X$2^1$+1X$2^2$+1X$2^3$+1X$2^4$=1+2+4+8+16=31）。
+
+- key1 和 n-1 做 & 运算后为 0000 0101，也就是 5；
+- key2 和 n-1 做 & 运算后为 0001 0101，也就是 21=5+16，也就是数组扩容前的位置+原数组的长度。
+
+神奇吧？
+
+![三分恶面渣逆袭：扩容位置变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-26.png)
+
+
+也就是说，在 JDK 8 的新 hash 算法下，数组扩容后的索引位置，要么就是原来的索引位置，要么就是“原索引+原来的容量”，遵循一定的规律。
+
+![三分恶面渣逆袭：扩容节点迁移示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
+
+当然了，这个功劳既属于新的哈希算法，也离不开 n 为 2 的整数次幂这个前提，这是它俩通力合作后的结果 `hash & (newCapacity - 1)`。
+
 #### 小结
 
-HashMap 的内部实现是通过一个数组和链表或红黑树的组合来实现的。当我们往 HashMap 中不断添加元素时，HashMap 会自动进行扩容操作（条件是元素数量达到负载因子（load factor）乘以数组长度时），以保证其存储的元素数量不会超出其容量限制。下面是 HashMap 的扩容机制：
+当我们往 HashMap 中不断添加元素时，HashMap 会自动进行扩容操作（条件是元素数量达到负载因子（load factor）乘以数组长度时），以保证其存储的元素数量不会超出其容量限制。
 
-1、在进行扩容操作时，HashMap 会先将数组的长度扩大一倍，然后将原来的元素重新散列（这个词还是挺贴切的）到新的数组中。由于元素的散列位置是通过 key 的 hashcode 和数组长度取模得到的，因此在数组长度扩大后，元素的散列位置也会发生一些改变。
+在进行扩容操作时，HashMap 会先将数组的长度扩大一倍，然后将原来的元素重新散列到新的数组中。
 
-2、在重新散列元素时，如果一个元素的散列位置发生了改变，那么它需要被移动到新的位置。如果新的位置上已经有元素了，那么这个元素就会被添加到链表的末尾，如果链表的长度超过了阈值（8个），那么它将会被转换成红黑树。
+由于元素的位置是通过 key 的 hash 和数组长度进行与运算得到的，因此在数组长度扩大后，元素的位置也会发生一些改变。一部分索引不变，另一部分索引为“原索引+旧容量”。
 
-总之，HashMap 的扩容机制是通过增加数组长度和重新散列元素来实现的，它可以保证 HashMap 的存储容量足够大，同时也可以保证 HashMap 的存储效率和检索效率。但是，由于扩容操作需要耗费一定的时间和空间，因此我们需要在使用 HashMap 时，合理地设置初始容量和负载因子，以避免过多的扩容操作。
-
-### 03、加载因子为什么是0.75
+### 03、加载因子为什么是 0.75
 
 上一个问题提到了加载因子（或者叫负载因子），那么这个问题我们来讨论为什么加载因子是 0.75 而不是 0.6、0.8。
 
@@ -793,7 +844,7 @@ i = (n - 1) & hash
 
 加载因子是用来表示 HashMap 中数据的填满程度：
 
->加载因子 = 填入哈希表中的数据个数 / 哈希表的长度
+> 加载因子 = 填入哈希表中的数据个数 / 哈希表的长度
 
 这就意味着：
 
@@ -810,7 +861,7 @@ i = (n - 1) & hash
 
 这个临界值由什么来确定呢？
 
->临界值 = 初始容量 * 加载因子
+> 临界值 = 初始容量 \* 加载因子
 
 一开始，HashMap 的容量是 16：
 
@@ -824,25 +875,25 @@ static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 static final float DEFAULT_LOAD_FACTOR = 0.75f;
 ```
 
-也就是说，当 16*0.75=12 时，会触发扩容机制。
+也就是说，当 16\*0.75=12 时，会触发扩容机制。
 
-**为什么加载因子会选择 0.75 呢？为什么不是0.8、0.6呢**？
+**为什么加载因子会选择 0.75 呢？为什么不是 0.8、0.6 呢**？
 
 这跟统计学里的一个很重要的原理——泊松分布有关。
 
 是时候上维基百科了：
 
->泊松分布，是一种统计与概率学里常见到的离散概率分布，由法国数学家西莫恩·德尼·泊松在1838年时提出。它会对随机事件的发生次数进行建模，适用于涉及计算在给定的时间段、距离、面积等范围内发生随机事件的次数的应用情形。
+> 泊松分布，是一种统计与概率学里常见到的离散概率分布，由法国数学家西莫恩·德尼·泊松在 1838 年时提出。它会对随机事件的发生次数进行建模，适用于涉及计算在给定的时间段、距离、面积等范围内发生随机事件的次数的应用情形。
 
 阮一峰老师曾在一篇博文中详细的介绍了泊松分布和指数分布，大家可以去看一下。
 
->链接：[https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html](https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html)
+> 链接：[https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html](https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html)
 
 具体是用这么一个公式来表示的。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-01.png)
 
-等号的左边，P 表示概率，N表示某种函数关系，t 表示时间，n 表示数量。
+等号的左边，P 表示概率，N 表示某种函数关系，t 表示时间，n 表示数量。
 
 在 HashMap 的 doc 文档里，曾有这么一段描述：
 
@@ -876,7 +927,7 @@ more: less than 1 in ten million
 
 Java 8 之前，HashMap 使用链表来解决冲突，即当两个或者多个键映射到同一个桶时，它们被放在同一个桶的链表上。当链表上的节点（Node）过多时，链表会变得很长，查找的效率（[LinkedList](https://javabebetter.cn/collection/linkedlist.html) 的查找效率为 O（n））就会受到影响。
 
-Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为红黑树（节点为TreeNode），红黑树（在讲[TreeMap](https://javabebetter.cn/collection/treemap.html)时会细说）是一种高效的平衡树结构，能够在 O(log n) 的时间内完成插入、删除和查找等操作。这种结构在节点数很多时，可以提高 HashMap 的性能和可伸缩性。
+Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为红黑树（节点为 TreeNode），红黑树（在讲[TreeMap](https://javabebetter.cn/collection/treemap.html)时会细说）是一种高效的平衡树结构，能够在 O(log n) 的时间内完成插入、删除和查找等操作。这种结构在节点数很多时，可以提高 HashMap 的性能和可伸缩性。
 
 好，有了这个背景，我们来把上面的 doc 文档翻译为中文：
 
@@ -903,35 +954,35 @@ Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为
 更多：小于一千万分之一
 ```
 
-虽然这段话的本意更多的是表示 jdk 8中为什么拉链长度超过8的时候进行了红黑树转换，但提到了 0.75 这个加载因子，但没提到底为什么。
+虽然这段话的本意更多的是表示 jdk 8 中为什么拉链长度超过 8 的时候进行了红黑树转换，但提到了 0.75 这个加载因子，但没提到底为什么。
 
 为了搞清楚到底为什么，我看到了这篇文章：
 
->参考链接：[https://segmentfault.com/a/1190000023308658](https://segmentfault.com/a/1190000023308658)
+> 参考链接：[https://segmentfault.com/a/1190000023308658](https://segmentfault.com/a/1190000023308658)
 
 里面提到了一个概念：**二项分布（Binomial Distribution）**。
 
-在做一件事情的时候，其结果的概率只有2种情况，和抛硬币一样，不是正面就是反面。
+在做一件事情的时候，其结果的概率只有 2 种情况，和抛硬币一样，不是正面就是反面。
 
 假如，我们做了 N 次实验，那么在每次试验中只有两种可能的结果，并且每次实验是独立的，不同实验之间互不影响，每次实验成功的概率都是一样的。
 
 以此理论为基础：我们往哈希表中扔数据，如果发生哈希冲突就为失败，否则为成功。
 
-我们可以设想，实验的hash值是随机的，并且经过hash运算的键都会映射到hash表的地址空间上，那么这个结果也是随机的。所以，每次put的时候就相当于我们在扔一个16面（HashMap 第一次扩容后的数组默认长度为16）的骰子，扔骰子实验那肯定是相互独立的。碰撞发生即扔了n次有出现重复数字。
+我们可以设想，实验的 hash 值是随机的，并且经过 hash 运算的键都会映射到 hash 表的地址空间上，那么这个结果也是随机的。所以，每次 put 的时候就相当于我们在扔一个 16 面（HashMap 第一次扩容后的数组默认长度为 16）的骰子，扔骰子实验那肯定是相互独立的。碰撞发生即扔了 n 次有出现重复数字。
 
 然后，我们的目的是啥呢？
 
-就是掷了k次骰子，没有一次是相同的概率，需要尽可能的大些，一般意义上我们肯定要大于0.5（这个数是个理想数）。
+就是掷了 k 次骰子，没有一次是相同的概率，需要尽可能的大些，一般意义上我们肯定要大于 0.5（这个数是个理想数）。
 
-于是，n次事件里面，碰撞为0的概率，由上面公式得：
+于是，n 次事件里面，碰撞为 0 的概率，由上面公式得：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-02.png)
 
-这个概率值需要大于0.5，我们认为这样的hashmap可以提供很低的碰撞率。所以：
+这个概率值需要大于 0.5，我们认为这样的 hashmap 可以提供很低的碰撞率。所以：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-03png)
 
-这时候，我们对于该公式其实最想求的时候长度s的时候，n为多少次就应该进行扩容了？而负载因子则是$n/s$的值。所以推导如下：
+这时候，我们对于该公式其实最想求的时候长度 s 的时候，n 为多少次就应该进行扩容了？而负载因子则是$n/s$的值。所以推导如下：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-04.png)
 
@@ -955,15 +1006,14 @@ Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-09.png)
 
-
-考虑到 HashMap的容量有一个要求：它必须是2的n 次幂。当加载因子选择了0.75就可以保证它与容量的乘积为整数。
+考虑到 HashMap 的容量有一个要求：它必须是 2 的 n 次幂。当加载因子选择了 0.75 就可以保证它与容量的乘积为整数。
 
 ```
 16*0.75=12
 32*0.75=24
 ```
 
-除了 0.75，0.5~1 之间还有 0.625（5/8）、0.875（7/8）可选，从中位数的角度，挑 0.75 比较完美。另外，维基百科上说，拉链法（解决哈希冲突的一种）的加载因子最好限制在 0.7-0.8以下，超过0.8，查表时的CPU缓存不命中（cache missing）会按照指数曲线上升。
+除了 0.75，0.5~1 之间还有 0.625（5/8）、0.875（7/8）可选，从中位数的角度，挑 0.75 比较完美。另外，维基百科上说，拉链法（解决哈希冲突的一种）的加载因子最好限制在 0.7-0.8 以下，超过 0.8，查表时的 CPU 缓存不命中（cache missing）会按照指数曲线上升。
 
 综上，0.75 是个比较完美的选择。
 
@@ -1065,15 +1115,13 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-03.png)
 
-
 线程 B 开始执行，并且完成了数据转移。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-04.png)
 
-
 此时，7 的 next 为 3，3 的 next 为 null。
 
-随后线程A获得CPU时间片继续执行 `newTable[i] = e`，将3放入新数组对应的位置，执行完此轮循环后线程A的情况如下：
+随后线程 A 获得 CPU 时间片继续执行 `newTable[i] = e`，将 3 放入新数组对应的位置，执行完此轮循环后线程 A 的情况如下：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-05.png)
 
@@ -1114,7 +1162,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
     if ((tab = table) == null || (n = tab.length) == 0)
         n = (tab = resize()).length;
 
-    // 步骤②：计算index，并对null做处理 
+    // 步骤②：计算index，并对null做处理
     if ((p = tab[i = (n - 1) & hash]) == null)
         tab[i] = newNode(hash, key, value, null);
     else {
@@ -1187,7 +1235,7 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 
 #### 3）put 和 get 并发时会导致 get 到 null
 
-线程 A 执行put时，因为元素个数超出阈值而出现扩容，线程B 此时执行get，有可能导致这个问题。
+线程 A 执行 put 时，因为元素个数超出阈值而出现扩容，线程 B 此时执行 get，有可能导致这个问题。
 
 注意来看 resize 源码：
 
@@ -1244,27 +1292,26 @@ HashMap 是线程不安全的主要是因为它在进行插入、删除和扩容
 
 ### 05、小结
 
-HashMap是Java中最常用的集合之一，它是一种键值对存储的数据结构，可以根据键来快速访问对应的值。以下是对HashMap的总结：
+HashMap 是 Java 中最常用的集合之一，它是一种键值对存储的数据结构，可以根据键来快速访问对应的值。以下是对 HashMap 的总结：
 
-- HashMap采用数组+链表/红黑树的存储结构，能够在O(1)的时间复杂度内实现元素的添加、删除、查找等操作。
-- HashMap是线程不安全的，因此在多线程环境下需要使用[ConcurrentHashMap](https://javabebetter.cn/thread/ConcurrentHashMap.html)来保证线程安全。
-- HashMap的扩容机制是通过扩大数组容量和重新计算hash值来实现的，扩容时需要重新计算所有元素的hash值，因此在元素较多时扩容会影响性能。
-- 在Java 8中，HashMap的实现引入了拉链法、树化等机制来优化大量元素存储的情况，进一步提升了性能。
-- HashMap中的key是唯一的，如果要存储重复的key，则后面的值会覆盖前面的值。
-- HashMap的初始容量和加载因子都可以设置，初始容量表示数组的初始大小，加载因子表示数组的填充因子。一般情况下，初始容量为16，加载因子为0.75。
-- HashMap在遍历时是无序的，因此如果需要有序遍历，可以使用[TreeMap](https://javabebetter.cn/collection/treemap.html)。
+- HashMap 采用数组+链表/红黑树的存储结构，能够在 O(1)的时间复杂度内实现元素的添加、删除、查找等操作。
+- HashMap 是线程不安全的，因此在多线程环境下需要使用[ConcurrentHashMap](https://javabebetter.cn/thread/ConcurrentHashMap.html)来保证线程安全。
+- HashMap 的扩容机制是通过扩大数组容量和重新计算 hash 值来实现的，扩容时需要重新计算所有元素的 hash 值，因此在元素较多时扩容会影响性能。
+- 在 Java 8 中，HashMap 的实现引入了拉链法、树化等机制来优化大量元素存储的情况，进一步提升了性能。
+- HashMap 中的 key 是唯一的，如果要存储重复的 key，则后面的值会覆盖前面的值。
+- HashMap 的初始容量和加载因子都可以设置，初始容量表示数组的初始大小，加载因子表示数组的填充因子。一般情况下，初始容量为 16，加载因子为 0.75。
+- HashMap 在遍历时是无序的，因此如果需要有序遍历，可以使用[TreeMap](https://javabebetter.cn/collection/treemap.html)。
 
-综上所述，HashMap是一种高效的数据结构，具有快速查找和插入元素的能力，但需要注意线程安全和性能问题。
+综上所述，HashMap 是一种高效的数据结构，具有快速查找和插入元素的能力，但需要注意线程安全和性能问题。
 
 那如果大家已经掌握了 HashMap，那可以刷一下 LeetCode 的第 001 题、013 题，会用到 HashMap、数组和 for 循环，我把题解链接放在了技术派上：
 
 > - [二哥的 LeetCode 刷题笔记：001.两数之和](https://paicoding.com/column/7/1)
 > - [二哥的 LeetCode 刷题笔记：013.罗马数字转整数](https://paicoding.com/column/7/13)
 
-----
+---
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://javabebetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 7600+ 的 Java 教程](https://javabebetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
