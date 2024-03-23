@@ -36,7 +36,6 @@ head:
 - Redis：数据存储在内存中的 NoSQL 数据库，读写性能非常好，是互联网技术领域中使用最广泛的缓存中间件。
 - MySQL：数据存储在硬盘中的关系型数据库，适用于需要事务支持和复杂查询的场景。
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
 
@@ -134,7 +133,7 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 - 用户点赞统计
 - 用户排序
 
-比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就使用  Zset 来实现了用户月度活跃排行榜。
+比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就使用 Zset 来实现了用户月度活跃排行榜。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
 
@@ -155,6 +154,7 @@ Redis 的速度⾮常快，单机的 Redis 就可以⽀撑每秒十几万的并�
 ④、**高效的数据结构**，Redis 提供了多种高效的数据结构，如字符串（String）、列表（List）、集合（Set）、有序集合（Sorted Set）等，这些数据结构经过了高度优化，能够支持快速的数据操作。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：Redis 为什么读写性能高？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 
 ### 5.能说一下 I/O 多路复用吗？
 
@@ -208,43 +208,77 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 8.Redis 持久化⽅式有哪些？有什么区别？
 
-Redis 持久化⽅案分为 RDB 和 AOF 两种。
-![Redis持久化两种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-3bda4a46-adc3-4f0d-a135-b8ae5d4c0d5d.png)
+Redis 支持两种主要的持久化方式：RDB（Redis DataBase）持久化和 AOF（Append Only File）持久化。这两种方式可以单独使用，也可以同时使用。
 
-**RDB**
+![三分恶面渣逆袭：Redis持久化的两种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-3bda4a46-adc3-4f0d-a135-b8ae5d4c0d5d.png)
 
-RDB 持久化是把当前进程数据生成**快照**保存到硬盘的过程，触发 RDB 持久化过程分为手动触发和自动触发。
+#### RDB
 
-RDB ⽂件是⼀个压缩的⼆进制⽂件，通过它可以还原某个时刻数据库的状态。由于 RDB ⽂件是保存在硬盘上的，所以即使 Redis 崩溃或者退出，只要 RDB ⽂件存在，就可以⽤它来恢复还原数据库的状态。
+RDB 持久化通过创建数据集的快照（snapshot）来工作，在指定的时间间隔内将 Redis 在某一时刻的数据状态保存到磁盘的一个 RDB 文件中。
 
-手动触发分别对应 save 和 bgsave 命令:
-![save和bgsave](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-ffe56e32-34c5-453d-8859-c2febbe6a038.png)
+可通过 save 和 bgsave 命令两个命令来手动触发 RDB 持久化操作：
 
-- save 命令：阻塞当前 Redis 服务器，直到 RDB 过程完成为止，对于内存比较大的实例会造成长时间阻塞，线上环境不建议使用。
+![三分恶面渣逆袭：save和bgsave](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-ffe56e32-34c5-453d-8859-c2febbe6a038.png)
 
-- bgsave 命令：Redis 进程执行 fork 操作创建子进程，RDB 持久化过程由子进程负责，完成后自动结束。阻塞只发生在 fork 阶段，一般时间很短。
+**①、save 命令**：会同步地将 Redis 的所有数据保存到磁盘上的一个 RDB 文件中。这个操作会阻塞所有客户端请求直到 RDB 文件被完全写入磁盘。
+
+当 Redis 数据集较大时，使用 SAVE 命令会导致 Redis 服务器停止响应客户端的请求。
+
+不推荐在生产环境中使用，除非数据集非常小，或者可以接受服务暂时的不可用状态。
+
+**②、bgsave 命令**：会在后台异步地创建 Redis 的数据快照，并将快照保存到磁盘上的 RDB 文件中。这个命令会立即返回，Redis 服务器可以继续处理客户端请求。
+
+在 BGSAVE 命令执行期间，Redis 会继续响应客户端的请求，对服务的可用性影响较小。快照的创建过程是由一个子进程完成的，主进程不会被阻塞。是在生产环境中执行 RDB 持久化的推荐方式。
 
 以下场景会自动触发 RDB 持久化：
 
-- 使用 save 相关配置，如“save m n”。表示 m 秒内数据集存在 n 次修改时，自动触发 bgsave。
-- 如果从节点执行全量复制操作，主节点自动执行 bgsave 生成 RDB 文件并发送给从节点
-- 执行 debug reload 命令重新加载 Redis 时，也会自动触发 save 操作
-- 默认情况下执行 shutdown 命令时，如果没有开启 AOF 持久化功能则自动执行 bgsave。
+①、在 Redis 配置文件（通常是 redis.conf）中，可以通过`save <seconds> <changes>`指令配置自动触发 RDB 持久化的条件。这个指令可以设置多次，每个设置定义了一个时间间隔（秒）和该时间内发生的变更次数阈值。
 
-**AOF**
+```
+save 900 1
+save 300 10
+save 60 10000
+```
 
-AOF（append only file）持久化：以独立日志的方式记录每次写命令， 重启时再重新执行 AOF 文件中的命令达到恢复数据的目的。AOF 的主要作用是解决了数据持久化的实时性，目前已经是 Redis 持久化的主流方式。
+这意味着：
+
+- 如果至少有 1 个键被修改，900 秒后自动触发一次 RDB 持久化。
+- 如果至少有 10 个键被修改，300 秒后自动触发一次 RDB 持久化。
+- 如果至少有 10000 个键被修改，60 秒后自动触发一次 RDB 持久化。
+
+满足以上任一条件，RDB 持久化就会被自动触发。
+
+②、当 Redis 服务器通过 SHUTDOWN 命令正常关闭时，如果没有禁用 RDB 持久化，Redis 会自动执行一次 RDB 持久化，以确保数据在下次启动时能够恢复。
+
+③、在 Redis 复制场景中，当一个 Redis 实例被配置为从节点并且与主节点建立连接时，它可能会根据配置接收主节点的 RDB 文件来初始化数据集。这个过程中，主节点会在后台自动触发 RDB 持久化，然后将生成的 RDB 文件发送给从节点。
+
+#### AOF
+
+AOF 持久化通过记录每个写操作命令并将其追加到 AOF 文件中来工作，恢复时通过重新执行这些命令来重建数据集。
+
+AOF 的主要作用是解决了数据持久化的实时性，目前已经是 Redis 持久化的主流方式。
 
 AOF 的工作流程操作：命令写入 （append）、文件同步（sync）、文件重写（rewrite）、重启加载 （load）
-![AOF工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a9fb6202-b1a1-484d-a4fa-fef519090b44.png)流程如下：
 
-1）所有的写入命令会追加到 aof_buf（缓冲区）中。
+![三分恶面渣逆袭：AOF工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a9fb6202-b1a1-484d-a4fa-fef519090b44.png)流程如下：
 
-2）AOF 缓冲区根据对应的策略向硬盘做同步操作。
+1）当 AOF 持久化功能被启用时，Redis 服务器会将接收到的所有写命令（比如 SET, LPUSH, SADD 等修改数据的命令）追加到 AOF 缓冲区（buffer）的末尾。
 
-3）随着 AOF 文件越来越大，需要定期对 AOF 文件进行重写，达到压缩 的目的。
+2）为了将缓冲区中的命令持久化到磁盘中的 AOF 文件，Redis 提供了几种不同的同步策略：
 
-4）当 Redis 服务器重启时，可以加载 AOF 文件进行数据恢复。
+- always：每次写命令都会同步到 AOF 文件，这提供了最高的数据安全性，但可能因为磁盘 I/O 的延迟而影响性能。
+- everysec（默认）：每秒同步一次，这是一种折衷方案，提供了较好的性能和数据安全性。
+- no：不主动进行同步，交由操作系统决定何时将缓冲区数据写入磁盘，这种方式性能最好，但在系统崩溃时可能会丢失最近一秒的数据。
+
+3）随着操作的不断执行，AOF 文件会不断增长，为了减小 AOF 文件大小，Redis 可以重写 AOF 文件：
+
+- 重写过程不会解析原始的 AOF 文件，而是将当前内存中的数据库状态转换为一系列写命令，然后保存到一个新的 AOF 文件中。
+- AOF 重写操作由 BGREWRITEAOF 命令触发，它会创建一个子进程来执行重写操作，因此不会阻塞主进程。
+- 重写过程中，新的写命令会继续追加到旧的 AOF 文件中，同时也会被记录到一个缓冲区中。一旦重写完成，Redis 会将这个缓冲区中的命令追加到新的 AOF 文件中，然后切换到新的 AOF 文件上，以确保数据的完整性。
+
+4）当 Redis 服务器启动时，如果配置为使用 AOF 持久化方式，它会读取 AOF 文件中的所有命令并重新执行它们，以恢复数据库的状态。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 
 ### 9.RDB 和 AOF 各自有什么优缺点？
 
@@ -947,15 +981,18 @@ Redis 主要有 2 种过期数据回收策略：
 
 ### 36.Redis 有哪些内存溢出控制/内存淘汰策略？
 
-Redis 所用内存达到 maxmemory 上限时会触发相应的溢出控制策略，Redis 支持六种策略：
+当 Redis 所用内存达到 maxmemory 上限时，会触发相应的溢出控制策略。
+
 ![Redis六种内存溢出控制策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-5be7405c-ee11-4d2b-bea4-9598f10a1b17.png)
 
-1. noeviction：默认策略，不会删除任何数据，拒绝所有写入操作并返 回客户端错误信息，此 时 Redis 只响应读操作。
-2. volatile-lru：根据 LRU 算法删除设置了超时属性（expire）的键，直 到腾出足够空间为止。如果没有可删除的键对象，回退到 noeviction 策略。
-3. allkeys-lru：根据 LRU 算法删除键，不管数据有没有设置超时属性， 直到腾出足够空间为止。
-4. allkeys-random：随机删除所有键，直到腾出足够空间为止。
-5. volatile-random：随机删除过期键，直到腾出足够空间为止。
-6. volatile-ttl：根据键值对象的 ttl 属性，删除最近将要过期数据。如果 没有，回退到 noeviction 策略。
+1. noeviction：默认策略，不进行任何淘汰，当内存不足以容纳更多数据时，对写操作返回错误。（但仍然允许删除操作）
+2. volatile-lru：仅从设置了过期时间的键中使用 LRU 算法淘汰。
+3. allkeys-lru：从所有的键中使用 LRU（Least Recently Used，最近最少使用）算法淘汰数据。
+4. allkeys-random：从所有的键中随机淘汰数据。
+5. volatile-random：仅从设置了过期时间的键中随机淘汰。
+6. volatile-ttl：从设置了过期时间的键中选择 TTL（Time To Live，存活时间）最短的键淘汰。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 
 ### 37.Redis 阻塞？怎么解决？
 
@@ -1278,10 +1315,9 @@ Redis 的底层数据结构有**动态字符串(sds)**、**链表(list)**、**�
 
 ![三分恶面渣逆袭：类型-编码-结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7cf91aa9-8db5-4abe-803e-a9e8f3bcb9e4.png)
 
-
 #### 字符串
 
-Redis 是通过 C语言实现的，但 Redis 并没有直接使用 C语言的字符串，而是自己实现了一种叫做动态字符串 SDS 的类型。
+Redis 是通过 C 语言实现的，但 Redis 并没有直接使用 C 语言的字符串，而是自己实现了一种叫做动态字符串 SDS 的类型。
 
 ```c
 struct sdshdr {
@@ -1342,9 +1378,8 @@ typedef struct zskiplistNode {
     } level[];
 } zskiplistNode;
 ```
-   
-![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
 
+![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
 
 #### 整数集合 intset
 
@@ -1357,7 +1392,6 @@ typedef struct zskiplistNode {
 压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
 
 ![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
-
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 
