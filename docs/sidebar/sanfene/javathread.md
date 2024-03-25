@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，63道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，65道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 63 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 65 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 63 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 65 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -537,6 +537,7 @@ String value = localVariable.get();
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
 
 ### 11.你在工作中用到过 ThreadLocal 吗？
 
@@ -564,32 +565,11 @@ String value = localVariable.get();
 
 ### 12.ThreadLocal 怎么实现的呢？
 
-我们看一下 ThreadLocal 的 `set(T)`方法，发现先获取到当前线程，再获取`ThreadLocalMap`，然后把元素存到这个 map 中。
+ThreadLocal 的实现依赖于 ThreadLocalMap，这是一个定制化的哈希映射，用于存储每个线程的私有数据。
 
-```java
-    public void set(T value) {
-        //获取当前线程
-        Thread t = Thread.currentThread();
-        //获取ThreadLocalMap
-        ThreadLocalMap map = getMap(t);
-        //讲当前元素存入map
-        if (map != null)
-            map.set(this, value);
-        else
-            createMap(t, value);
-    }
-```
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240325110954.png)
 
-ThreadLocal 实现的秘密都在这个`ThreadLocalMap`了，可以 Thread 类中定义了一个类型为`ThreadLocal.ThreadLocalMap`的成员变量`threadLocals`。
-
-```java
-public class Thread implements Runnable {
-   //ThreadLocal.ThreadLocalMap是Thread的属性
-   ThreadLocal.ThreadLocalMap threadLocals = null;
-}
-```
-
-ThreadLocalMap 既然被称为 Map，那么毫无疑问它是`<key,value>`型的数据结构。我们都知道 map 的本质是一个个`<key,value>`形式的节点组成的数组，那 ThreadLocalMap 的节点是什么样的呢？
+ThreadLocalMap 是 ThreadLocal 的一个静态内部类，其核心是一个 Entry 数组，Entry 是 ThreadLocalMap 的一个静态内部类。
 
 ```java
 static class Entry extends WeakReference<ThreadLocal<?>> {
@@ -606,7 +586,9 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 }
 ```
 
-这里的节点，key 可以简单低视作 ThreadLocal，value 为代码中放入的值，当然实际上 key 并不是 ThreadLocal 本身，而是它的一个**弱引用**，可以看到 Entry 的 key 继承了 WeakReference（弱引用），再来看一下 key 怎么赋值的：
+每个 Entry 包含一个对 ThreadLocal 对象的弱引用和一个对存储值的强引用。
+
+key 的赋值赋值：
 
 ```java
 public WeakReference(T referent) {
@@ -614,16 +596,70 @@ public WeakReference(T referent) {
 }
 ```
 
-key 的赋值，使用的是 WeakReference 的赋值。
+使用弱引用是为了允许 ThreadLocal 对象在不再有其他强引用时能够被垃圾收集器回收，这种设计是为了减少内存泄漏的风险。
 
-![ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
+![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
 
-所以，怎么回答 ThreadLocal 原理？要答出这几个点：
+ThreadLocal 实现的几个关键点：
 
-- Thread 类有一个类型为 ThreadLocal.ThreadLocalMap 的实例变量 threadLocals，每个线程都有一个属于自己的 ThreadLocalMap。
-- ThreadLocalMap 内部维护着 Entry 数组，每个 Entry 代表一个完整的对象，key 是 ThreadLocal 的弱引用，value 是 ThreadLocal 的泛型值。
-- 每个线程在往 ThreadLocal 里设置值的时候，都是往自己的 ThreadLocalMap 里存，读也是以某个 ThreadLocal 作为引用，在自己的 map 里找对应的 key，从而实现了线程隔离。
-- ThreadLocal 本身不存储值，它只是作为一个 key 来让线程往 ThreadLocalMap 里存取值。
+①、ThreadLocal 本身不存储值，它只是作为一个 key 来让线程往 ThreadLocalMap 里存取值。
+
+②、ThreadLocalMap 是 Thread 的一个成员变量，每个线程都有一个自己的 ThreadLocalMap。
+
+```java
+void createMap(Thread t, T firstValue) {
+    t.threadLocals = new ThreadLocalMap(this, firstValue);
+}
+```
+
+③、ThreadLocalMap 内部维护着一个 Entry 数组，每个 Entry 代表一个完整的对象，key 是 ThreadLocal 的弱引用，value 是线程的局部变量。
+
+```java
+static class ThreadLocalMap {
+    static class Entry extends WeakReference<ThreadLocal<?>> {
+        Object value;
+        Entry(ThreadLocal<?> k, Object v) {
+            super(k);
+            value = v;
+        }
+    }
+}
+```
+
+④、每个线程在往 ThreadLocal 里设置值的时候，都是往自己的 ThreadLocalMap 里存，读也是以某个 ThreadLocal 作为引用，在自己的 map 里找对应的 key，从而实现了线程隔离。
+
+set：
+
+```java
+public void set(T value) {
+    Thread t = Thread.currentThread();
+    ThreadLocalMap map = getMap(t);
+    if (map != null)
+        map.set(this, value);
+    else
+        createMap(t, value);
+}
+```
+
+get：
+
+```java
+public T get() {
+    Thread t = Thread.currentThread();
+    ThreadLocalMap map = getMap(t);
+    if (map != null) {
+        ThreadLocalMap.Entry e = map.getEntry(this);
+        if (e != null) {
+            @SuppressWarnings("unchecked")
+            T result = (T)e.value;
+            return result;
+        }
+    }
+    return setInitialValue();
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
 
 ### 13.ThreadLocal 内存泄露是怎么回事？
 
@@ -1497,7 +1533,7 @@ FairSync、NonfairSync 代表公平锁和非公平锁，两者都是 ReentrantLo
 
 #### 怎么实现一个非公平锁呢？
 
-要实现一个非公平锁，只需要在创建ReentrantLock实例时，不传递任何参数或者传递false给它的构造方法就好了。
+要实现一个非公平锁，只需要在创建 ReentrantLock 实例时，不传递任何参数或者传递 false 给它的构造方法就好了。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：公平锁和非公平锁 lock 怎么现实一个非公平锁
 
@@ -1728,6 +1764,133 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 并发工具类
+
+### 64.能说一下 ConcurrentHashMap 的实现吗？（补充）
+
+>2024年03月25日增补，从集合框架篇移动到这里。
+
+[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 时采用的是分段锁机制，JDK 8 时采用的是 CAS+自旋。
+
+#### 1.7 分段锁
+
+从结构上说，1.7 版本的 ConcurrentHashMap 采用分段锁机制，里面包含一个 Segment 数组，Segment 继承于 ReentrantLock，Segment 则包含 HashEntry 的数组，HashEntry 本身就是一个链表的结构，具有保存 key、value 的能力能指向下一个节点的指针。
+
+实际上就是相当于每个 Segment 都是一个 HashMap，默认的 Segment 长度是 16，也就是支持 16 个线程的并发写，Segment 之间相互不会受到影响。
+
+![三分恶面渣逆袭：ConcurrentHashMap示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-31.png)
+
+**①、put 流程**
+
+整个流程和 HashMap 非常类似，只不过是先定位到具体的 Segment，然后通过 ReentrantLock 去操作而已，后面的流程，就和 HashMap 基本上是一样的。
+
+1. 计算 hash，定位到 segment，segment 如果是空就先初始化
+2. 使用 ReentrantLock 加锁，如果获取锁失败则尝试自旋，自旋超过次数就阻塞获取，保证一定获取锁成功
+3. 遍历 HashEntry，就是和 HashMap 一样，数组中 key 和 hash 一样就直接替换，不存在就再插入链表，链表同样操作
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240325113351.png)
+
+**②、get 流程**
+
+get 也很简单，key 通过 hash 定位到 segment，再遍历链表定位到具体的元素上，需要注意的是 value 是 volatile 的，所以 get 是不需要加锁的。
+
+#### 1.8 CAS+synchronized
+
+jdk1.8 实现线程安全不是在数据结构上下功夫，它的数据结构和 HashMap 是一样的，数组+链表+红黑树。它实现线程安全的关键点在于 put 流程。
+
+**put 流程**
+
+1. 首先计算 hash，遍历 node 数组，如果 node 是空的话，就通过 CAS+自旋的方式初始化
+
+```java
+ tab = initTable();
+```
+
+node 数组初始化：
+
+```java
+private final Node<K,V>[] initTable() {
+    Node<K,V>[] tab; int sc;
+    while ((tab = table) == null || tab.length == 0) {
+        //如果正在初始化或者扩容
+        if ((sc = sizeCtl) < 0)
+            //等待
+            Thread.yield(); // lost initialization race; just spin
+        else if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {   //CAS操作
+            try {
+                if ((tab = table) == null || tab.length == 0) {
+                    int n = (sc > 0) ? sc : DEFAULT_CAPACITY;
+                    @SuppressWarnings("unchecked")
+                    Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
+                    table = tab = nt;
+                    sc = n - (n >>> 2);
+                }
+            } finally {
+                sizeCtl = sc;
+            }
+            break;
+        }
+    }
+    return tab;
+}
+```
+
+2.如果当前数组位置是空则直接通过 CAS 自旋写入数据
+
+```java
+static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
+                                    Node<K,V> c, Node<K,V> v) {
+    return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
+}
+```
+
+3. 如果 hash==MOVED，说明需要扩容，执行扩容
+
+```java
+else if ((fh = f.hash) == MOVED)
+                tab = helpTransfer(tab, f);
+```
+
+```java
+final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
+    Node<K,V>[] nextTab; int sc;
+    if (tab != null && (f instanceof ForwardingNode) &&
+        (nextTab = ((ForwardingNode<K,V>)f).nextTable) != null) {
+        int rs = resizeStamp(tab.length);
+        while (nextTab == nextTable && table == tab &&
+               (sc = sizeCtl) < 0) {
+            if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
+                sc == rs + MAX_RESIZERS || transferIndex <= 0)
+                break;
+            if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) {
+                transfer(tab, nextTab);
+                break;
+            }
+        }
+        return nextTab;
+    }
+    return table;
+}
+```
+
+4. 如果都不满足，就使用 synchronized 写入数据，写入数据同样判断链表、红黑树，链表写入和 HashMap 的方式一样，key hash 一样就覆盖，反之就尾插法，链表长度超过 8 就转换成红黑树
+
+```java
+ synchronized (f){
+     ……
+ }
+```
+
+![ConcurrentHashmap jdk1.8put流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
+
+**get 查询**
+
+get 很简单，和 HashMap 基本相同，通过 key 计算位置，table 该位置 key 相同就返回，如果是红黑树按照红黑树获取，否则就遍历链表获取。
+
+### 65.ConcurrentHashMap 怎么保证可见性？（补充）
+
+>2024年03月25日增补，TODO
+
+如果用 volatile 关键字修饰，这个被修饰的共享字段是什么？
 
 ### 39.CountDownLatch（倒计数器）了解吗？
 
@@ -2609,7 +2772,7 @@ public class CountTask extends RecursiveTask<Integer> {
 
 ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法，在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果比较大，就必须分割成两个子任务，每个子任务在调用 fork 方法时，又会进 compute 方法，看看当前子任务是否需要继续分割成子任务，如果不需要继续分割，则执行当前子任务并返回结果。使用 join 方法会等待子任务执行完并得到其结果。
 
-> 图文详解 63 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+> 图文详解 65 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ---
 
