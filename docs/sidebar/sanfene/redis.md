@@ -1038,6 +1038,8 @@ Redis 主要有 2 种过期数据回收策略：
 4. allkeys-random：从所有的键中随机淘汰数据。
 5. volatile-random：仅从设置了过期时间的键中随机淘汰。
 6. volatile-ttl：从设置了过期时间的键中选择 TTL（Time To Live，存活时间）最短的键淘汰。
+7. allkeys-lfu:对所有的 key 使用 LFU 算法进行删除
+8. volatile-lfu:对所有设置了过期时间的 key 使用 LFU 算法进行删除
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 
