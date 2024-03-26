@@ -18,11 +18,11 @@ CAS（Compare-and-Swap）是一种乐观锁的实现方式，全称为“比较�
 
 在并发编程中，我们都知道`i++`操作是非线程安全的，这是因为 `i++`操作不是原子操作，我们之前在讲[多线程带来了什么问题](https://javabetter.cn/thread/thread-bring-some-problem.html)中有讲到，大家应该还记得吧？
 
-如何保证原子性呢？
+**如何保证原子性呢？**
 
 常见的做法就是加锁。
 
-在 Java 中，我们可以使用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)关键字 和 `CAS`（Compare-and-Swap）来实现加锁效果。
+在 Java 中，我们可以使用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)关键字和 `CAS` 来实现加锁效果。
 
 `synchronized` 是悲观锁，尽管随着 JDK 版本的升级，synchronized 关键字已经“轻量级”了很多（[前面有细讲，戳链接回顾](https://javabetter.cn/thread/synchronized.html)），但依然是悲观锁，线程开始执行第一步就要获取锁，一旦获得锁，其他的线程进入后就会阻塞并等待锁。
 

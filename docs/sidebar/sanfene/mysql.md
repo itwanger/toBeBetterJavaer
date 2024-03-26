@@ -489,19 +489,94 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 19.MySQL 日志文件有哪些？分别介绍下作用？
 
-![MySQL 主要日志](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
+![三分恶面渣逆袭：MySQL的主要日志](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
 
-MySQL 日志文件有很多，包括 ：
+MySQL 的日志文件主要包括：
 
-- **错误日志**（error log）：错误日志文件对 MySQL 的启动、运行、关闭过程进行了记录，能帮助定位 MySQL 问题。
-- **慢查询日志**（slow query log）：慢查询日志是用来记录执行时间超过 long_query_time 这个变量定义的时长的查询语句。通过慢查询日志，可以查找出哪些查询语句的执行效率很低，以便进行优化。
-- **一般查询日志**（general log）：一般查询日志记录了所有对 MySQL 数据库请求的信息，无论请求是否正确执行。
-- **二进制日志**（bin log）：关于二进制日志，它记录了数据库所有执行的 DDL 和 DML 语句（除了数据查询语句 select、show 等），以事件形式记录并保存在二进制文件中。
+①、**错误日志**（Error Log）：记录 MySQL 服务器启动、运行或停止时出现的问题。
 
-还有两个 InnoDB 存储引擎特有的日志文件：
+②、**慢查询日志**（Slow Query Log）：记录执行时间超过 long_query_time 值的所有 SQL 语句。这个时间值是可配置的，默认情况下，慢查询日志功能是关闭的。可以用来识别和优化慢 SQL。
 
-- **重做日志**（redo log）：重做日志至关重要，因为它们记录了对于 InnoDB 存储引擎的事务日志。
-- **回滚日志**（undo log）：回滚日志同样也是 InnoDB 引擎提供的日志，顾名思义，回滚日志的作用就是对数据进行回滚。当事务对数据库进行修改，InnoDB 引擎不仅会记录 redo log，还会生成对应的 undo log 日志；如果事务执行失败或调用了 rollback，导致事务需要回滚，就可以利用 undo log 中的信息将数据回滚到修改之前的样子。
+③、**一般查询日志**（General Query Log）：记录所有 MySQL 服务器的连接信息及所有的 SQL 语句，不论这些语句是否修改了数据。
+
+④、**二进制日志**（Binary Log）：记录了所有修改数据库状态的 SQL 语句，以及每个语句的执行时间，如 INSERT、UPDATE、DELETE 等，但不包括 SELECT 和 SHOW 这类的操作。
+
+以及两个 InnoDB 存储引擎特有的日志文件：
+
+⑤、**重做日志**（Redo Log）：记录了对于 InnoDB 表的每个写操作，不是 SQL 级别的，而是物理级别的，主要用于崩溃恢复。
+
+⑥、**回滚日志**（Undo Log，或者叫事务日志）：记录数据被修改前的值，用于事务的回滚。
+
+支持事务回滚，可以用来实现 MVCC，即多版本并发控制。
+
+#### 请重点说说 binlog
+
+推荐阅读：[带你了解 MySQL Binlog 不为人知的秘密](https://www.cnblogs.com/rickiyang/p/13841811.html)
+
+binlog 主要用于复制（Replication）和数据恢复（Data Recovery）。
+
+- 支持主从复制，主服务器（master）上的二进制日志可以被从服务器（slave）读取和恢复。
+- 在发生数据丢失或损坏时，binlog 可以用来恢复数据。结合全量备份和 binlog 的增量备份，可以将数据库恢复到特定的时间点（Point-In-Time Recovery）
+
+binlog 包括两类文件：
+
+- 二进制索引文件（.index）
+- 二进制日志文件（.00000\*）
+
+binlog 默认是没有启用的。要启用它，需要在 MySQL 的配置文件（my.cnf 或 my.ini）中设置 log_bin 参数，并指定 binlog 文件的存储位置。
+
+```
+设置此参数表示启用binlog功能，并制定二进制日志的存储目录
+log-bin=/home/mysql/binlog/
+
+#mysql-bin.*日志文件最大字节（单位：字节）
+#设置最大100MB
+max_binlog_size=104857600
+
+#设置了只保留7天BINLOG（单位：天）
+expire_logs_days = 7
+
+#binlog日志只记录指定库的更新
+#binlog-do-db=db_name
+
+#binlog日志不记录指定库的更新
+#binlog-ignore-db=db_name
+
+#写缓冲多少次，刷一次磁盘，默认0
+sync_binlog=0
+```
+
+简单说一下这里面参数的作用：
+
+①、`max_binlog_size=104857600`
+
+这条配置设置了每个 binlog 文件的最大大小为 100MB（104857600 字节）。当 binlog 文件达到这个大小时，MySQL 会关闭当前文件并创建一个新的 binlog 文件。这有助于管理大量的 binlog 文件和限制单个文件的大小。
+
+②、`expire_logs_days = 7`
+
+这条配置设置了 binlog 文件的自动过期时间为 7 天。过期的 binlog 文件将被自动删除。这有助于管理磁盘空间，防止长时间累积的 binlog 文件占用过多存储空间。
+
+③、`binlog-do-db=db_name`
+
+指定哪些数据库表的更新应该记录。
+
+④、`binlog-ignore-db=db_name`
+
+指定忽略哪些数据库表的更新。
+
+⑤、`sync_binlog=0`
+
+这条配置设置了每多少次 binlog 写操作会触发一次磁盘同步操作。默认值 0 表示 MySQL 不会主动触发同步操作，而是依赖操作系统的磁盘缓存策略。
+
+设置为 1 意味着每次 binlog 写操作后都会同步到磁盘，这可以提高数据安全性，但可能会对性能产生影响。
+
+一旦启用，所有的数据修改操作就会被记录到 binlog 文件中。可以通过 `show variables like '%log_bin%';` 查看 binlog 是否开启。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
+
+不过需要注意的是，随着数据库的操作，binlog 文件可能会不断增长，因此需要定期进行清理或归档，以防止占用过多磁盘空间。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：MySQL 中的 bin log 的作用是什么？
 
 ### 20.binlog 和 redo log 有什么区别？
 
