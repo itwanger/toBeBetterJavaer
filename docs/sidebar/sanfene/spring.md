@@ -1626,15 +1626,23 @@ public class AccountService {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Spring 事务怎么实现的
 
-### 24.Spring 的事务隔离级别？
+### 24.说说 Spring 的事务隔离级别？
 
-Spring 的接口 TransactionDefinition 中定义了表示隔离级别的常量，当然其实主要还是对应数据库的事务隔离级别：
+好，事务的隔离级别定义了一个事务可能受其他并发事务影响的程度。SQL标准定义了四个隔离级别，Spring都支持，并且提供了对应的机制来配置它们，定义在 TransactionDefinition 接口中。
 
-1. ISOLATION_DEFAULT：使用后端数据库默认的隔离界别，MySQL 默认可重复读，Oracle 默认读已提交。
-2. ISOLATION_READ_UNCOMMITTED：读未提交
-3. ISOLATION_READ_COMMITTED：读已提交
-4. ISOLATION_REPEATABLE_READ：可重复读
-5. ISOLATION_SERIALIZABLE：串行化
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240326082116.png)
+
+①、ISOLATION_DEFAULT：使用数据库默认的隔离级别（你们爱咋咋滴😁），MySQL 默认的是可重复读，Oracle 默认的读已提交。
+
+②、ISOLATION_READ_UNCOMMITTED：读未提交，允许事务读取未被其他事务提交的更改。这是隔离级别最低的设置，可能会导致“脏读”问题。
+
+③、ISOLATION_READ_COMMITTED：读已提交，确保事务只能读取已经被其他事务提交的更改。这可以防止“脏读”，但仍然可能发生“不可重复读”和“幻读”问题。
+
+④、ISOLATION_REPEATABLE_READ：可重复读，确保事务可以多次从一个字段中读取相同的值，即在这个事务内，其他事务无法更改这个字段，从而避免了“不可重复读”，但仍可能发生“幻读”问题。
+
+⑤、ISOLATION_SERIALIZABLE：串行化，这是最高的隔离级别，它完全隔离了事务，确保事务序列化执行，以此来避免“脏读”、“不可重复读”和“幻读”问题，但性能影响也最大。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Spring中的事务的隔离级别，事务的传播行为？
 
 ### 25.Spring 的事务传播机制？
 
@@ -1663,6 +1671,7 @@ Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `Se
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的传播机制
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：事务传播，protected 和 private 加事务会生效吗,还有那些不生效的情况
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Spring中的事务的隔离级别，事务的传播行为？
 
 ### 26.声明式事务实现原理了解吗？
 

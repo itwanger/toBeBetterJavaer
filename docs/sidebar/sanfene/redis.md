@@ -712,65 +712,112 @@ PS:这是多年黄历的老八股了，一定要理解清楚。
 1. 它在判断元素是否在集合中时是有一定错误几率，因为哈希算法有一定的碰撞的概率。
 2. 不支持删除元素。
 
-### 28.如何保证缓存和数据库数据的⼀致性？
+### 28.如何保证缓存和数据库的数据⼀致性？
 
-根据 CAP 理论，在保证可用性和分区容错性的前提下，无法保证一致性，所以缓存和数据库的绝对一致是不可能实现的，只能尽可能保存缓存和数据库的最终一致性。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我采用的是先写 MySQL，再删除 Redis。
 
-##### 选择合适的缓存更新策略
+![楼仔：技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325221330.png)
 
-**1. 删除缓存而不是更新缓存**
+对于第一次查询，请求 B 查询到的缓存数据是 10，但 MySQL 被请求 A 更新为了 11，此时数据库和缓存不一致。
 
-当一个线程对缓存的 key 进行写操作的时候，如果其它线程进来读数据库的时候，读到的就是脏数据，产生了数据不一致问题。
+但也只存在这一次不一致的情况，对于不是强一致性的业务，可以容忍。
 
-相比较而言，删除缓存的速度比更新缓存的速度快很多，所用时间相对也少很多，读脏数据的概率也小很多。
-![删除缓存和更新缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-ebad0a67-3012-4466-a4dc-e834104c48f8.png)
+当请求 B 第二次查询时，因为请求 A 更新完数据库把缓存删除了，所以请求 B 这次不会命中缓存，会重新查一次 MySQL，然后回写到 Redis。
 
-2.  **先更数据，后删缓存**
-    先更数据库还是先删缓存？这是一个问题。
+缓存和数据库又一致了。
 
-更新数据，耗时可能在删除缓存的百倍以上。在缓存中不存在对应的 key，数据库又没有完成更新的时候，如果有线程进来读取数据，并写入到缓存，那么在更新成功之后，这个 key 就是一个脏数据。
+#### 那我再来说说为什么要删除缓存而不是更新缓存
 
-毫无疑问，先删缓存，再更数据库，缓存中 key 不存在的时间的时间更长，有更大的概率会产生脏数据。
+因为相对而言，删除缓存的速度比更新缓存的速度要快得多。举个例子：假设商品 product_123 的当前库存是 10，现在有一次购买操作，库存减 1，我们需要更新 Redis 中的库存信息。
 
-![先更数据库还是先删缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-5c929a9e-a723-43b3-8f3c-f22c83765f9d.png)目前最流行的缓存读写策略 cache-aside-pattern 就是采用先更数据库，再删缓存的方式。
+```java
+product_id = "product_123"
+# 假设这是购买操作后的新库存值
+new_stock = 9
 
-##### 缓存不一致处理
+# 更新Redis中的库存信息
+redis.set(product_id, new_stock)
+```
 
-如果不是并发特别高，对缓存依赖性很强，其实一定程序的不一致是可以接受的。
+更新操作至少涉及到两个步骤：计算新的库存值和更新 Redis 中的库存值。
 
-但是如果对一致性要求比较高，那就得想办法保证缓存和数据库中数据一致。
+假如是直接删除操作，直接就一步到位了：
 
-缓存和数据库数据不一致常见的两种原因：
+```java
+product_id = "product_123"
 
-- 缓存 key 删除失败
+# 删除Redis中的库存缓存
+redis.del(product_id)
+```
+
+![三分恶面渣逆袭：删除缓存和更新缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-ebad0a67-3012-4466-a4dc-e834104c48f8.png)
+
+假如是更新缓存，那么可能请求 A 更新完 MySQL 后在更新 Redis 中，请求 B 已经读取到 Redis 中的旧值返回了，又一次导致了缓存和数据库不一致。
+
+#### 那我再说说为什么要先更新数据库，再删除缓存
+
+因为更新数据库的速度比删除缓存的速度要慢得多。因为更新 MySQL 是磁盘 IO 操作，而 Redis 是内存操作。内存操作比磁盘 IO 快得多（这是硬件层面的天然差距）。
+
+那假如是先删除缓存，再更新数据库，就会造成这样的情况：
+
+缓存中不存在，数据库又没有完成更新，此时有请求进来读取数据，并写入到缓存，那么在更新完缓存后，缓存中这个 key 就成了一个脏数据。
+
+![三分恶面渣逆袭：先更数据库还是先删缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-5c929a9e-a723-43b3-8f3c-f22c83765f9d.png)
+
+目前最流行的缓存读写策略 Cache Aside Pattern（[旁路缓存模式](https://coolshell.cn/articles/17416.html)）就是采用的先写数据库，再删缓存的方式。
+
+- 失效：应用程序先从缓存读取数据，如果数据不存在，再从数据库中读取数据，成功后，放入缓存。
+- 命中：应用程序从缓存读取数据，如果数据存在，直接返回。
+- 更新：先把数据写入数据库，成功后，再让缓存失效。
+
+![左耳朵耗子：Cache Aside Pattern](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325224814.png)
+
+#### 那假如对一致性要求很高，该怎么办呢？
+
+我们先来分析一下，缓存和数据库数据不一致的原因，常见的有两种：
+
+- 缓存删除失败
 - 并发导致写入了脏数据
 
-![缓存一致性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-51b3453e-e1f1-4c65-9879-2aa59df23eca.png)
+那通常有四种方案可以解决。
 
-**消息队列保证 key 被删除**
-可以引入消息队列，把要删除的 key 或者删除失败的 key 丢尽消息队列，利用消息队列的重试机制，重试删除对应的 key。
+![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325225250.png)
 
-![消息队列保证key被删除](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e4a61193-515a-409f-a436-2733abc3a86e.png)这种方案看起来不错，缺点是对业务代码有一定的侵入性。
+**①、引入消息队列保证缓存被删除**
 
-**数据库订阅+消息队列保证 key 被删除**
-可以用一个服务（比如阿里的 canal）去监听数据库的 binlog，获取需要操作的数据。
+使用消息队列（如Kafka、RabbitMQ）保证数据库更新和缓存更新之间的最终一致性。当数据库更新完成后，将更新事件发送到消息队列。有专门的服务监听这些事件并负责更新或删除缓存。
 
-然后用一个公共的服务获取订阅程序传来的信息，进行缓存删除操作。
+![三分恶面渣逆袭：消息队列保证key被删除](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e4a61193-515a-409f-a436-2733abc3a86e.png)
+
+这种方案很不错，缺点是对业务代码有一定的侵入，毕竟引入了消息队列嘛。
+
+**②、数据库订阅+消息队列保证缓存被删除**
+
+可以专门起一个服务（比如 [Canal](https://github.com/alibaba/canal)，阿里巴巴 MySQL binlog 增量订阅&消费组件）去监听 MySQL 的 binlog，获取需要操作的数据。
+
+![技术派：老闫](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325225809.png)
+
+然后用一个公共的服务获取订阅程序传来的信息，进行缓存删除。
+
 ![数据库订阅+消息队列保证key被删除](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-37c07418-9cd8-43d9-90e7-0cb43b329025.png)
-这种方式降低了对业务的侵入，但其实整个系统的复杂度是提升的，适合基建完善的大厂。
 
-**延时双删防止脏数据**
-还有一种情况，是在缓存不存在的时候，写入了脏数据，这种情况在先删缓存，再更数据库的缓存更新策略下发生的比较多，解决方案是延时双删。
+这种方式虽然降低了对业务的侵入，但增加了整个系统的复杂度，适合基建完善的大厂。
 
-简单说，就是在第一次删除缓存之后，过了一段时间之后，再次删除缓存。
+**③、延时双删防止脏数据**
 
-![延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-fab24753-9c53-4432-9413-5feba07ae1e3.png)
+简单说，就是在第一次删除缓存之后，过一段时间之后，再次删除缓存。
 
-这种方式的延时时间设置需要仔细考量和测试。
+主要针对缓存不存在，但写入了脏数据的情况。在先删缓存，再写数据库的更新策略下发生的比较多。
 
-**设置缓存过期时间兜底**
+![三分恶面渣逆袭：延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-fab24753-9c53-4432-9413-5feba07ae1e3.png)
 
-这是一个朴素但是有用的办法，给缓存设置一个合理的过期时间，即使发生了缓存数据不一致的问题，它也不会永远不一致下去，缓存过期的时候，自然又会恢复一致。
+这种方式的延时时间需要仔细考量和测试。
+
+**④：设置缓存过期时间兜底**
+
+这是一个朴素但有用的兜底策略，给缓存设置一个合理的过期时间，即使发生了缓存和数据库的数据不一致问题，也不会永远不一致下去，缓存过期后，自然就一致了。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：怎样保证数据的最终一致性？
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 

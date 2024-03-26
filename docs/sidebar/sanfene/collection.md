@@ -859,7 +859,7 @@ jdk1.8 的 HashMap 主要有五点优化：
 
 > 推荐阅读：[HashMap 详解](https://javabetter.cn/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)
 
-HashMap 之所以不是线程安全的，主要有以下几个问题：
+HashMap 不是线程安全的，主要有以下几个问题：
 
 ①、多线程下扩容会死循环。JDK1.7 中的 HashMap 使用的是头插法插入元素，在多线程的环境下，扩容的时候就有可能导致出现环形链表，造成死循环。
 
@@ -871,45 +871,16 @@ HashMap 之所以不是线程安全的，主要有以下几个问题：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-10.png)
 
-③、put 和 get 并发时，可能导致 get 为 null。线程 1 执行 put 时，因为元素个数超出阈值而导致出现扩容，线程 2 此时执行 get，就有可能出现这个问题，因为线程 1 执行完 table = newTab 之后，线程 2 中的 table 此时也发生了变化，此时去 get 的时候当然会 get 到 null 了，因为元素还没有转移。
+③、put 和 get 并发时，可能导致 get 为 null。线程 1 执行 put 时，因为元素个数超出阈值而导致出现扩容，线程 2 此时执行 get，就有可能出现这个问题。
 
-```java
-final Node<K,V>[] resize() {
-    Node<K,V>[] oldTab = table;
-    int oldCap = (oldTab == null) ? 0 : oldTab.length;
-    int oldThr = threshold;
-    int newCap, newThr = 0;
-    if (oldCap > 0) {
-        // 超过最大值就不再扩充了，就只好随你碰撞去吧
-        if (oldCap >= MAXIMUM_CAPACITY) {
-            threshold = Integer.MAX_VALUE;
-            return oldTab;
-        }
-        // 没超过最大值，就扩充为原来的2倍
-        else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
-                 oldCap >= DEFAULT_INITIAL_CAPACITY)
-            newThr = oldThr << 1; // double threshold
-    }
-    else if (oldThr > 0) // initial capacity was placed in threshold
-        newCap = oldThr;
-    else {               // zero initial threshold signifies using defaults
-        newCap = DEFAULT_INITIAL_CAPACITY;
-        newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
-    }
-    // 计算新的resize上限
-    if (newThr == 0) {
-        float ft = (float)newCap * loadFactor;
-        newThr = (newCap < MAXIMUM_CAPACITY && ft < (float)MAXIMUM_CAPACITY ?
-                  (int)ft : Integer.MAX_VALUE);
-    }
-    threshold = newThr;
-    @SuppressWarnings({"rawtypes","unchecked"})
-        Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
-    table = newTab;
-}
-```
+![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240326085630.png)
 
-> 1. 华为 OD 原题：HashMap 是线程安全的吗？
+因为线程 1 执行完 table = newTab 之后，线程 2 中的 table 此时也发生了变化，此时去 get 的时候当然会 get 到 null 了，因为元素还没有转移。
+
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 原题：HashMap 是线程安全的吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：HashMap是线程安全的吗？
 
 ### 25.有什么办法能解决 HashMap 线程不安全的问题呢？
 
@@ -927,54 +898,12 @@ Hashtable 也是线程安全的，但它的使用已经不再推荐使用，因�
 
 内部是通过 synchronized 对象锁来保证线程安全的。
 
-③、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 中使用分段锁，在 JKD 8 中使用了 CAS+节点锁，性能得到进一步提升。
+③、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 中使用分段锁，在 JKD 8 中使用了 [CAS（Compare-And-Swap）](https://javabetter.cn/thread/cas.html)+ [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)，性能得到进一步提升。
 
 ![初念初恋：ConcurrentHashMap 8 中的实现](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
 
-#### 为什么 ConcurrentHashMap 比 Hashtable 效率高
-
-Hashtable 在任何时刻只允许一个线程访问整个 Map，通过对整个 Map 加锁来实现线程安全。
-
-而 ConcurrentHashMap（尤其是在 JDK 8 及之后版本）通过锁分离和 CAS 操作实现更细粒度的锁定策略，允许更高的并发。
-
-```java
-static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
-                                    Node<K,V> c, Node<K,V> v) {
-    return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
-}
-```
-
-CAS 操作是一种乐观锁，它不会阻塞线程，而是在更新时检查是否有其他线程已经修改了数据，如果没有就更新，如果有就重试。
-
-ConcurrentHashMap 允许多个读操作并发进行而不加锁，因为它通过 [volatile 变量](https://javabetter.cn/thread/volatile.html)来保证读取操作的内存可见性。相比之下，Hashtable 对读操作也加锁，增加了开销。
-
-```java
-public V get(Object key) {
-    Node<K,V>[] tab; Node<K,V> e, p; int n, eh; K ek;
-	// 1. 重hash
-    int h = spread(key.hashCode());
-    if ((tab = table) != null && (n = tab.length) > 0 &&
-        (e = tabAt(tab, (n - 1) & h)) != null) {
-        // 2. table[i]桶节点的key与查找的key相同，则直接返回
-		if ((eh = e.hash) == h) {
-            if ((ek = e.key) == key || (ek != null && key.equals(ek)))
-                return e.val;
-        }
-		// 3. 当前节点hash小于0说明为树节点，在红黑树中查找即可
-        else if (eh < 0)
-            return (p = e.find(h, key)) != null ? p.val : null;
-        while ((e = e.next) != null) {
-		//4. 从链表中查找，查找到则返回该节点的value，否则就返回null即可
-            if (e.hash == h &&
-                ((ek = e.key) == key || (ek != null && key.equals(ek))))
-                return e.val;
-        }
-    }
-    return null;
-}
-```
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：有哪些线程安全的 map，ConcurrentHashMap 怎么保证线程安全的，为什么比 hashTable 效率好
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Java中的线程安全的集合是什么？
 
 ### 27.HashMap 内部节点是有序的吗？
 
