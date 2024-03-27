@@ -372,7 +372,14 @@ public enum Singleton {
 }
 ```
 
+### 单例模式的好处有哪些？
+
+单例模式能确保一个类仅有一个实例，并提供一个全局访问点来访问这个实例。
+
+这对于需要控制资源使用或需要共享资源的情况非常有用，比如数据库连接池，通过单例模式，可以避免对资源的重复创建和销毁，从而提高资源利用率和系统性能。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下单例模式，有几种
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：单例模式的好处
 
 ---
 
