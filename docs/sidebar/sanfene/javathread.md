@@ -675,8 +675,6 @@ ThreadLocalMap 是一个键值对集合，其中键是 ThreadLocal 对象的引�
 
 也就是说，栈中存储了 ThreadLocal 和 Thread 的引用，堆中存储了它们的具体实例。
 
-![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
-
 使用 ThreadLocal 发生内存泄露的原因可能是：
 
 **①、ThreadLocalMap 的生命周期过长**，在使用线程池等长生命周期的线程时，线程不会立即销毁。
@@ -685,11 +683,11 @@ ThreadLocalMap 是一个键值对集合，其中键是 ThreadLocal 对象的引�
 
 这意味着`ThreadLocalMap`中的键值对无法被垃圾收集器回收，从而导致内存泄露。
 
+![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
+
 **②、ThreadLocal 对象生命周期结束，线程继续运行**。
 
 如果一个`ThreadLocal`对象已经不再被使用，但是线程仍然在运行，并且其`ThreadLocalMap`中还保留着对这个`ThreadLocal`对象的键的引用，这会导致`ThreadLocal`对象所引用的数据也无法被回收，因为`ThreadLocalMap`中的键是对`ThreadLocal`对象的弱引用（WeakReference），但值（存储的数据）是强引用。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ThreadLocal-01.png)
 
 举例说明一下：
 
@@ -770,6 +768,7 @@ Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段�
 注意，Entry 的 key 为弱引用，意味着当 ThreadLocal 外部强引用被置为 null（ThreadLocalInstance=null）时，根据可达性分析，ThreadLocal 实例此时没有任何一条链路引用它，所以系统 GC 的时候 ThreadLocal 会被回收。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：ThreadLocal 什么情况下会内存泄漏
 
 ### 14.ThreadLocalMap 的结构了解吗？
 
