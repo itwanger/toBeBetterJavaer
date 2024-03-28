@@ -638,6 +638,120 @@ Java 中有以下四种创建对象的方式:
 
 前两者都需要显式地调用构造方法。对于 clone 机制,需要注意浅拷贝和深拷贝的区别，对于序列化机制需要明确其实现原理，在 Java 中序列化可以通过实现 Externalizable 或者 Serializable 来实现。
 
+### 55.多态的目的，解决了什么问题？（补充）
+
+>2024年03月26日增补
+
+推荐阅读：[深入理解Java三大特性：封装、继承和多态](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)
+
+Java 的多态是指在面向对象编程中，同一个类的对象在不同情况下表现出来的不同行为和状态。
+
+- 子类可以继承父类的字段和方法，子类对象可以直接使用父类中的方法和字段（私有的不行）。
+- 子类可以重写从父类继承来的方法，使得子类对象调用这个方法时表现出不同的行为。
+- 可以将子类对象赋给父类类型的引用，这样就可以通过父类类型的引用调用子类中重写的方法，实现多态。
+
+多态的目的是为了提高代码的灵活性和可扩展性，使得代码更容易维护和扩展。
+
+比如说，通过允许子类继承父类的方法并重写，增强了代码的复用性。
+
+再比如说多态可以实现动态绑定，这意味着程序在运行时再确定对象的方法调用也不迟。
+
+“光说理论很枯燥，我们再通过代码来具体地分析一下。”
+
+#### 01、多态是什么
+
+在我的印象里，西游记里的那段孙悟空和二郎神的精彩对战就能很好的解释“多态”这个词：一个孙悟空，能七十二变；一个二郎神，也能七十二变；他们都可以变成不同的形态，只需要悄悄地喊一声“变”。
+
+Java 的多态是什么？其实就是一种能力——同一个行为具有不同的表现形式；换句话说就是，执行一段代码，Java 在运行时能根据对象类型的不同产生不同的结果。和孙悟空和二郎神都只需要喊一声“变”，然后就变了，并且每次变得还不一样；一个道理。
+
+多态的前提条件有三个：
+
+- 子类继承父类
+- 子类重写父类的方法
+- 父类引用指向子类的对象
+
+多态的一个简单应用，来看程序清单 1-1：
+
+```java
+//子类继承父类
+public class Wangxiaoer extends Wanger {
+    public void write() { // 子类重写父类方法
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
+
+        for (Wanger wanger : wangers) {
+            // 对象是王二的时候输出：勿忘国耻
+            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
+            wanger.write();
+        }
+    }
+}
+
+class Wanger {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+}
+```
+
+#### 02、多态与后期绑定
+
+现在，我们来思考一个问题：程序清单 1-1 在执行 `wanger.write()` 时，由于编译器只有一个 Wanger 引用，它怎么知道究竟该调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
+
+答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是 Java 的方法调用机制能找到正确的方法体，然后执行，得到正确的结果。
+
+多态机制提供的一个重要的好处就是程序具有良好的扩展性。来看程序清单 2-1：
+
+```java
+//子类继承父类
+public class Wangxiaoer extends Wanger {
+    public void write() { // 子类覆盖父类方法
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+
+    public void eat() {
+        System.out.println("我不喜欢读书，我就喜欢吃");
+    }
+
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
+
+        for (Wanger wanger : wangers) {
+            // 对象是王二的时候输出：勿忘国耻
+            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
+            wanger.write();
+        }
+    }
+}
+
+class Wanger {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+
+    public void read() {
+        System.out.println("每周读一本好书");
+    }
+}
+```
+
+在程序清单 2-1 中，我们在 Wanger 类中增加了 `read()` 方法，在 Wangxiaoer 类中增加了 `eat()`方法，但这丝毫不会影响到 `write()` 方法的调用。
+
+`write()` 方法忽略了周围代码发生的变化，依然正常运行。这让我想起了金庸《倚天屠龙记》里九阳真经的口诀：“他强由他强，清风拂山岗；他横由他横，明月照大江。”
+
+多态的这个优秀的特性，让我们在修改代码的时候不必过于紧张，因为多态是一项让程序员“将改变的与未改变的分离开来”的重要特性。
+
+让我们一张图来捋一捋封装继承多态其中的关系吧。
+
+![bigsai：封装继承多态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
+
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。

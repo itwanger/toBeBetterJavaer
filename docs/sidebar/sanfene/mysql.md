@@ -489,19 +489,94 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 19.MySQL 日志文件有哪些？分别介绍下作用？
 
-![MySQL 主要日志](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
+![三分恶面渣逆袭：MySQL的主要日志](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
 
-MySQL 日志文件有很多，包括 ：
+MySQL 的日志文件主要包括：
 
-- **错误日志**（error log）：错误日志文件对 MySQL 的启动、运行、关闭过程进行了记录，能帮助定位 MySQL 问题。
-- **慢查询日志**（slow query log）：慢查询日志是用来记录执行时间超过 long_query_time 这个变量定义的时长的查询语句。通过慢查询日志，可以查找出哪些查询语句的执行效率很低，以便进行优化。
-- **一般查询日志**（general log）：一般查询日志记录了所有对 MySQL 数据库请求的信息，无论请求是否正确执行。
-- **二进制日志**（bin log）：关于二进制日志，它记录了数据库所有执行的 DDL 和 DML 语句（除了数据查询语句 select、show 等），以事件形式记录并保存在二进制文件中。
+①、**错误日志**（Error Log）：记录 MySQL 服务器启动、运行或停止时出现的问题。
 
-还有两个 InnoDB 存储引擎特有的日志文件：
+②、**慢查询日志**（Slow Query Log）：记录执行时间超过 long_query_time 值的所有 SQL 语句。这个时间值是可配置的，默认情况下，慢查询日志功能是关闭的。可以用来识别和优化慢 SQL。
 
-- **重做日志**（redo log）：重做日志至关重要，因为它们记录了对于 InnoDB 存储引擎的事务日志。
-- **回滚日志**（undo log）：回滚日志同样也是 InnoDB 引擎提供的日志，顾名思义，回滚日志的作用就是对数据进行回滚。当事务对数据库进行修改，InnoDB 引擎不仅会记录 redo log，还会生成对应的 undo log 日志；如果事务执行失败或调用了 rollback，导致事务需要回滚，就可以利用 undo log 中的信息将数据回滚到修改之前的样子。
+③、**一般查询日志**（General Query Log）：记录所有 MySQL 服务器的连接信息及所有的 SQL 语句，不论这些语句是否修改了数据。
+
+④、**二进制日志**（Binary Log）：记录了所有修改数据库状态的 SQL 语句，以及每个语句的执行时间，如 INSERT、UPDATE、DELETE 等，但不包括 SELECT 和 SHOW 这类的操作。
+
+以及两个 InnoDB 存储引擎特有的日志文件：
+
+⑤、**重做日志**（Redo Log）：记录了对于 InnoDB 表的每个写操作，不是 SQL 级别的，而是物理级别的，主要用于崩溃恢复。
+
+⑥、**回滚日志**（Undo Log，或者叫事务日志）：记录数据被修改前的值，用于事务的回滚。
+
+支持事务回滚，可以用来实现 MVCC，即多版本并发控制。
+
+#### 请重点说说 binlog
+
+推荐阅读：[带你了解 MySQL Binlog 不为人知的秘密](https://www.cnblogs.com/rickiyang/p/13841811.html)
+
+binlog 主要用于复制（Replication）和数据恢复（Data Recovery）。
+
+- 支持主从复制，主服务器（master）上的二进制日志可以被从服务器（slave）读取和恢复。
+- 在发生数据丢失或损坏时，binlog 可以用来恢复数据。结合全量备份和 binlog 的增量备份，可以将数据库恢复到特定的时间点（Point-In-Time Recovery）
+
+binlog 包括两类文件：
+
+- 二进制索引文件（.index）
+- 二进制日志文件（.00000\*）
+
+binlog 默认是没有启用的。要启用它，需要在 MySQL 的配置文件（my.cnf 或 my.ini）中设置 log_bin 参数，并指定 binlog 文件的存储位置。
+
+```
+设置此参数表示启用binlog功能，并制定二进制日志的存储目录
+log-bin=/home/mysql/binlog/
+
+#mysql-bin.*日志文件最大字节（单位：字节）
+#设置最大100MB
+max_binlog_size=104857600
+
+#设置了只保留7天BINLOG（单位：天）
+expire_logs_days = 7
+
+#binlog日志只记录指定库的更新
+#binlog-do-db=db_name
+
+#binlog日志不记录指定库的更新
+#binlog-ignore-db=db_name
+
+#写缓冲多少次，刷一次磁盘，默认0
+sync_binlog=0
+```
+
+简单说一下这里面参数的作用：
+
+①、`max_binlog_size=104857600`
+
+这条配置设置了每个 binlog 文件的最大大小为 100MB（104857600 字节）。当 binlog 文件达到这个大小时，MySQL 会关闭当前文件并创建一个新的 binlog 文件。这有助于管理大量的 binlog 文件和限制单个文件的大小。
+
+②、`expire_logs_days = 7`
+
+这条配置设置了 binlog 文件的自动过期时间为 7 天。过期的 binlog 文件将被自动删除。这有助于管理磁盘空间，防止长时间累积的 binlog 文件占用过多存储空间。
+
+③、`binlog-do-db=db_name`
+
+指定哪些数据库表的更新应该记录。
+
+④、`binlog-ignore-db=db_name`
+
+指定忽略哪些数据库表的更新。
+
+⑤、`sync_binlog=0`
+
+这条配置设置了每多少次 binlog 写操作会触发一次磁盘同步操作。默认值 0 表示 MySQL 不会主动触发同步操作，而是依赖操作系统的磁盘缓存策略。
+
+设置为 1 意味着每次 binlog 写操作后都会同步到磁盘，这可以提高数据安全性，但可能会对性能产生影响。
+
+一旦启用，所有的数据修改操作就会被记录到 binlog 文件中。可以通过 `show variables like '%log_bin%';` 查看 binlog 是否开启。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
+
+不过需要注意的是，随着数据库的操作，binlog 文件可能会不断增长，因此需要定期进行清理或归档，以防止占用过多磁盘空间。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：MySQL 中的 bin log 的作用是什么？
 
 ### 20.binlog 和 redo log 有什么区别？
 
@@ -597,169 +672,293 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 24.慢 SQL 如何定位呢？
 
-慢 SQL 的监控主要通过两个途径：
+推荐阅读：[慢SQL优化一点小思路](https://juejin.cn/post/7048974570228809741)
 
-![发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
+顾名思义，慢 SQL 也就是执行时间较长的 SQL 语句，MySQL 中 long_query_time 默认值是 10 秒，也就是执行时间超过 10 秒的 SQL 语句会被记录到慢查询日志中。
 
-- **慢查询日志**：开启 MySQL 的慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，当然现在一般的云厂商都提供了可视化的平台。
+可通过 `show variables like 'long_query_time';` 查看当前的 long_query_time 值。
+
+![沉默王二：long_query_time](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083506.png)
+
+不过，生产环境中，10 秒太久了，超过 1 秒的都可以认为是慢 SQL 了。
+
+![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
+
+我先说一下 SQL 的执行过程：
+
+1. 客户端发送 SQL 语句给 MySQL 服务器。
+2. 如果查询缓存打开则会优先查询缓存，如果缓存中有对应的结果，直接返回给客户端。不过，MySQL 8.0 版本已经移除了查询缓存。
+3. 分析器对 SQL 语句进行语法分析，判断是否有语法错误。
+4. 搞清楚 SQL 语句要干嘛后，MySQL 还会通过优化器生成执行计划。
+5. 执行器调用存储引擎的接口，执行 SQL 语句。
+
+SQL 执行过程中，优化器通过成本计算预估出执行效率最高的方式，基本的预估维度为：
+
+- IO 成本：从磁盘读取数据到内存的开销。
+- CPU 成本：CPU 处理内存中数据的开销。
+
+基于这两个维度，可以得出影响 SQL 执行效率的因素有：
+
+①、IO 成本
+
+- 数据量：数据量越大，IO 成本越高。所以要避免 `select *`；尽量分页查询。
+- 数据从哪读取：尽量通过索引加快查询。
+
+②、CPU 成本
+
+- 尽量避免复杂的查询条件，如有必要，考虑对子查询结果进行过滤。
+- 尽量缩减计算成本，比如说为排序字段加上索引，提高排序效率；比如说使用 union all 替代 union，减少去重处理。
+
+#### 那怎么定位慢 SQL 呢？
+
+![三分恶面渣逆袭：发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
+
+定位慢SQL 主要通过两种手段：
+
+- **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
 - **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
 
 ### 25.有哪些方式优化慢 SQL？
 
-慢 SQL 的优化，主要从两个方面考虑，SQL 语句本身的优化，以及数据库设计的优化。
+我在进行慢SQL 优化的时候，主要通过以下几个方面进行优化：
 
-![SQL 优化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e65e2428-a8f7-4381-9e15-c3e18b4c4d9c.jpg)
+![沉默王二：SQL 优化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327104050.png)
 
-#### 避免不必要的列
+#### 如何避免不必要的列？
 
-这个是老生常谈，但还是经常会出的情况，SQL 查询的时候，应该只查询需要的列，而不要包含额外的列，像`slect *` 这种写法应该尽量避免。
+比如说尽量避免使用 `select *`，只查询需要的列，减少数据传输量。
 
-#### 分页优化
-
-在数据量比较大，分页比较深的情况下，需要考虑分页的优化。
-
-例如：
-
-```
-select * from table where type = 2 and level = 9 order by id asc limit 190289,10;
+```sql
+SELECT * FROM employees WHERE department_id = 5;
 ```
 
-优化方案：
+改成：
 
-- **延迟关联**
-
-先通过 where 条件提取出主键，在将该表与原数据表关联，通过主键 id 提取数据行，而不是通过原来的二级索引提取数据行
-
-例如：
-
-```
-select a.* from table a, 
- (select id from table where type = 2 and level = 9 order by id asc limit 190289,10 ) b
- where a.id = b.id
+```sql
+SELECT employee_id, first_name, last_name FROM employees WHERE department_id = 5;
 ```
 
-- **书签方式**
+#### 如何进行分页优化？
 
-书签方式就是找到 limit 第一个参数对应的主键值，根据这个主键值再去过滤并 limit
+当数据量巨大时，传统的`LIMIT`和`OFFSET`可能会导致性能问题，因为数据库需要扫描`OFFSET + LIMIT`数量的行。
 
-例如：
+延迟关联（Late Row Lookups）和书签（Seek Method）是两种优化分页查询的有效方法。
 
+**①、延迟关联**
+
+延迟关联适用于需要从多个表中获取数据且主表行数较多的情况。它首先从索引表中检索出需要的行ID，然后再根据这些ID去关联其他的表获取详细信息。
+
+```sql
+SELECT e.id, e.name, d.details
+FROM employees e
+JOIN department d ON e.department_id = d.id
+ORDER BY e.id
+LIMIT 1000, 20;
 ```
-  select * from table where id >
-  (select * from table where type = 2 and level = 9 order by id asc limit 190
+
+延迟关联后：
+
+```sql
+SELECT e.id, e.name, d.details
+FROM (
+    SELECT id
+    FROM employees
+    ORDER BY id
+    LIMIT 1000, 20
+) AS sub
+JOIN employees e ON sub.id = e.id
+JOIN department d ON e.department_id = d.id;
 ```
 
-#### 索引优化
+首先对`employees`表进行分页查询，仅获取需要的行的ID，然后再根据这些ID关联获取其他信息，减少了不必要的JOIN操作。
 
-合理地设计和使用索引，是优化慢 SQL 的利器。
+**②、书签（Seek Method）**
 
-**利用覆盖索引**
+书签方法通过记住上一次查询返回的最后一行的某个值，然后下一次查询从这个值开始，避免了扫描大量不需要的行。
 
-InnoDB 使用非主键索引查询数据时会回表，但是如果索引的叶节点中已经包含要查询的字段，那它没有必要再回表查询了，这就叫覆盖索引
+假设需要对用户表进行分页，根据用户ID升序排列。
 
-例如对于如下查询：
-
+```sql
+SELECT id, name
+FROM users
+ORDER BY id
+LIMIT 1000, 20;
 ```
+书签方式：
+
+```sql
+SELECT id, name
+FROM users
+WHERE id > last_max_id  -- 假设last_max_id是上一页最后一行的ID
+ORDER BY id
+LIMIT 20;
+```
+
+优化后的查询不再使用`OFFSET`，而是直接从上一页最后一个用户的ID开始查询。这里的`last_max_id`是上一次查询返回的最后一行的用户ID。这种方法有效避免了不必要的数据扫描，提高了分页查询的效率。
+
+
+#### 如何进行索引优化？
+
+正确地使用索引可以显著减少 SQL 的查询时间，通常可以从索引覆盖、避免使用 `!=` 或者 `<>` 操作符、适当使用前缀索引、避免列上函数运算、正确使用联合索引等方面进行优化。
+
+**①、利用覆盖索引**
+
+使用非主键索引查询数据时需要回表，但如果索引的叶节点中已经包含要查询的字段，那就不会再回表查询了，这就叫覆盖索引。
+
+举个例子，现在要从 test 表中查询 city 为上海的 name 字段。
+
+```sql
 select name from test where city='上海'
 ```
 
-我们将被查询的字段建立到联合索引中，这样查询结果就可以直接从索引中获取
+如果仅在 city 字段上添加索引，那么这条查询语句会先通过索引找到 city 为上海的行，然后再回表查询 name 字段，这就是回表查询。
 
+为了避免回表查询，可以在 city 和 name 字段上建立联合索引，这样查询结果就可以直接从索引中获取。
+
+```sql
+alter table test add index index1(city,name);
 ```
-alter table test add index idx_city_name (city, name);
-```
 
-**低版本避免使用 or 查询**
+**②、避免使用 != 或者 <> 操作符**
 
-在 MySQL 5.0 之前的版本要尽量避免使用 or 查询，可以使用 union 或者子查询来替代，因为早期的 MySQL 版本使用 or 查询可能会导致索引失效，高版本引入了索引合并，解决了这个问题。
+`!=` 或者 `<>` 操作符会导致 MySQL 无法使用索引，从而导致全表扫描。
 
-**避免使用 != 或者 <> 操作符**
+例如，可以把`column<>'aaa'`，改成`column>'aaa' or column<'aaa'`，就可以使用索引了。
 
-SQL 中，不等于操作符会导致查询引擎放弃查询索引，引起全表扫描，即使比较的字段上有索引
+优化策略就是尽可能使用 `=`、`>`、`<`、`BETWEEN`等操作符，它们能够更好地利用索引。
 
-解决方法：通过把不等于操作符改成 or，可以使用索引，避免全表扫描
+**③、适当使用前缀索引**
 
-例如，把`column<>’aaa’，改成column>’aaa’ or column<’aaa’`，就可以使用索引了
+适当使用前缀索引可以降低索引的空间占用，提高索引的查询效率。
 
-**适当使用前缀索引**
+比如，邮箱的后缀一般都是固定的`@xxx.com`，那么类似这种后面几位为固定值的字段就非常适合定义为前缀索引：
 
-适当地使用前缀所云，可以降低索引的空间占用，提高索引的查询效率。
-
-比如，邮箱的后缀都是固定的“`@xxx.com`”，那么类似这种后面几位为固定值的字段就非常适合定义为前缀索引
-
-```
+```sql
 alter table test add index index2(email(6));
 ```
 
-PS:需要注意的是，前缀索引也存在缺点，MySQL 无法利用前缀索引做 order by 和 group by 操作，也无法作为覆盖索引
+需要注意的是，MySQL 无法利用前缀索引做 order by 和 group by 操作。
 
-**避免列上函数运算**
+**④、避免列上使用函数**
 
-要避免在列字段上进行算术运算或其他表达式运算，否则可能会导致存储引擎无法正确使用索引，从而影响了查询的效率
+在 where 子句中直接对列使用函数会导致索引失效，因为数据库需要对每行的列应用函数后再进行比较，无法直接利用索引。
 
-```
-select * from test where id + 1 = 50;
-select * from test where month(updateTime) = 7;
-```
-
-**正确使用联合索引**
-
-使用联合索引的时候，注意最左匹配原则。
-
-#### JOIN 优化
-
-**优化子查询**
-
-尽量使用 Join 语句来替代子查询，因为子查询是嵌套查询，而嵌套查询会新创建一张临时表，而临时表的创建与销毁会占用一定的系统资源以及花费一定的时间，同时对于返回结果集比较大的子查询，其对查询性能的影响更大
-
-**小表驱动大表**
-
-关联查询的时候要拿小表去驱动大表，因为关联的时候，MySQL 内部会遍历驱动表，再去连接被驱动表。
-
-比如 left join，左表就是驱动表，A 表小于 B 表，建立连接的次数就少，查询速度就被加快了。
-
-```
- select name from A left join B ;
+```sql
+select name from test where date_format(create_time,'%Y-%m-%d')='2021-01-01';
 ```
 
-**适当增加冗余字段**
+可以改成：
 
-增加冗余字段可以减少大量的连表查询，因为多张表的连表查询性能很低，所有可以适当的增加冗余字段，以减少多张表的关联查询，这是以空间换时间的优化策略
-
-**避免使用 JOIN 关联太多的表**
-
-《阿里巴巴 Java 开发手册》规定不要 join 超过三张表，第一 join 太多降低查询的速度，第二 join 的 buffer 会占用更多的内存。
-
-如果不可避免要 join 多张表，可以考虑使用数据异构的方式异构到 ES 中查询。
-
-#### 排序优化
-
-**利用索引扫描做排序**
-
-MySQL 有两种方式生成有序结果：其一是对结果集进行排序的操作，其二是按照索引顺序扫描得出的结果自然是有序的
-
-但是如果索引不能覆盖查询所需列，就不得不每扫描一条记录回表查询一次，这个读操作是随机 IO，通常会比顺序全表扫描还慢
-
-因此，在设计索引时，尽可能使用同一个索引既满足排序又用于查找行
-
-例如：
-
-```
---建立索引（date,staff_id,customer_id）
-select staff_id, customer_id from test where date = '2010-01-01' order by staff_id,customer_id;
+```sql
+select name from test where create_time>='2021-01-01 00:00:00' and create_time<'2021-01-02 00:00:00';
 ```
 
-只有当索引的列顺序和 ORDER BY 子句的顺序完全一致，并且所有列的排序方向都一样时，才能够使用索引来对结果做排序
+通过日期的范围查询，而不是在列上使用函数，可以利用 create_time 上的索引。
 
-#### UNION 优化
+**⑤、正确使用联合索引**
 
-**条件下推**
+正确地使用联合索引可以极大地提高查询性能，联合索引的创建应遵循最左前缀原则，即索引的顺序应根据列在查询中的使用频率和重要性来安排。
 
-MySQL 处理 union 的策略是先创建临时表，然后将各个查询结果填充到临时表中最后再来做查询，很多优化策略在 union 查询中都会失效，因为它无法利用索引
+```sql
+select * from messages where sender_id=1 and receiver_id=2 and is_read=0;
+```
 
-最好手工将 where、limit 等子句下推到 union 的各个子查询中，以便优化器可以充分利用这些条件进行优化
+那就可以为 sender_id、receiver_id 和 is_read 这三个字段创建联合索引，但是要注意索引的顺序，应该按照查询中的字段顺序来创建索引。
 
-此外，除非确实需要服务器去重，一定要使用 union all，如果不加 all 关键字，MySQL 会给临时表加上 distinct 选项，这会导致对整个临时表做唯一性检查，代价很高。
+```sql
+alter table messages add index index3(sender_id,receiver_id,is_read);
+```
+
+#### 如何进行 JOIN 优化？
+
+对于 JOIN 操作，可以通过优化子查询、小表驱动大表、适当增加冗余字段、避免 join 太多表等方式来进行优化。
+
+**①、优化子查询**
+
+子查询，特别是在 select 列表和 where 子句中的子查询，往往会导致性能问题，因为它们可能会为每一行外层查询执行一次子查询。
+
+使用子查询：
+
+```sql
+select name from A where id in (select id from B);
+```
+
+使用 JOIN 代替子查询：
+
+```sql
+select A.name from A join B on A.id=B.id;
+```
+
+**②、小表驱动大表**
+
+在执行 JOIN 操作时，应尽量让行数较少的表（小表）驱动行数较多的表（大表），这样可以减少查询过程中需要处理的数据量。
+
+比如 left join，左表是驱动表，所以 A 表应小于 B 表，这样建立连接的次数就少，查询速度就快了。
+
+```sql
+select name from A left join B;
+```
+
+**③、适当增加冗余字段**
+
+在某些情况下，通过在表中适当增加冗余字段来避免 JOIN 操作，可以提高查询效率，尤其是在高频查询的场景下。
+
+比如，我们有一个订单表和一个商品表，查询订单时需要显示商品名称，如果每次都通过 JOIN 操作查询商品表，会降低查询效率。这时可以在订单表中增加一个冗余字段，存储商品名称，这样就可以避免 JOIN 操作。
+
+```sql
+select order_id,product_name from orders;
+```
+
+**④、避免使用 JOIN 关联太多的表**
+
+《[阿里巴巴 Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上就规定，不要使用 join 关联太多的表，最多不要超过 3 张表。
+
+因为 join 太多表会降低查询的速度，返回的数据量也会变得非常大，不利于后续的处理。
+
+如果业务逻辑允许，可以考虑将复杂的 JOIN 查询分解成多个简单查询，然后在应用层组合这些查询的结果。
+
+#### 如何进行排序优化？
+
+MySQL 生成有序结果的方式有两种：一种是对结果集进行排序操作，另外一种是按照索引顺序扫描得出的自然有序结果。
+
+因此在设计索引的时候要充分考虑到排序的需求。
+
+```sql
+select id, name from users order by name;
+```
+
+如果 name 字段上有索引，那么 MySQL 可以直接利用索引的有序性，避免排序操作。
+
+#### 如何进行 UNION 优化？
+
+UNION 操作用于合并两个或者多个 SELECT 语句的结果集。
+
+**①、条件下推**
+
+条件下推是指将 where、limit 等子句下推到 union 的各个子查询中，以便优化器可以充分利用这些条件进行优化。
+
+假设我们有两个查询分支，需要合并结果并过滤：
+
+```sql
+SELECT * FROM (
+    SELECT * FROM A
+    UNION
+    SELECT * FROM B
+) AS sub
+WHERE sub.id = 1;
+```
+
+可以改写成：
+
+```sql
+SELECT * FROM A WHERE id = 1
+UNION
+SELECT * FROM B WHERE id = 1;
+```
+
+通过将查询条件下推到 UNION 的每个分支中，每个分支查询都只处理满足条件的数据，减少了不必要的数据合并和过滤。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：查询优化、联合索引、覆盖索引
 
 ### 26.怎么看执行计划（explain），如何理解其中各个字段的含义？
 
@@ -1165,9 +1364,9 @@ key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
 1. 推荐阅读：[终于把 B 树搞明白了](https://www.bilibili.com/video/BV1mY4y1W7pS)
 2. 推荐阅读：[一篇文章讲透 MySQL 为什么要用 B+树实现索引](https://cloud.tencent.com/developer/article/1543335)
 
-MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，换句话说，InnoDB 的索引是基于 B+树实现的。
+MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引。
 
-那在说 B+树之前，我先说一下 B 树（B-tree）。
+那在说 B+树之前，必须得先说一下 B 树（B-tree）。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322114522.png)
 
@@ -1177,7 +1376,9 @@ B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322132606.png)
 
-好，继续。内存和磁盘在进行 IO 读写的时候，有一个最小的逻辑单元，叫做页（Page），页的大小一般是 4KB。
+好，我继续说。
+
+内存和磁盘在进行 IO 读写的时候，有一个最小的逻辑单元，叫做页（Page），页的大小一般是 4KB。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322133650.png)
 
@@ -1213,12 +1414,19 @@ B 树的一个节点通常包括三个部分：
 
 再加上叶子节点构成了一个有序链表，范围查询时就可以直接通过叶子节点间的指针顺序访问整个查询范围内的所有记录，而无需对树进行多次遍历。
 
-注：在 InnoDB 存储引擎中，默认的页大小是 16KB。可以通过 `show variables like 'innodb_page_size';` 查看。
+总结一下，InnoDB 之所以选择 B+树是因为：
+
+- 更高效的磁盘 IO，因为它减少了磁盘寻道时间和页的加载次数。
+- 支持范围查询，与 B 树相比，B+树的叶子节点通过指针连接成一个链表，这使得范围查询变得非常高效。在 B+树上执行范围查询可以简单地从范围的起始点开始，然后沿着链表向后遍历，直到结束点。
+- 查询性能稳定，B+树的所有查找操作都要查到叶子节点，这使得所有的查询操作都有着相同的访问深度，因此查询性能非常稳定。不像某些其他数据结构，如 B 树，其查询性能因为数据存在所有的节点上导致深度不一致，性能不稳定。
+
+**注**：在 InnoDB 存储引擎中，默认的页大小是 16KB。可以通过 `show variables like 'innodb_page_size';` 查看。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322135441.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 MySQL 的底层数据结构，B 树和 B+树的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：MySQL 为什么选用 B+树
 
 ### 34.那一棵 B+树能存储多少条数据呢？
 
