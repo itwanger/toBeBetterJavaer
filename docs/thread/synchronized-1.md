@@ -232,7 +232,7 @@ synchronized(AccountingSync.class){
 }
 ```
 
-## synchronized禁止指令重排
+## synchronized与happens before
 
 指令重排我们前面讲 [JMM](https://javabetter.cn/thread/jmm.html) 的时候讲过， 这里我们再结合 synchronized 关键字来讲一下。
 
@@ -266,6 +266,8 @@ class MonitorExample {
 在上图中，每一个箭头链接的两个节点，代表了一个 happens before 关系。黑色箭头表示程序顺序规则；橙色箭头表示监视器锁规则；蓝色箭头表示组合这些规则后提供的 happens before 保证。
 
 上图表示在线程 A 释放了锁之后，随后线程 B 获取同一个锁。在上图中，2 happens before 5。因此，线程 A 在释放锁之前所有可见的共享变量，在线程 B 获取同一个锁之后，将立刻变得对 B 线程可见。
+
+也就是说，synchronized 会防止临界区内的代码与外部代码发生重排序，`writer()` 方法中 a++ 的执行和 `reader()` 方法中 a 的读取之间存在 happens-before 关系，保证了执行顺序和内存可见性。
 
 ## synchronized属于可重入锁
 
