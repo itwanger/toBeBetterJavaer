@@ -1,19 +1,19 @@
 ---
-title: JVM面试题，53道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
+title: JVM面试题，54道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.5 万字 51 张手绘图，详解 53 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.5 万字 51 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Java虚拟机,JVM,Java面试题,JVM面试题,java虚拟机面试题,八股文,java
 ---
 
-1.5 万字 51 张手绘图，详解 53 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+1.5 万字 51 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
 ## 一、引言
 
@@ -1347,23 +1347,33 @@ Java 一般被称为“解释型语言”，因为 Java 代码在执行前，需
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 Java 解释执行的流程。
 
+### 54.了解类的加载机制吗？（补充）
+
+> 2024 年 03 月 29 日增补
+
+JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据结构加载到内存中，并对数据进行校验、解析和初始化，最终形成可以被 JVM 直接使用的类型，这个过程被称为类加载机制。
+
+其中最重要的三个概念就是：类加载器、类加载过程和类加载器的双亲委派模型。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
+
 ### 42.能说一下类的生命周期吗？
 
 一个类从被加载到虚拟机内存中开始，到从内存中卸载，整个生命周期需要经过七个阶段：加载 （Loading）、验证（Verification）、准备（Preparation）、解析（Resolution）、初始化 （Initialization）、使用（Using）和卸载（Unloading），其中验证、准备、解析三个部分统称为连接（Linking）。
 
-![类的生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-44.png)
+![三分恶面渣逆袭：类的生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-44.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 
 ### 43.类加载的过程知道吗？
 
-除去使用和卸载，就是 Java 的类加载过程。这 5 个阶段一般是顺序发生的，但在动态绑定的情况下，解析阶段发生在初始化阶段之后。
+> 推荐阅读：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
 
-> 参考：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
-
-#### 载入
+除去使用和卸载，就是 Java 的类加载过程：载入、验证、准备、解析、初始化。这 5 个阶段一般是顺序发生的，但在动态绑定的情况下，解析阶段发生在初始化阶段之后。
 
 载入过程中，JVM 需要做三件事情：
 
-![载入](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-45.png)
+![三分恶面渣逆袭：载入](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-45.png)
 
 - 1）通过一个类的全限定名来获取定义此类的二进制字节流。
 - 2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。
@@ -1371,45 +1381,63 @@ Java 一般被称为“解释型语言”，因为 Java 代码在执行前，需
 
 载入阶段结束后，Java 虚拟机外部的二进制字节流就按照虚拟机所设定的格式存储在方法区中了，方法区中的数据存储格式完全由虚拟机实现自行定义，《Java 虚拟机规范》未规定此区域的具体数据结构。
 
-#### 验证
+JVM 会在验证阶段对二进制字节流进行校验，只有符合 JVM 字节码规范的才能被 JVM 正确执行。
 
-JVM 会在该阶段对二进制字节流进行校验，只有符合 JVM 字节码规范的才能被 JVM 正确执行。
-
-#### 准备
-
-VM 会在该阶段对类变量（也称为静态变量，static 关键字修饰的）分配内存并初始化，对应数据类型的默认初始值，如 0、0L、null、false 等。
-
-#### 解析
+JVM 会在准备阶段对类变量（也称为静态变量，static 关键字修饰的）分配内存并初始化，对应数据类型的默认初始值，如 0、0L、null、false 等。
 
 解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程。解析动作主要针对类或接口、字段、类方法、接口方法、方法类型等。
 
-#### 初始化
+初始化阶段是类加载过程的最后一步。在准备阶段，类变量已经被赋过默认初始值，而在初始化阶段，类变量将被赋值为代码期望赋的值。换句话说，初始化阶段是执行类构造器方法（javap 中看到的 `<clinit>()` 方法）的过程。
 
-该阶段是类加载过程的最后一步。在准备阶段，类变量已经被赋过默认初始值，而在初始化阶段，类变量将被赋值为代码期望赋的值。换句话说，初始化阶段是执行类构造器方法（javap 中看到的 `<clinit>`() 方法）的过程。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 
 ### 44.类加载器有哪些？
 
-主要有四种类加载器:
+类加载器（ClassLoader）用于动态加载 Java 类到 Java 虚拟机中。主要有四种类加载器：
 
-- **启动类加载器**(Bootstrap ClassLoader)用来加载 java 核心类库，无法被 java 程序直接引用。
+①、**启动类加载器**（Bootstrap ClassLoader）负责加载 JVM 的核心类库，如 rt.jar 和其他核心库位于`JAVA_HOME/jre/lib`目录下的类。
 
-- **扩展类加载器**(extensions class loader):它用来加载 Java 的扩展库。Java 虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 Java 类。
+②、**扩展类加载器**(Extension ClassLoader)：由`sun.misc.Launcher$ExtClassLoader`（或其它类似实现）实现。负责加载`JAVA_HOME/jre/lib/ext`目录下，或者由系统属性`java.ext.dirs`指定位置的类库。
 
-- **系统类加载器**（system class loader）：它根据 Java 应用的类路径（CLASSPATH）来加载 Java 类。一般来说，Java 应用的类都是由它来完成加载的。可以通过 ClassLoader.getSystemClassLoader()来获取它。
+③、**应用程序类加载器**（Application ClassLoader）：由`sun.misc.Launcher$AppClassLoader`（或其它类似实现）实现。
 
-- **用户自定义类加载器** (user class loader)，用户通过继承 java.lang.ClassLoader 类的方式自行实现的类加载器。
+负责加载系统类路径（classpath）上的类库，通常是我们在开发 Java 应用程序时的主要类加载器。
 
-### 45.什么是双亲委派机制？
+我们编写的任何类都是由应用程序类加载器加载的，除非显式使用自定义类加载器。
 
-![双亲委派模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-46.png)
+④、**用户自定义类加载器** (User-Defined ClassLoader)，我们可以通过继承`java.lang.ClassLoader`类来创建自己的类加载器。
 
-双亲委派模型的工作过程：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求时，子加载器才会尝试自己去完成加载。
+这种类加载器通常用于加载网络上的类、执行热部署（动态加载和替换应用程序的组件）或为了安全目的自定义类的加载方式。
 
-### 46.为什么要用双亲委派机制？
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 
-答案是为了保证应用程序的稳定有序。
+### 45.什么是双亲委派模型？
 
-例如类 java.lang.Object，它存放在 rt.jar 之中，通过双亲委派机制，保证最终都是委派给处于模型最顶端的启动类加载器进行加载，保证 Object 的一致。反之，都由各个类加载器自行去加载的话，如果用户自己也编写了一个名为 java.lang.Object 的类，并放在程序的 ClassPath 中，那系统中就会出现多个不同的 Object 类。
+双亲委派模型（Parent Delegation Model）是 Java 类加载机制中的一个重要概念。这种模型指的是一个类加载器在尝试加载某个类时，首先会将加载任务委托给其父类加载器去完成。
+
+只有当父类加载器无法完成这个加载请求（即它找不到指定的类）时，子类加载器才会尝试自己去加载这个类。
+
+![三分恶面渣逆袭：双亲委派模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-46.png)
+
+- 当一个类加载器需要加载某个类时，它首先会请求其父类加载器加载这个类。
+- 这个过程会一直向上递归，也就是说，从子加载器到父加载器，再到更上层的加载器，一直到最顶层的启动类加载器（Bootstrap ClassLoader）。
+- 启动类加载器会尝试加载这个类。如果它能够加载这个类，就直接返回；如果它不能加载这个类（因为这个类不在它的搜索范围内），就会将加载任务返回给委托它的子加载器。
+- 子加载器接着尝试加载这个类。如果子加载器也无法加载这个类，它就会继续向下传递这个加载任务，依此类推。
+- 这个过程会继续，直到某个加载器能够加载这个类，或者所有加载器都无法加载这个类，最终抛出 ClassNotFoundException。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
+
+### 46.为什么要用双亲委派模型？
+
+可以为 Java 应用程序的运行提供一致性和安全性的保障。
+
+①、保证 Java 核心类库的类型安全
+
+如果自定义类加载器优先加载一个类，比如说自定义的 Object，那在 Java 运行时环境中就存在多个版本的 java.lang.Object，双亲委派模型确保了 Java 核心类库的类加载工作由启动类加载器统一完成，从而保证了 Java 应用程序都是使用的同一份核心类库。
+
+②、避免类的重复加载
+
+在双亲委派模型中，类加载器会先委托给父加载器尝试加载类，这样同一个类不会被加载多次。如果没有这种模型，可能会导致同一个类被不同的类加载器重复加载到内存中，造成浪费和冲突。
 
 ### 47.如何破坏双亲委派机制？
 
@@ -1419,7 +1447,7 @@ VM 会在该阶段对类变量（也称为静态变量，static 关键字修饰�
 
 双亲委派机制在历史上主要有三次破坏：
 
-![双亲委派模型的三次破坏](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-47.png)
+![三分恶面渣逆袭：双亲委派模型的三次破坏](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-47.png)
 
 > **第一次破坏**
 
@@ -1449,23 +1477,101 @@ OSGi 实现模块化热部署的关键是它自定义的类加载器机制的实
 
 ### 49.你觉得应该怎么实现一个热部署功能？
 
-我们已经知道了 Java 类的加载过程。一个 Java 类文件到虚拟机里的对象，要经过如下过程:首先通过 Java 编译器，将 Java 文件编译成 class 字节码，类加载器读取 class 字节码，再将类转化为实例，对实例 newInstance 就可以生成对象。
+实现一个热部署（Hot Deployment）功能通常涉及到类的加载和卸载机制，使得在不重启应用程序的情况下，能够动态替换或更新应用程序的组件。
 
-类加载器 ClassLoader 功能，也就是将 class 字节码转换到类的实例。在 Java 应用中，所有的实例都是由类加载器，加载而来。
+第一步，使用文件监控机制（如Java NIO的WatchService）来监控类文件或配置文件的变更。当监控到文件变更时，触发热部署流程。
 
-一般在系统中，类的加载都是由系统自带的类加载器完成，而且对于同一个全限定名的 java 类（如 com.csiar.soc.HelloWorld），只能被加载一次，而且无法被卸载。
+```java
+class FileWatcher {
+    public static void watchDirectoryPath(Path path) {
+        // 检查路径是否是文件夹
+        try {
+            Boolean isFolder = (Boolean) Files.getAttribute(path, "basic:isDirectory", LinkOption.NOFOLLOW_LINKS);
+            if (!isFolder) {
+                throw new IllegalArgumentException("Path: " + path + " is not a folder");
+            }
+        } catch (IOException ioe) {
+            // 文件 I/O 错误
+            ioe.printStackTrace();
+        }
 
-这个时候问题就来了，如果我们希望将 java 类卸载，并且替换更新版本的 java 类，该怎么做呢？
+        System.out.println("Watching path: " + path);
 
-既然在类加载器中，Java 类只能被加载一次，并且无法卸载。那么我们是不是可以直接把 Java 类加载器干掉呢？答案是可以的，我们可以自定义类加载器，并重写 ClassLoader 的 findClass 方法。
+        // 我们获得文件系统的WatchService对象
+        FileSystem fs = path.getFileSystem();
 
-想要实现热部署可以分以下三个步骤：
+        try (WatchService service = fs.newWatchService()) {
+            // 注册路径到监听服务
+            // 监听目录内文件的创建、修改、删除事件
+            path.register(service, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
 
-- 1）销毁原来的自定义 ClassLoader
-- 2）更新 class 类文件
-- 3）创建新的 ClassLoader 去加载更新后的 class 类文件。
+            // 开始无限循环，等待事件发生
+            WatchKey key = null;
+            while (true) {
+                key = service.take(); // 会阻塞直到有事件发生
 
-到此，一个热部署的功能就这样实现了。
+                // 对于每个发生的事件
+                for (WatchEvent<?> watchEvent : key.pollEvents()) {
+                    WatchEvent.Kind<?> kind = watchEvent.kind();
+
+                    // 获取文件路径
+                    @SuppressWarnings("unchecked")
+                    WatchEvent<Path> ev = (WatchEvent<Path>) watchEvent;
+                    Path fileName = ev.context();
+
+                    System.out.println(kind.name() + ": " + fileName);
+                }
+
+                // 重置watchKey
+                boolean valid = key.reset();
+                // 退出循环如果watchKey无效
+                if (!valid) {
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        // 监控当前目录
+        Path pathToWatch = Paths.get(".");
+        watchDirectoryPath(pathToWatch);
+    }
+}
+```
+
+第二步，创建一个自定义类加载器，继承自`java.lang.ClassLoader`，重写`findClass()`方法，实现类的加载。
+
+```java
+public class HotSwapClassLoader extends ClassLoader {
+    public HotSwapClassLoader() {
+        super(ClassLoader.getSystemClassLoader());
+    }
+
+    @Override
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
+        // 加载指定路径下的类文件字节码
+        byte[] classBytes = loadClassData(name);
+        if (classBytes == null) {
+            throw new ClassNotFoundException(name);
+        }
+        // 调用defineClass将字节码转换为Class对象
+        return defineClass(name, classBytes, 0, classBytes.length);
+    }
+
+    private byte[] loadClassData(String name) {
+        // 实现从文件系统或其他来源加载类文件的字节码
+        // ...
+        return null;
+    }
+}
+```
+
+像 Intellij IDEA 就提供了热部署功能，当我们修改了代码后，IDEA 会自动编译，如果是 Web 项目，在 Chrome 浏览器中装一个 LiveReload 插件，一旦编译完成，页面就会自动刷新。对于测试或者调试来说，就非常方便。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：那你知道类的热更新的？
 
 ### 50.Tomcat 的类加载机制了解吗？
 
@@ -1481,7 +1587,7 @@ Tomact 是 web 容器，可能需要部署多个应用程序。不同的应用�
 
 所以，Tomcat 破坏了**双亲委派原则**，提供隔离的机制，为每个 web 容器单独提供一个 WebAppClassLoader 加载器。每一个 WebAppClassLoader 负责加载本身的目录下的 class 文件，加载不到时再交 CommonClassLoader 加载，这和双亲委派刚好相反。
 
-> 图文详解 53 道 Java 虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+> 图文详解 54 道 Java 虚拟机高频面试题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
 ---
 

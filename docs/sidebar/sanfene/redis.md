@@ -73,10 +73,11 @@ Redis 的应用一般会结合项目去问，以一个电商项目的用户服�
 
 ### 3.Redis 有哪些数据结构？
 
-![三分恶面渣逆袭：Redis基本数据结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-10434dc7-c7a3-4c1a-b484-de3fb37669ee.png)
-Redis 有五种基本数据结构。
+Redis 有五种基本数据结构，这五种数据结构分别是：string（字符串）、hash（哈希）、list（列表）、set（集合）、sorted set（有序集合）。
 
-#### string
+![三分恶面渣逆袭：Redis基本数据结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-10434dc7-c7a3-4c1a-b484-de3fb37669ee.png)
+
+#### 简单介绍下 string
 
 字符串是最基础的数据结构，key 是一个字符串，不用多说，value 可以是：
 
@@ -91,7 +92,7 @@ Redis 有五种基本数据结构。
 - 共享 Session
 - 限速
 
-#### hash
+#### 简单介绍下 hash
 
 键值对集合，key 是字符串，value 是一个 Map 集合，比如说 `value = {name: '沉默王二', age: 18}`，name 和 age 属于字段 field，沉默王二 和 18 属于值 value。
 
@@ -104,7 +105,7 @@ Redis 有五种基本数据结构。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315115713.png)
 
-#### list
+#### 简单介绍下 list
 
 list 是一个简单的字符串列表，按照插入顺序排序。可以添加一个元素到列表的头部（左边）或者尾部（右边）。
 
@@ -113,7 +114,7 @@ list 是一个简单的字符串列表，按照插入顺序排序。可以添加
 - 消息队列
 - 文章列表
 
-#### set
+#### 简单介绍下 set
 
 集合是字符串的无序集合，集合中的元素是唯一的，不允许重复。和 Java 集合框架中的 Set 有相似之处。
 
@@ -122,7 +123,7 @@ list 是一个简单的字符串列表，按照插入顺序排序。可以添加
 - 标签（tag）
 - 共同关注
 
-#### sorted set
+#### 简单介绍下 sorted set
 
 Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 
@@ -138,6 +139,8 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 ![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你对Redis了解多少，说说常见的数据结构和应用场景
 
 ### 4.Redis 为什么快呢？
 
@@ -516,41 +519,58 @@ Redis 使用了 Raft 算法实 现领导者选举，大致流程如下：
 
 ### 23.集群中数据如何分区？
 
-分布式的存储中，要把数据集按照分区规则映射到多个节点，常见的数据分区规则三种：
-![分布式数据分区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-ceb49e41-dfd7-4d1e-91f9-c299437227d2.png)
+在 Redis 集群中，数据分区是通过将数据分散到不同的节点来实现的，常见的数据分区规则有三种：节点取余分区、一致性哈希分区、虚拟槽分区。
 
-##### 方案一：节点取余分区
+![三分恶面渣逆袭：分布式数据分区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-ceb49e41-dfd7-4d1e-91f9-c299437227d2.png)
 
-节点取余分区，非常好理解，使用特定的数据，比如 Redis 的键，或者用户 ID 之类，对响应的 hash 值取余：hash（key）%N，来确定数据映射到哪一个节点上。
+#### 说说节点取余分区
 
-不过该方案最大的问题是，当节点数量变化时，如扩容或收缩节点，数据节点映射关 系需要重新计算，会导致数据的重新迁移。
+节点取余分区是一种简单的分区策略，其中数据项通过对某个值（通常是键的哈希值）进行取余操作来分配到不同的节点。
 
-![节点取余分区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-8b1fcaec-37e6-420a-9ca2-03615232af17.png)
+类似 HashMap 中的取余操作，数据项的键经过哈希函数计算后，对节点数量取余，然后将数据项分配到余数对应的节点上。
 
-##### 方案二：一致性哈希分区
+缺点是扩缩容时，大多数数据需要重新分配，因为节点总数的改变会影响取余结果，这可能导致大量数据迁移。
 
-将整个 Hash 值空间组织成一个虚拟的圆环，然后将缓存节点的 IP 地址或者主机名做 Hash 取值后，放置在这个圆环上。当我们需要确定某一个 Key 需 要存取到哪个节点上的时候，先对这个 Key 做同样的 Hash 取值，确定在环上的位置，然后按照顺时针方向在环上“行走”，遇到的第一个缓存节点就是要访问的节点。
+![三分恶面渣逆袭：节点取余分区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-8b1fcaec-37e6-420a-9ca2-03615232af17.png)
 
-比如说下面 这张图里面，Key 1 和 Key 2 会落入到 Node 1 中，Key 3、Key 4 会落入到 Node 2 中，Key 5 落入到 Node 3 中，Key 6 落入到 Node 4 中。
-![一致性哈希分区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-89bd1c1c-251c-4f53-bba3-fe945b2ae9e2.png)
+#### 说说一致性哈希分区
 
-这种方式相比节点取余最大的好处在于加入和删除节点只影响哈希环中 相邻的节点，对其他节点无影响。
+一致性哈希分区的原理是：将哈希值空间组织成一个环，数据项和节点都映射到这个环上。数据项由其哈希值直接映射到环上，然后顺时针分配到遇到的第一个节点。
+
+从而来减少节点变动时数据迁移的量。
+
+![三分恶面渣逆袭：一致性哈希分区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-89bd1c1c-251c-4f53-bba3-fe945b2ae9e2.png)
+
+Key 1 和 Key 2 会落入到 Node 1 中，Key 3、Key 4 会落入到 Node 2 中，Key 5 落入到 Node 3 中，Key 6 落入到 Node 4 中。
+
+这种方式相比节点取余最大的好处在于加入和删除节点只影响哈希环中相邻的节点，对其他节点无影响。
 
 但它还是存在问题：
 
-- 缓存节点在圆环上分布不平均，会造成部分缓存节点的压力较大
-- 当某个节点故障时，这个节点所要承担的所有访问都会被顺移到另一个节点上，会对后面这个节点造成力。
+- 节点在圆环上分布不平均，会造成部分缓存节点的压力较大
+- 当某个节点故障时，这个节点所要承担的所有访问都会被顺移到另一个节点上，会对后面这个节点造成压力。
 
-##### 方案三：虚拟槽分区
+#### 说说虚拟槽分区
 
-这个方案 一致性哈希分区的基础上，引入了 **虚拟节点** 的概念。Redis 集群使用的便是该方案，其中的虚拟节点称为 **槽（slot）**。槽是介于数据和实际节点之间的虚拟概念，每个实际节点包含一定数量的槽，每个槽包含哈希值在一定范围内的数据。
-![虚拟槽分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e0ed9d62-3406-40db-8b01-c931f1020612.png)
+在虚拟槽分区中，存在固定数量的槽位（例如 Redis 的 16384 个槽），每个键通过哈希算法映射到这些槽中的一个。每个节点负责管理一定范围的槽。
 
-在使用了槽的一致性哈希分区中，槽是数据管理和迁移的基本单位。槽解耦了数据和实际节点 之间的关系，增加或删除节点对系统的影响很小。仍以上图为例，系统中有 `4` 个实际节点，假设为其分配 `16` 个槽(0-15)；
+可以灵活地将槽（以及槽中的数据）从一个节点迁移到另一个节点，从而实现平滑扩缩容。
 
-- 槽 0-3 位于 node1；4-7 位于 node2；以此类推....
+数据分布更均匀，且当节点增减时，数据迁移更加高效。Redis Cluster 采用的正是这种分区方式。
+
+在虚拟槽分区中，槽是数据管理和迁移的基本单位。槽解耦了数据和实际节点之间的关系，增加或删除节点对系统的影响很小。
+
+![三分恶面渣逆袭：虚拟槽分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e0ed9d62-3406-40db-8b01-c931f1020612.png)
+
+系统中有 `4` 个实际节点，假设为其分配 `16` 个槽(0-15)；
+
+- 槽 0-3 位于 node1；
+- 4-7 位于 node2；
+- 以此类推....
 
 如果此时删除 `node2`，只需要将槽 4-7 重新分配即可，例如槽 4-5 分配给 `node1`，槽 6 分配给 `node3`，槽 7 分配给 `node4`，数据在其他节点的分布仍然较为均衡。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道Redis的一致性hash吗
 
 ### 24.能说说 Redis 集群的原理吗？
 
@@ -1383,11 +1403,11 @@ Redis 的底层数据结构有**动态字符串(sds)**、**链表(list)**、**�
 
 ![三分恶面渣逆袭：Redis Object对应的映射](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a1b2d2f9-6895-4749-9bda-9314f08bca68.png)
 
-来看一下 Redis 不同数据结构的底层实现：
+比如说 string 是通过 SDS 实现的，list 是通过链表实现的，hash 是通过字典实现的，set 是通过字典实现的，zset 是通过跳跃表实现的。
 
 ![三分恶面渣逆袭：类型-编码-结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7cf91aa9-8db5-4abe-803e-a9e8f3bcb9e4.png)
 
-#### 字符串
+#### 简单介绍下 SDS
 
 Redis 是通过 C 语言实现的，但 Redis 并没有直接使用 C 语言的字符串，而是自己实现了一种叫做动态字符串 SDS 的类型。
 
@@ -1405,7 +1425,7 @@ struct sdshdr {
 
 ![三分恶面渣逆袭：SDS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7c038f2c-b5ee-4229-9449-713fab3b1855.png)
 
-#### 链表 linkedlist
+#### 简单介绍下链表 linkedlist
 
 Redis 的链表是⼀个双向⽆环链表结构，和 Java 中的 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 类似。
 
@@ -1413,7 +1433,7 @@ Redis 的链表是⼀个双向⽆环链表结构，和 Java 中的 [LinkedList](
 
 ![三分恶面渣逆袭：链表linkedlist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-1adef9c0-8feb-4836-8997-84bda96e2498.png)
 
-#### 字典 dict
+#### 简单介绍下字典 dict
 
 ⽤于保存键值对的抽象数据结构。Redis 使⽤ hash 表作为底层实现，一个哈希表里可以有多个哈希表节点，而每个哈希表节点就保存了字典里中的一个键值对。
 
@@ -1421,11 +1441,13 @@ Redis 的链表是⼀个双向⽆环链表结构，和 Java 中的 [LinkedList](
 
 ![三分恶面渣逆袭：字典](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-9934b4a2-c253-4d42-acf4-c6c940840779.png)
 
-#### 跳跃表 skiplist
+#### 简单介绍下跳跃表 skiplist
 
 推荐阅读：[全网最详细的跳表文章](https://www.jianshu.com/p/9d8296562806)
 
 跳跃表（也称跳表）是有序集合 Zset 的底层实现之⼀。在 Redis 7.0 之前，如果有序集合的元素个数小于 128 个，并且每个元素的值小于 64 字节时，Redis 会使用压缩列表作为 Zset 的底层实现，否则会使用跳表；在 Redis 7.0 之后，压缩列表已经废弃，交由 listpack 来替代。
+
+![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
 
 跳表由 zskiplist 和 zskiplistNode 组成，zskiplist ⽤于保存跳表的基本信息（表头、表尾、⻓度、层高等）。
 
@@ -1451,21 +1473,23 @@ typedef struct zskiplistNode {
 } zskiplistNode;
 ```
 
-![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
 
-#### 整数集合 intset
+
+#### 简单介绍下整数集合 intset
 
 ⽤于保存整数值的集合抽象数据结构，不会出现重复元素，底层实现为数组。
 
 ![整数集合intset](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-833dbfb2-7c79-4e7b-a143-8a4a2936cdd8.png)
 
-#### 压缩列表 ziplist
+#### 简单介绍下压缩列表 ziplist
 
 压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
 
 ![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道Redis的zset底层实现吗
 
 ### 47.Redis 的 SDS 和 C 中字符串相比有什么优势？
 
@@ -1507,14 +1531,13 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 
 待搬迁结束后，h[1]就取代 h[0]存储字典的元素。
 
-### 49.跳跃表是如何实现的？原理？
+### 49.跳表是如何实现的？原理？
 
-PS:跳跃表是比较常问的一种结构。
+跳表（skiplist）是一种有序的数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。
 
-跳跃表（skiplist）是一种有序数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。
-![跳跃表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-08391728-5ba8-42a0-a287-9284451e0ee7.png)
+![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-08391728-5ba8-42a0-a287-9284451e0ee7.png)
 
-> **为什么使用跳跃表?**
+#### 为什么使用跳表？
 
 首先，因为 zset 要支持随机的插入和删除，所以它 **不宜使用数组来实现**，关于排序问题，我们也很容易就想到 **红黑树/ 平衡树** 这样的树形结构，为什么 Redis 不使用这样一些结构呢？
 
@@ -1525,31 +1548,53 @@ PS:跳跃表是比较常问的一种结构。
 
 本质是解决查找问题。
 
-> **跳跃表是怎么实现的？**
+#### 跳跃表是怎么实现的？
 
 跳跃表的节点里有这些元素：
 
-- **层**
-  跳跃表节点的 level 数组可以包含多个元素，每个元素都包含一个指向其它节点的指针，程序可以通过这些层来加快访问其它节点的速度，一般来说，层的数量月多，访问其它节点的速度就越快。
+①、**层**
 
-  每次创建一个新的跳跃表节点的时候，程序都根据幂次定律，随机生成一个介于 1 和 32 之间的值作为 level 数组的大小，这个大小就是层的“高度”
+跳跃表节点的 level 数组可以包含多个元素，每个元素都包含一个指向其它节点的指针，程序可以通过这些层来加快访问其它节点的速度，一般来说，层的数量月多，访问其它节点的速度就越快。
 
-- **前进指针**
-  每个层都有一个指向表尾的前进指针（level[i].forward 属性），用于从表头向表尾方向访问节点。
+每次创建一个新的跳跃表节点的时候，程序都根据幂次定律，随机生成一个介于 1 和 32 之间的值作为 level 数组的大小，这个大小就是层的“高度”
 
-  我们看一下跳跃表从表头到表尾，遍历所有节点的路径：
-  ![通过前进指针遍历](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b153f782-e2e5-4f98-b251-04f06e16c073.png)
+②、**前进指针**
 
-- **跨度**
-  层的跨度用于记录两个节点之间的距离。跨度是用来计算排位（rank）的：在查找某个节点的过程中，将沿途访问过的所有层的跨度累计起来，得到的结果就是目标节点在跳跃表中的排位。
+每个层都有一个指向表尾的前进指针（`level[i].forward` 属性），用于从表头向表尾方向访问节点。
 
-  例如查找，分值为 3.0、成员对象为 o3 的节点时，沿途经历的层：查找的过程只经过了一个层，并且层的跨度为 3，所以目标节点在跳跃表中的排位为 3。
-  ![计算节点的排位](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d2395b7e-2f31-4ca8-b06d-2cb47afaeb74.png)
+我们看一下跳跃表从表头到表尾，遍历所有节点的路径：
+  
+![三分恶面渣逆袭：通过前进指针遍历](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b153f782-e2e5-4f98-b251-04f06e16c073.png)
 
-- **分值和成员**
-  节点的分值（score 属性）是一个 double 类型的浮点数，跳跃表中所有的节点都按分值从小到大来排序。
+③、**跨度**
 
-  节点的成员对象（obj 属性）是一个指针，它指向一个字符串对象，而字符串对象则保存这一个 SDS 值。
+层的跨度用于记录两个节点之间的距离。跨度是用来计算排位（rank）的：在查找某个节点的过程中，将沿途访问过的所有层的跨度累计起来，得到的结果就是目标节点在跳跃表中的排位。
+
+例如查找，分值为 3.0、成员对象为 o3 的节点时，沿途经历的层：查找的过程只经过了一个层，并且层的跨度为 3，所以目标节点在跳跃表中的排位为 3。
+
+![三分恶面渣逆袭：计算节点的排位](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d2395b7e-2f31-4ca8-b06d-2cb47afaeb74.png)
+
+④、**分值和成员**
+
+节点的分值（score 属性）是一个 double 类型的浮点数，跳跃表中所有的节点都按分值从小到大来排序。
+
+节点的成员对象（obj 属性）是一个指针，它指向一个字符串对象，而字符串对象则保存这一个 SDS 值。
+
+#### 为什么hash表范围查询效率比跳表低？
+
+哈希表是一种基于键值对的数据结构，主要用于快速查找、插入和删除操作。
+
+哈希表通过计算键的哈希值来确定值的存储位置，这使得它在单个元素的访问上非常高效，时间复杂度为 O(1)。
+
+然而，哈希表内的元素是无序的。因此，对于范围查询（如查找所有在某个范围内的元素），哈希表无法直接支持，必须遍历整个表来检查哪些元素满足条件，这使得其在范围查询上的效率低下，时间复杂度为 O(n)。
+
+跳表是一种有序的数据结构，能够保持元素的排序顺序。
+
+它通过多层的链表结构实现快速的插入、删除和查找操作，其中每一层都是下一层的一个子集，并且元素在每一层都是有序的。
+
+当进行范围查询时，跳表可以从最高层开始，快速定位到范围的起始点，然后沿着下一层继续直到找到范围的结束点。这种分层的结构使得跳表在进行范围查询时非常高效，时间复杂度为 O(log n) 加上范围内元素的数量。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：为什么hash表范围查询效率比跳表低
 
 ### 50.压缩列表了解吗？
 
