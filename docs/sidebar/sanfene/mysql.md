@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，68道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，69道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 68 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 69 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 69 张手绘图，详解 68 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 69 张手绘图，详解 69 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ## 基础
 
@@ -228,7 +228,7 @@ alter table blogs modify content text CHARACTER SET utf8mb4 COLLATE ut
 10. **ORDER BY**：将虚拟表 VT9 中的记录按照<order_by_list>进行排序操作，产生虚拟表 VT10。11）
 11. **LIMIT**：取出指定行的记录，产生虚拟表 VT11，并返回给查询用户
 
-### 67.介绍一下 MySQL 的常用命令
+### 67.介绍一下 MySQL 的常用命令（补充）
 
 > 2024 年 03 月 13 日增补，说实话这个问题问的就不是很有水准，可以先向面试官确认一下，“您提到的常用命令是指数据库、表、数据这些增删改查的 SQL 命令吗？”
 
@@ -386,7 +386,7 @@ ROLLBACK;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：介绍一下 MySQL 的常用命令
 
-### 68.介绍一下 MySQL bin 目录下的可执行文件
+### 68.介绍一下 MySQL bin 目录下的可执行文件（补充）
 
 > 2024 年 03 月 13 日增补
 
@@ -399,6 +399,26 @@ ROLLBACK;
 - mysqlimport：用于从文本文件中导入数据到数据库表中，非常适合用于批量导入数据。
 - mysqlshow：用于显示 MySQL 数据库服务器中的数据库、表、列等信息。
 - mysqlbinlog：用于查看 MySQL 二进制日志文件的内容，可以用于恢复数据、查看数据变更等。
+
+### 69.MySQL 第 3-10 条记录怎么查？（补充）
+
+>2024年03月30日增补
+
+在 MySQL 中，要查询第 3 到第 10 条记录，可以使用 limit 语句，结合偏移量 offset 和行数 row_count 来实现。
+
+limit 语句用于限制查询结果的数量，偏移量表示从哪条记录开始，行数表示返回的记录数量。
+
+```sql
+SELECT * FROM table_name LIMIT 2, 8;
+```
+
+- 2：偏移量，表示跳过前两条记录，从第三条记录开始。
+- 8：行数，表示从偏移量开始，返回 8 条记录。
+
+偏移量是从 0 开始的，即第一条记录的偏移量是 0；如果想从第 3 条记录开始，偏移量就应该是 2。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 第 3-10 条记录怎么查？
 
 ## 数据库架构
 
@@ -1486,11 +1506,26 @@ B+树中所有叶子节点深度相同，所有数据查询路径长度相等，
 
 ### 37.Hash 索引和 B+ 树索引区别是什么？
 
-- B+ 树可以进行范围查询，Hash 索引不能。
-- B+ 树支持联合索引的最左侧原则，Hash 索引不支持。
-- B+ 树支持 order by 排序，Hash 索引不支持。
-- Hash 索引在等值查询上比 B+ 树效率更高。
-- B+ 树使用 like 进行模糊查询的时候，like 后面（比如 % 开头）的话可以起到优化的作用，Hash 索引根本无法进行模糊查询。
+- B+ 树索引可以进行范围查询，Hash 索引不能。
+- B+ 树索引支持联合索引的最左侧原则，Hash 索引不支持。
+- B+ 树索引支持 order by 排序，Hash 索引不支持。
+- Hash 索引在等值查询上比 B+ 树索引效率更高。
+- B+ 树使用 like 进行模糊查询的时候，like 后面（比如 % 开头）的话可以起到优化的作用，Hash 索引无法进行模糊查询。
+
+#### MySQL模糊查询怎么查，什么情况下模糊查询不走索引？
+
+MySQL 中进行模糊查询主要使用 LIKE 语句，结合通配符 %（代表任意多个字符）和 _（代表单个字符）来实现。
+
+```sql
+SELECT * FROM table WHERE column LIKE '%xxx%';
+```
+
+这个查询会返回所有 column 列中包含 xxx 的记录。
+
+但是，如果模糊查询的通配符 % 出现在搜索字符串的开始位置，如 `LIKE '%xxx'`，MySQL 将无法使用索引，因为数据库必须扫描全表以匹配任意位置的字符串。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL模糊查询怎么查，什么情况下模糊查询不走索引
 
 ### 38.聚簇索引与非聚簇索引的区别？
 
@@ -1705,19 +1740,23 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 48.MySQL 事务的四大特性说一下？
 
+事务是 MySQL 执行过程中的一个逻辑单位，由一系列的操作组成，这些操作要么完全执行，要么完全不执行。
+
+事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）。
+
 ![三分恶面渣逆袭：事务四大特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-eaafb8b8-fbe6-42c0-9cc2-f2e04631b56c.jpg)
 
-#### 原子性：
+#### 什么是原子性？
 
 原子性子性意味着事务中的所有操作要么全部完成，要么全部不完成，它是不可分割的单位。如果事务中的任何一个操作失败了，整个事务都会回滚到事务开始之前的状态，如同这些操作从未被执行过一样。
 
-#### 一致性：
+#### 什么是一致性？
 
 一致性确保事务从一个一致的状态转换到另一个一致的状态。
 
 比如在银行转账事务中，无论发生什么，转账前后两个账户的总金额应保持不变。假如 A 账户（100 块）给 B 账户（10 块）转了 10 块钱，不管成功与否，A 和 B 的总金额都是 110 块。
 
-#### 隔离性：
+#### 什么是隔离性？
 
 隔离性意味着并发执行的事务是彼此隔离的，一个事务的执行不会被其他事务干扰。就是事务之间是井水不犯河水的。
 
@@ -1725,11 +1764,12 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 数据库系统通过事务隔离级别（如读未提交、读已提交、可重复读、串行化）来实现事务的隔离性。
 
-#### 持久性：
+#### 什么是持久性？
 
 持久性确保事务一旦提交，它对数据库所做的更改就是永久性的，即使发生系统崩溃，数据库也能恢复到最近一次提交的状态。通常，持久性是通过数据库的恢复和日志机制来实现的，确保提交的事务更改不会丢失。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的四个特性，怎么理解事务一致性
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 
 ### 49.那 ACID 靠什么保证的呢？
 
@@ -1778,16 +1818,32 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 
 ### 50.事务的隔离级别有哪些？MySQL 的默认隔离级别是什么？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-99942529-4a91-420b-9ce2-4149e747f64d.jpg)
+事务的隔离级别定了一个事务可能受其他事务影响的程度，MySQL 支持的四种隔离级别分别是：读未提交（Read Uncommitted）、读已提交（Read Committed）、可重复读（Repeatable Read）和串行化（Serializable）。
 
-事务的四个隔离级别
+![三分恶面渣逆袭：事务的四个隔离级别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-99942529-4a91-420b-9ce2-4149e747f64d.jpg)
 
-- 读未提交（Read Uncommitted）
-- 读已提交（Read Committed）
-- 可重复读（Repeatable Read）
-- 串行化（Serializable）
+#### 什么是读未提交？
 
-MySQL 默认的事务隔离级别是可重复读 (Repeatable Read)。
+读未提交是最低的隔离级别，在这个级别，当前事务可以读取未被其他事务提交的数据，以至于会出现“脏读”、“不可重复读”和“幻读”的问题。
+
+#### 什么是读已提交？
+
+当前事务只能读取已经被其他事务提交的数据，可以避免“脏读”现象。但不可重复读和幻读问题仍然存在。
+
+#### 什么是可重复读？
+
+确保在同一事务中多次读取相同记录的结果是一致的，即使其他事务对这条记录进行了修改，也不会影响到当前事务。
+
+是 MySQL 默认的隔离级别，避免了“脏读”和“不可重复读”，也在很大程度上减少了“幻读”问题。
+
+#### 什么是串行化？
+
+最高的隔离级别，通过强制事务串行执行来避免并发问题，可以解决“脏读”、“不可重复读”和“幻读”问题。
+
+但会导致大量的超时和锁竞争问题。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 
@@ -2130,7 +2186,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 也有可能是每个 sql 消耗资源并不多，但是突然之间，有大量的 session 连进来导致 cpu 飙升，这种情况就需要跟应用一起来分析为何连接数会激增，再做出相应的调整，比如说限制连接数等
 
-> 图文详解 68 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+> 图文详解 69 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ---
 

@@ -48,9 +48,38 @@ Java 集合框架可以分为两条大的支线：
 - [Collections](https://javabetter.cn/common-tool/collections.html)：提供了一些对集合进行排序、二分查找、同步的静态方法。
 - [Arrays](https://javabetter.cn/common-tool/arrays.html)：提供了一些对数组进行排序、打印、和 List 进行转换的静态方法。
 
+#### 简单介绍一下队列 Queue
+
+Java 中的队列主要通过 java.util.Queue 接口和 java.util.concurrent.BlockingQueue 两个接口来实现。
+
+PriorityQueue 是一个基于优先级堆的无界队列，它的元素按照自然顺序排序或者 Comparator 进行排序。
+
+![李豪：优先级队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/PriorityQueue-8dca2f55-a7c7-49e1-95a5-df1a34f2aef5.png)
+
+ArrayDeque 是一个基于数组的双端队列，可以在两端插入和删除元素。
+
+![李豪：双端队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
+
+还有一个大家可能忽略的队列，那就是 LinkedList，它既可以当作 List 使用，也可以当作 Queue 使用。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-02.png)
+
+BlockingQueue 代表的是线程安全的队列，不仅可以由多个线程并发访问，还添加了等待/通知机制，以便在队列为空时阻塞获取元素的线程，直到队列变得可用，或者在队列满时阻塞插入元素的线程，直到队列变得可用。
+
+阻塞队列（BlockingQueue）被广泛用于“生产者-消费者”问题中，其原因是 BlockingQueue 提供了可阻塞的插入和移除方法。当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。
+
+BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBlockingDeque、LinkedBlockingQueue、LinkedTransferQueue、PriorityBlockingQueue、SynchronousQueue 等。
+
+阻塞指的是一种程序执行状态，其中某个线程在等待某个条件满足时暂停其执行（即阻塞），直到条件满足时恢复其执行。
+
+推荐阅读：[阻塞队列BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html)。
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：你了解哪些集合框架？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Java 容器和 HashMap
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解哪些集合？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：知道哪些集合，讲讲 HashMap 和 TreeMap 的区别，讲讲两者应用场景的区别；讲一下有哪些队列，阻塞队列的阻塞是什么含义？
+
 
 ## List
 
@@ -934,9 +963,33 @@ LinkedHashMap 维护了一个双向链表，有头尾节点，同时 LinkedHashM
 
 ### 29.讲讲 TreeMap 怎么实现有序的？
 
-TreeMap 是按照 Key 的自然顺序或者 Comprator 的顺序进行排序，内部是通过红黑树来实现。所以要么 key 所属的类实现 Comparable 接口，或者自定义一个实现了 Comparator 接口的比较器，传给 TreeMap 用于 key 的比较。
+TreeMap 通过 key 的比较器来决定元素的顺序，如果没有指定比较器，那么 key 必须实现 [Comparable 接口](https://javabetter.cn/collection/comparable-omparator.html)。
 
-![TreeMap](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-35.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/collection-20240330124711.png)
+
+TreeMap 的底层是红黑树，红黑树是一种自平衡的二叉查找树，每个节点都大于其左子树中的任何节点，小于其右子节点树种的任何节点。
+
+![三分恶面渣逆袭：TreeMap](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-35.png)
+
+插入或者删除元素时通过旋转和着色来保持树的平衡。
+
+查找的时候通过从根节点开始，利用二叉查找树的性质，逐步向左或者右子树递归查找，直到找到目标元素。
+
+#### TreeMap 和 HashMap 的区别
+
+①、HashMap 是基于数组+链表+红黑树实现的，put 元素的时候会先计算 key 的哈希值，然后通过哈希值计算出数组的索引，然后将元素插入到数组中，如果发生哈希冲突，会使用链表来解决，如果链表长度大于 8，会转换为红黑树。
+
+get 元素的时候同样会先计算 key 的哈希值，然后通过哈希值计算出数组的索引，如果遇到链表或者红黑树，会通过 key 的 equals 方法来判断是否是要找的元素。
+
+②、TreeMap 是基于红黑树实现的，put 元素的时候会先判断根节点是否为空，如果为空，直接插入到根节点，如果不为空，会通过 key 的比较器来判断元素应该插入到左子树还是右子树。
+
+get 元素的时候会通过 key 的比较器来判断元素的位置，然后递归查找。
+
+由于 HashMap 是基于哈希表实现的，所以在没有发生哈希冲突的情况下，HashMap 的查找效率是 O(1)。适用于查找操作比较频繁的场景。
+
+而 TreeMap 是基于红黑树实现的，所以 TreeMap 的查找效率是 O(logn)。并且保证了元素的顺序，因此适用于需要大量范围查找或者有序遍历的场景。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：知道哪些集合，讲讲 HashMap 和 TreeMap 的区别，讲讲两者应用场景的区别
 
 ## Set
 
@@ -990,7 +1043,7 @@ HashSet 会自动去重，因为它是用 HashMap 实现的，HashMap 的键是�
 - ArrayList 允许重复元素和 null 值，可以有多个相同的元素；HashSet 保证每个元素唯一，不允许重复元素，基于元素的 hashCode 和 equals 方法来确定元素的唯一性。
 - ArrayList 保持元素的插入顺序，可以通过索引访问元素；HashSet 不保证元素的顺序，元素的存储顺序依赖于哈希算法，并且可能随着元素的添加或删除而改变。
 
-### HashSet 怎么判断元素重复，重复了是否 put
+#### HashSet 怎么判断元素重复，重复了是否 put
 
 HashSet 的 add 方法是通过调用 HashMap 的 put 方法实现的：
 
