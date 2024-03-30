@@ -2273,60 +2273,101 @@ ps:这个例子只是简单地进行了数据推送，实际上还可以结合�
 
 ### 46.能简单说一下线程池的工作流程吗？
 
-用一个通俗的比喻：
+当应用程序提交一个任务时，线程池会根据当前线程的状态和参数决定如何处理这个任务。
 
-有一个营业厅，总共有六个窗口，现在开放了三个窗口，现在有三个窗口坐着三个营业员小姐姐在营业。
+- 如果线程池中的核心线程都在忙，并且线程池未达到最大线程数，新提交的任务会被放入队列中进行等待。
+- 如果任务队列已满，且当前线程数量小于最大线程数，线程池会创建新的线程来处理任务。
 
-老三去办业务，可能会遇到什么情况呢？
+空闲的线程会从任务队列中取出任务来执行，当任务执行完毕后，线程并不会立即销毁，而是继续保持在池中等待下一个任务。
 
-1.  老三发现有空间的在营业的窗口，直接去找小姐姐办理业务。
+当线程空闲时间超出指定时间，且当前线程数量大于核心线程数时，线程会被回收。
 
-![直接办理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-62.png)
+#### 能用一个生活中的例子说明下吗？
 
-2. 老三发现没有空闲的窗口，就在排队区排队等。
+可以。有个名叫“你一定暴富”的银行，该银行有 6 个窗口，现在开放了 3 个窗口，坐着 3 个小姐姐在办理业务。
 
-![排队等待](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-63.png)
+靓仔小二去办理业务，会遇到什么情况呢？
 
-3. 老三发现没有空闲的窗口，等待区也满了，蚌埠住了，经理一看，就让休息的小姐姐赶紧回来上班，等待区号靠前的赶紧去新窗口办，老三去排队区排队。小姐姐比较辛苦，假如一段时间发现他们可以不用接着营业，经理就让她们接着休息。
+第一情况，小二发现有个空闲的小姐姐，正在翘首以盼，于是小二就快马加鞭跑过去办理了。
 
-![排队区满](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-64.png)
+![三分恶面渣逆袭：直接办理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-62.png)
 
-4. 老三一看，六个窗口都满了，等待区也没位置了。老三急了，要闹，经理赶紧出来了，经理该怎么办呢？
+第二种情况，小姐姐们都在忙，接待员小美招呼小二去排队区区取号排队，让小二稍安勿躁。
 
-![等待区，排队区都满](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-65.png)
+![三分恶面渣逆袭：排队等待](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-63.png)
 
-> 1.  我们银行系统已经瘫痪
->
-> 2.  谁叫你来办的你找谁去
->
-> 3.  看你比较急，去队里加个塞
->
-> 4.  今天没办法，不行你看改一天
+第三种情况，不仅小姐姐们都在忙，排队区也满了，小二着急用钱，于是脾气就上来了，和接待员小美对线了起来，要求开放另外 3 个空闲的窗口。
 
-上面的这个流程几乎就跟 JDK 线程池的大致流程类似，
+小美迫于小二的压力，开放了另外 3 个窗口，排队区的人立马就冲了过去。
 
-> 1.  营业中的 3 个窗口对应核心线程池数：corePoolSize
-> 2.  总的营业窗口数 6 对应：maximumPoolSize
-> 3.  打开的临时窗口在多少时间内无人办理则关闭对应：unit
-> 4.  排队区就是等待队列：workQueue
-> 5.  无法办理的时候银行给出的解决方法对应：RejectedExecutionHandler
-> 6.  threadFactory 该参数在 JDK 中是 线程工厂，用来创建线程对象，一般不会动。
+![三分恶面渣逆袭：排队区满](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-64.png)
 
-所以我们线程池的工作流程也比较好理解了：
+第四种情况，6 个窗口的小姐姐都在忙，排队区也满了。。。
 
-1.  线程池刚创建时，里面没有一个线程。任务队列是作为参数传进来的。不过，就算队列里面有任务，线程池也不会马上执行它们。
-2.  当调用 execute() 方法添加一个任务时，线程池会做如下判断：
+![三分恶面渣逆袭：等待区，排队区都满](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-65.png)
 
-- 如果正在运行的线程数量小于 corePoolSize，那么马上创建线程运行这个任务；
-- 如果正在运行的线程数量大于或等于 corePoolSize，那么将这个任务放入队列；
-- 如果这时候队列满了，而且正在运行的线程数量小于 maximumPoolSize，那么还是要创建非核心线程立刻运行这个任务；
-- 如果队列满了，而且正在运行的线程数量大于或等于 maximumPoolSize，那么线程池会根据拒绝策略来对应处理。
+接待员小美给了小二 4 个选项：
 
-![线程池执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-66.png)
+1. 对不起，我们暴富银行系统瘫痪了。
+2. 没看忙着呢，谁叫你来办的你找谁去！
+3. 靓仔，看你比较急，去队里偷偷加个塞。
+4. 不好意思，今天没办法，你改天再来吧。
 
-3. 当一个线程完成任务时，它会从队列中取下一个任务来执行。
+这个流程和线程池不能说一模一样，简直就是一模一样：
 
-4. 当一个线程无事可做，超过一定的时间（keepAliveTime）时，线程池会判断，如果当前运行的线程数大于 corePoolSize，那么这个线程就被停掉。所以线程池的所有任务完成后，它最终会收缩到 corePoolSize 的大小。
+1. corePoolSize 对应营业窗口数 3
+2. maximumPoolSize 对应最大窗口数 6
+3. workQueue 对应排队区
+4. handler 对应接待员小美
+
+```java
+public class ThreadPoolDemo {
+    public static void main(String[] args) {
+        // 创建一个线程池
+        ExecutorService threadPool = new ThreadPoolExecutor(
+                3, // 核心线程数
+                6, // 最大线程数
+                0, // 线程空闲时间
+                TimeUnit.SECONDS, // 时间单位
+                new LinkedBlockingQueue<>(10), // 等待队列
+                Executors.defaultThreadFactory(), // 线程工厂
+                new ThreadPoolExecutor.AbortPolicy() // 拒绝策略
+        );
+        // 模拟 10 个顾客来银行办理业务
+        try {
+            for (int i = 1; i <= 10; i++) {
+                final int tempInt = i;
+                threadPool.execute(() -> {
+                    System.out.println(Thread.currentThread().getName() + "\t" + "办理业务" + tempInt);
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            threadPool.shutdown();
+        }
+    }
+}
+```
+
+好，我再来梳理一下线程池的整个工作流程。
+
+第一步，创建线程池。
+
+第二步，调用线程池的 `execute()`方法，提交任务。
+
+- 如果正在运行的线程数量小于 corePoolSize，那么线程池会创建一个新的线程来执行这个任务；
+- 如果正在运行的线程数量大于或等于 corePoolSize，那么线程池会将这个任务放入等待队列；
+- 如果等待队列满了，而且正在运行的线程数量小于 maximumPoolSize，那么线程池会创建新的线程来执行这个任务；
+- 如果等待队列满了，而且正在运行的线程数量大于或等于 maximumPoolSize，那么线程池会执行拒绝策略。
+
+![三分恶面渣逆袭：线程池执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-66.png)
+
+第三步，线程执行完毕后，线程并不会立即销毁，而是继续保持在池中等待下一个任务。
+
+第四步，当线程空闲时间超出指定时间，且当前线程数量大于核心线程数时，线程会被回收。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
 
 ### 47.线程池主要参数有哪些？
 
@@ -2334,19 +2375,21 @@ ps:这个例子只是简单地进行了数据推送，实际上还可以结合�
 
 ![三分恶面渣逆袭：线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-67.png)
 
-①、corePoolSize
+我一一说一下：
+
+**①、corePoolSize**
 
 定义了线程池中的核心线程数量。即使这些线程处于空闲状态，它们也不会被回收。这是线程池保持在等待状态下的线程数。
 
-②、maximumPoolSize
+**②、maximumPoolSize**
 
 线程池允许的最大线程数量。当工作队列满了之后，线程池会创建新线程来处理任务，直到线程数达到这个最大值。
 
-③、keepAliveTime
+**③、keepAliveTime**
 
 非核心线程的空闲存活时间。如果线程池中的线程数量超过了 corePoolSize，那么这些多余的线程在空闲时间超过 keepAliveTime 时会被终止。
 
-④、unit
+**④、unit**
 
 keepAliveTime 参数的时间单位：
 
@@ -2358,19 +2401,19 @@ keepAliveTime 参数的时间单位：
 - TimeUnit.MICROSECONDS; 微秒
 - TimeUnit.NANOSECONDS; 纳秒
 
-⑤、workQueue
+**⑤、workQueue**
 
 用于存放待处理任务的阻塞队列。当所有核心线程都忙时，新任务会被放在这个队列里等待执行。
 
-⑥、threadFactory
+**⑥、threadFactory**
 
 一个创建新线程的工厂。它用于创建线程池中的线程。可以通过自定义 ThreadFactory 来给线程池中的线程设置有意义的名字，或设置优先级等。
 
-⑦、handler
+**⑦、handler**
 
 拒绝策略 RejectedExecutionHandler，定义了当线程池和工作队列都满了之后对新提交的任务的处理策略。常见的拒绝策略包括抛出异常、直接丢弃、丢弃队列中最老的任务、由提交任务的线程来直接执行任务等。
 
-它们之间的关系如下：
+#### 能简单说一下参数之间的关系吗？
 
 ①、corePoolSize 和 maximumPoolSize 共同定义了线程池的规模。
 
@@ -2412,6 +2455,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 核心线程会一直运行，而超出核心线程数的线程，如果空闲时间超过 keepAliveTime，将会被终止，直到线程池的线程数减少到 corePoolSize。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下为什么项目中使用线程池，重要参数，举个例子说一下这些参数的变化
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
 
 ### 48.线程池的拒绝策略有哪些？
 

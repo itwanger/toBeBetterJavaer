@@ -309,43 +309,157 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![面向对象和面向过程的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-10.png)
 
-### 16.面向对象有哪些特性
+### 16.面向对象编程有哪些特性？
 
-![面向对象三大特征](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-11.png)
+推荐阅读：[深入理解Java三大特性](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)
 
-- <b>封装</b>
+面向对象编程有三大特性：封装、继承、多态。
 
-  封装把⼀个对象的属性私有化，同时提供⼀些可以被外界访问的属性的⽅法。
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240330115129.png)
 
-- <b>继承</b>
+#### 封装是什么？
 
-  继承是使⽤已存在的类的定义作为基础创建新的类，新类的定义可以增加新的属性或新的方法，也可以继承父类的属性和方法。通过继承可以很方便地进行代码复用。
+封装是指将数据（属性，或者叫字段）和操作数据的方法（行为）捆绑在一起，形成一个独立的对象（类的实例）。
 
-> 关于继承有以下三个要点：
+```java
+class Nvshen {
+    private String name;
+    private int age;
 
-1. ⼦类拥有⽗类对象所有的属性和⽅法（包括私有属性和私有⽅法），但是⽗类中的私有属性和⽅法⼦类是⽆法访问，只是拥有。
+    public void setName(String name) {
+        this.name = name;
+    }
 
-2. ⼦类可以拥有⾃⼰属性和⽅法，即⼦类可以对⽗类进⾏扩展。
+    public String getName() {
+        return name;
+    }
 
-3. ⼦类可以⽤⾃⼰的⽅式实现⽗类的⽅法。
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
 
-- <b>多态</b>
+可以看得出，女神类对外没有提供 age 的 getter 方法，因为女神的年龄要保密。
 
-  所谓多态就是指程序中定义的引⽤变量所指向的具体类型和通过该引⽤变量发出的⽅法调⽤在编程时并不确定，⽽是在程序运⾏期间才确定，即⼀个引⽤变量到底会指向哪个类的实例对象，该引⽤变量发出的⽅法调⽤到底是哪个类中实现的⽅法，必须在由程序运⾏期间才能决定。
+所以，封装是把一个对象的属性私有化，同时提供一些可以被外界访问的方法。
 
-  在 Java 中有两种形式可以实现多态：继承（多个⼦类对同⼀⽅法的重写）和接⼝（实现接⼝并覆盖接⼝中同⼀⽅法）。
+#### 继承是什么？
 
-### 17.重载（overload）和重写（override）的区别？
+继承允许一个类（子类）继承现有类（父类或者基类）的属性和方法。以提高代码的复用性，建立类之间的层次关系。
+
+同时，子类还可以重写或者扩展从父类继承来的属性和方法，从而实现多态。
+
+```java
+class Person {
+    protected String name;
+    protected int age;
+
+    public void eat() {
+        System.out.println("吃饭");
+    }
+}
+
+class Student extends Person {
+    private String school;
+
+    public void study() {
+        System.out.println("学习");
+    }
+}
+```
+
+Student 类继承了 Person 类的属性（name、age）和方法（eat），同时还有自己的属性（school）和方法（study）。
+
+#### 什么是多态？
+
+推荐阅读：[深入理解Java三大特性：封装、继承和多态](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)
+
+多态允许不同类的对象对同一消息做出响应，但表现出不同的行为（即方法的多样性）。
+
+在我的印象里，西游记里的那段孙悟空和二郎神的精彩对战就能很好的解释“多态”这个词：一个孙悟空，能七十二变；一个二郎神，也能七十二变；他们都可以变成不同的形态，只需要喊一声“变”。
+
+多态其实是一种能力——同一个行为具有不同的表现形式；换句话说就是，执行一段代码，Java 在运行时能根据对象类型的不同产生不同的结果。
+
+和孙悟空和二郎神都只需要喊一声“变”，然后就变了，并且每次变得还不一样；一个道理。
+
+多态的前置条件有三个：
+
+- 子类继承父类
+- 子类重写父类的方法
+- 父类引用指向子类的对象
+
+```java
+//子类继承父类
+class Wangxiaoer extends Wanger {
+    public void write() { // 子类重写父类方法
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Wanger wanger = new Wangxiaoer();
+        wanger.write();
+    }
+}
+
+class Wanger {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+}
+```
+
+### 55.多态解决了什么问题？（补充）
+
+>2024年03月26日增补
+
+多态的目的是为了提高代码的灵活性和可扩展性，使得代码更容易维护和扩展。比如说动态绑定，允许在程序在运行时再确定调用的是子类还是父类的方法。
+
+现在有一个父类 Wanger，一个子类 Wangxiaoer，都有一个 write 方法。引用 wanger 的类型是父类的 Wanger，那在执行 `wanger.write()` 时，究竟该调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
+
+```java
+//子类继承父类
+public class Wangxiaoer extends Wanger {
+    public void write() { // 子类覆盖父类方法
+        System.out.println("记住仇恨，表明我们要奋发图强的心智");
+    }
+
+    public static void main(String[] args) {
+        // 父类引用指向子类对象
+        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
+
+        for (Wanger wanger : wangers) {
+            // 对象是王二的时候输出：勿忘国耻
+            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
+            wanger.write();
+        }
+    }
+}
+
+class Wanger {
+    public void write() {
+        System.out.println("勿忘国耻");
+    }
+}
+```
+
+答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是 Java 的方法调用机制能找到正确的方法体，然后执行，得到正确的结果。
+
+![bigsai：封装继承多态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
+
+### 17.重载和重写的区别？
 
 推荐阅读：[方法重写 Override 和方法重载 Overload 有什么区别？](https://javabetter.cn/basic-extra-meal/override-overload.html)
 
-如果一个类有多个名字相同但参数个数不同的方法，我们通常称这些方法为方法重载。如果方法的功能是一样的，但参数不同，使用相同的名字可以提高程序的可读性。
+如果一个类有多个名字相同但参数个数不同的方法，我们通常称这些方法为方法重载（overload）。如果方法的功能是一样的，但参数不同，使用相同的名字可以提高程序的可读性。
 
-如果子类具有和父类一样的方法（参数相同、返回类型相同、方法名相同，但方法体可能不同），我们称之为方法重写。 方法重写用于提供父类已经声明的方法的特殊实现，是实现多态的基础条件。
+如果子类具有和父类一样的方法（参数相同、返回类型相同、方法名相同，但方法体可能不同），我们称之为方法重写（override）。方法重写用于提供父类已经声明的方法的特殊实现，是实现多态的基础条件。
 
-方法重载的英文名叫 Overloading，方法重写的英文名叫 Overriding。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
 
 - 方法重载发生在同一个类中，同名的方法如果有不同的参数（参数类型不同、参数个数不同或者二者都不同）。
 - 方法重写发生在子类与父类之间，要求子类与父类具有相同的返回类型，方法名和参数列表，并且不能比父类的方法声明更多的异常，遵守里氏代换原则。
@@ -396,12 +510,13 @@ class Ostrich extends Bird {
 ④、依赖倒置原则（Dependency Inversion Principle, DIP），指高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象。这意味着设计时应该尽量依赖接口或抽象类，而不是实现类。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：设计方法，李氏原则，还了解哪些设计原则
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
 
 ### 18.访问修饰符 public、private、protected、以及不写（默认）时的区别？
 
 Java 中，可以使用访问控制符来保护对类、变量、方法和构造方法的访问。Java 支持 4 种不同的访问权限。
 
-- **default** (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。可以修饰在类、接口、变量、方法。
+- **default** （即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。可以修饰在类、接口、变量、方法。
 - **private** : 在同一类内可见。可以修饰变量、方法。**注意：不能修饰类（外部类）**
 - **public** : 对所有类可见。可以修饰类、接口、变量、方法
 - **protected** : 对同一包内的类和所有子类可见。可以修饰变量、方法。**注意：不能修饰类（外部类）**。
@@ -637,120 +752,6 @@ Java 中有以下四种创建对象的方式:
 - 通过序列化机制
 
 前两者都需要显式地调用构造方法。对于 clone 机制,需要注意浅拷贝和深拷贝的区别，对于序列化机制需要明确其实现原理，在 Java 中序列化可以通过实现 Externalizable 或者 Serializable 来实现。
-
-### 55.多态的目的，解决了什么问题？（补充）
-
->2024年03月26日增补
-
-推荐阅读：[深入理解Java三大特性：封装、继承和多态](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)
-
-Java 的多态是指在面向对象编程中，同一个类的对象在不同情况下表现出来的不同行为和状态。
-
-- 子类可以继承父类的字段和方法，子类对象可以直接使用父类中的方法和字段（私有的不行）。
-- 子类可以重写从父类继承来的方法，使得子类对象调用这个方法时表现出不同的行为。
-- 可以将子类对象赋给父类类型的引用，这样就可以通过父类类型的引用调用子类中重写的方法，实现多态。
-
-多态的目的是为了提高代码的灵活性和可扩展性，使得代码更容易维护和扩展。
-
-比如说，通过允许子类继承父类的方法并重写，增强了代码的复用性。
-
-再比如说多态可以实现动态绑定，这意味着程序在运行时再确定对象的方法调用也不迟。
-
-“光说理论很枯燥，我们再通过代码来具体地分析一下。”
-
-#### 01、多态是什么
-
-在我的印象里，西游记里的那段孙悟空和二郎神的精彩对战就能很好的解释“多态”这个词：一个孙悟空，能七十二变；一个二郎神，也能七十二变；他们都可以变成不同的形态，只需要悄悄地喊一声“变”。
-
-Java 的多态是什么？其实就是一种能力——同一个行为具有不同的表现形式；换句话说就是，执行一段代码，Java 在运行时能根据对象类型的不同产生不同的结果。和孙悟空和二郎神都只需要喊一声“变”，然后就变了，并且每次变得还不一样；一个道理。
-
-多态的前提条件有三个：
-
-- 子类继承父类
-- 子类重写父类的方法
-- 父类引用指向子类的对象
-
-多态的一个简单应用，来看程序清单 1-1：
-
-```java
-//子类继承父类
-public class Wangxiaoer extends Wanger {
-    public void write() { // 子类重写父类方法
-        System.out.println("记住仇恨，表明我们要奋发图强的心智");
-    }
-
-    public static void main(String[] args) {
-        // 父类引用指向子类对象
-        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
-
-        for (Wanger wanger : wangers) {
-            // 对象是王二的时候输出：勿忘国耻
-            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
-            wanger.write();
-        }
-    }
-}
-
-class Wanger {
-    public void write() {
-        System.out.println("勿忘国耻");
-    }
-}
-```
-
-#### 02、多态与后期绑定
-
-现在，我们来思考一个问题：程序清单 1-1 在执行 `wanger.write()` 时，由于编译器只有一个 Wanger 引用，它怎么知道究竟该调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
-
-答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是 Java 的方法调用机制能找到正确的方法体，然后执行，得到正确的结果。
-
-多态机制提供的一个重要的好处就是程序具有良好的扩展性。来看程序清单 2-1：
-
-```java
-//子类继承父类
-public class Wangxiaoer extends Wanger {
-    public void write() { // 子类覆盖父类方法
-        System.out.println("记住仇恨，表明我们要奋发图强的心智");
-    }
-
-    public void eat() {
-        System.out.println("我不喜欢读书，我就喜欢吃");
-    }
-
-    public static void main(String[] args) {
-        // 父类引用指向子类对象
-        Wanger[] wangers = { new Wanger(), new Wangxiaoer() };
-
-        for (Wanger wanger : wangers) {
-            // 对象是王二的时候输出：勿忘国耻
-            // 对象是王小二的时候输出：记住仇恨，表明我们要奋发图强的心智
-            wanger.write();
-        }
-    }
-}
-
-class Wanger {
-    public void write() {
-        System.out.println("勿忘国耻");
-    }
-
-    public void read() {
-        System.out.println("每周读一本好书");
-    }
-}
-```
-
-在程序清单 2-1 中，我们在 Wanger 类中增加了 `read()` 方法，在 Wangxiaoer 类中增加了 `eat()`方法，但这丝毫不会影响到 `write()` 方法的调用。
-
-`write()` 方法忽略了周围代码发生的变化，依然正常运行。这让我想起了金庸《倚天屠龙记》里九阳真经的口诀：“他强由他强，清风拂山岗；他横由他横，明月照大江。”
-
-多态的这个优秀的特性，让我们在修改代码的时候不必过于紧张，因为多态是一项让程序员“将改变的与未改变的分离开来”的重要特性。
-
-让我们一张图来捋一捋封装继承多态其中的关系吧。
-
-![bigsai：封装继承多态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
