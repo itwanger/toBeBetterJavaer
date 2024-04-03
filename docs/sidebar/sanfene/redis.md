@@ -141,6 +141,7 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你对Redis了解多少，说说常见的数据结构和应用场景
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 的数据类型
 
 ### 4.Redis 为什么快呢？
 
@@ -746,9 +747,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 28.如何保证缓存和数据库的数据⼀致性？
 
-在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我采用的是先写 MySQL，再删除 Redis。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我采用的是先写 MySQL，再删除 Redis 的方式来保证缓存和数据库的数据一致性。
 
-![楼仔：技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325221330.png)
+![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325221330.png)
 
 对于第一次查询，请求 B 查询到的缓存数据是 10，但 MySQL 被请求 A 更新为了 11，此时数据库和缓存不一致。
 
@@ -758,7 +759,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 缓存和数据库又一致了。
 
-#### 那我再来说说为什么要删除缓存而不是更新缓存
+#### 那再来说说为什么要删除缓存而不是更新缓存
 
 因为相对而言，删除缓存的速度比更新缓存的速度要快得多。举个例子：假设商品 product_123 的当前库存是 10，现在有一次购买操作，库存减 1，我们需要更新 Redis 中的库存信息。
 
@@ -786,7 +787,7 @@ redis.del(product_id)
 
 假如是更新缓存，那么可能请求 A 更新完 MySQL 后在更新 Redis 中，请求 B 已经读取到 Redis 中的旧值返回了，又一次导致了缓存和数据库不一致。
 
-#### 那我再说说为什么要先更新数据库，再删除缓存
+#### 那再说说为什么要先更新数据库，再删除缓存
 
 因为更新数据库的速度比删除缓存的速度要慢得多。因为更新 MySQL 是磁盘 IO 操作，而 Redis 是内存操作。内存操作比磁盘 IO 快得多（这是硬件层面的天然差距）。
 
@@ -827,11 +828,11 @@ redis.del(product_id)
 
 可以专门起一个服务（比如 [Canal](https://github.com/alibaba/canal)，阿里巴巴 MySQL binlog 增量订阅&消费组件）去监听 MySQL 的 binlog，获取需要操作的数据。
 
-![技术派：老闫](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325225809.png)
+![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325225809.png)
 
 然后用一个公共的服务获取订阅程序传来的信息，进行缓存删除。
 
-![数据库订阅+消息队列保证key被删除](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-37c07418-9cd8-43d9-90e7-0cb43b329025.png)
+![三分恶面渣逆袭：数据库订阅+消息队列保证key被删除](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-37c07418-9cd8-43d9-90e7-0cb43b329025.png)
 
 这种方式虽然降低了对业务的侵入，但增加了整个系统的复杂度，适合基建完善的大厂。
 
@@ -850,6 +851,7 @@ redis.del(product_id)
 这是一个朴素但有用的兜底策略，给缓存设置一个合理的过期时间，即使发生了缓存和数据库的数据不一致问题，也不会永远不一致下去，缓存过期后，自然就一致了。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：怎样保证数据的最终一致性？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：数据一致性问题
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 
@@ -1220,10 +1222,29 @@ brpop 是 rpop 的阻塞版本，list 为空的时候，它会一直阻塞，直
 
 ### 41.Redis 如何实现延时队列?
 
-- **使用 zset，利用排序实现**
+可以使用 Redis 的 zset（有序集合）来实现延时队列。
 
-可以使用 zset 这个结构，用设置好的时间戳作为 score 进行排序，使用 zadd score1 value1 ....命令就可以一直往内存中生产消息。再利用 zrangebysocre 查询符合条件的所有待处理的任务，通过循环执行队列任务即可。
-![zset实现延时队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-54bbcc36-0b00-4142-a6eb-bf2ef48c2213.png)
+第一步，将任务添加到 zset 中，score 为任务的执行时间戳，value 为任务的内容。
+
+```bash
+ZADD delay_queue 1617024000 task1
+```
+
+第二步，定期（例如每秒）从 zset 中获取 score 小于当前时间戳的任务，然后执行任务。
+
+```bash
+ZREMRANGEBYSCORE delay_queue -inf 1617024000
+```
+
+第三步，任务执行后，从 zset 中删除任务。
+
+```bash
+ZREM delay_queue task1
+```
+
+![三分恶面渣逆袭：zset实现延时队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-54bbcc36-0b00-4142-a6eb-bf2ef48c2213.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 实现延迟队列
 
 ### 42.Redis 支持事务吗？
 
@@ -1487,9 +1508,24 @@ typedef struct zskiplistNode {
 
 ![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
 
+#### 简单介绍下紧凑列表 listpack
+
+listpack 是 Redis 用来替代压缩列表（ziplist）的一种内存更加紧凑的数据结构。
+
+![极客时间：listpack](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105313.png)
+
+为了避免 ziplist 引起的连锁更新问题，listpack 中的元素不再像 ziplist 那样，保存其前一个元素的长度，而是保存当前元素的编码类型、数据，以及编码类型和数据的长度。
+
+![极客时间：listpack 的元素](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105754.png)
+
+listpack 每个元素项不再保存上一个元素的长度，而是优化元素内字段的顺序，来保证既可以从前也可以向后遍历。
+
+但因为 List/Hash/Set/ZSet 都严重依赖 ziplist，所以这个替换之路很漫长。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道Redis的zset底层实现吗
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：zset 的底层原理
 
 ### 47.Redis 的 SDS 和 C 中字符串相比有什么优势？
 
@@ -1497,7 +1533,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 
 ![C语言的字符串](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2541fd26-4e84-467d-8d8c-c731154a85d7.png)
 
-> **C 语言的字符串可能有什么问题？**
+**C 语言的字符串可能有什么问题？**
 
 这样简单的数据结构可能会造成以下一些问题：
 
@@ -1505,7 +1541,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 - 不能杜绝 **缓冲区溢出/内存泄漏** 的问题 : C 字符串不记录自身长度带来的另外一个问题是容易造成缓存区溢出（buffer overflow），例如在字符串拼接的时候，新的
 - C 字符串 **只能保存文本数据** → 因为 C 语言中的字符串必须符合某种编码（比如 ASCII），例如中间出现的 `'\0'` 可能会被判定为提前结束的字符串而识别不了；
 
-> **Redis 如何解决？优势？**
+**Redis 如何解决？优势？**
 
 ![Redis sds](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-fc26a4e7-1c8d-4e82-b7f8-1f6b43d16d38.png)
 
@@ -1520,12 +1556,13 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 
 字典是 Redis 服务器中出现最为频繁的复合型数据结构。除了 **hash** 结构的数据会用到字典外，整个 Redis 数据库的所有 `key` 和 `value` 也组成了一个 **全局字典**，还有带过期时间的 `key` 也是一个字典。_(存储在 RedisDb 数据结构中)_
 
-> **字典结构是什么样的呢？**
+**字典结构是什么样的呢？**
 
 **Redis** 中的字典相当于 Java 中的 **HashMap**，内部实现也差不多类似，采用哈希与运算计算下标位置；通过 **"数组 + 链表" **的**链地址法** 来解决哈希冲突，同时这样的结构也吸收了两种不同数据结构的优点。
+
 ![Redis字典结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e08347a6-efd5-47c0-9adb-23baff82dbbd.png)
 
-> **字典是怎么扩容的？**
+**字典是怎么扩容的？**
 
 字典结构内部包含 **两个 hashtable**，通常情况下只有一个哈希表 ht[0] 有值，在扩容的时候，把 ht[0]里的值 rehash 到 ht[1]，然后进行 **渐进式 rehash** ——所谓渐进式 rehash，指的是这个 rehash 的动作并不是一次性、集中式地完成的，而是分多次、渐进式地完成的。
 
@@ -1595,6 +1632,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 当进行范围查询时，跳表可以从最高层开始，快速定位到范围的起始点，然后沿着下一层继续直到找到范围的结束点。这种分层的结构使得跳表在进行范围查询时非常高效，时间复杂度为 O(log n) 加上范围内元素的数量。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：为什么hash表范围查询效率比跳表低
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：zset 的底层原理
 
 ### 50.压缩列表了解吗？
 

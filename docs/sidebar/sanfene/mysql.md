@@ -453,7 +453,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 主要存储引擎以及功能如下：
 
-| 功能         | MylSAM | MEMORY | InnoDB |
+| 功能         | MyISAM | MEMORY | InnoDB |
 | ------------ | ------ | ------ | ------ |
 | 存储限制     | 256TB  | RAM    | 64TB   |
 | 支持事务     | No     | No     | Yes    |
@@ -463,7 +463,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 | 支持数据缓存 | No     | N/A    | Yes    |
 | 支持外键     | No     | No     | Yes    |
 
-MySQL5.5 之前，默认存储引擎是 MylSAM，5.5 之后变成了 InnoDB。
+MySQL5.5 之前，默认存储引擎是 MyISAM，5.5 之后变成了 InnoDB。
 
 > InnoDB 支持的哈希索引是自适应的，InnoDB 会根据表的使用情况自动为表生成哈希索引，不能人为干预是否在一张表中生成哈希索引。
 
@@ -479,25 +479,38 @@ MySQL5.5 之前，默认存储引擎是 MylSAM，5.5 之后变成了 InnoDB。
 
 使用哪一种引擎可以根据需要灵活选择，因为存储引擎是基于表的，所以一个数据库中多个表可以使用不同的引擎以满足各种性能和实际需求。使用合适的存储引擎将会提高整个数据库的性能。
 
-### 18.InnoDB 和 MylSAM 主要有什么区别？
+### 18.InnoDB 和 MyISAM 主要有什么区别？
 
-PS:MySQL8.0 都开始慢慢流行了，如果不是面试，MylSAM 其实可以不用怎么了解。
+![三分恶面渣逆袭：InnoDB 和 MyISAM 主要有什么区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b7aa040e-a3a7-4133-8c43-baccc3c8d012.jpg)
 
-![InnoDB 和 MylSAM 主要有什么区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b7aa040e-a3a7-4133-8c43-baccc3c8d012.jpg)
+InnoDB 和 MyISAM 之间的区别主要表现在存储结构、事务支持、最小锁粒度、索引类型、主键必需、表的具体行数、外键支持等方面。
 
-**1\.   存储结构**：每个 MyISAM 在磁盘上存储成三个文件；InnoDB 所有的表都保存在同一个数据文件中（也可能是多个文件，或者是独立的表空间文件），InnoDB 表的大小只受限于操作系统文件的大小，一般为 2GB。
+**①、存储结构**：
 
-**2\. 事务支持**：MyISAM 不提供事务支持；InnoDB 提供事务支持事务，具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全特性。
+- MyISAM：用三种格式的文件来存储，.frm 文件存储表的定义；.MYD 存储数据；.MYI 存储索引。
+- InnoDB：用两种格式的文件来存储，.frm 文件存储表的定义；.ibd 存储数据和索引。
 
-**3   最小锁粒度**：MyISAM 只支持表级锁，更新时会锁住整张表，导致其它查询和更新都会被阻塞 InnoDB 支持行级锁。
+**②、事务支持**：
 
-**4\. 索引类型**：MyISAM 的索引为非聚簇索引，数据结构是 B 树；InnoDB 的索引是聚簇索引，数据结构是 B+树。
+- MyISAM：不支持事务。
+- InnoDB：支持事务。
 
-**5\.   主键必需**：MyISAM 允许没有任何索引和主键的表存在；InnoDB 如果没有设定主键或者非空唯一索引，\*\*就会自动生成一个 6 字节的主键(用户不可见)\*\*，数据是主索引的一部分，附加索引保存的是主索引的值。
+**③、最小锁粒度**：
 
-**6\. 表的具体行数**：MyISAM 保存了表的总行数，如果 select count(\*) from table;会直接取出出该值; InnoDB 没有保存表的总行数，如果使用 select count(\*) from table；就会遍历整个表;但是在加了 wehre 条件后，MyISAM 和 InnoDB 处理的方式都一样。
+- MyISAM：表级锁，高并发中写操作存在性能瓶颈。
+- InnoDB：行级锁，并发写入性能高。
 
-**7\.   外键支持**：MyISAM 不支持外键；InnoDB 支持外键。
+**④、索引类型**：
+
+MyISAM 为非聚簇索引，索引和数据分开存储，索引保存的是数据文件的指针。
+
+![未见初墨：MyIsam](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240403130104.png)
+
+InnoDB 为聚簇索引，索引和数据不分开。
+
+![yangh124：InnoDB](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240403130508.png)
+
+**⑤、外键支持**：MyISAM 不支持外键；InnoDB 支持外键。
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1056,15 +1069,15 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 索引
 
-索引可以说是 MySQL 面试中的重中之重，务必要拿下啊，兄弟姐妹们。
+>索引可以说是 MySQL 面试中的重中之重，务必要拿下啊，兄弟姐妹们。
 
 ### 27.能简单说一下索引的分类吗？
 
-好的，可以从三个不同的维度对索引进行分类：
+好的，可以从三个不同的维度对索引进行分类（功能、数据结构、存储位置）：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
 
-#### 比如说从功能上分类：
+#### 说说从功能上的分类：
 
 ①、**主键索引**: 表中每行数据唯一标识的索引，强调列值的唯一性和非空性。
 
@@ -1079,8 +1092,6 @@ CREATE TABLE users (
 ```
 
 id 列被指定为主键索引，同时，MySQL 会自动为这个列创建一个聚簇索引（主键索引一定是聚簇索引）。
-
-推荐阅读：[松哥：再聊 MySQL 聚簇索引](https://mp.weixin.qq.com/s/F0cEzIqecF4sWg7ZRmHKRQ)
 
 可以通过 `show index from table_name` 查看索引信息，比如前面创建的 users 表：
 
@@ -1133,7 +1144,7 @@ WHERE `TABLE_NAME` = 'users' AND `TABLE_SCHEMA` = DATABASE();
 CREATE FULLTEXT INDEX idx_article_content ON articles(content);
 ```
 
-#### 比如说从数据结构上分类：
+#### 说说从数据结构上分类：
 
 ①、B+树索引：最常见的索引类型，一种将索引值按照一定的算法，存入一个树形的数据结构中（二叉树），每次查询都从树的根节点开始，一次遍历叶子节点，找到对应的值。查询效率是 O(logN)。
 
@@ -1152,13 +1163,6 @@ CREATE TABLE example_btree (
     INDEX name_index (name)
 ) ENGINE=InnoDB;
 ```
-
-想要了解 B 树和 B+树的更多区别，推荐阅读：
-
-- [GitHub：B 树和 B+树详解](https://github.com/wardseptember/notes/blob/master/docs/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E8%AF%A6%E8%A7%A3.md)
-- [思否：面试官问你 B 树和 B+树，就把这篇文章丢给他](https://segmentfault.com/a/1190000020416577)
-- [极客时间：为什么用 B+树来做索引？](https://time.geekbang.org/column/article/112298)
-- [一颗剽悍的种子：用 16 张图就给你讲明白 MySQL 为什么要用 B+树做索引](https://mp.weixin.qq.com/s/muOwXKNTvPjXjrLsFRveIw)
 
 ②、Hash 索引：基于哈希表的索引，查询效率可以达到 O(1)，但是只适合 = 和 in 查询，不适合范围查询。
 
@@ -1192,7 +1196,7 @@ SHOW VARIABLES LIKE 'innodb_adaptive_hash_index';
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312095811.png)
 
-#### 比如说从存储位置上分类：
+#### 说说从存储位置上分类：
 
 ①、聚簇索引：聚簇索引的叶子节点保存了一行记录的所有列信息。也就是说，聚簇索引的叶子节点中，包含了一个完整的记录行。
 
@@ -1202,17 +1206,28 @@ SHOW VARIABLES LIKE 'innodb_adaptive_hash_index';
 
 ![代码敲上天.非聚簇索引，以 age 为索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311231611.png)
 
-InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管是主键索引，还是二级索引使用的都是非聚簇索引。推荐阅读：
+InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管是主键索引，还是二级索引使用的都是非聚簇索引。
+
+想要了解 B 树和 B+树的更多区别，推荐阅读：
+
+- [GitHub：B 树和 B+树详解](https://github.com/wardseptember/notes/blob/master/docs/B%E6%A0%91%E5%92%8CB+%E6%A0%91%E8%AF%A6%E8%A7%A3.md)
+- [思否：面试官问你 B 树和 B+树，就把这篇文章丢给他](https://segmentfault.com/a/1190000020416577)
+- [极客时间：为什么用 B+树来做索引？](https://time.geekbang.org/column/article/112298)
+- [一颗剽悍的种子：用 16 张图就给你讲明白 MySQL 为什么要用 B+树做索引](https://mp.weixin.qq.com/s/muOwXKNTvPjXjrLsFRveIw)
+
+想要了解更多聚簇索引和非聚簇索引，推荐阅读：
 
 - [磊哥：聚簇索引和非聚簇索引有什么区别？](https://www.cnblogs.com/vipstone/p/16370305.html)
 - [浅谈聚簇索引与非聚簇索引](https://learnku.com/articles/50096)
 - [聚簇索引、非聚簇索引、联合索引、唯一索引](https://blog.csdn.net/m0_52226803/article/details/135494499)
+- [松哥：再聊 MySQL 聚簇索引](https://mp.weixin.qq.com/s/F0cEzIqecF4sWg7ZRmHKRQ)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
 
 ### 28.为什么使用索引会加快查询？
 
-数据库存储在磁盘上，磁盘 I/O 是数据库操作中最耗时的部分之一。没有索引时，数据库会进行全表扫描（Sequential Scan），这意味着它必须读取表中的每一行数据来查找匹配的行（时间效率为 O(n)）。当表的数据量非常大时，就会导致大量的磁盘 I/O 操作。
+数据库文件是存储在磁盘上的，磁盘 I/O 是数据库操作中最耗时的部分之一。没有索引时，数据库会进行全表扫描（Sequential Scan），这意味着它必须读取表中的每一行数据来查找匹配的行（时间效率为 O(n)）。当表的数据量非常大时，就会导致大量的磁盘 I/O 操作。
 
 有了索引，就可以直接跳到索引指示的数据位置，而不必扫描整张表，从而大大减少了磁盘 I/O 操作的次数。
 
@@ -1223,6 +1238,8 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 就好像我们通过书的目录，去查找对应的章节内容一样。
 
 ![三分恶面渣逆袭：索引加快查询远离](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-6b9c9901-9bf3-46ed-a5c4-c1b781965c1e.jpg)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
 
 ### 29.创建索引有哪些注意点？
 
@@ -1368,9 +1385,8 @@ key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
 
 ### 31.索引不适合哪些场景呢？
 
-- 数据量比较少的表不适合加索引
-- 更新比较频繁的字段也不适合加索引
-- 离散低的字段不适合加索引（如性别）
+- **数据表较小**：当表中的数据量很小，或者查询需要扫描表中大部分数据时，数据库优化器可能会选择全表扫描而不是使用索引。在这种情况下，维护索引的开销可能大于其带来的性能提升。
+- **频繁更新的列**：对于经常进行更新、删除或插入操作的列，使用索引可能会导致性能下降。因为每次数据变更时，索引也需要更新，这会增加额外的写操作负担。
 
 ### 32.索引是不是建的越多越好呢？
 
@@ -1379,7 +1395,7 @@ key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
 - **索引会占据磁盘空间**
 - **索引虽然会提高查询效率，但是会降低更新表的效率**。比如每次对表进行增删改操作，MySQL 不仅要保存数据，还有保存或者更新对应的索引文件。
 
-### 33.MySQL 索引用的什么数据结构了解吗？
+### 33.为什么 InnoDB 要使用 B+树作为索引？
 
 1. 推荐阅读：[终于把 B 树搞明白了](https://www.bilibili.com/video/BV1mY4y1W7pS)
 2. 推荐阅读：[一篇文章讲透 MySQL 为什么要用 B+树实现索引](https://cloud.tencent.com/developer/article/1543335)
@@ -1388,19 +1404,17 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引。
 
 那在说 B+树之前，必须得先说一下 B 树（B-tree）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322114522.png)
-
 B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B 树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
 
 换句话说，红黑树、二叉平衡树是细高个，而 B 树是矮胖子。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322132606.png)
+![二哥的 Java 进阶之路：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322132606.png)
 
 好，我继续说。
 
 内存和磁盘在进行 IO 读写的时候，有一个最小的逻辑单元，叫做页（Page），页的大小一般是 4KB。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322133650.png)
+![二哥的 Java 进阶之路：IO 读写](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322133650.png)
 
 那为了提高读写效率，从磁盘往内存中读数据的时候，一次会读取至少一页的数据，比如说读取 2KB 的数据，实际上会读取 4KB 的数据；读取 5KB 的数据，实际上会读取 8KB 的数据。**我们要尽量减少读写的次数**。
 
@@ -1442,7 +1456,7 @@ B 树的一个节点通常包括三个部分：
 
 **注**：在 InnoDB 存储引擎中，默认的页大小是 16KB。可以通过 `show variables like 'innodb_page_size';` 查看。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322135441.png)
+![二哥的 Java 进阶之路：页的大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322135441.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 MySQL 的底层数据结构，B 树和 B+树的区别
@@ -1770,6 +1784,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的四个特性，怎么理解事务一致性
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 
 ### 49.那 ACID 靠什么保证的呢？
 
@@ -1844,6 +1859,7 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 
