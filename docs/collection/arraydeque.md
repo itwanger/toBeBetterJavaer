@@ -48,7 +48,7 @@ System.out.println("弹出的元素为：" + pop); // 陈清扬
 // 修改栈顶元素
 stack.pop();
 stack.push("小明");
-System.out.println("修改后的栈为：" + stack); // [沉默, 小明]
+System.out.println("修改后的栈为：" + stack); // [小明, 沉默]
 
 // 遍历队列查找元素
 Iterator<String> iterator = stack.iterator();
