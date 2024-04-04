@@ -1908,7 +1908,9 @@ Spring Boot 的优点非常多，比如说：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经中出现过该题：讲讲 Spring Boot 的特性。
 
-### 36.SpringBoot 和 SpringMVC 的区别？
+### 36.SpringBoot 和 SpringMVC 的区别？（补充）
+
+> 2024 年 04 月 04 日增补
 
 Spring MVC 是基于 Spring 框架的一个模块，提供了一种 Model-View-Controller（模型-视图-控制器）的开发模式。
 
@@ -1920,19 +1922,15 @@ Spring Boot 旨在简化 Spring 应用的配置和部署过程，提供了大量
 
 在 Spring 中，自动装配是指容器利用反射技术，根据 Bean 的类型、名称等自动注入所需的依赖。
 
-在 Spring 的 XML 配置文件中，可以通过 autowire 属性来指定自动装配的模式，如 byType、byName 等。
-
-也可以在 Java 类中使用`@Autowired`、`@Resource` 等注解来表明该成员变量或方法需要被自动装配。
-
 在 Spring Boot 中，开启自动装配的注解是`@EnableAutoConfiguration`。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121711.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121711.png)
 
-Spring Boot 项目为了进一步简化，直接通过 `@SpringBootApplication` 注解一步搞定，这个注解包含了 `@EnableAutoConfiguration` 注解。
+Spring Boot 为了进一步简化，直接通过 `@SpringBootApplication` 注解一步搞定，这个注解包含了 `@EnableAutoConfiguration` 注解。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121651.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121651.png)
 
-①、`@EnableAutoConfiguration` 只是一个简单的注解，但是它的背后却是一个非常复杂的自动装配机制，它的核心是`AutoConfigurationImportSelector` 类。
+①、`@EnableAutoConfiguration` 只是一个简单的注解，但是它的背后却是一个非常复杂的自动装配机制，核心是`AutoConfigurationImportSelector` 类。
 
 ```java
 @AutoConfigurationPackage //将main同级的包下的所有组件注册到容器中
@@ -1948,7 +1946,7 @@ public @interface EnableAutoConfiguration {
 
 ②、`AutoConfigurationImportSelector`实现了`ImportSelector`接口，这个接口的作用就是收集需要导入的配置类，配合`@Import()`就将相应的类导入到 Spring 容器中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316122134.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316122134.png)
 
 ③、获取注入类的方法是 `selectImports()`，它实际调用的是`getAutoConfigurationEntry()`，这个方法是获取自动装配类的关键。
 
@@ -1988,12 +1986,13 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata an
 }
 ```
 
-画张图来总结下：
+Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件注册，通过这种方式，Spring Boot 能够智能地配置 bean，并且只有当这些 bean 实际需要时才会被创建和配置。
 
 ![三分恶面渣逆袭：SpringBoot自动配置原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 启动时为什么能够自动装配
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 如何做到启动的时候注入一些 bean
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 Spring Boot 的自动装配原理
 
 ### 33.如何自定义一个 SpringBoot Srarter?
 

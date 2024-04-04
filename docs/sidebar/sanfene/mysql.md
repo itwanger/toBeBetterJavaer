@@ -1462,6 +1462,15 @@ B 树的一个节点通常包括三个部分：
 
 ![二哥的 Java 进阶之路：页的大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322135441.png)
 
+总结一下：
+
+MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B+树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
+
+和 B树不同，B+树的非叶子节点只存储键值，不存储数据，而叶子节点存储了所有的数据，并且构成了一个有序链表。
+
+这样做的好处是，非叶子节点上由于没有存储数据，就可以存储更多的键值对，再加上叶子节点构成了一个有序链表，范围查询时就可以直接通过叶子节点间的指针顺序访问整个查询范围内的所有记录，而无需对树进行多次遍历。查询的效率会更高。
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 MySQL 的底层数据结构，B 树和 B+树的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：MySQL 为什么选用 B+树
@@ -1588,29 +1597,37 @@ MyISAM 采用的是非聚簇索引，InnoDB 采用的是聚簇索引。
 
 ![覆盖索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-69e33c61-34bc-4f4b-912b-ca7beb9d5c7c.jpg)
 
-### 41.什么是最左前缀原则/最左匹配原则？
+### 41.什么是最左前缀原则？
 
-注意：最左前缀原则、最左匹配原则、最左前缀匹配原则这三个都是一个概念。
+最左前缀原则，也叫最左匹配原则，或者最左前缀匹配原则。
 
-**最左匹配原则**：在 InnoDB 的联合索引中，查询的时候只有匹配了前一个/左边的值之后，才能匹配下一个。
+最左匹配原则是指在使用联合索引（即包含多列的索引）时，查询条件从索引的最左列开始并且不跳过中间的列。
 
-根据最左匹配原则，我们创建了一个组合索引，如 (a1,a2,a3)，相当于创建了（a1）、(a1,a2)和 (a1,a2,a3) 三个索引。
+如果一个复合索引包含`(col1, col2, col3)`，那么它可以支持 `col1`、`col1,col2` 和 `col1, col2, col3` 的查询优化，但不会优化只有 col2 或 col3 的查询。
 
-为什么不从最左开始查，就无法匹配呢？
+也就说，在进行查询时，如果没有遵循最左前缀，那么索引可能不会被利用，导致查询效率降低。
 
-比如有一个 user 表，我们给 name 和 age 建立了一个组合索引。
+#### 为什么不从最左开始查，就无法匹配呢？
 
-```
+比如有一个 user 表，我们给 name 和 age 建立了一个联合索引 `(name, age)`。
+
+```sql
 ALTER TABLE user add INDEX comidx_name_phone (name,age);
 ```
 
-组合索引在 B+Tree 中是复合的数据结构，它是按照从左到右的顺序来建立搜索树的 (name 在左边，age 在右边)。
+联合索引在 B+ 树中是复合的数据结构，按照从左到右的顺序依次建立搜索树的 (name 在左边，age 在右边)。
 
-![组合索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e348203c-f00a-42a4-a745-b219d98ea435.jpg)
+![三分恶面渣逆袭：联合索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e348203c-f00a-42a4-a745-b219d98ea435.jpg)
 
-从这张图可以看出来，name 是有序的，age 是无序的。当 name 相等的时候， age 才是有序的。
+注意，name 是有序的，age 是无序的。当 name 相等的时候，age 才有序。
 
-这个时候我们使用 `where name= ‘张三‘ and age = ‘20 ‘`去查询数据的时候， B+Tree 会优先比较 name 来确定下一步应该搜索的方向，往左还是往右。如果 name 相同的时候再比较 age。但是如果查询条件没有 name，就不知道下一步应该查哪个 节点，因为建立搜索树的时候 name 是第一个比较因子，所以就没用上索引。
+当我们使用 `where name= '张三' and age = '20'` 去查询的时候， B+ 树会优先比较 name 来确定下一步应该搜索的方向，往左还是往右。
+
+如果 name 相同的时候再比较 age。
+
+但如果查询条件没有 name，就不知道应该怎么查了，因为 name 是 B+树中的前置条件，没有 name，索引就派不上用场。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 
 ### 42.什么是索引下推优化？
 
