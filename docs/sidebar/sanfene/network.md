@@ -212,33 +212,44 @@ PS:这道题和上面浏览器输入网址发生了什么那道题大差不差�
 
 ### 13.说一下 HTTP 的报文结构？
 
-HTTP 报文有两种，HTTP 请求报文和 HTTP 响应报文：
+HTTP 的报文结构可以分为两类：请求报文和响应报文。两者在结构上相似，都包含了**起始行**、**头部**和**消息正文**。
 
-![HTTP 报文](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-2ea62914-e1ed-418c-9580-e13ecf7b8992.jpg)
+![三分恶面渣逆袭：HTTP 报文](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-2ea62914-e1ed-418c-9580-e13ecf7b8992.jpg)
 
-**HTTP 请求报文**
+#### 说下 HTTP 请求报文结构？
 
-HTTP 请求报文的格式如下：
-
+```http
+GET /index.html HTTP/1.1
+Host: www.javabetter.cn
+Accept: text/html
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
 ```
-GET / HTTP/1.1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5)
-Accept: */*
-```
 
-HTTP 请求报文的第一行叫做请求行，后面的行叫做首部行，首部行后还可以跟一个实体主体。请求首部之后有一个空行，这个空行不能省略，它用来划分首部与实体。
+①、请求行
 
-请求行包含三个字段：
+包括方法（如 GET、POST）、请求的 URL 和 HTTP 协议的版本。例如：`GET /index.html HTTP/1.1`。
 
-- 方法字段：包括 POST、GET 等请方法。
-- URL 字段
-- HTTP 版本字段。
+②、请求头部
 
-**HTTP 响应报文**
+包含请求的附加信息，如客户端想要接收的内容类型、浏览器类型等。
 
-HTTP 响应报文的格式如下：
+请求头部由键值对组成，键和值之间用冒号分隔，每一行一个键值对。例如：
 
-```
+- `Host: www.javabetter.cn`，表示请求的主机名（域名）
+- `Accept: text/html`，表示客户端可以接收的媒体类型
+- `User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3`，表示客户端的浏览器类型
+
+③、空行
+
+请求头部和消息正文之间有一个空行，表示请求头部结束。
+
+④、消息正文（可选）
+
+请求的具体内容，如 POST 请求中的表单数据；GET 请求中没有消息正文。
+
+#### 说下 HTTP 响应报文结构？
+
+```http
 HTTP/1.0 200 OK
 Content-Type: text/plain
 Content-Length: 137582
@@ -246,20 +257,33 @@ Expires: Thu, 05 Dec 1997 16:00:00 GMT
 Last-Modified: Wed, 5 August 1996 15:55:28 GMT
 Server: Apache 0.84
 <html>
-  <body>Hello World</body>
+  <body>沉默王二很天真</body>
 </html>
 ```
 
-HTTP 响应报文的第一行叫做**状态行**，后面的行是**首部行**，最后是**实体主体**。
+①、状态行
 
-- **状态行**包含了三个字段：协议版本字段、状态码和相应的状态信息。
-- **实体部分**是报文的主要部分，它包含了所请求的对象。
-- **首部行**首部可以分为四种首部，请求首部、响应首部、通用首部和实体首部。通用首部和实体首部在请求报文和响应报文中都可以设置，区别在于请求首部和响应首部。
+包括 HTTP 协议的版本、状态码（如 200、404）和状态消息（如 OK、NotFound）。例如：`HTTP/1.0 200 OK`。
 
-- 常见的请求首部有 Accept 可接收媒体资源的类型、Accept-Charset 可接收的字符集、Host 请求的主机名。
-- 常见的响应首部有 ETag 资源的匹配信息，Location 客户端重定向的 URI。
-- 常见的通用首部有 Cache-Control 控制缓存策略、Connection 管理持久连接。
-- 常见的实体首部有 Content-Length 实体主体的大小、Expires 实体主体的过期时间、Last-Modified 资源的最后修改时间。
+②、响应头部
+
+包含响应的附加信息，如服务器类型、内容类型、内容长度等。也是键值对，例如：
+
+- `Content-Type: text/plain`，表示响应的内容类型
+- `Content-Length: 137582`，表示响应的内容长度
+- `Expires: Thu, 05 Dec 1997 16:00:00 GMT`，表示资源的过期时间
+- `Last-Modified: Wed, 5 August 1996 15:55:28 GMT`，表示资源的最后修改时间
+- `Server: Apache 0.84`，表示服务器类型
+
+③、空行
+
+表示响应头部结束。
+
+④、消息正文（可选）
+
+响应的具体内容，如 HTML 页面。不是所有的响应都有消息正文，如 204 No Content 状态码的响应。
+
+>1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
 
 ### 14.URI 和 URL 有什么区别?
 
@@ -341,44 +365,60 @@ HTTP/3 主要有这些特点：
 
 ### 19.为什么要用 HTTPS？解决了哪些问题？
 
-因为 HTTP 是明⽂传输，存在安全上的风险：
+使用 HTTPS 主要是为了解决 HTTP 传输过程中的一些安全问题，因为 HTTP 是明文传输，所以 HTTPS 在 HTTP 的基础上加入了 SSL/TLS 协议。
 
-**窃听⻛险**，⽐如通信链路上可以获取通信内容，用户账号被盗。
+![三分恶面渣逆袭：HTTP 和 HTTPS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-7ad7a529-1565-49d0-992f-7f90b0b30acc.jpg)
 
-**篡改⻛险**，⽐如强制植⼊垃圾⼴告，视觉污染。
+SSL（安全套接字）/TLS（传输层安全）协议可以用来加密通信内容，保证通信过程中的数据不被窃取和篡改。整个加密过程主要涉及两种类型的加密方法：
 
-**冒充⻛险**，⽐如冒充淘宝⽹站，用户金钱损失。
+- 非对称加密：服务器向客户端发送公钥，然后客户端用公钥加密自己的随机密钥，也就是会话密钥，发送给服务器，服务器用私钥解密，得到会话密钥。
+- 然后双方用会话密钥加密通信内容。
 
-![HTTP 和 HTTPS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-7ad7a529-1565-49d0-992f-7f90b0b30acc.jpg)
+客户端会通过数字证书来验证服务器的身份，数字证书由 CA（证书权威机构）签发，包含了服务器的公钥、证书的颁发机构、证书的有效期等信息。
 
-所以引入了 HTTPS，HTTPS 在 HTTP 与 TCP 层之间加⼊了 SSL/TLS 协议，可以很好的解决了这些风险：
+![三分恶面渣逆袭：HTTPS 主要流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-d91b220e-a7e0-4856-af53-697c96591ec7.jpg)
 
-- **信息加密**：交互信息⽆法被窃取。
-- **校验机制**：⽆法篡改通信内容，篡改了就不能正常显示。
-- **身份证书**：能证明淘宝是真淘宝。
+HTTPS 主要解决了以下几个问题：
 
-所以 SSL/TLS 协议是能保证通信是安全的。
+- **窃听风险**：第三方可以截获传输的数据包，获取敏感信息。
+- **篡改风险**：第三方可以在传输过程中篡改数据包，修改数据。
+- **冒充风险**：第三方可以冒充服务器，与客户端通信。
+
+>1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
 
 ### 20.HTTPS 工作流程是怎样的？
 
-这道题有几个要点：**公私钥、数字证书、加密、对称加密、非对称加密**。
+HTTPS 的工作流程主要涉及到 SSL/TLS 协议，它确保了客户端和服务器之间的通信是加密的。
 
-HTTPS 主要工作流程：
+①、客户端发起请求
 
-1.  客户端发起 HTTPS 请求，连接到服务端的 443 端口。
-2.  服务端有一套数字证书（证书内容有公钥、证书颁发机构、失效日期等）。
-3.  服务端将自己的数字证书发送给客户端（公钥在证书里面，私钥由服务器持有）。
-4.  客户端收到数字证书之后，会验证证书的合法性。如果证书验证通过，就会生成一个随机的对称密钥，用证书的公钥加密。
-5.  客户端将公钥加密后的密钥发送到服务器。
-6.  服务器接收到客户端发来的密文密钥之后，用自己之前保留的私钥对其进行非对称解密，解密之后就得到客户端的密钥，然后用客户端密钥对返回数据进行对称加密，酱紫传输的数据都是密文啦。
-7.  服务器将加密后的密文返回到客户端。
-8.  客户端收到后，用自己的密钥对其进行对称解密，得到服务器返回的数据。
+客户端（如 Web 浏览器）向服务器发起 HTTPS 请求，请求的 URL 以 `https://` 开头。
 
-![https 主要流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-d91b220e-a7e0-4856-af53-697c96591ec7.jpg)
+②、服务器返回证书
 
-这里还画了一张更详尽的图：
+服务器接收到请求后，会向客户端发送一个 SSL 证书，证书中包含了服务器的公钥、证书的颁发机构（CA）、证书的有效期等信息。
 
-![https 工作流程详图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-c0e6e3e1-b4a2-41de-97ac-4103db2f2fc5.jpg)
+③、客户端验证证书
+
+客户端收到服务器的证书后，会验证证书的合法性，包括证书是否过期、颁发机构是否可信等。
+
+④、客户端生成密钥
+
+客户端验证通过后，会生成一个随机的对称密钥，然后用服务器的公钥加密这个对称密钥，发送给服务器。
+
+⑤、服务器解密密钥
+
+服务器收到客户端发来的密钥后，会用自己的私钥解密，得到对称密钥。至此，客户端和服务器都拥有了相同的会话密钥，可以用这个密钥加密通信内容。
+
+⑥、加密通信
+
+服务器用会话密钥加密通信内容，发送给客户端，客户端用会话密钥解密，得到响应内容。
+
+如果在这个过程中，有人截获了通信内容，但由于没有会话密钥，所以无法解密。
+
+当通信结束后，连接会被关闭，会话密钥也会被销毁，下次通信会重新生成一个会话密钥。
+
+![三分恶面渣逆袭：HTTPS 工作流程详图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-c0e6e3e1-b4a2-41de-97ac-4103db2f2fc5.jpg)
 
 ### 21.客户端怎么去校验证书的合法性？
 
