@@ -1068,7 +1068,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 锁
 
-### 61.聊聊线程同步
+### 61.聊聊线程同步（补充）
 
 > 2024 年 03 月 12 日 新增
 
@@ -1501,7 +1501,7 @@ ReentrantLock 内部通过一个计数器来跟踪锁的持有次数。
 
 ### 31.ReentrantLock 怎么实现公平锁的？
 
-`new ReentrantLock() `构造方法默认创建的是非公平锁 NonfairSync
+ReentrantLock 的默认构造方法创建的是非公平锁 NonfairSync。
 
 ```java
 public ReentrantLock() {
@@ -1509,7 +1509,7 @@ public ReentrantLock() {
 }
 ```
 
-同时也可以在创建锁构造方法中传入具体参数创建公平锁 FairSync
+可以通过有参构造方法传递 true 参数来创建公平锁 FairSync。
 
 ```java
 ReentrantLock lock = new ReentrantLock(true);
@@ -1520,16 +1520,19 @@ public ReentrantLock(boolean fair) {
 }
 ```
 
-FairSync、NonfairSync 代表公平锁和非公平锁，两者都是 ReentrantLock 静态内部类，只不过实现不同锁语义。
+FairSync、NonfairSync 都是 ReentrantLock 的内部类，分别实现了公平锁和非公平锁的逻辑。
 
-**非公平锁和公平锁的两处不同：**
+#### 非公平锁和公平锁有什么不同？
 
-1. 非公平锁在调用 lock 后，首先就会调用 CAS 进行一次抢锁，如果这个时候恰巧锁没有被占用，那么直接就获取到锁返回了。
-2. 非公平锁在 CAS 失败后，和公平锁一样都会进入到 tryAcquire 方法，在 tryAcquire 方法中，如果发现锁这个时候被释放了（state == 0），非公平锁会直接 CAS 抢锁，但是公平锁会判断等待队列是否有线程处于等待状态，如果有则不去抢锁，乖乖排到后面。
+①、公平锁意味着在多个线程竞争锁时，获取锁的顺序与线程请求锁的顺序相同，即先来先服务（FIFO）。
 
-![公平锁tryAcquire](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-43.png)
+虽然能保证锁的顺序，但实现起来比较复杂，因为需要额外维护一个有序队列。
 
-相对来说，非公平锁会有更好的性能，因为它的吞吐量比较大。当然，非公平锁让获取锁的时间变得更加不确定，可能会导致在阻塞队列中的线程长期处于饥饿状态。
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240405234921.png)
+
+②、非公平锁不保证线程获取锁的顺序，当锁被释放时，任何请求锁的线程都有机会获取锁，而不是按照请求的顺序。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：介绍一下公平锁与非公平锁
 
 #### 怎么实现一个非公平锁呢？
 
@@ -1820,7 +1823,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 只有在冲突发生时才回退并采用悲观的锁定策略（如 synchronized 块）。此外，Java 8 中 ConcurrentHashMap 不再使用分段锁，而是直接对 Node 节点进行加锁，这减少了锁的粒度，提高了效率。
 
-#### JDK 7
+#### 说一下JDK 7中的ConcurrentHashMap的实现原理？
 
 JDK 7 的 ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组构成的。Segment 是一种可重入的锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，HashEntry 则用于存储键值对数据。
 
@@ -1843,7 +1846,7 @@ ConcurrentHashMap 的 put 流程和 HashMap 非常类似，只不过是先定位
 
 get 也很简单，通过 `hash(key)` 定位到 segment，再遍历链表定位到具体的元素上，需要注意的是 value 是 [volatile 的](https://javabetter.cn/thread/volatile.html)，所以 get 是不需要加锁的。
 
-#### JDK 8
+#### 说一下JDK 8中的ConcurrentHashMap的实现原理？
 
 JDK 8 中的 ConcurrentHashMap 取消了 Segment 分段锁，采用 CAS + synchronized 来保证并发安全性，整个容器只分为一个 Segment，即 table 数组。
 
@@ -1944,7 +1947,14 @@ get 很简单，和 HashMap 基本一样。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093353.png)
 
+#### 总结一下 HashMap 和 ConcurrentHashMap 的区别？
+
+①、HashMap 是非线程安全的，多线程环境下应该使用 ConcurrentHashMap。
+
+②、由于HashMap 仅在单线程环境下使用，所以不需要考虑同步问题，因此效率高于 ConcurrentHashMap。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：ConcurrentHashMap 是悲观锁还是乐观锁?
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap和CurrentHashMap的区别
 
 ### 65.ConcurrentHashMap 怎么保证可见性？（补充）
 

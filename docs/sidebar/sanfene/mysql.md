@@ -402,7 +402,7 @@ ROLLBACK;
 
 ### 69.MySQL 第 3-10 条记录怎么查？（补充）
 
->2024年03月30日增补
+> 2024 年 03 月 30 日增补
 
 在 MySQL 中，要查询第 3 到第 10 条记录，可以使用 limit 语句，结合偏移量 offset 和行数 row_count 来实现。
 
@@ -416,7 +416,6 @@ SELECT * FROM table_name LIMIT 2, 8;
 - 8：行数，表示从偏移量开始，返回 8 条记录。
 
 偏移量是从 0 开始的，即第一条记录的偏移量是 0；如果想从第 3 条记录开始，偏移量就应该是 2。
-
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 第 3-10 条记录怎么查？
 
@@ -709,7 +708,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 24.慢 SQL 如何定位呢？
 
-推荐阅读：[慢SQL优化一点小思路](https://juejin.cn/post/7048974570228809741)
+推荐阅读：[慢 SQL 优化一点小思路](https://juejin.cn/post/7048974570228809741)
 
 顾名思义，慢 SQL 也就是执行时间较长的 SQL 语句，MySQL 中 long_query_time 默认值是 10 秒，也就是执行时间超过 10 秒的 SQL 语句会被记录到慢查询日志中。
 
@@ -750,14 +749,14 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 
 ![三分恶面渣逆袭：发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
 
-定位慢SQL 主要通过两种手段：
+定位慢 SQL 主要通过两种手段：
 
 - **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
 - **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
 
 ### 25.有哪些方式优化慢 SQL？
 
-我在进行慢SQL 优化的时候，主要通过以下几个方面进行优化：
+我在进行慢 SQL 优化的时候，主要通过以下几个方面进行优化：
 
 ![沉默王二：SQL 优化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327104050.png)
 
@@ -783,7 +782,7 @@ SELECT employee_id, first_name, last_name FROM employees WHERE department_id = 5
 
 **①、延迟关联**
 
-延迟关联适用于需要从多个表中获取数据且主表行数较多的情况。它首先从索引表中检索出需要的行ID，然后再根据这些ID去关联其他的表获取详细信息。
+延迟关联适用于需要从多个表中获取数据且主表行数较多的情况。它首先从索引表中检索出需要的行 ID，然后再根据这些 ID 去关联其他的表获取详细信息。
 
 ```sql
 SELECT e.id, e.name, d.details
@@ -807,13 +806,13 @@ JOIN employees e ON sub.id = e.id
 JOIN department d ON e.department_id = d.id;
 ```
 
-首先对`employees`表进行分页查询，仅获取需要的行的ID，然后再根据这些ID关联获取其他信息，减少了不必要的JOIN操作。
+首先对`employees`表进行分页查询，仅获取需要的行的 ID，然后再根据这些 ID 关联获取其他信息，减少了不必要的 JOIN 操作。
 
 **②、书签（Seek Method）**
 
 书签方法通过记住上一次查询返回的最后一行的某个值，然后下一次查询从这个值开始，避免了扫描大量不需要的行。
 
-假设需要对用户表进行分页，根据用户ID升序排列。
+假设需要对用户表进行分页，根据用户 ID 升序排列。
 
 ```sql
 SELECT id, name
@@ -821,6 +820,7 @@ FROM users
 ORDER BY id
 LIMIT 1000, 20;
 ```
+
 书签方式：
 
 ```sql
@@ -831,8 +831,7 @@ ORDER BY id
 LIMIT 20;
 ```
 
-优化后的查询不再使用`OFFSET`，而是直接从上一页最后一个用户的ID开始查询。这里的`last_max_id`是上一次查询返回的最后一行的用户ID。这种方法有效避免了不必要的数据扫描，提高了分页查询的效率。
-
+优化后的查询不再使用`OFFSET`，而是直接从上一页最后一个用户的 ID 开始查询。这里的`last_max_id`是上一次查询返回的最后一行的用户 ID。这种方法有效避免了不必要的数据扫描，提高了分页查询的效率。
 
 #### 如何进行索引优化？
 
@@ -1073,7 +1072,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 索引
 
->索引可以说是 MySQL 面试中的重中之重，务必要拿下啊，兄弟姐妹们。
+> 索引可以说是 MySQL 面试中的重中之重，务必要拿下啊，兄弟姐妹们。
 
 ### 27.能简单说一下索引的分类吗？
 
@@ -1284,109 +1283,6 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 - 左连接查询或者右连接查询关联的字段编码格式不一样，可能导致索引失效。
 - MySQL 优化器估计使用全表扫描要比使用索引快，则不使用索引。
 
-(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
-
-> 2024 年 03 月 15 日增补。
-
-这个查询会使用到联合索引 `(A,B,C)`，因为条件是按照索引列 `A`、`B`、`C` 的顺序来的，这是理想的使用场景。
-
-1. 对于 `A=?`：这个条件是一个精确匹配，MySQL 会使用索引来定位到满足条件 `A=?` 的记录。
-
-2. 对于 `B IN (?, ?)`：这个条件指定了 `B` 列可以取两个可能的值。MySQL 会利用索引来查找所有匹配 `A=?` 且 `B` 列为这两个值中任意一个的记录。
-
-3. 对于 `C>?`：这个条件是一个范围查询。在已经根据 `A` 和 `B` 筛选的基础上，MySQL 会继续利用索引来查找 `C` 列值大于指定值的记录。
-
-来验证一下。
-
-第一步，建表。
-
-```sql
-CREATE TABLE tbn (A INT, B INT, C INT, D TEXT);
-```
-
-第二步，创建索引。
-
-```sql
-CREATE INDEX idx_abc ON tbn (A, B, C);
-```
-
-第三步，插入数据。
-
-```sql
-INSERT INTO tbn VALUES (1, 2, 3, 'First');
-INSERT INTO tbn VALUES (1, 2, 4, 'Second');
-INSERT INTO tbn VALUES (1, 3, 5, 'Third');
-INSERT INTO tbn VALUES (2, 2, 3, 'Fourth');
-INSERT INTO tbn VALUES (2, 3, 4, 'Fifth');
-```
-
-第四步，执行查询。
-
-```sql
-EXPLAIN SELECT * FROM tbn WHERE A=1 AND B IN (2, 3) AND C>3\G
-```
-
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240315140807.png)
-
-从 `EXPLAIN` 输出结果来看，我们可以得到 MySQL 是如何执行查询的一些关键信息：
-
-- **id**: 查询标识符，这里是 `1`。
-- **select_type**: 查询的类型，这里是 `SIMPLE`，表示这是一个简单的查询，没有使用子查询或复杂的联合查询。
-- **table**: 正在查询的表名，这里是 `tbn`。
-- **type**: 查询类型，这里是 `range`，表示 MySQL 使用了范围查找。这是因为查询条件包含了 `>` 操作符，使得 MySQL 需要在索引中查找满足范围条件的记录。
-- **possible_keys**: 可能被用来执行查询的索引，这里是 `idx_abc`，表示 MySQL 认为 `idx_abc` 索引可能会用于优化查询。
-- **key**: 实际用来执行查询的索引，也是 `idx_abc`，这意味着 MySQL 实际上使用了 `idx_abc` 联合索引来优化查询。
-- **key_len**: 使用索引的长度，这里是 `15` 字节，这提供了关于索引使用情况的一些信息，比如哪些列被用在了索引中。
-- **ref**: 显示哪些列或常量被用作索引查找的参考。
-- **rows**: MySQL 估计为了找到结果需要检查的行数，这里是 `2`。
-- **filtered**: 表示根据表的条件过滤后，剩余多少百分比的结果，这里是 `100.00`%，意味着所有扫描的行都会被返回。
-- **Extra**: 提供了关于查询执行的额外信息。`Using index condition` 表示 MySQL 使用了索引条件推送（Index Condition Pushdown，ICP），这是 MySQL 的一个优化方式，它允许在索引层面过滤数据，减少访问表数据的需要。
-
-联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引？
-
-> 2024 年 03 月 19 日增补
-
-我们通过实际的 SQL 来验证一下。
-
-示例 1（a=1,c=1）：
-
-```sql
-EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1\G
-```
-
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131120.png)
-
-key 是 idx_abc，表明 a=1,c=1 会使用联合索引。但因为缺少了 B 字段的条件，所以 MySQL 可能无法利用索引来直接定位到精确的行，而是使用索引来缩小搜索范围。
-
-最终，MySQL 需要检查更多的行（rows: 3）来找到满足所有条件的结果集，但总体来说，使用索引明显比全表扫描要高效得多。
-
-示例 2（b=1,c=1）：
-
-```sql
-EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
-```
-
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131245.png)
-
-key 是 NULL，表明 b=1,c=1 不会使用联合索引。这是因为查询条件中涉及的字段 B 和 C 没有遵循之前定义的联合索引 idx_abc（A、B、C 顺序）的最左前缀原则。
-
-在 idx_abc 索引中，A 是最左边的列，但是查询没有包含 A，因此 MySQL 无法利用这个索引。
-
-示例 3（a=1,c=1,b=1）：
-
-```sql
-EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1 AND B=1\G
-```
-
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131306.png)
-
-key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
-
-并且 rows=1，因为查询条件包含了联合索引 idx_abc 中所有列的等值条件，并且条件的顺序与索引列的顺序相匹配，使得查询能够准确、快速地定位到目标数据。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引
-
 ### 31.索引不适合哪些场景呢？
 
 - **数据表较小**：当表中的数据量很小，或者查询需要扫描表中大部分数据时，数据库优化器可能会选择全表扫描而不是使用索引。在这种情况下，维护索引的开销可能大于其带来的性能提升。
@@ -1466,10 +1362,9 @@ B 树的一个节点通常包括三个部分：
 
 MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B+树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
 
-和 B树不同，B+树的非叶子节点只存储键值，不存储数据，而叶子节点存储了所有的数据，并且构成了一个有序链表。
+和 B 树不同，B+树的非叶子节点只存储键值，不存储数据，而叶子节点存储了所有的数据，并且构成了一个有序链表。
 
 这样做的好处是，非叶子节点上由于没有存储数据，就可以存储更多的键值对，再加上叶子节点构成了一个有序链表，范围查询时就可以直接通过叶子节点间的指针顺序访问整个查询范围内的所有记录，而无需对树进行多次遍历。查询的效率会更高。
-
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 MySQL 的底层数据结构，B 树和 B+树的区别
@@ -1539,9 +1434,9 @@ B+树中所有叶子节点深度相同，所有数据查询路径长度相等，
 - Hash 索引在等值查询上比 B+ 树索引效率更高。
 - B+ 树使用 like 进行模糊查询的时候，like 后面（比如 % 开头）的话可以起到优化的作用，Hash 索引无法进行模糊查询。
 
-#### MySQL模糊查询怎么查，什么情况下模糊查询不走索引？
+#### MySQL 模糊查询怎么查，什么情况下模糊查询不走索引？
 
-MySQL 中进行模糊查询主要使用 LIKE 语句，结合通配符 %（代表任意多个字符）和 _（代表单个字符）来实现。
+MySQL 中进行模糊查询主要使用 LIKE 语句，结合通配符 %（代表任意多个字符）和 \_（代表单个字符）来实现。
 
 ```sql
 SELECT * FROM table WHERE column LIKE '%xxx%';
@@ -1551,8 +1446,7 @@ SELECT * FROM table WHERE column LIKE '%xxx%';
 
 但是，如果模糊查询的通配符 % 出现在搜索字符串的开始位置，如 `LIKE '%xxx'`，MySQL 将无法使用索引，因为数据库必须扫描全表以匹配任意位置的字符串。
 
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL模糊查询怎么查，什么情况下模糊查询不走索引
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 模糊查询怎么查，什么情况下模糊查询不走索引
 
 ### 38.聚簇索引与非聚簇索引的区别？
 
@@ -1625,9 +1519,120 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 
 如果 name 相同的时候再比较 age。
 
-但如果查询条件没有 name，就不知道应该怎么查了，因为 name 是 B+树中的前置条件，没有 name，索引就派不上用场。
+但如果查询条件没有 name，就不知道应该怎么查了，因为 name 是 B+树中的前置条件，没有 name，索引就派不上用场了。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
+#### (A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
+
+> 2024 年 03 月 15 日增补。
+
+这个查询会使用到联合索引 `(A,B,C)`，因为条件是按照索引列 `A`、`B`、`C` 的顺序来的，这是理想的使用场景。
+
+1. 对于 `A=?`：这个条件是一个精确匹配，MySQL 会使用索引来定位到满足条件 `A=?` 的记录。
+
+2. 对于 `B IN (?, ?)`：这个条件指定了 `B` 列可以取两个可能的值。MySQL 会利用索引来查找所有匹配 `A=?` 且 `B` 列为这两个值中任意一个的记录。
+
+3. 对于 `C>?`：这个条件是一个范围查询。在已经根据 `A` 和 `B` 筛选的基础上，MySQL 会继续利用索引来查找 `C` 列值大于指定值的记录。
+
+来验证一下。
+
+第一步，建表。
+
+```sql
+CREATE TABLE tbn (A INT, B INT, C INT, D TEXT);
+```
+
+第二步，创建索引。
+
+```sql
+CREATE INDEX idx_abc ON tbn (A, B, C);
+```
+
+第三步，插入数据。
+
+```sql
+INSERT INTO tbn VALUES (1, 2, 3, 'First');
+INSERT INTO tbn VALUES (1, 2, 4, 'Second');
+INSERT INTO tbn VALUES (1, 3, 5, 'Third');
+INSERT INTO tbn VALUES (2, 2, 3, 'Fourth');
+INSERT INTO tbn VALUES (2, 3, 4, 'Fifth');
+```
+
+第四步，执行查询。
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE A=1 AND B IN (2, 3) AND C>3\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240315140807.png)
+
+从 `EXPLAIN` 输出结果来看，我们可以得到 MySQL 是如何执行查询的一些关键信息：
+
+- **id**: 查询标识符，这里是 `1`。
+- **select_type**: 查询的类型，这里是 `SIMPLE`，表示这是一个简单的查询，没有使用子查询或复杂的联合查询。
+- **table**: 正在查询的表名，这里是 `tbn`。
+- **type**: 查询类型，这里是 `range`，表示 MySQL 使用了范围查找。这是因为查询条件包含了 `>` 操作符，使得 MySQL 需要在索引中查找满足范围条件的记录。
+- **possible_keys**: 可能被用来执行查询的索引，这里是 `idx_abc`，表示 MySQL 认为 `idx_abc` 索引可能会用于优化查询。
+- **key**: 实际用来执行查询的索引，也是 `idx_abc`，这意味着 MySQL 实际上使用了 `idx_abc` 联合索引来优化查询。
+- **key_len**: 使用索引的长度，这里是 `15` 字节，这提供了关于索引使用情况的一些信息，比如哪些列被用在了索引中。
+- **ref**: 显示哪些列或常量被用作索引查找的参考。
+- **rows**: MySQL 估计为了找到结果需要检查的行数，这里是 `2`。
+- **filtered**: 表示根据表的条件过滤后，剩余多少百分比的结果，这里是 `100.00`%，意味着所有扫描的行都会被返回。
+- **Extra**: 提供了关于查询执行的额外信息。`Using index condition` 表示 MySQL 使用了索引条件推送（Index Condition Pushdown，ICP），这是 MySQL 的一个优化方式，它允许在索引层面过滤数据，减少访问表数据的需要。
+
+#### 联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引？
+
+> 2024 年 03 月 19 日增补
+
+我们通过实际的 SQL 来验证一下。
+
+示例 1（a=1,c=1）：
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131120.png)
+
+key 是 idx_abc，表明 a=1,c=1 会使用联合索引。但因为缺少了 B 字段的条件，所以 MySQL 可能无法利用索引来直接定位到精确的行，而是使用索引来缩小搜索范围。
+
+最终，MySQL 需要检查更多的行（rows: 3）来找到满足所有条件的结果集，但总体来说，使用索引明显比全表扫描要高效得多。
+
+示例 2（b=1,c=1）：
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131245.png)
+
+key 是 NULL，表明 b=1,c=1 不会使用联合索引。这是因为查询条件中涉及的字段 B 和 C 没有遵循之前定义的联合索引 idx_abc（A、B、C 顺序）的最左前缀原则。
+
+在 idx_abc 索引中，A 是最左边的列，但是查询没有包含 A，因此 MySQL 无法利用这个索引。
+
+示例 3（a=1,c=1,b=1）：
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1 AND B=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131306.png)
+
+key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
+
+并且 rows=1，因为查询条件包含了联合索引 idx_abc 中所有列的等值条件，并且条件的顺序与索引列的顺序相匹配，使得查询能够准确、快速地定位到目标数据。
+
+#### 联合索引的一个场景题：(a,b,c)联合索引，(b,c)是否会走索引吗？
+
+> 2024 年 04 月 06 日增补
+
+根据最左前缀原则，(b,c) 查询不会走索引。
+
+因为联合索引 (a,b,c) 中，a 是最左边的列，联合索引在创建索引树的时候需要先有 a，然后才会有 b 和 c。而查询条件中没有包含 a，所以 MySQL 无法利用这个索引。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：联合索引的一个场景题：(a,b,c)联合索引，(b,c)是否会走索引
 
 ### 42.什么是索引下推优化？
 
@@ -1878,9 +1883,9 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 
 但会导致大量的超时和锁竞争问题。
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下事务的四大隔离级别，分别解决什么问题
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 
@@ -2047,20 +2052,33 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 58.你们一般是怎么分库的呢？
 
-- 垂直分库：以表为依据，按照业务归属不同，将不同的表拆分到不同的库中。
+分库分表是为了解决单库单表数据量过大导致数据库性能下降的一种解决方案。
 
-![垂直分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2a43af18-617b-4502-b66a-894c2ff4c6c3.jpg)
+分库的策略有两种：
 
-- 水平分库：以字段为依据，按照一定策略（hash、range 等），将一个库中的数据拆分到多个库中。
+①、垂直分库：按照业务模块将不同的表拆分到不同的库中，例如，用户表、订单表、商品表等分到不同的库中。
 
-![水平分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-debe0fb1-d7f7-4ef2-8c99-13c9377138b6.jpg)
+![三分恶面渣逆袭：垂直分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2a43af18-617b-4502-b66a-894c2ff4c6c3.jpg)
+
+②、水平分库：按照一定的策略将一个表中的数据拆分到多个库中，例如，按照用户 id 的 hash 值将用户表拆分到不同的库中。
+
+![三分恶面渣逆袭：水平分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-debe0fb1-d7f7-4ef2-8c99-13c9377138b6.jpg)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
 
 ### 59.那你们是怎么分表的？
 
-- 水平分表：以字段为依据，按照一定策略（hash、range 等），将一个表中的数据拆分到多个表中。
-- 垂直分表：以字段为依据，按照字段的活跃性，将表中字段拆到不同的表（主表和扩展表）中。
+当单表数据增量过快，业界流传的说法是超过 500 万的数据量就要考虑分表了。
 
-![表拆分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7cba6ce0-c8bb-4f51-9c3b-e5a44e724c79.jpg)
+在技术派实战项目中，我们将文章表和文章详情表做了分表处理，因为文章的详情数据量会比较大，而文章的基本信息数据量会比较小。
+
+垂直拆分可以减轻只查询文章基本数据，不需要附带文章详情时的查询压力。
+
+当然了，当表的数据量过大时，仍然要考虑水平分表，将一个表的数据分散到多个表中，以减轻单表的查询压力。
+
+![三分恶面渣逆袭：表拆分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7cba6ce0-c8bb-4f51-9c3b-e5a44e724c79.jpg)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
 
 ### 60.水平分表有哪几种路由方式？
 
