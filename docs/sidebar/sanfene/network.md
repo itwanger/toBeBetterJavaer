@@ -283,7 +283,7 @@ Server: Apache 0.84
 
 响应的具体内容，如 HTML 页面。不是所有的响应都有消息正文，如 204 No Content 状态码的响应。
 
->1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
+> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
 
 ### 14.URI 和 URL 有什么区别?
 
@@ -296,19 +296,19 @@ Server: Apache 0.84
 
 ### 15.说下 HTTP1.0，1.1，2.0 的区别？
 
->如果记不住下面这么多，可以回答：**HTTP1.0** 默认短连接，HTTP 1.1 默认长连接，HTTP 2.0 采用**多路复用**。
+> 如果记不住下面这么多，可以回答：**HTTP1.0** 默认短连接，HTTP 1.1 默认长连接，HTTP 2.0 采用**多路复用**。
 
-#### 说下HTTP1.0
+#### 说下 HTTP1.0
 
 - **无状态协议**：HTTP 1.0 是无状态的，每个请求之间相互独立，服务器不保存任何请求的状态信息。
 - **非持久连接**：默认情况下，每个 HTTP 请求/响应对之后，连接会被关闭，属于短连接。这意味着对于同一个网站的每个资源请求，如 HTML 页面上的图片和脚本，都需要建立一个新的 TCP 连接。可以设置`Connection: keep-alive` 强制开启长连接。
 
-#### 说下HTTP1.1
+#### 说下 HTTP1.1
 
-- **持久连接**：HTTP 1.1 引入了持久连接（也称为 HTTP keep-alive），默认情况下不会立即关闭连接，可以在一个连接上发送多个请求和响应。极大减轻了TCP连接的开销。
+- **持久连接**：HTTP 1.1 引入了持久连接（也称为 HTTP keep-alive），默认情况下不会立即关闭连接，可以在一个连接上发送多个请求和响应。极大减轻了 TCP 连接的开销。
 - **流水线处理**：HTTP 1.1 支持客户端在前一个请求的响应到达之前发送下一个请求，以提高传输效率。
 
-#### 说下HTTP2.0
+#### 说下 HTTP2.0
 
 - **二进制协议**：HTTP 2.0 使用二进制而不是文本格式来传输数据，解析更加高效。
 - **多路复用**：一个 TCP 连接上可以同时进行多个 HTTP 请求/响应，解决了 HTTP 1.x 的队头阻塞问题。
@@ -384,7 +384,7 @@ HTTPS 主要解决了以下几个问题：
 - **篡改风险**：第三方可以在传输过程中篡改数据包，修改数据。
 - **冒充风险**：第三方可以冒充服务器，与客户端通信。
 
->1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
+> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
 
 ### 20.HTTPS 工作流程是怎样的？
 
@@ -1303,14 +1303,28 @@ IP 地址分为 A，B，C，D，E 五大类：
 
 ### 52.说下 ARP 协议的工作过程？
 
-ARP 协议，**Address Resolution Protocol**，地址解析协议，它是用于实现 IP 地址到 MAC 地址的映射。
+ARP（Address Resolution Protocol，地址解析协议）是网络通信中的一种协议，主要目的是将网络层的IP地址解析为链路层的MAC地址。
 
-![ARP 协议作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-41988dc1-fb5b-4287-a8e8-754bf2f0d310.jpg)
+![三分恶面渣逆袭：ARP 协议作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-41988dc1-fb5b-4287-a8e8-754bf2f0d310.jpg)
 
-1.  首先，每台主机都会在自己的 ARP 缓冲区中建立一个 ARP 列表，以表示 IP 地址和 MAC 地址的对应关系。
-2.  当源主机需要将一个数据包要发送到目的主机时，会首先检查自己的 ARP 列表，是否存在该 IP 地址对应的 MAC 地址；如果有﹐就直接将数据包发送到这个 MAC 地址；如果没有，就向本地网段发起一个 ARP 请求的广播包，查询此目的主机对应的 MAC 地址。此 ARP 请求的数据包里，包括源主机的 IP 地址、硬件地址、以及目的主机的 IP 地址。
-3.  网络中所有的主机收到这个 ARP 请求后，会检查数据包中的目的 IP 是否和自己的 IP 地址一致。如果不相同，就会忽略此数据包；如果相同，该主机首先将发送端的 MAC 地址和 IP 地址添加到自己的 ARP 列表中，如果 ARP 表中已经存在该 IP 的信息，则将其覆盖，然后给源主机发送一个 ARP 响应数据包，告诉对方自己是它需要查找的 MAC 地址。
-4.  源主机收到这个 ARP 响应数据包后，将得到的目的主机的 IP 地址和 MAC 地址添加到自己的 ARP 列表中，并利用此信息开始数据的传输。如果源主机一直没有收到 ARP 响应数据包，表示 ARP 查询失败。
+①、ARP 请求
+
+当主机 A 要发送数据给主机 B 时，首先会在自己的 ARP 缓存中查找主机 B 的 MAC 地址。
+
+如果没有找到，主机 A 会向网络中广播一个 ARP 请求数据包，请求网络中的所有主机告诉它们的 MAC 地址；这个请求包含了请求设备和目标设备的 IP 和 MAC 地址。
+
+②、ARP 应答
+
+网络中的所有主机都会收到这个 ARP 请求，但只有主机 B 会回复 ARP 应答，告诉主机 A 自己的 MAC 地址。
+
+并且主机 B 会将主机 A 的 IP 和 MAC 地址映射关系缓存到自己的 ARP 缓存中，以便下次通信时直接使用。
+
+③、更新 ARP 缓存
+
+主机 A 收到主机 B 的 ARP 应答后，也会将主机 B 的 IP 和 MAC 地址映射关系缓存到自己的 ARP 缓存中。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 ARP协议的过程
+
 
 ### 53.为什么既有 IP 地址，又有 MAC 地址？
 
@@ -1344,20 +1358,21 @@ ICMP（Internet Control Message Protocol） ，网际控制报文协议。
 
 ### 55.说下 ping 的原理？
 
-ping，**Packet Internet Groper**，是一种因特网包探索器，用于测试网络连接量的程序。Ping 是工作在 TCP/IP 网络体系结构中应用层的一个服务命令， 主要是向特定的目的主机发送 ICMP（Internet Control Message Protocol 因特网报文控制协议） 请求报文，测试目的站是否可达及了解其有关状态。
+ping，**Packet Internet Groper**，一个网络工具，主要用来测试网络连接的可达性和延迟。
 
-![ping 百度](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-5b7eade5-aa45-4c6f-93ea-2a0256424a7c.jpg)
+![ping 二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/network-20240405224226.png)
 
-一般来说，ping 可以用来检测网络通不通。它是基于`ICMP`协议工作的。假设**机器 A** ping **机器 B**，工作过程如下：
+Ping 的过程主要基于 ICMP（Internet Control Message Protocol，互联网控制消息协议）实现，其基本过程包括：
 
-1.  ping 通知系统，新建一个固定格式的 ICMP 请求数据包
-2.  ICMP 协议，将该数据包和目标机器 B 的 IP 地址打包，一起转交给 IP 协议层
-3.  IP 层协议将本机 IP 地址为源地址，机器 B 的 IP 地址为目标地址，加上一些其他的控制信息，构建一个 IP 数据包
-4.  先获取目标机器 B 的 MAC 地址。
-5.  数据链路层构建一个数据帧，目的地址是 IP 层传过来的 **MAC 地址**，源地址是本机的 **MAC 地址**
-6.  机器 B 收到后，对比目标地址，和自己本机的 MAC 地址是否一致，符合就处理返回，不符合就丢弃。
-7.  根据目的主机返回的 ICMP 回送回答报文中的时间戳，从而计算出往返时间
-8.  最终显示结果有这几项：发送到目的主机的 IP 地址、发送 & 收到 & 丢失的分组数、往返时间的最小、最大 & 平均值
+①、当执行 Ping 命令，如`ping javabetter.cn`，Ping 首先解析域名获取 IP 地址，然后向目标 IP 发送一个 ICMP Echo Request 消息。
+
+②、当目标 IP 收到 ICMP Echo Request 消息后，它会生成一个 ICMP Echo Reply 消息并返回，即 Ping 响应消息。
+
+③、发起 Ping 命令的设备接收到 ICMP Echo Reply 消息后，计算并显示从发送 Echo Request 到接收到 Echo Reply 的时间（通常称为往返时间 RTT，Round-Trip Time），以及可能的丢包情况。
+
+Ping 通常会发送多个请求，以便提供平均响应时间和丢包率等信息，以便我们了解网络连接的质量。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Ping 的过程
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
