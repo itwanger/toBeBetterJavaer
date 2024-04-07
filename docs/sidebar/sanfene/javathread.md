@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，66道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，67道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 66 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 67 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 66 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 67 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -32,7 +32,7 @@ head:
 
 ### 2.说说什么是进程和线程？
 
-推荐阅读:[二哥的 Java 进阶之路：进程与线程的区别是什么？](https://javabetter.cn/thread/why-need-thread.html)
+推荐阅读:[进程与线程的区别是什么？](https://javabetter.cn/thread/why-need-thread.html)
 
 进程说简单点就是我们在电脑上启动的一个个应用，比如我们启动一个浏览器，就会启动了一个浏览器进程。进程是操作系统资源分配的最小单位，它包括了程序、数据和进程控制块等。
 
@@ -104,80 +104,72 @@ class CompletableFutureExample {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：进程和线程区别，线程共享内存和进程共享内存的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：协程和线程和进程的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：线程和进程有什么区别？
 
 ### 3.说说线程有几种创建方式？
 
+推荐阅读：[室友打了一把王者就学会了 Java 多线程](https://javabetter.cn/thread/wangzhe-thread.html)
+
 Java 中创建线程主要有三种方式，分别为继承 Thread 类、实现 Runnable 接口、实现 Callable 接口。
 
-![线程创建三种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-4.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407172652.png)
 
-- 继承 Thread 类，重写 run()方法，调用 start()方法启动线程
+第一种，继承 Thread 类，重写 `run()`方法，调用 `start()`方法启动线程。
 
 ```java
-public class ThreadTest {
-
-    /**
-     * 继承Thread类
-     */
-    public static class MyThread extends Thread {
-        @Override
-        public void run() {
-            System.out.println("This is child thread");
-        }
+class ThreadTask extends Thread {
+    public void run() {
+        System.out.println("看完二哥的 Java 进阶之路，上岸了!");
     }
 
     public static void main(String[] args) {
-        MyThread thread = new MyThread();
-        thread.start();
+        ThreadTask task = new ThreadTask();
+        task.start();
     }
 }
-
 ```
 
-- 实现 Runnable 接口，重写 run()方法
+这种方法的缺点是，由于 Java 不支持多重继承，所以如果类已经继承了另一个类，就不能使用这种方法了。
+
+第二种，实现 Runnable 接口，重写 `run()` 方法，然后创建 Thread 对象，将 Runnable 对象作为参数传递给 Thread 对象，调用 `start()` 方法启动线程。
 
 ```java
-public class RunnableTask implements Runnable {
+class RunnableTask implements Runnable {
     public void run() {
-        System.out.println("Runnable!");
+        System.out.println("看完二哥的 Java 进阶之路，上岸了!");
     }
 
     public static void main(String[] args) {
         RunnableTask task = new RunnableTask();
-        new Thread(task).start();
+        Thread thread = new Thread(task);
+        thread.start();
     }
 }
-
 ```
 
-上面两种都是没有返回值的，但是如果我们需要获取线程的执行结果，该怎么办呢？
+这种方法的优点是可以避免 Java 的单继承限制，并且更符合面向对象的编程思想，因为 Runnable 接口将任务代码和线程控制的代码解耦了。
 
-- 实现 Callable 接口，重写 call()方法，这种方式可以通过 FutureTask 获取任务执行的返回值
+第三种，实现 Callable 接口，重写 `call()` 方法，然后创建 FutureTask 对象，参数为 Callable 对象；紧接着创建 Thread 对象，参数为 FutureTask 对象，调用 `start()` 方法启动线程。
 
 ```java
-public class CallerTask implements Callable<String> {
-    public String call() throws Exception {
-        return "Hello,i am running!";
+class CallableTask implements Callable<String> {
+    public String call() {
+        return "看完二哥的 Java 进阶之路，上岸了!";
     }
 
-    public static void main(String[] args) {
-        //创建异步任务
-        FutureTask<String> task=new FutureTask<String>(new CallerTask());
-        //启动线程
-        new Thread(task).start();
-        try {
-            //等待执行完成，并获取返回结果
-            String result=task.get();
-            System.out.println(result);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        CallableTask task = new CallableTask();
+        FutureTask<String> futureTask = new FutureTask<>(task);
+        Thread thread = new Thread(futureTask);
+        thread.start();
+        System.out.println(futureTask.get());
     }
 }
-
 ```
+
+这种方法的优点是可以获取线程的执行结果。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：有多少种实现线程的方法？
 
 ### 4.为什么调用 start()方法时会执行 run()方法，那怎么不直接调用 run()方法？
 
@@ -256,7 +248,7 @@ stop 方法用来强制线程停止执行，目前已经处于废弃状态，因
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：怎么停止一个线程，interrupt 和 stop 区别
 
-### 请说说 sleep 和 wait 的区别？（补充）
+### 67.请说说 sleep 和 wait 的区别？（补充）
 
 > 2024 年 03 月 21 日增补
 
@@ -538,6 +530,7 @@ String value = localVariable.get();
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal是什么?ThreadLocal的实现原理？
 
 ### 11.你在工作中用到过 ThreadLocal 吗？
 
@@ -565,11 +558,11 @@ String value = localVariable.get();
 
 ### 12.ThreadLocal 怎么实现的呢？
 
-ThreadLocal 的实现依赖于 ThreadLocalMap，这是一个定制化的哈希映射，用于存储每个线程的私有数据。
+ThreadLocal本身并不存储任何值，它只是作为一个映射，来映射线程的局部变量。当一个线程调用ThreadLocal的set或get方法时，实际上是访问线程自己的ThreadLocal.ThreadLocalMap。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240325110954.png)
+![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
 
-ThreadLocalMap 是 ThreadLocal 的一个静态内部类，其核心是一个 Entry 数组，Entry 是 ThreadLocalMap 的一个静态内部类。
+ThreadLocalMap是ThreadLocal的静态内部类，它内部维护了一个Entry数组，key是ThreadLocal对象，value是线程的局部变量本身。
 
 ```java
 static class Entry extends WeakReference<ThreadLocal<?>> {
@@ -586,9 +579,7 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 }
 ```
 
-每个 Entry 包含一个对 ThreadLocal 对象的弱引用和一个对存储值的强引用。
-
-key 的赋值赋值：
+在对 key 进行赋值的时候，通过 super 关键字调用了 WeakReference 的构造方法，之所以使用弱引用是为了允许 ThreadLocal 对象在没有有其他强引用时，能够被垃圾收集器回收，减少内存泄漏的风险。
 
 ```java
 public WeakReference(T referent) {
@@ -596,9 +587,16 @@ public WeakReference(T referent) {
 }
 ```
 
-使用弱引用是为了允许 ThreadLocal 对象在不再有其他强引用时能够被垃圾收集器回收，这种设计是为了减少内存泄漏的风险。
+强引用，比如说 `User user = new User("沉默王二")` 中，user 就是一个强引用，只有当 user 被置为 null 时，沉默王二这个 User 对象才会被垃圾回收。即便是内存空间不足，JVM 也不会回收强引用对象，宁愿抛出 OutOfMemoryError。
 
-![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
+弱引用，比如说下面这段代码：
+
+```java
+ThreadLocal<User> userThreadLocal = new ThreadLocal<>();
+userThreadLocal.set(new User("沉默王二"));
+```
+
+
 
 ThreadLocal 实现的几个关键点：
 
@@ -660,6 +658,7 @@ public T get() {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal是什么?ThreadLocal的实现原理？
 
 ### 13.ThreadLocal 内存泄露是怎么回事？
 
@@ -1823,7 +1822,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 只有在冲突发生时才回退并采用悲观的锁定策略（如 synchronized 块）。此外，Java 8 中 ConcurrentHashMap 不再使用分段锁，而是直接对 Node 节点进行加锁，这减少了锁的粒度，提高了效率。
 
-#### 说一下JDK 7中的ConcurrentHashMap的实现原理？
+#### 说一下 JDK 7 中的 ConcurrentHashMap 的实现原理？
 
 JDK 7 的 ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组构成的。Segment 是一种可重入的锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，HashEntry 则用于存储键值对数据。
 
@@ -1846,7 +1845,7 @@ ConcurrentHashMap 的 put 流程和 HashMap 非常类似，只不过是先定位
 
 get 也很简单，通过 `hash(key)` 定位到 segment，再遍历链表定位到具体的元素上，需要注意的是 value 是 [volatile 的](https://javabetter.cn/thread/volatile.html)，所以 get 是不需要加锁的。
 
-#### 说一下JDK 8中的ConcurrentHashMap的实现原理？
+#### 说一下 JDK 8 中的 ConcurrentHashMap 的实现原理？
 
 JDK 8 中的 ConcurrentHashMap 取消了 Segment 分段锁，采用 CAS + synchronized 来保证并发安全性，整个容器只分为一个 Segment，即 table 数组。
 
@@ -1951,10 +1950,10 @@ get 很简单，和 HashMap 基本一样。
 
 ①、HashMap 是非线程安全的，多线程环境下应该使用 ConcurrentHashMap。
 
-②、由于HashMap 仅在单线程环境下使用，所以不需要考虑同步问题，因此效率高于 ConcurrentHashMap。
+②、由于 HashMap 仅在单线程环境下使用，所以不需要考虑同步问题，因此效率高于 ConcurrentHashMap。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：ConcurrentHashMap 是悲观锁还是乐观锁?
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap和CurrentHashMap的区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap 和 CurrentHashMap 的区别
 
 ### 65.ConcurrentHashMap 怎么保证可见性？（补充）
 
@@ -2933,7 +2932,7 @@ public class CountTask extends RecursiveTask<Integer> {
 
 ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法，在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果比较大，就必须分割成两个子任务，每个子任务在调用 fork 方法时，又会进 compute 方法，看看当前子任务是否需要继续分割成子任务，如果不需要继续分割，则执行当前子任务并返回结果。使用 join 方法会等待子任务执行完并得到其结果。
 
-> 图文详解 66 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+> 图文详解 67 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ---
 
