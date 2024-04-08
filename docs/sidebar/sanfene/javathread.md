@@ -497,7 +497,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## ThreadLocal
 
-ThreadLocal 其实应用场景不是很多，但却是被炸了千百遍的面试老油条，涉及到多线程、数据结构、JVM，可问的点比较多，一定要拿下。
+推荐阅读：[ThreadLocal 全面解析](https://www.bilibili.com/video/BV1N741127FH/)
 
 ### 10.ThreadLocal 是什么？
 
@@ -505,36 +505,43 @@ ThreadLocal 其实应用场景不是很多，但却是被炸了千百遍的面�
 
 ![三分恶面渣逆袭：ThreadLocal线程副本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-11.png)
 
-使用 ThreadLocal 通常分为三步：
+使用 ThreadLocal 通常分为四步：
 
-①、创建 ThreadLocal 变量
+①、创建 ThreadLocal
 
 ```java
 //创建一个ThreadLocal变量
 public static ThreadLocal<String> localVariable = new ThreadLocal<>();
 ```
 
-②、设置 ThreadLocal 变量的值
+②、设置 ThreadLocal 的值
 
 ```java
 //设置ThreadLocal变量的值
 localVariable.set("沉默王二是沙雕");
 ```
 
-③、获取 ThreadLocal 变量的值
+③、获取 ThreadLocal 的值
 
 ```java
 //获取ThreadLocal变量的值
 String value = localVariable.get();
 ```
 
+④、删除 ThreadLocal 的值
+
+```java
+//删除ThreadLocal变量的值
+localVariable.remove();
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal是什么?ThreadLocal的实现原理？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
 
 ### 11.你在工作中用到过 ThreadLocal 吗？
 
-有用到过的，用来存储用户信息。
+有用到过，用来存储用户信息。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316103919.png)
 
@@ -558,11 +565,15 @@ String value = localVariable.get();
 
 ### 12.ThreadLocal 怎么实现的呢？
 
-ThreadLocal本身并不存储任何值，它只是作为一个映射，来映射线程的局部变量。当一个线程调用ThreadLocal的set或get方法时，实际上是访问线程自己的ThreadLocal.ThreadLocalMap。
+ThreadLocal 本身并不存储任何值，它只是作为一个映射，来映射线程的局部变量。当一个线程调用 ThreadLocal 的 set 或 get 方法时，实际上是访问线程自己的 ThreadLocal.ThreadLocalMap。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407200038.png)
+
+ThreadLocalMap 是 ThreadLocal 的静态内部类，它内部维护了一个 Entry 数组，key 是 ThreadLocal 对象，value 是线程的局部变量本身。
 
 ![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
 
-ThreadLocalMap是ThreadLocal的静态内部类，它内部维护了一个Entry数组，key是ThreadLocal对象，value是线程的局部变量本身。
+Entry 继承了 WeakReference，它限定了 key 是一个弱引用。
 
 ```java
 static class Entry extends WeakReference<ThreadLocal<?>> {
@@ -579,15 +590,9 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 }
 ```
 
-在对 key 进行赋值的时候，通过 super 关键字调用了 WeakReference 的构造方法，之所以使用弱引用是为了允许 ThreadLocal 对象在没有有其他强引用时，能够被垃圾收集器回收，减少内存泄漏的风险。
+强引用，比如说 `User user = new User("沉默王二")` 中，user 就是一个强引用，`new User("沉默王二")` 就是一个强引用对象。
 
-```java
-public WeakReference(T referent) {
-    super(referent);
-}
-```
-
-强引用，比如说 `User user = new User("沉默王二")` 中，user 就是一个强引用，只有当 user 被置为 null 时，沉默王二这个 User 对象才会被垃圾回收。即便是内存空间不足，JVM 也不会回收强引用对象，宁愿抛出 OutOfMemoryError。
+当 user 被置为 null 时（`user = null`），`new User("沉默王二")` 将会被垃圾回收；如果 user 不被置为 null，即便是内存空间不足，JVM 也不会回收 `new User("沉默王二")` 这个强引用对象，宁愿抛出 OutOfMemoryError。
 
 弱引用，比如说下面这段代码：
 
@@ -596,148 +601,44 @@ ThreadLocal<User> userThreadLocal = new ThreadLocal<>();
 userThreadLocal.set(new User("沉默王二"));
 ```
 
+①、userThreadLocal 是一个强引用，`new ThreadLocal<>()` 是一个强引用对象；
 
+②、`new User("沉默王二")` 是一个强引用对象。
 
-ThreadLocal 实现的几个关键点：
-
-①、ThreadLocal 本身不存储值，它只是作为一个 key 来让线程往 ThreadLocalMap 里存取值。
-
-②、ThreadLocalMap 是 Thread 的一个成员变量，每个线程都有一个自己的 ThreadLocalMap。
-
-```java
-void createMap(Thread t, T firstValue) {
-    t.threadLocals = new ThreadLocalMap(this, firstValue);
-}
-```
-
-③、ThreadLocalMap 内部维护着一个 Entry 数组，每个 Entry 代表一个完整的对象，key 是 ThreadLocal 的弱引用，value 是线程的局部变量。
-
-```java
-static class ThreadLocalMap {
-    static class Entry extends WeakReference<ThreadLocal<?>> {
-        Object value;
-        Entry(ThreadLocal<?> k, Object v) {
-            super(k);
-            value = v;
-        }
-    }
-}
-```
-
-④、每个线程在往 ThreadLocal 里设置值的时候，都是往自己的 ThreadLocalMap 里存，读也是以某个 ThreadLocal 作为引用，在自己的 map 里找对应的 key，从而实现了线程隔离。
-
-set：
-
-```java
-public void set(T value) {
-    Thread t = Thread.currentThread();
-    ThreadLocalMap map = getMap(t);
-    if (map != null)
-        map.set(this, value);
-    else
-        createMap(t, value);
-}
-```
-
-get：
-
-```java
-public T get() {
-    Thread t = Thread.currentThread();
-    ThreadLocalMap map = getMap(t);
-    if (map != null) {
-        ThreadLocalMap.Entry e = map.getEntry(this);
-        if (e != null) {
-            @SuppressWarnings("unchecked")
-            T result = (T)e.value;
-            return result;
-        }
-    }
-    return setInitialValue();
-}
-```
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal是什么?ThreadLocal的实现原理？
-
-### 13.ThreadLocal 内存泄露是怎么回事？
-
-在 Java 虚拟机中，栈是线程私有的，堆是线程共享的。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
-
-每个 Thread 对象内部都有一个 ThreadLocal.ThreadLocalMap，用于存储与该线程相关的 ThreadLocal 变量。
-
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316111000.png)
-
-ThreadLocalMap 是一个键值对集合，其中键是 ThreadLocal 对象的引用，值是使用 ThreadLocal 存储的数据。
-
-也就是说，栈中存储了 ThreadLocal 和 Thread 的引用，堆中存储了它们的具体实例。
-
-使用 ThreadLocal 发生内存泄露的原因可能是：
-
-**①、ThreadLocalMap 的生命周期过长**，在使用线程池等长生命周期的线程时，线程不会立即销毁。
-
-如果`ThreadLocal`变量在使用后没有被及时清理（通过调用`ThreadLocal`的`remove()`方法），那么`ThreadLocalMap`中的键值对会一直存在，即使外部已经没有对`ThreadLocal`对象的引用。
-
-这意味着`ThreadLocalMap`中的键值对无法被垃圾收集器回收，从而导致内存泄露。
+③、在 ThreadLocalMap 中，`key = new ThreadLocal<>()` 是一个弱引用对象。当 JVM 进行垃圾回收时，如果发现了弱引用对象，就会将其回收。
 
 ![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
 
-**②、ThreadLocal 对象生命周期结束，线程继续运行**。
+其关系链就是：
 
-如果一个`ThreadLocal`对象已经不再被使用，但是线程仍然在运行，并且其`ThreadLocalMap`中还保留着对这个`ThreadLocal`对象的键的引用，这会导致`ThreadLocal`对象所引用的数据也无法被回收，因为`ThreadLocalMap`中的键是对`ThreadLocal`对象的弱引用（WeakReference），但值（存储的数据）是强引用。
+- ThreadLocal 强引用 -> ThreadLocal 对象。
+- Thread 强引用 -> ThreadLocalMap。
+- `ThreadLocalMap[i]` 强引用了 -> Entry。
+- Entry.key 弱引用 -> ThreadLocal 对象。
+- Entry.value 强引用 -> 线程的局部变量对象。
 
-举例说明一下：
+总结一下 ThreadLocal 的实现原理就是，每个线程维护一个 Map，key 为 ThreadLocal 对象，value 为想要实现线程隔离的对象。
 
-```java
-public class ThreadLocalLeakExample {
-    private static final ThreadLocal<UserInfo> userThreadLocal = new ThreadLocal<>();
+1、当需要存线程隔离的对象时，通过 ThreadLocal 的 set 方法将对象存入 Map 中。
 
-    public static void main(String[] args) throws InterruptedException {
-        // 创建一个UserInfo对象并设置到ThreadLocal中
-        UserInfo userInfo = new UserInfo("沉默王二");
-        userThreadLocal.set(userInfo);
+2、当需要取线程隔离的对象时，通过 ThreadLocal 的 get 方法从 Map 中取出对象。
 
-        // 模拟在一段时间后，UserInfo不再被使用
-        // 在实际应用中，这可能是因为请求处理完毕等原因
-        userThreadLocal.remove(); // 假设这一行被遗忘或漏掉了
+3、Map 的大小由 ThreadLocal 对象的多少决定。
 
-        // 强制GC尝试回收
-        System.gc();
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407205747.png)
 
-        Thread.sleep(1000); // 等待GC完成，只是为了示例需要
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
 
-        // 模拟线程继续运行
-        System.out.println("线程继续执行");
-    }
-}
-```
+### 13.ThreadLocal 内存泄露是怎么回事？
 
-如果`userThreadLocal.remove();`这行代码被遗漏或者因为某些原因没有执行，即使 UserInfo 对象已经不再需要了，它也不会被垃圾回收器回收。这是因为 ThreadLocalMap 中对 UserInfo 的引用是一个强引用。虽然 ThreadLocal 对象本身（作为 ThreadLocalMap 的键）可能由于是弱引用而被回收，但由于 ThreadLocalMap 的值是强引用，所以 UserInfo 仍然被 ThreadLocalMap 所引用，阻止了其被垃圾回收。
+通常情况下，随着线程 Thread 的结束，其内部的 ThreadLocalMap 也会被回收，从而避免了内存泄漏。
 
-强引用是 Java 中最常见的引用类型。如果一个对象具有强引用，垃圾收集器绝不会回收它。当内存空间不足时，Java 虚拟机宁愿抛出 OutOfMemoryError 错误，使程序异常终止，也不会回收这种对象。
+但如果一个线程一直在运行，并且其 `ThreadLocalMap` 中的 Entry.value 一直指向某个强引用对象，那么这个对象就不会被回收，从而导致内存泄漏。当 Entry 非常多时，可能就会引发更严重的内存溢出问题。
 
-```java
-Object obj = new Object();
-```
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407212932.png)
 
-弱引用需要用 java.lang.ref.WeakReference 类来实现。
-
-```java
-Object obj = new Object();
-WeakReference<Object> weakRef = new WeakReference<Object>(obj);
-
-obj = null; // 取消强引用
-```
-
-在取消 obj 的强引用之后，只剩下 obj 对象的弱引用 weakRef 了。在这种情况下，垃圾收集器在下一次执行时会回收 obj 对象。
-
-更多强引用和弱引用的区别，推荐阅读：[JVM 核心知识点总结](https://javabetter.cn/jvm/zongjie.html)
-
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316111309.png)
-
-**那怎么解决内存泄漏问题呢**？
+#### 那怎么解决内存泄漏问题呢？
 
 很简单，使用完 ThreadLocal 后，及时调用 `remove()` 方法释放内存空间。
 
@@ -750,24 +651,52 @@ try {
 }
 ```
 
-**那为什么 key 要设计成弱引用**？
+`remove()` 方法会将当前线程的 ThreadLocalMap 中的所有 key 为 null 的 Entry 全部清除，这样就能避免内存泄漏问题。
 
-在 ThreadLocal 的实现中，每个线程都持有一个对应的 ThreadLocalMap，用于存储与该线程相关联的 ThreadLocal 对象及其值。ThreadLocalMap 中的每个条目（Entry）都是一个键值对，其中键是 ThreadLocal 对象的引用，而值是线程特有的数据。
+```java
+private void remove(ThreadLocal<?> key) {
+    Entry[] tab = table;
+    int len = tab.length;
+    int i = key.threadLocalHashCode & (len-1);
+    for (Entry e = tab[i];
+            e != null;
+            e = tab[i = nextIndex(i, len)]) {
+        if (e.get() == key) {
+            e.clear();
+            expungeStaleEntry(i);
+            return;
+        }
+    }
+}
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316112259.png)
+public void clear() {
+    this.referent = null;
+}
+```
 
-Entry 继承了弱引用 `WeakReference<ThreadLocal<?>>`，它的 value 字段用于存储与特定 ThreadLocal 对象关联的值。使用弱引用作为键允许垃圾收集器在不再需要的情况下回收 ThreadLocal 实例。
+#### 那为什么 key 要设计成弱引用？
 
-![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
+弱引用的好处是，当内存不足的时候，JVM 会主动回收掉弱引用的对象。
 
-上图中的实线表示强引用，虚线表示弱引用。每个线程都可以通过 ThreadLocals 获取到 ThreadLocalMap，而 ThreadLocalMap 实际上就是一个以 ThreadLocal 实例为 key，任意对象为 value 的 Entry 数组。
+比如说：
 
-当我们为 ThreadLocal 变量赋值时，实际上就是以当前 ThreadLocal 实例为 key，值为 Entry 往这个 ThreadLocalMap 中存放。
+```java
+WeakReference key = new WeakReference(new ThreadLocal());
+```
 
-注意，Entry 的 key 为弱引用，意味着当 ThreadLocal 外部强引用被置为 null（ThreadLocalInstance=null）时，根据可达性分析，ThreadLocal 实例此时没有任何一条链路引用它，所以系统 GC 的时候 ThreadLocal 会被回收。
+key 是弱引用，`new WeakReference(new ThreadLocal())` 是弱引用对象，当 JVM 进行垃圾回收时，如果发现了弱引用对象，就会将其回收。
+
+一旦 key 被回收，ThreadLocalMap 在进行 set、get 的时候就会对 key 为 null 的 Entry 进行清理。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407214616.png)
+
+总结一下，在 ThreadLocal 被垃圾收集后，下一次访问 ThreadLocalMap 时，Java 会自动清理那些键为 null 的条目（参照源码中的 replaceStaleEntry 方法），这个过程会在执行 ThreadLocalMap 相关操作（如 `get()`, `set()`, `remove()`）时触发。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407214955.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：ThreadLocal 什么情况下会内存泄漏
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：使用ThreadLocal有什么问题吗？如何解决？
 
 ### 14.ThreadLocalMap 的结构了解吗？
 
