@@ -448,35 +448,39 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 16.MySQL 有哪些常见存储引擎？
 
-![主要存储引擎](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-db586190-6d1f-49ef-a5b5-496c13e7050d.jpg)
+MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。MEMORY 并不常用。
 
-主要存储引擎以及功能如下：
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408073338.png)
 
-| 功能         | MyISAM | MEMORY | InnoDB |
-| ------------ | ------ | ------ | ------ |
-| 存储限制     | 256TB  | RAM    | 64TB   |
-| 支持事务     | No     | No     | Yes    |
-| 支持全文索引 | Yes    | No     | Yes    |
-| 支持树索引   | Yes    | Yes    | Yes    |
-| 支持哈希索引 | No     | Yes    | Yes    |
-| 支持数据缓存 | No     | N/A    | Yes    |
-| 支持外键     | No     | No     | Yes    |
+我来做一个表格对比：
 
-MySQL5.5 之前，默认存储引擎是 MyISAM，5.5 之后变成了 InnoDB。
+| 功能          | InnoDB | MyISAM | MEMORY |
+| ------------- | ------ | ------ | ------ |
+| 支持事务      | Yes    | No     | No     |
+| 支持全文索引  | Yes    | Yes    | No     |
+| 支持 B+树索引 | Yes    | Yes    | Yes    |
+| 支持哈希索引  | Yes    | No     | Yes    |
+| 支持外键      | Yes    | No     | No     |
 
-> InnoDB 支持的哈希索引是自适应的，InnoDB 会根据表的使用情况自动为表生成哈希索引，不能人为干预是否在一张表中生成哈希索引。
+除此之外，我还了解到：
 
-> MySQL 5.6 开始 InnoDB 支持全文索引。
+①、MySQL 5.5 之前，默认存储引擎是 MyISAM，5.5 之后是 InnoDB。
+
+②、InnoDB 支持的哈希索引是自适应的，不能人为干预。
+
+③、InnoDB 从 MySQL 5.6 开始，支持全文索引。
+
+④、InnoDB 的最小表空间略小于 10M，最大表空间取决于页面大小（page size）。
+
+![MySQL 官网：innodb-limits.html](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408074630.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 支持哪些存储引擎?
 
 ### 17.那存储引擎应该怎么选择？
 
-大致上可以这么选择：
-
-- 大多数情况下，使用默认的 InnoDB 就够了。如果要提供提交、回滚和恢复的事务安全（ACID 兼容）能力，并要求实现并发控制，InnoDB 就是比较靠前的选择了。
-- 如果数据表主要用来插入和查询记录，则 MyISAM 引擎提供较高的处理效率。
-- 如果只是临时存放数据，数据量不大，并且不需要较高的数据安全性，可以选择将数据保存在内存的 MEMORY 引擎中，MySQL 中使用该引擎作为临时表，存放查询的中间结果。
-
-使用哪一种引擎可以根据需要灵活选择，因为存储引擎是基于表的，所以一个数据库中多个表可以使用不同的引擎以满足各种性能和实际需求。使用合适的存储引擎将会提高整个数据库的性能。
+- 大多数情况下，使用默认的 InnoDB 就对了，InnoDB 可以提供事务、行级锁等能力。
+- MyISAM 适合读更多的场景。
+- MEMORY 适合临时表，数据量不大的情况。由于数据都存放在内存，所以速度非常快。
 
 ### 18.InnoDB 和 MyISAM 主要有什么区别？
 
@@ -514,6 +518,8 @@ InnoDB 为聚簇索引，索引和数据不分开。
 **⑥、主键必需**：MyISAM 表可以没有主键；InnoDB 表必须有主键。
 
 **⑦、表的具体行数**：MyISAM 表的具体行数存储在表的属性中，查询时直接返回；InnoDB 表的具体行数需要扫描整个表才能返回。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MyISAM 和 InnoDB 的区别有哪些？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1272,16 +1278,14 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 
 ### 30.索引哪些情况下会失效呢？
 
-- 查询条件包含 or，可能会导致索引失效
-- 如果字段类型是字符串，where 时一定要用引号括起来，否则会因为隐式类型转换，索引失效
-- like 通配符可能会导致索引失效。
-- 联合索引，查询时的条件列不是联合索引中的第一个列，索引失效。
-- 在索引列上使用 mysql 的内置函数，索引失效。
-- 对索引列运算（如，+、-、\*、/），索引失效。
-- 索引字段上使用（!= 或者 < >，not in）时，可能会导致索引失效。
-- 索引字段上使用 is null， is not null，可能导致索引失效。
-- 左连接查询或者右连接查询关联的字段编码格式不一样，可能导致索引失效。
-- MySQL 优化器估计使用全表扫描要比使用索引快，则不使用索引。
+- **在索引列上使用函数或表达式**：如果在查询中对索引列使用了函数或表达式，那么索引可能无法使用，因为数据库无法预先计算出函数或表达式的结果。例如：`SELECT * FROM table WHERE YEAR(date_column) = 2021`。
+- 使用不等于（`<>`）或者 NOT 操作符：这些操作符通常会使索引失效，因为它们会扫描全表。
+- **使用 LIKE 操作符，但是通配符在最前面**：如果 LIKE 的模式串是以“%”或者“\_”开头的，那么索引也无法使用。例如：`SELECT * FROM table WHERE column LIKE '%abc'`。
+- **OR 操作符**：如果查询条件中使用了 OR，并且 OR 两边的条件分别涉及不同的索引，那么这些索引可能都无法使用。
+- 如果 MySQL 估计使用全表扫描比使用索引更快时（通常是小表或者大部分行都满足 WHERE 子句），也不会使用索引。
+- 联合索引不满足最左前缀原则时，索引会失效。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：where b =5 是否一定会命中索引？（索引失效场景）
 
 ### 31.索引不适合哪些场景呢？
 
@@ -1454,34 +1458,37 @@ SELECT * FROM table WHERE column LIKE '%xxx%';
 
 ![三分恶面渣逆袭：聚簇索引和非聚簇索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-692cced2-615a-4b70-a933-69771d53e809.jpg)
 
-在聚簇索引中，表中行的物理顺序与键值的逻辑（索引）顺序相同。换句话说，聚簇索引将数据存储与索引部分结合在了一起。
+在聚簇索引中，表中的行是按照键值（索引）的顺序存储的。这意味着表中的实际数据行和键值之间存在物理排序的关系。因此，每个表只能有一个聚簇索引。例如，在 MySQL 的 InnoDB 存储引擎中，主键就是聚簇索引。
 
-![磊哥：聚簇索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240323160412.png)
+在非聚簇索引中，索引和数据是分开存储的，索引中的键值指向数据的实际存储位置。因此，非聚簇索引也被称为二级索引或辅助索引。表可以有多个非聚簇索引。
 
-在非聚簇索引中，索引结构与数据实际存储分离。非聚簇索引的叶子节点不直接包含数据记录，而是包含了指向数据行的指针。
+这意味着，当使用非聚簇索引检索数据时，数据库首先在索引中查找，然后通过索引中的指针去访问表中实际的数据行，这个过程称为“回表”（Bookmark Lookup）。
 
-![磊哥：非聚簇索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240323160450.png)
+举例来说：
 
-在非聚簇索引的叶子节点上存储的并不是真正的行数据，而是主键 ID，所以当我们使用非聚簇索引进行查询时，首先会得到一个主键 ID，然后再使用主键 ID 去聚簇索引上找到真正的行数据，我们把这个过程称之为回表查询。
-
-MyISAM 采用的是非聚簇索引，InnoDB 采用的是聚簇索引。
-
-可以这么说：
-
-- 聚簇索引直接将数据存储在 B+树的叶子节点中，而非聚簇索引的叶子节点存储的是指向数据行的指针。
-- 一个表只能有一个聚簇索引，但可以有多个非聚簇索引。
-- 聚簇索引改善了顺序访问的性能，但更新主键的成本较高；非聚簇索引适合快速插入和更新操作，但检索数据可能需要更多的磁盘 I/O。
+- InnoDB 采用的是聚簇索引，如果没有显式定义主键，InnoDB 会选择一个唯一的非空列作为隐式的聚簇索引；如果这样的列也不存在，InnoDB 会自动生成一个隐藏的行 ID 作为聚簇索引。这意味着数据与主键是紧密绑定的，行数据直接存储在索引的叶子节点上。
+- MyISAM 采用的是非聚簇索引，表数据存储在一个地方，而索引存储在另一个地方，索引指向数据行的物理位置。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：mysql：聚簇索引和非聚簇索引区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：聚簇索引和非聚簇索引的区别？B+树叶子节点除了存数据还有什么？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：聚簇索引是什么？非聚簇索引是什么？
 
 ### 39.回表了解吗？
 
-在 InnoDB 存储引擎里，利用辅助索引查询，先通过辅助索引找到主键索引的键值，再通过主键值查出主键索引里面没有符合要求的数据，它比基于主键索引的查询多扫描了一棵索引树，这个过程就叫回表。
+当使用非聚簇索引查找数据时，数据库会进行两步操作：
 
-例如:`select \* from user where name = ‘张三’;`
+- 查找索引：数据库首先会查找非聚簇索引，找到索引键值对应的索引项。这个索引项包含了数据行在磁盘上的位置信息。
+- 读取数据：然后，数据库会根据位置信息，去磁盘上读取相应的数据行。
 
-![InnoDB 回表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7d69e289-dc05-47e1-9308-20a8278ebf2e.jpg)
+这个过程也被称为“回表”，因为数据库需要先查找索引，然后再根据索引回到数据表中去查找实际的数据。
+
+因此，使用非聚簇索引查找数据通常比使用聚簇索引要慢，因为需要进行两次磁盘访问。当然，如果索引所在的数据页已经被加载到内存中，那么非聚簇索引的查找速度也可以非常快。
+
+例如：`select * from user where name = '张三';`，会先从辅助索引中找到 name='张三' 的主键 ID，然后再根据主键 ID 从主键索引中找到对应的数据行。
+
+![三分恶面渣逆袭：InnoDB 回表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7d69e289-dc05-47e1-9308-20a8278ebf2e.jpg)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：使用非聚簇索引如何查找数据？
 
 ### 40.覆盖索引了解吗？
 
@@ -1629,10 +1636,29 @@ key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
 
 因为联合索引 (a,b,c) 中，a 是最左边的列，联合索引在创建索引树的时候需要先有 a，然后才会有 b 和 c。而查询条件中没有包含 a，所以 MySQL 无法利用这个索引。
 
+```sql
+EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408092425.png)
+
+#### 建立联合索引(a,b,c)，where c = 5 是否会用到索引？为什么？
+
+> 2024 年 04 月 08 日增补
+
+在这个查询中，只有索引的第三列 c 被用作查询条件，而前两列 a 和 b 没有被使用。这不符合最左前缀原则，因此 MySQL 不会使用联合索引 (a,b,c)。
+
+```sql
+EXPLAIN SELECT * FROM tbn WHERE C=5\G
+```
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408092646.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：(A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：联合索引的一个场景题：(a,b,c)联合索引，(b,c)是否会走索引
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：建立联合索引(a,b,c)，where c = 5 是否会用到索引？为什么？
 
 ### 42.什么是索引下推优化？
 
@@ -1780,7 +1806,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 48.MySQL 事务的四大特性说一下？
 
-事务是 MySQL 执行过程中的一个逻辑单位，由一系列的操作组成，这些操作要么完全执行，要么完全不执行。
+事务是一个或多个 SQL 语句组成的一个执行单元，这些 SQL 语句要么全部执行成功，要么全部不执行，不会出现部分执行的情况。事务是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。
+
+事务的主要作用是保证数据库操作的一致性，即事务内的操作，要么全部成功，要么全部失败回滚，不会出现中间状态。这对于维护数据库的完整性和一致性非常重要。
 
 事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）。
 
@@ -1808,9 +1836,17 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 持久性确保事务一旦提交，它对数据库所做的更改就是永久性的，即使发生系统崩溃，数据库也能恢复到最近一次提交的状态。通常，持久性是通过数据库的恢复和日志机制来实现的，确保提交的事务更改不会丢失。
 
+简短一点的回答可以是：
+
+- **原子性**：事务的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务中的操作不能只执行其中一部分。
+- **一致性**：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。一致性与业务规则有关，比如银行转账，不论事务成功还是失败，转账双方的总金额应该是不变的。
+- **隔离性**：多个并发事务之间需要相互隔离，即一个事务的执行不能被其他事务干扰。
+- **持久性**：一旦事务提交，则其所做的修改将永久保存到数据库中。即使发生系统崩溃，修改的数据也不会丢失。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的四个特性，怎么理解事务一致性
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：什么是数据库事务？事务的作用是什么？
 
 ### 49.那 ACID 靠什么保证的呢？
 
@@ -1886,6 +1922,7 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下事务的四大隔离级别，分别解决什么问题
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 默认隔离级别？
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 

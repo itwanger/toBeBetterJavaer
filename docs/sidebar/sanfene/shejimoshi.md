@@ -277,13 +277,13 @@ public class FactoryMethodPatternDemo {
 
 ![refactoringguru.cn：单例模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240314085956.png)
 
-### 实现单例模式的关键点：
+### 实现单例模式的关键点？
 
 1. **私有构造方法**：确保外部代码不能通过构造器创建类的实例。
 2. **私有静态实例变量**：持有类的唯一实例。
 3. **公有静态方法**：提供全局访问点以获取实例，如果实例不存在，则在内部创建。
 
-### 常见的单例模式实现：
+### 常见的单例模式实现？
 
 #### 01、饿汉式
 
@@ -384,9 +384,24 @@ public enum Singleton {
 
 这对于需要控制资源使用或需要共享资源的情况非常有用，比如数据库连接池，通过单例模式，可以避免对资源的重复创建和销毁，从而提高资源利用率和系统性能。
 
+### 单例模式有几种实现方式？
+
+单例模式有 5 种实现方式，常见的有饿汉式、懒汉式、双重检查锁定、静态内部类和枚举。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下单例模式，有几种
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：单例模式的好处
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲讲设计模式，讲讲单例模式有哪些情况（饿汉和懒汉），具体该如何使用
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：单例模式有几种实现方式？单例模式最常用的实现方式是哪种？为什么？
+
+## 04、了解哪些设计模式？
+
+单例模式，在需要控制资源访问，如配置管理、连接池管理时经常使用单例模式。它确保了全局只有一个实例，并提供了一个全局访问点。
+
+在有多种算法或策略可以互换使用的情况下，我会使用策略模式。
+
+当我需要为对象动态地添加功能，而不改变其结构时，装饰器模式很有用。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：了解哪些设计模式？
 
 ---
 
@@ -418,4 +433,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-> 图文详解 RocketMQ 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/N6wq52pBGh8xkS-5uRcO2g)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A)。
+> 图文详解设计模式面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。
