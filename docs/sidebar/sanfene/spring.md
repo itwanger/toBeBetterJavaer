@@ -1624,7 +1624,7 @@ public class AccountService {
 
 好，事务的隔离级别定义了一个事务可能受其他并发事务影响的程度。SQL 标准定义了四个隔离级别，Spring 都支持，并且提供了对应的机制来配置它们，定义在 TransactionDefinition 接口中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240326082116.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240326082116.png)
 
 ①、ISOLATION_DEFAULT：使用数据库默认的隔离级别（你们爱咋咋滴 😁），MySQL 默认的是可重复读，Oracle 默认的读已提交。
 
@@ -1637,6 +1637,7 @@ public class AccountService {
 ⑤、ISOLATION_SERIALIZABLE：串行化，这是最高的隔离级别，它完全隔离了事务，确保事务序列化执行，以此来避免“脏读”、“不可重复读”和“幻读”问题，但性能影响也最大。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Spring 中的事务的隔离级别，事务的传播行为？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 E 第二个部门 Java 后端技术一面面试原题：spring的隔离机制，默认是哪一种
 
 ### 25.Spring 的事务传播机制？
 
@@ -1997,95 +1998,107 @@ Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件
 
 ### 33.如何自定义一个 SpringBoot Srarter?
 
-知道了自动配置原理，创建一个自定义 SpringBoot Starter 也很简单。
+创建一个自定义的 Spring Boot Starter，需要这几步：
 
-1. 创建一个项目，命名为 demo-spring-boot-starter，引入 SpringBoot 相关依赖
+第一步，创建一个新的Maven 项目，例如命名为 my-spring-boot-starter。在 pom.xml 文件中添加必要的依赖和配置：
 
-```java
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-configuration-processor</artifactId>
-    <optional>true</optional>
-</dependency>
+
+```xml
+<properties>
+    <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+</properties>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring.boot.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>${spring.boot.version}</version>
+    </dependency>
+</dependencies>
 ```
 
-2. 编写配置文件
-
-这里定义了属性配置的前缀
-
-```java
-@ConfigurationProperties(prefix = "hello")
-public class HelloProperties {
-
-    private String name;
-
-    //省略getter、setter
-}
-```
-
-3. 自动装配
-
-创建自动配置类 HelloPropertiesConfigure
+第二步，在 `src/main/java` 下创建一个自动配置类，比如 MyServiceAutoConfiguration.java：（通常是autoconfigure包下）。
 
 ```java
 @Configuration
-@EnableConfigurationProperties(HelloProperties.class)
-public class HelloPropertiesConfigure {
+@EnableConfigurationProperties(MyStarterProperties.class)
+public class MyServiceAutoConfiguration {
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MyService myService(MyStarterProperties properties) {
+        return new MyService(properties.getMessage());
+    }
 }
 ```
 
-4. 配置自动类
-
-在`/resources/META-INF/spring.factories`文件中添加自动配置类路径
+第三步，创建一个配置属性类 MyStarterProperties.java：
 
 ```java
+@ConfigurationProperties(prefix = "mystarter")
+public class MyStarterProperties {
+    private String message = "二哥的 Java 进阶之路不错啊!";
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
+```
+
+第四步，创建一个简单的服务类 MyService.java：
+
+```java
+public class MyService {
+    private final String message;
+
+    public MyService(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}
+```
+
+第五步，配置 spring.factories，在 `src/main/resources/META-INF` 目录下创建 spring.factories 文件，并添加：
+
+```
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    cn.fighter3.demo.starter.configure.HelloPropertiesConfigure
+com.itwanger.mystarter.autoconfigure.MyServiceAutoConfiguration
 ```
 
-5. 测试
+第六步，使用 Maven 打包这个项目：
 
-- 创建一个工程，引入自定义 starter 依赖
-
-```java
-       <dependency>
-           <groupId>cn.fighter3</groupId>
-           <artifactId>demo-spring-boot-starter</artifactId>
-           <version>0.0.1-SNAPSHOT</version>
-       </dependency>
+```shell
+mvn clean install
 ```
 
-- 在配置文件里添加配置
+第七步，在其他的 Spring Boot 项目中，通过 Maven 来添加这个自定义的 Starter 依赖，并通过 application.properties 配置欢迎消息：
 
-```
-hello.name=张三
-```
-
-- 测试类
-
-```java
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class HelloTest {
-   @Autowired
-   HelloProperties helloProperties;
-
-   @Test
-   public void hello(){
-       System.out.println("你好，"+helloProperties.getName());
-   }
-}
+```xml
+mystarter.message=javabetter.cn
 ```
 
-- 运行结果
+然后就可以在 Spring Boot 项目中注入 MyStarterProperties 来使用它。
 
-![运行结果](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-3ff3cc21-6a56-434b-a89e-d2b55d558bd6.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240409114642.png)
 
-至此，随手写的一个自定义 SpringBoot-Starter 就完成了，虽然比较简单，但是完成了主要的自动装配的能力。
+启动项目，然后在浏览器中输入 `localhost:8081/hello`，就可以看到欢迎消息了。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240409114610.png)
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你封装过springboot starter吗
 
 ### 34.Springboot 启动原理？
 
