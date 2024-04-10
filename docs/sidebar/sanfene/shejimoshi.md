@@ -402,6 +402,7 @@ public enum Singleton {
 当我需要为对象动态地添加功能，而不改变其结构时，装饰器模式很有用。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：了解哪些设计模式？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：你真正使用过哪些设计模式？
 
 ---
 

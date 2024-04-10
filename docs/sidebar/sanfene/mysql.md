@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，69道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，70道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 69 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 70 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 69 张手绘图，详解 69 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 101 张手绘图，详解 70 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ### 0.什么是 MySQL？
 
@@ -1378,7 +1378,7 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 MySQL 的底层数据结构，B 树和 B+树的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：MySQL 为什么选用 B+树
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 E 第二个部门 Java 后端技术一面面试原题：说一说mysql索引的底层机制
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 E 第二个部门 Java 后端技术一面面试原题：说一说 mysql 索引的底层机制
 
 ### 34.那一棵 B+树能存储多少条数据呢？
 
@@ -1394,7 +1394,18 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是�
 
 理论上，在 InnoDB 存储引擎中，B+树的高度一般为 2-4 层，就可以满足千万级数据的存储。查找数据的时候，一次页的查找代表一次 IO，当我们通过主键索引查询的时候，最多只需要 2-4 次 IO 就可以了。
 
+#### innodb 使用数据页存储数据？默认数据页大小 16K，我现在有一张表，有 2kw 数据，我这个 b+树的高度有几层？
+
+InnoDB 存储引擎使用 B+树作为索引结构，数据页是 B+树中的节点。默认的数据页大小为 16KB。
+
+B+树的高度取决于每个数据页（节点）可以存放的键值对数量。这个数量又取决于键和值的大小。假设每个键值对占用 100 字节，那么一个 16KB 的数据页大约可以存放约 160 个键值对（实际上会稍少一些，因为还需要考虑到一些额外的开销）。
+
+如果你有 200 万（2KW）条数据，那么理论上需要的数据页数量就是 2000000 / 160 = 12500 页。这是在假设所有数据都能均匀分布在所有数据页中的情况下。
+
+至于 B+树的高度，取决于树的分支因子（即每个节点的子节点数量）。假设分支因子为 400（这是一个估计值，实际值取决于许多因素），那么一个有 12500 页的 B+树的高度大约为 3 层。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：innodb 使用数据页存储数据？默认数据页大小 16K，我现在有一张表，有 2kw 数据，我这个 b+树的高度有几层？
 
 ### 35.为什么要用 B+ 树，而不用普通二叉树？
 
@@ -1435,6 +1446,7 @@ B+树的所有值（数据记录或指向数据记录的指针）都存在于叶
 B+树中所有叶子节点深度相同，所有数据查询路径长度相等，保证了每次搜索的性能稳定性。而在 B 树中，数据可以存储在内部节点，不同的查询可能需要不同深度的搜索。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：聚簇索引和非聚簇索引的区别？B+树叶子节点除了存数据还有什么？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：b 树和 b+树有什么区别
 
 ### 37.Hash 索引和 B+ 树索引区别是什么？
 
@@ -2284,7 +2296,82 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 也有可能是每个 sql 消耗资源并不多，但是突然之间，有大量的 session 连进来导致 cpu 飙升，这种情况就需要跟应用一起来分析为何连接数会激增，再做出相应的调整，比如说限制连接数等
 
-> 图文详解 69 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+## SQL 题
+
+### 70.一张表：id，name，age，sex，class，sql 语句：所有年龄为 18 的人的名字？找到每个班年龄大于 18 有多少人？找到每个班年龄排前两名的人？
+
+> 这是一道 SQL 题，主要考察 SQL 的基本语法。建议大家直接在本地建表，然后实操一下。
+
+第一步，建表：
+
+```sql
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    sex CHAR(1),
+    class VARCHAR(50)
+);
+```
+
+第二步，插入数据：
+
+```sql
+INSERT INTO students (name, age, sex, class) VALUES
+('沉默王二', 18, '女', '三年二班'),
+('沉默王一', 20, '男', '三年二班'),
+('沉默王三', 19, '男', '三年三班'),
+('沉默王四', 17, '男', '三年三班'),
+('沉默王五', 20, '女', '三年四班'),
+('沉默王六', 21, '男', '三年四班'),
+('沉默王七', 18, '女', '三年四班');
+```
+
+①、所有年龄为 18 的人的名字
+
+```sql
+SELECT name FROM students WHERE age = 18;
+```
+
+这条 SQL 语句从表中选择`age`等于 18 的所有记录，并返回这些记录的`name`字段。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240410105325.png)
+
+②、找到每个班年龄大于 18 有多少人
+
+```sql
+SELECT class, COUNT(*) AS number_of_students
+FROM students
+WHERE age > 18
+GROUP BY class;
+```
+
+这条 SQL 语句先筛选出年龄大于 18 的记录，然后按`class`分组，并计算每个班的学生数。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240410105512.png)
+
+③、找到每个班年龄排前两名的人
+
+这个查询稍微复杂一些，需要使用子查询和`COUNT`函数。
+
+```sql
+SELECT a.class, a.name, a.age
+FROM students a
+WHERE (
+    SELECT COUNT(DISTINCT b.age)
+    FROM students b
+    WHERE b.class = a.class AND b.age > a.age
+) < 2
+ORDER BY a.class, a.age DESC;
+```
+
+这条 SQL 语句首先从`students`表中选择`class`、`name`和`age`字段，然后使用子查询计算每个班级中年龄排前两名的学生。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240410105951.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：一张表：id，name，age，sex，class，sql 语句：所有年龄为 18 的人的名字？找到每个班年龄大于 18 有多少人？找到每个班年龄排前两名的人？
+
+> 图文详解 70 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ---
 
