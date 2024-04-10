@@ -1,7 +1,7 @@
 ---
-title: 操作系统面试题，33道操作系统八股文（1万字51张手绘图），面渣逆袭必看👍
+title: 操作系统面试题，34道操作系统八股文（1万字51张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-操作系统
-description: 下载次数超 1 万次，1 万字 51 张手绘图，详解 33 道操作系统面试高频题（让天下没有难背的八股），面渣背会这些 OS 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1 万字 51 张手绘图，详解 34 道操作系统面试高频题（让天下没有难背的八股），面渣背会这些 OS 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: OS面试题,操作系统,OS,操作系统面试题,面试题,八股文
 ---
 
-1 万字 51 张手绘图，详解 33 道操作系统面试高频题（让天下没有难背的八股），面渣背会这些 OS 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/CYsn0M5ddDuG--mALmhsuw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/KMGyn-FLkvzsMH06LV4OfQ)。
+1 万字 51 张手绘图，详解 34 道操作系统面试高频题（让天下没有难背的八股），面渣背会这些 OS 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/CYsn0M5ddDuG--mALmhsuw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/KMGyn-FLkvzsMH06LV4OfQ)。
 
 ## 引论
 
@@ -661,7 +661,23 @@ epoll 通过两个⽅⾯，很好解决了 select/poll 的问题。
 
 epoll 的⽅式即使监听的 Socket 数量越多的时候，效率不会⼤幅度降低，能够同时监听的 Socket 的数⽬也⾮常的多了，上限就为系统定义的进程打开的最⼤⽂件描述符个数。因⽽，**epoll** **被称为解决** **C10K** **问题的利器**。
 
-> 图文详解 33 道操作系统面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/CYsn0M5ddDuG--mALmhsuw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/KMGyn-FLkvzsMH06LV4OfQ)。
+### 34.普通内存比一般的机械硬盘快多少？（补充）
+
+>2024年04月10日增补
+
+机械硬盘，也叫 HDD（Hard Disk Drive），是一种通过磁盘旋转和磁头移动来存储数据的设备，读写速度比较慢，通常比内存的速度慢 10 万倍左右。
+
+- HDD 的访问时间大约在 5-10ms，数据传输速率约为 100 到 200 MB/s。
+- 内存，也就是 RAM（Random Access Memory），访问时间大约在 10-100ns，数据传输速率约为数十 GB/s。
+
+固态硬盘（Solid State Drive，SSD），SSD 的读写速度比 HDD 快 200 倍左右，价格也在逐渐下降，已经逐渐取代了 HDD。
+
+![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/os-20240410101801.png)
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：普通内存比一般的机械硬盘快多少？
+
+> 图文详解 34 道操作系统面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/CYsn0M5ddDuG--mALmhsuw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/KMGyn-FLkvzsMH06LV4OfQ)。
 
 ---
 
