@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，71道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，73道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 71 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 73 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 101 张手绘图，详解 71 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 101 张手绘图，详解 73 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ### 0.什么是 MySQL？
 
@@ -40,7 +40,7 @@ MySQL 的连接主要分为内连接和外连接，外连接又可以分为左�
 
 ①、`inner join` 内连接，在两张表进行连接查询时，只保留两张表中完全匹配的结果集。
 
-> 只有当两个表中都有匹配的记录时，这些记录才会出现在查询结果中。如果某一方没有匹配的记录，则该记录不会出现在结果集中。
+只有当两个表中都有匹配的记录时，这些记录才会出现在查询结果中。如果某一方没有匹配的记录，则该记录不会出现在结果集中。
 
 内联可以用来找出两个表中共同的记录，相当于两个数据集的交集。
 
@@ -48,9 +48,9 @@ MySQL 的连接主要分为内连接和外连接，外连接又可以分为左�
 
 ③、`right join` 刚好与左联相反，返回右表（FROM 子句中指定的表）的所有记录，以及左表中匹配记录的记录。如果左表中没有匹配的记录，则结果中左表的部分会以 NULL 填充。
 
-我们拿[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)为例。
+拿我做过的[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)为例。
 
-> 我现在有三张表，一张文章表 article（主要存文章标题 title） 一张文章详情表 article_detail （主要存文章的内容 content），一张文章评论表 comment（主要存储评论 content） ，可以通过文章 id 关联。
+有三张表，一张文章表 article（主要存文章标题 title） 一张文章详情表 article_detail （主要存文章的内容 content），一张文章评论表 comment（主要存储评论 content） ，可以通过文章 id 关联。
 
 先来看内联：
 
@@ -61,7 +61,7 @@ INNER JOIN comment c ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184454.png)
+![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184454.png)
 
 这个查询返回了至少有一条评论的文章标题和评论内容的前 20 个字符，限制结果为前 2 条记录。
 
@@ -74,7 +74,7 @@ LEFT JOIN comment c ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184901.png)
+![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184901.png)
 
 这个查询返回所有文章的标题和文章评论的前 20 个字符，即使某些文章没有评论（这些情况下 CommentContent 为 NULL），限制结果为前 2 条记录。
 
@@ -87,7 +87,7 @@ RIGHT JOIN article a ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308185525.png)
+![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308185525.png)
 
 右联在这种情况下，其实比较别扭，因为可以直接使用左联来实现。
 
@@ -234,13 +234,11 @@ alter table blogs modify content text CHARACTER SET utf8mb4 COLLATE ut
 
 ### 67.介绍一下 MySQL 的常用命令（补充）
 
-> 2024 年 03 月 13 日增补，说实话这个问题问的就不是很有水准，可以先向面试官确认一下，“您提到的常用命令是指数据库、表、数据这些增删改查的 SQL 命令吗？”
-
-得到确认答复后可以根据下面这张思维导图作答：
+> 2024 年 03 月 13 日增补，可以先向面试官确认一下，“您提到的常用命令是指数据库表的增删改查 SQL 吗？”得到确认答复后可以根据下面这张思维导图作答：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240313093551.png)
 
-#### 数据库操作命令
+#### 说说数据库操作命令？
 
 ①、**创建数据库**:
 
@@ -260,7 +258,7 @@ DROP DATABASE database_name;
 USE database_name;
 ```
 
-#### 表操作命令
+#### 说说表操作命令？
 
 ①、**创建表**:
 
@@ -296,7 +294,7 @@ DESCRIBE table_name;
 ALTER TABLE table_name ADD column_name datatype;
 ```
 
-#### 数据操作命令
+#### 说说 CRUD 命令？
 
 ①、**插入数据**:
 
@@ -322,7 +320,7 @@ UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
 DELETE FROM table_name WHERE condition;
 ```
 
-#### 索引和约束
+#### 说说索引和约束的创建修改命令？
 
 ①、**创建索引**:
 
@@ -342,7 +340,7 @@ ALTER TABLE table_name ADD PRIMARY KEY (column_name);
 ALTER TABLE table_name ADD CONSTRAINT fk_name FOREIGN KEY (column_name) REFERENCES parent_table (parent_column_name);
 ```
 
-#### 用户和权限管理
+#### 说说用户和权限管理的命令？
 
 ①、**创建用户**:
 
@@ -368,7 +366,7 @@ REVOKE ALL PRIVILEGES ON database_name.table_name FROM 'username'@'host';
 DROP USER 'username'@'host';
 ```
 
-#### 事务控制
+#### 说说事务控制的命令？
 
 ①、**开始事务**:
 
@@ -422,6 +420,172 @@ SELECT * FROM table_name LIMIT 2, 8;
 偏移量是从 0 开始的，即第一条记录的偏移量是 0；如果想从第 3 条记录开始，偏移量就应该是 2。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 第 3-10 条记录怎么查？
+
+### 73.用过哪些MySQL函数？（补充）
+
+>2024年04月12日增补
+
+MySQL支持很多内置函数，包括执行计算、格式转换、日期处理等。我说一些自己常用的（~~挑一些自己熟悉的~~）。
+
+#### 用过哪些字符串函数来处理文本？
+
+- `CONCAT()`: 连接两个或多个字符串。
+- `LENGTH()`: 返回字符串的长度。
+- `SUBSTRING()`: 从字符串中提取子字符串。
+- `REPLACE()`: 替换字符串中的某部分。
+- `LOWER()` 和 `UPPER()`: 分别将字符串转换为小写或大写。
+- `TRIM()`: 去除字符串两侧的空格或其他指定字符。
+
+```sql
+-- 连接字符串
+SELECT CONCAT('沉默', ' ', '王二') AS concatenated_string;
+
+-- 获取字符串长度
+SELECT LENGTH('沉默 王二') AS string_length;
+
+-- 提取子字符串
+SELECT SUBSTRING('沉默 王二', 1, 5) AS substring;
+
+-- 替换字符串内容
+SELECT REPLACE('沉默 王二', '王二', 'MySQL') AS replaced_string;
+
+-- 字符串转小写
+SELECT LOWER('HELLO WORLD') AS lower_case;
+
+-- 字符串转大写
+SELECT UPPER('hello world') AS upper_case;
+
+-- 去除字符串两侧的空格
+SELECT TRIM('  沉默 王二  ') AS trimmed_string;
+```
+
+#### 用过哪些数值函数？
+
+- `ABS()`: 返回一个数的绝对值。
+- `CEILING()`: 返回大于或等于给定数值的最小整数。
+- `FLOOR()`: 返回小于或等于给定数值的最大整数。
+- `ROUND()`: 四舍五入到指定的小数位数。
+- `MOD()`: 返回除法操作的余数。
+
+```sql
+-- 返回绝对值
+SELECT ABS(-123) AS absolute_value;
+
+-- 向上取整
+SELECT CEILING(123.45) AS ceiling_value;
+
+-- 向下取整
+SELECT FLOOR(123.45) AS floor_value;
+
+-- 四舍五入
+SELECT ROUND(123.4567, 2) AS rounded_value;
+
+-- 余数
+SELECT MOD(10, 3) AS modulus;
+```
+
+#### 用过哪些日期和时间函数？
+
+- `NOW()`: 返回当前的日期和时间。
+- `CURDATE()`: 返回当前的日期。
+- `CURTIME()`: 返回当前的时间。
+- `DATE_ADD()` 和 `DATE_SUB()`: 在日期上加上或减去指定的时间间隔。
+- `DATEDIFF()`: 返回两个日期之间的天数。
+- `DAY()`, `MONTH()`, `YEAR()`: 分别返回日期的日、月、年部分。
+
+```sql
+-- 返回当前日期和时间
+SELECT NOW() AS current_date_time;
+
+-- 返回当前日期
+SELECT CURDATE() AS current_date;
+
+-- 返回当前时间
+SELECT CURTIME() AS current_time;
+
+-- 在日期上添加天数
+SELECT DATE_ADD(CURDATE(), INTERVAL 10 DAY) AS date_in_future;
+
+-- 计算两个日期之间的天数
+SELECT DATEDIFF('2024-12-31', '2024-01-01') AS days_difference;
+
+-- 返回日期的年份
+SELECT YEAR(CURDATE()) AS current_year;
+```
+
+#### 用过哪些汇总函数？
+
+- `SUM()`: 计算数值列的总和。
+- `AVG()`: 计算数值列的平均值。
+- `COUNT()`: 计算某列的行数。
+- `MAX()` 和 `MIN()`: 分别返回列中的最大值和最小值。
+- `GROUP_CONCAT()`: 将多个行值连接为一个字符串。
+
+```sql
+-- 创建一个表并插入数据进行聚合查询
+CREATE TABLE sales (
+    product_id INT,
+    sales_amount DECIMAL(10, 2)
+);
+
+INSERT INTO sales (product_id, sales_amount) VALUES (1, 100.00);
+INSERT INTO sales (product_id, sales_amount) VALUES (1, 150.00);
+INSERT INTO sales (product_id, sales_amount) VALUES (2, 200.00);
+
+-- 计算总和
+SELECT SUM(sales_amount) AS total_sales FROM sales;
+
+-- 计算平均值
+SELECT AVG(sales_amount) AS average_sales FROM sales;
+
+-- 计算总行数
+SELECT COUNT(*) AS total_entries FROM sales;
+
+-- 最大值和最小值
+SELECT MAX(sales_amount) AS max_sale, MIN(sales_amount) AS min_sale FROM sales;
+```
+
+#### 用过哪些逻辑函数？
+
+- `IF()`: 如果条件为真，则返回一个值；否则返回另一个值。
+- `CASE`: 根据一系列条件返回值。
+- `COALESCE()`: 返回参数列表中的第一个非NULL值。
+
+```sql
+-- IF函数
+SELECT IF(1 > 0, 'True', 'False') AS simple_if;
+
+-- CASE表达式
+SELECT CASE WHEN 1 > 0 THEN 'True' ELSE 'False' END AS case_expression;
+
+-- COALESCE函数
+SELECT COALESCE(NULL, NULL, 'First Non-Null Value', 'Second Non-Null Value') AS first_non_null;
+```
+
+#### 用过哪些格式化函数？
+
+- `FORMAT()`: 格式化数字为格式化的字符串，通常用于货币显示。
+
+```sql
+-- 格式化数字
+SELECT FORMAT(1234567.8945, 2) AS formatted_number;
+```
+
+#### 用过哪些类型转换函数？
+
+- `CAST()`: 将一个值转换为指定的数据类型。
+- `CONVERT()`: 类似于`CAST()`，用于类型转换。
+
+```sql
+-- CAST函数
+SELECT CAST('2024-01-01' AS DATE) AS casted_date;
+
+-- CONVERT函数
+SELECT CONVERT('123', SIGNED INTEGER) AS converted_number;
+```
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：用过哪些MySQL函数？
 
 ## 数据库架构
 
@@ -1465,7 +1629,7 @@ B+树中所有叶子节点深度相同，所有数据查询路径长度相等，
 - B+ 树索引支持联合索引的最左侧原则，Hash 索引不支持。
 - B+ 树索引支持 order by 排序，Hash 索引不支持。
 - Hash 索引在等值查询上比 B+ 树索引效率更高。
-- B+ 树使用 like 进行模糊查询的时候，like 后面（比如 % 开头）的话可以起到优化的作用，Hash 索引无法进行模糊查询。
+- B+ 树使用 like 进行模糊查询的时候，`LIKE 'abc%'` 的话可以起到索引优化的作用，Hash 索引无法进行模糊查询。
 
 #### MySQL 模糊查询怎么查，什么情况下模糊查询不走索引？
 

@@ -85,12 +85,22 @@ BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBloc
 
 4. LinkedHashMap：LinkedHashMap 在 HashMap 的基础上增加了一个双向链表来保持键值对的插入顺序。
 
+#### 队列和栈的区别了解吗？
+
+队列是一种先进先出（FIFO, First-In-First-Out）的数据结构。在队列中，第一个加入队列的元素会是第一个被移除的。队列常用于处理按顺序来的任务。
+
+![疯狂的技术宅：队列](https://cdn.tobebetterjavaer.com/stutymore/collection-20240412224341.png)
+
+栈是一种后进先出（LIFO, Last-In-First-Out）的数据结构。在这种结构中，最后一个加入栈的元素会是第一个被移除的。这种特性使得栈非常适合于那些需要访问最新添加的数据元素的场合。
+
+![Wang Wei：栈](https://cdn.tobebetterjavaer.com/stutymore/collection-20240412224549.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：你了解哪些集合框架？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Java 容器和 HashMap
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解哪些集合？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：知道哪些集合，讲讲 HashMap 和 TreeMap 的区别，讲讲两者应用场景的区别；讲一下有哪些队列，阻塞队列的阻塞是什么含义？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：用过哪些集合类，它们的优劣
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：队列和栈的区别了解吗?
 
 ## List
 
@@ -1181,6 +1191,7 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [面渣逆袭分布式篇 👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
 - [面渣逆袭微服务篇 👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
+- [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
 ---
 
