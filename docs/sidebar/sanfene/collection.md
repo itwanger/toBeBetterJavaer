@@ -19,7 +19,8 @@ head:
 
 ### 1.说说有哪些常见的集合框架？
 
-推荐阅读：[二哥的 Java 进阶之路：Java 集合框架](https://javabetter.cn/collection/gailan.html)
+- 推荐阅读：[二哥的 Java 进阶之路：Java 集合框架](https://javabetter.cn/collection/gailan.html)
+- 推荐阅读：[阻塞队列 BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html)。
 
 Java 集合框架可以分为两条大的支线：
 
@@ -72,12 +73,24 @@ BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBloc
 
 阻塞指的是一种程序执行状态，其中某个线程在等待某个条件满足时暂停其执行（即阻塞），直到条件满足时恢复其执行。
 
-推荐阅读：[阻塞队列 BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html)。
+#### 用过哪些集合类，它们的优劣？
+
+在 Java 中，常用的集合类有 ArrayList、LinkedList、HashMap、LinkedHashMap 等。
+
+1. ArrayList：ArrayList 可以看作是一个动态数组，它可以在运行时动态扩容。优点是访问速度快，可以通过索引直接查到元素。缺点是插入和删除元素可能需要移动元素，效率就会降低。
+
+2. LinkedList：LinkedList 是一个双向链表，它适合频繁的插入和删除操作。优点是插入和删除元素的时候只需要改变节点的前后指针，缺点是访问元素时需要遍历链表。
+
+3. HashMap：HashMap 是一个基于哈希表的键值对集合。优点是插入、删除和查找元素的速度都很快。缺点是它不保留键值对的插入顺序。
+
+4. LinkedHashMap：LinkedHashMap 在 HashMap 的基础上增加了一个双向链表来保持键值对的插入顺序。
+
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：你了解哪些集合框架？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Java 容器和 HashMap
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解哪些集合？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：知道哪些集合，讲讲 HashMap 和 TreeMap 的区别，讲讲两者应用场景的区别；讲一下有哪些队列，阻塞队列的阻塞是什么含义？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：用过哪些集合类，它们的优劣
 
 ## List
 

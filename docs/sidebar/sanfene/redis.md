@@ -1,7 +1,7 @@
 ---
-title: Redis面试题，55道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
+title: Redis面试题，56道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Redis
-description: 下载次数超 1 万次，1.9 万字 97 张手绘图，详解 55 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.9 万字 97 张手绘图，详解 56 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: Redis面试题,Redis,八股文,面试题
 ---
 
-1.9 万字 97 张手绘图，详解 55 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+1.9 万字 97 张手绘图，详解 56 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
 
 ## 基础
 
@@ -38,6 +38,7 @@ head:
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis相关的基础知识
 
 ### 54.单线程 Redis 的 QPS 是多少？
 
@@ -64,38 +65,32 @@ redis-benchmark -h 127.0.0.1 -p 6379 -c 50 -n 10000
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：单线程 Redis 的 QPS 是多少？
 
+
 ### 2.Redis 可以用来干什么？
 
-![Redis](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b02e44b3-3299-450f-b767-4a862b5ac8ff.png)
+![三分恶面渣逆袭：Redis的作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b02e44b3-3299-450f-b767-4a862b5ac8ff.png)
 
-1. 缓存
+①、缓存
 
-   这是 Redis 应用最广泛地方，基本所有的 Web 应用都会使用 Redis 作为缓存，来降低数据源压力，提高响应速度。
+Redis 最常见的用途就是作为缓存，由于所有数据都存储在内存中，所以Redis的读写速度非常快，远超基于磁盘存储的数据库。使用Redis缓存可以极大地提高应用的响应速度和吞吐量。
 
-   ![Redis缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d44c2397-5994-452f-8b7b-eb85d2b87685.png)
+![三分恶面渣逆袭：Redis缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d44c2397-5994-452f-8b7b-eb85d2b87685.png)
 
-2. 计数器
-   Redis 天然支持计数功能，而且计数性能非常好，可以用来记录浏览量、点赞量等等。
+②、排行榜/计数器
 
-3. 排行榜
-   Redis 提供了列表和有序集合数据结构，合理地使用这些数据结构可以很方便地构建各种排行榜系统。
+Redis的ZSet非常适合用来实现排行榜的功能，同时Redis的原子递增操作可以用来实现计数器功能。
 
-4. 社交网络
-   赞/踩、粉丝、共同好友/喜好、推送、下拉刷新。
+③、分布式锁
 
-5. 消息队列
-   Redis 提供了发布订阅功能和阻塞队列的功能，可以满足一般消息队列功能。
+Redis可以实现分布式锁，用来控制跨多个进程或服务器的资源访问。
 
-6. 分布式锁
-   分布式环境下，利用 Redis 实现分布式锁，也是 Redis 常见的应用。
+以一个[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)的用户服务为例吧：
 
-Redis 的应用一般会结合项目去问，以一个电商项目的用户服务为例：
+- Redis 可以用来存储 Token：用户登录成功之后，使用 Redis 的 hash 存储 Token
+- 使用 Redis 的 Zset 计数，登录失败超过一定次数，锁定账号
+- 使用 Redisson 实现分布式环境下的登录、注册等操作
 
-- Token 存储：用户登录成功之后，使用 Redis 存储 Token
-- 登录失败次数计数：使用 Redis 计数，登录失败超过一定次数，锁定账号
-- 地址缓存：对省市区数据的缓存
-- 分布式锁：分布式环境下登录、注册等操作加分布式锁
-- ……
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis相关的基础知识
 
 ### 3.Redis 有哪些数据结构？
 
@@ -169,6 +164,49 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你对 Redis 了解多少，说说常见的数据结构和应用场景
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 的数据类型
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Redis 常用的数据结构
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis相关的基础知识
+
+### 56.说说 Redis 常用命令（补充）
+
+> 2024 年 04 月 11 日增补
+
+①、操作字符串的命令有：
+
+- `SET key value`：设置键 key 的值为 value。
+- `GET key`：获取键 key 的值。
+- `DEL key`：删除键 key。
+- `INCR key`：将键 key 存储的数值增一。
+- `DECR key`：将键 key 存储的数值减一。
+
+②、操作列表的命令有：
+
+- `LPUSH key value`：将一个值插入到列表 key 的头部。
+- `RPUSH key value`：将一个值插入到列表 key 的尾部。
+- `LPOP key`：移除并返回列表 key 的头元素。
+- `RPOP key`：移除并返回列表 key 的尾元素。
+- `LRANGE key start stop`：获取列表 key 中指定范围内的元素。
+
+③、操作集合的命令有：
+
+- `SADD key member`：向集合 key 添加一个元素。
+- `SREM key member`：从集合 key 中移除一个元素。
+- `SMEMBERS key`：返回集合 key 中的所有元素。
+
+④、操作有序集合的命令有：
+
+- `ZADD key score member`：向有序集合 key 添加一个成员，或更新其分数。
+- `ZRANGE key start stop [WITHSCORES]`：按照索引区间返回有序集合 key 中的成员，可选 WITHSCORES 参数返回分数。
+- `ZREVRANGE key start stop [WITHSCORES]`：返回有序集合 key 中，指定区间内的成员，按分数递减。
+- `ZREM key member`：移除有序集合 key 中的一个或多个成员。
+
+⑤、操作哈希的命令有：
+
+- `HSET key field value`：向键为 key 的哈希表中设置字段 field 的值为 value。
+- `HGET key field`：获取键为 key 的哈希表中字段 field 的值。
+- `HGETALL key`：获取键为 key 的哈希表中所有的字段和值。
+- `HDEL key field`：删除键为 key 的哈希表中的一个或多个字段。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 Redis 常用命令
 
 ### 4.Redis 为什么快呢？
 
@@ -567,7 +605,7 @@ Redis 使用了 Raft 算法实 现领导者选举，大致流程如下：
 
 在 Redis Cluster 中，数据和实例之间的映射是通过哈希槽（hash slot）来实现的。Redis Cluster 有 16384 个哈希槽，每个键根据其名字的 CRC16 值被映射到这些哈希槽上。然后，这些哈希槽会被均匀地分配到所有的 Redis 实例上。
 
->CRC16 是一种哈希算法，它可以将任意长度的输入数据映射为一个 16 位的哈希值。
+> CRC16 是一种哈希算法，它可以将任意长度的输入数据映射为一个 16 位的哈希值。
 
 ![三分恶面渣逆袭：槽](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e0ed9d62-3406-40db-8b01-c931f1020612.png)
 
@@ -634,7 +672,7 @@ Key 1 和 Key 2 会落入到 Node 1 中，Key 3、Key 4 会落入到 Node 2 中�
 它能保证扩容后，大部分数据停留在扩容前的位置，只有少部分数据需要迁移到新的槽上。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道 Redis 的一致性 hash 吗
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis扩容之后，哈希槽的位置是否发生变化？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis 扩容之后，哈希槽的位置是否发生变化？
 
 ### 24.能说说 Redis 集群的原理吗？
 
@@ -1747,9 +1785,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 使用 `keys` 指令可以扫出指定模式的 key 列表。但是要注意 keys 指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用 `scan` 指令，`scan` 指令可以无阻塞的提取出指定模式的 `key` 列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用 `keys` 指令长。
 
-> 图文详解 55 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
-
 ---
+
+图文详解 56 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
