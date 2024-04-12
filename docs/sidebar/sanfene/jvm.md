@@ -106,7 +106,7 @@ ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
-JVM 的内存区域，有时也叫 JVM 运行时数据区，可以粗暴地划分为`堆`和`栈`，当然了，按照 Java 的虚拟机规范，可以再细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
+JVM 的内存区域，有时也叫 JVM 运行时数据区，按照 Java 的虚拟机规范，可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
 
 ![三分恶面渣逆袭：Java虚拟机运行时数据区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-3.png)
 
@@ -127,6 +127,8 @@ Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”�
 #### 介绍一下本地方法栈？
 
 本地方法栈（Native Method Stacks）与虚拟机栈相似，区别在于虚拟机栈是为 JVM 执行 Java 编写的方法服务的，而本地方法栈是为 Java 调用[本地（native）方法](https://javabetter.cn/oo/native-method.html)服务的，由 C/C++ 编写。
+
+在本地方法栈中，主要存放了 native 方法的局部变量、动态链接和方法出口等信息。当一个 Java 程序调用一个 native 方法时，JVM 会切换到本地方法栈来执行这个方法。
 
 #### 介绍一下 Java 堆？
 
@@ -158,7 +160,8 @@ Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：堆和栈的区别是什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：介绍一下 JVM 运行时数据区
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：讲一下JVM内存结构？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：讲一下 JVM 内存结构？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 JVM 运行时数据区
 
 ### 3.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -382,84 +385,69 @@ HotSpot 虚拟机主要使用直接指针来进行对象访问。
 
 ### 10.内存溢出和内存泄漏是什么意思？
 
-内存泄露就是申请的内存空间没有被正确释放，导致内存被白白占用。
+内存溢出（Out of Memory，俗称 OOM）和内存泄漏（Memory Leak）是两个不同的概念，但它们都与内存管理有关。
 
-内存溢出就是申请的内存超过了可用内存，内存不够了。
+**①、内存溢出**：是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。在 Java 中，这种情况会抛出 OutOfMemoryError。
 
-两者关系：内存泄露可能会导致内存溢出。
+内存溢出可能是由于内存泄漏导致的，也可能是因为程序一次性尝试分配大量内存，内存直接就干崩溃了导致的。
 
-用一个有味道的比喻，内存溢出就是排队去蹲坑，发现没坑位了，内存泄漏，就是有人占着茅坑不拉屎，占着茅坑不拉屎的多了可能会导致坑位不够用。
+**②、内存泄漏**：是指程序在使用完内存后，未能释放已分配的内存空间，导致这部分内存无法再被使用。随着时间的推移，内存泄漏会导致可用内存逐渐减少，最终可能导致内存溢出。
 
-![内存泄漏、内存溢出](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-15.png)
+在 Java 中，内存泄漏通常发生在长期存活的对象持有短期存活对象的引用，而长期存活的对象又没有及时释放对短期存活对象的引用，从而导致短期存活对象无法被回收。
+
+用一个比较有味道的比喻来形容就是，内存溢出是排队去蹲坑，发现没坑了；内存泄漏，就是有人占着茅坑不拉屎，占着茅坑不拉屎的多了可能会导致坑位不够用。
+
+![三分恶面渣逆袭：内存泄漏、内存溢出](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-15.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
 
 ### 11.能手写内存溢出的例子吗？
 
-在 JVM 的几个内存区域中，除了程序计数器外，其他几个运行时区域都有发生内存溢出（OOM）异常的可能，重点关注堆和栈。
+导致内存溢出（OOM）的原因有很多，比如一次性创建了大量对象导致堆内存溢出。
 
-- Java 堆溢出
+#### 能手写堆内存溢出的例子吗？
 
-Java 堆用于储存对象实例，只要不断创建不可被回收的对象，比如静态对象，那么随着对象数量的增加，总容量触及最大堆的容量限制后就会产生内存溢出异常（OutOfMemoryError）。
+堆内存溢出是最常见的 OOM 原因，通常是因为创建了大量的对象，且长时间无法被垃圾收集器回收，导致堆内存耗尽。
 
-这就相当于一个房子里，不断堆积不能被收走的杂物，那么房子很快就会被堆满了。
+这就相当于一个房子里，不断堆积不能被回收的杂物，那么房子很快就会被堆满了。
+
+来通过代码模拟一下堆内存溢出的情况。
 
 ```java
-/**
- * VM参数： -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
- */
-public class HeapOOM {
-    static class OOMObject {
-    }
-
+public class HeapSpaceErrorGenerator {
     public static void main(String[] args) {
-        List<OOMObject> list = new ArrayList<OOMObject>();
-        while (true) {
-            list.add(new OOMObject());
+        List<byte[]> bigObjects = new ArrayList<>();
+        try {
+            while (true) {
+                // 创建一个大约 10MB 的数组
+                byte[] bigObject = new byte[10 * 1024 * 1024];
+                bigObjects.add(bigObject);
+            }
+        } catch (OutOfMemoryError e) {
+            System.out.println("OutOfMemoryError 发生在 " + bigObjects.size() + " 对象后");
+            throw e;
         }
     }
 }
-
 ```
 
-- 虚拟机栈.OutOfMemoryError
+通过 VM 参数设置堆内存大小为 `-Xmx128M`，然后运行程序。
 
-JDK 使用的 HotSpot 虚拟机的栈内存大小是固定的，我们可以把栈的内存设大一点，然后不断地去创建线程，因为操作系统给每个进程分配的内存是有限的，所以到最后，也会发生 OutOfMemoryError 异常。
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160028.png)
 
-```java
-/**
- * vm参数：-Xss2M
- */
-public class JavaVMStackOOM {
-    private void dontStop() {
-        while (true) {
-        }
-    }
+可以看到，堆内存溢出发生在 11 个对象后。
 
-    public void stackLeakByThread() {
-        while (true) {
-            Thread thread = new Thread(new Runnable() {
-                public void run() {
-                    dontStop();
-                }
-            });
-            thread.start();
-        }
-    }
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
 
-    public static void main(String[] args) throws Throwable {
-        JavaVMStackOOM oom = new JavaVMStackOOM();
-        oom.stackLeakByThread();
-    }
-}
-
-```
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
 
 ### 12.内存泄漏可能由哪些原因导致呢？
 
-内存泄漏可能的原因有很多种：
+内存泄漏可能的原因有很多种，比如说静态集合类引起内存泄漏、单例模式、数据连接、IO、Socket 等连接、变量不合理的作用域、hash 值发生变化、ThreadLocal 使用不当等。
 
-![内存泄漏可能原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-16.png)
+![三分恶面渣逆袭：内存泄漏可能原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-16.png)
 
-**静态集合类引起内存泄漏**
+**①、静态集合类引起内存泄漏**
 
 静态集合的生命周期和 JVM 一致，所以静态集合引用的对象不能被释放。
 
@@ -476,11 +464,11 @@ public class OOM {
 
 ```
 
-**单例模式**
+**②、单例模式**
 
 和上面的例子原理类似，单例对象在初始化后会以静态变量的方式在 JVM 的整个生命周期中存在。如果单例对象持有外部的引用，那么这个外部对象将不能被 GC 回收，导致内存泄漏。
 
-**数据连接、IO、Socket 等连接**
+**③、数据连接、IO、Socket 等连接**
 
 创建的连接不再使用时，需要调用 **close** 方法关闭连接，只有连接被关闭后，GC 才会回收对应的对象（Connection，Statement，ResultSet，Session）。忘记关闭这些资源会导致持续占有内存，无法被 GC 回收。
 
@@ -498,7 +486,7 @@ try {
   }
 ```
 
-**变量不合理的作用域**
+**④、变量不合理的作用域**
 
 一个变量的定义作用域大于其使用范围，很可能存在内存泄漏；或不再使用对象没有及时将对象设置为 null，很可能导致内存泄漏的发生。
 
@@ -515,11 +503,11 @@ public class Simple {
 
 ```
 
-**hash 值发生变化**
+**⑤、hash 值发生变化**
 
 对象 Hash 值改变，使用 HashMap、HashSet 等容器中时候，由于对象修改之后的 Hah 值和存储进容器时的 Hash 值不同，所以无法找到存入的对象，自然也无法单独删除了，这也会造成内存泄漏。说句题外话，这也是为什么 String 类型被设置成了不可变类型。
 
-**ThreadLocal 使用不当**
+**⑥、ThreadLocal 使用不当**
 
 ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，使用完 ThreadLocal 一定要记得使用 remove 方法来进行清除。
 
@@ -911,24 +899,29 @@ Concurrent Mark Sweep 收集器运行示意图如下：
 
 ### 27.G1 垃圾收集器了解吗？
 
-Garbage First（简称 G1）收集器是垃圾收集器的一个颠覆性的产物，它开创了局部收集的设计思路和基于 Region 的内存布局形式。
+G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
 
-虽然 G1 也仍是遵循分代收集理论设计的，但其堆内存的布局与其他收集器有非常明显的差异。以前的收集器分代是划分新生代、老年代、持久代等。
+G1 把 Java 堆划分为多个大小相等的独立区域（Region），每个区域都可以扮演新生代（Eden 和 Survivor）或老年代的角色。
 
-G1 把连续的 Java 堆划分为多个大小相等的独立区域（Region），每一个 Region 都可以根据需要，扮演新生代的 Eden 空间、Survivor 空间，或者老年代空间。收集器能够对扮演不同角色的 Region 采用不同的策略去处理。
+同时，G1 还有专门为大对象设计的 Region，叫 Humongous 区。大对象的判定规则是，如果一个大对象超过了一个 Region 大小的 50%，比如每个 Region 是 2M，只要一个对象超过了 1M，就会被放入 Humongous 中。
 
-![G1 Heap Regions](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-35.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
 
-这样就避免了收集整个堆，而是按照若干个 Region 集进行收集，同时维护一个优先级列表，跟踪各个 Region 回收的“价值，优先收集价值高的 Region。
+这种区域化管理使得 G1 可以更灵活地进行垃圾收集，只回收部分区域而不是整个新生代或老年代。
 
-G1 收集器的运行过程大致可划分为以下四个步骤：
+G1 收集器的运行过程大致可划分为四个步骤：
 
-- **初始标记**（initial mark），标记了从 GC Root 开始直接关联可达的对象。STW（Stop the World）执行。
-- **并发标记**（concurrent marking），和用户线程并发执行，从 GC Root 开始对堆中对象进行可达性分析，递归扫描整个堆里的对象图，找出要回收的对象、
-- **最终标记**（Remark），STW，标记再并发标记过程中产生的垃圾。
-- **筛选回收**（Live Data Counting And Evacuation），制定回收计划，选择多个 Region 构成回收集，把回收集中 Region 的存活对象复制到空的 Region 中，再清理掉整个旧 Region 的全部空间。需要 STW。
+①、**并发标记**，G1 通过并发标记的方式找出堆中的垃圾对象。并发标记阶段与应用线程同时执行，不会导致应用线程暂停。
 
-![G1收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-36.png)
+②、**混合收集**，在并发标记完成后，G1 会计算出哪些区域的回收价值最高（也就是包含最多垃圾的区域），然后优先回收这些区域。这种回收方式包括了部分新生代区域和老年代区域。
+
+选择回收成本低而收益高的区域进行回收，可以提高回收效率和减少停顿时间。
+
+③、**可预测的停顿**，G1 在垃圾回收期间仍然需要「Stop the World」。不过，G1 在停顿时间上添加了预测机制，用户可以 JVM 启动时指定期望停顿时间，G1 会尽可能地在这个时间内完成垃圾回收。
+
+![三分恶面渣逆袭：G1收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-36.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 G1 垃圾回收器的原理
 
 ### 28.有了 CMS，为什么还要引入 G1？
 

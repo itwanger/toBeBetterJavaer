@@ -397,12 +397,63 @@ public enum Singleton {
 
 单例模式，在需要控制资源访问，如配置管理、连接池管理时经常使用单例模式。它确保了全局只有一个实例，并提供了一个全局访问点。
 
-在有多种算法或策略可以互换使用的情况下，我会使用策略模式。
+在有多种算法或策略可以切换使用的情况下，我会使用策略模式。像[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用策略模式对接了讯飞星火、OpenAI 等多家 API 服务，实现了一个可以自由切换 AI 服务的对话聊天服务。
 
-当我需要为对象动态地添加功能，而不改变其结构时，装饰器模式很有用。
+这样就不用在代码中写 if/else 判断，而是将不同的 AI 服务封装成不同的策略类，通过工厂模式创建不同的 AI 服务实例，从而实现 AI 服务的动态切换。
+
+后面想添加新的 AI 服务，只需要增加一个新的策略类，不需要修改原有代码，这样就提高了代码的可扩展性。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：了解哪些设计模式？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：你真正使用过哪些设计模式？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：介绍你熟悉的设计模式
+
+
+## 05.什么是策略模式？
+
+策略模式（Strategy Pattern）是一种行为型设计模式，它定义了一系列的算法，将每个算法封装起来，使得它们可以相互替换。这种模式通常用于实现不同的业务规则或策略，其中每种策略封装了特定的行为或算法。
+
+在策略模式中，有三个角色：上下文（Context）、策略接口（Strategy Interface）和具体策略（Concrete Strategy）。
+
+- **策略接口**：定义所有支持的算法的公共接口。策略模式的核心。
+- **具体策略**：实现策略接口的类，提供具体的算法实现。
+- **上下文**：使用策略的类。通常包含一个引用指向策略接口，可以在运行时改变其具体策略。
+
+![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240411104918.png)
+
+比如说在技术派中，用户可以自由切换 AI 服务，服务端可以通过 if/esle 进行判断，但如果后续需要增加新的 AI 服务，就需要修改代码，这样不够灵活。
+
+因此，我们使用了策略模式，将不同的 AI 服务封装成不同的策略类，通过工厂模式创建不同的 AI 服务实例，从而实现 AI 服务的动态切换。
+
+```java
+@Service
+public class PaiAiDemoServiceImpl extends AbsChatService {
+
+    @Override
+    public AISourceEnum source() {
+        return AISourceEnum.PAI_AI;
+    }
+}
+
+@Slf4j
+@Service
+public class ChatGptAiServiceImpl extends AbsChatService {
+    @Override
+    public AISourceEnum source() {
+        return AISourceEnum.CHAT_GPT_3_5;
+    }
+}
+
+@Slf4j
+@Service
+public class XunFeiAiServiceImpl extends AbsChatService {
+    @Override
+    public AISourceEnum source() {
+        return AISourceEnum.XUN_FEI_AI;
+    }
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：谈谈对gpt的了解，大语言模型的原理，基于大模型如何去和一些业务做结合，有什么场景可以做，项目中用了哪些设计模式 
 
 ---
 

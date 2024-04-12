@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，67道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，68道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 67 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 68 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 67 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 68 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -256,12 +256,12 @@ stop 方法用来强制线程停止执行，目前已经处于废弃状态，因
 
 它们之间的区别主要有以下几点：
 
-#### 所属类不同
+①、所属类不同
 
 - `sleep()` 方法专属于 `Thread` 类。
 - `wait()` 方法专属于 `Object` 类。
 
-#### 锁行为不同
+②、锁行为不同
 
 当线程执行 sleep 方法时，它不会释放任何锁。也就是说，如果一个线程在持有某个对象的锁时调用了 sleep，它在睡眠期间仍然会持有这个锁。
 
@@ -352,19 +352,19 @@ Thread 1 醒来了，并且退出同步代码块
 
 这表明 waitingThread 在调用 wait 后确实释放了锁。
 
-#### 使用条件不同
+③、使用条件不同
 
 - `sleep()` 方法可以在任何地方被调用。
 - `wait()` 方法必须在同步代码块或同步方法中被调用，这是因为调用 `wait()` 方法的前提是当前线程必须持有对象的锁。否则会抛出 `IllegalMonitorStateException` 异常。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240308154009.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240308154009.png)
 
-#### 唤醒方式不同
+④、唤醒方式不同
 
 - `sleep()` 方法在指定的时间过后，线程会自动唤醒继续执行。
 - `wait()` 方法需要依靠 `notify()`、`notifyAll()` 方法或者 `wait()` 方法中指定的等待时间到期来唤醒线程。
 
-#### 抛出异常不同
+⑤、抛出异常不同
 
 - `sleep()` 方法在等待期间，如果线程被中断，会抛出 `InterruptedException`。
 - 如果线程被中断或等待时间到期时，`wait()` 方法同样会在等待期间抛出 `InterruptedException`。
@@ -453,7 +453,7 @@ Java 中的线程分为两类，分别为 daemon 线程（守护线程）和 use
 
 Java 中线程之间的通信主要是为了解决线程之间如何协作运行的问题。Java 提供了多种线程通信的方式，使得线程可以在合适的时间和地点进行同步。
 
-![线程间通信方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-10.png)
+![三分恶面渣逆袭：线程间通信方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-10.png)
 
 ①、**volatile 和 synchronized 关键字**
 
@@ -494,6 +494,61 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+### 69.有什么解决线程安全问题的方法？
+
+①、Java 中的 synchronized 关键字可以用于方法和代码块，确保同一时间只有一个线程可以执行特定的代码段。
+
+```java
+public synchronized void method() {
+    // 线程安全的操作
+}
+```
+
+②、Java 并发包（java.util.concurrent.locks）中提供了 Lock 接口和一些实现类，如 ReentrantLock。相比于 synchronized，ReentrantLock 提供了公平锁和非公平锁。
+
+```java
+ReentrantLock lock = new ReentrantLock();
+
+public void method() {
+    lock.lock();
+    try {
+        // 线程安全的操作
+    } finally {
+        lock.unlock();
+    }
+}
+```
+
+③、Java 并发包还提供了一组原子变量类（如 AtomicInteger，AtomicLong 等），它们利用 CAS（比较并交换），实现了无锁的原子操作，适用于简单的计数器场景。
+
+```java
+AtomicInteger atomicInteger = new AtomicInteger(0);
+
+public void increment() {
+    atomicInteger.incrementAndGet();
+}
+```
+
+④、Java 并发包提供了一些线程安全的集合类，如 ConcurrentHashMap，CopyOnWriteArrayList 等。这些集合类内部实现了必要的同步策略，提供了更高效的并发访问。
+
+```java
+ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+```
+
+⑤、volatile 变量保证了变量的可见性，修改操作是立即同步到主存的，读操作从主存中读取。
+
+```java
+private volatile boolean flag = false;
+```
+
+⑥、ThreadLocal 为每个线程提供了变量的独立副本，每个线程都只能访问自己的副本，从而实现了线程隔离，保证了线程安全。
+
+```java
+private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：除了 ThreadLocal，还有什么解决线程安全问题的方法
 
 ## ThreadLocal
 
@@ -631,7 +686,7 @@ userThreadLocal.set(new User("沉默王二"));
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ThreadLocal原理，解决什么问题 
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ThreadLocal 原理，解决什么问题
 
 ### 13.ThreadLocal 内存泄露是怎么回事？
 
@@ -699,7 +754,7 @@ key 是弱引用，`new WeakReference(new ThreadLocal())` 是弱引用对象，�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：ThreadLocal 什么情况下会内存泄漏
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：使用ThreadLocal有什么问题吗？如何解决？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：使用 ThreadLocal 有什么问题吗？如何解决？
 
 ### 14.ThreadLocalMap 的源码看过吗？
 
@@ -1740,19 +1795,15 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 2024 年 03 月 25 日增补，从集合框架篇移动到这里。
 
-可以。
+[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 时采用的是分段锁机制（Segment Locking），整个 Map 被分为若干段，每个段都可以独立地加锁。因此，不同的线程可以同时操作不同的段，从而实现并发访问。
 
-[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 时采用的是分段锁机制（Segment Locking），整个 Map 被分为若干段（Segment），每一段就像一个小的 hash table，对于每一段的操作都需要对应的锁。当进行插入、删除和更新操作时，只需要锁定影响到的那一段，而不是整个 Map。
-
-这种机制提高了并发访问时的性能，但可以被认为是一种悲观锁的实现，因为它在操作数据前就预先加锁，防止其他线程的并发访问。
-
-在 JDK 8 及以后的版本中，ConcurrentHashMap 的实现发生了显著变化。JDK 8 引入了一种新的策略，使用了 Node 数组加链表和红黑树的数据结构来存储元素，同时利用了[CAS（Compare-And-Swap）](https://javabetter.cn/thread/cas.html)操作和[synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)。
+在 JDK 8 及以上版本中，ConcurrentHashMap 的实现进行了优化，不再使用分段锁，而是使用了一种更加精细化的锁——桶锁，以及 CAS 无锁算法。每个桶（Node 数组的每个元素）都可以独立地加锁，从而实现更高级别的并发访问。
 
 ![初念初恋：JDK 8 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
 
-对于大多数读操作和一部分写操作，ConcurrentHashMap 使用 CAS 操作来实现无锁的更新，这是一种乐观锁的实现，因为它假设没有冲突发生，在实际更新数据时才检查是否有其他线程也尝试修改了数据。
+同时，对于读操作，通常不需要加锁，可以直接读取，因为 ConcurrentHashMap 内部使用了 volatile 变量来保证内存可见性。
 
-只有在冲突发生时才回退并采用悲观的锁定策略（如 synchronized 块）。此外，Java 8 中 ConcurrentHashMap 不再使用分段锁，而是直接对 Node 节点进行加锁，这减少了锁的粒度，提高了效率。
+对于写操作，ConcurrentHashMap 使用 CAS 操作来实现无锁的更新，这是一种乐观锁的实现，因为它假设没有冲突发生，在实际更新数据时才检查是否有其他线程在尝试修改数据，如果有，采用悲观的锁策略，如 synchronized 代码块来保证数据的一致性。
 
 #### 说一下 JDK 7 中的 ConcurrentHashMap 的实现原理？
 
@@ -1872,11 +1923,11 @@ ConcurrentHashmap JDK 8 put 流程图：
 
 ![三分恶面渣逆袭](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
 
-**get 查询**
+**②、get 查询**
 
 get 很简单，和 HashMap 基本一样。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093353.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093353.png)
 
 #### 总结一下 HashMap 和 ConcurrentHashMap 的区别？
 
@@ -1884,14 +1935,27 @@ get 很简单，和 HashMap 基本一样。
 
 ②、由于 HashMap 仅在单线程环境下使用，所以不需要考虑同步问题，因此效率高于 ConcurrentHashMap。
 
+#### 你项目中怎么使用 ConcurrentHashMap的？
+
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 ConcurrentHashMap，比如说在异步工具类 AsyncUtil 中，使用 ConcurrentHashMap 来存储任务的名称和它们的运行时间，以便观察和分析任务的执行情况。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240411082351.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：ConcurrentHashMap 是悲观锁还是乐观锁?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap 和 CurrentHashMap 的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ConcurrentHashMap 原理，你项目中怎么用的
 
 ### 65.ConcurrentHashMap 怎么保证可见性？（补充）
 
 > 2024 年 03 月 25 日增补，TODO
 
-如果用 volatile 关键字修饰，这个被修饰的共享字段是什么？
+ConcurrentHashMap 保证可见性主要通过使用 volatile 关键字和 synchronized 同步块。
+
+在 Java 中，volatile 关键字保证了变量的可见性，即一个线程修改了一个 volatile 变量后，其他线程可以立即看到这个修改。在 ConcurrentHashMap 的内部实现中，有些关键的变量被声明为 volatile，比如 Segment 数组和 Node 数组等。
+
+此外，ConcurrentHashMap 还使用了 synchronized 同步块来保证复合操作的原子性。当一个线程进入 synchronized 同步块时，它会获得锁，然后执行同步块内的代码。当它退出 synchronized 同步块时，它会释放锁，并将在同步块内对共享变量的所有修改立即刷新到主内存，这样其他线程就可以看到这些修改了。
+
+通过这两种机制，ConcurrentHashMap 保证了在并发环境下的可见性，从而确保了线程安全。
 
 ### 66.为什么 ConcurrentHashMap 比 Hashtable 效率高（补充）
 
@@ -2864,7 +2928,7 @@ public class CountTask extends RecursiveTask<Integer> {
 
 ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法，在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果比较大，就必须分割成两个子任务，每个子任务在调用 fork 方法时，又会进 compute 方法，看看当前子任务是否需要继续分割成子任务，如果不需要继续分割，则执行当前子任务并返回结果。使用 join 方法会等待子任务执行完并得到其结果。
 
-> 图文详解 67 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+> 图文详解 68 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ---
 
