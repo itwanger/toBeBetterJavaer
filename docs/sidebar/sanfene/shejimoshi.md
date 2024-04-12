@@ -399,6 +399,8 @@ public enum Singleton {
 
 在有多种算法或策略可以切换使用的情况下，我会使用策略模式。像[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用策略模式对接了讯飞星火、OpenAI 等多家 API 服务，实现了一个可以自由切换 AI 服务的对话聊天服务。
 
+![技术派派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240412223832.png)
+
 这样就不用在代码中写 if/else 判断，而是将不同的 AI 服务封装成不同的策略类，通过工厂模式创建不同的 AI 服务实例，从而实现 AI 服务的动态切换。
 
 后面想添加新的 AI 服务，只需要增加一个新的策略类，不需要修改原有代码，这样就提高了代码的可扩展性。
@@ -406,6 +408,7 @@ public enum Singleton {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：了解哪些设计模式？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：你真正使用过哪些设计模式？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：介绍你熟悉的设计模式
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：你了解的设计模式
 
 
 ## 05.什么是策略模式？
@@ -475,6 +478,7 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 - [面渣逆袭分布式篇👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
 - [面渣逆袭微服务篇👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
+- [面渣逆袭Linux篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
 ----
 

@@ -18,8 +18,8 @@ footer: |-
 
 ## 推荐阅读 
 
-- [学习路线👉](/xuexiluxian/) : 一份涵盖 Java、MySQL、Redis、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android、.NET的全方位编程学习路线！清晰且有效！
-- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式等等，助你拿到心仪 offer！
+- [学习路线👉](/xuexiluxian/) : 一份涵盖 Java、MySQL、Redis、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android、.NET、Linux 的全方位编程学习路线！清晰且有效！
+- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux 等等，助你拿到心仪 offer！
 - [Java程序员常读书单📚](/pdf/)：超1000本PDF，助力Java 程序员构建最强知识体系，涵盖Java、设计模式、数据库、数据结构与算法、大数据、架构、其他编程语言等等，再也不用辛苦去找下载地址了，这里全都有。
 - [技术派实战项目](https://github.com/itwanger/paicoding) ：⭐️一款好用又强大的开源社区，附详细教程，包括Java、Spring、MySQL、Redis、微服务&分布式、消息队列、操作系统、计算机网络、数据结构与算法等计算机专业核心知识点。学编程，就上技术派😁。
 
