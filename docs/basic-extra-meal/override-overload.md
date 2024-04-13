@@ -189,7 +189,7 @@ public class OverloadingTypePromotion1 {
 }
 ```
 
-“执行 `obj.sum(20, 20)` 的时候，发现有 `sum(int a, int b)` 的方法，所以就不会向上转型为 long，调用 `sum(long a, long b)`。”
+“执行 `obj.sum(20, 20)` 的时候，发现有 `sum(int a, int b)` 的方法，所以就不会向上转型为 long。”
 
 “来看一下程序的输出结果。”
 
@@ -219,6 +219,7 @@ public class OverloadingTypePromotion2 {
 “二哥，我又想到一个问题。当有两个方法 `sum(long a, int b)` 和 `sum(int a, long b)`，参数个数相同，参数类型相同，只不过位置不同的时候，会发生什么呢？”
 
 “当通过 `obj.sum(20, 20)` 来调用 sum 方法的时候，编译器会提示错误。”
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-04.png)
 
 “不明确，编译器会很为难，究竟是把第一个 20 从 int 转成 long 呢，还是把第二个 20 从 int 转成 long，智障了！所以，不能写这样让编译器左右为难的代码。”

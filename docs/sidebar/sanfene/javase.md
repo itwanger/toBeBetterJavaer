@@ -19,9 +19,9 @@ head:
 
 ### 1.什么是 Java？
 
-![下辈子还学Java](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-1.png)
+![三分恶面渣逆袭：下辈子还学Java](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-1.png)
 
-PS：碎怂 Java，有啥好介绍的。哦，面试啊。
+>PS：碎怂 Java，有啥好介绍的。哦，面试啊。
 
 Java 是一门面向对象的编程语言，不仅吸收了 C++语言的各种优点，还摒弃了 C++里难以理解的多继承、指针等概念，因此 Java 语言具有功能强大和简单易用两个特征。Java 语言作为静态面向对象编程语言的优秀代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程 。
 
@@ -123,9 +123,9 @@ Java 基本数据类型范围和默认值：
 - [接口](https://javabetter.cn/oo/interface.html)（interface）
 - [数组](https://javabetter.cn/array/array.html)（`[]`）
 
-> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
 
-### 54.float 是怎么表示小数的？
+### 23.float 是怎么表示小数的？
 
 推荐阅读：[计算机系统基础（四）浮点数](http://kaito-kidd.com/2018/08/08/computer-system-float-point/)
 
@@ -410,7 +410,7 @@ class Wanger {
 }
 ```
 
-### 55.多态解决了什么问题？（补充）
+### 17.多态解决了什么问题？（补充）
 
 > 2024 年 03 月 26 日增补
 
@@ -451,7 +451,7 @@ class Wanger {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
 
-### 17.重载和重写的区别？
+### 18.重载和重写的区别？
 
 推荐阅读：[方法重写 Override 和方法重载 Overload 有什么区别？](https://javabetter.cn/basic-extra-meal/override-overload.html)
 
@@ -512,7 +512,7 @@ class Ostrich extends Bird {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：设计方法，李氏原则，还了解哪些设计原则
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
 
-### 18.访问修饰符 public、private、protected、以及不写（默认）时的区别？
+### 19.访问修饰符 public、private、protected、以及不写（默认）时的区别？
 
 Java 中，可以使用访问控制符来保护对类、变量、方法和构造方法的访问。Java 支持 4 种不同的访问权限。
 
@@ -523,7 +523,7 @@ Java 中，可以使用访问控制符来保护对类、变量、方法和构造
 
 ![访问修饰符和可见性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-12.png)
 
-### 19.this 关键字有什么作用？
+### 20.this 关键字有什么作用？
 
 this 是自身的一个对象，代表对象本身，可以理解为：**指向对象本身的一个指针**。
 
@@ -542,9 +542,9 @@ public Person(String name,int age){
 
 3. 引用本类的构造函数
 
-### 20.抽象类(abstract class)和接口(interface)有什么区别？
+### 21.抽象类(abstract class)和接口(interface)有什么区别？
 
-1. 接⼝的⽅法默认是 public ，所有⽅法在接⼝中不能有实现(Java 8 开始接⼝⽅法可以有默认实现），⽽抽象类可以有⾮抽象的⽅法。
+1. 接⼝的⽅法默认是 public ，所有⽅法在接⼝中不能有实现（Java 8 开始接⼝⽅法可以有默认实现），⽽抽象类可以有⾮抽象的⽅法。
 
 2. 接⼝中除了 static 、 final 变量，不能有其他变量，⽽抽象类中则不⼀定。
 
@@ -566,7 +566,7 @@ public Person(String name,int age){
 
 3. jdk 9 在接⼝中引⼊了私有⽅法和私有静态⽅法。
 
-### 21.成员变量与局部变量的区别有哪些？
+### 22.成员变量与局部变量的区别有哪些？
 
 1. **从语法形式上看**：成员变量是属于类的，⽽局部变量是在⽅法中定义的变量或是⽅法的参数；成员变量可以被 public , private , static 等修饰符所修饰，⽽局部变量不能被访问控制修饰符及 static 所修饰；但是，成员变量和局部变量都能被 final 所修饰。
 
@@ -576,7 +576,7 @@ public Person(String name,int age){
 
 4. **成员变量如果没有被赋初值**：则会⾃动以类型的默认值⽽赋值（⼀种情况例外:被 final 修饰的成员变量也必须显式地赋值），⽽局部变量则不会⾃动赋值。
 
-### 22.静态变量和实例变量的区别？静态方法、实例方法呢？
+### 23.静态变量和实例变量的区别？静态方法、实例方法呢？
 
 > 静态变量和实例变量的区别？
 

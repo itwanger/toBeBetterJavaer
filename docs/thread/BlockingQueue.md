@@ -132,16 +132,21 @@ public ArrayBlockingQueue(int capacity, boolean fair) {
 
 ```java
 public void put(E e) throws InterruptedException {
+    // 确保传入的元素不为null
     checkNotNull(e);
     final ReentrantLock lock = this.lock;
+
+    // 请求锁，如果线程被中断则抛出异常
     lock.lockInterruptibly();
     try {
-		//如果当前队列已满，将线程移入到notFull等待队列中
-        while (count == items.length)
+        // 循环检查队列是否已满，如果满了则在notFull条件上等待
+        while (count == items.length) {
             notFull.await();
-		//满足插入数据的要求，直接进行入队操作
+        }
+        // 队列未满，将元素加入队列
         enqueue(e);
     } finally {
+        // 在try块后释放锁，确保锁最终被释放
         lock.unlock();
     }
 }

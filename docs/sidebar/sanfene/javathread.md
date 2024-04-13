@@ -185,13 +185,13 @@ JVM 执行 start 方法，会先创建一条线程，由创建出来的新线程
 
 ![三分恶面渣逆袭：线程常用调度方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-6.png)
 
-#### 线程等待与通知
+#### 说说线程等待与通知？
 
 在 Object 类中有一些方法可以用于线程的等待与通知。
 
-①、`wait()`：当一个线程 A 调用一个共享变量的 `wait()` 方法时， 线程 A 会被阻塞挂起，直到发生下面几种情况才会返回 ：
+①、`wait()`：当一个线程 A 调用一个共享变量的 `wait()` 方法时，线程 A 会被阻塞挂起，直到发生下面几种情况才会返回 ：
 
-- 线程 A 调用了共享对象 `notify()`或者 `notifyAll()` 方法；
+- 线程 B 调用了共享对象 `notify()`或者 `notifyAll()` 方法；
 - 其他线程调用了线程 A 的 `interrupt()` 方法，线程 A 抛出 InterruptedException 异常返回。
 
 ②、`wait(long timeout)` ：这个方法相比 `wait()` 方法多了一个超时参数，它的不同之处在于，如果线程 A 调用共享对象的 `wait(long timeout)`方法后，没有在指定的 timeout 时间内被其它线程唤醒，那么这个方法还是会因为超时而返回。
@@ -208,17 +208,17 @@ JVM 执行 start 方法，会先创建一条线程，由创建出来的新线程
 
 Thread 类还提供了一个 `join()` 方法，意思是如果一个线程 A 执行了 `thread.join()`，当前线程 A 会等待 thread 线程终止之后才从 `thread.join()` 返回。
 
-#### 线程休眠
+#### 说说线程休眠
 
 `sleep(long millis)`：Thread 类中的静态方法，当一个执行中的线程 A 调用了 Thread 的 sleep 方法后，线程 A 会暂时让出指定时间的执行权。
 
 但是线程 A 所拥有的监视器资源，比如锁，还是持有不让出的。指定的睡眠时间到了后该方法会正常返回，接着参与 CPU 的调度，获取到 CPU 资源后就可以继续运行。
 
-#### 让出优先权
+#### 说说让出优先权
 
 `yield()`：Thread 类中的静态方法，当一个线程调用 yield 方法时，实际是在暗示线程调度器，当前线程请求让出自己的 CPU，但是线程调度器可能会“装看不见”忽略这个暗示。
 
-#### 线程中断
+#### 说说线程中断
 
 推荐阅读：[interrupt 方法](https://www.cnblogs.com/myseries/p/10918819.html)
 
@@ -2464,6 +2464,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下为什么项目中使用线程池，重要参数，举个例子说一下这些参数的变化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：线程池创建的几个核心参数?
 
 ### 48.线程池的拒绝策略有哪些？
 
