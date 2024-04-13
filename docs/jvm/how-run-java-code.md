@@ -276,7 +276,7 @@ public class Test {
 
 1、JVM 完成 .class 文件加载之后，会创建一个名为"main"的线程，该线程会自动调用名为"main"的静态方法，这是 Java 程序的入口点；
 
-2、main 线程在执行 mian 方法时，JVM 会在虚拟机栈中压入 main 方法对应的栈帧；
+2、main 线程在执行 main 方法时，JVM 会在虚拟机栈中压入 main 方法对应的栈帧；
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231031143842.png)
 
