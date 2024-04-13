@@ -84,6 +84,7 @@ export const sidebarConfig = sidebar({
     "fenbushi",
     "weifuwu",
     "shejimoshi",
+    "linux",
   ],
   // 必须放在最后面
   "/": [
