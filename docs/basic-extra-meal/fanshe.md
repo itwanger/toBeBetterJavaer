@@ -314,8 +314,8 @@ for (Constructor c : constructors1) {
 大体上和获取构造方法类似，把关键字 Constructor 换成 Field 即可。
 
 ```java
-Method setNameMethod = clazz.getMethod("setName", String.class);
-Method getNameMethod = clazz.getMethod("getName");
+Field[] fields1 = System.class.getFields();
+Field fields2 = System.class.getField("out");
 ```
 
 **5）获取方法**

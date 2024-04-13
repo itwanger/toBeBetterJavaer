@@ -429,7 +429,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![多级页表示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-3021f22f-b9a3-49d9-9e80-6d3abaf5a61a.png)
 
-### 25、什么是块表？
+### 25、什么是快表？
 
 同样利用了`局部性原理`，即在⼀段时间内，整个程序的执⾏仅限于程序中的某⼀部分。相应地，执⾏所访问的存储空间也局限于某个内存区域。
 

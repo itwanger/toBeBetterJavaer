@@ -30,7 +30,7 @@ head:
 - 内连接（inner join）：取得两张表中满足存在连接匹配关系的记录。
 - 外连接（outer join）：不只取得两张表中满足存在连接匹配关系的记录，还包括某张表（或两张表）中不满足匹配关系的记录。
 - 交叉连接（cross join）：显示两张表所有记录一一对应，没有匹配关系进行筛选，它是笛卡尔积在 SQL 中的实现，如果 A 表有 m 行，B 表有 n 行，那么 A 和 B 交叉连接的结果就有 m\*n 行。
-- 笛卡尔积：是数学中的一个概念，例如集合 A={a,b}，集合 B={0,1,2}，那么 A✖️B=`{<a,o>,<a,1>,<a,2>,<b,0>,<b,1>,<b,2>,}`。
+- 笛卡尔积：是数学中的一个概念，例如集合 A={a,b}，集合 B={0,1,2}，那么 A✖️B=`{<a,0>,<a,1>,<a,2>,<b,0>,<b,1>,<b,2>,}`。
 
 ### 2. MySQL 的内连接、左连接、右连接有什么区别？
 
@@ -183,7 +183,7 @@ alter table blogs modify content text CHARACTER SET utf8mb4 COLLATE ut
 
 三者都表示删除，但是三者有一些差别：
 
-| delete   | truncate                                 | drop                           |
+| 区别     | delete                                   | truncate                       | drop                                               |
 | -------- | ---------------------------------------- | ------------------------------ | -------------------------------------------------- |
 | 类型     | 属于 DML                                 | 属于 DDL                       | 属于 DDL                                           |
 | 回滚     | 可回滚                                   | 不可回滚                       | 不可回滚                                           |
@@ -421,11 +421,11 @@ SELECT * FROM table_name LIMIT 2, 8;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 第 3-10 条记录怎么查？
 
-### 73.用过哪些MySQL函数？（补充）
+### 73.用过哪些 MySQL 函数？（补充）
 
->2024年04月12日增补
+> 2024 年 04 月 12 日增补
 
-MySQL支持很多内置函数，包括执行计算、格式转换、日期处理等。我说一些自己常用的（~~挑一些自己熟悉的~~）。
+MySQL 支持很多内置函数，包括执行计算、格式转换、日期处理等。我说一些自己常用的（~~挑一些自己熟悉的~~）。
 
 #### 用过哪些字符串函数来处理文本？
 
@@ -549,7 +549,7 @@ SELECT MAX(sales_amount) AS max_sale, MIN(sales_amount) AS min_sale FROM sales;
 
 - `IF()`: 如果条件为真，则返回一个值；否则返回另一个值。
 - `CASE`: 根据一系列条件返回值。
-- `COALESCE()`: 返回参数列表中的第一个非NULL值。
+- `COALESCE()`: 返回参数列表中的第一个非 NULL 值。
 
 ```sql
 -- IF函数
@@ -584,8 +584,7 @@ SELECT CAST('2024-01-01' AS DATE) AS casted_date;
 SELECT CONVERT('123', SIGNED INTEGER) AS converted_number;
 ```
 
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：用过哪些MySQL函数？
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：用过哪些 MySQL 函数？
 
 ## 数据库架构
 

@@ -15,6 +15,7 @@ head:
 # Java 并发编程八股文（背诵版）必看:+1:
 
 ### 简述Java内存模型（JMM）
+
 Java内存模型定义了程序中各种变量的访问规则：
 
 - 所有变量都存储在主存，每个线程都有自己的工作内存。
@@ -22,9 +23,11 @@ Java内存模型定义了程序中各种变量的访问规则：
 - 操作完成后，线程的工作内存通过缓存一致性协议将操作完的数据刷回主存。
 
 ### 简述as-if-serial
+
 编译器会对原始的程序进行指令重排序和优化。但不管怎么重排序，其结果都必须和用户原始程序输出的预定结果保持一致。
 
 ### 简述happens-before八大规则
+
 - 程序次序规则：一个线程内，按照代码顺序，书写在前面的操作先行发生于书写在后面的操作；
 - 锁定规则：一个unLock操作先行发生于后面对同一个锁的lock操作；
 - volatile变量规则：对一个变量的写操作先行发生于后面对这个变量的读操作；
@@ -35,26 +38,34 @@ Java内存模型定义了程序中各种变量的访问规则：
 - 对象终结规则：一个对象的初始化完成先行发生于他的finalize()方法的开始；
 
 ### as-if-serial 和 happens-before 的区别
+
 as-if-serial 保证单线程程序的执行结果不变，happens-before 保证正确同步的多线程程序的执行结果不变。
 
 ### 简述原子性操作
+
 一个操作或者多个操作，要么全部执行并且执行的过程不会被任何因素打断，要么就都不执行，这就是原子性操作。
 
 ### 简述线程的可见性
+
 可见性指当一个线程修改了共享变量时，其他线程能够立即得知修改。volatile、synchronized、final 关键字都能保证可见性。
 
 ### 简述有序性
+
 虽然多线程存在并发和指令优化等操作，但在本线程内观察该线程的所有执行操作是有序的。
 
 ### 简述Java中volatile关键字作用
+
 - 保证变量对所有线程的可见性。当一个线程修改了变量值，新值对于其他线程来说是立即可以得知的。
 - 禁止指令重排。使用 volatile 变量进行写操作，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器进行重排序。
 
 ### Java线程的实现方式
+
 - 实现Runnable接口
 - 继承Thread类
 - 实现Callable接口
+
 ### 简述Java线程的状态
+
 线程状态有 NEW、RUNNABLE、BLOCK、WAITING、TIMED_WAITING、THERMINATED 
 
 - NEW：新建状态，线程被创建且未启动，此时还未调用 start 方法。
@@ -65,11 +76,14 @@ as-if-serial 保证单线程程序的执行结果不变，happens-before 保证�
 - TERMINATED：结束状态。线程调用完run方法进入该状态。
 
 ### 简述线程通信的方式
+
 - volatile 关键词修饰变量，保证所有线程对变量访问的可见性。
 - synchronized关键词。确保多个线程在同一时刻只能有一个处于方法或同步块中。
 - wait/notify方法
 - IO通信
+
 ### 简述线程池
+
 没有线程池的情况下，多次创建，销毁线程开销比较大。如果在开辟的线程执行完当前任务后复用已创建的线程，可以降低开销、控制最大并发数。
 
 线程池创建线程时，会将线程封装成工作线程 Worker，Worker 在执行完任务后还会循环获取工作队列中的任务来执行。
@@ -99,9 +113,11 @@ as-if-serial 保证单线程程序的执行结果不变，happens-before 保证�
 
 
 ### 简述Executor框架
+
 Executor框架目的是将任务提交和任务如何运行分离开来的机制。用户不再需要从代码层考虑设计任务的提交运行，只需要调用Executor框架实现类的Execute方法就可以提交任务。
 
 ### 简述Executor的继承关系
+
 - Executor：一个接口，其定义了一个接收Runnable对象的方法executor，该方法接收一个Runable实例执行这个任务。
 - ExecutorService：Executor的子类接口，其定义了一个接收Callable对象的方法，返回 Future 对象，同时提供execute方法。
 - ScheduledExecutorService：ExecutorService的子类接口，支持定期执行任务。
@@ -109,7 +125,8 @@ Executor框架目的是将任务提交和任务如何运行分离开来的机制
 - Executors：实现ExecutorService接口的静态工厂类，提供了一系列工厂方法用于创建线程池。
 - ThreadPoolExecutor：继承AbstractExecutorService，用于创建线程池。
 - ForkJoinPool: 继承AbstractExecutorService，Fork 将大任务分叉为多个小任务，然后让小任务执行，Join 是获得小任务的结果，类似于map reduce。
-- ThreadPoolExecutor：继承ThreadPoolExecutor，实现ScheduledExecutorService，用于创建带定时任务的线程池。
+- ScheduledThreadPoolExecutor：继承ThreadPoolExecutor，实现ScheduledExecutorService，用于创建带定时任务的线程池。
+
 ### 简述线程池的状态
 - Running：能接受新提交的任务，也可以处理阻塞队列的任务。
 - Shutdown：不再接受新提交的任务，但可以处理存量任务，线程池处于running时调用shutdown方法，会进入该状态。

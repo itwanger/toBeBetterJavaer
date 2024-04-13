@@ -193,7 +193,15 @@ for (int element : anArray) {
 List<Integer> aList = Arrays.asList(anArray);
 ```
 
-不过需要注意的是，Arrays.asList 的参数需要是 Integer 数组，而 anArray 目前是 int 类型，我们需要换另外一种方式。
+不过需要注意的是，Arrays.asList 的参数需要是 Integer 数组，而 anArray 目前是 int 类型。
+
+可以这样写：
+
+```java
+List<Integer> aList1 = Arrays.asList(1, 2, 3, 4, 5);
+```
+
+或者换另外一种方式。
 
 ```java
 List<Integer> aList = Arrays.stream(anArray).boxed().collect(Collectors.toList());
