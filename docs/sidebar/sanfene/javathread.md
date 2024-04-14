@@ -172,6 +172,7 @@ class CallableTask implements Callable<String> {
 这种方法的优点是可以获取线程的执行结果。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：有多少种实现线程的方法？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：实现线程的方式和区别
 
 ### 4.为什么调用 start()方法时会执行 run()方法，那怎么不直接调用 run()方法？
 
@@ -1056,7 +1057,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 锁
 
-### 61.聊聊线程同步（补充）
+### 61.聊聊如何进行线程同步？（补充）
 
 > 2024 年 03 月 12 日 新增
 
@@ -1080,7 +1081,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 在 Java 中，[synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)和 Lock 接口是用来实现线程同步的常用方式，我就以它俩来举例说明。
 
-#### synchronized 关键字
+#### 简单说说 synchronized 关键字
 
 当一个线程访问某对象的 synchronized 方法或代码块时，其他线程对该对象的所有 synchronized 方法或代码块的访问将被阻塞，直到第一个线程完成操作。
 
@@ -1105,7 +1106,7 @@ public class Counter {
 
 在 JVM 的早期版本中，synchronized 是重量级的，因为线程阻塞和唤醒需要操作系统的介入。但在 JVM 的后续版本中，对 synchronized 进行了大量优化，如偏向锁、轻量级锁和适应性自旋等，所以现在的 synchronized 并不一定是重量级的，其性能在许多情况下都很好，可以大胆地用。
 
-#### Lock 接口
+#### 简单说说Lock 接口？
 
 Lock 接口提供了比 synchronized 关键字更灵活的锁操作。比如说我们可以用重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 来实现同样的功能。
 
@@ -1365,6 +1366,7 @@ Mark Word 会被设置为偏向模式，并且存储了获取它的线程 ID。
 当自旋等待失败，或者有线程在等待队列中等待相同的轻量级锁时，轻量级锁会升级为重量级锁。在这种情况下，JVM 会在操作系统层面创建一个互斥锁（Mutex），所有进一步尝试获取该锁的线程将会被阻塞，直到锁被释放。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：synchronized 锁升级过程
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：Java的锁的优化
 
 ### 28.说说 synchronized 和 ReentrantLock 的区别？
 
