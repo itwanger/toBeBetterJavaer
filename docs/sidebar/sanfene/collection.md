@@ -71,7 +71,83 @@ BlockingQueue 代表的是线程安全的队列，不仅可以由多个线程并
 
 BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBlockingDeque、LinkedBlockingQueue、LinkedTransferQueue、PriorityBlockingQueue、SynchronousQueue 等。
 
+![二哥的Java进阶之路](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818153420.png)
+
 阻塞指的是一种程序执行状态，其中某个线程在等待某个条件满足时暂停其执行（即阻塞），直到条件满足时恢复其执行。
+
+#### 阻塞队列是如何实现的？
+
+就拿 ArrayBlockingQueue 来说，它是一个基于数组的有界阻塞队列，采用 ReentrantLock 锁来实现线程的互斥，而 ReentrantLock 底层采用的是 AQS 实现的队列同步，线程的阻塞调用 LockSupport.park 实现，唤醒调用 LockSupport.unpark 实现。
+
+```java
+public void put(E e) throws InterruptedException {
+    checkNotNull(e);
+    // 使用ReentrantLock锁
+    final ReentrantLock lock = this.lock;
+    // 获取锁
+    lock.lockInterruptibly();
+    try {
+        // 如果队列已满，阻塞
+        while (count == items.length)
+            notFull.await();
+        // 插入元素
+        enqueue(e);
+    } finally {
+        // 释放锁
+        lock.unlock();
+    }
+}
+
+/**
+ * 插入元素
+ */
+private void enqueue(E x) {
+    final Object[] items = this.items;
+    items[putIndex] = x;
+    if (++putIndex == items.length)
+        putIndex = 0;
+    count++;
+	// 插入元素后，通知消费者线程可以继续取元素
+    notEmpty.signal();
+}
+
+/**
+ * 获取元素
+ */
+public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    // 获取锁
+    lock.lockInterruptibly();
+    try {
+        // 如果队列为空，阻塞，等待生产者线程放入元素
+        while (count == 0)
+            notEmpty.await();
+        // 移除元素并返回
+        return dequeue();
+    } finally {
+        lock.unlock();
+    }
+}
+
+/**
+ * 移除元素并返回
+ */
+private E dequeue() {
+    final Object[] items = this.items;
+    @SuppressWarnings("unchecked")
+    E x = (E) items[takeIndex];
+    items[takeIndex] = null;
+    // 数组是循环队列，如果到达数组末尾，从头开始
+    if (++takeIndex == items.length)
+        takeIndex = 0;
+    count--;
+    if (itrs != null)
+        itrs.elementDequeued();
+    // 移除元素后，通知生产者线程可以继续放入元素
+    notFull.signal();
+    return x;
+}
+```
 
 #### 用过哪些集合类，它们的优劣？
 
@@ -101,6 +177,7 @@ BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBloc
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：知道哪些集合，讲讲 HashMap 和 TreeMap 的区别，讲讲两者应用场景的区别；讲一下有哪些队列，阻塞队列的阻塞是什么含义？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：用过哪些集合类，它们的优劣
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：队列和栈的区别了解吗?
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：阻塞队列的实现方式
 
 ## List
 
