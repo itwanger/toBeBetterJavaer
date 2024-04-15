@@ -41,15 +41,15 @@ JVM 大致可以划分为三个部门：类加载器、运行时数据区和执�
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030185742.png)
 
-#### ① 类加载器
+① 类加载器
 
 负责从文件系统、网络或其他来源加载 Class 文件，将 Class 文件中的二进制数据读入到内存当中。
 
-#### ② 运行时数据区
+② 运行时数据区
 
 JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数据，这些内存区域主要包括方法区、堆、栈、程序计数器和本地方法栈。
 
-#### ③ 执行引擎
+③ 执行引擎
 
 执行引擎是 JVM 的心脏，负责执行字节码。它包括一个虚拟处理器，还包括即时编译器（JIT Compiler）和垃圾回收器（Garbage Collector）。
 
@@ -101,12 +101,13 @@ ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延
 推荐阅读：[深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://javabetter.cn/jvm/gc-collector.html)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解GC吗？不可达判断知道吗？
 
 ### 2.能说一下 JVM 的内存区域吗？
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
-JVM 的内存区域，有时也叫 JVM 运行时数据区，按照 Java 的虚拟机规范，可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
+JVM 的内存区域，有时叫 JVM 的内存结构，有时也叫 JVM 运行时数据区，按照 Java 的虚拟机规范，可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
 
 ![三分恶面渣逆袭：Java虚拟机运行时数据区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-3.png)
 
@@ -162,6 +163,7 @@ Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：介绍一下 JVM 运行时数据区
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：讲一下 JVM 内存结构？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 JVM 运行时数据区
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM内存结构了解吗？
 
 ### 3.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -208,6 +210,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 常用的垃圾收集器有 CMS、G1、ZGC 等，它们的回收策略和效率不同，可以根据具体的场景选择合适的垃圾收集器。
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：对象创建到销毁的流程
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说创建对象的流程？
 
 ### 6.什么是指针碰撞？什么是空闲列表？
 

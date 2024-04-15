@@ -600,10 +600,25 @@ MySQL 逻辑架构图主要分三层：
 
 ### 15.一条 SQL 查询语句在 MySQL 中如何执行的？
 
-- 先检查该语句`是否有权限`，如果没有权限，直接返回错误信息，如果有权限会先查询缓存 (MySQL8.0 版本以前)。
-- 如果没有缓存，分析器进行`语法分析`，提取 sql 语句中 select 等关键元素，然后判断 sql 语句是否有语法错误，比如关键词是否正确等等。
-- 语法解析之后，MySQL 的服务器会对查询的语句进行优化，确定执行的方案。
-- 完成查询优化后，按照生成的执行计划`调用数据库引擎接口`，返回执行结果。
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415102041.png)
+
+第一步，客户端发送 SQL 查询语句到 MySQL 服务器。
+
+第二步，MySQL 服务器的连接器开始处理这个请求，跟客户端建立连接、获取权限、管理连接。
+
+~~第三步（MySQL 8.0 以后已经干掉了），连接建立后，MySQL 服务器的查询缓存组件会检查是否有缓存的查询结果。如果有，直接返回给客户端；如果没有，进入下一步~~。
+
+第三步，解析器开始对 SQL 语句进行解析，检查语句是否符合 SQL 语法规则，确保引用的数据库、表和列都存在，并处理 SQL 语句中的名称解析和权限验证。
+
+第四步，优化器负责确定 SQL 语句的执行计划，这包括选择使用哪些索引，以及决定表之间的连接顺序等。优化器会尝试找出最高效的方式来执行查询。
+
+第五步，执行器会调用存储引擎的 API 来进行数据的读写。
+
+第六步，MySQL 的存储引擎是插件式的，不同的存储引擎在细节上面有很大不同。例如，InnoDB 是支持事务的，而 MyISAM 是不支持的。之后，会将执行结果返回给客户端
+
+第七步，客户端接收到查询结果，完成这次查询请求。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：MySQL 执行语句的整个过程了解吗？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -718,7 +733,7 @@ MySQL 的日志文件主要包括：
 
 支持事务回滚，可以用来实现 MVCC，即多版本并发控制。
 
-#### 请重点说说 binlog
+#### 请重点说说 binlog？
 
 推荐阅读：[带你了解 MySQL Binlog 不为人知的秘密](https://www.cnblogs.com/rickiyang/p/13841811.html)
 
@@ -786,6 +801,7 @@ sync_binlog=0
 不过需要注意的是，随着数据库的操作，binlog 文件可能会不断增长，因此需要定期进行清理或归档，以防止占用过多磁盘空间。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：MySQL 中的 bin log 的作用是什么？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说MySQL的三大日志？
 
 ### 20.binlog 和 redo log 有什么区别？
 
@@ -2115,6 +2131,7 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下事务的四大隔离级别，分别解决什么问题
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 默认隔离级别？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说MySQL事务的隔离级别，如何实现？
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 
@@ -2133,76 +2150,106 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 
 ### 52.事务的各个隔离级别都是如何实现的？
 
-**读未提交**
+#### 读未提交是如何实现的？
 
-读未提交，就不用多说了，采取的是读不加锁原理。
+不提供任何锁机制来保护读取的数据，允许读取未提交的数据（即脏读）。
 
-- 事务读不加锁，不阻塞其他事务的读和写
-- 事务写阻塞其他事务写，但不阻塞其他事务读；
+#### 读已提交&可重复读是如何实现的？
 
-**读取已提交&可重复读**
+读已提交和可重复读通过 MVCC 机制中的 ReadView 来实现。
 
-读取已提交和可重复读级别利用了`ReadView`和`MVCC`，也就是每个事务只能读取它能看到的版本（ReadView）。
+- READ COMMITTED：每次读取数据前都生成一个 ReadView，保证每次读操作都是最新的数据。
+- REPEATABLE READ：只在第一次读操作时生成一个 ReadView，后续读操作都使用这个 ReadView，保证事务内读取的数据是一致的。
 
-- READ COMMITTED：每次读取数据前都生成一个 ReadView
-- REPEATABLE READ ：在第一次读取数据时生成一个 ReadView
+#### 串行化是如何实现的？
 
-**串行化**
+事务在读操作时，必须先加表级共享锁，直到事务结束才释放；事务在写操作时，必须先加表级排他锁，直到事务结束才释放。
 
-串行化的实现采用的是读写都加锁的原理。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说MySQL事务的隔离级别，如何实现？
 
-串行化的情况下，对于同一行事务，`写`会加`写锁`，`读`会加`读锁`。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行。
 
 ### 53.MVCC 了解吗？怎么实现的？
 
-MVCC(Multi Version Concurrency Control)，中文名是多版本并发控制，简单来说就是通过维护数据历史版本，从而解决并发访问情况下的读一致性问题。关于它的实现，要抓住几个关键点，**隐式字段、undo 日志、版本链、快照读&当前读、Read View**。
+MVCC 是多版本并发控制（Multi-Version Concurrency Control）的简称，主要用来解决数据库并发问题。
 
-**版本链**
+在支持 MVCC 的数据库中，当多个用户同时访问数据时，每个用户都可以看到一个在某一时间点之前的数据库快照，并且能够无阻塞地执行查询和修改操作，而不会相互干扰。
 
-对于 InnoDB 存储引擎，每一行记录都有两个隐藏列**DB_TRX_ID、DB_ROLL_PTR**
+在传统的锁机制中，如果一个事务正在写数据，那么其他事务必须等待写事务完成才能读数据，MVCC 允许读操作访问数据的一个旧版本快照，同时写操作创建一个新的版本，这样读写操作就可以并行进行，不必等待对方完成。
 
-- `DB_TRX_ID`，事务 ID，每次修改时，都会把该事务 ID 复制给`DB_TRX_ID`；
-- `DB_ROLL_PTR`，回滚指针，指向回滚段的 undo 日志。
+在 MySQL 中，特别是 InnoDB 存储引擎，MVCC 是通过版本链和 ReadView 机制来实现的。
 
-![表隐藏列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-81b091fb-77d9-440e-940e-253b905c0be3.jpg)
+#### 什么是版本链？
 
-假如有一张`user`表，表中只有一行记录，当时插入的事务 id 为 80。此时，该条记录的示例图如下：
+在 InnoDB 中，每一行数据都有两个隐藏的列：一个是 DB_TRX_ID，另一个是 DB_ROLL_PTR。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-80ebc2b3-ae63-417d-9307-f6a7811f7965.jpg)
+- `DB_TRX_ID`，保存创建这个版本的事务 ID。
+- `DB_ROLL_PTR`，指向 undo 日志记录的指针，这个记录包含了该行的前一个版本的信息。通过这个指针，可以访问到该行数据的历史版本。
 
-接下来有两个`DB_TRX_ID`分别为`100`、`200`的事务对这条记录进行`update`操作，整个过程如下：
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415084347.png)
 
-![update 操作](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-bf4ff00d-01bd-4170-a17b-6919f7873ea4.jpg)
+假设有一张`hero`表，表中有一行记录 name 为张三，city 为帝都，插入这行记录的事务 id 是 80。此时，`DB_TRX_ID`的值就是 80，`DB_ROLL_PTR`的值就是指向这条 insert undo 日志的指针。
 
-由于每次变动都会先把`undo`日志记录下来，并用`DB_ROLL_PTR`指向`undo`日志地址。因此可以认为，**对该条记录的修改日志串联起来就形成了一个`版本链`，版本链的头节点就是当前记录最新的值**。如下：
+![三分恶面渣逆袭：表记录](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-80ebc2b3-ae63-417d-9307-f6a7811f7965.jpg)
 
-![MVCC](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-765b3d83-14eb-4b56-8940-9d60bfaf1737.jpg)
+接下来，如果有两个`DB_TRX_ID`分别为`100`、`200`的事务对这条记录进行了`update`操作，那么这条记录的版本链就会变成下面这样：
 
-**ReadView**
+![三分恶面渣逆袭：update 操作](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-bf4ff00d-01bd-4170-a17b-6919f7873ea4.jpg)
 
-> 对于`Read Committed`和`Repeatable Read`隔离级别来说，都需要读取已经提交的事务所修改的记录，也就是说如果版本链中某个版本的修改没有提交，那么该版本的记录时不能被读取的。所以需要确定在`Read Committed`和`Repeatable Read`隔离级别下，版本链中哪个版本是能被当前事务读取的。于是就引入了`ReadView`这个概念来解决这个问题。
+当事务更新一行数据时，InnoDB 不会直接覆盖原有数据，而是创建一个新的数据版本，并更新 DB_TRX_ID 和 DB_ROLL_PTR，使得它们指向前一个版本和相关的 undo 日志。这样，老版本的数据不会丢失，可以通过版本链找到。
 
-Read View 就是事务执行**快照读**时，产生的读视图，相当于某时刻表记录的一个快照，通过这个快照，我们可以获取：
+由于 undo 日志会记录每一次的 update，并且新插入的行数据会记录上一条 undo 日志的指针，所以可以通过这个指针找到上一条记录，这样就形成了一个版本链。
 
-![事务和 ReadView](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-4451a8c6-8e90-4941-a6be-c09533fa6c03.jpg)
+![三分恶面渣逆袭：版本链](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-765b3d83-14eb-4b56-8940-9d60bfaf1737.jpg)
 
-- m_ids ：表示在生成 ReadView 时当前系统中活跃的读写事务的事务 id 列表。
-- min_trx_id ：表示在生成 ReadView 时当前系统中活跃的读写事务中最小的 事务 id ，也就是 m_ids 中的最小值。
-- max_trx_id ：表示生成 ReadView 时系统中应该分配给下一个事务的 id 值。
-- creator_trx_id ：表示生成该 ReadView 的事务的 事务 id
+#### 说说什么是 ReadView？
 
-有了这个 ReadView ，这样在访问某条记录时，只需要按照下边的步骤判断记录的某个版本是否可见：
+ReadView（读视图）是 InnoDB 为了实现一致性读（Consistent Read）而创建的数据结构，它用于确定在特定事务中哪些版本的行记录是可见的。
 
-- 如果被访问版本的 DB_TRX_ID 属性值与 ReadView 中的 creator_trx_id 值相同，意味着当前事务在访问它自己修改过的记录，所以该版本可以被当前事务访问。
-- 如果被访问版本的 DB_TRX_ID 属性值小于 ReadView 中的 min_trx_id 值，表明生成该版本的事务在当前事务生成 ReadView 前已经提交，所以该版本可以被当前事务访问。
-- 如果被访问版本的 DB_TRX_ID 属性值大于 ReadView 中的 max_trx_id 值，表明生成该版本的事务在当前事务生成 ReadView 后才开启，所以该版本不可以被当前事务访问。
-- 如果被访问版本的 DB_TRX_ID 属性值在 ReadView 的 min_trx_id 和 max_trx_id 之间，那就需要判断一下 trx_id 属性值是不是在 m_ids 列表中，如果在，说明创建 ReadView 时生成该版本的事务还是活跃的，该版本不可以被访问；如果不在，说明创建 ReadView 时生成该版本的事务已经被提交，该版本可以被访问。
+ReadView 主要用来处理隔离级别为"可重复读"（REPEATABLE READ）和"读已提交"（READ COMMITTED）的情况。因为在这两个隔离级别下，事务在读取数据时，需要保证读取到的数据是一致的，即读取到的数据是在事务开始时的一个快照。
 
-如果某个版本的数据对当前事务不可见的话，那就顺着版本链找到下一个版本的数据，继续按照上边的步骤判断可见性，依此类推，直到版本链中的最后一个版本。如果最后一个版本也不可见的话，那么就意味着该条记录对该事务完全不可见，查询结果就不包含该记录。
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415093703.png)
 
-在 MySQL 中， READ COMMITTED 和 REPEATABLE READ 隔离级别的的一个非常大的区别就是它们生成 ReadView 的时机不同。
+当事务开始执行时，InnoDB 会为该事务创建一个 ReadView，这个 ReadView 会记录 4 个重要的信息：
 
-READ COMMITTED 是**每次读取数据前都生成一个 ReadView**，这样就能保证自己每次都能读到其它事务提交的数据；REPEATABLE READ 是在**第一次读取数据时生成一个 ReadView**，这样就能保证后续读取的结果完全一致。
+- creator_trx_id：创建该 ReadView 的事务 ID。
+- m_ids：所有活跃事务的 ID 列表，活跃事务是指那些已经开始但尚未提交的事务。
+- min_trx_id：所有活跃事务中最小的事务 ID。它是 m_ids 数组中最小的事务 ID。
+- max_trx_id ：事务 ID 的最大值加一。换句话说，它是下一个将要生成的事务 ID。
+
+#### ReadView 是如何判断记录的某个版本是否可见的？
+
+![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415094939.png)
+
+当一个事务读取某条数据时，InnoDB 会根据 ReadView 中的信息来判断该数据的某个版本是否可见。
+
+①、如果某个数据版本的 DB_TRX_ID 小于 min_trx_id，则该数据版本在生成 ReadView 之前就已经提交，因此对当前事务是可见的。
+
+②、如果某个数据版本的 DB_TRX_ID 大于 max_trx_id，则表示创建该数据版本的事务在生成 ReadView 之后开始，因此对当前事务是不可见的。
+
+③、如果某个数据版本的 DB_TRX_ID 在 min_trx_id 和 max_trx_id 之间，需要判断 DB_TRX_ID 是否在 m_ids 列表中：
+
+- 不在，表示创建该数据版本的事务在生成 ReadView 之后已经提交，因此对当前事务也是可见的。
+- 在，则表示创建该数据版本的事务仍然活跃，或者在当前事务生成 ReadView 之后开始，因此对当前事务是不可见的。
+
+> 上面这种方式有点绕，我讲一个简单的记忆规则。
+
+读事务开启了一个 ReadView，这个 ReadView 里面记录了当前活跃事务的 ID 列表（444、555、665），以及最小事务 ID（444）和最大事务 ID（666）。当然还有自己的事务 ID 520，也就是 creator_trx_id。
+
+它要读的这行数据的写事务 ID 是 x，也就是 DB_TRX_ID。
+
+- 如果 x = 110，显然在 ReadView 生成之前就提交了，所以这行数据是可见的。
+- 如果 x = 667，显然是未知世界，所以这行数据对读操作是不可见的。
+- 如果 x = 519，虽然 519 大于 444 小于 666，但是 519 不在活跃事务列表里，所以这行数据是可见的。因为 519 是在 520 生成 ReadView 之前就提交了。
+- 如果 x = 555，虽然 555 大于 444 小于 666，但是 555 在活跃事务列表里，所以这行数据是不可见的。因为 555 不确定有没有提交。
+
+#### 可重复读和读已提交在 ReadView 上的区别是什么？
+
+可重复读（REPEATABLE READ）和读已提交（READ COMMITTED）的区别在于生成 ReadView 的时机不同。
+
+- 可重复读：在第一次读取数据时生成一个 ReadView，这个 ReadView 会一直保持到事务结束，这样可以保证在事务中多次读取同一行数据时，读取到的数据是一致的。
+- 读已提交：每次读取数据前都生成一个 ReadView，这样就能保证每次读取的数据都是最新的。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MVCC，解决了什么问题？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
