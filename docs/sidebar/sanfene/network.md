@@ -47,10 +47,10 @@ OSI（Open System Interconnection）七层参考模型是一个网络架构模�
 
 TCP/IP 合并了 OSI 的部分层次，专注于高效的网络通信实践，更具实用性。
 
-- 应用层：对应于 OSI 模型的会话层、表示层和应用层。包括所有与网络有关的高级协议，如 HTTP、FTP、SMTP等。
+- 应用层：对应于 OSI 模型的会话层、表示层和应用层。包括所有与网络有关的高级协议，如 HTTP、FTP、SMTP 等。
 - 传输层: 对应于 OSI 模型的传输层。负责提供端到端的数据传输服务，包括数据分割、流量控制、错误恢复等。主要的协议有 TCP 和 UDP 。
 - 网际层：对应于 OSI 模型的网络层。主要协议是 IP，负责数据包的寻址和路由。这一层还包括 ICMP 协议。
-- 网络接口层：对应于 OSI 模型的物理层和数据链路层。负责数据帧的物理传输，包括硬件地址寻址（MAC地址），数据封装和解封装，错误检测和纠正等。
+- 网络接口层：对应于 OSI 模型的物理层和数据链路层。负责数据帧的物理传输，包括硬件地址寻址（MAC 地址），数据封装和解封装，错误检测和纠正等。
 
 #### 说说五层体系结构？
 
@@ -58,7 +58,7 @@ TCP/IP 合并了 OSI 的部分层次，专注于高效的网络通信实践，�
 
 - 应用层：作为网络服务和最终用户之间的接口。它提供了一系列供应用程序使用的协议，如 HTTP（网页）、FTP（文件传输）、SMTP（邮件传输）等。使用户的应用程序可以访问网络服务。
 - 传输层：提供进程到进程的通信管理，这一层确保数据按顺序、无错误地传输。主要协议包括 TCP 和 UDP。
-- 网络层：负责数据包从源到目的地的传输和路由选择，包括跨越多个网络（即互联网）。它使用逻辑地址（如IP地址）来唯一标识设备。路由器是网络层设备。
+- 网络层：负责数据包从源到目的地的传输和路由选择，包括跨越多个网络（即互联网）。它使用逻辑地址（如 IP 地址）来唯一标识设备。路由器是网络层设备。
 - 数据链路层：确保从一个节点到另一个节点的可靠、有效的数据传输。交换机、网桥是数据链路层设备。
 - 物理层：电缆、光纤、无线电频谱、网络适配器等。
 
@@ -116,22 +116,31 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 5.说说 DNS 的解析过程？
 
-DNS，英文全称是 **domain name system**，域名解析系统，它的作用也很明确，就是域名和 IP 相互映射。
+DNS 的全称是 **Domain Name System**，也就是域名解析系统，它可以将域名映射到对应的 IP 地址上，比如说我们访问 www.javabetter.cn，实际上访问的是我在阿里云上一台丐版服务器，它的 IP 地址是 xxx.xxx.xxx.xxx。
 
-DNS 的解析过程如下图：
+当然了，也可以通过 IP 地址直接访问服务器，但不方便记忆，所以就有了域名系统。一个好的域名可以卖好多好多钱，像 javabetter.cn 这个域名，一年需要 39 块钱。
 
-![DNS 解析流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-03408af8-3ca8-49bd-9244-6afa6fe132c6.jpg)
+域名到 IP 之间的映射，就需要 DNS 来完成。
 
-假设你要查询 **www.baidu.com** 的 IP 地址:
+![](https://cdn.tobebetterjavaer.com/stutymore/network-20240417102013.png)
 
-- 首先会查找浏览器的缓存,看看是否能找到**www.baidu.com**对应的 IP 地址，找到就直接返回；否则进行下一步。
-- 将请求发往给本地 DNS 服务器，如果查找到也直接返回，否则继续进行下一步；
+我来说说 DNS 的解析过程吧：
 
-![域名服务器层级](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-924caa3c-37cc-4a15-8796-4c43d6a1b07b.jpg)
+![三分析面渣逆袭：DNS 解析流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-03408af8-3ca8-49bd-9244-6afa6fe132c6.jpg)
 
-- 本地 DNS 服务器向**根域名服务器**发送请求，根域名服务器返回负责`com`的顶级域名服务器的 IP 地址的列表。
-- 本地 DNS 服务器再向其中一个负责`com`的顶级域名服务器发送一个请求，返回负责`baidu.com`的权限域名服务器的 IP 地址列表。
-- 本地 DNS 服务器再向其中一个权限域名服务器发送一个请求，返回**www.baidu.com**所对应的 IP 地址。
+假设我们在浏览器地址栏里键入了 [paicoding.com](https://paicoding.com)：
+
+浏览器会首先检查自己的缓存中是否有这个域名对应的 IP 地址，如果有，直接返回；如果没有，进入下一步。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/network-20240417103757.png)
+
+检查本地 DNS 缓存是否有该域名的记录。如果没有，向**根域名服务器**发送请求，根域名服务器将请求指向更具体的服务，如 `com` 顶级域名服务器。
+
+顶级域名服务器再将请求指向权限域名服务器，通常由域名注册机构直接管理，`paicoding.com`是在阿里云上注册的，所以阿里云会提供对应的 DNS 解析服务，将域名和阿里云服务器绑定起来。
+
+最终，浏览器使用获得的 IP 地址发起一个 HTTP 请求到目标服务器，然后该服务器返回所请求的网页内容。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 DNS 的解析过程
 
 ### 6.说说 WebSocket 与 Socket 的区别？
 
@@ -328,20 +337,17 @@ Server: Apache 0.84
 
 ### 16.HTTP/3 了解吗？
 
-HTTP/3 主要有两大变化，**传输层基于 UDP**、使用**QUIC 保证 UDP 可靠性**。
+HTTP/2.0 基于 TCP 协议，而 HTTP/3.0 则基于 QUIC 协议，Quick UDP Connections，直译为快速 UDP 网络连接。
 
-HTTP/2 存在的一些问题，比如重传等等，都是由于 TCP 本身的特性导致的，所以 HTTP/3 在 QUIC 的基础上进行发展而来，QUIC（Quick UDP Connections）直译为快速 UDP 网络连接，底层使用 UDP 进行数据传输。
+![三分恶面渣逆袭：HTTP 协议变迁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-9384b248-3ea3-4437-b343-f8b7e73f9157.jpg)
 
-HTTP/3 主要有这些特点：
+基于 TCP 的 HTTP/2.0，尽管从逻辑上来说，不同的流之间相互独立，不会相互影响，但在实际传输的过程中，数据还是要一帧一帧的发送和接收，一旦某一个流的数据有丢包，仍然会阻塞在它之后传输的流数据。
 
-- 使用 UDP 作为传输层进行通信
-- 在 UDP 的基础上 QUIC 协议保证了 HTTP/3 的安全性，在传输的过程中就完成了 TLS 加密握手
-- HTTPS 要建⽴⼀个连接，要花费 6 次交互，先是建⽴三次握⼿，然后是 TLS/1.3 的三次握⼿。QUIC 直接把以往的 TCP 和 TLS/1.3 的 6 次交互合并成了 **3** 次，减少了交互次数。
-- QUIC 有⾃⼰的⼀套机制可以保证传输的可靠性的。当某个流发⽣丢包时，只会阻塞这个流，其他流不会受到影响。
+而基于 UDP 的 QUIC 协议可以更彻底地解决这样的问题，让不同的流之间真正的实现相互独立传输，互不干扰。
 
-我们拿一张图看一下 HTTP 协议的变迁：
+同时，QUIC 协议在传输的过程中就完成了 TLS 加密握手，更直接了。
 
-![HTTP 协议变迁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-9384b248-3ea3-4437-b343-f8b7e73f9157.jpg)
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：HTTP 2.0 和 3.0 的区别
 
 ### 17.HTTP 如何实现长连接？在什么时候会超时？
 

@@ -479,8 +479,6 @@ ApplicationContext 包含 BeanFactory 的所有特性，通常推荐使用前者
 
 ### 8.你知道 Spring 容器启动阶段会干什么吗？
 
-PS：这道题老三面试被问到过
-
 Spring 的 IoC 容器工作的过程，其实可以划分为两个阶段：**容器启动阶段**和**Bean 实例化阶段**。
 
 其中容器启动阶段主要做的工作是加载和解析配置文件，保存到对应的 Bean 定义中。
@@ -492,6 +490,84 @@ Spring 的 IoC 容器工作的过程，其实可以划分为两个阶段：**容
 ![xml配置信息映射注册过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-dfb3d8c4-ba8d-4a2c-aef2-4ad425f7180c.png)
 
 最后把这些保存了 Bean 定义必要信息的 BeanDefinition，注册到相应的 BeanDefinitionRegistry，这样容器启动就完成了。
+
+#### 说说 Spring 的 Bean 实例化方式
+
+Spring 提供了 4 种不同的方式来实例化 Bean，以满足不同场景下的需求。
+
+#### 说说构造方法的方式
+
+在类上使用@Component（或@Service、@Repository 等特定于场景的注解）标注类，然后通过构造方法注入依赖。
+
+```java
+@Component
+public class ExampleBean {
+    private DependencyBean dependency;
+
+    @Autowired
+    public ExampleBean(DependencyBean dependency) {
+        this.dependency = dependency;
+    }
+}
+```
+
+#### 说说静态工厂的方式
+
+在这种方式中，Bean 是由一个静态方法创建的，而不是直接通过构造方法。
+
+```java
+public class ClientService {
+    private static ClientService clientService = new ClientService();
+
+    private ClientService() {}
+
+    public static ClientService createInstance() {
+        return clientService;
+    }
+}
+```
+
+#### 说说实例工厂方法实例化的方式
+
+与静态工厂方法相比，实例工厂方法依赖于某个类的实例来创建 Bean。这通常用在需要通过工厂对象的非静态方法来创建 Bean 的场景。
+
+```java
+public class ServiceLocator {
+    public ClientService createClientServiceInstance() {
+        return new ClientService();
+    }
+}
+```
+
+#### 说说 FactoryBean 接口实例化方式
+
+FactoryBean 是一个特殊的 Bean 类型，可以在 Spring 容器中返回其他对象的实例。通过实现 FactoryBean 接口，可以自定义实例化逻辑，这对于构建复杂的初始化逻辑非常有用。
+
+```java
+public class ToolFactoryBean implements FactoryBean<Tool> {
+    private int factoryId;
+    private int toolId;
+
+    @Override
+    public Tool getObject() throws Exception {
+        return new Tool(toolId);
+    }
+
+    @Override
+    public Class<?> getObjectType() {
+        return Tool.class;
+    }
+
+    @Override
+    public boolean isSingleton() {
+        return true;
+    }
+
+    // setter and getter methods for factoryId and toolId
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 Spring 的 Bean 实例化方式
 
 ### 9.能说一下 Spring Bean 生命周期吗？
 
@@ -1660,9 +1736,20 @@ Spring 提供了一系列事务传播行为，这些传播行为定义了事务�
 - NOT_SUPPORTED：总是以非事务方式执行，如果当前存在事务，则将当前事务挂起。
 - NESTED：如果当前存在事务，则在嵌套事务内执行。如果当前事务不存在，则行为与 REQUIRED 一样。嵌套事务是一个子事务，它依赖于父事务。父事务失败时，会回滚子事务所做的所有操作。但子事务异常不一定会导致父事务的回滚。
 
-事务传播机制是使用 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 实现的，所以，如果调用的方法是在新线程中的，事务传播会失效。
+事务传播机制是使用 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 实现的，所以，如果调用的方法是在新线程中，事务传播会失效。
 
-Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `ServiceX#methodX()` 都工作在事务环境下，且程序中存在调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的 3 个方法都通过 Spring 的事务传播机制工作在同一个事务中。
+```java
+@Transactional
+public void parentMethod() {
+    new Thread(() -> childMethod()).start();
+}
+
+public void childMethod() {
+    // 这里的操作将不会在 parentMethod 的事务范围内执行
+}
+```
+
+Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `ServiceX#methodX()` 都工作在事务环境下，且程序中存在这样的调用链 `Service1#method1()->Service2#method2()->Service3#method3()`，那么这 3 个服务类的 3 个方法都通过 Spring 的事务传播机制工作在同一个事务中。
 
 #### protected 和 private 加事务会生效吗
 
@@ -2001,7 +2088,7 @@ Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 启动时为什么能够自动装配
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 如何做到启动的时候注入一些 bean
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 Spring Boot 的自动装配原理
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：spring boot的自动装配
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：spring boot 的自动装配
 
 ### 33.如何自定义一个 SpringBoot Srarter?
 
@@ -2225,7 +2312,7 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [面渣逆袭分布式篇 👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
 - [面渣逆袭微服务篇 👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
-- [面渣逆袭Linux篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
+- [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
 ---
 

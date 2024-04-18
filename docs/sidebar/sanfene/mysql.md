@@ -737,21 +737,20 @@ MySQL 的日志文件主要包括：
 
 推荐阅读：[带你了解 MySQL Binlog 不为人知的秘密](https://www.cnblogs.com/rickiyang/p/13841811.html)
 
-binlog 主要用于复制（Replication）和数据恢复（Data Recovery）。
+binlog 是一种物理日志，会在磁盘上记录下数据库的所有修改操作，以便进行数据恢复和主从复制。
 
-- 支持主从复制，主服务器（master）上的二进制日志可以被从服务器（slave）读取和恢复。
-- 在发生数据丢失或损坏时，binlog 可以用来恢复数据。结合全量备份和 binlog 的增量备份，可以将数据库恢复到特定的时间点（Point-In-Time Recovery）
+- 当发生数据丢失时，binlog 可以将数据库恢复到特定的时间点。
+- 主服务器（master）上的二进制日志可以被从服务器（slave）读取，从而实现数据同步。
 
 binlog 包括两类文件：
 
 - 二进制索引文件（.index）
 - 二进制日志文件（.00000\*）
 
-binlog 默认是没有启用的。要启用它，需要在 MySQL 的配置文件（my.cnf 或 my.ini）中设置 log_bin 参数，并指定 binlog 文件的存储位置。
+binlog 默认是没有启用的。要启用它，需要在 MySQL 的配置文件（my.cnf 或 my.ini）中设置 log_bin 参数。
 
 ```
-设置此参数表示启用binlog功能，并制定二进制日志的存储目录
-log-bin=/home/mysql/binlog/
+log_bin = mysql-bin #开启binlog
 
 #mysql-bin.*日志文件最大字节（单位：字节）
 #设置最大100MB
@@ -772,36 +771,40 @@ sync_binlog=0
 
 简单说一下这里面参数的作用：
 
-①、`max_binlog_size=104857600`
+①、`log_bin = mysql-bin`，启用 binlog，这样就可以在 MySQL 的数据目录中找到 db-bin.000001、db-bin.000002 等日志文件。
 
-这条配置设置了每个 binlog 文件的最大大小为 100MB（104857600 字节）。当 binlog 文件达到这个大小时，MySQL 会关闭当前文件并创建一个新的 binlog 文件。这有助于管理大量的 binlog 文件和限制单个文件的大小。
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417074049.png)
 
-②、`expire_logs_days = 7`
+②、`max_binlog_size=104857600`
+
+设置每个 binlog 文件的最大大小为 100MB（104857600 字节）。当 binlog 文件达到这个大小时，MySQL 会关闭当前文件并创建一个新的 binlog 文件。
+
+③、`expire_logs_days = 7`
 
 这条配置设置了 binlog 文件的自动过期时间为 7 天。过期的 binlog 文件将被自动删除。这有助于管理磁盘空间，防止长时间累积的 binlog 文件占用过多存储空间。
 
-③、`binlog-do-db=db_name`
+④、`binlog-do-db=db_name`
 
-指定哪些数据库表的更新应该记录。
+指定哪些数据库表的更新应该被记录。
 
-④、`binlog-ignore-db=db_name`
+⑤、`binlog-ignore-db=db_name`
 
 指定忽略哪些数据库表的更新。
 
-⑤、`sync_binlog=0`
+⑥、`sync_binlog=0`
 
 这条配置设置了每多少次 binlog 写操作会触发一次磁盘同步操作。默认值 0 表示 MySQL 不会主动触发同步操作，而是依赖操作系统的磁盘缓存策略。
 
+即当执行写操作时，数据会先写入操作系统的缓存，当缓存区满了再由操作系统将数据写入磁盘。
+
 设置为 1 意味着每次 binlog 写操作后都会同步到磁盘，这可以提高数据安全性，但可能会对性能产生影响。
 
-一旦启用，所有的数据修改操作就会被记录到 binlog 文件中。可以通过 `show variables like '%log_bin%';` 查看 binlog 是否开启。
+可以通过 `show variables like '%log_bin%';` 查看 binlog 是否开启。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
-
-不过需要注意的是，随着数据库的操作，binlog 文件可能会不断增长，因此需要定期进行清理或归档，以防止占用过多磁盘空间。
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：MySQL 中的 bin log 的作用是什么？
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说MySQL的三大日志？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 的三大日志？
 
 ### 20.binlog 和 redo log 有什么区别？
 
@@ -907,15 +910,15 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 不过，生产环境中，10 秒太久了，超过 1 秒的都可以认为是慢 SQL 了。
 
-![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
-
-我先说一下 SQL 的执行过程：
+要想定位慢 SQL，需要了解 SQL 的执行过程：
 
 1. 客户端发送 SQL 语句给 MySQL 服务器。
 2. 如果查询缓存打开则会优先查询缓存，如果缓存中有对应的结果，直接返回给客户端。不过，MySQL 8.0 版本已经移除了查询缓存。
 3. 分析器对 SQL 语句进行语法分析，判断是否有语法错误。
 4. 搞清楚 SQL 语句要干嘛后，MySQL 还会通过优化器生成执行计划。
 5. 执行器调用存储引擎的接口，执行 SQL 语句。
+
+![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
 
 SQL 执行过程中，优化器通过成本计算预估出执行效率最高的方式，基本的预估维度为：
 
@@ -1184,74 +1187,66 @@ SELECT * FROM B WHERE id = 1;
 通过将查询条件下推到 UNION 的每个分支中，每个分支查询都只处理满足条件的数据，减少了不必要的数据合并和过滤。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：查询优化、联合索引、覆盖索引
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
 
-### 26.怎么看执行计划（explain），如何理解其中各个字段的含义？
+### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
 
-explain 是 sql 优化的利器，除了优化慢 sql，平时的 sql 编写，也应该先 explain，查看一下执行计划，看看是否还有优化的空间。
+explain 是 MySQL 提供的一个用于查看查询执行计划的工具，可以帮助我们分析查询语句的性能瓶颈，找出慢 SQL 的原因。
 
-直接在 select 语句之前增加`explain` 关键字，就会返回执行计划的信息。
+使用方式也非常简单，在 select 语句前加上 `explain` 关键字就可以了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-77711553-bb7b-4580-968a-4a973e3a31ca.jpg)
+```sql
+explain select * from students where id =9
+```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e234658f-5672-4a8d-9a75-872b305a171d.jpg)
+接下来，我们需要理解 explain 输出结果中各个字段的含义。
 
-1.  **id** 列：MySQL 会为每个 select 语句分配一个唯一的 id 值
-2.  **select_type** 列，查询的类型，根据关联、union、子查询等等分类，常见的查询类型有 SIMPLE、PRIMARY。
-3.  **table** 列：表示 explain 的一行正在访问哪个表。
-4.  **type** 列：最重要的列之一。表示关联类型或访问类型，即 MySQL 决定如何查找表中的行。
+![三分恶面渣逆袭：EXPLAIN](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e234658f-5672-4a8d-9a75-872b305a171d.jpg)
 
-性能从最优到最差分别为：system > const > eq_ref > ref > fulltext > ref_or_null > index_merge > unique_subquery > index_subquery > range > index > ALL
+①、**id** 列：查询的标识符。
 
-- system
+②、**select_type** 列：查询的类型。常见的类型有：
 
-`system`：当表仅有一行记录时(系统表)，数据量很少，往往不需要进行磁盘 IO，速度非常快
+- SIMPLE：简单查询，不包含子查询或者 UNION 查询。
+- PRIMARY：查询中如果包含子查询，则最外层查询被标记为 PRIMARY。
+- SUBQUERY：子查询。
+- DERIVED：派生表的 SELECT，FROM 子句的子查询。
 
-- const
+③、**table** 列：查的哪个表。
 
-`const`：表示查询时命中 `primary key` 主键或者 `unique` 唯一索引，或者被连接的部分是一个常量(`const`)值。这类扫描效率极高，返回数据量少，速度非常快。
+④、**type** 列：表示 MySQL 在表中找到所需行的方式，性能从最优到最差分别为：system > const > eq_ref > ref > range > index > ALL。
 
-- eq_ref
+- system，表只有一行，一般是系统表，往往不需要进行磁盘 IO，速度非常快
+- const、eq_ref、ref：这些类型表示 MySQL 可以使用索引来查找单个行，其中 const 是最优的，表示查询最多返回一行。
+- range：只检索给定范围的行，使用索引来检索。在`where`语句中使用 `bettween...and`、`<`、`>`、`<=`、`in` 等条件查询 `type` 都是 `range`。
+- index：遍历索引树读取。
+- ALL：全表扫描，效率最低。
 
-`eq_ref`：查询时命中主键`primary key` 或者 `unique key`索引， `type` 就是 `eq_ref`。
+⑤、**possible_keys** 列：可能会用到的索引，但并不一定实际被使用。
 
-- ref_or_null
+⑥、**key** 列：实际使用的索引。如果为 NULL，则没有使用索引。
 
-`ref_or_null`：这种连接类型类似于 ref，区别在于 `MySQL`会额外搜索包含`NULL`值的行。
+⑦、**key_len** 列：MySQL 决定使用的索引长度（以字节为单位）。当表有多个索引可用时，key_len 字段可以帮助识别哪个索引最有效。通常情况下，更短的 key_len 意味着数据库在比较键值时需要处理更少的数据。
 
-- index_merge
+⑧、**ref** 列：用于与索引列比较的值来源。
 
-`index_merge`：使用了索引合并优化方法，查询使用了两个以上的索引。
+- const：表示常量，这个值是在查询中被固定的。例如在 WHERE `column = 'value'`中。
+- 一个或多个列的名称，通常在 JOIN 操作中，表示 JOIN 条件依赖的字段。
+- NULL，表示没有使用索引，或者查询使用的是全表扫描。
 
-- unique_subquery
+⑨、**rows** 列：估算查到结果集需要扫描的数据行数，原则上 rows 越少越好。
 
-`unique_subquery`：替换下面的 `IN`子查询，子查询返回不重复的集合。
+⑩、**Extra** 列：附加信息。
 
-- index_subquery
+- Using index：表示只利用了索引。
+- Using where：表示使用了 WHERE 过滤。
+- Using temporary ：表示使用了临时表来存储中间结果。
 
-`index_subquery`：区别于`unique_subquery`，用于非唯一索引，可以返回重复值。
+示例：
 
-- range
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417092646.png)
 
-`range`：使用索引选择行，仅检索给定范围内的行。简单点说就是针对一个有索引的字段，给定范围检索数据。在`where`语句中使用 `bettween...and`、`<`、`>`、`<=`、`in` 等条件查询 `type` 都是 `range`。
-
-- index
-
-`index`：`Index` 与`ALL` 其实都是读全表，区别在于`index`是遍历索引树读取，而`ALL`是从硬盘中读取。
-
-- ALL
-
-就不用多说了，全表扫描。
-
-6.  **possible_keys** 列：显示查询可能使用哪些索引来查找，使用索引优化 sql 的时候比较重要。
-7.  **key** 列：这一列显示 mysql 实际采用哪个索引来优化对该表的访问，判断索引是否失效的时候常用。
-8.  **key_len** 列：显示了 MySQL 使用
-9.  **ref** 列：ref 列展示的就是与索引列作等值匹配的值，常见的有：const（常量），func，NULL，字段名。
-10. **rows** 列：这也是一个重要的字段，MySQL 查询优化器根据统计信息，估算 SQL 要查到结果集需要扫描读取的数据行数，这个值非常直观显示 SQL 的效率好坏，原则上 rows 越少越好。
-11. **Extra** 列：显示不适合在其它列的额外信息，虽然叫额外，但是也有一些重要的信息：
-
-- Using index：表示 MySQL 将使用覆盖索引，以避免回表
-- Using where：表示会在存储引擎检索之后再进行过滤
-- Using temporary ：表示对查询结果排序时会使用一个临时表。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：怎么看走没走索引，如何分析 SQL
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1260,8 +1255,6 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 索引
-
-> 索引可以说是 MySQL 面试中的重中之重，务必要拿下啊，兄弟姐妹们。
 
 ### 27.能简单说一下索引的分类吗？
 
@@ -2131,7 +2124,7 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下事务的四大隔离级别，分别解决什么问题
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 默认隔离级别？
-> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说MySQL事务的隔离级别，如何实现？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 事务的隔离级别，如何实现？
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 
@@ -2165,8 +2158,7 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 
 事务在读操作时，必须先加表级共享锁，直到事务结束才释放；事务在写操作时，必须先加表级排他锁，直到事务结束才释放。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说MySQL事务的隔离级别，如何实现？
-
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 事务的隔离级别，如何实现？
 
 ### 53.MVCC 了解吗？怎么实现的？
 
@@ -2341,12 +2333,13 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 ![三分恶面渣逆袭：水平分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-debe0fb1-d7f7-4ef2-8c99-13c9377138b6.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说分库分表的准则
 
 ### 59.那你们是怎么分表的？
 
 当单表数据增量过快，业界流传的说法是超过 500 万的数据量就要考虑分表了。
 
-在技术派实战项目中，我们将文章表和文章详情表做了分表处理，因为文章的详情数据量会比较大，而文章的基本信息数据量会比较小。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们将文章表和文章详情表做了分表处理，因为文章的详情数据量会比较大，而文章的基本信息数据量会比较小。
 
 垂直拆分可以减轻只查询文章基本数据，不需要附带文章详情时的查询压力。
 
@@ -2355,6 +2348,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 ![三分恶面渣逆袭：表拆分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7cba6ce0-c8bb-4f51-9c3b-e5a44e724c79.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说分库分表的准则
 
 ### 60.水平分表有哪几种路由方式？
 
@@ -2519,7 +2513,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## SQL 题
 
-### （补充）70.一张表：id，name，age，sex，class，sql 语句：所有年龄为 18 的人的名字？找到每个班年龄大于 18 有多少人？找到每个班年龄排前两名的人？
+### 70.一张表：id，name，age，sex，class，sql 语句：所有年龄为 18 的人的名字？找到每个班年龄大于 18 有多少人？找到每个班年龄排前两名的人？（补充）
 
 > 这是一道 SQL 题，主要考察 SQL 的基本语法。建议大家直接在本地建表，然后实操一下。 2024 年 04 月 11 日增补。
 
@@ -2707,7 +2701,7 @@ CREATE INDEX idx_name_no_index ON test_table_no_index(name);
 
 ---
 
-图文详解 72 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+图文详解 73 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
