@@ -928,7 +928,7 @@ redis.del(product_id)
 
 #### 那假如对一致性要求很高，该怎么办呢？
 
-我们先来分析一下，缓存和数据库数据不一致的原因，常见的有两种：
+缓存和数据库数据不一致的原因，常见的有两种：
 
 - 缓存删除失败
 - 并发导致写入了脏数据
@@ -973,6 +973,7 @@ redis.del(product_id)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：怎样保证数据的最终一致性？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：数据一致性问题
+
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 
