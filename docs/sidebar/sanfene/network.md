@@ -165,32 +165,51 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 8.说说 HTTP 常用的状态码及其含义？
 
-HTTP 状态码首先应该知道个大概的分类：
+HTTP 响应状态码是由服务器返回给客户端，用于表示对请求的响应结果。
 
-- 1XX：信息性状态码
-- 2XX：成功状态码
-- 3XX：重定向状态码
-- 4XX：客户端错误状态码
-- 5XX：服务端错误状态码
+这些状态码分为五个不同的类别，每个类别用一个数字开头，共有三位数：
 
-几个常用的，面试之外，也应该记住：
+- 1XX：临时的响应，客户端应继续请求。
+- 2XX：请求已成功被服务器接收。
+- 3XX：用来重定向。
+- 4XX：请求可能出错。
+- 5XX：服务器在尝试处理请求时发生了错误。
 
-![常见 HTTP 状态码](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-edf4b4c4-79c1-445c-b0e1-86c0dce9d96d.jpg)
+![三分恶面渣逆袭：常见 HTTP 状态码](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-edf4b4c4-79c1-445c-b0e1-86c0dce9d96d.jpg)
 
-之前写过一篇：程序员五一被拉去相亲，结果彻底搞懂了 HTTP 常用状态码，还比较有意思，可以看看。
-
-> **说一下 301 和 302 的区别？**
+#### 说一下 301 和 302 的区别？
 
 - 301：永久性移动，请求的资源已被永久移动到新位置。服务器返回此响应时，会返回新的资源地址。
 - 302：临时性性移动，服务器从另外的地址响应资源，但是客户端还应该使用这个地址。
 
 用一个比喻，301 就是嫁人的新垣结衣，302 就是有男朋友的长泽雅美。
 
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 的响应号有哪些
+
 ### 9.HTTP 有哪些请求方式？
 
-![HTTP 请求方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-9e7939fa-0f71-4c45-86e4-26534a05220e.jpg)
+HTTP 协议定义了多种请求方式，用以指示请求的目的。常见的请求方式有 GET、POST、DELETE、PUT。
 
-其中，POST、DELETE、PUT、GET 的含义分别对应我们最熟悉的增、删、改、查。
+![三分恶面渣逆袭：HTTP 请求方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-9e7939fa-0f71-4c45-86e4-26534a05220e.jpg)
+
+- GET：请求检索指定的资源。应该只用于获取数据，并且是幂等的，即多次执行相同的 GET 请求应该返回相同的结果，并且不会改变资源的状态。
+- POST：向指定资源提交数据，请求服务器进行处理（如提交表单或上传文件）。数据被包含在请求体中。可能会创建新的资源或修改现有资源。
+- DELETE：删除指定的资源。
+- PUT：用于替换指定的资源。如果指定的资源不存在，创建一个新资源。
+
+#### HTTP 的 GET 方法可以实现写操作吗?
+
+可以是可以，但是不推荐。
+
+使用 GET 执行写操作可能导致严重的安全问题，如跨站请求伪造（CSRF）。
+
+实际开发中，也应该杜绝使用 GET 方法执行写操作。在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们会在接口上明确规定应该使用哪种请求方式。
+
+![技术派实战项目源码](https://cdn.tobebetterjavaer.com/stutymore/network-20240418131052.png)
+
+客户端一旦使用错误 ❎，将会收到一个 405 Method Not Allowed 的响应。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 有哪些方法，http 的 get 方法可以实现写操作吗，https 传递 url 安全吗，为什么数据在浏览器中，中间人攻击是什么
 
 ### 10.说⼀下 GET 和 POST 的区别？
 
@@ -373,16 +392,16 @@ HTTP/2.0 基于 TCP 协议，而 HTTP/3.0 则基于 QUIC 协议，Quick UDP Conn
 
 ### 18.说说 HTTP 与 HTTPS 有哪些区别？
 
-1.  HTTP 是超⽂本传输协议，信息是明⽂传输，存在安全⻛险的问题。HTTPS 则解决 HTTP 不安全的缺陷，在 TCP 和 HTTP ⽹络层之间加⼊了 SSL/TLS 安全协议，使得报⽂能够加密传输。
-2.  HTTP 连接建⽴相对简单， TCP 三次握⼿之后便可进⾏ HTTP 的报⽂传输。⽽ HTTPS 在 TCP 三次握⼿之后，还需进⾏ SSL/TLS 的握⼿过程，才可进⼊加密报⽂传输。
-3.  HTTP 的端⼝号是 80，HTTPS 的端⼝号是 443。
-4.  HTTPS 协议需要向 CA（证书权威机构）申请数字证书，来保证服务器的身份是可信的。
+1. HTTPS 是 HTTP 的增强版，在 HTTP 的基础上加入了 SSL/TLS 协议，确保数据在传输过程中是加密的。SSL/TLS 需要向 CA（证书权威机构）申请数字证书，用于验证服务器的身份。
+2. HTTP 的默认端⼝号是 80，URL 以`http://`开头；HTTPS 的默认端⼝号是 443，URL 以`https://`开头。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 和 https 的区别，https 是怎么建立连接，https 是对称还是非对称加密
 
 ### 19.为什么要用 HTTPS？解决了哪些问题？
 
 使用 HTTPS 主要是为了解决 HTTP 传输过程中的一些安全问题，因为 HTTP 是明文传输，所以 HTTPS 在 HTTP 的基础上加入了 SSL/TLS 协议。
 
-![三分恶面渣逆袭：HTTP 和 HTTPS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-7ad7a529-1565-49d0-992f-7f90b0b30acc.jpg)
+![](https://cdn.tobebetterjavaer.com/stutymore/network-20240418120939.png)
 
 SSL（安全套接字）/TLS（传输层安全）协议可以用来加密通信内容，保证通信过程中的数据不被窃取和篡改。整个加密过程主要涉及两种类型的加密方法：
 
@@ -403,37 +422,55 @@ HTTPS 主要解决了以下几个问题：
 
 ### 20.HTTPS 工作流程是怎样的？
 
-HTTPS 的工作流程主要涉及到 SSL/TLS 协议，它确保了客户端和服务器之间的通信是加密的。
+HTTPS 的连接建立在 SSL/TLS 握手之上，主要分为以下几个步骤：
 
-①、客户端发起请求
+![](https://cdn.tobebetterjavaer.com/stutymore/network-20240418124713.png)
 
-客户端（如 Web 浏览器）向服务器发起 HTTPS 请求，请求的 URL 以 `https://` 开头。
+①、客户端向服务器发起请求
 
-②、服务器返回证书
+②、服务器接收到请求后，会返回自己的数字证书，包含了公钥、颁发机构等信息。
 
-服务器接收到请求后，会向客户端发送一个 SSL 证书，证书中包含了服务器的公钥、证书的颁发机构（CA）、证书的有效期等信息。
+③、客户端收到服务器的数字证书后，会验证证书的合法性，如果合法，就会生成一个随机码，然后用服务器的公钥加密这个随机码，发送给服务器。
 
-③、客户端验证证书
+④、服务器收到会话密钥后，用私钥解密，得到会话密钥。
 
-客户端收到服务器的证书后，会验证证书的合法性，包括证书是否过期、颁发机构是否可信等。
+⑤、客户端和服务器通过会话密码对通信内容进行加密，然后传输。
 
-④、客户端生成密钥
+如果通信内容被截取，但由于没有会话密钥，所以无法解密。当通信结束后，连接会被关闭，会话密钥也会被销毁，下次通信会重新生成一个会话密钥。
 
-客户端验证通过后，会生成一个随机的对称密钥，然后用服务器的公钥加密这个对称密钥，发送给服务器。
+HTTPS 在不同阶段会使用不同的加密方式：
 
-⑤、服务器解密密钥
+- 非对称加密：在握手阶段使用，特别是在密钥交换过程中。非对称加密使用公钥和私钥，其中公钥可以公开，私钥保密。客户端使用公钥加密信息，服务器使用私钥解密。
+- 对称加密：在完成握手后，所有的数据传输都使用对称加密。对称加密使用相同的密钥进行加密和解密，这种加密方式比非对称加密更快。
 
-服务器收到客户端发来的密钥后，会用自己的私钥解密，得到对称密钥。至此，客户端和服务器都拥有了相同的会话密钥，可以用这个密钥加密通信内容。
+#### HTTPS 会加密 URL 吗？
 
-⑥、加密通信
+HTTPS 通过 SSL/TLS 协议确保了客户端与服务器之间交换的数据被加密，这包括 HTTP 头部和正文。
 
-服务器用会话密钥加密通信内容，发送给客户端，客户端用会话密钥解密，得到响应内容。
+而 URL 是 HTTP 头部的一部分，因此这部分信息也是加密的。
 
-如果在这个过程中，有人截获了通信内容，但由于没有会话密钥，所以无法解密。
+![人人编程网：HTTP 协议请求报文](https://cdn.tobebetterjavaer.com/stutymore/network-20240418133527.png)
 
-当通信结束后，连接会被关闭，会话密钥也会被销毁，下次通信会重新生成一个会话密钥。
+但因为涉及到 SSL 握手的过程，所以域名信息会被暴露出来，需要注意。
 
-![三分恶面渣逆袭：HTTPS 工作流程详图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-c0e6e3e1-b4a2-41de-97ac-4103db2f2fc5.jpg)
+![小林：server name](https://cdn.tobebetterjavaer.com/stutymore/network-20240418134538.png)
+
+另外，完整的 URL 可能在 Web 服务器的日志中记录，这些日志可能是明文的。还有，URL 在浏览器历史记录中也是可见的。
+
+因此，敏感信息永远不应该通过 URL 传递，即使是在使用 HTTPS 的情况下。
+
+#### 什么是中间人攻击？
+
+中间人攻击（Man-in-the-Middle, MITM）是一种常见的网络安全威胁，攻击者可以在通信的两端插入自己，以窃取通信双方的信息。
+
+![维基百科](https://cdn.tobebetterjavaer.com/stutymore/network-20240418135536.png)
+
+在很多电影中，都会存在这样的场景：主角通过某种方式，将自己伪装成中间人，然后窃取通信双方的信息，阿汤哥的碟中谍中就有很多类似的手笔。
+
+中间人攻击是一个缺乏相互认证的攻击，因此大多数加密协议都会专门加入一些特殊的认证方法，以防止中间人攻击。像 SSL 协议，就是通过验证服务器的数字证书，是否由 CA（权威的受信任的数字证书认证机构）签发，来防止中间人攻击的。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 和 https 的区别，https 是怎么建立连接，https 是对称还是非对称加密
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 有哪些方法，http 的 get 方法可以实现写操作吗，https 传递 url 安全吗，为什么数据在浏览器中，中间人攻击是什么
 
 ### 21.客户端怎么去校验证书的合法性？
 
