@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，73道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，75道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 73 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 75 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 101 张手绘图，详解 73 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 101 张手绘图，详解 75 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ### 0.什么是 MySQL？
 
@@ -95,15 +95,33 @@ LIMIT 2;
 
 ### 3.说一下数据库的三大范式？
 
-![数据库三范式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16e74a6b-a42a-464e-9b10-0252ee7ecc6e.jpg)
+三大范式的作用是为了减少数据冗余，提高数据完整性。
 
-- 第一范式：数据表中的每一列（每个字段）都不可以再拆分。例如用户表，用户地址还可以拆分成国家、省份、市，这样才是符合第一范式的。
-- 第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能是依赖于主键的一部分。例如订单表里，存储了商品信息（商品价格、商品类型），那就需要把商品 ID 和订单 ID 作为联合主键，才满足第二范式。
-- 第三范式：在满足第二范式的基础上，表中的非主键只依赖于主键，而不依赖于其他非主键。例如订单表，就不能存储用户信息（姓名、地址）。
+![三分恶面渣逆袭：数据库三范式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16e74a6b-a42a-464e-9b10-0252ee7ecc6e.jpg)
 
-![你设计遵守范式吗？](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-5351d57d-1cea-49c8-b6bb-b7d49abb4427.jpg)
+①、第一范式（1NF）：确保表的每一列都是不可分割的基本数据单元，比如说用户地址，应该拆分成省、市、区、详细信息等 4 个字段。
 
-三大范式的作用是为了控制数据库的冗余，是对空间的节省，实际上，一般互联网公司的设计都是反范式的，通过冗余一些数据，避免跨表跨库，利用空间换时间，提高性能。
+![Ruthless：第一范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093235.png)
+
+②、第二范式（2NF）：在 1NF 的基础上，要求数据库表中的每一列都和主键直接相关，而不能只与主键的某一部分相关（主要针对联合主键）。
+
+比如说在一个订单表中，可能会存在订单编号和商品编号，设计出来的表可能是这样的。
+
+![Ruthless：不符合第二范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093351.png)
+
+这个订单表中就存在冗余数据，比如说商品名称、单位、商品价格等，应该将其拆分为订单表、订单商品关联表、商品表。
+
+![Ruthless：订单商品关联表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093726.png)
+
+③、第三范式（3NF）：在 2NF 的基础上，消除非主键列对主键的传递依赖，即非主键列只依赖于主键列，不依赖于其他非主键列。
+
+比如说在设计订单信息表的时候，可以把客户名称、所属公司、联系方式等信息拆分到客户信息表中，然后在订单信息表中用客户编号进行关联。
+
+![Ruthless：第三范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418094332.png)
+
+在实际开发过程中，三大范式有时候反而成为了老太婆的裹脚布，让表的设计变得复杂而又啰嗦，就像第二范式中提到的订单详情表，把商品价格和名称放在订单表中可以减少额外的 JOIN 操作，提高查询效率。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：什么是三大范式，为什么要有三大范式，什么场景下不用遵循三大范式，举一个场景
 
 ### 4.varchar 与 char 的区别？
 
@@ -167,17 +185,19 @@ DECIMAL 和 NUMERIC 值作为字符串存储，而不是作为二进制浮点数
 
 之所以不使用 float 或者 double 的原因：因为 float 和 double 是以二进制存储的，所以有一定的误差。
 
-### 9.MySQL 怎么存储 emoji😊?
+### 9.MySQL 怎么存储 emoji?
 
-MySQL 可以直接使用字符串存储 emoji。
+MySQL 的 utf8 字符集仅支持最多 3 个字节的 UTF-8 字符，但是 emoji 表情（😊）是 4 个字节的 UTF-8 字符，所以在 MySQL 中存储 emoji 表情时，需要使用 utf8mb4 字符集。
 
-但是需要注意的，utf8 编码是不行的，MySQL 中的 utf8 是阉割版的 utf8，它最多只用 3 个字节存储字符，所以存储不了表情。那该怎么办？
-
-需要使用 utf8mb4 编码。
-
+```sql
+ALTER TABLE mytable CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
-alter table blogs modify content text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci not null;
-```
+
+MySQL 8.0 已经默认支持 utf8mb4 字符集，可以通过 `SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';` 查看。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418103116.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：mysql 怎么存 emoji，怎么编码
 
 ### 10.drop、delete 与 truncate 的区别？
 
@@ -2699,9 +2719,38 @@ CREATE INDEX idx_name_no_index ON test_table_no_index(name);
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：数据库是先建立索引还是先插入数据
 
+### 74.什么是深分页，select \* from tbn limit 1000000000 这个有什么问题，如果表大或者表小分别什么问题
+
+深分页指的是在分页查询中，请求的页数非常大，例如请求第 100 万页的数据。在这种情况下，数据库需要跳过前 999999 页的数据，会消耗大量的 CPU 和 I/O 资源，导致查询性能下降。
+
+`select * from tbn limit 1000000000` 正是一个深分页查询。
+
+- 如果表的数据量非常大，那么这个查询可能会消耗大量的内存和 CPU 资源，甚至可能导致数据库崩溃。
+- 如果表的数据量非常小，比如说只有 100 条，那就会返回这前 100 条，虽然没什么性能影响，但这个查询本身没什么意义。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：什么是深分页，select \* from tbn limit 1000000000 这个有什么问题，如果表大或者表小分别什么问题
+
+### 75.一个表（name, sex,age,id），select age,id,name from tblname where name='paicoding';怎么建索引
+
+索引的建立应当基于查询中的过滤条件（WHERE 子句）以及查询的选择列（SELECT 子句）。
+
+由于查询条件是`name='paicoding'`，所以应当为`name`字段建立索引。
+
+```sql
+CREATE INDEX idx_name ON tblname(name);
+```
+
+查询中选择了`age`、`id`和`name`字段，如果这三列经常一起使用，可以考虑建立包含这些字段的联合索引。可以将查询条件中的字段放在联合索引的首位，这样查询时可以利用索引覆盖，直接从索引中获取数据，而不需要再去查找数据行。
+
+```sql
+CREATE INDEX idx_name_age_id ON tblname (name, age, id);
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：一个表（name, sex,age,id），select age,id,name from tblname where name='paicoding';怎么建索引
+
 ---
 
-图文详解 73 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+图文详解 75 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

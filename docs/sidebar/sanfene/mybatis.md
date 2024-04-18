@@ -80,126 +80,6 @@ head:
 - Hibernate 是标准的 ORM 框架，SQL 编写量较少，但不够灵活，适合于需求相对稳定，中小型的软件项目，比如：办公自动化系统
 - MyBatis 是半 ORM 框架，需要编写较多 SQL，但是比较灵活，适合于需求变化频繁，快速迭代的项目，比如：电商网站
 
-### 21.说说 JDBC 的执行步骤？
-
-> 2024 年 03 月 19 日增补
-
-Java 数据库连接（JDBC）是一个用于执行 SQL 语句的 Java API，它为多种关系数据库提供了统一访问的机制。使用 JDBC 操作数据库通常涉及以下步骤：
-
-#### 1. 加载数据库驱动
-
-在与数据库建立连接之前，首先需要通过`Class.forName()`方法加载对应的数据库驱动。这一步确保 JDBC 驱动注册到了`DriverManager`类中。
-
-```java
-Class.forName("com.mysql.cj.jdbc.Driver");
-```
-
-#### 2. 建立数据库连接
-
-使用`DriverManager.getConnection()`方法建立到数据库的连接。这一步需要提供数据库 URL、用户名和密码作为参数。
-
-```java
-Connection conn = DriverManager.getConnection(
-    "jdbc:mysql://localhost:3306/databaseName", "username", "password");
-```
-
-#### 3. 创建`Statement`对象
-
-通过建立的数据库连接对象`Connection`创建`Statement`、`PreparedStatement`或`CallableStatement`对象，用于执行 SQL 语句。
-
-```java
-Statement stmt = conn.createStatement();
-```
-
-或者创建`PreparedStatement`对象（预编译 SQL 语句，适用于带参数的 SQL）：
-
-```java
-PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM tableName WHERE column = ?");
-pstmt.setString(1, "value");
-```
-
-#### 4. 执行 SQL 语句
-
-使用`Statement`或`PreparedStatement`对象执行 SQL 语句。
-
-执行查询（SELECT）语句时，使用`executeQuery()`方法，它返回`ResultSet`对象；
-
-执行更新（INSERT、UPDATE、DELETE）语句时，使用`executeUpdate()`方法，它返回一个整数表示受影响的行数。
-
-```java
-ResultSet rs = stmt.executeQuery("SELECT * FROM tableName");
-```
-
-或
-
-```java
-int affectedRows = stmt.executeUpdate("UPDATE tableName SET column = 'value' WHERE condition");
-```
-
-#### 5. 处理结果集
-
-如果执行的是查询操作，需要处理`ResultSet`对象来获取数据。
-
-```java
-while (rs.next()) {
-    String data = rs.getString("columnName");
-    // 处理每一行数据
-}
-```
-
-#### 6. 关闭资源
-
-最后，需要依次关闭`ResultSet`、`Statement`和`Connection`等资源，释放数据库连接等资源。
-
-```java
-if (rs != null) rs.close();
-if (stmt != null) stmt.close();
-if (conn != null) conn.close();
-```
-
-#### 总结
-
-使用 JDBC 操作数据库的过程包括加载驱动、建立连接、创建执行语句、执行 SQL 语句、处理结果集和关闭资源。
-
-在 Java 开发中，通常会使用 JDBC 模板库（如 Spring 的 JdbcTemplate）或 ORM 框架（如 Hibernate、MyBatis、MyBatis-Plus）来简化数据库操作和资源管理。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：JDBC 的执行步骤
-
-### 22.创建连接拿到的是什么对象？
-
-在 JDBC 的执行步骤中，创建连接后拿到的对象是`java.sql.Connection`对象。这个对象是 JDBC API 中用于表示数据库连接的接口，它提供了执行 SQL 语句、管理事务等一系列操作的方法。
-
-`Connection`对象代表了应用程序和数据库的一个连接会话。
-
-通过调用`DriverManager.getConnection()`方法并传入数据库的 URL、用户名和密码等信息来获得这个对象。
-
-一旦获得`Connection`对象，就可以使用它来创建执行 SQL 语句的`Statement`、`PreparedStatement`和`CallableStatement`对象，以及管理事务等。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：创建连接拿到的是什么对象
-
-### 23.Statement与PreparedStatement的区别
-
->2024年03月19日增补
-
-`Statement`和`PreparedStatement`都是用于执行 SQL 语句的接口，但它们之间存在几个关键的区别：
-
-#### 1. 预编译
-
-①、**Statement**：每次执行`Statement`对象的`executeQuery`或`executeUpdate`方法时，SQL 语句在数据库端都需要重新编译和执行。这适用于一次性执行的 SQL 语句。
-
-②、**PreparedStatement**：代表预编译的 SQL 语句的对象。这意味着 SQL 语句在`PreparedStatement`对象创建时就被发送到数据库进行预编译。
-
-之后，可以通过设置参数值来多次高效地执行这个 SQL 语句。这不仅减少了数据库编译 SQL 语句的开销，也提高了性能，尤其是对于重复执行的 SQL 操作。
-
-#### 2. 参数化查询
-
-- **Statement**：不支持参数化查询。如果需要在 SQL 语句中插入变量，通常需要通过字符串拼接的方式来实现，这会增加 SQL 注入攻击的风险。
-- **PreparedStatement**：支持参数化查询，即可以在 SQL 语句中使用问号（?）作为参数占位符。通过`setXxx`方法（如`setString`、`setInt`）设置参数，可以有效防止 SQL 注入。
-
-总的来说，`PreparedStatement`相比`Statement`有着更好的性能和更高的安全性，是执行 SQL 语句的首选方式，尤其是在处理含有用户输入的动态查询时。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：statement 和 preparedstatement 的区别
-
 ### 3. MyBatis 使用过程？生命周期？
 
 MyBatis 基本使用的过程大概可以分为这么几步：
@@ -1094,9 +974,193 @@ MyBatis 使用 RowBounds 对象进行分页，它是针对 ResultSet 结果集�
 
 ![Mybatis-通用分页拦截器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-0bcdca85-e127-44ff-92e0-368a3f089ec8.png)
 
-> 图文详解 23 道 MyBatis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/en2RgcVx52Ql3tYGLfv3Kw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/O_5Id2o9IP4loPazJuiHng)。
+## 补充
+
+### 21.说说 JDBC 的执行步骤？
+
+> 2024 年 03 月 19 日增补
+
+Java 数据库连接（JDBC）是一个用于执行 SQL 语句的 Java API，它为多种关系数据库提供了统一访问的机制。使用 JDBC 操作数据库通常涉及以下步骤：
+
+第一步，加载数据库驱动
+
+在与数据库建立连接之前，首先需要通过`Class.forName()`方法加载对应的数据库驱动。这一步确保 JDBC 驱动注册到了`DriverManager`类中。
+
+```java
+Class.forName("com.mysql.cj.jdbc.Driver");
+```
+
+第二步，建立数据库连接
+
+使用`DriverManager.getConnection()`方法建立到数据库的连接。这一步需要提供数据库 URL、用户名和密码作为参数。
+
+```java
+Connection conn = DriverManager.getConnection(
+    "jdbc:mysql://localhost:3306/databaseName", "username", "password");
+```
+
+第三步，创建`Statement`对象
+
+通过建立的数据库连接对象`Connection`创建`Statement`、`PreparedStatement`或`CallableStatement`对象，用于执行 SQL 语句。
+
+```java
+Statement stmt = conn.createStatement();
+```
+
+或者创建`PreparedStatement`对象（预编译 SQL 语句，适用于带参数的 SQL）：
+
+```java
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM tableName WHERE column = ?");
+pstmt.setString(1, "value");
+```
+
+第四步，执行 SQL 语句
+
+使用`Statement`或`PreparedStatement`对象执行 SQL 语句。
+
+执行查询（SELECT）语句时，使用`executeQuery()`方法，它返回`ResultSet`对象；
+
+执行更新（INSERT、UPDATE、DELETE）语句时，使用`executeUpdate()`方法，它返回一个整数表示受影响的行数。
+
+```java
+ResultSet rs = stmt.executeQuery("SELECT * FROM tableName");
+```
+
+或
+
+```java
+int affectedRows = stmt.executeUpdate("UPDATE tableName SET column = 'value' WHERE condition");
+```
+
+第五步，处理结果集
+
+如果执行的是查询操作，需要处理`ResultSet`对象来获取数据。
+
+```java
+while (rs.next()) {
+    String data = rs.getString("columnName");
+    // 处理每一行数据
+}
+```
+
+第六步，关闭资源
+
+最后，需要依次关闭`ResultSet`、`Statement`和`Connection`等资源，释放数据库连接等资源。
+
+```java
+if (rs != null) rs.close();
+if (stmt != null) stmt.close();
+if (conn != null) conn.close();
+```
+
+在 Java 开发中，通常会使用 JDBC 模板库（如 Spring 的 JdbcTemplate）或 ORM 框架（如 Hibernate、MyBatis、MyBatis-Plus）来简化数据库操作和资源管理。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：JDBC 的执行步骤
+
+### 22.创建连接拿到的是什么对象？
+
+在 JDBC 的执行步骤中，创建连接后拿到的对象是`java.sql.Connection`对象。这个对象是 JDBC API 中用于表示数据库连接的接口，它提供了执行 SQL 语句、管理事务等一系列操作的方法。
+
+`Connection`对象代表了应用程序和数据库的一个连接会话。
+
+通过调用`DriverManager.getConnection()`方法并传入数据库的 URL、用户名和密码等信息来获得这个对象。
+
+一旦获得`Connection`对象，就可以使用它来创建执行 SQL 语句的`Statement`、`PreparedStatement`和`CallableStatement`对象，以及管理事务等。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：创建连接拿到的是什么对象
+
+### 23.Statement与PreparedStatement的区别
+
+>2024年03月19日增补
+
+`Statement`和`PreparedStatement`都是用于执行 SQL 语句的接口，但它们之间存在几个关键的区别：
+
+①、每次执行`Statement`对象的`executeQuery`或`executeUpdate`方法时，SQL 语句在数据库端都需要重新编译和执行。这适用于一次性执行的 SQL 语句。
+
+**Statement** 不支持参数化查询。如果需要在 SQL 语句中插入变量，通常需要通过字符串拼接的方式来实现，这会增加 SQL 注入攻击的风险。
+
+②、**PreparedStatement** 代表预编译的 SQL 语句的对象。这意味着 SQL 语句在`PreparedStatement`对象创建时就被发送到数据库进行预编译。
+
+之后，可以通过设置参数值来多次高效地执行这个 SQL 语句。这不仅减少了数据库编译 SQL 语句的开销，也提高了性能，尤其是对于重复执行的 SQL 操作。
+
+**PreparedStatement** 支持参数化查询，即可以在 SQL 语句中使用问号（`?`）作为参数占位符。通过`setXxx`方法（如`setString`、`setInt`）设置参数，可以有效防止 SQL 注入。
+
+总的来说，`PreparedStatement`相比`Statement`有着更好的性能和更高的安全性，是执行 SQL 语句的首选方式，尤其是在处理含有用户输入的动态查询时。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：statement 和 preparedstatement 的区别
+
+### 24. 什么是 SQL 注入？如何防止 SQL 注入？
+
+SQL 注入是一种代码注入技术，通过在输入字段中插入专用的 SQL 语句，从而欺骗数据库执行恶意 SQL，从而获取敏感数据、修改数据，或者删除数据等。
+
+比如说有这样一段代码：
+
+```java
+studentId = getRequestString("studentId");
+lookupStudent  = "SELECT * FROM students WHERE studentId = " + studentId
+```
+
+用户在输入框中输入 117 进行查询：
+
+![cloudflare：SQL 查询](https://cdn.tobebetterjavaer.com/stutymore/mybatis-20240418100433.png)
+
+实际的 SQL 语句类似于：
+
+```sql
+SELECT * FROM students WHERE studentId = 117
+```
+
+这是我们期望用户输入的正确方式。但是，如果用户输入了`117 OR 1=1`，那么 SQL 语句就变成了：
+
+```sql
+SELECT * FROM students WHERE studentId = 117 OR 1=1
+```
+
+由于`1=1`为真，所以这个查询将返回所有学生的信息，而不仅仅是 ID 为 117 的学生。
+
+![cloudflare：SQL 注入](https://cdn.tobebetterjavaer.com/stutymore/mybatis-20240418100940.png)
+
+为了防止 SQL 注入，可以采取以下措施：
+
+①、使用参数化查询
+
+使用参数化查询，即使用`PreparedStatement`对象，通过`setXxx`方法设置参数值，而不是通过字符串拼接 SQL 语句。这样可以有效防止 SQL 注入。
+
+```java
+String query = "SELECT * FROM users WHERE username = ?";
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setString(1, userName);  // userName 是用户输入
+ResultSet rs = pstmt.executeQuery();
+```
+
+`?` 是一个参数占位符，userName 是外部输入。这样即便用户输入了恶意的 SQL 语句，也只会被视为参数的一部分，不会改变查询的结构。
+
+②、限制用户输入
+
+对用户输入进行验证和过滤，只允许输入预期的数据，不允许输入特殊字符或 SQL 关键字。
+
+③、使用 ORM 框架
+
+比如，在 MyBatis 中，使用`#{}`占位符来代替直接拼接 SQL 语句，MyBatis 会自动进行参数化处理。
+
+```xml
+<select id="selectUser" resultType="User">
+  SELECT * FROM users WHERE username = #{userName}
+</select>
+```
+
+假如 userName 传入的值是 `9;DROP TABLE SYS_USER;`，传入的删除表 SQL 也不会执行，因为它会被当作参数值。
+
+```sql
+SELECT * FROM users WHERE username = '9;DROP TABLE SYS_USER;'
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：什么是SQL注入，怎么避免，什么是参数化
+
 
 ---
+
+图文详解 23 道 MyBatis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/en2RgcVx52Ql3tYGLfv3Kw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/O_5Id2o9IP4loPazJuiHng)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
