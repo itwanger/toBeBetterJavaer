@@ -1063,25 +1063,25 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ①、**MAT**：
 
-- Java 堆内存分析工具，主要用于分析和查找Java堆中的内存泄漏和内存消耗问题。
-- 可以从Java堆转储文件中分析内存使用情况，并提供丰富的报告，如内存泄漏疑点、最大对象和GC根信息。
+- Java 堆内存分析工具，主要用于分析和查找 Java 堆中的内存泄漏和内存消耗问题。
+- 可以从 Java 堆转储文件中分析内存使用情况，并提供丰富的报告，如内存泄漏疑点、最大对象和 GC 根信息。
 - 支持通过图形界面查询对象，以及检查对象间的引用关系。
 
-②、**GChisto**：GC 日志分析工具，帮助开发者优化垃圾收集行为和调整GC性能。
+②、**GChisto**：GC 日志分析工具，帮助开发者优化垃圾收集行为和调整 GC 性能。
 
-③、**GCViewer**：类似于GChisto，也是用来分析GC日志，帮助开发者优化Java应用的垃圾回收过程。
+③、**GCViewer**：类似于 GChisto，也是用来分析 GC 日志，帮助开发者优化 Java 应用的垃圾回收过程。
 
-④、**JProfiler**：一个全功能的商业Java性能分析工具，提供CPU、 内存和线程的实时分析。
+④、**JProfiler**：一个全功能的商业 Java 性能分析工具，提供 CPU、 内存和线程的实时分析。
 
 ⑤、**arthas**：
 
-- 阿里巴巴开源的Java诊断工具，主要用于线上的应用诊断。
-- 支持在不停机的情况下进行Java应用的诊断。
-- 包括JVM信息查看、监控、Trace命令、反编译等。
+- 阿里巴巴开源的 Java 诊断工具，主要用于线上的应用诊断。
+- 支持在不停机的情况下进行 Java 应用的诊断。
+- 包括 JVM 信息查看、监控、Trace 命令、反编译等。
 
 ⑥、**async-profiler**：一个低开销的性能分析工具，支持生成火焰图，适用于复杂性能问题的分析。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何查看当前Java程序里哪些对象正在使用，哪些对象已经被释放
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何查看当前 Java 程序里哪些对象正在使用，哪些对象已经被释放
 
 ### 34.JVM 的常见参数配置知道哪些？
 
@@ -1132,7 +1132,7 @@ JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器�
 
 之后，就要进行代码优化了，比如说减少大对象的创建、优化数据结构的使用方式、减少不必要的对象持有等。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java  通用软件开发一面面试原题：说说你对JVM调优的了解
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说你对 JVM 调优的了解
 
 ### 36.线上服务 CPU 占用过高怎么排查？
 
@@ -1293,15 +1293,15 @@ Heap dump file created
 
 内存溢出（Out of Memory，俗称 OOM）是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。
 
-首先，我会通过异常信息和日志确定OOM的类型。Java的OOM错误通常有几种类型，如堆内存溢出、Metaspace溢出或直接内存溢出。比如，如果日志中显示“java.lang.OutOfMemoryError: Java heap space”，那就说明是堆内存溢出。
+首先，我会通过异常信息和日志确定 OOM 的类型。Java 的 OOM 错误通常有几种类型，如堆内存溢出、Metaspace 溢出或直接内存溢出。比如，如果日志中显示“java.lang.OutOfMemoryError: Java heap space”，那就说明是堆内存溢出。
 
-一旦确定了是堆内存溢出，我会使用 JConsole 实时监控JVM的内存使用情况，特别是那些占用大量内存的对象和类。
+一旦确定了是堆内存溢出，我会使用 JConsole 实时监控 JVM 的内存使用情况，特别是那些占用大量内存的对象和类。
 
 找到可能的内存泄漏源后，我会回到代码中去，查找和修复具体的问题。
 
 之后，我会在本地进行压力测试，模拟高负载情况下的内存表现，确保修改有效，且没有引入新的问题。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何排查OOM？
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何排查 OOM？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
