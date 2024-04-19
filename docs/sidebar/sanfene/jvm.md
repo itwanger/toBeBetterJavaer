@@ -1045,45 +1045,43 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 33.了解哪些可视化的性能监控和故障处理工具？
 
-以下是一些 JDK 自带的可视化性能监控和故障处理工具：
+我自己用过的可视化工具主要有：
 
-- JConsole
+①、JConsole：JDK 自带的监控工具，可以用来监视 Java 应用程序的运行状态，包括内存使用、线程状态、类加载、GC 等，还可以进行一些基本的性能分析。
 
-![JConsole概览](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-39.png)
+![三分恶面渣逆袭：JConsole概览](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-39.png)
 
-- VisualVM
+②、VisualVM：VisualVM 是一个基于 NetBeans 平台的可视化工具，在很长一段时间内，VisualVM 都是 Oracle 官方主推的故障处理工具。集成了多个 JDK 命令行工具的功能，提供了一个友好的图形界面，非常适用于开发和生产环境。
 
-![VisualVM安装插件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-40.png)
+![三分恶面渣逆袭：VisualVM安装插件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-40.png)
 
-- Java Mission Control
+③、Java Mission Control：JMC 最初是 JRockit VM 中的诊断工具，但在 Oracle JDK7 Update 40 以后，就绑定到了 HotSpot VM 中。不过后来又被 Oracle 开源出来作为一个单独的产品。
 
-![JMC主要界面](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-41.png)
+![三分恶面渣逆袭：JMC主要界面](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-41.png)
 
-除此之外，还有一些第三方的工具：
+还有一些第三方的工具：
 
-- **MAT**
+①、**MAT**：
 
-Java 堆内存分析工具。
+- Java 堆内存分析工具，主要用于分析和查找Java堆中的内存泄漏和内存消耗问题。
+- 可以从Java堆转储文件中分析内存使用情况，并提供丰富的报告，如内存泄漏疑点、最大对象和GC根信息。
+- 支持通过图形界面查询对象，以及检查对象间的引用关系。
 
-- **GChisto**
+②、**GChisto**：GC 日志分析工具，帮助开发者优化垃圾收集行为和调整GC性能。
 
-GC 日志分析工具。
+③、**GCViewer**：类似于GChisto，也是用来分析GC日志，帮助开发者优化Java应用的垃圾回收过程。
 
-- **GCViewer**
+④、**JProfiler**：一个全功能的商业Java性能分析工具，提供CPU、 内存和线程的实时分析。
 
-`GC` 日志分析工具。
+⑤、**arthas**：
 
-- **JProfiler**
+- 阿里巴巴开源的Java诊断工具，主要用于线上的应用诊断。
+- 支持在不停机的情况下进行Java应用的诊断。
+- 包括JVM信息查看、监控、Trace命令、反编译等。
 
-商用的性能分析利器。
+⑥、**async-profiler**：一个低开销的性能分析工具，支持生成火焰图，适用于复杂性能问题的分析。
 
-- **arthas**
-
-阿里开源诊断工具。
-
-- **async-profiler**
-
-Java 应用性能分析工具，开源、火焰图、跨平台。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何查看当前Java程序里哪些对象正在使用，哪些对象已经被释放
 
 ### 34.JVM 的常见参数配置知道哪些？
 
@@ -1134,7 +1132,7 @@ JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器�
 
 之后，就要进行代码优化了，比如说减少大对象的创建、优化数据结构的使用方式、减少不必要的对象持有等。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说你对 JVM 调优的了解
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java  通用软件开发一面面试原题：说说你对JVM调优的了解
 
 ### 36.线上服务 CPU 占用过高怎么排查？
 
@@ -1293,9 +1291,17 @@ Heap dump file created
 
 ### 41.有没有处理过内存溢出问题？
 
-内存泄漏和内存溢出二者关系非常密切，内存溢出可能会有很多原因导致，内存泄漏最可能的罪魁祸首之一。
+内存溢出（Out of Memory，俗称 OOM）是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。
 
-排查过程和排查内存泄漏过程类似。
+首先，我会通过异常信息和日志确定OOM的类型。Java的OOM错误通常有几种类型，如堆内存溢出、Metaspace溢出或直接内存溢出。比如，如果日志中显示“java.lang.OutOfMemoryError: Java heap space”，那就说明是堆内存溢出。
+
+一旦确定了是堆内存溢出，我会使用 JConsole 实时监控JVM的内存使用情况，特别是那些占用大量内存的对象和类。
+
+找到可能的内存泄漏源后，我会回到代码中去，查找和修复具体的问题。
+
+之后，我会在本地进行压力测试，模拟高负载情况下的内存表现，确保修改有效，且没有引入新的问题。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何排查OOM？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
