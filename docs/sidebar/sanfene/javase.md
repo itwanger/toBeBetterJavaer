@@ -38,15 +38,19 @@ Java 语言有很多优秀（可吹）的特点，以下几个是比较突出的
 
 ### 3.JVM、JDK 和 JRE 有什么区别？
 
-**JVM**：Java Virtual Machine，Java 虚拟机，Java 程序运行在 Java 虚拟机上。针对不同系统的实现（Windows，Linux，macOS）不同的 JVM，因此 Java 语言可以实现跨平台。
+**JVM**：Java Virtual Machine，也就是 Java 虚拟机，是 Java 实现跨平台的关键所在，针对不同的操作系统，有不同的 JVM 实现。JVM 负责将 Java 字节码转换为特定平台的机器码，并执行。
 
-**JRE**： Java 运⾏时环境。它是运⾏已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟机（JVM），Java 类库，Java 命令和其他的⼀些基础构件。但是，它不能⽤于创建新程序。
+**JRE**：Java Runtime Environment，也就是 Java 运行时环境，包含了运行 Java 程序所必需的库，以及 Java 虚拟机（JVM）。
 
-**JDK**: Java Development Kit，它是功能⻬全的 Java SDK。它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。
+**JDK**：Java Development Kit，是一套完整的 Java SDK（软件开发工具包），包括了 JRE 以及编译器（javac）、Java 文档生成工具（Javadoc）、Java 调试器等开发工具。为开发者提供了开发、编译、调试 Java 程序的一整套环境。
 
 简单来说，JDK 包含 JRE，JRE 包含 JVM。
 
-![JDK、JRE、JVM关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
+![三分恶面渣逆袭：JDK、JRE、JVM关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：JRE与JDK的区别，JDK多了哪些东西，既安装了JRE又安装了JDK，可以利用JDK做什么事情？
+
+
 
 ### 4.说说什么是跨平台性？原理是什么
 
@@ -1417,7 +1421,51 @@ Java IO 流的划分可以根据多个维度进行，包括数据流的方向（
 
 ![Java IO流用到装饰器模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-25.png)
 
+#### Java缓冲区溢出，如何预防
+
+Java缓冲区溢出主要是由于向缓冲区写入的数据超过其能够存储的数据量。可以采用这些措施来避免：
+
+①、**合理设置缓冲区大小**：在创建缓冲区时，应根据实际需求合理设置缓冲区的大小，避免创建过大或过小的缓冲区。
+
+②、**控制写入数据量**：在向缓冲区写入数据时，应该控制写入的数据量，确保不会超过缓冲区的容量。Java 的ByteBuffer 类提供了`remaining()`方法，可以获取缓冲区中剩余的可写入数据量。
+
+```java
+import java.nio.ByteBuffer;
+
+public class ByteBufferExample {
+
+    public static void main(String[] args) {
+        // 模拟接收到的数据
+        byte[] receivedData = {1, 2, 3, 4, 5};
+        int bufferSize = 1024;  // 设置一个合理的缓冲区大小
+
+        // 创建ByteBuffer
+        ByteBuffer buffer = ByteBuffer.allocate(bufferSize);
+
+        // 写入数据之前检查容量是否足够
+        if (buffer.remaining() >= receivedData.length) {
+            buffer.put(receivedData);
+        } else {
+            System.out.println("Not enough space in buffer to write data.");
+        }
+
+        // 准备读取数据：将limit设置为当前位置，position设回0
+        buffer.flip();
+
+        // 读取数据
+        while (buffer.hasRemaining()) {
+            byte data = buffer.get();
+            System.out.println("Read data: " + data);
+        }
+
+        // 清空缓冲区以便再次使用
+        buffer.clear();
+    }
+}
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：Java IO 流 如何划分？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：Java缓冲区溢出，如何预防
 
 ### 43.既然有了字节流,为什么还要有字符流?
 

@@ -966,9 +966,9 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 - **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
 - **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
 
-### 25.有哪些方式优化慢 SQL？
+### 25.有哪些方式优化 SQL？
 
-我在进行慢 SQL 优化的时候，主要通过以下几个方面进行优化：
+我在进行 SQL 优化的时候，主要通过以下几个方面进行优化：
 
 ![沉默王二：SQL 优化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327104050.png)
 
@@ -1208,6 +1208,7 @@ SELECT * FROM B WHERE id = 1;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：查询优化、联合索引、覆盖索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java  通用软件开发一面面试原题：说说 SQL 该如何优化
 
 ### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
 

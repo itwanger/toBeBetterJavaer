@@ -175,7 +175,7 @@ VisualVM（All-in-One Java Troubleshooting Tool）一款功能强大的运行监
 
 集成了多个 JDK 命令行工具的功能，提供了一个友好的图形界面，非常适用于开发和生产环境。
 
-## VisualVM 安装插件
+### VisualVM 安装插件
 
 VisualVM 的安装非常简单，下载地址：[https://visualvm.github.io](https://visualvm.github.io)
 
@@ -224,7 +224,7 @@ VisualVM 中`概述`、`监视`、`线程`与 JConsole 差别不大，这里就�
 
 ## Java Mission Control
 
-JMV 最初是 JRockit VM 中的诊断工具，但在 Oracle JDK7 Update 40 以后，就绑定到了 HotSpot VM 中。不过后来又被 Oracle 开源出来作为一个单独的产品。
+JMC 最初是 JRockit VM 中的诊断工具，但在 Oracle JDK7 Update 40 以后，就绑定到了 HotSpot VM 中。不过后来又被 Oracle 开源出来作为一个单独的产品。
 
 >GitHub 地址：[https://github.com/openjdk/jmc](https://github.com/openjdk/jmc)
 
