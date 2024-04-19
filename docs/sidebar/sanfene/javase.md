@@ -48,9 +48,7 @@ Java 语言有很多优秀（可吹）的特点，以下几个是比较突出的
 
 ![三分恶面渣逆袭：JDK、JRE、JVM关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：JRE与JDK的区别，JDK多了哪些东西，既安装了JRE又安装了JDK，可以利用JDK做什么事情？
-
-
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：JRE 与 JDK 的区别，JDK 多了哪些东西，既安装了 JRE 又安装了 JDK，可以利用 JDK 做什么事情？
 
 ### 4.说说什么是跨平台性？原理是什么
 
@@ -455,7 +453,6 @@ class Wanger {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
 
-
 ### 18.重载和重写的区别？
 
 推荐阅读：[方法重写 Override 和方法重载 Overload 有什么区别？](https://javabetter.cn/basic-extra-meal/override-overload.html)
@@ -732,7 +729,7 @@ Java 是值传递，不是引用传递。
 引用类型的变量存储的是对象的地址，而不是对象本身。因此，引用类型的变量在传递时，传递的是对象的地址，也就是说，传递的是引用的值。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：引用类型的变量有什么特点
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM引用类型有什么特点？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM 引用类型有什么特点？
 
 ### 29.深拷贝和浅拷贝?
 
@@ -1421,13 +1418,13 @@ Java IO 流的划分可以根据多个维度进行，包括数据流的方向（
 
 ![Java IO流用到装饰器模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-25.png)
 
-#### Java缓冲区溢出，如何预防
+#### Java 缓冲区溢出，如何预防
 
-Java缓冲区溢出主要是由于向缓冲区写入的数据超过其能够存储的数据量。可以采用这些措施来避免：
+Java 缓冲区溢出主要是由于向缓冲区写入的数据超过其能够存储的数据量。可以采用这些措施来避免：
 
 ①、**合理设置缓冲区大小**：在创建缓冲区时，应根据实际需求合理设置缓冲区的大小，避免创建过大或过小的缓冲区。
 
-②、**控制写入数据量**：在向缓冲区写入数据时，应该控制写入的数据量，确保不会超过缓冲区的容量。Java 的ByteBuffer 类提供了`remaining()`方法，可以获取缓冲区中剩余的可写入数据量。
+②、**控制写入数据量**：在向缓冲区写入数据时，应该控制写入的数据量，确保不会超过缓冲区的容量。Java 的 ByteBuffer 类提供了`remaining()`方法，可以获取缓冲区中剩余的可写入数据量。
 
 ```java
 import java.nio.ByteBuffer;
@@ -1465,7 +1462,7 @@ public class ByteBufferExample {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：Java IO 流 如何划分？
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：Java缓冲区溢出，如何预防
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：Java 缓冲区溢出，如何预防
 
 ### 43.既然有了字节流,为什么还要有字符流?
 
