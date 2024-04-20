@@ -31,15 +31,28 @@ head:
 
 除此之外，Redis 还提供了键过期、发布订阅、事务、流水线、Lua 脚本等附加功能，是互联网技术领域中使用最广泛的缓存中间件。
 
-**Redis 和 MySQL 的区别**
+#### Redis 和 MySQL 的区别？
 
 - Redis：数据存储在内存中的 NoSQL 数据库，读写性能非常好，是互联网技术领域中使用最广泛的缓存中间件。
 - MySQL：数据存储在硬盘中的关系型数据库，适用于需要事务支持和复杂查询的场景。
+
+#### 项目里哪里用到了Redis？
+
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 Redis，比如说用户活跃排行榜、作者白名单、常用热点数据（文章标签、文章分类）、计数统计（文章点赞收藏评论数粉丝数）等等。
+
+![技术派专栏](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420093229.png)
+
+像用户活跃榜，主要是基于 Redis 的 Zset 实现的，可以根据 score（分值）进行排序，实时展示用户的活跃度。
+
+![技术派阅读活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420100012.png)
+
+当然了，这块也可以使用 Redis 的zrevrange，直接倒序展示前 8 名用户。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：Redis 的了解, 部署方案?
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：项目里哪里用到了Redis
 
 ### 54.单线程 Redis 的 QPS 是多少？(补充)
 
@@ -208,7 +221,30 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 - `HGETALL key`：获取键为 key 的哈希表中所有的字段和值。
 - `HDEL key field`：删除键为 key 的哈希表中的一个或多个字段。
 
+#### 详细说说 set 命令？
+
+在 Redis 中，设置键值对的命令是 set。set 命令有几个常用的参数：
+
+①、可以通过 EX 或 PX 为键设置过期时间（秒或毫秒）
+
+```shell
+redis-cli SET session_id "xyz" EX 3600  # 设置键 session_id，值为 "xyz"，过期时间为 3600 秒
+```
+
+②、NX 选项表示只有键不存在时才设置
+
+```shell
+redis-cli SET lock_key "locked" NX
+```
+
+③、XX 选项表示只有键存在时才设置
+
+```shell
+redis-cli SET config "new_config" XX
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 Redis 常用命令
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说的那么好，Redis设置key value的函数是啥
 
 ### 4.Redis 为什么快呢？
 
@@ -1790,11 +1826,107 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 其他问题
+## 补充
 
 ### 52.假如 Redis 里面有 1 亿个 key，其中有 10w 个 key 是以某个固定的已知的前缀开头的，如何将它们全部找出来？
 
 使用 `keys` 指令可以扫出指定模式的 key 列表。但是要注意 keys 指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用 `scan` 指令，`scan` 指令可以无阻塞的提取出指定模式的 `key` 列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用 `keys` 指令长。
+
+### 57.Redis 的秒杀场景下扮演了什么角色？（补充）
+
+秒杀主要是指大量用户集中在短时间内对服务器进行访问，从而导致服务器负载剧增，可能出现系统响应缓慢甚至崩溃的情况。
+
+针对秒杀的场景来说，最终抢到商品的用户是固定的，也就是说 100 个人和 10000 个人来抢一个商品，最终都只能有 100 个人抢到。
+
+但是对于秒杀活动的初心来说，肯定是希望参与的用户越多越好，但真正开始下单时，最好能把请求控制在服务器能够承受的范围之内（😂）。
+
+![许令波-秒杀系统的设计](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420102552.png)
+
+解决这一问题的关键就在于错峰削峰和限流。当然了，前端页面的静态化、按钮防抖也能够有效的减轻服务器的压力。
+
+- 页面静态化：将商品详情等页面静态化，使用CDN分发。
+- 按钮防抖：避免用户因频繁点击造成的额外请求，比如设定间隔时间后才能再次点击。
+
+#### 如何实现错峰削峰呢？
+
+针对车流量的晚高峰和早高峰，最强有力的办法就是限行，但限行不是无损的，毕竟限行的牌号无法出行。
+
+无损的方式就是有的车辆早出发，有的车辆晚出发，这样就能够实现错峰出行。
+
+在秒杀场景下，可以通过以下几种方式实现错峰削峰：
+
+①、**预热缓存**：提前将热点数据加载到 Redis 缓存中，减少对数据库的访问压力。
+
+②、**消息队列**：引入消息队列，将请求异步处理，减少瞬时请求压力。消息队列就像一个水库，可以削减上游的洪峰流量。
+
+![许令波-排队](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420104633.png)
+
+③、**多阶段多时间窗口**：将秒杀活动分为多个阶段，每个阶段设置不同的时间窗口，让用户在不同的时间段内参与秒杀活动。
+
+④、**插入答题系统**：在秒杀活动中加入答题环节，只有答对题目的用户才能参与秒杀活动，这样可以减少无效请求。
+
+![许令波-答题](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420104921.png)
+
+#### 如何限流呢？
+
+采用令牌桶算法，它就像在帝都买车，摇到号才有资格，没摇到就只能等下一次（😁）。
+
+在实际开发中，我们需要维护一个容器，按照固定的速率往容器中放令牌（token），当请求到来时，从容器中取出一个令牌，如果容器中没有令牌，则拒绝请求。
+
+![李子捌：令牌桶](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420114025.png)
+
+第一步，使用 Redis 初始化令牌桶：
+
+```shell
+redis-cli SET "token_bucket" "100"
+```
+
+第二步，使用 Lua 脚本实现令牌桶算法；假设每秒向桶中添加 10 个令牌，但不超过桶的最大容量。
+
+```lua
+-- Lua 脚本来添加令牌，并确保不超过最大容量
+local bucket = KEYS[1]
+local add_count = tonumber(ARGV[1])
+local max_tokens = tonumber(ARGV[2])
+local current = tonumber(redis.call('GET', bucket) or 0)
+local new_count = math.min(current + add_count, max_tokens)
+redis.call('SET', bucket, tostring(new_count))
+return new_count
+```
+
+第三步，使用 Shell 脚本调用 Lua 脚本：
+
+```shell
+#!/bin/bash
+while true; do
+    redis-cli EVAL "$(cat add_tokens.lua)" 1 token_bucket 10 100
+    sleep 1
+done
+```
+
+第四步，当请求到达时，需要检查并消耗一个令牌。
+
+```lua
+-- Lua 脚本来消耗一个令牌
+local bucket = KEYS[1]
+local tokens = tonumber(redis.call('GET', bucket) or 0)
+if tokens > 0 then
+    redis.call('DECR', bucket)
+    return 1  -- 成功消耗令牌
+else
+    return 0  -- 令牌不足
+end
+```
+
+调用 Lua 脚本：
+
+```shell
+redis-cli EVAL "$(cat consume_token.lua)" 1 token_bucket
+```
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：秒杀问题（错峰、削峰、前端、流量控制）
+
 
 ---
 
