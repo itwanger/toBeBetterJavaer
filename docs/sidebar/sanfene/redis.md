@@ -36,7 +36,7 @@ head:
 - Redis：数据存储在内存中的 NoSQL 数据库，读写性能非常好，是互联网技术领域中使用最广泛的缓存中间件。
 - MySQL：数据存储在硬盘中的关系型数据库，适用于需要事务支持和复杂查询的场景。
 
-#### 项目里哪里用到了Redis？
+#### 项目里哪里用到了 Redis？
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 Redis，比如说用户活跃排行榜、作者白名单、常用热点数据（文章标签、文章分类）、计数统计（文章点赞收藏评论数粉丝数）等等。
 
@@ -46,17 +46,17 @@ head:
 
 ![技术派阅读活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420100012.png)
 
-当然了，这块也可以使用 Redis 的zrevrange，直接倒序展示前 8 名用户。
+当然了，这块也可以使用 Redis 的 zrevrange，直接倒序展示前 8 名用户。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：Redis 的了解, 部署方案?
-> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：项目里哪里用到了Redis
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：项目里哪里用到了 Redis
 
 ### 54.单线程 Redis 的 QPS 是多少？(补充)
 
->2024年4月14日增补
+> 2024 年 4 月 14 日增补
 
 Redis 的 QPS（Queries Per Second，每秒查询率）受多种因素影响，包括硬件配置（如 CPU、内存、网络带宽）、数据模型、命令类型、网络延迟等。
 
@@ -106,6 +106,7 @@ Redis 可以实现分布式锁，用来控制跨多个进程或服务器的资�
 - 使用 Redisson 实现分布式环境下的登录、注册等操作
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下为什么要用 Redis 去存权限列表？
 
 ### 3.Redis 有哪些数据类型？
 
@@ -244,7 +245,7 @@ redis-cli SET config "new_config" XX
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 Redis 常用命令
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说的那么好，Redis设置key value的函数是啥
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说的那么好，Redis 设置 key value 的函数是啥
 
 ### 4.Redis 为什么快呢？
 
@@ -873,6 +874,30 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 **02、备份缓存**：对于关键数据，除了在主缓存中存储，还可以在备用缓存中保存一份。当主缓存不可用时，可以快速切换到备用缓存，确保系统的稳定性和可用性。
 
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们采用了多级缓存的策略，其中就包括使用本地缓存 Guava Cache 和 Caffeine 来作为二级缓存，在 Redis 出现问题时，系统会自动切换到本地缓存。
+
+这个过程称为“降级”，意味着系统在失去优先级高的资源时仍能继续提供服务。
+
+![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240421105333.png)
+
+当从 Redis 获取数据失败时，尝试从本地缓存读取数据。
+
+```java
+LoadingCache<String, UserPermissions> permissionsCache = Caffeine.newBuilder()
+    .maximumSize(1000)
+    .expireAfterWrite(10, TimeUnit.MINUTES)
+    .build(this::loadPermissionsFromRedis);
+
+public UserPermissions loadPermissionsFromRedis(String userId) {
+    try {
+        return redisClient.getPermissions(userId);
+    } catch (Exception ex) {
+        // Redis 异常处理，尝试从本地缓存获取
+        return permissionsCache.getIfPresent(userId);
+    }
+}
+```
+
 第二种：过期时间
 
 对于缓存数据，设置不同的过期时间，避免大量缓存数据同时过期。可以通过在原有过期时间的基础上添加一个随机值来实现，这样可以分散缓存过期时间，减少同一时间对数据库的访问压力。
@@ -885,22 +910,26 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：缓存雪崩，如何解决
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 缓存穿透、缓存击穿、缓存雪崩
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：Redis 宕机会不会对权限系统有影响？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：说一下 Redis 雪崩、穿透、击穿等场景的解决方案
 
 ### 27.能说说布隆过滤器吗？
 
-布隆过滤器，它是一个连续的数据结构，每个存储位存储都是一个`bit`，即`0`或者`1`, 来标识数据是否存在。
+布隆过滤器（Bloom Filter）是一种空间效率极高的概率型数据结构，用于快速检查一个元素是否存在于一个集合中。
 
-存储数据的时时候，使用 K 个不同的哈希函数将这个变量映射为 bit 列表的的 K 个点，把它们置为 1。
+布隆过滤器由一个长度为 m 的位数组和 k 个哈希函数组成。
 
-![布隆过滤器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d0b8d85c-85dc-4843-b4be-d5d48338a44e.png)我们判断缓存 key 是否存在，同样，K 个哈希函数，映射到 bit 列表上的 K 个点，判断是不是 1：
+- 开始时，布隆过滤器的每个位都被设置为 0。
+- 当一个元素被添加到过滤器中时，它会被 k 个哈希函数分别计算得到 k 个位置，然后将位数组中对应的位设置为 1。
+- 当检查一个元素是否存在于过滤器中时，同样使用 k 个哈希函数计算位置，如果任一位置的位为 0，则该元素肯定不在过滤器中；如果所有位置的位都为 1，则该元素可能在过滤器中。
 
-- 如果全不是 1，那么 key 不存在；
-- 如果都是 1，也只是表示 key 可能存在。
+![三分恶面渣逆袭：布隆过滤器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d0b8d85c-85dc-4843-b4be-d5d48338a44e.png)
 
-布隆过滤器也有一些缺点：
+因为布隆过滤器占用的内存空间非常小，所以查询效率也非常高，所以在 Redis 缓存中，使用布隆过滤器可以快速判断请求的数据是否在缓存中。
 
-1. 它在判断元素是否在集合中时是有一定错误几率，因为哈希算法有一定的碰撞的概率。
-2. 不支持删除元素。
+但是布隆过滤器也有一定的缺点，因为是通过哈希函数计算的，所以存在哈希冲突的问题，可能会导致误判。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：有了解过布隆过滤器吗？
 
 ### 28.如何保证缓存和数据库的数据⼀致性？
 
@@ -1010,28 +1039,25 @@ redis.del(product_id)
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：怎样保证数据的最终一致性？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：数据一致性问题
 
-
 ### 29.如何保证本地缓存和分布式缓存的一致？
 
-PS:这道题面试很少问，但实际工作中很常见。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就采用了本地缓存 Caffeine + Redis 缓存的策略。分布式缓存基本就是采用 Redis。
 
-在日常的开发中，我们常常采用两级缓存：本地缓存+分布式缓存。
+![三分恶面渣逆袭：延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6d4ab7e6-8337-4576-bbf0-79202a1c3331.png)
 
-所谓本地缓存，就是对应服务器的内存缓存，比如 Caffeine，分布式缓存基本就是采用 Redis。
+当数据库发生变化时，我们直接删除 Redis 缓存中的 key 就可以了，因为下一次请求会将数据库同步到 Redis 缓存中。
 
-那么问题来了，本地缓存和分布式缓存怎么保持数据一致？
-![延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6d4ab7e6-8337-4576-bbf0-79202a1c3331.png)
-Redis 缓存，数据库发生更新，直接删除缓存的 key 即可，因为对于应用系统而言，它是一种中心化的缓存。
+![三分恶面渣逆袭：本地缓存/分布式缓存保持一致](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-20c15f0d-fb3c-4922-94b1-edcd856658be.png)
 
-但是本地缓存，它是非中心化的，散落在分布式服务的各个节点上，没法通过客户端的请求删除本地缓存的 key，所以得想办法通知集群所有节点，删除对应的本地缓存 key。
-![本地缓存/分布式缓存保持一致](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-20c15f0d-fb3c-4922-94b1-edcd856658be.png)
+那为了保证本地缓存和 Redis 缓存的一致性，我们可以采用的策略有：
 
-可以采用消息队列的方式：
+①、设置本地缓存的过期时间，这是最简单也是最直接的方法，当本地缓存过期时，就从 Redis 缓存中去同步。
 
-1. 采用 Redis 本身的 Pub/Sub 机制，分布式集群的所有节点订阅删除本地缓存频道，删除 Redis 缓存的节点，同事发布删除本地缓存消息，订阅者们订阅到消息后，删除对应的本地 key。
-   但是 Redis 的发布订阅不是可靠的，不能保证一定删除成功。
-2. 引入专业的消息队列，比如 RocketMQ，保证消息的可靠性，但是增加了系统的复杂度。
-3. 设置适当的过期时间兜底，本地缓存可以设置相对短一些的过期时间。
+②、使用 Redis 的 Pub/Sub 机制，当 Redis 缓存发生变化时，发布一个消息，本地缓存订阅这个消息，然后删除对应的本地缓存。
+
+③、Redis 缓存发生变化时，引入消息队列，比如 RocketMQ、RabbitMQ 去更新本地缓存。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：怎么保证二级缓存和 Redis 缓存的数据一致性？
 
 ### 30.怎么处理热 key？
 
@@ -1844,7 +1870,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 解决这一问题的关键就在于错峰削峰和限流。当然了，前端页面的静态化、按钮防抖也能够有效的减轻服务器的压力。
 
-- 页面静态化：将商品详情等页面静态化，使用CDN分发。
+- 页面静态化：将商品详情等页面静态化，使用 CDN 分发。
 - 按钮防抖：避免用户因频繁点击造成的额外请求，比如设定间隔时间后才能再次点击。
 
 #### 如何实现错峰削峰呢？
@@ -1924,9 +1950,7 @@ end
 redis-cli EVAL "$(cat consume_token.lua)" 1 token_bucket
 ```
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：秒杀问题（错峰、削峰、前端、流量控制）
-
 
 ---
 

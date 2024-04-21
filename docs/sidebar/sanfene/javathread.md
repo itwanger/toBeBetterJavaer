@@ -28,7 +28,6 @@ head:
 
 ![三分恶面渣逆袭：并行并发和食堂打饭](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-2.png)
 
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：对于多线程编程的了解?
 
 ### 2.说说什么是进程和线程？
@@ -254,6 +253,90 @@ stop 方法用来强制线程停止执行，目前已经处于废弃状态，因
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：怎么停止一个线程，interrupt 和 stop 区别
 
+### 6.线程有几种状态？
+
+在 Java 中，线程共有六种状态：
+| 状态 | 说明 |
+| ------------ | ------------------------------------------------------------ |
+| NEW | 初始状态：线程被创建，但还没有调用 start()方法 |
+| RUNNABLE | 运行状态：Java 线程将操作系统中的就绪和运行两种状态笼统的称作“运行” |
+| BLOCKED | 阻塞状态：表示线程阻塞于锁 |
+| WAITING | 等待状态：表示线程进入等待状态，进入该状态表示当前线程需要等待其他线程做出一些特定动作（通知或中断） |
+| TIME_WAITING | 超时等待状态：该状态不同于 WAITIND，它是可以在指定的时间自行返回的 |
+| TERMINATED | 终止状态：表示当前线程已经执行完毕 |
+
+线程在自身的生命周期中， 并不是固定地处于某个状态，而是随着代码的执行在不同的状态之间进行切换，Java 线程状态变化如图示：
+
+![Java线程状态变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-7.png)
+
+### 7.什么是线程上下文切换？
+
+使用多线程的目的是为了充分利用 CPU，但是我们知道，并发其实是一个 CPU 来应付多个线程。
+
+![三分恶面渣逆袭：线程切换](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-8.png)
+
+为了让用户感觉多个线程是在同时执行的， CPU 资源的分配采用了时间片轮转也就是给每个线程分配一个时间片，线程在时间片内占用 CPU 执行任务。当线程使用完时间片后，就会处于就绪状态并让出 CPU 让其他线程占用，这就是上下文切换。
+
+![三分恶面渣逆袭：上下文切换时机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-9.png)
+
+#### 线程可以被多核调度吗？
+
+当然可以，在现代操作系统和多核处理器的环境中，线程的调度和管理是操作系统内核的重要职责之一。
+
+操作系统的调度器负责将线程分配给可用的 CPU 核心，从而实现并行处理。
+
+多核处理器提供了并行执行多个线程的能力。每个核心可以独立执行一个或多个线程，操作系统的任务调度器会根据策略和算法，如优先级调度、轮转调度等，决定哪个线程何时在哪个核心上运行。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：线程可以被多核调度吗？
+
+### 8.守护线程了解吗？
+
+Java 中的线程分为两类，分别为 daemon 线程（守护线程）和 user 线程（用户线程）。
+
+在 JVM 启动时会调用 main 方法，main 方法所在的线程就是一个用户线程。其实在 JVM 内部同时还启动了很多守护线程， 比如垃圾回收线程。
+
+那么守护线程和用户线程有什么区别呢？区别之一是当最后一个非守护线程束时， JVM 会正常退出，而不管当前是否存在守护线程，也就是说守护线程是否结束并不影响 JVM 退出。换而言之，只要有一个用户线程还没结束，正常情况下 JVM 就不会退出。
+
+### 9.线程间有哪些通信方式？
+
+Java 中线程之间的通信主要是为了解决线程之间如何协作运行的问题。Java 提供了多种线程通信的方式，使得线程可以在合适的时间和地点进行同步。
+
+![三分恶面渣逆袭：线程间通信方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-10.png)
+
+①、**volatile 和 synchronized 关键字**
+
+[关键字 volatile](https://javabetter.cn/thread/volatile.html) 用来修饰成员变量，告知程序任何对该变量的访问均需要从共享内存中获取，而对它的改变必须同步刷新回共享内存，保证所有线程对变量访问的可见性。
+
+[关键字 synchronized](https://javabetter.cn/thread/synchronized-1.html) 可以修饰方法，或者以同步代码块的形式来使用，确保多个线程在同一个时刻，只能有一个线程在执行某个方法或某个代码块。
+
+②、**等待/通知机制**
+
+一个线程调用共享对象的 `wait()` 方法时，它会进入该对象的等待池，并释放已经持有的该对象的锁，进入等待状态，直到其他线程调用相同对象的 `notify()` 或 `notifyAll()` 方法。
+
+一个线程调用共享对象的 `notify()` 方法时，它会唤醒在该对象等待池中等待的一个线程，使其进入锁池，等待获取锁。
+
+[Condition](https://javabetter.cn/thread/condition.html) 也提供了类似的方法，`await()` 负责等待、`signal()` 和 `signalAll()` 负责通知。
+
+通常与锁（特别是 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)）一起使用，为线程提供了一种等待某个条件成真的机制，并允许其他线程在该条件变化时通知等待线程。更灵活、更强大。
+
+③、**管道输入/输出流**
+
+管道输入/输出流和普通的文件输入/输出流或者网络输入/输出流不同，它主要用于线程之间的数据传输，而传输的媒介为内存。
+
+[管道输入/输出流](https://javabetter.cn/io/piped.html)主要包括了如下 4 种具体实现：PipedOutputStream、PipedInputStream、 PipedReader 和 PipedWriter，前两种面向字节，而后两种面向字符。
+
+④、**使用 Thread.join()**
+
+如果一个线程 A 执行了 `thread.join()`语句，其含义是：当前线程 A 等待 thread 线程终止之后才从 `thread.join()`返回。
+
+⑤、**使用 ThreadLocal**
+
+[ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。ThreadLocal 可以用于解决多线程中共享对象的线程安全问题。
+
+那其实除了上面提到的这些，还有很多通信工具类 [CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html)、[CyclicBarrier](https://javabetter.cn/thread/CountDownLatch.html)、[Semaphore](https://javabetter.cn/thread/CountDownLatch.html) 等并发工具类。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该原题。
+
 ### 67.请说说 sleep 和 wait 的区别？（补充）
 
 > 2024 年 03 月 21 日增补
@@ -421,86 +504,6 @@ class WaitExample {
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 sleep 和 wait 的区别
 
-### 6.线程有几种状态？
-
-在 Java 中，线程共有六种状态：
-| 状态 | 说明 |
-| ------------ | ------------------------------------------------------------ |
-| NEW | 初始状态：线程被创建，但还没有调用 start()方法 |
-| RUNNABLE | 运行状态：Java 线程将操作系统中的就绪和运行两种状态笼统的称作“运行” |
-| BLOCKED | 阻塞状态：表示线程阻塞于锁 |
-| WAITING | 等待状态：表示线程进入等待状态，进入该状态表示当前线程需要等待其他线程做出一些特定动作（通知或中断） |
-| TIME_WAITING | 超时等待状态：该状态不同于 WAITIND，它是可以在指定的时间自行返回的 |
-| TERMINATED | 终止状态：表示当前线程已经执行完毕 |
-
-线程在自身的生命周期中， 并不是固定地处于某个状态，而是随着代码的执行在不同的状态之间进行切换，Java 线程状态变化如图示：
-
-![Java线程状态变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-7.png)
-
-### 7.什么是线程上下文切换？
-
-使用多线程的目的是为了充分利用 CPU，但是我们知道，并发其实是一个 CPU 来应付多个线程。
-
-![线程切换-2020-12-16-2107](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-8.png)
-
-为了让用户感觉多个线程是在同时执行的， CPU 资源的分配采用了时间片轮转也就是给每个线程分配一个时间片，线程在时间片内占用 CPU 执行任务。当线程使用完时间片后，就会处于就绪状态并让出 CPU 让其他线程占用，这就是上下文切换。
-
-![上下文切换时机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-9.png)
-
-### 8.守护线程了解吗？
-
-Java 中的线程分为两类，分别为 daemon 线程（守护线程）和 user 线程（用户线程）。
-
-在 JVM 启动时会调用 main 方法，main 方法所在的线程就是一个用户线程。其实在 JVM 内部同时还启动了很多守护线程， 比如垃圾回收线程。
-
-那么守护线程和用户线程有什么区别呢？区别之一是当最后一个非守护线程束时， JVM 会正常退出，而不管当前是否存在守护线程，也就是说守护线程是否结束并不影响 JVM 退出。换而言之，只要有一个用户线程还没结束，正常情况下 JVM 就不会退出。
-
-### 9.线程间有哪些通信方式？
-
-Java 中线程之间的通信主要是为了解决线程之间如何协作运行的问题。Java 提供了多种线程通信的方式，使得线程可以在合适的时间和地点进行同步。
-
-![三分恶面渣逆袭：线程间通信方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-10.png)
-
-①、**volatile 和 synchronized 关键字**
-
-[关键字 volatile](https://javabetter.cn/thread/volatile.html) 用来修饰成员变量，告知程序任何对该变量的访问均需要从共享内存中获取，而对它的改变必须同步刷新回共享内存，保证所有线程对变量访问的可见性。
-
-[关键字 synchronized](https://javabetter.cn/thread/synchronized-1.html) 可以修饰方法，或者以同步代码块的形式来使用，确保多个线程在同一个时刻，只能有一个线程在执行某个方法或某个代码块。
-
-②、**等待/通知机制**
-
-一个线程调用共享对象的 `wait()` 方法时，它会进入该对象的等待池，并释放已经持有的该对象的锁，进入等待状态，直到其他线程调用相同对象的 `notify()` 或 `notifyAll()` 方法。
-
-一个线程调用共享对象的 `notify()` 方法时，它会唤醒在该对象等待池中等待的一个线程，使其进入锁池，等待获取锁。
-
-[Condition](https://javabetter.cn/thread/condition.html) 也提供了类似的方法，`await()` 负责等待、`signal()` 和 `signalAll()` 负责通知。
-
-通常与锁（特别是 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)）一起使用，为线程提供了一种等待某个条件成真的机制，并允许其他线程在该条件变化时通知等待线程。更灵活、更强大。
-
-③、**管道输入/输出流**
-
-管道输入/输出流和普通的文件输入/输出流或者网络输入/输出流不同，它主要用于线程之间的数据传输，而传输的媒介为内存。
-
-[管道输入/输出流](https://javabetter.cn/io/piped.html)主要包括了如下 4 种具体实现：PipedOutputStream、PipedInputStream、 PipedReader 和 PipedWriter，前两种面向字节，而后两种面向字符。
-
-④、**使用 Thread.join()**
-
-如果一个线程 A 执行了 `thread.join()`语句，其含义是：当前线程 A 等待 thread 线程终止之后才从 `thread.join()`返回。
-
-⑤、**使用 ThreadLocal**
-
-[ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。ThreadLocal 可以用于解决多线程中共享对象的线程安全问题。
-
-那其实除了上面提到的这些，还有很多通信工具类 [CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html)、[CyclicBarrier](https://javabetter.cn/thread/CountDownLatch.html)、[Semaphore](https://javabetter.cn/thread/CountDownLatch.html) 等并发工具类。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该原题。
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
 ### 69.有什么解决线程安全问题的方法？
 
 ①、Java 中的 synchronized 关键字可以用于方法和代码块，确保同一时间只有一个线程可以执行特定的代码段。
@@ -555,6 +558,12 @@ private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：除了 ThreadLocal，还有什么解决线程安全问题的方法
+
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## ThreadLocal
 
@@ -1109,7 +1118,7 @@ public class Counter {
 
 在 JVM 的早期版本中，synchronized 是重量级的，因为线程阻塞和唤醒需要操作系统的介入。但在 JVM 的后续版本中，对 synchronized 进行了大量优化，如偏向锁、轻量级锁和适应性自旋等，所以现在的 synchronized 并不一定是重量级的，其性能在许多情况下都很好，可以大胆地用。
 
-#### 简单说说Lock 接口？
+#### 简单说说 Lock 接口？
 
 Lock 接口提供了比 synchronized 关键字更灵活的锁操作。比如说我们可以用重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 来实现同样的功能。
 
@@ -1369,7 +1378,7 @@ Mark Word 会被设置为偏向模式，并且存储了获取它的线程 ID。
 当自旋等待失败，或者有线程在等待队列中等待相同的轻量级锁时，轻量级锁会升级为重量级锁。在这种情况下，JVM 会在操作系统层面创建一个互斥锁（Mutex），所有进一步尝试获取该锁的线程将会被阻塞，直到锁被释放。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：synchronized 锁升级过程
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：Java的锁的优化
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：Java 的锁的优化
 
 ### 28.说说 synchronized 和 ReentrantLock 的区别？
 
@@ -1942,7 +1951,7 @@ get 很简单，和 HashMap 基本一样。
 
 ②、由于 HashMap 仅在单线程环境下使用，所以不需要考虑同步问题，因此效率高于 ConcurrentHashMap。
 
-#### 你项目中怎么使用 ConcurrentHashMap的？
+#### 你项目中怎么使用 ConcurrentHashMap 的？
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 ConcurrentHashMap，比如说在异步工具类 AsyncUtil 中，使用 ConcurrentHashMap 来存储任务的名称和它们的运行时间，以便观察和分析任务的执行情况。
 
@@ -2254,6 +2263,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 ③、线程池支持定时执行、周期性执行、单线程执行和并发数控制等功能。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下为什么项目中使用线程池，重要参数，举个例子说一下这些参数的变化
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下为什么引入线程池？
 
 ### 45.能说说工作中线程池的应用吗？
 
@@ -2549,25 +2559,30 @@ shutdown 和 shutdownnow 简单来说区别如下：
 
 ### 52.线程池的线程数应该怎么配置？
 
-线程在 Java 中属于稀缺资源，线程池不是越大越好也不是越小越好。任务分为计算密集型、IO 密集型、混合型。
+首先，我会分析线程池中执行的任务类型是 CPU 密集型还是 IO 密集型？
 
-1. 计算密集型：大部分都在用 CPU 跟内存，加密，逻辑操作业务处理等。
-2. IO 密集型：数据库链接，网络通讯传输等。
+①、对于 CPU 密集型任务，我的目标是尽量减少线程上下文切换，以优化 CPU 使用率。一般来说，核心线程数设置为处理器的核心数或核心数加一（以备不时之需，如某些线程因等待系统资源而阻塞时）是较理想的选择。
+
+②、对于 IO 密集型任务，由于线程经常处于等待状态（等待 IO 操作完成），可以设置更多的线程来提高并发性（比如说 2 倍），从而增加 CPU 利用率。
 
 ![常见线程池参数配置方案-来源美团技术博客](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-70.png)
 
-一般的经验，不同类型线程池的参数配置：
+核心数可以通过 Java 的`Runtime.getRuntime().availableProcessors()`方法获取。
 
-1. 计算密集型一般推荐线程池不要过大，一般是 CPU 数 + 1，+1 是因为可能存在**页缺失**(就是可能存在有些数据在硬盘中需要多来一个线程将数据读入内存)。如果线程池数太大，可能会频繁的 进行线程上下文切换跟任务调度。获得当前 CPU 核心数代码如下：
+此外，每个线程都会占用一定的内存，因此我需要确保线程池的规模不会耗尽 JVM 内存，避免频繁的垃圾回收或内存溢出。
+
+最后，我会根据业务需求和系统资源来调整线程池的参数，比如核心线程数、最大线程数、非核心线程的空闲存活时间、任务队列容量等。
 
 ```java
-Runtime.getRuntime().availableProcessors();
+ThreadPoolExecutor executor = new ThreadPoolExecutor(
+    cores, // 核心线程数设置为CPU核心数
+    cores * 2, // 最大线程数为核心数的两倍
+    60L, TimeUnit.SECONDS, // 非核心线程的空闲存活时间
+    new LinkedBlockingQueue<>(100) // 任务队列容量
+);
 ```
 
-2. IO 密集型：线程数适当大一点，机器的 Cpu 核心数\*2。
-3. 混合型：可以考虑根绝情况将它拆分成 CPU 密集型和 IO 密集型任务，如果执行时间相差不大，拆分可以提升吞吐量，反之没有必要。
-
-当然，实际应用中没有固定的公式，需要结合测试和监控来进行调整。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：线程池核心线程数你是怎么规划的，过程是怎么考量的？
 
 ### 53.有哪几种常见的线程池？
 
@@ -2959,7 +2974,7 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [面渣逆袭分布式篇 👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
 - [面渣逆袭微服务篇 👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
-- [面渣逆袭Linux篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
+- [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
 ---
 

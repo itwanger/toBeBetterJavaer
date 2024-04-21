@@ -1,19 +1,19 @@
 ---
-title: Java面试题之Java基础篇，54道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
+title: Java面试题之Java基础篇，55道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解54道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解55道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-1.3 万字 44 张手绘图，详解 54 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+1.3 万字 44 张手绘图，详解 55 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 ## Java 概述
 
@@ -126,47 +126,6 @@ Java 基本数据类型范围和默认值：
 - [数组](https://javabetter.cn/array/array.html)（`[]`）
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
-
-### 23.float 是怎么表示小数的？
-
-推荐阅读：[计算机系统基础（四）浮点数](http://kaito-kidd.com/2018/08/08/computer-system-float-point/)
-
-`float`类型的小数在计算机中是通过 IEEE 754 标准的单精度浮点数格式来表示的。
-
-```
-V = (-1)^S * M * R^E
-```
-
-- S：符号位，0 代表正数，1 代表负数；
-- M：尾数部分，用于表示数值的精度；比如说 `1.25 * 2^2`；1.25 就是尾数；
-- R：基数，十进制中的基数是 10，二进制中的基数是 2；
-- E：指数部分，例如 10^-1 中的 -1 就是指数。
-
-这种表示方法可以将非常大或非常小的数值用有限的位数表示出来，但这也意味着可能会有精度上的损失。
-
-单精度浮点数占用 4 字节（32 位），这 32 位被分为三个部分：符号位、指数部分和尾数部分。
-
-![kaito：浮点数](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321112428.png)
-
-1. **符号位（Sign bit）**：1 位
-2. **指数部分（Exponent）**：10 位
-3. **尾数部分（Mantissa，或 Fraction）**：21 位
-
-按照这个规则，将十进制数 25.125 转换为浮点数，转换过程是这样的：
-
-1. 整数部分：25 转换为二进制是 11001；
-2. 小数部分：0.125 转换为二进制是 0.001；
-3. 用二进制科学计数法表示：\(25.125 = 1.001001 \times 2^4\)；
-
-符号位 S 是 0，表示正数；指数部分 E 是 4，转换为二进制是 100；尾数部分 M 是 1.001001。
-
-![kaito：25.125](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321113232.png)
-
-使用浮点数时需要注意，由于精度的限制，进行数学运算时可能会遇到舍入误差，特别是连续运算累积误差可能会变得显著。
-
-对于需要高精度计算的场景（如金融计算），可能需要考虑使用`BigDecimal`类来避免这种误差。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：float 是怎么表示小数的
 
 ### 8.自动类型转换、强制类型转换？看看这几行代码？
 
@@ -292,7 +251,75 @@ int autoAdd(int count)
 }
 ```
 
-PS：笔试面试可能会碰到的奇葩题，开发这么写，见一次吊一次。
+### 54.float 是怎么表示小数的？（补充）
+
+>2024年04月21日增补
+
+推荐阅读：[计算机系统基础（四）浮点数](http://kaito-kidd.com/2018/08/08/computer-system-float-point/)
+
+`float`类型的小数在计算机中是通过 IEEE 754 标准的单精度浮点数格式来表示的。
+
+```
+V = (-1)^S * M * R^E
+```
+
+- S：符号位，0 代表正数，1 代表负数；
+- M：尾数部分，用于表示数值的精度；比如说 `1.25 * 2^2`；1.25 就是尾数；
+- R：基数，十进制中的基数是 10，二进制中的基数是 2；
+- E：指数部分，例如 10^-1 中的 -1 就是指数。
+
+这种表示方法可以将非常大或非常小的数值用有限的位数表示出来，但这也意味着可能会有精度上的损失。
+
+单精度浮点数占用 4 字节（32 位），这 32 位被分为三个部分：符号位、指数部分和尾数部分。
+
+![kaito：浮点数](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321112428.png)
+
+1. **符号位（Sign bit）**：1 位
+2. **指数部分（Exponent）**：10 位
+3. **尾数部分（Mantissa，或 Fraction）**：21 位
+
+按照这个规则，将十进制数 25.125 转换为浮点数，转换过程是这样的：
+
+1. 整数部分：25 转换为二进制是 11001；
+2. 小数部分：0.125 转换为二进制是 0.001；
+3. 用二进制科学计数法表示：\(25.125 = 1.001001 \times 2^4\)；
+
+符号位 S 是 0，表示正数；指数部分 E 是 4，转换为二进制是 100；尾数部分 M 是 1.001001。
+
+![kaito：25.125](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321113232.png)
+
+使用浮点数时需要注意，由于精度的限制，进行数学运算时可能会遇到舍入误差，特别是连续运算累积误差可能会变得显著。
+
+对于需要高精度计算的场景（如金融计算），可能需要考虑使用`BigDecimal`类来避免这种误差。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：float 是怎么表示小数的
+
+### 55.讲一下数据准确性高是怎么保证的？（补充）
+
+>2024年04月21日增补
+
+在金融计算中，保证数据准确性有两种方案，一种使用 `BigDecimal`，一种将浮点数转换为整数 int 进行计算。
+
+肯定不能使用 `float` 和 `double` 类型，它们无法避免浮点数运算中常见的精度问题，因为这些数据类型采用二进制浮点数来表示，无法准确地表示，例如 `0.1`。
+
+```java
+BigDecimal num1 = new BigDecimal("0.1");
+BigDecimal num2 = new BigDecimal("0.2");
+BigDecimal sum = num1.add(num2);
+System.out.println("Sum of 0.1 and 0.2 using BigDecimal: " + sum);  // 输出 0.3，精确计算
+```
+
+在处理小额支付或计算时，通过转换为较小的货币单位（如分），这样不仅提高了运算速度，还保证了计算的准确性。
+
+```java
+int priceInCents = 199;  // 商品价格199分
+int quantity = 3;
+int totalInCents = priceInCents * quantity;  // 计算总价
+System.out.println("Total price in cents: " + totalInCents);  // 输出597分
+```
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下数据准确性高是怎么保证的？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1999,9 +2026,11 @@ reduced.ifPresent(System.out::println);
 
 ![Java Stream流](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-38.png)
 
-> 图文详解 54 道 Java 基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+
 
 ---
+
+图文详解 55 道 Java 基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
