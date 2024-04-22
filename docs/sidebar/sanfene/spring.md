@@ -1,7 +1,7 @@
 ---
-title: Spring面试题，36道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
+title: Spring面试题，37道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Spring
-description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 36 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 37 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: Spring面试题,Spring,面试题,八股文,java,spring全家桶
 ---
 
-1.3 万字 63 张手绘图，详解 36 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+1.3 万字 63 张手绘图，详解 37 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 ## 基础
 
@@ -77,47 +77,53 @@ Spring 框架是分模块存在，除了最核心的`Spring Core Container`是�
 
 ### 3.Spring 有哪些常用注解呢？
 
-Spring 有很多模块，甚至广义的 SpringBoot、SpringCloud 也算是 Spring 的一部分，我们来分模块，按功能来看一下一些常用的注解：
+Spring 提供了大量的注解来简化 Java 应用的开发和配置，主要用于 Web 开发、往容器注入 Bean、AOP、事务控制等。
 
-![Spring常用注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-8d0a1518-a425-4887-9735-45321095d927.png)
+![三分恶面渣逆袭：Spring常用注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-8d0a1518-a425-4887-9735-45321095d927.png)
 
-**Web**:
+#### Web 开发方面有哪些注解呢？
 
-- @Controller：组合注解（组合了@Component 注解），应用在 MVC 层（控制层）。
-- @RestController：该注解为一个组合注解，相当于@Controller 和@ResponseBody 的组合，注解在类上，意味着，该 Controller 的所有方法都默认加上了@ResponseBody。
-- @RequestMapping：用于映射 Web 请求，包括访问路径和参数。如果是 Restful 风格接口，还可以根据请求类型使用不同的注解：
-  - @GetMapping
-  - @PostMapping
-  - @PutMapping
-  - @DeleteMapping
-- @ResponseBody：支持将返回值放在 response 内，而不是一个页面，通常用户返回 json 数据。
-- @RequestBody：允许 request 的参数在 request 体中，而不是在直接连接在地址后面。
-- @PathVariable：用于接收路径参数，比如 `@RequestMapping(“/hello/{name}”)`申明的路径，将注解放在参数中前，即可获取该值，通常作为 Restful 的接口实现方法。
-- @RestController：该注解为一个组合注解，相当于@Controller 和@ResponseBody 的组合，注解在类上，意味着，该 Controller 的所有方法都默认加上了@ResponseBody。
+①、`@Controller`：用于标注控制层组件。
 
-**容器**:
+②、`@RestController`：是`@Controller` 和 `@ResponseBody` 的结合体，返回 JSON 数据时使用。
 
-- @Component：表示一个带注释的类是一个“组件”，成为 Spring 管理的 Bean。当使用基于注解的配置和类路径扫描时，这些类被视为自动检测的候选对象。同时@Component 还是一个元注解。
-- @Service：组合注解（组合了@Component 注解），应用在 service 层（业务逻辑层）。
-- @Repository：组合注解（组合了@Component 注解），应用在 dao 层（数据访问层）。
-- @Autowired：Spring 提供的工具（由 Spring 的依赖注入工具（BeanPostProcessor、BeanFactoryPostProcessor）自动注入）。
-- @Qualifier：该注解通常跟 @Autowired 一起使用，当想对注入的过程做更多的控制，@Qualifier 可帮助配置，比如两个以上相同类型的 Bean 时 Spring 无法抉择，用到此注解
-- @Configuration：声明当前类是一个配置类（相当于一个 Spring 配置的 xml 文件）
-- @Value：可用在字段，构造器参数跟方法参数，指定一个默认值，支持 `#{} 跟 \${}` 两个方式。一般将 SpringbBoot 中的 application.properties 配置的属性值赋值给变量。
-- @Bean：注解在方法上，声明当前方法的返回值为一个 Bean。返回的 Bean 对应的类中可以定义 init()方法和 destroy()方法，然后在`@Bean(initMethod=”init”,destroyMethod=”destroy”)`定义，在构造之后执行 init，在销毁之前执行 destroy。
-- @Scope:定义我们采用什么模式去创建 Bean（方法上，得有@Bean） 其设置类型包括：Singleton 、Prototype、Request 、 Session、GlobalSession。
+③、`@RequestMapping`：用于映射请求 URL 到具体的方法上，还可以细分为：
 
-**AOP**:
+- `@GetMapping`：只能用于处理 GET 请求
+- `@PostMapping`：只能用于处理 POST 请求
+- `@DeleteMapping`：只能用于处理 DELETE 请求
 
-- @Aspect:声明一个切面（类上） 使用@After、@Before、@Around 定义建言（advice），可直接将拦截规则（切点）作为参数。
-  - `@After` ：在方法执行之后执行（方法上）。
-  - `@Before`： 在方法执行之前执行（方法上）。
-  - `@Around`： 在方法执行之前与之后执行（方法上）。
-  - `@PointCut`： 声明切点 在 java 配置类中使用@EnableAspectJAutoProxy 注解开启 Spring 对 AspectJ 代理的支持（类上）。
+④、`@ResponseBody`：直接将返回的数据放入 HTTP 响应正文中，一般用于返回 JSON 数据。
 
-**事务：**
+⑤、`@RequestBody`：表示一个方法参数应该绑定到 Web 请求体。
 
-- @Transactional：在要开启事务的方法上使用@Transactional 注解，即可声明式开启事务。
+⑥、`@PathVariable`：用于接收路径参数，比如 `@RequestMapping(“/hello/{name}”)`，这里的 name 就是路径参数。
+
+⑦、`@RequestParam`：用于接收请求参数。比如 `@RequestParam(name = "key") String key`，这里的 key 就是请求参数。
+
+#### 容器类注解有哪些呢？
+
+- `@Component`：标识一个类为 Spring 组件，使其能够被 Spring 容器自动扫描和管理。
+- `@Service`：标识一个业务逻辑组件（服务层）。比如 `@Service("userService")`，这里的 userService 就是 Bean 的名称。
+- `@Repository`：标识一个数据访问组件（持久层）。
+- `@Autowired`：按类型自动注入依赖。
+- `@Configuration`：用于定义配置类，可替换 XML 配置文件。
+- `@Value`：用于将 Spring Boot 中 application.properties 配置的属性值赋值给变量。
+
+#### AOP 方面有哪些注解呢？
+
+`@Aspect` 用于声明一个切面，可以配合其他注解一起使用，比如：
+
+- `@After`：在方法执行之后执行。
+- `@Before`：在方法执行之前执行。
+- `@Around`：方法前后均执行。
+- `@PointCut`：定义切点，指定需要拦截的方法。
+
+#### 事务注解有哪些？
+
+主要就是 `@Transactional`，用于声明一个方法需要事务支持。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：说说 Spring 常见的注解？
 
 ### 4.Spring 中应用了哪些设计模式呢？
 
@@ -2192,18 +2198,40 @@ mystarter.message=javabetter.cn
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你封装过 springboot starter 吗
 
-### 34.Springboot 启动原理？
+### 34.Spring Boot 启动原理了解吗？
 
-SpringApplication 这个类主要做了以下四件事情：
-
-1. 推断应用的类型是普通的项目还是 Web 项目
-2. 查找并加载所有可用初始化器，设置到 initializers 属性中
-3. 找出所有的应用程序监听器，设置到 listeners 属性中
-4. 推断并设置 main 方法的定义类，找到运行的主类
-
-SpringBoot 启动大致流程如下 ：
+SpringBoot 项目启动的大致流程如下：
 
 ![SpringBoot 启动大致流程-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-68744556-a1ba-4e1f-a092-1582875f0da6.png)
+
+Spring Boot 应用通常有一个带有 main 方法的主类，这个类上标注了 `@SpringBootApplication` 注解，它是整个应用启动的入口。这个注解组合了 `@SpringBootConfiguration`、`@EnableAutoConfiguration` 和 `@ComponentScan`，这些注解共同支持配置和类路径扫描。
+
+当执行 main 方法时，首先创建一个 SpringApplication 的实例。这个实例负责管理 Spring 应用的启动和初始化。
+
+![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422090338.png)
+
+`SpringApplication.run()` 方法负责准备和启动 Spring 应用上下文（ApplicationContext）环境，包括：
+
+- 扫描配置文件，添加依赖项
+- 初始化和加载 Bean 定义
+- 启动内嵌的 Web 服务器
+
+#### 了解@SpringBootApplication 注解吗？
+
+`@SpringBootApplication`是 Spring Boot 的核心注解，经常用于主类上，作为项目启动入口的标识。它是一个组合注解：
+
+- `@SpringBootConfiguration`：继承自 `@Configuration`，标注该类是一个配置类，相当于一个 Spring 配置文件。
+- `@EnableAutoConfiguration`：告诉 Spring Boot 根据 pom.xml 中添加的依赖自动配置项目。例如，如果 spring-boot-starter-web 依赖被添加到项目中，Spring Boot 会自动配置 Tomcat 和 Spring MVC。
+- `@ComponentScan`：扫描当前包及其子包下被`@Component`、`@Service`、`@Controller`、`@Repository` 注解标记的类，并注册为 Spring Bean。
+
+```java
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
 
 #### 为什么 Spring Boot 在启动的时候能够找到 main 方法上的@SpringBootApplication 注解？
 
@@ -2259,6 +2287,7 @@ public class QuickForumApplication {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：为什么 Spring Boot 启动时能找到 Main 类上面的注解
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 默认的包扫描路径？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：@SpringBootApplication 注解了解吗？
 
 ## Spring Cloud
 
@@ -2290,9 +2319,34 @@ SpringCloud 是 Spring 官方推出的微服务治理框架。
 
 ![SpringCloud](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b988a72-0739-4fed-b271-eaf12589444f.png)
 
-> 图文详解 36 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+## 补充
+
+### 37.SpringTask 了解吗？
+
+SpringTask 是 Spring 框架提供的一个轻量级的任务调度框架，它允许我们开发者通过简单的注解来配置和管理定时任务。
+
+①、`@Scheduled`：最常用的注解，用于标记方法为计划任务的执行点。[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就使用该注解来定时刷新 sitemap.xml：
+
+```java
+@Scheduled(cron = "0 15 5 * * ?")
+public void autoRefreshCache() {
+    log.info("开始刷新sitemap.xml的url地址，避免出现数据不一致问题!");
+    refreshSitemap();
+    log.info("刷新完成！");
+}
+```
+
+`@Scheduled` 注解支持多种调度选项，如 fixedRate、fixedDelay 和 cron 表达式。
+
+②、`@EnableScheduling`：用于开启定时任务的支持。
+
+![技术派的启动类就有该注解的影子](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422094511.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：SpringTask 了解吗？
 
 ---
+
+图文详解 37 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
