@@ -415,6 +415,8 @@ public enum Singleton {
 
 策略模式（Strategy Pattern）是一种行为型设计模式，它定义了一系列的算法，将每个算法封装起来，使得它们可以相互替换。这种模式通常用于实现不同的业务规则或策略，其中每种策略封装了特定的行为或算法。
 
+特别适合用于优化程序中的复杂条件分支语句（if-else），将不同的分支逻辑封装到不同的策略类中，然后通过上下文类来选择不同的策略。
+
 在策略模式中，有三个角色：上下文（Context）、策略接口（Strategy Interface）和具体策略（Concrete Strategy）。
 
 - **策略接口**：定义所有支持的算法的公共接口。策略模式的核心。
@@ -457,6 +459,7 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：谈谈对gpt的了解，大语言模型的原理，基于大模型如何去和一些业务做结合，有什么场景可以做，项目中用了哪些设计模式 
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：if else过多怎么解决？
 
 ---
 
