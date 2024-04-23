@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，75道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，76道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 75 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 76 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 101 张手绘图，详解 75 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 101 张手绘图，详解 76 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ### 0.什么是 MySQL？
 
@@ -21,9 +21,10 @@ head:
 
 也是我们国内使用频率最高的一种数据库，我在本地安装的 MySQL 的社区版，最新的 8.0 版本。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1992b6dd-1c1d-4b8b-b98a-8407e8c51ff9.jpg)
+![MySQL 官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1992b6dd-1c1d-4b8b-b98a-8407e8c51ff9.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
 
 ### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
 
@@ -966,6 +967,10 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 - **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
 - **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
 
+找到对应的慢SQL 后，使用 EXPLAIN 命令查看 MySQL 是如何执行 SQL 语句的，这会帮助我们找到问题的根源。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：场景题：sql查询很慢怎么排查
+
 ### 25.有哪些方式优化 SQL？
 
 我在进行 SQL 优化的时候，主要通过以下几个方面进行优化：
@@ -1208,7 +1213,7 @@ SELECT * FROM B WHERE id = 1;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：查询优化、联合索引、覆盖索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java  通用软件开发一面面试原题：说说 SQL 该如何优化
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说 SQL 该如何优化
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 索引如何优化？
 
 ### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
@@ -1563,7 +1568,7 @@ B 树的一个节点通常包括三个部分：
 
 ![二哥的 Java 进阶之路：页的大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322135441.png)
 
-总结一下：
+简版：
 
 MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B+树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
 
@@ -1576,6 +1581,7 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：MySQL 为什么选用 B+树
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 E 第二个部门 Java 后端技术一面面试原题：说一说 mysql 索引的底层机制
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：MySQL 索引结构，建立索引的策略
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：MySQL 索引结构，为什么用 B+树？
 
 ### 34.那一棵 B+树能存储多少条数据呢？
 
@@ -1695,6 +1701,7 @@ SELECT * FROM table WHERE column LIKE '%xxx%';
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：mysql：聚簇索引和非聚簇索引区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：聚簇索引和非聚簇索引的区别？B+树叶子节点除了存数据还有什么？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：聚簇索引是什么？非聚簇索引是什么？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：聚簇索引和非聚簇索引的区别？
 
 ### 39.回表了解吗？
 
@@ -1882,6 +1889,7 @@ EXPLAIN SELECT * FROM tbn WHERE C=5\G
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：联合索引的一个场景题：(a,b,c)联合索引，(b,c)是否会走索引
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：建立联合索引(a,b,c)，where c = 5 是否会用到索引？为什么？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：说说最左前缀原则
 
 ### 42.什么是索引下推优化？
 
@@ -2310,13 +2318,20 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 56.主从复制原理了解吗？
 
-- master 数据写入，更新 binlog
-- master 创建一个 dump 线程向 slave 推送 binlog
-- slave 连接到 master 的时候，会创建一个 IO 线程接收 binlog，并记录到 relay log 中继日志中
-- slave 再开启一个 sql 线程读取 relay log 事件并在 slave 执行，完成同步
-- slave 记录自己的 binglog
+MySQL 的主从复制（Master-Slave Replication）是一种数据同步机制，用于将数据从一个主数据库（master）复制到一个或多个从数据库（slave）。
 
-![主从复制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1bfbfcb5-2392-4f98-be1b-a66204da09e5.jpg)
+广泛用于数据备份、灾难恢复和数据分析等场景。
+
+![三分恶面渣逆袭：主从复制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1bfbfcb5-2392-4f98-be1b-a66204da09e5.jpg)
+
+复制过程的主要步骤有：
+
+- 在主服务器上，所有修改数据的语句（如 INSERT、UPDATE、DELETE）会被记录到二进制日志中。
+- 主服务器上的一个线程（二进制日志转储线程）负责读取二进制日志的内容并发送给从服务器。
+- 从服务器接收到二进制日志数据后，会将这些数据写入自己的中继日志（Relay Log）。中继日志是从服务器上的一个本地存储。
+- 从服务器上有一个 SQL 线程会读取中继日志，并在本地数据库上执行，从而将更改应用到从数据库中，完成同步。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：MySQL 的主从复制过程
 
 ### 57.主从同步延迟怎么处理？
 
@@ -2750,9 +2765,78 @@ CREATE INDEX idx_name_age_id ON tblname (name, age, id);
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：一个表（name, sex,age,id），select age,id,name from tblname where name='paicoding';怎么建索引
 
+### 76.SQL题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
+
+这是一个典型的 SQL 题，主要考察 SQL 的基本语法和分组查询。
+
+第一步，建表：
+
+```sql
+CREATE TABLE student_scores (
+    student_name VARCHAR(100),
+    class VARCHAR(50),
+    score INT
+);
+```
+
+第二步，插入数据：
+
+```sql
+INSERT INTO student_scores (student_name, class, score) VALUES
+('沉默王二', '三年二班', 88),
+('沉默王三', '三年二班', 92),
+('沉默王四', '三年二班', 87),
+('沉默王五', '三年二班', 85),
+('沉默王六', '三年二班', 90),
+('沉默王七', '三年二班', 95),
+('沉默王八', '三年二班', 82),
+('沉默王九', '三年二班', 78),
+('沉默王十', '三年二班', 91),
+('沉默王十一', '三年二班', 79),
+('沉默王十二', '三年三班', 84),
+('沉默王十三', '三年三班', 81),
+('沉默王十四', '三年三班', 90),
+('沉默王十五', '三年三班', 88),
+('沉默王十六', '三年三班', 87),
+('沉默王十七', '三年三班', 93),
+('沉默王十八', '三年三班', 89),
+('沉默王十九', '三年三班', 85),
+('沉默王二十', '三年三班', 92),
+('沉默王二十一', '三年三班', 84);
+```
+
+第三步，查询各班前十名：
+
+```sql
+SET @cur_class = NULL, @cur_rank = 0;
+
+SELECT student_name, class, score
+FROM (
+    SELECT 
+        student_name, 
+        class, 
+        score,
+        @cur_rank := IF(@cur_class = class, @cur_rank + 1, 1) AS rank,
+        @cur_class := class
+    FROM student_scores
+    ORDER BY class, score DESC
+) AS ranked
+WHERE ranked.rank <= 10;
+```
+
+使用 `@cur_class` 和 `@cur_rank` 来跟踪当前行的班级和排名。
+
+在 SELECT 语句中，通过检查当前班级（`@cur_class`）是否与上一行相同来决定排名。如果相同，则增加排名；如果不同，则重置排名为 1。
+
+然后通过 ORDER BY 子句确保在计算排名前按班级和分数排序。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240423113508.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：SQL题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
+
 ---
 
-图文详解 75 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+图文详解 76 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

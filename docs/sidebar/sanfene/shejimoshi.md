@@ -285,7 +285,7 @@ public class FactoryMethodPatternDemo {
 
 ### 常见的单例模式实现？
 
-#### 01、饿汉式
+#### 01、饿汉式如何实现单例？
 
 饿汉式单例（Eager Initialization）在类加载时就急切地创建实例，不管你后续用不用得到，这也是饿汉式的来源，简单但不支持延迟加载实例。
 
@@ -301,7 +301,7 @@ public class Singleton {
 }
 ```
 
-#### 02、懒汉式
+#### 02、懒汉式如何实现单例？
 
 懒汉式单例（Lazy Initialization）在实际使用时才创建实例，“确实懒”（😂）。这种实现方式需要考虑线程安全问题，因此一般会带上 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)。
 
@@ -320,7 +320,7 @@ public class Singleton {
 }
 ```
 
-#### 03、双重检查锁定
+#### 03、双重检查锁定如何实现单例？
 
 双重检查锁定（Double-Checked Locking）结合了懒汉式的延迟加载和线程安全，同时又减少了同步的开销，主要是用 synchronized 同步代码块来替代同步方法。
 
@@ -347,7 +347,7 @@ public class Singleton {
 
 在 instance 前加上 [volatile 关键字](https://javabetter.cn/thread/volatile.html)，可以防止指令重排，因为 `instance = new Singleton()` 并不是一个原子操作，可能会被重排序，导致其他线程获取到未初始化完成的实例。
 
-#### 04、静态内部类
+#### 04、静态内部类如何实现单例？
 
 利用 Java 的[静态内部类](https://javabetter.cn/oo/static.html)（Static Nested Class）和[类加载机制](https://javabetter.cn/jvm/class-load.html)来实现线程安全的延迟初始化。
 
@@ -367,7 +367,7 @@ public class Singleton {
 
 当第一次加载 Singleton 类时并不会初始化 SingletonHolder，只有在第一次调用 getInstance 方法时才会导致 SingletonHolder 被加载，从而实例化 instance。
 
-#### 05、枚举
+#### 05、枚举如何实现单例？
 
 使用[枚举（Enum）](https://javabetter.cn/basic-extra-meal/enum.html)实现单例是最简单的方式，也能防止反射攻击和序列化问题。
 
@@ -392,6 +392,7 @@ public enum Singleton {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：单例模式的好处
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲讲设计模式，讲讲单例模式有哪些情况（饿汉和懒汉），具体该如何使用
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：单例模式有几种实现方式？单例模式最常用的实现方式是哪种？为什么？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：手写单例模式，各种情况，怎么保证线程安全？
 
 ## 04、了解哪些设计模式？
 
