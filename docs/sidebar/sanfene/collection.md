@@ -304,7 +304,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 Map 中，毫无疑问，最重要的就是 HashMap，面试基本被盘出包浆了，各种问法，一定要好好准备。
 
-### 8.能说一下 HashMap 的数据结构吗？
+### 8.能说一下 HashMap 的底层数据结构吗？
 
 推荐阅读：[二哥的 Java 进阶之路：详解 HashMap](https://javabetter.cn/collection/hashmap.html)
 
@@ -342,6 +342,7 @@ HashMap 的初始容量是 16，随着元素的不断添加，HashMap 的容量�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 HashMap 的底层数据结构，链表和红黑树的转换，HashMap 的长度
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下 HashMap 数据库结构 和 一些重要参数
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：HashMap的底层实现，它为什么是线程不安全的？
 
 ### 9.你对红黑树了解多少？为什么不用二叉树/平衡树呢？
 
@@ -1021,29 +1022,30 @@ jdk1.8 的 HashMap 主要有五点优化：
 
 ### 24.HashMap 是线程安全的吗？多线程下会有什么问题？
 
-> 推荐阅读：[HashMap 详解](https://javabetter.cn/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)
+推荐阅读：[HashMap 详解](https://javabetter.cn/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)
 
 HashMap 不是线程安全的，主要有以下几个问题：
 
 ①、多线程下扩容会死循环。JDK1.7 中的 HashMap 使用的是头插法插入元素，在多线程的环境下，扩容的时候就有可能导致出现环形链表，造成死循环。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-07.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-07.png)
 
 不过，JDK 8 时已经修复了这个问题，扩容时会保持链表原来的顺序。
 
 ②、多线程的 put 可能会导致元素的丢失。因为计算出来的位置可能会被其他线程的 put 覆盖，很好理解。本来哈希冲突是应该用链表的，但多线程时由于没有加锁，相同位置的元素可能就被干掉了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-10.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-10.png)
 
 ③、put 和 get 并发时，可能导致 get 为 null。线程 1 执行 put 时，因为元素个数超出阈值而导致出现扩容，线程 2 此时执行 get，就有可能出现这个问题。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240326085630.png)
+![二哥的 Java 进阶之路：源码截图](https://cdn.tobebetterjavaer.com/stutymore/collection-20240326085630.png)
 
 因为线程 1 执行完 table = newTab 之后，线程 2 中的 table 此时也发生了变化，此时去 get 的时候当然会 get 到 null 了，因为元素还没有转移。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 原题：HashMap 是线程安全的吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：HashMap 是线程安全的吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：HashMap 为什么不安全，如何改进，以及 ConcurrentHashMap
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：HashMap的底层实现，它为什么是线程不安全的？
 
 ### 25.有什么办法能解决 HashMap 线程不安全的问题呢？
 
@@ -1068,6 +1070,7 @@ Hashtable 也是线程安全的，但它的使用已经不再推荐使用，因�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：有哪些线程安全的 map，ConcurrentHashMap 怎么保证线程安全的，为什么比 hashTable 效率好
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Java 中的线程安全的集合是什么？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：HashMap 为什么不安全，如何改进，以及 ConcurrentHashMap
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：知道哪些线程安全的集合类型？
 
 ### 27.HashMap 内部节点是有序的吗？
 
