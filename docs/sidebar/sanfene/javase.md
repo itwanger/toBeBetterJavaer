@@ -19,11 +19,25 @@ head:
 
 ### 1.什么是 Java？
 
-![三分恶面渣逆袭：下辈子还学Java](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-1.png)
+![詹姆斯高斯林-下辈子还学 Java，还头秃](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-01.png)
 
-> PS：碎怂 Java，有啥好介绍的。哦，面试啊。
+Java 是一门面向对象的编程语言，由Sun 公司的詹姆斯高斯林（James Gosling）团队于 1995 年推出。吸收了 C++ 语言中大量的优点，但又抛弃了 C++ 中容易出错的地方，如垃圾回收。
 
-Java 是一门面向对象的编程语言，不仅吸收了 C++语言的各种优点，还摒弃了 C++里难以理解的多继承、指针等概念，因此 Java 语言具有功能强大和简单易用两个特征。Java 语言作为静态面向对象编程语言的优秀代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程 。
+同时，Java 又是一门平台无关的编程语言，即一次编译，处处运行（Write Once，Run Anywhere），可以在 Windows、macOS、Linux 平台上运行，只需要安装一个 Java 虚拟机（JVM）。
+
+#### 多久开始学Java的？
+
+我是从大一下学期开始学习 Java 的，当时已经学完了 C语言，但苦于 C语言没有很好的应用方向，就开始学习 Java 了，因为我了解到，绝大多数的互联网公司后端服务都是用 Java 开发的，另外就是学习资料也非常丰富，就业岗位和薪资待遇都比较理想。
+
+于是就想着一边学，一边实战，后来就有了[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)这个社区系统。
+
+![技术派实战项目](https://cdn.tobebetterjavaer.com/paicoding/bdfa153fc82310f9ab862a1b3db0d0d7.png)
+
+这样我就可以作为创作者把自己在学习 Java 过程中的经验心得通过文章/教程的形式发布出来，同时读者还可以通过评论、点赞、收藏的形式和我进行互动。
+
+后面我又接触到了 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等一些 Java 技术栈，让我的编程能力也有了很大的提升。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：多久开始学java的
 
 ### 2.Java 语言有哪些特点？
 

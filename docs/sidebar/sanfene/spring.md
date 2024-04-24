@@ -127,17 +127,40 @@ Spring 提供了大量的注解来简化 Java 应用的开发和配置，主要�
 
 ### 4.Spring 中应用了哪些设计模式呢？
 
-Spring 框架中广泛使用了不同类型的设计模式，下面我们来看看到底有哪些设计模式?
+![三分恶面渣逆袭：Spring中用到的设计模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-ee1c5cee-8462-4bae-93ea-ec936cc77640.png)
 
-![Spring中用到的设计模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-ee1c5cee-8462-4bae-93ea-ec936cc77640.png)
+Spring 框架中用了蛮多设计模式的：
 
-1. **工厂模式** : Spring 容器本质是一个大工厂，使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。
-2. **代理模式** : Spring AOP 功能功能就是通过代理模式来实现的，分为动态代理和静态代理。
-3. **单例模式** : Spring 中的 Bean 默认都是单例的，这样有利于容器对 Bean 的管理。
-4. **模板模式** : Spring 中 JdbcTemplate、RestTemplate 等以 Template 结尾的对数据库、网络等等进行操作的模板类，就使用到了模板模式。
-5. **观察者模式**: Spring 事件驱动模型就是观察者模式很经典的一个应用。
-6. **适配器模式** :Spring AOP 的增强或通知 (Advice) 使用到了适配器模式、Spring MVC 中也是用到了适配器模式适配 Controller。
-7. **策略模式**：Spring 中有一个 Resource 接口，它的不同实现类，会根据不同的策略去访问资源。
+①、**工厂模式**：IoC 容器本身可以看作是一个巨大的工厂，负责创建和管理 Bean 的生命周期和依赖关系。
+
+像 BeanFactory 和 ApplicationContext 接口都提供了工厂模式的实现，负责实例化、配置和组装 Bean。
+
+②、**代理模式**：AOP 的实现就是基于代理模式的，如果配置了事务管理，Spring 会使用代理模式创建一个连接数据库的代理对象，来进行事务管理。
+
+③、**单例模式**：Spring 容器中的 Bean 默认都是单例的，这样可以保证 Bean 的唯一性，减少系统开销。
+
+④、**模板模式**：Spring 中的 JdbcTemplate，HibernateTemplate 等以 Template 结尾的类，都使用了模板方法模式。
+
+比如，我们使用 JdbcTemplate，只需要提供 SQL 语句和需要的参数就可以了，至于如何创建连接、执行 SQL、处理结果集等都由 JdbcTemplate 这个模板方法来完成。
+
+④、**观察者模式**：Spring 事件驱动模型就是观察者模式很经典的一个应用，Spring 中的 ApplicationListener 就是观察者，当有事件（ApplicationEvent）被发布，ApplicationListener 就能接收到信息。
+
+⑤、**适配器模式**：Spring MVC 中的 HandlerAdapter 就用了适配器模式。它允许 DispatcherServlet 通过统一的适配器接口与多种类型的请求处理器进行交互。
+
+⑥、**策略模式**：Spring 中有一个 Resource 接口，它的不同实现类，会根据不同的策略去访问资源。
+
+```java
+public interface ResourceLoader {
+
+    String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX;
+
+    Resource getResource(String location);
+
+    ClassLoader getClassLoader();
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：Spring IoC 的设计模式，AOP 的设计模式
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
