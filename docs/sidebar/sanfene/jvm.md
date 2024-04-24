@@ -794,7 +794,7 @@ HotSpot 虚拟机提供了这个参数来设置。
 
 假如在 Young GC 之后，新生代仍然有大量对象存活，就需要老年代进行分配担保，把 Survivor 无法容纳的对象直接送入老年代。
 
-### 24.知道有哪些垃圾收集器吗？
+### 24.知道哪些垃圾收集器？
 
 推荐阅读：[深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://javabetter.cn/jvm/gc-collector.html)
 
@@ -802,7 +802,7 @@ HotSpot 虚拟机提供了这个参数来设置。
 
 ![三分恶面渣逆袭：HotSpot虚拟机垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
 
-#### Serial 收集器
+#### 说说 Serial 收集器？
 
 Serial 收集器是最基础、历史最悠久的收集器。
 
@@ -812,7 +812,7 @@ Serial/Serial Old 收集器的运行过程如图：
 
 ![Serial/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
-#### ParNew
+#### 说说 ParNew 收集器？
 
 ParNew 收集器实质上是 Serial 收集器的多线程并行版本，使用多条线程进行垃圾收集。
 
@@ -820,7 +820,7 @@ ParNew/Serial Old 收集器运行示意图如下：
 
 ![ParNew/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
 
-#### Parallel Scavenge
+#### 说说 Parallel Scavenge 收集器？
 
 Parallel Scavenge 收集器是一款新生代收集器，基于标记-复制算法实现，也能够并行收集。和 ParNew 有些类似，但 Parallel Scavenge 主要关注的是垃圾收集的吞吐量——所谓吞吐量，就是 CPU 用于运行用户代码的时间和总消耗时间的比值，比值越大，说明垃圾收集的占比越小。
 
@@ -828,29 +828,29 @@ Parallel Scavenge 收集器是一款新生代收集器，基于标记-复制算�
 
 根据对象存活周期的不同会将内存划分为几块，一般是把 Java 堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。
 
-#### Serial Old
+#### 说说 Serial Old 收集器？
 
 Serial Old 是 Serial 收集器的老年代版本，它同样是一个单线程收集器，使用标记-整理算法。
 
-#### Parallel Old
+#### 说说 Parallel Old 收集器？
 
 Parallel Old 是 Parallel Scavenge 收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。
 
 ![Parallel Scavenge/Parallel Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
 
-#### CMS 收集器
+#### 说说 CMS 收集器？
 
 以获取最短回收停顿时间为目标，采用“标记-清除”算法，分 4 大步进行垃圾收集，其中初始标记和重新标记会 STW，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228211056.png)
+![小潘：CMS](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228211056.png)
 
-#### Garbage First 收集器
+#### 说说 Garbage First 收集器？
 
 G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。G1 有五个属性：分代、增量、并行、标记整理、STW。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+![有梦想的肥宅：G1](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
 
-#### ZGC 收集器
+#### 说说 ZGC 收集器？
 
 ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，它的目标是在不超过 10ms 的停顿时间内，为堆大小达到 16TB 的应用提供一种高吞吐量的垃圾收集器。
 
@@ -866,6 +866,7 @@ ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：了解哪些垃圾回收器，只能回收一个代（新生代、老年代）吗，使用的 jdk 版本
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：垃圾回收器的作用是什么
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
 
 ### 25.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
 
@@ -889,16 +890,16 @@ ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转�
 
 ### 26.能详细说一下 CMS 收集器的垃圾收集过程吗？
 
-CMS 收集齐的垃圾收集分为四步：
+![三分恶面渣逆袭：Concurrent Mark Sweep收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-34.png)
 
-- **初始标记**（CMS initial mark）：单线程运行，需要 Stop The World，标记 GC Roots 能直达的对象。
-- **并发标记**（（CMS concurrent mark）：无停顿，和用户线程同时运行，从 GC Roots 直达对象开始遍历整个对象图。
-- **重新标记**（CMS remark）：多线程运行，需要 Stop The World，标记并发标记阶段产生对象。
-- **并发清除**（CMS concurrent sweep）：无停顿，和用户线程同时运行，清理掉标记阶段标记的死亡的对象。
+CMS（Concurrent Mark Sweep）分 4 大步进行垃圾收集：
 
-Concurrent Mark Sweep 收集器运行示意图如下：
+- **初始标记**（Initial Mark）：标记所有从 GC Roots 直接可达的对象，这个阶段需要 STW，但速度很快。
+- **并发标记**（Concurrent Mark）：从初始标记的对象出发，遍历所有对象，标记所有可达的对象。这个阶段是并发进行的，STW。
+- **重新标记**（Remark）：完成剩余的标记工作，包括处理并发阶段遗留下来的少量变动，这个阶段通常需要短暂的 STW 停顿。
+- **并发清除**（Concurrent Sweep）：清除未被标记的对象，回收它们占用的内存空间。
 
-![Concurrent Mark Sweep收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-34.png)
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
 
 ### 27.G1 垃圾收集器了解吗？
 

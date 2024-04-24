@@ -1215,6 +1215,7 @@ SELECT * FROM B WHERE id = 1;
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说 SQL 该如何优化
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 索引如何优化？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化SQL？
 
 ### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
 
@@ -1285,7 +1286,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 27.能简单说一下索引的分类吗？
 
-好的，可以从三个不同的维度对索引进行分类（功能、数据结构、存储位置）：
+MySQL 的索引可以显著提高查询的性能，可以从三个不同的维度对索引进行分类（功能、数据结构、存储位置）：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
 
@@ -1436,6 +1437,7 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化SQL？
 
 ### 28.为什么使用索引会加快查询？
 

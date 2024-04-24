@@ -369,7 +369,7 @@ public class Singleton {
 
 #### 05、枚举如何实现单例？
 
-使用[枚举（Enum）](https://javabetter.cn/basic-extra-meal/enum.html)实现单例是最简单的方式，也能防止反射攻击和序列化问题。
+使用[枚举（Enum）](https://javabetter.cn/basic-extra-meal/enum.html)实现单例是最简单的方式，不仅不需要考虑线程同步问题，还能防止反射攻击和序列化问题。
 
 ```java
 public enum Singleton {
@@ -393,6 +393,7 @@ public enum Singleton {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲讲设计模式，讲讲单例模式有哪些情况（饿汉和懒汉），具体该如何使用
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：单例模式有几种实现方式？单例模式最常用的实现方式是哪种？为什么？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：手写单例模式，各种情况，怎么保证线程安全？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：单例模式，如何线程安全
 
 ## 04、了解哪些设计模式？
 
