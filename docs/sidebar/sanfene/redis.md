@@ -392,29 +392,15 @@ AOF 的工作流程操作：命令写入 （append）、文件同步（sync）�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Redis 的持久化方式
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 的持久化方式？RDB 和 AOF 的区别？Redis 宕机哪种恢复的比较快？
 
 ### 9.RDB 和 AOF 各自有什么优缺点？
 
-**RDB | 优点**
+RDB 是一个非常紧凑的单文件（二进制文件 dump.rdb），代表了 Redis 在某个时间点上的数据快照。非常适合用于备份数据，比如在夜间进行备份，然后将 RDB 文件复制到远程服务器。但可能会丢失最后一次持久化后的数据。
 
-1. 只有一个紧凑的二进制文件 `dump.rdb`，非常适合备份、全量复制的场景。
-2. **容灾性好**，可以把 RDB 文件拷贝道远程机器或者文件系统张，用于容灾恢复。
-3. **恢复速度快**，RDB 恢复数据的速度远远快于 AOF 的方式
+AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略，如每秒同步一次，每次写入命令就同步，或者完全由操作系统来决定何时同步。但 AOF 文件往往比较大，恢复速度慢，因为它记录了每个写操作。
 
-**RDB | 缺点**
-
-1. **实时性低**，RDB 是间隔一段时间进行持久化，没法做到实时持久化/秒级持久化。如果在这一间隔事件发生故障，数据会丢失。
-2. **存在兼容问题**，Redis 演进过程存在多个格式的 RDB 版本，存在老版本 Redis 无法兼容新版本 RDB 的问题。
-
-**AOF | 优点**
-
-1. **实时性好**，aof 持久化可以配置 `appendfsync` 属性，有 `always`，每进行一次命令操作就记录到 aof 文件中一次。
-2. 通过 append 模式写文件，即使中途服务器宕机，可以通过 redis-check-aof 工具解决数据一致性问题。
-
-**AOF | 缺点**
-
-1. AOF 文件比 RDB **文件大**，且 **恢复速度慢**。
-2. **数据集大** 的时候，比 RDB **启动效率低**。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 的持久化方式？RDB 和 AOF 的区别？Redis 宕机哪种恢复的比较快？
 
 ### 10.RDB 和 AOF 如何选择？
 
@@ -428,6 +414,7 @@ AOF 的工作流程操作：命令写入 （append）、文件同步（sync）�
 当 Redis 发生了故障，可以从 RDB 或者 AOF 中恢复数据。
 
 恢复的过程也很简单，把 RDB 或者 AOF 文件拷贝到 Redis 的数据目录下，如果使用 AOF 恢复，配置文件开启 AOF，然后启动 redis-server 即可。
+
 ![Redis启动加载数据](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-f9aab5e9-a875-4316-9ec9-0c5650afe5c1.png)
 
 **Redis** 启动时加载数据的流程：
@@ -450,6 +437,7 @@ AOF 的工作流程操作：命令写入 （append）、文件同步（sync）�
 这样，当需要恢复数据时，Redis 先加载 RDB 文件来恢复到快照时刻的状态，然后应用 RDB 之后记录的 AOF 命令来恢复之后的数据更改，既快又可靠。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis 的持久化机制？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 宕机哪种恢复的比较快？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1592,9 +1580,30 @@ OK ... do something critical ...
 
 当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)（悟空聊架构：分布式锁中的王者方案 - Redisson）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174708.png)
+#### Redisson 了解吗？
+
+![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174708.png)
+
+Redisson 是一个基于 Redis 的 Java 驻内存数据网格（In-Memory Data Grid），提供了一系列 API 用来操作 Redis，其中最常用的功能就是分布式锁。
+
+```java
+RLock lock = redisson.getLock("lock");
+lock.lock();
+try {
+    // do something
+} finally {
+    lock.unlock();
+}
+```
+
+普通锁的实现源码是在 RedissonLock 类中，也是通过 Lua 脚本封装一些 Redis 命令来实现的的，比如说 tryLockInnerAsync 源码：
+
+![二哥的 Java 进阶之路：RedissonLock](https://cdn.tobebetterjavaer.com/stutymore/redis-20240425120229.png)
+
+其中 hincrby 命令用于对哈希表中的字段值执行自增操作，pexpire 命令用于设置键的过期时间。比 SETNX 更优雅。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：分布式锁用了 Redis 的什么数据结构
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redisson 的底层原理？以及与 SETNX 的区别？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 

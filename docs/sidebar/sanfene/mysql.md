@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，76道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，77道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 76 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 77 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 101 张手绘图，详解 76 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 101 张手绘图，详解 77 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ### 0.什么是 MySQL？
 
@@ -607,6 +607,36 @@ SELECT CONVERT('123', SIGNED INTEGER) AS converted_number;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：用过哪些 MySQL 函数？
 
+### 77.说说 SQL 的隐式数据类型转换？（补充）
+
+>2024年04月25日增补
+
+在 SQL 中，当不同数据类型的值进行运算或比较时，会发生隐式数据类型转换。
+
+比如说，当一个整数和一个浮点数相加时，整数会被转换为浮点数，然后再进行相加。
+
+```sql
+SELECT 1 + 1.0; -- 结果为 2.0
+```
+
+比如说，当一个字符串和一个整数相加时，字符串会被转换为整数，然后再进行相加。
+
+```sql
+SELECT '1' + 1; -- 结果为 2
+```
+
+数据类型隐式转换会导致意想不到的结果，所以要尽量避免隐式转换。
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240425111246.png)
+
+可以通过显式转换来规避这种情况。
+
+```sql
+SELECT CAST('1' AS SIGNED INTEGER) + 1; -- 结果为 2
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：说说 SQL 的隐式数据类型转换？
+
 ## 数据库架构
 
 ### 14.说说 MySQL 的基础架构?
@@ -967,9 +997,9 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 - **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
 - **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
 
-找到对应的慢SQL 后，使用 EXPLAIN 命令查看 MySQL 是如何执行 SQL 语句的，这会帮助我们找到问题的根源。
+找到对应的慢 SQL 后，使用 EXPLAIN 命令查看 MySQL 是如何执行 SQL 语句的，这会帮助我们找到问题的根源。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：场景题：sql查询很慢怎么排查
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：场景题：sql 查询很慢怎么排查
 
 ### 25.有哪些方式优化 SQL？
 
@@ -1215,7 +1245,7 @@ SELECT * FROM B WHERE id = 1;
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说 SQL 该如何优化
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 索引如何优化？
-> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化SQL？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化 SQL？
 
 ### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
 
@@ -1437,7 +1467,7 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化SQL？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化 SQL？
 
 ### 28.为什么使用索引会加快查询？
 
@@ -1492,8 +1522,11 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 - 如果 MySQL 估计使用全表扫描比使用索引更快时（通常是小表或者大部分行都满足 WHERE 子句），也不会使用索引。
 - 联合索引不满足最左前缀原则时，索引会失效。
 
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：where b =5 是否一定会命中索引？（索引失效场景）
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：索引失效的情况
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：编写SQL语句哪些情况会导致索引失效？
 
 ### 31.索引不适合哪些场景呢？
 
@@ -1922,18 +1955,56 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 43.MySQL 中有哪几种锁，列举一下？
 
-![MySQL 中的锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a07e4525-ccc1-4287-aec5-ebf3f277857c.jpg)
+![三分恶面渣逆袭：MySQL 中的锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a07e4525-ccc1-4287-aec5-ebf3f277857c.jpg)
 
-如果按锁粒度划分，有以下 3 种：
+#### 按锁粒度如何划分?
 
 - 表锁：开销小，加锁快；锁定力度大，发生锁冲突概率高，并发度最低;不会出现死锁。
 - 行锁：开销大，加锁慢；会出现死锁；锁定粒度小，发生锁冲突的概率低，并发度高。
 - 页锁：开销和加锁速度介于表锁和行锁之间；会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般
 
-如果按照兼容性，有两种，
+#### 按兼容性如何划分?
 
 - 共享锁（S Lock）,也叫读锁（read lock），相互不阻塞。
 - 排他锁（X Lock），也叫写锁（write lock），排它锁是阻塞的，在一定时间内，只有一个请求能执行写入，并阻止其它锁读取正在写入的数据。
+
+#### 按加锁机制如何划分?
+
+①、乐观锁
+
+乐观锁基于这样的假设：冲突在系统中出现的频率较低，因此在数据库事务执行过程中，不会频繁地去锁定资源。相反，它在提交更新的时候才检查是否有其他事务已经修改了数据。
+
+可以通过在数据表中使用版本号（Version）或时间戳（Timestamp）来实现，每次读取记录时，同时获取版本号或时间戳，更新时检查版本号或时间戳是否发生变化。
+
+如果没有变化，则执行更新并增加版本号或更新时间戳；如果检测到冲突（即版本号或时间戳与之前读取的不同），则拒绝更新。
+
+②、悲观锁
+
+悲观锁假设冲突是常见的，因此在数据处理过程中，它会主动锁定数据，防止其他事务进行修改。
+
+可以直接使用数据库的锁机制，如行锁或表锁，来锁定被访问的数据。常见的实现是 `SELECT FOR UPDATE` 语句，它在读取数据时就加上了锁，直到当前事务提交或回滚后才释放。
+
+#### 如何解决库存超卖问题？
+
+按照乐观锁的方式：
+
+```sql
+UPDATE inventory SET count = count - 1, version = version + 1 WHERE product_id = 1 AND version = current_version;
+```
+
+按照悲观锁的方式：
+
+在事务开始时直接锁定库存记录，直到事务结束。
+
+```sql
+START TRANSACTION;
+SELECT * FROM inventory WHERE product_id = 1 FOR UPDATE;
+UPDATE inventory SET count = count - 1 WHERE product_id = 1;
+COMMIT;
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：乐观锁和悲观锁，库存的超卖问题的原因和解决方案？
+
 
 ### 44.说说 InnoDB 里的行锁实现?
 
@@ -2152,11 +2223,18 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 
 但会导致大量的超时和锁竞争问题。
 
+#### A 事务未提交，B 事务上查询到的是旧值还是新值？
+
+在 MySQL 的默认隔离级别（可重复读）下，如果事务 A 修改了数据但未提交，事务 B 将看到修改之前的数据。
+
+这是因为在可重复读隔离级别下，MySQL 将通过多版本并发控制（MVCC）机制来保证一个事务不会看到其他事务未提交的数据，从而确保读一致性。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下事务的四大隔离级别，分别解决什么问题
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 默认隔离级别？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 事务的隔离级别，如何实现？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：MySQL 的四个隔离级别以及默认隔离级别？
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 
@@ -2274,6 +2352,7 @@ ReadView 主要用来处理隔离级别为"可重复读"（REPEATABLE READ）和
 - 读已提交：每次读取数据前都生成一个 ReadView，这样就能保证每次读取的数据都是最新的。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MVCC，解决了什么问题？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：了解的MVCC吗？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -2767,7 +2846,7 @@ CREATE INDEX idx_name_age_id ON tblname (name, age, id);
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：一个表（name, sex,age,id），select age,id,name from tblname where name='paicoding';怎么建索引
 
-### 76.SQL题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
+### 76.SQL 题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
 
 这是一个典型的 SQL 题，主要考察 SQL 的基本语法和分组查询。
 
@@ -2814,9 +2893,9 @@ SET @cur_class = NULL, @cur_rank = 0;
 
 SELECT student_name, class, score
 FROM (
-    SELECT 
-        student_name, 
-        class, 
+    SELECT
+        student_name,
+        class,
         score,
         @cur_rank := IF(@cur_class = class, @cur_rank + 1, 1) AS rank,
         @cur_class := class
@@ -2834,11 +2913,11 @@ WHERE ranked.rank <= 10;
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240423113508.png)
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：SQL题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：SQL 题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
 
 ---
 
-图文详解 76 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+图文详解 77 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
