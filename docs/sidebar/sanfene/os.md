@@ -122,8 +122,8 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 进程调度是操作系统中的核心功能之一，它负责决定哪些进程在何时使用 CPU。这一决定基于系统中的进程调度算法。
 
-![进程调度算法](https://github.com/itwanger/toBeBetterJavaer/assets/97254796/b4c63914-1bd8-43fd-9382-8d5ceb235fec)
 
+![DIDA-lJ-进程调度算法](https://cdn.tobebetterjavaer.com/stutymore/os-20240426094442.png)
 
 ①、**先来先服务**
 
@@ -154,8 +154,6 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 这是短作业优先的一种改进形式，它是抢占式的。即如果一个新进程的预计执行时间比当前运行进程的剩余时间短，调度器将暂停当前的进程，并切换到新进程。这种方法也可以最小化平均等待时间，但同样面临预测执行时间的困难。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：进程的调度方式
-
 ⑥ **多级反馈队列**
 
 一个进程需要执行100 哥时间片，如果采用时间片轮转调度算法，那么需要交互 100 次。
@@ -166,10 +164,10 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 可以将这种调度算法看成是时间片轮转调度算法与优先级调度算法的结合。
 
-![多级反馈队列](https://github.com/itwanger/toBeBetterJavaer/assets/97254796/38091ab0-1fb2-4d8b-b0c2-44546b9897ea)
+![DIDA-lJ-多级反馈队列](https://cdn.tobebetterjavaer.com/stutymore/os-20240426094524.png)
 
 
-
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：进程的调度方式
 
 ### 12、进程间通信有哪些方式？
 
