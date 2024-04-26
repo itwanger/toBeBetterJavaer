@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，69道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，68道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 69 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 68 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 69 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 68 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -28,7 +28,32 @@ head:
 
 ![三分恶面渣逆袭：并行并发和食堂打饭](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-2.png)
 
+#### 你对线程安全的理解是什么？
+
+推荐阅读：[多线程带来了哪些问题？](https://javabetter.cn/thread/thread-bring-some-problem.html)
+
+线程安全是并发编程中一个重要的概念，如果一段代码块或者一个方法在多线程环境中被多个线程同时执行时能够正确地处理共享数据，那么这段代码块或者方法就是线程安全的。
+
+可以从三个要素来确保线程安全：
+
+**①、原子性**：确保当某个线程修改共享变量时，没有其他线程可以同时修改这个变量，即这个操作是不可分割的。
+
+![雷小帅：原子性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-eba43c92-e42d-4318-a40c-b9365c32d922.png)
+
+原子性可以通过互斥锁（如 synchronized）或原子操作（如 AtomicInteger 类中的方法）来保证。
+
+**②、可见性**：确保一个线程对共享变量的修改可以立即被其他线程看到。
+
+![雷小帅：可见性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d91ca0c2-4f39-4e98-90e2-8acb793eb983.png)
+
+volatile 关键字可以保证了变量的修改对所有线程立即可见，并防止编译器优化导致的可见性问题。
+
+**③、活跃性问题**：要确保线程不会因为死锁、饥饿、活锁等问题导致无法继续执行。
+
+![雷小帅：活跃性问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d4e65d5f-3de1-4a1c-8ae1-02cb3bfb528c.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：对于多线程编程的了解?
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：你对线程安全的理解是什么？
 
 ### 2.说说什么是进程和线程？
 
@@ -532,61 +557,6 @@ class WaitExample {
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 sleep 和 wait 的区别
 
-### 69.有什么解决线程安全问题的方法？
-
-①、Java 中的 synchronized 关键字可以用于方法和代码块，确保同一时间只有一个线程可以执行特定的代码段。
-
-```java
-public synchronized void method() {
-    // 线程安全的操作
-}
-```
-
-②、Java 并发包（java.util.concurrent.locks）中提供了 Lock 接口和一些实现类，如 ReentrantLock。相比于 synchronized，ReentrantLock 提供了公平锁和非公平锁。
-
-```java
-ReentrantLock lock = new ReentrantLock();
-
-public void method() {
-    lock.lock();
-    try {
-        // 线程安全的操作
-    } finally {
-        lock.unlock();
-    }
-}
-```
-
-③、Java 并发包还提供了一组原子变量类（如 AtomicInteger，AtomicLong 等），它们利用 CAS（比较并交换），实现了无锁的原子操作，适用于简单的计数器场景。
-
-```java
-AtomicInteger atomicInteger = new AtomicInteger(0);
-
-public void increment() {
-    atomicInteger.incrementAndGet();
-}
-```
-
-④、Java 并发包提供了一些线程安全的集合类，如 ConcurrentHashMap，CopyOnWriteArrayList 等。这些集合类内部实现了必要的同步策略，提供了更高效的并发访问。
-
-```java
-ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
-```
-
-⑤、volatile 变量保证了变量的可见性，修改操作是立即同步到主存的，读操作从主存中读取。
-
-```java
-private volatile boolean flag = false;
-```
-
-⑥、ThreadLocal 为每个线程提供了变量的独立副本，每个线程都只能访问自己的副本，从而实现了线程隔离，保证了线程安全。
-
-```java
-private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
-```
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：除了 ThreadLocal，还有什么解决线程安全问题的方法
-
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -633,9 +603,58 @@ String value = localVariable.get();
 localVariable.remove();
 ```
 
+#### 除了 ThreadLocal，还有什么解决线程安全问题的方法？
+
+①、Java 中的 synchronized 关键字可以用于方法和代码块，确保同一时间只有一个线程可以执行特定的代码段。
+
+```java
+public synchronized void method() {
+    // 线程安全的操作
+}
+```
+
+②、Java 并发包（java.util.concurrent.locks）中提供了 Lock 接口和一些实现类，如 ReentrantLock。相比于 synchronized，ReentrantLock 提供了公平锁和非公平锁。
+
+```java
+ReentrantLock lock = new ReentrantLock();
+
+public void method() {
+    lock.lock();
+    try {
+        // 线程安全的操作
+    } finally {
+        lock.unlock();
+    }
+}
+```
+
+③、Java 并发包还提供了一组原子变量类（如 AtomicInteger，AtomicLong 等），它们利用 CAS（比较并交换），实现了无锁的原子操作，适用于简单的计数器场景。
+
+```java
+AtomicInteger atomicInteger = new AtomicInteger(0);
+
+public void increment() {
+    atomicInteger.incrementAndGet();
+}
+```
+
+④、Java 并发包提供了一些线程安全的集合类，如 ConcurrentHashMap，CopyOnWriteArrayList 等。这些集合类内部实现了必要的同步策略，提供了更高效的并发访问。
+
+```java
+ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+```
+
+⑤、volatile 变量保证了变量的可见性，修改操作是立即同步到主存的，读操作从主存中读取。
+
+```java
+private volatile boolean flag = false;
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：除了 ThreadLocal，还有什么解决线程安全问题的方法
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 ThreadLocal 的作用和使用场景？
 
 ### 11.你在工作中用到过 ThreadLocal 吗？
 
@@ -647,11 +666,11 @@ localVariable.remove();
 
 假如在服务层和持久层也要用到用户信息，就可以在控制层拦截请求把用户信息存入 ThreadLocal。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104501.png)
+![技术派实战源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104501.png)
 
 这样我们在任何一个地方，都可以取出 ThreadLocal 中存的用户信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104629.png)
+![技术派实战源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104629.png)
 
 很多其它场景的 cookie、session 等等数据隔离都可以通过 ThreadLocal 去实现。
 
@@ -660,6 +679,7 @@ localVariable.remove();
 数据库连接池也可以用 ThreadLocal，将数据库连接池的连接交给 ThreadLocal 进行管理，能够保证当前线程的操作都是同一个 Connnection。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 ThreadLocal 的作用和使用场景？
 
 ### 12.ThreadLocal 怎么实现的呢？
 
@@ -793,11 +813,33 @@ key 是弱引用，`new WeakReference(new ThreadLocal())` 是弱引用对象，�
 
 总结一下，在 ThreadLocal 被垃圾收集后，下一次访问 ThreadLocalMap 时，Java 会自动清理那些键为 null 的条目（参照源码中的 replaceStaleEntry 方法），这个过程会在执行 ThreadLocalMap 相关操作（如 `get()`, `set()`, `remove()`）时触发。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407214955.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407214955.png)
+
+#### 你了解哪些 ThreadLocal 的改进方案？
+
+在 JDK 20 Early-Access Build 28 版本中，出现了 ThreadLocal 的改进方案，即 `ScopedValue`。
+
+还有 Netty 中的 FastThreadLocal，它是 Netty 对 ThreadLocal 的优化，它内部维护了一个索引常量 index，每次创建 FastThreadLocal 中都会自动+1，用来取代 hash 冲突带来的损耗，用空间换时间。
+
+```java
+private final int index;
+
+public FastThreadLocal() {
+    index = InternalThreadLocalMap.nextVariableIndex();
+}
+public static int nextVariableIndex() {
+    int index = nextIndex.getAndIncrement();
+    if (index < 0) {
+        nextIndex.decrementAndGet();
+    }
+    return index;
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：ThreadLocal 什么情况下会内存泄漏
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：使用 ThreadLocal 有什么问题吗？如何解决？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：ThreadLocal 有什么缺陷？你了解哪些ThreadLocal的改进方案？
 
 ### 14.ThreadLocalMap 的源码看过吗？
 
@@ -2142,7 +2184,7 @@ get 也很简单，通过 `hash(key)` 定位到 segment，再遍历链表定位�
 
 JDK 8 中的 ConcurrentHashMap 取消了 Segment 分段锁，采用 CAS + synchronized 来保证并发安全性，整个容器只分为一个 Segment，即 table 数组。
 
-Node 和 JDK 7 一样，使用 volatile 关键字，保证多线程操作时，变量的可见性！
+Node 和 JDK 7 一样，使用 volatile 关键字，保证多线程操作时，变量的可见性。
 
 ConcurrentHashMap 实现线程安全的关键点在于 put 流程。
 
@@ -2227,17 +2269,21 @@ final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
 
 第四步，如果都不满足，就使用 synchronized 写入数据，和 HashMap 一样，key 的 hash 一样就覆盖，反之使用拉链法解决哈希冲突，当链表长度超过 8 就转换成红黑树。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093204.png)
+![二哥的 Java 进阶之路：put 源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093204.png)
 
 ConcurrentHashmap JDK 8 put 流程图：
 
-![三分恶面渣逆袭](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
+![三分恶面渣逆袭：Java 8 put 流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
 
 **②、get 查询**
 
-get 很简单，和 HashMap 基本一样。
+get 查询的时候，也是通过 key 的 hash 进行定位，需要注意的是 ConcurrentHashMap 会判断 hash 值是否小于 0。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093353.png)
+![二哥的 Java 进阶之路：HashMap 和 ConcurrentHashMap 的 get 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426103624.png)
+
+如果小于 0，说明是个特殊节点，会调用节点的 find 方法进行查找，比如说 ForwardingNode 的 find 方法或者 TreeNode 的 find 方法。
+
+![ForwardingNode和TreeNode的 find 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426104658.png)
 
 #### 总结一下 HashMap 和 ConcurrentHashMap 的区别？
 
@@ -2251,11 +2297,49 @@ get 很简单，和 HashMap 基本一样。
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240411082351.png)
 
+#### ConcurrentHashMap 对 HashMap 的优化？
+
+ConcurrentHashMap 是 HashMap 的线程安全版本，使用了 CAS、synchronized、volatile 来确保线程安全。
+
+首先是 hash 的计算方法上，ConcurrentHashMap 的 spread 方法接收一个已经计算好的 hashCode，然后将这个哈希码的高 16 位与自身进行异或运算，这里的 HASH_BITS 是一个常数，值为 0x7fffffff，它确保结果是一个非负整数。
+
+```java
+static final int spread(int h) {
+    return (h ^ (h >>> 16)) & HASH_BITS;
+}
+```
+
+比 HashMap 的 hash 计算多了一个 `& HASH_BITS` 的操作。
+
+```java
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
+
+另外，ConcurrentHashMap 对节点 Node 做了进一步的封装，比如说用 Forwarding Node 来表示正在进行扩容的节点。
+
+```java
+static final class ForwardingNode<K,V> extends Node<K,V> {
+    final Node<K,V>[] nextTable;
+    ForwardingNode(Node<K,V>[] tab) {
+        super(MOVED, null, null, null);
+        this.nextTable = tab;
+    }
+}
+```
+
+最后就是 put 方法，通过 CAS + synchronized 来保证线程安全。
+
+![二哥的 Java 进阶之路：ConcurrentHashMap 的源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426105405.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：ConcurrentHashMap 是悲观锁还是乐观锁?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap 和 CurrentHashMap 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ConcurrentHashMap 原理，你项目中怎么用的
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：ConcurrentHashMap、CopyOnWriteArrayList 的实现原理？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：ConcurrentHashMap 怎么保证线程安全？1.7 与 1.8 的差别
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：ConcurrentHashMap 对 HashMap 的优化？ConcurrentHashMap 1.8 比 1.7 的优化在哪里？
 
 ### 65.ConcurrentHashMap 怎么保证可见性？（补充）
 
@@ -2486,6 +2570,7 @@ public class ThreadPoolDemo {
 第四步，当线程空闲时间超出指定时间，且当前线程数量大于核心线程数时，线程会被回收。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：向线程池中提交任务的过程？
 
 ### 47.线程池主要参数有哪些？
 
@@ -2576,6 +2661,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：线程池创建的几个核心参数?
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说说线程池的几个重要参数
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：核心线程和最大线程的区别是什么？核心线程能销毁吗？
 
 ### 48.线程池的拒绝策略有哪些？
 
@@ -3084,7 +3170,7 @@ ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法�
 
 ---
 
-图文详解 69 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+图文详解 68 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

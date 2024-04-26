@@ -140,6 +140,7 @@ Java 基本数据类型范围和默认值：
 - [数组](https://javabetter.cn/array/array.html)（`[]`）
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java的基础数据类型，分别占多少字节
 
 ### 8.自动类型转换、强制类型转换？看看这几行代码？
 

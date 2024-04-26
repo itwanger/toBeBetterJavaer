@@ -164,6 +164,7 @@ Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：讲一下 JVM 内存结构？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 JVM 运行时数据区
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM 内存结构了解吗？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下Java的内存区域，程序计数器等？
 
 ### 3.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -403,10 +404,11 @@ HotSpot 虚拟机主要使用直接指针来进行对象访问。
 ![三分恶面渣逆袭：内存泄漏、内存溢出](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-15.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：了解OOM吗？
 
 ### 11.能手写内存溢出的例子吗？
 
-导致内存溢出（OOM）的原因有很多，比如一次性创建了大量对象导致堆内存溢出。
+导致内存溢出（OOM）的原因有很多，比如一次性创建了大量对象导致堆内存溢出；比如说元空间溢出，抛出 `java.lang.OutOfMemoryError：Metaspace`，比如说栈溢出，如果栈的深度超过了 JVM 栈所允许的深度，将会抛出 StackOverflowError。
 
 #### 能手写堆内存溢出的例子吗？
 
@@ -443,6 +445,7 @@ public class HeapSpaceErrorGenerator {
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java哪些内存区域会发生OOM？为什么？
 
 ### 12.内存泄漏可能由哪些原因导致呢？
 
@@ -1221,16 +1224,6 @@ jmap -dump:format=b,file=heap pid
 
 推荐阅读：[一次内存溢出的排查优化实战](https://javabetter.cn/jvm/oom.html)
 
-在 Java 中，和内存相关的问题主要有两种，内存溢出和内存泄漏。
-
-- **内存溢出**（Out Of Memory）：就是申请内存时，JVM 没有足够的内存空间。通俗说法就是去蹲坑发现坑位满了。
-- **内存泄露**（Memory Leak）：就是申请了内存，但是没有释放，导致内存空间浪费。通俗说法就是有人占着茅坑不拉屎。
-
-内存泄漏是内在病源，外在病症表现可能有：
-
-- CPU 使用率飙升，甚至到 100%
-- 应用程序抛出 `OutOfMemoryError` 错误
-
 严重的**内存泄漏**往往伴随频繁的 **Full GC**，所以排查内存泄漏问题时，需要从 Full GC 入手。主要有以下操作步骤：
 
 第一步，使用 `jps` 查看运行的 Java 进程 ID
@@ -1289,6 +1282,8 @@ Heap dump file created
 在 dump 文析结果中查找存在大量的对象，再查对其的引用。基本上就可以定位到代码层的逻辑了。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：什么是内存泄露
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java哪些内存区域会发生OOM？为什么？
+
 
 ### 41.有没有处理过内存溢出问题？
 
