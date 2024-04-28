@@ -606,6 +606,7 @@ SELECT CONVERT('123', SIGNED INTEGER) AS converted_number;
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：用过哪些 MySQL 函数？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：知道 MySQL 的哪些函数，如 order by count()
 
 ### 77.说说 SQL 的隐式数据类型转换？（补充）
 
