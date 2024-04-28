@@ -198,7 +198,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 最后，JVM 会执行构造方法（`<init>`），将成员变量赋值为预期的值，这样一个对象就创建完成了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240404091445.png)
+![二哥的 Java 进阶之路：对象的创建过程](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240404091445.png)
 
 #### 对象的销毁过程了解吗？
 
