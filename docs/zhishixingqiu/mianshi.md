@@ -86,7 +86,7 @@ head:
 
 [技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
 
-下面是《技术派教程》部分目录（包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇，目前已完成 80+篇），很多球友都反馈说光这套教程就值 599 元。
+下面是《技术派教程》部分目录（包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇，目前已完成 100+篇），很多球友都反馈说光这套教程就值 1999 元。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/acdb224f141042a6c1c3990c794f7048.png)
 
