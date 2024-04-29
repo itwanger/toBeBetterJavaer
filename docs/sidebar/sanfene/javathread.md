@@ -342,6 +342,7 @@ stop 方法用来强制线程停止执行，目前已经处于废弃状态，因
 多核处理器提供了并行执行多个线程的能力。每个核心可以独立执行一个或多个线程，操作系统的任务调度器会根据策略和算法，如优先级调度、轮转调度等，决定哪个线程何时在哪个核心上运行。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：线程可以被多核调度吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：线程上下文切换（我答的内核态和用户态切换时机，和切换需要加载哪些内容）
 
 ### 8.守护线程了解吗？
 
@@ -656,6 +657,7 @@ private volatile boolean flag = false;
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：除了 ThreadLocal，还有什么解决线程安全问题的方法
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 ThreadLocal 的作用和使用场景？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
 
 ### 11.你在工作中用到过 ThreadLocal 吗？
 
@@ -682,6 +684,7 @@ private volatile boolean flag = false;
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 ThreadLocal 的作用和使用场景？
 
+
 ### 12.ThreadLocal 怎么实现的呢？
 
 ThreadLocal 本身并不存储任何值，它只是作为一个映射，来映射线程的局部变量。当一个线程调用 ThreadLocal 的 set 或 get 方法时，实际上是访问线程自己的 ThreadLocal.ThreadLocalMap。
@@ -691,6 +694,12 @@ ThreadLocal 本身并不存储任何值，它只是作为一个映射，来映�
 ThreadLocalMap 是 ThreadLocal 的静态内部类，它内部维护了一个 Entry 数组，key 是 ThreadLocal 对象，value 是线程的局部变量本身。
 
 ![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
+
+早期的 ThreadLocal 不是这样的，它的 ThreadLocalMap 中使用 Thread 作为 key，这也是最简单的实现方式。
+
+![黑马：JDK 早期设计](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240429112840.png)
+
+优化后的方案有两个好处，一个是 Map 中存储的键值对变少了；另一个是 ThreadLocalMap 的生命周期和线程一样长，线程销毁的时候，ThreadLocalMap 也会被销毁。
 
 Entry 继承了 WeakReference，它限定了 key 是一个弱引用，弱引用的好处是当内存不足时，JVM 会回收 ThreadLocal 对象，并且将其对应的 Entry 的 value 设置为 null，这样在很大程度上可以避免内存泄漏。
 
@@ -717,7 +726,7 @@ ThreadLocal 的实现原理就是，每个线程维护一个 Map，key 为 Threa
 
 3、Map 的大小由 ThreadLocal 对象的多少决定。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407205747.png)
+![ThreadLocal 的结构](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407205747.png)
 
 #### 什么是弱引用，什么是强引用？
 
@@ -751,6 +760,7 @@ userThreadLocal.set(new User("沉默王二"));
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：讲讲 ThreadLocal？ThreadLocal 被谁引用？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ThreadLocal 原理，解决什么问题
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
 
 ### 13.ThreadLocal 内存泄露是怎么回事？
 
@@ -841,6 +851,7 @@ public static int nextVariableIndex() {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：ThreadLocal 什么情况下会内存泄漏
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：使用 ThreadLocal 有什么问题吗？如何解决？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：ThreadLocal 有什么缺陷？你了解哪些ThreadLocal的改进方案？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
 
 ### 14.ThreadLocalMap 的源码看过吗？
 
@@ -1141,6 +1152,7 @@ volatile int x = 0
 这意味着 volatile 变量的写操作总是发生在任何后续读操作之前。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：手写单例的过程中提到了 synchronized 和 volatile，顺便问了这两个的实现原理
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：volatile如何保证可见性（cup缓存和主缓存）
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1613,24 +1625,25 @@ Unsafe 对 CAS 的实现是通过 C++ 实现的，它的具体实现和操作系
 Linux 的 X86 下主要是通过 cmpxchgl 这个指令在 CPU 上完成 CAS 操作的，但在多处理器情况下，必须使用 lock 指令加锁来完成。当然，不同的操作系统和处理器在实现方式上肯定会有所不同。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：乐观锁是怎样实现的？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：cas和aba（原子操作+时间戳）
 
 ### 33.CAS 有什么问题？如何解决？
 
-CAS 的经典三大问题：
+CAS 存在三个景点的问题。
 
-![CAS三大问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-44.png)
+![三分恶面渣逆袭：CAS三大问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-44.png)
 
-#### ABA 问题
+#### 什么是 ABA 问题？如何解决？
 
-并发环境下，假设初始条件是 A，去修改数据时，发现是 A 就会执行修改。但是看到的虽然是 A，中间可能发生了 A 变 B，B 又变回 A 的情况。此时 A 已经非彼 A，数据即使成功修改，也可能有问题。
+如果一个位置的值原来是 A，后来被改为 B，再后来又被改回 A，那么进行 CAS 操作的线程将无法知晓该位置的值在此期间已经被修改过。
 
-> 怎么解决 ABA 问题？
+可以使用版本号/时间戳的方式来解决 ABA 问题。
 
-- 加版本号
+比如说，每次变量更新时，不仅更新变量的值，还更新一个版本号。CAS 操作时不仅要求值匹配，还要求版本号匹配。
 
-每次修改变量，都在这个变量的版本号上加 1，这样，刚刚 A->B->A，虽然 A 的值没变，但是它的版本号已经变了，再判断版本号就会发现此时的 A 已经被改过了。参考乐观锁的版本号，这种做法可以给数据带上了一种实效性的检验。
+Java 的 AtomicStampedReference 类就实现了这种机制，它会同时检查引用值和 stamp 是否都相等。
 
-Java 提供了 AtomicStampReference 类，它的 compareAndSet 方法首先检查当前的对象引用值是否等于预期引用，并且当前印戳（Stamp）标志是否等于预期标志，如果全部相等，则以原子方式将引用值和印戳标志的值更新为给定的更新值。
+![二哥的 Java 进阶之路：AtomicStampedReference](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240429114421.png)
 
 #### 循环性能开销
 
@@ -1648,6 +1661,8 @@ CAS 保证的是对一个变量执行操作的原子性，如果对多个变量�
 
 - 可以考虑改用锁来保证操作的原子性
 - 可以考虑合并多个变量，将多个变量封装成一个对象，通过 AtomicReference 来保证原子性。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：cas和aba（原子操作+时间戳）
 
 ### 34.Java 有哪些保证原子性的方法？如何保证多线程下 i++ 结果正确？
 
