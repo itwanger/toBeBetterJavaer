@@ -148,6 +148,7 @@ Java 基本数据类型范围和默认值：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java的基础数据类型，分别占多少字节
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：java的基本类型
 
 
 ### 8.自动类型转换、强制类型转换？看看这几行代码？
@@ -632,7 +633,7 @@ public Person(String name,int age){
 
 ①、当 final 修饰一个类时，表明这个类不能被继承。比如，String 类、Integer 类和其他包装类都是用 final 修饰的。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240415111236.png)
+![二哥的 Java 进阶之路：final 修饰类](https://cdn.tobebetterjavaer.com/stutymore/javase-20240415111236.png)
 
 ②、当 final 修饰一个方法时，表明这个方法不能被重写（Override）。也就是说，如果一个类继承了某个类，并且想要改变父类中被 final 修饰的方法的行为，是不被允许的。
 
@@ -640,13 +641,14 @@ public Person(String name,int age){
 
 如果是基本数据类型的变量，其数值一旦在初始化之后就不能更改；如果是引用类型的变量，在对其初始化之后就不能再让其指向另一个对象。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240415111725.png)
+![二哥的 Java 进阶之路：不能更改](https://cdn.tobebetterjavaer.com/stutymore/javase-20240415111725.png)
 
 但是引用指向的对象内容可以改变。
 
 ![三分恶面渣逆袭：final修饰变量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-13.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 final 关键字
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：final的用处
 
 ### 25.final、finally、finalize 的区别？
 
@@ -1563,7 +1565,7 @@ NIO（New I/O 或 Non-blocking I/O）：采用非阻塞 I/O 模型，线程在�
 
 AIO（Asynchronous I/O）：使用异步 I/O 模型，线程发起 I/O 请求后立即返回，当 I/O 操作完成时通过回调函数通知线程，适用于连接数多且连接时间长的场景。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240404103618.png)
+![二哥的 Java 进阶之路：IO 分类](https://cdn.tobebetterjavaer.com/stutymore/javase-20240404103618.png)
 
 #### 简单说一下 BIO？
 
@@ -1604,6 +1606,7 @@ while (!result.isDone()) {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：BIO NIO 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：BIO、NIO、AIO 的区别？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：说一下阻塞非阻塞IO -说了下BIO和NIO
 
 ## 序列化
 

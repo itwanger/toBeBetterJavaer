@@ -388,6 +388,7 @@ public enum Singleton {
 
 单例模式有 5 种实现方式，常见的有饿汉式、懒汉式、双重检查锁定、静态内部类和枚举。
 
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下单例模式，有几种
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：单例模式的好处
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲讲设计模式，讲讲单例模式有哪些情况（饿汉和懒汉），具体该如何使用

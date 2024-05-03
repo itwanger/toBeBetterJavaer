@@ -25,6 +25,7 @@ head:
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：用过哪些数据库
 
 ### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
 
@@ -1319,7 +1320,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 MySQL 的索引可以显著提高查询的性能，可以从三个不同的维度对索引进行分类（功能、数据结构、存储位置）：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
+![二哥的 Java 进阶之路：索引类型](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
 
 #### 说说从功能上的分类：
 
@@ -1339,7 +1340,7 @@ id 列被指定为主键索引，同时，MySQL 会自动为这个列创建一�
 
 可以通过 `show index from table_name` 查看索引信息，比如前面创建的 users 表：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312090221.png)
+![二哥的 Java 进阶之路：索引信息](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312090221.png)
 
 - `Non_unique` 如果索引不能包含重复词，则为 0；如果可以，则为 1。这可以帮助我们区分是唯一索引还是普通索引。
 - `Key_name` 索引的名称。如果索引是主键，那么这个值是 PRIMARY。
@@ -1356,7 +1357,7 @@ CREATE UNIQUE INDEX idx_username ON users(username);
 
 同样可以通过 `show index from table_name` 确认索引信息：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312091008.png)
+![二哥的 Java 进阶之路：唯一索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312091008.png)
 
 `Non_unique` 为 0，表示这是一个唯一索引。
 
@@ -1376,7 +1377,7 @@ FROM information_schema.statistics
 WHERE `TABLE_NAME` = 'users' AND `TABLE_SCHEMA` = DATABASE();
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312091632.png)
+![二哥的 Java 进阶之路：普通索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312091632.png)
 
 可以确定 idx_email 是一个普通索引，因为 `Non_unique` 为 1。
 
@@ -1438,7 +1439,7 @@ SHOW VARIABLES LIKE 'innodb_adaptive_hash_index';
 
 如果返回的值是 ON，说明自适应哈希索引是开启的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312095811.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312095811.png)
 
 #### 说说从存储位置上分类：
 
@@ -1469,6 +1470,8 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化 SQL？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：索引的分类，创建索引的最佳实践
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：mysql的索引用过哪些
 
 ### 28.为什么使用索引会加快查询？
 
@@ -1513,6 +1516,7 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：查询和更新都频繁的字段是否适合创建索引，为什么
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：索引怎么设计才是最好的
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：MySQL 索引结构，建立索引的策略
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：索引的分类，创建索引的最佳实践
 
 ### 30.索引哪些情况下会失效呢？
 
@@ -2237,6 +2241,7 @@ redo log 是一种物理日志，记录了对数据页的物理更改。当事�
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 默认隔离级别？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 事务的隔离级别，如何实现？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：MySQL 的四个隔离级别以及默认隔离级别？
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：数据库隔离级别有哪些？mysql是属于哪个隔离级别
 
 ### 51.什么是幻读，脏读，不可重复读呢？
 

@@ -164,7 +164,7 @@ Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：讲一下 JVM 内存结构？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 JVM 运行时数据区
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM 内存结构了解吗？
-> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下Java的内存区域，程序计数器等？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 Java 的内存区域，程序计数器等？
 
 ### 3.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -212,7 +212,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：对象创建到销毁的流程
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说创建对象的流程？
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1内存清理和分配）
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
 ### 6.什么是指针碰撞？什么是空闲列表？
 
@@ -236,7 +236,7 @@ JVM 维护一个列表，记录堆中所有未占用的内存块，每个空间�
 
 指针碰撞适用于管理简单、碎片化较少的内存区域（如年轻代），而空闲列表适用于内存碎片化较严重或对象大小差异较大的场景（如老年代）。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1内存清理和分配）
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
 ### 7.JVM 里 new 对象时，堆会发生抢占吗？JVM 是怎么设计来保证线程安全的？
 
@@ -419,7 +419,7 @@ HotSpot 虚拟机主要使用直接指针来进行对象访问。
 ![三分恶面渣逆袭：内存泄漏、内存溢出](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-15.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：了解OOM吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：了解 OOM 吗？
 
 ### 11.能手写内存溢出的例子吗？
 
@@ -460,7 +460,7 @@ public class HeapSpaceErrorGenerator {
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java哪些内存区域会发生OOM？为什么？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 哪些内存区域会发生 OOM？为什么？
 
 ### 12.内存泄漏可能由哪些原因导致呢？
 
@@ -755,13 +755,17 @@ obj = null;
 
 ### 20.Minor GC/Young GC、Major GC/Old GC、Mixed GC、Full GC 都是什么意思？
 
-**部分收集**（Partial GC）：指目标不是完整收集整个 Java 堆的垃圾收集，其中又分为：
+Minor GC 也称为 Young GC，是指发生在年轻代（Young Generation）的垃圾收集。年轻代包含 Eden 区以及两个 Survivor 区。
 
-- 新生代收集（Minor GC/Young GC）：指目标只是新生代的垃圾收集。
-- 老年代收集（Major GC/Old GC）：指目标只是老年代的垃圾收集。目前**只有**CMS 收集器会有单独收集老年代的行为。
-- 混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有 G1 收集器会有这种行为。
+![二哥的 Java 进阶之路：Java 堆划分](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
 
-**整堆收集**（Full GC）：收集整个 Java 堆和方法区的垃圾收集。
+Major GC 也称为 Old GC，主要指的是发生在老年代的垃圾收集。CMS 收集器的特有行为。
+
+Mixed GC 是 G1 垃圾收集器特有的一种 GC 类型，它在一次 GC 中同时清理年轻代和部分老年代。
+
+Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（或元空间）。它是最耗时的 GC，通常在 JVM 压力很大时发生。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：full gc 和 young gc 的区别
 
 ### 21.Minor GC/Young GC 什么时候触发？
 
@@ -782,35 +786,29 @@ obj = null;
 
 ### 23.对象什么时候会进入老年代？
 
-![对象进入老年代](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-27.png)
+对象通常会现在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
 
-**长期存活的对象将进入老年代**
+![三分恶面渣逆袭：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
 
-在对象的对象头信息中存储着对象的迭代年龄,迭代年龄会在每次 YoungGC 之后对象的移区操作中增加,每一次移区年龄加一.当这个年龄达到 15(默认)之后,这个对象将会被移入老年代。
+①、**长期存活的对象将进入老年代**
 
-可以通过这个参数设置这个年龄值。
+对象在年轻代中存活足够长的时间（即经过足够多的垃圾回收周期）后，会晋升到老年代。
 
-```java
-- XX:MaxTenuringThreshold
-```
+每次 GC 未被回收的对象，其年龄会增加。当对象的年龄超过一个特定阈值（默认通常是 15），它就会被移动到老年代。这个年龄阈值可以通过 JVM 参数`-XX:MaxTenuringThreshold`来设置。
 
-**大对象直接进入老年代**
+②、**大对象直接进入老年代**
 
-有一些占用大量连续内存空间的对象在被加载就会直接进入老年代.这样的大对象一般是一些数组,长字符串之类的对。
+为了避免在年轻代中频繁复制大对象，JVM 提供了一种策略，允许大对象直接在老年代中分配。
 
-HotSpot 虚拟机提供了这个参数来设置。
+这些是所谓的“大对象”，其大小超过了预设的阈值（由 JVM 参数`-XX:PretenureSizeThreshold`控制）。直接在老年代分配可以减少在年轻代和老年代之间的数据复制。
 
-```java
--XX：PretenureSizeThreshold
-```
+③、**动态对象年龄判定**
 
-**动态对象年龄判定**
+除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和总空间等因素动态调整对象的晋升策略。
 
-为了能更好地适应不同程序的内存状况，HotSpot 虚拟机并不是永远要求对象的年龄必须达到- XX：MaxTenuringThreshold 才能晋升老年代，如果在 Survivor 空间中相同年龄所有对象大小的总和大于 Survivor 空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代。
+> 如果在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
 
-**空间分配担保**
-
-假如在 Young GC 之后，新生代仍然有大量对象存活，就需要老年代进行分配担保，把 Survivor 无法容纳的对象直接送入老年代。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
 
 ### 24.知道哪些垃圾收集器？
 
@@ -918,7 +916,7 @@ CMS（Concurrent Mark Sweep）分 4 大步进行垃圾收集：
 - **并发清除**（Concurrent Sweep）：清除未被标记的对象，回收它们占用的内存空间。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1内存清理和分配）
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
 ### 27.G1 垃圾收集器了解吗？
 
@@ -945,7 +943,7 @@ G1 收集器的运行过程大致可划分为这几个步骤：
 ![三分恶面渣逆袭：G1收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-36.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 G1 垃圾回收器的原理
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1内存清理和分配）
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
 ### 28.有了 CMS，为什么还要引入 G1？
 
@@ -1299,8 +1297,7 @@ Heap dump file created
 在 dump 文析结果中查找存在大量的对象，再查对其的引用。基本上就可以定位到代码层的逻辑了。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：什么是内存泄露
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java哪些内存区域会发生OOM？为什么？
-
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 哪些内存区域会发生 OOM？为什么？
 
 ### 41.有没有处理过内存溢出问题？
 
