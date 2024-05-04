@@ -1,1 +1,0 @@
-import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o,c as t,a as s}from"./app-23957fcb.js";const c={},n=s("p",null,"索引",-1),_=[n];function r(a,l){return o(),t("div",null,_)}const m=e(c,[["render",r],["__file","suoyin.html.vue"]]);export{m as default};
