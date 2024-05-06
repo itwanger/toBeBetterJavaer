@@ -1972,6 +1972,7 @@ Spring MVC 是基于模型-视图-控制器的 Web 框架，它的工作流程�
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说前端发起请求到 SpringMVC 的整个处理流程。
 > 2.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 SpringMVC 的流程吧
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经同学 5 Java 后端面试原题：springMVC工作流程 我大概就是按面渣逆袭里答的，答到一半打断我：然后会有个Handler，这个Handler是什么东西啊。前面Handler不是已经知道controller了吗，我直接执行不就行了，为什么还要Adapter呢。
 
 ### 30.SpringMVC Restful 风格的接口的流程是什么样的呢？
 
