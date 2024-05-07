@@ -112,9 +112,13 @@ Redis 有五种基本数据类型，这五种数据类型分别是：string（�
 - 缓存用户信息
 - 缓存对象
 
-来感受一下，用户字符串类型存储用户信息和用哈希类型存储用户信息的区别：
+#### 什么使用hash类型而不使用string类型序列化存储？
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315115713.png)
+来感受一下，使用字符串类型存储用户信息和使用哈希类型存储用户信息的区别：
+
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315115713.png)
+
+可以看得出，使用 hash 比使用 string 更便于进行序列化，我们可以将一整个用户对象序列化，然后作为一个 value 存储在 Redis 中，存取更加便捷。
 
 #### 简单介绍下 list
 
@@ -138,7 +142,7 @@ list 是一个简单的字符串列表，按照插入顺序排序。可以添加
 
 Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120652.png)
+![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120652.png)
 
 主要应用场景有：
 
@@ -147,7 +151,7 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 
 比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就使用 Zset 来实现了用户月度活跃排行榜。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
+![技术派用户活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
@@ -155,6 +159,7 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 的数据类型
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Redis 常用的数据结构
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：项目中使用了redis，redis有哪些数据类型？分别使用的场景是什么？什么使用hash类型而不使用string类型序列化存储？
 
 ### 4.Redis 为什么快呢？
 
@@ -1040,7 +1045,7 @@ redis.del(product_id)
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 
-在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就采用了本地缓存 Caffeine + Redis 缓存的策略。分布式缓存基本就是采用 Redis。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就采用了本地缓存 Caffeine（或者 Guava Cache） + Redis 缓存的策略。分布式缓存基本就是采用 Redis。
 
 ![三分恶面渣逆袭：延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6d4ab7e6-8337-4576-bbf0-79202a1c3331.png)
 
@@ -1056,7 +1061,24 @@ redis.del(product_id)
 
 ③、Redis 缓存发生变化时，引入消息队列，比如 RocketMQ、RabbitMQ 去更新本地缓存。
 
+在技术派实战项目中，我们使用了 CacheBuilder 来完成 Guava Cache 的构建，像一些简单的缓存场景，比如说获取菜单分类、获取登录验证码、获取用户转存图片等，都使用了 Guava Cache。
+
+![技术派教程：Guava](https://cdn.tobebetterjavaer.com/stutymore/redis-20240507105407.png)
+
+像首页侧边栏、专栏侧边栏、文章详情侧边栏等缓存场景，使用了 Caffeine 作为本地缓存，代码是通过 @Cacheable、@CacheEvit、@CachePut 等注解实现的。
+
+![技术派教程：Caffeine](https://cdn.tobebetterjavaer.com/stutymore/redis-20240507110254.png)
+
+像用户 Session 和网站地图 SiteMap 等缓存场景，我们就使用了 Redis 来作为缓存。
+
+![技术派教程：Redis](https://cdn.tobebetterjavaer.com/stutymore/redis-20240507110652.png)
+
+#### 如果在项目中多个地方都要使用到二级缓存的逻辑，如何设计这一块？
+
+在设计时，应该清楚地区分何时使用一级缓存和何时使用二级缓存。通常情况下，对于频繁访问但不经常更改的数据，可以放在本地缓存中以提供最快的访问速度。而对于需要共享或者一致性要求较高的数据，应当放在一级缓存中。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：怎么保证二级缓存和 Redis 缓存的数据一致性？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：使用的guava cache和redis是如何组合使用的？如果在项目中多个地方都要使用到二级缓存的逻辑，如何设计这一块？
 
 ### 30.怎么处理热 key？
 
