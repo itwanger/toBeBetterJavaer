@@ -185,6 +185,7 @@ private E dequeue() {
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Java容器有哪些？List、Set还有Map的区别？
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：java有哪些集合
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：java中的集合类型？哪些是线程安全的？
+> 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：Java集合有哪些？
 
 ## List
 
@@ -284,12 +285,23 @@ ArrayList 通过两个方法**readObject、writeObject**自定义序列化和反
 
 ### 6.有哪几种实现 ArrayList 线程安全的方法？
 
-fail-fast 是一种可能触发的机制，实际上，ArrayList 的线程安全仍然没有保证，一般，保证 ArrayList 的线程安全可以通过这些方案：
+可以使用 `Collections.synchronizedList()` 方法，它将返回一个线程安全的 List。
 
-- 使用 Vector 代替 ArrayList。（不推荐，Vector 是一个历史遗留类）
-- 使用 Collections.synchronizedList 包装 ArrayList，然后操作包装后的 list。
-- 使用 CopyOnWriteArrayList 代替 ArrayList。
-- 在使用 ArrayList 时，应用程序通过同步机制去控制 ArrayList 的读写。
+```java
+SynchronizedList list = Collections.synchronizedList(new ArrayList());
+```
+
+内部是通过 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)加锁来实现的。
+
+也可以直接使用 [CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)，它是线程安全的，遵循写时复制的原则，每当对列表进行修改（例如添加、删除或更改元素）时，都会创建列表的一个新副本，这个新副本会替换旧的列表，而对旧列表的所有读取操作仍然可以继续。
+
+```java
+CopyOnWriteArrayList list = new CopyOnWriteArrayList();
+```
+
+通俗的讲，CopyOnWrite 就是当我们往一个容器添加元素的时候，不直接往容器中添加，而是先复制出一个新的容器，然后在新的容器里添加元素，添加完之后，再将原容器的引用指向新的容器。多个线程在读的时候，不需要加锁，因为当前容器不会添加任何元素。这样就实现了线程安全。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：线程不安全的集合变成线程安全的方法？
 
 ### 7.CopyOnWriteArrayList 了解多少？
 
@@ -1070,11 +1082,11 @@ Hashtable 也是线程安全的，但它的使用已经不再推荐使用，因�
 
 ①、HashTable 是直接在方法上加 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)，比较粗暴。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240323125211.png)
+![二哥的 Java 进阶之路：HashTable](https://cdn.tobebetterjavaer.com/stutymore/collection-20240323125211.png)
 
 ②、`Collections.synchronizedMap` 返回的是 [Collections](https://javabetter.cn/common-tool/collections.html) 工具类的内部类。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240323125418.png)
+![二哥的 Java 进阶之路：Collections.synchronizedMap](https://cdn.tobebetterjavaer.com/stutymore/collection-20240323125418.png)
 
 内部是通过 synchronized 对象锁来保证线程安全的。
 
@@ -1086,12 +1098,13 @@ Hashtable 也是线程安全的，但它的使用已经不再推荐使用，因�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Java 中的线程安全的集合是什么？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：HashMap 为什么不安全，如何改进，以及 ConcurrentHashMap
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：知道哪些线程安全的集合类型？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：线程不安全的集合变成线程安全的方法？
 
-### 27.HashMap 内部节点是有序的吗？
+### 26.HashMap 内部节点是有序的吗？
 
 HashMap 是无序的，根据 hash 值随机插入。如果想使用有序的 Map，可以使用 LinkedHashMap 或者 TreeMap。
 
-### 28.讲讲 LinkedHashMap 怎么实现有序的？
+### 27.讲讲 LinkedHashMap 怎么实现有序的？
 
 LinkedHashMap 维护了一个双向链表，有头尾节点，同时 LinkedHashMap 节点 Entry 内部除了继承 HashMap 的 Node 属性，还有 before 和 after 用于标识前置节点和后置节点。
 
@@ -1101,7 +1114,7 @@ LinkedHashMap 维护了一个双向链表，有头尾节点，同时 LinkedHashM
 
 ![LinkedHashMap实现原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-34.png)
 
-### 29.讲讲 TreeMap 怎么实现有序的？
+### 28.讲讲 TreeMap 怎么实现有序的？
 
 TreeMap 通过 key 的比较器来决定元素的顺序，如果没有指定比较器，那么 key 必须实现 [Comparable 接口](https://javabetter.cn/collection/comparable-omparator.html)。
 
@@ -1115,7 +1128,7 @@ TreeMap 的底层是红黑树，红黑树是一种自平衡的二叉查找树，
 
 查找的时候通过从根节点开始，利用二叉查找树的性质，逐步向左或者右子树递归查找，直到找到目标元素。
 
-#### TreeMap 和 HashMap 的区别
+### 29.TreeMap 和 HashMap 的区别
 
 ①、HashMap 是基于数组+链表+红黑树实现的，put 元素的时候会先计算 key 的哈希值，然后通过哈希值计算出数组的索引，然后将元素插入到数组中，如果发生哈希冲突，会使用链表来解决，如果链表长度大于 8，会转换为红黑树。
 
