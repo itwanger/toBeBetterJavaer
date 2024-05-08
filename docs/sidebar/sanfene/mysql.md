@@ -17,15 +17,14 @@ head:
 
 ### 0.什么是 MySQL？
 
-我经常使用的数据库是 MySQL，它是一个开源的关系型数据库管理系统，现在隶属于 Oracle 旗下。
-
-也是我们国内使用频率最高的一种数据库，我在本地安装的 MySQL 的社区版，最新的 8.0 版本。
+MySQL 是一个开源的关系型数据库管理系统，现在隶属于 Oracle 旗下。MySQL 也是我们国内使用频率最高的一种数据库，我在本地安装的是最新的 8.0社区版。
 
 ![MySQL 官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1992b6dd-1c1d-4b8b-b98a-8407e8c51ff9.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：用过哪些数据库
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：了解MySQL、Redis吗？
 
 ### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
 

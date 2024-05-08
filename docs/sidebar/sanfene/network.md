@@ -246,6 +246,7 @@ HTTP 遵循标准的客户端-服务器模型，客户端打开连接以发出�
 客户端发送一个请求到服务器，服务器处理请求并返回一个响应。这个过程是同步的，也就是说，客户端在发送请求后必须等待服务器的响应。在等待响应的过程中，客户端不会发送其他请求。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：什么是 HTTP？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：HTTP传送请求的一次流程
 
 ### 13.说一下 HTTP 的报文结构？
 
@@ -1273,6 +1274,7 @@ UDP 是无连接的，发送数据之前不需要建立连接，发送完毕也�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 TCP 和 UDP 的区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：tcp 和 udp 的区别？QQ 用的协议？它如何保证消息的不丢失？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：UDP和TCP的区别？
 
 ### 45.为什么 QQ 采用 UDP 协议？
 
