@@ -149,6 +149,7 @@ Java 基本数据类型范围和默认值：
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 的基础数据类型，分别占多少字节
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：java 的基本类型
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：说说 8 大数据类型?
 
 ### 8.自动类型转换、强制类型转换？看看这几行代码？
 
@@ -168,14 +169,12 @@ Java 所有的数值型变量可以相互转换，当把一个表数范围小的
 
 而 short s1 = 1; s1 += 1;可以正确编译，因为 s1+= 1;相当于 s1 = (short(s1 + 1);其中有隐含的强制类型转换。
 
-### 9.什么是自动拆箱/封箱？
+### 9.什么是自动拆箱/装箱？
 
-- **装箱**：将基本类型用它们对应的引用类型包装起来；
-- **拆箱**：将包装类型转换为基本数据类型；
+- **装箱**：将基本数据类型转换为包装类型（Byte、Short、Integer、Long、Float、Double、Character、Boolean）。
+- **拆箱**：将包装类型转换为基本数据类型。
 
-Java 可以自动对基本数据类型和它们的包装类进行装箱和拆箱。
-
-![装箱和拆箱](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-8.png)
+![三分恶面渣逆袭:装箱和拆箱](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-8.png)
 
 举例：
 
@@ -183,6 +182,8 @@ Java 可以自动对基本数据类型和它们的包装类进行装箱和拆箱
 Integer i = 10;  //装箱
 int n = i;   //拆箱
 ```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：对应有哪些包装器类？
 
 ### 10.&和&&有什么区别？
 
@@ -599,7 +600,38 @@ public Person(String name,int age){
 
 抽象类符合 is-a 的关系，而接口更像是 has-a 的关系，比如说一个类可以序列化的时候，它只需要实现 Serializable 接口就可以了，不需要去继承一个序列化类。
 
+#### 抽象类可以定义构造方法吗？
+
+可以，抽象类可以有构造方法。
+
+```java
+abstract class Animal {
+    protected String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public abstract void makeSound();
+}
+
+public class Dog extends Animal {
+    private int age;
+
+    public Dog(String name, int age) {
+        super(name);  // 调用抽象类的构造函数
+        this.age = age;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println(name + " says: Bark");
+    }
+}
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：抽象类和接口有什么区别？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：抽象类和接口的区别？抽象类可以定义构造方法吗？
 
 ### 22.成员变量与局部变量的区别有哪些？
 
