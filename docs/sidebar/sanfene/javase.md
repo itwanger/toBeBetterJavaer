@@ -113,7 +113,8 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 7.Java 有哪些数据类型？
 
-> 推荐阅读：[Java 的数据类型](https://javabetter.cn/basic-grammar/basic-data-type.html)
+> 推荐阅读1：[Java 的数据类型](https://javabetter.cn/basic-grammar/basic-data-type.html)
+> 推荐阅读 2：[面试官竟然问我这么简单的题目：Java 中 boolean 占多少字节？](https://mp.weixin.qq.com/s/KMDlAf5sXQCn8LJz-RJRgA)
 
 Java 的数据类型分两种：**基本数据类型**和**引用数据类型**。
 
@@ -131,7 +132,7 @@ Java 基本数据类型范围和默认值：
 
 | 数据类型 | 默认值   | 大小   |
 | -------- | -------- | ------ |
-| boolean  | false    | 1 比特 |
+| boolean  | false    | 4字节 |
 | char     | '\u0000' | 2 字节 |
 | byte     | 0        | 1 字节 |
 | short    | 0        | 2 字节 |
@@ -145,6 +146,12 @@ Java 基本数据类型范围和默认值：
 - [类](https://javabetter.cn/oo/object-class.html)（class）
 - [接口](https://javabetter.cn/oo/interface.html)（interface）
 - [数组](https://javabetter.cn/array/array.html)（`[]`）
+
+#### 为什么 boolean 占四个字节？
+
+如果 boolean 是 单独使用的，它会被编译为 int 类型，占用 4 个字节。
+
+如果 boolean 是作为数组的元素，它会被编译为 byte 类型，占用 1 个字节。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 的基础数据类型，分别占多少字节
