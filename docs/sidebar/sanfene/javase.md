@@ -637,8 +637,16 @@ public class Dog extends Animal {
 }
 ```
 
+#### 继承和抽象的区别？
+
+继承是一种允许子类继承父类属性和方法的机制。通过继承，子类可以重用父类的代码。
+
+抽象是一种隐藏复杂性和只显示必要部分的技术。在面向对象编程中，抽象可以通过抽象类和接口实现。
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：抽象类和接口有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：抽象类和接口的区别？抽象类可以定义构造方法吗？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：继承和抽象的区别
 
 ### 22.成员变量与局部变量的区别有哪些？
 

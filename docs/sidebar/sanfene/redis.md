@@ -55,6 +55,7 @@ head:
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：项目里哪里用到了 Redis
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的360面经同学 3 Java 后端技术一面面试原题：用过redis吗 用来干什么
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：了解MySQL、Redis吗？
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：项目中什么地方使用了redis缓存，redis为什么快？
 
 ### 2.Redis 可以用来干什么？
 
@@ -180,6 +181,7 @@ Redis 的速度⾮常快，单机的 Redis 就可以⽀撑每秒十几万的并�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：单线程的 Redis 为什么这么快？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：Redis 为什么这么快？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：项目中什么地方使用了redis缓存，redis为什么快？
 
 ### 5.能说一下 I/O 多路复用吗？
 
@@ -1553,9 +1555,9 @@ Redis 实现分布式锁的本质，就是在 Redis 里面占一个“茅坑”�
 
 ①、**V1：setnx 命令**
 
-占坑一般使用 `setnx(set if not exists)` 指令，只允许被一个客户端占坑。先来先占， 用完了再调用 del 指令释放茅坑。
+占坑一般使用 `setnx(set if not exists)` 指令，只允许被一个客户端占坑。先来先占，用完了再调用 del 指令释放茅坑。
 
-![setnx(set if not exists)](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a5bddceb-66f6-4965-9f16-05d7179697fc.png)
+![三分恶面渣逆袭：setnx(set if not exists)](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a5bddceb-66f6-4965-9f16-05d7179697fc.png)
 
 ```java
 > setnx lock:fighter true
@@ -1571,7 +1573,7 @@ OK
 
 所以在拿到锁之后，可以给锁加上一个过期时间，比如 5s，这样即使中间出现异常也可以保证 5 秒之后锁会自动释放。
 
-![锁超时释放](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2d3de973-c910-4efe-93e9-cfd50f84c91a.png)
+![三分恶面渣逆袭：锁超时释放](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2d3de973-c910-4efe-93e9-cfd50f84c91a.png)
 
 ```java
 > setnx lock:fighter true
@@ -1590,7 +1592,7 @@ OK
 
 上面的问题在 Redis 2.8 版本中得到了解决，这个版本加入了 set 指令的扩展参数，使得 setnx 和 expire 指令可以一起执行。
 
-![set原子指令](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-710cdd19-98ea-4e96-b579-ff1ebb0d5de9.png)
+![三分恶面渣逆袭：set原子指令](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-710cdd19-98ea-4e96-b579-ff1ebb0d5de9.png)
 
 ```
 > set lock:fighter3 true ex 5 nx
@@ -1604,7 +1606,7 @@ OK ... do something critical ...
 - `EX 5` 设置这个键的过期时间为 5 秒。这意味着如果锁的持有者没有在 5 秒内释放锁（比如因为崩溃或其他原因），锁会自动被释放，以防止死锁。
 - `NX` 保证只有当 `lock:fighter3` 不存在时，即锁未被其他客户端持有时，当前操作才会成功设置键，从而实现加锁。如果锁已经存在，则命令不会执行任何操作。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174441.png)
+![悟空聊架构 Redis 分布式锁](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174441.png)
 
 > 图片来源于：[悟空聊架构 Redis 分布式锁](https://my.oschina.net/u/4499317/blog/5039486)
 
@@ -1636,6 +1638,7 @@ try {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：分布式锁用了 Redis 的什么数据结构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redisson 的底层原理？以及与 SETNX 的区别？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：redis分布式锁的实现原理？setnx？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
