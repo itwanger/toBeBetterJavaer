@@ -364,6 +364,7 @@ HashMap 的初始容量是 16，随着元素的不断添加，HashMap 的容量�
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下 HashMap 数据库结构 和 一些重要参数
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：HashMap的底层实现，它为什么是线程不安全的？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：HashMap的结构？
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：hashmap的底层实现原理、put()方法实现流程、扩容机制？
 
 ### 9.你对红黑树了解多少？为什么不用二叉树/平衡树呢？
 
@@ -407,7 +408,7 @@ HashMap 的初始容量是 16，随着元素的不断添加，HashMap 的容量�
 
 ### 11.HashMap 的 put 流程知道吗？
 
-先上个流程图吧:
+直接看流程图。
 
 ![三分恶面渣逆袭：HashMap插入数据流程图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-13.jpg)
 
@@ -481,6 +482,7 @@ if (++size > threshold)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：hashcode 和 equals 方法只重写一个行不行，只重写 equals 没重写 hashcode，map put 的时候会发生什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：HashMap的put过程
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：hashmap的底层实现原理、put()方法实现流程、扩容机制？
 
 ### 12.HashMap 怎么查找元素的呢？
 
@@ -900,7 +902,7 @@ static int indexFor(int h, int length) {
 
 取模运算后，键发生了哈希冲突，都到 `table[1]` 上了。那么扩容前就是这个样子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
+![二哥的 Java 进阶之路：扩容前](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
 
 数组的容量为 2，key 为 3、7、5 的元素在 `table[1]` 上，需要通过拉链法来解决哈希冲突。
 
@@ -912,7 +914,7 @@ static int indexFor(int h, int length) {
 - key 7 取模（7%4）后是 3，放在 `table[3]` 上的链表头部。
 - key 5 取模（5%4）后是 1，放在 `table[1]` 上。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
+![二哥的 Java 进阶之路： JDK7扩容后](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
 
 7 跑到 3 的前面了，因为 JDK 7 使用的是头插法。
 
@@ -1005,10 +1007,11 @@ final int hash(Object k) {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么是 2 次幂 到什么时候开始扩容 扩容机制流程
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：说说 HashMap 的扩容机制，1.8 扩容具体实现
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：map 集合在使用时候一般都需要写容量值？为什么要写？扩容机制？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：hashmap的底层实现原理、put()方法实现流程、扩容机制？
 
-### 22.jdk1.8 对 HashMap 主要做了哪些优化呢？为什么？
+### 22.JDK8 对 HashMap 主要做了哪些优化呢？为什么？
 
-jdk1.8 的 HashMap 主要有五点优化：
+JDK8 的 HashMap 主要有五点优化：
 
 1. **数据结构**：数组 + 链表改成了数组 + 链表或红黑树
 

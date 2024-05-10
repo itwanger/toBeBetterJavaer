@@ -621,8 +621,6 @@ Spring 中 Bean 的生命周期大致分为四个阶段：**实例化**（Instan
 
 ![三分恶面渣逆袭：Spring Bean生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
 
-> 可以通过 `@Component`、`@Service`、`@Repository`、`@Controller`等注解来定义 Bean。
-
 - **实例化**：Spring 容器根据 Bean 的定义创建 Bean 的实例，相当于执行构造方法，也就是 new 一个对象。
 - **属性赋值**：相当于执行 setter 方法为字段赋值。
 - **初始化**：初始化阶段允许执行自定义的逻辑，比如设置某些必要的属性值、开启资源、执行预加载操作等，以确保 Bean 在使用之前是完全配置好的。
@@ -888,6 +886,7 @@ LifecycleDemoBean: customDestroy（自定义销毁方法）
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring中bean生命周期
 
 ### 10.Bean 定义和依赖定义有哪些方式？
 
@@ -1076,15 +1075,9 @@ Spring 的 Bean 主要支持五种作用域：
 
 ### 15.说说循环依赖?
 
-**什么是循环依赖？**
-
-先上图：
-
-![三分恶面渣逆袭：Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
-
 A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
 
-![三分恶面渣逆袭：鸡和蛋](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-0035fd25-2972-4642-a8ec-ee44a566a5bd.png)
+![三分恶面渣逆袭：Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
 
 当然了，循环依赖只发生在 Singleton 作用域的 Bean 之间，因为如果是 Prototype 作用域的 Bean，Spring 会直接抛出异常。
 
@@ -1142,13 +1135,11 @@ public class DemoApplication {
 
 运行结果：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310202703.png)
+![二哥的 Java 进阶之路：循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310202703.png)
 
 在这个示例中，当 Spring 应用启动并尝试获取 PrototypeBeanA 或 PrototypeBeanB 的实例时，将会遇到问题。因为它们互相依赖，而 Spring 无法解决 Prototype 作用域 bean 的循环依赖问题。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
-
-**Spring 可以解决哪些情况的循环依赖？**
+#### Spring 可以解决哪些情况的循环依赖？
 
 看看这几种情形（AB 循环依赖）：
 
@@ -1166,21 +1157,21 @@ public class DemoApplication {
 
 简单总结下，当循环依赖的实例都采用 setter 方法注入时，Spring 支持，都采用构造器注入的时候，不支持；构造器注入和 setter 注入同时存在的时候，看天（😂）。
 
-> 1. [Java 面试指南福分]
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 
 ### 16.那 Spring 怎么解决循环依赖的呢？
 
 > 开发人员做好设计，别让 Bean 循环依赖，但面试官既然这么傻逼地问了这个问题，肯定不想听这个最正确的答案（😂）。只能硬着头皮作答了。
 
-我们都知道，Singleton 的 Bean 要初始化完成，需要经历这三步：
+我们知道，Singleton 的 Bean 要初始化完成，需要经历这三步：
 
 ![三分恶面渣逆袭：Bean初始化步骤](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-867066f1-49d1-4e57-94f9-4c66a3a8797e.png)
 
 注入发生在第二步，**属性赋值**，Spring 可以在这一步通过**三级缓存**来解决了循环依赖：
 
-1.  一级缓存 : `Map<String,Object>` **singletonObjects**，单例池，用于保存实例化、属性赋值（注入）、初始化完成的 bean 实例
-2.  二级缓存 : `Map<String,Object>` **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
-3.  三级缓存 : `Map<String,ObjectFactory<?>>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便后面有机会创建代理对象。
+1. 一级缓存 : `Map<String,Object>` **singletonObjects**，单例池，用于保存实例化、属性赋值（注入）、初始化完成的 bean 实例
+2. 二级缓存 : `Map<String,Object>` **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
+3. 三级缓存 : `Map<String,ObjectFactory<?>>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便后面有机会创建代理对象。
 
 ![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
 
@@ -1215,6 +1206,7 @@ A 实例的初始化过程：
 如果都是构造器注入的话，那么都得在实例化这一步完成注入，没有可操作的空间。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring如何解决循环依赖？
 
 ### 17.为什么要三级缓存？⼆级不⾏吗？
 
@@ -2051,6 +2043,7 @@ Spring Boot 的优点非常多，比如说：
 7. 配合 Spring Cloud 可以快速构建微服务架构。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经中出现过该题：讲讲 Spring Boot 的特性。
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：SpringBoot基本原理
 
 ### 36.SpringBoot 和 SpringMVC 的区别？（补充）
 
@@ -2138,6 +2131,7 @@ Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 如何做到启动的时候注入一些 bean
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 Spring Boot 的自动装配原理
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：spring boot 的自动装配
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：SpringBoot如何实现自动装配
 
 ### 33.如何自定义一个 SpringBoot Srarter?
 

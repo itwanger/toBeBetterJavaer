@@ -742,7 +742,7 @@ MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。MEM
 ![MySQL 官网：innodb-limits.html](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408074630.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 支持哪些存储引擎?
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：innodb引擎和hash引擎有什么区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：innodb 引擎和 hash 引擎有什么区别
 
 ### 17.那存储引擎应该怎么选择？
 
@@ -1281,7 +1281,7 @@ SELECT * FROM B WHERE id = 1;
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说 SQL 该如何优化
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 索引如何优化？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化 SQL？
-> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：了解mysql怎么优化吗
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：了解 mysql 怎么优化吗
 
 ### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
 
@@ -1642,6 +1642,18 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是�
 
 这样做的好处是，非叶子节点上由于没有存储数据，就可以存储更多的键值对，再加上叶子节点构成了一个有序链表，范围查询时就可以直接通过叶子节点间的指针顺序访问整个查询范围内的所有记录，而无需对树进行多次遍历。查询的效率会更高。
 
+#### B+树的页是单向链表还是双向链表？如果从大值向小值检索，如何操作？
+
+B+树的叶子节点是通过双向链表连接的，这样可以方便范围查询和反向遍历。
+
+- 当执行范围查询时，可以从范围的开始点或结束点开始，向前或向后遍历，这使得查询更为灵活。
+- 在需要对数据进行逆序处理时，双向链表非常有用。
+
+如果需要在 B+树中从大值向小值进行检索，可以按以下步骤操作：
+
+- 定位到最右侧节点：首先，找到包含最大值的叶子节点。这通常通过从根节点开始向右遍历树的方式实现。
+- 反向遍历：一旦定位到了最右侧的叶子节点，可以利用叶节点间的双向链表向左遍历。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 B+树，为什么 3 层容纳 2000W 条，为什么 2000w 条数据查的快
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：说说 MySQL 的底层数据结构，B 树和 B+树的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：MySQL 为什么选用 B+树
@@ -1649,6 +1661,7 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是�
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：MySQL 索引结构，建立索引的策略
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：MySQL 索引结构，为什么用 B+树？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经同学 5 Java 后端面试原题：数据库索引讲一下，然后为什么会加快查询速度，我讲到了 B+树，然后问了 B 数与 B+树区别
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：B+树的页是单向链表还是双向链表？如果从大值向小值检索，如何操作？
 
 ### 34.那一棵 B+树能存储多少条数据呢？
 
@@ -1687,15 +1700,13 @@ MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，B+树是�
 
 ### 35.为什么要用 B+ 树，而不用普通二叉树？
 
-可以从几个维度去看这个问题，查询是否够快，效率是否稳定，存储数据多少，以及查找磁盘次数。
+普通二叉树存在退化的情况，如果它退化成链表，就相当于全表扫描。
 
-**为什么不用普通二叉树？**
+#### 为什么不用平衡二叉树呢？
 
-普通二叉树存在退化的情况，如果它退化成链表，相当于全表扫描。平衡二叉树相比于二叉查找树来说，查找效率更稳定，总体的查找速度也更快。
+读取数据的时候，是从磁盘先读到内存。平衡二叉树的每个节点只存储一个键值和数据，而 B+ 树可以存储更多的节点数据，树的高度也会降低，因此读取磁盘的次数就会下降，查询效率就快。
 
-**为什么不用平衡二叉树呢？**
-
-读取数据的时候，是从磁盘读到内存。如果树这种数据结构作为索引，那每查找一次数据就需要从磁盘中读取一个节点，也就是一个磁盘块，但是平衡二叉树可是每个节点只存储一个键值和数据的，如果是 B+ 树，可以存储更多的节点数据，树的高度也会降低，因此读取磁盘的次数就降下来啦，查询效率就快。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：MySQL 索引为什么使用 B+树而不是用别的数据结构？
 
 ### 36.为什么用 B+ 树而不用 B 树呢？
 
@@ -1725,6 +1736,7 @@ B+树中所有叶子节点深度相同，所有数据查询路径长度相等，
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：聚簇索引和非聚簇索引的区别？B+树叶子节点除了存数据还有什么？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：b 树和 b+树有什么区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：MySQL 索引为什么使用 B+树而不是用别的数据结构？
 
 ### 37.Hash 索引和 B+ 树索引区别是什么？
 
