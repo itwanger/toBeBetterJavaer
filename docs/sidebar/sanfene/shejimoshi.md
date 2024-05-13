@@ -464,6 +464,7 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：谈谈对gpt的了解，大语言模型的原理，基于大模型如何去和一些业务做结合，有什么场景可以做，项目中用了哪些设计模式 
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：if else过多怎么解决？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：设计模式，策略模式
 
 ---
 

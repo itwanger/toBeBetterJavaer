@@ -189,6 +189,54 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![三分恶面渣逆袭：“奉先我儿”](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5994e202-0d59-4a86-8f79-a17a5d0bd3d3.png)
 
+使用 C 语言在 Unix/Linux 环境下通过匿名管道实现两个进程（通常是父子进程）之间通信的示例：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+int main() {
+    int pipefd[2];
+    pid_t cpid;
+    char buf;
+
+    // 创建管道
+    if (pipe(pipefd) == -1) {
+        perror("pipe");
+        exit(EXIT_FAILURE);
+    }
+
+    // 创建子进程
+    cpid = fork();
+    if (cpid == -1) {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
+
+    if (cpid == 0) {    /* 子进程 */
+        close(pipefd[1]);  // 关闭写端
+
+        // 从管道读取数据
+        while (read(pipefd[0], &buf, 1) > 0)
+            write(STDOUT_FILENO, &buf, 1);
+
+        write(STDOUT_FILENO, "\n", 1);
+        close(pipefd[0]);
+        exit(EXIT_SUCCESS);
+    } else {            /* 父进程 */
+        close(pipefd[0]);  // 关闭读端
+
+        // 向管道写入数据
+        write(pipefd[1], "Hello, Child!", 13);
+        close(pipefd[1]);  // 关闭写端，触发EOF
+        wait(NULL);        // 等待子进程退出
+        exit(EXIT_SUCCESS);
+    }
+}
+```
+
 ②、**命名管道**：允许无亲缘关系的进程通信，通过在文件系统中创建一个特殊类型的文件来实现。
 
 缺点：管道的效率低，不适合进程间频繁地交换数据。
@@ -252,6 +300,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：进程和线程区别，线程共享内存和进程共享内存的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：进程间如何通信
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说你对 JVM 调优的了解
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：进程间的通信方式，代码使用匿名管道使两个进程通信
 
 ### 13、进程和线程的联系和区别？
 

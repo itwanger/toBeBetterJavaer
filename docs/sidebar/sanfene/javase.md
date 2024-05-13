@@ -607,6 +607,8 @@ public Person(String name,int age){
 
 抽象类符合 is-a 的关系，而接口更像是 has-a 的关系，比如说一个类可以序列化的时候，它只需要实现 Serializable 接口就可以了，不需要去继承一个序列化类。
 
+抽象类更多地是用来为多个相关的类提供一个共同的基础框架，包括状态的初始化，而接口则是定义一套行为标准，让不同的类可以实现同一接口，提供行为的多样化实现。
+
 #### 抽象类可以定义构造方法吗？
 
 可以，抽象类可以有构造方法。
@@ -637,6 +639,12 @@ public class Dog extends Animal {
 }
 ```
 
+#### 接口可以定义构造方法吗？
+
+不能，接口主要用于定义一组方法规范，没有具体的实现细节。
+
+![二哥的 Java 进阶之路：接口不能定义构造方法](https://cdn.tobebetterjavaer.com/stutymore/javase-20240512090855.png)
+
 #### 继承和抽象的区别？
 
 继承是一种允许子类继承父类属性和方法的机制。通过继承，子类可以重用父类的代码。
@@ -647,6 +655,7 @@ public class Dog extends Animal {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：抽象类和接口有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：抽象类和接口的区别？抽象类可以定义构造方法吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：继承和抽象的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：抽象类能写构造方法吗（能）接口能吗（不能）为什么二者有这样的区别
 
 ### 22.成员变量与局部变量的区别有哪些？
 
@@ -799,6 +808,7 @@ if (p.hash == hash &&
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：hashcode 和 equals 方法只重写一个行不行，只重写 equals 没重写 hashcode，map put 的时候会发生什么
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：为什么重写equals，建议必须重写hashCode方法
 
 ### 28.Java 是值传递，还是引用传递？
 
@@ -890,29 +900,30 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 `String`、`StringBuilder`和`StringBuffer`在 Java 中都是用于处理字符串的，它们之间的区别是，String 是不可变的，平常开发用得最多，当遇到大量字符串连接时，就用 StringBuilder，它不会生成很多新的对象，StringBuffer 和 StringBuilder 类似，但每个方法上都加了 synchronized 关键字，所以是线程安全的。
 
-#### String
+#### 请说说String的特点
 
 - `String`类的对象是[不可变的](https://javabetter.cn/string/immutable.html)。也就是说，一旦一个`String`对象被创建，它所包含的字符串内容是不可改变的。
 - 每次对`String`对象进行修改操作（如拼接、替换等）实际上都会生成一个新的`String`对象，而不是修改原有对象。这可能会导致内存和性能开销，尤其是在大量字符串操作的情况下。
 
-#### StringBuilder
+#### 请说说StringBuilder的特点
 
 - `StringBuilder`提供了一系列的方法来进行字符串的增删改查操作，这些操作都是直接在原有字符串对象的底层数组上进行的，而不是生成新的 String 对象。
 - `StringBuilder`不是线程安全的。这意味着在没有外部同步的情况下，它不适用于多线程环境。
 - 相比于`String`，在进行频繁的字符串修改操作时，`StringBuilder`能提供更好的性能。 Java 中的字符串连`+`操作其实就是通过`StringBuilder`实现的。
 
-#### StringBuffer
+#### 请说说StringBuffer的特点
 
 `StringBuffer`和`StringBuilder`类似，但`StringBuffer`是线程安全的，方法前面都加了`synchronized`关键字。
 
-#### 使用场景总结
+#### 请总结一下使用场景
 
-- **String**：适用于字符串内容不经常改变的场景。在使用字符串常量或进行少量的字符串操作时使用。
-- **StringBuilder**：适用于单线程环境下需要频繁修改字符串内容的场景，比如在循环中拼接或修改字符串。
-- **StringBuffer**：适用于多线程环境下需要频繁修改字符串内容的场景，保证了字符串操作的线程安全。
+- **String**：适用于字符串内容不会改变的场景，比如说作为 HashMap 的 key。
+- **StringBuilder**：适用于单线程环境下需要频繁修改字符串内容的场景，比如在循环中拼接或修改字符串，是 String 的完美替代品。
+- **StringBuffer**：现在已经不怎么用了，因为一般不会在多线程场景下去频繁的修改字符串内容。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：String StringBuffer StringBuilder 有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：String,StringBuffer,StringBuilder 的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：请说说 String、StringBuilder、StringBuffer的区别，为什么这么设计？
 
 ### 33.String str1 = new String("abc") 和 String str2 = "abc" 的区别？
 
@@ -1021,7 +1032,37 @@ public String toString() {
 }
 ```
 
+#### 如何保证 String 不可变？
+
+第一，String 类内部使用一个私有的字符数组来存储字符串数据。这个字符数组在创建字符串时被初始化，之后不允许被改变。
+
+```java
+private final char value[];
+```
+
+第二，String 类没有提供任何可以修改其内容的公共方法，像 concat 这些看似修改字符串的操作，实际上都是返回一个新创建的字符串对象，而原始字符串对象保持不变。
+
+```java
+public String concat(String str) {
+    if (str.isEmpty()) {
+        return this;
+    }
+    int len = value.length;
+    int otherLen = str.length();
+    char buf[] = Arrays.copyOf(value, len + otherLen);
+    str.getChars(buf, len);
+    return new String(buf, true);
+}
+```
+
+第三，String 类本身被声明为 final，这意味着它不能被继承。这防止了子类可能通过添加修改方法来改变字符串内容的可能性。
+
+```java
+public final class String
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：String 是可变的吗，为什么要设计为不可变
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：String不可变吗？为什么不可变？有什么好处？怎么保证不可变。
 
 ### 35.intern 方法有什么作用？
 
