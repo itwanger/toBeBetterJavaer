@@ -450,66 +450,68 @@ PS:因为时间+篇幅的限制，这个 demo 比较简陋，没有面向接口�
 
 ### 7.说说 BeanFactory 和 ApplicantContext?
 
-可以这么形容，BeanFactory 是 Spring 的“心脏”，ApplicantContext 是完整的“身躯”。
+可以这么比喻，BeanFactory 是 Spring 的“心脏”，而 ApplicantContext 是 Spring 的完整“身躯”。
 
-![BeanFactory和ApplicantContext的比喻](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-66328446-f89f-4b7a-8d9f-0e1145dd9b2f.png)
+- BeanFactory 主要负责配置、创建和管理 bean，为 Spring 提供了基本的依赖注入（DI）支持。
+- ApplicationContext 是 BeanFactory 的子接口，在 BeanFactory 的基础上添加了企业级的功能支持。
 
-- BeanFactory（Bean 工厂）是 Spring 框架的基础设施，面向 Spring 本身。
-- ApplicantContext（应用上下文）建立在 BeanFactoty 基础上，面向使用 Spring 框架的开发者。
+![三分恶面渣逆袭：BeanFactory和ApplicantContext](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-66328446-f89f-4b7a-8d9f-0e1145dd9b2f.png)
 
-###### BeanFactory 接口
+#### 详细说说 BeanFactory
 
-BeanFactory 是类的通用工厂，可以创建并管理各种类的对象。
+BeanFactory 位于整个 Spring IoC 容器的顶端，ApplicationContext 算是 BeanFactory 的子接口。
 
-Spring 为 BeanFactory 提供了很多种实现，最常用的是 XmlBeanFactory，但在 Spring 3.2 中已被废弃，建议使用 XmlBeanDefinitionReader、DefaultListableBeanFactory。
+![三分恶面渣逆袭：Spring5 BeanFactory继承体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-6e6d4b69-f36c-41e6-b8ba-9277be147c9b.png)
 
-![Spring5 BeanFactory继承体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-6e6d4b69-f36c-41e6-b8ba-9277be147c9b.png)
+它最主要的方法就是 `getBean()`，这个方法负责从容器中返回特定名称或者类型的 Bean 实例。
 
-BeanFactory 接口位于类结构树的顶端，它最主要的方法就是 getBean(String var1)，这个方法从容器中返回特定名称的 Bean。
-
-BeanFactory 的功能通过其它的接口得到了不断的扩展，比如 AbstractAutowireCapableBeanFactory 定义了将容器中的 Bean 按照某种规则（比如按名字匹配、按类型匹配等）进行自动装配的方法。
-
-这里看一个 XMLBeanFactory（已过期） 获取 bean 的例子：
+来看一个 XMLBeanFactory（已过时） 获取 bean 的例子：
 
 ```java
-public class HelloWorldApp{
+class HelloWorldApp{
    public static void main(String[] args) {
       BeanFactory factory = new XmlBeanFactory (new ClassPathResource("beans.xml"));
-      HelloWorld obj = (HelloWorld) factory.getBean("helloWorld");
+      HelloWorld obj = (HelloWorld) factory.getBean("itwanger");
       obj.getMessage();
    }
 }
 ```
 
-###### ApplicationContext 接口
+#### 请详细说说 ApplicationContext
 
-ApplicationContext 由 BeanFactory 派生而来，提供了更多面向实际应用的功能。可以这么说，使用 BeanFactory 就是手动档，使用 ApplicationContext 就是自动档。
+ApplicationContext 继承了 HierachicalBeanFactory 和 ListableBeanFactory 接口，算是 BeanFactory 的自动挡版本，是 Spring 应用的默认方式。
 
-![Spring5 ApplicationContext部分体系类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-e201c9a3-f23c-4768-b844-ac7e0ba4bcec.png)
+![三分恶面渣逆袭：Spring5 ApplicationContext部分体系类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-e201c9a3-f23c-4768-b844-ac7e0ba4bcec.png)
 
-ApplicationContext 继承了 HierachicalBeanFactory 和 ListableBeanFactory 接口，在此基础上，还通过其他的接口扩展了 BeanFactory 的功能，包括：
-
-- Bean instantiation/wiring
-
-- Bean 的实例化/串联
-- 自动的 BeanPostProcessor 注册
-- 自动的 BeanFactoryPostProcessor 注册
-- 方便的 MessageSource 访问（i18n）
-- ApplicationEvent 的发布与 BeanFactory 懒加载的方式不同，它是预加载，所以，每一个 bean 都在 ApplicationContext 启动之后实例化
+ApplicationContext 会在启动时预先创建和配置所有的单例 bean，并支持如 JDBC、ORM 框架的集成，内置面向切面编程（AOP）的支持，可以配置声明式事务管理等。
 
 这是 ApplicationContext 的使用例子：
 
 ```java
-public class HelloWorldApp{
-   public static void main(String[] args) {
-      ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
-      HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
-      obj.getMessage();
-   }
+class MainApp {
+    public static void main(String[] args) {
+        // 使用 AppConfig 配置类初始化 ApplicationContext
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // 从 ApplicationContext 获取 messageService 的 bean
+        MessageService service = context.getBean(MessageService.class);
+
+        // 使用 bean
+        service.printMessage();
+    }
 }
 ```
 
-ApplicationContext 包含 BeanFactory 的所有特性，通常推荐使用前者。
+通过 AnnotationConfigApplicationContext 类，我们可以使用 Java 配置类来初始化 ApplicationContext，这样就可以使用 Java 代码来配置 Spring 容器。
+
+```java
+@Configuration
+@ComponentScan(basePackages = "com.github.paicoding.forum.test.javabetter.spring1") // 替换为你的包名
+public class AppConfig {
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：BeanFactory和ApplicationContext
 
 ### 8.你知道 Spring 容器启动阶段会干什么吗？
 
@@ -602,6 +604,7 @@ public class ToolFactoryBean implements FactoryBean<Tool> {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 Spring 的 Bean 实例化方式
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：bean加工有哪些方法？
 
 ### 9.能说一下 Spring Bean 生命周期吗？
 
