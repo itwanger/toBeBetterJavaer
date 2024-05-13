@@ -17,7 +17,9 @@ head:
 
 ### 0.什么是 MySQL？
 
-MySQL 是一个开源的关系型数据库管理系统，现在隶属于 Oracle 旗下。MySQL 也是我们国内使用频率最高的一种数据库，我在本地安装的是最新的 8.0 社区版。
+MySQL 是一个开源的关系型数据库管理系统，现在隶属于 Oracle 旗下，也是我用得最多的一款关系型数据库。
+
+与此同时，MySQL 也是我们国内使用频率最高的一种数据库，我在本地安装的是最新的 8.0 社区版。
 
 ![MySQL 官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1992b6dd-1c1d-4b8b-b98a-8407e8c51ff9.jpg)
 
@@ -25,6 +27,7 @@ MySQL 是一个开源的关系型数据库管理系统，现在隶属于 Oracle 
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：用过哪些数据库
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：了解 MySQL、Redis 吗？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：数据库用什么多（说了Mysql和Redis）
 
 ### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
 
@@ -743,6 +746,7 @@ MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。MEM
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 支持哪些存储引擎?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：innodb 引擎和 hash 引擎有什么区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：MySQL的存储引擎
 
 ### 17.那存储引擎应该怎么选择？
 

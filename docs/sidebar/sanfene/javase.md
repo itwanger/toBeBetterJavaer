@@ -43,8 +43,19 @@ Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯高斯林�
 
 因为它可以做的事情太多了，既可以用它来爬一些数据做测试，还可以用它来写 Web 后端服务，就连一些轮子也可以用它来造，比如说我之前写过一个 MYDB 的轮子，就是用的 Java。
 
+#### 平时是怎么学 Java 的？
+
+一开始，主要是跟着学校的课程学习，后来入门后我感觉 Java 还是挺有意思的，尤其是 JVM 和并发编程这块还是蛮有深度的，于是我就开始在 B站和 GitHub 上找一些优质的视频资源和开源知识库。
+
+像一个博主的《Java 进阶之路》就蛮适合我的，从 Java 的语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，都有详细的讲解，还有很多手绘图和代码实例，我都跟着动手一步步实现了，感觉收获很大。
+
+后来又读了一遍《Java 编程思想》、《Effective Java》，以及 JDK 的一些源码，比如说 String、HashMap，还有字节码的一些知识，算是对 Java 有比较深入的理解了。
+
+再后来就开始做实战项目 MYDB 和技术派，算是彻底掌握 Java 项目的开发流程了。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：多久开始学 java 的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：平常用什么编程语言
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：平时是怎么学Java的？
 
 ### 2.Java 语言有哪些特点？
 
@@ -52,10 +63,14 @@ Java 语言有很多优秀（可吹）的特点，以下几个是比较突出的
 
 ![Java语言特点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-2.png)
 
-- 面向对象（封装，继承，多态）；
-- 平台无关性，平台无关性的具体表现在于，Java 是“一次编写，到处运行（Write Once，Run any Where）”的语言，因此采用 Java 语言编写的程序具有很好的可移植性，而保证这一点的正是 Java 的虚拟机机制。在引入虚拟机之后，Java 语言在不同的平台上运行不需要重新编译。
-- 支持多线程。C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程支持；
-- 编译与解释并存；
+①、面向对象（封装，继承，多态）；
+
+②、平台无关性，平台无关性的具体表现在于，Java 是“一次编写，到处运行（Write Once，Run any Where）”的语言，因此采用 Java 语言编写的程序具有很好的可移植性，而保证这一点的正是 Java 的虚拟机机制。在引入虚拟机之后，Java 语言在不同的平台上运行不需要重新编译。
+
+③、支持多线程。C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程支持；
+
+④、支持 JIT 编译。JIT 是 Just-In-Time 的缩写，指的是即时编译器，它可以在程序运行时将字节码转换为本地机器码来提高程序运行速度。
+
 
 ### 3.JVM、JDK 和 JRE 有什么区别？
 
@@ -464,10 +479,12 @@ class Wangxiaoer extends Wanger {
 
 class Wanger {
     public void write() {
-        System.out.println("勿忘国耻");
+        System.out.println("沉默王二是沙雕");
     }
 }
 ```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Java面向对象的特性，分别怎么理解的
 
 ### 17.多态解决了什么问题？（补充）
 
@@ -772,7 +789,7 @@ static final int hash(Object key) {
 }
 ```
 
-#### 为什么重写 quals 时必须重写 hashCode ⽅法？
+#### 为什么重写 equals 时必须重写 hashCode ⽅法？
 
 维护 `equals()`和 `hashCode()`之间的一致性是至关重要的，因为基于哈希的集合类（如 HashSet、HashMap、Hashtable 等）依赖于这一点来正确存储和检索对象。
 
