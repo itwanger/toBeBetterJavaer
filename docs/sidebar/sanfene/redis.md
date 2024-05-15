@@ -383,13 +383,13 @@ AOF 持久化通过记录每个写操作命令并将其追加到 AOF 文件中�
 
 AOF 的主要作用是解决了数据持久化的实时性，目前已经是 Redis 持久化的主流方式。
 
-AOF 的工作流程操作：命令写入 （append）、文件同步（sync）、文件重写（rewrite）、重启加载 （load）
+AOF 的工作流程操作有四个步骤：命令写入 （append）、文件同步（sync）、文件重写（rewrite）、重启加载（load）
 
 ![三分恶面渣逆袭：AOF工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a9fb6202-b1a1-484d-a4fa-fef519090b44.png)
 
 流程如下：
 
-1）当 AOF 持久化功能被启用时，Redis 服务器会将接收到的所有写命令（比如 SET, LPUSH, SADD 等修改数据的命令）追加到 AOF 缓冲区（buffer）的末尾。
+1）当 AOF 持久化功能被启用时（通过在配置文件中设置 appendonly 参数为 yes 来启用），Redis 服务器会将接收到的所有写命令（比如 SET, LPUSH, SADD 等修改数据的命令）追加到 AOF 缓冲区（buffer）的末尾。
 
 2）为了将缓冲区中的命令持久化到磁盘中的 AOF 文件，Redis 提供了几种不同的同步策略：
 
@@ -408,6 +408,7 @@ AOF 的工作流程操作：命令写入 （append）、文件同步（sync）�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Redis 的持久化方式
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 的持久化方式？RDB 和 AOF 的区别？Redis 宕机哪种恢复的比较快？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：redis持久化
 
 ### 9.RDB 和 AOF 各自有什么优缺点？
 
@@ -419,10 +420,19 @@ AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略
 
 ### 10.RDB 和 AOF 如何选择？
 
-- 一般来说， 如果想达到足以媲美数据库的 **数据安全性**，应该 **同时使用两种持久化功能**。在这种情况下，当 Redis 重启的时候会优先载入 AOF 文件来恢复原始的数据，因为在通常情况下 AOF 文件保存的数据集要比 RDB 文件保存的数据集要完整。
-- 如果 **可以接受数分钟以内的数据丢失**，那么可以 **只使用 RDB 持久化**。
-- 有很多用户都只使用 AOF 持久化，但并不推荐这种方式，因为定时生成 RDB 快照（snapshot）非常便于进行数据备份， 并且 RDB 恢复数据集的速度也要比 AOF 恢复的速度要快，除此之外，使用 RDB 还可以避免 AOF 程序的 bug。
-- 如果只需要数据在服务器运行的时候存在，也可以不使用任何持久化方式。
+如果需要尽可能减少数据丢失，AOF 是更好的选择。尤其是在频繁写入的环境下，设置 AOF 每秒同步可以最大限度减少数据丢失。
+
+如果性能是首要考虑，RDB 可能更适合。RDB 的快照生成通常对性能影响较小，并且数据恢复速度快。
+
+如果系统需要经常重启，并且希望系统重启后快速恢复，RDB 可能是更好的选择。虽然 AOF 也提供了良好的恢复能力，但重写 AOF 文件可能会比较慢。
+
+在许多生产环境中，同时启用 RDB 和 AOF 被认为是最佳实践：
+
+- 使用 RDB 进行快照备份。
+- 使用 AOF 保证崩溃后的最大数据完整性。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：什么时候用rdb 什么时候用aof
 
 ### 11.Redis 的数据恢复？
 
@@ -451,8 +461,63 @@ AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略
 
 这样，当需要恢复数据时，Redis 先加载 RDB 文件来恢复到快照时刻的状态，然后应用 RDB 之后记录的 AOF 命令来恢复之后的数据更改，既快又可靠。
 
+#### 如何设置持久化模式？
+
+可以通过编辑 Redis 的配置文件 redis.conf 来进行设置，或者在运行时通过 Redis 命令行动态调整。
+
+RDB 持久化通过在配置文件中设置快照（snapshotting）规则来启用。这些规则定义了在多少秒内如果有多少个键被修改，则自动执行一次持久化操作。
+
+```shell
+save 900 1      # 如果至少有1个键被修改，900秒后自动保存一次
+save 300 10     # 如果至少有10个键被修改，300秒后自动保存一次
+save 60 10000   # 如果至少有10000个键被修改，60秒后自动保存一次
+```
+
+AOF 持久化是通过在配置文件中设置 appendonly 参数为 yes 来启用的：
+
+```shell
+appendonly yes
+```
+
+此外，还可以配置 AOF 文件的写入频率，这是通过 appendfsync 设置的：
+
+```shell
+appendfsync always    # 每次写入数据都同步，保证数据不丢失，但性能较低
+appendfsync everysec  # 每秒同步一次，折衷方案
+appendfsync no        # 由操作系统决定何时同步，性能最好，但数据安全性最低
+```
+
+为了优化 AOF 文件的大小，Redis 允许自动或手动重写 AOF 文件。可以在配置文件中设置重写的触发条件：
+
+```shell
+auto-aof-rewrite-percentage 100  # 增长到原大小的100%时触发重写
+auto-aof-rewrite-min-size 64mb   # AOF 文件至少达到64MB时才考虑重写
+```
+
+手动执行 AOF 重写的命令是：
+
+```shell
+redis-cli bgrewriteaof
+```
+
+如果决定同时使用 RDB 和 AOF，可以在配置文件中同时启用两者。
+
+```shell
+save 900 1
+appendonly yes
+```
+
+还可以在运行时动态更改：
+
+```shell
+redis-cli config set save "900 1 300 10 60 10000"
+redis-cli config set appendonly yes
+redis-cli config set appendfsync everysec
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis 的持久化机制？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 宕机哪种恢复的比较快？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：如何设置持久化模式
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
