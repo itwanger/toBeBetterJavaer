@@ -248,11 +248,30 @@ LinkedList 是基于链表的，每个节点都有一个指向下一个节点和
 
 ### 3.ArrayList 的扩容机制了解吗？
 
-ArrayList 是基于数组的集合，数组的容量是在定义的时候确定的，如果数组满了，再插入，就会数组溢出。所以在插入时候，会先检查是否需要扩容，如果当前容量+1 超过数组长度，就会进行扩容。
+ArrayList 确切地说，应该叫做动态数组，因为它的底层是通过数组来实现的，当往 ArrayList 中添加元素时，会先检查是否需要扩容，如果当前容量+1 超过数组长度，就会进行扩容。
 
-ArrayList 的扩容是创建一个**1.5 倍**的新数组，然后把原数组的值拷贝过去。
+![三分恶面渣逆袭：ArrayList扩容](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-5.png)
 
-![ArrayList扩容](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-5.png)
+扩容后的新数组长度是原来的 1.5 倍，然后再把原数组的值拷贝到新数组中。
+
+```java
+private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + (oldCapacity >> 1);
+    if (newCapacity - minCapacity < 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE > 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+```
+
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：Java 集合类介绍，挑一个讲原理。
+
 
 ### 4.ArrayList 怎么序列化的知道吗？ 为什么用 transient 修饰数组？
 
