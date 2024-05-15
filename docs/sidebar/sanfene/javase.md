@@ -2059,6 +2059,7 @@ optional.ifPresent((s) -> System.out.println(s.charAt(0)));     // "沉"
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：JDK1.8 的特性？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：Java印象比较深的版本更新。
 
 ### 51.Lambda 表达式了解多少？
 
