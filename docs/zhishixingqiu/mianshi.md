@@ -134,7 +134,7 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 心动的小伙伴抓紧时间扫下面的 **30 元优惠券**加入了，这绝对是你今年最值得的一笔投资！
 
-![](https://cdn.tobebetterjavaer.com/paicoding/357418bf4b1a031076d69c515ff0d694.png)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
 我了解过，光这份秋招投递名单，有博主就卖 99 元，而在 Java 面试指南里，它只是 155 份文档中的一个文档而已。
 
@@ -242,8 +242,38 @@ PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜�
 
 小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
+再多说一句，[《二哥的JVM进阶之路》](https://javabetter.cn/jvm/)的内容也整理完了。主要包含下面这些内容：
+
+- JVM 是什么？
+- Java 运行时数据区
+- 类加载机制
+- 垃圾回收机制
+- JIT 及时编译
+- 字节码指令
+- 性能优化
+
+一共 19 篇内容，共计 10 万+ 字，用一张思维导图来做个总结吧。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-b4ec034b-9f20-40b9-a2a3-e77afffd2abf.png)
+
+这里展示一下暗黑版的 PDF 视图，大家先感受一下，手绘图都画得非常用心。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116132016.png)
+
+这是 epub 版本的阅读效果，感觉左右翻动的效果好舒服，一次可以看两页，真的就像在读纸质版书籍一样，体验非常棒。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116132331.png)
+
+
+PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，绝对不虚市面上任何一本 Java 虚拟机的实体书！
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116132536.png)
+
+小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，10 万+字，100+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116133019.png)
 
 
 最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。共勉 💪。

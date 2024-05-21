@@ -1523,6 +1523,8 @@ brpop 是 rpop 的阻塞版本，list 为空的时候，它会一直阻塞，直
 
 可以使用 Redis 的 zset（有序集合）来实现延时队列。
 
+![三分恶面渣逆袭：zset实现延时队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-54bbcc36-0b00-4142-a6eb-bf2ef48c2213.png)
+
 第一步，将任务添加到 zset 中，score 为任务的执行时间戳，value 为任务的内容。
 
 ```bash
@@ -1540,8 +1542,6 @@ ZREMRANGEBYSCORE delay_queue -inf 1617024000
 ```bash
 ZREM delay_queue task1
 ```
-
-![三分恶面渣逆袭：zset实现延时队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-54bbcc36-0b00-4142-a6eb-bf2ef48c2213.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 实现延迟队列
 
