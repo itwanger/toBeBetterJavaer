@@ -33,7 +33,7 @@ head:
 
 这也能印证一点，二哥的编程星球的确是得道了大家的认可，这里就再给大家补一波 30 元优惠券，这次真的要趁早了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-30.jpg)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
 学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。来星球的球友几乎都斩获不错的成绩，有美团、华为等大厂，也有 16k 的双非本、甚至 23k 的大专社招，我随便发几个球友报喜的截图给大家展示下。
 
@@ -118,7 +118,7 @@ admin 端星球白名单：
 
 看到这就迫不及待想要加入的小伙伴，直接扫下面这个二维码，**新人直减 30 元，优惠完每天不到 0.33 元，真的划算**！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-30.jpg)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
 随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，星球能够提供给大家的价值也会越来越多，所以星球也会涨价到 159 元、169 元，以此类推，所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理（😁）。
 
@@ -243,7 +243,7 @@ admin 端星球白名单：
 
 看到这就下定决心加入二哥编程星球的小伙伴，可以长按识别或者扫下面这个 30 元的优惠券，早买早享受！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-30.jpg)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
 ## 三、为什么要创建知识星球呢？
 
@@ -309,9 +309,9 @@ admin 端星球白名单：
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-73938f0c-73b8-49c6-95fd-b19c6ff2da40.png)
 
 
-看到这已经不再犹豫的小伙伴，可以长按识别或者扫下面这个 30 元的优惠券加入二哥的编程星球， 30 元不仅是 2024 年也是 2025 年的最大优惠力度！
+看到这已经不再犹豫的小伙伴，可以长按识别或者扫下面这个 30 元的优惠券加入二哥的编程星球，30 元不仅是 2024 年也是 2025 年的最大优惠力度！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-30.jpg)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
 ## 四、什么是知识星球？
 
@@ -403,9 +403,9 @@ admin 端星球白名单：
 
 相信看到这里的你已经迫不及待、下定决心加入二哥的编程星球了，扫下面的二维码或者长按识别付费后就可以加入了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-30.jpg)
+![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
 
-星球目前定价**149 元/年，并且会送你 30 元的优惠券**，但提供的服务远远超出了 119元 这个价格可以承载的价值。
+星球目前定价**149 元/年，并且会送你 30 元的优惠券**，但提供的服务远远超出了 119元这个价格可以承载的价值。
 
 随着时间推移，星球积累的干货会越来越多，加入星球的小伙伴也会越来越多，我花在星球上的时间也会越来越多。所以星球也会逐步提高门槛，下一次就是 **159 元/年**！再下一次就是 **169元/年**。
 

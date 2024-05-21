@@ -49,7 +49,7 @@
 <p align="center">
   <a href="https://javabetter.cn/zhishixingqiu/">
     <kbd>
-      <img src="https://cdn.tobebetterjavaer.com/stutymore/home-20240104101824.png" width="400px" alt="星球优惠券">
+      <img src="https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png" width="400px" alt="星球优惠券">
     </kbd>
   </a>
 </p>
