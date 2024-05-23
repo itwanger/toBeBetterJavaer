@@ -909,9 +909,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![三分恶面渣逆袭：缓存穿透](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-029951e6-8b99-4364-a570-010853deb594.png)
 
-缓存穿透意味着缓存失去了减轻数据压力的意义。
-
-缓存穿透可能有两种原因：
+缓存穿透意味着缓存失去了减轻数据压力的意义。缓存穿透可能有两种原因：
 
 1. 自身业务代码问题
 2. 恶意攻击，爬虫造成空命中
@@ -920,7 +918,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ①、**缓存空值/默认值**
 
-一种方式是在数据库不命中之后，把一个空对象或者默认值保存到缓存，之后再访问这个数据，就会从缓存中获取，这样就保护了数据库。
+在数据库无法命中之后，把一个空对象或者默认值保存到缓存，之后再访问这个数据，就会从缓存中获取，这样就保护了数据库。
 
 ![三分恶面渣逆袭：缓存空值/默认值](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-288af5a2-ae5a-427a-95e9-b4a658b01386.png)
 
@@ -937,13 +935,13 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 除了缓存空对象，我们还可以在存储和缓存之前，加一个布隆过滤器，做一层过滤。
 
-布隆过滤器里会保存数据是否存在，如果判断数据不不能再，就不会访问存储。
+布隆过滤器里会保存数据是否存在，如果判断数据不存在，就不会访问存储。
 
-![布隆过滤器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-0e18ea40-a2e5-4fa6-989e-e771f6e4b0fc.png)
+![三分恶面渣逆袭：布隆过滤器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-0e18ea40-a2e5-4fa6-989e-e771f6e4b0fc.png)
 
 两种解决方案的对比：
 
-![缓存空对象核布隆过滤器方案对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e8a382c9-4379-44ab-b1dc-fb598a228105.png)
+![三分恶面渣逆袭：缓存空对象和布隆过滤器方案](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e8a382c9-4379-44ab-b1dc-fb598a228105.png)
 
 #### 什么是缓存雪崩？
 
@@ -1174,7 +1172,10 @@ redis.del(product_id)
 
 ### 30.怎么处理热 key？
 
-**什么是热 Key？**
+推荐阅读：
+
+- [阿里：发现并处理 Redis 的大 Key 和热 Key](https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys)
+- [董宗磊：Redis 热 Key 发现以及解决办法](https://dongzl.github.io/2021/01/14/03-Redis-Hot-Key/index.html)
 
 所谓的热 key，就是指在很短时间内被频繁访问的键。
 
@@ -1195,9 +1196,9 @@ redis.del(product_id)
 > - HGETALL 命令用于返回哈希表中，所有的字段和值。
 > - ZRANGE 命令用于返回有序集中，指定区间内的成员。
 
-**怎么处理热 key？**
+#### 怎么处理热 key？
 
-![热key处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6fa972ec-5531-48f2-a608-4465d79d4518.png)
+![三分恶面渣逆袭：热key处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6fa972ec-5531-48f2-a608-4465d79d4518.png)
 
 对热 key 的处理，最关键的是对热 key 的监控:
 
@@ -1215,13 +1216,13 @@ redis.del(product_id)
 
 > monitor 命令的使用：`redis-cli monitor`
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309085135.png)
+![二哥的 Java 进阶之路：monitor](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309085135.png)
 
 还可以通过 bigkeys 参数来分析热 Key。
 
 > bigkeys 命令的使用：`redis-cli --bigkeys`
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309090340.png)
+![二哥的 Java 进阶之路：bigkeys](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309090340.png)
 
 只要监控到了热 key，对热 key 的处理就简单了：
 
@@ -1254,24 +1255,53 @@ if data == NULL {
 
 这些本地的缓存工具有很多，比如 Caffeine、Guava 等，或者直接使用 HashMap 作为本地缓存都是可以的。
 
-> 如果对热 Key 进行本地缓存，需要防止本地缓存过大。
+注意，如果对热 Key 进行本地缓存，需要防止本地缓存过大。
 
-推荐阅读：
-
-- [阿里：发现并处理 Redis 的大 Key 和热 Key](https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys)
-- [董宗磊：Redis 热 Key 发现以及解决办法](https://dongzl.github.io/2021/01/14/03-Redis-Hot-Key/index.html)
-
-> 1. 华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
 
 ### 31.缓存预热怎么做呢？
 
-所谓缓存预热，就是提前把数据库里的数据刷到缓存里，通常有这些方法：
+缓存预热是指在系统启动时，提前将一些预定义的数据加载到缓存中，以避免在系统运行初期由于缓存未命中（cache miss）导致的性能问题。
 
-1、直接写个缓存刷新页面或者接口，上线时手动操作
+通过缓存预热，可以确保系统在上线后能够立即提供高效的服务，减少首次访问时的延迟。
 
-2、数据量不大，可以在项目启动的时候自动进行加载
+缓存预热的方法有多种，在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们采用了项目启动时自动加载和定时预热两种方式，比如说每天定时更新站点地图到 Redis 缓存中。
 
-3、定时任务刷新缓存.
+```java
+/**
+ * 采用定时器方案，每天5:15分刷新站点地图，确保数据的一致性
+ */
+@Scheduled(cron = "0 15 5 * * ?")
+public void autoRefreshCache() {
+    log.info("开始刷新sitemap.xml的url地址，避免出现数据不一致问题!");
+    refreshSitemap();
+    log.info("刷新完成！");
+}
+
+@Override
+public void refreshSitemap() {
+    initSiteMap();
+}
+
+private synchronized void initSiteMap() {
+    long lastId = 0L;
+    RedisClient.del(SITE_MAP_CACHE_KEY);
+    while (true) {
+        List<SimpleArticleDTO> list = articleDao.getBaseMapper().listArticlesOrderById(lastId, SCAN_SIZE);
+
+        // 刷新站点地图信息
+        Map<String, Long> map = list.stream().collect(Collectors.toMap(s -> String.valueOf(s.getId()), s -> s.getCreateTime().getTime(), (a, b) -> a));
+        RedisClient.hMSet(SITE_MAP_CACHE_KEY, map);
+        if (list.size() < SCAN_SIZE) {
+            break;
+        }
+        lastId = list.get(list.size() - 1).getId();
+    }
+}
+```
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：什么是缓存预热？如何解决？
 
 ### 32.热点 key 重建？问题？解决？
 
@@ -1640,68 +1670,24 @@ Redis 服务端接收到管道发送过来的多条命令后，会一直执命�
 
 ### 45.Redis 实现分布式锁了解吗？
 
-Redis 实现分布式锁的本质，就是在 Redis 里面占一个“茅坑”，当别的进程也来占坑时，发现已经有进程蹲在那里了，就只好放弃或者稍后再试。
+Redis 实现分布式锁的本质，就是在 Redis 里面占一个“茅坑”，当别的客户端也来占坑时，发现已经有客户端蹲在那里了，就只好放弃或者稍后再试。
 
-①、**V1：setnx 命令**
+**可以使用 Redis 的 SET 命令实现分布式锁**。SET 命令支持设置键值对的同时添加过期时间，这样可以防止死锁的发生。
 
-占坑一般使用 `setnx(set if not exists)` 指令，只允许被一个客户端占坑。先来先占，用完了再调用 del 指令释放茅坑。
-
-![三分恶面渣逆袭：setnx(set if not exists)](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a5bddceb-66f6-4965-9f16-05d7179697fc.png)
-
-```java
-> setnx lock:fighter true
-OK
-... do something critical ...
-> del lock:fighter
-(integer) 1
-```
-
-但是有个问题，如果逻辑执行到中间出现异常了，可能会导致 del 指令没有被执行，这样就会出现死锁，锁永远得不到释放。
-
-②、**V2:锁超时释放**
-
-所以在拿到锁之后，可以给锁加上一个过期时间，比如 5s，这样即使中间出现异常也可以保证 5 秒之后锁会自动释放。
-
-![三分恶面渣逆袭：锁超时释放](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2d3de973-c910-4efe-93e9-cfd50f84c91a.png)
-
-```java
-> setnx lock:fighter true
-OK
-> expire lock:fighter 5
-... do something critical ...
-> del lock:fighter
-(integer) 1
-```
-
-但是以上逻辑还有问题：如果在 setnx 和 expire 之间进程突然挂掉了，可能是因为机器断电或者被人为杀掉了，就会导致 expire 无法执行，也会造成死锁。
-
-这种问题的根源就在于 setnx 和 expire 是两条指令，不是原子指令。如果这两条指令可以一起执行就不会出现问题了，对吧？
-
-③、**V3:set 指令**
-
-上面的问题在 Redis 2.8 版本中得到了解决，这个版本加入了 set 指令的扩展参数，使得 setnx 和 expire 指令可以一起执行。
-
-![三分恶面渣逆袭：set原子指令](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-710cdd19-98ea-4e96-b579-ff1ebb0d5de9.png)
+![三分恶面渣逆袭：set原子命令](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-710cdd19-98ea-4e96-b579-ff1ebb0d5de9.png)
 
 ```
-> set lock:fighter3 true ex 5 nx
-OK ... do something critical ...
-> del lock:fighter3
+SET key value NX PX 30000
 ```
 
-- `SET` 命令用于设置键值对。
-- `lock:fighter3` 是锁的键名。
-- `true` 是设置给键 `lock:fighter3` 的值。
-- `EX 5` 设置这个键的过期时间为 5 秒。这意味着如果锁的持有者没有在 5 秒内释放锁（比如因为崩溃或其他原因），锁会自动被释放，以防止死锁。
-- `NX` 保证只有当 `lock:fighter3` 不存在时，即锁未被其他客户端持有时，当前操作才会成功设置键，从而实现加锁。如果锁已经存在，则命令不会执行任何操作。
+- `key` 是锁名。
+- `value` 是锁的持有者标识，可以使用 UUID 作为 value。
+- `NX` 只在键不存在时设置。
+- `PX 30000`：设置键的过期时间为 30 秒（防止死锁）。
 
-![悟空聊架构 Redis 分布式锁](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174441.png)
+上面这段命令其实是 setnx 和 expire 组合在一起的原子命令，算是比较完善的一个分布式锁了。
 
-> 图片来源于：[悟空聊架构 Redis 分布式锁](https://my.oschina.net/u/4499317/blog/5039486)
-
-上面这段指令就是 setnx 和 expire 组合在一起的原子指令，算是比较完善的一个分布式锁了。
-
-当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)（悟空聊架构：分布式锁中的王者方案 - Redisson）。
+当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)。（戳链接跳转至悟空聊架构：分布式锁中的王者方案 - Redisson）
 
 #### Redisson 了解吗？
 
