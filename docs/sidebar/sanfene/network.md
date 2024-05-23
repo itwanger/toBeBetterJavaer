@@ -1,7 +1,7 @@
 ---
-title: 计算机网络面试题，62道计算机网络八股文（2.2万字80张手绘图），面渣逆袭必看👍
+title: 计算机网络面试题，63道计算机网络八股文（2.2万字80张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-计算机网络
-description: 下载次数超 1 万次，2.2 万字 80 张手绘图，详解 62 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.2 万字 80 张手绘图，详解 63 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: 计算机网络,计算机网络面试题,面试题,八股文
 ---
 
-2.2 万字 80 张手绘图，详解 62 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/FvxyiMyq0422yifcyoG8vg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/yAlErlC09GnjaVvwUo3Acg)。
+2.2 万字 80 张手绘图，详解 63 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/FvxyiMyq0422yifcyoG8vg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/yAlErlC09GnjaVvwUo3Acg)。
 
 大家好，我是二哥呀，今天继续来给大家分享三弟的面渣逆袭！
 
@@ -122,7 +122,7 @@ DNS 的全称是 **Domain Name System**，也就是域名解析系统，它可�
 
 域名到 IP 之间的映射，就需要 DNS 来完成。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/network-20240417102013.png)
+![二哥的 Java 进阶之路：javabetter.cn](https://cdn.tobebetterjavaer.com/stutymore/network-20240417102013.png)
 
 我来说说 DNS 的解析过程吧：
 
@@ -209,7 +209,33 @@ HTTP 协议定义了多种请求方式，用以指示请求的目的。常见的
 
 客户端一旦使用错误 ❎，将会收到一个 405 Method Not Allowed 的响应。
 
+#### 什么是幂等？幂等方法了解哪些？
+
+幂等（Idempotence）是一个数学概念，用于描述某些操作的特性，即无论操作执行多少次，结果都是相同的。换句话说，幂等操作可以重复执行而不会改变系统状态。
+
+如果一个操作是幂等的，那么对同一资源执行该操作一次和执行多次的效果相同。
+
+在正确实现的条件下，GET、HEAD、PUT 和 DELETE 等方法都是幂等的，而 POST 方法不是。
+
+例如，`GET /pageX HTTP/1.1` 幂等的。连续调用多次，客户端接收到的结果都是一样的：
+
+```
+GET /pageX HTTP/1.1
+GET /pageX HTTP/1.1
+GET /pageX HTTP/1.1
+GET /pageX HTTP/1.1
+```
+
+`DELETE /idX/delete HTTP/1.1` 是幂等的，即便是不同请求之间接收到的状态码不一样：
+
+```
+DELETE /idX/delete HTTP/1.1   -> Returns 200 if idX exists
+DELETE /idX/delete HTTP/1.1   -> Returns 404 as it just got deleted
+DELETE /idX/delete HTTP/1.1   -> Returns 404
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 有哪些方法，http 的 get 方法可以实现写操作吗，https 传递 url 安全吗，为什么数据在浏览器中，中间人攻击是什么
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：什么是幂等？幂等方法了解哪些？
 
 ### 10.说⼀下 GET 和 POST 的区别？
 
@@ -368,7 +394,16 @@ HTTP/2.0 基于 TCP 协议，而 HTTP/3.0 则基于 QUIC 协议，Quick UDP Conn
 
 同时，QUIC 协议在传输的过程中就完成了 TLS 加密握手，更直接了。
 
+#### 目前使用最广泛的是哪个HTTP版本？
+
+应该是 HTTP/2，在 2022 年 1 月达到峰值，占所有网站的 46.9%。
+
+统计网站：[w3techs](https://w3techs.com/technologies/history_overview/site_element/all)
+
+![w3techs：使用趋势](https://cdn.tobebetterjavaer.com/stutymore/network-20240522104709.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：HTTP 2.0 和 3.0 的区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：目前使用最广泛的是哪个HTTP版本？
 
 ### 17.HTTP 如何实现长连接？在什么时候会超时？
 
@@ -1246,6 +1281,22 @@ TCP 是面向流，没有界限的一串数据。TCP 底层并不了解上层业
 - 在数据尾部增加特殊字符进行分割
 - 将数据分为两部分，一部分是头部，一部分是内容体；其中头部结构大小固定，且有一个字段声明内容体的大小。
 
+### 63.一个TCP连接可以发送多少次HTTP请求?
+
+一个 TCP 连接可以发送多少次 HTTP 请求，取决于 HTTP 协议的版本。
+
+在 HTTP/1.0 中，每个 HTTP 请求-响应使用一个单独的 TCP 连接。这意味着每次发送 HTTP 请求都需要建立一个新的 TCP 连接。
+
+HTTP/1.1 引入了持久连接（Persistent Connection），默认情况下允许在一个 TCP 连接上发送多个 HTTP 请求。
+
+通过使用 `Connection: keep-alive` 头部实现，保持连接打开状态，直到明确关闭为止。这极大地提高了效率，因为无需为每个请求都建立新的连接。
+
+此外，HTTP/1.1 支持请求管道化（Pipelining），允许客户端在收到前一个响应之前发送多个请求。
+
+HTTP/2 进一步优化了连接复用，允许在单个 TCP 连接上同时发送多个请求和响应，这些请求和响应被分割成帧并通过流传输。HTTP/2 的多路复用（Multiplexing）机制显著提高了并发性能和资源利用效率。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：一个TCP连接可以发送多少次HTTP请求?
+
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -1608,9 +1659,11 @@ XSS 攻击一般分三种类型：**存储型 、反射型 、DOM 型 XSS**
 
 采用对称加密的方式，其秘钥长度最长只有 256 个比特，加密和解密速度较快，易于硬件实现。由于是对称加密，通信双方在进行数据传输前需要获知加密密钥。
 
-> 图文详解计算机网络面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/FvxyiMyq0422yifcyoG8vg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/yAlErlC09GnjaVvwUo3Acg)。
+
 
 ---
+
+> 图文详解 63 道计算机网络面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/FvxyiMyq0422yifcyoG8vg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/yAlErlC09GnjaVvwUo3Acg)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
