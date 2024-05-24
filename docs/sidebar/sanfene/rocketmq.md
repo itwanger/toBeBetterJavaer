@@ -23,7 +23,7 @@ head:
 
 ①、**解耦**
 
-生产者将消息发生到队列，消费者从队列中取出消息，这样一来，生产者和消费者之间就不需要直接通信，生产者只管生产消息，消费者只管消费消息，这样就实现了解耦。
+生产者将消息放入队列，消费者从队列中取出消息，这样一来，生产者和消费者之间就不需要直接通信，生产者只管生产消息，消费者只管消费消息，这样就实现了解耦。
 
 ![三分恶面渣逆袭：消息队列解耦](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-dd332b3f-d5e5-41bc-813a-9f612e582255.jpg)
 
@@ -293,35 +293,27 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 12.顺序消息如何实现？
 
-顺序消息是指消息的消费顺序和产生顺序相同，在有些业务逻辑下，必须保证顺序，比如订单的生成、付款、发货，这个消息必须按顺序处理才行。
+RocketMQ 实现顺序消息的关键在于保证消息生产和消费过程中严格的顺序控制，即确保同一业务的消息按顺序发送到同一个队列中，并由同一个消费者线程按顺序消费。
 
-![顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e3de6bb5-b5db-47af-8ae3-73aedd269f32.jpg)
+![三分恶面渣逆袭：顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e3de6bb5-b5db-47af-8ae3-73aedd269f32.jpg)
 
-顺序消息分为全局顺序消息和部分顺序消息，全局顺序消息指某个 Topic 下的所有消息都要保证顺序；
 
-部分顺序消息只要保证每一组消息被顺序消费即可，比如订单消息，只要保证同一个订单 ID 个消息能按顺序消费即可。
+#### 局部顺序消息如何实现？
 
-##### 部分顺序消息
+局部顺序消息保证在某个逻辑分区或业务逻辑下的消息顺序，例如同一个订单或用户的消息按顺序消费，而不同订单或用户之间的顺序不做保证。
 
-部分顺序消息相对比较好实现，生产端需要做到把同 ID 的消息发送到同一个 Message Queue ；在消费过程中，要做到从同一个 Message Queue 读取的消息顺序处理——消费端不能并发处理顺序消息，这样才能达到部分有序。
+![三分恶面渣逆袭：部分顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-14ab3700-8538-473e-bb66-8acfdd6a77a2.jpg)
 
-![部分顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-14ab3700-8538-473e-bb66-8acfdd6a77a2.jpg)
+#### 全局顺序消息如何实现？
 
-发送端使用 MessageQueueSelector 类来控制 把消息发往哪个 Message Queue 。
+全局顺序消息保证消息在整个系统范围内的严格顺序，即消息按照生产的顺序被消费。
 
-![顺序消息生产-例子来源官方](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-4aad853e-4dd7-4cde-b28d-b6e74ca9331f.jpg)
+可以将所有消息发送到一个单独的队列中，确保所有消息按生产顺序发送和消费。
 
-消费端通过使用 MessageListenerOrderly 来解决单 Message Queue 的消息被并发处理的问题。
+![三分恶面渣逆袭：全局顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-8e98ac61-ad47-4ed4-aac6-223201f9aae2.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f233ab8e-87f0-4b64-91eb-d4d9ec71ab3e.jpg)
 
-##### 全局顺序消息
-
-RocketMQ 默认情况下不保证顺序，比如创建一个 Topic ，默认八个写队列，八个读队列，这时候一条消息可能被写入任意一个队列里；在数据的读取过程中，可能有多个 Consumer ，每个 Consumer 也可能启动多个线程并行处理，所以消息被哪个 Consumer 消费，被消费的顺序和写人的顺序是否一致是不确定的。
-
-要保证全局顺序消息， 需要先把 Topic 的读写队列数设置为 一，然后 Producer Consumer 的并发设置，也要是一。简单来说，为了保证整个 Topic 全局消息有序，只能消除所有的并发处理，各部分都设置成单线程处理 ，这时候就完全牺牲 RocketMQ 的高并发、高吞吐的特性了。
-
-![全局顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-8e98ac61-ad47-4ed4-aac6-223201f9aae2.jpg)
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 2  后端面试原题：说说mq原理，怎么保证消息接受顺序？
 
 ### 13.如何实现消息过滤？
 
