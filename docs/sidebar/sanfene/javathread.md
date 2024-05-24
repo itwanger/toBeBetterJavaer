@@ -1536,7 +1536,7 @@ Mark Word 会被设置为偏向模式，并且存储了获取它的线程 ID。
 
 ![三分恶面渣逆袭：synchronized和ReentrantLock的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-38.png)
 
-#### ①、使用方式不同
+#### 使用方式有什么不同？
 
 synchronized 可以直接在方法上加锁，也可以在代码块上加锁（无需手动释放锁，锁会自动释放），而 ReentrantLock 必须手动声明来加锁和释放锁。
 
@@ -1563,7 +1563,7 @@ try {
 
 随着 JDK 版本的升级，synchronized 的性能已经可以媲美 ReentrantLock 了，加入了偏向锁、轻量级锁和重量级锁的自适应优化等，所以可以大胆地用。
 
-#### ②、功能特点不同
+#### 功能特点有什么不同？
 
 如果需要更细粒度的控制（如可中断的锁操作、尝试非阻塞获取锁、超时获取锁或者使用公平锁等），可以使用 Lock。
 
