@@ -866,16 +866,97 @@ Object 类提供的 clone()方法可以非常简单地实现对象的浅拷贝�
 
 ### 30.Java 创建对象有哪几种方式？
 
-Java 中有以下四种创建对象的方式:
+![三分恶面渣逆袭：Java创建对象的四种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-16.png)
 
-![Java创建对象的四种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-16.png)
+Java 有四种创建对象的方式：
 
-- new 创建新对象
-- 通过反射机制
-- 采用 clone 机制
-- 通过序列化机制
+①、new 关键字创建，这是最常见和直接的方式，通过调用类的构造方法来创建对象。
 
-前两者都需要显式地调用构造方法。对于 clone 机制,需要注意浅拷贝和深拷贝的区别，对于序列化机制需要明确其实现原理，在 Java 中序列化可以通过实现 Externalizable 或者 Serializable 来实现。
+```java
+Person person = new Person();
+```
+
+②、反射机制创建，反射机制允许在运行时创建对象，并且可以访问类的私有成员，在框架和工具类中比较常见。
+
+```java
+Class clazz = Class.forName("Person");
+Person person = (Person) clazz.newInstance();
+```
+
+③、clone 拷贝创建，通过 clone 方法创建对象，需要实现 Cloneable 接口并重写 clone 方法。
+
+```java
+Person person = new Person();
+Person person2 = (Person) person.clone();
+```
+
+④、序列化机制创建，通过序列化将对象转换为字节流，再通过反序列化从字节流中恢复对象。需要实现 Serializable 接口。
+
+```java
+Person person = new Person();
+ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("person.txt"));
+oos.writeObject(person);
+ObjectInputStream ois = new ObjectInputStream(new FileInputStream("person.txt"));
+Person person2 = (Person) ois.readObject();
+```
+
+
+#### new子类的时候，子类和父类静态代码块，构造方法的执行顺序
+
+在 Java 中，当创建一个子类对象时，子类和父类的静态代码块、构造方法的执行顺序遵循一定的规则。这些规则主要包括以下几个步骤：
+
+1. 首先执行父类的静态代码块（仅在类第一次加载时执行）。
+2. 接着执行子类的静态代码块（仅在类第一次加载时执行）。
+3. 再执行父类的构造方法。
+4. 最后执行子类的构造方法。
+
+下面是一个详细的代码示例：
+
+```java
+class Parent {
+    // 父类静态代码块
+    static {
+        System.out.println("父类静态代码块");
+    }
+
+    // 父类构造方法
+    public Parent() {
+        System.out.println("父类构造方法");
+    }
+}
+
+class Child extends Parent {
+    // 子类静态代码块
+    static {
+        System.out.println("子类静态代码块");
+    }
+
+    // 子类构造方法
+    public Child() {
+        System.out.println("子类构造方法");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Child();
+    }
+}
+```
+
+执行上述代码时，输出结果如下：
+
+```
+父类静态代码块
+子类静态代码块
+父类构造方法
+子类构造方法
+```
+
+- 静态代码块：在类加载时执行，仅执行一次，按父类-子类的顺序执行。
+- 构造方法：在每次创建对象时执行，按父类-子类的顺序执行，先初始化块后构造方法。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 2  后端面试原题：new子类的时候，子类和父类静态代码块，构造方法的执行顺序
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1715,45 +1796,63 @@ while (!result.isDone()) {
 
 ### 45.什么是序列化？什么是反序列化？
 
-什么是序列化，序列化就是**把 Java 对象转为二进制流**，方便存储和传输。
+序列化（Serialization）是指将对象转换为字节流的过程，以便能够将该对象保存到文件、数据库，或者进行网络传输。
 
-所以**反序列化就是把二进制流恢复成对象**。
+反序列化（Deserialization）就是将字节流转换回对象的过程，以便构建原始对象。
 
-![序列化和反序列化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-30.png)
+![三分恶面渣逆袭：序列化和反序列化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-30.png)
 
-类比我们生活中一些大件物品的运输，运输的时候把它拆了打包，用的时候再拆包组装。
+#### Serializable 接口有什么用？
 
-> Serializable 接口有什么用？
-
-这个接口只是一个标记，没有具体的作用，但是如果不实现这个接口，在有些序列化场景会报错，所以一般建议，创建的 JavaBean 类都实现 Serializable。
-
-> serialVersionUID 又有什么用？
-
-serialVersionUID 就是起验证作用。
+`Serializable`接口用于标记一个类可以被序列化。
 
 ```java
-private static final long serialVersionUID = 1L;
+public class Person implements Serializable {
+    private String name;
+    private int age;
+    // 省略 getter 和 setter 方法
+}
 ```
 
-我们经常会看到这样的代码，这个 ID 其实就是用来验证序列化的对象和反序列化对应的对象 ID 是否一致。
+#### serialVersionUID 有什么用？
 
-这个 ID 的数字其实不重要，无论是 1L 还是 IDE 自动生成的，只要序列化时候对象的 serialVersionUID 和反序列化时候对象的 serialVersionUID 一致的话就行。
+serialVersionUID 是 Java 序列化机制中用于标识类版本的唯一标识符。它的作用是确保在序列化和反序列化过程中，类的版本是兼容的。
 
-如果没有显示指定 serialVersionUID ，则编译器会根据类的相关信息自动生成一个，可以认为是一个指纹。
+```java
+import java.io.Serializable;
 
-所以如果你没有定义一个 serialVersionUID， 结果序列化一个对象之后，在反序列化之前把对象的类的结构改了，比如增加了一个成员变量，则此时的反序列化会失败。
+public class MyClass implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String name;
+    private int age;
 
-因为类的结构变了，所以 serialVersionUID 就不一致。
+    // getters and setters
+}
+```
 
-> Java 序列化不包含静态变量？
+serialVersionUID 被设置为 1L 是一种比较省事的做法，也可以使用 Intellij IDEA 进行自动生成。
 
-序列化的时候是不包含静态变量的。
+但只要 serialVersionUID 在序列化和反序列化过程中保持一致，就不会出现问题。
 
-> 如果有些变量不想序列化，怎么办？
+如果不显式声明 serialVersionUID，Java 运行时会根据类的详细信息自动生成一个 serialVersionUID。那么当类的结构发生变化时，自动生成的 serialVersionUID 就会发生变化，导致反序列化失败。
 
-对于不想进行序列化的变量，使用`transient`关键字修饰。
+#### Java 序列化不包含静态变量吗？
 
-`transient` 关键字的作用是：阻止实例中那些用此关键字修饰的的变量序列化；当对象被反序列化时，被 `transient` 修饰的变量值不会被持久化和恢复。`transient` 只能修饰变量，不能修饰类和方法。
+是的，序列化机制只会保存对象的状态，而静态变量属于类的状态，不属于对象的状态。
+
+#### 如果有些变量不想序列化，怎么办？
+
+可以使用`transient`关键字修饰不想序列化的变量。
+
+```java
+public class Person implements Serializable {
+    private String name;
+    private transient int age;
+    // 省略 getter 和 setter 方法
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 2  后端面试原题：用过序列化和反序列化吗？
 
 ### 46.说说有几种序列化方式？
 
