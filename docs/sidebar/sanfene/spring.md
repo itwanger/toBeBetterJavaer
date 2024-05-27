@@ -1052,29 +1052,86 @@ Spring 的 Bean 主要支持五种作用域：
 
 ### 14.Spring 中的单例 Bean 会存在线程安全问题吗？
 
-首先结论在这：Spring 中的单例 Bean**不是线程安全的**。
+Spring Bean 的默认作用域是单例（Singleton），这意味着 Spring 容器中只会存在一个 Bean 实例，并且该实例会被多个线程共享。
 
-因为单例 Bean，是全局只有一个 Bean，所有线程共享。如果说单例 Bean，是一个无状态的，也就是线程中的操作不会对 Bean 中的成员变量执行**查询**以外的操作，那么这个单例 Bean 是线程安全的。比如 Spring mvc 的 Controller、Service、Dao 等，这些 Bean 大多是无状态的，只关注于方法本身。
+如果单例 Bean 是无状态的，也就是没有成员变量，那么这个单例 Bean 是线程安全的。比如 Spring MVC 中的 Controller、Service、Dao 等，基本上都是无状态的。
 
-假如这个 Bean 是有状态的，也就是会对 Bean 中的成员变量进行写操作，那么可能就存在线程安全的问题。
+但如果 Bean 的内部状态是可变的，且没有进行适当的同步处理，就可能出现线程安全问题。
 
-![Spring单例Bean线程安全问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-35dacef4-1a9e-45e1-b3f2-5a91227eb244.png)
+![三分恶面渣逆袭：Spring单例Bean线程安全问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-35dacef4-1a9e-45e1-b3f2-5a91227eb244.png)
 
-> **单例 Bean 线程安全问题怎么解决呢？**
+#### 单例 Bean 线程安全问题怎么解决呢？
 
-常见的有这么些解决办法：
+第一，使用局部变量。局部变量是线程安全的，因为每个线程都有自己的局部变量副本。尽量使用局部变量而不是共享的成员变量。
 
-1. 将 Bean 定义为多例
+```java
+public class MyService {
+    public void process() {
+        int localVar = 0;
+        // 使用局部变量进行操作
+    }
+}
+```
 
-   这样每一个线程请求过来都会创建一个新的 Bean，但是这样容器就不好管理 Bean，不能这么办。
+第二，尽量使用无状态的 Bean，即不在 Bean 中保存任何可变的状态信息。
 
-2. 在 Bean 对象中尽量避免定义可变的成员变量
+```java
+public class MyStatelessService {
+    public void process() {
+        // 无状态处理
+    }
+}
+```
 
-   削足适履了属于是，也不能这么干。
+第三，同步访问。如果 Bean 中确实需要保存可变状态，可以通过 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)或者 [Lock 接口](https://javabetter.cn/thread/reentrantLock.html)来保证线程安全。
 
-3. 将 Bean 中的成员变量保存在 ThreadLocal 中 ⭐
+```java
+public class MyService {
+    private int sharedVar;
 
-   我们知道 ThredLoca 能保证多线程下变量的隔离，可以在类中定义一个 ThreadLocal 成员变量，将需要的可变成员变量保存在 ThreadLocal 里，这是推荐的一种方式。
+    public synchronized void increment() {
+        sharedVar++;
+    }
+}
+```
+
+或者将 Bean 中的成员变量保存到 ThreadLocal 中，[ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 可以保证多线程环境下变量的隔离。
+
+```java
+public class MyService {
+    private ThreadLocal<Integer> localVar = ThreadLocal.withInitial(() -> 0);
+
+    public void process() {
+        localVar.set(localVar.get() + 1);
+    }
+}
+```
+
+再或者使用线程安全的工具类，比如说 [AtomicInteger](https://javabetter.cn/thread/atomic.html)、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)、[CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html) 等。
+
+```java
+public class MyService {
+    private ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+
+    public void putValue(String key, String value) {
+        map.put(key, value);
+    }
+}
+```
+
+第四，将 Bean 定义为原型作用域（Prototype）。原型作用域的 Bean 每次请求都会创建一个新的实例，因此不存在线程安全问题。
+
+```java
+@Component
+@Scope("prototype")
+public class MyService {
+    // 实例变量
+}
+```
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：spring的bean的并发安全问题
+
 
 ### 15.说说循环依赖?
 
@@ -2386,7 +2443,96 @@ public void autoRefreshCache() {
 
 ![技术派的启动类就有该注解的影子](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422094511.png)
 
+#### 用SpringTask资源占用太高，有什么其他的方式解决？（补充）
+
+>2024年05月27日新增
+
+**第一，使用消息队列**，如 RabbitMQ、Kafka、RocketMQ 等，将任务放到消息队列中，然后由消费者异步处理这些任务。
+
+①、在订单创建时，将订单超时检查任务放入消息队列，并设置延迟时间（即订单超时时间）。
+
+```java
+@Service
+public class OrderService {
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    public void createOrder(Order order) {
+        // 创建订单逻辑
+        // ...
+        
+        // 发送延迟消息
+        rabbitTemplate.convertAndSend("orderExchange", "orderTimeoutQueue", order, message -> {
+            message.getMessageProperties().setExpiration("600000"); // 设置延迟时间（10分钟）
+            return message;
+        });
+    }
+}
+```
+
+②、使用消费者从队列中消费消息，当消费到超时任务时，执行订单超时处理逻辑。
+
+```java
+@Service
+public class OrderTimeoutConsumer {
+
+    @RabbitListener(queues = "orderTimeoutQueue")
+    public void handleOrderTimeout(Order order) {
+        // 处理订单超时逻辑
+        // ...
+    }
+}
+```
+
+**第二，使用数据库调度器（如 Quartz）**。
+
+①、创建一个 Quartz 任务类，处理订单超时逻辑。
+
+```java
+public class OrderTimeoutJob implements Job {
+    @Override
+    public void execute(JobExecutionContext context) throws JobExecutionException {
+        // 获取订单信息
+        Order order = (Order) context.getJobDetail().getJobDataMap().get("order");
+
+        // 处理订单超时逻辑
+        // ...
+    }
+}
+```
+
+②、在订单创建时，调度一个 Quartz 任务，设置任务的触发时间为订单超时时间。
+
+```java
+@Service
+public class OrderService {
+    @Autowired
+    private Scheduler scheduler;
+
+    public void createOrder(Order order) {
+        // 创建订单逻辑
+        // ...
+
+        // 调度 Quartz 任务
+        JobDetail jobDetail = JobBuilder.newJob(OrderTimeoutJob.class)
+                .usingJobData("order", order)
+                .build();
+
+        Trigger trigger = TriggerBuilder.newTrigger()
+                .startAt(new Date(System.currentTimeMillis() + 600000)) // 设置触发时间（10分钟后）
+                .build();
+
+        try {
+            scheduler.scheduleJob(jobDetail, trigger);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：SpringTask 了解吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：订单超时，用springtask资源占用太高，有什么其他的方式解决?
 
 ---
 
