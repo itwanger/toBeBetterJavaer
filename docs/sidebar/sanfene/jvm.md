@@ -1157,26 +1157,50 @@ JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器�
 
 ### 36.线上服务 CPU 占用过高怎么排查？
 
-问题分析：CPU 高一定是某个程序长期占用了 CPU 资源。
+![三分恶面渣逆袭：CPU飙高](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-43.png)
 
-![CPU飙高](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-43.png)
+首先，使用 top 命令查看 CPU 占用情况，找到占用 CPU 较高的进程 ID。
 
-1）所以先需要找出那个进程占用 CPU 高。
+```shell
+top
+```
 
-- top 列出系统各个进程的资源占用情况。
+![haikuotiankongdong：top 命令结果](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240527111502.png)
 
-2）然后根据找到对应进行里哪个线程占用 CPU 高。
+接着，使用 jstack 命令查看对应进程的线程堆栈信息。
 
-- top -Hp 进程 ID 列出对应进程里面的线程占用资源情况
+```shell
+jstack -l <pid> > thread-dump.txt
+```
 
-3）找到对应线程 ID 后，再打印出对应线程的堆栈信息
+>上面👆🏻这个命令会将所有线程的堆栈信息输出到 thread-dump.txt 文件中。
 
-- printf "%x\n" PID 把线程 ID 转换为 16 进制。
-- jstack PID 打印出进程的所有线程信息，从打印出来的线程信息中找到上一步转换为 16 进制的线程 ID 对应的线程信息。
+然后再使用 top 命令查看进程中线程的占用情况，找到占用 CPU 较高的线程 ID。
 
-4）最后根据线程的堆栈信息定位到具体业务方法,从代码逻辑中找到问题所在。
+```shell
+top -H -p <pid>
+```
 
-查看是否有线程长时间的 watting 或 blocked，如果线程长期处于 watting 状态下， 关注 watting on xxxxxx，说明线程在等待这把锁，然后根据锁的地址找到持有锁的线程。
+![haikuotiankongdong：Java 进程中的线程情况](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240527111356.png)
+
+注意，top 命令显示的线程 ID 是十进制的，而 jstack 输出的是十六进制的，所以需要将线程 ID 转换为十六进制。
+
+```shell
+printf "%x\n" PID
+```
+
+在 jstack 的输出中搜索这个十六进制的线程 ID，找到对应的堆栈信息。
+
+```shell
+"Thread-5" #21 prio=5 os_prio=0 tid=0x00007f812c018800 nid=0x1a85 runnable [0x00007f811c000000]
+   java.lang.Thread.State: RUNNABLE
+    at com.example.MyClass.myMethod(MyClass.java:123)
+    at ...
+```
+
+最后，根据堆栈信息定位到具体的业务方法，查看是否有死循环、频繁的垃圾回收（GC）、资源竞争（如锁竞争）导致的上下文频繁切换等问题。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：上线的业务出了问题怎么调试，比如某个线程cpu占用率高，怎么看堆栈信息
 
 ### 37.内存飙高问题怎么排查？
 

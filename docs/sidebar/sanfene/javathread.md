@@ -441,17 +441,66 @@ Java 中的线程分为两类，分别为 daemon 线程（守护线程）和 use
 
 ### 9.线程间有哪些通信方式？
 
-Java 中线程之间的通信主要是为了解决线程之间如何协作运行的问题。Java 提供了多种线程通信的方式，使得线程可以在合适的时间和地点进行同步。
+线程之间传递信息有多种方式，每种方式适用于不同的场景。比如说使用共享对象、`wait()` 和 `notify()`、Exchanger 和 CompletableFuture。
 
-![三分恶面渣逆袭：线程间通信方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-10.png)
-
-①、**volatile 和 synchronized 关键字**
+①、**使用共享对象**，多个线程可以访问和修改同一个对象，从而实现信息的传递，比如说 volatile 和 synchronized 关键字。
 
 [关键字 volatile](https://javabetter.cn/thread/volatile.html) 用来修饰成员变量，告知程序任何对该变量的访问均需要从共享内存中获取，而对它的改变必须同步刷新回共享内存，保证所有线程对变量访问的可见性。
 
 [关键字 synchronized](https://javabetter.cn/thread/synchronized-1.html) 可以修饰方法，或者以同步代码块的形式来使用，确保多个线程在同一个时刻，只能有一个线程在执行某个方法或某个代码块。
 
-②、**等待/通知机制**
+```java
+public class SharedObject {
+    private String message;
+    private boolean hasMessage = false;
+
+    public synchronized void writeMessage(String message) {
+        while (hasMessage) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        this.message = message;
+        hasMessage = true;
+        notifyAll();
+    }
+
+    public synchronized String readMessage() {
+        while (!hasMessage) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        hasMessage = false;
+        notifyAll();
+        return message;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SharedObject sharedObject = new SharedObject();
+
+        Thread writer = new Thread(() -> {
+            sharedObject.writeMessage("Hello from Writer!");
+        });
+
+        Thread reader = new Thread(() -> {
+            String message = sharedObject.readMessage();
+            System.out.println("Reader received: " + message);
+        });
+
+        writer.start();
+        reader.start();
+    }
+}
+```
+
+②、**使用 wait() 和 notify()**，例如，生产者-消费者模式中，生产者生产数据，消费者消费数据，通过 `wait()` 和 `notify()` 方法可以实现生产和消费的协调。
 
 一个线程调用共享对象的 `wait()` 方法时，它会进入该对象的等待池，并释放已经持有的该对象的锁，进入等待状态，直到其他线程调用相同对象的 `notify()` 或 `notifyAll()` 方法。
 
@@ -461,23 +510,111 @@ Java 中线程之间的通信主要是为了解决线程之间如何协作运行
 
 通常与锁（特别是 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)）一起使用，为线程提供了一种等待某个条件成真的机制，并允许其他线程在该条件变化时通知等待线程。更灵活、更强大。
 
-③、**管道输入/输出流**
+```java
+class MessageBox {
+    private String message;
+    private boolean empty = true;
 
-管道输入/输出流和普通的文件输入/输出流或者网络输入/输出流不同，它主要用于线程之间的数据传输，而传输的媒介为内存。
+    public synchronized void produce(String message) {
+        while (!empty) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        empty = false;
+        this.message = message;
+        notifyAll();
+    }
 
-[管道输入/输出流](https://javabetter.cn/io/piped.html)主要包括了如下 4 种具体实现：PipedOutputStream、PipedInputStream、 PipedReader 和 PipedWriter，前两种面向字节，而后两种面向字符。
+    public synchronized String consume() {
+        while (empty) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        empty = true;
+        notifyAll();
+        return message;
+    }
+}
 
-④、**使用 Thread.join()**
+public class Main {
+    public static void main(String[] args) {
+        MessageBox box = new MessageBox();
 
-如果一个线程 A 执行了 `thread.join()`语句，其含义是：当前线程 A 等待 thread 线程终止之后才从 `thread.join()`返回。
+        Thread producer = new Thread(() -> {
+            box.produce("Message from producer");
+        });
 
-⑤、**使用 ThreadLocal**
+        Thread consumer = new Thread(() -> {
+            String message = box.consume();
+            System.out.println("Consumer received: " + message);
+        });
 
-[ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是 Java 中提供的一种用于实现线程局部变量的工具。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。ThreadLocal 可以用于解决多线程中共享对象的线程安全问题。
+        producer.start();
+        consumer.start();
+    }
+}
+```
 
-那其实除了上面提到的这些，还有很多通信工具类 [CountDownLatch](https://javabetter.cn/thread/CountDownLatch.html)、[CyclicBarrier](https://javabetter.cn/thread/CountDownLatch.html)、[Semaphore](https://javabetter.cn/thread/CountDownLatch.html) 等并发工具类。
+③、**使用 Exchanger**，Exchanger 是一个同步点，可以在两个线程之间交换数据。一个线程调用 exchange() 方法，将数据传递给另一个线程，同时接收另一个线程的数据。
+
+```java
+import java.util.concurrent.Exchanger;
+
+public class Main {
+    public static void main(String[] args) {
+        Exchanger<String> exchanger = new Exchanger<>();
+
+        Thread thread1 = new Thread(() -> {
+            try {
+                String message = "Message from thread1";
+                String response = exchanger.exchange(message);
+                System.out.println("Thread1 received: " + response);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        Thread thread2 = new Thread(() -> {
+            try {
+                String message = "Message from thread2";
+                String response = exchanger.exchange(message);
+                System.out.println("Thread2 received: " + response);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+    }
+}
+```
+
+④、**使用 CompletableFuture**，CompletableFuture 是 Java 8 引入的一个类，支持异步编程，允许线程在完成计算后将结果传递给其他线程。
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            // 模拟长时间计算
+            return "Message from CompletableFuture";
+        });
+
+        future.thenAccept(message -> {
+            System.out.println("Received: " + message);
+        });
+    }
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该原题。
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：线程之间传递信息?
 
 ### 67.请说说 sleep 和 wait 的区别？（补充）
 
@@ -709,6 +846,12 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是 Java 中提供的一种用于实现线程局部变量的工具类。它允许每个线程都拥有自己的独立副本，从而实现线程隔离，用于解决多线程中共享对象的线程安全问题。
 
 ![三分恶面渣逆袭：ThreadLocal线程副本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-11.png)
+
+在 Web 应用中，可以使用 ThreadLocal 存储用户会话信息，这样每个线程在处理用户请求时都能方便地访问当前用户的会话信息。
+
+在数据库操作中，可以使用 ThreadLocal 存储数据库连接对象，每个线程有自己独立的数据库连接，从而避免了多线程竞争同一数据库连接的问题。
+
+在格式化操作中，例如日期格式化，可以使用 ThreadLocal 存储 SimpleDateFormat 实例，避免多线程共享同一实例导致的线程安全问题。
 
 使用 ThreadLocal 通常分为四步：
 
@@ -1772,7 +1915,7 @@ Linux 的 X86 下主要是通过 cmpxchgl 这个指令在 CPU 上完成 CAS 操�
 
 ### 33.CAS 有什么问题？如何解决？
 
-CAS 存在三个景点的问题。
+CAS 存在三个经典问题。
 
 ![三分恶面渣逆袭：CAS三大问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-44.png)
 
@@ -1783,6 +1926,22 @@ CAS 存在三个景点的问题。
 可以使用版本号/时间戳的方式来解决 ABA 问题。
 
 比如说，每次变量更新时，不仅更新变量的值，还更新一个版本号。CAS 操作时不仅要求值匹配，还要求版本号匹配。
+
+```java
+public class OptimisticLockExample {
+    private int version;
+    private int value;
+
+    public synchronized boolean updateValue(int newValue, int currentVersion) {
+        if (this.version == currentVersion) {
+            this.value = newValue;
+            this.version++;
+            return true;
+        }
+        return false;
+    }
+}
+```
 
 Java 的 AtomicStampedReference 类就实现了这种机制，它会同时检查引用值和 stamp 是否都相等。
 
@@ -2076,12 +2235,9 @@ ReentrantLock 和 synchronized 都可以用来实现同步，但它们之间也�
 
 对于悲观锁来说，它总是认为每次访问共享资源时会发生冲突，所以必须对每次数据操作加上锁，以保证临界区的程序同一时间只能有一个线程在执行。
 
-悲观锁的代表有 synchronized 关键字和 Lock 接口：
+悲观锁的代表有 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)和 [Lock 接口](https://javabetter.cn/thread/reentrantLock.html)。
 
-- synchronized：可以修饰方法或代码块，保证同一时刻只有一个线程执行该代码段。
-- ReentrantLock：一种可重入的互斥锁，重入的意思是能够对共享资源重复加锁，即当前线程获取该锁后再次获取不会被阻塞。
-
-乐观锁，顾名思义，它是乐观派。乐观锁总是假设对共享资源的访问没有冲突，线程可以不停地执行，无需加锁也无需等待。一旦多个线程发生冲突，乐观锁通常使用一种称为 CAS 的技术来保证线程执行的安全性。
+乐观锁，顾名思义，它是乐观派。乐观锁总是假设对共享资源的访问没有冲突，线程可以不停地执行，无需加锁也无需等待。一旦多个线程发生冲突，乐观锁通常使用一种称为 [CAS](https://javabetter.cn/thread/cas.html) 的技术来保证线程执行的安全性。
 
 由于乐观锁假想操作中没有锁的存在，因此不太可能出现死锁的情况，换句话说，乐观锁天生免疫死锁。
 
@@ -2089,6 +2245,7 @@ ReentrantLock 和 synchronized 都可以用来实现同步，但它们之间也�
 - 悲观锁多用于”写多读少“的环境，避免频繁失败和重试影响性能。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：说说 Java 的并发系统(从悲观锁聊到乐观锁，还有线程、线程池之类的，聊了快十分钟这个)
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：乐观锁、悲观锁、ABA问题
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
