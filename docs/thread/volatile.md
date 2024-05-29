@@ -231,59 +231,82 @@ add AtomicInteger, inc output:1000
 
 ## volatile 实现单例模式的双重锁
 
-这是一个使用"双重检查锁定"（double-checked locking）实现的单例模式（Singleton Pattern）的例子。
+下面是一个使用"双重检查锁定"（double-checked locking）实现的单例模式（Singleton Pattern）的例子。
 
 ```java
-public class penguin {
-    private static volatile penguin m_penguin = null;
-    // 避免通过new初始化对象
-    private void penguin() {}
-    public void beating() {
-        System.out.println("打豆豆");
-    };
-    public static penguin getInstance() {      //1
-        if (null == m_penguin) {               //2
-            synchronized(penguin.class) {      //3
-                if (null == m_penguin) {       //4
-                    m_penguin = new penguin(); //5
-                }
-            }
-        }
-        return m_penguin;                      //6
-    }
+public class Penguin {
+    private static volatile Penguin m_penguin = null;
+
+    // 一个成员变量 money
+    private int money = 10000;
+
+    // 避免通过 new 初始化对象，构造方法应为 public 或 private
+    private Penguin() {}
+
+    public void beating() {
+        System.out.println("打豆豆" + money);
+    }
+
+    public static Penguin getInstance() {
+        if (m_penguin == null) {
+            synchronized (Penguin.class) {
+                if (m_penguin == null) {
+                    m_penguin = new Penguin();
+                }
+            }
+        }
+        return m_penguin;
+    }
 }
 ```
 
-在这个例子中，penguin 类只能被实例化一次。
+在这个例子中，Penguin 类只能被实例化一次。来看代码解释：
 
-首先看代码解释：
+- 声明了一个类型为 Penguin 的 volatile 变量 m_penguin，它是类的静态变量，用来存储 Penguin 类的唯一实例。
+- `Penguin()` 构造方法被声明为 private，这样就阻止了外部代码使用 new 来创建 Penguin 实例，保证了只能通过 `getInstance()` 方法获取实例。
+- `getInstance()` 方法是获取 Penguin 类唯一实例的公共静态方法。
+- 第一次 `if (null == m_penguin)` 检查是否已经存在 Penguin 实例。如果不存在，才进入同步代码块。
+- `synchronized(penguin.class)` 对类的 Class 对象加锁，确保在多线程环境下，同时只能有一个线程进入同步代码块。在同步代码块中，再次执行 `if (null == m_penguin)` 检查实例是否已经存在，如果不存在，则创建新的实例。这就是所谓的“双重检查锁定”，一共两次。
+- 最后返回 m_penguin，也就是 Penguin 的唯一实例。
 
-- 声明了一个类型为 penguin 的 volatile 变量 m_penguin，它是类的静态变量，用来存储 penguin 类的唯一实例。
-- `penguin()` 构造方法被声明为 private，这样就阻止了外部代码使用 new 来创建 penguin 实例，保证了只能通过 `getInstance()` 方法获取实例。
-- `getInstance()` 方法是获取 penguin 类唯一实例的公共静态方法。
-- `if (null == m_penguin)` 检查是否已经存在实例。如果不存在，才进入同步代码块。
-- `synchronized(penguin.class)` 对类的 Class 对象加锁，这是确保在多线程环境下，同时只能有一个线程进入同步代码块。在同步代码块中，再次检查实例是否已经存在，如果不存在，则创建新的实例。这就是所谓的"双重检查锁定"。
-- 最后返回 m_penguin，也就是 penguin 的唯一实例。
+其中，使用 volatile 关键字是为了防止 `m_penguin = new Penguin()` 这一步被指令重排序。因为实际上，`new Penguin()` 这一行代码分为三个子步骤：
 
-其中，使用 volatile 关键字是为了防止 `m_penguin = new penguin()` 这一步被指令重排序。实际上，`new penguin()` 这一步分为三个子步骤：
+- 步骤 1：为 Penguin 对象分配足够的内存空间，伪代码 `memory = allocate()`。
+- 步骤 2：调用 Penguin 的构造方法，初始化对象的成员变量，伪代码 `ctorInstanc(memory)`。
+- 步骤 3：将内存地址赋值给 m_penguin 变量，使其指向新创建的对象，伪代码 `instance = memory`。
 
-- 分配对象的内存空间。
-- 初始化对象。
-- 将 m_penguin 指向分配的内存空间。
+如果不使用 volatile 关键字，JVM 可能会对这三个子步骤进行指令重排。
 
-如果不使用 volatile 关键字，JVM 可能会对这三个子步骤进行指令重排序，如果步骤 2 和步骤 3 被重排序，那么线程 A 可能在对象还没有被初始化完成时，线程 B 已经开始使用这个对象，从而导致问题。而使用 volatile 关键字可以防止这种指令重排序。
+- 为 Penguin 对象分配内存
+- 将对象赋值给引用 m_penguin
+- 调用构造方法初始化成员变量
 
-伪代码代码如下：
+这种重排序会导致 m_penguin 引用在对象完全初始化之前就被其他线程访问到。具体来说，如果一个线程执行到步骤 2 并设置了 m_penguin 的引用，但尚未完成对象的初始化，这时另一个线程可能会看到一个“半初始化”的 Penguin 对象。
+
+假如此时有两个线程 A 和 B，要执行 `getInstance()` 方法：
 
 ```java
-a. memory = allocate() //分配内存
-b. ctorInstanc(memory) //初始化对象
-c. instance = memory   //设置instance指向刚分配的地址
+public static Penguin getInstance() {
+    if (m_penguin == null) {
+        synchronized (Penguin.class) {
+            if (m_penguin == null) {
+                m_penguin = new Penguin();
+            }
+        }
+    }
+    return m_penguin;
+}
 ```
 
-上面的代码在编译运行时，可能会出现重排序从 a-b-c 排序为 a-c-b。在多线程的情况下会出现以下问题。
+- 线程 A 执行到 `if (m_penguin == null)`，判断为 true，进入同步块。
+- 线程 B 执行到 `if (m_penguin == null)`，判断为 true，进入同步块。
 
-当线程 A 在执行第 5 行代码时，B 线程进来执行到第 2 行代码。假设此时 A 执行的过程中发生了指令重排序，即先执行了 a 和 c，没有执行 b。那么由于 A 线程执行了 c 导致 instance 指向了一段地址，所以 B 线程判断 instance 不为 null，会直接跳到第 6 行并返回一个未初始化的对象。
+如果线程 A 执行 `m_penguin = new Penguin()` 时发生指令重排序：
+
+- 线程 A 分配内存并设置引用，但尚未调用构造方法完成初始化。
+- 线程 B 此时判断 `m_penguin != null`，直接返回这个“半初始化”的对象。
+
+这样就会导致线程 B 拿到一个不完整的 Penguin 对象，可能会出现空指针异常或者其他问题。
 
 ## 小结
 
