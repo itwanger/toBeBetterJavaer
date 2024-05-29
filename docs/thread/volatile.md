@@ -308,6 +308,8 @@ public static Penguin getInstance() {
 
 这样就会导致线程 B 拿到一个不完整的 Penguin 对象，可能会出现空指针异常或者其他问题。
 
+于是，我们可以为 m_penguin 变量添加 volatile 关键字，来禁止指令重排序，确保对象的初始化完成后再将其赋值给 m_penguin。
+
 ## 小结
 
 “好了，三妹，我们来总结一下。”我舒了一口气说。
