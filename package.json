@@ -1,0 +1,21 @@
+{
+  "name": "javabetter",
+  "version": "2.0.0",
+  "description": "二哥的Java进阶之路",
+  "license": "MIT",
+  "type": "module",
+  "author": "沉默王二",
+  "scripts": {
+    "docs:build": "vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache"
+  },
+  "devDependencies": {
+    "vue": "^3.4.21",
+    "vuepress": "2.0.0-rc.9",
+    "vuepress-theme-hope": "2.0.0-rc.36"
+  },
+  "dependencies": {
+    "@docsearch/js": "^3.3.2"
+  }
+}
