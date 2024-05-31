@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o,c as t,a as n}from"./app-72970f25.js";const c={},_=n("p",null,"binlog",-1),s=[_];function l(r,a){return o(),t("div",null,s)}const m=e(c,[["render",l],["__file","binlog.html.vue"]]);export{m as default};

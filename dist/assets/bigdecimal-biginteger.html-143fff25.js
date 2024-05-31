@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as t,c}from"./app-72970f25.js";const r={};function i(o,n){return t(),c("div")}const m=e(r,[["render",i],["__file","bigdecimal-biginteger.html.vue"]]);export{m as default};
