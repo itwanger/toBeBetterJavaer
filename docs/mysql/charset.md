@@ -140,11 +140,11 @@ SHOW VARIABLES LIKE 'collation_database';
 
 随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://javabetter.cn/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
 
-目前星球已经 4200+ 人了，所以星球也涨价到了 149 元，后续会讲星球的价格调整为 159 元/年，所以想加入的小伙伴一定要趁早。
+目前星球已经 5000+ 人了，所以星球也涨价到了 149 元，后续会讲星球的价格调整为 159 元/年，所以想加入的小伙伴一定要趁早。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116130230.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240521200742.png)
 
-你可以微信扫码或者长按自动识别领取 30 元优惠券（仅有 100 张），**119/年** 加入，满 5000 人会涨价至 159 元，所以想要加入的话请趁早。
+你可以微信扫码或者长按自动识别领取 30 元优惠券，**119/年** 加入，新项目 pmhub 上线后会涨价至 159 元，所以想要加入的话请趁早。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116131318.png)
 
