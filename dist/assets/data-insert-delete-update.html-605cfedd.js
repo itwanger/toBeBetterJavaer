@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as t,c as a,a as o}from"./app-72970f25.js";const s={},c=o("p",null,"数据的插入、删除和更新",-1),n=[c];function r(_,l){return t(),a("div",null,n)}const f=e(s,[["render",r],["__file","data-insert-delete-update.html.vue"]]);export{f as default};
