@@ -2649,40 +2649,63 @@ MySQL 的主从复制（Master-Slave Replication）是一种数据同步机制�
 
 ![三分恶面渣逆袭：表拆分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7cba6ce0-c8bb-4f51-9c3b-e5a44e724c79.jpg)
 
+比如说我们将文章表拆分成多个表，如 article_0、article_9999、article_19999 等。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说分库分表的准则
 
 ### 60.水平分表有哪几种路由方式？
 
-什么是路由呢？就是数据应该分到哪一张表。
+为了实现水平分表，需要设计合适的路由策略来确定数据应该存储在哪个表中，具体哪个表，由分片键（Sharding Key）来决定，分片键的选择应满足以下条件：
 
-水平分表主要有三种路由方式：
+- **高区分度**：分片键的值应尽量均匀分布，以避免数据倾斜。
+- **查询频率高**：选择经常在查询条件中使用的字段作为分片键，有助于提高查询效率。
+- **写入频率高**：选择经常被写入的字段，可以均匀分布写入负载。
 
-- **范围路由**：选取有序的数据列 （例如，整形、时间戳等） 作为路由的条件，不同分段分散到不同的数据库表中。
+那常见的路由策略有三种，分别是范围路由、Hash 路由和配置路由。
 
-我们可以观察一些支付系统，发现只能查一年范围内的支付记录，这个可能就是支付公司按照时间进行了分表。
+#### 什么是范围路由？
 
-![范围路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b3882ca3-1d04-44e2-9015-7e6c867255a0.jpg)
+范围路由是根据某个字段的值范围进行分表。这种方式适用于分片键具有顺序性或连续性的场景。
 
-范围路由设计的复杂点主要体现在分段大小的选取上，分段太小会导致切分后子表数量过多，增加维护复杂度；分段太大可能会导致单表依然存在性能问题，一般建议分段大小在 100 万至 2000 万之间，具体需要根据业务选取合适的分段大小。
+![三分恶面渣逆袭：范围路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b3882ca3-1d04-44e2-9015-7e6c867255a0.jpg)
 
-范围路由的优点是可以随着数据的增加平滑地扩充新的表。例如，现在的用户是 100 万，如果增加到 1000 万，只需要增加新的表就可以了，原有的数据不需要动。范围路由的一个比较隐含的缺点是分布不均匀，假如按照 1000 万来进行分表，有可能某个分段实际存储的数据量只有 1000 条，而另外一个分段实际存储的数据量有 900 万条。
+范围路由的优点是实现简单，可以随着数据的增加平滑地扩充新的表。适用于按时间或按顺序增长的字段（如时间戳、订单号等）。缺点是可能出现数据倾斜问题，导致某些表的数据量明显大于其他表。
 
-- **Hash 路由**：选取某个列 （或者某几个列组合也可以） 的值进行 Hash 运算，然后根据 Hash 结果分散到不同的数据库表中。
+#### 什么是 Hash 路由？
 
-同样以订单 id 为例，假如我们一开始就规划了 4 个数据库表，路由算法可以简单地用 id % 4 的值来表示数据所属的数据库表编号，id 为 12 的订单放到编号为 50 的子表中，id 为 13 的订单放到编号为 61 的字表中。
+哈希路由是通过对分片键进行哈希计算，然后取模来确定数据存储的表。哈希值决定了数据分布，通常能较好地平衡数据量。
 
-![Hash 路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e01e7757-c337-48c8-95db-2f7cfd2bc036.jpg)
+![三分恶面渣逆袭：Hash 路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e01e7757-c337-48c8-95db-2f7cfd2bc036.jpg)
 
-Hash 路由设计的复杂点主要体现在初始表数量的选取上，表数量太多维护比较麻烦，表数量太少又可能导致单表性能存在问题。而用了 Hash 路由后，增加子表数量是非常麻烦的，所有数据都要重分布。Hash 路由的优缺点和范围路由基本相反，Hash 路由的优点是表分布比较均匀，缺点是扩充新的表很麻烦，所有数据都要重分布。
+假如我们一开始规划好了 4 个数据表，那么路由算法可以简单地通过取模来实现：
 
-- **配置路由**：配置路由就是路由表，用一张独立的表来记录路由信息。同样以订单 id 为例，我们新增一张 order_router 表，这个表包含 orderjd 和 tablejd 两列 , 根据 orderjd 就可以查询对应的 table_id。
+```java
+public String getTableNameByHash(long userId) {
+    int tableIndex = (int) (userId % 4);
+    return "user_" + tableIndex;
+}
+```
 
-配置路由设计简单，使用起来非常灵活，尤其是在扩充表的时候，只需要迁移指定的数据，然后修改路由表就可以了。
+哈希路由的优点是数据可以均匀分布，避免了数据倾斜，但范围查询时可能会涉及多个表，性能较差。
 
-![配置路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcd34332-d38d-455a-875d-d4afd37cac72.jpg)
+#### 什么是配置路由？
 
-配置路由的缺点就是必须多查询一次，会影响整体性能；而且路由表本身如果太大（例如，几亿条数据） ，性能同样可能成为瓶颈，如果我们再次将路由表分库分表，则又面临一个死循环式的路由算法选择问题。
+配置路由是通过配置表来确定数据存储的表，适用于分片键不规律的场景。
+
+![三分恶面渣逆袭：配置路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcd34332-d38d-455a-875d-d4afd37cac72.jpg)
+
+比如说我们可以通过 order_router 表来确定订单数据存储在哪个表中：
+
+| order_id | table_id |
+| -------- | -------- |
+| 1        | table_1        |
+| 2        | table_2        |
+| 3        | table_3        |
+
+配置路由的优点是可以根据实际情况灵活配置。缺点是需要额外的配置表，维护成本较高。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 24 面试原题：项目中的水平分表是怎么做的？分片键具体是怎么设置的？
 
 ### 61.不停机扩容怎么实现？
 
