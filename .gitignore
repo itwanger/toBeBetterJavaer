@@ -2,13 +2,11 @@ node_modules
 .cache
 .temp
 package-lock.json
-yarn.lock
 .DS_Store
 dump.rdb
 docs/.vuepress/.cache/
 docs/.vuepress/.temp/
 images
 *.log
-package.json
 .yarn
 *-vip.md
