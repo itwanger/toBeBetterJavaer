@@ -29,13 +29,11 @@ Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯高斯林�
 
 我是从大一下学期开始学习 Java 的，当时已经学完了 C 语言，但苦于 C 语言没有很好的应用方向，就开始学习 Java 了，因为我了解到，绝大多数的互联网公司后端服务都是用 Java 开发的，另外就是学习资料也非常丰富，就业岗位和薪资待遇都比较理想。
 
-于是就想着一边学，一边实战，后来就有了[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)这个社区系统。
+于是就想着一边学，一边实战，后面我又接触到了 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等一系列 Java 技术栈，让我的编程能力有了很大的提升。后来就有了[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)这个社区项目。
 
 ![技术派实战项目](https://cdn.tobebetterjavaer.com/paicoding/bdfa153fc82310f9ab862a1b3db0d0d7.png)
 
 这样我就可以作为创作者把自己在学习 Java 过程中的经验心得通过文章/教程的形式发布出来，同时读者还可以通过评论、点赞、收藏的形式和我进行互动。
-
-后面我又接触到了 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等一些 Java 技术栈，让我的编程能力也有了很大的提升。
 
 #### 平常用什么编程语言？
 
