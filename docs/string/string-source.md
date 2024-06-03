@@ -1,5 +1,5 @@
 ---
-title: 深入解读String类源码及其应用技巧
+title: 深入解读String类的源码
 shortTitle: 字符串源码解读
 category:
   - Java核心

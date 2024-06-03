@@ -147,11 +147,11 @@ Java 的数据类型分两种：**基本数据类型**和**引用数据类型**�
 - 字符型（char）
 - 布尔型（boolean）
 
-Java 基本数据类型范围和默认值：
+Java 基本数据类型的默认值和占用大小：
 
 | 数据类型 | 默认值   | 大小   |
 | -------- | -------- | ------ |
-| boolean  | false    | 4字节 |
+| boolean  | false    | 不确定 |
 | char     | '\u0000' | 2 字节 |
 | byte     | 0        | 1 字节 |
 | short    | 0        | 2 字节 |
@@ -166,11 +166,15 @@ Java 基本数据类型范围和默认值：
 - [接口](https://javabetter.cn/oo/interface.html)（interface）
 - [数组](https://javabetter.cn/array/array.html)（`[]`）
 
-#### 为什么 boolean 占四个字节？
+#### boolean 类型实际占用几个字节？
 
-如果 boolean 是 单独使用的，它会被编译为 int 类型，占用 4 个字节。
+推荐阅读：[二哥的 Java 进阶之路：基本数据类型篇](https://javabetter.cn/basic-grammar/basic-data-type.html)
 
-如果 boolean 是作为数组的元素，它会被编译为 byte 类型，占用 1 个字节。
+这要依据具体的 JVM 实现细节，但是在 Java 虚拟机规范中，并没有明确规定 boolean 类型的大小，只是规定 boolean 类型只能取 true 或 false 两个值。
+
+>boolean: The boolean data type has only two possible values: true and false. Use this data type for simple flags that track true/false conditions. This data type represents one bit of information, but its "size" isn't something that's precisely defined.
+
+我本机的 64 位 JDK 中，通过 JOL 工具查看单独的 boolean 类型，以及 boolean 数组，所占用的空间都是 1 个字节。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 的基础数据类型，分别占多少字节
