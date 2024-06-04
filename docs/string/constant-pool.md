@@ -36,11 +36,11 @@ String s = new String("二哥");
 
 我画图表示一下，会更加清楚。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-6dee151e-3a13-4f85-b870-3c9d1797557a.png)
+![String s = new String("二哥")](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-6dee151e-3a13-4f85-b870-3c9d1797557a.png)
 
-在Java中，栈上存储的是基本数据类型的变量和对象的引用，而对象本身则存储在堆上。
+在 Java 中，栈上存储的是基本数据类型的变量和对象的引用，而对象本身则存储在堆上。
 
-对于这行代码 `String s = new String("二哥");`，它创建了两个对象：一个是字符串对象 "二哥"，它被添加到了字符串常量池中，另一个是通过 new String() 构造函数创建的字符串对象 "二哥"，它被分配在堆内存中，同时引用变量 s 存储在栈上，它指向堆内存中的字符串对象 "二哥"。
+对于这行代码 `String s = new String("二哥");`，它创建了两个对象：一个是字符串对象 "二哥"，它被添加到了字符串常量池中，另一个是通过 `new String()` 构造方法创建的字符串对象 "二哥"，它被分配在堆内存中，同时引用变量 s 存储在栈上，它指向堆内存中的字符串对象 "二哥"。
 
 “**为什么要先在字符串常量池中创建对象，然后再在堆上创建呢**？这样不就多此一举了？”三妹敏锐地发现了问题。
 
@@ -48,7 +48,7 @@ String s = new String("二哥");
 
 ### 字符串常量池的作用
 
-通常情况下，我们会采用双引号的方式来创建字符串对象，而不是通过 new 关键字的方式，就像下面👇🏻这样，这样就不会多此一举：
+通常情况下，我们会采用双引号的方式来创建字符串对象，而不是通过 new 关键字的方式，就像下面 👇🏻 这样，这样就不会多此一举：
 
 ```java
 String s = "三妹";
@@ -56,11 +56,9 @@ String s = "三妹";
 
 当执行 `String s = "三妹"` 时，Java 虚拟机会先在字符串常量池中查找有没有“三妹”这个字符串对象，如果有，则不创建任何对象，直接将字符串常量池中这个“三妹”的对象地址返回，赋给变量 s；如果没有，在字符串常量池中创建“三妹”这个对象，然后将其地址返回，赋给变量 s。
 
-
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-80ca8b18-2446-431e-98e3-b194e1c608e3.png)
 
 Java 虚拟机创建了一个字符串对象 "三妹"，它被添加到了字符串常量池中，同时引用变量 s 存储在栈上，它指向字符串常量池中的字符串对象 "三妹"。你看，是不是省了一步，比之前高效了。
-
 
 “哦，我明白了，哥。”三妹突然插话到，“有了字符串常量池，就可以通过双引号的方式直接创建字符串对象，不用再通过 new 的方式在堆中创建对象了，对吧？”
 
@@ -106,9 +104,7 @@ String s1 = "三妹";
 
 画幅图，大概就是这个样子。
 
-
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-ed6518ec-1d51-4718-ab8a-e1e2cda774bd.png)
-
 
 #### Java 7
 
@@ -132,11 +128,9 @@ String s1 = "三妹";
 
 再画幅图，对比来看一下，就会一目了然。
 
-
 ![字符串常量池的位置变化](https://cdn.tobebetterjavaer.com/stutymore/constant-pool-20240604095423.png)
 
 ### 永久代、方法区、元空间
-
 
 “哥，能再简单给我解释一下方法区，永久代和元空间的概念吗？有点模糊。”三妹说。
 
@@ -156,11 +150,9 @@ String s1 = "三妹";
 
 “是的，我现在是彻底搞懂了字符串常量池，哥，你真棒！”三妹说。
 
-
 ---
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
