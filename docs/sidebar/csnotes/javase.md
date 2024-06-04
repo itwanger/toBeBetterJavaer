@@ -390,9 +390,9 @@ public class PassByValueExample {
 
 ### float 与 double
 
-Java 不能隐式执行向下转型，因为这会使得精度降低。
+Java 不能隐式向下转型，因为这会使精度降低。
 
-1.1 字面量属于 double 类型，不能直接将 1.1 直接赋值给 float 变量，因为这是向下转型。
+`1.1` 字面量属于 double 类型，不能直接将 `1.1` 赋值给 float 变量，因为这是向下转型。
 
 ```java
 // float f = 1.1;
@@ -426,7 +426,7 @@ s1++;
 s1 = (short) (s1 + 1);
 ```
 
-[StackOverflow : Why don't Java's +=, -=, *=, /= compound assignment operators require casting?](https://stackoverflow.com/questions/8710619/why-dont-javas-compound-assignment-operators-require-casting)
+推荐阅读：[自动类型转换与强制类型转换](https://javabetter.cn/basic-grammar/type-cast.html)
 
 ### switch
 
@@ -444,28 +444,17 @@ switch (s) {
 }
 ```
 
-switch 不支持 long、float、double，是因为 switch 的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是用 if 比较合适。
+推荐阅读：[switch 语句的介绍](https://javabetter.cn/basic-grammar/flow-control.html#_02%E3%80%81switch-%E8%AF%AD%E5%8F%A5)
 
-```java
-// long x = 111;
-// switch (x) { // Incompatible types. Found: 'long', required: 'char, byte, short, int, Character, Byte, Short, Integer, String, or an enum'
-//     case 111:
-//         System.out.println(111);
-//         break;
-//     case 222:
-//         System.out.println(222);
-//         break;
-// }
-```
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-[StackOverflow : Why can't your switch statement data type be long, Java?](https://stackoverflow.com/questions/2676210/why-cant-your-switch-statement-data-type-be-long-java)
-
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 四、关键字
 
 ### final
 
-**1. 数据**  
+#### 1. 数据
 
 声明数据为常量，可以是编译时常量，也可以是在运行时被初始化后不能被改变的常量。
 
@@ -479,13 +468,13 @@ final A y = new A();
 y.a = 1;
 ```
 
-**2. 方法**  
+#### 2. 方法 
 
 声明方法不能被子类重写。
 
 private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。
 
-**3. 类**  
+#### 3. 类
 
 声明类不允许被继承。
 
