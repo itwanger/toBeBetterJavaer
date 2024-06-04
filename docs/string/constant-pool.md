@@ -133,7 +133,7 @@ String s1 = "三妹";
 再画幅图，对比来看一下，就会一目了然。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-422e3214-97df-41ec-bcb5-132cfc76b669.png)
+![字符串常量池的位置变化](https://cdn.tobebetterjavaer.com/stutymore/constant-pool-20240604095423.png)
 
 ### 永久代、方法区、元空间
 
