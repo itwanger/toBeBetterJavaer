@@ -1,5 +1,5 @@
 ---
-title: Java 字符串优化：详解 String.intern() 方法
+title: 详解 String.intern() 方法
 shortTitle: String.intern详解
 category:
   - Java核心

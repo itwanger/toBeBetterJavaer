@@ -251,17 +251,17 @@ System.out.println(s5 == s6);  // true
 ```
 
 
-- [StackOverflow : What is String interning?](https://stackoverflow.com/questions/10578984/what-is-string-interning)
-- [深入解析 String#intern](https://tech.meituan.com/in_depth_understanding_string_intern.html)
+- [字符串常量池](https://javabetter.cn/string/constant-pool.html)
+- [详解 String.intern() 方法](https://javabetter.cn/string/intern.html)
 
 ### new String("abc")
 
 使用这种方式一共会创建两个字符串对象（前提是 String Pool 中还没有 "abc" 字符串对象）。
 
-- "abc" 属于字符串字面量，因此编译时期会在 String Pool 中创建一个字符串对象，指向这个 "abc" 字符串字面量；
-- 而使用 new 的方式会在堆中创建一个字符串对象。
+- "abc" 属于字符串字面量，因此编译时会在 String Pool 中创建一个字符串对象；
+- 使用 new 会在堆中创建一个新的字符串对象，这个新对象在创建的时候，会使用字符串常量池中 "abc" 作为构造方法的参数。
 
-创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。
+好，我们来创建一个测试类，main 方法中使用这种方式来创建字符串对象。
 
 ```java
 public class NewStringTest {
@@ -271,7 +271,7 @@ public class NewStringTest {
 }
 ```
 
-使用 javap -verbose 进行反编译，得到以下内容：
+使用 `javap -verbose` 进行反编译，得到以下内容：
 
 ```java
 // ...
@@ -297,9 +297,11 @@ Constant pool:
 // ...
 ```
 
-在 Constant Pool 中，#19 存储这字符串字面量 "abc"，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。
+在 Constant Pool 中，#19 存储了字符串字面量 "abc"，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。
 
-以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。
+在 main 方法中，0: 行使用 new #2 在堆中创建了一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造方法的参数。
+
+以下是 String 构造方法的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造方法参数时，并不会复制 value 数组的内容，而是指向同一个 value 数组。
 
 ```java
 public String(String original) {
@@ -308,13 +310,17 @@ public String(String original) {
 }
 ```
 
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
 ## 三、运算
 
 ### 参数传递
 
-Java 的参数是以值传递的形式传入方法中，而不是引用传递。
+Java 的参数是以值传递的形式传入方法中的，而不是引用传递。
 
-以下代码中 Dog dog 的 dog 是一个指针，存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值的方式传递到形参中。
+这是一个 Dog 类，有一个字段 name、一个构造方法、一个 getName 方法和一个 setName 方法，以及一个 getObjectAddress 方法，用来返回对象的地址。
 
 ```java
 public class Dog {
@@ -339,7 +345,7 @@ public class Dog {
 }
 ```
 
-在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象。
+然后我们在测试类的 main 方法中创建一个 Dog 对象 dog，并调用 func 方法，将 dog 对象作为参数传入。
 
 ```java
 class PassByValueExample {
@@ -355,7 +361,9 @@ class PassByValueExample {
 }
 ```
 
-但是在方法中将指针引用了其它对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。
+可以看到，dog 的 name 发生了改变，因为调用 func 方法时，传入的是 dog 对象的引用，也就是说，传入的是对象的地址，所以在 func 方法中对对象的字段进行修改，会影响到传入之前的对象。
+
+但如果在方法中将变量引用到其它对象，那么此时方法里和方法外的两个引用其实指向了不同的对象，因此 func 方法中的 `dog = new Dog("B")` 并不会影响 main 方法中的 dog 对象。
 
 ```java
 public class PassByValueExample {
@@ -376,7 +384,9 @@ public class PassByValueExample {
 }
 ```
 
-[StackOverflow: Is Java “pass-by-reference” or “pass-by-value”?](https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value)
+因此，在将一个对象作为参数传入另外一个方法时，本质上是将对象的地址以值的方式传递到形参中。
+
+推荐阅读：[Java 到底是值传递还是引用传递](https://javabetter.cn/basic-extra-meal/pass-by-value.html)
 
 ### float 与 double
 
