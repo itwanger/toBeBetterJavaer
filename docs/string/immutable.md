@@ -1,5 +1,5 @@
 ---
-title: 为什么Java字符串String是不可变的？
+title: 为什么Java字符串是不可变的？
 shortTitle: 字符串为什么不可变
 category:
   - Java核心
