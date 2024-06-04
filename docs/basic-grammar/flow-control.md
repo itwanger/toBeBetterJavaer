@@ -1,5 +1,5 @@
 ---
-title: Java流程控制语句详解：带你轻松学会各类控制结构
+title: Java流程控制语句详解：带你轻松学会if switch while for
 shortTitle: Java流程控制语句
 category:
   - Java核心
@@ -198,7 +198,12 @@ if (age >= 20) {
 
 ### 02、switch 语句
 
-switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int 或者 char，或者对应的包装器类型 Byte、Short、Integer、Character，以及[字符串](https://javabetter.cn/string/immutable.html)和[枚举](https://javabetter.cn/basic-extra-meal/enum.html)类型。
+switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是：
+
+- byte、short、char、int：基本整数类型。
+- String：[字符串](https://javabetter.cn/string/immutable.html)类型。
+- 枚举类型：自定义的[枚举](https://javabetter.cn/basic-extra-meal/enum.html)类型。
+- 包装类：如 Byte、Short、Character、Integer。
 
 来看一下 switch 语句的格式：
 
@@ -320,6 +325,11 @@ public class SwitchEnumDemo {
 ```
 篮球运动员詹姆斯
 ```
+
+但 switch 不支持 long、float、double 类型，这是因为：
+
+- long 是 64 位整数，不在 switch 一开始设计的范围内（32 位的 int 在大多数情况下就够用了）。
+- float 和 double 是浮点数，浮点数的比较不如整数简单和直接，存在精度误差。
 
 ### 03、for 循环
 
