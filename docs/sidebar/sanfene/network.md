@@ -806,17 +806,17 @@ SYN Flood 是一种典型的 DDos 攻击，它在短时间内，伪造**不存�
 
 ### 30.说说 TCP 四次挥手的过程？
 
-PS：问完三次握手，常常也会顺道问问四次挥手，所以也是必须掌握知识点。
+TCP 连接的断开过程称为四次挥手（Four-Way Handshake）。它的目的是在客户端和服务器之间优雅地关闭连接，确保所有数据都被可靠传输。
 
-![TCP 四次挥手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-ba156295-03af-46dc-8ef3-869b44b11303.jpg)
+![三分恶面渣逆袭：TCP 四次挥手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-ba156295-03af-46dc-8ef3-869b44b11303.jpg)
 
-TCP 四次挥手过程：
+第一次挥手（FIN）：客户端向服务器发送一个 FIN（结束）报文，表示客户端没有数据要发送了，但仍然可以接收数据。客户端进入 FIN-WAIT-1 状态。
 
-- 数据传输结束之后，通信双方都可以主动发起断开连接请求，这里假定客户端发起
-- 客户端发送释放连接报文，**第一次挥手** (FIN=1，seq=u)，发送完毕后，客户端进入 **FIN_WAIT_1** 状态。
-- 服务端发送确认报文，**第二次挥手** (ACK=1，ack=u+1,seq =v)，发送完毕后，服务器端进入 **CLOSE_WAIT** 状态，客户端接收到这个确认包之后，进入 **FIN_WAIT_2** 状态。
-- 服务端发送释放连接报文，**第三次挥手** (FIN=1，ACK1,seq=w,ack=u+1)，发送完毕后，服务器端进入 **LAST_ACK** 状态，等待来自客户端的最后一个 ACK。
-- 客户端发送确认报文，**第四次挥手** (ACK=1，seq=u+1,ack=w+1)，客户端接收到来自服务器端的关闭请求，发送一个确认包，并进入 TIME_WAIT 状态，**等待了某个固定时间（两个最大段生命周期，2MSL，2 Maximum Segment Lifetime）之后**，没有收到服务器端的 ACK ，认为服务器端已经正常关闭连接，于是自己也关闭连接，进入 CLOSED 状态。服务器端接收到这个确认包之后，关闭连接，进入 CLOSED 状态。
+第二次挥手（ACK）：服务器接收到 FIN 报文后，向客户端发送一个 ACK 报文，确认已接收到客户端的 FIN 请求。服务器进入 CLOSE-WAIT 状态，客户端进入 FIN-WAIT-2 状态。
+
+第三次挥手（FIN）：服务器向客户端发送一个 FIN 报文，表示服务器也没有数据要发送了。服务器进入 LAST-ACK 状态。
+
+第四次挥手（ACK）：客户端接收到 FIN 报文后，向服务器发送一个 ACK 报文，确认已接收到服务器的 FIN 请求。客户端进入 TIME-WAIT 状态，等待一段时间以确保服务器接收到 ACK 报文。服务器接收到 ACK 报文后进入 CLOSED 状态。客户端在等待一段时间后也进入 CLOSED 状态。
 
 大白话说四次挥手：
 
@@ -832,7 +832,9 @@ TCP 四次挥手过程：
 
 挥手的故事总充满了悲伤和遗憾！
 
-![大白话四次挥手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-578a667b-ec12-4023-a7c5-76bacbce9683.jpg)
+![三分恶面渣逆袭：大白话四次挥手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-578a667b-ec12-4023-a7c5-76bacbce9683.jpg)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯同学 25 后端开发实习一面面试原题：TCP和UDP，TCP连接和断开过程
 
 ### 31.TCP 挥手为什么需要四次呢？
 
