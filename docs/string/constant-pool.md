@@ -1,5 +1,5 @@
 ---
-title: 深入理解Java字符串String常量池
+title: 深入理解Java字符串常量池
 shortTitle: 字符串常量池
 category:
   - Java核心
