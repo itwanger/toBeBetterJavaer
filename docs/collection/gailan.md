@@ -1,6 +1,6 @@
 ---
-title: Java集合框架：List、Set、Map、队列——全面解析
-shortTitle: List、Set、Map、队列全面解析
+title: Java集合框架全面解析
+shortTitle: List、Set、Queue和Map
 category:
   - Java核心
 tag:
