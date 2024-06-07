@@ -20,7 +20,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-vip-20240224094932.png)
+![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
 
 附其他干货笔记下载地址：
 
@@ -693,8 +693,8 @@ x.equals(null); // false;
 
 #### 2. 等价与相等
 
-- 对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。
-- 对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。
+- 对于基本数据类型，可以使用 == 判断两个值是否相等。
+- 对于引用数据类型，可以使用 == 判断两个变量是否引用了同一个对象，而 `equals()` 方法用于判断引用的对象是否等价。
 
 ```java
 Integer x = new Integer(1);
@@ -703,12 +703,13 @@ System.out.println(x.equals(y)); // true
 System.out.println(x == y);      // false
 ```
 
-#### 3. 实现
+#### 3. 如何实现equals方法
 
-- 检查是否为同一个对象的引用，如果是直接返回 true；
-- 检查是否是同一个类型，如果不是，直接返回 false；
-- 将 Object 对象进行转型；
-- 判断每个关键域是否相等。
+①、检查是否为同一个对象的引用，如果是直接返回 true；
+
+②、检查是否是同一类型，如果不是，直接返回 false；
+
+③、转型后判断关键字段是否相等。
 
 ```java
 public class EqualExample {
@@ -739,13 +740,13 @@ public class EqualExample {
 
 ### hashCode()
 
-hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。
+`hashCode()` 方法用于返回对象的哈希值，而 `equals()` 用来判断两个对象是否等价。等价的两个对象哈希值一定相同，但是哈希值相同的两个对象不一定等价，因为哈希值的计算具有随机性，两个值不同的对象可能计算出相同的哈希值。
 
-在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。
+在重写 `equals()` 方法时应该重写 `hashCode()` 方法，保证等价的两个对象哈希值也相等。
 
-HashSet  和 HashMap 等集合类使用了 hashCode()  方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode()  方法。
+HashSet 和 HashMap 等集合类使用了 `hashCode()` 方法来计算对象应该存储的位置（底层数据结构为数组），因此要将对象添加到这些集合类中，需要让对应的类实现 `hashCode()` 方法。
 
-下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中。我们希望将这两个对象当成一样的，只在集合中添加一个对象。但是 EqualExample 没有实现 hashCode() 方法，因此这两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。
+下面的代码中，新建了两个等价的对象，并将它们添加到 HashSet 中。我们希望将这两个对象当成一样的，只在集合中添加一个。但是 EqualExample 没有实现 `hashCode()` 方法，因此这两个对象的哈希值是不同的，最终导致集合添加了两个等价的对象。
 
 ```java
 EqualExample e1 = new EqualExample(1, 1, 1);
@@ -757,9 +758,13 @@ set.add(e2);
 System.out.println(set.size());   // 2
 ```
 
-理想的哈希函数应当具有均匀性，即不相等的对象应当均匀分布到所有可能的哈希值上。这就要求了哈希函数要把所有域的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。
+理想的哈希函数（方法/算法）应当具有均匀性，即不相等的对象应当均匀分布到所有可能的哈希值上。
 
-R 一般取 31，因为它是一个奇素数，如果是偶数的话，当出现乘法溢出，信息就会丢失，因为与 2 相乘相当于向左移一位，最左边的位丢失。并且一个数与 31 相乘可以转换成移位和减法：`31*x == (x<<5)-x`，编译器会自动进行这个优化。
+这就要求了哈希函数要把所有域（字段）的值都考虑进来。可以将每个域都当成 R 进制的某一位，然后组成一个 R 进制的整数。
+
+R 一般取 31，因为它是一个奇素数，如果是偶数的话，当出现乘法溢出，信息就会丢失，因为与 2 相乘相当于向左移一位，最左边的位丢失。
+
+并且一个数与 31 相乘可以转换成移位和减法：`31*x == (x<<5)-x`，编译器会自动进行这个优化。
 
 ```java
 @Override
@@ -774,7 +779,7 @@ public int hashCode() {
 
 ### toString()
 
-默认返回 ToStringExample@4554617c 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。
+默认返回 `ToStringExample@4554617c` 这种形式，其中 @ 后面的数值为哈希值（散列码）的无符号十六进制表示。
 
 ```java
 public class ToStringExample {
@@ -787,10 +792,14 @@ public class ToStringExample {
 }
 ```
 
+测试一下：
+
 ```java
 ToStringExample example = new ToStringExample(123);
 System.out.println(example.toString());
 ```
+
+输出结果：
 
 ```html
 ToStringExample@4554617c
@@ -798,9 +807,9 @@ ToStringExample@4554617c
 
 ### clone()
 
-**1. cloneable**  
+#### 1. cloneable 接口
 
-clone() 是 Object 的 protected 方法，它不是 public，一个类不显式去重写 clone()，其它类就不能直接去调用该类实例的 clone() 方法。
+`clone()` 是 Object 的 protected 方法，它不是 public，因此如果一个类没有显式重写 `clone()`，其它类就不能直接调用该类实例的 `clone()` 方法。
 
 ```java
 public class CloneExample {
@@ -809,12 +818,14 @@ public class CloneExample {
 }
 ```
 
+尝试直接调用 `clone()` 方法，编译器提示错误：
+
 ```java
 CloneExample e1 = new CloneExample();
 // CloneExample e2 = e1.clone(); // 'clone()' has protected access in 'java.lang.Object'
 ```
 
-重写 clone() 得到以下实现：
+好，这次重写 `clone()` 方法：
 
 ```java
 public class CloneExample {
@@ -828,6 +839,8 @@ public class CloneExample {
 }
 ```
 
+再次尝试调用 `clone()` 方法：
+
 ```java
 CloneExample e1 = new CloneExample();
 try {
@@ -837,13 +850,17 @@ try {
 }
 ```
 
+输出结果：
+
 ```html
 java.lang.CloneNotSupportedException: CloneExample
 ```
 
-以上抛出了 CloneNotSupportedException，这是因为 CloneExample 没有实现 Cloneable 接口。
+哦哦，编译通过了，但运行时抛出 CloneNotSupportedException，这是因为 CloneExample 没有实现 Cloneable 接口。
 
-应该注意的是，clone() 方法并不是 Cloneable 接口的方法，而是 Object 的一个 protected 方法。Cloneable 接口只是规定，如果一个类没有实现 Cloneable 接口又调用了 clone() 方法，就会抛出 CloneNotSupportedException。
+需要注意的是，`clone()` 方法并不是 Cloneable 接口的方法，而是 Object 的 protected 方法。
+
+Cloneable 接口只是规定（约束），规定一个类如果没有实现 Cloneable 接口就直接调用了 `clone()` 方法，就会抛出 CloneNotSupportedException。
 
 ```java
 public class CloneExample implements Cloneable {
@@ -857,9 +874,9 @@ public class CloneExample implements Cloneable {
 }
 ```
 
-**2. 浅拷贝**  
+#### 2. 浅拷贝
 
-拷贝对象和原始对象的引用类型引用同一个对象。
+浅拷贝：复制对象的基本数据类型成员变量，和引用数据类型成员变量的引用，导致新对象和原对象共享同一引用对象。
 
 ```java
 public class ShallowCloneExample implements Cloneable {
@@ -888,6 +905,8 @@ public class ShallowCloneExample implements Cloneable {
 }
 ```
 
+进行浅拷贝，改变 e1 的 arr 数组，e2 的 arr 数组也会改变。
+
 ```java
 ShallowCloneExample e1 = new ShallowCloneExample();
 ShallowCloneExample e2 = null;
@@ -900,9 +919,9 @@ e1.set(2, 222);
 System.out.println(e2.get(2)); // 222
 ```
 
-**3. 深拷贝**  
+#### 3. 深拷贝
 
-拷贝对象和原始对象的引用类型引用不同对象。
+深拷贝：不仅复制对象的基本数据类型成员变量，还递归复制引用类型成员变量所引用的对象，使得新对象和原对象完全独立。
 
 ```java
 public class DeepCloneExample implements Cloneable {
@@ -936,6 +955,8 @@ public class DeepCloneExample implements Cloneable {
 }
 ```
 
+进行深拷贝，改变 e1 的 arr 数组，e2 的 arr 数组不会改变。
+
 ```java
 DeepCloneExample e1 = new DeepCloneExample();
 DeepCloneExample e2 = null;
@@ -948,9 +969,11 @@ e1.set(2, 222);
 System.out.println(e2.get(2)); // 2
 ```
 
-**4. clone() 的替代方案**  
+#### 4. clone() 的替代方案
 
-使用 clone() 方法来拷贝一个对象即复杂又有风险，它会抛出异常，并且还需要类型转换。Effective Java 书上讲到，最好不要去使用 clone()，可以使用拷贝构造函数或者拷贝工厂来拷贝一个对象。
+使用 `clone()` 方法来拷贝一个对象既复杂又有风险，一需要类型转换，二可能抛出异常。
+
+Effective Java 一书上讲到，最好不要去使用 `clone()`，可以使用拷贝构造方法或者拷贝工厂来拷贝一个对象。
 
 ```java
 public class CloneConstructorExample {
@@ -981,12 +1004,20 @@ public class CloneConstructorExample {
 }
 ```
 
+使用拷贝构造方法来拷贝一个对象，简单高效。
+
 ```java
 CloneConstructorExample e1 = new CloneConstructorExample();
 CloneConstructorExample e2 = new CloneConstructorExample(e1);
 e1.set(2, 222);
 System.out.println(e2.get(2)); // 2
 ```
+
+推荐阅读：[深入理解Java浅拷贝与深拷贝](https://javabetter.cn/basic-extra-meal/deep-copy.html)
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 六、继承
 
@@ -1005,7 +1036,9 @@ protected 用于修饰成员，表示在继承体系中成员对于子类可见�
 
 如果子类的方法重写了父类的方法，那么子类中该方法的访问级别不允许低于父类的访问级别。这是为了确保可以使用父类实例的地方都可以使用子类实例去代替，也就是确保满足里氏替换原则。
 
-字段决不能是公有的，因为这么做的话就失去了对这个字段修改行为的控制，客户端可以对其随意修改。例如下面的例子中，AccessExample 拥有 id 公有字段，如果在某个时刻，我们想要使用 int 存储 id 字段，那么就需要修改所有的客户端代码。
+字段决不能是公有的，因为这么做的话就失去了对这个字段修改行为的控制，客户端可以对其随意修改。
+
+例如下面的例子中，AccessExample 拥有 id 公有字段，如果在某个时刻，我们想要使用 int 存储 id 字段，那么就需要修改所有的客户端代码。
 
 ```java
 public class AccessExample {
@@ -1051,9 +1084,11 @@ public class AccessWithInnerClassExample {
 }
 ```
 
+推荐阅读：[Java访问权限修饰符](https://javabetter.cn/oo/access-control.html)
+
 ### 抽象类与接口
 
-**1. 抽象类**  
+#### 1. 抽象类
 
 抽象类和抽象方法都使用 abstract 关键字进行声明。如果一个类中包含抽象方法，那么这个类必须声明为抽象类。
 
@@ -1073,6 +1108,8 @@ public abstract class AbstractClassExample {
 }
 ```
 
+继承：
+
 ```java
 public class AbstractExtendClassExample extends AbstractClassExample {
     @Override
@@ -1082,17 +1119,19 @@ public class AbstractExtendClassExample extends AbstractClassExample {
 }
 ```
 
+抽象类不能被实例化。
+
 ```java
 // AbstractClassExample ac1 = new AbstractClassExample(); // 'AbstractClassExample' is abstract; cannot be instantiated
 AbstractClassExample ac2 = new AbstractExtendClassExample();
 ac2.func1();
 ```
 
-**2. 接口**  
+#### 2. 接口
 
 接口是抽象类的延伸，在 Java 8 之前，它可以看成是一个完全抽象的类，也就是说它不能有任何的方法实现。
 
-从 Java 8 开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口的维护成本太高了。在 Java 8 之前，如果一个接口想要添加新的方法，那么要修改所有实现了该接口的类，让它们都实现新增的方法。
+从 Java 8 开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口维护成本太高了。在 Java 8 之前，如果一个接口想要添加新的方法，那么要修改所有实现了该接口的类，让它们都实现新增的方法。
 
 接口的成员（字段 + 方法）默认都是 public 的，并且不允许定义为 private 或者 protected。从 Java 9 开始，允许将方法定义为 private，这样就能定义某些复用的代码又不会把方法暴露出去。
 
@@ -1116,6 +1155,8 @@ public interface InterfaceExample {
 }
 ```
 
+接口的实现：
+
 ```java
 public class InterfaceImplementExample implements InterfaceExample {
     @Override
@@ -1125,6 +1166,8 @@ public class InterfaceImplementExample implements InterfaceExample {
 }
 ```
 
+接口不能被实例化，但是可以使用接口引用来指向实现了该接口的类。
+
 ```java
 // InterfaceExample ie1 = new InterfaceExample(); // 'InterfaceExample' is abstract; cannot be instantiated
 InterfaceExample ie2 = new InterfaceImplementExample();
@@ -1132,37 +1175,37 @@ ie2.func1();
 System.out.println(InterfaceExample.x);
 ```
 
-**3. 比较**  
+#### 3. 抽象类和接口比较 
 
-- 从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A 关系，它只是提供一种方法实现契约，并不要求接口和实现接口的类具有 IS-A 关系。
+- 从设计层面上看，抽象类提供了一种 IS-A 的关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A 关系，它只是提供一种方法实现契约，并不要求接口和实现接口的类具有 IS-A 关系。
 - 从使用上来看，一个类可以实现多个接口，但是不能继承多个抽象类。
 - 接口的字段只能是 static 和 final 类型的，而抽象类的字段没有这种限制。
 - 接口的成员只能是 public 的，而抽象类的成员可以有多种访问权限。
 
-**4. 使用选择**  
+#### 4. 抽象类和接口的使用选择
 
 使用接口：
 
-- 需要让不相关的类都实现一个方法，例如不相关的类都可以实现 Comparable 接口中的 compareTo() 方法；
+- 需要让不相关的类都实现一个方法，例如不相关的类都可以实现 Comparable 接口中的 `compareTo()` 方法；
 - 需要使用多重继承。
 
 使用抽象类：
 
 - 需要在几个相关的类中共享代码。
-- 需要能控制继承来的成员的访问权限，而不是都为 public。
+- 需要能控制继承来的成员访问权限，而不是都为 public。
 - 需要继承非静态和非常量字段。
 
 在很多情况下，接口优先于抽象类。因为接口没有抽象类严格的类层次结构要求，可以灵活地为一个类添加行为。并且从 Java 8 开始，接口也可以有默认的方法实现，使得修改接口的成本也变的很低。
 
-- [Abstract Methods and Classes](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
-- [深入理解 abstract class 和 interface](https://www.ibm.com/developerworks/cn/java/l-javainterface-abstract/)
-- [When to Use Abstract Class and Interface](https://dzone.com/articles/when-to-use-abstract-class-and-intreface)
-- [Java 9 Private Methods in Interfaces](https://www.journaldev.com/12850/java-9-private-methods-interfaces)
+推荐阅读：
+
+- [接口](https://javabetter.cn/oo/interface.html)
+- [抽象类](https://javabetter.cn/oo/abstract.html)
 
 
-### super
+### super 关键字
 
-- 访问父类的构造函数：可以使用 super() 函数访问父类的构造函数，从而委托父类完成一些初始化的工作。应该注意到，子类一定会调用父类的构造函数来完成初始化工作，一般是调用父类的默认构造函数，如果子类需要调用父类其它构造函数，那么就可以使用 super() 函数。
+- 可以使用 `super()` 访问父类的构造方法，从而委托父类完成一些初始化的工作。应该注意到，子类一定会调用父类的构造方法来完成初始化工作，一般是调用父类的默认构造方法，如果子类需要调用父类其它的构造方法，那么就可以使用 `super()`。
 - 访问父类的成员：如果子类重写了父类的某个方法，可以通过使用 super 关键字来引用父类的方法实现。
 
 ```java
@@ -1182,6 +1225,8 @@ public class SuperExample {
 }
 ```
 
+使用 `super()` 调用父类的构造方法：
+
 ```java
 public class SuperExtendExample extends SuperExample {
 
@@ -1200,23 +1245,27 @@ public class SuperExtendExample extends SuperExample {
 }
 ```
 
+测试：
+
 ```java
 SuperExample e = new SuperExtendExample(1, 2, 3);
 e.func();
 ```
+
+输出结果：
 
 ```html
 SuperExample.func()
 SuperExtendExample.func()
 ```
 
-[Using the Keyword super](https://docs.oracle.com/javase/tutorial/java/IandI/super.html)
+推荐阅读：[this 和 super](https://javabetter.cn/oo/this-super.html)
 
 ### 重写与重载
 
-**1. 重写（Override）**  
+#### 1. 重写（Override） 
 
-存在于继承体系中，指子类实现了一个与父类在方法声明上完全相同的一个方法。
+重写存在于继承体系中，指子类实现了一个与父类在方法声明上完全相同的方法。
 
 为了满足里式替换原则，重写有以下三个限制：
 
@@ -1224,14 +1273,14 @@ SuperExtendExample.func()
 - 子类方法的返回类型必须是父类方法返回类型或为其子类型。
 - 子类方法抛出的异常类型必须是父类抛出异常类型或为其子类型。
 
-使用 @Override 注解，可以让编译器帮忙检查是否满足上面的三个限制条件。
+使用 `@Override` 注解，可以让编译器帮忙检查是否满足上面的三个限制条件。
 
-下面的示例中，SubClass 为 SuperClass 的子类，SubClass 重写了 SuperClass 的 func() 方法。其中：
+下面的示例中，SubClass 为 SuperClass 的子类，SubClass 重写了 SuperClass 的 `func()` 方法。其中：
 
 - 子类方法访问权限为 public，大于父类的 protected。
 - 子类的返回类型为 ArrayList\<Integer\>，是父类返回类型 List\<Integer\> 的子类。
 - 子类抛出的异常类型为 Exception，是父类抛出异常 Throwable 的子类。
-- 子类重写方法使用 @Override 注解，从而让编译器自动检查是否满足限制条件。
+- 子类重写方法使用 `@Override` 注解，从而让编译器自动检查是否满足限制条件。
 
 ```java
 class SuperClass {
@@ -1248,7 +1297,7 @@ class SubClass extends SuperClass {
 }
 ```
 
-在调用一个方法时，先从本类中查找看是否有对应的方法，如果没有再到父类中查看，看是否从父类继承来。否则就要对参数进行转型，转成父类之后看是否有对应的方法。总的来说，方法调用的优先级为：
+在调用一个方法时，先从本类中查找是否有对应的方法，如果没有再到父类中查看，看是否从父类继承来。否则就要对参数进行转型，转成父类之后看是否有对应的方法。总的来说，方法调用的优先级为：
 
 - this.func(this)
 - super.func(this)
@@ -1266,8 +1315,6 @@ class SubClass extends SuperClass {
     |
     D
  */
-
-
 class A {
 
     public void show(A obj) {
@@ -1294,6 +1341,8 @@ class D extends C {
 }
 ```
 
+测试：
+
 ```java
 public static void main(String[] args) {
 
@@ -1318,9 +1367,9 @@ public static void main(String[] args) {
 }
 ```
 
-**2. 重载（Overload）**  
+#### 2. 重载（Overload） 
 
-存在于同一个类中，指一个方法与已经存在的方法名称上相同，但是参数类型、个数、顺序至少有一个不同。
+重载存在于同一个类中，指一个方法与已经存在的方法名称上相同，但是参数类型、个数、顺序至少有一个不同。
 
 应该注意的是，返回值不同，其它都相同不算是重载。
 
@@ -1336,6 +1385,8 @@ class OverloadingExample {
 }
 ```
 
+测试：
+
 ```java
 public static void main(String[] args) {
     OverloadingExample example = new OverloadingExample();
@@ -1344,9 +1395,15 @@ public static void main(String[] args) {
 }
 ```
 
+推荐阅读：[重载和重写](https://javabetter.cn/basic-extra-meal/override-overload.html)
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
 ## 七、反射
 
-每个类都有一个   **Class**   对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。
+每个类都有一个 **Class** 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。
 
 类加载相当于 Class 对象的加载，类在第一次使用时才动态加载到 JVM 中。也可以使用 `Class.forName("com.mysql.jdbc.Driver")` 这种方式来控制类的加载，该方法会返回一个 Class 对象。
 
@@ -1354,9 +1411,9 @@ public static void main(String[] args) {
 
 Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect 类库主要包含了以下三个类：
 
--  **Field**  ：可以使用 get() 和 set() 方法读取和修改 Field 对象关联的字段；
--  **Method**  ：可以使用 invoke() 方法调用与 Method 对象关联的方法；
--  **Constructor**  ：可以用 Constructor 的 newInstance() 创建新的对象。
+-  **Field** ：可以使用 `get()` 和 `set()` 方法读取和修改 Field 对象关联的字段；
+-  **Method** ：可以使用 `invoke()` 方法调用与 Method 对象关联的方法；
+-  **Constructor** ：可以用 Constructor 的 `newInstance()` 创建新的对象。
 
 **反射的优点：**  
 
@@ -1369,26 +1426,21 @@ Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect �
 尽管反射非常强大，但也不能滥用。如果一个功能可以不用反射完成，那么最好就不用。在我们使用反射技术时，下面几条内容应该牢记于心。
 
 -  **性能开销**   ：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。
-
 -  **安全限制**   ：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。
-
 -  **内部暴露**   ：由于反射允许代码执行一些在正常情况下不被允许的操作（比如访问私有的属性和方法），所以使用反射可能会导致意料之外的副作用，这可能导致代码功能失调并破坏可移植性。反射代码破坏了抽象性，因此当平台发生改变的时候，代码的行为就有可能也随着变化。
 
-- [Trail: The Reflection API](https://docs.oracle.com/javase/tutorial/reflect/index.html)
-- [深入解析 Java 反射（1）- 基础](http://www.sczyh30.com/posts/Java/java-reflection-1/)
+推荐阅读：[Java 反射详解](https://javabetter.cn/basic-extra-meal/fanshe.html)
 
 ## 八、异常
 
 Throwable 可以用来表示任何可以作为异常抛出的类，分为两种：  **Error**   和 **Exception**。其中 Error 用来表示 JVM 无法处理的错误，Exception 分为两种：
 
 -   **受检异常**  ：需要用 try...catch... 语句捕获并进行处理，并且可以从异常中恢复；
--   **非受检异常**  ：是程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
+-   **非受检异常**  ：程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
 
-<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/PPjwP.png" width="600"/> </div><br>
+![二哥的 Java 进阶之路：异常](https://cdn.tobebetterjavaer.com/studymore/gailan-20230326090207.png)
 
-- [Java Exception Interview Questions and Answers](https://www.journaldev.com/2167/java-exception-interview-questions-and-answersl)
-
-- [Java提高篇——Java 异常处理](https://www.cnblogs.com/Qian123/p/5715402.html)
+推荐阅读：[一文彻底搞懂Java异常处理](https://javabetter.cn/exception/gailan.html)
 
 ## 九、泛型
 
@@ -1401,14 +1453,13 @@ public class Box<T> {
 }
 ```
 
-- [Java 泛型详解](https://www.cnblogs.com/Blue-Keroro/p/8875898.html)
-- [10 道 Java 泛型面试题](https://cloud.tencent.com/developer/article/1033693)
+推荐阅读：[Java 泛型深入解析](https://javabetter.cn/collection/generic.html)
 
 ## 十、注解
 
 Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。
 
-[注解 Annotation 实现原理与自定义注解例子](https://www.cnblogs.com/acm-bingzi/p/javaAnnotation.html)
+推荐阅读：[深入理解Java中的注解](https://javabetter.cn/basic-extra-meal/annotation.html)
 
 ## 十一、特性
 
@@ -1437,27 +1488,34 @@ Java 注解是附加在代码中的一些元信息，用于一些工具在编译
 7. Binary Literals, Underscore in literals
 8. Diamond Syntax
 
-- [Difference between Java 1.8 and Java 1.7?](http://www.selfgrowth.com/articles/difference-between-java-18-and-java-17)
-- [Java 8 特性](http://www.importnew.com/19345.html)
-
-### Java 与 C++ 的区别
-
-- Java 是纯粹的面向对象语言，所有的对象都继承自 java.lang.Object，C++ 为了兼容 C 即支持面向对象也支持面向过程。
-- Java 通过虚拟机从而实现跨平台特性，但是 C++ 依赖于特定的平台。
-- Java 没有指针，它的引用可以理解为安全指针，而 C++ 具有和 C 一样的指针。
-- Java 支持自动垃圾回收，而 C++ 需要手动回收。
-- Java 不支持多重继承，只能通过实现多个接口来达到相同目的，而 C++ 支持多重继承。
-- Java 不支持操作符重载，虽然可以对两个 String 对象执行加法运算，但是这是语言内置支持的操作，不属于操作符重载，而 C++ 可以。
-- Java 的 goto 是保留字，但是不可用，C++ 可以使用 goto。
-
-[What are the main differences between Java and C++?](http://cs-fundamentals.com/tech-interview/java/differences-between-java-and-cpp.php)
+推荐阅读：
+- [Java 8 Stream流](https://javabetter.cn/java8/stream.html)
+- [Java 8 Optional最佳指南](https://javabetter.cn/java8/optional.html)
+- [深入浅出Java 8 Lambda表达式](https://javabetter.cn/java8/Lambda.html)
+- [Java 14 开箱，新特性Record、instanceof、switch香香香香](https://javabetter.cn/java8/java14.html)
 
 ### JRE or JDK
 
-- JRE：Java Runtime Environment，Java 运行环境的简称，为 Java 的运行提供了所需的环境。它是一个 JVM 程序，主要包括了 JVM 的标准实现和一些 Java 基本类库。
+- JRE：Java Runtime Environment，Java 运行环境的简称，为 Java 的运行提供所需环境。它是一个 JVM 程序，主要包括了 JVM 的标准实现和一些 Java 基本类库。
 - JDK：Java Development Kit，Java 开发工具包，提供了 Java 的开发及运行环境。JDK 是 Java 开发的核心，集成了 JRE 以及一些其它的工具，比如编译 Java 源码的编译器 javac 等。
 
 ## 参考资料
 
-- Eckel B. Java 编程思想[M]. 机械工业出版社, 2002.
-- Bloch J. Effective java[M]. Addison-Wesley Professional, 2017.
+CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md)
+
+## 花絮
+
+该 PDF 文档是我在学习 CSNotes 时的一些优化和补充，加了很多二哥的 Java 进阶之路上的内容，可以进行很好的互补。整理不易，希望能帮助到大家（❤️）。
+
+最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+附其他干货笔记下载地址：
+
+- [二哥的 Linux 速查备忘手册 PDF 下载](https://javabetter.cn/pdf/linux.html)
+- [阮一峰 C 语言入门教程 PDF 下载](https://javabetter.cn/pdf/yuanyifeng-c-language.html)
+- [Java 核心知识点整理 PDF 下载](https://javabetter.cn/pdf/github-java-jiaocheng-115-star.html)
+- [深入浅出 Java 多线程 PDF 下载](https://javabetter.cn/pdf/java-concurrent.html)
+- [Pro Git 中文版 PDF 下载](https://javabetter.cn/pdf/progit.html)
+- [给操作系统捋条线 PDF 下载](https://javabetter.cn/pdf/os.html)
