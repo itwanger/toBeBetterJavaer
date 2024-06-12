@@ -6,11 +6,11 @@
 - 实现 Callable 接口；
 - 继承 Thread 类。
 
-实现 Runnable 和 Callable 接口的类只能当做一个可以在线程中运行的任务，不是真正意义上的线程，因此最后还需要通过 Thread 来调用。可以理解为任务是通过线程驱动从而执行的。
+实现 Runnable 和 Callable 接口的类只能当做一个可以在线程中运行的任务，不是真正意义上的线程，因此最后还需要通过 Thread 来调用。可以理解为任务是通过线程驱动执行的。
 
 ### 实现 Runnable 接口
 
-需要实现接口中的 run() 方法。
+需要实现接口中的 `run()` 方法。
 
 ```java
 public class MyRunnable implements Runnable {
@@ -21,7 +21,7 @@ public class MyRunnable implements Runnable {
 }
 ```
 
-使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 start() 方法来启动线程。
+使用 Runnable 实例再创建一个 Thread 实例，然后调用 Thread 实例的 `start()` 方法来启动线程。
 
 ```java
 public static void main(String[] args) {
@@ -43,6 +43,8 @@ public class MyCallable implements Callable<Integer> {
 }
 ```
 
+来看测试类：
+
 ```java
 public static void main(String[] args) throws ExecutionException, InterruptedException {
     MyCallable mc = new MyCallable();
@@ -55,9 +57,11 @@ public static void main(String[] args) throws ExecutionException, InterruptedExc
 
 ### 继承 Thread 类
 
-同样也是需要实现 run() 方法，因为 Thread 类也实现了 Runable 接口。
+同样也是需要实现 `run()` 方法，因为 Thread 类也实现了 Runable 接口。
 
-当调用 start() 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 run() 方法。
+![二哥的 Java 进阶之路：Thread](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240611113746.png)
+
+当调用 `start()` 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 `run()` 方法。
 
 ```java
 public class MyThread extends Thread {
@@ -66,6 +70,8 @@ public class MyThread extends Thread {
     }
 }
 ```
+
+启动线程类：
 
 ```java
 public static void main(String[] args) {
@@ -79,13 +85,15 @@ public static void main(String[] args) {
 实现接口会更好一些，因为：
 
 - Java 不支持多重继承，因此继承了 Thread 类就无法继承其它类，但是可以实现多个接口；
-- 类可能只要求可执行就行，继承整个 Thread 类开销过大。
+- 类可能只需要可执行就行，继承整个 Thread 类开销过大。
+
+推荐阅读：[室友打了一把王者就学会了 Java 多线程](https://javabetter.cn/thread/wangzhe-thread.html)
 
 ## 二、基础线程机制
 
 ### Executor
 
-Executor 管理多个异步任务的执行，而无需程序员显式地管理线程的生命周期。这里的异步是指多个任务的执行互不干扰，不需要进行同步操作。
+Executor 用来管理多个异步任务的执行，这里的异步是指多个任务的执行互不干扰，不需要进行同步操作。
 
 主要有三种 Executor：
 
@@ -109,9 +117,9 @@ public static void main(String[] args) {
 
 当所有非守护线程结束时，程序也就终止，同时会杀死所有守护线程。
 
-main() 属于非守护线程。
+`main()` 属于非守护线程。
 
-在线程启动之前使用 setDaemon() 方法可以将一个线程设置为守护线程。
+在线程启动之前使用 `setDaemon()` 方法可以将一个线程设置为守护线程。
 
 ```java
 public static void main(String[] args) {
@@ -122,9 +130,9 @@ public static void main(String[] args) {
 
 ### sleep()
 
-Thread.sleep(millisec) 方法会休眠当前正在执行的线程，millisec 单位为毫秒。
+`Thread.sleep(millisec)` 方法会休眠当前正在执行的线程，millisec 单位为毫秒。
 
-sleep() 可能会抛出 InterruptedException，因为异常不能跨线程传播回 main() 中，因此必须在本地进行处理。线程中抛出的其它异常也同样需要在本地进行处理。
+`sleep()` 可能会抛出 InterruptedException，因为异常不能跨线程传播回 `main()` 中，因此必须在本地进行处理。线程中抛出的其它异常也同样需要在本地进行处理。
 
 ```java
 public void run() {
