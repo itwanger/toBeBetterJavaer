@@ -2080,15 +2080,30 @@ System.out.println("fastTime: " + field.getLong(obj));
 
 #### 反射有哪些应用场景？
 
-一般我们平时都是在在写业务代码，很少会接触到直接使用反射机制的场景。
+①、Spring 框架就大量使用了反射来动态加载和管理 Bean。
 
-但是，这并不代表反射没有用。相反，正是因为反射，你才能这么轻松地使用各种框架。像 Spring/Spring Boot、MyBatis 等等框架中都大量使用了反射机制。
+```java
+Class<?> clazz = Class.forName("com.example.MyClass");
+Object instance = clazz.newInstance();
+```
 
-像 Spring 里的很多 **注解** ，它真正的功能实现就是利用反射。
+②、Java 的动态代理（Dynamic Proxy）机制就使用了反射来创建代理类。代理类可以在运行时动态处理方法调用，这在实现 AOP 和拦截器时非常有用。
 
-就像为什么我们使用 Spring 的时候 ，一个`@Component`注解就声明了一个类为 Spring Bean 呢？为什么通过一个 `@Value`注解就读取到配置文件中的值呢？究竟是怎么起作用的呢？
+```java
+InvocationHandler handler = new MyInvocationHandler();
+MyInterface proxyInstance = (MyInterface) Proxy.newProxyInstance(
+    MyInterface.class.getClassLoader(),
+    new Class<?>[] { MyInterface.class },
+    handler
+);
+```
 
-这些都是因为我们可以基于反射操作类，然后获取到类/属性/方法/方法的参数上的注解，注解这里就有两个作用，一是标记，我们对注解标记的类/属性/方法进行对应的处理；二是注解本身有一些信息，可以参与到处理的逻辑中。
+③、JUnit 和 TestNG 等测试框架使用反射机制来发现和执行测试方法。反射允许框架扫描类，查找带有特定注解（如 `@Test`）的方法，并在运行时调用它们。
+
+```java
+Method testMethod = testClass.getMethod("testSomething");
+testMethod.invoke(testInstance);
+```
 
 #### 反射的原理是什么？
 

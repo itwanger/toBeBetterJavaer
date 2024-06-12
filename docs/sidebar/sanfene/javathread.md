@@ -2257,94 +2257,107 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 39.CountDownLatch（倒计数器）了解吗？
 
-CountDownLatch，倒计数器，有两个常见的应用场景[18]：
+推荐阅读：[Java并发编程通信工具类 Semaphore、Exchanger、CountDownLatch、CyclicBarrier、Phaser等一网打尽](https://javabetter.cn/thread/CountDownLatch.html)
 
-**场景 1：协调子线程结束动作：等待所有子线程运行结束**
+CountDownLatch 是 JUC 包中的一个同步工具类，用于协调多个线程之间的同步。它允许一个或多个线程等待，直到其他线程中执行的一组操作完成。它通过一个计数器来实现，该计数器由线程递减，直到到达零。
 
-CountDownLatch 允许一个或多个线程等待其他线程完成操作。
+- 初始化：创建 CountDownLatch 对象时，指定计数器的初始值。
+- 等待（await）：一个或多个线程调用 await 方法，进入等待状态，直到计数器的值变为零。
+- 倒计数（countDown）：其他线程在完成各自任务后调用 countDown 方法，将计数器的值减一。当计数器的值减到零时，所有在 await 上等待的线程会被唤醒，继续执行。
 
-例如，我们很多人喜欢玩的王者荣耀，开黑的时候，得等所有人都上线之后，才能开打。
+当等待多个线程完成各自的启动任务后再启动主线程的任务，就可以使用 CountDownLatch，以王者荣耀为例。
 
-![王者荣耀等待玩家确认-来源参考[18]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-50.jpeg)
+![秦二爷：王者荣耀等待玩家确认](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-50.jpeg)
 
-CountDownLatch 模仿这个场景(参考[18])：
-
-创建大乔、兰陵王、安其拉、哪吒和铠等五个玩家，主线程必须在他们都完成确认后，才可以继续运行。
-
-在这段代码中，`new CountDownLatch(5)`用户创建初始的 latch 数量，各玩家通过`countDownLatch.countDown()`完成状态确认，主线程通过`countDownLatch.await()`等待。
+创建五个线程，分别代表大乔、兰陵王、安其拉、哪吒和铠等五个玩家。每个玩家都调用了`countDown()`方法，表示已经就位。主线程调用`await()`方法，等待所有玩家就位。
 
 ```java
 public static void main(String[] args) throws InterruptedException {
     CountDownLatch countDownLatch = new CountDownLatch(5);
 
-    Thread 大乔 = new Thread(countDownLatch::countDown);
-    Thread 兰陵王 = new Thread(countDownLatch::countDown);
-    Thread 安其拉 = new Thread(countDownLatch::countDown);
-    Thread 哪吒 = new Thread(countDownLatch::countDown);
-    Thread 铠 = new Thread(() -> {
-        try {
-            // 稍等，上个卫生间，马上到...
-            Thread.sleep(1500);
-            countDownLatch.countDown();
-        } catch (InterruptedException ignored) {}
+    Thread daqiao = new Thread(() -> {
+        System.out.println("大乔已就位！");
+        countDownLatch.countDown();
+    });
+    Thread lanlingwang = new Thread(() -> {
+        System.out.println("兰陵王已就位！");
+        countDownLatch.countDown();
+    });
+    Thread anqila = new Thread(() -> {
+        System.out.println("安其拉已就位！");
+        countDownLatch.countDown();
+    });
+    Thread nezha = new Thread(() -> {
+        System.out.println("哪吒已就位！");
+        countDownLatch.countDown();
+    });
+    Thread kai = new Thread(() -> {
+        System.out.println("铠已就位！");
+        countDownLatch.countDown();
     });
 
-    大乔.start();
-    兰陵王.start();
-    安其拉.start();
-    哪吒.start();
-    铠.start();
+    daqiao.start();
+    lanlingwang.start();
+    anqila.start();
+    nezha.start();
+    kai.start();
+
     countDownLatch.await();
-    System.out.println("所有玩家已经就位！");
+    System.out.println("全员就位，开始游戏！");
 }
 ```
 
-**场景 2. 协调子线程开始动作：统一各线程动作开始的时机**
+再比如说，可以使用 CountDownLatch 确保某些操作在一组操作完成之后才开始执行。
 
-王者游戏中也有类似的场景，游戏开始时，各玩家的初始状态必须一致。不能有的玩家都出完装了，有的才降生。
+![秦二爷：王者荣耀大家一起出生](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-51.jpeg)
 
-所以大家得一块出生，在
-
-![王者荣耀-来源参考[18]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-51.jpeg)
-
-在这个场景中，仍然用五个线程代表大乔、兰陵王、安其拉、哪吒和铠等五个玩家。需要注意的是，各玩家虽然都调用了`start()`线程，但是它们在运行时都在等待`countDownLatch`的信号，在信号未收到前，它们不会往下执行。
+五个玩家在等待倒计时结束后，一起出击。
 
 ```java
-public static void main(String[] args) throws InterruptedException {
-    CountDownLatch countDownLatch = new CountDownLatch(1);
-
-    Thread 大乔 = new Thread(() -> waitToFight(countDownLatch));
-    Thread 兰陵王 = new Thread(() -> waitToFight(countDownLatch));
-    Thread 安其拉 = new Thread(() -> waitToFight(countDownLatch));
-    Thread 哪吒 = new Thread(() -> waitToFight(countDownLatch));
-    Thread 铠 = new Thread(() -> waitToFight(countDownLatch));
-
-    大乔.start();
-    兰陵王.start();
-    安其拉.start();
-    哪吒.start();
-    铠.start();
-    Thread.sleep(1000);
-    countDownLatch.countDown();
-    System.out.println("敌方还有5秒达到战场，全军出击！");
-}
-
-private static void waitToFight(CountDownLatch countDownLatch) {
+private static void waitToFight(CountDownLatch countDownLatch, String name) {
     try {
         countDownLatch.await(); // 在此等待信号再继续
-        System.out.println("收到，发起进攻！");
+        System.out.println(name + " 收到，发起进攻！");
     } catch (InterruptedException e) {
-        e.printStackTrace();
+        Thread.currentThread().interrupt();
+        System.out.println(name + " 被中断");
     }
+}
+
+public static void main(String[] args) {
+    CountDownLatch countDownLatch = new CountDownLatch(1);
+
+    Thread daqiao = new Thread(() -> waitToFight(countDownLatch, "大乔"), "Thread-大乔");
+    Thread lanlingwang = new Thread(() -> waitToFight(countDownLatch, "兰陵王"), "Thread-兰陵王");
+    Thread anqila = new Thread(() -> waitToFight(countDownLatch, "安琪拉"), "Thread-安琪拉");
+    Thread nezha = new Thread(() -> waitToFight(countDownLatch, "哪吒"), "Thread-哪吒");
+    Thread kai = new Thread(() -> waitToFight(countDownLatch, "凯"), "Thread-凯");
+
+    daqiao.start();
+    lanlingwang.start();
+    anqila.start();
+    nezha.start();
+    kai.start();
+
+    try {
+        Thread.sleep(5000); // 模拟准备时间
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        System.out.println("主线程被中断");
+    }
+
+    System.out.println("敌军还有 5 秒到达战场，全军出击！");
+    countDownLatch.countDown(); // 发出信号
 }
 ```
 
 CountDownLatch 的**核心方法**也不多：
 
-- `await()`：等待 latch 降为 0；
-- `boolean await(long timeout, TimeUnit unit)`：等待 latch 降为 0，但是可以设置超时时间。比如有玩家超时未确认，那就重新匹配，总不能为了某个玩家等到天荒地老。
-- `countDown()`：latch 数量减 1；
-- `getCount()`：获取当前的 latch 数量。
+- `CountDownLatch(int count)`：创建一个带有给定计数器的 CountDownLatch。
+- `void await()`：阻塞当前线程，直到计数器为零。
+- `void countDown()`：递减计数器的值，如果计数器值变为零，则释放所有等待的线程。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的顺丰科技同学 1 面试原题：并发编程CountDownLatch 和消息队列
 
 ### 40.CyclicBarrier（同步屏障）了解吗？
 

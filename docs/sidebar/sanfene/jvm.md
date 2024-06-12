@@ -1000,28 +1000,11 @@ Parallel Scavenge 的特点是什么？
 
 JVM 在做垃圾回收之前，需要先搞清楚什么是垃圾，什么不是垃圾，那么就需要一种垃圾判断算法，通常有引用计数算法、可达性分析算法。
 
-- 引用计数算法是通过在对象头中分配一个空间来保存该对象被引用的次数。
-- 可达性分析算法的基本思路是，通过一些被称为引用链（GC Roots）的对象作为起点，然后向下搜索，搜索走过的路径被称为（Reference Chain），当一个对象到 GC Roots 之间没有任何引用相连时，即从 GC Roots 到该对象节点不可达，则证明该对象是需要垃圾收集的。
-
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
+![二哥的 Java 进阶之路：可达性分析](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
 
 在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是进行垃圾回收，如何高效地进行垃圾回收呢？
 
-①、标记清除算法，分为 2 部分，先把内存区域中的这些对象进行标记，哪些属于可回收的标记出来，然后把这些垃圾拎出来清理掉。
-
-![图片来源于小牛肉](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227125304.png)
-
-②、复制算法，在标记清除算法上演化而来的，用于解决标记清除算法的内存碎片问题。它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。
-
-![图片来源于小牛肉](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227125751.png)
-
-标记整理算法，标记过程仍然与标记清除算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，再清理掉端边界以外的内存区域。
-
-![图片来源于小牛肉](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227130011.png)
-
-分代收集算法，严格来说并不是一种思想或理论，而是融合上述 3 种基础的算法思想，而产生的针对不同情况所采用不同算法的一套组合拳。在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用标记清理或者标记整理算法来进行回收。
-
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
+可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
 
 JVM 提供了多种垃圾回收器，不同的垃圾回收器适用于不同的场景和需求，包括 CMS GC、G1 GC、ZGC 等。
 
@@ -1029,11 +1012,9 @@ CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JD
 
 G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
 
-![图片来源于有梦想的肥宅](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
 
 ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延迟服务的内存管理和回收，SPEC jbb 2015 基准测试，在 128G 的大堆下，最大停顿时间才 1.68 ms，停顿时间远胜于 G1 和 CMS。
-
-推荐阅读：[深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://javabetter.cn/jvm/gc-collector.html)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解 GC 吗？不可达判断知道吗？
