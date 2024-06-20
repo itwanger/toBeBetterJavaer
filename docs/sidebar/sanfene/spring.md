@@ -1351,9 +1351,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 19.说说什么是 AOP？
 
-AOP，也就是 Aspect-oriented Programming，译为面向切面编程。
+AOP，也就是 Aspect-oriented Programming，译为面向切面编程，是 Spring 中最重要的核心概念之一。
 
-简单点说，就是把一些业务逻辑中的相同代码抽取到一个独立的模块中，让业务逻辑更加清爽。
+简单点说，AOP 就是把一些业务逻辑中的相同代码抽取到一个独立的模块中，让业务逻辑更加清爽。
 
 ![三分恶面渣逆袭：横向抽取](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-09dbcda4-7c1b-42d6-8520-1a5fc84abbde.png)
 
@@ -1364,12 +1364,6 @@ AOP，也就是 Aspect-oriented Programming，译为面向切面编程。
 ![三分恶面渣逆袭：AOP应用示例](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-4754b4c0-0356-4077-a2f9-55e246cf8ba0.png)
 
 业务代码不再关心这些通用逻辑，只需要关心自己的业务实现，这样就实现了业务逻辑和通用逻辑的分离。
-
-我们来回顾一下 Java 语言的执行过程：
-
-![三分恶面渣逆袭：Java 执行过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b9859e5-019c-4e87-a449-990d3deae135.png)
-
-AOP 的核心是**动态代理**，可以使用 JDK 动态代理来实现，也可以使用 CGLIB 来实现。
 
 #### AOP 有哪些核心概念？
 
@@ -1517,18 +1511,88 @@ public @interface MdcDot {
 
 Spring 的 AOP 是通过[动态代理](https://mp.weixin.qq.com/s/aZtfwik0weJN5JzYc-JxYg)来实现的，动态代理主要有两种方式：JDK 动态代理和 CGLIB 代理。
 
-①、JDK 动态代理是基于接口的代理方式，它使用 Java 原生的 `java.lang.reflect.Proxy` 类和 `java.lang.reflect.InvocationHandler` 接口来创建和管理代理对象。
+①、JDK 动态代理是基于接口的代理，只能代理实现了接口的类。使用 JDK 动态代理时，Spring AOP 会创建一个代理对象，该代理对象实现了目标对象所实现的接口，并在方法调用前后插入横切逻辑。
 
-1. **基于 Interface**：JDK 动态代理要求目标对象必须实现一个或多个接口。代理对象不是直接继承自目标对象，而是实现了与目标对象相同的接口。
-2. **使用 InvocationHandler**：在调用代理对象的任何方法时，调用都会被转发到一个 InvocationHandler 实例的 invoke 方法。可以在这个 invoke 方法中定义拦截逻辑，比如方法调用前后执行的操作。
-3. **基于 Proxy**：Proxy 利用 InvocationHandler 动态创建一个符合目标类实现的接口实例，生成目标类的代理对象。
+优点：只需依赖 JDK 自带的 `java.lang.reflect.Proxy` 类，不需要额外的库；缺点：只能代理接口，不能代理类本身。
 
-②、CGLIB（Code Generation Library）是一个第三方代码生成库，它通过继承方式实现代理，不需要接口，被广泛应用于 Spring AOP 中，用于提供方法拦截操作。
+示例代码：
+
+```java
+public interface Service {
+    void perform();
+}
+
+public class ServiceImpl implements Service {
+    public void perform() {
+        System.out.println("Performing service...");
+    }
+}
+
+public class ServiceInvocationHandler implements InvocationHandler {
+    private Object target;
+
+    public ServiceInvocationHandler(Object target) {
+        this.target = target;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("Before method");
+        Object result = method.invoke(target, args);
+        System.out.println("After method");
+        return result;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Service service = new ServiceImpl();
+        Service proxy = (Service) Proxy.newProxyInstance(
+            service.getClass().getClassLoader(),
+            service.getClass().getInterfaces(),
+            new ServiceInvocationHandler(service)
+        );
+        proxy.perform();
+    }
+}
+```
+
+②、CGLIB 动态代理是基于继承的代理，可以代理没有实现接口的类。使用 CGLIB 动态代理时，Spring AOP 会生成目标类的子类，并在方法调用前后插入横切逻辑。
 
 ![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/spring-20240321105653.png)
 
-1. **基于继承**，CGLIB 通过在运行时生成目标对象的子类来创建代理对象，并在子类中覆盖非 final 的方法。因此，它不要求目标对象必须实现接口。
-2. **基于 ASM**，ASM 是一个 Java 字节码操作和分析框架，CGLIB 可以通过 ASM 读取目标类的字节码，然后修改字节码生成新的类。它在运行时动态生成一个被代理类的子类，并在子类中覆盖父类的方法，通过方法拦截技术插入增强代码。
+优点：可以代理没有实现接口的类，灵活性更高；缺点：需要依赖 CGLIB 库，创建代理对象的开销相对较大。
+
+示例代码：
+
+```java
+public class Service {
+    public void perform() {
+        System.out.println("Performing service...");
+    }
+}
+
+public class ServiceInterceptor implements MethodInterceptor {
+    @Override
+    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+        System.out.println("Before method");
+        Object result = proxy.invokeSuper(obj, args);
+        System.out.println("After method");
+        return result;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(Service.class);
+        enhancer.setCallback(new ServiceInterceptor());
+
+        Service proxy = (Service) enhancer.create();
+        proxy.perform();
+    }
+}
+```
 
 #### 选择 CGLIB 还是 JDK 动态代理？
 

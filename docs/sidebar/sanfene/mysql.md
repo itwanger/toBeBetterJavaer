@@ -1080,7 +1080,27 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 EXPLAIN SELECT * FROM your_table WHERE conditions;
 ```
 
+#### 慢sql日志怎么开启？
+
+慢 SQL 日志的开启方式有多种，比如说直接编辑 MySQL 的配置文件 my.cnf 或 my.ini，设置 slow_query_log 参数为 1，设置 slow_query_log_file 参数为慢查询日志的路径，设置 long_query_time 参数为慢查询的时间阈值。
+
+```ini
+[mysqld]
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2  # 记录执行时间超过2秒的查询
+```
+
+然后重启 MySQL 服务就好了，也可以通过 set global 命令动态设置。
+
+```sql
+SET GLOBAL slow_query_log = 'ON';
+SET GLOBAL slow_query_log_file = '/var/log/mysql/slow.log';
+SET GLOBAL long_query_time = 2;
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：场景题：sql 查询很慢怎么排查
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：慢sql日志怎么开启？
 
 ### 25.有哪些方式优化 SQL？
 
@@ -1868,13 +1888,13 @@ SELECT * FROM table WHERE column LIKE '%xxx%';
 
 ### 38.聚簇索引与非聚簇索引的区别？
 
-聚簇索引不是一种新的索引，而是一种**数据存储方式**。
+在 MySQL 的 InnoDB 存储引擎中，主键就是聚簇索引。聚簇索引不是一种新的索引，而是一种**数据存储方式**。
 
 ![三分恶面渣逆袭：聚簇索引和非聚簇索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-692cced2-615a-4b70-a933-69771d53e809.jpg)
 
-在聚簇索引中，表中的行是按照键值（索引）的顺序存储的。这意味着表中的实际数据行和键值之间存在物理排序的关系。因此，每个表只能有一个聚簇索引。例如，在 MySQL 的 InnoDB 存储引擎中，主键就是聚簇索引。
+在聚簇索引中，表中的行是按照键值（索引）的顺序存储的。这意味着表中的实际数据行和键值之间存在物理排序的关系。因此，每个表只能有一个聚簇索引。
 
-在非聚簇索引中，索引和数据是分开存储的，索引中的键值指向数据的实际存储位置。因此，非聚簇索引也被称为二级索引或辅助索引。表可以有多个非聚簇索引。
+在非聚簇索引中，索引和数据是分开存储的，索引中的键值指向数据的实际存储位置。因此，非聚簇索引也被称为二级索引或辅助索引或非主键索引。表可以有多个非聚簇索引。
 
 这意味着，当使用非聚簇索引检索数据时，数据库首先在索引中查找，然后通过索引中的指针去访问表中实际的数据行，这个过程称为“回表”（Bookmark Lookup）。
 
