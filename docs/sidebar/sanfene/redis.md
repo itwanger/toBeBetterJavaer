@@ -1687,7 +1687,7 @@ SET key value NX PX 30000
 
 上面这段命令其实是 setnx 和 expire 组合在一起的原子命令，算是比较完善的一个分布式锁了。
 
-当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)。（戳链接跳转至悟空聊架构：分布式锁中的王者方案 - Redisson）
+>当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)。（戳链接跳转至悟空聊架构：分布式锁中的王者方案 - Redisson）
 
 #### Redisson 了解吗？
 

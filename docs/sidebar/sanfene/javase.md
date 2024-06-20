@@ -151,7 +151,7 @@ Java 基本数据类型的默认值和占用大小：
 
 | 数据类型 | 默认值   | 大小   |
 | -------- | -------- | ------ |
-| boolean  | false    | 不确定 |
+| boolean  | false    | 1字节或 4 字节 |
 | char     | '\u0000' | 2 字节 |
 | byte     | 0        | 1 字节 |
 | short    | 0        | 2 字节 |
@@ -624,7 +624,7 @@ public Person(String name,int age){
 }
 ```
 
-3. 引用本类的构造函数
+3. 引用本类的构造方法
 
 ### 21.抽象类和接口有什么区别？
 
@@ -676,6 +676,39 @@ public class Dog extends Animal {
 
 抽象是一种隐藏复杂性和只显示必要部分的技术。在面向对象编程中，抽象可以通过抽象类和接口实现。
 
+#### 抽象类和普通类的区别？
+
+抽象类使用 abstract 关键字定义，不能被实例化，只能作为其他类的父类。普通类没有 abstract 关键字，可以直接实例化。
+
+抽象类可以包含抽象方法和非抽象方法。抽象方法没有方法体，必须由子类实现。普通类智能包含非抽象方法。
+
+```java
+abstract class Animal {
+    // 抽象方法
+    public abstract void makeSound();
+
+    // 非抽象方法
+    public void eat() {
+        System.out.println("This animal is eating.");
+    }
+}
+
+class Dog extends Animal {
+    // 实现抽象方法
+    @Override
+    public void makeSound() {
+        System.out.println("Woof");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound(); // 输出 "Woof"
+        dog.eat(); // 输出 "This animal is eating."
+    }
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：抽象类和接口有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：抽象类和接口的区别？抽象类可以定义构造方法吗？
@@ -1557,7 +1590,7 @@ throws 用在方法上，后面跟的是异常类，可以跟多个；而 throw 
             //包含可能会出现异常的代码以及声明异常的方法
         }catch(Exception e) {
             //捕获异常并进行处理
-        }finally {                                                       }
+        }finally {       
             //可选，必执行的代码
         }
 ```

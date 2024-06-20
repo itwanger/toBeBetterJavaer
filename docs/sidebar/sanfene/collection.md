@@ -321,7 +321,16 @@ CopyOnWriteArrayList list = new CopyOnWriteArrayList();
 
 通俗的讲，CopyOnWrite 就是当我们往一个容器添加元素的时候，不直接往容器中添加，而是先复制出一个新的容器，然后在新的容器里添加元素，添加完之后，再将原容器的引用指向新的容器。多个线程在读的时候，不需要加锁，因为当前容器不会添加任何元素。这样就实现了线程安全。
 
+#### ArrayList 和 Vector 的区别？
+
+Vector 属于 JDK 1.0 时期的遗留类，已不推荐使用，仍然保留着是因为 Java 希望向后兼容。
+
+ArrayList 是在 JDK 1.2 时引入的，用于替代 Vector 作为主要的非同步动态数组实现。因为 Vector 所有的方法都使用 synchronized 关键字进行了同步，单线程环境下效率较低。
+
+![二哥的 Java 进阶之路：Vector源码](https://cdn.tobebetterjavaer.com/stutymore/collection-20240619110254.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：线程不安全的集合变成线程安全的方法？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 比亚迪面经同学2面试原题：ArrayList 和 vector 的区别
 
 ### 7.CopyOnWriteArrayList 了解多少？
 

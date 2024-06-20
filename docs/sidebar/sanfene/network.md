@@ -463,7 +463,7 @@ HTTP/2.0 基于 TCP 协议，而 HTTP/3.0 则基于 QUIC 协议，Quick UDP Conn
 
 使用 HTTPS 主要是为了解决 HTTP 传输过程中的一些安全问题，因为 HTTP 是明文传输，所以 HTTPS 在 HTTP 的基础上加入了 SSL/TLS 协议。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/network-20240418120939.png)
+![二哥的 Java 进阶之路：http和 https 的区别](https://cdn.tobebetterjavaer.com/stutymore/network-20240418120939.png)
 
 SSL（安全套接字）/TLS（传输层安全）协议可以用来加密通信内容，保证通信过程中的数据不被窃取和篡改。整个加密过程主要涉及两种类型的加密方法：
 
