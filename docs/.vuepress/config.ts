@@ -51,6 +51,18 @@ export default defineUserConfig({
       `
     ],
     [
+      "script",{},
+      `
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?59aa453e7e706422c636c079fc1cb031";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      `
+    ],
+    [
       "link",
       {
         rel: "stylesheet",
