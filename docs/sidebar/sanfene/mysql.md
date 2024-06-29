@@ -848,13 +848,9 @@ MySQL 的日志文件主要包括：
 
 ④、**二进制日志**（Binary Log）：记录了所有修改数据库状态的 SQL 语句，以及每个语句的执行时间，如 INSERT、UPDATE、DELETE 等，但不包括 SELECT 和 SHOW 这类的操作。
 
-以及两个 InnoDB 存储引擎特有的日志文件：
-
 ⑤、**重做日志**（Redo Log）：记录了对于 InnoDB 表的每个写操作，不是 SQL 级别的，而是物理级别的，主要用于崩溃恢复。
 
 ⑥、**回滚日志**（Undo Log，或者叫事务日志）：记录数据被修改前的值，用于事务的回滚。
-
-支持事务回滚，可以用来实现 MVCC，即多版本并发控制。
 
 #### 请重点说说 binlog？
 
@@ -2173,11 +2169,15 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 #### 按锁粒度如何划分?
 
+按锁粒度划分的话，MySQL 的锁有：
+
 - 表锁：开销小，加锁快；锁定力度大，发生锁冲突概率高，并发度最低;不会出现死锁。
 - 行锁：开销大，加锁慢；会出现死锁；锁定粒度小，发生锁冲突的概率低，并发度高。
 - 页锁：开销和加锁速度介于表锁和行锁之间；会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般
 
 #### 按兼容性如何划分?
+
+按兼容性划分的话，MySQL 的锁有：
 
 - 共享锁（S Lock）,也叫读锁（read lock），相互不阻塞。
 - 排他锁（X Lock），也叫写锁（write lock），排它锁是阻塞的，在一定时间内，只有一个请求能执行写入，并阻止其它锁读取正在写入的数据。
@@ -2413,7 +2413,7 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 
 确保在同一事务中多次读取相同记录的结果是一致的，即使其他事务对这条记录进行了修改，也不会影响到当前事务。
 
-是 MySQL 默认的隔离级别，避免了“脏读”和“不可重复读”，也在很大程度上减少了“幻读”问题。
+可重复读是 MySQL 默认的隔离级别，避免了“脏读”和“不可重复读”，但可能会出现幻读。
 
 #### 什么是串行化？
 
@@ -2436,13 +2436,64 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：数据库隔离级别有哪些？mysql 是属于哪个隔离级别
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：Mysql 四个隔离级别，MVCC 实现
 
-### 51.什么是幻读，脏读，不可重复读呢？
+### 51.什么是脏读、不可重复读、幻读呢？
 
-- 事务 A、B 交替执行，事务 A 读取到事务 B 未提交的数据，这就是**脏读**。
-- 在一个事务范围内，两个相同的查询，读取同一条记录，却返回了不同的数据，这就是**不可重复读**。
-- 事务 A 查询一个范围的结果集，另一个并发事务 B 往这个范围中插入 / 删除了数据，并静悄悄地提交，然后事务 A 再次查询相同的范围，两次读取得到的结果集不一样了，这就是**幻读**。
+脏读指的是一个事务能够读取另一个事务尚未提交的数据。如果读到的数据在之后被回滚了，那么第一个事务读取到的就是无效的数据。
 
-不同的隔离级别，在并发事务下可能会发生的问题：
+```sql
+-- 事务 A
+START TRANSACTION;
+UPDATE employees SET salary = 5000 WHERE id = 1;
+
+-- 事务 B
+START TRANSACTION;
+SELECT salary FROM employees WHERE id = 1;  -- 读取到 salary = 5000 (脏读)
+ROLLBACK;
+```
+
+不可重复读指的是在同一事务中执行相同的查询时，返回的结果集不同。这是由于在事务过程中，另一个事务修改了数据并提交。
+
+比如说事务 A 在第一次读取某个值后，事务 B 修改了这个值并提交，事务 A 再次读取时，发现值已经改变。
+
+```sql
+-- 事务 A
+START TRANSACTION;
+SELECT salary FROM employees WHERE id = 1;  -- 读取到 salary = 3000
+
+-- 事务 B
+START TRANSACTION;
+UPDATE employees SET salary = 5000 WHERE id = 1;
+COMMIT;
+
+-- 事务 A 再次读取
+SELECT salary FROM employees WHERE id = 1;  -- 读取到 salary = 5000 (不可重复读)
+COMMIT;
+```
+
+幻读指的是在同一事务中执行相同的查询时，返回的结果集中出现了之前没有的数据行。这是因为在事务过程中，另一个事务插入了新的数据并提交。
+
+比如说事务 A 在第一次查询某个条件范围的数据行后，事务 B 插入了一条新数据且符合条件范围，事务 A 再次查询时，发现多了一条数据。
+
+```sql
+-- 事务 A
+START TRANSACTION;
+SELECT * FROM employees WHERE department = 'HR';  -- 读取到 10 条记录
+
+-- 事务 B
+START TRANSACTION;
+INSERT INTO employees (id, name, department) VALUES (11, 'John Doe', 'HR');
+COMMIT;
+
+-- 事务 A 再次查询
+SELECT * FROM employees WHERE department = 'HR';  -- 读取到 11 条记录 (幻读)
+COMMIT;
+```
+
+可以通过设置隔离级别为可串行化来避免幻读，代价是降低并发性能。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7  京东到家面试原题：mysql事务隔离级别，默认隔离级别，如何避免幻读
+
+#### 不同的隔离级别，在并发事务下可能会发生什么问题？
 
 | 隔离级别                   | 脏读 | 不可重复读 | 幻读 |
 | -------------------------- | ---- | ---------- | ---- |

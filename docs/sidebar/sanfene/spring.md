@@ -1221,33 +1221,28 @@ public class DemoApplication {
 
 ### 16.那 Spring 怎么解决循环依赖的呢？
 
-> 开发人员做好设计，别让 Bean 循环依赖，但面试官既然这么傻逼地问了这个问题，肯定不想听这个最正确的答案（😂）。只能硬着头皮作答了。
+Spring 通过三级缓存（Three-Level Cache）机制来解决循环依赖。
 
-我们知道，Singleton 的 Bean 要初始化完成，需要经历这三步：
-
-![三分恶面渣逆袭：Bean初始化步骤](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-867066f1-49d1-4e57-94f9-4c66a3a8797e.png)
-
-注入发生在第二步，**属性赋值**，Spring 可以在这一步通过**三级缓存**来解决了循环依赖：
-
-1. 一级缓存 : `Map<String,Object>` **singletonObjects**，单例池，用于保存实例化、属性赋值（注入）、初始化完成的 bean 实例
-2. 二级缓存 : `Map<String,Object>` **earlySingletonObjects**，早期曝光对象，用于保存实例化完成的 bean 实例
-3. 三级缓存 : `Map<String,ObjectFactory<?>>` **singletonFactories**，早期曝光对象工厂，用于保存 bean 创建工厂，以便后面有机会创建代理对象。
+1. 一级缓存：用于存放完全初始化好的单例 Bean。
+2. 二级缓存：用于存放正在创建但未完全初始化的 Bean 实例。
+3. 三级缓存：用于存放 Bean 工厂对象，用于提前暴露 Bean。
 
 ![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
 
-我们来看一下三级缓存解决循环依赖的过程：
 
-当 A、B 两个类发生循环依赖时：
+#### 三级缓存解决循环依赖的过程是什么样的？
+
+假如 A、B 两个类发生循环依赖：
 
 ![三分恶面渣逆袭：循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
 
 A 实例的初始化过程：
 
-①、创建 A 实例，实例化的时候把 A 的对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然我这个对象还不完整，但是先曝光出来让大家知道。
+①、创建 A 实例，实例化的时候把 A 的对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然这个对象还不完整，但是先曝光出来让大家知道。
 
 ![三分恶面渣逆袭：A 对象工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
 
-②、A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B
+②、A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B。
 
 ③、同样，B 注⼊属性时发现依赖 A，它就从缓存里找 A 对象。依次从⼀级到三级缓存查询 A。
 
@@ -1257,13 +1252,9 @@ A 实例的初始化过程：
 
 ④、接着 A 继续属性赋值，顺利从⼀级缓存拿到实例化且初始化完成的 B 对象，A 对象创建也完成，删除⼆级缓存中的 A，同时把 A 放⼊⼀级缓存
 
-⑤、最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象
+⑤、最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象。
 
 ![三分恶面渣逆袭：AB 都好了](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
-
-到此，我们就知道为什么 Spring 能解决 setter 注入的循环依赖了，因为实例化和属性赋值是分开的，里面有操作的空间。
-
-如果都是构造器注入的话，那么都得在实例化这一步完成注入，没有可操作的空间。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring如何解决循环依赖？

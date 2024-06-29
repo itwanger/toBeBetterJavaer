@@ -490,18 +490,25 @@ ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，�
 
 ### 13.如何判断对象仍然存活？
 
-有两种方式，**引用计数算法（reference counting）**和可达性分析算法。
+判断一个对象是否存活，也就等同于判断一个对象是否可以被回收。通常有两种方式：引用计数算法（reference counting）和可达性分析算法。
 
-- **引用计数算法**
+#### 什么是引用计数法？
 
-引用计数器的算法是这样的：在对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器为零的对象就是不可能再被使用的。
+每个对象有一个引用计数器，记录引用它的次数。当计数器为零时，对象可以被回收。
 
-![引用计数算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-17.png)
+![三分恶面渣逆袭：引用计数法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-17.png)
 
-- **可达性分析算法**
+但无法解决循环引用问题。例如，两个对象互相引用，但不再被其他对象引用，它们的引用计数都不为零，因此不会被回收。
 
-目前 Java 虚拟机的主流垃圾回收器采取的是可达性分析算法。这个算法的实质在于将一系列 GC Roots 作为初始的存活对象合集（Gc Root Set），然后从该合集出发，探索所有能够被该集合引用到的对象，并将其加入到该集合中，这个过程我们也称之为标记（mark）。最终，未被探索到的对象便是死亡的，是可以回收的。
-![GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
+#### 什么是可达性分析算法？
+
+通过一组名为 “GC Roots” 的根对象，进行递归扫描。那些无法从根对象到达的对象是不可达的，可以被回收；反之，是可达的，不会被回收。
+
+![三分恶面渣逆袭：GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
+
+这也是 Java 垃圾回收器（如 G1、CMS 等）使用的主要算法。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 京东到家面试原题：如何判断一个对象是否可以回收
 
 ### 14.Java 中可作为 GC Roots 的引用有哪几种？
 
@@ -762,7 +769,7 @@ Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（或元
 
 除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和总空间等因素动态调整对象的晋升策略。
 
-> 如果在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
+比如说，在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
 
