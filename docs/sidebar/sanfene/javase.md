@@ -397,7 +397,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 面向对象编程有三大特性：封装、继承、多态。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240330115129.png)
+![二哥的 Java 进阶之路：封装继承多态](https://cdn.tobebetterjavaer.com/stutymore/javase-20240330115129.png)
 
 #### 封装是什么？
 
@@ -455,15 +455,9 @@ Student 类继承了 Person 类的属性（name、age）和方法（eat），同
 
 #### 什么是多态？
 
-推荐阅读：[深入理解 Java 三大特性：封装、继承和多态](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)
-
 多态允许不同类的对象对同一消息做出响应，但表现出不同的行为（即方法的多样性）。
 
-在我的印象里，西游记里的那段孙悟空和二郎神的精彩对战就能很好的解释“多态”这个词：一个孙悟空，能七十二变；一个二郎神，也能七十二变；他们都可以变成不同的形态，只需要喊一声“变”。
-
 多态其实是一种能力——同一个行为具有不同的表现形式；换句话说就是，执行一段代码，Java 在运行时能根据对象类型的不同产生不同的结果。
-
-和孙悟空和二郎神都只需要喊一声“变”，然后就变了，并且每次变得还不一样；一个道理。
 
 多态的前置条件有三个：
 
@@ -1279,9 +1273,9 @@ System.out.println(c.equals(d)); // 输出true
 
 #### 什么是 Integer 缓存？
 
-根据实践发现，大部分的数据操作都集中在值比较小的范围，因此 Integer 搞了个缓存池，默认范围是 -128 到 127。
+就拿 Integer 的缓存吃来说吧。根据实践发现，大部分的数据操作都集中在值比较小的范围，因此 Integer 搞了个缓存池，默认范围是 -128 到 127。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323080956.png)
+![二哥的 Java 进阶之路：integer 源码](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323080956.png)
 
 当我们使用自动装箱来创建这个范围内的 Integer 对象时，Java 会直接从缓存中返回一个已存在的对象，而不是每次都创建一个新的对象。这意味着，对于这个值范围内的所有 Integer 对象，它们实际上是引用相同的对象实例。
 
@@ -1289,7 +1283,7 @@ Integer 缓存的主要目的是优化性能和内存使用。对于小整数的
 
 可以在运行的时候添加 `-Djava.lang.Integer.IntegerCache.high=1000` 来调整缓存池的最大值。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323082802.png)
+![二哥的 Java 进阶之路：调整缓存池大小](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323082802.png)
 
 引用是 Integer 类型，= 右侧是 int 基本类型时，会进行自动装箱，调用的其实是 `Integer.valueOf()`方法，它会调用 IntegerCache。
 

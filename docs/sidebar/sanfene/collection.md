@@ -908,9 +908,9 @@ static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 
 ### 21.那扩容机制了解吗？
 
-扩容时，HashMap 会创建一个新的数组，其容量是原数组容量的两倍。
+扩容时，HashMap 会创建一个新的数组，其容量是原数组容量的两倍。然后将键值对放到新计算出的索引位置上。一部分索引不变，另一部分索引为“原索引+旧容量”。
 
-然后将键值对放到新计算出的索引位置上。一部分索引不变，另一部分索引为“原索引+旧容量”。
+>为了便于理解，我会结合 JDK7 和 JDK8 两个版本来讲。
 
 在 JDK 7 中，定位元素位置的代码是这样的：
 
@@ -1018,7 +1018,7 @@ final int hash(Object k) {
 
 ![三分恶面渣逆袭：扩容位置变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-26.png)
 
-也就是说，在 JDK 8 的新 hash 算法下，数组扩容后的索引位置，要么就是原来的索引位置，要么就是“原索引+原来的容量”，遵循一定的规律。
+换句话说，在 JDK 8 的新 hash 算法下，数组扩容后的索引位置，要么就是原来的索引位置，要么就是“原索引+原来的容量”，遵循一定的规律。
 
 ![三分恶面渣逆袭：扩容节点迁移示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
 
