@@ -751,7 +751,7 @@ Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（或元
 
 对象通常会现在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
 
-![三分恶面渣逆袭：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
+![二哥的 Java 进阶之路：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
 
 ①、**长期存活的对象将进入老年代**
 
