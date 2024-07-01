@@ -19,24 +19,24 @@ head:
 
 ### 01、什么是操作系统？
 
-可以这么说，操作系统是一种运行在内核态的软件。
+操作系统（Operating System, OS）是计算机系统中管理硬件和软件资源的中间层系统，屏蔽了硬件的复杂性，并且为用户提供了便捷的交互方式，比如说 Windows、Linux、MacOS 等。
 
-它是应用程序和硬件之间的媒介，向应用程序提供硬件的抽象，以及管理硬件资源。
-
-![操作系统是什么](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-be55aec1-e7ab-433f-97f1-14d99960b6bf.png)
+![三分恶面渣逆袭：操作系统是什么](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-be55aec1-e7ab-433f-97f1-14d99960b6bf.png)
 
 ### 02、操作系统主要有哪些功能？
 
-操作系统最主要的功能：
+![ 三分恶面渣逆袭：操作系统主要功能](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-eee82952-c96f-45c9-835e-29db37c0f6d8.png)
 
-- 处理器（CPU）管理：CPU 的管理和分配，主要指的是进程管理。
-- 内存管理：内存的分配和管理，主要利用了虚拟内存的方式。
-- 外存管理：外存（磁盘等）的分配和管理，将外存以文件的形式提供出去。
-- I/O 管理：对输入/输出设备的统一管理。
+①、负责创建和终止进程。进程是正在运行的程序实例，每个进程都有自己的地址空间和资源。
 
-除此之外，还有保证自身正常运行的健壮性管理，防止非法操作和入侵的安全性管理。
+②、负责为进程分配资源，比如说内存，并在进程终止时回收内存。
 
-![操作系统主要功能](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-eee82952-c96f-45c9-835e-29db37c0f6d8.png)
+③、提供创建、删除、读写文件的功能，并组织文件的存储结构，比如说目录。
+
+④、通过设备驱动程序控制和管理计算机的硬件设备，如键盘、鼠标、打印机等。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 1 面试原题：操作系统的主要功能，以及上下文切换
+
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -85,9 +85,17 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 07、什么是进程上下文切换？
 
-对于单核单线程 CPU 而言，在某一时刻只能执行一条 CPU 指令。上下文切换 (Context Switch) 是一种将 CPU 资源从一个进程分配给另一个进程的机制。从用户角度看，计算机能够并行运行多个进程，这恰恰是操作系统通过快速上下文切换造成的结果。在切换的过程中，操作系统需要先存储当前进程的状态 (包括内存空间的指针，当前执行完的指令等等)，再读入下一个进程的状态，然后执行此进程。
+![三分恶面渣逆袭：进程上下文切换](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-187d1cf9-971d-4395-b888-5e6eaf2be5f1.png)
 
-![进程上下文切换-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-187d1cf9-971d-4395-b888-5e6eaf2be5f1.png)
+上下文切换是操作系统在多任务处理环境中，将 CPU 从一个进程切换到另一个进程的过程。通过让多个进程共享 CPU 资源，使系统能够并发执行多个任务。
+
+进程上下文切换通畅包含以下几个步骤：
+
+- 保存当前进程的上下文：操作系统保存当前进程的 CPU 寄存器，程序状态等关键信息。
+- 选择下一个进程：调度程序选择下一个要执行的进程。
+- 恢复上一个进程的上下文。
+- 切换到下一个进程。
+
 
 ### 08、进程有哪些状态？
 

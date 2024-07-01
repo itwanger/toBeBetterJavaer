@@ -3168,17 +3168,16 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 
 ### 53.有哪几种常见的线程池？
 
-面试常问，主要有四种，都是通过工具类 Excutors 创建出来的，需要注意，阿里巴巴《Java 开发手册》里禁止使用这种方式来创建线程池。
+![三分恶面渣逆袭：四大线程池](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-71.png)
 
-![四大线程池](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-71.png)
+可以通过 Executors 工厂类来创建四种常见的线程池：
 
-- newFixedThreadPool (固定数目线程的线程池)
-
+- newFixedThreadPool (固定线程数目的线程池)
 - newCachedThreadPool (可缓存线程的线程池)
-
 - newSingleThreadExecutor (单线程的线程池)
-
 - newScheduledThreadPool (定时及周期执行的线程池)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪同学 1 面试原题：有没有用过线程池，线程池有哪几种？
 
 ### 54.能说一下四种常见线程池的原理吗？
 
