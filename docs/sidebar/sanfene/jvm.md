@@ -1137,7 +1137,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器、JVM 参数等进行调整和优化。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240417094311.png)
+![二哥的 Java 进阶之路：JVM 调优](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240417094311.png)
 
 ①、JVM 的堆内存主要用于存储对象实例，如果堆内存设置过小，可能会导致频繁的垃圾回收。所以，[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)是在启动 JVM 的时候就调整了一下 -Xms 和-Xmx 参数，让堆内存最大可用内存为 2G。
 
