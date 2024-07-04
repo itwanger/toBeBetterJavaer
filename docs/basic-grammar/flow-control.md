@@ -536,7 +536,7 @@ while (true) {
 ```java
 do{  
 // 循环体
-}while(提交);  
+}while(条件);  
 ```
 
 画个流程图：
