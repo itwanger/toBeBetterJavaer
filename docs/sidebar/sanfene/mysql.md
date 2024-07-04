@@ -2014,7 +2014,9 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 
 索引条件下推优化可以减少存储引擎查询基础表的次数，也可以减少 MySQL 服务器从存储引擎接收数据的次数。
 
-### 79.MySQL如何查看查询是否用到了索引？
+### 79.MySQL如何查看查询是否用到了索引？（补充）
+
+> 2024 年 03 月 15 日增补。
 
 可以通过 `EXPLAIN` 关键字来查看是否使用了索引。
 
@@ -2022,7 +2024,9 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 EXPLAIN SELECT * FROM table WHERE column = 'value';
 ```
 
-其结果中的 `key` 值显示了查询是否使用索引，如果使用了索引，会显示索引的名称。
+其结果中的 `key` 值显示了查询是否使用索引，如果使用了索引，会显示索引的名称。比如下面这个截图就表明该查询语句使用了主键索引。
+
+![二哥的 Java 进阶之路：explain 和索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417092646.png)
 
 #### (A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
 
