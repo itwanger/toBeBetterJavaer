@@ -879,25 +879,147 @@ Java 是值传递，不是引用传递。
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：引用类型的变量有什么特点
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM 引用类型有什么特点？
 
-### 29.深拷贝和浅拷贝?
+### 29.说说深拷贝和浅拷贝的区别?
 
-- **浅拷贝**：仅拷贝被拷贝对象的成员变量的值，也就是基本数据类型变量的值，和引用数据类型变量的地址值，而对于引用类型变量指向的堆中的对象不会拷贝。
-- **深拷贝**：完全拷贝一个对象，拷贝被拷贝对象的成员变量的值，堆中的对象也会拷贝一份。
+推荐阅读：[深入理解Java浅拷贝与深拷贝](https://javabetter.cn/basic-extra-meal/deep-copy.html)
 
-例如现在有一个 order 对象，里面有一个 products 列表，它的浅拷贝和深拷贝的示意图：
+在 Java 中，深拷贝（Deep Copy）和浅拷贝（Shallow Copy）是两种拷贝对象的方式，它们在拷贝对象的方式上有很大不同。
 
-![浅拷贝和深拷贝示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-15.png)
+![三分恶面渣逆袭：浅拷贝和深拷贝示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-15.png)
 
-因此深拷贝是安全的，浅拷贝的话如果有引用类型，那么拷贝后对象，引用类型变量修改，会影响原对象。
 
-> 浅拷贝如何实现呢？
+浅拷贝会创建一个新对象，但这个新对象的属性（字段）和原对象的属性完全相同。如果属性是基本数据类型，拷贝的是基本数据类型的值；如果属性是引用类型，拷贝的是引用地址，因此新旧对象共享同一个引用对象。
 
-Object 类提供的 clone()方法可以非常简单地实现对象的浅拷贝。
+浅拷贝的实现方式为：实现 Cloneable 接口并重写 `clone()` 方法。
 
-> 深拷贝如何实现呢？
+```java
+class Person implements Cloneable {
+    String name;
+    int age;
+    Address address;
 
-- 重写克隆方法：重写克隆方法，引用类型变量单独克隆，这里可能会涉及多层递归。
-- 序列化：可以先将原对象序列化，再反序列化成拷贝对象。
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+}
+
+class Address {
+    String city;
+
+    public Address(String city) {
+        this.city = city;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Address address = new Address("河南省洛阳市");
+        Person person1 = new Person("沉默王二", 18, address);
+        Person person2 = (Person) person1.clone();
+
+        System.out.println(person1.address == person2.address); // true
+    }
+}
+```
+
+深拷贝也会创建一个新对象，但会递归地复制所有的引用对象，确保新对象和原对象完全独立。新对象与原对象的任何更改都不会相互影响。
+
+深拷贝的实现方式有：手动复制所有的引用对象，或者使用序列化与反序列化。
+
+①、手动拷贝
+
+```java
+class Person {
+    String name;
+    int age;
+    Address address;
+
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public Person(Person person) {
+        this.name = person.name;
+        this.age = person.age;
+        this.address = new Address(person.address.city);
+    }
+}
+
+class Address {
+    String city;
+
+    public Address(String city) {
+        this.city = city;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Address address = new Address("河南省洛阳市");
+        Person person1 = new Person("沉默王二", 18, address);
+        Person person2 = new Person(person1);
+
+        System.out.println(person1.address == person2.address); // false
+    }
+}
+```
+
+②、序列化与反序列化
+
+```java
+import java.io.*;
+
+class Person implements Serializable {
+    String name;
+    int age;
+    Address address;
+
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+
+    public Person deepClone() throws IOException, ClassNotFoundException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(this);
+
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+        return (Person) ois.readObject();
+    }
+}
+
+class Address implements Serializable {
+    String city;
+
+    public Address(String city) {
+        this.city = city;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Address address = new Address("河南省洛阳市");
+        Person person1 = new Person("沉默王二", 18, address);
+        Person person2 = person1.deepClone();
+
+        System.out.println(person1.address == person2.address); // false
+    }
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 7  高德地图技术一面面试原题：浅拷贝和深拷贝
 
 ### 30.Java 创建对象有哪几种方式？
 

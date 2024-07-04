@@ -725,7 +725,7 @@ Thread 1 醒来了，并且退出同步代码块
 - `sleep()` 方法可以在任何地方被调用。
 - `wait()` 方法必须在同步代码块或同步方法中被调用，这是因为调用 `wait()` 方法的前提是当前线程必须持有对象的锁。否则会抛出 `IllegalMonitorStateException` 异常。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240308154009.png)
+![二哥的 Java 进阶之路：wait 方法必须在同步代码块中调用](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240308154009.png)
 
 ④、唤醒方式不同
 
