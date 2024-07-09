@@ -229,22 +229,37 @@ LinkedList 因为是链表结构，插入和删除只需要改变前置节点、
 
 ①、ArrayList 是基于数组的，也实现了 RandomAccess 接口，所以它支持随机访问，可以通过下标直接获取元素。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240319092907.png)
+![二哥的 Java 进阶之路：ArrayList](https://cdn.tobebetterjavaer.com/stutymore/collection-20240319092907.png)
 
 ②、LinkedList 是基于链表的，所以它没法根据下标直接获取元素，不支持随机访问，所以它也没有实现 RandomAccess 接口。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240319093038.png)
+![二哥的 Java 进阶之路：LinkedList](https://cdn.tobebetterjavaer.com/stutymore/collection-20240319093038.png)
 
 #### 内存占用有何不同？
 
 ArrayList 是基于数组的，是一块连续的内存空间，所以它的内存占用是比较紧凑的；但如果涉及到扩容，就会重新分配内存，空间是原来的 1.5 倍，存在一定的空间浪费。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240319093453.png)
+![二哥的 Java 进阶之路：ArrayList的扩容](https://cdn.tobebetterjavaer.com/stutymore/collection-20240319093453.png)
 
 LinkedList 是基于链表的，每个节点都有一个指向下一个节点和上一个节点的引用，于是每个节点占用的内存空间稍微大一点。
 
+#### 使用场景有什么不同？
+
+ArrayList 适用于：
+
+- 随机访问频繁：需要频繁通过索引访问元素的场景。
+- 读取操作远多于写入操作：如存储不经常改变的列表。
+- 末尾添加元素：需要频繁在列表末尾添加元素的场景。
+
+LinkedList 适用于：
+
+- 频繁插入和删除：在列表中间频繁插入和删除元素的场景。
+- 不需要快速随机访问：顺序访问多于随机访问的场景。
+- 队列和栈：由于其双向链表的特性，LinkedList 可以高效地实现队列（FIFO）和栈（LIFO）。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：ArrayList 和 LinkedList 的时间复杂度
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解哪些集合？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：ArrayList和LinkedList的区别和使用场景
 
 ### 3.ArrayList 的扩容机制了解吗？
 

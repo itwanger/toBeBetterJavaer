@@ -1,7 +1,7 @@
 ---
-title: Spring面试题，37道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
+title: Spring面试题，38道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Spring
-description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 37 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 38 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: Spring面试题,Spring,面试题,八股文,java,spring全家桶
 ---
 
-1.3 万字 63 张手绘图，详解 37 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+1.3 万字 63 张手绘图，详解 38 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 ## 基础
 
@@ -1738,6 +1738,7 @@ public class Client {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：cglib 的原理
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring AOP 实现原理
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：两种动态代理的区别
 
 ### 22.说说 Spring AOP 和 AspectJ AOP 区别?
 
@@ -2167,13 +2168,15 @@ Spring Boot 的优点非常多，比如说：
 
 在 Spring 中，自动装配是指容器利用反射技术，根据 Bean 的类型、名称等自动注入所需的依赖。
 
+![三分恶面渣逆袭：SpringBoot自动配置原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
+
 在 Spring Boot 中，开启自动装配的注解是`@EnableAutoConfiguration`。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121711.png)
+![二哥的 Java 进阶之路：@EnableAutoConfiguration 源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121711.png)
 
 Spring Boot 为了进一步简化，直接通过 `@SpringBootApplication` 注解一步搞定，这个注解包含了 `@EnableAutoConfiguration` 注解。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121651.png)
+![二哥的 Java 进阶之路：@SpringBootApplication源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121651.png)
 
 ①、`@EnableAutoConfiguration` 只是一个简单的注解，但是它的背后却是一个非常复杂的自动装配机制，核心是`AutoConfigurationImportSelector` 类。
 
@@ -2191,7 +2194,7 @@ public @interface EnableAutoConfiguration {
 
 ②、`AutoConfigurationImportSelector`实现了`ImportSelector`接口，这个接口的作用就是收集需要导入的配置类，配合`@Import()`就将相应的类导入到 Spring 容器中。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316122134.png)
+![二哥的 Java 进阶之路：AutoConfigurationImportSelector源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316122134.png)
 
 ③、获取注入类的方法是 `selectImports()`，它实际调用的是`getAutoConfigurationEntry()`，这个方法是获取自动装配类的关键。
 
@@ -2232,8 +2235,6 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata an
 ```
 
 Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件注册，通过这种方式，Spring Boot 能够智能地配置 bean，并且只有当这些 bean 实际需要时才会被创建和配置。
-
-![三分恶面渣逆袭：SpringBoot自动配置原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 启动时为什么能够自动装配
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 如何做到启动的时候注入一些 bean
@@ -2445,6 +2446,25 @@ Spring Boot 旨在简化 Spring 应用的配置和部署过程，提供了大量
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 和 SpringMVC 的区别
 
+### 38.Spring Boot 和 Spring 有什么区别？（补充）
+
+> 2024 年 07 月 09 日新增
+
+Spring Boot 是 Spring Framework 的一个扩展，提供了一套快速配置和开发的框架，可以帮助我们快速搭建 Spring 项目骨架，极大地提高了我们的生产效率。
+
+| 特性                | Spring Framework                    | Spring Boot                          |
+|---------------------|-------------------------------------|--------------------------------------|
+| **目的**            | 提供全面的企业级开发工具和库         | 简化 Spring 应用的开发、配置和部署    |
+| **配置方式**        | 主要通过 XML 和注解配置              | 主要通过注解和外部配置文件             |
+| **启动和运行**      | 需要手动配置和部署到服务器           | 支持嵌入式服务器，打包成 JAR 文件直接运行 |
+| **自动配置**        | 手动配置各种组件和依赖               | 提供开箱即用的自动配置                 |
+| **依赖管理**        | 手动添加和管理依赖                   | 使用 `spring-boot-starter` 简化依赖管理  |
+| **模块化**          | 高度模块化，可以选择使用不同的模块    | 集成多个常用模块，提供统一的启动入口     |
+| **生产准备功能**    | 需要手动集成和配置                   | 内置监控、健康检查等生产准备功能         |
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米同学 F 面试原题：Spring Boot 和 Spring 的区别
+
+
 ## Spring Cloud
 
 ### 35.对 SpringCloud 了解多少？
@@ -2593,7 +2613,7 @@ public class OrderService {
 
 ---
 
-图文详解 37 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+图文详解 38 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

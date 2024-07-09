@@ -1,5 +1,5 @@
 ---
-title: 欢迎加入沉默王二的知识星球-二哥的Java进阶之路
+title: 欢迎加入二哥的编程星球-Java进阶之路
 shortTitle: 二哥的编程星球
 sticky: true
 star: true
@@ -17,9 +17,9 @@ head:
 
 大家好，我是二哥呀。
 
-2024 年 4 月份，我和苍何一起成立了《[来个 offer](https://github.com/laigeoffer)》组织，旨在帮助每一个渴望进步的小伙伴拿到一个更好的 offer。
+2024 年 4 月份，我和星球嘉宾苍何一起成立了《[来个 offer](https://github.com/laigeoffer)》组织，旨在通过实战项目帮助渴望进步的小伙伴拿到一个更好的 offer。
 
-[PmHub](https://pmhub.laigeoffer.cn) 是我们推出的第二个实战项目，采用时下企业最热门的技术框架，如 SpringCloud-Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
+[PmHub](https://pmhub.laigeoffer.cn) 是我们推出的第二个实战项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)是第一个），采用时下企业最热门的技术框架，如 SpringCloud-Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
 
 并提供单体和微服务两个版本，完美照顾零基础和需要进阶的小伙伴，带大家体验从单体到微服务架构的改造全过程，并深入理解两种架构的优缺点。
 
