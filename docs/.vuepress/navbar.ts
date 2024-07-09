@@ -35,6 +35,11 @@ export default navbar([
         icon: "zhunbei", 
         link: "/sidebar/sanfene/nixi.md" 
       },
+      { 
+        text: "破解合集",
+        icon: "zhongyaotishi",
+        link: "/nice-article/itmind/" 
+      },
     ],
   },
   {
