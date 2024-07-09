@@ -35,7 +35,7 @@ PmHub 是由前蚂蚁金服技术专家苍何主导的，一套基于 SpringClou
 
 好，接下来，就由我来吹一吹 PmHub 项目的亮点，哦不，实话实说而已😄。
 
-- **热门技术**：采用时下企业最热门的技术框架，如 SpringCloud-Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
+- **热门技术**：采用时下企业最热门的技术框架，如 SpringCloud、Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
 - **单体与微服务**：提供单体和微服务两个版本，完美照顾零基础和需要进阶的同学，带大家体验从单体到微服务架构的改造全过程，并深入理解两种架构的优缺点。
 - **硬核面试题**：我们将结合付费球友的实际面试体验，为大家提供可以真正吊打面试官的真是面试场景和题目，并提供 1v1 的简历修改服务，主打一个投了就有、面了就拿 offer 的快乐体感。
 - **代码质量**：由蚂蚁金服工作过的技术专家苍何亲自下场，严格遵循代码规范和最佳实践，帮大家养成优雅的代码编写习惯。
@@ -53,7 +53,7 @@ PmHub 是由前蚂蚁金服技术专家苍何主导的，一套基于 SpringClou
 
 更关键的是，我们还提供了如何将 PmHub 写入到简历中的全套模板。
 
-![如何把 PmHub 写到简历上](https://cdn.tobebetterjavaer.com/stutymore/02.为什么选择PmHub-20240702042544.png)
+![如何把 PmHub 写到简历上](https://cdn.tobebetterjavaer.com/stutymore/readme-20240709151909.png)
 
 后期会根据球友们的实际反馈继续调整和优化，保证大家看到的是最新、最全、最实用的内容。
 
@@ -74,11 +74,7 @@ PmHub 是由前蚂蚁金服技术专家苍何主导的，一套基于 SpringClou
 
 ![主流技术栈](https://cdn.tobebetterjavaer.com/stutymore/1719413567243-978402fb-e4c3-471f-8ffa-77b6daf04cca.png)
 
-看到这就想迫不及待地解锁 PmHub 的全部教程，请扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 149 元/年，优惠完只需要 119 元，每天不到 0.33 元，绝对的超值。
 
-![苍何优惠券](https://cdn.tobebetterjavaer.com/stutymore/1719476492628-64a24484-456c-4153-bff5-19c37ac98da8.png)
-
-新项目刚上线，超超超低价给到大家，你去其他机构对比一下，这种硬核的教程最起码要价 1999 元，我们现在只要 119 元，算是搞搞人气，另外，星球马上要 6000 人了，也要马上涨价了。
 
 ## 01、PmHub 长什么样子？
 
@@ -164,7 +160,7 @@ PmHub 作为一套完整的企业级项目管理系统，功能比较多，这�
 
 看到这就想加入二哥编程星球的话，请扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 149 元/年，优惠完只需要 119 元，每天不到 0.33 元，绝对的超值。
 
-![苍何优惠券](https://cdn.tobebetterjavaer.com/stutymore/1719476492628-64a24484-456c-4153-bff5-19c37ac98da8.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/pmhub-苍何的星球优惠券.png)
 
 ## 04、PmHub 的成长过程
 
@@ -327,8 +323,6 @@ PmHub原型图在线查看地址：[https://lanhuapp.com/link/#/invite?sid=qxZji
 
 ⑤、PmHub 囊括了时下互联网企业常用的技术栈，包括 SpringCloud、Spring Boot、SpringCloud Alibaba、MyBatis-Plus、Redis、RocketMQ、Sentinel、Gateway、Docker、WebSocket、JWT、SpringSecurity 等等。
 
-
-
 |  | 技术 | 名称 | 版本 | 官网 |
 | --- | --- | --- | --- | --- |
 | 1 | Spring Boot | 基础框架 | 2.7.18 | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) |
@@ -356,7 +350,7 @@ PmHub原型图在线查看地址：[https://lanhuapp.com/link/#/invite?sid=qxZji
 
 相信看到这里的小伙伴，已经开始摩拳擦掌，想现在立刻马上开搞 PmHub 了。那欢迎大家扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 149 元/年，优惠完只需要 119 元，每天不到 0.33 元，绝对的超值。
 
-![苍何优惠券](https://cdn.tobebetterjavaer.com/stutymore/1719476492628-64a24484-456c-4153-bff5-19c37ac98da8.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/pmhub-苍何的星球优惠券.png)
 
 星球也马上 6000 人了，新一轮涨价已经箭在弦上，毕竟人多了，我们付出的时间成本也会更多，相信大家也都能理解。
 
@@ -394,9 +388,11 @@ PmHub原型图在线查看地址：[https://lanhuapp.com/link/#/invite?sid=qxZji
 
 不为别的，为的就是给所有人提供一个可持续的学习环境。当然了，随着人数的增多，二哥付出的精力越来越多，星球也会涨价，今天这批 30 元的优惠券不仅 2024 年最大的优惠力度，也是 2025 年最大的优惠力度，现在入手就是最划算的，再犹豫就只能等着涨价了。
 
-![苍何优惠券](https://cdn.tobebetterjavaer.com/stutymore/1719476492628-64a24484-456c-4153-bff5-19c37ac98da8.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/pmhub-苍何的星球优惠券.png)
 
 毕竟 PmHub、技术派网站用到的域名、证书、服务器、CDN、OSS、OpenAI 的 API KEY、讯飞星火大模型的 token 都需要钱。
+
+![服务器费用](https://cdn.tobebetterjavaer.com/stutymore/pmhub-20240709160406.png)
 
 想想，QQ音乐听歌连续包年需要 **88元**，腾讯视频连续包年需要 **178元**，腾讯体育包年 **233元**。我相信，二哥编程星球回馈给你的，将是 10 倍甚至百倍的价值。
 
