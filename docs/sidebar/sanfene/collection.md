@@ -175,6 +175,14 @@ private E dequeue() {
 
 像 Vector、Hashtable、ConcurrentHashMap、CopyOnWriteArrayList、ConcurrentLinkedQueue、ArrayBlockingQueue、LinkedBlockingQueue 这些都是线程安全的。
 
+#### Java 集合用过哪些？Collection 继承了哪些接口？
+
+最经常用的就是封装了动态数组的 ArrayList 和封装了链表的 LinkedList；以及键值对 HashMap。
+
+Collection 继承了 Iterable 接口，这意味着所有实现 Collection 接口的类都必须实现 `iterator()` 方法，之后就可以使用增强型 for 循环遍历集合中的元素了。
+
+![二哥的 Java 进阶之路：Collection源码](https://cdn.tobebetterjavaer.com/stutymore/collection-20240711092853.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：你了解哪些集合框架？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Java 容器和 HashMap
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解哪些集合？
