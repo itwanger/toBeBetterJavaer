@@ -56,7 +56,7 @@ public class Test {
 
 知道什么是 Java 字节码后，我们来聊聊 Java 的类加载过程。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
+![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
 
 。。。。
 
