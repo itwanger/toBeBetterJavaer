@@ -1,8 +1,8 @@
-本文大部分内容参考   **周志明《深入理解 Java 虚拟机》**  ，想要深入学习的话请看原书。
+
 
 ## 一、运行时数据区域
 
-<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/5778d113-8e13-4c53-b5bf-801e58080b97.png" width="400px"> </div><br>
+![二哥的 Java 进阶之路：JVM 运行时数据区域](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110194325.png)
 
 ### 程序计数器
 
@@ -73,6 +73,8 @@ Class 文件中的常量池（编译器生成的字面量和符号引用）会�
 ### 直接内存
 
 在 JDK 1.4 中新引入了 NIO 类，它可以使用 Native 函数库直接分配堆外内存，然后通过 Java 堆里的 DirectByteBuffer 对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在堆内存和堆外内存来回拷贝数据。
+
+推荐阅读：[深入理解JVM的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
 ## 二、垃圾收集
 
@@ -707,17 +709,4 @@ public class FileSystemClassLoader extends ClassLoader {
 
 ## 参考资料
 
-- 周志明. 深入理解 Java 虚拟机 [M]. 机械工业出版社, 2011.
-- [Chapter 2. The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.4)
-- [Jvm memory](https://www.slideshare.net/benewu/jvm-memory)
-[Getting Started with the G1 Garbage Collector](http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/G1GettingStarted/index.html)
-- [JNI Part1: Java Native Interface Introduction and “Hello World” application](http://electrofriends.com/articles/jni/jni-part1-java-native-interface/)
-- [Memory Architecture Of JVM(Runtime Data Areas)](https://hackthejava.wordpress.com/2015/01/09/memory-architecture-by-jvmruntime-data-areas/)
-- [JVM Run-Time Data Areas](https://www.programcreek.com/2013/04/jvm-run-time-data-areas/)
-- [Android on x86: Java Native Interface and the Android Native Development Kit](http://www.drdobbs.com/architecture-and-design/android-on-x86-java-native-interface-and/240166271)
-- [深入理解 JVM(2)——GC 算法与内存分配策略](https://crowhawk.github.io/2017/08/10/jvm_2/)
-- [深入理解 JVM(3)——7 种垃圾收集器](https://crowhawk.github.io/2017/08/15/jvm_3/)
-- [JVM Internals](http://blog.jamesdbloom.com/JVMInternals.html)
-- [深入探讨 Java 类加载器](https://www.ibm.com/developerworks/cn/java/j-lo-classloader/index.html#code6)
-- [Guide to WeakHashMap in Java](http://www.baeldung.com/java-weakhashmap)
-- [Tomcat example source code file (ConcurrentCache.java)](https://alvinalexander.com/java/jwarehouse/apache-tomcat-6.0.16/java/org/apache/el/util/ConcurrentCache.java.shtml)
+CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA.md)
