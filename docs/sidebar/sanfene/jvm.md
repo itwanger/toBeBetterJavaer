@@ -226,7 +226,7 @@ JVM 维护一个列表，记录堆中所有未占用的内存块，每个空间�
 
 可以通过 `java -XX:+PrintFlagsFinal -version | grep UseCompressedOops` 命令来查看当前 JVM 是否开启了压缩指针。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320220408.png)
+![二哥的 Java 进阶之路：查看 JVM 是否开启压缩指针](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320220408.png)
 
 如果压缩指针开启，会看到类似以下的输出，其中 bool UseCompressedOops 的值为 true。
 
@@ -236,7 +236,7 @@ JVM 维护一个列表，记录堆中所有未占用的内存块，每个空间�
 
 ③、**对齐填充**，为了使对象的总大小是 8 字节的倍数（这在大多数现代计算机体系结构中是最优访问边界），JVM 可能会在对象末尾添加一些填充。这部分是为了满足内存对齐的需求，并不包含任何具体的数据。
 
-**为什么非要进行 8 字节对齐呢？**
+#### 为什么非要进行 8 字节对齐呢？
 
 这是因为 CPU 进行内存访问时，一次寻址的指针大小是 8 字节，正好是 L1 缓存行的大小。如果不进行内存对齐，则可能出现跨缓存行访问，导致额外的缓存行加载，降低了 CPU 的访问效率。
 
@@ -296,7 +296,7 @@ public class JOLSample {
 
 第三步，运行代码，查看输出结果：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320223653.png)
+![二哥的 Java 进阶之路：JOL 运行结果](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320223653.png)
 
 可以看到有 OFFSET、SIZE、TYPE DESCRIPTION、VALUE 这几个名词头，它们的含义分别是
 
@@ -315,7 +315,7 @@ public class JOLSample {
 
 而 HotSpot JVM 默认开启了压缩指针，因此在 64 位 JVM 上，对象引用占用 4 字节。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320224701.png)
+![dijia478：对象头](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320224701.png)
 
 我们可以通过下面这个例子来验证一下：
 
@@ -334,11 +334,12 @@ class ReferenceSizeExample {
 
 运行代码，查看输出结果：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320231059.png)
+![二哥的 Java 进阶之路：对象的引用有多大？](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320231059.png)
 
 ReferenceHolder.reference 字段位于偏移量 12，大小为 4 字节。这表明在当前的 JVM 配置下（64 位 JVM 且压缩指针开启），对象引用占用的内存大小为 4 字节。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：Object a = new object()的大小，对象引用占多少大小？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：Object底层的数据结构（蒙了）
 
 ### 9.对象怎么访问定位？
 

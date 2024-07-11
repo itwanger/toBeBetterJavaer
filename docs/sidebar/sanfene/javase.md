@@ -664,6 +664,51 @@ public class Dog extends Animal {
 
 ![二哥的 Java 进阶之路：接口不能定义构造方法](https://cdn.tobebetterjavaer.com/stutymore/javase-20240512090855.png)
 
+#### 接口可以多继承吗？
+
+接口可以多继承，一个接口可以继承多个接口，使用逗号分隔。
+
+```java
+interface InterfaceA {
+    void methodA();
+}
+
+interface InterfaceB {
+    void methodB();
+}
+
+interface InterfaceC extends InterfaceA, InterfaceB {
+    void methodC();
+}
+
+class MyClass implements InterfaceC {
+    public void methodA() {
+        System.out.println("Method A");
+    }
+
+    public void methodB() {
+        System.out.println("Method B");
+    }
+
+    public void methodC() {
+        System.out.println("Method C");
+    }
+
+    public static void main(String[] args) {
+        MyClass myClass = new MyClass();
+        myClass.methodA();
+        myClass.methodB();
+        myClass.methodC();
+    }
+}
+```
+
+在上面的例子中，InterfaceA 和 InterfaceB 是两个独立的接口。
+
+InterfaceC 继承了 InterfaceA 和 InterfaceB，并且定义了自己的方法 methodC。
+
+MyClass 实现了 InterfaceC，因此需要实现 InterfaceA 和 InterfaceB 中的方法 methodA 和 methodB，以及 InterfaceC 中的方法 methodC。
+
 #### 继承和抽象的区别？
 
 继承是一种允许子类继承父类属性和方法的机制。通过继承，子类可以重用父类的代码。
@@ -707,7 +752,8 @@ public class Test {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：抽象类和接口有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：抽象类和接口的区别？抽象类可以定义构造方法吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：继承和抽象的区别
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：抽象类能写构造方法吗（能）接口能吗（不能）为什么二者有这样的区别
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：抽象类能写构造方法吗（能）接口能吗（不能）为什么二者有这样的区别
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术 2 面面试原题：接口可以多继承吗
 
 ### 22.成员变量与局部变量的区别有哪些？
 

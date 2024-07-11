@@ -1154,7 +1154,7 @@ redis.del(product_id)
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 
-在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就采用了本地缓存 Caffeine（或者 Guava Cache） + Redis 缓存的策略。分布式缓存基本就是采用 Redis。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就采用了本地缓存 Caffeine（或者 Guava Cache） + Redis 缓存的策略。
 
 ![三分恶面渣逆袭：延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6d4ab7e6-8337-4576-bbf0-79202a1c3331.png)
 
@@ -1186,8 +1186,17 @@ redis.del(product_id)
 
 在设计时，应该清楚地区分何时使用一级缓存和何时使用二级缓存。通常情况下，对于频繁访问但不经常更改的数据，可以放在本地缓存中以提供最快的访问速度。而对于需要共享或者一致性要求较高的数据，应当放在一级缓存中。
 
+#### 本地缓存和Redis缓存的区别和效率对比？
+
+Redis 可以部署在多个节点上，支持数据分片，适用于跨服务器的缓存共享。而本地缓存只能在单个服务器上使用。
+
+Redis 还可以持久化数据，支持数据备份和恢复，适用于对数据安全性要求较高的场景。并且支持发布/订阅、事务、Lua 脚本等高级功能。
+
+效率上，Redis 和本地缓存都是存储在内存中，读写速度都非常快。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：怎么保证二级缓存和 Redis 缓存的数据一致性？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：使用的guava cache和redis是如何组合使用的？如果在项目中多个地方都要使用到二级缓存的逻辑，如何设计这一块？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1  技术二面的原题：redis和本地缓存的区别，哪个效率高
 
 ### 30.怎么处理热 key？
 
@@ -1395,46 +1404,46 @@ Redis 内存不足有这么几种处理方式：
 
 ### 35.Redis 的过期数据回收策略有哪些？
 
-Redis 处理过期数据（即键值对）的回收策略主要有两种：惰性删除和定期删除。
+Redis 支持为键设置过期时间，当键的过期时间到达后，Redis 会自动删除这些键。过期回收策略主要有两种：惰性删除和定期删除。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214119.png)
+![二哥的 Java 进阶之路：Redis 的过期淘汰策略](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214119.png)
 
-#### 惰性删除
+#### 什么是惰性删除？
 
 当某个键被访问时，如果发现它已经过期，Redis 会立即删除该键。这意味着如果一个已过期的键从未被访问，它不会被自动删除，可能会占用额外的内存。
 
-#### 定期删除
+#### 什么是定期删除？
 
-Redis 会定期随机测试一些键，并删除其中已过期的键。这个过程是 Redis 内部自动执行的，旨在减少过期键对内存的占用。
+Redis 会定期随机测试一些键，并删除其中已过期的键。这个过程是 Redis 内部自动执行的，旨在减少过期键对内存的占用。可以通过 `config get hz` 命令查看当前的 hz 值。
 
-可以通过 `config get hz` 命令查看当前的 hz 值。
+![二哥的 Java 进阶之路：config get hz](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214800.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214800.png)
-
-结果显示 hz 的值为 "10"。这意味着 Redis 服务器每秒执行其内部定时任务（如过期键的清理）的频率是 10 次。
-
-可以通过 `CONFIG SET hz 20` 进行调整，或者直接通过配置文件中的 hz 设置。
+结果显示 hz 的值为 "10"。这意味着 Redis 服务器每秒执行其内部定时任务（如过期键的清理）的频率是 10 次。可以通过 `CONFIG SET hz 20` 进行调整，或者直接通过配置文件中的 hz 设置。
 
 ![二哥本地 Redis 的配置文件路径和 hz 的默认值](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326215240.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Redis key 删除策略
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2面面试原题：redis内存淘汰和过期策略
 
-### 36.Redis 有哪些内存溢出控制/内存淘汰策略？
+### 36.Redis 有哪些内存淘汰策略？
 
-当 Redis 所用内存达到 maxmemory 上限时，会触发相应的溢出控制策略。
+当 Redis 内存使用达到设置的最大值时（通过 maxmemory 参数设置），它会根据配置的内存淘汰策略来决定如何处理新的写请求。
 
-![Redis六种内存溢出控制策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-5be7405c-ee11-4d2b-bea4-9598f10a1b17.png)
+![三分恶面渣逆袭：Redis六种内存溢出控制策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-5be7405c-ee11-4d2b-bea4-9598f10a1b17.png)
 
-1. noeviction：默认策略，不进行任何淘汰，当内存不足以容纳更多数据时，对写操作返回错误。（但仍然允许删除操作）
-2. volatile-lru：仅从设置了过期时间的键中使用 LRU 算法淘汰。
-3. allkeys-lru：从所有的键中使用 LRU（Least Recently Used，最近最少使用）算法淘汰数据。
-4. allkeys-random：从所有的键中随机淘汰数据。
-5. volatile-random：仅从设置了过期时间的键中随机淘汰。
-6. volatile-ttl：从设置了过期时间的键中选择 TTL（Time To Live，存活时间）最短的键淘汰。
-7. allkeys-lfu:对所有的 key 使用 LFU 算法进行删除
-8. volatile-lfu:对所有设置了过期时间的 key 使用 LFU 算法进行删除
+Redis 提供了以下几种淘汰策略：
+
+1. noeviction：默认策略，不进行任何数据淘汰，直接返回错误信息。适用于不能丢失数据的场景。
+2. volatile-lru：从设置了过期时间的键中，使用 LRU 算法淘汰最不常用的键。
+3. allkeys-lru：从所有键中，使用 LRU（最近最少使用）算法淘汰最不常用的键。适用于缓存场景，优先保留最近使用的数据。
+4. allkeys-random：从所有键中随机淘汰键。
+5. volatile-random：从设置了过期时间的键中随机淘汰键。
+6. volatile-ttl：从设置了过期时间的键中淘汰即将过期（TTL，Time To Live，存活时间）的键。
+7. allkeys-lfu：对所有的 key 使用 LFU 算法进行删除。
+8. volatile-lfu：对设置了过期时间的 key 使用 LFU 算法进行删除。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2面面试原题：redis内存淘汰和过期策略
 
 ### 37.Redis 阻塞？怎么解决？
 
