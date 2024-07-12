@@ -480,7 +480,8 @@ HTTPS 主要解决了以下几个问题：
 - **篡改风险**：第三方可以在传输过程中篡改数据包，修改数据。
 - **冒充风险**：第三方可以冒充服务器，与客户端通信。
 
-> 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的的腾讯面经同学 26 暑期实习微信支付面试原题：https的加密技术
 
 ### 20.HTTPS 工作流程是怎样的？
 
