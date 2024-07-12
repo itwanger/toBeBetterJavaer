@@ -283,6 +283,8 @@ System.out.println(linkedHashMap);
 
 也就是说，最不经常访问的放在头部，这就有意思了。有意思在哪呢？
 
+### 03、LRU 缓存
+
 我们可以使用 LinkedHashMap 来实现 LRU 缓存，LRU 是 Least Recently Used 的缩写，即最近最少使用，是一种常用的页面置换算法，选择最近最久未使用的页面予以淘汰。
 
 ```java
@@ -450,7 +452,7 @@ void afterNodeInsertion(boolean evict) { // possibly remove eldest
 
 `removeEldestEntry()` 方法会判断第一个元素是否超出了可容纳的最大范围，如果超出，那就会调用 `removeNode()` 方法对最不经常访问的那个元素进行删除。
 
-### 03、小结
+### 04、小结
 
 由于 LinkedHashMap 要维护双向链表，所以 LinkedHashMap 在插入、删除操作的时候，花费的时间要比 HashMap 多一些。
 

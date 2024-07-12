@@ -1,19 +1,19 @@
 ---
-title: Java并发编程面试题，70道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，71道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 70 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 70 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+2.1 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 ## 基础
 
@@ -2801,6 +2801,97 @@ CopyOnWriteArrayList 是一个线程安全的 ArrayList，它遵循写时复制�
 这样，读操作总是在一个不变的数组版本上进行的，就不需要同步了。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：ConcurrentHashMap、CopyOnWriteArrayList 的实现原理？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：说一说常用的并发容器
+
+### 71. 能说一下 BlockingQueue 吗？（补充）
+
+> 2024 年 08 月 18 日增补，从集合框架移动到并发编程这里
+
+[BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 代表的是线程安全的队列，不仅可以由多个线程并发访问，还添加了等待/通知机制，以便在队列为空时阻塞获取元素的线程，直到队列变得可用，或者在队列满时阻塞插入元素的线程，直到队列变得可用。
+
+阻塞队列（BlockingQueue）被广泛用于“生产者-消费者”问题中，其原因是 BlockingQueue 提供了可阻塞的插入和移除方法。当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。
+
+BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBlockingDeque、LinkedBlockingQueue、LinkedTransferQueue、PriorityBlockingQueue、SynchronousQueue 等。
+
+![二哥的Java进阶之路](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818153420.png)
+
+阻塞指的是一种程序执行状态，其中某个线程在等待某个条件满足时暂停其执行（即阻塞），直到条件满足时恢复其执行。
+
+#### 阻塞队列是如何实现的？
+
+就拿 ArrayBlockingQueue 来说，它是一个基于数组的有界阻塞队列，采用 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 锁来实现线程的互斥，而 ReentrantLock 底层采用的是 AQS 实现的队列同步，线程的阻塞调用 [LockSupport.park](https://javabetter.cn/thread/LockSupport.html) 实现，唤醒调用 LockSupport.unpark 实现。
+
+```java
+public void put(E e) throws InterruptedException {
+    checkNotNull(e);
+    // 使用ReentrantLock锁
+    final ReentrantLock lock = this.lock;
+    // 获取锁
+    lock.lockInterruptibly();
+    try {
+        // 如果队列已满，阻塞
+        while (count == items.length)
+            notFull.await();
+        // 插入元素
+        enqueue(e);
+    } finally {
+        // 释放锁
+        lock.unlock();
+    }
+}
+
+/**
+ * 插入元素
+ */
+private void enqueue(E x) {
+    final Object[] items = this.items;
+    items[putIndex] = x;
+    if (++putIndex == items.length)
+        putIndex = 0;
+    count++;
+	// 插入元素后，通知消费者线程可以继续取元素
+    notEmpty.signal();
+}
+
+/**
+ * 获取元素
+ */
+public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    // 获取锁
+    lock.lockInterruptibly();
+    try {
+        // 如果队列为空，阻塞，等待生产者线程放入元素
+        while (count == 0)
+            notEmpty.await();
+        // 移除元素并返回
+        return dequeue();
+    } finally {
+        lock.unlock();
+    }
+}
+
+/**
+ * 移除元素并返回
+ */
+private E dequeue() {
+    final Object[] items = this.items;
+    @SuppressWarnings("unchecked")
+    E x = (E) items[takeIndex];
+    items[takeIndex] = null;
+    // 数组是循环队列，如果到达数组末尾，从头开始
+    if (++takeIndex == items.length)
+        takeIndex = 0;
+    count--;
+    if (itrs != null)
+        itrs.elementDequeued();
+    // 移除元素后，通知生产者线程可以继续放入元素
+    notFull.signal();
+    return x;
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：说一说常用的并发容器
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -3562,7 +3653,7 @@ ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法�
 
 ---
 
-图文详解 70 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+图文详解 71 道 Java 并发面试高频题，这次面试，一定吊打面试官，整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

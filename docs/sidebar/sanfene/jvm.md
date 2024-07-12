@@ -31,7 +31,7 @@ Java 程序运行的时候，编译器会将 Java 源代码（.java）编译成�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：有了解 JVM 吗
 
-### 51.说说 JVM 的组织架构（补充）
+### 2.说说 JVM 的组织架构（补充）
 
 > 本题是增补的内容，by 2024 年 03 月 08 日；
 
@@ -59,7 +59,7 @@ JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数�
 
 
 
-### 2.能说一下 JVM 的内存区域吗？
+### 3.能说一下 JVM 的内存区域吗？
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
@@ -122,7 +122,7 @@ Java 虚拟机栈（Java Virtual Machine Stack），通常指的就是“栈”�
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM 内存结构了解吗？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 Java 的内存区域，程序计数器等？
 
-### 3.说一下 JDK1.6、1.7、1.8 内存区域的变化？
+### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
 JDK1.6、1.7/1.8 内存区域发生了变化，主要体现在方法区的实现：
 
@@ -138,7 +138,7 @@ JDK1.6、1.7/1.8 内存区域发生了变化，主要体现在方法区的实现
 
 ![JDK 1.8内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-8.png)
 
-### 4.为什么使用元空间替代永久代作为方法区的实现？
+### 5.为什么使用元空间替代永久代作为方法区的实现？
 
 Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主观两个原因。
 
@@ -146,7 +146,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 
 - 主观上当 Oracle 收购 BEA 获得了 JRockit 的所有权后，准备把 JRockit 中的优秀功能，譬如 Java Mission Control 管理工具，移植到 HotSpot 虚拟机时，但因为两者对方法区实现的差异而面临诸多困难。考虑到 HotSpot 未来的发展，在 JDK 6 的 时候 HotSpot 开发团队就有放弃永久代，逐步改为采用本地内存（Native Memory）来实现方法区的计划了，到了 JDK 7 的 HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移出，而到了 JDK 8，终于完全废弃了永久代的概念，改用与 JRockit、J9 一样在本地内存中实现的元空间（Meta-space）来代替，把 JDK 7 中永久代还剩余的内容（主要是类型信息）全部移到元空间中。
 
-### 5.对象创建的过程了解吗？
+### 6.对象创建的过程了解吗？
 
 当我们使用 new 关键字创建一个对象的时候，JVM 首先会检查 new 指令的参数是否能在常量池中定位到一个类的符号引用，然后检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，就先执行相应的类加载过程。
 
@@ -170,7 +170,7 @@ Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说创建对象的流程？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
-### 6.什么是指针碰撞？什么是空闲列表？
+### 7.什么是指针碰撞？什么是空闲列表？
 
 在堆内存分配对象时，主要使用两种策略：指针碰撞和空闲列表。
 
@@ -194,7 +194,7 @@ JVM 维护一个列表，记录堆中所有未占用的内存块，每个空间�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
-### 7.JVM 里 new 对象时，堆会发生抢占吗？JVM 是怎么设计来保证线程安全的？
+### 8.JVM 里 new 对象时，堆会发生抢占吗？JVM 是怎么设计来保证线程安全的？
 
 会，假设 JVM 虚拟机上，每一次 new 对象时，指针就会向右移动一个对象 size 的距离，一个线程正在给 A 对象分配内存，指针还没有来的及修改，另一个为 B 对象分配内存的线程，又引用了这个指针来分配内存，这就发生了抢占。
 
@@ -208,7 +208,7 @@ JVM 维护一个列表，记录堆中所有未占用的内存块，每个空间�
 
   Buffer，TLAB），要分配内存的线程，先在本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定。
 
-### 8.能说一下对象的内存布局吗？
+### 9.能说一下对象的内存布局吗？
 
 在 Java 中，对象的内存布局是由 Java 虚拟机规范定义的，但具体的实现细节可能因不同的 JVM 实现（如 HotSpot、OpenJ9 等）而异。
 
@@ -341,7 +341,7 @@ ReferenceHolder.reference 字段位于偏移量 12，大小为 4 字节。这表
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：Object a = new object()的大小，对象引用占多少大小？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：Object底层的数据结构（蒙了）
 
-### 9.对象怎么访问定位？
+### 10.对象怎么访问定位？
 
 Java 程序会通过栈上的 reference 数据来操作堆上的具体对象。由于 reference 类型在《Java 虚拟机规范》里面只规定了它是一个指向对象的引用，并没有定义这个引用应该通过什么方式去定位、访问到堆中对象的具体位置，所以对象访问方式也是由虚拟机实现而定的，主流的访问方式主要有使用句柄和直接指针两种：
 
@@ -359,7 +359,7 @@ Java 程序会通过栈上的 reference 数据来操作堆上的具体对象。�
 
 HotSpot 虚拟机主要使用直接指针来进行对象访问。
 
-### 10.内存溢出和内存泄漏是什么意思？
+### 11.内存溢出和内存泄漏是什么意思？
 
 内存溢出（Out of Memory，俗称 OOM）和内存泄漏（Memory Leak）是两个不同的概念，但它们都与内存管理有关。
 
@@ -378,7 +378,7 @@ HotSpot 虚拟机主要使用直接指针来进行对象访问。
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：了解 OOM 吗？
 
-### 11.能手写内存溢出的例子吗？
+### 12.能手写内存溢出的例子吗？
 
 导致内存溢出（OOM）的原因有很多，比如一次性创建了大量对象导致堆内存溢出；比如说元空间溢出，抛出 `java.lang.OutOfMemoryError：Metaspace`，比如说栈溢出，如果栈的深度超过了 JVM 栈所允许的深度，将会抛出 StackOverflowError。
 
@@ -419,7 +419,7 @@ public class HeapSpaceErrorGenerator {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 哪些内存区域会发生 OOM？为什么？
 
-### 12.内存泄漏可能由哪些原因导致呢？
+### 13.内存泄漏可能由哪些原因导致呢？
 
 内存泄漏可能的原因有很多种，比如说静态集合类引起内存泄漏、单例模式、数据连接、IO、Socket 等连接、变量不合理的作用域、hash 值发生变化、ThreadLocal 使用不当等。
 
@@ -489,7 +489,193 @@ public class Simple {
 
 ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，使用完 ThreadLocal 一定要记得使用 remove 方法来进行清除。
 
-### 13.如何判断对象仍然存活？
+
+
+### 14.说一下对象有哪几种引用？
+
+Java 中的引用有四种，分为强引用（Strongly Reference）、软引用（Soft Reference）、弱引用（Weak Reference）和虚引用（Phantom Reference）4 种，这 4 种引用强度依次逐渐减弱。
+
+- 强引用是最传统的`引用`的定义，是指在程序代码之中普遍存在的引用赋值，无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回收掉被引用的对象。
+
+```java
+Object obj =new Object();
+```
+
+- 软引用是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存， 才会抛出内存溢出异常。在 JDK 1.2 版之后提供了 SoftReference 类来实现软引用。
+
+```java
+Object obj = new Object();
+ReferenceQueue queue = new ReferenceQueue();
+SoftReference reference = new SoftReference(obj, queue);
+//强引用对象滞空，保留软引用
+obj = null;
+```
+
+- 弱引用也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在 JDK 1.2 版之后提供了 WeakReference 类来实现弱引用。
+
+```java
+Object obj = new Object();
+ReferenceQueue queue = new ReferenceQueue();
+WeakReference reference = new WeakReference(obj, queue);
+//强引用对象滞空，保留软引用
+obj = null;
+```
+
+- 虚引用也称为“幽灵引用”或者“幻影引用”，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在 JDK 1.2 版之后提供了 PhantomReference 类来实现虚引用。
+
+```java
+Object obj = new Object();
+ReferenceQueue queue = new ReferenceQueue();
+PhantomReference reference = new PhantomReference(obj, queue);
+//强引用对象滞空，保留软引用
+obj = null;
+```
+
+![四种引用总结](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-19.png)
+
+
+
+### 15.Java 堆的内存分区了解吗？
+
+按照垃圾收集，将 Java 堆划分为**新生代 （Young Generation）**和**老年代（Old Generation）**两个区域，新生代存放存活时间短的对象，而每次回收后存活的少量对象，将会逐步晋升到老年代中存放。
+
+而新生代又可以分为三个区域，eden、from、to，比例是 8：1：1，而新生代的内存分区同样是从垃圾收集的角度来分配的。
+
+![Java堆内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-21.png)
+
+
+
+### 16.说一下新生代的区域划分？
+
+新生代的垃圾收集主要采用标记-复制算法，因为新生代的存活对象比较少，每次复制少量的存活对象效率比较高。
+
+基于这种算法，虚拟机将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次分配内存只使用 Eden 和其中一块 Survivor。发生垃圾收集时，将 Eden 和 Survivor 中仍然存活的对象一次性复制到另外一块 Survivor 空间上，然后直接清理掉 Eden 和已用过的那块 Survivor 空间。默认 Eden 和 Survivor 的大小比例是 8∶1。
+
+![新生代内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-25.png)
+
+
+
+### 17.对象什么时候会进入老年代？
+
+对象通常会现在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
+
+![二哥的 Java 进阶之路：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
+
+①、**长期存活的对象将进入老年代**
+
+对象在年轻代中存活足够长的时间（即经过足够多的垃圾回收周期）后，会晋升到老年代。
+
+每次 GC 未被回收的对象，其年龄会增加。当对象的年龄超过一个特定阈值（默认通常是 15），它就会被移动到老年代。这个年龄阈值可以通过 JVM 参数`-XX:MaxTenuringThreshold`来设置。
+
+②、**大对象直接进入老年代**
+
+为了避免在年轻代中频繁复制大对象，JVM 提供了一种策略，允许大对象直接在老年代中分配。
+
+这些是所谓的“大对象”，其大小超过了预设的阈值（由 JVM 参数`-XX:PretenureSizeThreshold`控制）。直接在老年代分配可以减少在年轻代和老年代之间的数据复制。
+
+③、**动态对象年龄判定**
+
+除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和总空间等因素动态调整对象的晋升策略。
+
+比如说，在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
+
+
+
+### 18.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
+
+进行垃圾回收的过程中，会涉及对象的移动。为了保证对象引用更新的正确性，必须暂停所有的用户线程，像这样的停顿，虚拟机设计者形象描述为`Stop The World`。也简称为 STW。
+
+在 HotSpot 中，有个数据结构（映射表）称为`OopMap`。一旦类加载动作完成的时候，HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来，记录到 OopMap。在即时编译过程中，也会在`特定的位置`生成 OopMap，记录下栈上和寄存器里哪些位置是引用。
+
+这些特定的位置主要在：
+
+- 1.循环的末尾（非 counted 循环）
+
+- 2.方法临返回前 / 调用方法的 call 指令后
+
+- 3.可能抛异常的位置
+
+这些位置就叫作**安全点(safepoint)。** 用户程序执行时并非在代码指令流的任意位置都能够在停顿下来开始垃圾收集，而是必须是执行到安全点才能够暂停。
+
+用通俗的比喻，假如老王去拉车，车上东西很重，老王累的汗流浃背，但是老王不能在上坡或者下坡休息，只能在平地上停下来擦擦汗，喝口水。
+
+![老王拉车只能在平路休息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-33.png)
+
+
+
+### 19.对象一定分配在堆中吗？有没有了解逃逸分析技术？
+
+**对象一定分配在堆中吗？** 不一定的。
+
+随着 JIT 编译期的发展与逃逸分析技术逐渐成熟，所有的对象都分配到堆上也渐渐变得不那么“绝对”了。其实，在编译期间，JIT 会对代码做很多优化。其中有一部分优化的目的就是减少内存堆分配压力，其中一种重要的技术叫做逃逸分析。
+
+**什么是逃逸分析？**
+
+**逃逸分析**是指分析指针动态范围的方法，它同编译器优化原理的指针分析和外形分析相关联。当变量（或者对象）在方法中分配后，其指针有可能被返回或者被全局引用，这样就会被其他方法或者线程所引用，这种现象称作指针（或者引用）的逃逸(Escape)。
+
+通俗点讲，当一个对象被 new 出来之后，它可能被外部所调用，如果是作为参数传递到外部了，就称之为方法逃逸。
+
+![逃逸](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-37.png)
+
+除此之外，如果对象还有可能被外部线程访问到，例如赋值给可以在其它线程中访问的实例变量，这种就被称为线程逃逸。
+
+![逃逸强度](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-38.png)
+
+**逃逸分析的好处**
+
+- 栈上分配
+
+如果确定一个对象不会逃逸到线程之外，那么久可以考虑将这个对象在栈上分配，对象占用的内存随着栈帧出栈而销毁，这样一来，垃圾收集的压力就降低很多。
+
+- **同步消除**
+
+线程同步本身是一个相对耗时的过程，如果逃逸分析能够确定一个变量不会逃逸出线程，无法被其他线程访问，那么这个变量的读写肯定就不会有竞争， 对这个变量实施的同步措施也就可以安全地消除掉。
+
+- **标量替换**
+
+如果一个数据是基本数据类型，不可拆分，它就被称之为标量。把一个 Java 对象拆散，将其用到的成员变量恢复为原始类型来访问，这个过程就称为标量替换。假如逃逸分析能够证明一个对象不会被方法外部访问，并且这个对象可以被拆散，那么可以不创建对象，直接用创建若干个成员变量代替，可以让对象的成员变量在栈上分配和读写。
+
+
+
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+## 三、垃圾收集
+
+### 20.讲讲 JVM 的垃圾回收机制（补充）
+
+> 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
+
+垃圾回收（Garbage Collection，GC），顾名思义就是释放垃圾占用的空间，防止内存爆掉。有效的使用可以使用的内存，对内存堆中已经死亡的或者长时间没有使用的对象进行清除和回收。
+
+JVM 在做垃圾回收之前，需要先搞清楚什么是垃圾，什么不是垃圾，那么就需要一种垃圾判断算法，通常有引用计数算法、可达性分析算法。
+
+![二哥的 Java 进阶之路：可达性分析](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
+
+在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是进行垃圾回收，如何高效地进行垃圾回收呢？
+
+可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
+
+JVM 提供了多种垃圾回收器，包括 CMS GC、G1 GC、ZGC 等，不同的垃圾回收器采用的垃圾收集算法也不同，因此适用于不同的场景和需求。
+
+CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
+
+G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
+
+![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+
+ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延迟服务的内存管理和回收，在 128G 的大堆下，最大停顿时间才 1.68 ms，性能远胜于 G1 和 CMS。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解 GC 吗？不可达判断知道吗？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：JVM垃圾删除
+
+### 21.如何判断对象仍然存活？
 
 判断一个对象是否存活，也就等同于判断一个对象是否可以被回收。通常有两种方式：引用计数算法（reference counting）和可达性分析算法。
 
@@ -511,7 +697,7 @@ ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 京东到家面试原题：如何判断一个对象是否可以回收
 
-### 14.Java 中可作为 GC Roots 的引用有哪几种？
+### 22.Java 中可作为 GC Roots 的引用有哪几种？
 
 1. 推荐阅读：[深入理解垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 2. 推荐阅读：[R 大的所谓“GC roots”](https://www.zhihu.com/question/53613423/answer/135743258)
@@ -618,49 +804,7 @@ public class ConstantPoolReference {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：哪些对象可以作为 GC Roots
 
-### 15.说一下对象有哪几种引用？
-
-Java 中的引用有四种，分为强引用（Strongly Reference）、软引用（Soft Reference）、弱引用（Weak Reference）和虚引用（Phantom Reference）4 种，这 4 种引用强度依次逐渐减弱。
-
-- 强引用是最传统的`引用`的定义，是指在程序代码之中普遍存在的引用赋值，无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回收掉被引用的对象。
-
-```java
-Object obj =new Object();
-```
-
-- 软引用是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存， 才会抛出内存溢出异常。在 JDK 1.2 版之后提供了 SoftReference 类来实现软引用。
-
-```java
-Object obj = new Object();
-ReferenceQueue queue = new ReferenceQueue();
-SoftReference reference = new SoftReference(obj, queue);
-//强引用对象滞空，保留软引用
-obj = null;
-```
-
-- 弱引用也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在 JDK 1.2 版之后提供了 WeakReference 类来实现弱引用。
-
-```java
-Object obj = new Object();
-ReferenceQueue queue = new ReferenceQueue();
-WeakReference reference = new WeakReference(obj, queue);
-//强引用对象滞空，保留软引用
-obj = null;
-```
-
-- 虚引用也称为“幽灵引用”或者“幻影引用”，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在 JDK 1.2 版之后提供了 PhantomReference 类来实现虚引用。
-
-```java
-Object obj = new Object();
-ReferenceQueue queue = new ReferenceQueue();
-PhantomReference reference = new PhantomReference(obj, queue);
-//强引用对象滞空，保留软引用
-obj = null;
-```
-
-![四种引用总结](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-19.png)
-
-### 16.finalize()方法了解吗？有什么作用？
+### 23.finalize()方法了解吗？有什么作用？
 
 用一个不太贴切的比喻，垃圾回收就是古代的秋后问斩，finalize()就是刀下留人，在人犯被处决之前，还要做最后一次审计，青天大老爷看看有没有什么冤情，需不需要刀下留人。
 
@@ -668,15 +812,7 @@ obj = null;
 
 如果对象在进行可达性分析后发现没有与 GC Roots 相连接的引用链，那它将会被第一次标记，随后进行一次筛选，筛选的条件是此对象是否有必要执行 finalize()方法。如果对象在在 finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己 （this 关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它就”逃过一劫“；但是如果没有抓住这个机会，那么对象就真的要被回收了。
 
-### 17.Java 堆的内存分区了解吗？
-
-按照垃圾收集，将 Java 堆划分为**新生代 （Young Generation）**和**老年代（Old Generation）**两个区域，新生代存放存活时间短的对象，而每次回收后存活的少量对象，将会逐步晋升到老年代中存放。
-
-而新生代又可以分为三个区域，eden、from、to，比例是 8：1：1，而新生代的内存分区同样是从垃圾收集的角度来分配的。
-
-![Java堆内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-21.png)
-
-### 18.垃圾收集算法了解吗？
+### 24.垃圾收集算法了解吗？
 
 垃圾收集算法主要有三种，分别是标记-清除算法、标记-复制算法和标记-整理算法。
 
@@ -710,15 +846,7 @@ obj = null;
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：垃圾回收算法了解多少？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：垃圾回收的算法及详细介绍
 
-### 19.说一下新生代的区域划分？
-
-新生代的垃圾收集主要采用标记-复制算法，因为新生代的存活对象比较少，每次复制少量的存活对象效率比较高。
-
-基于这种算法，虚拟机将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次分配内存只使用 Eden 和其中一块 Survivor。发生垃圾收集时，将 Eden 和 Survivor 中仍然存活的对象一次性复制到另外一块 Survivor 空间上，然后直接清理掉 Eden 和已用过的那块 Survivor 空间。默认 Eden 和 Survivor 的大小比例是 8∶1。
-
-![新生代内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-25.png)
-
-### 20.Minor GC/Young GC、Major GC/Old GC、Mixed GC、Full GC 都是什么意思？
+### 25.Minor GC/Young GC、Major GC/Old GC、Mixed GC、Full GC 都是什么意思？
 
 Minor GC 也称为 Young GC，是指发生在年轻代（Young Generation）的垃圾收集。年轻代包含 Eden 区以及两个 Survivor 区。
 
@@ -732,11 +860,11 @@ Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（或元
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：full gc 和 young gc 的区别
 
-### 21.Minor GC/Young GC 什么时候触发？
+### 26.Minor GC/Young GC 什么时候触发？
 
 新创建的对象优先在新生代 Eden 区进行分配，如果 Eden 区没有足够的空间时，就会触发 Young GC 来清理新生代。
 
-### 22.什么时候会触发 Full GC？
+### 27.什么时候会触发 Full GC？
 
 这个触发条件稍微有点多，往下看：
 
@@ -749,33 +877,7 @@ Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（或元
 - **方法区内存空间不足**：如果方法区由永久代实现，永久代空间不足 Full GC。
 - **System.gc()等命令触发**：System.gc()、jmap -dump 等命令会触发 full gc。
 
-### 23.对象什么时候会进入老年代？
-
-对象通常会现在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
-
-![二哥的 Java 进阶之路：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
-
-①、**长期存活的对象将进入老年代**
-
-对象在年轻代中存活足够长的时间（即经过足够多的垃圾回收周期）后，会晋升到老年代。
-
-每次 GC 未被回收的对象，其年龄会增加。当对象的年龄超过一个特定阈值（默认通常是 15），它就会被移动到老年代。这个年龄阈值可以通过 JVM 参数`-XX:MaxTenuringThreshold`来设置。
-
-②、**大对象直接进入老年代**
-
-为了避免在年轻代中频繁复制大对象，JVM 提供了一种策略，允许大对象直接在老年代中分配。
-
-这些是所谓的“大对象”，其大小超过了预设的阈值（由 JVM 参数`-XX:PretenureSizeThreshold`控制）。直接在老年代分配可以减少在年轻代和老年代之间的数据复制。
-
-③、**动态对象年龄判定**
-
-除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和总空间等因素动态调整对象的晋升策略。
-
-比如说，在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
-
-### 24.知道哪些垃圾收集器？
+### 28.知道哪些垃圾收集器？
 
 推荐阅读：[深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://javabetter.cn/jvm/gc-collector.html)
 
@@ -849,27 +951,7 @@ ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：垃圾回收器的作用是什么
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
 
-### 25.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
-
-进行垃圾回收的过程中，会涉及对象的移动。为了保证对象引用更新的正确性，必须暂停所有的用户线程，像这样的停顿，虚拟机设计者形象描述为`Stop The World`。也简称为 STW。
-
-在 HotSpot 中，有个数据结构（映射表）称为`OopMap`。一旦类加载动作完成的时候，HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来，记录到 OopMap。在即时编译过程中，也会在`特定的位置`生成 OopMap，记录下栈上和寄存器里哪些位置是引用。
-
-这些特定的位置主要在：
-
-- 1.循环的末尾（非 counted 循环）
-
-- 2.方法临返回前 / 调用方法的 call 指令后
-
-- 3.可能抛异常的位置
-
-这些位置就叫作**安全点(safepoint)。** 用户程序执行时并非在代码指令流的任意位置都能够在停顿下来开始垃圾收集，而是必须是执行到安全点才能够暂停。
-
-用通俗的比喻，假如老王去拉车，车上东西很重，老王累的汗流浃背，但是老王不能在上坡或者下坡休息，只能在平地上停下来擦擦汗，喝口水。
-
-![老王拉车只能在平路休息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-33.png)
-
-### 26.能详细说一下 CMS 收集器的垃圾收集过程吗？
+### 29.能详细说一下 CMS 收集器的垃圾收集过程吗？
 
 ![三分恶面渣逆袭：Concurrent Mark Sweep收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-34.png)
 
@@ -883,7 +965,7 @@ CMS（Concurrent Mark Sweep）分 4 大步进行垃圾收集：
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
-### 27.G1 垃圾收集器了解吗？
+### 30.G1 垃圾收集器了解吗？
 
 G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
 
@@ -910,7 +992,7 @@ G1 收集器的运行过程大致可划分为这几个步骤：
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 G1 垃圾回收器的原理
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
-### 28.有了 CMS，为什么还要引入 G1？
+### 31.有了 CMS，为什么还要引入 G1？
 
 | 特性               | CMS                           | G1                           |
 |------------------|-------------------------------|-----------------------------|
@@ -926,7 +1008,7 @@ CMS 适用于对延迟敏感的应用场景，主要目标是减少停顿时间�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：CMS垃圾收集器和G1垃圾收集器什么区别
 
-### 29.你们线上用的什么垃圾收集器？为什么要用它？
+### 32.你们线上用的什么垃圾收集器？为什么要用它？
 
 我们生产环境中采用了设计比较优秀的 G1 垃圾收集器，因为它不仅能满足低停顿的要求，而且解决了 CMS 的浮动垃圾问题、内存碎片问题。
 
@@ -964,7 +1046,7 @@ java -XX:+PrintCommandLineFlags -version
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 3 技术二面面试原题：工作中项目使用的什么垃圾回收算法
 
-### 30.垃圾收集器应该如何选择？
+### 33.垃圾收集器应该如何选择？
 
 垃圾收集器的选择需要权衡的点还是比较多的——例如运行应用的基础设施如何？使用 JDK 的发行商是什么？等等……
 
@@ -975,74 +1057,15 @@ java -XX:+PrintCommandLineFlags -version
 - CMS/G1：如果响应时间比吞吐量优先级高，或者垃圾收集暂停必须保持在大约 1 秒以内。
 - ZGC：如果响应时间是高优先级的，或者堆空间比较大。
 
-### 31.对象一定分配在堆中吗？有没有了解逃逸分析技术？
-
-**对象一定分配在堆中吗？** 不一定的。
-
-随着 JIT 编译期的发展与逃逸分析技术逐渐成熟，所有的对象都分配到堆上也渐渐变得不那么“绝对”了。其实，在编译期间，JIT 会对代码做很多优化。其中有一部分优化的目的就是减少内存堆分配压力，其中一种重要的技术叫做逃逸分析。
-
-**什么是逃逸分析？**
-
-**逃逸分析**是指分析指针动态范围的方法，它同编译器优化原理的指针分析和外形分析相关联。当变量（或者对象）在方法中分配后，其指针有可能被返回或者被全局引用，这样就会被其他方法或者线程所引用，这种现象称作指针（或者引用）的逃逸(Escape)。
-
-通俗点讲，当一个对象被 new 出来之后，它可能被外部所调用，如果是作为参数传递到外部了，就称之为方法逃逸。
-
-![逃逸](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-37.png)
-
-除此之外，如果对象还有可能被外部线程访问到，例如赋值给可以在其它线程中访问的实例变量，这种就被称为线程逃逸。
-
-![逃逸强度](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-38.png)
-
-**逃逸分析的好处**
-
-- 栈上分配
-
-如果确定一个对象不会逃逸到线程之外，那么久可以考虑将这个对象在栈上分配，对象占用的内存随着栈帧出栈而销毁，这样一来，垃圾收集的压力就降低很多。
-
-- **同步消除**
-
-线程同步本身是一个相对耗时的过程，如果逃逸分析能够确定一个变量不会逃逸出线程，无法被其他线程访问，那么这个变量的读写肯定就不会有竞争， 对这个变量实施的同步措施也就可以安全地消除掉。
-
-- **标量替换**
-
-如果一个数据是基本数据类型，不可拆分，它就被称之为标量。把一个 Java 对象拆散，将其用到的成员变量恢复为原始类型来访问，这个过程就称为标量替换。假如逃逸分析能够证明一个对象不会被方法外部访问，并且这个对象可以被拆散，那么可以不创建对象，直接用创建若干个成员变量代替，可以让对象的成员变量在栈上分配和读写。
-
-### 53.讲讲 JVM 的垃圾回收机制（补充）
-
-> 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
-
-垃圾回收（Garbage Collection，GC），顾名思义就是释放垃圾占用的空间，防止内存爆掉。有效的使用可以使用的内存，对内存堆中已经死亡的或者长时间没有使用的对象进行清除和回收。
-
-JVM 在做垃圾回收之前，需要先搞清楚什么是垃圾，什么不是垃圾，那么就需要一种垃圾判断算法，通常有引用计数算法、可达性分析算法。
-
-![二哥的 Java 进阶之路：可达性分析](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
-
-在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是进行垃圾回收，如何高效地进行垃圾回收呢？
-
-可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
-
-JVM 提供了多种垃圾回收器，不同的垃圾回收器适用于不同的场景和需求，包括 CMS GC、G1 GC、ZGC 等。
-
-CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
-
-G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
-
-![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
-
-ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延迟服务的内存管理和回收，SPEC jbb 2015 基准测试，在 128G 的大堆下，最大停顿时间才 1.68 ms，停顿时间远胜于 G1 和 CMS。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解 GC 吗？不可达判断知道吗？
-
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 三、JVM 调优
+## 四、JVM 调优
 
-### 32.有哪些常用的命令行性能监控和故障处理工具？
+### 34.有哪些常用的命令行性能监控和故障处理工具？
 
 - 操作系统工具
 
@@ -1060,7 +1083,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
   - jstack：Java 堆栈跟踪
   - jcmd：实现上面除了 jstat 外所有命令的功能
 
-### 33.了解哪些可视化的性能监控和故障处理工具？
+### 35.了解哪些可视化的性能监控和故障处理工具？
 
 我自己用过的可视化工具主要有：
 
@@ -1100,7 +1123,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何查看当前 Java 程序里哪些对象正在使用，哪些对象已经被释放
 
-### 34.JVM 的常见参数配置知道哪些？
+### 36.JVM 的常见参数配置知道哪些？
 
 一些常见的参数配置：
 
@@ -1135,7 +1158,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 - -XX:+PrintGCTimeStamps
 - -Xloggc:filename
 
-### 35.有做过 JVM 调优吗？
+### 37.有做过 JVM 调优吗？
 
 JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器、JVM 参数等进行调整和优化。
 
@@ -1151,7 +1174,7 @@ JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说你对 JVM 调优的了解
 
-### 36.线上服务 CPU 占用过高怎么排查？
+### 38.线上服务 CPU 占用过高怎么排查？
 
 ![三分恶面渣逆袭：CPU飙高](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-43.png)
 
@@ -1198,7 +1221,7 @@ printf "%x\n" PID
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：上线的业务出了问题怎么调试，比如某个线程cpu占用率高，怎么看堆栈信息
 
-### 37.内存飙高问题怎么排查？
+### 39.内存飙高问题怎么排查？
 
 内存飚高一般是因为创建了大量的 Java 对象所导致的，如果持续飙高则说明垃圾回收跟不上对象创建的速度，或者内存泄漏导致对象无法回收。
 
@@ -1219,11 +1242,11 @@ printf "%x\n" PID
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：怎么定位线上的内存问题。
 
-### 38.频繁 minor gc 怎么办？
+### 40.频繁 minor gc 怎么办？
 
 优化 Minor GC 频繁问题：通常情况下，由于新生代空间较小，Eden 区很快被填满，就会导致频繁 Minor GC，因此可以通过增大新生代空间`-Xmn`来降低 Minor GC 的频率。
 
-### 39.频繁 Full GC 怎么办？
+### 41.频繁 Full GC 怎么办？
 
 Full GC 的排查思路大概如下：
 
@@ -1261,7 +1284,7 @@ jmap -dump:format=b,file=heap pid
 - 针对大对象或者长生命周期对象导致的 FGC，可通过 jmap -histo 命令并结合 dump 堆内存文件作进一步分析，需要先定位到可疑对象。
 - 通过可疑对象定位到具体代码再次分析，这时候要结合 GC 原理和 JVM 参数设置，弄清楚可疑对象是否满足了进入到老年代的条件才能下结论。
 
-### 40.有没有处理过内存泄漏问题？是如何定位的？
+### 42.有没有处理过内存泄漏问题？是如何定位的？
 
 推荐阅读：[一次内存溢出的排查优化实战](https://javabetter.cn/jvm/oom.html)
 
@@ -1325,7 +1348,7 @@ Heap dump file created
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：什么是内存泄露
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 哪些内存区域会发生 OOM？为什么？
 
-### 41.有没有处理过 OOM 问题？
+### 43.有没有处理过 OOM 问题？
 
 OOM，也就是内存溢出，Out of Memory，是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。
 
@@ -1351,11 +1374,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-## 四、虚拟机执行
+## 五、类加载机制
 
 
 
-### 42.能说一下类的生命周期吗？
+### 44.能说一下类的生命周期吗？
 
 一个类从被加载到虚拟机内存中开始，到从内存中卸载，整个生命周期需要经过七个阶段：加载 （Loading）、验证（Verification）、准备（Preparation）、解析（Resolution）、初始化 （Initialization）、使用（Using）和卸载（Unloading），其中验证、准备、解析三个部分统称为连接（Linking）。
 
@@ -1363,7 +1386,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 
-### 43.类加载的过程知道吗？
+### 45.类加载的过程知道吗？
 
 > 推荐阅读：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
 
@@ -1393,7 +1416,7 @@ JVM 会在**准备阶段**对类变量（也称为静态变量，[static 关键�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲一下类加载过程，双亲委派模型，双亲委派的好处
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：类加载过程
 
-### 44.类加载器有哪些？
+### 46.类加载器有哪些？
 
 类加载器（ClassLoader）用于动态加载 Java 类到 Java 虚拟机中。主要有四种类加载器：
 
@@ -1413,7 +1436,7 @@ JVM 会在**准备阶段**对类变量（也称为静态变量，[static 关键�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 
-### 45.什么是双亲委派模型？
+### 47.什么是双亲委派模型？
 
 双亲委派模型（Parent Delegation Model）是 Java 类加载机制中的一个重要概念。这种模型指的是一个类加载器在尝试加载某个类时，首先会将加载任务委托给其父类加载器去完成。
 
@@ -1430,7 +1453,7 @@ JVM 会在**准备阶段**对类变量（也称为静态变量，[static 关键�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲一下类加载过程，双亲委派模型，双亲委派的好处
 
-### 46.为什么要用双亲委派模型？
+### 48.为什么要用双亲委派模型？
 
 可以为 Java 应用程序的运行提供一致性和安全性的保障。
 
@@ -1444,11 +1467,11 @@ JVM 会在**准备阶段**对类变量（也称为静态变量，[static 关键�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲一下类加载过程，双亲委派模型，双亲委派的好处
 
-### 47.如何破坏双亲委派机制？
+### 49.如何破坏双亲委派机制？
 
 如果不想打破双亲委派模型，就重写 ClassLoader 类中的 fifindClass()方法即可，无法被父类加载器加载的类最终会通过这个方法被加载。而如果想打破双亲委派模型则需要重写 loadClass()方法。
 
-### 48.历史上有哪几次双亲委派机制的破坏？
+### 50.历史上有哪几次双亲委派机制的破坏？
 
 双亲委派机制在历史上主要有三次破坏：
 
@@ -1480,7 +1503,7 @@ JNDI 服务使用这个线程上下文类加载器去加载所需的 SPI 服务�
 
 OSGi 实现模块化热部署的关键是它自定义的类加载器机制的实现，每一个程序模块（OSGi 中称为 Bundle）都有一个自己的类加载器，当需要更换一个 Bundle 时，就把 Bundle 连同类加载器一起换掉以实现代码的热替换。在 OSGi 环境下，类加载器不再双亲委派模型推荐的树状结构，而是进一步发展为更加复杂的网状结构。
 
-### 49.你觉得应该怎么实现一个热部署功能？
+### 51.你觉得应该怎么实现一个热部署功能？
 
 实现一个热部署（Hot Deployment）功能通常涉及到类的加载和卸载机制，使得在不重启应用程序的情况下，能够动态替换或更新应用程序的组件。
 
@@ -1578,7 +1601,7 @@ public class HotSwapClassLoader extends ClassLoader {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：那你知道类的热更新的？
 
-### 50.Tomcat 的类加载机制了解吗？
+### 52.Tomcat 的类加载机制了解吗？
 
 Tomcat 是主流的 Java Web 服务器之一，为了实现一些特殊的功能需求，自定义了一些类加载器。
 
@@ -1592,7 +1615,7 @@ Tomact 是 web 容器，可能需要部署多个应用程序。不同的应用�
 
 所以，Tomcat 破坏了**双亲委派原则**，提供隔离的机制，为每个 web 容器单独提供一个 WebAppClassLoader 加载器。每一个 WebAppClassLoader 负责加载本身的目录下的 class 文件，加载不到时再交 CommonClassLoader 加载，这和双亲委派刚好相反。
 
-### 52.说说解释执行和编译执行的区别（补充）
+### 53.说说解释执行和编译执行的区别（补充）
 
 > 2024 年 03 月 08 日增补
 
