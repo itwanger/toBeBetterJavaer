@@ -93,6 +93,7 @@ head:
 - [实战项目：一些手写 Java 轮子项目](https://t.zsxq.com/14mGqul3q)
 - [实战项目：手写数据库 MYDB](https://t.zsxq.com/0bhcI0Gs6)
 - [实战项目：技术派上线了！](https://t.zsxq.com/0bo3ugmma)
+- [实战项目：微服务 PmHub上线了！](https://t.zsxq.com/C98g5)
 - [实战项目：动态线程池Hippo4j](https://t.zsxq.com/0cxSCwt9e)
 - [实战项目：两个牛逼的网盘实战项目（zfile、kiftd）](https://t.zsxq.com/07ih93r30)
 - [实战项目：新零售立可得、商医通、乐优商城](https://mp.weixin.qq.com/s/CdIin5I7VvfaSk4z9J0FwQ)
