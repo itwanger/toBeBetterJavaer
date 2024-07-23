@@ -12,6 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,WeakHashMap
 ---
 
+# 6.11 详解WeakHashMap
 
 在Java中，我们一般都会使用到Map，比如[HashMap](https://javabetter.cn/collection/hashmap.html)这样的具体实现。更高级一点，我们可能会使用WeakHashMap。
 

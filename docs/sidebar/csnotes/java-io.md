@@ -4,7 +4,7 @@
 
 GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/CyC2018/CS-Notes)》，目前已有 173k 的 star 数，其中收录了不少我认为蛮不错的内容，比如说大家现在看到的《30天速通Java》——我起了一个噱头十足的名字😁。
 
-一共五个章节，基础篇、IO 篇、容器篇、并发篇和虚拟机篇，我结合《[二哥的 Java 进阶之路](https://javabetter.cn/)》对内容做一些补充和优化，并导出了亮白版和暗黑版的 PDF 和 epub 版本，好方便大家在 30 天内真的速通 Java。
+一共五个章节，基础篇、IO 篇、容器篇、并发篇和 JVM篇，我结合《[二哥的 Java 进阶之路](https://javabetter.cn/)》对内容做一些补充和优化，并导出了亮白版和暗黑版的 PDF 和 epub 版本，好方便大家在 30 天内真的速通 Java。
 
 - 由于时间仓促和个人能力有限，手册难免存在错误和疏漏，还请大家批评指正。微信 itwanger
 - 该手册会持续更新，再次感谢原作者 CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md)
