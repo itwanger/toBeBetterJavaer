@@ -1,3 +1,36 @@
+# 《30天速通Java》之Java并发篇
+
+大家好，我是二哥呀。
+
+GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/CyC2018/CS-Notes)》，目前已有 173k 的 star 数，其中收录了不少我认为蛮不错的内容，比如说大家现在看到的《30天速通Java》——我起了一个噱头十足的名字😁。
+
+一共五个章节，基础篇、IO 篇、容器篇、并发篇和 JVM篇，我结合《[二哥的 Java 进阶之路](https://javabetter.cn/)》对内容做一些补充和优化，并导出了亮白版和暗黑版的 PDF 和 epub 版本，好方便大家在 30 天内真的速通 Java。
+
+- 由于时间仓促和个人能力有限，手册难免存在错误和疏漏，还请大家批评指正。微信 itwanger
+- 该手册会持续更新，再次感谢原作者 CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md)
+- 推荐：[二哥的 Java 进阶之路：Java 最新学习路线](https://javabetter.cn/xuexiluxian/java/yitiaolong.html)
+
+## 最新 PDF 获取
+
+讲个笑话，PDF 内容没办法自动更新（😂），所以只能通过下面的方式，别怪我：
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
+
+![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+
+附其他干货笔记下载地址：
+
+- [二哥的 Linux 速查备忘手册 PDF 下载](https://javabetter.cn/pdf/linux.html)
+- [阮一峰 C 语言入门教程 PDF 下载](https://javabetter.cn/pdf/yuanyifeng-c-language.html)
+- [Java 核心知识点整理 PDF 下载](https://javabetter.cn/pdf/github-java-jiaocheng-115-star.html)
+- [深入浅出 Java 多线程 PDF 下载](https://javabetter.cn/pdf/java-concurrent.html)
+- [Pro Git 中文版 PDF 下载](https://javabetter.cn/pdf/progit.html)
+- [给操作系统捋条线 PDF 下载](https://javabetter.cn/pdf/os.html)
+
 ## 一、使用线程
 
 有三种使用线程的方法：
@@ -416,6 +449,8 @@ public synchronized static void fun() {
 
 作用于整个类。
 
+>推荐阅读：[面了一个25岁的学妹，把synchronized关键字讲的那叫一个透彻](https://javabetter.cn/thread/synchronized-1.html)
+
 ### ReentrantLock
 
 ReentrantLock 是 java.util.concurrent（J.U.C）包中的锁。
@@ -455,6 +490,7 @@ public static void main(String[] args) {
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
 ```
 
+>推荐阅读：[ReentrantLock 源码分析](https://javabetter.cn/thread/reentrantLock.html)
 
 ### 比较
 
@@ -660,6 +696,10 @@ before
 after
 ```
 
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
 ## 六、线程状态
 
 一个线程只能处于一种状态，并且这里的线程状态特指 Java 虚拟机的线程状态，不能反映线程在特定操作系统下的状态。
@@ -706,7 +746,10 @@ after
 
 可以是线程结束任务之后自己结束，或者产生了异常而结束。
 
-[Java SE 9 Enum Thread.State](https://docs.oracle.com/javase/9/docs/api/java/lang/Thread.State.html)
+推荐阅读：
+
+- [Java线程的6种状态及切换(透彻讲解)](https://javabetter.cn/thread/thread-state-and-method.html)
+- [Java SE 9 Enum Thread.State](https://docs.oracle.com/javase/9/docs/api/java/lang/Thread.State.html)
 
 ## 七、J.U.C - AQS
 
@@ -837,6 +880,8 @@ public class SemaphoreExample {
 2 1 2 2 2 2 2 1 2 2
 ```
 
+推荐阅读：[Java并发编程通信工具类 ](https://javabetter.cn/thread/CountDownLatch.html)
+
 ## 八、J.U.C - 其它组件
 
 ### FutureTask
@@ -894,6 +939,8 @@ public class FutureTaskExample {
 other task is running...
 4950
 ```
+
+推荐阅读：[获取 Java 线程执行结果](https://javabetter.cn/thread/callable-future-futuretask.html)
 
 ### BlockingQueue
 
@@ -963,6 +1010,8 @@ public static void main(String[] args) {
 produce..produce..consume..consume..produce..consume..produce..consume..produce..consume..
 ```
 
+推荐阅读：[吊打Java面试官之阻塞队列BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html)
+
 ### ForkJoin
 
 主要用于并行计算中，和 MapReduce 原理类似，都是把大的计算任务拆分成多个小任务并行计算。
@@ -1026,6 +1075,8 @@ public class ForkJoinPool extends AbstractExecutorService
 
 ![CyC2018：ForkJoinPool](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710153521.png)
 
+推荐阅读：[深入理解Java并发编程之Fork/Join框架](https://javabetter.cn/thread/fork-join.html)
+
 ## 九、线程不安全示例
 
 如果多个线程对同一个共享数据进行访问而不采取同步操作的话，那么操作的结果会不一致。
@@ -1073,6 +1124,10 @@ public static void main(String[] args) throws InterruptedException {
 997
 ```
 
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
 ## 十、Java 内存模型
 
 Java 内存模型试图屏蔽各种硬件和操作系统的内存访问差异，以实现让 Java 程序在各种平台下都能达到一致的内存访问效果。
@@ -1104,7 +1159,6 @@ Java 内存模型定义了 8 个操作来完成主内存和工作内存的交互
 - store：把工作内存的一个变量的值传送到主内存中
 - write：在 store 之后执行，把 store 得到的值放入主内存的变量中
 - lock：作用于主内存的变量
-- unlock
 
 ### 内存模型三大特性
 
@@ -1298,6 +1352,8 @@ Thread 对象的结束先行发生于 `join()` 方法返回。
 
 如果操作 A 先行发生于操作 B，操作 B 先行发生于操作 C，那么操作 A 先行发生于操作 C。
 
+>推荐阅读：[说说Java的内存模型（JMM）](https://javabetter.cn/thread/jmm.html)
+
 ## 十一、线程安全
 
 多个线程不管以何种方式访问某个类，并且在主调代码中不需要任何额外的同步或协调，这个类都能表现出正确的行为，那么就称这个类是线程安全的。
@@ -1363,6 +1419,8 @@ synchronized 和 ReentrantLock。
 
 硬件支持的原子性操作最典型的是：比较并交换（Compare-and-Swap，CAS）。[CAS](https://javabetter.cn/thread/cas.html) 指令需要有 3 个操作数，分别是内存地址 V、旧的预期值 A 和新值 B。当执行操作时，只有当 V 的值等于 A，才将 V 的值更新为 B。
 
+>推荐阅读：[一文彻底搞清楚Java实现CAS的原理](https://javabetter.cn/thread/cas.html)
+
 #### 2. AtomicInteger
 
 J.U.C 包里面的整数原子类 [AtomicInteger](https://javabetter.cn/thread/atomic.html) 的方法调用了 Unsafe 类的 CAS 操作。
@@ -1401,6 +1459,8 @@ public final int getAndAddInt(Object var1, long var2, int var4) {
     return var5;
 }
 ```
+
+>推荐阅读：[Java并发编程之AtomicInteger](https://javabetter.cn/thread/atomic.html)
 
 #### 3. ABA
 
@@ -1555,6 +1615,8 @@ ThreadLocal 从理论上讲并不是用来解决多线程并发问题的，因�
 
 在一些场景 (尤其是使用线程池) 下，由于 ThreadLocal.ThreadLocalMap 的底层数据结构导致 ThreadLocal 有内存泄漏的情况，应该尽可能在每次使用 ThreadLocal 后手动调用 `remove()`，以避免出现 ThreadLocal 经典的内存泄漏甚至是造成自身业务混乱的风险。
 
+>推荐阅读：[Java并发编程之ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html)
+
 #### 3. 可重入代码（Reentrant Code）
 
 这种代码也叫做纯代码（Pure Code），可以在代码执行的任何时刻中断它，转而去执行另外一段代码（包括递归调用它本身），而在控制权返回后，原来的程序不会出现任何错误。
@@ -1563,7 +1625,7 @@ ThreadLocal 从理论上讲并不是用来解决多线程并发问题的，因�
 
 ## 十二、锁优化
 
-这里的锁优化主要是指 JVM 对 synchronized 的优化。
+这里的锁优化主要是指 JVM 对 [synchronized 的优化](https://javabetter.cn/thread/synchronized.html)。
 
 ### 自旋锁
 
@@ -1637,22 +1699,35 @@ JDK 1.6 引入了偏向锁和轻量级锁，从而让锁拥有了四个状态：
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710214803.png)
 
+推荐阅读：[synchronized到底锁的什么？偏向锁、轻量级锁、重量级锁到底是什么？](https://javabetter.cn/thread/synchronized.html)
+
 ## 十三、多线程开发良好的实践
 
 - 给线程起个有意义的名字，这样可以方便找 Bug。
-
 - 缩小同步范围，从而减少锁争用。例如对于 synchronized，应该尽量使用同步块而不是同步方法。
-
 - 多用同步工具少用 `wait()` 和 `notify()`。首先，CountDownLatch, CyclicBarrier, Semaphore 和 Exchanger 这些同步类简化了编码操作，而用 `wait()` 和 `notify()` 很难实现复杂控制流；其次，这些同步类是由最好的企业编写和维护，在后续的 JDK 中还会不断优化和完善。
-
 - 使用 BlockingQueue 实现生产者消费者问题。
-
 - 多用并发集合少用同步集合，例如应该使用 ConcurrentHashMap 而不是 Hashtable。
-
 - 使用本地变量和不可变类来保证线程安全。
-
 - 使用线程池而不是直接创建线程，这是因为创建线程代价很高，线程池可以有效地利用有限的线程来启动任务。
 
 ## 参考资料
 
 CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%B9%B6%E5%8F%91.md)
+
+## 花絮
+
+该 PDF 文档是我在学习 CSNotes 时的一些优化和补充，加了很多二哥的 Java 进阶之路上的内容，可以进行很好的互补。整理不易，希望能帮助到大家（❤️）。
+
+最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
+
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+附其他干货笔记下载地址：
+
+- [二哥的 Linux 速查备忘手册 PDF 下载](https://javabetter.cn/pdf/linux.html)
+- [阮一峰 C 语言入门教程 PDF 下载](https://javabetter.cn/pdf/yuanyifeng-c-language.html)
+- [Java 核心知识点整理 PDF 下载](https://javabetter.cn/pdf/github-java-jiaocheng-115-star.html)
+- [深入浅出 Java 多线程 PDF 下载](https://javabetter.cn/pdf/java-concurrent.html)
+- [Pro Git 中文版 PDF 下载](https://javabetter.cn/pdf/progit.html)
+- [给操作系统捋条线 PDF 下载](https://javabetter.cn/pdf/os.html)
