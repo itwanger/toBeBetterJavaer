@@ -1,5 +1,5 @@
 ---
-title: Java 优先级队列PriorityQueue详解：从源码分析到实践应用
+title: 10 张手绘图详解Java 优先级队列PriorityQueue
 shortTitle: 优先级队列PriorityQueue详解
 category:
   - Java核心

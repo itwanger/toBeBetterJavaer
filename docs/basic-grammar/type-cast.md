@@ -1,5 +1,5 @@
 ---
-title: Java数据类型转换：自动类型转换与强制类型转换
+title: 教妹学Java：聊聊基本数据类型的转换
 shortTitle: Java数据类型转换
 category:
   - Java核心

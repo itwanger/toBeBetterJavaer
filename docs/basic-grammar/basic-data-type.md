@@ -1,5 +1,5 @@
 ---
-title: Java数据类型全解析：基本数据类型与引用数据类型
+title: 教妹学Java：10 分钟掌握Java基本数据类型
 shortTitle: Java数据类型
 category:
   - Java核心

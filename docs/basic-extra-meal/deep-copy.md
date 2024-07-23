@@ -1,5 +1,5 @@
 ---
-title: 深入理解Java浅拷贝与深拷贝：实战案例与技巧
+title: 深入理解Java浅拷贝与深拷贝
 shortTitle: 深入理解Java浅拷贝与深拷贝
 category:
   - Java核心

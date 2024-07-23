@@ -1,5 +1,5 @@
 ---
-title: 一文让你彻底了解Java（简史、特性、前景）
+title: 一文让你彻底了解Java，真的。
 shortTitle: Java简介
 category:
   - Java核心

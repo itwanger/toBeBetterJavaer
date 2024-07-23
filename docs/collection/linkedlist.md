@@ -1,5 +1,5 @@
 ---
-title: 深入探讨 Java LinkedList：从源码分析到实践应用
+title: LinkedList控诉：我爹都嫌弃我！
 shortTitle: LinkedList详解（附源码）
 category:
   - Java核心
@@ -40,7 +40,9 @@ head:
 - 第二层叫做“双向链表”，我有两个指针，后指针指向下一个数据，前指针指向上一个数据。
 - 第三层叫做“二叉树”，把后指针去掉，换成左右指针。
 
-但我现在的功力还达不到第三层，不过师父说我有这个潜力，练成神功是早晚的事。
+但我现在的功力还达不到第三层，不过师父说我有这个潜力，练成神功是早晚的事。但可悲的是，我爹一直嫌弃我。
+
+![Josh Bloch是 Java 集合框架的作者](https://cdn.tobebetterjavaer.com/stutymore/linkedlist-20240723082544.png)
 
 ### 01、LinkedList的内功心法
 

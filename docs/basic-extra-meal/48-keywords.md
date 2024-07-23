@@ -1,5 +1,5 @@
 ---
-title: Java编程基础：48个关键字及2个保留字全解析
+title: 5000字速通Java的48个关键字及2个保留字
 shortTitle: Java关键字和保留字
 category:
   - Java核心

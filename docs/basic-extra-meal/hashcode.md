@@ -1,5 +1,5 @@
 ---
-title: Java hashCode方法解析：C++实现的高效本地方法
+title: Java hashCode方法深入解析
 shortTitle: Java hashCode方法解析
 category:
   - Java核心

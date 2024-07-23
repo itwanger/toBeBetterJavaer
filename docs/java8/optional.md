@@ -1,5 +1,5 @@
 ---
-title: Java 8 Optional最佳指南：解决空指针问题的优雅之选
+title: Java 8 Optional最佳指南，优雅解决空指针
 shortTitle: Optional最佳指南
 category:
   - Java核心

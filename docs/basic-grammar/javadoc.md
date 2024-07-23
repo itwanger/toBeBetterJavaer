@@ -1,5 +1,5 @@
 ---
-title: 了解Java注释：单行、多行与文档注释的使用方法
+title: 教妹学Java：了解Java注释
 shortTitle: Java注释
 category:
   - Java核心

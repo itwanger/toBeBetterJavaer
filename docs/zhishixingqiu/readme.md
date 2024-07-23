@@ -55,9 +55,9 @@ head:
 
 ### 01、Java 面试指南
 
-截止到目前，《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》已经更新了 48 万+字，可以说是满满的干货和诚意。
+截止到目前，《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》已经更新了 **80万+字**，可以说是满满的干货和诚意。
 
-![Java 面试指南](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215721.png)
+![Java 面试指南统计面板](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723103741.png)
 
 一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
@@ -74,11 +74,15 @@ head:
 
 24 届秋招信息表中收集了 4000+ 多家可以投递的公司名单，包括银行、证券、互联网、国企、央企、通信各行各业，极大减轻了大家的信息筛选成本。25 届的秋招信息表也在整理当中。
 
-![25 届的秋招信息表](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625135259.png)
+![25 届秋招投递名单](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723103351.png)
 
 面经分享篇里几乎收录了所有知名大厂的面经并且给出了详细的答案，站在师兄师姐的肩膀上，你的面试准备路上就会少走很多弯路。
 
 ![面经的答案非常详细](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625140613.png)
+
+这些详细的参考答案，或者说叫做面试回答套路，能让你在面试中游刃有余，轻松应对。
+
+![给出详细的面试回答套路](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723110015.png)
 
 ### 02、pmhub 教程
 
@@ -154,17 +158,17 @@ admin 端星球白名单：
 
 ![技术派的完整教程目录](https://cdn.tobebetterjavaer.com/paicoding/f2b985dda7cb9e4c6e764940ef2887aa.png)
 
-### 04、编程喵实战项目笔记
-
-编程喵是一套成熟的学习教程网站，包括前台网站内容展示系统，以及后台网站内容管理系统，采用时下最流行的 Spring Boot + Vue 的前后端分离架构。配套的教程可以带你完成从小白到初级工程师的蜕变。
-
-![编程喵教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
-
-### 05、二哥的 LeetCode 刷题笔记
+### 04、二哥的 LeetCode 刷题笔记
 
 《二哥的 LeetCode 刷题笔记》，不仅有详细地解题思路，还增加了 ACM 输入输出模式，方便大家在 IDEA 中进行调试，并且会模拟整个题解过程，让大家看完后会有一种“哦哦”恍然大悟的感觉，力求教会大家举一反三的解题能力。
 
 ![二哥的 LeetCode 刷题笔记](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215214.png)
+
+### 05、编程喵实战项目笔记
+
+编程喵是一套成熟的学习教程网站，包括前台网站内容展示系统，以及后台网站内容管理系统，采用时下最流行的 Spring Boot + Vue 的前后端分离架构。配套的教程可以带你完成从小白到初级工程师的蜕变。
+
+![编程喵教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
 
 看到这就迫不及待想要加入的小伙伴，直接扫下面这个二维码，**新人直减 30 元，优惠完每天不到 0.33 元，真的划算**！
 

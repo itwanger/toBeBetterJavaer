@@ -1,5 +1,5 @@
 ---
-title: Java运算符详解：掌握各类运算符的使用与技巧
+title: 教妹学Java：5分钟掌握运算符
 shortTitle: Java运算符
 category:
   - Java核心

@@ -1,5 +1,5 @@
 ---
-title: Java可变参数详解：实现更灵活的方法调用
+title: Java可变参数详解，5分钟教会我妹
 shortTitle: Java可变参数
 category:
   - Java核心

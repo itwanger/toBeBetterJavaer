@@ -169,6 +169,7 @@ export const sidebarConfig = sidebar({
           "treemap",
           "arraydeque",
           "PriorityQueue",
+          "WeakHashMap",
           "time-complexity",
           "list-war-2",
           "generic",

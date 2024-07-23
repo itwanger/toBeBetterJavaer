@@ -1,5 +1,5 @@
 ---
-title: Java访问权限修饰符：掌握封装的核心原则
+title: 和妹聊聊Java访问权限修饰符
 shortTitle: Java访问权限修饰符
 description: 访问权限修饰符在Java编程中扮演着重要角色，它们有助于实现代码的封装与模块化。本文将详细解析Java中的四种访问权限修饰符：public、private、protected和默认（package-private），探讨它们的使用场景和作用。学习本文后，您将能够灵活运用访问权限修饰符，编写出高质量的Java代码。
 category:

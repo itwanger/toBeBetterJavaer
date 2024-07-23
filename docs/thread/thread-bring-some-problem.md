@@ -1,6 +1,6 @@
 ---
-title: 并发编程（多线程）带来了哪些问题？
-shortTitle: 多线程带来了哪些问题？
+title: 线程的安全问题：原子性、可见性、活跃性
+shortTitle: 线程的安全性问题
 description: 多线程技术有很多好处，比如说多线程可以充分利用多核 CPU 的计算能力，但如果使用不慎，就会出现『线程安全问题』『活跃性问题』『性能问题』等等。
 category:
   - Java核心
@@ -12,7 +12,7 @@ head:
       content: Java,并发编程,多线程,Thread
 ---
 
-# 第六节：多线程带来了哪些问题？
+# 第六节：线程的安全性问题
 
 前面我们了解到，[多线程技术有很多好处](https://tobebetterjavaer.com/thread/why-need-thread.html)，比如说多线程可以充分利用多核 CPU 的计算能力，那多线程难道就没有一点缺点吗？
 
@@ -221,4 +221,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)

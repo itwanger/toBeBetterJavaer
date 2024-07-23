@@ -1,5 +1,5 @@
 ---
-title: Java中的包：如何创建、导入和使用 package 来优化代码结构
+title: 教妹学 Java：package 包
 shortTitle: Java中的包
 description: Java中的包是一种用于组织和管理代码的机制，可以帮助开发者更有效地处理复杂的项目。本文将详细讲解Java包的概念、创建、导入以及使用方法，以及如何通过包提高代码可读性和模块化。掌握Java包的使用技巧，为更高级的Java编程打下坚实基础。
 category:

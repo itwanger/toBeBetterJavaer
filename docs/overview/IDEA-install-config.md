@@ -1,5 +1,5 @@
 ---
-title: 提升Java开发效率：在macOS和Windows上轻松安装Intellij IDEA
+title: 如何安装Intellij IDEA，闭着眼也能看懂
 shortTitle: 安装IDEA
 category:
   - Java核心

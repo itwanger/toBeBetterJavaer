@@ -1,5 +1,5 @@
 ---
-title: 阿里Java开发规约：禁止在foreach里执行元素的删除操作
+title: 阿里面试官：为什么Java开发手册强制不要在 foreach 里进行元素删除？
 shortTitle: Java foreach 循环陷阱
 category:
   - Java核心
