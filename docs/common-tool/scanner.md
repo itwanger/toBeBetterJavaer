@@ -1,5 +1,5 @@
 ---
-title: Java Scanner：扫描控制台输入的工具类
+title: Java Scanner：金控控制台输入，还能扫描文件
 shortTitle: Scanner工具类
 category:
   - Java核心

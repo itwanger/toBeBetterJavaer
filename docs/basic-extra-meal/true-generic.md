@@ -1,5 +1,5 @@
 ---
-title: Java 泛型背后的秘密：为什么无法实现真正的泛型？
+title: Java 为什么无法实现真正的泛型？
 shortTitle: Java为什么无法实现真正的泛型
 category:
   - Java核心

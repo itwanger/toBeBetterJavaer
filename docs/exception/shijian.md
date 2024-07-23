@@ -1,5 +1,5 @@
 ---
-title: Java异常处理的20个最佳实践：提高编程效率与代码质量
+title: Java异常处理的20个最佳实践，别再踩坑了！
 shortTitle: 异常处理的20个最佳实践
 category:
   - Java核心

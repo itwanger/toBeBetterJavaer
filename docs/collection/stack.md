@@ -1,5 +1,5 @@
 ---
-title: 栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈
+title: 栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈栈，Stack 没人要了！
 shortTitle: 栈Stack详解（附源码）
 category:
   - Java核心

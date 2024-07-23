@@ -1,6 +1,6 @@
 ---
-title: Java 泛型深入解析：理解泛型原理与实际应用方法
-shortTitle: Java泛型，深入解析
+title: 手写Java泛型，彻底掌握它！
+shortTitle: 深入解析Java泛型
 category:
   - Java核心
 tag:

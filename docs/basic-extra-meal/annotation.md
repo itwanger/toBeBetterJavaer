@@ -1,5 +1,5 @@
 ---
-title: 深入理解Java中的注解：从原理到实践掌握注解技巧
+title: Java注解，请别小看我。
 shortTitle: Java注解
 category:
   - Java核心

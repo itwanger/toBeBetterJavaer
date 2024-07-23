@@ -1,6 +1,6 @@
 ---
-title: 深入了解 Java IO：各种流的分类与实际应用
-shortTitle: IO 分类
+title: 6000 字掌握 Java IO 知识体系
+shortTitle: IO 知识体系
 category:
   - Java核心
 tag:

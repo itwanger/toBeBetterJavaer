@@ -1,5 +1,5 @@
 ---
-title: 如何通过线程组管理线程，以及如何设置线程的优先级
+title: 线程组和线程优先级（冷门知识）
 shortTitle: 线程组和线程优先级
 description: Java 提供了 ThreadGroup 类来创建一组相关的线程，使线程组管理更方便。每个 Java 线程都有一个优先级，这个优先级会影响到操作系统为这个线程分配处理器时间的顺序。
 category:
@@ -286,4 +286,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)

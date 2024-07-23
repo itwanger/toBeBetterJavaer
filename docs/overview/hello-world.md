@@ -1,5 +1,5 @@
 ---
-title: Java新手入门：使用IDEA编写第一个程序Hello World
+title: 教妹学Java：第一个Java程序Hello World
 shortTitle: 第一个Java程序
 category:
   - Java核心

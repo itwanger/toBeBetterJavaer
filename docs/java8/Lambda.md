@@ -1,5 +1,5 @@
 ---
-title: 深入浅出Java 8 Lambda表达式：探索函数式编程的魅力
+title: 深入浅出Java 8 Lambda表达式
 shortTitle: 深入浅出Lambda表达式
 category:
   - Java核心

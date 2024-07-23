@@ -1,5 +1,5 @@
 ---
-title: 掌握 Java二维数组：从基本概念到实际应用
+title: 用一根烟的时间掌握 Java二维数组
 shortTitle: 二维数组
 category:
   - Java核心

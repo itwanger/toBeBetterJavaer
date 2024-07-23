@@ -1,5 +1,5 @@
 ---
-title: 面试官：说说Java的内存模型（JMM）
+title: 蚂蚁金服面试官：说说Java的内存模型（JMM）
 shortTitle: Java的内存模型（JMM）
 description: Java 内存模型（Java Memory Model，JMM）定义了 Java 程序中的变量、线程如何和主存以及工作内存进行交互的规则。它主要涉及到多线程环境下的共享变量可见性、指令重排等问题，是理解并发编程中的关键概念。
 category:
@@ -311,4 +311,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20230904125125.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)

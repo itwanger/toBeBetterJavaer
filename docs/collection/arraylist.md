@@ -1,5 +1,5 @@
 ---
-title: 深入探讨 Java ArrayList：从源码分析到实践应用
+title: 京东实习一面：聊聊Java ArrayList，扩容机制了解吗？
 shortTitle: ArrayList详解（附源码）
 category:
   - Java核心

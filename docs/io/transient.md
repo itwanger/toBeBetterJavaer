@@ -1,5 +1,5 @@
 ---
-title: 深入探讨 Java transient 关键字：掌控序列化时的字段选择权
+title: 招银面试官：说说 Java transient 关键字吧
 shortTitle: transient关键字
 category:
   - Java核心

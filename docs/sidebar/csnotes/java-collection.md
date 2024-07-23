@@ -1,3 +1,36 @@
+# 《30天速通Java》之Java容器篇
+
+大家好，我是二哥呀。
+
+GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/CyC2018/CS-Notes)》，目前已有 173k 的 star 数，其中收录了不少我认为蛮不错的内容，比如说大家现在看到的《30天速通Java》——我起了一个噱头十足的名字😁。
+
+一共五个章节，基础篇、IO 篇、容器篇、并发篇和虚拟机篇，我结合《[二哥的 Java 进阶之路](https://javabetter.cn/)》对内容做一些补充和优化，并导出了亮白版和暗黑版的 PDF 和 epub 版本，好方便大家在 30 天内真的速通 Java。
+
+- 由于时间仓促和个人能力有限，手册难免存在错误和疏漏，还请大家批评指正。微信 itwanger
+- 该手册会持续更新，再次感谢原作者 CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md)
+- 推荐：[二哥的 Java 进阶之路：Java 最新学习路线](https://javabetter.cn/xuexiluxian/java/yitiaolong.html)
+
+## 最新 PDF 获取
+
+讲个笑话，PDF 内容没办法自动更新（😂），所以只能通过下面的方式，别怪我：
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+
+获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
+
+![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+
+附其他干货笔记下载地址：
+
+- [二哥的 Linux 速查备忘手册 PDF 下载](https://javabetter.cn/pdf/linux.html)
+- [阮一峰 C 语言入门教程 PDF 下载](https://javabetter.cn/pdf/yuanyifeng-c-language.html)
+- [Java 核心知识点整理 PDF 下载](https://javabetter.cn/pdf/github-java-jiaocheng-115-star.html)
+- [深入浅出 Java 多线程 PDF 下载](https://javabetter.cn/pdf/java-concurrent.html)
+- [Pro Git 中文版 PDF 下载](https://javabetter.cn/pdf/progit.html)
+- [给操作系统捋条线 PDF 下载](https://javabetter.cn/pdf/os.html)
+
 ## 一、概览
 
 容器，也叫集合框架，主要包括 Collection 和 Map，Collection 又细分为 Set、List 和 Queue，Set 不常用，List 也就是列表，Queue 是队列；Map 是键值对集合。
@@ -52,6 +85,8 @@ for (String item : list) {
 }
 ```
 
+推荐阅读：[Java迭代器Iterator和Iterable有什么区别？](https://javabetter.cn/collection/iterator-iterable.html)
+
 ### 适配器模式
 
 `java.util.Arrays#asList()` 可以把数组类型转换为 List 类型。
@@ -73,6 +108,10 @@ List list = Arrays.asList(arr);
 ```java
 List list = Arrays.asList(1, 2, 3);
 ```
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、源码分析
 
@@ -223,12 +262,15 @@ ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
 oos.writeObject(list);
 ```
 
+推荐阅读：[深入探讨 Java ArrayList](https://javabetter.cn/collection/arraylist.html)
+
 #### 5. Fail-Fast
 
 modCount 用来记录 ArrayList 结构发生变化的次数。结构发生变化是指添加或者删除至少一个元素的所有操作，或者是调整内部数组的大小，仅仅只是设置元素的值不算结构发生变化。
 
 在进行序列化或者迭代等操作时，需要比较操作前后 modCount 是否改变，如果改变了需要抛出 ConcurrentModificationException。代码参考上节序列化中的 `writeObject()` 方法。
 
+推荐阅读：[阿里Java开发规约：禁止在foreach里执行元素的删除操作](https://javabetter.cn/collection/fail-fast.html)
 
 ### Vector
 
@@ -360,6 +402,8 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 
 所以 CopyOnWriteArrayList 不适合内存敏感以及对实时性要求很高的场景。
 
+推荐阅读：[吊打Java并发面试官之CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)
+
 ### LinkedList
 
 #### 1. 概览
@@ -389,6 +433,8 @@ ArrayList 基于动态数组实现，LinkedList 基于双向链表实现。Array
 
 - 数组支持随机访问，但插入和删除的代价很高，需要移动大量元素；
 - 链表不支持随机访问，但插入删除只需要改变指针。
+
+推荐阅读：[深入探讨 Java LinkedList](https://javabetter.cn/collection/linkedlist.html)
 
 ### HashMap
 
@@ -777,6 +823,8 @@ static final int tableSizeFor(int cap) {
 - HashMap 的迭代器是 fail-fast 迭代器。
 - HashMap 不能保证随着时间的推移 Map 中的元素次序是不变的。
 
+推荐阅读：[Java HashMap详解](https://javabetter.cn/collection/hashmap.html)
+
 ### ConcurrentHashMap
 
 #### 1. 存储结构
@@ -907,6 +955,8 @@ JDK 1.7 使用分段锁机制来实现并发更新操作，核心类为 Segment�
 JDK 1.8 使用了 CAS 操作来支持更高的并发度，在 CAS 操作失败时使用内置锁 synchronized。
 
 并且 JDK 1.8 的实现也在链表过长时会转换为红黑树。
+
+推荐阅读：[吊打Java并发面试官之ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)
 
 ### LinkedHashMap
 
@@ -1042,6 +1092,8 @@ public static void main(String[] args) {
 [3, 1, 4]
 ```
 
+推荐阅读：[Java LinkedHashMap详解](https://javabetter.cn/collection/linkedhashmap.html)
+
 ### WeakHashMap
 
 #### 存储结构
@@ -1104,3 +1156,7 @@ public final class ConcurrentCache<K, V> {
 ## 参考资料
 
 [https://github.com/CyC2018/CS-Notes/](https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%AE%B9%E5%99%A8.md)
+
+> 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
+
+![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

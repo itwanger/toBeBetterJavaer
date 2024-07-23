@@ -1,5 +1,5 @@
 ---
-title: Java面向对象编程基础：探讨类和对象的概念与实现
+title: Object 和类，万物皆对象
 shortTitle: Java中的类和对象
 category:
   - Java核心

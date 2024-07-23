@@ -20,7 +20,7 @@ head:
 
 InputStreamReader 将一个字节输入流转换为一个字符输入流，而 OutputStreamWriter 将一个字节输出流转换为一个字符输出流。它们使用指定的字符集将字节流和字符流之间进行转换。常用的字符集包括 UTF-8、GBK、ISO-8859-1 等。
 
-![](https://cdn.tobebetterjavaer.com/studymore/char-byte-20230322165959.png)
+![二哥的 Java 进阶之路：字节流字符流](https://cdn.tobebetterjavaer.com/studymore/char-byte-20230322165959.png)
 
 ### 01、编码和解码
 

@@ -1,5 +1,5 @@
 ---
-title: Java LinkedHashMap详解：从源码分析到实践应用
+title: Java LinkedHashMap详解（附源码）
 shortTitle: LinkedHashMap详解（附源码）
 category:
   - Java核心

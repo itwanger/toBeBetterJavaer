@@ -1,5 +1,5 @@
 ---
-title: Java命名规范：编写可读性强的代码
+title: 5 分钟编码，1 小时命名，笑
 shortTitle: Java命名规范
 category:
   - Java核心

@@ -1,5 +1,5 @@
 ---
-title: Windows和macOS下安装JDK教程：原生安装与包管理器（高级）
+title: 手把手教你在Windows和macOS下安装JDK，菜逼也能掌握
 shortTitle: 安装JDK
 category:
   - Java核心
