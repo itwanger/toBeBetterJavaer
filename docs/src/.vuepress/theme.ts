@@ -20,7 +20,7 @@ export default hopeTheme({
   // Git 仓库和编辑链接
   repo: "https://github.com/itwanger/toBeBetterJavaer",
   repoLabel: "GitHub",
-  docsDir: "docs",
+  docsDir: "docs/src/",
   // 以前的默认仓库分支名，方便提交 pr 和 issue
   docsBranch: "master",
   breadcrumb: false,
