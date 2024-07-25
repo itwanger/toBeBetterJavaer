@@ -616,7 +616,7 @@ public class Main {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该原题。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：线程之间传递信息?
 
-### 67.请说说 sleep 和 wait 的区别？（补充）
+### 10.请说说 sleep 和 wait 的区别？（补充）
 
 > 2024 年 03 月 21 日增补
 
@@ -783,7 +783,7 @@ class WaitExample {
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 sleep 和 wait 的区别
 
-### 70.线程安全，说一个使用场景？（补充）
+### 11.线程安全，说一个使用场景？（补充）
 
 > 2024 年 05 月 01 日增补
 
@@ -841,7 +841,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 推荐阅读：[ThreadLocal 全面解析](https://www.bilibili.com/video/BV1N741127FH/)
 
-### 10.ThreadLocal 是什么？
+### 12.ThreadLocal 是什么？
 
 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是 Java 中提供的一种用于实现线程局部变量的工具类。它允许每个线程都拥有自己的独立副本，从而实现线程隔离，用于解决多线程中共享对象的线程安全问题。
 
@@ -937,7 +937,7 @@ private volatile boolean flag = false;
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 ThreadLocal 的作用和使用场景？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
 
-### 11.你在工作中用到过 ThreadLocal 吗？
+### 13.你在工作中用到过 ThreadLocal 吗？
 
 有用到过，用来存储用户信息。
 
@@ -962,7 +962,7 @@ private volatile boolean flag = false;
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：ThreadLocal 有哪些问题，为什么使用线程池会存在复用问题
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 ThreadLocal 的作用和使用场景？
 
-### 12.ThreadLocal 怎么实现的呢？
+### 14.ThreadLocal 怎么实现的呢？
 
 ThreadLocal 本身并不存储任何值，它只是作为一个映射，来映射线程的局部变量。当一个线程调用 ThreadLocal 的 set 或 get 方法时，实际上是访问线程自己的 ThreadLocal.ThreadLocalMap。
 
@@ -1039,7 +1039,7 @@ userThreadLocal.set(new User("沉默王二"));
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ThreadLocal 原理，解决什么问题
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
 
-### 13.ThreadLocal 内存泄露是怎么回事？
+### 15.ThreadLocal 内存泄露是怎么回事？
 
 通常情况下，随着线程 Thread 的结束，其内部的 ThreadLocalMap 也会被回收，从而避免了内存泄漏。
 
@@ -1130,7 +1130,7 @@ public static int nextVariableIndex() {
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：ThreadLocal 有什么缺陷？你了解哪些 ThreadLocal 的改进方案？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
 
-### 14.ThreadLocalMap 的源码看过吗？
+### 16.ThreadLocalMap 的源码看过吗？
 
 ThreadLocalMap 虽然被叫做 Map，其实它是没有实现 Map 接口的，但是结构还是和 HashMap 比较类似的，主要关注的是两个要素：`元素数组`和`散列方法`。
 
@@ -1162,7 +1162,7 @@ int i = key.threadLocalHashCode & (table.length - 1);
     }
 ```
 
-### 15.ThreadLocalMap 怎么解决 Hash 冲突的？
+### 17.ThreadLocalMap 怎么解决 Hash 冲突的？
 
 我们可能都知道 HashMap 使用了链表来解决冲突，也就是所谓的链地址法。
 
@@ -1174,7 +1174,7 @@ ThreadLocalMap 没有使用链表，自然也不是用链地址法来解决冲�
 
 在 get 的时候，也会根据 ThreadLocal 对象的 hash 值，定位到 table 中的位置，然后判断该槽位 Entry 对象中的 key 是否和 get 的 key 一致，如果不一致，就判断下一个位置。
 
-### 16.ThreadLocalMap 扩容机制了解吗？
+### 18.ThreadLocalMap 扩容机制了解吗？
 
 在 ThreadLocalMap.set()方法的最后，如果执行完启发式清理工作后，未清理到任何数据，且当前散列数组中`Entry`的数量已经达到了列表的扩容阈值`(len*2/3)`，就开始执行`rehash()`逻辑：
 
@@ -1216,7 +1216,7 @@ private void expungeStaleEntries() {
 
 ![ThreadLocalMap resize](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-18.png)
 
-### 17.父子线程怎么共享数据？
+### 19.父子线程怎么共享数据？
 
 父线程能用 ThreadLocal 来给子线程传值吗？毫无疑问，不能。那该怎么办？
 
@@ -1268,7 +1268,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## Java 内存模型
 
-### 18.说一下你对 Java 内存模型的理解？
+### 20.说一下你对 Java 内存模型的理解？
 
 推荐阅读：[说说 Java 的内存模型](https://javabetter.cn/thread/jmm.html)
 
@@ -1302,7 +1302,7 @@ Java 内存模型里面的本地内存，可能对应的是 L1 缓存或者 L2 �
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：说说 JMM模型
 
 
-### 19.说说你对原子性、可见性、有序性的理解？
+### 21.说说你对原子性、可见性、有序性的理解？
 
 原子性、有序性、可见性是并发编程中非常重要的基础概念，JMM 的很多技术都是围绕着这三大特性展开。
 
@@ -1329,7 +1329,7 @@ i = i + 1;
 - 可见性：Java 是利用`volatile`关键字来保证可见性的，除此之外，`final`和`synchronized`也能保证可见性。
 - 有序性：`synchronized`或者`volatile`都可以保证多线程之间操作的有序性。
 
-### 20.那说说什么是指令重排？
+### 22.那说说什么是指令重排？
 
 在执行程序时，为了提高性能，编译器和处理器常常会对指令做重排序。重排序分 3 种类型。
 
@@ -1347,7 +1347,7 @@ i = i + 1;
 
 JMM 属于语言级的内存模型，它确保在不同的编译器和不同的处理器平台之上，通过禁止特定类型的编译器重排序和处理器重排序，为程序员提供一致的内存可见性保证。
 
-### 21.指令重排有限制吗？happens-before 了解吗？
+### 23.指令重排有限制吗？happens-before 了解吗？
 
 指令重排也是有一些限制的，有两个规则`happens-before`和`as-if-serial`来约束。
 
@@ -1367,7 +1367,7 @@ happens-before 和我们息息相关的有六大规则：
 - **start()规则**：如果线程 A 执行操作 ThreadB.start()（启动线程 B），那么 A 线程的 ThreadB.start()操作 happens-before 于线程 B 中的任意操作。
 - **join()规则**：如果线程 A 执行操作 ThreadB.join()并成功返回，那么线程 B 中的任意操作 happens-before 于线程 A 从 ThreadB.join()操作成功返回。
 
-### 22.as-if-serial 又是什么？单线程的程序一定是顺序的吗？
+### 24.as-if-serial 又是什么？单线程的程序一定是顺序的吗？
 
 as-if-serial 语义的意思是：不管怎么重排序（编译器和处理器为了提高并行度），**单线程程序的执行结果不能被改变**。编译器、runtime 和处理器都必须遵守 as-if-serial 语义。
 
@@ -1391,7 +1391,7 @@ A 和 C 之间存在数据依赖关系，同时 B 和 C 之间也存在数据依
 
 as-if-serial 语义把单线程程序保护了起来，遵守 as-if-serial 语义的编译器、runtime 和处理器共同编织了这么一个“楚门的世界”：单线程程序是按程序的“顺序”来执行的。as- if-serial 语义使单线程情况下，我们不需要担心重排序的问题，可见性的问题。
 
-### 23.volatile 实现原理了解吗？
+### 25.volatile 实现原理了解吗？
 
 推荐阅读：[volatile 关键字解析](https://javabetter.cn/thread/volatile.html)
 
@@ -1469,7 +1469,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 锁
 
-### 24.synchronized 用过吗？怎么使用？
+### 26.synchronized 用过吗？怎么使用？
 
 在 Java 中，synchronized 是最常用的锁，它使用简单，并且可以保证线程安全，避免多线程并发访问时出现数据不一致的情况。
 
@@ -1509,7 +1509,7 @@ public void increment() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：volatile 关键字，说说别的你知道的关键字
 
-### 25.synchronized 的实现原理？
+### 27.synchronized 的实现原理？
 
 #### synchronized 是怎么加锁的呢？
 
@@ -1594,7 +1594,7 @@ ObjectMonitor() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：synchronized底层，会不会牵扯到os层面
 
-### 26.除了原子性，synchronized 可见性，有序性，可重入性怎么实现？
+### 28.除了原子性，synchronized 可见性，有序性，可重入性怎么实现？
 
 #### synchronized 怎么保证可见性？
 
@@ -1624,7 +1624,7 @@ synchronized 之所以支持可重入，是因为 Java 的对象头包含了一�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：synchronized可重入锁怎么实现的
 
-### 27.锁升级？synchronized 优化了解吗？
+### 29.锁升级？synchronized 优化了解吗？
 
 推荐阅读：[偏向锁、轻量级锁、重量级锁到底是什么？](https://javabetter.cn/thread/synchronized.html)
 
@@ -1712,7 +1712,7 @@ Java 对象头里的 `Mark Word` 会记录锁的状态，一共有四种状态�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：Java 的锁的优化
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：锁升级，synchronized底层，会不会牵扯到os层面
 
-### 28.说说 synchronized 和 ReentrantLock 的区别？
+### 30.说说 synchronized 和 ReentrantLock 的区别？
 
 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 是一个关键字，而 Lock 属于一个接口，其实现类主要有 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)、[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)。
 
@@ -1760,10 +1760,19 @@ ReentrantLock lock = new ReentrantLock();
 Condition condition = lock.newCondition();
 ```
 
+#### 并发量大的情况下，使用 synchronized 还是 ReentrantLock？
+
+在并发量特别高的情况下，ReentrantLock 的性能可能会优于 synchronized，原因包括：
+
+- ReentrantLock 提供了超时和公平锁等特性，可以更好地应对复杂的并发场景 。
+- ReentrantLock 允许更细粒度的锁控制，可以有效减少锁竞争。
+- ReentrantLock 支持条件变量 Condition，可以实现比 synchronized 更复杂的线程间通信机制。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：synchronized 和 lock 区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：synchronized和ReentrantLock区别和场景
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：在并发量特别高的情况下是使用 synchronized 还是 ReentrantLock
 
-### 29.AQS 了解多少？
+### 31.AQS 了解多少？
 
 推荐阅读：[到底什么是 AQS?](https://javabetter.cn/thread/aqs.html)
 
@@ -1821,7 +1830,7 @@ AQS 支持两种同步方式：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：聊一聊 AQS
 
-### 30.ReentrantLock 实现原理？
+### 32.ReentrantLock 实现原理？
 
 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 是可重入的独占锁，只能有一个线程可以获取该锁，其它获取该锁的线程会被阻塞。
 
@@ -1866,7 +1875,7 @@ ReentrantLock 内部通过一个计数器来跟踪锁的持有次数。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：公平锁和非公平锁 lock 怎么现实一个非公平锁
 
-### 31.ReentrantLock 怎么实现公平锁的？
+### 33.ReentrantLock 怎么实现公平锁的？
 
 ReentrantLock 的默认构造方法创建的是非公平锁 NonfairSync。
 
@@ -1907,7 +1916,7 @@ FairSync、NonfairSync 都是 ReentrantLock 的内部类，分别实现了公平
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：公平锁和非公平锁 lock 怎么现实一个非公平锁
 
-### 32.CAS 了解多少？
+### 34.CAS 了解多少？
 
 推荐阅读：[一文彻底搞清楚 Java 实现 CAS 的原理](https://javabetter.cn/thread/cas.html)
 
@@ -1953,7 +1962,7 @@ Linux 的 X86 下主要是通过 cmpxchgl 这个指令在 CPU 上完成 CAS 操�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：乐观锁是怎样实现的？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：cas 和 aba（原子操作+时间戳）
 
-### 33.CAS 有什么问题？如何解决？
+### 35.CAS 有什么问题？如何解决？
 
 CAS 存在三个经典问题。
 
@@ -2006,7 +2015,7 @@ CAS 保证的是对一个变量执行操作的原子性，如果对多个变量�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：cas 和 aba（原子操作+时间戳）
 
-### 34.Java 有哪些保证原子性的方法？如何保证多线程下 i++ 结果正确？
+### 36.Java 有哪些保证原子性的方法？如何保证多线程下 i++ 结果正确？
 
 ![Java保证原子性方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-45.png)
 
@@ -2014,7 +2023,7 @@ CAS 保证的是对一个变量执行操作的原子性，如果对多个变量�
 - 使用 juc 包下的锁，如 ReentrantLock ，对 i++操作加锁 lock.lock()来实现原子性
 - 使用 synchronized，对 i++操作加锁
 
-### 35.原子操作类了解多少？
+### 37.原子操作类了解多少？
 
 当程序更新一个变量时，如果多线程同时更新这个变量，可能得到期望之外的值，比如变量 i=1，A 线程更新 i+1，B 线程也更新 i+1，经过两个线程操作之后可能 i 不等于 3，而是等于 2。因为 A 和 B 线程在更新变量 i 的时候拿到的 i 都是 1，这就是线程不安全的更新操作，一般我们会使用 synchronized 来解决这个问题，synchronized 会保证多线程不会同时更新变量 i。
 
@@ -2058,7 +2067,7 @@ Atomic 包里的类基本都是使用 Unsafe 实现的包装类。
 - AtomicLongFieldUpdater：原子更新长整型字段的更新器。
 - AtomicStampedReference：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于原子的更新数据和数据的版本号，可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。
 
-### 36.AtomicInteger 的原理？
+### 38.AtomicInteger 的原理？
 
 一句话概括：**使用 CAS 实现**。
 
@@ -2085,7 +2094,7 @@ public final int getAndAddInt(Object var1, long var2, int var4) {
 
 compareAndSwapInt 是一个 native 方法，基于 CAS 来操作 int 类型变量。其它的原子操作类基本都是大同小异。
 
-### 37.线程死锁了解吗？该如何避免？
+### 39.线程死锁了解吗？该如何避免？
 
 死锁发生在多个线程相互等待对方释放锁资源，导致所有线程都无法继续执行。
 
@@ -2114,7 +2123,7 @@ compareAndSwapInt 是一个 native 方法，基于 CAS 来操作 int 类型变�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：死锁如何避免？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：什么是死锁，死锁的产生条件，破坏死锁
 
-### 38.那死锁问题怎么排查呢？
+### 40.那死锁问题怎么排查呢？
 
 首先从系统级别上排查，比如说在 Linux 生产环境中，可以先使用 top ps 等命令查看进程状态，看看是否有进程占用了过多的资源。
 
@@ -2183,7 +2192,7 @@ class DeadLockDemo {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：发生死锁怎么排查？
 
-### 61.聊聊如何进行线程同步？（补充）
+### 41.聊聊如何进行线程同步？（补充）
 
 > 2024 年 03 月 12 日 新增
 
@@ -2269,7 +2278,7 @@ ReentrantLock 和 synchronized 都可以用来实现同步，但它们之间也�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊线程同步
 
-### 69.聊聊悲观锁和乐观锁？（补充）
+### 42.聊聊悲观锁和乐观锁？（补充）
 
 > 2024 年 05 月 01 日增补
 
@@ -2296,7 +2305,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 并发工具类
 
-### 39.CountDownLatch（倒计数器）了解吗？
+### 43.CountDownLatch（倒计数器）了解吗？
 
 推荐阅读：[Java并发编程通信工具类 Semaphore、Exchanger、CountDownLatch、CyclicBarrier、Phaser等一网打尽](https://javabetter.cn/thread/CountDownLatch.html)
 
@@ -2400,7 +2409,7 @@ CountDownLatch 的**核心方法**也不多：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的顺丰科技同学 1 面试原题：并发编程CountDownLatch 和消息队列
 
-### 40.CyclicBarrier（同步屏障）了解吗？
+### 44.CyclicBarrier（同步屏障）了解吗？
 
 CyclicBarrier 的字面意思是可循环使用（Cyclic）的屏障（Barrier）。它要做的事情是，让一 组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续运行。
 
@@ -2426,7 +2435,7 @@ CyclicBarrier 最最核心的方法，仍然是 await()：
 
 ![CyclicBarrier工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-55.png)
 
-### 41.CyclicBarrier 和 CountDownLatch 有什么区别？
+### 45.CyclicBarrier 和 CountDownLatch 有什么区别？
 
 两者最核心的区别[18]：
 
@@ -2443,7 +2452,7 @@ CyclicBarrier 最最核心的方法，仍然是 await()：
 | CyclicBarrier 可以在所有的线程释放后重新使用                                                                       | CountDownLatch 在计数器为 0 时不能再使用                                       |
 | 在 CyclicBarrier 中，如果某个线程遇到了中断、超时等问题时，则处于 await 的线程都会出现问题                         | 在 CountDownLatch 中，如果某个线程出现问题，其他线程不受影响                   |
 
-### 42.Semaphore（信号量）了解吗？
+### 46.Semaphore（信号量）了解吗？
 
 Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。
 
@@ -2486,7 +2495,7 @@ public class SemaphoreTest {
 
 在代码中，虽然有 30 个线程在执行，但是只允许 10 个并发执行。Semaphore 的构造方法` Semaphore（int permits`）接受一个整型的数字，表示可用的许可证数量。`Semaphore（10）`表示允许 10 个线程获取许可证，也就是最大并发数是 10。Semaphore 的用法也很简单，首先线程使用 Semaphore 的 acquire()方法获取一个许可证，使用完之后调用 release()方法归还许可证。还可以用 tryAcquire()方法尝试获取许可证。
 
-### 43.Exchanger 了解吗？
+### 47.Exchanger 了解吗？
 
 Exchanger（交换者）是一个用于线程间协作的工具类。Exchanger 用于进行线程间的数据交换。它提供一个同步点，在这个同步点，两个线程可以交换彼此的数据。
 
@@ -2531,7 +2540,7 @@ public class ExchangerTest {
 
 假如两个线程有一个没有执行 exchange()方法，则会一直等待，如果担心有特殊情况发生，避免一直等待，可以使用`exchange(V x, long timeOut, TimeUnit unit) `设置最大等待时长。
 
-### 64.能说一下 ConcurrentHashMap 的实现吗？（补充）
+### 48.能说一下 ConcurrentHashMap 的实现吗？（补充）
 
 > 2024 年 03 月 25 日增补，从集合框架篇移动到这里。
 
@@ -2724,6 +2733,16 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 
 ![二哥的 Java 进阶之路：ConcurrentHashMap 的源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426105405.png)
 
+#### 为什么 ConcurrentHashMap 在 JDK 1.7 中要用 ReentrantLock，而在 JDK 1.8 要用 synchronized
+
+ConcurrentHashMap 在 JDK 1.7 和 JDK 1.8 中的实现机制不同，主要体现在锁的机制上。
+
+JDK 1.7 中的 ConcurrentHashMap 使用了分段锁机制，即 Segment 锁，每个 Segment 都是一个 ReentrantLock，这样可以保证每个 Segment 都可以独立地加锁，从而实现更高级别的并发访问。
+
+而在 JDK 1.8 中，ConcurrentHashMap 取消了 Segment 分段锁，采用了更加精细化的锁——桶锁，以及 CAS 无锁算法，每个桶（Node 数组的每个元素）都可以独立地加锁，从而实现更高级别的并发访问。
+
+再加上 JVM 对 synchronized 做了大量优化，如锁消除、锁粗化、自旋锁和偏向锁等，在低中等的竞争情况下，synchronized 的性能并不比 ReentrantLock 差，并且使用 synchronized 可以简化代码实现。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：ConcurrentHashMap 是悲观锁还是乐观锁?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap 和 CurrentHashMap 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ConcurrentHashMap 原理，你项目中怎么用的
@@ -2731,8 +2750,9 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：ConcurrentHashMap 怎么保证线程安全？1.7 与 1.8 的差别
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：ConcurrentHashMap 对 HashMap 的优化？ConcurrentHashMap 1.8 比 1.7 的优化在哪里？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：concurrenthashmap 如何保证线程安全？
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：你说高并发下 ReentrantLock 性能比 synchronized 高，那为什么 ConcurrentHashMap 在 JDK 1.7 中要用 ReentrantLock，而在 JDK 1.8 要用 synchronized
 
-### 65.ConcurrentHashMap 怎么保证可见性？（补充）
+### 49.ConcurrentHashMap 怎么保证可见性？（补充）
 
 > 2024 年 03 月 25 日增补
 
@@ -2744,7 +2764,7 @@ ConcurrentHashMap 保证可见性主要通过使用 volatile 关键字和 synchr
 
 通过这两种机制，ConcurrentHashMap 保证了在并发环境下的可见性，从而确保了线程安全。
 
-### 66.为什么 ConcurrentHashMap 比 Hashtable 效率高（补充）
+### 50.为什么 ConcurrentHashMap 比 Hashtable 效率高（补充）
 
 > 2024 年 03 月 26 日增补，从集合框架移动到并发编程这里
 
@@ -2791,7 +2811,7 @@ public V get(Object key) {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：有哪些线程安全的 map，ConcurrentHashMap 怎么保证线程安全的，为什么比 hashTable 效率好
 
-### 69.能说一下 CopyOnWriteArrayList 的实现原理吗？（补充）
+### 51.能说一下 CopyOnWriteArrayList 的实现原理吗？（补充）
 
 > 2024 年 04 月 23 日增补，推荐阅读：[吊打 Java 并发面试官之 CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)
 
@@ -2804,7 +2824,7 @@ CopyOnWriteArrayList 是一个线程安全的 ArrayList，它遵循写时复制�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：ConcurrentHashMap、CopyOnWriteArrayList 的实现原理？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：说一说常用的并发容器
 
-### 71. 能说一下 BlockingQueue 吗？（补充）
+### 52. 能说一下 BlockingQueue 吗？（补充）
 
 > 2024 年 08 月 18 日增补，从集合框架移动到并发编程这里
 
@@ -2902,7 +2922,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 线程池
 
-### 44.什么是线程池？
+### 53.什么是线程池？
 
 线程池，简单来说，就是一个管理线程的池子。
 
@@ -2921,7 +2941,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：说说 Java 的并发系统(从悲观锁聊到乐观锁，还有线程、线程池之类的，聊了快十分钟这个)
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：java如何创建线程？每次都要创建新线程来实现异步操作，很繁琐，有了解线程池吗？
 
-### 45.能说说工作中线程池的应用吗？
+### 54.能说说工作中线程池的应用吗？
 
 推荐阅读：[线程池在美团业务中的应用](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
 
@@ -2957,7 +2977,7 @@ public CompletableFutureBridge runAsyncWithTimeRecord(Runnable run, String name)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲你对线程池的理解，并讲一讲使用的场景
 
-### 46.能简单说一下线程池的工作流程吗？
+### 55.能简单说一下线程池的工作流程吗？
 
 当应用程序提交一个任务时，线程池会根据当前线程的状态和参数决定如何处理这个任务。
 
@@ -3057,7 +3077,7 @@ public class ThreadPoolDemo {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：向线程池中提交任务的过程？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：JUC并发编程中的ThreadPoolExecutor的拒绝策略什么时候发生？
 
-### 47.线程池主要参数有哪些？
+### 56.线程池主要参数有哪些？
 
 线程池有 7 个参数，需要重点关注`corePoolSize`、`maximumPoolSize`、`workQueue`、`handler` 这四个。
 
@@ -3148,7 +3168,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说说线程池的几个重要参数
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：核心线程和最大线程的区别是什么？核心线程能销毁吗？
 
-### 48.线程池的拒绝策略有哪些？
+### 57.线程池的拒绝策略有哪些？
 
 我现在去银行办理业务，被经历“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
 
@@ -3165,7 +3185,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：说说并发编程中的拒绝策略，哪些情况对应用什么拒绝策略
 
-### 49.线程池有哪几种阻塞队列？
+### 58.线程池有哪几种阻塞队列？
 
 在 Java 中，线程池（ThreadPoolExecutor）使用阻塞队列（BlockingQueue）来存储待处理的任务。
 
@@ -3212,7 +3232,7 @@ public static ExecutorService newCachedThreadPool() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：线程池的阻塞队列有哪些实现方式？
 
-### 50.线程池提交 execute 和 submit 有什么区别？
+### 59.线程池提交 execute 和 submit 有什么区别？
 
 1. execute 用于提交不需要返回值的任务
 
@@ -3236,7 +3256,7 @@ try { Object s = future.get(); } catch (InterruptedException e) {
 }
 ```
 
-### 51.线程池怎么关闭知道吗？
+### 60.线程池怎么关闭知道吗？
 
 可以通过调用线程池的`shutdown`或`shutdownNow`方法来关闭线程池。它们的原理是遍历线程池中的工作线程，然后逐个调用线程的 interrupt 方法来中断线程，所以无法响应中断的任务可能永远无法终止。
 
@@ -3258,7 +3278,7 @@ shutdown 和 shutdownnow 简单来说区别如下：
 - shutdownNow()能立即停止线程池，正在跑的和正在等待的任务都停下了。这样做立即生效，但是风险也比较大。
 - shutdown()只是关闭了提交通道，用 submit()是无效的；而内部的任务该怎么跑还是怎么跑，跑完再彻底停止线程池。
 
-### 52.线程池的线程数应该怎么配置？
+### 61.线程池的线程数应该怎么配置？
 
 首先，我会分析线程池中执行的任务类型是 CPU 密集型还是 IO 密集型？
 
@@ -3285,7 +3305,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：线程池核心线程数你是怎么规划的，过程是怎么考量的？
 
-### 53.有哪几种常见的线程池？
+### 62.有哪几种常见的线程池？
 
 ![三分恶面渣逆袭：四大线程池](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-71.png)
 
@@ -3298,7 +3318,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪同学 1 面试原题：有没有用过线程池，线程池有哪几种？
 
-### 54.能说一下四种常见线程池的原理吗？
+### 63.能说一下四种常见线程池的原理吗？
 
 前三种线程池的构造直接调用 ThreadPoolExecutor 的构造方法。
 
@@ -3434,7 +3454,7 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 
 例如 newFixedThreadPool 使用了无界的阻塞队列 LinkedBlockingQueue，如果线程获取一个任务后，任务的执行时间比较长，会导致队列的任务越积越多，导致机器内存使用不停飙升，最终导致 OOM。
 
-### 55.线程池异常怎么处理知道吗？
+### 64.线程池异常怎么处理知道吗？
 
 在使用线程池处理任务的时候，任务代码可能抛出 RuntimeException，抛出异常后，线程池可能捕获它，也可能创建一个新的线程来代替异常的线程，我们可能无法感知任务出现了异常，因此我们需要考虑线程池异常情况。
 
@@ -3442,7 +3462,7 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 
 ![线程池异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-77.png)
 
-### 56.能说一下线程池有几种状态吗？
+### 65.能说一下线程池有几种状态吗？
 
 线程池有这几个状态：RUNNING,SHUTDOWN,STOP,TIDYING,TERMINATED。
 
@@ -3484,7 +3504,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 - 该状态表示线程池彻底终止
 
-### 57.线程池如何实现参数的动态修改？
+### 66.线程池如何实现参数的动态修改？
 
 线程池提供了几个 setter 方法来设置线程池的参数。
 
@@ -3498,7 +3518,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 - 如果限制了配置中心的使用，也可以自己去扩展**ThreadPoolExecutor**，重写方法，监听线程池参数变化，来动态修改线程池参数。
 
-### 61.线程池调优了解吗？
+### 67.线程池调优了解吗？（补充）
 
 > 2024 年 03 月 16 日增补
 
@@ -3516,7 +3536,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 具体的调优案例可以查看参考[7]美团技术博客。
 
-### 62.线程池在使用的时候需要注意什么
+### 68.线程池在使用的时候需要注意什么？（补充）
 
 > 2024 年 03 月 16 日增补
 
@@ -3543,7 +3563,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：线程池在使用的时候需要注意什么
 
-### 58.你能设计实现一个线程池吗？
+### 69.你能设计实现一个线程池吗？
 
 ⭐ 这道题在阿里的面试中出现频率比较高
 
@@ -3564,9 +3584,9 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 这样，一个实现了线程池主要流程的类就完成了。
 
-### 59.单机线程池执行断电了应该怎么处理？
+### 70.单机线程池执行断电了应该怎么处理？
 
-<br>我们可以对正在处理和阻塞队列的任务做事务管理或者对阻塞队列中的任务持久化处理，并且当断电或者系统崩溃，操作无法继续下去的时候，可以通过回溯日志的方式来撤销`正在处理`的已经执行成功的操作。然后重新执行整个阻塞队列。
+我们可以对正在处理和阻塞队列的任务做事务管理或者对阻塞队列中的任务持久化处理，并且当断电或者系统崩溃，操作无法继续下去的时候，可以通过回溯日志的方式来撤销`正在处理`的已经执行成功的操作。然后重新执行整个阻塞队列。
 
 也就是说，对阻塞队列持久化；正在处理任务事务控制；断电之后正在处理任务的回滚，通过日志恢复该次操作；服务器重启后阻塞队列中的数据再加载。
 
@@ -3574,7 +3594,7 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 关于一些并发容器，可以去看看 [面渣逆袭：Java 集合连环三十问 ](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)，里面有`CopyOnWriteArrayList`和`ConcurrentHashMap`这两种线程安全容器类的问答。。
 
-### 60.Fork/Join 框架了解吗？
+### 71.Fork/Join 框架了解吗？
 
 Fork/Join 框架是 Java7 提供的一个用于并行执行任务的框架，是一个把大任务分割成若干个小任务，最终汇总每个小任务结果后得到大任务结果的框架。
 
