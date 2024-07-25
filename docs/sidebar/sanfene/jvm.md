@@ -57,8 +57,6 @@ JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数�
 
 ## 二、内存管理
 
-
-
 ### 3.能说一下 JVM 的内存区域吗？
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
@@ -122,6 +120,7 @@ Java 中“几乎”所有的对象都会在堆中分配，堆也是[垃圾收�
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：JVM 内存结构了解吗？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：请说一下 Java 的内存区域，程序计数器等？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：jvm内存分布，有垃圾回收的是哪些地方
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：说一说jvm内存区域
 
 ### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -538,13 +537,18 @@ obj = null;
 
 ### 15.Java 堆的内存分区了解吗？
 
-按照垃圾收集，将 Java 堆划分为**新生代 （Young Generation）**和**老年代（Old Generation）**两个区域，新生代存放存活时间短的对象，而每次回收后存活的少量对象，将会逐步晋升到老年代中存放。
+Java 堆被划分为**新生代**（Young Generation）和**老年代**（Old Generation）两个区域。
 
-而新生代又可以分为三个区域，eden、from、to，比例是 8：1：1，而新生代的内存分区同样是从垃圾收集的角度来分配的。
+![三分恶面渣逆袭：Java堆内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-21.png)
 
-![Java堆内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-21.png)
+新生代又被划分为 Eden 空间和两个 Survivor 空间（From 和 To）。
 
+- **Eden 空间**：大多数新创建的对象会被分配到 Eden 空间中。当 Eden 区填满时，会触发一次轻量级的垃圾回收（Minor GC），清除不再使用的对象。
+- **Survivor 空间**：每次 Minor GC 后，仍然存活的对象会从 Eden 区或From 区复制到 To 区。From 和 To 区交替使用。
 
+对象在新生代中经历多次 GC 后，如果仍然存活，会被移动到老年代。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java中堆内存怎么组织的
 
 ### 16.说一下新生代的区域划分？
 
@@ -652,19 +656,17 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 
-垃圾回收（Garbage Collection，GC），顾名思义就是释放垃圾占用的空间，防止内存爆掉。有效的使用可以使用的内存，对内存堆中已经死亡的或者长时间没有使用的对象进行清除和回收。
+垃圾回收（Garbage Collection，GC）就是对内存堆中已经死亡的或者长时间没有使用的对象进行清除和回收。
 
-JVM 在做垃圾回收之前，需要先搞清楚什么是垃圾，什么不是垃圾，那么就需要一种垃圾判断算法，通常有引用计数算法、可达性分析算法。
+JVM 在做 GC 之前，会先搞清楚什么是垃圾，什么不是垃圾，通常会通过可达性分析算法来判断对象是否存活。
 
 ![二哥的 Java 进阶之路：可达性分析](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
 
-在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是进行垃圾回收，如何高效地进行垃圾回收呢？
-
-可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
+在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是进行垃圾回收，可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
 
 JVM 提供了多种垃圾回收器，包括 CMS GC、G1 GC、ZGC 等，不同的垃圾回收器采用的垃圾收集算法也不同，因此适用于不同的场景和需求。
 
-CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
+比如说 CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
 
 G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
 
@@ -675,6 +677,7 @@ ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解 GC 吗？不可达判断知道吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：JVM垃圾删除
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java中垃圾回收的原理
 
 ### 21.如何判断对象仍然存活？
 
@@ -1249,21 +1252,20 @@ printf "%x\n" PID
 
 ### 41.频繁 Full GC 怎么办？
 
-Full GC 的排查思路大概如下：
+Full GC 是指对整个堆内存（包括新生代和老年代）进行垃圾回收操作。Full GC 频繁会导致应用程序的暂停时间增加，从而影响性能。
 
-1）清楚从程序角度，有哪些原因导致 FGC？
+常见的原因有：
 
-- **大对象**：系统一次性加载了过多数据到内存中（比如 SQL 查询未做分页），导致大对象进入了老年代。
-- **内存泄漏**：频繁创建了大量对象，但是无法被回收（比如 IO 对象使用完后未调用 close 方法释放资源），先引发 FGC，最后导致 OOM.
-- 程序频繁生成一些**长生命周期的对象**，当这些对象的存活年龄超过分代年龄时便会进入老年代，最后引发 FGC. （即本文中的案例）
-- **程序 BUG**
-- 代码中**显式调用了 gc**方法，包括自己的代码甚至框架中的代码。
-- JVM 参数设置问题：包括总内存大小、新生代和老年代的大小、Eden 区和 S 区的大小、元空间大小、垃圾回收算法等等。
+- 大对象（如大数组、大集合）直接分配到老年代，导致老年代空间快速被占用。
+- 程序中存在内存泄漏，导致老年代的内存不断增加，无法被回收。比如 IO 资源未关闭。
+- 一些长生命周期的对象进入到了老年代，导致老年代空间不足。
+- 不合理的 GC 参数配置也导致 GC 频率过高。比如说新生代的空间设置过小。
 
-2）清楚排查问题时能使用哪些工具
+#### 该怎么排查 Full GC 频繁问题？
 
-- 公司的监控系统：大部分公司都会有，可全方位监控 JVM 的各项指标。
-- JDK 的自带工具，包括 jmap、jstat 等常用命令：
+大厂一般都会有专门的性能监控系统，可以通过监控系统查看 GC 的频率和堆内存的使用情况。
+
+否则可以使用 JDK 的一些自带工具，包括 jmap、jstat 等。
 
 ```shell
 # 查看堆内存各区域的使用率以及GC情况
@@ -1274,16 +1276,22 @@ jmap -histo pid | head -n20
 jmap -dump:format=b,file=heap pid
 ```
 
-- 可视化的堆内存分析工具：JVisualVM、MAT 等
+或者使用一些可视化的工具，比如 VisualVM、JConsole 等。
 
-3）排查指南
+#### 如何解决 Full GC 频繁问题？
 
-- 查看监控，以了解出现问题的时间点以及当前 FGC 的频率（可对比正常情况看频率是否正常）
-- 了解该时间点之前有没有程序上线、基础组件升级等情况。
-- 了解 JVM 的参数设置，包括：堆空间各个区域的大小设置，新生代和老年代分别采用了哪些垃圾收集器，然后分析 JVM 参数设置是否合理。
-- 再对步骤 1 中列出的可能原因做排除法，其中元空间被打满、内存泄漏、代码显式调用 gc 方法比较容易排查。
-- 针对大对象或者长生命周期对象导致的 FGC，可通过 jmap -histo 命令并结合 dump 堆内存文件作进一步分析，需要先定位到可疑对象。
-- 通过可疑对象定位到具体代码再次分析，这时候要结合 GC 原理和 JVM 参数设置，弄清楚可疑对象是否满足了进入到老年代的条件才能下结论。
+假如是因为大对象直接分配到老年代导致的 Full GC 频繁，可以通过 `-XX:PretenureSizeThreshold` 参数设置大对象直接进入老年代的阈值。
+
+或者能不能将大对象拆分成小对象，减少大对象的创建。比如说分页。
+
+假如是因为内存泄漏导致的 Full GC 频繁，可以通过分析堆内存 dump 文件找到内存泄漏的对象，再找到内存泄漏的代码位置。
+
+假如是因为长生命周期的对象进入到了老年代，要及时释放资源，比如说 ThreadLocal、数据库连接、IO 资源等。
+
+假如是因为 GC 参数配置不合理导致的 Full GC 频繁，可以通过调整 GC 参数来优化 GC 行为。或者直接更换更适合的 GC 收集器，如 G1、ZGC 等。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java中full gc频繁，有哪些原因
 
 ### 42.有没有处理过内存泄漏问题？是如何定位的？
 
