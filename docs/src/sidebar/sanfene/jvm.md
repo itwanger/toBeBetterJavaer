@@ -493,47 +493,35 @@ ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，�
 
 ### 14.说一下对象有哪几种引用？
 
-Java 中的引用有四种，分为强引用（Strongly Reference）、软引用（Soft Reference）、弱引用（Weak Reference）和虚引用（Phantom Reference）4 种，这 4 种引用强度依次逐渐减弱。
+四种，分别是强引用（Strong Reference）、软引用（Soft Reference）、弱引用（Weak Reference）和虚引用（Phantom Reference）。
 
-- 强引用是最传统的`引用`的定义，是指在程序代码之中普遍存在的引用赋值，无论任何情况下，只要强引用关系还存在，垃圾收集器就永远不会回收掉被引用的对象。
+![三分恶面渣逆袭：四种引用总结](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-19.png)
 
-```java
-Object obj =new Object();
-```
-
-- 软引用是用来描述一些还有用，但非必须的对象。只被软引用关联着的对象，在系统将要发生内存溢出异常前，会把这些对象列进回收范围之中进行第二次回收，如果这次回收还没有足够的内存， 才会抛出内存溢出异常。在 JDK 1.2 版之后提供了 SoftReference 类来实现软引用。
+强引用是 Java 中最常见的引用类型。使用 new 关键字赋值的引用就是强引用，只要强引用关联着对象，垃圾收集器就不会回收这部分对象。
 
 ```java
-Object obj = new Object();
-ReferenceQueue queue = new ReferenceQueue();
-SoftReference reference = new SoftReference(obj, queue);
-//强引用对象滞空，保留软引用
-obj = null;
+String str = new String("沉默王二");
 ```
 
-- 弱引用也是用来描述那些非必须对象，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生为止。当垃圾收集器开始工作，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在 JDK 1.2 版之后提供了 WeakReference 类来实现弱引用。
+软引用是一种相对较弱的引用类型，可以通过 SoftReference 类实现。软引用对象在内存不足时才会被回收。
 
 ```java
-Object obj = new Object();
-ReferenceQueue queue = new ReferenceQueue();
-WeakReference reference = new WeakReference(obj, queue);
-//强引用对象滞空，保留软引用
-obj = null;
+SoftReference<String> softRef = new SoftReference<>(new String("沉默王二"));
 ```
 
-- 虚引用也称为“幽灵引用”或者“幻影引用”，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的只是为了能在这个对象被收集器回收时收到一个系统通知。在 JDK 1.2 版之后提供了 PhantomReference 类来实现虚引用。
+弱引用可以通过 WeakReference 类实现。弱引用对象在下一次垃圾回收时会被回收，不论内存是否充足。
 
 ```java
-Object obj = new Object();
-ReferenceQueue queue = new ReferenceQueue();
-PhantomReference reference = new PhantomReference(obj, queue);
-//强引用对象滞空，保留软引用
-obj = null;
+WeakReference<String> weakRef = new WeakReference<>(new String("沉默王二"));
 ```
 
-![四种引用总结](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-19.png)
+虚引用可以通过 PhantomReference 类实现。虚引用对象在任何时候都可能被回收。主要用于跟踪对象被垃圾回收的状态，可以用于管理直接内存。
 
+```java
+PhantomReference<String> phantomRef = new PhantomReference<>(new String("沉默王二"), new ReferenceQueue<>());
+```
 
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：四个引用(强软弱虚)
 
 ### 15.Java 堆的内存分区了解吗？
 
@@ -954,6 +942,7 @@ ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：了解哪些垃圾回收器，只能回收一个代（新生代、老年代）吗，使用的 jdk 版本
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：垃圾回收器的作用是什么
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：常见的7个GC回收器
 
 ### 29.能详细说一下 CMS 收集器的垃圾收集过程吗？
 

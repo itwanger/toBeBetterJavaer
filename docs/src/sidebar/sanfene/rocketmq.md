@@ -53,28 +53,9 @@ head:
 
 ### 2.为什么要选择 RocketMQ?
 
-市场上几大消息队列对比如下：
-
 ![四大消息队列对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-c3493e70-67c7-4f0d-bb99-f0fe8074c807.jpg)
 
-**总结一下**：
-
-选择中间件的可以从这些维度来考虑：可靠性，性能，功能，可运维行，可拓展性，社区活跃度。目前常用的几个中间件，ActiveMQ 作为“老古董”，市面上用的已经不多，其它几种：
-
-- RabbitMQ：
-- 优点：轻量，迅捷，容易部署和使用，拥有灵活的路由配置
-- 缺点：性能和吞吐量不太理想，不易进行二次开发
-- RocketMQ：
-
-- 优点：性能好，高吞吐量，稳定可靠，有活跃的中文社区
-- 缺点：兼容性上不是太好
-
-- Kafka：
-
-- 优点：拥有强大的性能及吞吐量，兼容性很好
-- 缺点：由于“攒一波再处理”导致延迟比较高
-
-我们的系统是面向用户的 C 端系统，具有一定的并发量，对性能也有比较高的要求，所以选择了低延迟、吞吐量比较高，可用性比较好的 RocketMQ。
+我们系统主要面向 C 端用户，有一定的并发量，对性能也有比较高的要求，所以选择了低延迟、吞吐量比较高，可用性比较好的 RocketMQ。
 
 ### 3.RocketMQ 有什么优缺点？
 
@@ -93,6 +74,14 @@ RocketMQ 缺点：
 
 - 支持的客户端语言不多，目前是 Java 及 c++，其中 c++不成熟
 - 没有在 MQ 核心中去实现**JMS**等接口，有些系统要迁移需要修改大量代码
+
+#### 说说你对 RocketMQ 的理解？
+
+![牧小农：RocketMQ 的作用](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20240726162210.png)
+
+RocketMQ 是阿里巴巴开源的一款分布式消息中间件，具有高吞吐量、低延迟和高可用性。其主要组件包括生产者、消费者、Broker、Topic 和队列。消息由生产者发送到 Broker，再根据路由规则存储到队列中，消费者从队列中拉取消息进行处理。适用于异步解耦和流量削峰等场景。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：说说你对RocketMQ的理解
 
 ### 4.消息队列有哪些消息模型？
 
@@ -278,17 +267,133 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 10.如何处理消息重复的问题呢？
 
-对分布式消息队列来说，同时做到确保一定投递和不重复投递是很难的，就是所谓的“有且仅有一次” 。RocketMQ 择了确保一定投递，保证消息不丢失，但有可能造成消息重复。
+RocketMQ 可以保证消息一定投递，且不丢失，但无法保证消息不重复消费。
 
-处理消息重复问题，主要有业务端自己保证，主要的方式有两种：**业务幂等**和**消息去重**。
+因此，需要在业务端做好消息的幂等性处理，或者做消息去重。
 
-![消息重复处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-05c0538b-abfa-4bb0-973f-6b92555a6e5b.jpg)
+![三分恶面渣逆袭：幂等和去重](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-05c0538b-abfa-4bb0-973f-6b92555a6e5b.jpg)
 
-**业务幂等**：第一种是保证消费逻辑的幂等性，也就是多次调用和一次调用的效果是一样的。这样一来，不管消息消费多少次，对业务都没有影响。
+幂等性是指一个操作可以执行多次而不会产生副作用，即无论执行多少次，结果都是相同的。可以在业务逻辑中加入检查逻辑，确保同一消息多次消费不会产生副作用。
 
-**消息去重**：第二种是业务端，对重复的消息就不再消费了。这种方法，需要保证每条消息都有一个惟一的编号，通常是业务相关的，比如订单号，消费的记录需要落库，而且需要保证和消息确认这一步的原子性。
+例如，在支付场景下，消费者消费扣款的消息，对一笔订单执行扣款操作，金额为100元。
 
-具体做法是可以建立一个消费记录表，拿到这个消息做数据库的 insert 操作。给这个消息做一个唯一主键（primary key）或者唯一约束，那么就算出现重复消费的情况，就会导致主键冲突，那么就不再处理这条消息。
+如果因网络不稳定等原因导致扣款消息重复投递，消费者重复消费了该扣款消息，但最终的业务结果要保证只扣款一次，金额为100元。如果扣款操作是符合要求的，那么就可以认为整个消费过程实现了消息幂等。
+
+消息去重，是指在消费者消费消息之前，先检查一下是否已经消费过这条消息，如果消费过了，就不再消费。
+
+业务端可以通过一个专门的表来记录已经消费过的消息 ID，每次消费消息之前，先查询一下这个表，如果已经存在，就不再消费。
+
+```java
+public void processMessage(String messageId, String message) {
+    if (!isMessageProcessed(messageId)) {
+        // 处理消息
+        markMessageAsProcessed(messageId);
+    }
+}
+
+private boolean isMessageProcessed(String messageId) {
+    // 查询去重表，检查消息ID是否存在
+}
+
+private void markMessageAsProcessed(String messageId) {
+    // 将消息ID插入去重表
+}
+```
+
+#### 如何保证消息的幂等性？
+
+![勇哥：消费幂等](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20240726172003.png)
+
+首先，消息必须携带业务唯一标识，可以通过雪花算法生成全局唯一 ID。
+
+```java
+Message msg = new Message(TOPIC /* Topic */,
+             TAG /* Tag */,
+               ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
+             );
+message.setKey("ORDERID_100"); // 订单编号
+SendResult sendResult = producer.send(message);      
+```
+
+其次，在消费者接收到消息后，判断 Redis 中是否存在该业务主键的标志位，若存在标志位，则认为消费成功，否则执行业务逻辑，执行完成后，在缓存中添加标志位。
+
+```java
+public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
+    try {
+        for (MessageExt messageExt : msgs) {
+           String bizKey = messageExt.getKeys(); // 唯一业务主键
+           //1. 判断是否存在标志
+           if(redisTemplate.hasKey(RedisKeyConstants.WAITING_SEND_LOCK + bizKey)) {
+         			continue;
+       		 }
+         	 //2. 执行业务逻辑
+           //TODO do business
+           //3. 设置标志位
+           redisTemplate.opsForValue().set(RedisKeyConstants.WAITING_SEND_LOCK + bizKey, "1", 72, TimeUnit.HOURS);
+        }
+        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+    } catch (Exception e) {
+        logger.error("consumeMessage error: ", e);
+        return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+    }
+}
+```
+
+然后，利用数据库的唯一索引来防止业务的重复插入。
+
+```sql
+CREATE TABLE `t_order` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `order_id` varchar(64) NOT NULL COMMENT '订单编号',
+  `order_name` varchar(64) NOT NULL COMMENT '订单名称',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `order_id` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单表';
+```
+
+最后，在数据库表中使用版本号，通过乐观锁机制来保证幂等性。每次更新操作时检查版本号是否一致，只有一致时才执行更新并递增版本号。如果版本号不一致，则说明操作已被执行过，拒绝重复操作。
+
+```java
+public void updateRecordWithOptimisticLock(int id, String newValue, int expectedVersion) {
+    int updatedRows = jdbcTemplate.update(
+        "UPDATE records SET value = ?, version = version + 1 WHERE id = ? AND version = ?",
+        newValue, id, expectedVersion
+    );
+    if (updatedRows == 0) {
+        throw new OptimisticLockingFailureException("Record has been modified by another transaction");
+    }
+}
+```
+
+或者悲观锁机制，通过数据库的锁机制来保证幂等性。
+
+```java
+public void updateRecordWithPessimisticLock(int id) {
+    jdbcTemplate.queryForObject("SELECT * FROM records WHERE id = ? FOR UPDATE", id);
+    jdbcTemplate.update("UPDATE records SET value = ? WHERE id = ?", "newValue", id);
+}
+```
+
+#### 雪花算法了解吗？
+
+雪花算法是由 Twitter 开发的一种分布式唯一 ID 生成算法。
+
+![技术派教程：雪花算法](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20240726174236.png)
+
+雪花算法以 64 bit 来存储组成 ID 的4 个部分：
+
+1. 最高位占1 bit，始终为 0，表示正数。
+2. 中位占 41 bit，值为毫秒级时间戳；
+3. 中下位占 10 bit，机器 ID（包括数据中心 ID 和机器 ID），可以支持 1024 个节点。
+4. 末位占 12 bit，值为当前毫秒内生成的不同的自增序列，值的上限为 4096；
+
+目前雪花算法的实现比较多，可以直接使用 Hutool 工具类库中的 `IdUtil.getSnowflake()` 方法来获取雪花 ID。
+
+```java
+long id = IdUtil.getSnowflakeNextId();
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：如何处理消息重复消费的问题？如何保证幂等性？雪花算法了解吗？
 
 ### 11.怎么处理消息积压？
 
@@ -417,22 +522,13 @@ Broker 收到延时消息了，会先发送到主题（SCHEDULE_TOPIC_XXXX）的
 
 ### 16.死信队列知道吗？
 
-死信队列用于处理无法被正常消费的消息，即死信消息。
+死信队列用于存储那些无法被正常处理的消息，这些消息被称为死信（Dead Letter）。
 
-当一条消息初次消费失败，**消息队列 RocketMQ 会自动进行消息重试**；达到最大重试次数后，若消费依然失败，则表明消费者在正常情况下无法正确地消费该消息，此时，消息队列 RocketMQ 不会立刻将消息丢弃，而是将其发送到该**消费者对应的特殊队列中**，该特殊队列称为**死信队列**。
+![阿里云官方文档：死信队列](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20240726163831.png)
 
-**死信消息的特点**：
+产生死信的原因是，消费者在处理消息时发生异常，且达到了最大重试次数。当消费失败的原因排查并解决后，可以重发这些死信消息，让消费者重新消费；如果暂时无法处理，为避免到期后死信消息被删除，可以先将死信消息导出并进行保存。
 
-- 不会再被消费者正常消费。
-- 有效期与正常消息相同，均为 3 天，3 天后会被自动删除。因此，需要在死信消息产生后的 3 天内及时处理。
-
-**死信队列的特点**：
-
-- 一个死信队列对应一个 Group ID， 而不是对应单个消费者实例。
-- 如果一个 Group ID 未产生死信消息，消息队列 RocketMQ 不会为其创建相应的死信队列。
-- 一个死信队列包含了对应 Group ID 产生的所有死信消息，不论该消息属于哪个 Topic。
-
-RocketMQ 控制台提供对死信消息的查询、导出和重发的功能。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：说说 RocketMQ 的死信队列
 
 ### 17.如何保证 RocketMQ 的高可用？
 
