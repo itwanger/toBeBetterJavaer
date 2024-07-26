@@ -777,9 +777,20 @@ MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。MEM
 
 ![MySQL 官网：innodb-limits.html](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408074630.png)
 
+#### 如何切换 MySQL 的数据引擎？
+
+可以通过 alter table 语句来切换 MySQL 的数据引擎。
+
+```sql
+ALTER TABLE your_table_name ENGINE=InnoDB;
+```
+
+不过不建议，应该提前设计好到底用哪一种存储引擎。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MySQL 支持哪些存储引擎?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：innodb 引擎和 hash 引擎有什么区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：MySQL 的存储引擎
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：mysql的数据引擎有哪些, 区别(innodb,MyISAM,Memory)
 
 ### 17.那存储引擎应该怎么选择？
 
@@ -2177,15 +2188,15 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 按锁粒度划分的话，MySQL 的锁有：
 
-- 表锁：开销小，加锁快；锁定力度大，发生锁冲突概率高，并发度最低;不会出现死锁。
+- 表锁：开销小，加锁快；锁定力度大，发生锁冲突概率高，并发度最低；不会出现死锁。
 - 行锁：开销大，加锁慢；会出现死锁；锁定粒度小，发生锁冲突的概率低，并发度高。
-- 页锁：开销和加锁速度介于表锁和行锁之间；会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般
+- 页锁：开销和加锁速度介于表锁和行锁之间；会出现死锁；锁定粒度介于表锁和行锁之间，并发度一般。
 
 #### 按兼容性如何划分?
 
 按兼容性划分的话，MySQL 的锁有：
 
-- 共享锁（S Lock）,也叫读锁（read lock），相互不阻塞。
+- 共享锁（S Lock），也叫读锁（read lock），相互不阻塞。
 - 排他锁（X Lock），也叫写锁（write lock），排它锁是阻塞的，在一定时间内，只有一个请求能执行写入，并阻止其它锁读取正在写入的数据。
 
 #### 按加锁机制如何划分?
@@ -2224,6 +2235,7 @@ COMMIT;
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：乐观锁和悲观锁，库存的超卖问题的原因和解决方案？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：mysql一共有哪些锁
 
 ### 44.说说 InnoDB 里的行锁实现?
 
