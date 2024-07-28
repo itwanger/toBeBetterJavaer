@@ -1300,6 +1300,7 @@ Java 内存模型里面的本地内存，可能对应的是 L1 缓存或者 L2 �
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：为什么线程要用自己的内存
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 JMM
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：说说 JMM模型
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：jmm内存模型  栈 方法区存放的是什么
 
 
 ### 21.说说你对原子性、可见性、有序性的理解？
@@ -3187,11 +3188,11 @@ handler = ThreadPoolExecutor.AbortPolicy()
 
 ### 57.线程池的拒绝策略有哪些？
 
-我现在去银行办理业务，被经历“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
+小二去银行办理业务，被经理“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
 
 ![三分恶面渣逆袭：四种策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
 
-分别对应上了线程池中的四种拒绝策略：
+分别对应线程池中的四种拒绝策略：
 
 - AbortPolicy：这是默认的拒绝策略。该策略会抛出一个 RejectedExecutionException 异常。也就对应着“我们系统瘫痪了”。
 - CallerRunsPolicy：该策略不会抛出异常，而是会让提交任务的线程（即调用 execute 方法的线程）自己来执行这个任务。也就对应着“谁叫你来办的你找谁去”。
@@ -3201,6 +3202,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 如果想实现自己的拒绝策略，实现 RejectedExecutionHandler 接口即可。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：说说并发编程中的拒绝策略，哪些情况对应用什么拒绝策略
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 
 ### 58.线程池有哪几种阻塞队列？
 
@@ -3582,24 +3584,209 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 
 ### 69.你能设计实现一个线程池吗？
 
-⭐ 这道题在阿里的面试中出现频率比较高
+推荐阅读：[三分恶线程池原理](https://mp.weixin.qq.com/s/Exy7pRGND9TCjRd9TZK4jg) 
 
-线程池实现原理可以查看 [要是以前有人这么讲线程池，我早就该明白了！](https://mp.weixin.qq.com/s/Exy7pRGND9TCjRd9TZK4jg) ，当然，我们自己实现， 只需要抓住线程池的核心流程-参考[6]：
+线程池的设计需要考虑这几个关键因素：
 
-![线程池主要实现流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-83.png)
+1.	核心线程池类：包含核心线程数、最大线程数。
+2.	工作线程：线程池中实际工作的线程，从任务队列中获取任务并执行。
+3.	任务队列：存放待执行任务的队列，可以使用阻塞队列实现。
+4.	拒绝策略：当任务队列满时，处理新任务的策略。
 
-我们自己的实现就是完成这个核心流程：
+![三分恶面渣逆袭：线程池主要实现流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-83.png)
 
-- 线程池中有 N 个工作线程
-- 把任务提交给线程池运行
-- 如果线程池已满，把任务放入队列
-- 最后当有空闲时，获取队列中任务来执行
+核心线程池类：
 
-实现代码[6]：
+```java
+/**
+ * CustomThreadPoolExecutor is a simple implementation of a thread pool.
+ */
+public class CustomThreadPoolExecutor {
 
-![自定义线程池](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-84.png)
+    private final int corePoolSize;
+    private final int maximumPoolSize;
+    private final long keepAliveTime;
+    private final TimeUnit unit;
+    private final BlockingQueue<Runnable> workQueue;
+    private final RejectedExecutionHandler handler;
 
-这样，一个实现了线程池主要流程的类就完成了。
+    private volatile boolean isShutdown = false;
+    private int currentPoolSize = 0;
+
+    /**
+     * Constructs a CustomThreadPoolExecutor.
+     *
+     * @param corePoolSize    the number of core threads.
+     * @param maximumPoolSize the maximum number of threads.
+     * @param keepAliveTime   the time to keep extra threads alive.
+     * @param unit            the time unit for keepAliveTime.
+     * @param workQueue       the queue to hold runnable tasks.
+     * @param handler         the handler to use when execution is blocked.
+     */
+    public CustomThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,
+                                    BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler) {
+        this.corePoolSize = corePoolSize;
+        this.maximumPoolSize = maximumPoolSize;
+        this.keepAliveTime = keepAliveTime;
+        this.unit = unit;
+        this.workQueue = workQueue;
+        this.handler = handler;
+    }
+
+    /**
+     * Executes a given task using the thread pool.
+     *
+     * @param task the task to execute.
+     */
+    public void execute(Runnable task) {
+        if (isShutdown) {
+            throw new IllegalStateException("ThreadPool is shutdown");
+        }
+
+        synchronized (this) {
+            // If current pool size is less than core pool size, create a new worker thread
+            if (currentPoolSize < corePoolSize) {
+                new Worker(task).start();
+                currentPoolSize++;
+                return;
+            }
+
+            // Try to add task to the queue, if full create a new worker thread if possible
+            if (!workQueue.offer(task)) {
+                if (currentPoolSize < maximumPoolSize) {
+                    new Worker(task).start();
+                    currentPoolSize++;
+                } else {
+                    // If maximum pool size reached, apply the rejection handler
+                    handler.rejectedExecution(task, null);
+                }
+            }
+        }
+    }
+
+    /**
+     * Shuts down the thread pool.
+     */
+    public void shutdown() {
+        isShutdown = true;
+    }
+
+    /**
+     * Worker is an internal class that represents a worker thread in the pool.
+     */
+    private class Worker extends Thread {
+        private Runnable task;
+
+        Worker(Runnable task) {
+            this.task = task;
+        }
+
+        @Override
+        public void run() {
+            while (task != null || (task = getTask()) != null) {
+                try {
+                    task.run();
+                } finally {
+                    task = null;
+                }
+            }
+        }
+
+        /**
+         * Gets a task from the work queue, waiting up to keepAliveTime if necessary.
+         *
+         * @return a task to run, or null if the keepAliveTime expires.
+         */
+        private Runnable getTask() {
+            try {
+                return workQueue.poll(keepAliveTime, unit);
+            } catch (InterruptedException e) {
+                return null;
+            }
+        }
+    }
+}
+```
+
+拒绝策略：
+
+```java
+/**
+ * CustomRejectedExecutionHandler contains several common rejection policies.
+ */
+public class CustomRejectedExecutionHandler {
+
+    /**
+     * AbortPolicy throws a RuntimeException when the task is rejected.
+     */
+    public static class AbortPolicy implements RejectedExecutionHandler {
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+            throw new RuntimeException("Task " + r.toString() + " rejected from " + e.toString());
+        }
+    }
+
+    /**
+     * DiscardPolicy silently discards the rejected task.
+     */
+    public static class DiscardPolicy implements RejectedExecutionHandler {
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+            // Do nothing
+        }
+    }
+
+    /**
+     * CallerRunsPolicy runs the rejected task in the caller's thread.
+     */
+    public static class CallerRunsPolicy implements RejectedExecutionHandler {
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
+            if (!e.isShutdown()) {
+                r.run();
+            }
+        }
+    }
+}
+```
+
+使用示例：
+
+```java
+package com.github.paicoding.forum.web.javabetter.thread1;
+
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+
+public class ThreadPoolTest {
+    public static void main(String[] args) {
+        // Create a thread pool with core size 2, max size 4, and a queue capacity of 2
+        CustomThreadPoolExecutor executor = new CustomThreadPoolExecutor(
+                2, 4, 10, TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(2),
+                new CustomRejectedExecutionHandler.AbortPolicy());
+
+        // Submit 10 tasks to the pool
+        for (int i = 0; i < 10; i++) {
+            final int index = i;
+            executor.execute(() -> {
+                System.out.println("Task " + index + " is running");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+        // Shutdown the thread pool
+        executor.shutdown();
+    }
+}
+```
+
+执行结果：
+
+![二哥的 Java 进阶之路：拒绝策略](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240727230303.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 
 ### 70.单机线程池执行断电了应该怎么处理？
 

@@ -1,7 +1,7 @@
 ---
-title: MySQL面试题，79道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，80道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 79 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 80 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 category:
   - 面渣逆袭
@@ -13,7 +13,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 101 张手绘图，详解 79 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+1.8 万字 101 张手绘图，详解 80 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 ### 0.什么是 MySQL？
 
@@ -1035,6 +1035,8 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 推荐阅读：[慢 SQL 优化一点小思路](https://juejin.cn/post/7048974570228809741)
 
+#### 什么是慢 SQL？
+
 顾名思义，慢 SQL 也就是执行时间较长的 SQL 语句，MySQL 中 long_query_time 默认值是 10 秒，也就是执行时间超过 10 秒的 SQL 语句会被记录到慢查询日志中。
 
 可通过 `show variables like 'long_query_time';` 查看当前的 long_query_time 值。
@@ -1043,7 +1045,10 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 不过，生产环境中，10 秒太久了，超过 1 秒的都可以认为是慢 SQL 了。
 
-要想定位慢 SQL，需要了解 SQL 的执行过程：
+
+#### 那怎么定位慢 SQL 呢？
+
+要想定位慢 SQL，需要了解一下 SQL 的执行过程：
 
 1. 客户端发送 SQL 语句给 MySQL 服务器。
 2. 如果查询缓存打开则会优先查询缓存，如果缓存中有对应的结果，直接返回给客户端。不过，MySQL 8.0 版本已经移除了查询缓存。
@@ -1060,28 +1065,26 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 
 基于这两个维度，可以得出影响 SQL 执行效率的因素有：
 
-①、IO 成本
+**①、IO 成本**
 
 - 数据量：数据量越大，IO 成本越高。所以要避免 `select *`；尽量分页查询。
 - 数据从哪读取：尽量通过索引加快查询。
 
-②、CPU 成本
+**②、CPU 成本**
 
 - 尽量避免复杂的查询条件，如有必要，考虑对子查询结果进行过滤。
 - 尽量缩减计算成本，比如说为排序字段加上索引，提高排序效率；比如说使用 union all 替代 union，减少去重处理。
 
-#### 那怎么定位慢 SQL 呢？
-
 ![三分恶面渣逆袭：发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
 
-定位慢 SQL 主要通过两种手段：
+排查 SQL 效率主要通过两种手段：
 
 - **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
 - **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
 
 也可以使用 `show processlist;` 查看当前正在执行的 SQL 语句，找出执行时间较长的 SQL。
 
-找到对应的慢 SQL 后，使用 EXPLAIN 命令查看 MySQL 是如何执行 SQL 语句的，这会帮助我们找到问题的根源。
+找到对应的慢 SQL 后，使用 EXPLAIN 命令查看 MySQL 是如何执行 SQL 语句的，再根据执行计划对 SQL 进行优化。
 
 ```sql
 EXPLAIN SELECT * FROM your_table WHERE conditions;
@@ -1108,6 +1111,7 @@ SET GLOBAL long_query_time = 2;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：场景题：sql 查询很慢怎么排查
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：慢sql日志怎么开启？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：如何判断sql的效率，怎样排查效率比较低的sql
 
 ### 25.有哪些方式优化 SQL？
 
@@ -1640,7 +1644,6 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 - 使用不等于（`<>`）或者 NOT 操作符：这些操作符通常会使索引失效，因为它们会扫描全表。
 - **使用 LIKE 操作符，但是通配符在最前面**：如果 LIKE 的模式串是以“%”或者“\_”开头的，那么索引也无法使用。例如：`SELECT * FROM table WHERE column LIKE '%abc'`。
 - **OR 操作符**：如果查询条件中使用了 OR，并且 OR 两边的条件分别涉及不同的索引，那么这些索引可能都无法使用。
-- 如果 MySQL 估计使用全表扫描比使用索引更快时（通常是小表或者大部分行都满足 WHERE 子句），也不会使用索引。
 - 联合索引不满足最左前缀原则时，索引会失效。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：where b =5 是否一定会命中索引？（索引失效场景）
@@ -2007,6 +2010,7 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：说说最左前缀原则
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：最左匹配原则 索引失效
 
 ### 42.什么是索引下推优化？
 
@@ -2237,7 +2241,72 @@ COMMIT;
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：乐观锁和悲观锁，库存的超卖问题的原因和解决方案？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：mysql一共有哪些锁
 
-### 44.说说 InnoDB 里的行锁实现?
+### 80.全局锁和表级锁了解吗？（补充）
+
+> 2024 年 07 月 15 日增补。
+
+全局锁就是对整个数据库实例进行加锁，在 MySQL 中，可以使用 `FLUSH TABLES WITH READ LOCK` 命令来获取全局读锁。
+
+全局锁的作用是保证在备份数据库时，数据不会发生变化【数据更新语句（增删改）、数据定义语句（建表、修改表结构等）和更新事务的提交语句】。当我们需要备份数据库时，可以先获取全局读锁，然后再执行备份操作。
+
+表锁（Table Lock）就是锁住整个表。在 MySQL 中，可以使用 `LOCK TABLES` 命令来锁定表。
+
+表锁可以分为读锁（共享锁）和写锁（排他锁）。
+
+```sql
+LOCK TABLES your_table READ;
+-- 执行读操作
+UNLOCK TABLES;
+```
+
+读锁允许多个事务同时读取被锁定的表，但不允许任何事务进行写操作。
+
+```sql
+LOCK TABLES your_table WRITE;
+-- 执行写操作
+UNLOCK TABLES;
+```
+
+写锁允许一个事务对表进行读写操作，其他事务不能对该表进行任何操作（读或写）。
+
+在进行大规模的数据导入、导出或删除操作时，为了防止其他事务对数据进行并发操作，可以使用表锁。
+
+或者在进行表结构变更（如添加列、修改列类型）时，为了确保变更期间没有其他事务访问或修改该表，可以使用表锁。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：数据库中的全局锁 表锁 行级锁  每种锁的应用场景有哪些
+
+### 44.说说 MySQL 的行锁？
+
+行级锁（Row Lock）是数据库锁机制中最细粒度的锁，主要用于对单行数据进行加锁，以确保数据的一致性和完整性。
+
+在 MySQL 中，InnoDB 存储引擎支持行级锁。通过 `SELECT ... FOR UPDATE` 可以加排他锁，通过 `LOCK IN SHARE MODE` 可以加共享锁。
+
+比如说：
+
+```sql
+START TRANSACTION;
+
+-- 加排他锁，锁定某一行
+SELECT * FROM your_table WHERE id = 1 FOR UPDATE;
+-- 对该行进行操作
+UPDATE your_table SET column1 = 'new_value' WHERE id = 1;
+
+COMMIT;
+```
+
+```sql
+START TRANSACTION;
+
+-- 加共享锁，锁定某一行
+SELECT * FROM your_table WHERE id = 1 LOCK IN SHARE MODE;
+-- 只能读取该行，不能修改
+
+COMMIT;
+```
+
+在高并发环境中，行级锁能够提高系统的并发性能，因为锁定的粒度较小，只会锁住特定的行，不会影响其他行的操作。
+
+#### 说说 InnoDB 的行锁实现？
 
 我们拿这么一个用户表来表示行级锁，其中插入了 4 行数据，主键值分别是 1,6,8,12，现在简化它的聚簇索引结构，只保留数据记录。
 
@@ -2261,11 +2330,11 @@ InnoDB 的行锁的主要实现如下：
 
 - **Next-key Lock 临键锁**
 
-临键指的是间隙加上它右边的记录组成的**左开右闭区间**。比如上述的(1,6\]、(6,8\]等。
+临键指的是间隙加上它右边的记录组成的**左开右闭区间**。比如上述的`(1,6\]、(6,8\]`等。
 
 ![临键锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-ae8a21cc-8b52-467d-9173-4e01b24e04b9.jpg)
 
-临键锁就是记录锁(Record Locks)和间隙锁(Gap Locks)的结合，即除了锁住记录本身，还要再锁住索引之间的间隙。当我们使用范围查询，并且命中了部分`record`记录，此时锁住的就是临键区间。注意，临键锁锁住的区间会包含最后一个 record 的右边的临键区间。例如`select * from t where id > 5 and id <= 7 for update;`会锁住(4,7\]、(7,+∞)。mysql 默认行锁类型就是`临键锁(Next-Key Locks)`。当使用唯一性索引，等值查询匹配到一条记录的时候，临键锁(Next-Key Locks)会退化成记录锁；没有匹配到任何记录的时候，退化成间隙锁。
+临键锁就是记录锁(Record Locks)和间隙锁(Gap Locks)的结合，即除了锁住记录本身，还要再锁住索引之间的间隙。当我们使用范围查询，并且命中了部分`record`记录，此时锁住的就是临键区间。注意，临键锁锁住的区间会包含最后一个 record 的右边的临键区间。例如`select * from t where id > 5 and id <= 7 for update;`会锁住`(4,7\]、(7,+∞)`。mysql 默认行锁类型就是`临键锁(Next-Key Locks)`。当使用唯一性索引，等值查询匹配到一条记录的时候，临键锁(Next-Key Locks)会退化成记录锁；没有匹配到任何记录的时候，退化成间隙锁。
 
 > `间隙锁(Gap Locks)`和`临键锁(Next-Key Locks)`都是用来解决幻读问题的，在`已提交读（READ COMMITTED）`隔离级别下，`间隙锁(Gap Locks)`和`临键锁(Next-Key Locks)`都会失效！
 
@@ -2278,6 +2347,8 @@ InnoDB 的行锁的主要实现如下：
 假如我们有个 T1 事务，给(1,6)区间加上了意向锁，现在有个 T2 事务，要插入一个数据，id 为 4，它会获取一个（1,6）区间的插入意向锁，又有有个 T3 事务，想要插入一个数据，id 为 3，它也会获取一个（1,6）区间的插入意向锁，但是，这两个插入意向锁锁不会互斥。
 
 ![插入意向锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-751425cb-daba-4da1-bab6-f843254cad3d.jpg)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：数据库中的全局锁 表锁 行级锁  每种锁的应用场景有哪些
 
 ### 45.意向锁是什么知道吗？
 
@@ -3219,7 +3290,7 @@ WHERE ranked.rank <= 10;
 
 ---
 
-图文详解 79 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+图文详解 80 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

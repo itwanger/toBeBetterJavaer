@@ -881,11 +881,11 @@ static final int hash(Object key) {
 
 #### 为什么重写 equals 时必须重写 hashCode ⽅法？
 
-维护 `equals()`和 `hashCode()`之间的一致性是至关重要的，因为基于哈希的集合类（如 HashSet、HashMap、Hashtable 等）依赖于这一点来正确存储和检索对象。
+因为基于哈希的集合类（如 HashMap）需要基于这一点来正确存储和查找对象。
 
-具体地说，这些集合通过对象的哈希码将其存储在不同的“桶”中（底层数据结构是数组，哈希码用来确定下标），当查找对象时，它们使用哈希码确定在哪个桶中搜索，然后通过 `equals()`方法在桶中找到正确的对象。
+具体地说，HashMap 通过对象的哈希码将其存储在不同的“桶”中，当查找对象时，它需要使用 key 的哈希码来确定对象在哪个桶中，然后再通过 `equals()` 方法找到对应的对象。
 
-如果重写了 `equals()`方法而没有重写 `hashCode()`方法，那么被认为相等的对象可能会有不同的哈希码，从而导致无法在集合中正确处理这些对象。
+如果重写了 `equals()`方法而没有重写 `hashCode()`方法，那么被认为相等的对象可能会有不同的哈希码，从而导致无法在HashMap 中正确处理这些对象。
 
 #### 为什么两个对象有相同的 hashcode 值，它们也不⼀定相等？
 
@@ -907,6 +907,7 @@ if (p.hash == hash &&
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：hashcode 和 equals 方法只重写一个行不行，只重写 equals 没重写 hashcode，map put 的时候会发生什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：为什么重写equals，建议必须重写hashCode方法
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：object有哪些方法 hashcode和equals为什么需要一起重写 不重写会导致哪些问题  什么时候会用到重写hashcode的场景
 
 ### 28.Java 是值传递，还是引用传递？
 
@@ -1703,6 +1704,7 @@ com.itwanger.Person
 ![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240313085055.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Object 有哪些常用的方法？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：object有哪些方法 hashcode和equals为什么需要一起重写 不重写会导致哪些问题  什么时候会用到重写hashcode的场景
 
 ## 异常处理
 
@@ -2234,7 +2236,9 @@ list.add(new Dog());
 
 ### 49.什么是反射？应用？原理？
 
-创建一个对象是通过 new 关键字来实现的，比如：
+反射允许 Java 在运行时检查和操作类的方法和字段。通过反射，可以动态地获取类的字段、方法、构造方法等信息，并在运行时调用方法或访问字段。
+
+我简单解释下。创建一个对象是通过 new 关键字来实现的，比如：
 
 ```java
 Person person = new Person();
@@ -2302,11 +2306,12 @@ testMethod.invoke(testInstance);
 
 #### 反射的原理是什么？
 
-我们都知道 Java 程序的执行分为编译和运行两步，编译之后会生成字节码(.class)文件，JVM 进行类加载的时候，会加载字节码文件，将类型相关的所有信息加载进方法区，反射就是去获取这些信息，然后进行各种操作。
+Java 程序的执行分为编译和运行两步，编译之后会生成字节码(.class)文件，JVM 进行类加载的时候，会加载字节码文件，将类型相关的所有信息加载进方法区，反射就是去获取这些信息，然后进行各种操作。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：Java 反射用过吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：反射及其应用场景
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学  F 面试原题：反射的介绍与使用场景
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：java的反射机制，反射的应用场景AOP的实现原理是什么，与动态代理和反射有什么区别
 
 ## JDK1.8 新特性
 
