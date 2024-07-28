@@ -475,7 +475,7 @@ SSL（安全套接字）/TLS（传输层安全）协议可以用来加密通信�
 
 ![三分恶面渣逆袭：HTTPS 主要流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-d91b220e-a7e0-4856-af53-697c96591ec7.jpg)
 
-HTTPS 主要解决了以下几个问题：
+#### HTTPS 主要解决了什么问题？
 
 - **窃听风险**：第三方可以截获传输的数据包，获取敏感信息。
 - **篡改风险**：第三方可以在传输过程中篡改数据包，修改数据。
@@ -483,6 +483,7 @@ HTTPS 主要解决了以下几个问题：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的的腾讯面经同学 26 暑期实习微信支付面试原题：https的加密技术
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：https相比http有什么区别 对称加密和非对称加密   ca证书验证
 
 ### 20.HTTPS 工作流程是怎样的？
 
