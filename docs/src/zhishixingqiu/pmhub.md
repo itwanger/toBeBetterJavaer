@@ -1,5 +1,5 @@
 ---
-title: 二哥原创实战项目PmHub，一套基于 SpringCloud & LLM 的智能项目管理系统
+title: 二哥微服务实战项目PmHub，一套基于 SpringCloud & LLM 的智能项目管理系统
 shortTitle: 星球实战项目PmHub
 category:
   - 知识星球
