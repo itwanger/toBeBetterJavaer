@@ -8,6 +8,7 @@ export default sidebar({
     "paicoding",
     "pmhub",
     "jianli",
+    "qiuzhao-gongsi-mingdan",
   ],
   "/nice-article/itmind/": [
     "readme.md",
