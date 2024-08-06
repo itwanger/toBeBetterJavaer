@@ -1285,67 +1285,73 @@ jmap -dump:format=b,file=heap pid
 
 ### 42.有没有处理过内存泄漏问题？是如何定位的？
 
-推荐阅读：[一次内存溢出的排查优化实战](https://javabetter.cn/jvm/oom.html)
+推荐阅读：
 
-严重的**内存泄漏**往往伴随频繁的 **Full GC**，所以排查内存泄漏问题时，需要从 Full GC 入手。主要有以下操作步骤：
+1. [一次内存溢出的排查优化实战](https://javabetter.cn/jvm/oom.html)
+2. [JVM 性能监控工具之命令行篇](https://javabetter.cn/jvm/console-tools.html#jstack-%E8%B7%9F%E8%B8%AAjava%E5%A0%86%E6%A0%88)
+3. [JVM 性能监控工具之可视化篇](https://javabetter.cn/jvm/view-tools.html)
 
-第一步，使用 `jps` 查看运行的 Java 进程 ID
+内存泄漏是指程序在运行过程中由于未能正确释放已分配的内存，导致内存无法被重用，从而引发内存耗尽等问题。
 
-第二步，使用`top -p [pid]` 查看进程使用 CPU 和内存占用情况
+常用的可视化监控工具有 JConsole、VisualVM、JProfiler、Eclipse Memory Analyzer (MAT)等。
 
-第三步，使用 `top -Hp [pid]` 查看进程下的所有线程占用 CPU 和内存情况
+也可以使用 JDK 自带的 jmap、jstack、jstat 等命令行工具来配合内存泄露问题的排查。
 
-第四步，将线程 ID 转换为 16 进制：`printf "%x\n" [pid]`，输出的值就是线程栈信息中的 **nid**。
+严重的**内存泄漏**往往伴随频繁的 **Full GC**，所以排查内存泄漏问题时，可以从 Full GC 入手。
 
-> 例如：`printf "%x\n" 29471`，输出 **731f**。
+第一步，使用 `jps -l` 查看运行的 Java 进程 ID。
 
-第五步，抓取线程栈：`jstack 29452 > 29452.txt`，可以多抓几次做个对比。
+![二哥的 Java 进阶之路：jps 查看技术派的进程 ID](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806085955.png)
 
-在线程栈信息中找到对应线程号的 16 进制值，如下是 **731f** 线程的信息。线程栈分析可使用 VisualVM 插件 **TDA**。
+第二步，使用`top -p [pid]` 查看进程使用 CPU 和内存占用情况。
 
-```java
-"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007fbe2c164000 nid=0x731f runnable [0x0000000000000000]
-  java.lang.Thread.State: RUNNABLE
-```
+![二哥的 Java 进阶之路：top -p](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806090059.png)
 
-第六步，使用`jstat -gcutil [pid] 5000 10` 每隔 5 秒输出 GC 信息，输出 10 次，查看 **YGC** 和 **Full GC** 次数。
+第三步，使用 `top -Hp [pid]` 查看进程下的所有线程占用 CPU 和内存情况。
+
+![二哥的 Java 进阶之路：top -Hp](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806090208.png)
+
+第四步，抓取线程栈：`jstack -F 29452 > 29452.txt`，可以多抓几次做个对比。
+
+>29452为 pid，顺带作为文件名。
+
+![二哥的 Java 进阶之路：jstack](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806091529.png)
+
+看看有没有线程死锁、死循环或长时间等待这些问题。
+
+![二哥的 Java 进阶之路：另外一组线程 id 的堆栈](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806092007.png)
+
+第五步，可以使用`jstat -gcutil [pid] 5000 10` 每隔 5 秒输出 GC 信息，输出 10 次，查看 **YGC** 和 **Full GC** 次数。
+
+![二哥的 Java 进阶之路：jstat](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806093011.png)
 
 通常会出现 YGC 不增加或增加缓慢，而 Full GC 增加很快。
 
 或使用 `jstat -gccause [pid] 5000` 输出 GC 摘要信息。
 
+![二哥的 Java 进阶之路：jstat](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806093107.png)
+
 或使用 `jmap -heap [pid]` 查看堆的摘要信息，关注老年代内存使用是否达到阀值，若达到阀值就会执行 Full GC。
 
-如果发现 `Full GC` 次数太多，就很大概率存在内存泄漏了
+![二哥的 Java 进阶之路：jmap](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806093153.png)
 
-第八步，使用 `jmap -histo:live [pid]` 输出每个类的对象数量，内存大小(字节单位)及全限定类名。
+如果发现 `Full GC` 次数太多，就很大概率存在内存泄漏了。
 
-第九步，生成 `dump` 文件，借助工具分析哪个对象非常多，基本就能定位到问题根源了。
+第六步，生成 `dump` 文件，然后借助可视化工具分析哪个对象非常多，基本就能定位到问题根源了。
 
-使用 jmap 生成 dump 文件：
+执行命令 `jmap -dump:format=b,file=heap.hprof 10025` 会输出进程 10025 的堆快照信息，保存到文件 heap.hprof 中。
 
-```java
-# jmap -dump:live,format=b,file=29471.dump 29471
-Dumping heap to /root/dump ...
-Heap dump file created
-```
+![二哥的 Java 进阶之路：jmap](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106184317.png)
 
-第十步，dump 文件分析
+第七步，可以使用图形化工具分析，如 JDK 自带的 **VisualVM**，从菜单 > 文件 > 装入 dump 文件。
 
-可以使用 **jhat** 命令分析：`jhat -port 8000 29471.dump`，浏览器访问 jhat 服务，端口是 8000。
+![VisualVM](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107134238.png)
 
-也可以使用图形化工具分析，如 JDK 自带的 **jvisualvm**，从菜单 > 文件 > 装入 dump 文件。
-
-或使用第三方式具分析的，如 **JProfiler**、**GCViewer** 工具。
-
-或使用在线分析平台 **GCEasy**。
-
-> **注意**：如果 dump 文件较大的话，分析会占比较大的内存。
-
-在 dump 文析结果中查找存在大量的对象，再查对其的引用。基本上就可以定位到代码层的逻辑了。
+然后在结果观察内存占用最多的对象，找到内存泄漏的源头。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：什么是内存泄露
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 哪些内存区域会发生 OOM？为什么？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：内存泄漏怎么排查
 
 ### 43.有没有处理过 OOM 问题？
 

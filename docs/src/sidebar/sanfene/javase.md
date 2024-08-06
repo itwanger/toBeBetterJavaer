@@ -63,17 +63,16 @@ Java 可以实现自动内存管理，通过 GC 垃圾收集器来实现，而 C
 
 ### 2.Java 语言有哪些特点？
 
-Java 语言有很多优秀（可吹）的特点，以下几个是比较突出的：
+![三分恶面渣逆袭：Java语言特点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-2.png)
 
-![Java语言特点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-2.png)
-
-①、面向对象（封装，继承，多态）；
+①、面向对象，主要是封装，继承，多态。
 
 ②、平台无关性，平台无关性的具体表现在于，Java 是“一次编写，到处运行（Write Once，Run any Where）”的语言，因此采用 Java 语言编写的程序具有很好的可移植性，而保证这一点的正是 Java 的虚拟机机制。在引入虚拟机之后，Java 语言在不同的平台上运行不需要重新编译。
 
 ③、支持多线程。C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程支持；
 
 ④、支持 JIT 编译。JIT 是 Just-In-Time 的缩写，指的是即时编译器，它可以在程序运行时将字节码转换为本地机器码来提高程序运行速度。
+
 
 
 ### 3.JVM、JDK 和 JRE 有什么区别？
@@ -487,6 +486,7 @@ class Wanger {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Java面向对象的特性，分别怎么理解的
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Java面向对象的特点
 
 ### 17.多态解决了什么问题？（补充）
 

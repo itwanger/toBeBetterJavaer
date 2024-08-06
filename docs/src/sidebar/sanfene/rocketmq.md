@@ -29,7 +29,7 @@ head:
 
 ②、**异步**：
 
-系统可以将那些耗时的任务放在消息队列中异步处理，从而快速响应用户的请求。
+系统可以将那些耗时的任务放在消息队列中异步处理，从而快速响应用户的请求。比如说，用户下单后，系统可以先返回一个下单成功的消息，然后将订单信息放入消息队列中，后台系统再去处理订单信息。
 
 ![三分恶面渣逆袭：消息队列异步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-40d8f782-08cf-48c4-98b2-cb125d287e93.jpg)
 
@@ -50,6 +50,7 @@ head:
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：有了解过 MQ 吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 24 面试原题：如何用消息队列做削峰填谷的？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：项目里用 RocketMQ 做削峰，还有什么场景适合消息队列
 
 ### 2.为什么要选择 RocketMQ?
 

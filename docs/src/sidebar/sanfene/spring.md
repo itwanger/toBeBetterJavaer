@@ -1376,15 +1376,43 @@ AOP，也就是 Aspect-oriented Programming，译为面向切面编程，是 Spr
 - **通知**（Advice）：指拦截到连接点之后要执行的代码，也可以称作**增强**
 - **目标对象** （Target）：代理的目标对象
 - **引介**（introduction）：一种特殊的增强，可以动态地为类添加一些属性和方法
-- **织入**（Weabing）：织入是将增强添加到目标类的具体连接点上的过程。可以分为 3 种类型的织入：
+- **织入**（Weabing）：织入是将增强添加到目标类的具体连接点上的过程。
+
+#### 织入有哪几种方式？
 
 ①、编译期织入：切面在目标类编译时被织入。
 
 ②、类加载期织入：切面在目标类加载到 JVM 时被织入。需要特殊的类加载器，它可以在目标类被引入应用之前增强该目标类的字节码。
 
-③、运行期织入：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。Spring AOP 就是以这种方式织入切面。
+③、运行期织入：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。
 
-Spring 采用运行期织入，而 AspectJ 采用编译期织入和类加载器织入。
+Spring AOP 采用运行期织入，而 AspectJ 可以在编译期织入和类加载时织入。
+
+#### AspectJ 是什么？
+
+AspectJ 是一个 AOP 框架，它可以做很多 Spring AOP 干不了的事情，比如说支持编译时、编译后和类加载时织入切面。并且提供更复杂的切点表达式和通知类型。
+
+![AspectJ 官网](https://cdn.tobebetterjavaer.com/stutymore/spring-20240806100537.png)
+
+下面是一个简单的 AspectJ 示例：
+
+```java
+// 定义一个切面
+@Aspect
+public class LoggingAspect {
+
+    // 定义一个切点，匹配 com.example 包下的所有方法
+    @Pointcut("execution(* com.example..*(..))")
+    private void selectAll() {}
+
+    // 定义一个前置通知，在匹配的方法执行之前执行
+    @Before("selectAll()")
+    public void beforeAdvice() {
+        System.out.println("A method is about to be executed.");
+    }
+}
+```
+
 
 #### AOP 有哪些环绕方式？
 
@@ -1449,29 +1477,34 @@ public class WebLogAspect {
 }
 ```
 
-总结一下：
+#### Spring AOP 发生在什么时候？
+
+Spring AOP 基于运行时代理机制，这意味着 Spring AOP 是在运行时通过动态代理生成的，而不是在编译时或类加载时生成的。
+
+在 Spring 容器初始化 Bean 的过程中，Spring AOP 会检查 Bean 是否需要应用切面。如果需要，Spring 会为该 Bean 创建一个代理对象，并在代理对象中织入切面逻辑。这一过程发生在 Spring 容器的后处理器（BeanPostProcessor）阶段。
+
+![二哥的 Java 进阶之路：BeanPostProcessor](https://cdn.tobebetterjavaer.com/stutymore/spring-20240806102547.png)
+
+#### 简单总结一下 AOP
 
 AOP，也就是面向切面编程，是一种编程范式，旨在提高代码的模块化。比如说可以将日志记录、事务管理等分离出来，来提高代码的可重用性。
 
 AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知（Advice）、切点（Pointcut）和织入（Weaving）等。
 
-① 像日志打印、事务管理等都可以抽离为切面，可以声明在类的方法上。
+① 像日志打印、事务管理等都可以抽离为切面，可以声明在类的方法上。像 `@Transactional` 注解，就是一个典型的 AOP 应用，它就是通过 AOP 来实现事务管理的。我们只需要在方法上添加 `@Transactional` 注解，Spring 就会在方法执行前后添加事务管理的逻辑。
 
-② 在 Spring AOP 中，连接点总是表示方法的执行。
+② Spring AOP 是基于代理的，它默认使用 JDK 动态代理和 CGLIB 代理来实现 AOP。
 
-③ Spring AOP 支持五种类型的通知：前置通知、后置通知、环绕通知、异常通知、最终通知等。
+③ Spring AOP 的织入方式是运行时织入，而 AspectJ 支持编译时织入、类加载时织入。
 
-④ 在 AOP 中，切点用于指定我们想要在哪些连接点上执行通知的规则。
 
-⑤ 织入是指将切面应用到目标对象并创建新的代理对象的过程。Spring AOP 默认在运行时通过动态代理方式实现织入。
-
-像 `@Transactional` 注解，就是一个典型的 AOP 应用，它就是通过 AOP 来实现事务管理的。我们只需要在方法上添加 `@Transactional` 注解，Spring 就会在方法执行前后添加事务管理的逻辑。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 AOP 的原理。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说你对 AOP 和 IoC 的理解。
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Spring AOP 的实现原理
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：介绍 Spring IoC 和 AOP?
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：SpringBoot框架的AOP、IOC/DI？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Spring AOP发生在什么时候
 
 ### 20.你平时有用到 AOP 吗？
 

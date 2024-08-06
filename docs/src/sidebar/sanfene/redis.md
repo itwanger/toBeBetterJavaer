@@ -437,18 +437,18 @@ AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略
 
 ### 11.Redis 的数据恢复？
 
-当 Redis 发生了故障，可以从 RDB 或者 AOF 中恢复数据。
+当 Redis 中的数据丢失时，可以从 RDB 或者 AOF 中恢复数据。
 
-恢复的过程也很简单，把 RDB 或者 AOF 文件拷贝到 Redis 的数据目录下，如果使用 AOF 恢复，配置文件开启 AOF，然后启动 redis-server 即可。
+可以将 RDB 文件或者 AOF 文件复制到 Redis 的数据目录下，然后重启 Redis 服务，Redis 会自动加载数据文件并恢复数据。
 
-![Redis启动加载数据](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-f9aab5e9-a875-4316-9ec9-0c5650afe5c1.png)
+![三分恶面渣逆袭：Redis启动加载数据](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-f9aab5e9-a875-4316-9ec9-0c5650afe5c1.png)
 
 **Redis** 启动时加载数据的流程：
 
-1. AOF 持久化开启且存在 AOF 文件时，优先加载 AOF 文件。
+1. AOF 开启且存在 AOF 文件时，优先加载 AOF 文件。
 2. AOF 关闭或者 AOF 文件不存在时，加载 RDB 文件。
-3. 加载 AOF/RDB 文件成功后，Redis 启动成功。
-4. AOF/RDB 文件存在错误时，Redis 启动失败并打印错误信息。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Redis内存中数据丢失怎么解决
 
 ### 12.Redis 4.0 的混合持久化了解吗？
 
@@ -519,6 +519,7 @@ redis-cli config set appendfsync everysec
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis 的持久化机制？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 宕机哪种恢复的比较快？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：如何设置持久化模式
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：业界使用哪一种数据持久化，两种持久化方法的优缺点
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1976,6 +1977,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：为什么 hash 表范围查询效率比跳表低
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：zset 的底层原理
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：跳表的结构
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Redis跳表
 
 ### 50.压缩列表了解吗？
 
