@@ -415,7 +415,7 @@ public enum Singleton {
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：你有哪些熟悉的设计模式？
 
 
-## 05.什么是策略模式？
+## 05、什么是策略模式？
 
 策略模式（Strategy Pattern）是一种行为型设计模式，它定义了一系列的算法，将每个算法封装起来，使得它们可以相互替换。这种模式通常用于实现不同的业务规则或策略，其中每种策略封装了特定的行为或算法。
 
@@ -465,6 +465,7 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：谈谈对gpt的了解，大语言模型的原理，基于大模型如何去和一些业务做结合，有什么场景可以做，项目中用了哪些设计模式 
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：if else过多怎么解决？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：设计模式，策略模式
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：策略模式，自己的代码用过什么设计模式
 
 ---
 
