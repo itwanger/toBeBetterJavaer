@@ -27,6 +27,10 @@ head:
 
 ![三分恶面渣逆袭：消息队列解耦](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-dd332b3f-d5e5-41bc-813a-9f612e582255.jpg)
 
+像 [PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html) 中的任务审批，就用了 RocketMQ 来做解耦。
+
+![PmHub 的面试系列教程](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20240808102425.png)
+
 ②、**异步**：
 
 系统可以将那些耗时的任务放在消息队列中异步处理，从而快速响应用户的请求。比如说，用户下单后，系统可以先返回一个下单成功的消息，然后将订单信息放入消息队列中，后台系统再去处理订单信息。
@@ -51,6 +55,7 @@ head:
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：有了解过 MQ 吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 24 面试原题：如何用消息队列做削峰填谷的？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：项目里用 RocketMQ 做削峰，还有什么场景适合消息队列
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：RocketMQ有什么用，你一般拿来做什么
 
 ### 2.为什么要选择 RocketMQ?
 

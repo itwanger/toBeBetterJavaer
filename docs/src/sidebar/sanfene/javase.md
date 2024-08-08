@@ -487,6 +487,7 @@ class Wanger {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Java面向对象的特性，分别怎么理解的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Java面向对象的特点
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：讲一下JAVA的特性，什么是多态
 
 ### 17.多态解决了什么问题？（补充）
 
