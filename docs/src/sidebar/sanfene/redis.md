@@ -42,11 +42,7 @@ head:
 
 ![技术派专栏](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420093229.png)
 
-像用户活跃榜，主要是基于 Redis 的 Zset 实现的，可以根据 score（分值）进行排序，实时展示用户的活跃度。
 
-![技术派阅读活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420100012.png)
-
-当然了，这块也可以使用 Redis 的 zrevrange，直接倒序展示前 8 名用户。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
@@ -60,30 +56,31 @@ head:
 
 ### 2.Redis 可以用来干什么？
 
-![三分恶面渣逆袭：Redis的作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b02e44b3-3299-450f-b767-4a862b5ac8ff.png)
+Redis 可以用来做缓存、排行榜、分布式锁等等。
 
 ①、缓存
 
-Redis 最常见的用途就是作为缓存，由于所有数据都存储在内存中，所以 Redis 的读写速度非常快，远超基于磁盘存储的数据库。使用 Redis 缓存可以极大地提高应用的响应速度和吞吐量。
+缓存是 Redis 最常见的用途，由于 Redis 的数据存储在内存中，所以读写速度非常快，远超基于磁盘存储的数据库。使用 Redis 缓存可以极大地提高应用的响应速度和吞吐量。
 
 ![三分恶面渣逆袭：Redis缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d44c2397-5994-452f-8b7b-eb85d2b87685.png)
 
 ②、排行榜/计数器
 
-Redis 的 ZSet 非常适合用来实现排行榜的功能，同时 Redis 的原子递增操作可以用来实现计数器功能。
+Redis 的 ZSet 非常适合用来实现排行榜的功能，可以根据 score（分值）进行排序，实时展示用户的活跃度。
+
+![技术派阅读活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420100012.png)
+
+同时 Redis 的原子递增操作可以用来实现计数器功能。
 
 ③、分布式锁
 
-Redis 可以实现分布式锁，用来控制跨多个进程或服务器的资源访问。
+Redis 可以实现分布式锁，用来控制跨多个进程的资源访问。
 
-以一个[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)的用户服务为例吧：
-
-- Redis 可以用来存储 Token：用户登录成功之后，使用 Redis 的 hash 存储 Token
-- 使用 Redis 的 Zset 计数，登录失败超过一定次数，锁定账号
-- 使用 Redisson 实现分布式环境下的登录、注册等操作
+![二哥的 PmHub 实战教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240808101904.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下为什么要用 Redis 去存权限列表？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：redis有什么好处，为什么用redis
 
 ### 3.Redis 有哪些数据类型？
 
