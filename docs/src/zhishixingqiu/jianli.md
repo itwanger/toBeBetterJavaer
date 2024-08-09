@@ -18,11 +18,39 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/1e2f9b15ef2c2a4b7b0d8ee6f439ba5d.png)
 
-一年前，我在好朋友 Guide 哥的督促下建立了[二哥的编程星球](https://mp.weixin.qq.com/s/-NvJWJD_kZVzTHWN3sPP7Q)，一开始收到简历修改的需求还比较少，但随着球友不断的加入，尤其是秋招和春招时候，数量都会暴增，截止到目前，累计至少看过 1000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
+一年前，我在好朋友 Guide 哥的督促下建立了[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，一开始收到简历修改的需求还比较少，但随着球友不断的加入，尤其是秋招和春招时候，数量都会暴增，截止到目前，累计至少看过 3000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
 
-基本上都能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。下面将从我看过的简历中抽取两部分共性的问题分享出来，不吐不快，希望能帮助有需要的小伙伴们快速提升简历的书写能力。
+基本上都能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。
+
+很多球友在收到简历反馈后都能及时做出调整，每次收到球友们的感谢信，真的非常的开心，能帮大家解决问题，真的很有意义和成就感。
+
+![复旦大学的球友](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133240.png)
+
+面试季就要来喽，星球里最近也是收到了很多球友的简历，几乎每天都要花3-4 个小时的时间在简历修改的服务上面。
+
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809134418.png)
+
+但说句实在话，不少球友的简历写的牵强人意，甚至有些还在用七八年前直聘生成的简历模板，看起来不能说考古气息扑面而来吧，至少会替球友感到一些些惋惜。
+
+当然了，也会遇到赏心悦目的简历，这时候也会忍不住为球友送上满满的祝福，祝福他前程似锦。基本信息 ok、教育背景 ok、项目经历 ok、荣誉证书 ok、专业技能 ok，完全不给挑毛病的机会（🤣）。
+
+
+![](https://files.mdnice.com/user/3903/a5cfe09b-a18c-4948-ab7b-cc63681b5e09.png)
+
+今天就给大家提供一份我觉得确实简洁大方的简历模板供大家参考。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809134434.png)
+
+①、基本信息中电话、邮箱、网站、党员、应届生、求职意向等信息都有。
+
+②、教育背景中不仅给出了毕业时间、院校专业、GPA，还有荣誉奖项。
+
+③、实习经历中也是根据自己所学的知识，以及公司的业务进行了一些优化。技术栈和业务紧密结合，并且给出了量化数据，以及 leader 的认可等关键信息。
+
+④、专业技能也完全按照我之前的要求去写了。
 
 ## 01、专业技能一定要专业
 
@@ -45,6 +73,14 @@ head:
 - **JVM**：熟悉 Java 虚拟机，对 JMM、GC 底层算法、常见垃圾回收器较为熟悉，熟练掌握 JVM 调优并能在工作中加以运用，对 Class 文件、类加载机制作过深入研究。
 - **Redis**：熟悉 Redis 的常见数据类型和应用场景，以及持久化、过期淘汰策略、分布式锁等特性，能够解决高并发下的缓存穿透、雪崩、击穿问题。
 
+我把星球里修改过我觉得非常不错的简历都放到这个【[精选简历](https://t.zsxq.com/07eet6DJ1)】帖子里，需要的可以[戳链接](https://t.zsxq.com/07eet6DJ1)直达。
+
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133859.png)
+
+我截图大家感受一下。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133959.png)
 
 ## 02、项目经历一定要扎实
 
@@ -71,10 +107,6 @@ head:
 - 成果业绩（数据量化）
 
 我就直接拿二哥的[原创开源项目技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)来展示吧，相信大家看完后就知道怎么去写了。
-
-
-![](https://cdn.tobebetterjavaer.com/images/20230602/d7d341c557e7470d9fb41245e5bb4209.png)
-
 
 项目名称：技术派社区项目（2023.7-2023.9）
 
@@ -108,6 +140,37 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/47d108d7a673bc7e9251eec7b64f97e8.png)
 
+最新版的【[如何把技术派写到简历上？](https://paicoding.com/article/detail/472)】的帖子，大家戳👉下面这个链接：
+
+[如何把技术派写到简历上？](https://paicoding.com/article/detail/472)
+
+接着来看 [PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html) 的，这是一个微服务分布式的项目，所以主要职责里就涉及到了比较多技术派当中没有涉及到技术栈。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809134727.png)
+
+比如说：
+
+- ①、Spring Cloud 和 Gateway
+- ②、Redis 和 Lua 脚本
+- ③、Skywalking 做性能监控和分布式追踪
+- ④、OpenFeign和 Sentinel 实现服务降级和限流
+- ⑤、Redis 的分布式锁
+- ⑥、Seata 分布式事务的 AT 模式
+- ⑦、TransmittableThreadLocal (TTL) 自定义请求头拦截器
+- ⑧、Docker Compose 实现容器化部署等
+
+其实项目经历还是非常好写的，两个基本要素，技术栈+业务，千万不要写纯业务，看起来就像是流水账，也不要只写技术栈，没有实际的业务，看起来就像是抄的。
+
+技术栈和业务这两个基本要素有了之后，就是添砖加瓦，让你这一行的描述看起来优雅高级，比如说解决了什么问题，提高了多少效率，收到了多少好评。
+
+一些必要的量化数据是最好的。比如说：
+
+>将数据从定时调用 Feign 服务落地到 Redis，再逐步同步到 MySQL 中，并使用 SpringCache+Redis 和增加索引以提升接口性能，接口响应时间从 200ms 降低到 50ms。
+
+再比如说：
+
+>经线上数据验证，通过仅存储热点数据，新的存储架构在不牺牲性能的前提下满足了业务需求，素材缓存命中率达到 99.86%，存储成本年降低 54.6%，节省超过 90 万的成本，高峰期任务处理时间平均减少了 5.3%。
+
 如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 狗眼的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 4000+位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 149 元，我真的不希望你等到 169 元的时候再加入。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/952047c145246bf6c26ea96c97326602.png)
+![星球付费专栏优惠券](https://cdn.tobebetterjavaer.com/stutymore/readme-jvm-thread.png)
