@@ -581,8 +581,17 @@ Redis 的主从复制是异步进行的，这意味着主节点在执行完写�
 
 ![极客时间：Redis 核心技术与实战](https://cdn.tobebetterjavaer.com/stutymore/redis-20240709135618.png)
 
+#### Redis解决单点故障主要靠什么？
+
+主从复制，当主节点发生故障时，可以通过手动或自动方式将某个从节点提升为新的主节点，继续对外提供服务，从而避免单点故障。
+
+Redis 的哨兵机制（Sentinel）可以实现自动化的故障转移，当主节点宕机时，哨兵会自动将一个从节点升级为新的主节点。
+
+另外，集群模式下，当某个节点发生故障时，Redis Cluster 会自动将请求路由到其他节点，并通过从节点进行故障恢复。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 1 面试原题：Redis 分布式，主从，一个节点挂掉怎么办
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：redis 的主从架构和主从哨兵区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：Redis解决单点故障主要靠什么？主从模式用的是异步还是同步？
 
 ### 14.Redis 主从有几种常见的拓扑结构？
 
@@ -1750,11 +1759,69 @@ try {
 
 其中 hincrby 命令用于对哈希表中的字段值执行自增操作，pexpire 命令用于设置键的过期时间。比 SETNX 更优雅。
 
+#### PmHub 系统里面的分布式锁是怎么做的？
+
+主要通过 Redisson 框架实现的 RedLock 来完成的。
+
+```java
+// 创建 Redisson 客户端配置
+Config config = new Config();
+config.useClusterServers()
+        .addNodeAddress("redis://127.0.0.1:6379",
+                "redis://127.0.0.1:6380",
+                "redis://127.0.0.1:6381"); // 假设有三个 Redis 节点
+// 创建 Redisson 客户端实例
+RedissonClient redissonClient = Redisson.create(config);
+// 创建 RedLock 对象
+RLock redLock = redissonClient.getLock("lock_key");
+
+try {
+    // 尝试获取分布式锁，最多尝试 5 秒获取锁，并且锁的有效期为 5000 毫秒
+    boolean lockAcquired = redLock.tryLock(5, 5000, TimeUnit.MILLISECONDS);
+    if (lockAcquired) {
+        // 加锁成功，执行业务代码...
+    } else {
+        System.out.println("Failed to acquire the lock!");
+    }
+} catch (InterruptedException e) {
+    Thread.currentThread().interrupt();
+    System.err.println("Interrupted while acquiring the lock");
+} finally {
+    // 无论是否成功获取到锁，在业务逻辑结束后都要释放锁
+    if (redLock.isLocked()) {
+        redLock.unlock();
+    }
+    // 关闭 Redisson 客户端连接
+    redissonClient.shutdown();
+}
+```
+
+#### 你提到了Redlock，那它机制是怎么样的？
+
+Redlock 是 Redis 作者提出的一种分布式锁实现方案，用于确保在分布式环境下安全可靠地获取锁。它的目标是在分布式系统中提供一种高可用、高容错的锁机制，确保在同一时刻，只有一个客户端能够成功获得锁，从而实现对共享资源的互斥访问。
+
+Redisson 中的 RedLock 是基于 RedissonMultiLock（联锁）实现的。
+
+![二哥的 Java 进阶之路：RedissonRedLock](https://cdn.tobebetterjavaer.com/stutymore/redis-20240816113330.png)
+
+RedissonMultiLock 的 tryLock 方法会在指定的 Redis 实例上逐一尝试获取锁。
+
+在获取锁的过程中，Redlock 会根据配置的 waitTime（最大等待时间）和 leaseTime（锁的持有时间）进行灵活控制。比如，如果获取锁的时间小于锁的有效期（通过TTL命令获取锁的剩余时间），则表示获取锁成功。
+
+通常，至少需要多数（如 5 个实例中的 3 个）实例成功获取锁，才能认为整个锁获取成功。
+
+如果指定了锁的持有时间（leaseTime），在成功获取锁后，Redlock 会为锁进行续期，以防止锁在操作完成之前意外失效。
+
+#### 红锁能不能保证百分百上锁？
+
+Redlock 不能保证百分百上锁，因为在分布式系统中，网络延迟、时钟漂移、Redis 实例宕机等因素都可能导致锁的获取失败。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：分布式锁用了 Redis 的什么数据结构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redisson 的底层原理？以及与 SETNX 的区别？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：redis 分布式锁的实现原理？setnx？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米同学 F 面试原题：自己实现 redis 分布式锁的坑（主动提了 Redission）
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 20 二面面试原题：redission 的原理是什么？ setnx + lua 脚本？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：系统里面分布式锁是怎么做的？你提到了redlock，那它机制是怎么样的？红锁能不能保证百分百上锁？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
