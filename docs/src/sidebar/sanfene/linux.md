@@ -1,7 +1,7 @@
 ---
-title: Linux面试题，1道Linux八股文（1万字1张手绘图），面渣逆袭必看👍
+title: Linux面试题，1道Linux八股文（1万字2张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Linux
-description: 下载次数超 1 万次，1 万字 1 张手绘图，详解 1 道 Linux 面试高频题（让天下没有难背的八股），面渣背会这些 Linux 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1 万字 2 张手绘图，详解 2 道 Linux 面试高频题（让天下没有难背的八股），面渣背会这些 Linux 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 沉默王二
 category:
   - 面渣逆袭
@@ -32,6 +32,19 @@ head:
 - `mkdir`：创建新目录。
 - `cat`：查看文件内容。`cat file1 file2`合并文件内容显示。
 
+#### 如何查看系统的日志文件？
+
+在 Linux 中，可以通过 cat、more、less、tail、head 等命令查看系统日志文件。
+
+也可以直接通过 vim 打开日志文件，然后按照关键字去搜查对应的日志信息。
+
+常见的系统日志文件包括：
+
+- `/var/log/syslog`：包含系统范围内的消息和错误日志，包括启动日志、内核日志等，是排查系统问题的首选日志文件之一。
+- `/var/log/messages`：类似于 syslog，但通常更多关注系统级别的消息和错误。
+
+> 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：如何查看系统日志文件，常见的系统日志文件有哪些
+
 ### 系统管理的命令有哪些？
 
 - `ps`：显示当前运行的进程。`ps aux`显示所有进程。
@@ -42,6 +55,38 @@ head:
 - `free`：显示内存和交换空间的使用情况。
 - `chmod`：更改文件或目录的权限。
 - `chown`：更改文件或目录的所有者和所属组。
+
+#### 如何查看系统负载？
+
+top 命令是实时查看系统性能的常用工具，系统负载信息通常显示在 top 命令输出的顶部。它还显示了系统运行的进程、内存使用情况等。
+
+![二哥的 Java 进阶之路：TOP 命令](https://cdn.tobebetterjavaer.com/stutymore/linux-20240813114745.png)
+
+> 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：如何查看系统负载，系统中的 load average 含义是什么
+
+#### Load Average 是什么？
+
+load average 是一个反映系统负载的指标，表示在一段时间内系统正在处理的平均进程数量。通常，它包含三个数值，分别对应过去 1 分钟、5 分钟和 15 分钟的平均负载。
+
+比如说上图中出现的 `load average: 1.80, 1.74, 1.83` 表示：
+
+- 1.80：表示过去 1 分钟内，系统平均有 1.80 个进程在等待处理（包括 CPU 正在处理和等待被调度的进程）。
+- 1.74：表示过去 5 分钟内的平均负载。
+- 1.83：表示过去 15 分钟内的平均负载。
+
+load average 的数值可以看作是系统的工作队列长度（等待处理的任务数量）。如果这个数值接近或等于 CPU 核心数，说明系统的负载是合理的。
+
+如果 load average 大于 CPU 核心数，表示系统的进程比 CPU 能处理的多，系统可能处于过载状态。
+
+在单核系统中，load average 数值超过 1 通常意味着系统繁忙（有任务在等待 CPU）。
+
+在多核系统中，假设有 N 个 CPU 核心，load average 接近 N 时表示系统正处于高负载状态，但还在可接受范围内。如果 load average 超过 N，则意味着系统可能过载。
+
+macOS 上可以通过 `sysctl -a | grep machdep.cpu.core_count` 查看 CPU 核心数，我本机目前是 16 核。
+
+![二哥的 Java 进阶之路：macOS 的 CPU 核心数](https://cdn.tobebetterjavaer.com/stutymore/linux-20240813115642.png)
+
+> 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：如何查看系统负载，系统中的 load average 含义是什么
 
 #### chmod 的参数讲一下？
 
@@ -132,9 +177,40 @@ find /var/log -name "*.log" -mtime +7
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经同学 5 Java 后端面试原题：Liunx 下查找一个文件怎么做
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：chmod 的参数讲一下?
 
+## 2. Linux 系统管理
+
+### 用户和用户组有什么区别？
+
+在 Linux 中，用户和用户组是系统权限管理的核心概念。
+
+每个用户在 Linux 中都有一个独立的账户，用于标识该用户并控制其对系统资源的访问。用户包括普通用户和超级用户（root）。普通用户的权限有限，只能访问和修改自己拥有的文件和目录，而超级用户拥有系统的最高权限，能够执行任何操作。
+
+每个用户在系统中都有一个唯一的用户 ID（UID），以及一个关联的用户名（login name）。
+
+用户组是用户的集合，用于简化权限管理。每个用户可以属于一个或多个用户组，而每个用户组都有一个唯一的组 ID（GID）。通过将用户分配到不同的组，系统可以更方便地管理对文件和目录的访问权限。
+
+一个文件或目录可以由一个用户和一个用户组拥有，系统根据文件或目录的所有者和所属组来确定其他用户对它的访问权限。
+
+可以使用 groupadd 命令来创建新的用户组。例如：
+
+```shell
+sudo groupadd developers
+```
+
+可以使用 useradd 命令来创建新的用户。创建用户时可以指定该用户的默认用户组、主目录等。例如，创建一个名为 johndoe 的用户，并将其添加到 developers 组：
+
+```shell
+sudo useradd -m -g developers johndoe
+```
+
+- `-m`：表示创建用户的同时创建用户的主目录（通常在`/home/username`）。
+- `-g`：指定用户的初始用户组。
+
+> 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：解释linux中的用户和用户组概念，如何创建新用户和用户组
+
 ---
 
-图文详解 1 道 Linux 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二。
+图文详解 2 道 Linux 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
