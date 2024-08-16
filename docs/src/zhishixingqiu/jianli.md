@@ -73,7 +73,7 @@ head:
 - **JVM**：熟悉 Java 虚拟机，对 JMM、GC 底层算法、常见垃圾回收器较为熟悉，熟练掌握 JVM 调优并能在工作中加以运用，对 Class 文件、类加载机制作过深入研究。
 - **Redis**：熟悉 Redis 的常见数据类型和应用场景，以及持久化、过期淘汰策略、分布式锁等特性，能够解决高并发下的缓存穿透、雪崩、击穿问题。
 
-我把星球里修改过我觉得非常不错的简历都放到这个【[精选简历](https://t.zsxq.com/07eet6DJ1)】帖子里，需要的可以[戳链接](https://t.zsxq.com/07eet6DJ1)直达。
+我把我修改过的，觉得非常不错的简历都放到星球这个【[精选简历](https://t.zsxq.com/07eet6DJ1)】的帖子里了，需要的可以[戳链接](https://t.zsxq.com/07eet6DJ1)直达。
 
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133859.png)

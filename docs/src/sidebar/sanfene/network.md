@@ -1193,59 +1193,62 @@ TCP 延迟确认的策略：
 
 ### 42.说说 TCP 的重传机制？
 
-重传包括**超时重传、快速重传、带选择确认的重传（SACK）、重复 SACK 四种**。
+超时重传机制是 TCP 的核心之一，它能确保在网络传输中如果某些数据包丢失或没有及时到达的话，TCP 能够重新发送这些数据包，以保证数据完整性。
 
-![TCP 重传分类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-6aa21a4b-9148-43d9-918a-7b2cf9933ed8.jpg)
+其原理是在发送某个数据后开启一个计时器，如果在一定时间内没有得到发送数据报的 ACK 报文，就重新发送数据，直到发送成功为止。
 
-##### 超时重传
+重传包括**超时重传、快速重传、带选择确认的重传（SACK）和重复 SACK 四种**。
 
-超时重传，是 TCP 协议保证数据可靠性的另一个重要机制，其原理是在发送某一个数据以后就开启一个计时器，在一定时间内如果没有得到发送的数据报的 ACK 报文，那么就重新发送数据，直到发送成功为止。
+![三分恶面渣逆袭：TCP 重传分类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-6aa21a4b-9148-43d9-918a-7b2cf9933ed8.jpg)
 
-> **超时时间应该设置为多少呢？**
 
-先来看下什么叫 **RTT（Round-Trip Time，往返时间）**。
+#### 超时时间应该设置为多少呢？
 
-![RTT](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-1ddf0bc7-ab7f-4779-8251-a73638e0c3d9.jpg)
+TCP 中的重传超时时间（RTO，Retransmission Timeout）不是一个固定的值，而是动态计算的，目的是为了适应不同的网络条件。
 
-RTT 就是数据完全发送完，到收到确认信号的时间，即数据包的一次往返时间。
+RTO 有个标准方法的计算公式，叫 **Jacobson / Karels 算法**。
 
-超时重传时间，就是 RTO（Retransmission Timeout)。那么，**RTO 到底设置多大呢？**
+①、计算 SRTT（Smoothed RTT，平滑往返时间），以避免单次测量中的抖动影响重传时间。
 
-- 如果 RTO 设置很大，等了很久都没重发，这样肯定就不行。
-- 如果 RTO 设置很小，那很可能数据都没有丢失，就开始重发了，这会导致网络阻塞，从而恶性循环，导致更多的超时出现。
+```
+SRTT = (1 - α) * SRTT + α * RTT
+```
+
+其中，α 是一个常量，通常取值为 0.125（即1/8），表示新测量值对平滑RTT的影响比例。
+
+RTT，也就是 Round-Trip Time，往返时间，即数据包从发送到接收到确认的时间。TCP 会对每个数据包的 RTT 进行测量，并不断更新这个值。
+
+![三分恶面渣逆袭：RTT](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-1ddf0bc7-ab7f-4779-8251-a73638e0c3d9.jpg)
+
+
+②、计算 RTTVAR (RTT Variation，表示RTT的变化量，用于衡量RTT的波动)
+
+```
+RTTVAR = (1 - β) * RTTVAR + β * (|RTT - SRTT|)
+```
+
+β 通常取值为 0.25（即1/4），表示对RTTVAR更新的权重。
+
+③、最后，得出最终的 RTO
+
+```
+RTO = SRTT + max(G, 4 x RTTVAR)  
+```
+
+G 是一个小的常量偏移量，用来防止RTO过小。一般来说，G 的值通常是1毫秒。
 
 一般来说，RTO 略微大于 RTT，效果是最佳的。
 
-其实，RTO 有个标准方法的计算公式，也叫 **Jacobson / Karels 算法**。
-
-1.  首先计算 SRTT（即计算平滑的 RTT）
-
-```
-SRTT = (1 - α) * SRTT + α * RTT  //求 SRTT 的加权平均
-```
-
-2.  其次，计算 RTTVAR (round-trip time variation)
-
-```
-RTTVAR = (1 - β) * RTTVAR + β * (|RTT - SRTT|) //计算 SRTT 与真实值的差距
-```
-
-3.  最后，得出最终的 RTO
-
-```
-RTO = µ * SRTT + ∂ * RTTVAR  =  SRTT + 4·RTTVAR  
-```
-
-在 Linux 下，**α = 0.125**，**β = 0.25**， **μ = 1**，**∂ = 4**。别问这些参数是怎么来的，它们是大量实践，调出的最优参数。
+- 如果 RTO 设置很大，可能等了很久都没有重发。
+- 如果 RTO 设置很小，那很可能数据还没有丢失，就开始重发了。
 
 超时重传不是十分完美的重传方案，它有这些缺点：
 
-- 当一个报文丢失时，会等待一定的超时周期，才重传分组，增加了端到端的时延。
-- 当一个报文丢失时，在其等待超时的过程中，可能会出现这种情况：其后的报文段已经被接收端接收但却迟迟得不到确认，发送端会认为也丢失了，从而引起不必要的重传，既浪费资源也浪费时间。
+- 当报文丢失时，需要等待一定的超时周期，才开始重传。
+- 当报文丢失时，在等待超时的过程中，可能会出现这种情况：后面的报文已经被接收端接收了但却迟迟得不到确认，发送端会认为也丢失了，从而引起不必要的重传。
+- 并且，对于 TCP 来说，如果发生一次超时重传，下次的时间间隔就会加倍。
 
-并且，对于 TCP，如果发生一次超时重传，时间间隔下次就会加倍。
-
-##### 快速重传
+#### 什么是快速重传？
 
 TCP 还有另外⼀种快速重传（**Fast Retransmit**）机制，它不以时间为驱动，⽽是以数据驱动重传。
 
@@ -1271,7 +1274,7 @@ TCP 还有另外⼀种快速重传（**Fast Retransmit**）机制，它不以时
 
 为了解决不知道该重传哪些 TCP 报⽂，于是就有 SACK ⽅法。
 
-##### 带选择确认的重传（SACK）
+#### 什么是带选择确认的重传（SACK）
 
 为了解决应该重传多少个包的问题? TCP 提供了**带选择确认的重传**（即 SACK，Selective Acknowledgment）。
 
@@ -1281,7 +1284,7 @@ TCP 还有另外⼀种快速重传（**Fast Retransmit**）机制，它不以时
 
 如上图中，发送⽅收到了三次同样的 ACK 确认报⽂，于是就会触发快速重发机制，通过 SACK 信息发现只有 200~299 这段数据丢失，则重发时，就只选择了这个 TCP 段进⾏重发。
 
-##### 重复 SACK（D-SACK）
+#### 什么是重复 SACK（D-SACK）
 
 D-SACK，英文是 Duplicate SACK，是在 SACK 的基础上做了一些扩展，主要用来告诉发送方，有哪些数据包，自己重复接受了。
 
@@ -1296,6 +1299,8 @@ DSACK 的目的是帮助发送方判断，是否发生了包失序、ACK 丢失�
 3499）
 
 - 于是接收⽅发现数据是重复收到的，于是回了⼀个 **SACK = 3000~3500**，告诉「发送⽅」 3000~3500 的数据早已被接收了，因为 ACK 都到了 4000 了，已经意味着 4000 之前的所有数据都已收到，所以这个 SACK 就代表着 D-SACK 。这样发送⽅就知道了，数据没有丢，是接收⽅的 ACK 确认报⽂丢了。
+
+> 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：解释一下TCP的超时重传机制
 
 ### 43.说说 TCP 的粘包和拆包？
 

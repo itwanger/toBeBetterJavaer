@@ -670,6 +670,7 @@ export default sidebar({
             "xian",
             "zhengzhou",
             "jinan",
+            "hefei",
           ],
         },
       ],
