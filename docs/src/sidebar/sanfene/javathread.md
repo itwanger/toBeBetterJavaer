@@ -1872,15 +1872,9 @@ try {
 }
 ```
 
-`new ReentrantLock() `默认创建的是非公平锁 NonfairSync。
+`new ReentrantLock() `默认创建的是非公平锁 NonfairSync。在非公平锁模式下，锁可能会授予刚刚请求它的线程，而不考虑等待时间。
 
-#### 公平锁 FairSync
-
-在公平锁模式下，锁会授予等待时间最长的线程。
-
-#### 非公平锁 NonfairSync
-
-在非公平锁模式下，锁可能会授予刚刚请求它的线程，而不考虑等待时间。
+ReentrantLock 也支持公平锁，该模式下，锁会授予等待时间最长的线程。
 
 ReentrantLock 内部通过一个计数器来跟踪锁的持有次数。
 
@@ -1890,9 +1884,10 @@ ReentrantLock 内部通过一个计数器来跟踪锁的持有次数。
 
 当线程调用`unlock()`方法时，ReentrantLock 会将持有锁的计数减 1，如果计数到达 0，则释放锁，并唤醒等待队列中的线程来竞争锁。
 
-![ReentrantLock 非公平锁加锁流程简图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-42.png)
+![三分恶面渣逆袭：ReentrantLock 非公平锁加锁流程简图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-42.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：公平锁和非公平锁 lock 怎么现实一个非公平锁
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲讲ReentrantLock
 
 ### 33.ReentrantLock 怎么实现公平锁的？
 
@@ -2770,6 +2765,7 @@ JDK 1.7 中的 ConcurrentHashMap 使用了分段锁机制，即 Segment 锁，�
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：ConcurrentHashMap 对 HashMap 的优化？ConcurrentHashMap 1.8 比 1.7 的优化在哪里？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：concurrenthashmap 如何保证线程安全？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：你说高并发下 ReentrantLock 性能比 synchronized 高，那为什么 ConcurrentHashMap 在 JDK 1.7 中要用 ReentrantLock，而在 JDK 1.8 要用 synchronized
+> 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲一下concurrenthashmap的实现原理
 
 ### 49.ConcurrentHashMap 怎么保证可见性？（补充）
 
@@ -3113,11 +3109,23 @@ public class ThreadPoolDemo {
 
 线程池允许的最大线程数量。当工作队列满了之后，线程池会创建新线程来处理任务，直到线程数达到这个最大值。
 
-**③、keepAliveTime**
+**③、workQueue**
+
+用于存放待处理任务的阻塞队列。当所有核心线程都忙时，新任务会被放在这个队列里等待执行。
+
+**④、handler**
+
+拒绝策略 RejectedExecutionHandler，定义了当线程池和工作队列都满了之后对新提交的任务的处理策略。常见的拒绝策略包括抛出异常、直接丢弃、丢弃队列中最老的任务、由提交任务的线程来直接执行任务等。
+
+**⑤、threadFactory**
+
+一个创建新线程的工厂。它用于创建线程池中的线程。可以通过自定义 ThreadFactory 来给线程池中的线程设置有意义的名字，或设置优先级等。
+
+**⑥、keepAliveTime**
 
 非核心线程的空闲存活时间。如果线程池中的线程数量超过了 corePoolSize，那么这些多余的线程在空闲时间超过 keepAliveTime 时会被终止。
 
-**④、unit**
+**⑦、unit**
 
 keepAliveTime 参数的时间单位：
 
@@ -3128,18 +3136,6 @@ keepAliveTime 参数的时间单位：
 - TimeUnit.MILLISECONDS; 毫秒
 - TimeUnit.MICROSECONDS; 微秒
 - TimeUnit.NANOSECONDS; 纳秒
-
-**⑤、workQueue**
-
-用于存放待处理任务的阻塞队列。当所有核心线程都忙时，新任务会被放在这个队列里等待执行。
-
-**⑥、threadFactory**
-
-一个创建新线程的工厂。它用于创建线程池中的线程。可以通过自定义 ThreadFactory 来给线程池中的线程设置有意义的名字，或设置优先级等。
-
-**⑦、handler**
-
-拒绝策略 RejectedExecutionHandler，定义了当线程池和工作队列都满了之后对新提交的任务的处理策略。常见的拒绝策略包括抛出异常、直接丢弃、丢弃队列中最老的任务、由提交任务的线程来直接执行任务等。
 
 #### 能简单说一下参数之间的关系吗？
 
@@ -3194,6 +3190,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说说线程池的几个重要参数
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：核心线程和最大线程的区别是什么？核心线程能销毁吗？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：核心线程数不够会怎么进行处理
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
 
 ### 57.线程池的拒绝策略有哪些？
 
@@ -3346,6 +3343,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 - newScheduledThreadPool (定时及周期执行的线程池)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪同学 1 面试原题：有没有用过线程池，线程池有哪几种？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
 
 ### 63.能说一下四种常见线程池的原理吗？
 

@@ -622,12 +622,6 @@ public class ToolFactoryBean implements FactoryBean<Tool> {
 
 推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
 
-在 Spring 中，基本容器 BeanFactory 和扩展容器 ApplicationContext 的实例化时机不太一样，BeanFactory 采用的是延迟初始化的方式，也就是说，只有在第一次 `getBean()` 获取 Bean 的时候，才会实例化 Bean。
-
-而 ApplicationContext 会在启动时预先创建并初始化所有的 Bean，并且包含了 BeanFactory 的所有功能，还增加了国际化支持、事件传播等功能。在 Spring Boot 项目中，一般使用的是 ApplicationContext。
-
-![三分恶：BeanFactory 和 ApplicationContext 的不同](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311095813.png)
-
 Spring 中 Bean 的生命周期大致分为四个阶段：**实例化**（Instantiation）、**属性赋值**（Populate）、**初始化**（Initialization）、**销毁**（Destruction）。
 
 ![三分恶面渣逆袭：Bean生命周期四个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
@@ -676,11 +670,11 @@ protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable
 
 源码位置，见下图：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101430.png)
+![二哥的 Java 进阶之路：doCreateBean 方法源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101430.png)
 
 至于销毁，是在容器关闭的时候调用的，详见 `ConfigurableApplicationContext` 的 `close` 方法。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101658.png)
+![二哥的 Java 进阶之路：close 源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101658.png)
 
 **请在一个已有的 Spring Boot 项目中通过单元测试的形式来展示 Spring Bean 的生命周期**。
 
@@ -902,6 +896,7 @@ LifecycleDemoBean: customDestroy（自定义销毁方法）
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring中bean生命周期
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲一下Spring Bean的生命周期
 
 ### 10.Bean 定义和依赖定义有哪些方式？
 
@@ -1959,6 +1954,7 @@ Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `Se
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的传播机制
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：事务传播，protected 和 private 加事务会生效吗,还有那些不生效的情况
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Spring 中的事务的隔离级别，事务的传播行为？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲一下Spring事务传播机制
 
 ### 26.声明式事务实现原理了解吗？
 
