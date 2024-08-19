@@ -20,13 +20,19 @@ head:
 
 一年前，我在好朋友 Guide 哥的督促下建立了[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，一开始收到简历修改的需求还比较少，但随着球友不断的加入，尤其是秋招和春招时候，数量都会暴增，截止到目前，累计至少看过 3000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
+![二哥的编程星球：简历修改](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819151935.png)
 
-基本上都能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。
+![二哥的编程星球：简历修改](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
+
+基本上都能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。点击【简历修改】菜单就可以看望以往修改的简历信息。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819152027.png)
 
 很多球友在收到简历反馈后都能及时做出调整，每次收到球友们的感谢信，真的非常的开心，能帮大家解决问题，真的很有意义和成就感。
 
 ![复旦大学的球友](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133240.png)
+
+![四川大学的球友获得百度实习 offer](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819151830.png)
 
 面试季就要来喽，星球里最近也是收到了很多球友的简历，几乎每天都要花3-4 个小时的时间在简历修改的服务上面。
 

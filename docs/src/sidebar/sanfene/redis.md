@@ -727,13 +727,29 @@ Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同�
 
 ### 20.领导者 Sentinel 节点选举了解吗？
 
-Redis 使用了 Raft 算法实 现领导者选举，大致流程如下：
-![领导者Sentinel节点选举](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6586ae3c-6b33-4c9f-8137-f02fc0e6cfae.png)
+Redis 使用 Raft 算法实现领导者选举的：当主节点挂掉后，新的主节点是由剩余的从节点发起选举后晋升的。
 
-1. 每个在线的 Sentinel 节点都有资格成为领导者，当它确认主节点主观 下线时候，会向其他 Sentinel 节点发送 sentinel is-master-down-by-addr 命令， 要求将自己设置为领导者。
-2. 收到命令的 Sentinel 节点，如果没有同意过其他 Sentinel 节点的 sentinel is-master-down-by-addr 命令，将同意该请求，否则拒绝。
-3. 如果该 Sentinel 节点发现自己的票数已经大于等于 max（quorum， num（sentinels）/2+1），那么它将成为领导者。
-4. 如果此过程没有选举出领导者，将进入下一次选举。
+![二哥的 Java 进阶之路：领导者Sentinel节点选举](https://cdn.tobebetterjavaer.com/stutymore/redis-20240819112712.png)
+
+①、每个在线的 Sentinel 节点都有资格成为领导者，当它确认主节点下线时候，会向其他哨兵节点发送命令，表明希望由自己来执行主从切换，并让所有其他哨兵进行投票。
+
+这个投票过程称为“Leader 选举”。候选者会给自己先投 1 票，然后向其他 Sentinel 节点发送投票的请求。
+
+②、收到请求的 Sentinel 节点会进行判断，如果候选者的日志与自己的日志一样新，任期号也小于自己，且之前没有投票过，就会同意投票，回复 Y。否则回复 N。
+
+③、候选者收到投票后会统计支持自己的得票数，如果候选者获得了集群中超过半数节点的投票支持（即多数原则），它将成为新的主节点。
+
+新的主节点在确立后，会向其他从节点发送心跳信号，告诉它们自己已经成为主节点，并将其他节点的状态重置为从节点。
+
+④、如果多个节点同时成为候选者，并且都有可能获得足够的票数，这种情况下可能会出现选票分裂。也就是没有候选者获得超过半数的选票，那么这次选举就会失败，所有候选者都会再次发起选举。
+
+为了防止无限制的选举失败，每个节点都会有一个选举超时时间，且是随机的。
+
+>超时时间指从节点在没有收到主节点的心跳信号或日志追加请求后，等待多长时间才会认为主节点已挂掉，从而进入候选状态并发起选举。
+
+推荐阅读：[Raft算法的选主过程详解](https://hoverzheng.github.io/post/technology-blog/blockchain/raft%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A33--%E9%80%89%E4%B8%BB/)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：raft主节点挂了怎么选从节点
 
 ### 21.新的主节点是怎样被挑选出来的？
 
