@@ -19,7 +19,7 @@ head:
 
 我自己常用的 Linux 命令有 top 查看系统资源、ps 查看进程、netstat 查看网络连接、ping 测试网络连通性、find 查找文件、chmod 修改文件权限、kill 终止进程、df 查看磁盘空间、free 查看内存使用、service 启动服务、mkdir 创建目录、rm 删除文件、rmdir 删除目录、cp 复制文件、mv 移动文件、zip 压缩文件、unzip 解压文件等等这些。
 
-> 下面这些列表供大家作为参考，可以根据自己的实际情况进行选择。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：常用linux命令
 
 ### 文件操作的命令有哪些？
 
@@ -207,6 +207,30 @@ sudo useradd -m -g developers johndoe
 - `-g`：指定用户的初始用户组。
 
 > 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：解释linux中的用户和用户组概念，如何创建新用户和用户组
+
+### 如何用linux命令去查找某个qps?
+
+如果服务通过网络提供访问，可以使用 netstat 或 ss 命令统计特定端口的连接数，并结合 watch 命令来监控实时的连接速率。
+
+例如，统计 HTTPS 服务（通常运行在端口 443）每秒的请求数：
+
+```shell
+watch -n 1 "netstat -an | grep ':443 ' | grep ESTABLISHED | wc -l"
+```
+
+解释一下：
+
+- `netstat -an`：显示所有连接和监听端口。
+- `grep ':443 '`：过滤出端口 443 的连接。
+- `grep ESTABLISHED`：过滤出已经建立的连接。
+- `wc -l`：统计连接数。
+- `watch -n 1`：每秒刷新一次命令的输出。
+
+观察连接数的变化，可以大致估算出每秒的请求数。
+
+![二哥的 Java 进阶之路：技术派的 443 请求数](https://cdn.tobebetterjavaer.com/stutymore/linux-20240902112732.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：用linux命令去查找某个qps
 
 ---
 
