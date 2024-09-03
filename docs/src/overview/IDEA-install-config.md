@@ -28,17 +28,15 @@ IDEA 产于捷克，开发人员以严谨著称的东欧程序员为主，分为
 
 #### 下载 IDEA
 
-IntelliJ IDEA 的官方下载地址为：[https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download)
+IntelliJ IDEA 的官方下载地址为：[https://www.jetbrains.com/idea/download](https://www.jetbrains.com/idea/download)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-d7ac2335-4c65-442c-931e-994e00db4235.png)
+![jetbrains 下载 idea](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-d7ac2335-4c65-442c-931e-994e00db4235.png)
 
 UItimate 为付费版，主要针对的是企业级开发用户；Community 为免费版，主要针对的是个人用户。
 
-> 需要激活的戳这里[激活](https://javabetter.cn/nice-article/itmind/)
-
 功能上的差别如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-43e0ec45-acee-4c18-b0ff-ac7f4fc054f9.png)
+![IntelliJ IDEA 付费版和免费版](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-43e0ec45-acee-4c18-b0ff-ac7f4fc054f9.png)
 
 这里选择免费版为例，点击「Download」进行下载。稍等一分钟时间，大概 580M。
 
@@ -88,7 +86,7 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
 
-2、选择 Community 版本，旗舰版需要激活，你可以戳这里[激活](https://javabetter.cn/nice-article/itmind/)）。
+2、选择 Community 版本，旗舰版需要激活，我是通过 [技术派](https://github.com/itwanger/paicoding) 这个开源实战项目申请到的 License。（学生党也可以免费申请）
 
 确定后点击 Download 下载
 
@@ -101,7 +99,7 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 - 如果在“芯片”部分中看到 Apple M1（或更高版本），则意味着使用的是带有 Apple Silicon CPU 的 Mac。
 - 如果在“处理器”部分中看到英特尔处理器，则表示正在使用带有英特尔芯片的 Mac。
 
-瞧，我的就是英特尔芯片的（Intel）。
+瞧，我之前的电脑就是英特尔芯片的（Intel）。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-3977e9b4-9c26-4e00-bc88-1ac1f2f89d5e.png)
 
@@ -139,12 +137,11 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 
 ### 03、小结
 
-本文详细地介绍了如何在macOS和Windows操作系统上安装Intellij IDEA。你可以根据自己的操作系统选择不同的安装包，然后为自己搭建一个高效的编程环境。
+本文详细地介绍了如何在 macOS 和 Windows 操作系统上安装 Intellij IDEA。你可以根据自己的操作系统选择不同的安装包，然后为自己搭建一个高效的编程环境。
 
 ---
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
