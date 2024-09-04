@@ -32,6 +32,8 @@ head:
 
 并且是不限次数哦，直到改到我满意为止（注意是我，不是你，我的要求会比绝大多数 HR 甚至面试官都高）。
 
+![球友对简历修改建议的认可](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240904095436.png)
+
 118 份简历，修改建议超过 10 万字，这是多么恐怖的一个概念。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114116.png)
