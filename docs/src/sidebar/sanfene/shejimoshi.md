@@ -398,13 +398,15 @@ public enum Singleton {
 
 ## 04、了解哪些设计模式？
 
-比如说单例模式，在需要控制资源访问，如配置管理、连接池管理时经常使用单例模式。它确保了全局只有一个实例，并提供了一个全局访问点。
+单例模式、策略模式和工厂模式。
 
-在有多种算法或策略可以切换使用的情况下，我会使用策略模式。像[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用策略模式对接了讯飞星火、OpenAI 等多家 API 服务，实现了一个可以自由切换 AI 服务的对话聊天服务。
+在需要控制资源访问，如配置管理、连接池管理时经常使用单例模式。它确保了全局只有一个实例，并提供了一个全局访问点。
+
+在有多种算法或策略可以切换使用的情况下，我会使用策略模式。像[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用策略模式对接了讯飞星火、OpenAI、智谱 AI 等多家大模型，实现了一个可以自由切换大模型基座的智能助手服务。
 
 ![技术派派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240412223832.png)
 
-这样就不用在代码中写 if/else 判断，而是将不同的 AI 服务封装成不同的策略类，通过工厂模式创建不同的 AI 服务实例，从而实现 AI 服务的动态切换。
+策略模式的好处是，不用在代码中写 if/else 判断，而是将不同的 AI 服务封装成不同的策略类，通过工厂模式创建不同的 AI 服务实例，从而实现 AI 服务的动态切换。
 
 后面想添加新的 AI 服务，只需要增加一个新的策略类，不需要修改原有代码，这样就提高了代码的可扩展性。
 
@@ -413,6 +415,7 @@ public enum Singleton {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：介绍你熟悉的设计模式
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：你了解的设计模式
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：你有哪些熟悉的设计模式？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：说一说常用的设计模式
 
 
 ## 05、什么是策略模式？

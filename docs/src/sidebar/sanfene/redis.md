@@ -1691,49 +1691,59 @@ Lua 脚本能给开发人员带来这些好处：
 比如这一段很（烂）经（大）典（街）的秒杀系统利用 lua 扣减 Redis 库存的脚本：
 
 ```java
-   -- 库存未预热
-   if (redis.call('exists', KEYS[2]) == 1) then
-        return -9;
+-- 库存未预热
+if (redis.call('exists', KEYS[2]) == 1) then
+    return -9;
+end;
+-- 秒杀商品库存存在
+if (redis.call('exists', KEYS[1]) == 1) then
+    local stock = tonumber(redis.call('get', KEYS[1]));
+    local num = tonumber(ARGV[1]);
+    -- 剩余库存少于请求数量
+    if (stock < num) then
+        return -3
     end;
-    -- 秒杀商品库存存在
-    if (redis.call('exists', KEYS[1]) == 1) then
-        local stock = tonumber(redis.call('get', KEYS[1]));
-        local num = tonumber(ARGV[1]);
-        -- 剩余库存少于请求数量
-        if (stock < num) then
-            return -3
-        end;
-        -- 扣减库存
-        if (stock >= num) then
-            redis.call('incrby', KEYS[1], 0 - num);
-            -- 扣减成功
-            return 1
-        end;
-        return -2;
+    -- 扣减库存
+    if (stock >= num) then
+        redis.call('incrby', KEYS[1], 0 - num);
+        -- 扣减成功
+        return 1
     end;
-    -- 秒杀商品库存不存在
-    return -1;
+    return -2;
+end;
+-- 秒杀商品库存不存在
+return -1;
 ```
 
-### 44.Redis 的管道了解吗？
+### 44.Redis 的管道Pipeline了解吗？
 
-Redis 提供三种将客户端多条命令打包发送给服务端执行的方式：
+Pipeline 是 Redis 提供的一种优化手段，允许客户端一次性向服务器发送多个命令，而不必等待每个命令的响应，从而减少网络延迟。它的工作原理类似于批量操作，即多个命令一次性打包发送，Redis 服务器依次执行后再将结果一次性返回给客户端。
 
-Pipelining(管道) 、 Transactions(事务) 和 Lua Scripts(Lua 脚本) 。
+通常在 Redis 中，每个请求都会遵循以下流程：
 
-**Pipelining**（管道）
+1. 客户端发送命令到服务器。
+2. 服务器执行命令并将结果返回给客户端。
+3. 客户端接收返回结果。
 
-Redis 管道是三者之中最简单的，当客户端需要执行多条 redis 命令时，可以通过管道一次性将要执行的多条命令发送给服务端，其作用是为了降低 RTT(Round Trip Time) 对性能的影响，比如我们使用 nc 命令将两条指令发送给 redis 服务端。
+每一个请求和响应之间存在一次网络通信的往返时间（RTT，Round-Trip Time），如果大量请求依次发送，网络延迟会显著增加请求的总执行时间。
 
-Redis 服务端接收到管道发送过来的多条命令后，会一直执命令，并将命令的执行结果进行缓存，直到最后一条命令执行完成，再所有命令的执行结果一次性返回给客户端 。
-![Pipelining示意图`](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-38aee4c1-efd2-495e-8a6d-164d21a129b1.png)
+有了 Pipeline 后，流程变为：
 
-**Pipelining 的优势**
+>发送命令1、命令2、命令3…… -> 服务器处理 -> 一次性返回所有结果。
 
-在性能方面， Pipelining 有下面两个优势：
+例如，批量写入大量数据或执行一系列查询时，可以将这些操作打包通过 Pipeline 执行。
 
-- **节省了 RTT**：将多条命令打包一次性发送给服务端，减少了客户端与服务端之间的网络调用次数
-- **减少了上下文切换**：当客户端/服务端需要从网络中读写数据时，都会产生一次系统调用，系统调用是非常耗时的操作，其中设计到程序由用户态切换到内核态，再从内核态切换回用户态的过程。当我们执行 10 条 redis 命令的时候，就会发生 10 次用户态到内核态的上下文切换，但如果我们使用 Pipeining 将多条命令打包成一条一次性发送给服务端，就只会产生一次上下文切换。
+![三分恶面渣逆袭：Pipelining示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-38aee4c1-efd2-495e-8a6d-164d21a129b1.png)
+
+在 Pipeline 模式下，客户端不会在每条命令发送后立即等待 Redis 的响应，而是将多个命令依次写入 TCP 缓冲区，所有命令一起发送到 Redis 服务器。
+
+Redis 服务器接收到批量命令后，依次执行每个命令。
+
+Redis 服务器执行完所有命令后，将每条命令的结果一次性打包通过 TCP 返回给客户端。
+
+客户端一次性接收所有返回结果，并解析每个命令的执行结果。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：对pipeline的理解，什么场景适合使用pipeline？有了解过pipeline的底层？ 
 
 ### 45.Redis 实现分布式锁了解吗？
 

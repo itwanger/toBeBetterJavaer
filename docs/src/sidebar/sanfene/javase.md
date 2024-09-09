@@ -210,7 +210,10 @@ Integer i = 10;  //装箱
 int n = i;   //拆箱
 ```
 
+再换句话说，i 是 Integer 类型，n 是 int 类型；i 是包装器类，n 是基本数据类型。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：对应有哪些包装器类？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：int和Integer的区别 
 
 ### 10.&和&&有什么区别？
 
@@ -483,9 +486,134 @@ class Wanger {
 }
 ```
 
+#### 为什么Java里面要多组合少继承？
+
+继承适合描述“is-a”的关系，但继承容易导致类之间的强耦合，一旦父类发生改变，子类也要随之改变，违背了开闭原则（尽量不修改现有代码，而是添加新的代码来实现）。
+
+组合适合描述“has-a”或“can-do”的关系，通过在类中组合其他类，能够更灵活地扩展功能。组合避免了复杂的类继承体系，同时遵循了开闭原则和松耦合的设计原则。
+
+举个例子，假设我们采用继承，每种形状和样式的组合都会导致类的急剧增加：
+
+```java
+// 基类
+class Shape {
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+// 圆形
+class Circle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+// 带红色的圆形
+class RedCircle extends Circle {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a red circle");
+    }
+}
+
+// 带绿色的圆形
+class GreenCircle extends Circle {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a green circle");
+    }
+}
+
+// 类似的，对于矩形也要创建多个类
+class Rectangle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+class RedRectangle extends Rectangle {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a red rectangle");
+    }
+}
+```
+
+组合模式更加灵活，可以将形状和颜色分开，松耦合。
+
+```java
+// 形状接口
+interface Shape {
+    void draw();
+}
+
+// 颜色接口
+interface Color {
+    void applyColor();
+}
+```
+
+形状干形状的事情。
+
+```java
+// 圆形的实现
+class Circle implements Shape {
+    private Color color;  // 通过组合的方式持有颜色对象
+
+    public Circle(Color color) {
+        this.color = color;
+    }
+
+    @Override
+    public void draw() {
+        System.out.print("Drawing a circle with ");
+        color.applyColor();  // 调用颜色的逻辑
+    }
+}
+
+// 矩形的实现
+class Rectangle implements Shape {
+    private Color color;
+
+    public Rectangle(Color color) {
+        this.color = color;
+    }
+
+    @Override
+    public void draw() {
+        System.out.print("Drawing a rectangle with ");
+        color.applyColor();
+    }
+}
+```
+
+颜色干颜色的事情。
+
+```java
+// 红色的实现
+class RedColor implements Color {
+    @Override
+    public void applyColor() {
+        System.out.println("red color");
+    }
+}
+
+// 绿色的实现
+class GreenColor implements Color {
+    @Override
+    public void applyColor() {
+        System.out.println("green color");
+    }
+}
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Java 面向对象的特性，分别怎么理解的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Java 面向对象的特点
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：讲一下 JAVA 的特性，什么是多态
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：面向对象三大特性
 
 ### 17.多态解决了什么问题？（补充）
 
@@ -543,13 +671,13 @@ class Wanger {
 
 #### 什么是里氏代换原则？
 
-里氏代换原则也被称为李氏替换原则（Liskov Substitution Principle, LSP），其规定，任何父类可以出现的地方，子类也一定可以出现。
+里氏代换原则也被称为李氏替换原则（Liskov Substitution Principle, LSP），其规定任何父类可以出现的地方，子类也一定可以出现。
 
 ![里氏替换原则由芭芭拉·利斯科夫提出，照片摄于2010年](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321103119.png)
 
-LSP 是继承复用的基石，只有当子类可以替换掉父类，软件的单位功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。
+LSP 是继承复用的基石，只有当子类可以替换掉父类，并且单位功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。
 
-这意味着子类在扩展父类的功能时，不应改变父类原有的行为。例如，如果有一个方法接受一个父类对象作为参数，那么传入该方法的任何子类对象也都应该能使得方法正常工作。
+这意味着子类在扩展父类时，不应改变父类原有的行为。例如，如果有一个方法接受一个父类对象作为参数，那么传入该方法的任何子类对象也应该能正常工作。
 
 ```java
 class Bird {
@@ -580,7 +708,61 @@ class Ostrich extends Bird {
 
 ①、单一职责原则（Single Responsibility Principle, SRP），指一个类应该只有一个引起它变化的原因，即一个类只负责一项职责。这样做的目的是使类更加清晰，更容易理解和维护。
 
-②、开闭原则（Open-Closed Principle, OCP），指软件实体（类、模块、方法等）应该对扩展开放，对修改关闭。这意味着设计时应该易于扩展，添加新功能时，尽量不修改现有代码，而是通过添加新代码来实现。
+②、开闭原则（Open-Closed Principle, OCP），指软件实体应该对扩展开放，对修改关闭。这意味着一个类应该通过扩展来实现新的功能，而不是通过修改已有的代码来实现。
+
+举个例子，在不遵守开闭原则的情况下，有一个需要处理不同形状的绘图功能类。
+
+```java
+class ShapeDrawer {
+    public void draw(Shape shape) {
+        if (shape instanceof Circle) {
+            drawCircle((Circle) shape);
+        } else if (shape instanceof Rectangle) {
+            drawRectangle((Rectangle) shape);
+        }
+    }
+    
+    private void drawCircle(Circle circle) {
+        // 画圆形
+    }
+    
+    private void drawRectangle(Rectangle rectangle) {
+        // 画矩形
+    }
+}
+```
+
+每增加一种形状，就需要修改一次 draw 方法，这违反了开闭原则。正确的做法是通过继承和多态来实现新的形状类，然后在 ShapeDrawer 中添加新的 draw 方法。
+
+```java
+// 抽象的 Shape 类
+abstract class Shape {
+    public abstract void draw();
+}
+
+// 具体的 Circle 类
+class Circle extends Shape {
+    @Override
+    public void draw() {
+        // 画圆形
+    }
+}
+
+// 具体的 Rectangle 类
+class Rectangle extends Shape {
+    @Override
+    public void draw() {
+        // 画矩形
+    }
+}
+
+// 使用开闭原则的 ShapeDrawer 类
+class ShapeDrawer {
+    public void draw(Shape shape) {
+        shape.draw();  // 调用多态的 draw 方法
+    }
+}
+```
 
 ③、接口隔离原则（Interface Segregation Principle, ISP），指客户端不应该依赖它不需要的接口。这意味着设计接口时应该尽量精简，不应该设计臃肿庞大的接口。
 
@@ -588,6 +770,7 @@ class Ostrich extends Bird {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：设计方法，李氏原则，还了解哪些设计原则
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Java设计模式中的开闭原则，里氏替换了解嘛
 
 ### 19.访问修饰符 public、private、protected、以及不写（默认）时的区别？
 
@@ -753,6 +936,7 @@ public class Test {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：继承和抽象的区别
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：抽象类能写构造方法吗（能）接口能吗（不能）为什么二者有这样的区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术 2 面面试原题：接口可以多继承吗
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：接口和抽象类区别
 
 ### 22.成员变量与局部变量的区别有哪些？
 
@@ -800,6 +984,7 @@ public class Test {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 final 关键字
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：final 的用处
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：final
 
 ### 25.final、finally、finalize 的区别？
 
@@ -907,6 +1092,8 @@ if (p.hash == hash &&
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：hashcode 和 equals 方法只重写一个行不行，只重写 equals 没重写 hashcode，map put 的时候会发生什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：为什么重写 equals，建议必须重写 hashCode 方法
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：object 有哪些方法 hashcode 和 equals 为什么需要一起重写 不重写会导致哪些问题 什么时候会用到重写 hashcode 的场景
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：说一下hashcode()
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：hashcode和equal  
 
 ### 28.Java 是值传递，还是引用传递？
 
@@ -1273,6 +1460,8 @@ String 是不可变的，这意味着一旦一个 String 对象被创建，其�
 
 ③、因为 String 的内容不会改变，所以它的哈希值也就固定不变。这使得 String 对象特别适合作为 HashMap 或 HashSet 等集合的键，因为计算哈希值只需要进行一次，提高了哈希表操作的效率。
 
+### 字符串拼接是如何实现的？
+
 因为 String 是不可变的，因此通过“**+**”操作符进行的字符串拼接，会生成新的字符串对象。
 
 例如：
@@ -1287,7 +1476,7 @@ a 和 b 是通过双引号定义的，所以会在字符串常量池中，而 ab
 
 ![三分恶面渣逆袭：jdk1.8之前的字符串拼接](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-18.png)
 
-**Java 8 时**，JDK 对“+”号的字符串拼接进行了优化，Java 会在编译期基于 StringBuilder 的 append 方法进行拼接。
+Java 8 时，JDK 对“+”号的字符串拼接进行了优化，Java 会在编译期基于 StringBuilder 的 append 方法进行拼接。
 
 下面是通过 `javap -verbose` 命令反编译后的字节码，能清楚的看到 StringBuilder 的创建和 append 方法的调用。
 
@@ -1307,7 +1496,6 @@ stack=2, locals=4, args_size=1
     21: invokevirtual #7                  // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
     24: astore_3
     25: return
-
 ```
 
 也就是说，上面的代码相当于：
@@ -1330,6 +1518,10 @@ public String toString() {
     return new String(value, 0, count);
 }
 ```
+
+那除了使用 `+` 号来拼接字符串，还有 `StringBuilder.append()`、`String.join()` 等方式。
+
+推荐阅读：[如何拼接字符串？](https://javabetter.cn/string/join.html)
 
 #### 如何保证 String 不可变？
 
@@ -1362,6 +1554,7 @@ public final class String
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：String 是可变的吗，为什么要设计为不可变
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：String 不可变吗？为什么不可变？有什么好处？怎么保证不可变。
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：字符串拼接 
 
 ### 35.intern 方法有什么作用？
 
@@ -1709,7 +1902,7 @@ com.itwanger.Person
 
 推荐阅读：[一文彻底搞懂 Java 异常处理](https://javabetter.cn/exception/gailan.html)
 
-Java 中的异常处理机制用于处理程序运行过程中可能发生的各种异常情况，从而保证程序的健壮性。通常通过 try-catch-finally 语句和 throw 关键字来实现，确保程序在遇到错误时能够进行适当的处理，而不是直接崩溃。
+Java 中的异常处理机制用于处理程序运行过程中可能发生的各种异常情况，通常通过 try-catch-finally 语句和 throw 关键字来实现。
 
 ![三分恶面渣逆袭：Java异常体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-22.png)
 
@@ -1732,34 +1925,35 @@ Exception 类代表程序可以处理的异常。它分为两大类：编译时�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Error 和 Exception 都是谁的子类？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：对异常体系了解多少？
 > 5. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：什么是 java 中的异常处理，checked 异常和 unchecked 异常有什么区别
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：开发中遇到的一些异常，异常类型的父类，继承关系等，写程序中如何处理异常？ 
 
 ### 40.异常的处理方式？
 
-针对异常的处理主要有两种方式：
+![三分恶面渣逆袭：异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-23.png)
 
-![异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-23.png)
+①、遇到异常时可以不处理，直接通过throw 和 throws 抛出异常，交给上层调用者处理。
 
-- **遇到异常不进行具体处理，而是继续抛给调用者 （throw，throws）**
-
-抛出异常有三种形式，一是 throw,一个 throws，还有一种系统自动抛异常。
-
-throws 用在方法上，后面跟的是异常类，可以跟多个；而 throw 用在方法内，后面跟的是异常对象。
-
-- **try catch 捕获异常**
-
-在 catch 语句块中补货发生的异常，并进行处理。
+throws 关键字用于声明可能会抛出的异常，而 throw 关键字用于抛出异常。
 
 ```java
-       try {
-            //包含可能会出现异常的代码以及声明异常的方法
-        }catch(Exception e) {
-            //捕获异常并进行处理
-        }finally {
-            //可选，必执行的代码
-        }
+public void test() throws Exception {
+    throw new Exception("抛出异常");
+}
 ```
 
-try-catch 捕获异常的时候还可以选择加上 finally 语句块，finally 语句块不管程序是否正常执行，最终它都会必然执行。
+②、使用 try-catch 捕获异常，处理异常。
+
+```java
+try {
+    //包含可能会出现异常的代码以及声明异常的方法
+}catch(Exception e) {
+    //捕获异常并进行处理
+}finally {
+    //可选，必执行的代码
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：写程序中如何处理异常？ 
 
 ### 41.三道经典异常处理代码题
 

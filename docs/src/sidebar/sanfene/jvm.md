@@ -42,6 +42,7 @@ Java 程序运行的时候，编译器会将 Java 源代码（.java）编译成�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：有了解 JVM 吗
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：了解过 JVM 么？讲一下 JVM 的特性
 
+
 ### 2.说说 JVM 的组织架构（补充）
 
 > 本题是增补的内容，by 2024 年 03 月 08 日；
@@ -168,6 +169,7 @@ Java 中“几乎”所有的对象都会在堆中分配，堆也是[垃圾收�
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：说一说 jvm 内存区域
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：jmm 内存模型 栈 方法区存放的是什么
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：你提到了栈帧，那局部变量表除了栈帧还有什么？一个什么都没有的空方法，完全空的参数什么都没有，那局部变量表里有没有变量？
+> 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Java堆内存和栈内存的区别
 
 ### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -593,7 +595,7 @@ Java 堆被划分为**新生代**（Young Generation）和**老年代**（Old Ge
 
 ### 17.对象什么时候会进入老年代？
 
-对象通常会现在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
+对象通常会先在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
 
 ![二哥的 Java 进阶之路：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
 
@@ -611,11 +613,12 @@ Java 堆被划分为**新生代**（Young Generation）和**老年代**（Old Ge
 
 ③、**动态对象年龄判定**
 
-除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和总空间等因素动态调整对象的晋升策略。
+除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和内存空间等因素动态调整对象的晋升策略。
 
 比如说，在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：新生代对象转移到老年代的条件
 
 ### 18.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
 
@@ -1312,7 +1315,31 @@ printf "%x\n" PID
 
 ### 40.频繁 minor gc 怎么办？
 
-优化 Minor GC 频繁问题：通常情况下，由于新生代空间较小，Eden 区很快被填满，就会导致频繁 Minor GC，因此可以通过增大新生代空间`-Xmn`来降低 Minor GC 的频率。
+频繁的 Minor GC（也称为 Young GC）通常表示新生代中的对象频繁地被垃圾回收，可能是因为新生代空间设置过小，或者是因为程序中存在大量的短生命周期对象（如临时变量、方法调用中创建的对象等）。
+
+可以使用 GC 日志进行分析，查看 GC 的频率和耗时，找到频繁 GC 的原因。
+
+```shell
+-XX:+PrintGCDetails -Xloggc:gc.log
+```
+
+或者使用监控工具（如 VisualVM、jstat、jconsole 等）查看堆内存的使用情况，特别是新生代（Eden 和 Survivor 区）的使用情况。
+
+如果是因为新生代空间不足，可以通过 `-Xmn` 增加新生代的大小，减少新生代的填满速度。
+
+```shell
+java -Xmn256m your-app.jar
+```
+
+如果对象未能在 Survivor 区足够长时间存活，就会被晋升到老年代，可以通过 `-XX:SurvivorRatio` 参数调整 Eden 和 Survivor 的比例。默认比例是 8:1，表示 8 个空间用于 Eden，1 个空间用于 Survivor 区。
+
+```shell
+-XX:SurvivorRatio=6
+```
+
+这将减少 Eden 区的大小，增加 Survivor 区的大小，以确保对象在 Survivor 区中存活的时间足够长，避免过早晋升到老年代。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：young GC频繁如何排查？修改哪些参数？ 
 
 ### 41.频繁 Full GC 怎么办？
 
