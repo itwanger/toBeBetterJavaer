@@ -20,28 +20,15 @@ Google＞Bing＞微信搜索＞百度搜索
 
 我个人一般是这样的一个排序规则，没有歧视啊（注意，真的没有「认真脸」）。
 
-那要想使用 Google，就必须得学会咳血上网。有些互联网公司的 VPN 会自带咳血上网的功能，有些大学也会，如果公司/大学没有提供 VPN，可以参照这篇。
+## WildCard
 
-## 下载安装 Clash
+可以通过这个卡来支付 GPT 4o 和 Claude 服务。
 
-clash 是咳血上网的一个加速器，一个小软件，有 Windows、macOS、安卓、iOS（需要用Shadowrocket）等版本。
-
-访问以下网址：
-
-[https://repo.trojan-cdn.com/clash_for_windows_pkg/LatestRelease/](https://repo.trojan-cdn.com/clash_for_windows_pkg/LatestRelease/)
-
-- Windows 请下载 Clash.for.Windows.Setup.[版本号].exe 比如 Clash.for.Windows.Setup.0.19.21.exe
-- macOS 请下载 Clash.for.Windows-[版本号].dmg 比如 Clash.for.Windows-0.19.21.dmg
-
-Windows 直接双击打开 exe 文件进行安装，如果提示 阻止了无法识别的应用启动。 请点击更多信息，然后再点击仍要运行进行安装。
-
-macOS 直接双击打开 dmg 文件进行安装。
+>[https://bewildcard.com/i/GPT211](https://bewildcard.com/i/GPT211)
 
 ## 购买服务
 
 我选用的都是付费版本，这样觉得踏实稳定一些。
-
->PS:地址会不定期变更（你懂的）
 
 ### 服务 1：饿饭 cc 云服务
 
