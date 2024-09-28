@@ -496,6 +496,14 @@ public String trim() {
 
 举例：`"  沉默王二   ".trim()` 会返回"沉默王二"
 
+⑧、比如说 `toCharArray()` 用于将字符串转换为字符数组。
+
+```java
+String text = "沉默王二";
+char[] chars = text.toCharArray();
+System.out.println(Arrays.toString(chars));
+```
+
 除此之外，还有 [split](https://javabetter.cn/string/split.html)、[equals](https://javabetter.cn/string/equals.html)、[join](https://javabetter.cn/string/join.html) 等这些方法，我们后面会一一来细讲。
 
 ### 小结
