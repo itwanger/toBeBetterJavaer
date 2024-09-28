@@ -92,6 +92,22 @@ export PATH=${PATH}:${M2_HOME}/bin
 
 第二步，使用 `mvn -v` 命令查看版本
 
+**3）jenv 管理 JDK 和 Maven 版本**
+
+我电脑上之前出现了一次奇怪的版本问题，jenv 显示 JDK 版本为 1.8，但 Maven 显示 22.0.1，这两个版本不匹配，导致项目构建失败。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/maven-20240919040026.png)
+
+最后找到的解决方案是，jenv 有一个 Maven 插件，需要开启。
+
+```
+jenv enable-plugin maven
+```
+
+然后再次执行 `jenv global 1.8.0.412` 设置 JDK 版本，并且执行 `exec $SHELL` 刷新环境变量后，执行 `mvn -v` 查看 Maven 版本，发现已经匹配了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/maven-20240919040157.png)
+
 ### 二、Maven 配置文件大盘点
 
 Maven 是基于 POM（Project Object Model） 进行的，项目的所有配置都会放在 pom.xml 文件中，包括项目的类型、名字，依赖关系，插件定制等等。
