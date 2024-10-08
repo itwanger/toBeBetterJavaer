@@ -7,6 +7,7 @@ category:
 tag:
   - 面渣逆袭
 description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+date: 2024-10-08
 head:
   - - meta
     - name: keywords
@@ -1733,9 +1734,15 @@ Java 对象头里的 `Mark Word` 会记录锁的状态，一共有四种状态�
 
 ### 30.说说 synchronized 和 ReentrantLock 的区别？
 
-[synchronized](https://javabetter.cn/thread/synchronized-1.html) 是一个关键字，而 Lock 属于一个接口，其实现类主要有 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)、[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)。
+[synchronized](https://javabetter.cn/thread/synchronized-1.html) 是一个关键字，[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)是 Lock 接口的一个实现。
 
 ![三分恶面渣逆袭：synchronized和ReentrantLock的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-38.png)
+
+它们都可以用来实现同步，但也有一些区别：
+
+- ReentrantLock 可以实现多路选择通知（绑定多个 [Condition](https://javabetter.cn/thread/condition.html)），而 synchronized 只能通过 wait 和 notify/notifyAll 方法唤醒一个线程或者唤醒全部线程（单路通知）；
+- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放；synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
+- ReentrantLock 通常能提供更好的性能，因为它可以更细粒度控制锁；synchronized 只能同步代码快或者方法，随着 JDK 版本的升级，两者之间性能差距已经不大了。
 
 #### 使用方式有什么不同？
 
@@ -1790,6 +1797,7 @@ Condition condition = lock.newCondition();
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：synchronized 和 lock 区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：synchronized 和 ReentrantLock 区别和场景
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：在并发量特别高的情况下是使用 synchronized 还是 ReentrantLock
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：java多线程，同步与互斥
 
 ### 31.AQS 了解多少？
 
@@ -1851,34 +1859,39 @@ AQS 支持两种同步方式：
 
 ### 32.ReentrantLock 实现原理？
 
-[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 是可重入的独占锁，只能有一个线程可以获取该锁，其它获取该锁的线程会被阻塞。
-
-可重入表示当前线程获取该锁后再次获取不会被阻塞，也就意味着同一个线程可以多次获得同一个锁而不会发生死锁。
-
-ReentrantLock 的加锁和解锁：
+Lock 接口提供了比 synchronized 关键字更灵活的锁操作。[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 就是 Lock 接口的一个实现，它提供了与 synchronized 关键字类似的锁功能，但更加灵活。
 
 ```java
-// 创建非公平锁
-ReentrantLock lock = new ReentrantLock();
-// 获取锁操作
-lock.lock();
-try {
-    // 执行代码逻辑
-} catch (Exception ex) {
-    // ...
-} finally {
-    // 解锁操作
-    lock.unlock();
+class CounterWithLock {
+    private int count = 0;
+    private final Lock lock = new ReentrantLock();
+
+    public void increment() {
+        lock.lock();  // 获取锁
+        try {
+            count++;
+        } finally {
+            lock.unlock();  // 释放锁
+        }
+    }
+
+    public int getCount() {
+        return count;
+    }
 }
 ```
 
-`new ReentrantLock() `默认创建的是非公平锁 NonfairSync。在非公平锁模式下，锁可能会授予刚刚请求它的线程，而不考虑等待时间。
+increment 方法先上锁，然后尝试增加 count 的值，在完成操作后释放锁。这样就可以保证 count 的操作是线程安全的。
+
+ReentrantLock 是可重入的独占锁，只能有一个线程获取该锁，其它想获取该锁的线程会被阻塞。
+
+可重入表示当前线程获取该锁后再次获取不会被阻塞，也就意味着同一个线程可以多次获得同一个锁而不会发生死锁。
+
+`new ReentrantLock()` 默认创建的是非公平锁 NonfairSync。在非公平锁模式下，锁可能会授予刚刚请求它的线程，而不考虑等待时间。
 
 ReentrantLock 也支持公平锁，该模式下，锁会授予等待时间最长的线程。
 
-ReentrantLock 内部通过一个计数器来跟踪锁的持有次数。
-
-当线程调用`lock()`方法获取锁时，ReentrantLock 会检查当前状态，判断锁是否已经被其他线程持有。如果没有被持有，则当前线程将获得锁；如果锁已被其他线程持有，则当前线程将根据锁的公平性策略，可能会被加入到等待队列中。
+ReentrantLock 内部通过一个计数器来跟踪锁的持有次数。当线程调用`lock()`方法获取锁时，ReentrantLock 会检查当前状态，判断锁是否已经被其他线程持有。如果没有被持有，则当前线程将获得锁；如果锁已被其他线程持有，则当前线程将根据锁的公平性策略，可能会被加入到等待队列中。
 
 线程首次获取锁时，计数器值变为 1；如果同一线程再次获取锁，计数器增加；每释放一次锁，计数器减 1。
 
@@ -2206,15 +2219,36 @@ class DeadLockDemo {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：发生死锁怎么排查？
 
-### 41.聊聊如何进行线程同步？（补充）
+### 41.聊聊线程同步和互斥？（补充）
 
 > 2024 年 03 月 12 日 新增
 
-所谓同步，即协同步调，按预定的先后次序访问共享资源，以免造成混乱。
+互斥，就是不同线程通过竞争进入临界区（共享数据或者硬件资源），为了防止冲突，在有限的时间内只允许其中一个线程独占使用共享资源。如不允许同时写。
+
+同步，就是多个线程彼此合作，通过一定的逻辑关系来共同完成一个任务。一般来说，同步关系中往往包含了互斥关系。同时，临界区的资源会按照某种逻辑顺序进行访问。如先生产后使用。
+
+在 Java 中，当我们要保护一个资源时，通常会使用 synchronized 关键字或者 Lock 接口的实现类（如 ReentrantLock）来给资源加锁。
+
+锁在操作系统层面的意思就是 Mutex（互斥），意思就是某个线程获取锁（进入临界区）后，其他线程不能再进入临界区，这样就达到了互斥的目的。
+
+![cxuan：使用临界区的互斥](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008102844.png)
+
+锁要处理的问题大概有四种：
+
+- 谁拿到了锁，可以是当前 class，可以是某个 lock 对象，或者实例的 markword；
+- 抢占锁的规则，只能一个人抢 Mutex；能抢有限多次（Semaphore）；自己可以反复抢（可重入锁 ReentrantLock）；读可以反复抢，写只能一个人抢（读写锁ReadWriteLock）；
+- 抢不到怎么办，等待，等待的时候怎么等，自旋，阻塞，或者超时；
+- 锁被释放了还有其他等待锁的怎么办？通知所有人一起抢或者只告诉一个人抢（Condition 的 signalAll 或者 signal）
+
+恰当地使用锁，就能解决同步或者互斥的问题。
+
+> 推荐阅读：[牛客：可能是全网最全的线程同步方式总结了](https://blog.nowcoder.net/n/7571c2a5ef82480380fea53875b8187b)
+
+再补充一些。所谓同步，即协同步调，按预定的先后次序访问共享资源，以免造成混乱。
 
 线程同步是多线程编程中的一个核心概念，它涉及到在多线程环境下如何安全地访问和修改共享资源的问题。
 
-当有一个线程在对内存进行操作时，其他线程都不可以对这个内存地址进行操作，直到该线程完成操作， 其他线程才能对该内存地址进行操作。
+当有一个线程在对内存进行操作时，其他线程都不可以对这个内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作。
 
 如果多个线程同时读写某个共享资源（如变量、文件等），而没有适当的同步机制，就可能导致数据不一致、数据损坏等问题的出现。
 
@@ -2226,71 +2260,44 @@ class DeadLockDemo {
 - **自旋锁**：自旋锁是一种锁的实现方式，它不会让线程进入睡眠状态，而是一直循环检测锁是否被释放。自旋锁适用于锁的持有时间非常短的情况。
 - 信号量：信号量（[Semaphore](https://javabetter.cn/thread/CountDownLatch.html)）本质上是一个计数器，用于为多个进程提供共享数据对象的访问。
 
-> 推荐阅读：[牛客：可能是全网最全的线程同步方式总结了](https://blog.nowcoder.net/n/7571c2a5ef82480380fea53875b8187b)
+#### 互斥和同步在时间上有要求吗？
 
-在 Java 中，[synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)和 Lock 接口是用来实现线程同步的常用方式，我就以它俩来举例说明。
+互斥和同步在时间上是有一定要求的，因为它们都涉及到对资源的访问顺序和时机控制。
 
-#### 简单说说 synchronized 关键字
+互斥的核心是保证同一时刻只有一个线程能访问共享资源或临界区。虽然互斥的重点不是线程执行的顺序，但它对访问的时间点有严格要求，以确保没有多个线程在同一时刻访问相同的资源。
 
-当一个线程访问某对象的 synchronized 方法或代码块时，其他线程对该对象的所有 synchronized 方法或代码块的访问将被阻塞，直到第一个线程完成操作。
-
-synchronized 关键字就属于典型的互斥量，它保证了同一时间只有一个线程可以访问共享资源。
+同步强调的是线程之间的执行顺序和时间点的配合，特别是在多个线程需要依赖于彼此的执行结果时。例如，在 CountDownLatch 中，主线程会等待多个子线程的任务完成，子线程完成后才会减少计数，主线程会在计数器归零时继续执行。
 
 ```java
-public class Counter {
-    private int count = 0;
-
-    // 使用synchronized方法保证线程安全
-    public synchronized void increment() {
-        count++;
-    }
-
-    public synchronized int getCount() {
-        return count;
-    }
-}
-```
-
-在这个例子中，increment 方法和 getCount 方法都被标记为 synchronized。这意味着同一时间内只有一个线程可以执行这两个方法中的任意一个。
-
-在 JVM 的早期版本中，synchronized 是重量级的，因为线程阻塞和唤醒需要操作系统的介入。但在 JVM 的后续版本中，对 synchronized 进行了大量优化，如偏向锁、轻量级锁和适应性自旋等，所以现在的 synchronized 并不一定是重量级的，其性能在许多情况下都很好，可以大胆地用。
-
-#### 简单说说 Lock 接口？
-
-Lock 接口提供了比 synchronized 关键字更灵活的锁操作。比如说我们可以用重入锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 来实现同样的功能。
-
-```java
-public class CounterWithLock {
-    private int count = 0;
-    private final Lock lock = new ReentrantLock();
-
-    public void increment() {
-        lock.lock();  // 获取锁
-        try {
-            count++;
-        } finally {
-            lock.unlock();  // 释放锁
+class SyncExample {
+    public static void main(String[] args) throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(3);
+        
+        // 创建3个子线程
+        for (int i = 0; i < 3; i++) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep(1000); // 模拟任务
+                    System.out.println("打完王者了.");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    latch.countDown(); // 每个线程任务完成后计数器减1
+                }
+            }).start();
         }
-    }
-
-    public int getCount() {
-        return count;
+        
+        System.out.println("等打完三把王者就去睡觉...");
+        latch.await(); // 主线程等待子线程完成
+        System.out.println("好，王者玩完了，可以睡了");
     }
 }
 ```
 
-increment 方法先上锁，然后尝试增加 count 的值，在完成操作后释放锁。这样就可以保证 count 的操作是线程安全的。
-
-ReentrantLock 和 synchronized 都可以用来实现同步，但它们之间也存在一些区别：
-
-- **ReentrantLock 是一个类，而 synchronized 是 Java 中的关键字**；
-- **ReentrantLock 可以实现多路选择通知（可以绑定多个 [Condition](https://javabetter.cn/thread/condition.html)），而 synchronized 只能通过 wait 和 notify/notifyAll 方法唤醒一个线程或者唤醒全部线程（单路通知）**；
-- ReentrantLock 必须手动释放锁。通常需要在 finally 块中调用 unlock 方法以确保锁被正确释放。
-- synchronized 会自动释放锁，当同步块执行完毕时，由 JVM 自动释放，不需要手动操作。
-- ReentrantLock: 通常提供更好的性能，特别是在高竞争环境下。
-- synchronized: 在某些情况下，性能可能稍差一些，但随着 JDK 版本的升级，性能差距已经不大了。
+![二哥的Java 进阶之路：CountDownLatch](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008110023.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊线程同步
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：java多线程，同步与互斥，互斥和同步在时间上有要求吗？
 
 ### 42.聊聊悲观锁和乐观锁？（补充）
 

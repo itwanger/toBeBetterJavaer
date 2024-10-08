@@ -7,6 +7,7 @@ category:
 tag:
   - 面渣逆袭
 description: 下载次数超 1 万次，1.5 万字 51 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+date: 2024-10-08
 head:
   - - meta
     - name: keywords
@@ -595,7 +596,7 @@ Java 堆被划分为**新生代**（Young Generation）和**老年代**（Old Ge
 
 ### 17.对象什么时候会进入老年代？
 
-对象通常会先在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些对象会进入到老年代中。
+对象通常会先在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些满足条件的对象会进入到老年代中。
 
 ![二哥的 Java 进阶之路：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
 
@@ -619,6 +620,7 @@ Java 堆被划分为**新生代**（Young Generation）和**老年代**（Old Ge
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：新生代对象转移到老年代的条件
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：对象什么时候进入老年代
 
 ### 18.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
 
