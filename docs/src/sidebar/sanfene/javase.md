@@ -1926,6 +1926,7 @@ Exception 类代表程序可以处理的异常。它分为两大类：编译时�
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：对异常体系了解多少？
 > 5. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：什么是 java 中的异常处理，checked 异常和 unchecked 异常有什么区别
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：开发中遇到的一些异常，异常类型的父类，继承关系等，写程序中如何处理异常？ 
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：error与execption异同，抛出error程序是无法运行的吗
 
 ### 40.异常的处理方式？
 
@@ -1953,7 +1954,58 @@ try {
 }
 ```
 
+#### catch和finally的异常可以同时抛出吗？
+
+如果 catch 块抛出一个异常，而 finally 块中也抛出异常，那么最终抛出的将是 finally 块中的异常。catch 块中的异常会被丢弃，而 finally 块中的异常会覆盖并向上传递。
+
+```java
+public class Example {
+    public static void main(String[] args) {
+        try {
+            throw new Exception("Exception in try");
+        } catch (Exception e) {
+            throw new RuntimeException("Exception in catch");
+        } finally {
+            throw new IllegalArgumentException("Exception in finally");
+        }
+    }
+}
+```
+
+- try 块首先抛出一个 Exception。
+- 控制流进入 catch 块，catch 块中又抛出了一个 RuntimeException。
+- 但是在 finally 块中，抛出了一个 IllegalArgumentException，最终程序抛出的异常是 finally 块中的 IllegalArgumentException。
+
+虽然 catch 和 finally 中的异常不能同时抛出，但可以手动捕获 finally 块中的异常，并将 catch 块中的异常保留下来，避免被覆盖。常见的做法是使用一个变量临时存储 catch 中的异常，然后在 finally 中处理该异常：
+
+```java
+public class Example {
+    public static void main(String[] args) {
+        Exception catchException = null;
+        try {
+            throw new Exception("Exception in try");
+        } catch (Exception e) {
+            catchException = e;
+            throw new RuntimeException("Exception in catch");
+        } finally {
+            try {
+                throw new IllegalArgumentException("Exception in finally");
+            } catch (IllegalArgumentException e) {
+                if (catchException != null) {
+                    System.out.println("Catch exception: " + catchException.getMessage());
+                }
+                System.out.println("Finally exception: " + e.getMessage());
+            }
+        }
+    }
+}
+```
+
+
+![二哥的Java 进阶之路：catch 和 finally 处理异常](https://cdn.tobebetterjavaer.com/stutymore/javase-20241008095737.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：写程序中如何处理异常？ 
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：try-catch-finally抛出异常，catch和finally的异常可以同时抛出吗？
 
 ### 41.三道经典异常处理代码题
 
