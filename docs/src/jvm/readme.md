@@ -66,7 +66,7 @@ head:
 
 小册会持续保持**更新**，如果想获得最新版，请扫下面的优惠券加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)。
 
-![二哥的 JVM 进阶之路获取](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112539.png)
+![JVM 微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20241012163228.png)
 
 然后通过星球的第一个置顶帖「[球友必看](https://t.zsxq.com/12rEo9Pdu)」在百度网盘和阿里云盘中下载。
 
@@ -155,11 +155,9 @@ PDF 一共 10 万+字，100+ 张手绘图。前后耗费 2 个多月的时间，
 
 随着时间的推移，星球积累的干货/资源越来越多，我花在星球上的时间也越来越多，[星球的知识图谱](https://javabetter.cn/zhishixingqiu/map.html)里沉淀的问题，你可以戳这个[链接](https://javabetter.cn/zhishixingqiu/map.html)去感受一下。有学习计划啊、有学生党秋招&春招&offer选择&考研&实习&专升本&培训班的问题啊、有工作党方向选择&转行&求职&职业规划的问题啊，还有大大小小的技术细节，我都竭尽全力去帮助球友，并且得到了球友的认可和尊重。
 
-目前星球已经 5800+ 人了，所以星球也涨价到了 149 元，6000 人价格会调整为 159 元/年，所以想加入的小伙伴一定要趁早。
+目前星球已经 6000+ 人了，所以星球门票也要从 149 元涨价到 159 元，想加入的小伙伴一定要趁早。你可以微信扫码或者长按自动识别领取 30 元优惠券，目前还可以按照最低价 **119/年** 加入。
 
-你可以微信扫码或者长按自动识别领取 30 元优惠券，**119/年** 加入，所以想要加入的话请趁早。
-
-![JVM 和并发编程优惠券](https://cdn.tobebetterjavaer.com/stutymore/readme-jvm-thread.png)
+![二哥编程星球优惠券](https://cdn.tobebetterjavaer.com/paicoding/image-f709477e8bbe44dcb10b13770afaff9d.png)
 
 对了，**加入星球后记得花 10 分钟时间看一下星球的两个置顶贴，你会发现物超所值**！
 

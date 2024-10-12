@@ -20,7 +20,7 @@ head:
 
 另外，我需要提醒大家的是，技术派的 AI 助手「**派聪明**」已经正式上线！支持讯飞星火和 OpenAI 双通道供大家学习使用，花了很多钱购买 token，希望能给大家的学习和工作提供一点点便利，无需再花钱购买 OpenAI 的 API（也无需魔法）。
 
-![派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172356.png)
+![派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20241012162807.png)
 
 [二哥编程星球](https://javabetter.cn/zhishixingqiu/)的付费用户绑定星球编号后就可以无限期使用！想体验的小伙伴也可以直接访问下面的网址，白嫖党每日也会有免费的使用次数，第二天重置（笑嘻嘻）。
 
