@@ -78,7 +78,7 @@ head:
 
 今天就给大家提供一份我觉得确实简洁大方的简历模板供大家参考。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809134434.png)
+![](https://cdn.tobebetterjavaer.com/stutymore/jianli-简历.png)
 
 ①、基本信息中电话、邮箱、网站、党员、应届生、求职意向等信息都有。
 
@@ -209,7 +209,7 @@ head:
 
 如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 4000+位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 149 元，我真的不希望你等到 169 元的时候再加入。
 
-![星球付费专栏优惠券](https://cdn.tobebetterjavaer.com/stutymore/readme-jvm-thread.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
 ## 03、列一些我修改后的简历效果截图吧
 

@@ -52,7 +52,7 @@ tag:
 
 目前这份文档只对[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)的球友公开，如果想要获取这份秋招投递公司名单，请扫描下方的优惠券加入。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-二哥的星球优惠券.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
 
 

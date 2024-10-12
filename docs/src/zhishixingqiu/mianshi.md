@@ -82,7 +82,7 @@ head:
 
 看到这就心动的小伙伴可以直接扫下面的 30 元优惠券解锁文档。
 
-![星球付费专栏优惠券](https://cdn.tobebetterjavaer.com/stutymore/readme-jvm-thread.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
 加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后，在星球的第一个置顶帖「球友必看」里查看专栏的语雀地址和密码。
 
@@ -210,7 +210,7 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 心动的小伙伴抓紧时间扫下面的 **30 元优惠券**加入了，这绝对是你今年最值得的一笔投资！
 
-![星球付费专栏优惠券](https://cdn.tobebetterjavaer.com/stutymore/readme-jvm-thread.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
 我了解过，光这份秋招投递名单，有博主就卖 99 元，而在 Java 面试指南里，它只是 221 份文档中的一个文档而已。
 
@@ -326,7 +326,7 @@ PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜�
 
 小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![并发编程微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20241012163129.png)
 
 再多说一句，[《二哥的JVM进阶之路》](https://javabetter.cn/jvm/)的内容也整理完了。主要包含下面这些主题：
 
@@ -357,7 +357,7 @@ PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜�
 
 小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，10 万+字，100+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![二哥的 JVM 进阶之路获取](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112539.png)
+![JVM 微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20241012163228.png)
 
 
 最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。共勉 💪。
