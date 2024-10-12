@@ -2513,7 +2513,7 @@ list.add(new Dog());
 
 反射允许 Java 在运行时检查和操作类的方法和字段。通过反射，可以动态地获取类的字段、方法、构造方法等信息，并在运行时调用方法或访问字段。
 
-我简单解释下。创建一个对象是通过 new 关键字来实现的，比如：
+比如创建一个对象是通过 new 关键字来实现的：
 
 ```java
 Person person = new Person();
@@ -2587,6 +2587,7 @@ Java 程序的执行分为编译和运行两步，编译之后会生成字节码
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：反射及其应用场景
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：反射的介绍与使用场景
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：java 的反射机制，反射的应用场景 AOP 的实现原理是什么，与动态代理和反射有什么区别
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：java的反射
 
 ## JDK1.8 新特性
 

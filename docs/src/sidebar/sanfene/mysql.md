@@ -1546,7 +1546,7 @@ MySQL 的索引可以显著提高查询的性能，可以从三个不同的维�
 
 ![二哥的 Java 进阶之路：索引类型](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
 
-#### 说说从功能上的分类：
+#### 01、说说从功能上的分类？
 
 ①、**主键索引**: 表中每行数据唯一标识的索引，强调列值的唯一性和非空性。
 
@@ -1613,7 +1613,7 @@ WHERE `TABLE_NAME` = 'users' AND `TABLE_SCHEMA` = DATABASE();
 CREATE FULLTEXT INDEX idx_article_content ON articles(content);
 ```
 
-#### 说说从数据结构上分类：
+#### 02、说说从数据结构上分类？
 
 ①、B+树索引：最常见的索引类型，一种将索引值按照一定的算法，存入一个树形的数据结构中（二叉树），每次查询都从树的根节点开始，一次遍历叶子节点，找到对应的值。查询效率是 O(logN)。
 
@@ -1665,7 +1665,7 @@ SHOW VARIABLES LIKE 'innodb_adaptive_hash_index';
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312095811.png)
 
-#### 说说从存储位置上分类：
+#### 03、说说从存储位置上分类：
 
 ①、聚簇索引：聚簇索引的叶子节点保存了一行记录的所有列信息。也就是说，聚簇索引的叶子节点中，包含了一个完整的记录行。
 
@@ -1699,6 +1699,7 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：索引是什么？有哪些索引
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：普通索引的叶子节点存储的是什么
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：innodb底层有哪些数据结构
+> 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：索引有哪些，区别是什么
 
 ### 29.创建索引有哪些注意点？
 
@@ -1740,6 +1741,7 @@ InnoDB 存储引擎的主键使用的是聚簇索引，MyISAM 存储引擎不管
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：where b =5 是否一定会命中索引？（索引失效场景）
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：索引失效的情况
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：编写 SQL 语句哪些情况会导致索引失效？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：索引失效场景
 
 ### 31.索引不适合哪些场景呢？
 
@@ -1777,12 +1779,26 @@ FROM
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：性别字段要建立索引吗？为什么？什么是区分度？MySQL查看字段区分度的命令？
 
-### 32.索引是不是建的越多越好呢？
+### 32.索引是不是建的越多越好？
 
 当然不是。
 
 - **索引会占据磁盘空间**
-- **索引虽然会提高查询效率，但是会降低更新表的效率**。比如每次对表进行增删改操作，MySQL 不仅要保存数据，还有保存或者更新对应的索引文件。
+- **索引虽然会提高查询效率，但是会降低更新表的效率**。每次对表进行增删改操作，MySQL 不仅要更新数据，还要更新对应的索引文件。
+
+#### 说说索引优化的思路？
+
+①、选择合适的索引类型
+
+- 如果需要等值查询和范围查询，请选择 B+树索引。
+- 如果是用于处理文本数据的全文搜索，请选择全文索引。
+
+②、创建适当的索引
+
+- 创建组合索引时，应将查询中最常用、区分度高的列放在前面。对于查询条件 `WHERE age = 18 AND gender = '女' AND city = '洛阳'`，如果 age 列的值相对较为分散，可以优先考虑将 age 放在组合索引的第一位。
+- 使用 SELECT 语句时，尽量选择覆盖索引来避免不必要的回表操作，也就是说，索引中包含了查询所需的所有列；但要注意，覆盖索引的列数不宜过多，否则会增加索引的存储空间。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：索引优化的思路
 
 ### 33.为什么 InnoDB 要使用 B+树作为索引？
 
@@ -2720,6 +2736,7 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：数据库隔离级别有哪些？mysql 是属于哪个隔离级别
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：Mysql 四个隔离级别，MVCC 实现
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲讲Mysql的四个隔离级别
+> 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：mysql的隔离级别有哪些
 
 ### 51.什么是脏读、不可重复读、幻读呢？
 

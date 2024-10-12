@@ -1118,8 +1118,6 @@ public UserPermissions loadPermissionsFromRedis(String userId) {
 
 ### 28.如何保证缓存和数据库的数据⼀致性？
 
-> 可以结合实际的项目来讲，这样面试官会更加认可你的回答。
-
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我采用的是先写 MySQL，再删除 Redis 的方式来保证缓存和数据库的数据一致性。
 
 ![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325221330.png)
@@ -1227,6 +1225,7 @@ redis.del(product_id)
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：数据一致性问题
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 和缓存一致性问题了解吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：如何保证 redis 缓存与数据库的一致性，为什么这么设计
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：怎么解决redis和mysql的缓存一致性问题
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 
