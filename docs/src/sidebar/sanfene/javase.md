@@ -173,10 +173,30 @@ Java 基本数据类型的默认值和占用大小：
 
 我本机的 64 位 JDK 中，通过 JOL 工具查看单独的 boolean 类型，以及 boolean 数组，所占用的空间都是 1 个字节。
 
+#### 给Integer最大值+1，是什么结果？
+
+当给 Integer.MAX_VALUE 加 1 时，会发生溢出，变成 Integer.MIN_VALUE。
+
+```java
+int maxValue = Integer.MAX_VALUE;
+System.out.println("Integer.MAX_VALUE = " + maxValue); // Integer.MAX_VALUE = 2147483647
+System.out.println("Integer.MAX_VALUE + 1 = " + (maxValue + 1)); // Integer.MAX_VALUE + 1 = -2147483648
+
+// 用二进制来表示最大值和最小值
+System.out.println("Integer.MAX_VALUE in binary: " + Integer.toBinaryString(maxValue)); // Integer.MAX_VALUE in binary: 1111111111111111111111111111111
+System.out.println("Integer.MIN_VALUE in binary: " + Integer.toBinaryString(Integer.MIN_VALUE)); // Integer.MIN_VALUE in binary: 10000000000000000000000000000000
+```
+
+这是因为 Java 的整数类型采用的是二进制补码表示法，溢出时值会循环。
+
+- Integer.MAX_VALUE 的二进制表示是 01111111 11111111 11111111 11111111（32 位）。
+- 加 1 后结果变成 10000000 00000000 00000000 00000000，即 -2147483648（Integer.MIN_VALUE）。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Java 有哪些基本数据类型？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 的基础数据类型，分别占多少字节
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：java 的基本类型
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：说说 8 大数据类型?
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：给Integer最大值+1，是什么结果
 
 ### 8.自动类型转换、强制类型转换？看看这几行代码？
 
@@ -384,12 +404,15 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 15.⾯向对象和⾯向过程的区别?
 
-- **⾯向过程** ：面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的一次调用就可以。
-- **⾯向对象** ：面向对象，把构成问题的事务分解成各个对象，而建立对象的目的也不是为了完成一个个步骤，而是为了描述某个事件在解决整个问题的过程所发生的行为。 目的是为了写出通用的代码，加强代码的重用，屏蔽差异性。
+特点|	面向过程编程|	面向对象编程
+---|---|---
+核心思想|	以过程为核心，函数是基本单位，通过函数完成任务|	以对象为核心，对象是基本单位，通过对象交互完成任务
+程序结构|	函数和步骤组成的顺序流程|	类和对象组成的模块化结构
+代码复用|	通过函数复用代码|	通过继承、组合、多态等方式复用代码
 
-用一个比喻：面向过程是编年体；面向对象是纪传体。
+![三分恶面渣逆袭：面向对象和面向过程的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-10.png)
 
-![面向对象和面向过程的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-10.png)
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：面向对象和面向过程的区别？
 
 ### 16.面向对象编程有哪些特性？
 
@@ -1038,9 +1061,13 @@ System.out.println(a.equals(b)); // 输出 true，因为 a 和 b 的内容相同
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：==和 equals()有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：==和 equals 的区别
 
-### 27.hashCode 与 equals?
+### 27.为什么重写 equals 时必须重写 hashCode ⽅法？
 
-这道题也是面试常问得——“你重写过 hashcode 和 equals 么，为什么重写 equals 时必须重写 hashCode ⽅法？”
+因为基于哈希的集合类（如 HashMap）需要基于这一点来正确存储和查找对象。
+
+具体地说，HashMap 通过对象的哈希码将其存储在不同的“桶”中，当查找对象时，它需要使用 key 的哈希码来确定对象在哪个桶中，然后再通过 `equals()` 方法找到对应的对象。
+
+如果重写了 `equals()`方法而没有重写 `hashCode()`方法，那么被认为相等的对象可能会有不同的哈希码，从而导致无法在 HashMap 中正确处理这些对象。
 
 #### 什么是 hashCode 方法？
 
@@ -1063,14 +1090,6 @@ static final int hash(Object key) {
 }
 ```
 
-#### 为什么重写 equals 时必须重写 hashCode ⽅法？
-
-因为基于哈希的集合类（如 HashMap）需要基于这一点来正确存储和查找对象。
-
-具体地说，HashMap 通过对象的哈希码将其存储在不同的“桶”中，当查找对象时，它需要使用 key 的哈希码来确定对象在哪个桶中，然后再通过 `equals()` 方法找到对应的对象。
-
-如果重写了 `equals()`方法而没有重写 `hashCode()`方法，那么被认为相等的对象可能会有不同的哈希码，从而导致无法在 HashMap 中正确处理这些对象。
-
 #### 为什么两个对象有相同的 hashcode 值，它们也不⼀定相等？
 
 这主要是由于哈希码（hashCode）的本质和目的所决定的。
@@ -1089,11 +1108,18 @@ if (p.hash == hash &&
     e = p;
 ```
 
+#### hashCode 和 equals 方法的关系？
+
+如果两个对象通过 equals 相等，它们的 hashCode 必须相等。否则会导致哈希表类数据结构（如 HashMap、HashSet）的行为异常。
+
+在哈希表中，如果 equals 相等但 hashCode 不相等，哈希表可能无法正确处理这些对象，导致重复元素或键值冲突等问题。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：hashcode 和 equals 方法只重写一个行不行，只重写 equals 没重写 hashcode，map put 的时候会发生什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：为什么重写 equals，建议必须重写 hashCode 方法
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：object 有哪些方法 hashcode 和 equals 为什么需要一起重写 不重写会导致哪些问题 什么时候会用到重写 hashcode 的场景
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：说一下hashcode()
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：hashcode和equal  
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：HashCode和equals方法关系？两个对象的equals相等hashcode不相等会发生什么？
 
 ### 28.Java 是值传递，还是引用传递？
 

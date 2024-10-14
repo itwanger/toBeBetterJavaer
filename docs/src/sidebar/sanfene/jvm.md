@@ -696,22 +696,15 @@ JVM 在做 GC 之前，会先搞清楚什么是垃圾，什么不是垃圾，通
 
 ![二哥的 Java 进阶之路：可达性分析](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
 
-在确定了哪些垃圾可以被回收后，垃圾收集器要做的事情就是进行垃圾回收，可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
+在确定了哪些垃圾可以被回收后，垃圾收集器（如 CMS、G1、ZGC）要做的事情就是进行垃圾回收，可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
 
-JVM 提供了多种垃圾回收器，包括 CMS GC、G1 GC、ZGC 等，不同的垃圾回收器采用的垃圾收集算法也不同，因此适用于不同的场景和需求。
 
-比如说 CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
-
-G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
-
-![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
-
-ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延迟服务的内存管理和回收，在 128G 的大堆下，最大停顿时间才 1.68 ms，性能远胜于 G1 和 CMS。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解 GC 吗？不可达判断知道吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：JVM 垃圾删除
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java 中垃圾回收的原理
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：JVM了解吗？内存回收机制说一下？
 
 ### 21.如何判断对象仍然存活？
 
@@ -733,7 +726,14 @@ ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延
 
 这也是 Java 垃圾回收器（如 G1、CMS 等）使用的主要算法。
 
+#### 做可达性分析的时候，应该有哪些前置性的操作？
+
+在进行垃圾回收之前，JVM 会暂停所有正在执行的应用线程（称为 Stop-the-World）。
+
+这是因为可达性分析过程必须确保在执行分析时，内存中的对象关系不会被应用线程修改。如果不暂停应用线程，可能会出现对象引用的改变，导致垃圾回收过程中判断对象是否可达的结果不一致，从而引发严重的内存错误或数据丢失。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 京东到家面试原题：如何判断一个对象是否可以回收
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：做可达性分析的时候，应该有哪些前置性的操作？
 
 ### 22.Java 中可作为 GC Roots 的引用有哪几种？
 
@@ -922,6 +922,12 @@ Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（或元
 就目前来说，JVM 的垃圾收集器主要分为两大类：分代收集器和分区收集器，分代收集器的代表是 CMS，分区收集器的代表是 G1 和 ZGC。
 
 ![三分恶面渣逆袭：HotSpot虚拟机垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
+
+CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
+
+G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
+
+ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延迟服务的内存管理和回收，在 128G 的大堆下，最大停顿时间才 1.68 ms，性能远胜于 G1 和 CMS。
 
 #### 说说 Serial 收集器？
 

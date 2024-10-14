@@ -845,9 +845,12 @@ ALTER TABLE your_table_name ENGINE=InnoDB;
 
 ### 17.那存储引擎应该怎么选择？
 
-- 大多数情况下，使用默认的 InnoDB 就对了，InnoDB 可以提供事务、行级锁等能力。
+- 大多数情况下，使用默认的 InnoDB 就对了，InnoDB 可以提供事务、行级锁、外键、B+ 树索引等能力。
 - MyISAM 适合读更多的场景。
 - MEMORY 适合临时表，数据量不大的情况。由于数据都存放在内存，所以速度非常快。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：MySQL的InnoDB特点？为什么用B+树？而不是B树，区别？
 
 ### 18.InnoDB 和 MyISAM 主要有什么区别？
 
@@ -887,6 +890,7 @@ InnoDB 为聚簇索引，索引和数据不分开。
 **⑦、表的具体行数**：MyISAM 表的具体行数存储在表的属性中，查询时直接返回；InnoDB 表的具体行数需要扫描整个表才能返回。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MyISAM 和 InnoDB 的区别有哪些？
+
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1777,7 +1781,24 @@ FROM
     users;
 ```
 
+#### 什么样的字段适合加索引？什么不适合？
+
+适合加索引的字段包括：
+
+- 经常出现在 WHERE 子句中的字段，如 `SELECT * FROM users WHERE age = 30` 中的 age 字段，加上索引后可以快速定位到满足条件的记录。
+- 经常用于 JOIN 的字段，如 `SELECT * FROM users u JOIN orders o ON u.id = o.user_id` 中的 user_id 字段，加上索引后可以避免多表扫描。
+- 经常出现在 ORDER BY 或 GROUP BY 子句中的字段，如 `SELECT * FROM users ORDER BY age` 中的 age 字段。加上索引后可以避免额外的排序操作。
+- 高区分度的字段，查询时可以有效减少返回的数据行，比如用户 ID、邮箱等。
+
+对应的，不适合加索引的字段包括：
+
+- 低区分度字段，如性别、状态等。
+- 经常更新的字段，如用户的登录时间、登录次数等。
+- 不经常出现在查询条件中的字段，如用户的生日、地址等。
+- 使用函数、运算符的字段。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：性别字段要建立索引吗？为什么？什么是区分度？MySQL查看字段区分度的命令？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：什么样的字段适合加索引？什么不适合？
 
 ### 32.索引是不是建的越多越好？
 
@@ -1806,8 +1827,6 @@ FROM
 2. 推荐阅读：[一篇文章讲透 MySQL 为什么要用 B+树实现索引](https://cloud.tencent.com/developer/article/1543335)
 
 MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引。
-
-那在说 B+树之前，必须得先说一下 B 树（B-tree）。
 
 B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B 树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
 
@@ -2917,6 +2936,7 @@ ReadView 主要用来处理隔离级别为"可重复读"（REPEATABLE READ）和
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：了解的 MVCC 吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：Mysql 四个隔离级别，MVCC 实现，如果两个AB事务并发修改一个变量，那么A读到的值是什么，怎么分析，快照读的原理，读已提交和可重复读区别，具体原理是什么。
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲讲Mysql的MVCC机制
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：事务隔离级别？MVCC机制介绍下？（版本链）版本链通过什么控制
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -3430,6 +3450,10 @@ CREATE INDEX idx_name ON tblname(name);
 ```sql
 CREATE INDEX idx_name_age_id ON tblname (name, age, id);
 ```
+
+#### 表字段id（主键）age name select name,age from 表 where name like(A%) and age =30会不会走索引？
+
+可以创建组合索引 (name, age)，这可以利用 name 和 age 的双重条件来高效地进行查询。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：一个表（name, sex,age,id），select age,id,name from tblname where name='paicoding';怎么建索引
 
