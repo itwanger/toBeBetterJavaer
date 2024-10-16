@@ -3,6 +3,7 @@ title: Spring面试题，40道Spring八股文（1.3万字63张手绘图），面
 shortTitle: 面渣逆袭-Spring
 description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 40 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
+date: 2024-10-16
 category:
   - 面渣逆袭
 tag:
@@ -897,7 +898,7 @@ LifecycleDemoBean: customDestroy（自定义销毁方法）
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring中bean生命周期
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲一下Spring Bean的生命周期
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：讲一下Spring Bean的生命周期
 
 ### 10.Bean 定义和依赖定义有哪些方式？
 
@@ -1957,7 +1958,7 @@ Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `Se
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：事务的传播机制
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：事务传播，protected 和 private 加事务会生效吗,还有那些不生效的情况
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Spring 中的事务的隔离级别，事务的传播行为？
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 1 后端开发秋招一面面试原题：讲一下Spring事务传播机制
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 8 后端开发秋招一面面试原题：讲一下Spring事务传播机制
 
 ### 26.声明式事务实现原理了解吗？
 
@@ -2296,6 +2297,7 @@ Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 Spring Boot 的自动装配原理
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：spring boot 的自动装配
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：SpringBoot如何实现自动装配
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：自动配置怎么实现的？
 
 ### 33.如何自定义一个 SpringBoot Srarter?
 
@@ -2516,19 +2518,17 @@ Spring Boot 旨在简化 Spring 应用的配置和部署过程，提供了大量
 
 > 2024 年 07 月 09 日新增
 
-Spring Boot 是 Spring Framework 的一个扩展，提供了一套快速配置和开发的框架，可以帮助我们快速搭建 Spring 项目骨架，极大地提高了我们的生产效率。
+Spring Boot 是 Spring Framework 的一个扩展，提供了一套快速配置和开发的机制，可以帮助我们快速搭建 Spring 项目的骨架，提高生产效率。
 
-| 特性                | Spring Framework                    | Spring Boot                          |
-|---------------------|-------------------------------------|--------------------------------------|
-| **目的**            | 提供全面的企业级开发工具和库         | 简化 Spring 应用的开发、配置和部署    |
-| **配置方式**        | 主要通过 XML 和注解配置              | 主要通过注解和外部配置文件             |
-| **启动和运行**      | 需要手动配置和部署到服务器           | 支持嵌入式服务器，打包成 JAR 文件直接运行 |
-| **自动配置**        | 手动配置各种组件和依赖               | 提供开箱即用的自动配置                 |
-| **依赖管理**        | 手动添加和管理依赖                   | 使用 `spring-boot-starter` 简化依赖管理  |
-| **模块化**          | 高度模块化，可以选择使用不同的模块    | 集成多个常用模块，提供统一的启动入口     |
-| **生产准备功能**    | 需要手动集成和配置                   | 内置监控、健康检查等生产准备功能         |
+| 特性   | Spring Framework | Spring Boot  |
+|--------- |------------ |------------ |
+| **目的**  | 提供企业级的开发工具和库 | 简化 Spring 应用的开发、配置和部署    |
+| **配置方式** | 主要通过 XML 和注解等手动配置  | 提供开箱即用的自动配置   |
+| **启动和运行**  | 需要打成 war 包到 Tomcat 等容器下运行 | 已嵌入 Tomcat 等容器，打包成 JAR 文件直接运行 |
+| **依赖管理**   | 手动添加和管理依赖  | 使用 `spring-boot-starter` 简化依赖管理  |
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米同学 F 面试原题：Spring Boot 和 Spring 的区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：说一下Spring和Springboot之间有什么差异？
 
 
 ## Spring Cloud

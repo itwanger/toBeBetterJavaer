@@ -2,6 +2,7 @@
 title: Java面试题之Java基础篇，55道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶
+date: 2024-10-16
 category:
   - 面渣逆袭
 tag:
@@ -2376,22 +2377,18 @@ Java 序列化方式有很多，常见的有三种：
 
 ### 47.Java 泛型了解么？什么是类型擦除？介绍一下常用的通配符？
 
-> 什么是泛型？
+推荐阅读：[手写Java泛型，彻底掌握它](https://javabetter.cn/collection/generic.html)
 
-Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。
+#### 什么是泛型？
+
+泛型主要用于提高代码的类型安全，它允许在定义类、接口和方法时使用类型参数，这样可以在编译时检查类型一致性，避免不必要的类型转换和类型错误。
+
+没有泛型的时候，像 List 这样的集合类存储的是 Object 类型，导致从集合中读取数据时，必须进行强制类型转换，否则会引发 ClassCastException。
 
 ```java
-List<Integer> list = new ArrayList<>();
-
-list.add(12);
-//这里直接添加会报错
-list.add("a");
-Class<? extends List> clazz = list.getClass();
-Method add = clazz.getDeclaredMethod("add", Object.class);
-//但是通过反射添加，是可以的
-add.invoke(list, "kl");
-
-System.out.println(list);
+List list = new ArrayList();
+list.add("hello");
+String str = (String) list.get(0);  // 必须强制类型转换
 ```
 
 泛型一般有三种使用方式:**泛型类**、**泛型接口**、**泛型方法**。
@@ -2464,7 +2461,7 @@ printArray( intArray  );
 printArray( stringArray  );
 ```
 
-> 泛型常用的通配符有哪些？
+#### 泛型常用的通配符有哪些？
 
 **常用的通配符为： T，E，K，V，？**
 
@@ -2473,7 +2470,7 @@ printArray( stringArray  );
 - K V (key value) 分别代表 java 键值中的 Key Value
 - E (element) 代表 Element
 
-> 什么是泛型擦除？
+#### 什么是泛型擦除？
 
 所谓的泛型擦除，官方名叫“类型擦除”。
 
@@ -2497,9 +2494,11 @@ LinkedList list = cats;
 list.add(new Dog());
 ```
 
-为什么要类型擦除呢？
+#### 为什么要类型擦除呢？
 
 主要是为了向下兼容，因为 JDK5 之前是没有泛型的，为了让 JVM 保持向下兼容，就出了类型擦除这个策略。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：泛型的作用是什么？
 
 ## 注解
 
