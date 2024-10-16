@@ -113,6 +113,7 @@ Collection 继承了 Iterable 接口，这意味着所有实现 Collection 接�
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：Java 集合有哪些？
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：集合容器能列举几个吗?
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：java的集合介绍一下
+> 14. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：介绍Java的集合框架
 
 ## List
 
@@ -1075,16 +1076,17 @@ Hashtable 是 Map 接口的一个早期的同步实现，它的所有方法都�
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：HashMap 的底层实现，它为什么是线程不安全的？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：hashmap是会死锁的, 你知道吗
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：map的同步和非同步
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：为什么HashMap不是线程安全的？
 
 ### 25.有什么办法能解决 HashMap 线程不安全的问题呢？
 
-HashMap 不是线程安全的，因此在早期的 JDK 版本中，Hashtable 用来完成这项工作，但它的使用已经不再推荐使用。
+HashMap 不是线程安全的，因此在早期的 JDK 版本中，是用 Hashtable 来保证线程安全的。
 
-①、HashTable 是直接在方法上加 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)，比较粗暴。
+①、Hashtable 是直接在方法上加 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)，比较粗暴。
 
-![二哥的 Java 进阶之路：HashTable](https://cdn.tobebetterjavaer.com/stutymore/collection-20240323125211.png)
+![二哥的 Java 进阶之路：Hashtable](https://cdn.tobebetterjavaer.com/stutymore/collection-20240323125211.png)
 
-在 Java 中，有 2 种 推荐的线程安全的 Map 实现，[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)和`Collections.synchronizedMap(Map)`包装器。
+因此在 Java 的后期版本中，更推荐使用 [ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)和`Collections.synchronizedMap(Map)`包装器。
 
 ②、`Collections.synchronizedMap` 返回的是 [Collections](https://javabetter.cn/common-tool/collections.html) 工具类的内部类。
 
@@ -1092,9 +1094,11 @@ HashMap 不是线程安全的，因此在早期的 JDK 版本中，Hashtable 用
 
 内部是通过 synchronized 对象锁来保证线程安全的。
 
-③、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 中使用分段锁，在 JKD 8 中使用了 [CAS（Compare-And-Swap）](https://javabetter.cn/thread/cas.html)+ [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)，性能得到进一步提升。
+③、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 在 JDK 7 中使用分段锁，在 JKD 8 中使用 [CAS（Compare-And-Swap）](https://javabetter.cn/thread/cas.html)+ [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)，性能得到了进一步提升。
 
 ![初念初恋：ConcurrentHashMap 8 中的实现](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
+
+
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：有哪些线程安全的 map，ConcurrentHashMap 怎么保证线程安全的，为什么比 hashTable 效率好
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Java 中的线程安全的集合是什么？
@@ -1102,6 +1106,7 @@ HashMap 不是线程安全的，因此在早期的 JDK 版本中，Hashtable 用
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：知道哪些线程安全的集合类型？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：线程不安全的集合变成线程安全的方法？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：hashMap和hashTable的区别 
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：和ConcurrentHashMap的差异
 
 
 ### 26.HashMap 内部节点是有序的吗？
