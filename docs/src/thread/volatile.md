@@ -56,9 +56,9 @@ class ReorderExample {
       a = 1;                   //1
       flag = true;             //2
   }
-  Public void reader() {
+  public void reader() {
       if (flag) {                //3
-          int i =  a * a;        //4
+          int i = a * a;         //4
           System.out.println(i);
       }
   }
@@ -75,9 +75,9 @@ class ReorderExample {
       a = 1;                   //1
       flag = true;             //2
   }
-  Public void reader() {
+  public void reader() {
       if (flag) {                //3
-          int i =  a * a;        //4
+          int i = a * a;         //4
           System.out.println(i);
       }
   }
@@ -240,7 +240,7 @@ public class Penguin {
     // 一个成员变量 money
     private int money = 10000;
 
-    // 避免通过 new 初始化对象，构造方法应为 public 或 private
+    // 避免通过 new 初始化对象，构造方法应为 private
     private Penguin() {}
 
     public void beating() {
