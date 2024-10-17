@@ -2,7 +2,7 @@
 title: JVM面试题，55道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
-date: 2024-10-16
+date: 2024-10-17
 category:
   - 面渣逆袭
 tag:
@@ -160,6 +160,24 @@ Java 中“几乎”所有的对象都会在堆中分配，堆也是[垃圾收�
 
 在 HotSpot 虚拟机中，方法区的实现称为永久代（PermGen），但在 Java 8 及之后的版本中，已经被元空间（Metaspace）所替代。
 
+#### 变量存在堆栈的什么位置？
+
+对于局部变量来说，它存储在当前方法的栈帧中的局部变量表中。当方法执行完毕，栈帧被回收，局部变量也会被释放。
+
+```java
+public void method() {
+    int localVar = 100;  // 局部变量，存储在栈帧中的局部变量表里
+}
+```
+
+对于静态变量来说，它存储在 Java 规范中的方法区中，也就是元空间（Metaspace）。
+
+```java
+public class StaticVarDemo {
+    public static int staticVar = 100;  // 静态变量，存储在方法区中
+}
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：堆和栈的区别是什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：介绍一下 JVM 运行时数据区
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：讲一下 JVM 内存结构？
@@ -172,6 +190,7 @@ Java 中“几乎”所有的对象都会在堆中分配，堆也是[垃圾收�
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：你提到了栈帧，那局部变量表除了栈帧还有什么？一个什么都没有的空方法，完全空的参数什么都没有，那局部变量表里有没有变量？
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Java堆内存和栈内存的区别
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：说一下JVM内存模型
+> 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的深信服面经同学 3 Java 后端线下一面面试原题：JVM变量存在堆栈的位置？
 
 ### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 

@@ -3,6 +3,7 @@ title: 计算机网络面试题，63道计算机网络八股文（2.2万字80张
 shortTitle: 面渣逆袭-计算机网络
 description: 下载次数超 1 万次，2.2 万字 80 张手绘图，详解 63 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
+date: 2024-10-17
 category:
   - 面渣逆袭
 tag:
@@ -221,6 +222,10 @@ HTTP 协议定义了多种请求方式，用以指示请求的目的。常见的
 - POST：向指定资源提交数据，请求服务器进行处理（如提交表单或上传文件）。数据被包含在请求体中。可能会创建新的资源或修改现有资源。
 - DELETE：删除指定的资源。
 - PUT：用于替换指定的资源。如果指定的资源不存在，创建一个新资源。
+- HEAD：类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头。可以用于检查资源是否存在，验证资源的更新时间等。
+- OPTIONS：用于获取服务器支持的 HTTP 请求方法。通常用于跨域请求中的预检请求（CORS）。
+- TRACE：回显服务器收到的请求，主要用于测试或诊断。但由于安全风险（可能暴露敏感信息），很多服务器会禁用 TRACE 请求。
+- CONNECT：建立一个到目标资源的隧道（通常用于 SSL/TLS 代理），用于在客户端和服务器之间进行加密的隧道传输。
 
 #### HTTP 的 GET 方法可以实现写操作吗?
 
@@ -261,6 +266,7 @@ DELETE /idX/delete HTTP/1.1   -> Returns 404
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 有哪些方法，http 的 get 方法可以实现写操作吗，https 传递 url 安全吗，为什么数据在浏览器中，中间人攻击是什么
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：什么是幂等？幂等方法了解哪些？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的深信服面经同学 3 Java 后端线下一面面试原题：http请求除了get post的其他所有。
 
 ### 10.说⼀下 GET 和 POST 的区别？
 
