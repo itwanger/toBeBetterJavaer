@@ -525,7 +525,7 @@ Broker 收到延时消息了，会先发送到主题（SCHEDULE_TOPIC_XXXX）的
 - 5、异常情况，Broker 端迟迟等不到二次确认。在一定时间后，会查询所有的半消息，然后到 Producer 端查询半消息的执行情况。
 - 6、Producer 端查询本地事务的状态
 - 7、根据事务的状态提交 commit/rollback 到 broker 端。（5，6，7 是消息回查）
-- 8、消费者段消费到消息之后，执行本地事务，执行本地事务。
+- 8、消费者段消费到消息之后，执行本地事务。
 
 ### 16.死信队列知道吗？
 
@@ -668,7 +668,7 @@ RocketMQ 提供了两种刷盘策略：同步刷盘和异步刷盘
 
 ![异步刷盘](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-10a2361b-5e23-462f-86bf-1a9bce2342e5.jpg)
 
-### 22.能说下 RocketMQ 的负载均衡是如何实现的？
+### 23.能说下 RocketMQ 的负载均衡是如何实现的？
 
 RocketMQ 中的负载均衡都在 Client 端完成，具体来说的话，主要可以分为 Producer 端发送消息时候的负载均衡和 Consumer 端订阅消息的负载均衡。
 
@@ -716,7 +716,7 @@ rebalanceByTopic()方法会根据消费者通信类型为“广播模式”还�
 
 消息消费队列在同一消费组不同消费者之间的负载均衡，其核心设计理念是在一个消息消费队列在同一时间只允许被同一消费组内的一个消费者消费，一个消息消费者能同时消费多个消息队列。
 
-### 23.RocketMQ 消息长轮询了解吗？
+### 24.RocketMQ 消息长轮询了解吗？
 
 所谓的长轮询，就是 Consumer 拉取消息，如果对应的 Queue 如果没有数据，Broker 不会立即返回，而是把 PullReuqest hold 起来，等待 queue 有了消息后，或者长轮询阻塞时间到了，再重新处理该 queue 上的所有 PullRequest。
 
