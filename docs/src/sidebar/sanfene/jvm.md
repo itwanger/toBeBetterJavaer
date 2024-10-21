@@ -2,7 +2,7 @@
 title: JVM面试题，55道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
-date: 2024-10-17
+date: 2024-10-20
 category:
   - 面渣逆袭
 tag:
@@ -74,7 +74,7 @@ JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数�
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
-JVM 的内存区域，有时叫 JVM 的内存结构，有时也叫 JVM 运行时数据区，按照 Java 的虚拟机规范，可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
+按照 Java 的虚拟机规范，JVM 的内存区域（JVM 的内存结构/JVM 运行时数据区）可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
 
 ![三分恶面渣逆袭：Java虚拟机运行时数据区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-3.png)
 
@@ -131,6 +131,26 @@ public class VarDemo1 {
 本地方法栈（Native Method Stacks）与虚拟机栈相似，区别在于虚拟机栈是为 JVM 执行 Java 编写的方法服务的，而本地方法栈是为 Java 调用[本地（native）方法](https://javabetter.cn/oo/native-method.html)服务的，由 C/C++ 编写。
 
 在本地方法栈中，主要存放了 native 方法的局部变量、动态链接和方法出口等信息。当一个 Java 程序调用一个 native 方法时，JVM 会切换到本地方法栈来执行这个方法。
+
+#### 介绍一下本地方法栈的运行场景？
+
+当 Java 应用需要与操作系统底层或硬件交互时，通常会用到本地方法栈。
+
+比如调用操作系统的特定功能，如内存管理、文件操作、系统时间、系统调用等。
+
+举例：`System.currentTimeMillis()` 就是调用本地方法来获取操作系统的当前时间。
+
+![二哥的Java 进阶之路：currentTimeMillis方法源码](https://cdn.tobebetterjavaer.com/stutymore/jvm-20241020075744.png)
+
+再比如 JVM 自身的一些底层功能也需要通过本地方法来实现。像 Object 类中的 `hashCode()` 方法、`clone()` 方法等。
+
+![二哥的Java 进阶之路：hashCode方法源码](https://cdn.tobebetterjavaer.com/stutymore/jvm-20241020080126.png)
+
+#### native 方法解释一下？
+
+推荐阅读：[手把手教你用 C语言实现 Java native 本地方法](https://javabetter.cn/oo/native-method.html)
+
+Native 方法是在 Java 中通过 native 关键字声明的，用于调用非 Java 语言（如 C/C++）编写的代码。Java 可以通过 JNI（Java Native Interface）与底层系统、硬件设备、或高性能的本地库进行交互。
 
 #### 介绍一下 Java 堆？
 
@@ -191,6 +211,7 @@ public class StaticVarDemo {
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Java堆内存和栈内存的区别
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：说一下JVM内存模型
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的深信服面经同学 3 Java 后端线下一面面试原题：JVM变量存在堆栈的位置？
+> 14. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：Jvm内存区域，本地方法栈的运行场景，Native方法解释一下
 
 ### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 

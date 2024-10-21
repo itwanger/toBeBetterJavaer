@@ -977,26 +977,53 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ①、**缓存空值/默认值**
 
-在数据库无法命中之后，把一个空对象或者默认值保存到缓存，之后再访问这个数据，就会从缓存中获取，这样就保护了数据库。
+客户端请求某个 ID 的数据，首先检查缓存是否命中。如果缓存未命中，查询数据库。如果数据库查询结果为空，将该空结果（如 null 或 {}）缓存起来，并设置一个合理的过期时间。当后续请求再访问相同 ID 时，缓存直接返回空结果，避免每次都打到数据库。
 
 ![三分恶面渣逆袭：缓存空值/默认值](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-288af5a2-ae5a-427a-95e9-b4a658b01386.png)
 
-缓存空值有两大问题：
+代码示例：
 
-1. 空值做了缓存，意味着缓存层中存了更多的键，需要更多的内存空间（如果是攻击，问题更严重），比较有效的方法是针对这类数据设置一个较短的过期时间，让其自动剔除。
-2. 缓存层和存储层的数据会有一段时间窗口的不一致，可能会对业务有一定影响。
+```java
+String cacheKey = "product::" + productId;
+String result = cache.get(cacheKey);
 
-例如过期时间设置为 5 分钟，如果此时存储层添加了这个数据，那此段时间就会出现缓存层和存储层数据的不一致。
+if (result == null) {
+    result = database.queryProductById(productId);
 
-这时候可以利用消息队列或者其它异步方式清理缓存中的空对象。
+    if (result == null) {
+        // 缓存空值，设置较短的过期时间
+        cache.set(cacheKey, "null", shortTTL);
+    } else {
+        // 缓存有效数据
+        cache.set(cacheKey, result, longTTL);
+    }
+}
+```
 
 ②、**布隆过滤器**
 
-除了缓存空对象，我们还可以在存储和缓存之前，加一个布隆过滤器，做一层过滤。
+通过布隆过滤器存储所有可能存在的合法数据的键，当请求到达时，先通过布隆过滤器判断该键是否存在：
 
-布隆过滤器里会保存数据是否存在，如果判断数据不存在，就不会访问存储。
+- 如果布隆过滤器认为该键不存在，直接返回空，不会查询数据库。
+- 如果布隆过滤器认为该键可能存在，则查询缓存和数据库。
 
 ![三分恶面渣逆袭：布隆过滤器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-0e18ea40-a2e5-4fa6-989e-e771f6e4b0fc.png)
+
+代码示例：
+
+```java
+BloomFilter<String> bloomFilter = new BloomFilter<>(expectedInsertions, fpp); // 期望插入量和误判率
+bloomFilter.put("valid_key_1");
+bloomFilter.put("valid_key_2");
+
+// 判断请求的键是否存在于布隆过滤器中
+if (!bloomFilter.mightContain(requestedKey)) {
+    // 如果布隆过滤器认为该键不存在，则直接返回空
+    return null;
+} else {
+    // 继续正常的缓存查询和数据库查询流程
+}
+```
 
 两种解决方案的对比：
 
@@ -1065,6 +1092,7 @@ public UserPermissions loadPermissionsFromRedis(String userId) {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：Redis 宕机会不会对权限系统有影响？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：说一下 Redis 雪崩、穿透、击穿等场景的解决方案
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米同学 F 面试原题：缓存常见问题和解决方案（引申到多级缓存），多级缓存（redis，nginx，本地缓存）的实现思路
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：如何解决缓存穿透
 
 ### 27.能说说布隆过滤器吗？
 
@@ -1078,11 +1106,36 @@ public UserPermissions loadPermissionsFromRedis(String userId) {
 
 ![三分恶面渣逆袭：布隆过滤器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d0b8d85c-85dc-4843-b4be-d5d48338a44e.png)
 
-因为布隆过滤器占用的内存空间非常小，所以查询效率也非常高，所以在 Redis 缓存中，使用布隆过滤器可以快速判断请求的数据是否在缓存中。
+#### 布隆过滤器存在误判吗？
 
-但是布隆过滤器也有一定的缺点，因为是通过哈希函数计算的，所以存在哈希冲突的问题，可能会导致误判。
+布隆过滤器的优点是空间效率和查询时间都远远超过一般的算法，缺点是存在误判和删除困难。
+
+![勇哥：布隆过滤器](https://cdn.tobebetterjavaer.com/stutymore/redis-20241019191741.png)
+
+当布隆过滤器保存的元素越多，被置为 1 的 bit 位就会越多。假设元素 x 没有存储过，但其他元素的哈希函数映射到位数组的三个位刚好都为 1 且恰好覆盖了元素 x 映射的位置，那么对于布隆过滤器来讲，元素 x 这个值就是存在的，也就是说布隆过滤器存在一定的误判率。
+
+布隆过滤器的误判率取决于以下几个因素：
+
+1. 位数组的大小（m）：位数组的大小决定了可以存储的标志位数量。如果位数组过小，那么哈希碰撞的几率就会增加，从而导致更高的误判率。
+2. 哈希函数的数量（k）：哈希函数的数量决定了每个元素在位数组中标记的位数。哈希函数越多，碰撞的概率也会相应变化。如果哈希函数太少，则过滤器很快会变得不精确；如果太多，误判率也会升高，效率下降。
+3. 存入的元素数量（n）：存入的元素越多，哈希碰撞的几率越大，从而导致更高的误判率。
+
+![勇哥：布隆过滤器的误判](https://cdn.tobebetterjavaer.com/stutymore/redis-20241019192648.png)
+
+误判率公式如下：
+
+$$
+f(k) = \left( 1 - e^{- \frac{kn}{m}} \right)^k
+$$
+
+虽然布隆过滤器会产生误判，但在很多场景下一定的误判率是可以接受的，这是因为布隆过滤器的主要优点是其高效的查询速度和低内存占用。相比其他精确的集合数据结构（如哈希表、树等），布隆过滤器可以在空间效率和查询速度上表现更优。
+
+#### 布隆过滤器支持删除吗？
+
+布隆过滤器其实并不支持删除元素，因为多个元素可能哈希到一个布隆过滤器的同一个位置，如果直接删除该位置的元素，则会影响其他元素的判断。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：有了解过布隆过滤器吗？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：布隆过滤器原理，这种方式下5%的错误率可接受？
 
 ### 28.如何保证缓存和数据库的数据⼀致性？
 
