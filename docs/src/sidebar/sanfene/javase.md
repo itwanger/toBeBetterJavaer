@@ -61,6 +61,7 @@ Java 可以实现自动内存管理，通过 GC 垃圾收集器来实现，而 C
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：多久开始学 java 的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：平常用什么编程语言
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：平时是怎么学 Java 的？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 TP-LINK 联洲同学 5 技术一面面试原题：日常用的编程语言？
 
 ### 2.Java 语言有哪些特点？
 

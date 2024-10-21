@@ -667,11 +667,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 24.详细说一下 TCP 的三次握手机制
 
-TCP（传输控制协议）的三次握手机制是一种用于在两个 TCP 主机之间建立一个可靠的连接的过程。这个机制确保了两端的通信是同步的，并且在数据传输开始前，双方都准备好了进行通信。
+TCP（传输控制协议）的三次握手机制是一种用于在两个 TCP 主机之间建立一个可靠连接的过程。这个机制确保了两端的通信是同步的，并且在数据传输开始前，双方都准备好了进行通信。
 
 ![三分恶面渣逆袭：TCP 三次握手示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-a6c0457e-544e-4291-98d9-862fc6a18631.jpg)
-
-那我再说一下三次握手 🤝 的过程：
 
 ①、第一次握手：SYN（最开始都是 CLOSE，之后服务器进入 LISTEN）
 
@@ -727,7 +725,16 @@ TCP（传输控制协议）的三次握手机制是一种用于在两个 TCP 主
 
 这时候，你们两个就确认彼此都准备好深入交流了，可以开始你们的对话了。
 
+#### 说说 SYN 的概念？
+
+SYN 是 TCP 协议中用来建立连接的一个标志位，全称为 Synchronize Sequence Numbers，也就是同步序列编号。
+
+![截图来自sideplayer：TCP 报文](https://cdn.tobebetterjavaer.com/stutymore/network-20241020090503.png)
+
+SYN 不仅确保了序列号的同步，使得后续的数据能够有序传输，还能防止旧的报文段被误认为是新连接。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：TCP 为什么要三次握手
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：Tcp三次握手，Syn的概念
 
 ### 25.TCP 握手为什么是三次，为什么不能是两次？不能是四次？
 
