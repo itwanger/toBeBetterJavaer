@@ -59,6 +59,8 @@ FROM employees
 ORDER BY salary DESC, name ASC;
 ```
 
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：用过哪些数据库
@@ -926,6 +928,7 @@ InnoDB 为聚簇索引，索引和数据不分开。
 **⑦、表的具体行数**：MyISAM 表的具体行数存储在表的属性中，查询时直接返回；InnoDB 表的具体行数需要扫描整个表才能返回。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MyISAM 和 InnoDB 的区别有哪些？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：mysql存储的数据都是什么样的？
 
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
@@ -1888,7 +1891,7 @@ FROM
 1. 推荐阅读：[终于把 B 树搞明白了](https://www.bilibili.com/video/BV1mY4y1W7pS)
 2. 推荐阅读：[一篇文章讲透 MySQL 为什么要用 B+树实现索引](https://cloud.tencent.com/developer/article/1543335)
 
-MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引。
+MySQL 的默认存储引擎是 InnoDB，它采用的是 B+树索引，是 B 树的升级版。
 
 B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B 树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
 
@@ -1987,6 +1990,7 @@ MySQL 属于关系型数据库，所以范围查询会比较多，所以采用�
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 1 面试原题：项目索引，MySQL索引，mongoDB为什么用的B树，二者比较
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 8 后端开发秋招一面面试原题：Mysql索引的数据结构，为什么选择这样的数据结构
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：索引
+> 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：B+树？
 
 
 ### 34.那一棵 B+树能存储多少条数据呢？
@@ -2165,7 +2169,7 @@ SELECT * FROM users WHERE name = '张三';
 
 ### 40.覆盖索引了解吗？
 
-覆盖索引（Covering Index）是数据库索引优化中的一个重要概念，它指的是一种索引能够“覆盖”查询中所涉及的所有列，换句话说，查询所需的数据全部都可以从索引中直接获取，而无需访问数据表的行数据（也就是无需回表）。
+覆盖索引（Covering Index）指的是一种索引能够“覆盖”查询中所涉及的所有列，换句话说，查询所需的数据全部都可以从索引中直接获取，而无需访问数据表的行数据（也就是无需回表）。
 
 通常情况下，索引中只包含表的某些字段，数据库在通过索引查找到满足条件的记录后，还需要回到表中获取其它字段的数据，这个过程叫做“回表”。
 
@@ -2197,6 +2201,7 @@ SELECT age, email FROM users WHERE name = "张三";
 ![三分恶面渣逆袭：覆盖索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-69e33c61-34bc-4f4b-912b-ca7beb9d5c7c.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：了解覆盖索引吗
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：索引覆盖，回表？
 
 ### 41.什么是最左前缀原则？
 
@@ -2236,22 +2241,23 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 
 ### 42.什么是索引下推优化？
 
-索引条件下推优化`（Index Condition Pushdown (ICP) ）`是 MySQL5.6 添加的，用于优化数据查询。
+索引下推`（Index Condition Pushdown (ICP) ）`是 MySQL 5.6 时添加的，它允许在访问索引时对数据进行过滤，从而减少回表的次数。
 
-- 不使用索引条件下推优化时存储引擎通过索引检索到数据，然后返回给 MySQL Server，MySQL Server 进行过滤条件的判断。
-- 当使用索引条件下推优化时，如果存在某些被索引的列的判断条件时，MySQL Server 将这一部分判断条件**下推**给存储引擎，然后由存储引擎通过判断索引是否符合 MySQL Server 传递的条件，只有当索引符合条件时才会将数据检索出来返回给 MySQL 服务器。
+例如有一张 user 表，建了一个联合索引（name, age），查询语句：`select * from user where name like '张%' and age=10;`，没有索引下推优化的情况下：
 
-例如一张表，建了一个联合索引（name, age），查询语句：`select * from t_user where name like '张%' and age=10;`，由于`name`使用了范围查询，根据最左匹配原则：
+MySQL 会先根据 `name like '张%'` 查找条件匹配的数据，对于符合索引条件的每一条记录，都会去访问对应的数据行，并在 Server 层过滤 `age=10` 这个条件。
 
-不使用 ICP，引擎层查找到`name like '张%'`的数据，再由 Server 层去过滤`age=10`这个条件，这样一来，就回表了两次，浪费了联合索引的另外一个字段`age`。
+这样就等于说及时 age 不等于 10，MySQL 也会执行回表操作。
 
-![没有使用 ICP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c58f59e0-850b-4dfd-8129-2dfc51cf4768.jpg)
+![三分恶面渣逆袭：没有使用 ICP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c58f59e0-850b-4dfd-8129-2dfc51cf4768.jpg)
 
-但是，使用了索引下推优化，把 where 的条件放到了引擎层执行，直接根据`name like '张%' and age=10`的条件进行过滤，减少了回表的次数。
+有索引下推的情况下，MySQL 可以在存储引擎层检查 `name like '张%' and age=10` 的条件，而不仅仅是 `name like '张%'`。
 
-![使用 ICP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a8525cf3-2d16-49a9-a7da-a19762ed16df.jpg)
+![三分恶面渣逆袭：使用 ICP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a8525cf3-2d16-49a9-a7da-a19762ed16df.jpg)
 
-索引条件下推优化可以减少存储引擎查询基础表的次数，也可以减少 MySQL 服务器从存储引擎接收数据的次数。
+这就意味着不符合 age = 10 条件的记录将会在索引扫描时被过滤掉，从而减少了回表的次数。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：索引下推
 
 ### 79.MySQL如何查看查询是否用到了索引？（补充）
 
