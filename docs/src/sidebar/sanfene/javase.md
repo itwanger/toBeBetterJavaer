@@ -2,7 +2,7 @@
 title: Java面试题之Java基础篇，55道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶
-date: 2024-10-16
+date: 2024-10-22
 category:
   - 面渣逆袭
 tag:
@@ -2363,6 +2363,7 @@ out.writeObject(person);
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 2 后端面试原题：用过序列化和反序列化吗？
 > 2. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：你了解 java 的序列化和反序列化吗，能解释一下序列化的过程和作用吗
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：什么是序列化，什么是反序列化
 
 ### 46.说说有几种序列化方式？
 

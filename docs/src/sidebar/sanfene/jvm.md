@@ -791,6 +791,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java 中垃圾回收的原理
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：JVM了解吗？内存回收机制说一下？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：垃圾回收的过程是什么？
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：说一下GC，有哪些方法
 
 ### 21.如何判断对象仍然存活？
 
