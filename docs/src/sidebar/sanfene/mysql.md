@@ -2,7 +2,7 @@
 title: MySQL面试题，81道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
 description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 81 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-date: 2024-10-16
+date: 2024-10-22
 author: 三分恶
 category:
   - 面渣逆袭
@@ -26,11 +26,46 @@ MySQL 是一个开源的关系型数据库管理系统，现在隶属于 Oracle 
 
 ![MySQL 官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1992b6dd-1c1d-4b8b-b98a-8407e8c51ff9.jpg)
 
+#### 怎么删除/创建一张表和设定主键？
+
+在 MySQL 中，我们可以使用 DROP TABLE 来删除表，使用 CREATE TABLE 来创建表并设定主键。创建表时，可以在定义列的同时设置某一列为主键，如将 id 列设为主键：PRIMARY KEY (id)。
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    PRIMARY KEY (id)
+);
+```
+
+#### 举例用sql实现升序降序
+
+在 SQL 中，可以使用 ORDER BY 子句来对查询结果进行升序或降序排序。默认情况下，查询结果是升序排序，也可以通过 DESC 关键字进行降序排序。
+
+例如，如果我想对 employees 表中的数据按工资升序排序，我会使用：
+
+```sql
+SELECT id, name, salary
+FROM employees
+ORDER BY salary ASC;
+```
+
+此外，如果我需要根据多个字段进行排序，例如先按工资降序排列，再按名字升序排列，我可以使用：
+
+```sql
+SELECT id, name, salary
+FROM employees
+ORDER BY salary DESC, name ASC;
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：用过哪些数据库
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：了解 MySQL、Redis 吗？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：数据库用什么多（说了 Mysql 和 Redis）
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：怎么删除/创建一张表和设定主键
+，举例用sql实现升序降序
 
 ### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
 
@@ -1540,11 +1575,35 @@ MySQL 的 InnoDB 存储引擎默认使用 B+ 树来作为索引的数据结构�
 create index idx_name on students(name);
 ```
 
+#### 索引优化举例？
+
+在实际开发中，我们可以通过合理使用单字段索引、复合索引和覆盖索引来优化查询。例如，如果要加速查询 age 字段的条件，我们可以在 age 字段上创建索引。
+
+```sql
+CREATE INDEX idx_age ON users(age);
+```
+
+如果查询涉及多个字段 age 和 name，可以使用复合索引来提高查询效率。
+
+```sql
+CREATE INDEX idx_age_name ON users(age, name);
+```
+
+当我们只需要查询部分字段时 `SELECT name FROM users WHERE age = 30;`，覆盖索引可以提升查询效率。
+
+```sql
+CREATE INDEX idx_age_name ON users(age, name);
+```
+
+由于 age 和 name 字段都在索引中，MySQL 直接从索引中获取结果，无需回表查找。
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 E 第二个部门 Java 后端技术一面面试原题：为什么需要索引
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经同学 5 Java 后端面试原题：数据库索引讲一下，然后为什么会加快查询速度，我讲到了 B+树，然后问了 B 数与 B+树区别
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：mysql为什么用索引
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：对MySQL索引的理解
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：索引，索引优化举例，为什么使用索引更快
 
 ### 28.能简单说一下索引的分类吗？
 
@@ -2645,9 +2704,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 48.MySQL 事务的四大特性说一下？
 
-事务是一个或多个 SQL 语句组成的一个执行单元，这些 SQL 语句要么全部执行成功，要么全部不执行，不会出现部分执行的情况。事务是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。
-
-事务的主要作用是保证数据库操作的一致性，即事务内的操作，要么全部成功，要么全部失败回滚，不会出现中间状态。这对于维护数据库的完整性和一致性非常重要。
+事务是一个或多个 SQL 语句组成的一个执行单元，这些 SQL 语句要么全部执行成功，要么全部不执行，不会出现部分执行的情况。主要作用是保证数据库操作的一致性。
 
 事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）。
 
@@ -2687,6 +2744,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：什么是数据库事务？事务的作用是什么？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：对MySQL事务的理解
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：事务的概念
 
 ### 49.那 ACID 靠什么保证的呢？
 

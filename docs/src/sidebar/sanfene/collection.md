@@ -114,6 +114,7 @@ Collection 继承了 Iterable 接口，这意味着所有实现 Collection 接�
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：集合容器能列举几个吗?
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：java的集合介绍一下
 > 14. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：介绍Java的集合框架
+> 15. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：Java中的集合有哪些
 
 ## List
 
