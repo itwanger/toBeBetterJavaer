@@ -1395,7 +1395,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 **堆配置：**
 
 - -Xms:初始堆大小
-- -Xms：最大堆大小
+- -Xmx:最大堆大小
 - -XX:NewSize=n:设置年轻代大小
 - -XX:NewRatio=n:设置年轻代和年老代的比值。如：为 3 表示年轻代和年老代比值为 1：3，年轻代占整个年轻代年老代和的 1/4
 - -XX:SurvivorRatio=n:年轻代中 Eden 区与两个 Survivor 区的比值。注意 Survivor 区有两个。如 3 表示 Eden： 3 Survivor：2，一个 Survivor 区占整个年轻代的 1/5
