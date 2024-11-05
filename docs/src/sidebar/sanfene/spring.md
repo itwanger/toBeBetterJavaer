@@ -3,7 +3,7 @@ title: Spring面试题，41道Spring八股文（1.3万字63张手绘图），面
 shortTitle: 面渣逆袭-Spring
 description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
-date: 2024-10-31
+date: 2024-11-05
 category:
   - 面渣逆袭
 tag:
@@ -132,37 +132,36 @@ Spring 提供了大量的注解来简化 Java 应用的开发和配置，主要�
 
 Spring 框架中用了蛮多设计模式的：
 
-①、**工厂模式**：IoC 容器本身可以看作是一个巨大的工厂，负责创建和管理 Bean 的生命周期和依赖关系。
-
-像 BeanFactory 和 ApplicationContext 接口都提供了工厂模式的实现，负责实例化、配置和组装 Bean。
-
-②、**代理模式**：AOP 的实现就是基于代理模式的，如果配置了事务管理，Spring 会使用代理模式创建一个连接数据库的代理对象，来进行事务管理。
-
-③、**单例模式**：Spring 容器中的 Bean 默认都是单例的，这样可以保证 Bean 的唯一性，减少系统开销。
-
-④、**模板模式**：Spring 中的 JdbcTemplate，HibernateTemplate 等以 Template 结尾的类，都使用了模板方法模式。
-
-比如，我们使用 JdbcTemplate，只需要提供 SQL 语句和需要的参数就可以了，至于如何创建连接、执行 SQL、处理结果集等都由 JdbcTemplate 这个模板方法来完成。
-
-④、**观察者模式**：Spring 事件驱动模型就是观察者模式很经典的一个应用，Spring 中的 ApplicationListener 就是观察者，当有事件（ApplicationEvent）被发布，ApplicationListener 就能接收到信息。
-
-⑤、**适配器模式**：Spring MVC 中的 HandlerAdapter 就用了适配器模式。它允许 DispatcherServlet 通过统一的适配器接口与多种类型的请求处理器进行交互。
-
-⑥、**策略模式**：Spring 中有一个 Resource 接口，它的不同实现类，会根据不同的策略去访问资源。
+①、比如说工厂模式用于 BeanFactory 和 ApplicationContext，实现 Bean 的创建和管理。
 
 ```java
-public interface ResourceLoader {
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+MyBean myBean = context.getBean(MyBean.class);
+```
 
-    String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX;
+②、比如说单例模式，这样可以保证 Bean 的唯一性，减少系统开销。
 
-    Resource getResource(String location);
+```java
+ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+MyService myService1 = context.getBean(MyService.class);
+MyService myService2 = context.getBean(MyService.class);
 
-    ClassLoader getClassLoader();
+// This will print "true" because both references point to the same instance
+System.out.println(myService1 == myService2);
+```
+
+③、比如说 AOP 使用了代理模式来实现横切关注点（如事务管理、日志记录、权限控制等）。
+
+```java
+@Transactional
+public void myTransactionalMethod() {
+    // 方法实现
 }
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：Spring IoC 的设计模式，AOP 的设计模式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Spring 框架使用到的设计模式？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：Spring用了什么设计模式？
 
 ### 39.Spring 容器、Web 容器之间的区别？（补充）
 
@@ -620,15 +619,52 @@ public class ToolFactoryBean implements FactoryBean<Tool> {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 Spring 的 Bean 实例化方式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：bean加工有哪些方法？
 
-### 9.能说一下 Spring Bean 生命周期吗？
+### 9.能说一下 Bean 的生命周期吗？
 
 推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
 
-Spring 中 Bean 的生命周期大致分为四个阶段：**实例化**（Instantiation）、**属性赋值**（Populate）、**初始化**（Initialization）、**销毁**（Destruction）。
+Bean 的生命周期大致分为五个阶段：
 
-![三分恶面渣逆袭：Bean生命周期四个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
+![三分恶面渣逆袭：Bean生命周期五个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
 
-对应的完整步骤如下图所示：
+- **实例化**：Spring 首先使用构造方法或者工厂方法创建一个 Bean 的实例。在这个阶段，Bean 只是一个空的 Java 对象，还未设置任何属性。
+- **属性赋值**：Spring 将配置文件中的属性值或依赖的 Bean 注入到该 Bean 中。这个过程称为依赖注入，确保 Bean 所需的所有依赖都被注入。
+- **初始化**：Spring 调用 afterPropertiesSet 方法，或通过配置文件指定的 init-method 方法，完成初始化。
+- 使用中：Bean 准备好可以使用了。
+- **销毁**：在容器关闭时，Spring 会调用 destroy 方法或 destroy-method 方法，完成 Bean 的清理工作。
+
+```java
+public class MyBean implements InitializingBean, DisposableBean {
+    
+    public MyBean() {
+        System.out.println("1. Bean 实例化");
+    }
+
+    public void setProperty(String property) {
+        System.out.println("2. 属性赋值：" + property);
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("3. 初始化方法：afterPropertiesSet");
+    }
+
+    public void customInit() {
+        System.out.println("3. 初始化方法：customInit");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("5. 销毁方法：destroy");
+    }
+
+    public void customDestroy() {
+        System.out.println("5. 销毁方法：customDestroy");
+    }
+}
+```
+
+#### 可以从源码角度讲一下吗？
 
 ![三分恶面渣逆袭：Spring Bean生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
 
@@ -678,7 +714,7 @@ protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable
 
 ![二哥的 Java 进阶之路：close 源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101658.png)
 
-**请在一个已有的 Spring Boot 项目中通过单元测试的形式来展示 Spring Bean 的生命周期**。
+#### 请在一个已有的 Spring Boot 项目中通过单元测试的形式来展示 Spring Bean 的生命周期？
 
 第一步，创建一个 LifecycleDemoBean 类：
 
@@ -739,7 +775,7 @@ public class LifecycleDemoBean implements InitializingBean, DisposableBean {
 }
 ```
 
-#### ①、实例化
+**①、实例化**
 
 实例化是创建 Bean 实例的过程，即在内存中为 Bean 对象分配空间。这一步是通过调用 Bean 的构造方法完成的。
 
@@ -751,7 +787,7 @@ public LifecycleDemoBean() {
 
 在这里，当 Spring 创建 LifecycleDemoBean 的实例时，会调用其无参数的构造方法，这个过程就是实例化。
 
-#### ②、属性赋值
+**②、属性赋值**
 
 在实例化之后，Spring 将根据 Bean 定义中的配置信息，通过反射机制为 Bean 的属性赋值。
 
@@ -767,7 +803,7 @@ public void setName(String name) {
 
 `@Value`注解和 setter 方法体现了属性赋值的过程。`@Value`注解让 Spring 注入配置值（或默认值），setter 方法则是属性赋值的具体操作。
 
-#### ③、初始化
+**③、初始化**
 
 初始化阶段允许执行自定义的初始化逻辑，比如检查必要的属性是否已经设置、开启资源等。Spring 提供了多种方式来配置初始化逻辑。
 
@@ -810,7 +846,7 @@ public LifecycleDemoBean lifecycleDemoBean() {
 }
 ```
 
-#### ④、销毁
+**④、销毁**
 
 销毁阶段允许执行自定义的销毁逻辑，比如释放资源。类似于初始化阶段，Spring 也提供了多种方式来配置销毁逻辑。
 
@@ -899,6 +935,7 @@ LifecycleDemoBean: customDestroy（自定义销毁方法）
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring中bean生命周期
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：讲一下Spring Bean的生命周期
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean生命周期
 
 ### 10.Bean 定义和依赖定义有哪些方式？
 
@@ -1044,20 +1081,30 @@ Spring 提供了 4 种自动装配类型：
 - **constructor**：与 byType 类似， 只不过它是针对构造函数注入而言的。如果 Boss 有一个构造函数，构造函数包含一个 Car 类型的入参，如果容器中有一个 Car 类型的 Bean，则 Spring 将自动把这个 Bean 作为 Boss 构造函数的入参；如果容器中没有找到和构造函数入参匹配类型的 Bean，则 Spring 将抛出异常。
 - **autodetect**：根据 Bean 的自省机制决定采用 byType 还是 constructor 进行自动装配，如果 Bean 提供了默认的构造函数，则采用 byType，否则采用 constructor。
 
-### 13.Spring 中的 Bean 的作用域有哪些?
+### 13.Bean 的作用域有哪些?
 
-Spring 的 Bean 主要支持五种作用域：
+在 Spring 中，Bean 默认是单例的，即在整个 Spring 容器中，每个 Bean 只有一个实例。
 
-![Spring Bean支持作用域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-08a9cb31-5a4f-4224-94cd-0c0f643a57ea.png)
+可以通过在配置中指定 scope 属性，将 Bean 改为多例（Prototype）模式，这样每次获取的都是新的实例。
 
-- **singleton** : 在 Spring 容器仅存在一个 Bean 实例，Bean 以单实例的方式存在，是 Bean 默认的作用域。
-- **prototype** : 每次从容器重调用 Bean 时，都会返回一个新的实例。
+```java
+@Bean
+@Scope("prototype")  // 每次获取都是新的实例
+public MyBean myBean() {
+    return new MyBean();
+}
+```
 
-以下三个作用域于只在 Web 应用中适用：
+除了单例和多例，Spring 还支持其他作用域，如请求作用域（Request）、会话作用域（Session）等，适合 Web 应用中特定的使用场景。
 
-- **request** : 每一次 HTTP 请求都会产生一个新的 Bean，该 Bean 仅在当前 HTTP Request 内有效。
-- **session** : 同一个 HTTP Session 共享一个 Bean，不同的 HTTP Session 使用不同的 Bean。
-- **globalSession**：同一个全局 Session 共享一个 Bean，只用于基于 Protlet 的 Web 应用，Spring5 中已经不存在了。
+![三分恶面渣逆袭：Spring Bean支持作用域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-08a9cb31-5a4f-4224-94cd-0c0f643a57ea.png)
+
+- **request**：每一次 HTTP 请求都会产生一个新的 Bean，该 Bean 仅在当前 HTTP Request 内有效。
+- **session**：同一个 Session 共享一个 Bean，不同的 Session 使用不同的 Bean。
+- **globalSession**：同一个全局 Session 共享一个 Bean，只用于基于 Protlet 的 Web 应用，Spring5 中已经移除。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean是单例还是多例的，具体怎么修改
 
 ### 14.Spring 中的单例 Bean 会存在线程安全问题吗？
 

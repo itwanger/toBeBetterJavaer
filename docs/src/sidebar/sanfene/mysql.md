@@ -1183,7 +1183,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## SQL 优化
 
-### 24.慢 SQL 如何定位呢？
+### 24.慢 SQL 怎么定位呢？
 
 推荐阅读：[慢 SQL 优化一点小思路](https://juejin.cn/post/7048974570228809741)
 
@@ -1198,14 +1198,14 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 不过，生产环境中，10 秒太久了，超过 1 秒的都可以认为是慢 SQL 了。
 
 
-#### 那怎么定位慢 SQL 呢？
+#### SQL 的执行过程了解吗？
 
-要想定位慢 SQL，需要了解一下 SQL 的执行过程：
+了解：
 
 1. 客户端发送 SQL 语句给 MySQL 服务器。
-2. 如果查询缓存打开则会优先查询缓存，如果缓存中有对应的结果，直接返回给客户端。不过，MySQL 8.0 版本已经移除了查询缓存。
+2. 如果查询缓存打开则会优先查询缓存，缓存中有对应的结果就直接返回。不过，MySQL 8.0 已经移除了查询缓存。
 3. 分析器对 SQL 语句进行语法分析，判断是否有语法错误。
-4. 搞清楚 SQL 语句要干嘛后，MySQL 还会通过优化器生成执行计划。
+4. 搞清楚 SQL 语句要干嘛后，MySQL 会通过优化器生成执行计划。
 5. 执行器调用存储引擎的接口，执行 SQL 语句。
 
 ![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
@@ -1227,20 +1227,23 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 - 尽量避免复杂的查询条件，如有必要，考虑对子查询结果进行过滤。
 - 尽量缩减计算成本，比如说为排序字段加上索引，提高排序效率；比如说使用 union all 替代 union，减少去重处理。
 
-![三分恶面渣逆袭：发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
+#### 如何排查慢 SQL？
 
-排查 SQL 效率主要通过两种手段：
-
-- **慢查询日志**：开启 MySQL 慢查询日志，再通过一些工具比如 mysqldumpslow 去分析对应的慢查询日志，找出问题的根源。
-- **服务监控**：可以在业务的基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架过程，对服务运行中的慢 SQL 进行监控和告警。
+首先，需要找到哪些 SQL 比较慢，可以启用慢查询日志，记录超过指定执行时间的查询。
 
 也可以使用 `show processlist;` 查看当前正在执行的 SQL 语句，找出执行时间较长的 SQL。
 
-找到对应的慢 SQL 后，使用 EXPLAIN 命令查看 MySQL 是如何执行 SQL 语句的，再根据执行计划对 SQL 进行优化。
+或者在业务基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架扩展。
+
+![三分恶面渣逆袭：发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
+
+然后，使用 EXPLAIN 命令查看查询执行计划，判断查询是否使用了索引，是否存在全表扫描等问题。
 
 ```sql
 EXPLAIN SELECT * FROM your_table WHERE conditions;
 ```
+
+最后，根据分析结果，通过添加或优化索引、调整查询语句或者增加内存缓冲区来优化 SQL。
 
 #### 慢sql日志怎么开启？
 
@@ -1265,6 +1268,7 @@ SET GLOBAL long_query_time = 2;
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：慢sql日志怎么开启？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：如何判断sql的效率，怎样排查效率比较低的sql
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：mysql中如何定位慢查询
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：慢查询怎么分析
 
 ### 25.有哪些方式优化 SQL？
 
@@ -1523,9 +1527,9 @@ explain 是 MySQL 提供的一个用于查看查询执行计划的工具，可�
 explain select * from students where id =9
 ```
 
-接下来，我们需要理解 explain 输出结果中各个字段的含义。
-
 ![三分恶面渣逆袭：EXPLAIN](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e234658f-5672-4a8d-9a75-872b305a171d.jpg)
+
+explain 的输出结果中包含了很多字段，下面是一些常见的字段含义：
 
 ①、**id** 列：查询的标识符。
 
@@ -1541,9 +1545,11 @@ explain select * from students where id =9
 ④、**type** 列：表示 MySQL 在表中找到所需行的方式，性能从最优到最差分别为：system > const > eq_ref > ref > range > index > ALL。
 
 - system，表只有一行，一般是系统表，往往不需要进行磁盘 IO，速度非常快
-- const、eq_ref、ref：这些类型表示 MySQL 可以使用索引来查找单个行，其中 const 是最优的，表示查询最多返回一行。
+- const：表中只有一行匹配，或通过主键或唯一索引获取单行记录。通常用于使用主键或唯一索引的精确匹配查询，性能非常高。
+- eq_ref：对于每个来自上一张表的记录，最多只返回一条匹配记录，通常用于多表关联且使用主键或唯一索引的查询。效率非常高，适合多表关联查询。
+- ref：使用非唯一索引或前缀索引查询的情况，返回符合条件的多行记录。通常用于普通索引或联合索引查询，效率较高，但不如 const 和 eq_ref。
 - range：只检索给定范围的行，使用索引来检索。在`where`语句中使用 `bettween...and`、`<`、`>`、`<=`、`in` 等条件查询 `type` 都是 `range`。
-- index：遍历索引树读取。
+- index：全索引扫描，即扫描整个索引而不访问数据行。
 - ALL：全表扫描，效率最低。
 
 ⑤、**possible_keys** 列：可能会用到的索引，但并不一定实际被使用。
@@ -1570,8 +1576,19 @@ explain select * from students where id =9
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417092646.png)
 
+#### type的执行效率等级，达到什么级别比较合适？
+
+从高到低的效率排序是 system、const、eq_ref、ref、range、index 和 ALL。
+
+一般情况下，建议 type 值达到 const、eq_ref 或 ref，因为这些类型表明查询使用了索引进行精确匹配，效率较高。
+
+如果是范围查询，range 类型也是可以接受的。
+
+通常要避免出现 ALL 类型，因为它表示全表扫描，性能最低。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：怎么看走没走索引，如何分析 SQL
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：key-len和key没什么区别，什么时候会用到key-len，你还会查看explain中的哪些字段，extra有哪些类型
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：explain分析后， type的执行效率等级，达到什么级别比较合适
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -2068,35 +2085,24 @@ MySQL 属于关系型数据库，所以范围查询会比较多，所以采用�
 
 ### 36.为什么用 B+ 树而不用 B 树呢？
 
-B+ 树相比较 B 树，有这些优势：
+B+ 树相比 B 树有几个显著优势：
 
-①、更高的查询效率
-
-B+树的所有值（数据记录或指向数据记录的指针）都存在于叶子节点，并且叶子节点之间通过指针连接，形成一个有序链表。
+首先，B+ 树的叶子节点通过链表相连，非常适合范围查询，如 ORDER BY 和 BETWEEN。
 
 ![极客时间：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115641.png)
 
-这种结构使得 B+树非常适合进行范围查询——一旦到达了范围的开始位置，接下来的元素可以通过遍历叶子节点的链表顺序访问，而不需要回到树的上层。如 SQL 中的 ORDER BY 和 BETWEEN 查询。
+只需要找到符合条件的第一个叶子节点，顺序扫描后续的叶子节点就可以了。相比之下，B 树的每次范围查询都需要回溯到父节点，查询效率较低。
 
 ![极客时间：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115614.png)
 
-而 B 树的数据分布在整个树中，进行范围查询时可能需要遍历树的多个层级。
-
-②、更高的空间利用率
-
-在 B+树中，非叶子节点不存储数据，只存储键值，这意味着非叶子节点可以拥有更多的键，从而有更多的分叉。
-
-这导致树的高度更低，进一步降低了查询时磁盘 I/O 的次数，因为每一次从一个节点到另一个节点的跳转都可能涉及到磁盘 I/O 操作。
-
-③、查询效率更稳定
-
-B+树中所有叶子节点深度相同，所有数据查询路径长度相等，保证了每次搜索的性能稳定性。而在 B 树中，数据可以存储在内部节点，不同的查询可能需要不同深度的搜索。
+其次，B+ 树的非叶子节点不存储数据，能包含更多的键值指针，因此在相同节点容量下，B+ 树的层级更少，树的高度更低。较少的树层级意味着查找路径更短，从而减少磁盘 I/O 次数。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：聚簇索引和非聚簇索引的区别？B+树叶子节点除了存数据还有什么？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：b 树和 b+树有什么区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：MySQL 索引为什么使用 B+树而不是用别的数据结构？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：mysql b+树和b树的区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：B+树有哪些优点
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：为什么用b+树不用b树
 
 ### 37.Hash 索引和 B+ 树索引区别是什么？
 
@@ -2259,11 +2265,39 @@ ALTER TABLE user add INDEX comidx_name_phone (name,age);
 
 但如果查询条件没有 name，就不知道应该怎么查了，因为 name 是 B+树中的前置条件，没有 name，索引就派不上用场了。
 
+#### 联合索引 (a, b)，where a = 1 和 where b = 1，效果是一样的吗
+
+不一样。
+
+`WHERE a = 1` 能有效利用联合索引，因为 a 是联合索引的第一个字段，符合最左前缀匹配原则。而 `WHERE b = 1` 无法利用该联合索引，因为缺少 a 的匹配条件，MySQL 会选择全表扫描。
+
+我们来验证一下，假设有一个 ab 表，建立了联合索引 `(a, b)`：
+
+```sql
+CREATE TABLE ab (
+    a INT,
+    b INT,
+    INDEX ab_index (a, b)
+);
+```
+
+插入数据：
+
+```sql
+INSERT INTO ab (a, b) VALUES (1, 2), (1, 3), (2, 1), (3, 3), (2, 2);
+```
+
+执行查询：
+
+![二哥的Java 进阶之路：最左前缀匹配的差异](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241105120556.png)
+
+通过 explain 可以看到，`WHERE a = 1` 使用了联合索引，而 `WHERE b = 1` 需要全表扫描，依次检查每一行。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：说说最左前缀原则
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：最左匹配原则 索引失效
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Mysql联合索引的设计原则
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：联合索引 (a, b)，where a = 1 和 where b = 1，效果是一样的吗
 
 ### 42.什么是索引下推优化？
 
@@ -2759,7 +2793,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 事务是一个或多个 SQL 语句组成的一个执行单元，这些 SQL 语句要么全部执行成功，要么全部不执行，不会出现部分执行的情况。主要作用是保证数据库操作的一致性。
 
-事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）。
+事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性、一致性、隔离性和持久性。
 
 ![三分恶面渣逆袭：事务四大特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-eaafb8b8-fbe6-42c0-9cc2-f2e04631b56c.jpg)
 
@@ -2798,6 +2832,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：什么是数据库事务？事务的作用是什么？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：对MySQL事务的理解
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：事务的概念
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：事务ACID
 
 ### 49.那 ACID 靠什么保证的呢？
 
