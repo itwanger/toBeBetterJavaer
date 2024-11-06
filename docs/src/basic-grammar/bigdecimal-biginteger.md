@@ -1,7 +1,7 @@
 ---
 title: BigDecimal，非常大的高精度浮点数
 shortTitle: 掌握BigDecimal
-description: `BigDecimal`是`Java`中用于浮点数数值计算的类，其主要适合用于处理需要精确表示和运算的场景。
+description: BigDecimal是Java中用于浮点数数值计算的类，其主要适合用于处理需要精确表示和运算的场景。
 author: 毅航
 category:
   - 微信公众号
