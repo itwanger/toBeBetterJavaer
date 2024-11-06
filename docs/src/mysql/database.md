@@ -3,7 +3,6 @@ title: 利用Spring Boot实现MySQL数据库的自动创建，666
 shortTitle: MySQL 的数据库操作
 ---
 
-# MySQL 的数据库操作
 
 [MySQL 安装完成并连接](https://javabetter.cn/mysql/install.html)成功后，就可以创建数据库进行操作了。
 

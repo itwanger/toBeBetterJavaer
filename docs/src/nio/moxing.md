@@ -13,7 +13,6 @@ head:
       content: IO模型, 阻塞IO, 非阻塞IO, 多路复用, 信号驱动, 异步IO,java,nio
 ---
 
-# 12.6 Java IO模型
 
 Java 的 IO 分为两大类，一类是[传统的 IO](https://javabetter.cn/io/shangtou.html)（Blocking IO），一类是 [NIO](https://javabetter.cn/nio/nio-better-io.html) （New IO）。
 

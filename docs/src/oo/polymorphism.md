@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,Java多态,多态
 ---
 
-# 5.16 Java多态
 
 “三妹啊，前面聊完了 Java 的[封装](https://javabetter.cn/oo/encapsulation.html)、[继承](https://javabetter.cn/oo/extends-bigsai.html)，今天我们来继续聊多态，也是 Java 三大特性的最后一个特性，搞懂它，Java 面向对象编程基本上就能轻松拿捏了。”我对三妹说。
 

@@ -12,8 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,LockSupport
 ---
 
-# 第十八节：线程阻塞唤醒类 LockSupport
-
 LockSupprot 用来阻塞和唤醒线程，底层实现依赖于 [Unsafe 类](https://javabetter.cn/thread/Unsafe.html)（后面会细讲）。
 
 该类包含一组用于阻塞和唤醒线程的静态方法，这些方法主要是围绕 park 和 unpark 展开，话不多说，直接来看一个简单的例子吧。

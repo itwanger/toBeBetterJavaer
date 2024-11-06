@@ -13,8 +13,6 @@ head:
       content: Java,中文乱码, 字符编码, ASCII, Unicode, UTF-8, GB2312, 解决乱码, 编码详解, 编码原理
 ---
 
-# 13.2 中文乱码及字符编码全攻略
-
 就在昨天，我在[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)里看到这样一张截图，有球友反馈说支付宝的理财页面出现了中文乱码，估计不少小伙伴和我一样，都惊呆了😮！阿里这种大厂还能出现这种低级错误？
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/java-unicode-20230408135521.png)

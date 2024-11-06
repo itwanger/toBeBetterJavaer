@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,jit,即时编译器
 ---
 
-# 第十三节：深入理解 JIT
 
 [前面我们讲了](https://javabetter.cn/jvm/what-is-jvm.html)，为了提升 Java 运行时的性能，JVM 引入了 JIT，也就是即时编译（Just In Time）技术。
 

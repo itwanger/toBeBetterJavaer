@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java8,java Record,java instanceof,java switch
 ---
 
-# 10.4 Java 14 新特性
 
 Java 14 的时候，新增了记录 Record、模式匹配 instanceof 等新特性，转正了 Java 12 时的 switch 表达式，我们一起来过一遍。
 

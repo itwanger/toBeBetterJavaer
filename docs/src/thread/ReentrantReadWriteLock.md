@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,读写锁,ReentrantReadWriteLock
 ---
 
-# 第十六节：读写锁 ReentrantReadWriteLock
 
 ReentrantReadWriteLock 是 Java 的一种读写锁，它允许多个读线程同时访问，但只允许一个写线程访问（会阻塞所有的读写线程）。这种锁的设计可以提高性能，特别是在读操作的数量远远超过写操作的情况下。
 

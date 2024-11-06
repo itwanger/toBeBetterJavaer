@@ -12,8 +12,6 @@ head:
       content: Java,注解,annotation,java 注解,java annotation
 ---
 
-# 5.20 Java注解
-
 “二哥，这节讲注解吗？”三妹问。
 
 “是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？[方法重写](https://javabetter.cn/basic-extra-meal/override-overload.html)的时候用到过。但你知道怎么自定义一个注解吗？”

@@ -13,8 +13,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,装箱,拆箱,包装类型,基本数据类型,自动装箱,自动拆箱
 ---
 
-# 13.3 拆箱和装箱
-
 “哥，听说 Java 的每个[基本数据类型](https://javabetter.cn/basic-grammar/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
 
 “是的，三妹。”我接着三妹的问题回答说。

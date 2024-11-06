@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread
 ---
 
-# 第六节：线程的安全性问题
 
 前面我们了解到，[多线程技术有很多好处](https://tobebetterjavaer.com/thread/why-need-thread.html)，比如说多线程可以充分利用多核 CPU 的计算能力，那多线程难道就没有一点缺点吗？
 

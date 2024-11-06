@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机
 ---
 
-# Java 问题诊断和排查工具（查看 JVM 参数、内存使用情况及分析）
 
 ## JDK 自带的工具
 

@@ -13,7 +13,6 @@ head:
       content: java,nio,bio,aio
 ---
 
-# 12.2 BIO、NIO 和 AIO 的区别
 
 > 上篇，我们了解了 [NIO 和传统 IO 的区别](https://javabetter.cn/nio/nio-better-io.html)，那这篇我们来了解 BIO、NIO 和 AIO 的区别，新手也很容易混淆，我们换一个方式来讲，讲给女朋友听👂。
 

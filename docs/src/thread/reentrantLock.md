@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,锁,ReentrantLock
 ---
 
-# 第十五节：重入锁 ReentrantLock
 
 ReentrantLock 重入锁，是实现[Lock 接口](https://javabetter.cn/thread/suo.html)的一个类，也是在实际编程中使用频率很高的一个锁，**支持重入性，表示能够对共享资源重复加锁，即当前线程获取该锁后再次获取不会被阻塞**。
 

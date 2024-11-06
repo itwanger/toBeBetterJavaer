@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,内存溢出
 ---
 
-# 第十七节：内存泄露排查优化实战
 
 `OutOfMemoryError`，也就是臭名昭著的 OOM（内存溢出），相信很多球友都遇到过，相对于常见的业务异常，如[数组越界](https://javabetter.cn/array/array.html)、[空指针](https://javabetter.cn/exception/npe.html)等，OOM 问题更难难定位和解决。
 

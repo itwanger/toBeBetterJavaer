@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Guava,java guava,google guava
 ---
 
-# 9.7 Guava工具库
 
 ### 01、前世今生
 

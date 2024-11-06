@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,cpu
 ---
 
-# 第十八节：CPU 100%排查优化实战
 
 前面给大家讲过一次 [OOM 的优化排查实战](https://javabetter.cn/jvm/oom.html)，今天再给大家讲一个 CPU 100% 优化排查实战。
 

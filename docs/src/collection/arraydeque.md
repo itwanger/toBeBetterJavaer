@@ -12,8 +12,6 @@ head:
       content: Java,ArrayDeque,堆,队列,java 双端队列,java ArrayDeque,源码分析, 实现原理
 ---
 
-# 6.8 双端队列ArrayDeque详解
-
 >好，我们这节继续有请王老师上台来给大家讲 ArrayDeque，鼓掌欢迎了👏🏻。
 
 Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它只是个接口名字，和类还不一样）。

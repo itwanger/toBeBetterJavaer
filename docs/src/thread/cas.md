@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,cas
 ---
 
-# 第十二节：乐观锁 CAS
 
 CAS（Compare-and-Swap）是一种乐观锁的实现方式，全称为“比较并交换”，是一种无锁的原子操作。
 

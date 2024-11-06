@@ -12,7 +12,6 @@ head:
       content: Java,Java IO,转换流,InputStreamReader,OutputStreamWriter,乱码,编码,解码,java转换流
 ---
 
-# 7.6 转换流
 
 转换流可以将一个[字节流](https://javabetter.cn/io/stream.html)包装成[字符流](https://javabetter.cn/io/reader-writer.html)，或者将一个字符流包装成字节流。这种转换通常用于处理文本数据，如读取文本文件或将数据从网络传输到应用程序。
 

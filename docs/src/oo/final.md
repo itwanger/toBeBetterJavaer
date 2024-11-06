@@ -12,7 +12,6 @@ head:
       content: Java,final,final关键字
 ---
 
-# 5.16 Java final关键字
 
 “哥，今天学什么呢？”
 

@@ -13,7 +13,6 @@ head:
       content: java,nio,网络编程,SocketChannel,ServerSocketChannel,AsynchronousSocketChannel,AsynchronousServerSocketChannel,聊天室
 ---
 
-# 12.5 NIO 实现简易版聊天室
 
 在此之前，我们曾利用 Java 的套接字 Socket 和 ServerSocket 完成[网络编程](https://javabetter.cn/socket/socket.html)，但 Socket 和 ServerSocket 是基于 Java IO 的，在网络编程方面，性能会比较差。[原因我们在之前也讲过](https://javabetter.cn/nio/nio-better-io.html)。
 

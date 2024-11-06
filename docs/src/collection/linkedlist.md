@@ -12,7 +12,6 @@ head:
       content: Java,LinkedList,LinkedList源码,java linkedlist,源码分析
 ---
 
-# 6.4 LinkedList详解（附源码）
 
 >这篇换个表达方式，一起来欣赏。
 

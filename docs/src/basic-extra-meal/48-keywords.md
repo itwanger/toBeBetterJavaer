@@ -12,8 +12,6 @@ head:
       content: Java, 关键字, 保留字, 编程基础
 ---
 
-# 3.1 Java关键字和保留字
-
 “二哥，就[之前你给我展示的 Java 代码](https://javabetter.cn/overview/hello-world.html)中，有 public、static、void、main 等等，它们应该都是关键字吧？”三妹的脸上泛着甜甜的笑容，我想她在学习 Java 方面已经变得越来越自信了。
 
 “是的，三妹。Java 中的关键字可不少呢！你一下子可能记不了那么多，不过，先保留个印象吧，对以后的学习会很有帮助。这些小代码都很简单，你可以照着瞧一瞧，感受一下。”

@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机
 ---
 
-# 第一节：大白话带你认识 JVM
 
 “二哥，之前你讲 Java 的[第一行代码 hello world](https://javabetter.cn/overview/hello-world.html) 的时候就提到了 JVM，那时候我就想知道 JVM 到底是什么，但你说这是一块非常大的内容，会放到后面专门来讲，那学完了 [Java 基础知识](https://javabetter.cn/overview/)，又学完了[并发编程](https://javabetter.cn/thread/)，今天我们就来学习 JVM 吧？”三妹咪了一口麦香可可奶茶后对我说。
 

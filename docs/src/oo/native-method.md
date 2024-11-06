@@ -12,7 +12,6 @@ head:
       content: Java, C语言, Native方法, JNI,native,本地方法,java native method
 ---
 
-# 5.6 Java native方法
 
 “三妹，之前我们学习了 Java 中的[基本方法](https://javabetter.cn/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 

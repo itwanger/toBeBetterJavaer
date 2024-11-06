@@ -12,8 +12,6 @@ head:
       content: Java,异常处理,java try-catch,捕获异常, 性能影响
 ---
 
-# 8.5 try-catch会影响性能吗？
-
 “二哥，你看着这鬼代码，竟然在 for 循环里面搞了个 `try-catch`，不知道`try-catch`有性能损耗吗？” 老王煞有其事地指着屏幕里的代码：
 
 ```java

@@ -12,7 +12,6 @@ head:
       content: Java,Java IO,序列化流,java序列化,java反序列化,ObjectOutputStream,ObjectInputStream,java 序列流
 ---
 
-# 7.8 序列流(序列化和反序列化)
 
 Java 的序列流（ObjectInputStream 和 ObjectOutputStream）是一种可以将 Java 对象序列化和反序列化的流。
 

@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,volatile
 ---
 
-# 第八节：volatile 关键字
 
 “三妹啊，这节我们来学习 Java 中的 volatile 关键字吧，以及容易遇到的坑。”看着三妹好学的样子，我倍感欣慰。
 

@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,字节码,字节码指令,字节码文件,字节码文件结构
 ---
 
-# 第二节：JVM如何运行Java代码？
 
 “二哥，看了 [Hello World](https://javabetter.cn/overview/hello-world.html) 的代码后，我很好奇，它是怎么在 IDEA 的 Run 面板里打印出‘三妹，少看手机少打游戏，好好学，美美哒’呢？”三妹咪了一口麦香可可奶茶后对我说。
 

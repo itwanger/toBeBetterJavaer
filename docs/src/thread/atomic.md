@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,atomic,原子类,AtomicInteger,AtomicIntegerArray,LongAdder,AtomicReference
 ---
 
-# 第二十七节：原子操作类 Atomic
 
 我们前面讲过 [CAS](https://javabetter.cn/thread/cas.html)，相信大家都还有印象，Java 中的原子操作类，如 AtomicInteger 和 AtomicLong，底层就是利用 CAS 来确保变量更新的原子性的。
 

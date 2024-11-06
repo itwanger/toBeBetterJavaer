@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,synchronized
 ---
 
-# 第九节：synchronized关键字
 
 “三妹，今天我们来学习 synchronized 关键字吧。”我瞅了一眼坐在沙发上的三妹说，她正在王者荣耀呢。
 

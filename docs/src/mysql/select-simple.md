@@ -3,7 +3,6 @@ title: MySQL 之简单查询：开始踏上 SELECT 之旅
 shortTitle: MySQL 之简单查询
 ---
 
-# MySQL 之简单查询
 
 前面我们介绍了如何[创建数据库](https://javabetter.cn/mysql/database.html)、[如何创建数据表](https://javabetter.cn/mysql/table.html)，那今天我们来结合[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)的数据来讲讲 MySQL 查询，也就是 `SELECT` 语句。
 

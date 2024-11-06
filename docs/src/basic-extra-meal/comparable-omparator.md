@@ -12,8 +12,6 @@ head:
       content: java,Comparable和Comparator,java Comparable, java Comparator,Comparable Comparator
 ---
 
-# 6.14 Comparable和Comparator的区别
-
 >在前面学习[优先级队列](https://javabetter.cn/collection/PriorityQueue.html)的时候，我们曾提到过 Comparable和Comparator，那这篇继续以面试官的角度去切入，一起来看。
 
 那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[二哥的Java进阶之路](https://javabetter.cn/basic-extra-meal/comparable-omparator.html)》上看到过这题😆。

@@ -3,7 +3,6 @@ title: 掌握MySQL表的增删改查，一名真正的 CRUD boy 即将出炉
 shortTitle: MySQL 表的增删改查
 ---
 
-# MySQL 表的基本操作
 
 有了数据库以后，我们就可以在数据库中对表进行增删改查了，这也就意味着，一名真正的 CRUD Boy 即将到来（😁）。
 

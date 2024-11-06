@@ -3,7 +3,6 @@ title: （付费）一文彻底搞懂 MySQL 字段定义时的属性设置
 shortTitle: 字段都有哪些属性（付费）
 ---
 
-# MySQL字段都有哪些属性？
 
 在[创建表](https://javabetter.cn/mysql/table.html)的时候，我们需要定义表的字段，每个字段都有一些属性，比如说是否有默认值、是否允许为空、是不是主键等等。
 

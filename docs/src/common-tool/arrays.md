@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Arrays,数组,java arrays,java 数组
 ---
 
-# 9.2 Arrays工具类
 
 “哥，数组专用工具类是专门用来操作[数组](https://javabetter.cn/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
 

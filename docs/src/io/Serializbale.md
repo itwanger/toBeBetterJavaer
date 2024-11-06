@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,Serializable,java Serializable,java 序列化
 ---
 
-# 7.9 序列接口Serializable
 
 对于 Java 的序列化，我之前一直停留在最浅层次的认知上——把那个要[序列化](https://javabetter.cn/io/serialize.html)的类实现 `Serializbale` 接口就可以了嘛。
 

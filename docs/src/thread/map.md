@@ -12,8 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,并发集合容器
 ---
 
-# 第十九节：Java的并发容器
-
 Java 的并发集合容器提供了在多线程环境中高效访问和操作的数据结构。这些容器通过内部的同步机制实现了线程安全，使得开发者无需显式同步代码就能在并发环境下安全使用，比如说：ConcurrentHashMap、阻塞队列和 CopyOnWrite 容器等。
 
 java.util 包下提供了一些容器类（[集合框架](https://javabetter.cn/collection/gailan.html)），其中 Vector 和 Hashtable 是线程安全的，但实现方式比较粗暴，通过在方法上加「[sychronized](https://javabetter.cn/thread/synchronized-1.html)」关键字实现。

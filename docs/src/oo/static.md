@@ -12,7 +12,6 @@ head:
       content: Java,static,静态变量,静态方法,静态代码块,静态内部类,java static,static关键字
 ---
 
-# 5.15 Java static关键字
 
 “哥，你牙龈肿痛轻点没？周一的《教妹学 Java》（二哥的Java进阶之路前身）你都没有更新，偷懒了呀！”三妹关心地问我。
 

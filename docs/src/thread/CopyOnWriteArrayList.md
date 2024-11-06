@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,CopyOnWriteArrayList
 ---
 
-# 第二十三节：并发容器 CopyOnWriteArrayList
 
 学过 [ArrayList](https://javabetter.cn/collection/arraylist.html) 的小伙伴应该记得，ArrayList 是一个线程不安全的容器，如果在多线程环境下使用，需要手动加锁，或者使用 `Collections.synchronizedList()` 方法将其转换为线程安全的容器。
 

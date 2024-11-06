@@ -7,7 +7,6 @@ tag:
   - 集合框架（容器）
 ---
 
-# 6.4 栈Stack
 
 讲真，Stack 这个类在 Java 应用中并不常用，但栈这个数据结构在整个计算机体系中却十分重要。所以我们还是放到[集合框架](https://javabetter.cn/collection/gailan.html)里来讲一讲。
 

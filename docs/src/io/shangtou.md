@@ -12,8 +12,6 @@ head:
       content: Java,Java IO,io,输入输出流,字节流, 字符流
 ---
 
-# 7.1 IO 分类
-
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-01.png)

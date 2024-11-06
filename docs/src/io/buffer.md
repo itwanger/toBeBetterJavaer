@@ -12,7 +12,6 @@ head:
       content: Java,IO,缓冲流,Buffered,BufferedInputStream,BufferedOutputStream,BufferedReader,BufferedWriter,java 缓冲流,java buffer
 ---
 
-# 7.5 缓冲流
 
 Java 的缓冲流是对字节流和字符流的一种封装，通过在内存中开辟缓冲区来提高 I/O 操作的效率。Java 通过 BufferedInputStream 和 BufferedOutputStream 来实现字节流的缓冲，通过 BufferedReader 和 BufferedWriter 来实现字符流的缓冲。
 

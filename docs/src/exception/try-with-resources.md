@@ -12,8 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,try-with-resources,java try-with-resources,java try with resources
 ---
 
-# 8.2 try-with-resources
-
 “二哥，终于等到你讲 try-with-resources 了！”三妹夸张的表情让我有些吃惊。
 
 “三妹，不要激动呀！开讲之前，我们还是要来回顾一下 try–catch-finally，好做个铺垫。”我说，“来看看这段代码吧。”

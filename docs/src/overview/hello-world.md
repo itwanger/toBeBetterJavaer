@@ -12,7 +12,6 @@ head:
       content: Java,Intellij IDEA, Java程序, Hello World, 编写, 运行, Java新手, 入门教程
 ---
 
-# 2.4 第一个 Java 程序
 
 “三妹，今天，我们来编写第一个 Java 程序，Hello World 期待吗？”
 

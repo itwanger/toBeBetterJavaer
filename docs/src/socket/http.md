@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,http,socket http,http 服务器,java 服务器,HTTP服务器
 ---
 
-# 11.3 用Socket实现一个HTTP服务器
 
 作为一个 Java 后端，提供 HTTP 服务可以说是基本技能之一了，但是你真的了解 HTTP 协议么？你知道知道如何手撸一个 HTTP 服务器么？Tomcat 的底层是怎么支持 HTTP 服务的呢？大名鼎鼎的 Servlet 又是什么东西呢，该怎么使用呢？
 

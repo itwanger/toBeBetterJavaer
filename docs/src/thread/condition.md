@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,Condition
 ---
 
-# 第十七节：等待通知条件 Condition
 
 关于等待通知条件 Condition 我们在前面讲 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 的时候提到过，不知道大家还记得不？
 

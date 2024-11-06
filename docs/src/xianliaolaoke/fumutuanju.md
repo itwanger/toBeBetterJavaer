@@ -1,3 +1,5 @@
+# 二哥的家乡之行：父母团聚的意义
+
 大家好，我是二哥呀！刚好趁着周末，就带老婆、女儿、妹妹一起从洛阳来三门峡和父母小聚了一下。洛阳到三门峡的距离，大概就 11 个小时的骑行时间，开车大概 2 个小时。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xianliaolaoke/fumutuanju-1.png)

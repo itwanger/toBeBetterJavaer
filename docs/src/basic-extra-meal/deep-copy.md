@@ -13,8 +13,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,深拷贝,浅拷贝
 ---
 
-# 13.4 深入理解Java浅拷贝与深拷贝
-
 “哥，听说浅拷贝和深拷贝是 Java 面试中经常会被问到的一个问题，是这样吗？”
 
 “还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://javabetter.cn/basic-extra-meal/pass-by-value.html)也会有更深的理解。”我肯定地回答。

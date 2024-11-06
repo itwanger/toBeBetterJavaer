@@ -12,7 +12,6 @@ head:
       content: Java,Iterable,Iterator,java Iterable,java Iterator,Iterable Iterator,java Iterable Iterator,java迭代器
 ---
 
-# 6.14 Iterator和Iterable的区别
 
 >PS: 这篇同样来换一个风格，一起来欣赏。
 

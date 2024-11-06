@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,性能监控,可视化工具,JConsole,VisualVM,Java Mission Control
 ---
 
-# 第十五节：JVM 性能监控之可视化篇
 
 前面我们已经讲了 [JVM 性能监控工具之命令行篇](https://javabetter.cn/jvm/console-tools.html)，本篇我们来介绍一些可视化的性能监控工具，包括 JConsole、VisualVM、Java Mission Control 等，阿里的 Arthas 我们留到后面单独去讲。
 

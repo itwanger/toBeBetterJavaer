@@ -3,7 +3,6 @@ title: （付费）4000 字 20 张手绘图，结合技术派实战项目，彻�
 shortTitle: MySQL数据类型（付费）
 ---
 
-# MySQL数据类型
 
 上一节，我们学了 [MySQL 表的基本操作](https://javabetter.cn/mysql/table.html)，知道了表是由不同数据类型的列组成的，然后填充了一行一行的数据。
 

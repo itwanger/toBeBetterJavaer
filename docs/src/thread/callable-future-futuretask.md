@@ -12,7 +12,6 @@ head:
       content: Java, 多线程, Callable, Future, FutureTask, 线程执行结果
 ---
 
-# 第二节：获取线程的执行结果
 
 [在第一节：初步掌握 Java 多线程中](https://javabetter.cn/thread/wangzhe-thread.html)，我们讲述了创建线程的 3 种方式，一种是直接继承 Thread，一种是实现 Runnable 接口，另外一种是实现 Callable 接口。
 

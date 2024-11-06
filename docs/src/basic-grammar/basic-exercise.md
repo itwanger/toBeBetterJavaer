@@ -12,7 +12,6 @@ head:
       content: Java, Java语法基础, 练习题
 ---
 
-# 3.8 Java语法基础练习题
 
 ### 翻转整数
 

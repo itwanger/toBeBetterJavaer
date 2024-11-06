@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,Executors,线程池
 ---
 
-# 为什么阿里巴巴要禁用Executors创建线程池？
 
 看阿里巴巴开发手册并发编程这块有一条：**线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式**，今天我们来通过源码分析一下禁用的原因。
 

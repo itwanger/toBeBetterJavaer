@@ -3,8 +3,6 @@ title: MySQL bin目录下的可执行文件都是用来干嘛的？
 shortTitle: bin目录下的可执行文件
 ---
 
-# MySQL bin目录下的可执行文件
-
 这节我们穿插讲一点轻松的内容，关于 MySQL 安装成功后，bin 目录下的一些可执行文件，它们到底是干嘛用的？
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205172946.png)

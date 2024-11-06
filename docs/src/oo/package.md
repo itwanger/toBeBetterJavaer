@@ -12,7 +12,6 @@ head:
       content: Java,Java编程, 包, 代码组织, 代码管理, 包创建, 包导入,包,import,package
 ---
 
-# 5.2 Java中的包
 
 “三妹，这一节，我们简单过一下 Java 中的包，也就是 package，这个一点就透，很好掌握。”我放下手中的雪碧，翻开笔记本，登上 GitHub，点开《二哥的 Java 进阶之路》，找到这篇「Java 中的包」，开始滔滔不绝起来。
 

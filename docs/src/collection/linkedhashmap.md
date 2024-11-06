@@ -12,7 +12,6 @@ head:
       content: Java,LinkedHashMap,java LinkedHashMap, 源码分析, 实现原理
 ---
 
-# 6.6 LinkedHashMap详解（附源码）
 
 >这篇继续换个文风来写，给大家一点新鲜的空气。
 

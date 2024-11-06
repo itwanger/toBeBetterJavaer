@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Scanner,输入,java Scanner,java 扫描
 ---
 
-# 9.1 Scanner工具类
 
 Java 的 Scanner 类是一个方便在控制台扫描用户输入的工具类，虽然它也可以扫描文件内容，但我们通常更喜欢它扮演前面的角色，因为扫描文件可以通过[文件流](https://javabetter.cn/io/file-path.html)来完成。
 

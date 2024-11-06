@@ -12,7 +12,6 @@ head:
       content: java,npe,NullPointerException
 ---
 
-# 8.4 空指针的传说
 
 **空指针**，号称天下最强刺客。
 

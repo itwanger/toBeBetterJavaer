@@ -14,7 +14,6 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/README-20240130071411.png)
 
-# 第一章：小册简介
 
 以上就是《二哥的 Java 进阶之路》小册的封面了，自我感觉还不错哈，简洁大方，但包含的信息又足够的丰富：
 

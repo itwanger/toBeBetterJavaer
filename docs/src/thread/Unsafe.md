@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,Unsafe
 ---
 
-# 第二十八节：魔法类 Unsafe
 
 前面我们在讲 [CAS](https://javabetter.cn/thread/cas.html) 和[原子操作 atomic 类](https://javabetter.cn/thread/atomic.html)的时候，都讲到了 Unsafe。
 

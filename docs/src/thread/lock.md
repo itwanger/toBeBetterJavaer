@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,锁,JUC,ReentrantLock,StampedLock,ReadWriteLock,Condition,锁分类
 ---
 
-# 第十四节：锁分类和 JUC
 
 前面我们介绍了基于对象的原生锁——[synchronized](https://javabetter.cn/thread/synchronized-1.html)，实际上，Java 在`java.util.concurrent`（JUC）包下，还为我们提供了更多的锁类和锁接口（尤其是子包 locks 下），它们有更强大的功能或更牛逼的性能。
 

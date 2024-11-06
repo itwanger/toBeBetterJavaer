@@ -12,7 +12,6 @@ head:
       content: Java,Java IO,文件流, file,java文件,java目录,java文件增删改查,java file
 ---
 
-# 7.2 文件流
 
 在 IO 操作中，文件的操作相对来说是比较复杂的，但也是使用频率最高的部分，我们几乎所有的项目中几乎都躺着一个叫做 FileUtil 或者 FileUtils 的工具类。
 

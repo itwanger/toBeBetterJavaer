@@ -12,7 +12,6 @@ head:
       content: Java,优先级队列,PriorityQueue,java 优先级队列,java PriorityQueue, 源码分析, 实现原理
 ---
 
-# 6.9 优先级队列PriorityQueue详解
 
 >继续有请王老师，来上台给大家讲讲优先级队列 PriorityQueue。
 

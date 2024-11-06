@@ -12,7 +12,6 @@ head:
       content: Java,Java IO,Reader,Writer,字符流,java字符流
 ---
 
-# 7.4 字符流
 
 字符流 Reader 和 Writer 的故事要从它们的类关系图开始，来看图。
 
