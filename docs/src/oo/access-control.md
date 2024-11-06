@@ -12,8 +12,6 @@ head:
       content: Java,访问权限修饰符,public,private,protected
 ---
 
-# 5.8 Java访问权限修饰符
-
 “我们先来讨论一下为什么需要访问权限控制。其实之前我们在讲[类和对象](https://javabetter.cn/oo/object-class.html)的时候有提到，今天我们来详细地聊一聊，三妹。”我开门见山地说，“三妹，你打开思维导图，记得做笔记哦。”
 
 “好的。”三妹应声回答。

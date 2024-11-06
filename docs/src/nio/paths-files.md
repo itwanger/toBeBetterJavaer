@@ -13,7 +13,6 @@ head:
       content: Java,nio,paths,files,path
 ---
 
-# 12.4 Paths 和 Files
 
 Paths 和 Files 在 Java 7 的时候引入，作为对 [`java.io.File` 类](https://javabetter.cn/io/file-path.html)的补充和改进。
 

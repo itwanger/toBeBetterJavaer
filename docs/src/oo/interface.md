@@ -12,7 +12,6 @@ head:
       content: Java,接口,java interface
 ---
 
-# 5.11 Java接口
 
 “今天开始讲 Java 的接口。”我对三妹说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://javabetter.cn/oo/abstract.html)，另外一种就是今天的主角——[接口](https://javabetter.cn/oo/interface.html)。”
 

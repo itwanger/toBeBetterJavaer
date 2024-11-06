@@ -12,7 +12,6 @@ head:
       content: Java,集合框架,容器,java 集合框架，java集合,java容器, List, Set, Map, 队列
 ---
 
-# 6.1 List、Set、Map、队列全面解析
 
 眼瞅着三妹的王者荣耀杀得正嗨，我趁机喊到：“别打了，三妹，我们来一起学习 Java 的集合框架吧。”
 

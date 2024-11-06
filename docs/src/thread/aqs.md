@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,AQS,抽象队列同步器
 ---
 
-# 第十三节：抽象队列同步器 AQS
 
 **AQS**是`AbstractQueuedSynchronizer`的简称，即`抽象队列同步器`，从字面上可以这样理解:
 

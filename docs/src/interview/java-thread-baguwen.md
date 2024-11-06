@@ -12,7 +12,6 @@ head:
       content: Java,java,thread,面试题,八股文
 ---
 
-# Java 并发编程八股文（背诵版）必看:+1:
 
 ### 简述Java内存模型（JMM）
 

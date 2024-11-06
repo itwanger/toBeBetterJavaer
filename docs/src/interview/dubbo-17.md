@@ -12,8 +12,6 @@ head:
       content: dubbo,面试题,八股文
 ---
 
-# Dubbo：17道精选高频面试题必看:+1:
-
 **目录**
 
 - 1.Dubbo 是什么？RPC 又是什么？

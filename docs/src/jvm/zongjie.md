@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,Java内存模型,Java内存区域,对象,垃圾收集机制,类加载机制,字节码,JIT,JVM调优
 ---
 
-# 第十九节：JVM 核心知识点总结
 
 
 

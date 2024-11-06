@@ -12,7 +12,6 @@ head:
       content: Java,this,super,java this super,java this,java super,this super,this关键字, super关键字
 ---
 
-# 5.14 Java this和super关键字
 
 “哥，被喊大舅子的感觉怎么样啊？”三妹不怀好意地对我说，她眼睛里充满着不屑。
 

@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,工具类,轮子,java 工具类,java IPUtil,java CollectionUtils
 ---
 
-# 9.8 其他常用工具类
 
 除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://javabetter.cn/common-tool/arrays.html)、[Objects](https://javabetter.cn/common-tool/Objects.html)、[Collections](https://javabetter.cn/common-tool/collections.html)、[Scanner](https://javabetter.cn/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://javabetter.cn/common-tool/hutool.html)、[Guava](https://javabetter.cn/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
 

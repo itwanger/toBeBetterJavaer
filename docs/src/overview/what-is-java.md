@@ -12,7 +12,6 @@ head:
       content: Java,Java 由来, Java 发展简史, Java 特性,Java 学习前景
 ---
 
-# 2.1 Java简介
 
 “二哥，到底什么是 Java？给我说说呗。”
 

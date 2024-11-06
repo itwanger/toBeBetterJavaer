@@ -13,7 +13,6 @@ head:
       content: Java,并发编程,多线程,Thread,CompletableFuture
 ---
 
-# 第三十二节：CompletableFuture
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/f03e03c886766e6c0f4aaf4602271a0d.jpg)
 

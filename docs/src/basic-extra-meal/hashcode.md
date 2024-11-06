@@ -13,8 +13,6 @@ head:
       content: java,hashcode,equals
 ---
 
-# 13.5 Java hashCode方法解析
-
 今天我们来谈谈 Java 中的 `hashCode()` 方法。众所周知，Java 是一门面向对象的编程语言，所有的类都会默认继承自 Object 类，而 Object 的中文意思就是“对象”。
 
 Object 类中就包含了 `hashCode()` 方法：

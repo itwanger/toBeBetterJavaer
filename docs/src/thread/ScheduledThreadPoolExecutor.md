@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,ScheduledThreadPoolExecutor,定时任务
 ---
 
-# 第二十六节：定时任务 ScheduledThreadPoolExecutor
 
 定时任务 `ScheduledThreadPoolExecutor` 类有两个用途：指定时间延迟后执行任务；周期性重复执行任务。
 

@@ -13,7 +13,6 @@ head:
       content: java,Channel,Buffer,nio
 ---
 
-# 12.3 Buffer和Channel
 
 首先我们再来回顾一下 [IO 和 NIO 的区别](https://javabetter.cn/nio/nio-better-io.html)：
 

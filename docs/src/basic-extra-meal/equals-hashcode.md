@@ -12,8 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,hashcode,equals
 ---
 
-# 13.5 为什么重写equals的时候必须重写hashCode
-
 “二哥，我在读《Effective Java》 的时候，第 11 条规约说重写 equals 的时候必须要重写 hashCode 方法，这是为什么呀？”三妹单刀直入地问。
 
 “三妹啊，这个问题问得非常好，因为它也是面试中经常考的一个知识点。今天哥就带你来梳理一下。”我说。

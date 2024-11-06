@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,asm
 ---
 
-# 史上最通俗易懂的ASM教程
 
 
 ## 一勺思想

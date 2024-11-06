@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,ConcurrentHashMap
 ---
 
-# 第二十节：并发容器 ConcurrentHashMap
 
 ConcurrentHashMap 是 Java 并发包 (java.util.concurrent) 中的一种线程安全的哈希表实现。
 

@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,synchronized,偏向锁,轻量级锁,重量级锁,锁
 ---
 
-# 第十节：synchronized的四种锁状态
 
 前面一节我们讲了 [synchronized 关键字的基本使用](https://javabetter.cn/thread/synchronized-1.html)，它能用来同步方法和代码块，那 synchronized 到底锁的是什么呢？随着 JDK 版本的升级，synchronized 又做出了哪些改变呢？“synchronized 性能很差”的谣言真的存在吗？
 

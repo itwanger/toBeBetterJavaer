@@ -12,7 +12,6 @@ head:
       content: Java,Intellij IDEA, 安装教程, macOS, Windows, Java开发环境, 配置, 跨平台IDE
 ---
 
-# 2.3 安装 IDEA
 
 IntelliJ IDEA 简称 IDEA，是业界公认为最好的 Java 集成开发工具，尤其是在代码自动提示、代码重构、代码版本管理、单元测试、代码分析等方面有着亮眼的发挥。
 

@@ -3,8 +3,6 @@ title: （付费）从跟上理解 MySQL，彻底掌握MySQL的字符集和比�
 shortTitle: 字符集和比较规则（付费）
 ---
 
-# MySQL 字符集和比较规则
-
 当我们创建[数据库](https://javabetter.cn/mysql/database.html)或者[表](https://javabetter.cn/mysql/table.html)的时候，就要指定字符集和比较规则。
 
 那可能一些小伙伴会说，我创建的时候没指定啊，那是 MySQL 已经帮你默认了。

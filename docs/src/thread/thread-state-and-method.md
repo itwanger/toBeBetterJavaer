@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,线程状态
 ---
 
-# 第三节：Java 线程的 6 种状态
 
 我们先来看看操作系统中的线程状态转换。在[操作系统](https://javabetter.cn/xuexiluxian/os.html)中，线程被视为轻量级的进程，所以**线程状态其实和进程状态是一致的**。
 

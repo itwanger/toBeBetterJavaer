@@ -13,7 +13,6 @@ head:
       content: Java,HashMap,java hashmap, 源码分析, 实现原理
 ---
 
-# 6.5 HashMap 详解（附源码）
 
 这篇文章将会详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap 的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://javabebetter.cn/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 

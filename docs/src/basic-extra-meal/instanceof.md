@@ -12,8 +12,6 @@ head:
       content: Java,instanceof,instanceof关键字
 ---
 
-# 5.17 Java instanceof关键字
-
 “三妹，今天我们来过一个非常简单的知识点，instanceof关键字。”
 
 “用不着哥你来讲了，今天就换个形式，我来讲给你听。”三妹雄赳赳气昂昂地说。

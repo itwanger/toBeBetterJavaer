@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Objects,java objects
 ---
 
-# 9.4 Objects工具类
 
 Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://javabetter.cn/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
 

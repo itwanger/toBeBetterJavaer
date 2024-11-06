@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,JDK
 ---
 
-# 自己编译JDK
 
 
 很多小伙伴们做`Java`开发，天天写`Java`代码，肯定离不开`Java`基础环境：`JDK`，毕竟我们写好的`Java`代码也是跑在`JVM`虚拟机上。

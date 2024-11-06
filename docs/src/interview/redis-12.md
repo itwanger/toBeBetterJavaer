@@ -12,7 +12,6 @@ head:
       content: Redis,redis,面试题,八股文
 ---
 
-# Redis：12道精选高频面试题
 
 
 大家好，我是二哥呀。

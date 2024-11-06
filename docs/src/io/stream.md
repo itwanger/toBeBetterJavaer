@@ -12,7 +12,6 @@ head:
       content: Java,IO,java io,OutputStream,InputStream,字节流,java 字节流, 输入输出
 ---
 
-# 7.3 字节流
 
 我们必须得明确一点，一切文件（文本、视频、图片）的数据都是以二进制的形式存储的，传输时也是。所以，字节流可以传输任意类型的文件数据。
 

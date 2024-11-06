@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,JavaSocket,java网络编程,网络编程,java 计算机网络,计算机网络
 ---
 
-# 11.1 了解网络编程的基础知识
 
 在学习 Java 网络编程之前，我们先来了解什么是计算机网络。
 

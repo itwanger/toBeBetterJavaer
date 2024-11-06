@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,字节码,字节码指令
 ---
 
-# 第七节：字节码指令详解
 
 大家好，我是二哥呀。字节码指令是 JVM 体系中比较难啃的一块硬骨头，我估计有些[球友](https://javabetter.cn/zhishixingqiu/)会有这样的疑惑，“这么难啃，我还能学会啊？”
 

@@ -12,7 +12,6 @@ head:
       content: Java,java 抽象类 接口,java interface abstract,抽象类, 接口
 ---
 
-# 5.12 Java 抽象类和接口的区别
 
 “三妹，通过前面两篇，我们已经深入地了解了 Java [抽象类](https://javabetter.cn/oo/abstract.html)和 Java [接口](https://javabetter.cn/oo/interface.html)，那这篇我们来重点说一下抽象类和接口之间的区别。”我放下手中的鼠标和键盘，转向右手边，对三妹说。
 

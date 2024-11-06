@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,对象,堆,新生代,老年代,Eden,From Survivor,To Survivor
 ---
 
-# 第十二节：Java创建的对象到底放在哪？
 
 经过前面章节的学习，详细大家都知道了，Java 的对象是在堆中创建的，但堆又分为新生代和老年代，新生代又细分为 Eden、From Survivor、To Survivor。**那我们创建的对象到底在哪里**？
 

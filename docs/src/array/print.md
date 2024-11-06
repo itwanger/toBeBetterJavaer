@@ -12,8 +12,6 @@ head:
       content: Java, 数组打印, 输出数组, Arrays.toString, Arrays.deepToString
 ---
 
-# 4.3 打印数组
-
 “哥，[之前听你说，数组也是一个对象](https://javabetter.cn/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 
 “是的，因此数组也就没有机会覆盖 `Object.toString()` 方法。如果尝试直接打印数组的话，输出的结果并不是我们预期的结果。”我接着三妹的话继续说。

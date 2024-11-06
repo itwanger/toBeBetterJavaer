@@ -12,7 +12,6 @@ head:
       content: Java, String, 不可变, 字符串
 ---
 
-# 4.5 字符串为什么不可变
 
 String 可能是 Java 中使用频率最高的引用类型了，因此 String 类的设计者可以说是用心良苦。
 

@@ -12,8 +12,6 @@ head:
       content: Java,Java异常处理, try-catch-finally, throw, throws,异常处理,java 异常处理
 ---
 
-# 8.1 Java异常处理全面解析
-
 ### 01、什么是异常
 
 “二哥，今天就要学习异常了吗？”三妹问。

@@ -12,7 +12,6 @@ head:
       content: Java,Java IO,打印流,PrintStream,PrintWriter,java 打印流,java PrintStream,java PrintWriter
 ---
 
-# 7.7 打印流
 
 在我的职业生涯中， `System.out.println()` 的使用频率恐怕不亚于 main 方法的使用频率。其中 `System.out` 返回的正是打印流 `PrintStream` 。
 

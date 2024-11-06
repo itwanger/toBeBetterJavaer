@@ -12,7 +12,6 @@ head:
       content: Java,JavaSE,教程,二哥的Java进阶之路,jvm,Java虚拟机,栈虚拟机,栈帧,局部变量表,操作数栈,动态链接,方法返回地址
 ---
 
-# 第八节：深入理解栈帧结构
 
 前面我们讲[栈虚拟机和寄存器虚拟机](https://javabetter.cn/jvm/vm-stack-register.html)的时候，提到过栈帧结构；在讲[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)的时候，又提到了栈帧中的操作数栈，那今天我们就来详细地讲一讲 JVM 的栈帧结构，好让大家对栈帧有一个更加清晰的认知。
 

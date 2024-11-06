@@ -12,7 +12,6 @@ head:
       content: Java,LinkedList,ArrayList,java arraylist linkedlist, arraylist linkedlist
 ---
 
-# 6.12 ArrayList和LinkedList的区别
 
 “终于，二哥，我们要聊 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 和 [ArrayList](https://javabetter.cn/collection/arraylist.html) 之间的差别了，我期待了很久。”三妹嘟囔着说。
 

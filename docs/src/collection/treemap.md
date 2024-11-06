@@ -12,7 +12,6 @@ head:
       content: Java,TreeMap,java treemap, 源码分析, 实现原理
 ---
 
-# 6.7 TreeMap详解（附源码）
 
 >下面有请王老师上台，来给大家讲一讲 TreeMap，鼓掌了！
 

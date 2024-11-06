@@ -12,8 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Git入门,Git教程,git
 ---
 
-# 1小时彻底掌握 Git，（可能是）史上最简单明了的 Git 教程
-
 
 ## 一、Git 起源
 

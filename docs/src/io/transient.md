@@ -12,7 +12,6 @@ head:
       content: Java,transient,java transient,transient关键字
 ---
 
-# 7.10 transient关键字
 
 害，小二最熟的是 Java，但很多 Java 基础知识都不知道，比如 transient 关键字以前就没用到过，所以不知道它的作用是什么，今天去招银面试的时候，面试官问到了这个：说说 Java 的 transient 关键字吧，结果小二直接懵逼了。
 

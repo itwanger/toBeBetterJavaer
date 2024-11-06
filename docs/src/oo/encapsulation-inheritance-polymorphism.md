@@ -12,7 +12,6 @@ head:
       content: Java, 封装, 继承, 多态, 面向对象编程
 ---
 
-# 5.13 Java 封装继承多态
 
 在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://javabetter.cn/oo/encapsulation.html)、[继承](https://javabetter.cn/oo/extends-bigsai.html)、[多态](https://javabetter.cn/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
 

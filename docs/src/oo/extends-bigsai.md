@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,继承,inheritance
 ---
 
-# 5.14 Java封装继承多态
 
 “三妹，今天我们继续来学习 Java 的三大特征之一：继承，之前学习[抽象类](https://javabetter.cn/oo/abstract.html)的时候我们已经接触过这个概念，不过，我们今天我们来认真地聊一聊。”慢吞吞说完这句开篇词后，我对三妹做了一个打开 XMind 的手势提醒（其实就是瞎比划）。
 

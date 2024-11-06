@@ -12,7 +12,6 @@ head:
       content: JDK安装, Windows, macOS, Chocolatey, Homebrew, 环境变量, Java开发环境, 包管理器
 ---
 
-# 2.2 安装 JDK
 
 因为 Java 程序必须运行在 JVM 之上，所以我们 Java 程序员在学习 Java 之前，要做的第一件事情就是安装 JDK。
 

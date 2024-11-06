@@ -12,8 +12,6 @@ head:
       content: Java, 数组, 创建数组, 初始化数组, 数组操作
 ---
 
-# 4.1 数组
-
 “二哥，我看你公众号的一篇文章里提到，[ArrayList](https://javabetter.cn/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 
 “的确是的，看 ArrayList 的源码就一清二楚了。”我一边说，一边打开 Intellij IDEA，并找到了 ArrayList 的源码。

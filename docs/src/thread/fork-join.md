@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,ForkJoin,ForkJoinPool,ForkJoinTask
 ---
 
-# 第三十节：Fork/Join
 
 并发编程领域的任务可以分为三种：简单并行任务、聚合任务和批量并行任务，见下图。
 

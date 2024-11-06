@@ -12,8 +12,6 @@ head:
       content: Java,ArrayList,ArrayList源码,源码分析, java arraylist
 ---
 
-# 6.3 ArrayList详解（附源码）
-
 “二哥，听说今天我们开讲 ArrayList 了？好期待哦！”三妹明知故问，这个托配合得依然天衣无缝。
 
 “是的呀，三妹。”我肯定地点了点头，继续说道，“ArrayList 可以称得上是集合框架方面最常用的类了，可以和 HashMap 一较高下。”

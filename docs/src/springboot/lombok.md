@@ -8,7 +8,6 @@ subTitle: 整合 Lombok
 discription: Lombok 是一个流行的 Java 库，旨在通过注解的方式简化 Java 代码，减少模板代码的编写。它通过在编译时自动生成常用的 Java 代码（如 getters、setters、constructors、toString、equals、hashCode 等方法），使得源代码更加简洁。
 ---
 
-# 第二节：整合 Lombok
 
 Spring Boot 早在 2.1.x 版本后就在 starter 中内置了 Lombok 依赖，Intellij IDEA 也早在 IDEA 2020.3 版本的时候内置了 Lombok 插件。为什么它们都要支持 Lombok 呢？Lombok 到底有啥牛皮的？今天我们就来补上这一课。
 

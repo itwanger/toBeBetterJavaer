@@ -12,7 +12,6 @@ head:
       content: Java,String,StringBuilder,StringBuffer
 ---
 
-# 4.8 StringBuilder和StringBuffer
 
 “哥，[上一篇深入理解 String.intern()](https://javabetter.cn/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 

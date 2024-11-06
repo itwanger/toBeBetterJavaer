@@ -12,7 +12,6 @@ head:
       content: Java,并发编程,多线程,Thread,线程池,ThreadPoolExecutor,Executors
 ---
 
-# 第二十五节：线程池
 
 好，终于到 Java 的线程池了，这是 Java 并发编程中非常重要的一块内容，今天我们就通过图文的方式来彻底弄懂线程池的工作原理，以及在实际项目中该如何自定义适合业务的线程池。
 

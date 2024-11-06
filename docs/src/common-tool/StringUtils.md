@@ -12,7 +12,6 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,Java入门,教程,java,Apache StringUtils,java StringUtils
 ---
 
-# 9.3 StringUtils工具类
 
 `字符串`（[String](https://javabetter.cn/string/immutable.html)）在我们的日常工作中，用得非常非常非常多。
 
