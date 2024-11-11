@@ -2,6 +2,7 @@
 title: MyBatis面试题，23道MyBatis八股文（6千字30张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MyBatis
 author: 三分恶
+date: 2024-11-08
 category:
   - 面渣逆袭
 tag:
@@ -246,13 +247,11 @@ public User selectUser(User user);
 
 ### 7. #{}和${}的区别?
 
-在 MyBatis 中，`#{}` 和 `${}` 是两种不同的占位符，`#{}` 是预编译处理，`${}` 是字符串替换。
-
-![三分恶面渣逆袭：#{}和${}比较](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mybatis-8d2d5dc1-8f92-456d-b858-7d3a7888f2eb.png)
+`#{}` 是预编译处理，`${}` 是字符串替换。
 
 ①、当使用 `#{}` 时，MyBatis 会在 SQL 执行之前，将占位符替换为问号 `?`，并使用参数值来替代这些问号。
 
-由于 `#{}` 使用了预处理，它能有效防止 SQL 注入，可以确保参数值在到达数据库之前被正确地处理和转义。
+由于 `#{}` 使用了预处理，所以能有效防止 SQL 注入，确保参数值在到达数据库之前被正确地处理和转义。
 
 ```xml
 <select id="selectUser" resultType="User">
@@ -262,7 +261,7 @@ public User selectUser(User user);
 
 ②、当使用 `${}` 时，参数的值会直接替换到 SQL 语句中去，而不会经过预处理。
 
-这就存在 SQL 注入的风险，因为参数值会直接拼接到 SQL 语句中，假如参数值是 `1 or 1=1`，那么 SQL 语句就会变成 `SELECT * FROM users WHERE id = 1 or 1=1`，这样就会导致查询所有用户的结果。
+这就存在 SQL 注入的风险，因为参数值会直接拼接到 SQL 语句中，假如参数值是 `1 or 1=1`，那么 SQL 语句就会变成 `SELECT * FROM users WHERE id = 1 or 1=1`，这样就会导致查询出所有用户的结果。
 
 `${}` 通常用于那些不能使用预处理的场合，比如说动态表名、列名、排序等，要提前对参数进行安全性校验。
 
@@ -273,6 +272,7 @@ public User selectUser(User user);
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Mybatis#()和$()有什么区别?
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：#{}和${}的区别 
 
 ### 8. 模糊查询 like 语句该怎么写?
 

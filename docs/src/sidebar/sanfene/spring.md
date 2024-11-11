@@ -60,6 +60,14 @@ Spring 对 Junit 提供支持，可以通过**注解**快捷地测试 Spring 程
 
 Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程调用等）都提供了模板化的封装，这些封装 API 的提供使得应用难度大大降低。
 
+#### 简单说一下什么是AOP 和 IoC？
+
+**AOP**：面向切面编程，是一种编程范式，它的主要作用是将那些与核心业务逻辑无关，但是对多个对象产生影响的公共行为封装起来，如日志记录、性能统计、事务等。
+
+**IoC**：控制反转，是一种设计思想，它的主要作用是将对象的创建和对象之间的调用过程交给 Spring 容器来管理。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：IOC与AOP
+
 ### 2.Spring 有哪些模块呢？
 
 Spring 框架是分模块存在，除了最核心的`Spring Core Container`是必要模块之外，其他模块都是`可选`，大约有 20 多个模块。
@@ -1552,7 +1560,7 @@ AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知
 
 ### 20.你平时有用到 AOP 吗？
 
-有，我在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中就有使用，我利用 AOP 打印了接口的入参和出参日志，以及执行时间。
+我在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中有应用，比如说我利用 AOP 打印了接口的入参和出参日志，以及执行时间，方便后期 bug 溯源和性能的调优。
 
 ![沉默王二：技术派教程](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180334.png)
 
@@ -1586,6 +1594,8 @@ public @interface MdcDot {
 ```
 2023-06-16 11:06:13,008 [http-nio-8080-exec-3] INFO |00000000.1686884772947.468581113|101|c.g.p.forum.core.mdc.MdcAspect.handle(MdcAspect.java:47) - 方法执行耗时: com.github.paicoding.forum.web.front.article.rest.ArticleRestController#recommend = 47
 ```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：AOP应用场景
 
 ### 21.说说 JDK 动态代理和 CGLIB 代理？
 
@@ -2461,21 +2471,19 @@ Spring Boot Starter 主要通过起步依赖和自动配置机制来简化项目
 
 ### 34.Spring Boot 启动原理了解吗？
 
-SpringBoot 项目启动的大致流程如下：
-
 ![SpringBoot 启动大致流程-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-68744556-a1ba-4e1f-a092-1582875f0da6.png)
 
-Spring Boot 应用通常有一个带有 main 方法的主类，这个类上标注了 `@SpringBootApplication` 注解，它是整个应用启动的入口。这个注解组合了 `@SpringBootConfiguration`、`@EnableAutoConfiguration` 和 `@ComponentScan`，这些注解共同支持配置和类路径扫描。
+Spring Boot 有一个 main 方法的主类，类上标注了 `@SpringBootApplication` 注解，这是入口类。
 
-当执行 main 方法时，首先创建一个 SpringApplication 的实例。这个实例负责管理 Spring 应用的启动和初始化。
+![技术派实战项目源码：启动类](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422090338.png)
 
-![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422090338.png)
+当执行 main 方法时，首先会创建一个 SpringApplication 实例，负责管理应用的启动和初始化。
 
-`SpringApplication.run()` 方法负责准备和启动 Spring 应用上下文（ApplicationContext）环境，包括：
+`SpringApplication.run()` 方法负责 Spring 应用的上下文（ApplicationContext）环境准备，包括：
 
 - 扫描配置文件，添加依赖项
 - 初始化和加载 Bean 定义
-- 启动内嵌的 Web 服务器
+- 启动内嵌的 Web 容器等
 
 #### 了解@SpringBootApplication 注解吗？
 
@@ -2550,6 +2558,7 @@ public class QuickForumApplication {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 默认的包扫描路径？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：@SpringBootApplication 注解了解吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Springboot的工作原理？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot启动流程（忘了）
 
 ### 36.SpringBoot 和 SpringMVC 的区别？（补充）
 
@@ -2560,6 +2569,7 @@ Spring MVC 是基于 Spring 框架的一个模块，提供了一种 Model-View-C
 Spring Boot 旨在简化 Spring 应用的配置和部署过程，提供了大量的自动配置选项，以及运行时环境的内嵌 Web 服务器，这样就可以更快速地开发一个 SpringMVC 的 Web 项目。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 和 SpringMVC 的区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot与SpringMVC区别（不会）
 
 ### 38.Spring Boot 和 Spring 有什么区别？（补充）
 

@@ -1,8 +1,8 @@
 ---
-title: 设计模式面试题，1道设计模式八股文（1万字1张手绘图），面渣逆袭必看👍
+title: 设计模式面试题，5道设计模式八股文（3000字10张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-设计模式
-description: 下载次数超 1 万次，1 万字 1 张手绘图，详解 1 道 设计模式 面试高频题（让天下没有难背的八股），面渣背会这些 设计模式 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-date: 2024-10-22
+description: 下载次数超 1 万次，3000 字 10 张手绘图，详解 5 道 设计模式 面试高频题（让天下没有难背的八股），面渣背会这些 设计模式 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+date: 2024-11-08
 author: 沉默王二
 category:
   - 面渣逆袭
@@ -418,6 +418,7 @@ public enum Singleton {
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：你有哪些熟悉的设计模式？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：说一说常用的设计模式
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：了解哪些设计模式，开闭原则
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：设计模式
 
 
 ## 05、什么是策略模式？
@@ -503,4 +504,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-> 图文详解设计模式面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。
+> 图文详解 5 道设计模式面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。
