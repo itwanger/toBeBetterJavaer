@@ -1514,28 +1514,27 @@ Redis 内存不足有这么几种处理方式：
 - 修改内存淘汰策略，及时释放内存空间
 - 使用 Redis 集群模式，进行横向扩容。
 
-### 35.Redis 的过期数据回收策略有哪些？
+### 35.Redis key 过期策略有哪些？
 
-Redis 支持为键设置过期时间，当键的过期时间到达后，Redis 会自动删除这些键。过期回收策略主要有两种：惰性删除和定期删除。
+Redis 的 key 过期回收策略主要有两种：惰性删除和定期删除。
 
 ![二哥的 Java 进阶之路：Redis 的过期淘汰策略](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214119.png)
 
-#### 什么是惰性删除？
+当某个键被访问时，如果发现它已经过期，Redis 会立即删除该键，俗称惰性删除。但这也意味着如果一个已过期的键从未被访问，它就不会被删除，会占用额外的内存空间。
 
-当某个键被访问时，如果发现它已经过期，Redis 会立即删除该键。这意味着如果一个已过期的键从未被访问，它不会被自动删除，可能会占用额外的内存。
+那还有一种定期删除策略，即每隔一段时间，Redis 就会随机检查一些键是否过期，如果过期就删除。这种策略可以保证过期键及时被删除，但也会增加 Redis 的 CPU 消耗。
 
-#### 什么是定期删除？
-
-Redis 会定期随机测试一些键，并删除其中已过期的键。这个过程是 Redis 内部自动执行的，旨在减少过期键对内存的占用。可以通过 `config get hz` 命令查看当前的 hz 值。
+可以通过 `config get hz` 命令查看 Redis 内部定时任务的频率。
 
 ![二哥的 Java 进阶之路：config get hz](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214800.png)
 
-结果显示 hz 的值为 "10"。这意味着 Redis 服务器每秒执行其内部定时任务（如过期键的清理）的频率是 10 次。可以通过 `CONFIG SET hz 20` 进行调整，或者直接通过配置文件中的 hz 设置。
+结果显示 hz 的值为 "10"，意味着 Redis 服务器每秒执行定时任务的频率是 10 次。可以通过 `CONFIG SET hz 20` 进行调整。
 
 ![二哥本地 Redis 的配置文件路径和 hz 的默认值](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326215240.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Redis key 删除策略
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2 面面试原题：redis 内存淘汰和过期策略
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：redis key过期策略
 
 ### 36.Redis 有哪些内存淘汰策略？
 
