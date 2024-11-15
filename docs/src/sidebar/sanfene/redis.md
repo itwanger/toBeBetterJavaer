@@ -1159,6 +1159,8 @@ $$
 
 ![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325221330.png)
 
+我举例说明一下。
+
 对于第一次查询，请求 B 查询到的缓存数据是 10，但 MySQL 被请求 A 更新为了 11，此时数据库和缓存不一致。
 
 但也只存在这一次不一致的情况，对于不是强一致性的业务，可以容忍。
@@ -1263,6 +1265,7 @@ redis.del(product_id)
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 和缓存一致性问题了解吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：如何保证 redis 缓存与数据库的一致性，为什么这么设计
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：怎么解决redis和mysql的缓存一致性问题
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：双写一致性怎么解决的
 
 ### 29.如何保证本地缓存和分布式缓存的一致？
 

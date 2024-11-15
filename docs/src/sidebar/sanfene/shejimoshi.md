@@ -423,13 +423,15 @@ public enum Singleton {
 
 ## 05、什么是策略模式？
 
-策略模式（Strategy Pattern）是一种行为型设计模式，它定义了一系列的算法，将每个算法封装起来，使得它们可以相互替换。这种模式通常用于实现不同的业务规则或策略，其中每种策略封装了特定的行为或算法。
+策略模式是一种行为型设计模式，它定义了一系列的算法，将每个算法封装起来，使得它们可以相互替换。这种模式通常用于实现不同的业务规则，其中每种策略封装了特定的行为或算法。
 
-特别适合用于优化程序中的复杂条件分支语句（if-else），将不同的分支逻辑封装到不同的策略类中，然后通过上下文类来选择不同的策略。
+![图片来源于天未（闵大为）](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20241111180535.png)
 
-在策略模式中，有三个角色：上下文（Context）、策略接口（Strategy Interface）和具体策略（Concrete Strategy）。
+特别适合优化程序中的复杂条件分支语句（if-else）。
 
-- **策略接口**：定义所有支持的算法的公共接口。策略模式的核心。
+在策略模式中，有三个角色：上下文、策略接口和具体策略。
+
+- **策略接口**：定义所有支持算法的公共接口。
 - **具体策略**：实现策略接口的类，提供具体的算法实现。
 - **上下文**：使用策略的类。通常包含一个引用指向策略接口，可以在运行时改变其具体策略。
 
@@ -472,6 +474,7 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：if else过多怎么解决？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：设计模式，策略模式
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：策略模式，自己的代码用过什么设计模式
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：用过哪些策略模式
 
 ---
 

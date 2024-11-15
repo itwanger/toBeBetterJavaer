@@ -407,15 +407,18 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 15.⾯向对象和⾯向过程的区别?
 
-特点|	面向过程编程|	面向对象编程
----|---|---
-核心思想|	以过程为核心，函数是基本单位，通过函数完成任务|	以对象为核心，对象是基本单位，通过对象交互完成任务
-程序结构|	函数和步骤组成的顺序流程|	类和对象组成的模块化结构
-代码复用|	通过函数复用代码|	通过继承、组合、多态等方式复用代码
+面向过程是以过程为核心，通过函数完成任务，程序结构是函数+步骤组成的顺序流程。
+
+面向对象是以对象为核心，通过对象交互完成任务，程序结构是类和对象组成的模块化结构，代码可以通过继承、组合、多态等方式复用。
 
 ![三分恶面渣逆袭：面向对象和面向过程的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-10.png)
 
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，像 VO、DTO 都是业务抽象后的对象实体类，而 Service、Controller 则是业务逻辑的实现，这其实就是面向对象的思想。
+
+![技术派实战项目源码截图](https://cdn.tobebetterjavaer.com/stutymore/javase-20241111172421.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：面向对象和面向过程的区别？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：面向对象 项目里有哪些面向对象的案例
 
 ### 16.面向对象编程有哪些特性？
 
@@ -640,6 +643,7 @@ class GreenColor implements Color {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Java 面向对象的特点
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：讲一下 JAVA 的特性，什么是多态
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：面向对象三大特性
+
 
 ### 17.多态解决了什么问题？（补充）
 
