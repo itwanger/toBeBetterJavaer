@@ -40,6 +40,16 @@ Java 程序运行的时候，编译器会将 Java 源代码（.java）编译成�
 
 ![三分恶面渣逆袭：JVM跨语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-2.png)
 
+#### 为什么要学习 JVM？
+
+学习 JVM 可以帮助我们更好地优化程序性能、避免内存问题。
+
+首先，了解 JVM 的内存模型和垃圾回收机制，可以帮助我们合理配置内存、减少 GC 停顿。
+
+此外，掌握 JVM 的类加载机制可以帮助排查类加载冲突或异常。
+
+JVM 还提供了很多调试和监控工具，比如使用 jmap 和 jstat 可以分析内存和线程的使用情况。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：有了解 JVM 吗
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：了解过 JVM 么？讲一下 JVM 的特性
 
@@ -50,9 +60,9 @@ Java 程序运行的时候，编译器会将 Java 源代码（.java）编译成�
 
 推荐阅读：[大白话带你认识 JVM](https://javabetter.cn/jvm/what-is-jvm.html)
 
-JVM 大致可以划分为三个部门：类加载器、运行时数据区和执行引擎。
+JVM 大致可以划分为三个部分：类加载器、运行时数据区和执行引擎。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030185742.png)
+![截图来源于网络](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030185742.png)
 
 ① 类加载器
 
@@ -154,7 +164,7 @@ Native 方法是在 Java 中通过 native 关键字声明的，用于调用非 J
 
 #### 介绍一下 Java 堆？
 
-堆（heap）是 JVM 中最大的一块内存区域，被所有线程共享，在 JVM 启动时创建，主要用来存储对象的。
+堆是 JVM 中最大的一块内存区域，被所有线程共享，在 JVM 启动时创建，主要用来存储对象的。
 
 ![二哥的 Java 进阶之路：堆](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225154450.png)
 
@@ -212,6 +222,7 @@ public class StaticVarDemo {
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：说一下JVM内存模型
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的深信服面经同学 3 Java 后端线下一面面试原题：JVM变量存在堆栈的位置？
 > 14. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：Jvm内存区域，本地方法栈的运行场景，Native方法解释一下
+> 15. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：jvm结构 运行时数据区有什么结构 堆存什么
 
 ### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
 
@@ -591,13 +602,11 @@ Java 堆被划分为**新生代**（Young Generation）和**老年代**（Old Ge
 
 ### 17.内存溢出和内存泄漏是什么意思？
 
-内存溢出（Out of Memory，俗称 OOM）和内存泄漏（Memory Leak）是两个不同的概念，但它们都与内存管理有关。
-
-**①、内存溢出**：是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。在 Java 中，这种情况会抛出 OutOfMemoryError。
+内存溢出，俗称 OOM，是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。在 Java 中，这种情况会抛出 OutOfMemoryError。
 
 内存溢出可能是由于内存泄漏导致的，也可能是因为程序一次性尝试分配大量内存，内存直接就干崩溃了导致的。
 
-**②、内存泄漏**：是指程序在使用完内存后，未能释放已分配的内存空间，导致这部分内存无法再被使用。随着时间的推移，内存泄漏会导致可用内存逐渐减少，最终可能导致内存溢出。
+内存泄漏是指程序在使用完内存后，未能释放已分配的内存空间，导致这部分内存无法再被使用。随着时间的推移，内存泄漏会导致可用内存逐渐减少，最终可能导致内存溢出。
 
 在 Java 中，内存泄漏通常发生在长期存活的对象持有短期存活对象的引用，而长期存活的对象又没有及时释放对短期存活对象的引用，从而导致短期存活对象无法被回收。
 
@@ -649,13 +658,9 @@ public class HeapSpaceErrorGenerator {
 
 ### 19.内存泄漏可能由哪些原因导致呢？
 
-内存泄漏可能的原因有很多种，比如说静态集合类引起内存泄漏、单例模式、数据连接、IO、Socket 等连接、变量不合理的作用域、hash 值发生变化、ThreadLocal 使用不当等。
+比如说：
 
-![三分恶面渣逆袭：内存泄漏可能原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-16.png)
-
-**①、静态集合类引起内存泄漏**
-
-静态集合的生命周期和 JVM 一致，所以静态集合引用的对象不能被释放。
+①、静态的集合中添加的对象越来越多，但却没有及时清理；
 
 ```java
 public class OOM {
@@ -670,13 +675,9 @@ public class OOM {
 
 ```
 
-**②、单例模式**
+②、单例模式下对象持有的外部引用无法及时释放；
 
-和上面的例子原理类似，单例对象在初始化后会以静态变量的方式在 JVM 的整个生命周期中存在。如果单例对象持有外部的引用，那么这个外部对象将不能被 GC 回收，导致内存泄漏。
-
-**③、数据连接、IO、Socket 等连接**
-
-创建的连接不再使用时，需要调用 **close** 方法关闭连接，只有连接被关闭后，GC 才会回收对应的对象（Connection，Statement，ResultSet，Session）。忘记关闭这些资源会导致持续占有内存，无法被 GC 回收。
+③、数据库、IO、Socket 等连接资源没有及时关闭；
 
 ```java
 try {
@@ -692,30 +693,25 @@ try {
   }
 ```
 
-**④、变量不合理的作用域**
-
-一个变量的定义作用域大于其使用范围，很可能存在内存泄漏；或不再使用对象没有及时将对象设置为 null，很可能导致内存泄漏的发生。
+④、变量的作用域不合理；
 
 ```java
-public class Simple {
+class Simple {
     Object object;
     public void method1(){
         object = new Object();
         //...其他代码
         //由于作用域原因，method1执行完成之后，object 对象所分配的内存不会马上释放
-        object = null;
     }
 }
-
 ```
 
-**⑤、hash 值发生变化**
+⑤、hash 值发生变化但对象却没有改变，这也是为什么 String 被设计成不可变对象的原因之一，就是因为假如 String 的哈希值发生了改变，但对应的值没变，就导致 HashMap 中的对象无法被及时清理；
 
-对象 Hash 值改变，使用 HashMap、HashSet 等容器中时候，由于对象修改之后的 Hah 值和存储进容器时的 Hash 值不同，所以无法找到存入的对象，自然也无法单独删除了，这也会造成内存泄漏。说句题外话，这也是为什么 String 类型被设置成了不可变类型。
+⑥、使用完 ThreadLocal 没有使用 remove 方法来进行清除。
 
-**⑥、ThreadLocal 使用不当**
+![三分恶面渣逆袭：内存泄漏可能原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-16.png)
 
-ThreadLocal 的弱引用导致内存泄漏也是个老生常谈的话题了，使用完 ThreadLocal 一定要记得使用 remove 方法来进行清除。
 
 ### 20.有没有处理过内存泄漏问题？是如何定位的？
 
@@ -890,6 +886,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：垃圾回收的过程是什么？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：说一下GC，有哪些方法
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的荣耀面经同学 4 面试原题：对垃圾回收的理解？
+> 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：垃圾回收机制 为什么要学jvm 内存泄漏场景
 
 ### 24.如何判断对象仍然存活？
 

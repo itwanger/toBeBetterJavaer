@@ -279,27 +279,12 @@ DELETE /idX/delete HTTP/1.1   -> Returns 404
 
 ![三分恶面渣逆袭：Get 和 Post 区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-58214e69-98a3-4d89-9896-362a364ba017.jpg)
 
-①、参数传递方式不同
+GET 请求主要用于获取数据，参数附加在 URL 中，存在长度限制，且容易被浏览器缓存，有安全风险；而 POST 请求用于提交数据，参数放在请求体中，适合提交大量或敏感的数据。
 
-GET 参数通过 URL（统一资源定位符）进行传递，通常附加在 URL 的查询字符串中（即 ? 后面的部分），例如 `https://javabetter.cn/api?param1=value1&param2=value2`
-
-POST 参数通常通过请求体（body） 传递，适合上传文件或提交表单。
-
-②、缓存和幂等
-
-GET 请求通常会被浏览器和缓存服务器缓存，因为它不会改变服务器状态，属于幂等操作（执行一次或多次 GET 请求的效果是相同的）。常用于获取静态资源（如图片、CSS 文件）。
-
-POST 请求不会被缓存，因为它通常用于执行修改操作，可能会导致服务器数据的变化。
-
-③、安全性
-
-GET 请求不适合传递敏感数据（如密码、信用卡号等），因为参数会显示在 URL 中，并且 URL 会存储在浏览器历史、日志、服务器日志中，容易泄露敏感信息。
-
-POST 请求比 GET 更适合传递敏感数据，因为参数存储在请求体中，不会直接暴露在 URL 中。不过，POST 本质上并不比 GET 更安全，因为数据仍然可以通过中间人攻击或抓包工具被截获。
-
-因此，无论 GET 还是 POST，都应当使用 HTTPS 协议来加密传输。
+另外，GET 请求是幂等的，多次请求不会改变服务器状态；而 POST 请求不是幂等的，可能对服务器数据有影响。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：get和post请求 
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：get和post啥区别
 
 ### 11.GET 的长度限制是多少？
 

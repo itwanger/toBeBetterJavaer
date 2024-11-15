@@ -2797,9 +2797,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 48.MySQL 事务的四大特性说一下？
 
-事务是一个或多个 SQL 语句组成的一个执行单元，这些 SQL 语句要么全部执行成功，要么全部不执行，不会出现部分执行的情况。主要作用是保证数据库操作的一致性。
+事务是一条或多条 SQL 语句组成的执行单元，要么全部执行成功，要么全部失败，不会出现部分执行的情况。
 
-事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性、一致性、隔离性和持久性。
+事务具有四个基本特性，也就是通常所说的 ACID 特性，即原子性、一致性、隔离性和持久性。主要作用是保证数据库操作的一致性。
 
 ![三分恶面渣逆袭：事务四大特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-eaafb8b8-fbe6-42c0-9cc2-f2e04631b56c.jpg)
 
@@ -2839,6 +2839,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：对MySQL事务的理解
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：事务的概念
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：事务ACID
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：什么是事务 事务为什么要有隔离级别 幻读是什么 什么时候要解决幻读 什么时候不用解决
 
 ### 49.那 ACID 靠什么保证的呢？
 
@@ -2947,7 +2948,7 @@ SELECT salary FROM employees WHERE id = 1;  -- 读取到 salary = 5000 (不可�
 COMMIT;
 ```
 
-幻读指的是在同一事务中执行相同的查询时，返回的结果集中出现了之前没有的数据行。这是因为在事务过程中，另一个事务插入了新的数据并提交。
+幻读指的是在同一事务中执行相同的查询时，返回的结果集中出现了之前没有的数据行。这是因为在事务执行过程中，另外一个事务插入了新的数据。
 
 比如说事务 A 在第一次查询某个条件范围的数据行后，事务 B 插入了一条新数据且符合条件范围，事务 A 再次查询时，发现多了一条数据。
 
@@ -2966,9 +2967,7 @@ SELECT * FROM employees WHERE department = 'HR';  -- 读取到 11 条记录 (幻
 COMMIT;
 ```
 
-可以通过设置隔离级别为可串行化来避免幻读，代价是降低并发性能。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7  京东到家面试原题：mysql事务隔离级别，默认隔离级别，如何避免幻读
+需要解决幻读的场景一般是对数据一致性要求较高的业务，例如银行转账、库存管理等，而在一些只要求最终一致性的应用场景中（如统计功能），可以忽略幻读问题。
 
 #### 不同的隔离级别，在并发事务下可能会发生什么问题？
 
@@ -2978,6 +2977,8 @@ COMMIT;
 | Read Commited 读取已提交   | 否   | 是         | 是   |
 | Repeatable Read 可重复读   | 否   | 否         | 是   |
 | Serialzable 可串行化       | 否   | 否         | 否   |
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7  京东到家面试原题：mysql事务隔离级别，默认隔离级别，如何避免幻读
 
 ### 52.事务的各个隔离级别都是如何实现的？
 
