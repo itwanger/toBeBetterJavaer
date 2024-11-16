@@ -1236,17 +1236,19 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 - 尽量避免复杂的查询条件，如有必要，考虑对子查询结果进行过滤。
 - 尽量缩减计算成本，比如说为排序字段加上索引，提高排序效率；比如说使用 union all 替代 union，减少去重处理。
 
-#### 如何排查慢 SQL？
+#### 如何优化慢 SQL？
 
-首先，需要找到哪些 SQL 比较慢，可以启用慢查询日志，记录超过指定执行时间的查询。
+首先，找到那些比较慢的 SQL，可以通过启用慢查询日志，记录那些超过指定执行时间的查询。
 
-也可以使用 `show processlist;` 查看当前正在执行的 SQL 语句，找出执行时间较长的 SQL。
+也可以使用 `show processlist;` 命令查看当前正在执行的 SQL 语句，找出执行时间较长的 SQL。
+
+![二哥的java 进阶之路：技术派当前正在执行的 sql](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115145204.png)
 
 或者在业务基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架扩展。
 
-![三分恶面渣逆袭：发现慢 SQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0c43f82-3930-44f0-9abc-b33b08c02d2d.jpg)
+![二哥的Java 进阶之路：技术派会在日志中记录请求的执行时间](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115145401.png)
 
-然后，使用 EXPLAIN 命令查看查询执行计划，判断查询是否使用了索引，是否存在全表扫描等问题。
+然后，使用 EXPLAIN 查看查询执行计划，判断查询是否使用了索引，是否有全表扫描等。
 
 ```sql
 EXPLAIN SELECT * FROM your_table WHERE conditions;
@@ -1278,6 +1280,7 @@ SET GLOBAL long_query_time = 2;
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：如何判断sql的效率，怎样排查效率比较低的sql
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：mysql中如何定位慢查询
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：慢查询怎么分析
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：如何优化慢查询语句？
 
 ### 25.有哪些方式优化 SQL？
 
@@ -1656,6 +1659,7 @@ CREATE INDEX idx_age_name ON users(age, name);
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：mysql为什么用索引
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：对MySQL索引的理解
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：索引，索引优化举例，为什么使用索引更快
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：介绍下索引？底层是啥？
 
 ### 28.能简单说一下索引的分类吗？
 
@@ -2079,15 +2083,22 @@ MySQL 属于关系型数据库，所以范围查询会比较多，所以采用�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：一张表最多存多少数据（我答得2kw，根据b+树的三层高度计算）
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 1 面试原题：MySQL B+树的度数越大越好吗，一般设多少
 
-### 35.为什么要用 B+ 树，而不用普通二叉树？
+### 35.为什么不用普通二叉树？
 
 普通二叉树存在退化的情况，如果它退化成链表，就相当于全表扫描。
 
+![二哥的Java 进阶之路：普通二叉树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115151059.png)
+
 #### 为什么不用平衡二叉树呢？
 
-读取数据的时候，是从磁盘先读到内存。平衡二叉树的每个节点只存储一个键值和数据，而 B+ 树可以存储更多的节点数据，树的高度也会降低，因此读取磁盘的次数就会下降，查询效率就快。
+虽然 AVL 树是平衡二叉树，但因为只有 2 叉，高度会比较高，磁盘 I/O 次数就会非常多。
+
+![二哥的Java 进阶之路：AVL 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115151729.png)
+
+而 B+ 树是 N 叉，每一层可以存储更多的节点数据，树的高度就会降低，因此读取磁盘的次数就会下降，查询效率就快。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：MySQL 索引为什么使用 B+树而不是用别的数据结构？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：为什么不用二叉树？为什么不用AVL树？
 
 ### 36.为什么用 B+ 树而不用 B 树呢？
 
@@ -2299,11 +2310,34 @@ INSERT INTO ab (a, b) VALUES (1, 2), (1, 3), (2, 1), (3, 3), (2, 2);
 
 通过 explain 可以看到，`WHERE a = 1` 使用了联合索引，而 `WHERE b = 1` 需要全表扫描，依次检查每一行。
 
+#### （联合索引）下面怎么走的索引？
+
+```
+select * from t where a = 2 and b = 2;
+select * from t where b = 2 and c = 2;
+select * from t where a > 2 and b = 2;
+```
+
+联合索引在 MySQL 中的行为受最左前缀原则的影响。假设 t 表上有一个联合索引 (a, b, c)，我们来分析一下：
+
+第一条 SQL 语句包含条件 a = 2 和 b = 2，刚好符合联合索引的前两列。
+
+![explain中也可以明确看出来用了索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153445.png)
+
+第二条 SQL 语句由于未使用最左前缀中的 a，可能会触发全表扫描。
+
+![rows 为 10 行，说明全表扫描了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153552.png)
+
+第三条 SQL 语句在范围条件 a > 2 之后，索引后会停止匹配，b = 2 的条件需要额外过滤。
+
+![rows 为 9 行说明的确走索引了，但还需要额外过滤](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153636.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：说说最左前缀原则
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：最左匹配原则 索引失效
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Mysql联合索引的设计原则
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：联合索引 (a, b)，where a = 1 和 where b = 1，效果是一样的吗
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：（联合索引）下面怎么走的索引？
 
 ### 42.什么是索引下推优化？
 
@@ -2855,7 +2889,7 @@ MySQL 通过 undo log 来确保原子性（Atomicity）。
 
 #### 如何保证一致性？
 
-如果其他三个特性都得到了保证，那么一致性（Consistency）就自然而然得到保证了。
+如果其他三个特性都得到了保证，那么一致性就自然而然得到保证了。
 
 #### 如何保证隔离性？
 
@@ -2871,9 +2905,9 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：MySQL ACID 哪些机制来保证
 
-### 50.事务的隔离级别有哪些？MySQL 的默认隔离级别是什么？
+### 50.事务的隔离级别有哪些？
 
-事务的隔离级别定了一个事务可能受其他事务影响的程度，MySQL 支持的四种隔离级别分别是：读未提交（Read Uncommitted）、读已提交（Read Committed）、可重复读（Repeatable Read）和串行化（Serializable）。
+事务的隔离级别定了一个事务可能受其他事务影响的程度，MySQL 支持的四种隔离级别分别是：读未提交、读已提交、可重复读和串行化。
 
 ![三分恶面渣逆袭：事务的四个隔离级别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-99942529-4a91-420b-9ce2-4149e747f64d.jpg)
 
@@ -2883,17 +2917,17 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 
 #### 什么是读已提交？
 
-当前事务只能读取已经被其他事务提交的数据，可以避免“脏读”现象。但不可重复读和幻读问题仍然存在。
+在读已提交级别，当前事务只能读取已经被其他事务提交的数据，可以避免“脏读”现象。但不可重复读和幻读问题仍然存在。
 
 #### 什么是可重复读？
 
-确保在同一事务中多次读取相同记录的结果是一致的，即使其他事务对这条记录进行了修改，也不会影响到当前事务。
+可重复读能够确保在同一事务中多次读取相同记录的结果是一致的，即使其他事务对这条记录进行了修改，也不会影响到当前事务。
 
 可重复读是 MySQL 默认的隔离级别，避免了“脏读”和“不可重复读”，但可能会出现幻读。
 
 #### 什么是串行化？
 
-最高的隔离级别，通过强制事务串行执行来避免并发问题，可以解决“脏读”、“不可重复读”和“幻读”问题。
+串行化是最高的隔离级别，通过强制事务串行执行来避免并发问题，可以解决“脏读”、“不可重复读”和“幻读”问题。
 
 但会导致大量的超时和锁竞争问题。
 
@@ -2902,6 +2936,12 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 在 MySQL 的默认隔离级别（可重复读）下，如果事务 A 修改了数据但未提交，事务 B 将看到修改之前的数据。
 
 这是因为在可重复读隔离级别下，MySQL 将通过多版本并发控制（MVCC）机制来保证一个事务不会看到其他事务未提交的数据，从而确保读一致性。
+
+#### 怎么更改事务的隔离级别？
+
+使用 `SET SESSION TRANSACTION ISOLATION LEVEL` 可以修改当前连接的隔离级别，只影响当前会话。
+
+使用 `SET GLOBAL TRANSACTION ISOLATION LEVEL` 可以修改全局隔离级别，影响新的连接，但不会改变现有会话。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：MySQL 事务是什么，默认隔离级别，什么是可重复读？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 事务，隔离级别
@@ -2913,6 +2953,7 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的联想面经同学 7 面试原题：Mysql 四个隔离级别，MVCC 实现
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 8 后端开发秋招一面面试原题：讲讲Mysql的四个隔离级别
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：mysql的隔离级别有哪些
+> 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：事务的隔离级别？这些隔离级别是怎么保证数据的一致性的？默认的事务隔离级别是啥？（MVCC）怎么更改事务的隔离级别？
 
 ### 51.什么是脏读、不可重复读、幻读呢？
 
@@ -3001,11 +3042,11 @@ COMMIT;
 
 ### 53.MVCC 了解吗？怎么实现的？
 
-MVCC 是多版本并发控制（Multi-Version Concurrency Control）的简称，主要用来解决数据库并发问题。
+MVCC 指的是多版本并发控制，主要用来解决数据库的并发问题。
 
-在支持 MVCC 的数据库中，当多个用户同时访问数据时，每个用户都可以看到一个在某一时间点之前的数据库快照，并且能够无阻塞地执行查询和修改操作，而不会相互干扰。
+当多个用户同时访问数据时，每个用户都可以看到一个在某一时间点之前的数据库快照，并且能够无阻塞地执行查询和修改操作，而不会相互干扰。
 
-在传统的锁机制中，如果一个事务正在写数据，那么其他事务必须等待写事务完成才能读数据，MVCC 允许读操作访问数据的一个旧版本快照，同时写操作创建一个新的版本，这样读写操作就可以并行进行，不必等待对方完成。
+MVCC 允许读操作访问数据的一个旧版本快照，同时写操作创建一个新的版本，这样读写操作就可以并行进行，不必等待对方完成。
 
 在 MySQL 中，特别是 InnoDB 存储引擎，MVCC 是通过版本链和 ReadView 机制来实现的。
 
