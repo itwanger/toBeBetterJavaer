@@ -892,7 +892,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 ### 24.如何判断对象仍然存活？
 
-判断一个对象是否存活，也就等同于判断一个对象是否可以被回收。通常有两种方式：引用计数算法（reference counting）和可达性分析算法。
+通常有两种方式：引用计数算法和可达性分析算法，Java 使用的是可达性分析算法。
 
 #### 什么是引用计数法？
 
@@ -908,7 +908,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 ![三分恶面渣逆袭：GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
 
-这也是 Java 垃圾回收器（如 G1、CMS 等）使用的主要算法。
+这也是 G1、CMS 等主流垃圾收集器使用的主要算法。
 
 #### 做可达性分析的时候，应该有哪些前置性的操作？
 
@@ -918,6 +918,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 京东到家面试原题：如何判断一个对象是否可以回收
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：做可达性分析的时候，应该有哪些前置性的操作？
+
 
 ### 25.Java 中可作为 GC Roots 的引用有哪几种？
 
@@ -1121,6 +1122,12 @@ Full GC 会从 GC Root 出发，标记所有可达对象。新生代使用复制
 - **空间分配担保失败**（ Promotion Failure），新生代的 To 区放不下从 Eden 和 From 拷贝过来对象，或者新生代对象 GC 年龄到达阈值需要晋升这两种情况，老年代如果放不下的话都会触发 Full GC。
 - **方法区内存空间不足**：如果方法区由永久代实现，永久代空间不足 Full GC。
 - **System.gc()等命令触发**：System.gc()、jmap -dump 等命令会触发 full gc。
+
+#### 空间分配担保是什么？
+
+空间分配担保是指在进行 Minor GC（新生代垃圾回收）前，JVM 会确保老年代有足够的空间存放从新生代晋升的对象。如果老年代空间不足，可能会触发 Full GC。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：如何判断死亡对象？GC Roots有哪些？空间分配担保是什么？
 
 ### 31.知道哪些垃圾收集器？
 
@@ -1467,7 +1474,7 @@ JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说你对 JVM 调优的了解
 
-### 41.线上服务 CPU 占用过高怎么排查？
+### 41.CPU 占用过高怎么排查？
 
 ![三分恶面渣逆袭：CPU飙高](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-43.png)
 
@@ -1513,6 +1520,7 @@ printf "%x\n" PID
 最后，根据堆栈信息定位到具体的业务方法，查看是否有死循环、频繁的垃圾回收（GC）、资源竞争（如锁竞争）导致的上下文频繁切换等问题。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：上线的业务出了问题怎么调试，比如某个线程 cpu 占用率高，怎么看堆栈信息
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：服务器的CPU占用持续升高，有哪些排查问题的手段？排查后发现是项目产生了内存泄露，如何确定问题出在哪里？
 
 ### 42.内存飙高问题怎么排查？
 
@@ -1653,13 +1661,27 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 ![三分恶面渣逆袭：类的生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-44.png)
 
-### 48.类加载的过程知道吗？
+### 48.类装载的过程知道吗？
 
 > 推荐阅读：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
 
-类加载过程有：载入、验证、准备、解析、初始化。这 5 个阶段一般是顺序发生的，但在动态绑定的情况下，解析阶段会发生在初始化阶段之后。
+类装载过程包括三个阶段：载入、链接（包括验证、准备、解析）、初始化。
 
-**载入过程**中，JVM 需要做三件事情：
+①、载入：将类的二进制字节码加载到内存中。
+
+②、链接可以细分为三个小的阶段：
+
+- 验证：检查类文件格式是否符合 JVM 规范
+- 准备：为类的静态变量分配内存并设置默认值。
+- 解析：将符号引用替换为直接引用。
+
+③、初始化：执行静态代码块和静态变量初始化。
+
+在准备阶段，静态变量已经被赋过默认初始值了，在初始化阶段，静态变量将被赋值为代码期望赋的值。
+
+换句话说，初始化阶段是执行类的构造方法（[javap](https://javabetter.cn/jvm/bytecode.html) 中看到的 `<clinit>()` 方法）的过程。
+
+#### 载入过程JVM 会做什么？
 
 ![三分恶面渣逆袭：载入](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-45.png)
 
@@ -1667,27 +1689,14 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 - 2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。
 - 3）在内存中生成一个代表这个类的 `java.lang.Class` 对象，作为方法区这个类的各种数据的访问入口。
 
-**载入阶段**结束后，JVM 外部的二进制字节流就按照虚拟机所设定的格式存储在方法区（逻辑概念）中了，方法区中的数据存储格式完全由虚拟机自行实现。
-
-JVM 会在**验证阶段**对二进制字节流进行校验，只有符合 JVM 字节码规范的才能被 JVM 正确执行。
-
-JVM 会在**准备阶段**对类变量（也称为静态变量，[static 关键字](https://javabetter.cn/oo/static.html)修饰的变量）分配内存并初始化，初始化为数据类型的默认值，如 0、0L、null、false 等。
-
-**解析阶段**是虚拟机将常量池内的符号引用替换为直接引用的过程。解析动作主要针对类或接口、字段、类方法、接口方法、成员方法等。
-
-**初始化阶段**是类加载过程的最后一步。在准备阶段，类变量已经被赋过默认初始值了，而在初始化阶段，类变量将被赋值为代码期望赋的值。
-
-换句话说，初始化阶段是执行类的构造方法（[javap](https://javabetter.cn/jvm/bytecode.html) 中看到的 `<clinit>()` 方法）的过程。
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲一下类加载过程，双亲委派模型，双亲委派的好处
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：类加载过程
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：类装载的执行过程？双亲委派模式是什么？为什么使用这种模式？
 
 ### 49.什么是双亲委派模型？
 
-双亲委派模型（Parent Delegation Model）是 Java 类加载机制中的一个重要概念。这种模型指的是一个类加载器在尝试加载某个类时，首先会将加载任务委托给其父类加载器去完成。
-
-只有当父类加载器无法完成这个加载请求（即它找不到指定的类）时，子类加载器才会尝试自己去加载这个类。
+双亲委派模型要求类加载器在加载类时，先委托父加载器尝试加载，只有父加载器无法加载时，子加载器才会加载。
 
 ![三分恶面渣逆袭：双亲委派模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-46.png)
 
@@ -1701,15 +1710,9 @@ JVM 会在**准备阶段**对类变量（也称为静态变量，[static 关键�
 
 ### 49.为什么要用双亲委派模型？
 
-可以为 Java 应用程序的运行提供一致性和安全性的保障。
+**①、避免类的重复加载**：父加载器加载的类，子加载器无需重复加载。
 
-①、保证 Java 核心类库的类型安全
-
-如果自定义类加载器优先加载一个类，比如说自定义的 Object，那在 Java 运行时环境中就存在多个版本的 java.lang.Object，双亲委派模型确保了 Java 核心类库的类加载工作由启动类加载器统一完成，从而保证了 Java 应用程序都是使用的同一份核心类库。
-
-②、避免类的重复加载
-
-在双亲委派模型中，类加载器会先委托给父加载器尝试加载类，这样同一个类不会被加载多次。如果没有这种模型，可能会导致同一个类被不同的类加载器重复加载到内存中，造成浪费和冲突。
+**②、保证核心类库的安全性**：如 `java.lang.*` 只能由 Bootstrap ClassLoader 加载，防止被篡改。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲一下类加载过程，双亲委派模型，双亲委派的好处
 
