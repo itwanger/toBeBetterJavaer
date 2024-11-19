@@ -3224,35 +3224,19 @@ public class ThreadPoolDemo {
 
 ![三分恶面渣逆袭：线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-67.png)
 
-我一一说一下：
+**①、corePoolSize** 定义了线程池中的核心线程数量。即使这些线程处于空闲状态，它们也不会被回收。这是线程池保持在等待状态下的线程数。
 
-**①、corePoolSize**
+**②、maximumPoolSize** 是线程池允许的最大线程数量。当工作队列满了之后，线程池会创建新线程来处理任务，直到线程数达到这个最大值。
 
-定义了线程池中的核心线程数量。即使这些线程处于空闲状态，它们也不会被回收。这是线程池保持在等待状态下的线程数。
+**③、workQueue**用于存放待处理任务的阻塞队列。当所有核心线程都忙时，新任务会被放在这个队列里等待执行。
 
-**②、maximumPoolSize**
+**④、handler**，拒绝策略 RejectedExecutionHandler，定义了当线程池和工作队列都满了之后对新提交的任务的处理策略。常见的拒绝策略包括抛出异常、直接丢弃、丢弃队列中最老的任务、由提交任务的线程来直接执行任务等。
 
-线程池允许的最大线程数量。当工作队列满了之后，线程池会创建新线程来处理任务，直到线程数达到这个最大值。
+**⑤、threadFactory**指创建新线程的工厂。它用于创建线程池中的线程。可以通过自定义 ThreadFactory 来给线程池中的线程设置有意义的名字，或设置优先级等。
 
-**③、workQueue**
+**⑥、keepAliveTime**指非核心线程的空闲存活时间。如果线程池中的线程数量超过了 corePoolSize，那么这些多余的线程在空闲时间超过 keepAliveTime 时会被终止。
 
-用于存放待处理任务的阻塞队列。当所有核心线程都忙时，新任务会被放在这个队列里等待执行。
-
-**④、handler**
-
-拒绝策略 RejectedExecutionHandler，定义了当线程池和工作队列都满了之后对新提交的任务的处理策略。常见的拒绝策略包括抛出异常、直接丢弃、丢弃队列中最老的任务、由提交任务的线程来直接执行任务等。
-
-**⑤、threadFactory**
-
-一个创建新线程的工厂。它用于创建线程池中的线程。可以通过自定义 ThreadFactory 来给线程池中的线程设置有意义的名字，或设置优先级等。
-
-**⑥、keepAliveTime**
-
-非核心线程的空闲存活时间。如果线程池中的线程数量超过了 corePoolSize，那么这些多余的线程在空闲时间超过 keepAliveTime 时会被终止。
-
-**⑦、unit**
-
-keepAliveTime 参数的时间单位：
+**⑦、unit**，keepAliveTime 参数的时间单位：
 
 - TimeUnit.DAYS; 天
 - TimeUnit.HOURS; 小时
@@ -3316,6 +3300,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：核心线程和最大线程的区别是什么？核心线程能销毁吗？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：核心线程数不够会怎么进行处理
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
+
 
 ### 57.线程池的拒绝策略有哪些？
 
@@ -3454,7 +3439,19 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 );
 ```
 
+#### 如何知道你设置的线程数多了还是少了？
+
+可以先通过 top 命令观察 CPU 的使用率，如果 CPU 使用率较低，可能是线程数过少；如果 CPU 使用率接近 100%，但吞吐量未提升，可能是线程数过多。
+
+然后再通过 JProfiler、VisualVM 或 Arthas 分析线程运行情况，查看线程的状态、等待时间、运行时间等信息，进一步调整线程池的参数。
+
+通常来说：
+
+- 对于 CPU 密集型任务，线程数接近 CPU 核心数即可。
+- 对于 IO 密集型任务，线程数可以简单设置为 CPU 核心数 × 2。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：线程池核心线程数你是怎么规划的，过程是怎么考量的？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：聊聊你对线程池各个参数的理解；如何知道你设置的线程数多了还是少了？
 
 ### 62.有哪几种常见的线程池？
 
@@ -3919,7 +3916,106 @@ public class ThreadPoolTest {
 
 ![二哥的 Java 进阶之路：拒绝策略](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240727230303.png)
 
+#### 写一个数据库连接池，你现在可以写一下？
+
+数据库连接池的核心功能主要包括：
+
+- 连接的获取和释放
+- 限制最大连接数，避免资源耗尽
+- 连接的复用，避免频繁创建和销毁连接
+
+```java
+class SimpleConnectionPool {
+    // 配置
+    private String jdbcUrl;
+    private String username;
+    private String password;
+    private int maxConnections;
+    private BlockingQueue<Connection> connectionPool;
+
+    // 构造方法
+    public SimpleConnectionPool(String jdbcUrl, String username, String password, int maxConnections) throws SQLException {
+        this.jdbcUrl = jdbcUrl;
+        this.username = username;
+        this.password = password;
+        this.maxConnections = maxConnections;
+        this.connectionPool = new LinkedBlockingQueue<>(maxConnections);
+
+        // 初始化连接池
+        for (int i = 0; i < maxConnections; i++) {
+            connectionPool.add(createNewConnection());
+        }
+    }
+
+    // 创建新连接
+    private Connection createNewConnection() throws SQLException {
+        return DriverManager.getConnection(jdbcUrl, username, password);
+    }
+
+    // 获取连接
+    public Connection getConnection(long timeout, TimeUnit unit) throws InterruptedException, SQLException {
+        Connection connection = connectionPool.poll(timeout, unit); // 等待指定时间获取连接
+        if (connection == null) {
+            throw new SQLException("Timeout: Unable to acquire a connection.");
+        }
+        return connection;
+    }
+
+    // 归还连接
+    public void releaseConnection(Connection connection) throws SQLException {
+        if (connection != null) {
+            if (connection.isClosed()) {
+                // 如果连接已关闭，创建一个新连接补充到池中
+                connectionPool.add(createNewConnection());
+            } else {
+                // 将连接归还到池中
+                connectionPool.offer(connection);
+            }
+        }
+    }
+
+    // 关闭所有连接
+    public void closeAllConnections() throws SQLException {
+        for (Connection connection : connectionPool) {
+            if (!connection.isClosed()) {
+                connection.close();
+            }
+        }
+    }
+
+    // 测试用例
+    public static void main(String[] args) {
+        try {
+            SimpleConnectionPool pool = new SimpleConnectionPool(
+                "jdbc:mysql://localhost:3306/pai_coding", "root", "", 5
+            );
+
+            // 获取连接
+            Connection conn = pool.getConnection(5, TimeUnit.SECONDS);
+
+            // 使用连接（示例查询）
+            System.out.println("Connection acquired: " + conn);
+            Thread.sleep(2000); // 模拟查询
+
+            // 归还连接
+            pool.releaseConnection(conn);
+            System.out.println("Connection returned.");
+
+            // 关闭所有连接
+            pool.closeAllConnections();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+运行结果：
+
+![二哥的Java 进阶之路：数据库连接池](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241118220052.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：给你一个需求，你需要写一个连接池，你现在可以写一下
 
 ### 70.单机线程池执行断电了应该怎么处理？
 
