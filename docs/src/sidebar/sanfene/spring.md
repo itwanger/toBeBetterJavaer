@@ -2498,19 +2498,61 @@ Spring Boot Starter 主要通过起步依赖和自动配置机制来简化项目
 
 ### 34.Spring Boot 启动原理了解吗？
 
+Spring Boot 的启动由 SpringApplication 类负责：
+
+- 第一步，创建 SpringApplication 实例，负责应用的启动和初始化；
+- 第二步，从 application.yml 中加载配置文件和环境变量；
+- 第三步，创建上下文环境 ApplicationContext，并加载 Bean，完成依赖注入；
+- 第四步，启动内嵌的 Web 容器。
+- 第五步，发布启动完成事件 ApplicationReadyEvent，并调用 ApplicationRunner 的 run 方法完成启动后的逻辑。
+
+关键的代码逻辑如下：
+
+```java
+public ConfigurableApplicationContext run(String... args) {
+    // 1. 创建启动时的监听器并触发启动事件
+    SpringApplicationRunListeners listeners = getRunListeners(args);
+    listeners.starting();
+
+    // 2. 准备运行环境
+    ConfigurableEnvironment environment = prepareEnvironment(listeners);
+    configureIgnoreBeanInfo(environment);
+
+    // 3. 创建上下文
+    ConfigurableApplicationContext context = createApplicationContext();
+
+    try {
+        // 4. 准备上下文
+        prepareContext(context, environment, listeners, args);
+
+        // 5. 刷新上下文，完成 Bean 初始化和装配
+        refreshContext(context);
+
+        // 6. 调用运行器
+        afterRefresh(context, args);
+
+        // 7. 触发启动完成事件
+        listeners.started(context);
+    } catch (Exception ex) {
+        handleRunFailure(context, ex, listeners);
+    }
+
+    return context;
+}
+```
+
 ![SpringBoot 启动大致流程-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-68744556-a1ba-4e1f-a092-1582875f0da6.png)
 
-Spring Boot 有一个 main 方法的主类，类上标注了 `@SpringBootApplication` 注解，这是入口类。
+以[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)为例。在启动类 QuickForumApplication 中，main 方法会调用 `SpringApplication.run()` 启动项目。
 
 ![技术派实战项目源码：启动类](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422090338.png)
 
-当执行 main 方法时，首先会创建一个 SpringApplication 实例，负责管理应用的启动和初始化。
-
-`SpringApplication.run()` 方法负责 Spring 应用的上下文（ApplicationContext）环境准备，包括：
+该方法负责 Spring 应用的上下文环境（ApplicationContext）准备，包括：
 
 - 扫描配置文件，添加依赖项
 - 初始化和加载 Bean 定义
 - 启动内嵌的 Web 容器等
+- 发布启动完成事件
 
 #### 了解@SpringBootApplication 注解吗？
 
@@ -2586,6 +2628,7 @@ public class QuickForumApplication {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：@SpringBootApplication 注解了解吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Springboot的工作原理？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot启动流程（忘了）
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：springBoot启动机制，启动之后做了哪些步骤
 
 ### 36.SpringBoot 和 SpringMVC 的区别？（补充）
 

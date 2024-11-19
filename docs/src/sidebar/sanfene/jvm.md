@@ -865,7 +865,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 
-垃圾回收（Garbage Collection，GC）就是对内存堆中已经死亡的或者长时间没有使用的对象进行清除和回收。
+垃圾回收就是对内存堆中已经死亡的或者长时间没有使用的对象进行清除或回收。
 
 JVM 在做 GC 之前，会先搞清楚什么是垃圾，什么不是垃圾，通常会通过可达性分析算法来判断对象是否存活。
 
@@ -1382,6 +1382,24 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
   - jhat：堆转储快照分析
   - jstack：Java 堆栈跟踪
   - jcmd：实现上面除了 jstat 外所有命令的功能
+
+#### jmap 的具体命令有哪些？
+
+①、我一般会使用 `jmap -heap <pid>` 查看堆内存摘要，包括新生代、老年代、元空间等。
+
+![二哥的Java 进阶之路：jmap -heap](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240806093153.png)
+
+②、或者使用 `jmap -histo <pid>` 查看对象分布。
+
+![二哥的Java 进阶之路：jmap -histo](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106185906.png)
+
+③、还有生成堆转储文件：`jmap -dump:format=b,file=<path> <pid>`。
+
+![二哥的Java 进阶之路：jmap -dump](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106184317.png)
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：你是如何使用jmap，你用过哪些命令？
+
 
 ### 38.了解哪些可视化的性能监控和故障处理工具？
 
