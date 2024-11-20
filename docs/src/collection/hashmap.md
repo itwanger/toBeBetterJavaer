@@ -6,7 +6,7 @@ category:
 tag:
   - 集合框架（容器）
 description: 本文详细解析了 Java HashMap 的实现原理、功能特点以及源码，为您提供了 HashMap 的实际应用示例和性能优化建议。阅读本文，将帮助您更深入地理解 HashMap，从而在实际编程中充分发挥其优势。
-date: 2024-09-20
+date: 2024-11-20
 head:
   - - meta
     - name: keywords
@@ -1168,7 +1168,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 }
 ```
 
-注意 `e.next = newTable[i]` 和 `newTable[i] = e` 这两行代码，就会将同一位置上的新元素被放在链表的头部。
+注意 `e.next = newTable[i]` 和 `newTable[i] = e` 这两行代码，它们会将同一位置上的新元素放在链表的头部。
 
 扩容前的样子假如是下面这样子。
 
@@ -1178,7 +1178,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-02.png)
 
-假设现在有两个线程同时进行扩容，线程 A 在执行到 `newTable[i] = e;` 被挂起，此时线程 A 中：e=3、next=7、e.next=null
+假设现在有两个线程同时进行扩容，线程 A 在执行到 `e.next = newTable[i]` 被挂起，此时线程 A 中：e=3、next=7、e.next=null
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-03.png)
 
@@ -1188,7 +1188,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 此时，7 的 next 为 3，3 的 next 为 null。
 
-随后线程 A 获得 CPU 时间片继续执行 `newTable[i] = e`，将 3 放入新数组对应的位置，执行完此轮循环后线程 A 的情况如下：
+随后线程 A 获得 CPU 时间片继续执行 `e.next = newTable[i];newTable[i] = e`，将 3 放入新数组对应的位置，执行完此轮循环后线程 A 的情况如下：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-05.png)
 
@@ -1207,6 +1207,10 @@ void transfer(Entry[] newTable, boolean rehash) {
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-07.png)
 
 套娃开始，元素 5 也就成了弃婴，惨~~~
+
+这里再插入一名球友小灰飞的分析：“线程A是在8行之后、17行之前挂起”。
+
+![小灰飞](https://cdn.tobebetterjavaer.com/stutymore/hashmap-20241120144833.png)
 
 不过，JDK 8 时已经修复了这个问题，扩容时会保持链表原来的顺序（嗯，等于说了半天白说了，哈哈，这个面试题确实是这样，很水，但有些面试官又确实比较装逼）。
 
