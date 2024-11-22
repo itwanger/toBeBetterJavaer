@@ -2,6 +2,7 @@
 title: 到底什么是AQS（抽象队列同步器）？
 shortTitle: 抽象队列同步器AQS
 description: AQS，即AbstractQueuedSynchronizer，是Java并发包java.util.concurrent的核心框架，全称为抽象队列同步器。这是一个用于构建锁和同步器的框架，很多同步类，例如ReentrantLock，Semaphore，CountDownLatch，FutureTask等都使用了AQS。
+date: 2024-11-22
 category:
   - Java核心
 tag:
@@ -36,7 +37,7 @@ AQS 内部使用了一个 [volatile](https://javabetter.cn/thread/volatile.html)
 private volatile int state;
 ```
 
-同时定义了几个获取和改变 state 的 protected 方法，子类可以覆盖这些方法来实现自己的逻辑：
+同时定义了几个获取和改变 state 的 protected 方法（经球友kicheng 提醒，之前错误的地方已修正）：
 
 ```java
 getState()
