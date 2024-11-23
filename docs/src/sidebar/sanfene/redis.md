@@ -1864,11 +1864,27 @@ SET key value NX PX 30000
 - `NX` 只在键不存在时设置。
 - `PX 30000`：设置键的过期时间为 30 秒（防止死锁）。
 
-上面这段命令其实是 setnx 和 expire 组合在一起的原子命令，算是比较完善的一个分布式锁了。
+#### 什么是 setnx？
 
-> 当然，实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)。（戳链接跳转至悟空聊架构：分布式锁中的王者方案 - Redisson）
+setnx 从 Redis 版本 2.6.12 开始被弃用，因为可以通过 set 命令的 NX 选项来实现相同的功能。
+
+![截图来自Redis docs](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122182250.png)
+
+使用 setnx 创建分布式锁时，虽然设置过期时间可以避免死锁问题，但可能存在这样的问题：线程 A 获取锁后开始任务，如果任务执行时间超过锁的过期时间，锁会提前释放，导致线程 B 也获取了锁并开始执行任务。这会破坏锁的独占性，导致并发访问资源，进而造成数据不一致。
+
+![技术派：Redis 锁](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122191044.png)
+
+可以引入锁的自动续约机制，在任务执行过程中定期续期，确保锁在任务完成之前不会过期。
+
+![技术派：redisson 看门狗](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122192038.png)
+
+比如说 Redisson 的 RedissonLock 就支持自动续期，通过看门狗机制定期续期锁的有效期。
+
+![二哥的Java 进阶之路：renewExpirationAsync](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122192708.png)
 
 #### Redisson 了解吗？
+
+实际的开发中，没人会去自己写分布式锁的命令，因为有专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)。（戳链接跳转至悟空聊架构：分布式锁中的王者方案 - Redisson）
 
 ![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174708.png)
 
@@ -1976,11 +1992,10 @@ try {
 
 #### Redisson 中的看门狗机制了解吗？
 
-在分布式系统中，使用 Redis 分布式锁时，锁通常会设置一个过期时间以防止死锁。然而，如果客户端在执行任务的过程中超过了锁的过期时间，那么锁将被 Redis 自动释放，可能会导致其他客户端获取到了同一个锁，引发严重的并发问题。
+Redisson 提供的分布式锁是支持锁自动续期的，也就是说，如果线程在锁到期之前还没有执行完，那么 Redisson 会自动给锁续期，避免锁的过期。
 
 ![郭慕荣博客园：看门狗](https://cdn.tobebetterjavaer.com/stutymore/redis-20240918110433.png)
 
-Redisson 提供的分布式锁是支持锁自动续期的，也就是说，如果线程在锁到期之前还没有执行完，那么 Redisson 会自动给锁续期，避免锁的过期。
 
 这被称为“看门狗”机制。
 
@@ -2030,6 +2045,8 @@ class RedissonWatchdogExample {
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：系统里面分布式锁是怎么做的？你提到了redlock，那它机制是怎么样的？红锁能不能保证百分百上锁？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：加分布式锁时redis如何保证不会发生冲突？分布式锁过期怎么办？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 8 一面面试原题：Redis分布式锁如何实现的
+> 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：Setnx,知道吗? 用这个加锁有什么问题吗?怎么解决?
+
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 

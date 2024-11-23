@@ -1084,6 +1084,7 @@ public class ConstantPoolReference {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：垃圾回收算法了解多少？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：垃圾回收的算法及详细介绍
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：回收的方法？分代收集算法里面具体是怎么回收的？为什么要用分代收集呢？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：Gc 算法有哪些?
 
 ### 28.Minor GC、Major GC、Mixed GC、Full GC 都是什么意思？
 
@@ -1106,22 +1107,17 @@ Full GC 会从 GC Root 出发，标记所有可达对象。新生代使用复制
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：full gc 和 young gc 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：FULL gc怎么去清理的？
 
-### 29.Minor GC 什么时候触发？
+### 29.Young GC 什么时候触发？
 
-新创建的对象优先在新生代 Eden 区进行分配，如果 Eden 区没有足够的空间时，就会触发 Young GC 来清理新生代。
+如果 Eden 区没有足够的空间时，就会触发 Young GC 来清理新生代。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：什么时候会触发 GC?
 
 ### 30.什么时候会触发 Full GC？
 
-这个触发条件稍微有点多，往下看：
-
-![Full GC触发条件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-26.png)
-
-- **Young GC 之前检查老年代**：在要进行 Young GC 的时候，发现`老年代可用的连续内存空间` < `新生代历次Young GC后升入老年代的对象总和的平均大小`，说明本次 Young GC 后可能升入老年代的对象大小，可能超过了老年代当前可用内存空间,那就会触发 Full GC。
-- **Young GC 之后老年代空间不足**：执行 Young GC 之后有一批对象需要放入老年代，此时老年代就是没有足够的内存空间存放这些对象了，此时必须立即触发一次 Full GC
-- **老年代空间不足**，老年代内存使用率过高，达到一定比例，也会触发 Full GC。
-- **空间分配担保失败**（ Promotion Failure），新生代的 To 区放不下从 Eden 和 From 拷贝过来对象，或者新生代对象 GC 年龄到达阈值需要晋升这两种情况，老年代如果放不下的话都会触发 Full GC。
-- **方法区内存空间不足**：如果方法区由永久代实现，永久代空间不足 Full GC。
-- **System.gc()等命令触发**：System.gc()、jmap -dump 等命令会触发 full gc。
+- 在进行 Young GC 的时候，如果发现`老年代可用的连续内存空间` < `新生代历次 Young GC 后升入老年代的对象总和的平均大小`，说明本次 Young GC 后升入老年代的对象大小，可能超过了老年代当前可用的内存空间，就会触发 Full GC。
+- 执行 Young GC 后老年代没有足够的内存空间存放转入的对象，会立即触发一次 Full GC。
+- `System.gc()`、`jmap -dump` 等命令会触发 full gc。
 
 #### 空间分配担保是什么？
 
@@ -1267,13 +1263,15 @@ CMS（Concurrent Mark Sweep）主要使用了**标记-清除**算法进行垃圾
 
 ### 33.G1 垃圾收集器了解吗？
 
-G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
-
-G1 把 Java 堆划分为多个大小相等的独立区域（Region），每个区域都可以扮演新生代（Eden 和 Survivor）或老年代的角色。
-
-同时，G1 还有专门为大对象设计的 Region，叫 Humongous 区。大对象的判定规则是，如果一个大对象超过了一个 Region 大小的 50%，比如每个 Region 是 2M，只要一个对象超过了 1M，就会被放入 Humongous 中。
+G1 在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为默认的垃圾收集器。
 
 ![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+
+G1 把 Java 堆划分为多个大小相等的独立区域Region，每个区域都可以扮演新生代（Eden 和 Survivor）或老年代的角色。
+
+同时，G1 还有一个专门为大对象设计的 Region，叫 Humongous 区。
+
+>大对象的判定规则是，如果一个大对象超过了一个 Region 大小的 50%，比如每个 Region 是 2M，只要一个对象超过了 1M，就会被放入 Humongous 中。
 
 这种区域化管理使得 G1 可以更灵活地进行垃圾收集，只回收部分区域而不是整个新生代或老年代。
 
@@ -1291,6 +1289,7 @@ G1 收集器的运行过程大致可划分为这几个步骤：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 G1 垃圾回收器的原理
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：G1 垃圾回收器了解吗?
 
 ### 34.有了 CMS，为什么还要引入 G1？
 
