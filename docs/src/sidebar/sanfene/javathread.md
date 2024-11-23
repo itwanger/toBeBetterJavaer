@@ -797,7 +797,7 @@ class WaitExample {
 
 > 2024 年 05 月 01 日增补
 
-多线程安全是指在并发环境下，多个线程访问共享资源时，程序能够正确地执行，而不会出现数据不一致或竞争条件等问题。
+多线程安全是指在并发环境下，多个线程访问共享资源时，程序能够正确地执行，而不会出现数据不一致或竞争条件等问题。反之，如果程序出现了数据不一致、死锁、饥饿等问题，就称为线程不安全。
 
 为了保证线程安全，可以使用 synchronized 关键字或 ReentrantLock 来保证共享资源的互斥访问。
 
@@ -827,6 +827,79 @@ int++ 实际上可以分解为三步：
 - 线程 2 进行加法运算并将结果 1 写回变量，覆盖了线程 1 的结果。
 
 可以通过 synchronized 或 AtomicInteger 实现线程安全。
+
+#### 场景:有一个 key 对应的 value 是一个json 结构，json 当中有好几个子任务，这些子任务如果对 key 进行修改的话,会不会存在线程安全的问题?如何解决?如果是多个节点的情况，应该怎么加锁?
+
+会。
+
+在单节点环境中，可以使用 synchronized 关键字或 ReentrantLock 来保证对 key 的修改操作是原子的。
+
+```java
+class KeyManager {
+    private final ReentrantLock lock = new ReentrantLock();
+
+    private String key = "{\"tasks\": [\"task1\", \"task2\"]}";
+
+    public String readKey() {
+        lock.lock();
+        try {
+            return key;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void updateKey(String newKey) {
+        lock.lock();
+        try {
+            this.key = newKey;
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+在多节点环境中，可以使用分布式锁 Redisson 来保证对 key 的修改操作是原子的。
+
+```java
+class DistributedKeyManager {
+    private final RedissonClient redisson;
+
+    public DistributedKeyManager() {
+        Config config = new Config();
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379");
+        this.redisson = Redisson.create(config);
+    }
+
+    public void updateKey(String key, String newValue) {
+        RLock lock = redisson.getLock(key);
+        lock.lock();
+        try {
+            // 模拟读取和更新操作
+            String currentValue = readFromDatabase(key); // 假设读取 JSON 数据
+            String updatedValue = modifyJson(currentValue, newValue); // 修改 JSON
+            writeToDatabase(key, updatedValue); // 写回数据库
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    private String readFromDatabase(String key) {
+        // 模拟从数据库读取
+        return "{\"tasks\": [\"task1\", \"task2\"]}";
+    }
+
+    private String modifyJson(String json, String newValue) {
+        // 使用 JSON 库解析并修改
+        return json.replace("task1", newValue);
+    }
+
+    private void writeToDatabase(String key, String value) {
+        // 模拟写回数据库
+    }
+}
+```
 
 #### 说一个线程安全的使用场景？
 
@@ -879,6 +952,7 @@ public class LazySingleton {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：线程安全，说一个使用场景 -讲了下单例模式的双重检查锁定，懒汉式和饿汉式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：有个int的变量为0，十个线程轮流对其进行++操作（循环10000次），结果是大于小于还是等于10万，为什么？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：怎么保证多线程安全，Hashtable数据结构 底层
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：线程安全和线程不安全是什么意思?
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
