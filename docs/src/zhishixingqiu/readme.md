@@ -31,6 +31,23 @@ head:
 
 ![华为、小红书、美团](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
 
+再补充一些 25 届同学的 offer 截图，这些都是星球里的球友，他们的成功经历也是星球的成功（我骄傲了吗？嗯，骄傲了🤣）。
+
+![华为和京东offer](https://cdn.tobebetterjavaer.com/stutymore/readme-20241125091253.png)
+
+![快手、百度、华为offer](https://cdn.tobebetterjavaer.com/stutymore/readme-20241125091401.png)
+
+![滴滴和百度offer](https://cdn.tobebetterjavaer.com/stutymore/readme-您好，我是25届秋招生，现.jpg)
+
+![字节sp offer](https://cdn.tobebetterjavaer.com/stutymore/readme-字费，base杭州，今年算啥水平.jpg)
+
+![携程和饿了么offer](https://cdn.tobebetterjavaer.com/stutymore/readme-二哥，你有了解携程和饿了么吗.jpg)
+
+![美团、腾讯和京东offer](https://cdn.tobebetterjavaer.com/stutymore/readme-20241125091941.png)
+
+![蚂蚁金服 offer，学的技术派](https://cdn.tobebetterjavaer.com/stutymore/readme-说点心得体会啥。.png)
+
+
 记住一点，早就是优势，大家可以看一下这位球友的心路历程，**是真的后悔没有早一点入，享受更多的优惠和更早的服务**。
 
 ![球友加入晚了，非常后悔](https://cdn.tobebetterjavaer.com/paicoding/d5a8a53f7d770649aef0294cc45840fa.png)
