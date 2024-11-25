@@ -849,7 +849,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 16.MySQL 有哪些常见存储引擎？
 
-MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。MEMORY 并不常用。
+MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 
 ![存储引擎](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408073338.png)
 
@@ -889,6 +889,7 @@ ALTER TABLE your_table_name ENGINE=InnoDB;
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：innodb 引擎和 hash 引擎有什么区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：MySQL 的存储引擎
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：mysql的数据引擎有哪些, 区别(innodb,MyISAM,Memory)
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：存储引擎介绍
 
 ### 17.那存储引擎应该怎么选择？
 
@@ -1528,6 +1529,7 @@ SELECT * FROM B WHERE id = 1;
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：MySQL 索引如何优化？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲 MySQL 的索引，如何优化 SQL？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：了解 mysql 怎么优化吗
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：查询如何优化  
 
 ### 26.怎么看执行计划 explain，如何理解其中各个字段的含义？
 
@@ -2103,17 +2105,50 @@ MySQL 属于关系型数据库，所以范围查询会比较多，所以采用�
 
 ### 36.为什么用 B+ 树而不用 B 树呢？
 
-B+ 树相比 B 树有几个显著优势：
+B+ 树相比 B 树有 2 个显著优势：
 
-首先，B+ 树的叶子节点通过链表相连，非常适合范围查询，如 ORDER BY 和 BETWEEN。
+首先，B+ 树的非叶子节点不存储数据，能包含更多的键值指针，因此在相同节点容量下，B+ 树的层级更少，树的高度更低。较少的树层级意味着查找路径更短，磁盘 I/O 次数更少。
+
+![极客时间：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115614.png)
+
+其次，B+ 树的叶子节点通过链表相连，非常适合范围查询，如 ORDER BY 和 BETWEEN。
 
 ![极客时间：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115641.png)
 
 只需要找到符合条件的第一个叶子节点，顺序扫描后续的叶子节点就可以了。相比之下，B 树的每次范围查询都需要回溯到父节点，查询效率较低。
 
-![极客时间：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115614.png)
+#### B+树的时间复杂度是多少？
 
-其次，B+ 树的非叶子节点不存储数据，能包含更多的键值指针，因此在相同节点容量下，B+ 树的层级更少，树的高度更低。较少的树层级意味着查找路径更短，从而减少磁盘 I/O 次数。
+树的高度 h 为：
+
+$$
+h = \lceil \log_m N \rceil
+$$
+
+其中 N 是数据总量，m 是阶数。每层需要做一次二分查找，复杂度为 $O(\log m)$。
+
+总复杂度为：
+
+$$
+O(\log_m N \cdot \log m) = O(\log N)
+$$
+
+#### 了解快排吗？
+
+推荐链接：[快速排序](https://oi-wiki.org/basic/quick-sort/)
+
+快速排序是一种基于分治法的高效排序算法。其核心思想是：
+
+1. 选择一个基准值。
+2. 将数组分为两部分，左边小于基准值，右边大于或等于基准值。
+3. 对左右两部分递归排序，最终合并。
+
+#### 为什么用 B+树不用跳表呢？
+
+- 跳表基于链表，节点分布不连续，会频繁触发随机磁盘访问，性能较差。
+- 跳表需要逐节点遍历链表，范围查询性能不如 B+ 树。
+
+
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的支付宝面经同学 2 春招技术一面面试原题：聚簇索引和非聚簇索引的区别？B+树叶子节点除了存数据还有什么？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：b 树和 b+树有什么区别
@@ -2121,6 +2156,7 @@ B+ 树相比 B 树有几个显著优势：
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：mysql b+树和b树的区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：B+树有哪些优点
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：为什么用b+树不用b树
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：索引为什么用B+树不用B树 时间复杂度深究  b+树 快速排序...
 
 ### 37.Hash 索引和 B+ 树索引区别是什么？
 
@@ -2616,6 +2652,7 @@ COMMIT;
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：乐观锁和悲观锁，库存的超卖问题的原因和解决方案？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：mysql一共有哪些锁
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：问了一下mysql的锁和MVCC
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：MySQL锁
 
 ### 80.全局锁和表级锁了解吗？（补充）
 
