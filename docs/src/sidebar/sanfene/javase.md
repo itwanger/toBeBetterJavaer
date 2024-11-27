@@ -649,13 +649,13 @@ class GreenColor implements Color {
 
 > 2024 年 03 月 26 日增补
 
-多态的目的是为了提高代码的灵活性和可扩展性，使得代码更容易维护和扩展。比如说动态绑定，允许在程序在运行时再确定调用的是子类还是父类的方法。
+多态指同一个接口或方法在不同的类中有不同的实现，比如说动态绑定，父类引用指向子类对象，方法的具体调用会延迟到运行时决定。
 
-现在有一个父类 Wanger，一个子类 Wangxiaoer，都有一个 write 方法。引用 wanger 的类型是父类的 Wanger，那在执行 `wanger.write()` 时，究竟该调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
+举例，现在有一个父类 Wanger，一个子类 Wangxiaoer，都有一个 write 方法。现在有一个父类 Wanger 类型的变量 wanger，它在执行 `wanger.write()` 时，究竟调用父类 Wanger 的 `write()` 方法，还是子类 Wangxiaoer 的 `write()` 方法呢？
 
 ```java
 //子类继承父类
-public class Wangxiaoer extends Wanger {
+class Wangxiaoer extends Wanger {
     public void write() { // 子类覆盖父类方法
         System.out.println("记住仇恨，表明我们要奋发图强的心智");
     }
@@ -679,12 +679,17 @@ class Wanger {
 }
 ```
 
-答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是 Java 的方法调用机制能找到正确的方法体，然后执行，得到正确的结果。
+答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是 Java 的方法调用机制能找到正确的方法体，然后执行，得到正确的结果，这就是多态的作用。
 
-![bigsai：封装继承多态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+#### 多态的实现原理是什么？
+
+多态通过动态绑定实现，Java 使用虚方法表存储方法指针，方法调用时根据对象实际类型从虚方法表查找具体实现。
+
+![截图来自博客园的小牛呼噜噜：虚拟方法表](https://cdn.tobebetterjavaer.com/stutymore/javase-20241126104207.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：多态的用法，多态的实现原理
 
 ### 18.重载和重写的区别？
 
@@ -978,21 +983,35 @@ public class Test {
 
 4. **成员变量如果没有被赋初值**：则会⾃动以类型的默认值⽽赋值（⼀种情况例外:被 final 修饰的成员变量也必须显式地赋值），⽽局部变量则不会⾃动赋值。
 
-### 23.静态变量和实例变量的区别？静态方法、实例方法呢？
+### 23.static 关键字了解吗？
 
-> 静态变量和实例变量的区别？
+推荐阅读：[详解 Java static 关键字的作用](https://javabetter.cn/oo/static.html)
+
+static 关键字可以用来修饰变量、方法、代码块和内部类，以及导入包。
+
+修饰对象|	作用
+---|---
+变量|	静态变量，类级别变量，所有实例共享同一份数据。
+方法|	静态方法，类级别方法，与实例无关。
+代码块|	在类加载时初始化一些数据，只执行一次。
+内部类|	与外部类绑定但独立于外部类实例。
+导入|	可以直接访问静态成员，无需通过类名引用，简化代码书写，但会降低代码可读性。
+
+#### 静态变量和实例变量的区别？
 
 **静态变量:** 是被 static 修饰符修饰的变量，也称为类变量，它属于类，不属于类的任何一个对象，一个类不管创建多少个对象，静态变量在内存中有且仅有一个副本。
 
 **实例变量:** 必须依存于某一实例，需要先创建对象然后通过对象才能访问到它。静态变量可以实现让多个对象共享内存。
 
-> 静态⽅法和实例⽅法有何不同?
+#### 静态⽅法和实例⽅法有何不同?
 
 类似地。
 
 **静态方法**：static 修饰的方法，也被称为类方法。在外部调⽤静态⽅法时，可以使⽤"**类名.⽅法名**"的⽅式，也可以使⽤"**对象名.⽅法名**"的⽅式。静态方法里不能访问类的非静态成员变量和方法。
 
 **实例⽅法**：依存于类的实例，需要使用"**对象名.⽅法名**"的⽅式调用；可以访问类的所有成员变量和方法。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：static关键字的使用
 
 ### 24.final 关键字有什么作用？
 
@@ -1443,6 +1462,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：String StringBuffer StringBuilder 有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：String,StringBuffer,StringBuilder 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：请说说 String、StringBuilder、StringBuffer 的区别，为什么这么设计？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：String，StringBuilder，StringBuffer的区别，使用性能
 
 ### 33.String str1 = new String("abc") 和 String str2 = "abc" 的区别？
 
