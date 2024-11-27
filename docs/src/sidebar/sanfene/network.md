@@ -126,12 +126,12 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ### 4.从浏览器地址栏输入 url 到显示网页的过程了解吗？
 
-从浏览器地址栏输入 URL 到显示网页的过程包括多个步骤，涵盖了 DNS 解析、TCP 连接、发送 HTTP 请求、服务器处理请求并返回 HTTP 响应、浏览器处理响应并渲染页面等多个环节。
+这个过程包括多个步骤，涵盖了 DNS 解析、TCP 连接、发送 HTTP 请求、服务器处理请求并返回 HTTP 响应、浏览器处理响应并渲染页面等多个环节。
 
-1. **DNS 解析**：浏览器发起一个 DNS 请求到 DNS 服务器，将域名解析为服务器的 IP 地址。
-2. **TCP 连接**：浏览器通过解析得到的 IP 地址与服务器建立 TCP 连接（通常是通过 443 端口进行 SSL 加密的 HTTPS 连接）。这一步涉及到 TCP 的三次握手过程，确保双方都准备好进行数据传输。
-3. **发送 HTTP 请求**：浏览器构建 HTTP 请求消息，包括请求行、请求头和请求体（如果有）；然后将请求发送到服务器。
-4. **服务器处理请求**：服务器接收到 HTTP 请求后，根据请求的资源路径，经过后端处理（可能包括数据库查询等），生成 HTTP 响应消息；响应消息包括状态行、响应头和响应体（请求的资源内容）。
+1. **DNS 解析**：浏览器会发起一个 DNS 请求到 DNS 服务器，将域名解析为服务器的 IP 地址。
+2. **TCP 连接**：浏览器通过解析得到的 IP 地址与服务器建立 TCP 连接。这一步涉及到 TCP 的三次握手，用于确保双方都已经准备好进行数据传输了。
+3. **发送 HTTP 请求**：浏览器构建 HTTP 请求，包括请求行、请求头和请求体；然后将请求发送到服务器。
+4. **服务器处理请求**：服务器接收到 HTTP 请求后，根据请求的资源路径，经过后端处理，生成 HTTP 响应消息；响应消息包括状态行、响应头和响应体。
 5. **浏览器接收 HTTP 响应**：浏览器接收到服务器返回的 HTTP 响应数据后，开始解析响应体中的 HTML 内容；然后构建 DOM 树、解析 CSS 和 JavaScript 文件等，最终渲染页面。
 6. **断开连接**：TCP 四次挥手，连接结束。
 
@@ -146,6 +146,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：url 请求的全过程（要求详细）
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：输入 URL 会发生什么
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：浏览器键入网址全过程
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：键入url到页面显示的流程
 
 ### 5.说说 DNS 的解析过程？
 
@@ -544,6 +545,7 @@ HTTP 的默认端⼝号是 80，URL 以`http://`开头；HTTPS 的默认端⼝�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 和 https 的区别，https 是怎么建立连接，https 是对称还是非对称加密
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：说说 HTTP和 HTTPS 的区别
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：https与http的区别，加密的实现
 
 ### 19.为什么要用 HTTPS？
 
@@ -554,9 +556,11 @@ SSL/TLS 在加密过程中涉及到了两种类型的加密方法：
 - 非对称加密：服务器向客户端发送公钥，然后客户端用公钥加密自己的随机密钥，也就是会话密钥，发送给服务器，服务器用私钥解密，得到会话密钥。
 - 对称加密：双方用会话密钥加密通信内容。
 
+![三分恶面渣逆袭：HTTPS 主要流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-d91b220e-a7e0-4856-af53-697c96591ec7.jpg)
+
 客户端会通过数字证书来验证服务器的身份，数字证书由 CA 签发，包含了服务器的公钥、证书的颁发机构、证书的有效期等。
 
-![三分恶面渣逆袭：HTTPS 主要流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-d91b220e-a7e0-4856-af53-697c96591ec7.jpg)
+
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 HTTP 的结构和 HTTPS 的原理
@@ -907,17 +911,17 @@ SYN Flood 是一种典型的 DDos 攻击，它在短时间内，伪造**不存�
 
 ### 30.说说 TCP 四次挥手的过程？
 
-TCP 连接的断开过程称为四次挥手（Four-Way Handshake）。它的目的是在客户端和服务器之间优雅地关闭连接，确保所有数据都被可靠传输。
+TCP 连接的断开过程被形象地概括为四次挥手。
 
 ![三分恶面渣逆袭：TCP 四次挥手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-ba156295-03af-46dc-8ef3-869b44b11303.jpg)
 
-第一次挥手（FIN）：客户端向服务器发送一个 FIN（结束）报文，表示客户端没有数据要发送了，但仍然可以接收数据。客户端进入 FIN-WAIT-1 状态。
+**第一次挥手**：客户端向服务器发送一个 FIN 结束报文，表示客户端没有数据要发送了，但仍然可以接收数据。客户端进入 FIN-WAIT-1 状态。
 
-第二次挥手（ACK）：服务器接收到 FIN 报文后，向客户端发送一个 ACK 报文，确认已接收到客户端的 FIN 请求。服务器进入 CLOSE-WAIT 状态，客户端进入 FIN-WAIT-2 状态。
+**第二次挥手**：服务器接收到 FIN 报文后，向客户端发送一个 ACK 报文，确认已接收到客户端的 FIN 请求。服务器进入 CLOSE-WAIT 状态，客户端进入 FIN-WAIT-2 状态。
 
-第三次挥手（FIN）：服务器向客户端发送一个 FIN 报文，表示服务器也没有数据要发送了。服务器进入 LAST-ACK 状态。
+**第三次挥手**：服务器向客户端发送一个 FIN 报文，表示服务器也没有数据要发送了。服务器进入 LAST-ACK 状态。
 
-第四次挥手（ACK）：客户端接收到 FIN 报文后，向服务器发送一个 ACK 报文，确认已接收到服务器的 FIN 请求。客户端进入 TIME-WAIT 状态，等待一段时间以确保服务器接收到 ACK 报文。服务器接收到 ACK 报文后进入 CLOSED 状态。客户端在等待一段时间后也进入 CLOSED 状态。
+**第四次挥手**：客户端接收到 FIN 报文后，向服务器发送一个 ACK 报文，确认已接收到服务器的 FIN 请求。客户端进入 TIME-WAIT 状态，等待一段时间以确保服务器接收到 ACK 报文。服务器接收到 ACK 报文后进入 CLOSED 状态。客户端在等待一段时间后也进入 CLOSED 状态。
 
 大白话说四次挥手：
 
@@ -936,6 +940,7 @@ TCP 连接的断开过程称为四次挥手（Four-Way Handshake）。它的目�
 ![三分恶面渣逆袭：大白话四次挥手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-578a667b-ec12-4023-a7c5-76bacbce9683.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯同学 25 后端开发实习一面面试原题：TCP和UDP，TCP连接和断开过程
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：TCP断开连接过程
 
 ### 31.TCP 挥手为什么需要四次呢？
 
@@ -974,25 +979,24 @@ TIME_WAIT 等待 2 倍的 MSL，⽐较合理的解释是：⽹络中可能存在
 
 ### 34.CLOSE-WAIT 和 TIME-WAIT 的状态和意义？
 
-> **CLOSE-WAIT 状态有什么意义？**
+#### CLOSE-WAIT 状态有什么意义？
 
 服务端收到客户端关闭连接的请求并确认之后，就会进入 CLOSE-WAIT 状态。此时服务端可能还有一些数据没有传输完成，因此不能立即关闭连接，而 CLOSE-WAIT 状态就是为了保证服务端在关闭连接之前将待发送的数据处理完。
 
-> **TIME-WAIT 有什么意义？**
+#### TIME-WAIT 有什么意义？
 
-TIME-WAIT 状态发生在第四次挥手，当客户端向服务端发送 ACK 确认报文后进入 TIME-WAIT 状态。
+TIME-WAIT 发生在第四次挥手，当客户端在发送 ACK 确认对方的 FIN 报文后，会进入 TIME_WAIT 状态。
 
-它存在的意义主要是两个：
+![三分恶面渣逆袭：TIME_WAIT 状态的作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-5a66e507-bf0e-4131-91ba-8a7f69ddc084.jpg)
 
-![TIME_WAIT 状态的作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-5a66e507-bf0e-4131-91ba-8a7f69ddc084.jpg)
+它存在的意义主要有两个：
 
-- **防⽌旧连接的数据包**
+- 在 TIME_WAIT 状态中，客户端可以重新发送 ACK 确保对方正常关闭连接。
+- 在 TIME_WAIT 持续的 2MSL 时间后，确保旧数据包完全消失，避免它们干扰未来建立的新连接。
 
-如果客户端收到服务端的 FIN 报文之后立即关闭连接，但是此时服务端对应的端口并没有关闭，如果客户端在相同端口建立新的连接，可能会导致新连接收到旧连接残留的数据包，导致不可预料的异常发生。
+>补充：MSL（Maximum Segment Lifetime）：TCP 报文段在网络中的最大存活时间，通常为 30 秒到 2 分钟
 
-- **保证连接正确关闭**
-
-假设客户端最后一次发送的 ACK 包在传输的时候丢失了，由于 TCP 协议的超时重传机制，服务端将重发 FIN 报文，如果客户端没有维持 TIME-WAIT 状态而直接关闭的话，当收到服务端重新发送的 FIN 包时，客户端就会使用 RST 包来响应服务端，导致服务端以为有错误发生，然而实际关闭连接过程是正常的。
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：TIME_WAIT
 
 ### 35.TIME_WAIT 状态过多会导致什么问题？怎么解决？
 

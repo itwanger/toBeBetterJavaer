@@ -1110,6 +1110,7 @@ HashMap 不是线程安全的，因此在早期的 JDK 版本中，是用 Hashta
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：hashMap和hashTable的区别 
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：和ConcurrentHashMap的差异
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：HashTable了解吗？Hashmap能保证并发安全吗？ConcurrentHashMap是怎么保证的？
+> 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：Hashtable与HashMap
 
 
 ### 26.HashMap 内部节点是有序的吗？
