@@ -1572,6 +1572,12 @@ AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知
 
 ③ Spring AOP 的织入方式是运行时织入，而 AspectJ 支持编译时织入、类加载时织入。
 
+### AOP和 OOP 的关系？
+
+AOP 和 OOP 是互补的编程思想：
+
+1. OOP 通过类和对象封装数据和行为，专注于核心业务逻辑。
+2. AOP 提供了解决横切关注点（如日志、权限、事务等）的机制，将这些逻辑集中管理。
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 AOP 的原理。
@@ -1580,10 +1586,13 @@ AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：介绍 Spring IoC 和 AOP?
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：SpringBoot框架的AOP、IOC/DI？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Spring AOP发生在什么时候
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：Spring AOP的概念了解吗？AOP和 OOP 的关系？
 
-### 20.你平时有用到 AOP 吗？
+### 20.AOP的使用场景有哪些？
 
-我在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中有应用，比如说利用 AOP 打印接口的入参和出参日志、执行时间，方便后期 bug 溯源和性能调优。
+AOP 的使用场景有很多，比如说日志记录、事务管理、权限控制、性能监控等。
+
+我在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中主要利用 AOP 来打印接口的入参和出参日志、执行时间，方便后期 bug 溯源和性能调优。
 
 ![沉默王二：技术派教程](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180334.png)
 
@@ -1617,6 +1626,7 @@ public @interface MdcDot {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：AOP应用场景
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：AOP的使用场景有哪些？
 
 ### 21.说说 JDK 动态代理和 CGLIB 代理？
 
@@ -1868,10 +1878,9 @@ public class Client {
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：java的反射机制，反射的应用场景AOP的实现原理是什么，与动态代理和反射有什么区别
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：代理介绍一下，jdk和cglib的区别
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Spring AOP的实现原理？JDK动态代理和CGLib动态代理的各自实现及其区别？现在需要统计方法的具体执行时间，说下如何使用AOP来实现？
+> 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：了解AOP底层是怎么做的吗？
 
 ### 22.说说 Spring AOP 和 AspectJ AOP 区别?
-
-**Spring AOP**
 
 Spring AOP 属于`运行时增强`，主要具有如下特点：
 
@@ -1882,8 +1891,6 @@ Spring AOP 属于`运行时增强`，主要具有如下特点：
 3.  在性能上，由于 Spring AOP 是基于**动态代理**来实现的，在容器启动时需要生成代理实例，在方法调用上也会增加栈的深度，使得 Spring AOP 的性能不如 AspectJ 的那么好。
 
 4.  Spring AOP 致力于解决企业级开发中最普遍的 AOP(方法织入)。
-
-**AspectJ**
 
 AspectJ 是一个易用的功能强大的 AOP 框架，属于`编译时增强`， 可以单独使用，也可以整合到其它框架中，是 AOP 编程的完全解决方案。AspectJ 需要用到单独的编译器 ajc。
 
