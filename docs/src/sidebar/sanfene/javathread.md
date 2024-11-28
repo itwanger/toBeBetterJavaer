@@ -448,7 +448,7 @@ Java 中的线程分为两类，分别为 daemon 线程（守护线程）和 use
 
 ### 9.线程间有哪些通信方式？
 
-线程之间传递信息有多种方式，每种方式适用于不同的场景。比如说使用共享对象、`wait()` 和 `notify()`、Exchanger 和 CompletableFuture。
+线程之间传递信息有多种方式，比如说使用共享对象、`wait()` 和 `notify()` 方法、Exchanger 和 CompletableFuture。
 
 ①、**使用共享对象**，多个线程可以访问和修改同一个对象，从而实现信息的传递，比如说 volatile 和 synchronized 关键字。
 
@@ -509,7 +509,7 @@ public class Main {
 
 ②、**使用 wait() 和 notify()**，例如，生产者-消费者模式中，生产者生产数据，消费者消费数据，通过 `wait()` 和 `notify()` 方法可以实现生产和消费的协调。
 
-一个线程调用共享对象的 `wait()` 方法时，它会进入该对象的等待池，并释放已经持有的该对象的锁，进入等待状态，直到其他线程调用相同对象的 `notify()` 或 `notifyAll()` 方法。
+一个线程调用共享对象的 `wait()` 方法时，它会进入该对象的等待池，并释放已经持有的该对象的锁，进入等待状态。
 
 一个线程调用共享对象的 `notify()` 方法时，它会唤醒在该对象等待池中等待的一个线程，使其进入锁池，等待获取锁。
 
@@ -568,12 +568,10 @@ public class Main {
 }
 ```
 
-③、**使用 Exchanger**，Exchanger 是一个同步点，可以在两个线程之间交换数据。一个线程调用 exchange() 方法，将数据传递给另一个线程，同时接收另一个线程的数据。
+③、**使用 Exchanger**，Exchanger 是一个同步点，可以在两个线程之间交换数据。一个线程调用 `exchange()` 方法，将数据传递给另一个线程，同时接收另一个线程的数据。
 
 ```java
-import java.util.concurrent.Exchanger;
-
-public class Main {
+class Main {
     public static void main(String[] args) {
         Exchanger<String> exchanger = new Exchanger<>();
 
@@ -606,7 +604,7 @@ public class Main {
 ④、**使用 CompletableFuture**，CompletableFuture 是 Java 8 引入的一个类，支持异步编程，允许线程在完成计算后将结果传递给其他线程。
 
 ```java
-public class Main {
+class Main {
     public static void main(String[] args) {
         CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
             // 模拟长时间计算
@@ -622,6 +620,7 @@ public class Main {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该原题。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：线程之间传递信息?
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：线程内有哪些通信方式？线程之间有哪些通信方式？
 
 ### 10.请说说 sleep 和 wait 的区别？（补充）
 
@@ -1539,11 +1538,11 @@ A 和 C 之间存在数据依赖关系，同时 B 和 C 之间也存在数据依
 
 as-if-serial 语义把单线程程序保护了起来，遵守 as-if-serial 语义的编译器、runtime 和处理器共同编织了这么一个“楚门的世界”：单线程程序是按程序的“顺序”来执行的。as- if-serial 语义使单线程情况下，我们不需要担心重排序的问题，可见性的问题。
 
-### 25.volatile 实现原理了解吗？
+### 25.volatile 了解吗？
 
 推荐阅读：[volatile 关键字解析](https://javabetter.cn/thread/volatile.html)
 
-volatile 关键字主要有两个作用，一个是保证变量的内存可见性，一个是禁止指令重排序。
+volatile 关键字主要有两个作用，一个是保证变量的内存可见性，一个是禁止指令重排序。它确保一个线程对变量的修改对其他线程立即可见，同时防止代码执行顺序被编译器或 CPU 优化重排。
 
 #### volatile 怎么保证可见性的呢？
 
@@ -1551,11 +1550,18 @@ volatile 关键字主要有两个作用，一个是保证变量的内存可见�
 
 ![深入浅出 Java 多线程：Java内存模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/jmm-f02219aa-e762-4df0-ac08-6f4cceb535c2.jpg)
 
-也就是说，当线程对 volatile 变量进行写操作时，JMM 会在写入这个变量之后插入一个 Store-Barrier（写屏障）指令，这个指令会强制将本地内存中的变量值刷新到主内存中。
+当线程对 volatile 变量进行写操作时，JMM 会在写入这个变量之后插入一个写屏障指令，这个指令会强制将本地内存中的变量值刷新到主内存中。
 
 ![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-28.png)
 
-当线程对 volatile 变量进行读操作时，JMM 会插入一个 Load-Barrier（读屏障）指令，这个指令会强制让本地内存中的变量值失效，从而重新从主内存中读取最新的值。
+在 x86 架构下，volatile 写操作会插入一个 lock 前缀指令，这个指令会将缓存行的数据写回到主内存中，确保内存可见性。
+
+```
+mov [a], 2          ; 将值 2 写入内存地址 a
+lock add [a], 0     ; lock 指令充当写屏障，确保内存可见性
+```
+
+当线程对 volatile 变量进行读操作时，JMM 会插入一个 读屏障指令，这个指令会强制让本地内存中的变量值失效，从而重新从主内存中读取最新的值。
 
 ![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-29.png)
 
@@ -1608,6 +1614,7 @@ private volatile SomeObject obj = new SomeObject();
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：synchronized 和 volatile 的区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：volatile 保证了什么（问了具体的内存屏障），volatile 加在基本类型和对象上的区别
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：问了一下volatile，讲了一下JMM和volatile怎么实现有序性和可见性
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：了解volatile吗？追问：在汇编语言层面是如何实现的？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -1863,7 +1870,7 @@ Java 对象头里的 `Mark Word` 会记录锁的状态，一共有四种状态�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：锁升级，synchronized 底层，会不会牵扯到 os 层面
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：锁升级的过程？
 
-### 30.说说 synchronized 和 ReentrantLock 的区别？
+### 30.synchronized 和 ReentrantLock 的区别？
 
 [synchronized](https://javabetter.cn/thread/synchronized-1.html) 是一个关键字，[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)是 Lock 接口的一个实现。
 
@@ -1971,6 +1978,7 @@ public final void acquire(int arg) {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：在并发量特别高的情况下是使用 synchronized 还是 ReentrantLock
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：java多线程，同步与互斥
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：Lock了解吗？Lock.lock()的具体实现逻辑？
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：synchronized VS ReentrantLock VS CAS
 
 ### 31.AQS 了解多少？
 
@@ -2121,9 +2129,9 @@ FairSync、NonfairSync 都是 ReentrantLock 的内部类，分别实现了公平
 
 推荐阅读：[一文彻底搞清楚 Java 实现 CAS 的原理](https://javabetter.cn/thread/cas.html)
 
-CAS 是一种乐观锁的实现方式，全称为“比较并交换”（Compare-and-Swap），是一种无锁的原子操作。
-
 在 Java 中，我们可以使用 [synchronized](https://javabetter.cn/thread/synchronized-1.html)关键字和 `CAS` 来实现加锁效果。
+
+CAS 是一种乐观锁的实现方式，全称为“比较并交换”（Compare-and-Swap），是一种无锁的原子操作。
 
 synchronized 是悲观锁，尽管随着 JDK 版本的升级，synchronized 关键字已经“轻量级”了很多，但依然是悲观锁，线程开始执行第一步就要获取锁，一旦获得锁，其他的线程进入后就会阻塞并等待锁。
 
@@ -3380,20 +3388,58 @@ handler = ThreadPoolExecutor.AbortPolicy()
 
 主要有四种：
 
-- AbortPolicy：这是默认的拒绝策略。该策略会抛出一个 RejectedExecutionException 异常。也就对应着“我们系统瘫痪了”。
-- CallerRunsPolicy：该策略不会抛出异常，而是会让提交任务的线程（即调用 execute 方法的线程）自己来执行这个任务。也就对应着“谁叫你来办的你找谁去”。
-- DiscardOldestPolicy：策略会丢弃队列中最老的一个任务（即队列中等待最久的任务），然后尝试重新提交被拒绝的任务。也就对应着“看你比较急，去队里加个塞”。
-- DiscardPolicy：策略会默默地丢弃被拒绝的任务，不做任何处理也不抛出异常。也就对应着“今天没办法，不行你看改一天”。
-
-分别对应着小二去银行办理业务，被经理“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
+- AbortPolicy：这是默认的拒绝策略。该策略会抛出一个 RejectedExecutionException 异常。
+- CallerRunsPolicy：该策略不会抛出异常，而是会让提交任务的线程（即调用 execute 方法的线程）自己来执行这个任务。
+- DiscardOldestPolicy：策略会丢弃队列中最老的一个任务（即队列中等待最久的任务），然后尝试重新提交被拒绝的任务。
+- DiscardPolicy：策略会默默地丢弃被拒绝的任务，不做任何处理也不抛出异常。
 
 ![三分恶面渣逆袭：四种策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
 
-如果想实现自己的拒绝策略，实现 RejectedExecutionHandler 接口即可。
+分别对应着小二去银行办理业务，被经理“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
+
+如果默认策略不能满足需求，可以通过自定义实现 RejectedExecutionHandler 接口来定义自己的淘汰策略。例如：记录被拒绝任务的日志
+
+```java
+class CustomRejectedHandler {
+    public static void main(String[] args) {
+        // 自定义拒绝策略
+        RejectedExecutionHandler rejectedHandler = (r, executor) -> {
+            System.out.println("Task " + r.toString() + " rejected. Queue size: " 
+                               + executor.getQueue().size());
+        };
+
+        // 自定义线程池
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+            2,                      // 核心线程数
+            4,                      // 最大线程数
+            10,                     // 空闲线程存活时间
+            TimeUnit.SECONDS,
+            new ArrayBlockingQueue<>(2),  // 阻塞队列容量
+            Executors.defaultThreadFactory(),
+            rejectedHandler          // 自定义拒绝策略
+        );
+
+        for (int i = 0; i < 10; i++) {
+            final int taskNumber = i;
+            executor.execute(() -> {
+                System.out.println("Executing task " + taskNumber);
+                try {
+                    Thread.sleep(1000); // 模拟任务耗时
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+        executor.shutdown();
+    }
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：说说并发编程中的拒绝策略，哪些情况对应用什么拒绝策略
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：饱和策略有哪几种
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：线程池淘汰策略，追问：可以自定义淘汰策略吗？淘汰策略的实现类是啥？
 
 ### 58.线程池有哪几种阻塞队列？
 
@@ -3531,7 +3577,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 
 ![三分恶面渣逆袭：四大线程池](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-71.png)
 
-可以通过 Executors 工厂类来创建四种常见的线程池：
+可以通过 Executors 工厂类来创建四种线程池：
 
 - newFixedThreadPool (固定线程数目的线程池)
 - newCachedThreadPool (可缓存线程的线程池)
@@ -3540,6 +3586,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪同学 1 面试原题：有没有用过线程池，线程池有哪几种？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 8 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：JAVA中线程池有哪些？
 
 ### 63.能说一下四种常见线程池的原理吗？
 

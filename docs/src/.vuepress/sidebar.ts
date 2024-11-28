@@ -22,7 +22,6 @@ export default sidebar({
     "java",
     "programmer-111",
     "java-concurrent",
-    "github-java-jiaocheng-115-star",
     "shejimoshi",
     "java-leetcode",
     "ali-java-shouce",

@@ -1,20 +1,20 @@
 ---
-title: Java面试题之Java基础篇，55道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
+title: Java面试题之Java基础篇，56道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶
-date: 2024-10-22
+date: 2024-11-28
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解55道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解56道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-1.3 万字 44 张手绘图，详解 55 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+1.3 万字 44 张手绘图，详解 56 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 ## Java 概述
 
@@ -2400,6 +2400,80 @@ Java 序列化方式有很多，常见的有三种：
 - Json 序列化：这个可能是我们最常用的序列化方式，Json 序列化的选择很多，一般会使用 jackson 包，通过 ObjectMapper 类来进行一些操作，比如将对象转化为 byte 数组或者将 json 串转化为对象。
 - ProtoBuff 序列化：ProtocolBuffer 是一种轻便高效的结构化数据存储格式，ProtoBuff 序列化对象可以很大程度上将其压缩，可以大大减少数据传输大小，提高系统性能。
 
+## 网络编程
+
+### 56.了解过Socket网络套接字吗？（补充）
+
+>2024 年 11 月 28 日 增补
+
+推荐阅读：[Java Socket：飞鸽传书的网络套接字](https://javabetter.cn/socket/socket.html)
+
+Socket 是网络通信的基础，表示两台设备之间通信的一个端点。Socket 通常用于建立 TCP 或 UDP 连接，实现进程间的网络通信。
+
+![二哥的Java 进阶之路：一个简单的 socket 通信](https://cdn.tobebetterjavaer.com/stutymore/socket-20230330192826.png)
+
+一个简单的 TCP 客户端：
+
+```java
+class TcpClient {
+    public static void main(String[] args) throws IOException {
+        Socket socket = new Socket("127.0.0.1", 8080); // 连接服务器
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        out.println("Hello, Server!"); // 发送消息
+        System.out.println("Server response: " + in.readLine()); // 接收服务器响应
+
+        socket.close();
+    }
+}
+```
+
+TCP 服务端：
+
+```java
+class TcpServer {
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(8080); // 创建服务器端Socket
+        System.out.println("Server started, waiting for connection...");
+        Socket socket = serverSocket.accept(); // 等待客户端连接
+        System.out.println("Client connected: " + socket.getInetAddress());
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        String message;
+        while ((message = in.readLine()) != null) {
+            System.out.println("Received: " + message);
+            out.println("Echo: " + message); // 回送消息
+        }
+
+        socket.close();
+        serverSocket.close();
+    }
+}
+```
+
+
+#### RPC框架了解吗？
+
+RPC是一种协议，允许程序调用位于远程服务器上的方法，就像调用本地方法一样。RPC 通常基于 Socket 通信实现。
+
+>RPC，Remote Procedure Call，远程过程调用
+
+RPC 框架支持高效的序列化（如 Protocol Buffers）和通信协议（如 HTTP/2），屏蔽了底层网络通信的细节，开发者只需关注业务逻辑即可。
+
+![博客园struggler：经典的 RPC](https://cdn.tobebetterjavaer.com/stutymore/javase-20241128182231.png)
+
+常见的 RPC 框架包括：
+
+1. gRPC：基于 HTTP/2 和 Protocol Buffers。
+2. Dubbo：阿里开源的分布式 RPC 框架，适合微服务场景。
+3. Spring Cloud OpenFeign：基于 REST 的轻量级 RPC 框架。
+4. Thrift：Apache 的跨语言 RPC 框架，支持多语言代码生成。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：线程内有哪些通信方式？线程之间有哪些通信方式？
+
 ## 泛型
 
 ### 47.Java 泛型了解么？什么是类型擦除？介绍一下常用的通配符？
@@ -2880,7 +2954,7 @@ reduced.ifPresent(System.out::println);
 
 ---
 
-图文详解 55 道 Java 基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+图文详解 56 道 Java 基础面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
