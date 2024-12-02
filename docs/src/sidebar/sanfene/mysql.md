@@ -1200,7 +1200,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 #### 什么是慢 SQL？
 
-顾名思义，慢 SQL 也就是执行时间较长的 SQL 语句，MySQL 中 long_query_time 默认值是 10 秒，也就是执行时间超过 10 秒的 SQL 语句会被记录到慢查询日志中。
+慢 SQL 也就是执行时间较长的 SQL 语句，MySQL 中 long_query_time 默认值是 10 秒，也就是执行时间超过 10 秒的 SQL 语句会被记录到慢查询日志中。
 
 可通过 `show variables like 'long_query_time';` 查看当前的 long_query_time 值。
 
@@ -1283,6 +1283,7 @@ SET GLOBAL long_query_time = 2;
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：mysql中如何定位慢查询
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：慢查询怎么分析
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：如何优化慢查询语句？
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：mysql慢查询
 
 ### 33.有哪些方式优化 SQL？
 
@@ -2871,21 +2872,47 @@ MySQL 中的行锁、表锁都是悲观锁。
 
 ### 58.遇到过死锁问题吗，你是如何解决的？
 
-排查死锁的一般步骤是这样的：
+有，一次典型的场景是在[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，两个事务分别更新两张表，但是更新顺序不一致，导致了死锁。
 
-（1）查看死锁日志 show engine innodb status;
+```sql
+-- 创建表/插入数据
+CREATE TABLE account (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    balance INT NOT NULL
+);
 
-（2）找出死锁 sql
+INSERT INTO account (balance) VALUES (100), (200);
 
-（3）分析 sql 加锁情况
+-- 事务 1
+START TRANSACTION;
+-- 锁住 id=1 的行
+UPDATE account SET balance = balance - 10 WHERE id = 1;
 
-（4）模拟死锁案发
+-- 等待锁住 id=2 的行（事务 2 已锁住）
+UPDATE account SET balance = balance + 10 WHERE id = 2;
 
-（5）分析死锁日志
+-- 事务 2
+START TRANSACTION;
+-- 锁住 id=2 的行
+UPDATE account SET balance = balance - 10 WHERE id = 2;
 
-（6）分析死锁结果
+-- 等待锁住 id=1 的行（事务 1 已锁住）
+UPDATE account SET balance = balance + 10 WHERE id = 1;
+```
 
-当然，这只是一个简单的流程说明，实际上生产中的死锁千奇百怪，排查和解决起来没那么简单。
+两个事务访问相同的资源，但是访问顺序不同，导致了死锁。
+
+![死锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241201101426.png)
+
+解决方法：
+
+第一步，使用 `SHOW ENGINE INNODB STATUS\G;` 查看死锁信息。
+
+![查看死锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241201101704.png)
+
+第二步，调整事务的资源访问顺序，保持一致。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：遇到过mysql死锁或者数据不安全吗
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
@@ -3029,6 +3056,7 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：mysql的隔离级别有哪些
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：事务的隔离级别？这些隔离级别是怎么保证数据的一致性的？默认的事务隔离级别是啥？（MVCC）怎么更改事务的隔离级别？
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：事务隔离级别，哪个是默认的，特点
+> 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：mysql事务隔离级别
 
 ### 62.什么是脏读、不可重复读、幻读呢？
 
