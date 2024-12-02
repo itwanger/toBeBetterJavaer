@@ -1095,7 +1095,7 @@ private volatile boolean flag = false;
 
 ThreadLocal 本身并不存储任何值，它只是作为一个映射，来映射线程的局部变量。当一个线程调用 ThreadLocal 的 set 或 get 方法时，实际上是访问线程自己的 ThreadLocal.ThreadLocalMap。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407200038.png)
+![二哥的 Java 进阶之路：ThreadLocalMap](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407200038.png)
 
 ThreadLocalMap 是 ThreadLocal 的静态内部类，它内部维护了一个 Entry 数组，key 是 ThreadLocal 对象，value 是线程的局部变量本身。
 
@@ -1167,6 +1167,7 @@ userThreadLocal.set(new User("沉默王二"));
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：ThreadLocal 是什么?ThreadLocal 的实现原理？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：ThreadLocal 原理，解决什么问题
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：ThreadLocal，（作用，演进，软指针，删除过程）
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：threadlocal 原理 怎么避免垃圾回收？
 
 ### 15.ThreadLocal 内存泄露是怎么回事？
 
@@ -1174,7 +1175,7 @@ userThreadLocal.set(new User("沉默王二"));
 
 但如果一个线程一直在运行，并且其 `ThreadLocalMap` 中的 Entry.value 一直指向某个强引用对象，那么这个对象就不会被回收，从而导致内存泄漏。当 Entry 非常多时，可能就会引发更严重的内存溢出问题。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407212932.png)
+![ThreadLocalMap 内存溢出](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407212932.png)
 
 #### 那怎么解决内存泄漏问题呢？
 

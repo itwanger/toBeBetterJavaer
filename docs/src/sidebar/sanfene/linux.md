@@ -3,6 +3,7 @@ title: Linux面试题，1道Linux八股文（1万字2张手绘图），面渣逆
 shortTitle: 面渣逆袭-Linux
 description: 下载次数超 1 万次，1 万字 2 张手绘图，详解 2 道 Linux 面试高频题（让天下没有难背的八股），面渣背会这些 Linux 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 沉默王二
+date: 2024-12-01
 category:
   - 面渣逆袭
 tag:
@@ -20,6 +21,7 @@ head:
 我自己常用的 Linux 命令有 top 查看系统资源、ps 查看进程、netstat 查看网络连接、ping 测试网络连通性、find 查找文件、chmod 修改文件权限、kill 终止进程、df 查看磁盘空间、free 查看内存使用、service 启动服务、mkdir 创建目录、rm 删除文件、rmdir 删除目录、cp 复制文件、mv 移动文件、zip 压缩文件、unzip 解压文件等等这些。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：常用linux命令
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：常见的linux命令
 
 ### 文件操作的命令有哪些？
 
@@ -44,6 +46,7 @@ head:
 - `/var/log/messages`：类似于 syslog，但通常更多关注系统级别的消息和错误。
 
 > 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：如何查看系统日志文件，常见的系统日志文件有哪些
+
 
 ### 系统管理的命令有哪些？
 
@@ -231,6 +234,19 @@ watch -n 1 "netstat -an | grep ':443 ' | grep ESTABLISHED | wc -l"
 ![二哥的 Java 进阶之路：技术派的 443 请求数](https://cdn.tobebetterjavaer.com/stutymore/linux-20240902112732.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：用linux命令去查找某个qps
+
+## 3. Git 常用命令
+
+### Git 常用命令有哪些？
+
+- `git clone <repository-url>`：克隆远程仓库。
+- `git status`：查看工作区和暂存区的状态。
+- `git add <file>`：将文件添加到暂存区。
+- `git commit -m "message"`：提交暂存区的文件到本地仓库。
+- `git log`：查看提交历史。
+- `git merge <branch-name>`：合并指定分支到当前分支。
+- `git checkout <branch-name>`：切换分支。
+- `git pull`：拉取远程仓库的更新。
 
 ---
 

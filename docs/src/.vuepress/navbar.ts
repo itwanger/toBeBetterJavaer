@@ -22,6 +22,11 @@ export default navbar([
     link: "/xuexiluxian/"
   },
   {
+    text: "面渣逆袭", 
+    icon: "zhunbei", 
+    link: "/sidebar/sanfene/nixi.md"
+  },
+  {
     text: "珍藏资源",
     icon: "youzhi",
     children: [
@@ -31,20 +36,10 @@ export default navbar([
         link: "/pdf/readme.md" 
       },
       { 
-        text: "面渣逆袭", 
-        icon: "zhunbei", 
-        link: "/sidebar/sanfene/nixi.md" 
-      },
-      { 
         text: "破解合集",
         icon: "zhongyaotishi",
         link: "/nice-article/itmind/" 
       },
     ],
-  },
-  {
-    text: "B站视频",
-    icon: "bzhan", 
-    link: "https://space.bilibili.com/513340480"
-  },
+  }
 ]);

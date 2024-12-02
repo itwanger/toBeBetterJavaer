@@ -1961,7 +1961,7 @@ public class AccountService {
 
 声明式事务是建立在 AOP 之上的。其本质是通过 AOP 功能，对方法前后进行拦截，将事务处理的功能编织到拦截的方法中，也就是在目标方法开始之前启动一个事务，在目标方法执行完之后根据执行情况提交或者回滚事务。
 
-相比较编程式事务，优点是不需要在业务逻辑代码中掺杂事务管理的代码， Spring 推荐通过 @Transactional 注解的方式来实现声明式事务管理，也是日常开发中最常用的。
+相比较编程式事务，优点是不需要在业务逻辑代码中掺杂事务管理的代码，Spring 推荐通过 @Transactional 注解的方式来实现声明式事务管理，也是日常开发中最常用的。
 
 不足的地方是，声明式事务管理最细粒度只能作用到方法级别，无法像编程式事务那样可以作用到代码块级别。
 
@@ -1989,6 +1989,7 @@ public class AccountService {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Spring 事务怎么实现的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Spring 如何保证事务
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：Spring的事务用过吗，在项目里面怎么使用的
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：spring事务
 
 ### 24.说说 Spring 的事务隔离级别？
 
