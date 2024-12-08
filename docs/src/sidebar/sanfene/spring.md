@@ -32,31 +32,29 @@ head:
 
 #### Spring 有哪些特性呢？
 
-Spring 有很多优点：
+![三分恶面渣逆袭：Spring特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a0f0ef9d-3289-41ea-94c2-34b7e37ef854.png)
 
-![Spring特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a0f0ef9d-3289-41ea-94c2-34b7e37ef854.png)
-
-1.  **IoC** 和 **DI** 的支持
+1. **IoC** 和 **DI** 的支持
 
 Spring 的核心就是一个大的工厂容器，可以维护所有对象的创建和依赖关系，Spring 工厂用于生成 Bean，并且管理 Bean 的生命周期，实现**高内聚低耦合**的设计理念。
 
-2.  AOP 编程的支持
+2. AOP 编程的支持
 
 Spring 提供了**面向切面编程**，可以方便的实现对程序进行权限拦截、运行监控等切面功能。
 
-3.  声明式事务的支持
+3. 声明式事务的支持
 
 支持通过配置就来完成对事务的管理，而不需要通过硬编码的方式，以前重复的一些事务提交、回滚的 JDBC 代码，都可以不用自己写了。
 
-4.  快捷测试的支持
+4. 快捷测试的支持
 
 Spring 对 Junit 提供支持，可以通过**注解**快捷地测试 Spring 程序。
 
-5.  快速集成功能
+5. 快速集成功能
 
 方便集成各种优秀框架，Spring 不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、MyBatis、Quartz 等）的直接支持。
 
-6.  复杂 API 模板封装
+6. 复杂 API 模板封装
 
 Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程调用等）都提供了模板化的封装，这些封装 API 的提供使得应用难度大大降低。
 
@@ -65,6 +63,16 @@ Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程�
 **AOP**：面向切面编程，是一种编程范式，它的主要作用是将那些与核心业务逻辑无关，但是对多个对象产生影响的公共行为封装起来，如日志记录、性能统计、事务等。
 
 **IoC**：控制反转，是一种设计思想，它的主要作用是将对象的创建和对象之间的调用过程交给 Spring 容器来管理。
+
+#### Spring源码看过吗？
+
+看过一些，主要就是针对 Spring 循环依赖、Bean 声明周期、AOP、事务、IOC 这五部分。
+
+![星球嘉宾楼仔：Spring 源码解析](https://cdn.tobebetterjavaer.com/stutymore/spring-20241207102105.png)
+
+PS：关于这份小册的 PDF 版本，目前只有[星球](https://javabetter.cn/zhishixingqiu/)的用户可以获取，后续会考虑开放给大家。
+
+![楼仔的 Spring 源码解析手册](https://cdn.tobebetterjavaer.com/stutymore/spring-20241207101910.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：IOC与AOP
 
@@ -1298,15 +1306,17 @@ public class DemoApplication {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 
 
-### 16.那 Spring 怎么解决循环依赖的呢？
+### 16.Spring 怎么解决循环依赖呢？
 
-通过三级缓存机制：
+Spring 通过三级缓存机制来解决循环依赖：
 
 1. 一级缓存：存放完全初始化好的单例 Bean。
 2. 二级缓存：存放正在创建但未完全初始化的 Bean 实例。
 3. 三级缓存：存放 Bean 工厂对象，用于提前暴露 Bean。
 
 ![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
+
+
 
 
 #### 三级缓存解决循环依赖的过程是什么样的？
@@ -1341,6 +1351,7 @@ A 实例的初始化过程：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring如何解决循环依赖？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Spring源码看过吗？Spring的三级缓存知道吗？
 
 ### 17.为什么要三级缓存？⼆级不⾏吗？
 
@@ -1908,10 +1919,12 @@ AspectJ 属于**静态织入**，通过修改代码来实现，在实际运行�
 
 ### 40.说说 AOP 和反射的区别？（补充）
 
->2024 年 7 月 27 日更新：新增 AOP 和反射的区别。
+>2024 年 7 月 27 日增补。
 
 1. 反射：用于检查和操作类的方法和字段，动态调用方法或访问字段。反射是 Java 提供的内置机制，直接操作类对象。
 2. 动态代理：通过生成代理类来拦截方法调用，通常用于 AOP 实现。动态代理使用反射来调用被代理的方法。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：抛开Spring，讲讲反射和动态代理？那三种代理模式怎么实现的？
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 

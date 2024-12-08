@@ -122,12 +122,7 @@ Collection 继承了 Iterable 接口，这意味着所有实现 Collection 接�
 
 推荐阅读：[二哥的 Java 进阶之路：ArrayList 和 LinkedList](https://javabetter.cn/collection/list-war-2.html)
 
-ArrayList 和 LinkedList 的区别主要体现在数据结构、用途、是否支持随机访问、内存占用等方面。
-
-#### 数据结构有什么不同？
-
-- ArrayList 基于数组实现
-- LinkedList 基于链表实现
+ArrayList 是基于数组实现的，LinkedList 是基于链表实现的。
 
 ![三分恶面渣逆袭：ArrayList和LinkedList的数据结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-2.png)
 
@@ -197,6 +192,7 @@ LinkedList 适用于：
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：ArrayList和LinkedList的区别和使用场景
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：数组和链表的区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：ArrayList和LinkedList区别
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：集合里面的arraylist和linkedlist的区别是什么？有何优缺点？
 
 ### 3.ArrayList 的扩容机制了解吗？
 

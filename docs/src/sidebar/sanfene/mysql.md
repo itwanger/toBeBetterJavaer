@@ -2050,6 +2050,7 @@ MySQL 属于关系型数据库，所以范围查询会比较多，所以采用�
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：索引
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：B+树？
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：索引的数据结构
+> 14. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：B+树了解吗？底层呢？为什么这么用？
 
 
 ### 42.一棵 B+树能存储多少条数据呢？
@@ -3058,6 +3059,7 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：事务隔离级别，哪个是默认的，特点
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：mysql事务隔离级别
 
+
 ### 62.什么是脏读、不可重复读、幻读呢？
 
 脏读指的是一个事务能够读取另一个事务尚未提交的数据。如果读到的数据在之后被回滚了，那么第一个事务读取到的就是无效的数据。
@@ -3124,24 +3126,19 @@ COMMIT;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7  京东到家面试原题：mysql事务隔离级别，默认隔离级别，如何避免幻读
 
-### 63.事务的各个隔离级别都是如何实现的？
+### 63.事务的隔离级别是如何实现的？
 
-#### 读未提交是如何实现的？
-
-不提供任何锁机制来保护读取的数据，允许读取未提交的数据（即脏读）。
-
-#### 读已提交&可重复读是如何实现的？
+读未提交不提供任何锁机制来保护读取的数据，允许读取未提交的数据（即脏读）。
 
 读已提交和可重复读通过 MVCC 机制中的 ReadView 来实现。
 
 - READ COMMITTED：每次读取数据前都生成一个 ReadView，保证每次读操作都是最新的数据。
 - REPEATABLE READ：只在第一次读操作时生成一个 ReadView，后续读操作都使用这个 ReadView，保证事务内读取的数据是一致的。
 
-#### 串行化是如何实现的？
-
-事务在读操作时，必须先加表级共享锁，直到事务结束才释放；事务在写操作时，必须先加表级排他锁，直到事务结束才释放。
+串行化级别下，事务在读操作时，必须先加表级共享锁，直到事务结束才释放；事务在写操作时，必须先加表级排他锁，直到事务结束才释放。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 事务的隔离级别，如何实现？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Mysql隔离机制有哪些？怎么实现的？可串行化是怎么避免的三个事务问题？
 
 ### 64.MVCC 了解吗？怎么实现的？
 
@@ -3341,7 +3338,7 @@ MySQL 的主从复制（Master-Slave Replication）是一种数据同步机制�
 
 ### 70.那你们是怎么分表的？
 
-当单表数据增量过快，业界流传的说法是超过 500 万的数据量就要考虑分表了。
+当单表数据增量过快，比如说单表超过 500 万条数据，就可以考虑分表了。
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们将文章表和文章详情表做了分表处理，因为文章的详情数据量会比较大，而文章的基本信息数据量会比较小。
 
@@ -3355,6 +3352,7 @@ MySQL 的主从复制（Master-Slave Replication）是一种数据同步机制�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说分库分表的准则
+
 
 ### 71.水平分表有哪几种路由方式？
 
@@ -3435,10 +3433,31 @@ public String getTableNameByHash(long userId) {
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a122d6d5-fff2-4ccd-8ddb-a9282eb2e2da.jpg)
 
-### 73.常用的分库分表中间件有哪些？
+### 73.怎么分库分表？
 
-- sharding-jdbc
-- Mycat
+如果表的字段过多，我会按字段的访问频率或功能相关性拆分成多个表，减少单表宽度。
+
+如果单表数据量过大，我会按 ID 或时间将数据分到多张表中。比如订单表可以按 `user_id % N` 进行水平分表。
+
+如果业务模块较多，我会将不同模块的表分布到不同的数据库中，比如用户相关的表放在一个库，订单相关的表放在另一个库。
+
+如果单库数据量过大，我会按用户 ID 范围或哈希值将数据分布到多个库中。
+
+#### 常用的分库分表中间件有哪些？
+
+常用的分库分表中间件有 Sharding-JDBC 和 Mycat。
+
+①、Sharding-JDBC 最初由当当开源，后来贡献给了 Apache，主要在 Java 的 JDBC 层提供额外的服务。无需额外部署和依赖，可理解为增强版的 JDBC 驱动，完全兼容 JDBC 和各种 ORM 框架。
+
+![AWS：Sharding-JDBC](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241207120214.png)
+
+②、Mycat 是由阿里巴巴的一款产品 Cobar 衍生而来，可以把它看作一个数据库代理，其核心功能是分表分库，即将一个大表切片为多个小表，一个大库切片成多个小库。
+
+![piwenfei：mycat](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241207121845.png)
+
+推荐阅读：[mycat 介绍](https://yanxizhu.com/index.php/archives/113/)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Mysql有很大的数据量怎么办？怎么分表分库？
 
 ### 74.你觉得分库分表会带来什么问题呢？
 
