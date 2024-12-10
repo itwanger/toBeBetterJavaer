@@ -244,7 +244,7 @@ int wanger = chenmo.intValue();  // 手动拆箱
 
 Java 1.5 为了减少开发人员的工作，提供了自动装箱与自动拆箱的功能。这下就方便了。
 
-```jav
+```java
 Integer chenmo  = 10;  // 自动装箱
 int wanger = chenmo;     // 自动拆箱
 ```
