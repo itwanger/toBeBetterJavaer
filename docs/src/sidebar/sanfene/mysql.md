@@ -59,7 +59,13 @@ FROM employees
 ORDER BY salary DESC, name ASC;
 ```
 
+#### MySQL性能慢的原因有哪些？
 
+可能 SQL 使用了全表扫描，或者未正确使用索引，再或者查询语句过于复杂，如多表 JOIN 或嵌套子查询。
+
+也可能是单表数据量过大，导致查询效率降低。
+
+另外，可以增加一些缓存，如 Redis 来缓存热点数据，减少数据库的访问次数。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
@@ -68,6 +74,7 @@ ORDER BY salary DESC, name ASC;
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：数据库用什么多（说了 Mysql 和 Redis）
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：怎么删除/创建一张表和设定主键
 ，举例用sql实现升序降序
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：MySQL性能慢的原因
 
 ### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
 
@@ -196,7 +203,7 @@ LIMIT 2;
 
 ![Ruthless：第三范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418094332.png)
 
-### 建表的时候考虑哪些问题？
+#### 建表的时候考虑哪些问题？
 
 在建表的时候，首先可以考虑表是否符合数据库范式，也就是确保字段不可再分，消除非主键依赖，确保字段仅依赖于主键。
 
@@ -1965,7 +1972,7 @@ B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同
 
 对于红黑树、二叉平衡树这种细高个来说，每次搬的砖少，因为力气不够嘛，那来回跑的次数就越多。
 
-是这个道理吧，树越高，意味着查找数据时就需要更多的磁盘 IO，因为每一层都可能需要从磁盘加载新的节点。
+树越高，意味着查找数据时就需要更多的磁盘 IO，因为每一层都可能需要从磁盘加载新的节点。
 
 ![用户1260737：二叉树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322140825.png)
 
@@ -2051,6 +2058,7 @@ MySQL 属于关系型数据库，所以范围查询会比较多，所以采用�
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：B+树？
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：索引的数据结构
 > 14. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：B+树了解吗？底层呢？为什么这么用？
+> 15. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：MySQL索引原理，B+树更扁 有什么好处
 
 
 ### 42.一棵 B+树能存储多少条数据呢？
@@ -2399,12 +2407,19 @@ select * from t where a > 2 and b = 2;
 
 ![rows 为 9 行说明的确走索引了，但还需要额外过滤](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153636.png)
 
+#### 联合索引 (a, b, c)，where b = 1，能走吗，where a = 1，能走吗
+
+`WHERE b = 1` 无法利用联合索引，因为缺少 a 的匹配条件，MySQL 会选择全表扫描。
+
+`WHERE a = 1` 能有效利用联合索引，因为 a 是联合索引的第一个字段，符合最左前缀匹配原则。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下数据库索引，最左匹配原则和索引的结构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：说说最左前缀原则
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：最左匹配原则 索引失效
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：Mysql联合索引的设计原则
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：联合索引 (a, b)，where a = 1 和 where b = 1，效果是一样的吗
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：（联合索引）下面怎么走的索引？
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：联合索引 (a, b, c)，where b = 1，能走吗，where a = 1，能走吗
 
 ### 51.什么是索引下推优化？
 
@@ -3132,13 +3147,14 @@ COMMIT;
 
 读已提交和可重复读通过 MVCC 机制中的 ReadView 来实现。
 
-- READ COMMITTED：每次读取数据前都生成一个 ReadView，保证每次读操作都是最新的数据。
-- REPEATABLE READ：只在第一次读操作时生成一个 ReadView，后续读操作都使用这个 ReadView，保证事务内读取的数据是一致的。
+- 读已提交：每次读取数据前都生成一个 ReadView，保证每次读操作都是最新的数据。
+- 可重复读：只在第一次读操作时生成一个 ReadView，后续读操作都使用这个 ReadView，保证事务内读取的数据是一致的。
 
 串行化级别下，事务在读操作时，必须先加表级共享锁，直到事务结束才释放；事务在写操作时，必须先加表级排他锁，直到事务结束才释放。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 事务的隔离级别，如何实现？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Mysql隔离机制有哪些？怎么实现的？可串行化是怎么避免的三个事务问题？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：可重复读级别是怎么实现的
 
 ### 64.MVCC 了解吗？怎么实现的？
 
@@ -3175,9 +3191,9 @@ MVCC 允许读操作访问数据的一个旧版本快照，同时写操作创建
 
 #### 说说什么是 ReadView？
 
-ReadView（读视图）是 InnoDB 为了实现一致性读（Consistent Read）而创建的数据结构，它用于确定在特定事务中哪些版本的行记录是可见的。
+ReadView（读视图）是 InnoDB 为了实现一致性读而创建的数据结构，它用于确定在特定事务中哪些版本的行记录是可见的。
 
-ReadView 主要用来处理隔离级别为"可重复读"（REPEATABLE READ）和"读已提交"（READ COMMITTED）的情况。因为在这两个隔离级别下，事务在读取数据时，需要保证读取到的数据是一致的，即读取到的数据是在事务开始时的一个快照。
+ReadView 主要用来处理隔离级别为"可重复读"和"读已提交"的情况。因为在这两个隔离级别下，事务在读取数据时，需要保证读取到的数据是一致的，即读取到的数据是在事务开始时的一个快照。
 
 ![二哥的 Java 进阶之路：ReadView](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415093703.png)
 
