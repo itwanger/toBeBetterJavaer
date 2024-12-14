@@ -2,6 +2,7 @@
 title: 源码深入解析BlockingQueue
 shortTitle: BlockingQueue
 description: BlockingQueue 是 Java 中一个接口，它代表了一个线程安全的队列，不仅可以由多个线程并发访问，还添加了等待/通知机制，以便在队列为空时阻塞获取元素的线程，直到队列变得可用，或者在队列满时阻塞插入元素的线程，直到队列变得可用。
+date: 2024-12-11
 category:
   - Java核心
 tag:
@@ -510,7 +511,7 @@ public class LinkedBlockingQueueTest {
 **不同点**：
 
 1. ArrayBlockingQueue 基于数组实现，而 LinkedBlockingQueue 基于链表实现；
-2. ArrayBlockingQueue 使用一个单独的 ReentrantLock 来控制对队列的访问，而 LinkedBlockingQueue 使用两个锁（putLock 和 takeLock），一个用于放入操作，另一个用于取出操作。这可以提供更细粒度的控制，并可能减少线程之间的竞争。
+2. ArrayBlockingQueue 使用一个单独的 ReentrantLock 来控制对队列的访问，而 LinkedBlockingQueue 使用两个锁（putLock 和 takeLock），一个用于放入操作，另一个用于取出操作。锁分离，很适合生产和消费频率差不多的场景，这样生产和消费互不干涉的执行，能达到不错的效率。
 
 ## PriorityBlockingQueue
 

@@ -321,6 +321,10 @@ public class Singleton {
 }
 ```
 
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用了懒汉式单例模式，实现了一个基于微信 native 支付的 Service。
+
+![技术派：基于双重判空的懒汉式单例](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20241211110812.png)
+
 #### 03、双重检查锁定如何实现单例？
 
 双重检查锁定（Double-Checked Locking）结合了懒汉式的延迟加载和线程安全，同时又减少了同步的开销，主要是用 synchronized 同步代码块来替代同步方法。
