@@ -1047,7 +1047,7 @@ Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为
 
 这个概率值需要大于 0.5，我们认为这样的 hashmap 可以提供很低的碰撞率。所以：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-03png)
+![球友 25 号宇宙提醒](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-03.png)
 
 这时候，我们对于该公式其实最想求的时候长度 s 的时候，n 为多少次就应该进行扩容了？而负载因子则是$n/s$的值。所以推导如下：
 

@@ -113,8 +113,11 @@ export default hopeTheme({
       codetabs: true,
       component: true,
       demo: true,
+      // 启用 figure，为图像添加描述
       figure: true,
+      // 启用图片懒加载
       imgLazyload: true,
+      // 启用图片大小
       imgSize: true,
       include: true,
       mark: true,
@@ -136,6 +139,7 @@ export default hopeTheme({
       sub: true,
       sup: true,
       tabs: true,
+      // 支持任务列表
       tasklist: true,
       vPre: true,
 
