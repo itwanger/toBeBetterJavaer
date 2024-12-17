@@ -132,25 +132,15 @@ list 是一个简单的字符串列表，按照插入顺序排序。可以添加
 
 #### 简单介绍下 set？
 
-集合是字符串的无序集合，集合中的元素是唯一的，不允许重复。和 Java 集合框架中的 Set 有相似之处。
+Set 是一个无序集合，元素是唯一的，不允许重复。
 
-集合主要有以下两个使用场景：
+#### 简单介绍下 zset？
 
-- 标签（tag）
-- 共同关注
-
-#### 简单介绍下 sorted set？
-
-Zset，有序集合，比 set 多了一个排序属性 score（分值）。
+Zset 是有序集合，比 set 多了一个排序属性 score。
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120652.png)
 
-主要应用场景有：
-
-- 用户点赞统计
-- 用户排序
-
-比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就使用 Zset 来实现了用户月度活跃排行榜。
+可以用来实现排行榜，比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用了 Zset 来实现用户活跃排行榜。
 
 ![技术派用户活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
 
@@ -163,6 +153,7 @@ Zset，有序集合，比 set 多了一个排序属性 score（分值）。
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：项目中使用了 redis，redis 有哪些数据类型？分别使用的场景是什么？什么使用 hash 类型而不使用 string 类型序列化存储？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：Redis常见数据结构
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：redis的数据结构类型？
+> 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：redis高级数据结构的使用场景
 
 ### 4.Redis 为什么快呢？
 
