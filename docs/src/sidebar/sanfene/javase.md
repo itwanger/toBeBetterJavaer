@@ -2247,15 +2247,15 @@ public class ByteBufferExample {
 
 推荐阅读：[Java NIO 比传统 IO 强在哪里？](https://javabetter.cn/nio/nio-better-io.html)
 
-Java 提供了多种 IO 模型来处理输入和输出操作，包括传统的阻塞 IO、非阻塞 IO 和异步 IO。
+Java 常见的 IO 模型有三种：BIO、NIO 和 AIO。
 
 ![二哥的 Java 进阶之路：IO 分类](https://cdn.tobebetterjavaer.com/stutymore/javase-20240404103618.png)
 
-BIO（Blocking I/O）：采用阻塞式 I/O 模型，线程在执行 I/O 操作时被阻塞，无法处理其他任务，适用于连接数较少的场景。
+BIO：采用阻塞式 I/O 模型，线程在执行 I/O 操作时被阻塞，无法处理其他任务，适用于连接数较少的场景。
 
-NIO（New I/O 或 Non-blocking I/O）：采用非阻塞 I/O 模型，线程在等待 I/O 时可执行其他任务，通过 Selector 监控多个 Channel 上的事件，适用于连接数多但连接时间短的场景。
+NIO：采用非阻塞 I/O 模型，线程在等待 I/O 时可执行其他任务，通过 Selector 监控多个 Channel 上的事件，适用于连接数多但连接时间短的场景。
 
-AIO（Asynchronous I/O）：使用异步 I/O 模型，线程发起 I/O 请求后立即返回，当 I/O 操作完成时通过回调函数通知线程，适用于连接数多且连接时间长的场景。
+AIO：使用异步 I/O 模型，线程发起 I/O 请求后立即返回，当 I/O 操作完成时通过回调函数通知线程，适用于连接数多且连接时间长的场景。
 
 #### 简单说一下 BIO？
 
@@ -2297,6 +2297,7 @@ while (!result.isDone()) {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：BIO NIO 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：BIO、NIO、AIO 的区别？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：说一下阻塞非阻塞 IO -说了下 BIO 和 NIO
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：介绍NIO BIO AIO
 
 ## 序列化
 

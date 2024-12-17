@@ -2,7 +2,7 @@
 title: MySQL面试题，84道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
 description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 84 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-date: 2024-11-22
+date: 2024-12-25
 author: 三分恶
 category:
   - 面渣逆袭
@@ -2815,13 +2815,6 @@ InnoDB 的行锁的主要实现如下：
 
 ![三分恶面渣逆袭：记录锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-8989ac27-e442-4c14-81ad-6bc133d78bfd.jpg)
 
-②、**Gap Lock 间隙锁**
-
-间隙锁(Gap Locks) 的间隙指的是两个记录之间逻辑上尚未填入数据的部分,是一个**左开右开空间**。
-
-![三分恶面渣逆袭：间隙锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d60f3a42-4b0f-4612-b7ad-65191fecb852.jpg)
-
-间隙锁就是锁定某些间隙区间的。当我们使用用等值查询或者范围查询，并且没有命中任何一个`record`，此时就会将对应的间隙区间锁定。例如`select * from t where id =3 for update;`或者`select * from t where id > 1 and id < 6 for update;`就会将(1,6)区间锁定。
 
 ③、**Next-key Lock 临键锁**
 
@@ -2851,6 +2844,66 @@ MySQL 默认行锁类型就是`临键锁(Next-Key Locks)`。当使用唯一性�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：数据库中的全局锁 表锁 行级锁  每种锁的应用场景有哪些
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招银网络科技面经同学 9 Java 后端技术一面面试原题：select for update 加锁有什么需要注意的
+
+### 85. 间隙锁了解吗？（补充）
+
+> 2024 年 12 月 15 日增补。
+
+间隙锁用于在范围查询时锁定记录之间的“间隙”，防止其他事务在该范围内插入新记录。
+
+假设表 test_gaplock 有 id、age、name 三个字段，其中 id 是主键，age 上有索引，并插入了 4 条数据。
+
+```sql
+CREATE TABLE `test_gaplock` (
+  `id` int(11) NOT NULL,
+  `age` int(11) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `age` (`age`)
+) ENGINE=InnoDB;
+
+insert into test_gaplock values(1,1,'张三'),(6,6,'吴老二'),(8,8,'赵四'),(12,12,'熊大');
+```
+
+间隙锁会锁住以下范围：
+
+- (−∞, 1)：在最小记录之前的间隙。
+- (1, 6)、(6, 8)、(8, 12)：记录之间的间隙。
+- (12, +∞)：在最大记录之后的间隙。
+
+![三分恶面渣逆袭：间隙锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d60f3a42-4b0f-4612-b7ad-65191fecb852.jpg)
+
+假设有两个事务，T1 执行以下语句：
+
+```sql
+START TRANSACTION;
+SELECT * FROM test_gaplock WHERE age > 5 FOR UPDATE;
+```
+
+T2 执行以下语句：
+
+```sql
+START TRANSACTION;
+INSERT INTO test_gaplock VALUES (7, 7, '王五');
+```
+
+T1 会锁住 (6, 8) 的间隙，防止其他事务在这个范围内插入新记录。
+
+T2 在插入 (7, 7, '王五') 时，会被阻塞，可以在另外一个回话中执行 `SHOW ENGINE INNODB STATUS` 查看间隙锁的信息。
+
+![二哥的Java 进阶之路：间隙锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241215095640.png)
+
+推荐阅读：[六个案例搞懂间隙锁](https://www.51cto.com/article/779551.html)、[MySQL中间隙锁的加锁机制](https://blog.csdn.net/javaanddonet/article/details/111187345)
+
+#### 执行什么命令会加上间隙锁？
+
+当范围查询与锁定操作（如 FOR UPDATE）结合时，InnoDB 会对查询范围内的记录间隙加上间隙锁。
+
+```sql
+SELECT * FROM table WHERE column > 10 and column < 20 FOR UPDATE;
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：mysql的什么命令会加上间隙锁
 
 ### 56.意向锁是什么知道吗？
 
@@ -3024,7 +3077,7 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 
 ### 61.事务的隔离级别有哪些？
 
-事务的隔离级别定了一个事务可能受其他事务影响的程度，MySQL 支持的四种隔离级别分别是：读未提交、读已提交、可重复读和串行化。
+事务的隔离级别定了一个事务可能受其他事务影响的程度，MySQL 支持四种隔离级别，分别是：读未提交、读已提交、可重复读和串行化。
 
 ![三分恶面渣逆袭：事务的四个隔离级别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-99942529-4a91-420b-9ce2-4149e747f64d.jpg)
 
@@ -3038,15 +3091,13 @@ redo log 是一种物理日志，当执行写操作时，MySQL 会先将更改�
 
 #### 什么是可重复读？
 
-可重复读能够确保在同一事务中多次读取相同记录的结果是一致的，即使其他事务对这条记录进行了修改，也不会影响到当前事务。
+可重复读是指一个事务在执行过程中看到的数据，一直跟这个事务启动时看到的数据是一致的。
 
-可重复读是 MySQL 默认的隔离级别，避免了“脏读”和“不可重复读”，但可能会出现幻读。
+**可重复读是 MySQL 默认的隔离级别**，避免了“脏读”和“不可重复读”，也能在一定程度上避免幻读。
 
 #### 什么是串行化？
 
-串行化是最高的隔离级别，通过强制事务串行执行来避免并发问题，可以解决“脏读”、“不可重复读”和“幻读”问题。
-
-但会导致大量的超时和锁竞争问题。
+串行化是最高的隔离级别，通过强制事务串行执行来解决“脏读”、“不可重复读”和“幻读”问题。但会导致大量的锁竞争问题。
 
 #### A 事务未提交，B 事务上查询到的是旧值还是新值？
 
@@ -3130,6 +3181,14 @@ COMMIT;
 
 需要解决幻读的场景一般是对数据一致性要求较高的业务，例如银行转账、库存管理等，而在一些只要求最终一致性的应用场景中（如统计功能），可以忽略幻读问题。
 
+#### 如何避免幻读？
+
+①、直接使用最高的隔离级别串行化，但会导致大量的锁竞争。
+
+②、使用间隙锁，防止其他事务在间隙范围内插入数据。
+
+③、在可重复读的隔离级别下，MVCC 机制会为每个事务维护一个快照，事务在读取数据时，只能读取到快照中的数据，而不会读取到其他事务插入的数据。
+
 #### 不同的隔离级别，在并发事务下可能会发生什么问题？
 
 | 隔离级别                   | 脏读 | 不可重复读 | 幻读 |
@@ -3140,6 +3199,7 @@ COMMIT;
 | Serialzable 可串行化       | 否   | 否         | 否   |
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7  京东到家面试原题：mysql事务隔离级别，默认隔离级别，如何避免幻读
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：事务隔离级别，幻读和脏读的区别，如何防止幻读，事务的mvcc机制
 
 ### 63.事务的隔离级别是如何实现的？
 
@@ -3158,13 +3218,15 @@ COMMIT;
 
 ### 64.MVCC 了解吗？怎么实现的？
 
-MVCC 指的是多版本并发控制，主要用来解决数据库的并发问题。
+MVCC 指的是多版本并发控制，简单来说，就是给我们的 MySQL 数据拍个“快照”，定格某个时刻数据库的状态。
 
-当多个用户同时访问数据时，每个用户都可以看到一个在某一时间点之前的数据库快照，并且能够无阻塞地执行查询和修改操作，而不会相互干扰。
+在 MySQL 中，MVCC 是通过版本链和 ReadView 机制来实现的。
 
-MVCC 允许读操作访问数据的一个旧版本快照，同时写操作创建一个新的版本，这样读写操作就可以并行进行，不必等待对方完成。
+![天瑕：undo log 版本链和 ReadView](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241215073837.png)
 
-在 MySQL 中，特别是 InnoDB 存储引擎，MVCC 是通过版本链和 ReadView 机制来实现的。
+1. 每条记录包含两个隐藏列：最近修改的事务 ID 和指向 Undo Log 的指针，用于构成版本链。
+2. 每次更新数据时，会生成一个新的数据版本，并将旧版本的数据保存到 Undo Log 中。
+3. 每次读取数据时，会生成一个 ReadView，用于判断哪个版本的数据对当前事务可见。
 
 #### 什么是版本链？
 

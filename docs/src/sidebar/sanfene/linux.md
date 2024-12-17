@@ -18,10 +18,22 @@ head:
 
 推荐阅读：[常用高频 Linux 速查备忘手册](https://javabetter.cn/pdf/linux.html)
 
-我自己常用的 Linux 命令有 top 查看系统资源、ps 查看进程、netstat 查看网络连接、ping 测试网络连通性、find 查找文件、chmod 修改文件权限、kill 终止进程、df 查看磁盘空间、free 查看内存使用、service 启动服务、mkdir 创建目录、rm 删除文件、rmdir 删除目录、cp 复制文件、mv 移动文件、zip 压缩文件、unzip 解压文件等等这些。
+我自己常用的 Linux 命令有：
+
+- top 用来查看系统资源
+- `ps -ef | grep java` 查看 Java 进程
+- `netstat` 查看网络连接
+- ping 测试网络连通性
+- find 查找文件
+- chmod 修改文件权限
+- kill 终止进程
+- df 查看磁盘空间
+- mkdir 创建目录、rm 删除文件、cp 复制文件、mv 移动文件
+- zip 压缩文件、unzip 解压文件等等这些。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：常用linux命令
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：常见的linux命令
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：linux常用命令
 
 ### 文件操作的命令有哪些？
 
@@ -135,6 +147,12 @@ Linux 中的权限可以应用于三种类别的用户：
 
 - chmod 755 file：使得文件所有者有读写执行（7）权限，组用户和其他用户有读和执行（5）权限。
 - chmod 644 file：使得文件所有者有读写（6）权限，而组用户和其他用户只有读（4）权限。
+
+#### `kill -9` 中的 9 是什么意思？
+
+`kill -9 PID` 是一种强制终止进程的方式，其中的 9 表示信号编号，代表 SIGKILL 信号。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：kill -9 9的意义是什么
 
 ### 网络管理的命令有哪些？
 

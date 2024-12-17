@@ -412,6 +412,42 @@ stop 方法用来强制线程停止执行，目前已经处于废弃状态，因
 
 ![三分恶面渣逆袭：Java线程状态变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-7.png)
 
+#### 如何做到强制终止线程？
+
+设置线程的中断标志，通知线程优雅地终止。
+
+```java
+class MyTask implements Runnable {
+    @Override
+    public void run() {
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                System.out.println("Running...");
+                Thread.sleep(1000); // 模拟工作
+            } catch (InterruptedException e) {
+                // 捕获中断异常后，重置中断状态
+                Thread.currentThread().interrupt();
+                System.out.println("Thread interrupted, exiting...");
+                break;
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        Thread thread = new Thread(new MyTask());
+        thread.start();
+        Thread.sleep(3000); // 主线程等待3秒
+        thread.interrupt(); // 请求终止线程
+    }
+}
+```
+
+中断结果：
+
+![二哥的Java 进阶之路：线程中断](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241215110907.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：线程的生命周期和状态？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：线程有哪些状态？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：Java里线程的生命周期
