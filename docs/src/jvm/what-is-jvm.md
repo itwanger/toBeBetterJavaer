@@ -86,7 +86,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/seven-05.png)
 
-最后再来讲一下：HotSpot VM，OracleJDK（商用）和 OpenJDK（开源）的默认虚拟机，也是目前使用最广泛的 Java 虚拟机，也就是传说中的太子，Java 虚拟机中的嫡长子。
+最后再来讲一下：HotSpot VM，它是OracleJDK（商用）和 OpenJDK（开源）的默认虚拟机，也是目前使用最广泛的 Java 虚拟机，也就是传说中的太子，Java 虚拟机中的嫡长子。
 
 HotSpot 的技术优势就在于热点代码探测技术（名字就从这来的）和准确式内存管理技术，但其实这两个技术在 Exact VM 中都有体现，因此你看起个好的名字多重要（开玩笑了，这就是命）。
 
