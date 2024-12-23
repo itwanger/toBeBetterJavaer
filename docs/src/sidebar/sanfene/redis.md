@@ -1,7 +1,7 @@
 ---
-title: Redis面试题，58道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
+title: Redis面试题，57道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Redis
-description: 下载次数超 1 万次，1.9 万字 97 张手绘图，详解 58 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，1.9 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 date: 2024-10-31
 category:
@@ -14,7 +14,7 @@ head:
       content: Redis面试题,Redis,八股文,面试题
 ---
 
-1.9 万字 97 张手绘图，详解 58 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+1.9 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
 
 ## 基础
 
@@ -140,7 +140,7 @@ Zset 是有序集合，比 set 多了一个排序属性 score。
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120652.png)
 
-可以用来实现排行榜，比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用了 Zset 来实现用户活跃排行榜。
+可以用来实现排行榜，比如[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就使用了 Zset 来实现用户活跃排行榜。
 
 ![技术派用户活跃榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240315120856.png)
 
@@ -154,6 +154,7 @@ Zset 是有序集合，比 set 多了一个排序属性 score。
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：Redis常见数据结构
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：redis的数据结构类型？
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：redis高级数据结构的使用场景
+> 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：Redis保证incr命令原子性的原理是什么？
 
 ### 4.Redis 为什么快呢？
 
@@ -255,7 +256,7 @@ Redis6.0 的多线程是用多线程来处理数据的**读写和协议解析**�
 ![Redis6.0多线程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b7b24e25-d2dc-4457-994f-95bdb3674b8e.png)
 这样做的⽬的是因为 Redis 的性能瓶颈在于⽹络 IO ⽽⾮ CPU，使⽤多线程能提升 IO 读写的效率，从⽽整体提⾼ Redis 的性能。
 
-### 56.说说 Redis 常用命令（补充）
+### 8.说说 Redis 常用命令（补充）
 
 > 2024 年 04 月 11 日增补
 
@@ -321,11 +322,17 @@ redis-cli SET config "new_config" XX
 
 向指定 Set 中添加 1 个或多个 member，如果指定 Set 不存在，会自动创建一个。**时间复杂度 O(N)** ，N 为添加的 member 个数。
 
+#### incr命令了解吗？
+
+INCR 命令是 Redis 中的一个原子操作，用于将存储在 key 中的数值加 1。
+
+Redis 的单线程模型确保了每个命令都是原子执行的，不会被其他命令打断。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 Redis 常用命令
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说的那么好，Redis 设置 key value 的函数是啥
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Redis 的 sadd 命令时间复杂度是多少？
 
-### 54.单线程 Redis 的 QPS 是多少？(补充)
+### 9.单线程 Redis 的 QPS 是多少？(补充)
 
 > 2024 年 4 月 14 日增补
 
@@ -360,9 +367,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 持久化
 
-### 8.Redis 持久化⽅式有哪些？有什么区别？
+### 10.Redis 持久化⽅式有哪些？有什么区别？
 
-Redis 支持两种主要的持久化方式：RDB 持久化和 AOF持久化。这两种方式可以单独使用，也可以同时使用。
+Redis 的持久化机制保证了 Redis 服务器在重启后数据不丢失，通过 RDB 和 AOF 文件来恢复内存中原有的数据。
+
+这两种持久化方式可以单独使用，也可以同时使用。
 
 ![三分恶面渣逆袭：Redis持久化的两种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-3bda4a46-adc3-4f0d-a135-b8ae5d4c0d5d.png)
 
@@ -412,33 +421,54 @@ AOF 持久化通过记录每个写操作命令并将其追加到 AOF 文件中�
 
 AOF 的主要作用是解决了数据持久化的实时性，目前已经是 Redis 持久化的主流方式。
 
-AOF 的工作流程操作有四个步骤：命令写入、文件同步、文件重写、重启加载。
+AOF 的工作流程分为四个步骤：命令写入、文件同步、文件重写、重启加载。
 
 ![三分恶面渣逆袭：AOF工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a9fb6202-b1a1-484d-a4fa-fef519090b44.png)
 
-流程如下：
+1）当 AOF 持久化机制被启用时，Redis 服务器会将接收到的所有写命令追加到 AOF 缓冲区的末尾。
 
-1）当 AOF 持久化功能被启用时（通过在配置文件中设置 appendonly 参数为 yes 来启用），Redis 服务器会将接收到的所有写命令（比如 SET, LPUSH, SADD 等修改数据的命令）追加到 AOF 缓冲区（buffer）的末尾。
+2）接着将缓冲区中的命令刷新到磁盘的 AOF 文件中，刷新策略有三种：
 
-2）为了将缓冲区中的命令持久化到磁盘中的 AOF 文件，Redis 提供了几种不同的同步策略：
+- always：每次写命令都会同步到 AOF 文件。
+- everysec（默认）：每秒同步一次。如果系统崩溃，可能会丢失最后一秒的数据。
+- no：在这种模式下，如果发生宕机，那么丢失的数据量由操作系统内核的缓存冲洗策略决定。
 
-- always：每次写命令都会同步到 AOF 文件，这提供了最高的数据安全性，但可能因为磁盘 I/O 的延迟而影响性能。
-- everysec（默认）：每秒同步一次，这是一种折衷方案，提供了较好的性能和数据安全性。如果系统崩溃，最多可能丢失最后一秒的数据。
-- no：只会在 AOF 关闭或 Redis 关闭时执行， 或由操作系统内核触发。在这种模式下，如果发生宕机，那么丢失的数据量由操作系统内核的缓存冲洗策略决定。
+3）随着 AOF 文件的不断增长，Redis 会启用重写机制来生成一个更小的 AOF 文件：
 
-3）随着操作的不断执行，AOF 文件会不断增长，为了减小 AOF 文件大小，Redis 可以重写 AOF 文件：
+- 将内存中每个键值对的当前状态转换为一条最简单的 Redis 命令，写入到一个新的 AOF 文件中。即使某个键被修改了多次，在新的 AOF 文件中也只会保留最终的状态。
+- Redis 会 fork 一个子进程，子进程负责重写 AOF 文件，主进程不会被阻塞。
 
-- 重写过程不会解析原始的 AOF 文件，而是将当前内存中的数据库状态转换为一系列写命令，然后保存到一个新的 AOF 文件中。
-- AOF 重写操作由 BGREWRITEAOF 命令触发，它会创建一个子进程来执行重写操作，因此不会阻塞主进程。
-- 重写过程中，新的写命令会继续追加到旧的 AOF 文件中，同时也会被记录到一个缓冲区中。一旦重写完成，Redis 会将这个缓冲区中的命令追加到新的 AOF 文件中，然后切换到新的 AOF 文件上，以确保数据的完整性。
+```
+主进程（fork）  
+   │  
+   ├─→ 子进程（生成新的 AOF 文件）  
+   │       │  
+   │       ├─→ 内存快照  
+   │       ├─→ 写入临时 AOF 文件  
+   │       ├─→ 通知主进程完成  
+   │  
+   ├─→ 主进程（追加缓冲区到新 AOF 文件）  
+   ├─→ 替换旧 AOF 文件  
+   ├─→ 重写完成
+```
 
-4）当 Redis 服务器启动时，如果配置为使用 AOF 持久化方式，它会读取 AOF 文件中的所有命令并重新执行它们，以恢复数据库的状态。
+4）当 Redis 服务器重启时，会读取 AOF 文件中的所有命令并重新执行它们，以恢复重启前的内存状态。
 
 #### AOF 文件存储的是什么类型的数据？
 
 AOF 文件存储的是 Redis 所有的写操作命令，比如 SET、HSET、INCR 等。
 
 ![二哥的Java 进阶之路：AOF文件内容](https://cdn.tobebetterjavaer.com/stutymore/redis-20241208204853.png)
+
+#### AOF重写期间命令可能会写入两次，会造成什么影响？
+
+AOF 重写期间，Redis 会将新的写命令同时写入旧的 AOF 文件和重写缓冲区。
+
+这样会带来额外的磁盘开销。
+
+但可以防止在 AOF 重写尚未完成时，Redis 发生崩溃，导致数据丢失。即使重写失败，旧的 AOF 文件仍然是完整的。
+
+当重写完成后，会通过原子操作将新的 AOF 文件替换旧的 AOF 文件。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 Redis 的持久化方式
@@ -448,8 +478,10 @@ AOF 文件存储的是 Redis 所有的写操作命令，比如 SET、HSET、INCR
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：Redis持久化方案
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Redis的基本数据类型？Redis的持久化呢？有何优缺点？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：Redis持久化
+> 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Redis数据的可靠性怎么保证？AOF重写期间命令可能会写入两次，会造成什么影响？
 
-### 9.RDB 和 AOF 各自有什么优缺点？
+
+### 11.RDB 和 AOF 各自有什么优缺点？
 
 RDB 是一个非常紧凑的单文件（二进制文件 dump.rdb），代表了 Redis 在某个时间点上的数据快照。非常适合用于备份数据，比如在夜间进行备份，然后将 RDB 文件复制到远程服务器。但可能会丢失最后一次持久化后的数据。
 
@@ -457,7 +489,7 @@ AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Redis 的持久化方式？RDB 和 AOF 的区别？Redis 宕机哪种恢复的比较快？
 
-### 10.RDB 和 AOF 如何选择？
+### 12.RDB 和 AOF 如何选择？
 
 如果需要尽可能减少数据丢失，AOF 是更好的选择。尤其是在频繁写入的环境下，设置 AOF 每秒同步可以最大限度减少数据丢失。
 
@@ -472,7 +504,7 @@ AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：什么时候用 rdb 什么时候用 aof
 
-### 11.Redis 的数据恢复？
+### 13.Redis 的数据恢复？
 
 当 Redis 中的数据丢失时，可以从 RDB 或者 AOF 中恢复数据。
 
@@ -487,7 +519,7 @@ AOF 的最大优点是灵活，实时性好，可以设置不同的 fsync 策略
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Redis 内存中数据丢失怎么解决
 
-### 12.Redis 4.0 的混合持久化了解吗？
+### 14.Redis 4.0 的混合持久化了解吗？
 
 在 Redis 中，RDB 持久化是通过创建数据的快照来保存数据的，而 AOF 持久化则是通过记录每个写入命令来保存数据的。
 
@@ -577,11 +609,11 @@ Redis 除了单机部署外，还可以通过主从复制、哨兵模式和集�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：Redis 的了解, 部署方案?
 
-### 13.主从复制了解吗？
+### 15.主从复制了解吗？
 
-主从复制（Master-Slave Replication）是指将一台 Redis 服务器的数据，复制到其他的 Redis 服务器。
+主从复制是指将一台 Redis 服务器的数据，复制到其他的 Redis 服务器。
 
-前者称为主节点（master），后者称为从节点（slave）。且数据的复制是单向的，只能由主节点到从节点。
+前者称为主节点 master，后者称为从节点slave。且数据的复制是单向的，只能由主节点到从节点。
 
 ![三分恶面渣逆袭：Redis主从复制简图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-60497f1e-8afb-44b3-bb7a-d4c29e5ac484.png)
 
@@ -637,7 +669,8 @@ Redis 的哨兵机制（Sentinel）可以实现自动化的故障转移，当主
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：redis 的主从架构和主从哨兵区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：Redis解决单点故障主要靠什么？主从模式用的是异步还是同步？
 
-### 14.Redis 主从有几种常见的拓扑结构？
+
+### 16.Redis 主从有几种常见的拓扑结构？
 
 Redis 的复制拓扑结构可以支持单层或多层复制关系，根据拓扑复杂性可以分为以下三种：一主一从、一主多从、树状主从结构。
 
@@ -655,7 +688,7 @@ Redis 的复制拓扑结构可以支持单层或多层复制关系，根据拓�
 
 ![树状主从结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-dff14203-5e01-4d1b-a775-10ee444ada54.png)
 
-### 15.Redis 的主从复制原理了解吗？
+### 17.Redis 的主从复制原理了解吗？
 
 Redis 主从复制的工作流程大概可以分为如下几步：
 ![Redis主从复制工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-21123b1e-68b4-436b-ac84-3365a49a81bd.png)
@@ -673,7 +706,7 @@ Redis 主从复制的工作流程大概可以分为如下几步：
 6.  命令持续复制
     接下来主节点会持续地把写命令发送给从节点，保证主从数据一致性。
 
-### 16.说说主从数据同步的方式？
+### 18.说说主从数据同步的方式？
 
 Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同步过程分为：全量复制和部分复制。
 
@@ -697,6 +730,7 @@ Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同�
 
 **部分复制**
 部分复制主要是 Redis 针对全量复制的过高开销做出的一种优化措施， 使用 psync{runId}{offset}命令实现。当从节点（slave）正在复制主节点 （master）时，如果出现网络闪断或者命令丢失等异常情况时，从节点会向 主节点要求补发丢失的命令数据，如果主节点的复制积压缓冲区内存在这部分数据则直接发送给从节点，这样就可以保持主从节点复制的一致性。
+
 ![部分复制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-87600c72-cc6a-4656-81b2-e71864c97f23.png)
 
 1.  当主从节点之间网络出现中断时，如果超过 repl-timeout 时间，主节点会认为从节点故障并中断复制连接
@@ -706,7 +740,7 @@ Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同�
 5.  主节点接到 psync 命令后首先核对参数 runId 是否与自身一致，如果一 致，说明之前复制的是当前主节点；之后根据参数 offset 在自身复制积压缓冲区查找，如果偏移量之后的数据存在缓冲区中，则对从节点发送+CONTINUE 响应，表示可以进行部分复制。
 6.  主节点根据偏移量把复制积压缓冲区里的数据发送给从节点，保证主从复制进入正常状态。
 
-### 17.主从复制存在哪些问题呢？
+### 19.主从复制存在哪些问题呢？
 
 主从复制虽好，但也存在一些问题：
 
@@ -716,7 +750,7 @@ Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同�
 
 第一个问题是 Redis 的高可用问题，第二、三个问题属于 Redis 的分布式问题。
 
-### 18.Redis 哨兵了解吗？
+### 20.Redis 哨兵了解吗？
 
 哨兵（Sentinel）机制是 Redis 提供的一个高可用性解决方案，主要用来监控 Redis 主从架构中的实例，并在主节点出现故障时，自动进行故障转移。
 
@@ -725,7 +759,7 @@ Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 1 面试原题：Redis 的哨兵机制了解吗？
 
 
-### 19.Redis 哨兵实现原理知道吗？
+### 21.Redis 哨兵实现原理知道吗？
 
 哨兵的工作流程包括定时监控、主观下线和客观下线、领导者 Sentinel 节点选举、故障转移等。
 
@@ -749,7 +783,7 @@ Redis 在 2.8 及以上版本使用 psync 命令完成主从数据同步，同�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：Redis的Sentinel和Cluster怎么理解？说一下大概原理
 
-### 20.领导者 Sentinel 节点选举了解吗？
+### 22.领导者 Sentinel 节点选举了解吗？
 
 Redis 使用 Raft 算法实现领导者选举的：当主节点挂掉后，新的主节点是由剩余的从节点发起选举后晋升的。
 
@@ -775,7 +809,7 @@ Redis 使用 Raft 算法实现领导者选举的：当主节点挂掉后，新�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：raft主节点挂了怎么选从节点
 
-### 21.新的主节点是怎样被挑选出来的？
+### 23.新的主节点是怎样被挑选出来的？
 
 选出新的主节点，大概分为这么几步：
 ![新的主节点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-03976d35-20b6-4efe-aa9c-7d3759460d34.png)
@@ -785,7 +819,7 @@ Redis 使用 Raft 算法实现领导者选举的：当主节点挂掉后，新�
 3.  选择复制偏移量最大的从节点（复制的最完整），如果存在则返 回，不存在则继续。
 4.  选择 runid 最小的从节点。
 
-### 22.Redis 集群了解吗？
+### 24.Redis 集群了解吗？
 
 前面说到了主从存在高可用和分布式的问题，哨兵解决了高可用的问题，而集群就是终极方案，一举解决高可用和分布式问题。
 
@@ -795,7 +829,7 @@ Redis 使用 Raft 算法实现领导者选举的：当主节点挂掉后，新�
 
 2. **高可用：** 集群支持主从复制和主节点的 **自动故障转移** _（与哨兵类似）_，当任一节点发生故障时，集群仍然可以对外提供服务。
 
-### 55.Redis Cluster了解吗？（补充）
+### 25.Redis Cluster了解吗？（补充）
 
 > 2024 年 04 月 26 日新增
 
@@ -818,7 +852,7 @@ Redis Cluster 有 16384 个哈希槽，每个键根据其名字的 CRC16 值被�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis 切片集群？数据和实例之间的如何进行映射？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Redis 的 cluster 集群如何实现？
 
-### 23.集群中数据如何分区？
+### 26.集群中数据如何分区？
 
 在 Redis 集群中，数据分区是通过将数据分散到不同的节点来实现的，常见的数据分区规则有三种：节点取余分区、一致性哈希分区、虚拟槽分区。
 
@@ -878,7 +912,7 @@ Key 1 和 Key 2 会落入到 Node 1 中，Key 3、Key 4 会落入到 Node 2 中�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：Redis 扩容之后，哈希槽的位置是否发生变化？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：redis 分片集群，如何分片的，有什么好处
 
-### 24.能说说 Redis 集群的原理吗？
+### 27.能说说 Redis 集群的原理吗？
 
 Redis 集群通过数据分区来实现数据的分布式存储，通过自动故障转移实现高可用。
 
@@ -890,7 +924,9 @@ Redis 集群通过数据分区来实现数据的分布式存储，通过自动�
 
 **设置节点**
 Redis 集群一般由多个节点组成，节点数量至少为 6 个才能保证组成完整高可用的集群。每个节点需要开启配置 cluster-enabled yes，让 Redis 运行在集群模式下。
+
 ![节点和握手](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e6064ba6-fd6f-4270-92f9-68c0bb98fd4b.png)
+
 **节点握手**
 节点握手是指一批运行在集群模式下的节点通过 Gossip 协议彼此通信， 达到感知对方的过程。节点握手是集群彼此通信的第一步，由客户端发起命 令：cluster meet{ip}{port}。完成节点握手之后，一个个的 Redis 节点就组成了一个多节点的集群。
 
@@ -905,8 +941,11 @@ Redis 集群的故障转移和哨兵的故障转移类似，但是 Redis 集群�
 
 **故障发现**
 Redis 集群内节点通过 ping/pong 消息实现节点通信，集群中每个节点都会定期向其他节点发送 ping 消息，接收节点回复 pong 消息作为响应。如果在 cluster-node-timeout 时间内通信一直失败，则发送节 点会认为接收节点存在故障，把接收节点标记为主观下线（pfail）状态。
+
 ![主观下线](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-84a2a89e-f9ea-4681-b748-1a4f1dee172b.png)
+
 当某个节点判断另一个节点主观下线后，相应的节点状态会跟随消息在集群内传播。通过 Gossip 消息传播，集群内节点不断收集到故障节点的下线报告。当 半数以上持有槽的主节点都标记某个节点是主观下线时。触发客观下线流程。
+
 ![主观下线和客观下线](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b61a6109-7aea-45ab-a53c-267eebb9180a.png)
 
 **故障恢复**
@@ -923,15 +962,17 @@ Redis 集群内节点通过 ping/pong 消息实现节点通信，集群中每个
    当从节点定时任务检测到达故障选举时间（failover_auth_time）到达后，发起选举流程。
 4. 选举投票
    持有槽的主节点处理故障选举消息。投票过程其实是一个领导者选举的过程，如集群内有 N 个持有槽的主节 点代表有 N 张选票。由于在每个配置纪元内持有槽的主节点只能投票给一个 从节点，因此只能有一个从节点获得 N/2+1 的选票，保证能够找出唯一的从节点。
+
    ![选举投票](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d0e16ea3-6683-43f4-82a3-80478703ae06.png)
+
 5. 替换主节点
    当从节点收集到足够的选票之后，触发替换主节点操作。
 
-> **部署 Redis 集群至少需要几个物理节点？**
+#### 部署 Redis 集群至少需要几个物理节点？
 
 在投票选举的环节，故障主节点也算在投票数内，假设集群内节点规模是 3 主 3 从，其中有 2 个主节点部署在一台机器上，当这台机器宕机时，由于从节点无法收集到 3/2+1 个主节点选票将导致故障转移失败。这个问题也适用于故障发现环节。因此部署集群时所有主节点最少需要部署在 3 台物理机上才能避免单点问题。
 
-### 25.说说集群的伸缩？
+### 28.说说集群的伸缩？
 
 Redis 集群使用数据分片和哈希槽的机制将数据分布到不同的节点上。集群扩容和缩容的关键，在于槽和节点之间的对应关系。
 
@@ -957,7 +998,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 缓存设计
 
-### 26.缓存击穿、缓存穿透、缓存雪崩了解吗？
+### 29.缓存击穿、缓存穿透、缓存雪崩了解吗？
 
 缓存穿透、缓存击穿和缓存雪崩是指在使用 Redis 做缓存时可能遇到的三种高并发场景下的问题。
 
@@ -1108,7 +1149,7 @@ public UserPermissions loadPermissionsFromRedis(String userId) {
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：如何解决缓存穿透
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：如何理解缓存雪崩、缓存击穿和缓存穿透？
 
-### 27.能说说布隆过滤器吗？
+### 30.能说说布隆过滤器吗？
 
 布隆过滤器是一种空间效率极高的概率型数据结构，用于快速检查一个元素是否存在于一个集合中。
 
@@ -1168,7 +1209,7 @@ $$
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：布隆过滤器？布隆过滤器优点？为什么不能用哈希表要用布隆过滤器？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：追问：说明一下布隆过滤器
 
-### 28.如何保证缓存和数据库的数据⼀致性？
+### 31.如何保证缓存和数据库的数据⼀致性？
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我采用的是先写 MySQL，再删除 Redis 的方式来保证缓存和数据库的数据一致性。
 
@@ -1282,7 +1323,7 @@ redis.del(product_id)
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：怎么解决redis和mysql的缓存一致性问题
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：双写一致性怎么解决的
 
-### 29.如何保证本地缓存和分布式缓存的一致？
+### 32.如何保证本地缓存和分布式缓存的一致？
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，为了减轻 Redis 的负载，我又追加了一层本地缓存 Caffeine。
 
@@ -1329,7 +1370,7 @@ Redis 还可以持久化数据，支持数据备份和恢复，适用于对数�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术二面的原题：redis 和本地缓存的区别，哪个效率高
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 8 一面面试原题：缓存一致性如何保证
 
-### 30.怎么处理热 key？
+### 33.怎么处理热 key？
 
 推荐阅读：
 
@@ -1418,7 +1459,7 @@ if data == NULL {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
 
-### 31.缓存预热怎么做呢？
+### 34.缓存预热怎么做呢？
 
 缓存预热是指在系统启动时，提前将一些预定义的数据加载到缓存中，以避免在系统运行初期由于缓存未命中（cache miss）导致的性能问题。
 
@@ -1461,7 +1502,7 @@ private synchronized void initSiteMap() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：什么是缓存预热？如何解决？
 
-### 32.热点 key 重建？问题？解决？
+### 35.热点 key 重建？问题？解决？
 
 开发的时候一般使用“缓存+过期时间”的策略，既可以加速数据读写，又保证数据的定期更新，这种模式基本能够满足绝大部分需求。
 
@@ -1471,7 +1512,7 @@ private synchronized void initSiteMap() {
 
 - 重建缓存不能在短时间完成，可能是一个复杂计算，例如复杂的 SQL、多次 IO、多个依赖等。 在缓存失效的瞬间，有大量线程来重建缓存，造成后端负载加大，甚至可能会让应用崩溃。
 
-> **怎么处理呢？**
+#### 怎么处理热key呢？
 
 要解决这个问题也不是很复杂，解决问题的要点在于：
 
@@ -1489,9 +1530,7 @@ private synchronized void initSiteMap() {
 - 从缓存层面来看，确实没有设置过期时间，所以不会出现热点 key 过期后产生的问题，也就是“物理”不过期。
 - 从功能层面来看，为每个 value 设置一个逻辑过期时间，当发现超过逻辑过期时间后，会使用单独的线程去构建缓存。
 
-### 33.无底洞问题吗？如何解决？
-
-> **什么是无底洞问题？**
+### 36.无底洞问题吗？如何解决？
 
 2010 年，Facebook 的 Memcache 节点已经达到了 3000 个，承载着 TB 级别的缓存数据。但开发和运维人员发现了一个问题，为了满足业务要求添加了大量新 Memcache 节点，但是发现性能不但没有好转反而下降了，当时将这 种现象称为缓存的“**无底洞**”现象。
 
@@ -1499,7 +1538,7 @@ private synchronized void initSiteMap() {
 
 通常来说添加节点使得 Memcache 集群 性能应该更强了，但事实并非如此。键值数据库由于通常采用哈希函数将 key 映射到各个节点上，造成 key 的分布与业务无关，但是由于数据量和访问量的持续增长，造成需要添加大量节点做水平扩容，导致键值分布到更多的 节点上，所以无论是 Memcache 还是 Redis 的分布式，批量操作通常需要从不同节点上获取，相比于单机批量操作只涉及一次网络操作，分布式批量操作会涉及多次网络时间。
 
-> **无底洞问题如何优化呢？**
+#### 无底洞问题如何优化呢？
 
 先分析一下无底洞问题：
 
@@ -1523,7 +1562,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## Redis 运维
 
-### 34.Redis 报内存不足怎么处理？
+### 37.Redis 报内存不足怎么处理？
 
 Redis 内存不足有这么几种处理方式：
 
@@ -1532,7 +1571,7 @@ Redis 内存不足有这么几种处理方式：
 - 修改内存淘汰策略，及时释放内存空间
 - 使用 Redis 集群模式，进行横向扩容。
 
-### 35.Redis key 过期策略有哪些？
+### 38.Redis key 过期策略有哪些？
 
 Redis 的 key 过期回收策略主要有两种：惰性删除和定期删除。
 
@@ -1554,7 +1593,7 @@ Redis 的 key 过期回收策略主要有两种：惰性删除和定期删除。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2 面面试原题：redis 内存淘汰和过期策略
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：redis key过期策略
 
-### 36.Redis 有哪些内存淘汰策略？
+### 39.Redis 有哪些内存淘汰策略？
 
 当 Redis 的内存使用达到最大值时，它会根据配置的内存淘汰策略来决定如何处理新的请求。
 
@@ -1583,7 +1622,7 @@ LFU（Least Frequently Used）：基于次数维度，淘汰访问频率最低�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：redis内存淘汰策略
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：redis内存淘汰机制  延伸到LRU   LFU
 
-### 37.Redis 阻塞？怎么解决？
+### 40.Redis 阻塞？怎么解决？
 
 Redis 发生阻塞，可以从以下几个方面排查：
 ![Redis阻塞排查](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e6a35258-7a78-4489-90b7-e47a4190802b.png)
@@ -1620,7 +1659,7 @@ Redis 发生阻塞，可以从以下几个方面排查：
   3. HugePage 写操作阻塞
      对于开启 Transparent HugePages 的 操作系统，每次写命令引起的复制内存页单位由 4K 变为 2MB，放大了 512 倍，会拖慢写操作的执行时间，导致大量写操作慢查询。
 
-### 38.大 key 问题了解吗？
+### 41.大 key 问题了解吗？
 
 大 key 指的是存储了大量数据的键，比如：
 
@@ -1671,7 +1710,7 @@ Redis 发生阻塞，可以从以下几个方面排查：
 
 > 1. 华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
 
-### 39.Redis 常见性能问题和解决方案？
+### 42.Redis 常见性能问题和解决方案？
 
 1.  Master 最好不要做任何持久化工作，包括内存快照和 AOF 日志文件，特别是不要启用内存快照做持久化。
 2.  如果数据比较关键，某个 Slave 开启 AOF 备份数据，策略为每秒同步一次。
@@ -1688,7 +1727,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## Redis 应用
 
-### 40.使用 Redis 如何实现异步队列？
+### 43.使用 Redis 如何实现异步队列？
 
 我们知道 redis 支持很多种结构的数据，那么如何使用 redis 作为异步队列使用呢？
 一般有以下几种方式：
@@ -1715,7 +1754,7 @@ brpop 是 rpop 的阻塞版本，list 为空的时候，它会一直阻塞，直
 
 所以，一般的异步队列的实现还是交给专业的消息队列。
 
-### 41.Redis 如何实现延时队列?
+### 44.Redis 如何实现延时队列?
 
 可以使用 Redis 的 zset（有序集合）来实现延时队列。
 
@@ -1742,7 +1781,7 @@ ZREM delay_queue task1
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 实现延迟队列
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：redis 数据结构，用什么结构实现延迟消息队列
 
-### 42.Redis 支持事务吗？
+### 45.Redis 支持事务吗？
 
 Redis 支持简单的事务，可以将多个命令打包，然后一次性的，按照顺序执行。主要通过 multi、exec、discard、watch 等命令来实现：
 
@@ -1794,7 +1833,7 @@ Redis 的持久性依赖于其持久化机制（如 RDB 和 AOF），而不是�
 > 2. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：什么是 redis 的事务，它的 ACID 属性如何体现
 
 
-### 43.有 Lua 脚本操作 Redis 的经验吗？
+### 46.有 Lua 脚本操作 Redis 的经验吗？
 
 Redis 的事务不具备强制性的原子性，但可以通过 Lua 脚本来增强 Redis 的原子能力。
 
@@ -1829,7 +1868,7 @@ return -1;
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Redis事务满足原子性吗？要怎么改进？
 
-### 44.Redis 的管道Pipeline了解吗？
+### 47.Redis 的管道Pipeline了解吗？
 
 Pipeline 是 Redis 提供的一种优化手段，允许客户端一次性向服务器发送多个命令，而不必等待每个命令的响应，从而减少网络延迟。它的工作原理类似于批量操作，即多个命令一次性打包发送，Redis 服务器依次执行后再将结果一次性返回给客户端。
 
@@ -1859,7 +1898,7 @@ Redis 服务器执行完所有命令后，将每条命令的结果一次性打�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：对pipeline的理解，什么场景适合使用pipeline？有了解过pipeline的底层？ 
 
-### 45.Redis 实现分布式锁了解吗？
+### 48.Redis 实现分布式锁了解吗？
 
 Redis 实现分布式锁的本质，就是在 Redis 里面占一个“茅坑”，当别的客户端也来占坑时，发现已经有客户端蹲在那里了，就只好放弃或者稍后再试。
 
@@ -2071,7 +2110,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 这一部分就比较深了，如果不是简历上写了精通 Redis，应该不会怎么问。
 
-### 46.说说 Redis 底层数据结构？
+### 49.说说 Redis 底层数据结构？
 
 Redis 的底层数据结构有**动态字符串(sds)**、**链表(list)**、**字典(ht)**、**跳跃表(skiplist)**、**整数集合(intset)**、**压缩列表(ziplist)** 等。
 
@@ -2182,13 +2221,13 @@ listpack 每个元素项不再保存上一个元素的长度，而是优化元�
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：Zset的底层实现？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Zset的底层如何实现？
 
-### 47.Redis 的 SDS 和 C 中字符串相比有什么优势？
+### 50.Redis 的 SDS 和 C 中字符串相比有什么优势？
 
 C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的字符串，并且字符数组最后一个元素总是 `\0`，这种简单的字符串表示方式 不符合 Redis 对字符串在安全性、效率以及功能方面的要求。
 
 ![C语言的字符串](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2541fd26-4e84-467d-8d8c-c731154a85d7.png)
 
-**C 语言的字符串可能有什么问题？**
+#### C 语言的字符串可能有什么问题？
 
 这样简单的数据结构可能会造成以下一些问题：
 
@@ -2196,7 +2235,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 - 不能杜绝 **缓冲区溢出/内存泄漏** 的问题 : C 字符串不记录自身长度带来的另外一个问题是容易造成缓存区溢出（buffer overflow），例如在字符串拼接的时候，新的
 - C 字符串 **只能保存文本数据** → 因为 C 语言中的字符串必须符合某种编码（比如 ASCII），例如中间出现的 `'\0'` 可能会被判定为提前结束的字符串而识别不了；
 
-**Redis 如何解决？优势？**
+#### Redis 如何解决？优势？
 
 ![Redis sds](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-fc26a4e7-1c8d-4e82-b7f8-1f6b43d16d38.png)
 
@@ -2207,23 +2246,23 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 3. **有效降低内存分配次数**：C 字符串在涉及增加或者清除操作时会改变底层数组的大小造成重新分配，SDS 使用了 **空间预分配** 和 **惰性空间释放** 机制，简单理解就是每次在扩展时是成倍的多分配的，在缩容是也是先留着并不正式归还给 OS；
 4. **二进制安全**：C 语言字符串只能保存 `ascii` 码，对于图片、音频等信息无法保存，SDS 是二进制安全的，写入什么读取就是什么，不做任何过滤和限制；
 
-### 48.字典是如何实现的？Rehash 了解吗？
+### 51.字典是如何实现的？Rehash 了解吗？
 
 字典是 Redis 服务器中出现最为频繁的复合型数据结构。除了 **hash** 结构的数据会用到字典外，整个 Redis 数据库的所有 `key` 和 `value` 也组成了一个 **全局字典**，还有带过期时间的 `key` 也是一个字典。_(存储在 RedisDb 数据结构中)_
 
-**字典结构是什么样的呢？**
+#### 字典结构是什么样的呢？
 
 **Redis** 中的字典相当于 Java 中的 **HashMap**，内部实现也差不多类似，采用哈希与运算计算下标位置；通过 **"数组 + 链表" **的**链地址法** 来解决哈希冲突，同时这样的结构也吸收了两种不同数据结构的优点。
 
 ![Redis字典结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e08347a6-efd5-47c0-9adb-23baff82dbbd.png)
 
-**字典是怎么扩容的？**
+#### 字典是怎么扩容的？
 
-字典结构内部包含 **两个 hashtable**，通常情况下只有一个哈希表 ht[0] 有值，在扩容的时候，把 ht[0]里的值 rehash 到 ht[1]，然后进行 **渐进式 rehash** ——所谓渐进式 rehash，指的是这个 rehash 的动作并不是一次性、集中式地完成的，而是分多次、渐进式地完成的。
+字典结构内部包含 **两个 hashtable**，通常情况下只有一个哈希表 `ht[0]` 有值，在扩容的时候，把 `ht[0]`里的值 rehash 到 `ht[1]`，然后进行 **渐进式 rehash** ——所谓渐进式 rehash，指的是这个 rehash 的动作并不是一次性、集中式地完成的，而是分多次、渐进式地完成的。
 
-待搬迁结束后，h[1]就取代 h[0]存储字典的元素。
+待搬迁结束后，`h[1]`就取代 `h[0]`存储字典的元素。
 
-### 49.跳表是如何实现的？原理？
+### 52.跳表是如何实现的？原理？
 
 跳表是一种有序的数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。
 
@@ -2292,7 +2331,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Redis 跳表
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：跳表了解吗
 
-### 50.压缩列表了解吗？
+### 53.压缩列表了解吗？
 
 压缩列表是 Redis **为了节约内存** 而使用的一种数据结构，是由一系列特殊编码的连续内存快组成的顺序型数据结构。
 
@@ -2308,7 +2347,7 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 
 ![压缩列表示例](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b5d224c2-53ee-40a3-9efc-2feb7dd3d7a8.png)
 
-### 51.快速列表 quicklist 了解吗？
+### 54.快速列表 quicklist 了解吗？
 
 Redis 早期版本存储 list 列表数据结构使用的是压缩列表 ziplist 和普通的双向链表 linkedlist，也就是说当元素少时使用 ziplist，当元素多时用 linkedlist。
 
@@ -2327,11 +2366,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## 补充
 
-### 52.假如 Redis 里面有 1 亿个 key，其中有 10w 个 key 是以某个固定的已知的前缀开头的，如何将它们全部找出来？
+### 55.假如 Redis 里面有 1 亿个 key，其中有 10w 个 key 是以某个固定的已知的前缀开头的，如何将它们全部找出来？
 
 使用 `keys` 指令可以扫出指定模式的 key 列表。但是要注意 keys 指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用 `scan` 指令，`scan` 指令可以无阻塞的提取出指定模式的 `key` 列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用 `keys` 指令长。
 
-### 57.Redis 的秒杀场景下扮演了什么角色？（补充）
+### 56.Redis 的秒杀场景下扮演了什么角色？（补充）
 
 秒杀主要是指大量用户集中在短时间内对服务器进行访问，从而导致服务器负载剧增，可能出现系统响应缓慢甚至崩溃的情况。
 
@@ -2426,7 +2465,7 @@ redis-cli EVAL "$(cat consume_token.lua)" 1 token_bucket
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：秒杀问题（错峰、削峰、前端、流量控制）
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：限流算法
 
-### 58. 客户端宕机后 Redis 服务端如何感知到？
+### 57. 客户端宕机后 Redis 服务端如何感知到？
 
 每个客户端在 Redis 中维护一个特定的键（称为心跳键），用于表示客户端的健康状态。该键具有一个设置的超时时间，例如 10 秒。
 
@@ -2501,7 +2540,7 @@ public class ServerMonitor {
 
 ---
 
-图文详解 58 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+图文详解 57 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 

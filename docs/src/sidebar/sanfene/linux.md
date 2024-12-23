@@ -71,6 +71,22 @@ head:
 - `chmod`：更改文件或目录的权限。
 - `chown`：更改文件或目录的所有者和所属组。
 
+#### 如何查看Linux进程或CPU使用情况？
+
+top 命令可以实时查看所有进程的 CPU 和内存使用情况。
+
+`ps aux --sort=-%cpu | head -5`可以查看 CPU 使用率最高的 5 个进程。
+
+![二哥的 Java 进阶之路：ps 命令](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223162812.png)
+
+#### 如何查看Linux内存使用情况？
+
+可以使用 watch 配合 free 命令实时监控内存使用情况。如 `watch -n 1 free -m`每秒刷新一次内存使用情况。
+
+![二哥的 Java 进阶之路：free](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223163021.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：如何看Linux进程或CPU使用情况？Linux查看内存情况？
+
 #### 如何查看系统负载？
 
 top 命令是实时查看系统性能的常用工具，系统负载信息通常显示在 top 命令输出的顶部。它还显示了系统运行的进程、内存使用情况等。
@@ -160,6 +176,22 @@ Linux 中的权限可以应用于三种类别的用户：
 - `wget`：从网络上下载文件。
 - `ifconfig`：显示网络接口的配置信息。
 - `netstat`：显示网络连接、路由表和网络接口信息。
+
+#### 如何查看8080端口的连接数？
+
+可以通过 netstat 命令查看，如`netstat -an | grep ':8080' | grep 'tcp' | wc -l`。
+
+![二哥的 Java 进阶之路：netstat 命令查看 8080 端口](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223161926.png)
+
+- `-a`：显示所有网络连接和监听端口。
+- `-n`：以数字形式显示地址和端口。
+- `grep ':8080'`：过滤出 8080 端口的连接。
+- `grep 'tcp'`：仅显示 TCP 连接。
+- `wc -l`：统计匹配到的行数，即连接数。
+
+也可以使用 `ss` 命令，它是 netstat 的替代工具；还可以使用 `lsof` 命令，它可以列出当前系统打开的文件和套接字。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：Linux系统的8080端口有多少个TCP连接，怎么看？
 
 ### 压缩和解压的命令有哪些？
 
