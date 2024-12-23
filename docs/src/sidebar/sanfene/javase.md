@@ -14,7 +14,17 @@ head:
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-1.3 万字 44 张手绘图，详解 56 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+1.3 万字 44 张手绘图，详解 56 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，原作者：星球嘉宾三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+
+2024 年 12 月 23 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javase-20241223085158.png)
+
 
 ## Java 概述
 
@@ -22,41 +32,47 @@ head:
 
 ![詹姆斯高斯林-下辈子还学 Java，还头秃](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-01.png)
 
-Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯高斯林（James Gosling）团队于 1995 年推出。吸收了 C++ 语言中大量的优点，但又抛弃了 C++ 中容易出错的地方，如垃圾回收。
+Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯·高斯林团队于 1995 年推出。吸收了 C++ 语言中大量的优点，但又抛弃了 C++ 中容易出错的地方，如垃圾回收、指针。
 
-同时，Java 又是一门平台无关的编程语言，即一次编译，处处运行（Write Once，Run Anywhere），可以在 Windows、macOS、Linux 平台上运行，只需要安装一个 Java 虚拟机（JVM）。
+同时，Java 又是一门平台无关的编程语言，即一次编译，处处运行。
+
+只需要在对应的平台上安装 JDK，就可以实现跨平台，在 Windows、macOS、Linux 操作系统上运行。
 
 #### 多久开始学 Java 的？
 
-我是从大一下学期开始学习 Java 的，当时已经学完了 C 语言，但苦于 C 语言没有很好的应用方向，就开始学习 Java 了，因为我了解到，绝大多数的互联网公司后端服务都是用 Java 开发的，另外就是学习资料也非常丰富，就业岗位和薪资待遇都比较理想。
+我是从大一下学期开始学习 Java 的，当时已经学完了 C 语言，但苦于 C 语言没有很好的应用方向，就开始学习 Java 了，因为我了解到，绝大多数的互联网公司，包括银行、国企，后端服务都是用 Java 开发的，另外就是，Java 的学习资料非常丰富，就业岗位和薪资待遇都比较理想。
 
-于是就想着一边学，一边实战，后面我又接触到了 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等一系列 Java 技术栈，让我的编程能力有了很大的提升。后来就有了[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)这个社区项目。
+于是就一边学，一边实战，先做了前后端分离的社区项目[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)，接触到了 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等一系列的 Java 技术栈。
 
 ![技术派实战项目](https://cdn.tobebetterjavaer.com/paicoding/bdfa153fc82310f9ab862a1b3db0d0d7.png)
 
-这样我就可以作为创作者把自己在学习 Java 过程中的经验心得通过文章/教程的形式发布出来，同时读者还可以通过评论、点赞、收藏的形式和我进行互动。
+后面又做了微服务项目 [pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)，接触到了 Spring Cloud、Nacos、Sentinel、Seata、SkyWalking 等相关技术栈。
+
+![pmhub](https://cdn.tobebetterjavaer.com/stutymore/1719412227941-391d1ca0-e312-4e81-a958-2eff29dbecd7.png)
 
 #### 平常用什么编程语言？
 
-大一上先学习的 C 语言，大一下半学期开始学习 Java，中间还学过一些 Python 和 JavaScript，但整体的感受上来说还是最喜欢 Java。
+大一上先学习的 C 语言，大一下半学期开始学习 Java，中间还学过一些 Python 和 JavaScript，但整体的感受上来说还是更喜欢 Java。
 
-因为它可以做的事情太多了，既可以用它来爬一些数据做测试，还可以用它来写 Web 后端服务，就连一些轮子也可以用它来造，比如说我之前写过一个 MYDB 的轮子，就是用的 Java。
+因为它可以做的事情太多了，既可以用它来写 Web 后端服务，也可以用它来造一些轮子，比如 [MYDB](https://t.zsxq.com/0bhcI0Gs6) 这个轮子，就是用 Java 完成的，不进加深了我对 MySQL索引、事务、MVCC 的理解，还让我对 Java 的 NIO、多线程、JVM 有了更深的了解。
+
+![MYDB](https://cdn.tobebetterjavaer.com/stutymore/javase-20241223085416.png)
 
 #### 平时是怎么学 Java 的？
 
-一开始，主要是跟着学校的课程学习，后来入门后我感觉 Java 还是挺有意思的，尤其是 JVM 和并发编程这块还是蛮有深度的，于是我就开始在 B 站和 GitHub 上找一些优质的视频资源和开源知识库。
+一开始，主要是跟着学校的课程走，入门后感觉课程已经满足不了我的求知欲了，于是就开始在 B 站和 GitHub 上找一些优质的视频资源和开源知识库来学习。
 
-像一个博主的《Java 进阶之路》就蛮适合我的，从 Java 的语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，都有详细的讲解，还有很多手绘图和代码实例，我都跟着动手一步步实现了，感觉收获很大。
+比如说《[Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》就很适合我的口味，从 Java 的语法、数组&字符串、OOP、集合框架、Java IO、异常处理、网络编程、NIO、并发编程、JVM 等，都有详细的讲解，还有很多手绘图和代码实例，我都跟着动手一步步实现了，感觉收获很大。
 
-后来又读了一遍《Java 编程思想》、《Effective Java》，以及 JDK 的一些源码，比如说 String、HashMap，还有字节码的一些知识，算是对 Java 有比较深入的理解了。
+后来又读了一遍《Java 编程思想》、《Effective Java》，周志明老师的《深入理解 Java 虚拟机》，以及 JDK 的一些源码，比如说 String、HashMap，还有字节码方面的知识。
 
-再后来就开始做实战项目 MYDB 和技术派，算是彻底掌握 Java 项目的开发流程了。
+再后来就开始做实战项目 [MYDB](https://t.zsxq.com/0bhcI0Gs6)、[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html)，算是彻底掌握 Java 项目的开发流程了。
 
 #### Java 语言和 C 语言有哪些区别？
 
-Java 是一种跨平台的编程语言，通过在不同操作系统上安装对应的 JVM 以实现“一次编译，处处运行”的目的。而 C 语言需要在不同的操作系统上重新编译。
+Java 是一种跨平台的编程语言，通过在不同操作系统上安装对应版本的 JVM 以实现“一次编译，处处运行”的目的。而 C 语言需要在不同的操作系统上重新编译。
 
-Java 可以实现自动内存管理，通过 GC 垃圾收集器来实现，而 C 语言需要使用 malloc 和 free 来手动管理内存。
+Java 实现了内存的自动管理，而 C 语言需要使用 malloc 和 free 来手动管理内存。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：多久开始学 java 的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：平常用什么编程语言
@@ -68,65 +84,64 @@ Java 可以实现自动内存管理，通过 GC 垃圾收集器来实现，而 C
 
 ![三分恶面渣逆袭：Java语言特点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-2.png)
 
+Java 语言的特点有：
+
 ①、面向对象，主要是封装，继承，多态。
 
-②、平台无关性，平台无关性的具体表现在于，Java 是“一次编写，到处运行（Write Once，Run any Where）”的语言，因此采用 Java 语言编写的程序具有很好的可移植性，而保证这一点的正是 Java 的虚拟机机制。在引入虚拟机之后，Java 语言在不同的平台上运行不需要重新编译。
+②、平台无关性，“一次编写，到处运行”，因此采用 Java 语言编写的程序具有很好的可移植性。
 
-③、支持多线程。C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程支持；
+③、支持多线程。C++ 语言没有内置的多线程机制，因此必须调用操作系统的 API 来完成多线程程序设计，而 Java 却提供了封装好多线程支持；
 
-④、支持 JIT 编译。JIT 是 Just-In-Time 的缩写，指的是即时编译器，它可以在程序运行时将字节码转换为本地机器码来提高程序运行速度。
+④、支持 JIT 编译，也就是即时编译器，它可以在程序运行时将字节码转换为热点机器码来提高程序的运行速度。
 
 ### 3.JVM、JDK 和 JRE 有什么区别？
 
-**JVM**：Java Virtual Machine，也就是 Java 虚拟机，是 Java 实现跨平台的关键所在，针对不同的操作系统，有不同的 JVM 实现。JVM 负责将 Java 字节码转换为特定平台的机器码，并执行。
+![三分恶面渣逆袭：JDK、JRE、JVM关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
 
-**JRE**：Java Runtime Environment，也就是 Java 运行时环境，包含了运行 Java 程序所必需的库，以及 Java 虚拟机（JVM）。
+**JVM**：也就是 Java 虚拟机，是 Java 实现跨平台的关键所在，不同的操作系统有不同的 JVM 实现。JVM 负责将 Java 字节码转换为特定平台的机器码，并执行。
 
-**JDK**：Java Development Kit，是一套完整的 Java SDK（软件开发工具包），包括了 JRE 以及编译器（javac）、Java 文档生成工具（Javadoc）、Java 调试器等开发工具。为开发者提供了开发、编译、调试 Java 程序的一整套环境。
+**JRE**：也就是 Java 运行时环境，包含了运行 Java 程序所必需的库，以及 JVM。
+
+**JDK**：一套完整的 Java SDK，包括 JRE，编译器 javac、Java 文档生成工具 javadoc、Java 字节码工具 javap 等。为开发者提供了开发、编译、调试 Java 程序的一整套环境。
 
 简单来说，JDK 包含 JRE，JRE 包含 JVM。
 
-![三分恶面渣逆袭：JDK、JRE、JVM关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：JRE 与 JDK 的区别，JDK 多了哪些东西，既安装了 JRE 又安装了 JDK，可以利用 JDK 做什么事情？
 
-### 4.说说什么是跨平台性？原理是什么
+### 4.说说什么是跨平台？原理是什么
 
-所谓跨平台性，是指 Java 语言编写的程序，一次编译后，可以在多个系统平台上运行。
+所谓的跨平台，是指 Java 语言编写的程序，一次编译后，可以在多个操作系统上运行。
 
-实现原理：Java 程序是通过 Java 虚拟机在系统平台上运行的，只要该系统可以安装相应的 Java 虚拟机，该系统就可以运行 java 程序。
+原理是增加了一个中间件 JVM，JVM 负责将 Java 字节码转换为特定平台的机器码，并执行。
 
 ### 5.什么是字节码？采用字节码的好处是什么?
 
-所谓的字节码，就是 Java 程序经过编译之类产生的.class 文件，字节码能够被虚拟机识别，从而实现 Java 程序的跨平台性。
+所谓的字节码，就是 Java 程序经过编译后产生的 .class 文件。
 
-**Java** 程序从源代码到运行主要有三步：
+**Java** 程序从源代码到运行需要经过三步：
 
-- **编译**：将我们的代码（.java）编译成虚拟机可以识别理解的字节码(.class)
-- **解释**：虚拟机执行 Java 字节码，将字节码翻译成机器能识别的机器码
-- **执行**：对应的机器执行二进制机器码
+- **编译**：将源代码文件 .java 编译成 JVM 可以识别的字节码文件 .class
+- **解释**：JVM 执行字节码文件，将字节码翻译成操作系统能识别的机器码
+- **执行**：操作系统执行二进制的机器码
 
-![Java程序执行过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-4.png)
+![三分恶面渣逆袭：Java程序执行过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-4.png)
 
-只需要把 Java 程序编译成 Java 虚拟机能识别的 Java 字节码，不同的平台安装对应的 Java 虚拟机，这样就可以可以实现 Java 语言的平台无关性。
+### 6.为什么有人说 Java 是“编译与解释并存”的语言？
 
-### 6.为什么说 Java 语言“编译与解释并存”？
+编译型语言是指编译器针对特定的操作系统，将源代码一次性翻译成可被该平台执行的机器码。
 
-高级编程语言按照程序的执行方式分为**编译型**和**解释型**两种。
+解释型语言是指解释器对源代码进行逐行解释，解释成特定平台的机器码并执行。
 
-简单来说，编译型语言是指编译器针对特定的操作系统将源代码一次性翻译成可被该平台执行的机器码；解释型语言是指解释器对源程序逐行解释成特定平台的机器码并立即执行。
+举个例子，我想读一本国外的小说，我有两种选择：
 
-比如，你想读一本外国的小说，你可以找一个翻译人员帮助你翻译，有两种选择方式，你可以先等翻译人员将全本的小说（也就是源码）都翻译成汉语，再去阅读，也可以让翻译人员翻译一段，你在旁边阅读一段，慢慢把书读完。
+- 找个翻译，等翻译将小说全部都翻译成汉语，一次性读完。
+- 找个翻译，翻译一段我读一段，慢慢把书读完。
 
-Java 语言既具有编译型语言的特征，也具有解释型语言的特征，因为 Java 程序要经过先编译，后解释两个步骤，由 Java 编写的程序需要先经过编译步骤，生成字节码（`\*.class` 文件），这种字节码必须再经过 JVM，解释成操作系统能识别的机器码，在由操作系统执行。因此，我们可以认为 Java 语言**编译**与**解释**并存。
+之所以有人说 Java 是“编译与解释并存”的语言，是因为 Java 程序需要先将 Java 源代码文件编译字节码文件，再解释执行。
 
-![编译与解释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-5.png)
+![三分恶面渣逆袭：编译与解释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-5.png)
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## 基础语法
 
@@ -135,19 +150,22 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 推荐阅读 1：[Java 的数据类型](https://javabetter.cn/basic-grammar/basic-data-type.html)
 > 推荐阅读 2：[面试官竟然问我这么简单的题目：Java 中 boolean 占多少字节？](https://mp.weixin.qq.com/s/KMDlAf5sXQCn8LJz-RJRgA)
 
-Java 的数据类型分两种：**基本数据类型**和**引用数据类型**。
+Java 的数据类型可以分为两种：**基本数据类型**和**引用数据类型**。
 
 ![二哥的 Java 进阶之路：Java数据类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
-#### 基本数据类型有哪些？
+基本数据类型有：
 
-- 数值型
-  - 整数类型（byte、short、int、long）
-  - 浮点类型（float、double）
-- 字符型（char）
-- 布尔型（boolean）
+①、数值型
 
-Java 基本数据类型的默认值和占用大小：
+- 整数类型（byte、short、int、long）
+- 浮点类型（float、double）
+
+②、字符型（char）
+
+③、布尔型（boolean）
+
+它们的默认值和占用大小如下所示：
 
 | 数据类型 | 默认值   | 大小            |
 | -------- | -------- | --------------- |
@@ -160,7 +178,7 @@ Java 基本数据类型的默认值和占用大小：
 | float    | 0.0f     | 4 字节          |
 | double   | 0.0      | 8 字节          |
 
-#### 引用数据类型有哪些？
+引用数据类型有：
 
 - [类](https://javabetter.cn/oo/object-class.html)（class）
 - [接口](https://javabetter.cn/oo/interface.html)（interface）
@@ -170,7 +188,7 @@ Java 基本数据类型的默认值和占用大小：
 
 推荐阅读：[二哥的 Java 进阶之路：基本数据类型篇](https://javabetter.cn/basic-grammar/basic-data-type.html)
 
-这要依据具体的 JVM 实现细节，但是在 Java 虚拟机规范中，并没有明确规定 boolean 类型的大小，只是规定 boolean 类型只能取 true 或 false 两个值。
+这要依据具体的 JVM 实现细节。Java 虚拟机规范中，并没有明确规定 boolean 类型的大小，只规定了 boolean 类型的取值 true 或 false。
 
 > boolean: The boolean data type has only two possible values: true and false. Use this data type for simple flags that track true/false conditions. This data type represents one bit of information, but its "size" isn't something that's precisely defined.
 
@@ -190,7 +208,7 @@ System.out.println("Integer.MAX_VALUE in binary: " + Integer.toBinaryString(maxV
 System.out.println("Integer.MIN_VALUE in binary: " + Integer.toBinaryString(Integer.MIN_VALUE)); // Integer.MIN_VALUE in binary: 10000000000000000000000000000000
 ```
 
-这是因为 Java 的整数类型采用的是二进制补码表示法，溢出时值会循环。
+这是因为 Java 的整数类型采用的是二进制补码表示法，溢出时值会变成最小值。
 
 - Integer.MAX_VALUE 的二进制表示是 01111111 11111111 11111111 11111111（32 位）。
 - 加 1 后结果变成 10000000 00000000 00000000 00000000，即 -2147483648（Integer.MIN_VALUE）。
@@ -201,27 +219,29 @@ System.out.println("Integer.MIN_VALUE in binary: " + Integer.toBinaryString(Inte
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：说说 8 大数据类型?
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：给Integer最大值+1，是什么结果
 
-### 8.自动类型转换、强制类型转换？看看这几行代码？
+### 8.自动类型转换、强制类型转换了解吗？
 
-Java 所有的数值型变量可以相互转换，当把一个表数范围小的数值或变量直接赋给另一个表数范围大的变量时，可以进行自动类型转换；反之，需要强制转换。
+推荐阅读：[聊聊基本数据类型的转换](https://javabetter.cn/basic-grammar/type-cast.html)
 
-![Java自动类型转换方向](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-7.png)
+当把一个范围较小的数值或变量赋给另外一个范围较大的变量时，会进行自动类型转换；反之，需要强制转换。
 
-这就好像，小杯里的水倒进大杯没问题，但大杯的水倒进小杯就不行了，可能会溢出。
+![三分恶面渣逆袭：Java自动类型转换方向](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-7.png)
 
-> `float f=3.4`，对吗？
+这就好像，小杯里的水倒进大杯没问题，但大杯的水倒进小杯就可能会溢出。
 
-不正确。3.4 是双精度数，将双精度型（double）赋值给浮点型（float）属于下转型（down-casting，也称为窄化）会造成精度损失，因此需要强制类型转换`float f =(float)3.4;`或者写成`float f =3.4F`
+①、`float f=3.4`，对吗？
 
-> `short s1 = 1; s1 = s1 + 1；`对吗？`short s1 = 1; s1 += 1;`对吗？
+不正确。3.4 默认是双精度，将双精度赋值给浮点型属于下转型（down-casting，也称窄化）会造成精度丢失，因此需要强制类型转换`float f =(float)3.4;`或者写成`float f =3.4F`
 
-对于 short s1 = 1; s1 = s1 + 1;编译出错，由于 1 是 int 类型，因此 s1+1 运算结果也是 int 型，需要强制转换类型才能赋值给 short 型。
+②、`short s1 = 1; s1 = s1 + 1；`对吗？`short s1 = 1; s1 += 1;`对吗？
 
-而 short s1 = 1; s1 += 1;可以正确编译，因为 s1+= 1;相当于 s1 = (short(s1 + 1);其中有隐含的强制类型转换。
+`short s1 = 1; s1 = s1 + 1;` 会编译出错，由于 1 是 int 类型，因此 s1+1 运算结果也是 int 型，需要强制转换类型才能赋值给 short 型。
+
+而 `short s1 = 1; s1 += 1;`可以正确编译，因为 `s1+= 1;`相当于 `s1 = (short(s1 + 1);` 其中有隐含的强制类型转换。
 
 ### 9.什么是自动拆箱/装箱？
 
-- **装箱**：将基本数据类型转换为包装类型（Byte、Short、Integer、Long、Float、Double、Character、Boolean）。
+- **装箱**：将基本数据类型转换为包装类型，例如 int 转换为 Integer。
 - **拆箱**：将包装类型转换为基本数据类型。
 
 ![三分恶面渣逆袭:装箱和拆箱](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-8.png)
@@ -233,22 +253,24 @@ Integer i = 10;  //装箱
 int n = i;   //拆箱
 ```
 
-再换句话说，i 是 Integer 类型，n 是 int 类型；i 是包装器类，n 是基本数据类型。
+再换句话说，i 是 Integer 类型，n 是 int 类型；变量 i 是包装器类，变量 n 是基本数据类型。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：对应有哪些包装器类？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：int和Integer的区别 
 
 ### 10.&和&&有什么区别？
 
-&运算符有两种用法：`短路与`、`逻辑与`。
+`&` 是 `逻辑与`。
 
-&&运算符是短路与运算。逻辑与跟短路与的差别是非常巨大的，虽然二者都要求运算符左右两端的布尔值都是 true 整个表达式的值才是 true。
+`&&`是短路与运算。逻辑与跟短路与的差别是非常大的，虽然二者都要求运算符左右两端的布尔值都是 true，整个表达式的值才是 true。
 
-&&之所以称为短路运算是因为，如果&&左边的表达式的值是 false，右边的表达式会被直接短路掉，不会进行运算。很多时候我们可能都需要用&&而不是&。
+`&&`之所以称为短路运算是因为，如果`&&`左边的表达式的值是 false，右边的表达式会直接短路掉，不会进行运算。
 
-例如在验证用户登录时判定用户名不是 null 而且不是空字符串，应当写为`username != null &&!username.equals("")`，二者的顺序不能交换，更不能用&运算符，因为第一个条件如果不成立，根本不能进行字符串的 equals 比较，否则会产生 NullPointerException 异常。
+例如在验证用户登录时判定用户名不是 null 而且不是空字符串，应当写为`username != null && !username.equals("")`，二者的顺序不能交换，更不能用 `&` 运算符，因为第一个条件如果不成立，根本不能进行字符串的 equals 比较，会抛出 [NullPointerException 异常](https://javabetter.cn/exception/npe.html)。
 
-**注意**：逻辑或运算符（|）和短路或运算符（||）的差别也是如此。
+**注意**：逻辑或运算符（`|`）和短路或运算符（`||`）的差别也是类似。
+
+> 2024 年 12 月 23 日 更新到这里。
 
 ### 11.switch 是否能作用在 byte/long/String 上？
 
