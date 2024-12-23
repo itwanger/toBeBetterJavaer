@@ -1011,6 +1011,7 @@ TIME-WAIT 发生在第四次挥手，当客户端在发送 ACK 确认对方的 F
 >补充：MSL（Maximum Segment Lifetime）：TCP 报文段在网络中的最大存活时间，通常为 30 秒到 2 分钟
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：TIME_WAIT
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：讲下TCP的TIME_WAIT
 
 ### 35.TIME_WAIT 状态过多会导致什么问题？怎么解决？
 
