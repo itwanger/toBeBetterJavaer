@@ -1,4 +1,5 @@
 import { defineUserConfig } from "vuepress";
+import { viteBundler } from "@vuepress/bundler-vite";
 
 import theme from "./theme.js";
 
@@ -12,12 +13,8 @@ export default defineUserConfig({
   // 标题
   title: "二哥的Java进阶之路",
   // 描述
-  description: "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路",
-
-  theme,
-
-  // pwa 建议设置为 false
-  shouldPrefetch: false,
+  description:
+    "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路",
 
   head: [
     // meta
@@ -42,7 +39,8 @@ export default defineUserConfig({
     ],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
-      "script",{},
+      "script",
+      {},
       `
         var _hmt = _hmt || [];
         (function() {
@@ -51,10 +49,11 @@ export default defineUserConfig({
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
-      `
+      `,
     ],
     [
-      "script",{},
+      "script",
+      {},
       `
         var _hmt = _hmt || [];
         (function() {
@@ -63,7 +62,7 @@ export default defineUserConfig({
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
-      `
+      `,
     ],
     [
       "link",
@@ -73,4 +72,10 @@ export default defineUserConfig({
       },
     ],
   ],
+
+  bundler: viteBundler(),
+  theme,
+
+  // pwa 建议设置为 false
+  shouldPrefetch: false,
 });
