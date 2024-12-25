@@ -190,6 +190,20 @@ DNS 的全称是 **Domain Name System**，也就是域名解析系统，它可�
 
 ![常见端口和服务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-b026de43-e203-40be-ac6c-a9d386d319b2.jpg)
 
+### 8.平常有抓包吗（补充）？
+
+>2024 年 12 月 25 日新增
+
+我平常使用最多的就是 chrome 浏览器自带的 network 面板了，可以看到请求的时间、请求的信息，以及响应信息。
+
+![二哥的 Java 进阶之路：chrome 的 network 面板](https://cdn.tobebetterjavaer.com/stutymore/network-20241225093659.png)
+
+更专业的还有 fidder、wireshark 等工具。
+
+![二哥的 Java 进阶之路：wireshark](https://cdn.tobebetterjavaer.com/stutymore/network-20241225093908.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：平时，你是用什么来抓包呢。
+
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -469,7 +483,9 @@ Server: Apache 0.84
 
 ### 15.说下 HTTP1.0，1.1，2.0 的区别？
 
-> 如果记不住下面这么多，可以回答：**HTTP1.0** 默认短连接，HTTP 1.1 默认长连接，HTTP 2.0 采用**多路复用**。
+**HTTP1.0** 默认是短连接，HTTP 1.1 默认是长连接，HTTP 2.0 采用的**多路复用**。
+
+![bytebytego：HTTP 协议的进化](https://cdn.tobebetterjavaer.com/stutymore/network-20241225094527.png)
 
 #### 说下 HTTP1.0
 
@@ -489,6 +505,7 @@ Server: Apache 0.84
 - **服务端推送**：服务器可以主动向客户端推送资源，而不需要客户端明确请求。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：HTTP 1 和 2 的区别
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：http2.0和http1.0区别
 
 ### 16.HTTP/3 了解吗？
 
@@ -549,6 +566,7 @@ HTTP 的默认端⼝号是 80，URL 以`http://`开头；HTTPS 的默认端⼝�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：说说 HTTP和 HTTPS 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：https与http的区别，加密的实现
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：介绍一下http和https的区别？为什么https安全？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：http 和Https 有啥区别呢？https 安全在哪里
 
 ### 19.为什么要用 HTTPS？
 
@@ -635,6 +653,7 @@ HTTPS 通过 SSL/TLS 协议确保了客户端与服务器之间交换的数据�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：http 有哪些方法，http 的 get 方法可以实现写操作吗，https 传递 url 安全吗，为什么数据在浏览器中，中间人攻击是什么
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：HTTPS怎么建立连接的？HTTPS怎么保证建立的信道是安全的？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：https能不能抓包
+
 
 ### 21.客户端怎么去校验证书的合法性？
 
@@ -897,9 +916,15 @@ ACK 是为了告诉客户端传来的数据已经接收无误。
 
 第一次握手不能携带数据是出于安全的考虑，因为如果允许携带数据，攻击者每次在 SYN 报文中携带大量数据，就会导致服务端消耗更多的时间和空间去处理这些报文，会造成 CPU 和内存的消耗。
 
-### 29.说说半连接队列和 SYN Flood 攻击的关系？
+### 29.了解 TCP 半连接状态吗？
 
-> **什么是半连接队列？**
+TCP 半连接指的是在 TCP 三次握手过程中，服务器接收到了客户端的 SYN 包，但还没有完成第三次握手，此时的连接处于一种未完全建立的状态。
+
+![TCP 半连接](https://cdn.tobebetterjavaer.com/stutymore/network-20241225102814.png)
+
+如果服务器回复了 SYN-ACK，但客户端还没有回复 ACK，该连接将一直保留在半连接队列中，直到超时或被拒绝。
+
+#### 说说半连接队列？
 
 TCP 进入三次握手前，服务端会从 **CLOSED** 状态变为 **LISTEN** 状态, 同时在内部创建了两个队列：半连接队列（SYN 队列）和全连接队列（ACCEPT 队列）。
 
@@ -910,18 +935,21 @@ TCP 进入三次握手前，服务端会从 **CLOSED** 状态变为 **LISTEN** �
 - TCP 三次握手时，客户端发送 SYN 到服务端，服务端收到之后，便回复 **ACK 和 SYN**，状态由 **LISTEN 变为 SYN_RCVD**，此时这个连接就被推入了 **SYN 队列**，即半连接队列。
 - 当客户端回复 ACK, 服务端接收后，三次握手就完成了。这时连接会等待被具体的应用取走，在被取走之前，它被推入 ACCEPT 队列，即全连接队列。
 
-> **什么是 SYN Flood ？**
+#### 什么是 SYN Flood ？
 
 SYN Flood 是一种典型的 DDos 攻击，它在短时间内，伪造**不存在的 IP 地址**, 向服务器发送大量 SYN 报文。当服务器回复 SYN+ACK 报文后，不会收到 ACK 回应报文，那么 SYN 队列里的连接旧不会出对队，久⽽久之就会占满服务端的 **SYN** 接收队列（半连接队列），使得服务器不能为正常⽤户服务。
 
 ![SYN 攻击](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-f3b36155-842c-4583-ba4d-b0f04f0eda58.jpg)
 
-> **那有什么应对方案呢？**
+#### 那有什么应对方案呢？
 
 主要有 **syn cookie** 和 **SYN Proxy 防火墙**等。
 
 - **syn cookie**：在收到 SYN 包后，服务器根据一定的方法，以数据包的源地址、端口等信息为参数计算出一个 cookie 值作为自己的 SYNACK 包的序列号，回复 SYN+ACK 后，服务器并不立即分配资源进行处理，等收到发送方的 ACK 包后，重新根据数据包的源地址、端口计算该包中的确认序列号是否正确，如果正确则建立连接，否则丢弃该包。
 - **SYN Proxy 防火墙**：服务器防火墙会对收到的每一个 SYN 报文进行代理和回应，并保持半连接。等发送方将 ACK 包返回后，再重新构造 SYN 包发到服务器，建立真正的 TCP 连接。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：tcp半连接是什么样一个状态？
 
 ### 30.说说 TCP 四次挥手的过程？
 
@@ -958,12 +986,17 @@ TCP 连接的断开过程被形象地概括为四次挥手。
 
 ### 31.TCP 挥手为什么需要四次呢？
 
-再来回顾下四次挥手双方发 `FIN` 包的过程，就能理解为什么需要四次了。
+因为 TCP 是全双工通信协议，数据的发送和接收需要两次一来一回，也就是四次，来确保双方都能正确关闭连接。
 
-- 关闭连接时，客户端向服务端发送 `FIN` 时，仅仅表示客户端不再发送数据了但是还能接收数据。
-- 服务端收到客户端的 `FIN` 报文时，先回一个 `ACK` 应答报文，而服务端可能还有数据需要处理和发送，等服务端不再发送数据时，才发送 `FIN` 报文给客户端来表示同意现在关闭连接。
+![bytebytego：四次挥手](https://cdn.tobebetterjavaer.com/stutymore/network-20241225101523.png)
 
-从上面过程可知，服务端通常需要等待完成数据的发送和处理，所以服务端的 `ACK` 和 `FIN` 一般都会分开发送，从而比三次握手导致多了一次。
+1. 第一次挥手：客户端表示数据发送完成了，准备关闭，你确认一下。
+2. 第二次挥手：服务端回话说 ok，我马上处理完数据，稍等。
+3. 第三次挥手：服务端表示处理完了，可以关闭了。
+4. 第四次挥手：客户端说好，进入 TIME_WAIT 状态，确保服务端关闭连接后，自己再关闭连接。
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：tcp 的挥手为什么是四次，而不是三次呢？
 
 ### 32.TCP 四次挥手过程中，为什么需要等待 2MSL, 才进入 CLOSED 关闭状态？
 
@@ -1053,9 +1086,9 @@ TIME-WAIT 发生在第四次挥手，当客户端在发送 ACK 确认对方的 F
 
 TCP 首先通过三次握手和四次挥手来保证连接的可靠性，然后通过校验和、序列号、确认应答、超时重传、滑动窗口等机制来保证数据的可靠传输。
 
-①、**校验和**：TCP 报文段包括一个校验和字段，用于检测报文段在传输过程中的变化。如果接收方检测到校验和错误，就会丢弃这个报文段。
-
 推荐阅读：[TCP 校验和计算方法](https://www.noction.com/blog/tcp-header)
+
+①、**校验和**：TCP 报文段包括一个校验和字段，用于检测报文段在传输过程中的变化。如果接收方检测到校验和错误，就会丢弃这个报文段。
 
 ![三分恶面渣逆袭：TCP 校验和](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-d875c766-0c96-4733-8ca6-181d31c0f83d.jpg)
 
@@ -1076,6 +1109,7 @@ TCP 首先通过三次握手和四次挥手来保证连接的可靠性，然后�
 ![三分恶面渣逆袭：拥塞控制简略示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxjsjwllsewswztwxxssc-fa3390bb-4e71-444a-9a56-8a08b81e3070.jpg)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：tcp为什么是可靠的
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：那个Tcp 是如何保证这个安全传输的呢？
 
 ### 38.说说 TCP 的流量控制？
 

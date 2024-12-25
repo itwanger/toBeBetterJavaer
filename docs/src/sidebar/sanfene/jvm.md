@@ -892,7 +892,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 Java 通过可达性分析算法来判断一个对象是否还存活。
 
-通过一组名为 “GC Roots” 的根对象，进行递归扫“”无法从根对象到达的对象就是“垃圾”，可以被回收。
+通过一组名为 “GC Roots” 的根对象，进行递归扫描，无法从根对象到达的对象就是“垃圾”，可以被回收。
 
 ![三分恶面渣逆袭：GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
 

@@ -1112,7 +1112,7 @@ if (conn != null) conn.close();
 
 ### 24. 什么是 SQL 注入？如何防止 SQL 注入？
 
-SQL 注入是一种代码注入技术，通过在输入字段中插入专用的 SQL 语句，从而欺骗数据库执行恶意 SQL，从而获取敏感数据、修改数据，或者删除数据等。
+SQL 注入是一种代码注入技术，通过在输入字段中插入专用的 SQL 语句，从而欺骗数据库执行恶意 SQL，以获取敏感数据、修改数据，或者删除数据等。
 
 比如说有这样一段代码：
 
@@ -1177,6 +1177,7 @@ SELECT * FROM users WHERE username = '9;DROP TABLE SYS_USER;'
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：什么是 SQL 注入，怎么避免，什么是参数化
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：如何防范sql的注入攻击呢？
 
 ---
 

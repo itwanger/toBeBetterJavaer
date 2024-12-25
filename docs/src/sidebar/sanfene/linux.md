@@ -46,6 +46,12 @@ head:
 - `mkdir`：创建新目录。
 - `cat`：查看文件内容。`cat file1 file2`合并文件内容显示。
 
+#### Windows下如何创建空文件
+
+Windows 下我还是比较习惯使用右键菜单新建一个文件，然后重命名。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：如果是Windows，如何去创建一个空文件的？
+
 #### 如何查看系统的日志文件？
 
 在 Linux 中，可以通过 cat、more、less、tail、head 等命令查看系统日志文件。
@@ -75,9 +81,13 @@ head:
 
 top 命令可以实时查看所有进程的 CPU 和内存使用情况。
 
+![二哥的 Java 进阶之路：top面板](https://cdn.tobebetterjavaer.com/stutymore/linux-20241225092615.png)
+
 `ps aux --sort=-%cpu | head -5`可以查看 CPU 使用率最高的 5 个进程。
 
 ![二哥的 Java 进阶之路：ps 命令](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223162812.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：怎么查看一个进程的Cpu 使用率呢？
 
 #### 如何查看Linux内存使用情况？
 
@@ -86,6 +96,7 @@ top 命令可以实时查看所有进程的 CPU 和内存使用情况。
 ![二哥的 Java 进阶之路：free](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223163021.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：如何看Linux进程或CPU使用情况？Linux查看内存情况？
+
 
 #### 如何查看系统负载？
 
