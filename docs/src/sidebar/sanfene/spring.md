@@ -657,7 +657,37 @@ public class ToolFactoryBean implements FactoryBean<Tool> {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 Spring 的 Bean 实例化方式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：bean加工有哪些方法？
 
-### 9.能说一下 Bean 的生命周期吗？
+### 9.你是怎么理解 Bean 的？
+
+Bean 是指由 Spring 容器管理的对象，它的生命周期由容器控制，包括创建、初始化、使用和销毁。以通过三种方式声明：**注解方式**、**XML 配置**、**Java 配置**。
+
+![二哥的 Java 进阶之路：Bean 的声明方式](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224163146.png)
+
+①、使用 `@Component`、`@Service`、`@Repository`、`@Controller` 等注解定义，主流。
+
+②、基于 XML 配置，Spring Boot 项目已经不怎么用了。
+
+③、使用 Java 配置类创建 Bean：
+
+```java
+@Configuration
+public class AppConfig {
+    @Bean
+    public UserService userService() {
+        return new UserService();
+    }
+}
+```
+
+#### @Component 和 @Bean 的区别
+
+`@Component` 是 Spring 提供的一个类级别注解，由 Spring 自动扫描并注册到 Spring 容器中。
+
+`@Bean` 是一个方法级别的注解，用于显式地声明一个 Bean，当我们需要第三方库或者无法使用 `@Component` 注解类时，可以使用 `@Bean` 来将其实例注册到容器中。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：怎么理解spring的bean，@Component 和 @Bean 的区别
+
+### 10.能说一下 Bean 的生命周期吗？
 
 推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
 
@@ -967,130 +997,72 @@ destroy-method 在 Bean 销毁阶段调用，容器关闭时调用。
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean生命周期
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：介绍下Bean的生命周期？Aware类型接口的作用？如果配置了init-method和destroy-method，Spring会在什么时候调用其配置的方法？
 
-### 10.Bean 定义和依赖定义有哪些方式？
+### 11.为什么 IDEA 不推荐使用 @Autowired 注解注入 Bean？
 
-有三种方式：**直接编码方式**、**配置文件方式**、**注解方式**。
+当使用 `@Autowired` 注解注入 Bean 时，IDEA 会提示“Field injection is not recommended”。
 
-![Bean依赖配置方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-89f0f50d-a9e4-4dec-b267-cb1a526cb340.png)
+![二哥的 Java 进阶之路：@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224164722.png)
 
-- 直接编码方式：我们一般接触不到直接编码的方式，但其实其它的方式最终都要通过直接编码来实现。
-- 配置文件方式：通过 xml、propreties 类型的配置文件，配置相应的依赖关系，Spring 读取配置文件，完成依赖关系的注入。
-- 注解方式：注解方式应该是我们用的最多的一种方式了，在相应的地方使用注解修饰，Spring 会扫描注解，完成依赖关系的注入。
+这是因为字段注入的方式：
 
-### 11.有哪些依赖注入的方法？
+- 不能像构造方法那样使用 final 注入不可变对象
+- 隐藏了依赖关系，调用者可以看到构造方法注入或者 setter 注入，但无法看到私有字段的注入
 
-Spring 支持**构造方法注入**、**属性注入**、**工厂方法注入**,其中工厂方法注入，又可以分为**静态工厂方法注入**和**非静态工厂方法注入**。
+在 Spring 4.3 及更高版本中，如果一个类只有一个构造方法，Spring 会自动使用该构造方法进行依赖注入，无需使用 `@Autowired` 注解。
 
-![Spring依赖注入方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-491f8444-54ba-4628-b8eb-8418a2197096.png)
+![技术派：构造方法注入](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224165628.png)
 
-- **构造方法注入**
+#### @Autowired 和 @Resource 注解的区别？
 
-  通过调用类的构造方法，将接口实现类通过构造方法变量传入
+- `@Autowired` 是 Spring 提供的注解，按类型（byType）注入。
+- `@Resource` 是 Java EE 提供的注解，按名称（byName）注入。
 
-  ```java
-   public CatDaoImpl(String message){
-     this. message = message;
-   }
-  ```
+虽然 IDEA 不推荐使用 `@Autowired`，但对 `@Resource` 注解却没有任何提示。
 
-  ```java
-  <bean id="CatDaoImpl" class="com.CatDaoImpl">
-    <constructor-arg value=" message "></constructor-arg>
-  </bean>
-  ```
+![技术派：@Resource](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224170055.png)
 
-- **属性注入**
+这是因为 `@Resource` 属于 Java EE 标准的注解，如果使用其他 IOC 容器而不是 Spring 也是可以兼容的。
 
-  通过 Setter 方法完成调用类所需依赖的注入
+#### 提到了byType，如果两个类型一致的发生了冲突，应该怎么处理
 
-  ```java
-   public class Id {
-      private int id;
+当容器中存在多个相同类型的 bean，编译器会提示 `Could not autowire. There is more than one bean of 'UserRepository2' type.`
 
-      public int getId() { return id; }
+```java
+@Component
+public class UserRepository21 implements UserRepository2 {}
 
-      public void setId(int id) { this.id = id; }
-  }
-  ```
+@Component
+public class UserRepository22 implements UserRepository2 {}
 
-  ```java
-  <bean id="id" class="com.id ">
-    <property name="id" value="123"></property>
-  </bean>
-  ```
+@Component
+public class UserService2 {
+    @Autowired
+    private UserRepository2 userRepository; // 冲突
+}
+```
 
-- **工厂方法注入**
+这时候，就可以配合 `@Qualifier` 注解来指定具体的 bean 名称：
 
-  - **静态工厂注入**
+```java
+@Component("userRepository21")
+public class UserRepository21 implements UserRepository2 {
+}
+@Component("userRepository22")
+public class UserRepository22 implements UserRepository2 {
+}
+@Autowired
+@Qualifier("userRepository22")
+private UserRepository2 userRepository22;
+```
 
-    静态工厂顾名思义，就是通过调用静态工厂的方法来获取自己需要的对象，为了让 Spring 管理所有对象，我们不能直接通过"工程类.静态方法()"来获取对象，而是依然通过 Spring 注入的形式获取：
+或者使用 `@Resource` 注解按名称进行注入，指定 name 属性。
 
-    ```java
-    public class DaoFactory { //静态工厂
+```java
+@Resource(name = "userRepository21")
+private UserRepository2 userRepository21;
+```
 
-       public static final FactoryDao getStaticFactoryDaoImpl(){
-          return new StaticFacotryDaoImpl();
-       }
-    }
-
-    public class SpringAction {
-
-     //注入对象
-     private FactoryDao staticFactoryDao;
-
-     //注入对象的 set 方法
-     public void setStaticFactoryDao(FactoryDao staticFactoryDao) {
-         this.staticFactoryDao = staticFactoryDao;
-     }
-
-    }
-    ```
-
-    ```java
-    //factory-method="getStaticFactoryDaoImpl"指定调用哪个工厂方法
-     <bean name="springAction" class=" SpringAction" >
-       <!--使用静态工厂的方法注入对象,对应下面的配置文件-->
-       <property name="staticFactoryDao" ref="staticFactoryDao"></property>
-     </bean>
-
-     <!--此处获取对象的方式是从工厂类中获取静态方法-->
-    <bean name="staticFactoryDao" class="DaoFactory"
-      factory-method="getStaticFactoryDaoImpl"></bean>
-    ```
-
-  - **非静态工厂注入**
-
-    非静态工厂，也叫实例工厂，意思是工厂方法不是静态的，所以我们需要首先 new 一个工厂实例，再调用普通的实例方法。
-
-    ```java
-    //非静态工厂
-    public class DaoFactory {
-       public FactoryDao getFactoryDaoImpl(){
-         return new FactoryDaoImpl();
-       }
-     }
-
-    public class SpringAction {
-      //注入对象
-      private FactoryDao factoryDao;
-
-      public void setFactoryDao(FactoryDao factoryDao) {
-        this.factoryDao = factoryDao;
-      }
-    }
-    ```
-
-    ```java
-     <bean name="springAction" class="SpringAction">
-       <!--使用非静态工厂的方法注入对象,对应下面的配置文件-->
-       <property name="factoryDao" ref="factoryDao"></property>
-     </bean>
-
-     <!--此处获取对象的方式是从工厂类中获取实例方法-->
-     <bean name="daoFactory" class="com.DaoFactory"></bean>
-
-    <bean name="factoryDao" factory-bean="daoFactory" factory-method="getFactoryDaoImpl"></bean>
-    ```
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：依赖注入的时候，直接Autowired比较直接，为什么推荐构造方法注入呢
 
 ### 12.Spring 有哪些自动装配的方式？
 
@@ -1582,7 +1554,7 @@ AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知
 
 ③ Spring AOP 的织入方式是运行时织入，而 AspectJ 支持编译时织入、类加载时织入。
 
-### AOP和 OOP 的关系？
+#### AOP和 OOP 的关系？
 
 AOP 和 OOP 是互补的编程思想：
 
@@ -1602,7 +1574,7 @@ AOP 和 OOP 是互补的编程思想：
 
 AOP 的使用场景有很多，比如说日志记录、事务管理、权限控制、性能监控等。
 
-我在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中主要利用 AOP 来打印接口的入参和出参日志、执行时间，方便后期 bug 溯源和性能调优。
+我们在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中主要利用 AOP 来打印接口的入参和出参日志、执行时间，方便后期 bug 溯源和性能调优。
 
 ![沉默王二：技术派教程](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180334.png)
 
@@ -1637,6 +1609,7 @@ public @interface MdcDot {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：AOP应用场景
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：AOP的使用场景有哪些？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：项目中的AOP是怎么用到的
 
 ### 21.说说 JDK 动态代理和 CGLIB 代理？
 

@@ -890,7 +890,13 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 ### 24.如何判断对象仍然存活？
 
-通常有两种方式：引用计数算法和可达性分析算法，Java 使用的是可达性分析算法。
+Java 通过可达性分析算法来判断一个对象是否还存活。
+
+通过一组名为 “GC Roots” 的根对象，进行递归扫“”无法从根对象到达的对象就是“垃圾”，可以被回收。
+
+![三分恶面渣逆袭：GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
+
+这也是 G1、CMS 等主流垃圾收集器使用的主要算法。
 
 #### 什么是引用计数法？
 
@@ -900,14 +906,6 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 但无法解决循环引用问题。例如，两个对象互相引用，但不再被其他对象引用，它们的引用计数都不为零，因此不会被回收。
 
-#### 什么是可达性分析算法？
-
-通过一组名为 “GC Roots” 的根对象，进行递归扫描。那些无法从根对象到达的对象是不可达的，可以被回收；反之，是可达的，不会被回收。
-
-![三分恶面渣逆袭：GC Root](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-18.png)
-
-这也是 G1、CMS 等主流垃圾收集器使用的主要算法。
-
 #### 做可达性分析的时候，应该有哪些前置性的操作？
 
 在进行垃圾回收之前，JVM 会暂停所有正在执行的应用线程（称为 Stop-the-World）。
@@ -916,6 +914,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 京东到家面试原题：如何判断一个对象是否可以回收
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：做可达性分析的时候，应该有哪些前置性的操作？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：什么样的对象算作垃圾对象
 
 
 ### 25.Java 中可作为 GC Roots 的引用有哪几种？
@@ -1079,10 +1078,18 @@ public class ConstantPoolReference {
 
 新生代的对象生命周期短，使用复制算法可以快速回收。老年代的对象生命周期长，使用标记-整理算法可以减少移动对象的成本。
 
+#### 标记复制的标记过程和复制过程会不会停顿？
+
+在标记-复制算法 中，标记阶段和复制阶段都会触发STW。
+
+- 标记阶段停顿是为了保证对象的引用关系不被修改。
+- 复制阶段停顿是防止对象在复制过程中被修改。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：垃圾回收算法了解多少？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：垃圾回收的算法及详细介绍
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：回收的方法？分代收集算法里面具体是怎么回收的？为什么要用分代收集呢？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：Gc 算法有哪些?
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：问了垃圾回收算法，针对问了每个算法的优缺点
 
 ### 28.Minor GC、Major GC、Mixed GC、Full GC 都是什么意思？
 
@@ -1169,15 +1176,15 @@ Serial Old 是 Serial 收集器的老年代版本，它同样是一个单线程�
 
 #### 说说 Parallel Old 收集器？
 
-Parallel Old 是 Parallel Scavenge 收集器的老年代版本，支持多线程并发收集，基于标记-整理算法实现。
+Parallel Old 是 Parallel Scavenge 收集器的老年代版本，基于标记-整理算法实现，使用多条 GC 线程在 STW 期间同时进行垃圾回收。
 
-![Parallel Scavenge/Parallel Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
+![三分恶面渣逆袭：Parallel Old收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
 
 #### 说说 CMS 收集器？
 
 CMS 在 JDK 1.5 时引入，JDK 9 时被标记弃用，JDK 14 时被移除。
 
-CMS 是一种低延迟的垃圾收集器，采用标记-清除算法，分为初始标记、并发标记、重新标记和并发清除四个阶段，优点是停顿时间短，适合延迟敏感的应用，但容易产生内存碎片，可能触发 Full GC。
+CMS 是一种低延迟的垃圾收集器，采用标记-清除算法，分为初始标记、并发标记、重新标记和并发清除四个阶段，优点是垃圾回收线程和应用线程同时运行，停顿时间短，适合延迟敏感的应用，但容易产生内存碎片，可能触发 Full GC。
 
 ![小潘：CMS](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228211056.png)
 
@@ -1214,17 +1221,18 @@ ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，最大特点是�
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：常见的 7 个 GC 回收器
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：讲一下知道的垃圾回收器，问知不知道ZGC回收器（不知道）
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：cms和g1的区别
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：怎么理解并发和并行，Parallel Old和CMS有什么区别？
 
 ### 32.能详细说一下 CMS 收集器的垃圾收集过程吗？
 
 ![三分恶面渣逆袭：Concurrent Mark Sweep收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-34.png)
 
-CMS（Concurrent Mark Sweep）主要使用了**标记-清除**算法进行垃圾收集，分 4 大步：
+CMS 使用**标记-清除**算法进行垃圾收集，分 4 大步：
 
-- **初始标记**（Initial Mark）：标记所有从 GC Roots 直接可达的对象，这个阶段需要 STW，但速度很快。
-- **并发标记**（Concurrent Mark）：从初始标记的对象出发，遍历所有对象，标记所有可达的对象。这个阶段是并发进行的，STW。
-- **重新标记**（Remark）：完成剩余的标记工作，包括处理并发阶段遗留下来的少量变动，这个阶段通常需要短暂的 STW 停顿。
-- **并发清除**（Concurrent Sweep）：清除未被标记的对象，回收它们占用的内存空间。
+- **初始标记**：标记所有从 GC Roots 直接可达的对象，这个阶段需要 STW，但速度很快。
+- **并发标记**：从初始标记的对象出发，遍历所有对象，标记所有可达的对象。这个阶段是并发进行的。
+- **重新标记**：完成剩余的标记工作，包括处理并发阶段遗留下来的少量变动，这个阶段通常需要短暂的 STW 停顿。
+- **并发清除**：清除未被标记的对象，回收它们占用的内存空间。
 
 #### 你提到了remark，那它remark具体是怎么执行的？三色标记法？
 
@@ -1263,6 +1271,7 @@ CMS（Concurrent Mark Sweep）主要使用了**标记-清除**算法进行垃圾
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：有哪些垃圾回收器，选一个讲一下垃圾回收的流程
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：CMS用了什么垃圾回收算法？你提到了remark，那它remark具体是怎么执行的？三色标记法？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：问了CMS垃圾回收器
 
 ### 33.G1 垃圾收集器了解吗？
 
