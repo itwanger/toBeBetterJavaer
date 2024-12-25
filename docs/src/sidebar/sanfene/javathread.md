@@ -20,8 +20,8 @@ head:
 
 ### 1.并行跟并发有什么区别？
 
-- 并行是指多个处理器同时执行多个任务，每个核心实际上可以在同一时间独立地执行不同的任务。
-- 并发是指系统有处理多个任务的能力，但是任意时刻只有一个任务在执行。在单核处理器上，多个任务是通过时间片轮转的方式实现的。但这种切换非常快，给人感觉是在同时执行。
+- 并行：多核 CPU 上的多任务处理，多个任务在同一时间真正地同时执行。
+- 并发：单核 CPU 上的多任务处理，多个任务在同一时间段内交替执行，通过时间片轮转实现交替执行。
 
 ![三分恶面渣逆袭：并行和并发](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-1.png)
 
@@ -2658,6 +2658,55 @@ CountDownLatch 的**核心方法**也不多：
 - `void await()`：阻塞当前线程，直到计数器为零。
 - `void countDown()`：递减计数器的值，如果计数器值变为零，则释放所有等待的线程。
 
+#### 场景题：假如要查10万多条数据，用线程池分成20个线程去执行，怎么做到等所有的线程都查找完之后，即最后一条结果查找结束了，才输出结果？
+
+为每个线程创建一个任务，使用 CountDownLatch 计数器控制线程同步。
+
+每个线程任务完成后调用 `countDown()`，主线程使用 `await()` 等待所有线程完成。
+
+```java
+class DataQueryExample {
+
+    public static void main(String[] args) throws InterruptedException {
+        // 模拟10万条数据
+        int totalRecords = 100000;
+        int threadCount = 20;
+        int batchSize = totalRecords / threadCount; // 每个线程处理的数据量
+
+        // 创建线程池
+        ExecutorService executor = Executors.newFixedThreadPool(threadCount);
+        CountDownLatch latch = new CountDownLatch(threadCount);
+
+        // 模拟查询结果
+        ConcurrentLinkedQueue<String> results = new ConcurrentLinkedQueue<>();
+
+        for (int i = 0; i < threadCount; i++) {
+            int start = i * batchSize;
+            int end = (i == threadCount - 1) ? totalRecords : (start + batchSize);
+            
+            executor.execute(() -> {
+                try {
+                    // 模拟查询操作
+                    for (int j = start; j < end; j++) {
+                        results.add("Data-" + j);
+                    }
+                    System.out.println(Thread.currentThread().getName() + " 处理数据 " + start + " - " + end);
+                } finally {
+                    latch.countDown(); // 线程任务完成，计数器减1
+                }
+            });
+        }
+
+        // 等待所有线程完成
+        latch.await();
+        executor.shutdown();
+
+        // 输出结果
+        System.out.println("所有线程执行完毕，查询结果总数：" + results.size());
+    }
+}
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的顺丰科技同学 1 面试原题：并发编程 CountDownLatch 和消息队列
 
 ### 44.CyclicBarrier（同步屏障）了解吗？
@@ -3241,7 +3290,7 @@ public CompletableFutureBridge runAsyncWithTimeRecord(Runnable run, String name)
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲你对线程池的理解，并讲一讲使用的场景
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：平时怎么使用多线程
 
-### 55.能简单说一下线程池的工作流程吗？
+### 55.说一下线程池的工作流程？
 
 当应用程序提交一个任务时，线程池会根据当前线程的状态和参数决定如何处理这个任务。
 
@@ -3340,6 +3389,7 @@ public class ThreadPoolDemo {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：向线程池中提交任务的过程？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：JUC 并发编程中的 ThreadPoolExecutor 的拒绝策略什么时候发生？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：线程池的工作原理？
 
 ### 56.线程池主要参数有哪些？
 
@@ -3427,7 +3477,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 
 ### 57.线程池的拒绝策略有哪些？
 
-主要有四种：
+拒绝策略有四种：
 
 - AbortPolicy：这是默认的拒绝策略。该策略会抛出一个 RejectedExecutionException 异常。
 - CallerRunsPolicy：该策略不会抛出异常，而是会让提交任务的线程（即调用 execute 方法的线程）自己来执行这个任务。
@@ -3477,10 +3527,15 @@ class CustomRejectedHandler {
 }
 ```
 
+#### 什么时候会执行拒绝策略？
+
+当线程池无法接受新的任务时，也就是线程数达到 maximumPoolSize，任务队列也满了的时候，就会触发拒绝策略。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：说说并发编程中的拒绝策略，哪些情况对应用什么拒绝策略
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：饱和策略有哪几种
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：线程池淘汰策略，追问：可以自定义淘汰策略吗？淘汰策略的实现类是啥？
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：什么时候会执行拒绝策略？
 
 ### 58.线程池有哪几种阻塞队列？
 
@@ -4042,11 +4097,6 @@ public class CustomRejectedExecutionHandler {
 使用示例：
 
 ```java
-package com.github.paicoding.forum.web.javabetter.thread1;
-
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.TimeUnit;
-
 public class ThreadPoolTest {
     public static void main(String[] args) {
         // Create a thread pool with core size 2, max size 4, and a queue capacity of 2
@@ -4178,6 +4228,7 @@ class SimpleConnectionPool {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：给你一个需求，你需要写一个连接池，你现在可以写一下
+
 
 ### 70.单机线程池执行断电了应该怎么处理？
 
