@@ -903,6 +903,29 @@ public class Dog extends Animal {
 
 ![二哥的 Java 进阶之路：接口不能定义构造方法](https://cdn.tobebetterjavaer.com/stutymore/javase-20240512090855.png)
 
+#### Java支持多继承吗？
+
+Java 不支持多继承，一个类只能继承一个类，多继承会引发菱形继承问题。
+
+```java
+class A {
+    void show() { System.out.println("A"); }
+}
+
+class B extends A {
+    void show() { System.out.println("B"); }
+}
+
+class C extends A {
+    void show() { System.out.println("C"); }
+}
+
+// 如果 Java 支持多继承
+class D extends B, C {
+    // 调用 show() 方法时，D 应该调用 B 的 show() 还是 C 的 show()？
+}
+```
+
 #### 接口可以多继承吗？
 
 接口可以多继承，一个接口可以继承多个接口，使用逗号分隔。
@@ -994,6 +1017,7 @@ public class Test {
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：抽象类能写构造方法吗（能）接口能吗（不能）为什么二者有这样的区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术 2 面面试原题：接口可以多继承吗
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：接口和抽象类区别
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 D 小米一面原题：java支持多继承吗
 
 ### 22.成员变量与局部变量的区别有哪些？
 

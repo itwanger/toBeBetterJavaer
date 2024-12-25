@@ -904,7 +904,7 @@ Java 通过可达性分析算法来判断一个对象是否还存活。
 
 ![三分恶面渣逆袭：引用计数法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-17.png)
 
-但无法解决循环引用问题。例如，两个对象互相引用，但不再被其他对象引用，它们的引用计数都不为零，因此不会被回收。
+引用计数法无法解决循环引用的问题。例如，两个对象互相引用，但不再被其他对象引用，它们的引用计数都不为零，因此不会被回收。
 
 #### 做可达性分析的时候，应该有哪些前置性的操作？
 
@@ -915,6 +915,7 @@ Java 通过可达性分析算法来判断一个对象是否还存活。
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 京东到家面试原题：如何判断一个对象是否可以回收
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：做可达性分析的时候，应该有哪些前置性的操作？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：什么样的对象算作垃圾对象
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 D 小米一面原题：gc中判断对象可回收的方式有哪些
 
 
 ### 25.Java 中可作为 GC Roots 的引用有哪几种？
@@ -922,14 +923,14 @@ Java 通过可达性分析算法来判断一个对象是否还存活。
 1. 推荐阅读：[深入理解垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 2. 推荐阅读：[R 大的所谓“GC roots”](https://www.zhihu.com/question/53613423/answer/135743258)
 
-所谓的 GC Roots，就是一组必须活跃的引用，不是对象，它们是程序运行时的起点，是一切引用链的源头。在 Java 中，GC Roots 包括以下几种：
+所谓的 GC Roots，就是一组必须活跃的引用，它们是程序运行时的起点，是一切引用链的源头。在 Java 中，GC Roots 包括以下几种：
 
 - 虚拟机栈中的引用（方法的参数、局部变量等）
 - 本地方法栈中 JNI 的引用
 - 类静态变量
 - 运行时常量池中的常量（String 或 Class 类型）
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+![二哥的 java 进阶之路：GC Roots](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
 
 **1、虚拟机栈中的引用（方法的参数、局部变量等）**
 
@@ -1024,6 +1025,7 @@ public class ConstantPoolReference {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：哪些对象可以作为 GC Roots
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：GC Root？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 D 小米一面原题：那些对象可以作为gc root
 
 ### 26.finalize()方法了解吗？有什么作用？
 
@@ -1090,6 +1092,7 @@ public class ConstantPoolReference {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：回收的方法？分代收集算法里面具体是怎么回收的？为什么要用分代收集呢？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：Gc 算法有哪些?
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：问了垃圾回收算法，针对问了每个算法的优缺点
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 D 小米一面原题：gc垃圾回收算法有哪些
 
 ### 28.Minor GC、Major GC、Mixed GC、Full GC 都是什么意思？
 
