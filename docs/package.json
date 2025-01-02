@@ -11,12 +11,14 @@
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-docsearch": "2.0.0-rc.40",
-    "@vuepress/plugin-pwa": "2.0.0-rc.40",
+    "@vuepress/bundler-vite": "2.0.0-rc.19",
+    "@vuepress/plugin-docsearch": "2.0.0-rc.66",
+    "@vuepress/plugin-pwa": "2.0.0-rc.66",
     "mathjax-full": "^3.2.2",
-    "vue": "^3.4.31",
-    "vuepress": "2.0.0-rc.14",
-    "vuepress-theme-hope": "2.0.0-rc.52"
-  }
+    "sass-embedded": "^1.83.0",
+    "vue": "^3.5.13",
+    "vuepress": "2.0.0-rc.19",
+    "vuepress-theme-hope": "2.0.0-rc.64"
+  },
+  "packageManager": "pnpm@9.15.0"
 }
