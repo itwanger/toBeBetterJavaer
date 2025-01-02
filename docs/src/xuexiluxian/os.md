@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最新超详细的操作系统学习路线（建议收藏🔥）
+title: 2025年最新超详细的操作系统学习路线（建议收藏🔥）
 shortTitle: 操作系统学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 操作系统是管理计算机硬件和软件资源的程序，是计算机的基石，这里整理一份 操作系统的超详细学习路线，附学习资源，可下载
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -33,7 +34,7 @@ head:
 国内的推荐哈工大的《操作系统》实验课，以下四部分最为重要。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-1.png)
+![哈工大的《操作系统》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-1.png)
 
 
 1）操作系统基础篇
@@ -72,14 +73,14 @@ Linux 内核主要由 5 个模块构成，分别是：
 它们之间的依赖关系见下图所示。其实连线代表它们之间的依赖关系，虚线代表 linux-0.11 中还未实现的部分。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-2.png)
+![linux-0.11](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-2.png)
 
 由上图可以看得出，所有模块都与进程调度模块存在依赖关系，因为它们都需要进程调度程序来挂起或重新运行它们的进程。
 
 linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 的全部代码文件进行了详细全面的注释和说明，能够让大家在尽量短的时间内对 Linux 的工作机制有一个全面而深刻的理解，为进一步学习 Linux 系统打下坚实的基础。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-3.jpg)
+![Linux 内核完全注释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-3.jpg)
 
 
 高清 PDF 版在 GitHub 上的一个开源仓库（JavaBooks）里可以找得到（附 linux-0.11 内核的源码）：
@@ -119,13 +120,13 @@ linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 
 下图是课程表，里面有 PDF 和 video 链接🔗。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-4.png)
+![6.S081 这门课表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-4.png)
 
 
 为了减轻大家的学习压力，我在哔哩哔哩上找到了这门课的克隆版，但中英文字幕的那种。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-5.png)
+![6.S081 这门课视频课](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-5.png)
 
 
 哇，有了中英文字幕，学起来就舒服多了。课程地址我贴一下：
@@ -137,7 +138,7 @@ linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 
 >[https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/](https://mit-public-courses-cn-translatio.gitbook.io/mit6-s081/)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-6.png)
+![6.S081 中文在线版](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-6.png)
 
 
 这门课的一部分会讲操作系统的基本概念，一部分是 lab，几乎每周都会有一些编程实验。
@@ -149,7 +150,7 @@ linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 
 >[https://fanxiao.tech/posts/MIT-6S081-notes/#11-processes-and-memory](https://fanxiao.tech/posts/MIT-6S081-notes/#11-processes-and-memory)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-7.png)
+![xiaofan 的学习笔记](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-7.png)
 
 
 学习 6.S081 这门课的目的有三个：
@@ -164,7 +165,7 @@ linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 
 
 **第一份，给操作系统捋条线**，看图感受一下吧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-8.png)
+![给操作系统捋条线](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-8.png)
 
 需要的小伙伴请长按识别/扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**os**」就可以拉取到了。
 
@@ -173,7 +174,7 @@ linux-0.11 的学习推荐《Linux 内核完全注释》，该书对 linux-0.11 
 
 **第二份，操作系统核心知识点**，同样看图感受一下吧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-9.png)
+![操作系统核心知识点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/os-9.png)
 
 需要的小伙伴同样可以通过上面的方式获取到。
 

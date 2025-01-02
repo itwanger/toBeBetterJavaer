@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最新超详细.NET学习路线（建议收藏🔥）
+title: 2025年最新超详细.NET学习路线（建议收藏🔥）
 shortTitle: .NET学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 写这篇文章来给大家讲C语言的学习，当然是希望大家真正的学会、学懂.NET，并能够真正感觉到它的用处。
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -31,7 +32,7 @@ Java 平台和 .net 平台是主要的竞争对手。一个属于甲骨文，一
 
 图 1 是 .NET 平台截止 2020 年 12 月开发者数量大致的变化情况：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-23438f52-d682-47c8-ae9a-566f4ec4b8fa.png)
+![.NET 平台变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-23438f52-d682-47c8-ae9a-566f4ec4b8fa.png)
 
 .NET 是目前全球市场上唯一一个涵盖 Web、桌面客户端、手机应用、微服务、云原生、机器学习、游戏、物联网等跨平台的全能开发解决方案。
 
@@ -78,7 +79,7 @@ Java 平台和 .net 平台是主要的竞争对手。一个属于甲骨文，一
 第一套是刘铁猛老师（拥有逾十年微软平台软件开发、测试经验）的《C#语言入门详解》全集。从评价上来看，刘老师这门课深受欢迎，旁征博引、谈笑风生、举例逻辑清晰，上课过程中有一种醍醐灌顶的感觉。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-a36d4fec-a4dd-4744-9380-12b5e316695f.png)
+![C#语言入门详解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-a36d4fec-a4dd-4744-9380-12b5e316695f.png)
 
 
 >视频地址：https://www.bilibili.com/video/BV13b411b7Ht
@@ -86,7 +87,7 @@ Java 平台和 .net 平台是主要的竞争对手。一个属于甲骨文，一
 之后是 .NET，我关注的一个 up 杨中科 分享过一个 .net 的教程。一共 195 集，杨科长还出过一本书《.net core 技术内幕与项目实战》，所以我觉得还是挺牛逼的，很接地气的一位大佬。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-00c25b59-56d5-40b7-8b20-892f581ed783.png)
+![.net core 技术内幕与项目实战](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-00c25b59-56d5-40b7-8b20-892f581ed783.png)
 
 
 >视频地址：https://www.bilibili.com/video/BV1pK41137He
@@ -96,13 +97,13 @@ Java 平台和 .net 平台是主要的竞争对手。一个属于甲骨文，一
 如果想快速入门，推荐《[C#图解教程](https://book.douban.com/subject/24748698/)》。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-32590c26-7f5e-4737-aae4-aa40e4b86ab1.png)
+![C#图解教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-32590c26-7f5e-4737-aae4-aa40e4b86ab1.png)
 
 
 之后可以看一下《[C#高级编程](https://book.douban.com/subject/1919816/)》。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-27e7c98a-e159-4aff-beea-63735cdae45f.png)
+![C#高级编程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/donet-27e7c98a-e159-4aff-beea-63735cdae45f.png)
 
 
 最后是教程，那自然直接看微软官方的就行了。

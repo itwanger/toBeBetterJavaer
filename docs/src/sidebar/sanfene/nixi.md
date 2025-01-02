@@ -100,52 +100,67 @@ head:
 
 1、Java 基础
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-472ca179-c5f6-4af2-9a06-75dd8902599a.jpg)
+![1、Java 基础](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-472ca179-c5f6-4af2-9a06-75dd8902599a.jpg)
 
 2、Java 集合
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-723dc8ec-c3a8-47ea-96c6-40520b064ffb.jpg)
+![2、Java 集合](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-723dc8ec-c3a8-47ea-96c6-40520b064ffb.jpg)
 
 3、Java 并发
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-f1beb175-0099-4615-847f-9ea375e391ee.jpg)
+![3、Java 并发](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-f1beb175-0099-4615-847f-9ea375e391ee.jpg)
 
 4、JVM
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-ab2a4a0f-9006-4b83-a8c9-56a853829bb5.jpg)
+![4、JVM](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-ab2a4a0f-9006-4b83-a8c9-56a853829bb5.jpg)
 
 5、Spring
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-12c239b3-0b95-414b-b83f-f5a2f46dbde0.jpg)
+![5、Spring](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-12c239b3-0b95-414b-b83f-f5a2f46dbde0.jpg)
 
 6、MyBatis
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-862defac-32d6-4089-a5dd-e57d114b83b2.jpg)
+![6、MyBatis](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-862defac-32d6-4089-a5dd-e57d114b83b2.jpg)
 
 7、计算机网络
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-71d6389c-d984-4c02-af74-45038616520f.jpg)
+![7、计算机网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-71d6389c-d984-4c02-af74-45038616520f.jpg)
 
 8、操作系统
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-705651d8-1417-4c26-be5d-3f155f4b3551.jpg)
+![8、操作系统](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-705651d8-1417-4c26-be5d-3f155f4b3551.jpg)
 
 9、MySQL
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-705acc6c-6554-4c36-a47f-d2c850287126.jpg)
+![9、MySQL](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-705acc6c-6554-4c36-a47f-d2c850287126.jpg)
 
 10、Redis
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-b98e0491-72f5-468a-a3a9-b55d8c205a14.jpg)
+![10、Redis](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-b98e0491-72f5-468a-a3a9-b55d8c205a14.jpg)
 
 11、RocketMQ
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-18d350fd-5609-430e-8f7f-8f0848015a30.jpg)
+![11、RocketMQ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-18d350fd-5609-430e-8f7f-8f0848015a30.jpg)
 
 12、分布式
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-cdfba194-459d-4ec6-8b9f-07f6cca4ac80.png)
+![分布式](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-cdfba194-459d-4ec6-8b9f-07f6cca4ac80.png)
 
 13、微服务
 
-![](https://cdn.tobebetterjavaer.com/stutymore/nixi-20230918213033.png)
+![微服务](https://cdn.tobebetterjavaer.com/stutymore/nixi-20230918213033.png)
+
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)

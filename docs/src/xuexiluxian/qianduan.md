@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最新超详细的前端学习路线（建议收藏🔥）
+title: 2025年最新超详细的前端学习路线（建议收藏🔥）
 shortTitle: 前端学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 前端学习路线图（roadmap）
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -14,8 +15,6 @@ head:
 ---
 
 大家好，我是二哥呀！最近总有一些读者私信问我：“能推荐一些前端的学习资料吗？”那作为一名正儿八经的全栈型程序员，必须得给大家整一波了。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-b6d3ccb4-bd13-447e-b88d-f0016b57da49.png)
 
 ## 语言基础
 
@@ -41,7 +40,7 @@ head:
 
 6）📚《JavaScript高级程序设计（第3版）》，这是一本实体书，豆瓣评分高达 9.3 分，是前端程序员进阶必看的书籍。据网友说，他参加阿里面试时的一小半问题都出自于此书。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-ea8e074a-9bc4-4780-a4b1-acf855df7bc1.png)
+![JavaScript高级程序设计](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-ea8e074a-9bc4-4780-a4b1-acf855df7bc1.png)
 
 7）TypeScript 中文版，TypeScript 是 JavaScript 的超集，也可以编译成普通的 JavaScript 代码，这份中文手册紧跟官方的每个细节，是非常好的一份入门教程。
 
@@ -101,7 +100,7 @@ head:
 
 1）📚《高性能网站建设指南》，这本书介绍了网站性能问题的现状、产生的原因，以及改善或解决性能问题的原则、技术技巧和最佳实践
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-92d3c42c-c453-473f-aefc-9137c93a939d.png)
+![高性能网站建设指南](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-92d3c42c-c453-473f-aefc-9137c93a939d.png)
 
 
 2）深入了解前端监控原理，这篇文章主要讲了如何进行数据采集和数据上报。
@@ -124,32 +123,13 @@ head:
 
 2）📚《图解HTTP》，前端工程师对网络协议如果能掌握的比较透彻的话，对整体前后端的沟通是非常有帮助的。像 TCP/IP网络协议、三次握手和四次挥手、DNS的作用、CDN的作用和原理、HTTP、HTTPS、WebSocket 等等这些知识点，我认为都是一名合格的前端工程师应该掌握的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-ae981ec4-ea98-4bb1-a1eb-d8a21a9648cb.png)
+![图解HTTP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-ae981ec4-ea98-4bb1-a1eb-d8a21a9648cb.png)
 
 3）JavaScript 实现的算法和数据结构，附详细解释和刷题指南。大部分前端工程师对数据结构与算法这部分知识都有些欠缺，如果想要突破更高的天花板，这部分知识是必不可少的，非常有用！
 
 >[https://github.com/ConardLi/awesome-coding-js](https://github.com/ConardLi/awesome-coding-js)
 
 
-更多前端的学习资料，可以直接戳我整理的这个 GitHub/码云仓库——📚程序员必读书单整理，附下载地址，里面有大量的前端学习资料。
-
-- GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks#javascript)
-- 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#javascript)
-
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/qianduan-books.jpg)
-
-简单罗列一下：
-
-- 《JavaScript王者归来》.(月影)扫描版
-- 你不知道的JavaScript
-- 实战ES2015深入JavaScript现代应用开发-扫描版
-- 数据结构与算法JavaScript描述
-- JavaScript DOM编程艺术 第2版(Jeremy Keith等)
-- JavaScript从入门到精通
-- JavaScript启示录
-- JavaScript异步编程
-- JavaScript语言精粹
 
 ---------
 

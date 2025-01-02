@@ -562,11 +562,11 @@
 
 >前提是你已经安装好 node.js 和 pnpm 环境。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/README-20241106103513.png)
+![pnpm 部署进阶之路](https://cdn.tobebetterjavaer.com/stutymore/README-20241106103513.png)
 
 点击链接就可以在本地看到运行后的效果了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162301.png)
+![二哥的 Java 进阶之路首页](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162301.png)
 
 
 # 联系作者

@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最值得收藏的蓝桥杯学习路线（🔥）
+title: 2025年最值得收藏的蓝桥杯学习路线（🔥）
 shortTitle: 蓝桥杯学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 蓝桥杯攻略大全 | 学习路线 | 注意事项，蓝桥杯需要学什么
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -106,7 +107,7 @@ head:
 
 如果你是 C/C++的选手，那我劝你一定要认真学好所有的基础算法。C 和 C++都是非常适合用来写算法的语言，所以这个组别的选手大多都是有一定的实力的，如果你想来混可能被吃的渣都不剩。当然其他两组选手也非常多，所以也需要认真去复习，先看看我归纳的学习路线图。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110645.png)
+![蓝桥杯学习路线图](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110645.png)
 
 不要一下觉得很多，很多都是在学校的课程中学到过的，而且你还有半年的时间，想要掌握这里面的大部分算法完全时间绰绰有余。当然也为大家推荐了一些好的学习算法和数据结构的网站
 
@@ -134,13 +135,13 @@ VisuAlgo 数据结构和算法动态可视化（学习数据结构的神器）�
 
 图灵数据结构与算法：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110718.png)
+![图灵数据结构与算法](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110718.png)
 
 > [https://www.bilibili.com/video/BV1a54y1b74k](https://www.bilibili.com/video/BV1a54y1b74k)
 
 可能是最好的 Java 数据结构教程：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110731.png)
+![黑马数据结构与算法](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110731.png)
 
 > [https://www.bilibili.com/video/BV1iJ411E7xW](https://www.bilibili.com/video/BV1iJ411E7xW)
 
@@ -154,7 +155,7 @@ VisuAlgo 数据结构和算法动态可视化（学习数据结构的神器）�
 
 这里我结合自身刷题的经验和一些博主的推荐向大家推荐一下，如果你是零基础或者基础不好的，每次只是闲着无聊才坐一两题，现在想系统的学习算法。我推荐你先去力扣网站。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110853.png)
+![ LeetCode 刷题](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110853.png)
 
 在这选择难度简单，然后挑一些题解量高，通过率高的题目试试水。这类题目基本比较简单，不会涉及到什么算法，每次提交成功都可以激发你学习算法的兴趣。
 
@@ -162,7 +163,7 @@ VisuAlgo 数据结构和算法动态可视化（学习数据结构的神器）�
 
 等你试水完毕有了一定做题经验后，我推荐你去参加力扣的学习计划专栏，这些都是免费的，从双指针到动规和数据结构都有，可以帮你一步一步帮你训练出优秀的算法能力。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110907.png)
+![ LeetCode 算法专栏](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110907.png)
 
 **刷题千万不要忘记归纳总结**！！！
 
@@ -170,11 +171,11 @@ VisuAlgo 数据结构和算法动态可视化（学习数据结构的神器）�
 
 我为大家推荐的是我自己常用的笔记软件语雀，贴上部分我做的笔记，可以直接贴图非常方便。当然还有有道云笔记，Typora 等等都非常不错。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110919.png)
+![排序算法](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110919.png)
 
 ## 🌞 七、蓝桥年真题资源+配套考试环境
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110930.png)
+![蓝桥年真题资源](https://cdn.tobebetterjavaer.com/stutymore/lanqiaobei-20240102110930.png)
 
 费了九牛二虎之力，终于搞到了这些关于蓝桥杯的学习资料，如果能认真刷完，想输很难的，想交学费很难的——妥妥地赢回来。
 
