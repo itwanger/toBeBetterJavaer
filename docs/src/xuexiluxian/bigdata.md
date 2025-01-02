@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最新超详细大数据学习路线（建议收藏🔥）
+title: 2025年最新超详细大数据学习路线（建议收藏🔥）
 shortTitle: 大数据学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 如何系统地学习大数据？如何成为一名合格的大数据工程师？我这里给大家准备了一份 GitHub 上星标 12k 的大数据入门指南
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -44,7 +45,7 @@ head:
 如果想读纸质书的话，推荐《[on Java 8](https://book.douban.com/subject/30217317/)》。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-9a3d4c2c-2db4-4d53-9d8f-1bb72f7454b9.png)
+![on Java 8](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-9a3d4c2c-2db4-4d53-9d8f-1bb72f7454b9.png)
 
 
 **Scala**
@@ -56,7 +57,7 @@ Scala 是一门综合了面向对象和函数式编程概念的静态类型的�
 推荐两本书《[快学 Scala](https://book.douban.com/subject/27093751/)》和 《[Scala 编程](https://book.douban.com/subject/27591387/)》。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-d5df6ea5-273a-425c-968e-da07f7ef0777.png)
+![Scala 编程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-d5df6ea5-273a-425c-968e-da07f7ef0777.png)
 
 
 当然了，Scala 不是必学的。也可以放到学完 spark 之后再去学习 Scala。
@@ -66,7 +67,7 @@ Scala 是一门综合了面向对象和函数式编程概念的静态类型的�
 推荐《[鸟哥的私房菜](https://book.douban.com/subject/4889838/)》
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-c0180f2c-6445-4881-ab04-90c43ef870f2.png)
+![鸟哥的私房菜](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-c0180f2c-6445-4881-ab04-90c43ef870f2.png)
 
 
 或者自己装个 Linux 虚拟机/云服务器直接上手实操。
@@ -100,7 +101,7 @@ Maven，二哥的Java进阶之路上有教程：[https://javabetter.cn/maven/mav
 可以按工作需要学习。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-3feb773b-246b-4dad-9c3b-1a9ef83b6f64.png)
+![大数据框架](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-3feb773b-246b-4dad-9c3b-1a9ef83b6f64.png)
 
 
 如果学习时间有限的话，初次学习的时候，同一类框架学一种就好。
@@ -120,7 +121,7 @@ Maven，二哥的Java进阶之路上有教程：[https://javabetter.cn/maven/mav
 
 这里还给大家准备了一份 GitHub 上星标 12k 的大数据入门指南，来看一下内容吧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-461d50d4-504d-499c-b8ea-e8d38eb836ad.png)
+![大数据入门指南](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-461d50d4-504d-499c-b8ea-e8d38eb836ad.png)
 
 直接长按识别/扫描下方二维码，关注后回复 「**00**」 下载这份 PDF 吧：
 
@@ -173,7 +174,7 @@ Maven，二哥的Java进阶之路上有教程：[https://javabetter.cn/maven/mav
 
 Hive 就是 SQL On Hadoop，Hive 提供了 SQL 接口，开发人员只需要编写简单易上手的 SQL 语句，Hive 负责把 SQL 翻译成 MapReduce，提交运行。
 
-### 6、学习数据采集 Sqoop / Flume / DataX
+### 6、学习数据采集
 
 Sqoop 主要用于把 MySQL 里的数据导入到 Hadoop 里的。
 
@@ -202,7 +203,7 @@ Flume + Kafka，在实时流式日志的处理非常常见，后面再通过 Spa
 再总结一份大数据学习指南的思维导图吧。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-99b69697-4804-4113-907b-fbe14ac36964.png)
+![大数据学习指南的思维导图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/bigdata-99b69697-4804-4113-907b-fbe14ac36964.png)
 
 ---------
 

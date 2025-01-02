@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最新超详细C语言学习路线（建议收藏🔥）
+title: 2025年最新超详细C语言学习路线（建议收藏🔥）
 shortTitle: C语言学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 写这篇文章来给大家讲C语言的学习，当然是希望大家真正的学会、学懂C语言，并能够真正感觉到它的用处。
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -24,7 +25,7 @@ head:
 
 我第一时间就整理了一份 PDF 版，截个图大家可以感受下。我对这份教程非常满意，该讲的地方都讲到了，示例也给了很多，对初学者来说，入门必备。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-1.png)
+![C语言入门教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-1.png)
 
 直接长按识别/扫描下方二维码，关注后回复 「**08**」 下载这份 PDF 吧：
 
@@ -36,13 +37,13 @@ head:
 
 可以先看阮一峰老师的《C语言入门教程》，也可以先花一个月的时间，去 mooc 把《程序设计入门 C语言》这门视频课过一遍。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-2.png)
+![翁恺教授的C语言视频课](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-2.png)
 
 >视频地址：[https://www.icourse163.org/course/ZJU-199001](https://www.icourse163.org/course/ZJU-199001)
 
 看完这套视频，大家至少能学到：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-3.jpg)
+![程序设计入门-C 语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-3.jpg)
 
 
 学完这门入门课后，可以再看一下进阶版的。课程以一个 Windows 下的图形游戏程序入手，借助一个 C 语言图形库，展开全部的教学内容，非常有趣。
@@ -68,7 +69,7 @@ Dennis Ritchie是这样评价自己的亲儿子的：“**古怪的、有缺陷�
 
 **第一，C语言在计算机领域起到了承上启下的作用**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-4.jpg)
+![C 语言的作用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-4.jpg)
 
 C语言非常的简洁，几乎没有任何冗余。上手难度几乎为 0，除了指针难以被新手掌握以外，其他的基础语法都很容易上手。很多编程语言都受到了C语言的影响，比如说 Java、C++、C#、Python、Go 等等，那学会了 C语言，再学习其他的编程语言就会丝滑得多。
 
@@ -104,7 +105,7 @@ C语言能够直接操作硬件、管理内存、跟操作系统交互，这使�
 再来看详细版的思维导图：
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-5.png)
+![C 语言知识点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-5.png)
 
 
 C语言有两个关键部分：
@@ -128,9 +129,9 @@ C语言有两个关键部分：
 
 这里推荐 2 个蓝桥云课上的免费小 lab，大家可以动手练起来。
 
-### **1）可以进行加减乘除的计算器**
+### 1）可以进行加减乘除的计算器
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-6.jpg)
+![C 语言实现的计算器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-6.jpg)
 
 >课程地址：[https://www.lanqiao.cn/courses/75](https://www.lanqiao.cn/courses/75)
 
@@ -142,10 +143,10 @@ C语言有两个关键部分：
 * C 语言输入与输出
 
 
-### **2）实现一个属于自己的编程语言**
+### 2）实现一个属于自己的编程语言
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-7.png)
+![C 语言实现编程语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-7.png)
 
 
 >课程地址：[https://www.shiyanlou.com/courses/670](https://www.shiyanlou.com/courses/670)
@@ -171,7 +172,7 @@ C语言有两个关键部分：
 
 如果英语功底比较扎实的话，可以直接看原版。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-8.png)
+![build your own lisp](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-8.png)
 
 
 认真跟着做这些 lab，真本领就学到手了。
@@ -180,18 +181,18 @@ C语言有两个关键部分：
 
 给初中生看的《啊哈 C语言》，简单易懂，生动有趣，虽然只能学到 C语言的冰山一角，但也值了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-9.png)
+![啊哈 C语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-9.png)
 
 
 给高中生、大一新生看的入门书《c primer plus》，语法全覆盖，细节多，知识点讲的清楚，缺点是琐碎，细节弯弯绕。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-10.png)
+![c primer plus](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-10.png)
 
 
 还有一本《C 程序设计语言》，这本书的作者是 C语言之父，所以全书讲的都是 C语言的核心。代码示例大多都是库函数的实现方法，内容简洁明了，干净利落，没有废话。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-11.png)
+![C 程序设计语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-11.png)
 
 
 给
@@ -206,29 +207,12 @@ C语言有两个关键部分：
 
 看的进阶书《C 陷阱与缺陷》、《C 专家编程》、《C 和指针》
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-12.png)
+![《C 陷阱与缺陷》、《C 专家编程》、《C 和指针》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-12.png)
 
 尽管我不推荐大家看书入门，但我知道很多读者还是喜欢通过看书的方式学习。直接长按扫描下方二维码，关注后回复 「**C**」 下载这 PDF 版吧：
 
 ![（长按扫码识别）](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
-
-更多 C语言的学习资料，可以直接戳我整理的这个 GitHub/码云仓库——📚程序员必读书单整理，附下载地址，里面有大量的 C语言学习资料。
-
-- GitHub 地址：[https://github.com/itwanger/JavaBooks](https://github.com/itwanger/JavaBooks#c)
-- 码云地址：[https://gitee.com/itwanger/JavaBooks](https://gitee.com/itwanger/JavaBooks#c)
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/c-books.jpg)
-
-简单罗列一下：
-
-- 深度探索C  对象模型
-- 数据结构与算法分析--C语言描述
-- C Primer Plus（第五版） 
-- C程序设计语言（第二版，中文版）
-- C和指针
-- C陷阱与缺陷
-- C专家编程
 
 -------
 

@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最值得收藏的Redis学习路线（建议收藏🔥）
+title: 2025年最值得收藏的Redis学习路线（建议收藏🔥）
 shortTitle: Redis学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: Redis学习资料 | 学习路线 | 注意事项，Redis需要学什么
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -23,7 +24,7 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。它的数据都�
 入门阶段主要记住 Redis 的命令，熟练使用 Redis 的 5 大数据结构就可以了。
 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213719.png)
+![Redis 的 5 大数据类型](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213719.png)
 
 思维导图较大，高清原图可以访问这个帖子查看：
 
@@ -32,7 +33,7 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。它的数据都�
 
 如果没有 Redis 环境，可以直接访问这个网址[https://try.redis.io/](https://try.redis.io/)，它会给你模拟一个在线的环境可供你尽情使用！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-5489d827-06c7-4083-8a31-c097919a0a6e.png)
+![try.redis.io](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-5489d827-06c7-4083-8a31-c097919a0a6e.png)
 
 ### 视频
 
@@ -41,21 +42,21 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。它的数据都�
 > - 视频地址：[https://www.bilibili.com/video/BV1cr4y1671t](https://www.bilibili.com/video/BV1cr4y1671t)
 > - 课件网盘地址获取：[https://t.zsxq.com/08rEo9Pdu](https://t.zsxq.com/08rEo9Pdu)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-42250de0-ee45-4a18-800b-db8a56ae7e9e.png)
+![黑马程序员 Redis 入门到实战教程](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-42250de0-ee45-4a18-800b-db8a56ae7e9e.png)
 
 ### 文档
 
 任何时候，[官方的文档](https://www.redis.net.cn/tutorial/3501.html)都是非常值得去参考和学习的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-6e42ffac-d6aa-4d4a-8a9b-30997f2ec21c.png)
+![Redis 官方文档](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-6e42ffac-d6aa-4d4a-8a9b-30997f2ec21c.png)
 
 ### 书籍
 
 可以考虑使用《[Redis 入门指南（第 2 版）](https://book.douban.com/subject/26419240/)》作为教程， 并辅以《[Redis 使用手册](https://book.douban.com/subject/34836750/)》作为参考。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-f5b806d5-eb1f-4f0f-a84b-936510bb1378.png)
+![Redis 入门指南](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-f5b806d5-eb1f-4f0f-a84b-936510bb1378.png)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-8ff0deed-c95f-43e2-80cd-38c3758a5076.png)
+![Redis 使用手册](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-8ff0deed-c95f-43e2-80cd-38c3758a5076.png)
 
 ## 第二阶段：进阶实战
 
@@ -77,7 +78,7 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。它的数据都�
 
 > 戳这个链接可以查看网盘地址：[https://t.zsxq.com/0brEo9Pdu](https://t.zsxq.com/0brEo9Pdu)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-1f55aa01-00af-4237-a7b6-0ce57d0d4ba4.png)
+![Redis 视频课](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-1f55aa01-00af-4237-a7b6-0ce57d0d4ba4.png)
 
 【尚硅谷】Redis 6 入门到精通视频课，一共 47 集，内容涵盖：Redis 常用数据类型和底层结构、Redis 和 Spring Boot 整合、Redis 事务和锁、Redis 持久化、Redis 主从复制和集群等等内容，有网友说这套课程基本上是按照《Redis 开发与运维》这本书来讲的，可以把这本书拿来作为参考资料。这门课由《尚医通》的王泽老师授课，后面在 Java 企业级开发中也会提到。
 
@@ -86,17 +87,17 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。它的数据都�
 
 可以从 20 讲开始往后看。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-83e1614d-2ad0-470b-880a-30e7271b4693.png)
+![【尚硅谷】Redis 6 入门到精通视频课](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-83e1614d-2ad0-470b-880a-30e7271b4693.png)
 
 ### 书籍
 
 可以阅读《[Redis 实战](http://redisinaction.com/)》一书
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-8cf00119-6403-4353-adbd-657207eab76d.png)
+![Redis 实战](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-8cf00119-6403-4353-adbd-657207eab76d.png)
 
 《[Redis 开发与运维](https://book.douban.com/subject/26971561/)》，看标题，就知道，这本书不仅适合开发，还适合运维，涉及的内容有持久化、复制、高可用、内存、哨兵、集群、缓存等。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-38eda851-7b0e-48fa-a883-f6f6d6cda377.png)
+![Redis 开发与运维](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-38eda851-7b0e-48fa-a883-f6f6d6cda377.png)
 
 ## 第三阶段：理解原理
 
@@ -106,21 +107,21 @@ Redis是一种基于键值对（key-value）的NoSQL数据库。它的数据都�
 
 Redis 持久化：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213827.png)
+![Redis 持久化](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213827.png)
 
 Redis 复制：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213855.png)
+![Redis 复制](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213855.png)
 
 Redis 哨兵：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213909.png)
+![Redis 哨兵](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211213909.png)
 
 ### 书籍
 
 书籍的话推荐[Redis 设计与实现](https://book.douban.com/subject/25900156/)，通过阅读本书，可以快速、有效地了解 Redis 的内部构造以及运作机制，从而学会如何更高效地使用 Redis。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-29c02c58-f2ee-43f3-82c8-6ebb54895296.png)
+![Redis 设计与实现](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-29c02c58-f2ee-43f3-82c8-6ebb54895296.png)
 
 这本书讲解得非常透彻，尤其是在 Redis 底层数据结构、RDB 和 AOF 持久化机制，以及哨兵机制和切片集群的介绍上，非常容易理解。
 
@@ -136,7 +137,7 @@ Redis 哨兵：
 
 >[https://github.com/huangz1990/redis-3.0-annotated](https://github.com/huangz1990/redis-3.0-annotated)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-4a356dc1-a32e-4dcb-b7f0-4137bc0a6c94.png)
+![GitHub Redis 3.0 的源码](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/redis-4a356dc1-a32e-4dcb-b7f0-4137bc0a6c94.png)
 
 ## Redis 学习建议
 
@@ -150,14 +151,14 @@ Redis 哨兵：
 
 面试前，强烈建议大家把「[面渣逆袭 Redis 篇](https://javabetter.cn/sidebar/sanfene/redis.html)」好好刷一遍。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-b98e0491-72f5-468a-a3a9-b55d8c205a14.jpg)
+![面渣逆袭 Redis 篇](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-b98e0491-72f5-468a-a3a9-b55d8c205a14.jpg)
 
 还有球友分享的这份《Redis最全的116道面试题.pdf》
 
 >[https://t.zsxq.com/15ltzRylY](https://t.zsxq.com/15ltzRylY)
 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211214004.png)
+![Redis最全的116道面试题.pdf](https://cdn.tobebetterjavaer.com/stutymore/redis-20231211214004.png)
 
 
 那除了学习，最重要的，就是实操了，在实战中碰壁，在实战中总结经验教训，进阶打怪。

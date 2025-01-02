@@ -1,12 +1,13 @@
 ---
 star: true
-title: 2024年最值得收藏的Linux学习路线（建议收藏🔥）
+title: 2025年最值得收藏的Linux学习路线（建议收藏🔥）
 shortTitle: Linux学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: Linux学习资料 | 学习路线 | 注意事项，Linux需要学什么
+date: 2025-01-01
 head:
   - - meta
     - name: keywords
@@ -53,11 +54,11 @@ Linux 本质是指 Linux 内核，而 GNU/Linux 才是一个操作系统，但�
 
 ①、[腾讯云](https://curl.qcloud.com/gIsvte7E)，新用户专享 350 元代金券
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205064102.png)
+![腾讯云](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205064102.png)
 
 ②、[阿里云](https://www.aliyun.com/activity?userCode=dmhgamc2)，新用户专享 2000 元代金券
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065049.png)
+![阿里云](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065049.png)
 
 ### 在线 Linux
 
@@ -101,7 +102,7 @@ Linux 本质是指 Linux 内核，而 GNU/Linux 才是一个操作系统，但�
 
 这是我画的一幅 Linux 学习路线图，大家可以按此路线循序渐进地学习。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065806.png)
+![Linux 学习路线](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065806.png)
 
 需要说明的是：第五项驱动开发和第六项嵌入式系统开发是并列的，也就是说，学习完内核之后，你可以选择从事不同的领域，当然嵌入式开发有时会包含驱动开发。
 
@@ -160,7 +161,7 @@ shell 脚本（shell script），是一种为 shell 编写的脚本程序。
 
 学会使用文本编辑工具 Vim。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065914.png)
+![Vim](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065914.png)
 
 学会使用编译工具 gcc, as, 连接工具 ld, 调试工具 gdb， make 工具，会写 makefile。
 
@@ -170,7 +171,7 @@ shell 脚本（shell script），是一种为 shell 编写的脚本程序。
 
 试着在 Linux 上用 C 语言进行系统编程，其中需要调用 Linux 系统库函数 （API）。例如，实现一个需要进行网络通信、操作文件的多线程/进程程序。以此深入了解 Linux 系统运行机制。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065929.png)
+![Linux 系统编程](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205065929.png)
 
 推荐这份 Linux 系统编程（中文版），非常 nice。球友可以直接在[知识星球的置顶帖](https://t.zsxq.com/03N3NbmEe)里获取网盘下载地址/或者直接从知识星球里获取。
 
@@ -187,7 +188,7 @@ Linux® 内核是 Linux 操作系统（OS）的主要组件，也是计算机硬
 - 设备驱动程序：充当硬件与进程之间的调解程序/解释程序
 - 系统调用和安全防护：从流程接受服务请求
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205070003.png)
+![Linux 内核](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205070003.png)
 
 这一部分内容比较深，能把它学透的基本就是大牛了，写个 OS 就不在话下。
 
@@ -229,13 +230,13 @@ Linux® 内核是 Linux 操作系统（OS）的主要组件，也是计算机硬
 
 > B 站地址：[https://www.bilibili.com/video/BV1Sv411r7vd](https://www.bilibili.com/video/BV1Sv411r7vd)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205070044.png)
+![韩顺平老师的一周学会 Linux](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205070044.png)
 
 其次是狂神说的 Linux 教程：
 
 > [https://www.bilibili.com/video/BV187411y7hF](https://www.bilibili.com/video/BV187411y7hF)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205070054.png)
+![狂神说的 Linux 教程](https://cdn.tobebetterjavaer.com/stutymore/linux-20240205070054.png)
 
 阿里云的这个 Linux 运维学习路线也不错：
 
