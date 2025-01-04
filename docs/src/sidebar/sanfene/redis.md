@@ -20,11 +20,11 @@ head:
 
 ### 1.说说什么是 Redis?
 
-[Redis](https://javabetter.cn/redis/rumen.html) 是 **Re**mote **Di**ctionary **S**ervice 三个单词中加粗字母的组合，是一种基于键值对（key-value）的 NoSQL 数据库。
+[Redis](https://javabetter.cn/redis/rumen.html) 是 **Re**mote **Di**ctionary **S**ervice 三个单词中加粗字母的组合，是一种基于键值对的 NoSQL 数据库。
 
 ![三分恶面渣逆袭：Redis图标](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-96e079f9-49a3-4c55-b0a4-47d043732b62.png)
 
-但比一般的键值对，比如 [HashMap](https://javabetter.cn/collection/hashmap.html) 强大的多，Redis 中的 value 支持 string（字符串）、hash（哈希）、 list（列表）、set（集合）、zset（有序集合）、Bitmaps（位图）、 [HyperLogLog](https://www.cnblogs.com/54chensongxia/p/13803465.html)（基数估算）、GEO（地理信息定位）等多种数据结构。
+但比一般的键值对，比如 [HashMap](https://javabetter.cn/collection/hashmap.html) 强大的多，Redis 中的 value 支持 string、hash、 list、set、zset、Bitmaps、 [HyperLogLog](https://www.cnblogs.com/54chensongxia/p/13803465.html)、GEO等多种数据结构。
 
 而且因为 Redis 的所有数据都存放在内存当中，所以它的读写性能非常出色。
 
@@ -43,6 +43,17 @@ head:
 
 ![技术派专栏](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420093229.png)
 
+#### 部署过 Redis 吗？
+
+我是直接在本地部署的单机版，只需要下载 Redis 的安装包，解压后运行 `redis-server` 命令即可。
+
+也可以通过 Docker 拉取 Redis 镜像，然后运行容器。
+
+```shell
+docker run -d --name redis -p 6379:6379 redis
+```
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
@@ -53,6 +64,7 @@ head:
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：项目中什么地方使用了 redis 缓存，redis 为什么快？
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：数据库用什么多（说了 Mysql 和 Redis）
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的荣耀面经同学 4 面试原题：Redis和MySQL的区别？
+> 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的海康威视同学 4面试原题：Redis部署
 
 
 ### 2.Redis 可以用来干什么？

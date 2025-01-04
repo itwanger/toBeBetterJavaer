@@ -27,7 +27,7 @@ head:
 
 对于科班的同学来说，我建议在学习 Java 这门编程语言之前，学一下 C 语言。我上大学那会，教材用的是《Java 编程思想》，但说真的，这本书对初学者并不友好。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-d5e5b52c-1744-468c-ab9c-f77c24415394.jpg)
+![Java 编程思想](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-d5e5b52c-1744-468c-ab9c-f77c24415394.jpg)
 
 编程语言都是相通的，C语言作为 Java 语言的母胎，**还是非常值得科班去学习一下打打基础的**。其实对于我们程序员来说，学的是计算机科学，而不是编程语言，语言只是工具，没有优劣。像我，就学过 Java、C 语言、Ruby、JavaScript 等等这些编程语言，他们之间确实有很多相似之处。如果学过 JavaScript，能很容易搞懂 Java 的 Lambda 表达式。
 
@@ -35,14 +35,14 @@ C 语言的特殊性就在于它可能是唯一一门最适合来学习一系列
 
 当然了，由于 C 语言的抽象程度更高，学起来也需要花费一番功夫。对于科班的初学者来说，我推荐翁恺教授的 C 语言程序设计。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-82aefde9-8a3f-4f28-aad5-02e39a6b9d4b.png)
+![翁恺教授的 C 语言程序设计](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-82aefde9-8a3f-4f28-aad5-02e39a6b9d4b.png)
 
 >B 站地址：[https://www.bilibili.com/video/BV19W411B7w1](https://www.bilibili.com/video/BV19W411B7w1)
 
 喜欢看书的同学我只推荐一本，《**阮一峰老师的 C语言入门教程**》，我第一时间就拜读了一遍，受益匪浅！可以说目前我见到的最好的 C语言入门教程了，没有之一！
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-3507eb06-8424-4b8e-b20d-046268508c9d.png)
+![阮一峰老师的 C语言入门教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-3507eb06-8424-4b8e-b20d-046268508c9d.png)
 
 我第一时间就整理了一份 PDF 版的，需要的小伙伴可以长按识别/扫描下方二维码，关注后回复 「**阮一峰**」 下载这份 PDF 吧：
 
@@ -65,7 +65,7 @@ JDK 是 Java Development ToolKit 的简称，也就是 Java 开发工具包。JD
 Intellij IDEA，不用说，是编写 Java 程序的最佳 IDE，初学者选择社区版就完全够用了。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-3fb56f9d-942a-4439-8bab-0f19bd59ef58.png)
+![Intellij IDEA](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/yitiaolong-3fb56f9d-942a-4439-8bab-0f19bd59ef58.png)
 
 
 初次使用的话，建议阅读一下《IntelliJ IDEA 简体中文专题教程》，GitHub 上已开源。
