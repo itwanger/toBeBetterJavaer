@@ -76,7 +76,7 @@ public class Person {
 
 一个类可以包含：
 
-- 字段（Filed）
+- 字段（Field）
 - 方法（Method）
 - 构造方法（Constructor）
 
