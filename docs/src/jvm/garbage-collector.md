@@ -36,7 +36,7 @@ head:
 
 7款经典垃圾回收器间的组合关系：
 
-![gc07.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/325a506a3bf84ff583b220e2385430d2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![图片来源于掘金](https://cdn.tobebetterjavaer.com/stutymore/garbage-collector-20250110110811.png)
 
 说明：
 
@@ -103,9 +103,8 @@ ParNew是Parallel New两个词的简写，是Serial的多线程版本垃圾回�
 
 Serial、ParNew搭配Serial Old回收器示意图：
 
-![gc08.jpg](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b5c5ae416fe4f55be06b037fb64850e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![Serial、ParNew搭配Serial Old](https://cdn.tobebetterjavaer.com/stutymore/garbage-collector-20250110110841.png)
 
-> 图片来自于[codertw.com/%E7%A8%8B%E…](https://link.juejin.cn?target=https%3A%2F%2Fcodertw.com%2F%25E7%25A8%258B%25E5%25BC%258F%25E8%25AA%259E%25E8%25A8%2580%2F691189%2F "https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691189/")
 
 ### Parallel、Parallel Old回收器
 
@@ -137,7 +136,7 @@ CMS作为一款老年代的垃圾回收器，不能和新生代垃圾回收器Pa
 
 CMS回收器示意图：
 
-![gc09.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aee1d995eda44f979a42233a72c16769~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![CMS回收器](https://cdn.tobebetterjavaer.com/stutymore/garbage-collector-20250110110940.png)
 
 > 图片来自于[codertw.com/%E7%A8%8B%E…](https://link.juejin.cn?target=https%3A%2F%2Fcodertw.com%2F%25E7%25A8%258B%25E5%25BC%258F%25E8%25AA%259E%25E8%25A8%2580%2F691189%2F "https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691189/")
 
@@ -179,7 +178,7 @@ G1会避免对整个Java堆进行垃圾收集，它会跟踪各个region里垃�
 
 **region的说明**
 
-![gc10.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2d231b2900a43b0afff8dc3b650db2a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![G1](https://cdn.tobebetterjavaer.com/stutymore/garbage-collector-20250110111006.png)
 
 > 图片来自于[tech.meituan.com/2016/09/23/…](https://link.juejin.cn?target=https%3A%2F%2Ftech.meituan.com%2F2016%2F09%2F23%2Fg1.html "https://tech.meituan.com/2016/09/23/g1.html")
 
@@ -189,7 +188,7 @@ G1会避免对整个Java堆进行垃圾收集，它会跟踪各个region里垃�
 
 G1回收垃圾过程如下图所示：
 
-![gc11.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42bb941f6b0447dc9624388a2773eeb1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![G1回收垃圾过程](https://cdn.tobebetterjavaer.com/stutymore/garbage-collector-20250110111025.png)
 
 > 图片来自于[codertw.com/%E7%A8%8B%E…](https://link.juejin.cn?target=https%3A%2F%2Fcodertw.com%2F%25E7%25A8%258B%25E5%25BC%258F%25E8%25AA%259E%25E8%25A8%2580%2F691189%2F "https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/691189/")
 
@@ -227,7 +226,7 @@ G1回收器相关参数设置：
 
 上面这几款经典的垃圾回收器各有特点，具体使用的时候需要根据具体的情况选用不同的垃圾回收器：
 
-![gc12.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29fc44f2c82549bea2fb368b1fd4c9ce~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+![垃圾收集器的特点](https://cdn.tobebetterjavaer.com/stutymore/garbage-collector-20250110111049.png)
 
 垃圾回收器|分类|作用位置|使用算法|特点|适用场景|
 ---|---|---|---|---|---|
