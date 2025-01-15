@@ -2,7 +2,7 @@
 title: JVM面试题，54道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
-date: 2024-12-15
+date: 2025-01-10
 category:
   - 面渣逆袭
 tag:
@@ -14,7 +14,44 @@ head:
       content: Java,Java虚拟机,JVM,Java面试题,JVM面试题,java虚拟机面试题,八股文,java
 ---
 
+![面渣逆袭JVM篇封面图](https://cdn.tobebetterjavaer.com/stutymore/jvm-mianzhanixi-jvm.jpg)
+
+## 前言
+
 1.5 万字 51 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+
+亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
+
+
+![面渣逆袭集合框架篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108182441.png)
+
+2024 年 12 月 30 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250110113003.png)
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+
+展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
+
+![面渣逆袭集合框架篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108182547.png)
+
 
 ## 一、引言
 
@@ -22,33 +59,35 @@ head:
 
 JVM，也就是 Java 虚拟机，它是 Java 实现跨平台的基石。
 
-Java 程序运行的时候，编译器会将 Java 源代码（.java）编译成平台无关的 Java 字节码文件（.class），接下来对应平台的 JVM 会对字节码文件进行解释，翻译成对应平台的机器指令并运行。
+程序运行之前，需要先通过编译器将 Java 源代码文件编译成 Java 字节码文件；
+
+程序运行时，JVM 会对字节码文件进行逐行解释，翻译成机器码指令，并交给对应的操作系统去执行。
 
 ![三分恶面渣逆袭：Java语言编译运行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-1.png)
 
-也就实现了 Java 一次编译，处处运行的跨平台性。
+这样就实现了 Java 一次编译，处处运行的特性。
 
 #### 说说 JVM 的其他特性？
 
-①、垃圾回收：JVM 可以自动管理内存，通过垃圾回收机制（Garbage Collection）释放不再使用的对象所占用的内存。
+①、JVM 可以自动管理内存，通过垃圾回收器回收不再使用的对象并释放内存空间。
 
-②、JIT：JVM 包含一个即时编译器（JIT Compiler），它在运行时将热点代码缓存到 codeCache 中，下次执行的时候不用再一行一行解释，而是直接执行缓存后的机器码，执行效率会提高很多。
+②、JVM 包含一个即时编译器 JIT，它可以在运行时将热点代码缓存到 codeCache 中，下次执行的时候不用再一行一行的解释，而是直接执行缓存后的机器码，执行效率会大幅提高。
 
 ![截图来自美团技术](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-9a62fc02-1a6a-451e-bb2b-19fc086d5be0.png)
 
-③、多语言支持：任何可以通过 Java 编译的语言，比如说 Groovy、Kotlin、Scala 等，都可以在 JVM 上运行。
+③、任何可以通过 Java 编译的语言，比如说 Groovy、Kotlin、Scala 等，都可以在 JVM 上运行。
 
 ![三分恶面渣逆袭：JVM跨语言](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-2.png)
 
 #### 为什么要学习 JVM？
 
-学习 JVM 可以帮助我们更好地优化程序性能、避免内存问题。
+学习 JVM 可以帮助我们开发者更好地优化程序性能、避免内存问题。
 
-首先，了解 JVM 的内存模型和垃圾回收机制，可以帮助我们合理配置内存、减少 GC 停顿。
+比如说了解 JVM 的内存模型和垃圾回收机制，可以帮助我们更合理地配置内存、减少 GC 停顿。
 
-此外，掌握 JVM 的类加载机制可以帮助排查类加载冲突或异常。
+比如说掌握 JVM 的类加载机制可以帮助我们排查类加载冲突或异常。
 
-JVM 还提供了很多调试和监控工具，比如使用 jmap 和 jstat 可以分析内存和线程的使用情况。
+再比如说，JVM 还提供了很多调试和监控工具，可以帮助我们分析内存和线程的使用情况，从而解决内存溢出内存泄露等问题。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：有了解 JVM 吗
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：了解过 JVM 么？讲一下 JVM 的特性
@@ -56,7 +95,7 @@ JVM 还提供了很多调试和监控工具，比如使用 jmap 和 jstat 可以
 
 ### 2.说说 JVM 的组织架构（补充）
 
-> 本题是增补的内容，by 2024 年 03 月 08 日；
+> 增补于 2024 年 03 月 08 日。
 
 推荐阅读：[大白话带你认识 JVM](https://javabetter.cn/jvm/what-is-jvm.html)
 
@@ -66,9 +105,9 @@ JVM 大致可以划分为三个部分：类加载器、运行时数据区和执�
 
 ① 类加载器，负责从文件系统、网络或其他来源加载 Class 文件，将 Class 文件中的二进制数据读入到内存当中。
 
-② 运行时数据区，JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数据，这些内存区域主要包括方法区、堆、栈、程序计数器和本地方法栈。
+② 运行时数据区，JVM 在执行 Java 程序时，需要在内存中分配空间来处理各种数据，这些内存区域按照 Java 虚拟机规范可以划分为方法区、堆、虚拟机栈、程序计数器和本地方法栈。
 
-③ 执行引擎，JVM 的心脏，负责执行字节码。它包括一个虚拟处理器，还包括即时编译器 JIT 和垃圾回收器。
+③ 执行引擎，也是 JVM 的心脏，负责执行字节码。它包括一个虚拟处理器、即时编译器 JIT 和垃圾回收器。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 JVM 的组织架构
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：JVM的架构，具体阐述一下各个部分的功能？
@@ -79,7 +118,7 @@ JVM 大致可以划分为三个部分：类加载器、运行时数据区和执�
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
-按照 Java 虚拟机规范，JVM 的内存区域可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`、`方法区`等。
+按照 Java 虚拟机规范，JVM 的内存区域可以细分为`程序计数器`、`虚拟机栈`、`本地方法栈`、`堆`和`方法区`。
 
 ![三分恶面渣逆袭：Java虚拟机运行时数据区](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-3.png)
 
@@ -93,15 +132,17 @@ JVM 大致可以划分为三个部分：类加载器、运行时数据区和执�
 
 Java 虚拟机栈的生命周期与线程相同。
 
-当线程执行一个方法时，会创建一个对应的[栈帧](https://javabetter.cn/jvm/stack-frame.html)，用于存储局部变量表、操作数栈、动态链接、方法出口等信息，然后栈帧会被压入栈中。当方法执行完毕后，栈帧会从栈中移除。
+当线程执行一个方法时，会创建一个对应的[栈帧](https://javabetter.cn/jvm/stack-frame.html)，用于存储局部变量表、操作数栈、动态链接、方法出口等信息，然后栈帧会被压入虚拟机栈中。当方法执行完毕后，栈帧会从虚拟机栈中移除。
 
 ![三分恶面渣逆袭：Java虚拟机栈](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-4.png)
 
-#### 一个什么都没有的空方法，完全空的参数什么都没有，那局部变量表里有没有变量？
+#### 一个什么都没有的空方法，空的参数都没有，那局部变量表里有没有变量？
 
-对于静态方法，由于不需要访问实例对象（this），因此在局部变量表中不会有任何变量。
+对于[静态方法](https://javabetter.cn/oo/static.html)，由于不需要访问实例对象 this，因此在局部变量表中不会有任何变量。
 
 对于非静态方法，即使是一个完全空的方法，局部变量表中也会有一个用于存储 this 引用的变量。this 引用指向当前实例对象，在方法调用时被隐式传入。
+
+详细解释一下：
 
 比如说有这样一段代码：
 
@@ -117,23 +158,21 @@ public class VarDemo1 {
 }
 ```
 
-用 `javap -v VarDemo1` 命令查看编译后的字节码：
-
-在非静态方法 emptyMethod 的输出中，你会看到类似这样的内容：
+用 `javap -v VarDemo1` 命令查看编译后的字节码，就可以在 emptyMethod 中看到这样的内容：
 
 ![二哥的 Java 进阶之路：javap emptyMethod](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240816130451.png)
 
-这里的 locals=1 表示局部变量表有一个变量，即 this，Slot 0 位置存储了 this 引用。
+这里的 `locals=1` 表示局部变量表有一个变量，即 this，Slot 0 位置存储了 this 引用。
 
-而在静态方法 staticEmptyMethod 的输出中，你会看到类似这样的内容：
+而在静态方法 staticEmptyMethod 中，你会看到这样的内容：
 
 ![二哥的 Java 进阶之路：javap staticEmptyMethod](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240816130536.png)
 
-这里的 locals=0 表示局部变量表为空，因为静态方法没有 this 引用，也没有其他局部变量。
+这里的 locals=0 表示局部变量表为空，因为静态方法属于类级别方法，不需要 this 引用，也就没有局部变量。
 
 #### 介绍一下本地方法栈？
 
-本地方法栈与虚拟机栈相似，区别在于虚拟机栈是为 JVM 执行 Java 编写的方法服务的，而本地方法栈是为 Java 调用[本地（native）方法](https://javabetter.cn/oo/native-method.html)服务的，由 C/C++ 编写。
+本地方法栈与虚拟机栈相似，区别在于虚拟机栈是为 JVM 执行 Java 编写的方法服务的，而本地方法栈是为 Java 调用[本地 native 方法](https://javabetter.cn/oo/native-method.html)服务的，通常由 C/C++ 编写。
 
 在本地方法栈中，主要存放了 native 方法的局部变量、动态链接和方法出口等信息。当一个 Java 程序调用一个 native 方法时，JVM 会切换到本地方法栈来执行这个方法。
 
@@ -143,7 +182,9 @@ public class VarDemo1 {
 
 比如调用操作系统的特定功能，如内存管理、文件操作、系统时间、系统调用等。
 
-举例：`System.currentTimeMillis()` 就是调用本地方法来获取操作系统的当前时间。
+详细说明一下：
+
+比如说获取系统时间的 `System.currentTimeMillis()` 方法就是调用本地方法，来获取操作系统当前时间的。
 
 ![二哥的Java 进阶之路：currentTimeMillis方法源码](https://cdn.tobebetterjavaer.com/stutymore/jvm-20241020075744.png)
 
@@ -155,7 +196,7 @@ public class VarDemo1 {
 
 推荐阅读：[手把手教你用 C语言实现 Java native 本地方法](https://javabetter.cn/oo/native-method.html)
 
-Native 方法是在 Java 中通过 native 关键字声明的，用于调用非 Java 语言（如 C/C++）编写的代码。Java 可以通过 JNI（Java Native Interface）与底层系统、硬件设备、或高性能的本地库进行交互。
+native 方法是在 Java 中通过 [native 关键字](https://javabetter.cn/basic-extra-meal/48-keywords.html)声明的，用于调用非 Java 语言，如 C/C++ 编写的代码。Java 可以通过 JNI，也就是 Java Native Interface 与底层系统、硬件设备、或者本地库进行交互。
 
 #### 介绍一下 Java 堆？
 
@@ -165,13 +206,13 @@ Native 方法是在 Java 中通过 native 关键字声明的，用于调用非 J
 
 Java 中“几乎”所有的对象都会在堆中分配，堆也是[垃圾收集器](https://javabetter.cn/jvm/gc-collector.html)管理的目标区域。
 
-从内存回收的角度来看，由于垃圾收集器大部分都是基于分代收集理论设计的，所以堆也会被划分为`新生代`、`老年代`、`Eden空间`、`From Survivor空间`、`To Survivor空间`等。
+从内存回收的角度来看，由于垃圾收集器大部分都是基于分代收集理论设计的，所以堆又被细分为`新生代`、`老年代`、`Eden空间`、`From Survivor空间`、`To Survivor空间`等。
 
 ![三分恶面渣逆袭：Java 堆内存结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-5.png)
 
-但随着 [JIT 编译器](https://javabetter.cn/jvm/jit.html)的发展和逃逸技术的逐渐成熟，“所有的对象都会分配到堆上”就不再那么绝对了。
+随着 [JIT 编译器](https://javabetter.cn/jvm/jit.html)的发展和逃逸技术的逐渐成熟，“所有的对象都会分配到堆上”就不再那么绝对了。
 
-从 JDK 7 开始，JVM 已经默认开启逃逸分析了，意味着如果某些方法中的对象引用没有被返回或者未被方法体外使用（也就是未逃逸出去），那么对象可以直接在栈上分配内存。
+从 JDK 7 开始，JVM 默认开启了逃逸分析，意味着如果某些方法中的对象引用没有被返回或者没有在方法体外使用，也就是未逃逸出去，那么对象可以直接在栈上分配内存。
 
 #### 堆和栈的区别是什么？
 
@@ -183,11 +224,11 @@ Java 中“几乎”所有的对象都会在堆中分配，堆也是[垃圾收�
 
 方法区并不真实存在，属于 Java 虚拟机规范中的一个逻辑概念，用于存储已被 JVM 加载的类信息、常量、静态变量、即时编译器编译后的代码缓存等。
 
-在 HotSpot 虚拟机中，方法区的实现称为永久代（PermGen），但在 Java 8 及之后的版本中，已经被元空间（Metaspace）所替代。
+在 HotSpot 虚拟机中，方法区的实现称为永久代 PermGen，但在 Java 8 及之后的版本中，已经被元空间 Metaspace 所替代。
 
 #### 变量存在堆栈的什么位置？
 
-对于局部变量来说，它存储在当前方法的栈帧中的局部变量表中。当方法执行完毕，栈帧被回收，局部变量也会被释放。
+对于局部变量，它存储在当前方法栈帧中的局部变量表中。当方法执行完毕，栈帧被回收，局部变量也会被释放。
 
 ```java
 public void method() {
@@ -195,7 +236,7 @@ public void method() {
 }
 ```
 
-对于静态变量来说，它存储在 Java 规范中的方法区中，也就是元空间（Metaspace）。
+对于静态变量来说，它存储在 Java 虚拟机规范中的方法区中，在 Java 7 中是永久带，在 Java8 及以后 是元空间。
 
 ```java
 public class StaticVarDemo {
@@ -220,149 +261,258 @@ public class StaticVarDemo {
 > 15. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：jvm结构 运行时数据区有什么结构 堆存什么
 > 16. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：new一个对象存放在哪里？（运行时数据区），局部变量存在JVM哪里
 
-### 4.说一下 JDK1.6、1.7、1.8 内存区域的变化？
+### 4.说一下 JDK 1.6、1.7、1.8 内存区域的变化？
 
-JDK1.6、1.7/1.8 内存区域发生了变化，主要体现在方法区的实现：
+JDK 1.6 使用永久代来实现方法区：
 
-- JDK1.6 使用永久代实现方法区：
+![三分恶面渣逆袭：JDK 1.6内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-6.png)
 
-![JDK 1.6内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-6.png)
+JDK 1.7 时仍然是永久带，但发生了一些细微变化，比如将字符串常量池、静态变量存放到了堆上。
 
-- JDK1.7 时发生了一些变化，将字符串常量池、静态变量，存放在堆上
+![三分恶面渣逆袭：JDK 1.7内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-7.png)
 
-![JDK 1.7内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-7.png)
+在 JDK 1.8 时，直接在内存中划出了一块区域，叫**元空间**，来取代之前放在 JVM 内存中的永久代，并将运行时常量池、类常量池都移动到了元空间。
 
-- 在 JDK1.8 时彻底干掉了永久代，而在直接内存中划出一块区域作为**元空间**，运行时常量池、类常量池都移动到元空间。
+![三分恶面渣逆袭：JDK 1.8内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-8.png)
 
-![JDK 1.8内存区域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-8.png)
+### 5.为什么使用元空间替代永久代？
 
-### 5.为什么使用元空间替代永久代作为方法区的实现？
+客观上，永久代会导致 Java 应用程序更容易出现内存溢出的问题，因为它要受到 JVM 内存大小的限制。
 
-Java 虚拟机规范规定的方法区只是换种方式实现。有客观和主观两个原因。
+HotSpot 虚拟机的永久代大小可以通过 `-XX：MaxPermSize` 参数来设置，32 位机器默认的大小为 64M，64 位的机器则为 85M。
 
-- 客观上使用永久代来实现方法区的决定的设计导致了 Java 应用更容易遇到内存溢出的问题（永久代有-XX：MaxPermSize 的上限，即使不设置也有默认大小，而 J9 和 JRockit 只要没有触碰到进程可用内存的上限，例如 32 位系统中的 4GB 限制，就不会出问题），而且有极少数方法 （例如 String::intern()）会因永久代的原因而导致不同虚拟机下有不同的表现。
+而 J9 和 JRockit 虚拟机就不存在这种限制，只要没有触碰到进程可用的内存上限，例如 32 位系统中的 4GB 限制，就不会出问题。
 
-- 主观上当 Oracle 收购 BEA 获得了 JRockit 的所有权后，准备把 JRockit 中的优秀功能，譬如 Java Mission Control 管理工具，移植到 HotSpot 虚拟机时，但因为两者对方法区实现的差异而面临诸多困难。考虑到 HotSpot 未来的发展，在 JDK 6 的 时候 HotSpot 开发团队就有放弃永久代，逐步改为采用本地内存（Native Memory）来实现方法区的计划了，到了 JDK 7 的 HotSpot，已经把原本放在永久代的字符串常量池、静态变量等移出，而到了 JDK 8，终于完全废弃了永久代的概念，改用与 JRockit、J9 一样在本地内存中实现的元空间（Meta-space）来代替，把 JDK 7 中永久代还剩余的内容（主要是类型信息）全部移到元空间中。
+主观上，当 Oracle 收购 BEA 获得了 JRockit 的所有权后，就准备把 JRockit 中的优秀功能移植到 HotSpot 中。
+
+如 Java Mission Control 管理工具。
+
+但因为两个虚拟机对方法区实现有差异，导致这项工作遇到了很多阻力。
+
+考虑到 HotSpot 虚拟机未来的发展，JDK 6 的时候，开发团队就打算放弃永久代了。
+
+JDK 7 的时候，前进了一小步，把原本放在永久代的字符串常量池、静态变量等移动到了堆中。
+
+JDK 8 就终于完成了这项移出工作，这样的好处就是，元空间的大小不再受到 JVM 内存的限制，而是可以像 J9 和 JRockit 那样，只要系统内存足够，就可以一直用。
 
 ### 6.对象创建的过程了解吗？
 
-当我们使用 new 关键字创建一个对象的时候，JVM 首先会检查 new 指令的参数是否能在常量池中定位到一个类的符号引用，然后检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，就先执行相应的类加载过程。
-
-如果已经加载，JVM 会为新生对象分配内存，内存分配完成之后，JVM 将分配到的内存空间初始化为零值（成员变量，数值类型是 0，布尔类型是 false，对象类型是 null），接下来设置对象头，对象头里包含了对象是哪个类的实例、对象的哈希码、对象的 GC 分代年龄等信息。
-
-最后，JVM 会执行构造方法（`<init>`），将成员变量赋值为预期的值，这样一个对象就创建完成了。
+当我们使用 new 关键字创建一个对象时，JVM 首先会检查 new 指令的参数是否能在常量池中定位到类的符号引用，然后检查这个符号引用代表的类是否已被加载、解析和初始化。如果没有，就先执行类加载。
 
 ![二哥的 Java 进阶之路：对象的创建过程](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240404091445.png)
 
+如果已经加载，JVM 会为对象分配内存完成初始化，比如数值类型的成员变量初始值是 0，布尔类型是 false，对象类型是 null。
+
+接下来会设置对象头，里面包含了对象是哪个类的实例、对象的哈希码、对象的 GC 分代年龄等信息。
+
+最后，JVM 会执行构造方法 `<init>` 完成赋值操作，将成员变量赋值为预期的值，比如 `int age = 18`，这样一个对象就创建完成了。
+
 #### 对象的销毁过程了解吗？
 
-对象创建完成后，就可以通过引用来访问对象的方法和属性，当对象不再被任何引用指向时，对象就会变成垃圾。
+当对象不再被任何引用指向时，就会变成垃圾。垃圾收集器会通过可达性分析算法判断对象是否存活，如果对象不可达，就会被回收。
 
-垃圾收集器会通过可达性分析算法判断对象是否存活，如果对象不可达，就会被回收。
+垃圾收集器通过标记清除、标记复制、标记整理等算法来回收内存，将对象占用的内存空间释放出来。
 
-垃圾收集器会通过标记清除、标记复制、标记整理等算法来回收内存，将对象占用的内存空间释放出来。
+可以通过 `java -XX:+PrintCommandLineFlags -version` 和 `java -XX:+PrintGCDetails -version` 命令查看 JVM 的 GC 收集器。
 
-常用的垃圾收集器有 CMS、G1、ZGC 等，它们的回收策略和效率不同，可以根据具体的场景选择合适的垃圾收集器。
+![二哥的 Java 进阶之路：JVM 使用的垃圾收集器](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250110111618.png)
+
+可以看到，我本机安装的 JDK 8 默认使用的是 `Parallel Scavenge + Parallel Old`。
+
+不同参数代表对应的垃圾收集器表单：
+
+新生代|	老年代|	JVM参数
+---|---|---|
+Serial|	Serial|	-XX:+UseSerialGC	 
+Parallel Scavenge|	Serial|	-XX:+UseParallelGC -XX:-UseParallelOldGC	 
+Parallel Scavenge|	Parallel Old|	-XX:+UseParallelGC -XX:+UseParallelOldGC	 
+Parallel New|	CMS|	-XX:+UseParNewGC -XX:+UseConcMarkSweepGC	 
+G1||	 	-XX:+UseG1GC
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：对象创建到销毁的流程
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说创建对象的流程？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
-### 7.什么是指针碰撞？什么是空闲列表？
+### 7.堆内存是如何分配的？
 
-在堆内存分配对象时，主要使用两种策略：指针碰撞和空闲列表。
+在堆中为对象分配内存时，主要使用两种策略：指针碰撞和空闲列表。
 
 ![三分恶面渣逆袭：指针碰撞和空闲列表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-10.png)
 
-①、指针碰撞（Bump the Pointer）
+指针碰撞适用于管理简单、碎片化较少的内存区域，如年轻代；而空闲列表适用于内存碎片化较严重或对象大小差异较大的场景如老年代。
+
+#### 什么是指针碰撞？
 
 假设堆内存是一个连续的空间，分为两个部分，一部分是已经被使用的内存，另一部分是未被使用的内存。
 
-在分配内存时，Java 虚拟机维护一个指针，指向下一个可用的内存地址，每次分配内存时，只需要将指针向后移动（碰撞）一段距离，然后将这段内存分配给对象实例即可。
+在分配内存时，Java 虚拟机会维护一个指针，指向下一个可用的内存地址，每次分配内存时，只需要将指针向后移动一段距离，如果没有发生碰撞，就将这段内存分配给对象实例。
 
-②、空闲列表（Free List）
+#### 什么是空闲列表？
 
-JVM 维护一个列表，记录堆中所有未占用的内存块，每个空间块都记录了大小和地址信息。
+JVM 维护一个列表，记录堆中所有未占用的内存块，每个内存块都记录有大小和地址信息。
 
 当有新的对象请求内存时，JVM 会遍历空闲列表，寻找足够大的空间来存放新对象。
 
-分配后，如果选中的空闲块未被完全利用，剩余的部分会作为一个新的空闲块加入到空闲列表中。
-
-指针碰撞适用于管理简单、碎片化较少的内存区域（如年轻代），而空闲列表适用于内存碎片化较严重或对象大小差异较大的场景（如老年代）。
+分配后，如果选中的内存块未被完全利用，剩余的部分会作为一个新的内存块加入到空闲列表中。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 
-### 8.JVM 里 new 对象时，堆会发生抢占吗？JVM 是怎么设计来保证线程安全的？
+memo：2025 年 1 月 10 日修改到此
 
-会，假设 JVM 虚拟机上，每一次 new 对象时，指针就会向右移动一个对象 size 的距离，一个线程正在给 A 对象分配内存，指针还没有来的及修改，另一个为 B 对象分配内存的线程，又引用了这个指针来分配内存，这就发生了抢占。
+### 8.new 对象时，堆会发生抢占吗？
 
-有两种可选方案来解决这个问题：
+会。
 
-![堆抢占和解决方案](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-11.png)
+![Baeldung：堆抢占](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250111104638.png)
 
-- 采用 CAS 分配重试的方式来保证更新操作的原子性
+new 对象时，指针会向右移动一个对象大小的距离，假如一个线程 A 正在给字符串对象 s 分配内存，另外一个线程 B 同时为 ArrayList 对象 l 分配内存，两个线程就发生了抢占。
 
-- 每个线程在 Java 堆中预先分配一小块内存，也就是本地线程分配缓冲（Thread Local Allocation
+#### JVM 怎么解决堆内存分配的竞争问题？
 
-  Buffer，TLAB），要分配内存的线程，先在本地缓冲区中分配，只有本地缓冲区用完了，分配新的缓存区时才需要同步锁定。
+为了解决堆内存分配的竞争问题，JVM 为每个线程保留了一小块内存空间，被称为 TLAB，也就是线程本地分配缓冲区，用于存放该线程分配的对象。
+
+![Baeldung：TLAB](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250111105119.png)
+
+当线程需要分配对象时，直接从 TLAB 中分配。只有当 TLAB 用尽或对象太大需要直接在堆中分配时，才会使用全局分配指针。
+
+这里简单测试一下 TLAB。
+
+可以通过 `java -XX:+PrintFlagsFinal -version | grep TLAB` 命令查看当前 JVM 是否开启了 TLAB。
+
+![二哥的 Java 进阶之路：查看 TLAB](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250111111537.png)
+
+如果开启了 TLAB，会看到类似以下的输出，其中 bool UseTLAB 的值为 true。
+
+我们编写一个简单的测试类，创建大量对象并强制触发垃圾回收，查看 TLAB 的使用情况。
+
+```java
+class TLABDemo {
+    public static void main(String[] args) {
+        for (int i = 0; i < 10_000_000; i++) {
+            allocate(); // 创建大量对象
+        }
+        System.gc(); // 强制触发垃圾回收
+    }
+
+    private static void allocate() {
+        // 小对象分配，通常会使用 TLAB
+        byte[] bytes = new byte[64];
+    }
+}
+```
+
+在 VM 参数中添加 `-XX:+UseTLAB -XX:+PrintTLAB -XX:+PrintGCDetails -XX:+PrintGCDateStamps`，运行后可以看到这样的内容：
+
+![二哥的 Java 进阶之路：测试 TLAB](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250111111823.png)
+
+- waste：未使用的 TLAB 空间。
+- alloc：分配到 TLAB 的空间。
+- refills：TLAB 被重新填充的次数。
+
+可以看到，当前线程的 TLAB 目标大小为 10,496 KB（`desired_size: 10496KB`）；未发生慢分配（`slow allocs: 0`）；分配效率直接拉满（`alloc: 1.00000 52494KB`）。
+
+当使用 `-XX:-UseTLAB -XX:+PrintGCDetails` 关闭 TLAB 时，会看到类似以下的输出：
+
+![二哥的 Java 进阶之路：关闭 TLAB](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250111112843.png)
+
+直接出现了两次 GC，因为没有 TLAB，Eden 区更快被填满，导致年轻代 GC。年轻代 GC 频繁触发，一部分长生命周期对象被晋升到老年代，间接导致老年代 GC 触发。
 
 ### 9.能说一下对象的内存布局吗？
 
-在 Java 中，对象的内存布局是由 Java 虚拟机规范定义的，但具体的实现细节可能因不同的 JVM 实现（如 HotSpot、OpenJ9 等）而异。
+好的。
 
-在 HotSpot 中，对象在堆内存中的存储布局可以划分为三个部分：对象头（Object Header）、实例数据（Instance Data）和对齐填充（Padding）。
+对象的内存布局是由 Java 虚拟机规范定义的，但具体的实现细节各有不同，如 HotSpot 和 OpenJ9 就不一样。
+
+就拿我们常用的 HotSpot 来说吧。
+
+对象在内存中包括三部分：对象头、实例数据和对齐填充。
 
 ![三分恶面渣逆袭：对象的存储布局](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-12.png)
 
-①、**对象头**是每个对象都有的，包含三部分主要信息：
+#### 说说对象头的作用？
 
-- **标记字**（Mark Word）：包含了对象自身的运行时数据，如哈希码（HashCode）、垃圾回收分代年龄、锁状态标志、线程持有的锁、偏向线程 ID 等信息。在 64 位操作系统下占 8 个字节，32 位操作系统下占 4 个字节。
-- **类型指针**（Class Pointer）：指向对象所属类的元数据的指针，JVM 通过这个指针来确定对象的类。在开启了压缩指针的情况下，这个指针可以被压缩。在开启指针压缩的情况下占 4 个字节，否则占 8 个字节。
-- **数组长度**（Array Length）：如果对象是数组类型，还会有一个额外的数组长度字段。占 4 个字节。
+对象头是对象存储在内存中的元信息，包含了Mark Word、类型指针等信息。
 
-注意，启用压缩指针（`-XX:+UseCompressedOops`）可以减少对象头中类型指针的大小，从而减少对象总体大小，提高内存利用率。
+Mark Word 存储了对象的运行时状态信息，包括锁、哈希值、GC 标记等。在 64 位操作系统下占 8 个字节，32 位操作系统下占 4 个字节。
 
-可以通过 `java -XX:+PrintFlagsFinal -version | grep UseCompressedOops` 命令来查看当前 JVM 是否开启了压缩指针。
+类型指针指向对象所属类的元数据，也就是 Class 对象，用来支持多态、方法调用等功能。
+
+除此之外，如果对象是数组类型，还会有一个额外的数组长度字段。占 4 个字节。
+
+#### 类型指针会被压缩吗？
+
+类型指针可能会被压缩，以节省内存空间。比如说在开启压缩指针的情况下占 4 个字节，否则占 8 个字节。在 JDK 8 中，压缩指针默认是开启的。
+
+可以通过 `java -XX:+PrintFlagsFinal -version | grep UseCompressedOops` 命令来查看 JVM 是否开启了压缩指针。
 
 ![二哥的 Java 进阶之路：查看 JVM 是否开启压缩指针](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320220408.png)
 
-如果压缩指针开启，会看到类似以下的输出，其中 bool UseCompressedOops 的值为 true。
+如果压缩指针开启，输出结果中的 bool UseCompressedOops 值为 true。
 
-在 JDK 8 中，压缩指针默认是开启的，以减少 64 位应用中对象引用的内存占用。
+#### 实例数据了解吗？
 
-②、**实例数据**存储了对象的具体信息，即在类中定义的各种字段数据（不包括由父类继承的字段）。这部分的大小取决于对象的属性和它们的类型（如 int、long、引用类型等）。JVM 会对这些数据进行对齐，以确保高效的访问速度。
+了解一些。
 
-③、**对齐填充**，为了使对象的总大小是 8 字节的倍数（这在大多数现代计算机体系结构中是最优访问边界），JVM 可能会在对象末尾添加一些填充。这部分是为了满足内存对齐的需求，并不包含任何具体的数据。
+实例数据是对象实际的字段值，也就是成员变量的值，按照字段在类中声明的顺序存储。
+
+```java
+class ObjectDemo {
+    int age;
+    String name;
+}
+```
+
+JVM 会对这些数据进行对齐/重排，以提高内存访问速度。
+
+#### 对齐填充了解吗？
+
+由于 JVM 的内存模型要求对象的起始地址是 8 字节对齐（64 位 JVM 中），因此对象的总大小必须是 8 字节的倍数。
+
+如果对象头和实例数据的总长度不是 8 的倍数，JVM 会通过填充额外的字节来对齐。
+
+比如说，如果对象头 + 实例数据 = 14 字节，则需要填充 2 个字节，使总长度变为 16 字节。
 
 #### 为什么非要进行 8 字节对齐呢？
 
-这是因为 CPU 进行内存访问时，一次寻址的指针大小是 8 字节，正好是 L1 缓存行的大小。如果不进行内存对齐，则可能出现跨缓存行访问，导致额外的缓存行加载，降低了 CPU 的访问效率。
+因为 CPU 进行内存访问时，一次寻址的指针大小是 8 字节，正好是 L1 缓存行的大小。如果不进行内存对齐，则可能出现跨缓存行访问，导致额外的缓存行加载，CPU 的访问效率就会降低。
 
 ![rickiyang：缓存行污染](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320222058.png)
 
-比如说上图中 obj1 占 6 个字节，由于没有对齐，导致这一行缓存中多了 2 个字节 obj2 的数据，当 CPU 访问 obj2 的时候，就会导致缓存行的刷新，这就是缓存行污染。
+比如说上图中 obj1 占 6 个字节，由于没有对齐，导致这一行缓存中多了 2 个字节 obj2 的数据，当 CPU 访问 obj2 的时候，就会导致缓存行刷新。
 
-也就说，8 字节对齐，是为了效率的提高，以空间换时间的一种方案。固然你还能够 16 字节对齐，可是 8 字节是最优选择。
+也就说，8 字节对齐，是为了效率的提高，以空间换时间的一种方案。
 
 ![rickiyang：000 结尾](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320222631.png)
 
-#### Object a = new object()的大小
+#### new Object() 对象的内存大小是多少？
 
 推荐阅读：[高端面试必备：一个 Java 对象占用多大内存 ](https://www.cnblogs.com/rickiyang/p/14206724.html)
 
-一般来说，对象的大小是由对象头、实例数据和对齐填充三个部分组成的。
-
-- 对象头的大小在 32 位 JVM 上是 8 字节，在 64 位 JVM 上是 16 字节（如果开启了压缩指针，就是 12 字节）。
-- 实例数据的大小取决于对象的属性和它们的类型。对于`new Object()`来说，Object 类本身没有实例字段，因此这部分可能非常小或者为零。
-- 对齐填充的大小取决于对象头和实例数据的大小，以确保对象的总大小是 8 字节的倍数。
+一般来说，目前的操作系统都是 64 位的，并且 JDK 8 中的压缩指针是默认开启的，因此在 64 位的 JVM 上，`new Object()`的大小是 16 字节（12 字节的对象头 + 4 字节的对齐填充）。
 
 ![rickiyang：Java 对象模型](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320221330.png)
 
-一般来说，目前的操作系统都是 64 位的，并且 JDK 8 中的压缩指针是默认开启的，因此在 64 位 JVM 上，`new Object()`的大小是 16 字节（12 字节的对象头 + 4 字节的对齐填充）。
+对象头的大小是固定的，在 32 位 JVM 上是 8 字节，在 64 位 JVM 上是 16 字节；如果开启了压缩指针，就是 12 字节。
 
-为了确认我们的推理，我们可以使用 [JOL](https://openjdk.org/projects/code-tools/jol/) 工具来查看对象的内存布局：
+实例数据的大小取决于对象的成员变量和它们的类型。对于`new Object()`来说，由于默认没有成员变量，因此我们可以认为此时的实例数据大小是 0。
 
-> JOL 全称为 Java Object Layout，是分析 JVM 中对象布局的工具，该工具大量使用了 Unsafe、JVMTI 来解码布局情况。
+假如 MyObject 对象有三个成员变量，分别是 int、long 和 byte 类型，那么它们占用的内存大小分别是 4 字节、8 字节和 1 字节。
+
+```java
+class MyObject {
+    int a;        // 4 字节
+    long b;       // 8 字节
+    byte c;       // 1 字节
+}
+```
+
+考虑到对齐填充，MyObject 对象的总大小为 12（对象头） + 4（a） + 8（b） + 1（c） + 7（填充） = 32 字节。
+
+#### 用过 JOL 查看对象的内存布局吗？
+
+用过。
+
+[JOL](https://openjdk.org/projects/code-tools/jol/) 是一款分析 JVM 对象布局的工具。
 
 第一步，在 pom.xml 中引入 JOL 依赖：
 
@@ -396,26 +546,24 @@ public class JOLSample {
 
 ![二哥的 Java 进阶之路：JOL 运行结果](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320223653.png)
 
-可以看到有 OFFSET、SIZE、TYPE DESCRIPTION、VALUE 这几个名词头，它们的含义分别是
+可以看到有 OFFSET、SIZE、TYPE DESCRIPTION、VALUE 这几个信息。
 
 - OFFSET：偏移地址，单位字节；
 - SIZE：占用的内存大小，单位字节；
 - TYPE DESCRIPTION：类型描述，其中 object header 为对象头；
 - VALUE：对应内存中当前存储的值，二进制 32 位；
 
-从上面的结果能看到对象头是 12 个字节，还有 4 个字节的 padding，一共 16 个字节。我们的推理是正确的。
+从上面的结果能看到，对象头是 12 个字节，还有 4 个字节的 padding，`new Object()` 一共 16 个字节。
 
-#### 对象引用占多少大小？
+#### 对象的引用大小了解吗？
 
 推荐阅读：[Object o = new Object()占多少个字节？](https://www.cnblogs.com/dijia478/p/14677243.html)
 
-在 64 位 JVM 上，未开启压缩指针时，对象引用占用 8 字节；开启压缩指针时，对象引用可被压缩到 4 字节。
-
-而 HotSpot JVM 默认开启了压缩指针，因此在 64 位 JVM 上，对象引用占用 4 字节。
+在 64 位 JVM 上，未开启压缩指针时，对象引用占用 8 字节；开启压缩指针时，对象引用会被压缩到 4 字节。HotSpot 虚拟机默认是开启压缩指针的。
 
 ![dijia478：对象头](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320224701.png)
 
-我们可以通过下面这个例子来验证一下：
+我们来验证一下：
 
 ```java
 class ReferenceSizeExample {
@@ -434,56 +582,72 @@ class ReferenceSizeExample {
 
 ![二哥的 Java 进阶之路：对象的引用有多大？](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240320231059.png)
 
-ReferenceHolder.reference 字段位于偏移量 12，大小为 4 字节。这表明在当前的 JVM 配置下（64 位 JVM 且压缩指针开启），对象引用占用的内存大小为 4 字节。
+ReferenceHolder.reference 的大小为 4 字节。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：Object a = new object()的大小，对象引用占多少大小？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：Object 底层的数据结构（蒙了）
 
-### 10.对象怎么访问定位？
+memo：2025 年 1 月 11 日修改到此
 
-Java 程序会通过栈上的 reference 数据来操作堆上的具体对象。由于 reference 类型在《Java 虚拟机规范》里面只规定了它是一个指向对象的引用，并没有定义这个引用应该通过什么方式去定位、访问到堆中对象的具体位置，所以对象访问方式也是由虚拟机实现而定的，主流的访问方式主要有使用句柄和直接指针两种：
+### 10.JVM 怎么访问对象的？
 
-- 如果使用句柄访问的话，Java 堆中将可能会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自具体的地址信息，其结构如图所示：
+主流的方式有两种：句柄和直接指针。
 
-![通过句柄访问对象](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-13.png)
+两种方式的区别在于，句柄是通过一个中间的句柄表来定位对象的，而直接指针则是通过引用直接指向对象的内存地址。
 
-- 如果使用直接指针访问的话，Java 堆中对象的内存布局就必须考虑如何放置访问类型数据的相关信息，reference 中存储的直接就是对象地址，如果只是访问对象本身的话，就不需要多一次间接访问的开销，如图所示：
+优点是，对象被移动时只需要修改句柄表中的指针，而不需要修改对象引用本身。
 
-![通过直接指针访问对象](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-14.png)
+![三分恶面渣逆袭：通过句柄访问对象](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-13.png)
 
-这两种对象访问方式各有优势，使用句柄来访问的最大好处就是 reference 中存储的是稳定句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而 reference 本身不需要被修改。
+在直接指针访问中，引用直接存储对象的内存地址；对象的实例数据和类型信息都存储在堆中固定的内存区域。
 
-使用直接指针来访问最大的好处就是速度更快，它节省了一次指针定位的时间开销，由于对象访问在 Java 中非常频繁，因此这类开销积少成多也是一项极为可观的执行成本。
+优点是访问速度更快，因为少了一次句柄的寻址操作。缺点是如果对象在内存中移动，引用需要更新为新的地址。
+
+![三分恶面渣逆袭：通过直接指针访问对象](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-14.png)
 
 HotSpot 虚拟机主要使用直接指针来进行对象访问。
 
 ### 11.说一下对象有哪几种引用？
 
-四种，分别是强引用（Strong Reference）、软引用（Soft Reference）、弱引用（Weak Reference）和虚引用（Phantom Reference）。
+四种，分别是强引用、软引用、弱引用和虚引用。
 
 ![三分恶面渣逆袭：四种引用总结](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-19.png)
 
-强引用是 Java 中最常见的引用类型。使用 new 关键字赋值的引用就是强引用，只要强引用关联着对象，垃圾收集器就不会回收这部分对象。
+强引用是 Java 中最常见的引用类型。使用 new 关键字赋值的引用就是强引用，只要强引用关联着对象，垃圾收集器就不会回收这部分对象，即使内存不足。
 
 ```java
+// str 就是一个强引用
 String str = new String("沉默王二");
 ```
 
-软引用是一种相对较弱的引用类型，可以通过 SoftReference 类实现。软引用对象在内存不足时才会被回收。
+软引用于描述一些非必须对象，通过 SoftReference 类实现。软引用的对象在内存不足时会被回收。
 
 ```java
+// softRef 就是一个软引用
 SoftReference<String> softRef = new SoftReference<>(new String("沉默王二"));
 ```
 
-弱引用可以通过 WeakReference 类实现。弱引用对象在下一次垃圾回收时会被回收，不论内存是否充足。
+弱引用用于描述一些短生命周期的非必须对象，如 ThreadLocal 中的 Entry，就是通过 WeakReference 类实现的。弱引用的对象会在下一次垃圾回收时会被回收，不论内存是否充足。
 
 ```java
-WeakReference<String> weakRef = new WeakReference<>(new String("沉默王二"));
+static class Entry extends WeakReference<ThreadLocal<?>> {
+    /** The value associated with this ThreadLocal. */
+    Object value;
+
+    //节点类
+    Entry(ThreadLocal<?> k, Object v) {
+        //key赋值
+        super(k);
+        //value赋值
+        value = v;
+    }
+}
 ```
 
-虚引用可以通过 PhantomReference 类实现。虚引用对象在任何时候都可能被回收。主要用于跟踪对象被垃圾回收的状态，可以用于管理直接内存。
+虚引用主要用来跟踪对象被垃圾回收的过程，通过 PhantomReference 类实现。虚引用的对象在任何时候都可能被回收。
 
 ```java
+// phantomRef 就是一个虚引用
 PhantomReference<String> phantomRef = new PhantomReference<>(new String("沉默王二"), new ReferenceQueue<>());
 ```
 
@@ -491,16 +655,15 @@ PhantomReference<String> phantomRef = new PhantomReference<>(new String("沉默�
 
 ### 12.Java 堆的内存分区了解吗？
 
-Java 堆被划分为**新生代**和**老年代**两个区域。
+了解。Java 堆被划分为**新生代**和**老年代**两个区域。
 
 ![三分恶面渣逆袭：Java堆内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-21.png)
 
 新生代又被划分为 Eden 空间和两个 Survivor 空间（From 和 To）。
 
-- **Eden 空间**：大多数新创建的对象会被分配到 Eden 空间中。当 Eden 区填满时，会触发一次轻量级的垃圾回收（Minor GC），清除不再使用的对象。
-- **Survivor 空间**：每次 Minor GC 后，仍然存活的对象会从 Eden 区或 From 区复制到 To 区。From 和 To 区可以交替使用。
+新创建的对象会被分配到 Eden 空间。当 Eden 区填满时，会触发一次 Minor GC，清除不再使用的对象。存活下来的对象会从 Eden 区移动到 Survivor 区。
 
-对象在新生代中经历多次 GC 后，如果仍然存活，会被移动到老年代。
+对象在新生代中经历多次 GC 后，如果仍然存活，会被移动到老年代。当老年代内存不足时，会触发 Major GC，对整个堆进行垃圾回收。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java 中堆内存怎么组织的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：怎么来区分对象是属于哪个代的？
@@ -511,103 +674,207 @@ Java 堆被划分为**新生代**和**老年代**两个区域。
 
 基于这种算法，虚拟机将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次分配内存只使用 Eden 和其中一块 Survivor。发生垃圾收集时，将 Eden 和 Survivor 中仍然存活的对象一次性复制到另外一块 Survivor 空间上，然后直接清理掉 Eden 和已用过的那块 Survivor 空间。默认 Eden 和 Survivor 的大小比例是 8∶1。
 
-![新生代内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-25.png)
+![三分恶面渣逆袭：新生代内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-25.png)
 
 ### 14.对象什么时候会进入老年代？
 
-对象通常会先在年轻代中分配，然后随着时间的推移和垃圾收集的处理，某些满足条件的对象会进入到老年代中。
+对象通常会在年轻代中分配，随着时间的推移和垃圾收集的进程，某些满足条件的对象会进入到老年代中，如长期存活的对象。
 
 ![二哥的 Java 进阶之路：对象进入老年代](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240501093929.png)
 
-①、**长期存活的对象将进入老年代**
+#### 长期存活的对象如何判断？
 
-对象在年轻代中存活足够长的时间（即经过足够多的垃圾回收周期）后，会晋升到老年代。
+JVM 会为对象维护一个“年龄”计数器，记录对象在新生代中经历 Minor GC 的次数。每次 GC 未被回收的对象，其年龄会加 1。
 
-每次 GC 未被回收的对象，其年龄会增加。当对象的年龄超过一个特定阈值（默认通常是 15），它就会被移动到老年代。这个年龄阈值可以通过 JVM 参数`-XX:MaxTenuringThreshold`来设置。
+当超过一个特定阈值，默认值是 15，就会被认为老对象了，需要重点关照。这个年龄阈值可以通过 JVM 参数`-XX:MaxTenuringThreshold`来设置。
 
-②、**大对象直接进入老年代**
+可以通过 `jinfo -flag MaxTenuringThreshold $(jps | grep -i nacos | awk '{print $1}')` 来查看当前 JVM 的年龄阈值。
 
-为了避免在年轻代中频繁复制大对象，JVM 提供了一种策略，允许大对象直接在老年代中分配。
+![二哥的 Java 进阶之路：年龄阈值](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250113095435.png)
 
-这些是所谓的“大对象”，其大小超过了预设的阈值（由 JVM 参数`-XX:PretenureSizeThreshold`控制）。直接在老年代分配可以减少在年轻代和老年代之间的数据复制。
+1. 如果应用中的对象存活时间较短，可以适当调大这个值，让对象在新生代多待一会儿
+2. 如果对象存活时间较长，可以适当调小这个值，让对象更快进入老年代，减少在新生代的复制次数
 
-③、**动态对象年龄判定**
 
-除了固定的年龄阈值，还会根据各个年龄段对象的存活大小和内存空间等因素动态调整对象的晋升策略。
+#### 大对象如何判断？
 
-比如说，在 Survivor 空间中相同年龄的所有对象大小总和大于 Survivor 空间的一半，那么年龄大于或等于该年龄的对象就可以直接进入老年代。
+大对象是指占用内存较大的对象，如大数组、长字符串等。
+
+```java
+int[] array = new int[1000000];
+String str = new String(new char[1000000]);
+```
+
+其大小由 JVM 参数 `-XX:PretenureSizeThreshold` 控制，但在 JDK 8 中，默认值为 0，也就是说默认情况下，对象仅根据 GC 存活的次数来判断是否进入老年代。
+
+![二哥的 Java 进阶之路：PretenureSizeThreshold](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250113102243.png)
+
+G1 垃圾收集器中，大对象会直接分配到 HUMONGOUS 区域。当对象大小超过一个 Region 容量的 50% 时，会被认为是大对象。
+
+![有梦想的肥宅：G1](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+
+Region 的大小可以通过 JVM 参数 `-XX:G1HeapRegionSize` 来设置，默认情况下从 1MB 到 32MB 不等，会根据堆内存大小动态调整。
+
+可以通过 `java -XX:+UseG1GC -XX:+PrintGCDetails -version` 查看 G1 垃圾收集器的相关信息。
+
+![二哥的 Java 进阶之路：UseG1GC](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250113103255.png)
+
+从结果上来看，我本机上 G1 的堆大小为 2GB，Region 的大小为 4MB。
+
+#### 动态年龄判定了解吗？
+
+如果 Survivor 区中所有对象的总大小超过了一定比例，通常是 Survivor 区的一半，那么年龄较小的对象也可能会被提前晋升到老年代。
+
+这是因为如果年龄较小的对象在 Survivor 区中占用了较大的空间，会导致 Survivor 区中的对象复制次数增多，影响垃圾回收的效率。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：哪些情况下对象会进入老年代？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：新生代对象转移到老年代的条件
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：对象什么时候进入老年代
 
-### 15.什么是 Stop The World ? 什么是 OopMap ？什么是安全点？
+memo：2025 年 1 月 13 日修改到此
 
-进行垃圾回收的过程中，会涉及对象的移动。为了保证对象引用更新的正确性，必须暂停所有的用户线程，像这样的停顿，虚拟机设计者形象描述为`Stop The World`。也简称为 STW。
+### 15.STW 了解吗？
 
-在 HotSpot 中，有个数据结构（映射表）称为`OopMap`。一旦类加载动作完成的时候，HotSpot 就会把对象内什么偏移量上是什么类型的数据计算出来，记录到 OopMap。在即时编译过程中，也会在`特定的位置`生成 OopMap，记录下栈上和寄存器里哪些位置是引用。
+了解。
 
-这些特定的位置主要在：
+JVM 进行垃圾回收的过程中，会涉及到对象的移动，为了保证对象引用在移动过程中不被修改，必须暂停所有的用户线程，像这样的停顿，我们称之为`Stop The World`。简称 STW。
 
-- 1.循环的末尾（非 counted 循环）
+#### 如何暂停线程呢？
 
-- 2.方法临返回前 / 调用方法的 call 指令后
+JVM 会使用一个名为安全点（Safe Point）的机制来确保线程能够被安全地暂停，其过程包括四个步骤：
 
-- 3.可能抛异常的位置
+- JVM 发出暂停信号；
+- 线程执行到安全点后，挂起自身并等待垃圾收集完成；
+- 垃圾回收器完成 GC 操作；
+- 线程恢复执行。
 
-这些位置就叫作**安全点(safepoint)。** 用户程序执行时并非在代码指令流的任意位置都能够在停顿下来开始垃圾收集，而是必须是执行到安全点才能够暂停。
+#### 什么是安全点？
 
-用通俗的比喻，假如老王去拉车，车上东西很重，老王累的汗流浃背，但是老王不能在上坡或者下坡休息，只能在平地上停下来擦擦汗，喝口水。
+安全点是 JVM 的一种机制，常用于垃圾回收的 STW 操作，用于让线程在执行到某些特定位置时，可以被安全地暂停。
 
-![老王拉车只能在平路休息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-33.png)
+通常位于方法调用、循环跳转、异常处理等位置，以保证线程暂停时数据的一致性。
 
-### 16.对象一定分配在堆中吗？有没有了解逃逸分析技术？
+用个通俗的比喻，老王去拉车，车上的东西很重，老王累的汗流浃背，但是老王不能在上坡或者下坡时休息，只能在平地上停下来擦擦汗，喝口水。
 
-在 Java 中，并不是所有对象都严格在堆上分配内存，虽然堆（Heap）是 Java 对象内存分配的主要区域。
+![三分恶面渣逆袭：老王拉车只能在平路休息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-33.png)
 
-在某些情况下，JVM 的即时编译器（JIT）可能会将对象分配在栈上，这被称为**逃逸分析**（Escape Analysis）。
+推荐大家看看这个[HotSpot JVM Deep Dive - Safepoint](https://www.youtube.com/watch?v=JkbWPPNc4SI)，对 safe point 有一个比较深入地解释。
 
-也就是说，如果编译器确定一个对象不会在方法外部使用（即对象不会逃逸出方法的作用域），那么该对象可以分配在栈上，而不是堆上。
+![](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250114142714.png)
+
+### 16.对象一定分配在堆中吗？
+
+不一定。 
+
+默认情况下，Java 对象是在堆中分配的，但 JVM 会进行逃逸分析，来判断对象的生命周期是否只在方法内部，如果是的话，这个对象可以在栈上分配。
+
+举例来说，下面的代码中，对象 `new Person()` 的生命周期只在 `testStackAllocation` 方法内部，因此 JVM 会将这个对象分配在栈上。
+
+```java
+public void testStackAllocation() {
+    Person p = new Person();  // 对象可能分配在栈上
+    p.name = "沉默王二是只狗";
+    p.age = 18;
+    System.out.println(p.name);
+}
+```
 
 #### 什么是逃逸分析？
 
-**逃逸分析**是指分析指针动态范围的方法，它同编译器优化原理的指针分析和外形分析相关联。当变量（或者对象）在方法中分配后，其指针有可能被返回或者被全局引用，这样就会被其他方法或者线程所引用，这种现象称作指针（或者引用）的逃逸(Escape)。
+逃逸分析是一种 JVM 优化技术，用来分析对象的作用域和生命周期，判断对象是否逃逸出方法或线程。
 
-通俗点讲，当一个对象被 new 出来之后，它可能被外部所调用，如果是作为参数传递到外部了，就称之为方法逃逸。
+可以通过分析对象的引用流向，判断对象是否被方法返回、赋值到全局变量、传递到其他线程等，来确定对象是否逃逸。
 
-![逃逸](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-37.png)
+如果对象没有逃逸，就可以进行栈上分配、同步消除、标量替换等优化，以提高程序的性能。
 
-除此之外，如果对象还有可能被外部线程访问到，例如赋值给可以在其它线程中访问的实例变量，这种就被称为线程逃逸。
+可以通过 `java -XX:+PrintFlagsFinal -version | grep DoEscapeAnalysis` 来确认 JVM 是否开启了逃逸分析。
 
-![逃逸强度](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-38.png)
+![二哥的 Java 进阶之路：JVM 开启了逃逸分析](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250115162625.png)
 
-#### 逃逸分析有什么好处？
+#### 逃逸具体是指什么？
 
-- 栈上分配
+根据对象逃逸的范围，可以分为方法逃逸和线程逃逸。
 
-如果确定一个对象不会逃逸到线程之外，那么久可以考虑将这个对象在栈上分配，对象占用的内存随着栈帧出栈而销毁，这样一来，垃圾收集的压力就降低很多。
+当对象被方法外部的代码引用，生命周期超出了方法的范围，那么对象就必须分配在堆中，由垃圾收集器管理。
 
-- **同步消除**
+```java
+public Person createPerson() {
+    return new Person(); // 对象逃逸出方法
+}
+```
 
-线程同步本身是一个相对耗时的过程，如果逃逸分析能够确定一个变量不会逃逸出线程，无法被其他线程访问，那么这个变量的读写肯定就不会有竞争， 对这个变量实施的同步措施也就可以安全地消除掉。
+比如说 `new Person()` 创建的对象被返回，那么这个对象就逃逸出当前方法了。
 
-- **标量替换**
+![三分恶面渣逆袭：方法逃逸](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-37.png)
 
-如果一个数据是基本数据类型，不可拆分，它就被称之为标量。把一个 Java 对象拆散，将其用到的成员变量恢复为原始类型来访问，这个过程就称为标量替换。假如逃逸分析能够证明一个对象不会被方法外部访问，并且这个对象可以被拆散，那么可以不创建对象，直接用创建若干个成员变量代替，可以让对象的成员变量在栈上分配和读写。
+再比如说，对象被另外一个线程引用，生命周期超出了当前线程，那么对象就必须分配在堆中，并且线程之间需要同步。
+
+```java
+public void threadEscapeExample() {
+    Person p = new Person(); // 对象逃逸到另一个线程
+    new Thread(() -> {
+        System.out.println(p);
+    }).start();
+}
+```
+
+对象 `new Person()` 被另外一个线程引用了，发生了线程逃逸。
+
+
+#### 逃逸分析会带来什么好处？
+
+主要有三个。
+
+第一，如果确定一个对象不会逃逸，那么就可以考虑栈上分配，对象占用的内存随着栈帧出栈后销毁，这样一来，垃圾收集的压力就降低很多。
+
+第二，线程同步需要加锁，加锁就要占用系统资源，如果逃逸分析能够确定一个对象不会逃逸出线程，那么这个对象就不用加锁，从而减少线程同步的开销。
+
+第三，如果对象的字段在方法中独立使用，JVM 可以将对象分解为标量变量，避免对象分配。
+
+```java
+public void scalarReplacementExample() {
+    Point p = new Point(1, 2);
+    System.out.println(p.getX() + p.getY());
+}
+```
+
+如果 Point 对象未逃逸，JVM 可以优化为：
+
+```java
+int x = 1;
+int y = 2;
+System.out.println(x + y);
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：所有对象都在堆上对不对？
 
-### 17.内存溢出和内存泄漏是什么意思？
+### 17.内存溢出和内存泄漏了解吗？
 
-内存溢出，俗称 OOM，是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。在 Java 中，这种情况会抛出 OutOfMemoryError。
+内存溢出，俗称 OOM，是指当程序请求分配内存时，由于没有足够的内存空间，从而抛出 OutOfMemoryError。
 
-内存溢出可能是由于内存泄漏导致的，也可能是因为程序一次性尝试分配大量内存，内存直接就干崩溃了导致的。
+```java
+List<String> list = new ArrayList<>();
+while (true) {
+    list.add("OutOfMemory".repeat(1000)); // 无限增加内存
+}
+```
 
-内存泄漏是指程序在使用完内存后，未能释放已分配的内存空间，导致这部分内存无法再被使用。随着时间的推移，内存泄漏会导致可用内存逐渐减少，最终可能导致内存溢出。
+可能是因为堆、元空间、栈或直接内存不足导致的。可以通过优化内存配置、减少对象分配来解决。
 
-在 Java 中，内存泄漏通常发生在长期存活的对象持有短期存活对象的引用，而长期存活的对象又没有及时释放对短期存活对象的引用，从而导致短期存活对象无法被回收。
+内存泄漏是指程序在使用完内存后，未能及时释放，导致占用的内存无法再被使用。随着时间的推移，内存泄漏会导致可用内存逐渐减少，最终导致内存溢出。
 
-用一个比较有味道的比喻来形容就是，内存溢出是排队去蹲坑，发现没坑了；内存泄漏，就是有人占着茅坑不拉屎，占着茅坑不拉屎的多了可能会导致坑位不够用。
+内存泄漏通常是因为长期存活的对象持有短期存活对象的引用，又没有及时释放，从而导致短期存活对象无法被回收而导致的。
+
+```java
+class MemoryLeakExample {
+    private static List<Object> staticList = new ArrayList<>();
+    public void addObject() {
+        staticList.add(new Object()); // 对象不会被回收
+    }
+}
+```
+
+用一个比较有味道的比喻来形容就是，内存溢出是排队去蹲坑，发现没坑了；内存泄漏，就是有人占着茅坑不拉屎，导致坑位不够用。
 
 ![三分恶面渣逆袭：内存泄漏、内存溢出](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-15.png)
 
@@ -616,22 +883,21 @@ Java 堆被划分为**新生代**和**老年代**两个区域。
 
 ### 18.能手写内存溢出的例子吗？
 
-导致内存溢出（OOM）的原因有很多，比如一次性创建了大量对象导致堆内存溢出；比如说元空间溢出，抛出 `java.lang.OutOfMemoryError：Metaspace`，比如说栈溢出，如果栈的深度超过了 JVM 栈所允许的深度，将会抛出 StackOverflowError。
+可以。
 
-堆内存溢出是最常见的 OOM 原因，通常是因为创建了大量的对象，且长时间无法被垃圾收集器回收，导致堆内存耗尽。
-
-这就相当于一个房子里，不断堆积不能被回收的杂物，那么房子很快就会被堆满了。
-
-来通过代码模拟一下堆内存溢出的情况。
+我就拿最常见的堆内存溢出来完成吧，堆内存溢出通常是因为创建了大量的对象，且长时间无法被垃圾收集器回收，导致的。
 
 ```java
-public class HeapSpaceErrorGenerator {
+class HeapSpaceErrorGenerator {
     public static void main(String[] args) {
+        // 第一步，创建一个大的容器
         List<byte[]> bigObjects = new ArrayList<>();
         try {
+            // 第二步，循环写入数据
             while (true) {
-                // 创建一个大约 10MB 的数组
+                // 第三步，创建一个大对象，一个大约 10M 的数组
                 byte[] bigObject = new byte[10 * 1024 * 1024];
+                // 第四步，将大对象添加到容器中
                 bigObjects.add(bigObject);
             }
         } catch (OutOfMemoryError e) {
@@ -642,16 +908,22 @@ public class HeapSpaceErrorGenerator {
 }
 ```
 
-通过 VM 参数设置堆内存大小为 `-Xmx128M`，然后运行程序。
+很快就会发生内存溢出。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160028.png)
+这就相当于一个房子里，不断堆积不能被回收的杂物，那么房子很快就会被堆满了。
+
+也可以通过 VM 参数设置堆内存大小为 `-Xmx128M`，然后运行程序，出现的内存溢出的时间会更快。
+
+![二哥的 Java 进阶之路：添加 -Xmx128M VM 参数](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160028.png)
 
 可以看到，堆内存溢出发生在 11 个对象后。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
+![二哥的 Java 进阶之路：堆内存溢出](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 1 Java 技术一面面试原题：说说 OOM 的原因
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：Java 哪些内存区域会发生 OOM？为什么？
+
+memo：2025 年 1 月 14 日修改到此
 
 ### 19.内存泄漏可能由哪些原因导致呢？
 
