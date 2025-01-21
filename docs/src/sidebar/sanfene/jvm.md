@@ -1,5 +1,5 @@
 ---
-title: JVM面试题，54道Java虚拟机八股文（1.5万字51张手绘图），面渣逆袭必看👍
+title: JVM面试题，54道Java虚拟机八股文（2.3万字113张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
 date: 2025-01-10
@@ -7,7 +7,7 @@ category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.5 万字 51 张手绘图，详解 55 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.3 万字 113 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
@@ -18,12 +18,11 @@ head:
 
 ## 前言
 
-1.5 万字 51 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+2.3 万字 113 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-
-![面渣逆袭集合框架篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108182441.png)
+![面渣逆袭JVM篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142158.png)
 
 2024 年 12 月 30 日开始着手第二版更新。
 
@@ -50,7 +49,8 @@ head:
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
-![面渣逆袭集合框架篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108182547.png)
+
+![面渣逆袭JVM篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142305.png)
 
 
 ## 一、引言
@@ -929,10 +929,10 @@ memo：2025 年 1 月 14 日修改到此
 
 比如说：
 
-①、静态的集合中添加的对象越来越多，但却没有及时清理；
+①、静态的集合中添加的对象越来越多，但却没有及时清理；静态变量的生命周期与应用程序相同，如果静态变量持有对象的引用，这些对象将无法被 GC 回收。
 
 ```java
-public class OOM {
+class OOM {
  static List list = new ArrayList();
 
  public void oomTests(){
@@ -941,10 +941,20 @@ public class OOM {
    list.add(obj);
   }
 }
-
 ```
 
-②、单例模式下对象持有的外部引用无法及时释放；
+②、单例模式下对象持有的外部引用无法及时释放；单例对象在整个应用程序的生命周期中存活，如果单例对象持有其他对象的引用，这些对象将无法被回收。
+
+```java
+class Singleton {
+    private static final Singleton INSTANCE = new Singleton();
+    private List<Object> objects = new ArrayList<>();
+
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}
+```
 
 ③、数据库、IO、Socket 等连接资源没有及时关闭；
 
@@ -962,27 +972,15 @@ try {
   }
 ```
 
-④、变量的作用域不合理；
+④、	ThreadLocal 的引用未被清理，线程退出后仍然持有对象引用；在线程执行完后，要调用 ThreadLocal 的 remove 方法进行清理。
 
 ```java
-class Simple {
-    Object object;
-    public void method1(){
-        object = new Object();
-        //...其他代码
-        //由于作用域原因，method1执行完成之后，object 对象所分配的内存不会马上释放
-    }
-}
+ThreadLocal<Object> threadLocal = new ThreadLocal<>();
+threadLocal.set(new Object()); // 未清理
 ```
 
-⑤、hash 值发生变化但对象却没有改变，这也是为什么 String 被设计成不可变对象的原因之一，就是因为假如 String 的哈希值发生了改变，但对应的值没变，就导致 HashMap 中的对象无法被及时清理；
 
-⑥、使用完 ThreadLocal 没有使用 remove 方法来进行清除。
-
-![三分恶面渣逆袭：内存泄漏可能原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-16.png)
-
-
-### 20.有没有处理过内存泄漏问题？是如何定位的？
+### 20.有没有处理过内存泄漏问题？
 
 推荐阅读：
 
@@ -990,15 +988,13 @@ class Simple {
 2. [JVM 性能监控工具之命令行篇](https://javabetter.cn/jvm/console-tools.html#jstack-%E8%B7%9F%E8%B8%AAjava%E5%A0%86%E6%A0%88)
 3. [JVM 性能监控工具之可视化篇](https://javabetter.cn/jvm/view-tools.html)
 
-有，内存泄漏是指程序在运行过程中由于未能正确释放已分配的内存，导致内存无法被重用，从而引发内存耗尽等问题。
+有。
 
 当时在做[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目的时候，由于 ThreadLocal 没有及时清理导致出现了内存泄漏问题。
 
-常用的可视化监控工具有 JConsole、VisualVM、JProfiler、Eclipse Memory Analyzer (MAT)等。
+我用可视化的监控工具 VisualVM，配合 JDK 自带的 jstack 等命令行工具进行了排查。
 
-也可以使用 JDK 自带的 jmap、jstack、jstat 等命令行工具来配合内存泄露问题的排查。
-
-严重的**内存泄漏**往往伴随频繁的 **Full GC**，所以排查内存泄漏问题时，可以从 Full GC 入手。
+大致的过程我回想了一下，主要有 7 个步骤：
 
 第一步，使用 `jps -l` 查看运行的 Java 进程 ID。
 
@@ -1044,7 +1040,7 @@ class Simple {
 
 ![二哥的 Java 进阶之路：jmap](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106184317.png)
 
-第七步，可以使用图形化工具分析，如 JDK 自带的 **VisualVM**，从菜单 > 文件 > 装入 dump 文件。
+第七步，使用图形化工具分析，如 JDK 自带的 **VisualVM**，从菜单 > 文件 > 装入 dump 文件。
 
 ![VisualVM](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107134238.png)
 
@@ -1057,23 +1053,27 @@ class Simple {
 
 ### 21.有没有处理过内存溢出问题？
 
-有，内存溢出，也就是 Out of Memory，是指当程序请求分配内存时，由于没有足够的内存空间满足其需求，从而触发的错误。
+有。
 
 当时在做[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)的时候，由于上传的文件过大，没有正确处理，导致一下子撑爆了内存，程序直接崩溃了。
 
-当发生 OOM 时，可以导出堆转储（Heap Dump）文件进行分析。如果 JVM 还在运行，可以使用 jmap 命令手动生成 Heap Dump 文件：
+我记得是通过导出堆转储文件进行分析发现的。
+
+第一步，使用 jmap 命令手动生成 Heap Dump 文件：
 
 ```shell
 jmap -dump:format=b,file=heap.hprof <pid>
 ```
 
-生成 Heap Dump 文件后，可以使用 MAT、JProfiler 等工具进行分析，查看内存中的对象占用情况，找到内存泄漏的原因。
+然后使用 MAT、JProfiler 等工具进行分析，查看内存中的对象占用情况。
 
-如果生产环境的内存还有很多空余，可以适当增大堆内存大小，例如 `-Xmx4g` 参数。
+一般来说：
+
+如果生产环境的内存还有很多空余，可以适当增大堆内存大小来解决，例如 `-Xmx4g` 参数。
 
 或者检查代码中是否存在内存泄漏，如未关闭的资源、长生命周期的对象等。
 
-之后，我会在本地进行压力测试，模拟高负载情况下的内存表现，确保修改有效，且没有引入新的问题。
+之后，在本地进行压力测试，模拟高负载情况下的内存表现，确保修改有效，且没有引入新的问题。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何排查 OOM？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的荣耀面经同学 4 面试原题：有没遇到内存泄露，溢出的情况，怎么发生和处理的？
@@ -1082,13 +1082,15 @@ jmap -dump:format=b,file=heap.hprof <pid>
 
 >2024 年 10 月 16 日增补
 
-栈溢出（StackOverflowError）发生在程序调用栈的深度超过 JVM 允许的最大深度时。栈溢出的本质是因为线程的栈空间不足，导致无法再为新的栈帧分配内存。
+栈溢出发生在程序调用栈的深度超过 JVM 允许的最大深度时。
+
+栈溢出的本质是因为线程的栈空间不足，导致无法再为新的栈帧分配内存。
 
 ![二哥的Java进阶之路：栈帧](https://cdn.tobebetterjavaer.com/stutymore/stack-frame-20231224090450.png)
 
 当一个方法被调用时，JVM 会在栈中分配一个栈帧，用于存储该方法的执行信息。如果方法调用嵌套太深，栈帧不断压入栈中，最终会导致栈空间耗尽，抛出 StackOverflowError。
 
-最常见的栈溢出场景是递归调用，尤其是没有正确的终止条件，导致递归无限进行。
+最常见的栈溢出场景就是递归调用，尤其是没有正确的终止条件下，会导致递归无限进行。
 
 ```java
 class StackOverflowExample {
@@ -1121,11 +1123,7 @@ public class LargeLocalVariables {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：什么情况下会发生栈溢出？
 
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## 三、垃圾收集
 
@@ -1141,7 +1139,15 @@ JVM 在做 GC 之前，会先搞清楚什么是垃圾，什么不是垃圾，通
 
 在确定了哪些垃圾可以被回收后，垃圾收集器（如 CMS、G1、ZGC）要做的事情就是进行垃圾回收，可以采用标记清除算法、复制算法、标记整理算法、分代收集算法等。
 
-[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目使用的 JDK 8，所以默认采用的是 CMS 垃圾收集器。
+[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目使用的 JDK 8，采用的是 CMS 垃圾收集器。
+
+```
+java -XX:+UseConcMarkSweepGC \
+     -XX:+UseParNewGC \
+     -XX:CMSInitiatingOccupancyFraction=75 \
+     -XX:+UseCMSInitiatingOccupancyOnly \
+     -jar your-application.jar
+```
 
 #### 垃圾回收的过程是什么？
 
@@ -1180,7 +1186,7 @@ Java 通过可达性分析算法来判断一个对象是否还存活。
 
 #### 做可达性分析的时候，应该有哪些前置性的操作？
 
-在进行垃圾回收之前，JVM 会暂停所有正在执行的应用线程（称为 Stop-the-World）。
+在进行垃圾回收之前，JVM 会暂停所有正在执行的应用线程。
 
 这是因为可达性分析过程必须确保在执行分析时，内存中的对象关系不会被应用线程修改。如果不暂停应用线程，可能会出现对象引用的改变，导致垃圾回收过程中判断对象是否可达的结果不一致，从而引发严重的内存错误或数据丢失。
 
@@ -1204,7 +1210,7 @@ Java 通过可达性分析算法来判断一个对象是否还存活。
 
 ![二哥的 java 进阶之路：GC Roots](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
 
-**1、虚拟机栈中的引用（方法的参数、局部变量等）**
+#### 说说虚拟机栈中的引用？
 
 来看下面这段代码：
 
@@ -1227,15 +1233,15 @@ public class StackReference {
 
 当 greet 方法执行完毕后，localVar 的作用域结束，localVar 引用的 Object 对象不再由任何 GC Roots 引用（假设没有其他引用指向这个对象），因此它将有资格作为垃圾被回收掉 😁。
 
-**2、本地方法栈中 JNI 的引用**
+#### 说说本地方法栈中 JNI 的引用？
 
-Java 通过 JNI（Java Native Interface）提供了一种机制，允许 Java 代码调用本地代码（通常是 C 或 C++ 编写的代码）。
+Java 通过 JNI 提供了一种机制，允许 Java 代码调用本地代码（通常是 C 或 C++ 编写的代码）。
 
 当调用 Java 方法时，虚拟机会创建一个栈帧并压入虚拟机栈，而当它调用本地方法时，虚拟机会通过动态链接直接调用指定的本地方法。
 
 ![pecuyu：动态链接](https://cdn.tobebetterjavaer.com/stutymore/gc-20240321085719.png)
 
-JNI 引用是在 Java 本地接口（JNI）代码中创建的引用，这些引用可以指向 Java 堆中的对象。
+JNI 引用是在 Java 本地接口代码中创建的引用，这些引用可以指向 Java 堆中的对象。
 
 ```java
 // 假设的JNI方法
@@ -1253,11 +1259,11 @@ JNIEXPORT void JNICALL Java_NativeExample_nativeMethod(JNIEnv *env, jobject this
 }
 ```
 
-在本地（C/C++）代码中，localRef 是对 Java 对象的一个 JNI 引用，它在本地方法执行期间保持 Java 对象活跃，可以被认为是 GC Roots。
+在本地代码中，localRef 是对 Java 对象的一个 JNI 引用，它在本地方法执行期间保持 Java 对象活跃，可以被认为是 GC Roots。
 
-一旦 JNI 方法执行完毕，除非这个引用是全局的（Global Reference），否则它指向的对象将会被作为垃圾回收掉（假设没有其他地方再引用这个对象）。
+一旦 JNI 方法执行完毕，除非这个引用是全局的，否则它指向的对象将会被作为垃圾回收掉（假设没有其他地方再引用这个对象）。
 
-**3、类静态变量**
+#### 说说类静态变量？
 
 来看下面这段代码：
 
@@ -1275,12 +1281,12 @@ StaticFieldReference 类中的 staticVar 引用了一个 Object 对象，这个�
 
 只要 StaticFieldReference 类未被卸载，staticVar 引用的对象都不会被垃圾回收。如果 StaticFieldReference 类被卸载（这通常发生在其类加载器被垃圾回收时），那么 staticVar 引用的对象也将有资格被垃圾回收（如果没有其他引用指向这个对象）。
 
-**4、运行时常量池中的常量**
+#### 说说运行时常量池中的常量？
 
 来看这段代码：
 
 ```java
-public class ConstantPoolReference {
+class ConstantPoolReference {
     public static final String CONSTANT_STRING = "Hello, World"; // 常量，存在于运行时常量池中
     public static final Class<?> CONSTANT_CLASS = Object.class; // 类类型常量
 
@@ -1299,13 +1305,19 @@ public class ConstantPoolReference {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：GC Root？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 D 小米一面原题：那些对象可以作为gc root
 
-### 26.finalize()方法了解吗？有什么作用？
+### 26.finalize()方法了解吗？
 
-用一个不太贴切的比喻，垃圾回收就是古代的秋后问斩，finalize()就是刀下留人，在人犯被处决之前，还要做最后一次审计，青天大老爷看看有没有什么冤情，需不需要刀下留人。
+垃圾回收就是古代的秋后问斩，`finalize()` 就是刀下留人，在人犯被处决之前，还要做最后一次审计，青天大老爷会看看有没有什么冤情，需不需要刀下留人。
 
-![刀下留人](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-20.png)
+![三分恶面渣逆袭：刀下留人](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-20.png)
 
-如果对象在进行可达性分析后发现没有与 GC Roots 相连接的引用链，那它将会被第一次标记，随后进行一次筛选，筛选的条件是此对象是否有必要执行 finalize()方法。如果对象在在 finalize()中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可，譬如把自己 （this 关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它就”逃过一劫“；但是如果没有抓住这个机会，那么对象就真的要被回收了。
+如果对象在进行可达性分析后发现没有与 GC Roots 相连接的引用链，那它将会被第一次标记，随后进行一次筛选。
+
+筛选的条件是对象是否有必要执行 `finalize()`方法。
+
+如果对象在 `finalize()` 中成功拯救自己——只要重新与引用链上的任何一个对象建立关联即可。
+
+譬如把自己 （this 关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它就”逃过一劫“；但是如果没有抓住这个机会，那么对象就真的要被回收了。
 
 ### 27.垃圾收集算法了解吗？
 
@@ -1368,21 +1380,21 @@ public class ConstantPoolReference {
 
 ### 28.Minor GC、Major GC、Mixed GC、Full GC 都是什么意思？
 
-Minor GC 也称为 Young GC，是指发生在年轻代（Young Generation）的垃圾收集。年轻代包含 Eden 区以及两个 Survivor 区。
+Minor GC 也称为 Young GC，是指发生在年轻代的垃圾收集。年轻代包含 Eden 区以及两个 Survivor 区。
 
 ![二哥的 Java 进阶之路：Java 堆划分](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
 
-Major GC 也称为 Old GC，主要指的是发生在老年代的垃圾收集。CMS 收集器的特有行为。
+Major GC 也称为 Old GC，主要指的是发生在老年代的垃圾收集。是 CMS 的特有行为。
 
 Mixed GC 是 G1 垃圾收集器特有的一种 GC 类型，它在一次 GC 中同时清理年轻代和部分老年代。
 
-Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区（元空间）。它是最耗时的 GC，通常在 JVM 压力很大时发生。
+Full GC 是最彻底的垃圾收集，涉及整个 Java 堆和方法区。它是最耗时的 GC，通常在 JVM 压力很大时发生。
 
 #### FULL gc怎么去清理的？
 
 Full GC 会从 GC Root 出发，标记所有可达对象。新生代使用复制算法，清空 Eden 区。老年代使用标记-整理算法，回收对象并消除碎片。
 
-停顿时间较长（STW），会影响系统响应性能。
+停顿时间较长，会影响系统响应性能。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 5 阿里妈妈 Java 后端技术一面面试原题：full gc 和 young gc 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：FULL gc怎么去清理的？
@@ -1395,13 +1407,15 @@ Full GC 会从 GC Root 出发，标记所有可达对象。新生代使用复制
 
 ### 30.什么时候会触发 Full GC？
 
-- 在进行 Young GC 的时候，如果发现`老年代可用的连续内存空间` < `新生代历次 Young GC 后升入老年代的对象总和的平均大小`，说明本次 Young GC 后升入老年代的对象大小，可能超过了老年代当前可用的内存空间，就会触发 Full GC。
-- 执行 Young GC 后老年代没有足够的内存空间存放转入的对象，会立即触发一次 Full GC。
-- `System.gc()`、`jmap -dump` 等命令会触发 full gc。
+在进行 Young GC 的时候，如果发现`老年代可用的连续内存空间` < `新生代历次 Young GC 后升入老年代的对象总和的平均大小`，说明本次 Young GC 后升入老年代的对象大小，可能超过了老年代当前可用的内存空间，就会触发 Full GC。
+
+执行 Young GC 后老年代没有足够的内存空间存放转入的对象，会立即触发一次 Full GC。
+
+`System.gc()`、`jmap -dump` 等命令会触发 full gc。
 
 #### 空间分配担保是什么？
 
-空间分配担保是指在进行 Minor GC（新生代垃圾回收）前，JVM 会确保老年代有足够的空间存放从新生代晋升的对象。如果老年代空间不足，可能会触发 Full GC。
+空间分配担保是指在进行 Minor GC 前，JVM 会确保老年代有足够的空间存放从新生代晋升的对象。如果老年代空间不足，可能会触发 Full GC。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：如何判断死亡对象？GC Roots有哪些？空间分配担保是什么？
 
@@ -1413,9 +1427,9 @@ JVM 的垃圾收集器主要分为两大类：分代收集器和分区收集器�
 
 ![三分恶面渣逆袭：HotSpot虚拟机垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
 
-CMS 是第一个关注 GC 停顿时间（STW 的时间）的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
+CMS 是第一个关注 GC 停顿时间的垃圾收集器，JDK 1.5 时引入，JDK9 被标记弃用，JDK14 被移除。
 
-G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
+G1 在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为了默认的垃圾收集器。
 
 ZGC 是 JDK11 推出的一款低延迟垃圾收集器，适用于大内存低延迟服务的内存管理和回收，在 128G 的大堆下，最大停顿时间才 1.68 ms，性能远胜于 G1 和 CMS。
 
@@ -1427,7 +1441,7 @@ Serial 收集器是最基础、历史最悠久的收集器。
 
 Serial/Serial Old 收集器的运行过程如图：
 
-![Serial/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
+![三分恶面渣逆袭：Serial/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
 #### 说说 ParNew 收集器？
 
@@ -1435,13 +1449,13 @@ ParNew 收集器实质上是 Serial 收集器的多线程并行版本，使用�
 
 ParNew/Serial Old 收集器运行示意图如下：
 
-![ParNew/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
+![三分恶面渣逆袭：ParNew/Serial Old收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
 
 #### 说说 Parallel Scavenge 收集器？
 
 Parallel Scavenge 收集器是一款新生代收集器，基于标记-复制算法实现，也能够并行收集。和 ParNew 有些类似，但 Parallel Scavenge 主要关注的是垃圾收集的吞吐量——所谓吞吐量，就是 CPU 用于运行用户代码的时间和总消耗时间的比值，比值越大，说明垃圾收集的占比越小。
 
-![吞吐量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-31.png)
+![三分恶面渣逆袭：吞吐量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-31.png)
 
 根据对象存活周期的不同会将内存划分为几块，一般是把 Java 堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。
 
@@ -1477,7 +1491,7 @@ ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，最大特点是�
 
 它通过并发标记和重定位来避免大部分 Stop-The-World 停顿，主要依赖指针染色来管理对象状态。
 
-![得物技术](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102142908.png)
+![得物技术：指针染色](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102142908.png)
 
 - **标记对象的可达性**：通过在指针上增加标记位，不需要额外的标记位即可判断对象的存活状态。
 - **重定位状态**：在对象被移动时，可以通过指针染色来更新对象的引用，而不需要等待全局同步。
@@ -1486,7 +1500,7 @@ ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，最大特点是�
 
 #### 垃圾回收器的作用是什么？
 
-垃圾回收器的核心作用是自动管理 Java 应用程序的运行时内存。它负责识别哪些内存是不再被应用程序使用的（即“垃圾”），并释放这些内存以便重新使用。
+垃圾回收器的核心作用是自动管理 Java 应用程序的运行时内存。它负责识别哪些内存是不再被应用程序使用的，并释放这些内存以便重新使用。
 
 这一过程减少了程序员手动管理内存的负担，降低了内存泄漏和溢出错误的风险。
 
@@ -1498,7 +1512,7 @@ ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，最大特点是�
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：cms和g1的区别
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：怎么理解并发和并行，Parallel Old和CMS有什么区别？
 
-### 32.能详细说一下 CMS 收集器的垃圾收集过程吗？
+### 32.能详细说一下 CMS 的垃圾收集过程吗？
 
 ![三分恶面渣逆袭：Concurrent Mark Sweep收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-34.png)
 
@@ -1513,7 +1527,7 @@ CMS 使用**标记-清除**算法进行垃圾收集，分 4 大步：
 
 是的，remark 阶段通常会结合三色标记法来执行，确保在并发标记期间所有存活对象都被正确标记。目的是修正并发标记阶段中可能遗漏的对象引用变化。
 
-在 remark 阶段，垃圾收集器会停止应用线程（STW），以确保在这个阶段不会有引用关系的进一步变化。这种暂停通常很短暂。remark 阶段主要包括以下操作：
+在 remark 阶段，垃圾收集器会停止应用线程，以确保在这个阶段不会有引用关系的进一步变化。这种暂停通常很短暂。remark 阶段主要包括以下操作：
 
 1. 处理写屏障记录的引用变化：在并发标记阶段，应用程序可能会更新对象的引用（比如一个黑色对象新增了对一个白色对象的引用），这些变化通过写屏障记录下来。在 remark 阶段，GC 会处理这些记录，确保所有可达对象都正确地标记为灰色或黑色。
 2. 扫描灰色对象：再次遍历灰色对象，处理它们的所有引用，确保引用的对象正确标记为灰色或黑色。
@@ -1554,7 +1568,7 @@ G1 在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为默认的垃圾收集�
 
 ![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
 
-G1 把 Java 堆划分为多个大小相等的独立区域Region，每个区域都可以扮演新生代（Eden 和 Survivor）或老年代的角色。
+G1 把 Java 堆划分为多个大小相等的独立区域Region，每个区域都可以扮演新生代或老年代的角色。
 
 同时，G1 还有一个专门为大对象设计的 Region，叫 Humongous 区。
 
@@ -1591,11 +1605,13 @@ G1 收集器的运行过程大致可划分为这几个步骤：
 | 停顿时间预测   | 较难预测                          | 可配置停顿时间目标             |
 | 容易出现的问题 | 内存碎片、Concurrent Mode Failure | 较少出现长时间停顿             |
 
-CMS 适用于对延迟敏感的应用场景，主要目标是减少停顿时间，但容易产生内存碎片。G1 则提供了更好的停顿时间预测和内存压缩能力，适用于大内存和多核处理器环境。
+CMS 适用于对延迟敏感的应用场景，主要目标是减少停顿时间，但容易产生内存碎片。
+
+G1 则提供了更好的停顿时间预测和内存压缩能力，适用于大内存和多核处理器环境。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 5 面试原题：CMS 垃圾收集器和 G1 垃圾收集器什么区别
 
-### 35.你们线上用的什么垃圾收集器？为什么要用它？
+### 35.你们线上用的什么垃圾收集器？
 
 我们生产环境中采用了设计比较优秀的 G1 垃圾收集器，因为它不仅能满足低停顿的要求，而且解决了 CMS 的浮动垃圾问题、内存碎片问题。
 
@@ -1613,7 +1629,9 @@ java -XX:+PrintCommandLineFlags -version
 
 `UseParallelGC` = `Parallel Scavenge + Parallel Old`，表示新生代用`Parallel Scavenge`收集器，老年代使用`Parallel Old` 收集器。
 
-因此你也可以这样回答：我们系统的业务相对复杂，但并发量并不是特别高，所以我们选择了适用于多核处理器、能够并行处理垃圾回收任务，且能提供高吞吐量的`Parallel GC`。
+因此你也可以这样回答：
+
+我们系统的业务相对复杂，但并发量并不是特别高，所以我们选择了适用于多核处理器、能够并行处理垃圾回收任务，且能提供高吞吐量的`Parallel GC`。
 
 但这个说法不讨喜，你也可以回答：
 
@@ -1635,42 +1653,27 @@ java -XX:+PrintCommandLineFlags -version
 
 ### 36.垃圾收集器应该如何选择？
 
-垃圾收集器的选择需要权衡的点还是比较多的——例如运行应用的基础设施如何？使用 JDK 的发行商是什么？等等……
+如果应用程序只需要一个很小的内存空间（大约 100 MB），或者对停顿时间没有特殊的要求，可以选择 Serial 收集器。
 
-这里简单地列一下上面提到的一些收集器的适用场景：
+如果优先考虑应用程序的峰值性能，并且没有时间要求，或者可以接受 1 秒或更长的停顿时间，可以选择 Parallel 收集器。
 
-- Serial ：如果应用程序有一个很小的内存空间（大约 100 MB）亦或它在没有停顿时间要求的单线程处理器上运行。
-- Parallel：如果优先考虑应用程序的峰值性能，并且没有时间要求要求，或者可以接受 1 秒或更长的停顿时间。
-- CMS/G1：如果响应时间比吞吐量优先级高，或者垃圾收集暂停必须保持在大约 1 秒以内。
-- ZGC：如果响应时间是高优先级的，或者堆空间比较大。
+如果响应时间比吞吐量优先级高，或者垃圾收集暂停必须保持在大约 1 秒以内，可以选择 CMS/ G1 收集器。
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+如果响应时间是高优先级的，或者堆空间比较大，可以选择 ZGC 收集器。
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+memo：2025 年 1 月 16 日修改至此。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## 四、JVM 调优
 
-### 37.有哪些常用的命令行性能监控和故障处理工具？
+### 37.用过哪些性能监控的命令行工具？
 
-- 操作系统工具
+操作系统层面，我用过 top、vmstat、iostat、netstat 等命令，可以监控系统整体的资源使用情况，比如说内存、CPU、IO 使用情况、网络使用情况。
 
-  - top：显示系统整体资源使用情况
-  - vmstat：监控内存和 CPU
-  - iostat：监控 IO 使用
-  - netstat：监控网络使用
+JDK 自带的命令行工具层面，我用过 jps、jstat、jinfo、jmap、jhat、jstack、jcmd 等，可以查看 JVM 运行时信息、内存使用情况、堆栈信息等。
 
-- JDK 性能监控工具
-  - jps：虚拟机进程查看
-  - jstat：虚拟机运行时信息查看
-  - jinfo：虚拟机配置查看
-  - jmap：内存映像（导出）
-  - jhat：堆转储快照分析
-  - jstack：Java 堆栈跟踪
-  - jcmd：实现上面除了 jstat 外所有命令的功能
-
-#### jmap 的具体命令有哪些？
+#### 你一般都怎么用jmap？
 
 ①、我一般会使用 `jmap -heap <pid>` 查看堆内存摘要，包括新生代、老年代、元空间等。
 
@@ -1688,94 +1691,82 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：你是如何使用jmap，你用过哪些命令？
 
 
-### 38.了解哪些可视化的性能监控和故障处理工具？
+### 38.了解哪些可视化的性能监控工具？
 
 我自己用过的可视化工具主要有：
 
-①、JConsole：JDK 自带的监控工具，可以用来监视 Java 应用程序的运行状态，包括内存使用、线程状态、类加载、GC 等，还可以进行一些基本的性能分析。
+①、JConsole：JDK 自带的监控工具，可以用来监视 Java 应用程序的运行状态，包括内存使用、线程状态、类加载、GC 等。
 
 ![三分恶面渣逆袭：JConsole概览](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-39.png)
 
-②、VisualVM：VisualVM 是一个基于 NetBeans 平台的可视化工具，在很长一段时间内，VisualVM 都是 Oracle 官方主推的故障处理工具。集成了多个 JDK 命令行工具的功能，提供了一个友好的图形界面，非常适用于开发和生产环境。
+②、VisualVM：一个基于 NetBeans 的可视化工具，在很长一段时间内，VisualVM 都是 Oracle 官方主推的故障处理工具。集成了多个 JDK 命令行工具的功能，非常友好。
 
 ![三分恶面渣逆袭：VisualVM安装插件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-40.png)
 
-③、Java Mission Control：JMC 最初是 JRockit VM 中的诊断工具，但在 Oracle JDK7 Update 40 以后，就绑定到了 HotSpot VM 中。不过后来又被 Oracle 开源出来作为一个单独的产品。
+③、Java Mission Control：JMC 最初是 JRockit VM 中的诊断工具，但在 Oracle JDK7 Update 40 以后，就绑定到了 HotSpot VM 中。不过后来又被 Oracle 开源出来作为了一个单独的产品。
 
 ![三分恶面渣逆袭：JMC主要界面](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-41.png)
 
-还有一些第三方的工具：
+#### 用过哪些第三方的工具？
 
-①、**MAT**：
+①、**MAT**：一个 Java 堆内存分析工具，主要用于分析和查找 Java 堆中的内存泄漏和内存消耗问题；可以从 Java 堆转储文件中分析内存使用情况，并提供丰富的报告，如内存泄漏疑点、最大对象和 GC 根信息；支持通过图形界面查询对象，以及检查对象间的引用关系。
 
-- Java 堆内存分析工具，主要用于分析和查找 Java 堆中的内存泄漏和内存消耗问题。
-- 可以从 Java 堆转储文件中分析内存使用情况，并提供丰富的报告，如内存泄漏疑点、最大对象和 GC 根信息。
-- 支持通过图形界面查询对象，以及检查对象间的引用关系。
+②、**GChisto**：GC 日志分析工具，可以帮助我们优化垃圾收集行为和调整 GC 性能。
 
-②、**GChisto**：GC 日志分析工具，帮助开发者优化垃圾收集行为和调整 GC 性能。
+③、**JProfiler**：一个全功能的商业化 Java 性能分析工具，提供 CPU、 内存和线程的实时分析。
 
-③、**GCViewer**：类似于 GChisto，也是用来分析 GC 日志，帮助开发者优化 Java 应用的垃圾回收过程。
+④、**arthas**：阿里巴巴开源的 Java 诊断工具，主要用于线上的应用诊断；支持在不停机的情况下进行诊断；可以提供包括 JVM 信息查看、监控、Trace 命令、反编译等功能。
 
-④、**JProfiler**：一个全功能的商业 Java 性能分析工具，提供 CPU、 内存和线程的实时分析。
-
-⑤、**arthas**：
-
-- 阿里巴巴开源的 Java 诊断工具，主要用于线上的应用诊断。
-- 支持在不停机的情况下进行 Java 应用的诊断。
-- 包括 JVM 信息查看、监控、Trace 命令、反编译等。
-
-⑥、**async-profiler**：一个低开销的性能分析工具，支持生成火焰图，适用于复杂性能问题的分析。
+⑤、**async-profiler**：一个低开销的性能分析工具，支持生成火焰图，适用于复杂性能问题的分析。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：如何查看当前 Java 程序里哪些对象正在使用，哪些对象已经被释放
 
 ### 39.JVM 的常见参数配置知道哪些？
 
-一些常见的参数配置：
+#### 配置堆内存大小的参数有哪些？
 
-**堆配置：**
+- `-Xms`：初始堆大小
+- `-Xmx`：最大堆大小
+- `-XX:NewSize=n`：设置年轻代大小
+- `-XX:NewRatio=n`：设置年轻代和年老代的比值。如：n 为 3 表示年轻代和年老代比值为 1：3，年轻代占总和的 1/4
+- `-XX:SurvivorRatio=n`：年轻代中 Eden 区与两个 Survivor 区的比值。如 n=3 表示 Eden 占 3 Survivor 占 2，一个 Survivor 区占整个年轻代的 1/5
 
-- -Xms:初始堆大小
-- -Xmx:最大堆大小
-- -XX:NewSize=n:设置年轻代大小
-- -XX:NewRatio=n:设置年轻代和年老代的比值。如：为 3 表示年轻代和年老代比值为 1：3，年轻代占整个年轻代年老代和的 1/4
-- -XX:SurvivorRatio=n:年轻代中 Eden 区与两个 Survivor 区的比值。注意 Survivor 区有两个。如 3 表示 Eden： 3 Survivor：2，一个 Survivor 区占整个年轻代的 1/5
-- -XX:MaxPermSize=n:设置持久代大小
+#### 配置 GC 收集器的参数有哪些？
 
-**收集器设置：**
+- `-XX:+UseSerialGC`：设置串行收集器
+- `-XX:+UseParallelGC`：设置并行收集器
+- `-XX:+UseParalledlOldGC`：设置并行老年代收集器
+- `-XX:+UseConcMarkSweepGC`：设置并发收集器
 
-- -XX:+UseSerialGC:设置串行收集器
-- -XX:+UseParallelGC:设置并行收集器
-- -XX:+UseParalledlOldGC:设置并行年老代收集器
-- -XX:+UseConcMarkSweepGC:设置并发收集器
+#### 配置并行收集的参数有哪些？
 
-**并行收集器设置**
+- `-XX:MaxGCPauseMillis=n`：设置最大垃圾回收停顿时间
+- `-XX:GCTimeRatio=n`：设置垃圾回收时间占程序运行时间的比例
+- `-XX:+CMSIncrementalMode`：设置增量模式，适合单 CPU 环境
+- `-XX:ParallelGCThreads=n`：设置并行收集器的线程数
 
-- -XX:ParallelGCThreads=n:设置并行收集器收集时使用的 CPU 数。并行收集线程数
-- -XX:MaxGCPauseMillis=n:设置并行收集最大的暂停时间（如果到这个时间了，垃圾回收器依然没有回收完，也会停止回收）
-- -XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为：1/(1+n)
-- -XX:+CMSIncrementalMode:设置为增量模式。适用于单 CPU 情况
-- -XX:ParallelGCThreads=n:设置并发收集器年轻代手机方式为并行收集时，使用的 CPU 数。并行收集线程数
+#### 打印 GC 回收的过程日志信息的参数有哪些？
 
-**打印 GC 回收的过程日志信息**
+- `-XX:+PrintGC`：输出 GC 日志
+- `-XX:+PrintGCDetails`：输出 GC 详细日志
+- `-XX:+PrintGCTimeStamps`：输出 GC 的时间戳（以基准时间的形式）
+- `-Xloggc:filename`：日志文件的输出路径
 
-- -XX:+PrintGC
-- -XX:+PrintGCDetails
-- -XX:+PrintGCTimeStamps
-- -Xloggc:filename
+### 40.做过 JVM 调优吗？
 
-### 40.有做过 JVM 调优吗？
+做过。
 
-JVM 调优是一个复杂的过程，主要包括对堆内存、垃圾收集器、JVM 参数等进行调整和优化。
+JVM 调优是一个复杂的过程，调优的对象包括堆内存、垃圾收集器和 JVM 运行时参数等。
 
 ![二哥的 Java 进阶之路：JVM 调优](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240417094311.png)
 
-①、JVM 的堆内存主要用于存储对象实例，如果堆内存设置过小，可能会导致频繁的垃圾回收。所以，[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)是在启动 JVM 的时候就调整了一下 -Xms 和-Xmx 参数，让堆内存最大可用内存为 2G。
+如果堆内存设置过小，可能会导致频繁的垃圾回收。所以在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，启动 JVM 的时候配置了 `-Xms` 和 `-Xmx` 参数，让堆内存最大可用内存为 2G（我用的丐版服务器）。
 
-②、在项目运行期间，我会使用 JVisualVM 定期观察和分析 GC 日志，如果发现频繁的 Full GC，就需要特别关注老年代的使用情况。
+在项目运行期间，我会使用 JVisualVM 定期观察和分析 GC 日志，如果发现频繁的 Full GC，我会特意关注一下老年代的使用情况。
 
 接着，通过分析 Heap dump 寻找内存泄漏的源头，看看是否有未关闭的资源，长生命周期的大对象等。
 
-之后，就要进行代码优化了，比如说减少大对象的创建、优化数据结构的使用方式、减少不必要的对象持有等。
+之后进行代码优化，比如说减少大对象的创建、优化数据结构的使用方式、减少不必要的对象持有等。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 6 Java 通用软件开发一面面试原题：说说你对 JVM 调优的了解
 
@@ -1807,13 +1798,13 @@ top -H -p <pid>
 
 ![haikuotiankongdong：Java 进程中的线程情况](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240527111356.png)
 
-注意，top 命令显示的线程 ID 是十进制的，而 jstack 输出的是十六进制的，所以需要将线程 ID 转换为十六进制。
+>注意，top 命令显示的线程 ID 是十进制的，而 jstack 输出的是十六进制的，所以需要将线程 ID 转换为十六进制。
 
 ```shell
 printf "%x\n" PID
 ```
 
-在 jstack 的输出中搜索这个十六进制的线程 ID，找到对应的堆栈信息。
+接着在 jstack 的输出中搜索这个十六进制的线程 ID，找到对应的堆栈信息。
 
 ```shell
 "Thread-5" #21 prio=5 os_prio=0 tid=0x00007f812c018800 nid=0x1a85 runnable [0x00007f811c000000]
@@ -1822,20 +1813,20 @@ printf "%x\n" PID
     at ...
 ```
 
-最后，根据堆栈信息定位到具体的业务方法，查看是否有死循环、频繁的垃圾回收（GC）、资源竞争（如锁竞争）导致的上下文频繁切换等问题。
+最后，根据堆栈信息定位到具体的业务方法，查看是否有死循环、频繁的垃圾回收、资源竞争导致的上下文频繁切换等问题。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：上线的业务出了问题怎么调试，比如某个线程 cpu 占用率高，怎么看堆栈信息
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：服务器的CPU占用持续升高，有哪些排查问题的手段？排查后发现是项目产生了内存泄露，如何确定问题出在哪里？
 
 ### 42.内存飙高问题怎么排查？
 
-内存飚高一般是因为创建了大量的 Java 对象所导致的，如果持续飙高则说明垃圾回收跟不上对象创建的速度，或者内存泄漏导致对象无法回收。
+内存飚高一般是因为创建了大量的 Java 对象导致的，如果持续飙高则说明垃圾回收跟不上对象创建的速度，或者内存泄漏导致对象无法回收。
 
 排查的方法主要分为以下几步：
 
 第一，先观察垃圾回收的情况，可以通过 `jstat -gc PID 1000` 查看 GC 次数和时间。
 
-或者 `jmap -histo PID | head -20` 查看堆内存占用空间最大的前 20 个对象类型。
+或者使用 `jmap -histo PID | head -20` 查看堆内存占用空间最大的前 20 个对象类型。
 
 第二步，通过 jmap 命令 dump 出堆内存信息。
 
@@ -1849,7 +1840,7 @@ printf "%x\n" PID
 
 ### 43.频繁 minor gc 怎么办？
 
-频繁的 Minor GC（也称为 Young GC）通常表示新生代中的对象频繁地被垃圾回收，可能是因为新生代空间设置过小，或者是因为程序中存在大量的短生命周期对象（如临时变量、方法调用中创建的对象等）。
+频繁的 Minor GC 通常意味着新生代中的对象频繁地被垃圾回收，可能是因为新生代空间设置的过小，或者是因为程序中存在大量的短生命周期对象（如临时变量）。
 
 可以使用 GC 日志进行分析，查看 GC 的频率和耗时，找到频繁 GC 的原因。
 
@@ -1857,40 +1848,35 @@ printf "%x\n" PID
 -XX:+PrintGCDetails -Xloggc:gc.log
 ```
 
-或者使用监控工具（如 VisualVM、jstat、jconsole 等）查看堆内存的使用情况，特别是新生代（Eden 和 Survivor 区）的使用情况。
+或者使用监控工具查看堆内存的使用情况，特别是新生代（Eden 和 Survivor 区）的使用情况。
 
-如果是因为新生代空间不足，可以通过 `-Xmn` 增加新生代的大小，减少新生代的填满速度。
+如果是因为新生代空间不足，可以通过 `-Xmn` 增加新生代的大小，减缓新生代的填满速度。
 
 ```shell
 java -Xmn256m your-app.jar
 ```
 
-如果对象未能在 Survivor 区足够长时间存活，就会被晋升到老年代，可以通过 `-XX:SurvivorRatio` 参数调整 Eden 和 Survivor 的比例。默认比例是 8:1，表示 8 个空间用于 Eden，1 个空间用于 Survivor 区。
+如果对象需要长期存活，但频繁从 Survivor 区晋升到老年代，可以通过 `-XX:SurvivorRatio` 参数调整 Eden 和 Survivor 的比例。默认比例是 8:1，表示 8 个空间用于 Eden，1 个空间用于 Survivor 区。
 
 ```shell
 -XX:SurvivorRatio=6
 ```
 
-这将减少 Eden 区的大小，增加 Survivor 区的大小，以确保对象在 Survivor 区中存活的时间足够长，避免过早晋升到老年代。
+调整为 6 的话，会减少 Eden 区的大小，增加 Survivor 区的大小，以确保对象在 Survivor 区中存活的时间足够长，避免过早晋升到老年代。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：young GC频繁如何排查？修改哪些参数？ 
 
 ### 44.频繁 Full GC 怎么办？
 
-Full GC 是指对整个堆内存（包括新生代和老年代）进行垃圾回收操作。Full GC 频繁会导致应用程序的暂停时间增加，从而影响性能。
-
-常见的原因有：
-
-- 大对象（如大数组、大集合）直接分配到老年代，导致老年代空间快速被占用。
-- 程序中存在内存泄漏，导致老年代的内存不断增加，无法被回收。比如 IO 资源未关闭。
-- 一些长生命周期的对象进入到了老年代，导致老年代空间不足。
-- 不合理的 GC 参数配置也导致 GC 频率过高。比如说新生代的空间设置过小。
+频繁的 Full GC 通常意味着老年代中的对象频繁地被垃圾回收，可能是因为老年代空间设置的过小，或者是因为程序中存在大量的长生命周期对象。
 
 #### 该怎么排查 Full GC 频繁问题？
 
-大厂一般都会有专门的性能监控系统，可以通过监控系统查看 GC 的频率和堆内存的使用情况。
+我厂会通过专门的性能监控系统，查看 GC 的频率和堆内存的使用情况，然后根据监控数据分析 GC 的原因。
 
-否则可以使用 JDK 的一些自带工具，包括 jmap、jstat 等。
+如果是小厂，可以这么回复。
+
+我一般会使用 JDK 的自带工具，包括 jmap、jstat 等。
 
 ```shell
 # 查看堆内存各区域的使用率以及GC情况
@@ -1901,29 +1887,21 @@ jmap -histo pid | head -n20
 jmap -dump:format=b,file=heap pid
 ```
 
-或者使用一些可视化的工具，比如 VisualVM、JConsole 等。
-
-#### 如何解决 Full GC 频繁问题？
+或者使用一些可视化的工具，比如 VisualVM、JConsole 等，查看堆内存的使用情况。
 
 假如是因为大对象直接分配到老年代导致的 Full GC 频繁，可以通过 `-XX:PretenureSizeThreshold` 参数设置大对象直接进入老年代的阈值。
 
-或者能不能将大对象拆分成小对象，减少大对象的创建。比如说分页。
+或者将大对象拆分成小对象，减少大对象的创建。比如说分页。
 
-假如是因为内存泄漏导致的 Full GC 频繁，可以通过分析堆内存 dump 文件找到内存泄漏的对象，再找到内存泄漏的代码位置。
+假如是因为内存泄漏导致的频繁 Full GC，可以通过分析堆内存 dump 文件找到内存泄漏的对象，再找到内存泄漏的代码位置。
 
 假如是因为长生命周期的对象进入到了老年代，要及时释放资源，比如说 ThreadLocal、数据库连接、IO 资源等。
 
-假如是因为 GC 参数配置不合理导致的 Full GC 频繁，可以通过调整 GC 参数来优化 GC 行为。或者直接更换更适合的 GC 收集器，如 G1、ZGC 等。
+假如是因为 GC 参数配置不合理导致的频繁 Full GC，可以通过调整 GC 参数来优化 GC 行为。或者直接更换更适合的 GC 收集器，如 G1、ZGC 等。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java 中 full gc 频繁，有哪些原因
 
-
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## 五、类加载机制
 
@@ -1931,38 +1909,38 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 > 2024 年 03 月 29 日增补
 
-JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据结构加载到内存中，并对数据进行校验、解析和初始化，最终形成可以被 JVM 直接使用的类型，这个过程被称为类加载机制。
+了解。
 
-其中最重要的三个概念就是：类加载器、类加载过程和类加载器的双亲委派模型。
+JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据结构加载到内存中，并对数据进行校验、解析和初始化，最终转化成可以被 JVM 直接使用的类型，这个过程被称为类加载机制。
+
+其中最重要的三个概念就是：类加载器、类加载过程和双亲委派模型。
 
 - **类加载器**：负责加载类文件，将类文件加载到内存中，生成 Class 对象。
-- **类加载过程**：加载、验证、准备、解析和初始化。
-- **双亲委派模型**：当一个类加载器收到类加载请求时，它首先不会自己去尝试加载这个类，而是把请求委派给父类加载器去完成，依次递归，直到最顶层的类加载器，如果父类加载器无法完成加载请求，子类加载器才会尝试自己去加载。
+- **类加载过程**：包括加载、验证、准备、解析和初始化等步骤。
+- **双亲委派模型**：当一个类加载器接收到类加载请求时，它会把请求委派给父——类加载器去完成，依次递归，直到最顶层的类加载器，如果父——类加载器无法完成加载请求，子类加载器才会尝试自己去加载。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：java 的类加载机制 双亲委派机制 这样设计的原因是什么
 
 ### 46.类加载器有哪些？
 
-类加载器（ClassLoader）用于动态加载 Java 类到 Java 虚拟机中。主要有四种类加载器：
+主要有四种：
 
-①、**启动类加载器**（Bootstrap ClassLoader）负责加载 JVM 的核心类库，如 rt.jar 和其他核心库位于`JAVA_HOME/jre/lib`目录下的类。
+①、**启动类加载器**，负责加载 JVM 的核心类库，如 rt.jar 和其他核心库位于`JAVA_HOME/jre/lib`目录下的类。
 
-②、**扩展类加载器**(Extension ClassLoader)：由`sun.misc.Launcher$ExtClassLoader`（或其它类似实现）实现。负责加载`JAVA_HOME/jre/lib/ext`目录下，或者由系统属性`java.ext.dirs`指定位置的类库。
+②、**扩展类加载器**，负责加载`JAVA_HOME/jre/lib/ext`目录下，或者由系统属性`java.ext.dirs`指定位置的类库，由`sun.misc.Launcher$ExtClassLoader` 实现。
 
-③、**应用程序类加载器**（Application ClassLoader）：由`sun.misc.Launcher$AppClassLoader`（或其它类似实现）实现。
-
-负责加载系统类路径（classpath）上的类库，通常是我们在开发 Java 应用程序时的主要类加载器。
+③、**应用程序类加载器**，负责加载 classpath 的类库，由`sun.misc.Launcher$AppClassLoader`实现。
 
 我们编写的任何类都是由应用程序类加载器加载的，除非显式使用自定义类加载器。
 
-④、**用户自定义类加载器** (User-Defined ClassLoader)，我们可以通过继承`java.lang.ClassLoader`类来创建自己的类加载器。
+④、**用户自定义类加载器**，通常用于加载网络上的类、执行热部署（动态加载和替换应用程序的组件），或者为了安全考虑，从不同的源加载类。
 
-这种类加载器通常用于加载网络上的类、执行热部署（动态加载和替换应用程序的组件）或为了安全目的自定义类的加载方式。
+通过继承`java.lang.ClassLoader`类来实现。
 
 ### 47.能说一下类的生命周期吗？
 
-一个类从被加载到虚拟机内存中开始，到从内存中卸载，整个生命周期需要经过七个阶段：加载 （Loading）、验证（Verification）、准备（Preparation）、解析（Resolution）、初始化 （Initialization）、使用（Using）和卸载（Unloading）。
+一个类从被加载到虚拟机内存中开始，到从内存中卸载，整个生命周期需要经过七个阶段：加载 、验证、准备、解析、初始化、使用和卸载。
 
 ![三分恶面渣逆袭：类的生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-44.png)
 
@@ -1970,7 +1948,9 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 > 推荐阅读：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
 
-类装载过程包括三个阶段：载入、链接（包括验证、准备、解析）、初始化。
+知道。
+
+类装载过程包括三个阶段：载入、链接和初始化。
 
 ①、载入：将类的二进制字节码加载到内存中。
 
@@ -1982,22 +1962,24 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 ③、初始化：执行静态代码块和静态变量初始化。
 
-在准备阶段，静态变量已经被赋过默认初始值了，在初始化阶段，静态变量将被赋值为代码期望赋的值。
+在准备阶段，静态变量已经被赋过默认初始值了，在初始化阶段，静态变量将被赋值为代码期望赋的值。比如说 `static int a = 1;`，在准备阶段，`a` 的值为 0，在初始化阶段，`a` 的值为 1。
 
-换句话说，初始化阶段是执行类的构造方法（[javap](https://javabetter.cn/jvm/bytecode.html) 中看到的 `<clinit>()` 方法）的过程。
+换句话说，初始化阶段是在执行类的构造方法，也就是 [javap](https://javabetter.cn/jvm/bytecode.html) 中看到的 `<clinit>()`。
 
-#### 载入过程JVM 会做什么？
+#### 载入过程 JVM 会做什么？
 
 ![三分恶面渣逆袭：载入](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-45.png)
 
 - 1）通过一个类的全限定名来获取定义此类的二进制字节流。
 - 2）将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。
-- 3）在内存中生成一个代表这个类的 `java.lang.Class` 对象，作为方法区这个类的各种数据的访问入口。
+- 3）在内存中生成一个代表这个类的 `java.lang.Class` 对象，作为这个类的访问入口。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：讲一下类加载过程，双亲委派模型，双亲委派的好处
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：类加载过程
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：类装载的执行过程？双亲委派模式是什么？为什么使用这种模式？
+
+memo：2025 年 1 月 17 日修改至此。
 
 ### 49.什么是双亲委派模型？
 
@@ -2005,11 +1987,13 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 ![三分恶面渣逆袭：双亲委派模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-46.png)
 
-- 当一个类加载器需要加载某个类时，它首先会请求其父类加载器加载这个类。
-- 这个过程会一直向上递归，也就是说，从子加载器到父加载器，再到更上层的加载器，一直到最顶层的启动类加载器。
-- 启动类加载器会尝试加载这个类。如果它能够加载这个类，就直接返回；如果它不能加载这个类（因为这个类不在它的搜索范围内），就会将加载任务返回给委托它的子加载器。
-- 子加载器接着尝试加载这个类。如果子加载器也无法加载这个类，它就会继续向下传递这个加载任务，依此类推。
-- 这个过程会继续，直到某个加载器能够加载这个类，或者所有加载器都无法加载这个类，最终抛出 ClassNotFoundException。
+这个过程会一直向上递归，也就是说，从子加载器到父加载器，再到更上层的加载器，一直到最顶层的启动类加载器。
+
+启动类加载器会尝试加载这个类。如果它能够加载这个类，就直接返回；如果它不能加载这个类，就会将加载任务返回给委托它的子加载器。
+
+子加载器尝试加载这个类。如果子加载器也无法加载这个类，它就会继续向下传递这个加载任务，依此类推。
+
+直到某个加载器能够加载这个类，或者所有加载器都无法加载这个类，最终抛出 ClassNotFoundException。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你了解类的加载机制吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：双亲委派机制
@@ -2024,125 +2008,146 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 ### 50.如何破坏双亲委派机制？
 
-如果不想打破双亲委派模型，就重写 ClassLoader 类中的 fifindClass()方法即可，无法被父类加载器加载的类最终会通过这个方法被加载。而如果想打破双亲委派模型则需要重写 loadClass()方法。
+重写 ClassLoader 的 `loadClass()` 方法。
 
-### 51.历史上有哪几次双亲委派机制的破坏？
+如果不想打破双亲委派模型，就重写 ClassLoader 类中的 `findClass()` 方法，那些无法被父类加载器加载的类最终会通过这个方法被加载。
 
-双亲委派机制在历史上主要有三次破坏：
+memo：2025 年 1 月 18 日修改至此。
+
+### 51.有哪些破坏双亲委派模型的典型例子？
+
+我了解的有两种：
+
+- 第一种：SPI 机制加载 JDBC 驱动。
+- 第二种：热部署框架。
 
 ![三分恶面渣逆袭：双亲委派模型的三次破坏](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-47.png)
 
-#### 说说第一次破坏
+#### 说说SPI 机制？
 
-双亲委派模型的第一次“被破坏”其实发生在双亲委派模型出现之前——即 JDK 1.2 面世以前的“远古”时代。
+SPI 是 Java 的一种扩展机制，用于加载和注册第三方类库，常见于 JDBC、JNDI 等框架。
 
-由于双亲委派模型在 JDK 1.2 之后才被引入，但是类加载器的概念和抽象类 java.lang.ClassLoader 则在 Java 的第一个版本中就已经存在，为了向下兼容旧代码，所以无法以技术手段避免 loadClass()被子类覆盖的可能性，只能在 JDK 1.2 之后的 java.lang.ClassLoader 中添加一个新的 protected 方法 findClass()，并引导用户编写的类加载逻辑时尽可能去重写这个方法，而不是在 loadClass()中编写代码。
+双亲委派模型会优先让父类加载器加载类，而 SPI 需要动态加载子类加载器中的实现。
 
-#### 说说第二次破坏
+根据双亲委派模型，`java.sql.Driver` 类应该由父加载器加载，但父类加载器无法加载由子类加载器定义的驱动类，如 MySQL 的 `com.mysql.cj.jdbc.Driver`。
 
-双亲委派模型的第二次“被破坏”是由这个模型自身的缺陷导致的，如果有基础类型又要调用回用户的代码，那该怎么办呢？
+那么只能使用 SPI 机制通过 `META-INF/services` 文件指定服务提供者的实现类。
 
-例如我们比较熟悉的 JDBC:
+```java
+ClassLoader cl = Thread.currentThread().getContextClassLoader();
+Enumeration<Driver> drivers = ServiceLoader.load(Driver.class, cl).iterator();
+```
 
-各个厂商各有不同的 JDBC 的实现，Java 在核心包`\lib`里定义了对应的 SPI，那么这个就毫无疑问由`启动类加载器`加载器加载。
+DriverManager 使用了线程上下文类加载器来加载 SPI 的实现类，从而允许子类加载器加载具体的 JDBC 驱动。
 
-但是各个厂商的实现，是没办法放在核心包里的，只能放在`classpath`里，只能被`应用类加载器`加载。那么，问题来了，启动类加载器它就加载不到厂商提供的 SPI 服务代码。
+#### 说说热部署？
 
-为了解决这个问题，引入了一个不太优雅的设计：线程上下文类加载器 （Thread Context ClassLoader）。这个类加载器可以通过 java.lang.Thread 类的 setContext-ClassLoader()方法进行设置，如果创建线程时还未设置，它将会从父线程中继承一个，如果在应用程序的全局范围内都没有设置过的话，那这个类加载器默认就是应用程序类加载器。
+热部署是指在不重启服务器的情况下更新应用程序代码，需要替换旧版本的类，但旧版本的类可能由父加载器加载。
 
-JNDI 服务使用这个线程上下文类加载器去加载所需的 SPI 服务代码，这是一种父类加载器去请求子类加载器完成类加载的行为。
+如 Spring Boot 的 DevTools 通常会自定义类加载器，优先加载新的类版本。
 
-#### 说说第三次破坏
-
-双亲委派模型的第三次“被破坏”是由于用户对程序动态性的追求而导致的，例如代码热替换（Hot Swap）、模块热部署（Hot Deployment）等。
-
-OSGi 实现模块化热部署的关键是它自定义的类加载器机制的实现，每一个程序模块（OSGi 中称为 Bundle）都有一个自己的类加载器，当需要更换一个 Bundle 时，就把 Bundle 连同类加载器一起换掉以实现代码的热替换。在 OSGi 环境下，类加载器不再双亲委派模型推荐的树状结构，而是进一步发展为更加复杂的网状结构。
+memo：2025 年 1 月 19 日修改至此。
 
 ### 52.Tomcat 的类加载机制了解吗？
 
-Tomcat 是主流的 Java Web 服务器之一，为了实现一些特殊的功能需求，自定义了一些类加载器。
+了解。
 
-Tomcat 类加载器如下：
+Tomcat 基于双亲委派模型进行了一些扩展，主要的类加载器有：
+
+- Bootstrap ClassLoader：加载 Java 的核心类库；
+- Catalina ClassLoader：加载 Tomcat 的核心类库；
+- Shared ClassLoader：加载共享类库，允许多个 Web 应用共享某些类库；
+- WebApp ClassLoader：加载 Web 应用程序的类库，支持多应用隔离和优先加载应用自定义的类库（破坏了双亲委派模型）。
 
 ![Tomcat类加载器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-48.png)
 
-Tomcat 实际上也是破坏了双亲委派模型的。
 
-Tomact 是 web 容器，可能需要部署多个应用程序。不同的应用程序可能会依赖同一个第三方类库的不同版本，但是不同版本的类库中某一个类的全路径名可能是一样的。如多个应用都要依赖 hollis.jar，但是 A 应用需要依赖 1.0.0 版本，但是 B 应用需要依赖 1.0.1 版本。这两个版本中都有一个类是 com.hollis.Test.class。如果采用默认的双亲委派类加载机制，那么无法加载多个相同的类。
-
-所以，Tomcat 破坏了**双亲委派原则**，提供隔离的机制，为每个 web 容器单独提供一个 WebAppClassLoader 加载器。每一个 WebAppClassLoader 负责加载本身的目录下的 class 文件，加载不到时再交 CommonClassLoader 加载，这和双亲委派刚好相反。
 
 ### 53.你觉得应该怎么实现一个热部署功能？
 
-实现一个热部署（Hot Deployment）功能通常涉及到类的加载和卸载机制，使得在不重启应用程序的情况下，能够动态替换或更新应用程序的组件。
+热部署是指在不重启服务器的情况下，动态加载、更新或卸载应用程序的组件，比如类、配置文件等。
 
-第一步，使用文件监控机制（如 Java NIO 的 WatchService）来监控类文件或配置文件的变更。当监控到文件变更时，触发热部署流程。
+需要在类加载器的基础上，实现类的重新加载。
+
+我的思路是：
+
+第一步，使用文件监控机制，如 Java NIO 的 WatchService 来监控类文件或配置文件的变化。当监控到文件变更时，触发热部署流程。
 
 ```java
 class FileWatcher {
+
     public static void watchDirectoryPath(Path path) {
-        // 检查路径是否是文件夹
-        try {
-            Boolean isFolder = (Boolean) Files.getAttribute(path, "basic:isDirectory", LinkOption.NOFOLLOW_LINKS);
-            if (!isFolder) {
-                throw new IllegalArgumentException("Path: " + path + " is not a folder");
-            }
-        } catch (IOException ioe) {
-            // 文件 I/O 错误
-            ioe.printStackTrace();
+        // 检查路径是否是有效目录
+        if (!isDirectory(path)) {
+            System.err.println("Provided path is not a directory: " + path);
+            return;
         }
 
-        System.out.println("Watching path: " + path);
+        System.out.println("Starting to watch path: " + path);
 
-        // 我们获得文件系统的WatchService对象
-        FileSystem fs = path.getFileSystem();
+        // 获取文件系统的 WatchService
+        try (WatchService watchService = path.getFileSystem().newWatchService()) {
+            // 注册目录监听服务，监听创建、修改和删除事件
+            path.register(watchService, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
 
-        try (WatchService service = fs.newWatchService()) {
-            // 注册路径到监听服务
-            // 监听目录内文件的创建、修改、删除事件
-            path.register(service, ENTRY_CREATE, ENTRY_MODIFY, ENTRY_DELETE);
-
-            // 开始无限循环，等待事件发生
-            WatchKey key = null;
             while (true) {
-                key = service.take(); // 会阻塞直到有事件发生
-
-                // 对于每个发生的事件
-                for (WatchEvent<?> watchEvent : key.pollEvents()) {
-                    WatchEvent.Kind<?> kind = watchEvent.kind();
-
-                    // 获取文件路径
-                    @SuppressWarnings("unchecked")
-                    WatchEvent<Path> ev = (WatchEvent<Path>) watchEvent;
-                    Path fileName = ev.context();
-
-                    System.out.println(kind.name() + ": " + fileName);
+                WatchKey key;
+                try {
+                    // 阻塞直到有事件发生
+                    key = watchService.take();
+                } catch (InterruptedException e) {
+                    System.out.println("WatchService interrupted, stopping directory watch.");
+                    Thread.currentThread().interrupt();
+                    break;
                 }
 
-                // 重置watchKey
-                boolean valid = key.reset();
-                // 退出循环如果watchKey无效
-                if (!valid) {
+                // 处理事件
+                for (WatchEvent<?> event : key.pollEvents()) {
+                    processEvent(event);
+                }
+
+                // 重置 key，如果失败则退出
+                if (!key.reset()) {
+                    System.out.println("WatchKey no longer valid. Exiting watch loop.");
                     break;
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            System.err.println("An error occurred while setting up the WatchService: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
+    private static boolean isDirectory(Path path) {
+        return Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS);
+    }
+
+    private static void processEvent(WatchEvent<?> event) {
+        WatchEvent.Kind<?> kind = event.kind();
+
+        // 处理事件类型
+        if (kind == OVERFLOW) {
+            System.out.println("Event overflow occurred. Some events might have been lost.");
+            return;
+        }
+
+        @SuppressWarnings("unchecked")
+        Path fileName = ((WatchEvent<Path>) event).context();
+        System.out.println("Event: " + kind.name() + ", File affected: " + fileName);
+    }
+
     public static void main(String[] args) {
-        // 监控当前目录
+        // 设置监控路径为当前目录
         Path pathToWatch = Paths.get(".");
         watchDirectoryPath(pathToWatch);
     }
 }
 ```
 
-第二步，创建一个自定义类加载器，继承自`java.lang.ClassLoader`，重写`findClass()`方法，实现类的加载。
+第二步，创建一个自定义类加载器，继承`java.lang.ClassLoader`，并重写`findClass()`方法，用来加载新的类文件。
 
 ```java
-public class HotSwapClassLoader extends ClassLoader {
+class HotSwapClassLoader extends ClassLoader {
     public HotSwapClassLoader() {
         super(ClassLoader.getSystemClassLoader());
     }
@@ -2166,7 +2171,7 @@ public class HotSwapClassLoader extends ClassLoader {
 }
 ```
 
-像 Intellij IDEA 就提供了热部署功能，当我们修改了代码后，IDEA 会自动编译，如果是 Web 项目，在 Chrome 浏览器中装一个 LiveReload 插件，一旦编译完成，页面就会自动刷新。对于测试或者调试来说，就非常方便。
+友情提示：Intellij IDEA 提供了热部署功能，当我们修改了代码后，IDEA 会自动保存并编译，如果是 Web 项目，还可以在 Chrome 浏览器中装一个 LiveReload 插件，一旦编译完成，页面就会自动刷新看到最新的效果。对于测试或者调试来说，非常方便。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：那你知道类的热更新的？
 
@@ -2188,11 +2193,64 @@ Java 一般被称为“解释型语言”，因为 Java 代码在执行前，需
 
 这也是 Java 被诟病“慢”的主要原因。
 
-但 JIT 的出现打破了这种刻板印象，JVM 会将热点代码（即运行频率高的代码）编译后放入 CodeCache，当下次执行再遇到这段代码时，会从 CodeCache 中直接读取机器码，然后执行。这大大提升了 Java 的执行效率。
+但 JIT 的出现打破了这种刻板印象，JVM 会将热点代码（即运行频率高的代码）编译后放入 CodeCache，当下次执行再遇到这段代码时，会从 CodeCache 中直接读取机器码，然后执行。
+
+因此，Java 的执行效率得到了大幅提升。
 
 ![图片来源于美团技术博客](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-9a62fc02-1a6a-451e-bb2b-19fc086d5be0.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：说说 Java 解释执行的流程。
+
+memo：2025 年 1 月 21 日修改至此。
+
+---
+
+面渣逆袭 JVM 篇第二版终于整理完了，说一点心里话。
+
+![Java 基础篇、集合框架篇、JVM 篇](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121141939.png)
+
+网上的八股其实不少，这样可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
+
+![球友开始面试后的感慨](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250118111727.png)
+
+面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从从 24 届到 25 届，帮助了很多小伙伴。未来的 26、27 届，也将因此受益，从而拿到心仪的 offer。
+
+能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强。
+
+![这是我在牛客上看到的](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165717.png)
+
+![我觉得都是蛮中肯的评价](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165749.png)
+
+![双非硕测开对二哥八股的认可](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108181632.png)
+
+很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
+
+我喜欢静待花开。
+
+如果你觉得面渣逆袭还不错，可以告诉学弟学妹们有这样一份免费的学习资料，帮我做个口碑。
+
+我还会继续优化，也不确定第三版什么时候会来，但我会尽力。
+
+愿大家都有一个光明的未来。
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
+
+
+![面渣逆袭JVM篇：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142044.png)
+
+更别说我付出的时间和精力了。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
 
 ---
 
