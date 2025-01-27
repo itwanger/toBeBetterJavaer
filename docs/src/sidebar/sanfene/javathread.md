@@ -1,12 +1,12 @@
 ---
-title: Java并发编程面试题，71道Java多线程八股文（2.1万字92张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，71道Java多线程八股文（4万字92张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.1 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，4 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 date: 2024-10-08
 head:
   - - meta
@@ -14,49 +14,97 @@ head:
       content: Java,Thread,Java并发编程,Java多线程,Java面试题,Java并发编程面试题,面试题,八股文,java
 ---
 
-2.1 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+![面渣逆袭并发编程篇封面图](https://cdn.tobebetterjavaer.com/stutymore/javathread-mianzhanixi-thread.jpg)
+
+## 前言
+
+4 万字 92 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bImCIoYsH_JEzTkBx2lj4A)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/1jhBZrAb7bnvkgN1TgAUpw)。
+
+亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
+
+![面渣逆袭并发编程篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142158.png)
+
+2025 年 01 月 22 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+
+![面渣逆袭已经提交 1479 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250122093837.png)
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+
+展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
+
+
+![面渣逆袭并发编程篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142305.png)
 
 ## 基础
 
 ### 1.并行跟并发有什么区别？
 
-- 并行：多核 CPU 上的多任务处理，多个任务在同一时间真正地同时执行。
-- 并发：单核 CPU 上的多任务处理，多个任务在同一时间段内交替执行，通过时间片轮转实现交替执行。
+- 并行是多核 CPU 上的多任务处理，多个任务在同一时间真正地同时执行。
+- 并发是单核 CPU 上的多任务处理，多个任务在同一时间段内交替执行，通过时间片轮转实现交替执行，用于解决 IO 密集型任务的瓶颈。
 
 ![三分恶面渣逆袭：并行和并发](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-1.png)
 
-就好像我们去食堂打饭，并行就是每个人对应一个阿姨，同时打饭；而并发就是一个阿姨，轮流给每个人打饭。
+举个例子，就好像我们去食堂打饭，并行就是每个人对应一个阿姨，同时打饭；而并发就是一个阿姨，轮流给每个人打饭，假如有个人磨磨唧唧，阿姨就会吆喝下一个人，这样就能提高食堂的打饭效率。
 
 ![三分恶面渣逆袭：并行并发和食堂打饭](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-2.png)
 
-#### 你对线程安全的理解是什么？
+#### 你是如何理解线程安全的？
 
 推荐阅读：[多线程带来了哪些问题？](https://javabetter.cn/thread/thread-bring-some-problem.html)
 
-线程安全是并发编程中一个重要的概念，如果一段代码块或者一个方法在多线程环境中被多个线程同时执行时能够正确地处理共享数据，那么这段代码块或者方法就是线程安全的。
+如果一段代码块或者一个方法被多个线程同时执行，还能够正确地处理共享数据，那么这段代码块或者这个方法就是线程安全的。
 
 可以从三个要素来确保线程安全：
 
-**①、原子性**：确保当某个线程修改共享变量时，没有其他线程可以同时修改这个变量，即这个操作是不可分割的。
+**①、原子性**：一个操作要么完全执行，要么完全不执行，不会出现中间状态。
 
 ![雷小帅：原子性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-eba43c92-e42d-4318-a40c-b9365c32d922.png)
 
-原子性可以通过互斥锁（如 synchronized）或原子操作（如 AtomicInteger 类中的方法）来保证。
+可以通过同步关键字 synchronized 或原子操作，如 AtomicInteger 来保证原子性。
 
-**②、可见性**：确保一个线程对共享变量的修改可以立即被其他线程看到。
+```java
+AtomicInteger count = new AtomicInteger(0);
+count.incrementAndGet(); // 原子操作
+```
+
+**②、可见性**：当一个线程修改了共享变量，其他线程能够立即看到变化。
 
 ![雷小帅：可见性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d91ca0c2-4f39-4e98-90e2-8acb793eb983.png)
 
-volatile 关键字可以保证了变量的修改对所有线程立即可见，并防止编译器优化导致的可见性问题。
+可以通过 volatile 关键字来保证可见性。
 
-**③、活跃性问题**：要确保线程不会因为死锁、饥饿、活锁等问题导致无法继续执行。
+```java
+private volatile String itwanger = "沉默王二";
+```
 
-![雷小帅：活跃性问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d4e65d5f-3de1-4a1c-8ae1-02cb3bfb528c.png)
+**③、有序性**：要确保线程不会因为死锁、饥饿、活锁等问题导致无法继续执行。
+
+![雷小帅：有序性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d4e65d5f-3de1-4a1c-8ae1-02cb3bfb528c.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：对于多线程编程的了解?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：你对线程安全的理解是什么？
 
-### 2.说说什么是进程和线程？
+memo：2025 年 1 月 22 日修改至此。
+
+### 🌟2.说说进程和线程的区别？
 
 推荐阅读:[进程与线程的区别是什么？](https://javabetter.cn/thread/why-need-thread.html)
 
@@ -70,56 +118,31 @@ volatile 关键字可以保证了变量的修改对所有线程立即可见，�
 
 协程被视为比线程更轻量级的并发单元，可以在单线程中实现并发执行，由我们开发者显式调度。
 
-我们可以使用 CompletableFuture 来模拟协程式的异步执行任务。比如说我们创建两个 CompletableFuture 对象来异步执行两个简单的数值返回任务。这两个任务都会休眠 1 秒钟来模拟耗时计算。
+协程是在用户态进行调度的，避免了线程切换时的内核态开销。
 
-然后我们使用 thenCombine 方法来合并这两个任务的结果。最后，我们通过 get 方法等待最终结果的完成，并打印出来。
+Java 自身是不支持携程的，我们可以使用 Quasar、Kotlin 等框架来实现协程。
 
 ```java
-class CompletableFutureExample {
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        // 异步执行任务1
-        CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> {
-            try {
-                Thread.sleep(1000); // 模拟耗时操作
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return 10;
-        });
-
-        // 异步执行任务2
-        CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> {
-            try {
-                Thread.sleep(1000); // 模拟耗时操作
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return 20;
-        });
-
-        // 合并两个任务的结果并计算
-        CompletableFuture<Integer> resultFuture = future1.thenCombine(future2, Integer::sum);
-
-        // 等待最终结果并打印
-        System.out.println("结果: " + resultFuture.get());
+fun main() = runBlocking {
+    launch {
+        delay(1000L)
+        println("World!")
     }
+    println("Hello,")
 }
 ```
 
-协程在用户态进行调度，避免了线程切换时的内核态开销。
+#### 线程间是如何进行通信的？
 
-#### 说说线程的共享内存？
+原则上可以通过消息传递和共享内存两种方法来实现。Java 采用的是共享内存的并发模型。
 
-线程之间想要进行通信，可以通过消息传递和共享内存两种方法来完成。那 Java 采用的是共享内存的并发模型。
+这个模型被称为 Java 内存模型，简写为 JMM，它决定了一个线程对共享变量的写入，何时对另外一个线程可见。当然了，本地内存是 JMM 的一个抽象概念，并不真实存在。
 
-这个模型被称为 Java 内存模型，也就是 JMM，JMM 决定了一个线程对共享变量的写入何时对另外一个线程可见。
-
-线程之间的共享变量存储在主内存（main memory）中，每个线程都有一个私有的本地内存（local memory），本地内存中存储了共享变量的副本。当然了，本地内存是 JMM 的一个抽象概念，并不真实存在。
+用一句话来概括就是：共享变量存储在主内存中，每个线程的私有本地内存，存储的是这个共享变量的副本。
 
 ![深入浅出 Java 多线程：JMM](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240315111143.png)
 
-线程 A 与线程 B 之间如要通信的话，必须要经历下面 2 个步骤：
+线程 A 与线程 B 之间如要通信，需要要经历 2 个步骤：
 
 - 线程 A 把本地内存 A 中的共享变量副本刷新到主内存中。
 - 线程 B 到主内存中读取线程 A 刷新过的共享变量，再同步到自己的共享变量副本中。
@@ -138,15 +161,17 @@ class CompletableFutureExample {
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：线程的概念，线程有哪些状态
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的海康威视同学 4面试原题：对协程的了解，为什么协程比线程还有更低的资源消耗
 
-### 3.说说线程有几种创建方式？
+memo：2025 年 1 月 23 日修改至此。
+
+### 🌟3.说说线程有几种创建方式？
 
 推荐阅读：[室友打了一把王者就学会了 Java 多线程](https://javabetter.cn/thread/wangzhe-thread.html)
 
-Java 中创建线程主要有三种方式，分别为继承 Thread 类、实现 Runnable 接口、实现 Callable 接口。
+有三种，分别是继承 Thread 类、实现 Runnable 接口、实现 Callable 接口。
 
 ![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407172652.png)
 
-第一种，继承 Thread 类，重写 `run()`方法，调用 `start()`方法启动线程。
+第一种需要重写父类 Thread 的 `run()` 方法，并且调用 `start()` 方法启动线程。
 
 ```java
 class ThreadTask extends Thread {
@@ -161,9 +186,9 @@ class ThreadTask extends Thread {
 }
 ```
 
-这种方法的缺点是，由于 Java 不支持多重继承，所以如果类已经继承了另一个类，就不能使用这种方法了。
+这种方法的缺点是，如果 ThreadTask 已经继承了另外一个类，就不能再继承 Thread 类了，因为 Java 不支持多重继承。
 
-第二种，实现 Runnable 接口，重写 `run()` 方法，然后创建 Thread 对象，将 Runnable 对象作为参数传递给 Thread 对象，调用 `start()` 方法启动线程。
+第二种需要重写 Runnable 接口的 `run()` 方法，并将实现类的对象作为参数传递给 Thread 对象的构造方法，最后调用 `start()` 方法启动线程。
 
 ```java
 class RunnableTask implements Runnable {
@@ -181,7 +206,7 @@ class RunnableTask implements Runnable {
 
 这种方法的优点是可以避免 Java 的单继承限制，并且更符合面向对象的编程思想，因为 Runnable 接口将任务代码和线程控制的代码解耦了。
 
-第三种，实现 Callable 接口，重写 `call()` 方法，然后创建 FutureTask 对象，参数为 Callable 对象；紧接着创建 Thread 对象，参数为 FutureTask 对象，调用 `start()` 方法启动线程。
+第三种需要重写 Callable 接口的 `call()` 方法，然后创建 FutureTask 对象，参数为 Callable 实现类的对象；紧接着创建 Thread 对象，参数为 FutureTask 对象，最后调用 `start()` 方法启动线程。
 
 ```java
 class CallableTask implements Callable<String> {
@@ -201,53 +226,35 @@ class CallableTask implements Callable<String> {
 
 这种方法的优点是可以获取线程的执行结果。
 
-#### 一个 8G 内存的系统最多能创建多少线程?
+#### 一个 8G 内存的系统最多能创建多少个线程?
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
-在确定一个系统最多可以创建多个线程时，除了需要考虑系统的内存大小外，Java 虚拟机栈的大小也是值得考虑的因素。
+理论上大约 8000 个。
 
-线程在创建的时候会被分配一个虚拟机栈，在 64 位操作系统中，默认大小为 1M。
+创建线程的时候，至少需要分配一个虚拟机栈，在 64 位操作系统中，默认大小为 1M，因此一个线程大约需要 1M 的内存。
 
-通过 `java -XX:+PrintFlagsFinal -version | grep ThreadStackSize` 这个命令可以查看 JVM 栈的默认大小。
+但 JVM、操作系统本身的运行就要占一定的内存空间，所以实际上可以创建的线程数远比 8000 少。
+
+详细解释一下。
+
+可以通过 `java -XX:+PrintFlagsFinal -version | grep ThreadStackSize` 命令查看 JVM 栈的默认大小。
 
 ![二哥的 Java 进阶之路：默认的虚拟机栈大小](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225145929.png)
 
 其中 ThreadStackSize 的单位是字节，也就是说默认的 JVM 栈大小是 1024 KB，也就是 1M。
 
-换句话说，8GB = 8 _ 1024 MB = 8 _ 1024 _ 1024 KB，所以一个 8G 内存的系统可以创建的线程数为 8 _ 1024 = 8192 个。
-
-但操作系统本身的运行也需要消耗一定的内存，所以实际上可以创建的线程数肯定会比 8192 少一些。
-
-可以通过下面这段代码来验证一下：
-
-```java
-public class StackOverflowErrorTest1 {
-    private static AtomicInteger count = new AtomicInteger(0);
-    public static void main(String[] args) {
-        while (true) {
-            testStackOverflowError();
-        }
-    }
-
-    public static void testStackOverflowError() {
-        System.out.println(count.incrementAndGet());
-        testStackOverflowError();
-    }
-}
-```
-
 #### 启动一个 Java 程序，你能说说里面有哪些线程吗？
 
-首先是 main 线程，这是程序开始执行的入口。
+首先是 main 线程，这是程序执行的入口。
 
 然后是垃圾回收线程，它是一个后台线程，负责回收不再使用的对象。
 
-还有编译器线程，在及时编译中（JIT），负责把一部分热点代码编译后放到 codeCache 中，以提升程序的执行效率。
+还有编译器线程，比如 JIT，负责把一部分热点代码编译后放到 codeCache 中。
 
 ![二哥的 Java 进阶之路：JIT](https://cdn.tobebetterjavaer.com/stutymore/jit-20240105180655.png)
 
-可以通过下面这段代码进行检测：
+可以通过下面的代码进行检测：
 
 ```java
 class ThreadLister {
@@ -274,7 +281,7 @@ Thread: Finalizer (ID=3)
 简单解释下：
 
 - `Thread: main (ID=1)` - 主线程，Java 程序启动时由 JVM 创建。
-- `Thread: Reference Handler (ID=2)` - 这个线程是用来处理引用对象的，如软引用（SoftReference）、弱引用（WeakReference）和虚引用（PhantomReference）。负责清理被 JVM 回收的对象。
+- `Thread: Reference Handler (ID=2)` - 这个线程是用来处理引用对象的，如软引用、弱引用和虚引用。负责清理被 JVM 回收的对象。
 - `Thread: Finalizer (ID=3)` - 终结器线程，负责调用对象的 finalize 方法。对象在垃圾回收器标记为可回收之前，由该线程执行其 finalize 方法，用于执行特定的资源释放操作。
 - `Thread: Signal Dispatcher (ID=4)` - 信号调度线程，处理来自操作系统的信号，将它们转发给 JVM 进行进一步处理，例如响应中断、停止等信号。
 - `Thread: Monitor Ctrl-Break (ID=5)` - 监视器线程，通常由一些特定的 IDE 创建，用于在开发过程中监控和管理程序执行或者处理中断。
@@ -288,11 +295,15 @@ Thread: Finalizer (ID=3)
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：java 如何创建线程？每次都要创建新线程来实现异步操作，很繁琐，有了解线程池吗？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：平时怎么使用多线程
 
-### 4.调用 start()方法时会执行 run()方法，那怎么不直接调用 run()方法？
+memo：2025 年 1 月 24 日修改至此。
 
-在 Java 中，启动一个新的线程应该调用其`start()`方法，而不是直接调用`run()`方法。
+### 4.调用 start 方法时会执行 run 方法，那怎么不直接调用 run方法？
 
-当调用`start()`方法时，会启动一个新的线程，并让这个新线程调用`run()`方法。这样，`run()`方法就在新的线程中运行，从而实现多线程并发。
+调用 `start()` 会创建一个新的线程，并异步执行 `run()` 方法中的代码。
+
+直接调用 `run()` 方法只是一个普通的同步方法调用，所有代码都在当前线程中执行，不会创建新线程。没有新的线程创建，也就达不到多线程并发的目的。
+
+通过敲代码体验一下。
 
 ```java
 class MyThread extends Thread {
@@ -308,8 +319,6 @@ class MyThread extends Thread {
 }
 ```
 
-如果直接调用`run()`方法，那么`run()`方法就在当前线程中运行，没有新的线程被创建，也就没有实现多线程的效果。
-
 来看输出结果：
 
 ```
@@ -317,82 +326,77 @@ main
 Thread-0
 ```
 
-也就是说，`start()` 方法的调用会告诉 JVM 准备好所有必要的新线程结构，分配其所需资源，并调用线程的 `run()` 方法在这个新线程中执行。
+也就是说，调用 `start()` 方法会通知 JVM，去调用底层的线程调度机制来启动新线程。
 
 ![三分恶面渣逆袭：start方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-5.png)
+
+调用 `start()` 后，线程进入就绪状态，等待操作系统调度；一旦调度执行，线程会执行其 `run()` 方法中的代码。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：启动一个线程是 run()还是 start()?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：java 如何启动多线程，有哪些方式？
 > 3. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：java 线程操作中的 start 和 run 方法区别是什么
 
+memo：2025 年 1 月 26 日修改至此。
+
 ### 5.线程有哪些常用的调度方法？
+
+比如说 start 方法用于启动线程并让操作系统调度执行；sleep 方法用于让当前线程休眠一段时间；wait 方法会让当前线程等待，notify 会唤醒一个等待的线程。
 
 ![三分恶面渣逆袭：线程常用调度方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-6.png)
 
-#### 说说线程等待与通知？
+#### 说说wait方法和notify方法？
 
-在 Object 类中有一些方法可以用于线程的等待与通知。
+当线程 A 调用共享对象的 `wait()` 方法时，线程 A 会被阻塞挂起，直到：
 
-①、`wait()`：当一个线程 A 调用一个共享变量的 `wait()` 方法时，线程 A 会被阻塞挂起，直到发生下面几种情况才会返回 ：
+- 线程 B 调用了共享对象的 `notify()` 方法或者 `notifyAll()` 方法；
+- 其他线程调用线程 A 的 `interrupt()` 方法，导致线程 A 抛出 InterruptedException 异常。
 
-- 线程 B 调用了共享对象 `notify()`或者 `notifyAll()` 方法；
-- 其他线程调用了线程 A 的 `interrupt()` 方法，线程 A 抛出 InterruptedException 异常返回。
+线程 A 调用共享对象的 `wait(timeout)`方法后，没有在指定的 timeout 时间内被其它线程唤醒，那么这个方法会因为超时而返回。
 
-②、`wait(long timeout)` ：这个方法相比 `wait()` 方法多了一个超时参数，它的不同之处在于，如果线程 A 调用共享对象的 `wait(long timeout)`方法后，没有在指定的 timeout 时间内被其它线程唤醒，那么这个方法还是会因为超时而返回。
+当线程 A 调用共享对象的 `notify()` 方法后，会唤醒一个在这个共享对象上调用 wait 系列方法被挂起的线程。
 
-③、`wait(long timeout, int nanos)`，其内部调用的是 `wait(long timout)` 方法。
+共享对象上可能会有多个线程在等待，具体唤醒哪个线程是随机的。
 
-唤醒线程主要有下面两个方法：
+如果调用的是 notifyAll 方法，会唤醒所有在这个共享变量上调用 wait 系列方法而被挂起的线程。
 
-①、`notify()`：一个线程 A 调用共享对象的 `notify()` 方法后，会唤醒一个在这个共享变量上调用 wait 系列方法后被挂起的线程。
+#### 说说 sleep 方法？
 
-一个共享变量上可能会有多个线程在等待，具体唤醒哪个等待的线程是随机的。
+当线程 A 调用了 Thread 的 sleep 方法后，线程 A 会暂时让出指定时间的执行权。
 
-②、`notifyAll()`：不同于在共享变量上调用 `notify()` 方法会唤醒被阻塞到该共享变量上的一个线程，notifyAll 方法会唤醒所有在该共享变量上调用 wait 系列方法而被挂起的线程。
+指定的睡眠时间到了后该方法会正常返回，接着参与 CPU 调度，获取到 CPU 资源后可以继续执行。
 
-Thread 类还提供了一个 `join()` 方法，意思是如果一个线程 A 执行了 `thread.join()`，当前线程 A 会等待 thread 线程终止之后才从 `thread.join()` 返回。
+#### 说说yield方法？
 
-#### 说说线程休眠
+`yield()` 方法的目的是让当前线程让出 CPU 使用权，回到就绪状态。但是线程调度器可能会忽略。
 
-`sleep(long millis)`：Thread 类中的静态方法，当一个执行中的线程 A 调用了 Thread 的 sleep 方法后，线程 A 会暂时让出指定时间的执行权。
-
-但是线程 A 所拥有的监视器资源，比如锁，还是持有不让出的。指定的睡眠时间到了后该方法会正常返回，接着参与 CPU 的调度，获取到 CPU 资源后就可以继续运行。
-
-#### 说说让出优先权
-
-`yield()`：Thread 类中的静态方法，当一个线程调用 yield 方法时，实际是在暗示线程调度器，当前线程请求让出自己的 CPU，但是线程调度器可能会“装看不见”忽略这个暗示。
-
-#### 说说线程中断
+#### 说说interrupt方法？
 
 推荐阅读：[interrupt 方法](https://www.cnblogs.com/myseries/p/10918819.html)
 
-Java 中的线程中断是一种线程间的协作模式，通过设置线程的中断标志并不能直接终止该线程的执行。被中断的线程会根据中断状态自行处理。
+`interrupt()` 方法用于通知线程停止，但不会直接终止线程，需要线程自行处理中断标志。
 
-- `void interrupt()` 方法：中断线程，例如，当线程 A 运行时，线程 B 可以调用线程 `interrupt()` 方法来设置线程的中断标志为 true 并立即返回。设置标志仅仅是设置标志, 线程 B 实际并没有被中断，会继续往下执行。
-- `boolean isInterrupted()` 方法： 检测当前线程是否被中断。
-- `boolean interrupted()` 方法： 检测当前线程是否被中断，与 isInterrupted 不同的是，该方法如果发现当前线程被中断，则会清除中断标志。
-
-为了响应中断，线程的执行代码应该这样编写：
+常与 `isInterrupted()` 或 `Thread.interrupted()` 配合使用。
 
 ```java
-public void run() {
-    try {
-        while (!Thread.currentThread().isInterrupted()) {
-            // 执行任务
-        }
-    } catch (InterruptedException e) {
-        // 线程被中断时的清理代码
-    } finally {
-        // 线程结束前的清理代码
+Thread thread = new Thread(() -> {
+    while (!Thread.currentThread().isInterrupted()) {
+        System.out.println("Running");
     }
-}
+    System.out.println("Interrupted");
+});
+thread.start();
+thread.interrupt(); // 中断线程
 ```
 
-stop 方法用来强制线程停止执行，目前已经处于废弃状态，因为 stop 方法会导致线程立即停止，可能会在不一致的状态下释放锁，破坏对象的一致性，导致难以发现的错误和资源泄漏。
+#### 说说 stop 方法？
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240321111407.png)
+stop 方法用来强制停止线程，目前已经处于废弃状态，因为 stop 方法可能会在不一致的状态下释放锁，破坏对象的一致性。
+
+![二哥的 Java 进阶之路：stop 方法源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240321111407.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：怎么停止一个线程，interrupt 和 stop 区别
+
+memo：2025 年 1 月 27 日修改至此。
 
 ### 6.线程有几种状态？
 
@@ -4439,10 +4443,3 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
 - [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
----
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
