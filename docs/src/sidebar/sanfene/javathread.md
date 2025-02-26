@@ -2622,19 +2622,19 @@ Java 的 AtomicStampedReference 就增加了版本号，它会同时检查引用
 
 ```java
 class ABAFix {
-    private static AtomicStampedReference<Integer> ref = new AtomicStampedReference<>(100, 1);
+    private static AtomicStampedReference<String> ref = new AtomicStampedReference<>("100", 1);
 
     public static void main(String[] args) {
         new Thread(() -> {
             int stamp = ref.getStamp();
-            ref.compareAndSet(100, 200, stamp, stamp + 1);
-            ref.compareAndSet(200, 100, ref.getStamp(), ref.getStamp() + 1);
+            ref.compareAndSet("100", "200", stamp, stamp + 1);
+            ref.compareAndSet("200", "100", ref.getStamp(), ref.getStamp() + 1);
         }).start();
 
         new Thread(() -> {
             try { Thread.sleep(100); } catch (InterruptedException e) {}
             int stamp = ref.getStamp();
-            System.out.println("CAS 结果：" + ref.compareAndSet(100, 300, stamp, stamp + 1));
+            System.out.println("CAS 结果：" + ref.compareAndSet("100", "300", stamp, stamp + 1));
         }).start();
     }
 }
@@ -2845,50 +2845,45 @@ class DeadLockDemo {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：发生死锁怎么排查？
 
+memo：2025 年 02 月 14 日修改至此。
+
 ### 41.聊聊线程同步和互斥？（补充）
 
-> 2024 年 03 月 12 日 新增
+> 2024 年 03 月 12 日 新增，推荐阅读：[牛客：可能是全网最全的线程同步方式总结了](https://blog.nowcoder.net/n/7571c2a5ef82480380fea53875b8187b)
 
-互斥，就是不同线程通过竞争进入临界区（共享数据或者硬件资源），为了防止冲突，在有限的时间内只允许其中一个线程独占使用共享资源。如不允许同时写。
+同步，意味着线程之间要密切合作，按照一定的顺序来执行任务。比如说，线程 A 先执行，线程 B 再执行。
 
-同步，就是多个线程彼此合作，通过一定的逻辑关系来共同完成一个任务。一般来说，同步关系中往往包含了互斥关系。同时，临界区的资源会按照某种逻辑顺序进行访问。如先生产后使用。
+互斥，意味着线程之间要抢占资源，同一时间只能有一个线程访问共享资源。比如说，线程 A 在访问共享资源时，线程 B 不能访问。
 
-在 Java 中，当我们要保护一个资源时，通常会使用 synchronized 关键字或者 Lock 接口的实现类（如 ReentrantLock）来给资源加锁。
+同步关注的是线程之间的协作，互斥关注的是线程之间的竞争。
 
-锁在操作系统层面的意思就是 Mutex（互斥），意思就是某个线程获取锁（进入临界区）后，其他线程不能再进入临界区，这样就达到了互斥的目的。
+#### 如何实现同步和互斥？
+
+可以使用 synchronized 关键字或者 Lock 接口的实现类，如 ReentrantLock 来给资源加锁。
+
+锁在操作系统层面的意思是 Mutex，某个线程进入临界区后，也就是获取到锁后，其他线程不能再进入临界区，要阻塞等待持有锁的线程离开临界区。
 
 ![cxuan：使用临界区的互斥](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008102844.png)
 
-锁要处理的问题大概有四种：
+#### 锁要解决哪些问题？
 
-- 谁拿到了锁，可以是当前 class，可以是某个 lock 对象，或者实例的 markword；
-- 抢占锁的规则，只能一个人抢 Mutex；能抢有限多次（Semaphore）；自己可以反复抢（可重入锁 ReentrantLock）；读可以反复抢，写只能一个人抢（读写锁ReadWriteLock）；
-- 抢不到怎么办，等待，等待的时候怎么等，自旋，阻塞，或者超时；
-- 锁被释放了还有其他等待锁的怎么办？通知所有人一起抢或者只告诉一个人抢（Condition 的 signalAll 或者 signal）
+第一，谁可以拿到锁，可以是类对象，可以是当前的 this 对象，也可以是任何其他新建的对象。
 
-恰当地使用锁，就能解决同步或者互斥的问题。
+```java
+synchronized (this) {
+    // 临界区
+}
+```
 
-> 推荐阅读：[牛客：可能是全网最全的线程同步方式总结了](https://blog.nowcoder.net/n/7571c2a5ef82480380fea53875b8187b)
+第二，抢占锁的规则，能不能抢占多次，自己能不能反复抢。
 
-再补充一些。所谓同步，即协同步调，按预定的先后次序访问共享资源，以免造成混乱。
+第三，抢不到怎么办，自旋？阻塞？或者超时放弃？
 
-线程同步是多线程编程中的一个核心概念，它涉及到在多线程环境下如何安全地访问和修改共享资源的问题。
-
-当有一个线程在对内存进行操作时，其他线程都不可以对这个内存地址进行操作，直到该线程完成操作，其他线程才能对该内存地址进行操作。
-
-如果多个线程同时读写某个共享资源（如变量、文件等），而没有适当的同步机制，就可能导致数据不一致、数据损坏等问题的出现。
-
-线程同步的实现方式有 6 种：互斥量、读写锁、条件变量、自旋锁、屏障、信号量。
-
-- **互斥量**：互斥量（mutex）是一种最基本的同步手段，本质上是一把锁，在访问共享资源前先对互斥量进行加锁，访问完后再解锁。对互斥量加锁后，任何其他试图再次对互斥量加锁的线程都会被阻塞，直到当前线程解锁。
-- **读写锁**：[读写锁](https://javabetter.cn/thread/ReentrantReadWriteLock.html)有三种状态，读模式加锁、写模式加锁和不加锁；一次只有一个线程可以占有写模式的读写锁，但是可以有多个线程同时占有读模式的读写锁。非常适合读多写少的场景。
-- **条件变量**：[条件变量](https://javabetter.cn/thread/condition.html)是一种同步手段，它允许线程在满足特定条件时才继续执行，否则进入等待状态。条件变量通常与互斥量一起使用，以防止竞争条件的发生。
-- **自旋锁**：自旋锁是一种锁的实现方式，它不会让线程进入睡眠状态，而是一直循环检测锁是否被释放。自旋锁适用于锁的持有时间非常短的情况。
-- 信号量：信号量（[Semaphore](https://javabetter.cn/thread/CountDownLatch.html)）本质上是一个计数器，用于为多个进程提供共享数据对象的访问。
+第四，锁被释放了还在等待锁的线程怎么办？是通知所有线程一起抢或者只告诉一个线程抢？
 
 #### 说说自旋锁？
 
-自旋锁是指当线程尝试获取锁时，如果锁已经被占用，线程不会立即阻塞，而是**通过自旋**，也就是循环等待的方式不断尝试获取锁，通常依赖于 CAS 来实现。
+自旋锁是指当线程尝试获取锁时，如果锁已经被占用，线程不会立即阻塞，而是**通过自旋**，也就是循环等待的方式不断尝试获取锁。
 
 ```
 线程1        线程2
@@ -2900,7 +2895,11 @@ class DeadLockDemo {
    |            |
 ```
 
-自旋锁的优点是避免线程切换，缺点是如果锁被占用时间过长，会导致线程空转，浪费 CPU 资源。
+适用于锁持有时间短的场景，ReentrantLock 的 tryLock 方法就用到了自旋锁。
+
+![二哥的 Java 进阶之路：tryLock中的自旋](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250215092705.png)
+
+自旋锁的优点是可以避免线程切换带来的开销，缺点是如果锁被占用时间过长，会导致线程空转，浪费 CPU 资源。
 
 ```java
 class SpinLock {
@@ -2937,17 +2936,17 @@ class SpinLock {
 }
 ```
 
-默认情况下，自旋锁会一直等待，直到获取到锁为止。但是，在实际开发中，通常会设置自旋次数或者超时时间。如果超过阈值，线程可以选择放弃锁或者进入阻塞状态。
-
-
+默认情况下，自旋锁会一直等待，直到获取到锁为止。在实际开发中，需要设置自旋次数或者超时时间。如果超过阈值，线程可以放弃锁或者进入阻塞状态。
 
 #### 互斥和同步在时间上有要求吗？
 
-互斥和同步在时间上是有一定要求的，因为它们都涉及到对资源的访问顺序和时机控制。
+有。
 
-互斥的核心是保证同一时刻只有一个线程能访问共享资源或临界区。虽然互斥的重点不是线程执行的顺序，但它对访问的时间点有严格要求，以确保没有多个线程在同一时刻访问相同的资源。
+互斥的核心是保证同一时刻只有一个线程能访问共享资源。
 
-同步强调的是线程之间的执行顺序和时间点的配合，特别是在多个线程需要依赖于彼此的执行结果时。例如，在 CountDownLatch 中，主线程会等待多个子线程的任务完成，子线程完成后才会减少计数，主线程会在计数器归零时继续执行。
+同步强调的是线程之间的执行顺序，特别是在多个线程需要依赖于彼此的执行结果时。
+
+例如，在 CountDownLatch 中，主线程会等待多个子线程的任务完成。
 
 ```java
 class SyncExample {
@@ -2975,6 +2974,8 @@ class SyncExample {
 }
 ```
 
+所有子线程完成后，主线程才会继续执行。
+
 ![二哥的Java 进阶之路：CountDownLatch](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008110023.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊线程同步
@@ -2985,23 +2986,15 @@ class SyncExample {
 
 > 2024 年 05 月 01 日增补
 
-对于悲观锁来说，它总是认为每次访问共享资源时会发生冲突，所以必须对每次数据操作加上锁，以保证临界区的程序同一时间只能有一个线程在执行。
+好的。
 
-悲观锁的代表有 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)和 [Lock 接口](https://javabetter.cn/thread/reentrantLock.html)。
+悲观锁认为每次访问共享资源时都会发生冲突，所在在操作前一定要先加锁，防止其他线程修改数据。
 
-悲观锁多用于”写多读少“的环境，避免频繁失败和重试影响性能。
+乐观锁认为冲突不会总是发生，所以在操作前不加锁，而是在更新数据时检查是否有其他线程修改了数据。如果发现数据被修改了，就会重试。
 
-乐观锁，是个乐观派，总是假设对共享资源的访问没有冲突，线程可以不停地执行，无需加锁也无需等待，通常使用 [CAS](https://javabetter.cn/thread/cas.html) 的技术来保证线程执行的安全性。
+#### 乐观锁发现有线程过来修改数据，怎么办？
 
-多用于“读多写少“的环境，避免频繁加锁影响性能。
-
-#### Java中有几种锁？
-
-按照锁的使用方式来分类的话，Java 中的锁可以分为两大类：悲观锁和乐观锁。悲观锁的代表就是 synchronized 关键字，乐观锁的代表就是 CAS。
-
-#### 乐观锁时有线程过来修改数据，怎么办？
-
-此时可以重新读取数据并再次尝试更新，直到成功为止或达到最大重试次数。
+可以重新读取数据，然后再尝试更新，直到成功为止或达到最大重试次数。
 
 ```
 读取数据 -> 尝试更新 -> 成功（返回成功）
@@ -3009,7 +3002,7 @@ class SyncExample {
                -> 失败 -> 重试 -> 达到最大次数 -> 返回失败
 ```
 
-类似这样：
+写个代码演示一下：
 
 ```java
 class CasRetryExample {
@@ -3047,29 +3040,54 @@ class CasRetryExample {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 20 二面面试原题：乐观锁和悲观锁怎么理解的？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的海康威视同学 4面试原题：java中锁种类,什么场景下用乐观锁，什么场景下用悲观锁？使用乐观锁时有线程过来修改数据，此时应该怎么做
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+<MZNXQRcodeBanner/>
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+memo：2025 年 02 月 15 日修改至此。
 
 ## 并发工具类
 
-### 43.CountDownLatch（倒计数器）了解吗？
+### 43.CountDownLatch 了解吗？
 
-推荐阅读：[Java 并发编程通信工具类 Semaphore、Exchanger、CountDownLatch、CyclicBarrier、Phaser 等一网打尽](https://javabetter.cn/thread/CountDownLatch.html)
+推荐阅读：[Semaphore、Exchanger、CountDownLatch、CyclicBarrier、Phaser，一网打尽](https://javabetter.cn/thread/CountDownLatch.html)
 
-CountDownLatch 是 JUC 包中的一个同步工具类，用于协调多个线程之间的同步。它允许一个或多个线程等待，直到其他线程中执行的一组操作完成。它通过一个计数器来实现，该计数器由线程递减，直到到达零。
+CountDownLatch 是 JUC 中的一个同步工具类，用于协调多个线程之间的同步，确保主线程在多个子线程完成任务后继续执行。
 
-- 初始化：创建 CountDownLatch 对象时，指定计数器的初始值。
-- 等待（await）：一个或多个线程调用 await 方法，进入等待状态，直到计数器的值变为零。
-- 倒计数（countDown）：其他线程在完成各自任务后调用 countDown 方法，将计数器的值减一。当计数器的值减到零时，所有在 await 上等待的线程会被唤醒，继续执行。
+它的核心思想是通过一个倒计时计数器来控制多个线程的执行顺序。
 
-当等待多个线程完成各自的启动任务后再启动主线程的任务，就可以使用 CountDownLatch，以王者荣耀为例。
+```java
+class CountDownLatchExample {
+    public static void main(String[] args) throws InterruptedException {
+        int threadCount = 3;
+        CountDownLatch latch = new CountDownLatch(threadCount);
+
+        for (int i = 0; i < threadCount; i++) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep((long) (Math.random() * 1000)); // 模拟任务执行
+                    System.out.println(Thread.currentThread().getName() + " 执行完毕");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    latch.countDown(); // 线程完成后，计数器 -1
+                }
+            }).start();
+        }
+
+        latch.await(); // 主线程等待
+        System.out.println("所有子线程执行完毕，主线程继续执行");
+    }
+}
+```
+
+在使用的时候，我们需要先初始化一个 CountDownLatch 对象，指定一个计数器的初始值，表示需要等待的线程数量。
+
+然后在每个子线程执行完任务后，调用 `countDown()` 方法，计数器减 1。
+
+接着主线程调用 `await()` 方法进入阻塞状态，直到计数器为 0，也就是所有子线程都执行完任务后，主线程才会继续执行。
 
 ![秦二爷：王者荣耀等待玩家确认](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-50.jpeg)
 
-创建五个线程，分别代表大乔、兰陵王、安其拉、哪吒和铠等五个玩家。每个玩家都调用了`countDown()`方法，表示已经就位。主线程调用`await()`方法，等待所有玩家就位。
+以王者荣耀为例，我们来创建五个线程，分别代表大乔、兰陵王、安其拉、哪吒和铠。每个玩家都调用 `countDown()` 方法，表示已就位。主线程调用 `await()` 方法，等待所有玩家就位。
 
 ```java
 public static void main(String[] args) throws InterruptedException {
@@ -3107,11 +3125,7 @@ public static void main(String[] args) throws InterruptedException {
 }
 ```
 
-再比如说，可以使用 CountDownLatch 确保某些操作在一组操作完成之后才开始执行。
-
-![秦二爷：王者荣耀大家一起出生](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-51.jpeg)
-
-五个玩家在等待倒计时结束后，一起出击。
+五个玩家在倒计时结束后，一起出击。
 
 ```java
 private static void waitToFight(CountDownLatch countDownLatch, String name) {
@@ -3151,17 +3165,15 @@ public static void main(String[] args) {
 }
 ```
 
-CountDownLatch 的**核心方法**也不多：
-
-- `CountDownLatch(int count)`：创建一个带有给定计数器的 CountDownLatch。
-- `void await()`：阻塞当前线程，直到计数器为零。
-- `void countDown()`：递减计数器的值，如果计数器值变为零，则释放所有等待的线程。
-
 #### 场景题：假如要查10万多条数据，用线程池分成20个线程去执行，怎么做到等所有的线程都查找完之后，即最后一条结果查找结束了，才输出结果？
 
-为每个线程创建一个任务，使用 CountDownLatch 计数器控制线程同步。
+很简单，可以使用 CountDownLatch 来实现。CountDownLatch 非常适合这个场景。
 
-每个线程任务完成后调用 `countDown()`，主线程使用 `await()` 等待所有线程完成。
+第一步，创建 CountDownLatch 对象，初始值设定为 20，表示 20 个线程需要完成任务。
+
+第二步，创建线程池，每个线程执行查询操作，查询完毕后调用 `countDown()` 方法，计数器减 1。
+
+第三步，主线程调用 `await()` 方法，等待所有线程执行完毕。
 
 ```java
 class DataQueryExample {
@@ -3208,67 +3220,108 @@ class DataQueryExample {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的顺丰科技同学 1 面试原题：并发编程 CountDownLatch 和消息队列
 
-### 44.CyclicBarrier（同步屏障）了解吗？
+### 44.CyclicBarrier 了解吗？
 
-CyclicBarrier 的字面意思是可循环使用（Cyclic）的屏障（Barrier）。它要做的事情是，让一 组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续运行。
+了解。
 
-它和 CountDownLatch 类似，都可以协调多线程的结束动作，在它们结束后都可以执行特定动作，但是为什么要有 CyclicBarrier，自然是它有和 CountDownLatch 不同的地方。
+CyclicBarrier 的字面意思是可循环使用的屏障，用于多个线程相互等待，直到所有线程都到达屏障后再同时执行。
 
-不知道你听没听过一个新人 UP 主小约翰可汗，小约翰生平有两大恨——“想结衣结衣不依,迷爱理爱理不理。”我们来还原一下事情的经过：小约翰在亲政后认识了新垣结衣，于是决定第一次选妃，向结衣表白，等待回应。然而新垣结衣回应嫁给了星野源，小约翰伤心欲绝，发誓生平不娶，突然发现了铃木爱理，于是小约翰决定第二次选妃，求爱理搭理，等待回应。
+![三分恶面渣逆袭：CyclicBarrier工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-55.png)
 
-![想结衣结衣不依,迷爱理爱理不理。](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-52.png)
+在使用的时候，我们需要先初始化一个 CyclicBarrier 对象，指定一个屏障值 N，表示需要等待的线程数量。
 
-我们拿代码模拟这一场景，发现 CountDownLatch 无能为力了，因为 CountDownLatch 的使用是一次性的，无法重复利用，而这里等待了两次。此时，我们用 CyclicBarrier 就可以实现，因为它可以重复利用。
+然后每个线程执行 `await()` 方法，表示自己已经到达屏障，等待其他线程，此时屏障值会减 1。
 
-![小约翰可汗选妃模拟代码](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-53.png)
+当所有线程都到达屏障后，也就是屏障值为 0 时，所有线程会继续执行。
 
-运行结果：
+```java
+class CyclicBarrierExample {
+    private static final int THREAD_COUNT = 3;
+    private static final CyclicBarrier barrier = new CyclicBarrier(THREAD_COUNT);
 
-![运行结果](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-54.png)
+    public static void main(String[] args) {
+        for (int i = 0; i < THREAD_COUNT; i++) {
+            new Thread(() -> {
+                try {
+                    System.out.println(Thread.currentThread().getName() + " 到达屏障");
+                    barrier.await(); // 线程阻塞，直到所有线程都到达
+                    System.out.println(Thread.currentThread().getName() + " 继续执行");
+                } catch (InterruptedException | BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+    }
+}
+```
 
-CyclicBarrier 最最核心的方法，仍然是 await()：
-
-- 如果当前线程不是第一个到达屏障的话，它将会进入等待，直到其他线程都到达，除非发生**被中断**、**屏障被拆除**、**屏障被重设**等情况；
-
-上面的例子抽象一下，本质上它的流程就是这样就是这样：
-
-![CyclicBarrier工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-55.png)
 
 ### 45.CyclicBarrier 和 CountDownLatch 有什么区别？
 
-两者最核心的区别[18]：
+CyclicBarrier 让所有线程相互等待，全部到达后再继续；CountDownLatch 让主线程等待所有子线程执行完再继续。
 
-- CountDownLatch 是一次性的，而 CyclicBarrier 则可以多次设置屏障，实现重复利用；
-- CountDownLatch 中的各个子线程不可以等待其他线程，只能完成自己的任务；而 CyclicBarrier 中的各个线程可以等待其他线程
+对比项	|CyclicBarrier	|CountDownLatch
+---|---|---
+主要用途|	让所有线程相互等待，全部到达后再继续|	让主线程等待所有子线程执行完
+可重用性|	✅ 可重复使用，每次屏障打开后自动重置|	❌ 不可重复使用，计数器归零后不能恢复
+是否可执行回调|	✅ 可以，所有线程到达屏障后可执行 barrierAction|	❌ 不能
+线程等待情况|	所有线程互相等待，一个线程未到达，其他线程都会阻塞|	主线程等待所有子线程完成，子线程执行完后可继续运行
+适用场景|	线程相互依赖，需要同步执行|	主线程等待子线程完成
+示例场景|	计算任务拆分，所有线程都到达后才能继续|	主线程等多个任务初始化完成
 
-它们区别用一个表格整理：
+### 46.Semaphore 了解吗？
 
-| CyclicBarrier                                                                                                      | CountDownLatch                                                                 |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| CyclicBarrier 是可重用的，其中的线程会等待所有的线程完成任务。届时，屏障将被拆除，并可以选择性地做一些特定的动作。 | CountDownLatch 是一次性的，不同的线程在同一个计数器上工作，直到计数器为 0.     |
-| CyclicBarrier 面向的是线程数                                                                                       | CountDownLatch 面向的是任务数                                                  |
-| 在使用 CyclicBarrier 时，你必须在构造中指定参与协作的线程数，这些线程必须调用 await()方法                          | 使用 CountDownLatch 时，则必须要指定任务数，至于这些任务由哪些线程完成无关紧要 |
-| CyclicBarrier 可以在所有的线程释放后重新使用                                                                       | CountDownLatch 在计数器为 0 时不能再使用                                       |
-| 在 CyclicBarrier 中，如果某个线程遇到了中断、超时等问题时，则处于 await 的线程都会出现问题                         | 在 CountDownLatch 中，如果某个线程出现问题，其他线程不受影响                   |
+Semaphore——信号量，用于控制同时访问某个资源的线程数量，类似限流器，确保最多只有指定数量的线程能够访问某个资源，超过的必须等待。
 
-### 46.Semaphore（信号量）了解吗？
+![三分恶面渣逆袭：Semaphore](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250218091702.png)
 
-Semaphore（信号量）是用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源。
+拿停车场来举例。
 
-听起来似乎很抽象，现在汽车多了，开车出门在外的一个老大难问题就是停车 。停车场的车位是有限的，只能允许若干车辆停泊，如果停车场还有空位，那么显示牌显示的就是绿灯和剩余的车位，车辆就可以驶入；如果停车场没位了，那么显示牌显示的就是绿灯和数字 0，车辆就得等待。如果满了的停车场有车离开，那么显示牌就又变绿，显示空车位数量，等待的车辆就能进停车场。
+停车场的车位是有限的，如果有空位，显示牌需要显示剩余的车位，车辆就可以驶入；否则就会显示数字 0，新来的车辆就得排队等待。
 
-![停车场空闲车位提示-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-56.jpeg)
+如果有车离开，显示牌重新显示闲置的车位数量，等待的车辆按序驶入停车场。
 
-我们把这个例子类比一下，车辆就是线程，进入停车场就是线程在执行，离开停车场就是线程执行完毕，看见红灯就表示线程被阻塞，不能执行，Semaphore 的本质就是**协调多个线程对共享资源的获取**。
+![三分恶面渣逆袭：停车场空闲车位提示](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-56.jpeg)
 
-![Semaphore许可获取-来源参考[18]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-57.jpeg)
+在使用 Semaphore 时，首先需要初始化一个 Semaphore 对象，指定许可证数量，表示最多允许多少个线程同时访问资源。
 
-我们再来看一个 Semaphore 的用途：它可以用于做流量控制，特别是公用资源有限的应用场景，比如数据库连接。
+然后在每个线程访问资源前，调用 `acquire()` 方法获取许可证，如果没有可用许可证，则阻塞等待。
 
-假如有一个需求，要读取几万个文件的数据，因为都是 IO 密集型任务，我们可以启动几十个线程并发地读取，但是如果读到内存后，还需要存储到数据库中，而数据库的连接数只有 10 个，这时我们必须控制只有 10 个线程同时获取数据库连接保存数据，否则会报错无法获取数据库连接。这个时候，就可以使用 Semaphore 来做流量控制，如下：
+需要注意的是，访问完资源后，要调用 `release()` 方法释放许可证。
 
 ```java
-public class SemaphoreTest {
+class SemaphoreExample {
+    private static final int THREAD_COUNT = 5;
+    private static final Semaphore semaphore = new Semaphore(2); // 最多允许 2 个线程访问
+
+    public static void main(String[] args) {
+        for (int i = 0; i < THREAD_COUNT; i++) {
+            new Thread(() -> {
+                try {
+                    semaphore.acquire(); // 获取许可（如果没有可用许可，则阻塞）
+                    System.out.println(Thread.currentThread().getName() + " 访问资源...");
+                    Thread.sleep(2000); // 模拟任务执行
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    semaphore.release(); // 释放许可
+                }
+            }).start();
+        }
+    }
+}
+```
+
+Semaphore 可以用于流量控制，比如数据库连接池、网络连接池等。
+
+假如有这样一个需求，要读取几万个文件的数据，因为都是 IO 密集型任务，我们可以启动几十个线程并发地读取。
+
+但是在读到内存后，需要存储到数据库，而数据库连接数是有限的，比如说只有 10 个，那我们就必须控制线程的数量，保证同时只有 10 个线程在使用数据库连接。
+
+这个时候，就可以使用 Semaphore 来做流量控制：
+
+```java
+class SemaphoreTest {
     private static final int THREAD_COUNT = 30;
     private static ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_COUNT);
     private static Semaphore s = new Semaphore(10);
@@ -3292,20 +3345,52 @@ public class SemaphoreTest {
 }
 ```
 
-在代码中，虽然有 30 个线程在执行，但是只允许 10 个并发执行。Semaphore 的构造方法` Semaphore（int permits`）接受一个整型的数字，表示可用的许可证数量。`Semaphore（10）`表示允许 10 个线程获取许可证，也就是最大并发数是 10。Semaphore 的用法也很简单，首先线程使用 Semaphore 的 acquire()方法获取一个许可证，使用完之后调用 release()方法归还许可证。还可以用 tryAcquire()方法尝试获取许可证。
-
 ### 47.Exchanger 了解吗？
 
-Exchanger（交换者）是一个用于线程间协作的工具类。Exchanger 用于进行线程间的数据交换。它提供一个同步点，在这个同步点，两个线程可以交换彼此的数据。
+Exchanger——交换者，用于在两个线程之间进行数据交换。
 
-![英雄交换猎物-来源参考[18]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-58.jpeg)
+![三分恶面渣逆袭：英雄交换猎物](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-58.jpeg)
 
-这两个线程通过 exchange 方法交换数据，如果第一个线程先执行 exchange()方法，它会一直等待第二个线程也执行 exchange 方法，当两个线程都到达同步点时，这两个线程就可以交换数据，将本线程生产出来的数据传递给对方。
+支持双向数据交换，比如说线程 A 调用 `exchange(dataA)`，线程 B 调用 `exchange(dataB)`，它们会在同步点交换数据，即 A 得到 B 的数据，B 得到 A 的数据。
 
-Exchanger 可以用于遗传算法，遗传算法里需要选出两个人作为交配对象，这时候会交换两人的数据，并使用交叉规则得出 2 个交配结果。Exchanger 也可以用于校对工作，比如我们需要将纸制银行流水通过人工的方式录入成电子银行流水，为了避免错误，采用 AB 岗两人进行录入，录入到 Excel 之后，系统需要加载这两个 Excel，并对两个 Excel 数据进行校对，看看是否录入一致。
+如果一个线程先调用 `exchange()`，它会阻塞等待，直到另一个线程也调用 `exchange()`。
+
+使用 Exchanger 的时候，需要先创建一个 Exchanger 对象，然后在两个线程中调用 `exchange()` 方法，就可以进行数据交换了。
 
 ```java
-public class ExchangerTest {
+class ExchangerExample {
+    private static final Exchanger<String> exchanger = new Exchanger<>();
+
+    public static void main(String[] args) {
+        new Thread(() -> {
+            try {
+                String threadAData = "数据 A";
+                System.out.println("线程 A 交换前的数据：" + threadAData);
+                String received = exchanger.exchange(threadAData);
+                System.out.println("线程 A 收到的数据：" + received);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(() -> {
+            try {
+                String threadBData = "数据 B";
+                System.out.println("线程 B 交换前的数据：" + threadBData);
+                String received = exchanger.exchange(threadBData);
+                System.out.println("线程 B 收到的数据：" + received);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+}
+```
+
+Exchanger 可以用于遗传算法，也可以用于校对工作，比如我们将纸制银行流水通过人工的方式录入到电子银行时，为了避免错误，可以录入两遍，然后通过 Exchanger 来校对两次录入的结果。
+
+```java
+class ExchangerTest {
     private static final Exchanger<String> exgr = new Exchanger<String>();
     private static ExecutorService threadPool = Executors.newFixedThreadPool(2);
 
@@ -3337,175 +3422,172 @@ public class ExchangerTest {
 }
 ```
 
-假如两个线程有一个没有执行 exchange()方法，则会一直等待，如果担心有特殊情况发生，避免一直等待，可以使用`exchange(V x, long timeOut, TimeUnit unit) `设置最大等待时长。
+memo：2025 年 02 月 18 日修改至此。
 
-### 48.能说一下 ConcurrentHashMap 的实现吗？（补充）
+### 🌟48.能说一下 ConcurrentHashMap 的实现吗？（补充）
 
-> 2024 年 03 月 25 日增补，从集合框架篇移动到这里。
+> 2024 年 03 月 25 日增补，从集合框架篇移到这里。
 
-[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 是 HashMap 的线程安全版本。
+好的。[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html) 是 HashMap 的线程安全版本。
 
-在 JDK 7 时采用的是分段锁机制（Segment Locking），整个 Map 被分为若干段，每个段都可以独立地加锁。因此，不同的线程可以同时操作不同的段，从而实现并发访问。
+JDK 7 采用的是分段锁，整个 Map 会被分为若干段，每个段都可以独立加锁。不同的线程可以同时操作不同的段，从而实现并发。
 
 ![初念初恋：JDK 7 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155810.png)
 
-在 JDK 8 及以上版本中，ConcurrentHashMap 的实现进行了优化，不再使用分段锁，而是使用了一种更加精细化的锁——桶锁，以及 CAS 无锁算法。每个桶（Node 数组的每个元素）都可以独立地加锁，从而实现更高级别的并发访问。
+JDK 8 使用了一种更加细粒度的锁——桶锁，再配合 CAS + synchronized 代码块控制并发写入，以最大程度减少锁的竞争。
 
 ![初念初恋：JDK 8 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
 
-对于读操作，通常不需要加锁，可以直接读取，ConcurrentHashMap 内部使用了 volatile 变量来保证内存可见性。
+对于读操作，ConcurrentHashMap 使用了 volatile 变量来保证内存可见性。
 
-对于写操作，ConcurrentHashMap 使用 CAS 操作来实现无锁的更新，这是一种乐观锁的实现，因为它假设没有冲突发生，在实际更新数据时才检查是否有其他线程在尝试修改数据，如果有，采用悲观的锁策略，如 synchronized 代码块来保证数据的一致性。
+对于写操作，ConcurrentHashMap 优先使用 CAS 尝试插入，如果成功就直接返回；否则使用 synchronized 代码块进行加锁处理。
 
-#### 说一下 JDK 7 中的 ConcurrentHashMap 的实现原理？
+#### 说一下 JDK 7 中 ConcurrentHashMap 的实现原理？
 
-JDK 7 的 ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组构成的。Segment 是一种可重入的锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，HashEntry 则用于存储键值对数据。
+好的。
 
-一个 ConcurrentHashMap 里包含一个 Segment 数组，Segment 的结构和 HashMap 类似，是一种数组和链表结构，一个 Segment 里包含一个 HashEntry 数组，每个 HashEntry 是一个链表结构的元素，每个 Segment 守护着一个 HashEntry 数组里的元素，当对 HashEntry 数组的数据进行修改时，必须首先获得它对应的 Segment 锁。
+JDK 7 的 ConcurrentHashMap 采用的是分段锁，整个 Map 会被分为若干段，每个段都可以独立加锁，每个段类似一个 Hashtable。
 
 ![三分恶面渣逆袭：ConcurrentHashMap示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-31.png)
 
-**①、put 流程**
+每个段维护一个键值对数组 `HashEntry<K, V>[] table`，HashEntry 是一个单项链表。
 
-ConcurrentHashMap 的 put 流程和 HashMap 非常类似，只不过是先定位到具体的 Segment，然后通过 ReentrantLock 去操作而已。
+```java
+static final class HashEntry<K,V> {
+    final int hash;
+    final K key;
+    volatile V value;
+    final HashEntry<K,V> next;
+}
+```
 
-1. 计算 hash，定位到 segment，segment 如果是空就先初始化；
-2. 使用 ReentrantLock 加锁，如果获取锁失败则尝试自旋，自旋超过次数就阻塞获取，保证一定能获取到锁；
-3. 遍历 HashEntry，key 相同就直接替换，不存在就插入。
-4. 释放锁。
+段继承了 ReentrantLock，所以每个段都是一个可重入锁，不同的线程可以同时操作不同的段，从而实现并发。
+
+```java
+static final class Segment<K,V> extends ReentrantLock {
+    transient volatile HashEntry<K,V>[] table;
+    transient int count;
+}
+```
+
+#### 说一下 JDK 7 中 ConcurrentHashMap 的 put 流程？
+
+put 流程和 HashMap 非常类似，只不过是先定位到具体的段，再通过 ReentrantLock 去操作而已。一共可以分为 4 个步骤：
+
+第一步，计算 key 的 hash，定位到段，段如果是空就先初始化；
+
+第二步，使用 ReentrantLock 进行加锁，如果加锁失败就自旋，自旋超过次数就阻塞，保证一定能获取到锁；
+
+第三步，遍历段中的键值对 HashEntry，key 相同直接替换，key 不存在就插入。
+
+第四步，释放锁。
 
 ![三分恶面渣逆袭：JDK7 put 流程](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240325113351.png)
 
-**②、get 流程**
+#### 说一下 JDK 7 中 ConcurrentHashMap 的 get 流程？
 
-get 也很简单，通过 `hash(key)` 定位到 segment，再遍历链表定位到具体的元素上，需要注意的是 value 是 [volatile 的](https://javabetter.cn/thread/volatile.html)，所以 get 是不需要加锁的。
+get 就更简单了，先计算 key 的 hash 找到段，再遍历段中的键值对，找到就直接返回 value。
 
-#### 说一下 JDK 8 中的 ConcurrentHashMap 的实现原理？
+get 不用加锁，因为是 value 是 [volatile](https://javabetter.cn/thread/volatile.html) 的，所以线程读取 value 时不会出现可见性问题。
 
-JDK 8 中的 ConcurrentHashMap 取消了 Segment 分段锁，采用 CAS + synchronized 来保证并发安全性，整个容器只分为一个 Segment，即 table 数组。
+#### 说一下 JDK 8 中 ConcurrentHashMap 的实现原理？
 
-Node 和 JDK 7 一样，使用 volatile 关键字，保证多线程操作时，变量的可见性。
+好的。
 
-ConcurrentHashMap 实现线程安全的关键点在于 put 流程。
+JDK 8 中的 ConcurrentHashMap 取消了分段锁，采用 CAS + synchronized 来实现更细粒度的桶锁，并且使用红黑树来优化链表以提高哈希冲突时的查询效率，性能比 JDK 7 有了很大的提升。
 
-**①、put 流程**
-
->一句话：通过计算键的哈希值确定存储位置，如果桶为空，使用 CAS 插入节点；如果存在冲突，通过链表或红黑树插入。在冲突时，如果 CAS 操作失败，会退化为 synchronized 操作。写操作可能触发扩容或链表转为红黑树。
-
-第一步，计算 hash，遍历 node 数组，如果 node 是空的话，就通过 CAS+自旋的方式初始化。
-
-```java
-// 准备初始化
-tab = initTable();
-// 具体实现
-private final Node<K,V>[] initTable() {
-    Node<K,V>[] tab; int sc;
-    while ((tab = table) == null || tab.length == 0) {
-        //如果正在初始化或者扩容
-        if ((sc = sizeCtl) < 0)
-            //等待
-            Thread.yield(); // lost initialization race; just spin
-        else if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {   //CAS操作
-            try {
-                if ((tab = table) == null || tab.length == 0) {
-                    int n = (sc > 0) ? sc : DEFAULT_CAPACITY;
-                    @SuppressWarnings("unchecked")
-                    Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
-                    table = tab = nt;
-                    sc = n - (n >>> 2);
-                }
-            } finally {
-                sizeCtl = sc;
-            }
-            break;
-        }
-    }
-    return tab;
-}
-```
-
-第二步，如果当前数组位置是空，直接通过 CAS 自旋写入数据。
-
-```java
-static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
-                                    Node<K,V> c, Node<K,V> v) {
-    return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
-}
-```
-
-第三步，如果 `hash==MOVED`，说明需要扩容。
-
-```java
-else if ((fh = f.hash) == MOVED)
-    tab = helpTransfer(tab, f);
-```
-
-扩容的具体实现：
-
-```java
-final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
-    Node<K,V>[] nextTab; // 下一个表的引用，即新的扩容后的数组
-    int sc; // 用于缓存sizeCtl的值
-    // 检查条件：传入的表不为空，节点f是ForwardingNode类型，且f中的nextTable不为空
-    if (tab != null && (f instanceof ForwardingNode) &&
-        (nextTab = ((ForwardingNode<K,V>)f).nextTable) != null) {
-        int rs = resizeStamp(tab.length); // 根据当前表长度计算resize stamp
-        // 检查循环条件：nextTab等于nextTable，table等于传入的tab，且sizeCtl为负数（表示正在进行或准备进行扩容）
-        while (nextTab == nextTable && table == tab &&
-               (sc = sizeCtl) < 0) {
-            // 检查是否应该停止扩容（比如：resize stamp不匹配，或者已达到最大并发扩容线程数，或者transferIndex已经不大于0）
-            if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
-                sc == rs + MAX_RESIZERS || transferIndex <= 0)
-                break;
-            // 尝试通过CAS增加sizeCtl的值，以表示有更多线程参与扩容
-            if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) {
-                transfer(tab, nextTab); // 调用transfer方法，实际进行数据迁移
-                break;
-            }
-        }
-        return nextTab; // 返回新的表引用
-    }
-    return table; // 如果不符合扩容协助条件，返回当前表引用
-}
-```
-
-第四步，如果都不满足，就使用 synchronized 写入数据，和 HashMap 一样，key 的 hash 一样就覆盖，反之使用拉链法解决哈希冲突，当链表长度超过 8 就转换成红黑树。
-
-![二哥的 Java 进阶之路：put 源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326093204.png)
-
-ConcurrentHashmap JDK 8 put 流程图：
+#### 说一下 JDK 8 中 ConcurrentHashMap 的 put 流程？
 
 ![三分恶面渣逆袭：Java 8 put 流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
 
-**②、get 查询**
+第一步，计算 key 的 hash，以确定桶在数组中的位置。如果数组为空，采用 CAS 的方式初始化，以确保只有一个线程在初始化数组。
 
->通过计算哈希值快速定位桶，在桶中查找目标节点，多个 key 值时链表遍历和红黑树查找。读操作是无锁的，依赖 volatile 保证线程可见性。
+```java
+// 计算 hash
+int hash = spread(key.hashCode());
 
-get 查询的时候，也是通过 key 的 hash 进行定位，需要注意的是 ConcurrentHashMap 会判断 hash 值是否小于 0。
+// 初始化数组
+if (tab == null || (n = tab.length) == 0)
+    tab = initTable();
 
-![二哥的 Java 进阶之路：HashMap 和 ConcurrentHashMap 的 get 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426103624.png)
+// 计算桶的位置
+int i = (n - 1) & hash;
+```
 
-如果小于 0，说明是个特殊节点，会调用节点的 find 方法进行查找，比如说 ForwardingNode 的 find 方法或者 TreeNode 的 find 方法。
+第二步，如果桶为空，直接 CAS 插入节点。如果 CAS 操作失败，会退化为 synchronized 代码块来插入节点。
 
-![ForwardingNode和TreeNode的 find 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426104658.png)
+```java
+// CAS 插入节点
+if (tabAt(tab, i) == null) {
+    if (casTabAt(tab, i, null, new Node<K,V>(hash, key, value, null)))
+        break;
+}
 
-#### 总结一下 HashMap 和 ConcurrentHashMap 的区别？
+// 否则，使用 synchronized 代码块插入节点
+else {
+    synchronized (f) {  // **只锁当前桶**
+        if (tabAt(tab, i) == f) { // 确保未被其他线程修改
+            if (f.hash >= 0) { // 链表处理
+                for (Node<K,V> e = f;;) {
+                    K ek;
+                    if (e.hash == hash && ((ek = e.key) == key || (key != null && key.equals(ek)))) {
+                        e.val = value;
+                        break;
+                    }
+                    e = e.next;
+                }
+            } else if (f instanceof TreeBin) { // **红黑树处理**
+                ((TreeBin<K,V>) f).putTreeVal(hash, key, value);
+            }
+        }
+    }
+}
+```
 
-①、HashMap 是非线程安全的，多线程环境下应该使用 ConcurrentHashMap。
+插入的过程中会判断桶的哈希是否小于 0（`f.hash >= 0`），小于 0 说明是红黑树，大于等于 0 说明是链表。
 
-②、由于 HashMap 仅在单线程环境下使用，所以不需要考虑同步问题，因此效率高于 ConcurrentHashMap。
+这里补充一点：在 ConcurrentHashMap 的实现中，红黑树节点 TreeBin 的 hash 值固定为 -2。
+
+![二哥的 Java 进阶之路：TreeBin 的哈希值固定为 -2](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250220104000.png)
+
+第三步，如果链表长度超过 8，转换为红黑树。
+
+```java
+if (binCount >= TREEIFY_THRESHOLD)
+    treeifyBin(tab, i);
+```
+
+第四步，在插入新节点后，会调用 `addCount()` 方法检查是否需要扩容。
+
+```java
+addCount(1L, binCount);
+```
+
+#### 说一下 JDK 8 中 ConcurrentHashMap 的 get 流程？
+
+get 也是通过 key 的 hash 进行定位，如果该位置节点的哈希匹配且键相等，则直接返回值。
+
+![二哥的 Java 进阶之路：HashMap 和 ConcurrentHashMap 的 get 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250220110736.png)
+
+如果节点的哈希为负数，说明是个特殊节点，比如说如树节点或者正在迁移的节点，就调用`find`方法查找。
+
+![二哥的 Java 进阶之路：ForwardingNode和TreeNode的 find 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426104658.png)
+
+否则遍历链表查找匹配的键。如果都没找到，返回 null。
+
+#### 说一下 HashMap 和 ConcurrentHashMap 的区别？
+
+HashMap 是非线程安全的，多线程环境下应该使用 ConcurrentHashMap。
 
 #### 你项目中怎么使用 ConcurrentHashMap 的？
 
-在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 ConcurrentHashMap，比如说在异步工具类 AsyncUtil 中，使用 ConcurrentHashMap 来存储任务的名称和它们的运行时间，以便观察和分析任务的执行情况。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 ConcurrentHashMap，比如说在异步工具类 AsyncUtil 中，就使用了 ConcurrentHashMap 来存储任务的名称和它们的运行时间，以便观察和分析任务的执行情况。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240411082351.png)
+![二哥的 Java 进阶之路：技术派的源码封装 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240411082351.png)
 
-#### ConcurrentHashMap 对 HashMap 的优化？
+#### 说一下 ConcurrentHashMap 对 HashMap 的改进？
 
-ConcurrentHashMap 是 HashMap 的线程安全版本，使用了 CAS、synchronized、volatile 来确保线程安全。
-
-首先是 hash 的计算方法上，ConcurrentHashMap 的 spread 方法接收一个已经计算好的 hashCode，然后将这个哈希码的高 16 位与自身进行异或运算，这里的 HASH_BITS 是一个常数，值为 0x7fffffff，它确保结果是一个非负整数。
+首先是 hash 的计算方法上，ConcurrentHashMap 的 spread 方法接收一个已经计算好的 hashCode，然后将这个哈希码的高 16 位与自身进行异或运算。
 
 ```java
 static final int spread(int h) {
@@ -3513,7 +3595,7 @@ static final int spread(int h) {
 }
 ```
 
-比 HashMap 的 hash 计算多了一个 `& HASH_BITS` 的操作。
+比 HashMap 的 hash 计算多了一个 `& HASH_BITS` 的操作。这里的 HASH_BITS 是一个常数，值为 0x7fffffff，它确保结果是一个非负整数。
 
 ```java
 static final int hash(Object key) {
@@ -3534,19 +3616,15 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 }
 ```
 
-最后就是 put 方法，通过 CAS + synchronized 来保证线程安全。
+最后就是 put 方法，通过 CAS + synchronized 代码块来进行并发写入。
 
 ![二哥的 Java 进阶之路：ConcurrentHashMap 的源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426105405.png)
 
 #### 为什么 ConcurrentHashMap 在 JDK 1.7 中要用 ReentrantLock，而在 JDK 1.8 要用 synchronized
 
-ConcurrentHashMap 在 JDK 1.7 和 JDK 1.8 中的实现机制不同，主要体现在锁的机制上。
+JDK 1.7 中的 ConcurrentHashMap 使用了分段锁机制，每个 Segment 都继承了 ReentrantLock，这样可以保证每个 Segment 都可以独立地加锁。
 
-JDK 1.7 中的 ConcurrentHashMap 使用了分段锁机制，即 Segment 锁，每个 Segment 都是一个 ReentrantLock，这样可以保证每个 Segment 都可以独立地加锁，从而实现更高级别的并发访问。
-
-而在 JDK 1.8 中，ConcurrentHashMap 取消了 Segment 分段锁，采用了更加精细化的锁——桶锁，以及 CAS 无锁算法，每个桶（Node 数组的每个元素）都可以独立地加锁，从而实现更高级别的并发访问。
-
-再加上 JVM 对 synchronized 做了大量优化，如锁消除、锁粗化、自旋锁和偏向锁等，在低中等的竞争情况下，synchronized 的性能并不比 ReentrantLock 差，并且使用 synchronized 可以简化代码实现。
+而在 JDK 1.8 中，ConcurrentHashMap 取消了 Segment 分段锁，采用了更加精细化的锁——桶锁，以及 CAS 无锁算法，每个桶都可以独立地加锁，只有在 CAS 失败时才会使用 synchronized 代码块加锁，这样可以减少锁的竞争，提高并发性能。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：ConcurrentHashMap 是悲观锁还是乐观锁?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：HashMap 和 CurrentHashMap 的区别
@@ -3562,58 +3640,60 @@ JDK 1.7 中的 ConcurrentHashMap 使用了分段锁机制，即 Segment 锁，�
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：刚刚提到了Spring使用ConcurrentHashMap来实现单例模式，大致说下ConcurrentHashMap的put和get方法流程？
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：ConcurrentHashMap底层是怎么实现的？
 
+memo：2025 年 2 月 20 日修改至此，今天要修改大量简历，所以面渣逆袭的进度只能耽误一下了。
+
+![二哥的编程星球：给星球用户修改简历](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250220113043.png)
+
 ### 49.ConcurrentHashMap 怎么保证可见性？（补充）
 
 > 2024 年 03 月 25 日增补
 
-ConcurrentHashMap 保证可见性主要通过使用 volatile 关键字和 synchronized 同步块。
+ConcurrentHashMap 中的 Node 节点中，value 和 next 都是 volatile 的，这样就可以保证对 value 或 next 的更新会被其他线程立即看到。
 
-在 Java 中，volatile 关键字保证了变量的可见性，即一个线程修改了一个 volatile 变量后，其他线程可以立即看到这个修改。在 ConcurrentHashMap 的内部实现中，有些关键的变量被声明为 volatile，比如 Segment 数组和 Node 数组等。
-
-此外，ConcurrentHashMap 还使用了 synchronized 同步块来保证复合操作的原子性。当一个线程进入 synchronized 同步块时，它会获得锁，然后执行同步块内的代码。当它退出 synchronized 同步块时，它会释放锁，并将在同步块内对共享变量的所有修改立即刷新到主内存，这样其他线程就可以看到这些修改了。
-
-通过这两种机制，ConcurrentHashMap 保证了在并发环境下的可见性，从而确保了线程安全。
+```java
+static class Node<K,V> implements Map.Entry<K,V> {
+    final int hash;
+    final K key;
+    volatile V value;
+    volatile Node<K,V> next;
+}
+```
 
 ### 50.为什么 ConcurrentHashMap 比 Hashtable 效率高（补充）
 
 > 2024 年 03 月 26 日增补，从集合框架移动到并发编程这里
 
-Hashtable 在任何时刻只允许一个线程访问整个 Map，通过对整个 Map 加锁来实现线程安全。
-
-而 ConcurrentHashMap（尤其是在 JDK 8 及之后版本）通过锁分离和 CAS 操作实现更细粒度的锁定策略，允许更高的并发。
+Hashtable 在任何时刻只允许一个线程访问整个 Map，是通过对整个 Map 加锁来实现线程安全的。比如 get 和 put 方法，是直接在方法上加的 synchronized 关键字。
 
 ```java
-static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
-                                    Node<K,V> c, Node<K,V> v) {
-    return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
+public synchronized V put(K key, V value) {
+    if (value == null) throw new NullPointerException();
+    int hash = key.hashCode();
+    int index = (hash & 0x7FFFFFFF) % table.length;
+    ...
+    return oldValue;
 }
 ```
 
-CAS 操作是一种乐观锁，它不会阻塞线程，而是在更新时检查是否有其他线程已经修改了数据，如果没有就更新，如果有就重试。
+而 ConcurrentHashMap 在 JDK 8 中是采用 CAS + synchronized 实现的，仅在必要时加锁。
 
-ConcurrentHashMap 允许多个读操作并发进行而不加锁，因为它通过 [volatile 变量](https://javabetter.cn/thread/volatile.html)来保证读取操作的内存可见性。相比之下，Hashtable 对读操作也加锁，增加了开销。
+比如说 put 的时候优先使用 CAS 尝试插入，如果失败再使用 synchronized 代码块加锁。
+
+get 的时候是完全无锁的，因为 value 是 [volatile 变量](https://javabetter.cn/thread/volatile.html) 修饰的，保证了内存可见性。
 
 ```java
 public V get(Object key) {
-    Node<K,V>[] tab; Node<K,V> e, p; int n, eh; K ek;
-	// 1. 重hash
-    int h = spread(key.hashCode());
-    if ((tab = table) != null && (n = tab.length) > 0 &&
-        (e = tabAt(tab, (n - 1) & h)) != null) {
-        // 2. table[i]桶节点的key与查找的key相同，则直接返回
-		if ((eh = e.hash) == h) {
-            if ((ek = e.key) == key || (ek != null && key.equals(ek)))
-                return e.val;
-        }
-		// 3. 当前节点hash小于0说明为树节点，在红黑树中查找即可
-        else if (eh < 0)
-            return (p = e.find(h, key)) != null ? p.val : null;
-        while ((e = e.next) != null) {
-		//4. 从链表中查找，查找到则返回该节点的value，否则就返回null即可
-            if (e.hash == h &&
-                ((ek = e.key) == key || (ek != null && key.equals(ek))))
-                return e.val;
-        }
+    int hash = spread(key.hashCode());
+    Node<K,V>[] tab = table;
+    int index = (tab.length - 1) & hash;
+    Node<K,V> e = tabAt(tab, index);
+    
+    if (e != null) {
+        do {
+            if (e.hash == hash && (e.key == key || (key != null && key.equals(e.key)))) {
+                return e.value;  // 读取 volatile 变量，保证可见性
+            }
+        } while ((e = e.next) != null);
     }
     return null;
 }
@@ -3625,11 +3705,40 @@ public V get(Object key) {
 
 > 2024 年 04 月 23 日增补，推荐阅读：[吊打 Java 并发面试官之 CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)
 
-CopyOnWriteArrayList 是一个线程安全的 ArrayList，它遵循写时复制（Copy-On-Write）的原则，即在写操作时，会先复制一个新的数组，然后在新的数组上进行写操作，写完之后再将原数组引用指向新数组。
+CopyOnWriteArrayList 是 ArrayList 的线程安全版本，适用于读多写少的场景。它的核心思想是写操作时创建一个新数组，修改后再替换原数组，这样就能够确保读操作无锁，从而提高并发性能。
 
 ![CL0610：最终一致性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/CopyOnWriteArrayList-01.png)
 
-这样，读操作总是在一个不变的数组版本上进行的，就不需要同步了。
+内部使用 volatile 变量来修饰数组 array，以读操作的内存可见性。
+
+```java
+private transient volatile Object[] array;
+```
+
+写操作的时候使用 ReentrantLock 来保证线程安全。
+
+```java
+public boolean add(E e) {
+    final ReentrantLock lock = this.lock;
+    // 加锁
+    lock.lock();
+    try {
+        Object[] elements = getArray();
+        int len = elements.length;
+        // 创建一个新数组
+        Object[] newElements = Arrays.copyOf(elements, len + 1);
+        newElements[len] = e;
+        // 替换原数组
+        setArray(newElements);
+        return true;
+    } finally {
+        // 释放锁
+        lock.unlock();
+    }
+}
+```
+
+缺点就是写操作的时候会复制一个新数组，如果数组很大，写操作的性能会受到影响。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：ConcurrentHashMap、CopyOnWriteArrayList 的实现原理？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：说一说常用的并发容器
@@ -3638,111 +3747,65 @@ CopyOnWriteArrayList 是一个线程安全的 ArrayList，它遵循写时复制�
 
 > 2024 年 08 月 18 日增补，从集合框架移动到并发编程这里
 
-[BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 代表的是线程安全的队列，不仅可以由多个线程并发访问，还添加了等待/通知机制，以便在队列为空时阻塞获取元素的线程，直到队列变得可用，或者在队列满时阻塞插入元素的线程，直到队列变得可用。
+[BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html) 是 JUC 包下的一个线程安全队列，支持阻塞式的“生产者-消费者”模型。
 
-阻塞队列（BlockingQueue）被广泛用于“生产者-消费者”问题中，其原因是 BlockingQueue 提供了可阻塞的插入和移除方法。当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。
+当队列容器已满，生产者线程会被阻塞，直到消费者线程取走元素后为止；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。
 
-BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBlockingDeque、LinkedBlockingQueue、LinkedTransferQueue、PriorityBlockingQueue、SynchronousQueue 等。
+BlockingQueue 的实现类有很多，比如说 ArrayBlockingQueue、PriorityBlockingQueue 等。
 
-![二哥的Java进阶之路](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818153420.png)
-
-阻塞指的是一种程序执行状态，其中某个线程在等待某个条件满足时暂停其执行（即阻塞），直到条件满足时恢复其执行。
+实现类|	数据结构|	是否有界|	特点
+---|---|---|---
+ArrayBlockingQueue|	数组|	✅ 有界|	基于数组，固定容量，FIFO
+LinkedBlockingQueue|	链表|	✅ 可有界（默认 Integer.MAX_VALUE）|	基于链表，吞吐量比 ArrayBlockingQueue 高
+PriorityBlockingQueue|	堆（优先队列）	|❌ 无界	|元素按优先级排序（非 FIFO）
+DelayQueue|	优先队列（基于 Delayed 接口）|	❌ 无界|	元素到期后才能被取出
+SynchronousQueue|	无缓冲|	✅ 容量为 0|	必须一对一交换数据，适用于高吞吐的任务提交
+LinkedTransferQueue|	链表|	❌ 无界|	支持 tryTransfer()，数据立即交给消费者
 
 #### 阻塞队列是如何实现的？
 
-就拿 ArrayBlockingQueue 来说，它是一个基于数组的有界阻塞队列，采用 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 锁来实现线程的互斥，而 ReentrantLock 底层采用的是 AQS 实现的队列同步，线程的阻塞调用 [LockSupport.park](https://javabetter.cn/thread/LockSupport.html) 实现，唤醒调用 LockSupport.unpark 实现。
+阻塞队列使用 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)  + Condition 来确保并发安全。
+
+以 ArrayBlockingQueue 为例，它内部维护了一个数组，使用两个指针分别指向队头和队尾。
+
+put 的时候先用 ReentrantLock 加锁，然后判断队列是否已满，如果已满就阻塞等待，否则插入元素。
 
 ```java
+final ReentrantLock lock;
+private final Condition notEmpty;
+private final Condition notFull;
+
 public void put(E e) throws InterruptedException {
-    checkNotNull(e);
-    // 使用ReentrantLock锁
     final ReentrantLock lock = this.lock;
-    // 获取锁
-    lock.lockInterruptibly();
+    lock.lockInterruptibly(); // 🔹 加锁，确保线程安全
     try {
-        // 如果队列已满，阻塞
-        while (count == items.length)
+        while (count == items.length) { // 🔹 队列满，阻塞
             notFull.await();
-        // 插入元素
-        enqueue(e);
+        }
+        enqueue(e); // 🔹 插入元素
     } finally {
-        // 释放锁
-        lock.unlock();
+        lock.unlock(); // 🔹 释放锁
     }
-}
-
-/**
- * 插入元素
- */
-private void enqueue(E x) {
-    final Object[] items = this.items;
-    items[putIndex] = x;
-    if (++putIndex == items.length)
-        putIndex = 0;
-    count++;
-	// 插入元素后，通知消费者线程可以继续取元素
-    notEmpty.signal();
-}
-
-/**
- * 获取元素
- */
-public E take() throws InterruptedException {
-    final ReentrantLock lock = this.lock;
-    // 获取锁
-    lock.lockInterruptibly();
-    try {
-        // 如果队列为空，阻塞，等待生产者线程放入元素
-        while (count == 0)
-            notEmpty.await();
-        // 移除元素并返回
-        return dequeue();
-    } finally {
-        lock.unlock();
-    }
-}
-
-/**
- * 移除元素并返回
- */
-private E dequeue() {
-    final Object[] items = this.items;
-    @SuppressWarnings("unchecked")
-    E x = (E) items[takeIndex];
-    items[takeIndex] = null;
-    // 数组是循环队列，如果到达数组末尾，从头开始
-    if (++takeIndex == items.length)
-        takeIndex = 0;
-    count--;
-    if (itrs != null)
-        itrs.elementDequeued();
-    // 移除元素后，通知生产者线程可以继续放入元素
-    notFull.signal();
-    return x;
 }
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：说一说常用的并发容器
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+<MZNXQRcodeBanner />
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+memo：2025 年 02 月 21 日修改至此。今天的主要工作仍然是[修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)，最近刚好赶上暑期实习的高峰期。
 
 ## 线程池
 
-### 53.什么是线程池？
+### 🌟53.什么是线程池？
 
-线程池，简单来说，就是一个管理线程的池子。
+线程池是用来管理和复用线程的工具，它可以减少线程的创建和销毁开销。
 
 ![三分恶面渣逆袭：管理线程的池子](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-59.png)
 
-①、频繁地创建和销毁线程会消耗系统资源，线程池能够复用已创建的线程。
+在 Java 中，ThreadPoolExecutor 是线程池的核心实现，它通过核心线程数、最大线程数、任务队列和拒绝策略来控制线程的创建和执行。
 
-②、提高响应速度，当任务到达时，任务可以不需要等待线程创建就立即执行。
-
-③、线程池支持定时执行、周期性执行、单线程执行和并发数控制等功能。
+举个例子：就像你开了一家餐厅，线程池就相当于固定数量的服务员，顾客（任务）来了就安排空闲的服务员（线程）处理，避免了频繁招人和解雇的成本。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下为什么项目中使用线程池，重要参数，举个例子说一下这些参数的变化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下为什么引入线程池？
@@ -3752,53 +3815,81 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：java 如何创建线程？每次都要创建新线程来实现异步操作，很繁琐，有了解线程池吗？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：讲讲线程池？为什么用线程池？
 
-### 54.能说说工作中线程池的应用吗？
+### 54.你在项目中有用到线程池吗？
 
 推荐阅读：[线程池在美团业务中的应用](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
 
-为了最大程度利用 CPU 的多核性能，并行运算的能力是不可获取的，通过线程池来管理线程是一个非常基础的操作。
+有，用到过很多次。
 
-**①、快速响应用户请求**
-
-当用户发起一个实时请求，服务器需要快速响应，此时如果每次请求都直接创建一个线程，那么线程的创建和销毁会消耗大量的系统资源。
-
-使用线程池，可以预先创建一定数量的线程，当用户请求到来时，直接从线程池中获取一个空闲线程，执行用户请求，执行完毕后，线程不销毁，而是继续保留在线程池中，等待下一个请求。
-
-注意：这种场景下需要调高 corePoolSize 和 maxPoolSize，尽可能多创建线程，避免使用队列去缓存任务。
-
-比如说，在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，当用户请求首页时，就使用了线程池去加载首页的热门文章、置顶文章、侧边栏、用户登录信息等。
-
-![技术派源码截图](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240424085014.png)
-
-我们封装了一个异步类 AsyncUtil，内部的静态类 CompletableFutureBridge 是通过 [CompletableFuture](https://tech.meituan.com/2022/05/12/principles-and-practices-of-completablefuture.html) 实现的，其中的 `runAsyncWithTimeRecord()` 方法就是使用线程池去执行任务的。
-
-```java
-public CompletableFutureBridge runAsyncWithTimeRecord(Runnable run, String name) {
-    return runAsyncWithTimeRecord(run, name, executorService);
-}
-```
-
-其中线程池的初始化中，corePoolSize 为 CPU 核心数的两倍，因为技术派中的大多数任务都是 IO 密集型的，maxPoolSize 设置为 50，是一个比较理想的值，尤其是在本地环境中；阻塞队列为 SynchronousQueue，这意味着任务被创建后直接提交给等待的线程处理，而不是放入队列中。
+比如说在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)当中，
+我们就封装了一个异步工具类 AsyncUtil，内置了可配置的线程池，基于 ThreadPoolExecutor，适用于 IO 密集型任务。
 
 ![技术派源码：AsyncUtil](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240424090143.png)
 
-**②、快速处理批量任务**
-
-这种场景也需要处理大量的任务，但可能不需要立即响应，这时候就应该设置队列去缓冲任务，corePoolSize 不需要设置得太高，避免线程上下文切换引起的频繁切换问题。
+其中 corePoolSize 为 CPU 核心数的两倍，因为技术派中的大多数任务都是 IO 密集型的，maxPoolSize 设置为 50，是一个比较理想的值，尤其是在本地环境中；阻塞队列为 SynchronousQueue，意味着任务被创建后可以直接提交给等待的线程处理。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲你对线程池的理解，并讲一讲使用的场景
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：平时怎么使用多线程
 
 ### 55.说一下线程池的工作流程？
 
-当应用程序提交一个任务时，线程池会根据当前线程的状态和参数决定如何处理这个任务。
+可以简单总结为：
 
-- 如果线程池中的核心线程都在忙，并且线程池未达到最大线程数，新提交的任务会被放入队列中进行等待。
-- 如果任务队列已满，且当前线程数量小于最大线程数，线程池会创建新的线程来处理任务。
+任务提交 → 核心线程执行 → 任务队列缓存 → 非核心线程执行 → 拒绝策略处理。
 
-空闲的线程会从任务队列中取出任务来执行，当任务执行完毕后，线程并不会立即销毁，而是继续保持在池中等待下一个任务。
+第一步，线程池通过 `submit()` 提交任务。
 
-当线程空闲时间超出指定时间，且当前线程数量大于核心线程数时，线程会被回收。
+```java
+ExecutorService threadPool = Executors.newFixedThreadPool(5);
+threadPool.submit(() -> {
+    System.out.println(Thread.currentThread().getName() + "\t" + "办理业务");
+});
+```
+
+第二步，线程池会先创建核心线程来执行任务。
+
+```java
+if (workerCountOf(c) < corePoolSize) {
+    if (addWorker(command, true)) {
+        return;
+    }
+}
+```
+
+第三步，如果核心线程都在忙，任务会被放入任务队列中。
+
+```java
+workQueue.offer(task);
+```
+
+第四步，如果任务队列已满，且当前线程数量小于最大线程数，线程池会创建新的线程来处理任务。
+
+```java
+if (!addWorker(command, false))
+```
+
+第五步，如果线程池中的线程数量已经达到最大线程数，且任务队列已满，线程池会执行拒绝策略。
+
+```java
+handler.rejectedExecution(command, this);
+```
+
+另外一版回答。
+
+第一步，创建线程池。
+
+第二步，调用线程池的 `execute()`方法，准备执行任务。
+
+- 如果正在运行的线程数量小于 corePoolSize，那么线程池会创建一个新的线程来执行这个任务；
+- 如果正在运行的线程数量大于或等于 corePoolSize，那么线程池会将这个任务放入等待队列；
+- 如果等待队列满了，而且正在运行的线程数量小于 maximumPoolSize，那么线程池会创建新的线程来执行这个任务；
+- 如果等待队列满了，而且正在运行的线程数量大于或等于 maximumPoolSize，那么线程池会执行拒绝策略。
+
+![三分恶面渣逆袭：线程池执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-66.png)
+
+第三步，线程执行完毕后，线程并不会立即销毁，而是继续保持在池中等待下一个任务。
+
+第四步，当线程空闲时间超出指定时间，且当前线程数量大于核心线程数时，线程会被回收。
 
 #### 能用一个生活中的例子说明下吗？
 
@@ -3839,7 +3930,7 @@ public CompletableFutureBridge runAsyncWithTimeRecord(Runnable run, String name)
 4. handler 对应接待员小美
 
 ```java
-public class ThreadPoolDemo {
+class ThreadPoolDemo {
     public static void main(String[] args) {
         // 创建一个线程池
         ExecutorService threadPool = new ThreadPoolExecutor(
@@ -3868,47 +3959,30 @@ public class ThreadPoolDemo {
 }
 ```
 
-好，我再来梳理一下线程池的整个工作流程。
-
-第一步，创建线程池。
-
-第二步，调用线程池的 `execute()`方法，提交任务。
-
-- 如果正在运行的线程数量小于 corePoolSize，那么线程池会创建一个新的线程来执行这个任务；
-- 如果正在运行的线程数量大于或等于 corePoolSize，那么线程池会将这个任务放入等待队列；
-- 如果等待队列满了，而且正在运行的线程数量小于 maximumPoolSize，那么线程池会创建新的线程来执行这个任务；
-- 如果等待队列满了，而且正在运行的线程数量大于或等于 maximumPoolSize，那么线程池会执行拒绝策略。
-
-![三分恶面渣逆袭：线程池执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-66.png)
-
-第三步，线程执行完毕后，线程并不会立即销毁，而是继续保持在池中等待下一个任务。
-
-第四步，当线程空闲时间超出指定时间，且当前线程数量大于核心线程数时，线程会被回收。
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：向线程池中提交任务的过程？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：JUC 并发编程中的 ThreadPoolExecutor 的拒绝策略什么时候发生？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：线程池的工作原理？
 
-### 56.线程池主要参数有哪些？
+### 🌟56.线程池的主要参数有哪些？
 
-线程池有 7 个参数，需要重点关注`corePoolSize`、`maximumPoolSize`、`workQueue`、`handler` 这四个。
+线程池有 7 个参数，需要重点关注的有核心线程数、最大线程数、等待队列、拒绝策略。
 
 ![三分恶面渣逆袭：线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-67.png)
 
-**①、corePoolSize** 定义了线程池中的核心线程数量。即使这些线程处于空闲状态，它们也不会被回收。这是线程池保持在等待状态下的线程数。
+**①、corePoolSize**：核心线程数，长期存活，执行任务的主力。
 
-**②、maximumPoolSize** 是线程池允许的最大线程数量。当工作队列满了之后，线程池会创建新线程来处理任务，直到线程数达到这个最大值。
+**②、maximumPoolSize**：线程池允许的最大线程数。
 
-**③、workQueue**用于存放待处理任务的阻塞队列。当所有核心线程都忙时，新任务会被放在这个队列里等待执行。
+**③、workQueue**：任务队列，存储等待执行的任务。
 
-**④、handler**，拒绝策略 RejectedExecutionHandler，定义了当线程池和工作队列都满了之后对新提交的任务的处理策略。常见的拒绝策略包括抛出异常、直接丢弃、丢弃队列中最老的任务、由提交任务的线程来直接执行任务等。
+**④、handler**：拒绝策略，任务超载时的处理方式。也就是线程数达到 maximumPoolSiz，任务队列也满了的时候，就会触发拒绝策略。
 
-**⑤、threadFactory**指创建新线程的工厂。它用于创建线程池中的线程。可以通过自定义 ThreadFactory 来给线程池中的线程设置有意义的名字，或设置优先级等。
+**⑤、threadFactory**：线程工厂，用于创建线程，可自定义线程名。
 
-**⑥、keepAliveTime**指非核心线程的空闲存活时间。如果线程池中的线程数量超过了 corePoolSize，那么这些多余的线程在空闲时间超过 keepAliveTime 时会被终止。
+**⑥、keepAliveTime**：非核心线程的存活时间，空闲时间超过该值就销毁。
 
-**⑦、unit**，keepAliveTime 参数的时间单位：
+**⑦、unit**：keepAliveTime 参数的时间单位：
 
 - TimeUnit.DAYS; 天
 - TimeUnit.HOURS; 小时
@@ -3920,17 +3994,7 @@ public class ThreadPoolDemo {
 
 #### 能简单说一下参数之间的关系吗？
 
-①、corePoolSize 和 maximumPoolSize 共同定义了线程池的规模。
-
-- 当提交的任务数不足以填满核心线程时，线程池只会创建足够的线程来处理任务。
-- 当任务数增多，超过核心线程的处理能力时，任务会被加入 workQueue。
-- 如果 workQueue 已满，而当前线程数又小于 maximumPoolSize，线程池会尝试创建新的线程来处理任务。
-
-②、keepAliveTime 和 unit 决定了非核心线程可以空闲存活多久。这会影响了线程池的资源回收策略。
-
-③、workQueue 的选择对线程池的行为有重大影响。不同类型的队列（如无界队列、有界队列）会导致线程池在任务增多时的反应不同。
-
-④、handler 定义了线程池的饱和策略，即当线程池无法接受新任务时的行为。决定了系统在极限情况下的表现。
+一句话：任务优先使用核心线程执行，满了进入等待队列，队列满了启用非核心线程备用，线程池达到最大线程数量后触发拒绝策略，非核心线程的空闲时间超过存活时间就被回收。
 
 #### 核心线程数不够会怎么进行处理？
 
@@ -3938,7 +4002,7 @@ public class ThreadPoolDemo {
 
 当提交的任务数超过了 maximumPoolSize 时，线程池会根据拒绝策略来处理任务。
 
-#### 举个例子说一下这些参数的变化
+#### 举个例子说一下这些参数的变化？
 
 假设一个场景，线程池的配置如下：
 
@@ -3947,23 +4011,22 @@ corePoolSize = 5
 maximumPoolSize = 10
 keepAliveTime = 60秒
 workQueue = LinkedBlockingQueue（容量为100）
-默认的threadFactory
 handler = ThreadPoolExecutor.AbortPolicy()
 ```
 
-**场景一**：当系统启动后，逐渐有 10 个任务提交到线程池。
+**场景一**：当系统启动后，有 10 个任务提交到线程池。
 
-- 前 5 个任务会立即执行，因为它们会占用所有的核心线程。
-- 随后的 5 个任务会被放入工作队列中等待执行。
+- 前 5 个任务会立即执行，因为核心线程数足够容纳它们。
+- 随后的 5 个任务会被放入等待队列。
 
 **场景二**：如果此时再有 100 个任务提交到线程池。
 
-- 工作队列已满，线程池会创建额外的线程来执行这些任务，直到线程总数达到 maximumPoolSize（10 个线程）。
-- 如果任务继续增加，超过了工作队列和最大线程数的限制，新来的任务将会根据拒绝策略（AbortPolicy）被拒绝，抛出 RejectedExecutionException 异常。
+- 工作队列已满，线程池会创建额外的线程来执行这些任务，直到线程总数达到 10。
+- 如果任务继续增加，超过了工作队列+最大线程数的限制，新来的任务会被 AbortPolicy 拒绝，抛出 RejectedExecutionException 异常。
 
-**场景三**：如果任务突然减少，只有少量的任务需要执行：
+**场景三**：如果任务突然减少：
 
-核心线程会一直运行，而超出核心线程数的线程，如果空闲时间超过 keepAliveTime，将会被终止，直到线程池的线程数减少到 corePoolSize。
+核心线程会一直运行，而超出核心线程数的线程，会在 60 秒后回收。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下为什么项目中使用线程池，重要参数，举个例子说一下这些参数的变化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：线程池核心参数，线程池工作模型
@@ -3972,22 +4035,24 @@ handler = ThreadPoolExecutor.AbortPolicy()
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：核心线程和最大线程的区别是什么？核心线程能销毁吗？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：核心线程数不够会怎么进行处理
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：什么时候会执行拒绝策略？
 
+### 🌟57.线程池的拒绝策略有哪些？
 
-### 57.线程池的拒绝策略有哪些？
+有四种：
 
-拒绝策略有四种：
-
-- AbortPolicy：这是默认的拒绝策略。该策略会抛出一个 RejectedExecutionException 异常。
-- CallerRunsPolicy：该策略不会抛出异常，而是会让提交任务的线程（即调用 execute 方法的线程）自己来执行这个任务。
-- DiscardOldestPolicy：策略会丢弃队列中最老的一个任务（即队列中等待最久的任务），然后尝试重新提交被拒绝的任务。
-- DiscardPolicy：策略会默默地丢弃被拒绝的任务，不做任何处理也不抛出异常。
+- AbortPolicy：默认的拒绝策略，会抛 RejectedExecutionException 异常。
+- CallerRunsPolicy：让提交任务的线程自己来执行这个任务，也就是调用 execute 方法的线程。
+- DiscardOldestPolicy：等待队列会丢弃队列中最老的一个任务，也就是队列中等待最久的任务，然后尝试重新提交被拒绝的任务。
+- DiscardPolicy：丢弃被拒绝的任务，不做任何处理也不抛出异常。
 
 ![三分恶面渣逆袭：四种策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
 
-分别对应着小二去银行办理业务，被经理“薄纱”了：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
+分别对应着小二去银行办理业务被经理“薄纱”的四个场景：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
 
-如果默认策略不能满足需求，可以通过自定义实现 RejectedExecutionHandler 接口来定义自己的淘汰策略。例如：记录被拒绝任务的日志
+当线程池无法接受新的任务时，也就是线程数达到 maximumPoolSize，任务队列也满了的时候，就会触发拒绝策略。
+
+如果默认策略不能满足需求，可以通过实现 RejectedExecutionHandler 接口来定义自己的淘汰策略。例如：记录被拒绝任务的日志。
 
 ```java
 class CustomRejectedHandler {
@@ -4026,19 +4091,14 @@ class CustomRejectedHandler {
 }
 ```
 
-#### 什么时候会执行拒绝策略？
-
-当线程池无法接受新的任务时，也就是线程数达到 maximumPoolSize，任务队列也满了的时候，就会触发拒绝策略。
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：说说并发编程中的拒绝策略，哪些情况对应用什么拒绝策略
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：饱和策略有哪几种
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：线程池淘汰策略，追问：可以自定义淘汰策略吗？淘汰策略的实现类是啥？
-> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：什么时候会执行拒绝策略？
 
 ### 58.线程池有哪几种阻塞队列？
 
-在 Java 中，线程池（ThreadPoolExecutor）使用阻塞队列（BlockingQueue）来存储待处理的任务。
+常用的有五种，有界队列 ArrayBlockingQueue；无界队列 LinkedBlockingQueue；优先级队列 PriorityBlockingQueue；延迟队列 DelayQueue；同步队列 SynchronousQueue。
 
 ![三分恶面渣逆袭：线程池常用阻塞队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-69.png)
 
@@ -4048,13 +4108,13 @@ class CustomRejectedHandler {
 ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<Integer>(10, true);
 ```
 
-②、LinkedBlockingQueue：底层数据结构是链表，如果不指定大小，默认大小是 Integer.MAX_VALUE，相当于一个无界队列。
+②、LinkedBlockingQueue：底层是链表，如果不指定大小，默认大小是 Integer.MAX_VALUE，几乎相当于一个无界队列。
 
 [技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就使用了 LinkedBlockingQueue 来配置 RabbitMQ 的消息队列。
 
-![技术派实战项目源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240422100900.png)
+![技术派实战项目源码：RabbitMQ 的消息队列](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240422100900.png)
 
-③、PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。任务按照其自然顺序或通过构造器给定的 Comparator 来排序。
+③、PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。任务按照其自然顺序或 Comparator 来排序。
 
 适用于需要按照给定优先级处理任务的场景，比如优先处理紧急任务。
 
@@ -4069,7 +4129,7 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 }
 ```
 
-⑤、SynchronousQueue：实际上它不是一个真正的队列，因为没有容量。每个插入操作必须等待另一个线程的移除操作，同样任何一个移除操作都必须等待另一个线程的插入操作。
+⑤、SynchronousQueue：每个插入操作必须等待另一个线程的移除操作，同样，任何一个移除操作都必须等待另一个线程的插入操作。
 
 `Executors.newCachedThreadPool()` 就使用了 SynchronousQueue，这个线程池会根据需要创建新线程，如果有空闲线程则会重复使用，线程空闲 60 秒后会被回收。
 
@@ -4083,24 +4143,26 @@ public static ExecutorService newCachedThreadPool() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：线程池的阻塞队列有哪些实现方式？
 
+memo：2025 年 2 月 22 日修改至此。
+
 ### 59.线程池提交 execute 和 submit 有什么区别？
 
-1. execute 用于提交不需要返回值的任务
+execute 方法没有返回值，适用于不关心结果和异常的简单任务。
 
 ```java
 threadsPool.execute(new Runnable() {
     @Override public void run() {
-        // TODO Auto-generated method stub }
-    });
+        System.out.println("execute() 方法提交的任务");
+    }
+});
 ```
 
-2. submit()方法用于提交需要返回值的任务。线程池会返回一个 future 类型的对象，通过这个 future 对象可以判断任务是否执行成功，并且可以通过 future 的 get()方法来获取返回值
+submit 有返回值，适用于需要获取结果或处理异常的场景。
 
 ```java
 Future<Object> future = executor.submit(harReturnValuetask);
-try { Object s = future.get(); } catch (InterruptedException e) {
-    // 处理中断异常
-} catch (ExecutionException e) {
+try { Object s = future.get(); } 
+catch (InterruptedException e | ExecutionException e) {
     // 处理无法执行任务异常
 } finally {
     // 关闭线程池 executor.shutdown();
@@ -4109,41 +4171,52 @@ try { Object s = future.get(); } catch (InterruptedException e) {
 
 ### 60.线程池怎么关闭知道吗？
 
-可以通过调用线程池的`shutdown`或`shutdownNow`方法来关闭线程池。它们的原理是遍历线程池中的工作线程，然后逐个调用线程的 interrupt 方法来中断线程，所以无法响应中断的任务可能永远无法终止。
+可以调用线程池的`shutdown`或`shutdownNow`方法来关闭线程池。
 
-**shutdown() 将线程池状态置为 shutdown,并不会立即停止**：
+shutdown 不会立即停止线程池，而是等待所有任务执行完毕后再关闭线程池。
 
-1. 停止接收外部 submit 的任务
-2. 内部正在跑的任务和队列里等待的任务，会执行完
-3. 等到第二步完成后，才真正停止
+```java
+ExecutorService executor = Executors.newFixedThreadPool(3);
+executor.execute(() -> System.out.println("Task 1"));
+executor.execute(() -> System.out.println("Task 2"));
 
-**shutdownNow() 将线程池状态置为 stop。一般会立即停止，事实上不一定**：
+executor.shutdown(); // 不会立刻关闭，而是等待所有任务执行完毕
+```
 
-1. 和 shutdown()一样，先停止接收外部提交的任务
-2. 忽略队列里等待的任务
-3. 尝试将正在跑的任务 interrupt 中断
-4. 返回未执行的任务列表
+shutdownNow 会尝试通过一系列动作来停止线程池，包括停止接收外部提交的任务、忽略队列里等待的任务、尝试将正在跑的任务 interrupt 中断。
 
-shutdown 和 shutdownnow 简单来说区别如下：
+```java
+ExecutorService executor = Executors.newFixedThreadPool(3);
+executor.execute(() -> {
+    try {
+        Thread.sleep(5000); // 模拟长时间运行任务
+        System.out.println("Task executed");
+    } catch (InterruptedException e) {
+        System.out.println("任务被中断");
+    }
+});
 
-- shutdownNow()能立即停止线程池，正在跑的和正在等待的任务都停下了。这样做立即生效，但是风险也比较大。
-- shutdown()只是关闭了提交通道，用 submit()是无效的；而内部的任务该怎么跑还是怎么跑，跑完再彻底停止线程池。
+List<Runnable> unexecutedTasks = executor.shutdownNow(); // 立即关闭线程池
+System.out.println("未执行的任务数: " + unexecutedTasks.size());
+```
+
+需要注意的是，shutdownNow 不会真正终止正在运行的任务，只是给任务线程发送 interrupt 信号，任务是否能真正终止取决于线程是否响应 InterruptedException。
 
 ### 61.线程池的线程数应该怎么配置？
 
 首先，我会分析线程池中执行的任务类型是 CPU 密集型还是 IO 密集型？
 
-①、对于 CPU 密集型任务，我的目标是尽量减少线程上下文切换，以优化 CPU 使用率。一般来说，核心线程数设置为处理器的核心数或核心数加一（以备不时之需，如某些线程因等待系统资源而阻塞时）是较理想的选择。
+①、对于 CPU 密集型任务，我的目标是尽量减少线程上下文切换，以优化 CPU 使用率。一般来说，核心线程数设置为处理器的核心数或核心数加一是较理想的选择。
 
-②、对于 IO 密集型任务，由于线程经常处于等待状态（等待 IO 操作完成），可以设置更多的线程来提高并发性（比如说 2 倍），从而增加 CPU 利用率。
+>+1 是为了以备不时之需，如果某线程因等待系统资源而阻塞时，可以有多余的线程顶上去，不至于影响整体性能。
+
+②、对于 IO 密集型任务，由于线程经常处于等待状态，等待 IO 操作完成，所以可以设置更多的线程来提高并发，比如说 CPU 核心数的两倍。
 
 ![常见线程池参数配置方案-来源美团技术博客](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-70.png)
 
-核心数可以通过 Java 的`Runtime.getRuntime().availableProcessors()`方法获取。
+>核心数可以通过 Java 的`Runtime.getRuntime().availableProcessors()`方法获取。
 
-此外，每个线程都会占用一定的内存，因此我需要确保线程池的规模不会耗尽 JVM 内存，避免频繁的垃圾回收或内存溢出。
-
-最后，我会根据业务需求和系统资源来调整线程池的参数，比如核心线程数、最大线程数、非核心线程的空闲存活时间、任务队列容量等。
+最后，我会根据业务需求和系统资源来调整线程池的其他参数，比如最大线程数、任务队列容量、非核心线程的空闲存活时间等。
 
 ```java
 ThreadPoolExecutor executor = new ThreadPoolExecutor(
@@ -4156,134 +4229,88 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 
 #### 如何知道你设置的线程数多了还是少了？
 
-可以先通过 top 命令观察 CPU 的使用率，如果 CPU 使用率较低，可能是线程数过少；如果 CPU 使用率接近 100%，但吞吐量未提升，可能是线程数过多。
+可以通过监控和调试来判断线程数是多还是少。
 
-然后再通过 JProfiler、VisualVM 或 Arthas 分析线程运行情况，查看线程的状态、等待时间、运行时间等信息，进一步调整线程池的参数。
+比如说通过 top 命令观察 CPU 的使用率，如果 CPU 使用率较低，可能是线程数过少；如果 CPU 使用率接近 100%，但吞吐量未提升，可能是线程数过多。
 
-通常来说：
+然后再通过 VisualVM 或 Arthas 分析线程运行情况，查看线程的状态、等待时间、运行时间等信息。
 
-- 对于 CPU 密集型任务，线程数接近 CPU 核心数即可。
-- 对于 IO 密集型任务，线程数可以简单设置为 CPU 核心数 × 2。
+也可以使用 jstack 命令查看线程堆栈信息，查看线程是否处于阻塞状态。
+
+```java
+jstack <Java 进程 ID> | grep -A 20 "BLOCKED" // 查看阻塞线程   
+```
+
+如果有大量的 BLOCKED 线程，说明线程数可能过多，竞争比较激烈。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：线程池核心线程数你是怎么规划的，过程是怎么考量的？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：聊聊你对线程池各个参数的理解；如何知道你设置的线程数多了还是少了？
 
 ### 62.有哪几种常见的线程池？
 
-![三分恶面渣逆袭：四大线程池](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-71.png)
+主要有四种：
 
-可以通过 Executors 工厂类来创建四种线程池：
+固定大小的线程池 `Executors.newFixedThreadPool(int nThreads);`，适合用于任务数量确定，且对线程数有明确要求的场景。例如，IO 密集型任务、数据库连接池等。
 
-- newFixedThreadPool (固定线程数目的线程池)
-- newCachedThreadPool (可缓存线程的线程池)
-- newSingleThreadExecutor (单线程的线程池)
-- newScheduledThreadPool (定时及周期执行的线程池)
+缓存线程池 `Executors.newCachedThreadPool();`，适用于短时间内任务量波动较大的场景。例如，短时间内有大量的文件处理任务或网络请求。
+
+定时任务线程池 `Executors.newScheduledThreadPool(int corePoolSize);`，适用于需要定时执行任务的场景。例如，定时发送邮件、定时备份数据等。
+
+单线程线程池 `Executors.newSingleThreadExecutor();`，适用于需要按顺序执行任务的场景。例如，日志记录、文件处理等。
+
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪同学 1 面试原题：有没有用过线程池，线程池有哪几种？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 8 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：JAVA中线程池有哪些？
 
+memo：2025 年 2 月 23 日修改至此。
+
 ### 63.能说一下四种常见线程池的原理吗？
 
-前三种线程池的构造直接调用 ThreadPoolExecutor 的构造方法。
+不管是 FixedThreadPool、CachedThreadPool，还是 SingleThreadExecutor 和 ScheduledThreadPoolExecutor，它们本质上都是 ThreadPoolExecutor 的不同配置。
 
-#### newSingleThreadExecutor
+#### 说说固定大小线程池的原理？
 
-```java
-public static ExecutorService newSingleThreadExecutor(ThreadFactory threadFactory) {
-    return new FinalizableDelegatedExecutorService
-        (new ThreadPoolExecutor(1, 1,
-                                0L, TimeUnit.MILLISECONDS,
-                                new LinkedBlockingQueue<Runnable>(),
-                                threadFactory));
-}
-```
-
-**线程池特点**
-
-- 核心线程数为 1
-- 最大线程数也为 1
-- 阻塞队列是无界队列 LinkedBlockingQueue，可能会导致 OOM
-- keepAliveTime 为 0
-
-![SingleThreadExecutor运行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-72.png)
-
-工作流程：
-
-- 提交任务
-- 线程池是否有一条线程在，如果没有，新建线程执行任务
-- 如果有，将任务加到阻塞队列
-- 当前的唯一线程，从队列取任务，执行完一个，再继续取，一个线程执行任务。
-
-**适用场景**
-
-适用于串行执行任务的场景，一个任务一个任务地执行。
-
-#### newFixedThreadPool
+线程池大小是固定的，`corePoolSize == maximumPoolSize`，默认使用 LinkedBlockingQueue 作为阻塞队列，适用于任务量稳定的场景，如数据库连接池、RPC 处理等。
 
 ```java
-public static ExecutorService newFixedThreadPool(int nThreads, ThreadFactory threadFactory) {
-    return new ThreadPoolExecutor(nThreads, nThreads,
-                                  0L, TimeUnit.MILLISECONDS,
-                                  new LinkedBlockingQueue<Runnable>(),
-                                  threadFactory);
-}
+new ThreadPoolExecutor(4, 4, 0L, TimeUnit.MILLISECONDS,
+                       new LinkedBlockingQueue<>());
 ```
 
-**线程池特点：**
+新任务提交时，如果线程池有空闲线程，直接执行；如果没有，任务进入 LinkedBlockingQueue 等待。缺点是任务队列默认无界，可能导致任务堆积，甚至 OOM。
 
-- 核心线程数和最大线程数大小一样
-- 没有所谓的非空闲时间，即 keepAliveTime 为 0
-- 阻塞队列为无界队列 LinkedBlockingQueue，可能会导致 OOM
+![三分恶面渣逆袭：FixedThreadPool](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-73.png)
 
-![FixedThreadPool](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-73.png)
 
-工作流程：
+#### 说说缓存线程池的原理？
 
-- 提交任务
-- 如果线程数少于核心线程，创建核心线程执行任务
-- 如果线程数等于核心线程，把任务添加到 LinkedBlockingQueue 阻塞队列
-- 如果线程执行完任务，去阻塞队列取任务，继续执行。
-
-**使用场景**
-
-FixedThreadPool 适用于处理 CPU 密集型的任务，确保 CPU 在长期被工作线程使用的情况下，尽可能的少的分配线程，即适用执行长期的任务。
-
-#### newCachedThreadPool
+线程池大小不固定，`corePoolSize = 0`，`maximumPoolSize = Integer.MAX_VALUE`。空闲线程超过 60 秒会被销毁，使用 SynchronousQueue 作为阻塞队列，适用于短时间内有大量任务的场景。
 
 ```java
-public static ExecutorService newCachedThreadPool(ThreadFactory threadFactory) {
-    return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
-                                  60L, TimeUnit.SECONDS,
-                                  new SynchronousQueue<Runnable>(),
-                                  threadFactory);
-}
+new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
+                       new SynchronousQueue<>());
+```
+提交任务时，如果线程池没有空闲线程，直接新建线程执行任务；如果有，复用线程执行任务。线程空闲 60 秒后销毁，减少资源占用。缺点是线程数没有上限，在高并发情况下可能导致 OOM。
+
+![三分恶面渣逆袭：CachedThreadPool执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-74.png)
+
+#### 说说单线程线程池的原理？
+
+线程池只有 1 个线程，保证任务按提交顺序执行，使用 LinkedBlockingQueue 作为阻塞队列，适用于需要按顺序执行任务的场景。
+
+```java
+new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
+                       new LinkedBlockingQueue<>());
 ```
 
-**线程池特点：**
+始终只创建 1 个线程，新任务必须等待前一个任务完成后才能执行，其他任务都被放入 LinkedBlockingQueue 排队执行。缺点是无法并行处理任务。
 
-- 核心线程数为 0
-- 最大线程数为 Integer.MAX_VALUE，即无限大，可能会因为无限创建线程，导致 OOM
-- 阻塞队列是 SynchronousQueue
-- 非核心线程空闲存活时间为 60 秒
+![三分恶面渣逆袭：SingleThreadExecutor运行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-72.png)
 
-当提交任务的速度大于处理任务的速度时，每次提交一个任务，就必然会创建一个线程。极端情况下会创建过多的线程，耗尽 CPU 和内存资源。由于空闲 60 秒的线程会被终止，长时间保持空闲的 CachedThreadPool 不会占用任何资源。
+#### 说说定时任务线程池的原理？
 
-![CachedThreadPool执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-74.png)
-
-工作流程：
-
-- 提交任务
-- 因为没有核心线程，所以任务直接加到 SynchronousQueue 队列。
-- 判断是否有空闲线程，如果有，就去取出任务执行。
-- 如果没有空闲线程，就新建一个线程执行。
-- 执行完任务的线程，还可以存活 60 秒，如果在这期间，接到任务，可以继续活下去；否则，被销毁。
-
-**适用场景**
-
-用于并发执行大量短期的小任务。
-
-#### newScheduledThreadPool
+定时任务线程池的大小可配置，支持定时 & 周期性任务执行，使用 DelayedWorkQueue 作为阻塞队列，适用于周期性执行任务的场景。
 
 ```java
 public ScheduledThreadPoolExecutor(int corePoolSize) {
@@ -4292,162 +4319,217 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 }
 ```
 
-**线程池特点**
+执行定时任务时，`schedule()` 方法可以将任务延迟一定时间后执行一次；`scheduleAtFixedRate()` 方法可以将任务延迟一定时间后以固定频率执行；`scheduleWithFixedDelay()` 方法可以将任务延迟一定时间后以固定延迟执行。
 
-- 最大线程数为 Integer.MAX_VALUE，也有 OOM 的风险
-- 阻塞队列是 DelayedWorkQueue
-- keepAliveTime 为 0
-- scheduleAtFixedRate() ：按某种速率周期执行
-- scheduleWithFixedDelay()：在某个延迟后执行
+![三分恶面渣逆袭：ScheduledThreadPool执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-75.png)
 
-![ScheduledThreadPool执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-75.png)
+缺点是，如果任务执行时间 `>` 设定时间间隔，scheduleAtFixedRate 可能会导致任务堆积。
 
-**工作机制**
+![三分恶面渣逆袭：ScheduledThreadPoolExecutor执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-76.png)
 
-- 线程从 DelayQueue 中获取已到期的 ScheduledFutureTask（DelayQueue.take()）。到期任务是指 ScheduledFutureTask 的 time 大于等于当前时间。
-- 线程执行这个 ScheduledFutureTask。
-- 线程修改 ScheduledFutureTask 的 time 变量为下次将要被执行的时间。
-- 线程把这个修改 time 之后的 ScheduledFutureTask 放回 DelayQueue 中（DelayQueue.add()）。
 
-![ScheduledThreadPoolExecutor执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-76.png)
+#### 使用无界队列的线程池会出现什么问题？
 
-**使用场景**
-
-周期性执行任务的场景，需要限制线程数量的场景
-
-> 使用无界队列的线程池会导致什么问题吗？
-
-例如 newFixedThreadPool 使用了无界的阻塞队列 LinkedBlockingQueue，如果线程获取一个任务后，任务的执行时间比较长，会导致队列的任务越积越多，导致机器内存使用不停飙升，最终导致 OOM。
+如果线程获取一个任务后，任务的执行时间比较长，会导致队列的任务越积越多，导致内存使用不断飙升，最终出现 OOM。
 
 ### 64.线程池异常怎么处理知道吗？
 
-在使用线程池处理任务的时候，任务代码可能抛出 RuntimeException，抛出异常后，线程池可能捕获它，也可能创建一个新的线程来代替异常的线程，我们可能无法感知任务出现了异常，因此我们需要考虑线程池异常情况。
+常见的处理方式有，使用 try-catch 捕获、使用 Future 获取异常、自定义ThreadPoolExecutor 重写 afterExecute 方法、使用 UncaughtExceptionHandler 捕获异常。
 
-常见的异常处理方式：
+![三分恶面渣逆袭：线程池异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-77.png)
 
-![线程池异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-77.png)
+①、try-catch 是最简单的方法。
+
+```java
+executor.execute(() -> {
+    try {
+        System.out.println("任务开始");
+        int result = 1 / 0; // 除零异常
+    } catch (Exception e) {
+        System.err.println("捕获异常：" + e.getMessage());
+    }
+});
+```
+
+②、使用 Future 获取异常。
+
+```java
+Future<Object> future = executor.submit(() -> {
+    System.out.println("任务开始");
+    int result = 1 / 0; // 除零异常
+    return result;
+});
+
+try {
+    future.get();
+} catch (InterruptedException | ExecutionException e) {
+    System.err.println("捕获异常：" + e.getMessage());
+}
+```
+
+③、自定义 ThreadPoolExecutor 重写 afterExecute 方法。
+
+```java
+ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.MILLISECONDS,
+    new LinkedBlockingQueue<Runnable>()) {
+    @Override
+    protected void afterExecute(Runnable r, Throwable t) {
+        super.afterExecute(r, t);
+        if (t != null) {
+            System.err.println("捕获异常：" + t.getMessage());
+        }
+    }
+};
+
+executor.execute(() -> {
+    System.out.println("任务开始");
+    int result = 1 / 0; // 除零异常
+});
+```
+
+④、使用 UncaughtExceptionHandler 捕获异常。
+
+```java
+ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.MILLISECONDS,
+    new LinkedBlockingQueue<Runnable>());
+executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+executor.setThreadFactory(new ThreadFactory() {
+    @Override
+    public Thread newThread(Runnable r) {
+        Thread thread = new Thread(r);
+        thread.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(Thread t, Throwable e) {
+                System.err.println("捕获异常：" + e.getMessage());
+            }
+        });
+        return thread;
+    }
+});
+
+executor.execute(() -> {
+    System.out.println("任务开始");
+    int result = 1 / 0; // 除零异常
+});
+```
+
+如果项目使用 `execute()`，不关心任务返回值，建议使用 UncaughtExceptionHandler：
+
+```java
+thread.setUncaughtExceptionHandler((t, e) -> 
+    System.err.println("线程 " + t.getName() + " 捕获到异常：" + e.getMessage()));
+```
+
+如果项目使用 `submit()`，关心任务返回值，建议使用 Future：
+
+```java
+Future<?> future = executor.submit(task);
+try {
+    future.get();
+} catch (ExecutionException e) {
+    System.err.println("捕获异常：" + e.getCause());
+}
+```
+
+如果想要全局捕获所有任务异常，建议重写 afterExecute 方法：
+
+```java
+class MyThreadPoolExecutor extends ThreadPoolExecutor {
+    @Override
+    protected void afterExecute(Runnable r, Throwable t) {
+        if (t == null && r instanceof Future<?>) {
+            try { ((Future<?>) r).get(); } catch (Exception e) { System.err.println("任务异常：" + e.getCause()); }
+        }
+    }
+}
+```
 
 ### 65.能说一下线程池有几种状态吗？
 
-线程池有这几个状态：RUNNING,SHUTDOWN,STOP,TIDYING,TERMINATED。
+有 5 种状态，它们的转换遵循严格的状态流转规则，不同状态控制着线程池的任务调度和关闭行为。
 
-```java
-//线程池状态
-private static final int RUNNING    = -1 << COUNT_BITS;
-private static final int SHUTDOWN   =  0 << COUNT_BITS;
-private static final int STOP       =  1 << COUNT_BITS;
-private static final int TIDYING    =  2 << COUNT_BITS;
-private static final int TERMINATED =  3 << COUNT_BITS;
-```
+状态由 RUNNING → SHUTDOWN → STOP → TIDYING → TERMINATED 依次流转。
 
-线程池各个状态切换图：
+![三分恶面渣逆袭：线程池状态切换图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-78.png)
 
-![线程池状态切换图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-78.png)
+**RUNNING** 状态的线程池可以接收新任务，并处理阻塞队列中的任务；**SHUTDOWN** 状态的线程池不会接收新任务，但会处理阻塞队列中的任务；**STOP** 状态的线程池不会接收新任务，也不会处理阻塞队列中的任务，并且会尝试中断正在执行的任务；**TIDYING** 状态表示所有任务已经终止；**TERMINATED** 状态表示线程池完全关闭，所有线程销毁。
 
-**RUNNING**
+状态|	状态码|	是否接收新任务|	是否执行队列中的任务|	是否中断正在执行的任务
+---|---|---|---|---
+RUNNING|	111|	✅ 是|	✅ 是|	❌ 否
+SHUTDOWN|	000|	❌ 否|	✅ 是|	❌ 否
+STOP|	001|	❌ 否|	❌ 否|	✅ 是
+TIDYING|	010|	❌ 否|	❌ 否|	❌ 否
+TERMINATED|	011|	❌ 否|	❌ 否|	❌ 否
 
-- 该状态的线程池会接收新任务，并处理阻塞队列中的任务;
-- 调用线程池的 shutdown()方法，可以切换到 SHUTDOWN 状态;
-- 调用线程池的 shutdownNow()方法，可以切换到 STOP 状态;
+memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，期待所有参加考研的小伙伴都能取得理想的成绩。
 
-**SHUTDOWN**
-
-- 该状态的线程池不会接收新任务，但会处理阻塞队列中的任务；
-- 队列为空，并且线程池中执行的任务也为空,进入 TIDYING 状态;
-
-**STOP**
-
-- 该状态的线程不会接收新任务，也不会处理阻塞队列中的任务，而且会中断正在运行的任务；
-- 线程池中执行的任务为空,进入 TIDYING 状态;
-
-**TIDYING**
-
-- 该状态表明所有的任务已经运行终止，记录的任务数量为 0。
-- terminated()执行完毕，进入 TERMINATED 状态
-
-**TERMINATED**
-
-- 该状态表示线程池彻底终止
+![祝所有考研的同学都能顺利上岸](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250224102434.png)
 
 ### 66.线程池如何实现参数的动态修改？
 
-线程池提供了几个 setter 方法来设置线程池的参数。
+线程池提供的 setter 方法就可以在运行时动态修改参数，比如说 setCorePoolSize 可以用来修改核心线程数、setMaximumPoolSize 可以用来修改最大线程数。
 
-![JDK 线程池参数设置接口来源参考[7]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-79.png)
+![三分恶面渣逆袭：JDK 线程池参数设置](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-79.png)
 
-这里主要有两个思路：
+需要注意的是，调用 `setCorePoolSize()` 时如果新的核心线程数比原来的大，线程池会创建新的线程；如果更小，线程池不会立即销毁多余的线程，除非有空闲线程超过 keepAliveTime。
 
-![动态修改线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-80.png)
+当然了，还可以利用 Nacos 配置中心，或者实现自定义的线程池，监听参数变化去动态调整参数。
 
-- 在我们微服务的架构下，可以利用配置中心如 Nacos、Apollo 等等，也可以自己开发配置中心。业务服务读取线程池配置，获取相应的线程池实例来修改线程池的参数。
-
-- 如果限制了配置中心的使用，也可以自己去扩展**ThreadPoolExecutor**，重写方法，监听线程池参数变化，来动态修改线程池参数。
+![三分恶面渣逆袭：动态修改线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-80.png)
 
 ### 67.线程池调优了解吗？（补充）
 
-> 2024 年 03 月 16 日增补
+> 2024 年 03 月 16 日增补，推荐阅读：[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
 
-线程池配置没有固定的公式，通常事前会对线程池进行一定评估，常见的评估方案如下：
+![三分恶面渣逆袭：线程池调优](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-82.png)
 
-![线程池评估方案 来源参考[7]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-81.png)
+首先我会根据任务类型设置核心线程数参数，比如 IO 密集型任务会设置为 CPU 核心数\*2 的经验值。
 
-上线之前也要进行充分的测试，上线之后要建立完善的线程池监控机制。
+其次我会结合线程池动态调整的能力，在流量波动时通过 setCorePoolSize 平滑扩容，或者直接使用 DynamicTp 实现线程池参数的自动化调整。
 
-事中结合监控告警机制，分析线程池的问题，或者可优化点，结合线程池动态参数配置机制来调整配置。
-
-事后要注意仔细观察，随时调整。
-
-![线程池调优](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-82.png)
-
-具体的调优案例可以查看参考[7]美团技术博客。
+最后，我会通过内置的监控指标建立容量预警机制。比如通过 JMX 监控线程池的运行状态，设置阈值，当线程池的任务队列长度超过阈值时，触发告警。
 
 ### 68.线程池在使用的时候需要注意什么？（补充）
 
 > 2024 年 03 月 16 日增补
 
-我认为比较重要的关注点有 3 个：
+我认为有 3 个比较重要的关注点：
 
-①、选择合适的线程池大小
+第一个，选择合适的线程池大小。**过小**的线程池可能会导致任务一直在排队；**过大**的线程池可能会导致大家都在竞争 CPU 资源，增加上下文切换的开销
 
-- **过小**的线程池可能会导致任务一直在排队
-- **过大**的线程池可能会导致大家都在竞争 CPU 资源，增加上下文切换的开销
+第二个，选择合适的任务队列。使用有界队列可以避免资源耗尽的风险，但是可能会导致任务被拒绝；使用无界队列虽然可以避免任务被拒绝，但是可能会导致内存耗尽
 
-可以根据业务是 IO 密集型还是 CPU 密集型来选择线程池大小：
+比如在使用 LinkedBlockingQueue 的时候，可以传入参数来限制队列中任务的数量，这样就不会出现 OOM。
 
-- CPU 密集型：指的是任务主要使用来进行大量的计算，没有什么导致线程阻塞。一般这种场景的线程数设置为 CPU 核心数+1。
-- IO 密集型：当执行任务需要大量的 io，比如磁盘 io，网络 io，可能会存在大量的阻塞，所以在 IO 密集型任务中使用多线程可以大大地加速任务的处理。一般线程数设置为 2\*CPU 核心数。
+第三个，尽量使用自定义的线程池，而不是使用 Executors 创建的线程池。
 
-②、任务队列的选择
-
-- 使用有界队列可以避免资源耗尽的风险，但是可能会导致任务被拒绝
-- 使用无界队列虽然可以避免任务被拒绝，但是可能会导致内存耗尽
-
-一般需要设置有界队列的大小，比如 LinkedBlockingQueue 在构造的时候可以传入参数来限制队列中任务数据的大小，这样就不会因为无限往队列中扔任务导致系统的 oom。
-
-③、尽量使用自定义的线程池，而不是使用 Executors 创建的线程池，因为 newFixedThreadPool 线程池由于使用了 LinkedBlockingQueue，队列的容量默认无限大，实际使用中出现任务过多时会导致内存溢出；newCachedThreadPool 线程池由于核心线程数无限大，当任务过多的时候会导致创建大量的线程，可能机器负载过高导致服务宕机。
+因为 newFixedThreadPool 线程池由于使用了 LinkedBlockingQueue，队列的容量默认无限大，任务过多时会导致内存溢出；newCachedThreadPool 线程池由于核心线程数无限大，当任务过多的时候会导致创建大量的线程，导致服务器负载过高宕机。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：线程池在使用的时候需要注意什么
+
+memo：2025 年 2 月 25 日修改至此。
 
 ### 69.你能设计实现一个线程池吗？
 
 推荐阅读：[三分恶线程池原理](https://mp.weixin.qq.com/s/Exy7pRGND9TCjRd9TZK4jg)
 
-线程池的设计需要考虑这几个关键因素：
-
-1. 核心线程池类：包含核心线程数、最大线程数。
-2. 工作线程：线程池中实际工作的线程，从任务队列中获取任务并执行。
-3. 任务队列：存放待执行任务的队列，可以使用阻塞队列实现。
-4. 拒绝策略：当任务队列满时，处理新任务的策略。
+线程池的主要目的是为了避免频繁地创建和销毁线程。
 
 ![三分恶面渣逆袭：线程池主要实现流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-83.png)
 
-核心线程池类：
+我会把线程池看作一个工厂，里面有一群“工人”，也就是线程了，专门用来做任务。
+
+当任务来了，需要先判断有没有空闲的工人，如果有就把任务交给他们；如果没有，就把任务暂存到一个任务队列里，等工人忙完了再去处理。
+
+如果队列满了，还没有空闲的工人，就要考虑扩容，让预备的工人过来干活，但不能超过预定的最大值，防止工厂被挤爆。
+
+如果连扩容也没法解决，就需要一个拒绝策略，可能直接拒绝任务或者报个错。
+
+核心线程池类（可参考）：
 
 ```java
-/**
- * CustomThreadPoolExecutor is a simple implementation of a thread pool.
- */
-public class CustomThreadPoolExecutor {
+class CustomThreadPoolExecutor {
 
     private final int corePoolSize;
     private final int maximumPoolSize;
@@ -4459,16 +4541,7 @@ public class CustomThreadPoolExecutor {
     private volatile boolean isShutdown = false;
     private int currentPoolSize = 0;
 
-    /**
-     * Constructs a CustomThreadPoolExecutor.
-     *
-     * @param corePoolSize    the number of core threads.
-     * @param maximumPoolSize the maximum number of threads.
-     * @param keepAliveTime   the time to keep extra threads alive.
-     * @param unit            the time unit for keepAliveTime.
-     * @param workQueue       the queue to hold runnable tasks.
-     * @param handler         the handler to use when execution is blocked.
-     */
+    // 构造方法
     public CustomThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit,
                                     BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler) {
         this.corePoolSize = corePoolSize;
@@ -4479,47 +4552,39 @@ public class CustomThreadPoolExecutor {
         this.handler = handler;
     }
 
-    /**
-     * Executes a given task using the thread pool.
-     *
-     * @param task the task to execute.
-     */
+    // 提交任务
     public void execute(Runnable task) {
         if (isShutdown) {
             throw new IllegalStateException("ThreadPool is shutdown");
         }
 
         synchronized (this) {
-            // If current pool size is less than core pool size, create a new worker thread
+            // 如果当前线程数小于核心线程数，直接创建新线程
             if (currentPoolSize < corePoolSize) {
                 new Worker(task).start();
                 currentPoolSize++;
                 return;
             }
 
-            // Try to add task to the queue, if full create a new worker thread if possible
+            // 尝试将任务添加到队列中
             if (!workQueue.offer(task)) {
                 if (currentPoolSize < maximumPoolSize) {
                     new Worker(task).start();
                     currentPoolSize++;
                 } else {
-                    // If maximum pool size reached, apply the rejection handler
+                    // 调用拒绝策略
                     handler.rejectedExecution(task, null);
                 }
             }
         }
     }
 
-    /**
-     * Shuts down the thread pool.
-     */
+    // 关闭线程池
     public void shutdown() {
         isShutdown = true;
     }
 
-    /**
-     * Worker is an internal class that represents a worker thread in the pool.
-     */
+    // 工作线程
     private class Worker extends Thread {
         private Runnable task;
 
@@ -4538,11 +4603,7 @@ public class CustomThreadPoolExecutor {
             }
         }
 
-        /**
-         * Gets a task from the work queue, waiting up to keepAliveTime if necessary.
-         *
-         * @return a task to run, or null if the keepAliveTime expires.
-         */
+        // 从队列中获取任务
         private Runnable getTask() {
             try {
                 return workQueue.poll(keepAliveTime, unit);
@@ -4558,31 +4619,25 @@ public class CustomThreadPoolExecutor {
 
 ```java
 /**
- * CustomRejectedExecutionHandler contains several common rejection policies.
+ * 拒绝策略
  */
-public class CustomRejectedExecutionHandler {
+class CustomRejectedExecutionHandler {
 
-    /**
-     * AbortPolicy throws a RuntimeException when the task is rejected.
-     */
+    // AbortPolicy 抛出异常
     public static class AbortPolicy implements RejectedExecutionHandler {
         public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
             throw new RuntimeException("Task " + r.toString() + " rejected from " + e.toString());
         }
     }
 
-    /**
-     * DiscardPolicy silently discards the rejected task.
-     */
+    // DiscardPolicy 什么都不做
     public static class DiscardPolicy implements RejectedExecutionHandler {
         public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
             // Do nothing
         }
     }
 
-    /**
-     * CallerRunsPolicy runs the rejected task in the caller's thread.
-     */
+    // DiscardOldestPolicy 丢弃队列中最旧的任务
     public static class CallerRunsPolicy implements RejectedExecutionHandler {
         public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
             if (!e.isShutdown()) {
@@ -4596,15 +4651,15 @@ public class CustomRejectedExecutionHandler {
 使用示例：
 
 ```java
-public class ThreadPoolTest {
+class ThreadPoolTest {
     public static void main(String[] args) {
-        // Create a thread pool with core size 2, max size 4, and a queue capacity of 2
+        // 创建线程池
         CustomThreadPoolExecutor executor = new CustomThreadPoolExecutor(
                 2, 4, 10, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(2),
                 new CustomRejectedExecutionHandler.AbortPolicy());
 
-        // Submit 10 tasks to the pool
+        // 提交任务
         for (int i = 0; i < 10; i++) {
             final int index = i;
             executor.execute(() -> {
@@ -4617,7 +4672,7 @@ public class ThreadPoolTest {
             });
         }
 
-        // Shutdown the thread pool
+        // 关闭线程池
         executor.shutdown();
     }
 }
@@ -4625,15 +4680,11 @@ public class ThreadPoolTest {
 
 执行结果：
 
-![二哥的 Java 进阶之路：拒绝策略](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240727230303.png)
+![二哥的 Java 进阶之路：自定义线程池](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240727230303.png)
 
-#### 写一个数据库连接池，你现在可以写一下？
+#### 手写一个数据库连接池，可以吗？
 
-数据库连接池的核心功能主要包括：
-
-- 连接的获取和释放
-- 限制最大连接数，避免资源耗尽
-- 连接的复用，避免频繁创建和销毁连接
+可以的，我的思路是这样的：数据库连接池主要是为了避免每次操作数据库时都去创建连接，因为那样很浪费资源。所以我打算在初始化时预先创建好固定数量的连接，然后把它们放到一个线程安全的容器里，后续有请求的时候就从队列里拿，使用完后再归还到队列中。
 
 ```java
 class SimpleConnectionPool {
@@ -4729,93 +4780,159 @@ class SimpleConnectionPool {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：给你一个需求，你需要写一个连接池，你现在可以写一下
 
 
-### 70.单机线程池执行断电了应该怎么处理？
+### 70.线程池执行中断电了应该怎么处理？
 
-我们可以对正在处理和阻塞队列的任务做事务管理或者对阻塞队列中的任务持久化处理，并且当断电或者系统崩溃，操作无法继续下去的时候，可以通过回溯日志的方式来撤销`正在处理`的已经执行成功的操作。然后重新执行整个阻塞队列。
+线程池本身只能在内存中进行任务调度，并不会持久化，一旦断电，线程池里的所有任务和状态都会丢失。
 
-也就是说，对阻塞队列持久化；正在处理任务事务控制；断电之后正在处理任务的回滚，通过日志恢复该次操作；服务器重启后阻塞队列中的数据再加载。
+我会考虑以下几个方面：
+
+第一，持久化任务。可以将任务持久化到数据库或者消息队列中，等电恢复后再重新执行。
+
+第二，任务幂等性，需要保证任务是幂等的，也就是无论执行多少次，结果都一致。
+
+第三，恢复策略。当系统重启时，应该有一个恢复流程：检测上次是否有未完成的任务，将这些任务重新加载到线程池中执行，确保断电前的工作能够恢复。
 
 ## 并发容器和框架
 
-关于一些并发容器，可以去看看 [面渣逆袭：Java 集合连环三十问 ](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)，里面有`CopyOnWriteArrayList`和`ConcurrentHashMap`这两种线程安全容器类的问答。。
-
 ### 71.Fork/Join 框架了解吗？
 
-Fork/Join 框架是 Java7 提供的一个用于并行执行任务的框架，是一个把大任务分割成若干个小任务，最终汇总每个小任务结果后得到大任务结果的框架。
+关于 Fork/Join 框架，我了解一些，它是 Java 7 引入的一个并行框架，主要用于分治算法的并行执行。这个框架通过将大的任务递归地分解成小任务，然后并行执行，最后再合并结果，以达到最高效率处理大量数据的目的。
 
-要想掌握 Fork/Join 框架，首先需要理解两个点，**分而治之**和**工作窃取算法**。
+![三分恶面渣逆袭：Fork/Join分治算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-85.png)
 
-**分而治之**
+Fork/Join 框架的核心理念是**分而治之**，将大任务拆分为多个小任务并行处理，最后再将这些小任务的结果汇总。
 
-Fork/Join 框架的定义，其实就体现了分治思想：将一个规模为 N 的问题分解为 K 个规模较小的子问题，这些子问题相互独立且与原问题性质相同。求出子问题的解，就可得到原问题的解。
+就像是一个树形结构，根节点是一个大的任务，叶子节点是最小的子任务，每个任务都可能会被分裂成更小的子任务，直到达到某个临界点，任务再逐个执行。
 
-![Fork/Join分治算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-85.png)
+具体来说，Fork/Join 包括两个主要的类：
 
-**工作窃取算法**
+ForkJoinPool，一个特殊的线程池，底层使用了工作窃取算法，也就是当一个线程执行完自己的任务后，它可以窃取其他线程的任务，避免线程闲置。
 
-大任务拆成了若干个小任务，把这些小任务放到不同的队列里，各自创建单独线程来执行队列里的任务。
+![三分恶面渣逆袭：工作窃取](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-86.png)
 
-那么问题来了，有的线程干活块，有的线程干活慢。干完活的线程不能让它空下来，得让它去帮没干完活的线程干活。它去其它线程的队列里窃取一个任务来执行，这就是所谓的**工作窃取**。
-
-工作窃取发生的时候，它们会访问同一个队列，为了减少窃取任务线程和被窃取任务线程之间的竞争，通常任务会使用双端队列，被窃取任务线程永远从双端队列的头部拿，而窃取任务的线程永远从双端队列的尾部拿任务执行。
-
-![工作窃取](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-86.png)
-
-看一个 Fork/Join 框架应用的例子，计算 1~n 之间的和：1+2+3+…+n
-
-- 设置一个分割阈值，任务大于阈值就拆分任务
-- 任务有结果，所以需要继承 RecursiveTask
+RecursiveTask 和 RecursiveAction，分别用于有返回值和无返回值的任务，这两个类都继承自 ForkJoinTask。
 
 ```java
-public class CountTask extends RecursiveTask<Integer> {
-    private static final int THRESHOLD = 16; // 阈值
-    private int start;
-    private int end;
-
-    public CountTask(int start, int end) {
-        this.start = start;
-        this.end = end;
-    }
-
-    @Override
-    protected Integer compute() {
-        int sum = 0;
-        // 如果任务足够小就计算任务
-        boolean canCompute = (end - start) <= THRESHOLD;
-        if (canCompute) {
-            for (int i = start; i <= end; i++) {
-                sum += i;
-            }
-        } else {
-            // 如果任务大于阈值，就分裂成两个子任务计算
-            int middle = (start + end) / 2;
-            CountTask leftTask = new CountTask(start, middle);
-            CountTask rightTask = new CountTask(middle + 1, end);
-            // 执行子任务
-            leftTask.fork();
-            rightTask.fork(); // 等待子任务执行完，并得到其结果
-            int leftResult = leftTask.join();
-            int rightResult = rightTask.join(); // 合并子任务
-            sum = leftResult + rightResult;
-        }
-        return sum;
-    }
-
+class ForkJoinExample {
     public static void main(String[] args) {
-        ForkJoinPool forkJoinPool = new ForkJoinPool(); // 生成一个计算任务，负责计算1+2+3+4
-        CountTask task = new CountTask(1, 100); // 执行一个任务
-        Future<Integer> result = forkJoinPool.submit(task);
-        try {
-            System.out.println(result.get());
-        } catch (InterruptedException e) {
-        } catch (ExecutionException e) {
+        int[] arr = new int[100];
+        for (int i = 0; i < 100; i++) {
+            arr[i] = i + 1; // 填充数据 1 到 100
         }
+
+        // 创建 ForkJoinPool，默认使用可用的处理器核心数
+        ForkJoinPool pool = new ForkJoinPool();
+
+        // 创建 ForkJoin 任务
+        SumTask task = new SumTask(arr, 0, arr.length);
+
+        // 执行任务
+        Integer result = pool.invoke(task);
+
+        System.out.println("数组的和是: " + result);
     }
 
+    // 自定义任务，继承 RecursiveTask
+    static class SumTask extends RecursiveTask<Integer> {
+        private int[] arr;
+        private int start;
+        private int end;
+
+        public SumTask(int[] arr, int start, int end) {
+            this.arr = arr;
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        protected Integer compute() {
+            if (end - start <= 10) {  // 如果任务足够小，就直接计算
+                int sum = 0;
+                for (int i = start; i < end; i++) {
+                    sum += arr[i];
+                }
+                return sum;
+            } else {
+                // 否则拆分任务
+                int mid = (start + end) / 2;
+                SumTask left = new SumTask(arr, start, mid);
+                SumTask right = new SumTask(arr, mid, end);
+
+                // 分别执行子任务
+                left.fork();
+                right.fork();
+
+                // 合并结果
+                int leftResult = left.join();
+                int rightResult = right.join();
+
+                return leftResult + rightResult;  // 汇总结果
+            }
+        }
+    }
 }
 ```
 
-ForkJoinTask 与一般 Task 的主要区别在于它需要实现 compute 方法，在这个方法里，首先需要判断任务是否足够小，如果足够小就直接执行任务。如果比较大，就必须分割成两个子任务，每个子任务在调用 fork 方法时，又会进 compute 方法，看看当前子任务是否需要继续分割成子任务，如果不需要继续分割，则执行当前子任务并返回结果。使用 join 方法会等待子任务执行完并得到其结果。
+memo：2025 年 2 月 26 日修改至此。终于搞定，面渣逆袭并发编程篇终于搞定，我滴妈呀，太不容易了。
+
+感觉 3.4 万字，至少改动了 2.4 万字，我真的很用心在做这件事，希望能给大家的面试提供一点帮助。
+
+[看看这位球友](https://javabetter.cn/zhishixingqiu/)的打卡记录，字节暑期实习二面，基本上都是面渣逆袭中的原题，球友也感慨说，“我感觉遇到的面试官基本不会太为难人。”
+
+换句话说，只要面渣逆袭背的好，基本上就能应付大部分面试了。
+
+![字节暑期实习 2.25 二面](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226110851.png)
+
+---
+
+面渣逆袭并发编程篇第二版终于整理完了，说一点心里话。
+
+![Java 基础篇、集合框架篇、JVM 篇、并发编程篇](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121141939.png)
+
+网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
+
+![球友开始面试后的感慨：限制敲错了是现在](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250118111727.png)
+
+面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从从 24 届到 25 届，帮助了很多小伙伴。未来的 26、27 届，也将因此受益，从而拿到心仪的 offer。
+
+能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强，因此第二版的面渣逆袭不只是给大家的礼物，也是我在技术上蜕变的记录。
+
+![这是我在牛客上看到的](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165717.png)
+
+![我觉得都是蛮中肯的评价](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165749.png)
+
+![双非硕测开对二哥八股的认可](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108181632.png)
+
+很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
+
+我喜欢静待花开。
+
+如果你觉得面渣逆袭还不错，可以告诉学弟学妹们有这样一份免费的学习资料，帮我做个口碑。
+
+我还会继续优化，也不确定第三版什么时候会来，但我会尽力。
+
+愿大家都有一个光明的未来。
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
+
+
+![面渣逆袭并发编程篇：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142044.png)
+
+更别说我付出的时间和精力了，希望大家能够喜欢。
+
+
 
 ---
 

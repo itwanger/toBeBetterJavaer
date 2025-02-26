@@ -17,7 +17,7 @@ head:
 
 就目前来说，JVM 的垃圾收集器主要分为两大类：**分代收集器**和**分区收集器**，分代收集器的代表是 CMS，分区收集器的代表是 G1 和 ZGC，下面我们来看看这两大类的垃圾收集器。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231227143820.png)
+![分代收集器和分区收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231227143820.png)
 
 ## 分代收集器
 
