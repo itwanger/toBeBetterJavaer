@@ -15,7 +15,7 @@ head:
 
 [上一节](https://javabetter.cn/jvm/how-run-java-code.html)在讲 JVM 运行 Java 代码的时候，我们提到，JVM 需要将编译后的字节码文件加载到其内部的运行时数据区域中进行执行。这个过程涉及到了 Java 的类加载机制（面试常问的知识点），所以我们来详细地讲一讲。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
+![Java 的类加载机制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
 
 字节码我们[上一节](https://javabetter.cn/jvm/how-run-java-code.html)也讲过，它和类的加载机制息息相关，相信大家都还有印象。
 
@@ -45,7 +45,7 @@ public class Test {
 
 这里只说一点，这段字节码中的 `cafe babe` 被称为“魔数”，是 JVM 识别 .class 文件（字节码文件）的标志，相信大家都知道，Java 的 logo 是一杯冒着热气的咖啡，是不是又关联上了？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
+![Java 的 logo](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
 
 > 文件格式的定制者可以自由选择魔数值（只要没用过），比如说 .png 文件的魔数是 `8950 4e47`。
 
@@ -55,7 +55,7 @@ public class Test {
 
 知道什么是 Java 字节码后，我们来聊聊 Java 的类加载过程。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
+![类加载过程](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
 
 类从被加载到 JVM 开始，到卸载出内存，整个生命周期分为七个阶段，分别是加载、验证、准备、解析、初始化、使用和卸载。其中验证、准备和解析这三个阶段统称为连接。
 
@@ -69,7 +69,9 @@ JVM 在该阶段的目的是将字节码从不同的数据源（可能是 class 
 
 JVM 会在该阶段对二进制字节流进行校验，只有符合 JVM 字节码规范的才能被 JVM 正确执行。该阶段是保证 JVM 安全的重要屏障，下面是一些主要的检查。
 
-- 确保二进制字节流格式符合预期（比如说是否以 `cafe bene` 开头，前面提到过）。
+>读者飞 2025 年 2 月 22 日 提供的修改建议。
+
+- 确保二进制字节流格式符合预期（比如说是否以 `cafe babe` 开头，前面提到过）。
 - 是否所有方法都遵守[访问控制关键字](https://javabetter.cn/oo/access-control.html)的限定，protected、private 那些。
 - 方法调用的参数个数和类型是否正确。
 - 确保变量在使用之前被正确初始化了。
