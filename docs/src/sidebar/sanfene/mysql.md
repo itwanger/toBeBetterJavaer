@@ -1,8 +1,8 @@
 ---
-title: MySQL面试题，84道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+title: MySQL面试题，84道MySQL八股文（4.4万字101张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-MySQL
-description: 下载次数超 1 万次，1.8 万字 69 张手绘图，详解 84 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-date: 2024-12-25
+description: 下载次数超 1 万次，4.4 万字 101 张手绘图，详解 84 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+date: 2025-02-27
 author: 三分恶
 category:
   - 面渣逆袭
@@ -14,21 +14,58 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-1.8 万字 101 张手绘图，详解 84 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+
+![面渣逆袭并发编程篇封面图](https://cdn.tobebetterjavaer.com/stutymore/javathread-mianzhanixi-thread.jpg)
+
+## 前言
+
+4.4 万字 101 张手绘图，详解 84 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/JFjFs_7xduCmHOegbJ-Gbg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/zSTyZ-8CFalwAYSB0PN6wA)。
+
+亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
+
+![面渣逆袭MySQL篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112951.png)
+
+2025 年 02 月 27 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+
+![面渣逆袭已经提交 1479 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250122093837.png)
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了。
+
+展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
+
+![面渣逆袭MySQL篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226113113.png)
 
 ## MySQL 基础
 
-### 0.什么是 MySQL？
+### 🌟0.什么是 MySQL？
 
-MySQL 是一个开源的关系型数据库管理系统，现在隶属于 Oracle 旗下，也是我用得最多的一款关系型数据库。
+MySQL 是一个开源的关系型数据库，现在隶属于 Oracle 公司。是我们国内使用频率最高的一种数据库，我在本地安装的是最新的 8.3 版本。
 
-与此同时，MySQL 也是我们国内使用频率最高的一种数据库，我在本地安装的是最新的 8.0 社区版。
+![二哥的 Java 进阶之路：MySQL 8.3 最新版本](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250227062838.png)
 
-![MySQL 官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1992b6dd-1c1d-4b8b-b98a-8407e8c51ff9.jpg)
+#### 怎么删除/创建一张表？
 
-#### 怎么删除/创建一张表和设定主键？
+可以使用 `DROP TABLE` 来删除表，使用 `CREATE TABLE` 来创建表。
 
-在 MySQL 中，我们可以使用 DROP TABLE 来删除表，使用 CREATE TABLE 来创建表并设定主键。创建表时，可以在定义列的同时设置某一列为主键，如将 id 列设为主键：PRIMARY KEY (id)。
+创建表的时候，可以通过 `PRIMARY KEY` 设定主键。
 
 ```sql
 CREATE TABLE users (
@@ -39,19 +76,19 @@ CREATE TABLE users (
 );
 ```
 
-#### 举例用sql实现升序降序
+#### 请写一个升序/降序的 SQL 语句？
 
-在 SQL 中，可以使用 ORDER BY 子句来对查询结果进行升序或降序排序。默认情况下，查询结果是升序排序，也可以通过 DESC 关键字进行降序排序。
+在 SQL 中，可以使用 `ORDER BY` 子句来对查询结果进行升序或者降序。默认情况下，查询结果是升序的，如果需要降序，可以通过 `DESC` 关键字来实现。
 
-例如，如果我想对 employees 表中的数据按工资升序排序，我会使用：
+比如说在员工表中，我们要按工资降序，就可以使用 `ORDER BY salary DESC` 来完成：
 
 ```sql
 SELECT id, name, salary
 FROM employees
-ORDER BY salary ASC;
+ORDER BY salary DESC;
 ```
 
-此外，如果我需要根据多个字段进行排序，例如先按工资降序排列，再按名字升序排列，我可以使用：
+如果需对多个字段进行排序，例如按工资降序，按名字升序，就可以 `ORDER BY salary DESC, name ASC` 来完成：
 
 ```sql
 SELECT id, name, salary
@@ -59,13 +96,13 @@ FROM employees
 ORDER BY salary DESC, name ASC;
 ```
 
-#### MySQL性能慢的原因有哪些？
+#### MySQL出现性能差的原因有哪些？
 
-可能 SQL 使用了全表扫描，或者未正确使用索引，再或者查询语句过于复杂，如多表 JOIN 或嵌套子查询。
+可能是 SQL 查询使用了全表扫描，也可能是查询语句过于复杂，如多表 JOIN 或嵌套子查询。
 
-也可能是单表数据量过大，导致查询效率降低。
+也有可能是单表数据量过大。
 
-另外，可以增加一些缓存，如 Redis 来缓存热点数据，减少数据库的访问次数。
+通常情况下，添加索引就能解决大部分性能问题。对于一些热点数据，还可以通过增加 Redis 缓存，来减轻数据库的访问压力。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你平时用到的数据库
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：数据库用过哪些，对哪个比较熟？
@@ -76,67 +113,88 @@ ORDER BY salary DESC, name ASC;
 ，举例用sql实现升序降序
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：MySQL性能慢的原因
 
-### 1. 什么是内连接、外连接、交叉连接、笛卡尔积呢？
+### 1.两张表怎么进行连接？
 
-MySQL 中的连接是通过两个或多个表之间的列进行关联，从而获取相关联的数据。连接分为内连接、外连接、交叉连接。
+可以通过内连接 `inner join`、外连接 `outer join`、交叉连接 `cross join` 来合并多个表的查询结果。
 
-①、内连接（inner join）：返回两个表中连接字段匹配的行。如果一个表中的行在另一个表中没有匹配的行，则这些行不会出现在查询结果中。
+#### 什么是内连接？
 
-假设有两个表，Employees 和 Departments。
-
-```sql
-SELECT Employees.Name, Departments.DeptName
-FROM Employees
-INNER JOIN Departments ON Employees.DeptID = Departments.DeptID;
-```
-
-这个查询将返回所有员工及其所在部门的信息，但仅限于那些在 Departments 表中有对应部门的员工。
-
-②、外连接（outer join）：不仅返回两个表中匹配的行，还返回左表、右表或两者中未匹配的行。
+内连接用于返回两个表中有匹配关系的行。假设有两张表，用户表和订单表，想查询有订单的用户，就可以使用内连接 `users INNER JOIN orders`，按照用户 ID 关联就行了。
 
 ```sql
-SELECT Employees.Name, Departments.DeptName
-FROM Employees
-LEFT OUTER JOIN Departments ON Employees.DeptID = Departments.DeptID;
+SELECT users.name, orders.order_id
+FROM users
+INNER JOIN orders ON users.id = orders.user_id;
 ```
 
-这个查询将返回所有员工的名字和他们部门的名字，即使某些员工没有分配到部门。
+只有那些在两个表中都存在 user_id 的记录才会出现在查询结果中。
 
-③、交叉连接（cross join）：返回第一个表中的每一行与第二个表中的每一行的组合，这种类型的连接通常用于生成笛卡尔积。
+#### 什么是外连接？
+
+和内连接不同，外连接不仅返回两个表中匹配的行，还返回没有匹配的行，用 `null` 来填充。
+
+外连接又分为左外连接 `left join` 和右外连接 `right join`。
+
+left join 会保留左表中符合条件的所有记录，如果右表中有匹配的记录，就返回匹配的记录，否则就用 null 填充，常用于某表中有，但另外一张表中可能没有的数据的查询场景。
+
+假设要查询所有用户及他们的订单，即使用户没有下单，就可以使用左连接：
 
 ```sql
-SELECT Employees.Name, Departments.DeptName
-FROM Employees
-CROSS JOIN Departments;
+SELECT users.id, users.name, orders.order_id
+FROM users
+LEFT JOIN orders ON users.id = orders.user_id;
 ```
 
-这个查询将为 Employees 表中的每个员工与 Departments 表中的每个部门生成一个组合。
+查询前：
 
-④、笛卡尔积：数学中的一个概念，例如集合 A={a,b}，集合 B={0,1,2}，那么 A✖️B=`{<a,0>,<a,1>,<a,2>,<b,0>,<b,1>,<b,2>,}`。
+users|	orders
+---|---
+id|	name|	user_id
+1|	王二|	1
+2|	张三|	2
+3|	李四|	无
+
+查询后：
+
+id|	name|	order_id
+---|---|---
+1|	王二|	10
+2|	张三|	20
+3|	李四|	null
+
+右连接就是左连接的镜像，right join 会保留右表中符合条件的所有记录，如果左表中有匹配的记录，就返回匹配的记录，否则就用 null 填充。
+
+#### 什么是交叉连接？
+
+交叉连接会返回两张表的笛卡尔积，也就是将左表的每一行与右表的每一行进行组合，返回的行数是两张表行数的乘积。
+
+假设有 A 表和 B 表，A 表有 2 行数据，B 表有 3 行数据，那么交叉连接的结果就是 2 ✖️ 3 = 6 行。
+
+```sql
+SELECT A.id, B.id
+FROM A
+CROSS JOIN B;
+```
+
+笛卡尔积是数学中的一个概念，例如集合 `A={a,b}`，集合 `B={0,1,2}`，那么 A✖️B=`{<a,0>,<a,1>,<a,2>,<b,0>,<b,1>,<b,2>,}`。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友面试原题：两张表怎么进行连接
 
-### 2. MySQL 的内连接、左连接、右连接有什么区别？
+### 2.内连接、左连接、右连接有什么区别？
 
 MySQL 的连接主要分为内连接和外连接，外连接又可以分为左连接和右连接。
 
-![MySQL-joins-来源菜鸟教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcdaad5f-c50e-4834-9f9a-0b676cc6be83.jpg)
+![MySQL 内连接、左连接、右连接-来源菜鸟教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcdaad5f-c50e-4834-9f9a-0b676cc6be83.jpg)
 
-①、`inner join` 内连接，在两张表进行连接查询时，只保留两张表中完全匹配的结果集。
+内连接可以用来找出两个表中共同的记录，相当于两个数据集的交集。
 
-只有当两个表中都有匹配的记录时，这些记录才会出现在查询结果中。如果某一方没有匹配的记录，则该记录不会出现在结果集中。
+左连接和右连接可以用来找出两个表中不同的记录，相当于两个数据集的并集。两者的区别是，左连接会保留左表中符合条件的所有记录，右连接则刚好相反。
 
-内联可以用来找出两个表中共同的记录，相当于两个数据集的交集。
+拿[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)的表为例来详细验证下。
 
-②、`left join` 返回左表（FROM 子句中指定的表）的所有记录，以及右表中匹配记录的记录。如果右表中没有匹配的记录，则结果中右表的部分会以 NULL 填充。
+有三张表，一张文章表 article，主要存文章标题 title， 一张文章详情表 article_detail，主要存文章的内容 content，一张文章评论表 comment，主要存评论 content，三个表通过文章 id 关联。
 
-③、`right join` 刚好与左联相反，返回右表（FROM 子句中指定的表）的所有记录，以及左表中匹配记录的记录。如果左表中没有匹配的记录，则结果中左表的部分会以 NULL 填充。
-
-拿我做过的[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)为例。
-
-有三张表，一张文章表 article（主要存文章标题 title） 一张文章详情表 article_detail （主要存文章的内容 content），一张文章评论表 comment（主要存储评论 content） ，可以通过文章 id 关联。
-
-先来看内联：
+先来看内连接：
 
 ```sql
 SELECT LEFT(a.title, 20) AS ArticleTitle, LEFT(c.content, 20) AS CommentContent
@@ -145,11 +203,11 @@ INNER JOIN comment c ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184454.png)
+![技术派实战项目：内连接的结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184454.png)
 
-这个查询返回了至少有一条评论的文章标题和评论内容的前 20 个字符，限制结果为前 2 条记录。
+返回至少有一条评论的文章标题和评论内容（前 20 个字符），只返回符合条件的前 2 条记录。
 
-再来看左联：
+再来看做连接：
 
 ```sql
 SELECT LEFT(a.title, 20) AS ArticleTitle, LEFT(c.content, 20) AS CommentContent
@@ -158,11 +216,11 @@ LEFT JOIN comment c ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184901.png)
+![技术派实战项目：做连接查询结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184901.png)
 
-这个查询返回所有文章的标题和文章评论的前 20 个字符，即使某些文章没有评论（这些情况下 CommentContent 为 NULL），限制结果为前 2 条记录。
+返回所有文章的标题和文章评论，即使某些文章没有评论（填充为 NULL）。
 
-最后来看右联：
+最后来看右连：
 
 ```sql
 SELECT LEFT(a.title, 20) AS ArticleTitle, LEFT(c.content, 20) AS CommentContent
@@ -171,11 +229,13 @@ RIGHT JOIN article a ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![技术派实战项目](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308185525.png)
-
-右联在这种情况下，其实比较别扭，因为可以直接使用左联来实现。
+![技术派实战项目：右连接查询结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308185525.png)
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：请说说 MySQL 的内联、左联、右联的区别。
+
+memo：2025 年 2 月 27 日修改至此。给大家看[一条球友的面经](https://t.zsxq.com/1g4gI)，基本上都是面渣逆袭中常见的八股，所以只要能把面渣中的高频题拿下，面试 OC 的概率真的很大，真心话。
+
+![二哥编程星球的球友：小赢科技 OC了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250227084922.png)
 
 ### 3.说一下数据库的三大范式？
 
