@@ -22,7 +22,7 @@ head:
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-![面渣逆袭并发编程篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142158.png)
+![面渣逆袭并发编程篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112951.png)
 
 2025 年 01 月 22 日开始着手第二版更新。
 
@@ -51,7 +51,7 @@ head:
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
 
-![面渣逆袭并发编程篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142305.png)
+![面渣逆袭并发编程篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226113113.png)
 
 ## 基础
 
@@ -4887,13 +4887,13 @@ memo：2025 年 2 月 26 日修改至此。终于搞定，面渣逆袭并发编�
 
 面渣逆袭并发编程篇第二版终于整理完了，说一点心里话。
 
-![Java 基础篇、集合框架篇、JVM 篇、并发编程篇](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121141939.png)
+![Java 基础篇、集合框架篇、JVM 篇、并发编程篇](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112804.png)
 
 网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
 
 ![球友开始面试后的感慨：限制敲错了是现在](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250118111727.png)
 
-面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从从 24 届到 25 届，帮助了很多小伙伴。未来的 26、27 届，也将因此受益，从而拿到心仪的 offer。
+面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从 24 届到 25 届，帮助了很多小伙伴。未来的 26、27 届，也将因此受益，从而拿到心仪的 offer。
 
 能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强，因此第二版的面渣逆袭不只是给大家的礼物，也是我在技术上蜕变的记录。
 
@@ -4927,8 +4927,7 @@ memo：2025 年 2 月 26 日修改至此。终于搞定，面渣逆袭并发编�
 
 这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
 
-
-![面渣逆袭并发编程篇：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142044.png)
+![面渣逆袭并发编程篇：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112718.png)
 
 更别说我付出的时间和精力了，希望大家能够喜欢。
 
