@@ -1,24 +1,24 @@
 ---
-title: 二哥编程星球的五大付费专栏《Java 面试指南》+《技术派实战教程》+《微服务 PmHub 教程》+《编程喵实战笔记》+《二哥的 LeetCode 刷题笔记》
+title: 二哥编程星球的六大付费专栏《Java 面试指南》+《技术派实战教程》+《微服务 PmHub 教程》+《编程喵实战笔记》+《二哥的 LeetCode 刷题笔记》+《职场进阶之路》
 shortTitle: Java面试专栏
 category:
   - 知识星球
 tag:
   - 知识星球
-description: 五大专栏《Java 面试指南》、《技术派实战教程》、《微服务 PmHub 教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》。以及两套高质量的 PDF：《二哥的 Java 进阶之路》.pdf、以及星球嘉宾三分恶的《面渣逆袭 Java 篇、Spring 全家桶篇、MySQL 篇、Redis 篇、分布式篇、消息队列篇、操作系统篇、计算机网络篇》.pdf。
+description: 五大专栏《Java 面试指南》、《技术派实战教程》、《微服务 PmHub 教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、职场进阶之路。以及两套高质量的 PDF：《二哥的 Java 进阶之路》.pdf、以及星球嘉宾三分恶的《面渣逆袭 Java 篇、Spring 全家桶篇、MySQL 篇、Redis 篇、分布式篇、消息队列篇、操作系统篇、计算机网络篇》.pdf。
 head:
   - - meta
     - name: keywords
       content: 知识星球,沉默王二,二哥的Java进阶之路,编程,Java,IT,计算机专业,付费专栏
 ---
 
-大家好，我是二哥呀。今天给大家介绍一下[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的五大付费专栏《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务 PmHub 教程](https://javabetter.cn/zhishixingqiu/pmhub.html)》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》。
+大家好，我是二哥呀。今天给大家介绍一下[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的六大付费专栏《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务 PmHub 教程](https://javabetter.cn/zhishixingqiu/pmhub.html)》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《一灰的职场进阶之路》。
 
 以及两套高质量的 PDF：《二哥的 Java 进阶之路》.pdf、星球嘉宾三分恶的《面渣逆袭 Java 篇、Spring 全家桶篇、MySQL 篇、Redis 篇、分布式篇、消息队列篇、操作系统篇、计算机网络篇》.pdf。
 
 **不管是学生党还是工作党，都是非常刚需的，尤其是在越来越激烈的面试竞争中**，就像这位球友发出的感慨。
 
-![Java 面试指南专栏的认可](https://cdn.tobebetterjavaer.com/paicoding/24a98a8db207cbf699a3d4d4938e1501.png)
+![Java 面试指南专栏的认可](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106105056.png)
 
 学习和求职的路上，最怕的就是漫无目的和不知所措，有了方向和优质的学习资料，就像吃了蘑菇的超级马里奥，不仅可以承受更多的伤害，攻击力也会变大一倍。而我下面提到的 Java 面试指南+面渣逆袭就恰好就能给你这样的帮助🤔。
 
@@ -82,7 +82,7 @@ head:
 
 看到这就心动的小伙伴可以直接扫下面的 30 元优惠券解锁文档。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
 
 加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后，在星球的第一个置顶帖「球友必看」里查看专栏的语雀地址和密码。
 
@@ -90,9 +90,9 @@ head:
 
 ## 二、更多优质专栏
 
-除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务 PmHub 教程](https://javabetter.cn/zhishixingqiu/pmhub.html)》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《算法突击 50 题》、《华为 OD 笔试题》等六个额外的专栏。
+除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务 PmHub 教程](https://javabetter.cn/zhishixingqiu/pmhub.html)》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《华为 OD 笔试题》、《一灰的职场进阶之路》等六个额外的专栏。
 
-![高质量的专栏](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625134716.png)
+![高质量的专栏](https://cdn.tobebetterjavaer.com/stutymore/readme-20250227222750.png)
 
 ### 01、技术派实战教程
 
@@ -175,12 +175,11 @@ admin 端星球白名单：
 
 ![二哥的 LeetCode 刷题笔记](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215214.png)
 
-### 04、算法突击 50 题
+### 04、一灰的职场进阶之路
 
-准备秋招/春招/社招的小伙伴不少，但往往时间比较紧张，很多小伙伴精力有限，所以我这里精选了 50 道高频算法题，作为笔试的重点突击题型，可以在短时间内最大效率地提升你的笔试通过率。
+首次对星球用户开放的内容，非常适合初入职场的小伙伴。一灰是华中科技大学本硕高材生，又先后在大厂和国企任职，完成了从技术尖兵到技术 leader 的蜕变，他的职场经历和心得，对于初入职场的小伙伴来说，是非常有价值的。
 
-
-![算法突击 50 题](https://cdn.tobebetterjavaer.com/paicoding/2cc34d528c2cddc50f768f1a0774ed59.png)
+![一灰的职场进阶之路](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303152803.png)
 
 
 ### 05、华为 OD 笔试 AB 卷题库
@@ -210,7 +209,7 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 心动的小伙伴抓紧时间扫下面的 **30 元优惠券**加入了，这绝对是你今年最值得的一笔投资！
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
 
 我了解过，光这份秋招投递名单，有博主就卖 99 元，而在 Java 面试指南里，它只是 221 份文档中的一个文档而已。
 
@@ -326,7 +325,7 @@ PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜�
 
 小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![并发编程微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20241012163129.png)
+![并发编程微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20250304093534.png)
 
 再多说一句，[《二哥的JVM进阶之路》](https://javabetter.cn/jvm/)的内容也整理完了。主要包含下面这些主题：
 
@@ -357,7 +356,7 @@ PDF 版本已经在星球发布了，分为 3 个版本，暗黑版（适合夜�
 
 小册会持续保持**更新**，如果想获得最新版，请加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)后在星球第二个置顶帖「知识图谱」中获取 PDF 版本，10 万+字，100+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读。
 
-![JVM 微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20241012163228.png)
+![JVM 微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20250304093249.png)
 
 
 最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。共勉 💪。

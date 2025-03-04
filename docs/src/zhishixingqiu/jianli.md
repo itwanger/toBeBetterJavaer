@@ -209,7 +209,7 @@ head:
 
 如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 7400+位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 159 元，我真的不希望你等到 179 元的时候再加入。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
 
 ## 03、列一些我修改后的简历效果截图吧
 
