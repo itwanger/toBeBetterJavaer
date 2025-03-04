@@ -18,7 +18,7 @@ head:
 
 **不管是学生党还是工作党，都是非常刚需的，尤其是在越来越激烈的面试竞争中**，就像这位球友发出的感慨。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/24a98a8db207cbf699a3d4d4938e1501.png)
+![Java 面试指南专栏的认可](https://cdn.tobebetterjavaer.com/paicoding/24a98a8db207cbf699a3d4d4938e1501.png)
 
 学习和求职的路上，最怕的就是漫无目的和不知所措，有了方向和优质的学习资料，就像吃了蘑菇的超级马里奥，不仅可以承受更多的伤害，攻击力也会变大一倍。而我下面提到的 Java 面试指南+面渣逆袭就恰好就能给你这样的帮助🤔。
 

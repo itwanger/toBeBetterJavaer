@@ -25,9 +25,15 @@ head:
 
 ![球友们发自内心对星球的评价](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106103555.png)
 
-学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。来星球的球友几乎都斩获不错的成绩，有美团、华为等大厂，也有 16k 的双非本、甚至 23k 的大专社招，我随便发几个球友报喜的截图给大家展示下。
+学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。
 
-度小满、专科生、国企：
+## 一、星球取得的成绩
+
+来星球的球友，99.99% 都斩获了不错的成绩，有京东 60 万年包、美团 SSP、华为 15C，还有腾讯 SP、字节 SSP、百度SP 等等，也有 16k 的小厂、20k 的中厂，甚至还有 50 万年包的独角兽。
+
+先放一下 24 届球友的喜报，给大家炫耀下（😄）。
+
+度小满、外包、国企：
 
 ![度小满、专科生、国企](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221211916.png)
 
@@ -35,48 +41,248 @@ head:
 
 ![华为、小红书、美团](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
 
-再补充一些 25 届同学的 offer 截图，这些都是星球里的球友，他们的成功经历也是星球的成功（我骄傲了吗？嗯，骄傲了🤣）。
+再补充一些 25 届球友的喜报，他们的成功也是二哥的骄傲（都是手把手辅导过的，能不骄傲嘛🤣）。
 
-华为和京东、快手、百度、华为：
+华为、京东、快手、百度：
 
 ![二哥编程星球 25 届秋招战果1](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106103702.png)
 
-滴滴和百度、字节sp、美团、腾讯和京东、蚂蚁金服：
+滴滴、百度、字节sp、美团、腾讯、京东、蚂蚁金服：
 
 ![二哥编程星球 25 届秋招战果2](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106103901.png)
 
 
-携程和饿了么、男朋友华为小米，自己京东：
+携程、饿了么、华为、小米、京东：
 
 ![二哥编程星球 25 届秋招战果3](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106104241.png)
 
-太多太多，我就不一一列了。
+太多太多，我就不一一炫耀了。嗯，还是再炫耀几个吧，26 届腾讯暑期实习offer、25 届春招携程和滴滴、26 届百度测开实习 offer、两个美团的日常实习 offer、一个民办本拿下杭州独角兽 offer。
 
-记住一点，早就是优势，大家可以看一下这位球友的心路历程，**是真的后悔没有早一点入，享受更多的优惠和更早的服务**。
+![暑期实习 offer、携程和滴滴、百度测开](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303113529.png)
 
-面渣逆袭对大家的帮助、后来来星球晚了、简历修改的认可、对星球的认可：
+![年前美团实习 offer](https://cdn.tobebetterjavaer.com/stutymore/readme-20250227223846.png)
+
+![民办本拿下杭州独角兽 offer](https://cdn.tobebetterjavaer.com/stutymore/readme-20250227224024.png)
+
+记住一点，早就是优势，大家可以看一下大家对二哥编程星球、面渣逆袭、开源项目的评价。
 
 ![球友们真实评价](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106104721.png)
 
-星球最开始的定价是 99 元，第二波是 109 元，第三波是 119 元，后来是 129 元，现在星球门票也涨到了 149 元，老读者看到这就真的不要再犹豫了，立马加入就对了，每天不到 0.33 元，但对你的学习和求职真的帮助特别大。
+其中一位球友是这样说的：**是真的后悔没有早一点加入二哥编程星球，享受更多的优惠和更早的服务**。还有一位球友是这样说的：你的课实在是太好了。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+我自己夸自己总显得王婆卖瓜自卖自夸，有了球友们真实的反馈，我就不用再多说什么了。
 
-星球的不断发展壮大，也能印证这一点，二哥的编程星球的确得到了大家的认可。新项目 [pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html) 刚上线，搞一搞人气，这里再给大家补发一波 30 元优惠券，超超超低价 119 元给到大家。可以去其他的星球对比一下，绝对超值。
+其实不只是付费的内容对大家有帮助，二哥开源的 Java 进阶之路知识库，也帮助了很多小伙伴，GitHub 上 13000+ star 就是最好的佐证。
 
-## 一、五份高质量的专栏
+其中就包括大家耳熟能详的[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)，看过的小伙伴可以举手表态一下：
 
-二哥的编程星球目前已经上线了五份高质量的付费专栏：《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务项目 PmHub 教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《编程喵实战项目笔记》和《二哥的 LeetCode 刷题笔记》。
+![面渣逆袭](https://cdn.tobebetterjavaer.com/stutymore/readme-20250227224345.png)
 
-![五份高质量的专栏](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625134716.png)
+星球最开始的定价是 99 元，第二波是 109 元，第三波是 119 元，后来是 129 元、149 元，现在星球门票也涨到了 159 元（149 元的价格承诺会在发文后保留最后 2 天，以后就再也没有这个价格了）
 
-目前 5 个专栏已经非常完整和饱满了。不管是学生党还是工作党，都是非常刚需的，尤其是在越来越激烈的面试竞争中，就像这位球友在阅读完《Java 面试指南》后发出的感慨。
+老读者看到这就真的不要再犹豫了，立马加入就对了，每天不到 0.35 元，但对你的学习和求职帮助远大于这个门票的价值。
+
+这里再给大家补发一波 30 元优惠券，超超超低价 129 元给到大家。可以去其他的付费社群对比一下，绝对性价比拉满，看到的球友一定要抓紧时间占坑。
+
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
+
+这不，原计划用到 25 年 10 月份的 1000 张优惠券又用完了，这逼迫着我不得不重新发新的优惠券，并且还要修改文案，好麻烦。
+
+![需要发新的优惠券了](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303113758.png)
+
+晒一张北邮球友对星球价值的认可截图，我直接贴原话：“项目和Java进阶的学习，加上您在答疑板块的细致解答，已经改变了我的未来。回想当初刚加入星球时，我对很多技术一无所知，每天偷偷在上课时学习您的进阶之路，今天的进步离不开星球的帮助。”
+
+![球友对二哥编程星球的认可，真感动了](https://cdn.tobebetterjavaer.com/stutymore/readme-20250227104300.png)
+
+星球从 0 人，到现在的 7400+人，也能印证这一点。毫不夸张的说，二哥的编程星球就是付费圈子里性价比最高的社群，没有之一。
+
+之所以没有定价 299、365，是因为二哥是从农村走出来的孩子，我知道钱来之不易，我希望大家把不多的零花钱都花在最值的地方。
+
+并且是溢价到爆的那种。比你花 5000 块买训练营，比你花 3 万块报培训班都要值那种。
+
+黑格尔曾说，一个民族的希望，寄托在那些仰望星空的人。我不是多高尚的人，但我绝对是一个纯粹的人。我希望二哥的编程星球，能成为大家的星空，带大家从迷茫、焦虑走出来，拿到一个满足预期的 offer，甚至多个。
+
+## 二、简历修改服务
+
+大家都知道，简历是敲门砖。
+
+但很多小伙伴在写简历的时候不得要领，看似花费了很多时间和经历，但实际的效果却不尽如人意，看第一眼就会让人失去继续看下去的勇气。
+
+比如说专业技能这样写：非常笼统，拳拳到肉的很少。
+
+![专业技能写的很乱](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303143624.png)
+
+比如说项目经历这样写：全是业务，没有技术栈的应用，没有量化数据。
+
+![项目经历全是业务](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303143651.png)
+
+但经过二哥修改后的简历，都能快速拿到面试机会，甚至 offer 的进程都加快了。
+
+来，直接上证据。😄
+
+这位球友直言，修改后的简历几乎所有大厂都过了初筛，滴滴和腾讯也走完了所有面：
+
+![二哥修改后的简历几乎所有大厂都过了初筛](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113221.png)
+
+有球友改完简历，就拿到了快手的面试，还顺利通过了：
+
+![二哥修改后的简历过了简历初筛](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113556.png)
+
+现在是26 届暑期实习的高峰期，二哥每天都会修改超过 40 份简历，虽然很累，但同时也证明二哥的服务有了口碑。
+
+![每天修改超过 40 份简历，真的夸张](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303145953.png)
+
+但不像其他人，修改一份简历要 299 元（说实话也不贵），甚至 600 元以上，二哥修改简历的前提条件只有一个，就是只要你是[星球会员](https://javabetter.cn/zhishixingqiu/)，就可以免费修改简历。
+
+![299 元修改一次简历](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303150239.png)
+
+并且是不限次数哦，直到改到我满意为止（注意是我，不是你，我的要求会比绝大多数 HR/面试官都高）。看看球友的反馈“请您原谅，您简直太认真负责了，我深感惭愧。”
+
+![球友对简历修改建议的认可](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240904095436.png)
+
+看看 25 届秋招时候修改的 118 份简历，建议超过 10 万字，这是多么恐怖的一个概念。
+
+![2024年 8 月 14日简历修改](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114116.png)
+
+注意，我修改简历是全方位的，不仅仅是基本信息、教育背景、专业技能、实习经历、项目经历、荣誉奖项，还会包括简历的排版、字体、颜色、行距、段距、对齐、关键字大小写等等细节。
+
+![二哥修改简历绝逼到位](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114211.png)
+
+其实能不能捞到面试机会，从发出简历的那一刻就决定了。
+
+好的简历其实扫一眼就能感受出来，从基本信息到教育经历，就会让你忍不住想要立刻马上发面试邀请。
+
+![给大家一个参考](https://cdn.tobebetterjavaer.com/paicoding/1e2f9b15ef2c2a4b7b0d8ee6f439ba5d.png)
+
+截止到目前，累计至少看过 3000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
+
+光 2023 年的简历修改建议，出好几本书都没问题。
+
+![二哥的编程星球：简历修改](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
+
+经过这么多年的经验积累，有点炉火纯青的感觉，能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。星球的小伙伴直接点击【简历修改】菜单就可以看到以往修改的简历信息。
+
+![简历修改建议](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819152027.png)
+
+这里也是要感谢球友们的执行力和及时反馈，每次收到球友们的感谢信，真的非常开心，能帮大家解决问题，内心隐藏的那份虚荣心也是得到了极大的满足。
+
+有复旦大学的球友反馈，修改后的简历解决了他暑期实习的困惑。
+
+![复旦大学的球友](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133240.png)
+
+有四川大学的球友反馈，在二哥的指导下成功入职百度。
+
+![四川大学的球友获得百度实习 offer](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819151830.png)
+
+来看看专业技能修改后的效果：
+
+![来看一下修改后的结果](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303145131.png)
+
+来看看项目经历修改后的效果：
+
+![项目经历修改后的效果](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303151320.png)
+
+说句良心话，单纯简历修改的服务，就能值回票价。
+
+如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 7400+位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 159 元，我真的不希望你等到 179 元的时候再加入。
+
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
+
+## 三、六份高质量的付费专栏
+
+二哥的编程星球目前已经上线了六份高质量的付费专栏：《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务项目 PmHub 教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《编程喵实战项目笔记》、《二哥的 LeetCode 刷题笔记》和《一灰的职场进阶之路》。
+
+![六份高质量的专栏](https://cdn.tobebetterjavaer.com/stutymore/readme-20250227222750.png)
+
+目前 6 个专栏已经非常完整和饱满了。不管是学生党还是工作党，都是非常刚需的，尤其是在越来越激烈的面试竞争中。就像这位球友在阅读完《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》后发出的感慨。
 
 ![Java 面试指南非常的刚需](https://cdn.tobebetterjavaer.com/stutymore/readme-20250106105056.png)
 
-学习和求职的路上，最怕的就是漫无目的和不知所措，有了方向和优质的学习资料，就像吃了蘑菇的超级马里奥，不仅可以承受更多的伤害，攻击力也会变大一倍 😄。
+学习和求职的路上，最怕的就是漫无目的和不知所措，有了方向和优质的学习资料，相信 90% 的小伙伴都能像吃了蘑菇的超级马里奥，不仅可以承受更多的伤害，攻击力也会变大一倍 😄。
 
-### 01、Java 面试指南
+### 01、技术派教程
+
+技术派是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的 UI 设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目 👍 。
+
+用户端首页：
+
+![技术派用户端首页](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215933.png)
+
+admin 端星球白名单：
+
+![技术派 admin 端星球白名单页](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220010.png)
+
+如果你正在参加秋招，并且简历上没有什么亮眼的项目可以写，那么技术派绝对是一个非常优质的选择。星球里已经有不少球友把技术派写到简历上了，并且效果非常好，我这里随便举几个例子。
+
+![技术派如何写到简历上-模板 1](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172107.png)
+
+![技术派如何写到简历上-模板 2](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172634.png)
+
+除了这些，我又追加了很多亮点[供大家把技术派写到简历上](https://paicoding.com/column/6/16)，以解决大家不知道怎么去写简历的痛苦。
+
+![简历上的技术派写法：N 多种](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172734.png)
+
+这是我们目前用到的一些主流技术栈（Spring Boot、MyBatis-Plus、Redis、Caffeine、ES、RabbitMQ、Docker、WebSocket、Kafka、JWT、SpringSecurity 等等），可以说非常强大了，都是互联网开发中主流的技术栈。
+
+![技术派使用到的技术栈](https://cdn.tobebetterjavaer.com/paicoding/5b5a782289c2d4edf99238628fca6803.png)
+
+我的画图能力一般，但为了画出美观些的架构图，拼了老命了，兄弟姐妹们。
+
+![技术派的架构图](https://cdn.tobebetterjavaer.com/paicoding/6ba4bb5ce5a2ecfa983e99d9162faae4.png)
+
+给大家展示一下[技术派上线当天](https://mp.weixin.qq.com/s/ywJ0v_BG32HeJ3NpkTvk2w)的好评吧，真的是如潮水一般汹涌！
+
+![一些朋友的支持](https://cdn.tobebetterjavaer.com/paicoding/30a8d5bdcfa7e6094dffb1ccb735521f.png)
+
+[技术派这个项目上线后](https://javabetter.cn/zhishixingqiu/paicoding.html)，一直广受好评，球友们的认可度非常的高。
+
+![技术派直播后的帖子点赞数爆多](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625140852.png)
+
+下面是部分目录，已更新 120 篇，包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇等，很多球友都反馈说光这套教程就值 2999 元。
+
+![技术派的完整教程目录](https://cdn.tobebetterjavaer.com/paicoding/f2b985dda7cb9e4c6e764940ef2887aa.png)
+
+### 02、pmhub 教程
+
+2024 年 4 月份，我和星球嘉宾苍何一起成立了《[来个 offer](https://github.com/laigeoffer)》组织，旨在通过实战项目帮助渴望进步的小伙伴拿到一个更好的 offer。
+
+[PmHub](https://pmhub.laigeoffer.cn) 是我们推出的第二个实战项目，采用时下企业最热门的技术框架，如 SpringCloud、Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
+
+如果你是正在准备秋招的 25 届应届生，PmHub 写到简历上绝对可以让你脱颖而出，本来拿白菜，结果硬是拿到 SSP；本来进不了大厂修不了福报，结果硬是 offer 拿到手软；本来去不了国企银行的，结果硬是微微一笑迷晕面试官。
+
+如果你是正在准备社招的工作党，PmHub 写到简历绝对能让你的身价提高一大截，原本是扭扭捏捏的 CRUD Boy，结果成了微服务/分布式的技术专家。
+
+![PmHub首页概览](https://cdn.tobebetterjavaer.com/stutymore/1719412227941-391d1ca0-e312-4e81-a958-2eff29dbecd7.png)
+
+- **热门技术**：采用时下企业最热门的技术框架，如 SpringCloud、Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
+- **单体与微服务**：提供单体和微服务两个版本，完美照顾零基础和需要进阶的同学，带大家体验从单体到微服务架构的改造全过程，并深入理解两种架构的优缺点。
+- **硬核面试题**：我们将结合付费球友的实际面试体验，为大家提供可以真正吊打面试官的真是面试场景和题目，并提供 1v1 的简历修改服务，主打一个投了就有、面了就拿 offer 的快乐体感。
+- **代码质量**：由蚂蚁金服工作过的技术专家苍何亲自下场，严格遵循代码规范和最佳实践，帮大家养成优雅的代码编写习惯。
+- **持续集成**：提供持续集成和持续部署的完整配置，带你从 0-1 用 Docker 上线 生产环境级别的真实项目。
+- **产品设计**：[提供完整的产品设计文档](https://lanhuapp.com/link/#/invite?sid=qxZji4oa)，包括产品需求、产品架构、产品原型等，这是别的项目不曾给你的，但工作后又不可或缺的能力。
+- **企业工作流**：提供企业级的工作流系统，代码完全开源，你可以在此基础上进行二开，为公司节省巨额的研发成本，从而升职加薪。
+
+为了让大家“无痛”掌握 PmHub，我们耗费了巨大心血，从项目立项，到代码编写、测试、部署，再到教程撰写，前后足足经历了 5 个月的时间，为大家更新了 [60 篇 25 万字的硬核教程](https://javabetter.cn/zhishixingqiu/pmhub.html)。
+
+![PmHub 教程：seata 分布式事务](https://cdn.tobebetterjavaer.com/stutymore/1719413041169-f278d2d3-d3a1-43c6-b789-e851ca3c7fe7.png)
+
+就比如说这篇《Seata 分布式事务保证任务审批状态一致性》的内容，足足 6825 字，详细讲解了 Seata 分布式事务的原理、实现、以及如何保证任务审批状态一致性，让你从理论到实践，通通掌握明白。
+
+![Seata 分布式事务保证任务审批状态一致性](https://cdn.tobebetterjavaer.com/stutymore/03.如何学习PmHub-20240702145210.png)
+
+更关键的是，我们还提供了如何将 PmHub 写入到简历中的全套模板。
+
+![如何把 PmHub 写到简历上](https://cdn.tobebetterjavaer.com/stutymore/readme-20240709151909.png)
+
+说句实在话，就 PmHub 和技术派这两个实战项目，就也能值回票价了。
+
+如果你在准备日常实习/暑期实习/秋招/春招/社招的过程中，缺少项目经历，那这两个项目可以说是救命药。可以问问你的直系学长或者学姐，就知道这俩项目有多香了。
+
+已经有 7400+位球友加入二哥的编程星球了，所以别再犹豫，价格已经从 99 元一路涨到了 159 元，我真的不希望你等到 179 元的时候再加入。
+
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
+
+### 03、Java 面试指南
 
 截止到目前，《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》已经更新了 **80万+字**，可以说是满满的干货和诚意。
 
@@ -107,80 +313,6 @@ head:
 
 ![给出详细的面试回答套路](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723110015.png)
 
-### 02、pmhub 教程
-
-2024 年 4 月份，我和星球嘉宾苍何一起成立了《[来个 offer](https://github.com/laigeoffer)》组织，旨在通过实战项目帮助渴望进步的小伙伴拿到一个更好的 offer。
-
-[PmHub](https://pmhub.laigeoffer.cn) 是我们推出的第二个实战项目，采用时下企业最热门的技术框架，如 SpringCloud、Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
-
-如果你是正在准备秋招的 25 届应届生，PmHub 写到简历上绝对可以让你脱颖而出，本来拿白菜，结果硬是拿到 SSP；本来进不了大厂修不了福报，结果硬是 offer 拿到手软；本来去不了国企银行的，结果硬是微微一笑迷晕面试官。
-
-如果你是正在准备社招的工作党，PmHub 写到简历绝对能让你的身价提高一大截，原本是扭扭捏捏的 CRUD Boy，结果成了微服务/分布式的技术专家。
-
-![PmHub首页概览](https://cdn.tobebetterjavaer.com/stutymore/1719412227941-391d1ca0-e312-4e81-a958-2eff29dbecd7.png)
-
-- **热门技术**：采用时下企业最热门的技术框架，如 SpringCloud、Gateway、Nacos、Sentinel 等，主打一个硬核，与真实的企业项目接轨。
-- **单体与微服务**：提供单体和微服务两个版本，完美照顾零基础和需要进阶的同学，带大家体验从单体到微服务架构的改造全过程，并深入理解两种架构的优缺点。
-- **硬核面试题**：我们将结合付费球友的实际面试体验，为大家提供可以真正吊打面试官的真是面试场景和题目，并提供 1v1 的简历修改服务，主打一个投了就有、面了就拿 offer 的快乐体感。
-- **代码质量**：由蚂蚁金服工作过的技术专家苍何亲自下场，严格遵循代码规范和最佳实践，帮大家养成优雅的代码编写习惯。
-- **持续集成**：提供持续集成和持续部署的完整配置，带你从 0-1 用 Docker 上线 生产环境级别的真实项目。
-- **产品设计**：[提供完整的产品设计文档](https://lanhuapp.com/link/#/invite?sid=qxZji4oa)，包括产品需求、产品架构、产品原型等，这是别的项目不曾给你的，但工作后又不可或缺的能力。
-- **企业工作流**：提供企业级的工作流系统，代码完全开源，你可以在此基础上进行二开，为公司节省巨额的研发成本，从而升职加薪。
-
-为了让大家“无痛”掌握 PmHub，我们耗费了巨大心血，从项目立项，到代码编写、测试、部署，再到教程撰写，前后足足经历了 5 个月的时间，并且我们还计划再用 3 个月的时间，为大家再更新 [60 篇预计 25 万字的硬核教程](https://javabetter.cn/zhishixingqiu/pmhub.html)。
-
-![PmHub 教程：seata 分布式事务](https://cdn.tobebetterjavaer.com/stutymore/1719413041169-f278d2d3-d3a1-43c6-b789-e851ca3c7fe7.png)
-
-就比如说这篇《Seata 分布式事务保证任务审批状态一致性》的内容，足足 6825 字，详细讲解了 Seata 分布式事务的原理、实现、以及如何保证任务审批状态一致性，让你从理论到实践，通通掌握明白。
-
-![Seata 分布式事务保证任务审批状态一致性](https://cdn.tobebetterjavaer.com/stutymore/03.如何学习PmHub-20240702145210.png)
-
-更关键的是，我们还提供了如何将 PmHub 写入到简历中的全套模板。
-
-![如何把 PmHub 写到简历上](https://cdn.tobebetterjavaer.com/stutymore/readme-20240709151909.png)
-
-### 03、技术派教程
-
-技术派是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的 UI 设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目 👍 。
-
-用户端首页：
-
-![技术派用户端首页](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221215933.png)
-
-admin 端星球白名单：
-
-![技术派 admin 端星球白名单页](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220010.png)
-
-如果你正在参加秋招，并且简历上没有什么亮眼的项目可以写，那么技术派绝对是一个非常优质的选择。星球里已经有不少球友把技术派写到简历上了，并且效果非常好，我这里随便举几个例子。
-
-![技术派如何写到简历上-模板 1](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172107.png)
-
-![技术派如何写到简历上-模板 2](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172634.png)
-
-除了这些，我又追加了很多亮点[供大家把技术派写到简历上](https://paicoding.com/article/detail/472)，以解决大家不知道怎么去写简历的痛苦。
-
-![简历上的技术派写法：N 多种](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172734.png)
-
-这是我们目前用到的一些主流技术栈（Spring Boot、MyBatis-Plus、Redis、Caffeine、ES、RabbitMQ、Docker、WebSocket、Kafka、JWT、SpringSecurity 等等），可以说非常强大了，都是互联网开发中主流的技术栈。
-
-![技术派使用到的技术栈](https://cdn.tobebetterjavaer.com/paicoding/5b5a782289c2d4edf99238628fca6803.png)
-
-我的画图能力一般，但为了画出美观些的架构图，拼了老命了，兄弟姐妹们。
-
-![技术派的架构图](https://cdn.tobebetterjavaer.com/paicoding/6ba4bb5ce5a2ecfa983e99d9162faae4.png)
-
-给大家展示一下[技术派上线当天](https://mp.weixin.qq.com/s/ywJ0v_BG32HeJ3NpkTvk2w)的好评吧，真的是如潮水一般汹涌！
-
-![一些朋友的支持](https://cdn.tobebetterjavaer.com/paicoding/30a8d5bdcfa7e6094dffb1ccb735521f.png)
-
-[技术派这个项目上线后](https://javabetter.cn/zhishixingqiu/paicoding.html)，一直广受好评，球友们的认可度非常的高。
-
-![技术派直播后的帖子点赞数爆多](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625140852.png)
-
-下面是部分目录，已更新 120 篇，包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇等，很多球友都反馈说光这套教程就值 2999 元。
-
-![技术派的完整教程目录](https://cdn.tobebetterjavaer.com/paicoding/f2b985dda7cb9e4c6e764940ef2887aa.png)
-
 ### 04、二哥的 LeetCode 刷题笔记
 
 《二哥的 LeetCode 刷题笔记》，不仅有详细地解题思路，还增加了 ACM 输入输出模式，方便大家在 IDEA 中进行调试，并且会模拟整个题解过程，让大家看完后会有一种“哦哦”恍然大悟的感觉，力求教会大家举一反三的解题能力。
@@ -193,13 +325,19 @@ admin 端星球白名单：
 
 ![编程喵教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-88bb2da2-d198-403c-8adc-1abc5240ef5b.png)
 
-看到这就迫不及待想要加入的小伙伴，直接扫下面这个二维码，**新人直减 30 元，优惠完每天不到 0.33 元，真的划算**！
+### 06、一灰的职场进阶之路
+
+首次对星球用户开放的内容，非常适合初入职场的小伙伴。一灰是华中科技大学本硕高材生，又先后在大厂和国企任职，完成了从技术尖兵到技术 leader 的蜕变，他的职场经历和心得，对于初入职场的小伙伴来说，是非常有价值的。
+
+![一灰的职场进阶之路](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303152803.png)
+
+看到这就迫不及待想要加入的小伙伴，直接扫下面这个二维码，**新人直减 30 元，优惠完每天不到 0.35 元，真的划算**！
 
 ![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
-随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，星球能够提供给大家的价值也会越来越多，所以星球也会涨价到 159 元、169 元，以此类推，所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理（😁）。
+随着时间的推移，加入二哥编程星球的球友会越来越多，二哥投入的时间也会越来越多，星球能够提供给大家的价值也会越来越多，所以星球也会涨价到 169 元、179 元，以此类推，所以，想要改变自己的小伙伴还是要趁早加入，**早就是优势**是继牛顿万有引力定律之后最永恒的真理（😁）。
 
-## 二、星球还提供什么服务？
+## 四、星球还提供什么服务？
 
 除了上面提到的 5 份高质量专栏，星球还可以给你提供以下服务：
 
@@ -207,9 +345,11 @@ admin 端星球白名单：
 
 二哥辅导过的球友有学生党、工作党，学历更是遍布研究生、985、211、普通本科、大专生、高中生等等，基本上你遇到的那些棘手问题，在这里都能得到一个满意的答案。
 
-![覆盖面极光](https://cdn.tobebetterjavaer.com/stutymore/readme-20230401103014.png)
+![更新一波最新的球友提问](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303153439.png)
 
-在星球里，二哥已经回答超过 1000 个问题了，这些问题包括如何准备面试，如何制定学习计划，如何选择 offer，以及职场规划等等。来看看球友们的提问得到二哥答复后的真实反馈吧。
+![23 年以前的球友提问覆盖面极广](https://cdn.tobebetterjavaer.com/stutymore/readme-20230401103014.png)
+
+在星球里，二哥已经回答超过 5000 个问题了，这些问题包括如何准备面试，如何制定学习计划，如何选择 offer，以及职场规划等等。来看看球友们的提问得到二哥答复后的真实反馈吧。
 
 ![星球回答的问题能够得到球友的正反馈](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220302.png)
 
@@ -227,7 +367,7 @@ admin 端星球白名单：
 
 往年秋招中的很多球友已经凭借这星球里的原创实战项目斩获了诸多 offer，成了令人羡慕的 offer 收割机。
 
-![技术派的](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220412.png)
+![技术派拿到蚂蚁的 offer](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303154141.png)
 
 看看技术派上线后球友们的反馈吧：
 
@@ -265,15 +405,13 @@ admin 端星球白名单：
 
 ![球友们贡献的各种视频资源](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-49508f06-bb55-4102-82da-61305eae241a.png)
 
-**5）为你提供容易被忽视但又十分重要的简历指导服务**，二哥会事无巨细地帮你指出简历上的问题，打造一份投了就有声音的优质简历。
 
-![看看这专业技能，多专业](https://cdn.tobebetterjavaer.com/paicoding/f42950edac8bf2fbdfe9111895ad687a.png)
 
-![看看这项目经历，多扎实](https://cdn.tobebetterjavaer.com/paicoding/78aaf8464b0fae71282858e1a61ee701.png)
+**5）为你创造一个沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
 
-**6）为你创造一个沉浸式的学习环境**，二哥的编程星球自上线以来，氛围非常好，有一种高中初中上晚自习，大学进图书馆的感觉，每天都会有很多球友积极打卡，分享自己一天的学习成果。
+![2025年春招暑期实习](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303154537.png)
 
-![连续打卡的球友](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e4f4b7ec-5852-487c-afb6-570f49af4ad5.png)
+![2022年连续打卡的球友](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-e4f4b7ec-5852-487c-afb6-570f49af4ad5.png)
 
 学习的路上，最怕孤独和没有方向，而二哥的编程星球正好可以为大家提供这样一个学习环境。
 
@@ -291,7 +429,7 @@ admin 端星球白名单：
 
 ![操作系统内存管理的思维导图](https://cdn.tobebetterjavaer.com/paicoding/6e2e1083253db23bc9bf40af15916578.png)
 
-**7）无限期使用技术派的 AI 助手「派聪明」**，目前已经开通了讯飞星火和 OpenAI 双通道供大家学习使用。
+**6）无限期使用技术派的 AI 助手「派聪明」**，目前已经开通了 DeepSeek、豆包、通义千问、讯飞星火和 OpenAI 多通道供大家学习使用。
 
 ![派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20241012162807.png)
 
@@ -309,9 +447,9 @@ admin 端星球白名单：
 
 看到这就下定决心加入二哥编程星球的小伙伴，可以长按识别或者扫下面这个 30 元的优惠券，早买早享受！
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
 
-## 三、为什么要创建知识星球呢？
+## 五、为什么要创建知识星球呢？
 
 这要从二哥成长的故事说起了。
 
@@ -321,11 +459,11 @@ admin 端星球白名单：
 
 ![进阶之路和技术派](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220956.png)
 
-下图是我的原创公号「**沉默王二**」在二十次幂「开发者」中的上周排名，放在全国范围内，能排到 TOP 5 非常不容易了吧。二哥来自农村，家境非常一般，也非天资聪慧，能做出这个成绩，应该更适合普通人拿来作为参照物吧。
+下图是我的原创公号「**沉默王二**」在 2024年取得的一点成绩，3000 多万次阅读，放在全国范围内， 绝对能排到 TOP 1。二哥来自农村，家境非常一般，也非天资聪慧，能做出这个成绩，不仅需要个人的努力，还需要时代的运气，更离不开大家的一路陪伴和支持。
 
-![二哥的公众号在全国技术号里名列前茅](https://cdn.tobebetterjavaer.com/paicoding/cb48e72599cfea25f1dcb5d19412388e.png)
+![二哥的公众号在全国技术号里名列前茅](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303155136.png)
 
-公众号更是写出了无数篇爆款，10 万+很多，被迫成为了很多流量党的模仿和抄袭对象（😭）。
+粗略估计，2024 年的 10万+ 有 100 多篇，被迫成为了很多技术博主的模仿和抄袭对象、抄标题、封面、行文风格，甚至文章排版，离谱的很（😭）。
 
 下图是我在 CSDN 上取得的一些成绩：**两届博客之星**，1200 多万的博客访问量，40 多万的粉丝关注，帮助过许许多多的小伙伴。
 
@@ -365,7 +503,7 @@ admin 端星球白名单：
 
 经过一年多的努力，二哥的编程星球在知识星球的官方排行榜也名列前茅，受到越来越多小伙伴的喜欢和认可。
 
-![在优质星球排名榜一](https://cdn.tobebetterjavaer.com/stutymore/readme-20240709152805.png)
+![在优质星球排名榜一](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303155624.png)
 
 针对一些缺乏自律&自主学习能力的小伙伴，二哥会变身贴心的班主任指导你制定学习计划，并且监督你每日学习打卡，**来这里感受一段时间后，你就会悄然改变，成为一个积极向上的人**。
 
@@ -373,9 +511,9 @@ admin 端星球白名单：
 
 看到这已经不再犹豫的小伙伴，可以长按识别或者扫下面这个 30 元的优惠券加入二哥的编程星球，30 元不仅是 2024 年也是 2025 年的最大优惠力度！
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
 
-## 四、什么是知识星球？
+## 六、什么是知识星球？
 
 简单来介绍一下知识星球吧，可能第一次接触星球的小伙伴还不太了解。知识星球是一个私密的付费学习圈子，可以在网页端查看，也可以在 APP 端查看或者在微信小程序上查看（安卓用户直接在应用市场搜索知识星球，苹果用户直接在 AppStore 中搜知识星球下载安装，通过微信扫码登录，非常方便）。
 
@@ -399,7 +537,7 @@ admin 端星球白名单：
 
 可以说是干货满满、价值连城、物超所值，如果你能够认真读完每个帖子的话，相信一定会大有所获。
 
-## 五、星球里有哪些可爱的球友？
+## 七、星球里有哪些可爱的球友？
 
 **一个人可以走得很快，但一群人才能走得更远**。二哥编程星球里的每个球友都非常的友善，除了鼓励你，还会给你提出合理的建议。他们虽然来自五湖四海，但都拥有着一颗积极向上，力求改变自我的心！
 
@@ -457,18 +595,18 @@ admin 端星球白名单：
 
 ![二哥编程星球-每天进步](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221221506.png)
 
-## 六、下定决心加入了
+## 八、下定决心加入了
 
 相信看到这里的你已经迫不及待、下定决心加入二哥的编程星球了，扫下面的二维码或者长按识别付费后就可以加入了。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
 
 
-星球目前定价**149 元/年，并且会送你 30 元的优惠券**，但提供的服务远远超出了 119 元 这个价格可以承载的价值。
+星球目前定价**159 元/年，并且会送你 30 元的优惠券**，但提供的服务远远超出了 129 元这个价格可以承载的价值。
 
-随着时间推移，星球积累的干货会越来越多，加入星球的小伙伴也会越来越多，我花在星球上的时间也会越来越多。所以星球也会逐步提高门槛，下一次就是 **159 元/年**！再下一次就是 **169 元/年**。
+随着时间推移，星球积累的干货会越来越多，加入星球的小伙伴也会越来越多，我花在星球上的时间也会越来越多。所以星球也会逐步提高门槛，下一次就是 **169 元/年**！再下一次就是 **179 元/年**。
 
-加入后记得添加我的微信（扫下面的二维码），备注「**星球编号**」我会拉你进星球的 VIP 交流群，目前已经是第 8 群了。
+加入后记得添加我的微信（扫下面的二维码），备注「**星球编号**」我会拉你进星球的 VIP 交流群，目前已经是第 10 群了。
 
 ![二哥编程星球-VIP 交流群](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png)
 
