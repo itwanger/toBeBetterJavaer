@@ -239,94 +239,105 @@ memo：2025 年 2 月 27 日修改至此。给大家看[一条球友的面经](h
 
 ### 3.说一下数据库的三大范式？
 
-三大范式的作用是为了减少数据冗余，提高数据完整性。
-
 ![三分恶面渣逆袭：数据库三范式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16e74a6b-a42a-464e-9b10-0252ee7ecc6e.jpg)
 
-①、第一范式：确保表的每一列都是不可分割的基本数据单元，比如说用户地址，应该拆分成省、市、区、详细信息等 4 个字段。
+第一范式，确保表的每一列都是不可分割的基本数据单元，比如说用户地址，应该拆分成省、市、区、详细地址等 4 个字段。
 
 ![Ruthless：第一范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093235.png)
 
-②、第二范式：要求表中的每一列都和主键直接相关，而不能只与主键的某一部分相关。
-
-比如在一个订单表中，可能会存在订单编号和商品编号。
+第二范式，要求表中的每一列都和主键直接相关。比如在订单表中，商品名称、单位、商品价格等字段应该拆分到商品表中。
 
 ![Ruthless：不符合第二范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093351.png)
 
-这个订单表中就存在冗余数据，比如说商品名称、单位、商品价格等，应该将其拆分为订单表、订单商品关联表、商品表。
+然后新建一个订单商品关联表，用订单编号和商品编号进行关联就好了。
 
 ![Ruthless：订单商品关联表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093726.png)
 
-③、第三范式：非主键列应该只依赖于主键列，不依赖于其他非主键列。
-
-比如说在设计订单信息表的时候，可以把客户名称、所属公司、联系方式等信息拆分到客户信息表中，然后在订单信息表中用客户编号进行关联。
+第三范式，非主键列应该只依赖于主键列。比如说在设计订单信息表的时候，可以把客户名称、所属公司、联系方式等信息拆分到客户信息表中，然后在订单信息表中用客户编号进行关联。
 
 ![Ruthless：第三范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418094332.png)
 
-#### 建表的时候考虑哪些问题？
+#### 建表的时候需要考虑哪些问题？
 
-在建表的时候，首先可以考虑表是否符合数据库范式，也就是确保字段不可再分，消除非主键依赖，确保字段仅依赖于主键。
+首先需要考虑表是否符合数据库的三大范式，确保字段不可再分，消除非主键依赖，确保字段仅依赖于主键等。
 
-然后在选择字段类型时，尽量选择合适的数据类型。
+然后在选择字段类型时，应该尽量选择合适的数据类型。
 
 在字符集上，尽量选择 utf8mb4，这样不仅可以支持中文和英文，还可以支持表情符号等。
 
-当数据量较大时（比如上千万行数据），需要考虑分表。比如订单表，可以采用水平分表的方式来分散存储压力。
+当数据量较大时，比如上千万行数据，需要考虑分表。比如订单表，可以采用水平分表的方式来分散单表存储压力。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：什么是三大范式，为什么要有三大范式，什么场景下不用遵循三大范式，举一个场景
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：建表考虑哪些问题
 
 ### 4.varchar 与 char 的区别？
 
-![varchar](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-40f42d59-a295-4543-8a03-43925da4d6d9.jpg)
+varchar 是可变长度的字符类型，原则上最多可以容纳 65535 个字符，但考虑字符集，以及 MySQL 需要 1 到 2 个字节来表示字符串长度，所以实际上最大可以设置到 65533。
 
-**char**：
+>latin1 字符集，且列属性定义为 NOT NULL。
 
-- char 表示定长字符串，长度是固定的；
-- 如果插入数据的长度小于 char 的固定长度时，则用空格填充；
-- 因为长度固定，所以存取速度要比 varchar 快很多，甚至能快 50%，但正因为其长度固定，所以会占据多余的空间，是空间换时间的做法；
-- 对于 char 来说，最多能存放的字符个数为 255，和编码无关
+![三分恶面渣逆袭：varchar和 char](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-40f42d59-a295-4543-8a03-43925da4d6d9.jpg)
 
-**varchar**：
+char 是固定长度的字符类型，当定义一个 `CHAR(10)` 字段时，不管实际存储的字符长度是多少，都只会占用 10 个字符的空间。如果插入的数据小于 10 个字符，剩余的部分会用空格填充。
 
-- varchar 表示可变长字符串，长度是可变的；
-- 插入的数据是多长，就按照多长来存储；
-- varchar 在存取方面与 char 相反，它存取慢，因为长度不固定，但正因如此，不占据多余的空间，是时间换空间的做法；
-- 对于 varchar 来说，最多能存放的字符个数为 65532
-
-日常的设计，对于长度相对固定的字符串，可以使用 char，对于长度不确定的，使用 varchar 更合适一些。
+值|	CHAR(4)|	存储需求（字节）|	VARCHAR(4)|	存储需求（字节）
+---|---|---|---|---
+''|	'    '|	4|	''|	1
+'ab'|	'ab   '|	4|	'ab'|	3
+'abcd'|	'abcd'|	4|	'abcd'|	5
+'abcdefgh'|	'abcd'|	4|	'abcd'|	5
 
 ### 5.blob 和 text 有什么区别？
 
-- blob 用于存储二进制数据，而 text 用于存储大字符串。
-- blob 没有字符集，text 有一个字符集，并且根据字符集的校对规则对值进行排序和比较
+blob 用于存储二进制数据，比如图片、音频、视频、文件等；但实际开发中，我们都会把这些文件存储到 OSS 或者文件服务器上，然后在数据库中存储文件的 URL。
 
-### 6.DATETIME 和 TIMESTAMP 的异同？
+text 用于存储文本数据，比如文章、评论、日志等。
 
-**相同点**：
+>memo：2025 年 2 月 28 日修改至此。今天有球友反馈拿到了理想汽车的补录 offer， 真的恭喜了！
 
-1.  两个数据类型存储时间的表现格式一致。均为 `YYYY-MM-DD HH:MM:SS`
-2.  两个数据类型都包含「日期」和「时间」部分。
-3.  两个数据类型都可以存储微秒的小数秒（秒后 6 位小数秒）
+![别问，问就是给的薪资待遇很 ok](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250301165545.png)
 
-**区别**：
+### 6.DATETIME 和 TIMESTAMP 有什么区别？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d94e5e1c-2614-4b8b-acdb-efb333032854.jpg)
+DATETIME 直接存储日期和时间的完整值，与时区无关。
 
-DATETIME 和 TIMESTAMP 的区别
+TIMESTAMP 存储的是 Unix 时间戳，1970-01-01 00:00:01 UTC 以来的秒数，受时区影响。
 
-1.  **日期范围**：DATETIME 的日期范围是 `1000-01-01 00:00:00.000000` 到 `9999-12-31 23:59:59.999999`；TIMESTAMP 的时间范围是`1970-01-01 00:00:01.000000` UTC ` 到 ``2038-01-09 03:14:07.999999 ` UTC
-2.  **存储空间**：DATETIME 的存储空间为 8 字节；TIMESTAMP 的存储空间为 4 字节
-3.  **时区相关**：DATETIME 存储时间与时区无关；TIMESTAMP 存储时间与时区有关，显示的值也依赖于时区
-4.  **默认值**：DATETIME 的默认值为 null；TIMESTAMP 的字段默认不为空(not null)，默认值为当前时间(CURRENT_TIMESTAMP)
+![三分恶面渣逆袭：DATETIME 和 TIMESTAMP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d94e5e1c-2614-4b8b-acdb-efb333032854.jpg)
+
+另外，DATETIME 的默认值为 null，占用 8 个字节；TIMESTAMP 的默认值为当前时间——CURRENT_TIMESTAMP，占 4 个字节，实际开发中更常用，因为可以自动更新。
+
+![二哥的 Java 进阶之路：更新时不用 set 更新时间](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250301170530.png)
 
 ### 7.in 和 exists 的区别？
 
-MySQL 中的 in 语句是把外表和内表作 hash 连接，而 exists 语句是对外表作 loop 循环，每次 loop 循环再对内表进行查询。我们可能认为 exists 比 in 语句的效率要高，这种说法其实是不准确的，要区分情景：
+当使用 IN 时，MySQL 会首先执行子查询，然后将子查询的结果集用于外部查询的条件。这意味着子查询的结果集需要全部加载到内存中。
 
-1.  如果查询的两个表大小相当，那么用 in 和 exists 差别不大。
-2.  如果两个表中一个较小，一个是大表，则子查询表大的用 exists，子查询表小的用 in。
-3.  not in 和 not exists：如果查询语句使用了 not in，那么内外表都进行全表扫描，没有用到索引；而 not extsts 的子查询依然能用到表上的索引。所以无论那个表大，用 not exists 都比 not in 要快。
+而 EXISTS 会对外部查询的每一行，执行一次子查询。如果子查询返回任何行，则 `EXISTS` 条件为真。`EXISTS` 关注的是子查询是否返回行，而不是返回的具体值。
+
+```sql
+-- IN 的临时表可能成为性能瓶颈
+SELECT * FROM users 
+WHERE id IN (SELECT user_id FROM orders WHERE amount > 100);
+
+-- EXISTS 可以利用关联索引
+SELECT * FROM users u
+WHERE EXISTS (SELECT 1 FROM orders o 
+            WHERE o.user_id = u.id AND o.amount > 100);
+```
+
+`IN` 适用于子查询结果集较小的情况。如果子查询返回大量数据，`IN` 的性能可能会下降，因为它需要将整个结果集加载到内存。
+
+而 EXISTS 适用于子查询结果集可能很大的情况。由于 `EXISTS` 只需要判断子查询是否返回行，而不需要加载整个结果集，因此在某些情况下性能更好，特别是当子查询可以使用索引时。
+
+
+#### NULL值陷了解吗？
+
+`IN`: 如果子查询的结果集中包含 `NULL` 值，可能会导致意外的结果。例如，`WHERE column IN (subquery)`，如果 `subquery` 返回 `NULL`，则 `column IN (subquery)` 永远不会为真，除非 `column` 本身也为 `NULL`。
+
+`EXISTS`: 对 `NULL` 值的处理更加直接。`EXISTS` 只是检查子查询是否返回行，不关心行的具体值，因此不受 `NULL` 值的影响。
+
+memo：2025 年 3 月 1 日修改至此。
 
 ### 8.记录货币用什么字段类型比较好？
 

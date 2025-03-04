@@ -130,7 +130,7 @@ PmHub 是由前蚂蚁金服技术专家苍何和二哥一起主导的，一套�
 
 ![瞧瞧二哥编程星球的这口碑](https://cdn.tobebetterjavaer.com/stutymore/03.如何学习PmHub-20240702163200.png)
 
-看到这就想加入二哥编程星球的话，请扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 149 元/年，优惠完只需要 119 元，每天不到 0.33 元，绝对的超值。
+看到这就想加入二哥编程星球的话，请扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 159 元/年，优惠完只需要 129 元，每天不到 0.35 元，绝对的超值。
 
 ![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
@@ -350,11 +350,11 @@ PmHub原型图在线查看地址：[https://lanhuapp.com/link/#/invite?sid=qxZji
 
 ## 07、PmHub 的未来
 
-相信看到这里的小伙伴，已经开始摩拳擦掌，想现在立刻马上开搞 PmHub 了。那欢迎大家扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 149 元/年，优惠完只需要 119 元，每天不到 0.33 元，绝对的超值。
+相信看到这里的小伙伴，已经开始摩拳擦掌，想现在立刻马上开搞 PmHub 了。那欢迎大家扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 159 元/年，优惠完只需要 129 元，每天不到 0.35 元，绝对的超值。
 
 ![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
 
-星球目前已经 6100+ 人了，新一轮涨价已经箭在弦上，毕竟人多了，我们付出的时间成本也会更多，相信大家也都能理解。
+星球目前已经 7400+ 人了，新一轮涨价已经箭在弦上，毕竟人多了，我们付出的时间成本也会更多，相信大家也都能理解。
 
 加入[「二哥的编程星球」](https://laigeoffer.cn/zsxq/)后，你还可以享受以下专属内容服务：
 
