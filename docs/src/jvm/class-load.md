@@ -63,7 +63,7 @@ public class Test {
 
 ### 1）Loading（载入）
 
-JVM 在该阶段的目的是将字节码从不同的数据源（可能是 class 文件、也可能是 jar 包，甚至网络）转化为二进制字节流加载到内存中，并生成一个代表该类的 `java.lang.Class` 对象（在学[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)的时候有讲过）。
+JVM 在该阶段的目的是从不同的数据源（可能是 class 文件、也可能是 jar 包，甚至网络）读取二进制字节流，并加载到内存中。JVM再做一些解析(将字节码解析为方法区中的 类元数据)，最后生成一个代表该类的 `java.lang.Class` 对象（在学[反射](https://javabetter.cn/basic-extra-meal/fanshe.html)的时候有讲过）。
 
 ### 2）Verification（验证）
 
