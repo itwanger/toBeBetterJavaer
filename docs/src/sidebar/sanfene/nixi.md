@@ -22,6 +22,12 @@ head:
 
 ![求职的同学靠面渣逆袭吊打面试官，闭环了](https://cdn.tobebetterjavaer.com/stutymore/nixi-20240802112329.png)
 
+还有读者问怎么付费购买纸质版[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)，说看到网友有这个，好羡慕啊。说实话，第一眼看到这个封面，真的觉得挺惊艳（虽然是我设计的）。😄
+
+![读者已经把面渣逆袭彩印了，好漂亮啊](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250319163123.png)
+
+
+
 >下面我将用三弟来代替作者三分恶滴滴，方便行文逻辑。
 
 ## 内容体系全面
