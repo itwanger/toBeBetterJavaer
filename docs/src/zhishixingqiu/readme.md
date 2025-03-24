@@ -608,7 +608,7 @@ admin 端星球白名单：
 
 加入后记得添加我的微信（扫下面的二维码），备注「**星球编号**」我会拉你进星球的 VIP 交流群，目前已经是第 10 群了。
 
-![二哥编程星球-VIP 交流群](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-c773d5ff-4458-4d92-868b-2d1d95d6a409.png)
+![二哥编程星球-VIP 交流群](https://cdn.tobebetterjavaer.com/paicoding/image-c043ce76c05f421fb8422fb6a704740d.png)
 
 郑重声明（加粗加粗）：**如果感觉不值得或者不满意，这里郑重承诺可以免费体验三天，三天内知识星球 APP 右上角都可以直接全额退款！无任何套路**。
 

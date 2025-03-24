@@ -339,236 +339,203 @@ WHERE EXISTS (SELECT 1 FROM orders o
 
 memo：2025 年 3 月 1 日修改至此。
 
-### 8.记录货币用什么字段类型比较好？
+### 8.记录货币用什么类型比较好？
 
-货币在数据库中 MySQL 常用 Decimal 和 Numeric 类型表示，这两种类型被 MySQL 实现为同样的类型。他们被用于保存与货币有关的数据。
+如果是电商、交易、账单等涉及货币的场景，建议使用 DECIMAL 类型，因为 DECIMAL 类型是精确数值类型，不会出现浮点数计算误差。
 
-例如 salary DECIMAL(9,2)，9(precision)代表将被用于存储值的总的小数位数，而 2(scale)代表将被用于存储小数点后的位数。存储在 salary 列中的值的范围是从-9999999.99 到 9999999.99。
+例如，`DECIMAL(19,4)` 可以存储最多 19 位数字，其中 4 位是小数。
 
-DECIMAL 和 NUMERIC 值作为字符串存储，而不是作为二进制浮点数，以便保存那些值的小数精度。
+```sql
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT,
+    amount DECIMAL(19,4),
+    PRIMARY KEY (id)
+);
+```
 
-之所以不使用 float 或者 double 的原因：因为 float 和 double 是以二进制存储的，所以有一定的误差。
+如果是银行，涉及到支付的场景，建议使用 BIGINT 类型。可以将货币金额乘以一个固定因子，比如 100，表示以“分”为单位，然后存储为 `BIGINT`。这种方式既避免了浮点数问题，同时也提供了不错的性能。但在展示的时候需要除以相应的因子。
+
+#### 为什么不推荐使用 FLOAT 或 DOUBLE？
+
+因为 FLOAT 和 DOUBLE 都是浮点数类型，会存在精度问题。
+
+在许多编程语言中，`0.1 + 0.2` 的结果会是类似 `0.30000000000000004` 的值，而不是预期的 `0.3`。
 
 ### 9.怎么存储 emoji?
 
-MySQL 的 utf8 字符集仅支持最多 3 个字节的 UTF-8 字符，但是 emoji 表情（😊）是 4 个字节的 UTF-8 字符，所以在 MySQL 中存储 emoji 表情时，需要使用 utf8mb4 字符集。
+因为 emoji（😊）是 4 个字节的 UTF-8 字符，而 MySQL 的 utf8 字符集只支持最多 3 个字节的 UTF-8 字符，所以在 MySQL 中存储 emoji 时，需要使用 utf8mb4 字符集。
 
 ```sql
 ALTER TABLE mytable CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
+``` 
 
 MySQL 8.0 已经默认支持 utf8mb4 字符集，可以通过 `SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';` 查看。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418103116.png)
+![二哥的 Java 进阶之路：查看 MySQL 的默认字符集](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418103116.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：mysql 怎么存 emoji，怎么编码
 
 ### 10.drop、delete 与 truncate 的区别？
 
-三者都表示删除，但是三者有一些差别：
+DROP 是物理删除，用来删除整张表，包括表结构，且不能回滚。
 
-| 区别     | delete                                   | truncate                       | drop                                               |
-| -------- | ---------------------------------------- | ------------------------------ | -------------------------------------------------- |
-| 类型     | 属于 DML                                 | 属于 DDL                       | 属于 DDL                                           |
-| 回滚     | 可回滚                                   | 不可回滚                       | 不可回滚                                           |
-| 删除内容 | 表结构还在，删除表的全部或者一部分数据行 | 表结构还在，删除表中的所有数据 | 从数据库中删除表，所有数据行，索引和权限也会被删除 |
-| 删除速度 | 删除速度慢，需要逐行删除                 | 删除速度快                     | 删除速度最快                                       |
+DELETE 支持行级删除，可以带 WHERE 条件，可以回滚。
 
-因此，在不再需要一张表的时候，用 drop；在想删除部分数据行时候，用 delete；在保留表而删除所有数据的时候用 truncate。
+TRUNCATE 用于清空表中的所有数据，但会保留表结构，不能回滚。
+
+memo：2025 年 3 月 4 日修改至此。给大家传递一个喜报，一位球友拿到了科大讯飞的 offer，这薪资在合肥真的会很香。
+
+![一位球友拿到了科大讯飞的 offer，春招](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250304161556.png)
 
 ### 11.UNION 与 UNION ALL 的区别？
 
-- 如果使用 UNION，会在表链接后筛选掉重复的记录行
-- 如果使用 UNION ALL，不会合并重复的记录行
-- 从效率上说，UNION ALL 要比 UNION 快很多，如果合并没有刻意要删除重复行，那么就使用 UNION All
+UNION 会自动去除合并后结果集中的重复行。UNION ALL 不会去重，会将所有结果集合并起来。
 
 ### 12.count(1)、count(\*) 与 count(列名) 的区别？
 
-![三种计数方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2c754ee2-20c4-4c03-9db0-22c7c9eb7f01.jpg)
+在 InnoDB 引擎中，`COUNT(1)` 和 `COUNT(*)` 没有区别，都是用来统计所有行，包括 NULL。
 
-**执行效果**：
+如果表有索引，`COUNT(*)` 会直接用索引统计，而不是全表扫描，而 `COUNT(1)` 也会被 MySQL 优化为 `COUNT(*)`。
 
-- count(\*)包括了所有的列，相当于行数，在统计结果的时候，不会忽略列值为 NULL
-- count(1)包括了忽略所有列，用 1 代表代码行，在统计结果的时候，不会忽略列值为 NULL
-- count(列名)只包括列名那一列，在统计结果的时候，会忽略列值为空（这里的空不是只空字符串或者 0，而是表示 null）的计数，即某个字段值为 NULL 时，不统计。
+`COUNT(列名)` 只统计列名不为 NULL 的行数。
 
-**执行速度**：
+```
+-- 假设 users 表：
++----+-------+------------+
+| id | name  | email      |
++----+-------+------------+
+| 1  | 张三  | zhang@xx.com |
+| 2  | 李四  | NULL       |
+| 3  | 王二  | wang@xx.com |
++----+-------+------------+
 
-- 列名为主键，count(列名)会比 count(1)快
-- 列名不为主键，count(1)会比 count(列名)快
-- 如果表多个列并且没有主键，则 count（1） 的执行效率优于 count（\*）
-- 如果有主键，则 select count（主键）的执行效率是最优的
-- 如果表只有一个字段，则 select count（\*）最优。
+-- COUNT(*)
+SELECT COUNT(*) FROM users;
+-- 结果：3  （统计所有行）
 
-### 13.SQL 查询语句的执行顺序了解吗？
+-- COUNT(1)
+SELECT COUNT(1) FROM users;
+-- 结果：3  （统计所有行）
 
-![查询语句执行顺序](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-47ddea92-cf8f-49c4-ab2e-69a829ff1be2.jpg)
-
-1.  **FROM**：对 FROM 子句中的左表<left_table>和右表<right_table>执行笛卡儿积（Cartesianproduct），产生虚拟表 VT1
-2.  **ON**：对虚拟表 VT1 应用 ON 筛选，只有那些符合<join_condition>的行才被插入虚拟表 VT2 中
-3.  **JOIN**：如果指定了 OUTER JOIN（如 LEFT OUTER JOIN、RIGHT OUTER JOIN），那么保留表中未匹配的行作为外部行添加到虚拟表 VT2 中，产生虚拟表 VT3。如果 FROM 子句包含两个以上表，则对上一个连接生成的结果表 VT3 和下一个表重复执行步骤 1）～步骤 3），直到处理完所有的表为止
-4.  **WHERE**：对虚拟表 VT3 应用 WHERE 过滤条件，只有符合<where_condition>的记录才被插入虚拟表 VT4 中
-5.  **GROUP BY**：根据 GROUP BY 子句中的列，对 VT4 中的记录进行分组操作，产生 VT5
-6.  **CUBE|ROLLUP**：对表 VT5 进行 CUBE 或 ROLLUP 操作，产生表 VT6
-7.  **HAVING**：对虚拟表 VT6 应用 HAVING 过滤器，只有符合<having_condition>的记录才被插入虚拟表 VT7 中。
-8.  **SELECT**：第二次执行 SELECT 操作，选择指定的列，插入到虚拟表 VT8 中
-9.  **DISTINCT**：去除重复数据，产生虚拟表 VT9
-10. **ORDER BY**：将虚拟表 VT9 中的记录按照<order_by_list>进行排序操作，产生虚拟表 VT10。11）
-11. **LIMIT**：取出指定行的记录，产生虚拟表 VT11，并返回给查询用户
-
-### 14.介绍一下 MySQL 的常用命令（补充）
-
-> 2024 年 03 月 13 日增补，可以先向面试官确认一下，“您提到的常用命令是指数据库表的增删改查 SQL 吗？”得到确认答复后可以根据下面这张思维导图作答：
-
-![](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240313093551.png)
-
-#### 说说数据库操作命令？
-
-①、**创建数据库**:
-
-```sql
-CREATE DATABASE database_name;
+-- COUNT(email)
+SELECT COUNT(email) FROM users;
+-- 结果：2  （NULL 不计入统计）
 ```
 
-②、**删除数据库**:
+这里解释一下，假设有这样一张表：
 
 ```sql
-DROP DATABASE database_name;
-```
-
-③、**选择数据库**:
-
-```sql
-USE database_name;
-```
-
-#### 说说表操作命令？
-
-①、**创建表**:
-
-```sql
-CREATE TABLE table_name (
-    column1 datatype,
-    column2 datatype,
-    ...
+CREATE TABLE t1 (
+    id INT,
+    name VARCHAR(50),
+    value INT
 );
 ```
 
-②、**删除表**:
+插入的数据为：
 
 ```sql
-DROP TABLE table_name;
+INSERT INTO t1 VALUES 
+    (1, 'A', 10),
+    (2, 'B', NULL),  -- NULL in value column
+    (3, 'C', 30),
+    (4, NULL, 40),   -- NULL in name column
+    (5, 'E', NULL);  -- NULL in value column
 ```
 
-③、**显示所有表**:
+因为 id 列没有索引，所以 `select count(*)` 是全表扫描。
+
+![二哥的 Java 进阶之路：count(\*)全表扫描](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305181629.png)
+
+然后我们给 id 列加上索引。
 
 ```sql
-SHOW TABLES;
+alter table t1 add primary key (id);
 ```
 
-④、**查看表结构**:
+![二哥的 Java 进阶之路：修改t1主键](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305181907.png)
+
+再来看一下 `select count(*)`，发现用了索引（MySQL 默认为给主键添加索引）。
+
+![二哥的 Java 进阶之路：count(\*)走了索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305182117.png)
+
+另外，MySQL 8.0 官方手册有明确说明，InnoDB 引擎对 `SELECT COUNT(*)` 和 `SELECT COUNT(1)` 的处理方式完全一致，性能并无差异。
+
+![二哥的 Java 进阶之路：MySQL 8.0 官方手册](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305183220.png)
+
+memo：2025 年 3 月 5 日修改至此。再晒一个喜报给正在刷八股的你，[一位球友](https://javabetter.cn/zhishixingqiu/)拿到了咪咕的大模型应用开发，很不错的方向，恭喜了！给你也加加好运🍀buff，你也加把劲。
+
+![球友拿到了咪咕的大模型开发实习](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305183751.png)
+
+### 13.SQL 查询语句的执行顺序了解吗？
+
+了解。先执行 FROM 确定主表，再执行 JOIN 连接，然后 WHERE 进行过滤，接着 GROUP BY 进行分组，HAVING 过滤聚合结果，SELECT 选择最终列，ORDER BY 排序，最后 LIMIT 限制返回行数。
+
+WHERE 先执行是为了减少数据量，HAVING 只能过滤聚合数据，ORDER BY 必须在 SELECT 之后排序最终结果，LIMIT 最后执行以减少数据传输。
+
+![博客园数据派：查询语句执行顺序](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250306153200.png)
+
+执行顺序|	SQL 关键字|	作用
+---|---|---
+①|	FROM|	确定主表，准备数据
+②|	ON|	连接多个表的条件
+③|	JOIN|	执行 INNER JOIN / LEFT JOIN 等
+④|	WHERE|	过滤行数据（提高效率）
+⑤|	GROUP BY|	进行分组
+⑥|	HAVING|	过滤聚合后的数据
+⑦|	SELECT|	选择最终返回的列
+⑧|	DISTINCT|	进行去重
+⑨|	ORDER BY|	对最终结果排序
+⑩|	LIMIT|	限制返回行数
+
+这个执行顺序与编写 SQL 语句的顺序不同，这也是为什么有时候在 SELECT 子句中定义的别名不能在 WHERE 子句中使用得原因，因为 WHERE 是在 SELECT 之前执行的。
+
+#### LIMIT 为什么在最后执行？
+
+因为 LIMIT 是在最终结果集上执行的，如果在 WHERE 之前执行 LIMIT，那么就会先返回所有行，然后再进行 LIMIT 限制，这样会增加数据传输的开销。
+
+#### ORDER BY 为什么在 SELECT 之后执行？
+
+因为排序需要基于最终返回的列，如果 ORDER BY 早于 SELECT 执行，计算 `COUNT(*)` 之类的聚合函数就会出问题。
 
 ```sql
-DESCRIBE table_name;
+SELECT name, COUNT(*) AS order_count
+FROM orders
+GROUP BY name
+ORDER BY order_count DESC;
 ```
 
-⑤、**修改表**（添加列）:
+### 14.介绍一下 MySQL 的常用命令（补充）
 
-```sql
-ALTER TABLE table_name ADD column_name datatype;
-```
+> 2024 年 03 月 13 日增补。
 
-#### 说说 CRUD 命令？
+![二哥的 Java 进阶之路：MySQL常用命令](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240313093551.png)
 
-①、**插入数据**:
+MySQL 的常用命令主要包括数据库操作命令、表操作命令、行数据 CRUD 命令、索引和约束的创建修改命令、用户和权限管理的命令、事务控制的命令等。
 
-```sql
-INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
-```
+#### 说说数据库操作命令？
 
-②、**查询数据**:
+`CREATE DATABASE database_name;` 用于创建数据库；`DROP DATABASE database_name;` 用于删除数据库；`SHOW DATABASES;` 用于显示所有数据库；`USE database_name;` 用于切换数据库。
 
-```sql
-SELECT column_names FROM table_name WHERE condition;
-```
+#### 说说表操作命令？
 
-③、**更新数据**:
+`CREATE TABLE table_name (列名1 数据类型1, 列名2 数据类型2,...);` 用于创建表；`DROP TABLE table_name;` 用于删除表；`SHOW TABLES;` 用于显示所有表；`DESCRIBE table_name;` 用于查看表结构；`ALTER TABLE table_name ADD column_name datatype;` 用于修改表。
 
-```sql
-UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
-```
+#### 说说行数据的 CRUD 命令？
 
-④、**删除数据**:
-
-```sql
-DELETE FROM table_name WHERE condition;
-```
+`INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);` 用于插入数据；`SELECT column_names FROM table_name WHERE condition;` 用于查询数据；`UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;` 用于更新数据；`DELETE FROM table_name WHERE condition;` 用于删除数据。
 
 #### 说说索引和约束的创建修改命令？
 
-①、**创建索引**:
-
-```sql
-CREATE INDEX index_name ON table_name (column_name);
-```
-
-②、**添加主键约束**:
-
-```sql
-ALTER TABLE table_name ADD PRIMARY KEY (column_name);
-```
-
-③、**添加外键约束**:
-
-```sql
-ALTER TABLE table_name ADD CONSTRAINT fk_name FOREIGN KEY (column_name) REFERENCES parent_table (parent_column_name);
-```
+`CREATE INDEX index_name ON table_name (column_name);` 用于创建索引；`ALTER TABLE table_name ADD PRIMARY KEY (column_name);` 用于添加主键；`ALTER TABLE table_name ADD CONSTRAINT fk_name FOREIGN KEY (column_name) REFERENCES parent_table (parent_column_name);` 用于添加外键。
 
 #### 说说用户和权限管理的命令？
 
-①、**创建用户**:
-
-```sql
-CREATE USER 'username'@'host' IDENTIFIED BY 'password';
-```
-
-②、**授予权限**:
-
-```sql
-GRANT ALL PRIVILEGES ON database_name.table_name TO 'username'@'host';
-```
-
-③、**撤销权限**:
-
-```sql
-REVOKE ALL PRIVILEGES ON database_name.table_name FROM 'username'@'host';
-```
-
-④、**删除用户**:
-
-```sql
-DROP USER 'username'@'host';
-```
+`CREATE USER 'username'@'host' IDENTIFIED BY 'password';` 用于创建用户；`GRANT ALL PRIVILEGES ON database_name.table_name TO 'username'@'host';` 用于授予权限；`REVOKE ALL PRIVILEGES ON database_name.table_name FROM 'username'@'host';` 用于撤销权限；`DROP USER 'username'@'host';` 用于删除用户。
 
 #### 说说事务控制的命令？
 
-①、**开始事务**:
-
-```sql
-START TRANSACTION;
-```
-
-②、**提交事务**:
-
-```sql
-COMMIT;
-```
-
-③、**回滚事务**:
-
-```sql
-ROLLBACK;
-```
+`START TRANSACTION;` 用于开始事务；`COMMIT;` 用于提交事务；`ROLLBACK;` 用于回滚事务。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：介绍一下 MySQL 的常用命令
 
@@ -578,11 +545,13 @@ ROLLBACK;
 
 推荐阅读：[MySQL bin 目录下的一些可执行文件](https://javabetter.cn/mysql/bin.html)
 
-- mysql：客户端程序，用于连接 MySQL 服务器
-- mysqldump：一个非常实用的 MySQL 数据库备份工具，用于创建一个或多个 MySQL 数据库级别的 SQL 转储文件，包括数据库的表结构和数据。对数据备份、迁移或恢复非常重要。
-- mysqladmin：mysql 后面加上 admin 就表明这是一个 MySQL 的管理工具，它可以用来执行一些管理操作，比如说创建数据库、删除数据库、查看 MySQL 服务器的状态等。
-- mysqlcheck：mysqlcheck 是 MySQL 提供的一个命令行工具，用于检查、修复、分析和优化数据库表，对数据库的维护和性能优化非常有用。
-- mysqlimport：用于从文本文件中导入数据到数据库表中，非常适合用于批量导入数据。
+了解的。MySQL 的 bin 目录下有很多可执行文件，主要用于管理 MySQL 服务器、数据库、表、数据等。比如说：
+
+- mysql：用于连接 MySQL 服务器
+- mysqldump：用于数据库备份，对数据备份、迁移或恢复时非常有用
+- mysqladmin：用来执行一些管理操作，比如说创建数据库、删除数据库、查看 MySQL 服务器的状态等。
+- mysqlcheck：用于检查、修复、分析和优化数据库表，对数据库的维护和性能优化非常有用。
+- mysqlimport：用于从文本文件中导入数据到数据库表中，适合批量数据导入。
 - mysqlshow：用于显示 MySQL 数据库服务器中的数据库、表、列等信息。
 - mysqlbinlog：用于查看 MySQL 二进制日志文件的内容，可以用于恢复数据、查看数据变更等。
 
@@ -590,13 +559,13 @@ ROLLBACK;
 
 > 2024 年 03 月 30 日增补
 
-在 MySQL 中，要查询第 3 到第 10 条记录，可以使用 limit 语句，结合偏移量 offset 和行数 row_count 来实现。
-
-limit 语句用于限制查询结果的数量，偏移量表示从哪条记录开始，行数表示返回的记录数量。
+可以使用 limit 语句，结合偏移量和行数来实现。
 
 ```sql
 SELECT * FROM table_name LIMIT 2, 8;
 ```
+
+limit 语句用于限制查询结果的数量，偏移量表示从哪条记录开始，行数表示返回的记录数量。
 
 - 2：偏移量，表示跳过前两条记录，从第三条记录开始。
 - 8：行数，表示从偏移量开始，返回 8 条记录。
@@ -609,16 +578,15 @@ SELECT * FROM table_name LIMIT 2, 8;
 
 > 2024 年 04 月 12 日增补
 
-MySQL 支持很多内置函数，包括执行计算、格式转换、日期处理等。我说一些自己常用的（~~挑一些自己熟悉的~~）。
+用过挺多的，比如说处理字符串的函数：
 
-#### 用过哪些字符串函数来处理文本？
-
-- `CONCAT()`: 连接两个或多个字符串。
-- `LENGTH()`: 返回字符串的长度。
+- `CONCAT()`: 用于连接两个或多个字符串。
+- `LENGTH()`: 用于返回字符串的长度。
 - `SUBSTRING()`: 从字符串中提取子字符串。
 - `REPLACE()`: 替换字符串中的某部分。
-- `LOWER()` 和 `UPPER()`: 分别将字符串转换为小写或大写。
 - `TRIM()`: 去除字符串两侧的空格或其他指定字符。
+
+实测数据：
 
 ```sql
 -- 连接字符串
@@ -633,33 +601,21 @@ SELECT SUBSTRING('沉默 王二', 1, 5) AS substring;
 -- 替换字符串内容
 SELECT REPLACE('沉默 王二', '王二', 'MySQL') AS replaced_string;
 
--- 字符串转小写
-SELECT LOWER('HELLO WORLD') AS lower_case;
-
--- 字符串转大写
-SELECT UPPER('hello world') AS upper_case;
-
 -- 去除字符串两侧的空格
 SELECT TRIM('  沉默 王二  ') AS trimmed_string;
 ```
 
-#### 用过哪些数值函数？
+处理数字的函数：
 
 - `ABS()`: 返回一个数的绝对值。
-- `CEILING()`: 返回大于或等于给定数值的最小整数。
-- `FLOOR()`: 返回小于或等于给定数值的最大整数。
 - `ROUND()`: 四舍五入到指定的小数位数。
 - `MOD()`: 返回除法操作的余数。
+
+实测数据：
 
 ```sql
 -- 返回绝对值
 SELECT ABS(-123) AS absolute_value;
-
--- 向上取整
-SELECT CEILING(123.45) AS ceiling_value;
-
--- 向下取整
-SELECT FLOOR(123.45) AS floor_value;
 
 -- 四舍五入
 SELECT ROUND(123.4567, 2) AS rounded_value;
@@ -668,14 +624,12 @@ SELECT ROUND(123.4567, 2) AS rounded_value;
 SELECT MOD(10, 3) AS modulus;
 ```
 
-#### 用过哪些日期和时间函数？
+日期和时间处理函数：
 
 - `NOW()`: 返回当前的日期和时间。
 - `CURDATE()`: 返回当前的日期。
-- `CURTIME()`: 返回当前的时间。
-- `DATE_ADD()` 和 `DATE_SUB()`: 在日期上加上或减去指定的时间间隔。
-- `DATEDIFF()`: 返回两个日期之间的天数。
-- `DAY()`, `MONTH()`, `YEAR()`: 分别返回日期的日、月、年部分。
+
+实测数据：
 
 ```sql
 -- 返回当前日期和时间
@@ -683,27 +637,15 @@ SELECT NOW() AS current_date_time;
 
 -- 返回当前日期
 SELECT CURDATE() AS current_date;
-
--- 返回当前时间
-SELECT CURTIME() AS current_time;
-
--- 在日期上添加天数
-SELECT DATE_ADD(CURDATE(), INTERVAL 10 DAY) AS date_in_future;
-
--- 计算两个日期之间的天数
-SELECT DATEDIFF('2024-12-31', '2024-01-01') AS days_difference;
-
--- 返回日期的年份
-SELECT YEAR(CURDATE()) AS current_year;
 ```
 
-#### 用过哪些汇总函数？
+汇总函数：
 
 - `SUM()`: 计算数值列的总和。
 - `AVG()`: 计算数值列的平均值。
 - `COUNT()`: 计算某列的行数。
-- `MAX()` 和 `MIN()`: 分别返回列中的最大值和最小值。
-- `GROUP_CONCAT()`: 将多个行值连接为一个字符串。
+
+实测数据：
 
 ```sql
 -- 创建一个表并插入数据进行聚合查询
@@ -724,16 +666,12 @@ SELECT AVG(sales_amount) AS average_sales FROM sales;
 
 -- 计算总行数
 SELECT COUNT(*) AS total_entries FROM sales;
-
--- 最大值和最小值
-SELECT MAX(sales_amount) AS max_sale, MIN(sales_amount) AS min_sale FROM sales;
 ```
 
-#### 用过哪些逻辑函数？
+逻辑函数：
 
 - `IF()`: 如果条件为真，则返回一个值；否则返回另一个值。
 - `CASE`: 根据一系列条件返回值。
-- `COALESCE()`: 返回参数列表中的第一个非 NULL 值。
 
 ```sql
 -- IF函数
@@ -741,31 +679,6 @@ SELECT IF(1 > 0, 'True', 'False') AS simple_if;
 
 -- CASE表达式
 SELECT CASE WHEN 1 > 0 THEN 'True' ELSE 'False' END AS case_expression;
-
--- COALESCE函数
-SELECT COALESCE(NULL, NULL, 'First Non-Null Value', 'Second Non-Null Value') AS first_non_null;
-```
-
-#### 用过哪些格式化函数？
-
-- `FORMAT()`: 格式化数字为格式化的字符串，通常用于货币显示。
-
-```sql
--- 格式化数字
-SELECT FORMAT(1234567.8945, 2) AS formatted_number;
-```
-
-#### 用过哪些类型转换函数？
-
-- `CAST()`: 将一个值转换为指定的数据类型。
-- `CONVERT()`: 类似于`CAST()`，用于类型转换。
-
-```sql
--- CAST函数
-SELECT CAST('2024-01-01' AS DATE) AS casted_date;
-
--- CONVERT函数
-SELECT CONVERT('123', SIGNED INTEGER) AS converted_number;
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：用过哪些 MySQL 函数？
@@ -775,86 +688,126 @@ SELECT CONVERT('123', SIGNED INTEGER) AS converted_number;
 
 > 2024 年 04 月 25 日增补
 
-在 SQL 中，当不同数据类型的值进行运算或比较时，会发生隐式数据类型转换。
-
-比如说，当一个整数和一个浮点数相加时，整数会被转换为浮点数，然后再进行相加。
+当一个整数和一个浮点数相加时，整数会被转换为浮点数。
 
 ```sql
 SELECT 1 + 1.0; -- 结果为 2.0
 ```
 
-比如说，当一个字符串和一个整数相加时，字符串会被转换为整数，然后再进行相加。
+当一个字符串和一个整数相加时，字符串会被转换为整数。
 
 ```sql
 SELECT '1' + 1; -- 结果为 2
 ```
 
-数据类型隐式转换会导致意想不到的结果，所以要尽量避免隐式转换。
-
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240425111246.png)
-
-可以通过显式转换来规避这种情况。
+隐式转换会导致意想不到的结果，最好通过显式转换来规避。
 
 ```sql
 SELECT CAST('1' AS SIGNED INTEGER) + 1; -- 结果为 2
 ```
 
+实际验证结果：
+
+![二哥的 Java 进阶之路：隐式转换](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240425111246.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：说说 SQL 的隐式数据类型转换？
+
+memo：2025 年 3 月 6 日修改至此。
 
 ### 19. 说说 SQL 的语法树解析？（补充）
 
 > 2024 年 09 月 19 日增补
 
-语法树（或抽象语法树，AST）是 SQL 解析过程中的中间表示，它使用树形结构表示 SQL 语句的层次和逻辑。语法树由节点（Node）组成，每个节点表示 SQL 语句中的一个语法元素。
+SQL 语法树解析是将 SQL 查询语句转换成抽象语法树 —— AST 的过程，是数据库引擎处理查询的第一步，也是防止 SQL 注入的重要手段。
 
-- **根节点**：通常是 SQL 语句的主要操作，例如 SELECT、INSERT、UPDATE、DELETE 等。
-- **内部节点**：表示语句中的操作符、子查询、连接操作等。例如，WHERE 子句、JOIN 操作等。
-- **叶子节点**：表示具体的标识符、常量、列名、表名等。例如，users 表、id 列、常量 1 等。
+通常分为 3 个阶段。
 
-以一个简单的 SQL 查询语句为例：
+第一个阶段，词法分析：拆解 SQL 语句，识别关键字、表名、列名等。
+
+---这部分是帮助大家理解 start，面试中可不背---
+
+比如说：
 
 ```sql
-SELECT name, age FROM users WHERE age > 18;
+SELECT id, name FROM users WHERE age > 18;
 ```
 
-这个查询语句的语法树可以表示为：
+将会被拆解为：
+
+```
+[SELECT] [id] [,] [name] [FROM] [users] [WHERE] [age] [>] [18] [;]
+```
+
+---这部分是帮助大家理解 end，面试中可不背---
+
+第二个阶段，语法分析：检查 SQL 是否符合语法规则，并构建抽象语法树。
+
+---这部分是帮助大家理解 start，面试中可不背---
+
+比如说上面的语句会被构建成如下的语法树：
 
 ```
           SELECT
          /      \
      Columns     FROM
     /      \      |
-  name      age  users
+  id      name  users
                |
              WHERE
                |
             age > 18
 ```
 
-根节点：SELECT，表示这是一个查询操作。
+或者这样表示：
 
-子节点：Columns 和 FROM。
+```
+SELECT
+ ├── COLUMNS: id, name
+ ├── FROM: users
+ ├── WHERE
+ │    ├── CONDITION: age > 18
+```
 
-- Columns 子树表示查询的列，包含两个叶子节点：name 和 age。
-- FROM 子树表示查询的数据源，包含一个叶子节点：users 表。
+---这部分是帮助大家理解 end，面试中可不背---
 
-条件节点：WHERE 子树表示查询条件，包含条件表达式 `age > 18`。
+第三个阶段，语义分析：检查表、列是否存在，进行权限验证等。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：sql的语法树解析
+---这部分是帮助大家理解 start，面试中可不背---
+
+比如说执行：
+
+```sql
+SELECT id, name FROM users WHERE age > 'eighteen';
+```
+
+会报错：
+
+```
+ERROR: Column 'age' is INT, but 'eighteen' is STRING.
+```
+
+---这部分是帮助大家理解 end，面试中可不背---
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21 抖音商城一面面试原题：sql的语法树解析
+
+memo：2025 年 3 月 7 日 修改至此。再晒一个 offer，一位球友拿到了经纬恒润的实习 offer，并且直言面试了很多场，我说超过 5 次的题目基本上都碰到了，啥都别说了，面渣逆袭 YYDS。
+
+![球友拿到了经纬恒润的实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250308085803.png)
 
 ## 数据库架构
 
 ### 20.说说 MySQL 的基础架构？
 
-MySQL 的架构大致可以分为三层，从上到下依次是：连接层、服务层、和存储引擎层。
+MySQL 采用分层架构，主要包括连接层、服务层、和存储引擎层。
 
 ![三分恶面渣逆袭：Redis 的基础架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-77626fdb-d2b0-4256-a483-d1c60e68d8ec.jpg)
 
 ①、连接层主要负责客户端连接的管理，包括验证用户身份、权限校验、连接管理等。可以通过数据库连接池来提升连接的处理效率。
 
-②、服务层是 MySQL 的核心，主要负责查询解析、优化、执行等操作。在这一层，SQL 语句会经过解析、优化器优化，然后转发到存储引擎执行，并返回结果。这一层包含查询解析器、优化器、执行计划生成器、缓存（如查询缓存）、日志模块等。
+②、服务层是 MySQL 的核心，主要负责查询解析、优化、执行等操作。在这一层，SQL 语句会经过解析、优化器优化，然后转发到存储引擎执行，并返回结果。这一层包含查询解析器、优化器、执行计划生成器、日志模块等。
 
-③、存储引擎层负责数据的实际存储和提取，是 MySQL 架构中与数据交互最直接的层。MySQL 支持多种存储引擎，如 InnoDB、MyISAM、Memory 等。
+③、存储引擎层负责数据的实际存储和提取。MySQL 支持多种存储引擎，如 InnoDB、MyISAM、Memory 等。
 
 #### binlog写入在哪一层？
 
@@ -862,7 +815,9 @@ binlog 在服务层，负责记录 SQL 语句的变化。它记录了所有对�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：mysql分为几层？binlog写入在哪一层
 
-### 21.一条查询语句如何执行？
+### 21.一条查询语句是如何执行的？
+
+当我们执行一条 SELECT 语句时，MySQL 并不会直接去磁盘读取数据，而是经过 6 个步骤来解析、优化、执行，然后再返回结果。
 
 ![二哥的 Java 进阶之路：SQL 执行](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415102041.png)
 
@@ -870,39 +825,49 @@ binlog 在服务层，负责记录 SQL 语句的变化。它记录了所有对�
 
 第二步，MySQL 服务器的连接器开始处理这个请求，跟客户端建立连接、获取权限、管理连接。
 
-~~第三步（MySQL 8.0 以后已经干掉了），连接建立后，MySQL 服务器的查询缓存组件会检查是否有缓存的查询结果。如果有，直接返回给客户端；如果没有，进入下一步~~。
-
-第三步，解析器对 SQL 语句进行解析，检查语句是否符合 SQL 语法规则，确保引用的数据库、表和列都是存在的，并处理 SQL 语句中的名称解析和权限验证。
+第三步，解析器对 SQL 语句进行解析，检查语句是否符合 SQL 语法规则，确保数据库、表和列都是存在的，并处理 SQL 语句中的名称解析和权限验证。
 
 第四步，优化器负责确定 SQL 语句的执行计划，这包括选择使用哪些索引，以及决定表之间的连接顺序等。
 
 第五步，执行器会调用存储引擎的 API 来进行数据的读写。
 
-第六步，MySQL 的存储引擎是插件式的，不同的存储引擎在细节上面有很大不同。例如，InnoDB 是支持事务的，而 MyISAM 是不支持的。之后，会将执行结果返回给客户端
-
-第七步，客户端接收到查询结果，完成这次查询请求。
+第六步，存储引擎负责查询数据，并将执行结果返回给客户端。客户端接收到查询结果，完成这次查询请求。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：MySQL 执行语句的整个过程了解吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：mysql一条数据的查询过程
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：MySQL中一条SQL的执行流程
 
-### 22.一条更新语句怎么执行的？
+memo：2025 年 3 月 8 日修改至此。
 
-更新语句的执行是 Server 层和引擎层配合完成，数据除了要写入表中，还要记录相应的日志。
+### 22.一条更新语句是如何执行的？
 
-![update 执行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-812fb038-39de-4204-ac9f-93d8b7448a18.jpg)
+总的来说，一条 UPDATE 语句的执行过程包括读取数据页、加锁解锁、事务提交、日志记录等多个步骤。
 
-1.  执行器先找引擎获取 ID=2 这一行。ID 是主键，存储引擎检索数据，找到这一行。如果 ID=2 这一行所在的数据页本来就在内存中，就直接返回给执行器；否则，需要先从磁盘读入内存，然后再返回。
-2.  执行器拿到引擎给的行数据，把这个值加上 1，比如原来是 N，现在就是 N+1，得到新的一行数据，再调用引擎接口写入这行新数据。
-3.  引擎将这行新数据更新到内存中，同时将这个更新操作记录到 redo log 里面，此时 redo log 处于 prepare 状态。然后告知执行器执行完成了，随时可以提交事务。
-4.  执行器生成这个操作的 binlog，并把 binlog 写入磁盘。
-5.  执行器调用引擎的提交事务接口，引擎把刚刚写入的 redo log 改成提交（commit）状态，更新完成。
+![三分恶面渣逆袭：update 执行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-812fb038-39de-4204-ac9f-93d8b7448a18.jpg)
 
-从上图可以看出，MySQL 在执行更新语句的时候，在服务层进行语句的解析和执行，在引擎层进行数据的提取和存储；同时在服务层对 binlog 进行写入，在 InnoDB 内进行 redo log 的写入。
+拿 `update test set a=1 where id=2` 举例来说：
 
-不仅如此，在对 redo log 写入时有两个阶段的提交，一是 binlog 写入之前`prepare`状态的写入，二是 binlog 写入之后`commit`状态的写入。
+在事务开始前，MySQL 需要记录undo log，用于事务回滚。
 
-### 23.说说 MySQL 的数据存储形式（补充）
+操作|id|旧值|新值
+---|---|---|---
+update|2|N|1
+
+除了记录 undo log，存储引擎还会将更新操作写入 redo log，状态标记为 prepare，并确保 redo log 持久化到磁盘。这一步可以保证即使系统崩溃，数据也能通过 redo log 恢复到一致状态。
+
+写完 redo log 后，MySQL 会获取行锁，将 a 的值修改为 1，标记为脏页，此时数据仍然在内存的 buffer pool 中，不会立即写入磁盘。后台线程会在适当的时候将脏页刷盘，以提高性能。
+
+最后提交事务，redo log 中的记录被标记为 committed，行锁释放。
+
+如果 MySQL 开启了 binlog，还会将更新操作记录到 binlog 中，主要用于主从复制。
+
+以及数据恢复，可以结合 redo log 进行点对点的恢复。binlog 的写入通常发生在事务提交时，与 redo log 共同构成“两阶段提交”，确保两者的一致性。
+
+注意，redo log 的写入有两个阶段的提交，一是 binlog 写入之前`prepare` 状态的写入，二是 binlog 写入之后 `commit` 状态的写入。
+
+memo：2025 年 3 月 9 日修改至此。
+
+### 23.说说 MySQL 的段区页行（补充）
 
 > 2024 年 04 月 26 日增补
 
@@ -912,21 +877,21 @@ MySQL 是以表的形式存储数据的，而表空间的结构则由段、区�
 
 ![不要迷恋发哥：段、区、页、行](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240515110034.png)
 
-①、段（Segment）：表空间由多个段组成，常见的段有数据段、索引段、回滚段等。
+①、段：表空间由多个段组成，常见的段有数据段、索引段、回滚段等。
 
-创建索引时会创建两个段，数据段和索引段，数据段用来存储叶子阶段中的数据；索引段用来存储非叶子节点的数据。
+创建索引时会创建两个段，数据段和索引段，数据段用来存储叶子节点中的数据；索引段用来存储非叶子节点的数据。
 
 回滚段包含了事务执行过程中用于数据回滚的旧数据。
 
-②、区（Extent）：段由一个或多个区组成，区是一组连续的页，通常包含 64 个连续的页，也就是 1M 的数据。
+②、区：段由一个或多个区组成，区是一组连续的页，通常包含 64 个连续的页，也就是 1M 的数据。
 
 使用区而非单独的页进行数据分配可以优化磁盘操作，减少磁盘寻道时间，特别是在大量数据进行读写时。
 
-③、页（Page）：页是 InnoDB 存储数据的基本单元，标准大小为 16 KB，索引树上的一个节点就是一个页。
+③、页：页是 InnoDB 存储数据的基本单元，标准大小为 16 KB，索引树上的一个节点就是一个页。
 
 也就意味着数据库每次读写都是以 16 KB 为单位的，一次最少从磁盘中读取 16KB 的数据到内存，一次最少写入 16KB 的数据到磁盘。
 
-④、行（Row）：InnoDB 采用行存储方式，意味着数据按照行进行组织和管理，行数据可能有多个格式，比如说 COMPACT、REDUNDANT、DYNAMIC 等。
+④、行：InnoDB 采用行存储方式，意味着数据按照行进行组织和管理，行数据可能有多个格式，比如说 COMPACT、REDUNDANT、DYNAMIC 等。
 
 MySQL 8.0 默认的行格式是 DYNAMIC，由COMPACT 演变而来，意味着这些数据如果超过了页内联存储的限制，则会被存储在溢出页中。
 
@@ -934,11 +899,7 @@ MySQL 8.0 默认的行格式是 DYNAMIC，由COMPACT 演变而来，意味着这
 
 ![二哥的 Java 进阶之路：行格式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240515123301.png)
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />    
 
 ## 存储引擎
 
@@ -946,7 +907,9 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 
-![存储引擎](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408073338.png)
+---这部分是帮助大家理解 start，面试中可不背---
+
+![二哥的 Java 进阶之路：存储引擎](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408073338.png)
 
 我来做一个表格对比：
 
@@ -958,6 +921,8 @@ MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 | 支持哈希索引  | Yes    | No     | Yes    |
 | 支持外键      | Yes    | No     | No     |
 
+---这部分是帮助大家理解 end，面试中可不背---
+
 除此之外，我还了解到：
 
 ①、MySQL 5.5 之前，默认存储引擎是 MyISAM，5.5 之后是 InnoDB。
@@ -966,7 +931,7 @@ MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 
 ③、InnoDB 从 MySQL 5.6 开始，支持全文索引。
 
-④、InnoDB 的最小表空间略小于 10M，最大表空间取决于页面大小（page size）。
+④、InnoDB 的最小表空间略小于 10M，最大表空间取决于页面大小。
 
 ![MySQL 官网：innodb-limits.html](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408074630.png)
 
@@ -986,39 +951,27 @@ ALTER TABLE your_table_name ENGINE=InnoDB;
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：mysql的数据引擎有哪些, 区别(innodb,MyISAM,Memory)
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：存储引擎介绍
 
-### 25.那存储引擎应该怎么选择？
+memo：2025 年 3 月 10 日修改至此。
 
-- 大多数情况下，使用默认的 InnoDB 就对了，InnoDB 可以提供事务、行级锁、外键、B+ 树索引等能力。
-- MyISAM 适合读更多的场景。
-- MEMORY 适合临时表，数据量不大的情况。由于数据都存放在内存，所以速度非常快。
+### 25.存储引擎应该怎么选择？
 
+大多数情况下，使用默认的 InnoDB 就可以了，InnoDB 可以提供事务、行级锁、外键、B+ 树索引等能力。
+
+MyISAM 适合读多写少的场景。
+
+MEMORY 适合临时表，数据量不大的情况。因为数据都存放在内存，所以速度非常快。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：MySQL的InnoDB特点？为什么用B+树？而不是B树，区别？
 
 ### 26.InnoDB 和 MyISAM 主要有什么区别？
 
+InnoDB 和 MyISAM 的最大区别在于事务支持和锁机制。InnoDB 支持事务、行级锁，适合大多数业务系统；而 MyISAM 不支持事务，用的是表锁，查询快但写入性能差，适合读多写少的场景。
+
 ![三分恶面渣逆袭：InnoDB 和 MyISAM 主要有什么区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b7aa040e-a3a7-4133-8c43-baccc3c8d012.jpg)
 
-InnoDB 和 MyISAM 之间的区别主要表现在存储结构、事务支持、最小锁粒度、索引类型、主键必需、表的具体行数、外键支持等方面。
+另外，从存储结构上来说，MyISAM 用三种格式的文件来存储，.frm 文件存储表的定义；.MYD 存储数据；.MYI 存储索引；而 InnoDB 用两种格式的文件来存储，.frm 文件存储表的定义；.ibd 存储数据和索引。
 
-**①、存储结构**：
-
-- MyISAM：用三种格式的文件来存储，.frm 文件存储表的定义；.MYD 存储数据；.MYI 存储索引。
-- InnoDB：用两种格式的文件来存储，.frm 文件存储表的定义；.ibd 存储数据和索引。
-
-**②、事务支持**：
-
-- MyISAM：不支持事务。
-- InnoDB：支持事务。
-
-**③、最小锁粒度**：
-
-- MyISAM：表级锁，高并发中写操作存在性能瓶颈。
-- InnoDB：行级锁，并发写入性能高。
-
-**④、索引类型**：
-
-MyISAM 为非聚簇索引，索引和数据分开存储，索引保存的是数据文件的指针。
+从索引类型上来说，MyISAM 为非聚簇索引，索引和数据分开存储，索引保存的是数据文件的指针。
 
 ![未见初墨：MyIsam](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240403130104.png)
 
@@ -1026,80 +979,119 @@ InnoDB 为聚簇索引，索引和数据不分开。
 
 ![yangh124：InnoDB](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240403130508.png)
 
-**⑤、外键支持**：MyISAM 不支持外键；InnoDB 支持外键。
-
-**⑥、主键必需**：MyISAM 表可以没有主键；InnoDB 表必须有主键。
-
-**⑦、表的具体行数**：MyISAM 表的具体行数存储在表的属性中，查询时直接返回；InnoDB 表的具体行数需要扫描整个表才能返回。
+更细微的层面上来讲，MyISAM 不支持外键，可以没有主键，表的具体行数存储在表的属性中，查询时可以直接返回；InnoDB 支持外键，必须有主键，具体行数需要扫描整个表才能返回，有索引的情况下会扫描索引。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：MyISAM 和 InnoDB 的区别有哪些？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：mysql存储的数据都是什么样的？
+
+memo：2025 年 3 月 11 日修改至此。
 
 ### 27. InnoDB 的 Buffer Pool了解吗？（补充）
 
 > 2024 年 11 月 04 日增补
 
-Buffer Pool 是 InnoDB 存储引擎中的一个内存缓冲区，它会将数据以页（page）的单位保存在内存中，当查询请求需要读取数据时，优先从 Buffer Pool 获取数据，避免直接访问磁盘。
+Buffer Pool 是 InnoDB 存储引擎中的一个内存缓冲区，它会将经常使用的数据页、索引页加载进内存，读的时候先查询 Buffer Pool，如果命中就不用访问磁盘了。
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104200915.png)
+![Nuwan Weerasinhge：MySQL InnoDB Buffer Pool](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312083102.png)
 
-也就是说，即便我们只访问了一行数据的一个字段，InnoDB 也会将整个数据页加载到 Buffer Pool 中，以便后续的查询。
-
-修改数据时，也会先在缓存页面中修改。当数据页被修改后，会在 Buffer Pool 中变为脏页。
-
-脏页不会立刻写回到磁盘。
-
-InnoDB 会定期将这些脏页刷新到磁盘，保证数据的一致性。通常采用改良的 LRU 算法来管理缓存页，也就是将最近最少使用的数据移出缓存，为新数据腾出空间。
+如果没有命中，就从磁盘读取，并加载到 Buffer Pool，此时可能会触发页淘汰，将不常用的页移出 Buffer Pool。
 
 ![极客时间：改良的 LRU 算法](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104202752.png)
 
-Buffer Pool 能够显著减少对磁盘的访问，从而提升数据库的读写性能。
+写操作时不会直接写入磁盘，而是先修改内存中的页，此时页被标记为脏页，后台线程会定期将脏页刷新到磁盘。
 
-在调优方面，我们可以设置合理的 Buffer Pool 大小（通常为物理内存的 70%），并配置多个 Buffer Pool 实例（通过 innodb_buffer_pool_instances）来提升并发能力。此外，还可以通过调整刷新策略参数，比如 innodb_flush_log_at_trx_commit，来平衡性能和数据持久性。
+Buffer Pool 可以显著减少磁盘的读写次数，从而提升 MySQL 的读写性能。
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：bufferpool
+#### Buffer Pool 的默认大小是多少？
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+我本机上 InnoDB 的 Buffer Pool 默认大小是 128MB。
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+```sql
+SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
+```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+另外，在具有 1GB-4GB RAM 的系统上，默认值为系统 RAM 的 25%；在具有超过 4GB RAM 的系统上，默认值为系统 RAM 的 50%，但不超过 4GB。
+
+![二哥的 Java 进阶之路：buffer_pool 的默认大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312084307.png)
+
+#### InnoDB 对 LRU 算法的优化了解吗？
+
+了解，InnoDB 对 LRU 算法进行了改良，最近访问的数据并不直接放到 LRU 链表的头部，而是放在一个叫 midpoiont 的位置。默认情况下，midpoint 位于 LRU 列表的 5/8 处。
+
+![smartkeyerror：InnoDB 的 LRU](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312085209.png)
+
+比如 Buffer Pool 有 100 页，新页插入的位置大概是在第 80 页；当页数据被频繁访问后，再将其移动到 young 区，这样做的好处是热点页能长时间保留在内存中，不容易被挤出去。
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+可以通过 `innodb_old_blocks_pct` 参数来调整 Buffer Pool 中 old 和 young 区的比例；通过 `innodb_old_blocks_time` 参数来调整页在 young 区的停留时间。
+
+![二哥的 Java 进阶之路：对 buffer pool 进行调整](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312093325.png)
+
+默认情况下，LRU 链表中 old 区占 37%；同一页再次访问提升的最小时间间隔是 1000 毫秒。
+
+也就是说，如果某页在 1 秒内被多次访问，只会计算一次，不会立刻升级为热点页，防止短时间批量访问导致缓存污染。
+
+----这部分是帮助大家理解 end，面试中可不背----
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 15 点评后端技术面试原题：说说 bufferpool
+
+<MZNXQRcodeBanner />
+
+memo：2025 年 3 月 12 日修改至此。继续给大家一个喜报，今天[有球友报喜](https://javabetter.cn/zhishixingqiu/)说社招拿到了京东和美团的 offer，后续补充说滴滴也过了，我只能说太强了呀。
+
+![今天有球友拿到京东和美团的 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312172018.png)
 
 ## 日志
 
-### 28.MySQL 日志文件有哪些？分别介绍下作用？
+### 28.MySQL 日志文件有哪些？
+
+有 6 大类，其中错误日志用于问题诊断，慢查询日志用于 SQL 性能分析，general log 用于记录所有的 SQL 语句，binlog 用于主从复制和数据恢复，redo log 用于保证事务持久性，undo log 用于事务回滚和 MVCC。
 
 ![三分恶面渣逆袭：MySQL的主要日志](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
 
-MySQL 的日志文件主要包括：
+----这部分是帮助大家理解 start，面试中可不背----
 
 ①、**错误日志**（Error Log）：记录 MySQL 服务器启动、运行或停止时出现的问题。
 
-②、**慢查询日志**（Slow Query Log）：记录执行时间超过 long_query_time 值的所有 SQL 语句。这个时间值是可配置的，默认情况下，慢查询日志功能是关闭的。可以用来识别和优化慢 SQL。
+②、**慢查询日志**（Slow Query Log）：记录执行时间超过 long_query_time 值的所有 SQL 语句。这个时间值是可配置的，默认情况下，慢查询日志功能是关闭的。
 
-③、**一般查询日志**（General Query Log）：记录所有 MySQL 服务器的连接信息及所有的 SQL 语句，不论这些语句是否修改了数据。
+③、**一般查询日志**（General Query Log）：记录 MySQL 服务器的启动关闭信息，客户端的连接信息，以及更新、查询的 SQL 语句等。
 
-④、**二进制日志**（Binary Log）：记录了所有修改数据库状态的 SQL 语句，以及每个语句的执行时间，如 INSERT、UPDATE、DELETE 等，但不包括 SELECT 和 SHOW 这类的操作。
+④、**二进制日志**（Binary Log）：记录所有修改数据库状态的 SQL 语句，以及每个语句的执行时间，如 INSERT、UPDATE、DELETE 等，但不包括 SELECT 和 SHOW 这类的操作。
 
-⑤、**重做日志**（Redo Log）：记录了对于 InnoDB 表的每个写操作，不是 SQL 级别的，而是物理级别的，主要用于崩溃恢复。
+⑤、**重做日志**（Redo Log）：记录对于 InnoDB 表的每个写操作，不是 SQL 级别的，而是物理级别的，主要用于崩溃恢复。
 
 ⑥、**回滚日志**（Undo Log，或者叫事务日志）：记录数据被修改前的值，用于事务的回滚。
+
+----这部分是帮助大家理解 end，面试中可不背----
 
 #### 请重点说说 binlog？
 
 推荐阅读：[带你了解 MySQL Binlog 不为人知的秘密](https://www.cnblogs.com/rickiyang/p/13841811.html)
 
-binlog 是一种物理日志，会在磁盘上记录下数据库的所有修改操作，以便进行数据恢复和主从复制。
+binlog 是一种物理日志，会在磁盘上记录数据库的所有修改操作。
 
-- 当发生数据丢失时，binlog 可以将数据库恢复到特定的时间点。
-- 主服务器（master）上的二进制日志可以被从服务器（slave）读取，从而实现数据同步。
+如果误删了数据，就可以使用 binlog 进行回退到误删之前的状态。
 
-binlog 包括两类文件：
+```sql
+# 步骤1：恢复全量备份
+mysql -u root -p < full_backup.sql
+# 步骤2：应用Binlog到指定时间点
+mysqlbinlog --start-datetime="2025-03-13 14:00:00" --stop-datetime="2025-03-13 15:00:00" binlog.000001 | mysql -u root -p
+```
 
-- 二进制索引文件（.index）
-- 二进制日志文件（.00000\*）
+如果要搭建主从复制，就可以让从库定时读取主库的 binlog。
 
-binlog 默认是没有启用的。要启用它，需要在 MySQL 的配置文件（my.cnf 或 my.ini）中设置 log_bin 参数。
+MySQL 提供了三种格式的 binlog：Statement、Row 和 Mixed，分别对应 SQL 语句级别、行级别和混合级别，默认为行级别。
+
+![二哥的 Java 进阶之路：MySQL 默认的 binlog格式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250313151551.png)
+
+从后缀名上来看，binlog 文件分为两类：以 .index 结尾的索引文件，以 .00000\* 结尾的二进制日志文件。
+
+binlog 默认是没有启用的。
+
+生产环境中是一定要启用的，可以通过在 my.cnf 文件中配置 log_bin 参数，以启用 binlog。
 
 ```
 log_bin = mysql-bin #开启binlog
@@ -1121,183 +1113,537 @@ expire_logs_days = 7
 sync_binlog=0
 ```
 
-简单说一下这里面参数的作用：
+#### binlog 的配置参数都了解哪些？
 
-①、`log_bin = mysql-bin`，启用 binlog，这样就可以在 MySQL 的数据目录中找到 db-bin.000001、db-bin.000002 等日志文件。
+`log_bin = mysql-bin` 用于启用 binlog，这样就可以在 MySQL 的数据目录中找到 db-bin.000001、db-bin.000002 等日志文件。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417074049.png)
+![二哥的 Java 进阶之路：binlog 文件](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417074049.png)
 
-②、`max_binlog_size=104857600`
+`max_binlog_size=104857600` 用于设置每个 binlog 文件的大小，不建议设置太大，网络传送起来比较麻烦。
 
-设置每个 binlog 文件的最大大小为 100MB（104857600 字节）。当 binlog 文件达到这个大小时，MySQL 会关闭当前文件并创建一个新的 binlog 文件。
+当 binlog 文件达到 max_binlog_size 时，MySQL 会关闭当前文件并创建一个新的 binlog 文件。
 
-③、`expire_logs_days = 7`
+`expire_logs_days = 7` 用于设置 binlog 文件的自动过期时间为 7 天。过期的 binlog 文件会被自动删除。防止长时间累积的 binlog 文件占用过多存储空间，[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)所在的项目是丐版服务器，所以这个配置很重要。
 
-这条配置设置了 binlog 文件的自动过期时间为 7 天。过期的 binlog 文件将被自动删除。这有助于管理磁盘空间，防止长时间累积的 binlog 文件占用过多存储空间。
+`binlog-do-db=db_name`，指定哪些数据库表的更新应该被记录。
 
-④、`binlog-do-db=db_name`
+`binlog-ignore-db=db_name`，指定忽略哪些数据库表的更新。
 
-指定哪些数据库表的更新应该被记录。
+`sync_binlog=0`，设置每多少次 binlog 写操作会触发一次磁盘同步操作。默认值为 0，表示 MySQL 不会主动触发同步操作，而是依赖操作系统的磁盘缓存策略。
 
-⑤、`binlog-ignore-db=db_name`
+即当执行写操作时，数据会先写入缓存，当缓存区满了再由操作系统将数据一次性刷入磁盘。
 
-指定忽略哪些数据库表的更新。
-
-⑥、`sync_binlog=0`
-
-这条配置设置了每多少次 binlog 写操作会触发一次磁盘同步操作。默认值 0 表示 MySQL 不会主动触发同步操作，而是依赖操作系统的磁盘缓存策略。
-
-即当执行写操作时，数据会先写入操作系统的缓存，当缓存区满了再由操作系统将数据写入磁盘。
-
-设置为 1 意味着每次 binlog 写操作后都会同步到磁盘，这可以提高数据安全性，但可能会对性能产生影响。
+如果设置为 1，表示每次 binlog 写操作后都会同步到磁盘，虽然可以保证数据能够及时写入磁盘，但会降低性能。
 
 可以通过 `show variables like '%log_bin%';` 查看 binlog 是否开启。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
+![二哥的 Java 进阶之路：开启 binlog](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
 
 #### 有了binlog为什么还要undolog redolog？
 
-binlog 主要用于数据恢复和主从复制。它记录了所有对数据库执行的修改操作（如 INSERT、UPDATE、DELETE），以逻辑日志的形式保存。binlog 是 MySQL Server 层提供的日志，独立于存储引擎。
+binlog 属于 Server 层，与存储引擎无关，无法直接操作物理数据页。而 redo log 和 undo log 是 InnoDB 存储引擎实现 ACID 的基石。
 
-redo log 主要用于数据持久化和崩溃恢复。redo log 是 InnoDB 存储引擎特有的日志，用于记录数据的物理修改，确保数据库在崩溃或异常宕机后能够恢复到一致状态。
+binlog 关注的是逻辑变更的全局记录；redo log 用于确保物理变更的持久性，确保事务最终能够刷盘成功；undo log 是逻辑逆向操作日志，记录的是旧值，方便恢复到事务开始前的状态。
 
-undo log 主要用于支持事务回滚和多版本并发控制（MVCC）。undo log 是 InnoDB 存储引擎提供的逻辑日志，用于记录数据的逻辑操作，如删除、更新前的数据快照。
+>另外一种回答方式。
 
-当一个事务在 MySQL 中执行时，redo log、undo log 和 binlog 共同协作以确保数据的可靠性和一致性：
+binlog 会记录整个 SQL 或行变化；redo log 是为了恢复“已提交但未刷盘”的数据，undo log 是为了撤销未提交的事务。
 
-1. 事务启动时，undo log 开始记录修改前的数据快照，以便在发生错误或显式回滚时恢复数据。
-2. 数据被修改时，InnoDB 会将修改记录到 redo log 中，同时也会生成相应的 undo log。
-3. 事务提交时，InnoDB 首先将 redo log 刷入磁盘，然后再将整个事务的操作记录到 binlog 中。这一过程称为“两阶段提交”，确保 binlog 和 redo log 的一致性。
-4. 如果数据库发生崩溃，InnoDB 会使用 redo log 进行恢复，确保数据不会丢失。binlog 则可以用来做主从复制或数据恢复到特定时间点。
+以一次事务更新为例：
 
-#### 说说 redolog的工作机制？
+```sql
+# 开启事务
+BEGIN;
+# 更新数据
+UPDATE users SET age = age + 1 WHERE id = 1;
+# 提交事务
+COMMIT;
+```
 
-redo log 由两部分组成：ib_logfile0 和 ib_logfile1。这两个文件的总大小是固定的，默认情况下每个文件为 48MB，总共 96MB。它们以循环的方式写入，即当写满后，从头开始覆盖旧的日志。
+事务开始的时候会生成 undo log，记录更新前的数据，比如原值是 18：
 
-每次修改数据时，都会生成一个新的日志序列号（Log Sequence Number），用于标记 redo log 中的日志位置，以确保数据恢复的一致性。
+```
+undo log: id=1, age=18
+```
 
-当一个事务对数据进行修改时，InnoDB 会首先将这些修改记录到 redo log 中，而不是直接写入磁盘的数据文件。具体步骤分为三步：
+修改数据的时候，会将数据写入到 redo log。
 
-1. 在缓冲池（Buffer Pool）中修改数据页。
-2. 将修改操作记录到 redo log buffer 中（这是内存中的一个日志缓冲区）。
-3. 当事务提交时，InnoDB 会将 redo log buffer 中的数据刷新到磁盘上的 redo log 文件中（ib_logfile0、ib_logfile1 等），保证事务的持久性。
-4. 当 MySQL 发生崩溃后，InnoDB 会在重启时读取 redo log，找到最近一次的检查点（checkpoint），然后从该检查点开始，重放（replay） redo log 中的日志记录，将所有已提交事务的修改重做一遍，恢复数据库到崩溃前的一致性状态。
+比如数据页 page_id=123 上，id=1 的用户被更新为 age=26：
+
+```
+redo log (prepare):
+page_id=123, offset=0x40, before=18, after=26
+```
+
+等事务提交的时候，redo log 刷盘，binlog 刷盘。
+
+binlog 写完之后，redo log 的状态会变为 commit：
+
+```
+redo log (commit):
+page_id=123, offset=0x40, before=18, after=26
+```
+
+binlog 如果是 Statement 格式，会记录一条 SQL 语句：
+
+```sql
+UPDATE users SET age = age + 1 WHERE id = 1;
+```
+
+binlog 如果是 Row 格式，会记录：
+
+```
+表：users
+before: id=1, age=18
+after:  id=1, age=26
+```
+
+随后，后台线程会将 redo log 中的变更异步刷新到磁盘。
+
+memo：2025 年 3 月 13 日修改至此。有[球友报喜](httpshttps://javabetter.cn/zhishixingqiu/)，字节二面过了，找暑期顺利的不可思议，八股直接吟唱面渣。
+
+![球友报喜字节二面过了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250313170334.png)
+
+#### 说说 redo log 的工作机制？
+
+当事务启动时，MySQL 会为该事务分配一个唯一标识符。
+
+在事务执行过程中，每次对数据进行修改，MySQL 都会生成一条 Redo Log，记录修改前后的数据状态。
+
+这些 Redo Log 首先会被写入内存中的 Redo Log Buffer。
+
+![二哥的 Java 进阶之路： 我本机 MySQL 的 redolog buffer size 为 16M](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314155647.png)
+
+当事务提交时，MySQL 再将 Redo Log Buffer 中的记录刷新到磁盘上的 Redo Log 文件中。
+
+只有当 Redo Log 成功写入磁盘，事务才算真正提交成功。
+
+![greatsql 社区：Redo Log的刷盘策略](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314160523.png)
+
+当 MySQL 崩溃重启时，会先检查 Redo Log。对于已提交的事务，MySQL 会重放 Redo Log 中的记录。
+
+![greatsql 社区：redo log 恢复](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314160157.png)
+
+对于未提交的事务，MySQL 会通过 Undo Log 回滚这些修改，确保数据恢复到崩溃前的一致性状态。
+
+Redo Log 是循环使用的，当文件写满后会覆盖最早的记录。
+
+为避免覆盖未持久化的记录，MySQL 会定期执行 CheckPoint 操作，将内存中的数据页刷新到磁盘，并记录 CheckPoint 点。
+
+![博客园太白金星有点烦：checkpoint](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314161732.png)
+
+重启时，MySQL 只会重放 CheckPoint 之后的 Redo Log，从而提高恢复效率。
+
+#### redo log 文件的大小是固定的吗？
+
+redo log 文件是固定大小的，通常配置为一组文件，使用环形方式写入，旧的日志会在空间需要时被覆盖。
+
+![greatsql社区：redo log 文件组](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314161331.png)
+
+命名方式为 `ib_logfile0、iblogfile1、、、iblogfilen`。默认 2 个文件，每个文件大小为 48MB。
+
+![greatsql社区：ib_logfile0和ib_logfile1](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314160340.png)
+
+可以通过 `show variables like 'innodb_log_file_size';` 查看 redo log 文件的大小；通过 `show variables like 'innodb_log_files_in_group';` 查看 redo log 文件的数量。
+
+![二哥的 Java 进阶之路：redo log 文件大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314155806.png)
 
 #### 说说 WAL？
 
-WAL（Write-Ahead Logging，预写日志）的核心思想是**先写日志，再写数据**，即在对数据进行任何修改之前，必须先将修改的日志记录（redo log）持久化到磁盘。
+>WAL——Write-Ahead Logging。
 
-通过先写日志，确保系统在发生故障时可以通过重做日志恢复数据。
+预写日志是 InnoDB 实现事务持久化的核心机制，它的思想是：先写日志再刷磁盘。
+
+![小许 code：WAL](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314163343.png)
+
+即在修改数据页之前，先将修改记录写入 Redo Log。
+
+这样的话，即使数据页尚未写入磁盘，系统崩溃时也能通过 Redo Log 恢复数据。
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+解释一下为什么需要 WAL：
+
+- 数据最终是要写入磁盘的，但磁盘 IO 很慢；
+- 如果每次更新都立刻把数据页刷盘，性能很差；
+- 如果还没写入磁盘就宕机，事务会丢失。
+
+WAL 的好处是更新时不直接写数据页，而是先写一份变更记录到 redo log，后台再慢慢把真正的数据页刷盘，一举多得。
+
+----这部分是帮助大家理解 end，面试中可不背----
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：MySQL 中的 bin log 的作用是什么？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 MySQL 的三大日志？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：redolog undolog binlog，有了binlog为什么还要undolog redolog，redolog的工作机制，说说 WAL
 
+memo：2025 年 3 月 14 日修改至此。今天修改简历的时候，碰到一位比赛经历[非常丰富的球友](https://javabetter.cn/zhishixingqiu/)，大家在校期间如果有时间，也可以冲一下。
+
+![球友的竞赛经历](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314163859.png)
+
 ### 29.binlog 和 redo log 有什么区别？
 
-binlog，即二进制日志，对所有存储引擎都可用，是 MySQL 服务器级别的日志，用于数据的复制、恢复和备份。而 redo log 主要用于保证事务的持久性，是 InnoDB 存储引擎特有的日志类型。
+binlog 由 MySQL 的 Server 层实现，与存储引擎无关；redo log 由 InnoDB 存储引擎实现。
 
-binlog 记录的是逻辑 SQL 语句，而 redo log 记录的是物理数据页的修改操作，不是具体的 SQL 语句。
+![连边：binlog 和 redo log](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250315151137.png)
 
-redo log 是固定大小的，通常配置为一组文件，使用环形方式写入，旧的日志会在空间需要时被覆盖。binlog 是追加写入的，新的事件总是被添加到当前日志文件的末尾，当文件达到一定大小后，会创建新的 binlog 文件继续记录。
+binlog 记录的是逻辑日志，包括原始的 SQL 语句或者行数据变化，例如“将 id=2 这行数据的 age 字段+1”。
+
+redo log 记录物理日志，即数据页的具体修改，例如“将 page_id=123 上 offset=0x40 的数据从 18 修改为 26”。
+
+binlog 是追加写入的，文件写满后会新建文件继续写入，不会覆盖历史日志，保存的是全量操作记录；redo log 是循环写入的，空间是固定的，写满后会覆盖旧的日志，仅保存未刷盘的脏页日志，已持久化的数据会被清除。
+
+另外，为保证两种日志的一致性，innodb 采用了两阶段提交策略，redo log 在事务执行过程中持续写入，并在事务提交前进入 prepare 状态；binlog 在事务提交的最后阶段写入，之后 redo log 会被标记为 commit 状态。
+
+可以通过回放 binlog 实现数据同步或者恢复到指定时间点；redo log 用来确保事务提交后即使系统宕机，数据仍然可以通过重放 redo log 恢复。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：redo log、bin log
 
 ### 30.为什么要两阶段提交呢？
 
-为什么要两阶段提交呢？直接提交不行吗？
+为了保证 redo log 和 binlog 中的数据一致性，防止主从复制和事务状态不一致。
 
-我们可以假设不采用两阶段提交的方式，而是采用“单阶段”进行提交，即要么先写入 redo log，后写入 binlog；要么先写入 binlog，后写入 redo log。这两种方式的提交都会导致原先数据库的状态和被恢复后的数据库的状态不一致。
+![阿里：MySQL 两阶段提交](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316104456.png)
 
-**先写入 redo log，后写入 binlog：**
+#### 为什么 2PC 能保证 redo log 和 binlog 的强⼀致性？
 
-在写完 redo log 之后，数据此时具有`crash-safe`能力，因此系统崩溃，数据会恢复成事务开始之前的状态。但是，若在 redo log 写完时候，binlog 写入之前，系统发生了宕机。此时 binlog 没有对上面的更新语句进行保存，导致当使用 binlog 进行数据库的备份或者恢复时，就少了上述的更新语句。从而使得`id=2`这一行的数据没有被更新。
+假如 MySQL 在预写 redo log 之后、写入 binlog 之前崩溃。那么 MySQL 重启后 InnoDB 会回滚该事务，因为 redo log 不是提交状态。并且由于 binlog 中没有写入数据，所以从库也不会有该事务的数据。
 
-![先写 redo log，后写 bin log 的问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-75d5226b-cab9-461a-89a9-befcb2dfb996.jpg)
+![阿里：2PC 可以保证redo log 和 binlog 的数据一致性](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316105500.png)
 
-**先写入 binlog，后写入 redo log：**
+假如 MySQL 在写入 binlog 之后、redo log 提交之前崩溃。那么 MySQL 重启后 InnoDB 会提交该事务，因为 redo log 是提交状态。并且由于 binlog 中有写入数据，所以从库也会同步到该事务的数据。
 
-写完 binlog 之后，所有的语句都被保存，所以通过 binlog 复制或恢复出来的数据库中 id=2 这一行的数据会被更新为 a=1。但是如果在 redo log 写入之前，系统崩溃，那么 redo log 中记录的这个事务会无效，导致实际数据库中`id=2`这一行的数据并没有更新。
+伪代码如下所示：
 
-![先写 bin log，后写 redo log 的问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-869c309b-9b93-46e1-8414-b35128e287a5.jpg)
+```java
+// 事务开始
+begin;
 
-简单说，redo log 和 binlog 都可以用于表示事务的提交状态，而两阶段提交就是让这两个状态保持逻辑上的一致。
+// try
+{
+    // 执行 SQL
+    execute SQL;
 
-### 31.redo log 怎么刷入磁盘？
+    // 写入 redo log 并标记为 prepare
+    write redo log prepare xid;
 
-redo log 的写入不是直接落到磁盘，而是在内存中设置了一片称之为`redo log buffer`的连续内存空间，也就是`redo 日志缓冲区`。
+    // 写入 binlog
+    write binlog xid sql;
 
-![redo log 缓冲](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e1f59341-0695-45db-b759-30db73314e39.jpg)
+    // 提交 redo log
+    commit redo log xid;
+}
+// catch
+{
+    // 回滚 redo log
+    innodb rollback redo log xid;
+}
 
-> **什么时候会刷入磁盘？**
+// 事务结束
+end;
+```
 
-在如下的一些情况中，log buffer 的数据会刷入磁盘：
+#### XID 了解吗？
 
-- log buffer 空间不足时
+XID 是 binlog 中用来标识事务提交的唯一标识符。
 
-log buffer 的大小是有限的，如果不停的往这个有限大小的 log buffer 里塞入日志，很快它就会被填满。如果当前写入 log buffer 的 redo 日志量已经占满了 log buffer 总容量的大约**一半**左右，就需要把这些日志刷新到磁盘上。
+![mysql：xid](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316113030.png)
 
-- 事务提交时
+在事务提交时，会写入一个 XID_EVENT 到 binlog，表示这个事务真正完成了。
 
-在事务提交时，为了保证持久性，会把 log buffer 中的日志全部刷到磁盘。注意，这时候，除了本事务的，可能还会刷入其它事务的日志。
+```sql
+  Log_name         | Pos  | Event_type     | Server_id | End_log_pos | Info      
+| mysql-bin.000003 | 2005 | Gtid           |   1013307 |        2070 | SET @@SESSION.GTID_NEXT= 'f971d5f1-d450-11ec-9e7b-5254000a56df:11'                 |
+| mysql-bin.000003 | 2070 | Query          |   1013307 |        2142 | BEGIN                                                                              |
+| mysql-bin.000003 | 2142 | Table_map      |   1013307 |        2187 | table_id: 109 (test.t1)                                                            |
+| mysql-bin.000003 | 2187 | Write_rows     |   1013307 |        2227 | table_id: 109 flags: STMT_END_F                                                    |
+| mysql-bin.000003 | 2227 | Xid            |   1013307 |        2258 | COMMIT /* xid=121 */      
+```
 
-- 后台线程输入
+它不仅用于主从复制中事务完整性的判断，也在崩溃恢复中对 redo log 和 binlog 的一致性校验起到关键作用。
 
-有一个后台线程，大约每秒都会刷新一次`log buffer`中的`redo log`到磁盘。
+XID 可以帮助 MySQL 判断哪些 redo log 是已提交的，哪些是未提交需要回滚的，是两阶段提交机制中非常关键的一环。
 
-- 正常关闭服务器时
-- **触发 checkpoint 规则**
+memo：2025 年 3 月 16 日修改至此。
 
-重做日志缓存、重做日志文件都是以**块（block）**的方式进行保存的，称之为**重做日志块（redo log block）**,块的大小是固定的 512 字节。我们的 redo log 它是固定大小的，可以看作是一个逻辑上的 **log group**，由一定数量的**log block** 组成。
+### 31.redo log 的写入过程了解吗？
 
-![redo log 分块和写入](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-8d944e76-89ba-4fa6-9066-64ff4f55b532.jpg)
+InnoDB 会先将 Redo Log 写入内存中的 Redo Log Buffer，之后再以一定的频率刷入到磁盘的 Redo Log File 中。
 
-它的写入方式是从头到尾开始写，写到末尾又回到开头循环写。
+![三分恶面渣逆袭：redo log 缓冲](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e1f59341-0695-45db-b759-30db73314e39.jpg)
 
-其中有两个标记位置：
+#### 哪些场景会触发 redo log 的刷盘动作？
 
-`write pos`是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。`checkpoint`是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到磁盘。
+比如说 Redo Log Buffer 的空间不足时，事务提交时，触发 Checkpoint 时，后台线程定期刷盘时。
 
-![write pos 和 checkpoint](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31a14149-b261-45d9-bd3b-6afaec16e136.jpg)
+不过，Redo Log Buffer 刷盘到 Redo Log File 还会涉及到操作系统的磁盘缓存策略，可能不会立即刷盘，而是等待一定时间后才刷盘。
 
-当`write_pos`追上`checkpoint`时，表示 redo log 日志已经写满。这时候就不能接着往里写数据了，需要执行`checkpoint`规则腾出可写空间。
+![酷酷博客园：Page Cache](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317160220.png)
 
-所谓的**checkpoint 规则**，就是 checkpoint 触发后，将 buffer 中日志页都刷到磁盘。
+#### innodb_flush_log_at_trx_commit 参数你了解多少？
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+innodb_flush_log_at_trx_commit 参数是用来控制事务提交时，Redo Log 的刷盘策略，一共有三种。
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+![greatsql：innodb_flush_log_at_trx_commit](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317155312.png)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+0 表示事务提交时不刷盘，而是交给后台线程每隔 1 秒执行一次。这种方式性能最好，但是在 MySQL 宕机时可能会丢失一秒内的事务。
+
+1 表示事务提交时会立即刷盘，确保事务提交后数据就持久化到磁盘。这种方式是最安全的，也是 InnoDB 的默认值。
+
+![二哥的 Java 进阶之路：innodb_flush_log_at_trx_commit的默认值](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317160701.png)
+
+2 表示事务提交时只把 Redo Log Buffer 写入到 Page Cache，由操作系统决定什么时候刷盘。操作系统宕机时，可能会丢失一部分数据。
+
+#### 一个没有提交事务的 redo log，会不会刷盘？
+
+InnoDB 有一个后台线程，每隔 1 秒会把 Redo Log Buffer 中的日志写入到文件系统的缓存中，然后调用刷盘操作。
+
+![greatsql：InnoDB 的后台线程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317161008.png)
+
+因此，一个没有提交事务的 Redo Log 也可能会被刷新到磁盘中。
+
+另外，如果当 Redo Log Buffer 占用的空间即将达到 innodb_log_buffer_size 的一半时，也会触发刷盘操作。
+
+memo：2025 年 3 月 17 日修改至此。已经有[球友发来喜报](https://javabetter.cn/zhishixingqiu/)，暑期实习拿到恒生电子的暑期实习了。
+
+![球友拿到恒生电子的暑期实习了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317163123.png)
+
+#### Redo Log Buffer 是顺序写还是随机写？
+
+MySQL 在启动后会向操作系统申请一块连续的内存空间作为 Redo Log Buffer，并将其分为若干个连续的 Redo Log Block。
+
+![xyZGHio：Redo Log Block](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318160752.png)
+
+那为了提高写入效率，Redo Log Buffer 采用了顺序写入的方式，会先往前面的 Redo Log Block 中写入，当写满后再往后面的 Block 中写入。
+
+![greatsql：redo log buffer的写入](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318152808.png)
+
+于此同时，InnoDB 还提供了一个全局变量 buf_free，来控制后续的 redo log 记录应该写入到 block 中的哪个位置。
+
+#### buf_next_to_write 了解吗？
+
+buf_next_to_write 指向 Redo Log Buffer 中下一次需要写入硬盘的起始位置。
+
+![xyZGHio：buf_next_to_write](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318180850.png)
+
+而 buf_free 指向的是 Redo Log Buffer 中空闲区域的起始位置。
+
+#### 了解 MTR 吗？
+
+Mini Transaction 是 InnoDB 内部用于操作数据页的原子操作单元。
+
+```c
+mtr_t mtr;
+mtr_start(&mtr);
+
+// 1. 加锁
+
+// 对待访问的index加锁
+mtr_s_lock(rw_lock_t, mtr);
+mtr_x_lock(rw_lock_t, mtr);
+
+// 对待读写的page加锁
+mtr_memo_push(mtr, buf_block_t, MTR_MEMO_PAGE_S_FIX);
+mtr_memo_push(mtr, buf_block_t, MTR_MEMO_PAGE_X_FIX);
+
+// 2. 访问或修改page
+btr_cur_search_to_nth_level
+btr_cur_optimistic_insert
+
+// 3. 为修改操作生成redo
+mlog_open
+mlog_write_initial_log_record_fast
+mlog_close
+
+// 4. 持久化redo，解锁
+mtr_commit(&mtr);
+```
+
+多个事务的 Redo Log 会以 MTR 为单位交替写入到 Redo Log Buffer 中，假如事务 1 和事务 2 均有两个 MTR，一旦某个 MTR 结束，就会将其生成的若干条 Redo Log 记录顺序写入到 Redo Log Buffer 中。
+
+![xyZGHio：MTR 与 Redo Log Buffer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318163110.png)
+
+也就是说，一个 MTR 会包含一组 Redo Log 记录，是 MySQL 崩溃后恢复事务的最小执行单元。
+
+![xyZGHio：MTR](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318163310.png)
+
+#### Redo Log Block 的结构了解吗？
+
+Redo Log Block 由日志头、日志体和日志尾组成，一共占用 512 个字节，其中日志头占用 12 个字节，日志尾占用 4 个字节，剩余的 496 个字节用于存储日志体。
+
+![greatsql：Redo Log Block](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318154904.png)
+
+日志头包含了当前 Block 的序列号、第一条日志的序列号、类型等信息。
+
+字段|	作用
+---|---
+LOG_BLOCK_HDR_NO|	当前 Block 的序号，假如把 Redo Log Buffer 看成一个数组，那么 LOG_BLOCK_HDR_NO 就相当于 Block 在 Buffer 中的下标。
+LOG_BLOCK_HDR_DATA_LEN|	Block 已使用的字节数，初始值为 12，也就是日志头的长度；如果日志体被写满，值增长为 512。
+LOG_BLOCK_FIRST_REC_GROUP|	该 Block 中第一个 MTR 起始处的偏移量
+LOG_BLOCK_CHECKPOINT_NO| Block 最后被写入时的checkpoint
+
+日志尾主要存储的是 LOG_BLOCK_CHECKSUM，也就是 Block 的校验和，主要用于判断 Block 是否完整。
+
+#### Redo Log Block 为什么设计成 512 字节？
+
+因为机械硬盘的物理扇区大小通常为 512 字节，Redo Log Block 也设计为同样的大小，就可以确保每次写入都是整数个扇区，减少对齐开销。
+
+![西维蜀黍：Redo Log 工作原理](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318155855.png)
+
+比如说操作系统的页缓存默认为 4KB，8 个 Redo Log Block 就可以组合成一个页缓存单元，从而提升 Redo Log Buffer 的写入效率。
+
+memo：2025 年 3 月 18 日修改至此。
+
+#### LSN 了解吗？
+
+Log Sequence Number 是一个 8 字节的单调递增整数，用来标识事务写入 redo log 的字节总量，存在于 redo log、数据页头部和 checkpoint 中。
+
+![xyZGHio：LSN](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318181133.png)
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+MySQL 在第一次启动时，LSN 的初始值并不为 0，而是 8704；当 MySQL 再次启动时，会继续使用上一次服务停止时的 LSN。
+
+在计算 LSN 的增量时，不仅需要考虑 log block body 的大小，还需要考虑 log block header 和 log block tail 中部分字节数。
+
+比如说在上图中，事务 3 的 MTR 总量为 300 字节，那么写入到 Redo Log Buffer 中的 LSN 会增长为 8704 + 300 + 12 = 9016。
+
+假如事务 4 的 MTR 总量为 900 字节，那么再次写入到 Redo Log Buffer 中的 LSN 会增长为 9016 + 900 + 12\*2 + 4\*2 = 9948。
+
+2 个 12 字节的 log block header + 2 个 4 字节的 log block tail。
+
+----这部分是帮助大家理解 end，面试中可不背----
+
+核心作用有三个：
+
+第一，redo log 按照 LSN 递增顺序记录所有数据的修改操作。LSN 的递增量等于每次写入日志的字节数。
+
+第二，InnoDB 的每个数据页头部中，都会记录该页最后一次刷新到磁盘时的 LSN。如果数据页的 LSN 小于 redo log 的 LSN，说明该页需要从日志中恢复；否则说明该页已更新。
+
+第三，checkpoint 通过 LSN 记录已刷新到磁盘的数据页位置，减少恢复时需要处理的日志。
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+场景|	LSN 的作用
+---|---
+🔁 redo log 记录|	每条 redo log 对应一个唯一的 LSN
+📄 数据页刷盘|	每个数据页会记录当前刷盘时的 LSN（FIL_PAGE_LSN）
+⛳ Checkpoint|	表示“脏页已经刷盘，可以释放 redo”的安全点
+💥 崩溃恢复|	重启时从 checkpoint LSN 开始重放 redo log
+
+可以通过 `show engine innodb status;` 查看当前的 LSN 信息。
+
+![二哥的 Java 进阶之路：LSN](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250319161213.png)
+
+- Log sequence number：当前系统最大 LSN（已生成的日志总量）。
+- Log flushed up to：已写入磁盘的 redo log LSN。
+- Pages flushed up to：已刷新到数据页的 LSN。
+- Last checkpoint at：最后一次检查点的 LSN，表示已持久化的数据状态。
+
+----这部分是帮助大家理解 end，面试中可不背----
+
+memo：2025 年 3 月 19 日修改至此。今天有读者问怎么付费购买纸质版[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)，说看到网友有这个，好羡慕啊。说实话，第一眼看到这个封面，真的觉得挺惊艳（虽然是我设计的）。😄
+
+![读者已经把面渣逆袭彩印了，好漂亮啊](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250319163123.png)
+
+#### Checkpoint 了解多少？
+
+Checkpoint 是 InnoDB 为了保证事务持久性和回收 redo log 空间的一种机制。
+
+它的作用是在合适的时机将部分脏页刷入磁盘，比如说 buffer pool 的容量不足时。并记录当前 LSN 为 Checkpoint LSN，表示这个位置之前的 redo log file 已经安全，可以被覆盖了。
+
+MySQL 崩溃恢复时只需要从 Checkpoint 之后开始恢复 redo log 就可以了，这样可以最大程度减少恢复所花费的时间。
+
+redo log file 的写入是循环的，其中有两个标记位置非常重要，也就是 Checkpoint 和 write pos。
+
+![三分恶面渣逆袭：checkpoint 和 write pos](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-8d944e76-89ba-4fa6-9066-64ff4f55b532.jpg)
+
+write pos 是 redo log 当前写入的位置，Checkpoint 是可以被覆盖的位置。
+
+当 write pos 追上 Checkpoint 时，表示 redo log 日志已经写满。这时候就要暂停写入并强制刷盘，释放可覆写的日志空间。
+
+![三分恶面渣逆袭：write pos 和 checkpoint](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31a14149-b261-45d9-bd3b-6afaec16e136.jpg)
+
+#### 关于redo log 的调优参数了解多少？
+
+如果是高并发写入的电商系统，可以最大化写入吞吐量，容忍秒级数据丢失的风险。
+
+```sql
+innodb_flush_log_at_trx_commit = 2
+sync_binlog = 1000
+innodb_redo_log_capacity = 64G
+innodb_io_capacity = 5000
+innodb_lru_scan_depth = 512
+innodb_log_buffer_size = 256M
+```
+
+如果是金融交易系统，需要保证数据零丢失，接受较低的吞吐量。
+
+```sql
+innodb_flush_log_at_trx_commit = 1
+sync_binlog = 1
+innodb_redo_log_capacity = 32G
+innodb_io_capacity = 2000
+innodb_lru_scan_depth = 1024
+```
+
+核心参数一览表：
+
+参数名|	控制内容|	影响点
+---|---|---
+innodb_log_file_size|	每个 redo log 文件大小|	总 redo 空间、恢复时间
+innodb_log_files_in_group|	redo log 文件个数|	配合文件大小决定总容量
+innodb_log_buffer_size|	redo log buffer 缓冲区大小|	是否频繁刷盘、写入性能
+innodb_flush_log_at_trx_commit|	redo 刷盘策略|	安全性 vs TPS
+innodb_max_dirty_pages_pct|	脏页比例阈值|	何时触发刷盘 / Checkpoint
+innodb_io_capacity|	后台刷盘速度|	限制 checkpoint 刷盘压力
+
+总结：
+
+- 对数据一致性要求高的场景，如金融交易使用`innodb_flush_log_at_trx_commit=1`，对写入吞吐量敏感的场景，如日志采集可以使用 =2 或 =0，需要结合 sync_binlog 参数
+- sync_binlog 参数控制 binlog 的刷盘策略，可以设置为 0、1、N，0 表示依赖系统刷盘，1 表示每次事务提交都刷盘（推荐与 `innodb_flush_log_at_trx_commit=1` 搭配），N=1000 表示累计 1000 次事务后刷盘
+- innodb_redo_log_capacity 动态调整 Redo Log 总容量，可以根据业务负载情况调整，建议设置为 1 小时写入量的峰值（如每秒 10MB 写入则设为 36GB）
+- innodb_io_capacity 定义 InnoDB 后台线程的每秒 I/O 操作上限，直接影响脏页刷新速率；机械硬盘建议 200-500，SSD 建议 1000-2000，NVMe SSD 可设为 5000+
+- innodb_lru_scan_depth 控制每个缓冲池实例中 LRU 列表的扫描深度，决定每秒可刷新的脏页数量，默认值 1024 适用于多数场景，I/O 密集型负载可适当降低（如 512），减少 CPU 开销。
+
+<MZNXCQRcodeBanner />
+
+memo：2025 年 3 月 20 日修改至此。[有球友](https://javabetter.cn/zhishixingqiu/)报喜说拿到了滴滴的测开实习 offer，恭喜恭喜！
+
+![球友拿到了滴滴的测开实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250320163641.png)
 
 ## SQL 优化
 
-### 32.慢 SQL 怎么定位呢？
+### 🌟32.什么是慢 SQL？
 
 推荐阅读：[慢 SQL 优化一点小思路](https://juejin.cn/post/7048974570228809741)
 
-#### 什么是慢 SQL？
+MySQL 中有一个叫 long_query_time 的参数，原则上执行时间超过该参数值的 SQL 就是慢 SQL，会被记录到慢查询日志中。
 
-慢 SQL 也就是执行时间较长的 SQL 语句，MySQL 中 long_query_time 默认值是 10 秒，也就是执行时间超过 10 秒的 SQL 语句会被记录到慢查询日志中。
+----这部分是帮助大家理解 start，面试中可不背----
 
-可通过 `show variables like 'long_query_time';` 查看当前的 long_query_time 值。
+可通过 `show variables like 'long_query_time';` 查看当前的 long_query_time 的参数值。
 
-![沉默王二：long_query_time](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083506.png)
+![二哥的 Java 进阶之路：long_query_time](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083506.png)
 
-不过，生产环境中，10 秒太久了，超过 1 秒的都可以认为是慢 SQL 了。
-
+----这部分是帮助大家理解 end，面试中可不背----
 
 #### SQL 的执行过程了解吗？
 
-了解：
+了解。
+
+SQL 的执行过程大致可以分为六个阶段：连接管理、语法解析、语义分析、查询优化、执行器调度、存储引擎读写等。Server 层负责理解和规划 SQL 怎么执行，存储引擎层负责数据的真正读写。
+
+![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+来详细拆解一下：
 
 1. 客户端发送 SQL 语句给 MySQL 服务器。
-2. 如果查询缓存打开则会优先查询缓存，缓存中有对应的结果就直接返回。不过，MySQL 8.0 已经移除了查询缓存。
+2. 如果查询缓存打开则会优先查询缓存，缓存中有对应的结果就直接返回。不过，MySQL 8.0 已经移除了查询缓存。这部分的功能正在被 Redis 等缓存中间件取代。
 3. 分析器对 SQL 语句进行语法分析，判断是否有语法错误。
 4. 搞清楚 SQL 语句要干嘛后，MySQL 会通过优化器生成执行计划。
 5. 执行器调用存储引擎的接口，执行 SQL 语句。
-
-![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
 
 SQL 执行过程中，优化器通过成本计算预估出执行效率最高的方式，基本的预估维度为：
 
@@ -1306,39 +1652,35 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 
 基于这两个维度，可以得出影响 SQL 执行效率的因素有：
 
-**①、IO 成本**
+**①、IO 成本**，数据量越大，IO 成本越高。所以要尽量查询必要的字段；尽量分页查询；尽量通过索引加快查询。
 
-- 数据量：数据量越大，IO 成本越高。所以要避免 `select *`；尽量分页查询。
-- 数据从哪读取：尽量通过索引加快查询。
+**②、CPU 成本**，尽量避免复杂的查询条件，如有必要，考虑对子查询结果进行过滤。
 
-**②、CPU 成本**
+----这部分是帮助大家理解 end，面试中可不背----
 
-- 尽量避免复杂的查询条件，如有必要，考虑对子查询结果进行过滤。
-- 尽量缩减计算成本，比如说为排序字段加上索引，提高排序效率；比如说使用 union all 替代 union，减少去重处理。
+#### 如何优化慢 SQL 呢？
 
-#### 如何优化慢 SQL？
-
-首先，找到那些比较慢的 SQL，可以通过启用慢查询日志，记录那些超过指定执行时间的查询。
+首先，需要找到那些比较慢的 SQL，可以通过启用慢查询日志，记录那些超过指定执行时间的 SQL 查询。
 
 也可以使用 `show processlist;` 命令查看当前正在执行的 SQL 语句，找出执行时间较长的 SQL。
 
 ![二哥的java 进阶之路：技术派当前正在执行的 sql](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115145204.png)
 
-或者在业务基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架扩展。
+或者在业务基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架扩展等。
 
 ![二哥的Java 进阶之路：技术派会在日志中记录请求的执行时间](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115145401.png)
 
-然后，使用 EXPLAIN 查看查询执行计划，判断查询是否使用了索引，是否有全表扫描等。
+然后，使用 EXPLAIN 查看慢 SQL 的执行计划，看看有没有用索引，大部分情况下，慢 SQL 的原因都是因为没有用到索引。
 
 ```sql
 EXPLAIN SELECT * FROM your_table WHERE conditions;
 ```
 
-最后，根据分析结果，通过添加或优化索引、调整查询语句或者增加内存缓冲区来优化 SQL。
+最后，根据分析结果，通过添加索引、优化查询条件、减少返回字段等方式进行优化。
 
 #### 慢sql日志怎么开启？
 
-慢 SQL 日志的开启方式有多种，比如说直接编辑 MySQL 的配置文件 my.cnf 或 my.ini，设置 slow_query_log 参数为 1，设置 slow_query_log_file 参数为慢查询日志的路径，设置 long_query_time 参数为慢查询的时间阈值。
+编辑 MySQL 的配置文件 my.cnf，设置 slow_query_log 参数为 1。
 
 ```ini
 [mysqld]
@@ -1347,7 +1689,9 @@ slow_query_log_file = /var/log/mysql/slow.log
 long_query_time = 2  # 记录执行时间超过2秒的查询
 ```
 
-然后重启 MySQL 服务就好了，也可以通过 set global 命令动态设置。
+然后重启 MySQL 就好了。
+
+也可以通过 set global 命令动态设置。
 
 ```sql
 SET GLOBAL slow_query_log = 'ON';
@@ -1363,33 +1707,72 @@ SET GLOBAL long_query_time = 2;
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：如何优化慢查询语句？
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：mysql慢查询
 
-### 33.有哪些方式优化 SQL？
+memo：2025 年 3 月 21 日修改至此。今天[有球友报喜](https://javabetter.cn/zhishixingqiu/)说拿到了 wxg 的实习 offer，阿里云和美团也在进行当中，真的 tql。
 
-我在进行 SQL 优化的时候，主要通过以下几个方面进行优化：
+![球友报喜说拿到了 wxg 的实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250321155611.png)
+
+### 🌟33.你知道哪些方法来优化 SQL？
+
+SQL 优化的方法非常多，但本质上就一句话：尽可能少地扫描、尽快地返回结果。
+
+最常见的做法就是加索引、改写 SQL 让它用上索引，比如说使用索引覆盖、让联合索引遵守最左前缀原则等。
 
 ![沉默王二：SQL 优化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327104050.png)
 
-#### 如何避免不必要的列？
+#### 如何利用索引覆盖？
 
-比如说尽量避免使用 `select *`，只查询需要的列，减少数据传输量。
+索引覆盖的核心是“查询所需的字段都在同一个索引里”，这样 MySQL 就不需要回表，直接从索引中返回结果。
+
+![梦里花。：回表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250322095940.png)
+
+实际使用中，我会优先考虑把 WHERE 和 SELECT 涉及的字段一起建联合索引，并通过 EXPLAIN 观察结果是否有 Using index，确认命中索引。
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+举个例子，现在要从 test 表中查询 city 为上海的 name 字段。
 
 ```sql
-SELECT * FROM employees WHERE department_id = 5;
+select name from test where city='上海'
 ```
 
-改成：
+如果仅在 city 字段上添加索引，那么这条查询语句会先通过索引找到 city 为上海的行，然后再回表查询 name 字段。
+
+为了避免回表查询，可以在 city 和 name 字段上建立联合索引，这样查询结果就可以直接从索引中获取。
 
 ```sql
-SELECT employee_id, first_name, last_name FROM employees WHERE department_id = 5;
+alter table test add index index1(city,name);
 ```
+
+----这部分是帮助大家理解 end，面试中可不背----
+
+#### 如何正确使用联合索引？
+
+使用联合索引最重要的一条是遵守最左前缀原则，也就是查询条件需要从索引的左侧字段开始。
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+比如说我们创建了一个三列的联合索引。
+
+```sql
+CREATE INDEX idx_name_age_sex ON user(name, age, sex);
+```
+
+我们来看一下什么样的查询条件可以用到这个索引：
+
+查询条件|	能否用上 idx_name_age_sex？|	说明
+---|---|---
+WHERE name = 'itwanger'|	✅ 可以|	匹配第一列，命中索引
+WHERE name = 'itwanger' AND age=20|	✅ 可以|	匹配前两列，命中索引
+WHERE age = 20|	❌ 不行|	第一列没用上，索引失效
+WHERE name='itwanger' AND sex='女'|	✅ 部分可用（只用前一列）|	age 被跳过，后面的列无法使用
+WHERE name LIKE 'it%'|	✅ 可以（前缀匹配）|	name 是前缀匹配，不影响使用
+WHERE name LIKE '%wanger%'|	❌ 不行|	通配符在前，不能用索引
+
+----这部分是帮助大家理解 end，面试中可不背----
 
 #### 如何进行分页优化？
 
-当数据量巨大时，传统的`LIMIT`和`OFFSET`可能会导致性能问题，因为数据库需要扫描`OFFSET + LIMIT`数量的行。
-
-延迟关联（Late Row Lookups）和书签（Seek Method）是两种优化分页查询的有效方法。
-
-**①、延迟关联**
+分页优化的核心是避免深度偏移带来的全表扫描，可以通过两种方式来优化：延迟关联和添加书签。
 
 延迟关联适用于需要从多个表中获取数据且主表行数较多的情况。它首先从索引表中检索出需要的行 ID，然后再根据这些 ID 去关联其他的表获取详细信息。
 
@@ -1401,7 +1784,7 @@ ORDER BY e.id
 LIMIT 1000, 20;
 ```
 
-延迟关联后：
+延迟关联后，第一步只查主键，速度快，第二步只处理 20 条数据，效率高。
 
 ```sql
 SELECT e.id, e.name, d.details
@@ -1415,13 +1798,9 @@ JOIN employees e ON sub.id = e.id
 JOIN department d ON e.department_id = d.id;
 ```
 
-首先对`employees`表进行分页查询，仅获取需要的行的 ID，然后再根据这些 ID 关联获取其他信息，减少了不必要的 JOIN 操作。
+添加书签的方式是通过记住上一次查询返回的最后一行主键值，然后在下一次查询的时候从这个值开始，从而跳过偏移量计算，仅扫描目标数据，适合翻页、资讯流等场景。
 
-**②、书签（Seek Method）**
-
-书签方法通过记住上一次查询返回的最后一行的某个值，然后下一次查询从这个值开始，避免了扫描大量不需要的行。
-
-假设需要对用户表进行分页，根据用户 ID 升序排列。
+假设需要对用户表进行分页。
 
 ```sql
 SELECT id, name
@@ -1430,7 +1809,7 @@ ORDER BY id
 LIMIT 1000, 20;
 ```
 
-书签方式：
+通过添加书签来优化后，查询不再使用`OFFSET`，而是从上一页最后一个用户的 ID 开始查询。这种方法可以有效避免不必要的数据扫描，提高了分页查询的效率。
 
 ```sql
 SELECT id, name
@@ -1440,99 +1819,110 @@ ORDER BY id
 LIMIT 20;
 ```
 
-优化后的查询不再使用`OFFSET`，而是直接从上一页最后一个用户的 ID 开始查询。这里的`last_max_id`是上一次查询返回的最后一行的用户 ID。这种方法有效避免了不必要的数据扫描，提高了分页查询的效率。
+#### 为什么分页会变慢？
 
-#### 如何进行索引优化？
+分页查询的效率问题主要是由于 OFFSET 的存在，OFFSET 会导致 MySQL 必须扫描和跳过 offset + limit 条数据，这个过程是非常耗时的。
 
-正确地使用索引可以显著减少 SQL 的查询时间，通常可以从索引覆盖、避免使用 `!=` 或者 `<>` 操作符、适当使用前缀索引、避免列上函数运算、正确使用联合索引等方面进行优化。
-
-**①、利用覆盖索引**
-
-使用非主键索引查询数据时需要回表，但如果索引的叶节点中已经包含要查询的字段，那就不会再回表查询了，这就叫覆盖索引。
-
-举个例子，现在要从 test 表中查询 city 为上海的 name 字段。
+比如说，我们要查询第 100000 条数据，那么 MySQL 就必须扫描 100000 条数据，然后再返回 10 条数据。
 
 ```sql
-select name from test where city='上海'
+SELECT * FROM user ORDER BY id LIMIT 100000, 10;
 ```
 
-如果仅在 city 字段上添加索引，那么这条查询语句会先通过索引找到 city 为上海的行，然后再回表查询 name 字段，这就是回表查询。
+数据越多、偏移越大，就越慢！
 
-为了避免回表查询，可以在 city 和 name 字段上建立联合索引，这样查询结果就可以直接从索引中获取。
+memo：2025 年 3 月 22 日修改至此。今天[有球友说](https://javabetter.cn/zhishixingqiu/)等腾讯云的 HR 面，很着急，但我赌他一定能拿到 offer，等一个后续哈。
+
+![球友进入腾讯云的 HR 面了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250322103527.png)
+
+#### JOIN 代替子查询有什么好处？
+
+第一，JOIN 的 ON 条件能更直接地触发索引，而子查询可能因嵌套导致索引失效。
+
+第二，JOIN 的一次连接操作替代了子查询的多次重复执行，尤其在大数据量的情况下性能差异明显。
+
+----这部分是帮助大家理解 start，面试中可不背----
+
+比如说我们有两个表 orders 和 customers。
 
 ```sql
-alter table test add index index1(city,name);
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    amount DECIMAL(10,2),
+    INDEX idx_customer_id (customer_id)  -- customer_id字段有索引
+);
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
 ```
 
-**②、避免使用 != 或者 <> 操作符**
-
-`!=` 或者 `<>` 操作符会导致 MySQL 无法使用索引，从而导致全表扫描。
-
-例如，可以把`column<>'aaa'`，改成`column>'aaa' or column<'aaa'`，就可以使用索引了。
-
-优化策略就是尽可能使用 `=`、`>`、`<`、`BETWEEN`等操作符，它们能够更好地利用索引。
-
-**③、适当使用前缀索引**
-
-适当使用前缀索引可以降低索引的空间占用，提高索引的查询效率。
-
-比如，邮箱的后缀一般都是固定的`@xxx.com`，那么类似这种后面几位为固定值的字段就非常适合定义为前缀索引：
+子查询的写法：
 
 ```sql
-alter table test add index index2(email(6));
+SELECT o.order_id, o.amount, 
+       (SELECT c.name 
+        FROM customers c 
+        WHERE c.customer_id = o.customer_id) AS customer_name
+FROM orders o;
 ```
 
-需要注意的是，MySQL 无法利用前缀索引做 order by 和 group by 操作。
-
-**④、避免列上使用函数**
-
-在 where 子句中直接对列使用函数会导致索引失效，因为数据库需要对每行的列应用函数后再进行比较，无法直接利用索引。
+JOIN 的写法：
 
 ```sql
-select name from test where date_format(create_time,'%Y-%m-%d')='2021-01-01';
+SELECT o.order_id, o.amount, c.name AS customer_name
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id;
 ```
 
-可以改成：
+对比项|子查询|JOIN
+---|---|---
+索引使用|内层子查询 `WHERE c.customer_id = o.customer_id` 每次执行时，可能无法直接利用 orders 表的 customer_id 索引。|JOIN 的 ON 条件 `o.customer_id = c.customer_id` 可以直接利用 orders 的 idx_customer_id 索引，加速连接过程。
+执行计划|子查询会被重复执行（每次外层 orders 行都会触发一次子查询），导致全表扫描。|优化器可能选择通过索引快速关联两张表，减少数据扫描量。例如，先通过 orders 的索引找到 customer_id，再与 customers 主键快速匹配。
+性能表现|当 orders 表数据量大时，子查询可能因重复执行导致性能急剧下降。|JOIN 的一次连接操作通常更高效，尤其在大数据量时。
+
+对于子查询，执行流程是这样的：
+
+- 外层 orders 表的每一行都会触发一次子查询。
+- 如果 orders 表有 1000 条记录，则子查询会执行 1000 次。
+- 每次子查询都需要单独查询 customers 表（即使 customer_id 相同）。
+
+而 JOIN 的执行流程是这样的：
+
+- 数据库优化器会将两张表的连接操作合并为一次执行。
+- 通过索引（如 orders.customer_id 和 customers.customer_id）快速关联数据。
+- 仅执行一次关联操作，而非多次子查询。
+
+来看一下子查询的执行计划：
 
 ```sql
-select name from test where create_time>='2021-01-01 00:00:00' and create_time<'2021-01-02 00:00:00';
+EXPLAIN SELECT o.order_id, 
+               (SELECT c.name FROM customers c WHERE c.customer_id = o.customer_id) 
+        FROM orders o;
 ```
 
-通过日期的范围查询，而不是在列上使用函数，可以利用 create_time 上的索引。
+![二哥的 Java 进阶之路：子查询的执行计划](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250323213511.png)
 
-**⑤、正确使用联合索引**
+子查询（DEPENDENT SUBQUERY）类型表明其依赖外层查询的每一行，导致重复执行。
 
-正确地使用联合索引可以极大地提高查询性能，联合索引的创建应遵循最左前缀原则，即索引的顺序应根据列在查询中的使用频率和重要性来安排。
+再对比看一下 JOIN 的执行计划：
 
 ```sql
-select * from messages where sender_id=1 and receiver_id=2 and is_read=0;
+EXPLAIN SELECT o.order_id, 
+               (SELECT c.name FROM customers c WHERE c.customer_id = o.customer_id) 
+        FROM orders o;
 ```
 
-那就可以为 sender_id、receiver_id 和 is_read 这三个字段创建联合索引，但是要注意索引的顺序，应该按照查询中的字段顺序来创建索引。
+![二哥的 Java 进阶之路：JOIN 的执行计划](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250323213756.png)
 
-```sql
-alter table messages add index index3(sender_id,receiver_id,is_read);
-```
+JOIN 通过 eq_ref 类型直接利用主键（customers.customer_id）快速关联，减少扫描次数。
 
-#### 如何进行 JOIN 优化？
+----这部分是帮助大家理解 end，面试中可不背----
 
-对于 JOIN 操作，可以通过优化子查询、小表驱动大表、适当增加冗余字段、避免 join 太多表等方式来进行优化。
+memo：2025 年 3 月 23 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，通过一晚上的时间，就在星球里学到很多知识，让他这个 7 年经验的 CRUD Boy 受益匪浅。
 
-**①、优化子查询**
-
-子查询，特别是在 select 列表和 where 子句中的子查询，往往会导致性能问题，因为它们可能会为每一行外层查询执行一次子查询。
-
-使用子查询：
-
-```sql
-select name from A where id in (select id from B);
-```
-
-使用 JOIN 代替子查询：
-
-```sql
-select A.name from A join B on A.id=B.id;
-```
+![球友对星球的一种褒奖](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250323214034.png)
 
 **②、小表驱动大表**
 
@@ -1602,6 +1992,63 @@ SELECT * FROM B WHERE id = 1;
 ```
 
 通过将查询条件下推到 UNION 的每个分支中，每个分支查询都只处理满足条件的数据，减少了不必要的数据合并和过滤。
+
+#### 为什么要尽量避免使用 select *？
+
+因为它会读取所有列，增加 I/O 和网络传输成本，而且还会让覆盖索引失效，影响查询性能。
+
+建议只查询需要的字段，尽量把`select * from table`改成`select id, name from table`。
+
+#### 你还知道哪些 SQL 优化方法？
+
+**①、避免使用 != 或者 <> 操作符**
+
+`!=` 或者 `<>` 操作符会导致 MySQL 无法使用索引，从而导致全表扫描。
+
+例如，可以把`column<>'aaa'`，改成`column>'aaa' or column<'aaa'`，就可以使用索引了。
+
+优化策略就是尽可能使用 `=`、`>`、`<`、`BETWEEN`等操作符，它们能够更好地利用索引。
+
+**②、适当使用前缀索引**
+
+适当使用前缀索引可以降低索引的空间占用，提高索引的查询效率。
+
+比如，邮箱的后缀一般都是固定的`@xxx.com`，那么类似这种后面几位为固定值的字段就非常适合定义为前缀索引：
+
+```sql
+alter table test add index index2(email(6));
+```
+
+需要注意的是，MySQL 无法利用前缀索引做 order by 和 group by 操作。
+
+**③、避免列上使用函数**
+
+在 where 子句中直接对列使用函数会导致索引失效，因为数据库需要对每行的列应用函数后再进行比较，无法直接利用索引。
+
+```sql
+select name from test where date_format(create_time,'%Y-%m-%d')='2021-01-01';
+```
+
+可以改成：
+
+```sql
+select name from test where create_time>='2021-01-01 00:00:00' and create_time<'2021-01-02 00:00:00';
+```
+
+通过日期的范围查询，而不是在列上使用函数，可以利用 create_time 上的索引。
+
+#### 了解MRR 吗？
+
+
+
+
+
+
+
+
+
+
+
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：查询优化、联合索引、覆盖索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
