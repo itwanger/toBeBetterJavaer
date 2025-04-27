@@ -242,7 +242,7 @@ class CallableTask implements Callable<String> {
 
 ![二哥的 Java 进阶之路：默认的虚拟机栈大小](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225145929.png)
 
-其中 ThreadStackSize 的单位是字节，也就是说默认的 JVM 栈大小是 1024 KB，也就是 1M。
+其中 ThreadStackSize 的单位是 KB，也就是说默认的 JVM 栈大小是 1024 KB，也就是 1M。
 
 #### 启动一个 Java 程序，你能说说里面有哪些线程吗？
 

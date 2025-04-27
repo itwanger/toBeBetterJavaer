@@ -187,7 +187,8 @@ protected boolean tryAcquire(int arg) {
 获取资源的入口是 `acquire(int arg)`方法。arg 是要获取的资源个数，在独占模式下始终为 1。我们先来看看这个方法的逻辑：
 
 ```java
-public final void accquire(int arg) {
+// 感谢球友 4. 的指正
+public final void acquire(int arg) {
     // tryAcquire 再次尝试获取锁资源，如果尝试成功，返回true，尝试失败返回false
     if (!tryAcquire(arg) &&
         // 走到这，代表获取锁资源失败，需要将当前线程封装成一个Node，追加到AQS的队列中

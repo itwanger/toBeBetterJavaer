@@ -26,6 +26,10 @@ head:
 
 ![球友们对修改简历的认可2](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113556.png)
 
+无独有偶，看看球友对简历修改后的认可程度吧，几乎没有挂过，非常可以（测试我也会改拉）。
+
+![二哥修改后的简历几乎没有挂过](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250411115244.png)
+
 不管是不是金九银十，二哥每天修改的简历都至少在 10 份以上。
 
 ![简历修改计划](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113037.png)
