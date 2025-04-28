@@ -1321,9 +1321,6 @@ public void clear() {
 
 ![二哥的Java进阶之路：expungeStaleEntry](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250428095121.png)
 
-memo：2025 年 4 月 28 日进行优化，by 球友等会神秘的提醒。
-
-![球友等会神秘的提醒](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250428095407.png)
 
 #### 那为什么 key 要设计成弱引用？
 
