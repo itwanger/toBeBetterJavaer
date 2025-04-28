@@ -10,3 +10,4 @@ images
 *.log
 .yarn
 *-vip.md
+/.vscode

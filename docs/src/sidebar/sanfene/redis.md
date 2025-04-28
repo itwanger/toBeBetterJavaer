@@ -1,7 +1,7 @@
 ---
 title: Redis面试题，57道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Redis
-description: 下载次数超 1 万次，1.9 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，3.4 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 date: 2024-10-31
 category:
@@ -14,45 +14,109 @@ head:
       content: Redis面试题,Redis,八股文,面试题
 ---
 
-1.9 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+![面渣逆袭MySQL篇封面图](https://cdn.tobebetterjavaer.com/stutymore/mysql-mianzhanixi-mysql.jpg)
+
+## 前言
+
+3.4 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+
+亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
+
+![面渣逆袭MySQL篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104843.png)
+
+2025 年 04 月 27 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
+- 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+![面渣逆袭已经提交 1457 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427100320.png)
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了。
+
+展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
+
+![面渣逆袭MySQL篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427105032.png)
+
 
 ## 基础
 
-### 1.说说什么是 Redis?
+### 🌟1.说说什么是 Redis?
 
-[Redis](https://javabetter.cn/redis/rumen.html) 是 **Re**mote **Di**ctionary **S**ervice 三个单词中加粗字母的组合，是一种基于键值对的 NoSQL 数据库。
+[Redis](https://javabetter.cn/redis/rumen.html) 是一种基于键值对的 NoSQL 数据库。
 
-![三分恶面渣逆袭：Redis图标](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-96e079f9-49a3-4c55-b0a4-47d043732b62.png)
+![二哥的Java进阶之路：macOS 启动 Redis](https://cdn.tobebetterjavaer.com/stutymore/redis-20250427143333.png)
 
-但比一般的键值对，比如 [HashMap](https://javabetter.cn/collection/hashmap.html) 强大的多，Redis 中的 value 支持 string、hash、 list、set、zset、Bitmaps、 [HyperLogLog](https://www.cnblogs.com/54chensongxia/p/13803465.html)、GEO等多种数据结构。
+它主要的特点是把数据放在内存当中，相比直接访问磁盘的关系型数据库，读写速度会快很多，基本上能达到微秒级的响应。
 
-而且因为 Redis 的所有数据都存放在内存当中，所以它的读写性能非常出色。
+![每秒请求数能达到10 万级](https://cdn.tobebetterjavaer.com/stutymore/redis-20250427143852.png)
 
-不仅如此，Redis 还可以将内存数据持久化到硬盘上，这样在发生类似断电或者机器故障的时候，内存中的数据并不会“丢失”。
+所以在一些对性能要求很高的场景，比如缓存热点数据、防止接口爆刷，都会用到 Redis。
 
-除此之外，Redis 还提供了键过期、发布订阅、事务、流水线、Lua 脚本等附加功能，是互联网技术领域中使用最广泛的缓存中间件。
+不仅如此，Redis 还支持持久化，可以将内存中的数据异步落盘，以便服务宕机重启后能恢复数据。
 
 #### Redis 和 MySQL 的区别？
 
-- Redis：数据存储在内存中的 NoSQL 数据库，读写性能非常好，是互联网技术领域中使用最广泛的缓存中间件。
-- MySQL：数据存储在硬盘中的关系型数据库，适用于需要事务支持和复杂查询的场景。
+Redis 属于非关系型数据库，数据是通过键值对的形式放在内存当中的；MySQL 属于关系型数据库，数据以行和列的形式存储在磁盘当中。
+
+![二哥的 Java 进阶之路：Redis 作为 MySQL 的缓存](https://cdn.tobebetterjavaer.com/stutymore/redis-20250427152053.png)
+
+实际开发中，会将 MySQL 作为主存储，Redis 作为缓存，通过先查 Redis，未命中再查 MySQL 并写回Redis 的方式来提高系统的整体性能。
 
 #### 项目里哪里用到了 Redis？
 
-在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 Redis，比如说用户活跃排行榜、作者白名单、常用热点数据（文章标签、文章分类）、计数统计（文章点赞收藏评论数粉丝数）等等。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)当中，有很多地方都用到了 Redis，比如说用户活跃排行榜用到了 zset，作者白名单用到了 set。
 
-![技术派专栏](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420093229.png)
+![技术派专栏：用户活越排行榜](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420093229.png)
+
+还有用户登录后的 Session、站点地图 SiteMap，分别用到了 Redis 的字符串和哈希表两种数据类型。
+
+![技术派专栏：Redis 的使用示例](https://cdn.tobebetterjavaer.com/stutymore/redis-20250427152536.png)
+
+其中比较有挑战性的一个应用是，通过 Lua 脚本封装 Redis 的 setnex 命令来实现分布式锁，以保证在高并发场景下，热点文章在短时间内的高频访问不会击穿 MySQL。
+
+![技术派专栏：Redis 分布式锁的应用](https://cdn.tobebetterjavaer.com/stutymore/redis-20250427152627.png)
 
 #### 部署过 Redis 吗？
 
-我是直接在本地部署的单机版，只需要下载 Redis 的安装包，解压后运行 `redis-server` 命令即可。
+第一种回答版本：
 
-也可以通过 Docker 拉取 Redis 镜像，然后运行容器。
+我只在本地部署过单机版，下载 Redis 的安装包，解压后运行 `redis-server` 命令即可。
 
-```shell
-docker run -d --name redis -p 6379:6379 redis
+第二种回答版本：
+
+我有在生产环境中部署单机版 Redis，从官网下载源码包解压后执行 `make && make install` 编译安装。然后编辑 `redis.conf` 文件，开启远程访问、设置密码、限制内存、设置内存过期淘汰策略、开启 AOF 持久化等：
+
+```
+bind 0.0.0.0        # 允许远程访问
+requirepass your_password  # 设置密码
+maxmemory 4gb      # 限制内存，避免 OOM
+maxmemory-policy allkeys-lru  # 内存淘汰策略
+appendonly yes     # 开启 AOF 持久化
 ```
 
+第三种回答版本：
+
+我有使用 Docker 拉取 Redis 镜像后进行容器化部署。
+
+```shell
+docker run -d --name redis -p 6379:6379 redis:7.0-alpine
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
