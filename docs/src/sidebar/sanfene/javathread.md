@@ -1290,7 +1290,7 @@ try {
 }
 ```
 
-`remove()` 方法会将当前线程的 ThreadLocalMap 中的所有 key 为 null 的 Entry 全部清除，这样就能避免内存泄漏问题。
+`remove()` 会调用 ThreadLocalMap 的 remove 方法遍历哈希表，找到 key 等于当前 ThreadLocal 的 Entry，找到后会调用 Entry 的 clear 方法，将 Entry 的 value 设置为 null。
 
 ```java
 private void remove(ThreadLocal<?> key) {
@@ -1303,8 +1303,9 @@ private void remove(ThreadLocal<?> key) {
             e != null;
             e = tab[i = nextIndex(i, len)]) {
         if (e.get() == key) {
-            // 将 key 为 null 的 Entry 清除
+            // 将该 Entry 的 key 置为 null（即 Entry 失效）
             e.clear();
+            // 清理过期的 entry
             expungeStaleEntry(i);
             return;
         }
@@ -1315,6 +1316,14 @@ public void clear() {
     this.referent = null;
 }
 ```
+
+然后执行 `expungeStaleEntry()` 方法，清除 key 为 null 的 Entry。
+
+![二哥的Java进阶之路：expungeStaleEntry](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250428095121.png)
+
+memo：2025 年 4 月 28 日进行优化，by 球友等会神秘的提醒。
+
+![球友等会神秘的提醒](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250428095407.png)
 
 #### 那为什么 key 要设计成弱引用？
 
