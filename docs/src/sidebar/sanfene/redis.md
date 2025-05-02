@@ -379,19 +379,61 @@ memo：2025 年 4 月 29 日修改至此，今天[有球友发信息](https://ja
 
 ![球友拿到了亚马逊的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250429155817.png)
 
-### 4.Redis 为什么快呢？
+### 🌟4.Redis 为什么快呢？
 
-Redis 的速度⾮常快，单机的 Redis 就可以⽀撑每秒十几万的并发，性能是 MySQL 的⼏⼗倍。原因主要有⼏点：
+第一，Redis 的所有数据都放在内存中，而内存的读写速度本身就比磁盘快几个数量级。
 
-①、**基于内存的数据存储**，Redis 将数据存储在内存当中，使得数据的读写操作避开了磁盘 I/O。而内存的访问速度远超硬盘，这是 Redis 读写速度快的根本原因。
+![Shirley：Redis 基于内存](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430112922.png)
 
-②、**单线程模型**，Redis 使用单线程模型来处理客户端的请求，这意味着在任何时刻只有一个命令在执行。这样就避免了线程切换和锁竞争带来的消耗。
+第二，Redis 采用了基于 IO 多路复用技术的事件驱动模型来处理客户端请求和执行 Redis 命令。
 
-③、**IO 多路复⽤**，基于 Linux 的 select/epoll 机制。该机制允许内核中同时存在多个监听套接字和已连接套接字，内核会一直监听这些套接字上的连接请求或者数据请求，一旦有请求到达，就会交给 Redis 处理，就实现了所谓的 Redis 单个线程处理多个 IO 读写的请求。
+![士云：Redis的事件驱动模型](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430132517.png)
 
-![三分恶面渣逆袭：Redis使用IO多路复用和自身事件模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e05bca61-4600-495c-b92a-25ac822e034e.png)
+其中的 IO 多路复用技术可以在只有一个线程的情况下，同时监听成千上万个客户端连接，解决传统 IO 模型中每个连接都需要一个独立线程带来的性能开销。
 
-④、**高效的数据结构**，Redis 提供了多种高效的数据结构，如字符串（String）、列表（List）、集合（Set）、有序集合（Sorted Set）等，这些数据结构经过了高度优化，能够支持快速的数据操作。
+![Rico：IO 多路复用](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430143547.png)
+
+IO 多路复用会持续监听请求，然后把准备好的请求压入到一个队列当中，并将其有序地传递给文件事件分派器，最后由事件处理器来执行对应的 accept、read 和 write 请求。
+
+![开发者内功修炼：Redis 事件驱动机制](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430150054.png)
+
+Redis 会根据操作系统选择最优的 IO 多路复用技术，比如 Linux 下使用 epoll，macOS 下使用 kqueue 等。
+
+```c
+// epoll 的创建和使用
+int epfd = epoll_create(1024); // 创建 epoll 实例
+struct epoll_event ev, events[MAX_EVENTS];
+
+// 添加监听事件
+ev.events = EPOLLIN;
+ev.data.fd = listen_sock;
+epoll_ctl(epfd, EPOLL_CTL_ADD, listen_sock, &ev);
+
+// 等待事件发生
+while (1) {
+    int nfds = epoll_wait(epfd, events, MAX_EVENTS, -1);
+    for (int i = 0; i < nfds; i++) {
+        // 处理就绪的文件描述符
+    }
+}
+```
+
+在 Redis 6.0 之前，包括连接建立、请求读取、响应发送，以及命令执行都是在主线程中顺序执行的，这样可以避免多线程环境下的锁竞争和上下文切换，因为 Redis 的绝大部分操作都是在内存中进行的，性能瓶颈主要是内存操作和网络通信，而不是 CPU。
+
+![小眼睛聊技术：Redis 单线程](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430145617.png)
+
+为了进一步解决网络 IO 的性能瓶颈，Redis 6.0 引入了多线程机制，把网络 IO 和命令执行分开，网络 IO 交给线程池来处理，而命令执行仍然在主线程中进行，这样就可以充分利用多核 CPU 的性能。
+
+![小眼睛聊技术：Redis6.0 引入了多线程](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430145654.png)
+
+主线程专注于命令执行，网络IO 由其他线程分担，在多核 CPU 环境下，Redis 的性能可以得到显著提升。
+
+![lxkka：Redis io 线程和主线程的关系](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430151846.png)
+
+第三，Redis 对底层数据结构做了极致的优化，比如说 String 的底层数据结构动态字符串支持动态扩容、预分配冗余空间，能够减少内存碎片和内存分配的开销。
+
+![古明地盆：Redis 的数据类型和底层数据结构](https://cdn.tobebetterjavaer.com/stutymore/redis-20250430152926.png)
+
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：Redis 为什么读写性能高？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
@@ -401,82 +443,283 @@ Redis 的速度⾮常快，单机的 Redis 就可以⽀撑每秒十几万的并�
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Redis 为什么快
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：redis为什么能处理高并发
 
-### 5.能说一下 I/O 多路复用吗？
+memo：2025 年 4 月 30 日修改至此，今天[有球友发信息](https://javabetter.cn/zhishixingqiu/)说拿到了滴滴的实习 offer，真的恭喜了🎉。
 
-IO 多路复用是一种高效管理多个 IO 事件的技术，通过单线程监控多个文件描述符（fd），实现高并发的 IO 操作。
+![球友拿到了滴滴的暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250501102228.png)
 
-常见的 I/O 多路复用机制包括 select、poll 和 epoll 等。
+### 5.能详细说一下IO多路复用吗？
 
-| 特性          | `select`            | `poll`              | `epoll`               |
-| ------------- | ------------------- | ------------------- | --------------------- |
-| 文件描述符限制 | 受 `FD_SETSIZE` 限制 | 无限制              | 无限制                |
-| 时间复杂度    | O(n)                | O(n)                | O(1)                  |
-| 数据复制      | 需要                | 需要                | 不需要                |
-| 工作方式      | 线性扫描            | 线性扫描            | 事件通知              |
-| 内核支持      | 所有 UNIX 系统      | 所有 UNIX 系统      | Linux 2.6 及以上版本  |
-| 适用场景      | 少量连接            | 中等连接            | 大量并发连接          |
+IO 多路复用是一种允许单个进程同时监视多个文件描述符的技术，使得程序能够高效处理多个并发连接而无需创建大量线程。
 
+![Journey-C：IO 多路复用](https://cdn.tobebetterjavaer.com/stutymore/redis-20250501104352.png)
 
-比如说你是一名数学老师，上课时提出了一个问题：“今天谁来证明一下勾股定律？”
+IO 多路复用的核心思想是：让单个线程可以等待多个文件描述符就绪，然后对就绪的描述符进行操作。这样可以在不使用多线程或多进程的情况下处理并发连接。
 
-同学小王举手，你就让小王回答；小李举手，你就让小李回答；小张举手，你就让小张回答。
+![蛮荆：IO 多路复用和多线程](https://cdn.tobebetterjavaer.com/stutymore/redis-20250501104549.png)
 
-这种模式就是 IO 多路复用，你只需要在讲台上等，谁举手谁回答，不需要一个一个去问。
+主要的实现机制包括 select、poll、epoll、kqueue 和 IOCP 等。
+
+#### 请说说 select、poll、epoll、kqueue 和 IOCP 的区别？
+
+select 的缺点是单个进程能监视的文件描述符数量有限，一般为 1024 个，且每次调用都需要将文件描述符集合从用户态复制到内核态，然后遍历找出就绪的描述符，性能较差。
+
+```c
+// select 的基本使用
+int select(int nfds, fd_set *readfds, fd_set *writefds, 
+           fd_set *exceptfds, struct timeval *timeout);
+
+// 示例代码
+fd_set readfds;
+FD_ZERO(&readfds);                // 清空集合
+FD_SET(sockfd, &readfds);         // 添加监听套接字
+select(sockfd + 1, &readfds, NULL, NULL, NULL);
+if (FD_ISSET(sockfd, &readfds)) { // 检查是否就绪
+    // 处理读事件
+}
+```
+
+poll 的优点是没有最大文件描述符数量的限制，但是每次调用仍然需要将文件描述符集合从用户态复制到内核态，依然需要遍历，性能仍然较差。
+
+```c
+// poll 的基本使用
+int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+
+// 示例代码
+struct pollfd fds[MAX_EVENTS];
+fds[0].fd = sockfd;
+fds[0].events = POLLIN;    // 监听读事件
+poll(fds, 1, -1);
+if (fds[0].revents & POLLIN) {
+    // 处理读事件
+}
+```
+
+epoll 是 Linux 特有的 IO 多路复用机制，支持大规模并发连接，使用事件驱动模型，性能更高。其工作原理是将文件描述符注册到内核中，然后通过事件通知机制来处理就绪的文件描述符，不需要轮询，也不需要数据拷贝，更没有数量限制，所以性能非常高。
+
+```c
+// epoll 的基本使用
+int epoll_create(int size);
+int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
+int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);
+
+// 示例代码
+int epfd = epoll_create(1);
+struct epoll_event ev, events[MAX_EVENTS];
+ev.events = EPOLLIN;
+ev.data.fd = sockfd;
+epoll_ctl(epfd, EPOLL_CTL_ADD, sockfd, &ev);
+
+while (1) {
+    int nfds = epoll_wait(epfd, events, MAX_EVENTS, -1);
+    for (int i = 0; i < nfds; i++) {
+        if (events[i].data.fd == sockfd) {
+            // 处理读事件
+        }
+    }
+}
+```
+
+kqueue 是 BSD/macOS 系统下的 IO 多路复用机制，类似于 epoll，支持大规模并发连接，使用事件驱动模型。
+
+```c
+int kqueue(void);
+int kevent(int kq, const struct kevent *changelist, int nchanges, struct kevent *eventlist, int nevents, const struct timespec *timeout);
+```
+
+IOCP 是 Windows 系统下的 IO 多路复用机制，使用使用完成端口模型而非事件通知。
+
+```c
+HANDLE CreateIoCompletionPort(HANDLE FileHandle, HANDLE ExistingCompletionPort, ULONG_PTR CompletionKey, DWORD NumberOfConcurrentThreads);
+```
+
+#### 举个例子说一下 IO 多路复用？
+
+比如说我是一名数学老师，上课时提出了一个问题：“今天谁来证明一下勾股定律？”
+
+同学小王举手，我就让小王回答；小李举手，我就让小李回答；小张举手，我就让小张回答。
+
+这种模式就是 IO 多路复用，我只需要在讲台上等，谁举手谁回答，不需要一个一个去问。
 
 ![有盐先生：IO 多路复用](https://cdn.tobebetterjavaer.com/stutymore/redis-20240918114125.png)
 
-Redis 就是使用 epoll 这样的 I/O 多路复用机制，在单线程模型下实现高效的网络 I/O，从而支持高并发的请求处理。
+Redis 就是使用 epoll 这样的 IO 多路复用机制，在单线程模型下实现高效的网络 IO，从而支持高并发的请求处理。
 
-#### 举例子说一下 I/O 多路复用？
+#### 举例子说一下阻塞 IO和 IO 多路复用的差别？
 
-假设你是一个老师，让 30 个学生解答一道题目，然后检查学生做的是否正确，你有下面几个选择：
+假设我是一名老师，让学生解答一道题目。
 
-- 第一种选择：按顺序逐个检查，先检查 A，然后是 B，之后是 C、D。。。这中间如果有一个学生卡住，全班都会被耽误。这种模式就好比，你用循环挨个处理 socket，根本不具有并发能力。
-- 第二种选择：你创建 30 个分身，每个分身检查一个学生的答案是否正确。 这种类似于为每一个用户创建一个进程或者线程处理连接。
-- 第三种选择，你站在讲台上等，谁解答完谁举手。这时 C、D 举手，表示他们解答问题完毕，你下去依次检查 C、D 的答案，然后继续回到讲台上等。此时 E、A 又举手，然后去处理 E 和 A。
+我的第一种选择：按顺序逐个检查，先检查 A同学，然后是 B，之后是 C、D。。。这中间如果有一个学生卡住，全班都会被耽误。
 
-第一种就是阻塞 IO 模型，第三种就是 I/O 复用模型。
+这种就是阻塞 IO，不具有并发能力。
 
-![图片来源于网络：多路复用模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-eb541432-d68a-4dd9-b427-96c4dd607d64.png)
+![阻塞 IO和 IO多路复用差别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-eb541432-d68a-4dd9-b427-96c4dd607d64.png)
 
-Linux 系统有三种方式实现 IO 多路复用：select、poll 和 epoll。
-
-例如 epoll 方式是将用户 socket 对应的 fd 注册进 epoll，然后 epoll 帮你监听哪些 socket 上有消息到达，这样就避免了大量的无用操作。此时的 socket 应该采用非阻塞模式。
-
-这样，整个过程只在进行 select、poll、epoll 这些调用的时候才会阻塞，收发客户消息是不会阻塞的，整个进程或者线程就被充分利用起来，这就是事件驱动，所谓的 reactor 模式。
+我的第二种选择，我站在讲台上等，谁举手我去检查谁。C、D 举手，我去检查 C、D 的答案，然后继续回到讲台上等。此时 E、A 又举手，然后去处理 E 和 A。
 
 #### select、poll 和 epoll 的实现原理？
 
-select 使用位图管理 fd，每次调用都需要将 fd 集合从用户态复制到内核态。最大支持 1024 个文件描述符。
+select 和 poll 都是通过把所有文件描述符传递给内核，由内核遍历判断哪些就绪。
 
-poll 使用动态数组管理 fd，突破了 select 的数量限制。
+select 将文件描述符 FD 通过 BitsMap 传入内核，轮询所有的 FD，通过调用 file->poll 函数查询是否有对应事件，没有就将 task 加入 FD 对应 file 的待唤醒队列，等待事件来临被唤醒。
 
-epoll 使用红黑树和链表管理 fd，每次调用只需要将 fd 集合从用户态复制到内核态一次，不需要重复复制。
+![journey-c：select](https://cdn.tobebetterjavaer.com/stutymore/redis-20250501113356.png)
+
+poll 改进了连接数上限问题，不再用 BitsMap 来传入 FD，取而代之的是动态数组 pollfd，但本质上仍是线性遍历，性能没有提升太多。
+
+![journey-c：poll](https://cdn.tobebetterjavaer.com/stutymore/redis-20250501113618.png)
+
+select和poll的模式都是，一次将参数拷贝到内核空间，等有结果了再一次拷贝出去。
+
+epoll 将监听的 FD 注册进内核的红黑树，由内核在事件触发时将就绪的 FD 放入 ready list。应用程序通过 epoll_wait 获取就绪的 FD，从而避免遍历所有连接的开销。
+
+![journey-c：epoll](https://cdn.tobebetterjavaer.com/stutymore/redis-20250501113710.png)
+
+epoll 最大的优点是：支持事件驱动 + 边缘触发，ADD 时拷贝一次，epoll_wait 时利用 MMAP 和用户共享空间，直接拷贝数据到用户空间，因此在高并发场景下性能远高于 select 和 poll。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：io多路复用了解吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：IO多路复用中select/poll/epoll各自的实现原理和区别？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：Linux中的IO多路复用
 
-### 6. Redis 为什么早期选择单线程？
+memo：2025 年 5 月 1 日修改至此，今天[帮球友修改简历时](https://javabetter.cn/zhishixingqiu/jianli.html) 时，碰到一名北京交通大学的同学，又一所 211 院校，星球真的是人才济济，大家一起加油吧（骄傲）。
 
-官方解释：https://redis.io/topics/faq
+![北京交通大学的球友](https://cdn.tobebetterjavaer.com/stutymore/redis-20250502100516.png)
+
+### 6. Redis为什么早期选择单线程？
+
+第一，单线程模型不需要考虑复杂的锁机制，不存在多线程环境下的死锁、竞态条件等问题，开发起来更快，也更容易维护。
+
+![wsh-study.com：Redis的单线程模型](https://cdn.tobebetterjavaer.com/stutymore/redis-20250502100006.png)
+
+第二，Redis 是IO 密集型而非 CPU 密集型，主要受内存和网络 IO 限制，而非 CPU 的计算能力，单线程可以避免线程上下文切换的开销。
+
+哪怕我们在一个普通的 Linux 服务器上启动 Redis 服务，它也能在 1s 内处理 1000000 个用户请求。
+
+第三，单线程可以保证命令执行的原子性，无需额外的同步机制。
 
 ![官方单线程解释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-344b8461-98d4-495b-a697-70275b0abad6.png)
-官方 FAQ 表示，因为 Redis 是基于内存的操作，CPU 成为 Redis 的瓶颈的情况很少见，Redis 的瓶颈最有可能是内存的大小或者网络限制。
 
-如果想要最大程度利用 CPU，可以在一台机器上启动多个 Redis 实例。
+Redis 虽然最初采用了单线程设计，但后续的版本中也在特定方面引入了多线程，比如说 Redis 4.0 就引异步多线程，用于清理脏数据、释放无用连接、删除大 Key 等。
 
-PS：网上有这样的回答，吐槽官方的解释有些敷衍，其实就是历史原因，开发者嫌多线程麻烦，后来这个 CPU 的利用问题就被抛给了使用者。
 
-同时 FAQ 里还提到了， Redis 4.0 之后开始变成多线程，除了主线程外，它也有后台线程在处理一些较为缓慢的操作，例如清理脏数据、无用连接的释放、大 Key 的删除等等。
+
+```c
+/* 从数据库中删除一个键、值以及相关的过期条目（如果有的话）。
+ * 如果释放值对象需要大量的内存分配操作，该对象可能会被放入
+ * 延迟释放列表中，而不是同步释放。延迟释放列表将在
+ * bio.c 的另一个线程中进行回收。 */
+#define LAZYFREE_THRESHOLD 64
+int dbAsyncDelete(redisDb *db, robj *key) {
+    /* 从过期字典中删除条目不会释放键的 sds，
+     * 因为它与主字典共享。 */
+    if (dictSize(db->expires) > 0) dictDelete(db->expires,key->ptr);
+
+    /* 如果值对象只包含少量的内存分配，使用延迟释放方式
+     * 实际上会更慢... 所以在一定阈值以下，我们就直接
+     * 同步释放对象。 */
+    dictEntry *de = dictUnlink(db->dict,key->ptr);
+    if (de) {
+        robj *val = dictGetVal(de);
+        // 计算value的回收收益
+        size_t free_effort = lazyfreeGetFreeEffort(val);
+
+        /* 如果释放对象的工作量太大，就通过将对象添加到延迟释放列表
+         * 在后台进行处理。
+         * 注意，如果对象是共享的，现在就回收它是不可能的。这种情况
+         * 很少发生，但是有时 Redis 核心的某些实现部分可能会调用
+         * incrRefCount() 来保护对象，然后调用 dbDelete()。在这种
+         * 情况下，我们会继续执行并到达 dictFreeUnlinkedEntry() 
+         * 调用，这相当于仅仅调用 decrRefCount()。 */
+        // 只有回收收益超过一定值，才会执行异步删除，否则还是会退化到同步删除
+        if (free_effort > LAZYFREE_THRESHOLD && val->refcount == 1) {
+            atomicIncr(lazyfree_objects,1);
+            bioCreateBackgroundJob(BIO_LAZY_FREE,val,NULL,NULL);
+            dictSetVal(db->dict,de,NULL);
+        }
+    }
+
+    /* 释放键值对，如果我们将 val 字段设置为 NULL 以便稍后
+     * 延迟释放，那么就只释放键。 */
+    if (de) {
+        dictFreeUnlinkedEntry(db->dict,de);
+        if (server.cluster_enabled) slotToKeyDel(key->ptr);
+        return 1;
+    } else {
+        return 0;
+    }
+}
+```
+
+官方解释：[https://redis.io/topics/faq](https://redis.io/topics/faq)
 
 ### 7.Redis 6.0 使用多线程是怎么回事?
 
-单线程模型意味着 Redis 在大量 IO 请求时，无法充分利用多核 CPU 的优势。
+Redis 6.0 的多线程仅用于处理网络 IO，包括网络数据的读取、写入，以及请求解析。
+
+```
+│ 单线程执行命令 │
+                  │    ↑    ↓     │
+┌─────────┐     ┌─┴────────────┴──┐
+│ I/O线程1 │ ←→ │                 │
+├─────────┤     │                 │
+│ I/O线程2 │ ←→ │    主线程       │
+├─────────┤     │                 │
+│ I/O线程3 │ ←→ │                 │
+└─────────┘     └─────────────────┘
+```
+
+而命令的执行依然是单线程，这种设计被称为“IO 线程化”，能够在高负载的情况下，最大限度地提升 Redis 的响应速度。
 
 ![三分恶面渣逆袭：Redis6.0多线程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b7b24e25-d2dc-4457-994f-95bdb3674b8e.png)
 
-在 Redis 6.0 中，多线程主要用来处理网络 IO 操作，命令解析和执行仍然是单线程完成，这样既可以发挥多核 CPU 的优势，又能避免锁和上下文切换带来的性能损耗。
+---- 这部分面试中可以不背，方便大家理解 start ----
+
+这一变化主要是因为随着网络带宽和服务器性能的提升，Redis 的瓶颈从 CPU 逐渐转移到了网络 IO：
+
+- 带宽从 10Gbps 提升到 100Gbps，甚至更高。
+- 请求的并发数从几千到几万，甚至几十万。
+
+单线程在高负载场景下处理网络 IO 出现了明显的性能瓶颈，Redis 的开发团队通过研究发现，在处理大数据包时，单线程 Redis 有超过 80% 的 CPU 时间花在网络 IO 上，而实际命令执行仅占 20% 左右。
+
+![wsh-study.com：Redis 6.0的多线程网络模型](https://cdn.tobebetterjavaer.com/stutymore/redis-20250502095838.png)
+
+Redis 6.0 的多线程 IO 模型主要包含三个核心步骤：
+
+- 仍然由主线程负责接收客户端的连接请求。
+- 主线程将连接请求分发给多个 IO 线程进行处理，主线程负责解析和执行命令。
+- 命令执行完毕后，由多个 IO 线程将结果返回给客户端。
+
+```c
+// Redis 主事件循环（简化版）
+void beforeSleep(struct aeEventLoop *eventLoop) {
+    // 1. 主线程分派读任务给 I/O 线程
+    handleClientsWithPendingReadsUsingThreads();
+    
+    // 2. 等待 I/O 线程完成读取
+    waitForIOThreads();
+    
+    // 3. 主线程处理命令
+    processInputBuffer();
+    
+    // 4. 主线程分派写任务给 I/O 线程
+    handleClientsWithPendingWritesUsingThreads();
+}
+```
+
+Redis 6.0 默认仍然使用单线程模式，但可以通过配置文件或命令行参数启用多线程模式。
+
+```shell
+# 启用多线程模式
+io-threads 4
+
+# 启用多线程写入（Redis 6.0 默认只开启多线程读取）
+io-threads-do-reads yes
+```
+
+建议将 IO 线程数设置为 CPU 核心数的一半，一般不建议超过 8 个。
+
+经过多次测试，Redis 6.0 在处理 1-200 字节的小数据包时，性能提升 1.5-2 倍；在处理 1KB 以上的大数据包时提升约 3-5 倍。
+
+----这部分面试中可以不背，方便大家理解 end ----
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：redis6.0引入的多线程用作什么地方
 
