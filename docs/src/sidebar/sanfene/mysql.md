@@ -1353,7 +1353,7 @@ binlog 是追加写入的，文件写满后会新建文件继续写入，不会�
 
 ![阿里：2PC 可以保证redo log 和 binlog 的数据一致性](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316105500.png)
 
-假如 MySQL 在写入 binlog 之后、redo log 提交之前崩溃。那么 MySQL 重启后 InnoDB 会提交该事务，因为 redo log 是提交状态。并且由于 binlog 中有写入数据，所以从库也会同步到该事务的数据。
+假如 MySQL 在写入 binlog 之后、redo log 提交之前崩溃。那么 MySQL 重启后 InnoDB 会提交该事务，因为 redo log 是 prepare 状态。并且由于 binlog 中有写入数据，所以从库也会同步到该事务的数据。
 
 伪代码如下所示：
 
