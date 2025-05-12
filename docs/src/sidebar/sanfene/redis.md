@@ -1020,7 +1020,7 @@ appendonly yes
 
 ```shell
 appendfsync always    # 每次写入数据都同步，保证数据不丢失，但性能较低
-appendfsync everysec  # 每秒同步一次，折衷方案
+appendfsync everysec  # 每秒同步一次，折中方案
 appendfsync no        # 由操作系统决定何时同步，性能最好，但数据安全性最低
 ```
 
