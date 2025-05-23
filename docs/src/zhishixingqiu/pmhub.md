@@ -132,7 +132,7 @@ PmHub 是由前蚂蚁金服技术专家苍何和二哥一起主导的，一套�
 
 看到这就想加入二哥编程星球的话，请扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 159 元/年，优惠完只需要 129 元，每天不到 0.35 元，绝对的超值。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/jianli-星球优惠券.png)
 
 ## 03、PmHub 长什么样子？
 
@@ -352,7 +352,7 @@ PmHub原型图在线查看地址：[https://lanhuapp.com/link/#/invite?sid=qxZji
 
 相信看到这里的小伙伴，已经开始摩拳擦掌，想现在立刻马上开搞 PmHub 了。那欢迎大家扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://laigeoffer.cn/zsxq/)目前定价 159 元/年，优惠完只需要 129 元，每天不到 0.35 元，绝对的超值。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/jianli-星球优惠券.png)
 
 星球目前已经 7400+ 人了，新一轮涨价已经箭在弦上，毕竟人多了，我们付出的时间成本也会更多，相信大家也都能理解。
 
@@ -390,7 +390,7 @@ PmHub原型图在线查看地址：[https://lanhuapp.com/link/#/invite?sid=qxZji
 
 不为别的，为的就是给所有人提供一个可持续的学习环境。当然了，随着人数的增多，二哥付出的精力越来越多，星球也会涨价，今天这批 30 元的优惠券不仅 2024 年最大的优惠力度，也是 2025 年最大的优惠力度，现在入手就是最划算的，再犹豫就只能等着涨价了。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq-new.png)
+![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/jianli-星球优惠券.png)
 
 毕竟 PmHub、技术派网站用到的域名、证书、服务器、CDN、OSS、OpenAI 的 API KEY、讯飞星火大模型的 token 都需要钱。
 

@@ -43,9 +43,9 @@ head:
     <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
-百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 30 多万字，400+张手绘图，可以说是诚意满满。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
@@ -3043,9 +3043,9 @@ reduced.ifPresent(System.out::println);
     <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
-百度网盘、阿里云盘、夸克网盘都可以下载到最新版本，我会第一时间更新上去。
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 30 多万字，400+张手绘图，可以说是诚意满满。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230171125.png)
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
 
 ---
 
