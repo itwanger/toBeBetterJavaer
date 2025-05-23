@@ -165,7 +165,7 @@ OK
 沉默王三
 沉默王二
 沉默王二是沙比
-## 删除 index 为 0 的值
+## 删除 所有 等于“沉默王四” 的元素。（count=0移除所有，count>0从头部移除count个，count<0从尾部移除count个）
 > lrem user_list 0 沉默王四
 1
 > lrange user_list 0 -1
