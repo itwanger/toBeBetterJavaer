@@ -125,8 +125,6 @@ shortTitle: macOS下如何运行编程喵源码
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/macos-codingmore-run-ad8efde7-a420-4fe9-922d-fb63b650e535.png)
 
-针对[星球用户](https://javabetter.cn/zhishixingqiu/)，我会开放自己的 accessKeyId 和 accessKeySecret，请勿外泄，免得被恶意攻击。
-
 ## 下载编程喵（codingmore）源码
 
 编程喵一共有三个仓库，分别是：
