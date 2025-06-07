@@ -121,8 +121,7 @@ head:
 
 我就随便挑一份简历的专业技能来说，大家看完后可以先感受一下有什么问题，然后我再来说说我的建议。
 
-
-![](https://cdn.tobebetterjavaer.com/paicoding/714d366ac7d85ea992d9502ece2af459.png)
+![很差的专业技能示例](https://cdn.tobebetterjavaer.com/paicoding/714d366ac7d85ea992d9502ece2af459.png)
 
 我先列一下我看到的问题点：
 
@@ -141,17 +140,19 @@ head:
 我把我修改过的，觉得非常不错的简历都放到星球这个【[精选简历](https://t.zsxq.com/07eet6DJ1)】的帖子里了，需要的可以[戳链接](https://t.zsxq.com/07eet6DJ1)直达。
 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133859.png)
+![二哥编程星球的精选简历](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133859.png)
 
 我截图大家感受一下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133959.png)
+![精选简历中的专业技能样例](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133959.png)
+
+![修改前后的对比，明眼人都能看得出进步](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250604105739.png)
 
 ## 02、项目经历一定要扎实
 
 同样先来看反面教材，对于下面这样的项目经历，大家看完后的直观感受是什么样子呢？
 
-![](https://cdn.tobebetterjavaer.com/paicoding/1c59050f9348b5d7ae46e90c4e5088b0.png)
+![很差的项目经历](https://cdn.tobebetterjavaer.com/paicoding/1c59050f9348b5d7ae46e90c4e5088b0.png)
 
 我说一下我看到的问题：只有项目的一些描述信息，却没有自己在这个项目中具体的表现，有点本末倒置的感觉。有一股从项目需求文档里直接 copy 出来的味道。
 
@@ -180,7 +181,7 @@ head:
 项目描述：技术派是一个前后端分离的，面向互联网开发者的技术内容分享与交流平台，包括前端 PC 和管理后台。我们通过文章、教程、AI 助手等产品和服务，旨在打造一个激发开发者创作灵感，传播优质技术内容，陪伴开发者快速成长的技术社区。
 
 - 在线地址：[paicoding.com](https://paicoding.com)
-- GitHub 仓库（已有 1.9k星标）：[https://github.com/itwanger/paicoding](https://github.com/itwanger/paicoding)
+- GitHub 仓库（已有 2.6k星标）：[https://github.com/itwanger/paicoding](https://github.com/itwanger/paicoding)
 
 责任描述：作为核心研发人员，主要负责登录认证、消息通知、文章教程、AI 助手，以及管理后台的开发工作。
 

@@ -41,13 +41,13 @@ head:
     <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
-我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 30 多万字，400+张手绘图，可以说是诚意满满。
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
 ![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
 
-当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
-
-更别说我付出的时间和精力了。
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，100+张手绘图，可以说是诚意满满。
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
@@ -2497,7 +2497,7 @@ public void updateUser(UserInfo user) {
 }
 ```
 
-这种方式简单有效，适用于度多些少的场景。TTL 过期时间也能够保证即使更新操作失败，未能及时删除缓存，过期时间也能确保数据最终一致。
+这种方式简单有效，适用于读多写少的场景。TTL 过期时间也能够保证即使更新操作失败，未能及时删除缓存，过期时间也能确保数据最终一致。
 
 #### 那再来说说为什么要删除缓存而不是更新缓存？
 
@@ -2691,147 +2691,326 @@ memo：2025 年 5 月 23 日修改至此，今天在修改[球友简历](https:/
 
 ### 32.如何保证本地缓存和分布式缓存的一致？
 
-在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，为了减轻 Redis 的负载，我又追加了一层本地缓存 Caffeine。
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，为了减轻 Redis 的负载压力，我又追加了一层本地缓存 Caffeine。
 
-![三分恶面渣逆袭：延时双删](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6d4ab7e6-8337-4576-bbf0-79202a1c3331.png)
+![三分恶面渣逆袭：本地缓存+分布式缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6d4ab7e6-8337-4576-bbf0-79202a1c3331.png)
 
-为了保证本地缓存和 Redis 缓存的一致性，通常采用的策略有：
-
-①、设置本地缓存的过期时间，这是最简单也是最直接的方法，当本地缓存过期时，就从 Redis 缓存中去同步。
-
-②、使用 Redis 的 Pub/Sub 机制，当 Redis 缓存发生变化时，发布一个消息，本地缓存订阅这个消息，然后删除对应的本地缓存。
-
-③、Redis 缓存发生变化时，引入消息队列，比如 RocketMQ、RabbitMQ 去更新本地缓存。
+为了保证 Caffeine 和 Redis 缓存的一致性，我采用的策略是当数据更新时，通过 Redis 的 pub/sub 机制向所有应用实例发送缓存更新通知，收到通知后的实例立即更新或者删除本地缓存。
 
 ![三分恶面渣逆袭：本地缓存/分布式缓存保持一致](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-20c15f0d-fb3c-4922-94b1-edcd856658be.png)
 
-由于技术派本身对缓存的一致性要求不是特别高，所以我就采用第一种方式。
+```java
+@Service
+public class CacheService {
+    
+    private final RedisTemplate redisTemplate;
+    private final CaffeineCache localCache;
+    
+    public void updateData(String key, Object value) {
+        // 更新数据库
+        database.update(key, value);
+        
+        // 更新分布式缓存
+        redisTemplate.opsForValue().set(key, value, 30, TimeUnit.MINUTES);
+        
+        // 发送缓存更新通知
+        CacheUpdateMessage message = new CacheUpdateMessage(key, "UPDATE", value);
+        redisTemplate.convertAndSend("cache-update-channel", message);
+    }
+    
+    @EventListener
+    public void handleCacheUpdate(CacheUpdateMessage message) {
+        if ("UPDATE".equals(message.getAction())) {
+            localCache.put(message.getKey(), message.getValue());
+        } else if ("DELETE".equals(message.getAction())) {
+            localCache.invalidate(message.getKey());
+        }
+    }
+}
+```
 
-另外，在技术派实战项目中，我对缓存的使用场景做了细化。比如说，使用 CacheBuilder 来完成 Guava Cache 的构建，像一些简单的缓存场景，比如说获取菜单分类、获取登录验证码、获取用户转存图片等，都使用了 Guava Cache。
+考虑到消息可能丢失，我还会引入版本号机制作为补充。每次从 Redis 获取数据时添加一个最新的版本号。从本地缓存获取数据前，先检查自己的版本号是否是最新的，如果发现版本落后，就主动从 Redis 中获取最新数据。
 
-![技术派教程：Guava](https://cdn.tobebetterjavaer.com/stutymore/redis-20240507105407.png)
+```java
+@Component
+public class VersionBasedCacheManager {
 
-像首页侧边栏、专栏侧边栏、文章详情侧边栏等缓存场景，就使用了 Caffeine 作为本地缓存，通过 @Cacheable、@CacheEvit、@CachePut 等注解实现，非常轻巧。
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
-![技术派教程：Caffeine](https://cdn.tobebetterjavaer.com/stutymore/redis-20240507110254.png)
+    // 使用 Caffeine 构建本地缓存：最多 1000 项，写入后 10 分钟过期
+    private final Cache<String, VersionedData> localCache = Caffeine.newBuilder()
+        .maximumSize(1000)
+        .expireAfterWrite(10, TimeUnit.MINUTES)
+        .build();
 
-而像用户 Session 和网站地图 SiteMap 等缓存场景，就使用了 Redis 来作为缓存。
+    /**
+     * 获取缓存数据，优先使用本地缓存，必要时从 Redis 加载
+     */
+    public Object get(String key) {
+        VersionedData cached = localCache.getIfPresent(key); // 从本地缓存取出
 
-![技术派教程：Redis](https://cdn.tobebetterjavaer.com/stutymore/redis-20240507110652.png)
+        // 从 Redis 获取版本号
+        String versionStr = redisTemplate.opsForValue().get(key + ":version");
+
+        // 如果 Redis 中没找到版本号，说明可能数据已失效，强制刷新
+        if (versionStr == null) {
+            return loadAndCache(key);
+        }
+
+        long remoteVersion = Long.parseLong(versionStr);
+
+        // 如果本地没有缓存，或版本落后于 Redis，强制刷新
+        if (cached == null || cached.getVersion() < remoteVersion) {
+            return loadAndCache(key);
+        }
+
+        // 命中本地缓存且版本最新，直接返回
+        return cached.getData();
+    }
+
+    /**
+     * 从 Redis 加载数据和版本，并写入本地缓存
+     */
+    private Object loadAndCache(String key) {
+        Object data = redisTemplate.opsForValue().get(key);
+        String versionStr = redisTemplate.opsForValue().get(key + ":version");
+
+        if (data != null && versionStr != null) {
+            long version = Long.parseLong(versionStr);
+            localCache.put(key, new VersionedData(data, version));
+        }
+
+        return data;
+    }
+}
+```
 
 #### 如果在项目中多个地方都要使用到二级缓存的逻辑，如何设计这一块？
 
-在设计时，应该清楚地区分何时使用一级缓存和何时使用二级缓存。通常情况下，对于频繁访问但不经常更改的数据，可以放在本地缓存中以提供最快的访问速度。而对于需要共享或者一致性要求较高的数据，应当放在一级缓存中。
+我的思路是将二级缓存抽象成一个统一的组件。设计一个 CacheManager 作为核心入口，提供 get、put、evict 等基本操作，执行先查本地缓存，再查分布式缓存，最后查数据库的完整流程。
 
-#### 本地缓存和 Redis 缓存的区别和效率对比？
+```java
+public class CacheManager {
 
-Redis 可以部署在多个节点上，支持数据分片，适用于跨服务器的缓存共享。而本地缓存只能在单个服务器上使用。
+    private final LocalCache localCache;
+    private final RedisCache redisCache;
+    private final Database database;
 
-Redis 还可以持久化数据，支持数据备份和恢复，适用于对数据安全性要求较高的场景。并且支持发布/订阅、事务、Lua 脚本等高级功能。
+    public CacheManager(LocalCache localCache, RedisCache redisCache, Database database) {
+        this.localCache = localCache;
+        this.redisCache = redisCache;
+        this.database = database;
+    }
 
-效率上，Redis 和本地缓存都是存储在内存中，读写速度都非常快。
+    public Object get(String key) {
+        // 先查本地缓存
+        Object value = localCache.get(key);
+        if (value != null) {
+            return value;
+        }
+
+        // 再查分布式缓存
+        value = redisCache.get(key);
+        if (value != null) {
+            // 更新本地缓存
+            localCache.put(key, value);
+            return value;
+        }
+
+        // 最后查数据库
+        value = database.get(key);
+        if (value != null) {
+            // 更新分布式缓存和本地缓存
+            redisCache.put(key, value);
+            localCache.put(key, value);
+        }
+        
+        return value;
+    }
+}
+```
+
+#### 本地缓存和 Redis 的区别了解吗？
+
+Redis 可以部署在多个节点上，支持数据分片、主从复制和集群。而本地缓存只能在单个服务器上使用。
+
+对于读取频率极高、数据相对稳定、允许短暂不一致的数据，我优先选择本地缓存。比如系统配置信息、用户权限数据、商品分类信息等。
+
+而对于需要实时同步、数据变化频繁、多个服务需要共享的数据，我会选择 Redis。比如用户会话信息、购物车数据、实时统计信息等。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：怎么保证二级缓存和 Redis 缓存的数据一致性？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 11 面试原题：使用的 guava cache 和 redis 是如何组合使用的？如果在项目中多个地方都要使用到二级缓存的逻辑，如何设计这一块？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术二面的原题：redis 和本地缓存的区别，哪个效率高
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 8 一面面试原题：缓存一致性如何保证
 
-### 33.怎么处理热 key？
+### 33.什么是热Key？
+
+所谓的热 Key，就是指在很短时间内被频繁访问的键。比如电商大促期间爆款商品的详情信息，流量明星爆瓜时的个人资料、热门话题等，都可能成为热Key。
+
+由于 Redis 是单线程模型，大量请求集中到同一个键会导致该 Redis 节点的 CPU 使用率飙升，响应时间变长。
+
+在 Redis 集群环境下，热Key 还会导致数据分布不均衡，某个节点承受的压力过大而其他节点相对空闲。
+
+![飞猪开放平台：热 Key 造成缓存击穿](https://cdn.tobebetterjavaer.com/stutymore/redis-20250524105015.png)
+
+更严重的情况是，当热Key 过期或被误删时，会引发缓存击穿问题。
+
+#### 那怎么监控热Key 呢？
+
+临时的方案可以使用 `redis-cli --hotkeys` 命令来监控 Redis 中的热 Key。
+
+```
+redis-cli -h <address> -p <port> -a<password> — hotkey
+```
+
+![飞猪开放平台：发现热点数据](https://cdn.tobebetterjavaer.com/stutymore/redis-20250524110756.png)
+
+或者在访问缓存时，在本地维护一个计数器，当某个键的访问次数在一分钟内超过设定阈值，就将其标记为热Key。
+
+```java
+@Component
+public class HotKeyDetector {
+    private final ConcurrentHashMap<String, AtomicLong> accessCounter = new ConcurrentHashMap<>();
+    private final int HOT_KEY_THRESHOLD = 1000;
+    
+    public boolean isHotKey(String key) {
+        long count = accessCounter.computeIfAbsent(key, k -> new AtomicLong(0))
+                                  .incrementAndGet();
+        return count > HOT_KEY_THRESHOLD;
+    }
+}
+```
+
+### 34.那怎么处理热Key 呢？
+
+最有效的解决方法是增加本地缓存，将热 Key 缓存到本地内存中，这样请求就不需要访问 Redis 了。
+
+![三分恶面渣逆袭：热key处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6fa972ec-5531-48f2-a608-4465d79d4518.png)
+
+对于一些特别热的 Key，可以将其拆分成多个子 Key，然后随机分布到不同的 Redis 节点上。比如将 `hot_product:12345` 拆分成 `hot_product:12345:1`、`hot_product:12345:2` 等多个副本，读取时随机选择其中一个。
+
+![Jerry’s Notes：处理热 Key](https://cdn.tobebetterjavaer.com/stutymore/redis-20250524111114.png)
+
+```java
+public String getHotData(String key) {
+    if (isHotKey(key)) {
+        // 随机选择一个副本
+        int replica = ThreadLocalRandom.current().nextInt(HOT_KEY_REPLICAS);
+        return redis.get(key + ":" + replica);
+    }
+    return redis.get(key);
+}
+```
+
+### 35.怎么处理大 Key 呢？
+
+大Key 是指占用内存空间较大的缓存键，比如超过 10M 的键值对。常见的大Key 类型包括：包含大量元素的 List、Set、Hash 结构，存储大文件的 String 类型，以及包含复杂嵌套对象的 JSON 数据等。
+
+在内存有限的情况下，可能导致 Redis 内存不足。另外，大Key 还会导致主从复制同步延迟，甚至引发网络拥塞。
+
+可以通过 `redis-cli --bigkeys` 命令来监控 Redis 中的大 Key。
+
+![二哥的 Java 进阶之路：bigkeys](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309090340.png)
+
+或者编写脚本进行全量扫描：
+
+```java
+@Component
+public class BigKeyScanner {
+    
+    private final RedisTemplate redisTemplate;
+    private final int BIG_KEY_THRESHOLD = 1024 * 1024; // 1MB
+    
+    public List<BigKeyInfo> scanBigKeys() {
+        List<BigKeyInfo> bigKeys = new ArrayList<>();
+        
+        // 使用SCAN命令遍历所有键
+        ScanOptions options = ScanOptions.scanOptions().count(1000).build();
+        Cursor<byte[]> cursor = redisTemplate.executeWithStickyConnection(
+            connection -> connection.scan(options)
+        );
+        
+        while (cursor.hasNext()) {
+            String key = new String(cursor.next());
+            long memory = getKeyMemoryUsage(key);
+            
+            if (memory > BIG_KEY_THRESHOLD) {
+                bigKeys.add(new BigKeyInfo(key, memory, getKeyType(key)));
+            }
+        }
+        
+        return bigKeys;
+    }
+    
+    private long getKeyMemoryUsage(String key) {
+        // 使用MEMORY USAGE命令获取键的内存占用
+        return redisTemplate.execute((RedisCallback<Long>) connection -> 
+            connection.memoryUsage(key.getBytes())
+        );
+    }
+}  
+```
+
+对于大 Key 问题，最根本的解决方案是拆分大 Key，将其拆分成多个小 Key 存储。比如将一个包含大量用户信息的 Hash 拆分成多个小 Hash。
+
+![三分恶面渣逆袭：大key处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e4aaafda-fce1-47f0-8b2b-7261d47b720b.png)
+
+```java
+public void splitBigKey(String bigKey) {
+    Map<String, String> bigData = redisTemplate.opsForHash().entries(bigKey);
+    
+    // 将大 Key 拆分成多个小 Key
+    for (Map.Entry<String, String> entry : bigData.entrySet()) {
+        String smallKey = bigKey + ":" + entry.getKey();
+        redisTemplate.opsForValue().set(smallKey, entry.getValue());
+    }
+    
+    // 删除原始大 Key
+    redisTemplate.delete(bigKey);
+}
+```
+
+另外，对于 JSON 数据，可以进行 Gzip 压缩后再存储，虽然会增加一些 CPU 开销，但在内存敏感的场景在是值得的。
+
+```java
+public void setCompressedData(String key, Object data) {
+    try {
+        String json = objectMapper.writeValueAsString(data);
+        byte[] compressed = compress(json.getBytes());
+        redisTemplate.opsForValue().set(key, compressed);
+    } catch (Exception e) {
+        log.error("Failed to compress data", e);
+    }
+}
+
+private byte[] compress(byte[] data) throws IOException {
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    try (GZIPOutputStream gzip = new GZIPOutputStream(out)) {
+        gzip.write(data);
+    }
+    return out.toByteArray();
+}
+```
 
 推荐阅读：
 
 - [阿里：发现并处理 Redis 的大 Key 和热 Key](https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys)
 - [董宗磊：Redis 热 Key 发现以及解决办法](https://dongzl.github.io/2021/01/14/03-Redis-Hot-Key/index.html)
 
-所谓的热 key，就是指在很短时间内被频繁访问的键。
-
-比如，热门新闻或热门商品，这类 key 通常会有大流量的访问，对存储这类信息的 Redis 来说，是不小的压力。
-
-> 某天某流量明星突然爆出一个大瓜，微博突然就崩了，这就是热 key 的压力。
-
-再比如说 Redis 是集群部署，热 key 可能会造成整体流量的不均衡（网络带宽、CPU 和内存资源），个别节点出现 OPS 过大的情况，极端情况下热点 key 甚至会超过 Redis 本身能够承受的 OPS。
-
-> OPS（Operations Per Second）是 Redis 的一个重要指标，表示 Redis 每秒钟能够处理的命令数。
-
-通常以 Key 被请求的频率来判定，比如：
-
-- **QPS 集中在特定的 Key**：总的 QPS（每秒查询率）为 10000，其中一个 Key 的 QPS 飙到了 8000。
-- **带宽使用率集中在特定的 Key**：一个拥有上千成员且总大小为 1M 的哈希 Key，每秒发送大量的 HGETALL 请求。
-- **CPU 使用率集中在特定的 Key**：一个拥有数万个成员的 ZSET Key，每秒发送大量的 ZRANGE 请求。
-
-> - HGETALL 命令用于返回哈希表中，所有的字段和值。
-> - ZRANGE 命令用于返回有序集中，指定区间内的成员。
-
-#### 怎么处理热 key？
-
-![三分恶面渣逆袭：热key处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6fa972ec-5531-48f2-a608-4465d79d4518.png)
-
-对热 key 的处理，最关键的是对热 key 的监控:
-
-①、客户端
-
-客户端其实是距离 key“最近”的地方，因为 Redis 命令就是从客户端发出的，例如在客户端设置全局字典（key 和调用次数），每次调用 Redis 命令时，使用这个字典进行记录。
-
-②、代理端
-
-像 Twemproxy、Codis 这些基于代理的 Redis 分布式架构，所有客户端的请求都是通过代理端完成的，可以在代理端进行监控。
-
-③、Redis 服务端
-
-使用 monitor 命令统计热点 key 是很多开发和运维人员首先想到的方案，monitor 命令可以监控到 Redis 执行的所有命令。
-
-> monitor 命令的使用：`redis-cli monitor`
-
-![二哥的 Java 进阶之路：monitor](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309085135.png)
-
-还可以通过 bigkeys 参数来分析热 Key。
-
-> bigkeys 命令的使用：`redis-cli --bigkeys`
-
-![二哥的 Java 进阶之路：bigkeys](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309090340.png)
-
-只要监控到了热 key，对热 key 的处理就简单了：
-
-①、把热 key 打散到不同的服务器，降低压⼒。
-
-基本思路就是给热 Key 加上前缀或者后缀，见下例：
-
-```java
-// N 为 Redis 实例个数，M 为 N 的 2倍
-const M = N * 2
-//生成随机数
-random = GenRandom(0, M)
-//构造备份新 Key
-bakHotKey = hotKey + "_" + random
-data = redis.GET(bakHotKey)
-if data == NULL {
-    data = redis.GET(hotKey)
-    if data == NULL {
-        data = GetFromDB()
-        // 可以利用原子锁来写入数据保证数据一致性
-        redis.SET(hotKey, data, expireTime)
-        redis.SET(bakHotKey, data, expireTime + GenRandom(0, 5))
-    } else {
-        redis.SET(bakHotKey, data, expireTime + GenRandom(0, 5))
-    }
-}
-```
-
-②、加⼊⼆级缓存，当出现热 Key 后，把热 Key 加载到 JVM 中，后续针对这些热 Key 的请求，直接从 JVM 中读取。
-
-这些本地的缓存工具有很多，比如 Caffeine、Guava 等，或者直接使用 HashMap 作为本地缓存都是可以的。
-
-注意，如果对热 Key 进行本地缓存，需要防止本地缓存过大。
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
 
-### 34.缓存预热怎么做呢？
+memo：2025 年 5 月 24 日，今天[球友发私信说](https://javabetter.cn/zhishixingqiu/)，拿到了荣耀通软的实习 offer，恭喜他！🎉
 
-缓存预热是指在系统启动时，提前将一些预定义的数据加载到缓存中，以避免在系统运行初期由于缓存未命中（cache miss）导致的性能问题。
+![荣耀通软的实习 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250524112308.png)
 
-通过缓存预热，可以确保系统在上线后能够立即提供高效的服务，减少首次访问时的延迟。
+### 36.缓存预热怎么做呢？
 
-缓存预热的方法有多种，在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们采用了项目启动时自动加载和定时预热两种方式，比如说每天定时更新站点地图到 Redis 缓存中。
+缓存预热是指在系统启动或者特定时间点，提前将热点数据加载到缓存中，避免冷启动时大量请求直接打到数据库。
+
+![geeksforgeeks.org：缓存预热](https://cdn.tobebetterjavaer.com/stutymore/redis-20250525071018.png)
+
+缓存预热的方法有多种，在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我会在项目启动时将热门文章提前加载到 Redis 中，在每天凌晨定时将最新的站点地图更新到 Redis中，以确保用户在第一次访问时就能获取到缓存数据，从而减轻数据库的压力。
 
 ```java
 /**
@@ -2855,7 +3034,7 @@ private synchronized void initSiteMap() {
     while (true) {
         List<SimpleArticleDTO> list = articleDao.getBaseMapper().listArticlesOrderById(lastId, SCAN_SIZE);
 
-        // 刷新站点地图信息
+        // 刷新站点地图信息，放到 Redis 当中
         Map<String, Long> map = list.stream().collect(Collectors.toMap(s -> String.valueOf(s.getId()), s -> s.getCreateTime().getTime(), (a, b) -> a));
         RedisClient.hMSet(SITE_MAP_CACHE_KEY, map);
         if (list.size() < SCAN_SIZE) {
@@ -2868,460 +3047,774 @@ private synchronized void initSiteMap() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 技术二面面试原题：什么是缓存预热？如何解决？
 
-### 35.热点 key 重建？问题？解决？
 
-开发的时候一般使用“缓存+过期时间”的策略，既可以加速数据读写，又保证数据的定期更新，这种模式基本能够满足绝大部分需求。
+### 37.无底洞问题听说过吗？如何解决？
 
-但是有两个问题如果同时出现，可能就会出现比较大的问题：
+无底洞问题的核心在于，随着缓存节点数量的增加，虽然总的存储容量和理论吞吐量都在增长，但是单个请求的响应时间反而变长了。
 
-- 当前 key 是一个热点 key（例如一个热门的娱乐新闻），并发量非常大。
+这个问题的根本原因是网络通信开销的增加。当节点数量从几十个增长到几千个时，客户端需要与更多的节点进行通信。
 
-- 重建缓存不能在短时间完成，可能是一个复杂计算，例如复杂的 SQL、多次 IO、多个依赖等。 在缓存失效的瞬间，有大量线程来重建缓存，造成后端负载加大，甚至可能会让应用崩溃。
+其次就是数据分布的碎片化。随着节点增多，数据分散得更加细碎，原本可以在一个节点获取的相关数据，现在可能分散在多个节点上。
 
-#### 怎么处理热key呢？
+针对这个问题，可以采取以下几种解决方案：
 
-要解决这个问题也不是很复杂，解决问题的要点在于：
+第一，可以将同一节点的多个请求合并成一个批量请求，减少网络往返次数。
 
-- 减少重建缓存的次数。
-- 数据尽可能一致。
-- 较少的潜在危险。
+```java
+public Map<String, Object> batchGet(List<String> keys) {
+    // 按节点分组keys
+    Map<String, List<String>> nodeKeysMap = groupKeysByNode(keys);
+    Map<String, Object> results = new ConcurrentHashMap<>();
+    
+    // 并发访问各个节点
+    List<CompletableFuture<Void>> futures = nodeKeysMap.entrySet().stream()
+        .map(entry -> CompletableFuture.runAsync(() -> {
+            String node = entry.getKey();
+            List<String> nodeKeys = entry.getValue();
+            
+            // 批量获取该节点的数据
+            Map<String, Object> nodeResults = getFromNode(node, nodeKeys);
+            results.putAll(nodeResults);
+        }))
+        .collect(Collectors.toList());
+    
+    // 等待所有请求完成
+    CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
+    
+    return results;
+}
+```
 
-所以一般采用如下方式：
+第二，可以使用一致性哈希算法来优化数据分布，减少数据迁移和重分布的开销。
 
-1.  互斥锁（mutex key）
-    这种方法只允许一个线程重建缓存，其他线程等待重建缓存的线程执行完，重新从缓存获取数据即可。
-2.  永远不过期
-    “永远不过期”包含两层意思：
+```java
+public class LocalityAwareSharding {
+    
+    public String getNodeForKey(String key, String category) {
+        // 相同类别的数据尽量分配到相同节点
+        String shardKey = category + ":" + (key.hashCode() % SHARDS_PER_CATEGORY);
+        return consistentHash.getNode(shardKey);
+    }
+    
+    // 用户相关数据尽量在同一个节点
+    public String getUserDataNode(String userId) {
+        return "user_cluster_" + (userId.hashCode() % USER_CLUSTERS);
+    }
+}
+```
 
-- 从缓存层面来看，确实没有设置过期时间，所以不会出现热点 key 过期后产生的问题，也就是“物理”不过期。
-- 从功能层面来看，为每个 value 设置一个逻辑过期时间，当发现超过逻辑过期时间后，会使用单独的线程去构建缓存。
-
-### 36.无底洞问题吗？如何解决？
-
-2010 年，Facebook 的 Memcache 节点已经达到了 3000 个，承载着 TB 级别的缓存数据。但开发和运维人员发现了一个问题，为了满足业务要求添加了大量新 Memcache 节点，但是发现性能不但没有好转反而下降了，当时将这 种现象称为缓存的“**无底洞**”现象。
-
-那么为什么会产生这种现象呢?
-
-通常来说添加节点使得 Memcache 集群 性能应该更强了，但事实并非如此。键值数据库由于通常采用哈希函数将 key 映射到各个节点上，造成 key 的分布与业务无关，但是由于数据量和访问量的持续增长，造成需要添加大量节点做水平扩容，导致键值分布到更多的 节点上，所以无论是 Memcache 还是 Redis 的分布式，批量操作通常需要从不同节点上获取，相比于单机批量操作只涉及一次网络操作，分布式批量操作会涉及多次网络时间。
-
-#### 无底洞问题如何优化呢？
-
-先分析一下无底洞问题：
-
-- 客户端一次批量操作会涉及多次网络操作，也就意味着批量操作会随着节点的增多，耗时会不断增大。
-
-- 网络连接数变多，对节点的性能也有一定影响。
-
-常见的优化思路如下：
-
-- 命令本身的优化，例如优化操作语句等。
-
-- 减少网络通信次数。
-
-- 降低接入成本，例如客户端使用长连/连接池、NIO 等。
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## Redis 运维
 
-### 37.Redis 报内存不足怎么处理？
+### 38.Redis 报内存不足怎么处理？
 
-Redis 内存不足有这么几种处理方式：
+Redis 报内存不足时，通常是因为 Redis 占用的物理内存已经接近或者超过了配置的最大内存限制。这时可以采取以下几种步骤来处理：
 
-- 修改配置文件 redis.conf 的 maxmemory 参数，增加 Redis 可用内存
-- 也可以通过命令 set maxmemory 动态设置内存上限
-- 修改内存淘汰策略，及时释放内存空间
-- 使用 Redis 集群模式，进行横向扩容。
+第一，使用 `INFO memory` 命令查看 Redis 的内存使用情况，看看是否真的达到了最大内存限制。
 
-### 38.Redis key 过期策略有哪些？
+```bash
+redis-cli INFO memory
+```
 
-Redis 的 key 过期回收策略主要有两种：惰性删除和定期删除。
+![二哥的 Java 进阶之路：INFO memory](https://cdn.tobebetterjavaer.com/stutymore/redis-20250525074224.png)
+
+第二，如果服务器还有可用内存的话，修改 `redis.conf` 中的 `maxmemory` 参数，增加 Redis 的最大内存限制。比如将最大内存设置为 8GB：
+
+```bash
+maxmemory 8gb
+```
+
+第三，修改 `maxmemory-policy` 参数来调整内存淘汰策略。比如可以选择 `allkeys-lru` 策略，让 Redis 自动删除最近最少使用的键。
+
+```bash
+maxmemory-policy allkeys-lru
+```
+
+memo：2025 年 5 月 25 日修改至此，今天在修改[球友简历](https://javabetter.cn/zhishixingqiu/jianli.html)时，碰到一个西安交通大学本、上海交通大学硕的球友，985 本硕学历真的非常顶了，我会竭尽所能去帮助他，在秋招中斩获一个 SSP offer，冲！
+
+![西安交通大学本、上海交通大学硕](https://cdn.tobebetterjavaer.com/stutymore/redis-20250525075244.png)
+
+### 39.Redis key过期策略有哪些？
+
+Redis 主要采用了两种过期删除策略来保证过期的 key 能够被及时删除，包括惰性删除和定期删除。
 
 ![二哥的 Java 进阶之路：Redis 的过期淘汰策略](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214119.png)
 
-当某个键被访问时，如果发现它已经过期，Redis 会立即删除该键，俗称惰性删除。但这也意味着如果一个已过期的键从未被访问，它就不会被删除，会占用额外的内存空间。
+惰性删除是最基本的策略，当客户端访问一个 key 时，Redis 会检查该 key 是否已过期，如果过期就会立即删除并返回 nil。
 
-那还有一种定期删除策略，即每隔一段时间，Redis 就会随机检查一些键是否过期，如果过期就删除。这种策略可以保证过期键及时被删除，但也会增加 Redis 的 CPU 消耗。
+```java
+// 模拟惰性删除的逻辑
+public Object get(String key) {
+    RedisKey redisKey = getKeyFromMemory(key);
+    
+    if (redisKey != null && isExpired(redisKey)) {
+        // key已过期，删除并返回null
+        deleteKey(key);
+        return null;
+    }
+    
+    return redisKey != null ? redisKey.getValue() : null;
+}
+```
+
+这种策略的优点是不会有额外的 CPU 开销，只在访问 key 时才检查。但问题是如果一个过期的 key 永远不被访问，它就会一直占用内存。
+
+![java技术小馆：key 过期策略](https://cdn.tobebetterjavaer.com/stutymore/redis-20250527111551.png)
+
+于是就有了定期删除策略，Redis 会定期随机选择一些设置了过期时间的 key 进行检查，删除其中已过期的 key。这个过程默认每秒执行 10 次，每次随机选择 20 个 key 进行检查。
+
+----这部分面试中可以不背 start----
 
 可以通过 `config get hz` 命令查看 Redis 内部定时任务的频率。
 
 ![二哥的 Java 进阶之路：config get hz](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326214800.png)
 
-结果显示 hz 的值为 "10"，意味着 Redis 服务器每秒执行定时任务的频率是 10 次。可以通过 `CONFIG SET hz 20` 进行调整。
+hz 的值为“10”意味着 Redis 每秒执行 10 次定时任务 。可以通过 `CONFIG SET hz 20` 进行调整。
 
 ![二哥本地 Redis 的配置文件路径和 hz 的默认值](https://cdn.tobebetterjavaer.com/stutymore/redis-20240326215240.png)
+
+----这部分面试中可以不背 end----
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Redis key 删除策略
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2 面面试原题：redis 内存淘汰和过期策略
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：redis key过期策略
 
-### 39.Redis 有哪些内存淘汰策略？
+### 🌟40.Redis有哪些内存淘汰策略？
 
-当 Redis 的内存使用达到最大值时，它会根据配置的内存淘汰策略来决定如何处理新的请求。
+当内存使用接近 maxmemory 限制时，Redis 会依据内存淘汰策略来决定删除哪些 key 以缓解内存压力。
 
->最大值通过 maxmemory 参数设置
+![码哥字节：内存淘汰策略](https://cdn.tobebetterjavaer.com/stutymore/redis-20250527115004.png)
 
-![三分恶面渣逆袭：Redis六种内存溢出控制策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-5be7405c-ee11-4d2b-bea4-9598f10a1b17.png)
+常用的内存淘汰策略有八种，分别是默认的 noeviction，内存不足时不会删除任何 key，直接返回错误信息，生产环境下基本上不会使用。
 
-常见的策略有：
+然后是针对所有 key 的 allkeys-lru、allkeys-lfu 和 allkeys-random。lru 会删除最近最少使用的 key，在纯缓存场景中最常用，能自动保留热点数据；lfu 会删除访问频率最低的 key，更适合长期运行的系统；random 会随机删除一些 key，一般不推荐使用。
 
-1. noeviction：默认策略，不进行任何数据淘汰，直接返回错误信息。
-2. allkeys-lru：从所有键中，使用 LRU 算法淘汰最近最少使用的键。
-3. allkeys-lfu：从所有键中，使用 LFU 算法淘汰最少使用的键。
-4. volatile-lru：从设置了过期时间的键中淘汰最近最少使用的键。
-5. volatile-ttl：从设置了过期时间的键中淘汰即将过期的键。
+其次是针对设置了过期时间的 key，有 volatile-lru、volatile-lfu、volatile-ttl 和 volatile-random。
 
->TTL，Time To Live，存活时间
+lru 在混合存储场景中经常使用。
 
-#### LRU 和 LFU 的区别是什么？
+```java
+@Service
+public class HybridStorageService {
+    
+    // 重要数据不设置过期时间，临时数据设置过期时间
+    public void storeData(String key, Object data, DataImportance importance) {
+        if (importance == DataImportance.HIGH) {
+            // 重要数据不设置过期时间，在volatile-*策略下不会被淘汰
+            redisTemplate.opsForValue().set(key, data);
+        } else {
+            // 临时数据设置过期时间，可以被volatile-*策略淘汰
+            redisTemplate.opsForValue().set(key, data, Duration.ofHours(1));
+        }
+    }
+}
+```
 
-LRU（Least Recently Used）：基于时间维度，淘汰最近最少访问的键。适合访问具有时间特性的场景。
 
-LFU（Least Frequently Used）：基于次数维度，淘汰访问频率最低的键。更适合长期热点数据场景。
+lfu 适合需要保护某些重要数据不被淘汰的场景；ttl 优先删除即将过期的 key，在用户会话管理系统中推荐使用；random 仍然很少用。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：为什么 redis 快，淘汰策略 持久化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2 面面试原题：redis 内存淘汰和过期策略
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：redis内存淘汰策略
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：redis内存淘汰机制  延伸到LRU   LFU
 
-### 40.Redis 阻塞？怎么解决？
+### 41.LRU 和 LFU 的区别是什么？
 
-Redis 发生阻塞，可以从以下几个方面排查：
-![Redis阻塞排查](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e6a35258-7a78-4489-90b7-e47a4190802b.png)
+LRU 是 Least Recently Used 的缩写，基于时间维度，淘汰最近最少访问的键。
 
-- **API 或数据结构使用不合理**
+LFU 是 Least Frequently Used 的缩写，基于次数维度，淘汰访问频率最低的键。
 
-  通常 Redis 执行命令速度非常快，但是不合理地使用命令，可能会导致执行速度很慢，导致阻塞，对于高并发的场景，应该尽量避免在大对象上执行算法复杂 度超过 O（n）的命令。
+假设缓存中有三个数据 A、B、C，在 LRU 场景下，如果访问顺序是 A→B→C→A，那么此时的 LRU 顺序是B→C→A，如果需要淘汰，会先删除 B。
 
-  对慢查询的处理分为两步：
+但在 LFU 场景下，如果 A 被访问了 5 次，B 被访问了 2 次，C 被访问了 1 次，那么无论最近的访问顺序如何，都会优先淘汰 C，因为它的访问频率最低。
 
-  1. 发现慢查询： slowlog get{n}命令可以获取最近 的 n 条慢查询命令；
-  2. 发现慢查询后，可以从两个方向去优化慢查询：
-     1）修改为低算法复杂度的命令，如 hgetall 改为 hmget 等，禁用 keys、sort 等命 令
-     2）调整大对象：缩减大对象数据或把大对象拆分为多个小对象，防止一次命令操作过多的数据。
+LRU 更适合有明显时间局部性的场景，比如在新闻网站中，用户更关心最新的新闻，而昨天的新闻访问量会急剧下降。这种情况下，LRU 能很好地保留用户当前关心的热点内容。
 
-- **CPU 饱和的问题**
+LFU 则更适合有长期访问模式的场景，更强调“热度”，比如在电商平台中，某些商品可能长期保持热销状态，即使它们的访问时间间隔较长，但由于访问频率高，LFU 会优先保留这些商品的信息。
 
-  单线程的 Redis 处理命令时只能使用一个 CPU。而 CPU 饱和是指 Redis 单核 CPU 使用率跑到接近 100%。
 
-  针对这种情况，处理步骤一般如下：
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：redis内存淘汰机制  延伸到LRU   LFU
 
-  1. 判断当前 Redis 并发量是否已经达到极限，可以使用统计命令 redis-cli-h{ip}-p{port}--stat 获取当前 Redis 使用情况
-  2. 如果 Redis 的请求几万+，那么大概就是 Redis 的 OPS 已经到了极限，应该做集群化水品扩展来分摊 OPS 压力
-  3. 如果只有几百几千，那么就得排查命令和内存的使用
+memo：2025 年 5 月 27 日，今天[球友发私信说](https://javabetter.cn/zhishixingqiu/)，拿到了哈啰和得物的实习 offer，恭喜他！🎉 还特意感谢了一下之前对他简历的修改和学习上的建议。
 
-- **持久化相关的阻塞**
+![球友拿到了得物和哈啰的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250527120727.png)
 
-  对于开启了持久化功能的 Redis 节点，需要排查是否是持久化导致的阻塞。
+### 42.Redis发生阻塞了怎么解决？
 
-  1. fork 阻塞
-     fork 操作发生在 RDB 和 AOF 重写时，Redis 主线程调用 fork 操作产生共享 内存的子进程，由子进程完成持久化文件重写工作。如果 fork 操作本身耗时过长，必然会导致主线程的阻塞。
-  2. AOF 刷盘阻塞
-     当我们开启 AOF 持久化功能时，文件刷盘的方式一般采用每秒一次，后台线程每秒对 AOF 文件做 fsync 操作。当硬盘压力过大时，fsync 操作需要等 待，直到写入完成。如果主线程发现距离上一次的 fsync 成功超过 2 秒，为了 数据安全性它会阻塞直到后台线程执行 fsync 操作完成。
-  3. HugePage 写操作阻塞
-     对于开启 Transparent HugePages 的 操作系统，每次写命令引起的复制内存页单位由 4K 变为 2MB，放大了 512 倍，会拖慢写操作的执行时间，导致大量写操作慢查询。
+Redis 发生阻塞在生产环境中是比较严重的问题，当发现 Redis 变慢时，我会先通过 monitor 命令查看当前正在执行的命令，或者使用 slowlog 命令查看慢查询日志。
 
-### 41.大 key 问题了解吗？
+```shell
+# 查看当前正在执行的命令
+redis-cli MONITOR
 
-大 key 指的是存储了大量数据的键，比如：
+# 查看慢查询日志
+redis-cli SLOWLOG GET 10
 
-- 单个简单的 key 存储的 value 很大，size 超过 10KB
-- hash，set，zset，list 中存储过多的元素（以万为单位）
+# 检查客户端连接状况
+redis-cli CLIENT LIST
+```
 
-推荐阅读：[阿里：发现并处理 Redis 的大 Key 和热 Key](https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys)
+通常情况下，大Key 是导致 Redis 阻塞的主要原因之一。比如说直接 DEL 一个包含几百万个元素的 Set，就会导致 Redis 阻塞几秒钟甚至更久。
 
-**大 key 会造成什么问题呢？**
+这时候可以用 UNLINK 命令替代 DEL 来异步删除，避免阻塞主线程。
 
-- 客户端耗时增加，甚至超时
-- 对大 key 进行 IO 操作时，会严重占用带宽和 CPU
-- 造成 Redis 集群中数据倾斜
-- 主动删除、被动删等，可能会导致阻塞
+```shell
+# 使用 UNLINK 异步删除大 Key
+redis-cli UNLINK big_key
+```
 
-**如何找到大 key?**
+对于非常大的集合，可以使用 SCAN 命令分批删除。
 
-①、bigkeys 参数：使用 bigkeys 命令以遍历的方式分析 Redis 实例中的所有 Key，并返回整体统计信息与每个数据类型中 Top1 的大 Key
+```java
+public void safeBatchProcess(String key) {
+    ScanOptions options = ScanOptions.scanOptions().count(1000).build();
+    Cursor<String> cursor = redisTemplate.opsForSet().scan(key, options);
+    
+    while (cursor.hasNext()) {
+        String member = cursor.next();
+        // 分批处理，避免阻塞
+        processElement(member);
+    }
+}
+```
 
-> bigkeys 命令的使用：`redis-cli --bigkeys`
+另外，当 Redis 使用的内存超过物理内存时，操作系统会将部分内存交换到磁盘，这时候会导致 Redis 响应变慢。我的处理方式是：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309091503.png)
+使用 `free -h` 检查内存的使用情况 ；确认 Redis 的 maxmemory 设置是否合理；如果发生了内存交换，立即调整 maxmemory 并清理一些不重要的数据。
 
-②、redis-rdb-tools：redis-rdb-tools 是由 Python 语言编写的用来分析 Redis 中 rdb 快照文件的工具。
+大量的客户端连接也可能会导致阻塞，这时候最好检查一下连接池的配置。
 
-源码地址：[https://github.com/sripathikrishnan/redis-rdb-tools/](https://github.com/sripathikrishnan/redis-rdb-tools/)
+```java
+@Configuration
+public class RedisConnectionConfig {
+    
+    @Bean
+    public JedisConnectionFactory jedisConnectionFactory() {
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
+        poolConfig.setMaxTotal(200);        // 最大连接数
+        poolConfig.setMaxIdle(50);          // 最大空闲连接
+        poolConfig.setMinIdle(10);          // 最小空闲连接
+        poolConfig.setMaxWaitMillis(3000);  // 获取连接最大等待时间
+        poolConfig.setTestOnBorrow(true);   // 获取连接时检测有效性
+        
+        return new JedisConnectionFactory(poolConfig);
+    }
+}
+```
 
-> rdb，全称 Redis DataBase，是 Redis 在内存中的数据格式的一种持久化存储方式。
-
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20240309092121.png)
-
-推荐阅读：[RDB 详解](https://redisbook.readthedocs.io/en/latest/internal/rdb.html)
-
-**如何处理大 key?**
-
-![大key处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e4aaafda-fce1-47f0-8b2b-7261d47b720b.png)
-
-①、**删除大 key**
-
-- 当 Redis 版本大于 4.0 时，可使用 UNLINK 命令安全地删除大 Key，该命令能够以非阻塞的方式，逐步地清理传入的大 Key。
-- 当 Redis 版本小于 4.0 时，建议通过 SCAN 命令执行增量迭代扫描 key，然后判断进行删除。
-
-②、**压缩和拆分 key**
-
-- 当 vaule 是 string 时，比较难拆分，则使用序列化、压缩算法将 key 的大小控制在合理范围内，但是序列化和反序列化都会带来额外的性能消耗。
-- 当 value 是 string，压缩之后仍然是大 key 时，则需要进行拆分，将一个大 key 分为不同的部分，记录每个部分的 key，使用 multiget 等操作实现事务读取。
-- 当 value 是 list/set 等集合类型时，根据预估的数据规模来进行分片，不同的元素计算后分到不同的片。
-
-> 1. 华为 OD 的面试中出现过该题：讲一讲 Redis 的热 Key 和大 Key
-
-### 42.Redis 常见性能问题和解决方案？
-
-1.  Master 最好不要做任何持久化工作，包括内存快照和 AOF 日志文件，特别是不要启用内存快照做持久化。
-2.  如果数据比较关键，某个 Slave 开启 AOF 备份数据，策略为每秒同步一次。
-3.  为了主从复制的速度和连接的稳定性，Slave 和 Master 最好在同一个局域网内。
-4.  尽量避免在压力较大的主库上增加从库。
-5.  Master 调用 BGREWRITEAOF 重写 AOF 文件，AOF 在重写的时候会占大量的 CPU 和内存资源，导致服务 load 过高，出现短暂服务暂停现象。
-6.  为了 Master 的稳定性，主从复制不要用图状结构，用单向链表结构更稳定，即主从关为：Master<–Slave1<–Slave2<–Slave3…，这样的结构也方便解决单点故障问题，实现 Slave 对 Master 的替换，也即，如果 Master 挂了，可以立马启用 Slave1 做 Master，其他不变。
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## Redis 应用
 
-### 43.使用 Redis 如何实现异步队列？
+### 43.Redis如何实现异步消息队列？
 
-我们知道 redis 支持很多种结构的数据，那么如何使用 redis 作为异步队列使用呢？
-一般有以下几种方式：
+Redis 实现异步消息队列是一个很实用的技术方案，最简单的方式是使用 List 配合 LPUSH 和 RPOP 命令。
 
-- **使用 list 作为队列，lpush 生产消息，rpop 消费消息**
+![三分恶面渣逆袭：list作为队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e4b192a1-3ba7-4f4e-98de-e93f437cff7c.png)
 
-这种方式，消费者死循环 rpop 从队列中消费消息。但是这样，即使队列里没有消息，也会进行 rpop，会导致 Redis CPU 的消耗。
-![list作为队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e4b192a1-3ba7-4f4e-98de-e93f437cff7c.png)
-可以通过让消费者休眠的方式的方式来处理，但是这样又会又消息的延迟问题。
+```java
+@Service
+public class SimpleRedisQueue {
+    
+    private final RedisTemplate<String, Object> redisTemplate;
+    
+    // 生产者：向队列发送消息
+    public void sendMessage(String queueName, Object message) {
+        redisTemplate.opsForList().leftPush(queueName, message);
+    }
+    
+    // 消费者：从队列获取消息
+    public Object receiveMessage(String queueName) {
+        return redisTemplate.opsForList().rightPop(queueName);
+    }
+    
+    // 阻塞式消费，避免轮询
+    public Object blockingReceive(String queueName, int timeoutSeconds) {
+        List<Object> result = redisTemplate.opsForList()
+            .rightPop(queueName, timeoutSeconds, TimeUnit.SECONDS);
+        return result != null && !result.isEmpty() ? result.get(0) : null;
+    }
+}
+```
 
--**使用 list 作为队列，lpush 生产消息，brpop 消费消息**
+另外就是用 Redis 的 Pub/Sub 来实现简单的消息广播和订阅。
 
-brpop 是 rpop 的阻塞版本，list 为空的时候，它会一直阻塞，直到 list 中有值或者超时。
-![list作为队列，brpop](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e9581e51-ffc8-4326-9af4-07816743dc88.png)
+```java
+@Service
+public class RedisPubSubService {
+    
+    private final RedisTemplate<String, Object> redisTemplate;
+    
+    // 发布消息到指定频道
+    public void publish(String channel, Object message) {
+        redisTemplate.convertAndSend(channel, message);
+    }
+    
+    // 订阅频道
+    @PostConstruct
+    public void subscribe() {
+        redisTemplate.setMessageListener((message, pattern) -> {
+            System.out.println("Received message: " + message);
+        });
+        redisTemplate.getConnectionFactory().getConnection().subscribe(
+            new ChannelTopic("myChannel").getTopic().getBytes()
+        );
+    }
+}
+```
 
-这种方式只能实现一对一的消息队列。
+发布者将消息发布到指定的频道，订阅该频道的客户端就能收到消息。
 
-- **使用 Redis 的 pub/sub 来进行消息的发布/订阅**
+![三分恶面渣逆袭：pub/sub](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-bc6d05be-3701-4e23-b4ca-6330c949f020.png)
 
-发布/订阅模式可以 1：N 的消息发布/订阅。发布者将消息发布到指定的频道频道（channel），订阅相应频道的客户端都能收到消息。
+但是这两种方式都是不可靠的，因为没有 ACK 机制所以不能保证订阅者一定能收到消息，也不支持消息持久化。
 
-![pub/sub](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-bc6d05be-3701-4e23-b4ca-6330c949f020.png)
-但是这种方式不是可靠的，它不保证订阅者一定能收到消息，也不进行消息的存储。
+### 44.Redis如何实现延时消息队列?
 
-所以，一般的异步队列的实现还是交给专业的消息队列。
+延时消息队列在实际业务中很常见，比如订单超时取消、定时提醒等场景。Redis 虽然不是专业的消息队列，但可以很好地实现延时队列功能。
 
-### 44.Redis 如何实现延时队列?
-
-可以使用 Redis 的 zset（有序集合）来实现延时队列。
+核心思路是利用 ZSet 的有序特性，将消息作为 member，把消息的执行时间作为 score。这样消息就会按照执行时间自动排序，我们只需要定期扫描当前时间之前的消息进行处理就可以了。
 
 ![三分恶面渣逆袭：zset实现延时队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-54bbcc36-0b00-4142-a6eb-bf2ef48c2213.png)
 
-第一步，将任务添加到 zset 中，score 为任务的执行时间戳，value 为任务的内容。
+```java
+@Service
+public class DelayedMessageQueue {
+    
+    private final RedisTemplate<String, Object> redisTemplate;
+    
+    // 发送延时消息
+    public void sendDelayedMessage(String queueName, Object message, long delaySeconds) {
+        // 计算消息的执行时间
+        long executeTime = System.currentTimeMillis() + (delaySeconds * 1000);
+        
+        // 将消息加入ZSet，以执行时间作为score
+        redisTemplate.opsForZSet().add(queueName, message, executeTime);
+        
+        log.info("发送延时消息: {}, 延时: {}秒", message, delaySeconds);
+    }
+    
+    // 消费延时消息
+    @Scheduled(fixedDelay = 1000) // 每秒扫描一次
+    public void consumeDelayedMessages() {
+        String queueName = "delayed:queue";
+        long currentTime = System.currentTimeMillis();
+        
+        // 获取已到期的消息（score <= 当前时间）
+        Set<Object> messages = redisTemplate.opsForZSet()
+            .rangeByScore(queueName, 0, currentTime);
+        
+        for (Object message : messages) {
+            try {
+                // 处理消息
+                processMessage(message);
+                
+                // 处理成功后从队列中移除
+                redisTemplate.opsForZSet().remove(queueName, message);
+                
+                log.info("处理延时消息成功: {}", message);
+            } catch (Exception e) {
+                log.error("处理延时消息失败: {}", message, e);
+                // 可以实现重试机制
+                handleFailedMessage(queueName, message);
+            }
+        }
+    }
+}
+```
+
+具体实现上，我会在生产者发送延时消息时，计算消息应该执行的时间戳，然后用 ZADD 命令将消息添加到 ZSet 中。
 
 ```bash
 ZADD delay_queue 1617024000 task1
 ```
 
-第二步，定期（例如每秒）从 zset 中获取 score 小于当前时间戳的任务，然后执行任务。
+消费者通过定时任务，使用 ZRANGEBYSCORE 命令获取当前时间之前的所有消息。
 
 ```bash
 ZREMRANGEBYSCORE delay_queue -inf 1617024000
 ```
 
-第三步，任务执行后，从 zset 中删除任务。
+处理完成后再用 ZREM 删除消息。
 
 ```bash
 ZREM delay_queue task1
 ```
 
+在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就用这种方式实现了文章定时发布的功能。作者在发布文章时，可以选择一个未来的时间节点，比如说 30 分钟后，系统就会向延时队列发送一条延时消息，然后定时任务就会在 30 分钟后将这条消息从延时队列中取出并发布文章。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：Redis 实现延迟队列
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 8 Java 后端实习一面面试原题：redis 数据结构，用什么结构实现延迟消息队列
 
-### 45.Redis 支持事务吗？
+memo：2025 年 5 月 28 日修改至此，今天[有球友在 VIP群里](https://javabetter.cn/zhishixingqiu/)发消息说拿到了荣耀的暑期实习 offer，虽然时间节点已经不早了，但越是到这个时候，确实容易捡漏。
 
-Redis 支持简单的事务，可以将多个命令打包，然后一次性的，按照顺序执行。主要通过 multi、exec、discard、watch 等命令来实现：
+![球友的荣耀实习 OC了](https://cdn.tobebetterjavaer.com/stutymore/redis-20250528203451.png)
 
-- multi：标记一个事务块的开始
-- exec：执行所有事务块内的命令
-- discard：取消事务，放弃执行事务块内的所有命令
-- watch：监视一个或多个 key，如果在事务执行之前这个 key 被其他命令所改动，那么事务将被打断
+### 🌟45.Redis支持事务吗？
+
+是的，Redis 支持简单的事务，可以将 multi、exec、discard 和 watch 命令打包，然后一次性的按顺序执行。
+
+![Redis设计与实现：事务](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529063154.png)
+
+基本流程是用 multi 开启事务，然后执行一系列命令，最后用 exec 提交。这些命令会被放入队列，在 exec 时批量执行。
 
 ![二哥的 Java 进阶之路：Redis 事务](https://cdn.tobebetterjavaer.com/stutymore/redis-20240314101439.png)
 
+当客户端处于非事务状态时，所有发送给 Redis 服务的命令都会立即执行；但当客户端进入事务状态之后，这些命令会被放入一个事务队列中，然后立即返回 QUEUED，表示命令已入队。
+
+![Redis设计与实现：事务和非事务的区别](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529063910.png)
+
+当 exec 命令执行时，Redis 会将事务队列中的所有命令按先进先出的顺序执行。当事务队列里的命令全部执行完毕后，Redis 会返回一个数组，包含每个命令的执行结果。
+
+discard 命令用于取消一个事务，它会清空事务队列并退出事务状态。
+
+![二哥的 Java 进阶之路：discard](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529065426.png)
+
+watch 命令用于监视一个或者多个 key，如果这个 key 在事务执行之前 被其他命令改动，那么事务将会被打断。
+
+![码哥字节：watch](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529065131.png)
+
+但 Redis 的事务与 MySQL 的有很大不同，它并不支持回滚，也不支持隔离级别。
+
 #### 说一下 Redis 事务的原理？
 
-![三分恶面渣逆袭：Redis事务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2ed7ae21-16a6-4716-ac89-117a8c76d3db.png)
+Redis 事务的原理并不复杂，核心就是一个"先排队，后执行"的机制。
 
-- 使用 MULTI 命令开始一个事务。从这个命令执行之后开始，所有的后续命令都不会立即执行，而是被放入一个队列中。在这个阶段，Redis 只是记录下了这些命令。
-- 使用 EXEC 命令触发事务的执行。一旦执行了 EXEC，之前 MULTI 后队列中的所有命令会被原子地（atomic）执行。这里的“原子”意味着这些命令要么全部执行，要么（在出现错误时）全部不执行。
-- 如果在执行 EXEC 之前决定不执行事务，可以使用 DISCARD 命令来取消事务。这会清空事务队列并退出事务状态。
-- WATCH 命令用于实现乐观锁。WATCH 命令可以监视一个或多个键，如果在执行事务的过程中（即在执行 MULTI 之后，执行 EXEC 之前），被监视的键被其他命令改变了，那么当执行 EXEC 时，事务将被取消，并且返回一个错误。
+![小生凡一：Redis事务](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529082025.png)
 
-#### Redis 事务的注意点有哪些？
+当执行 MULTI 命令时，Redis 会给这个客户端打一个事务的标记，表示这个客户端后面发送的命令不会被立即执行，而是被放到一个队列里排队等着。
 
-Redis 事务是不支持回滚的，一旦 EXEC 命令被调用，所有命令都会被执行，即使有些命令可能执行失败。
+![小生凡一：MULTI](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529082120.png)
 
-#### Redis 事务为什么不支持回滚？
+当 Redis 收到 EXEC 命令时，它会把队列里的命令一个个拿出来执行。因为 Redis 是单线程的，所以这个过程不会被其他命令打断，这就保证了Redis 事务的原子性。
 
-引入事务回滚机制会大大增加 Redis 的复杂性，因为需要跟踪事务中每个命令的状态，并在发生错误时逆向执行命令以恢复原始状态。
+![小生凡一：WATCH](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529082216.png)
 
-Redis 是一个基于内存的数据存储系统，其设计重点是实现高性能。事务回滚需要额外的资源和时间来管理和执行，这与 Redis 的设计目标相违背。因此，Redis 选择不支持事务回滚。
+当执行 WATCH 命令时，Redis 会将 key 添加到全局监视字典中；只要这些 key 在 EXEC 前被其他客户端修改，Redis 就会给相关客户端打上脏标记，EXEC 时发现事务已被干扰就会直接取消整个事务。
 
-换句话说，**就是我 Redis 不想支持事务，也没有这个必要**。
+```c
+// 全局监视字典
+dict *watched_keys;
 
-#### Redis 事务的 ACID 特性如何体现？
+typedef struct watchedKey {
+    robj *key;
+    redisDb *db;
+} watchedKey;
+```
 
-ACID 一般指 MySQL 事务中的四个特性：原子性、一致性、隔离性、持久性。虽然 Redis 提供了事务的支持，但它在 ACID 上的表现与 MySQL 有所不同。
+DISCARD 做的事情很简单直接，首先检查客户端是否真的在事务状态，如果不在就报错；如果在事务状态，就清空事务队列并退出事务状态。
 
-Redis 事务中，所有命令会依次执行，但并不支持部分失败后的自动回滚。因此 Redis 在事务层面并不能保证一致性，我们必须通过程序逻辑来进行优化。
+```c
+void discardCommand(client *c) {
+    if (!(c->flags & CLIENT_MULTI)) {
+        addReplyError(c,"DISCARD without MULTI");
+        return;
+    }
+    discardTransaction(c);
+    addReply(c,shared.ok);
+}
+```
 
-Redis 事务在一定程度上提供了隔离性，事务中的命令会按顺序执行，不会被其他客户端的命令插入。
+#### Redis 事务有哪些注意点？
 
-Redis 的持久性依赖于其持久化机制（如 RDB 和 AOF），而不是事务本身。
+最重要的的一点是，Redis 事务不支持回滚，一旦 EXEC 命令被调用，所有命令都会被执行，即使有些命令可能执行失败。
+
+#### Redis事务为什么不支持回滚？
+
+Redis 的核心设计理念是简单、高效，而不是完整的 ACID 特性。而实现回滚需要在执行过程中保存大量的状态信息，并在发生错误时逆向执行命令以恢复原始状态。这会增加 Redis 的复杂性和性能开销。
+
+![redis.io：不支持事务回滚](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529082551.png)
 
 #### Redis事务满足原子性吗？要怎么改进？
 
-不满足，Redis 事务不支持回滚，一旦 EXEC 命令被调用，所有命令都会被执行，即使有些命令可能执行失败。
-
-可以通过 Lua 脚本来实现事务的原子性，Lua 脚本在 Redis 中是原子执行的，执行过程中间不会插入其他命令。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 事务
-> 2. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：什么是 redis 的事务，它的 ACID 属性如何体现
-
-
-### 46.有 Lua 脚本操作 Redis 的经验吗？
-
-Redis 的事务不具备强制性的原子性，但可以通过 Lua 脚本来增强 Redis 的原子能力。
-
-在 Redis 中，Lua 脚本是以原子操作的方式执行的，也就是说，在脚本执行期间，不会插入其他命令，天然保证了事务性。
-
-比如秒杀系统是一个经典场景，我们可以用 Lua 脚本来实现扣减 Redis 库存的功能。
+Redis 的事务不能满足标准的原子性，因为它不支持事务回滚，也就是说，假如某个命令执行失败，整个事务并不会自动回滚到初始状态。
 
 ```java
--- 库存未预热
-if (redis.call('exists', KEYS[2]) == 1) then
-    return -9;
-end;
--- 秒杀商品库存存在
-if (redis.call('exists', KEYS[1]) == 1) then
-    local stock = tonumber(redis.call('get', KEYS[1]));
-    local num = tonumber(ARGV[1]);
-    -- 剩余库存少于请求数量
-    if (stock < num) then
-        return -3
-    end;
-    -- 扣减库存
-    if (stock >= num) then
-        redis.call('incrby', KEYS[1], 0 - num);
-        -- 扣减成功
-        return 1
-    end;
-    return -2;
-end;
--- 秒杀商品库存不存在
-return -1;
+// 一个转账事务
+redisTemplate.multi();
+redisTemplate.opsForValue().decrement("user:1:balance", 100); // 成功
+redisTemplate.opsForList().leftPush("user:1:balance", "log");  // 类型错误，失败
+redisTemplate.opsForValue().increment("user:2:balance", 100);  // 还是会执行
+List<Object> results = redisTemplate.exec();
+
+// 结果：用户1被扣了钱，用户2也收到了钱，但中间的日志操作失败了
+// 这符合Redis的原子性定义，但不符合业务期望
 ```
 
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Redis事务满足原子性吗？要怎么改进？
-
-### 47.Redis 的管道Pipeline了解吗？
-
-Pipeline 是 Redis 提供的一种优化手段，允许客户端一次性向服务器发送多个命令，而不必等待每个命令的响应，从而减少网络延迟。它的工作原理类似于批量操作，即多个命令一次性打包发送，Redis 服务器依次执行后再将结果一次性返回给客户端。
-
-通常在 Redis 中，每个请求都会遵循以下流程：
-
-1. 客户端发送命令到服务器。
-2. 服务器执行命令并将结果返回给客户端。
-3. 客户端接收返回结果。
-
-每一个请求和响应之间存在一次网络通信的往返时间（RTT，Round-Trip Time），如果大量请求依次发送，网络延迟会显著增加请求的总执行时间。
-
-有了 Pipeline 后，流程变为：
-
->发送命令1、命令2、命令3…… -> 服务器处理 -> 一次性返回所有结果。
-
-例如，批量写入大量数据或执行一系列查询时，可以将这些操作打包通过 Pipeline 执行。
-
-![三分恶面渣逆袭：Pipelining示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-38aee4c1-efd2-495e-8a6d-164d21a129b1.png)
-
-在 Pipeline 模式下，客户端不会在每条命令发送后立即等待 Redis 的响应，而是将多个命令依次写入 TCP 缓冲区，所有命令一起发送到 Redis 服务器。
-
-Redis 服务器接收到批量命令后，依次执行每个命令。
-
-Redis 服务器执行完所有命令后，将每条命令的结果一次性打包通过 TCP 返回给客户端。
-
-客户端一次性接收所有返回结果，并解析每个命令的执行结果。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：对pipeline的理解，什么场景适合使用pipeline？有了解过pipeline的底层？ 
-
-### 48.Redis 实现分布式锁了解吗？
-
-分布式锁是一种用于控制多个不同进程在分布式系统中访问共享资源的锁机制。它确保在同一时刻，只有一个节点可以对资源进行访问，从而避免并发问题。
-
-**可以使用 Redis 的 SET 命令实现分布式锁**。同时添加过期时间，以防止死锁的发生。
-
-![三分恶面渣逆袭：set原子命令](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-710cdd19-98ea-4e96-b579-ff1ebb0d5de9.png)
-
-```
-SET key value NX PX 30000
-```
-
-- `key` 是锁名。
-- `value` 是锁的持有者标识，可以使用 UUID 作为 value。
-- `NX` 只在 key 不存在时才创建（避免覆盖锁）。
-- `PX 30000`：设置锁的过期时间为 30 秒（防止死锁）。
-
-用 Java 来实现就是：
+可以使用 Lua 脚本来替代事务，脚本运行期间，Redis 不会处理其他命令，并且我们可以在脚本中处理整个业务逻辑，包括条件检查和错误处理，保证要么执行成功，要么保持最初的状态，不会出现一个命令执行失败、其他命令执行成功的情况。
 
 ```java
-String lockKey = "lock:order:123";
-String uniqueId = UUID.randomUUID().toString();
-boolean isLocked = redisTemplate.opsForValue()
-    .setIfAbsent(lockKey, uniqueId, 10, TimeUnit.SECONDS);
-if (isLocked) {
-    try {
-        // 执行业务逻辑
-    } finally {
-        // 释放锁
+@Service
+public class ImprovedTransactionService {
+    
+    public boolean atomicTransfer(String fromUser, String toUser, int amount) {
+        String luaScript = 
+            "local from_key = KEYS[1] " +
+            "local to_key = KEYS[2] " +
+            "local amount = tonumber(ARGV[1]) " +
+            
+            // 检查转出账户余额
+            "local from_balance = redis.call('GET', from_key) " +
+            "if not from_balance then return -1 end " +
+            
+            "from_balance = tonumber(from_balance) " +
+            "if from_balance < amount then return -2 end " +
+            
+            // 检查转入账户是否存在
+            "if redis.call('EXISTS', to_key) == 0 then return -3 end " +
+            
+            // 所有检查通过，执行转账
+            "redis.call('DECRBY', from_key, amount) " +
+            "redis.call('INCRBY', to_key, amount) " +
+            
+            // 记录转账日志
+            "local log = from_key .. ':' .. to_key .. ':' .. amount " +
+            "redis.call('LPUSH', 'transfer:log', log) " +
+            
+            "return 1";
+        
+        DefaultRedisScript<Long> script = new DefaultRedisScript<>();
+        script.setScriptText(luaScript);
+        script.setResultType(Long.class);
+        
+        Long result = redisTemplate.execute(script, 
+            Arrays.asList("user:" + fromUser + ":balance", "user:" + toUser + ":balance"),
+            amount);
+        
+        return result != null && result == 1;
     }
 }
 ```
 
-#### 什么是 setnx？
+#### Redis 事务的 ACID 特性如何体现？
 
-setnx 从 Redis 版本 2.6.12 开始被弃用，因为可以通过 set 命令的 NX 选项来实现相同的功能。
+单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务在执行过程中如果某个命令失败了，其他命令还是会继续执行，不会回滚。
 
-![截图来自Redis docs](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122182250.png)
+![小生凡一：Redis 事务的原子性](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529085332.png)
 
-使用 setnx 创建分布式锁时，虽然设置过期时间可以避免死锁问题，但可能存在这样的问题：线程 A 获取锁后开始任务，如果任务执行时间超过锁的过期时间，锁会提前释放，导致线程 B 也获取了锁并开始执行任务。这会破坏锁的独占性，导致并发访问资源，进而造成数据不一致。
+一致性指的是，如果数据在执行事务之前是一致的，那么在事务执行之后，无论事务是否执行成功，数据也应该是一致的。但 Redis 事务并不保证一致性，因为如果事务中的某个命令失败了，其他命令仍然会执行，就会出现数据不一致的情况。
+
+Redis 是单线程执行事务的，并且不会中断，直到执行完所有事务队列中的命令为止。因此，我认为 Redis 的事务具有隔离性的特征。
+
+![小生凡一：Redis 事务的隔离性](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529085959.png)
+
+Redis 事务的持久性完全依赖于 Redis 本身的持久化机制，如果开启了 AOF，那么事务中的命令会作为一个整体记录到 AOF 文件中，当然也要看 AOF 的 fsync 策略。
+
+如果只开启了 RDB，事务中的命令可能会在下次快照前丢失。如果两个都没有开启，肯定是不满足持久性的。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 事务
+> 2. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：什么是 redis 的事务，它的 ACID 属性如何体现
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Redis事务满足原子性吗？要怎么改进？
+
+memo：2025 年 5 月 29 日，今天给球友[修改简历](https://javabetter.cn/zhishixingqiu/)时，碰到一个东南大学本硕博 3 985 的球友，这也是我已知信息中学历最高的球友了。
+
+![星球来了一个东南大学本硕博的球友](https://cdn.tobebetterjavaer.com/stutymore/redis-20250529090547.png)
+
+### 46.有Lua脚本操作Redis的经验吗？
+
+Lua 脚本是处理 Redis 复杂操作的首选方案，比如说原子扣减库存、分布式锁、限流等业务场景，都可以通过 Lua 脚本来实现。
+
+![scalegrid.io：lua 脚本](https://cdn.tobebetterjavaer.com/stutymore/redis-20250530151227.png)
+
+在秒杀场景下，可以用 Lua 脚本把所有检查逻辑都写在一起：先看库存够不够，再看用户有没有买过，所有条件都满足才扣减库存。因为整个脚本是原子执行的，Redis 在执行期间不会处理其他命令，所以可以彻底解决超卖问题。
+
+```java
+// 这个秒杀脚本救了我的命
+String luaScript = 
+    "local stock = redis.call('GET', KEYS[1]) " +
+    "if not stock or tonumber(stock) < tonumber(ARGV[2]) then " +
+    "    return -1 " +  // 库存不足
+    "end " +
+    "if redis.call('SISMEMBER', KEYS[2], ARGV[1]) == 1 then " +
+    "    return -2 " +  // 重复购买
+    "end " +
+    "redis.call('DECRBY', KEYS[1], ARGV[2]) " +
+    "redis.call('SADD', KEYS[2], ARGV[1]) " +
+    "return 1";
+```
+
+在分布式锁场景下，我一开始用的 SETNX 命令来实现，结果发现如果程序异常退出，锁就死掉了。后来加了过期时间，但又发现可能误删其他线程的锁。最后还是用 Lua 脚本彻底解决了这个问题，确保只有锁的持有者才能释放锁。
+
+```java
+// 解锁脚本特别重要，必须验证是自己的锁才能删
+private final String UNLOCK_SCRIPT = 
+    "if redis.call('GET', KEYS[1]) == ARGV[1] then " +
+    "    return redis.call('DEL', KEYS[1]) " +
+    "else " +
+    "    return 0 " +
+    "end";
+```
+
+甚至还可以用 Lua脚本实现滑动窗口限流器，一次性完成过期数据清理、计数检查、新记录添加三个操作，而且完全原子化。
+
+```java
+// 滑动窗口限流，逻辑清晰，性能还好
+String luaScript = 
+    "local key = KEYS[1] " +
+    "local now = tonumber(ARGV[1]) " +
+    "local window = tonumber(ARGV[2]) " +
+    "local limit = tonumber(ARGV[3]) " +
+    
+    // 先清理过期记录
+    "redis.call('ZREMRANGEBYSCORE', key, 0, now - window) " +
+    
+    // 检查当前请求数
+    "local current = redis.call('ZCARD', key) " +
+    "if current < limit then " +
+    "    redis.call('ZADD', key, now, now) " +
+    "    return 1 " +
+    "else " +
+    "    return 0 " +
+    "end"; 
+```
+
+memo：2025 年 5 月 30 日，今天[有球友在星球里](https://javabetter.cn/zhishixingqiu/)发消息说拿到了金山办公的 offer，问我该选 cpp 还是go，我的建议大家可以看看符合是否合理，不管如何选择，真的恭喜球友！
+
+![球友拿到了金山办公的软件](https://cdn.tobebetterjavaer.com/stutymore/redis-20250601080336.png)
+
+### 47.Redis的管道Pipeline了解吗？
+
+了解，Pipeline 允许客户端一次性向 Redis 服务器发送多个命令，而不必等待一个命令响应后才能发送下一个。Redis 服务器会按照命令的顺序依次执行，并将所有结果打包返回给客户端。
+
+![三分恶面渣逆袭：Pipelining示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-38aee4c1-efd2-495e-8a6d-164d21a129b1.png)
+
+正常情况下，每执行一个 Redis 命令都需要一次网络往返：发送命令 -> 等待响应 -> 发送下一个命令。
+
+```
+客户端                    Redis服务器
+  |                           |
+  |------- SET key1 val1 ---->|
+  |<------ OK ---------------|
+  |------- SET key2 val2 ---->|
+  |<------ OK ---------------|
+  |------- GET key1 -------->|
+  |<------ val1 -------------|
+  ```
+
+如果大量请求依次发送，网络延迟会显著增加请求的总执行时间，假如一次 RTT 的时间是 1 毫秒，3 个就是 3 毫秒。有了 Pipeline 后，可以一次性发送 3 个命令，总时间就只需要 1 毫秒。
+
+```java
+@Service
+public class RedisBatchService {
+    
+    public void batchInsertUsers(List<User> users) {
+        // 不用Pipeline的错误做法 - 很慢
+        // for (User user : users) {
+        //     redisTemplate.opsForValue().set("user:" + user.getId(), user);
+        // }
+        
+        // 使用Pipeline的正确做法
+        redisTemplate.executePipelined(new RedisCallback<Object>() {
+            @Override
+            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                for (User user : users) {
+                    String key = "user:" + user.getId();
+                    byte[] keyBytes = key.getBytes();
+                    byte[] valueBytes = serialize(user);
+                    
+                    connection.set(keyBytes, valueBytes);
+                }
+                return null; // Pipeline不需要返回值
+            }
+        });
+    }
+}
+```
+
+当然了，Pipeline 不是越大越好，太大会占用过多内存，通常建议每个 Pipeline 包含 1000 到 5000 个命令。可以根据实际情况调整。
+
+```java
+public void smartBatchInsert(List<String> data) {
+    int batchSize = 1000; // 经验值，根据数据大小调整
+    
+    for (int i = 0; i < data.size(); i += batchSize) {
+        List<String> batch = data.subList(i, Math.min(i + batchSize, data.size()));
+        
+        redisTemplate.executePipelined(new RedisCallback<Object>() {
+            @Override
+            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                for (String item : batch) {
+                    connection.set(item.getBytes(), item.getBytes());
+                }
+                return null;
+            }
+        });
+    }
+}
+```
+
+#### 什么场景下适合使用 Pipeline呢？
+
+需要批量插入、更新或删除数据，或者需要执行大量相似的命令时。比如：系统启动时的缓存预热 -> 批量加载热点数据；比如统计数据的批量更新；比如大批量数据的导入导出；比如批量删除过期或无效的缓存。
+
+#### 有了解过 Pipeline 的底层原理吗？
+
+有，其实就是缓冲的思想。在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就在 RedisClient 类中封装了一个 PipelineAction 内部类，用来缓存命令。
+
+![技术派实战源码：PipelineAction](https://cdn.tobebetterjavaer.com/stutymore/redis-20250601092704.png)
+
+add 方法将命令包装成 Runnable 对象，放入 List 中。当执行 execute 方法时，再调用 RedisTemplate 的 executePipelined 方法开启管道模式将多个命令发送到 Redis 服务端。
+
+![二哥的 Java 进阶之路：RedisTemplate的executePipelined](https://cdn.tobebetterjavaer.com/stutymore/redis-20250601094500.png)
+
+Redis 服务端从输入缓冲区读到命令后，会按照 RESP 协议进行命令拆解，再依次执行这些命令。执行结果会写入到输出缓冲区，最后再将所有结果一次性返回给客户端。
+
+```c
+typedef struct client {
+    sds querybuf;           // 输入缓冲区
+    list *reply;            // 输出缓冲区链表
+    unsigned long reply_bytes; // 输出缓冲区大小
+} client;
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：对pipeline的理解，什么场景适合使用pipeline？有了解过pipeline的底层？
+
+memo：2025 年 6 月 1 日，今天[有球友在星球里](https://javabetter.cn/zhishixingqiu/)发消息说拿到了百得思维的offer，他是民办二本，对这个结果很满意，也很感谢面渣逆袭和星球的实战项目，让他摆脱了浑浑噩噩的日子。恭喜他！
+
+![球友拿到了一家小厂的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250601082813.png)
+
+### 🌟48.Redis能实现分布式锁吗？
+
+分布式锁是一种用于控制多个不同进程在分布式系统中访问共享资源的锁机制。它能确保在同一时刻，只有一个节点可以对资源进行访问，从而避免分布式场景下的并发问题。
+
+可以使用 Redis 的 SETNX 命令实现简单的分布式锁。比如 `SET key value NX PX 3000` 就创建了一个锁名为 `key` 的分布式锁，锁的持有者为 `value`。NX 保证只有在 key 不存在时才能创建成功，EX 设置过期时间用以防止死锁。
+
+![三分恶面渣逆袭：set原子命令](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-710cdd19-98ea-4e96-b579-ff1ebb0d5de9.png)
+
+#### Redis如何保证 SETNX 不会发生冲突？
+
+当我们使用 `SET key value NX EX 30` 这个命令进行加锁时，Redis 会把整个操作当作一个原子指令来执行。因为 Redis 的命令处理是单线程的，所以在同一时刻只能有一个命令在执行。
+
+比如说两个客户端 A 和 B 同时请求同一个锁：
+
+```
+客户端A: SET lock_key uuid_a NX EX 30
+客户端B: SET lock_key uuid_b NX EX 30
+```
+
+虽然这两个请求可能几乎同时到达 Redis 服务器，但 Redis 会严格按照到达的先后顺序来处理。假设 A 的请求先到，Redis 会先执行 A 的 SET 命令，这时 lock_key 被设置为 uuid_a。
+
+当处理 B 的请求时，因为 lock_key 已经存在了，NX 条件不满足，所以 B 的 SET 命令会失败，返回 NULL。这样就保证了只有 A 能获取到锁。
+
+关键点在于 NX 的语义：`NOT EXISTS`，只有在 key 不存在的时候才会设置成功。Redis 在执行这个命令时，会先检查 key 是否存在，如果不存在才会设置值，这整个过程是原子的，不会被其他命令打断。
+
+#### SETNX有什么问题，如何解决？
+
+使用 SETNX 创建分布式锁时，虽然可以通过设置过期时间来避免死锁，但会误删锁。比如线程 A 获取锁后，业务执行时间比较长，锁过期了。这时线程 B 获取到锁，但线程 A 执行完业务逻辑后，会尝试删除锁，这时候删掉的其实是线程 B 的锁。
 
 ![技术派：Redis 锁](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122191044.png)
 
-可以引入锁的自动续约机制，在任务执行过程中定期续期，确保锁在任务完成之前不会过期。
+可以通过锁的自动续期机制来解决锁过期的问题，比如 Redisson 的看门狗机制，在后台启动一个定时任务，每隔一段时间就检查锁是否还被当前线程持有，如果是就自动延长过期时间。这样既避免了死锁，又防止了锁被提前释放。
 
 ![技术派：redisson 看门狗](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122192038.png)
 
-比如说 Redisson 的 RedissonLock 就支持自动续期，通过看门狗机制定期续期锁的有效期。
+memo：2025 年 6 月 2 日修改至此，今天在帮一个学院本球友分析 offer 选择后，他又回复说[多亏了星球才能一路走到现在](https://javabetter.cn/zhishixingqiu/)，很满足这个结果。看多了拿大厂 offer 球友的感谢，看到学院本也能取得满意的成绩，我也很开心。
 
-![二哥的Java 进阶之路：renewExpirationAsync](https://cdn.tobebetterjavaer.com/stutymore/redis-20241122192708.png)
+![学院本拿到offer 后对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/redis-20250602113225.png)
 
-#### Redisson 了解吗？
+#### Redisson了解多少？
 
-开发中，我们可以使用专业的轮子——[Redisson](https://xie.infoq.cn/article/d8e897f768eb1a358a0fd6300)。
-
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/redis-20240308174708.png)
-
-Redisson 是一个基于 Redis 的 Java 驻内存数据网格，提供了一系列 API 用来操作 Redis，其中最常用的功能就是分布式锁。
+Redisson 是一个基于 Redis 的 Java 客户端，它不只是对 Redis 的操作进行简单地封装，还提供了很多分布式的数据结构和服务，比如最常用的分布式锁。
 
 ```java
 RLock lock = redisson.getLock("lock");
@@ -3333,152 +3826,177 @@ try {
 }
 ```
 
-实现源码在 RedissonLock 类中，通过 Lua 脚本封装 Redis 命令来实现，比如说 tryLockInnerAsync 源码：
-
-![二哥的 Java 进阶之路：RedissonLock](https://cdn.tobebetterjavaer.com/stutymore/redis-20240425120229.png)
-
-其中 hincrby 命令用于对哈希表中的字段值执行自增操作，pexpire 命令用于设置键的过期时间。
-
-#### PmHub 系统里面的分布式锁是怎么做的？
-
-主要通过 Redisson 框架实现的 RedLock 来完成的。
+Redisson 的分布式锁比 SETNX 完善的得多，它的看门狗机制可以让我们在获取锁的时候省去手动设置过期时间的步骤，它在内部封装了一个定时任务，每隔 10 秒会检查一次，如果当前线程还持有锁就自动续期 30 秒。
 
 ```java
-// 创建 Redisson 客户端配置
-Config config = new Config();
-config.useClusterServers()
-        .addNodeAddress("redis://127.0.0.1:6379",
-                "redis://127.0.0.1:6380",
-                "redis://127.0.0.1:6381"); // 假设有三个 Redis 节点
-// 创建 Redisson 客户端实例
-RedissonClient redissonClient = Redisson.create(config);
-// 创建 RedLock 对象
-RLock redLock = redissonClient.getLock("lock_key");
+private Long tryAcquire(long waitTime, long leaseTime, TimeUnit unit, long threadId) {
+    return get(tryAcquireAsync(waitTime, leaseTime, unit, threadId));
+}
 
-try {
-    // 尝试获取分布式锁，最多尝试 5 秒获取锁，并且锁的有效期为 5000 毫秒
-    boolean lockAcquired = redLock.tryLock(5, 5000, TimeUnit.MILLISECONDS);
-    if (lockAcquired) {
-        // 加锁成功，执行业务代码...
+private <T> RFuture<Long> tryAcquireAsync(long waitTime, long leaseTime, TimeUnit unit, long threadId) {
+    RFuture<Long> ttlRemainingFuture;
+    if (leaseTime != -1) {
+        // 手动设置过期时间
+        ttlRemainingFuture = tryLockInnerAsync(waitTime, leaseTime, unit, threadId, RedisCommands.EVAL_LONG);
     } else {
-        System.out.println("Failed to acquire the lock!");
+        // 启用看门狗机制，使用默认的30秒过期时间
+        ttlRemainingFuture = tryLockInnerAsync(waitTime, internalLockLeaseTime,
+                TimeUnit.MILLISECONDS, threadId, RedisCommands.EVAL_LONG);
     }
-} catch (InterruptedException e) {
-    Thread.currentThread().interrupt();
-    System.err.println("Interrupted while acquiring the lock");
-} finally {
-    // 无论是否成功获取到锁，在业务逻辑结束后都要释放锁
-    if (redLock.isLocked()) {
-        redLock.unlock();
-    }
-    // 关闭 Redisson 客户端连接
-    redissonClient.shutdown();
+    
+    // 处理获取锁成功的情况
+    ttlRemainingFuture.onComplete((ttlRemaining, e) -> {
+        if (e != null) {
+            return;
+        }
+        // 如果获取锁成功且启用看门狗机制
+        if (ttlRemaining == null) {
+            if (leaseTime != -1) {
+                internalLockLeaseTime = unit.toMillis(leaseTime);
+            } else {
+                scheduleExpirationRenewal(threadId); // 启动看门狗
+            }
+        }
+    });
+    return ttlRemainingFuture;
 }
 ```
 
-#### 你提到了Redlock，那它机制是怎么样的？
-
-Redlock 是 Redis 作者提出的一种分布式锁实现方案，用于确保在分布式环境下安全可靠地获取锁。它的目标是在分布式系统中提供一种高可用、高容错的锁机制，确保在同一时刻，只有一个客户端能够成功获得锁，从而实现对共享资源的互斥访问。
-
-Redisson 中的 RedLock 是基于 RedissonMultiLock（联锁）实现的。
-
-![二哥的 Java 进阶之路：RedissonRedLock](https://cdn.tobebetterjavaer.com/stutymore/redis-20240816113330.png)
-
-RedissonMultiLock 的 tryLock 方法会在指定的 Redis 实例上逐一尝试获取锁。
-
-在获取锁的过程中，Redlock 会根据配置的 waitTime（最大等待时间）和 leaseTime（锁的持有时间）进行灵活控制。比如，如果获取锁的时间小于锁的有效期（通过TTL命令获取锁的剩余时间），则表示获取锁成功。
-
-通常，至少需要多数（如 5 个实例中的 3 个）实例成功获取锁，才能认为整个锁获取成功。
-
-如果指定了锁的持有时间（leaseTime），在成功获取锁后，Redlock 会为锁进行续期，以防止锁在操作完成之前意外失效。
-
-#### 红锁能不能保证百分百上锁？
-
-Redlock 不能保证百分百上锁，因为在分布式系统中，网络延迟、时钟漂移、Redis 实例宕机等因素都可能导致锁的获取失败。
-
-#### 加分布式锁时Redis如何保证不会发生冲突？
-
-①、使用 SET NX PX 或 SETNX 命令确保锁的获取是一个原子操作，同时设置锁的过期时间防止死锁。
-
-比如说 `SET lock_key unique_value NX PX 5000` 命令，其中 `NX` 确保了原子操作，，如果 lock_key 已存在，SET 操作会返回 nil；`PX 5000` 设置过期时间为 5000 毫秒，避免死锁。
-
-②、使用 Lua 脚本将锁的检查和释放操作封装为一个原子操作，确保安全地释放锁。
-
-```
-EVAL "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end" 1 lock_key unique_value
-```
-
-③、使用 Redlock 算法确保锁的正确获取和释放。
+另外，Redisson 还提供了分布式限流器 RRateLimiter，基于令牌桶算法实现，用于控制分布式环境下的访问频率。
 
 ```java
-RLock lock = redisson.getLock("lock_key");
-try {
-    // 500ms 等待时间，10000ms 锁过期时间
-    boolean isLocked = lock.tryLock(500, 10000, TimeUnit.MILLISECONDS);
-    if (isLocked) {
-        // 执行需要同步的操作
+// API 接口限流
+@RestController
+public class ApiController {
+    
+    @Autowired
+    private RedissonClient redissonClient;
+    
+    @GetMapping("/api/data")
+    public ResponseEntity<?> getData() {
+        RRateLimiter limiter = redissonClient.getRateLimiter("api.data");
+        limiter.trySetRate(RateType.OVERALL, 100, 1, RateIntervalUnit.MINUTES);
+        
+        if (limiter.tryAcquire()) {
+            // 处理请求
+            return ResponseEntity.ok(processData());
+        } else {
+            // 限流触发
+            return ResponseEntity.status(429).body("Rate limit exceeded");
+        }
     }
-} finally {
-    lock.unlock();
 }
 ```
 
-#### Redisson 中的看门狗机制了解吗？
+#### 详细说说Redisson的看门狗机制？
 
-Redisson 提供的分布式锁是支持锁自动续期的，也就是说，如果线程在锁到期之前还没有执行完，那么 Redisson 会自动给锁续期。
+Redisson 的看门狗机制是一种自动续期机制，用于解决分布式锁的过期问题。
+
+基本原理是这样的：当调用 `lock()` 方法加锁时，如果没有显式设置过期时间，Redisson 会默认给锁加一个 30 秒的过期时间，同时启用一个名为“看门狗”的定时任务，每隔 10 秒（默认是过期时间的 1/3），去检查一次锁是否还被当前线程持有，如果是，就自动续期，将过期时间延长到 30 秒。
 
 ![郭慕荣博客园：看门狗](https://cdn.tobebetterjavaer.com/stutymore/redis-20240918110433.png)
 
-这被称为“看门狗”机制。
+```java
+// 伪代码展示核心逻辑
+private void renewExpiration() {
+    Timeout task = commandExecutor.getConnectionManager()
+        .newTimeout(new TimerTask() {
+            @Override
+            public void run(Timeout timeout) {
+                // 用 Lua 脚本检查并续期
+                if (redis.call("get", lockKey) == currentThreadId) {
+                    redis.call("expire", lockKey, 30);
+                    // 递归调用，继续下一次续期
+                    renewExpiration();
+                }
+            }
+        }, 10, TimeUnit.SECONDS);
+}
+```
+
+续期的 Lua 脚本会检查锁的 value 是否匹配当前线程，如果匹配就延长过期时间。这样就能保证只有锁的真正持有者才能续期。
+
+当调用 `unlock()` 方法时，看门狗任务会被取消。或者如果业务逻辑执行完但忘记 unlock 了，看门狗也会帮我们自动检查锁，如果锁已经不属于当前线程了，也会自动停止续期。
+
+这样我们就不用担心业务执行时间过长导致锁被提前释放，也避免了手动估算过期时间的麻烦，同时也解决了分布式环境下的死锁问题。
+
+#### 看门狗机制中的检查锁过程是原子操作吗？
+
+是的，Redisson 使用了 Lua 脚本来保证锁检查的原子性。
+
+![二哥的 Java 进阶之路：看门狗 lua 脚本检查锁](https://cdn.tobebetterjavaer.com/stutymore/redis-20250603092903.png)
+
+Redis 在执行 Lua 脚本时，会把整个脚本当作一个命令来处理，期间不会执行其他命令。所以 hexists 检查和 expire 续期是原子执行的。
+
+#### Redlock你了解多少？
+
+Redlock 是 Redis 作者 antirez 提出的一种分布式锁算法，用于解决单个 Redis 实例作为分布式锁时存在的单点故障问题。
+
+Redlock 的核心思想是通过在多个完全独立的 Redis 实例上同时获取锁来实现容错。
+
+![二哥的 Java 进阶之路：RedissonRedLock](https://cdn.tobebetterjavaer.com/stutymore/redis-20240816113330.png)
+
+minLocksAmount 方法返回的 `locks.size()/2 + 1`，正是 Redlock 算法要求的少数服从多数原则。failedLocksLimit 方法会计算允许失败的锁数量，确保即使部分实例失败，只要成功的实例数量超过一半就认为获取锁成功。
+
+红锁会尝试依次向所有 Redis 实例获取锁，并记录成功获取的锁数量，当数量达到 minLocksAmount 时就认为获取成功，否则释放已获取的锁并返回失败。
+
+虽然 Redlock 存在一些争议，比如说时钟漂移问题、网络分区导致的脑裂问题，但它仍然是一个相对成熟的分布式锁解决方案。
+
+#### 红锁能不能保证百分百上锁？
+
+不能，Redlock 无法保证百分百上锁成功，这是由分布式系统的本质特性决定的。
+
+当有网络分区时，客户端可能无法与足够数量的 Redis 实例通信。比如在 5 个 Redis 实例的部署中，如果网络分区导致客户端只能访问到 2 个实例，那么无论如何都无法满足红锁要求的少数服从多数原则，获取锁的时候必然失败。
 
 ```java
-class RedissonWatchdogExample {
-    public static void main(String[] args) {
-        // 配置 Redisson 客户端
-        Config config = new Config();
-        config.useSingleServer().setAddress("redis://127.0.0.1:6379");
-        RedissonClient redisson = Redisson.create(config);
-
-        // 获取锁对象
-        RLock lock = redisson.getLock("myLock");
-
+public boolean tryLock(long waitTime, long leaseTime, TimeUnit unit) throws InterruptedException {
+    // ...
+    for (ListIterator<RLock> iterator = locks.listIterator(); iterator.hasNext();) {
+        RLock lock = iterator.next();
+        boolean lockAcquired;
         try {
-            // 获取锁，默认看门狗机制会启动
-            lock.lock();
-
-            // 模拟任务执行
-            System.out.println("Task is running...");
-            Thread.sleep(40000); // 模拟长时间任务（40秒）
-
-            System.out.println("Task completed.");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            // 释放锁
-            lock.unlock();
+            lockAcquired = lock.tryLock(awaitTime, newLeaseTime, TimeUnit.MILLISECONDS);
+        } catch (RedisResponseTimeoutException e) {
+            lockAcquired = false; // 网络超时导致失败
+        } catch (Exception e) {
+            lockAcquired = false; // 其他异常导致失败
         }
-
-        // 关闭 Redisson 客户端
-        redisson.shutdown();
+        
+        // 如果剩余可尝试的实例数量不足以达到多数派，直接退出
+        if (locks.size() - acquiredLocks.size() == failedLocksLimit()) {
+            break;
+        }
+    }
+    
+    // 检查是否达到多数派要求
+    if (acquiredLocks.size() >= minLocksAmount(locks)) {
+        return true;
+    } else {
+        unlockInner(acquiredLocks);
+        return false; // 未达到多数派，获取失败
     }
 }
 ```
 
-看门狗启动后，每隔 10 秒会刷新锁的过期时间，将其延长到 30 秒，确保在锁持有期间不会因为过期而释放。
+时钟漂移也会影响成功率。即使所有实例都可达，如果各个 Redis 实例之间存在明显的时钟漂移，或者客户端在获取锁的过程中耗时过长，比如网络延迟、GC 停顿等，都可能会导致锁在获取完成前就过期，从而获取失败。
 
-当任务执行完成时，客户端调用 `unlock()` 方法释放锁，看门狗也随之停止。
-
-#### 检查锁的过程是原子操作吗？
-
-在 Redis 的看门狗机制中，检查锁的过程并不是单独的一个步骤，而是与锁的续期操作绑定在一起，通过 Lua 脚本完成的。因此，检查与续期是一个整体的原子操作，以确保只有持有锁的客户端才能成功续期。
+在实际应用中，可以通过重试机制来提高锁的成功率。
 
 ```java
-if redis.call('get', KEYS[1]) == ARGV[1] then
-    return redis.call('expire', KEYS[1], ARGV[2])
-else
-    return 0
-end
+for (int i = 0; i < maxRetries; i++) {
+    if (redLock.tryLock(waitTime, leaseTime, TimeUnit.MILLISECONDS)) {
+        return true;
+    }
+    Thread.sleep(retryDelay);
+}
+return false;
 ```
+
+#### 项目中有用到分布式锁吗？
+
+在[PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html)项目中，我有使用 Redission 的分布式锁来确保流程状态的更新按顺序执行，且不被其他流程服务干扰。
+
+![PmHub：分布式锁保障流程状态更新](https://cdn.tobebetterjavaer.com/stutymore/redis-20250602112537.png)
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：分布式锁用了 Redis 的什么数据结构
@@ -3494,62 +4012,267 @@ end
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：redis的分布式锁有了解过吗
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：redis锁有几种实现方式
 
+<MZNXQRcodeBanner />
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+memo：2025 年 6 月 3 日修改至此，今天在修改[球友的简历](https://javabetter.cn/zhishixingqiu/)时，碰到一个 211 本科、北京大学软微学院的球友，我只能说，星球的球友真是人才济济啊！祝大家都有一个美好的未来。
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![北京大学硕的球友](https://cdn.tobebetterjavaer.com/stutymore/redis-20250603100457.png)
 
 ## 底层结构
 
-这一部分就比较深了，如果不是简历上写了精通 Redis，应该不会怎么问。
+### 🌟49.Redis都有哪些底层数据结构？
 
-### 49.说说 Redis 底层数据结构？
-
-Redis 的底层数据结构有**动态字符串(sds)**、**链表(list)**、**字典(ht)**、**跳跃表(skiplist)**、**整数集合(intset)**、**压缩列表(ziplist)** 等。
+Redis 之所以快，除了基于内存读写之外，还有很重要的一点就是它精心设计的底层数据结构。Redis 总共有 8 种核心的底层数据结构，我按照重要程度来说一下。
 
 ![三分恶面渣逆袭：Redis Object对应的映射](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-a1b2d2f9-6895-4749-9bda-9314f08bca68.png)
 
-比如说 string 是通过 SDS 实现的，list 是通过链表实现的，hash 是通过字典实现的，set 是通过字典实现的，zset 是通过跳跃表实现的。
-
-![三分恶面渣逆袭：类型-编码-结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7cf91aa9-8db5-4abe-803e-a9e8f3bcb9e4.png)
-
-#### 简单介绍下 SDS？
-
-Redis 是通过 C 语言实现的，但 Redis 并没有直接使用 C 语言的字符串，而是自己实现了一种叫做动态字符串 SDS 的类型。
-
-```c
-struct sdshdr {
-    int len; // buf 中已使用的长度
-    int free; // buf 中未使用的长度
-    char buf[]; // 数据空间
-};
-```
-
-因为 C 语⾔的字符串不记录⾃身的⻓度信息，当需要获取字符串⻓度时，需要遍历整个字符串，时间复杂度为 O(N)。
-
-⽽ SDS 保存了⻓度信息，这样就将获取字符串⻓度的时间由 O(N) 降低到了 O(1)。
+首先是 SDS，这是 Redis 自己实现的动态字符串，它保留了 C 语言原生的字符串长度，所以获取长度的时间复杂度是 `O(1)`，在此基础上还支持动态扩容，以及存储二进制数据。
 
 ![三分恶面渣逆袭：SDS](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-7c038f2c-b5ee-4229-9449-713fab3b1855.png)
 
-#### 简单介绍下链表 linkedlist
-
-Redis 的链表是⼀个双向⽆环链表结构，和 Java 中的 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 类似。
-
-链表的节点由⼀个叫做 listNode 的结构来表示，每个节点都有指向其前置节点和后置节点的指针，同时头节点的前置和尾节点的后置均指向 null。
-
-![三分恶面渣逆袭：链表linkedlist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-1adef9c0-8feb-4836-8997-84bda96e2498.png)
-
-#### 简单介绍下字典 dict
-
-⽤于保存键值对的抽象数据结构。Redis 使⽤ hash 表作为底层实现，一个哈希表里可以有多个哈希表节点，而每个哈希表节点就保存了字典里中的一个键值对。
-
-每个字典带有两个 hash 表，供平时使⽤和 rehash 时使⽤，hash 表使⽤链地址法来解决键冲突，被分配到同⼀个索引位置的多个键值对会形成⼀个单向链表，在对 hash 表进⾏扩容或者缩容的时候，为了服务的可⽤性，rehash 的过程不是⼀次性完成的，⽽是渐进式的。
+然后是字典，更底层是用数组+链表实现的哈希表。它的设计很巧妙，用了两个哈希表，平时用第一个，rehash 的时候用第二个，这样可以渐进式地进行扩容，不会阻塞太久。
 
 ![三分恶面渣逆袭：字典](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-9934b4a2-c253-4d42-acf4-c6c940840779.png)
 
-#### 简单介绍下跳表 skiplist
+接下来压缩列表 ziplist，这个设计很有意思。Redis 为了节省内存，设计了这种紧凑型的数据结构，把所有元素连续存储在一块内存里。但是它有个致命问题叫"连锁更新"，就是当我们修改一个元素的时候，可能会导致后面所有的元素都要重新编码，性能会急剧下降。
+
+![Shubhi Jain：Ziplist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604112041.png)
+
+为了解决压缩列表的问题，Redis 后来设计了 quicklist。这个设计思路很聪明，它把 ziplist 拆分成小块，然后用双向链表把这些小块串起来。这样既保持了 ziplist 节省内存的优势，又避免了连锁更新的问题，因为每个小块的 ziplist 都不会太大。
+
+![Mr.于博客园：quicklist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604112357.png)
+
+再后来，Redis 又设计了 listpack，这个可以说是 ziplist 的完美替代品。它最大的特点是每个元素只记录自己的长度，不记录前一个元素的长度，这样就彻底解决了连锁更新的问题。Redis 5.0 已经用 listpack 替换了 ziplist。
+
+![baseoncpp：listpack](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604113025.png)
+
+跳表skiplist 主要用在 ZSet 中。它的设计很巧妙，通过多层指针来实现快速查找，平均时间复杂度是 `O(log N)`。相比红黑树，跳表的实现更简单，而且支持范围查询，这对 Redis 的有序集合来说很重要。
+
+![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
+
+还有整数集合intset，当 Set 中都是整数且元素数量较少时使用，内部是一个有序数组，查找用的二分法。
+
+![zhangtielei.com：intset](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604113520.png)
+
+最后是双向链表LinkedList，早期版本的 Redis 会在 List 中用到，但 Redis 3.2 后就被 quicklist 替代了，因为纯链表的问题是内存不连续，影响 CPU 缓存性能。
+
+![pdai：Redis 底层数据结构和数据类型关系](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604114217.png)
+
+memo：2025 年 6 月 4 日，[今天有球友](https://javabetter.cn/zhishixingqiu/)发喜报说拿到了京东零售的实习 offer，并且部门和业务还是挺不错的，恭喜他！6 月份还有机会，冲。
+
+![球友拿到了京东的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604114432.png)
+
+#### 简单介绍下链表？
+
+Redis 的 linkedlist 是⼀个双向⽆环链表结构，和 Java 中的 [LinkedList](https://javabetter.cn/collection/linkedlist.html) 类似。
+
+节点由 listNode 表示，每个节点都有指向其前置节点和后置节点的指针，头节点的前置和尾节点的后置均指向 null。
+
+![三分恶面渣逆袭：链表linkedlist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-1adef9c0-8feb-4836-8997-84bda96e2498.png)
+
+#### 关于整数集合，能再详细说说吗？
+
+整数集合是 Redis 中一个非常精巧的数据结构，当一个 Set 只包含整数元素，并且数量不多时，默认不超过 512 个，Redis 就会用 intset 来存储这些数据。
+
+![三分恶面渣逆袭：整数集合intset](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-833dbfb2-7c79-4e7b-a143-8a4a2936cdd8.png)
+
+intset 最有意思的地方是类型升级机制。它有三种编码方式：16位、32位和 64位，会根据存储的整数大小动态调整。比如原来存的都是小整数，用 16 位编码就够了，但突然插入了一个很大的数，超出了 16 位的范围，这时整个数组会升级到 32 位编码。
+
+```c
+typedef struct intset {
+    uint32_t encoding;   // 编码方式：16位、32位或64位
+    uint32_t length;     // 元素数量
+    int8_t contents[];   // 保存元素的数组
+} intset;
+```
+
+当然了，这种升级是有代价的，因为需要重新分配内存并复制数据，并且是不可逆的，但它的好处是可以节省内存空间，特别是在存储大量小整数时。
+
+另外，所有元素在数组中按照从小到大的顺序排列，这样就可以使用二分查找来定位元素，时间复杂度为 `O(log N)`。
+
+#### 说一下zset 的底层原理？
+
+ZSet 是 Redis 最复杂的数据类型，它有两种底层实现方式：压缩列表和跳表。
+
+![0xcafebabe：zset 的底层实现](https://cdn.tobebetterjavaer.com/stutymore/redis-20250605132505.png)
+
+当保存的元素数量少于 128 个，且保存的所有元素大小都小于 64 字节时，Redis 会采用压缩列表的编码方式；否则就用跳表。
+
+当然，这两个条件都可以通过参数进行调整。
+
+选择压缩列表作为底层实现时，每个元素会使用两个紧挨在一起的节点来保存：第一个节点保存元素的成员，第二个节点保存元素的分值。
+
+![0xcafebabe：zset 使用压缩列表](https://cdn.tobebetterjavaer.com/stutymore/redis-20250605134114.png)
+
+所有元素按分值从小到大有序排列，小的放在靠近表头的位置，大的放在靠近表尾的位置。
+
+但跳表的缺点是查找只能按顺序进行，时间复杂度为 `O(N)`，而且在最坏的情况下，插入和删除操作还可能会引起连锁更新。
+
+当元素数量较多或元素较大时，Redis 会使用 skiplist 的编码方式；这个设计非常的巧妙，同时使用了两种数据结构：
+
+```c
+typedef struct zset {
+    zskiplist *zsl;  // 跳跃表
+    dict *dict;      // 字典
+} zset;
+```
+
+跳表按分数有序保存所有元素，且支持范围查询（如 `ZRANGE`、`ZRANGEBYSCORE`），平均时间复杂度为 `O(log N)`。而哈希表则用来存储成员和分值的映射关系，查找时间复杂度为 `O(1)`。
+
+![0xcafebabe：zset 使用跳表](https://cdn.tobebetterjavaer.com/stutymore/redis-20250605135850.png)
+
+虽然同时使用两种结构，但它们会通过指针来共享相同元素的成员和分值，因此不会浪费额外的内存。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道 Redis 的 zset 底层实现吗
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：zset 的底层原理
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 ZSet 底层结构
+> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：redis的数据结构底层原理？
+> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：Zset的底层实现？
+> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Zset的底层如何实现？
+
+memo：2025 年 6 月 5 日，今天有球友在[VIP群里](https://javabetter.cn/zhishixingqiu/)咨询 offer 的选择，一个拼多多，一个快手，真让人羡慕的要死啊，😄
+
+![拼多多和快手的 offer 选择](https://cdn.tobebetterjavaer.com/stutymore/redis-20250605142339.png)
+
+### 50.Redis 为什么不用 C 语言的原生字符串？
+
+第一，C 语言的字符串其实就是字符数组，以 `\0` 结尾，这意味着如果数据本身包含 `\0` 字节，就会被误认为字符串结束。但 Redis 需要存储各种类型的数据，包括图片、序列化对象等二进制数据，这些数据中很可能包含 `\0`。
+
+![三分恶面渣逆袭：C语言的字符串](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2541fd26-4e84-467d-8d8c-c731154a85d7.png)
+
+第二，如果需要获取字符串长度，C 语言只能调用 `strlen()` 函数，时间复杂度是 `O(N)`，因为要遍历整个字符串直到遇到 `\0`。
+
+第三，C 语言的字符串不会自动检查边界，如果往一个字符数组里写入超过其容量的数据，就会出现缓冲区溢出。
+
+第四，C 语言的字符串不支持动态扩容，如果需要修改内容，就必须重新分配内存并复制数据，开销很大。
+
+![三分恶面渣逆袭：Redis sds](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-fc26a4e7-1c8d-4e82-b7f8-1f6b43d16d38.png)
+
+Redis 设计的 SDS 完美解决了这些问题，获取长度可以直接通过 `len` 字段，时间复杂度为 `O(1)`；`free` 字段会记录剩余空间，因此 Redis 可以根据预分配策略动态扩容，不用在追加数据时重新分配内存；并且不依赖于 `\0` 结尾，可以存储任意二进制数据。
+
+```c
+struct sds {
+    int len;        // 字符串长度
+    int free;       // 剩余空间
+    char buf[];     // 字符数组
+}
+```
+
+### 51.你研究过 Redis 的字典源码吗？
+
+是的，有研究过。Redis 的字典分为三层，最外层是一个 dict 结构，包含两个哈希表 `ht[0]` 和 `ht[1]`，用于存储键值对。每个哈希表由一个数组和链表组成，数组用于快速定位，链表用于解决哈希冲突。
+
+![三分恶面渣逆袭：Redis字典](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e08347a6-efd5-47c0-9adb-23baff82dbbd.png)
+
+```c
+// 最外层的字典结构
+typedef struct dict {
+    dictht ht[2];       // 两个哈希表！这是关键
+    long rehashidx;     // rehash索引，-1表示没有进行rehash
+    // ...
+} dict;
+
+// 哈希表结构
+typedef struct dictht {
+    dictEntry **table;  // 哈希表数组
+    unsigned long size; // 哈希表大小
+    unsigned long sizemask; // 哈希表大小掩码，用于计算索引值
+    unsigned long used; // 该哈希表已有节点的数量
+} dictht;
+
+// 哈希表节点
+typedef struct dictEntry {
+    void *key;              // 键
+    v;                 // 值
+    struct dictEntry *next; // 指向下个哈希表节点，形成链表
+} dictEntry;
+```
+
+哈希表最核心的特点是渐进式 rehash，这是我觉得最精彩的部分。传统的哈希表扩容都是一次性完成的，但 Redis 不是这样的。
+
+当负载因子触发 rehash 条件时，Redis 会为哈希表1 分配新的空间，通常是哈希表 0 的两倍大小，然后将 rehashidx 设置为 0。
+
+接下来的关键是，Redis 不会一次性把所有数据从哈希表0 迁移到哈希表1，而是每次操作字典时，顺便迁移哈希表0 中 rehashidx 位置上的所有键值对。迁移完一个槽位后，rehashidx 递增，直到整个哈希表0 迁移完毕。
+
+![Kousik Nath：Redis rehash](https://cdn.tobebetterjavaer.com/stutymore/redis-20250606105102.png)
+
+这种设计的巧妙之处在于把 rehash 的开销分摊到了每次操作中。假设有一个几百万键的哈希表，如果一次性 rehash 可能需要几百毫秒，这对单线程的 Redis 来说是灾难性的。但通过渐进式 rehash，每次操作只增加很少的额外开销，用户基本感觉不到延迟。
+
+在 rehash 期间，查找操作会先查 哈希表 0，没找到再查哈希表 1；但是新插入的数据只会放到哈希表 1 中。这样既可以保证数据的完整性，又能避免数据的重复。
+
+#### 遇到哈希冲突怎么办？
+
+Redis 是通过链地址法来解决哈希冲突的，每个哈希表的槽位实际上是一个链表的头指针，当多个键的哈希值映射到同一个槽位时，这些键会以链表的形式串联起来。
+
+![Kousik Nath：哈希冲突](https://cdn.tobebetterjavaer.com/stutymore/redis-20250606105352.png)
+
+具体实现上，Redis 会通过哈希表节点的 next 指针，指向下一个具有相同哈希值的节点。当发生冲突时，新的键值对会插入到链表的头部，时间复杂度是 `O(1)`。查找时需要遍历整个链表，最坏的情况下时间复杂度为 `O(n)`，但通常链表都比较短。
+
+另外，Redis 设计的哈希函数在分布上也比较均匀，能够有效减少哈希冲突的发生。
+
+```c
+/* MurmurHash2, by Austin Appleby
+ * Note - This code makes a few assumptions about how your machine behaves -
+ * 1. We can read a 4-byte value from any address without crashing
+ * 2. sizeof(int) == 4
+ *
+ * And it has a few limitations -
+ *
+ * 1. It will not work incrementally.
+ * 2. It will not produce the same results on little-endian and big-endian
+ *    machines.
+ */
+unsigned int dictGenHashFunction(const void *key, int len) {
+    /* 'm' and 'r' are mixing constants generated offline.
+       They're not really 'magic', they just happen to work well.  */
+    uint32_t seed = dict_hash_function_seed;
+    const uint32_t m = 0x5bd1e995;
+    const int r = 24;
+
+    /* Initialize the hash to a 'random' value */
+    uint32_t h = seed ^ len;
+
+    /* Mix 4 bytes at a time into the hash */
+    const unsigned char *data = (const unsigned char *)key;
+
+    while(len >= 4) {
+        uint32_t k = *(uint32_t*)data;
+
+        k *= m;
+        k ^= k >> r;
+        k *= m;
+
+        h *= m;
+        h ^= k;
+
+        data += 4;
+        len -= 4;
+    }
+
+    /* Handle the last few bytes of the input array  */
+    switch(len) {
+    case 3: h ^= data[2] << 16;
+    case 2: h ^= data[1] << 8;
+    case 1: h ^= data[0]; h *= m;
+    };
+
+    /* Do a few final mixes of the hash to ensure the last few
+       * bytes are well-incorporated. */
+    h ^= h >> 13;
+    h *= m;
+    h ^= h >> 15;
+
+    return (unsigned int)h;
+}
+```
+
+memo：2025 年 6 月 6 日，今[天有球友咨询](https://javabetter.cn/zhishixingqiu/)去金山办公暑期实习，要提前学点什么？又一个凭借 Java 这个载体拿到 Go offer 的球友，说明大家在求职 Go 岗的时候，也不用说非要提前刻意去学习 Go，当然有一些基础是最好的，我之前也整理过 [Go 的学习路线](https://javabetter.cn/xuexiluxian/go.html)在 Java 进阶之路上。
+
+![拿下金山 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250606111301.png)
+
+### 52.跳表是如何实现的？
 
 推荐阅读：[全网最详细的跳表文章](https://www.jianshu.com/p/9d8296562806)
 
@@ -3580,84 +4303,6 @@ typedef struct zskiplistNode {
     } level[];
 } zskiplistNode;
 ```
-
-#### 简单介绍下整数集合 intset
-
-⽤于保存整数值的集合抽象数据结构，不会出现重复元素，底层实现为数组。
-
-![整数集合intset](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-833dbfb2-7c79-4e7b-a143-8a4a2936cdd8.png)
-
-#### 简单介绍下压缩列表 ziplist
-
-压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
-
-![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
-
-#### 简单介绍下紧凑列表 listpack
-
-listpack 是 Redis 用来替代压缩列表（ziplist）的一种内存更加紧凑的数据结构。
-
-![极客时间：listpack](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105313.png)
-
-为了避免 ziplist 引起的连锁更新问题，listpack 中的元素不再像 ziplist 那样，保存其前一个元素的长度，而是保存当前元素的编码类型、数据，以及编码类型和数据的长度。
-
-![极客时间：listpack 的元素](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105754.png)
-
-listpack 每个元素项不再保存上一个元素的长度，而是优化元素内字段的顺序，来保证既可以从前也可以向后遍历。
-
-但因为 List/Hash/Set/ZSet 都严重依赖 ziplist，所以这个替换之路很漫长。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道 Redis 的 zset 底层实现吗
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：zset 的底层原理
-> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：说一下 ZSet 底层结构
-> 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：redis的数据结构底层原理？
-> 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：Zset的底层实现？
-> 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Zset的底层如何实现？
-
-### 50.Redis 的 SDS 和 C 中字符串相比有什么优势？
-
-C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的字符串，并且字符数组最后一个元素总是 `\0`，这种简单的字符串表示方式 不符合 Redis 对字符串在安全性、效率以及功能方面的要求。
-
-![C语言的字符串](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-2541fd26-4e84-467d-8d8c-c731154a85d7.png)
-
-#### C 语言的字符串可能有什么问题？
-
-这样简单的数据结构可能会造成以下一些问题：
-
-- **获取字符串长度复杂度高** ：因为 C 不保存数组的长度，每次都需要遍历一遍整个数组，时间复杂度为 O(n)；
-- 不能杜绝 **缓冲区溢出/内存泄漏** 的问题 : C 字符串不记录自身长度带来的另外一个问题是容易造成缓存区溢出（buffer overflow），例如在字符串拼接的时候，新的
-- C 字符串 **只能保存文本数据** → 因为 C 语言中的字符串必须符合某种编码（比如 ASCII），例如中间出现的 `'\0'` 可能会被判定为提前结束的字符串而识别不了；
-
-#### Redis 如何解决？优势？
-
-![Redis sds](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-fc26a4e7-1c8d-4e82-b7f8-1f6b43d16d38.png)
-
-简单来说一下 Redis 如何解决的：
-
-1. **多增加 len 表示当前字符串的长度**：这样就可以直接获取长度了，复杂度 O(1)；
-2. **自动扩展空间**：当 SDS 需要对字符串进行修改时，首先借助于 `len` 和 `alloc` 检查空间是否满足修改所需的要求，如果空间不够的话，SDS 会自动扩展空间，避免了像 C 字符串操作中的溢出情况；
-3. **有效降低内存分配次数**：C 字符串在涉及增加或者清除操作时会改变底层数组的大小造成重新分配，SDS 使用了 **空间预分配** 和 **惰性空间释放** 机制，简单理解就是每次在扩展时是成倍的多分配的，在缩容是也是先留着并不正式归还给 OS；
-4. **二进制安全**：C 语言字符串只能保存 `ascii` 码，对于图片、音频等信息无法保存，SDS 是二进制安全的，写入什么读取就是什么，不做任何过滤和限制；
-
-### 51.字典是如何实现的？Rehash 了解吗？
-
-字典是 Redis 服务器中出现最为频繁的复合型数据结构。除了 **hash** 结构的数据会用到字典外，整个 Redis 数据库的所有 `key` 和 `value` 也组成了一个 **全局字典**，还有带过期时间的 `key` 也是一个字典。_(存储在 RedisDb 数据结构中)_
-
-#### 字典结构是什么样的呢？
-
-**Redis** 中的字典相当于 Java 中的 **HashMap**，内部实现也差不多类似，采用哈希与运算计算下标位置；通过 **"数组 + 链表" **的**链地址法** 来解决哈希冲突，同时这样的结构也吸收了两种不同数据结构的优点。
-
-![Redis字典结构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-e08347a6-efd5-47c0-9adb-23baff82dbbd.png)
-
-#### 字典是怎么扩容的？
-
-字典结构内部包含 **两个 hashtable**，通常情况下只有一个哈希表 `ht[0]` 有值，在扩容的时候，把 `ht[0]`里的值 rehash 到 `ht[1]`，然后进行 **渐进式 rehash** ——所谓渐进式 rehash，指的是这个 rehash 的动作并不是一次性、集中式地完成的，而是分多次、渐进式地完成的。
-
-待搬迁结束后，`h[1]`就取代 `h[0]`存储字典的元素。
-
-### 52.跳表是如何实现的？原理？
 
 跳表是一种有序的数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。
 
@@ -3728,6 +4373,10 @@ C 语言使用了一个长度为 `N+1` 的字符数组来表示长度为 `N` 的
 
 ### 53.压缩列表了解吗？
 
+压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
+
+![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
+
 压缩列表是 Redis **为了节约内存** 而使用的一种数据结构，由一系列特殊编码的连续内存块组成的顺序型数据结构。
 
 ![三分恶面渣逆袭：压缩列表组成部分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6be492f7-9f92-4607-a4c4-81a612a3d7bd.png)
@@ -3746,6 +4395,21 @@ hash、list、zset 在元素较少时会使用压缩列表。
 - **entryX**：列表节点
 - **zlend**：用于标记压缩列表的末端
 
+![](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604112846.png)
+
+#### Redis为什么要用listpack替代ziplist？
+
+listpack 是 Redis 用来替代压缩列表（ziplist）的一种内存更加紧凑的数据结构。
+
+![极客时间：listpack](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105313.png)
+
+为了避免 ziplist 引起的连锁更新问题，listpack 中的元素不再像 ziplist 那样，保存其前一个元素的长度，而是保存当前元素的编码类型、数据，以及编码类型和数据的长度。
+
+![极客时间：listpack 的元素](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105754.png)
+
+listpack 每个元素项不再保存上一个元素的长度，而是优化元素内字段的顺序，来保证既可以从前也可以向后遍历。
+
+但因为 List/Hash/Set/ZSet 都严重依赖 ziplist，所以这个替换之路很漫长。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：什么情况下使用压缩列表
 
@@ -3946,6 +4610,21 @@ public class ServerMonitor {
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，100+张手绘图，可以说是诚意满满。
+
 **系列内容**：
 
 - [面渣逆袭 Java SE 篇 👍](https://javabetter.cn/sidebar/sanfene/javase.html)
@@ -3964,10 +4643,3 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
 - [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
----
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
