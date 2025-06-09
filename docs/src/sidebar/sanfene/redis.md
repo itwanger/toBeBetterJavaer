@@ -4123,6 +4123,30 @@ typedef struct zset {
 
 虽然同时使用两种结构，但它们会通过指针来共享相同元素的成员和分值，因此不会浪费额外的内存。
 
+#### 你知道为什么Redis 7.0要用listpack来替代ziplist吗？
+
+答：主要是为了解决压缩列表的一个核心问题——连锁更新。在压缩列表中，每个节点都需要记录前一个节点的长度信息。
+
+![wenfh2020.com：redis ziplist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607094736.png)
+
+当插入或删除一个节点时，如果这个操作导致某个节点的长度发生了变化，那么后续的节点可能都需要更新它们存储的"前一个节点长度"字段。最坏的情况下，一次操作可能触发整个链表的更新，时间复杂度会从 `O(1)`退化到 `O(n²)`。
+
+而 listpack 的设计理念完全不同。它让每个节点只记录自己的长度信息，不再依赖前一个节点的长度。这样就从根本上避免了连锁更新的问题。
+
+![极客时间：listpack](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105313.png)
+
+listpack 中的节点不再保存其前一个节点的长度，而是保存当前节点的编码类型、数据和长度。
+
+![极客时间：listpack 的元素](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105754.png)
+
+#### 连锁更新是怎么发生的？
+
+比如说我们有一个压缩列表，其中有几个节点的长度都是 253 个字节。在 ziplist 的编码中，如果前一个节点的长度小于 254 字节，我们只需要 1 个字节来存储这个长度信息。
+
+![Hello Jelly：连锁更新](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607100252.png)
+
+但如果在这些节点前面插入一个长度为 254 字节的节点，那么原来只需要 1 个字节存储长度的节点现在需要 5 个字节来存储长度信息。这就会导致后续所有节点的长度信息都需要更新。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：说说 Redis 的 zset，什么是跳表，插入一个节点要构建几层索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：Redis 的数据类型，ZSet 的实现
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：你知道 Redis 的 zset 底层实现吗
@@ -4190,7 +4214,7 @@ typedef struct dictEntry {
 } dictEntry;
 ```
 
-哈希表最核心的特点是渐进式 rehash，这是我觉得最精彩的部分。传统的哈希表扩容都是一次性完成的，但 Redis 不是这样的。
+字典最核心的特点是渐进式 rehash，这是我觉得最精彩的部分。传统的哈希表扩容都是一次性完成的，但 Redis 不是这样的。
 
 当负载因子触发 rehash 条件时，Redis 会为哈希表1 分配新的空间，通常是哈希表 0 的两倍大小，然后将 rehashidx 设置为 0。
 
@@ -4272,104 +4296,217 @@ memo：2025 年 6 月 6 日，今[天有球友咨询](https://javabetter.cn/zhis
 
 ![拿下金山 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250606111301.png)
 
-### 52.跳表是如何实现的？
+### 🌟52.你了解跳表吗？
 
-推荐阅读：[全网最详细的跳表文章](https://www.jianshu.com/p/9d8296562806)
+跳表是一种非常巧妙的数据结构，它在有序链表的基础上建立了多层索引，最底层包含所有数据，每往上一层，节点数量就减少一半。
 
-跳表是有序集合 Zset 的底层实现之⼀。在 Redis 7.0 之前，如果有序集合的元素个数小于 128 个，并且每个元素的值小于 64 字节时，Redis 会使用压缩列表作为 Zset 的底层实现，否则会使用跳表；在 Redis 7.0 之后，压缩列表已经废弃，交由 listpack 来替代。
+![metahub follower：skiplist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250608111336.png)
 
-![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-886ee2a8-fb02-4908-bbba-d4ad2a211094.png)
-
-跳表由 zskiplist 和 zskiplistNode 组成，zskiplist ⽤于保存跳表的基本信息（表头、表尾、⻓度、层高等）。
-
-```c
-typedef struct zskiplist {
-    struct zskiplistNode *header, *tail;
-    unsigned long length;
-    int level;
-} zskiplist;
-```
-
-zskiplistNode ⽤于表示跳表节点，每个跳表节点的层⾼是不固定的，每个节点都有⼀个指向保存了当前节点的分值和成员对象的指针。
-
-```c
-typedef struct zskiplistNode {
-    sds ele;
-    double score;
-    struct zskiplistNode *backward;
-    struct zskiplistLevel {
-        struct zskiplistNode *forward;
-        unsigned int span;
-    } level[];
-} zskiplistNode;
-```
-
-跳表是一种有序的数据结构，它通过在每个节点中维持多个指向其它节点的指针，从而达到快速访问节点的目的。
+它的核心思想是"用空间换时间"，通过多层索引来跳过大量节点，从而提高查找效率。
 
 ![三分恶面渣逆袭：跳表](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-08391728-5ba8-42a0-a287-9284451e0ee7.png)
 
-#### 为什么使用跳表？
+每个节点有 50% 的概率只在第 1 层出现，25% 的概率在第 2 层出现，依此类推。查找的时候从最高层开始水平移动，当下一个节点值大于目标时，就向下跳一层，直到找到目标节点。
 
-首先，因为 zset 要支持随机的插入和删除，所以它 **不宜使用数组来实现**，关于排序问题，我们也很容易就想到 **红黑树/ 平衡树** 这样的树形结构，为什么 Redis 不使用这样一些结构呢？
+![Dylan Wang：Skiplist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607102238.png)
 
-1. **性能考虑：** 在高并发的情况下，树形结构需要执行一些类似于 rebalance 这样的可能涉及整棵树的操作，相对来说跳跃表的变化只涉及局部；
-2. **实现考虑：** 在复杂度与红黑树相同的情况下，跳跃表实现起来更简单，看起来也更加直观；
+#### 怎么往跳表插入节点呢？
 
-基于以上的一些考虑，Redis 基于 **William Pugh** 的论文做出一些改进后采用了 **跳跃表** 这样的结构。
+首先是找到插入位置，从最高层的头节点开始，在每一层都找到应该插入位置的前驱节点，用一个 update 数组把这些前驱节点记录下来。这个查找过程和普通查找一样，在每层向右移动直到下个节点的值大于要插入的值，然后下降到下一层。
 
-本质是解决查找问题。
+```c
+// 记录每层的插入位置
+zskiplistNode *update[ZSKIPLIST_MAXLEVEL];
+zskiplistNode *x;
+int i, level;
 
-#### 跳跃表是怎么实现的？
+// 从最高层开始查找
+x = zsl->header;
+for (i = zsl->level-1; i >= 0; i--) {
+    // 在当前层水平移动，找到插入位置
+    while (x->level[i].forward &&
+           (x->level[i].forward->score < score ||
+            (x->level[i].forward->score == score &&
+             sdscmp(x->level[i].forward->ele, ele) < 0)))
+    {
+        x = x->level[i].forward;
+    }
+    update[i] = x;  // 记录每层的前驱节点
+}
+```
 
-跳跃表的节点里有这些元素：
+接下来随机生成新节点的层数。通常用一个循环，每次有 50% 的概率继续往上，直到随机失败或达到最大层数限制。
 
-①、**层**
+```c
+// Redis 中的随机层数生成
+int zslRandomLevel(void) {
+    int level = 1;
+    while ((random()&0xFFFF) < (ZSKIPLIST_P * 0xFFFF))
+        level += 1;
+    return (level < ZSKIPLIST_MAXLEVEL) ? level : ZSKIPLIST_MAXLEVEL;
+}
 
-跳跃表节点的 level 数组可以包含多个元素，每个元素都包含一个指向其它节点的指针，程序可以通过这些层来加快访问其它节点的速度，一般来说，层的数量月多，访问其它节点的速度就越快。
+// 生成新节点的层数
+level = zslRandomLevel();
+```
 
-每次创建一个新的跳跃表节点的时候，程序都根据幂次定律，随机生成一个介于 1 和 32 之间的值作为 level 数组的大小，这个大小就是层的“高度”
+创建新节点后，从底层开始到新节点的最高层，在每一层都进行标准的链表插入操作。这一步要利用之前记录的 update 数组，将新节点插入到正确位置，然后更新前后指针的连接关系。
 
-②、**前进指针**
+```c
+// 更新前进指针
+for (i = 0; i < level; i++) {
+    x->level[i].forward = update[i]->level[i].forward;
+    update[i]->level[i].forward = x;
+    
+    // 更新跨度信息
+    x->level[i].span = update[i]->level[i].span - (rank[0] - rank[i]);
+    update[i]->level[i].span = (rank[0] - rank[i]) + 1;
+}
 
-每个层都有一个指向表尾的前进指针（`level[i].forward` 属性），用于从表头向表尾方向访问节点。
+// 更新未涉及层的跨度
+for (i = level; i < zsl->level; i++) {
+    update[i]->level[i].span++;
+}
 
-我们看一下跳跃表从表头到表尾，遍历所有节点的路径：
+// 更新后退指针
+x->backward = (update[0] == zsl->header) ? NULL : update[0];
+if (x->level[0].forward)
+    x->level[0].forward->backward = x;
+else
+    zsl->tail = x;
 
-![三分恶面渣逆袭：通过前进指针遍历](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b153f782-e2e5-4f98-b251-04f06e16c073.png)
+// 更新跳表长度
+zsl->length++;
+```
 
-③、**跨度**
+我们来模拟一个跳表的插入过程，假设插入的数据依次是 22、19、7、3、37、11、26。
 
-层的跨度用于记录两个节点之间的距离。跨度是用来计算排位（rank）的：在查找某个节点的过程中，将沿途访问过的所有层的跨度累计起来，得到的结果就是目标节点在跳跃表中的排位。
+![zhangtielei.com：跳表插入过程](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607103728.png)
 
-例如查找，分值为 3.0、成员对象为 o3 的节点时，沿途经历的层：查找的过程只经过了一个层，并且层的跨度为 3，所以目标节点在跳跃表中的排位为 3。
+那假如我们在一个已经分布了 1、14、27、31、44、56、63、70、80、91 的跳表中插入一个 67 的节点，插入过程是这样的：
 
-![三分恶面渣逆袭：计算节点的排位](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-d2395b7e-2f31-4ca8-b06d-2cb47afaeb74.png)
+![Dylan Wang：插入节点](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607104019.png)
 
-④、**分值和成员**
+#### zset为什么要使用跳表呢？
 
-节点的分值（score 属性）是一个 double 类型的浮点数，跳跃表中所有的节点都按分值从小到大来排序。
+第一，跳表天然就是有序的数据结构，查找、插入和删除都能保持 `O(log n)` 的时间复杂度。
 
-节点的成员对象（obj 属性）是一个指针，它指向一个字符串对象，而字符串对象则保存这一个 SDS 值。
+第二，跳表支持范围查询，找到起始位置后可以直接沿着底层链表顺序遍历，满足 ZRANGE 按排名获取元素，或者 ZRANGEBYSCORE 按分值范围获取元素。
 
-#### 为什么 hash 表范围查询效率比跳表低？
+memo：2025 年 6 月 7 日，今天给一个学院本球友[修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，他提到实习的同事，都拿到了 20k 以上的 offer，甚至还有 25k 携程 offer 的，自己并不比他们差，问在实习、项目和能力上还能怎么提高？
 
-哈希表是一种基于键值对的数据结构，主要用于快速查找、插入和删除操作。
+![学院本球友的目标和计划](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607110105.png)
 
-哈希表通过计算键的哈希值来确定值的存储位置，这使得它在单个元素的访问上非常高效，时间复杂度为 O(1)。
+我想说的是，这就是为什么很多人选择跑来卷互联网开发的原因啊，上线比其他行业高太多了，虽然互联网开发的工作强度也大，但最起码能劳有所获。
 
-然而，哈希表内的元素是无序的。因此，对于范围查询（如查找所有在某个范围内的元素），哈希表无法直接支持，必须遍历整个表来检查哪些元素满足条件，这使得其在范围查询上的效率低下，时间复杂度为 O(n)。
+#### 跳表是如何定义的呢？
 
-跳表是一种有序的数据结构，能够保持元素的排序顺序。
+跳表本质上是一个多层链表，底层是一个包含所有元素的有序链表，上一层作为索引层，包含了下一层的部分节点；层数通过随机算法确定，理论上可以无限高。
 
-它通过多层的链表结构实现快速的插入、删除和查找操作，其中每一层都是下一层的一个子集，并且元素在每一层都是有序的。
+![metahub follower：跳表](https://cdn.tobebetterjavaer.com/stutymore/redis-20250607103155.png)
 
-当进行范围查询时，跳表可以从最高层开始，快速定位到范围的起始点，然后沿着下一层继续直到找到范围的结束点。这种分层的结构使得跳表在进行范围查询时非常高效，时间复杂度为 O(log n) 加上范围内元素的数量。
+跳表节点包含分值 score、成员对象 obj、一个后退指针 backward，以及一个层级数组 level。每个层级包含 forward 前进指针和 span 跨度信息。
+
+```c
+typedef struct skiplistNode {
+    double score;                    // 分值（用于排序）
+    robj *obj;                      // 数据对象
+    struct skiplistNode *backward;   // 后退指针
+    struct skiplistLevel {
+        struct skiplistNode *forward; // 前进指针
+        unsigned int span;           // 跨度（到下个节点的距离）
+    } level[];                      // 层级数组
+} skiplistNode;
+```
+
+跳表本身包含头尾节点指针、节点总数 length 和当前最大层数 level。
+
+```c
+typedef struct skiplist {
+    struct skiplistNode *header, *tail; // 头尾节点
+    unsigned long length;               // 节点数量
+    int level;                         // 最大层数
+} skiplist;
+```
+
+#### span 跨度有什么用？
+
+span 记录了当前节点到下一节点之间，底层到底跨越了几个节点，它的主要作用是快速找到 ZSet 中某个分值的排名。
+
+![Aparajita Pandey：span](https://cdn.tobebetterjavaer.com/stutymore/redis-20250608115835.png)
+
+比如说我们执行 `ZRANK` 命令时，如果没有 span，就需要从头节点开始遍历每个节点，直到找到目标分值，这样时间复杂度是 `O(n)`。
+
+```c
+// 没有span的排名查询 - O(n)
+int getRankWithoutSpan(skiplist *zsl, double score, robj *obj) {
+    skiplistNode *x = zsl->header->level[0].forward;
+    int rank = 0;
+    
+    while (x) {
+        if (x->score == score && equalStringObjects(x->obj, obj)) {
+            return rank + 1;  // 排名从1开始
+        }
+        rank++;
+        x = x->level[0].forward;
+    }
+    return 0;
+}
+```
+
+但有了 span，我们在从高层往低层搜索的时候，可以直接跳过一些节点，快速定位到目标分值所在的范围。这样就能把时间复杂度降到 `O(log n)`。
+
+```c
+long skiplistGetRank(skiplist *zsl, double score, robj *obj) {
+    skiplistNode *x = zsl->header;
+    unsigned long rank = 0;
+    
+    // 从最高层开始查找
+    for (int i = zsl->level - 1; i >= 0; i--) {
+        while (x->level[i].forward &&
+               (x->level[i].forward->score < score ||
+                (x->level[i].forward->score == score &&
+                 compareStringObjects(x->level[i].forward->obj, obj) < 0))) {
+            
+            rank += x->level[i].span;  // 累加跨度
+            x = x->level[i].forward;
+        }
+        
+        // 找到目标节点
+        if (x->level[i].forward &&
+            x->level[i].forward->score == score &&
+            equalStringObjects(x->level[i].forward->obj, obj)) {
+            rank += x->level[i].span;
+            return rank;
+        }
+    }
+    
+    return 0;
+}
+```
+
+#### 为什么字典的范围查询效率比跳表低？
+
+字典是通过哈希函数将键值对分散存储的，元素在内存中是无序分布的，没有任何顺序关系。而跳表本身就是有序的数据结构，所有元素按照分值从小到大排列。
+
+![WARRIOR：跳表](https://cdn.tobebetterjavaer.com/stutymore/redis-20250608112525.png)
+
+当需要进行范围查询时，字典必须遍历所有元素，逐个检查每个元素是否在指定范围内，时间复杂度是 `O(n)`。比如要找分值在 60 到 80 之间的所有元素，字典只能把整个哈希表扫描一遍，因为它无法知道符合条件的元素在哪里。
+
+而跳表的范围查询就高效多了。首先用 `O(log n)` 时间找到范围的起始位置，然后沿着底层的有序链表顺序遍历，直到超出范围为止。总时间复杂度是 `O(log n + k)`，其中 k 是结果集的大小。这种效率差异在数据量大的时候非常明显。
+
+![晴天哥：zset 底层由字典和跳表组成](https://cdn.tobebetterjavaer.com/stutymore/redis-20250608113417.png)
+
+这也是为什么 Redis 的 zset 要用跳表而不是纯哈希表的重要原因，因为 zset 经常需要 ZRANGE、ZRANGEBYSCORE 这类范围操作。实际上 Redis 的 zset 是跳表和哈希表的组合：跳表保证有序性支持范围查询，哈希表保证 `O(1)` 的单点查找效率，两者互补。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米暑期实习同学 E 一面面试原题：为什么 hash 表范围查询效率比跳表低
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：zset 的底层原理
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：跳表的结构
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Redis 跳表
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里系面经同学 19 饿了么面试原题：跳表了解吗
+
+memo：2025 年 6 月 8 日，今天[有球友发信息](https://javabetter.cn/zhishixingqiu/)称赞 Java 进阶之路的内容写得好，说实话，我是有这个自信的，基本上所写的内容也都是我这些年从读到的所有书籍、视频、教程中提炼到的精华，把一些难懂晦涩的知识都用通俗易懂的语言表达出来，配合手绘图，能让人更容易理解。
+
+![球友对二哥的 Java 进阶之路的称赞](https://cdn.tobebetterjavaer.com/stutymore/redis-二哥，我感觉你这些知识点写的真不错，⑤之前.png)
 
 ### 53.压缩列表了解吗？
 
@@ -4396,20 +4533,6 @@ hash、list、zset 在元素较少时会使用压缩列表。
 - **zlend**：用于标记压缩列表的末端
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604112846.png)
-
-#### Redis为什么要用listpack替代ziplist？
-
-listpack 是 Redis 用来替代压缩列表（ziplist）的一种内存更加紧凑的数据结构。
-
-![极客时间：listpack](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105313.png)
-
-为了避免 ziplist 引起的连锁更新问题，listpack 中的元素不再像 ziplist 那样，保存其前一个元素的长度，而是保存当前元素的编码类型、数据，以及编码类型和数据的长度。
-
-![极客时间：listpack 的元素](https://cdn.tobebetterjavaer.com/stutymore/redis-20240403105754.png)
-
-listpack 每个元素项不再保存上一个元素的长度，而是优化元素内字段的顺序，来保证既可以从前也可以向后遍历。
-
-但因为 List/Hash/Set/ZSet 都严重依赖 ziplist，所以这个替换之路很漫长。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：什么情况下使用压缩列表
 
