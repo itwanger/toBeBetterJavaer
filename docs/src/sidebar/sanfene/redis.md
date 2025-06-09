@@ -4485,7 +4485,7 @@ long skiplistGetRank(skiplist *zsl, double score, robj *obj) {
 }
 ```
 
-#### 为什么字典的范围查询效率比跳表低？
+#### 为什么跳表的范围查询效率比字典高？
 
 字典是通过哈希函数将键值对分散存储的，元素在内存中是无序分布的，没有任何顺序关系。而跳表本身就是有序的数据结构，所有元素按照分值从小到大排列。
 
@@ -4510,31 +4510,71 @@ memo：2025 年 6 月 8 日，今天[有球友发信息](https://javabetter.cn/z
 
 ### 53.压缩列表了解吗？
 
-压缩列表是为节约内存⽽开发的顺序性数据结构，它可以包含任意多个节点，每个节点可以保存⼀个字节数组或者整数值。
+答：压缩列表是 Redis 为了节省内存而设计的一种紧凑型数据结构，它会把所有数据连续存储在一块内存当中。
 
-![压缩列表组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-99bcbe82-1d91-41bf-8900-a240856071f5.png)
-
-压缩列表是 Redis **为了节约内存** 而使用的一种数据结构，由一系列特殊编码的连续内存块组成的顺序型数据结构。
+整个结构包含头部信息，如总的字节数、尾部偏移量、节点数量，以及连续的节点数据。
 
 ![三分恶面渣逆袭：压缩列表组成部分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-6be492f7-9f92-4607-a4c4-81a612a3d7bd.png)
 
-hash、list、zset 在元素较少时会使用压缩列表。
+当 list、hash 和 set 的数据量较小且值都不大时，底层会使用压缩列表来实现。
 
 ![截图来自 Redis 官网](https://cdn.tobebetterjavaer.com/stutymore/redis-20241225105623.png)
 
-一个压缩列表包含任意多个节点，每个节点可以保存一个字节数组或者一个整数值。
+通常情况在，每个节点包含三个部分：前一个节点的长度、编码类型和实际的数据。
+
+![happytree001：ziplist entry](https://cdn.tobebetterjavaer.com/stutymore/redis-20250609093621.png)
+
+前一个节点的长度是为了支持从后往前遍历；当前一个节点的长度小于 254 字节时，使用 1 字节存储；否则用 5 字节存储，第一个字节设置为 254，后四个字节存储实际长度。
+
+![happytree001：ziplist prevlen](https://cdn.tobebetterjavaer.com/stutymore/redis-20250609093736.png)
+
+编码类型会根据数据的实际情况选择最紧凑的存储方式。
 
 ![三分恶面渣逆袭：压缩列表示例](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-b5d224c2-53ee-40a3-9efc-2feb7dd3d7a8.png)
 
-- **zlbyttes**：记录整个压缩列表占用的内存字节数
-- **zltail**：记录压缩列表表尾节点距离压缩列表的起始地址有多少字节
-- **zllen**：记录压缩列表包含的节点数量
-- **entryX**：列表节点
-- **zlend**：用于标记压缩列表的末端
+但压缩列表有个致命问题，就是连锁更新。当插入或删除节点导致某个节点长度发生变化时，可能会影响后续所有节点存储的“前一个节点长度”字段，最坏情况下时间复杂度会退化到 `O(n²)`。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604112846.png)
+![hjcenry.com：连锁更新](https://cdn.tobebetterjavaer.com/stutymore/redis-20250604112846.png)
+
+#### ziplist 的节点数量会超过 65535 吗？
+
+不会。
+
+Zllen 字段的类型是 `uint16_t`，最大值为 65535，也就是 2 的 16次方，所以压缩列表的节点数量不会超过 65535。
+
+当节点数量小于 65535 时，该字段会存储实际的数量；否则该字段就固定为 65535，实际存储的数量需要逐个遍历节点来计算。
+
+#### ziplist 的编码类型了解多少？
+
+ziplist 的编码类型设计得很精巧，主要分为字符串编码和整数编码两大类，目的是用最少的字节存储数据。
+
+比如 0 到 12 这些小整数直接编码在 type 字段中，只需要 1 个字节。
+
+编码| 长度| 描述| 
+---|---|---|
+11000000| 1字节| int16_t类型整数，2 字节
+11010000| 1字节| int32_t类型整数，4 字节
+11100000| 1字节| int64_t类型整数，8 字节
+11110000| 1字节| 24位有符号整数 ，3 字节
+1111xxxx| 1字节| 数据范围在[0-12]，数据包含在编码中
+
+![happytree001：ziplist 小整数编码](https://cdn.tobebetterjavaer.com/stutymore/redis-20250609094439.png)
+
+对于字符串编码，根据字符串长度有三种格式。长度小于 63 字节的用 00 开头的单字节编码，剩余 6 位存储长度。长度在 63 到 16383 之间的用 01 开头的双字节编码，剩余 14 位存储长度。超过 16383 字节的用 10 开头，后面跟 4 字节存储长度。
+
+编码| 长度| 描述|
+---|---|---|
+00pppppp| 1字节| 0-63 字节的字符串
+01pppppp qqqqqqqq| 2字节| 64-16383字节的字符串
+10______ qqqqqqqq rrrrrrrr ssssssss tttttttt| 5字节| 16384-4294967295字节的字符串
+
+![happytree001：ziplist 字符串编码](https://cdn.tobebetterjavaer.com/stutymore/redis-20250609094615.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：什么情况下使用压缩列表
+
+memo：2025 年 6 月 9 日修改至此，今天[有球友特意发私信](https://javabetter.cn/zhishixingqiu/)，感谢面渣逆袭对他的帮助。对，这么棒的内容，我依然选择了免费，因为我相信知识是有价值的，只有诚恳的分享出来才能让更多人受益。
+
+![球友对面渣逆袭的认可](https://cdn.tobebetterjavaer.com/stutymore/redis-20250609100519.png)
 
 ### 54.快速列表 quicklist 了解吗？
 
@@ -4547,11 +4587,7 @@ Redis 早期版本存储 list 列表数据结构使用的是压缩列表 ziplist
 quicklist 由 list 和 ziplist 结合而成，它是一个由 ziplist 充当节点的双向链表。
 ![quicklist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-3b9785b0-6573-4c2d-8b7d-d5d1be799e26.png)
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+<MZNXQRcodeBanner />
 
 ## 补充
 
