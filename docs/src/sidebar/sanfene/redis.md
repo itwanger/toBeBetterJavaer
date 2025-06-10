@@ -4576,18 +4576,64 @@ memo：2025 年 6 月 9 日修改至此，今天[有球友特意发私信](https
 
 ![球友对面渣逆袭的认可](https://cdn.tobebetterjavaer.com/stutymore/redis-20250609100519.png)
 
-### 54.快速列表 quicklist 了解吗？
+### 54.quicklist 了解吗？
 
-Redis 早期版本存储 list 列表数据结构使用的是压缩列表 ziplist 和普通的双向链表 linkedlist，也就是说当元素少时使用 ziplist，当元素多时用 linkedlist。
+quicklist 是 Redis 在 3.2 版本时引入的，专门用于 List 的底层实现，它实际上是一个混合型数据结构，结合了压缩列表和双向链表的优点。
 
-但考虑到链表的附加空间相对较高，`prev` 和 `next` 指针就要占去 `16` 个字节（64 位操作系统占用 `8` 个字节），另外每个节点的内存都是单独分配，会家具内存的碎片化，影响内存管理效率。
+![三分恶面渣逆袭：quicklist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-3b9785b0-6573-4c2d-8b7d-d5d1be799e26.png)
 
-后来 Redis 新版本（3.2）对列表数据结构进行了改造，使用 `quicklist` 代替了 `ziplist` 和 `linkedlist`，quicklist 是综合考虑了时间效率与空间效率引入的新型数据结构。
+在早期的版本中，List 会根据元素的数量和大小采用两种不同的底层数据结构，当元素较少或者较小时，会使用压缩列表；否则用双向链表。
 
-quicklist 由 list 和 ziplist 结合而成，它是一个由 ziplist 充当节点的双向链表。
-![quicklist](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/redis-3b9785b0-6573-4c2d-8b7d-d5d1be799e26.png)
+但这种设计有个问题，就是当 List 中的元素数量较多时，压缩列表会因为连锁更新导致性能下降，而双向链表又会占用更多内存。
+
+quicklist 通过将 List 拆分为多个小的 ziplist，再通过指针链接成一个双向链表，巧妙的解决了这个问题。
+
+![影中人lx：quicklist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250610105328.png)
+
+默认情况下，每个 ziplist 可以存储 8KB 的数据，假如每个元素的大小恰好是 1KB，那么一个 quicklist 就可以存储 8 个元素。80 个这样的元素就会被分成 10 个 ziplist。
+
+这样既保留了压缩列表的内存紧凑性，又减少了双向链表指针的数量，进一步降低了内存开销。
+
+![metahub follower：ziplist](https://cdn.tobebetterjavaer.com/stutymore/redis-20250610110115.png)
+
+除此之外，quicklist 还有一个重要的特性，就是它的可配置性，可以通过填充因子控制每个 ziplist 节点的大小。当填充因子为正数时，它还可以限制每个 ziplist 最多包含的元素数量。
+
+```
+# 填充因子，默认 -2（8KB）
+list-max-ziplist-size 10
+```
+
+如果想进一步节省内存，quicklist 还支持对中间节点进行 LZF 压缩，压缩深度为 1 时，表示除了首尾各 1 个节点不压缩外，其他节点都压缩。
+
+```
+# 压缩深度，默认 0（不压缩）
+list-compress-depth 1
+```
+
+![wingsxdu.com：LZF 压缩算法](https://cdn.tobebetterjavaer.com/stutymore/redis-20250610112125.png)
+
+#### LZF 压缩算法了解吗？
+
+LZF 是一种快速的无损压缩算法，主要用于减少数据存储空间。它的核心思想是通过查找重复数据来实现压缩，通过一个滑动窗口来查找重复的字节序列，并将这些序列替换为更短的引用。
+
+```
+输入数据: "hello world hello redis"
+
+步骤1: 处理 "hello world "
+- 建立字典，记录字节序列位置
+
+步骤2: 遇到重复的 "hello"
+- 在字典中找到之前的 "hello" 位置
+- 用 (距离, 长度) 对替换: (12, 5)
+
+输出: "hello world " + (12,5) + " redis"
+```
 
 <MZNXQRcodeBanner />
+
+memo：2025 年 6 月 10 日，今天[有球友发信息](https://javabetter.cn/zhishixingqiu/)说找我修改了简历后，又按照星球的学习资料好好学了一下之后，拿到了字节跳动的 offer，并特意发了一个大红包来感谢。这种被认可被需要的感觉，真好！
+
+![球友拿到了字节跳动的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-二哥，我是之前发邮件请您修改简.png)
 
 ## 补充
 
