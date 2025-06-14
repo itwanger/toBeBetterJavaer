@@ -12,9 +12,7 @@ head:
       content: MySQL,mysql,面试题,八股文
 ---
 
-
 > 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。
-
 
 ## 基础
 
@@ -72,8 +70,8 @@ Server 层按顺序执行 SQL 的步骤为：
 
 根据叶子节点的内容，索引类型分为主键索引和非主键索引。
 
-- 主键索引的叶子节点存的整行数据，在InnoDB里也被称为聚簇索引。
-- 非主键索引叶子节点存的主键的值，在InnoDB里也被称为二级索引。
+- 主键索引的叶子节点存的整行数据，在 InnoDB 里也被称为聚簇索引。
+- 非主键索引叶子节点存的主键的值，在 InnoDB 里也被称为二级索引。
 
 ### 6、MyISAM 和 InnoDB 实现 B 树索引方式的区别是什么？
 
@@ -89,7 +87,7 @@ Server 层按顺序执行 SQL 的步骤为：
 
 为什么选择 B+ 树：
 
-- 哈希索引虽然能提供O（1）复杂度查询，但对范围查询和排序却无法很好的支持，最终会导致全表扫描。
+- 哈希索引虽然能提供 O（1）复杂度查询，但对范围查询和排序却无法很好的支持，最终会导致全表扫描。
 
 - B 树能够在非叶子节点存储数据，但会导致在查询连续数据可能带来更多的随机 IO。
 
@@ -116,7 +114,7 @@ Server 层按顺序执行 SQL 的步骤为：
 - 对索引使用左或者左右模糊匹配，也就是 like %xx 或者 like %xx% 这两种方式都会造成索引失效。原因在于查询的结果可能是多个，不知道从哪个索引值开始比较，于是就只能通过全表扫描的方式来查询。
 - 对索引进行函数/对索引进行表达式计算，因为索引保持的是索引字段的原始值，而不是经过函数计算的值，自然就没办法走索引。
 - 对索引进行隐式转换相当于使用了新函数。
-- WHERE 子句中的 OR语句，只要有条件列不是索引列，就会进行全表扫描。
+- WHERE 子句中的 OR 语句，只要有条件列不是索引列，就会进行全表扫描。
 
 ### 10、字符串加索引
 
@@ -145,10 +143,10 @@ Server 层按顺序执行 SQL 的步骤为：
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-a2b8e123-41cb-4717-9225-3a8b49197004.png)
 
-### 14、为什么需要 redo log？ 
+### 14、为什么需要 redo log？
 
--  redo log 主要用于 MySQL 异常重启后的一种数据恢复手段，确保了数据的一致性。 
--  其实是为了配合 MySQL 的 WAL 机制。因为 MySQL 进行更新操作，为了能够快速响应，所以采用了异步写回磁盘的技术，写入内存后就返回。但是这样，会存在 **crash后** 内存数据丢失的隐患，而 redo log 具备 crash safe 的能力。
+- redo log 主要用于 MySQL 异常重启后的一种数据恢复手段，确保了数据的一致性。
+- 其实是为了配合 MySQL 的 WAL 机制。因为 MySQL 进行更新操作，为了能够快速响应，所以采用了异步写回磁盘的技术，写入内存后就返回。但是这样，会存在 **crash 后** 内存数据丢失的隐患，而 redo log 具备 crash safe 的能力。
 
 ### 15、为什么 redo log 具有 crash-safe 的能力，是 binlog 无法替代的？
 
@@ -161,8 +159,8 @@ Server 层按顺序执行 SQL 的步骤为：
 
 第二点：如果 redo log 写入失败，说明此次操作失败，事务也不可能提交
 
-- redo log 每次更新操作完成后，就一定会写入日志，如果**写入失败**，说明此次操作失败，事务也不可能提交。 
-- redo log 内部结构是基于页的，记录了这个页的字段值变化，只要crash后读取redo log进行重放，就可以恢复数据。
+- redo log 每次更新操作完成后，就一定会写入日志，如果**写入失败**，说明此次操作失败，事务也不可能提交。
+- redo log 内部结构是基于页的，记录了这个页的字段值变化，只要 crash 后读取 redo log 进行重放，就可以恢复数据。
 - 这就是为什么 redo log 具有 crash-safe 的能力，而 binlog 不具备。
 
 ### 16、当数据库 crash 后，如何恢复未刷盘的数据到内存中？
@@ -177,22 +175,21 @@ Server 层按顺序执行 SQL 的步骤为：
 
 ### 17、redo log 写入方式？
 
-redo log包括两部分内容，分别是内存中的**日志缓冲**(redo log buffer)和磁盘上的**日志文件**(redo log file)。
+redo log 包括两部分内容，分别是内存中的**日志缓冲**(redo log buffer)和磁盘上的**日志文件**(redo log file)。
 
 MySQL 每执行一条 DML 语句，会先把记录写入 **redo log buffer（用户空间）** ，再保存到内核空间的缓冲区 OS-buffer 中，后续某个时间点再一次性将多个操作记录写到 **redo log file（刷盘）** 。这种先写日志，再写磁盘的技术，就是**WAL**。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-f901a97f-9d82-4d4e-a5be-559a64b3d9b8.png)
 
+可以发现，redo log buffer 写入到 redo log file，是经过 OS buffer 中转的。其实可以通过参数 innodb_flush_log_at_trx_commit 进行配置，参数值含义如下：
 
-可以发现，redo log buffer写入到redo log file，是经过OS buffer中转的。其实可以通过参数innodb_flush_log_at_trx_commit进行配置，参数值含义如下： 
-
--  0：称为**延迟写**，事务提交时不会将redo log buffer中日志写入到OS buffer，而是每秒写入OS buffer并调用写入到redo log file中。 
--  1：称为**实时写**，实时刷”，事务每次提交都会将redo log buffer中的日志写入OS buffer并保存到redo log file中。 
--  2： 称为**实时写，延迟刷**。每次事务提交写入到OS buffer，然后是每秒将日志写入到redo log file。
+- 0：称为**延迟写**，事务提交时不会将 redo log buffer 中日志写入到 OS buffer，而是每秒写入 OS buffer 并调用写入到 redo log file 中。
+- 1：称为**实时写**，实时刷”，事务每次提交都会将 redo log buffer 中的日志写入 OS buffer 并保存到 redo log file 中。
+- 2： 称为**实时写，延迟刷**。每次事务提交写入到 OS buffer，然后是每秒将日志写入到 redo log file。
 
 ### 18、redo log 的执行流程?
 
-我们来看下Redo log的执行流程，假设执行的 SQL 如下： 
+我们来看下 Redo log 的执行流程，假设执行的 SQL 如下：
 
 ```
 update T set a =1 where id =666
@@ -200,39 +197,36 @@ update T set a =1 where id =666
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-43fe6587-0cb8-49aa-bd93-0119e46430d7.png)
 
-
-1.  MySQL 客户端将请求语句 update T set a =1 where id =666，发往 MySQL Server 层。 
-2.  MySQL Server 层接收到 SQL 请求后，对其进行分析、优化、执行等处理工作，将生成的 SQL 执行计划发到 InnoDB 存储引擎层执行。 
-3.  InnoDB 存储引擎层将**a修改为1**的这个操作记录到内存中。 
-4.  记录到内存以后会修改 redo log 的记录，会在添加一行记录，其内容是**需要在哪个数据页上做什么修改**。 
-5.  此后，将事务的状态设置为 prepare ，说明已经准备好提交事务了。 
-6.  等到 MySQL Server 层处理完事务以后，会将事务的状态设置为 **commit**，也就是提交该事务。 
+1.  MySQL 客户端将请求语句 update T set a =1 where id =666，发往 MySQL Server 层。
+2.  MySQL Server 层接收到 SQL 请求后，对其进行分析、优化、执行等处理工作，将生成的 SQL 执行计划发到 InnoDB 存储引擎层执行。
+3.  InnoDB 存储引擎层将**a 修改为 1**的这个操作记录到内存中。
+4.  记录到内存以后会修改 redo log 的记录，会在添加一行记录，其内容是**需要在哪个数据页上做什么修改**。
+5.  此后，将事务的状态设置为 prepare ，说明已经准备好提交事务了。
+6.  等到 MySQL Server 层处理完事务以后，会将事务的状态设置为 **commit**，也就是提交该事务。
 7.  在收到事务提交的请求以后，**redo log** 会把刚才写入内存中的操作记录写入到磁盘中，从而完成整个日志的记录过程。
 
-### 19、binlog 的概念是什么，起到什么作用， 可以保证 crash-safe 吗? 
+### 19、binlog 的概念是什么，起到什么作用， 可以保证 crash-safe 吗?
 
--  binlog 是归档日志，属于 MySQL Server 层的日志。可以实现**主从复制**和**数据恢复**两个作用。 
--  当需要**恢复数据**时，可以取出某个时间范围内的 binlog 进行重放恢复。 
--  但是 binlog 不可以做 crash safe，因为 crash 之前，binlog **可能没有写入完全** MySQL 就挂了。所以需要配合 **redo log** 才可以进行 crash safe。
+- binlog 是归档日志，属于 MySQL Server 层的日志。可以实现**主从复制**和**数据恢复**两个作用。
+- 当需要**恢复数据**时，可以取出某个时间范围内的 binlog 进行重放恢复。
+- 但是 binlog 不可以做 crash safe，因为 crash 之前，binlog **可能没有写入完全** MySQL 就挂了。所以需要配合 **redo log** 才可以进行 crash safe。
 
 ### 20、什么是两阶段提交？
 
-MySQL 将 redo log 的写入拆成了两个步骤：prepare 和 commit，中间再穿插写入binlog，这就是"两阶段提交"。
-
+MySQL 将 redo log 的写入拆成了两个步骤：prepare 和 commit，中间再穿插写入 binlog，这就是"两阶段提交"。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-11420486-f9d0-483a-ba2e-a742ec4c518d.png)
 
-
 而两阶段提交就是让这两个状态保持逻辑上的一致。redolog 用于恢复主机故障时的未更新的物理数据，binlog 用于备份操作。两者本身就是两个独立的个体，要想保持一致，就必须使用分布式事务的解决方案来处理。
 
-**为什么需要两阶段提交呢?** 
+**为什么需要两阶段提交呢?**
 
--  如果不用两阶段提交的话，可能会出现这样情况
-- 先写 redo log，crash 后 bin log 备份恢复时少了一次更新，与当前数据不一致。 
+- 如果不用两阶段提交的话，可能会出现这样情况
+- 先写 redo log，crash 后 bin log 备份恢复时少了一次更新，与当前数据不一致。
 - 先写 bin log，crash 后，由于 redo log 没写入，事务无效，所以后续 bin log 备份恢复时，数据不一致。
--  两阶段提交就是为了保证 redo log 和 binlog 数据的安全一致性。只有在这两个日志文件逻辑上高度一致了才能放心的使用。
+- 两阶段提交就是为了保证 redo log 和 binlog 数据的安全一致性。只有在这两个日志文件逻辑上高度一致了才能放心的使用。
 
-在恢复数据时，redolog 状态为 commit 则说明 binlog 也成功，直接恢复数据；如果 redolog 是 prepare，则需要查询对应的 binlog事务是否成功，决定是回滚还是执行。
+在恢复数据时，redolog 状态为 commit 则说明 binlog 也成功，直接恢复数据；如果 redolog 是 prepare，则需要查询对应的 binlog 事务是否成功，决定是回滚还是执行。
 
 ### 21、MySQL 怎么知道 binlog 是完整的?
 
@@ -243,40 +237,39 @@ MySQL 将 redo log 的写入拆成了两个步骤：prepare 和 commit，中间�
 
 ### 22、什么是 WAL 技术，有什么优点？
 
-WAL，中文全称是 Write-Ahead Logging，它的关键点就是日志先写内存，再写磁盘。MySQL 执行更新操作后，**在真正把数据写入到磁盘前，先记录日志**。 
+WAL，中文全称是 Write-Ahead Logging，它的关键点就是日志先写内存，再写磁盘。MySQL 执行更新操作后，**在真正把数据写入到磁盘前，先记录日志**。
 
- 好处是不用每一次操作都实时把数据写盘，就算 crash 后也可以通过redo log 恢复，所以能够实现快速响应 SQL 语句。
+好处是不用每一次操作都实时把数据写盘，就算 crash 后也可以通过 redo log 恢复，所以能够实现快速响应 SQL 语句。
 
-### 23、binlog 日志的三种格式 
+### 23、binlog 日志的三种格式
 
- binlog 日志有三种格式 
+binlog 日志有三种格式
 
--  Statement：基于SQL语句的复制((statement-based replication,SBR)) 
--  Row：基于行的复制。(row-based replication,RBR) 
--  Mixed：混合模式复制。(mixed-based replication,MBR) 
+- Statement：基于 SQL 语句的复制((statement-based replication,SBR))
+- Row：基于行的复制。(row-based replication,RBR)
+- Mixed：混合模式复制。(mixed-based replication,MBR)
 
- **Statement格式** 
+**Statement 格式**
 
- 每一条会修改数据的 SQL 都会记录在 binlog 中 
+每一条会修改数据的 SQL 都会记录在 binlog 中
 
--  优点：不需要记录每一行的变化，减少了binlog日志量，节约了IO，提高性能。 
--  缺点：由于记录的只是执行语句，为了这些语句能在备库上正确运行，还必须记录每条语句在执行的时候的一些相关信息，以保证所有语句能在备库得到和在主库端执行时候相同的结果。 
+- 优点：不需要记录每一行的变化，减少了 binlog 日志量，节约了 IO，提高性能。
+- 缺点：由于记录的只是执行语句，为了这些语句能在备库上正确运行，还必须记录每条语句在执行的时候的一些相关信息，以保证所有语句能在备库得到和在主库端执行时候相同的结果。
 
- **Row格式** 
+**Row 格式**
 
- 不记录 SQL 语句上下文相关信息，仅保存哪条记录被修改。 
+不记录 SQL 语句上下文相关信息，仅保存哪条记录被修改。
 
--  优点：binlog 中可以不记录执行的 SQL 语句的上下文相关的信息，仅需要记录那一条记录被修改成什么了。所以rowlevel的日志内容会非常清楚的记录下每一行数据修改的细节。不会出现某些特定情况下的存储过程、或 function、或trigger的调用和触发无法被正确复制的问题。 
--  缺点:可能会产生大量的日志内容。 
+- 优点：binlog 中可以不记录执行的 SQL 语句的上下文相关的信息，仅需要记录那一条记录被修改成什么了。所以 rowlevel 的日志内容会非常清楚的记录下每一行数据修改的细节。不会出现某些特定情况下的存储过程、或 function、或 trigger 的调用和触发无法被正确复制的问题。
+- 缺点:可能会产生大量的日志内容。
 
- **Mixed格式** 
+**Mixed 格式**
 
- 实际上就是 Statement 与 Row 的结合。一般的语句修改使用 statment 格式保存 binlog，如一些函数，statement 无法完成主从复制的操作，则采用 row 格式保存 binlog，MySQL 会根据执行的每一条具体的 SQL 语句来区分对待记录的日志形式。
+实际上就是 Statement 与 Row 的结合。一般的语句修改使用 statment 格式保存 binlog，如一些函数，statement 无法完成主从复制的操作，则采用 row 格式保存 binlog，MySQL 会根据执行的每一条具体的 SQL 语句来区分对待记录的日志形式。
 
-### 24、redo log日志格式
+### 24、redo log 日志格式
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-ee8a859f-d1e8-4ab6-94d1-9733373be825.png)
-
 
 redo log buffer (内存中)是由首尾相连的四个文件组成的，它们分别是：ib_logfile_1、ib_logfile_2、ib_logfile_3、ib_logfile_4。
 
@@ -284,7 +277,7 @@ redo log buffer (内存中)是由首尾相连的四个文件组成的，它们�
 - checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
 - write pos 和 checkpoint 之间的是“粉板”上还空着的部分，可以用来记录新的操作。
 - 如果 write pos 追上 checkpoint，表示“粉板”满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把 checkpoint 推进一下。
-- 有了 redo log，当数据库发生宕机重启后，可通过 redo log将未落盘的数据（check point之后的数据）恢复，保证已经提交的事务记录不会丢失，这种能力称为**crash-safe**。
+- 有了 redo log，当数据库发生宕机重启后，可通过 redo log 将未落盘的数据（check point 之后的数据）恢复，保证已经提交的事务记录不会丢失，这种能力称为**crash-safe**。
 
 ### 25、原本可以执行得很快的 SQL 语句，执行速度却比预期的慢很多，原因是什么？如何解决？
 
@@ -306,9 +299,9 @@ redo log buffer (内存中)是由首尾相连的四个文件组成的，它们�
 
 一个数据页大致划分七个部分
 
-- File Header：表示页的一些通用信息，占固定的38字节。
-- page Header：表示数据页专有信息，占固定的56字节。
-- inimum+Supermum：两个虚拟的伪记录，分别表示页中的最小记录和最大记录，占固定的26字节。
+- File Header：表示页的一些通用信息，占固定的 38 字节。
+- page Header：表示数据页专有信息，占固定的 56 字节。
+- inimum+Supermum：两个虚拟的伪记录，分别表示页中的最小记录和最大记录，占固定的 26 字节。
 - User Records：真正存储我们插入的数据，大小不固定。
 - Free Space：页中尚未使用的部分，大小不固定。
 - Page Directory：页中某些记录的相对位置，也就是各个槽对应的记录在页面中的地址偏移量。
@@ -318,8 +311,8 @@ redo log buffer (内存中)是由首尾相连的四个文件组成的，它们�
 
 ### 27、MySQL 是如何保证数据不丢失的？
 
-- 只要redolog 和 binlog 保证持久化磁盘就能确保MySQL异常重启后回复数据
-- 在恢复数据时，redolog 状态为 commit 则说明 binlog 也成功，直接恢复数据；如果 redolog 是 prepare，则需要查询对应的 binlog事务是否成功，决定是回滚还是执行。
+- 只要 redolog 和 binlog 保证持久化磁盘就能确保 MySQL 异常重启后回复数据
+- 在恢复数据时，redolog 状态为 commit 则说明 binlog 也成功，直接恢复数据；如果 redolog 是 prepare，则需要查询对应的 binlog 事务是否成功，决定是回滚还是执行。
 
 ### 28、误删数据怎么办？
 
@@ -329,18 +322,18 @@ DBA 的最核心的工作就是保证数据的完整性，先要做好预防，�
 - 制作操作规范
 - 定期给开发进行培训
 - 搭建延迟备库
-- 做好 SQL 审计，只要是对线上数据有更改操作的语句(DML和DDL)都需要进行审核
-- 做好备份。备份的话又分为两个点 (1)如果数据量比较大，用物理备份 xtrabackup。定期对数据库进行全量备份，也可以做增量备份。 (2)如果数据量较少，用 mysqldump 或者 mysqldumper。再利用 binlog 来恢复或者搭建主从的方式来恢复数据。 定期备份binlog 文件也是很有必要的
+- 做好 SQL 审计，只要是对线上数据有更改操作的语句(DML 和 DDL)都需要进行审核
+- 做好备份。备份的话又分为两个点 (1)如果数据量比较大，用物理备份 xtrabackup。定期对数据库进行全量备份，也可以做增量备份。 (2)如果数据量较少，用 mysqldump 或者 mysqldumper。再利用 binlog 来恢复或者搭建主从的方式来恢复数据。 定期备份 binlog 文件也是很有必要的
 - 如果发生了数据删除的操作，又可以从以下几个点来恢复:
-- DML 误操作语句造成数据不完整或者丢失。可以通过 flashback，美团的 myflash，也是一个不错的工具，本质都差不多，都是先解析 binlog event，然后在进行反转。把 delete 反转为insert，insert 反转为 delete，update前后 image 对调。所以必须设置binlog_format=row 和 binlog_row_image=full，切记恢复数据的时候，应该先恢复到临时的实例，然后在恢复回主库上。
-- DDL语句误操作(truncate和drop)，由于DDL语句不管 binlog_format 是 row 还是 statement ，在 binlog 里都只记录语句，不记录 image 所以恢复起来相对要麻烦得多。只能通过全量备份+应用 binlog 的方式来恢复数据。一旦数据量比较大，那么恢复时间就特别长
+- DML 误操作语句造成数据不完整或者丢失。可以通过 flashback，美团的 myflash，也是一个不错的工具，本质都差不多，都是先解析 binlog event，然后在进行反转。把 delete 反转为 insert，insert 反转为 delete，update 前后 image 对调。所以必须设置 binlog_format=row 和 binlog_row_image=full，切记恢复数据的时候，应该先恢复到临时的实例，然后在恢复回主库上。
+- DDL 语句误操作(truncate 和 drop)，由于 DDL 语句不管 binlog_format 是 row 还是 statement ，在 binlog 里都只记录语句，不记录 image 所以恢复起来相对要麻烦得多。只能通过全量备份+应用 binlog 的方式来恢复数据。一旦数据量比较大，那么恢复时间就特别长
 - rm 删除：使用备份跨机房，或者最好是跨城市保存。
 
 ### 29、drop、truncate 和 delete 的区别
 
 - DELETE 语句执行删除的过程是每次从表中删除一行，并且同时将该行的删除操作作为事务记录在日志中保存以便进行进行回滚操作。
-- TRUNCATE TABLE  则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除行是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。
-- drop语句将表所占用的空间全释放掉。
+- TRUNCATE TABLE 则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除行是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。
+- drop 语句将表所占用的空间全释放掉。
 - 在速度上，一般来说，drop> truncate > delete。
 - 如果想删除部分数据用 delete，注意带上 where 子句，回滚段要足够大；
 - 如果想删除表，当然用 drop； 如果想保留表而将所有数据删除，如果和事务无关，用 truncate 即可；
@@ -353,15 +346,15 @@ DBA 的最核心的工作就是保证数据的完整性，先要做好预防，�
 
 kill 不掉的原因
 
-- kill命令被堵了，还没到位
-- kill命令到位了，但是没被立刻触发
-- kill命令被触发了，但执行完也需要时间
+- kill 命令被堵了，还没到位
+- kill 命令到位了，但是没被立刻触发
+- kill 命令被触发了，但执行完也需要时间
 
 ### 31、如何理解 MySQL 的边读边发
 
 - 如果客户端接受慢，会导致 MySQL 服务端由于结果发不出去，这个事务的执行时间会很长。
 - 服务端并不需要保存一个完整的结果集，取数据和发数据的流程都是通过一个 next_buffer 来操作的。
-- 内存的数据页都是在 Buffer_Pool中操作的。
+- 内存的数据页都是在 Buffer_Pool 中操作的。
 - InnoDB 管理 Buffer_Pool 使用的是改进的 LRU 算法，使用链表实现，实现上，按照 5:3 的比例把整个 LRU 链表分成了 young 区域和 old 区域。
 
 ### 32、MySQL 的大表查询为什么不会爆内存？
@@ -371,7 +364,7 @@ kill 不掉的原因
 
 ### 33、MySQL 临时表的用法和特性
 
-- 只对当前session可见。
+- 只对当前 session 可见。
 - 可以与普通表重名。
 - 增删改查用的是临时表。
 - show tables 不显示普通表。
@@ -392,7 +385,7 @@ kill 不掉的原因
 
 ### 36、如果数据库误操作, 如何执行数据恢复?
 
-数据库在某个时候误操作，就可以找到距离误操作最近的时间节点的bin log，重放到临时数据库里，然后选择误删的数据节点，恢复到线上数据库。
+数据库在某个时候误操作，就可以找到距离误操作最近的时间节点的 bin log，重放到临时数据库里，然后选择误删的数据节点，恢复到线上数据库。
 
 ## 主从备份相关
 
@@ -400,22 +393,22 @@ kill 不掉的原因
 
 主备关系的建立：
 
-- 一开始创建主备关系的时候，是由备库指定的，比如基于位点的主备关系，备库说“我要从binlog文件A的位置P”开始同步，主库就从这个指定的位置开始往后发。
+- 一开始创建主备关系的时候，是由备库指定的，比如基于位点的主备关系，备库说“我要从 binlog 文件 A 的位置 P”开始同步，主库就从这个指定的位置开始往后发。
 - 而主备关系搭建之后，是主库决定要发给数据给备库的，所以主库有新的日志也会发给备库。
 
 MySQL 主备切换流程：
 
-- 客户端读写都是直接访问A，而节点B是备库，只要将A的更新都同步过来，到本地执行就可以保证数据是相同的。
-- 当需要切换的时候就把节点换一下，A的节点B的备库
+- 客户端读写都是直接访问 A，而节点 B 是备库，只要将 A 的更新都同步过来，到本地执行就可以保证数据是相同的。
+- 当需要切换的时候就把节点换一下，A 的节点 B 的备库
 
 一个事务完整的同步过程：
 
-- 备库B和主库A建立来了长链接，主库A内部专门线程用于维护了这个长链接。
+- 备库 B 和主库 A 建立来了长链接，主库 A 内部专门线程用于维护了这个长链接。
 
-- 在备库B上通过changemaster命令设置主库A的IP端口用户名密码以及从哪个位置开始请求binlog包括文件名和日志偏移量
-- 在备库B上执行start-slave命令备库会启动两个线程：io_thread和sql_thread分别负责建立连接和读取中转日志进行解析执行
-- 备库读取主库传过来的binlog文件备库收到文件写到本地成为中转日志
-- 后来由于多线程复制方案的引入，sql_thread演化成了多个线程。
+- 在备库 B 上通过 changemaster 命令设置主库 A 的 IP 端口用户名密码以及从哪个位置开始请求 binlog 包括文件名和日志偏移量
+- 在备库 B 上执行 start-slave 命令备库会启动两个线程：io_thread 和 sql_thread 分别负责建立连接和读取中转日志进行解析执行
+- 备库读取主库传过来的 binlog 文件备库收到文件写到本地成为中转日志
+- 后来由于多线程复制方案的引入，sql_thread 演化成了多个线程。
 
 ### 38、什么是主备延迟
 
@@ -423,11 +416,11 @@ MySQL 主备切换流程：
 
 - 有些部署条件下，备库所在机器的性能要比主库性能差。
 - 备库的压力较大。
-- 大事务，一个主库上语句执行10分钟，那么这个事务可能会导致从库延迟10分钟。
+- 大事务，一个主库上语句执行 10 分钟，那么这个事务可能会导致从库延迟 10 分钟。
 
 ### 39、为什么要有多线程复制策略？
 
-- 因为单线程复制的能力全面低于多线程复制，对于更新压力较大的主库，备库可能是一直追不上主库的，带来的现象就是备库上seconds_behind_master值越来越大。
+- 因为单线程复制的能力全面低于多线程复制，对于更新压力较大的主库，备库可能是一直追不上主库的，带来的现象就是备库上 seconds_behind_master 值越来越大。
 - 在实际应用中，建议使用可靠性优先策略，减少主备延迟，提升系统可用性，尽量减少大事务操作，把大事务拆分小事务。
 
 ### 40、MySQL 的并行策略有哪些？
@@ -435,7 +428,7 @@ MySQL 主备切换流程：
 - 按表分发策略：如果两个事务更新不同的表，它们就可以并行。因为数据是存储在表里的，所以按表分发，可以保证两个 worker 不会更新同一行。缺点：如果碰到热点表，比如所有的更新事务都会涉及到某一个表的时候，所有事务都会被分配到同一个 worker 中，就变成单线程复制了。
 - 按行分发策略：如果两个事务没有更新相同的行，它们在备库上可以并行。如果两个事务没有更新相同的行，它们在备库上可以并行执行。显然，这个模式要求 binlog 格式必须是 row。缺点：相比于按表并行分发策略，按行并行策略在决定线程分发的时候，需要消耗更多的计算资源。
 
-### 41、MySQL的一主一备和一主多从有什么区别？
+### 41、MySQL 的一主一备和一主多从有什么区别？
 
 在一主一备的双 M 架构里，主备切换只需要把客户端流量切到备库；而在一主多从架构里，主备切换除了要把客户端流量切到备库外，还需要把从库接到新主库上。
 
@@ -457,11 +450,11 @@ MySQL 主备切换流程：
 - GTID 方案。
 - 实际生产中，先客户端对请求做分类，区分哪些请求可以接受过期读，而哪些请求完全不能接受过期读；然后，对于不能接受过期读的语句，再使用等 GTID 或等位点的方案。
 
-### 44、MySQL的并发链接和并发查询有什么区别？
+### 44、MySQL 的并发链接和并发查询有什么区别？
 
-- 在执行show processlist的结果里，看到了几千个连接，指的是并发连接。而"当前正在执行"的语句，才是并发查询。
-- 并发连接数多影响的是内存，并发查询太高对CPU不利。一个机器的CPU核数有限，线程全冲进来，上下文切换的成本就会太高。
-- 所以需要设置参数：innodb_thread_concurrency 用来限制线程数，当线程数达到该参数，InnoDB就会认为线程数用完了，会阻止其他语句进入引擎执行。
+- 在执行 show processlist 的结果里，看到了几千个连接，指的是并发连接。而"当前正在执行"的语句，才是并发查询。
+- 并发连接数多影响的是内存，并发查询太高对 CPU 不利。一个机器的 CPU 核数有限，线程全冲进来，上下文切换的成本就会太高。
+- 所以需要设置参数：innodb_thread_concurrency 用来限制线程数，当线程数达到该参数，InnoDB 就会认为线程数用完了，会阻止其他语句进入引擎执行。
 
 ## 性能相关
 
@@ -477,7 +470,7 @@ MySQL 主备切换流程：
 - 自增主键的批量申请
 
 - 深层次原因是：MySQL 不判断自增主键是否存在，从而减少加锁的时间范围和粒度，这样能保持更高的性能，确保自增主键不能回退，所以才有自增主键不连续。
-- 自增主键怎么做到唯一性？自增值加1来通过自增锁控制并发
+- 自增主键怎么做到唯一性？自增值加 1 来通过自增锁控制并发
 
 ### 47、InnoDB 为什么要用自增 ID 作为主键？
 
@@ -494,9 +487,9 @@ MySQL 主备切换流程：
 - 另一种方法是直接将结果导出成.csv 文件。MySQL 提供语法，用来将查询结果导出到服务端本地目录：`select * from db1.t where a>900 into outfile '/server_tmp/t.csv'`;得到.csv 导出文件后，你就可以用下面的 load data 命令将数据导入到目标表 db2.t 中：`load data infile '/server_tmp/t.csv' into table db2.t;`
 - 物理拷贝：在 MySQL 5.6 版本引入了可传输表空间(transportable tablespace) 的方法，可以通过导出 + 导入表空间的方式，实现物理拷贝表的功能。
 
-### 49、grant 和 flush privileges语句
+### 49、grant 和 flush privileges 语句
 
-- grant语句会同时修改数据表和内存，判断权限的时候使用的内存数据，因此，规范使用是不需要加上 flush privileges 语句。
+- grant 语句会同时修改数据表和内存，判断权限的时候使用的内存数据，因此，规范使用是不需要加上 flush privileges 语句。
 - flush privileges 语句本身会用数据表的数据重建一份内存权限数据，所以在权限数据可能存在不一致的情况下再使用。
 
 ### 50、要不要使用分区表？
@@ -510,7 +503,7 @@ MySQL 主备切换流程：
 - 如果需要 left join 的语义，就不能把被驱动表的字段放在 where 条件里面做等值判断或不等值判断，必须都写在 on 里面
 - 标准的 group by 语句，是需要在 select 部分加一个聚合函数，比如`select a,count(*) from t group by a order by null;`
 
-### 52、MySQL 有哪些自增ID？各自场景是什么？
+### 52、MySQL 有哪些自增 ID？各自场景是什么？
 
 - 表的自增 ID 达到上限之后，在申请值不会变化，进而导致联系插入数据的时候报主键冲突错误。
 
@@ -521,11 +514,11 @@ MySQL 主备切换流程：
 - InnoDB 的 max_trx_id 递增值每次 MySQL 重启会保存起来。
 
 - Xid 是由 server 层维护的。InnoDB 内部使用 Xid，就是为了能够在 InnoDB 事务和 server 之间做关联。但是，InnoDB 自己的 trx_id，是另外维护的。
-- thread_id 是我们使用中最常见的，而且也是处理得最好的一个自增 id 逻辑了。使用了insert_unique算法
+- thread_id 是我们使用中最常见的，而且也是处理得最好的一个自增 id 逻辑了。使用了 insert_unique 算法
 
 ### 53、Xid 在 MySQL 内部是怎么生成的呢？
 
-**MySQL 内部维护了一个全局变量 global_query_id，每次执行语句（包括select语句）的时候将它赋值给 Query_id，然后给这个变量加 1。如果当前语句是这个事务执行的第一条语句，那么 MySQL 还会同时把 Query_id 赋值给这个事务的 Xid。**
+**MySQL 内部维护了一个全局变量 global_query_id，每次执行语句（包括 select 语句）的时候将它赋值给 Query_id，然后给这个变量加 1。如果当前语句是这个事务执行的第一条语句，那么 MySQL 还会同时把 Query_id 赋值给这个事务的 Xid。**
 
 而 global_query_id 是一个纯内存变量，重启之后就清零了。所以你就知道了，在同一个数据库实例中，不同事务的 Xid 也是有可能相同的。但是 MySQL 重启之后会重新生成新的 binlog 文件，这就保证了，同一个 binlog 文件里，Xid 一定是惟一的。
 
@@ -534,16 +527,16 @@ MySQL 主备切换流程：
 ### 54、说一下 MySQL 的锁
 
 - MySQL 在 server 层 和 存储引擎层 都运用了大量的锁
-- MySQL server 层需要讲两种锁，第一种是MDL(metadata lock) 元数据锁，第二种则 Table Lock 表锁。
+- MySQL server 层需要讲两种锁，第一种是 MDL(metadata lock) 元数据锁，第二种则 Table Lock 表锁。
 - MDL 又名元数据锁，那么什么是元数据呢，任何描述数据库的内容就是元数据，比如我们的表结构、库结构等都是元数据。那为什么需要 MDL 呢？
 - 主要解决两个问题：事务隔离问题；数据复制问题
 - InnoDB 有五种表级锁：IS（意向读锁）；IX（意向写锁）；S（读）；X（写）；AUTO-INC
-- 在对表进行select/insert/delete/update语句时候不会加表级锁
-- IS和IX的作用是为了判断表中是否有已经被加锁的记录
+- 在对表进行 select/insert/delete/update 语句时候不会加表级锁
+- IS 和 IX 的作用是为了判断表中是否有已经被加锁的记录
 - 自增主键的保障就是有 AUTO-INC 锁，是语句级别的：为表的某个列添加 AUTO_INCREMENT 属性，之后在插⼊记录时，可以不指定该列的值，系统会⾃动为它赋上单调递增的值。
 - InnoDB 4 种行级锁
 - RecordLock：记录锁
-- GapLock：间隙锁解决幻读；前一次查询不存在的东西在下一次查询出现了，其实就是事务A中的两次查询之间事务B执行插入操作被事务A感知了
+- GapLock：间隙锁解决幻读；前一次查询不存在的东西在下一次查询出现了，其实就是事务 A 中的两次查询之间事务 B 执行插入操作被事务 A 感知了
 - Next-KeyLock：锁住某条记录又想阻止其它事务在改记录前面的间隙插入新纪录
 - InsertIntentionLock：插入意向锁;如果插入到同一行间隙中的多个事务未插入到间隙内的同一位置则无须等待
 - 行锁和表锁的抉择
@@ -584,8 +577,8 @@ MySQL 主备切换流程：
 ### 58、`count(*)`实现方式以及各种 count 对比
 
 - 对于 count(主键 id) 来说，InnoDB 引擎会遍历整张表，把每一行的 id 值都取出来，返回给 server 层。server 层拿到 id 后，判断是不可能为空的，就按行累加。
--  对于 count(1) 来说，InnoDB 引擎遍历整张表，但不取值。server 层对于返回的每一行，放一个数字“1”进去，判断是不可能为空的，按行累加。 单看这两个用法的差别的话，你能对比出来，count(1) 执行得要比 count(主键 id) 快。因为从引擎返回 id 会涉及到解析数据行，以及拷贝字段值的操作。
-- 对于 count(字段) 来说：如果这个“字段”是定义为 not null 的话，一行行地从记录里面读出这个字段，判断不能为 null，按行累加；如果这个“字段”定义允许为 null，那么执行的时候，判断到有可能是 null，还要把值取出来再判断一下，不是 null 才累加。也就是前面的第一条原则，server 层要什么字段，InnoDB 就返回什么字段。 
+- 对于 count(1) 来说，InnoDB 引擎遍历整张表，但不取值。server 层对于返回的每一行，放一个数字“1”进去，判断是不可能为空的，按行累加。 单看这两个用法的差别的话，你能对比出来，count(1) 执行得要比 count(主键 id) 快。因为从引擎返回 id 会涉及到解析数据行，以及拷贝字段值的操作。
+- 对于 count(字段) 来说：如果这个“字段”是定义为 not null 的话，一行行地从记录里面读出这个字段，判断不能为 null，按行累加；如果这个“字段”定义允许为 null，那么执行的时候，判断到有可能是 null，还要把值取出来再判断一下，不是 null 才累加。也就是前面的第一条原则，server 层要什么字段，InnoDB 就返回什么字段。
 - 但是 `count *` 是例外，并不会把全部字段取出来，而是专门做了优化，不取值。`count(*)`肯定不是 null，按行累加。
 - 所以结论是：按照效率排序的话，count(字段)`<count(主键 id)<count(1)≈count(※)`，所以建议尽量使用 `count(*)`。
 
@@ -597,22 +590,22 @@ MySQL 主备切换流程：
 
   内部排序分为两种
 
-- 全字段排序：到索引树上找到满足条件的主键ID根据主键ID去取出数据放到sort_buffer然后进行快速排序
+- 全字段排序：到索引树上找到满足条件的主键 ID 根据主键 ID 去取出数据放到 sort_buffer 然后进行快速排序
 
-- rowid排序：通过控制排序的行数据的长度来让sort_buffer中尽可能多的存放数据
+- rowid 排序：通过控制排序的行数据的长度来让 sort_buffer 中尽可能多的存放数据
 
 - 如果数据量很大，内存中无法存下这么多，就会使用磁盘临时文件来辅助排序，称为外部排序；
 
-- 外部排序，MySQL会分为好几份单独的临时文件来存放排序后的数据，一般是磁盘文件中进行归并，然后将这些文件合并成一个大文件；
+- 外部排序，MySQL 会分为好几份单独的临时文件来存放排序后的数据，一般是磁盘文件中进行归并，然后将这些文件合并成一个大文件；
 
 ### 60、如何高效的使用 MySQL 显式随机消息
 
-- 随机取出 Y1,Y2,Y3之后，算出Ymax,Ymin
+- 随机取出 Y1,Y2,Y3 之后，算出 Ymax,Ymin
 
-- 得到id集后算出Y1、Y2、Y3对应的三个id 最后 select * from t where id in (id1, id2, id3)
-  这样扫描的行数应该是C+Ymax+3
+- 得到 id 集后算出 Y1、Y2、Y3 对应的三个 id 最后 select \* from t where id in (id1, id2, id3)
+  这样扫描的行数应该是 C+Ymax+3
 
-```mysql
+```sql
   mysql> select count(*) into @C from t;
   set @Y1 = floor(@C * rand());
   set @Y2 = floor(@C * rand());
@@ -624,13 +617,10 @@ MySQL 主备切换流程：
 
 > 图文详解 60 道 MySQL 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/c-sy7tM0BmrqMUQFW7C65g)，里面有局详细的思维导图；作者：herongwei，戳[原文链接](https://mp.weixin.qq.com/s/-SqqKmhZcOlQxM-rHiIpKg)。
 
----------
+---
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
+GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
-
