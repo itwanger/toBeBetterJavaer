@@ -1,7 +1,7 @@
 ---
-title: Redis面试题，57道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
+title: Redis面试题，57道Redis八股文（4.6万字286张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Redis
-description: 下载次数超 1 万次，3.4 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，4.6 万字 286 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
 date: 2024-10-31
 category:
@@ -18,7 +18,7 @@ head:
 
 ## 前言
 
-3.4 万字 97 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+4.6 万字 286 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
@@ -47,7 +47,7 @@ head:
 
 ![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
 
-我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，100+张手绘图，可以说是诚意满满。
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
@@ -56,7 +56,7 @@ head:
 
 ## 基础
 
-### 🌟1.说说什么是 Redis?
+### 1.🌟说说什么是 Redis?
 
 [Redis](https://javabetter.cn/redis/rumen.html) 是一种基于键值对的 NoSQL 数据库。
 
@@ -256,7 +256,7 @@ memo：2025 年 4 月 28 日修改至此，今天[帮球友修改简历](https:/
 
 ![东南大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/redis-20250428163928.png)
 
-### 🌟3.Redis有哪些数据类型？
+### 3.🌟Redis有哪些数据类型？
 
 Redis 支持五种基本数据类型，分别是字符串、列表、哈希、集合和有序集合。
 
@@ -435,7 +435,7 @@ memo：2025 年 4 月 29 日修改至此，今天[有球友发信息](https://ja
 
 ![球友拿到了亚马逊的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250429155817.png)
 
-### 🌟4.Redis 为什么快呢？
+### 4.🌟Redis 为什么快呢？
 
 第一，Redis 的所有数据都放在内存中，而内存的读写速度本身就比磁盘快几个数量级。
 
@@ -643,7 +643,7 @@ memo：2025 年 5 月 1 日修改至此，今天[帮球友修改简历时](https
 
 ![北京交通大学的球友](https://cdn.tobebetterjavaer.com/stutymore/redis-20250502100516.png)
 
-### 6. Redis为什么早期选择单线程？
+### 6.Redis为什么早期选择单线程？
 
 第一，单线程模型不需要考虑复杂的锁机制，不存在多线程环境下的死锁、竞态条件等问题，开发起来更快，也更容易维护。
 
@@ -954,7 +954,7 @@ QPS = 总请求数 / 总耗时 = 10000 / 0.09 ≈ 111111 QPS
 
 ## 持久化
 
-### 🌟10.Redis的持久化方式有哪些？
+### 10.🌟Redis的持久化方式有哪些？
 
 主要有两种，RDB 和 AOF。RDB 通过创建时间点快照来实现持久化，AOF 通过记录每个写操作命令来实现持久化。
 
@@ -1197,7 +1197,7 @@ memo：2025 年 5 月 5 日修改至此，今天给[球友修改简历](https://
 
 ![华中科技大学的球友+1](https://cdn.tobebetterjavaer.com/stutymore/redis-20250505101045.png)
 
-### 🌟14.Redis 4.0 的混合持久化了解吗？
+### 14.🌟Redis 4.0 的混合持久化了解吗？
 
 是的。
 
@@ -2071,7 +2071,7 @@ memo：2025 年 5 月 17 日，今天[有球友发微信](https://javabetter.cn/
 
 ## 缓存设计
 
-### 🌟29.什么是缓存击穿？
+### 29.🌟什么是缓存击穿？
 
 缓存击穿是指某个热点数据缓存过期时，大量请求就会穿透缓存直接访问数据库，导致数据库瞬间承受的压力巨大。
 
@@ -2309,7 +2309,7 @@ memo：2025 年 5 月 20 日，今天[有球友发微信](https://javabetter.cn/
 
 ![球友春招拿到了四个 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250520094922.png)
 
-### 🌟30.能说说布隆过滤器吗？
+### 30.🌟能说说布隆过滤器吗？
 
 布隆过滤器是一种空间效率极高的概率性数据结构，用于快速判断一个元素是否在一个集合中。它的特点是能够以极小的内存消耗，判断一个元素“一定不在集合中”或“可能在集合中”，常用来解决 Redis 缓存穿透的问题。
 
@@ -2459,7 +2459,7 @@ memo：2025 年 5 月 20 日，今天[有球友发贴](https://javabetter.cn/zhi
 
 ![拿到了滴滴的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250521151850.png)
 
-### 🌟31.如何保证缓存和数据库的数据⼀致性？
+### 31.🌟如何保证缓存和数据库的数据⼀致性？
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，对于文章标签这种允许短暂不一致的数据，我会采用 [Cache Aside](https://coolshell.cn/articles/17416.html) + TTL 过期机制来保证缓存和数据库的一致性。
 
@@ -3180,7 +3180,7 @@ hz 的值为“10”意味着 Redis 每秒执行 10 次定时任务 。可以通
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术 2 面面试原题：redis 内存淘汰和过期策略
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：redis key过期策略
 
-### 🌟40.Redis有哪些内存淘汰策略？
+### 40.🌟Redis有哪些内存淘汰策略？
 
 当内存使用接近 maxmemory 限制时，Redis 会依据内存淘汰策略来决定删除哪些 key 以缓解内存压力。
 
@@ -3450,7 +3450,7 @@ memo：2025 年 5 月 28 日修改至此，今天[有球友在 VIP群里](https:
 
 ![球友的荣耀实习 OC了](https://cdn.tobebetterjavaer.com/stutymore/redis-20250528203451.png)
 
-### 🌟45.Redis支持事务吗？
+### 45.🌟Redis支持事务吗？
 
 是的，Redis 支持简单的事务，可以将 multi、exec、discard 和 watch 命令打包，然后一次性的按顺序执行。
 
@@ -3773,7 +3773,7 @@ memo：2025 年 6 月 1 日，今天[有球友在星球里](https://javabetter.c
 
 ![球友拿到了一家小厂的 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250601082813.png)
 
-### 🌟48.Redis能实现分布式锁吗？
+### 48.🌟Redis能实现分布式锁吗？
 
 分布式锁是一种用于控制多个不同进程在分布式系统中访问共享资源的锁机制。它能确保在同一时刻，只有一个节点可以对资源进行访问，从而避免分布式场景下的并发问题。
 
@@ -4020,7 +4020,7 @@ memo：2025 年 6 月 3 日修改至此，今天在修改[球友的简历](https
 
 ## 底层结构
 
-### 🌟49.Redis都有哪些底层数据结构？
+### 49.🌟Redis都有哪些底层数据结构？
 
 Redis 之所以快，除了基于内存读写之外，还有很重要的一点就是它精心设计的底层数据结构。Redis 总共有 8 种核心的底层数据结构，我按照重要程度来说一下。
 
@@ -4296,7 +4296,7 @@ memo：2025 年 6 月 6 日，今[天有球友咨询](https://javabetter.cn/zhis
 
 ![拿下金山 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250606111301.png)
 
-### 🌟52.你了解跳表吗？
+### 52.🌟你了解跳表吗？
 
 跳表是一种非常巧妙的数据结构，它在有序链表的基础上建立了多层索引，最底层包含所有数据，每往上一层，节点数量就减少一半。
 
@@ -4639,181 +4639,397 @@ memo：2025 年 6 月 10 日，今天[有球友发信息](https://javabetter.cn/
 
 ### 55.假如 Redis 里面有 1 亿个 key，其中有 10w 个 key 是以某个固定的已知的前缀开头的，如何将它们全部找出来？
 
-使用 `keys` 指令可以扫出指定模式的 key 列表。但是要注意 keys 指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用 `scan` 指令，`scan` 指令可以无阻塞的提取出指定模式的 `key` 列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用 `keys` 指令长。
+我会使用 SCAN 命令配合 MATCH 参数来解决。
 
-### 56.Redis 的秒杀场景下扮演了什么角色？（补充）
+比如要找以 `user:` 开头的 key，可以执行 `SCAN 0 MATCH user:* COUNT 1000`。
 
-秒杀主要是指大量用户集中在短时间内对服务器进行访问，从而导致服务器负载剧增，可能出现系统响应缓慢甚至崩溃的情况。
+SCAN 的优势在于它是基于游标的增量迭代，每次只返回一小批结果，不会阻塞服务器。可以从游标 0 开始，每次处理返回的 key 列表，然后用返回的下一个游标继续扫描，直到游标回到 0 表示扫描完成。
 
-针对秒杀的场景来说，最终抢到商品的用户是固定的，也就是说 100 个人和 10000 个人来抢一个商品，最终都只能有 100 个人抢到。
+使用 Spring Data Redis 的代码示例：
 
-但是对于秒杀活动的初心来说，肯定是希望参与的用户越多越好，但真正开始下单时，最好能把请求控制在服务器能够承受的范围之内（😂）。
+```java
+@Service
+public class RedisKeyService {
+    
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
+    
+    public List<String> scanKeysByPrefix(String prefix, int batchSize) {
+        List<String> keys = new ArrayList<>();
+        
+        ScanOptions options = ScanOptions.scanOptions()
+                .match(prefix + "*")
+                .count(batchSize)
+                .build();
+        
+        try (Cursor<String> cursor = redisTemplate.scan(options)) {
+            while (cursor.hasNext()) {
+                keys.add(cursor.next());
+            }
+        }
+        
+        return keys;
+    }
+}
+```
+
+千万不要用 KEYS 命令，因为 KEYS 会阻塞 Redis 服务器直到遍历完所有 key，在生产环境中对 1 亿个 key 执行 KEYS 是非常危险的。
+
+memo：2025 年 6 月 11 日修改至此，今天有读者留言说，找实习的时候背了一个月的[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)，然后快手和美团都拿到 offer 了。能帮助到大家，也是我做技术博主最开心的一件事情了，也感谢读者给的口碑。
+
+![拿到快手和美团的读者发来感谢](https://cdn.tobebetterjavaer.com/stutymore/redis-20250612102525.png)
+
+### 56.Redis在秒杀场景下可以扮演什么角色？
+
+秒杀是一种非常特殊的业务场景，它的特点是在极短时间内会有大量用户涌入系统，对系统的并发处理能力、响应速度和数据一致性都提出了极高的要求。在这种场景下，Redis 作为一种高性能的内存数据库，能够发挥多方面的关键作用。
+
+比如说在秒杀开始前，我们可以将商品信息、库存数据等预先加载到 Redis 中，这样大量的用户读请求就可以直接从 Redis 中获取响应，而不必每次都去访问数据库，这样就能大大减轻数据库的访问压力。
 
 ![许令波-秒杀系统的设计](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420102552.png)
 
-解决这一问题的关键就在于错峰削峰和限流。当然了，前端页面的静态化、按钮防抖也能够有效的减轻服务器的压力。
+其次，Redis 在库存控制方面具有得天独厚的优势。秒杀最核心的问题之一就是容易发生超卖。Redis 提供的原子操作如 DECR、DECRBY 等命令，可以确保在高并发环境下库存计数的准确性。
 
-- 页面静态化：将商品详情等页面静态化，使用 CDN 分发。
-- 按钮防抖：避免用户因频繁点击造成的额外请求，比如设定间隔时间后才能再次点击。
+![京东云：超卖](https://cdn.tobebetterjavaer.com/stutymore/redis-20250612103728.png)
 
-#### 如何实现错峰削峰呢？
+更复杂的逻辑，可以通过 Lua 脚本来实现，因为 Lua 脚本在 Redis 中是原子执行的，所以可以包含复杂的判断和操作逻辑，比如先检查库存是否充足，再进行扣减，这整个过程是不会被其他操作打断的。
 
-针对车流量的晚高峰和早高峰，最强有力的办法就是限行，但限行不是无损的，毕竟限行的牌号无法出行。
+第三点，Redis 的分布式锁可以确保多个用户同时抢购同一件商品时的操作是互斥的，保证数据一致性的同时，还可以用来防止用户重复下单。
 
-无损的方式就是有的车辆早出发，有的车辆晚出发，这样就能够实现错峰出行。
+![小米信息技术团队：Redis 分布式锁](https://cdn.tobebetterjavaer.com/stutymore/redis-20250612104416.png)
 
-在秒杀场景下，可以通过以下几种方式实现错峰削峰：
+第四点，限流削峰。秒杀开始的瞬间，可能会有成千上万的请求同时到达，如果不加控制，很容易导致系统崩溃。Redis 可以实现多种限流算法，比如简单的计数器限流、令牌桶或漏桶算法等。
 
-①、**预热缓存**：提前将热点数据加载到 Redis 缓存中，减少对数据库的访问压力。
+![zhuangyongxin.github.io：令牌桶](https://cdn.tobebetterjavaer.com/stutymore/redis-20250612104916.png)
 
-②、**消息队列**：引入消息队列，将请求异步处理，减少瞬时请求压力。消息队列就像一个水库，可以削减上游的洪峰流量。
+通过限流算法我们可以控制单位时间内系统能够处理的请求数量，超出部分可以排队或者直接拒绝，从而保护系统的稳定运行。
+
+memo：2025 年 6 月 12 日修改至此，今天[有球友发信息说](https://javabetter.cn/zhishixingqiu/)，大二就拿下了美团的实习 offer，特意发来感谢，说我的付出对他有着巨大的帮助，真的很感动，每一个懂得感恩的球友，你们也是我坚持下去的最强动力。
+
+![大二那些美团，特意发来感谢，面渣的口碑继续+1](https://cdn.tobebetterjavaer.com/stutymore/redis-20250612152123.png)
+
+#### Redis具体如何实现削峰呢？
+
+削峰的本质是将瞬时的高流量请求缓冲起来，通过排队、限流等机制，使系统以一个可承受的速度来处理请求。
+
+那第一步就是缓存预热。在秒杀活动开始前，先把商品信息这些热点数据提前加载到 Redis 中。这样用户访问商品页面时，可以直接从 Redis 读取，数据库基本上不会有压力。
+
+![天翼云小翼：Redis 缓存预热](https://cdn.tobebetterjavaer.com/stutymore/redis-20250613104134.png)
+
+第二步是引入消息队列，特别是下单这种写操作，不能让用户等太久，但后端处理订单、扣库存这些操作又比较重。所以可以用 Redis 的 List 做了个队列，或者直接用 RocketMQ 这种标准的消息中间件，用户下单后立即返回"订单提交成功"，然后把订单数据丢到队列里，后台服务慢慢消费。这样既保证了用户体验，又避免了系统被瞬时写请求压垮。
 
 ![许令波-排队](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420104633.png)
 
-③、**多阶段多时间窗口**：将秒杀活动分为多个阶段，每个阶段设置不同的时间窗口，让用户在不同的时间段内参与秒杀活动。
-
-④、**插入答题系统**：在秒杀活动中加入答题环节，只有答对题目的用户才能参与秒杀活动，这样可以减少无效请求。
+第三步，可以在秒杀活动中加入答题环节，只有答对题目的用户才能参与秒杀活动，这样可以最大程度减少无效请求。
 
 ![许令波-答题](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420104921.png)
 
-#### 如何限流呢？
+一个比较完整的秒杀削峰处理方案：
 
-采用令牌桶算法，它就像在帝都买车，摇到号才有资格，没摇到就只能等下一次（😁）。
+```java
+@Service
+public class SeckillServiceImpl implements SeckillService {
+    
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+    
+    @Autowired
+    private OrderService orderService;
+    
+    @Autowired
+    private CommodityService commodityService;
+    
+    /**
+     * 秒杀请求入口
+     */
+    public Result seckill(Long userId, Long commodityId) {
+        // 1. 用户请求频率限制
+        if (!countRateLimit("user:" + userId, 5, 60)) {
+            return Result.error("请求过于频繁");
+        }
+        
+        // 2. 商品是否在秒杀时间内
+        if (!isInSeckillTime(commodityId)) {
+            return Result.error("秒杀未开始或已结束");
+        }
+        
+        // 3. 是否还有库存(快速失败)
+        String stockKey = "seckill:stock:" + commodityId;
+        Integer stock = Integer.valueOf(redisTemplate.opsForValue().get(stockKey));
+        if (stock != null && stock <= 0) {
+            return Result.error("商品已售罄");
+        }
+        
+        // 4. 全局限流
+        if (!acquireToken("global", 1000, 100)) {
+            // 系统负载过高，将请求放入队列延迟处理
+            enqueueDelayedRequest(userId, commodityId);
+            return Result.success("秒杀请求已受理，排队处理中");
+        }
+        
+        // 5. 检查用户是否已购买
+        if (hasUserBought(userId, commodityId)) {
+            return Result.error("您已经购买过该商品");
+        }
+        
+        // 6. 将请求放入队列，返回排队状态
+        String requestId = generateRequestId(userId, commodityId);
+        enqueueRequest(userId, commodityId, requestId);
+        
+        return Result.success("秒杀请求已提交，请等待结果", requestId);
+    }
+    
+    /**
+     * 异步处理秒杀请求
+     */
+    @Scheduled(fixedRate = 50) // 每50ms处理一批
+    public void processSeckillQueue() {
+        String queueKey = "seckill:queue";
+        
+        // 批量处理，控制处理速度
+        for (int i = 0; i < 10; i++) {
+            String requestJson = redisTemplate.opsForList().leftPop(queueKey);
+            if (requestJson == null) {
+                break;
+            }
+            
+            SeckillRequest request = JSON.parseObject(requestJson, SeckillRequest.class);
+            try {
+                // 执行秒杀核心逻辑
+                boolean success = doSeckill(request.getUserId(), request.getCommodityId());
+                
+                // 更新请求状态，便于用户查询
+                String statusKey = "seckill:status:" + request.getRequestId();
+                redisTemplate.opsForValue().set(statusKey, success ? "SUCCESS" : "FAILED", 1, TimeUnit.HOURS);
+                
+            } catch (Exception e) {
+                log.error("处理秒杀请求失败", e);
+                // 记录失败状态
+                String statusKey = "seckill:status:" + request.getRequestId();
+                redisTemplate.opsForValue().set(statusKey, "ERROR", 1, TimeUnit.HOURS);
+            }
+        }
+    }
+    
+    /**
+     * 秒杀核心逻辑
+     */
+    private boolean doSeckill(Long userId, Long commodityId) {
+        // 使用Lua脚本保证原子性操作
+        String script = 
+            "-- 检查库存\n" +
+            "local stockKey = KEYS[1]\n" +
+            "local stock = tonumber(redis.call('get', stockKey))\n" +
+            "if stock == nil or stock <= 0 then\n" +
+            "    return 0\n" +
+            "end\n" +
+            "\n" +
+            "-- 检查是否重复购买\n" +
+            "local boughtKey = KEYS[2]\n" +
+            "local hasBought = redis.call('sismember', boughtKey, ARGV[1])\n" +
+            "if hasBought == 1 then\n" +
+            "    return -1\n" +
+            "end\n" +
+            "\n" +
+            "-- 扣减库存并记录购买\n" +
+            "redis.call('decr', stockKey)\n" +
+            "redis.call('sadd', boughtKey, ARGV[1])\n" +
+            "\n" +
+            "-- 返回成功\n" +
+            "return 1";
+        
+        String stockKey = "seckill:stock:" + commodityId;
+        String boughtKey = "seckill:bought:" + commodityId;
+        
+        Long result = (Long) redisTemplate.execute(
+            new DefaultRedisScript<>(script, Long.class),
+            Arrays.asList(stockKey, boughtKey),
+            userId.toString()
+        );
+        
+        if (result == 1) {
+            // 创建订单(可以进一步异步化)
+            createOrder(userId, commodityId);
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // 其他辅助方法...
+}
+```
 
-在实际开发中，我们需要维护一个容器，按照固定的速率往容器中放令牌（token），当请求到来时，从容器中取出一个令牌，如果容器中没有令牌，则拒绝请求。
+#### Redis如何做限流呢？
+
+限流是为了控制系统的请求速率，防止系统被过多的请求压垮。
+
+Redis 实现限流最简单的方法是基于计数器的固定窗口限流。比如限制用户每分钟最多访问 100 次，我们就用 INCR 命令给每个用户设个计数器，key 是 `rate_limit:用户ID:分钟时间戳`，每次请求就加 1，同时设置 60 秒过期。如果计数超过 100 就拒绝请求。
+
+```java
+// 伪代码
+String key = "rate_limit:" + userId;
+// 尝试获取当前计数
+Long count = redis.get(key);
+// 如果key不存在，设置为1并设置过期时间
+if (count == null) {
+    redis.setex(key, 60, "1"); // 60秒窗口期
+    return true; // 允许访问
+}
+// 如果计数未超过限制
+if (count < maxRequests) {
+    redis.incr(key);
+    return true; // 允许访问
+}
+return false; // 拒绝访问
+```
+
+这种方法简单粗暴，但有个问题就是临界时间会有突刺，比如用户在第 59 秒访问了 100 次，第 61 秒又访问 100 次，相当于 2 秒内访问了 200 次。
+
+第二种就是滑动窗口限流，通过 Redis 的 ZSET 来实现，把每次请求的时间戳作为 score 存进去，然后用 ZREMRANGEBYSCORE 删除窗口外的旧数据，再用 ZCARD 统计当前窗口内的请求数。这样限流就比较均匀了。
+
+```java
+// 伪代码
+String key = "sliding_window:" + userId;
+long now = System.currentTimeMillis();
+// 添加当前请求到有序集合，score为当前时间戳
+redis.zadd(key, now, String.valueOf(now));
+// 移除时间窗口之前的请求数据
+redis.zremrangeByScore(key, 0, now - windowSize);
+// 设置key过期时间，避免冷用户持续占用内存
+redis.expire(key, windowSize / 1000 + 1);
+// 获取当前窗口的请求数
+Long count = redis.zcard(key);
+return count <= maxRequests;
+```
+
+在实际开发中，通常会采用令牌桶算法，它就像在帝都/魔都买车，摇到号才有资格，没摇到就只能等下一次（😁）。
+
+可以在 Redis 里存两个值，一个是令牌数量，一个是上次更新时间。每次请求时用 Lua 脚本计算应该补充多少令牌，然后判断是否有足够的令牌。
 
 ![李子捌：令牌桶](https://cdn.tobebetterjavaer.com/stutymore/redis-20240420114025.png)
 
-第一步，使用 Redis 初始化令牌桶：
-
-```shell
-redis-cli SET "token_bucket" "100"
-```
-
-第二步，使用 Lua 脚本实现令牌桶算法；假设每秒向桶中添加 10 个令牌，但不超过桶的最大容量。
-
 ```lua
--- Lua 脚本来添加令牌，并确保不超过最大容量
-local bucket = KEYS[1]
-local add_count = tonumber(ARGV[1])
-local max_tokens = tonumber(ARGV[2])
-local current = tonumber(redis.call('GET', bucket) or 0)
-local new_count = math.min(current + add_count, max_tokens)
-redis.call('SET', bucket, tostring(new_count))
-return new_count
-```
+-- Redis Lua脚本实现令牌桶算法
+local key = KEYS[1]  -- 限流的key
+local max_permits = tonumber(ARGV[1])  -- 最大令牌数
+local permits_per_second = tonumber(ARGV[2])  -- 每秒产生的令牌数
+local required_permits = tonumber(ARGV[3])  -- 请求的令牌数
 
-第三步，使用 Shell 脚本调用 Lua 脚本：
+-- 获取当前时间
+local time = redis.call('time')
+local now_micros = tonumber(time[1]) * 1000000 + tonumber(time[2])
 
-```shell
-#!/bin/bash
-while true; do
-    redis-cli EVAL "$(cat add_tokens.lua)" 1 token_bucket 10 100
-    sleep 1
-done
-```
+-- 获取上次更新的时间和当前存储的令牌数
+local last_micros = tonumber(redis.call('hget', key, 'last_micros') or 0)
+local stored_permits = tonumber(redis.call('hget', key, 'stored_permits') or 0)
 
-第四步，当请求到达时，需要检查并消耗一个令牌。
+-- 计算时间间隔内新产生的令牌数
+local interval_micros = now_micros - last_micros
+local new_permits = interval_micros * permits_per_second / 1000000
+stored_permits = math.min(max_permits, stored_permits + new_permits)
 
-```lua
--- Lua 脚本来消耗一个令牌
-local bucket = KEYS[1]
-local tokens = tonumber(redis.call('GET', bucket) or 0)
-if tokens > 0 then
-    redis.call('DECR', bucket)
-    return 1  -- 成功消耗令牌
-else
-    return 0  -- 令牌不足
+-- 判断令牌是否足够
+local result = 0
+if stored_permits >= required_permits then
+    -- 令牌足够，更新令牌数和时间
+    stored_permits = stored_permits - required_permits
+    result = 1
 end
+
+-- 更新Redis中的数据
+redis.call('hset', key, 'last_micros', now_micros)
+redis.call('hset', key, 'stored_permits', stored_permits)
+redis.call('expire', key, 10)  -- 设置过期时间，避免长期占用内存
+
+return result
 ```
 
-调用 Lua 脚本：
-
-```shell
-redis-cli EVAL "$(cat consume_token.lua)" 1 token_bucket
-```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：秒杀问题（错峰、削峰、前端、流量控制）
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴面经同学 3 网约车后端开发一面原题：限流算法
 
-### 57. 客户端宕机后 Redis 服务端如何感知到？
+memo：2025 年 6 月 13 日修改至此，今天在[修改简历](https://javabetter.cn/zhishixingqiu/)的过程中，碰到一位西安交通大学的球友，他整个校园经历是比较丰富的，先去了新加坡国立大学做暑期交换生，然后又去了加州大学伯克利分校做学期交换生，希望大家也都能在学校阶段尽量丰富自己的经历，争取多拿一些奖学金、实习经历，这样才能在毕业时有更强的竞争力。
 
-每个客户端在 Redis 中维护一个特定的键（称为心跳键），用于表示客户端的健康状态。该键具有一个设置的超时时间，例如 10 秒。
+![西安交通大学的球友](https://cdn.tobebetterjavaer.com/stutymore/redis-20250613110150.png)
 
-客户端定期（如每 5 秒）更新这个心跳键的超时时间，保持它的存活状态，通常通过 SET 命令重设键的过期时间。
+### 57.客户端宕机后 Redis 服务端如何感知到？
 
-```java
-import redis.clients.jedis.Jedis;
+TCP 的 keepalive 是 Redis 用来检测客户端连接状态的主要机制，默认值为 300 秒。
 
-public class ClientHeartbeat {
-    private static final String HEARTBEAT_KEY = "client:heartbeat";
-    private static final int EXPIRE_TIME = 10; // 10秒
-
-    public static void main(String[] args) {
-        // 创建 Redis 连接
-        Jedis jedis = new Jedis("localhost");
-
-        // 定时更新心跳键
-        while (true) {
-            try {
-                // 设置心跳键并设置过期时间
-                jedis.setex(HEARTBEAT_KEY, EXPIRE_TIME, "alive");
-
-                // 打印心跳日志
-                System.out.println("Heartbeat sent.");
-
-                // 等待一段时间后再次发送心跳
-                Thread.sleep(5000); // 每5秒发送一次心跳
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                break;
-            }
-        }
-    }
-}
+```
+# 针对低延迟场景，设置为60秒，表示每60秒发送一次keepalive探测
+config set tcp-keepalive 60
 ```
 
-Redis 服务端定期检查这个心跳键。如果发现该键已超时并被 Redis 自动删除，说明客户端可能已宕机。
+当客户端与服务器在指定时间内没有任何数据交互时，Redis 服务器会发送 TCP ACK 探测包，如果连续多次没有收到响应，TCP 协议栈会通知 Redis 服务端连接已断开，之后，Redis 服务端会清理相关的连接资源，释放连接。
 
-```java
-import redis.clients.jedis.Jedis;
+![二哥的Java进阶之路：默认的tcp-keepalive和 timeout](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614112846.png)
 
-public class ServerMonitor {
-    private static final String HEARTBEAT_KEY = "client:heartbeat";
+另外还有一个 timeout 参数，用来控制客户端连接的空闲超时时间。
 
-    public static void main(String[] args) {
-        // 创建 Redis 连接
-        Jedis jedis = new Jedis("localhost");
-
-        // 定期检查心跳键
-        while (true) {
-            try {
-                // 检查心跳键是否存在
-                if (jedis.exists(HEARTBEAT_KEY)) {
-                    System.out.println("Client is alive.");
-                } else {
-                    System.out.println("Client is down or disconnected.");
-                }
-
-                // 每隔一段时间检查一次
-                Thread.sleep(10000); // 每10秒检查一次
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                break;
-            }
-        }
-    }
-}
+```
+# 表示600秒内没有任何命令则断开连接
+config set timeout 600
 ```
 
+默认值为 0，表示永不断开连接；当设置为非零值时，如果客户端在指定时间内没有发送任何命令，服务端会主动断开连接。
+
+Redis 服务器会定期检查空闲连接是否超时，检查频率由 hz 参数控制；这将有助于释放那些客户端异常退出但 TCP 连接未正常关闭的资源。
+
+不同的连接池也会有自己的连接检测机制，比如 Jedis 连接池可以通过设置 `testOnBorrow` 和 `testWhileIdle` 来启用连接检测。
+
+```yaml
+# 是否启用连接池
+spring.redis.jedis.pool.enabled=true
+# 连接池最大连接数（使用负值表示没有限制）
+spring.redis.jedis.pool.max-active=200
+# 连接池最大空闲连接数
+spring.redis.jedis.pool.max-idle=200
+# 连接池最小空闲连接数
+spring.redis.jedis.pool.min-idle=50
+# 连接池最大阻塞等待时间（使用负值表示没有限制）
+spring.redis.jedis.pool.max-wait=3000
+# 空闲连接检查间隔（毫秒）
+spring.redis.jedis.pool.time-between-eviction-runs=60000
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 21  抖音商城一面面试原题：如果客户端宕机服务器如何感知？
 
+memo：2025 年 6 月 14 日修改至此，今天有[球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)发消息说，快手oc 了，恭喜他。球友们都太有实力了。
+
+![球友拿到快手 offer](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614114251.png)
+
 ---
 
-图文详解 57 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+整整一个半月，面渣逆袭 Redis 篇第二版终于整理完了，这一版几乎可以说是重写了，每天耗费了大量的精力在上面，可以说是改头换面，有一种士别俩月，当刮目相看的感觉。
 
-_没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
+![Java 基础篇、集合框架篇、JVM 篇、并发编程篇、MySQL 篇](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104640.png)
+
+网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
+
+![面渣逆袭适合中国宝宝体质哈哈](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104555.png)
+
+面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从 24 届到 25 届，再到 26 届，帮助了很多小伙伴。未来的 27、28 届，也将因此受益，从而拿到心仪的 offer。
+
+能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强，因此第二版的面渣逆袭不只是给大家的礼物，也是我在技术上蜕变的记录。
+
+![球友把面渣逆袭推荐给实验室的所有人](https://cdn.tobebetterjavaer.com/stutymore/mysql-我把你推荐给我们实验室的基本所有人了.png)
+
+
+![学院本拿到滴滴 SP 给面渣口碑+1](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104304.png)
+
+
+![市面上的八股看了不少，还是面渣逆袭最舒服](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104416.png)
+
+很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
+
+我喜欢静待花开。
+
+如果你觉得面渣逆袭还不错，可以告诉学弟学妹们有这样一份免费的学习资料，帮我做个口碑。
+
+我还会继续优化，也不确定第三版什么时候会来，但我会尽力。
+
+愿大家都有一个光明的未来。
 
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
@@ -4828,7 +5044,12 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 
 ![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
 
-我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，100+张手绘图，可以说是诚意满满。
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
+
+
+图文详解 57 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
+
+_没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
 **系列内容**：
 
