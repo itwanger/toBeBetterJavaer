@@ -1,25 +1,24 @@
 ---
-title: Java面试题之Java集合框架篇（Java容器篇），29道Java集合框架八股文（7千字38张手绘图），面渣逆袭必看👍
+title: Java面试题之Java集合框架篇（Java容器篇），29道Java集合框架八股文（1.4万字67张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java集合框架
 author: 三分恶
-date: 2024-10-14
+date: 2025-06-14
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，7200 字 38 张手绘图，详解 29 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，14554 字 67 张手绘图，详解 29 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,集合框架,Java容器,List,Map,Set,面试题,八股文,java
 ---
 
-
-![面渣逆袭集合框架篇封面图](https://cdn.tobebetterjavaer.com/stutymore/collection-mianzhanixi-collection.jpg)
+![面渣逆袭集合框架篇封面图](https://cdn.tobebetterjavaer.com/stutymore/collection-mianzhanixi-collection1.jpg)
 
 ## 前言
 
-7200 字 38 张手绘图，详解 29 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
+14554 字 67 张手绘图，详解 29 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/ptbM0EqlnCWeWm9VdSCDLg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/SHkQ7LEOT0itt4bXMoDBPw)。
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
@@ -28,9 +27,11 @@ head:
 
 2024 年 12 月 30 日开始着手第二版更新。
 
-- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
 - 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
 - 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
 ![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javase-20241223085158.png)
@@ -56,7 +57,7 @@ head:
 
 ## 引言
 
-### 1.说说有哪些常见的集合框架？
+### 1.🌟说说有哪些常见的集合框架？
 
 - 推荐阅读：[二哥的 Java 进阶之路：Java 集合框架](https://javabetter.cn/collection/gailan.html)
 - 推荐阅读：[阻塞队列 BlockingQueue](https://javabetter.cn/thread/BlockingQueue.html)。
@@ -157,7 +158,7 @@ Collection 继承了 Iterable 接口，这意味着所有实现 Collection 接�
 
 ## List
 
-### 2.ArrayList 和 LinkedList 有什么区别？
+### 2.🌟ArrayList 和 LinkedList 有什么区别？
 
 推荐阅读：[二哥的 Java 进阶之路：ArrayList 和 LinkedList](https://javabetter.cn/collection/list-war-2.html)
 
@@ -357,7 +358,7 @@ CopyOnWriteArrayList 采用了一种读写分离的并发策略。CopyOnWriteArr
 
 Map 中最重要的就是 HashMap 了，面试基本被问出包浆了，一定要好好准备。
 
-### 8.能说一下 HashMap 的底层数据结构吗？
+### 8.🌟能说一下 HashMap 的底层数据结构吗？
 
 推荐阅读：[二哥的 Java 进阶之路：详解 HashMap](https://javabetter.cn/collection/hashmap.html)
 
@@ -441,7 +442,7 @@ HashMap 的初始容量是 16，随着元素的不断添加，HashMap 就需要�
 
 memo：2025 年 1 月 6 日修改到此。
 
-### 11.HashMap 的 put 流程知道吗？
+### 11.🌟HashMap 的 put 流程知道吗？
 
 哈希寻址 → 处理哈希冲突（链表还是红黑树）→ 判断是否需要扩容 → 插入/覆盖节点。
 
@@ -883,7 +884,7 @@ static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 
 memo：2025 年 1 月 7 日第二版优化到此。
 
-### 21.HashMap的扩容机制了解吗？
+### 21.🌟HashMap的扩容机制了解吗？
 
 扩容时，HashMap 会创建一个新的数组，其容量是原来的两倍。然后遍历旧哈希表中的元素，将其重新分配到新的哈希表中。
 
@@ -1049,7 +1050,7 @@ JDK 8 让 hash 值的高 16 位和低 16 位进行了异或运算，让高位的
 
 ![完整代码](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-30.png)
 
-### 24.HashMap 是线程安全的吗？
+### 24.🌟HashMap 是线程安全的吗？
 
 推荐阅读：[HashMap 详解](https://javabetter.cn/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)
 
@@ -1080,7 +1081,7 @@ HashMap 不是线程安全的，主要有以下几个问题：
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：为什么HashMap不是线程安全的？
 
 
-### 25.怎么解决 HashMap 线程不安全的问题呢？
+### 25.🌟怎么解决 HashMap 线程不安全的问题呢？
 
 在早期的 JDK 版本中，可以用 Hashtable 来保证线程安全。Hashtable 在方法上加了 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)。
 

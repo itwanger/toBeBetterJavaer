@@ -14,6 +14,8 @@ head:
       content: Spring面试题,Spring,面试题,八股文,java,spring全家桶
 ---
 
+![](https://cdn.tobebetterjavaer.com/stutymore/spring-mianzhanixi-spring1.jpg)
+
 1.3 万字 63 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 ## 基础

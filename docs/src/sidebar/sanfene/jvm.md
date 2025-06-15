@@ -1,5 +1,5 @@
 ---
-title: JVM面试题，54道Java虚拟机八股文（2.3万字113张手绘图），面渣逆袭必看👍
+title: JVM面试题，54道Java虚拟机八股文（2.3万字115张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-JVM
 author: 三分恶
 date: 2025-01-10
@@ -7,7 +7,7 @@ category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，2.3 万字 113 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.3 万字 115 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
@@ -18,7 +18,7 @@ head:
 
 ## 前言
 
-2.3 万字 113 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
+2.3 万字 115 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/bHhqhl8mH3OAPt3EkaVc8Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/XYsEJyIo46jXhHE1sOR_0Q)。
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
@@ -26,9 +26,11 @@ head:
 
 2024 年 12 月 30 日开始着手第二版更新。
 
-- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
 - 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
 - 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
 ![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250110113003.png)
@@ -48,7 +50,6 @@ head:
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
-
 
 ![面渣逆袭JVM篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250121142305.png)
 
@@ -114,7 +115,7 @@ JVM 大致可以划分为三个部分：类加载器、运行时数据区和执�
 
 ## 二、内存管理
 
-### 3.能说一下 JVM 的内存区域吗？
+### 3.🌟能说一下 JVM 的内存区域吗？
 
 推荐阅读：[深入理解 JVM 的运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)
 
@@ -295,7 +296,7 @@ JDK 7 的时候，前进了一小步，把原本放在永久代的字符串常�
 
 JDK 8 就终于完成了这项移出工作，这样的好处就是，元空间的大小不再受到 JVM 内存的限制，而是可以像 J9 和 JRockit 那样，只要系统内存足够，就可以一直用。
 
-### 6.对象创建的过程了解吗？
+### 6.🌟对象创建的过程了解吗？
 
 当我们使用 new 关键字创建一个对象时，JVM 首先会检查 new 指令的参数是否能在常量池中定位到类的符号引用，然后检查这个符号引用代表的类是否已被加载、解析和初始化。如果没有，就先执行类加载。
 
@@ -676,7 +677,7 @@ PhantomReference<String> phantomRef = new PhantomReference<>(new String("沉默�
 
 ![三分恶面渣逆袭：新生代内存划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-25.png)
 
-### 14.对象什么时候会进入老年代？
+### 14.🌟对象什么时候会进入老年代？
 
 对象通常会在年轻代中分配，随着时间的推移和垃圾收集的进程，某些满足条件的对象会进入到老年代中，如长期存活的对象。
 
@@ -1127,7 +1128,7 @@ public class LargeLocalVariables {
 
 ## 三、垃圾收集
 
-### 23.讲讲 JVM 的垃圾回收机制（补充）
+### 23.🌟讲讲 JVM 的垃圾回收机制（补充）
 
 > 本题是增补的内容，by 2024 年 03 月 09 日；参照：[深入理解 JVM 的垃圾回收机制](https://javabetter.cn/jvm/gc.html)
 
@@ -1166,7 +1167,7 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：说说你对GC的了解？
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：JVM垃圾回收机制？
 
-### 24.如何判断对象仍然存活？
+### 24.🌟如何判断对象仍然存活？
 
 Java 通过可达性分析算法来判断一个对象是否还存活。
 
@@ -1319,7 +1320,7 @@ class ConstantPoolReference {
 
 譬如把自己 （this 关键字）赋值给某个类变量或者对象的成员变量，那在第二次标记时它就”逃过一劫“；但是如果没有抓住这个机会，那么对象就真的要被回收了。
 
-### 27.垃圾收集算法了解吗？
+### 27.🌟垃圾收集算法了解吗？
 
 垃圾收集算法主要有三种，分别是标记-清除算法、标记-复制算法和标记-整理算法。
 
@@ -1419,7 +1420,7 @@ Full GC 会从 GC Root 出发，标记所有可达对象。新生代使用复制
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：如何判断死亡对象？GC Roots有哪些？空间分配担保是什么？
 
-### 31.知道哪些垃圾收集器？
+### 31.🌟知道哪些垃圾收集器？
 
 推荐阅读：[深入理解 JVM 的垃圾收集器：CMS、G1、ZGC](https://javabetter.cn/jvm/gc-collector.html)
 
@@ -1512,7 +1513,7 @@ ZGC 是 JDK 11 时引入的一款低延迟的垃圾收集器，最大特点是�
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：cms和g1的区别
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：怎么理解并发和并行，Parallel Old和CMS有什么区别？
 
-### 32.能详细说一下 CMS 的垃圾收集过程吗？
+### 32.🌟能详细说一下 CMS 的垃圾收集过程吗？
 
 ![三分恶面渣逆袭：Concurrent Mark Sweep收集器运行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-34.png)
 
@@ -1562,7 +1563,7 @@ CMS 使用**标记-清除**算法进行垃圾收集，分 4 大步：
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：CMS用了什么垃圾回收算法？你提到了remark，那它remark具体是怎么执行的？三色标记法？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：问了CMS垃圾回收器
 
-### 33.G1 垃圾收集器了解吗？
+### 33.🌟G1 垃圾收集器了解吗？
 
 G1 在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为默认的垃圾收集器。
 
@@ -1905,7 +1906,7 @@ jmap -dump:format=b,file=heap pid
 
 ## 五、类加载机制
 
-### 45.了解类的加载机制吗？（补充）
+### 45.🌟了解类的加载机制吗？（补充）
 
 > 2024 年 03 月 29 日增补
 
@@ -1944,7 +1945,7 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 ![三分恶面渣逆袭：类的生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-44.png)
 
-### 48.类装载的过程知道吗？
+### 48.🌟类装载的过程知道吗？
 
 > 推荐阅读：[一文彻底搞懂 Java 类加载机制](https://javabetter.cn/jvm/class-load.html)
 
@@ -1981,7 +1982,7 @@ JVM 的操作对象是 Class 文件，JVM 把 Class 文件中描述类的数据�
 
 memo：2025 年 1 月 17 日修改至此。
 
-### 49.什么是双亲委派模型？
+### 49.🌟什么是双亲委派模型？
 
 双亲委派模型要求类加载器在加载类时，先委托父加载器尝试加载，只有父加载器无法加载时，子加载器才会加载。
 

@@ -1,24 +1,24 @@
 ---
-title: Java面试题之Java基础篇，56道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
+title: Java面试题之Java基础篇，56道Java基础八股文（2.3万字68张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶&沉默王二
-date: 2024-11-28
+date: 2025-06-14
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，1.3 万字 44 张手绘图，详解56道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，2.3 万字 68 张手绘图，详解56道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 head:
   - - meta
     - name: keywords
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-![面渣逆袭Java 基础篇封面图](https://cdn.tobebetterjavaer.com/stutymore/javase-mianzhanixi-javase.jpg)
+![面渣逆袭Java 基础篇封面图](https://cdn.tobebetterjavaer.com/stutymore/javase-mianzhanixi-javase1.jpg)
 
 ## 前言
 
-1.3 万字 44 张手绘图，详解 56 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，原作者：星球嘉宾三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
+2.3 万字 68 张手绘图，详解 56 道 Java 基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/t7EYyF0VGEg1rAZut9dwSw)，原作者：星球嘉宾三分恶，戳[原文链接](https://mp.weixin.qq.com/s/M-6RSRcRd3X93cR7VXpanw)。
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
@@ -26,9 +26,11 @@ head:
 
 2024 年 12 月 23 日开始着手第二版更新。
 
-- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
 - 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
 - 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
 ![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javase-20241223085158.png)
@@ -53,7 +55,7 @@ head:
 
 ## Java 概述
 
-### 1.什么是 Java？
+### 1.🌟什么是 Java？
 
 ![詹姆斯高斯林-下辈子还学 Java，还头秃](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-01.png)
 
@@ -170,7 +172,7 @@ Java 语言的特点有：
 
 ## 基础语法
 
-### 7.Java 有哪些数据类型？
+### 7.🌟Java 有哪些数据类型？
 
 > 推荐阅读 1：[Java 的数据类型](https://javabetter.cn/basic-grammar/basic-data-type.html)
 > 推荐阅读 2：[面试官竟然问我这么简单的题目：Java 中 boolean 占多少字节？](https://mp.weixin.qq.com/s/KMDlAf5sXQCn8LJz-RJRgA)
@@ -463,7 +465,7 @@ System.out.println("Total price in cents: " + totalInCents);  // 输出597分
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：面向对象和面向过程的区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：面向对象 项目里有哪些面向对象的案例
 
-### 18.面向对象编程有哪些特性？
+### 18.🌟面向对象编程有哪些特性？
 
 推荐阅读：[深入理解 Java 三大特性](https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html)
 
@@ -880,7 +882,7 @@ public Person(String name,int age){
 
 3. 引用本类的构造方法
 
-### 23.抽象类和接口有什么区别？
+### 23.🌟抽象类和接口有什么区别？
 
 一个类只能继承一个抽象类；但一个类可以实现多个接口。所以我们在新建线程类的时候一般推荐使用实现 Runnable 接口的方式，这样线程类还可以继承其他类，而不单单是 Thread 类。
 
@@ -1154,7 +1156,7 @@ System.out.println(a.equals(b)); // 输出 true，因为 a 和 b 的内容相同
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：==和 equals()有什么区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：==和 equals 的区别
 
-### 29.为什么重写 equals 时必须重写 hashCode ⽅法？
+### 29.🌟为什么重写 equals 时必须重写 hashCode ⽅法？
 
 因为基于哈希的集合类（如 HashMap）需要基于这一点来正确存储和查找对象。
 
@@ -1493,7 +1495,7 @@ public class Main {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 小公司面经合集好未来测开面经同学 3 测开一面面试原题：String 是 Java 的基本数据类型吗，String 有哪些方法？
 
-### 34.String 和 StringBuilder、StringBuffer 的区别？
+### 34.🌟String 和 StringBuilder、StringBuffer 的区别？
 
 推荐阅读：[StringBuffer 和 StringBuilder 两兄弟](https://javabetter.cn/string/builder-buffer.html)
 
@@ -2004,7 +2006,7 @@ com.itwanger.Person
 
 ## 异常处理
 
-### 41.Java 中异常处理体系?
+### 41.🌟Java 中异常处理体系?
 
 推荐阅读：[一文彻底搞懂 Java 异常处理](https://javabetter.cn/exception/gailan.html)
 
@@ -2296,7 +2298,7 @@ public class ByteBufferExample {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企面试原题：文本存储是字节流还是字符流，视频文件呢？
 
-### 46.BIO、NIO、AIO 之间的区别？
+### 46.🌟BIO、NIO、AIO 之间的区别？
 
 推荐阅读：[Java NIO 比传统 IO 强在哪里？](https://javabetter.cn/nio/nio-better-io.html)
 
@@ -2687,7 +2689,7 @@ list.add(new Dog());
 
 ## 反射
 
-### 52.什么是反射？应用？原理？
+### 52.🌟什么是反射？应用？原理？
 
 反射允许 Java 在运行时检查和操作类的方法和字段。通过反射，可以动态地获取类的字段、方法、构造方法等信息，并在运行时调用方法或访问字段。
 
