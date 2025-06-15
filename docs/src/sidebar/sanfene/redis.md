@@ -14,7 +14,7 @@ head:
       content: Redis面试题,Redis,八股文,面试题
 ---
 
-![面渣逆袭MySQL篇封面图](https://cdn.tobebetterjavaer.com/stutymore/mysql-mianzhanixi-mysql.jpg)
+![面渣逆袭Redis篇封面图](https://cdn.tobebetterjavaer.com/stutymore/redis-mianzhanixi-redis1.jpg)
 
 ## 前言
 
@@ -22,7 +22,7 @@ head:
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-![面渣逆袭MySQL篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104843.png)
+![面渣逆袭Redis篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154255.png)
 
 2025 年 04 月 27 日开始着手第二版更新。
 
@@ -33,7 +33,7 @@ head:
 - 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
-![面渣逆袭已经提交 1457 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427100320.png)
+![面渣逆袭已经提交 1478 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154416.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
@@ -51,8 +51,7 @@ head:
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
-![面渣逆袭MySQL篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427105032.png)
-
+![面渣逆袭Redis篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154601.png)
 
 ## 基础
 
@@ -5001,9 +5000,9 @@ memo：2025 年 6 月 14 日修改至此，今天有[球友在 VIP 群里](https
 
 ---
 
-整整一个半月，面渣逆袭 Redis 篇第二版终于整理完了，这一版几乎可以说是重写了，每天耗费了大量的精力在上面，可以说是改头换面，有一种士别俩月，当刮目相看的感觉。
+整整一个半月，面渣逆袭 Redis 篇第二版终于整理完了，这一版几乎可以说是重写了，每天耗费了大量的精力在上面，可以说是改头换面，有一种士别俩月，当刮目相看的感觉（从 1.8 万字暴涨到 4.6 万字，加餐的同时区分高频低频版）。
 
-![Java 基础篇、集合框架篇、JVM 篇、并发编程篇、MySQL 篇](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104640.png)
+![Redis、MySQL、Java 基础、集合框架、JVM、并发编程](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614160051.png)
 
 网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
 
@@ -5045,6 +5044,10 @@ memo：2025 年 6 月 14 日修改至此，今天有[球友在 VIP 群里](https
 ![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
+
+这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
+
+![面渣逆袭 Redis 篇 epub 版本](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154745.png)
 
 
 图文详解 57 道 Redis 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
