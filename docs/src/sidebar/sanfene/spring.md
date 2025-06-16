@@ -14,69 +14,122 @@ head:
       content: Spring面试题,Spring,面试题,八股文,java,spring全家桶
 ---
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-mianzhanixi-spring1.jpg)
+![面渣逆袭 Spring 篇封面图](https://cdn.tobebetterjavaer.com/stutymore/spring-mianzhanixi-spring1.jpg)
+
+## 前言
 
 1.3 万字 63 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
+亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
+
+![面渣逆袭Redis篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154255.png)
+
+2025 年 06 月 15 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
+- 结合项目（[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+![面渣逆袭已经提交 1478 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154416.png)
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
+
+展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
+
+![面渣逆袭RSpring篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154601.png)
+
 ## 基础
 
-### 1.Spring 是什么？特性？有哪些模块？
+### 1.Spring是什么？
+
+Spring 是一个 Java 后端开发框架，其最核心的作用是帮我们管理 Java 对象。
 
 ![Spring Logo](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-165c27b4-2ea0-409a-8fa5-389c105db0fa.png)
 
-一句话概括：**Spring 是一个轻量级、非入侵式的控制反转 (IoC) 和面向切面 (AOP) 的框架。**
+其最重要的特性就是 IoC，也就是控制反转。以前我们要使用一个对象时，都要自己先 new 出来。但有了 Spring 之后，我们只需要告诉 Spring 我们需要什么对象，它就会自动帮我们创建好并注入到 Spring 容器当中。
 
-2003 年，一个音乐家 Rod Johnson 决定发展一个轻量级的 Java 开发框架，`Spring`作为 Java 战场的龙骑兵渐渐崛起，并淘汰了`EJB`这个传统的重装骑兵。
+比如我在一个 Service 类里需要用到 Dao 对象，只需要加个 `@Autowired` 注解，Spring 就会自动把 Dao 对象注入到 Spring 容器当中，这样就不需要我们手动去管理这些对象之间的依赖关系了。
 
-![Spring重要版本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-5d9efb93-03a5-400c-8429-3be7c5eeddfb.png)
+![二哥的 Java 进阶之路：技术派@Autowired源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615105532.png)
 
-到了现在，企业级开发的标配基本就是 **Spring5** + **Spring Boot 2** + **JDK 8**
+另外，Spring 还提供了 AOP，也就是面向切面编程，在我们需要做一些通用功能的时候特别有用，比如说日志记录、权限校验、事务管理这些，我们不用在每个方法里都写重复的代码，直接用 AOP 就能统一处理。
 
-#### Spring 有哪些特性呢？
+![技术派：AOP 事务源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615105726.png)
+
+Spring 的生态也特别丰富，像 Spring Boot 能让我们快速搭建项目，Spring MVC 能帮我们处理 web 请求，Spring Data 能帮我们简化数据库操作，Spring Cloud 能帮我们做微服务架构等等。
+
+#### Spring有哪些特性？
+
+Spring 的特性还是挺多的，我按照在实际工作/学习中用得最多的几个来说吧。
 
 ![三分恶面渣逆袭：Spring特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a0f0ef9d-3289-41ea-94c2-34b7e37ef854.png)
 
-1. **IoC** 和 **DI** 的支持
+首先最核心的就是 IoC 控制反转和 DI 依赖注入。这个我前面也提到了，就是 Spring 能帮我们管理对象的创建和依赖关系。
 
-Spring 的核心就是一个大的工厂容器，可以维护所有对象的创建和依赖关系，Spring 工厂用于生成 Bean，并且管理 Bean 的生命周期，实现**高内聚低耦合**的设计理念。
+比如我写一个 UserService，需要用到 UserDao，以前得自己 new 一个 UserDao 出来，现在只要在 UserService 上加个 `@Service` 注解，在 UserDao 字段上加个 `@Autowired`，Spring 就会自动帮我们处理好这些依赖关系。
 
-2. AOP 编程的支持
+这样代码的耦合度就大大降低了，测试的时候也更容易 mock。
 
-Spring 提供了**面向切面编程**，可以方便的实现对程序进行权限拦截、运行监控等切面功能。
+第二个就是 AOP 面向切面编程。这个在我们处理一些横切关注点的时候特别有用，比如说我们要给某些 Controller 方法都加上权限控制，如果没有 AOP 的话，每个方法都要写一遍加权代码，维护起来很麻烦。
 
-3. 声明式事务的支持
+![技术派源码：@Permission注解加权限验证](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615110533.png)
 
-支持通过配置就来完成对事务的管理，而不需要通过硬编码的方式，以前重复的一些事务提交、回滚的 JDBC 代码，都可以不用自己写了。
+用了 AOP 之后，我们只需要写一个切面类，定义好切点和通知，就能统一处理了。事务管理也是同样的道理，加个 `@Transactional` 注解就搞定了。
 
-4. 快捷测试的支持
+还有就是 Spring 对各种企业级功能的集成支持也特别好。比如数据库访问，不管我们用 JDBC、MyBatis-Plus 还是 Hibernate，Spring 都能很好地集成。消息队列、缓存、安全认证这些， Spring 都有对应的模块来支持。
 
-Spring 对 Junit 提供支持，可以通过**注解**快捷地测试 Spring 程序。
+![技术派源码：Spring Boot 的约定大于配置](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615111039.png)
 
-5. 快速集成功能
+另外 Spring 的配置也很灵活，既支持 XML 配置，也支持注解配置，现在我们基本都用注解了，写起来更简洁。Spring Boot 出来之后就更方便了，约定大于配置，很多东西都是开箱即用的。
 
-方便集成各种优秀框架，Spring 不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、MyBatis、Quartz 等）的直接支持。
+#### 简单说一下什么是AOP和IoC？
 
-6. 复杂 API 模板封装
+AOP 面向切面编程，简单点说就是把一些通用的功能从业务代码里抽取出来，统一处理。比如说[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)中的 `@MdcDot` 注解的作用是配合 AOP 在日志中加入 MDC 信息，方便进行日志追踪。
 
-Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程调用等）都提供了模板化的封装，这些封装 API 的提供使得应用难度大大降低。
+![技术派源码：@MdcDot注解配合 AOP 完成日志追踪](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615111917.png)
 
-#### 简单说一下什么是AOP 和 IoC？
+IoC 控制反转是一种设计思想，它的主要作用是将对象的创建和对象之间的调用过程交给 Spring 容器来管理。比如说在[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目当中，`@PostConstruct` 注解表明这个方法由 Spring 容器在 Bean 初始化完成后自动调用，我们不需要手动调用 init 方法。
 
-**AOP**：面向切面编程，是一种编程范式，它的主要作用是将那些与核心业务逻辑无关，但是对多个对象产生影响的公共行为封装起来，如日志记录、性能统计、事务等。
-
-**IoC**：控制反转，是一种设计思想，它的主要作用是将对象的创建和对象之间的调用过程交给 Spring 容器来管理。
+![技术派源码：@PostConstruct应用](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615113219.png)
 
 #### Spring源码看过吗？
 
-看过一些，主要就是针对 Spring 循环依赖、Bean 声明周期、AOP、事务、IOC 这五部分。
+看过一些，主要是带着问题去看的，比如遇到一些技术难点或者想深入理解某个功能的时候。
+
+我重点看过的是 IoC 容器的初始化过程，特别是 ApplicationContext 的启动流程。从 `refresh()` 方法开始，包括 Bean 的定义和加载、Bean 工厂的准备、Bean 的实例化和初始化这些关键步骤。
 
 ![星球嘉宾楼仔：Spring 源码解析](https://cdn.tobebetterjavaer.com/stutymore/spring-20241207102105.png)
+
+看源码的时候发现 Spring 用了很多设计模式，比如工厂模式、单例模式、模板方法模式等等，这对我平时写代码也很有启发。
+
+还有就是 Spring 的 Bean 生命周期，从 BeanDefinition 的创建到 Bean 的实例化、属性注入、初始化回调，再到最后的销毁，整个过程还是挺复杂的。看了源码之后对 `@PostConstruct`、`@PreDestroy` 这些注解的执行时机就更清楚了。
+
+不过说实话，Spring 的源码确实比较难啃，涉及的概念和技术点太多了。我一般是结合一些技术博客和 Claude 一起看，这样理解起来会相对容易一些。
 
 PS：关于这份小册的 PDF 版本，目前只有[星球](https://javabetter.cn/zhishixingqiu/)的用户可以获取，后续会考虑开放给大家。
 
 ![楼仔的 Spring 源码解析手册](https://cdn.tobebetterjavaer.com/stutymore/spring-20241207101910.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：IOC与AOP
+
+memo：2025 年 6 月 15 日修改至此，今天在帮[球友们修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到一个中山大学本硕的球友，校园荣誉基本上拉满了，非常优秀，那我也希望能够帮助到更多的球友们，帮他们拿到更好的 offer。
+
+![中山大学的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615120504.png)
 
 ### 2.Spring 有哪些模块呢？
 
