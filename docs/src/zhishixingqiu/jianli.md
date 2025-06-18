@@ -63,7 +63,9 @@ head:
 
 ![细节到位](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114211.png)
 
-其实能不能捞到面试机会，从发出简历的那一刻就决定了。
+其实能不能捞到面试机会，从发出简历的那一刻就决定了。但很多人是不重视简历的，直到发出去的简历已读不回才意识到问题。
+
+![BOSS 直聘简历已读不回](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250617100539.png)
 
 好的简历其实扫一眼就能感受出来，从基本信息到教育经历，就会让你忍不住想要立刻马上发面试邀请。
 
