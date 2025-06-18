@@ -238,59 +238,45 @@ memo：2025 年 6 月 17 日修改至此，今天在帮[球友们修改简历](h
 
 ![闽江学院的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617111727.png)
 
-### 4.Spring 中应用了哪些设计模式呢？
+### 4.🌟Spring用了哪些设计模式？
 
-Spring 框架中用了蛮多设计模式的：
+Spring 框架里面确实用了很多设计模式，我从平时工作中能观察到的几个来说说。
+
+首先是工厂模式，这个在 Spring 里用得非常多。BeanFactory 就是一个典型的工厂，它负责创建和管理所有的 Bean 对象。我们平时用的 ApplicationContext 其实也是 BeanFactory 的一个实现。当我们通过 `@Autowired` 获取一个 Bean 的时候，底层就是通过工厂模式来创建和获取对象的。
 
 ![三分恶面渣逆袭：Spring中用到的设计模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-ee1c5cee-8462-4bae-93ea-ec936cc77640.png)
 
-①、比如说工厂模式用于 BeanFactory 和 ApplicationContext，实现 Bean 的创建和管理。
+单例模式也是 Spring 的默认行为。默认情况下，Spring 容器中的 Bean 都是单例的，整个应用中只会有一个实例。这样可以节省内存，提高性能。当然我们也可以通过 `@Scope` 注解来改变 Bean 的作用域，比如设置为 prototype 就是每次获取都创建新实例。
 
-```java
-ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-MyBean myBean = context.getBean(MyBean.class);
-```
+![二哥的 Java 进阶之路：@Scope注解](https://cdn.tobebetterjavaer.com/stutymore/spring-20250618113356.png)
 
-②、比如说单例模式，这样可以保证 Bean 的唯一性，减少系统开销。
+代理模式在 AOP 中用得特别多。Spring AOP 的底层实现就是基于动态代理的，对于实现了接口的类用 JDK 动态代理，没有实现接口的类用 CGLIB 代理。比如我们用 `@Transactional` 注解的时候，Spring 会为我们的类创建一个代理对象，在方法执行前后添加事务处理逻辑。
 
-```java
-ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-MyService myService1 = context.getBean(MyService.class);
-MyService myService2 = context.getBean(MyService.class);
+模板方法模式在 Spring 里也很常见，比如 JdbcTemplate。它定义了数据库操作的基本流程：获取连接、执行 SQL、处理结果、关闭连接，但是具体的 SQL 语句和结果处理逻辑由我们来实现。
 
-// This will print "true" because both references point to the same instance
-System.out.println(myService1 == myService2);
-```
+![技术派源码：JdbcTemplate](https://cdn.tobebetterjavaer.com/stutymore/spring-20250618114035.png)
 
-③、比如说 AOP 使用了代理模式来实现横切关注点（如事务管理、日志记录、权限控制等）。
+观察者模式在 Spring 的事件机制中有所体现。我们可以通过 ApplicationEvent 和 ApplicationListener 来实现事件的发布和监听。比如用户注册成功后，我们可以发布一个用户注册事件，然后有多个监听器来处理后续的业务逻辑，比如发送邮件、记录日志等。
 
-```java
-@Transactional
-public void myTransactionalMethod() {
-    // 方法实现
-}
-```
+![技术派源码：ApplicationListener](https://cdn.tobebetterjavaer.com/stutymore/spring-20250618114211.png)
+
+这些设计模式的应用让 Spring 框架既灵活又强大，也让我在实际的开发中学到很多经典的设计思想。
 
 #### Spring如何实现单例模式？
 
-Spring 通过 IOC 容器实现单例模式，具体步骤是：
+传统的单例模式是在类的内部控制只能创建一个实例，比如用 private 构造方法加 `static getInstance()` 这种方式。但是 Spring 的单例是容器级别的，同一个 Bean 在整个 Spring 容器中只会有一个实例。
 
-单例 Bean 在容器初始化时创建并使用 DefaultSingletonBeanRegistry 提供的 singletonObjects 进行缓存。
+具体的实现机制是这样的：Spring 在启动的时候会把所有的 Bean 定义信息加载进来，然后在 DefaultSingletonBeanRegistry 这个类里面维护了一个叫 singletonObjects 的 ConcurrentHashMap，这个 Map 就是用来存储单例 Bean 的。key 是 Bean 的名称，value 就是 Bean 的实例对象。
 
-```java
-// 单例缓存
-private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>();
+![二哥的 Java 进阶之路：DefaultSingletonBeanRegistry](https://cdn.tobebetterjavaer.com/stutymore/spring-20250618115033.png)
 
-public Object getSingleton(String beanName) {
-    return this.singletonObjects.get(beanName);
-}
+当我们第一次获取某个 Bean 的时候，Spring 会先检查 singletonObjects 这个 Map 里面有没有这个 Bean，如果没有就会创建一个新的实例，然后放到 Map 里面。后面再获取同一个 Bean 的时候，直接从 Map 里面取就行了，这样就保证了单例。
 
-protected void addSingleton(String beanName, Object singletonObject) {
-    this.singletonObjects.put(beanName, singletonObject);
-}
-```
+![二哥的 Java 进阶之路：registerSingleton](https://cdn.tobebetterjavaer.com/stutymore/spring-20250618115153.png)
 
-在请求 Bean 时，Spring 会先从缓存中获取。
+还有一个细节就是 Spring 为了解决循环依赖的问题，还用了三级缓存。除了 singletonObjects 这个一级缓存，还有 earlySingletonObjects 二级缓存和 singletonFactories 三级缓存。这样即使有循环依赖，Spring 也能正确处理。
+
+而且 Spring 的单例是线程安全的，因为用的是 ConcurrentHashMap，多线程访问不会有问题。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：Spring IoC 的设计模式，AOP 的设计模式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：Spring 框架使用到的设计模式？
