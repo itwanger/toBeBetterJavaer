@@ -131,71 +131,112 @@ memo：2025 年 6 月 15 日修改至此，今天在帮[球友们修改简历](h
 
 ![中山大学的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250615120504.png)
 
-### 2.Spring 有哪些模块呢？
+### 2.Spring有哪些模块呢？
 
-Spring 框架是分模块存在，除了最核心的`Spring Core Container`是必要模块之外，其他模块都是`可选`，大约有 20 多个模块。
+我按照平时工作/学习中接触的频率来说一下。
 
-![Spring模块划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bb7c13ea-3174-4b32-84b8-821849ddc377.png)
+首先是 Spring Core 模块，这是整个 Spring 框架的基础，包含了 IoC 容器和依赖注入等核心功能。还有 Spring Beans 模块，负责 Bean 的配置和管理。这两个模块基本上是其他所有模块的基础，不管用 Spring 的哪个功能都会用到。
 
-最主要的七大模块：
+![Spring官网：模块划分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bb7c13ea-3174-4b32-84b8-821849ddc377.png)
 
-1.  **Spring Core**：Spring 核心，它是框架最基础的部分，提供 IoC 和依赖注入 DI 特性。
-2.  **Spring Context**：Spring 上下文容器，它是 BeanFactory 功能加强的一个子接口。
-3.  **Spring Web**：它提供 Web 应用开发的支持。
-4.  **Spring MVC**：它针对 Web 应用中 MVC 思想的实现。
-5.  **Spring DAO**：提供对 JDBC 抽象层，简化了 JDBC 编码，同时，编码更具有健壮性。
-6.  **Spring ORM**：它支持用于流行的 ORM 框架的整合，比如：Spring + Hibernate、Spring + iBatis、Spring + JDO 的整合等。
-7.  **Spring AOP**：即面向切面编程，它提供了与 AOP 联盟兼容的编程实现。
+然后是 Spring Context 上下文模块，它在 Core 的基础上提供了更多企业级的功能，比如国际化、事件传播、资源加载这些。ApplicationContext 就是在这个模块里面的。
 
-### 3.Spring 有哪些常用注解呢？
+```java
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        // Spring Boot会自动创建ApplicationContext
+        ApplicationContext context = SpringApplication.run(Application.class, args);
+    }
+}
+```
 
-Spring 提供了大量的注解来简化 Java 应用的开发和配置，主要用于 Web 开发、往容器注入 Bean、AOP、事务控制等。
+Spring AOP 模块提供了面向切面编程的支持，我们用的 `@Transactional`、自定义切面这些都是基于这个模块。
+
+Web 开发方面，Spring Web 模块提供了基础的 Web 功能，Spring WebMVC 就是我们常用的 MVC 框架，用来处理 HTTP 请求和响应。现在还有 Spring WebFlux，支持响应式编程。
+
+比如说[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，`GlobalExceptionHandler` 类就使用了 `@RestControllerAdvice` 来实现统一的异常处理。
+
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler(value = ForumAdviceException.class)
+    public ResVo<String> handleForumAdviceException(ForumAdviceException e) {
+        return ResVo.fail(e.getStatus());
+    }
+}
+```
+
+数据访问方面，Spring JDBC 简化了 JDBC 的使用，在[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，我们就 `JdbcTemplate` 来检查表是否存在、执行数据库初始化脚本。
+
+![技术派源码：JdbcTemplate](https://cdn.tobebetterjavaer.com/stutymore/spring-20250616105042.png)
+
+Spring ORM 提供了对 MyBatis-Plus 等 ORM 框架的集成支持。在[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，我们就用了 `@TableName`、`@TableField` 等注解进行对象关系映射，通过继承 BaseMapper 来获取通用的 CRUD 能力。
+
+![技术派源码：BaseMapper](https://cdn.tobebetterjavaer.com/stutymore/spring-20250616105224.png)
+
+Spring Test 模块提供了测试支持，可以很方便地进行单元测试和集成测试。我们写测试用例的时候经常用 `@SpringBootTest` 这些注解。比如说在[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，我们就用 `@SpringBootTest` 注解来加载 Spring 上下文，进行集成测试。
+
+```java
+@Slf4j
+@SpringBootTest(classes = QuickForumApplication.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+public class BasicTest {
+}
+```
+
+还有一些其他的模块，比如 Spring Security 负责安全认证，Spring Batch 处理批处理任务等等。
+
+现在我们基本都是用 Spring Boot 来开发，它把这些模块都整合好了，用起来更方便。
+
+![技术派：技术选型](https://cdn.tobebetterjavaer.com/stutymore/spring-20250616105807.png)
+
+memo：2025 年 6 月 16 日修改至此，今天在帮[球友们修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到一个大连海事大学硕河南理工大学本的球友，他荣誉奖项里提到的优秀研究生、奖学金、英语四六级，我希望看到的同学也都能争取一下，不要把这些荣誉拱手让人，或者压根就不知道，或者不屑于去参加，到时候你简历上这一栏就会比较苍白。
+
+![大连海事大学硕河南理工大学本的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250616110317.png)
+
+### 3.Spring有哪些常用注解呢？
+
+Spring 的注解挺多的，我按照不同的功能分类来说一下平时用得最多的那些。
 
 ![三分恶面渣逆袭：Spring常用注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-8d0a1518-a425-4887-9735-45321095d927.png)
 
-#### Web 开发方面有哪些注解呢？
+首先是 Bean 管理相关的注解。`@Component` 是最基础的，用来标识一个类是 Spring 组件。像 `@Service`、`@Repository`、`@Controller` 这些都是 `@Component` 的特化版本，分别用在服务层、数据访问层和控制器层。
 
-①、`@Controller`：用于标注控制层组件。
+依赖注入方面，`@Autowired` 是用得最多的，可以标注在字段、setter 方法或者构造方法上。`@Qualifier` 在有多个同类型 Bean 的时候用来指定具体注入哪一个。`@Resource` 和 `@Autowired` 功能差不多，不过它是按名称注入的。
 
-②、`@RestController`：是`@Controller` 和 `@ResponseBody` 的结合体，返回 JSON 数据时使用。
+![技术派源码：@Resource和@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617110609.png)
 
-③、`@RequestMapping`：用于映射请求 URL 到具体的方法上，还可以细分为：
 
-- `@GetMapping`：只能用于处理 GET 请求
-- `@PostMapping`：只能用于处理 POST 请求
-- `@DeleteMapping`：只能用于处理 DELETE 请求
+配置相关的注解也很常用。`@Configuration` 标识配置类，`@Bean` 用来定义 Bean，`@Value` 用来注入配置文件中的属性值。我们项目里的数据库连接信息、Redis 配置这些都是用 `@Value` 来注入的。`@PropertySource` 用来指定配置文件的位置。
 
-④、`@ResponseBody`：直接将返回的数据放入 HTTP 响应正文中，一般用于返回 JSON 数据。
+![技术派源码：@Value](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617110755.png)
 
-⑤、`@RequestBody`：表示一个方法参数应该绑定到 Web 请求体。
+Web 开发的注解就更多了。`@RestController` 相当于 `@Controller` 加 `@ResponseBody`，用来做 RESTful 接口。
 
-⑥、`@PathVariable`：用于接收路径参数，比如 `@RequestMapping(“/hello/{name}”)`，这里的 name 就是路径参数。
+![技术派源码：web 开发的注解](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617110859.png)
 
-⑦、`@RequestParam`：用于接收请求参数。比如 `@RequestParam(name = "key") String key`，这里的 key 就是请求参数。
+`@RequestMapping` 及其变体`@GetMapping`、`@PostMapping`、`@PutMapping`、`@DeleteMapping` 用来映射 HTTP 请求。`@PathVariable` 获取路径参数，`@RequestParam` 获取请求参数，`@RequestBody` 接收 JSON 数据。
 
-#### 容器类注解有哪些呢？
+AOP 相关的注解，`@Aspect` 定义切面，`@Pointcut` 定义切点，`@Before`、`@After`、`@Around` 这些定义通知类型。
 
-- `@Component`：标识一个类为 Spring 组件，使其能够被 Spring 容器自动扫描和管理。
-- `@Service`：标识一个业务逻辑组件（服务层）。比如 `@Service("userService")`，这里的 userService 就是 Bean 的名称。
-- `@Repository`：标识一个数据访问组件（持久层）。
-- `@Autowired`：按类型自动注入依赖。
-- `@Configuration`：用于定义配置类，可替换 XML 配置文件。
-- `@Value`：用于将 Spring Boot 中 application.properties 配置的属性值赋值给变量。
+![技术派源码：AOP 相关注解](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617111100.png)
 
-#### AOP 方面有哪些注解呢？
+不过我们用得最多的还是`@Transactional`，基本上 Service 层需要保证事务原子性的方法都会加上这个注解。
 
-`@Aspect` 用于声明一个切面，可以配合其他注解一起使用，比如：
+生命周期相关的，`@PostConstruct` 在 Bean 初始化后执行，`@PreDestroy` 在 Bean 销毁前执行。测试的时候 `@SpringBootTest` 也经常用到。
 
-- `@After`：在方法执行之后执行。
-- `@Before`：在方法执行之前执行。
-- `@Around`：方法前后均执行。
-- `@PointCut`：定义切点，指定需要拦截的方法。
+![技术派源码：@PostConstruct](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617111256.png)
 
-#### 事务注解有哪些？
+还有一些 Spring Boot 特有的注解，比如 `@SpringBootApplication` 这个启动类注解，`@ConditionalOnProperty` 做条件装配，`@EnableAutoConfiguration` 开启自动配置等等。
 
-主要就是 `@Transactional`，用于声明一个方法需要事务支持。
+![技术派源码：@ConditionalOnProperty](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617111359.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：说说 Spring 常见的注解？
+
+memo：2025 年 6 月 17 日修改至此，今天在帮[球友们修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到一个学院本的球友，他的荣誉奖项还是 OK的，态度也非常好，之前有学院本球友拿到滴滴 SP offer 的，希望这位球友也能够成为星球里新的榜样。
+
+![闽江学院的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250617111727.png)
 
 ### 4.Spring 中应用了哪些设计模式呢？
 
