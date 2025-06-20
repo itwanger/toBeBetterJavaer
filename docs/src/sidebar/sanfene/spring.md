@@ -199,9 +199,9 @@ memo：2025 年 6 月 16 日修改至此，今天在帮[球友们修改简历](h
 
 Spring 的注解挺多的，我按照不同的功能分类来说一下平时用得最多的那些。
 
-![三分恶面渣逆袭：Spring常用注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-8d0a1518-a425-4887-9735-45321095d927.png)
-
 首先是 Bean 管理相关的注解。`@Component` 是最基础的，用来标识一个类是 Spring 组件。像 `@Service`、`@Repository`、`@Controller` 这些都是 `@Component` 的特化版本，分别用在服务层、数据访问层和控制器层。
+
+![三分恶面渣逆袭：Spring常用注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-8d0a1518-a425-4887-9735-45321095d927.png)
 
 依赖注入方面，`@Autowired` 是用得最多的，可以标注在字段、setter 方法或者构造方法上。`@Qualifier` 在有多个同类型 Bean 的时候用来指定具体注入哪一个。`@Resource` 和 `@Autowired` 功能差不多，不过它是按名称注入的。
 
@@ -283,23 +283,81 @@ Spring 框架里面确实用了很多设计模式，我从平时工作中能观�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：Spring用了什么设计模式？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Spring中使用了哪些设计模式，以其中一种模式举例说明？Spring如何实现单例模式？
 
-### 39.Spring 容器、Web 容器之间的区别？（补充）
+memo：2025 年 6 月 20 日修改至此，今天[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，有碰到重庆邮电大学本，电子科技大学硕的球友，期间还有过清华大学科研项目的经历，基本上也是把学历这块拉的满中满了，那希望星球能帮助到更多院校的同学，不管是工作党还是学生党，都希望大家都拿到更好的 offer。
+
+![重邮本，电子科技大学硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250621062819.png)
+
+### 5.Spring容器和Web容器之间的区别知道吗？（补充）
 
 >2024 年 7 月 11 日增补
 
-Spring 容器是 Spring 框架的核心部分，负责管理应用程序中的对象生命周期和依赖注入。
+首先从概念上来说，Spring 容器是一个 IoC 容器，主要负责管理 Java 对象的生命周期和依赖关系。而 Web 容器，比如 Tomcat、Jetty 这些，是用来运行 Web 应用的容器，负责处理 HTTP 请求和响应，管理 Servlet 的生命周期。
 
-Web 容器（也称 Servlet 容器），是用于运行 Java Web 应用程序的服务器环境，支持 Servlet、JSP 等 Web 组件。常见的 Web 容器包括 Apache Tomcat、Jetty等。
+```java
+/**
+ * SpringUtil.java
+ * 用于获取 Spring 容器中的 Bean，技术派源码：https://github.com/itwanger/paicoding
+ */
+@Component
+public class SpringUtil implements ApplicationContextAware {
+    private volatile static ApplicationContext context;
+    
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        SpringUtil.context = applicationContext;
+    }
+    
+    public static <T> T getBean(Class<T> bean) {
+        return context.getBean(bean);
+    }
+}
+```
 
-Spring MVC 是 Spring 框架的一部分，专门用于处理 Web 请求，基于 MVC（Model-View-Controller）设计模式。
+从功能上看，Spring 容器专注于业务逻辑层面的对象管理，比如我们的 Service、Dao、Controller 这些 Bean 都是由 Spring 容器来创建和管理的。而 Web 容器主要处理网络通信，比如接收 HTTP 请求、解析请求参数、调用相应的 Servlet，然后把响应返回给客户端。
+
+![博客园 hiy1995：web 容器](https://cdn.tobebetterjavaer.com/stutymore/spring-20250621063345.png)
+
+在实际项目中，这两个容器是相辅相成的。我们的 Web 项目部署在 Tomcat 上的时候，Tomcat 会负责接收 HTTP 请求，然后把请求交给 DispatcherServlet 处理，而 DispatcherServlet 又会去 Spring 容器中查找相应的 Controller 来处理业务逻辑。
+
+```java
+/**
+ * GlobalViewInterceptor.java
+ * 用于全局拦截器，技术派源码：https://github.com/itwanger/paicoding
+ */
+@Component
+public class GlobalViewInterceptor implements HandlerInterceptor {
+    @Autowired
+    private GlobalInitService globalInitService;
+    
+    @Override
+    public boolean preHandle(HttpServletRequest request, 
+                           HttpServletResponse response, 
+                           Object handler) {
+        // Web 容器的 HTTP 请求 + Spring 容器的业务服务
+    }
+}
+```
+
+还有一个重要的区别是生命周期。Web 容器的生命周期跟 Web 应用程序的部署和卸载相关，而 Spring 容器的生命周期是在 Web 应用启动的时候初始化，应用关闭的时候销毁。
+
+现在我们都用 Spring Boot 了，Spring Boot 内置了 Tomcat，把 Web 容器和 Spring 容器都整合在一起了，我们只需要运行一个 jar 包就可以了。
+
+```java
+@SpringBootApplication
+public class QuickForumApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(QuickForumApplication.class, args);
+    }
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术二面原题：spring的容器、web容器、springmvc的容器之间的区别
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+<MZNXQRcodeBanner />
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+memo：2024 年 7 月 11 日修改至此，今天在帮[球友们修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到北京交通大学本，北京航空航天大学硕的球友，她的简历上有很多校园荣誉奖项，像优秀学生、奖学金、英语四六级等，这些都是非常好的加分项。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![北京交通大学本，北京航空航天大学硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250621064205.png)
 
 ## IoC
 

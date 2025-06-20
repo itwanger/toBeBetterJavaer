@@ -27,6 +27,8 @@ head:
 
 ![少走弯路](https://cdn.tobebetterjavaer.com/stutymore/readme-20250415090742.png)
 
+![春招靠面渣、技术派、Java 教程拿下国企，人生中最值的 100 多块钱](https://cdn.tobebetterjavaer.com/stutymore/readme-20250621055556.png)
+
 学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。
 
 ## 一、星球取得的成绩
