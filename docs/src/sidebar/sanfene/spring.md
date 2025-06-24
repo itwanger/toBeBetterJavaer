@@ -361,17 +361,49 @@ memo：2024 年 7 月 11 日修改至此，今天在帮[球友们修改简历](h
 
 ## IoC
 
-### 5.说一说什么是 IoC、DI？
+### 6.🌟说一说什么是IoC？
 
 推荐阅读：[IoC 扫盲](https://javabetter.cn/springboot/ioc.html)
 
-所谓的**IoC**，就是由容器来控制对象的生命周期和对象之间的关系。控制对象生命周期的不再是引用它的对象，而是容器，这就叫**控制反转**（Inversion of Control）。
+IoC 的全称是 Inversion of Control，也就是控制反转。这里的“控制”指的是对象创建和依赖关系管理的控制权。
 
-![三分恶面渣逆袭：控制反转示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-440f5d0e-f4db-462c-97fb-d54407a354d5.png)
+![图片来源于网络：IoC](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310191630.png)
 
-以前是我们想要什么就自己创建什么，现在是我们需要什么容器就帮我们送来什么。
+以前我们写代码的时候，如果 A 类需要用到 B 类，我们就在 A 类里面直接 new 一个 B 对象出来，这样 A 类就控制了 B 类对象的创建。
 
-![引入IoC之前和引入IoC之后](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-619da277-c15e-4dd7-9f2b-dbd809a9aaa0.png)
+```java
+// 传统方式：对象主动创建依赖
+public class UserService {
+    private UserDao userDao;
+    
+    public UserService() {
+        // 主动创建依赖对象
+        this.userDao = new UserDaoImpl();
+    }
+}
+```
+
+有了 IoC 之后，这个控制权就“反转”了，不再由 A 类来控制 B 对象的创建，而是交给外部的容器来管理。
+
+```java
+/** 
+ * 使用 Spring IoC 容器来管理 UserDao 的创建和注入
+ * 技术派源码：https://github.com/itwanger/paicoding
+ */
+@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao;
+    
+    // 不需要主动创建 UserDao，由 Spring 容器注入
+    public BaseUserInfoDTO getAndUpdateUserIpInfoBySessionId(String session, String clientIp) {
+        // 直接使用注入的 userDao
+        return userDao.getBySessionId(session);
+    }
+}
+```
+
+----这部分面试中可以不背 start----
 
 没有 IoC 之前：
 
@@ -384,31 +416,83 @@ memo：2024 年 7 月 11 日修改至此，今天在帮[球友们修改简历](h
 
 婚介所就相当于一个 IoC 容器，我就是一个对象，我需要的女朋友就是另一个对象，我不用关心女朋友是怎么来的，我只需要告诉婚介所我需要什么样的女朋友，婚介所就帮我去找。
 
-Spring 倡导的开发方式就是这样，所有类的创建和销毁都通过 Spring 容器来，不再是开发者去 new，去 `= null`，这样就实现了对象的解耦。
+![三分恶面渣逆袭：引入IoC之前和引入IoC之后](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-619da277-c15e-4dd7-9f2b-dbd809a9aaa0.png)
 
-于是，对于某个对象来说，以前是它控制它依赖的对象，现在是所有对象都被 Spring 控制。
+----这部分面试中可以不背 end----
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310191630.png)
+#### DI和IoC的区别了解吗？
 
-#### 说说什么是 DI？
-
-IOC 是一种思想，DI 是实现 IOC 的具体方式，比如说利用注入机制（如构造器注入、Setter 注入）将依赖传递给目标对象。
+IoC 的思想是把对象创建和依赖关系的控制权由业务代码转移给 Spring 容器。这是一个比较抽象的概念，告诉我们应该怎么去设计系统架构。
 
 ![Martin Fowler’s Definition](https://cdn.tobebetterjavaer.com/stutymore/spring-20241117132929.png)
 
-2004 年，Martin Fowler 在他的文章《控制反转容器&依赖注入模式》首次提出了 **DI（依赖注入，Dependency Injection）** 这个名词。
+而 DI，也就是依赖注入，它是实现 IoC 这种思想的具体技术手段。在 Spring 里，我们用 `@Autowired` 注解就是在使用 DI 的字段注入方式。
 
-打个比方，你现在想吃韭菜馅的饺子，这时候就有人用针管往你吃的饺子里注入韭菜鸡蛋馅。就好像 A 类需要 B 类，以前是 A 类自己 new 一个 B 类，现在是有人把 B 类注入到 A 类里。
+```java
+@Service
+public class ArticleReadServiceImpl implements ArticleReadService {
+    @Autowired
+    private ArticleDao articleDao;  // 字段注入
+    
+    @Autowired
+    private UserDao userDao;
+}
+```
+
+从实现角度来看，DI 除了字段注入，还有构造方法注入和 Setter 方法注入等方式。在做[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目的时候，我就尝试过构造方法注入的方式。
+
+![技术派源码：构造方法的注入方式](https://cdn.tobebetterjavaer.com/stutymore/spring-20250622091928.png)
+
+当然了，DI 并不是实现 IoC 的唯一方式，还有 Service Locator 模式，可以通过实现 ApplicationContextAware 接口来获取 Spring 容器中的 Bean。
+
+![技术派源码：IoC 的Service Locator 模式](https://cdn.tobebetterjavaer.com/stutymore/spring-20250622093007.png)
+
+之所以 ID 后成为 IoC 的首选实现方式，是因为代码更清晰、可读性更高。
+
+```
+IoC（控制反转）
+├── DI（依赖注入）          ← 主要实现方式
+│   ├── 构造器注入
+│   ├── 字段注入
+│   └── Setter注入
+├── 服务定位器模式
+├── 工厂模式
+└── 其他实现方式
+```
 
 #### 为什么要使用 IoC 呢？
 
-在平时的 Java 开发中，如果我们要实现某一个功能，可能至少需要两个以上的对象来协助完成，在没有 Spring 之前，每个对象在需要它的合作对象时，需要自己 new 一个，比如说 A 要使用 B，A 就对 B 产生了依赖，也就是 A 和 B 之间存在了一种耦合关系。
+在日常开发中，如果我们需要实现某一个功能，可能至少需要两个以上的对象来协助完成，在没有 Spring 之前，每个对象在需要它的合作对象时，需要自己 new 一个，比如说 A 要使用 B，A 就对 B 产生了依赖，也就是 A 和 B 之间存在了一种耦合关系。
 
-有了 Spring 之后，就不一样了，创建 B 的工作交给了 Spring 来完成，Spring 创建好了 B 对象后就放到容器中，A 告诉 Spring 我需要 B，Spring 就从容器中取出 B 交给 A 来使用。
+```java
+// 传统方式：对象自己创建依赖
+public class UserService {
+    private UserDao userDao = new UserDaoImpl(); // 硬编码依赖
+    
+    public User getUser(Long id) {
+        return userDao.findById(id);
+    }
+}
+```
+
+有了 Spring 之后，创建 B 的工作交给了 Spring 来完成，Spring 创建好了 B 对象后就放到容器中，A 告诉 Spring 我需要 B，Spring 就从容器中取出 B 交给 A 来使用。
+
+```java
+// IoC 方式：依赖由外部注入
+@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao; // 依赖注入，不关心具体实现
+    
+    public User getUser(Long id) {
+        return userDao.findById(id);
+    }
+}
+```
 
 至于 B 是怎么来的，A 就不再关心了，Spring 容器想通过 newnew 创建 B 还是 new 创建 B，无所谓。
 
-这就是 IoC 的好处，它降低了对象之间的耦合度，使得程序更加灵活，更加易于维护。
+这就是 IoC 的好处，它降低了对象之间的耦合度，让每个对象只关注自己的业务实现，不关心其他对象是怎么创建的。
 
 推荐阅读：[孤傲苍狼：谈谈对 Spring IOC 的理解](https://www.cnblogs.com/xdp-gacl/p/4249939.html)
 
@@ -418,228 +502,310 @@ IOC 是一种思想，DI 是实现 IOC 的具体方式，比如说利用注入�
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：IOC，AOP
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：解释下什么是IOC和AOP？分别解决了什么问题？IOC和DI的区别？
 
-### 6.能简单说一下 Spring IoC 的实现机制吗？
+memo：2025 年 6 月 22 日修改至此，今天[有球友发喜报说拿到了两个 offer](https://javabetter.cn/zhishixingqiu/)，一个是做 B 端电商的，另一个是外企，主要做 Power BI 的低代码开发，我的建议是去外企，因为实习最重要的是混个 title，有更多的时间，可以去学习星球里的项目，其实会更实在。
 
-PS:这道题老三在面试中被问到过，问法是“**你有自己实现过简单的 Spring 吗？**”
+![球友拿到了外企和电商的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-二哥，目前拿到了两个offer。第一个是做b端电.png)
 
-Spring 的 IoC 本质就是一个大工厂，我们想想一个工厂是怎么运行的呢？
+### 7.能说一下IoC的实现机制吗？
 
-![工厂运行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-7678c40f-a48d-4bd5-80f8-e902ad688e11.png)
+好的，Spring IoC 的实现机制还是比较复杂的，我尽量用比较通俗的方式来解释一下整个流程。
 
-- **生产产品**：一个工厂最核心的功能就是生产产品。在 Spring 里，不用 Bean 自己来实例化，而是交给 Spring，应该怎么实现呢？——答案毫无疑问，**反射**。
+![面渣逆袭：mini版本Spring IoC](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1d55c63d-2d12-43b1-9f43-428f5f4a1413.png)
 
-  那么这个厂子的生产管理是怎么做的？你应该也知道——**工厂模式**。
 
-- **库存产品**：工厂一般都是有库房的，用来库存产品，毕竟生产的产品不能立马就拉走。Spring 我们都知道是一个容器，这个容器里存的就是对象，不能每次来取对象，都得现场来反射创建对象，得把创建出的对象存起来。
+第一步是加载 Bean 的定义信息。Spring 会扫描我们配置的包路径，找到所有标注了 `@Component`、`@Service`、`@Repository` 这些注解的类，然后把这些类的元信息封装成 BeanDefinition 对象。
 
-- **订单处理**：还有最重要的一点，工厂根据什么来提供产品呢？订单。这些订单可能五花八门，有线上签签的、有到工厂签的、还有工厂销售上门签的……最后经过处理，指导工厂的出货。
+```java
+// Bean定义信息
+public class BeanDefinition {
+    private String beanClassName;     // 类名
+    private String scope;            // 作用域
+    private boolean lazyInit;        // 是否懒加载
+    private String[] dependsOn;      // 依赖的Bean
+    private ConstructorArgumentValues constructorArgumentValues; // 构造参数
+    private MutablePropertyValues propertyValues; // 属性值
+}
+```
 
-  在 Spring 里，也有这样的订单，它就是我们 bean 的定义和依赖关系，可以是 xml 形式，也可以是我们最熟悉的注解形式。
+第二步是 Bean 工厂的准备。Spring 会创建一个 DefaultListableBeanFactory 作为 Bean 工厂来负责 Bean 的创建和管理。
 
-我们简单地实现一个 mini 版的 Spring IoC：
+![技术派源码：DefaultListableBeanFactory](https://cdn.tobebetterjavaer.com/stutymore/spring-20250623094742.png)
 
-![mini版本Spring IoC](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1d55c63d-2d12-43b1-9f43-428f5f4a1413.png)
+第三步是 Bean 的实例化和初始化。这个过程比较复杂，Spring 会根据 BeanDefinition 来创建 Bean 实例。
 
-**Bean 定义：**
+![IoC的实现机制](https://cdn.tobebetterjavaer.com/stutymore/spring-20250623101221.png)
 
-Bean 通过一个配置文件定义，把它解析成一个类型。
+对于单例 Bean，Spring 会先检查缓存中是否已经存在，如果不存在就创建新实例。创建实例的时候会通过反射调用构造方法，然后进行属性注入，最后执行初始化回调方法。
 
-- beans.properties
+```java
+// 简化的Bean创建流程
+public class AbstractBeanFactory {
+    
+    protected Object createBean(String beanName, BeanDefinition bd) {
+        // 1. 实例化前处理
+        Object bean = resolveBeforeInstantiation(beanName, bd);
+        if (bean != null) {
+            return bean;
+        }
+        
+        // 2. 实际创建Bean
+        return doCreateBean(beanName, bd);
+    }
+    
+    protected Object doCreateBean(String beanName, BeanDefinition bd) {
+        // 2.1 实例化
+        Object bean = createBeanInstance(beanName, bd);
+        
+        // 2.2 属性填充（依赖注入）
+        populateBean(beanName, bd, bean);
+        
+        // 2.3 初始化
+        Object exposedObject = initializeBean(beanName, bean, bd);
+        
+        return exposedObject;
+    }
+}
+```
 
-  偷懒，这里直接用了最方便解析的 properties，这里直接用一个`<key,value>`类型的配置来代表 Bean 的定义，其中 key 是 beanName，value 是 class
+依赖注入的实现主要是通过反射来完成的。比如我们用 `@Autowired` 标注了一个字段，Spring 在创建 Bean 的时候会扫描这个字段，然后从容器中找到对应类型的 Bean，通过反射的方式设置到这个字段上。
 
-  ```java
-  userDao:cn.fighter3.bean.UserDao
-  ```
+![贰师兄的屠宰场：各个注解的注入流程](https://cdn.tobebetterjavaer.com/stutymore/spring-20250623101656.png)
 
-- BeanDefinition.java
+#### 你是怎么理解 Spring IoC 的？
 
-  bean 定义类，配置文件中 bean 定义对应的实体
+IoC 本质上一个超级工厂，这个工厂的产品就是各种 Bean 对象。
 
-  ```java
-  public class BeanDefinition {
+![三分恶面渣逆袭：工厂运行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-7678c40f-a48d-4bd5-80f8-e902ad688e11.png)
 
-      private String beanName;
+我们通过 `@Component`、`@Service` 这些注解告诉工厂：“我要生产什么样的产品，这个产品有什么特性，需要什么原材料”。
 
-      private Class beanClass;
-       //省略getter、setter
-   }
-  ```
+然后工厂里各种生产线，在 Spring 中就是各种 BeanPostProcessor。比如 `AutowiredAnnotationBeanPostProcessor` 专门负责处理 `@Autowired` 注解。
 
-- ResourceLoader.java
+工厂里还有各种缓存机制用来存放产品，比如说 singletonObjects 是成品仓库，存放完工的单例 Bean；earlySingletonObjects 是半成品仓库，用来解决循环依赖问题。
 
-  资源加载器，用来完成配置文件中配置的加载
+```java
+// Spring单例Bean注册表
+public class DefaultSingletonBeanRegistry {
+    // 一级缓存：完成初始化的单例Bean
+    private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
+    
+    // 二级缓存：早期暴露的单例Bean（解决循环依赖）
+    private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
+    
+    // 三级缓存：单例Bean工厂
+    private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
+    
+    public Object getSingleton(String beanName) {
+        Object singletonObject = this.singletonObjects.get(beanName);
+        if (singletonObject == null) {
+            singletonObject = this.earlySingletonObjects.get(beanName);
+            if (singletonObject == null) {
+                ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);
+                if (singletonFactory != null) {
+                    singletonObject = singletonFactory.getObject();
+                    this.earlySingletonObjects.put(beanName, singletonObject);
+                    this.singletonFactories.remove(beanName);
+                }
+            }
+        }
+        return singletonObject;
+    }
+}
+```
 
-  ```java
-  public class ResourceLoader {
+最有意思的是，这个工厂还很智能，它知道产品之间的依赖关系。它会根据依赖关系来决定 Bean 的创建顺序。如果发现循环依赖，它还会用三级缓存机制来巧妙地解决。
 
-      public static Map<String, BeanDefinition> getResource() {
-          Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>(16);
-          Properties properties = new Properties();
-          try {
-              InputStream inputStream = ResourceLoader.class.getResourceAsStream("/beans.properties");
-              properties.load(inputStream);
-              Iterator<String> it = properties.stringPropertyNames().iterator();
-              while (it.hasNext()) {
-                  String key = it.next();
-                  String className = properties.getProperty(key);
-                  BeanDefinition beanDefinition = new BeanDefinition();
-                  beanDefinition.setBeanName(key);
-                  Class clazz = Class.forName(className);
-                  beanDefinition.setBeanClass(clazz);
-                  beanDefinitionMap.put(key, beanDefinition);
-              }
-              inputStream.close();
-          } catch (IOException | ClassNotFoundException e) {
-              e.printStackTrace();
-          }
-          return beanDefinitionMap;
-      }
+#### 能手写一个简单的 IoC 容器吗？
 
-  }
-  ```
+1、首先定义基础的注解，比如说 `@Component`、`@Autowired` 等。
 
-- BeanRegister.java
+```java
+// 组件注解
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Component {
+}
 
-  对象注册器，这里用于单例 bean 的缓存，我们大幅简化，默认所有 bean 都是单例的。可以看到所谓单例注册，也很简单，不过是往 HashMap 里存对象。
+// 自动注入注解
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Autowired {
+}
+```
 
-  ```java
-  public class BeanRegister {
+2、核心的 IoC 容器类，负责扫描包路径，创建 Bean 实例，并处理依赖注入。
 
-      //单例Bean缓存
-      private Map<String, Object> singletonMap = new HashMap<>(32);
-
-      /**
-       * 获取单例Bean
-       *
-       * @param beanName bean名称
-       * @return
-       */
-      public Object getSingletonBean(String beanName) {
-          return singletonMap.get(beanName);
-      }
-
-      /**
-       * 注册单例bean
-       *
-       * @param beanName
-       * @param bean
-       */
-      public void registerSingletonBean(String beanName, Object bean) {
-          if (singletonMap.containsKey(beanName)) {
-              return;
-          }
-          singletonMap.put(beanName, bean);
-      }
-
-  }
-  ```
-
-- **BeanFactory.java**
-
-![BeanFactory](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-c6b3b707-cf53-4c7c-a6f9-8560950806fc.png)
-
-- 对象工厂，我们最**核心**的一个类，在它初始化的时候，创建了 bean 注册器，完成了资源的加载。
-
-- 获取 bean 的时候，先从单例缓存中取，如果没有取到，就创建并注册一个 bean
-
-  ```java
-  public class BeanFactory {
-
-      private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
-
-      private BeanRegister beanRegister;
-
-      public BeanFactory() {
-          //创建bean注册器
-          beanRegister = new BeanRegister();
-          //加载资源
-          this.beanDefinitionMap = new ResourceLoader().getResource();
-      }
-
-      /**
-       * 获取bean
-       *
-       * @param beanName bean名称
-       * @return
-       */
-      public Object getBean(String beanName) {
-          //从bean缓存中取
-          Object bean = beanRegister.getSingletonBean(beanName);
-          if (bean != null) {
-              return bean;
-          }
-          //根据bean定义，创建bean
-          return createBean(beanDefinitionMap.get(beanName));
-      }
-
-      /**
-       * 创建Bean
-       *
-       * @param beanDefinition bean定义
-       * @return
-       */
-      private Object createBean(BeanDefinition beanDefinition) {
-          try {
-              Object bean = beanDefinition.getBeanClass().newInstance();
-              //缓存bean
-              beanRegister.registerSingletonBean(beanDefinition.getBeanName(), bean);
-              return bean;
-          } catch (InstantiationException | IllegalAccessException e) {
-              e.printStackTrace();
-          }
-          return null;
-      }
-  }
-  ```
-
-- 测试
-
-  - UserDao.java
-
-    我们的 Bean 类，很简单
-
-    ```java
-    public class UserDao {
-
-        public void queryUserInfo(){
-            System.out.println("A good man.");
+```java
+public class SimpleIoC {
+    // Bean容器
+    private Map<Class<?>, Object> beans = new HashMap<>();
+    
+    /**
+     * 注册Bean
+     */
+    public void registerBean(Class<?> clazz) {
+        try {
+            // 创建实例
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+            beans.put(clazz, instance);
+        } catch (Exception e) {
+            throw new RuntimeException("创建Bean失败: " + clazz.getName(), e);
         }
     }
-    ```
-
-  - 单元测试
-
-    ```java
-    public class ApiTest {
-        @Test
-        public void test_BeanFactory() {
-            //1.创建bean工厂(同时完成了加载资源、创建注册单例bean注册器的操作)
-            BeanFactory beanFactory = new BeanFactory();
-
-            //2.第一次获取bean（通过反射创建bean，缓存bean）
-            UserDao userDao1 = (UserDao) beanFactory.getBean("userDao");
-            userDao1.queryUserInfo();
-
-            //3.第二次获取bean（从缓存中获取bean）
-            UserDao userDao2 = (UserDao) beanFactory.getBean("userDao");
-            userDao2.queryUserInfo();
+    
+    /**
+     * 获取Bean
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T getBean(Class<T> clazz) {
+        return (T) beans.get(clazz);
+    }
+    
+    /**
+     * 依赖注入
+     */
+    public void inject() {
+        for (Object bean : beans.values()) {
+            injectFields(bean);
         }
     }
-    ```
+    
+    /**
+     * 字段注入
+     */
+    private void injectFields(Object bean) {
+        Field[] fields = bean.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            if (field.isAnnotationPresent(Autowired.class)) {
+                try {
+                    field.setAccessible(true);
+                    Object dependency = getBean(field.getType());
+                    field.set(bean, dependency);
+                } catch (Exception e) {
+                    throw new RuntimeException("注入失败: " + field.getName(), e);
+                }
+            }
+        }
+    }
+}
+```
 
-  - 运行结果
+3、使用示例，定义一些 Bean 类，并注册到 IoC 容器中。
 
-    ```java
-    A good man.
-    A good man.
-    ```
+```java
+// DAO层
+@Component
+class UserDao {
+    public void save(String user) {
+        System.out.println("保存用户: " + user);
+    }
+}
 
-至此，我们一个乞丐+破船版的 Spring 就完成了，代码也比较完整，有条件的可以跑一下。
+// Service层
+@Component
+class UserService {
+    @Autowired
+    private UserDao userDao;
+    
+    public void createUser(String name) {
+        userDao.save(name);
+        System.out.println("用户创建完成");
+    }
+}
 
-PS:因为时间+篇幅的限制，这个 demo 比较简陋，没有面向接口、没有解耦、边界检查、异常处理……健壮性、扩展性都有很大的不足，感兴趣可以学习参考[15]。
+// 测试
+public class Test {
+    public static void main(String[] args) {
+        SimpleIoC ioc = new SimpleIoC();
+        
+        // 注册Bean
+        ioc.registerBean(UserDao.class);
+        ioc.registerBean(UserService.class);
+        
+        // 依赖注入
+        ioc.inject();
+        
+        // 使用
+        UserService userService = ioc.getBean(UserService.class);
+        userService.createUser("王二");
+    }
+}
+```
 
-### 7.说说 BeanFactory 和 ApplicantContext?
+4、可以加上组件扫描。
+
+```java
+import java.lang.reflect.Field;
+import java.util.*;
+
+public class SimpleIoC {
+    private Map<Class<?>, Object> beans = new HashMap<>();
+    
+    /**
+     * 扫描并注册组件
+     */
+    public void scan(String packageName) {
+        // 简化版：手动添加需要扫描的类
+        List<Class<?>> classes = getClassesInPackage(packageName);
+        
+        for (Class<?> clazz : classes) {
+            if (clazz.isAnnotationPresent(Component.class)) {
+                registerBean(clazz);
+            }
+        }
+        
+        // 依赖注入
+        inject();
+    }
+    
+    /**
+     * 获取包下的类（简化实现）
+     */
+    private List<Class<?>> getClassesInPackage(String packageName) {
+        // 面试时可以说："实际实现需要扫描classpath，这里简化处理"
+        return Arrays.asList(UserDao.class, UserService.class);
+    }
+    
+    private void registerBean(Class<?> clazz) {
+        try {
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+            beans.put(clazz, instance);
+        } catch (Exception e) {
+            throw new RuntimeException("创建Bean失败", e);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    public <T> T getBean(Class<T> clazz) {
+        return (T) beans.get(clazz);
+    }
+    
+    private void inject() {
+        for (Object bean : beans.values()) {
+            Field[] fields = bean.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                if (field.isAnnotationPresent(Autowired.class)) {
+                    try {
+                        field.setAccessible(true);
+                        Object dependency = getBean(field.getType());
+                        field.set(bean, dependency);
+                    } catch (Exception e) {
+                        throw new RuntimeException("注入失败", e);
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+IoC 容器的核心是管理对象和依赖注入，首先定义注解，然后实现容器的三个核心方法：注册Bean、获取Bean、依赖注入；关键是用反射创建对象和注入依赖。
+
+memo：2025 年 6 月 23 日修改至此，今天[有球友发喜报说拿到了京东的社招 offer](https://javabetter.cn/zhishixingqiu/)，这真的要恭喜他，也希望所有看到这里的小伙伴都能有一个好的结果。
+
+![球友拿到京东社招 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250623105438.png)
+
+### 8.说说 BeanFactory 和 ApplicantContext?
 
 可以这么比喻，BeanFactory 是 Spring 的“心脏”，而 ApplicantContext 是 Spring 的完整“身躯”。
 
