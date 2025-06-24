@@ -182,6 +182,22 @@ export default hopeTheme({
       // sandpack: true,
     },
 
+    notice: [
+      {
+        path: "/",
+        title: "二哥的编程星球",
+        content: "这是一个编程学习指南 + Java 项目实战 + LeetCode 刷题 + 简历精修的私密圈子，已有 8600 名球友加入",
+        actions: [
+          {
+            text: "这就去加入",
+            link: "https://javabetter.cn/zhishixingqiu/",
+            type: "primary",
+          },
+          { text: "简历精修", link: "https://javabetter.cn/zhishixingqiu/jianli.html" },
+        ],
+      },
+    ],
+
     docsearch: {
       appId: "O566AMFNJH",
       apiKey: "d9aebea8bd1a4f1e01201464bbab255f",
