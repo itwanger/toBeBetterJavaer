@@ -805,163 +805,164 @@ memo：2025 年 6 月 23 日修改至此，今天[有球友发喜报说拿到了
 
 ![球友拿到京东社招 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250623105438.png)
 
-### 8.说说 BeanFactory 和 ApplicantContext?
+### 8.说说BeanFactory和ApplicantContext?
 
-可以这么比喻，BeanFactory 是 Spring 的“心脏”，而 ApplicantContext 是 Spring 的完整“身躯”。
-
-- BeanFactory 主要负责配置、创建和管理 bean，为 Spring 提供了基本的依赖注入（DI）支持。
-- ApplicationContext 是 BeanFactory 的子接口，在 BeanFactory 的基础上添加了企业级的功能支持。
+BeanFactory 算是 Spring 的“心脏”，而 ApplicantContext 可以说是 Spring 的完整“身躯”。
 
 ![三分恶面渣逆袭：BeanFactory和ApplicantContext](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-66328446-f89f-4b7a-8d9f-0e1145dd9b2f.png)
 
-#### 详细说说 BeanFactory
-
-BeanFactory 位于整个 Spring IoC 容器的顶端，ApplicationContext 算是 BeanFactory 的子接口。
+BeanFactory 提供了最基本的 IoC 能力。它就像是一个 Bean 工厂，负责 Bean 的创建和管理。他采用的是懒加载的方式，也就是说只有当我们真正去获取某个 Bean 的时候，它才会去创建这个 Bean。
 
 ![三分恶面渣逆袭：Spring5 BeanFactory继承体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-6e6d4b69-f36c-41e6-b8ba-9277be147c9b.png)
 
-它最主要的方法就是 `getBean()`，这个方法负责从容器中返回特定名称或者类型的 Bean 实例。
-
-来看一个 XMLBeanFactory（已过时） 获取 bean 的例子：
+它最主要的方法就是 `getBean()`，负责从容器中返回特定名称或者类型的 Bean 实例。
 
 ```java
-class HelloWorldApp{
-   public static void main(String[] args) {
-      BeanFactory factory = new XmlBeanFactory (new ClassPathResource("beans.xml"));
-      HelloWorld obj = (HelloWorld) factory.getBean("itwanger");
-      obj.getMessage();
-   }
+public class BeanFactoryExample {
+    public static void main(String[] args) {
+        // 创建 BeanFactory
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        
+        // 手动注册 Bean 定义
+        BeanDefinition beanDefinition = new RootBeanDefinition(UserService.class);
+        beanFactory.registerBeanDefinition("userService", beanDefinition);
+        
+        // 懒加载：此时才创建 Bean 实例
+        UserService userService = beanFactory.getBean("userService", UserService.class);
+    }
 }
 ```
 
-#### 请详细说说 ApplicationContext
-
-ApplicationContext 继承了 HierachicalBeanFactory 和 ListableBeanFactory 接口，算是 BeanFactory 的自动挡版本，是 Spring 应用的默认方式。
+ApplicationContext 是 BeanFactory 的子接口，在 BeanFactory 的基础上扩展了很多企业级的功能。它不仅包含了 BeanFactory 的所有功能，还提供了国际化支持、事件发布机制、AOP、JDBC、ORM 框架集成等等。
 
 ![三分恶面渣逆袭：Spring5 ApplicationContext部分体系类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-e201c9a3-f23c-4768-b844-ac7e0ba4bcec.png)
 
-ApplicationContext 会在启动时预先创建和配置所有的单例 bean，并支持如 JDBC、ORM 框架的集成，内置面向切面编程（AOP）的支持，可以配置声明式事务管理等。
-
-这是 ApplicationContext 的使用例子：
-
-```java
-class MainApp {
-    public static void main(String[] args) {
-        // 使用 AppConfig 配置类初始化 ApplicationContext
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-
-        // 从 ApplicationContext 获取 messageService 的 bean
-        MessageService service = context.getBean(MessageService.class);
-
-        // 使用 bean
-        service.printMessage();
-    }
-}
-```
-
-通过 AnnotationConfigApplicationContext 类，我们可以使用 Java 配置类来初始化 ApplicationContext，这样就可以使用 Java 代码来配置 Spring 容器。
+ApplicationContext 采用的是饿加载的方式，容器启动的时候就会把所有的单例 Bean 都创建好，虽然这样会导致启动时间长一点，但运行时性能更好。
 
 ```java
 @Configuration
-@ComponentScan(basePackages = "com.github.paicoding.forum.test.javabetter.spring1") // 替换为你的包名
 public class AppConfig {
+    @Bean
+    public UserService userService() {
+        return new UserService();
+    }
+}
+
+public class ApplicationContextExample {
+    public static void main(String[] args) {
+        // 创建 ApplicationContext，启动时就创建所有 Bean
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        
+        // 获取 Bean
+        UserService userService = context.getBean(UserService.class);
+        
+        // 发布事件
+        context.publishEvent(new CustomEvent("Hello World"));
+    }
 }
 ```
+
+从使用场景来说，实际开发中用得最多的是 ApplicationContext。像 AnnotationConfigApplicationContext、WebApplicationContext 这些都是 ApplicationContext 的实现类。
+
+另外一个重要的区别是生命周期管理。ApplicationContext 会自动调用 Bean 的初始化和销毁方法，而 BeanFactory 需要我们手动管理。
+
+在 Spring Boot 项目中，我们可以通过 `@Autowired` 注入 ApplicationContext，或者通过实现 ApplicationContextAware 接口来获取 ApplicationContext。
+
+![技术派源码：获取ApplicationContext](https://cdn.tobebetterjavaer.com/stutymore/spring-20250625111259.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：BeanFactory和ApplicationContext
 
-### 8.你知道 Spring 容器启动阶段会干什么吗？
+memo：2025 年 6 月 25 日修改至此，今天给一个华科本硕研 0 的[球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)后，发来这样的感慨，要是早点知道你的[网站](https://javabetter.cn/home.html)和[星球](https://javabetter.cn/zhishixingqiu/)就好了，[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)不比外卖强多了？再次感谢二哥。
 
-Spring 的 IoC 容器工作的过程，其实可以划分为两个阶段：**容器启动阶段**和**Bean 实例化阶段**。
+![球友对星球相见恨晚](https://cdn.tobebetterjavaer.com/stutymore/spring-20250625111617.png)
 
-其中容器启动阶段主要做的工作是加载和解析配置文件，保存到对应的 Bean 定义中。
+### 8.项目启动时Spring的IoC会做什么？
 
-![容器启动和Bean实例化阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-8f8103f7-2a51-4858-856e-96a4ac400d76.png)
+第一件事是扫描和注册 Bean。IoC 容器会根据我们的配置，比如 `@ComponentScan` 指定的包路径，去扫描所有标注了 `@Component`、`@Service`、`@Controller` 这些注解的类。然后把这些类的元信息包装成 BeanDefinition 对象，注册到容器的 BeanDefinitionRegistry 中。这个阶段只是收集信息，还没有真正创建对象。
 
-容器启动开始，首先会通过某种途径加载 Configuration MetaData，在大部分情况下，容器需要依赖某些工具类（BeanDefinitionReader）对加载的 Configuration MetaData 进行解析和分析，并将分析后的信息组为相应的 BeanDefinition。
+![pdai.tech：IoC](https://cdn.tobebetterjavaer.com/stutymore/spring-20250627101759.png)
 
-![xml配置信息映射注册过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-dfb3d8c4-ba8d-4a2c-aef2-4ad425f7180c.png)
+第二件事是 Bean 的实例化和注入。这是最核心的过程，IoC 容器会按照依赖关系的顺序开始创建 Bean 实例。对于单例 Bean，容器会通过反射调用构造方法创建实例，然后进行属性注入，最后执行初始化回调方法。
 
-最后把这些保存了 Bean 定义必要信息的 BeanDefinition，注册到相应的 BeanDefinitionRegistry，这样容器启动就完成了。
+![Tom弹架构：Bean 的实例化和注入](https://cdn.tobebetterjavaer.com/stutymore/spring-20250627102651.png)
 
-#### 说说 Spring 的 Bean 实例化方式
+在依赖注入时，容器会根据 `@Autowired`、`@Resource` 这些注解，把相应的依赖对象注入到目标 Bean 中。比如 UserService 需要 UserDao，容器就会把 UserDao 的实例注入到 UserService 中。
 
-Spring 提供了 4 种不同的方式来实例化 Bean，以满足不同场景下的需求。
+#### 说说Spring的Bean实例化方式？
 
-#### 说说构造方法的方式
+Spring 提供了 4 种方式来实例化 Bean，以满足不同场景下的需求。
 
-在类上使用@Component（或@Service、@Repository 等特定于场景的注解）标注类，然后通过构造方法注入依赖。
+第一种是通过构造方法实例化，这是最常用的方式。当我们用 `@Component`、`@Service` 这些注解标注类的时候，Spring 默认通过无参构造器来创建实例的。如果类只有一个有参构造方法，Spring 会自动进行构造方法注入。
+
+```java
+@Service
+public class UserService {
+    private UserDao userDao;
+    
+    public UserService(UserDao userDao) {  // 构造方法注入
+        this.userDao = userDao;
+    }
+}
+```
+
+第二种是通过静态工厂方法实例化。有时候对象的创建比较复杂，我们会写一个静态工厂方法来创建，然后用 `@Bean` 注解来标注这个方法。Spring 会调用这个静态方法来获取 Bean 实例。
+
+```java
+@Configuration
+public class AppConfig {
+    @Bean
+    public static DataSource createDataSource() {
+        // 复杂的DataSource创建逻辑
+        return new HikariDataSource();
+    }
+}
+```
+
+第三种是通过实例工厂方法实例化。这种方式是先创建工厂对象，然后通过工厂对象的方法来创建Bean：
+
+```java
+@Configuration
+public class AppConfig {
+    @Bean
+    public ConnectionFactory connectionFactory() {
+        return new ConnectionFactory();
+    }
+    
+    @Bean
+    public Connection createConnection(ConnectionFactory factory) {
+        return factory.createConnection();
+    }
+}
+```
+
+第四种是通过 FactoryBean 接口实例化。这是 Spring 提供的一个特殊接口，当我们需要创建复杂对象的时候特别有用：
 
 ```java
 @Component
-public class ExampleBean {
-    private DependencyBean dependency;
-
-    @Autowired
-    public ExampleBean(DependencyBean dependency) {
-        this.dependency = dependency;
-    }
-}
-```
-
-#### 说说静态工厂的方式
-
-在这种方式中，Bean 是由一个静态方法创建的，而不是直接通过构造方法。
-
-```java
-public class ClientService {
-    private static ClientService clientService = new ClientService();
-
-    private ClientService() {}
-
-    public static ClientService createInstance() {
-        return clientService;
-    }
-}
-```
-
-#### 说说实例工厂方法实例化的方式
-
-与静态工厂方法相比，实例工厂方法依赖于某个类的实例来创建 Bean。这通常用在需要通过工厂对象的非静态方法来创建 Bean 的场景。
-
-```java
-public class ServiceLocator {
-    public ClientService createClientServiceInstance() {
-        return new ClientService();
-    }
-}
-```
-
-#### 说说 FactoryBean 接口实例化方式
-
-FactoryBean 是一个特殊的 Bean 类型，可以在 Spring 容器中返回其他对象的实例。通过实现 FactoryBean 接口，可以自定义实例化逻辑，这对于构建复杂的初始化逻辑非常有用。
-
-```java
-public class ToolFactoryBean implements FactoryBean<Tool> {
-    private int factoryId;
-    private int toolId;
-
+public class MyFactoryBean implements FactoryBean<MyObject> {
     @Override
-    public Tool getObject() throws Exception {
-        return new Tool(toolId);
+    public MyObject getObject() throws Exception {
+        // 复杂的对象创建逻辑
+        return new MyObject();
     }
-
+    
     @Override
     public Class<?> getObjectType() {
-        return Tool.class;
+        return MyObject.class;
     }
-
-    @Override
-    public boolean isSingleton() {
-        return true;
-    }
-
-    // setter and getter methods for factoryId and toolId
 }
 ```
+
+在实际工作中，用得最多的还是构造方法实例化，因为简单直接。工厂方法一般用在需要复杂初始化逻辑的场景，比如数据库连接池、消息队列连接这些。FactoryBean 主要是在框架开发或者需要动态创建对象的时候使用。
+
+Spring 在实例化的时候会根据 Bean 的定义自动选择合适的方式，我们作为开发者主要是通过注解和配置来告诉 Spring 应该怎么创建对象。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 Spring 的 Bean 实例化方式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：bean加工有哪些方法？
+
+memo：2025 年 6 月 27 日修改至此，今天看到[有球友发的 offer 选择提问贴](https://javabetter.cn/zhishixingqiu/)，其中一个是杭州六小龙群核科技，我个人认为还是非常值得去的，毕竟是杭州的独角兽公司，薪资待遇都不错。
+
+![球友拿到了杭州群核科技的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250627103801.png)
 
 ### 9.你是怎么理解 Bean 的？
 
