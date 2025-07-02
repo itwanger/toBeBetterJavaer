@@ -1049,7 +1049,7 @@ memo：2025 年 6 月 28 日修改至此，今天在帮球友[修改简历](http
 
 ![杭州电子科技大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-计算机科学与技术.png)
 
-### 10.🌟能说一下Bean的生命周期吗？
+### 11.🌟能说一下Bean的生命周期吗？
 
 推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
 
@@ -1220,7 +1220,7 @@ memo：2025 年 6 月 30 日修改至此。昨天有[读者发消息说有三个
 
 ![读者拿到中科大读博、中海油、商飞北研](https://cdn.tobebetterjavaer.com/stutymore/spring-20250630101647.png)
 
-### 11.为什么IDEA不推荐使用@Autowired注解注入Bean？
+### 12.为什么IDEA不推荐使用@Autowired注解注入Bean？
 
 前情提要：当使用 `@Autowired` 注解注入 Bean 时，IDEA 会提示“Field injection is not recommended”。
 
@@ -1316,7 +1316,7 @@ memo：2025 年 7 月 1 日修改至此，今天在[帮球友修改简历](https
 
 ![郑州大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250701154344.png)
 
-### 12.什么是自动装配？
+### 13.什么是自动装配？
 
 自动装配的本质就是让 Spring 容器自动帮我们完成 Bean 之间的依赖关系注入，而不需要我们手动去指定每个依赖。简单来说，就是“我们不用告诉 Spring 具体怎么注入，Spring 自己会想办法找到合适的 Bean 注入进来”。
 
@@ -1363,7 +1363,7 @@ memo：2025 年 7 月 2 日修改至此，今天在[帮球友修改简历](https
 
 ![北航球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101812.png)
 
-### 13.Bean 的作用域有哪些?
+### 14.Bean 的作用域有哪些?
 
 在 Spring 中，Bean 默认是单例的，即在整个 Spring 容器中，每个 Bean 只有一个实例。
 
