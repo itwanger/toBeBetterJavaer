@@ -1363,115 +1363,253 @@ memo：2025 年 7 月 2 日修改至此，今天在[帮球友修改简历](https
 
 ![北航球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101812.png)
 
-### 14.Bean 的作用域有哪些?
+### 14.Bean的作用域有哪些?
 
-在 Spring 中，Bean 默认是单例的，即在整个 Spring 容器中，每个 Bean 只有一个实例。
-
-可以通过在配置中指定 scope 属性，将 Bean 改为多例（Prototype）模式，这样每次获取的都是新的实例。
+Bean 的作用域决定了 Bean 实例的生命周期和创建策略，singleton 是默认的作用域。整个 Spring 容器中只会有一个 Bean 实例。不管在多少个地方注入这个 Bean，拿到的都是同一个对象。
 
 ```java
-@Bean
-@Scope("prototype")  // 每次获取都是新的实例
-public MyBean myBean() {
-    return new MyBean();
+@Component  // 默认就是singleton
+public class UserService {
+    // 整个应用中只有一个UserService实例
 }
 ```
 
-除了单例和多例，Spring 还支持其他作用域，如请求作用域（Request）、会话作用域（Session）等，适合 Web 应用中特定的使用场景。
+生命周期和 Spring 容器相同，容器启动时创建，容器销毁时销毁。
 
-![三分恶面渣逆袭：Spring Bean支持作用域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-08a9cb31-5a4f-4224-94cd-0c0f643a57ea.png)
+实际开发中，像 Service、Dao 这些业务组件基本都是单例的，因为单例既能节省内存，又能提高性能。
 
-- **request**：每一次 HTTP 请求都会产生一个新的 Bean，该 Bean 仅在当前 HTTP Request 内有效。
-- **session**：同一个 Session 共享一个 Bean，不同的 Session 使用不同的 Bean。
-- **globalSession**：同一个全局 Session 共享一个 Bean，只用于基于 Protlet 的 Web 应用，Spring5 中已经移除。
-
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean是单例还是多例的，具体怎么修改
-
-### 14.Spring 中的单例 Bean 会存在线程安全问题吗？
-
-Spring Bean 的默认作用域是单例（Singleton），这意味着 Spring 容器中只会存在一个 Bean 实例，并且该实例会被多个线程共享。
-
-如果单例 Bean 是无状态的，也就是没有成员变量，那么这个单例 Bean 是线程安全的。比如 Spring MVC 中的 Controller、Service、Dao 等，基本上都是无状态的。
-
-但如果 Bean 的内部状态是可变的，且没有进行适当的同步处理，就可能出现线程安全问题。
-
-![三分恶面渣逆袭：Spring单例Bean线程安全问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-35dacef4-1a9e-45e1-b3f2-5a91227eb244.png)
-
-#### 单例 Bean 线程安全问题怎么解决呢？
-
-第一，使用局部变量。局部变量是线程安全的，因为每个线程都有自己的局部变量副本。尽量使用局部变量而不是共享的成员变量。
-
-```java
-public class MyService {
-    public void process() {
-        int localVar = 0;
-        // 使用局部变量进行操作
-    }
-}
-```
-
-第二，尽量使用无状态的 Bean，即不在 Bean 中保存任何可变的状态信息。
-
-```java
-public class MyStatelessService {
-    public void process() {
-        // 无状态处理
-    }
-}
-```
-
-第三，同步访问。如果 Bean 中确实需要保存可变状态，可以通过 [synchronized 关键字](https://javabetter.cn/thread/synchronized-1.html)或者 [Lock 接口](https://javabetter.cn/thread/reentrantLock.html)来保证线程安全。
-
-```java
-public class MyService {
-    private int sharedVar;
-
-    public synchronized void increment() {
-        sharedVar++;
-    }
-}
-```
-
-或者将 Bean 中的成员变量保存到 ThreadLocal 中，[ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 可以保证多线程环境下变量的隔离。
-
-```java
-public class MyService {
-    private ThreadLocal<Integer> localVar = ThreadLocal.withInitial(() -> 0);
-
-    public void process() {
-        localVar.set(localVar.get() + 1);
-    }
-}
-```
-
-再或者使用线程安全的工具类，比如说 [AtomicInteger](https://javabetter.cn/thread/atomic.html)、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)、[CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html) 等。
-
-```java
-public class MyService {
-    private ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
-
-    public void putValue(String key, String value) {
-        map.put(key, value);
-    }
-}
-```
-
-第四，将 Bean 定义为原型作用域（Prototype）。原型作用域的 Bean 每次请求都会创建一个新的实例，因此不存在线程安全问题。
+当把 scope 设置为 prototype 时，每次从容器中获取 Bean 的时候都会创建一个新的实例。
 
 ```java
 @Component
 @Scope("prototype")
-public class MyService {
-    // 实例变量
+public class OrderProcessor {
+    // 每次注入或获取都是新的实例
 }
 ```
 
+当需要处理一些有状态的 Bean 时会用到 prototype，比如每个订单处理器需要维护不同的状态信息。
+
+需要注意的是，在 singleton Bean 中注入 prototype Bean 时要小心，因为 singleton Bean 只创建一次，所以 prototype Bean 也只会注入一次。这时候可以用 `@Lookup` 注解或者 ApplicationContext 来动态获取。
+
+```java
+@Component
+public class SingletonService {
+    // 错误的做法，prototypeBean只会注入一次
+    @Autowired
+    private PrototypeBean prototypeBean;
+    
+    // 正确的做法，每次调用都获取新实例
+    @Lookup
+    public PrototypeBean getPrototypeBean() {
+        return null;  // Spring会重写这个方法
+    }
+}
+```
+
+除了 singleton 和 prototype，Spring 还支持其他作用域，比如 request、session、application 和 websocket。
+
+![三分恶面渣逆袭：Spring Bean支持作用域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-08a9cb31-5a4f-4224-94cd-0c0f643a57ea.png)
+
+如果作用于是 request，表示在 Web 应用中，每个 HTTP 请求都会创建一个新的 Bean 实例，请求结束后 Bean 就被销毁。
+
+```java
+@Component
+@Scope("request")
+public class RequestContext {
+    // 每个HTTP请求都有自己的实例
+}
+```
+
+如果作用于是 session，表示在 Web 应用中，每个 HTTP 会话都会创建一个新的 Bean 实例，会话结束后 Bean 被销毁。
+
+```java
+@Component
+@Scope("session")
+public class UserSession {
+    // 每个用户会话都有自己的实例
+}
+```
+
+典型的使用场景是购物车、用户登录状态这些需要在整个会话期间保持的信息。
+
+application 作用域表示在整个应用中只有一个 Bean 实例，类似于 singleton，但它的生命周期与 ServletContext 绑定。
+
+```java
+@Component
+@Scope("application")
+public class AppConfig {
+    // 整个应用中只有一个实例
+}
+```
+
+websocket 作用域表示在 WebSocket 会话中每个连接都有自己的 Bean 实例。WebSocket 连接建立时创建，连接关闭时销毁。
+
+```java
+@Component
+@Scope("websocket")
+public class WebSocketHandler {
+    // 每个WebSocket连接都有自己的实例
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean是单例还是多例的，具体怎么修改
+
+memo：2025 年 7 月 3 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个郑州大学硕，河北师范大学本的球友，整体在校的经历非常出色，奖学金、论文期刊基本上都拉满了。那这么多优秀的球友选择来到这里，也是对星球的又一次认可和肯定，我也一定会继续努力，提供更多优质的内容和服务。
+
+![郑州大学硕，河北师范大学本的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250704144758.png)
+
+### 15.Spring中的单例Bean会存在线程安全问题吗？
+
+首先要明确一点。Spring 容器本身保证了 Bean 创建过程的线程安全，也就是说不会出现多个线程同时创建同一个单例 Bean 的情况。但是 Bean 创建完成后的使用过程，Spring 就不管了。
+
+换句话说，单例 Bean 在被创建后，如果它的内部状态是可变的，那么在多线程环境下就可能会出现线程安全问题。
+
+![三分恶面渣逆袭：Spring单例Bean线程安全问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-35dacef4-1a9e-45e1-b3f2-5a91227eb244.png)
+
+比如说在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，有一个敏感词过滤的 Bean，我们就需要使用 volatile 关键字来保证多线程环境下的可见性。
+
+```java
+@Service
+public class SensitiveService {
+    private volatile SensitiveWordBs sensitiveWordBs; // 使用volatile保证可见性
+    
+    @PostConstruct
+    public void refresh() {
+        // 重新初始化sensitiveWordBs
+    }
+}
+```
+
+如果 Bean 中没有成员变量，或者成员变量都是不可变的，final 修饰的，那么就不存在线程安全问题。
+
+```java
+@Service
+public class UserServiceImpl implements UserService {
+    @Resource
+    private UserDao userDao;
+    @Autowired
+    private CountService countService;
+    // 只有依赖注入的无状态字段
+}
+
+@Service
+public class ConfigService {
+    private final String appName;  // final修饰，不可变
+    
+    public ConfigService(@Value("${app.name}") String appName) {
+        this.appName = appName;
+    }
+}
+```
+
+#### 单例Bean的线程安全问题怎么解决呢？
+
+第一种，使用局部变量，也就是使用无状态的单例 Bean，把所有状态都通过方法参数传递：
+
+```java
+@Service
+public class UserService {
+    @Autowired
+    private UserDao userDao;
+    
+    // 无状态方法，所有数据通过参数传递
+    public User processUser(Long userId, String operation) {
+        User user = userDao.findById(userId);
+        // 处理逻辑...
+        return user;
+    }
+}
+```
+
+第二种，当确实需要维护线程相关的状态时，可以使用 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 来保存状态。ThreadLocal 可以保证每个线程都有自己的变量副本，互不干扰。
+
+```java
+@Service
+public class UserContextService {
+    private static final ThreadLocal<User> userThreadLocal = new ThreadLocal<>();
+    
+    public void setCurrentUser(User user) {
+        userThreadLocal.set(user);
+    }
+    
+    public User getCurrentUser() {
+        return userThreadLocal.get();
+    }
+    
+    public void clear() {
+        userThreadLocal.remove(); // 防止内存泄漏
+    }
+}
+```
+
+第三种，如果需要缓存数据或者计数，使用 JUC 包下的线程安全类，比如说 [AtomicInteger](https://javabetter.cn/thread/atomic.html)、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)、[CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html) 等。
+
+```java
+@Service
+public class CacheService {
+    // 使用线程安全的集合
+    private final ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();
+    private final AtomicLong counter = new AtomicLong(0);
+    
+    public void put(String key, Object value) {
+        cache.put(key, value);
+        counter.incrementAndGet();
+    }
+}
+```
+
+第四种，对于复杂的状态操作，可以使用 synchronized 或 Lock：
+
+```java
+@Service
+public class CacheService {
+    private final Map<String, Object> cache = new HashMap<>();
+    private final ReentrantLock lock = new ReentrantLock();
+    
+    public void put(String key, Object value) {
+        lock.lock();
+        try {
+            cache.put(key, value);
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+第五种，如果 Bean 确实需要维护状态，可以考虑将其改为 prototype 作用域，这样每次注入都会创建一个新的实例，避免了多线程共享同一个实例的问题。
+
+```java
+@Service
+@Scope("prototype") // 每次注入都创建新实例
+public class StatefulService {
+    private String state; // 现在每个实例都有独立状态
+    
+    public void setState(String state) {
+        this.state = state;
+    }
+}
+```
+
+或者使用 request 作用域，这样每个 HTTP 请求都会创建一个新的实例。
+
+```java
+@Service
+@Scope("request")
+public class RequestScopedService {
+    private String requestData;
+    // 每个请求都有独立的实例
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：spring的bean的并发安全问题
 
+memo：2025 年 7 月 4 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个武汉理工大学本硕的球友。说真的，和武汉理工大学挺有缘的，2023 年去武汉，就线下见了一名武理的球友，[他当时签约的是小米](https://t.zsxq.com/LfG3B)，非常优秀。
 
-### 15.说说循环依赖?
+![武汉理工大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-2023.09-2026.06.png)
+
+### 16.说说循环依赖?
 
 A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
 
@@ -1558,7 +1696,7 @@ public class DemoApplication {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 
 
-### 16.Spring 怎么解决循环依赖呢？
+### 17.🌟Spring 怎么解决循环依赖呢？
 
 Spring 通过三级缓存机制来解决循环依赖：
 
@@ -1604,7 +1742,7 @@ A 实例的初始化过程：
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Spring源码看过吗？Spring的三级缓存知道吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：spring三级缓存解决循环依赖问题
 
-### 17.为什么要三级缓存？⼆级不⾏吗？
+### 18.为什么要三级缓存？⼆级不⾏吗？
 
 不行，主要是为了 **⽣成代理对象**。如果是没有代理的情况下，使用二级缓存解决循环依赖也是 OK 的。但是如果存在代理，三级没有问题，二级就不行了。
 
@@ -1620,7 +1758,7 @@ A 实例的初始化过程：
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：循环依赖有了解过吗？出现循环依赖的原因？三大缓存存储内容的区别？如何解决循环依赖？如果缺少第二级缓存会有什么问题？
 
-### 18.@Autowired 的实现原理？
+### 19.@Autowired 的实现原理？
 
 实现@Autowired 的关键是：**AutowiredAnnotationBeanPostProcessor**
 
@@ -1691,7 +1829,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## AOP
 
-### 19.说说什么是 AOP？
+### 20.🌟说说什么是 AOP？
 
 AOP，也就是面向切面编程，简单点说，AOP 就是把一些业务逻辑中的相同代码抽取到一个独立的模块中，让业务逻辑更加清爽。
 
@@ -1850,7 +1988,7 @@ AOP 和 OOP 是互补的编程思想：
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Spring AOP发生在什么时候
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：Spring AOP的概念了解吗？AOP和 OOP 的关系？
 
-### 20.AOP的使用场景有哪些？
+### 21.🌟AOP的使用场景有哪些？
 
 AOP 的使用场景有很多，比如说日志记录、事务管理、权限控制、性能监控等。
 
@@ -1891,7 +2029,7 @@ public @interface MdcDot {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：AOP的使用场景有哪些？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：项目中的AOP是怎么用到的
 
-### 21.说说 JDK 动态代理和 CGLIB 代理？
+### 22.🌟说说 JDK 动态代理和 CGLIB 代理？
 
 AOP 是通过[动态代理](https://mp.weixin.qq.com/s/aZtfwik0weJN5JzYc-JxYg)实现的，代理方式有两种：JDK 动态代理和 CGLIB 代理。
 
@@ -2143,7 +2281,7 @@ public class Client {
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Spring AOP的实现原理？JDK动态代理和CGLib动态代理的各自实现及其区别？现在需要统计方法的具体执行时间，说下如何使用AOP来实现？
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：了解AOP底层是怎么做的吗？
 
-### 22.说说 Spring AOP 和 AspectJ AOP 区别?
+### 23.说说 Spring AOP 和 AspectJ AOP 区别?
 
 Spring AOP 属于`运行时增强`，主要具有如下特点：
 
@@ -2169,7 +2307,7 @@ AspectJ 属于**静态织入**，通过修改代码来实现，在实际运行�
 
 ![Spring AOP和AspectJ对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d1dbe9d9-c55f-4293-8622-d9759064d613.png)
 
-### 40.说说 AOP 和反射的区别？（补充）
+### 24.说说 AOP 和反射的区别？（补充）
 
 >2024 年 7 月 27 日增补。
 
@@ -2188,7 +2326,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 Spring 事务的本质其实就是数据库对事务的支持，没有数据库的事务支持，Spring 是无法提供事务功能的。Spring 只提供统一事务管理接口，具体实现都是由各数据库自己实现，数据库事务的提交和回滚是通过数据库自己的事务机制实现。
 
-### 23.Spring 事务的种类？
+### 25.🌟Spring 事务的种类？
 
 在 Spring 中，事务管理可以分为两大类：声明式事务管理和编程式事务管理。
 
@@ -2257,7 +2395,7 @@ public class AccountService {
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：spring事务
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：如何使用spring实现事务
 
-### 24.说说 Spring 的事务隔离级别？
+### 26.说说 Spring 的事务隔离级别？
 
 好，事务的隔离级别定义了一个事务可能受其他并发事务影响的程度。SQL 标准定义了四个隔离级别，Spring 都支持，并且提供了对应的机制来配置它们，定义在 TransactionDefinition 接口中。
 
@@ -2276,7 +2414,7 @@ public class AccountService {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：Spring 中的事务的隔离级别，事务的传播行为？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 E 第二个部门 Java 后端技术一面面试原题：spring 的隔离机制，默认是哪一种
 
-### 25.Spring 的事务传播机制？
+### 27.🌟Spring 的事务传播机制？
 
 事务的传播机制定义了方法在被另一个事务方法调用时的事务行为，这些行为定义了事务的边界和事务上下文如何在方法调用链中传播。
 
@@ -2311,7 +2449,7 @@ Spring 默认的事务传播行为是 PROPAFATION_REQUIRED，即如果多个 `Se
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的oppo 面经同学 8 后端开发秋招一面面试原题：讲一下Spring事务传播机制
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：介绍事务传播模型
 
-### 26.声明式事务实现原理了解吗？
+### 28.声明式事务实现原理了解吗？
 
 Spring 的声明式事务管理是通过 AOP（面向切面编程）和代理机制实现的。
 
@@ -2333,7 +2471,7 @@ Spring 容器在初始化单例 Bean 的时候，会遍历所有的 BeanPostProc
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Spring 事务怎么实现的
 
-### 27.声明式事务在哪些情况下会失效？
+### 29.声明式事务在哪些情况下会失效？
 
 ![三分恶面渣逆袭：声明式事务的几种失效的情况](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-381e4ec9-a235-4cfa-9b4d-518095a7502a.png)
 
@@ -2449,7 +2587,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## MVC
 
-### 28.Spring MVC 的核心组件？
+### 30.Spring MVC 的核心组件？
 
 1.  **DispatcherServlet**：前置控制器，是整个流程控制的**核心**，控制其他组件的执行，进行统一调度，降低组件之间的耦合性，相当于总指挥。
 2.  **Handler**：处理器，完成具体的业务逻辑，相当于 Servlet 或 Action。
@@ -2460,7 +2598,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 7.  **ModelAndView**：装载了模型数据和视图信息，作为 Handler 的处理结果，返回给 DispatcherServlet。
 8.  **ViewResolver**：视图解析器，DispatcheServlet 通过它将逻辑视图解析为物理视图，最终将渲染结果响应给客户端。
 
-### 29.Spring MVC 的工作流程？
+### 31.🌟Spring MVC 的工作流程？
 
 首先，客户端发送请求，DispatcherServlet 拦截并通过 HandlerMapping 找到对应的控制器。
 
@@ -2510,7 +2648,7 @@ HandlerAdapter 的主要职责就是调用 Handler 的方法来处理请求，�
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：SpringMVC框架 
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：springmvc执行流程
 
-### 30.SpringMVC Restful 风格的接口的流程是什么样的呢？
+### 32.SpringMVC Restful 风格的接口的流程是什么样的呢？
 
 PS:这是一道全新的八股，毕竟 ModelAndView 这种方式应该没人用了吧？现在都是前后端分离接口，八股也该更新换代了。
 
@@ -2554,7 +2692,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## Spring Boot
 
-### 31.介绍一下 SpringBoot，有哪些优点？
+### 33.🌟介绍一下 SpringBoot，有哪些优点？
 
 Spring Boot 提供了一套默认配置，它通过约定大于配置的理念，来帮助我们快速搭建 Spring 项目骨架。
 
@@ -2579,7 +2717,7 @@ Spring Boot 的优点非常多，比如说：
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：springboot常用注解
 
 
-### 32.SpringBoot 自动配置原理了解吗？
+### 34.🌟SpringBoot 自动配置原理了解吗？
 
 在 Spring 中，自动装配是指容器利用反射技术，根据 Bean 的类型、名称等自动注入所需的依赖。
 
@@ -2656,7 +2794,7 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata an
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：SpringBoot如何实现自动装配
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：自动配置怎么实现的？
 
-### 33.如何自定义一个 SpringBoot Srarter?
+### 35.🌟如何自定义一个 SpringBoot Srarter?
 
 创建一个自定义的 Spring Boot Starter，需要这几步：
 
@@ -2770,7 +2908,7 @@ Spring Boot Starter 主要通过起步依赖和自动配置机制来简化项目
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 20 二面面试原题：Spring Boot Starter 的原理了解吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：为什么使用SpringBoot？SpringBoot自动装配的原理及流程？@Import的作用？如果想让SpringBoot对自定义的jar包进行自动配置的话，需要怎么做？
 
-### 34.Spring Boot 启动原理了解吗？
+### 36.🌟Spring Boot 启动原理了解吗？
 
 Spring Boot 的启动由 SpringApplication 类负责：
 
@@ -2904,7 +3042,7 @@ public class QuickForumApplication {
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot启动流程（忘了）
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：springBoot启动机制，启动之后做了哪些步骤
 
-### 36.SpringBoot 和 SpringMVC 的区别？（补充）
+### 37.SpringBoot 和 SpringMVC 的区别？（补充）
 
 > 2024 年 04 月 04 日增补
 
@@ -2934,7 +3072,7 @@ Spring Boot 是 Spring Framework 的一个扩展，提供了一套快速配置�
 
 ## Spring Cloud
 
-### 35.对 SpringCloud 了解多少？
+### 39.对 SpringCloud 了解多少？
 
 Spring Cloud 是一个基于 Spring Boot，提供构建分布式系统和微服务架构的工具集。用于解决分布式系统中的一些常见问题，如配置管理、服务发现、负载均衡等等。
 
@@ -2966,7 +3104,7 @@ Spring Cloud 是一个基于 Spring Boot，提供构建分布式系统和微服�
 
 ## 补充
 
-### 37.SpringTask 了解吗？
+### 40.SpringTask 了解吗？
 
 SpringTask 是 Spring 框架提供的一个轻量级的任务调度框架，它允许我们开发者通过简单的注解来配置和管理定时任务。
 
