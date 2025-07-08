@@ -42,10 +42,9 @@ head:
 
 ![阿里云、荣耀、字节跳动、阿里国际](https://cdn.tobebetterjavaer.com/stutymore/readme-20250703180738.png)
 
-![度小满、专科生、国企](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221211916.png)
+![度小满、专科生、国企](https://cdn.tobebetterjavaer.com/stutymore/readme-20250708090959.png)
 
-
-![华为、小红书、美团](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
+![华为、小红书、美团](https://cdn.tobebetterjavaer.com/stutymore/readme-20250708090936.png)
 
 再补充一些 25 届球友的喜报，他们的成功也是二哥的骄傲（都是手把手辅导过的，能不骄傲嘛🤣）。
 
@@ -364,7 +363,7 @@ admin 端星球白名单：
 
 ![派聪明的需求分析](https://cdn.tobebetterjavaer.com/stutymore/readme-20250704144100.png)
 
-如果你在准备日常实习/暑期实习/秋招/春招/社招的过程中，缺少项目经历，那这两个项目可以说是救命药。可以问问你的直系学长或者学姐，就知道这俩项目有多香了。
+如果你在准备日常实习/暑期实习/秋招/春招/社招的过程中，缺少项目经历，那这两个项目可以说是救命药。可以问问你的直系学长或者学姐，就知道这些项目有多香了。
 
 已经有 8700+位球友加入二哥的编程星球了，所以别再犹豫，价格已经从 99 元一路涨到了 159 元，我真的不希望你等到 179 元的时候再加入。
 
@@ -403,7 +402,7 @@ admin 端星球白名单：
 
 ![Java 面试指南-面试准备篇](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zhishixingqiu/readme-fc80913b-48bd-453d-b7a9-7c84a4a98231.png)
 
-25 届秋招信息表中收集了 4000+ 多家可以投递的公司名单，包括银行、证券、互联网、国企、央企、通信各行各业，极大减轻了大家的信息筛选成本。25 届的秋招信息表也在整理当中。
+25 届秋招信息表中收集了 4000+ 多家可以投递的公司名单，包括银行、证券、互联网、国企、央企、通信各行各业，极大减轻了大家的信息筛选成本。
 
 ![25 届秋招投递名单](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723103351.png)
 

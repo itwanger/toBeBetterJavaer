@@ -108,7 +108,7 @@ private volatile String itwanger = "沉默王二";
 
 memo：2025 年 1 月 22 日修改至此。
 
-### 🌟2.说说进程和线程的区别？
+### 2.🌟说说进程和线程的区别？
 
 推荐阅读:[进程与线程的区别是什么？](https://javabetter.cn/thread/why-need-thread.html)
 
@@ -167,7 +167,7 @@ fun main() = runBlocking {
 
 memo：2025 年 1 月 23 日修改至此。
 
-### 🌟3.说说线程有几种创建方式？
+### 3.🌟说说线程有几种创建方式？
 
 推荐阅读：[室友打了一把王者就学会了 Java 多线程](https://javabetter.cn/thread/wangzhe-thread.html)
 
@@ -301,7 +301,7 @@ Thread: Finalizer (ID=3)
 
 memo：2025 年 1 月 24 日修改至此。
 
-### 4.调用 start 方法时会执行 run 方法，那怎么不直接调用 run方法？
+### 4.🌟调用 start 方法时会执行 run 方法，那怎么不直接调用 run方法？
 
 调用 `start()` 会创建一个新的线程，并异步执行 `run()` 方法中的代码。
 
@@ -402,7 +402,7 @@ stop 方法用来强制停止线程，目前已经处于废弃状态，因为 st
 
 memo：2025 年 1 月 27 日修改至此。
 
-### 6.线程有几种状态？
+### 6.🌟线程有几种状态？
 
 6 种。
 
@@ -720,7 +720,7 @@ class Main {
 
 memo：2025 年 1 月 28 日修改至此。
 
-### 10.请说说 sleep 和 wait 的区别？（补充）
+### 10.🌟请说说 sleep 和 wait 的区别？（补充）
 
 > 2024 年 03 月 21 日增补
 
@@ -887,7 +887,7 @@ class WaitExample {
 
 memo：2025 年 1 月 29 日修改至此。
 
-### 11.怎么保证线程安全？（补充）
+### 11.🌟怎么保证线程安全？（补充）
 
 > 2024 年 05 月 01 日增补
 
@@ -1118,7 +1118,7 @@ memo：2025 年 1 月 30 日修改至此。
 
 推荐阅读：[ThreadLocal 全面解析](https://www.bilibili.com/video/BV1N741127FH/)
 
-### 🌟12.ThreadLocal 是什么？
+### 12.🌟ThreadLocal 是什么？
 
 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是一种用于实现线程局部变量的工具类。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。
 
@@ -1197,7 +1197,7 @@ ThreadLocal 可用于跨方法、跨类时传递上下文数据，不需要在�
 
 memo：2025 年 1 月 31 日修改至此。
 
-### 🌟14.ThreadLocal 怎么实现的呢？
+### 14.🌟ThreadLocal 怎么实现的呢？
 
 当我们创建一个 ThreadLocal 对象并调用 set 方法时，其实是在当前线程中初始化了一个 ThreadLocalMap。
 
@@ -1273,7 +1273,7 @@ userThreadLocal 是一个强引用，`new ThreadLocal<>()` 是一个强引用对
 
 memo：2025 年 02 月 01 日修改至此。
 
-### 🌟15.ThreadLocal 内存泄露是怎么回事？
+### 15.🌟ThreadLocal 内存泄露是怎么回事？
 
 ThreadLocalMap 的 Key 是 弱引用，但 Value 是强引用。
 
@@ -1689,7 +1689,7 @@ memo：2025 年 02 月 04 日修改至此。
 
 ## Java 内存模型
 
-### 🌟20.说一下你对 Java 内存模型的理解？
+### 20.🌟说一下你对 Java 内存模型的理解？
 
 推荐阅读：[说说 Java 的内存模型](https://javabetter.cn/thread/jmm.html)
 
@@ -1910,7 +1910,7 @@ C 依赖于 A，同时 C 也依赖着 B。
 
 Happens-Before 规则保证了多线程环境下的有序性，防止指令重排导致的并发问题。As-If-Serial 规则保证了单线程代码不会因优化而执行错误。
 
-### 25.volatile 了解吗？
+### 25.🌟volatile 了解吗？
 
 推荐阅读：[volatile 关键字解析](https://javabetter.cn/thread/volatile.html)
 
@@ -2220,7 +2220,7 @@ Method2 acquired lock
 
 memo：2025 年 02 月 10 日修改至此。
 
-### 29.synchronized 锁升级了解吗？
+### 29.🌟synchronized 锁升级了解吗？
 
 推荐阅读：[偏向锁、轻量级锁、重量级锁到底是什么？](https://javabetter.cn/thread/synchronized.html)
 
@@ -2315,7 +2315,7 @@ JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机�
 
 memo：2025 年 02 月 11 日修改至此。synchronized 的锁升级是一块非常重要的内容，第二版的优化对这块内容进行了重新梳理，自认为更容易懂了，等大家的实际效果。
 
-### 🌟30.synchronized 和 ReentrantLock 的区别了解吗？
+### 30.🌟synchronized 和 ReentrantLock 的区别了解吗？
 
 两句话回答：[synchronized](https://javabetter.cn/thread/synchronized-1.html) 由 JVM 内部的 Monitor 机制实现，[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)基于 AQS 实现。
 
@@ -2468,7 +2468,7 @@ memo：2025 年 02 月 12 日修改至此，今天的其他时间在修改简历
 
 ![技术派已经成功接入了 Deepseek](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250212120305.png)
 
-### 32.说说 ReentrantLock 的实现原理？
+### 32.🌟说说 ReentrantLock 的实现原理？
 
 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 是基于 AQS 实现的 可重入排他锁，使用 CAS 尝试获取锁，失败的话，会进入 CLH 阻塞队列，支持公平锁、非公平锁，可以中断、超时等待。
 
@@ -2542,7 +2542,7 @@ public ReentrantLock(boolean fair) {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：介绍一下公平锁与非公平锁
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：公平锁和非公平锁 lock 怎么实现一个非公平锁
 
-### 34.CAS 了解多少？
+### 34.🌟CAS 了解多少？
 
 推荐阅读：[一文彻底搞清楚 Java 实现 CAS 的原理](https://javabetter.cn/thread/cas.html)
 
@@ -2588,7 +2588,7 @@ lock cmpxchg [esi], eax  ; 比较 esi 地址中的值与 eax，如果相等则�
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：cas 和 aba（原子操作+时间戳）
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：CAS算法具体内容是啥？他怎么保证数据原子性（这个没答出来）
 
-### 35.CAS 有什么问题？
+### 35.🌟CAS 有什么问题？
 
 CAS 存在三个经典问题，ABA 问题、自旋开销大、只能操作一个变量等。
 
@@ -2784,7 +2784,7 @@ public final int getAndIncrement() {
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：死锁如何避免？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：什么是死锁，死锁的产生条件，破坏死锁
 
-### 40.死锁问题怎么排查呢？
+### 40.🌟死锁问题怎么排查呢？
 
 首先从系统级别上排查，比如说在 Linux 生产环境中，可以先使用 `top` `ps` 等命令查看进程状态，看看是否有进程占用了过多的资源。
 
@@ -2992,7 +2992,7 @@ class SyncExample {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：java多线程，同步与互斥，互斥和同步在时间上有要求吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的海康威视同学 4面试原题：自旋锁是什么，自旋锁会一直等待吗？自旋锁的劣势是什么？
 
-### 42.聊聊悲观锁和乐观锁？（补充）
+### 42.🌟聊聊悲观锁和乐观锁？（补充）
 
 > 2024 年 05 月 01 日增补
 
@@ -3434,7 +3434,7 @@ class ExchangerTest {
 
 memo：2025 年 02 月 18 日修改至此。
 
-### 🌟48.能说一下 ConcurrentHashMap 的实现吗？（补充）
+### 48.🌟能说一下 ConcurrentHashMap 的实现吗？（补充）
 
 > 2024 年 03 月 25 日增补，从集合框架篇移到这里。
 
@@ -3807,7 +3807,7 @@ memo：2025 年 02 月 21 日修改至此。今天的主要工作仍然是[修�
 
 ## 线程池
 
-### 🌟53.什么是线程池？
+### 53.🌟什么是线程池？
 
 线程池是用来管理和复用线程的工具，它可以减少线程的创建和销毁开销。
 
@@ -3841,7 +3841,7 @@ memo：2025 年 02 月 21 日修改至此。今天的主要工作仍然是[修�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：讲一讲你对线程池的理解，并讲一讲使用的场景
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：平时怎么使用多线程
 
-### 55.说一下线程池的工作流程？
+### 55.🌟说一下线程池的工作流程？
 
 可以简单总结为：
 
@@ -4047,7 +4047,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：线程池都有哪些以及核心参数介绍下
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：什么时候会执行拒绝策略？
 
-### 🌟57.线程池的拒绝策略有哪些？
+### 57.🌟线程池的拒绝策略有哪些？
 
 有四种：
 
@@ -4488,7 +4488,7 @@ memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，�
 
 ![三分恶面渣逆袭：动态修改线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-80.png)
 
-### 67.线程池调优了解吗？（补充）
+### 67.🌟线程池调优了解吗？（补充）
 
 > 2024 年 03 月 16 日增补，推荐阅读：[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
 
@@ -4520,7 +4520,7 @@ memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，�
 
 memo：2025 年 2 月 25 日修改至此。
 
-### 69.你能设计实现一个线程池吗？
+### 69.🌟你能设计实现一个线程池吗？
 
 推荐阅读：[三分恶线程池原理](https://mp.weixin.qq.com/s/Exy7pRGND9TCjRd9TZK4jg)
 
