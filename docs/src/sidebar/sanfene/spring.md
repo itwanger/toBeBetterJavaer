@@ -1316,7 +1316,70 @@ memo：2025 年 7 月 1 日修改至此，今天在[帮球友修改简历](https
 
 ![郑州大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250701154344.png)
 
-### 13.什么是自动装配？
+### 13.@Autowired 的实现原理？
+
+实现@Autowired 的关键是：**AutowiredAnnotationBeanPostProcessor**
+
+在 Bean 的初始化阶段，会通过 Bean 后置处理器来进行一些前置和后置的处理。
+
+实现@Autowired 的功能，也是通过后置处理器来完成的。这个后置处理器就是 AutowiredAnnotationBeanPostProcessor。
+
+- Spring 在创建 bean 的过程中，最终会调用到 doCreateBean()方法，在 doCreateBean()方法中会调用 populateBean()方法，来为 bean 进行属性填充，完成自动装配等工作。
+
+- 在 populateBean()方法中一共调用了两次后置处理器，第一次是为了判断是否需要属性填充，如果不需要进行属性填充，那么就会直接进行 return，如果需要进行属性填充，那么方法就会继续向下执行，后面会进行第二次后置处理器的调用，这个时候，就会调用到 AutowiredAnnotationBeanPostProcessor 的 postProcessPropertyValues()方法，在该方法中就会进行@Autowired 注解的解析，然后实现自动装配。
+
+```java
+/**
+* 属性赋值
+**/
+protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
+          //…………
+          if (hasInstAwareBpps) {
+              if (pvs == null) {
+                  pvs = mbd.getPropertyValues();
+              }
+
+              PropertyValues pvsToUse;
+              for(Iterator var9 = this.getBeanPostProcessorCache().instantiationAware.iterator(); var9.hasNext(); pvs = pvsToUse) {
+                  InstantiationAwareBeanPostProcessor bp = (InstantiationAwareBeanPostProcessor)var9.next();
+                  pvsToUse = bp.postProcessProperties((PropertyValues)pvs, bw.getWrappedInstance(), beanName);
+                  if (pvsToUse == null) {
+                      if (filteredPds == null) {
+                          filteredPds = this.filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
+                      }
+                      //执行后处理器，填充属性，完成自动装配
+                      //调用InstantiationAwareBeanPostProcessor的postProcessPropertyValues()方法
+                      pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);
+                      if (pvsToUse == null) {
+                          return;
+                      }
+                  }
+              }
+          }
+         //…………
+  }
+```
+
+- postProcessorPropertyValues()方法的源码如下，在该方法中，会先调用 findAutowiringMetadata()方法解析出 bean 中带有@Autowired 注解、@Inject 和@Value 注解的属性和方法。然后调用 metadata.inject()方法，进行属性填充。
+
+```java
+  public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
+      //@Autowired注解、@Inject和@Value注解的属性和方法
+      InjectionMetadata metadata = this.findAutowiringMetadata(beanName, bean.getClass(), pvs);
+
+      try {
+          //属性填充
+          metadata.inject(bean, beanName, pvs);
+          return pvs;
+      } catch (BeanCreationException var6) {
+          throw var6;
+      } catch (Throwable var7) {
+          throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", var7);
+      }
+  }
+```
+
+### 14.什么是自动装配？
 
 自动装配的本质就是让 Spring 容器自动帮我们完成 Bean 之间的依赖关系注入，而不需要我们手动去指定每个依赖。简单来说，就是“我们不用告诉 Spring 具体怎么注入，Spring 自己会想办法找到合适的 Bean 注入进来”。
 
@@ -1363,7 +1426,7 @@ memo：2025 年 7 月 2 日修改至此，今天在[帮球友修改简历](https
 
 ![北航球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101812.png)
 
-### 14.Bean的作用域有哪些?
+### 15.Bean的作用域有哪些?
 
 Bean 的作用域决定了 Bean 实例的生命周期和创建策略，singleton 是默认的作用域。整个 Spring 容器中只会有一个 Bean 实例。不管在多少个地方注入这个 Bean，拿到的都是同一个对象。
 
@@ -1459,7 +1522,7 @@ memo：2025 年 7 月 3 日修改至此，今天在[帮球友修改简历](https
 
 ![郑州大学硕，河北师范大学本的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250704144758.png)
 
-### 15.Spring中的单例Bean会存在线程安全问题吗？
+### 16.Spring中的单例Bean会存在线程安全问题吗？
 
 首先要明确一点。Spring 容器本身保证了 Bean 创建过程的线程安全，也就是说不会出现多个线程同时创建同一个单例 Bean 的情况。但是 Bean 创建完成后的使用过程，Spring 就不管了。
 
@@ -1609,15 +1672,130 @@ memo：2025 年 7 月 4 日修改至此，今天在[帮球友修改简历](https
 
 ![武汉理工大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-2023.09-2026.06.png)
 
-### 16.说说循环依赖?
+### 17.什么是循环依赖?
 
-A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
+简单来说就是两个或多个 Bean 相互依赖，比如说 A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
 
 ![三分恶面渣逆袭：Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
 
->循环依赖只发生在 Singleton 作用域的 Bean 之间，因为如果是 Prototype 作用域的 Bean，Spring 会直接抛出异常。
+### 18.🌟Spring怎么解决循环依赖呢？
 
-原因很简单，AB 循环依赖，A 实例化的时候，发现依赖 B，创建 B 实例，创建 B 的时候发现需要 A，创建 A1 实例……无限套娃。。。。
+Spring 通过三级缓存机制来解决循环依赖：
+
+1. 一级缓存：存放完全初始化好的单例 Bean。
+2. 二级缓存：存放提前暴露的 Bean，实例化完成，但未初始化完成。
+3. 三级缓存：存放 Bean 工厂，用于生成提前暴露的 Bean。
+
+![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
+
+以 A、B 两个类发生循环依赖为例：
+
+![三分恶面渣逆袭：循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
+
+第 1 步：开始创建 Bean A。
+
+- Spring 调用 A 的构造方法，创建 A 的实例。此时 A 对象已存在，但 b属性还是 null。
+- 将 A 的对象工厂放入三级缓存。
+- 开始进行 A 的属性注入。
+
+![三分恶面渣逆袭：A 对象工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
+
+第 2 步：A 需要注入 B，开始创建 Bean B。
+
+- 发现需要 B，但 B 还不存在，所以开始创建 B。
+- 调用 B 的构造方法，创建 B 的实例。此时 B 对象已存在，但 a 属性还是 null。
+- 将 B 的对象工厂放入三级缓存。
+- 开始进行 B 的属性注入。
+
+第 3 步：B 需要注入 A，从缓存中获取 A。
+
+- B 需要注入 A，先从一级缓存找 A，没找到。
+- 再从二级缓存找 A，也没找到。
+- 最后从三级缓存找 A，找到了 A 的对象工厂。
+- 调用 A 的对象工厂得到 A 的实例。这时 A 已经实例化了，虽然还没完全初始化。
+- 将 A 从三级缓存移到二级缓存。
+- B 拿到 A 的引用，完成属性注入。
+
+![三分恶面渣逆袭：A 放入二级缓存，B 放入一级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bf2507bf-96aa-4b88-a58b-7ec41d11bc70.png)
+
+第 4 步：B 完成初始化。
+
+- B 的属性注入完成，执行 `@PostConstruct` 等初始化逻辑。
+- B 完全创建完成，从三级缓存移除，放入一级缓存。
+
+第 5 步：A 完成初始化。
+
+- 回到 A 的创建过程，A 拿到完整的 B 实例，完成属性注入。
+- A 执行初始化逻辑，创建完成。
+- A 从二级缓存移除，放入一级缓存。
+
+![三分恶面渣逆袭：AB 都好了](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
+
+用代码来模拟这个过程，是这样的：
+
+```java
+// 模拟Spring的解决过程
+public class CircularDependencyDemo {
+    // 三级缓存
+    Map<String, Object> singletonObjects = new HashMap<>();
+    Map<String, Object> earlySingletonObjects = new HashMap<>();
+    Map<String, ObjectFactory> singletonFactories = new HashMap<>();
+    
+    public Object getBean(String beanName) {
+        // 先从一级缓存获取
+        Object bean = singletonObjects.get(beanName);
+        if (bean != null) return bean;
+        
+        // 再从二级缓存获取
+        bean = earlySingletonObjects.get(beanName);
+        if (bean != null) return bean;
+        
+        // 最后从三级缓存获取
+        ObjectFactory factory = singletonFactories.get(beanName);
+        if (factory != null) {
+            bean = factory.getObject();
+            earlySingletonObjects.put(beanName, bean);  // 移到二级缓存
+            singletonFactories.remove(beanName);        // 从三级缓存移除
+        }
+        
+        return bean;
+    }
+}
+```
+
+#### 哪些情况下Spring无法解决循环依赖？
+
+Spring 虽然能解决大部分循环依赖问题，但确实有几种情况是无法处理的，我来详细说说。
+
+![三分恶面渣逆袭：循环依赖的几种情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-37bb576d-b4af-42ed-91f4-d846ceb012b6.png)
+
+第一种，构造方法的循环依赖，这种情况 Spring 会直接抛出 BeanCurrentlyInCreationException 异常。
+
+```java
+@Component
+public class A {
+    private B b;
+    
+    public A(B b) {  // 构造方法注入
+        this.b = b;
+    }
+}
+
+@Component
+public class B {
+    private A a;
+    
+    public B(A a) {  // 构造方法注入
+        this.a = a;
+    }
+}
+```
+
+因为构造方法注入发生在实例化阶段，创建 A 的时候必须先有 B，但创建 B又必须先有 A，这时候两个对象都还没创建出来，无法提前暴露到缓存中。
+
+第二种，prototype 作用域的循环依赖。prototype 作用域的 Bean 每次获取都会创建新实例，Spring 无法缓存这些实例，所以也无法解决循环依赖。
+
+----面试中可以不背，方便大家理解 start----
 
 我们来看一个实例，先是 PrototypeBeanA：
 
@@ -1673,159 +1851,158 @@ public class DemoApplication {
 
 ![二哥的 Java 进阶之路：循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310202703.png)
 
-在这个示例中，当 Spring 应用启动并尝试获取 PrototypeBeanA 或 PrototypeBeanB 的实例时，将会遇到问题。因为它们互相依赖，而 Spring 无法解决 Prototype 作用域 bean 的循环依赖问题。
-
-#### Spring 可以解决哪些情况的循环依赖？
-
-看看这几种情形（AB 循环依赖）：
-
-![三分恶面渣逆袭：循环依赖的几种情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-37bb576d-b4af-42ed-91f4-d846ceb012b6.png)
-
-也就是说：
-
-- AB 均采用构造器注入，不支持
-- AB 均采用 setter 注入，支持
-- AB 均采用属性自动注入，支持
-- A 中注入的 B 为 setter 注入，B 中注入的 A 为构造器注入，支持
-- B 中注入的 A 为 setter 注入，A 中注入的 B 为构造器注入，不支持
-
-第四种可以，第五种不可以的原因是 Spring 在创建 Bean 时默认会根据自然排序进行创建，所以 A 会先于 B 进行创建。
-
-简单总结下，当循环依赖的实例都采用 setter 方法注入时，Spring 支持，都采用构造器注入的时候，不支持；构造器注入和 setter 注入同时存在的时候，看天（😂）。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
-
-
-### 17.🌟Spring 怎么解决循环依赖呢？
-
-Spring 通过三级缓存机制来解决循环依赖：
-
-1. 一级缓存：存放完全初始化好的单例 Bean。
-2. 二级缓存：存放正在创建但未完全初始化的 Bean 实例。
-3. 三级缓存：存放 Bean 工厂对象，用于提前暴露 Bean。
-
-![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
-
-
-#### 三级缓存解决循环依赖的过程是什么样的？
-
-1. 实例化 Bean 时，将其早期引用放入三级缓存。
-2. 其他依赖该 Bean 的对象，可以从缓存中获取其引用。
-3. 初始化完成后，将 Bean 移入一级缓存。
-
-假如 A、B 两个类发生循环依赖：
-
-![三分恶面渣逆袭：循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
-
-A 实例的初始化过程：
-
-①、创建 A 实例，实例化的时候把 A 的对象⼯⼚放⼊三级缓存，表示 A 开始实例化了，虽然这个对象还不完整，但是先曝光出来让大家知道。
-
-![三分恶面渣逆袭：A 对象工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
-
-②、A 注⼊属性时，发现依赖 B，此时 B 还没有被创建出来，所以去实例化 B。
-
-③、同样，B 注⼊属性时发现依赖 A，它就从缓存里找 A 对象。依次从⼀级到三级缓存查询 A。
-
-发现可以从三级缓存中通过对象⼯⼚拿到 A，虽然 A 不太完善，但是存在，就把 A 放⼊⼆级缓存，同时删除三级缓存中的 A，此时，B 已经实例化并且初始化完成了，把 B 放入⼀级缓存。
-
-![三分恶面渣逆袭：放入一级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bf2507bf-96aa-4b88-a58b-7ec41d11bc70.png)
-
-④、接着 A 继续属性赋值，顺利从⼀级缓存拿到实例化且初始化完成的 B 对象，A 对象创建也完成，删除⼆级缓存中的 A，同时把 A 放⼊⼀级缓存
-
-⑤、最后，⼀级缓存中保存着实例化、初始化都完成的 A、B 对象。
-
-![三分恶面渣逆袭：AB 都好了](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
+----面试中可以不背，方便大家理解 end----
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring如何解决循环依赖？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Spring源码看过吗？Spring的三级缓存知道吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：spring三级缓存解决循环依赖问题
 
-### 18.为什么要三级缓存？⼆级不⾏吗？
+memo：2025 年 7 月 5 日修改至此。今天 [VIP 群](https://javabetter.cn/zhishixingqiu/)来了非常多的球友，不知不觉我们已经 12 群了，也是一个大家庭了，希望大家都能在这里找到自己的归属感，我们一起学习，一起进步。
 
-不行，主要是为了 **⽣成代理对象**。如果是没有代理的情况下，使用二级缓存解决循环依赖也是 OK 的。但是如果存在代理，三级没有问题，二级就不行了。
+![二哥的编程星球已经 12 群了](https://cdn.tobebetterjavaer.com/stutymore/spring-20250705072809.png)
 
-因为三级缓存中放的是⽣成具体对象的匿名内部类，获取 Object 的时候，它可以⽣成代理对象，也可以返回普通对象。使⽤三级缓存主要是为了保证不管什么时候使⽤的都是⼀个对象。
+### 19.为什么需要三级缓存而不是两级？
 
-假设只有⼆级缓存的情况，往⼆级缓存中放的显示⼀个普通的 Bean 对象，Bean 初始化过程中，通过 BeanPostProcessor 去⽣成代理对象之后，覆盖掉⼆级缓存中的普通 Bean 对象，那么可能就导致取到的 Bean 对象不一致了。
+Spring 设计三级缓存主要是为了解决 AOP 代理的问题。
+
+我举个具体的例子来说明一下。假设我们有 A 和 B 两个类相互依赖，A 的某个方法上面还标注了 `@Transactional` 注解，这意味着 A 最终需要被 Spring 创建成一个代理对象。
+
+```java
+@Component
+public class A {
+    @Autowired
+    private B b;
+    
+    @Transactional  // A需要被AOP代理
+    public void doSomething() {
+        // 业务逻辑
+    }
+}
+
+@Component
+public class B {
+    @Autowired
+    private A a;
+}
+```
+
+如果只有二级缓存的话，当创建 A 的时候，我们需要把 A 的原始对象提前放到缓存里面，然后 B 在创建的时候从缓存中拿到 A 的原始对象。
+
+```java
+// 假设只有两级缓存
+Map<String, Object> singletonObjects = new HashMap<>();     // 完整Bean
+Map<String, Object> earlySingletonObjects = new HashMap<>(); // 半成品Bean
+```
+
+但是问题来了，A 完成初始化后，由于有 `@Transactional` 注解，Spring 会把 A 包装成一个代理对象放到容器中。这样就出现了一个很严重的问题：B 里面持有的是 A 的原始对象，而容器中存的是 A 的代理对象，同一个 Bean 居然有两个不同的实例，这肯定是不对的。
 
 ![三分恶面渣逆袭：二级缓存不行的原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-6ece8a46-25b1-459b-8cfa-19fc696dd7d6.png)
 
-#### 如果缺少第二级缓存会有什么问题？
+三级缓存就是为了解决这个问题而设计的。三级缓存里面存放的不是 Bean 的实例，而是一个对象工厂，这是一个函数式接口。
 
-如果没有二级缓存，Spring 无法在未完成初始化的情况下暴露 Bean。会导致代理 Bean 的循环依赖问题，因为某些代理逻辑无法在三级缓存中提前暴露。最终可能抛出 BeanCurrentlyInCreationException。
+当 B 需要 A 的时候，会调用这个对象工厂的 getObject 方法，这个方法里面会判断 A 是否需要被代理。如果需要代理，就创建 A 的代理对象返回给 B；如果不需要代理，就返回 A 的原始对象。这样就保证了 B 拿到的 A 和最终放入容器的 A 是同一个对象。
+
+```java
+Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>();
+// Spring源码中的逻辑
+addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
+protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) {
+    Object exposedObject = bean;
+    if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
+        for (BeanPostProcessor bp : getBeanPostProcessors()) {
+            if (bp instanceof SmartInstantiationAwareBeanPostProcessor) {
+                SmartInstantiationAwareBeanPostProcessor ibp = (SmartInstantiationAwareBeanPostProcessor) bp;
+                // 关键：如果需要代理，这里会创建代理对象
+                exposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);
+            }
+        }
+    }
+    return exposedObject;
+}
+```
+
+简单来说，三级缓存的核心作用就是延迟决策。它让 Spring 在真正需要 Bean 的时候才决定返回原始对象还是代理对象，这样就避免了对象不一致的问题。如果没有三级缓存，Spring 要么无法在循环依赖的情况下支持 AOP，要么就会出现同一个 Bean 有多个实例的问题，这些都是不可接受的。
+
+![幸云教育：三级缓存和循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706065436.png)
+
+#### 如果缺少二级缓存会有什么问题？
+
+二级缓存 earlySingletonObjects 主要是用来存放那些已经通过三级缓存的对象工厂创建出来的早期 Bean 引用。
+
+![Minor王智：三级缓存](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706065722.png)
+
+假设我们有 A、B、C 三个 Bean，A 依赖 B 和 C，B 和 C 都依赖 A，形成了一个复杂的循环依赖。在没有二级缓存的情况下，每次 B 或者 C 需要获取 A 的时候，都需要调用三级缓存中 A 的 `ObjectFactory.getObject()` 方法。这意味着如果 A 需要被代理的话，代理对象可能会被重复创建多次，这显然是不合理的。
+
+```java
+// 没有二级缓存的伪代码
+public Object getSingleton(String beanName) {
+    Object singletonObject = singletonObjects.get(beanName);
+    
+    if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
+        // 直接从三级缓存获取
+        ObjectFactory<?> singletonFactory = singletonFactories.get(beanName);
+        if (singletonFactory != null) {
+            return singletonFactory.getObject(); // 每次都会创建新的代理对象！
+        }
+    }
+    return singletonObject;
+}
+```
+
+我举个具体的例子。比如 A 有 `@Transactional` 注解需要被 AOP 代理，B 在初始化的时候需要 A，会调用一次对象工厂创建 A 的代理对象。接着 C 在初始化的时候也需要 A，又会调用一次对象工厂，可能又创建了一个 A 的代理对象。这样 B 和 C 拿到的可能就是两个不同的 A 代理对象，这就违反了单例 Bean 的语义。
+
+```java
+@Service
+public class ServiceA {
+    @Autowired
+    private ServiceB serviceB;
+    
+    @Transactional  // 需要 AOP 代理
+    public void methodA() {
+        // 业务逻辑
+    }
+}
+
+@Service
+public class ServiceB {
+    @Autowired
+    private ServiceA serviceA;  // 获得代理对象 A1
+    
+    @Autowired
+    private ServiceC serviceC;
+}
+
+@Service
+public class ServiceC {
+    @Autowired
+    private ServiceA serviceA;  // 可能获得代理对象 A2
+}
+```
+
+二级缓存就是为了解决这个问题。当第一次通过对象工厂创建了 A 的早期引用之后，就把这个引用放到二级缓存中，同时从三级缓存中移除对象工厂。
+
+```java
+// 第一次获取 A
+ObjectFactory<A> factory = singletonFactories.get("serviceA");
+Object proxyA = factory.getObject(); // 创建代理
+earlySingletonObjects.put("serviceA", proxyA); // 缓存代理
+singletonFactories.remove("serviceA");
+
+// 第二次获取 A
+Object cachedA = earlySingletonObjects.get("serviceA"); // 直接返回缓存的代理
+// proxyA == cachedA  ✓
+```
+
+后续如果再有其他 Bean 需要 A，就直接从二级缓存中获取，不需要再调用对象工厂了。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：循环依赖有了解过吗？出现循环依赖的原因？三大缓存存储内容的区别？如何解决循环依赖？如果缺少第二级缓存会有什么问题？
 
-### 19.@Autowired 的实现原理？
+<MZNXQRcodeBanner />
 
-实现@Autowired 的关键是：**AutowiredAnnotationBeanPostProcessor**
+memo：2025 年 7 月 6 日修改至此，今天在星球里看到一个球友的[秋招打卡](https://javabetter.cn/zhishixingqiu/)，已经持续 30 天了，按照他这个节奏下去，互联网大厂的 offer 基本上就算是锁定了。并且还有准备 RAG MCP 的八股，很棒。
 
-在 Bean 的初始化阶段，会通过 Bean 后置处理器来进行一些前置和后置的处理。
-
-实现@Autowired 的功能，也是通过后置处理器来完成的。这个后置处理器就是 AutowiredAnnotationBeanPostProcessor。
-
-- Spring 在创建 bean 的过程中，最终会调用到 doCreateBean()方法，在 doCreateBean()方法中会调用 populateBean()方法，来为 bean 进行属性填充，完成自动装配等工作。
-
-- 在 populateBean()方法中一共调用了两次后置处理器，第一次是为了判断是否需要属性填充，如果不需要进行属性填充，那么就会直接进行 return，如果需要进行属性填充，那么方法就会继续向下执行，后面会进行第二次后置处理器的调用，这个时候，就会调用到 AutowiredAnnotationBeanPostProcessor 的 postProcessPropertyValues()方法，在该方法中就会进行@Autowired 注解的解析，然后实现自动装配。
-
-```java
-/**
-* 属性赋值
-**/
-protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
-          //…………
-          if (hasInstAwareBpps) {
-              if (pvs == null) {
-                  pvs = mbd.getPropertyValues();
-              }
-
-              PropertyValues pvsToUse;
-              for(Iterator var9 = this.getBeanPostProcessorCache().instantiationAware.iterator(); var9.hasNext(); pvs = pvsToUse) {
-                  InstantiationAwareBeanPostProcessor bp = (InstantiationAwareBeanPostProcessor)var9.next();
-                  pvsToUse = bp.postProcessProperties((PropertyValues)pvs, bw.getWrappedInstance(), beanName);
-                  if (pvsToUse == null) {
-                      if (filteredPds == null) {
-                          filteredPds = this.filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
-                      }
-                      //执行后处理器，填充属性，完成自动装配
-                      //调用InstantiationAwareBeanPostProcessor的postProcessPropertyValues()方法
-                      pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);
-                      if (pvsToUse == null) {
-                          return;
-                      }
-                  }
-              }
-          }
-         //…………
-  }
-```
-
-- postProcessorPropertyValues()方法的源码如下，在该方法中，会先调用 findAutowiringMetadata()方法解析出 bean 中带有@Autowired 注解、@Inject 和@Value 注解的属性和方法。然后调用 metadata.inject()方法，进行属性填充。
-
-```java
-  public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
-      //@Autowired注解、@Inject和@Value注解的属性和方法
-      InjectionMetadata metadata = this.findAutowiringMetadata(beanName, bean.getClass(), pvs);
-
-      try {
-          //属性填充
-          metadata.inject(bean, beanName, pvs);
-          return pvs;
-      } catch (BeanCreationException var6) {
-          throw var6;
-      } catch (Throwable var7) {
-          throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", var7);
-      }
-  }
-```
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![球友在星球里的秋招打卡记录](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706070700.png)
 
 ## AOP
 
@@ -1835,63 +2012,302 @@ AOP，也就是面向切面编程，简单点说，AOP 就是把一些业务逻�
 
 ![三分恶面渣逆袭：横向抽取](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-09dbcda4-7c1b-42d6-8520-1a5fc84abbde.png)
 
-举个例子，假如我们现在需要在业务代码开始前进行参数校验，在结束后打印日志，该怎么办呢？
+----这部分面试中可以不背，方便大家理解 start----
 
-我们可以把`日志记录`和`数据校验`这两个功能抽取出来，形成一个切面，然后在业务代码中引入这个切面，这样就可以实现业务逻辑和通用逻辑的分离。
-
-![三分恶面渣逆袭：AOP应用示例](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-4754b4c0-0356-4077-a2f9-55e246cf8ba0.png)
-
-业务代码不再关心这些通用逻辑，只需要关心自己的业务实现，这样就实现了业务逻辑和通用逻辑的分离。
-
-#### AOP 有哪些核心概念？
-
-- **切面**（Aspect）：类是对物体特征的抽象，切面就是对横切关注点的抽象
-- **连接点**（Join Point）：被拦截到的点，因为 Spring 只支持方法类型的连接点，所以在 Spring 中，连接点指的是被拦截到的方法，实际上连接点还可以是字段或者构造方法
-- **切点**（Pointcut）：对连接点进行拦截的定位
-- **通知**（Advice）：指拦截到连接点之后要执行的代码，也可以称作**增强**
-- **目标对象** （Target）：代理的目标对象
-- **引介**（introduction）：一种特殊的增强，可以动态地为类添加一些属性和方法
-- **织入**（Weabing）：织入是将增强添加到目标类的具体连接点上的过程。
-
-#### 织入有哪几种方式？
-
-①、编译期织入：切面在目标类编译时被织入。
-
-②、类加载期织入：切面在目标类加载到 JVM 时被织入。需要特殊的类加载器，它可以在目标类被引入应用之前增强该目标类的字节码。
-
-③、运行期织入：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP 容器会为目标对象动态地创建一个代理对象。
-
-Spring AOP 采用运行期织入，而 AspectJ 可以在编译期织入和类加载时织入。
-
-#### AspectJ 是什么？
-
-AspectJ 是一个 AOP 框架，它可以做很多 Spring AOP 干不了的事情，比如说支持编译时、编译后和类加载时织入切面。并且提供更复杂的切点表达式和通知类型。
-
-![AspectJ 官网](https://cdn.tobebetterjavaer.com/stutymore/spring-20240806100537.png)
-
-下面是一个简单的 AspectJ 示例：
+举个简单的例子，假设我们有很多个 Service 方法，每个方法都需要记录执行日志、检查权限、管理事务等等。如果没有 AOP 的话，我们可能需要在每个方法里都写这样的代码：
 
 ```java
-// 定义一个切面
-@Aspect
-public class LoggingAspect {
-
-    // 定义一个切点，匹配 com.example 包下的所有方法
-    @Pointcut("execution(* com.example..*(..))")
-    private void selectAll() {}
-
-    // 定义一个前置通知，在匹配的方法执行之前执行
-    @Before("selectAll()")
-    public void beforeAdvice() {
-        System.out.println("A method is about to be executed.");
+public void createUser(User user) {
+    log.info("开始执行createUser方法");
+    // 权限检查
+    if (!hasPermission()) {
+        throw new SecurityException("无权限");
+    }
+    // 开启事务
+    transactionManager.begin();
+    try {
+        // 真正的业务逻辑
+        userDao.save(user);
+        transactionManager.commit();
+        log.info("createUser方法执行成功");
+    } catch (Exception e) {
+        transactionManager.rollback();
+        log.error("createUser方法执行失败", e);
+        throw e;
     }
 }
 ```
 
+如果每个方法都这样写，代码就会变得非常臃肿，AOP 就是为了解决这个问题，它可以让我们把这些横切关注点（如日志、权限、事务等）从业务代码中抽取出来。
 
-#### AOP 有哪些环绕方式？
+这样，我们就可以定义一个切面，在切面中统一处理这些横切关注点：
 
-AOP 一般有 **5 种**环绕方式：
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        log.info("开始执行方法: " + joinPoint.getSignature().getName());
+    }
+    @AfterReturning("execution(* com.example.service.*.*(..))")
+    public void logAfterReturning(JoinPoint joinPoint) {
+        log.info("方法执行成功: " + joinPoint.getSignature().getName());
+    }
+    @AfterThrowing(pointcut = "execution(* com.example.service.*.*(..))",
+                   throwing = "ex")
+    public void logAfterThrowing(JoinPoint joinPoint, Throwable ex) {
+        log.error("方法执行失败: " + joinPoint.getSignature().getName(), ex);
+    }
+}
+```
+
+然后，业务代码就变得非常干净了：
+
+```java
+public void createUser(User user) {
+    // 只需要关注业务逻辑，不需要关心日志、权限、事务等
+    userDao.save(user);
+}
+```
+
+----面试中可以不背，方便大家理解 end----
+
+从技术实现上来说，AOP 主要是通过动态代理来实现的。如果目标类实现了接口，就用 JDK 动态代理；如果没有实现接口，就用 CGLIB 来创建子类代理。代理对象会在方法执行前后插入我们定义的切面逻辑。
+
+![stack overflow：JDK Proxy vs CGLIB Proxy](https://cdn.tobebetterjavaer.com/stutymore/spring-20250707112900.png)
+
+#### Spring AOP 有哪些核心概念？
+
+Spring AOP 是 AOP 的一个具体实现，我按照在工作/学习中理解的重要程度来说一下：
+
+![DataFlair Team：AOP 核心概念](https://cdn.tobebetterjavaer.com/stutymore/spring-20250707114823.png)
+
+①、**切面**：我们定义的一个类，包含了要在什么时候、什么地方执行什么逻辑。比如我们定义一个日志切面，专门负责记录方法的执行情况。在 Spring 中，我们会用 `@Aspect` 注解来标识一个切面类。
+
+②、**切点**：定义了在哪些地方应用切面逻辑。说白了就是告诉 Spring，我这个切面要在哪些方法上生效。比如我们可以定义一个切点表达式，让它匹配所有 Service 层的方法，或者匹配某个特定包下的所有方法。在 Spring 中用 `@Pointcut` 注解来定义，通常会写一些表达式，比如 `execution( com.example.service..*(..))` 这样的。
+
+③、**通知**：是切面中具体要执行的代码逻辑。它有几种类型：`@Before` 是在方法执行前执行，`@After` 是在方法执行后执行，`@Around` 是环绕通知，可以在方法执行前后都执行，`@AfterReturning` 是在方法正常返回后执行，`@AfterThrowing` 是在方法抛出异常后执行。我一般用得最多的是 `@Around`，因为它最灵活，可以控制方法是否执行，也可以修改参数和返回值。
+
+④、**连接点**：被拦截到的点，因为 Spring 只支持方法类型的连接点，所以在 Spring 中，连接点指的是被拦截到的方法，实际上连接点还可以是字段或者构造方法。
+
+⑤、**织入**：是把切面逻辑应用到目标对象的过程。Spring AOP 是在运行时通过动态代理来实现织入的，当我们从 Spring 容器中获取 Bean 的时候，如果这个 Bean 需要被切面处理，Spring 就会返回一个代理对象给我们。
+
+⑥、**目标对象**：被切面处理的对象，也就是我们平时写的 Service、Controller 等类。Spring AOP 会在目标对象上织入切面逻辑。
+
+它们之间的逻辑关系图是这样的：
+
+```
+切面（Aspect）
+    ├── 切入点（Pointcut）─── 定义在哪里执行
+    └── 通知（Advice）   ─── 定义何时执行什么
+            ├── @Before
+            ├── @After
+            ├── @AfterReturning
+            ├── @AfterThrowing
+            └── @Around
+
+目标对象（Target）──→ 代理对象（Proxy）──→ 织入（Weaving）
+     ↑                                    ↓
+连接点（Join Point）                    客户端调用
+```
+
+#### Spring AOP 织入有哪几种方式？
+
+织入有三种主要方式，我按照它们的执行时机来说一下。
+
+![AOP 织入方式](https://cdn.tobebetterjavaer.com/stutymore/spring-20250707120111.png)
+
+编译期织入是在编译 Java 源码的时候就把切面逻辑织入到目标类中。这种方式最典型的实现就是 AspectJ 编译器。它会在编译的时候直接修改字节码，把切面的逻辑插入到目标方法中。
+
+```java
+// 源代码
+@Aspect
+public class LoggingAspect {
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("方法执行前: " + joinPoint.getSignature().getName());
+    }
+}
+
+@Service
+public class UserService {
+    public void saveUser(String username) {
+        System.out.println("保存用户: " + username);
+    }
+}
+```
+
+这样生成的 class 文件就已经包含了切面逻辑，运行时不需要额外的代理机制。
+
+```java
+// 编译器自动生成的代码
+public class UserService {
+    public void saveUser(String username) {
+        // 织入的切面代码
+        System.out.println("方法执行前: saveUser");
+        
+        // 原始业务代码
+        System.out.println("保存用户: " + username);
+    }
+}
+```
+
+编译期织入的优点是性能最好，因为没有代理的开销，但缺点是需要使用特殊的编译器，而且比较复杂，在 Spring 项目中用得不多。
+
+类加载期织入是在 JVM 加载 class 文件的时候进行织入。这种方式通过 Java 的 Instrumentation API 或者自定义的 ClassLoader 来实现，在类被加载到 JVM 之前修改字节码。
+
+```java
+public class WeavingClassLoader extends ClassLoader {
+    @Override
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
+        byte[] classBytes = loadClassBytes(name);
+        
+        // 在这里进行字节码织入
+        byte[] wovenBytes = weaveAspects(classBytes);
+        
+        return defineClass(name, wovenBytes, 0, wovenBytes.length);
+    }
+    
+    private byte[] weaveAspects(byte[] classBytes) {
+        // 使用 ASM 或其他字节码操作库进行织入
+        return classBytes;
+    }
+}
+```
+
+AspectJ 的 Load-Time Weaving 就是这种方式的典型实现。它比编译期织入更灵活一些，但是配置相对复杂，需要在 JVM 启动参数中指定 Java agent，在 Spring 中也有支持，但用得不是特别多。
+
+```shell
+# JVM 启动参数
+java -javaagent:aspectjweaver.jar -jar myapp.jar
+```
+
+运行时织入是我们在 Spring 中最常见的方式，也就是通过动态代理来实现。Spring AOP 采用的就是这种方式。当 Spring 容器启动的时候，如果发现某个 Bean 需要被切面处理，就会为这个 Bean 创建一个代理对象。如果目标类实现了接口，Spring 会使用 JDK 的动态代理技术。
+
+```java
+// 接口
+public interface UserService {
+    void saveUser(String username);
+}
+
+// 实现类
+@Service
+public class UserServiceImpl implements UserService {
+    @Override
+    public void saveUser(String username) {
+        System.out.println("保存用户: " + username);
+    }
+}
+
+// Spring 自动创建的代理（伪代码）
+public class UserServiceProxy implements UserService {
+    private UserService target;
+    private List<Advisor> advisors;
+    
+    @Override
+    public void saveUser(String username) {
+        // 执行前置通知
+        for (Advisor advisor : advisors) {
+            if (advisor.getPointcut().matches(this.getClass().getMethod("saveUser", String.class))) {
+                advisor.getAdvice().before();
+            }
+        }
+        
+        // 执行目标方法
+        target.saveUser(username);
+        
+        // 执行后置通知
+        for (Advisor advisor : advisors) {
+            advisor.getAdvice().after();
+        }
+    }
+}
+```
+
+如果目标类没有实现接口，就会使用 CGLIB 来创建一个子类作为代理。运行时织入的优点是实现简单，不需要特殊的编译器或 JVM 配置，缺点是有一定的性能开销，因为每次方法调用都要经过代理。
+
+```java
+// 没有接口的类
+@Service
+public class OrderService {
+    public void createOrder(String orderId) {
+        System.out.println("创建订单: " + orderId);
+    }
+}
+
+// CGLIB 生成的代理子类（伪代码）
+public class OrderService$$EnhancerByCGLIB$$12345 extends OrderService {
+    private MethodInterceptor interceptor;
+    
+    @Override
+    public void createOrder(String orderId) {
+        // 通过 MethodInterceptor 执行切面逻辑
+        interceptor.intercept(this, getMethod("createOrder"), new Object[]{orderId}, 
+                            new MethodProxy() {
+                                @Override
+                                public Object invokeSuper(Object obj, Object[] args) {
+                                    return OrderService.super.createOrder((String) args[0]);
+                                }
+                            });
+    }
+}
+```
+
+Spring AOP 默认的织入方式就是运行时织入，使用起来非常简单，只需要加个 `@Aspect` 注解和相应的通知注解就可以了。虽然性能上不如编译期织入，但是对于大部分业务场景来说，这点性能开销是完全可以接受的。
+
+```java
+// Spring AOP 的代理创建过程
+@Configuration
+@EnableAspectJAutoProxy  // 启用 AOP 自动代理
+public class AopConfig {
+}
+
+// Spring 内部的代理创建逻辑（简化版）
+public class DefaultAopProxyFactory implements AopProxyFactory {
+    
+    @Override
+    public AopProxy createAopProxy(AdvisedSupport config) {
+        if (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) {
+            // 使用 CGLIB 代理
+            return new CglibAopProxy(config);
+        } else {
+            // 使用 JDK 动态代理
+            return new JdkDynamicAopProxy(config);
+        }
+    }
+}
+```
+
+#### AspectJ 是什么？
+
+AspectJ 是一个 AOP 框架，它可以做很多 Spring AOP 干不了的事情，比如说编译时、编译后和类加载时织入切面。并且提供了很多复杂的切点表达式和通知类型。
+
+![AspectJ 官网](https://cdn.tobebetterjavaer.com/stutymore/spring-20240806100537.png)
+
+Spring AOP 只支持方法级别的拦截，而且只能拦截 Spring 容器管理的 Bean。但是 AspectJ 可以拦截任何 Java 对象的方法调用、字段访问、构造方法执行、异常处理等等。
+
+```java
+// Spring AOP 只能做到这些
+@Aspect
+@Component
+public class SpringAopAspect {
+    // ✅ 可以拦截：public 方法调用
+    @Around("execution(public * com.example.service.*.*(..))") 
+    public Object aroundPublicMethod(ProceedingJoinPoint pjp) {
+        return pjp.proceed();
+    }
+    
+    // ❌ 无法拦截：字段访问
+    // ❌ 无法拦截：构造函数
+    // ❌ 无法拦截：私有方法
+    // ❌ 无法拦截：静态方法
+}
+```
+
+#### Spring AOP 有哪些通知方式？
+
+Spring AOP 提供了多种通知方式，允许我们在方法执行的不同阶段插入逻辑。常用的通知方式有：
 
 - 前置通知 (@Before)
 - 返回通知 (@AfterReturning)
@@ -1899,9 +2315,76 @@ AOP 一般有 **5 种**环绕方式：
 - 后置通知 (@After)
 - 环绕通知 (@Around)
 
-![三分恶面渣逆袭：环绕方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-320fa34f-6620-419c-b17a-4f516a83caeb.png)
+![三分恶面渣逆袭：Spring AOP 通知方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-320fa34f-6620-419c-b17a-4f516a83caeb.png)
 
-多个切面的情况下，可以通过 `@Order` 指定先后顺序，数字越小，优先级越高。代码示例如下：
+前置通知是在目标方法执行之前执行的通知。这种通知比较简单，主要用来做一些准备工作，比如参数校验、权限检查、记录方法开始执行的日志等等。前置通知无法阻止目标方法的执行，也无法修改方法的参数，它只能在方法执行前做一些额外的操作。我们在项目中经常用它来记录操作日志，比如记录谁在什么时候调用了什么方法。
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+    @Before("execution(* com.example.service.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        // 打印方法名和参数
+        System.out.println("调用方法: " + joinPoint.getSignature().getName());
+        System.out.println("参数: " + Arrays.toString(joinPoint.getArgs()));
+    }
+}
+```
+
+后置通知是在目标方法执行完成后执行的，不管方法是正常返回还是抛出异常都会执行。这种通知主要用来做一些清理工作，比如释放资源、记录方法执行完成的日志等等。需要注意的是，后置通知拿不到方法的返回值，也捕获不到异常信息，它就是纯粹的在方法执行后做一些收尾工作。
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+    @After("execution(* com.example.service.*.*(..))")
+    public void logAfter(JoinPoint joinPoint) {
+        // 打印方法执行完成的日志
+        System.out.println("方法执行完成: " + joinPoint.getSignature().getName());
+    }
+}
+```
+
+返回通知是在目标方法正常返回后执行的。这种通知可以获取到方法的返回值，我们可以在注解中指定 returning 参数来接收返回值。返回通知经常用来做一些基于返回结果的后续处理，比如缓存方法的返回结果、根据返回值发送通知等等。如果方法抛出异常的话，返回通知是不会执行的。
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+    @AfterReturning(pointcut = "execution(* com.example.service.*.*(..))", returning = "result")
+    public void logAfterReturning(JoinPoint joinPoint, Object result) {
+        // 打印方法执行完成的日志
+        System.out.println("方法执行完成: " + joinPoint.getSignature().getName());
+        // 打印方法返回值
+        System.out.println("返回值: " + result);
+    }
+}
+```
+
+异常通知是在目标方法抛出异常后执行的。我们可以在注解中指定 throwing 参数来接收异常对象。异常通知主要用来做异常处理和记录，比如记录错误日志、发送告警、异常统计等等。需要注意的是，异常通知不能处理异常，异常还是会继续向上抛出。
+
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+    @AfterThrowing(pointcut = "execution(* com.example.service.*.*(..))",
+                     throwing = "ex")
+    public void logAfterThrowing(JoinPoint joinPoint, Throwable ex) {
+        // 打印方法名和异常信息
+        System.out.println("方法执行异常: " + joinPoint.getSignature().getName());
+        System.out.println("异常信息: " + ex.getMessage());
+    }
+}
+```
+
+环绕通知是最强大也是我们用得最多的一种通知。它可以在方法执行前后都执行逻辑，而且可以控制目标方法是否执行，还可以修改方法的参数和返回值。环绕通知的方法必须接收一个 ProceedingJoinPoint 参数，通过调用其 `proceed()` 方法来执行目标方法。
+
+[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html) 项目中就主要是通过环绕通知来实现切面。
+
+![技术派源码：环绕通知](https://cdn.tobebetterjavaer.com/stutymore/spring-20250707151431.png)
+
+如果有多个切面，还可以通过 `@Order` 注解指定先后顺序，数字越小，优先级越高。代码示例如下：
 
 ```java
 @Aspect
@@ -1954,9 +2437,9 @@ public class WebLogAspect {
 
 #### Spring AOP 发生在什么时候？
 
-Spring AOP 基于运行时代理机制，这意味着 Spring AOP 是在运行时通过动态代理生成的，而不是在编译时或类加载时生成的。
+Spring AOP 是在 Bean 的初始化阶段发生的，具体来说是在 Bean 生命周期的后置处理阶段。
 
-在 Spring 容器初始化 Bean 的过程中，Spring AOP 会检查 Bean 是否需要应用切面。如果需要，Spring 会为该 Bean 创建一个代理对象，并在代理对象中织入切面逻辑。这一过程发生在 Spring 容器的后处理器（BeanPostProcessor）阶段。
+在 Bean 实例化完成、属性注入完成之后，Spring 会调用所有 BeanPostProcessor 的 postProcessAfterInitialization 方法，AOP 代理的创建就是在这个阶段完成的。
 
 ![二哥的 Java 进阶之路：BeanPostProcessor](https://cdn.tobebetterjavaer.com/stutymore/spring-20240806102547.png)
 
@@ -1964,7 +2447,7 @@ Spring AOP 基于运行时代理机制，这意味着 Spring AOP 是在运行时
 
 AOP，也就是面向切面编程，是一种编程范式，旨在提高代码的模块化。比如说可以将日志记录、事务管理等分离出来，来提高代码的可重用性。
 
-AOP 的核心概念包括切面（Aspect）、连接点（Join Point）、通知（Advice）、切点（Pointcut）和织入（Weaving）等。
+AOP 的核心概念包括切面、连接点、通知、切点和织入等。
 
 ① 像日志打印、事务管理等都可以抽离为切面，可以声明在类的方法上。像 `@Transactional` 注解，就是一个典型的 AOP 应用，它就是通过 AOP 来实现事务管理的。我们只需要在方法上添加 `@Transactional` 注解，Spring 就会在方法执行前后添加事务管理的逻辑。
 
@@ -1987,6 +2470,10 @@ AOP 和 OOP 是互补的编程思想：
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：SpringBoot框架的AOP、IOC/DI？
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Spring AOP发生在什么时候
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：Spring AOP的概念了解吗？AOP和 OOP 的关系？
+
+memo：2025 年 7 月 7 日修改至此，有球友提问要一个详细版的学习计划表，我用了一个早上的时间整理了一个三个月的冲刺计划，包括八股、算法、项目的安排，已经放在了[ Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)中，需要的小伙伴可以自取做个参考。
+
+![学习计划表-三个月秋招冲刺计划](https://cdn.tobebetterjavaer.com/stutymore/spring-20250707153345.png)
 
 ### 21.🌟AOP的使用场景有哪些？
 
