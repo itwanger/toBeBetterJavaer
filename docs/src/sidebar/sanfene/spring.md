@@ -1316,68 +1316,29 @@ memo：2025 年 7 月 1 日修改至此，今天在[帮球友修改简历](https
 
 ![郑州大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250701154344.png)
 
-### 13.@Autowired 的实现原理？
+### 13.@Autowired的实现原理了解吗？
 
-实现@Autowired 的关键是：**AutowiredAnnotationBeanPostProcessor**
+`@Autowired` 是 Spring 实现依赖注入的核心注解，其实现原理基于反射机制和 BeanPostProcessor 接口。
 
-在 Bean 的初始化阶段，会通过 Bean 后置处理器来进行一些前置和后置的处理。
+整个过程分为两个主要阶段。第一个阶段是依赖收集阶段，发生在 Bean 实例化之后、属性赋值之前。`Autowired` 的 Processor 会扫描 Bean 的所有字段、方法和构造方法，找出标注了 `@Autowired` 注解的地方，然后把这些信息封装成 `Injection` 元数据对象缓存起来。这个过程用到了大量的反射操作，需要分析类的结构、注解信息等等。
 
-实现@Autowired 的功能，也是通过后置处理器来完成的。这个后置处理器就是 AutowiredAnnotationBeanPostProcessor。
+![MarkusZhang：@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20250711165339.png)
 
-- Spring 在创建 bean 的过程中，最终会调用到 doCreateBean()方法，在 doCreateBean()方法中会调用 populateBean()方法，来为 bean 进行属性填充，完成自动装配等工作。
-
-- 在 populateBean()方法中一共调用了两次后置处理器，第一次是为了判断是否需要属性填充，如果不需要进行属性填充，那么就会直接进行 return，如果需要进行属性填充，那么方法就会继续向下执行，后面会进行第二次后置处理器的调用，这个时候，就会调用到 AutowiredAnnotationBeanPostProcessor 的 postProcessPropertyValues()方法，在该方法中就会进行@Autowired 注解的解析，然后实现自动装配。
+第二个阶段是依赖注入阶段，Spring 会取出之前缓存的 `Injection` 元数据对象，然后逐个处理每个注入点。对于每个 `@Autowired` 标注的字段或方法，Spring 会根据类型去容器中查找匹配的 Bean。
 
 ```java
-/**
-* 属性赋值
-**/
-protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
-          //…………
-          if (hasInstAwareBpps) {
-              if (pvs == null) {
-                  pvs = mbd.getPropertyValues();
-              }
+// 1. 按类型查找（byType）
+Map<String, Object> matchingBeans = BeanFactoryUtils.beansOfTypeIncludingAncestors(
+    this.beanFactory, type);
 
-              PropertyValues pvsToUse;
-              for(Iterator var9 = this.getBeanPostProcessorCache().instantiationAware.iterator(); var9.hasNext(); pvs = pvsToUse) {
-                  InstantiationAwareBeanPostProcessor bp = (InstantiationAwareBeanPostProcessor)var9.next();
-                  pvsToUse = bp.postProcessProperties((PropertyValues)pvs, bw.getWrappedInstance(), beanName);
-                  if (pvsToUse == null) {
-                      if (filteredPds == null) {
-                          filteredPds = this.filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
-                      }
-                      //执行后处理器，填充属性，完成自动装配
-                      //调用InstantiationAwareBeanPostProcessor的postProcessPropertyValues()方法
-                      pvsToUse = bp.postProcessPropertyValues((PropertyValues)pvs, filteredPds, bw.getWrappedInstance(), beanName);
-                      if (pvsToUse == null) {
-                          return;
-                      }
-                  }
-              }
-          }
-         //…………
-  }
+// 2. 如果找到多个候选者，按名称筛选（byName）
+String autowiredBeanName = determineAutowireCandidate(matchingBeans, descriptor);
+
+// 3. 考虑@Primary和@Priority注解
+// 4. 最后按照字段名或参数名匹配
 ```
 
-- postProcessorPropertyValues()方法的源码如下，在该方法中，会先调用 findAutowiringMetadata()方法解析出 bean 中带有@Autowired 注解、@Inject 和@Value 注解的属性和方法。然后调用 metadata.inject()方法，进行属性填充。
-
-```java
-  public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
-      //@Autowired注解、@Inject和@Value注解的属性和方法
-      InjectionMetadata metadata = this.findAutowiringMetadata(beanName, bean.getClass(), pvs);
-
-      try {
-          //属性填充
-          metadata.inject(bean, beanName, pvs);
-          return pvs;
-      } catch (BeanCreationException var6) {
-          throw var6;
-      } catch (Throwable var7) {
-          throw new BeanCreationException(beanName, "Injection of autowired dependencies failed", var7);
-      }
-  }
-```
+在具体的注入过程中，Spring 会使用反射来设置字段的值或者调用 setter 方法。比如对于字段注入，会调用 `Field.set()` 方法；对于 setter 注入，会调用 `Method.invoke()` 方法。
 
 ### 14.什么是自动装配？
 
@@ -2475,15 +2436,21 @@ memo：2025 年 7 月 7 日修改至此，有球友提问要一个详细版的�
 
 ![学习计划表-三个月秋招冲刺计划](https://cdn.tobebetterjavaer.com/stutymore/spring-20250707153345.png)
 
-### 21.🌟AOP的使用场景有哪些？
+### 21.🌟AOP的应用场景有哪些？
 
-AOP 的使用场景有很多，比如说日志记录、事务管理、权限控制、性能监控等。
+答：AOP 在实际工作/编码学习中有很多应用场景，我按照使用频率来说说几个主要的。
 
-我们在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中主要利用 AOP 来打印接口的入参和出参日志、执行时间，方便后期 bug 溯源和性能调优。
+事务管理是用得最多的场景，基本上每个项目都会用到。只需要在 Service 方法上加个 `@Transactional` 注解，Spring 就会自动帮我们管理事务的开启、提交和回滚。
+
+![技术派源码：@Transactional事务](https://cdn.tobebetterjavaer.com/stutymore/spring-20250708161139.png)
+
+日志记录也是一个很常见的应用。在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就利用了 AOP 来打印接口的入参和出参日志、执行时间，方便后期 bug 溯源和性能调优。
 
 ![沉默王二：技术派教程](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180334.png)
 
-第一步，自定义注解作为切点
+----这部分面试可以不背，方便大家理解 start----
+
+第一步，定义 `@MdcDot` 注解：
 
 ```java
 @Target({ElementType.METHOD, ElementType.TYPE})
@@ -2494,15 +2461,11 @@ public @interface MdcDot {
 }
 ```
 
-第二步，配置 AOP 切面：
-
-- `@Aspect`：标识切面
-- `@Pointcut`：设置切点，这里以自定义注解为切点
-- `@Around`：环绕切点，打印方法签名和执行时间
+第二步，配置 MdcAspect 切面，拦截带有 `@MdcDot` 注解的方法或类，在方法执行前后进行 MDC 操作，记录方法执行耗时。
 
 ![技术派项目：配置 AOP 切面](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310180741.png)
 
-第三步，在使用的地方加上自定义注解
+第三步，在需要的地方加上 `@MdcDot` 注解。
 
 ![技术派项目：使用注解](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310181233.png)
 
@@ -2512,118 +2475,163 @@ public @interface MdcDot {
 2023-06-16 11:06:13,008 [http-nio-8080-exec-3] INFO |00000000.1686884772947.468581113|101|c.g.p.forum.core.mdc.MdcAspect.handle(MdcAspect.java:47) - 方法执行耗时: com.github.paicoding.forum.web.front.article.rest.ArticleRestController#recommend = 47
 ```
 
+----面试可以不背，方便大家理解 end----
+
+除此之外，还有权限控制、性能监控、缓存处理等场景。总的来说，任何需要在多个地方重复执行的通用逻辑，都可以考虑用 AOP 来实现。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：AOP应用场景
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：AOP的使用场景有哪些？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：项目中的AOP是怎么用到的
 
-### 22.🌟说说 JDK 动态代理和 CGLIB 代理？
+memo：2025 年 7 月 8 日修改至此，今天在星球的 VIP 群里又看到在吹[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)的，球友说美团、小红书八股都没问题，看二哥的足够。
 
-AOP 是通过[动态代理](https://mp.weixin.qq.com/s/aZtfwik0weJN5JzYc-JxYg)实现的，代理方式有两种：JDK 动态代理和 CGLIB 代理。
+![吹二哥的面渣逆袭](https://cdn.tobebetterjavaer.com/stutymore/spring-20250708165006.png)
 
-①、JDK 动态代理是基于接口的代理，只能代理实现了接口的类。
+### 22.说说 Spring AOP 和 AspectJ 区别?
 
-使用 JDK 动态代理时，Spring AOP 会创建一个代理对象，该代理对象实现了目标对象所实现的接口，并在方法调用前后插入横切逻辑。
+Spring AOP 只支持方法级别的织入，而且只能拦截 Spring 容器管理的 Bean。但是 AspectJ 几乎可以织入任何地方，包括方法、字段、构造方法、异常处理等等。
 
-优点：只需依赖 JDK 自带的 `java.lang.reflect.Proxy` 类，不需要额外的库；缺点：只能代理接口，不能代理类本身。
+![三分恶面渣逆袭：Spring AOP和AspectJ对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d1dbe9d9-c55f-4293-8622-d9759064d613.png)
 
-示例代码：
+从实现机制上来说，Spring AOP 是基于动态代理实现的，在运行时为目标对象创建代理，通过代理来执行切面逻辑。而 AspectJ 是通过字节码织入来实现的，它直接修改目标类的字节码，把切面逻辑编织到目标方法中。
+
+在实际项目中，我们大部分时候用的都是 Spring AOP，因为它能满足绝大多数需求，而且使用简单。只有在遇到 Spring AOP 无法解决的问题时，比如需要织入第三方 jar 包中的方法，或者监控字段才会考虑引入 AspectJ。
+
+Spring AOP 借鉴了很多 AspectJ 的概念和注解，我们在 Spring 中使用的 `@Aspect`、`@Pointcut` 这些注解，其实都是 AspectJ 定义的。
+
+### 23.说说 AOP 和反射的区别？（补充）
+
+>2024 年 7 月 27 日增补。
+
+反射主要是为了让程序能够检查和操作自身的结构，比如获取类的信息、调用方法、访问字段等等。而 AOP 则是为了在不修改业务代码的前提下，动态地为方法添加额外的行为，比如日志记录、事务管理等。
+
+从技术实现来说，反射是 Java 语言本身提供的功能，通过 `java.lang.reflect` 包下的 API 来实现。而 AOP 通常需要框架支持，比如 Spring AOP 是通过动态代理实现的，而动态代理又是基于反射实现的。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：抛开Spring，讲讲反射和动态代理？那三种代理模式怎么实现的？
+
+### 24.🌟说说JDK动态代理和CGLIB代理的区别？
+
+JDK 动态代理和 CGLIB 代理是 Spring AOP 用来创建代理对象的两种方式。
+
+![logbasex：JDK 动态代理和 CGLIB 代理](https://cdn.tobebetterjavaer.com/stutymore/spring-20250709150533.png)
+
+从使用条件来说，JDK 动态代理要求目标类必须实现至少一个接口，因为它是基于接口来创建代理的。而 CGLIB 代理不需要目标类实现接口，它是通过继承目标类来创建代理的。
+
+这是两者最根本的区别。比如我们有一个 TransferService 接口和 TransferServiceImpl 实现类，如果用 JDK 动态代理，创建的代理对象会实现 TransferService 接口；
+
+![logbasex：JDK 动态代理](https://cdn.tobebetterjavaer.com/stutymore/spring-20250709152040.png)
+
+如果用 CGLIB，代理对象会继承 TransferServiceImpl 类。
+
+![logbasex：CGLIB 代理](https://cdn.tobebetterjavaer.com/stutymore/spring-20250709152111.png)
+
+从实现原理来说，JDK 动态代理是 Java 原生支持的，它通过反射机制在运行时动态创建一个实现了指定接口的代理类。当我们调用代理对象的方法时，会被转发到 InvocationHandler 的 invoke 方法中，我们可以在这个方法里插入切面逻辑，然后再通过反射调用目标对象的真实方法。
 
 ```java
-public interface Service {
-    void perform();
-}
-
-public class ServiceImpl implements Service {
-    public void perform() {
-        System.out.println("Performing service...");
-    }
-}
-
-public class ServiceInvocationHandler implements InvocationHandler {
-    private Object target;
-
-    public ServiceInvocationHandler(Object target) {
-        this.target = target;
-    }
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("Before method");
-        Object result = method.invoke(target, args);
-        System.out.println("After method");
-        return result;
-    }
-}
-
-public class Main {
+public class JdkProxyExample {
     public static void main(String[] args) {
-        Service service = new ServiceImpl();
-        Service proxy = (Service) Proxy.newProxyInstance(
-            service.getClass().getClassLoader(),
-            service.getClass().getInterfaces(),
-            new ServiceInvocationHandler(service)
+        UserService target = new UserServiceImpl();
+        
+        UserService proxy = (UserService) Proxy.newProxyInstance(
+            target.getClass().getClassLoader(),
+            target.getClass().getInterfaces(),
+            (proxy1, method, args1) -> {
+                System.out.println("Before method: " + method.getName());
+                Object result = method.invoke(target, args1);
+                System.out.println("After method: " + method.getName());
+                return result;
+            }
         );
-        proxy.perform();
+        
+        proxy.findUser(1L);
     }
 }
 ```
 
-②、CGLIB 动态代理是基于继承的代理，可以代理没有实现接口的类。
 
-使用 CGLIB 动态代理时，Spring AOP 会生成目标类的子类，并在方法调用前后插入横切逻辑。
-
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/spring-20240321105653.png)
-
-优点：可以代理没有实现接口的类，灵活性更高；缺点：需要依赖 CGLIB 库，创建代理对象的开销相对较大。
-
-示例代码：
+CGLIB 则是一个第三方的字节码生成库，它通过 ASM 字节码框架动态生成目标类的子类，然后重写父类的方法来插入切面逻辑。
 
 ```java
-public class Service {
-    public void perform() {
-        System.out.println("Performing service...");
-    }
-}
-
-public class ServiceInterceptor implements MethodInterceptor {
-    @Override
-    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-        System.out.println("Before method");
-        Object result = proxy.invokeSuper(obj, args);
-        System.out.println("After method");
-        return result;
-    }
-}
-
-public class Main {
+public class CglibProxyExample {
     public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(Service.class);
-        enhancer.setCallback(new ServiceInterceptor());
-
-        Service proxy = (Service) enhancer.create();
-        proxy.perform();
+        enhancer.setSuperclass(UserController.class);
+        enhancer.setCallback(new MethodInterceptor() {
+            @Override
+            public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+                System.out.println("Before method: " + method.getName());
+                Object result = proxy.invokeSuper(obj, args);
+                System.out.println("After method: " + method.getName());
+                return result;
+            }
+        });
+        
+        UserController proxy = (UserController) enhancer.create();
+        proxy.getUser(1L);
     }
 }
 ```
+
 
 #### 选择 CGLIB 还是 JDK 动态代理？
 
-- 如果目标对象没有实现任何接口，则只能使用 CGLIB 代理。如果目标对象实现了接口，通常首选 JDK 动态代理。
-- 虽然 CGLIB 在代理类的生成过程中可能消耗更多资源，但在运行时具有较高的性能。对于性能敏感且代理对象创建频率不高的场景，可以考虑使用 CGLIB。
-- JDK 动态代理是 Java 原生支持的，不需要额外引入库。而 CGLIB 需要将 CGLIB 库作为依赖加入项目中。
+如果目标对象没有实现任何接口，就只能使用 CGLIB 代理，就比如说 Controller 层的类。
 
-#### 你会用 JDK 动态代理和 CGLIB 吗？
+```java
+// 没有实现接口的Controller
+@RestController
+public class ArticleController {
+    @MdcDot(bizCode = "article.create")
+    public ResponseVo<String> create(@RequestBody ArticleReq req) {
+        // 业务逻辑
+    }
+}
+```
+
+
+如果目标对象实现了接口，通常首选 JDK 动态代理，比如说 Service 层的类，一般都会先定义接口，再实现接口。
+
+```java
+// 接口定义
+public interface ArticleService {
+    void saveArticle(Article article);
+}
+
+// 实现类
+@Service
+public class ArticleServiceImpl implements ArticleService {
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void saveArticle(Article article) {
+        // 业务逻辑
+    }
+}
+```
+
+Spring 会根据目标类的情况自动选择代理方式。如果目标类实现了接口，默认使用 JDK 动态代理；如果没有实现接口，就使用 CGLIB 代理。也可以通过配置强制 Spring 使用 CGLIB，比如在 `@EnableAspectJAutoProxy` 注解中设置 `proxyTargetClass=true`。
+
+```java
+// Spring Boot默认配置
+@EnableAspectJAutoProxy(proxyTargetClass = false)
+public class AopConfig {
+    // proxyTargetClass = false: 优先使用JDK动态代理
+    // proxyTargetClass = true:  强制使用CGLIB代理
+}
+```
+
+#### 你会用 JDK 动态代理吗？
+
+会的。
 
 假设我们有这样一个小场景，客服中转，解决用户问题：
 
 ![三分恶面渣逆袭：用户向客服提问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-c5c4b247-62dd-43a2-a043-da51c58f77c8.png)
 
-①、JDK 动态代理实现：
+我们可以用 JDK 动态代理来实现这个场景。JDK 动态代理的核心是通过反射机制在运行时创建一个实现了指定接口的代理类。
 
 ![三分恶面渣逆袭：JDK动态代理类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-65b14a3f-2653-463e-af77-a8875d3d635c.png)
 
-第一步，创建接口
+第一步，创建接口。
 
 ```java
 public interface ISolver {
@@ -2631,7 +2639,7 @@ public interface ISolver {
 }
 ```
 
-第二步，实现对应接口
+第二步，实现接口。
 
 ```java
 public class Solver implements ISolver {
@@ -2642,7 +2650,7 @@ public class Solver implements ISolver {
 }
 ```
 
-第三步，动态代理工厂:ProxyFactory，直接用反射方式生成一个目标对象的代理，这里用了一个匿名内部类方式重写 InvocationHandler 方法。
+第三步，使用用反射生成目标对象的代理，这里用了一个匿名内部类方式重写 InvocationHandler 方法。
 
 ```java
 public class ProxyFactory {
@@ -2673,7 +2681,7 @@ public class ProxyFactory {
 }
 ```
 
-第五步，客户端：Client，生成一个代理对象实例，通过代理对象调用目标对象方法
+第四步，生成一个代理对象实例，通过代理对象调用目标对象方法。
 
 ```java
 public class Client {
@@ -2688,11 +2696,13 @@ public class Client {
 }
 ```
 
-②、CGLIB 动态代理实现：
+#### 你会用 CGLIB 动态代理吗？
+
+会的。
 
 ![三分恶面渣逆袭：CGLIB动态代理类图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-74da87af-20d1-4a5b-a212-3837a15f0bab.png)
 
-第一步：定义目标类（Solver），目标类 Solver 定义了一个 solve 方法，模拟了解决问题的行为。目标类不需要实现任何接口，这与 JDK 动态代理的要求不同。
+第一步：定义目标类 Solver，定义 solve 方法，模拟解决问题的行为。目标类不需要实现任何接口，这与 JDK 动态代理的要求不同。
 
 ```java
 public class Solver {
@@ -2703,7 +2713,7 @@ public class Solver {
 }
 ```
 
-第二步：动态代理工厂（ProxyFactory），ProxyFactory 类实现了 MethodInterceptor 接口，这是 CGLIB 提供的一个方法拦截接口，用于定义方法的拦截逻辑。
+第二步：创建代理工厂 ProxyFactory，使用 CGLIB 的 Enhancer 类来生成目标类的子类（代理对象）。CGLIB 允许我们在运行时动态创建一个继承自目标类的代理类，并重写目标方法。
 
 ```java
 public class ProxyFactory implements MethodInterceptor {
@@ -2739,11 +2749,7 @@ public class ProxyFactory implements MethodInterceptor {
 }
 ```
 
-- ProxyFactory 接收一个 Object 类型的 target，即目标对象的实例。
-- 使用 CGLIB 的 Enhancer 类来生成目标类的子类（代理对象）。通过 setSuperclass 设置代理对象的父类为目标对象的类，setCallback 设置方法拦截器为当前对象（this），最后调用 create 方法生成并返回代理对象。
-- 重写 MethodInterceptor 接口的 intercept 方法以提供方法拦截逻辑。在目标方法执行前后添加自定义逻辑，然后通过 method.invoke 调用目标对象的方法。
-
-第三步：客户端使用代理，首先创建目标对象（Solver 的实例），然后使用 ProxyFactory 创建该目标对象的代理。通过代理对象调用 solve 方法时，会先执行 intercept 方法中定义的逻辑，然后执行目标方法，最后再执行 intercept 方法中的后续逻辑。
+第三步：创建客户端 Client，获取代理对象并调用目标方法。
 
 ```java
 public class Client {
@@ -2768,60 +2774,23 @@ public class Client {
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：Spring AOP的实现原理？JDK动态代理和CGLib动态代理的各自实现及其区别？现在需要统计方法的具体执行时间，说下如何使用AOP来实现？
 > 9. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：了解AOP底层是怎么做的吗？
 
-### 23.说说 Spring AOP 和 AspectJ AOP 区别?
+<MZNXQRcodeBanner />
 
-Spring AOP 属于`运行时增强`，主要具有如下特点：
+memo：2025 年 7 月 10 日修改至此，今天在给球友修改简历的时候碰到一个[对星球非常认可的球友](https://javabetter.cn/zhishixingqiu/)，他在我的帮助下也顺利找到了实习，并且大家也可以看到，他提到的这些路线规划问题、简历书写问题、秋招准备问题、项目问题，都可以在星球里找到答案。
 
-1.  基于动态代理来实现，默认如果使用接口的，用 JDK 提供的动态代理实现，如果是方法则使用 CGLIB 实现
-
-2.  Spring AOP 需要依赖 IoC 容器来管理，并且只能作用于 Spring 容器，使用纯 Java 代码实现
-
-3.  在性能上，由于 Spring AOP 是基于**动态代理**来实现的，在容器启动时需要生成代理实例，在方法调用上也会增加栈的深度，使得 Spring AOP 的性能不如 AspectJ 的那么好。
-
-4.  Spring AOP 致力于解决企业级开发中最普遍的 AOP(方法织入)。
-
-AspectJ 是一个易用的功能强大的 AOP 框架，属于`编译时增强`， 可以单独使用，也可以整合到其它框架中，是 AOP 编程的完全解决方案。AspectJ 需要用到单独的编译器 ajc。
-
-AspectJ 属于**静态织入**，通过修改代码来实现，在实际运行之前就完成了织入，所以说它生成的类是没有额外运行时开销的，一般有如下几个织入的时机：
-
-1.  编译期织入（Compile-time weaving）：如类 A 使用 AspectJ 添加了一个属性，类 B 引用了它，这个场景就需要编译期的时候就进行织入，否则没法编译类 B。
-
-2.  编译后织入（Post-compile weaving）：也就是已经生成了 .class 文件，或已经打成 jar 包了，这种情况我们需要增强处理的话，就要用到编译后织入。
-
-3.  类加载后织入（Load-time weaving）：指的是在加载类的时候进行织入，要实现这个时期的织入，有几种常见的方法
-
-整体对比如下：
-
-![Spring AOP和AspectJ对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d1dbe9d9-c55f-4293-8622-d9759064d613.png)
-
-### 24.说说 AOP 和反射的区别？（补充）
-
->2024 年 7 月 27 日增补。
-
-1. 反射：用于检查和操作类的方法和字段，动态调用方法或访问字段。反射是 Java 提供的内置机制，直接操作类对象。
-2. 动态代理：通过生成代理类来拦截方法调用，通常用于 AOP 实现。动态代理使用反射来调用被代理的方法。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：抛开Spring，讲讲反射和动态代理？那三种代理模式怎么实现的？
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250711172049.png)
 
 ## 事务
 
-Spring 事务的本质其实就是数据库对事务的支持，没有数据库的事务支持，Spring 是无法提供事务功能的。Spring 只提供统一事务管理接口，具体实现都是由各数据库自己实现，数据库事务的提交和回滚是通过数据库自己的事务机制实现。
+### 25.🌟说说你对Spring事务的理解？
 
-### 25.🌟Spring 事务的种类？
+Spring 提供了两种事务管理方式，编程式事务和声明式事务。编程式事务就是我们要手动调用事务的开始、提交、回滚这些操作，虽然灵活但是代码比较繁琐。声明式事务只需要在需要事务的方法上加上 `@Transactional` 注解就好了，Spring 会帮我们自动处理事务的整个生命周期。
 
-在 Spring 中，事务管理可以分为两大类：声明式事务管理和编程式事务管理。
+![Spring TransactionInterceptor](https://cdn.tobebetterjavaer.com/stutymore/spring-20250711173334.png)
 
-![三分恶面渣逆袭：Spring事务分类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d3ee77fa-926d-4c39-91f8-a8b1544a9134.png)
+----这部分可以不背，方便大家理解 start----
 
-#### 介绍一下编程式事务管理？
-
-编程式事务可以使用 TransactionTemplate 和 PlatformTransactionManager 来实现，需要显式执行事务。允许我们在代码中直接控制事务的边界，通过编程方式明确指定事务的开始、提交和回滚。
+编程式事务可以使用 TransactionTemplate 和 PlatformTransactionManager 来实现，允许我们在代码中直接控制事务的边界。
 
 ```java
 public class AccountService {
@@ -2845,15 +2814,11 @@ public class AccountService {
 }
 ```
 
-在上面的代码中，我们使用了 TransactionTemplate 来实现编程式事务，通过 execute 方法来执行事务，这样就可以在方法内部实现事务的控制。
+----这部分可以不背，方便大家理解 end----
 
-#### 介绍一下声明式事务管理？
+Spring 事务的底层实现是通过 AOP 来完成的。当我们在方法上加 `@Transactional` 注解后，Spring 会为这个 Bean 创建代理对象，在方法执行前开启事务，方法正常返回时提交事务，如果方法抛出异常就回滚事务。
 
-声明式事务是建立在 AOP 之上的。其本质是通过 AOP 功能，对方法前后进行拦截，将事务处理的功能编织到拦截的方法中，也就是在目标方法开始之前启动一个事务，在目标方法执行完之后根据执行情况提交或者回滚事务。
-
-相比较编程式事务，优点是不需要在业务逻辑代码中掺杂事务管理的代码，Spring 推荐通过 @Transactional 注解的方式来实现声明式事务管理，也是日常开发中最常用的。
-
-不足的地方是，声明式事务管理最细粒度只能作用到方法级别，无法像编程式事务那样可以作用到代码块级别。
+声明式事务的优点是不需要在业务逻辑代码中掺杂事务管理的代码，缺点是，最细粒度只能到方法级别，无法到代码块级别。
 
 ```java
 @Service
@@ -2871,16 +2836,15 @@ public class AccountService {
 }
 ```
 
-#### 说说两者的区别？
-
-- **编程式事务管理**：需要在代码中显式调用事务管理的 API 来控制事务的边界，比较灵活，但是代码侵入性较强，不够优雅。
-- **声明式事务管理**：这种方式使用 Spring 的 AOP 来声明事务，将事务管理代码从业务代码中分离出来。优点是代码简洁，易于维护。但缺点是不够灵活，只能在预定义的方法上使用事务。
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 10 后端实习一面的原题：Spring 事务怎么实现的
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Spring 如何保证事务
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：Spring的事务用过吗，在项目里面怎么使用的
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：spring事务
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：如何使用spring实现事务
+
+memo：2025 年 7 月 11 日修改至此，今天[有球友在 VIP 群里讲](https://javabetter.cn/zhishixingqiu/)，面渣逆袭的 Redis、MySQL、JVM 篇非常强；另外一个球友也是继续口碑说，面过几次全包过。😄
+
+![球友对面渣逆袭的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250711174214.png)
 
 ### 26.说说 Spring 的事务隔离级别？
 
