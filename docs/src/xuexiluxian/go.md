@@ -7,7 +7,8 @@ category:
 tag:
   - 学习路线
 description: Go 语言越来越火了，这里整理一份 go 语言的超详细学习路线，附学习资源，可下载
-date: 2025-01-01
+date: 2025-07-17
+author: 沉默王二
 head:
   - - meta
     - name: keywords
@@ -181,13 +182,21 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 >地址：[https://github.com/filebrowser/filebrowser](https://github.com/filebrowser/filebrowser)
 
-**第三个项目：go-admin**，GitHub 上星标 5k+，基于 Go 语言的一个数据可视化与管理平台，使开发者能在极简短的时间里，用极简短的代码量搭建起一个后台管理。
+**第三个项目：redigo**，这是[二哥编程星球](https://javabetter.cn/zhishixingqiu/)里一位球友手写的轮子项目，我看了一下 doc，写的非常好，代码量也不大，适合 Go 语言初学者学习。
+
+![Redigo](https://cdn.tobebetterjavaer.com/stutymore/go-20250717095430.png)
+
+>地址：[https://github.com/inannan423/redigo](https://github.com/inannan423/redigo)
+
+![喜欢的同学可以 star 起来](https://cdn.tobebetterjavaer.com/stutymore/go-20250717095551.png)
+
+**第四个项目：go-admin**，GitHub 上星标 5k+，基于 Go 语言的一个数据可视化与管理平台，使开发者能在极简短的时间里，用极简短的代码量搭建起一个后台管理。
 
 ![go-admin](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-21.jpg)
 
 >地址：[https://github.com/GoAdminGroup/go-admin](https://github.com/GoAdminGroup/go-admin)
 
-**第四个项目：7天用Go从零实现分布式缓存GeeCache**，每天完成的部分都是可以独立运行和测试的，就像搭积木一样，最终组合在一起就是一个完整的分布式缓存系统。每天的代码在 100 行左右。。
+**第五个项目：7天用Go从零实现分布式缓存GeeCache**，每天完成的部分都是可以独立运行和测试的，就像搭积木一样，最终组合在一起就是一个完整的分布式缓存系统。每天的代码在 100 行左右。。
 
 ![7天用Go从零实现分布式缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-22.jpg)
 
