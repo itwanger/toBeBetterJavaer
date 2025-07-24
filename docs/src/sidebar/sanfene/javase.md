@@ -305,7 +305,9 @@ Java 5 以前 `switch(expr)` 中，expr 只能是 byte、short、char、int。
 
 从 Java 5 开始，Java 中引入了枚举类型， expr 也可以是 enum 类型。
 
-从 Java 7 开始，expr 还可以是字符串，但是长整型在目前所有的版本中都是不可以的。
+从 Java 7 开始，expr 还可以是字符串。
+
+从 Java 21 开始，switch 语句迎来了根本性的变革，不仅可以处理 long 类型，也能处理包括 null 在内的任意对象类型，并可通过 when 子句添加复杂的判断条件。
 
 ### 12.break,continue,return 的区别及作用？
 
