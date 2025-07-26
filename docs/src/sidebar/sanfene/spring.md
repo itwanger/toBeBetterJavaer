@@ -3209,102 +3209,87 @@ memo：2025 年 7 月 18 日修改至此，今天在[帮球友修改简历时](h
 
 ![荣誉奖项基本拉满的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250718111849.png)
 
-### 32.SpringMVC Restful 风格的接口的流程是什么样的呢？
+### 32.SpringMVC Restful 风格的接口流程是什么样的呢？
 
-PS:这是一道全新的八股，毕竟 ModelAndView 这种方式应该没人用了吧？现在都是前后端分离接口，八股也该更新换代了。
+在传统的 MVC 中，Controller 方法通常返回一个视图名称或者 ModelAndView 对象，然后由视图解析器 ViewResolver 解析并渲染成 HTML 页面。但在 RESTful 架构中，通常返回的是 JSON 或 XML，不再是一个完整的页面。
 
-我们都知道 Restful 接口，响应格式是 json，这就用到了一个常用注解：**@ResponseBody**
+其中很重要的两个注解：`@RestController` 相当于 `@Controller` 和 `@ResponseBody` 的结合。当在一个类上使用 `@RestController` 时，它会告诉 Spring 这个类中所有方法的返回值都应该被直接写入 HTTP 响应体中，而不再被解析为视图。
 
-```java
-    @GetMapping("/user")
-    @ResponseBody
-    public User user(){
-        return new User(1,"张三");
-    }
-```
+`@ResponseBody` 可以用在方法级别，作用相同。它标志着该方法的返回值将作为响应体内容，Spring 会跳过视图解析的步骤。
 
-加入了这个注解后，整体的流程上和使用 ModelAndView 大体上相同，但是细节上有一些不同：
+HttpMessageConverter 是实现 RESTful 风格的关键。当 Spring 检测到 `@ResponseBody` 注解时，它会使用 HttpMessageConverter 来将 Controller 方法返回的 Java 对象序列化成指定的格式，如 JSON。
 
-![Spring MVC Restful请求响应示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2da963a0-5da9-4b3a-aafd-fd8dbc7e1807.png)
+默认情况下，如果类路径下有 Jackson 库，Spring Boot 会自动配置 MappingJackson2HttpMessageConverter 来处理 JSON 的转换。相应的，对于带有 `@RequestBody` 注解的方法参数，它也会用这个转换器将请求体中的 JSON 数据反序列化成 Java 对象。
 
-1. 客户端向服务端发送一次请求，这个请求会先到前端控制器 DispatcherServlet
+![技术派源码：MappingJackson2HttpMessageConverter](https://cdn.tobebetterjavaer.com/stutymore/spring-20250719102056.png)
 
-2. DispatcherServlet 接收到请求后会调用 HandlerMapping 处理器映射器。由此得知，该请求该由哪个 Controller 来处理
+所以，RESTful 接口的流程可以概括为：请求到达前端控制器 DispatcherServlet → 通过 HandlerMapping 找到对应的 Controller 方法 → 执行方法并返回数据 → 使用 HttpMessageConverter 将数据转换为 JSON 或 XML 格式 → 直接写入 HTTP 响应体。
 
-3. DispatcherServlet 调用 HandlerAdapter 处理器适配器，告诉处理器适配器应该要去执行哪个 Controller
+![三分恶面渣逆袭：Spring MVC Restful请求响应示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2da963a0-5da9-4b3a-aafd-fd8dbc7e1807.png)
 
-4. Controller 被封装成了 ServletInvocableHandlerMethod，HandlerAdapter 处理器适配器去执行 invokeAndHandle 方法，完成对 Controller 的请求处理
-
-5. HandlerAdapter 执行完对 Controller 的请求，会调用 HandlerMethodReturnValueHandler 去处理返回值，主要的过程：
-
-   5.1. 调用 RequestResponseBodyMethodProcessor，创建 ServletServerHttpResponse（Spring 对原生 ServerHttpResponse 的封装）实例
-
-   5.2.使用 HttpMessageConverter 的 write 方法，将返回值写入 ServletServerHttpResponse 的 OutputStream 输出流中
-
-   5.3.在写入的过程中，会使用 JsonGenerator（默认使用 Jackson 框架）对返回值进行 Json 序列化
-
-6. 执行完请求后，返回的 ModealAndView 为 null，ServletServerHttpResponse 里也已经写入了响应，所以不用关心 View 的处理
+总结来说，RESTful 接口的流程通过 `@RestController` 和 HttpMessageConverter “抄了近道”，省略了 ViewResolver 和 View 的渲染过程，直接将数据转换为指定的格式返回，非常适合前后端分离的应用场景。
 
 <MZNXQRcodeBanner />
 
+memo：2025 年 7 月 19 日修改至此，今天有[球友](https://javabetter.cn/zhishixingqiu/)私信我说，拿到了京东的实习 offer，问接下来的秋招该怎么准备？那 7 月份实习 Offer 确实会比较少，但仍然有一部分，如果这个阶段还想要冲实习的话，确实可以捡漏。
+
+![球友拿到京东实习 offer 了](https://cdn.tobebetterjavaer.com/stutymore/spring-20250719103018.png)
+
 ## Spring Boot
 
-### 33.🌟介绍一下 SpringBoot，有哪些优点？
+### 33.🌟介绍一下 SpringBoot？
 
-Spring Boot 提供了一套默认配置，它通过约定大于配置的理念，来帮助我们快速搭建 Spring 项目骨架。
+Spring Boot 可以说是 Spring 生态的一个重大突破，它极大地简化了 Spring 应用的开发和部署过程。
 
 ![SpringBoot图标](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d9164ee6-5c86-4313-8fd9-efb9acfa5f0b.png)
 
-以前的 Spring 开发需要配置大量的 xml 文件，并且需要引入大量的第三方 jar 包，还需要手动放到 classpath 下。现在只需要引入一个 Starter，或者一个注解，就可以轻松搞定。
+以前我们用 Spring 开发项目的时候，需要配置一大堆 XML 文件，包括 Bean 的定义、数据源配置、事务配置等等，非常繁琐。而且还要手动管理各种 jar 包的依赖关系，很容易出现版本冲突的问题。部署的时候还要单独搭建 Tomcat 服务器，整个过程很复杂。Spring Boot 就是为了解决这些痛点而生的。
 
-Spring Boot 的优点非常多，比如说：
+“约定大于配置”是 Spring Boot 最核心的理念。它预设了很多默认配置，比如默认使用内嵌的 Tomcat 服务器，默认的日志框架是 Logback 等等。这样，我们开发者就只需要关注业务逻辑，不用再纠结于各种配置细节。
 
-1. Spring Boot 内嵌了 Tomcat、Jetty、Undertow 等容器，直接运行 jar 包就可以启动项目。
-2. Spring Boot 内置了 Starter 和自动装配，避免繁琐的手动配置。例如，如果项目中添加了 spring-boot-starter-web，Spring Boot 会自动配置 Tomcat 和 Spring MVC。
-3. Spring Boot 内置了 Actuator 和 DevTools，便于调试和监控。
+自动装配也是 Spring Boot 的一大特色，它会根据项目中引入的依赖自动配置合适的 Bean。比如说，我们引入了 Spring Data JPA，Spring Boot 就会自动配置数据源；比如说，我们引入了 Spring Security，Spring Boot 就会自动配置安全相关的 Bean。
+
+Spring Boot 还提供了很多开箱即用的功能，比如 Actuator 监控、DevTools 开发工具、Spring Boot Starter 等等。Actuator 可以让我们轻松监控应用的健康状态、性能指标等；DevTools 可以加快开发效率，比如自动重启、热部署等；Spring Boot Starter 则是一些预配置好的依赖集合，让我们可以快速引入某些常用的功能。
 
 #### Spring Boot常用注解有哪些？
 
-1. **@SpringBootApplication**：Spring Boot 应用的入口，用在启动类上。
-2. 还有一些 Spring 框架本身的注解，比如 **@Component**、**@RestController**、**@Service**、**@ConfigurationProperties**、**@Transactional** 等。
+Spring Boot 的注解很多，我就挑两个说一下吧。
+
+- `@SpringBootApplication`：这是 Spring Boot 的核心注解，它是一个组合注解，包含了 `@Configuration`、`@EnableAutoConfiguration` 和 `@ComponentScan`。它标志着一个 Spring Boot 应用的入口。
+- `@SpringBootTest`：用于测试 Spring Boot 应用的注解，它会加载整个 Spring 上下文，适合集成测试。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经中出现过该题：讲讲 Spring Boot 的特性。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：SpringBoot基本原理
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的国企零碎面经同学 9 面试原题：Springboot基于Spring的配置有哪几种
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：springboot常用注解
 
+memo：2025 年 7 月 20 日修改至此，今天又有[球友](https://javabetter.cn/zhishixingqiu/jianli.html)发私信说，后悔没有早一点加入星球，加入星球后，才发现大家早早就为自己的未来去拼搏了。很真实，好吧，这就是星球的价值所在，100 多块钱的门票就能提供学校几万学费给你不了的东西。
 
-### 34.🌟SpringBoot 自动配置原理了解吗？
+![球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-从学校到职场，一般都这样，正常的，想干了，.png)
 
-在 Spring 中，自动装配是指容器利用反射技术，根据 Bean 的类型、名称等自动注入所需的依赖。
+### 34.🌟Spring Boot的自动装配原理了解吗？
 
-![三分恶面渣逆袭：SpringBoot自动配置原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
-
-在 Spring Boot 中，开启自动装配的注解是`@EnableAutoConfiguration`。
+在 Spring Boot 中，开启自动装配的注解是`@EnableAutoConfiguration`。这个注解会告诉 Spring 去扫描所有可用的自动配置类。
 
 ![二哥的 Java 进阶之路：@EnableAutoConfiguration 源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316121711.png)
 
-Spring Boot 为了进一步简化，直接通过 `@SpringBootApplication` 注解一步搞定，该注解包含了 `@EnableAutoConfiguration` 注解。
+Spring Boot 为了进一步简化，把这个注解包含到了 `@SpringBootApplication` 注解中。也就是说，当我们在主类上使用 `@SpringBootApplication` 注解时，实际上就已经开启了自动装配。
 
-main 类启动的时候，Spring Boot 会通过底层的`AutoConfigurationImportSelector` 类加载自动装配类。
+当 main 方法运行的时候，Spring 会去类路径下找 `spring.factories` 这个文件，读取里面配置的自动配置类列表。比如在我们的[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，paicoding-core 和 paicoding-service 模块里都有 spring.factories，分别注册了 ForumCoreAutoConfig 和 ServiceAutoConfig，这两个配置类就会在项目启动的时候被自动加载。
 
-```java
-@AutoConfigurationPackage //将main同级的包下的所有组件注册到容器中
-@Import({AutoConfigurationImportSelector.class}) //加载自动装配类 xxxAutoconfiguration
-public @interface EnableAutoConfiguration {
-    String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";
+![技术派源码：spring.factories](https://cdn.tobebetterjavaer.com/stutymore/spring-20250726163615.png)
 
-    Class<?>[] exclude() default {};
+然后每个自动配置类内部，通常会有一个 `@Configuration` 注解，同时结合各种 `@Conditional` 注解来做条件控制。像[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)的 RabbitMqAutoConfig 类，就用了 `@ConditionalOnProperty` 注解来判断配置文件里有没有开启 rabbitmq.switchFlag，来决定是否初始化 RabbitMQ 消费线程。
 
-    String[] excludeName() default {};
-}
-```
+![技术派源码：RabbitMqAutoConfig](https://cdn.tobebetterjavaer.com/stutymore/spring-20250726163759.png)
 
-`AutoConfigurationImportSelector`实现了`ImportSelector`接口，该接口的作用是收集需要导入的配置类，配合 `@Import()` 将相应的类导入到 Spring 容器中。
+另外一个常见的场景是自动注入 Bean，比如[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)的 ServiceAutoConfig 中就用了 `@ComponentScan` 来扫描 service 包，`@MapperScan` 扫描 MyBatis 的 mapper 接口，实现业务层和 DAO 层的自动装配。
 
-![二哥的 Java 进阶之路：AutoConfigurationImportSelector源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240316122134.png)
+具体的执行过程可以总结为：Spring Boot 项目在启动时加载所有的自动配置类，然后逐个检查它们的生效条件，当条件满足时就实例化并创建相应的 Bean。
 
-获取注入类的方法是 `selectImports()`，它实际调用的是`getAutoConfigurationEntry()`，这个方法是获取自动装配类的关键。
+![三分恶面渣逆袭：Spring Boot的自动装配原理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-df77ee15-2ff0-4ec7-8e65-e4ebb8ba88f1.png)
+
+自动装配的执行时机是在 Spring 容器启动的时候。具体来说是在 ConfigurationClassPostProcessor 这个 BeanPostProcessor 中处理的，它会解析 `@Configuration` 类，包括通过 `@Import` 导入的自动配置类。
 
 ```java
 protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata annotationMetadata) {
@@ -3342,14 +3327,16 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata an
 }
 ```
 
-总结：Spring Boot 的自动装配原理依赖于 Spring 框架的依赖注入和条件注册，通过这种方式，Spring Boot 能够智能地配置 bean，并且只有当这些 bean 实际需要时才会被创建和配置。
-
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 启动时为什么能够自动装配
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 如何做到启动的时候注入一些 bean
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 3 Java 技术一面面试原题：说一下 Spring Boot 的自动装配原理
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：spring boot 的自动装配
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：SpringBoot如何实现自动装配
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：自动配置怎么实现的？
+
+memo：2025 年 7 月 21 日修改至此，今天有[球友](https://javabetter.cn/zhishixingqiu/jianli.html)发私信说，拿到了亚信科技+新石器无人车的 offer，问我该如何选择，如果是你，你会如何选择呢？
+
+![亚信科技+新石器无人车的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250726164552.png)
 
 ### 35.🌟如何自定义一个 SpringBoot Srarter?
 
