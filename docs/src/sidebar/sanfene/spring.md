@@ -3338,11 +3338,9 @@ memo：2025 年 7 月 21 日修改至此，今天有[球友](https://javabetter.
 
 ![亚信科技+新石器无人车的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250726164552.png)
 
-### 35.🌟如何自定义一个 SpringBoot Srarter?
+### 35.🌟如何自定义一个 SpringBoot Starter?
 
-创建一个自定义的 Spring Boot Starter，需要这几步：
-
-第一步，创建一个新的 Maven 项目，例如命名为 my-spring-boot-starter。在 pom.xml 文件中添加必要的依赖和配置：
+第一步，SpringBoot 官方建议第三方 starter 的命名格式是 xxx-spring-boot-starter，所以我们可以创建一个名为 `my-spring-boot-starter` 的项目，一共包括两个模块，一个是 autoconfigure 模块，包含自动配置逻辑；一个是 starter 模块，只包含依赖声明。
 
 ```xml
 <properties>
@@ -3363,7 +3361,7 @@ memo：2025 年 7 月 21 日修改至此，今天有[球友](https://javabetter.
 </dependencies>
 ```
 
-第二步，在 `src/main/java` 下创建一个自动配置类，比如 MyServiceAutoConfiguration.java：（通常是 autoconfigure 包下）。
+第二步，创建一个自动配置类，通常在 autoconfigure 包下，该类的作用是根据配置文件中的属性来创建和配置 Bean。
 
 ```java
 @Configuration
@@ -3378,7 +3376,7 @@ public class MyServiceAutoConfiguration {
 }
 ```
 
-第三步，创建一个配置属性类 MyStarterProperties.java：
+第三步，创建一个配置属性类，用于读取配置文件中的属性。通常使用 `@ConfigurationProperties` 注解来标记这个类。
 
 ```java
 @ConfigurationProperties(prefix = "mystarter")
@@ -3395,7 +3393,7 @@ public class MyStarterProperties {
 }
 ```
 
-第四步，创建一个简单的服务类 MyService.java：
+第四步，创建一个简单的服务类，用于提供业务逻辑。
 
 ```java
 public class MyService {
@@ -3411,20 +3409,20 @@ public class MyService {
 }
 ```
 
-第五步，配置 spring.factories，在 `src/main/resources/META-INF` 目录下创建 spring.factories 文件，并添加：
+第五步，在 `src/main/resources/META-INF` 目录下创建一个名为 spring.factories 文件，告诉 SpringBoot 在启动时要加载我们的自动配置类。
 
 ```
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.itwanger.mystarter.autoconfigure.MyServiceAutoConfiguration
 ```
 
-第六步，使用 Maven 打包这个项目：
+第六步，使用 Maven 打包这个项目。
 
 ```shell
 mvn clean install
 ```
 
-第七步，在其他的 Spring Boot 项目中，通过 Maven 来添加这个自定义的 Starter 依赖，并通过 application.properties 配置欢迎消息：
+第七步，在其他的 Spring Boot 项目中，通过 Maven 来添加这个自定义的 Starter 依赖，并通过 application.properties 配置信息：
 
 ```xml
 mystarter.message=javabetter.cn
@@ -3432,25 +3430,35 @@ mystarter.message=javabetter.cn
 
 然后就可以在 Spring Boot 项目中注入 MyStarterProperties 来使用它。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/spring-20240409114642.png)
+![MyStarterProperties 注入示例](https://cdn.tobebetterjavaer.com/stutymore/spring-20240409114642.png)
 
-启动项目，然后在浏览器中输入 `localhost:8081/hello`，就可以看到欢迎消息了。
+启动项目，然后在浏览器中输入 `localhost:8081/hello`，就可以看到返回的内容是 `javabetter.cn`，说明我们的自定义 Starter 已经成功工作了。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/spring-20240409114610.png)
+![二哥的 Java 进阶之路：自定义 Spring Boot Stater](https://cdn.tobebetterjavaer.com/stutymore/spring-20240409114610.png)
 
 #### Spring Boot Starter 的原理了解吗？
 
-Spring Boot Starter 主要通过起步依赖和自动配置机制来简化项目的构建和配置过程。
+Starter 的核心思想是把相关的依赖打包在一起，让开发者只需要引入一个 starter 依赖，就能获得完整的功能模块。
 
-起步依赖是 Spring Boot 提供的一组预定义依赖项，它们将一组相关的库和模块打包在一起。比如 `spring-boot-starter-web` 就包含了 Spring MVC、Tomcat 和 Jackson 等依赖。
+当我们在 pom.xml 中引入一个 starter 时，Maven 就会自动解析这个 starter 的依赖树，把所有需要的 jar 包都下载下来。
 
-自动配置机制是 Spring Boot 的核心特性，通过自动扫描类路径下的类、资源文件和配置文件，自动创建和配置应用程序所需的 Bean 和组件。
+每个 starter 都会包含对应的自动配置类，这些配置类通过条件注解来判断是否应该生效。比如当我们引入了 `spring-boot-starter-web`，它会自动配置 Spring MVC、内嵌的 Tomcat 服务器等。
 
-比如有了 `spring-boot-starter-web`，我们开发者就不需要再手动配置 Tomcat、Spring MVC 等，Spring Boot 会自动帮我们完成这些工作。
+spring.factories 文件是 Spring Boot 自动装配的核心，它位于每个 starter 的 `META-INF` 目录下。这个文件列出了所有的自动配置类，Spring Boot 在启动时会读取这个文件，加载对应的配置类。
+
+```properties
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.example.demo.autoconfigure.DemoAutoConfiguration,\
+com.example.demo.autoconfigure.AnotherAutoConfiguration
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：你封装过 springboot starter 吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 20 二面面试原题：Spring Boot Starter 的原理了解吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：为什么使用SpringBoot？SpringBoot自动装配的原理及流程？@Import的作用？如果想让SpringBoot对自定义的jar包进行自动配置的话，需要怎么做？
+
+memo：2025 年 7 月 22 日修改至此，今天有[球友](https://javabetter.cn/zhishixingqiu/)在 VIP 群里聊天，发现两个人都在小红书，有缘分的很，那能去小红书实习，基本上秋招就算是稳如老狗了😄，这家独角兽的实习含金量还是非常高的。
+
+![在小红书实习的球友真不少](https://cdn.tobebetterjavaer.com/stutymore/spring-20250727165400.png)
 
 ### 36.🌟Spring Boot 启动原理了解吗？
 
