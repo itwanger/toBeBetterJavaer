@@ -27,6 +27,10 @@ head:
 
 ![球友们对修改简历的认可2](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113556.png)
 
+改完简历就拿到了腾讯提前批的面试，还有双非的球友也拿到了腾讯的面试机会，对二哥的简历修改服务非常认可：
+
+![改完简历球友就拿到了腾讯的面试机会](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250729182613.png)
+
 无独有偶，看看球友对简历修改后的认可程度吧，几乎没有挂过，非常可以。
 
 ![二哥修改后的简历每一句都比我的好，质量提高了很多](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250523094211.png)
