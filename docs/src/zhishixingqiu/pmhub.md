@@ -1,6 +1,6 @@
 ---
 title: 二哥的PmHub，一套基于 SpringCloud & LLM 的智能项目管理系统更新了
-shortTitle: 星球实战项目PmHub
+shortTitle: 微服务PmHub
 category:
   - 知识星球
 tag:

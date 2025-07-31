@@ -40,6 +40,10 @@ export default navbar([
         icon: "zhongyaotishi",
         link: "/nice-article/itmind/" 
       },
+      { 
+        text: "上交大生存手册",
+        link: "/sidebar/sjtu/" 
+      },
     ],
   }
 ]);

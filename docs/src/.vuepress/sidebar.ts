@@ -3,11 +3,12 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar({
   "/zhishixingqiu/": [
     "readme.md",
-    "map",
-    "mianshi",
+    "jianli",
+    "paismart",
     "paicoding",
     "pmhub",
-    "jianli",
+    "mianshi",
+    "map",
     "qiuzhao-gongsi-mingdan",
   ],
   "/nice-article/itmind/": [
@@ -59,14 +60,14 @@ export default sidebar({
   ],
   "/sidebar/sanfene/": [
     "nixi",
+    "mysql",
+    "redis",
+    "spring",
     "javase",
     "collection",
     "javathread",
     "jvm",
-    "spring",
-    "redis",
     "mybatis",
-    "mysql",
     "os",
     "network",
     "rocketmq",
@@ -74,6 +75,28 @@ export default sidebar({
     "weifuwu",
     "shejimoshi",
     "linux",
+  ],
+  "/sidebar/sjtu/": [
+    {
+      text: "心得篇",
+      link: "fly/",
+    },
+    {
+      text: "立志篇",
+      link: "li-zhi-pian/",
+    },
+    {
+      text: "访谈篇",
+      link: "fang-tan-ji//",
+    },
+    {
+      text: "人生篇",
+      link: "fu-lu/",
+    },
+    {
+      text: "生存技巧篇",
+      link: "sheng-cun-ji-qiao/",
+    }
   ],
   // 必须放在最后面
   "/": [
