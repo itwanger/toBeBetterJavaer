@@ -3310,7 +3310,7 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(AnnotationMetadata an
     // 根据注解属性解析出需要排除的自动配置类。
     Set<String> exclusions = getExclusions(annotationMetadata, attributes);
 
-    // 检查排除的类是否存在于候选配置中，如果存在，则抛出异常。
+    // 检查排除的类是否出现在候选配置中，如果需要排除的类存在但没有出现在候选配置中，则抛出异常。
     checkExcludedClasses(configurations, exclusions);
 
     // 从候选配置中移除排除的类。
