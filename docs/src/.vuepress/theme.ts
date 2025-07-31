@@ -186,7 +186,7 @@ export default hopeTheme({
       {
         path: "/",
         title: "二哥的编程星球",
-        content: "这是一个编程学习指南 + Java 项目实战 + LeetCode 刷题 + 简历精修的私密圈子，已有 8600 名球友加入",
+        content: "这是一个Java面试指南 + 编程项目实战 + 简历精修 + LeetCode 刷题的私密圈子，已有 9000 名球友加入",
         actions: [
           {
             text: "这就去加入",

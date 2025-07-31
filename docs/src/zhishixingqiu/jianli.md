@@ -119,9 +119,9 @@ head:
 
 ![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/jianli-星球优惠券.png)
 
-星球还有其他服务（比如说实战项目技术派、mydb、微服务 PmHub、AI 知识库），看看这个畅销榜，应该能懂得星球的含金量。
+星球还有其他服务（比如说实战项目技术派、mydb、微服务 PmHub、AI 知识库），看看球友们对星球和二哥的口碑，应该能懂得星球的含金量。
 
-![星球含金量排名靠前](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514103646.png)
+![球友们对星球的真实评价](https://cdn.tobebetterjavaer.com/paicoding/378ea370a2f7a378835c50988ba53014.png)
 
 ## 01、专业技能一定要专业
 
