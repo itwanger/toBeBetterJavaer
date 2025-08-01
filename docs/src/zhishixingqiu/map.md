@@ -14,122 +14,33 @@ head:
 
 **非常感谢球友的认可和支持**，非常感谢球友的认可和支持，为了方便索引，我将球友们之前的问题进行了汇总分类，相信你可以根据自己的情况找到对应的提问&回答（请善用 Ctrl+F 哦）。工程量巨大，因为星球已经沉淀了太多优质的学习资源和问答集锦，毕竟已经运营一年多时间了，所以你需要的资源，遇到的问题这里都有答案。
 
-语雀地址：[https://www.yuque.com/itwanger/ydx81p/glygui5ldvvs8dmd](https://www.yuque.com/itwanger/ydx81p/glygui5ldvvs8dmd)
-
-如果你是第一次使用知识星球，请戳「[新人必看](https://www.yuque.com/itwanger/ydx81p/mfhq8mar8vwbf66e)」这个置顶🔝帖，149 秒后你就如鱼得水了。我会按照下面这样一个索引来整理。
+如果你是第一次使用知识星球，请戳「[新人必看](https://t.zsxq.com/91hPx)」这个置顶🔝帖，159 秒后你就如鱼得水了。我会按照下面这样一个索引来整理。
 
 - 学习资料：开发工具&PDF&视频教程&简历模板&实战项目&我在B站上大学&球友分享
 - 学习计划
 - 学习路线：Java、C++、MySQL、C语言、Go 语言、Python、操作系统、大数据、计算机考研、测开/测试、前端
 - 学生党：秋招&春招&offer选择&考研&实习&专升本&培训班
 - 工作党：方向选择&转行&求职&职业规划
-- 星球专栏（[强烈推荐语雀阅读](https://t.zsxq.com/6iuzn6I)）：Java面试指南、技术派教程、编程喵实战笔记、二哥的LeetCode刷题笔记
+- 五个实战项目+4个付费专栏（[教程地址+密码获取方式](https://t.zsxq.com/BFRqz)）：派聪明 RAG、前后端分离技术派、微服务 PmHub、校招派、Java面试指南、编程喵实战笔记、二哥的LeetCode刷题笔记、一灰的职场进阶之路、华为 OD 题库
 - 技术细节
 - 城市选择
 - 其他主题
 - 坦白从宽
 ## 学习资料：
 
-### 生产力工具
-
-- [生产力工具：GitHub Copilot X ](https://t.zsxq.com/0eJdlQvq1)
-- [生产力工具：Chat注册](https://t.zsxq.com/0bdah3lqK)
-- [生产力工具：升级Plus](https://paicoding.com/article/detail/400)
-- [生产力工具：API token 获取](https://paicoding.com/article/detail/399)
-- [生产力工具：沉浸式翻译](https://t.zsxq.com/12lpIKvrH)
-- [生产力工具：各种 ChatGPT 相关的资源，让你的生产力 up up up!](https://t.zsxq.com/0dAfFZfY1)
-- [生产力工具：IDEA、Navicat、Typora、xshell 免费](https://paicoding.com/?category=%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7)
-- [生产力工具：在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
-
-### 视频教程
-
-- [视频教程：技术派到底该怎么学习，直播回放](https://t.zsxq.com/0czKk7UMr)
-- [视频教程：多线程实战的学习视频](https://t.zsxq.com/053fiemE2)
-- [视频教程：左神算法与数据结构、若依、黑马Redis、百战就业班、架构师等，已经放在星球的百度网盘中，请自取](https://t.zsxq.com/08rEo9Pdu)
-- [视频教程：doe分享的若依项目（Spring Boot、Spring Cloud）](https://t.zsxq.com/05A2VZzzZ)
-- [视频教程：doe分享的尚硅谷、大厂学院全（含课件）](https://t.zsxq.com/05zZR7qb2)
-- [视频教程：培根分享的某马、某谷 Java、大数据全套资源](https://t.zsxq.com/09JizrS4A)
-- [视频教程：贪欢分享的某图全套资源](https://t.zsxq.com/0aFI7CeUH)
-
-### PDF
-
-- [二哥的JVM进阶之路.pdf](https://t.zsxq.com/16bkDmROs)
-- [PDF：二哥的并发编程进阶之路.pdf ](https://t.zsxq.com/12DwOxfyw)
-- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 10000+](https://t.zsxq.com/0dtIIf9AE)
-- [PDF：jiajin，图灵程序丛书 300 本](https://t.zsxq.com/0dqkRziD4)
-- [PDF：aL 分享的杨一涛操作系统笔记，全彩版](https://t.zsxq.com/09PHnc5Cm)
-- [PDF：阿里 Redis 最佳实践](https://t.zsxq.com/09FXZTVfq)
-- [PDF：Elasticsearch 实战手册](https://t.zsxq.com/09Iteeb5o)
-- [PDF：阿里深入 MySQL 实战](https://t.zsxq.com/08HI543fM)
-- [PDF：阿里深入浅出 k8s](https://t.zsxq.com/08x1I1XAd)
-- [PDF：阿里4 天轻松玩转 Docker](https://t.zsxq.com/080tGlFYy)
-- [PDF：微服务治理白皮书](https://t.zsxq.com/07aimEMRn)
-- [PDF：kafka 核心知识点大梳理（月伴飞鱼）](https://t.zsxq.com/07u76ybYj)
-- [PDF：面渣逆袭 Java 基础、集合框架、并发编程、JVM、Spring、MyBatis、MySQL、Redis、操作系统、计算机网络（三分恶）](https://t.zsxq.com/04FuZrRVf)
-- [PDF：面渣逆袭 RocketMQ（三分恶）](https://t.zsxq.com/04qZrb662)
-- [PDF：面渣逆袭分布式（三分恶）](https://t.zsxq.com/0cnpBjrfD)
-- [PDF：面渣逆袭：微服务.pdf](https://t.zsxq.com/12t5guBUp)
-- [PDF：尚硅谷/动力节点/黑马/百战课程表](https://t.zsxq.com/04iaqrjaY)
-- [PDF：lmeng：并发编程笔记](https://t.zsxq.com/0e4m0YvWb)
-- [PDF：Lmeng：Redis最全的116道面试题.pdf](https://t.zsxq.com/12ltzRylY)
-- [PDF：Lmeng：Docker 学习笔记.pdf](https://t.zsxq.com/124bzv0d2)
-- [PDF：keeplean：突击头条项目技术点总结.pdf](https://t.zsxq.com/12WQtyjxE)
-- [PDF：keeplean：个人技能总结.pdf](https://t.zsxq.com/126cCfOwv)
-- [PDF：nolan：Spring 框架.pdf](https://t.zsxq.com/12C1P1hzH)
-- [PDF：nolan：智慧校园云端管理系统的设计和实现.pdf](https://t.zsxq.com/12lr2zRN6)
-- [PDF：阿森：高级语言怎么来的](https://t.zsxq.com/16KDaJnmF)
-- [PDF：龙渊：C语言模拟卷大题总结](https://t.zsxq.com/16CRZAslv)
-- [PDF：keeeplearing：头条项目话术](https://t.zsxq.com/16cLlkDBw)
-- [PDF：答案说明一切：Redis 面试项目回答](https://t.zsxq.com/16jM34VgK)
-- [PDF：阿森：Springsecurity 总结](https://t.zsxq.com/166nnY2Ne)
-- [PDF：axdmdyj：typescript](https://t.zsxq.com/16g72jEUh)
-- [PDF：远山归云海：面渣总结](https://t.zsxq.com/16MMXSpfJ)
-- [PDF：nolan：智慧校园云端管理系统设计和实现](https://t.zsxq.com/16lr2zRN6)
-- [楼仔高并发、Spring 源码解析、JVM 核心手册、Java 并发编程、结构选型](https://t.zsxq.com/16Bktrcw6)
-
-
 ### 实战项目
 
-- [实战项目：一些手写 Java 轮子项目](https://t.zsxq.com/14mGqul3q)
-- [实战项目：手写数据库 MYDB](https://t.zsxq.com/0bhcI0Gs6)
+- [实战项目：派聪明 RAG上线了](https://t.zsxq.com/185FL)
 - [实战项目：技术派上线了！](https://t.zsxq.com/0bo3ugmma)
 - [实战项目：微服务 PmHub上线了！](https://t.zsxq.com/C98g5)
-- [实战项目：动态线程池Hippo4j](https://t.zsxq.com/0cxSCwt9e)
+- [实战项目：手写数据库 MYDB](https://t.zsxq.com/0bhcI0Gs6)
+- [实战项目：一些手写 Java 轮子项目](https://t.zsxq.com/14mGqul3q)
 - [实战项目：两个牛逼的网盘实战项目（zfile、kiftd）](https://t.zsxq.com/07ih93r30)
 - [实战项目：新零售立可得、商医通、乐优商城](https://mp.weixin.qq.com/s/CdIin5I7VvfaSk4z9J0FwQ)
 - [实战项目：一些可以写到简历上的实战项目](https://t.zsxq.com/04JIQr3Rn)
 - [实战项目：一些可以作为毕设的实战项目](https://t.zsxq.com/07X49ztIN)
 - [实战项目：某马新课《学成在线》](https://t.zsxq.com/0bI38aQJa)
 - [实战项目：一个 Spring Boot+websocket 实现的聊天室](https://t.zsxq.com/0ek7Dx6hW)
-
-### 我在B站上大学
-
-- [我在B站上大学：计算机科学技术和编程语言（Java、C语言、C++、Python、JavaScript 等等）篇](https://t.zsxq.com/08u7xOcEi)
-- [我在 B站上大学：计算机基础四大件or考研四大件(数据结构与算法、计算机组成原理、操作系统、计算机网络)](https://t.zsxq.com/08OiQvuPc)
-- [我在 B站上大学：数据库篇（数据库概论、SQL、MySQL、Redis、MongoDB）](https://t.zsxq.com/08CqgjaXR)
-- [我在 B站上大学：Java后端开发篇（JavaWeb/SSM/Spring Boot/微服务/消息队列/运维部署/RPC/ES/Zookeeper/SpringSecurity）](https://t.zsxq.com/09961HekU)
-- [我在 B站上大学：前端篇](https://t.zsxq.com/160eAdw6f)
-
-### 学习资料
-
-- [学习资料：Redis学习路线的补充](https://t.zsxq.com/12WooII5O)
-- [学习资料：小 Z：并发编程思维导图](https://t.zsxq.com/12GiQKIFK)
-- [学习资料：尽余欢：JVM 脑图](https://t.zsxq.com/0eQXo2bB9)
-- [学习资料：keepLearn：秋招焦虑小解药.md](https://t.zsxq.com/12F7iFime)
-- [学习资料：echo整理的MySQL思维导图和笔记](https://t.zsxq.com/0dZUffRMx)
-- [学习资料：静以修身整理的 Redis 思维导图，很顶](https://t.zsxq.com/0dKhmDSq4)
-- [学习资料：突击算法 50 题](https://t.zsxq.com/0axU6HN5v)
-- [学习资料：大数据的面试题](https://t.zsxq.com/0b9syabcr)
-- [学习资料：spring入门以及升阶的书籍pdf](https://t.zsxq.com/0bVgl98Et)
-- [学习资料：Java 后端学习中有哪些推荐的视频，求地址？](https://t.zsxq.com/0a1oGPoGL)
-- [学习资料：考研的网课从哪里找？可以分享一些吗？](https://t.zsxq.com/0aJWtdJmb)
-- [学习资料：有哪些平台可以提高自己的编码实战能力？](https://t.zsxq.com/0aRudQF0s)
-- [学习资料：吐血推荐的面试题资料或者视频](https://t.zsxq.com/0aOlI7W4b)
-- [学习资料：参加了字节青训营，赠送了掘金课程，我该选哪些？](https://t.zsxq.com/0aRuN4WHa)
-- [学习资料：计算机网络、操作系统有哪些推荐书籍？](https://t.zsxq.com/05iiEybeI)
-- [学习资料：百度钱包的需求文档和技术方案文档分享](https://t.zsxq.com/07hVqRwI8)
-- [学习资料：JVM 该怎么学，应付校招？](https://t.zsxq.com/0blKCEy1h)
-- [学习资料：尚硅谷的谷粒商城值得去学习吗](https://t.zsxq.com/0bNfmBBY0)
 
 ### 简历
 
@@ -165,6 +76,95 @@ head:
 - [简历：2023年01月06日简历修改建议](https://t.zsxq.com/0aF1MVMQ6)
 - [简历：2023年02月08日 简历修改建议](https://t.zsxq.com/0bnqxqlEq)
 - [简历：2023年05月29日简历修改建议](https://t.zsxq.com/0eYGpjomQ)
+
+### 视频教程
+
+- [视频教程：技术派到底该怎么学习，直播回放](https://t.zsxq.com/0czKk7UMr)
+- [视频教程：多线程实战的学习视频](https://t.zsxq.com/053fiemE2)
+- [视频教程：左神算法与数据结构、若依、黑马Redis、百战就业班、架构师等，已经放在星球的百度网盘中，请自取](https://t.zsxq.com/08rEo9Pdu)
+- [视频教程：doe分享的若依项目（Spring Boot、Spring Cloud）](https://t.zsxq.com/05A2VZzzZ)
+- [视频教程：doe分享的尚硅谷、大厂学院全（含课件）](https://t.zsxq.com/05zZR7qb2)
+- [视频教程：培根分享的某马、某谷 Java、大数据全套资源](https://t.zsxq.com/09JizrS4A)
+- [视频教程：贪欢分享的某图全套资源](https://t.zsxq.com/0aFI7CeUH)
+
+### PDF
+
+- [PDF：面渣逆袭 Java 基础、集合框架、并发编程、JVM、Spring、MyBatis、MySQL、Redis、操作系统、计算机网络（最新版）](https://t.zsxq.com/oQsTB)
+- [二哥的JVM进阶之路.pdf](https://t.zsxq.com/16bkDmROs)
+- [PDF：二哥的并发编程进阶之路.pdf ](https://t.zsxq.com/12DwOxfyw)
+- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 10000+](https://t.zsxq.com/0dtIIf9AE)
+- [PDF：jiajin，图灵程序丛书 300 本](https://t.zsxq.com/0dqkRziD4)
+- [PDF：aL 分享的杨一涛操作系统笔记，全彩版](https://t.zsxq.com/09PHnc5Cm)
+- [PDF：阿里 Redis 最佳实践](https://t.zsxq.com/09FXZTVfq)
+- [PDF：Elasticsearch 实战手册](https://t.zsxq.com/09Iteeb5o)
+- [PDF：阿里深入 MySQL 实战](https://t.zsxq.com/08HI543fM)
+- [PDF：阿里深入浅出 k8s](https://t.zsxq.com/08x1I1XAd)
+- [PDF：阿里4 天轻松玩转 Docker](https://t.zsxq.com/080tGlFYy)
+- [PDF：微服务治理白皮书](https://t.zsxq.com/07aimEMRn)
+- [PDF：kafka 核心知识点大梳理（月伴飞鱼）](https://t.zsxq.com/07u76ybYj)
+- [PDF：面渣逆袭 RocketMQ（三分恶）](https://t.zsxq.com/04qZrb662)
+- [PDF：面渣逆袭分布式（三分恶）](https://t.zsxq.com/0cnpBjrfD)
+- [PDF：面渣逆袭：微服务.pdf](https://t.zsxq.com/12t5guBUp)
+- [PDF：尚硅谷/动力节点/黑马/百战课程表](https://t.zsxq.com/04iaqrjaY)
+- [PDF：lmeng：并发编程笔记](https://t.zsxq.com/0e4m0YvWb)
+- [PDF：Lmeng：Redis最全的116道面试题.pdf](https://t.zsxq.com/12ltzRylY)
+- [PDF：Lmeng：Docker 学习笔记.pdf](https://t.zsxq.com/124bzv0d2)
+- [PDF：keeplean：突击头条项目技术点总结.pdf](https://t.zsxq.com/12WQtyjxE)
+- [PDF：keeplean：个人技能总结.pdf](https://t.zsxq.com/126cCfOwv)
+- [PDF：nolan：Spring 框架.pdf](https://t.zsxq.com/12C1P1hzH)
+- [PDF：nolan：智慧校园云端管理系统的设计和实现.pdf](https://t.zsxq.com/12lr2zRN6)
+- [PDF：阿森：高级语言怎么来的](https://t.zsxq.com/16KDaJnmF)
+- [PDF：龙渊：C语言模拟卷大题总结](https://t.zsxq.com/16CRZAslv)
+- [PDF：keeeplearing：头条项目话术](https://t.zsxq.com/16cLlkDBw)
+- [PDF：答案说明一切：Redis 面试项目回答](https://t.zsxq.com/16jM34VgK)
+- [PDF：阿森：Springsecurity 总结](https://t.zsxq.com/166nnY2Ne)
+- [PDF：axdmdyj：typescript](https://t.zsxq.com/16g72jEUh)
+- [PDF：远山归云海：面渣总结](https://t.zsxq.com/16MMXSpfJ)
+- [PDF：nolan：智慧校园云端管理系统设计和实现](https://t.zsxq.com/16lr2zRN6)
+- [楼仔高并发、Spring 源码解析、JVM 核心手册、Java 并发编程、结构选型](https://t.zsxq.com/16Bktrcw6)
+
+
+### 我在B站上大学
+
+- [我在B站上大学：计算机科学技术和编程语言（Java、C语言、C++、Python、JavaScript 等等）篇](https://t.zsxq.com/08u7xOcEi)
+- [我在 B站上大学：计算机基础四大件or考研四大件(数据结构与算法、计算机组成原理、操作系统、计算机网络)](https://t.zsxq.com/08OiQvuPc)
+- [我在 B站上大学：数据库篇（数据库概论、SQL、MySQL、Redis、MongoDB）](https://t.zsxq.com/08CqgjaXR)
+- [我在 B站上大学：Java后端开发篇（JavaWeb/SSM/Spring Boot/微服务/消息队列/运维部署/RPC/ES/Zookeeper/SpringSecurity）](https://t.zsxq.com/09961HekU)
+- [我在 B站上大学：前端篇](https://t.zsxq.com/160eAdw6f)
+
+### 学习资料
+
+- [学习资料：Redis学习路线的补充](https://t.zsxq.com/12WooII5O)
+- [学习资料：小 Z：并发编程思维导图](https://t.zsxq.com/12GiQKIFK)
+- [学习资料：尽余欢：JVM 脑图](https://t.zsxq.com/0eQXo2bB9)
+- [学习资料：keepLearn：秋招焦虑小解药.md](https://t.zsxq.com/12F7iFime)
+- [学习资料：echo整理的MySQL思维导图和笔记](https://t.zsxq.com/0dZUffRMx)
+- [学习资料：静以修身整理的 Redis 思维导图，很顶](https://t.zsxq.com/0dKhmDSq4)
+- [学习资料：突击算法 50 题](https://t.zsxq.com/0axU6HN5v)
+- [学习资料：大数据的面试题](https://t.zsxq.com/0b9syabcr)
+- [学习资料：spring入门以及升阶的书籍pdf](https://t.zsxq.com/0bVgl98Et)
+- [学习资料：Java 后端学习中有哪些推荐的视频，求地址？](https://t.zsxq.com/0a1oGPoGL)
+- [学习资料：考研的网课从哪里找？可以分享一些吗？](https://t.zsxq.com/0aJWtdJmb)
+- [学习资料：有哪些平台可以提高自己的编码实战能力？](https://t.zsxq.com/0aRudQF0s)
+- [学习资料：吐血推荐的面试题资料或者视频](https://t.zsxq.com/0aOlI7W4b)
+- [学习资料：参加了字节青训营，赠送了掘金课程，我该选哪些？](https://t.zsxq.com/0aRuN4WHa)
+- [学习资料：计算机网络、操作系统有哪些推荐书籍？](https://t.zsxq.com/05iiEybeI)
+- [学习资料：百度钱包的需求文档和技术方案文档分享](https://t.zsxq.com/07hVqRwI8)
+- [学习资料：JVM 该怎么学，应付校招？](https://t.zsxq.com/0blKCEy1h)
+- [学习资料：尚硅谷的谷粒商城值得去学习吗](https://t.zsxq.com/0bNfmBBY0)
+
+### 生产力工具
+
+- [生产力工具：GitHub Copilot X ](https://t.zsxq.com/0eJdlQvq1)
+- [生产力工具：Chat注册](https://t.zsxq.com/0bdah3lqK)
+- [生产力工具：升级Plus](https://paicoding.com/article/detail/400)
+- [生产力工具：API token 获取](https://paicoding.com/article/detail/399)
+- [生产力工具：沉浸式翻译](https://t.zsxq.com/12lpIKvrH)
+- [生产力工具：各种 ChatGPT 相关的资源，让你的生产力 up up up!](https://t.zsxq.com/0dAfFZfY1)
+- [生产力工具：IDEA、Navicat、Typora、xshell 免费](https://paicoding.com/?category=%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7)
+- [生产力工具：在线 DB 设计工具](https://t.zsxq.com/07WhNJfLK)
+
+
 
 ## 学习计划
 
