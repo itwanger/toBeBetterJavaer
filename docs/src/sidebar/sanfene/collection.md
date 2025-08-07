@@ -998,7 +998,7 @@ if (hiHead != null)
 ![三分恶面渣逆袭：扩容节点迁移示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
 
 
-#### 扩容的时候每个节点都要进行位运算吗？
+#### 扩容的时候每个节点都会移动吗？
 
 不需要。HashMap 会通过 `(e.hash & oldCap)` 来判断节点是否需要移动，0 的话保留原索引；1 才需要移动到新索引（原索引 + oldCap）。
 
