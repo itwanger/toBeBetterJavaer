@@ -53,7 +53,9 @@ head:
 
 ![简历修改计划](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113037.png)
 
-不像其他人，修改一份简历要 300 以上，甚至 600 以上，我修改简历的前提条件只有一个，就是只要你是[星球会员](https://javabetter.cn/zhishixingqiu/)（优惠完仅需 129 元），就可以免费修改简历。
+不像其他人，修改一份简历要 200 以上，甚至 500 以上，我修改简历的前提条件只有一个，就是只要你是[星球会员](https://javabetter.cn/zhishixingqiu/)（优惠完仅需 129 元），就可以免费修改简历。
+
+![同行修改一份简历的价格](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250813163152.png)
 
 并且是不限次数哦，直到改到我满意为止（注意是我，不是你，我的要求会比绝大多数 HR 甚至面试官都高）。
 

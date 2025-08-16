@@ -3462,13 +3462,30 @@ memo：2025 年 7 月 22 日修改至此，今天有[球友](https://javabetter.
 
 ### 36.🌟Spring Boot 启动原理了解吗？
 
-Spring Boot 的启动由 SpringApplication 类负责：
+Spring Boot 的启动主要围绕两个核心展开，一个是 `@SpringBootApplication` 注解，一个是 `SpringApplication.run()` 方法。
 
-- 第一步，创建 SpringApplication 实例，负责应用的启动和初始化；
-- 第二步，从 application.yml 中加载配置文件和环境变量；
-- 第三步，创建上下文环境 ApplicationContext，并加载 Bean，完成依赖注入；
-- 第四步，启动内嵌的 Web 容器。
-- 第五步，发布启动完成事件 ApplicationReadyEvent，并调用 ApplicationRunner 的 run 方法完成启动后的逻辑。
+![SpringBoot 启动大致流程-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-68744556-a1ba-4e1f-a092-1582875f0da6.png)
+
+我先说一下 `@SpringBootApplication` 注解，它是一个组合注解，包含了 `@SpringBootConfiguration`、`@EnableAutoConfiguration` 和 `@ComponentScan`，这三个注解的作用分别是：
+
+- `@SpringBootConfiguration`：标记这个类是一个 Spring Boot 配置类，相当于一个 Spring 配置文件。
+- `@EnableAutoConfiguration`：告诉 Spring Boot 可以进行自动配置。比如说，项目引入了 Spring MVC 的依赖，那么 Spring Boot 就会自动配置 DispatcherServlet、HandlerMapping 等组件。
+- `@ComponentScan`：扫描当前包及其子包下的组件，注册为 Bean。
+
+![派聪明源码：启动类](https://cdn.tobebetterjavaer.com/stutymore/spring-20250810182536.png)
+
+好，接下来我再说一下 `SpringApplication.run()` 方法，它是 Spring Boot 项目的启动入口，内部流程大致可以分为 5 个步骤：
+
+①、创建 SpringApplication 实例，并识别应用类型，比如说是标准的 Servlet Web 还是响应式的 WebFlux，然后准备监听器和初始化监听容器。
+
+②、创建并准备 ApplicationContext，将主类作为配置源进行加载。
+
+③、刷新 Spring 上下文，触发 Bean 的实例化，比如说扫描并注册 `@ComponentScan` 指定路径下的 Bean。
+
+④、触发自动配置，在 Spring Boot 2.7 及之前是通过 spring.factories 加载的，3.x 是通过读取 `AutoConfiguration.imports`，并结合 `@ConditionalOn` 系列注解依据条件注册 Bean。
+
+⑤、如果引入了 Web 相关依赖，会创建并启动 Tomcat 容器，完成 HTTP 端口监听。
+
 
 关键的代码逻辑如下：
 
@@ -3505,41 +3522,9 @@ public ConfigurableApplicationContext run(String... args) {
 }
 ```
 
-![SpringBoot 启动大致流程-图片来源网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-68744556-a1ba-4e1f-a092-1582875f0da6.png)
-
-以[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)为例。在启动类 QuickForumApplication 中，main 方法会调用 `SpringApplication.run()` 启动项目。
-
-![技术派实战项目源码：启动类](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422090338.png)
-
-该方法负责 Spring 应用的上下文环境（ApplicationContext）准备，包括：
-
-- 扫描配置文件，添加依赖项
-- 初始化和加载 Bean 定义
-- 启动内嵌的 Web 容器等
-- 发布启动完成事件
-
-#### 了解@SpringBootApplication 注解吗？
-
-`@SpringBootApplication`是 Spring Boot 的核心注解，经常用于主类上，作为项目启动入口的标识。它是一个组合注解：
-
-- `@SpringBootConfiguration`：继承自 `@Configuration`，标注该类是一个配置类，相当于一个 Spring 配置文件。
-- `@EnableAutoConfiguration`：告诉 Spring Boot 根据 pom.xml 中添加的依赖自动配置项目。例如，如果 spring-boot-starter-web 依赖被添加到项目中，Spring Boot 会自动配置 Tomcat 和 Spring MVC。
-- `@ComponentScan`：扫描当前包及其子包下被`@Component`、`@Service`、`@Controller`、`@Repository` 注解标记的类，并注册为 Spring Bean。
-
-```java
-@SpringBootApplication
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
-```
-
 #### 为什么 Spring Boot 在启动的时候能够找到 main 方法上的@SpringBootApplication 注解？
 
-Spring Boot 在启动时能够找到主类上的`@SpringBootApplication`注解，是因为它利用了 Java 的反射机制和类加载机制，结合 Spring 框架内部的一系列处理流程。
-
-当运行一个 Spring Boot 程序时，通常会调用主类中的`main`方法，这个方法会执行`SpringApplication.run()`，比如：
+其实 Spring Boot 并不是自己找到 `@SpringBootApplication` 注解的，而是我们通过程序告诉它的。
 
 ```java
 @SpringBootApplication
@@ -3550,42 +3535,17 @@ public class MyApplication {
 }
 ```
 
-`SpringApplication.run(Class<?> primarySource, String... args)`方法接收两个参数：第一个是主应用类（即包含`main`方法的类），第二个是命令行参数。`primarySource`参数提供了一个起点，Spring Boot 通过它来加载应用上下文。
+我们把 `Application.class` 作为参数传给了 run 方法。这个 Application 类标注了 `@SpringBootApplication` 注解，用来告诉 Spring Boot：请用这个类作为配置类来启动。
 
-Spring Boot 利用 Java 反射机制来读取传递给`run`方法的类（`MyApplication.class`）。它会检查这个类上的注解，包括`@SpringBootApplication`。
+然后，SpringApplication 在运行时就会把这个类注册到 Spring 容器中。
 
 #### Spring Boot 默认的包扫描路径是什么？
 
-Spring Boot 的默认包扫描路径是以启动类 `@SpringBootApplication` 注解所在的包为根目录的，即默认情况下，Spring Boot 会扫描启动类所在包及其子包下的所有组件。
+Spring Boot 默认的包扫描路径是主类所在的包及其子包。
 
 比如说在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，启动类`QuickForumApplication`所在的包是`com.github.paicoding.forum.web`，那么 Spring Boot 默认会扫描`com.github.paicoding.forum.web`包及其子包下的所有组件。
 
 ![沉默王二：技术派项目截图](https://cdn.tobebetterjavaer.com/stutymore/spring-20240327105552.png)
-
-`@SpringBootApplication` 是一个组合注解，它里面的`@ComponentScan`注解可以指定要扫描的包路径，默认扫描启动类所在包及其子包下的所有组件。
-
-```java
-@ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
-		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
-public @interface SpringBootApplication {
-}
-```
-
-比如说带有 `@Component`、`@Service`、`@Controller`、`@Repository` 等注解的类都会被 Spring Boot 扫描到，并注册到 Spring 容器中。
-
-如果需要自定义包扫描路径，可以在`@SpringBootApplication`注解上添加`@ComponentScan`注解，指定要扫描的包路径。
-
-```java
-@SpringBootApplication
-@ComponentScan(basePackages = {"com.github.paicoding.forum"})
-public class QuickForumApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(QuickForumApplication.class, args);
-    }
-}
-```
-
-这种方式会覆盖默认的包扫描路径，只扫描`com.github.paicoding.forum`包及其子包下的所有组件。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：为什么 Spring Boot 启动时能找到 Main 类上面的注解
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：Spring Boot 默认的包扫描路径？
@@ -3594,65 +3554,73 @@ public class QuickForumApplication {
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot启动流程（忘了）
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：springBoot启动机制，启动之后做了哪些步骤
 
-### 37.SpringBoot 和 SpringMVC 的区别？（补充）
+memo：2025 年 8 月 10 日修改至此，今天在[修改球友简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，很感动，因为有球友说，他给周围很多人安利了二哥的编程星球，并且反向很不错。真的很感谢，球友们的口碑，没有大家，真走不到现在。
+
+![感谢球友对星球的口碑](https://cdn.tobebetterjavaer.com/stutymore/spring-20250810185253.png)
+
+### 37.说一下 SpringBoot 和 SpringMVC 的区别？（补充）
 
 > 2024 年 04 月 04 日增补
 
-Spring MVC 是基于 Spring 框架的一个模块，提供了一种 Model-View-Controller（模型-视图-控制器）的开发模式。
+SpringMVC 是 Spring 的一个模块，专门用来做 Web 开发，处理 HTTP 请求和响应。而Spring Boot 的目标是简化 Spring 应用的开发过程，可以通过 starter 的方式快速集成 SpringMVC。
 
-Spring Boot 旨在简化 Spring 应用的配置和部署过程，提供了大量的自动配置选项，以及运行时环境的内嵌 Web 服务器，这样就可以更快速地开发一个 SpringMVC 的 Web 项目。
+传统的 Web 项目通常需要手动配置很多东西，比如 DispatcherServlet、ViewResolver、HandlerMapping 等等。而 Spring Boot 则通过自动装配的方式，帮我们省去了这些繁琐的配置。
+
+Spring Boot 还内置了一个嵌入式的 Servlet 容器，比如 Tomcat，这样我们就不需要像传统的 Web 项目那样需要配置 Tomcat 容器，然后导出 war 包再运行。只需要打包成一个 JAR 文件，就可以直接通过 `java -jar` 命令运行。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的滴滴同学 2 技术二面的原题：SpringBoot 和 SpringMVC 的区别
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot与SpringMVC区别（不会）
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：SpringBoot与SpringMVC区别
 
 ### 38.Spring Boot 和 Spring 有什么区别？（补充）
 
 > 2024 年 07 月 09 日新增
 
-Spring Boot 是 Spring Framework 的一个扩展，提供了一套快速配置和开发的机制，可以帮助我们快速搭建 Spring 项目的骨架，提高生产效率。
+从定位上来说，Spring 是一个完整的应用开发框架，提供了 IoC 容器、AOP 等各种功能模块。Spring Boot 不是一个独立的框架，而是基于 Spring 框架的脚手架，它的目标是让 Spring 应用的开发和部署变得简单高效。
 
-| 特性   | Spring Framework | Spring Boot  |
-|--------- |------------ |------------ |
-| **目的**  | 提供企业级的开发工具和库 | 简化 Spring 应用的开发、配置和部署    |
-| **配置方式** | 主要通过 XML 和注解等手动配置  | 提供开箱即用的自动配置   |
-| **启动和运行**  | 需要打成 war 包到 Tomcat 等容器下运行 | 已嵌入 Tomcat 等容器，打包成 JAR 文件直接运行 |
-| **依赖管理**   | 手动添加和管理依赖  | 使用 `spring-boot-starter` 简化依赖管理  |
+Spring 项目需要我们手动管理每个 jar 包的版本，经常会遇到版本冲突的问题。比如我们要用 Spring MVC，需要引入 spring-webmvc、jackson-databind、hibernate-validator 等一堆依赖，还要确保版本兼容。Spring Boot 通过 starter 机制解决了这个问题，只需要引入 spring-boot-starter-web 这一个依赖就可以了，它包含了所有相关的 jar 包，而且版本都是测试过的，可以兼容的。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米同学 F 面试原题：Spring Boot 和 Spring 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 OPPO 面经同学 1 面试原题：说一下Spring和Springboot之间有什么差异？
 
+memo：2025 年 8 月 11 日修改至此，今天有[球友](https://javabetter.cn/zhishixingqiu/)在 VIP 群里交流说，用二哥的项目，轻松过大厂的简历初筛，包括小米和美团。
+
+![二哥星球的项目，轻松过简历初筛](https://cdn.tobebetterjavaer.com/stutymore/spring-20250811113549.png)
 
 ## Spring Cloud
 
 ### 39.对 SpringCloud 了解多少？
 
-Spring Cloud 是一个基于 Spring Boot，提供构建分布式系统和微服务架构的工具集。用于解决分布式系统中的一些常见问题，如配置管理、服务发现、负载均衡等等。
+Spring Cloud 其实是一套基于 Spring Boot 的微服务全家桶，帮我们把分布式系统里的基础设施做了一个“拿来即用”的封装，比如服务注册与发现、配置管理、负载均衡、熔断限流、链路追踪这些。
 
-![三分恶面渣逆袭：Spring Cloud Netfilx核心组件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-92ab53d5-f303-4fc5-bd26-e62cefe374b3.png)
+我自己用得比较多的是 Spring Cloud Alibaba 这一套，[PmHub 这个项目](https://javabetter.cn/zhishixingqiu/pmhub.html)就是一个例子，比如：
+
+- 我们使用 Nacos 做服务注册和配置中心，并且将配置信息持久化到了 MySQL 中，这样就可以统一管理注册信息和配置信息，还支持动态刷新配置。
+- 使用 Gateway 做 API 网关，支持路由转发、全局过滤器、限流等功能。
+- 使用 Sentinel 做熔断、限流、降级策略，结合业务自定义规则比较方便。
+- 使用 OpenFeign 做服务间的声明式调用，比 RestTemplate 更省代码，也更清晰可维护。
+- 使用 Seata 处理分布式事务，这个在订单、支付、审批流场景中用得比较多。
+
+![itxiaoshen：Spring Cloud Alibaba](https://cdn.tobebetterjavaer.com/stutymore/spring-20250812185540.png)
+
+我觉得 Spring Cloud 最大的价值是统一了技术栈和编程模型，不需要我们去自己从零实现注册中心、熔断器这些基础设施。
 
 #### 什么是微服务？
 
-1.  2014 年 **Martin Fowler** 提出的一种新的架构形式。微服务架构是一种**架构模式**，提倡将单一应用程序划分成一组小的服务，服务之间相互协调，互相配合，为用户提供最终价值。每个服务运行在其独立的进程中，服务与服务之间采用轻量级的通信机制(如 HTTP 或 Dubbo)互相协作，每个服务都围绕着具体的业务进行构建，并且能够被独立的部署到生产环境中，另外，应尽量避免统一的，集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，选择合适的语言、工具(如 Maven)对其进行构建。
-2.  微服务化的核心就是将传统的一站式应用，根据业务拆分成一个一个的服务，彻底地去耦合，每一个微服务提供单个业务功能的服务，一个服务做一件事情，从技术角度看就是一种小而独立的处理过程，类似进程的概念，能够自行单独启动或销毁，拥有自己独立的数据库。
-
-#### 微服务架构主要要解决哪些问题？
-
-1.  服务很多，客户端怎么访问，如何提供对外网关?
-2.  这么多服务，服务之间如何通信? HTTP 还是 RPC?
-3.  这么多服务，如何治理? 服务的注册和发现。
-4.  服务挂了怎么办？熔断机制。
-
-#### 有哪些主流微服务框架？
-
-1.  Spring Cloud Netflix
-2.  Spring Cloud Alibaba
-3.  SpringBoot + Dubbo + ZooKeeper
-
-#### SpringCloud 有哪些核心组件？
+微服务就是把一个大的、复杂的单体应用，拆成一个个围绕业务功能独立部署的小服务，每个服务维护自己的数据和逻辑，服务之间通过轻量级的通信机制（比如 gRPC）来协作。
 
 ![SpringCloud](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-2b988a72-0739-4fed-b271-eaf12589444f.png)
 
+微服务的核心价值我认为是：业务之间的边界更清晰了，不同团队可以独立开发、部署、扩展某个功能，不会因为一个小的改动就要把整套系统重新上线。
+
+像 [PmHub 这个项目](https://javabetter.cn/zhishixingqiu/pmhub.html) 就是从单体拆分成微服务的，包括启动网关、认证、流程、项目管理、代码生成等多个服务。
+
+![PmHub 的系统架构图](https://cdn.tobebetterjavaer.com/stutymore/spring-20250812190247.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪同学 1 面试原题：SpringCloud 了解多少？
+
+memo：2025 年 8 月 12 日修改至此，今天[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到一个球友说：感谢二哥对我简历的修改，没有二哥绝对进不了字节。看完后真的非常感动，觉得自己做的事情确实有意义。
+
+![球友对二哥简历修改的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-二哥晚上好，谢谢您春招时对我简历的修改，没有二哥我绝对进不了字节。.png)
 
 ## 补充
 
@@ -3660,7 +3628,11 @@ Spring Cloud 是一个基于 Spring Boot，提供构建分布式系统和微服�
 
 SpringTask 是 Spring 框架提供的一个轻量级的任务调度框架，它允许我们开发者通过简单的注解来配置和管理定时任务。
 
-①、`@Scheduled`：最常用的注解，用于标记方法为计划任务的执行点。[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就使用该注解来定时刷新 sitemap.xml：
+使用起来也非常方便，首先使用 `@EnableScheduling` 开启定时任务的支持。
+
+![技术派的启动类就有该注解的影子](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422094511.png)
+
+然后在需要定时任务的方法上加上 `@Scheduled` 注解，支持 fixedRate、fixedDelay 和 cron 表达式。[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就使用过 cron 表达式在每天凌晨定时刷新文章的 sitemap。
 
 ```java
 @Scheduled(cron = "0 15 5 * * ?")
@@ -3671,102 +3643,63 @@ public void autoRefreshCache() {
 }
 ```
 
-`@Scheduled` 注解支持多种调度选项，如 fixedRate、fixedDelay 和 cron 表达式。
-
-②、`@EnableScheduling`：用于开启定时任务的支持。
-
-![技术派的启动类就有该注解的影子](https://cdn.tobebetterjavaer.com/stutymore/spring-20240422094511.png)
-
 #### 用SpringTask资源占用太高，有什么其他的方式解决？（补充）
 
 >2024年05月27日新增
 
-**第一，使用消息队列**，如 RabbitMQ、Kafka、RocketMQ 等，将任务放到消息队列中，然后由消费者异步处理这些任务。
+首先我们需要分析一下 SpringTask 资源占用高的原因。
 
-①、在订单创建时，将订单超时检查任务放入消息队列，并设置延迟时间（即订单超时时间）。
+默认情况下，SpringTask 会使用单线程执行所有定时任务，如果某个任务执行时间长或者任务数量多，就会造成阻塞。而且它是基于内存的，所有任务信息都保存在 JVM 中，应用重启后任务状态就丢失了。
 
-```java
-@Service
-public class OrderService {
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
-
-    public void createOrder(Order order) {
-        // 创建订单逻辑
-        // ...
-        
-        // 发送延迟消息
-        rabbitTemplate.convertAndSend("orderExchange", "orderTimeoutQueue", order, message -> {
-            message.getMessageProperties().setExpiration("600000"); // 设置延迟时间（10分钟）
-            return message;
-        });
-    }
-}
-```
-
-②、使用消费者从队列中消费消息，当消费到超时任务时，执行订单超时处理逻辑。
+那我们可以通过配置线程池来解决这个问题。
 
 ```java
-@Service
-public class OrderTimeoutConsumer {
-
-    @RabbitListener(queues = "orderTimeoutQueue")
-    public void handleOrderTimeout(Order order) {
-        // 处理订单超时逻辑
-        // ...
-    }
-}
-```
-
-**第二，使用数据库调度器（如 Quartz）**。
-
-①、创建一个 Quartz 任务类，处理订单超时逻辑。
-
-```java
-public class OrderTimeoutJob implements Job {
+@Configuration
+@EnableScheduling
+public class ScheduleConfig implements SchedulingConfigurer {
     @Override
-    public void execute(JobExecutionContext context) throws JobExecutionException {
-        // 获取订单信息
-        Order order = (Order) context.getJobDetail().getJobDataMap().get("order");
-
-        // 处理订单超时逻辑
-        // ...
+    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
+        taskRegistrar.setScheduler(Executors.newScheduledThreadPool(10));
     }
 }
 ```
 
-②、在订单创建时，调度一个 Quartz 任务，设置任务的触发时间为订单超时时间。
+另外，就是可以将 SpringTask 迁移到其他的任务调度框架，比如 Quartz、XXL-JOB 等。
+
+Quartz 功能更强大，支持集群、持久化、灵活的调度策略。还可以把任务信息持久化到数据库，支持集群部署，一个节点挂了其他节点可以接管任务。
+
+使用 XXL-JOB 是分布式场景下更彻底的解决方案，有独立的调度中心，任务配置和执行可以分离；支持分片执行，大任务可以拆分成多个子任务并行处理。
 
 ```java
-@Service
-public class OrderService {
-    @Autowired
-    private Scheduler scheduler;
+/**
+    * 2、分片广播任务
+    */
+@XxlJob("shardingJobHandler")
+public void shardingJobHandler() throws Exception {
+    // 分片参数
+    int shardIndex = com.xxl.job.core.context.XxlJobHelper.getShardIndex();
+    int shardTotal = com.xxl.job.core.context.XxlJobHelper.getShardTotal();
 
-    public void createOrder(Order order) {
-        // 创建订单逻辑
-        // ...
+    logger.info("分片广播任务开始执行，当前分片序号 = {}, 总分片数 = {}", shardIndex, shardTotal);
 
-        // 调度 Quartz 任务
-        JobDetail jobDetail = JobBuilder.newJob(OrderTimeoutJob.class)
-                .usingJobData("order", order)
-                .build();
-
-        Trigger trigger = TriggerBuilder.newTrigger()
-                .startAt(new Date(System.currentTimeMillis() + 600000)) // 设置触发时间（10分钟后）
-                .build();
-
-        try {
-            scheduler.scheduleJob(jobDetail, trigger);
-        } catch (SchedulerException e) {
-            e.printStackTrace();
-        }
+    // 业务逻辑处理，根据分片参数处理不同的数据
+    for (int i = shardIndex; i < 100; i += shardTotal) {
+        logger.info("第{}片, 处理数据: {}", shardIndex, i);
+        
+        // 模拟处理数据的时间
+        TimeUnit.MILLISECONDS.sleep(100);
     }
+    
+    logger.info("分片广播任务执行完成");
 }
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：SpringTask 了解吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：订单超时，用springtask资源占用太高，有什么其他的方式解决?
+
+memo：2025 年 8 月 16 日修改至此，今天[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到一个球友说：暑期实习的时候使用了[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)，也找二哥修改了简历，最后拿到了哈啰的实习，非常感谢。那说实话每次碰到球友这样的反馈，都挺开心的。
+
+![帮球友修改简历拿到了哈啰的实习](https://cdn.tobebetterjavaer.com/stutymore/spring-20250816105951.png)
 
 ### 41.Spring Cache 了解吗？
 
