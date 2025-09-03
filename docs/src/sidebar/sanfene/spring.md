@@ -1,9 +1,9 @@
 ---
-title: Spring面试题，41道Spring八股文（1.3万字63张手绘图），面渣逆袭必看👍
+title: Spring面试题，41道Spring八股文（3.3万字180张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Spring
-description: 下载次数超 1 万次，1.3 万字 63 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，3.3 万字 180 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶&沉默王二
-date: 2025-07-17
+date: 2025-08-17
 category:
   - 面渣逆袭
 tag:
@@ -20,13 +20,13 @@ head:
 
 ## 前言
 
-1.3 万字 63 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
+3.3 万字 180 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-![面渣逆袭Redis篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154255.png)
+![面渣逆袭Spring篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/spring-20250818102050.png)
 
-2025 年 06 月 15 日开始着手第二版更新。
+2025 年 06 月 15 日开始着手第二版更新，历经两个月，主要是中间有段时间把精力放到了[派聪明 RAG 这个项目](https://javabetter.cn/zhishixingqiu/paismart.html)的教程撰写上，第二版，我们升级了很多内容。
 
 - 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
 - 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
@@ -35,7 +35,7 @@ head:
 - 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
-![面渣逆袭已经提交 1478 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154416.png)
+![面渣逆袭已经提交 1506 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/spring-20250817110453.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
@@ -53,7 +53,8 @@ head:
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
-![面渣逆袭RSpring篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/redis-20250614154601.png)
+![面渣逆袭Spring篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/spring-20250818102228.png)
+
 
 ## 基础
 
@@ -3703,50 +3704,166 @@ memo：2025 年 8 月 16 日修改至此，今天[帮球友修改简历](https:/
 
 ### 41.Spring Cache 了解吗？
 
-Spring Cache 是 Spring 框架提供的一个缓存抽象，它通过统一的接口来支持多种缓存实现（如 Redis、Caffeine 等）。
-
-它通过注解（如 `@Cacheable`、`@CachePut`、`@CacheEvict`）来实现缓存管理，极大简化了代码实现。
-
-- @Cacheable：缓存方法的返回值。
-- @CachePut：用于更新缓存，每次调用方法都会将结果重新写入缓存。
-- @CacheEvict：用于删除缓存。
-
-使用示例：
+Spring Cache 是 Spring 框架提供的一套缓存抽象，它通过提供统一的接口来支持多种缓存实现，如 Redis、Caffeine 等。
 
 ![二哥的Java 进阶之路：Spring Cache](https://cdn.tobebetterjavaer.com/stutymore/spring-20241031111306.png)
 
+我们只需要在方法上加几个注解，Spring 就会自动处理缓存的存取，这种声明式的缓存使用方式让业务代码和缓存逻辑能够完全分离。
+
+最常用的注解是 `@Cacheable`，用来标识方法的返回值需要被缓存。
+
+```java
+@Cacheable(value = "users", key = "#id")
+public User getUserById(Long id) {
+    return userDao.findById(id);
+}
+```
+
+方法在第一次执行后会把结果缓存起来，后续的调用就直接从缓存中返回，不再执行方法体。
+
+还有 `@CacheEvict` 注解，用于在方法执行前或执行后清除缓存。
+
+```java
+@CacheEvict(value = "users", key = "#id")
+public void deleteUserById(Long id) {
+    userDao.deleteById(id);
+}
+```
+
+Spring Cache 是基于 AOP 实现的，通过拦截方法调用，在调用前后插入缓存逻辑。需要我们在配置中先启用缓存功能。
+
+```java
+@Configuration
+@EnableCaching
+public class CacheConfig {
+    @Bean
+    public CacheManager cacheManager() {
+        RedisCacheManager.Builder builder = RedisCacheManager
+            .RedisCacheManagerBuilder
+            .fromConnectionFactory(redisConnectionFactory())
+            .cacheDefaults(cacheConfiguration());
+        return builder.build();
+    }
+}
+```
+
 #### Spring Cache 和 Redis 有什么区别？
 
-1. **Spring Cache** 是 Spring 框架提供的一个缓存抽象，它通过注解来实现缓存管理，支持多种缓存实现（如 Redis、Caffeine 等）。
-2. **Redis** 是一个分布式的缓存中间件，支持多种数据类型（如 String、Hash、List、Set、ZSet），还支持持久化、集群、主从复制等。
+Spring Cache 和 Redis 的区别其实是抽象层和具体实现的区别。Spring Cache 只是提供了一套统一的接口和注解来管理缓存，本身并不提供缓存能力，而 Redis 是具体的缓存实现。
 
-Spring Cache 适合用于单机、轻量级和短时缓存场景，能够通过注解轻松控制缓存管理。
+在使用层面上，Spring Cache 更简单，只需要在方法上添加注解就行，框架会帮我们自动处理。
 
-Redis 是一种分布式缓存解决方案，支持多种数据结构和高并发访问，适合分布式系统和高并发场景，可以提供数据持久化和多种淘汰策略。
+```java
+@Cacheable("users")
+public User getUser(Long id) {
+    return userDao.findById(id);
+}
+```
 
-在实际开发中，Spring Cache 和 Redis 可以结合使用，Spring Cache 提供管理缓存的注解，而 Redis 则作为分布式缓存的实现，提供共享缓存支持。
+如果用 Redis 则需要我们手动处理缓存逻辑：
+
+```java
+public User getUser(Long id) {
+    String key = "user:" + id;
+    User user = (User) redisTemplate.opsForValue().get(key);
+    if (user == null) {
+        user = userDao.findById(id);
+        redisTemplate.opsForValue().set(key, user, 30, TimeUnit.MINUTES);
+    }
+    return user;
+}
+```
+
+在实际的项目当中，我通常会选择使用 Spring Cache 来处理一些简单的缓存业务，但对于一些复杂的业务场景，对于复杂的业务逻辑，比如分布式锁、计数器、排行榜等，我会直接用 Redis。
 
 #### 有了 Redis 为什么还需要 Spring Cache？
 
-虽然 Redis 非常强大，但 Spring Cache 提供了一层缓存抽象，简化了缓存的管理。我们可以直接在方法上通过注解来实现缓存逻辑，减少了手动操作 Redis 的代码量。
+虽然 Redis 非常强大，但 Spring Cache 可以简化缓存的管理。我们直接在方法上加注解就能实现缓存逻辑，减少了手动操作 Redis 的代码量。
 
-Spring Cache 还能灵活切换底层缓存实现。此外，Spring Cache 支持事务性缓存和条件缓存，便于在复杂场景中确保数据一致性。
+```java
+@Cacheable("users")
+public User getUser(Long id) {
+    return userDao.findById(id);
+}
+```
 
-#### 说说Spring Cache 的底层原理？
+此外，Spring Cache 还能灵活切换底层的缓存实现，比如说从 Redis 切换到 Caffeine。
 
-Spring Cache 是基于 AOP 和缓存抽象层实现的。它通过 AOP 拦截被 @Cacheable、@CachePut 和 @CacheEvict 注解的方法，在方法调用前后自动执行缓存逻辑。
+
+#### 说说 Spring Cache 的底层原理？
+
+Spring Cache 的底层是通过 AOP 实现的。当我们在方法上标注了 `@Cacheable` 注解时，Spring 会在项目启动的时候扫描这些注解，并创建代理对象。代理对象会拦截所有的方法调用，在方法执行前后插入缓存相关的逻辑。
 
 ![铿然架构：Spring Cache 架构](https://cdn.tobebetterjavaer.com/stutymore/spring-20241031113743.png)
 
-其提供的 CacheManager 和 Cache 等接口，不依赖具体的缓存实现，因此可以灵活地集成 Redis、Caffeine 等多种缓存。
+具体的执行流程是这样的：
 
-- ConcurrentMapCacheManager：基于 Java ConcurrentMap 的本地缓存实现。
-- RedisCacheManager：基于 Redis 的分布式缓存实现。
-- CaffeineCacheManager：基于 Caffeine 的缓存实现。
+当用户调用一个被缓存注解标注的方法时，实际上调用的是代理对象而不是原始对象。
+
+代理对象中的 CacheInterceptor 拦截器会先解析方法上的缓存注解，获取缓存名称、key 生成规则、过期时间这些配置信息。然后根据注解的类型执行不同的缓存策略，比如 `@Cacheable` 会先去缓存中查找数据，如果找到就直接返回，不执行原方法；如果没找到，就执行原方法获取结果，然后将结果存入缓存再返回。
+
+缓存 key 的生成是通过 KeyGenerator 组件完成的，默认情况下会根据方法的参数来生成 key。如果我们在注解中指定了 key 属性，Spring 会使用 SpEL 表达式引擎来解析这个表达式，结合方法参数、返回值等上下文信息计算出具体的 key 值。
+
+底层的缓存存储是通过 CacheManager 和 Cache 这两个抽象接口来管理的。CacheManager 负责管理多个缓存区域，每个 Cache 实例对应一个具体的缓存区域。
+
+不管我们使用 Redis、Caffeine 还是其他缓存技术，都需要实现这两个接口。这样 Spring Cache 就能以统一的方式操作不同的缓存实现，实现了很好的解耦。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 9 一面面试原题：介绍一下springcache 和redis？Spring cache和redis之间的各应用在什么场景？有了redis为什么还要用springcahe？springcache 底层原理，基于什么实现的？
 
+memo：今天在给[球友们修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，有球友说，找实习的时候也找二哥修改了简历，最后也顺利找到了，我很喜欢这种反馈，说明我付出的心血是有回报的，也感谢同学们每一次的口碑。
+
+![球友对简历修改的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-眼看秋招已经开始，打算最近离职了，更新了一版简历，麻烦二哥帮我看看。.png)
+
 ---
+
+整整两个月，面渣逆袭 Spring 篇第二版终于整理完了，这一版几乎可以说是重写了，每天耗费了大量的精力在上面，可以说是改头换面，有一种士别俩月，当刮目相看的感觉（从 1.3 万字暴涨到 3.4 万字，加餐的同时区分高频低频版）。
+
+![Spring、Redis、MySQL、Java 基础、集合框架、JVM、并发编程](https://cdn.tobebetterjavaer.com/stutymore/spring-20250818102407.png)
+
+网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
+
+![打印成册，八股全中](https://cdn.tobebetterjavaer.com/stutymore/spring-20250817110926.png)
+
+面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从 24 届到 25 届，再到 26 届，帮助了很多小伙伴。未来的 27、28 届，也将因此受益，从而拿到心仪的 offer。
+
+能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强，因此第二版的面渣逆袭不只是给大家的礼物，也是我在技术上蜕变的记录。
+
+![球友把面渣逆袭推荐给实验室的所有人](https://cdn.tobebetterjavaer.com/stutymore/mysql-我把你推荐给我们实验室的基本所有人了.png)
+
+
+![学院本拿到滴滴 SP 给面渣口碑+1](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104304.png)
+
+
+![市面上的八股看了不少，还是面渣逆袭最舒服](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104416.png)
+
+很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
+
+我喜欢静待花开。
+
+如果你觉得面渣逆袭还不错，可以告诉学弟学妹们有这样一份免费的学习资料，帮我做个口碑。
+
+我还会继续优化，也不确定第三版什么时候会来，但我会尽力。
+
+愿大家都有一个光明的未来。
+
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
+
+这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
+
+![面渣逆袭 Spring 篇 epub 版本](https://cdn.tobebetterjavaer.com/stutymore/spring-20250818102519.png)
 
 图文详解 41 道 Spring 面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/EQge6DmgIqYITM3mAxkatg)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/Y17S85ntHm_MLTZMJdtjQQ)。
 
@@ -3770,10 +3887,3 @@ _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫�
 - [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
 - [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
 
----
-
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
-
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
