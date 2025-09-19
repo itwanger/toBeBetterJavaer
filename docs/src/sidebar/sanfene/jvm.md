@@ -1569,7 +1569,7 @@ G1 在 JDK 1.7 时引入，在 JDK 9 时取代 CMS 成为默认的垃圾收集�
 
 ![有梦想的肥宅：G1 收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
 
-G1 把 Java 堆划分为多个大小相等的独立区域Region，每个区域都可以扮演新生代或老年代的角色。
+G1 把 Java 堆划分为多个大小相等的独立区域 Region，每个区域都可以扮演新生代或老年代的角色。
 
 同时，G1 还有一个专门为大对象设计的 Region，叫 Humongous 区。
 
@@ -1593,6 +1593,10 @@ G1 收集器的运行过程大致可划分为这几个步骤：
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：对象创建到销毁，内存如何分配的，（类加载和对象创建过程，CMS，G1 内存清理和分配）
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度同学 4 面试原题：G1 垃圾回收器了解吗?
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：了解过G1垃圾回收器吗？
+
+memo：2025 年 9 月 17 日修改至此。今天[有球友特意来感谢星球](https://javabetter.cn/zhishixingqiu/)，项目、八股都很有帮助，说那点钱都不好意思麻烦我。哈哈，我就想做这么一个人，让大家花最小的代码就能获得巨大的成长，这样才有口碑嘛。
+
+![星球优惠完仅需 129 元，但提供项目、简历修改等各种溢价服务](https://cdn.tobebetterjavaer.com/stutymore/jvm-记得来反馈进度，我给你调整.jpg)
 
 ### 34.有了 CMS，为什么还要引入 G1？
 

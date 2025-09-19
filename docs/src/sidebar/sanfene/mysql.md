@@ -1337,6 +1337,8 @@ binlog 是追加写入的，文件写满后会新建文件继续写入，不会�
 
 另外，为保证两种日志的一致性，innodb 采用了两阶段提交策略，redo log 在事务执行过程中持续写入，并在事务提交前进入 prepare 状态；binlog 在事务提交的最后阶段写入，之后 redo log 会被标记为 commit 状态。
 
+![阿里：MySQL 两阶段提交](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316104456.png)
+
 可以通过回放 binlog 实现数据同步或者恢复到指定时间点；redo log 用来确保事务提交后即使系统宕机，数据仍然可以通过重放 redo log 恢复。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：redo log、bin log
@@ -3750,6 +3752,7 @@ memo：2025 年 04 月 07 日增补至此，今天[有球友反馈](https://java
 >empname 和 job 两个字段是一个联合索引，而查询也恰好是这两个字段，这时候单次查询就可以达到目的，不需要回表。
 
 可以将高频查询的字段（如 WHERE 条件和 SELECT 列）组合为联合索引，实现覆盖索引。
+
 例如：
 
 ```sql
