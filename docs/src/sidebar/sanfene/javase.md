@@ -2,7 +2,7 @@
 title: Java面试题之Java基础篇，56道Java基础八股文（2.3万字68张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
 author: 三分恶&沉默王二
-date: 2025-06-14
+date: 2025-09-19
 category:
   - 面渣逆袭
 tag:
@@ -2230,9 +2230,27 @@ Java IO 流的划分可以根据多个维度进行，包括数据流的方向（
 
 #### IO 流用到了什么设计模式？
 
-其实，Java 的 IO 流体系还用到了一个设计模式——**装饰器模式**。
+用到了——**装饰器模式**，装饰器模式的核心思想是在不改变原有对象结构的前提下，动态地给对象添加新的功能。
 
 ![Java IO流用到装饰器模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-25.png)
+
+具体到 Java IO 中，InputStream 和 OutputStream 这些抽象类定义了基本的读写操作，然后通过各种装饰器类来增强功能。比如 BufferedInputStream 给基础的输入流增加了缓冲功能，DataInputStream 增加了读取基本数据类型的能力，它们都是对基础流的装饰和增强。
+
+```java
+InputStream input = new BufferedInputStream(
+    new DataInputStream(
+        new FileInputStream("data.txt")
+    )
+);
+```
+
+这里 FileInputStream 提供基本的文件读取能力，DataInputStream 装饰它增加了数据类型转换功能，BufferedInputStream 再装饰它增加了缓冲功能。每一层装饰都在原有功能基础上增加新特性，而且可以灵活组合。
+
+我对装饰器模式的理解是它很好地体现了“组合优于继承”的设计原则。优势在于运行时动态组合功能，而且遵循开闭原则，可以在不修改现有代码的情况下增加新功能。
+
+memo：2025 年 9 月 19 日修改至此，今天[有球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)报喜说上岸美团了，恭喜他！9 月份正是一个收获的季节，大家都要加油哦。
+
+![球友拿到美团 offer 了](https://cdn.tobebetterjavaer.com/stutymore/javase-20250919160609.png)
 
 #### Java 缓冲区溢出，如何预防
 
