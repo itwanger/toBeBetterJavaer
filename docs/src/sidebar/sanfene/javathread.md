@@ -1,12 +1,12 @@
 ---
-title: Java并发编程面试题，71道Java多线程八股文（3.5万字145张手绘图），面渣逆袭必看👍
+title: Java并发编程面试题，73道Java多线程八股文（3.5万字145张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java并发编程
 author: 三分恶&沉默王二
 category:
   - 面渣逆袭
 tag:
   - 面渣逆袭
-description: 下载次数超 1 万次，3.5 万字 145 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+description: 下载次数超 1 万次，3.5 万字 145 张手绘图，详解 73 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 date: 2025-9-19
 head:
   - - meta
@@ -19,7 +19,7 @@ head:
 
 ## 前言
 
-3.5 万字 145 张手绘图，详解 71 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+3.5 万字 145 张手绘图，详解 73 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 
 第一版作者是二哥编程星球的嘉宾三分恶，第二版由二哥结合球友们的面经+技术派+PmHub+mydb 的项目进行全新升级。更适合拿来背诵突击面试+底层原理理解。
 
@@ -1933,18 +1933,20 @@ volatile_write(); // 写入 volatile 变量
 StoreLoad;    // 保证写入后，其他线程立即可见
 ```
 
+---这部分面试中可以不背 start---
 在 x86 架构下，通常会使用 `lock` 指令来实现写屏障，例如：
 
 ```
 mov [a], 2          ; 将值 2 写入内存地址 a
 lock add [a], 0     ; lock 指令充当写屏障，确保内存可见性
 ```
+---这部分面试中可以不背 end---
 
 当线程对 volatile 变量进行读操作时，JVM 会插入一个读屏障指令，这个指令会强制让本地内存中的变量值失效，从而重新从主内存中读取最新的值。
 
 ![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-29.png)
 
-我们来声明一个 volatile 变量 x：
+当声明一个 volatile 变量 x：
 
 ```java
 volatile int x = 0
@@ -1962,6 +1964,16 @@ JVM 会在 volatile 变量的读写前后插入 “内存屏障”，以约束 C
 - StoreLoad 屏障会禁止 volatile 写与 volatile 读重排
 - LoadLoad 屏障会禁止 volatile 读与后续普通读操作重排
 - LoadStore 屏障会禁止 volatile 读与后续普通写操作重排
+
+#### 单线程下不加volatile和加volatile性能开销有很大区别吗？
+
+单线程下，volatile 的性能开销相对较小，因为没有线程竞争和上下文切换的开销。
+
+但 volatile 仍然会引入一些额外的内存屏障指令，以确保内存可见性。我之前做过一个测试，普通变量1亿次操作只用了2-3毫秒，volatile 变量 1亿次操作用了25-29毫秒，大概是普通变量的 10 倍左右。
+
+![二哥的 Java 进阶之路：volatile的性能开销](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250920182509.png)
+
+虽然相对差异很大，但绝对时间差异很小，都是毫秒级。
 
 #### volatile 和 synchronized 的区别？
 
@@ -1999,7 +2011,9 @@ private volatile SomeObject obj = new SomeObject();
 
 <ZSMZNXQRcodeBanner />
 
-memo：2025 年 02 月 08 日修改至此，昨天主要是做 [deepseek API 技术派的集成](https://mp.weixin.qq.com/s/F6BOxQvRELUJaU_O4dmwmQ)。
+memo：2025 年 9 月 20 日修改至此，[今天有球友](https://javabetter.cn/zhishixingqiu/)在咨询问题的时候，提到自己腾讯暑期转正了，那么恭喜他，真的太强了。鹅厂可以说是国内最好的互联网公司了，没有之一。
+
+![球友腾讯转正了](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250920183212.png)
 
 ## 锁
 
@@ -2233,6 +2247,17 @@ JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机�
 
 没有线程竞争时，就使用低开销的“偏向锁”，此时没有额外的 CAS 操作；轻度竞争时，使用“轻量级锁”，采用 CAS 自旋，避免线程阻塞；只有在重度竞争时，才使用“重量级锁”，由 Monitor 机制实现，需要线程阻塞。
 
+#### synchronized 为什么没有锁降级？
+
+主要原因我认为是降级的收益不大。降级不是简单地把标志位改一下就完事。重量级锁涉及到操作系统的互斥量（mutex），还有等待队列、阻塞线程。要降级的话，需要确保：
+
+- 没有线程在等待队列中
+- 当前没有竞争发生
+- 要安全地释放系统资源
+- 要重新初始化轻量级锁的状态
+
+这一套检查和操作下来，开销不小。而且什么时候检查？每次释放锁都检查？性能损耗太大了。
+
 #### 了解 synchronized 四种锁状态吗？
 
 了解。
@@ -2316,7 +2341,9 @@ JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿面经同学 1 技术二面面试原题：锁升级，synchronized 底层，会不会牵扯到 os 层面
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：锁升级的过程？
 
-memo：2025 年 02 月 11 日修改至此。synchronized 的锁升级是一块非常重要的内容，第二版的优化对这块内容进行了重新梳理，自认为更容易懂了，等大家的实际效果。
+memo：2025 年 09 月 11 日修改至此。synchronized 的锁升级是一块非常重要的内容，第二版的优化对这块内容进行了重新梳理，自认为更容易懂了，等大家的实际效果。今天有腾讯转正的球友在简历修改的邮件里提到：面渣逆袭写的真好，真的很感谢认可。
+
+![球友对面渣逆袭的认可非常高](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922094514.png)
 
 ### 30.🌟synchronized 和 ReentrantLock 的区别了解吗？
 
@@ -3824,6 +3851,10 @@ memo：2025 年 02 月 21 日修改至此。今天的主要工作仍然是[修�
 
 举个例子：就像你开了一家餐厅，线程池就相当于固定数量的服务员，顾客（任务）来了就安排空闲的服务员（线程）处理，避免了频繁招人和解雇的成本。
 
+#### 线程池里面的任务队列是什么队列？
+
+阻塞队列。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：说一下为什么项目中使用线程池，重要参数，举个例子说一下这些参数的变化
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下为什么引入线程池？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：说说你对线程池的理解
@@ -3993,7 +4024,7 @@ class ThreadPoolDemo {
 
 **③、workQueue**：任务队列，存储等待执行的任务。
 
-**④、handler**：拒绝策略，任务超载时的处理方式。也就是线程数达到 maximumPoolSiz，任务队列也满了的时候，就会触发拒绝策略。
+**④、handler**：拒绝策略，任务超载时的处理方式。也就是线程数达到 maximumPoolSize，任务队列也满了的时候，就会触发拒绝策略。
 
 **⑤、threadFactory**：线程工厂，用于创建线程，可自定义线程名。
 
@@ -4160,7 +4191,9 @@ public static ExecutorService newCachedThreadPool() {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的微众银行同学 1 Java 后端一面的原题：线程池的阻塞队列有哪些实现方式？
 
-memo：2025 年 2 月 22 日修改至此。
+memo：2025年 9 月 04 日修改至此，今天在帮球友修改简历的时候，有球友反馈，靠[二哥修改的简历](https://javabetter.cn/zhishixingqiu/jianli.html)拿到了字节的实习，现在秋招，希望能继续优化一下简历。
+
+![球友拿到了字节跳动的实习，简历修改的时候得到了正反馈](https://cdn.tobebetterjavaer.com/stutymore/javathread-靠二哥修改的简历找到的实习，现在要投秋招，麻烦二哥指导下简历怎么继续修改优化.png)
 
 ### 59.线程池提交 execute 和 submit 有什么区别？
 
@@ -4811,7 +4844,26 @@ class SimpleConnectionPool {
 
 ## 并发容器和框架
 
-### 71.Fork/Join 框架了解吗？
+### 71.并发容器有哪些？
+
+Java 提供了多种并发容器，主要包括：
+
+1. **ConcurrentHashMap**：线程安全的哈希表，支持高并发读写操作。
+2. **CopyOnWriteArrayList**：写时复制的 ArrayList，适用于读多写少的场景。
+3. **BlockingQueue**：阻塞队列，常用实现有 ArrayBlockingQueue 和 LinkedBlockingQueue，适用于生产者-消费者场景。
+4. **ConcurrentLinkedQueue**：非阻塞的线程安全队列。
+5. **ConcurrentSkipListMap**：基于跳表实现的线程安全有序 Map。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 34 Java 后端技术一面面试原题：并发容器有哪些？
+
+### 72.说说 Java 的并发关键字？
+
+最常用的有两个关键字，分别是：
+
+1. **synchronized**：用于方法或者代码块，确保同一时间只有一个线程可以执行被 synchronized 修饰的代码，适用于保护共享资源的访问。
+2. **volatile**：用于变量，确保变量的可见性，防止指令重排序，适用于状态标志等场景。
+
+### 73.Fork/Join 框架了解吗？
 
 关于 Fork/Join 框架，我了解一些，它是 Java 7 引入的一个并行框架，主要用于分治算法的并行执行。这个框架通过将大的任务递归地分解成小任务，然后并行执行，最后再合并结果，以达到最高效率处理大量数据的目的。
 
@@ -4952,7 +5004,7 @@ memo：2025 年 2 月 26 日修改至此。终于搞定，面渣逆袭并发编�
 
 ---
 
-图文详解 71 道 Java 并发面试高频题，这次面试，一定吊打面试官。
+图文详解 73 道 Java 并发面试高频题，这次面试，一定吊打面试官。
 
 _没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
 
