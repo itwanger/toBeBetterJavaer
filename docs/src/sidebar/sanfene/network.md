@@ -2,8 +2,8 @@
 title: 计算机网络面试题，63道计算机网络八股文（2.2万字80张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-计算机网络
 description: 下载次数超 1 万次，2.2 万字 80 张手绘图，详解 63 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-author: 三分恶
-date: 2024-12-01
+author: 三分恶&沉默王二
+date: 2025 年 9 月 20 日
 category:
   - 面渣逆袭
 tag:
@@ -554,7 +554,7 @@ HTTP/2.0 基于 TCP 协议，而 HTTP/3.0 则基于 QUIC 协议，Quick UDP Conn
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：HTTP怎么保持长连接呢？
 
 
-### 18.说说 HTTP 与 HTTPS 有哪些区别？
+### 18.🌟说说 HTTP 与 HTTPS 有哪些区别？
 
 HTTPS 是 HTTP 的增强版，在 HTTP 的基础上加入了 SSL/TLS 协议，确保数据在传输过程中是加密的。
 
@@ -567,6 +567,10 @@ HTTP 的默认端⼝号是 80，URL 以`http://`开头；HTTPS 的默认端⼝�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：https与http的区别，加密的实现
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：介绍一下http和https的区别？为什么https安全？
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：http 和Https 有啥区别呢？https 安全在哪里
+
+memo：2025 年 9 月 03 日修改至此，今天[有球友发私信说](https://javabetter.cn/zhishixingqiu/)拿到了京东的正式批 offer，并且业务看上去很核心，那真的要恭喜🎉啊，你付出多少就会有多少的收获，在没有开花结果之前，就是要坚持，鼓励自己。
+
+![球友拿到京东 offer 了](https://cdn.tobebetterjavaer.com/stutymore/network-二哥，忘了给你报喜了.png)
 
 ### 19.为什么要用 HTTPS？
 
@@ -590,9 +594,9 @@ SSL/TLS 在加密过程中涉及到了两种类型的加密方法：
 
 ### 20.HTTPS是怎么建立连接的？
 
-![二哥的Java进阶之路：HTTPS 连接建立过程](https://cdn.tobebetterjavaer.com/stutymore/network-20240418124713.png)
-
 HTTPS 的连接建立在 SSL/TLS 握手之上，其过程可以分为两个阶段：握手阶段和数据传输阶段。
+
+![二哥的Java进阶之路：HTTPS 连接建立过程](https://cdn.tobebetterjavaer.com/stutymore/network-20240418124713.png)
 
 ①、客户端向服务器发起请求
 
@@ -654,6 +658,9 @@ HTTPS 通过 SSL/TLS 协议确保了客户端与服务器之间交换的数据�
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：HTTPS怎么建立连接的？HTTPS怎么保证建立的信道是安全的？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：https能不能抓包
 
+memo：2025 年 9 月 20 日修改至此，[今天有球友发喜报](https://javabetter.cn/zhishixingqiu/)说拿到了美的的 offer，虽然不是大厂，但他自己感觉很开心，并且特意感谢了我对他的鼓励。有了保底也可以无所畏惧的继续向前冲了。
+
+![球友拿到美的的 offer 了](https://cdn.tobebetterjavaer.com/stutymore/network-二哥，今天我收到美的暑期实习的转正了，内容是MCU开发，虽然不是.png)
 
 ### 21.客户端怎么去校验证书的合法性？
 
@@ -682,7 +689,24 @@ CA 签发证书的过程是非常严格的：
 
 假如在 HTTPS 的通信过程中，中间人篡改了证书，但由于他没有 CA 机构的私钥，所以无法生成正确的 Signature，因此就无法通过校验。
 
+#### 如果服务端发送给客户端的加密算法是客户端没有的，这种情况会怎样？
+
+如果客户端不支持服务器建议的任何加密算法，那么安全连接将建立失败。
+
+当客户端向服务器发起一个 HTTPS 请求时，它会发送一个 ClientHello 消息。
+
+![ClientHello+ServerHello](https://cdn.tobebetterjavaer.com/stutymore/network-20250920211930.png)
+
+这个消息包含了客户端支持的加密算法列表（称为密码套件），以及其他一些参数。
+
+服务器收到 ClientHello 后，会从客户端提供的密码套件中选择一个它也支持的密码套件，并在 ServerHello 消息中返回给客户端。
+
+![ERR_SSL_VERSION_OR_CIPHER_MISMATCH](https://cdn.tobebetterjavaer.com/stutymore/network-20250920211743.png)
+
+如果服务器无法找到一个双方都支持的密码套件，那么它会发送一个警告消息，表示无法协商出一个共同的加密算法，随后连接将被终止。
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 1 面试原题：HTTPS，中间人伪造证书怎么办，伪造证书机构
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 34 Java 后端一面面试原题：客户端怎么检验ca证书的合法性
 
 ### 22.如何理解 HTTP 协议是无状态的？
 
@@ -832,11 +856,13 @@ SYN 不仅确保了序列号的同步，使得后续的数据能够有序传输�
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 9 飞书后端技术一面面试原题：TCP 为什么要三次握手
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的TP联洲同学 5 Java 后端一面的原题：Tcp三次握手，Syn的概念
 
-### 25.TCP 握手为什么是三次，为什么不能是两次？不能是四次？
+### 25.🌟TCP 握手为什么是三次，为什么不能是两次？不能是四次？
 
 使用三次握手可以建立一个可靠的连接。这一过程的目的是确保双方都知道对方已准备好进行通信，并同步双方的序列号，从而保持数据包的顺序和完整性。
 
 #### 为什么 TCP 握手不能是两次？
+
+---面试中可以不背，但需要理解 start---
 
 - 为了防止服务器一直等，等到黄花菜都凉了。
 - 为了防止客户端已经失效的连接请求突然又传送到了服务器。
@@ -861,7 +887,7 @@ SYN 不仅确保了序列号的同步，使得后续的数据能够有序传输�
 
 但是，过了很久，那封延误的旧邮件突然也到了你朋友那里。如果没有一种机制来识别和处理这种延误的邮件，你的朋友可能会以为这是一个新的连接请求，并尝试响应它，但其实你已经重新发了请求，原来的不需要了。这就导致了不必要的混乱和资源浪费。
 
-所以我们需要“三次握手”来确认这个过程：
+---面试中可以不背，但需要理解 end---
 
 - 第一次握手：客户端发送 SYN 包（连接请求）给服务器，如果这个包延迟了，客户端不会一直等待，它可能会重试并发送一个新的连接请求。
 - 第二次握手：服务器收到 SYN 包后，发送一个 SYN-ACK 包（确认接收到连接请求）回客户端。
@@ -951,7 +977,7 @@ SYN Flood 是一种典型的 DDos 攻击，它在短时间内，伪造**不存�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：tcp半连接是什么样一个状态？
 
-### 30.说说 TCP 四次挥手的过程？
+### 30.🌟说说 TCP 四次挥手的过程？
 
 TCP 连接的断开过程被形象地概括为四次挥手。
 
@@ -984,7 +1010,7 @@ TCP 连接的断开过程被形象地概括为四次挥手。
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯同学 25 后端开发实习一面面试原题：TCP和UDP，TCP连接和断开过程
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学19番茄小说一面面试原题：TCP断开连接过程
 
-### 31.TCP 挥手为什么需要四次呢？
+### 31.🌟TCP 挥手为什么需要四次呢？
 
 因为 TCP 是全双工通信协议，数据的发送和接收需要两次一来一回，也就是四次，来确保双方都能正确关闭连接。
 
@@ -997,6 +1023,11 @@ TCP 连接的断开过程被形象地概括为四次挥手。
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：tcp 的挥手为什么是四次，而不是三次呢？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学34一面面试原题：tcp握手为什么是3次，挥手为什么是4次 
+
+memo：2025 年 9 月 04 日修改至此，今天[有球友在星球里提问说](https://javabetter.cn/zhishixingqiu/)拿到了科大讯飞和长鑫存储的 offer，长鑫直接给开奖了，真的速度。
+
+![球友拿到科大讯飞和长鑫存储的 offer](https://cdn.tobebetterjavaer.com/stutymore/network-20250920194015.png)
 
 ### 32.TCP 四次挥手过程中，为什么需要等待 2MSL, 才进入 CLOSED 关闭状态？
 

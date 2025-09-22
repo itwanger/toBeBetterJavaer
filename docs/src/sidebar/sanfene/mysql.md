@@ -4458,6 +4458,8 @@ T2 在插入 `(7, 7, '王五')` 时，会被阻塞，可以在另外一个会话
 
 推荐阅读：[六个案例搞懂间隙锁](https://www.51cto.com/article/779551.html)、[MySQL中间隙锁的加锁机制](https://blog.csdn.net/javaanddonet/article/details/111187345)
 
+---- 这部分是帮助大家理解 end，面试中可不背 ----
+
 #### 执行什么命令会加上间隙锁？
 
 在可重复读隔离级别下，执行 FOR UPDATE / LOCK IN SHARE MODE 等加锁语句，且查询条件是范围查询时，就会自动加上间隙锁。

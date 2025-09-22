@@ -2,7 +2,7 @@
 title: 设计模式面试题，5道设计模式八股文（3000字10张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-设计模式
 description: 下载次数超 1 万次，3000 字 10 张手绘图，详解 5 道 设计模式 面试高频题（让天下没有难背的八股），面渣背会这些 设计模式 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-date: 2024-11-08
+date: 2025-09-20
 author: 沉默王二
 category:
   - 面渣逆袭
@@ -267,8 +267,49 @@ public class FactoryMethodPatternDemo {
 1. **数据库访问层（DAL）组件**：工厂方法模式适用于数据库访问层，其中需要根据不同的数据库（如MySQL、PostgreSQL、Oracle）创建不同的数据库连接。工厂方法可以隐藏这些实例化逻辑，只提供一个统一的接口来获取数据库连接。
 2. **日志记录**：当应用程序需要实现多种日志记录方式（如向文件记录、数据库记录或远程服务记录）时，可以使用工厂模式来设计一个灵活的日志系统，根据配置或环境动态决定具体使用哪种日志记录方式。
 
+### 线程不是有线程名吗，怎么做到让线程的前缀名统一，通过factory来实现？
+
+可以通过工厂模式创建线程，并在工厂方法中设置线程的前缀名。这样可以确保所有通过工厂创建的线程都具有统一的命名规范。
+
+```java
+class NamedThreadFactory implements ThreadFactory {
+    private final String prefix;
+    private int count = 0;
+
+    public NamedThreadFactory(String prefix) {
+        this.prefix = prefix;
+    }
+
+    @Override
+    public Thread newThread(Runnable r) {
+        Thread thread = new Thread(r);
+        thread.setName(prefix + "-" + count++);
+        return thread;
+    }
+}
+
+public class ThreadFactoryDemo {
+    public static void main(String[] args) {
+        ThreadFactory factory = new NamedThreadFactory("MyThread");
+
+        Runnable task = () -> {
+            System.out.println("线程名称: " + Thread.currentThread().getName());
+        };
+
+        for (int i = 0; i < 5; i++) {
+            Thread thread = factory.newThread(task);
+            thread.start();
+        }
+    }
+}
+```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下工厂模式，场景
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 34 Java 后端技术一面面试原题：工厂模式了解吗？
+
+memo：2025 年 9 月 20 日修改至此，今天球友在面快手的时候，被问了很多[派聪明 RAG 项目](https://javabetter.cn/zhishixingqiu/paismart.html)的题目，说面试官对这个项目非常感兴趣。再次感谢球友的口碑。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-差不多都命中预測的了啊.png)
 
 ## 03、什么是单例模式？
 

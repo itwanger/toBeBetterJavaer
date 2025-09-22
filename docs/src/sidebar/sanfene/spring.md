@@ -82,7 +82,7 @@ Spring 的特性还是挺多的，我按照在实际工作/学习中用得最多
 
 ![三分恶面渣逆袭：Spring特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-a0f0ef9d-3289-41ea-94c2-34b7e37ef854.png)
 
-首先最核心的就是 IoC 控制反转和 DI 依赖注入。这个我前面也提到了，就是 Spring 能帮我们管理对象的创建和依赖关系。
+首先最核心的就是 IoC 控制反转和 DI 依赖注入，让 Spring 有能力帮我们管理对象的创建和依赖关系。
 
 比如我写一个 UserService，需要用到 UserDao，以前得自己 new 一个 UserDao 出来，现在只要在 UserService 上加个 `@Service` 注解，在 UserDao 字段上加个 `@Autowired`，Spring 就会自动帮我们处理好这些依赖关系。
 
@@ -2511,6 +2511,56 @@ Spring AOP 借鉴了很多 AspectJ 的概念和注解，我们在 Spring 中使�
 从技术实现来说，反射是 Java 语言本身提供的功能，通过 `java.lang.reflect` 包下的 API 来实现。而 AOP 通常需要框架支持，比如 Spring AOP 是通过动态代理实现的，而动态代理又是基于反射实现的。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：抛开Spring，讲讲反射和动态代理？那三种代理模式怎么实现的？
+
+#### AOP 和装饰器模式有什么区别？
+
+AOP 和装饰器模式都是为了在不修改原有代码的情况下，动态地为对象添加额外的行为。
+
+装饰器模式是通过创建一个包装类来实现的，这个包装类持有被装饰对象的引用，并在调用方法时添加额外的逻辑。装饰器模式通常需要手动编写包装类，适用于单个对象的增强。
+
+```java
+// 基础组件接口
+interface Component {
+    void operation();
+}
+
+// 具体组件
+class ConcreteComponent implements Component {
+    public void operation() {
+        System.out.println("执行基本操作");
+    }
+}
+
+// 装饰器基类
+abstract class Decorator implements Component {
+    protected Component component;
+    
+    public Decorator(Component component) {
+        this.component = component;
+    }
+    
+    public void operation() {
+        component.operation();
+    }
+}
+
+// 具体装饰器
+class ConcreteDecorator extends Decorator {
+    public ConcreteDecorator(Component component) {
+        super(component);
+    }
+    
+    public void operation() {
+        addedBehavior();
+        super.operation();
+        addedBehavior();
+    }
+    
+    private void addedBehavior() {
+        System.out.println("添加的新功能");
+    }
+}
+```
 
 ### 24.🌟说说JDK动态代理和CGLIB代理的区别？
 
