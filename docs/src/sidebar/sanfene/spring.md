@@ -356,6 +356,1008 @@ public class QuickForumApplication {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的去哪儿同学 1 技术二面原题：spring的容器、web容器、springmvc的容器之间的区别
 
+memo：2025 年 6 月 27 日修改至此，今天看到[有球友发的 offer 选择提问贴](https://javabetter.cn/zhishixingqiu/)，其中一个是杭州六小龙群核科技，我个人认为还是非常值得去的，毕竟是杭州的独角兽公司，薪资待遇都不错。
+
+![球友拿到了杭州群核科技的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250627103801.png)
+
+### 6.你是怎么理解Bean的？
+
+在我看来，Bean 本质上就是由 Spring 容器管理的 Java 对象，但它和普通的 Java 对象有很大区别。普通的 Java 对象我们是通过 new 关键字创建的。而 Bean 是交给 Spring 容器来管理的，从创建到销毁都由容器负责。
+
+![stack overflow：bean 的初始化过程](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628110931.png)
+
+从实际使用的角度来说，我们项目里的 Service、Dao、Controller 这些都是 Bean。比如 UserService 被标注了 `@Service` 注解，它就成了一个 Bean，Spring 会自动创建它的实例，管理它的依赖关系，当其他地方需要用到 UserService 的时候，Spring 就会把这个实例注入进去。
+
+![技术派源码：UserService](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628111222.png)
+
+这种依赖注入的方式让对象之间的关系变得松耦合。
+
+Spring 提供了多种 Bean 的配置方式，基于注解的方式是最常用的。
+
+![二哥的 Java 进阶之路：Bean 的声明方式](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224163146.png)
+
+基于 XML 配置的方式在 Spring Boot 项目中已经不怎么用了。Java 配置类的方式则可以用来解决一些比较复杂的场景，比如说主从数据源，我们可以用 `@Primary` 注解标注主数据源，用 `@Qualifier` 来指定备用数据源。
+
+```java
+@Configuration
+public class AppConfig {
+    
+    @Bean
+    @Primary  // 主要候选者
+    public DataSource primaryDataSource() {
+        return new HikariDataSource();
+    }
+    
+    @Bean
+    @Qualifier("secondary")
+    public DataSource secondaryDataSource() {
+        return new BasicDataSource();
+    }
+}
+```
+
+那在使用的时候，当我们直接用 `@Autowired` 注解注入 DataSource 时，Spring 默认会使用 HikariDataSource；当加上 `@Qualifier("secondary")` 注解时，Spring 则会注入 BasicDataSource。
+
+```java
+@Autowired
+private DataSource dataSource; // 会注入 primaryDataSource（因为有 @Primary）
+
+@Autowired
+@Qualifier("secondary")
+private DataSource secondaryDataSource;
+```
+
+#### @Component 和 @Bean 有什么区别？
+
+首先从使用上来说，`@Component` 是标注在类上的，而 `@Bean` 是标注在方法上的。`@Component` 告诉 Spring 这个类是一个组件，请把它注册为 Bean，而 `@Bean` 则告诉 Spring 请将这个方法返回的对象注册为 Bean。
+
+```java
+@Component  // Spring自动创建UserService实例
+public class UserService {
+    @Autowired
+    private UserDao userDao;
+}
+
+@Configuration
+public class AppConfig {
+    @Bean  // 我们手动创建DataSource实例
+    public DataSource dataSource() {
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl("jdbc:mysql://localhost:3306/test");
+        ds.setUsername("root");
+        ds.setPassword("123456");
+        return ds;  // 返回给Spring管理
+    }
+}
+```
+
+从控制权的角度来说，`@Component` 是由 Spring 自动创建和管理的。
+
+![技术派源码：@Component](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628114006.png)
+
+而 `@Bean` 则是由我们手动创建的，然后再交给 Spring 管理，我们对对象的创建过程有完全的控制权。
+
+![技术派源码：@Bean](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628114149.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：怎么理解spring的bean，@Component 和 @Bean 的区别
+
+memo：2025 年 6 月 28 日修改至此，今天在帮球友[修改简历](https://javabetter.cn/zhishixingqiu/)的时候，又碰到一个杭电本硕的球友。我这里想说的一点是，杭电的计算机专业非常强，虽然他只是一所双非，如果能把项目经历、专业技能好好写的话，拿个大厂的顶级 offer 是完全没问题的。
+
+![杭州电子科技大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-计算机科学与技术.png)
+
+### 7.🌟能说一下Bean的生命周期吗？
+
+推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
+
+好的。
+
+Bean 的生命周期可以分为 5 个主要阶段，我按照实际的执行顺序来说一下。
+
+![三分恶面渣逆袭：Bean生命周期五个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
+
+第一个阶段是实例化。Spring 容器会根据 BeanDefinition，通过反射调用 Bean 的构造方法创建对象实例。如果有多个构造方法，Spring 会根据依赖注入的规则选择合适的构造方法。
+
+![三分恶面渣逆袭：Spring Bean生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
+
+第二阶段是属性赋值。这个阶段 Spring 会给 Bean 的属性赋值，包括通过 `@Autowired`、`@Resource` 这些注解注入的依赖对象，以及通过 `@Value` 注入的配置值。
+
+![二哥的 Java 进阶之路：doCreateBean 方法源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101430.png)
+
+第三阶段是初始化。这个阶段会依次执行：
+
+- `@PostConstruct` 标注的方法
+- InitializingBean 接口的 afterPropertiesSet 方法
+- 通过 `@Bean` 的 initMethod 指定的初始化方法
+
+![三分恶面渣逆袭：Bean生命周期源码追踪](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d2da20a3-08d0-4648-b9a3-2fff8512b159.png)
+
+我在项目中经常用 `@PostConstruct` 来做一些初始化工作，比如缓存预加载、DB 配置等等。
+
+```java
+// CategoryServiceImpl中的缓存初始化
+@PostConstruct
+public void init() {
+    categoryCaches = CacheBuilder.newBuilder().maximumSize(300).build(new CacheLoader<Long, CategoryDTO>() {
+        @Override
+        public CategoryDTO load(@NotNull Long categoryId) throws Exception {
+            CategoryDO category = categoryDao.getById(categoryId);
+            // ...
+        }
+    });
+}
+
+// DynamicConfigContainer中的配置初始化
+@PostConstruct
+public void init() {
+    cache = Maps.newHashMap();
+    bindBeansFromLocalCache("dbConfig", cache);
+}
+```
+
+初始化后，Spring 还会调用所有注册的 BeanPostProcessor 后置处理方法。这个阶段经常用来创建代理对象，比如 AOP 代理。
+
+第五阶段是使用 Bean。比如我们的 Controller 调用 Service，Service 调用 DAO。
+
+```java
+// UserController中的使用示例
+@Autowired
+private UserService userService;
+@GetMapping("/users/{id}")
+public UserDTO getUser(@PathVariable Long id) {
+    return userService.getUserById(id);
+}
+// UserService中的使用示例
+@Autowired
+private UserDao userDao;
+public UserDTO getUserById(Long id) {
+    return userDao.getById(id);
+}
+// UserDao中的使用示例
+@Autowired
+private JdbcTemplate jdbcTemplate;
+public UserDTO getById(Long id) {
+    String sql = "SELECT * FROM users WHERE id = ?";
+    return jdbcTemplate.queryForObject(sql, new Object[]{id}, new UserRowMapper());
+}
+```
+
+最后是销毁阶段。当容器关闭或者 Bean 被移除的时候，会依次执行：
+
+- `@PreDestroy` 标注的方法
+- DisposableBean 接口的 destroy 方法
+- 通过 `@Bean` 的 destroyMethod 指定的销毁方法
+
+![二哥的 Java 进阶之路：close 源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101658.png)
+
+#### Aware 类型的接口有什么作用？
+
+Aware 接口在 Spring 中是一个很有意思的设计，它们的作用是让 Bean 能够感知到 Spring 容器的一些内部组件。
+
+从设计理念来说，Aware 接口实现了一种“回调”机制。正常情况下，Bean 不应该直接依赖 Spring 容器，这样可以保持代码的独立性。但有些时候，Bean 确实需要获取容器的一些信息或者组件，Aware 接口就提供了这样一个能力。
+
+我最常用的 Aware 接口是 ApplicationContextAware，它可以让 Bean 获取到 ApplicationContext 容器本身。
+
+![技术派源码：ApplicationContextAware](https://cdn.tobebetterjavaer.com/stutymore/spring-20250630100429.png)
+
+在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就通过实现 ApplicationContextAware 和 EnvironmentAware 接口封装了一个 SpringUtil 工具类，通过 getBean 和 getProperty 方法来获取 Bean 和配置属性。
+
+```java
+// 静态方法获取Bean，方便在非Spring管理的类中使用
+public static <T> T getBean(Class<T> clazz) {
+    return context.getBean(clazz);
+}
+
+// 获取配置属性
+public static String getProperty(String key) {
+    return environment.getProperty(key);
+}
+```
+
+#### 如果配置了 init-method 和 destroy-method，Spring 会在什么时候调用其配置的方法？
+
+init-method 指定的初始化方法会在 Bean 的初始化阶段被调用，具体的执行顺序是：
+
+- 先执行 `@PostConstruct` 标注的方法
+- 然后执行 InitializingBean 接口的 `afterPropertiesSet()` 方法
+- 最后再执行 init-method 指定的方法
+
+也就是说，init-method 是在所有其他初始化方法之后执行的。
+
+```java
+@Component
+public class MyService {
+    @Autowired
+    private UserDao userDao;
+    
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("1. @PostConstruct执行");
+    }
+    
+    public void customInit() {  // 通过@Bean的initMethod指定
+        System.out.println("3. init-method执行");
+    }
+}
+
+@Configuration
+public class AppConfig {
+    @Bean(initMethod = "customInit")
+    public MyService myService() {
+        return new MyService();
+    }
+}
+```
+
+destroy-method 会在 Bean 销毁阶段被调用。
+
+```java
+@Component
+public class MyService {
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("1. @PreDestroy执行");
+    }
+    
+    public void customDestroy() {  // 通过@Bean的destroyMethod指定
+        System.out.println("3. destroy-method执行");
+    }
+}
+```
+
+不过在实际开发中，通常用 `@PostConstruct` 和 `@PreDestroy` 就够了，它们更简洁。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring中bean生命周期
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：讲一下Spring Bean的生命周期
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean生命周期
+> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：介绍下Bean的生命周期？Aware类型接口的作用？如果配置了init-method和destroy-method，Spring会在什么时候调用其配置的方法？
+
+memo：2025 年 6 月 30 日修改至此。昨天有[读者发消息说有三个 offer 要选择](https://javabetter.cn/zhishixingqiu/)，中科大读博、中海油、商飞北研，问我该怎么选择？说实话，这三个都是非常优质的选择，我个人的建议是优先考虑中科大读博，毕竟是国内顶尖学府，博士毕业后可以选择在高校任教，会更符合他的家庭条件，当然了，我深知，读博的产出压力非常大。
+
+![读者拿到中科大读博、中海油、商飞北研](https://cdn.tobebetterjavaer.com/stutymore/spring-20250630101647.png)
+
+
+### 8.Bean的作用域有哪些?
+
+Bean 的作用域决定了 Bean 实例的生命周期和创建策略，singleton 是默认的作用域。整个 Spring 容器中只会有一个 Bean 实例。不管在多少个地方注入这个 Bean，拿到的都是同一个对象。
+
+```java
+@Component  // 默认就是singleton
+public class UserService {
+    // 整个应用中只有一个UserService实例
+}
+```
+
+生命周期和 Spring 容器相同，容器启动时创建，容器销毁时销毁。
+
+实际开发中，像 Service、Dao 这些业务组件基本都是单例的，因为单例既能节省内存，又能提高性能。
+
+当把 scope 设置为 prototype 时，每次从容器中获取 Bean 的时候都会创建一个新的实例。
+
+```java
+@Component
+@Scope("prototype")
+public class OrderProcessor {
+    // 每次注入或获取都是新的实例
+}
+```
+
+当需要处理一些有状态的 Bean 时会用到 prototype，比如每个订单处理器需要维护不同的状态信息。
+
+需要注意的是，在 singleton Bean 中注入 prototype Bean 时要小心，因为 singleton Bean 只创建一次，所以 prototype Bean 也只会注入一次。这时候可以用 `@Lookup` 注解或者 ApplicationContext 来动态获取。
+
+```java
+@Component
+public class SingletonService {
+    // 错误的做法，prototypeBean只会注入一次
+    @Autowired
+    private PrototypeBean prototypeBean;
+    
+    // 正确的做法，每次调用都获取新实例
+    @Lookup
+    public PrototypeBean getPrototypeBean() {
+        return null;  // Spring会重写这个方法
+    }
+}
+```
+
+除了 singleton 和 prototype，Spring 还支持其他作用域，比如 request、session、application 和 websocket。
+
+![三分恶面渣逆袭：Spring Bean支持作用域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-08a9cb31-5a4f-4224-94cd-0c0f643a57ea.png)
+
+如果作用于是 request，表示在 Web 应用中，每个 HTTP 请求都会创建一个新的 Bean 实例，请求结束后 Bean 就被销毁。
+
+```java
+@Component
+@Scope("request")
+public class RequestContext {
+    // 每个HTTP请求都有自己的实例
+}
+```
+
+如果作用于是 session，表示在 Web 应用中，每个 HTTP 会话都会创建一个新的 Bean 实例，会话结束后 Bean 被销毁。
+
+```java
+@Component
+@Scope("session")
+public class UserSession {
+    // 每个用户会话都有自己的实例
+}
+```
+
+典型的使用场景是购物车、用户登录状态这些需要在整个会话期间保持的信息。
+
+application 作用域表示在整个应用中只有一个 Bean 实例，类似于 singleton，但它的生命周期与 ServletContext 绑定。
+
+```java
+@Component
+@Scope("application")
+public class AppConfig {
+    // 整个应用中只有一个实例
+}
+```
+
+websocket 作用域表示在 WebSocket 会话中每个连接都有自己的 Bean 实例。WebSocket 连接建立时创建，连接关闭时销毁。
+
+```java
+@Component
+@Scope("websocket")
+public class WebSocketHandler {
+    // 每个WebSocket连接都有自己的实例
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean是单例还是多例的，具体怎么修改
+
+memo：2025 年 7 月 3 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个郑州大学硕，河北师范大学本的球友，整体在校的经历非常出色，奖学金、论文期刊基本上都拉满了。那这么多优秀的球友选择来到这里，也是对星球的又一次认可和肯定，我也一定会继续努力，提供更多优质的内容和服务。
+
+![郑州大学硕，河北师范大学本的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250704144758.png)
+
+### 9.Spring中的单例Bean会存在线程安全问题吗？
+
+首先要明确一点。Spring 容器本身保证了 Bean 创建过程的线程安全，也就是说不会出现多个线程同时创建同一个单例 Bean 的情况。但是 Bean 创建完成后的使用过程，Spring 就不管了。
+
+换句话说，单例 Bean 在被创建后，如果它的内部状态是可变的，那么在多线程环境下就可能会出现线程安全问题。
+
+![三分恶面渣逆袭：Spring单例Bean线程安全问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-35dacef4-1a9e-45e1-b3f2-5a91227eb244.png)
+
+比如说在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，有一个敏感词过滤的 Bean，我们就需要使用 volatile 关键字来保证多线程环境下的可见性。
+
+```java
+@Service
+public class SensitiveService {
+    private volatile SensitiveWordBs sensitiveWordBs; // 使用volatile保证可见性
+    
+    @PostConstruct
+    public void refresh() {
+        // 重新初始化sensitiveWordBs
+    }
+}
+```
+
+如果 Bean 中没有成员变量，或者成员变量都是不可变的，final 修饰的，那么就不存在线程安全问题。
+
+```java
+@Service
+public class UserServiceImpl implements UserService {
+    @Resource
+    private UserDao userDao;
+    @Autowired
+    private CountService countService;
+    // 只有依赖注入的无状态字段
+}
+
+@Service
+public class ConfigService {
+    private final String appName;  // final修饰，不可变
+    
+    public ConfigService(@Value("${app.name}") String appName) {
+        this.appName = appName;
+    }
+}
+```
+
+#### 单例Bean的线程安全问题怎么解决呢？
+
+第一种，使用局部变量，也就是使用无状态的单例 Bean，把所有状态都通过方法参数传递：
+
+```java
+@Service
+public class UserService {
+    @Autowired
+    private UserDao userDao;
+    
+    // 无状态方法，所有数据通过参数传递
+    public User processUser(Long userId, String operation) {
+        User user = userDao.findById(userId);
+        // 处理逻辑...
+        return user;
+    }
+}
+```
+
+第二种，当确实需要维护线程相关的状态时，可以使用 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 来保存状态。ThreadLocal 可以保证每个线程都有自己的变量副本，互不干扰。
+
+```java
+@Service
+public class UserContextService {
+    private static final ThreadLocal<User> userThreadLocal = new ThreadLocal<>();
+    
+    public void setCurrentUser(User user) {
+        userThreadLocal.set(user);
+    }
+    
+    public User getCurrentUser() {
+        return userThreadLocal.get();
+    }
+    
+    public void clear() {
+        userThreadLocal.remove(); // 防止内存泄漏
+    }
+}
+```
+
+第三种，如果需要缓存数据或者计数，使用 JUC 包下的线程安全类，比如说 [AtomicInteger](https://javabetter.cn/thread/atomic.html)、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)、[CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html) 等。
+
+```java
+@Service
+public class CacheService {
+    // 使用线程安全的集合
+    private final ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();
+    private final AtomicLong counter = new AtomicLong(0);
+    
+    public void put(String key, Object value) {
+        cache.put(key, value);
+        counter.incrementAndGet();
+    }
+}
+```
+
+第四种，对于复杂的状态操作，可以使用 synchronized 或 Lock：
+
+```java
+@Service
+public class CacheService {
+    private final Map<String, Object> cache = new HashMap<>();
+    private final ReentrantLock lock = new ReentrantLock();
+    
+    public void put(String key, Object value) {
+        lock.lock();
+        try {
+            cache.put(key, value);
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+第五种，如果 Bean 确实需要维护状态，可以考虑将其改为 prototype 作用域，这样每次注入都会创建一个新的实例，避免了多线程共享同一个实例的问题。
+
+```java
+@Service
+@Scope("prototype") // 每次注入都创建新实例
+public class StatefulService {
+    private String state; // 现在每个实例都有独立状态
+    
+    public void setState(String state) {
+        this.state = state;
+    }
+}
+```
+
+或者使用 request 作用域，这样每个 HTTP 请求都会创建一个新的实例。
+
+```java
+@Service
+@Scope("request")
+public class RequestScopedService {
+    private String requestData;
+    // 每个请求都有独立的实例
+}
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：spring的bean的并发安全问题
+
+memo：2025 年 7 月 4 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个武汉理工大学本硕的球友。说真的，和武汉理工大学挺有缘的，2023 年去武汉，就线下见了一名武理的球友，[他当时签约的是小米](https://t.zsxq.com/LfG3B)，非常优秀。
+
+![武汉理工大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-2023.09-2026.06.png)
+
+### 10.为什么IDEA不推荐使用@Autowired注解注入Bean？
+
+前情提要：当使用 `@Autowired` 注解注入 Bean 时，IDEA 会提示“Field injection is not recommended”。
+
+![二哥的 Java 进阶之路：@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224164722.png)
+
+面试回答：
+
+主要有几个原因。
+
+第一个是字段注入不利于单元测试。字段注入需要使用反射或 Spring 容器才能注入依赖，测试更复杂；而构造方法注入可以直接通过构造方法传入 Mock 对象，测试起来更简单。
+
+```java
+// 字段注入的测试困难
+@Test
+public void testUserService() {
+    UserService userService = new UserService();
+    // 无法直接设置userRepository，需要反射或Spring容器
+    // userService.userRepository = Mockito.mock(UserRepository.class);
+    // 需要手动设置依赖，测试不方便
+    ReflectionTestUtils.setField(userService, "userRepository", Mockito.mock(UserRepository.class));
+    userService.doSomething();
+    // ...
+}
+
+// 构造方法注入的测试简单
+@Test
+public void testUserService() {
+    UserRepository mockRepository = Mockito.mock(UserRepository.class);
+    UserService userService = new UserService(mockRepository); // 直接注入
+}
+```
+
+第二个是字段注入会隐藏循环依赖问题，而构造方法注入会在项目启动时就去检查依赖关系，能更早发现问题。
+
+第三个是构造方法注入可以使用 final 字段确保依赖在对象创建时就被初始化，避免了后续修改的风险。
+
+在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们已经在使用构造方法注入的方式来管理依赖关系。
+
+![技术派：构造方法注入](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224165628.png)
+
+不过话说回来，`@Autowired` 的字段注入方式在一些简单的场景下还是可以用的，主要看团队的编码规范吧。
+
+#### @Autowired 和 @Resource 注解的区别？
+
+首先从来源上说，`@Autowired` 是 Spring 框架提供的注解，而 `@Resource` 是 Java EE 标准提供的注解。换句话说，`@Resource` 是 JDK 自带的，而 `@Autowired` 是 Spring 特有的。
+
+虽然 IDEA 不推荐使用 `@Autowired`，但对 `@Resource` 注解却没有任何提示。
+
+![技术派：@Resource](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224170055.png)
+
+从注入方式上说，`@Autowired` 默认按照类型，也就是 byType 进行注入，而 `@Resource` 默认按照名称，也就是 byName 进行注入。
+
+当容器中存在多个相同类型的 Bean， 比如说有两个 UserRepository 的实现类，直接用 `@Autowired` 注入 UserRepository 时就会报错，因为 Spring 容器不知道该注入哪个实现类。
+
+```java
+@Component
+public class UserRepository21 implements UserRepository2 {}
+
+@Component
+public class UserRepository22 implements UserRepository2 {}
+
+@Component
+public class UserService2 {
+    @Autowired
+    private UserRepository2 userRepository; // 冲突
+}
+```
+
+这时候，有两种解决方案，第一种是使用 `@Autowired` + `@Qualifier` 指定具体的 Bean 名称来解决冲突。
+
+```java
+@Component("userRepository21")
+public class UserRepository21 implements UserRepository2 {
+}
+@Component("userRepository22")
+public class UserRepository22 implements UserRepository2 {
+}
+@Autowired
+@Qualifier("userRepository22")
+private UserRepository2 userRepository22;
+```
+
+第二种是使用 `@Resource` 注解按名称进行注入。
+
+```java
+@Resource(name = "userRepository21")
+private UserRepository2 userRepository21;
+```
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：依赖注入的时候，直接Autowired比较直接，为什么推荐构造方法注入呢
+
+memo：2025 年 7 月 1 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个郑州大学本硕的球友，这也是我们河南省最好的大学了，但也仅仅是一所 211，所以希望所有河南的同学都能加把劲，证明自己的实力，去拿到更好的 offer，为校争光。
+
+![郑州大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250701154344.png)
+
+### 11.@Autowired的实现原理了解吗？
+
+`@Autowired` 是 Spring 实现依赖注入的核心注解，其实现原理基于反射机制和 BeanPostProcessor 接口。
+
+整个过程分为两个主要阶段。第一个阶段是依赖收集阶段，发生在 Bean 实例化之后、属性赋值之前。`Autowired` 的 Processor 会扫描 Bean 的所有字段、方法和构造方法，找出标注了 `@Autowired` 注解的地方，然后把这些信息封装成 `Injection` 元数据对象缓存起来。这个过程用到了大量的反射操作，需要分析类的结构、注解信息等等。
+
+![MarkusZhang：@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20250711165339.png)
+
+第二个阶段是依赖注入阶段，Spring 会取出之前缓存的 `Injection` 元数据对象，然后逐个处理每个注入点。对于每个 `@Autowired` 标注的字段或方法，Spring 会根据类型去容器中查找匹配的 Bean。
+
+```java
+// 1. 按类型查找（byType）
+Map<String, Object> matchingBeans = BeanFactoryUtils.beansOfTypeIncludingAncestors(
+    this.beanFactory, type);
+
+// 2. 如果找到多个候选者，按名称筛选（byName）
+String autowiredBeanName = determineAutowireCandidate(matchingBeans, descriptor);
+
+// 3. 考虑@Primary和@Priority注解
+// 4. 最后按照字段名或参数名匹配
+```
+
+在具体的注入过程中，Spring 会使用反射来设置字段的值或者调用 setter 方法。比如对于字段注入，会调用 `Field.set()` 方法；对于 setter 注入，会调用 `Method.invoke()` 方法。
+
+### 12.什么是自动装配？
+
+自动装配的本质就是让 Spring 容器自动帮我们完成 Bean 之间的依赖关系注入，而不需要我们手动去指定每个依赖。简单来说，就是“我们不用告诉 Spring 具体怎么注入，Spring 自己会想办法找到合适的 Bean 注入进来”。
+
+自动装配的工作原理简单来说就是，Spring 容器在启动时自动扫描 `@ComponentScan` 指定包路径下的所有类，然后根据类上的注解，比如 `@Autowired`、`@Resource` 等，来判断哪些 Bean 需要被自动装配。
+
+```java
+@Configuration
+@ComponentScan("com.github.paicoding.forum.service")
+@MapperScan(basePackages = {
+    "com.github.paicoding.forum.service.article.repository.mapper",
+    "com.github.paicoding.forum.service.user.repository.mapper"
+    // ... 更多包路径
+})
+public class ServiceAutoConfig {
+    // Spring自动扫描指定包下的所有组件并注册为Bean
+}
+```
+
+之后分析每个 Bean 的依赖关系，在创建 Bean 的时候，根据装配规则自动找到合适的依赖 Bean，最后根据反射将这些依赖注入到目标 Bean 中。
+
+#### Spring提供了哪几种自动装配类型？
+
+Spring 的自动装配方式有好几种，在 XML 配置时代，主要有 byName、byType、constructor 和 autodetect 四种方式。
+
+![三分恶面渣逆袭：Spring四种自动装配类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-034120d9-88c7-490b-af07-7d48f3b6b7bc.png)
+
+到了注解驱动时代，用得最多的是 `@Autowired` 注解，默认按照类型装配。
+
+```java
+@Service
+public class UserService {
+    @Autowired  // 按类型自动装配
+    private UserRepository userRepository;
+}
+```
+
+其次还有 `@Resource` 注解，它默认按照名称装配，如果找不到对应名称的 Bean，就会按类型装配。
+
+Spring Boot 的自动装配还有一套更高级的机制，通过 `@EnableAutoConfiguration` 和各种 `@Conditional` 注解来实现，这个是框架级别的自动装配，会根据 classpath 中的类和配置来自动配置 Bean。
+
+![ShawnBlog：Spring Boot 的自动装配](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101032.png)
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 oppo 面经同学 15 技术面试原题：spring自动装配原理、启动原理，要在启动阶段自定义逻辑该怎么做？
+
+memo：2025 年 7 月 2 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个北京航空航天大学的球友，他在邮件中说到：在星球里学到了好多东西，目前正在准备[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)和 MYDB，打算好好冲秋招，能帮助到大家我真的很欣慰。
+
+![北航球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101812.png)
+
+### 13.什么是循环依赖?
+
+简单来说就是两个或多个 Bean 相互依赖，比如说 A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
+
+![三分恶面渣逆袭：Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
+
+### 14.🌟Spring怎么解决循环依赖呢？
+
+Spring 通过三级缓存机制来解决循环依赖：
+
+1. 一级缓存：存放完全初始化好的单例 Bean。
+2. 二级缓存：存放提前暴露的 Bean，实例化完成，但未初始化完成。
+3. 三级缓存：存放 Bean 工厂，用于生成提前暴露的 Bean。
+
+![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
+
+以 A、B 两个类发生循环依赖为例：
+
+![三分恶面渣逆袭：循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
+
+第 1 步：开始创建 Bean A。
+
+- Spring 调用 A 的构造方法，创建 A 的实例。此时 A 对象已存在，但 b属性还是 null。
+- 将 A 的对象工厂放入三级缓存。
+- 开始进行 A 的属性注入。
+
+![三分恶面渣逆袭：A 对象工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
+
+第 2 步：A 需要注入 B，开始创建 Bean B。
+
+- 发现需要 B，但 B 还不存在，所以开始创建 B。
+- 调用 B 的构造方法，创建 B 的实例。此时 B 对象已存在，但 a 属性还是 null。
+- 将 B 的对象工厂放入三级缓存。
+- 开始进行 B 的属性注入。
+
+第 3 步：B 需要注入 A，从缓存中获取 A。
+
+- B 需要注入 A，先从一级缓存找 A，没找到。
+- 再从二级缓存找 A，也没找到。
+- 最后从三级缓存找 A，找到了 A 的对象工厂。
+- 调用 A 的对象工厂得到 A 的实例。这时 A 已经实例化了，虽然还没完全初始化。
+- 将 A 从三级缓存移到二级缓存。
+- B 拿到 A 的引用，完成属性注入。
+
+![三分恶面渣逆袭：A 放入二级缓存，B 放入一级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bf2507bf-96aa-4b88-a58b-7ec41d11bc70.png)
+
+第 4 步：B 完成初始化。
+
+- B 的属性注入完成，执行 `@PostConstruct` 等初始化逻辑。
+- B 完全创建完成，从三级缓存移除，放入一级缓存。
+
+第 5 步：A 完成初始化。
+
+- 回到 A 的创建过程，A 拿到完整的 B 实例，完成属性注入。
+- A 执行初始化逻辑，创建完成。
+- A 从二级缓存移除，放入一级缓存。
+
+![三分恶面渣逆袭：AB 都好了](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
+
+用代码来模拟这个过程，是这样的：
+
+```java
+// 模拟Spring的解决过程
+public class CircularDependencyDemo {
+    // 三级缓存
+    Map<String, Object> singletonObjects = new HashMap<>();
+    Map<String, Object> earlySingletonObjects = new HashMap<>();
+    Map<String, ObjectFactory> singletonFactories = new HashMap<>();
+    
+    public Object getBean(String beanName) {
+        // 先从一级缓存获取
+        Object bean = singletonObjects.get(beanName);
+        if (bean != null) return bean;
+        
+        // 再从二级缓存获取
+        bean = earlySingletonObjects.get(beanName);
+        if (bean != null) return bean;
+        
+        // 最后从三级缓存获取
+        ObjectFactory factory = singletonFactories.get(beanName);
+        if (factory != null) {
+            bean = factory.getObject();
+            earlySingletonObjects.put(beanName, bean);  // 移到二级缓存
+            singletonFactories.remove(beanName);        // 从三级缓存移除
+        }
+        
+        return bean;
+    }
+}
+```
+
+#### 哪些情况下Spring无法解决循环依赖？
+
+Spring 虽然能解决大部分循环依赖问题，但确实有几种情况是无法处理的，我来详细说说。
+
+![三分恶面渣逆袭：循环依赖的几种情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-37bb576d-b4af-42ed-91f4-d846ceb012b6.png)
+
+第一种，构造方法的循环依赖，这种情况 Spring 会直接抛出 BeanCurrentlyInCreationException 异常。
+
+```java
+@Component
+public class A {
+    private B b;
+    
+    public A(B b) {  // 构造方法注入
+        this.b = b;
+    }
+}
+
+@Component
+public class B {
+    private A a;
+    
+    public B(A a) {  // 构造方法注入
+        this.a = a;
+    }
+}
+```
+
+因为构造方法注入发生在实例化阶段，创建 A 的时候必须先有 B，但创建 B又必须先有 A，这时候两个对象都还没创建出来，无法提前暴露到缓存中。
+
+第二种，prototype 作用域的循环依赖。prototype 作用域的 Bean 每次获取都会创建新实例，Spring 无法缓存这些实例，所以也无法解决循环依赖。
+
+----面试中可以不背，方便大家理解 start----
+
+我们来看一个实例，先是 PrototypeBeanA：
+
+```java
+@Component
+@Scope("prototype")
+public class PrototypeBeanA {
+    private final PrototypeBeanB prototypeBeanB;
+
+    @Autowired
+    public PrototypeBeanA(PrototypeBeanB prototypeBeanB) {
+        this.prototypeBeanB = prototypeBeanB;
+    }
+}
+```
+
+然后是 PrototypeBeanB：
+
+```java
+@Component
+@Scope("prototype")
+public class PrototypeBeanB {
+    private final PrototypeBeanA prototypeBeanA;
+
+    @Autowired
+    public PrototypeBeanB(PrototypeBeanA prototypeBeanA) {
+        this.prototypeBeanA = prototypeBeanA;
+    }
+}
+```
+
+再然后是测试：
+
+```java
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @Bean
+    CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+        return args -> {
+            // 尝试获取PrototypeBeanA的实例
+            PrototypeBeanA beanA = ctx.getBean(PrototypeBeanA.class);
+        };
+    }
+}
+```
+
+运行结果：
+
+![二哥的 Java 进阶之路：循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310202703.png)
+
+----面试中可以不背，方便大家理解 end----
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring如何解决循环依赖？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Spring源码看过吗？Spring的三级缓存知道吗？
+> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：spring三级缓存解决循环依赖问题
+
+memo：2025 年 7 月 5 日修改至此。今天 [VIP 群](https://javabetter.cn/zhishixingqiu/)来了非常多的球友，不知不觉我们已经 12 群了，也是一个大家庭了，希望大家都能在这里找到自己的归属感，我们一起学习，一起进步。
+
+![二哥的编程星球已经 12 群了](https://cdn.tobebetterjavaer.com/stutymore/spring-20250705072809.png)
+
+### 15.为什么需要三级缓存而不是两级？
+
+Spring 设计三级缓存主要是为了解决 AOP 代理的问题。
+
+我举个具体的例子来说明一下。假设我们有 A 和 B 两个类相互依赖，A 的某个方法上面还标注了 `@Transactional` 注解，这意味着 A 最终需要被 Spring 创建成一个代理对象。
+
+```java
+@Component
+public class A {
+    @Autowired
+    private B b;
+    
+    @Transactional  // A需要被AOP代理
+    public void doSomething() {
+        // 业务逻辑
+    }
+}
+
+@Component
+public class B {
+    @Autowired
+    private A a;
+}
+```
+
+如果只有二级缓存的话，当创建 A 的时候，我们需要把 A 的原始对象提前放到缓存里面，然后 B 在创建的时候从缓存中拿到 A 的原始对象。
+
+```java
+// 假设只有两级缓存
+Map<String, Object> singletonObjects = new HashMap<>();     // 完整Bean
+Map<String, Object> earlySingletonObjects = new HashMap<>(); // 半成品Bean
+```
+
+但是问题来了，A 完成初始化后，由于有 `@Transactional` 注解，Spring 会把 A 包装成一个代理对象放到容器中。这样就出现了一个很严重的问题：B 里面持有的是 A 的原始对象，而容器中存的是 A 的代理对象，同一个 Bean 居然有两个不同的实例，这肯定是不对的。
+
+![三分恶面渣逆袭：二级缓存不行的原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-6ece8a46-25b1-459b-8cfa-19fc696dd7d6.png)
+
+三级缓存就是为了解决这个问题而设计的。三级缓存里面存放的不是 Bean 的实例，而是一个对象工厂，这是一个函数式接口。
+
+当 B 需要 A 的时候，会调用这个对象工厂的 getObject 方法，这个方法里面会判断 A 是否需要被代理。如果需要代理，就创建 A 的代理对象返回给 B；如果不需要代理，就返回 A 的原始对象。这样就保证了 B 拿到的 A 和最终放入容器的 A 是同一个对象。
+
+```java
+Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>();
+// Spring源码中的逻辑
+addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
+protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) {
+    Object exposedObject = bean;
+    if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
+        for (BeanPostProcessor bp : getBeanPostProcessors()) {
+            if (bp instanceof SmartInstantiationAwareBeanPostProcessor) {
+                SmartInstantiationAwareBeanPostProcessor ibp = (SmartInstantiationAwareBeanPostProcessor) bp;
+                // 关键：如果需要代理，这里会创建代理对象
+                exposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);
+            }
+        }
+    }
+    return exposedObject;
+}
+```
+
+简单来说，三级缓存的核心作用就是延迟决策。它让 Spring 在真正需要 Bean 的时候才决定返回原始对象还是代理对象，这样就避免了对象不一致的问题。如果没有三级缓存，Spring 要么无法在循环依赖的情况下支持 AOP，要么就会出现同一个 Bean 有多个实例的问题，这些都是不可接受的。
+
+![幸云教育：三级缓存和循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706065436.png)
+
+#### 如果缺少二级缓存会有什么问题？
+
+二级缓存 earlySingletonObjects 主要是用来存放那些已经通过三级缓存的对象工厂创建出来的早期 Bean 引用。
+
+![Minor王智：三级缓存](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706065722.png)
+
+假设我们有 A、B、C 三个 Bean，A 依赖 B 和 C，B 和 C 都依赖 A，形成了一个复杂的循环依赖。在没有二级缓存的情况下，每次 B 或者 C 需要获取 A 的时候，都需要调用三级缓存中 A 的 `ObjectFactory.getObject()` 方法。这意味着如果 A 需要被代理的话，代理对象可能会被重复创建多次，这显然是不合理的。
+
+```java
+// 没有二级缓存的伪代码
+public Object getSingleton(String beanName) {
+    Object singletonObject = singletonObjects.get(beanName);
+    
+    if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
+        // 直接从三级缓存获取
+        ObjectFactory<?> singletonFactory = singletonFactories.get(beanName);
+        if (singletonFactory != null) {
+            return singletonFactory.getObject(); // 每次都会创建新的代理对象！
+        }
+    }
+    return singletonObject;
+}
+```
+
+我举个具体的例子。比如 A 有 `@Transactional` 注解需要被 AOP 代理，B 在初始化的时候需要 A，会调用一次对象工厂创建 A 的代理对象。接着 C 在初始化的时候也需要 A，又会调用一次对象工厂，可能又创建了一个 A 的代理对象。这样 B 和 C 拿到的可能就是两个不同的 A 代理对象，这就违反了单例 Bean 的语义。
+
+```java
+@Service
+public class ServiceA {
+    @Autowired
+    private ServiceB serviceB;
+    
+    @Transactional  // 需要 AOP 代理
+    public void methodA() {
+        // 业务逻辑
+    }
+}
+
+@Service
+public class ServiceB {
+    @Autowired
+    private ServiceA serviceA;  // 获得代理对象 A1
+    
+    @Autowired
+    private ServiceC serviceC;
+}
+
+@Service
+public class ServiceC {
+    @Autowired
+    private ServiceA serviceA;  // 可能获得代理对象 A2
+}
+```
+
+二级缓存就是为了解决这个问题。当第一次通过对象工厂创建了 A 的早期引用之后，就把这个引用放到二级缓存中，同时从三级缓存中移除对象工厂。
+
+```java
+// 第一次获取 A
+ObjectFactory<A> factory = singletonFactories.get("serviceA");
+Object proxyA = factory.getObject(); // 创建代理
+earlySingletonObjects.put("serviceA", proxyA); // 缓存代理
+singletonFactories.remove("serviceA");
+
+// 第二次获取 A
+Object cachedA = earlySingletonObjects.get("serviceA"); // 直接返回缓存的代理
+// proxyA == cachedA  ✓
+```
+
+后续如果再有其他 Bean 需要 A，就直接从二级缓存中获取，不需要再调用对象工厂了。
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：循环依赖有了解过吗？出现循环依赖的原因？三大缓存存储内容的区别？如何解决循环依赖？如果缺少第二级缓存会有什么问题？
+
 <MZNXQRcodeBanner />
 
 memo：2024 年 7 月 11 日修改至此，今天在帮[球友们修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到北京交通大学本，北京航空航天大学硕的球友，她的简历上有很多校园荣誉奖项，像优秀学生、奖学金、英语四六级等，这些都是非常好的加分项。
@@ -364,7 +1366,7 @@ memo：2024 年 7 月 11 日修改至此，今天在帮[球友们修改简历](h
 
 ## IoC
 
-### 6.🌟说一说什么是IoC？
+### 16.🌟说一说什么是IoC？
 
 推荐阅读：[IoC 扫盲](https://javabetter.cn/springboot/ioc.html)
 
@@ -509,7 +1511,7 @@ memo：2025 年 6 月 22 日修改至此，今天[有球友发喜报说拿到了
 
 ![球友拿到了外企和电商的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-二哥，目前拿到了两个offer。第一个是做b端电.png)
 
-### 7.能说一下IoC的实现机制吗？
+### 17.能说一下IoC的实现机制吗？
 
 好的，Spring IoC 的实现机制还是比较复杂的，我尽量用比较通俗的方式来解释一下整个流程。
 
@@ -808,7 +1810,7 @@ memo：2025 年 6 月 23 日修改至此，今天[有球友发喜报说拿到了
 
 ![球友拿到京东社招 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250623105438.png)
 
-### 8.说说BeanFactory和ApplicantContext的区别?
+### 18.说说BeanFactory和ApplicantContext的区别?
 
 BeanFactory 算是 Spring 的“心脏”，而 ApplicantContext 可以说是 Spring 的完整“身躯”。
 
@@ -879,7 +1881,7 @@ memo：2025 年 6 月 25 日修改至此，今天给一个华科本硕研 0 的[
 
 ![球友对星球相见恨晚](https://cdn.tobebetterjavaer.com/stutymore/spring-20250625111617.png)
 
-### 9.🌟项目启动时Spring的IoC会做什么？
+### 19.🌟项目启动时Spring的IoC会做什么？
 
 第一件事是扫描和注册 Bean。IoC 容器会根据我们的配置，比如 `@ComponentScan` 指定的包路径，去扫描所有标注了 `@Component`、`@Service`、`@Controller` 这些注解的类。然后把这些类的元信息包装成 BeanDefinition 对象，注册到容器的 BeanDefinitionRegistry 中。这个阶段只是收集信息，还没有真正创建对象。
 
@@ -962,1005 +1964,6 @@ Spring 在实例化的时候会根据 Bean 的定义自动选择合适的方式�
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 Spring 的 Bean 实例化方式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：bean加工有哪些方法？
-
-memo：2025 年 6 月 27 日修改至此，今天看到[有球友发的 offer 选择提问贴](https://javabetter.cn/zhishixingqiu/)，其中一个是杭州六小龙群核科技，我个人认为还是非常值得去的，毕竟是杭州的独角兽公司，薪资待遇都不错。
-
-![球友拿到了杭州群核科技的 offer](https://cdn.tobebetterjavaer.com/stutymore/spring-20250627103801.png)
-
-### 10.你是怎么理解Bean的？
-
-在我看来，Bean 本质上就是由 Spring 容器管理的 Java 对象，但它和普通的 Java 对象有很大区别。普通的 Java 对象我们是通过 new 关键字创建的。而 Bean 是交给 Spring 容器来管理的，从创建到销毁都由容器负责。
-
-![stack overflow：bean 的初始化过程](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628110931.png)
-
-从实际使用的角度来说，我们项目里的 Service、Dao、Controller 这些都是 Bean。比如 UserService 被标注了 `@Service` 注解，它就成了一个 Bean，Spring 会自动创建它的实例，管理它的依赖关系，当其他地方需要用到 UserService 的时候，Spring 就会把这个实例注入进去。
-
-![技术派源码：UserService](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628111222.png)
-
-这种依赖注入的方式让对象之间的关系变得松耦合。
-
-Spring 提供了多种 Bean 的配置方式，基于注解的方式是最常用的。
-
-![二哥的 Java 进阶之路：Bean 的声明方式](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224163146.png)
-
-基于 XML 配置的方式在 Spring Boot 项目中已经不怎么用了。Java 配置类的方式则可以用来解决一些比较复杂的场景，比如说主从数据源，我们可以用 `@Primary` 注解标注主数据源，用 `@Qualifier` 来指定备用数据源。
-
-```java
-@Configuration
-public class AppConfig {
-    
-    @Bean
-    @Primary  // 主要候选者
-    public DataSource primaryDataSource() {
-        return new HikariDataSource();
-    }
-    
-    @Bean
-    @Qualifier("secondary")
-    public DataSource secondaryDataSource() {
-        return new BasicDataSource();
-    }
-}
-```
-
-那在使用的时候，当我们直接用 `@Autowired` 注解注入 DataSource 时，Spring 默认会使用 HikariDataSource；当加上 `@Qualifier("secondary")` 注解时，Spring 则会注入 BasicDataSource。
-
-```java
-@Autowired
-private DataSource dataSource; // 会注入 primaryDataSource（因为有 @Primary）
-
-@Autowired
-@Qualifier("secondary")
-private DataSource secondaryDataSource;
-```
-
-#### @Component 和 @Bean 有什么区别？
-
-首先从使用上来说，`@Component` 是标注在类上的，而 `@Bean` 是标注在方法上的。`@Component` 告诉 Spring 这个类是一个组件，请把它注册为 Bean，而 `@Bean` 则告诉 Spring 请将这个方法返回的对象注册为 Bean。
-
-```java
-@Component  // Spring自动创建UserService实例
-public class UserService {
-    @Autowired
-    private UserDao userDao;
-}
-
-@Configuration
-public class AppConfig {
-    @Bean  // 我们手动创建DataSource实例
-    public DataSource dataSource() {
-        HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl("jdbc:mysql://localhost:3306/test");
-        ds.setUsername("root");
-        ds.setPassword("123456");
-        return ds;  // 返回给Spring管理
-    }
-}
-```
-
-从控制权的角度来说，`@Component` 是由 Spring 自动创建和管理的。
-
-![技术派源码：@Component](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628114006.png)
-
-而 `@Bean` 则是由我们手动创建的，然后再交给 Spring 管理，我们对对象的创建过程有完全的控制权。
-
-![技术派源码：@Bean](https://cdn.tobebetterjavaer.com/stutymore/spring-20250628114149.png)
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：怎么理解spring的bean，@Component 和 @Bean 的区别
-
-memo：2025 年 6 月 28 日修改至此，今天在帮球友[修改简历](https://javabetter.cn/zhishixingqiu/)的时候，又碰到一个杭电本硕的球友。我这里想说的一点是，杭电的计算机专业非常强，虽然他只是一所双非，如果能把项目经历、专业技能好好写的话，拿个大厂的顶级 offer 是完全没问题的。
-
-![杭州电子科技大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-计算机科学与技术.png)
-
-### 11.🌟能说一下Bean的生命周期吗？
-
-推荐阅读：[三分恶：Spring Bean 生命周期，好像人的一生](https://mp.weixin.qq.com/s/zb6eA3Se0gQoqL8PylCPLw)
-
-好的。
-
-Bean 的生命周期可以分为 5 个主要阶段，我按照实际的执行顺序来说一下。
-
-![三分恶面渣逆袭：Bean生命周期五个阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-595fce5b-36cb-4dcb-b08c-8205a1e98d8a.png)
-
-第一个阶段是实例化。Spring 容器会根据 BeanDefinition，通过反射调用 Bean 的构造方法创建对象实例。如果有多个构造方法，Spring 会根据依赖注入的规则选择合适的构造方法。
-
-![三分恶面渣逆袭：Spring Bean生命周期](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-942a927a-86e4-4a01-8f52-9addd89642ff.png)
-
-第二阶段是属性赋值。这个阶段 Spring 会给 Bean 的属性赋值，包括通过 `@Autowired`、`@Resource` 这些注解注入的依赖对象，以及通过 `@Value` 注入的配置值。
-
-![二哥的 Java 进阶之路：doCreateBean 方法源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101430.png)
-
-第三阶段是初始化。这个阶段会依次执行：
-
-- `@PostConstruct` 标注的方法
-- InitializingBean 接口的 afterPropertiesSet 方法
-- 通过 `@Bean` 的 initMethod 指定的初始化方法
-
-![三分恶面渣逆袭：Bean生命周期源码追踪](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-d2da20a3-08d0-4648-b9a3-2fff8512b159.png)
-
-我在项目中经常用 `@PostConstruct` 来做一些初始化工作，比如缓存预加载、DB 配置等等。
-
-```java
-// CategoryServiceImpl中的缓存初始化
-@PostConstruct
-public void init() {
-    categoryCaches = CacheBuilder.newBuilder().maximumSize(300).build(new CacheLoader<Long, CategoryDTO>() {
-        @Override
-        public CategoryDTO load(@NotNull Long categoryId) throws Exception {
-            CategoryDO category = categoryDao.getById(categoryId);
-            // ...
-        }
-    });
-}
-
-// DynamicConfigContainer中的配置初始化
-@PostConstruct
-public void init() {
-    cache = Maps.newHashMap();
-    bindBeansFromLocalCache("dbConfig", cache);
-}
-```
-
-初始化后，Spring 还会调用所有注册的 BeanPostProcessor 后置处理方法。这个阶段经常用来创建代理对象，比如 AOP 代理。
-
-第五阶段是使用 Bean。比如我们的 Controller 调用 Service，Service 调用 DAO。
-
-```java
-// UserController中的使用示例
-@Autowired
-private UserService userService;
-@GetMapping("/users/{id}")
-public UserDTO getUser(@PathVariable Long id) {
-    return userService.getUserById(id);
-}
-// UserService中的使用示例
-@Autowired
-private UserDao userDao;
-public UserDTO getUserById(Long id) {
-    return userDao.getById(id);
-}
-// UserDao中的使用示例
-@Autowired
-private JdbcTemplate jdbcTemplate;
-public UserDTO getById(Long id) {
-    String sql = "SELECT * FROM users WHERE id = ?";
-    return jdbcTemplate.queryForObject(sql, new Object[]{id}, new UserRowMapper());
-}
-```
-
-最后是销毁阶段。当容器关闭或者 Bean 被移除的时候，会依次执行：
-
-- `@PreDestroy` 标注的方法
-- DisposableBean 接口的 destroy 方法
-- 通过 `@Bean` 的 destroyMethod 指定的销毁方法
-
-![二哥的 Java 进阶之路：close 源码](https://cdn.tobebetterjavaer.com/stutymore/spring-20240311101658.png)
-
-#### Aware 类型的接口有什么作用？
-
-Aware 接口在 Spring 中是一个很有意思的设计，它们的作用是让 Bean 能够感知到 Spring 容器的一些内部组件。
-
-从设计理念来说，Aware 接口实现了一种“回调”机制。正常情况下，Bean 不应该直接依赖 Spring 容器，这样可以保持代码的独立性。但有些时候，Bean 确实需要获取容器的一些信息或者组件，Aware 接口就提供了这样一个能力。
-
-我最常用的 Aware 接口是 ApplicationContextAware，它可以让 Bean 获取到 ApplicationContext 容器本身。
-
-![技术派源码：ApplicationContextAware](https://cdn.tobebetterjavaer.com/stutymore/spring-20250630100429.png)
-
-在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就通过实现 ApplicationContextAware 和 EnvironmentAware 接口封装了一个 SpringUtil 工具类，通过 getBean 和 getProperty 方法来获取 Bean 和配置属性。
-
-```java
-// 静态方法获取Bean，方便在非Spring管理的类中使用
-public static <T> T getBean(Class<T> clazz) {
-    return context.getBean(clazz);
-}
-
-// 获取配置属性
-public static String getProperty(String key) {
-    return environment.getProperty(key);
-}
-```
-
-#### 如果配置了 init-method 和 destroy-method，Spring 会在什么时候调用其配置的方法？
-
-init-method 指定的初始化方法会在 Bean 的初始化阶段被调用，具体的执行顺序是：
-
-- 先执行 `@PostConstruct` 标注的方法
-- 然后执行 InitializingBean 接口的 `afterPropertiesSet()` 方法
-- 最后再执行 init-method 指定的方法
-
-也就是说，init-method 是在所有其他初始化方法之后执行的。
-
-```java
-@Component
-public class MyService {
-    @Autowired
-    private UserDao userDao;
-    
-    @PostConstruct
-    public void postConstruct() {
-        System.out.println("1. @PostConstruct执行");
-    }
-    
-    public void customInit() {  // 通过@Bean的initMethod指定
-        System.out.println("3. init-method执行");
-    }
-}
-
-@Configuration
-public class AppConfig {
-    @Bean(initMethod = "customInit")
-    public MyService myService() {
-        return new MyService();
-    }
-}
-```
-
-destroy-method 会在 Bean 销毁阶段被调用。
-
-```java
-@Component
-public class MyService {
-    @PreDestroy
-    public void preDestroy() {
-        System.out.println("1. @PreDestroy执行");
-    }
-    
-    public void customDestroy() {  // 通过@Bean的destroyMethod指定
-        System.out.println("3. destroy-method执行");
-    }
-}
-```
-
-不过在实际开发中，通常用 `@PostConstruct` 和 `@PreDestroy` 就够了，它们更简洁。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：说说 Bean 的生命周期
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring中bean生命周期
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的8 后端开发秋招一面面试原题：讲一下Spring Bean的生命周期
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean生命周期
-> 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：介绍下Bean的生命周期？Aware类型接口的作用？如果配置了init-method和destroy-method，Spring会在什么时候调用其配置的方法？
-
-memo：2025 年 6 月 30 日修改至此。昨天有[读者发消息说有三个 offer 要选择](https://javabetter.cn/zhishixingqiu/)，中科大读博、中海油、商飞北研，问我该怎么选择？说实话，这三个都是非常优质的选择，我个人的建议是优先考虑中科大读博，毕竟是国内顶尖学府，博士毕业后可以选择在高校任教，会更符合他的家庭条件，当然了，我深知，读博的产出压力非常大。
-
-![读者拿到中科大读博、中海油、商飞北研](https://cdn.tobebetterjavaer.com/stutymore/spring-20250630101647.png)
-
-### 12.为什么IDEA不推荐使用@Autowired注解注入Bean？
-
-前情提要：当使用 `@Autowired` 注解注入 Bean 时，IDEA 会提示“Field injection is not recommended”。
-
-![二哥的 Java 进阶之路：@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224164722.png)
-
-面试回答：
-
-主要有几个原因。
-
-第一个是字段注入不利于单元测试。字段注入需要使用反射或 Spring 容器才能注入依赖，测试更复杂；而构造方法注入可以直接通过构造方法传入 Mock 对象，测试起来更简单。
-
-```java
-// 字段注入的测试困难
-@Test
-public void testUserService() {
-    UserService userService = new UserService();
-    // 无法直接设置userRepository，需要反射或Spring容器
-    // userService.userRepository = Mockito.mock(UserRepository.class);
-    // 需要手动设置依赖，测试不方便
-    ReflectionTestUtils.setField(userService, "userRepository", Mockito.mock(UserRepository.class));
-    userService.doSomething();
-    // ...
-}
-
-// 构造方法注入的测试简单
-@Test
-public void testUserService() {
-    UserRepository mockRepository = Mockito.mock(UserRepository.class);
-    UserService userService = new UserService(mockRepository); // 直接注入
-}
-```
-
-第二个是字段注入会隐藏循环依赖问题，而构造方法注入会在项目启动时就去检查依赖关系，能更早发现问题。
-
-第三个是构造方法注入可以使用 final 字段确保依赖在对象创建时就被初始化，避免了后续修改的风险。
-
-在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们已经在使用构造方法注入的方式来管理依赖关系。
-
-![技术派：构造方法注入](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224165628.png)
-
-不过话说回来，`@Autowired` 的字段注入方式在一些简单的场景下还是可以用的，主要看团队的编码规范吧。
-
-#### @Autowired 和 @Resource 注解的区别？
-
-首先从来源上说，`@Autowired` 是 Spring 框架提供的注解，而 `@Resource` 是 Java EE 标准提供的注解。换句话说，`@Resource` 是 JDK 自带的，而 `@Autowired` 是 Spring 特有的。
-
-虽然 IDEA 不推荐使用 `@Autowired`，但对 `@Resource` 注解却没有任何提示。
-
-![技术派：@Resource](https://cdn.tobebetterjavaer.com/stutymore/spring-20241224170055.png)
-
-从注入方式上说，`@Autowired` 默认按照类型，也就是 byType 进行注入，而 `@Resource` 默认按照名称，也就是 byName 进行注入。
-
-当容器中存在多个相同类型的 Bean， 比如说有两个 UserRepository 的实现类，直接用 `@Autowired` 注入 UserRepository 时就会报错，因为 Spring 容器不知道该注入哪个实现类。
-
-```java
-@Component
-public class UserRepository21 implements UserRepository2 {}
-
-@Component
-public class UserRepository22 implements UserRepository2 {}
-
-@Component
-public class UserService2 {
-    @Autowired
-    private UserRepository2 userRepository; // 冲突
-}
-```
-
-这时候，有两种解决方案，第一种是使用 `@Autowired` + `@Qualifier` 指定具体的 Bean 名称来解决冲突。
-
-```java
-@Component("userRepository21")
-public class UserRepository21 implements UserRepository2 {
-}
-@Component("userRepository22")
-public class UserRepository22 implements UserRepository2 {
-}
-@Autowired
-@Qualifier("userRepository22")
-private UserRepository2 userRepository22;
-```
-
-第二种是使用 `@Resource` 注解按名称进行注入。
-
-```java
-@Resource(name = "userRepository21")
-private UserRepository2 userRepository21;
-```
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 9 面试原题：依赖注入的时候，直接Autowired比较直接，为什么推荐构造方法注入呢
-
-memo：2025 年 7 月 1 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个郑州大学本硕的球友，这也是我们河南省最好的大学了，但也仅仅是一所 211，所以希望所有河南的同学都能加把劲，证明自己的实力，去拿到更好的 offer，为校争光。
-
-![郑州大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250701154344.png)
-
-### 13.@Autowired的实现原理了解吗？
-
-`@Autowired` 是 Spring 实现依赖注入的核心注解，其实现原理基于反射机制和 BeanPostProcessor 接口。
-
-整个过程分为两个主要阶段。第一个阶段是依赖收集阶段，发生在 Bean 实例化之后、属性赋值之前。`Autowired` 的 Processor 会扫描 Bean 的所有字段、方法和构造方法，找出标注了 `@Autowired` 注解的地方，然后把这些信息封装成 `Injection` 元数据对象缓存起来。这个过程用到了大量的反射操作，需要分析类的结构、注解信息等等。
-
-![MarkusZhang：@Autowired](https://cdn.tobebetterjavaer.com/stutymore/spring-20250711165339.png)
-
-第二个阶段是依赖注入阶段，Spring 会取出之前缓存的 `Injection` 元数据对象，然后逐个处理每个注入点。对于每个 `@Autowired` 标注的字段或方法，Spring 会根据类型去容器中查找匹配的 Bean。
-
-```java
-// 1. 按类型查找（byType）
-Map<String, Object> matchingBeans = BeanFactoryUtils.beansOfTypeIncludingAncestors(
-    this.beanFactory, type);
-
-// 2. 如果找到多个候选者，按名称筛选（byName）
-String autowiredBeanName = determineAutowireCandidate(matchingBeans, descriptor);
-
-// 3. 考虑@Primary和@Priority注解
-// 4. 最后按照字段名或参数名匹配
-```
-
-在具体的注入过程中，Spring 会使用反射来设置字段的值或者调用 setter 方法。比如对于字段注入，会调用 `Field.set()` 方法；对于 setter 注入，会调用 `Method.invoke()` 方法。
-
-### 14.什么是自动装配？
-
-自动装配的本质就是让 Spring 容器自动帮我们完成 Bean 之间的依赖关系注入，而不需要我们手动去指定每个依赖。简单来说，就是“我们不用告诉 Spring 具体怎么注入，Spring 自己会想办法找到合适的 Bean 注入进来”。
-
-自动装配的工作原理简单来说就是，Spring 容器在启动时自动扫描 `@ComponentScan` 指定包路径下的所有类，然后根据类上的注解，比如 `@Autowired`、`@Resource` 等，来判断哪些 Bean 需要被自动装配。
-
-```java
-@Configuration
-@ComponentScan("com.github.paicoding.forum.service")
-@MapperScan(basePackages = {
-    "com.github.paicoding.forum.service.article.repository.mapper",
-    "com.github.paicoding.forum.service.user.repository.mapper"
-    // ... 更多包路径
-})
-public class ServiceAutoConfig {
-    // Spring自动扫描指定包下的所有组件并注册为Bean
-}
-```
-
-之后分析每个 Bean 的依赖关系，在创建 Bean 的时候，根据装配规则自动找到合适的依赖 Bean，最后根据反射将这些依赖注入到目标 Bean 中。
-
-#### Spring提供了哪几种自动装配类型？
-
-Spring 的自动装配方式有好几种，在 XML 配置时代，主要有 byName、byType、constructor 和 autodetect 四种方式。
-
-![三分恶面渣逆袭：Spring四种自动装配类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-034120d9-88c7-490b-af07-7d48f3b6b7bc.png)
-
-到了注解驱动时代，用得最多的是 `@Autowired` 注解，默认按照类型装配。
-
-```java
-@Service
-public class UserService {
-    @Autowired  // 按类型自动装配
-    private UserRepository userRepository;
-}
-```
-
-其次还有 `@Resource` 注解，它默认按照名称装配，如果找不到对应名称的 Bean，就会按类型装配。
-
-Spring Boot 的自动装配还有一套更高级的机制，通过 `@EnableAutoConfiguration` 和各种 `@Conditional` 注解来实现，这个是框架级别的自动装配，会根据 classpath 中的类和配置来自动配置 Bean。
-
-![ShawnBlog：Spring Boot 的自动装配](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101032.png)
-
-memo：2025 年 7 月 2 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个北京航空航天大学的球友，他在邮件中说到：在星球里学到了好多东西，目前正在准备[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)和 MYDB，打算好好冲秋招，能帮助到大家我真的很欣慰。
-
-![北航球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/spring-20250702101812.png)
-
-### 15.Bean的作用域有哪些?
-
-Bean 的作用域决定了 Bean 实例的生命周期和创建策略，singleton 是默认的作用域。整个 Spring 容器中只会有一个 Bean 实例。不管在多少个地方注入这个 Bean，拿到的都是同一个对象。
-
-```java
-@Component  // 默认就是singleton
-public class UserService {
-    // 整个应用中只有一个UserService实例
-}
-```
-
-生命周期和 Spring 容器相同，容器启动时创建，容器销毁时销毁。
-
-实际开发中，像 Service、Dao 这些业务组件基本都是单例的，因为单例既能节省内存，又能提高性能。
-
-当把 scope 设置为 prototype 时，每次从容器中获取 Bean 的时候都会创建一个新的实例。
-
-```java
-@Component
-@Scope("prototype")
-public class OrderProcessor {
-    // 每次注入或获取都是新的实例
-}
-```
-
-当需要处理一些有状态的 Bean 时会用到 prototype，比如每个订单处理器需要维护不同的状态信息。
-
-需要注意的是，在 singleton Bean 中注入 prototype Bean 时要小心，因为 singleton Bean 只创建一次，所以 prototype Bean 也只会注入一次。这时候可以用 `@Lookup` 注解或者 ApplicationContext 来动态获取。
-
-```java
-@Component
-public class SingletonService {
-    // 错误的做法，prototypeBean只会注入一次
-    @Autowired
-    private PrototypeBean prototypeBean;
-    
-    // 正确的做法，每次调用都获取新实例
-    @Lookup
-    public PrototypeBean getPrototypeBean() {
-        return null;  // Spring会重写这个方法
-    }
-}
-```
-
-除了 singleton 和 prototype，Spring 还支持其他作用域，比如 request、session、application 和 websocket。
-
-![三分恶面渣逆袭：Spring Bean支持作用域](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-08a9cb31-5a4f-4224-94cd-0c0f643a57ea.png)
-
-如果作用于是 request，表示在 Web 应用中，每个 HTTP 请求都会创建一个新的 Bean 实例，请求结束后 Bean 就被销毁。
-
-```java
-@Component
-@Scope("request")
-public class RequestContext {
-    // 每个HTTP请求都有自己的实例
-}
-```
-
-如果作用于是 session，表示在 Web 应用中，每个 HTTP 会话都会创建一个新的 Bean 实例，会话结束后 Bean 被销毁。
-
-```java
-@Component
-@Scope("session")
-public class UserSession {
-    // 每个用户会话都有自己的实例
-}
-```
-
-典型的使用场景是购物车、用户登录状态这些需要在整个会话期间保持的信息。
-
-application 作用域表示在整个应用中只有一个 Bean 实例，类似于 singleton，但它的生命周期与 ServletContext 绑定。
-
-```java
-@Component
-@Scope("application")
-public class AppConfig {
-    // 整个应用中只有一个实例
-}
-```
-
-websocket 作用域表示在 WebSocket 会话中每个连接都有自己的 Bean 实例。WebSocket 连接建立时创建，连接关闭时销毁。
-
-```java
-@Component
-@Scope("websocket")
-public class WebSocketHandler {
-    // 每个WebSocket连接都有自己的实例
-}
-```
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 1 贝壳找房后端技术一面面试原题：bean是单例还是多例的，具体怎么修改
-
-memo：2025 年 7 月 3 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个郑州大学硕，河北师范大学本的球友，整体在校的经历非常出色，奖学金、论文期刊基本上都拉满了。那这么多优秀的球友选择来到这里，也是对星球的又一次认可和肯定，我也一定会继续努力，提供更多优质的内容和服务。
-
-![郑州大学硕，河北师范大学本的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-20250704144758.png)
-
-### 16.Spring中的单例Bean会存在线程安全问题吗？
-
-首先要明确一点。Spring 容器本身保证了 Bean 创建过程的线程安全，也就是说不会出现多个线程同时创建同一个单例 Bean 的情况。但是 Bean 创建完成后的使用过程，Spring 就不管了。
-
-换句话说，单例 Bean 在被创建后，如果它的内部状态是可变的，那么在多线程环境下就可能会出现线程安全问题。
-
-![三分恶面渣逆袭：Spring单例Bean线程安全问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-35dacef4-1a9e-45e1-b3f2-5a91227eb244.png)
-
-比如说在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，有一个敏感词过滤的 Bean，我们就需要使用 volatile 关键字来保证多线程环境下的可见性。
-
-```java
-@Service
-public class SensitiveService {
-    private volatile SensitiveWordBs sensitiveWordBs; // 使用volatile保证可见性
-    
-    @PostConstruct
-    public void refresh() {
-        // 重新初始化sensitiveWordBs
-    }
-}
-```
-
-如果 Bean 中没有成员变量，或者成员变量都是不可变的，final 修饰的，那么就不存在线程安全问题。
-
-```java
-@Service
-public class UserServiceImpl implements UserService {
-    @Resource
-    private UserDao userDao;
-    @Autowired
-    private CountService countService;
-    // 只有依赖注入的无状态字段
-}
-
-@Service
-public class ConfigService {
-    private final String appName;  // final修饰，不可变
-    
-    public ConfigService(@Value("${app.name}") String appName) {
-        this.appName = appName;
-    }
-}
-```
-
-#### 单例Bean的线程安全问题怎么解决呢？
-
-第一种，使用局部变量，也就是使用无状态的单例 Bean，把所有状态都通过方法参数传递：
-
-```java
-@Service
-public class UserService {
-    @Autowired
-    private UserDao userDao;
-    
-    // 无状态方法，所有数据通过参数传递
-    public User processUser(Long userId, String operation) {
-        User user = userDao.findById(userId);
-        // 处理逻辑...
-        return user;
-    }
-}
-```
-
-第二种，当确实需要维护线程相关的状态时，可以使用 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 来保存状态。ThreadLocal 可以保证每个线程都有自己的变量副本，互不干扰。
-
-```java
-@Service
-public class UserContextService {
-    private static final ThreadLocal<User> userThreadLocal = new ThreadLocal<>();
-    
-    public void setCurrentUser(User user) {
-        userThreadLocal.set(user);
-    }
-    
-    public User getCurrentUser() {
-        return userThreadLocal.get();
-    }
-    
-    public void clear() {
-        userThreadLocal.remove(); // 防止内存泄漏
-    }
-}
-```
-
-第三种，如果需要缓存数据或者计数，使用 JUC 包下的线程安全类，比如说 [AtomicInteger](https://javabetter.cn/thread/atomic.html)、[ConcurrentHashMap](https://javabetter.cn/thread/ConcurrentHashMap.html)、[CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html) 等。
-
-```java
-@Service
-public class CacheService {
-    // 使用线程安全的集合
-    private final ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();
-    private final AtomicLong counter = new AtomicLong(0);
-    
-    public void put(String key, Object value) {
-        cache.put(key, value);
-        counter.incrementAndGet();
-    }
-}
-```
-
-第四种，对于复杂的状态操作，可以使用 synchronized 或 Lock：
-
-```java
-@Service
-public class CacheService {
-    private final Map<String, Object> cache = new HashMap<>();
-    private final ReentrantLock lock = new ReentrantLock();
-    
-    public void put(String key, Object value) {
-        lock.lock();
-        try {
-            cache.put(key, value);
-        } finally {
-            lock.unlock();
-        }
-    }
-}
-```
-
-第五种，如果 Bean 确实需要维护状态，可以考虑将其改为 prototype 作用域，这样每次注入都会创建一个新的实例，避免了多线程共享同一个实例的问题。
-
-```java
-@Service
-@Scope("prototype") // 每次注入都创建新实例
-public class StatefulService {
-    private String state; // 现在每个实例都有独立状态
-    
-    public void setState(String state) {
-        this.state = state;
-    }
-}
-```
-
-或者使用 request 作用域，这样每个 HTTP 请求都会创建一个新的实例。
-
-```java
-@Service
-@Scope("request")
-public class RequestScopedService {
-    private String requestData;
-    // 每个请求都有独立的实例
-}
-```
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里面经同学 1 闲鱼后端一面的原题：spring的bean的并发安全问题
-
-memo：2025 年 7 月 4 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到一个武汉理工大学本硕的球友。说真的，和武汉理工大学挺有缘的，2023 年去武汉，就线下见了一名武理的球友，[他当时签约的是小米](https://t.zsxq.com/LfG3B)，非常优秀。
-
-![武汉理工大学本硕的球友](https://cdn.tobebetterjavaer.com/stutymore/spring-2023.09-2026.06.png)
-
-### 17.什么是循环依赖?
-
-简单来说就是两个或多个 Bean 相互依赖，比如说 A 依赖 B，B 依赖 A，或者 C 依赖 C，就成了循环依赖。
-
-![三分恶面渣逆袭：Spring循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-f8fea53f-56fa-4cca-9199-ec7f648da625.png)
-
-### 18.🌟Spring怎么解决循环依赖呢？
-
-Spring 通过三级缓存机制来解决循环依赖：
-
-1. 一级缓存：存放完全初始化好的单例 Bean。
-2. 二级缓存：存放提前暴露的 Bean，实例化完成，但未初始化完成。
-3. 三级缓存：存放 Bean 工厂，用于生成提前暴露的 Bean。
-
-![三分恶面渣逆袭：三级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-01d92863-a2cb-4f61-8d8d-30ecf0279b28.png)
-
-以 A、B 两个类发生循环依赖为例：
-
-![三分恶面渣逆袭：循环依赖](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-cfc09f84-f8e1-4702-80b6-d115843e81fe.png)
-
-第 1 步：开始创建 Bean A。
-
-- Spring 调用 A 的构造方法，创建 A 的实例。此时 A 对象已存在，但 b属性还是 null。
-- 将 A 的对象工厂放入三级缓存。
-- 开始进行 A 的属性注入。
-
-![三分恶面渣逆袭：A 对象工厂](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-1a8bdc29-ff43-4ff4-9b61-3eedd9da59b3.png)
-
-第 2 步：A 需要注入 B，开始创建 Bean B。
-
-- 发现需要 B，但 B 还不存在，所以开始创建 B。
-- 调用 B 的构造方法，创建 B 的实例。此时 B 对象已存在，但 a 属性还是 null。
-- 将 B 的对象工厂放入三级缓存。
-- 开始进行 B 的属性注入。
-
-第 3 步：B 需要注入 A，从缓存中获取 A。
-
-- B 需要注入 A，先从一级缓存找 A，没找到。
-- 再从二级缓存找 A，也没找到。
-- 最后从三级缓存找 A，找到了 A 的对象工厂。
-- 调用 A 的对象工厂得到 A 的实例。这时 A 已经实例化了，虽然还没完全初始化。
-- 将 A 从三级缓存移到二级缓存。
-- B 拿到 A 的引用，完成属性注入。
-
-![三分恶面渣逆袭：A 放入二级缓存，B 放入一级缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-bf2507bf-96aa-4b88-a58b-7ec41d11bc70.png)
-
-第 4 步：B 完成初始化。
-
-- B 的属性注入完成，执行 `@PostConstruct` 等初始化逻辑。
-- B 完全创建完成，从三级缓存移除，放入一级缓存。
-
-第 5 步：A 完成初始化。
-
-- 回到 A 的创建过程，A 拿到完整的 B 实例，完成属性注入。
-- A 执行初始化逻辑，创建完成。
-- A 从二级缓存移除，放入一级缓存。
-
-![三分恶面渣逆袭：AB 都好了](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-022f7cb9-2c83-4fe9-b252-b02bd0fb2435.png)
-
-用代码来模拟这个过程，是这样的：
-
-```java
-// 模拟Spring的解决过程
-public class CircularDependencyDemo {
-    // 三级缓存
-    Map<String, Object> singletonObjects = new HashMap<>();
-    Map<String, Object> earlySingletonObjects = new HashMap<>();
-    Map<String, ObjectFactory> singletonFactories = new HashMap<>();
-    
-    public Object getBean(String beanName) {
-        // 先从一级缓存获取
-        Object bean = singletonObjects.get(beanName);
-        if (bean != null) return bean;
-        
-        // 再从二级缓存获取
-        bean = earlySingletonObjects.get(beanName);
-        if (bean != null) return bean;
-        
-        // 最后从三级缓存获取
-        ObjectFactory factory = singletonFactories.get(beanName);
-        if (factory != null) {
-            bean = factory.getObject();
-            earlySingletonObjects.put(beanName, bean);  // 移到二级缓存
-            singletonFactories.remove(beanName);        // 从三级缓存移除
-        }
-        
-        return bean;
-    }
-}
-```
-
-#### 哪些情况下Spring无法解决循环依赖？
-
-Spring 虽然能解决大部分循环依赖问题，但确实有几种情况是无法处理的，我来详细说说。
-
-![三分恶面渣逆袭：循环依赖的几种情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-37bb576d-b4af-42ed-91f4-d846ceb012b6.png)
-
-第一种，构造方法的循环依赖，这种情况 Spring 会直接抛出 BeanCurrentlyInCreationException 异常。
-
-```java
-@Component
-public class A {
-    private B b;
-    
-    public A(B b) {  // 构造方法注入
-        this.b = b;
-    }
-}
-
-@Component
-public class B {
-    private A a;
-    
-    public B(A a) {  // 构造方法注入
-        this.a = a;
-    }
-}
-```
-
-因为构造方法注入发生在实例化阶段，创建 A 的时候必须先有 B，但创建 B又必须先有 A，这时候两个对象都还没创建出来，无法提前暴露到缓存中。
-
-第二种，prototype 作用域的循环依赖。prototype 作用域的 Bean 每次获取都会创建新实例，Spring 无法缓存这些实例，所以也无法解决循环依赖。
-
-----面试中可以不背，方便大家理解 start----
-
-我们来看一个实例，先是 PrototypeBeanA：
-
-```java
-@Component
-@Scope("prototype")
-public class PrototypeBeanA {
-    private final PrototypeBeanB prototypeBeanB;
-
-    @Autowired
-    public PrototypeBeanA(PrototypeBeanB prototypeBeanB) {
-        this.prototypeBeanB = prototypeBeanB;
-    }
-}
-```
-
-然后是 PrototypeBeanB：
-
-```java
-@Component
-@Scope("prototype")
-public class PrototypeBeanB {
-    private final PrototypeBeanA prototypeBeanA;
-
-    @Autowired
-    public PrototypeBeanB(PrototypeBeanA prototypeBeanA) {
-        this.prototypeBeanA = prototypeBeanA;
-    }
-}
-```
-
-再然后是测试：
-
-```java
-@SpringBootApplication
-public class DemoApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
-
-    @Bean
-    CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-            // 尝试获取PrototypeBeanA的实例
-            PrototypeBeanA beanA = ctx.getBean(PrototypeBeanA.class);
-        };
-    }
-}
-```
-
-运行结果：
-
-![二哥的 Java 进阶之路：循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20240310202703.png)
-
-----面试中可以不背，方便大家理解 end----
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米 25 届日常实习一面原题：如何解决循环依赖？
-> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：Spring如何解决循环依赖？
-> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Spring源码看过吗？Spring的三级缓存知道吗？
-> 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：spring三级缓存解决循环依赖问题
-
-memo：2025 年 7 月 5 日修改至此。今天 [VIP 群](https://javabetter.cn/zhishixingqiu/)来了非常多的球友，不知不觉我们已经 12 群了，也是一个大家庭了，希望大家都能在这里找到自己的归属感，我们一起学习，一起进步。
-
-![二哥的编程星球已经 12 群了](https://cdn.tobebetterjavaer.com/stutymore/spring-20250705072809.png)
-
-### 19.为什么需要三级缓存而不是两级？
-
-Spring 设计三级缓存主要是为了解决 AOP 代理的问题。
-
-我举个具体的例子来说明一下。假设我们有 A 和 B 两个类相互依赖，A 的某个方法上面还标注了 `@Transactional` 注解，这意味着 A 最终需要被 Spring 创建成一个代理对象。
-
-```java
-@Component
-public class A {
-    @Autowired
-    private B b;
-    
-    @Transactional  // A需要被AOP代理
-    public void doSomething() {
-        // 业务逻辑
-    }
-}
-
-@Component
-public class B {
-    @Autowired
-    private A a;
-}
-```
-
-如果只有二级缓存的话，当创建 A 的时候，我们需要把 A 的原始对象提前放到缓存里面，然后 B 在创建的时候从缓存中拿到 A 的原始对象。
-
-```java
-// 假设只有两级缓存
-Map<String, Object> singletonObjects = new HashMap<>();     // 完整Bean
-Map<String, Object> earlySingletonObjects = new HashMap<>(); // 半成品Bean
-```
-
-但是问题来了，A 完成初始化后，由于有 `@Transactional` 注解，Spring 会把 A 包装成一个代理对象放到容器中。这样就出现了一个很严重的问题：B 里面持有的是 A 的原始对象，而容器中存的是 A 的代理对象，同一个 Bean 居然有两个不同的实例，这肯定是不对的。
-
-![三分恶面渣逆袭：二级缓存不行的原因](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/spring-6ece8a46-25b1-459b-8cfa-19fc696dd7d6.png)
-
-三级缓存就是为了解决这个问题而设计的。三级缓存里面存放的不是 Bean 的实例，而是一个对象工厂，这是一个函数式接口。
-
-当 B 需要 A 的时候，会调用这个对象工厂的 getObject 方法，这个方法里面会判断 A 是否需要被代理。如果需要代理，就创建 A 的代理对象返回给 B；如果不需要代理，就返回 A 的原始对象。这样就保证了 B 拿到的 A 和最终放入容器的 A 是同一个对象。
-
-```java
-Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>();
-// Spring源码中的逻辑
-addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
-protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) {
-    Object exposedObject = bean;
-    if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
-        for (BeanPostProcessor bp : getBeanPostProcessors()) {
-            if (bp instanceof SmartInstantiationAwareBeanPostProcessor) {
-                SmartInstantiationAwareBeanPostProcessor ibp = (SmartInstantiationAwareBeanPostProcessor) bp;
-                // 关键：如果需要代理，这里会创建代理对象
-                exposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);
-            }
-        }
-    }
-    return exposedObject;
-}
-```
-
-简单来说，三级缓存的核心作用就是延迟决策。它让 Spring 在真正需要 Bean 的时候才决定返回原始对象还是代理对象，这样就避免了对象不一致的问题。如果没有三级缓存，Spring 要么无法在循环依赖的情况下支持 AOP，要么就会出现同一个 Bean 有多个实例的问题，这些都是不可接受的。
-
-![幸云教育：三级缓存和循环依赖](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706065436.png)
-
-#### 如果缺少二级缓存会有什么问题？
-
-二级缓存 earlySingletonObjects 主要是用来存放那些已经通过三级缓存的对象工厂创建出来的早期 Bean 引用。
-
-![Minor王智：三级缓存](https://cdn.tobebetterjavaer.com/stutymore/spring-20250706065722.png)
-
-假设我们有 A、B、C 三个 Bean，A 依赖 B 和 C，B 和 C 都依赖 A，形成了一个复杂的循环依赖。在没有二级缓存的情况下，每次 B 或者 C 需要获取 A 的时候，都需要调用三级缓存中 A 的 `ObjectFactory.getObject()` 方法。这意味着如果 A 需要被代理的话，代理对象可能会被重复创建多次，这显然是不合理的。
-
-```java
-// 没有二级缓存的伪代码
-public Object getSingleton(String beanName) {
-    Object singletonObject = singletonObjects.get(beanName);
-    
-    if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
-        // 直接从三级缓存获取
-        ObjectFactory<?> singletonFactory = singletonFactories.get(beanName);
-        if (singletonFactory != null) {
-            return singletonFactory.getObject(); // 每次都会创建新的代理对象！
-        }
-    }
-    return singletonObject;
-}
-```
-
-我举个具体的例子。比如 A 有 `@Transactional` 注解需要被 AOP 代理，B 在初始化的时候需要 A，会调用一次对象工厂创建 A 的代理对象。接着 C 在初始化的时候也需要 A，又会调用一次对象工厂，可能又创建了一个 A 的代理对象。这样 B 和 C 拿到的可能就是两个不同的 A 代理对象，这就违反了单例 Bean 的语义。
-
-```java
-@Service
-public class ServiceA {
-    @Autowired
-    private ServiceB serviceB;
-    
-    @Transactional  // 需要 AOP 代理
-    public void methodA() {
-        // 业务逻辑
-    }
-}
-
-@Service
-public class ServiceB {
-    @Autowired
-    private ServiceA serviceA;  // 获得代理对象 A1
-    
-    @Autowired
-    private ServiceC serviceC;
-}
-
-@Service
-public class ServiceC {
-    @Autowired
-    private ServiceA serviceA;  // 可能获得代理对象 A2
-}
-```
-
-二级缓存就是为了解决这个问题。当第一次通过对象工厂创建了 A 的早期引用之后，就把这个引用放到二级缓存中，同时从三级缓存中移除对象工厂。
-
-```java
-// 第一次获取 A
-ObjectFactory<A> factory = singletonFactories.get("serviceA");
-Object proxyA = factory.getObject(); // 创建代理
-earlySingletonObjects.put("serviceA", proxyA); // 缓存代理
-singletonFactories.remove("serviceA");
-
-// 第二次获取 A
-Object cachedA = earlySingletonObjects.get("serviceA"); // 直接返回缓存的代理
-// proxyA == cachedA  ✓
-```
-
-后续如果再有其他 Bean 需要 A，就直接从二级缓存中获取，不需要再调用对象工厂了。
-
-> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 4 一面原题：循环依赖有了解过吗？出现循环依赖的原因？三大缓存存储内容的区别？如何解决循环依赖？如果缺少第二级缓存会有什么问题？
 
 <MZNXQRcodeBanner />
 
@@ -3572,6 +3575,14 @@ public ConfigurableApplicationContext run(String... args) {
     return context;
 }
 ```
+
+#### 要在启动阶段自定义逻辑该怎么做？
+
+可以通过实现 `ApplicationRunner` 接口来完成启动后的自定义逻辑。
+
+比如说在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们就在 run 方法中追加了：JSON 类型转换配置和动态设置应用访问地址等。
+
+![技术派源码：启动后添加自定义逻辑](https://cdn.tobebetterjavaer.com/stutymore/spring-20250922175428.png)
 
 #### 为什么 Spring Boot 在启动的时候能够找到 main 方法上的@SpringBootApplication 注解？
 

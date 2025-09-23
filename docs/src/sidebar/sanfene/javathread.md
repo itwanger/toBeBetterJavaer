@@ -1975,6 +1975,78 @@ JVM 会在 volatile 变量的读写前后插入 “内存屏障”，以约束 C
 
 虽然相对差异很大，但绝对时间差异很小，都是毫秒级。
 
+#### volatile不是会强制写和查主内存吗，这样不会影响性能吗，像AQS等等java的工具都有用到volatile，他们是怎么解决这个性能问题的
+
+volatile 确实会带来一些开销，主要包括：
+
+- 禁止 CPU 缓存优化，每次都要同步到主内存
+- 插入内存屏障，防止指令重排序
+- 在某些架构上，会导致 CPU 缓存行失效
+
+但是！现代 CPU 和 JVM 都做了大量优化，volatile 的开销已经降低到可以接受的范围。
+
+第一，现代 CPU 都有多级缓存（L1、L2、L3），volatile 变量虽然不能在寄存器中缓存，但还是可以利用 CPU 缓存的。
+
+![Alance：多级缓存架构](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922095159.png)
+
+只是需要通过缓存一致性协议（MESI）来保证可见性。
+
+![FynnWang：MESI](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922095121.png)
+
+```
+// 比如在x86架构下
+volatile int state = 0;
+// 读操作：会从L1/L2/L3缓存读，只要缓存行是最新的
+// 写操作：写入缓存，同时通过MESI协议通知其他CPU缓存失效
+```
+
+第二，JVM 会根据不同的 CPU 架构选择最优的内存屏障实现：
+
+```
+// x86架构下，volatile写入的汇编大致是：
+// mov [内存地址], 寄存器  // 普通写入
+// lock addl $0, (%rsp)    // 内存屏障，但x86的强内存模型下开销很小
+
+// ARM架构下需要更多屏障：
+// str 寄存器, [内存地址]  // 写入
+// dmb sy                  // 数据内存屏障
+```
+
+AQS 的设计非常精妙，只在绝对必要的地方使用 volatile。比如 state 必须是 volatile，因为所有线程都要看到最新值，但 Node 中的 nextWaiter 就不需要，因为它只在持有锁的情况下访问。
+
+```java
+public abstract class AbstractQueuedSynchronizer {
+    // 只有state是volatile的
+    private volatile int state;
+    
+    // 队列节点大部分字段都不是volatile
+    static final class Node {
+        volatile Node prev;  // 需要保证可见性的才用volatile
+        volatile Node next;
+        volatile Thread thread;
+        Node nextWaiter;     // 不需要强一致性的就不用volatile
+    }
+}
+```
+
+AQS 大量使用 Unsafe 类进行更细粒度的控制：
+
+```java
+// 普通的volatile读写
+volatile int state;
+int s = state;  // volatile读
+state = s + 1;  // volatile写
+
+// AQS使用Unsafe
+private static final Unsafe unsafe = Unsafe.getUnsafe();
+private static final long stateOffset;
+
+// 可以选择性地使用不同级别的内存语义
+unsafe.getInt(this, stateOffset);           // 普通读
+unsafe.getIntVolatile(this, stateOffset);   // volatile读
+unsafe.compareAndSwapInt(this, stateOffset, expect, update); // CAS
+```
+
 #### volatile 和 synchronized 的区别？
 
 volatile 关键字用于修饰变量，确保该变量的更新操作对所有线程是可见的，即一旦某个线程修改了 volatile 变量，其他线程会立即看到最新的值。
@@ -2731,8 +2803,9 @@ class Account {
 ```
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 1 Java 后端技术一面面试原题：cas 和 aba（原子操作+时间戳）
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的Oppo面经同学 15 线下面试原题：CAS操作，带来哪些问题
 
-memo：2025 年 2 月 13 日修改至此，VIP 群里已经有球友在催下一个主题了，说实话最近事情有点多，认真修改起来又会比较花时间，所以只能希望大家多理解了。
+memo：2025 年 2 月 13 日修改至此，[VIP 群里](https://javabetter.cn/zhishixingqiu/)已经有球友在催下一个主题了，说实话最近事情有点多，认真修改起来又会比较花时间，所以只能希望大家多理解了。
 
 ![不过我会加油的](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250213151028.png)
 
@@ -3749,11 +3822,13 @@ public V get(Object key) {
 
 > 2024 年 04 月 23 日增补，推荐阅读：[吊打 Java 并发面试官之 CopyOnWriteArrayList](https://javabetter.cn/thread/CopyOnWriteArrayList.html)
 
-CopyOnWriteArrayList 是 ArrayList 的线程安全版本，适用于读多写少的场景。它的核心思想是写操作时创建一个新数组，修改后再替换原数组，这样就能够确保读操作无锁，从而提高并发性能。
+CopyOnWriteArrayList 是 ArrayList 的线程安全版本，适用于读多写少的场景。
+
+CopyOnWrite 的核心思想是写操作时创建一个新数组，修改后再替换原数组，这样就能够确保读操作无锁，从而提高并发性能。
 
 ![CL0610：最终一致性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/CopyOnWriteArrayList-01.png)
 
-内部使用 volatile 变量来修饰数组 array，以读操作的内存可见性。
+内部使用 volatile 变量来修饰数组 array，以确保读操作的内存可见性。
 
 ```java
 private transient volatile Object[] array;
@@ -3786,6 +3861,10 @@ public boolean add(E e) {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：ConcurrentHashMap、CopyOnWriteArrayList 的实现原理？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：说一说常用的并发容器
+
+memo：2025 年 8 月 19 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到这样一段正反馈：暑期 6 月底靠二哥改的简历救命拿了一家近千人的小厂实习，跪谢一波。实习润了[派聪明](https://javabetter.cn/zhishixingqiu/paismart.html)，刚好和公司的智能助手匹配。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922165408.png)
 
 ### 52. 能说一下 BlockingQueue 吗？（补充）
 
