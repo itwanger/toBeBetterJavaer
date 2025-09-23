@@ -3,7 +3,7 @@ title: Redis面试题，57道Redis八股文（4.6万字286张手绘图），面�
 shortTitle: 面渣逆袭-Redis
 description: 下载次数超 1 万次，4.6 万字 286 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
-date: 2024-10-31
+date: 2025-09-23
 category:
   - 面渣逆袭
 tag:
@@ -171,6 +171,13 @@ redis-cli -h <slave-ip> slaveof no one
 redis-cli -h <other-slave-ip> slaveof <new-master-ip> <port>
 ```
 
+#### 用过哪些缓存数据库，除redis以外？
+
+[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中还用到了 Guava Cache 和 Caffeine 作为本地缓存，Guava Cache 适合小规模缓存，Caffeine 性能更好，支持更多高级特性。
+
+![Guava Cache 和 Caffeine](https://cdn.tobebetterjavaer.com/stutymore/redis-20250923201021.png)
+
+Caffeine 通常用来作为二级缓存来使用，主要用于存储一些不经常变动的数据，以减轻 Redis 的压力。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下 Redis 和 HashMap 的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：Redis 和 MySQL 的区别
@@ -185,6 +192,10 @@ redis-cli -h <other-slave-ip> slaveof <new-master-ip> <port>
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的海康威视同学 4面试原题：Redis部署
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：Redis 的了解, 部署方案?
 > 13. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：redis的部署方式都有哪些呢，各自有什么优缺点？
+
+memo：2025 年 9 月 23 日修改至此，今天[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，收到一位球友的反馈说，从 8.16 加入星球以来，每天都在星球里充电学习，学到了很多东西。对于这种正反馈我是非常开心的。
+
+![球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/redis-M8.16加入星球以来，每天都在星球充电学习，学到了很多东西，也祝二哥的星球越办越好！.png)
 
 ### 2.Redis 可以用来干什么？
 
@@ -2464,8 +2475,9 @@ memo：2025 年 5 月 20 日，今天[有球友发贴](https://javabetter.cn/zhi
 
 ![技术派教程：MySQL 和 Redis 一致性](https://cdn.tobebetterjavaer.com/stutymore/redis-20240325221330.png)
 
-
 具体做法是读取时先查 Redis，未命中再查 MySQL，同时为缓存设置一个合理的过期时间；更新时先更新 MySQL，再删除 Redis。
+
+这种方式简单有效，适用于读多写少的场景。TTL 过期时间也能够保证即使更新操作失败，未能及时删除缓存，过期时间也能确保数据最终一致。
 
 ```java
 // 读取逻辑
@@ -2495,8 +2507,6 @@ public void updateUser(UserInfo user) {
     cache.delete("user:" + user.getId());
 }
 ```
-
-这种方式简单有效，适用于读多写少的场景。TTL 过期时间也能够保证即使更新操作失败，未能及时删除缓存，过期时间也能确保数据最终一致。
 
 #### 那再来说说为什么要删除缓存而不是更新缓存？
 

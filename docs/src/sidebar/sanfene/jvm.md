@@ -1154,6 +1154,53 @@ java -XX:+UseConcMarkSweepGC \
 
 Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、以及内存压缩/整理三个阶段。不同的垃圾回收器在执行这些步骤时会采用不同的策略和算法。
 
+![IT 宅：垃圾回收的过程](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250922170756.png)
+
+#### 哪些阶段会触发 STW？
+
+STW 是 JVM 为了垃圾回收而暂停所有用户线程的机制。
+
+![STW](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250922172410.png)
+
+对于新生代的垃圾收集器 Serial 和 ParNew，整个垃圾回收过程都会触发 STW，但因为年轻代小，通常很快（几毫秒到几十毫秒）。
+
+```
+1. 初始标记（STW）
+   - 暂停所有用户线程
+   - 标记 GC Roots 直接引用的对象
+
+2. 复制存活对象（STW）
+   - 将 Eden 和 Survivor0 中的存活对象复制到 Survivor1
+   - 清空 Eden 和 Survivor0
+
+3. 更新引用（STW）
+   - 更新所有指向移动对象的引用
+```
+
+CMS 在此基础上进行了改进，通过并发执行来减少 STW 时间，会在初始标记和重新标记阶段触发 STW。
+
+```
+1. 初始标记 Initial Mark（STW）✅
+   - 时间很短
+   - 仅标记 GC Roots 直接引用的对象
+   - 标记所有年轻代对象引用的老年代对象
+   
+2. 并发标记 Concurrent Mark（并发执行）
+   - 用户线程继续运行
+   - GC 线程遍历整个对象图
+   - 标记所有存活对象
+   
+3. 重新标记 Remark（STW）✅
+   - 修正并发标记期间的变化
+   - 使用增量更新算法
+   - 这个阶段时间比初始标记长
+   
+4. 并发清除 Concurrent Sweep（并发执行）
+   - 用户线程继续运行
+   - 清理未标记的对象
+   - 不进行压缩，会产生碎片
+```
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 技术一面遇到的一道原题。
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：了解 GC 吗？不可达判断知道吗？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 26 暑期实习微信支付面试原题：JVM 垃圾删除
@@ -1166,6 +1213,10 @@ Java 的垃圾回收过程主要分为标记存活对象、清除无用对象、
 > 10. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：GC？怎么样去识别垃圾？
 > 11. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的理想汽车面经同学 2 一面面试原题：说说你对GC的了解？
 > 12. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：JVM垃圾回收机制？
+
+memo：2025 年 8 月 19 日修改到此，今天有球友发私信说[加入星球了](https://javabetter.cn/zhishixingqiu/) ，主要是因为[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)给他的体验非常不错，真的感谢口碑和支持。
+
+![球友加入星球以感谢面渣逆袭对他的帮助](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250922170910.png)
 
 ### 24.🌟如何判断对象仍然存活？
 
@@ -1728,6 +1779,8 @@ JDK 自带的命令行工具层面，我用过 jps、jstat、jinfo、jmap、jhat
 
 ### 39.JVM 的常见参数配置知道哪些？
 
+答：我自己用过的 JVM 调优参数主要有 `-Xms` 设置初始堆大小，`-Xmx` 设置最大堆大小，`-XX:+UseG1GC` 使用 G1 垃圾收集器，`-XX:MaxGCPauseMillis=n` 设置最大垃圾回收停顿时间，`-XX:+PrintGCDetails` 输出 GC 详细日志等。
+
 #### 配置堆内存大小的参数有哪些？
 
 - `-Xms`：初始堆大小
@@ -1756,6 +1809,12 @@ JDK 自带的命令行工具层面，我用过 jps、jstat、jinfo、jmap、jhat
 - `-XX:+PrintGCDetails`：输出 GC 详细日志
 - `-XX:+PrintGCTimeStamps`：输出 GC 的时间戳（以基准时间的形式）
 - `-Xloggc:filename`：日志文件的输出路径
+
+>1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的网易面经同学 4 云音乐后端技术面试原题：jvm调优有哪些参数
+
+memo：2025 年 9 月 23 日修改至此。今天在帮球友修改简历的时候，碰到这样一个反馈：没有听二哥的建议修改简历，还用了旧的，结果效果很差，现在已经按照二哥的建议增加了[派聪明 RAG 项目](https://javabetter.cn/zhishixingqiu/paismart.html)到实习经历中，希望二哥能帮忙再看一下。
+
+![听劝很重要啊](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250923210204.png)
 
 ### 40.做过 JVM 调优吗？
 
@@ -1905,6 +1964,11 @@ jmap -dump:format=b,file=heap pid
 假如是因为 GC 参数配置不合理导致的频繁 Full GC，可以通过调整 GC 参数来优化 GC 行为。或者直接更换更适合的 GC 收集器，如 G1、ZGC 等。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 8 一面面试原题：Java 中 full gc 频繁，有哪些原因
+> 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的网易面经同学 4 云音乐面试原题：如果频繁发生full gc，可以怎么调整，调整什么参数最好
+
+memo：2025 年 9 月 17 日修改至此。今天[有球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)讲，面试中遇到 90% 的问题都在星球里，百度这边的面试官甚至直接打开二哥的 Java 进阶之路来面试（[他在百度实习，已转正（实习面经贴这里了）](https://t.zsxq.com/jTYm3)）。
+
+![球友对星球和进阶之路的赞美](https://cdn.tobebetterjavaer.com/stutymore/jvm-感谢二哥哈哈，面试遇到的差不多90.png)
 
 <MZNXQRcodeBanner />
 
