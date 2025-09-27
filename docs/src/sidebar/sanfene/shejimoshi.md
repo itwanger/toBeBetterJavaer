@@ -391,8 +391,6 @@ class Singleton {
 
 当 instance 创建后，再次调用 getInstance 方法时，不会进入同步代码块，从而提高了性能。
 
-
-
 #### ④、静态内部类如何实现单例？
 
 利用 Java 的[静态内部类](https://javabetter.cn/oo/static.html)（Static Nested Class）和[类加载机制](https://javabetter.cn/jvm/class-load.html)来实现线程安全的延迟初始化。
@@ -434,6 +432,11 @@ public enum Singleton {
 
 单例模式有 5 种实现方式，常见的有饿汉式、懒汉式、双重检查锁定、静态内部类和枚举。
 
+### synchronized加到代码块上和方法上有什么区别？
+
+将 synchronized 加到方法上时，锁定的是整个方法，任何线程在调用该方法时都会获得该对象的锁，直到方法执行完毕才释放锁。
+
+将 synchronized 加到代码块上 `synchronized (Singleton.class)`时，锁定的是类的 Class 对象，所有对这个类的 synchronized 代码块都会串行执行。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说下单例模式，有几种
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：单例模式的好处
@@ -443,9 +446,13 @@ public enum Singleton {
 > 6. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的携程面经同学 10 Java 暑期实习一面面试原题：单例模式，如何线程安全
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 D 小米一面原题：单例模式有几种
 
+memo：2025 年 8 月 12 日修改至此，今天有球友在VIP 群里讲，他师兄的简历一眼[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)，🤣，看来这个项目的口碑是真不错。
+
+![顺丰 offer 的师兄用的技术派项目](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925184038.png)
+
 ## 04、了解哪些设计模式？
 
-单例模式、策略模式和工厂模式。
+单例模式、策略模式。
 
 在需要控制资源访问，如配置管理、连接池管理时经常使用单例模式。它确保了全局只有一个实例，并提供了一个全局访问点。
 
@@ -466,6 +473,9 @@ public enum Singleton {
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的vivo 面经同学 10 技术一面面试原题：了解哪些设计模式，开闭原则
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 5 Java 后端技术一面面试原题：设计模式
 
+memo：2025 年 9 月 20 日修改至此，今天在帮球友修改简历的时候，收到这样一个反馈：在合肥马上要转正了，薪资给的还可以，已经给周围很多人[安利二哥的项目](https://javabetter.cn/zhishixingqiu/)了，反向很不错。
+
+![球友对星球的口碑](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925180409.png)
 
 ## 05、什么是策略模式？
 
@@ -521,6 +531,68 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团同学 2 优选物流调度技术 2 面面试原题：设计模式，策略模式
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：策略模式，自己的代码用过什么设计模式
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：用过哪些策略模式
+
+## 06、什么是模板模式？
+
+模板模式（Template Method Pattern）是一种行为型设计模式，它定义了一个操作中的算法骨架，而将一些步骤延迟到子类中实现。模板方法使得子类可以在不改变算法结构的情况下重新定义算法的某些特定步骤。
+
+![refactoringguru.cn：模板模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925181116.png)
+
+在 Spring 框架中，有很多模板方法的应用。比如 JdbcTemplate、RestTemplate 这些，它们定义了数据访问的通用流程，我们只需要提供具体的 SQL 或者回调方法。
+
+![JdbcTemplate](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925181306.png)
+
+#### 模版模式在java中具体怎么实现的？
+
+模板方法通常通过抽象类和继承来实现。抽象类定义了一个模板方法，该方法包含了一系列步骤的调用顺序，而具体的步骤则由子类实现。
+
+```java
+abstract class AbstractClass {
+    // 模板方法，定义算法的骨架
+    public final void templateMethod() {
+        stepOne();
+        stepTwo();
+    }
+    protected abstract void stepOne();
+    protected abstract void stepTwo();
+}
+class ConcreteClassA extends AbstractClass {
+    @Override
+    protected void stepOne() {
+        System.out.println("ConcreteClassA: Step One");
+    }
+    @Override
+    protected void stepTwo() {
+        System.out.println("ConcreteClassA: Step Two");
+    }
+}
+class ConcreteClassB extends AbstractClass {
+    @Override
+    protected void stepOne() {
+        System.out.println("ConcreteClassB: Step One");
+    }
+    @Override
+    protected void stepTwo() {
+        System.out.println("ConcreteClassB: Step Two");
+    }
+}
+public class TemplateMethodPatternDemo {
+    public static void main(String[] args) {
+        AbstractClass classA = new ConcreteClassA();
+        classA.templateMethod();
+
+        AbstractClass classB = new ConcreteClassB();
+        classB.templateMethod();
+    }
+}
+```
+
+
+> 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 19 JDS 面试原题：模版模式在java中具体怎么实现的？
+
+memo：2025 年 8 月 12 日修改至此，今天在[帮球友修改简历的时候](https://javabetter.cn/zhishixingqiu/jianli.html)收到这样一个反馈：谢谢暑期实习时对他的简历修改，没有二哥绝对进不了字节。
+
+![字节球友对简历修改的口碑](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-二哥晚上好，谢谢您春招时对我简历的修改，没有二哥我绝对进不了字节。.png)
 
 ---
 

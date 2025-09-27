@@ -258,6 +258,14 @@ String key = "token_bucket:user:123";
 Long allowed = (Long) redis.eval(luaScript, 1, key, String.valueOf(capacity), String.valueOf(rate), String.valueOf(now));
 ```
 
+#### redis做缓存要考虑哪些问题，在业务方面呢
+
+一类是经典的缓存系统设计问题（穿透、击穿、雪崩），另一类是与业务逻辑紧密相关的业务缓存问题（数据一致性、缓存粒度等）。
+
+当修改了数据库的数据后，如何保证缓存里的数据也同步更新？如果处理不好，用户就会看到“脏数据”。
+
+另外就是我们应该缓存一个完整的、包含各种关联信息的复杂对象，还是只缓存那些最常用的基础字段？
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：Redis 相关的基础知识
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下为什么要用 Redis 去存权限列表？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：redis 有什么好处，为什么用 redis

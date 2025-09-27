@@ -3,6 +3,7 @@ title: 消息队列面试题之RocketMQ篇，23道RocketMQ八股文（1.1万字4
 shortTitle: 面渣逆袭-RocketMQ
 description: 下载次数超 1 万次，1.1 万字 45 张手绘图，详解 23 道 RocketMQ 面试高频题（让天下没有难背的八股），面渣背会这些 RocketMQ 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 三分恶
+date: 2025-09-24
 category:
   - 面渣逆袭
 tag:
@@ -414,28 +415,43 @@ long id = IdUtil.getSnowflakeNextId();
 
 ### 12.顺序消息如何实现？
 
-RocketMQ 实现顺序消息的关键在于保证消息生产和消费过程中严格的顺序控制，即确保同一业务的消息按顺序发送到同一个队列中，并由同一个消费者线程按顺序消费。
+RocketMQ 提供了两种级别的顺序消息：全局顺序和局部顺序。
 
 ![三分恶面渣逆袭：顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e3de6bb5-b5db-47af-8ae3-73aedd269f32.jpg)
 
-
-#### 局部顺序消息如何实现？
-
-局部顺序消息保证在某个逻辑分区或业务逻辑下的消息顺序，例如同一个订单或用户的消息按顺序消费，而不同订单或用户之间的顺序不做保证。
-
-![三分恶面渣逆袭：部分顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-14ab3700-8538-473e-bb66-8acfdd6a77a2.jpg)
-
-#### 全局顺序消息如何实现？
-
-全局顺序消息保证消息在整个系统范围内的严格顺序，即消息按照生产的顺序被消费。
-
-可以将所有消息发送到一个单独的队列中，确保所有消息按生产顺序发送和消费。
+全局顺序是指整个 Topic 的所有消息都严格按照发送顺序消费，这种方式性能比较低，实际项目中用得不多。
 
 ![三分恶面渣逆袭：全局顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-8e98ac61-ad47-4ed4-aac6-223201f9aae2.jpg)
 
+局部顺序是指特定分区内的消息保证顺序，这是我们常用的方式。
+
+![三分恶面渣逆袭：部分顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-14ab3700-8538-473e-bb66-8acfdd6a77a2.jpg)
+
+要保证顺序，关键是要把需要保证顺序的消息发送到同一个 MessageQueue 中。
+
+```java
+// 根据订单ID选择队列，保证同一订单的消息在同一队列
+producer.send(message, new MessageQueueSelector() {
+    @Override
+    public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
+        String orderId = (String) arg;
+        int index = orderId.hashCode() % mqs.size();
+        return mqs.get(index);
+    }
+}, orderId);
+```
+
+每个 MessageQueue 在 Broker 中对应一个 ConsumeQueue，消息按照到达 Broker 的顺序依次写入。
+
+当消费者开始消费某个 MessageQueue 时，会在 Broker 端对该队列加锁，其他消费者就无法同时消费这个队列。这样确保了同一时间只有一个消费者在处理某个队列的消息，从而保证了消费顺序。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 2  后端面试原题：说说mq原理，怎么保证消息接受顺序？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的收钱吧面经同学 1 Java 后端一面面试原题：RocketMQ的顺序消息？
+> 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的中小厂面经同学6 广州中厂面试原题：RocketMQ怎么保证消息顺序？
+
+memo：2025 年 8 月 15 日修改至此，今天在[帮球友修改简历时](https://javabetter.cn/zhishixingqiu/jianli.html)，收到这样一个反馈：目前正在高德暑期实习，3 月底找二哥修改过简历，觉得改的非常好。
+
+![高德实习的球友](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20250924165532.png)
 
 ### 13.如何实现消息过滤？
 
