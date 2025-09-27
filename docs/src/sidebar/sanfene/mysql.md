@@ -2504,7 +2504,7 @@ memo：2025 年 3 月 29 日修改至此，今天[有球友说](https://javabett
 
 除了查得快，索引还能加速排序、分组、连接等操作。
 
-可以通过 `create index` 创建索引，比如：
+项目中最常见的做法就是通过 `create index` 为经常用作查询条件的字段建索引，比如：
 
 ```sql
 create index idx_name on students(name);

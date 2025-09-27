@@ -464,6 +464,185 @@ memo：2025 年 8 月 12 日修改至此，今天有球友在VIP 群里讲，他
 
 后面想添加新的 AI 服务，只需要增加一个新的策略类，不需要修改原有代码，这样就提高了代码的可扩展性。
 
+### 你想做一个导出的数据导出的功能，然后他可能导出的格式有Excel、有JSON，可能有XML，然后如果你用面向对象这些方法去做，会怎么去设计这个实现？
+
+我会使用策略模式+工厂模式来实现。
+
+首先，我会定义一个导出接口 `DataExporter`，该接口包含一个导出方法 `export(data)`，用于导出数据。
+
+```java
+public interface DataExporter {
+    void export(List<Object> data, OutputStream outputStream) throws Exception;
+    String getContentType();
+    String getFileExtension();
+}
+```
+
+然后，我会为每种导出格式（Excel、JSON、XML）创建具体的策略类，这些类实现了 `ExportStrategy` 接口，并提供各自的导出逻辑。
+
+```java
+public class ExcelExporter implements DataExporter {
+    @Override
+    public void export(List<Object> data, OutputStream outputStream) throws Exception {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet("Data");
+        
+        // 写入表头
+        if (!data.isEmpty()) {
+            Object firstRow = data.get(0);
+            Row headerRow = sheet.createRow(0);
+            Field[] fields = firstRow.getClass().getDeclaredFields();
+            for (int i = 0; i < fields.length; i++) {
+                headerRow.createCell(i).setCellValue(fields[i].getName());
+            }
+            
+            // 写入数据
+            for (int i = 0; i < data.size(); i++) {
+                Row dataRow = sheet.createRow(i + 1);
+                Object obj = data.get(i);
+                for (int j = 0; j < fields.length; j++) {
+                    fields[j].setAccessible(true);
+                    Object value = fields[j].get(obj);
+                    dataRow.createCell(j).setCellValue(value != null ? value.toString() : "");
+                }
+            }
+        }
+        
+        workbook.write(outputStream);
+        workbook.close();
+    }
+    
+    @Override
+    public String getContentType() {
+        return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+    }
+    
+    @Override
+    public String getFileExtension() {
+        return "xlsx";
+    }
+}
+
+public class JsonExporter implements DataExporter {
+    private ObjectMapper objectMapper = new ObjectMapper();
+    
+    @Override
+    public void export(List<Object> data, OutputStream outputStream) throws Exception {
+        objectMapper.writeValue(outputStream, data);
+    }
+    
+    @Override
+    public String getContentType() {
+        return "application/json";
+    }
+    
+    @Override
+    public String getFileExtension() {
+        return "json";
+    }
+}
+
+public class XmlExporter implements DataExporter {
+    @Override
+    public void export(List<Object> data, OutputStream outputStream) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.newDocument();
+        
+        Element root = document.createElement("data");
+        document.appendChild(root);
+        
+        for (Object obj : data) {
+            Element item = document.createElement("item");
+            Field[] fields = obj.getClass().getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                Element element = document.createElement(field.getName());
+                Object value = field.get(obj);
+                element.setTextContent(value != null ? value.toString() : "");
+                item.appendChild(element);
+            }
+            root.appendChild(item);
+        }
+        
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        DOMSource source = new DOMSource(document);
+        StreamResult result = new StreamResult(outputStream);
+        transformer.transform(source, result);
+    }
+    
+    @Override
+    public String getContentType() {
+        return "application/xml";
+    }
+    
+    @Override
+    public String getFileExtension() {
+        return "xml";
+    }
+}
+```
+
+接下来，我会创建一个工厂类 `DataExporterFactory`，用于根据导出格式创建相应的导出策略实例。
+
+```java
+public class DataExporterFactory {
+    private static final Map<String, DataExporter> exporters = new HashMap<>();
+    
+    static {
+        exporters.put("excel", new ExcelExporter());
+        exporters.put("json", new JsonExporter());
+        exporters.put("xml", new XmlExporter());
+    }
+    
+    public static DataExporter getExporter(String format) {
+        DataExporter exporter = exporters.get(format.toLowerCase());
+        if (exporter == null) {
+            throw new IllegalArgumentException("不支持的导出格式: " + format);
+        }
+        return exporter;
+    }
+    
+    public static Set<String> getSupportedFormats() {
+        return exporters.keySet();
+    }
+}
+```
+
+最后，我会定义导出服务的上下文类，我根据请求参数选择合适的导出策略，并调用其导出方法。
+
+```java
+@Service
+public class DataExportService {
+    
+    public void exportData(List<Object> data, String format, OutputStream outputStream) 
+            throws Exception {
+        DataExporter exporter = DataExporterFactory.getExporter(format);
+        exporter.export(data, outputStream);
+    }
+    
+    public ResponseEntity<byte[]> exportDataAsResponse(List<Object> data, String format) 
+            throws Exception {
+        DataExporter exporter = DataExporterFactory.getExporter(format);
+        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        exporter.export(data, baos);
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType(exporter.getContentType()));
+        headers.setContentDispositionFormData("attachment", 
+            "export_" + System.currentTimeMillis() + "." + exporter.getFileExtension());
+        
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(baos.toByteArray());
+    }
+}
+```
+
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：了解哪些设计模式？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：你真正使用过哪些设计模式？
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 7 Java 后端面试原题：介绍你熟悉的设计模式
