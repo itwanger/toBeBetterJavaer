@@ -907,9 +907,9 @@ MySQL 8.0 默认的行格式是 DYNAMIC，由COMPACT 演变而来，意味着这
 
 MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 
----这部分是帮助大家理解 start，面试中可不背---
-
 ![二哥的 Java 进阶之路：存储引擎](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408073338.png)
+
+---这部分是帮助大家理解 start，面试中可不背---
 
 我来做一个表格对比：
 
