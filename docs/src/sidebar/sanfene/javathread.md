@@ -292,6 +292,14 @@ Thread: Finalizer (ID=3)
 - `Thread: Signal Dispatcher (ID=4)` - 信号调度线程，处理来自操作系统的信号，将它们转发给 JVM 进行进一步处理，例如响应中断、停止等信号。
 - `Thread: Monitor Ctrl-Break (ID=5)` - 监视器线程，通常由一些特定的 IDE 创建，用于在开发过程中监控和管理程序执行或者处理中断。
 
+#### 你平时有用过多线程吗？你在代码中是哪些场景用呢？
+
+用得比较多，批量数据处理、异步任务处理、定时任务调度都需要用到多线程。
+
+比如说在[技术派的首页内容加载](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就用到了多线程来并行加载不同的模块，提高页面的响应速度。
+
+![技术派：并行首页内容加载](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250927175506.png)
+
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：有多少种实现线程的方法？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：实现线程的方式和区别
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行面经同学 3 Java 后端面试原题：说说线程的创建方法
@@ -301,7 +309,9 @@ Thread: Finalizer (ID=3)
 > 7. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：java 如何创建线程？每次都要创建新线程来实现异步操作，很繁琐，有了解线程池吗？
 > 8. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：平时怎么使用多线程
 
-memo：2025 年 1 月 24 日修改至此。
+memo：2025 年 9 月 26 日修改至此。今天[有球友在星球里](https://javabetter.cn/zhishixingqiu/)报喜说拿到了字节的意向，感谢二哥的面渣逆袭。
+
+![拿到字节的意向了](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250927175050.png)
 
 ### 4.🌟调用 start 方法时会执行 run 方法，那怎么不直接调用 run方法？
 
@@ -4671,6 +4681,8 @@ memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，�
 
 > 2024 年 03 月 16 日增补，推荐阅读：[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)
 
+线程池的配置优化是针对多线程应用性能调优的关键环节。
+
 ![三分恶面渣逆袭：线程池调优](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-82.png)
 
 首先我会根据任务类型设置核心线程数参数，比如 IO 密集型任务会设置为 CPU 核心数\*2 的经验值。
@@ -4678,6 +4690,10 @@ memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，�
 其次我会结合线程池动态调整的能力，在流量波动时通过 setCorePoolSize 平滑扩容，或者直接使用 DynamicTp 实现线程池参数的自动化调整。
 
 最后，我会通过内置的监控指标建立容量预警机制。比如通过 JMX 监控线程池的运行状态，设置阈值，当线程池的任务队列长度超过阈值时，触发告警。
+
+memo：2025 年 9 月 26 日优化至此，今天有球友在 VIP 群里讲，投了 1 天就接面了，[二哥改的简历还是太好用](https://javabetter.cn/zhishixingqiu/jianli.html)。很感谢他的认可。
+
+![球友对简历修改的认可](https://cdn.tobebetterjavaer.com/stutymore/javathread-投了1天就接面了，二哥改的简历还是太好用.png)
 
 ### 68.线程池在使用的时候需要注意什么？（补充）
 

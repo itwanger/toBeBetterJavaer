@@ -2738,7 +2738,7 @@ Person 类的信息在编译时就确定了，那假如在编译期无法确定�
 
 ![三分恶面渣逆袭：Java反射相关类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-36.png)
 
-比如说我们可以装来动态加载类并创建对象：
+比如说我们可以动态加载类并创建对象：
 
 ```java
 String className = "java.util.Date";
@@ -2774,7 +2774,7 @@ Class<?> clazz = Class.forName("com.example.MyClass");
 Object instance = clazz.newInstance();
 ```
 
-②、Java 的动态代理（Dynamic Proxy）机制就使用了反射来创建代理类。代理类可以在运行时动态处理方法调用，这在实现 AOP 和拦截器时非常有用。
+②、Java 的动态代理机制就使用了反射来创建代理类。代理类可以在运行时动态处理方法调用，这在实现 AOP 和拦截器时非常有用。
 
 ```java
 InvocationHandler handler = new MyInvocationHandler();
@@ -2792,15 +2792,34 @@ Method testMethod = testClass.getMethod("testSomething");
 testMethod.invoke(testInstance);
 ```
 
+④、最常见的是写通用的工具类，比如对象拷贝工具。比如说 BeanUtils、MapStruct 等等，能够自动拷贝两个对象之间的同名属性，就是通过反射来实现的。
+
+![技术派：mapstruct](https://cdn.tobebetterjavaer.com/stutymore/javase-20250927172849.png)
+
+
 #### 反射的原理是什么？
 
-Java 程序的执行分为编译和运行两步，编译之后会生成字节码(.class)文件，JVM 进行类加载的时候，会加载字节码文件，将类型相关的所有信息加载进方法区，反射就是去获取这些信息，然后进行各种操作。
+每个类在加载到 JVM 后，都会在方法区生成一个对应的 Class 对象，这个对象包含了类的所有元信息，比如字段、方法、构造器、注解等。
+
+通过这个 Class 对象，我们就能在运行时动态地创建对象、调用方法、访问字段。
+
+### 反射的优缺点是什么？
+
+反射的优点还是很明显的。首先是能够在运行时动态操作类和对象。其次是能够编写通用的代码，一套代码可以处理不同类型的对象。还有就是能够突破访问限制，访问 private 字段和方法，这在反编译场景下很有用。
+
+但反射的缺点也不少。最明显的是性能问题，反射操作比直接调用要慢很多，因为需要在运行时解析类信息、进行类型检查、权限验证等。
+
+其次是反射能够绕过访问控制，访问和修改 private 成员，这会破坏类的封装。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：Java 反射用过吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 18 成都到家面试原题：反射及其应用场景
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米面经同学 F 面试原题：反射的介绍与使用场景
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：java 的反射机制，反射的应用场景 AOP 的实现原理是什么，与动态代理和反射有什么区别
 > 5. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的比亚迪面经同学 12 Java 技术面试原题：java的反射
+
+memo：2025 年 9 月 27 日修改至此，今天[在帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到这样一个反馈，很感动：两个月前在特别焦虑迷茫时找过一次二哥，你说了别担心先去做先去投之类的话那次沟通后让我清醒了很多，我开始停止设想坏的结果，照着简历学习八股，投简历，最后收到了面试通知，运气也很好背的八股也派上用场，虽然没有一下子变得特别厉害，但是实打实地感觉自己比以前成熟稳重点了。学习过程中发现自己蛮喜欢软开的，也能获得成就感，所以特别感谢二哥一直以来对大家的帮助。
+
+![球友在星球里的成长](https://cdn.tobebetterjavaer.com/stutymore/javase-20250927172411.png)
 
 ## JDK1.8 新特性
 
