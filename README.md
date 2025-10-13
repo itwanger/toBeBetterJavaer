@@ -44,7 +44,7 @@
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **9000 多名** 球友加入了（戳[链接](https://javabetter.cn/zhishixingqiu/)了解详情），如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。新人可免费体验 3 天，不满意可全额退款（只能帮你到这里了😄）。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **10000 多名** 球友加入了（马上要涨价到 169 元，抓紧时间趁没涨价前加入吧，优惠完目前仅需 129 元），如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。
 
 <p align="center">
   <a href="https://javabetter.cn/zhishixingqiu/">
@@ -54,8 +54,9 @@
   </a>
 </p>
 
+新人可免费体验 3 天，不满意可全额退款（只能帮你到这里了😄）。
 
-这是一个**编程学习指南 + Java 项目实战 + LeetCode 刷题+简历精修**的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+这是一个 **简历精修 + 编程项目实战 + Java 面试指南 + LeetCode 刷题**的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
 - [二哥精修简历服务，让你投了就有笔试&面试✌️](https://javabetter.cn/zhishixingqiu/jianli.html)
 - [二哥的RAG知识库项目派聪明上线了，AI时代你必须拥有的实战项目✌️](https://javabetter.cn/zhishixingqiu/paismart.html)
