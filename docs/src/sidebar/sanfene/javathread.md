@@ -7,7 +7,7 @@ category:
 tag:
   - 面渣逆袭
 description: 下载次数超 1 万次，3.5 万字 145 张手绘图，详解 73 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
-date: 2025-9-19
+date: 2025-09-19
 head:
   - - meta
     - name: keywords

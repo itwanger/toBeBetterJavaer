@@ -1,8 +1,0 @@
-
-node_modules/
-src/.vuepress/.cache/
-src/.vuepress/.temp/
-src/.vuepress/
-package.json
-pnpm-lock.yaml
-tsconfig.json

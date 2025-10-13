@@ -6,6 +6,8 @@ package-lock.json
 dump.rdb
 docs/.vuepress/.cache/
 docs/.vuepress/.temp/
+docs/dist/
+dist.zip
 images
 *.log
 .yarn
