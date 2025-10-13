@@ -19,9 +19,28 @@ tag:
 
 不容易啊。
 
-![派聪明如何写到简历上](https://cdn.tobebetterjavaer.com/paicoding/3a9a163a5e8f68ef3a87047999aa92b5.png)
+派聪明是 9 月份上线的，截止到目前，已经取得了非常瞩目的成绩，我这里晒一下哈。
 
->派聪明如何写到简历上：https://paicoding.com/column/10/2
+
+![面渣逆袭+派聪明 拿下招银网络+科大讯飞](https://cdn.tobebetterjavaer.com/paicoding/fb5db62ab92092e2d74a4916b6a45710.png)
+
+
+![派聪明拿到的日常实习](https://cdn.tobebetterjavaer.com/paicoding/da01a535b091c5ebeed70bf9a08a90c6.png)
+
+
+![派聪明拿下合合信息](https://cdn.tobebetterjavaer.com/paicoding/3518a76f439c325de8df763482cbebc4.png)
+
+
+![派聪明拿下小红书](https://cdn.tobebetterjavaer.com/paicoding/7bed4d34460749d68db9c0fcbc4621a8.png)
+
+
+![派聪明拿下网易](https://cdn.tobebetterjavaer.com/paicoding/5f227edcb38ffe41aea8fc0880f64cad.png)
+
+说句真心话，看到这，就可以无脑冲这个项目了，因为这些，还只是冰山一角。扫下面的优惠券（或者长按自动识别）解锁派聪明源码和教程吧，[星球](https://javabetter.cn/zhishixingqiu/)目前定价 159 元/年，优惠完只需要 129 元，每天不到 0.35 元，绝对的超值。
+
+![派聪明优惠券](https://cdn.tobebetterjavaer.com/paicoding/97601d7a337d7d944b02bb4a79cd6430.png)
+
+>派聪明如何写到简历上：[https://paicoding.com/column/10/2](https://paicoding.com/column/10/2)
 
 这篇内容我先带大家了解一下什么是派聪明，我为什么要做派聪明这个企业级的 RAG 知识库？派聪明这个 AI 项目能让大家学到什么？以及如何解锁派聪明的源码仓库和教程？
 
@@ -55,7 +74,7 @@ tag:
 
 4 月份的时候，机缘巧合，我和朋友【我糖呢】闲聊，就讲起这个项目，他已经悄咪咪的成为一名前端大佬，于是索性我就喊他来做前端，就这样，我们的派聪明团队就算是正式成立了。
 
-下个版本，我打算把 MCP 和 Agent 也加进来。所以，这个项目在 AI 时代，绝对是一个明星级、现象级的实战项目。
+下个项目校招派，我打算把 MCP 和 Agent 也加进来。所以，这个项目在 AI 时代，绝对是一个明星级、现象级的实战项目。
 
 ## 二、派聪明的技术栈
 
