@@ -247,6 +247,7 @@ export default hopeTheme({
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     pwa: {
+      update: "hint",
       favicon: "https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/favicon.ico",
       cacheHTML: true,
       cacheImage: true,
