@@ -53,7 +53,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **10000 多名** 球友加入了（马上要涨价到 169 元，抓紧时间趁没涨价前加入吧，优惠完目前仅需 129 元），如果你也需要一个良好的学习环境，扫描下方的优惠券加入我们吧。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **10000 多名** 球友加入了（马上要涨价到 169 元，抓紧时间趁没涨价前加入吧），如果你也需要一个优质的学习环境，扫描下方的优惠券加入我们吧。
 
 <p align="center">
   <a href="https://javabetter.cn/zhishixingqiu/">
