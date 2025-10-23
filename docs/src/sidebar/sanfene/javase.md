@@ -1759,7 +1759,7 @@ System.out.println(c.equals(d)); // 输出true
 
 #### 什么是 Integer 缓存？
 
-就拿 Integer 的缓存吃来说吧。根据实践发现，大部分的数据操作都集中在值比较小的范围，因此 Integer 搞了个缓存池，默认范围是 -128 到 127。
+就拿 Integer 的缓存池来说吧。根据实践发现，大部分的数据操作都集中在值比较小的范围，因此 Integer 搞了个缓存池，默认范围是 -128 到 127。
 
 ![二哥的 Java 进阶之路：integer 源码](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323080956.png)
 
