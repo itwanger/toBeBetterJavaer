@@ -195,7 +195,7 @@ Consumer Group与Consumer的关系是动态维护的，当一个Consumer进程�
 
 ## 18、Consumer 如何消费指定分区消息
 
-Cosumer 消费消息时，想Broker 发出 `fetch` 请求去消费特定分区的消息，Consumer 可以通过指定消息在日志中的偏移量 offset，就可以从这个位置开始消息消息，Consumer 拥有了 offset 的控制权，也可以向后回滚去重新消费之前的消息。
+Cosumer 消费消息时，向Broker 发出 `fetch` 请求去消费特定分区的消息，Consumer 可以通过指定消息在日志中的偏移量 offset，就可以从这个位置开始消费消息，Consumer 拥有了 offset 的控制权，也可以向后回滚去重新消费之前的消息。
 
 也可以使用 `seek(Long topicPartition)` 来指定消费的位置。
 
