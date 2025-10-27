@@ -241,6 +241,7 @@ head:
 多说一句，任何时候，**技术都是我们程序员的安身立命之本**，如果你能认认真真跟完星球原创项目的源码和教程，相信你的编程功底会提升一大截。
 
 - 《[AI 知识库项目派聪明（RAG）](https://javabetter.cn/zhishixingqiu/paismart.html)》
+- 《[Go 版本的派聪明RAG知识库项目](https://javabetter.cn/zhishixingqiu/paismart-go.html)》
 - 《[微服务项目 PmHub 教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》
 - 《[前后端分离项目技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》
 - 《编程喵实战项目》
@@ -250,6 +251,8 @@ head:
 
 看看项目上线后球友们的反馈吧：
 
+![派聪明上线后，球友们一致好评](https://cdn.tobebetterjavaer.com/paicoding/c460dcb29244ec470106763f48c1d087.png)
+
 ![技术派上线后的壮观场景](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221220431.png)
 
 ![PmHub 上线后的盛况](https://cdn.tobebetterjavaer.com/stutymore/readme-20250704141800.png)
@@ -257,6 +260,8 @@ head:
 ### 01、AI 知识库项目派聪明（RAG）
 
 派聪明作为一个基于 RAG 架构的企业级 AI 知识库系统，其核心意义在于解决现代企业知识管理的痛点，推动组织智能化转型。在信息爆炸的时代，企业积累了大量文档资料，但传统的文件管理方式导致知识孤岛现象严重，员工难以快速获取所需信息，严重影响工作效率。
+
+Go 版本和 Java 版本均已上线。
 
 ![派聪明，一个 AI 项目](https://cdn.tobebetterjavaer.com/stutymore/readme-20250704144334.png)
 

@@ -69,6 +69,7 @@ head:
 
 - [二哥精修简历服务，让你投了就有笔试&面试✌️](https://javabetter.cn/zhishixingqiu/jianli.html)
 - [二哥的RAG知识库项目派聪明上线了，AI时代你必须拥有的实战项目✌️](https://javabetter.cn/zhishixingqiu/paismart.html)
+- [Go 版本的派聪明RAG知识库项目上线了，学习 Go 语言的小伙伴有福了✌️](https://javabetter.cn/zhishixingqiu/paismart-go.html)
 - [二哥的技术派实战项目更新了，秋招&暑期/日常实习大杀器✌️](https://javabetter.cn/zhishixingqiu/paicoding.html)
 - [二哥的PmHub微服务实战项目上线了，校招和社招均可用✌️](https://javabetter.cn/zhishixingqiu/paicoding.html)
 - [二哥的Java面试指南专栏更新了，求职面试必备✌️](https://javabetter.cn/zhishixingqiu/mianshi.html)

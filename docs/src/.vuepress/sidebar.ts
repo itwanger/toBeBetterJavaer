@@ -5,6 +5,7 @@ export default sidebar({
     "readme.md",
     "jianli",
     "paismart",
+    "paismart-go",
     "paicoding",
     "pmhub",
     "mianshi",
