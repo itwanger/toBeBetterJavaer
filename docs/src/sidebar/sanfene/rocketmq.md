@@ -14,44 +14,114 @@ head:
       content: RocketMQ面试题,RocketMQ,面试题,八股文
 ---
 
+![面渣逆袭RocketMQ篇封面图](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-mianzhanixi-rocketmq1.jpg)
+
+## 前言
+
 1.1 万字 45 张手绘图，详解 23 道 RocketMQ 面试高频题（让天下没有难背的八股），面渣背会这些 RocketMQ 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/N6wq52pBGh8xkS-5uRcO2g)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/IvBt3tB_IWZgPjKv5WGS4A)。
+
+亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
+
+![面渣逆袭RocketMQ篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20250427104843.png)
+
+2025 年 11 月 02 日开始着手第二版更新。
+
+- 对于高频题，会标注在《[Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)》中出现的位置，哪家公司，原题是什么，并且会加🌟，目录一目了然；如果你想节省时间的话，可以优先背诵这些题目，尽快做到知彼知己，百战不殆。
+- 区分八股精华回答版本和原理底层解释，让大家知其然知其所以然，同时又能做到面试时的高效回答。
+- 结合项目（[Spring Boot+React 前后端分离 web 项目技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)、[微服务pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)、[RAG 项目派聪明AI 知识库](https://javabetter.cn/zhishixingqiu/paismart.html)）来组织语言，让面试官最大程度感受到你的诚意，而不是机械化的背诵。
+- 修复第一版中出现的问题，包括球友们的私信反馈，网站留言区的评论，以及 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer/issues)中的 issue，让这份面试指南更加完善。
+- 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
+- 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
+
+![面渣逆袭已经提交 1457 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427100320.png)
+
+由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
+
+<div style="text-align: center; margin: 20px 0;">
+    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+</div>
+
+当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
+
+更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
+
+![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+
+我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
+
+展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
+
+![面渣逆袭MySQL篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427105032.png)
+
+
 
 ## 基础
 
 ### 1.为什么要使用消息队列呢？
 
-消息队列（Message Queue, MQ）是一种非常重要的中间件技术，广泛应用于分布式系统中，以提高系统的可用性、解耦能力和异步通信效率。
-
-①、**解耦**
-
-生产者将消息放入队列，消费者从队列中取出消息，这样一来，生产者和消费者之间就不需要直接通信，生产者只管生产消息，消费者只管消费消息，这样就实现了解耦。
+我认为消息队列的核心价值主要体现在四个方面。首先是解耦，这是最重要的。
 
 ![三分恶面渣逆袭：消息队列解耦](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-dd332b3f-d5e5-41bc-813a-9f612e582255.jpg)
 
-像 [PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html) 中的任务审批，就用了 RocketMQ 来做解耦。
+比如在[派聪明 RAG 项目](https://javabetter.cn/zhishixingqiu/paismart.html)中，文件上传完成之后，会有很多后续的任务，比如提取元数据、生成全文索引、做 AI 向量化处理。
+
+这些处理不仅数据量大，而且任务本身也比较消耗资源，没有消息队列的话，文件上传服务就得等这些任务都处理完才能返回结果给用户，体验会很差。
+
+![派聪明：消息队列配置](https://cdn.tobebetterjavaer.com/paicoding/3e546d9fd7c4e11f7c88aaf1f4a4dce7.png)
+
+于是我们引入了 Kafka 来做消息队列，文件上传服务只需要把文件处理任务发送到消息队列里就可以结束了。其他服务各自去消费这条消息，独立处理自己的业务逻辑。这样即使某个服务宕机了，也不会影响文件上传的核心流程，系统的容错能力就大大提升了。
+
+再比如书在 [PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html) 中，任务审批就用了 RocketMQ 来做解耦。
 
 ![PmHub 的面试系列教程](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20240808102425.png)
 
-②、**异步**：
-
-系统可以将那些耗时的任务放在消息队列中异步处理，从而快速响应用户的请求。比如说，用户下单后，系统可以先返回一个下单成功的消息，然后将订单信息放入消息队列中，后台系统再去处理订单信息。
+其次是异步处理，系统可以将那些耗时的任务放在消息队列中异步处理，从而快速响应用户的请求。比如说，用户下单后，系统可以先返回一个下单成功的消息，然后将订单信息放入消息队列中，后台系统再去处理订单信息。
 
 ![三分恶面渣逆袭：消息队列异步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-40d8f782-08cf-48c4-98b2-cb125d287e93.jpg)
 
-③、**削峰**：
-
-削峰填谷是一种常见的技术手段，用于应对系统高并发请求的瞬时流量高峰，通过消息队列，可以将瞬时的高峰流量转化为持续的低流量，从而保护系统不会因为瞬时的高流量而崩溃。
+再有就是削峰填谷，这一点在高并发场景下特别重要。比如秒杀活动，瞬间可能来了几十万个请求。如果直接打到数据库，系统肯定会崩溃。但通过消息队列，所有请求先进队列，后端消费者按照自己的处理能力逐个消费，即使暂时处理不过来，消息也能安全地存储在队列里。这样系统就不会被突发流量打倒。
 
 ![三分恶面渣逆袭：消息队列削峰](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f028cb0c-b1a3-47ef-b290-f7d6f46512fb.jpg)
 
+除此之外，消息队列还支持持久化存储，支持消息重试和事务机制。这样即使消费者在处理消息时出现异常，消息也不会丢失，可以重新投递处理，最终保证业务逻辑一定会被正确执行。
+
 #### 如何用RocketMQ做削峰填谷的？
 
-用户请求到达系统后，由生产者接收请求并将其转化为消息，发送到 RocketMQ 队列中。队列用来充当缓冲区，将大量请求按照顺序排队，这样就可以削减请求高峰时对后端服务的直接压力。
+我的理解是：用户的所有请求不直接打到后端服务，而是先发送到 RocketMQ 的消息队列里。RocketMQ 作为一个高吞吐量的中间件，能够快速接收这些请求。然后消费者端根据自己的处理能力，按照一定的速度从队列里拉取消息进行处理。这样就形成了一个缓冲区，能够吸收掉突发的流量。
 
-不仅如此，生产者通过异步方式发送消息，还可以快速响应用户请求。
+就拿秒杀场景来举例吧。首先，用户的秒杀请求不是直接去扣减库存，而是先发一条消息到 RocketMQ。这个操作很快，因为只是把消息丢到队列里，不涉及任何业务逻辑处理。然后在消费端，我们启动一个消费者线程，这些消费者以一个相对稳定的速度去消费消息，一条一条地处理秒杀逻辑，比如检查库存、扣库存、生成订单等。
 
-消费者从 RocketMQ 队列中按照一定速率读取消息并进行处理。可以根据后端处理能力和当前负载情况动态调整消费者的消费速率，达到填谷的效果。
+```java
+// 生产者端 - 接收秒杀请求
+@PostMapping("/seckill")
+public Result seckill(Long productId, Long userId) {
+    // 直接发送消息到 RocketMQ，快速返回
+    Message message = new Message("seckill_topic", 
+        JSON.toJSONString(new SeckillRequest(productId, userId)).getBytes());
+    
+    try {
+        SendResult sendResult = rocketMQTemplate.syncSend("seckill_topic", message);
+        return Result.success("秒杀请求已提交，请稍候");
+    } catch (Exception e) {
+        return Result.fail("系统繁忙，请稍后重试");
+    }
+}
 
+// 消费者端 - 按照自己的能力消费消息
+@RocketMQMessageListener(topic = "seckill_topic", 
+                         consumerGroup = "seckill_consumer_group")
+public class SeckillConsumer implements RocketMQListener<SeckillRequest> {
+    
+    @Override
+    public void onMessage(SeckillRequest request) {
+        // 这里按照相对稳定的速度处理秒杀逻辑
+        // 消费者能处理多快就处理多快，不会被突发流量冲击
+        seckillService.processSeckill(request.getProductId(), request.getUserId());
+    }
+}
+```
+
+这里有一个需要注意的地方，就是消息堆积的问题，如果消费者一直跟不上生产速度，消息会无限堆积，可能最终会导致磁盘满或者消息过期被删除。所以在实际项目中，我们需要监控队列的堆积情况，必要时通过增加消费者或优化消费逻辑来加快处理速度。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：有了解过 MQ 吗？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 24 面试原题：如何用消息队列做削峰填谷的？
