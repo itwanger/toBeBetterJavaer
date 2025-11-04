@@ -128,29 +128,95 @@ public class SeckillConsumer implements RocketMQListener<SeckillRequest> {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：项目里用 RocketMQ 做削峰，还有什么场景适合消息队列
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：RocketMQ有什么用，你一般拿来做什么
 
+memo：2025 年 11 月 03 日修改至此，今天有[球友反馈说深信服开奖了](https://javabetter.cn/zhishixingqiu/)，AI 软开能到 30k+，真的已经非常高了，赶超互联网大厂的 SSP。AI 软开岗位，未来几年会非常吃香，大家可以重点关注一下，球友用的就是 [PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html)+RAG 项目。
+
+![球友深信服开奖，AI 软开](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251104110022.png)
+
 ### 2.为什么要选择 RocketMQ?
 
-![四大消息队列对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-c3493e70-67c7-4f0d-bb99-f0fe8074c807.jpg)
+首先，在事务支持方面，RocketMQ 做得特别好。比如说在转账场景下，我们要保证"扣款"的本地事务和"发送转账消息"这两个操作要么都成功，要么都失败，不能出现只扣款但没发消息的情况。RocketMQ 的事务消息机制就能很好地解决这个问题。
 
-我们系统主要面向 C 端用户，有一定的并发量，对性能也有比较高的要求，所以选择了低延迟、吞吐量比较高，可用性比较好的 RocketMQ。
+```java
+// RocketMQ 事务消息示例
+TransactionSendResult sendResult = rocketMQTemplate.executeAndReplyTransaction(
+    "transfer_topic",
+    new Message("transfer_topic", 
+        JSON.toJSONString(new TransferRequest(fromId, toId, amount)).getBytes()),
+    new RocketMQLocalTransactionListener() {
+        @Override
+        public RocketMQLocalTransactionState executeLocalTransaction(Message msg, Object arg) {
+            try {
+                // 执行本地事务 - 扣款
+                accountService.deductAccount(fromId, amount);
+                return RocketMQLocalTransactionState.COMMIT;
+            } catch (Exception e) {
+                return RocketMQLocalTransactionState.ROLLBACK;
+            }
+        }
+        
+        @Override
+        public RocketMQLocalTransactionState checkLocalTransaction(Message msg) {
+            // 事务回查逻辑
+            return accountService.isDeducted(fromId, amount) ? 
+                RocketMQLocalTransactionState.COMMIT : 
+                RocketMQLocalTransactionState.ROLLBACK;
+        }
+    }
+);
+```
+
+其次是对顺序消息的支持。在很多场景下，消息的顺序很重要。比如订单的生命周期，应该是：下单 → 支付 → 发货 → 确认收货。如果消息乱序了，就会出现还没付款就发货的逻辑混乱。
+
+RocketMQ 的顺序消息能够保证同一个 OrderId 的消息，它们能够被发送到同一个队列，然后被同一个消费者按顺序消费。
+
+[PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html) 中的任务审批流程，就是用的 RocketMQ 来保证审批步骤的正确顺序。
+
+![pmhub 用的是 RocketMQ](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251104112142.png)
+
+再有就是 RocketMQ 支持 Master-Slave 模式的高可用部署。当 Master 节点宕机时，Slave 可以自动转换为 Master，从而提供更好的容错能力。
+
+![三分恶面渣逆袭：四大消息队列对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-c3493e70-67c7-4f0d-bb99-f0fe8074c807.jpg)
+
+如果是日志收集和流式处理场景，Kafka 更合适，因为它天生为大数据场景设计。[派聪明 RAG 项目](https://javabetter.cn/zhishixingqiu/paismart.html)中的文件上传后的向量化、索引构建任务，就是用的 Kafka 来做消息队列。
+
+![派聪明用的 Kafka](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251104111840.png)
+
+
+如果是需要轻量级的消息传递，RabbitMQ 更好，因为它实现了 AMQP 协议，支持丰富的路由和交换机类型。
+
+[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中的点赞、收藏、评论等功能的异步处理，就是用的 RabbitMQ 来做消息队列。
+
+![技术派用的是 RabbitMQ](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251104112016.png)
 
 ### 3.RocketMQ 有什么优缺点？
 
-RocketMQ 优点：
+首先是支持事务消息，这是 RocketMQ 最大的亮点。我的理解是，RocketMQ 通过两阶段提交的方式，保证了消息发送和本地事务的原子性。这对于需要保证数据一致性的场景特别重要。比如库存扣减和订单创建，要么两个都成功，要么都回滚，不能出现不一致的状态。
 
-- 单机吞吐量：十万级
-- 可用性：非常高，分布式架构
-- 消息可靠性：经过参数优化配置，消息可以做到 0 丢失
-- 功能支持：MQ 功能较为完善，还是分布式的，扩展性好
-- 支持 10 亿级别的消息堆积，不会因为堆积导致性能下降
-- 源码是 Java，方便结合公司自己的业务二次开发
-- 天生为金融互联网领域而生，对于可靠性要求很高的场景，尤其是电商里面的订单扣款，以及业务削峰，在大量交易涌入时，后端可能无法及时处理的情况
-- **RoketMQ**在稳定性上可能更值得信赖，这些业务场景在阿里双 11 已经经历了多次考验，如果你的业务有上述并发场景，建议可以选择**RocketMQ**
+其次是支持顺序消息。对于同一个业务主体（比如同一个订单），RocketMQ 能保证消息的有序性。这个设计特别巧妙，通过 ShardingKey 将消息路由到同一个队列，然后再由同一个消费者线程顺序消费。这解决了很多实际业务的需求。
 
-RocketMQ 缺点：
+再有就是高吞吐量和低延迟。RocketMQ 的单机吞吐能达到几十万 TPS。
 
-- 支持的客户端语言不多，目前是 Java 及 c++，其中 c++不成熟
-- 没有在 MQ 核心中去实现**JMS**等接口，有些系统要迁移需要修改大量代码
+缺点方面，由于 RocketMQ 的消息去重不是自动的，所以需要消费者端自己实现幂等，否则容易出现重复消费的问题。
+
+```java
+// 需要在消费端自己实现幂等
+@RocketMQMessageListener(topic = "order_topic", 
+                         consumerGroup = "order_consumer_group")
+public class OrderConsumer implements RocketMQListener<OrderMessage> {
+    
+    @Override
+    public void onMessage(OrderMessage message) {
+        // 需要根据消息的唯一标识检查是否已经处理过
+        if (orderService.isProcessed(message.getOrderId())) {
+            // 已经处理过，直接返回
+            return;
+        }
+        
+        // 处理订单逻辑
+        orderService.processOrder(message);
+    }
+}
+```
 
 #### 说说你对 RocketMQ 的理解？
 
@@ -159,6 +225,10 @@ RocketMQ 缺点：
 RocketMQ 是阿里巴巴开源的一款分布式消息中间件，具有高吞吐量、低延迟和高可用性。其主要组件包括生产者、消费者、Broker、Topic 和队列。消息由生产者发送到 Broker，再根据路由规则存储到队列中，消费者从队列中拉取消息进行处理。适用于异步解耦和流量削峰等场景。
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东同学 4 云实习面试原题：说说你对RocketMQ的理解
+
+memo：2025 年 11 月 4 日修改至此，今天有球友刚好面到了星球嘉宾的公司，三个项目，mydb+[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)+[派聪明](https://javabetter.cn/zhishixingqiu/paismart.html)，这下也是稳稳拿下了。
+
+![](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-这个要们是二哥的星球成员吧.png)
 
 ### 4.消息队列有哪些消息模型？
 
