@@ -16,6 +16,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/689744a38afaac9da561338752cd88d9.png)
 
+二哥带背，顺嘴、好背！
 
 先来看一下小红书上吹捧面渣逆袭的，证据 1：
 

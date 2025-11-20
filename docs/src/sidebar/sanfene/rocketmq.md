@@ -232,75 +232,77 @@ memo：2025 年 11 月 4 日修改至此，今天有球友刚好面到了星球�
 
 ### 4.消息队列有哪些消息模型？
 
-消息队列有两种模型：**队列模型**和**发布/订阅模型**。
+我认为消息队列的消息模型可以分为两大类：点对点模型和发布-订阅模型。
 
-- **队列模型**
+点对点模型的特点是一条消息只能被一个消费者消费。生产者把消息发送到一个队列里，消费者从这个队列里拉取消息进行处理。一旦消息被某个消费者消费了，这条消息就被删除了，其他消费者是看不到这条消息的。
 
-这是最初的一种消息队列模型，对应着消息队列“发-存-收”的模型。生产者往某个队列里面发送消息，一个队列可以存储多个生产者的消息，一个队列也可以有多个消费者，但是消费者之间是竞争关系，也就是说每条消息只能被一个消费者消费。
+![三分恶面渣逆袭：点对点模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-d94a9bf9-3fed-40a6-8aef-0d0395b6e409.jpg)
 
-![队列模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-d94a9bf9-3fed-40a6-8aef-0d0395b6e409.jpg)
+发布-订阅模型的特点是一条消息可以被多个订阅者消费。生产者发布消息到一个主题（Topic），所有订阅了这个主题的消费者都会收到这条消息。
 
-- **发布/订阅模型**
+![三分恶面渣逆袭：发布-订阅模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-692ec6a0-8499-4de2-be17-a577996bdaef.jpg)
 
-如果需要将一份消息数据分发给多个消费者，并且每个消费者都要求收到全量的消息。很显然，队列模型无法满足这个需求。解决的方式就是发布/订阅模型。
+这个模型特别适合用来做事件通知。比如说在[技术派项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，作者发布了一篇内容，可以同时通知所有关注了这个作者的用户，让他们收到更新提醒。系统级的消息通知也是类似的道理。
 
-在发布 - 订阅模型中，消息的发送方称为发布者（Publisher），消息的接收方称为订阅者（Subscriber），服务端存放消息的容器称为主题（Topic）。发布者将消息发送到主题中，订阅者在接收消息之前需要先“订阅主题”。“订阅”在这里既是一个动作，同时还可以认为是主题在消费时的一个逻辑副本，每份订阅中，订阅者都可以接收到主题的所有消息。
-
-![发布-订阅模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-692ec6a0-8499-4de2-be17-a577996bdaef.jpg)
-
-它和 “队列模式” 的异同：生产者就是发布者，队列就是主题，消费者就是订阅者，无本质区别。唯一的不同点在于：一份消息数据是否可以被多次消费。
+![技术派：消息通知](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251118090719.png)
 
 ### 5.那 RocketMQ 的消息模型呢？
 
-RocketMQ 使用的消息模型是标准的发布-订阅模型，在 RocketMQ 的术语表中，生产者、消费者和主题，与发布-订阅模型中的概念是完全一样的。
+RocketMQ 采用的是一个统一的、基于 Topic 和 Group 的消息模型。同一个消费者组内可以算是点对点，不同消费者组之间算是发布-订阅。
 
-RocketMQ 本身的消息是由下面几部分组成：
+![三分恶面渣逆袭：RocketMQ消息的组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-4ab7f942-23d7-4462-8e36-e305cc0a045f.jpg)
 
-![RocketMQ消息的组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-4ab7f942-23d7-4462-8e36-e305cc0a045f.jpg)
+在 RocketMQ 中，主题（Topic）是消息的逻辑分类。生产者把消息发送到某个 Topic，消费者从某个 Topic 拉取消息。一个 Topic 可以有多个生产者向它发送消息，也可以有多个消费者从它消费消息。
 
-- **Message**
+一个 Topic 在物理上被分成了多个队列（Queue）。生产者发送消息时，消息会根据某个 key 被路由到不同的 Queue 中。这个设计的巧妙之处在于，它既保证了单个 Queue 内的消息顺序，又能通过多个 Queue 实现并行处理。
 
-**Message**（消息）就是要传输的信息。
+![三分恶面渣逆袭：RocketMQ 的 Topic 和 Queue 关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e470b972-f4ac-4b76-bcde-0df5d4765ca7.jpg)
 
-一条消息必须有一个主题（Topic），主题可以看做是你的信件要邮寄的地址。
+消费者端，消费者归属于某一个消费者组（Consumer Group）。一个 消费者组内的多个消费者会协同消费同一个主题的消息。RocketMQ 会把主题下的多个队列分配给这个消费者组内的消费者进行消费。
 
-一条消息也可以拥有一个可选的标签（Tag）和额处的键值对，它们可以用于设置一个业务 Key 并在 Broker 上查找此消息以便在开发期间查找问题。
+```
+场景 1：一个消费者，一个 Topic 有 4 个 Queue
 
-- **Topic**
+ConsumerGroup: order_consumer_group
+    └─ Consumer 1
+        ├─ Queue 0
+        ├─ Queue 1
+        ├─ Queue 2
+        └─ Queue 3
 
-**Topic**（主题）可以看做消息的归类，它是消息的第一级类型。比如一个电商系统可以分为：交易消息、物流消息等，一条消息必须有一个 Topic 。
+一个消费者消费所有 4 个队列。
+```
 
-**Topic** 与生产者和消费者的关系非常松散，一个 Topic 可以有 0 个、1 个、多个生产者向其发送消息，一个生产者也可以同时向不同的 Topic 发送消息。
+```
+场景 2：两个消费者，一个 Topic 有 4 个 Queue
 
-一个 Topic 也可以被 0 个、1 个、多个消费者订阅。
+ConsumerGroup: order_consumer_group
+    ├─ Consumer 1
+    │   ├─ Queue 0
+    │   └─ Queue 2
+    │
+    └─ Consumer 2
+        ├─ Queue 1
+        └─ Queue 3
 
-- **Tag**
+两个消费者各消费 2 个队列，实现了负载均衡。
+```
 
-**Tag**（标签）可以看作子主题，它是消息的第二级类型，用于为用户提供额外的灵活性。使用标签，同一业务模块不同目的的消息就可以用相同 Topic 而不同的 **Tag** 来标识。比如交易消息又可以分为：交易创建消息、交易完成消息等，一条消息可以没有 **Tag** 。
+```
+场景 3：四个消费者，一个 Topic 有 4 个 Queue
 
-标签有助于保持你的代码干净和连贯，并且还可以为 **RocketMQ** 提供的查询系统提供帮助。
+ConsumerGroup: order_consumer_group
+    ├─ Consumer 1 → Queue 0
+    ├─ Consumer 2 → Queue 1
+    ├─ Consumer 3 → Queue 2
+    └─ Consumer 4 → Queue 3
 
-- **Group**
+四个消费者各消费 1 个队列，充分并行。
+```
 
-RocketMQ 中，订阅者的概念是通过消费组（Consumer Group）来体现的。每个消费组都消费主题中一份完整的消息，不同消费组之间消费进度彼此不受影响，也就是说，一条消息被 Consumer Group1 消费过，也会再给 Consumer Group2 消费。
+memo：2025 年 11 月 15 日修改至此，今天有球友发喜报说携程开了 SP，非常满意，感谢星球里的项目，他用的是[派聪明RAG](https://javabetter.cn/zhishixingqiu/paismart.html)+mydb 轮子。
 
-消费组中包含多个消费者，同一个组内的消费者是竞争消费的关系，每个消费者负责消费组内的一部分消息。默认情况，如果一条消息被消费者 Consumer1 消费了，那同组的其他消费者就不会再收到这条消息。
-
-- **Message Queue**
-
-**Message Queue**（消息队列），一个 Topic 下可以设置多个消息队列，Topic 包括多个 Message Queue ，如果一个 Consumer 需要获取 Topic 下所有的消息，就要遍历所有的 Message Queue。
-
-RocketMQ 还有一些其它的 Queue——例如 ConsumerQueue。
-
-- **Offset**
-
-在 Topic 的消费过程中，由于消息需要被不同的组进行多次消费，所以消费完的消息并不会立即被删除，这就需要 RocketMQ 为每个消费组在每个队列上维护一个消费位置（Consumer Offset），这个位置之前的消息都被消费过，之后的消息都没有被消费过，每成功消费一条消息，消费位置就加一。
-
-也可以这么说，`Queue` 是一个长度无限的数组，**Offset** 就是下标。
-
-RocketMQ 的消息模型中，这些就是比较关键的概念了。画张图总结一下：
-
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e470b972-f4ac-4b76-bcde-0df5d4765ca7.jpg)
+![携程狠狠拿下，本科和研究生还有两年 gap](https://cdn.tobebetterjavaer.com/stutymore/2025nian11yue15ri2008-image5708.png)
 
 ### 6.消息的消费模式了解吗？
 
