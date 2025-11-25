@@ -306,21 +306,81 @@ memo：2025 年 11 月 15 日修改至此，今天有球友发喜报说携程开
 
 ### 6.消息的消费模式了解吗？
 
-消息消费模式有两种：**Clustering**（集群消费）和**Broadcasting**（广播消费）。
+我认为消费模式可以从两个维度来分类：一个是消费的方向，一个是消费的范围。
 
-![两种消费模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-2c574635-1eaa-4bdd-8aa8-1bdc3f10b274.jpg)
+从消费方向来分的话，有两种模式，一种是 pull 模式，一种是 push 模式。
 
-默认情况下就是集群消费，这种模式下`一个消费者组共同消费一个主题的多个队列，一个队列只会被一个消费者消费`，如果某个消费者挂掉，分组内其它消费者会接替挂掉的消费者继续消费。
+![二哥的 Java 进阶之路：pull 和 push 的消费模式](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251125101659.png)
 
-而广播消费消息会发给消费者组中的每一个消费者进行消费。
+pull 模式需要消费者主动去消息队列中拉取消息，消费者可以控制拉取的速度、数量，但需要不断地轮询，比较浪费资源。
 
-### 7.RoctetMQ 基本架构了解吗？
+push 模式则是消息队列主动把消息推送给消费者，消费者只需要注册一个监听器，消息一到达就触发回调进行处理，响应速度快，但可能会出现消息堆积的情况。
 
-先看图，RocketMQ 的基本架构：
+从消费范围来分的话，也有两种模式，一种是集群消费，一种是广播消费。
 
-![RocketMQ架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-d4c0e036-0f0e-466f-bd4b-7e6ee10daca4.jpg)
+![三分恶面渣逆袭：集群消费和广播消费](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-2c574635-1eaa-4bdd-8aa8-1bdc3f10b274.jpg)
 
-RocketMQ 一共有四个部分组成：NameServer，Broker，Producer 生产者，Consumer 消费者，它们对应了：发现、发、存、收，为了保证高可用，一般每一部分都是集群部署的。
+集群消费是指，同一个消费者组中的多个消费者共同消费一个主题中的消息。消息被分散分配给这个消费者组中的各个消费者，每条消息只被这个消费者组中的一个消费者消费。
+
+换句话说，RocketMQ 会把主题下的所有队列均匀地分配给消费者组内的消费者，实现负载均衡。这样也能保证同一条消息只会被消费者组内的一个消费者消费，避免重复消费。
+
+```
+Topic: order_topic
+    ├─ Queue 0 → [消息1] [消息3] [消息5]
+    ├─ Queue 1 → [消息2] [消息4] [消息6]
+    ├─ Queue 2 → [消息7] [消息9] [消息11]
+    └─ Queue 3 → [消息8] [消息10] [消息12]
+
+ConsumerGroup: order_consumer_group
+    ├─ Consumer 1 消费 Queue 0, 1
+    ├─ Consumer 2 消费 Queue 2, 3
+    
+同一条消息只被 Consumer 1 或 Consumer 2 之一消费，不会重复消费。
+```
+
+广播消费是指，同一个主题的每条消息都会被消费者组内的每个消费者消费一次。也就是说，消费者组内的每个消费者都会收到主题下的所有消息，从而实现消息的广播效果。
+
+```
+Topic: config_update_topic
+    └─ [配置更新消息1] [配置更新消息2] [配置更新消息3]
+
+ConsumerGroup: config_consumer_group
+    ├─ Consumer 1（服务器1上的应用）
+    │   └─ 收到：消息1, 消息2, 消息3（完整的）
+    │
+    ├─ Consumer 2（服务器2上的应用）
+    │   └─ 收到：消息1, 消息2, 消息3（完整的）
+    │
+    └─ Consumer 3（服务器3上的应用）
+        └─ 收到：消息1, 消息2, 消息3（完整的）
+
+三个消费者都收到了所有的消息，各自独立处理。
+```
+
+### 7.RocketMQ 的基本架构了解吗？
+
+RocketMQ 的架构由四个核心部分组成：NameServer、Broker、生产者和消费者。
+
+![三分恶面渣逆袭：RocketMQ架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-d4c0e036-0f0e-466f-bd4b-7e6ee10daca4.jpg)
+
+我的理解是，NameServer 就是 RocketMQ 的路由中心，负责维护 Topic 和 Broker 之间的路由信息。生产者在发送消息前，消费者在消费消息前，都会先从 NameServer 获取最新的路由信息。
+
+- 每个 Broker 会向 NameServer 注册自己的信息，包括 Broker 的地址、端口、存储的 Topic 和 Queue 等。
+- NameServer 会根据 Topic 名称告诉生产者和消费者对应的 Broker 地址。
+- Broker 会定期向 NameServer 发送心跳，报告自己的状态。
+
+![帅旋：RocketMQ运行原理](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251125103932.png)
+
+Broker 是消息存储中心，它的职责包括：
+
+- 所有生产者发送的消息都会被存储在 Broker 上，以文件的形式持久化到磁盘。
+- 消费者从 Broker 拉取消息时，Broker 需要根据消费者的 Offset 找到对应的消息，返回给消费者。
+- 如果配置了高可用，Broker Master 会把消息同步到 Broker Slave，实现主从备份。
+
+生产者在发送消息时，会先从 NameServer 获取 Topic 的路由信息，然后根据路由信息把消息发送到对应的 Broker 上。
+
+消费者在消费消息时，也会先从 NameServer 获取 Topic 的路由信息，然后根据路由信息从对应的 Broker 上拉取消息进行处理。
+
 
 ### 8.那能介绍一下这四部分吗？
 
