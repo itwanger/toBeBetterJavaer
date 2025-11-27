@@ -381,63 +381,59 @@ Broker 是消息存储中心，它的职责包括：
 
 消费者在消费消息时，也会先从 NameServer 获取 Topic 的路由信息，然后根据路由信息从对应的 Broker 上拉取消息进行处理。
 
+memo：2025 年 11 月 25 日修改至此，今天有[球友反馈说](https://javabetter.cn/zhishixingqiu/)拿到了科大讯飞和华为的 offer，都开奖了，秋招算是告一段落。她特意感谢了[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)让她找到暑期实习，秋招靠[派聪明 RAG](https://javabetter.cn/zhishixingqiu/paismart.html)和星球的实习搭子稳稳拿下。还有[我改的简历给她的招聘](https://javabetter.cn/zhishixingqiu/jianli.html)加了不少分，线下被夸了无数次。
 
-### 8.那能介绍一下这四部分吗？
+![球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251127153851.png)
 
-类比一下我们生活的邮政系统——
+### 8.能详细介绍一下RocketMQ的NameServer吗？
 
-邮政系统要正常运行，离不开下面这四个角色， 一是发信者，二 是收信者， 三是负责暂存传输的邮局， 四是负责协调各个地方邮局的管理机构。对应到 RocketMQ 中，这四个角色就是 Producer、 Consumer、 Broker 、NameServer。
+NameServer 是一个路由中心和服务发现中心。他的第一个职责是存储和维护路由信息。当 Broker 启动时，会向 NameServer 注册自己的信息。
 
-![RocketMQ类比邮政体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-00175355-5532-4ee6-a48c-e3e3a9b87d64.jpg)
+![极客时间：RocketMQ 的整体架构](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251127110113.png)
 
-##### NameServer
+NameServer 把这些信息存储在内存里，形成一个路由表。
 
-NameServer 是一个无状态的服务器，角色类似于 Kafka 使用的 Zookeeper，但比 Zookeeper 更轻量。
+![极客时间：broker 注册](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251127110749.png)
 
-特点：
+它的第二个职责是提供路由查询服务。当生产者或消费者需要知道某个主题在哪个 Broker 上时，就向 NameServer 查询。NameServer 会根据主题名称返回对应的 Broker 地址和队列信息。
 
-- 每个 NameServer 结点之间是相互独立，彼此没有任何信息交互。
-- Nameserver 被设计成几乎是无状态的，通过部署多个结点来标识自己是一个伪集群，Producer 在发送消息前从 NameServer 中获取 Topic 的路由信息也就是发往哪个 Broker，Consumer 也会定时从 NameServer 获取 Topic 的路由信息，Broker 在启动时会向 NameServer 注册，并定时进行心跳连接，且定时同步维护的 Topic 到 NameServer。
+第三个职责是监控 Broker 的状态。Broker 会定期向 NameServer 发送心跳，报告自己的状态。如果某个 Broker 长时间没有发送心跳，NameServer 会将其标记为不可用，并从路由表中移除。
 
-功能主要有两个：
+#### 请说说Broker的作用？
 
-- 1、和 Broker 结点保持长连接。
-- 2、维护 Topic 的路由信息。
+Broker 是一个消息存储服务器，它负责接收生产者的消息，并将其存储起来，然后在消费者拉取时返回给它们。
 
-##### Broker
+![RocketMQ 的 broker 存储](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-789379a9-4a0c-4992-9de1-e49283d089a4.jpg)
 
-消息存储和中转角色，负责存储和转发消息。
+#### 请说说生产者？
 
-- Broker 内部维护着一个个 Consumer Queue，用来存储消息的索引，真正存储消息的地方是 CommitLog（日志文件）。
+生产者的核心职责是把应用程序的数据转化为消息，发送到 Broker。
 
-![RocketMQ存储-图片来源官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-789379a9-4a0c-4992-9de1-e49283d089a4.jpg)
+![极客时间：生产者](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251127112024.png)
 
-- 单个 Broker 与所有的 Nameserver 保持着长连接和心跳，并会定时将 Topic 信息同步到 NameServer，和 NameServer 的通信底层是通过 Netty 实现的。
+RocketMQ 提供了三种方式发送消息：同步、异步和单向。
 
-##### Producer
+- **同步发送**：生产者发送消息后会阻塞等待 Broker 的响应。只有收到 Broker 确认消息已存储的响应后，才会返回给应用程序。
+- **异步发送**：生产者发送消息后立即返回，不阻塞。Broker 的响应会通过回调函数返回给应用程序。
+- **单向发送**：生产者发送消息后直接返回，不等待响应，也不需要回调。这个模式用于一些不关心发送结果的场景。
 
-消息生产者，业务端负责发送消息，由用户自行实现和分布式部署。
+#### 请说说消费者？
 
-- **Producer**由用户进行分布式部署，消息由**Producer**通过多种负载均衡模式发送到**Broker**集群，发送低延时，支持快速失败。
-- **RocketMQ** 提供了三种方式发送消息：同步、异步和单向
+消费者是消息的接收方，它的核心职责就是从 Broker 拉取消息，进行业务处理，然后提交消费位移。
 
-- **同步发送**：同步发送指消息发送方发出数据后会在收到接收方发回响应之后才发下一个数据包。一般用于重要通知消息，例如重要通知邮件、营销短信。
-- **异步发送**：异步发送指发送方发出数据后，不等接收方发回响应，接着发送下个数据包，一般用于可能链路耗时较长而对响应时间敏感的业务场景，例如用户视频上传后通知启动转码服务。
-- **单向发送**：单向发送是指只负责发送消息而不等待服务器回应且没有回调函数触发，适用于某些耗时非常短但对可靠性要求并不高的场景，例如日志收集。
+![消费者](https://cdn.tobebetterjavaer.com/stutymore/rocketmq-20251127113326.png)
 
-##### Consumer
+RocketMQ 同时支持 Pull、Push、Pop 三种消费模型。
 
-消息消费者，负责消费消息，一般是后台系统负责异步消费。
+Pull 模型是最基础的消费方式。消费者主动向 Broker 发起请求，拉取消息。Push 模型在使用上看起来像是服务端在推送消息，但实际上底层仍然是 Pull 模型。
 
-- **Consumer**也由用户部署，支持 PUSH 和 PULL 两种消费模式，支持**集群消费**和**广播消费**，提供**实时的消息订阅机制**。
-- **Pull**：拉取型消费者（Pull Consumer）主动从消息服务器拉取信息，只要批量拉取到消息，用户应用就会启动消费过程，所以 Pull 称为主动消费型。
-- **Push**：推送型消费者（Push Consumer）封装了消息的拉取、消费进度和其他的内部维护工作，将消息到达时执行的回调接口留给用户应用程序来实现。所以 Push 称为被动消费类型，但其实从实现上看还是从消息服务器中拉取消息，不同于 Pull 的是 Push 首先要注册消费监听器，当监听器处触发后才开始消费消息。
+当消费者很多的时候，消费重平衡会消耗很长的时间，于是 RocketMQ 提供了 Pop 模型。Pop 模型把消费重平衡完全移到了服务端，以减轻消费者的负担。
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+<MZNXQRcodeBanner />
 
-微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+memo：2025 年 11 月 27 日修改至此，今天有球友反馈说拿到了字节的 offer，SSP offer，还有 8 万签字费，特意感谢了[星球的项目](https://javabetter.cn/zhishixingqiu/)和[面渣逆袭八股](https://javabetter.cn/sidebar/sanfene/nixi.html)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![球友拿到的字节 offer 非常夸张，恭喜](https://cdn.tobebetterjavaer.com/stutymore/2025nian11yue25ri9826-image3689.png)
 
 ## 进阶
 
