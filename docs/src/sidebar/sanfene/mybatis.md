@@ -319,7 +319,7 @@ public class Order {
 
 ```java
 <!-- 订单resultMap -->
-<resultMap id="peopleResultMap" type="cn.fighter3.entity.Order">
+<resultMap id="orderDetailMap" type="cn.fighter3.entity.Order">
     <id property="orderId" column="order_id" />
     <result property="orderDesc" column="order_desc"/>
     <!--一对一结果映射-->
@@ -333,7 +333,7 @@ public class Order {
 查询就是普通的关联查
 
 ```java
-<select id="getTeacher" resultMap="getTeacherMap" parameterType="int">
+<select id="getOrderDetailMap" resultMap="orderDetailMap" parameterType="int">
     select * from order o
      left join pay p on o.order_id=p.order_id
     where  o.order_id=#{orderId}
