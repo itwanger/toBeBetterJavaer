@@ -974,7 +974,7 @@ public class MyInterceptor implements Interceptor {
 ```java
 <plugins>
     <plugin interceptor="xxx.MyPlugin">
-       <property name="dbType",value="mysql"/>
+       <property name="dbType" value="mysql"/>
     </plugin>
 </plugins>
 ```
