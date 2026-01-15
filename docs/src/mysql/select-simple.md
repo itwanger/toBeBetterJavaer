@@ -20,15 +20,15 @@ shortTitle: MySQL 之简单查询
 
 目前技术派实战项目初始启动后的数据表如下所示，article 表是本篇内容主要查询的表对象。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215201036.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215201036.png)
 
 如果你用 Intellij IDEA 打开技术派的源码，可以在 init_data_221209.sql 文件中看到这些数据的插入语句。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215201501.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215201501.png)
 
 表结构的定义在 init_schema_221209.sql 文件中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215202135.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215202135.png)
 
 好，初始数据准备完成后，我们就可以开始查询语句的学习了。
 
@@ -48,7 +48,7 @@ SELECT title FROM article;
 
 执行这条语句后，我们可以看到下面这些数据。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215202528.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215202528.png)
 
 ### 别名
 
@@ -86,7 +86,7 @@ SELECT 字段1, 字段2, 字段3 FROM 表名;
 SELECT title, user_id, create_time FROM article;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215203340.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215203340.png)
 
 ## 查询所有字段
 
@@ -104,7 +104,7 @@ SELECT * FROM article;
 
 由于某些字段的内容较多，我们可以使用 `\G` 来查看结果集。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215203501.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215203501.png)
 
 说到 `*` 通配符，就必须得提一嘴 `SELECT COUNT(*)` 和 `SELECT COUNT(字段名)`，以及 `SELECT COUNT(1)`，是面试中经常考察的一个知识点，我们后面会专门抽出来一篇帖子来讲，这里先放个传送门。
 
@@ -128,7 +128,7 @@ SELECT DISTINCT 字段名 FROM 表名;
 SELECT DISTINCT tag_name FROM tag;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215204633.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215204633.png)
 
 ## 查询结果排序
 
@@ -146,7 +146,7 @@ ASC 是升序，DESC 是降序，默认是升序。
 SELECT title,create_time FROM article ORDER BY create_time DESC;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215204911.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215204911.png)
 
 如果需要按照多个字段排序，可以使用逗号 `,` 分隔字段进行排序。
 
@@ -160,7 +160,7 @@ SELECT 字段1, 字段2 FROM 表名 ORDER BY 字段1 [ASC|DESC], 字段2 [ASC|DE
 SELECT title,create_time,update_time FROM article ORDER BY create_time DESC, update_time ASC;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215205249.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215205249.png)
 
 ## 查询结果限制条数
 
@@ -186,7 +186,7 @@ SELECT title FROM article LIMIT 5,5;
 
 开始行为 5 是因为数据集在计数的时候是以 0 开始的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215205915.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215205915.png)
 
 不过，使用 LIMIT 和大偏移量（OFFSET）进行分页时，MySQL 需要读取从开始到偏移量指定的行数的所有数据，然后丢弃前面所有的行，只返回指定范围内的数据。这意味着，随着 OFFSET 值的增加，性能会逐渐下降。对于大数据量的表，这会导致查询变得非常慢。
 
@@ -204,13 +204,13 @@ SELECT title FROM article LIMIT 5,5;
 
 比如说，技术派当中就使用了 MyBatis-Plus 框架，它提供了很多便捷的查询方法，比如说 `selectById`、`selectList`、`selectPage` 等等，这些方法都是基于 `SELECT` 语句的封装。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215211609.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215211609.png)
 
 大家如果对 MyBatis-Plus 的源码感兴趣的话，可以研究一下它的 `selectById` 方法，看看它是如何封装 `SELECT` 语句的。
 
 虽然有持久层框架的帮助，但我们还是需要掌握 SQL 语句的基本用法，因为有些复杂的查询，持久层框架可能无法满足我们的需求，这时候就需要我们手动编写 SQL 语句了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-simple-20240215212425.png)
+![](https://cdn.paicoding.com/stutymore/select-simple-20240215212425.png)
 
 好了，今天的内容就到这里，希望新手都能够按照教程实操一遍，加深对 SELECT 语句的理解。
 
@@ -222,4 +222,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

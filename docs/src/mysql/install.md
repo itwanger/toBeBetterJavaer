@@ -51,23 +51,23 @@ MySQL 8.0 引入了很多重大更新，包括：
 
 或者直接在搜素引擎上搜“MySQL 下载”关键字，跳转到官网。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231210224715.png)
+![](https://cdn.paicoding.com/stutymore/install-20231210224715.png)
 
 网站会根据你的操作系统自动帮你匹配对应的版本，如下图所示。新手直接下载 MSI 安装包即可。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231210224749.png)
+![](https://cdn.paicoding.com/stutymore/install-20231210224749.png)
 
 > MSI，Microsoft Installer，一种用于在 Windows 操作系统上安装、维护和删除软件的文件格式。
 
 当出现以下界面时，直接选择「no thanks，just start my download」即可。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231210225343.png)
+![](https://cdn.paicoding.com/stutymore/install-20231210225343.png)
 
 下载完成后，直接双击安装（我这里只说关键步骤）。
 
 当出现下面这一步时，选择默认的开发者模式就好（会安装 MySQL 服务器「必须」、MySQL Shell「命令行操作」、MySQL 连接器「支持编程语言和 MySQL 之间的通信」等）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231210230230.png)
+![](https://cdn.paicoding.com/stutymore/install-20231210230230.png)
 
 MySQL 的架构是 C/S 架构，即客户端/服务器架构，客户端负责发送 SQL 命令，服务器负责解析和执行 SQL 命令，然后返回结果给客户端。
 
@@ -75,27 +75,27 @@ MySQL 的架构是 C/S 架构，即客户端/服务器架构，客户端负责�
 
 在「高可用」界面上选择「Standalone MySql Server / Classic MySQL Replication」，意思就是我们打算让 MySQL 作为单机服务器来运行。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211095400.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211095400.png)
 
 在「Type and Networking」界面上，选择「Development Computer」，开发计算机，占用最小资源。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211095628.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211095628.png)
 
 「Connectivity」中如果 3306 端口被占用的情况下可以修改，但不建议，保持默认就好。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211095809.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211095809.png)
 
 MySQL 8.0 版本可以使用强密码，本地开发随便选就好。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211100133.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211100133.png)
 
 安装过程中会提示你输入 root 用户的密码，这个密码一定要记住，后面会用到。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211100308.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211100308.png)
 
 在「Windows Service」界面上，可以勾选复选框让 MySQL 作为 Windows 服务运行，然后指定服务名（当开机时启动 MySQL），并作为标准系统账号。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211100333.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211100333.png)
 
 就这样一直到 finish 就行，其他的配置不明白的话，可以参考这篇：[在 Windows 上安装 MySQL](https://www.sjkjc.com/mysql/install-on-windows/)
 
@@ -107,23 +107,23 @@ MySQL 8.0 版本可以使用强密码，本地开发随便选就好。
 
 根据自己的 macOS 是 Intel 还是 M1 芯片，选择对应的版本。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211101108.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211101108.png)
 
 我目前的机器是 Intel 版本，所以选择 [x86 架构](https://zh.wikipedia.org/zh-sg/X86)的 64 位版本，苹果最新的芯片采用的是 [ARM 架构](https://zh.wikipedia.org/zh-cn/ARM)，高级精简指令集，不懂的小伙伴可以去查一下维基百科。
 
 也可以直接运行 `uname -m` 命令来查看自己的 macOS 是基于哪种架构。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211104408.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211104408.png)
 
 安装包的安装方式几乎和 Windows 完全一样，我这里就不再赘述了。
 
 安装完成后，会在系统偏好设置里出现一个 MySQL 的服务图标，如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211101657.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211101657.png)
 
 如果使用 Homebrew 安装的话，可以问一下 [wrap](https://javabetter.cn/gongju/warp.html) AI，我之前有强烈推荐这个终端工具。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211101804.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211101804.png)
 
 ### Linux 平台
 
@@ -136,7 +136,7 @@ Linux 平台通常又分为 CentOS 和 Ubuntu 两种：
 
 可以通过 `cat /etc/os-release` 命令来查看自己的 Linux 版本。二哥目前有两台服务器，一台腾讯云的，一台阿里云的，TencentOS 是完全兼容 CentOS 的；阿里云的是 Ubuntu。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211104952.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211104952.png)
 
 #### CentOS
 
@@ -194,7 +194,7 @@ Windows 和 macOS 平台的 MySQL 安装完成后，启动或者停止服务可�
 
 比如说 macOS 的：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211105739.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211105739.png)
 
 Linux 的话就主要通过命令来完成，比如说。
 
@@ -223,7 +223,7 @@ MySQL 的连接方式主要有两种：
 
 如果 MySQL 已经安装到系统环境变量中，那么可以直接在命令行中输入 `mysql -u root -p` 来连接 MySQL。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211110505.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211110505.png)
 
 如果没有安装到系统环境变量中，Windows 平台可以在 MySQL 的安装目录下的 bin 目录中找到 mysql.exe 文件，macOS 平台可以在 `/usr/local/mysql/bin` 目录下找到 mysql 文件。
 
@@ -237,7 +237,7 @@ cd C:\Program Files\MySQL\MySQL Server 8.0\bin
 
 如果是用 MySQL 安装包在 macOS 上安装，安装目录一般在 `/usr/local/mysql`，可以通过 `cd /usr/local/mysql/bin` 命令来进入 bin 目录，然后输入 `./mysql -uroot -p` 命令来连接 MySQL。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20240125180325.png)
+![](https://cdn.paicoding.com/stutymore/install-20240125180325.png)
 
 `./mysql -uroot -p` 命令中的 `./` 表示当前目录，通过 `./mysql` 而不是 `mysql`
 
@@ -253,11 +253,11 @@ cd C:\Program Files\MySQL\MySQL Server 8.0\bin
 
 我个人使用的是 [Navicat](https://paicoding.com/article/detail/411)，大家可以通过链接找到安装包，安装完成后新建连接。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211111109.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211111109.png)
 
 然后就可以查看对应的数据库和表了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211111211.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211111211.png)
 
 ## 小结
 
@@ -270,4 +270,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

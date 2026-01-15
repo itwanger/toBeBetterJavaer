@@ -32,7 +32,7 @@ head:
 
 系统初期的数据库架构如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-965dbc52-1fad-4cf7-a6fc-f04ff445101f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-965dbc52-1fad-4cf7-a6fc-f04ff445101f.jpg)
 
 此时，使用的数据库方案是：`一个数据库`包含`多张业务表`。用户读数据请求和写数据请求，都是操作的同一个数据库。
 
@@ -48,7 +48,7 @@ head:
 
 将`用户表`拆分为：`用户基本信息表` 和 `用户扩展表`。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-32cbe5e1-b88b-4125-b990-8f901467fbb2.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-32cbe5e1-b88b-4125-b990-8f901467fbb2.jpg)
 
 用户基本信息表中存的是用户最主要的信息，比如：用户名、密码、别名、手机号、邮箱、年龄、性别等核心数据。
 
@@ -76,7 +76,7 @@ head:
 
 具体拆分过程如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-9cab165b-f2e0-4c80-9bd1-cc272a78429c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-9cab165b-f2e0-4c80-9bd1-cc272a78429c.jpg)
 
 将用户、产品、物流、订单相关的表，从原来一个数据库中，拆分成单独的用户库、产品库、物流库和订单库，一共四个数据库。
 
@@ -92,7 +92,7 @@ head:
 
 每年都有个单独的数据库，每个数据库中，都有12张表，每张表存储一个月的用户资金数据。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-38434e50-9dce-467f-a036-e75038d9f3f6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-38434e50-9dce-467f-a036-e75038d9f3f6.jpg)
 
 这样分库分表之后，就能非常高效的查询出某个用户每个月，或者每年的资金了。
 
@@ -110,7 +110,7 @@ head:
 
 这时的数据库架构如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-965dbc52-1fad-4cf7-a6fc-f04ff445101f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-965dbc52-1fad-4cf7-a6fc-f04ff445101f.jpg)
 
 此时，使用的数据库方案同样是：`一个master数据库`包含`多张业务表`。
 
@@ -132,7 +132,7 @@ head:
 
 于是，就出现了主从读写分离架构：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-e56c2d22-9aa2-4502-8d2a-f4416ce20db9.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-e56c2d22-9aa2-4502-8d2a-f4416ce20db9.jpg)
 
 考虑刚开始用户量还没那么大，选择的是`一主一从`的架构，也就是常说的一个master一个slave。
 
@@ -150,13 +150,13 @@ head:
 
 这就需要`一主多从`的架构了：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-1fc49e99-76ac-4aea-8c3d-e438de2cdd1c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-1fc49e99-76ac-4aea-8c3d-e438de2cdd1c.jpg)
 
 上图中我列的是`一主两从`，如果master挂了，可以选择从库1或从库2中的一个，升级为新master。假如我们在这里升级从库1为新master，则原来的从库2就变成了新master的的slave了。
 
 调整之后的架构图如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-bbf8495d-2338-4bcf-b8e3-cebaea4fac29.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-bbf8495d-2338-4bcf-b8e3-cebaea4fac29.jpg)
 
 这样就能解决上面的问题了。
 
@@ -172,7 +172,7 @@ head:
 
 用户库的拆分过程如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-f2354590-0161-45e7-afb7-4ad07a3763fb.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-f2354590-0161-45e7-afb7-4ad07a3763fb.jpg)
 
 在这里我将用户库拆分成了三个库（真实场景不一定是这样的），每个库的表结构是一模一样的，只有存储的数据不一样。
 
@@ -192,7 +192,7 @@ head:
 
 表拆分过程如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-8830dc2f-b088-4190-bc9a-a19bf55de99b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-8830dc2f-b088-4190-bc9a-a19bf55de99b.jpg)
 
 我在这里将用户库中的用户表，拆分成了四张表（真实场景不一定是这样的），每张表的表结构是一模一样的，只是存储的数据不一样。
 
@@ -206,7 +206,7 @@ head:
 
 如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-1cfacfbf-283a-4415-91da-c0c2616c2f0a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-1cfacfbf-283a-4415-91da-c0c2616c2f0a.jpg)
 
 图中将用户库拆分成了三个库，每个库都包含了四张用户表。
 
@@ -239,7 +239,7 @@ head:
 
 为了解决这两个问题，我们当时采用的方案是：`分库`。即针对每一个游戏都单独建一个数据库，数据库中的表结构允许存在差异。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-f9f55b53-0465-48d1-9715-241129fe7833.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-f9f55b53-0465-48d1-9715-241129fe7833.jpg)
 
 我们当时没有进一步分表，是因为当时考虑每种游戏的用户量，还没到大到离谱的地步。不像王者荣耀这种现象级的游戏，有上亿的玩家。
 
@@ -271,7 +271,7 @@ head:
 
 当时使用一个积分数据库就够了，但是分了128张表。然后根据用户id，进行hash除以128取模。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-884b58a4-3009-4056-904d-cd235db41aa6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-884b58a4-3009-4056-904d-cd235db41aa6.jpg)
 
 > 需要特别注意的是，分表的数量最好是2的幂次方，方便以后扩容。
 
@@ -289,7 +289,7 @@ head:
 
 当时分了4个库，每个库有32张表。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-ed3d9006-7dd5-4f90-a566-8874020df4ea.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-ed3d9006-7dd5-4f90-a566-8874020df4ea.jpg)
 
 ## 4 总结
 
@@ -319,4 +319,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -33,7 +33,7 @@ Maven 坐标：
 
 StringUtils 提供了非常多实用的方法，大概有下图的四页到五页，我只截了两页，实在是太多了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/StringUtils-20230330111122.png)
+![](https://cdn.paicoding.com/stutymore/StringUtils-20230330111122.png)
 
 接下来，我们来拿一些常用的方法举例说明。
 
@@ -185,4 +185,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

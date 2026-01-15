@@ -19,7 +19,7 @@ head:
 
 我由 Google 公司开源，目前在 GitHub 上已经有 39.9k 的铁粉了，由此可以证明我的受欢迎程度。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/guava-01.png)
 
 我的身体里主要包含有这些常用的模块：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等。新版的 JDK 中已经直接把我引入了，可想而知我有多优秀，忍不住骄傲了。
 
@@ -43,7 +43,7 @@ head:
 
 Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“[null 真糟糕](https://javabetter.cn/exception/npe.html)”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
+![](https://cdn.paicoding.com/stutymore/guava-20230329172935.png)
 
 
 代码示例如下所示。
@@ -326,7 +326,7 @@ list的原始顺序是312，使用`reverse`方法颠倒顺序之后，变成了2
 
 Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣的小伙伴，可以仔细研究一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
 
 ### 08、尾声
 
@@ -334,7 +334,7 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 
 我觉得适用于每一个 Java 项目，至于其他的一些功能，比如说散列、事件总线、数学运算、反射，就等待你去发掘了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/guava-03.png)
 
 ----
 
@@ -343,4 +343,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

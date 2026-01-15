@@ -34,7 +34,7 @@ abstract class AbstractPlayer {
 
 抽象类是不能实例化的，尝试通过 `new` 关键字实例化的话，编译器会报错，提示“类是抽象的，不能实例化”。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/abstract-01.png)
 
 虽然抽象类不能实例化，但可以有子类。子类通过 `extends` 关键字来继承抽象类。就像下面这样。
 
@@ -47,11 +47,11 @@ public class BasketballPlayer extends AbstractPlayer {
 
 当我们尝试在一个普通类中定义抽象方法的时候，编译器会有两处错误提示。第一处在类级别上，提示“这个类必须通过 `abstract` 关键字定义”，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/abstract-02.png)
 
 第二处在尝试定义 abstract 的方法上，提示“抽象方法所在的类不是抽象的”，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/abstract-03.png)
 
 抽象类中既可以定义抽象方法，也可以定义普通方法，就像下面这样：
 
@@ -78,7 +78,7 @@ public class BasketballPlayer extends AbstractPlayer {
 
 如果没有实现的话，编译器会提示“子类必须实现抽象方法”，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/abstract-04.png)
 
 ### 03、抽象类的应用场景
 
@@ -258,7 +258,7 @@ public class FileReaderTest {
 
 在项目的 resource 目录下建一个文本文件，名字叫 helloworld.txt，里面的内容就是“Hello World”。文件的具体位置如下图所示，我用的集成开发环境是 Intellij IDEA。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/abstract-05.png)
 
 
 在 resource 目录下的文件可以通过 `ClassLoader.getResource()` 的方式获取到 URI 路径，然后就可以取到文本内容了。
@@ -294,4 +294,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

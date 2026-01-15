@@ -15,7 +15,7 @@ export default hopeTheme({
   // 阿里妈妈图标的前缀
   iconPrefix: "iconfont icon-",
 
-  logo: "https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo-02.png",
+  logo: "https://cdn.paicoding.com/tobebetterjavaer/images/logo-02.png",
 
   // Git 仓库和编辑链接
   repo: "https://github.com/itwanger/toBeBetterJavaer",
@@ -38,7 +38,7 @@ export default hopeTheme({
 
   // 页脚支持
   footer: '<a href="https://beian.miit.gov.cn/" target="_blank">豫ICP备2021038026号-4</a>'
-  +'<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/beian.png" height="15px" width="15px" />'
+  +'<img src="https://cdn.paicoding.com/tobebetterjavaer/images/beian.png" height="15px" width="15px" />'
   +'<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41030502000411">'
   +'<span>豫公网安备 41030502000411号</span>'
   +'</a>',
@@ -248,7 +248,7 @@ export default hopeTheme({
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     pwa: {
       update: "hint",
-      favicon: "https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/favicon.ico",
+      favicon: "https://cdn.paicoding.com/tobebetterjavaer/images/favicon.ico",
       cacheHTML: true,
       cacheImage: true,
       appendBase: true,

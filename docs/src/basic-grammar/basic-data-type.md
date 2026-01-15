@@ -27,13 +27,13 @@ Java 中的数据类型可分为 2 种：
 
 来个思维导图，感受下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
 [变量](https://javabetter.cn/oo/var.html)可以分为局部变量、成员变量、静态变量。
 
 当变量是局部变量的时候，必须得先初始化，否则编译器不允许你使用它。拿 int 来举例吧，看下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-02.png)
 
 当变量是成员变量或者静态变量时，可以不进行初始化，它们会有一个默认值，仍然以 int 为例，来看代码：
 
@@ -93,7 +93,7 @@ public class LocalVar {
 
 （终于知道 1024 和程序员的关系了吧？狗头保命）
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-03.png)
 
 ### 02、基本数据类型
 
@@ -118,7 +118,7 @@ boolean hasGirlFriend = false;
 
 对于作为数组来使用的 boolean 类型，JVM 会按照 byte 的指令来处理（bastore），那么已知 byte 类型占用 1 个字节，所以此时的 boolean 也占用 1 个字节。
 
-![二哥的 Java 进阶之路：javap 验证](https://cdn.tobebetterjavaer.com/stutymore/basic-data-type-20240602170355.png)
+![二哥的 Java 进阶之路：javap 验证](https://cdn.paicoding.com/stutymore/basic-data-type-20240602170355.png)
 
 论调二，布尔具体占用的大小是不确定的，取决于 JVM 的具体实现。
 
@@ -290,13 +290,13 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 
 单精度是这样的格式，1 位符号，8 位指数，23 位小数。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-04.png)
 
 单精度浮点数通常占用 32 位（4 字节）存储空间。数值范围大约是 ±1.4E-45 到 ±3.4028235E38，精度大约为 6 到 9 位有效数字。
 
 双精度是这样的格式，1 位符号，11 位指数，52 为小数。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-05.png)
 
 双精度浮点数通常占用 64 位（8 字节）存储空间，数值范围大约是 ±4.9E-324 到 ±1.7976931348623157E308，精度大约为 15 到 17 位有效数字。
 
@@ -573,7 +573,7 @@ arrays 是一个 int 类型的数组，对吧？打印结果如下所示：
 
 `[I` 表示数组是 int 类型的，@ 后面是十六进制的 hashCode——这样的打印结果太“人性化”了，一般人表示看不懂！为什么会这样显示呢？查看一下 `java.lang.Object` 类的 `toString()` 方法就明白了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-06.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-06.png)
 
 数组虽然没有显式定义成一个类，但它的确是一个对象，继承了祖先类 Object 的所有方法。那为什么数组不单独定义一个类来表示呢？就像字符串 String 类那样呢？
 
@@ -612,7 +612,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 对于接口类型的引用变量来说，你没法直接 new 一个：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-07.png)
 
 只能 new 一个实现它的类的对象——那自然接口也是引用数据类型了。
 
@@ -648,7 +648,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 用图来表示一下，左侧是栈，右侧是堆。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-grammar/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
 
 这里再补充一些额外的知识点，能看懂就继续吸收，看不懂可以先去学下一节，以后再来补，没关系的。学习就是这样，可以跳过，可以温故。
 
@@ -673,7 +673,7 @@ public void test()
 
 我来画个图表示下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-grammar/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
 
 应该一目了然了吧？
 
@@ -689,4 +689,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

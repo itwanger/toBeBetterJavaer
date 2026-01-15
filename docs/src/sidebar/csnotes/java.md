@@ -16,11 +16,11 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本（我会不定期更新）。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
 
-![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+![无任何套路](https://cdn.paicoding.com/stutymore/javase-20240605194117.png)
 
 附其他干货笔记下载地址：
 
@@ -37,7 +37,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 ### 基本类型
 
-![二哥的 Java 进阶之路：数据类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
+![二哥的 Java 进阶之路：数据类型](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
 Java 基本数据类型的默认值和占用大小：
 
@@ -145,7 +145,7 @@ System.out.println(m == n); // true
 
 在启动 jvm 的时候，可以通过 -XX:AutoBoxCacheMax=&lt;size&gt; 来指定缓冲池的大小，该选项在 JVM 初始化的时候会设定一个名为 java.lang.IntegerCache.high 系统属性，然后 IntegerCache 初始化的时候就会读取该系统属性来决定上界。
 
-![沉默王二：IntegerCache.high](https://cdn.tobebetterjavaer.com/stutymore/Java基础-20240602173130.png)
+![沉默王二：IntegerCache.high](https://cdn.paicoding.com/stutymore/Java基础-20240602173130.png)
 
 
 ## 二、String
@@ -185,7 +185,7 @@ value 数组被声明为 final，这意味着 value 变量在数组初始化之�
 
 HashMap 的底层数据结构是数组，其键值对在数组中的位置是通过 `(n - 1) & hash` 计算得到的，n 也就是数组的长度，hash 也就是键的哈希值。
 
-![沉默王二：字符串的不可变性](https://cdn.tobebetterjavaer.com/stutymore/Java基础-20240604072937.png)
+![沉默王二：字符串的不可变性](https://cdn.paicoding.com/stutymore/Java基础-20240604072937.png)
 
 如果键是可变的，那么在计算键的哈希值时，哈希值也是不确定的，于是就无法准确地在数组中定位到键值对的位置。
 
@@ -197,7 +197,7 @@ HashMap 的底层数据结构是数组，其键值对在数组中的位置是通
 
 通过双引号创建的字符串（如 "沉默王二"）都会被加入到字符串常量池中，这样就可以减少字符串的创建，节约内存空间。
 
-![沉默王二：字符串常量池](https://cdn.tobebetterjavaer.com/stutymore/Java基础-20240604074510.png)
+![沉默王二：字符串常量池](https://cdn.paicoding.com/stutymore/Java基础-20240604074510.png)
 
 推荐阅读：[深入理解Java的字符串常量池](https://javabetter.cn/string/constant-pool.html)
 
@@ -311,7 +311,7 @@ public String(String original) {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、运算
 
@@ -619,7 +619,7 @@ public InitialOrderTest() {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 五、Object 通用方法
 
@@ -1381,7 +1381,7 @@ public static void main(String[] args) {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 七、反射
 
@@ -1420,7 +1420,7 @@ Throwable 可以用来表示任何可以作为异常抛出的类，分为两种�
 -   **受检异常**  ：需要用 try...catch... 语句捕获并进行处理，并且可以从异常中恢复；
 -   **非受检异常**  ：程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
 
-![二哥的 Java 进阶之路：异常](https://cdn.tobebetterjavaer.com/studymore/gailan-20230326090207.png)
+![二哥的 Java 进阶之路：异常](https://cdn.paicoding.com/studymore/gailan-20230326090207.png)
 
 推荐阅读：[一文彻底搞懂Java异常处理](https://javabetter.cn/exception/gailan.html)
 
@@ -1491,7 +1491,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 
@@ -1571,7 +1571,7 @@ public static void copyFile(String src, String dist) throws IOException {
 
 Java I/O 使用了装饰者模式来实现。
 
-![cyc2018：InputStream](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606165832.png)
+![cyc2018：InputStream](https://cdn.paicoding.com/stutymore/java-io-20240606165832.png)
 
 以 InputStream 为例：
 
@@ -1654,7 +1654,7 @@ public static void readFileContent(String filePath) throws IOException {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 五、对象操作
 
@@ -1771,7 +1771,7 @@ public static void main(String[] args) throws IOException {
 
 ### Sockets
 
-![cyc2018：服务端和客户端模型](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606170549.png)
+![cyc2018：服务端和客户端模型](https://cdn.paicoding.com/stutymore/java-io-20240606170549.png)
 
 - ServerSocket：服务器端类
 - Socket：客户端类
@@ -1839,23 +1839,23 @@ I/O 包和 NIO 已经很好地集成了，java.io.\* 已经以 NIO 为基础重�
 
 ① 新建一个大小为 8 个字节的缓冲区，此时 position 为 0，而 limit = capacity = 8。capacity 变量不会改变，下面的讨论会忽略它。
 
-![cyc2018：limit = capacity](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180609.png)
+![cyc2018：limit = capacity](https://cdn.paicoding.com/stutymore/java-io-20240606180609.png)
 
 ② 从输入通道中读取 5 个字节数据写入缓冲区中，此时 position 为 5，limit 保持不变。
 
-![cyc2018：position 不变](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180749.png)
+![cyc2018：position 不变](https://cdn.paicoding.com/stutymore/java-io-20240606180749.png)
 
 ③ 在将缓冲区的数据写到输出通道之前，需要先调用 `flip()` 方法，这个方法将 limit 设置为当前 position，并将 position 设置为 0。
 
-![cyc2018：limit 和 position 重新改变](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180846.png)
+![cyc2018：limit 和 position 重新改变](https://cdn.paicoding.com/stutymore/java-io-20240606180846.png)
 
 ④ 从缓冲区中取 4 个字节到输出缓冲中，此时 position 设为 4。
 
-![cyc2018：读取 4 个字节](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180919.png)
+![cyc2018：读取 4 个字节](https://cdn.paicoding.com/stutymore/java-io-20240606180919.png)
 
 ⑤ 最后需要调用 `clear()` 方法来清空缓冲区，此时 position 和 limit 都被设置为最初位置。
 
-![cyc2018：恢复到初始状态](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180948.png)
+![cyc2018：恢复到初始状态](https://cdn.paicoding.com/stutymore/java-io-20240606180948.png)
 
 推荐阅读：[详解Java NIO的Buffer缓冲区和Channel通道](https://javabetter.cn/nio/buffer-channel.html)
 
@@ -1915,7 +1915,7 @@ NIO 实现了 IO 多路复用中的 Reactor 模型，一个线程 Thread 使用�
 
 应该注意的是，只有 SocketChannel 才能配置为非阻塞，FileChannel 不能，为 FileChannel 配置非阻塞也没有意义。
 
-![CYC2018：IO 多路复用](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606181154.png)
+![CYC2018：IO 多路复用](https://cdn.paicoding.com/stutymore/java-io-20240606181154.png)
 
 #### 1. 创建选择器
 
@@ -2118,7 +2118,7 @@ NIO 与普通 I/O 的区别主要有以下两点：
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 花絮
 
@@ -2126,7 +2126,7 @@ NIO 与普通 I/O 的区别主要有以下两点：
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 
@@ -2143,7 +2143,7 @@ NIO 与普通 I/O 的区别主要有以下两点：
 
 容器，也叫集合框架，主要包括 Collection 和 Map，Collection 又细分为 Set、List 和 Queue，Set 不常用，List 也就是列表，Queue 是队列；Map 是键值对集合。
 
-![二哥的 Java 进阶之路-容器概览](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-01.png)
+![二哥的 Java 进阶之路-容器概览](https://cdn.paicoding.com/tobebetterjavaer/images/collection/gailan-01.png)
 
 推荐阅读：[Java集合框架全面解析](https://javabetter.cn/collection/gailan.html)
 
@@ -2180,7 +2180,7 @@ NIO 与普通 I/O 的区别主要有以下两点：
 
 Collection 继承了 Iterable 接口，其中的 `iterator()` 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。
 
-![CYC2018-迭代器](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606160103.png)
+![CYC2018-迭代器](https://cdn.paicoding.com/stutymore/java-collection-20240606160103.png)
 
 JDK 1.5 之后，可以使用 foreach 来遍历集合，非常方便。
 
@@ -2219,7 +2219,7 @@ List list = Arrays.asList(1, 2, 3);
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、源码分析
 
@@ -2242,7 +2242,7 @@ public class ArrayList<E> extends AbstractList<E>
 private static final int DEFAULT_CAPACITY = 10;
 ```
 
-![CYC2018：ArrayList](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606160600.png)
+![CYC2018：ArrayList](https://cdn.paicoding.com/stutymore/java-collection-20240606160600.png)
 
 #### 2. 扩容
 
@@ -2516,7 +2516,7 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 
 #### 1. 概览
 
-![cyc2018：LinkedList](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606162054.png)
+![cyc2018：LinkedList](https://cdn.paicoding.com/stutymore/java-collection-20240606162054.png)
 
 LinkedList 基于双向链表实现，使用 Node 存储链表节点信息。
 
@@ -2552,7 +2552,7 @@ ArrayList 基于动态数组实现，LinkedList 基于双向链表实现。Array
 
 HashMap 内部包含了一个 Entry 类型的数组 table。Entry 存储着键值对。它包含了四个字段，从 next 字段我们可以看出 Entry 是一个链表。
 
-![cyc2018：HashMap](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606162421.png)
+![cyc2018：HashMap](https://cdn.paicoding.com/stutymore/java-collection-20240606162421.png)
 
 即数组中的每个位置被当成一个桶，一个桶存放一个链表。HashMap 使用拉链法来解决冲突，同一个链表中存放哈希值和数组长度取模运算结果相同的 Entry。
 
@@ -2629,7 +2629,7 @@ map.put("K3", "V3");
 
 需要注意到，链表的插入是以头插法方式进行的，例如上面的 &lt;K3,V3\> 不是插在 &lt;K2,V2\> 后面，而是插入在链表头部。
 
-![cyc2018：拉链法](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606162624.png)
+![cyc2018：拉链法](https://cdn.paicoding.com/stutymore/java-collection-20240606162624.png)
 
 查找需要分成两步进行：
 
@@ -2937,7 +2937,7 @@ static final int tableSizeFor(int cap) {
 
 #### 1. 存储结构
 
-![cyc2018：ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606163737.png)
+![cyc2018：ConcurrentHashMap](https://cdn.paicoding.com/stutymore/java-collection-20240606163737.png)
 
 ```java
 static final class HashEntry<K,V> {
@@ -3273,7 +3273,7 @@ public final class ConcurrentCache<K, V> {
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 
@@ -3347,7 +3347,7 @@ public static void main(String[] args) throws ExecutionException, InterruptedExc
 
 同样也是需要实现 `run()` 方法，因为 Thread 类也实现了 Runable 接口。
 
-![二哥的 Java 进阶之路：Thread](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240611113746.png)
+![二哥的 Java 进阶之路：Thread](https://cdn.paicoding.com/stutymore/java-thread-20240611113746.png)
 
 当调用 `start()` 方法启动一个线程时，虚拟机会将该线程放入就绪队列中等待被调度，当一个线程被调度时会执行该线程的 `run()` 方法。
 
@@ -3953,7 +3953,7 @@ after
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 六、线程状态
 
@@ -4016,7 +4016,7 @@ after
 
 维护了一个计数器 cnt，每次调用 `countDown()` 方法会让计数器的值减 1，减到 0 的时候，那些因为调用 `await()` 方法而在等待的线程就会被唤醒。
 
-![CyC2018：CountDownLatch](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710152221.png)
+![CyC2018：CountDownLatch](https://cdn.paicoding.com/stutymore/java-thread-20240710152221.png)
 
 ```java
 public class CountdownLatchExample {
@@ -4067,7 +4067,7 @@ public CyclicBarrier(int parties) {
 }
 ```
 
-![CyC2018：CyclicBarrier](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710152441.png)
+![CyC2018：CyclicBarrier](https://cdn.paicoding.com/stutymore/java-thread-20240710152441.png)
 
 ```java
 public class CyclicBarrierExample {
@@ -4328,7 +4328,7 @@ public class ForkJoinPool extends AbstractExecutorService
 
 例如下图中，Thread2 从 Thread1 的队列中拿出最晚的 Task1 任务，Thread1 会拿出 Task2 来执行，这样就避免发生竞争。但是如果队列中只有一个任务时还是会发生竞争。
 
-![CyC2018：ForkJoinPool](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710153521.png)
+![CyC2018：ForkJoinPool](https://cdn.paicoding.com/stutymore/java-thread-20240710153521.png)
 
 推荐阅读：[深入理解Java并发编程之Fork/Join框架](https://javabetter.cn/thread/fork-join.html)
 
@@ -4381,7 +4381,7 @@ public static void main(String[] args) throws InterruptedException {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 十、Java 内存模型
 
@@ -4393,19 +4393,19 @@ Java 内存模型试图屏蔽各种硬件和操作系统的内存访问差异，
 
 加入高速缓存带来了一个新的问题：缓存一致性。如果多个缓存共享同一块主内存区域，那么多个缓存的数据可能会不一致，需要一些协议来解决这个问题。
 
-![CyC2018：缓存一致性问题](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710153718.png)
+![CyC2018：缓存一致性问题](https://cdn.paicoding.com/stutymore/java-thread-20240710153718.png)
 
 所有的变量都存储在主内存中，每个线程还有自己的工作内存，工作内存存储在高速缓存或者寄存器中，保存了该线程使用的变量的主内存副本拷贝。
 
 线程只能操作工作内存中的变量，不同线程之间的变量值传递需要通过主内存来完成。
 
-![CyC2018：线程之间的同步问题](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710153831.png)
+![CyC2018：线程之间的同步问题](https://cdn.paicoding.com/stutymore/java-thread-20240710153831.png)
 
 ### 内存间交互操作
 
 Java 内存模型定义了 8 个操作来完成主内存和工作内存的交互操作。
 
-![Cyc2018：主内存和工作内存之间的交互](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710154129.png)
+![Cyc2018：主内存和工作内存之间的交互](https://cdn.paicoding.com/stutymore/java-thread-20240710154129.png)
 
 - read：把一个变量的值从主内存传输到工作内存中
 - load：在 read 之后执行，把 read 得到的值放入工作内存的变量副本中
@@ -4433,11 +4433,11 @@ Java 内存模型保证了 read、load、use、assign、store、write、lock 和
 
 可以看出，这两个线程虽然执行了两次自增运算，但是主内存中 cnt 的值最后为 1 而不是 2。因此对 int 类型读写操作满足原子性只是说明 load、assign、store 这些单个操作具备原子性。
 
-![CYC2018：多个原子操作不满足原子性](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710154348.png)
+![CYC2018：多个原子操作不满足原子性](https://cdn.paicoding.com/stutymore/java-thread-20240710154348.png)
 
 AtomicInteger 能保证多个线程修改的原子性。
 
-![CYC2018：AtomicInteger](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710154426.png)
+![CYC2018：AtomicInteger](https://cdn.paicoding.com/stutymore/java-thread-20240710154426.png)
 
 使用 AtomicInteger 重写之前线程不安全的代码：
 
@@ -4555,7 +4555,7 @@ volatile 关键字通过添加内存屏障的方式来禁止指令重排，即�
 
 在一个线程内，在程序前面的操作先行发生于后面的操作。
 
-![CYC2018：单一线程原则](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710154825.png)
+![CYC2018：单一线程原则](https://cdn.paicoding.com/stutymore/java-thread-20240710154825.png)
 
 #### 2. 管程锁定规则
 
@@ -4563,7 +4563,7 @@ volatile 关键字通过添加内存屏障的方式来禁止指令重排，即�
 
 一个 unlock 操作先行发生于后面对同一个锁的 lock 操作。
 
-![CYC2018：管程锁定规则](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710154858.png)
+![CYC2018：管程锁定规则](https://cdn.paicoding.com/stutymore/java-thread-20240710154858.png)
 
 #### 3. volatile 变量规则
 
@@ -4571,7 +4571,7 @@ volatile 关键字通过添加内存屏障的方式来禁止指令重排，即�
 
 对一个 volatile 变量的写操作先行发生于后面对这个变量的读操作。
 
-![CYC2018：volatile](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710154949.png)
+![CYC2018：volatile](https://cdn.paicoding.com/stutymore/java-thread-20240710154949.png)
 
 #### 4. 线程启动规则
 
@@ -4579,7 +4579,7 @@ volatile 关键字通过添加内存屏障的方式来禁止指令重排，即�
 
 Thread 对象的 `start()` 方法调用先行发生于此线程的每一个动作。
 
-![CYC2018：线程启动规则](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710155016.png)
+![CYC2018：线程启动规则](https://cdn.paicoding.com/stutymore/java-thread-20240710155016.png)
 
 #### 5. 线程加入规则
 
@@ -4587,7 +4587,7 @@ Thread 对象的 `start()` 方法调用先行发生于此线程的每一个动�
 
 Thread 对象的结束先行发生于 `join()` 方法返回。
 
-![线程加入规则](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710155059.png)
+![线程加入规则](https://cdn.paicoding.com/stutymore/java-thread-20240710155059.png)
 
 #### 6. 线程中断规则
 
@@ -4825,7 +4825,7 @@ public class ThreadLocalExample1 {
 
 它所对应的底层结构图为：
 
-![CYC2018：ThreadLocal](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710213816.png)
+![CYC2018：ThreadLocal](https://cdn.paicoding.com/stutymore/java-thread-20240710213816.png)
 
 每个 Thread 都有一个 ThreadLocal.ThreadLocalMap 对象。
 
@@ -4930,17 +4930,17 @@ JDK 1.6 引入了偏向锁和轻量级锁，从而让锁拥有了四个状态：
 
 以下是 HotSpot 虚拟机对象头的内存布局，这些数据被称为 Mark Word。其中 tag bits 对应了五个状态，这些状态在右侧的 state 表格中给出解释。除了 marked for gc 状态，其它四个状态已经在前面介绍过了。
 
-![Mark Word](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710214309.png)
+![Mark Word](https://cdn.paicoding.com/stutymore/java-thread-20240710214309.png)
 
 下图左侧是一个线程的虚拟机栈，其中有一部分称为 Lock Record 的区域，这是在轻量级锁运行过程创建的，用于存放锁对象的 Mark Word。而右侧就是一个锁对象，包含了 Mark Word 和其它信息。
 
-![一个线程的虚拟机栈](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710214410.png)
+![一个线程的虚拟机栈](https://cdn.paicoding.com/stutymore/java-thread-20240710214410.png)
 
 轻量级锁是相对于传统的重量级锁而言，它使用 CAS 操作来避免重量级锁使用互斥量的开销。对于绝大部分的锁，在整个同步周期内都是不存在竞争的，因此也就不需要都使用互斥量进行同步，可以先采用 CAS 操作进行同步，如果 CAS 失败了再改用互斥量进行同步。
 
 当尝试获取一个锁对象时，如果锁对象标记为 `0 01`，说明锁对象的锁未锁定（unlocked）状态。此时虚拟机在当前线程的虚拟机栈中创建 Lock Record，然后使用 CAS 操作将对象的 Mark Word 更新为 Lock Record 指针。如果 CAS 操作成功了，那么线程就获取了该对象上的锁，并且对象的 Mark Word 的锁标记变为 00，表示该对象处于轻量级锁状态。
 
-![轻量级锁](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710214546.png)
+![轻量级锁](https://cdn.paicoding.com/stutymore/java-thread-20240710214546.png)
 
 如果 CAS 操作失败了，虚拟机首先会检查对象的 Mark Word 是否指向当前线程的虚拟机栈，如果是的话说明当前线程已经拥有了这个锁对象，那就可以直接进入同步块继续执行，否则说明这个锁对象已经被其他线程线程抢占了。如果有两条以上的线程争用同一个锁，那轻量级锁就不再有效，要膨胀为重量级锁。
 
@@ -4952,7 +4952,7 @@ JDK 1.6 引入了偏向锁和轻量级锁，从而让锁拥有了四个状态：
 
 当有另外一个线程去尝试获取这个锁对象时，偏向状态就宣告结束，此时撤销偏向（Revoke Bias）后恢复到未锁定状态或者轻量级锁状态。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/java-thread-20240710214803.png)
+![](https://cdn.paicoding.com/stutymore/java-thread-20240710214803.png)
 
 推荐阅读：[synchronized到底锁的什么？偏向锁、轻量级锁、重量级锁到底是什么？](https://javabetter.cn/thread/synchronized.html)
 
@@ -4976,7 +4976,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 
@@ -4992,7 +4992,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 ## 一、运行时数据区域
 
-![二哥的 Java 进阶之路：JVM 运行时数据区域](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110194325.png)
+![二哥的 Java 进阶之路：JVM 运行时数据区域](https://cdn.paicoding.com/stutymore/neicun-jiegou-20240110194325.png)
 
 ### 程序计数器
 
@@ -5002,7 +5002,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 每个 Java 方法在执行的同时会创建一个[栈帧](https://javabetter.cn/jvm/stack-frame.html)用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
 
-![CYC2018：栈帧](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711131037.png)
+![CYC2018：栈帧](https://cdn.paicoding.com/stutymore/java-vm-20240711131037.png)
 
 
 该区域可能抛出以下异常：
@@ -5016,7 +5016,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 本地方法一般是用其它语言（C、C++ 或汇编语言等）编写的，并且被编译为基于本机硬件和操作系统的程序，对待这些方法需要特别处理。
 
-![CYC2018：本地方法](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711131436.png)
+![CYC2018：本地方法](https://cdn.paicoding.com/stutymore/java-vm-20240711131436.png)
 
 ### 堆
 
@@ -5099,7 +5099,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 - 方法区中类静态属性引用的对象
 - 方法区中的常量引用的对象
 
-![二哥的 Java 进阶之路：GC Roots](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
+![二哥的 Java 进阶之路：GC Roots](https://cdn.paicoding.com/stutymore/gc-20231227104036.png)
 
 
 #### 3. 方法区的回收
@@ -5170,7 +5170,7 @@ obj = null;
 
 #### 1. 标记 - 清除
 
-![CYC2018：标记清除算法](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711133159.png)
+![CYC2018：标记清除算法](https://cdn.paicoding.com/stutymore/java-vm-20240711133159.png)
 
 在标记阶段，程序会检查每个对象是否为活动对象，如果是活动对象，则程序会在对象头部打上标记。
 
@@ -5185,7 +5185,7 @@ obj = null;
 
 #### 2. 标记 - 整理
 
-![CYC2018：标记整理](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711133310.png)
+![CYC2018：标记整理](https://cdn.paicoding.com/stutymore/java-vm-20240711133310.png)
 
 让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。
 
@@ -5195,7 +5195,7 @@ obj = null;
 
 #### 3. 复制
 
-![CYC2018：复制](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711133346.png)
+![CYC2018：复制](https://cdn.paicoding.com/stutymore/java-vm-20240711133346.png)
 
 将内存划分为大小相等的两块，每次只使用其中一块，当这一块内存用完了就将还存活的对象复制到另一块上面，然后再把使用过的内存空间进行一次清理。
 
@@ -5214,7 +5214,7 @@ HotSpot 虚拟机的 Eden 和 Survivor 大小比例默认为 8:1，保证了内�
 
 ### 垃圾收集器
 
-![三分恶面渣逆袭：垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
+![三分恶面渣逆袭：垃圾收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
 
 以上是 HotSpot 虚拟机中的 7 个垃圾收集器，连线表示垃圾收集器可以配合使用。
 
@@ -5223,7 +5223,7 @@ HotSpot 虚拟机的 Eden 和 Survivor 大小比例默认为 8:1，保证了内�
 
 #### 1. Serial 收集器
 
-![三分恶面渣逆袭：Serial 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
+![三分恶面渣逆袭：Serial 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
 Serial 翻译为串行，也就是说它以串行的方式执行。它是单线程的收集器，只会使用一个线程进行垃圾收集工作。
 
@@ -5233,7 +5233,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 2. ParNew 收集器
 
-![三分恶面渣逆袭：ParNew 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
+![三分恶面渣逆袭：ParNew 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
 
 它是 Serial 收集器的多线程版本。
 
@@ -5253,7 +5253,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 4. Serial Old 收集器
 
-![三分恶面渣逆袭：Serial 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
+![三分恶面渣逆袭：Serial 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
 是 Serial 收集器的老年代版本，也是给 Client 场景下的虚拟机使用。如果用在 Server 场景下，它有两大用途：
 
@@ -5262,7 +5262,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 5. Parallel Old 收集器
 
-![三分恶面渣逆袭：Parallel Old 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
+![三分恶面渣逆袭：Parallel Old 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
 
 是 Parallel Scavenge 收集器的老年代版本。
 
@@ -5270,7 +5270,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 6. CMS 收集器
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711134313.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/java-vm-20240711134313.png)
 
 CMS（Concurrent Mark Sweep），Mark Sweep 指的是标记 - 清除算法。
 
@@ -5295,11 +5295,11 @@ G1（Garbage-First），它是一款面向服务端应用的垃圾收集器，�
 
 堆被分为新生代和老年代，其它收集器进行收集的范围都是整个新生代或者老年代，而 G1 可以直接对新生代和老年代一起回收。
 
-![二哥的 Java 进阶之路：新生代和老年代](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
+![二哥的 Java 进阶之路：新生代和老年代](https://cdn.paicoding.com/stutymore/gc-20231227131241.png)
 
 G1 把堆划分成多个大小相等的独立区域（Region），新生代和老年代不再物理隔离。
 
-![有梦想的肥宅：G1](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+![有梦想的肥宅：G1](https://cdn.paicoding.com/stutymore/gc-collector-20231228213824.png)
 
 通过引入 Region 的概念，从而将原来的一整块内存空间划分成多个的小空间，使得每个小空间可以单独进行垃圾回收。
 
@@ -5307,7 +5307,7 @@ G1 把堆划分成多个大小相等的独立区域（Region），新生代和�
 
 每个 Region 都有一个 Remembered Set，用来记录该 Region 对象的引用对象所在的 Region。通过使用 Remembered Set，在做可达性分析的时候就可以避免全堆扫描。
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711135443.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/java-vm-20240711135443.png)
 
 如果不计算维护 Remembered Set 的操作，G1 收集器的运作大致可划分为以下几个步骤：
 
@@ -5323,7 +5323,7 @@ G1 把堆划分成多个大小相等的独立区域（Region），新生代和�
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、内存分配与回收策略
 
@@ -5399,7 +5399,7 @@ G1 把堆划分成多个大小相等的独立区域（Region），新生代和�
 
 ### 类的生命周期
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/class-load-20231031202641.png)
 
 包括以下 7 个阶段：
 
@@ -5571,7 +5571,7 @@ System.out.println(ConstClass.HELLOWORLD);
 
 下图展示了类加载器之间的层次关系，称为双亲委派模型（Parents Delegation Model）。该模型要求除了顶层的启动类加载器外，其它的类加载器都要有自己的父类加载器。这里的父子关系一般通过组合关系（Composition）来实现，而不是继承关系（Inheritance）。
 
-![CYC2018：双亲委派模型](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711140107.png)
+![CYC2018：双亲委派模型](https://cdn.paicoding.com/stutymore/java-vm-20240711140107.png)
 
 #### 1. 工作过程
 
@@ -5695,7 +5695,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 

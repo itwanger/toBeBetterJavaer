@@ -15,7 +15,7 @@ head:
 
 经过前面章节的学习，详细大家都知道了，Java 的对象是在堆中创建的，但堆又分为新生代和老年代，新生代又细分为 Eden、From Survivor、To Survivor。**那我们创建的对象到底在哪里**？
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227131241.png)
 
 其实这部分内容我们在讲[垃圾回收机制](https://javabetter.cn/jvm/gc.html)的时候提到过了，但没有细讲，这次我们就来详细讲讲。
 
@@ -26,21 +26,21 @@ head:
 我们创建的大部分对象，都属于生命周期较短的对象，所以会存放在新生代。新生代又细分 Eden、From Survivor、To Survivor，那我们创建的对象会优先在 Eden 区分配，见下图。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-1.png)
 
 随着对象的不断创建，Eden 剩余地内存空间就会越来越少，随后就会触发 Minor GC，于是 JVM 会把 Eden 区存活的对象转入 From Survivor 空间。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-2.png)
 
 Minor GC 后，又创建的新对象会继续往 Eden 区分配。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-3.png)
 
 于是，随着新对象的创建，Eden 的剩余内存空间就会越来越少，又会触发 Minor GC，此时，JVM 会对 Eden 区和 From Survivor 区中的对象进行存活判断，对于存活的对象，会转移到 To Survivor 区。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-4.png)
 
 下一次 Minor GC，存活的对象又会从 To 到 From，这样就总有一个 Survivor 区是空的，而另外一个是无碎片的。
 
@@ -48,7 +48,7 @@ Minor GC 后，又创建的新对象会继续往 Eden 区分配。
 
 对于上面的流程，也有例外的存在，如果一个对象很大，一直在 Survivor 空间复制来复制去，就会很浪费性能，所以这些大对象会直接进入老年代。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-5.png)
 
 这种策略的目的是减少[垃圾回收](https://javabetter.cn/jvm/gc.html)时的复制开销，因为大对象的复制比小对象更耗时。
 
@@ -68,7 +68,7 @@ Minor GC 后，又创建的新对象会继续往 Eden 区分配。
 虚拟机为了给对象计算他到底经历了几次 Minor GC，会给每个对象定义了一个对象年龄计数器。如果对象在 Eden 中经过第一次 Minor GC 后仍然存活，移动到 Survivor 空间年龄加 1，在 Survivor 区中每经历过 Minor GC 后仍然存活年龄再加 1。年龄到了 15，就到了老年代。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-6.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-6.png)
 
 
 ## 动态年龄判断
@@ -77,7 +77,7 @@ Minor GC 后，又创建的新对象会继续往 Eden 区分配。
 
 比如 Survivor 是 100M，Hello1 和 Hello2 都是 3 岁，且总和超过了 50M，Hello3 是 4 岁，这个时候，这三个对象都将到老年代。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-7.png)
 
 ## 空间分配担保
 
@@ -91,7 +91,7 @@ Minor GC 后，又创建的新对象会继续往 Eden 区分配。
 - 如果大于，发起 Minor GC。Minor GC 后，看 Survivor 空间是否足够存放存活对象，如果不够，就放入老年代，如果够放，就直接存放 Survivor 空间。如果老年代都不够放存活对象，担保失败（Handle Promotion Failure），发起 Full GC。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/whereis-the-object-8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/whereis-the-object-8.png)
 
 >HandlePromotionFailure 的作用，当设置为 true 时（默认值），JVM 会尝试继续 Minor GC，即使老年代空间不足以容纳所有需要晋升的对象。JVM 会尝试清理更多的老年代空间或者采用其他措施来应对空间不足的情况。避免因为老年代空间不足而过早触发 Full GC（全堆回收）。Full GC 通常比 Minor GC 更耗时，会导致更长时间的停顿。
 
@@ -126,4 +126,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -14,7 +14,7 @@ title: 微服务网关：从对比到选型，由理论到实践
 
 最近在写技术栈相关的文章，刚好写到微服务网关，就把之前学习的知识进行简单总结，同时也把市面上常用的微服务网关进行梳理，一方面便于后续技术选型，另一方面也算是给自己一个交代。下面是文章目录：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-f910e9f2-0374-4afb-aef0-3ea47c9b7f67.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-f910e9f2-0374-4afb-aef0-3ea47c9b7f67.png)
 
 
 ## API网关基础
@@ -31,7 +31,7 @@ API网关封装了系统内部架构，为每个客户端提供一个定制的AP
 - 数据平面主要功能是接入用户的HTTP请求和微服务被拆分后的聚合。使用微服务网关统一对外暴露后端服务的API和契约，路由和过滤功能正是网关的核心能力模块。另外，微服务网关可以实现拦截机制和专注跨横切面的功能，包括协议转换、安全认证、熔断限流、灰度发布、日志管理、流量监控等。
 - 控制平面主要功能是对后端服务做统一的管控和配置管理。例如，可以控制网关的弹性伸缩；可以统一下发配置；可以对网关服务添加标签；可以在微服务网关上通过配置Swagger功能统一将后端服务的API契约暴露给使用方，完成文档服务，提高工作效率和降低沟通成本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-f6ea867d-ffdf-4da2-a89d-fccbe6326110.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-f6ea867d-ffdf-4da2-a89d-fccbe6326110.png)
 
 - **路由功能**：路由是微服务网关的核心能力。通过路由功能微服务网关可以将请求转发到目标微服务。在微服务架构中，网关可以结合注册中心的动态服务发现，实现对后端服务的发现，调用方只需要知道网关对外暴露的服务API就可以透明地访问后端微服务。
 - **负载均衡**：API网关结合负载均衡技术，利用Eureka或者Consul等服务发现工具，通过轮询、指定权重、IP地址哈希等机制实现下游服务的负载均衡。
@@ -50,7 +50,7 @@ API网关封装了系统内部架构，为每个客户端提供一个定制的AP
 
 先简单看一下市面上常用的API网关：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-ddaf1b1e-60b2-4cff-bab2-2b7b32f07f72.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-ddaf1b1e-60b2-4cff-bab2-2b7b32f07f72.png)
 
 #### Nginx
 
@@ -71,11 +71,11 @@ Zuul 目前有两个大的版本：**Zuul1 和 Zuul2**
 
 Zuul1 是基于 Servlet 框架构建，如图所示，采用的是阻塞和多线程方式，即一个线程处理一次连接请求，这种方式在内部延迟严重、设备故障较多情况下会引起存活的连接增多和线程增加的情况发生。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-93bef98d-7d71-48d1-943a-b8ede72432c8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-93bef98d-7d71-48d1-943a-b8ede72432c8.png)
 
 Netflix 发布的 Zuul2 有重大的更新，它运行在异步和无阻塞框架上，每个 CPU 核一个线程，处理所有的请求和响应，请求和响应的生命周期是通过事件和回调来处理的，这种方式减少了线程数量，因此开销较小。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-90dfae10-7cbd-4099-a5df-ea09a1435bc0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-90dfae10-7cbd-4099-a5df-ea09a1435bc0.png)
 
 #### Spring Cloud GetWay
 
@@ -83,12 +83,12 @@ Spring Cloud Gateway 是Spring Cloud的一个全新的API网关项目，目的�
 
 Spring Cloud Gateway可以与Spring Cloud Discovery Client（如Eureka）、Ribbon、Hystrix等组件配合使用，**实现路由转发、负载均衡、熔断、鉴权、路径重写、⽇志监控等，并且Gateway还内置了限流过滤器，实现了限流的功能。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-71c6dfa6-dcf3-43ab-98bf-34d7ef588f02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-71c6dfa6-dcf3-43ab-98bf-34d7ef588f02.png)
 
 #### Kong
 
 Kong是一款基于OpenResty（Nginx + Lua模块）编写的高可用、易扩展的，由Mashape公司开源的API Gateway项目。**Kong是基于NGINX和Apache Cassandra或PostgreSQL构建的**，能提供易于使用的RESTful API来操作和配置API管理系统，所以它可以水平扩展多个Kong服务器，通过前置的负载均衡配置把请求均匀地分发到各个Server，来应对大批量的网络请求。
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-e2113ab8-0fc2-4df5-91be-60154e557cc0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-e2113ab8-0fc2-4df5-91be-60154e557cc0.png)
 
 Kong主要有三个组件：
 - Kong Server ：基于Nginx的服务器，用来接收API请求。
@@ -97,7 +97,7 @@ Kong主要有三个组件：
 
 Kong采用插件机制进行功能定制，插件集（可以是0或N个）在API请求响应循环的生命周期中被执行。插件使用Lua编写，目前已有几个基础功能：**HTTP基本认证、密钥认证、CORS（Cross-Origin Resource Sharing，跨域资源共享）、TCP、UDP、文件日志、API请求限流、请求转发以及Nginx监控。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-c6c7c5e3-214b-472e-b998-8adc820aa922.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-c6c7c5e3-214b-472e-b998-8adc820aa922.png)
 
 Kong网关具有以下的特性：
 - 可扩展性: 通过简单地添加更多的服务器，可以轻松地进行横向扩展，这意味着您的平台可以在一个较低负载的情况下处理任何请求；
@@ -108,7 +108,7 @@ Kong网关具有以下的特性：
 
 Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反向代理、负载均衡工具。 它支持多种后台 (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Rest API, file…) 来自动化、动态的应用它的配置文件设置。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-553541d9-870d-45a8-8026-a1274d809e5e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-553541d9-870d-45a8-8026-a1274d809e5e.png)
 
 重要特性：
 - 它非常快，无需安装其他依赖，通过Go语言编写的单一可执行文件；
@@ -123,9 +123,9 @@ Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反�
 
 ### API网关对比
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-ad51c257-fe2d-435d-a043-92a70957756e.png)
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-ae017d9d-db0d-4322-805e-5230189561f5.png)
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-daf82b5b-011d-488d-9d60-c1221bd5b0ec.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-ad51c257-fe2d-435d-a043-92a70957756e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-ae017d9d-db0d-4322-805e-5230189561f5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-daf82b5b-011d-488d-9d60-c1221bd5b0ec.png)
 
 上面是网关对比截图，偷个懒，大家主要关注Kong、Traefik和Zuul即可：
 - 从**开源社区活跃度**来看，无疑是Kong和Traefik较好；
@@ -148,7 +148,7 @@ Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反�
 - **Etcd**：一个Go言编写的分布式、高可用的一致性键值存储系统，用于提供可靠的分布式键值存储、配置共享和服务发现等功能。
 - **Go**：并发能力强，性能媲美C，处理能力是PHP的4倍，效率高，语法简单，易上手，开发效率接近PHP。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-3567ace8-c7f3-4b5d-bf0f-9bb85fa8c439.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-3567ace8-c7f3-4b5d-bf0f-9bb85fa8c439.png)
 
 ### 网关框架
 
@@ -157,7 +157,7 @@ Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反�
 - **Traefik**：读取ETCD配置，根据配置信息对请求进行路由分发，如果需要鉴权，会直接通过hal-agent模块进行统一鉴权。鉴权完毕后，如果是Http请求，直接打到下游服务，如果是Grpc和Thrift协议，会通过hal-proxy模块进行协议转换。
 - **协议转换模块**：读取ETCD配置，对Traefik分发过来的请求，进行Grpc和Thrift协议转换，并通过服务发现机制，获取服务下游机器，并通过负载均衡，将转换后的数据打到下游服务机器。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-45943e5f-2cca-45ff-9fb0-908e3cf7c990.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-45943e5f-2cca-45ff-9fb0-908e3cf7c990.png)
 
 ### 网关后台
 主要由3大模块组成：
@@ -165,11 +165,11 @@ Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反�
 - **服务**：主要包括服务名、注册方式、协议类型、所属组、状态等，比如评论服务、地址服务、搜索服务。
 - **插件**：主要包括插件名称、插件类型、插件属性配置等，比如路径前缀替换插件、鉴权插件。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-0b16b390-77b7-4fba-8529-7be31ba6335b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-0b16b390-77b7-4fba-8529-7be31ba6335b.png)
 
 **一个应用只能绑定一个服务，但是可以绑定多个插件。** 通过后台完成网关配置后，将这些配置信息生成Config文件，发布到ETCD中，Config文件需要遵循严格的数据格式，比如Traefix配置需要遵循官方的文件配置格式，才能被Traefik识别。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-299f8c95-d6a3-49d8-946d-5efed32faa29.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-299f8c95-d6a3-49d8-946d-5efed32faa29.png)
 
 ### 协议转换模块
 
@@ -181,11 +181,11 @@ hal-proxy模块是整个微服务网关最复杂，也是技术含量最高的�
 - 有了机器后，我们需要和下游机器建立连接，如果连接用一次就直接释放，肯定对服务会造成很大的压力，这就需要引入Client缓存池，那这个Client缓存池我们又该如何实现呢？
 - 最后就是需要对协议进行转换，因为不同的下游服务，支持的协议类型是不一样的，这个网关又是如何动态支持的呢？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-c2672067-0b21-41ba-807d-f59e0baf5b99.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-c2672067-0b21-41ba-807d-f59e0baf5b99.png)
 
 #### 实现原理
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-e7f9c956-cdf2-4238-aeb3-372c61c1532f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-e7f9c956-cdf2-4238-aeb3-372c61c1532f.png)
 
 我们还是先看一下hal-proxy内部有哪些模块，首先是Resolver模块，这个模块的是什么作用呢？这里我简单介绍一下，目前公司内部通过服务获取到机器列表的方式有多种，比如MIS平台、服务树等，也就是有的是通过平台配置的，有的是直接挂在服务树下，无论哪种方式，我们都通过服务名，通过一定的方式，找到该服务下面所有的主机。
 
@@ -198,10 +198,10 @@ hal-proxy模块是整个微服务网关最复杂，也是技术含量最高的�
 #### 实现逻辑
 这个是hal-proxy的逻辑实现图，画了2天，包含所有核心对象的交互方式，这里就不去细讲，能掌握多少，靠大家自己领悟，如果有任何疑问(或者看不清图片)，可以关注我公众号，加我微信沟通。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/microservice/api-wangguan-c79970c9-9fce-4164-a299-bb268b058924.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/microservice/api-wangguan-c79970c9-9fce-4164-a299-bb268b058924.png)
 
 ----
 
 > 整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/b2xf4GiJksBQqjHVpsh49Q)，作者：楼仔，戳[原文链接](https://mp.weixin.qq.com/s/0Qupyl5eCyQGFEAIY6GxoQ)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -21,7 +21,7 @@ shortTitle: Maven
 
 由于 JDK 是 Maven 安装的前置条件，所以请使用 `java -version` 确认是否已经安装了 JDK：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-01.png)
 
 我本人使用的是 macOS，所以可以有两种安装方式，**一种官网下载，手动安装；一种直接使用 brew 一键安装**。
 
@@ -35,7 +35,7 @@ shortTitle: Maven
 
 >官网地址：[http://maven.apache.org/download.cgi](http://maven.apache.org/download.cgi)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-02.png)
 
 很多初学者在官网下载的时候不知道选哪一个，这里做一下简单的介绍。
 
@@ -46,20 +46,20 @@ shortTitle: Maven
 
 第二步，解压下载的安装包，复制该路径：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-03.png)
 
 - bin 目录：该包含了 Maven 运行的所有脚本，用来配置 Java 命令，准备执行环境，然后执行 Java 命令。
 - boot 目录：该目录只包含了一个 plexus-classworlds-xxx-jar 文件，该文件是一个类加载器框架，相当于默认的 Java 类加载器，提供了更加丰富的语法以便配置，Maven 使用该加载器加载自己的类库。
 - **conf 目录**：该目录包含了一个非常重要的文件 settings.xml。可以直接修改该文件，用来全局定制 Maven 的行为；也可以复制该文件到 `~/.m2/` 目录下（~表示用户目录），修改该文件可以在用户范围内定制 Maven 的行为。
 - lib 目录：该目录包含了Maven运行时所需要的 Java 类库，包括Maven 依赖的第三方类库，比如 slf4j-api.jar。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-04.png)
 
 第三步，配置环境变量
 
 打开终端，输入 `vim ~/.bash_profile` 命令打开 bash_profile 文件：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-05.png)
 
 bash_profile 文件用于配置环境变量和启动程序，详细介绍可参照：
 
@@ -72,17 +72,17 @@ export M2_HOME=/Users/maweiqing/cmower/save/apache-maven-3.8.3
 export PATH=${PATH}:${M2_HOME}/bin
 ```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-06.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-06.png)
 
 保存后退出，可以执行 `source ~/.bash_profile` 使配置生效：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-07.png)
 
 第四步，查看配置是否生效
 
 输入 `mvn -v` 命令，如果输出以下内容，表示配置成功：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-08.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-08.png)
 
 如未生效，可再开一个终端窗口尝试 `mvn -v` 命令。
 
@@ -96,7 +96,7 @@ export PATH=${PATH}:${M2_HOME}/bin
 
 我电脑上之前出现了一次奇怪的版本问题，jenv 显示 JDK 版本为 1.8，但 Maven 显示 22.0.1，这两个版本不匹配，导致项目构建失败。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/maven-20240919040026.png)
+![](https://cdn.paicoding.com/stutymore/maven-20240919040026.png)
 
 最后找到的解决方案是，jenv 有一个 Maven 插件，需要开启。
 
@@ -106,7 +106,7 @@ jenv enable-plugin maven
 
 然后再次执行 `jenv global 1.8.0.412` 设置 JDK 版本，并且执行 `exec $SHELL` 刷新环境变量后，执行 `mvn -v` 查看 Maven 版本，发现已经匹配了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/maven-20240919040157.png)
+![](https://cdn.paicoding.com/stutymore/maven-20240919040157.png)
 
 ### 二、Maven 配置文件大盘点
 
@@ -173,19 +173,19 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
 - provided，表示打包的时候可以不用包进去，别的容器会提供。和 compile 相当，但是在打包阶段做了排除的动作。
 - system，从参与程度上来说，和 provided 类似，但不通过 Maven 仓库解析，可能会造成构建的不可移植，要谨慎使用。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-09.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-09.png)
 
 关于**传递性依赖**：
 
 比如一个account-email项目为例，account-email有一个compile范围的spring-code依赖，spring-code有一个compile范围的commons-logging依赖，那么commons-logging就会成为account-email的compile的范围依赖，commons-logging是account-email的一个传递性依赖：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-10.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-10.png)
 
 有了传递性依赖机制，在使用Spring Framework的时候就不用去考虑它依赖了什么，也不用担心引入多余的依赖。Maven会解析各个直接依赖的POM，将那些必要的间接依赖，以传递性依赖的形式引入到当前的项目中。
 
 关于**依赖可选**：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-11.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-11.png)
 
 项目中A依赖B，B依赖于X和Y，如果所有这三个的范围都是compile的话，那么X和Y就是A的compile范围的传递性依赖，但是如果我想X、Y不作为A的传递性依赖，不给它用的话，可以按照下面的方式配置可选依赖：
 
@@ -254,11 +254,11 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
 
 那么它对应的仓库路径是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-12.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-12.png)
 
 仓库可以以下几种：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-13.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-13.png)
 
 **1）本地仓库**
 
@@ -407,7 +407,7 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
 
 **3）Intellij IDEA 配置 Maven**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/maven-14.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/maven-14.png)
 
 **4）Maven 常用插件**
 
@@ -431,7 +431,7 @@ groupId、artifactId和version这三个元素定义了一个项目的基本坐�
 
 在 GitHub 上闲逛的时候，发现了一个新的项目：**maven-mvnd**，持续霸占 GitHub trending 榜单好几天了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-01.png)
 
 maven-mvnd，可以读作 Maven Daemon，译作 Maven 守护版，旨在为 Maven 提供更快的构建速度，灵感借鉴了 Gradle 和 Takari（Maven 生命周期优化器）。
 
@@ -442,7 +442,7 @@ maven-mvnd，可以读作 Maven Daemon，译作 Maven 守护版，旨在为 Mave
 
 Maven 和 Gradle 可以说是项目构建工具中的绝代双骄，我自己的观点是：**Maven 不比 Gradle 好，Gradle 也不比 Maven 好**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-02.png)
 
 
 瞧我这该死的观点，足够的圆滑。
@@ -481,28 +481,28 @@ brew install mvndaemon/homebrew-mvnd/mvnd
 
 >[https://github.com/apache/maven-mvnd/releases](https://github.com/apache/maven-mvnd/releases)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-03.png)
 
 下载完成后解压，然后把 bin 目录添加到 PATH 路径下。
 
 在终端执行 `mvnd -v` 就可以查看到 mvnd 的配置信息了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-04.png)
 
 如果出现类似下面这样的错误，未找到 JAVA_HOME，可以按照提示在对应的文件中追加 java.home 属性，也就是 JDK 的安装路径。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-05.png)
 
 刚好之前搭建了一个Spring Boot 项目，我们可以拿 Maven 和 mvnd 来对比一下构建速度。
 
 先执行 `mvn clean package` 命令，一共花费的时间是 5.318 秒。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-06.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-06.png)
 
 
 再执行 `mvnd clean package` 命令，一共花费的时间是 3.225 秒。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-07.png)
 
 反复多测试几次，发现 mvnd 确实比 Maven 要快上许多！Maven 维持在 5 秒多，mvnd 维持在 3 秒左右。
 
@@ -510,7 +510,7 @@ brew install mvndaemon/homebrew-mvnd/mvnd
 
 感受一下 mvnd 在一个 24 核电脑上执行的样子吧，简直就是效率神器！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/maven/mvnd-08.gif)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/maven/mvnd-08.gif)
 
 ----
 
@@ -522,4 +522,4 @@ brew install mvndaemon/homebrew-mvnd/mvnd
 
 希望大家能在阅读完本篇文章后对 Maven 有一个初步的了解和掌握，并将这些技能在项目的实战中加以练习，以达到项目工程化的要求。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

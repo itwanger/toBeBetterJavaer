@@ -25,7 +25,7 @@ head:
 
 如今的 Java 虚拟机非常强大，不仅支持 Java 语言，还支持很多其他的编程语言，比如说 Groovy、Scala、Koltin 等等。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-dd31bbd6-c75c-4426-9437-c0f57ea3b86f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/bytecode-dd31bbd6-c75c-4426-9437-c0f57ea3b86f.png)
 
 来看一段代码吧。
 
@@ -40,7 +40,7 @@ public class Main {
 
 编译生成 Main.class 文件后，可以在命令行使用 `xxd Main.class` 打开 class 文件（[前面我们已经讲过了](https://javabetter.cn/jvm/class-load.html)，还不会用的同学可以回头看一眼）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-bd941085-ff0e-4abf-a5f9-afb0493bfed7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/bytecode-bd941085-ff0e-4abf-a5f9-afb0493bfed7.png)
 
 对于这些 16 进制内容，除了开头的 cafe babe，剩下的内容大致可以翻译成：啥玩意啊这......
 
@@ -50,7 +50,7 @@ public class Main {
 
 Java 内置了一个反编译命令 javap，可以通过 `javap -help` 了解 javap 的基本用法。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bytecode-20231215214357.png)
+![](https://cdn.paicoding.com/stutymore/bytecode-20231215214357.png)
 
 当然了，执行这个命令的前提条件是你需要配置好 Java 环境变量，如果没有配置好，可以参考[这篇文章](https://javabetter.cn/overview/jdk-install-config.html)。
 
@@ -58,7 +58,7 @@ javap 是 JDK 自带的一个命令行工具，主要用于反编译类文件（
 
 > Windows 用户以及没有使用 jenv 的 macOS 用户可以根据[这个帖子](https://javabetter.cn/overview/jdk-install-config.html)了解 jenv，真的好用。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bytecode-20231215215011.png)
+![](https://cdn.paicoding.com/stutymore/bytecode-20231215215011.png)
 
 javap 主要用于反编译 Java 类文件，即将编译后的 .class 文件转换回更易于理解的形式。虽然它不会生成原始的 Java 源代码，但它可以显示类的结构，包括[构造方法](https://javabetter.cn/oo/construct.html)、[方法](https://javabetter.cn/oo/method.html)、[字段](https://javabetter.cn/oo/var.html)等，帮助我们更好地理解 Java 字节码以及 Java 程序的运行机制。
 
@@ -209,7 +209,7 @@ flags: (0x0021) ACC_PUBLIC, ACC_SUPER
 
 类访问标记，一共有 8 种，[上一节](https://javabetter.cn/jvm/class-file-jiegou.html)我们曾提到。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-d12d6983-f427-40d2-bb4b-3a2c6c4c7806.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/bytecode-d12d6983-f427-40d2-bb4b-3a2c6c4c7806.png)
 
 表明当前类是 `ACC_PUBLIC | ACC_SUPER`（表明这个类是 [public](https://javabetter.cn/oo/access-control.html) 的，并且使用了 [super 关键字](https://javabetter.cn/oo/this-super.html#_07%E3%80%81super-%E5%85%B3%E9%94%AE%E5%AD%97)）。
 
@@ -359,7 +359,7 @@ _注_：
 
 关于字段类型的描述符映射表如下图所示，[上一节](https://javabetter.cn/jvm/class-file-jiegou.html)其实也讲过，只不过是从 16 进制来看的，这一节是从 javap 的角度来看的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-cbf16ce9-7853-4050-a1c0-8b874f3b0c1e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/bytecode-cbf16ce9-7853-4050-a1c0-8b874f3b0c1e.png)
 
 到此为止，第 2 个常量算是摸完了。组合起来的意思就是，声明了一个类型为 int 的字段 age。`#3` 指向 `Class #20`（即 `com/itwanger/jvm/Main`），`#19` 指向 `NameAndType #5:#6`（即 `age:I`）。
 
@@ -389,13 +389,13 @@ private int age;
 
 表明字段的访问权限修饰符为 private，类型为 int，名称为 age。字段的访问标志和类的访问标志非常类似。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-5f328e11-3486-4eb4-8fa9-5c5febfab894.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/bytecode-5f328e11-3486-4eb4-8fa9-5c5febfab894.png)
 
 ## 方法表集合
 
 方法表用来描述[接口](https://javabetter.cn/oo/interface.html)或者类中声明的方法，包括类方法和成员方法，以及构造方法。方法的修饰符和字段略有不同，比如说 volatile 和 transient 不能用来修饰方法，再比如说方法的修饰符多了 [synchronized](https://javabetter.cn/thread/synchronized-1.html)、[native](https://javabetter.cn/oo/native-method.html)、[strictfp](https://javabetter.cn/basic-extra-meal/48-keywords.html) 和 [abstract](https://javabetter.cn/oo/abstract.html)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-fd434d5c-ffc6-4a24-9787-98e573035068.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/bytecode-fd434d5c-ffc6-4a24-9787-98e573035068.png)
 
 ### 构造方法
 
@@ -527,4 +527,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

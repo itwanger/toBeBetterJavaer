@@ -17,7 +17,7 @@ head:
 
 2020 年的时候，通读了一遍周志明老师的《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》第三版，读完之后受益匪浅，这让我对 Java 虚拟机有了一个更完整的认识。毫无疑问，《深入理解 Java 虚拟机》是 JVM 书籍中最好的一本书了，国产技术书的天花板。
 
-![深入理解Java 虚拟机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
+![深入理解Java 虚拟机](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
 
 如果觉得这本书太厚了，可以阅读进阶之路上的这篇文章，对 JVM 会有一个系统的梳理。
 
@@ -46,7 +46,7 @@ head:
 
 这是我最近整理的一张关于 JVM 的思维导图，大的方向可以分为三个部分：字节码与类的加载、内存与垃圾回收、性能监控和调优。
 
-![JVM 知识点梳理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-b4ec034b-9f20-40b9-a2a3-e77afffd2abf.png)
+![JVM 知识点梳理](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-b4ec034b-9f20-40b9-a2a3-e77afffd2abf.png)
 
 字节码与类的加载包括：
 
@@ -80,7 +80,7 @@ head:
 
 我按照前面的思维导图整理了 19 篇文章，全部都是硬核级别的，跟着学就对了。
 
-![二哥的 JVM 进阶之路手册](https://cdn.tobebetterjavaer.com/stutymore/jvm-20240116142803.png)
+![二哥的 JVM 进阶之路手册](https://cdn.paicoding.com/stutymore/jvm-20240116142803.png)
 
 ### 2）视频
 
@@ -90,7 +90,7 @@ head:
 - 字节码与类的加载篇
 - 性能监控和调优篇
 
-![宋红康 JVM 全套视频](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-59c829ce-7fe3-45a5-b074-35dacb08941e.png)
+![宋红康 JVM 全套视频](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-59c829ce-7fe3-45a5-b074-35dacb08941e.png)
 
 >视频地址：[https://www.bilibili.com/video/BV1PJ411n7xZ](https://www.bilibili.com/video/BV1PJ411n7xZ)
 
@@ -103,7 +103,7 @@ head:
 - 3. Java 程序从编译为字节码到加载到运行的全流程，各个阶段的优化处理；
 - 4. 了解 Java 内存模型相关知识，见识多线程并发读写共享数据时的问题和 Java 的解决方案。
 
-![黑马程序员 JVM ](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410211836.png)
+![黑马程序员 JVM ](https://cdn.paicoding.com/stutymore/jvm-20230410211836.png)
 
 >视频地址：[https://www.bilibili.com/video/BV1yE411Z7AP](https://www.bilibili.com/video/BV1yE411Z7AP)
 
@@ -119,7 +119,7 @@ head:
 - 说说垃圾回收算法
 - 说说  JVM 内存结构 
 
-![狂神说 JVM ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-be0910d8-7669-46cb-b8b9-2399162e723d.png)
+![狂神说 JVM ](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-be0910d8-7669-46cb-b8b9-2399162e723d.png)
 
 >视频地址：[https://www.bilibili.com/video/BV1iJ411d7jS](https://www.bilibili.com/video/BV1iJ411d7jS)
 
@@ -127,7 +127,7 @@ head:
 
 纸质书只推荐一本周志明老师的神书《[深入理解 Java 虚拟机](https://book.douban.com/subject/34907497/)》，基本上学习 JVM 的小伙伴人手一本。
 
-![深入理解 JVM](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-3f6065c5-2fbf-4107-804e-393b32a4f9ab.png)
+![深入理解 JVM](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-3f6065c5-2fbf-4107-804e-393b32a4f9ab.png)
 
 这是一部从工作原理和工程实践两个维度深入剖析JVM的著作，是计算机领域公认的经典。
 
@@ -143,14 +143,14 @@ head:
 
 推荐 doocs 社区的 [JVM 底层原理最全知识总结](https://doocs.github.io/jvm/)，算是《深入理解 Java 虚拟机》这本书的一个精简知识点梳理。
 
-![JVM 底层原理最全知识总结](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-f2e2e5c4-c193-4af5-b1bc-fea8df2006af.png)
+![JVM 底层原理最全知识总结](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-f2e2e5c4-c193-4af5-b1bc-fea8df2006af.png)
 
 
 >GitHub 地址：[https://github.com/doocs/jvm](https://github.com/doocs/jvm)
 
 考虑到有些小伙伴可能需要 PDF 版本，我都整理好了，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**java**」就可以拉取到了。
 
-![扫码关注后回复「java」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「java」关键字](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 再推荐一份 GitHub 上开源的 Java 虚拟机知识点总结：
 
@@ -158,7 +158,7 @@ head:
 
 为了方便大家的学习，我也将其整理成了 PDF，内容包含了 Java 内存区域、垃圾收集算法、经典垃圾收集器、虚拟机类加载机制、程序编译和代码优化，手绘图也非常的漂亮。
 
-![JVM 核心知识点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-2beabbe4-2ddd-4180-8690-1bc3224e6b41.png)
+![JVM 核心知识点](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-2beabbe4-2ddd-4180-8690-1bc3224e6b41.png)
 
 需要的小伙伴可以微信搜索「**沉默王二**」回复关键字「**java**」就可以拉取到了。
 
@@ -166,23 +166,23 @@ head:
 
 第一版的《二哥的JVM进阶之路》已经发布了，暂时只对《[二哥编程星球（戳链接有优惠券）](https://javabetter.cn/zhishixingqiu/)》的用户开放，如果你需要这份 PDF 并且想享受更多服务的话，可以扫码加入。
 
-![二哥的编程星球 JVM](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116133019.png)
+![二哥的编程星球 JVM](https://cdn.paicoding.com/stutymore/readme-20240116133019.png)
 
 除此之外，还有一份[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)团队楼仔编写的 JVM 手册。这是 PDF 的大致内容，想要加入星球的用户，可以提前感受一下。
 
-![楼仔的 JVM 手册](https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410213258.png)
+![楼仔的 JVM 手册](https://cdn.paicoding.com/stutymore/jvm-20230410213258.png)
 
 郑雨迪老师在极客时间上开了一门《深入拆解Java虚拟机》的付费专栏，质量还是挺高的，喜欢的小伙伴可以戳[链接](http://gk.link/a/11htX)去购买，反正我自己感觉质量还不错。
 
 <a href="http://gk.link/a/11htX" target="_blank">
-<img src="https://cdn.tobebetterjavaer.com/stutymore/jvm-20230410212606.png" />
+<img src="https://cdn.paicoding.com/stutymore/jvm-20230410212606.png" />
 </a>
 
 ## 四、JVM 八股文
 
 这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://javabetter.cn/sidebar/sanfene/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
 
-![面渣逆袭-JVM 篇](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
+![面渣逆袭-JVM 篇](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
 
 
 为了方便大家的阅读和背诵，我已经将其整理到了《二哥的Java进阶之路》上，面渣逆袭 Java 虚拟机篇：
@@ -234,4 +234,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

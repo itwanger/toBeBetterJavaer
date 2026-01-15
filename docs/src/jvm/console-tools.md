@@ -23,7 +23,7 @@ head:
 
 除了我们的老朋友 java 和 javac 命令，在 Java 的 bin 目录下，还有很多其他的命令行工具，比如说用于性能监控的 jps、jstat、jinfo、jmap、jstack、jcmd 等等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106163547.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106163547.png)
 
 我用的 macOS，Windows 用户看到的可能是带有 .exe 结尾的，但是功能都是一样的，我就不再刻意去截图了。
 
@@ -41,7 +41,7 @@ jps [ options ] [ hostid ] 
 
 jps 命令示例：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106165017.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106165017.png)
 
 ①、注意看第三个进程正是我本地运行着的[技术派](https://paicoding.com/)实战项目，一个前后端分离的 Spring Boot+React 的社区项目，帮助不少球友拿到了心仪的校招 Offer。
 
@@ -80,7 +80,7 @@ jstat [ option vmid [interval[s|ms] [count]] ]
 
 如下命令 `jstat -class -t 75952 1000 2` 会输出进程 75952 的类装载信息，每秒统计一次，一共输出两次。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106170039.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106170039.png)
 
 - Loaded：加载的类的数量。
 - Bytes：所有加载类占用的空间大小。
@@ -91,7 +91,7 @@ jstat [ option vmid [interval[s|ms] [count]] ]
 
 如下命令 `jstat -gc 75952 1000 2` 会输出进程 75952 的 GC 信息，每秒统计一次，一共输出两次。结果比较多，我就截断折叠了一下，方便大家查看。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106171134.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106171134.png)
 
 - S0C, S1C, S0U, S1U：Survivor 区的大小和使用情况，一个 From 一个 To，C 为当前大小（Current），U 为已使用大小（Used）。
 - EC, EU：Eden 区的大小和使用情况。
@@ -109,7 +109,7 @@ jstat [ option vmid [interval[s|ms] [count]] ]
 
 如下命令 `jstat -compiler 75952 1000 2` 会输出进程 75952 的编译信息，每秒统计一次，一共输出两次。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106172207.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106172207.png)
 
 好，我们再来总结一下 jstat 的主要选项，见下表：
 
@@ -139,7 +139,7 @@ jinfo [ option ] pid
 
 如下命令 `jinfo -flags 88952` 会输出进程 88952 的 JVM 参数信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106174007.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106174007.png)
 
 不过很遗憾的是，我的 macOS 系统上，jinfo 命令无法执行成功，后来经过各种实验找到了解决办法。
 
@@ -149,23 +149,23 @@ jinfo [ option ] pid
 
 尝试方案 1：用相同的 JDK 版本编译运行 Java 程序，并使用相同的 JDK 的 jinfo 来查看。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106182926.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106182926.png)
 
 结果依然报错，可能的原因是 JDK 版本过旧。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106183019.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106183019.png)
 
 尝试方案 2： 用 JDK 11 来测试，代码用 JDK 11 编译和运行。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106183211.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106183211.png)
 
 然后用 JDK 11 的 jinfo 来查看，成功了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106183617.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106183617.png)
 
 再试一下 `jinfo -flags 10025` 命令，也 OK。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106183731.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106183731.png)
 
 之所以把这个问题的解决思路同步上来，也是希望能给[球友们](https://javabetter.cn/zhishixingqiu/)提供一些日常遇到开发问题时的解决思路。
 
@@ -183,11 +183,11 @@ jmap [ option ] vmid
 
 如下命令 `jmap -histo 10025` 会输出进程 10025 的堆内存中所有对象的数量和占用内存大小的汇总信息，按照内存使用量排序。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106185906.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106185906.png)
 
 如下命令 `jmap -dump:format=b,file=heap.hprof 10025` 会输出进程 10025 的堆快照信息，保存到文件 heap.hprof 中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106184317.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106184317.png)
 
 简单解释一下这条命令：
 
@@ -216,7 +216,7 @@ jstack [ option ] vmid
 
 如下 `jstack -l 10025` 会输出进程 10025 的线程堆栈信息，包括锁信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106191343.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106191343.png)
 
 
 jstack 工具主要选项：
@@ -272,11 +272,11 @@ class DeadLockDemo {
 
 运行这段代码，果然卡住了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192010.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106192010.png)
 
 运行 `jstack pid` 命令，可以看到死锁的线程信息。诚不欺我！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192123.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106192123.png)
 
 ### jcmd：多功能命令
 
@@ -284,19 +284,19 @@ jcmd 是一个多功能命令，可以用于收集堆转储、生成 JVM 和 Jav
 
 例如，使用 `jcmd -l` 列出当前的所有 Java 应用，和 jps 类似：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106205012.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106205012.png)
 
 例如，使用 `jcmd 10025 help` 查看进程 10025 支持的命令：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106210117.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106210117.png)
 
 例如，使用 `jcmd 10025 VM.flags` 查看进程 10025 的 JVM 参数，相当于 `jinfo -flags 10025`：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106210235.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106210235.png)
 
 例如，使用 `jcmd 10025 Thread.print` 查看进程 10025 的线程信息，相当于 `jstack 10025`：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106210358.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106210358.png)
 
 jmcd 命令格式：
 
@@ -336,7 +336,7 @@ top 命令用于实时显示系统中各个进程的资源占用情况，如 CPU
 
 该命令的输出结果是实时变化的，可以使用 `ctrl + c` 来退出。下图是我的 macOS 上输出的结果：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106210830.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106210830.png)
 
 top 命令的输出可以分为两个部分：前半部分是系统统计信息，后半部分是进程信息。
 
@@ -370,13 +370,13 @@ vmstat 是 Linux 上的一款功能比较齐全的性能监测工具。它可以
 
 一般 vmstat 工具的使用是通过两个数字参数来完成的，第一个参数是采样的时间间隔数，单位是秒，第二个参数是采样的次数，如:
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106213508.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106213508.png)
 
 `vmstat 1 3` 命令表示每秒采样一次，共三次。
 
 输出的各个列的含义：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106214547.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106214547.png)
 
 vmstat 的用法如下：
 
@@ -394,7 +394,7 @@ vmstat 的主要选项：
 
 iostat 用于统计 CPU 使用信息和磁盘的 IO 信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106214958.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106214958.png)
 
 基本用法如下：
 
@@ -454,7 +454,7 @@ netstat [options]
 
 - `[options]`：提供不同的输出选项。常见的选项包括 `-a`（显示所有连接和侦听端口），`-t`（显示 TCP 连接），`-u`（显示 UDP 连接），`-n`（以数字形式显示地址和端口号），`-r`（显示路由表）等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106220045.png)
+![](https://cdn.paicoding.com/stutymore/console-tools-20240106220045.png)
 
 `netstat` 的输出通常包括以下几个方面的信息：
 
@@ -479,4 +479,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

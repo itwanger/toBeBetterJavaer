@@ -22,7 +22,7 @@ Redis 以超高的性能、完美的文档、简洁的源码著称，国内外�
 
 Redis 的作者是一名意大利小伙，网名 Antirez，长相还是挺帅气的，感兴趣的小伙伴可以搜一下他的履历，搞了很多开源好玩的小玩具，比如说我曾给[球友们](https://javabetter.cn/zhishixingqiu/)推荐的 [smallchat](https://github.com/antirez/smallchat)，一个 200 多行代码的聊天室，经典得很。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211171943.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211171943.png)
 
 ## 02、安装 Redis
 
@@ -36,13 +36,13 @@ Redis 针对不同的操作系统有不同的安装方式，我们每个方式�
 
 我第一次写这份内容的时候，Windows 最新的版本是 3.2.100。从下图中可以看得出，Redis 的体积非常的轻量级，还不到 6 M。体积越小，让我感觉 Redis 越牛逼，相信你肯定也有这种感觉。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-a6709cca-d3a3-4381-b110-0ff37d384f27.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-a6709cca-d3a3-4381-b110-0ff37d384f27.jpg)
 
 有两种安装方式，第一种是 MSI（ Microsoft Installer，一种用于安装、维护和删除 Windows 操作系统上的软件的文件格式）的方式，双击运行后安装；第二种是免安装，绿色版，只需要把 zip 包解压就可以了。
 
 我们这里选择第二种，MSI 的方式 [MySQL](https://javabetter.cn/mysql/install.html) 的时候讲过了，我们换一种口味。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-f3fc9852-7505-45ed-8ce2-d16f1d888251.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-f3fc9852-7505-45ed-8ce2-d16f1d888251.jpg)
 
 注意压缩包里面有一份英文版的文档——Windows Service Documentation.docx，是用来教我们如何安装 Redis 服务、如何启动、如何关闭，以及如何使用自定义端口启动服务的，可以简单扫一遍。
 
@@ -56,7 +56,7 @@ redis-server redis.windows.conf
 
 然后你就会看到 Redis 启动后的欢迎画面，左边这个盒子感觉好有艺术感啊！有小伙伴知道是怎么生成的吗？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-69b11133-7aac-4f8a-aa1e-9e8af576ad32.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-69b11133-7aac-4f8a-aa1e-9e8af576ad32.jpg)
 
 还有一些其他的提示信息：
 
@@ -77,11 +77,11 @@ macOS 可以直接通过 [Homebrew](https://javabetter.cn/gongju/brew.html)（�
 
 如果有 [warp 终端](https://javabetter.cn/gongju/warp.html)（戳链接了解）的话，会更加智能，直接问它“如何安装 Redis”它就会告诉你安装步骤。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211194317.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211194317.png)
 
 安装完 Redis 后，也可以通过 `redis-server` 命令来启动服务。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211194526.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211194526.png)
 
 和 `brew services start redis` 不同，这样启动的服务是没有持久化的，也就是说，当你关闭终端后，Redis 服务也就停止了。
 
@@ -91,7 +91,7 @@ macOS 可以直接通过 [Homebrew](https://javabetter.cn/gongju/brew.html)（�
 
 如果使用 `brew services start redis` 来启动 Redis 的话，可以通过 `brew services info redis` 来查看 Redis 服务的状态，没启动的时候状态是这样的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211201931.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211201931.png)
 
 想要停止的话，可以使用 `brew services stop redis` 命令。
 
@@ -135,7 +135,7 @@ service redis status
 
 或者 `redis-cli ping`，如果返回 PONG，则表示 Redis 正在运行。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211200025.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211200025.png)
 
 #### Ubuntu
 
@@ -193,7 +193,7 @@ Redis 本身就自带了一个命令行客户端，可以直接通过 `redis-cli
 
 然后键入 `keys *` 命令，就可以看到 Redis 中的所有键值对。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211203619.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211203619.png)
 
 但是可能很多小伙伴想要一款图形化的客户端，这样更加直观，更加方便。
 
@@ -210,7 +210,7 @@ macOS 支持 [Homebrew](https://javabetter.cn/gongju/brew.html) 安装，也支�
 
 运行界面如下所示。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/install-20231211203817.png)
+![](https://cdn.paicoding.com/stutymore/install-20231211203817.png)
 
 ## 04、小结
 
@@ -226,4 +226,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

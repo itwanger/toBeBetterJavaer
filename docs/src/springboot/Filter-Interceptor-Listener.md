@@ -18,14 +18,14 @@ title: 过滤器、拦截器、监听器
 
 过滤器是在请求进入容器后，但还没有进入 Servlet 之前进行预处理的。如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-2a28621b-2cc1-4d29-87a1-cf6a01d95443.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-2a28621b-2cc1-4d29-87a1-cf6a01d95443.png)
 
 拦截器是在请求进入控制器（Controller） 之前进行预处理的。
 
 虚线内就是过滤器和拦截器的作用范围：
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-dd48851b-c123-4fd8-b82d-9ae87b33745d.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-dd48851b-c123-4fd8-b82d-9ae87b33745d.png)
 
 
 过滤器依赖于 Servlet 容器，而拦截器依赖于 Spring 的 IoC 容器，因此可以通过注入的方式获取容器当中的对象。
@@ -47,7 +47,7 @@ title: 过滤器、拦截器、监听器
 
 在 Spring 中，过滤器都默认继承了 OncePerRequestFilter，顾名思义，OncePerRequestFilter 的作用就是确保一次请求只通过一次过滤器，而不重复执行。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-aaa1c537-c8ed-4c5d-b27f-93c1409f2748.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-aaa1c537-c8ed-4c5d-b27f-93c1409f2748.png)
 
 在编程喵实战项目中，我们就是通过继承 OncePerRequestFilter 来实现 JWT 登录授权过滤的。
 
@@ -122,7 +122,7 @@ MyFilter 过滤器的逻辑非常简单，重写了 Filter 的三个方法，在
 
 启动服务器，访问任意的 URL。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-c865b6d2-30d3-435b-a930-c732caed17ce.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-c865b6d2-30d3-435b-a930-c732caed17ce.png)
 
 
 
@@ -194,17 +194,17 @@ public class MyInterceptorController {
 @RestController 注解相当于 @Controller + @ResponseBody 注解，@ResponseBody 注解用于将 Controller 方法返回的对象，通过适当的 HttpMessageConverter 转换为指定格式后，写入到 Response 对象的 body 数据区，通常用来返回 JSON 或者 XML 数据，返回 JSON 数据的情况比较多。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-27c3f03f-8cca-4cbe-84cb-005075c0b8c9.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-27c3f03f-8cca-4cbe-84cb-005075c0b8c9.png)
 
 
 启动服务器，访问 `http://localhost:8080/myinterceptor/hello`。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-dcd99eeb-c00e-4a7a-a1c2-f8c5ca952aed.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-dcd99eeb-c00e-4a7a-a1c2-f8c5ca952aed.png)
 
 在控制台可以看到拦截器中的日志信息：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-20bb0987-77c8-4069-a59f-bbd2d5584d8c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-20bb0987-77c8-4069-a59f-bbd2d5584d8c.png)
 
 无论是过滤器还是拦截器，都属于AOP（面向切面编程）思想的具体实现。除了这两种实现之外，还有另一种更灵活的AOP实现技术，即 Aspect，在编程喵实战项目里，你可以看到 Aspect 具体实现。
 
@@ -254,7 +254,7 @@ public class WebLogAspect {
 通过拦截后的请求信息大概是这样的：
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-7a4b219d-bd3e-435e-a2dc-93f4fe4e8cc2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/Filter-Interceptor-Listener-7a4b219d-bd3e-435e-a2dc-93f4fe4e8cc2.png)
 
 
 ## 监听器
@@ -272,4 +272,4 @@ public class WebLogAspect {
 > - 编程喵：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 > - 过滤器，拦截器、监听器专用：[https://github.com/itwanger/coding-more](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-filter-interceptor-listener)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

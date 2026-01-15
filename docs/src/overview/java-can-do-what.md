@@ -15,7 +15,7 @@ head:
 
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/three-01.png)
 
 国内对 Java 的使用率远超国外，所以国内 Java 的市场占有率更大，不管是 2020 年还是 2021、2022、2023 年，短时间内，Java 的霸主地位很难撼动。
 
@@ -68,7 +68,7 @@ Java 在多线程方面做得非常突出，只要操作系统支持，Java 中�
 
 ### **物联网（IoT）领域：**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/three-02.png)
 
 Oracle 表示，灵活性和流行度是 IoT 程序员选择 Java 的主要原因。Java 提供了大量的 API 库，可以很容易应用到嵌入式应用程序中。相比其他编程语言，比如 C 语言，Java 在切换平台时更加顺畅，不容易出错。
 
@@ -97,4 +97,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

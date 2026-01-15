@@ -17,7 +17,7 @@ head:
 
 所谓的生产者-消费者，实际上包含了两类线程，一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库，生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为；而消费者只需要从共享数据区中获取数据，不需要关心生产者的行为。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/shengchanzhe-xiaofeizhe-20230825161048.png)
+![](https://cdn.paicoding.com/stutymore/shengchanzhe-xiaofeizhe-20230825161048.png)
 
 这个共享数据区域中应该具备这样的线程间并发协作功能：
 
@@ -34,7 +34,7 @@ head:
 
 可以通过 Object 对象的 wait 方法和 notify 方法或 notifyAll 方法来实现线程间的通信。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/shengchanzhe-xiaofeizhe-20230825160634.png)
+![](https://cdn.paicoding.com/stutymore/shengchanzhe-xiaofeizhe-20230825160634.png)
 
 调用 wait 方法将阻塞当前线程，直到其他线程调用了 notify 方法或 notifyAll 方法进行通知，当前线程才能从 wait 方法处返回，继续执行下面的操作。
 
@@ -648,7 +648,7 @@ public class ProductorConsumer {
 
 其原因是 BlockingQueue 提供了可阻塞的插入和移除的方法。当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/shengchanzhe-xiaofeizhe-20230825160139.png)
+![](https://cdn.paicoding.com/stutymore/shengchanzhe-xiaofeizhe-20230825160139.png)
 
 有了这个队列，生产者就只需要关注生产，而不用管消费者的消费行为，更不用等待消费者线程执行完；消费者也只管消费，不用管生产者是怎么生产的，更不用等着生产者生产。
 
@@ -801,4 +801,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

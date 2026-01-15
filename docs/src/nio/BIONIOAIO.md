@@ -18,11 +18,11 @@ head:
 
 周末午后，在家里面进行电话面试，我问了面试者几个关于 IO 的问题，其中包括什么是 BIO、NIO 和 AIO？三者有什么区别？具体如何使用等问题，但是面试者回答的并不是很满意。于是我在面试评价中写道："对 Java 的 IO 提醒理解不够深入"。恰好被女朋友看到了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-1.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-1.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-2.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-2.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-4.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-4.jpg)
 
 ### Java IO 与 BIO、NIO
 
@@ -50,11 +50,11 @@ Java AIO，全称 Asynchronous IO，是**异步非阻塞**的 IO。是一种非�
 
 在 NIO 的基础上引入了新的异步通道的概念，并提供了异步文件通道和异步套接字通道的实现。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-8.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-9.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-9.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-10.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-10.jpg)
 
 ### 三种 IO 的区别
 
@@ -267,9 +267,9 @@ public class AioDemo {
 
 滴滴滴，水开了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-22.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-22.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/BIONIOAIO-23.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/BIONIOAIO-23.jpg)
 
 ### 小结
 
@@ -288,4 +288,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

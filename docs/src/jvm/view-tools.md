@@ -29,12 +29,12 @@ JConsole 可以用来监视 Java 应用程序的运行状态，包括内存使�
 
 JConsole 程序位于%JAVA_HOME%bin 目录下，不过我当前的操作系统是 macOS，和 Windows 有一些不一样，我就不再刻意截 [Windows 的图](https://javabetter.cn/overview/jdk-install-config.html#_02%E3%80%81windows-%E5%AE%89%E8%A3%85-jdk)了，希望大家可以理解。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107121534.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107121534.png)
 
 
 直接启动 JConsole，会弹出一个窗口，显示本机正在运行的 Java 程序，选择一个程序（比如说[技术派](https://paicoding.com/)的 28966），点击`连接`即可。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107122523.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107122523.png)
 
 还可以进行远程链接，比如说对服务器上的 Java 程序进行监控，需要远程服务器上的 Java 程序在启动的时候加上以下这些参数：
 
@@ -53,14 +53,14 @@ JConsole 程序位于%JAVA_HOME%bin 目录下，不过我当前的操作系统�
 
 使用 JConsole 连接了一个本地程序，在`概述`可以看到 Java 程序的运行时概况，包括`堆内存使用量`、`线程`、`类`、`CPU占用率`四项信息的曲线图。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107125054.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107125054.png)
 
 
 ### 内存监控
 
 `内存`的作用相当于可视化的 [jstat 命令](https://javabetter.cn/jvm/console-tools.html)（上一节讲过了），用于监视 Java 堆的使用情况，可以更细化到 [eden 区、suvivior 区、老年代](https://javabetter.cn/jvm/whereis-the-object.html)的使用情况。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107125358.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107125358.png)
 
 为了更加清晰地查看内存变化，可以运行下面这段，然后连接：
 
@@ -98,11 +98,11 @@ class JConcoleRAMMonitor {
 
 观察 Eden 区的运行趋势，发现呈折线趋势增长。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107125932.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107125932.png)
 
 点击「执行 GC」之后，会发现老年代的柱状图会达到峰值状态，是因为执行 GC 之后，Eden 区的对象被回收，存活的对象被移动到老年代。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107130243.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107130243.png)
 
 
 ### 线程监控
@@ -111,7 +111,7 @@ JConcole 还可以监控线程，相当于可视化的 [jstack 命令](https://j
 
 如下图，JConcole 显示了应用系统内的线程数量，左下方显示了程序中所有的线程。点击线程名称，就可以查看线程的栈信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107131040.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107131040.png)
 
 使用 JConsole 还可以快速定位死锁问题。上一篇我们曾写过一个[死锁的例子](https://javabetter.cn/jvm/console-tools.html)，这里我们再来看一下。
 
@@ -154,19 +154,19 @@ class DeadLockDemo {
 
 运行以上代码，点击 JConsole 线程面板下的 「`检测到死锁`」按钮，将会看到线程的死锁信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107131533.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107131533.png)
 
 ### 类加载情况
 
 如下图，「类」面板显示了已经装载的类数量。在详细信息栏中，还显示了已经卸载的类的数量。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107131709.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107131709.png)
 
 ###  VM 概要
 
 在`VM 概要` 面板，JConsole 显示了当前应用程序的运行时环境，包括虚拟机类型、版本、堆信息以及虚拟机参数等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107131747.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107131747.png)
 
 ## VisualVM
 
@@ -178,17 +178,17 @@ VisualVM（All-in-One Java Troubleshooting Tool）一款功能强大的运行监
 
 VisualVM 的安装非常简单，下载地址：[https://visualvm.github.io](https://visualvm.github.io)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107132705.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107132705.png)
 
 安装完成后打开的界面如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107132947.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107132947.png)
 
 VisualVM 比 JConsole 强的不是一星半点，它不仅拥有更漂亮的身段，还支持插件功能。
 
 点击`tools`\-> `plugins`，在`可用插件`里可以看到大量的插件，按需安装即可。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107133038.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107133038.png)
 
 
 VisualVM 中`概述`、`监视`、`线程`与 JConsole 差别不大，这里就不在赘述。
@@ -200,15 +200,15 @@ VisualVM 中`概述`、`监视`、`线程`与 JConsole 差别不大，这里就�
 ①、在`应用程序`面板中右键选择`堆Dump`（也就是 Heap Dump）。
 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107133459.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107133459.png)
 
 ②、在`应用程序`面板中选择应用程序，在“监视”面板中单击`堆Dump`。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107133533.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107133533.png)
 
 如果需要把堆转储快照保存文件后分享出去，可以在 heapdump 节点上右键选择“另存为”菜单，否则当 VisualVM 关闭时，生成的堆转储快照文件会被当作临时文件自动清理掉。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107133756.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107133756.png)
 
 
 ### 分析程序性能
@@ -217,7 +217,7 @@ VisualVM 中`概述`、`监视`、`线程`与 JConsole 差别不大，这里就�
 
 比如说 CPU 将会统计每个方法的执行次数、执行耗时。比如说内存将会统计每个方法的内存分配情况。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107134238.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107134238.png)
 
 注意点击开始后，回到应用程序进行操作。等要分析的操作执行结束后，点击“停止”按钮结束监控过程。
 
@@ -227,7 +227,7 @@ JMC 最初是 JRockit VM 中的诊断工具，但在 Oracle JDK7 Update 40 以�
 
 >GitHub 地址：[https://github.com/openjdk/jmc](https://github.com/openjdk/jmc)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107154540.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107154540.png)
 
 Oracle 官方下载比较慢，可以通过 jdk.java.net 下载。
 
@@ -235,13 +235,13 @@ Oracle 官方下载比较慢，可以通过 jdk.java.net 下载。
 
 解压后启动的界面如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107154959.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107154959.png)
 
 ### MBean Server
 
 点击本地进程的`MBean服务器`：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107155226.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107155226.png)
 
 >MBean 是管理 Java 应用程序的一种标准方式，它是 Java 管理扩展（JMX）的一部分。MBean 代表可管理的 Java 对象，它们的属性和操作可以通过 JMX 进行访问。
 
@@ -259,12 +259,12 @@ Oracle 官方下载比较慢，可以通过 jdk.java.net 下载。
 
 连接加了相关参数启动的程序，启动飞行记录，进行一分钟的性能记录：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107160338.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107160338.png)
 
 
 记录结束后，JMC 会自动打开刚才的记录：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107160555.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107160555.png)
 
 JFR 提供的数据质量通常也要比其他工具通过代理形式采样获得的更高。
 
@@ -322,19 +322,19 @@ private static void allocate() {
 
 比如说通过「内存面板」可以看出 BigDecimal 对象占用了最多的内存。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107162040.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107162040.png)
 
 如果想进一步分析内存占用来源，可以切到线程页面，勾选三个复选框，可以在 memory 这里看到内存情况。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107162307.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107162307.png)
 
 还可以看到这里的 `cpu_high_thread` 在不断地计算浮点数，所以占用了较多的 CPU。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107162511.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107162511.png)
 
 死锁的情况也可以在这里看得到。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/view-tools-20240107162559.png)
+![](https://cdn.paicoding.com/stutymore/view-tools-20240107162559.png)
 
 ## 第三方工具
 
@@ -378,4 +378,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

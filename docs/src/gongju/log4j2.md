@@ -14,7 +14,7 @@ SLF4J 和 Logback 作为 Log4j 的替代品，在很多方面都做了必要的�
 
 上一篇也说了，老板下死命令要我把日志系统切换到 Logback，我顺利交差了，老板很开心，夸我这个打工人很敬业。为了表达对老板的这份感谢，我决定偷偷摸摸地试水一下 Log4j 2，尽管它还不是个成品，可能会会项目带来一定的隐患。但谁让咱是一个敬岗爱业的打工人呢。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j2-a9461265-7652-4512-9219-6b3e82392415.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j2-a9461265-7652-4512-9219-6b3e82392415.png)
 
 
 ### 01、Log4j 2 强在哪
@@ -25,7 +25,7 @@ Log4j 2 的异步 Logger 使用的是无锁数据结构，而 Logback 和 Log4j 
 
 下图说明了多线程方案中无锁数据结构对吞吐量的影响。 Log4j 2 随着线程数量的扩展而更好地扩展：具有更多线程的应用程序可以记录更多的日志。其他日志记录库由于存在锁竞争的关系，在记录更多线程时，总吞吐量保持恒定或下降。这意味着使用其他日志记录库，每个单独的线程将能够减少日志记录。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j2-43f0b03d-5c4a-4af3-9e4c-177956246740.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j2-43f0b03d-5c4a-4af3-9e4c-177956246740.png)
 
 性能方面是 Log4j 2 的最大亮点，至于其他方面的一些优势，比如说下面这些，可以忽略不计，文字有多短就代表它有多不重要。
 
@@ -86,7 +86,7 @@ Log4j 2 竟然没有在控制台打印“ log4j2”，还抱怨我们没有为�
 
 可以在方法中打个断点，然后 debug 一下，你就会看到下图中的内容。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j2-4ba440d9-c0b6-4ad2-b538-9d303cc99d90.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j2-4ba440d9-c0b6-4ad2-b538-9d303cc99d90.png)
 
 通过源码，你可以看得到，Log4j 2 会去寻找 4 种类型的配置文件，后缀分别是 properties、yaml、json 和 xml。前缀是 log4j2-test 或者 log4j2。
 
@@ -259,7 +259,7 @@ for (int i = 1;i < 20; i++) {
 
 再次运行 Demo 类，可以看到根目录下多了 3 个日志文件：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j2-07af98ca-cf94-427e-adb6-bd935e32a8d0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j2-07af98ca-cf94-427e-adb6-bd935e32a8d0.png)
 
 
 结合日志文件名，再来看 RollingFile 的配置，就很容易理解了。
@@ -272,7 +272,7 @@ for (int i = 1;i < 20; i++) {
 
 先来看一下 DefaultRolloverStrategy 的属性：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j2-32b853ce-8beb-496b-b66f-31b650c257ab.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j2-32b853ce-8beb-496b-b66f-31b650c257ab.png)
 
 再来看 filePattern 的值 `rolling-%d{yyyy-MM-dd}-%i.log`，其中 `%d{yyyy-MM-dd}` 很好理解，就是年月日；其中 `%i` 是什么意思呢？
 
@@ -304,9 +304,9 @@ for (int i = 1;i < 20; i++) {
 
 运行 Demo 后，可以在 gz 目录下看到以下文件：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j2-1b04167d-a11f-4447-9062-cb3cdd59aa73.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j2-1b04167d-a11f-4447-9062-cb3cdd59aa73.png)
 
 到此为止，Log4j 2 的基本使用示例就已经完成了。测试环境搞定，我去问一下老板，要不要在生产环境下使用 Log4j 2。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

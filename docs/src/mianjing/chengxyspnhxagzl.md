@@ -256,7 +256,7 @@ hr 面，聊聊做了什么项目，遇到了最复杂的问题是啥？如何�
 没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 
 >转载链接：[https://mp.weixin.qq.com/s/vIqfeVmWtDnvsHllC4M5Tg](https://mp.weixin.qq.com/s/vIqfeVmWtDnvsHllC4M5Tg)，整理：沉默王二
@@ -270,4 +270,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

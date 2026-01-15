@@ -41,11 +41,11 @@ public static String getLocalIP() {
 
 本机执行后截图如下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330093633.png)
+![](https://cdn.paicoding.com/stutymore/utils-20230330093633.png)
 
 阿里云机器执行后截图如下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330095801.png)
+![](https://cdn.paicoding.com/stutymore/utils-20230330095801.png)
 
 #### 2. 进阶版
 
@@ -87,7 +87,7 @@ public static String getLocalIpByNetcard() {
 
 再次测试，输出如下
 
-![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330100334.png)
+![](https://cdn.paicoding.com/stutymore/utils-20230330100334.png)
 
 #### 3. 完整工具类
 
@@ -277,7 +277,7 @@ System.out.println(ClassUtils.isCglibProxy(new User()));
 
 ClassUtils 还有很多有用的方法，等待着你去发掘。感兴趣的小伙伴，可以看看下面的内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
 
 ### BeanUtils
 
@@ -330,7 +330,7 @@ System.out.println(propertyForMethod.getName());
 
 如果你对 BeanUtils 比较感兴趣，可以看看下面内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
 
 ### ReflectionUtils
 
@@ -382,7 +382,7 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 
 当然这个类还有不少有趣的方法，感兴趣的朋友，可以看看下面内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
 
 >参考链接：[https://juejin.cn/post/7102418518599008286](https://juejin.cn/post/7102418518599008286) 作者：苏三，编辑：沉默王二
 
@@ -393,4 +393,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

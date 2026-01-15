@@ -16,11 +16,11 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
 
-![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+![无任何套路](https://cdn.paicoding.com/stutymore/javase-20240605194117.png)
 
 附其他干货笔记下载地址：
 
@@ -35,7 +35,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 ### 基本类型
 
-![二哥的 Java 进阶之路：数据类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
+![二哥的 Java 进阶之路：数据类型](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
 Java 基本数据类型的默认值和占用大小：
 
@@ -143,11 +143,11 @@ System.out.println(m == n); // true
 
 在启动 jvm 的时候，可以通过 -XX:AutoBoxCacheMax=&lt;size&gt; 来指定缓冲池的大小，该选项在 JVM 初始化的时候会设定一个名为 java.lang.IntegerCache.high 系统属性，然后 IntegerCache 初始化的时候就会读取该系统属性来决定上界。
 
-![沉默王二：IntegerCache.high](https://cdn.tobebetterjavaer.com/stutymore/Java基础-20240602173130.png)
+![沉默王二：IntegerCache.high](https://cdn.paicoding.com/stutymore/Java基础-20240602173130.png)
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 二、String
 
@@ -186,7 +186,7 @@ value 数组被声明为 final，这意味着 value 变量在数组初始化之�
 
 HashMap 的底层数据结构是数组，其键值对在数组中的位置是通过 `(n - 1) & hash` 计算得到的，n 也就是数组的长度，hash 也就是键的哈希值。
 
-![沉默王二：字符串的不可变性](https://cdn.tobebetterjavaer.com/stutymore/Java基础-20240604072937.png)
+![沉默王二：字符串的不可变性](https://cdn.paicoding.com/stutymore/Java基础-20240604072937.png)
 
 如果键是可变的，那么在计算键的哈希值时，哈希值也是不确定的，于是就无法准确地在数组中定位到键值对的位置。
 
@@ -198,7 +198,7 @@ HashMap 的底层数据结构是数组，其键值对在数组中的位置是通
 
 通过双引号创建的字符串（如 "沉默王二"）都会被加入到字符串常量池中，这样就可以减少字符串的创建，节约内存空间。
 
-![沉默王二：字符串常量池](https://cdn.tobebetterjavaer.com/stutymore/Java基础-20240604074510.png)
+![沉默王二：字符串常量池](https://cdn.paicoding.com/stutymore/Java基础-20240604074510.png)
 
 推荐阅读：[深入理解Java的字符串常量池](https://javabetter.cn/string/constant-pool.html)
 
@@ -312,7 +312,7 @@ public String(String original) {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、运算
 
@@ -448,7 +448,7 @@ switch (s) {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 四、关键字
 
@@ -624,7 +624,7 @@ public InitialOrderTest() {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 五、Object 通用方法
 
@@ -1017,7 +1017,7 @@ System.out.println(e2.get(2)); // 2
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 六、继承
 
@@ -1399,7 +1399,7 @@ public static void main(String[] args) {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 七、反射
 
@@ -1438,7 +1438,7 @@ Throwable 可以用来表示任何可以作为异常抛出的类，分为两种�
 -   **受检异常**  ：需要用 try...catch... 语句捕获并进行处理，并且可以从异常中恢复；
 -   **非受检异常**  ：程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
 
-![二哥的 Java 进阶之路：异常](https://cdn.tobebetterjavaer.com/studymore/gailan-20230326090207.png)
+![二哥的 Java 进阶之路：异常](https://cdn.paicoding.com/studymore/gailan-20230326090207.png)
 
 推荐阅读：[一文彻底搞懂Java异常处理](https://javabetter.cn/exception/gailan.html)
 
@@ -1509,7 +1509,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 

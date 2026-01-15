@@ -15,7 +15,7 @@ head:
 
 在古代，由于通信不便利，一些聪明的人就利用鸽子会飞且飞得比较快、会辨认方向的优点，对其进行了驯化，用来进行消息的传递——也就是所谓的“飞鸽传书”。而在 Java 中，网络套接字（Socket）扮演了同样的角色。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-a1a012de-33e5-424a-a4cf-bd929cd60200.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/socket-a1a012de-33e5-424a-a4cf-bd929cd60200.jpg)
 
 套接字（Socket）是一个抽象层，应用程序可以通过它发送或接收数据；就像操作文件那样可以打开、读写和关闭。套接字允许应用程序将 I/O 应用于网络中，并与其他应用程序进行通信。网络套接字是 IP 地址与端口的组合。
 
@@ -33,18 +33,18 @@ ping，一种计算机网络工具，用来测试数据包能否透过 IP 协议
 
 例如，我们 ping 一下博客园。截图如下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-ce54bbbe-3627-4af4-9f9c-4c041a7ef2a7.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/socket-ce54bbbe-3627-4af4-9f9c-4c041a7ef2a7.jpg)
 
 
 telnet，Internet 远程登录服务的标准协议和主要方式，可以让我们坐在家里的计算机面前，登录到另一台远在天涯海角的远程计算机上。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-f94e1fa5-16d0-4414-9a53-a2aa43b2a512.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/socket-f94e1fa5-16d0-4414-9a53-a2aa43b2a512.jpg)
 
 在 Windows 系统中，telnet 一般是默认安装的，但未激活（可以在控制面板中激活它）。
 
 例如，我们 telnet 一下火（shui）土（mu）社区。截图如下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-9d7051d9-e7de-48a8-9b28-b482d84f56c9.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/socket-9d7051d9-e7de-48a8-9b28-b482d84f56c9.jpg)
 
 使用 telnet 登录远程计算机时，需要远程计算机上运行一个服务，它一直不停地等待那些希望和它进行连接的网络请求；当接收到一个客户端的网络连接时，它便唤醒正在监听网络连接请求的服务器进程，并为两者建立连接。连接会一直保持，直到某一方中止。
 
@@ -100,7 +100,7 @@ while (scanner.hasNextLine()) {
 
 部分结果（完整结果自己亲手实践一下哦）如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-6b60e4b2-14d0-4d95-bb5c-146bc6a06147.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/socket-6b60e4b2-14d0-4d95-bb5c-146bc6a06147.jpg)
 
 
 ### 03、ServerSocket 实例
@@ -174,7 +174,7 @@ while (!done && scanner.hasNextLine()) {
 
 运行该服务后，可以通过 `telnet localhost 8888` 命令连接该远程服务，不出所料，你将会看到以下信息。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-fac025fa-8cbf-448d-8a6d-cd8993ba87f4.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/socket-fac025fa-8cbf-448d-8a6d-cd8993ba87f4.jpg)
 
 PS：可以在当前命令窗口中输入 2048，服务端收到该消息后会中断该套接字连接（当前窗口会显示“遗失对主机的连接”）。
 
@@ -314,7 +314,7 @@ public class Client {
 
 启动服务器端，然后多启动几个客户端，就可以体验到交互的乐趣了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/socket-20230330192826.png)
+![](https://cdn.paicoding.com/stutymore/socket-20230330192826.png)
 
 ### 08、DatagramSocket 实例
 
@@ -379,7 +379,7 @@ public class UDPClient {
 
 运行结果如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/socket-20230330193654.png)
+![](https://cdn.paicoding.com/stutymore/socket-20230330193654.png)
 
 ### 07、最后
 
@@ -392,4 +392,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

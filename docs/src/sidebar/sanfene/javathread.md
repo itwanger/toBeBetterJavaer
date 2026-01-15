@@ -15,7 +15,7 @@ head:
 ---
 
 
-![面渣逆袭并发编程篇封面图](https://cdn.tobebetterjavaer.com/stutymore/javathread-mianzhanixi-thread1.jpg)
+![面渣逆袭并发编程篇封面图](https://cdn.paicoding.com/stutymore/javathread-mianzhanixi-thread1.jpg)
 
 ## 前言
 
@@ -25,7 +25,7 @@ head:
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-![面渣逆袭并发编程篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112951.png)
+![面渣逆袭并发编程篇.pdf第二版](https://cdn.paicoding.com/stutymore/javathread-20250226112951.png)
 
 2025 年 01 月 22 日开始着手第二版更新。
 
@@ -37,25 +37,25 @@ head:
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
 
-![面渣逆袭已经提交 1479 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250122093837.png)
+![面渣逆袭已经提交 1479 次 GitHub 记录](https://cdn.paicoding.com/stutymore/javathread-20250122093837.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 
 更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
-![面渣逆袭并发编程篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226113113.png)
+![面渣逆袭并发编程篇.pdf暗黑版](https://cdn.paicoding.com/stutymore/javathread-20250226113113.png)
 
 ## 基础
 
@@ -64,11 +64,11 @@ head:
 - 并行是多核 CPU 上的多任务处理，多个任务在同一时间真正地同时执行。
 - 并发是单核 CPU 上的多任务处理，多个任务在同一时间段内交替执行，通过时间片轮转实现交替执行，用于解决 IO 密集型任务的瓶颈。
 
-![三分恶面渣逆袭：并行和并发](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-1.png)
+![三分恶面渣逆袭：并行和并发](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-1.png)
 
 举个例子，就好像我们去食堂打饭，并行就是每个人对应一个阿姨，同时打饭；而并发就是一个阿姨，轮流给每个人打饭，假如有个人磨磨唧唧，阿姨就会吆喝下一个人，这样就能提高食堂的打饭效率。
 
-![三分恶面渣逆袭：并行并发和食堂打饭](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-2.png)
+![三分恶面渣逆袭：并行并发和食堂打饭](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-2.png)
 
 #### 你是如何理解线程安全的？
 
@@ -80,7 +80,7 @@ head:
 
 **①、原子性**：一个操作要么完全执行，要么完全不执行，不会出现中间状态。
 
-![雷小帅：原子性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-eba43c92-e42d-4318-a40c-b9365c32d922.png)
+![雷小帅：原子性](https://cdn.paicoding.com/tobebetterjavaer/images/thread/thread-bring-some-problem-eba43c92-e42d-4318-a40c-b9365c32d922.png)
 
 可以通过同步关键字 synchronized 或原子操作，如 AtomicInteger 来保证原子性。
 
@@ -91,7 +91,7 @@ count.incrementAndGet(); // 原子操作
 
 **②、可见性**：当一个线程修改了共享变量，其他线程能够立即看到变化。
 
-![雷小帅：可见性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d91ca0c2-4f39-4e98-90e2-8acb793eb983.png)
+![雷小帅：可见性](https://cdn.paicoding.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d91ca0c2-4f39-4e98-90e2-8acb793eb983.png)
 
 可以通过 volatile 关键字来保证可见性。
 
@@ -101,7 +101,7 @@ private volatile String itwanger = "沉默王二";
 
 **③、有序性**：要确保线程不会因为死锁、饥饿、活锁等问题导致无法继续执行。
 
-![雷小帅：有序性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d4e65d5f-3de1-4a1c-8ae1-02cb3bfb528c.png)
+![雷小帅：有序性](https://cdn.paicoding.com/tobebetterjavaer/images/thread/thread-bring-some-problem-d4e65d5f-3de1-4a1c-8ae1-02cb3bfb528c.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为 OD 面经同学 1 一面面试原题：对于多线程编程的了解?
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 1 部门主站技术部面试原题：你对线程安全的理解是什么？
@@ -116,7 +116,7 @@ memo：2025 年 1 月 22 日修改至此。
 
 线程是进程中的独立执行单元。多个线程可以共享同一个进程的资源，如内存；每个线程都有自己独立的栈和寄存器。
 
-![三分恶面渣逆袭：进程与线程关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-3.png)
+![三分恶面渣逆袭：进程与线程关系](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-3.png)
 
 #### 如何理解协程？
 
@@ -144,14 +144,14 @@ fun main() = runBlocking {
 
 用一句话来概括就是：共享变量存储在主内存中，每个线程的私有本地内存，存储的是这个共享变量的副本。
 
-![深入浅出 Java 多线程：JMM](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240315111143.png)
+![深入浅出 Java 多线程：JMM](https://cdn.paicoding.com/stutymore/javathread-20240315111143.png)
 
 线程 A 与线程 B 之间如要通信，需要要经历 2 个步骤：
 
 - 线程 A 把本地内存 A 中的共享变量副本刷新到主内存中。
 - 线程 B 到主内存中读取线程 A 刷新过的共享变量，再同步到自己的共享变量副本中。
 
-![深入浅出 Java 多线程：线程间通信](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240315111130.png)
+![深入浅出 Java 多线程：线程间通信](https://cdn.paicoding.com/stutymore/javathread-20240315111130.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：进程和线程区别，线程共享内存和进程共享内存的区别
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小米春招同学 K 一面面试原题：协程和线程和进程的区别
@@ -167,7 +167,7 @@ fun main() = runBlocking {
 
 memo：2025 年 8 月 17 日修改至此。[今天在帮球友修改简历的时候](https://javabetter.cn/zhishixingqiu/jianli.html)，收到他的反馈说：上次也麻烦我帮他改了改简历，也顺利找到了实习，秋招逼近，希望我能再帮他看看实习经历。感谢球友的每一次口碑。
 
-![球友对简历修改的认可。](https://cdn.tobebetterjavaer.com/stutymore/javathread-眼看秋招已经开始，打算最近离职了，更新了一版简历，麻烦二哥帮我看看。.png)
+![球友对简历修改的认可。](https://cdn.paicoding.com/stutymore/javathread-眼看秋招已经开始，打算最近离职了，更新了一版简历，麻烦二哥帮我看看。.png)
 
 ### 3.🌟说说线程有几种创建方式？
 
@@ -175,7 +175,7 @@ memo：2025 年 8 月 17 日修改至此。[今天在帮球友修改简历的时
 
 有三种，分别是继承 Thread 类、实现 Runnable 接口、实现 Callable 接口。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407172652.png)
+![二哥的 Java 进阶之路](https://cdn.paicoding.com/stutymore/javathread-20240407172652.png)
 
 第一种需要重写父类 Thread 的 `run()` 方法，并且调用 `start()` 方法启动线程。
 
@@ -246,7 +246,7 @@ class CallableTask implements Callable<String> {
 
 可以通过 `java -XX:+PrintFlagsFinal -version | grep ThreadStackSize` 命令查看 JVM 栈的默认大小。
 
-![二哥的 Java 进阶之路：默认的虚拟机栈大小](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225145929.png)
+![二哥的 Java 进阶之路：默认的虚拟机栈大小](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225145929.png)
 
 其中 ThreadStackSize 的单位是 KB，也就是说默认的 JVM 栈大小是 1024 KB，也就是 1M。
 
@@ -258,7 +258,7 @@ class CallableTask implements Callable<String> {
 
 还有编译器线程，比如 JIT，负责把一部分热点代码编译后放到 codeCache 中。
 
-![二哥的 Java 进阶之路：JIT](https://cdn.tobebetterjavaer.com/stutymore/jit-20240105180655.png)
+![二哥的 Java 进阶之路：JIT](https://cdn.paicoding.com/stutymore/jit-20240105180655.png)
 
 可以通过下面的代码进行检测：
 
@@ -298,7 +298,7 @@ Thread: Finalizer (ID=3)
 
 比如说在[技术派的首页内容加载](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就用到了多线程来并行加载不同的模块，提高页面的响应速度。
 
-![技术派：并行首页内容加载](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250927175506.png)
+![技术派：并行首页内容加载](https://cdn.paicoding.com/stutymore/javathread-20250927175506.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：有多少种实现线程的方法？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的农业银行同学 1 面试原题：实现线程的方式和区别
@@ -311,7 +311,7 @@ Thread: Finalizer (ID=3)
 
 memo：2025 年 9 月 26 日修改至此。今天[有球友在星球里](https://javabetter.cn/zhishixingqiu/)报喜说拿到了字节的意向，感谢二哥的面渣逆袭。
 
-![拿到字节的意向了](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250927175050.png)
+![拿到字节的意向了](https://cdn.paicoding.com/stutymore/javathread-20250927175050.png)
 
 ### 4.🌟调用 start 方法时会执行 run 方法，那怎么不直接调用 run方法？
 
@@ -344,7 +344,7 @@ Thread-0
 
 也就是说，调用 `start()` 方法会通知 JVM，去调用底层的线程调度机制来启动新线程。
 
-![三分恶面渣逆袭：start方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-5.png)
+![三分恶面渣逆袭：start方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-5.png)
 
 调用 `start()` 后，线程进入就绪状态，等待操作系统调度；一旦调度执行，线程会执行其 `run()` 方法中的代码。
 
@@ -358,7 +358,7 @@ memo：2025 年 1 月 26 日修改至此。
 
 比如说 start 方法用于启动线程并让操作系统调度执行；sleep 方法用于让当前线程休眠一段时间；wait 方法会让当前线程等待，notify 会唤醒一个等待的线程。
 
-![三分恶面渣逆袭：线程常用调度方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-6.png)
+![三分恶面渣逆袭：线程常用调度方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-6.png)
 
 #### 说说wait方法和notify方法？
 
@@ -408,7 +408,7 @@ thread.interrupt(); // 中断线程
 
 stop 方法用来强制停止线程，目前已经处于废弃状态，因为 stop 方法可能会在不一致的状态下释放锁，破坏对象的一致性。
 
-![二哥的 Java 进阶之路：stop 方法源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240321111407.png)
+![二哥的 Java 进阶之路：stop 方法源码](https://cdn.paicoding.com/stutymore/javathread-20240321111407.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的帆软同学 3 Java 后端一面的原题：怎么停止一个线程，interrupt 和 stop 区别
 
@@ -421,7 +421,7 @@ memo：2025 年 1 月 27 日修改至此。
 new 代表线程被创建但未启动；runnable 代表线程处于就绪或正在运行状态，由操作系统调度；blocked 代表线程被阻塞，等待获取锁；waiting 代表线程等待其他线程的通知或中断；timed_waiting 代表线程会等待一段时间，超时后自动恢复；terminated 代表线程执行完毕，生命周期结束。
 
 
-![三分恶面渣逆袭：Java线程状态变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-7.png)
+![三分恶面渣逆袭：Java线程状态变化](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-7.png)
 
 也就是说，线程的生命周期可以分为五个主要阶段：新建、就绪、运行、阻塞和终止。线程在运行过程中会根据状态的变化在这些阶段之间切换。
 
@@ -505,7 +505,7 @@ public class Main {
 
 中断结果：
 
-![二哥的Java 进阶之路：线程中断](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241215110907.png)
+![二哥的Java 进阶之路：线程中断](https://cdn.paicoding.com/stutymore/javathread-20241215110907.png)
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的招商银行面经同学 6 招银网络科技面试原题：线程的生命周期和状态？
@@ -521,11 +521,11 @@ public class Main {
 
 之所以要这样，是因为 CPU 在同一时刻只能执行一个线程，为了实现多线程并发执行，需要不断地在多个线程之间切换。
 
-![三分恶面渣逆袭：线程切换](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-8.png)
+![三分恶面渣逆袭：线程切换](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-8.png)
 
 为了让用户感觉多个线程是在同时执行的， CPU 资源的分配采用了时间片轮转的方式，线程在时间片内占用 CPU 执行任务。当线程使用完时间片后，就会让出 CPU 让其他线程占用。
 
-![三分恶面渣逆袭：上下文切换时机](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-9.png)
+![三分恶面渣逆袭：上下文切换时机](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-9.png)
 
 #### 线程可以被多核调度吗？
 
@@ -841,7 +841,7 @@ Thread 1 醒来了，并且退出同步代码块
 - `sleep()` 方法可以在任何地方被调用。
 - `wait()` 方法必须在同步代码块或同步方法中被调用，这是因为调用 `wait()` 方法的前提是当前线程必须持有对象的锁。否则会抛出 `IllegalMonitorStateException` 异常。
 
-![二哥的 Java 进阶之路：wait 方法必须在同步代码块中调用](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240308154009.png)
+![二哥的 Java 进阶之路：wait 方法必须在同步代码块中调用](https://cdn.paicoding.com/stutymore/javathread-20240308154009.png)
 
 ④、唤醒方式不同
 
@@ -1114,7 +1114,7 @@ class LazySingleton {
 
 与 HashMap 类似，Hashtable 的底层数据结构也是一个数组加上链表的方式，然后通过 synchronized 加锁来保证线程安全。
 
-![二哥的Java 进阶之路：Hashtable源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241020082126.png)
+![二哥的Java 进阶之路：Hashtable源码](https://cdn.paicoding.com/stutymore/javathread-20241020082126.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：线程安全，说一个使用场景 -讲了下单例模式的双重检查锁定，懒汉式和饿汉式
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：有个int的变量为0，十个线程轮流对其进行++操作（循环10000次），结果是大于小于还是等于10万，为什么？
@@ -1134,7 +1134,7 @@ memo：2025 年 1 月 30 日修改至此。
 
 [ThreadLocal](https://javabetter.cn/thread/ThreadLocal.html) 是一种用于实现线程局部变量的工具类。它允许每个线程都拥有自己的独立副本，从而实现线程隔离。
 
-![三分恶面渣逆袭：ThreadLocal线程副本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-11.png)
+![三分恶面渣逆袭：ThreadLocal线程副本](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-11.png)
 
 使用 ThreadLocal 通常分为四步：
 
@@ -1207,37 +1207,37 @@ ThreadLocal 可用于跨方法、跨类时传递上下文数据，不需要在�
 
 memo：2025 年 8 月 23 日修改至此，今天[有球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)发贴说拿到了美团背景的转正 offer，真的要恭喜啊，8 月下旬就能转正，太舒服了。
 
-![美团背景意向](https://cdn.tobebetterjavaer.com/stutymore/javathread-意向可以直接接受吧？真正下了.png)
+![美团背景意向](https://cdn.paicoding.com/stutymore/javathread-意向可以直接接受吧？真正下了.png)
 
 ### 13.你在工作中用到过 ThreadLocal 吗？
 
 有用到过，用来存储用户信息。
 
-![技术派：ThreadLocal](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316103919.png)
+![技术派：ThreadLocal](https://cdn.paicoding.com/stutymore/javathread-20240316103919.png)
 
 [技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)是典型的 MVC 架构，登录后的用户每次访问接口，都会在请求头中携带一个 token，在控制层可以根据这个 token，解析出用户的基本信息。
 
 假如在服务层和持久层也要用到用户信息，就可以在控制层拦截请求把用户信息存入 ThreadLocal。
 
-![技术派实战源码：控制层拦截请求](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104501.png)
+![技术派实战源码：控制层拦截请求](https://cdn.paicoding.com/stutymore/javathread-20240316104501.png)
 
 这样我们在任何一个地方，都可以取出 ThreadLocal 中存的用户信息。
 
-![技术派实战源码：从ThreadLocal中取出信息](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240316104629.png)
+![技术派实战源码：从ThreadLocal中取出信息](https://cdn.paicoding.com/stutymore/javathread-20240316104629.png)
 
 很多其它场景的 cookie、session 等等数据隔离都可以通过 ThreadLocal 去实现。
 
-![三分恶面渣逆袭：ThreadLoca存放用户上下文](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-12.png)
+![三分恶面渣逆袭：ThreadLoca存放用户上下文](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-12.png)
 
 ### 14.🌟ThreadLocal 怎么实现的呢？
 
 当我们创建一个 ThreadLocal 对象并调用 set 方法时，其实是在当前线程中初始化了一个 ThreadLocalMap。
 
-![二哥的 Java 进阶之路：ThreadLocalMap](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407200038.png)
+![二哥的 Java 进阶之路：ThreadLocalMap](https://cdn.paicoding.com/stutymore/javathread-20240407200038.png)
 
 ThreadLocalMap 是 ThreadLocal 的一个静态内部类，它内部维护了一个 Entry 数组，key 是 ThreadLocal 对象，value 是线程的局部变量，这样就相当于为每个线程维护了一个变量副本。
 
-![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
+![三分恶面渣逆袭：ThreadLoca结构图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-13.png)
 
 Entry 继承了 WeakReference，它限定了 key 是一个弱引用，弱引用的好处是当内存不足时，JVM 会回收 ThreadLocal 对象，并且将其对应的 Entry.value 设置为 null，这样可以在很大程度上避免内存泄漏。
 
@@ -1264,12 +1264,12 @@ ThreadLocal 的实现原理是，每个线程维护一个 Map，key 为 ThreadLo
 - 2、通过 ThreadLocal 的 get 方法从 Map 中取出对象。
 - 3、Map 的大小由 ThreadLocal 对象的多少决定。
 
-![ThreadLocal 的结构](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407205747.png)
+![ThreadLocal 的结构](https://cdn.paicoding.com/stutymore/javathread-20240407205747.png)
 
 
 memo：2025 年 9 月 18 日修改至此，今天有 27 届的球友拿到了小红书的日常实习 offer，特意来报喜，还称赞了二哥的面渣逆袭和[派聪明项目](https://javabetter.cn/zhishixingqiu/paismart.html)，祝贺！
 
-![拿到小红书 offer 的球友称赞二哥的八股和派聪明](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250919154520.png)
+![拿到小红书 offer 的球友称赞二哥的八股和派聪明](https://cdn.paicoding.com/stutymore/javathread-20250919154520.png)
 
 #### 什么是弱引用，什么是强引用？
 
@@ -1290,7 +1290,7 @@ userThreadLocal 是一个强引用，`new ThreadLocal<>()` 是一个强引用对
 
 调用 set 方法后，会将 `key = new ThreadLocal<>()` 放入 ThreadLocalMap 中，此时的 key 是一个弱引用对象。当 JVM 进行垃圾回收时，如果发现了弱引用对象，就会将其回收。
 
-![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
+![三分恶面渣逆袭：ThreadLocal内存分配](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-14.png)
 
 其关系链就是：
 
@@ -1308,7 +1308,7 @@ userThreadLocal 是一个强引用，`new ThreadLocal<>()` 是一个强引用对
 
 memo：2025 年 8 月 23 日修改至此。[今天又有球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)报喜说拿到了美团的转正 offer，并且直言：暑期真的可以冲团子，转正率高达百分百。
 
-![美团转正 offer+1](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250926111135.png)
+![美团转正 offer+1](https://cdn.paicoding.com/stutymore/javathread-20250926111135.png)
 
 ### 15.🌟ThreadLocal 内存泄露是怎么回事？
 
@@ -1316,7 +1316,7 @@ ThreadLocalMap 的 Key 是 弱引用，但 Value 是强引用。
 
 如果一个线程一直在运行，并且 value 一直指向某个强引用对象，那么这个对象就不会被回收，从而导致内存泄漏。
 
-![二哥的 Java 进阶之路：ThreadLocalMap 内存溢出](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407212932.png)
+![二哥的 Java 进阶之路：ThreadLocalMap 内存溢出](https://cdn.paicoding.com/stutymore/javathread-20240407212932.png)
 
 #### 那怎么解决内存泄漏问题呢？
 
@@ -1360,7 +1360,7 @@ public void clear() {
 
 然后执行 `expungeStaleEntry()` 方法，清除 key 为 null 的 Entry。
 
-![二哥的Java进阶之路：expungeStaleEntry](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250428095121.png)
+![二哥的Java进阶之路：expungeStaleEntry](https://cdn.paicoding.com/stutymore/javathread-20250428095121.png)
 
 #### 你每次操作都会remove吗？
 
@@ -1407,11 +1407,11 @@ key 是弱引用，`new WeakReference(new ThreadLocal())` 是弱引用对象，�
 
 一旦 key 被回收，ThreadLocalMap 在进行 set、get 的时候就会对 key 为 null 的 Entry 进行清理。
 
-![二哥的 Java 进阶之路：清理 entry](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407214616.png)
+![二哥的 Java 进阶之路：清理 entry](https://cdn.paicoding.com/stutymore/javathread-20240407214616.png)
 
 总结一下，在 ThreadLocal 被垃圾收集后，下一次访问 ThreadLocalMap 时，Java 会自动清理那些键为 null 的 entry，这个过程会在执行 `get()`、`set()`、`remove()`时触发。
 
-![二哥的 Java 进阶之路：replaceStaleEntry方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240407214955.png)
+![二哥的 Java 进阶之路：replaceStaleEntry方法](https://cdn.paicoding.com/stutymore/javathread-20240407214955.png)
 
 #### 你了解哪些 ThreadLocal 的改进方案？
 
@@ -1455,7 +1455,7 @@ String value = context.get();
 
 memo：2025 年 08 月 23 日修改至此。今天[在帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，收到这样一个反馈：1 月份加入星球，3 月份拿到一个小日常，后面又拿到了蚂蚁的暑期，周三答辩，转正没什么问题。真的非常感谢球友们的正反馈，这是我一路坚持下去的最强动力。
 
-![蚂蚁暑期的球友对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250926111517.png)
+![蚂蚁暑期的球友对星球的认可](https://cdn.paicoding.com/stutymore/javathread-20250926111517.png)
 
 ### 16.ThreadLocalMap 的源码看过吗？
 
@@ -1482,7 +1482,7 @@ static class ThreadLocalMap {
 
 底层的数据结构也是数组，数组中的每个元素是一个 Entry 对象，Entry 对象继承了 WeakReference，key 是 ThreadLocal 对象，value 是线程的局部变量。
 
-![三分恶面渣逆袭：ThreadLocalMap结构示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-15.png)
+![三分恶面渣逆袭：ThreadLocalMap结构示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-15.png)
 
 当调用 `ThreadLocal.set(value)` 时，会将 value 存入 ThreadLocalMap。
 
@@ -1598,7 +1598,7 @@ ThreadLocalMap 设计的目的是存储线程私有数据，不会有大量的 K
 
 简单来说，就是这个坑被人占了，那就接着去找空着的坑。
 
-![三分恶面渣逆袭：ThreadLocalMap解决冲突](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-16.png)
+![三分恶面渣逆袭：ThreadLocalMap解决冲突](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-16.png)
 
 如果我们插入一个 value=27 的数据，通过 hash 计算后应该落入第 4 个槽位，而槽位 4 已经有数据了，而且 key 和当前的不等。
 
@@ -1685,24 +1685,24 @@ private void resize() {
 
 一句话总结：ThreadLocalMap 采用的是“先清理再扩容”的策略，扩容时，数组长度翻倍，并重新计算索引，如果发生哈希冲突，采用线性探测法来解决。
 
-![三分恶面渣逆袭：ThreadLocalMap扩容](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-17.png)
+![三分恶面渣逆袭：ThreadLocalMap扩容](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-17.png)
 
 
 ### 19.父线程能用 ThreadLocal 给子线程传值吗？
 
 不能。
 
-![二哥的 Java 进阶之路：子线程无法获取父线程的 ThreadLocal](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250204080442.png)
+![二哥的 Java 进阶之路：子线程无法获取父线程的 ThreadLocal](https://cdn.paicoding.com/stutymore/javathread-20250204080442.png)
 
 因为 ThreadLocal 变量存储在每个线程的 ThreadLocalMap 中，而子线程不会继承父线程的 ThreadLocalMap。
 
 可以使用 `InheritableThreadLocal`来解决这个问题。
 
-![二哥的 Java 进阶之路：InheritableThreadLocal源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250204080611.png)
+![二哥的 Java 进阶之路：InheritableThreadLocal源码](https://cdn.paicoding.com/stutymore/javathread-20250204080611.png)
 
 子线程在创建的时候会拷贝父线程的 InheritableThreadLocal 变量。
 
-![二哥的 Java 进阶之路：Thread 源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250204081955.png)
+![二哥的 Java 进阶之路：Thread 源码](https://cdn.paicoding.com/stutymore/javathread-20250204081955.png)
 
 来看一下使用示例：
 
@@ -1764,14 +1764,14 @@ memo：2025 年 02 月 04 日修改至此。
 
 Java 内存模型是 Java 虚拟机规范中定义的一个抽象模型，用来描述多线程环境中共享变量的内存可见性。
 
-![深入浅出 Java 多线程：Java内存模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/jmm-f02219aa-e762-4df0-ac08-6f4cceb535c2.jpg)
+![深入浅出 Java 多线程：Java内存模型](https://cdn.paicoding.com/tobebetterjavaer/images/thread/jmm-f02219aa-e762-4df0-ac08-6f4cceb535c2.jpg)
 
 共享变量存储在`主内存`中，每个线程都有一个私有的`本地内存`，存储了共享变量的副本。
 
 - 当一个线程更改了本地内存中共享变量的副本，它需要 JVM 刷新到主内存中，以确保其他线程可以看到这些更改。
 - 当一个线程需要读取共享变量时，它一版会从本地内存中读取。如果本地内存中的副本是过时的，JVM 会将主内存中的共享变量最新值刷新到本地内存中。
 
-![三分恶面渣逆袭：实际线程工作模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-20.png)
+![三分恶面渣逆袭：实际线程工作模型](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-20.png)
 
 
 #### 为什么线程要用自己的内存？
@@ -1875,7 +1875,7 @@ i = i + 1;
 
 从 Java 源代码到最终执行的指令序列，会经历 3 种重排序：编译器重排序、指令并行重排序、内存系统重排序。
 
-![三分恶面渣逆袭：多级指令重排](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-21.png)
+![三分恶面渣逆袭：多级指令重排](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-21.png)
 
 指令重排可能会导致双重检查锁失效，比如下面的单例模式代码：
 
@@ -1898,7 +1898,7 @@ public class Singleton {
 
 如果线程 A 执行了 `instance = new Singleton();`，但构造方法还没执行完，线程 B 可能会读取到一个未初始化的对象，导致出现空指针异常。
 
-![三分恶面渣逆袭：双重校验单例模式异常情形](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-22.png)
+![三分恶面渣逆袭：双重校验单例模式异常情形](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-22.png)
 
 正确的方式是给 instance 变量加上 `volatile` 关键字，禁止指令重排。
 
@@ -1934,7 +1934,7 @@ Happens-Before 是 Java 内存模型定义的一种保证线程间可见性和�
 
 #### 你知道哪些 Happens-Before 规则？
 
-![三分恶面渣逆袭：happens-before六大规则](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-23.png)
+![三分恶面渣逆袭：happens-before六大规则](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-23.png)
 
 JMM 规定了 6 种 Happens-Before 规则，满足这些规则的操作不会被重排序，并且保证了数据的可见性。
 
@@ -1966,7 +1966,7 @@ double area = pi * r * r;   // C
 
 C 依赖于 A，同时 C 也依赖着 B。
 
-![二哥的 Java 进阶之路：as-if-serial](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-24.png)
+![二哥的 Java 进阶之路：as-if-serial](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-24.png)
 
 因此在最终执行的指令序列中，C 不能被重排序到 A 或者 B 的前面，否则就会出现错误。
 
@@ -1975,7 +1975,7 @@ C 依赖于 A，同时 C 也依赖着 B。
 
 所以程序可能会有两种执行顺序：
 
-![三分恶面渣逆袭：两种执行结果](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-25.png)
+![三分恶面渣逆袭：两种执行结果](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-25.png)
 
 Happens-Before 规则保证了多线程环境下的有序性，防止指令重排导致的并发问题。As-If-Serial 规则保证了单线程代码不会因优化而执行错误。
 
@@ -1991,7 +1991,7 @@ Happens-Before 规则保证了多线程环境下的有序性，防止指令重�
 
 当线程对 volatile 变量进行写操作时，JVM 会在这个变量写入之后插入一个写屏障指令，这个指令会强制将本地内存中的变量值刷新到主内存中。
 
-![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-28.png)
+![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-28.png)
 
 ```java
 StoreStore;   // 保证写入之前的操作不会重排
@@ -2010,7 +2010,7 @@ lock add [a], 0     ; lock 指令充当写屏障，确保内存可见性
 
 当线程对 volatile 变量进行读操作时，JVM 会插入一个读屏障指令，这个指令会强制让本地内存中的变量值失效，从而重新从主内存中读取最新的值。
 
-![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-29.png)
+![三分恶面渣逆袭：volatile写插入内存屏障后生成的指令序列示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-29.png)
 
 当声明一个 volatile 变量 x：
 
@@ -2020,7 +2020,7 @@ volatile int x = 0
 
 线程 A 对 x 写入后会将其最新的值刷新到主内存中，线程 B 读取 x 时由于本地内存中的 x 失效了，就会从主内存中读取最新的值。
 
-![三分恶面渣逆袭：volatile内存可见性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-26.png)
+![三分恶面渣逆袭：volatile内存可见性](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-26.png)
 
 #### volatile 怎么保证有序性的？
 
@@ -2037,7 +2037,7 @@ JVM 会在 volatile 变量的读写前后插入 “内存屏障”，以约束 C
 
 但 volatile 仍然会引入一些额外的内存屏障指令，以确保内存可见性。我之前做过一个测试，普通变量1亿次操作只用了2-3毫秒，volatile 变量 1亿次操作用了25-29毫秒，大概是普通变量的 10 倍左右。
 
-![二哥的 Java 进阶之路：volatile的性能开销](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250920182509.png)
+![二哥的 Java 进阶之路：volatile的性能开销](https://cdn.paicoding.com/stutymore/javathread-20250920182509.png)
 
 虽然相对差异很大，但绝对时间差异很小，都是毫秒级。
 
@@ -2053,11 +2053,11 @@ volatile 确实会带来一些开销，主要包括：
 
 第一，现代 CPU 都有多级缓存（L1、L2、L3），volatile 变量虽然不能在寄存器中缓存，但还是可以利用 CPU 缓存的。
 
-![Alance：多级缓存架构](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922095159.png)
+![Alance：多级缓存架构](https://cdn.paicoding.com/stutymore/javathread-20250922095159.png)
 
 只是需要通过缓存一致性协议（MESI）来保证可见性。
 
-![FynnWang：MESI](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922095121.png)
+![FynnWang：MESI](https://cdn.paicoding.com/stutymore/javathread-20250922095121.png)
 
 ```
 // 比如在x86架构下
@@ -2151,7 +2151,7 @@ private volatile SomeObject obj = new SomeObject();
 
 memo：2025 年 9 月 20 日修改至此，[今天有球友](https://javabetter.cn/zhishixingqiu/)在咨询问题的时候，提到自己腾讯暑期转正了，那么恭喜他，真的太强了。鹅厂可以说是国内最好的互联网公司了，没有之一。
 
-![球友腾讯转正了](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250920183212.png)
+![球友腾讯转正了](https://cdn.paicoding.com/stutymore/javathread-20250920183212.png)
 
 ## 锁
 
@@ -2202,17 +2202,17 @@ synchronized 加锁代码块时，JVM 会通过 `monitorenter`、`monitorexit` �
 
 使用 `javap -c -s -v -l SynchronizedDemo.class` 反编译 synchronized 代码块时，就能看到这两个指令。
 
-![三分恶面渣逆袭：monitorenter和monitorexit](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-30.png)
+![三分恶面渣逆袭：monitorenter和monitorexit](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-30.png)
 
 synchronized 修饰普通方法时，JVM 会通过 `ACC_SYNCHRONIZED` 标记符来实现同步。
 
-![三分恶面渣逆袭：synchronized修饰同步方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-31.png)
+![三分恶面渣逆袭：synchronized修饰同步方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-31.png)
 
 #### 你对 Monitor 了解多少？
 
 Monitor 是 JVM 内置的同步机制，每个对象在内存中都有一个对象头——Mark Word，用于存储锁的状态，以及 Monitor 对象的指针。
 
-![博客园Zebt：Java 对象头](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250209115813.png)
+![博客园Zebt：Java 对象头](https://cdn.paicoding.com/stutymore/javathread-20250209115813.png)
 
 synchronized 依赖对象头的 Mark Word 进行状态管理，支持无锁、偏向锁、轻量级锁，以及重量级锁。
 
@@ -2256,7 +2256,7 @@ ObjectMonitor() {
 
 memo：2025 年 9 月 24 日修改至此。今天[有球友在星球](https://javabetter.cn/zhishixingqiu/)发咨询说拿到了美团的日常实习 offer，问后面还要不要再找一段，那这里必须先恭喜一下他，明年三四月份可以直接暑期实习了。
 
-![拿到美团日常了](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250924160421.png)
+![拿到美团日常了](https://cdn.paicoding.com/stutymore/javathread-20250924160421.png)
 
 ### 28.synchronized 怎么保证可见性？
 
@@ -2305,7 +2305,7 @@ monitorexit    // 释放锁
 
 实际 javap 反编译后的结果：
 
-![二哥的 Java 进阶之路：javap 反编译后的synchronized](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250210091501.png)
+![二哥的 Java 进阶之路：javap 反编译后的synchronized](https://cdn.paicoding.com/stutymore/javathread-20250210091501.png)
 
 指令解释一下：
 
@@ -2323,7 +2323,7 @@ monitorexit|	释放锁，退出同步代码块
 
 可重入意味着同一个线程可以多次获得同一个锁，而不会被阻塞。
 
-![美团技术博客：可重入锁](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250210095240.png)
+![美团技术博客：可重入锁](https://cdn.paicoding.com/stutymore/javathread-20250210095240.png)
 
 synchronized 之所以支持可重入，是因为 Java 的对象头包含了一个 Mark Word，用于存储对象的状态，包括锁信息。
 
@@ -2383,7 +2383,7 @@ memo：2025 年 02 月 10 日修改至此。
 
 JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机制，从低开销的锁可以最大程度减少锁的竞争。
 
-![三分恶面渣逆袭：Mark Word变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-34.png)
+![三分恶面渣逆袭：Mark Word变化](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-34.png)
 
 没有线程竞争时，就使用低开销的“偏向锁”，此时没有额外的 CAS 操作；轻度竞争时，使用“轻量级锁”，采用 CAS 自旋，避免线程阻塞；只有在重度竞争时，才使用“重量级锁”，由 Monitor 机制实现，需要线程阻塞。
 
@@ -2406,21 +2406,21 @@ JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机�
 
 ②、偏向锁，当线程第一次获取锁时，会进入偏向模式。Mark Word 会记录线程 ID，后续同一线程再次获取锁时，可以直接进入 synchronized 加锁的代码，无需额外加锁。
 
-![博客园boluo1230：偏向锁](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250211095304.png)
+![博客园boluo1230：偏向锁](https://cdn.paicoding.com/stutymore/javathread-20250211095304.png)
 
 ③、轻量级锁，当多个线程在不同时段获取同一把锁，即不存在锁竞争的情况时，JVM 会采用轻量级锁来避免线程阻塞。
 
 未持有锁的线程通过[CAS 自旋](https://javabetter.cn/thread/cas.html)等待锁释放。
 
-![TodoCoder：自旋和阻塞的区别](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250211091116.png)
+![TodoCoder：自旋和阻塞的区别](https://cdn.paicoding.com/stutymore/javathread-20250211091116.png)
 
 当线程进入 synchronized 加锁的代码时，如果对象的锁状态为偏向锁，也就是锁类型为“01”，偏向锁标记为“0”的状态。
 
-![博客园wade&luffy：Mark Word](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250211093552.png)
+![博客园wade&luffy：Mark Word](https://cdn.paicoding.com/stutymore/javathread-20250211093552.png)
 
 然后采用 CAS 自旋的方式，尝试将对象头中的 Mark Word 替换为指向 Lock Record 的指针，并将 Lock Record 中的 owner 指针指向对象的 Mark Word。
 
-![博客园boluo1230：轻量级锁](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250211094909.png)
+![博客园boluo1230：轻量级锁](https://cdn.paicoding.com/stutymore/javathread-20250211094909.png)
 
 如果这个替换动作成功了，线程就拥有了该对象的锁，对象头 Mark Word 的锁标志位会更新为“00”，表示对象处于轻量级锁状态。
 
@@ -2444,11 +2444,11 @@ JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机�
 
 懵逼状态下的回答：锁升级会从无锁升级为偏向锁，再升级为轻量级锁，最后升级为重量级锁。
 
-![三分恶面渣逆袭：锁升级简略过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-36.png)
+![三分恶面渣逆袭：锁升级简略过程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-36.png)
 
 知道一点，但不深入的回答：
 
-![三分恶面渣逆袭：synchronized 锁升级过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-37.png)
+![三分恶面渣逆袭：synchronized 锁升级过程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-37.png)
 
 ①、偏向锁：当一个线程第一次获取锁时，JVM 会在对象头的 Mark Word 记录这个线程 ID，下次进入 synchronized 时，如果还是同一个线程，可以直接执行，无需额外加锁。
 
@@ -2483,7 +2483,7 @@ JDK 1.6 的时候，为了提升 synchronized 的性能，引入了锁升级机�
 
 memo：2025 年 09 月 11 日修改至此。synchronized 的锁升级是一块非常重要的内容，第二版的优化对这块内容进行了重新梳理，自认为更容易懂了，等大家的实际效果。今天有腾讯转正的球友在简历修改的邮件里提到：面渣逆袭写的真好，真的很感谢认可。
 
-![球友对面渣逆袭的认可非常高](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922094514.png)
+![球友对面渣逆袭的认可非常高](https://cdn.paicoding.com/stutymore/javathread-20250922094514.png)
 
 ### 30.🌟synchronized 和 ReentrantLock 的区别了解吗？
 
@@ -2491,7 +2491,7 @@ memo：2025 年 09 月 11 日修改至此。synchronized 的锁升级是一块�
 
 synchronized 可以自动加锁和解锁，ReentrantLock 需要手动 `lock()` 和 `unlock()`。
 
-![三分恶面渣逆袭：synchronized和ReentrantLock的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-38.png)
+![三分恶面渣逆袭：synchronized和ReentrantLock的区别](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-38.png)
 
 如果面试官还想知道更多，可以继续回答：
 
@@ -2552,7 +2552,7 @@ Lock 是 JUC 中的一个接口，最常用的实现类包括可重入锁 Reentr
 
 lock 方法的具体实现由 ReentrantLock 内部的 Sync 类来实现，涉及到线程的自旋、阻塞队列、CAS、AQS 等。
 
-![二哥的Java 进阶之路：Lock.lock() 方法源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241014102520.png)
+![二哥的Java 进阶之路：Lock.lock() 方法源码](https://cdn.paicoding.com/stutymore/javathread-20241014102520.png)
 
 lock 方法会首先尝试通过 CAS 来获取锁。如果当前锁没有被持有，会将锁状态设置为 1，表示锁已被占用。否则，会将当前线程加入到 AQS 的等待队列中。
 
@@ -2578,7 +2578,7 @@ final void lock() {
 
 AQS 是一个抽象类，它维护了一个共享变量 state 和一个线程等待队列，为 ReentrantLock 等类提供底层支持。
 
-![三分恶面渣逆袭：AQS抽象队列同步器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-39.png)
+![三分恶面渣逆袭：AQS抽象队列同步器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-39.png)
 
 AQS 的思想是，如果被请求的共享资源处于空闲状态，则当前线程成功获取锁；否则，将当前线程加入到等待队列中，当其他线程释放锁时，从等待队列中挑选一个线程，把锁分配给它。
 
@@ -2623,11 +2623,11 @@ AQS 支持两种同步方式：
 
 AQS 使用一个 CLH 队列来维护等待线程，CLH 是三个作者 Craig、Landin 和 Hagersten 的首字母缩写，是一种基于链表的自旋锁。
 
-![三分恶面渣逆袭：CLH队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-40.png)
+![三分恶面渣逆袭：CLH队列](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-40.png)
 
 在 CLH 中，当一个线程尝试获取锁失败后，会被添加到队列的尾部并自旋，等待前一个节点的线程释放锁。
 
-![三分恶面渣逆袭：AQS变种CLH队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-41.png)
+![三分恶面渣逆袭：AQS变种CLH队列](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-41.png)
 
 CLH 的优点是，假设有 100 个线程在等待锁，锁释放之后，只会通知队列中的第一个线程去竞争锁。避免同时唤醒大量线程，浪费 CPU 资源。
 
@@ -2636,13 +2636,13 @@ CLH 的优点是，假设有 100 个线程在等待锁，锁释放之后，只�
 
 memo：2025 年 02 月 12 日修改至此，今天的其他时间在修改简历和调整技术派中[派聪明 AI 助手](https://paicoding.com/chat)的界面（接入了Deepseek）。
 
-![技术派已经成功接入了 Deepseek](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250212120305.png)
+![技术派已经成功接入了 Deepseek](https://cdn.paicoding.com/stutymore/javathread-20250212120305.png)
 
 ### 32.🌟说说 ReentrantLock 的实现原理？
 
 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html) 是基于 AQS 实现的 可重入排他锁，使用 CAS 尝试获取锁，失败的话，会进入 CLH 阻塞队列，支持公平锁、非公平锁，可以中断、超时等待。
 
-![三分恶面渣逆袭：ReentrantLock 非公平锁加锁流程简图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-42.png)
+![三分恶面渣逆袭：ReentrantLock 非公平锁加锁流程简图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-42.png)
 
 内部通过一个计数器 state 来跟踪锁的状态和持有次数。当线程调用 `lock()` 方法获取锁时，ReentrantLock 会检查 state 的值，如果为 0，通过 CAS 修改为 1，表示成功加锁。否则根据当前线程的公平性策略，加入到等待队列中。
 
@@ -2705,7 +2705,7 @@ public ReentrantLock(boolean fair) {
 
 公平锁的核心逻辑在 AQS 的 `hasQueuedPredecessors()` 方法中，该方法用于判断当前线程前面是否有等待的线程。
 
-![二哥的 Java 进阶之路：公平锁的源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240405234921.png)
+![二哥的 Java 进阶之路：公平锁的源码](https://cdn.paicoding.com/stutymore/javathread-20240405234921.png)
 
 如果队列前面有等待线程，当前线程就不能抢占锁，必须按照队列顺序排队。如果队列前面没有线程，或者当前线程是队列头部的线程，就可以获取锁。
 
@@ -2718,7 +2718,7 @@ public ReentrantLock(boolean fair) {
 
 CAS 是一种乐观锁，用于比较一个变量的当前值是否等于预期值，如果相等，则更新值，否则重试。
 
-![CAS 原子性：博客园的紫薇哥哥](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241115160840.png)
+![CAS 原子性：博客园的紫薇哥哥](https://cdn.paicoding.com/stutymore/javathread-20241115160840.png)
 
 在 CAS 中，有三个值：
 
@@ -2741,7 +2741,7 @@ atomicInteger.compareAndSet(expect, update);
 
 它调用的是 Unsafe 的 compareAndSwapInt。
 
-![二哥的 Java 进阶之路：compareAndSwapInt](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240326095144.png)
+![二哥的 Java 进阶之路：compareAndSwapInt](https://cdn.paicoding.com/stutymore/javathread-20240326095144.png)
 
 #### 怎么保证 CAS 的原子性？
 
@@ -2751,7 +2751,7 @@ CPU 会发出一个 LOCK 指令进行总线锁定，阻止其他处理器对内�
 lock cmpxchg [esi], eax  ; 比较 esi 地址中的值与 eax，如果相等则替换
 ```
 
-![总线锁定：博客园的紫薇哥哥](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241115161305.png)
+![总线锁定：博客园的紫薇哥哥](https://cdn.paicoding.com/stutymore/javathread-20241115161305.png)
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：乐观锁是怎样实现的？
@@ -2762,7 +2762,7 @@ lock cmpxchg [esi], eax  ; 比较 esi 地址中的值与 eax，如果相等则�
 
 CAS 存在三个经典问题，ABA 问题、自旋开销大、只能操作一个变量等。
 
-![三分恶面渣逆袭：CAS三大问题](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-44.png)
+![三分恶面渣逆袭：CAS三大问题](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-44.png)
 
 #### 什么是 ABA 问题？
 
@@ -2796,7 +2796,7 @@ class OptimisticLockExample {
 
 Java 的 AtomicStampedReference 就增加了版本号，它会同时检查引用值和 stamp 是否都相等。
 
-![二哥的 Java 进阶之路：AtomicStampedReference](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240429114421.png)
+![二哥的 Java 进阶之路：AtomicStampedReference](https://cdn.paicoding.com/stutymore/javathread-20240429114421.png)
 
 使用示例：
 
@@ -2875,11 +2875,11 @@ class Account {
 
 memo：2025 年 2 月 13 日修改至此，[VIP 群里](https://javabetter.cn/zhishixingqiu/)已经有球友在催下一个主题了，说实话最近事情有点多，认真修改起来又会比较花时间，所以只能希望大家多理解了。
 
-![不过我会加油的](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250213151028.png)
+![不过我会加油的](https://cdn.paicoding.com/stutymore/javathread-20250213151028.png)
 
 ### 36.Java 有哪些保证原子性的方法？
 
-![三分恶面渣逆袭：Java保证原子性方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-45.png)
+![三分恶面渣逆袭：Java保证原子性方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-45.png)
 
 比如说以 Atomic 开头的原子类，synchronized 关键字，ReentrantLock 锁等。
 
@@ -2887,7 +2887,7 @@ memo：2025 年 2 月 13 日修改至此，[VIP 群里](https://javabetter.cn/zh
 
 原子操作类是基于 CAS + volatile 实现的，底层依赖于 Unsafe 类，最常用的有 AtomicInteger、AtomicLong、AtomicReference 等。
 
-![三分恶面渣逆袭：原子操作类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-46.png)
+![三分恶面渣逆袭：原子操作类](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-46.png)
 
 像 AtomicIntegerArray 这种以 Array 结尾的，还可以原子更新数组里的元素。
 
@@ -2932,11 +2932,11 @@ public final int getAndIncrement() {
 
 死锁发生在多个线程相互等待对方释放锁时。比如说线程 1 持有锁 R1，等待锁 R2；线程 2 持有锁 R2，等待锁 R1。
 
-![The Java Trail：死锁](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250214130301.png)
+![The Java Trail：死锁](https://cdn.paicoding.com/stutymore/javathread-20250214130301.png)
 
 #### 死锁发生的四个条件了解吗？
 
-![三分恶面渣逆袭：死锁产生必备四条件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-48.png)
+![三分恶面渣逆袭：死锁产生必备四条件](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-48.png)
 
 第一条件是**互斥**：资源不能被多个线程共享，一次只能由一个线程使用。如果一个线程已经占用了一个资源，其他请求该资源的线程必须等待，直到资源被释放。
 
@@ -2963,7 +2963,7 @@ public final int getAndIncrement() {
 
 也可以使用一些可视化的性能监控工具，比如说 JConsole、VisualVM 等，查看线程的运行状态、锁的竞争情况等。
 
-![三分恶面渣逆袭：线程死锁检测](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-49.png)
+![三分恶面渣逆袭：线程死锁检测](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-49.png)
 
 我们来通过实际代码说明一下：
 
@@ -3008,11 +3008,11 @@ class DeadLockDemo {
 
 锁的获取顺序不一致很容易导致死锁。运行这段代码，会发现两个线程都无法继续执行，进入了死锁状态。
 
-![二哥的 Java 进阶之路：死锁发生了](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192010.png)
+![二哥的 Java 进阶之路：死锁发生了](https://cdn.paicoding.com/stutymore/console-tools-20240106192010.png)
 
 运行 `jstack pid` 命令，可以看到死锁的线程信息。
 
-![jstack pid 查看死锁信息](https://cdn.tobebetterjavaer.com/stutymore/console-tools-20240106192123.png)
+![jstack pid 查看死锁信息](https://cdn.paicoding.com/stutymore/console-tools-20240106192123.png)
 
 编码时，尽量使用 `tryLock()` 代替 `lock()`，`tryLock()` 可以设置超时时间，避免线程一直等待。
 
@@ -3044,7 +3044,7 @@ memo：2025 年 02 月 14 日修改至此。
 
 锁在操作系统层面的意思是 Mutex，某个线程进入临界区后，也就是获取到锁后，其他线程不能再进入临界区，要阻塞等待持有锁的线程离开临界区。
 
-![cxuan：使用临界区的互斥](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008102844.png)
+![cxuan：使用临界区的互斥](https://cdn.paicoding.com/stutymore/javathread-20241008102844.png)
 
 #### 锁要解决哪些问题？
 
@@ -3078,7 +3078,7 @@ synchronized (this) {
 
 适用于锁持有时间短的场景，ReentrantLock 的 tryLock 方法就用到了自旋锁。
 
-![二哥的 Java 进阶之路：tryLock中的自旋](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250215092705.png)
+![二哥的 Java 进阶之路：tryLock中的自旋](https://cdn.paicoding.com/stutymore/javathread-20250215092705.png)
 
 自旋锁的优点是可以避免线程切换带来的开销，缺点是如果锁被占用时间过长，会导致线程空转，浪费 CPU 资源。
 
@@ -3157,7 +3157,7 @@ class SyncExample {
 
 所有子线程完成后，主线程才会继续执行。
 
-![二哥的Java 进阶之路：CountDownLatch](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008110023.png)
+![二哥的Java 进阶之路：CountDownLatch](https://cdn.paicoding.com/stutymore/javathread-20241008110023.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊线程同步
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：java多线程，同步与互斥，互斥和同步在时间上有要求吗？
@@ -3266,7 +3266,7 @@ class CountDownLatchExample {
 
 接着主线程调用 `await()` 方法进入阻塞状态，直到计数器为 0，也就是所有子线程都执行完任务后，主线程才会继续执行。
 
-![秦二爷：王者荣耀等待玩家确认](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-50.jpeg)
+![秦二爷：王者荣耀等待玩家确认](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-50.jpeg)
 
 以王者荣耀为例，我们来创建五个线程，分别代表大乔、兰陵王、安其拉、哪吒和铠。每个玩家都调用 `countDown()` 方法，表示已就位。主线程调用 `await()` 方法，等待所有玩家就位。
 
@@ -3407,7 +3407,7 @@ class DataQueryExample {
 
 CyclicBarrier 的字面意思是可循环使用的屏障，用于多个线程相互等待，直到所有线程都到达屏障后再同时执行。
 
-![三分恶面渣逆袭：CyclicBarrier工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-55.png)
+![三分恶面渣逆袭：CyclicBarrier工作流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-55.png)
 
 在使用的时候，我们需要先初始化一个 CyclicBarrier 对象，指定一个屏障值 N，表示需要等待的线程数量。
 
@@ -3454,7 +3454,7 @@ CyclicBarrier 让所有线程相互等待，全部到达后再继续；CountDown
 
 Semaphore——信号量，用于控制同时访问某个资源的线程数量，类似限流器，确保最多只有指定数量的线程能够访问某个资源，超过的必须等待。
 
-![三分恶面渣逆袭：Semaphore](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250218091702.png)
+![三分恶面渣逆袭：Semaphore](https://cdn.paicoding.com/stutymore/javathread-20250218091702.png)
 
 拿停车场来举例。
 
@@ -3462,7 +3462,7 @@ Semaphore——信号量，用于控制同时访问某个资源的线程数量�
 
 如果有车离开，显示牌重新显示闲置的车位数量，等待的车辆按序驶入停车场。
 
-![三分恶面渣逆袭：停车场空闲车位提示](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-56.jpeg)
+![三分恶面渣逆袭：停车场空闲车位提示](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-56.jpeg)
 
 在使用 Semaphore 时，首先需要初始化一个 Semaphore 对象，指定许可证数量，表示最多允许多少个线程同时访问资源。
 
@@ -3530,7 +3530,7 @@ class SemaphoreTest {
 
 Exchanger——交换者，用于在两个线程之间进行数据交换。
 
-![三分恶面渣逆袭：英雄交换猎物](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-58.jpeg)
+![三分恶面渣逆袭：英雄交换猎物](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-58.jpeg)
 
 支持双向数据交换，比如说线程 A 调用 `exchange(dataA)`，线程 B 调用 `exchange(dataB)`，它们会在同步点交换数据，即 A 得到 B 的数据，B 得到 A 的数据。
 
@@ -3613,11 +3613,11 @@ memo：2025 年 02 月 18 日修改至此。
 
 JDK 7 采用的是分段锁，整个 Map 会被分为若干段，每个段都可以独立加锁。不同的线程可以同时操作不同的段，从而实现并发。
 
-![初念初恋：JDK 7 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155810.png)
+![初念初恋：JDK 7 ConcurrentHashMap](https://cdn.paicoding.com/stutymore/map-20230816155810.png)
 
 JDK 8 使用了一种更加细粒度的锁——桶锁，再配合 CAS + synchronized 代码块控制并发写入，以最大程度减少锁的竞争。
 
-![初念初恋：JDK 8 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
+![初念初恋：JDK 8 ConcurrentHashMap](https://cdn.paicoding.com/stutymore/map-20230816155924.png)
 
 对于读操作，ConcurrentHashMap 使用了 volatile 变量来保证内存可见性。
 
@@ -3625,7 +3625,7 @@ JDK 8 使用了一种更加细粒度的锁——桶锁，再配合 CAS + synchro
 
 memo：2025 年 9 月 19 日修改至此，今天[有球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)报喜说拿到了美团的 offer，那么必须恭喜他🎉，现在是 9 月中旬，大家一定要扛住哦，胜利就在前方。
 
-![球友拿到了美团的 offer](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250919154007.png)
+![球友拿到了美团的 offer](https://cdn.paicoding.com/stutymore/javathread-20250919154007.png)
 
 #### 说一下 JDK 7 中 ConcurrentHashMap 的实现原理？
 
@@ -3633,7 +3633,7 @@ memo：2025 年 9 月 19 日修改至此，今天[有球友在 VIP 群里](https
 
 JDK 7 的 ConcurrentHashMap 采用的是分段锁，整个 Map 会被分为若干段，每个段都可以独立加锁，每个段类似一个 Hashtable。
 
-![三分恶面渣逆袭：ConcurrentHashMap示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-31.png)
+![三分恶面渣逆袭：ConcurrentHashMap示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/collection-31.png)
 
 每个段维护一个键值对数组 `HashEntry<K, V>[] table`，HashEntry 是一个单项链表。
 
@@ -3667,7 +3667,7 @@ put 流程和 HashMap 非常类似，只不过是先定位到具体的段，再�
 
 第四步，释放锁。
 
-![三分恶面渣逆袭：JDK7 put 流程](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240325113351.png)
+![三分恶面渣逆袭：JDK7 put 流程](https://cdn.paicoding.com/stutymore/javathread-20240325113351.png)
 
 #### 说一下 JDK 7 中 ConcurrentHashMap 的 get 流程？
 
@@ -3683,7 +3683,7 @@ JDK 8 中的 ConcurrentHashMap 取消了分段锁，采用 CAS + synchronized �
 
 #### 说一下 JDK 8 中 ConcurrentHashMap 的 put 流程？
 
-![三分恶面渣逆袭：Java 8 put 流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
+![三分恶面渣逆袭：Java 8 put 流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/collection-32.jpg)
 
 第一步，计算 key 的 hash，以确定桶在数组中的位置。如果数组为空，采用 CAS 的方式初始化，以确保只有一个线程在初始化数组。
 
@@ -3733,7 +3733,7 @@ else {
 
 这里补充一点：在 ConcurrentHashMap 的实现中，红黑树节点 TreeBin 的 hash 值固定为 -2。
 
-![二哥的 Java 进阶之路：TreeBin 的哈希值固定为 -2](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250220104000.png)
+![二哥的 Java 进阶之路：TreeBin 的哈希值固定为 -2](https://cdn.paicoding.com/stutymore/javathread-20250220104000.png)
 
 第三步，如果链表长度超过 8，转换为红黑树。
 
@@ -3752,11 +3752,11 @@ addCount(1L, binCount);
 
 get 也是通过 key 的 hash 进行定位，如果该位置节点的哈希匹配且键相等，则直接返回值。
 
-![二哥的 Java 进阶之路：HashMap 和 ConcurrentHashMap 的 get 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250220110736.png)
+![二哥的 Java 进阶之路：HashMap 和 ConcurrentHashMap 的 get 方法](https://cdn.paicoding.com/stutymore/javathread-20250220110736.png)
 
 如果节点的哈希为负数，说明是个特殊节点，比如说如树节点或者正在迁移的节点，就调用`find`方法查找。
 
-![二哥的 Java 进阶之路：ForwardingNode和TreeNode的 find 方法](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426104658.png)
+![二哥的 Java 进阶之路：ForwardingNode和TreeNode的 find 方法](https://cdn.paicoding.com/stutymore/javathread-20240426104658.png)
 
 否则遍历链表查找匹配的键。如果都没找到，返回 null。
 
@@ -3768,7 +3768,7 @@ HashMap 是非线程安全的，多线程环境下应该使用 ConcurrentHashMap
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，很多地方都用到了 ConcurrentHashMap，比如说在异步工具类 AsyncUtil 中，就使用了 ConcurrentHashMap 来存储任务的名称和它们的运行时间，以便观察和分析任务的执行情况。
 
-![二哥的 Java 进阶之路：技术派的源码封装 ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240411082351.png)
+![二哥的 Java 进阶之路：技术派的源码封装 ConcurrentHashMap](https://cdn.paicoding.com/stutymore/javathread-20240411082351.png)
 
 #### 说一下 ConcurrentHashMap 对 HashMap 的改进？
 
@@ -3803,7 +3803,7 @@ static final class ForwardingNode<K,V> extends Node<K,V> {
 
 最后就是 put 方法，通过 CAS + synchronized 代码块来进行并发写入。
 
-![二哥的 Java 进阶之路：ConcurrentHashMap 的源码](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240426105405.png)
+![二哥的 Java 进阶之路：ConcurrentHashMap 的源码](https://cdn.paicoding.com/stutymore/javathread-20240426105405.png)
 
 #### 为什么 ConcurrentHashMap 在 JDK 1.7 中要用 ReentrantLock，而在 JDK 1.8 要用 synchronized
 
@@ -3827,7 +3827,7 @@ JDK 1.7 中的 ConcurrentHashMap 使用了分段锁机制，每个 Segment 都�
 
 memo：2025 年 2 月 20 日修改至此，今天要[修改大量简历](https://javabetter.cn/zhishixingqiu/jianli.html)，所以面渣逆袭的进度只能耽误一下了。
 
-![二哥的编程星球：给星球用户修改简历](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250220113043.png)
+![二哥的编程星球：给星球用户修改简历](https://cdn.paicoding.com/stutymore/javathread-20250220113043.png)
 
 ### 49.ConcurrentHashMap 怎么保证可见性？（补充）
 
@@ -3894,7 +3894,7 @@ CopyOnWriteArrayList 是 ArrayList 的线程安全版本，适用于读多写少
 
 CopyOnWrite 的核心思想是写操作时创建一个新数组，修改后再替换原数组，这样就能够确保读操作无锁，从而提高并发性能。
 
-![CL0610：最终一致性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/CopyOnWriteArrayList-01.png)
+![CL0610：最终一致性](https://cdn.paicoding.com/tobebetterjavaer/images/thread/CopyOnWriteArrayList-01.png)
 
 内部使用 volatile 变量来修饰数组 array，以确保读操作的内存可见性。
 
@@ -3932,7 +3932,7 @@ public boolean add(E e) {
 
 memo：2025 年 8 月 19 日修改至此，今天在[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，碰到这样一段正反馈：暑期 6 月底靠二哥改的简历救命拿了一家近千人的小厂实习，跪谢一波。实习润了[派聪明](https://javabetter.cn/zhishixingqiu/paismart.html)，刚好和公司的智能助手匹配。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250922165408.png)
+![](https://cdn.paicoding.com/stutymore/javathread-20250922165408.png)
 
 ### 52. 能说一下 BlockingQueue 吗？（补充）
 
@@ -3992,7 +3992,7 @@ memo：2025 年 02 月 21 日修改至此。今天的主要工作仍然是[修�
 
 线程池是用来管理和复用线程的工具，它可以减少线程的创建和销毁开销。
 
-![三分恶面渣逆袭：管理线程的池子](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-59.png)
+![三分恶面渣逆袭：管理线程的池子](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-59.png)
 
 在 Java 中，ThreadPoolExecutor 是线程池的核心实现，它通过核心线程数、最大线程数、任务队列和拒绝策略来控制线程的创建和执行。
 
@@ -4019,7 +4019,7 @@ memo：2025 年 02 月 21 日修改至此。今天的主要工作仍然是[修�
 比如说在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)当中，
 我们就封装了一个异步工具类 AsyncUtil，内置了可配置的线程池，基于 ThreadPoolExecutor，适用于 IO 密集型任务。
 
-![技术派源码：AsyncUtil](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240424090143.png)
+![技术派源码：AsyncUtil](https://cdn.paicoding.com/stutymore/javathread-20240424090143.png)
 
 其中 corePoolSize 为 CPU 核心数的两倍，因为技术派中的大多数任务都是 IO 密集型的，maxPoolSize 设置为 50，是一个比较理想的值，尤其是在本地环境中；阻塞队列为 SynchronousQueue，意味着任务被创建后可以直接提交给等待的线程处理。
 
@@ -4080,7 +4080,7 @@ handler.rejectedExecution(command, this);
 - 如果等待队列满了，而且正在运行的线程数量小于 maximumPoolSize，那么线程池会创建新的线程来执行这个任务；
 - 如果等待队列满了，而且正在运行的线程数量大于或等于 maximumPoolSize，那么线程池会执行拒绝策略。
 
-![三分恶面渣逆袭：线程池执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-66.png)
+![三分恶面渣逆袭：线程池执行流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-66.png)
 
 第三步，线程执行完毕后，线程并不会立即销毁，而是继续保持在池中等待下一个任务。
 
@@ -4094,21 +4094,21 @@ handler.rejectedExecution(command, this);
 
 第一情况，小二发现有个空闲的小姐姐，正在翘首以盼，于是小二就快马加鞭跑过去办理了。
 
-![三分恶面渣逆袭：直接办理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-62.png)
+![三分恶面渣逆袭：直接办理](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-62.png)
 
 第二种情况，小姐姐们都在忙，接待员小美招呼小二去排队区区取号排队，让小二稍安勿躁。
 
-![三分恶面渣逆袭：排队等待](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-63.png)
+![三分恶面渣逆袭：排队等待](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-63.png)
 
 第三种情况，不仅小姐姐们都在忙，排队区也满了，小二着急用钱，于是脾气就上来了，和接待员小美对线了起来，要求开放另外 3 个空闲的窗口。
 
 小美迫于小二的压力，开放了另外 3 个窗口，排队区的人立马就冲了过去。
 
-![三分恶面渣逆袭：排队区满](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-64.png)
+![三分恶面渣逆袭：排队区满](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-64.png)
 
 第四种情况，6 个窗口的小姐姐都在忙，排队区也满了。。。
 
-![三分恶面渣逆袭：等待区，排队区都满](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-65.png)
+![三分恶面渣逆袭：等待区，排队区都满](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-65.png)
 
 接待员小美给了小二 4 个选项：
 
@@ -4163,7 +4163,7 @@ class ThreadPoolDemo {
 
 线程池有 7 个参数，需要重点关注的有核心线程数、最大线程数、等待队列、拒绝策略。
 
-![三分恶面渣逆袭：线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-67.png)
+![三分恶面渣逆袭：线程池参数](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-67.png)
 
 **①、corePoolSize**：核心线程数，长期存活，执行任务的主力。
 
@@ -4241,7 +4241,7 @@ handler = ThreadPoolExecutor.AbortPolicy()
 - DiscardOldestPolicy：等待队列会丢弃队列中最老的一个任务，也就是队列中等待最久的任务，然后尝试重新提交被拒绝的任务。
 - DiscardPolicy：丢弃被拒绝的任务，不做任何处理也不抛出异常。
 
-![三分恶面渣逆袭：四种策略](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
+![三分恶面渣逆袭：四种策略](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-68.png)
 
 分别对应着小二去银行办理业务被经理“薄纱”的四个场景：“我们系统瘫痪了”、“谁叫你来办的你找谁去”、“看你比较急，去队里加个塞”、“今天没办法，不行你看改一天”。
 
@@ -4295,7 +4295,7 @@ class CustomRejectedHandler {
 
 常用的有五种，有界队列 ArrayBlockingQueue；无界队列 LinkedBlockingQueue；优先级队列 PriorityBlockingQueue；延迟队列 DelayQueue；同步队列 SynchronousQueue。
 
-![三分恶面渣逆袭：线程池常用阻塞队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-69.png)
+![三分恶面渣逆袭：线程池常用阻塞队列](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-69.png)
 
 ①、ArrayBlockingQueue：一个有界的先进先出的阻塞队列，底层是一个数组，适合固定大小的线程池。
 
@@ -4307,7 +4307,7 @@ ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<Integer>(10, 
 
 [技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，就使用了 LinkedBlockingQueue 来配置 RabbitMQ 的消息队列。
 
-![技术派实战项目源码：RabbitMQ 的消息队列](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240422100900.png)
+![技术派实战项目源码：RabbitMQ 的消息队列](https://cdn.paicoding.com/stutymore/javathread-20240422100900.png)
 
 ③、PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。任务按照其自然顺序或 Comparator 来排序。
 
@@ -4340,7 +4340,7 @@ public static ExecutorService newCachedThreadPool() {
 
 memo：2025年 9 月 04 日修改至此，今天在帮球友修改简历的时候，有球友反馈，靠[二哥修改的简历](https://javabetter.cn/zhishixingqiu/jianli.html)拿到了字节的实习，现在秋招，希望能继续优化一下简历。
 
-![球友拿到了字节跳动的实习，简历修改的时候得到了正反馈](https://cdn.tobebetterjavaer.com/stutymore/javathread-靠二哥修改的简历找到的实习，现在要投秋招，麻烦二哥指导下简历怎么继续修改优化.png)
+![球友拿到了字节跳动的实习，简历修改的时候得到了正反馈](https://cdn.paicoding.com/stutymore/javathread-靠二哥修改的简历找到的实习，现在要投秋招，麻烦二哥指导下简历怎么继续修改优化.png)
 
 ### 59.线程池提交 execute 和 submit 有什么区别？
 
@@ -4409,7 +4409,7 @@ System.out.println("未执行的任务数: " + unexecutedTasks.size());
 
 ②、对于 IO 密集型任务，由于线程经常处于等待状态，等待 IO 操作完成，所以可以设置更多的线程来提高并发，比如说 CPU 核心数的两倍。
 
-![常见线程池参数配置方案-来源美团技术博客](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-70.png)
+![常见线程池参数配置方案-来源美团技术博客](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-70.png)
 
 >核心数可以通过 Java 的`Runtime.getRuntime().availableProcessors()`方法获取。
 
@@ -4462,7 +4462,7 @@ jstack <Java 进程 ID> | grep -A 20 "BLOCKED" // 查看阻塞线程
 
 memo：2025 年 8 月 17 日修改至此。[今天收到球友的反馈说](https://javabetter.cn/zhishixingqiu/)，偶然的机会加入了星球，学习下来感觉还挺好的，感谢球友每一次的口碑，笔芯芯。
 
-![球友对星球的口碑](https://cdn.tobebetterjavaer.com/stutymore/javathread-偶然一机会就加入了，确实还挺好的.png)
+![球友对星球的口碑](https://cdn.paicoding.com/stutymore/javathread-偶然一机会就加入了，确实还挺好的.png)
 
 ### 63.能说一下四种常见线程池的原理吗？
 
@@ -4479,7 +4479,7 @@ new ThreadPoolExecutor(4, 4, 0L, TimeUnit.MILLISECONDS,
 
 新任务提交时，如果线程池有空闲线程，直接执行；如果没有，任务进入 LinkedBlockingQueue 等待。缺点是任务队列默认无界，可能导致任务堆积，甚至 OOM。
 
-![三分恶面渣逆袭：FixedThreadPool](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-73.png)
+![三分恶面渣逆袭：FixedThreadPool](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-73.png)
 
 
 #### 说说缓存线程池的原理？
@@ -4492,7 +4492,7 @@ new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
 ```
 提交任务时，如果线程池没有空闲线程，直接新建线程执行任务；如果有，复用线程执行任务。线程空闲 60 秒后销毁，减少资源占用。缺点是线程数没有上限，在高并发情况下可能导致 OOM。
 
-![三分恶面渣逆袭：CachedThreadPool执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-74.png)
+![三分恶面渣逆袭：CachedThreadPool执行流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-74.png)
 
 #### 说说单线程线程池的原理？
 
@@ -4505,7 +4505,7 @@ new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
 
 始终只创建 1 个线程，新任务必须等待前一个任务完成后才能执行，其他任务都被放入 LinkedBlockingQueue 排队执行。缺点是无法并行处理任务。
 
-![三分恶面渣逆袭：SingleThreadExecutor运行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-72.png)
+![三分恶面渣逆袭：SingleThreadExecutor运行流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-72.png)
 
 #### 说说定时任务线程池的原理？
 
@@ -4520,11 +4520,11 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 
 执行定时任务时，`schedule()` 方法可以将任务延迟一定时间后执行一次；`scheduleAtFixedRate()` 方法可以将任务延迟一定时间后以固定频率执行；`scheduleWithFixedDelay()` 方法可以将任务延迟一定时间后以固定延迟执行。
 
-![三分恶面渣逆袭：ScheduledThreadPool执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-75.png)
+![三分恶面渣逆袭：ScheduledThreadPool执行流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-75.png)
 
 缺点是，如果任务执行时间 `>` 设定时间间隔，scheduleAtFixedRate 可能会导致任务堆积。
 
-![三分恶面渣逆袭：ScheduledThreadPoolExecutor执行流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-76.png)
+![三分恶面渣逆袭：ScheduledThreadPoolExecutor执行流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-76.png)
 
 
 #### 使用无界队列的线程池会出现什么问题？
@@ -4535,7 +4535,7 @@ public ScheduledThreadPoolExecutor(int corePoolSize) {
 
 常见的处理方式有，使用 try-catch 捕获、使用 Future 获取异常、自定义ThreadPoolExecutor 重写 afterExecute 方法、使用 UncaughtExceptionHandler 捕获异常。
 
-![三分恶面渣逆袭：线程池异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-77.png)
+![三分恶面渣逆袭：线程池异常处理](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-77.png)
 
 ①、try-catch 是最简单的方法。
 
@@ -4649,7 +4649,7 @@ class MyThreadPoolExecutor extends ThreadPoolExecutor {
 
 状态由 RUNNING → SHUTDOWN → STOP → TIDYING → TERMINATED 依次流转。
 
-![三分恶面渣逆袭：线程池状态切换图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-78.png)
+![三分恶面渣逆袭：线程池状态切换图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-78.png)
 
 **RUNNING** 状态的线程池可以接收新任务，并处理阻塞队列中的任务；**SHUTDOWN** 状态的线程池不会接收新任务，但会处理阻塞队列中的任务；**STOP** 状态的线程池不会接收新任务，也不会处理阻塞队列中的任务，并且会尝试中断正在执行的任务；**TIDYING** 状态表示所有任务已经终止；**TERMINATED** 状态表示线程池完全关闭，所有线程销毁。
 
@@ -4663,19 +4663,19 @@ TERMINATED|	011|	❌ 否|	❌ 否|	❌ 否
 
 memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，期待所有参加考研的小伙伴都能取得理想的成绩。
 
-![祝所有考研的同学都能顺利上岸](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250224102434.png)
+![祝所有考研的同学都能顺利上岸](https://cdn.paicoding.com/stutymore/javathread-20250224102434.png)
 
 ### 66.线程池如何实现参数的动态修改？
 
 线程池提供的 setter 方法就可以在运行时动态修改参数，比如说 setCorePoolSize 可以用来修改核心线程数、setMaximumPoolSize 可以用来修改最大线程数。
 
-![三分恶面渣逆袭：JDK 线程池参数设置](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-79.png)
+![三分恶面渣逆袭：JDK 线程池参数设置](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-79.png)
 
 需要注意的是，调用 `setCorePoolSize()` 时如果新的核心线程数比原来的大，线程池会创建新的线程；如果更小，线程池不会立即销毁多余的线程，除非有空闲线程超过 keepAliveTime。
 
 当然了，还可以利用 Nacos 配置中心，或者实现自定义的线程池，监听参数变化去动态调整参数。
 
-![三分恶面渣逆袭：动态修改线程池参数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-80.png)
+![三分恶面渣逆袭：动态修改线程池参数](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-80.png)
 
 ### 67.🌟线程池调优了解吗？（补充）
 
@@ -4683,7 +4683,7 @@ memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，�
 
 线程池的配置优化是针对多线程应用性能调优的关键环节。
 
-![三分恶面渣逆袭：线程池调优](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-82.png)
+![三分恶面渣逆袭：线程池调优](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-82.png)
 
 首先我会根据任务类型设置核心线程数参数，比如 IO 密集型任务会设置为 CPU 核心数\*2 的经验值。
 
@@ -4693,7 +4693,7 @@ memo：2025 年 2 月 24 日修改至此。今天是出考研成绩的一天，�
 
 memo：2025 年 9 月 26 日优化至此，今天有球友在 VIP 群里讲，投了 1 天就接面了，[二哥改的简历还是太好用](https://javabetter.cn/zhishixingqiu/jianli.html)。很感谢他的认可。
 
-![球友对简历修改的认可](https://cdn.tobebetterjavaer.com/stutymore/javathread-投了1天就接面了，二哥改的简历还是太好用.png)
+![球友对简历修改的认可](https://cdn.paicoding.com/stutymore/javathread-投了1天就接面了，二哥改的简历还是太好用.png)
 
 ### 68.线程池在使用的时候需要注意什么？（补充）
 
@@ -4721,7 +4721,7 @@ memo：2025 年 2 月 25 日修改至此。
 
 线程池的主要目的是为了避免频繁地创建和销毁线程。
 
-![三分恶面渣逆袭：线程池主要实现流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-83.png)
+![三分恶面渣逆袭：线程池主要实现流程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-83.png)
 
 我会把线程池看作一个工厂，里面有一群“工人”，也就是线程了，专门用来做任务。
 
@@ -4885,7 +4885,7 @@ class ThreadPoolTest {
 
 执行结果：
 
-![二哥的 Java 进阶之路：自定义线程池](https://cdn.tobebetterjavaer.com/stutymore/javathread-20240727230303.png)
+![二哥的 Java 进阶之路：自定义线程池](https://cdn.paicoding.com/stutymore/javathread-20240727230303.png)
 
 #### 手写一个数据库连接池，可以吗？
 
@@ -4979,7 +4979,7 @@ class SimpleConnectionPool {
 
 运行结果：
 
-![二哥的Java 进阶之路：数据库连接池](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241118220052.png)
+![二哥的Java 进阶之路：数据库连接池](https://cdn.paicoding.com/stutymore/javathread-20241118220052.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：线程池怎么设计，拒绝策略有哪些，如何选择
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的哔哩哔哩同学 1 二面面试原题：给你一个需求，你需要写一个连接池，你现在可以写一下
@@ -5022,7 +5022,7 @@ Java 提供了多种并发容器，主要包括：
 
 关于 Fork/Join 框架，我了解一些，它是 Java 7 引入的一个并行框架，主要用于分治算法的并行执行。这个框架通过将大的任务递归地分解成小任务，然后并行执行，最后再合并结果，以达到最高效率处理大量数据的目的。
 
-![三分恶面渣逆袭：Fork/Join分治算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-85.png)
+![三分恶面渣逆袭：Fork/Join分治算法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-85.png)
 
 Fork/Join 框架的核心理念是**分而治之**，将大任务拆分为多个小任务并行处理，最后再将这些小任务的结果汇总。
 
@@ -5032,7 +5032,7 @@ Fork/Join 框架的核心理念是**分而治之**，将大任务拆分为多个
 
 ForkJoinPool，一个特殊的线程池，底层使用了工作窃取算法，也就是当一个线程执行完自己的任务后，它可以窃取其他线程的任务，避免线程闲置。
 
-![三分恶面渣逆袭：工作窃取](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javathread-86.png)
+![三分恶面渣逆袭：工作窃取](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javathread-86.png)
 
 RecursiveTask 和 RecursiveAction，分别用于有返回值和无返回值的任务，这两个类都继承自 ForkJoinTask。
 
@@ -5105,27 +5105,27 @@ memo：2025 年 2 月 26 日修改至此。终于搞定，面渣逆袭并发编�
 
 换句话说，只要面渣逆袭背的好，基本上就能应付大部分面试了。
 
-![字节暑期实习 2.25 二面](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226110851.png)
+![字节暑期实习 2.25 二面](https://cdn.paicoding.com/stutymore/javathread-20250226110851.png)
 
 ---
 
 面渣逆袭并发编程篇第二版终于整理完了，说一点心里话。
 
-![Java 基础篇、集合框架篇、JVM 篇、并发编程篇](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112804.png)
+![Java 基础篇、集合框架篇、JVM 篇、并发编程篇](https://cdn.paicoding.com/stutymore/javathread-20250226112804.png)
 
 网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
 
-![球友开始面试后的感慨：限制敲错了是现在](https://cdn.tobebetterjavaer.com/stutymore/jvm-20250118111727.png)
+![球友开始面试后的感慨：限制敲错了是现在](https://cdn.paicoding.com/stutymore/jvm-20250118111727.png)
 
 面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从 24 届到 25 届，帮助了很多小伙伴。未来的 26、27 届，也将因此受益，从而拿到心仪的 offer。
 
 能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强，因此第二版的面渣逆袭不只是给大家的礼物，也是我在技术上蜕变的记录。
 
-![这是我在牛客上看到的](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165717.png)
+![这是我在牛客上看到的](https://cdn.paicoding.com/stutymore/javase-20241230165717.png)
 
-![我觉得都是蛮中肯的评价](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165749.png)
+![我觉得都是蛮中肯的评价](https://cdn.paicoding.com/stutymore/javase-20241230165749.png)
 
-![双非硕测开对二哥八股的认可](https://cdn.tobebetterjavaer.com/stutymore/collection-20250108181632.png)
+![双非硕测开对二哥八股的认可](https://cdn.paicoding.com/stutymore/collection-20250108181632.png)
 
 很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
 
@@ -5139,19 +5139,19 @@ memo：2025 年 2 月 26 日修改至此。终于搞定，面渣逆袭并发编�
 
 这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
 
-![面渣逆袭并发编程篇：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/javathread-20250226112718.png)
+![面渣逆袭并发编程篇：epub 版本](https://cdn.paicoding.com/stutymore/javathread-20250226112718.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 
 更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 

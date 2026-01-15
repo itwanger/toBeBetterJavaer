@@ -75,49 +75,49 @@ head:
 
 再用一些图来表达一下，感官会更清晰一些。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110050.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110050.png)
 
 计算机的核心是 CPU，它承担了所有的计算任务。它就像一座工厂，时刻在运行。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110104.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110104.png)
 
 假定工厂的电力有限，一次只能供给一个车间使用。也就是说，一个车间开工的时候，其他车间都必须停工。背后的含义就是，单个 CPU 一次只能运行一个任务。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110112.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110112.png)
 
 进程就好比工厂的车间，它代表 CPU 所能处理的单个任务。任一时刻，CPU 总是运行一个进程，其他进程处于非运行状态。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110120.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110120.png)
 
 一个车间里，可以有很多工人。他们协同完成一个任务。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110127.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110127.png)
 
 线程就好比车间里的工人。一个进程可以包括多个线程。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110138.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110138.png)
 
 车间的空间是工人们共享的，比如许多房间是每个工人都可以进出的。这象征一个进程的内存空间是共享的，每个线程都可以使用这些共享内存。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110146.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110146.png)
 
 可是，每间房间的大小不同，有些房间最多只能容纳一个人，比如厕所。里面有人的时候，其他人就不能进去了。这代表一个线程使用某些共享内存时，其他线程必须等它结束，才能使用这一块内存。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110155.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110155.png)
 
 一个防止他人进入的简单方法，就是门口加一把锁。先到的人锁上门，后到的人看到上锁，就在门口排队，等锁打开再进去。这就叫"互斥锁"（Mutual exclusion，缩写 Mutex），防止多个线程同时读写某一块内存区域。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110204.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110204.png)
 
 还有些房间，可以同时容纳 n 个人，比如厨房。也就是说，如果人数大于 n，多出来的人只能在外面等着。这好比某些内存区域，只能供给固定数目的线程使用。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110214.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110214.png)
 
 这时的解决方法，就是在门口挂 n 把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。这种做法叫做"信号量"（Semaphore），用来保证多个线程不会互相冲突。
 
 不难看出，mutex 是 semaphore 的一种特殊情况（n=1 时）。也就是说，完全可以用后者替代前者。但是，因为 mutex 较为简单，且效率高，所以在必须保证资源独占的情况下，还是采用这种设计。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-need-thread-20230725110222.png)
+![](https://cdn.paicoding.com/stutymore/why-need-thread-20230725110222.png)
 
 操作系统的设计，因此可以归结为三点：
 
@@ -162,4 +162,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

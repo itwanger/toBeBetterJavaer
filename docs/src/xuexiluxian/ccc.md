@@ -20,7 +20,7 @@ head:
 
 学习 C++ 语法，首推《C++ Primer 第五版》。我在参加第一份工作的时候，就买过一本《C++ Primer 第四版》，这本书一直不舍得扔，尽管它已经非常破了，但我们之间的感情是深厚的，毕竟跟随我辗转了好几个城市了。
 
-![C++ Primer 第四版](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-primer-book.png)
+![C++ Primer 第四版](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-primer-book.png)
 
 *是不是一下子就暴露自己工作年限了*？
 
@@ -28,15 +28,15 @@ head:
 
 然后是《Effective C++》，侯捷老师译的，这本书主要讲解了编写 C++ 代码需要注意的一些条款，和《Effective Java》 属于同一个系列。
 
-![Effective C++](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-2.jpg)
+![Effective C++](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-2.jpg)
 
 第三本是《STL源码剖析》这本书，侯捷老师写的，这本书讲了C++的底层实现，包括各种容器（vector、list、heap、deque、Red Black tree、hash table、set/map）的实现、各种常见算法（排序、查找、排列组合、数据移动与复制技术）的实现等。
 
-![STL源码剖析](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-3.png)
+![STL源码剖析](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-3.png)
 
 第四本《深度探索C++对象模型》，侯捷老师译的，这本书讲解了 C++ 面向对象特性的底层实现机制，读起来虽然有点晦涩，但读完后就会搞明白“代码跑起来的时候实际发生了什么”。
 
-![深度探索C++对象模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-4.jpg)
+![深度探索C++对象模型](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-4.jpg)
 
 ## 二、视频推荐
 
@@ -50,16 +50,16 @@ head:
 
 
 
-![侯捷老师的视频](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-b3de882e-3b4e-453e-a9b7-e327ca7ec30e.png)
+![侯捷老师的视频](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-b3de882e-3b4e-453e-a9b7-e327ca7ec30e.png)
 
 
 我从网上 down 了一份，保存到了本地。需要的小伙伴请长按识别/扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**cpp**」就可以拉取到了。
 
-![回复关键字 cpp ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![回复关键字 cpp ](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 给大家看一下我保存的这些视频资源哈。
 
-![百度网盘：CPP 视频](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-5.png)
+![百度网盘：CPP 视频](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-5.png)
 
 ## 三、练手项目
 
@@ -176,7 +176,7 @@ GitHub 链接：[https://github.com/sogou/workflow](https://github.com/sogou/wor
 
 **其次，要从低版本开始学习**。比如说我们在学习 workflow 的时候，可以先从 v0.9.0 这个最终的 release 版本开始学习。
 
-![workflow 的 GitHub 低版本](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/ccc-3e0137d4-f0f3-4a1d-8e6c-c16eefcd175d.jpg)
+![workflow 的 GitHub 低版本](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/ccc-3e0137d4-f0f3-4a1d-8e6c-c16eefcd175d.jpg)
 
 然后再逐层往上推进，这样的学习效果肯定会更佳，尤其是针对新手来说。
 
@@ -238,4 +238,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

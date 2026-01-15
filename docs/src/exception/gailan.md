@@ -88,7 +88,7 @@ checked 异常（检查型异常）在源代码里必须显式地捕获或者抛
 
 “我先画一幅思维导图给你感受一下。”
 
-![](https://cdn.tobebetterjavaer.com/studymore/gailan-20230326090207.png)
+![](https://cdn.paicoding.com/studymore/gailan-20230326090207.png)
 
 首先，Exception 和 Error 都继承了 Throwable 类。换句话说，只有 Throwable 类（或者子类）的对象才能使用 throw 关键字抛出，或者作为 catch 的参数类型。
 
@@ -116,7 +116,7 @@ Class clz = Class.forName("com.itwanger.s41.Demo1");
 
 如果没做处理，比如说在 Intellij IDEA 环境下，就会提示你这行代码可能会抛出 `java.lang.ClassNotFoundException`。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/gailan-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/exception/gailan-02.png)
 
 建议你要么使用 try-catch 进行捕获：
 
@@ -225,7 +225,7 @@ Exception in thread "main" java.lang.ArithmeticException: 年纪未满 18 岁，
 
 `Class.forName()` 方法在执行的时候可能会遇到 `java.lang.ClassNotFoundException` 异常，一个检查型异常，如果没有做处理，IDEA 就会提示你，要么在方法签名上声明，要么放在 try-catch 中。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/throw-throws-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/exception/throw-throws-01.png)
 
 “那什么情况下使用 throws 而不是 try-catch 呢？”三妹问。
 
@@ -462,7 +462,7 @@ static int test2 () {
 
 “三妹，来看一下源码的文档注释就全明白了！”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/try-catch-finally-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/exception/try-catch-finally-01.png)
 
 至于参数 status 的值也很好理解，如果是异常退出，设置为非 0 即可，通常用 1 来表示；如果是想正常退出程序，用 0 表示即可。
 
@@ -491,4 +491,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -122,7 +122,7 @@ class Arraylist<E> {
 
 不过，说实话，泛型方法的定义看起来略显晦涩。来一副图吧（注意：方法返回类型和方法参数类型至少需要一个）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/generic/generic-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/generic/generic-01.png)
 
 现在，我们来调用一下泛型方法。
 
@@ -618,4 +618,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

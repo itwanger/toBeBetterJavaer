@@ -278,7 +278,7 @@ Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承�
 
 在 Java 语言中实现 Cat 和 Dog 等类的时候，就需要继承 Animal 这个类。继承之后 Cat、Dog 等具体动物类就是子类，Animal 类就是父类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-bf43b473-4a05-4727-a543-c4edd44e5437.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-bf43b473-4a05-4727-a543-c4edd44e5437.png)
 
 #### 02、为什么需要继承
 
@@ -288,7 +288,7 @@ Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承�
 
 这时继承的优势就出来了：可以直接使用父类的属性和方法，自己也可以有自己新的属性和方法满足拓展，父类的方法如果自己有需求更改也可以重写。这样**使用继承不仅大大的减少了代码量，也使得代码结构更加清晰可见**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-eeee7ea3-30d5-4bb1-9c9d-5e3bf427e805.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-eeee7ea3-30d5-4bb1-9c9d-5e3bf427e805.png)
 
 所以这样从代码的层面上来看我们设计这个完整的 Animal 类是这样的：
 
@@ -358,17 +358,17 @@ class Chicken extends Animal{
 
 ##### 单继承
 
-![单继承：在类层次结构上比较清晰](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-62bbc6a2-4e0e-4150-9f83-fceb65c56667.png)
+![单继承：在类层次结构上比较清晰](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-62bbc6a2-4e0e-4150-9f83-fceb65c56667.png)
 
 单继承，一个子类只有一个父类，如我们上面讲过的 Animal 类和它的子类。**单继承在类层次结构上比较清晰，但缺点是结构的丰富度有时不能满足使用需求**。
 
 ##### 多继承
 
-![bigsai：多继承容易造成混乱](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e2ebc65a-5385-44a0-8ef3-a1b17e0252f1.png)
+![bigsai：多继承容易造成混乱](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-e2ebc65a-5385-44a0-8ef3-a1b17e0252f1.png)
 
 多继承，一个子类有多个直接的父类。这样做的好处是子类拥有所有父类的特征，**子类的丰富度很高，但是缺点就是容易造成混乱**。下图为一个混乱的例子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ab4c9fef-63be-4bba-a871-7e5fb9bf711a.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-ab4c9fef-63be-4bba-a871-7e5fb9bf711a.png)
 
 Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方式，**分别是**内部类、多层继承和实现接口。
 
@@ -376,13 +376,13 @@ Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方
 
 **多层继承：**子类继承父类，父类如果还继承其他的类，那么这就叫**多层继承**。这样子类就会拥有所有被继承类的属性和方法。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d3789496-09f8-4a62-8424-e5c45e224320.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-d3789496-09f8-4a62-8424-e5c45e224320.png)
 
 [实现接口](https://javabetter.cn/oo/interface.html)无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
 
 类和接口相比，**类就是一个实体，有属性和方法，而接口更倾向于一组方法**。举个例子，就拿斗罗大陆的唐三来看，他存在的继承关系可能是这样的：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c06ece50-32e5-4b03-a31b-05ef03592d0c.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-c06ece50-32e5-4b03-a31b-05ef03592d0c.png)
 
 #### 04、如何实现继承
 
@@ -422,7 +422,7 @@ public class test {
 
 点击运行的时候 Dog 子类可以直接使用 Animal 父类的方法。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2ba4864f-af39-4bd7-b59c-db53ec1c38f6.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-2ba4864f-af39-4bd7-b59c-db53ec1c38f6.png)
 
 ##### **implements 关键字**
 
@@ -460,7 +460,7 @@ public class test2 {
 
 Cat 类实现 doA 和 doB 接口的时候，需要实现其声明的方法，点击运行结果如下，这就是一个类实现接口的简单案例：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-32bdceb5-e838-47cb-ad96-b7453abae6a5.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-32bdceb5-e838-47cb-ad96-b7453abae6a5.png)
 
 #### 05、继承的特点
 
@@ -527,7 +527,7 @@ class B extends A{
 
 你可能有时候在写继承的时候子类并没有使用 super()调用，程序依然没问题，其实这样是为了节省代码，系统执行时会自动添加父类的无参构造方式，如果不信的话我们对上面的类稍作修改执行：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-33980b57-857b-4428-8b27-47d6d5060f29.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-33980b57-857b-4428-8b27-47d6d5060f29.png)
 
 ##### 方法重写(Override)
 
@@ -586,7 +586,7 @@ Java 子类重写继承的方法时，**不可以降低方法的访问权限**�
 
 如果还是不太清楚可以看几个小案例就很容易搞懂，写一个 A1 类中用四种修饰词实现四个方法，用子类 A2 继承 A1，重写 A1 方法时候你就会发现父类私有方法不能重写，非私有方法重写使用的修饰符作用域不能变小(大于等于)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ec684196-f877-46af-9f1e-087a5d313beb.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-ec684196-f877-46af-9f1e-087a5d313beb.png)
 
 正确的案例应该为：
 
@@ -612,7 +612,7 @@ class A2 extends A1{
 
 还要注意的是，**继承当中子类抛出的异常必须是父类抛出的异常或父类抛出异常的子异常**。下面的一个案例四种方法测试可以发现子类方法的异常不可大于父类对应方法抛出异常的范围。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-6d5118fb-0807-4d78-a767-d6c4282e4b2b.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-6d5118fb-0807-4d78-a767-d6c4282e4b2b.png)
 
 正确的案例应该为：
 
@@ -650,7 +650,7 @@ static 翻译为“静态的”，能够与变量，方法和类一起使用，*
 
 可以看以下的案例证明上述规则：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-6a6ab068-2ef1-401a-ab2f-86a84b29dbbb.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-6a6ab068-2ef1-401a-ab2f-86a84b29dbbb.png)
 
 源代码为：
 
@@ -696,7 +696,7 @@ abstract 英文名为“抽象的”，主要用来修饰类和方法，称为�
 
 **抽象类**：**有抽象方法的类必须是抽象类**，抽象类可以表达概念但是无法构造实体的类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c9cd573a-39e9-40a0-b6f5-6a0fe925487d.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-c9cd573a-39e9-40a0-b6f5-6a0fe925487d.png)
 
 比如我们可以这样设计一个 People 抽象类以及一个抽象方法，在子类中具体完成：
 
@@ -746,13 +746,13 @@ toString()方法表示返回该对象的字符串，由于各个对象构造不�
 
 equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了 euqals()方法，通过[字符串的内容比较是否相等](https://javabetter.cn/string/equals.html)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
 
 ##### 向上转型
 
 **向上转型** : 通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换。用一张图就能很好地表示向上转型的逻辑：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png)
 
 父类引用变量指向子类对象后，只能使用父类已声明的方法，但方法如果被重写会执行子类的方法，如果方法未被重写那么将执行父类的方法。
 
@@ -760,7 +760,7 @@ equals()方法主要比较两个对象是否相等，因为对象的相等不一
 
 **向下转型** : 通过父类对象(大范围)实例化子类对象(小范围)，在书写上父类对象需要加括号`()`强制转换为子类类型。但父类引用变量实际引用必须是子类对象才能成功转型，这里也用一张图就能很好表示向下转型的逻辑：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png)
 
 子类引用变量指向父类引用变量指向的对象后(一个 Son()对象)，就完成向下转型，就可以调用一些子类特有而父类没有的方法 。
 
@@ -828,7 +828,7 @@ public class test9 {
 
 执行结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d23e0bbf-a4a4-4d20-ad21-f437fcee1c82.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-d23e0bbf-a4a4-4d20-ad21-f437fcee1c82.png)
 
 ### 3）多态
 
@@ -1024,7 +1024,7 @@ class Wangsi {
 
 最后送你一张图捋一捋其中的关系吧。
 
-![bigsai：封装继承多态](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+![bigsai：封装继承多态](http://cdn.paicoding.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
 
 “好的，二哥，我来消化一下，今天内容真不少。你先去休息一下。”三妹回应到。
 
@@ -1036,4 +1036,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

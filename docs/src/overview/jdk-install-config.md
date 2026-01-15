@@ -23,7 +23,7 @@ head:
 
 它们之间的关系可以用这幅图来表示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-6f6fdb4a-7a44-4e76-b4ea-71c070a5b220.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-6f6fdb4a-7a44-4e76-b4ea-71c070a5b220.png)
 
 真的是人生无常，大肠包小肠啊。
 
@@ -39,13 +39,13 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 这是 Oracle 官方给出的 JDK、JRE、JVM 关系图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-cbc87f87-6351-4356-936b-77850cc682d5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-cbc87f87-6351-4356-936b-77850cc682d5.png)
 
 那针对不同的操作系统，官方也提供了不同的 JDK 安装包。
 
 如果你用百度去搜，嗯。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-31e739ff-b69f-47b6-9db4-8843cd8a716a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-31e739ff-b69f-47b6-9db4-8843cd8a716a.png)
 
 总之，是把官方给吃了。
 
@@ -55,16 +55,16 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 好，如果你想安装 JDK ，到官方下载。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-e5b91a70-2a23-4ebd-896a-5ff19f0075b1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-e5b91a70-2a23-4ebd-896a-5ff19f0075b1.png)
 
 最新版是 JDK 18（短期版本），上一个长期支持版本是 JDK 17，推荐安装 JDK 8，哈哈哈哈，它升任它升，我用 Java 8。往下翻就能找到了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a32db267-febe-4852-b528-deaacb43247d.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-a32db267-febe-4852-b528-deaacb43247d.png)
 
 
 根据你的操作系统下载对应的安装包，分 Windows（exe 后缀）和 macOS（dmg 后缀）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408164612.png)
+![](https://cdn.paicoding.com/stutymore/jdk-install-config-20230408164612.png)
 
 下载后双击安装，然后配置环境变量就 OK 了。
 
@@ -72,23 +72,23 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 安装步骤就省略了，傻瓜式下一步就好。这里只说一下环境变量的配置，在电脑桌面右键点击 “此电脑”的“属性”选项。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a0a78e05-886f-425a-8ba9-d27314f7a21c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-a0a78e05-886f-425a-8ba9-d27314f7a21c.png)
 
 选择“高级系统设置”选项
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-fdc94ada-ae44-4a93-ba0d-92860119ad9c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-fdc94ada-ae44-4a93-ba0d-92860119ad9c.png)
 
 点击下面的“环境变量”选项
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-919eb8f0-9869-450c-a6cb-50318dd3e2e5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-919eb8f0-9869-450c-a6cb-50318dd3e2e5.png)
 
 点击“系统变量”下面的”新建“选项
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-a4c05c3e-f305-4d6a-96d2-fe345e980c3b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-a4c05c3e-f305-4d6a-96d2-fe345e980c3b.png)
 
 在”变量名“处填上”Java_Home“，”变量值“为 JDK 安装路径，比如说”`D:\Program Files\Java\jdk1.8.0_91`“
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/jdk-install-config-26be5706-036d-4fae-99fa-d5f14b7380d4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/jdk-install-config-26be5706-036d-4fae-99fa-d5f14b7380d4.png)
 
 参考链接：https://www.cnblogs.com/cnwutianhao/p/5487758.html
 
@@ -98,7 +98,7 @@ Windows 用户建议先安装 [Chocolatey](https://javabetter.cn/gongju/choco.ht
 
 安装完成后，直接执行 `choco install jdk8` 就可以安装 JDK 8 了，并且会自动将 Java 加入到环境变量中，不用再去「我的电脑」「环境变量」中新建 JAVA_HOME 并复制 JDK 安装路径配置 PATH 变量了
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-80a6ced8-c25d-4371-8096-b95be48af768)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/choco-80a6ced8-c25d-4371-8096-b95be48af768)
 
 ### 03、macOS 安装 JDK
 
@@ -123,7 +123,7 @@ eval "$(jenv init -)"
 
 通过 `vim ~/.zshrc` 把以上内容添加到配置文件中并保存（source 下可以立即生效）
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408165518.png)
+![](https://cdn.paicoding.com/stutymore/jdk-install-config-20230408165518.png)
 
 之后通过以下方式添加 JDK 到 jenv 中：
 
@@ -135,7 +135,7 @@ JDK 的安装路径可以通过两种方法 get 到。
 
 一般情况下，JDK 的默认安装路径为 `/Library/Java/JavaVirtualMachines/`，进入该目录就可以看到。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408173945.png)
+![](https://cdn.paicoding.com/stutymore/jdk-install-config-20230408173945.png)
 
 还可以通过以下命令获取当前安装的 JDK 路径。
 
@@ -143,11 +143,11 @@ JDK 的安装路径可以通过两种方法 get 到。
 /usr/libexec/java_home
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408174048.png)
+![](https://cdn.paicoding.com/stutymore/jdk-install-config-20230408174048.png)
 
 添加 JDK 的路径后可以通过 `jenv versions` 查看所有添加到 jenv 进行管理的 JDK 版本。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jdk-install-config-20230408174158.png)
+![](https://cdn.paicoding.com/stutymore/jdk-install-config-20230408174158.png)
 
 带 `*` 的表示当前默认的 JDK 版本。
 
@@ -157,7 +157,7 @@ JDK 的安装路径可以通过两种方法 get 到。
 jenv global 17
 ```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
 
 是不是贼方便？再也不用整这 `echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc` 玩意添加 JDK 到 PATH 环境变量了！
 
@@ -171,4 +171,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -5,7 +5,7 @@ shortTitle: bin目录下的可执行文件
 
 这节我们穿插讲一点轻松的内容，关于 MySQL 安装成功后，bin 目录下的一些可执行文件，它们到底是干嘛用的？
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205172946.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205172946.png)
 
 我本机是 macOS 环境，目前能看到的可执行文件就如上图所示，Windows 下看到的是一些带 exe 后缀的文件，但它们的功能都是一样的。
 
@@ -25,7 +25,7 @@ Windows 环境的话，需要在 cmd 中切换到 bin 目录下，再执行 `mys
 
 在敲入一条 SQL 语句后，需要加上命令结束符 `;`，否则 MySQL 服务器会认为你还没有输入完整的 SQL 语句，会一直等待你输入，直到你输入 `;`。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205174107.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205174107.png)
 
 那除了 `;` 之外，你还可以使用 `\g` 或者 `\G` 作为命令结束符，它们的区别是：
 
@@ -34,13 +34,13 @@ Windows 环境的话，需要在 cmd 中切换到 bin 目录下，再执行 `mys
 - `\G`：表示一次性执行所有 SQL 语句，并且以纵向显示结果，如果查询结果的列数比较多的话，该结尾符会让结果更加清晰。
 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205174327.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205174327.png)
 
 ### 命令可以随意换行
 
 在输入 SQL 语句的时候，可以随意换行，不需要在意换行的位置，只要 SQL 语句的逻辑是正确的，MySQL 服务器就会认为你输入的是一条完整的 SQL 语句。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205174621.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205174621.png)
 
 ### 一次性执行多条 SQL 语句
 
@@ -52,7 +52,7 @@ Windows 环境的话，需要在 cmd 中切换到 bin 目录下，再执行 `mys
 show databases; use mysql;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205174853.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205174853.png)
 
 ### 放弃执行 SQL 语句
 
@@ -60,13 +60,13 @@ show databases; use mysql;
 
 当你SQL 输错了，又懒得删改，就可以使用 `\c` 来放弃执行。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205175026.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205175026.png)
 
 ### SQL 语句大小写不敏感
 
 MySQL 默认对命令的大小写是不敏感的，也就是说，你可以随意输入大小写，MySQL 服务器都会认为你输入的是一样的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205175153.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205175153.png)
 
 不过通常来说，SQL 语句的关键字都是大写的，而表名、字段名等都是小写的，这样可以让 SQL 语句更加清晰。
 
@@ -76,21 +76,21 @@ MySQL 默认对命令的大小写是不敏感的，也就是说，你可以随�
 
 在 SQL 语句中，可以使用单引号或者双引号表示字符串字面量。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205175523.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205175523.png)
 
 建议使用单引号，因为 MySQL 在开启 `ANSI_QUOTES` 模式的情况下，双引号会有其他特殊的含义。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205175915.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205175915.png)
 
 查询 MySQL 是不是开启了 `ANSI_QUOTES` 模式，可以使用 `show variables like 'sql_mode';` 来查询。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205180347.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205180347.png)
 
 可以看到默认是没有开启的。
 
 我们可以使用单引号和双引号来定义字符串，使用反引号 \` 来定义标识符，比如表名、字段名等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205180656.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205180656.png)
 
 我们给 sql_mode 添加 `ANSI_QUOTES` 模式：
 
@@ -98,7 +98,7 @@ MySQL 默认对命令的大小写是不敏感的，也就是说，你可以随�
 set sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,ANSI_QUOTES';
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205181238.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205181238.png)
 
 再执行下面的 SQL 语句：
 
@@ -108,13 +108,13 @@ SELECT `title`,"short_title" FROM `article`;
 
 会发现，双引号也被认为是标识符了，和反引号  \` 的效果是一样的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205181258.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205181258.png)
 
 ### 退出 MySQL 连接
 
 在 MySQL 连接状态下，可以使用 `exit`、`quit`、`\q`、`Ctrl + D` 来退出连接。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205181608.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205181608.png)
 
 看，我们在添加 sql_mode 的时候，是针对当前连接 session 的，所以当我们退出连接后，再重新连接，就会发现 sql_mode 又变成了默认的。
 
@@ -145,7 +145,7 @@ mysqldump -uroot -p pai_coding > pai_coding.sql
 gzip pai_coding.sql
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205183507.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205183507.png)
 
 也可以备份指定的表，比如说，我要备份 article 表：
 
@@ -205,7 +205,7 @@ chmod +x backup.sh
 ./backup.sh
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205185257.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205185257.png)
 
 OK，打开 crontab：
 
@@ -235,7 +235,7 @@ mysql 后面加上 admin 就表明这是一个 MySQL 的管理工具，它可以
 mysqladmin -uroot -p status
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205190217.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205190217.png)
 
 比如说，重新加载授权表、刷新日志文件等：
 
@@ -272,7 +272,7 @@ mysqlcheck 是 MySQL 提供的一个命令行工具，用于检查、修复、�
 mysqlcheck -uroot -p --check your_database_name
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205191424.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205191424.png)
 
 ## mysqlimport
 
@@ -316,7 +316,7 @@ mysqlimport -uroot -p --fields-terminated-by=, --fields-enclosed-by='"' --lines-
 
 哦，出现了 `--secure-file-priv` 错误：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205194729.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205194729.png)
 
 我们可以先查看一下 `--secure-file-priv` 参数的值：
 
@@ -324,7 +324,7 @@ mysqlimport -uroot -p --fields-terminated-by=, --fields-enclosed-by='"' --lines-
 show variables like 'secure_file_priv';
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205195109.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205195109.png)
 
 为 null，表明 MySQL 并没有限制导入文件的目录。我们只需要加入 `--local` 参数即可：
 
@@ -332,11 +332,11 @@ show variables like 'secure_file_priv';
 mysqlimport -uroot -p --fields-terminated-by=, --fields-enclosed-by='"' --lines-terminated-by='\n' --local pai_coding article.csv
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205195624.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205195624.png)
 
 OK，导入成功。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205195636.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205195636.png)
 
 ## mysqlshow
 
@@ -348,7 +348,7 @@ mysqlshow 用于显示 MySQL 数据库服务器中的数据库、表、列等信
 mysqlshow -uroot -p your_database_name
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205200127.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205200127.png)
 
 比如说，我要查看表中的所有列：
 
@@ -356,7 +356,7 @@ mysqlshow -uroot -p your_database_name
 mysqlshow -uroot -p your_database_name your_table_name
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205200227.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205200227.png)
 
 比如说，我要查看表的索引信息：
 
@@ -364,7 +364,7 @@ mysqlshow -uroot -p your_database_name your_table_name
 mysqlshow -uroot -p --keys your_database_name your_table_name
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/bin-20240205200416.png)
+![](https://cdn.paicoding.com/stutymore/bin-20240205200416.png)
 
 在部署新应用或进行数据库迁移时，可以使用 mysqlshow 快速确认目标数据库是否已经存在。
 
@@ -420,4 +420,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

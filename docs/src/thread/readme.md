@@ -47,15 +47,15 @@ head:
 
 一共 31 篇内容，共计 15 万+ 字，用一张思维导图来做个总结吧。
 
-![并发编程知识点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-map.png)
+![并发编程知识点](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/java-thread-map.png)
 
 这里展示一下暗黑版的 PDF 视图，大家先感受一下，手绘图都画得非常用心。
 
-![二哥的并发编程小册暗黑版](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904115241.png)
+![二哥的并发编程小册暗黑版](https://cdn.paicoding.com/stutymore/readme-20230904115241.png)
 
 这是 epub 版本的阅读效果，感觉左右翻动的效果好舒服，一次可以看两页，真的就像在读纸质版书籍一样，体验非常棒。
 
-![二哥的并发编程小册 epub 版](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904121834.png)
+![二哥的并发编程小册 epub 版](https://cdn.paicoding.com/stutymore/readme-20230904121834.png)
 
 如果你喜欢在线阅读，请访问下面这个网址：
 
@@ -67,21 +67,21 @@ head:
 
 小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，绝对不虚市面上任何一本 Java 并发编程/多线程的实体书！
 
-![二哥的并发编程进阶之路三个版本](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904122154.png)
+![二哥的并发编程进阶之路三个版本](https://cdn.paicoding.com/stutymore/readme-20230904122154.png)
 
 小册会持续保持**更新**，如果想获得最新版，请扫下面的优惠券加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)。
 
-![并发编程微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20241012163129.png)
+![并发编程微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/mianshi-20241012163129.png)
 
 然后通过下面这个链接获取 PDF。
 
 >PDF：[https://t.zsxq.com/12DwOxfyw](https://t.zsxq.com/12DwOxfyw)
 
-![二哥的并发编程进阶之路第一版](https://cdn.tobebetterjavaer.com/stutymore/readme-20230922112407.png)
+![二哥的并发编程进阶之路第一版](https://cdn.paicoding.com/stutymore/readme-20230922112407.png)
 
 或者你也可以通过星球的第一个置顶帖「[球友必看](https://t.zsxq.com/12rEo9Pdu)」在百度网盘和阿里云盘中下载。
 
-![网盘地址](https://cdn.tobebetterjavaer.com/stutymore/readme-20230922113817.png)
+![网盘地址](https://cdn.paicoding.com/stutymore/readme-20230922113817.png)
 
 PDF 在星球发表后，也是得到了球友的一致认同，看看这点赞人数，一共 15 万+字，200+ 张手绘图。前后耗费 3 个多月的时间，很不容易，希望你能认真阅读，然后快速提升你在并发编程方面的编码能力和面试功底。
 
@@ -89,7 +89,7 @@ PDF 在星球发表后，也是得到了球友的一致认同，看看这点赞�
 
 《Java 面试指南》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个付费专栏，和《Java 进阶之路》上的内容可以形成很好的互补，截止到目前，《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》已经更新了 **80万+字**，可以说是满满的干货和诚意。
 
-![Java 面试指南统计面板](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723103741.png)
+![Java 面试指南统计面板](https://cdn.paicoding.com/stutymore/mianshi-20240723103741.png)
 
 一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
@@ -104,49 +104,49 @@ PDF 在星球发表后，也是得到了球友的一致认同，看看这点赞�
 
 所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 25+篇内容会系统地引导你该如何做好面试准备。涉及到的主题有：简历、源码、LeetCode、项目经验、开源项目、高并发、证书、和 HR 对线、国企名单、公司投递名单、银行、谈薪等等面试常见问题。
 
-![如何准备面试](https://cdn.tobebetterjavaer.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
+![如何准备面试](https://cdn.paicoding.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
 
 
-![如何写好简历](https://cdn.tobebetterjavaer.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
+![如何写好简历](https://cdn.paicoding.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
 
 
-![秋招投递名单](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723103351.png)
+![秋招投递名单](https://cdn.paicoding.com/stutymore/mianshi-20240723103351.png)
 
 
 ### 02、职场修炼篇
 
 如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？如何赚零花钱？如何达到 30 万+年薪等等，都是大家迫切关心的问题，这 11+篇内容会一一为你揭晓答案。
 
-![职场修炼篇](https://cdn.tobebetterjavaer.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
+![职场修炼篇](https://cdn.paicoding.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
 
 ### 03、技术提升篇
 
 编程能力、技术功底，是我们程序员安身立命之本，是我们求职/工作的最核心的武器。
 
 
-![技术提升篇](https://cdn.tobebetterjavaer.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
+![技术提升篇](https://cdn.paicoding.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
 
 ### 04、面经分享篇
 
 知彼知己，方能百战不殆，我们必须得站在前辈的肩膀上，才能走得更远更快。他们在面试中遇到过哪些经典的问题，我们能不能提前演练一下，对临场发挥有着至关重要的作用。
 
-![面经分享篇](https://cdn.tobebetterjavaer.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
+![面经分享篇](https://cdn.paicoding.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
 
 并且我针对每一份面试题都给出了详细的参考答案，或者说叫做面试回答套路，这样你就可以在面试中游刃有余，轻松应对。
 
-![给出详细的面试回答套路](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723110015.png)
+![给出详细的面试回答套路](https://cdn.paicoding.com/stutymore/mianshi-20240723110015.png)
 
 ### 05、场景设计题篇
 
 有些面试官不喜欢问八股文，反而更喜欢结合项目问一些非常经典的场景题，这种场景题没有标准的答案，但却很能考察一名求职者的逻辑思维能力。
 
-![场景设计题篇](https://cdn.tobebetterjavaer.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
+![场景设计题篇](https://cdn.paicoding.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
 
 ## 更多优质专栏
 
 除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《[技术派实战教程](https://javabetter.cn/zhishixingqiu/paicoding.html)》、《[微服务 PmHub 教程](https://javabetter.cn/zhishixingqiu/pmhub.html)》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《算法突击 50 题》、《华为 OD 笔试题》等六个额外的专栏。
 
-![高质量的专栏](https://cdn.tobebetterjavaer.com/stutymore/02.编程星球-20240625134716.png)
+![高质量的专栏](https://cdn.paicoding.com/stutymore/02.编程星球-20240625134716.png)
 
 ## 星球限时优惠
 
@@ -156,7 +156,7 @@ PDF 在星球发表后，也是得到了球友的一致认同，看看这点赞�
 
 目前星球已经 6000+ 人了，所以星球门票也要从 149 元涨价到 159 元，想加入的小伙伴一定要趁早。你可以微信扫码或者长按自动识别领取 30 元优惠券，目前还可以按照最低价 **119/年** 加入。
 
-![二哥编程星球优惠券](https://cdn.tobebetterjavaer.com/paicoding/image-f709477e8bbe44dcb10b13770afaff9d.png)
+![二哥编程星球优惠券](https://cdn.paicoding.com/paicoding/image-f709477e8bbe44dcb10b13770afaff9d.png)
 
 对了，**加入星球后记得花 10 分钟时间看一下星球的两个置顶贴，你会发现物超所值**！
 

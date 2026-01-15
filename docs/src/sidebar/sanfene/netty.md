@@ -19,11 +19,11 @@ Netty 是一个基于Java NIO的高性能异步事件驱动的网络应用框架
 
 常用于构建 RPC 框架，以提升分布式服务之间的通信效率。像 Dubbo 的网络层就可以基于 Netty 来实现。
 
-![Netty 官方架构图](https://cdn.tobebetterjavaer.com/stutymore/netty-20240419084532.png)
+![Netty 官方架构图](https://cdn.paicoding.com/stutymore/netty-20240419084532.png)
 
 Netty 支持零拷贝、可拓展事件模型；支持 TCP、UDP、HTTP、WebSocket 等多种协议；提供安全传输、可压缩、大文件、编解码等多种功能。
 
-![码海：Netty 的样子](https://cdn.tobebetterjavaer.com/stutymore/netty-20240419084922.png)
+![码海：Netty 的样子](https://cdn.paicoding.com/stutymore/netty-20240419084922.png)
 
 Netty 是基于主从 Reactor 模式实现的，主要分为两个线程组：
 
@@ -45,7 +45,7 @@ WorkerGroup 管理的线程可能有多个，每个线程也是维护自己的 S
 
 当事件发生时，相应的 ChannelHandler 被调用来处理这些事件。这些 Handler 可以是用户自定义的处理器，用于实现具体的业务逻辑。
 
-![码海：Netty 工作架构图](https://cdn.tobebetterjavaer.com/stutymore/netty-20240419090846.png)
+![码海：Netty 工作架构图](https://cdn.paicoding.com/stutymore/netty-20240419090846.png)
 
 #### 请说一下 Netty 的工作流程？
 

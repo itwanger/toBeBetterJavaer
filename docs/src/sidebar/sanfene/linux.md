@@ -81,11 +81,11 @@ Windows 下我还是比较习惯使用右键菜单新建一个文件，然后重
 
 top 命令可以实时查看所有进程的 CPU 和内存使用情况。
 
-![二哥的 Java 进阶之路：top面板](https://cdn.tobebetterjavaer.com/stutymore/linux-20241225092615.png)
+![二哥的 Java 进阶之路：top面板](https://cdn.paicoding.com/stutymore/linux-20241225092615.png)
 
 `ps aux --sort=-%cpu | head -5`可以查看 CPU 使用率最高的 5 个进程。
 
-![二哥的 Java 进阶之路：ps 命令](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223162812.png)
+![二哥的 Java 进阶之路：ps 命令](https://cdn.paicoding.com/stutymore/linux-20241223162812.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的同学 30 腾讯音乐面试原题：怎么查看一个进程的Cpu 使用率呢？
 
@@ -93,7 +93,7 @@ top 命令可以实时查看所有进程的 CPU 和内存使用情况。
 
 可以使用 watch 配合 free 命令实时监控内存使用情况。如 `watch -n 1 free -m`每秒刷新一次内存使用情况。
 
-![二哥的 Java 进阶之路：free](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223163021.png)
+![二哥的 Java 进阶之路：free](https://cdn.paicoding.com/stutymore/linux-20241223163021.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 29 Java 后端一面原题：如何看Linux进程或CPU使用情况？Linux查看内存情况？
 
@@ -102,7 +102,7 @@ top 命令可以实时查看所有进程的 CPU 和内存使用情况。
 
 top 命令是实时查看系统性能的常用工具，系统负载信息通常显示在 top 命令输出的顶部。它还显示了系统运行的进程、内存使用情况等。
 
-![二哥的 Java 进阶之路：TOP 命令](https://cdn.tobebetterjavaer.com/stutymore/linux-20240813114745.png)
+![二哥的 Java 进阶之路：TOP 命令](https://cdn.paicoding.com/stutymore/linux-20240813114745.png)
 
 > 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：如何查看系统负载，系统中的 load average 含义是什么
 
@@ -126,7 +126,7 @@ load average 的数值可以看作是系统的工作队列长度（等待处理�
 
 macOS 上可以通过 `sysctl -a | grep machdep.cpu.core_count` 查看 CPU 核心数，我本机目前是 16 核。
 
-![二哥的 Java 进阶之路：macOS 的 CPU 核心数](https://cdn.tobebetterjavaer.com/stutymore/linux-20240813115642.png)
+![二哥的 Java 进阶之路：macOS 的 CPU 核心数](https://cdn.paicoding.com/stutymore/linux-20240813115642.png)
 
 > 1. [二哥编程星球](https://javabetter.cn/zhishixingqiu/)球友[枕云眠美团 AI 面试原题](https://t.zsxq.com/BaHOh)：如何查看系统负载，系统中的 load average 含义是什么
 
@@ -142,7 +142,7 @@ Linux 中的权限可以应用于三种类别的用户：
 - 与文件所有者同组的用户（g）
 - 其他用户（o）
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/linux-vip-20240214205642.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/linux-vip-20240214205642.png)
 
 ①、符号模式
 
@@ -168,7 +168,7 @@ Linux 中的权限可以应用于三种类别的用户：
 - 写（w）= 2
 - 执行（x）= 1
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/linux-vip-20240214205700.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/linux-vip-20240214205700.png)
 
 因此，权限模式可以是从 0（无权限）到 7（读写执行权限）的任何值。
 
@@ -192,7 +192,7 @@ Linux 中的权限可以应用于三种类别的用户：
 
 可以通过 netstat 命令查看，如`netstat -an | grep ':8080' | grep 'tcp' | wc -l`。
 
-![二哥的 Java 进阶之路：netstat 命令查看 8080 端口](https://cdn.tobebetterjavaer.com/stutymore/linux-20241223161926.png)
+![二哥的 Java 进阶之路：netstat 命令查看 8080 端口](https://cdn.paicoding.com/stutymore/linux-20241223161926.png)
 
 - `-a`：显示所有网络连接和监听端口。
 - `-n`：以数字形式显示地址和端口。
@@ -292,7 +292,7 @@ watch -n 1 "netstat -an | grep ':443 ' | grep ESTABLISHED | wc -l"
 
 观察连接数的变化，可以大致估算出每秒的请求数。
 
-![二哥的 Java 进阶之路：技术派的 443 请求数](https://cdn.tobebetterjavaer.com/stutymore/linux-20240902112732.png)
+![二哥的 Java 进阶之路：技术派的 443 请求数](https://cdn.paicoding.com/stutymore/linux-20240902112732.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的作业帮面经同学 1 Java 后端一面面试原题：用linux命令去查找某个qps
 
@@ -339,4 +339,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

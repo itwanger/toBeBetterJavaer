@@ -2,7 +2,7 @@
 home: true
 icon: home
 title: 主页
-heroImage: https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png
+heroImage: https://cdn.paicoding.com/tobebetterjavaer/images/logo.png
 heroText: 二哥的Java进阶之路
 tagline: 沉默王二BB：这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路😄
 actions:
@@ -30,7 +30,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 ## star趋势图

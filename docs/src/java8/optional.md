@@ -17,7 +17,7 @@ head:
 
 当然了，我们程序员是富有责任心的，不会坐视不管，于是就有了大量的 null 值检查。尽管有时候这种检查完全没有必要，但我们已经习惯了例行公事。终于，Java 8 看不下去了，就引入了 Optional，以便我们编写的代码不再那么刻薄呆板。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
+![](https://cdn.paicoding.com/stutymore/guava-20230329172935.png)
 
 
 ### 01、没有 Optional 会有什么问题
@@ -350,7 +350,7 @@ public class OptionalMapFilterDemo {
 }
 ```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/optional-2.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/java8/optional-2.jpg)
 
 好了，我亲爱的读者朋友，以上就是本文的全部内容了——可以说是史上最佳 Optional 指南了，能看到这里的都是最优秀的程序员，二哥必须要伸出大拇指为你点个赞。
 
@@ -361,4 +361,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

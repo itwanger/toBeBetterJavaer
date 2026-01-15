@@ -12,7 +12,7 @@ head:
       content: 程序员,35岁,危机
 ---
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a1c73ba1-4f12-4bb9-a64b-14bb7cc86ec5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a1c73ba1-4f12-4bb9-a64b-14bb7cc86ec5.png)
 
 作者：沉默王二<br>
 二哥的Java进阶之路：https://javabetter.cn
@@ -22,7 +22,7 @@ head:
 
 不得不说，任总的把寒气传递给每一个老百姓，杀伤力拉满，不少小伙伴都绷不住了，开始危机重重。[二哥的编程星球](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g) VIP 群里，也有不少小伙伴唉声叹气，感觉情况糟糕至极。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-cc32ca43-8165-413b-9c8a-24cf0ebbe84b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-cc32ca43-8165-413b-9c8a-24cf0ebbe84b.png)
 
 就连一个**不满 25 岁的球友，也开始担心起 35 岁程序员中年危机**了，问二哥该怎么办？
 
@@ -34,7 +34,7 @@ head:
 
 不 BB，上文章目录。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a5f7d6a6-756e-44d8-95c7-7a5593e56c7f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a5f7d6a6-756e-44d8-95c7-7a5593e56c7f.jpg)
 
 ## 1\. 为什么会危机？
 
@@ -97,7 +97,7 @@ head:
 
 那如何才能延长职业生命线呢？答案是**持续学习！**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-ff036054-7e53-4a61-bf10-95ac18dbff2f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-ff036054-7e53-4a61-bf10-95ac18dbff2f.jpg)
 
 IT 行业的技术更新换代非常快，对个人综合能力要求非常高，如果你不持续学习，等到年龄危机到来时还想躺赢，下一批裁员的可能就是你了。
 
@@ -168,7 +168,7 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 
 《软件架构师的 12 项修炼》这本书里给出了软件架构师的金字塔能力模型：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-c24a3550-d551-4f71-b209-f66d4675afc8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-c24a3550-d551-4f71-b209-f66d4675afc8.jpg)
 
 这个模型，适用于绝大多数软件开发工程师，在这本书里，作者说这么一句话。
 
@@ -193,7 +193,7 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 
 **身体是 1，其他都是 0，没有 1，再多的 0 都是空。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-bc05d1ad-558b-420c-a033-0cf639e66953.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-bc05d1ad-558b-420c-a033-0cf639e66953.jpg)
 
 魔都一位技术人员，总以为自己年轻，身体硬扛得住，结果一次晕倒后，医院检查发现自己得了尿毒症，没有好的身体，你挣再多钱都没有意义，一旦你因为身体而离开人间，配偶、孩子、钱都是别人的了。
 
@@ -203,7 +203,7 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 
 做副业的目的，就是增加自己的收入，同时也是倒逼你去学习更多的知识，让你的技术能力提升更快，也为你未来创业做准备，增加你抗风险的能力。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-ccd0adf8-31a0-4931-9cae-d53270fa5890.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-ccd0adf8-31a0-4931-9cae-d53270fa5890.jpg)
 
 除了以上好处，副业也会提升你的个人能力、扩大你的圈子。
 
@@ -215,7 +215,7 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 
 所以多向上拓展你的圈子，多走近结交那些正能量、有想法、志同道合的人。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a7825336-07e5-4414-8858-dec7c0a14b5b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-a7825336-07e5-4414-8858-dec7c0a14b5b.jpg)
 
 兴许下次换工作，是圈子里的人脉直接内推让你找到一份满意的工作，更有可能，圈子里的几个朋友因为某一个好点子直接走向创业之路。
 
@@ -235,7 +235,7 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 
 最后送上大家一句话：工作可以是事业、是热爱，也可以只是一份工作，**给自己留出转身的空间很有必要**，如果把工作看作一份经历和沿途的风景，在乎过程中的经历、感受多过最后的结果，可能会让人生更加充满期待。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-13911d3c-6806-4eab-81dc-319fbc0d2a0d.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-13911d3c-6806-4eab-81dc-319fbc0d2a0d.jpg)
 
 
 ## ending
@@ -247,18 +247,18 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 最近一段时间，二哥也没闲着，和球友炳源一起，正在紧锣密鼓地更新 Java 版LeetCode 题解，我们并不刻意追求 beat 100%，但效率总是出乎意料的优秀。与此同时，我们也在力求每一个题解都能通俗易懂，深入到底层，给大家举一反三的能力。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-5788d535-ff4a-4af0-8ef5-0c56ffeedf0a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-5788d535-ff4a-4af0-8ef5-0c56ffeedf0a.png)
 
 就比如说为了讲清楚暴力算法和 KMP 算法的区别，我们可以说是煞费苦心。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-f0984121-b3cb-4476-961c-ae55f0eb7c5b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-f0984121-b3cb-4476-961c-ae55f0eb7c5b.png)
 
 除了星球提供的三份高质量专栏，《Java 面试指南》、《编程喵 🐱（Spring Boot+Vue 前后端分离）实战项目笔记》、《Java 版 LeetCode 刷题笔记》，这里也沉淀了非常多优质的内容，包括球友和二哥分享的精华贴，还有二哥精心回答过的球友提问。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-589510f2-4281-4ac3-b9ba-787d0d3105d3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-589510f2-4281-4ac3-b9ba-787d0d3105d3.png)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-826265f7-cead-4325-9d39-ec94951c0823.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-chengxyswjrhpj-826265f7-cead-4325-9d39-ec94951c0823.png)
 
 
 如果你也需要一个良好的学习氛围，[戳链接加入我们的大家庭吧](https://mp.weixin.qq.com/s/e5Q4aJCX9xccTzBBGepx4g)！这是一个 Java 学习指南 + 编程实战 + LeetCode 刷题的私密圈子，你可以向二哥提问、帮你制定学习计划、跟着二哥一起做实战项目，和球友一起打卡学习，自律得飞起！
@@ -282,7 +282,7 @@ IT 行业的技术更新换代非常快，对个人综合能力要求非常高�
 
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 
 >参考链接：[https://mp.weixin.qq.com/s/jtwD0Iodg7-HsHEJh2ubZw](https://mp.weixin.qq.com/s/jtwD0Iodg7-HsHEJh2ubZw)，出处：楼仔，整理：沉默王二
@@ -294,4 +294,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

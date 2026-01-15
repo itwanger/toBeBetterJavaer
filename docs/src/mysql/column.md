@@ -12,7 +12,7 @@ shortTitle: 字段都有哪些属性（付费）
 
 像[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中的文章详情表，我们为 id 字段设置了 NOT NULL、AUTO_INCREMENT、COMMENT 等属性。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/column-20240206170954.png)
+![](https://cdn.paicoding.com/stutymore/column-20240206170954.png)
 
 那接下来，就来一起看看 MySQL 字段的常用属性都有哪些吧。
 
@@ -40,7 +40,7 @@ INSERT INTO `user` (`id`) VALUES (1);
 
 可以看到，插入数据的时候，我们只指定了 id 字段的值，其他字段都省略了，但 MySQL 自动帮我们填充了默认值。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/column-20240208063305.png)
+![](https://cdn.paicoding.com/stutymore/column-20240208063305.png)
 
 - `DEFAULT '沉默王二'`：指定了 name 字段的默认值为“沉默王二”。
 - `DEFAULT 18`：指定了 age 字段的默认值为 18。
@@ -66,7 +66,7 @@ INSERT INTO `user` (`id`) VALUES (1);
 
 可以看到，此时，MySQL 帮我们填充的值是 NULL。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/column-20240208063712.png)
+![](https://cdn.paicoding.com/stutymore/column-20240208063712.png)
 
 这也是为什么[阿里巴巴的开发规约](https://javabetter.cn/pdf/ali-java-shouce.html)上会要求我们，在 POJO 中，要使用包装类型，而不是基本数据类型，因为数据库的查询结构可能是 null，如果使用基本数据类型的画，因为要[自动拆箱](https://javabetter.cn/basic-extra-meal/box.html)，就会抛出 NPE 异常。
 
@@ -86,11 +86,11 @@ INSERT INTO `user` (`id`) VALUES (1);
 
 以下内容为[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的付费内容（点击[链接](](https://javabetter.cn/jvm/))可以查看详细介绍和加入方式）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116130809.png)
+![](https://cdn.paicoding.com/stutymore/readme-20240116130809.png)
 
 加入二哥的编程星球后，你不仅可以阅读完整版的《二哥的 MySQL 进阶之路》内容，还可以阅读更多付费专栏，比如说《[技术派付费专栏](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[二哥的 LeetCode 刷题笔记](https://paicoding.com/column/7/1)》、《编程喵实战项目笔记》、《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》等等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/class-load-vip-20240116135627.png)
+![](https://cdn.paicoding.com/stutymore/class-load-vip-20240116135627.png)
 
 除此之外，还可以为你提供：
 
@@ -103,13 +103,13 @@ INSERT INTO `user` (`id`) VALUES (1);
 
 学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。来星球的球友几乎都斩获不错的成绩，有美团、华为等大厂，也有 16k 的双非本、甚至 23k 的大专社招，我随便发几个球友报喜的截图给大家展示下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221211916.png)
+![](https://cdn.paicoding.com/stutymore/readme-20231221211916.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
+![](https://cdn.paicoding.com/stutymore/readme-20231221213449.png)
 
 《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个付费专栏，和《Java 进阶之路》上的内容可以形成很好的互补，截止到目前，已经更新 48 万字，可以说是满满的干货和诚意。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904113349.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230904113349.png)
 
 一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
@@ -124,40 +124,40 @@ INSERT INTO `user` (`id`) VALUES (1);
 
 所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 25+篇内容会系统地引导你该如何做好面试准备。涉及到的主题有：简历、源码、LeetCode、项目经验、开源项目、高并发、证书、和 HR 对线、国企名单、公司投递名单、银行、谈薪等等面试常见问题。
 
-![如何准备面试](https://cdn.tobebetterjavaer.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
+![如何准备面试](https://cdn.paicoding.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
 
 
-![如何写好简历](https://cdn.tobebetterjavaer.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
+![如何写好简历](https://cdn.paicoding.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
 
 
-![秋招投递名单](https://cdn.tobebetterjavaer.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
+![秋招投递名单](https://cdn.paicoding.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
 
 
 ### 02、职场修炼篇
 
 如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？如何赚零花钱？如何达到 30 万+年薪等等，都是大家迫切关心的问题，这 11+篇内容会一一为你揭晓答案。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
+![](https://cdn.paicoding.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
 
 ### 03、技术提升篇
 
 编程能力、技术功底，是我们程序员安身立命之本，是我们求职/工作的最核心的武器。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
+![](https://cdn.paicoding.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
 
 ### 04、面经分享篇
 
 知彼知己，方能百战不殆，我们必须得站在前辈的肩膀上，才能走得更远更快。他们在面试中遇到过哪些经典的问题，我们能不能提前演练一下，对临场发挥有着至关重要的作用。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
+![](https://cdn.paicoding.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
 
 ### 05、场景设计题篇
 
 有些面试官不喜欢问八股文，反而更喜欢结合项目问一些非常经典的场景题，这种场景题没有标准的答案，但却很能考察一名求职者的逻辑思维能力。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
+![](https://cdn.paicoding.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
 
 ## 星球限时优惠
 
@@ -167,11 +167,11 @@ INSERT INTO `user` (`id`) VALUES (1);
 
 目前星球已经 5000+ 人了，所以星球也涨价到了 149 元，后续会讲星球的价格调整为 159 元/年，所以想加入的小伙伴一定要趁早。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240521200742.png)
+![](https://cdn.paicoding.com/stutymore/readme-20240521200742.png)
 
 你可以微信扫码或者长按自动识别领取 30 元优惠券，**119/年** 加入，新项目 pmhub 上线后会涨价至 159 元，所以想要加入的话请趁早。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116131318.png)
+![](https://cdn.paicoding.com/stutymore/readme-20240116131318.png)
 
 对了，**加入星球后记得花 10 分钟时间看一下星球的两个置顶贴，你会发现物超所值**！
 

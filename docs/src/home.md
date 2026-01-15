@@ -14,7 +14,7 @@ head:
 ::: center
 <div align="center">
   <a href="https://javabetter.cn">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png" width="200px" alt="二哥的Java进阶之路">
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/logo.png" width="200px" alt="二哥的Java进阶之路">
   </a><br>
   <a href="https://javabetter.cn/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
   <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
@@ -51,14 +51,14 @@ head:
 
 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **10000 多名** 球友加入了（马上要涨价到 169 元，抓紧时间趁没涨价前加入吧），如果你也需要一个优质的学习环境，扫描下方的优惠券加入我们吧。
 
 <p align="center">
   <a href="https://javabetter.cn/zhishixingqiu/">
     <kbd>
-      <img src="https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png" width="400px" alt="星球优惠券">
+      <img src="https://cdn.paicoding.com/stutymore/readme-itwanger-zsxq.png" width="400px" alt="星球优惠券">
     </kbd>
   </a>
 </p>

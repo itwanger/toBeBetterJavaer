@@ -63,7 +63,7 @@ public class TestVector {
 
 整体架构如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/map-a6a020a3-4573-4cf8-b5ae-1541ae45801c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/map-a6a020a3-4573-4cf8-b5ae-1541ae45801c.png)
 
 ## 并发 Map
 
@@ -252,4 +252,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

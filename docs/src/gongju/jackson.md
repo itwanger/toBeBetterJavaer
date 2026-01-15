@@ -19,7 +19,7 @@ Java 之所以牛逼，很大的功劳在于它的生态非常完备，JDK 没�
 
 当我们通过 starter 新建一个 Spring Boot 的 Web 项目后，就可以在 Maven 的依赖项中看到 Jackson 的身影。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/jackson-4340975c-e254-4287-88e0-66f73fe88889.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/jackson-4340975c-e254-4287-88e0-66f73fe88889.png)
 
 Jackson 有很多优点：
 
@@ -47,7 +47,7 @@ Jackson 的核心模块由三部分组成：
 
 jackson-databind 依赖于 jackson-core 和 jackson-annotations，所以添加完 jackson-databind 之后，Maven 会自动将 jackson-core 和 jackson-annotations 引入到项目当中。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/jackson-24990211-7a18-44d7-aff0-6ac9e3cf0561.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/jackson-24990211-7a18-44d7-aff0-6ac9e3cf0561.png)
 
 Maven 之所以讨人喜欢的一点就在这，能偷偷摸摸地帮我们把该做的做了。
 
@@ -563,4 +563,4 @@ Woman{age=18, name='三妹'}
 
 好了，通过这篇文章的系统化介绍，相信你已经完全摸透 Jackson 了，我们下篇文章见。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

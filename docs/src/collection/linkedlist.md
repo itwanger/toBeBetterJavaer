@@ -41,7 +41,7 @@ head:
 
 但我现在的功力还达不到第三层，不过师父说我有这个潜力，练成神功是早晚的事。但可悲的是，我爹一直嫌弃我。
 
-![Josh Bloch是 Java 集合框架的作者](https://cdn.tobebetterjavaer.com/stutymore/linkedlist-20240723082544.png)
+![Josh Bloch是 Java 集合框架的作者](https://cdn.paicoding.com/stutymore/linkedlist-20240723082544.png)
 
 ### 01、LinkedList的内功心法
 
@@ -81,7 +81,7 @@ private static class Node<E> {
 
 我画幅图给你们展示下吧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/linkedlist-01.png)
 
 - 对于第一个节点来说，prev 为 null；
 - 对于最后一个节点来说，next 为 null；
@@ -150,7 +150,7 @@ void linkLast(E e) {
 
 此时还不能称之为链表，因为前后节点都是断裂的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/linkedlist-02.png)
 
 - 添加第二个元素的时候，first 和 last 都指向的是第一个节点。
 - 然后新建一个节点 newNode，它的 prev 指向的是第一个节点，next 为 null。
@@ -158,7 +158,7 @@ void linkLast(E e) {
 
 此时的链表还不完整。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/linkedlist-03.png)
 
 - 添加第三个元素的时候，first 指向的是第一个节点，last 指向的是最后一个节点。
 - 然后新建一个节点 newNode，它的 prev 指向的是第二个节点，next 为 null。
@@ -166,7 +166,7 @@ void linkLast(E e) {
 
 此时的链表已经完整了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/linkedlist-04.png)
 
 我这个增的招式，还可以演化成另外两个版本：
 
@@ -505,4 +505,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

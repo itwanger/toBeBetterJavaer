@@ -16,7 +16,7 @@ tag:
 
 栈是一种非常有用的数据结构，它就像一摞盘子，第一个放在最下面，第二个放在第一个上面，第三个放在第二个上面，最后一个放在最上面。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231217165356.png)
+![](https://cdn.paicoding.com/stutymore/vm-stack-register-20231217165356.png)
 
 对于这一摞盘子，我们可以做两件事情：
 
@@ -30,7 +30,7 @@ tag:
 - push，中文释义有很多种，我个人更喜欢叫它“压入”，非常形象。当我们要把一个元素放入栈的顶部，这个动作就叫做 push。
 - pop，同样的，我个人更喜欢叫它“弹出”，带有很强烈的动画效果，有没有？当我们要从栈中移除一个元素时，这个动作就叫做 pop。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231217165521.png)
+![](https://cdn.paicoding.com/stutymore/vm-stack-register-20231217165521.png)
 
 对于上面这幅图来说，3 这个元素最后放进去，却是最先被移除的——遵循 LIFO 的原则。
 
@@ -48,7 +48,7 @@ tag:
 
 6）当我们要弹出一个元素的时候，需要检查栈是否已经空了。也就是说，需要有一个 `isEmpty()` 的方法来判断。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/stack-20240201142407.png)
+![](https://cdn.paicoding.com/stutymore/stack-20240201142407.png)
 
 空栈的时候，TOP 等于 -1；把元素 1 压入栈中的时候，`stack[0]` 为 1，TOP 加 1 变为 0；把元素 2 压入栈中的时候，`stack[1]` 为 2，TOP 加 1 变为 1；把元素 3 压入栈中的时候，`stack[2]` 为 3，TOP 加 1 变为 2；把元素 3 从栈中弹出后，返回元素 `stack[2]`，TOP 减 1 变为 1。
 
@@ -208,7 +208,7 @@ System.out.println(stack);
 
 Stack 类并不复杂，仅有几个重要的方法，比如说 `push`、`pop`、`peek`、`empty`、`search` 等等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/stack-20240201143317.png)
+![](https://cdn.paicoding.com/stutymore/stack-20240201143317.png)
 
 我们来看一下 `push` 方法的源码：
 
@@ -258,7 +258,7 @@ public synchronized E peek() {
 
 接着调用 Vector 类的 `removeElementAt` 方法移除栈顶元素。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/stack-20240201144113.png)
+![](https://cdn.paicoding.com/stutymore/stack-20240201144113.png)
 
 注意该方法如果移除的不是栈顶元素，还会调用 `System.arraycopy` 进行数组的拷贝，因为栈的底层是由数组实现的。
 
@@ -290,4 +290,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

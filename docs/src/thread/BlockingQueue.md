@@ -24,7 +24,7 @@ BlockingQueue 是 Java 中的一个接口，它代表了一个线程安全的队
 
 BlockingQueue 接口定义的方法如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818143620.png)
+![](https://cdn.paicoding.com/stutymore/BlockingQueue-20230818143620.png)
 
 由于 BlockingQueue 继承了 Queue 接口，因此，BlockingQueue 也具有 Queue 接口的基本操作，如下所示：
 
@@ -59,7 +59,7 @@ BlockingQueue 接口定义的方法如下所示：
 
 BlockingQueue 接口的实现类有 ArrayBlockingQueue、DelayQueue、LinkedBlockingDeque、LinkedBlockingQueue、LinkedTransferQueue、PriorityBlockingQueue、SynchronousQueue 等，我们先从 ArrayBlockingQueue 说起。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818153420.png)
+![](https://cdn.paicoding.com/stutymore/BlockingQueue-20230818153420.png)
 
 **ArrayBlockingQueue** 它是一个基于数组的有界阻塞队列：
 
@@ -266,7 +266,7 @@ public class ArrayBlockingQueueTest {
 
 运行的部分结果如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818155804.png)
+![](https://cdn.paicoding.com/stutymore/BlockingQueue-20230818155804.png)
 
 
 ## LinkedBlockingQueue
@@ -502,7 +502,7 @@ public class LinkedBlockingQueueTest {
 
 运行的部分结果如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/BlockingQueue-20230818212205.png)
+![](https://cdn.paicoding.com/stutymore/BlockingQueue-20230818212205.png)
 
 ## ArrayBlockingQueue 与 LinkedBlockingQueue 的比较
 
@@ -772,4 +772,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

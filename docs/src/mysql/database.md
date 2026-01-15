@@ -8,11 +8,11 @@ shortTitle: MySQL 的数据库操作
 
 执行 `show databases;` 命令可以查看当前数据库的所有数据库。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240125185015.png)
+![](https://cdn.paicoding.com/stutymore/database-20240125185015.png)
 
 注意在 MySQL 客户端执行 SQL 语句的时候要带上分号 `;` 并按下 enter 键，不然 MySQL 会认为你还没有输入完，会换一行继续等待你输入。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240125185214.png)
+![](https://cdn.paicoding.com/stutymore/database-20240125185214.png)
 
 也就是说，分号 `;` 是 MySQL 的语句结束符。
 
@@ -44,7 +44,7 @@ create database test;
 
 >一个小技巧：MySQL 会记忆之前输入过的命令，使用键盘上的上下箭头按键可以切换命令。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240125190817.png)
+![](https://cdn.paicoding.com/stutymore/database-20240125190817.png)
 
 通常情况下，我们在创建数据库的时候会额外加上 `if not exists`，否则当数据库已经存在的时候，会报 `database exists` 的错误。
 
@@ -78,11 +78,11 @@ use pai_coding;
 
 如果提示 `Database changed`，说明切换成功了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240126160536.png)
+![](https://cdn.paicoding.com/stutymore/database-20240126160536.png)
 
 只有切换到技术派数据库下，我们才能对技术派数据库下面的表进行操作。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240126161020.png)
+![](https://cdn.paicoding.com/stutymore/database-20240126161020.png)
 
 ## 删除数据库
 
@@ -116,11 +116,11 @@ drop database if exists test;
 
 [二哥的原创实战项目技术派详细介绍](https://javabetter.cn/zhishixingqiu/paicoding.html)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240126170719.png)
+![](https://cdn.paicoding.com/stutymore/database-20240126170719.png)
 
 这里我做一些简单的介绍，实现源码在 ForumDataSourceInitializer 这个类中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240126170743.png)
+![](https://cdn.paicoding.com/stutymore/database-20240126170743.png)
 
 注意看 autoInitDatabase 方法，这里是自动创建数据库的逻辑。
 
@@ -167,7 +167,7 @@ private boolean autoInitDatabase() {
 
 information_schema 是 MySQL 的元数据信息，数据库的信息会存放在 schemata 表中。我们可以通过终端查看到 schemata 表的结构。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240126171959.png)
+![](https://cdn.paicoding.com/stutymore/database-20240126171959.png)
 
 这里给大家留一个作业题，如果你之前学过 Java 或者 Spring Boot 的话，可以仿照技术派的方式实现一个自动创建数据库的功能。
 
@@ -177,7 +177,7 @@ Java 原生代码需要你先下载一个 MySQL 的 JDBC 驱动，驱动的作�
 
 [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/database-20240126174913.png)
+![](https://cdn.paicoding.com/stutymore/database-20240126174913.png)
 
 
 将下载的 `.jar` 包放到项目 classpath 下，什么是 classpath，一般就是项目的 `src/main/resources` 目录，或者是项目的 `lib` 目录。
@@ -326,4 +326,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

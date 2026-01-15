@@ -13,11 +13,11 @@ category:
 
 金三银四很快就要来啦，准备了索引的15连问，相信大家看完肯定会有帮助的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-561417b5-d542-4494-9483-6124a0331a2f.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-561417b5-d542-4494-9483-6124a0331a2f.jpg)
 
 ## 1\. 索引是什么？
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-60177b59-879d-4ee9-9425-e13e79a1eac2.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-60177b59-879d-4ee9-9425-e13e79a1eac2.jpg)
 
 *   索引是一种能提高数据库查询效率的数据结构。它可以比作一本字典的目录，可以帮你快速找到对应的记录。
 *   索引一般存储在磁盘的文件中，它是占用物理空间的。
@@ -25,7 +25,7 @@ category:
 
 ## 2\. MySQL索引有哪些类型
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-7be424ca-9043-4cf4-bd4e-084d2a2ad1aa.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-7be424ca-9043-4cf4-bd4e-084d2a2ad1aa.jpg)
 
 **数据结构维度**
 
@@ -117,11 +117,11 @@ select * from Temployee where age=32;
 
 其实这个，这个大家可以先画出`idx_age`普通索引的索引结构图，大概如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-baca02c4-1ed6-421f-9ad4-e3e63dd58efa.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-baca02c4-1ed6-421f-9ad4-e3e63dd58efa.jpg)
 
 再画出`id`主键索引，我们先画出聚族索引结构图，如下：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-8bf752f5-772b-4308-b51c-d06406428866.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-8bf752f5-772b-4308-b51c-d06406428866.jpg)
 
 这条 SQL 查询语句执行大概流程是这样的：
 
@@ -157,11 +157,11 @@ select * from Temployee where age=32;
 
 当然，最左前缀也可以是**字符串索引的最左M个字符。**。比如，你的普通索引树是酱紫：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-65c3f954-df70-439b-b0e1-1009007d6560.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-65c3f954-df70-439b-b0e1-1009007d6560.jpg)
 
 这个SQL: `select * from employee where name like '小%' order by age desc;` 也是命中索引的。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-3c751d80-02df-43cf-acc7-aafdb409811b.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-3c751d80-02df-43cf-acc7-aafdb409811b.jpg)
 
 ## 10\. 索引下推了解过吗？什么是索引下推
 
@@ -175,13 +175,13 @@ select * from employee where name like '小%' and age=28 and sex='0';
 
 如果是**Mysql5.6之前**，在`idx_name_age`索引树，找出所有名字第一个字是`“小”`的人，拿到它们的`主键id`，然后回表找出数据行，再去对比年龄和性别等其他字段。如图：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-b5ccdd0e-f299-49ac-9176-8e2c475f606f.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-b5ccdd0e-f299-49ac-9176-8e2c475f606f.jpg)
 
 有些朋友可能觉得奇怪，`idx_name_age（name,age)`不是联合索引嘛？为什么选出包含`“小”`字后，不再顺便看下年龄`age`再回表呢，不是更高效嘛？所以呀，`MySQL 5.6`就引入了**索引下推优化**，可以在索引遍历过程中，对索引中包含的字段先做判断，直接过滤掉不满足条件的记录，减少回表次数。
 
 因此，MySQL5.6版本之后，选出包含`“小”`字后，顺表过滤`age=28`
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-4b37d45c-b5a2-4ff7-8125-ccd1e89eed42.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-4b37d45c-b5a2-4ff7-8125-ccd1e89eed42.jpg)
 
 ## 11\. 大表如何添加索引
 
@@ -200,7 +200,7 @@ select * from employee where name like '小%' and age=28 and sex='0';
 
 当`explain`与`SQL`一起使用时，MySQL将显示来自优化器的有关语句执行计划的信息。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-1a294975-c9dd-4077-95fc-2a972911a3ab.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-1a294975-c9dd-4077-95fc-2a972911a3ab.jpg)
 
 一般来说，我们需要重点关注`type、rows、filtered、extra、key`。
 

@@ -15,7 +15,7 @@ head:
 
 今天分享的主题是《Lambda 表达式入门》，这也是之前一些读者留言强烈要求我写一写的，不好意思，让你们久等了，现在来满足你们，为时不晚吧？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-1.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/java8/Lambda-1.jpg)
 
 ### 01、初识 Lambda
 
@@ -72,7 +72,7 @@ public class LamadaTest {
 
 是不是很妙！比起匿名内部类，Lambda 表达式不仅易于理解，更大大简化了必须编写的代码数量。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-2.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/java8/Lambda-2.jpg)
 
 ### 02、Lambda 语法
 
@@ -140,7 +140,7 @@ public static void main(String[] args) {
 
 和匿名内部类一样，不要在 Lambda 表达式主体内对方法内的局部变量进行修改，否则编译也不会通过：Lambda 表达式中使用的变量必须是 final 的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-3.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/java8/Lambda-3.jpg)
 
 这个问题发生的原因是因为 Java 规范中是这样规定的：
 
@@ -345,7 +345,7 @@ this = com.cmower.java_demo.journal.LamadaTest@3feba861
 
 符合我们分析的预期。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/Lambda-4.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/java8/Lambda-4.jpg)
 
 ### 04、最后
 
@@ -360,4 +360,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

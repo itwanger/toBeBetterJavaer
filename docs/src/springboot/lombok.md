@@ -80,7 +80,7 @@ class CmowerLombok {
 
 SpringBoot 2.1.x 版本后不需要再显式地添加 Lombok 依赖了。之后，还需要为 Intellij IDEA 安装 `Lombok` 插件，否则 `Javabean` 的 `getter / setter` 就无法自动编译，也就不能被调用。不过，新版的 Intellij IDEA 也已经内置好了，不需要再安装。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lombok-20231231074753.png)
+![](https://cdn.paicoding.com/stutymore/lombok-20231231074753.png)
 
 ## 常用的 Lombok 注解
 
@@ -401,7 +401,7 @@ public class BuilderDemo {
 
 一图胜千言，直接上图。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lombok-20231231074820.png)
+![](https://cdn.paicoding.com/stutymore/lombok-20231231074820.png)
 
 - javac 对源代码进行分析，生成一棵抽象语法树（AST）
 - javac 编译过程中调用实现了JSR 269 的 Lombok 程序
@@ -412,11 +412,11 @@ Lombok 用起来虽然爽，但需要团队内部达成一致，就是要用大�
 
 如果一类使用了 Lombok 注解，通过类结构是可以查看到对应的方法的，比如说下图中的 toString 和 builder 方法。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lombok-20231231074836.png)
+![](https://cdn.paicoding.com/stutymore/lombok-20231231074836.png)
 
 打开 target 目录下的 .class 文件，就可以看到 Lombok 生成的反编译后的字节码文件，也可以验证 Lombok 是在编译阶段实现 Java 代码增强功能的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lombok-20231231074847.png)
+![](https://cdn.paicoding.com/stutymore/lombok-20231231074847.png)
 
 ## 小结
 

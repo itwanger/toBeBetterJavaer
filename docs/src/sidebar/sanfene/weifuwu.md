@@ -34,7 +34,7 @@ head:
 
 需要注意的是，微服务是一种特定的架构风格，而 SOA 是一种设计原则。微服务可以看作是对 SOA 思想的一种具体实践方式，但并不等同于 SOA。
 
-![架构演进简图](https://cdn.tobebetterjavaer.com/paicoding/ac84270d25aa98f87940599f2484111e.png)
+![架构演进简图](https://cdn.paicoding.com/paicoding/ac84270d25aa98f87940599f2484111e.png)
 
 微服务与单体服务的区别在于规模和部署方式。微服务将应用程序拆分为更小的、自治的服务单元，每个服务都有自己的数据库和代码库，可以独立开发、测试、部署和扩展，带来了更大的灵活性、可维护性、可扩展性和容错性。
 
@@ -42,7 +42,7 @@ head:
 
 微服务架构不是万金油，尽它有很多优点，但是对于是否采用微服务架构，是否将原来的单体服务进行拆分，还是要考虑到服务拆分后可能带来的一些挑战和问题：
 
-![微服务带来的挑战](https://cdn.tobebetterjavaer.com/paicoding/7e200d81a785c6f6018ecd7cee33b51d.png)
+![微服务带来的挑战](https://cdn.paicoding.com/paicoding/7e200d81a785c6f6018ecd7cee33b51d.png)
 
 1.  系统复杂性增加：一个服务拆成了多个服务，整体系统的复杂性增加，需要处理服务之间的通信、部署、监控和维护等方面的复杂性。
 2.  服务间通信开销：微服务之间通过网络进行通信，传递数据需要额外的网络开销和序列化开销，可能导致性能瓶颈和增加系统延迟。
@@ -60,7 +60,7 @@ head:
 
 1.  Dubbo：
 
-![Dubbo工作原理图-来源官网](https://cdn.tobebetterjavaer.com/paicoding/6d622a72d299924fad87adcebeb7c1af.png)
+![Dubbo工作原理图-来源官网](https://cdn.paicoding.com/paicoding/6d622a72d299924fad87adcebeb7c1af.png)
 
 - Dubbo 是一个高性能、轻量级的 Java 微服务框架，最初由阿里巴巴（Alibaba）开发并于 2011 年开源。它提供了服务注册与发现、负载均衡、容错、分布式调用等功能，后来一度停止维护，在近两年，又重新开始迭代，并推出了 Dubbo3。
 - Dubbo 使用基于 RPC（Remote Procedure Call）的通信模型，具有较高的性能和可扩展性。它支持多种传输协议（如 TCP、HTTP、Redis）和序列化方式（如 JSON、Hessian、Protobuf），可根据需求进行配置。
@@ -104,7 +104,7 @@ head:
 
 微服务给系统开发带来了一些问题和挑战，如服务调用的复杂性、分布式事务的处理、服务的动态管理等。为了更好地解决这些问题和挑战，各种微服务治理的组件应运而生，充当微服务架构的基石和支撑。
 
-![微服务组件示意图](https://cdn.tobebetterjavaer.com/paicoding/99350e76ce2f763ed5ce5ba6594941f8.png)
+![微服务组件示意图](https://cdn.paicoding.com/paicoding/99350e76ce2f763ed5ce5ba6594941f8.png)
 
 微服务的各个组件和常见实现：
 
@@ -151,7 +151,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 注册中心
 
@@ -159,7 +159,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 注册中心是用来管理和维护分布式系统中各个服务的地址和元数据的组件。它主要用于实现`服务发现`和`服务注册`功能。
 
-![注册中心示意图](https://cdn.tobebetterjavaer.com/paicoding/cf3896a6c789eb0dd9c4c414f003ed7c.png)
+![注册中心示意图](https://cdn.paicoding.com/paicoding/cf3896a6c789eb0dd9c4c414f003ed7c.png)
 
 总结一下注册中心的作用：
 
@@ -197,7 +197,7 @@ SpringCloud 可以与多种注册中心进行集成，常见的注册中心包�
 
 ### 8.Eureka 实现原理了解吗？
 
-![Eureka原理示意图](https://cdn.tobebetterjavaer.com/paicoding/477cde58e9553323d74ebac6d5a63079.png)
+![Eureka原理示意图](https://cdn.paicoding.com/paicoding/477cde58e9553323d74ebac6d5a63079.png)
 
 Eureka 的实现原理，大概可以从这几个方面来看：
 
@@ -211,7 +211,7 @@ Eureka 的实现原理，大概可以从这几个方面来看：
 
 Eureka Server 保证高可用，主要通过这三个方面来实现：
 
-![Eureka Server](https://cdn.tobebetterjavaer.com/paicoding/cbf6eee8064d0ece8abf8b611629136e.png)
+![Eureka Server](https://cdn.paicoding.com/paicoding/cbf6eee8064d0ece8abf8b611629136e.png)
 
 1.  多实例部署: 通过将多个 Eureka Server 实例部署在不同的节点上，可以实现高可用性。当其中一个实例发生故障时，其他实例仍然可以提供服务，并保持注册信息的一致性。
 2.  服务注册信息的复制: 当一个服务实例向 Eureka Server 注册时，每个 Eureka Server 实例都会复制其他实例的注册信息，以保持数据的一致性。当某个 Eureka Server 实例发生故障时，其他实例可以接管其工作，保证整个系统的正常运行。
@@ -221,7 +221,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 配置中心
 
@@ -246,7 +246,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 配置中心，说白了就是一句话：配置信息的 CRUD。
 
-![配置中心](https://cdn.tobebetterjavaer.com/paicoding/1fe746722ca8f0d4ed608c1402fbd692.png)
+![配置中心](https://cdn.paicoding.com/paicoding/1fe746722ca8f0d4ed608c1402fbd692.png)
 
 具体的实现大概可以分成这么几个部分：
 
@@ -263,7 +263,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 具体的实现过程如下：
 
-![Nacos长轮询](https://cdn.tobebetterjavaer.com/paicoding/16de67d4619e2844fb0812cf994cd7e7.png)
+![Nacos长轮询](https://cdn.paicoding.com/paicoding/16de67d4619e2844fb0812cf994cd7e7.png)
 
 1.  客户端发起 Pull 请求，服务端检查配置是否有变更。如果没有变更，则设置一个定时任务，在一段时间后执行，并将当前的客户端连接加入到等待队列中。
 2.  在等待期间，如果配置发生变更，服务端会立即返回结果给客户端，完成一次"推送"操作。
@@ -276,7 +276,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 远程调用
 
@@ -284,7 +284,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 HTTP 和 RPC 不算是一个层面上的东西：
 
-![三分恶面渣逆袭：HTTP和RPC](https://cdn.tobebetterjavaer.com/paicoding/0ed1a1a1b1c6dd753abad1b4b51ed76b.png)
+![三分恶面渣逆袭：HTTP和RPC](https://cdn.paicoding.com/paicoding/0ed1a1a1b1c6dd753abad1b4b51ed76b.png)
 
 HTTP 是应用层协议，用于传输超文本数据，基于请求-响应模型，常用于 Web 开发、API 调用等场景。
 
@@ -335,7 +335,7 @@ Feign 是一个声明式的 Web 服务客户端，它简化了使用基于 HTTP 
 
 Feign 是在 RestTemplate 和 Ribbon 的基础上进一步封装，使用 RestTemplate 实现 Http 调用，使用 Ribbon 实现负载均衡。
 
-![Feign封装](https://cdn.tobebetterjavaer.com/paicoding/d169125c01b90de79271a2ba4229283b.png)
+![Feign封装](https://cdn.paicoding.com/paicoding/d169125c01b90de79271a2ba4229283b.png)
 
 Feign 的主要特点和功能包括：
 
@@ -402,13 +402,13 @@ Ribbon 是 Netflix 开源的一个客户端负载均衡器，可以与 Feign 无
 
 Ribbon 通过从服务注册中心获取可用服务列表，并通过负载均衡算法选择合适的服务实例进行请求转发，实现客户端的负载均衡。
 
-![客户端负载均衡](https://cdn.tobebetterjavaer.com/paicoding/ae4998231c351b393b025bfcab150844.png)
+![客户端负载均衡](https://cdn.paicoding.com/paicoding/ae4998231c351b393b025bfcab150844.png)
 
 ### 20.说说有哪些负载均衡算法？
 
 常见的负载均衡算法包含以下几种：
 
-![常见负载均衡算法](https://cdn.tobebetterjavaer.com/paicoding/10f8e977199a2b42be5a5f3d47ca798f.png)
+![常见负载均衡算法](https://cdn.paicoding.com/paicoding/10f8e977199a2b42be5a5f3d47ca798f.png)
 
 1.  **轮询算法（Round Robin）**：轮询算法是最简单的负载均衡算法之一。它按照顺序将请求依次分配给每个后端服务器，循环往复。当请求到达时，负载均衡器按照事先定义的顺序选择下一个服务器。轮询算法适用于后端服务器具有相同的处理能力和性能的场景。
 2.  **加权轮询算法（Weighted Round Robin）**：加权轮询算法在轮询算法的基础上增加了权重的概念。每个后端服务器都被赋予一个权重值，权重值越高，被选中的概率就越大。这样可以根据服务器的处理能力和性能调整请求的分配比例，使得性能较高的服务器能够处理更多的请求。
@@ -425,7 +425,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 服务容灾
 
@@ -433,7 +433,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 在微服务中，假如一个或者多个服务出现故障，如果这时候，依赖的服务还在不断发起请求，或者重试，那么这些请求的压力会不断在下游堆积，导致下游服务的负载急剧增加。不断累计之下，可能会导致故障的进一步加剧，可能会导致级联式的失败，甚至导致整个系统崩溃，这就叫服务雪崩。
 
-![服务雪崩](https://cdn.tobebetterjavaer.com/paicoding/9608f6d00078e3059587d14fa1dad6e0.png)
+![服务雪崩](https://cdn.paicoding.com/paicoding/9608f6d00078e3059587d14fa1dad6e0.png)
 
 一般，为了防止服务雪崩，可以采用这些措施：
 
@@ -492,7 +492,7 @@ Dubbo|Dubbo 自带熔断降级机制|\- Dubbo 框架本身提供的熔断降级�
 
 尽管已经不再更新，但是 Hystrix 是非常经典的服务容错开源库，它提供了多种机制来保护系统：
 
-![Hystrix服务容错六大机制](https://cdn.tobebetterjavaer.com/paicoding/bfc1fcd689ccab76f23abc3cd1c6ddf3.png)
+![Hystrix服务容错六大机制](https://cdn.paicoding.com/paicoding/bfc1fcd689ccab76f23abc3cd1c6ddf3.png)
 
 1.  服务熔断（Circuit Breaker）：Hystrix 通过设置阈值来监控服务的错误率或响应时间。当错误率或响应时间超过预设的阈值时，熔断器将会打开，后续的请求将不再发送到实际的服务提供方，而是返回预设的默认值或错误信息。这样可以快速隔离故障服务，防止故障扩散，提高系统的稳定性和可用性。
 2.  服务降级（Fallback）：当服务熔断打开时，Hystrix 可以提供一个备用的降级方法或返回默认值，以保证系统继续正常运行。开发者可以定义降级逻辑，例如返回缓存数据、执行简化的逻辑或调用其他可靠的服务，以提供有限但可用的功能。
@@ -564,11 +564,11 @@ private static void initFlowQpsRule() {
 
 3.  监控流量：Sentinel 会监控每个资源的流量情况，包括请求的 QPS（每秒请求数）、线程数、响应时间等。
 
-![Sentinel控制台](https://cdn.tobebetterjavaer.com/paicoding/54206a2d5b5ab4f1387c2d344b5b9e5d.png)
+![Sentinel控制台](https://cdn.paicoding.com/paicoding/54206a2d5b5ab4f1387c2d344b5b9e5d.png)
 
 4.  限流控制：当请求到达时，Sentinel 会根据资源的限流规则判断是否需要进行限流控制。如果请求超过了限流阈值，则可以进行限制、拒绝或进行其他降级处理。
 
-![Sentinel总体框架-来源官网](https://cdn.tobebetterjavaer.com/paicoding/ec903e569092136bb03d9e3a89e40474.png)
+![Sentinel总体框架-来源官网](https://cdn.paicoding.com/paicoding/ec903e569092136bb03d9e3a89e40474.png)
 
 #### Sentinel 采用的什么限流算法？
 
@@ -584,13 +584,13 @@ Sentinel 利用了 Token Server 和 Token Client 的机制来实现集群限流�
 
 开启集群限流后，Client 向 Token Server 发送请求，Token Server 根据配置的规则决定是否限流。T
 
-![Token Server和Client](https://cdn.tobebetterjavaer.com/paicoding/a387826853b4c459a52a5762eeec8427.png)
+![Token Server和Client](https://cdn.paicoding.com/paicoding/a387826853b4c459a52a5762eeec8427.png)
 
 GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括 Java 基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 服务网关
 
@@ -598,7 +598,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 API 网关（API Gateway）是一种中间层服务器，用于集中管理、保护和路由对后端服务的访问。它充当了客户端与后端服务之间的入口点，提供了一组统一的接口来管理和控制 API 的访问。
 
-![网关示意图](https://cdn.tobebetterjavaer.com/paicoding/544aa9123d085ae1b89bdf0adb8ae50d.png)
+![网关示意图](https://cdn.paicoding.com/paicoding/544aa9123d085ae1b89bdf0adb8ae50d.png)
 
 API 网关的主要功能包括：
 
@@ -627,7 +627,7 @@ API 网关的主要功能包括：
 
 ### 27.Spring Cloud Gateway 核心概念？
 
-![Gateway原理](https://cdn.tobebetterjavaer.com/paicoding/51faf0c8c742b1d86f2c4ac3cd3b8885.png)
+![Gateway原理](https://cdn.paicoding.com/paicoding/51faf0c8c742b1d86f2c4ac3cd3b8885.png)
 
 在 Spring Cloud Gateway 里，有三个关键组件：
 
@@ -637,7 +637,7 @@ API 网关的主要功能包括：
 
 我们再来看下 Spring Cloud Gateway 的具体工作流程：
 
-![SpringCloud工作流程图-来源官方文档](https://cdn.tobebetterjavaer.com/paicoding/8b1109d802eccbcbb2f667648fb25505.png)
+![SpringCloud工作流程图-来源官方文档](https://cdn.paicoding.com/paicoding/8b1109d802eccbcbb2f667648fb25505.png)
 
 又有两个比较重要的概念：
 
@@ -648,7 +648,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 链路追踪
 
@@ -656,7 +656,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 在微服务中，有的山下游可能有十几个服务，如果某一环出了问题，排查起来非常困难，所以，就需要进行链路追踪，来帮助排查问题。
 
-![SkyWalking界面](https://cdn.tobebetterjavaer.com/paicoding/98e74c1a6d5e3a083c266ebb48051c67.png)
+![SkyWalking界面](https://cdn.paicoding.com/paicoding/98e74c1a6d5e3a083c266ebb48051c67.png)
 
 通过链路追踪，可以可视化地追踪请求从一个微服务到另一个微服务的调用情况。除了排查问题，链路追踪黑还可以帮助优化性能，可视化依赖关系、服务监控和告警。
 
@@ -666,16 +666,16 @@ Spring Cloud 提供了多种选择的微服务链路追踪方案。以下是一�
 
 1.  Zipkin：Zipkin 是一个开源的分布式实时追踪系统，由 Twitter 开发并贡献给开源社区。Spring Cloud Sleuth 提供了与 Zipkin 的集成，可以通过在微服务中添加相应的依赖和配置，将追踪信息发送到 Zipkin 服务器，并通过 Zipkin UI 进行可视化展示和查询。
 
-![Zipkin界面](https://cdn.tobebetterjavaer.com/paicoding/4acc0c39bc776867b76f0ade4c3440b8.png)
+![Zipkin界面](https://cdn.paicoding.com/paicoding/4acc0c39bc776867b76f0ade4c3440b8.png)
 
 2.  Jaeger：Jaeger 是 Uber 开源的分布式追踪系统，也被纳入了 CNCF（云原生计算基金会）的维护。通过使用 Spring Cloud Sleuth 和 Jaeger 客户端库，可以将追踪信息发送到 Jaeger 并进行可视化展示和查询。
 3.  SkyWalking：Apache SkyWalking 是一款开源的应用性能监控与分析系统，提供了对 Java、.NET 和 Node.js 等语言的支持。它可以与 Spring Cloud Sleuth 集成，将追踪数据发送到 SkyWalking 服务器进行可视化展示和分析。
 
-![SkyWalking示例界面](https://cdn.tobebetterjavaer.com/paicoding/882b9ae41162ba6bb7c41d9d7ad82736.png)
+![SkyWalking示例界面](https://cdn.paicoding.com/paicoding/882b9ae41162ba6bb7c41d9d7ad82736.png)
 
 4.  Pinpoint：Pinpoint 是 Naver 开源的分布式应用性能监控系统，支持 Java 和 .NET。它提供了与 Spring Cloud Sleuth 的集成，可以将追踪数据发送到 Pinpoint 服务器，并通过其 UI 进行分析和监控。
 
-![Pinpoint示意图](https://cdn.tobebetterjavaer.com/paicoding/df73e94d1eb19ca40d150788cee2c360.png)
+![Pinpoint示意图](https://cdn.paicoding.com/paicoding/df73e94d1eb19ca40d150788cee2c360.png)
 
 这些方案都可以与 Spring Cloud Sleuth 进行集成，Spring Cloud Sleuth 是 Spring Cloud 中的一个组件，提供了在微服务调用时生成追踪信息的能力。
 
@@ -683,7 +683,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 分布式事务
 
@@ -695,19 +695,19 @@ Seata 以下几种模式的分布式事务：
 
 1.  AT（Atomikos）模式：AT 模式是 Seata 默认支持的模式，也是最常用的模式之一。在 AT 模式下，Seata 通过在业务代码中嵌入事务上下文，实现对分布式事务的管理。Seata 会拦截并解析业务代码中的 SQL 语句，通过对数据库连接进行拦截和代理，实现事务的管理和协调。
 
-![AT模式示意图](https://cdn.tobebetterjavaer.com/paicoding/5069b45cedaab00a06ab5cc98a0baa6c.png)
+![AT模式示意图](https://cdn.paicoding.com/paicoding/5069b45cedaab00a06ab5cc98a0baa6c.png)
 
 2.  TCC（Try-Confirm-Cancel）模式：TCC 模式是一种基于补偿机制的分布式事务模式。在 TCC 模式中，业务逻辑需要实现 Try、Confirm 和 Cancel 三个阶段的操作。Seata 通过调用业务代码中的 Try、Confirm 和 Cancel 方法，并在每个阶段记录相关的操作日志，来实现分布式事务的一致性。
 
-![Seata TCC模式](https://cdn.tobebetterjavaer.com/paicoding/d8131fd04bb31e3b0ca26016c302e3cb.png)
+![Seata TCC模式](https://cdn.paicoding.com/paicoding/d8131fd04bb31e3b0ca26016c302e3cb.png)
 
 3.  SAGA 模式：SAGA 模式是一种基于事件驱动的分布式事务模式。在 SAGA 模式中，每个服务都可以发布和订阅事件，通过事件的传递和处理来实现分布式事务的一致性。Seata 提供了与 SAGA 模式兼容的 Saga 框架，用于管理和协调分布式事务的各个阶段。
 
-![SAGA模式状态机引擎](https://cdn.tobebetterjavaer.com/paicoding/a36315dedde1aacdda94aebf58bbfd68.png)
+![SAGA模式状态机引擎](https://cdn.paicoding.com/paicoding/a36315dedde1aacdda94aebf58bbfd68.png)
 
 4.  XA 模式：XA 模式是一种基于两阶段提交（Two-Phase Commit）协议的分布式事务模式。在 XA 模式中，Seata 通过与数据库的 XA 事务协议进行交互，实现对分布式事务的管理和协调。XA 模式需要数据库本身支持 XA 事务，并且需要在应用程序中配置相应的 XA 数据源。
 
-![XA模式示意图](https://cdn.tobebetterjavaer.com/paicoding/5614543d4fac09e7501379989a44a8c0.png)
+![XA模式示意图](https://cdn.paicoding.com/paicoding/5614543d4fac09e7501379989a44a8c0.png)
 
 ### 31.了解 Seata 的实现原理吗？
 
@@ -717,7 +717,7 @@ Seata 的实现原理主要包括三个核心组件：事务协调器（Transact
 - **事务管理器（Transaction Manager）**：事务管理器负责全局事务的管理和控制。它协调各个分支事务的提交或回滚，并保证分布式事务的一致性和隔离性。事务管理器还负责与事务协调器进行通信，并将事务的状态变更进行持久化。
 - **资源管理器（Resource Manager）**：资源管理器负责管理和控制各个参与者（Participant）的事务操作。它与事务管理器进行通信，并根据事务管理器的指令执行相应的事务操作，包括提交和回滚。
 
-![Seata领域模型](https://cdn.tobebetterjavaer.com/paicoding/48ce581297c73a18e00f430681c1b964.png)
+![Seata领域模型](https://cdn.paicoding.com/paicoding/48ce581297c73a18e00f430681c1b964.png)
 
 Seata 的实现原理基于**两阶段提交（Two-Phase Commit）协议**，具体的机制如下：
 
@@ -746,7 +746,7 @@ Seata 事务的执行流程可以简要概括为以下几个步骤：
 
 #### Seata 的事务回滚是怎么实现的？
 
-![事务日志记录](https://cdn.tobebetterjavaer.com/paicoding/9badf29259da5932defbce509d3b169e.png)
+![事务日志记录](https://cdn.paicoding.com/paicoding/9badf29259da5932defbce509d3b169e.png)
 
 Seata 的事务回滚是通过回滚日志实现的。每个参与者在执行本地事务期间生成回滚日志，记录了对数据的修改操作。
 
@@ -758,7 +758,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 服务监控
 
@@ -769,7 +769,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 1.  Prometheus：Prometheus 是一个开源的监控系统，具有灵活的数据模型和强大的查询语言，能够收集和存储时间序列数据。它可以通过 HTTP 协议定期拉取微服务的指标数据，并提供可扩展的存储和查询功能。
 2.  Grafana：Grafana 是一个开源的可视化仪表板工具，可以与 Prometheus 结合使用，创建实时和历史数据的仪表板。Grafana 提供了丰富的图表和可视化选项，可以帮助用户更好地理解和分析微服务的性能和状态。
 
-![Dashboard](https://cdn.tobebetterjavaer.com/paicoding/250cb02220303993a2b842f5054aa51d.png)
+![Dashboard](https://cdn.paicoding.com/paicoding/250cb02220303993a2b842f5054aa51d.png)
 
 ### 33.你们的服务怎么做日志收集？
 
@@ -783,7 +783,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 使用 ELK 进行微服务日志收集的一般流程如下：
 
-![ELK流程](https://cdn.tobebetterjavaer.com/paicoding/4f735b4934d90c3b55fc4b644d22f5c0.png)
+![ELK流程](https://cdn.paicoding.com/paicoding/4f735b4934d90c3b55fc4b644d22f5c0.png)
 
 1.  在每个微服务中配置日志输出：将微服务的日志输出到标准输出（stdout）或日志文件。
 2.  使用 Logstash 收集日志：配置 Logstash 收集器，通过配置输入插件（如文件输入、网络输入等）监听微服务的日志输出，并进行过滤和处理。
@@ -822,4 +822,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

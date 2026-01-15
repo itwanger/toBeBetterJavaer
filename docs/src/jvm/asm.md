@@ -32,7 +32,7 @@ ASM是一种通用Java字节码操作和分析框架。它可以用于修改现�
 
 我们编写的java文件，会通过javac命令编译为class文件，JVM最终会执行该类型文件来运行程序。下图所示为class文件结构。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/asm-43844b78-c01f-4990-b038-3c91ff2eeb34.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/asm-43844b78-c01f-4990-b038-3c91ff2eeb34.jpg)
 
 下面我们通过一个简单的实例来进行说明。下面是我们编写的一个简单的java文件，只是简单的函数调用.
 
@@ -191,7 +191,7 @@ SourceFile: "Test.java"
 
 JVM的指令集是基于栈而不是寄存器，基于栈可以具备很好的跨平台性。在线程中执行一个方法时，我们会创建一个栈帧入栈并执行，如果该方法又调用另一个方法时会再次创建新的栈帧然后入栈，方法返回之际，原栈帧会返回方法的执行结果给之前的栈帧，随后虚拟机将会丢弃此栈帧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/asm-e31b7e50-1d48-4eef-9552-6fa7e6c68fed.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/asm-e31b7e50-1d48-4eef-9552-6fa7e6c68fed.jpg)
 
 ### 局部变量表
 
@@ -243,9 +243,9 @@ public int sub(int, int);
 
 a = b + c 的字节码执行过程中操作数栈以及局部变量表的变化如下图所示
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/asm-4670450e-6199-4562-9cf4-354234c734c8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/asm-4670450e-6199-4562-9cf4-354234c734c8.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/asm-9808d639-327f-4796-80d4-1809be0b9106.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/asm-9808d639-327f-4796-80d4-1809be0b9106.jpg)
 
 ## ASM操作
 
@@ -346,7 +346,7 @@ mv.visitEnd();
 
 可以一键生成对应的ASM API代码
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/asm-3c8c8db4-5b6a-4576-b147-62965d0e0c1c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/asm-3c8c8db4-5b6a-4576-b147-62965d0e0c1c.jpg)
 
 ----
 
@@ -359,4 +359,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

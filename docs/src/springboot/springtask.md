@@ -129,7 +129,7 @@ public class CronTask {
 启动服务器端，发现每隔一秒钟会打印一次日志，证明 Spring Task 的 cron 表达式形式已经起效了。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-747c6f2e-66bc-4e3e-b81a-b0416ea4bb9d.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/springtask-747c6f2e-66bc-4e3e-b81a-b0416ea4bb9d.png)
 
 
 默认情况下，@Scheduled 创建的线程池大小为 1，如果想增加线程池大小的话，可以让 SpringTaskConfig 类实现 SchedulingConfigurer 接口，通过 setPoolSize 增加线程池大小。
@@ -154,13 +154,13 @@ public class SpringTaskConfig implements SchedulingConfigurer {
 服务热部署完成后，会在控制台看到这样的信息：
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-54773f3f-ad58-44d5-a94a-8543f14f8c57.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/springtask-54773f3f-ad58-44d5-a94a-8543f14f8c57.png)
 
 
 可以确认自定义线程池大小已经生效了，有的任务用的是线程led-task-pool-3，有的是线程led-task-pool-7，跑时间长了，可以发现 led-task-pool-1 到 led-task-pool-10 的都有。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-825fd59c-d2cd-471d-a9a9-ee1194cbfc51.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/springtask-825fd59c-d2cd-471d-a9a9-ee1194cbfc51.png)
 
 
 Spring Task 除了支持 Cron 表达式，还有 fixedRate（固定速率执行）、fixedDelay（固定延迟执行）、initialDelay（初始延迟）三种用法。
@@ -277,7 +277,7 @@ Spring Task 虽然用起来很方便，但用法过去简单，很多复杂的�
 
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 

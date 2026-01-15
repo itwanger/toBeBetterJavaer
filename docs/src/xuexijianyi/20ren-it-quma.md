@@ -13,7 +13,7 @@ category:
 
 周末就不分享技术了。今天早上在知乎看到一个挺有意思的话题：**不到 20 人的 IT 公司该去吗**？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-budrditgsgqm-092ccdf7-12ac-4ca0-81b0-0d7fc193ffdc.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-budrditgsgqm-092ccdf7-12ac-4ca0-81b0-0d7fc193ffdc.jpg)
 
 回答区有一位老哥分享了自己在一个20 来人的小公司的奇葩工作经历，分享一下。
 
@@ -227,7 +227,7 @@ category:
 
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-rumrabbitmqzypjdg-53717e59-63c9-44bd-99d3-dd2c26fe68bb.png)
 
 ----
 
@@ -236,4 +236,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

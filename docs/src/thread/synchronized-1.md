@@ -260,7 +260,7 @@ class MonitorExample {
 
 上述 happens before 关系的图形化表现形式如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/synchronized-1-f4430c27-5a0e-49c1-bac5-fe8562b0cdc5.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/synchronized-1-f4430c27-5a0e-49c1-bac5-fe8562b0cdc5.jpg)
 
 在上图中，每一个箭头链接的两个节点，代表了一个 happens before 关系。黑色箭头表示程序顺序规则；橙色箭头表示监视器锁规则；蓝色箭头表示组合这些规则后提供的 happens before 保证。
 
@@ -333,4 +333,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

@@ -12,7 +12,7 @@ tag:
 
 这不，我在战国时代读者群里发现了这么一串聊天记录：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-cacd9e88-4a4d-4127-a18b-f99b2e2296a3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-cacd9e88-4a4d-4127-a18b-f99b2e2296a3.png)
 
 竟然有小伙伴不知道“打日志”是什么意思，不知道该怎么学习，还有小伙伴回答说，只知道 Log4j！
 
@@ -22,7 +22,7 @@ tag:
 
 （说好的不在乎，怎么在乎起来了呢？手动狗头）
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-58282c4d-8178-45bd-8ba3-26740f6dd4a3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-58282c4d-8178-45bd-8ba3-26740f6dd4a3.png)
 
 
 管他呢，**我行我素**吧，保持初心不改就对了！这篇文章就来说说 Log4j，这个打印日志的鼻祖。Java 中的日志打印其实是个艺术活，我保证，这句话绝不是忽悠。
@@ -37,7 +37,7 @@ tag:
 
 之所以这样打印日志，是因为很方便，上手难度很低，尤其是在 IDEA 的帮助下，只需在键盘上按下 `so` 两个字母就可以调出 `System.out.println()`。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-64dbb12b-8f6b-4ee3-ab5a-60519dd9112f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-64dbb12b-8f6b-4ee3-ab5a-60519dd9112f.png)
 
 在本地环境下，使用 `System.out.println()` 打印日志是没问题的，可以在控制台看到信息。但如果是在生产环境下的话，`System.out.println()` 就变得毫无用处了。
 
@@ -63,7 +63,7 @@ OFF，最高级别，意味着所有消息都不会输出了。
 
 这个级别是基于 Log4j 的，和 java.util.logging 有所不同，后者提供了更多的日志级别，比如说 SEVERE、FINER、FINEST。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-4919cd20-e524-43a2-8b41-9eab6ac0c1e4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-4919cd20-e524-43a2-8b41-9eab6ac0c1e4.png)
 
 
 ### 03、错误的日志记录方式是如何影响性能的
@@ -86,7 +86,7 @@ if(logger.isDebugEnabled()){
 
 切记，在生产环境下，一定不要开启 DEBUG 级别的日志，否则程序在大量记录日志的时候会变很慢，还有可能在你不注意的情况下，悄悄地把磁盘空间撑爆。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-fd2149c5-2d0c-4c15-897d-d5fa06cce71f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-fd2149c5-2d0c-4c15-897d-d5fa06cce71f.png)
 
 
 ### 04、为什么选择 Log4j 而不是 java.util.logging
@@ -123,7 +123,7 @@ public class JavaUtilLoggingDemo {
 
 程序运行后会在 target 目录下生成一个名叫 javautillog.txt 的文件，内容如下所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-222181d4-04ba-4487-8386-69b8737d2d5c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-222181d4-04ba-4487-8386-69b8737d2d5c.png)
 
 再来看一下 Log4j 的使用方式。
 
@@ -349,11 +349,11 @@ if(logger.isDebugEnabled()) {
 
 8）不要在日志文件中打印密码、银行账号等敏感信息。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-42d3a052-daeb-450a-a775-a32f983dd688.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/log4j-42d3a052-daeb-450a-a775-a32f983dd688.png)
 
 
 ### 06、 总结
 
 打印日志真的是一种艺术活，搞不好会严重影响服务器的性能。最可怕的是，记录了日志，但最后发现屁用没有，那简直是苍了个天啊！尤其是在生产环境下，问题没有记录下来，但重现有一定的随机性，到那时候，真的是叫天天不应，叫地地不灵啊！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -26,7 +26,7 @@ head:
 - 做到做什么，也有动力，正在持续提升自己
 - 做什么都没动力
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-77bf7c8d-5df8-461b-92b6-14258f617af8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-77bf7c8d-5df8-461b-92b6-14258f617af8.jpg)
 
 你觉得自己处在下面哪个状态里面呢？
 
@@ -58,7 +58,7 @@ head:
 
 第三个误区：和前面的问题很类似，学的东西越多一定成长越快吗？实际上往往会起到相反的作用。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-aa05d34e-93e9-4fd3-a134-785e71057390.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-aa05d34e-93e9-4fd3-a134-785e71057390.jpg)
 
 一个人的脑容量和记忆力是有限的，拓宽自己的眼界和知识广度是完全没问题的，这可以让我们在思考问题的时候思维更加活跃，但是拓宽知识广度的前提一定是你已经有了一项非常擅长的方向，前面的 15% 带给你的收益要比后面的 85% 大很多。
 
@@ -86,7 +86,7 @@ head:
 
 ### 关于时间的困惑
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-77559ce6-25f8-421d-82f5-69b91a6fe0b8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-77559ce6-25f8-421d-82f5-69b91a6fe0b8.jpg)
 
 为什么做好“时间管理”这么重要呢，我们先来看看下面几个场景，大家是不是也有过这样的想法？
 
@@ -104,7 +104,7 @@ head:
 
 其实，如果我们不去对时间做一些思考，不引入一些适合自己的方法的话，上面这些问题我们是很难规避掉的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-27260bfc-0a51-4e30-8dc5-719f41664a59.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-27260bfc-0a51-4e30-8dc5-719f41664a59.jpg)
 
 这可以用我们物理学里面非常重要的一条定律来解释，就是熵增定律。
 
@@ -120,7 +120,7 @@ head:
 
 回到时间管理，有哪些外力呢？我们可以先来看几个方法论。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-c0db05b7-0ef9-4541-a399-5bdafb16cc7b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-c0db05b7-0ef9-4541-a399-5bdafb16cc7b.jpg)
 
 - **GTD** **时间管理法**：通过记录的方式把头脑中的各种事情移出来，然后整理安排自己去执行。它的核心是围绕 收集、清理、组织、回顾、执行，五个点来管理时间：
 
@@ -154,7 +154,7 @@ head:
 
 > 注意：执行时间需要根据我们当前已有的事项安排以及这件事情的紧急重要程度综合判定，而截止时间往往是很明确的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-c61ce1ac-5094-4cf4-ab29-94debef209eb.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-c61ce1ac-5094-4cf4-ab29-94debef209eb.jpg)
 
 那记录这一步用到的工具有哪些呢？其实我们的需求非常明确：
 
@@ -171,7 +171,7 @@ head:
 除了这个，我还会用备忘录。按照不同的类型组织分类，然后每周的事情放在一个 memo 里，并且优先级会按照 TODO 的形式记录下来，直接打钩表示完成。同时，一些重要的事情，比如说球友的提问，我会在这里做一个备份。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-15daa890-85e4-423f-8195-a1216d952522.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-15daa890-85e4-423f-8195-a1216d952522.png)
 
 
 好，现在我们已经把所有需要做的事情记录下来了，我们要在什么地点什么时间把这些事情完成掉呢？之前字节跳动的 Boss 张一鸣在他的一次采访里曾经有这样一句话，我印象非常深刻：
@@ -184,7 +184,7 @@ head:
 
 下一步是整理，也就是把我记录的事项按照优先级和重要程度安排到具体的执行计划中去。这一步实际上是我对 GTD 中清理和组织两个步骤的融合。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-fe1147ad-a234-458b-8cf0-ceac27ca9e23.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-fe1147ad-a234-458b-8cf0-ceac27ca9e23.jpg)
 
 这里用到了一个非常重要的法则，就是四象限法则，我们根据事情的重要和紧急程度分成四类：
 
@@ -200,7 +200,7 @@ head:
 
 结果其实只有两个，做还是不做。如果做，是现在做，还是以后做。我们同样可以用四象限法则思考：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-97e767ce-dc89-4054-a84b-85005f574aa7.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-97e767ce-dc89-4054-a84b-85005f574aa7.jpg)
 
 **如果是不重要也不紧急的事情，现在就直接和对方说 No，如果事情很重要，但是不紧急，你依然可以现在和对方说 NO，但是你可以和对方明确 DeadLine，然后将它记录到待办事项中去**。
 
@@ -220,7 +220,7 @@ head:
 
 番茄钟有个非常重要的特点，就是**执行时一定要保持专注，如果不是什么特别重要、紧急的事情一定不能打断这个种**，尽量到达休息时间再去处理其他事情，养成这样的习惯，就算时间很少，执行一件事的效率也会非常高。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-72050c1d-a3fa-43d1-8a92-22c13119eb96.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-72050c1d-a3fa-43d1-8a92-22c13119eb96.jpg)
 
 市面上有非常多使用番茄时间管理法的工具，做的花里胡哨的，选择使用也是因人而异。如果你自控能力较差，你可以选择一个帮你自动锁屏、屏蔽其他应用的 App。不过我更倾向于更简洁一点的，只需要带有番茄钟和休息时间的倒计时提醒以及简单的统计功能就可以了。
 
@@ -232,7 +232,7 @@ head:
 
 我们会在记录的阶段堆积出非常多需要做的事情，虽然是一件一件记的，但是没必要一件一件的去执行。**我们只要在整理阶段更好的找到这些事情的交集，就可以更高效的利用有限的时间。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-f6c0887b-f901-460b-b4fb-61281a9a9e94.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-f6c0887b-f901-460b-b4fb-61281a9a9e94.jpg)
 
 比如，我们在写作的 tag 里记录了最近要输出一篇技术文章，另外在工作的 tag 里记录了系统稳定性很差，需要进行一次优化。那么两者的交集就可以是：研究并落地系统稳定性方案，并将实践经验整理成一篇技术文章。
 
@@ -240,7 +240,7 @@ head:
 
 在现阶段的工作中，和别人交流沟通，会占用掉我非常大一部分时间。我们需要评需求、跟进度、推专项、解答问题等等，如果这些事情都要靠打字来完成，效率是非常低的。一般来讲，**面对面沟通的效率要大于语音沟通，而语音沟通的效率要大于打字。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-a422f9d3-40ac-4fd9-9294-b87b089c5399.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-a422f9d3-40ac-4fd9-9294-b87b089c5399.jpg)
 
 因为我们在打字时，就算加了再多的表情和语气词也很难清晰的感受到对方的语气、态度、心情，更是很难探寻出一些深层次的想法，打字时的无效沟通会浪费掉大量的时间。所以，当我要沟通一件稍微复杂一点的事情的时候，如果需要沟通的人离我很近，我一定会选择面对面沟通；如果和我不在一个位置，我会尝试语音沟通；如果对方短时间内无法语音交流，再选择打字沟通。
 
@@ -250,7 +250,7 @@ head:
 
 最后一个，就是碎片时间了。这个也是因人而异的，在我的日常生活里有两段非常固定的碎片时间。因为我住的离公司比较远，所以我每天通勤时间是很长的。大概上班要一个小时、下班要 40 分钟。但是这两段时间对我是非常重要的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-09958f95-ac75-494f-a52a-ca0294edff4b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-09958f95-ac75-494f-a52a-ca0294edff4b.jpg)
 
 我一般会在上班通勤中进行 “整理” 这个步骤，定制我一天的计划。如果当天事情堆积较多，我会在晚上通勤的时间进行适当调整，补充到第二天的计划中。剩下的时间就是阅读了，我在一周中大部分的阅读时间就来自于这两段通勤。这里的阅读不仅仅会包括一些技术文章和书籍，也会包括当天工作中要涉及的一些文档。这不仅让我可以快速调整进入工作状态，也能让我持续保持接收新鲜事物。所以，在我之前的工作经历里面，对通勤距离一直都是很包容的。甚至中间有一段时间我搬到了离公司很近的地方，还让我非常不适应。
 
@@ -260,7 +260,7 @@ head:
 
 关于时间的分享都是这么多，下面我们来聊聊沉淀和写作。我认为它是能让我们保持持续成长的秘诀。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-6f432f38-7404-4662-93dd-2a89fcc338b7.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-6f432f38-7404-4662-93dd-2a89fcc338b7.jpg)
 
 技术写作不一定是对外发表的一篇文章，我个人把写作分成了两类：
 
@@ -276,7 +276,7 @@ head:
 
 做个人沉淀有什么好处呢，首先就是可以帮助我们巩固记忆。关于记忆，我相信大家在上学的时候都学过一个理论，如果我们记住了一个知识点，那么一个月过后，你对它的记忆可能只会剩下 20%。当然如果是天才的话我们就不说了哈，我相信大部分人，包括我也是一样的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-f86c4a8c-8b7c-4884-ace8-4e47c62551da.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-f86c4a8c-8b7c-4884-ace8-4e47c62551da.jpg)
 
 比如，有时候我们完成了一件工作，可能当时成就感挺强的，但是如果不进行总结和沉淀，过了一段时间你会发现脑子里关于它的记忆已经剩不下什么了，可能到达一定的时间之后，这件事是不是你做的好像没有什么区别了。所以很多同学工作很长时间了，但是又想不明白自己做了什么，虽然表面上工作经验多一点，但是跟刚毕业的同学有什么区别呢？相反，如果你每完成一件工作就进行适当的沉淀和总结，那结果可能就完全不一样了。一段时间之后你会清晰的知道你学到了什么，留下了什么，甚至对你工作中遗留的痛点以及对未来的规划都会非常清晰。
 
@@ -288,7 +288,7 @@ head:
 
 所以下面我们来看看怎么通过沉底和总结构建我们的个人知识系统。一个基本的个人知识系统需要满足下面三个要点：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-833f1ba5-6ed1-47f7-902d-84607620f36c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-833f1ba5-6ed1-47f7-902d-84607620f36c.jpg)
 
 - **方便管理：** 整个流程我们不要设计的太复杂太长，否则很难持续下去。我曾经也沉迷于各种花里胡哨的笔记软件的迁移，后来发现很多功能都用不上、复杂的流程也比较难坚持下去，其实只要能满足我们对知识管理最基本的要求，最简洁的就是最好的。
 
@@ -300,7 +300,7 @@ head:
 
 #### 如何做好知识管理
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-d396eea7-19ea-42d9-8e42-f06b1b47d55b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-d396eea7-19ea-42d9-8e42-f06b1b47d55b.jpg)
 
 最下面的提醒事项和飞书日程其实也是上面我们时间管理的一部分，所以我的时间管理和知识管理也是有交集的。最直接的就是对外部输入的记录了，我把它们分成三类：
 
@@ -318,7 +318,7 @@ head:
 
 下面我们再来说说对外的分享，能够将自己的写作内容对外输出，其实好处就更大了，这里我说三点。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-683b322e-90ea-4548-ae07-c97febfbf834.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-683b322e-90ea-4548-ae07-c97febfbf834.jpg)
 
 首先关于个人对知识的理解方面，有时自己理解一个知识其实是比较容易的，可能你读完一篇相关的文章，就会觉得自己已经理解了。但是当你尝试把自己理解到的知识给别人也讲明白的时候，会发现可能远远不是你想的那么简单。**你可能需要数倍的深度理解才能做到把一个知识给其他人讲明白**。当然，对外的分享除了带给你个人的提升，还会给你的职场带来收益，比如可以提升你个人影响力，带动团队的整体技术氛围等等。下面跟大家介绍几个我的写作方面的经验。
 
@@ -326,7 +326,7 @@ head:
 
 个人的沉淀，最终是给我们自己看的，所以写的再乱，只要我们自己能理解就没问题。 但是**文章如果是要对外分享的，一定有拥有清晰的条理和结构，最好是先枝后叶，先把文章整体的结构和大纲列好，再往里填充完善**。在结构上有很多法则可以大家可以套用，一个最简单的法则就是 2W1H 法则，也就是：是什么、为什么、怎么做。比如我最近的一篇讲解 Early Hints 的文章是这样拆解的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-903e06bf-440c-4ce6-abc1-739fd05faf99.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-903e06bf-440c-4ce6-abc1-739fd05faf99.jpg)
 
 - **Why**：为什么需要 Early Hints？资源加载的性能问题
 
@@ -342,13 +342,13 @@ head:
 
 比如：我们要在文章中讲解怎么理解负载均衡这个概念？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-1a079f76-0e93-46e0-8784-1ef28bfa9cef.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-1a079f76-0e93-46e0-8784-1ef28bfa9cef.jpg)
 
 我们可以在图中发现：前面是众多的服务窗口，下面有很多用户需要服务，我们需要一个工具或策略来帮助我们将如此多的用户分配到每个窗口，来达到资源的充分利用以及更少的排队时间。
 
 我们有三种测策略可以选择：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-54cefc55-7f85-4e30-b0e9-9c1cb58810cc.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/juejin-ruhzfzdgzzcxcz-54cefc55-7f85-4e30-b0e9-9c1cb58810cc.jpg)
 
 - 第一种是默认的轮询策略，也就是将所有客户端请求轮询分配给服务端。
 
@@ -374,4 +374,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

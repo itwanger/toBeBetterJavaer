@@ -335,7 +335,7 @@ Java 语言常被人们定义成「解释执行」的语言，但随着 JIT 以�
 
 无论是解释执行还是编译执行，无论是物理机还是虚拟机，对于应用程序，机器都不可能像人一样阅读、理解，然后获得执行能力。大部分的程序代码到物理机的目标代码或者虚拟机执行的指令之前，都需要经过下图中的各个步骤。下图中最下面的那条分支，就是传统编译原理中程序代码到目标机器代码的生成过程；中间那条分支，则是解释执行的过程。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-3c8a0865-2a77-464e-8dd6-5616fd6a72d7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-3c8a0865-2a77-464e-8dd6-5616fd6a72d7.png)
 
 
 如今，基于物理机、Java 虚拟机或者非 Java 的其它高级语言虚拟机的语言，大多都会遵循这种基于现代编译原理的思路，在执行前先对程序源代码进行词法分析和语法分析处理，把源代码转化为抽象语法树。对于一门具体语言的实现来说，词法分析、语法分析以至后面的优化器和目标代码生成器都可以选择独立于执行引擎，形成一个完整意义的编译器去实现，这类代表是 C/C++。也可以为一个半独立的编译器，这类代表是 Java。又或者把这些步骤和执行全部封装在一个封闭的黑匣子中，如大多数的 JavaScript 执行器。
@@ -366,4 +366,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

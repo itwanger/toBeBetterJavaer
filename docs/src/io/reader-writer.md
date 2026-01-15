@@ -15,7 +15,7 @@ head:
 
 字符流 Reader 和 Writer 的故事要从它们的类关系图开始，来看图。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/reader-writer-20230320164938.png)
+![](https://cdn.paicoding.com/stutymore/reader-writer-20230320164938.png)
 
 字符流是一种用于读取和写入字符数据的输入输出流。与字节流不同，字符流以字符为单位读取和写入数据，而不是以字节为单位。常用来处理文本信息。
 
@@ -39,7 +39,7 @@ while ((len=inputStream.read())!=-1){
  
 看一下截图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
 
 
 之所以出现乱码是因为在字节流中，一个字符通常由多个字节组成，而不同的字符编码使用的字节数不同。如果我们使用了错误的字符编码，或者在读取和写入数据时没有正确处理字符编码的转换，就会导致读取出来的中文字符出现乱码。
@@ -285,7 +285,7 @@ try (FileWriter fw = new FileWriter("output.txt")) {
 
 因为 FileWriter 内置了缓冲区 ByteBuffer，所以如果不关闭输出流，就无法把字符写入到文件中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/reader-writer-20230320183546.png)
+![](https://cdn.paicoding.com/stutymore/reader-writer-20230320183546.png)
 
 但是关闭了流对象，就无法继续写数据了。如果我们既想写入数据，又想继续使用流，就需要 `flush` 方法了。
 
@@ -309,7 +309,7 @@ while((len=fr.read())!=-1){
  
 运行效果是怎么样的呢？答案是b.txt文件中依旧是空的，并没有任何东西。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
 
 原因我们前面已经说过了。**编程就是这样，不去敲，永远学不会**！！！所以一定要去敲，多敲啊！！！
 
@@ -470,4 +470,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

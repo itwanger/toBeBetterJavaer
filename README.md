@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://javabetter.cn">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/logo.png" width="200px" alt="二哥的Java进阶之路">
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/logo.png" width="200px" alt="二哥的Java进阶之路">
   </a>
 </p>
 
@@ -42,14 +42,14 @@
 
 > 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **10000 多名** 球友加入了（马上涨价到 169 元，抓紧时间趁没涨价前加入吧），如果你也需要一个优质的学习环境，扫描下方的优惠券加入我们吧。
 
 <p align="center">
   <a href="https://javabetter.cn/zhishixingqiu/">
     <kbd>
-      <img src="https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png" width="400px" alt="星球优惠券">
+      <img src="https://cdn.paicoding.com/stutymore/readme-itwanger-zsxq.png" width="400px" alt="星球优惠券">
     </kbd>
   </a>
 </p>
@@ -567,11 +567,11 @@
 
 >前提是你已经安装好 node.js 和 pnpm 环境。
 
-![pnpm 部署进阶之路](https://cdn.tobebetterjavaer.com/stutymore/README-20241106103513.png)
+![pnpm 部署进阶之路](https://cdn.paicoding.com/stutymore/README-20241106103513.png)
 
 点击链接就可以在本地看到运行后的效果了。
 
-![二哥的 Java 进阶之路首页](https://cdn.tobebetterjavaer.com/stutymore/README-20230829162301.png)
+![二哥的 Java 进阶之路首页](https://cdn.paicoding.com/stutymore/README-20230829162301.png)
 
 如果想部署服务器，可以执行 `pnpm docs:build` 打包生成 dist 目录，里面就是静态资源文件了。
 
@@ -599,7 +599,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
     
     
 ### star趋势图
@@ -618,7 +618,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 开源不易，如果《二哥的Java进阶之路》对你有些帮助，可以请作者喝杯咖啡，算是对开源做出的一点点鼓励吧！
 
 <div align="left">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/weixin-zhifu.png" width="260px">
 </div>
 
 :gift_heart: 感谢大家对我资金的赞赏，每隔一个月会统计一次。

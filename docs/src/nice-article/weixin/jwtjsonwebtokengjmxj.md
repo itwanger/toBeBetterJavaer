@@ -11,7 +11,7 @@ category:
 
 本来想亲自写一篇，但刚好在货拉拉技术公众号上看到了这篇帖子，写得竟然很详细，于是就直接收录了进来，简单进行了一些细节调整，大家可以好好看一下，干货啊
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin/jwtjsonwebtokengjmxj-50b2aab0-e074-45db-814c-1702ba2539a8.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin/jwtjsonwebtokengjmxj-50b2aab0-e074-45db-814c-1702ba2539a8.jpg)
 
 ## 一、JWT 简介
 

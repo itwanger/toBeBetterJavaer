@@ -22,7 +22,7 @@ head:
 
 今天给大家分享一篇读者 CoderW 换新工作的面经体验，他二本学历，工作年限 2 年半，面了 10 家公司，一共 28 轮，大家可以猜猜他最后选择了哪家公司？我们留言区见。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-f71e4d48-6b45-4073-834f-5ea7732c6263.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-f71e4d48-6b45-4073-834f-5ea7732c6263.jpg)
 
 同时，他提到的面经准备、简历准备、以及面试题我觉得都非常值得参考和借鉴。
 
@@ -47,13 +47,13 @@ head:
 
 还有一个点是，看书的时候可以尝试记一下笔记，这样效率会高一些，不至于看完就忘记了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-0237e181-6001-4bdf-957a-b50446ff9462.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-0237e181-6001-4bdf-957a-b50446ff9462.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-e7e7b21f-f14d-416c-89f5-c26e21c40140.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-e7e7b21f-f14d-416c-89f5-c26e21c40140.jpg)
 
 上面提到的书籍和文章，开源部分在二哥的公众号「**沉默王二**」后台回复“**书籍**”自取就行，我整理的部分思维导图也在里面，有兴趣也可以看一看。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao-old.jpg)
 
 没有开源的书籍，我建议可以支持一下原创，去买一下实体书或者对应的课程。
 
@@ -63,7 +63,7 @@ head:
 
 我只刷了 170 道题，面了十几个大公司，大多的算法题都是原题。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-fe6ff7a1-a0a0-427d-93bc-6ec83cfe3b79.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-fe6ff7a1-a0a0-427d-93bc-6ec83cfe3b79.jpg)
 
 刚开始刷的时候会很痛苦，坚持几天，没有思路的就看答案，看完答案继续写代码，写不出代码继续看答案，反反复复坚持下来算法就搞定了。
 
@@ -74,7 +74,7 @@ head:
 
 至于怎么写简历，我也不是专家，不说些花里花哨的，直接给一个我的简历模板吧，仅供参考。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-d8f01b60-fb18-47d8-ab1b-99dd98e7aa78.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-huanxgzl-d8f01b60-fb18-47d8-ab1b-99dd98e7aa78.jpg)
 
 提一个点，你写的简历就是划了一个知识范围，然后让面试官从题库里面选题，如果你自己划的知识点你都不清楚，那你面试肯定没有把握的。所以，一定要对你简历上面的每一字负责，要对你在简历上写的每一个技术点都熟悉。
 
@@ -334,4 +334,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -51,7 +51,7 @@ ConcurrentHashMap 在 JDK 1.7 中，提供了一种粒度更细的加锁机制�
 
 有些方法需要跨段，比如 `size()`、`isEmpty()`、`containsValue()`，它们可能需要锁定整个表而不仅仅是某个段，这需要按顺序锁定所有段，操作完后，再按顺序释放所有段的锁。如下图：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155810.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816155810.png)
 
 ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组构成的。Segment 是一种可重入的锁 [ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)，HashEntry 则用于存储键值对数据。
 
@@ -59,25 +59,25 @@ ConcurrentHashMap 是由 Segment 数组结构和 HashEntry 数组构成的。Seg
 
 单一的 Segment 结构如下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160155.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816160155.png)
 
 像这样的 Segment 对象，在 ConcurrentHashMap 集合中有多少个呢？有 2 的 N 次方个，共同保存在一个名为 segments 的数组当中。 因此整个 ConcurrentHashMap 的结构如下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160223.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816160223.png)
 
 可以说，ConcurrentHashMap 是一个二级哈希表。在一个总的哈希表下面，有若干个子哈希表。
 
 Case1：不同 Segment 的并发写入（可以并发执行）
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160301.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816160301.png)
 
 Case2：同一 Segment 的一写一读（可以并发执行）
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160316.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816160316.png)
 
 Case3：同一 Segment 的并发写入
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816160331.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816160331.png)
 
 Segment 的写入是需要上锁的，因此对同一 Segment 的并发写入会被阻塞。
 
@@ -107,7 +107,7 @@ put 方法
 - 同 [HashMap](https://javabetter.cn/collection/hashmap.html) 一样，链表也会在长度达到 8 的时候转化为红黑树，这样可以提升大量冲突时候的查询效率；
 - 以某个位置的头结点（链表的头结点或红黑树的 root 结点）为锁，配合自旋+ [CAS](https://javabetter.cn/thread/cas.html) 避免不必要的锁开销，进一步提升并发性能。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/map-20230816155924.png)
+![](https://cdn.paicoding.com/stutymore/map-20230816155924.png)
 
 相比 JDK1.7 中的 ConcurrentHashMap，JDK1.8 中的 ConcurrentHashMap 取消了 Segment 分段锁，采用 CAS + synchronized 来保证并发安全性，整个容器只分为一个 Segment，即 table 数组。
 
@@ -743,7 +743,7 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
 3. 如果这个位置是 TreeBin 节点（`fh<0`），也做一个反序处理，并且判断是否需要 untreefi，把处理的结果分别放在 nextTable 的 i 和 i+n 的位置上；
 4. 遍历所有的节点，就完成复制工作，这时让 nextTable 作为新的 table，并且更新 sizeCtl 为新容量的 0.75 倍 ，完成扩容。
 
-![ConcurrentHashMap扩容示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentHashMap-02.png)
+![ConcurrentHashMap扩容示意图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentHashMap-02.png)
 
 ### size 相关的方法
 
@@ -934,4 +934,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

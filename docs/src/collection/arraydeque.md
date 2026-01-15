@@ -22,7 +22,7 @@ public interface Queue<E> extends Collection<E> {}
 
 当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*（双端队列），原因我们第一次讲[集合框架](https://javabetter.cn/collection/gailan.html)的时候，其实已经聊过了，Stack 是一个“原始”类，它的核心方法上都加了 `synchronized` 关键字以确保线程安全，当我们不需要线程安全（比如说单线程环境下）性能就会比较差。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraydeque-51e3552c-af39-4d00-8494-1ff0a4913357.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/collection//arraydeque-51e3552c-af39-4d00-8494-1ff0a4913357.png)
 
 也就是说，当需要使用栈时候，请首选*ArrayDeque*。
 
@@ -201,7 +201,7 @@ while (iterator.hasNext()) {
 
 *ArrayDeque*是非线程安全的（not thread-safe），当多个线程同时使用的时候，需要手动同步；另外，该容器不允许放入`null`元素。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
 
 
 上图中我们看到，**`head`指向首端第一个有效元素，`tail`指向尾端第一个可以插入元素的空位**。因为是循环数组，所以`head`不一定总等于 0，`tail`也不一定总是比`head`大。
@@ -213,7 +213,7 @@ while (iterator.hasNext()) {
 `addFirst(E e)`的作用是在*Deque*的首端插入元素，也就是在`head`的前面插入元素，在空间足够且下标没有越界的情况下，只需要将`elements[--head] = e`即可。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
 
 实际需要考虑：
 
@@ -240,7 +240,7 @@ public void addFirst(E e) {
 
 下面再说说扩容函数`doubleCapacity()`，其逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。过程如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
 
 图中我们看到，复制分两次进行，第一次复制`head`右边的元素，第二次复制`head`左边的元素。
 
@@ -273,7 +273,7 @@ private void doubleCapacity() {
 
 `addLast(E e)`的作用是在*Deque*的尾端插入元素，也就是在`tail`的位置插入元素，由于`tail`总是指向下一个可以插入的空位，因此只需要`elements[tail] = e;`即可。插入完成后再检查空间，如果空间已经用光，则调用`doubleCapacity()`进行扩容。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
 
 ```java
 public void addLast(E e) {
@@ -376,4 +376,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

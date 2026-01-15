@@ -31,7 +31,7 @@ head:
 
 Java 是一门计算机编程语言，高级、健壮、面向对象，并且非常安全。它由 Sun 公司在 1995 年开发，主力开发叫 James Gosling，被称为 Java 之父，就是下图这位，头秃的厉害。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/one-01.png)
 
 “三妹啊，你要不要再考虑考虑？做程序员不容易啊，很容易头秃的！”
 
@@ -47,7 +47,7 @@ James Gosling 回忆说，“Java”是一个叫 Mark Opperman 的人提议的�
 
 使用十六进制编辑器（比如说 [wxMEdit](https://wxmedit.github.io/zh_CN/)）打开由 Java 源代码编译出的二进制文件（.class 文件，后面会详细介绍，先不着急），就可以看得到，最前面的 8 个字符是 CA FE BA BE（定义文件类型的魔数），即词组“CAFE BABE”（咖啡屋宝贝），是不是还挺有意思的？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/one-02.png)
 
 “二哥，能给我展示一段 Java 代码吗？我想近距离感受一下。”
 
@@ -83,7 +83,7 @@ Sun 公司为了抢占市场先机，在 1991 年成立了一个由詹姆斯·�
 
 **Oak** 是“Java”的第二个名字，这次就有点意义了。Oak（橡树）是力量的象征，被美国、法国、德国等许多欧美国家选为国树。橡树长下面这样。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/two-01.png)
 
 1992 年，Oak 的雏形有了，但项目组在向硬件生产商进行商演的时候，并没有获得认可，于是 Oak 就被搁置一旁了。
 
@@ -97,7 +97,7 @@ Sun 公司为了抢占市场先机，在 1991 年成立了一个由詹姆斯·�
 
 “Java”是印度尼西亚爪哇岛的英文名，因生产咖啡而闻名，所以，小伙伴也看到了，Java 这个单词经常和一杯冒着热气的咖啡一起出现。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/two-02.png)
 
 同年，Sun 公司在 SunWorld 大会上正式发布了 Java 1.0 版本，第一次提出了“Write Once, Run anywhere”的口号。《时代》杂志将 Java 评为 1995 年十大最佳产品之一。
 
@@ -147,7 +147,7 @@ Java 在云时代面临着以 Go 语言为主的容器（Docker 等技术）生�
 
 尽管 Java 已经 25 岁了，但仍然“宝刀未老”。在 Stack Overflow 2019 年流行编程语言调查报告中，Java 位居第 5 位，有 41% 的受调开发者认为 Java 仍然是一门受欢迎的编程语言。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/three-01.png)
 
 国内对 Java 的使用率远超国外，所以国内 Java 的市场占有率更大，不管是 2020 年还是 2021、2022、2023 年，短时间内，Java 的霸主地位很难撼动。
 
@@ -202,7 +202,7 @@ Java 在多线程方面做得非常突出，只要操作系统支持，Java 中�
 
 #### 物联网（IoT）领域：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/three-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/three-02.png)
 
 Oracle 表示，灵活性和流行度是 IoT 程序员选择 Java 的主要原因。Java 提供了大量的 API 库，可以很容易应用到嵌入式应用程序中。相比其他编程语言，比如 C 语言，Java 在切换平台时更加顺畅，不容易出错。
 
@@ -253,11 +253,11 @@ Java 技术对 Web 领域的发展注入了强大的动力，主流的 Java Web 
 
 下图是号称史上最惨的 23 届秋招 Java 岗的薪资状况。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/what-is-java-d5e8b87c-741b-49c8-a6d9-7b8bb9ba803b.png)
 
 24 届秋招 Java 岗的薪资情况。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-java-20240122121356.png)
+![](https://cdn.paicoding.com/stutymore/what-is-java-20240122121356.png)
 
 小红书的 Java 后端岗本科 985 能拿到 48 万的年包，还是很恐怖的，所以，学习 Java 还是很有“**钱秃**”的。
 
@@ -269,5 +269,5 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 

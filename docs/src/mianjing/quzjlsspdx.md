@@ -15,11 +15,11 @@ head:
 
 大家好，我是二哥呀！最近认识个读者，我的老乡，双非一本，秋招收获包含腾讯ieg游戏后台，百度，字节在内等6家大厂offer，最终选择接受字节SSP。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-f5b6ee1d-88fc-4d0d-a286-85064c0450fe.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-f5b6ee1d-88fc-4d0d-a286-85064c0450fe.jpg)
 
 原因无他：**给的实在是太多了，具体薪资我就不透露了，大家可以在评论区猜一波哈，猜中的小伙伴有奖励。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-168756c1-7341-4106-83ad-88a00a6f340e.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-168756c1-7341-4106-83ad-88a00a6f340e.jpg)
 
 下面给大家分享一下读者的秋招经验贴，希望能给其他小伙伴一点点启发和帮助：减少关注的圈子，注重提升自己的能力。
 
@@ -54,7 +54,7 @@ Offer 的情况都比较普通，这里着重聊聊我对 22 届互联网秋招�
 
 快速发展的互联网行业，越来越多的研究生大军不断涌入，也属实没什么办法。如果学历不够的话，想进入规模较大的公司发展，就尽快尽量地提高学历吧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-29c15502-9402-46d9-b2fe-128610da13b6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-29c15502-9402-46d9-b2fe-128610da13b6.jpg)
 
 去年的小红书三本事件
 
@@ -76,7 +76,7 @@ Offer 的情况都比较普通，这里着重聊聊我对 22 届互联网秋招�
 
 之前我经常给身边的朋友、同学推荐 **超级简历** 这个平台，没什么优点，就是纯粹。它支持单个简历的各种操作免费，例如编辑、下载等等，对于我们来说足够用了，但是现在即使单个简历，下载也是要付费购买会员的，**所以我现在并不推荐了。**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-8d32e1cc-d8ac-4caf-9e0c-a55ad1035392.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-8d32e1cc-d8ac-4caf-9e0c-a55ad1035392.jpg)
 
 后来我改用了一个国外的平台 FlowCV，完全免费，且无广告，支持高度自定义，后续如果大家想了解，我可以单独出一期讲解使用。
 
@@ -106,7 +106,7 @@ Offer 的情况都比较普通，这里着重聊聊我对 22 届互联网秋招�
 
 所以我的建议是，能去大厂实习尽量去大厂实习一次，2 个月以上，实在不行去中等规模的也行，但是不要去太小的，因为你得不到太多的锻炼，很容易耽误时间。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-f7247d17-4dce-4c9b-a036-69aae6ca1207.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-f7247d17-4dce-4c9b-a036-69aae6ca1207.jpg)
 
 我的秋招简历实习与开源部分
 
@@ -120,7 +120,7 @@ Offer 的情况都比较普通，这里着重聊聊我对 22 届互联网秋招�
 
 我是在大三拿到腾讯实习 Offer 后，遭遇公司所在地疫情，遂线上入职，后续就连续线上实习直到离职了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-6718fd40-3f31-4cb4-aebf-e73bbb9620bc.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-6718fd40-3f31-4cb4-aebf-e73bbb9620bc.jpg)
 
 腾讯远程实习
 
@@ -138,19 +138,19 @@ Offer 的情况都比较普通，这里着重聊聊我对 22 届互联网秋招�
 
 有好多都是大家耳熟能详的项目，比如 RocketMQ，Dubbo 等，国内的这个活动因为刚开不久少一点，但依然有 20+ 社区。GSOC 因为规模大，活动年份久，已经有 200+ 个知名成熟项目了，里面绝对有你了解，甚至整天在用的库。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-6da70975-9d78-4251-a2d8-deddd5ab34e1.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-6da70975-9d78-4251-a2d8-deddd5ab34e1.jpg)
 
 国内的社区列表，有20+个社区
 
 GSOC 项目多而且整个流程非常规范，参与者都是来自世界各地的学生，大家交流可以通过电报，Email 等手段。而且不仅有软件方面，我去年在逛社区的时候就发现了 Arduino 项目，其中任务之一是为 Arduino 标准库贡献指定功能的轮子，一旦发布通过，就可以让全世界的上位机运行你的代码了，想一想是不是很酷。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-2d4fd29e-21eb-44cb-b20c-bbfc2eec5aef.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-2d4fd29e-21eb-44cb-b20c-bbfc2eec5aef.jpg)
 
 GSOC项目列表，可以按照编程语言等条件分类筛选项
 
 我去年由于时间较晚，参加的是国内的，整个时间周期是每年中下旬，大概 6-9月，持续三个月。GSOC 的话 2 月底就报名了，想参加的同学一定要提前准备。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-473051d2-bd54-45cc-8be9-f6f4d0077615.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-473051d2-bd54-45cc-8be9-f6f4d0077615.jpg)
 
 CSOC 开源项目结项通知
 
@@ -171,7 +171,7 @@ CSOC 开源项目结项通知
 
 在参与开源时，不仅可以锻炼你的项目/工程经验，也可以在实际场景中熟练应用并理解 Git 等软件，这与工作中是没有任何区别的，你会经历回滚，合并提交等等操作，也可能会帮别人 code review。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-15f30221-60a4-44f5-9de4-a975d6a8d541.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-quzjlsspdx-15f30221-60a4-44f5-9de4-a975d6a8d541.jpg)
 
 2021年我的代码提交记录
 
@@ -200,4 +200,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

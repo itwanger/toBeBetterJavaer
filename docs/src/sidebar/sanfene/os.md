@@ -22,11 +22,11 @@ head:
 
 操作系统（Operating System, OS）是计算机系统中管理硬件和软件资源的中间层系统，屏蔽了硬件的复杂性，并且为用户提供了便捷的交互方式，比如说 Windows、Linux、MacOS 等。
 
-![三分恶面渣逆袭：操作系统是什么](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-be55aec1-e7ab-433f-97f1-14d99960b6bf.png)
+![三分恶面渣逆袭：操作系统是什么](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-be55aec1-e7ab-433f-97f1-14d99960b6bf.png)
 
 ### 02、操作系统主要有哪些功能？
 
-![ 三分恶面渣逆袭：操作系统主要功能](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-eee82952-c96f-45c9-835e-29db37c0f6d8.png)
+![ 三分恶面渣逆袭：操作系统主要功能](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-eee82952-c96f-45c9-835e-29db37c0f6d8.png)
 
 ①、负责创建和终止进程。进程是正在运行的程序实例，每个进程都有自己的地址空间和资源。
 
@@ -43,7 +43,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 操作系统结构
 
@@ -58,7 +58,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 - 内核空间，是操作系统内核代码及其运行时数据结构所在的内存区域，拥有对系统所有资源的完全访问权限，如进程管理、内存管理、文件系统、网络堆栈等。
 - ⽤户空间，是操作系统为应用程序（如用户运行的进程）分配的内存区域，用户空间中的进程不能直接访问硬件或内核数据结构，只能通过系统调用与内核通信。
 
-![二哥的 Java 进阶之路：用户空间和内核空间](https://cdn.tobebetterjavaer.com/stutymore/os-20240724170451.png)
+![二哥的 Java 进阶之路：用户空间和内核空间](https://cdn.paicoding.com/stutymore/os-20240724170451.png)
 
 当程序使⽤⽤户空间时，我们常说该程序在 **⽤户态** 执⾏，⽽当程序使内核空间时，程序则在 **内核态** 执⾏。
 
@@ -68,7 +68,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 当应用程序执行系统调用时，CPU 将从用户态切换到内核态，进入内核空间执行相应的内核代码，然后再切换回用户态。
 
-![三分恶面渣逆袭：用户态&内核态切换](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-b358cdae-18b6-45d4-8a5b-4ea3a7cfc273.png)
+![三分恶面渣逆袭：用户态&内核态切换](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-b358cdae-18b6-45d4-8a5b-4ea3a7cfc273.png)
 
 系统调用是应用程序请求操作系统内核提供服务的接口，如文件操作（如 open、read、write）、进程控制（如 fork、exec）、内存管理（如 mmap）等。
 
@@ -78,7 +78,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 进程和线程
 
@@ -88,11 +88,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 并行就是在同一时刻，有多个任务在执行。这个需要多核处理器才能完成，在微观上就能同时执行多条指令，不同的程序被放到不同的处理器上运行，这个是物理上的多个进程同时进行。
 
-![并发和并行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-fb7891d8-8330-494b-9bc1-cf829b5cc82d.png)
+![并发和并行](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-fb7891d8-8330-494b-9bc1-cf829b5cc82d.png)
 
 ### 07、什么是进程上下文切换？
 
-![三分恶面渣逆袭：进程上下文切换](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-187d1cf9-971d-4395-b888-5e6eaf2be5f1.png)
+![三分恶面渣逆袭：进程上下文切换](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-187d1cf9-971d-4395-b888-5e6eaf2be5f1.png)
 
 上下文切换是操作系统在多任务处理环境中，将 CPU 从一个进程切换到另一个进程的过程。通过让多个进程共享 CPU 资源，使系统能够并发执行多个任务。
 
@@ -114,14 +114,14 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 - 就绪状态（_Ready_）：可运⾏，由于其他进程处于运⾏状态⽽暂时停⽌运⾏；
 - 阻塞状态（_Blocked_）：该进程正在等待某⼀事件发⽣（如等待输⼊/输出操作的完成）⽽暂时停⽌运⾏，这时，即使给它 CPU 控制权，它也⽆法运⾏；
 
-![进程3种状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5df30631-ad7d-4c65-af20-50b7b615eca8.png)
+![进程3种状态](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-5df30631-ad7d-4c65-af20-50b7b615eca8.png)
 
 当然，进程还有另外两个基本状态：
 
 - 创建状态（_new_）：进程正在被创建时的状态；
 - 结束状态（_Exit_）：进程正在从系统中消失时的状态；
 
-![进程5种状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-ae17a9dc-f555-481a-ba4a-caca06120be7.png)
+![进程5种状态](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-ae17a9dc-f555-481a-ba4a-caca06120be7.png)
 
 ### 09、什么是僵尸进程？
 
@@ -138,31 +138,31 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 进程调度是操作系统中的核心功能之一，它负责决定哪些进程在何时使用 CPU。这一决定基于系统中的进程调度算法。
 
 
-![DIDA-lJ-进程调度算法](https://cdn.tobebetterjavaer.com/stutymore/os-20240426094442.png)
+![DIDA-lJ-进程调度算法](https://cdn.paicoding.com/stutymore/os-20240426094442.png)
 
 ①、**先来先服务**
 
 这是最简单的调度算法，也称为先进先出（FIFO）。进程按照请求 CPU 的顺序进行调度。这种方式易于实现，但可能会导致较短的进程等待较长进程执行完成，从而产生“饥饿”现象。
 
-![三分恶面渣逆袭：先来先服务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-93088d03-80c9-46c5-9eaf-eead2adb6e12.png)
+![三分恶面渣逆袭：先来先服务](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-93088d03-80c9-46c5-9eaf-eead2adb6e12.png)
 
 ②、**短作业优先**
 
 选择预计运行时间最短的进程优先执行。这种方式可以减少平均等待时间和响应时间，但缺点是很难准确预知进程的执行时间，并且可能因为短作业一直在执行，导致长作业持续被推迟执行。
 
-![三分恶面渣逆袭：短作业优先](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-517e8392-64fe-4de3-9e1c-b3a944822aba.png)
+![三分恶面渣逆袭：短作业优先](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-517e8392-64fe-4de3-9e1c-b3a944822aba.png)
 
 ③、**优先级调度**
 
 在这种调度方式中，每个进程都被分配一个优先级。CPU 首先分配给优先级最高的进程。优先级调度可以是非抢占式的或抢占式的。在非抢占式优先级调度中，进程一旦开始执行将一直运行直到完成；在抢占式优先级调度中，更高优先级的进程可以中断正在执行的低优先级进程。
 
-![三分恶面渣逆袭：优先级调度](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-7c4441cf-7b8c-4660-8ba8-29b8076e2da1.png)
+![三分恶面渣逆袭：优先级调度](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-7c4441cf-7b8c-4660-8ba8-29b8076e2da1.png)
 
 ④、**时间片轮转**
 
 时间片轮转调度为每个进程分配一个固定的时间段，称为时间片，进程可以在这个时间片内运行。如果进程在时间片结束时还没有完成，它将被放回队列的末尾。时间片轮转是公平的调度方式，可以保证所有进程得到公平的 CPU 时间，适用于共享系统。
 
-![三分恶面渣逆袭：时间片轮转](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-ad224c3a-8ac9-4230-84e4-ec434d5b49f9.png)
+![三分恶面渣逆袭：时间片轮转](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-ad224c3a-8ac9-4230-84e4-ec434d5b49f9.png)
 
 
 ⑤、**最短剩余时间优先**
@@ -179,7 +179,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 可以将这种调度算法看成是时间片轮转调度算法与优先级调度算法的结合。
 
-![DIDA-lJ-多级反馈队列](https://cdn.tobebetterjavaer.com/stutymore/os-20240426094524.png)
+![DIDA-lJ-多级反馈队列](https://cdn.paicoding.com/stutymore/os-20240426094524.png)
 
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 9 Java 通用软件开发一面面试原题：进程的调度方式
@@ -190,7 +190,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 进程间通信的方式有 6 种，管道、信号、消息队列、共享内存、信号量和套接字。
 
-![编程十万问：进程间通信](https://cdn.tobebetterjavaer.com/stutymore/os-20240314073226.png)
+![编程十万问：进程间通信](https://cdn.paicoding.com/stutymore/os-20240314073226.png)
 
 #### 简单说说管道：
 
@@ -198,11 +198,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 **进程间的管道就是内核中的一串缓存**，从管道的一端写入数据，另一端读取。数据只能单向流动，遵循先进先出（FIFO）的原则。
 
-![编程十万问：管道](https://cdn.tobebetterjavaer.com/stutymore/os-20240314073535.png)
+![编程十万问：管道](https://cdn.paicoding.com/stutymore/os-20240314073535.png)
 
 ①、**匿名管道**：允许具有亲缘关系的进程（如父子进程）进行通信。
 
-![三分恶面渣逆袭：“奉先我儿”](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5994e202-0d59-4a86-8f79-a17a5d0bd3d3.png)
+![三分恶面渣逆袭：“奉先我儿”](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-5994e202-0d59-4a86-8f79-a17a5d0bd3d3.png)
 
 使用 C 语言在 Unix/Linux 环境下通过匿名管道实现两个进程（通常是父子进程）之间通信的示例：
 
@@ -274,11 +274,11 @@ int main() {
 
 消息队列是保存在内核中的消息链表，按照消息的类型进行消息传递，具有较高的可靠性和稳定性。
 
-![编程十万问：消息队列](https://cdn.tobebetterjavaer.com/stutymore/os-20240314075045.png)
+![编程十万问：消息队列](https://cdn.paicoding.com/stutymore/os-20240314075045.png)
 
 缺点：消息体有一个最大长度的限制，不适合比较大的数据传输；存在用户态与内核态之间的数据拷贝开销。
 
-![编程十万问：消息队列](https://cdn.tobebetterjavaer.com/stutymore/os-20240314075326.png)
+![编程十万问：消息队列](https://cdn.paicoding.com/stutymore/os-20240314075326.png)
 
 #### 简单说说共享内存：
 
@@ -286,7 +286,7 @@ int main() {
 
 共享内存是最快的进程间通信方式，它是针对其他进程间通信方式运行效率低而专门设计的。
 
-![三分恶面渣逆袭：共享内存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-d9e3cfaf-01e7-42ff-9290-94ef4a5c7d5e.png)
+![三分恶面渣逆袭：共享内存](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-d9e3cfaf-01e7-42ff-9290-94ef4a5c7d5e.png)
 
 缺点：当多进程竞争同一个共享资源时，会造成数据错乱的问题。
 
@@ -294,7 +294,7 @@ int main() {
 
 信号量可以理解成红绿灯，红灯停（信号量为零），绿灯行（信号量非零）。**它本质上是一个计数器**，用来控制对共享资源的访问数量。
 
-![三分恶面渣逆袭：信号量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5fb765af-918c-4037-a3ad-4cad4d985e16.png)
+![三分恶面渣逆袭：信号量](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-5fb765af-918c-4037-a3ad-4cad4d985e16.png)
 
 它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。Java 中的 [java.util.concurrent.Semaphore 类](https://javabetter.cn/thread/CountDownLatch.html#semaphore)就实现了类似的功能。
 
@@ -303,13 +303,13 @@ int main() {
 - ⼀个是 **P 操作**（wait，减操作），当进程希望获取资源时，它会执行 P 操作。如果信号量的值大于 0，表示有资源可用，信号量的值减 1，进程继续执行。如果信号量的值为 0，表示没有可用资源，进程进入等待状态，直到信号量的值变为大于 0。
 - 另⼀个是 **V 操作**（signal，加操作），当进程释放资源时，它会执行 V 操作，信号量的值加 1。如果有其他进程因为等待该资源而被阻塞，这时会唤醒其中一个进程。
 
-![编程十万问：信号量](https://cdn.tobebetterjavaer.com/stutymore/os-20240314080731.png)
+![编程十万问：信号量](https://cdn.paicoding.com/stutymore/os-20240314080731.png)
 
 #### 简单说说套接字 Socket：
 
 这个和 Java 中的 Socket 很相似，提供网络通信的端点，可以让不同机器上运行的进程之间进行双向通信。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/os-20240314082438.png)
+![](https://cdn.paicoding.com/stutymore/os-20240314082438.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为一面原题：说一下进程的通信机制
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动商业化一面的原题：进程和线程区别，线程共享内存和进程共享内存的区别
@@ -324,7 +324,7 @@ int main() {
 
 线程是进程中的一个执行单元。一个进程可以包含多个线程，它们共享进程的地址空间和资源。
 
-![多线程-图片来源于网络](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-271e450b-66ef-4f6c-b823-8e0b73347825.png)
+![多线程-图片来源于网络](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-271e450b-66ef-4f6c-b823-8e0b73347825.png)
 
 每个进程在独立的地址空间中运行，不会直接影响其他进程。线程共享同一个进程的内存空间、全局变量和文件描述符。
 
@@ -362,15 +362,15 @@ int main() {
 
 - **内核态线程实现**：在内核空间实现的线程，由内核直接管理直接管理线程。
 
-![内核态线程实现](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-30b84285-8027-4720-b50b-3b0fb18c756f.png)
+![内核态线程实现](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-30b84285-8027-4720-b50b-3b0fb18c756f.png)
 
 - **⽤户态线程实现**：在⽤户空间实现线程，不需要内核的参与，内核对线程无感知。
 
-![用户态线程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-57886181-56fe-42bf-85e1-4d062455788a.png)
+![用户态线程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-57886181-56fe-42bf-85e1-4d062455788a.png)
 
 - **混合线程实现**：现代操作系统基本都是将两种方式结合起来使用。用户态的执行系统负责进程内部线程在非阻塞时的切换；内核态的操作系统负责阻塞线程的切换。即我们同时实现内核态和用户态线程管理。其中内核态线程数量较少，而用户态线程数量较多。每个内核态线程可以服务一个或多个用户态线程。
 
-![混合线程实现](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-1597d159-1b07-48ae-ac86-7e9b9cb85876.png)
+![混合线程实现](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-1597d159-1b07-48ae-ac86-7e9b9cb85876.png)
 
 ### 16、线程间如何同步？
 
@@ -378,7 +378,7 @@ int main() {
 
 在操作系统层面，保证线程同步的方式有很多，比如锁、信号量等。那在此之前，需要先了解什么是临界区。
 
-![cxuan：使用临界区的互斥](https://cdn.tobebetterjavaer.com/stutymore/javathread-20241008102844.png)
+![cxuan：使用临界区的互斥](https://cdn.paicoding.com/stutymore/javathread-20241008102844.png)
 
 临界区：对共享资源访问的程序片段，我们希望这段代码是`互斥`的，可以保证在某个时刻只能被一个线程执行，也就是说一个线程在临界区执行时，其它线程应该被阻止进入临界区。
 
@@ -412,7 +412,7 @@ int main() {
 
 在两个或者多个并发线程中，如果每个线程持有某种资源，而又等待其它线程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组线程产生了死锁。通俗的讲就是两个或多个线程无限期的阻塞、相互等待的一种状态。
 
-![死锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-e0069c37-d758-4df0-a2fd-3722ec93c61a.png)
+![死锁](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-e0069c37-d758-4df0-a2fd-3722ec93c61a.png)
 
 ### 18、死锁产生有哪些条件？
 
@@ -476,7 +476,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 内存管理
 
@@ -488,7 +488,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 虚拟内存是操作系统提供的一种内存管理技术，它使得应用程序认为自己有连续的、独立的内存空间，而实际上，这个虚拟内存可能部分存储在物理内存上，部分存储在 **磁盘（如硬盘的交换分区或页面文件）** 中。
 
-![三分恶面渣逆袭：虚拟内存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-ec171cea-0046-4709-a390-7babf3272c49.png)
+![三分恶面渣逆袭：虚拟内存](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-ec171cea-0046-4709-a390-7babf3272c49.png)
 
 虚拟内存的核心思想是通过硬件和操作系统的配合，为每个进程提供一个独立的、完整的虚拟地址空间，解决物理内存不足的问题。
 
@@ -509,11 +509,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 虚拟地址和物理地址通过段表映射，段表主要包括**段号**、`段的界限`。
 
-![虚拟地址、段表、物理地址](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-075df152-7b77-40c7-abdb-1aa0280d958b.png)
+![虚拟地址、段表、物理地址](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-075df152-7b77-40c7-abdb-1aa0280d958b.png)
 
 我们来看一个映射，虚拟地址：段 3、段偏移量 500 ----> 段基地址 7000+段偏移量 500 ----> 物理地址：8700+。
 
-![段虚拟地址映射](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-a57baf1c-9612-49dd-8b23-8b00a0c63cef.png)
+![段虚拟地址映射](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-a57baf1c-9612-49dd-8b23-8b00a0c63cef.png)
 
 ### 23、什么是内存分页？
 
@@ -521,7 +521,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 访问分页系统中内存数据需要两次的内存访问 ：一次是从内存中访问页表，从中找到指定的物理页号，加上页内偏移得到实际物理地址，第二次就是根据第一次得到的物理地址访问内存取出数据。
 
-![内存分页](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-4cdd5179-4b88-4aa6-b9c2-9ef8fdc745dc.png)
+![内存分页](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-4cdd5179-4b88-4aa6-b9c2-9ef8fdc745dc.png)
 
 ### 24、多级页表知道吗？
 
@@ -529,7 +529,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 多级页表（Multilevel Page Table）是一种内存管理技术，用于在虚拟内存系统中高效地管理和转换虚拟地址到物理地址。它通过分层结构减少页表所需的内存开销，以解决单级页表在大地址空间中的效率问题。
 
-![三分恶面渣逆袭：多级页表示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-3021f22f-b9a3-49d9-9e80-6d3abaf5a61a.png)
+![三分恶面渣逆袭：多级页表示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-3021f22f-b9a3-49d9-9e80-6d3abaf5a61a.png)
 
 在虚拟内存系统中，虚拟地址需要转换为物理地址。页表是实现这种转换的关键数据结构。对于 32 位系统，一个进程的地址空间可以达到 4 GB，如果使用单级页表，每个页表条目（PTE）占用 4 字节，则需要 4 MB 的内存来存储页表。然而，许多进程只使用其中的一小部分地址空间，导致单级页表的内存浪费。
 
@@ -552,7 +552,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 利⽤这⼀特性，把最常访问的⼏个⻚表项存储到访问速度更快的硬件，于是计算机科学家们，就在 CPU 芯⽚中，加⼊了⼀个专⻔存放程序最常访问的⻚表项的 Cache，这个 Cache 就是 TLB（_Translation Lookaside Buffer_） ，通常称为⻚表缓存、转址旁路缓存、快表等。
 
-![TLB示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-cdc02a2f-59bf-45dc-8531-83b46f77bd65.png)
+![TLB示意图-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-cdc02a2f-59bf-45dc-8531-83b46f77bd65.png)
 
 ### 26、分页和分段有什么区别？
 
@@ -594,19 +594,19 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 页面置换算法的目标是最小化缺页中断的次数，常见的页面置换算法有最佳⻚⾯置换算法（_OPT_）、先进先出置换算法（_FIFO_）、最近最久未使⽤的置换算法（_LRU_）和时钟页面置换算法等。
 
-![三分恶面渣逆袭：常见页面置换算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-6effefb6-67d2-4155-a3fc-4b27a319391a.png)
+![三分恶面渣逆袭：常见页面置换算法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-6effefb6-67d2-4155-a3fc-4b27a319391a.png)
 
 ①、**最佳⻚⾯置换算法**
 
 基本思路是，淘汰以后不会使用的页面。这是理论上的最佳算法，因为它可以保证最低的缺页率。但在实际应用中，由于无法预知未来的访问模式，OPT 通常无法实现。
 
-![Leophen：OPT](https://cdn.tobebetterjavaer.com/stutymore/os-20240329093358.png)
+![Leophen：OPT](https://cdn.paicoding.com/stutymore/os-20240329093358.png)
 
 ②、**先进先出置换算法**
 
 基本思路是，优先淘汰最早进入内存的页面。FIFO 算法维护一个队列，新来的页面加入队尾，当发生页面置换时，队头的页面（即最早进入内存的页面）被移出。
 
-![三分恶面渣逆袭：按照进入内存早晚构建的页面链表 ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-8cccc78d-ba25-4c0a-8ee8-0913e80af7b7.png)
+![三分恶面渣逆袭：按照进入内存早晚构建的页面链表 ](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-8cccc78d-ba25-4c0a-8ee8-0913e80af7b7.png)
 
 ③、**最近最久未使⽤的置换算法**
 
@@ -614,7 +614,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 相对更接近最优算法的效果，因为最近未使用的页面可能在将来也不会被使用。但 LRU 算法的实现需要跟踪页面的访问历史，可能会增加系统的开销。
 
-![三分恶面渣逆袭：LRU实现](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-90810f7f-aa5b-4626-9761-c2c622b5e561.png)
+![三分恶面渣逆袭：LRU实现](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-90810f7f-aa5b-4626-9761-c2c622b5e561.png)
 
 ④、**时钟页面置换算法**
 
@@ -622,7 +622,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 当需要页面置换时，时钟指针会顺时针移动，直到找到使用位为 0 的页面进行置换。这个过程类似于给每个页面一个二次机会。算法执行时，会先将使用位从 1 清零，如果该页面再次被访问，它的使用位再次被设置为 1。
 
-![三分恶面渣逆袭：时钟页面置换算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-3646408f-999e-48a1-84e9-113525778aca.png)
+![三分恶面渣逆袭：时钟页面置换算法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-3646408f-999e-48a1-84e9-113525778aca.png)
 
 ⑤、**最不常⽤置换算法**
 
@@ -634,7 +634,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 文件
 
@@ -642,11 +642,11 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 - 硬链接就是在目录下创建一个条目，记录着文件名与 inode 编号，这个 inode 就是源文件的 inode。删除任意一个条目，文件还是存在，只要引用数量不为 0。但是硬链接有限制，它不能跨越文件系统，也不能对目录进行链接。
 
-![硬链接-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-d3f778f9-506b-4b93-9fb7-40eb0a79874e.png)
+![硬链接-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-d3f778f9-506b-4b93-9fb7-40eb0a79874e.png)
 
 - 软链接相当于重新创建⼀个⽂件，这个⽂件有**独⽴的** **inode**，但是这个**⽂件的内容是另外⼀个⽂件的路径**，所以访问软链接的时候，实际上相当于访问到了另外⼀个⽂件，所以**软链接是可以跨⽂件系统的**，甚⾄**⽬标⽂件被删除了，链接⽂件还是在的，只不过打不开指向的文件了而已。**
 
-  ![软链接-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-81abf13c-5c60-4263-8fcb-c79c33d865e8.png)
+  ![软链接-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-81abf13c-5c60-4263-8fcb-c79c33d865e8.png)
 
 ## IO
 
@@ -654,7 +654,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 假如需要文件传输，使用传统 I/O，数据读取和写入是用户空间到内核空间来回赋值，而内核空间的数据是通过操作系统的 I/O 接口从磁盘读取或者写入，这期间发生了多次用户态和内核态的上下文切换，以及多次数据拷贝。
 
-![传统文件传输示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-1e595664-6585-4d56-8939-08b7ce510218.png)
+![传统文件传输示意图-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-1e595664-6585-4d56-8939-08b7ce510218.png)
 
 为了提升 I/O 性能，就需要**减少用户态与内核态的上下文切换**和**内存拷贝的次数**。
 
@@ -664,7 +664,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」到⽤户空间，这样，操作系统内核与⽤户空间就不需要再进⾏任何的数据拷⻉操作。
 
-![mmap示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-6dc49f9d-0bc3-4956-a650-7c7236f234a2.png)
+![mmap示意图-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-6dc49f9d-0bc3-4956-a650-7c7236f234a2.png)
 
 - **sendfile**
 
@@ -674,7 +674,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 其次，该系统调⽤，可以直接把内核缓冲区⾥的数据拷⻉到 socket 缓冲区⾥，不再拷⻉到⽤户态，这样就只有 2 次上下⽂切换，和 3 次数据拷⻉。
 
-![sendfile示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-0b087b8a-8d51-4aad-898d-d99c38d36592.png)
+![sendfile示意图-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-0b087b8a-8d51-4aad-898d-d99c38d36592.png)
 
 很多开源项目如 Kafka、RocketMQ 都采用了零拷贝技术来提升 IO 效率。
 
@@ -686,13 +686,13 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 注意，**阻塞等待的是`内核数据准备好`和`数据从内核态拷⻉到⽤户态`这两个过程**。
 
-![阻塞I/O](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-f06db5ff-661c-4ddf-9115-4ed9c9a21d01.png)
+![阻塞I/O](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-f06db5ff-661c-4ddf-9115-4ed9c9a21d01.png)
 
 - **非阻塞 I/O**
 
 ⾮阻塞的 read 请求在数据未准备好的情况下⽴即返回，可以继续往下执⾏，此时应⽤程序不断轮询内核，直到数据准备好，内核将数据拷⻉到应⽤程序缓冲区， read 调⽤才可以获取到结果。
 
-![非阻塞I/O](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-771e014e-7ed9-4101-8bb5-4413b8069fd6.png)
+![非阻塞I/O](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-771e014e-7ed9-4101-8bb5-4413b8069fd6.png)
 
 - **基于非阻塞的 I/O 多路复用**
 
@@ -700,7 +700,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 当内核数据准备好时，以事件通知应⽤程序进⾏操作。
 
-![基于非阻塞的I/O多路复用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-86e54fa3-ad36-43c7-9d2d-5a68139c310f.png)
+![基于非阻塞的I/O多路复用](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-86e54fa3-ad36-43c7-9d2d-5a68139c310f.png)
 
 **注意：**⽆论是阻塞 I/O、还是⾮阻塞 I/O、非阻塞 I/O 多路复用，都是同步调⽤。因为它们在 read 调⽤时，内核将数据从内核空间拷⻉到应⽤程序空间，过程都是需要等待的，也就是说这个过程是**同步**的，如果内核实现的拷⻉效率不⾼，read 调⽤就会在这个同步过程中等待⽐较⻓的时间。
 
@@ -710,7 +710,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 发起 aio_read 之后，就⽴即返回，内核⾃动将数据从内核空间拷⻉到应⽤程序空间，这个拷⻉过程同样是异步的，内核⾃动完成的，和前⾯的同步操作不⼀样，应⽤程序并不需要主动发起拷⻉动作。
 
-![异步/IO](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-869021ed-5e4e-4490-9174-7291d8ddf55c.png)
+![异步/IO](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-869021ed-5e4e-4490-9174-7291d8ddf55c.png)
 
 > 拿例子理解几种 I/O 模型
 
@@ -724,7 +724,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 异步 I/O 就是，老三说 UP 你该更了，UP 赶紧爆肝把视频做出来，然后把视频亲自呈到老三面前，这个过程不用等待。
 
-![鸽宗](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-54c60eb2-2a1c-4268-88b5-6b462e00144c.png)
+![鸽宗](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-54c60eb2-2a1c-4268-88b5-6b462e00144c.png)
 
 ### 32、详细讲一讲 I/O 多路复用？
 
@@ -738,7 +738,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 简单说，就是一个进程/线程维护多个 Socket，这个多路复用就是多个连接复用一个进程/线程。
 
-![I/O多路复用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-9b276b14-eb1b-47bf-b2aa-25212e1bbdf8.png)
+![I/O多路复用](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-9b276b14-eb1b-47bf-b2aa-25212e1bbdf8.png)
 
 我们来看看 I/O 多路复用三种实现机制：
 
@@ -774,7 +774,7 @@ epoll 通过两个⽅⾯，很好解决了 select/poll 的问题。
 
 第⼆点， epoll 使⽤事件驱动的机制，内核⾥**维护了⼀个链表来记录就绪事件**，当某个 socket 有事件发⽣时，通过回调函数，内核会将其加⼊到这个就绪事件列表中，当⽤户调⽤ epoll_wait() 函数时，只会返回有事件发⽣的⽂件描述符的个数，不需要像 select/poll 那样轮询扫描整个 socket 集合，⼤⼤提⾼了检测的效率。
 
-![epoll接口作用-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-cca76ac4-cfb4-4374-8fc6-256cd4d3893f.png)
+![epoll接口作用-来源参考[3]](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/os-cca76ac4-cfb4-4374-8fc6-256cd4d3893f.png)
 
 epoll 的⽅式即使监听的 Socket 数量越多的时候，效率不会⼤幅度降低，能够同时监听的 Socket 的数⽬也⾮常的多了，上限就为系统定义的进程打开的最⼤⽂件描述符个数。因⽽，**epoll** **被称为解决** **C10K** **问题的利器**。
 
@@ -789,7 +789,7 @@ epoll 的⽅式即使监听的 Socket 数量越多的时候，效率不会⼤幅
 
 固态硬盘（Solid State Drive，SSD），SSD 的读写速度比 HDD 快 200 倍左右，价格也在逐渐下降，已经逐渐取代了 HDD。
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/os-20240410101801.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/os-20240410101801.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：普通内存比一般的机械硬盘快多少？
 
@@ -823,4 +823,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

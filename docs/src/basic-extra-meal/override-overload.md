@@ -30,7 +30,7 @@ head:
 
 话音刚落，我就在 IDEA 中噼里啪啦地敲了起来。两段代码，分别是方法重写和方法重载。然后，把这两段代码截图到 draw.io（一个很漂亮的在线画图网站）上，加了一些文字说明。最后，打开 Photoscape X，把两张图片合并到了一起。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/21-01.png)
 
 ### 01、方法重载
 
@@ -104,7 +104,7 @@ class Adder {
 
 “编译时报错优于运行时报错，所以当两个方法的名字相同，参数个数和类型也相同的时候，虽然返回值类型不同，但依然会提示方法已经被定义的错误。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/21-02.png)
 
 “你想啊，三妹。我们在调用一个方法的时候，可以指定返回值类型，也可以不指定。当不指定的时候，直接指定 `add(1, 2)` 的时候，编译器就不知道该调用返回 int 的 `add()` 方法还是返回 double 的 `add()` 方法，产生了歧义。”
 
@@ -142,7 +142,7 @@ String[] args
 
 “由于可以通过改变参数类型的方式实现方法重载，那么当传递的参数没有找到匹配的方法时，就会发生隐式的类型转换。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/override-overload-0d30f41f-1f53-4988-b506-731d79ed16d1.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/override-overload-0d30f41f-1f53-4988-b506-731d79ed16d1.png)
 
 “如上图所示，byte 可以向上转换为 short、int、long、float 和 double，short 可以向上转换为 int、long、float 和 double，char 可以向上转换为 int、long、float 和 double，依次类推。”
 
@@ -218,7 +218,7 @@ public class OverloadingTypePromotion2 {
 
 “当通过 `obj.sum(20, 20)` 来调用 sum 方法的时候，编译器会提示错误。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/21-04.png)
 
 “不明确，编译器会很为难，究竟是把第一个 20 从 int 转成 long 呢，还是把第二个 20 从 int 转成 long，智障了！所以，不能写这样让编译器左右为难的代码。”
 
@@ -353,7 +353,7 @@ public class Animal {
 
 由于父类 Animal 中的 `move()` 是 final 的，所以子类在尝试重写该方法的时候就出现编译错误了！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
 
 同样的，如果一个方法是 [static](https://javabetter.cn/oo/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
 
@@ -365,7 +365,7 @@ public class Animal {
 
 重写的目的在于根据对象的类型不同而表现出多态，而静态方法不需要创建对象就可以使用。没有了对象，重写所需要的“对象的类型”也就没有存在的意义了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
 
 #### **规则三：重写的方法必须有相同的参数列表**。
 
@@ -415,7 +415,7 @@ public class Dog extends Animal {
 
 于是就编译出错了（返回类型不兼容）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
 
 #### **规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
 
@@ -443,7 +443,7 @@ public class Dog extends Animal {
 
 如果子类中的方法用了更严格的权限修饰符，编译器就报错了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
 
 #### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
 
@@ -610,4 +610,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

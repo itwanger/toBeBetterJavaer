@@ -60,7 +60,7 @@ HTTP 是一个用于在 Web 浏览器和 Web 服务器之间传输超文本、�
 
 HTTP 协议依赖于 TCP 协议来传输数据。当 Web 浏览器向 Web 服务器发送 HTTP 请求时，它首先使用 TCP 协议与服务器建立连接。一旦连接建立，HTTP 请求消息会被封装在 TCP 数据包中，然后通过 TCP 信道发送给服务器。服务器收到 TCP 数据包后，解包提取 HTTP 请求消息，处理请求并生成 HTTP 响应消息。最后，HTTP 响应消息被封装在 TCP 数据包中，并通过相同的 TCP 信道发送回客户端。客户端收到 TCP 数据包后，解包提取 HTTP 响应消息并显示给用户。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/http-20230331112928.png)
+![](https://cdn.paicoding.com/stutymore/http-20230331112928.png)
 
 这幅图展示了客户端（Web 浏览器）与服务器（Web 服务器）之间的 HTTP 请求和响应，它们通过可靠的、面向连接的 TCP 连接进行数据传输。
 
@@ -114,13 +114,13 @@ username=沉默王二&password=123456
 
 我用一张思维导图来表示下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/http-20230331114404.png)
+![](https://cdn.paicoding.com/stutymore/http-20230331114404.png)
 
 **响应消息**
 
 一个典型的 HTTP 响应消息由三部分组成：状态行（Status Line）、响应头（Response Headers）、响应体（Response Body）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/http-20230331120336.png)
+![](https://cdn.paicoding.com/stutymore/http-20230331120336.png)
 
 上面两张图，可以让你对 HTTP 请求和响应有个直观映象，接下来开始抓重点。
 
@@ -559,11 +559,11 @@ public class BasicHttpServer {
 
 一个完整的 post 请求如下
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
 
 接下来我们看下打印出返回头的情况
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-59db6211-792a-494f-b01a-9d5848eceed1.gif)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/socket/http-59db6211-792a-494f-b01a-9d5848eceed1.gif)
 
 ### II. 其他
 
@@ -584,4 +584,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

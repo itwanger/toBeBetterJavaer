@@ -17,7 +17,7 @@ Arthas 是阿里开源的一款线上 Java 诊断神器，通过全局的视角�
 
 Arthas 的官方网站是 [https://arthas.aliyun.com/doc/](https://arthas.aliyun.com/doc/)，目前最新的版本是 3.7.2。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109102105.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109102105.png)
 
 比我们前面介绍的[命令行工具](https://javabetter.cn/jvm/console-tools.html)和[可视化工具](https://javabetter.cn/jvm/view-tools.html)，都要强大得多，如果你再遇到下面这些问题，就可以迎刃而解了。
 
@@ -40,7 +40,7 @@ Arthas 的官方网站是 [https://arthas.aliyun.com/doc/](https://arthas.aliyun
 
 我本机已经启动了[技术派](https://paicoding.com/)项目，我们就以技术派为例，来看看 Arthas 的使用。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109104013.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109104013.png)
 
 官方推荐的方式是通过 arthas-boot 来安装，那我们就按照这种来：
 
@@ -51,7 +51,7 @@ java -jar arthas-boot.jar
 
 执行完上述命令后，Arthas 会列出可以进行监控的 Java 进程，比如说下图中的第 2 个 `[2]: 79209 com.github.paicoding.forum.web.QuickForumApplication` 就是技术派的进程，直接输入 `2`，然后回车。Arthas 会连接到技术派的进程上，并输出带有 Arthas 的日志，进入 Arthas 的命令交互界面。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109104757.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109104757.png)
 
 ### Linux 安装
 
@@ -63,7 +63,7 @@ curl -O https://arthas.aliyun.com/arthas-boot.jar
 
 然后执行 `java -jar arthas-boot.jar`，Arthas 会列出可以进行监控的 Java 进程，我们输入 `1`，然后回车，Arthas 就会连接到技术派的进程上，并输出带有 Arthas 的日志，进入 Arthas 的命令交互界面。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109105744.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109105744.png)
 
 OK，非常简单，相信大家都能搞定。
 
@@ -71,7 +71,7 @@ OK，非常简单，相信大家都能搞定。
 
 Arthas 也提供了 IDEA 插件，可以直接在 IDEA 中使用 Arthas，非常方便，我们来看看怎么安装。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109110348.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109110348.png)
 
 官方文档：
 
@@ -105,13 +105,13 @@ Arthas 提供了非常多的命令供我们使用，比如说和 JVM 相关的�
 
 dashboard 命令可以查看 JVM 的实时数据，包括线程、内存、线程、运行时参数等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109112718.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109112718.png)
 
 ### thread 命令
 
 thread 命令可以查看线程的信息，包括线程的状态、线程的堆栈等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109113001.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109113001.png)
 
 thread 命令的参数如下：
 
@@ -130,7 +130,7 @@ thread -state WAITING
 
 sysprop 命令可以查看和修改 JVM 的系统属性。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109113252.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109113252.png)
 
 支持 TAB 键补全命令哈~
 
@@ -142,11 +142,11 @@ logger 命令可以查看和修改日志的级别，这个命令非常有用。
 
 第一步，先用 logger 命令查看默认使用的日志级别：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109113942.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109113942.png)
 
 第二步，使用这个命令`logger --name ROOT --level DEBUG`，将日志级别修改为 DEBUG，再次查看日志级别，发现已经修改成功了：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109114316.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109114316.png)
 
 ### sc 命令
 
@@ -154,15 +154,15 @@ sc 命令可以查看类的信息，包括类的结构、方法、字段等。
 
 示例 1：通过 `sc com.github.paicoding.forum.web.front.*` 查看包下的所有类：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109114902.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109114902.png)
 
 示例 2：通过 `sc -d com.github.paicoding.forum.web.front.home.IndexController` 查看类的详细信息：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109115043.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109115043.png)
 
 示例 3：通过 `sc -d -f com.github.paicoding.forum.web.front.home.vo.IndexVo` 查看类的字段信息：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109115332.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109115332.png)
 
 ### jad 命令
 
@@ -170,7 +170,7 @@ jad 命令可以反编译类的字节码，如果觉得线上代码和预期的�
 
 示例 1：通过 `jad com.github.paicoding.forum.web.front.home.IndexController` 反编译类的字节码：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109115544.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109115544.png)
 
 ### monitor 命令
 
@@ -178,7 +178,7 @@ monitor 命令可以监控方法的执行信息，包括执行耗时等信息。
 
 示例 1：通过 `monitor -c 3 com.github.paicoding.forum.web.front.home.IndexController index` 监控方法的执行信息，`-c` 参数表示监控的次数：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109115828.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109115828.png)
 
 ### watch 命令
 
@@ -186,7 +186,7 @@ watch 命令可以观察方法执行过程中的参数和返回值。
 
 示例 1：通过 `watch com.github.paicoding.forum.web.front.home.IndexController index` 观察方法的执行过程中的参数和返回值：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109124522.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109124522.png)
 
 
 
@@ -194,11 +194,11 @@ watch 命令可以观察方法执行过程中的参数和返回值。
 
 Arthas 非常强大，还有很多插件可以配合使用，比如我们前面提到的 Arthas IDEA 插件，支持的命令还有以下这些：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109140000.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109140000.png)
 
 文档写得也非常完整，我就不再赘述了，这篇内容也权当一个抛砖引玉。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/arthas-20240109140405.png)
+![](https://cdn.paicoding.com/stutymore/arthas-20240109140405.png)
 
 等后面遇到线上问题了，再用 Arthas 来实战一把，给大家讲一讲。
 
@@ -216,4 +216,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

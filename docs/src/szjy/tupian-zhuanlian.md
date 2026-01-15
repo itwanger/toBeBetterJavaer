@@ -7,16 +7,16 @@
 ```
 举个例子，现在有这样一段 MD 文档，里面有一张图片。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-1.png)
 ```
 
 把上面的 MD 文档复制到掘金编辑器的时候，就会出现「图片解析中...」！但会一直卡在这里，再也解析不下去了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-2.png)
 
 这是因为图片加了防盗链，掘金这么牛逼的社区在解析的时候也会失败。CSDN 的转链功能更牛逼一点，基本上可以无视防盗链。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-3.png)
 
 还有一些博客平台是没有转链功能的，比如说二哥的静态小破站《二哥的Java进阶之路》。怎么办呢？我一开始的解决方案是：
 
@@ -28,7 +28,7 @@
 
 首先要解决的是图片下载的问题，可以利用爬虫技术：爬虫爬得早，局子进的早。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-4.png)
 
 
 
@@ -40,7 +40,7 @@ Java 爬虫的类库非常多，比如说 crawler4j，我个人更喜欢 jsoup�
 
 jsoup 目前在 GitHub 上已经收获 9.3k+ 的 star，可以说是非常的受欢迎了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-5.png)
 
 jsoup 有以下特性：
 
@@ -86,7 +86,7 @@ for (Element image : images) {
 
 输出结构如下所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-6.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-6.png)
 
 ### 四、下载图片
 
@@ -141,7 +141,7 @@ List<String> list = fileReader.readLines();
 第三步，通过正则表达式来匹配是否有需要替换的图片标签，MD 中的图片标记关键字为 `![]()`。
 
 ```
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-7.png)
 ```
 
 如果匹配到，就替换为 jsDelivr CDN 链接的地址，写文件时需要用到 hutool 的FileWriter 类。
@@ -163,15 +163,15 @@ writer.flush();
 
 转换前的 MD 文件如下所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-8.png)
 
 运行代码转换后，发现图片地址已经变成 jsDelivr CDN 图库了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-9.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-9.png)
 
 使用 GitHub 桌面版把图片和 MD 文档提交到 GitHub 仓库后，就可以看到图片已经加载完成可以访问了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-10.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-10.png)
 
 
 ### 六、一点小心得
@@ -180,10 +180,10 @@ writer.flush();
 
 这不，重新把《二哥的Java进阶之路》的小破站整理排版了一下，新增了不少优质的内容。学习 Java 的小伙伴可以开卷了，有需要增加的内容也欢迎提交 issue 啊！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-11.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/szjy/tupian-zhuanlian-11.png)
 
 再次感谢各位小伙伴的厚爱，我也会一如既往地完善这个专栏，我们下期见~
 
-<img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
+<img src="https://cdn.paicoding.com/tobebetterjavaer/images/xingbiaogongzhonghao.png">
 
 

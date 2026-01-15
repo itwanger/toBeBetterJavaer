@@ -62,7 +62,7 @@ public void write() {
 
 还有一些方法，可以直接查看 API，都很好理解。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/atomic-20230824144636.png)
+![](https://cdn.paicoding.com/stutymore/atomic-20230824144636.png)
 
 为了能够弄懂 AtomicInteger 的实现原理，以 getAndIncrement 方法为例，来看下源码：
 
@@ -299,4 +299,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

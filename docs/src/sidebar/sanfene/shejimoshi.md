@@ -28,7 +28,7 @@ head:
 
 请求会沿着一条链传递，直到有一个对象处理它为止。这种模式常用于处理不同类型的请求以及在不确定具体接收者的情况下将请求传递给多个对象中的一个。
 
-![天未：图解 23 种设计模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240309104732.png)
+![天未：图解 23 种设计模式](https://cdn.paicoding.com/stutymore/shejimoshi-20240309104732.png)
 
 ### 基本概念
 
@@ -181,7 +181,7 @@ Standard Console::Logger: Error 级别
 
 卡车都实现了 deliver 方法，但是卡车的 deliver 是在陆地上运输，而轮船的 deliver 是在海上运输。
 
-![refactoringguru.cn：工厂模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240314083451.png)
+![refactoringguru.cn：工厂模式](https://cdn.paicoding.com/stutymore/shejimoshi-20240314083451.png)
 
 调用工厂方法的代码（客户端代码）无需了解不同子类之间的差别，只管调用接口的 deliver 方法即可。
 
@@ -309,7 +309,7 @@ public class ThreadFactoryDemo {
 
 memo：2025 年 9 月 20 日修改至此，今天球友在面快手的时候，被问了很多[派聪明 RAG 项目](https://javabetter.cn/zhishixingqiu/paismart.html)的题目，说面试官对这个项目非常感兴趣。再次感谢球友的口碑。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-差不多都命中预測的了啊.png)
+![](https://cdn.paicoding.com/stutymore/shejimoshi-差不多都命中预測的了啊.png)
 
 ## 03、什么是单例模式？
 
@@ -317,7 +317,7 @@ memo：2025 年 9 月 20 日修改至此，今天球友在面快手的时候，�
 
 单例模式（Singleton Pattern）是一种创建型设计模式，它确保一个类只有一个实例，并提供一个全局访问点来获取该实例。单例模式主要用于控制对某些共享资源的访问，例如配置管理器、连接池、线程池、日志对象等。
 
-![refactoringguru.cn：单例模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240314085956.png)
+![refactoringguru.cn：单例模式](https://cdn.paicoding.com/stutymore/shejimoshi-20240314085956.png)
 
 ### 实现单例模式的关键点？
 
@@ -364,7 +364,7 @@ public class Singleton {
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用了懒汉式单例模式，实现了一个基于微信 native 支付的 Service。
 
-![技术派：基于双重判空的懒汉式单例](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20241211110812.png)
+![技术派：基于双重判空的懒汉式单例](https://cdn.paicoding.com/stutymore/shejimoshi-20241211110812.png)
 
 #### ③、双重检查锁如何实现单例？
 
@@ -448,7 +448,7 @@ public enum Singleton {
 
 memo：2025 年 8 月 12 日修改至此，今天有球友在VIP 群里讲，他师兄的简历一眼[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)，🤣，看来这个项目的口碑是真不错。
 
-![顺丰 offer 的师兄用的技术派项目](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925184038.png)
+![顺丰 offer 的师兄用的技术派项目](https://cdn.paicoding.com/stutymore/shejimoshi-20250925184038.png)
 
 ## 04、了解哪些设计模式？
 
@@ -458,7 +458,7 @@ memo：2025 年 8 月 12 日修改至此，今天有球友在VIP 群里讲，他
 
 在有多种算法或策略可以切换使用的情况下，我会使用策略模式。像[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我就使用策略模式对接了讯飞星火、OpenAI、智谱 AI 等多家大模型，实现了一个可以自由切换大模型基座的智能助手服务。
 
-![技术派派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240412223832.png)
+![技术派派聪明 AI 助手](https://cdn.paicoding.com/stutymore/shejimoshi-20240412223832.png)
 
 策略模式的好处是，不用在代码中写 if/else 判断，而是将不同的 AI 服务封装成不同的策略类，通过工厂模式创建不同的 AI 服务实例，从而实现 AI 服务的动态切换。
 
@@ -654,13 +654,13 @@ public class DataExportService {
 
 memo：2025 年 9 月 20 日修改至此，今天在帮球友修改简历的时候，收到这样一个反馈：在合肥马上要转正了，薪资给的还可以，已经给周围很多人[安利二哥的项目](https://javabetter.cn/zhishixingqiu/)了，反向很不错。
 
-![球友对星球的口碑](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925180409.png)
+![球友对星球的口碑](https://cdn.paicoding.com/stutymore/shejimoshi-20250925180409.png)
 
 ## 05、什么是策略模式？
 
 策略模式是一种行为型设计模式，它定义了一系列的算法，将每个算法封装起来，使得它们可以相互替换。这种模式通常用于实现不同的业务规则，其中每种策略封装了特定的行为或算法。
 
-![图片来源于天未（闵大为）](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20241111180535.png)
+![图片来源于天未（闵大为）](https://cdn.paicoding.com/stutymore/shejimoshi-20241111180535.png)
 
 特别适合优化程序中的复杂条件分支语句（if-else）。
 
@@ -670,7 +670,7 @@ memo：2025 年 9 月 20 日修改至此，今天在帮球友修改简历的时�
 - **具体策略**：实现策略接口的类，提供具体的算法实现。
 - **上下文**：使用策略的类。通常包含一个引用指向策略接口，可以在运行时改变其具体策略。
 
-![技术派教程](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20240411104918.png)
+![技术派教程](https://cdn.paicoding.com/stutymore/shejimoshi-20240411104918.png)
 
 比如说在技术派中，用户可以自由切换 AI 服务，服务端可以通过 if/esle 进行判断，但如果后续需要增加新的 AI 服务，就需要修改代码，这样不够灵活。
 
@@ -715,11 +715,11 @@ public class XunFeiAiServiceImpl extends AbsChatService {
 
 模板模式（Template Method Pattern）是一种行为型设计模式，它定义了一个操作中的算法骨架，而将一些步骤延迟到子类中实现。模板方法使得子类可以在不改变算法结构的情况下重新定义算法的某些特定步骤。
 
-![refactoringguru.cn：模板模式](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925181116.png)
+![refactoringguru.cn：模板模式](https://cdn.paicoding.com/stutymore/shejimoshi-20250925181116.png)
 
 在 Spring 框架中，有很多模板方法的应用。比如 JdbcTemplate、RestTemplate 这些，它们定义了数据访问的通用流程，我们只需要提供具体的 SQL 或者回调方法。
 
-![JdbcTemplate](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-20250925181306.png)
+![JdbcTemplate](https://cdn.paicoding.com/stutymore/shejimoshi-20250925181306.png)
 
 #### 模版模式在java中具体怎么实现的？
 
@@ -771,7 +771,7 @@ public class TemplateMethodPatternDemo {
 
 memo：2025 年 8 月 12 日修改至此，今天在[帮球友修改简历的时候](https://javabetter.cn/zhishixingqiu/jianli.html)收到这样一个反馈：谢谢暑期实习时对他的简历修改，没有二哥绝对进不了字节。
 
-![字节球友对简历修改的口碑](https://cdn.tobebetterjavaer.com/stutymore/shejimoshi-二哥晚上好，谢谢您春招时对我简历的修改，没有二哥我绝对进不了字节。.png)
+![字节球友对简历修改的口碑](https://cdn.paicoding.com/stutymore/shejimoshi-二哥晚上好，谢谢您春招时对我简历的修改，没有二哥我绝对进不了字节。.png)
 
 ---
 
@@ -802,6 +802,6 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 > 图文详解 5 道设计模式面试高频题，这次吊打面试官，我觉得稳了（手动 dog）。

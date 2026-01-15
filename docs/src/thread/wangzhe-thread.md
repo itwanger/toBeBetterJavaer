@@ -85,7 +85,7 @@ t3.start();
 
 来看一下执行后的结果：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/wangzhe-thread-01.png)
 
 ### 实现 Runnable 接口
 
@@ -124,7 +124,7 @@ t3.start();
 
 来看一下执行后的结果：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/wangzhe-thread-02.png)
 
 ### 实现 Callable 接口
 
@@ -226,7 +226,7 @@ t3.start();
 
 来看一下执行后的结果：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/wangzhe-thread-03.png)
 
 ### 3）setDaemon()
 
@@ -281,7 +281,7 @@ class YieldExample {
 
 运行结果：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/wangzhe-thread-20240110111338.png)
+![](https://cdn.paicoding.com/stutymore/wangzhe-thread-20240110111338.png)
 
 从这个结果可以看得出来，即便有时候让出了控制权，其他线程也不一定会执行。
 
@@ -290,7 +290,7 @@ class YieldExample {
 
 本文主要介绍了 Java 多线程的创建方式，以及线程的一些常用方法。最后再来看一下线程的生命周期吧，一图胜千言。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/wangzhe-thread-04.png)
 
 ---
 
@@ -298,4 +298,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

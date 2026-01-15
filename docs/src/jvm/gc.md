@@ -15,7 +15,7 @@ head:
 
 记得以前有这样一副动图，用来嘲笑 JVM 的垃圾回收机制，大致的意思就是，JVM 的垃圾回收机制很工业化，但是好像是在做无用功，垃圾回收不彻底（😂）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-gc.gif)
+![](https://cdn.paicoding.com/stutymore/gc-gc.gif)
 
 C/C++ 虽然需要手动释放内存，但开发者信誓旦旦，认为自己一定能清理得很彻底。那这次，我们就从头到尾来详细地聊一聊 JVM 的垃圾回收机制，看看到底如何。
 
@@ -33,7 +33,7 @@ Java 语言出来之前，大家都在拼命的写 C 或者 C++ 的程序，而�
 
 > [Lisp](https://lisp-lang.org/) 是一种函数式编程语言，我从官网上截幅图大家感受下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227094028.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227094028.png)
 
 ## 垃圾判断算法
 
@@ -54,7 +54,7 @@ String s = new String("沉默王二");
 
 我们来创建一个[字符串](https://javabetter.cn/string/string-source.html)，这时候"沉默王二"有一个引用，就是 s。此时 Reference Count 为 1。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227095408.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227095408.png)
 
 然后将 s 设置为 null。
 
@@ -64,7 +64,7 @@ s = null;
 
 这时候"沉默王二"的引用次数就等于 0 了，在引用计数算法中，意味着这块内容就需要被回收了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227095728.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227095728.png)
 
 引用计数算法将垃圾回收分摊到整个应用程序的运行当中，而不是集中在垃圾收集时。因此，采用引用计数的垃圾收集不属于严格意义上的"Stop-The-World"的垃圾收集机制（随后我们会细讲）。
 
@@ -99,17 +99,17 @@ public class ReferenceCountingGC {
 
 代码中创建了两个 ReferenceCountingGC 对象 a 和 b。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227103018.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227103018.png)
 
 然后使它们相互引用。接着，将这两个对象的引用设置为 null，理论上它们会在接下来被垃圾回收器回收。但由于它们相互引用着对方，导致它们的引用计数永远都不会为 0，通过引用计数算法，也就永远无法通知 GC 收集器回收它们。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227103102.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227103102.png)
 
 ### 可达性分析算法
 
 可达性分析算法（Reachability Analysis）的基本思路是，通过 GC Roots 作为起点，然后向下搜索，搜索走过的路径被称为 Reference Chain（引用链），当一个对象到 GC Roots 之间没有任何引用相连时，即从 GC Roots 到该对象节点不可达，则证明该对象是需要垃圾收集的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227104036.png)
 
 通过可达性算法，成功解决了引用计数无法解决的问题-“循环依赖”，只要你无法与 GC Root 建立直接或间接的连接，系统就会判定你为可回收对象。
 
@@ -125,7 +125,7 @@ public class ReferenceCountingGC {
 
 大家可以回想一下我们前面讲过的[JVM 运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)，关联起来就更容易理解了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231227111238.png)
 
 #### 1、虚拟机栈中的引用（方法的参数、局部变量等）
 
@@ -156,7 +156,7 @@ Java 通过 JNI（Java Native Interface）提供了一种机制，允许 Java �
 
 当调用 Java 方法时，虚拟机会创建一个栈帧并压入虚拟机栈，而当它调用本地方法时，虚拟机会通过动态链接直接调用指定的本地方法。
 
-![pecuyu：动态链接](https://cdn.tobebetterjavaer.com/stutymore/gc-20240321085719.png)
+![pecuyu：动态链接](https://cdn.paicoding.com/stutymore/gc-20240321085719.png)
 
 JNI 引用是在 Java 本地接口（JNI）代码中创建的引用，这些引用可以指向 Java 堆中的对象。
 
@@ -238,7 +238,7 @@ public class ConstantPoolReference {
 
 标记清除算法（Mark-Sweep）是最基础的一种垃圾回收算法，它分为 2 部分，先把内存区域中的这些对象进行标记，哪些属于可回收的标记出来（用前面提到的可达性分析法），然后把这些垃圾拎出来清理掉。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227125304.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227125304.png)
 
 就像上图一样，清理掉的垃圾就变成可使用的空闲空间，等待被再次使用。逻辑清晰，并且也很好操作，但它存在一个很大的问题，那就是内存碎片。碎片太多可能会导致当程序运行过程中需要分配较大对象时，因无法找到足够的连续内存而不得不提前触发新一轮的垃圾收集。
 
@@ -248,7 +248,7 @@ public class ConstantPoolReference {
 
 当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样就保证了内存的连续性，逻辑清晰，运行高效。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227125751.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227125751.png)
 
 但复制算法也存在一个很明显的问题，合着我这 190 平的大四室，只能当 90 平米的小两室来居住？代价实在太高。
 
@@ -256,7 +256,7 @@ public class ConstantPoolReference {
 
 标记整理算法（Mark-Compact），标记过程仍然与标记清除算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，再清理掉端边界以外的内存区域。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227130011.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227130011.png)
 
 标记整理算法一方面在标记-清除算法上做了升级，解决了内存碎片的问题，也规避了复制算法只能利用一半内存区域的弊端。看起来很美好，但内存变动更频繁，需要整理所有存活对象的引用地址，在效率上比复制算法差很多。
 
@@ -266,7 +266,7 @@ public class ConstantPoolReference {
 
 根据对象存活周期的不同会将内存划分为几块，一般是把 Java 堆分为新生代和老年代，这样就可以根据各个年代的特点采用最适当的收集算法。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227131241.png)
 
 在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。
 
@@ -276,7 +276,7 @@ public class ConstantPoolReference {
 
 堆（Heap）是 JVM 中最大的一块内存区域，也是垃圾收集器管理的主要区域。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227132701.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227132701.png)
 
 堆主要分为 2 个区域，年轻代与老年代，其中年轻代又分 Eden 区和 Survivor 区，其中 Survivor 区又分 From 和 To 两个区。
 
@@ -334,7 +334,7 @@ Minor GC 执行后，Eden 区被清空，存活的对象放到了 Survivor 区�
 
 可通过 `java -XX:+PrintFlagsFinal -version | grep MaxTenuringThreshold` 查看默认的阈值。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227133826.png)
+![](https://cdn.paicoding.com/stutymore/gc-20231227133826.png)
 
 #### 3、动态对象年龄
 
@@ -358,4 +358,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

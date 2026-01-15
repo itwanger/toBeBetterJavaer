@@ -15,7 +15,7 @@ head:
 
 并发编程领域的任务可以分为三种：简单并行任务、聚合任务和批量并行任务，见下图。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/c9c8a3f8f15793db29c13849fccb475b.png)
+![](https://cdn.paicoding.com/paicoding/c9c8a3f8f15793db29c13849fccb475b.png)
 
 这些模型之外，还有一种任务模型被称为“分治”。分治是一种解决复杂问题的思维方法和模式；具体而言，它将一个复杂的问题分解成多个相似的子问题，然后再将这些子问题进一步分解成更小的子问题，直到每个子问题变得足够简单从而可以直接求解。
 
@@ -27,7 +27,7 @@ head:
 
 分治任务模型可分为两个阶段：一个阶段是 **任务分解**，就是迭代地将任务分解为子任务，直到子任务可以直接计算出结果；另一个阶段是 **结果合并**，即逐层合并子任务的执行结果，直到获得最终结果。下图是一个简化的分治任务模型图，你可以对照着理解。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/65e8b93caf76ef2ef1fc29cc5960f5ce.png)
+![](https://cdn.paicoding.com/paicoding/65e8b93caf76ef2ef1fc29cc5960f5ce.png)
 
 在这个分治任务模型里，任务和分解后的子任务具有相似性，这种相似性往往体现在任务和子任务的算法是相同的，但是计算的数据规模是不同的。具备这种相似性的问题，我们往往都采用递归算法。
 
@@ -43,7 +43,7 @@ ForkJoinTask 是一个抽象类，其中有许多方法，其中最核心的是 
 
 ForkJoinTask 有两个子类：RecursiveAction 和 RecursiveTask。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/256b6df2c13aa69a5d38b3f036d672d1.jpg)
+![](https://cdn.paicoding.com/paicoding/256b6df2c13aa69a5d38b3f036d672d1.jpg)
 
 从它们的名字就可以看出，都是通过递归的方式来处理分治任务的。这两个子类都定义了一个抽象方法 `compute()`，不同之处在于 RecursiveAction 的 compute 方法没有返回值，而 RecursiveTask 的 compute 方法有返回值。这两个子类也都是抽象类，在使用时需要创建自定义的子类来扩展功能。
 
@@ -123,17 +123,17 @@ Fork/Join 并行计算的核心组件是 ForkJoinPool。下面简单介绍一下
 
 ForkJoinPool 中有一个数组形式的成员变量 `workQueue[]`，其对应一个队列数组，每个队列对应一个消费线程。丢入线程池的任务，根据特定规则进行转发。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/4d74a32934994de9ea6661896bef7efa.jpg)
+![](https://cdn.paicoding.com/paicoding/4d74a32934994de9ea6661896bef7efa.jpg)
 
 当工作线程的任务队列为空时，它是否无事可做呢？
 
 不是的。ForkJoinPool 引入了一种称为"任务窃取"的机制。当工作线程空闲时，它可以从其他工作线程的任务队列中"窃取"任务。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/5a458499643f3a4564283b34ae29d6f5.jpg)
+![](https://cdn.paicoding.com/paicoding/5a458499643f3a4564283b34ae29d6f5.jpg)
 
 例如，下图中线程 T2 的任务队列已经为空，它可以窃取线程 T1 任务队列中的任务。这样，所有的工作线程都能保持忙碌的状态。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/93e45106ddbb04387e8ae061eef1bfdf.png)
+![](https://cdn.paicoding.com/paicoding/93e45106ddbb04387e8ae061eef1bfdf.png)
 
 ForkJoinPool 中的任务队列采用双端队列的形式。工作线程从任务队列的一个端获取任务，而"窃取任务"从另一端进行消费。这种设计能够避免许多不必要的数据竞争。
 
@@ -384,7 +384,7 @@ Fork/Join 并行计算框架主要解决的是分治任务。分治的核心思�
 
 Fork/Join 并行计算框架的核心组件是 ForkJoinPool。ForkJoinPool 支持任务窃取机制，能够让所有线程的工作量基本均衡，不会出现有的线程很忙，而有的线程很闲的状况，所以性能很好。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/607bb6ad3e7316b0693a8ff1e248a968.jpg)
+![](https://cdn.paicoding.com/paicoding/607bb6ad3e7316b0693a8ff1e248a968.jpg)
 
 Java 1.8 提供的 Stream API 里面并行流也是以 ForkJoinPool 为基础的。不过需要注意的是，默认情况下所有的并行流计算都共享一个 ForkJoinPool，这个共享的 ForkJoinPool 默认的线程数是 CPU 的核数；如果所有的并行流计算都是 CPU 密集型计算的话，完全没有问题，但是如果存在 I/O 密集型的并行流计算，那么很可能会因为一个很慢的 I/O 计算而拖慢整个系统的性能。
 
@@ -398,4 +398,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

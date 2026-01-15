@@ -51,7 +51,7 @@ public interface Callable<V> {
 
 ExecutorService 是一个接口，位于 `java.util.concurrent` 包下，它是 Java 线程池框架的核心接口，用来异步执行任务。它提供了一些关键方法用来进行线程管理。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/callable-future-futuretask-20230619105509.png)
+![](https://cdn.paicoding.com/stutymore/callable-future-futuretask-20230619105509.png)
 
 下面的例子就用到了 [ExecutorService](https://javabetter.cn/thread/pool.html) 的 submit 方法。
 
@@ -140,11 +140,11 @@ public interface Future<V> {
 
 由于 Future 只是一个接口，如果直接 new 的话，编译器是会有一个 ⚠️ 警告的，它会提醒我们最好使用 FutureTask。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/callable-future-futuretask-20230619111245.png)
+![](https://cdn.paicoding.com/stutymore/callable-future-futuretask-20230619111245.png)
 
 实际上，FutureTask 是 Future 接口的一个唯一实现类，我们在前面的例子中 `executorService.submit()` 返回的就是 FutureTask，通过 debug 模式可以观察到。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/callable-future-futuretask-20230619111830.png)
+![](https://cdn.paicoding.com/stutymore/callable-future-futuretask-20230619111830.png)
 
 ## 异步计算结果 FutureTask 实现类
 
@@ -228,4 +228,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

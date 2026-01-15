@@ -15,7 +15,7 @@
       <p>你可以扫下面的二维码（或者长按自动识别）关注【<b>沉默王二</b>】公众号，发送关键字 <b>222</b> 来获取 PDF 版本，如果面渣逆袭真的对你有帮助，希望能给二哥的公众号加一个星标，满足我那一丁点虚荣心，这将是我更新下去的最强动力。</p>
     
       <div style="text-align: center; margin: 20px 0;">
-        <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+        <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
       </div>
     
       <p>面渣逆袭的整理工作真的太不容易了，花了我好多好多的时间和精力，内容完全免费，但质量却有口皆碑，就是为了做一点真正有意义的、纯粹的事情。</p>

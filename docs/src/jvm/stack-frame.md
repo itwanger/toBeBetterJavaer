@@ -17,7 +17,7 @@ head:
 
 我们从下面这幅图开始讲起。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
 
 Java 的源码文件经过编译器编译后会生成[字节码文件](https://javabetter.cn/jvm/class-file-jiegou.html)，然后由 JVM 的类加载器进行[加载](https://javabetter.cn/jvm/class-load.html)，再交给执行引擎执行。在执行过程中，JVM 会划出一块内存空间来存储程序执行期间所需要用到的数据，这块空间一般被称为[运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)。
 
@@ -33,7 +33,7 @@ Java 的源码文件经过编译器编译后会生成[字节码文件](https://j
 
 一个线程中的方法调用链可能会很长，很多方法都处于执行状态。在当前线程中，位于栈顶的栈帧被称为当前栈帧（Current Stack Frame），与这个栈帧相关联的方法成为当前方法。[执行引擎](https://javabetter.cn/jvm/what-is-jvm.html#_3-%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E)运行的所有[字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)都是对当前栈帧进行操作，在概念模型上，栈帧的结构如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/stack-frame-20231224090450.png)
+![](https://cdn.paicoding.com/stutymore/stack-frame-20231224090450.png)
 
 ## 局部变量表
 
@@ -53,7 +53,7 @@ public class LocalVaraiablesTable {
 
 然后用 Intellij IDEA 的 jclasslib 查看一下编译后的字节码文件 LocalVaraiablesTable.class。可以看到 `write()` 方法的 Code 属性中，Maximum local variables（局部变量表的最大容量）的值为 3。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-70ab6bf6-4fbb-4722-99b4-a93d5061630c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-70ab6bf6-4fbb-4722-99b4-a93d5061630c.png)
 
 按理说，局部变量表的最大容量应该为 2 才对，一个 age，一个 name，为什么是 3 呢？
 
@@ -61,7 +61,7 @@ public class LocalVaraiablesTable {
 
 点开 Code 属性，查看 LocalVaraiableTable 就可以看到详细的信息了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-e5e6037c-9be1-472f-8ab3-2754466e7828.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-e5e6037c-9be1-472f-8ab3-2754466e7828.png)
 
 第 0 个是 this，类型为 LocalVaraiablesTable 对象；第 1 个是方法参数 age，类型为整型 int；第 2 个是方法内部的局部变量 name，类型为字符串 String。
 
@@ -110,15 +110,15 @@ public void solt() {
 
 用 jclasslib 可以查看到，`solt()` 方法的 Maximum local variables 的值为 4。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-6734774b-376c-49bf-a915-508c7e829557.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-6734774b-376c-49bf-a915-508c7e829557.png)
 
 为什么等于 4 呢？带上 this 也就 3 个呀？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-91ad04f8-1620-44c9-83d1-6fbd7860701a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-91ad04f8-1620-44c9-83d1-6fbd7860701a.png)
 
 查看 LocalVaraiableTable 就明白了，变量 i 的下标为 3，也就意味着变量 d 占了两个槽。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-630b50e3-fc37-4748-8d20-852d5358f87a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-630b50e3-fc37-4748-8d20-852d5358f87a.png)
 
 ## 操作数栈
 
@@ -140,11 +140,11 @@ public class OperandStack {
 
 OperandStack 类共有 2 个方法，`test()` 方法中调用了 `add()` 方法，传递了 2 个参数。用 jclasslib 可以看到，`test()` 方法的 maximum stack size 的值为 3。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-f790aa0f-d742-465b-91bf-5f143ee098c1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-f790aa0f-d742-465b-91bf-5f143ee098c1.png)
 
 这是因为调用成员方法的时候会将 this 和所有参数压入栈中，调用完毕后 this 和参数都会一一出栈。通过 「Bytecode」 面板可以查看到对应的字节码指令。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-c37add5c-a74b-4bd6-8c8e-9085d9e6d374.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-c37add5c-a74b-4bd6-8c8e-9085d9e6d374.png)
 
 - aload_0 用于将局部变量表中下标为 0 的引用类型的变量，也就是 this 加载到操作数栈中；
 - iconst_1 用于将整数 1 加载到操作数栈中；
@@ -155,14 +155,14 @@ OperandStack 类共有 2 个方法，`test()` 方法中调用了 `add()` 方法�
 
 [字节码指令](https://javabetter.cn/jvm/zijiema-zhiling.html)前面我们已经讲过了，忘记的[球友](https://javabetter.cn/zhishixingqiu/)可以再回顾一下。再来看一下 `add()` 方法的字节码指令。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-49e3f396-7ea8-49f5-81d4-093b9bdfa453.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-49e3f396-7ea8-49f5-81d4-093b9bdfa453.png)
 
 - iload_1 用于将局部变量表中下标为 1 的 int 类型变量加载到操作数栈上（下标为 0 的是 this）；
 - iload_2 用于将局部变量表中下标为 2 的 int 类型变量加载到操作数栈上；
 - iadd 用于 int 类型的加法运算；
 - ireturn 为返回值为 int 的方法返回指令。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-3ffdbe03-c0e4-49de-97a6-76666964a087.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-3ffdbe03-c0e4-49de-97a6-76666964a087.png)
 
 操作数中的数据类型必须与字节码指令匹配，以上面的 iadd 指令为例，该指令只能用于整型数据的加法运算，它在执行的时候，栈顶的两个数据必须是 int 类型的，不能出现一个 long 型和一个 double 型的数据进行 iadd 命令相加的情况。
 
@@ -170,7 +170,7 @@ OperandStack 类共有 2 个方法，`test()` 方法中调用了 `add()` 方法�
 
 每个栈帧都包含了一个指向运行时常量池中该栈帧所属方法的引用，持有这个引用是为了支持方法调用过程中的动态链接（Dynamic Linking）。
 
-![图片来源于网络，作者浣熊say](https://cdn.tobebetterjavaer.com/stutymore/vm-stack-register-20231222175706.png)
+![图片来源于网络，作者浣熊say](https://cdn.paicoding.com/stutymore/vm-stack-register-20231222175706.png)
 
 ①、[前面](https://javabetter.cn/jvm/what-is-jvm.html)我们就讲过，方法区是 JVM 的一个运行时内存区域，属于逻辑定义，不同版本的 JDK 都有不同的实现，但主要的作用就是用于存储已被虚拟机加载的类信息、常量、静态变量，以及即时编译器编译后的代码等。
 
@@ -223,7 +223,7 @@ public class DynamicLinking {
 
 用 jclasslib 看一下 main 方法的字节码指令。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-93a21aaf-ff67-445d-8ddb-ac6f72fd9b25.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-93a21aaf-ff67-445d-8ddb-ac6f72fd9b25.png)
 
 - 第 1 行：new 指令创建了一个 Man 对象，并将对象的内存地址压入栈中。
 - 第 2 行：dup 指令将栈顶的值复制一份并压入栈顶。因为接下来的指令 invokespecial 会消耗掉一个当前类的引用，所以需要复制一份。
@@ -285,7 +285,7 @@ public class StackOverflowErrorTest {
 
 我们来看一下异常的堆栈信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/stack-frame-20231224190051.png)
+![](https://cdn.paicoding.com/stutymore/stack-frame-20231224190051.png)
 
 之所以抛出 StackOverflowError 异常，是因为在执行 `testStackOverflowError()` 方法的时候，会创建一个栈帧，然后调用 `testStackOverflowError()` 方法，又会创建一个栈帧，然后调用 `testStackOverflowError()` 方法，又会创建一个栈帧……这样一直循环下去，直到栈内存溢出。
 
@@ -309,7 +309,7 @@ public class StackOverflowErrorTest1 {
 
 在 10924 次的时候，抛出了 StackOverflowError 异常。大家可以试试自己的本地环境，看多少次的时候会抛出异常。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/stack-frame-20231224190542.png)
+![](https://cdn.paicoding.com/stutymore/stack-frame-20231224190542.png)
 
 
 ## 小结
@@ -332,4 +332,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

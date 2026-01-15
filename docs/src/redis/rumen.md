@@ -14,7 +14,7 @@ head:
 
 作为一名富有责任心的技术博主，我觉得有必要把我入门 Redis 的过程分享出来，供一些小伙伴作为参考。要是我哪里写错了，别客气，过来给我一巴掌，就行了（温柔点，别打肿，影响颜值就不好了）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-fe7d042b-efed-469c-9460-fb3bc1d4c041.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-fe7d042b-efed-469c-9460-fb3bc1d4c041.jpg)
 
 前面我们已经讲了 Redis 的安装，参考这里：[Redis 安装，超详细](https://javabetter.cn/redis/install.html)
 
@@ -26,7 +26,7 @@ String 结构使用非常广泛，比如说把用户的登陆信息转成 JSON �
 
 小伙伴们应该都知道，Java 的 String 是不可变的，无法修改。Redis 的 String 是动态的，可以修改的，两者不同哦。关于 Redis 的 String 结构，我觉得老钱的 Redis 教程上讲得非常明白，大家一起拜读下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-d9aca13e-053e-4aea-a8cb-d77b01e5035a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-d9aca13e-053e-4aea-a8cb-d77b01e5035a.jpg)
 
 >Redis 的 String 在内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配。如上图所示，当前字符串实际分配的空间为 capacity，一般高于实际的字符串长度 len。当字符串长度小于 1M 时，扩容是对现有空间的成倍增长；如果长度超过 1M 时，扩容一次只会多增加 1M 的空间。最大长度为 512M。
 
@@ -36,11 +36,11 @@ String 结构使用非常广泛，比如说把用户的登陆信息转成 JSON �
 
 进入 redis-cli 命令行客户端（怎么进入，前面[安装环节](https://javabetter.cn/redis/install.html)已经讲过了），这个客户端还是非常智能的，当键入命令的时候，会跳出对应的提示
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-6ca5d00d-4b5d-4475-a49c-9937e22f97af.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-6ca5d00d-4b5d-4475-a49c-9937e22f97af.jpg)
 
 当按下空格跟进关键字的时候，对应位置上的提示会自动消失。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-656ec70a-c053-44ab-b078-a5c77386bee6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-656ec70a-c053-44ab-b078-a5c77386bee6.jpg)
 
 以下是完整的键值对测试命令，小伙伴们可以按照格式动手实操一把。
 
@@ -177,7 +177,7 @@ get：null
 
 完全符合我们的预期，perfect！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/redis/rumen-7135d995-f563-4021-b364-411b1be07b5a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/redis/rumen-7135d995-f563-4021-b364-411b1be07b5a.jpg)
 
 
 ## 04、鸣谢
@@ -193,4 +193,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

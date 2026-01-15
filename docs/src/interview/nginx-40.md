@@ -56,7 +56,7 @@ head:
 *   生产中如何设置worker进程的数量呢？
 *   nginx状态码
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-63553177-7359-4f68-8673-5b44285cb701.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-63553177-7359-4f68-8673-5b44285cb701.png)
 
 
 
@@ -239,7 +239,7 @@ session:
 
 最核心的区别在于apache是同步多进程模型，一个连接对应一个进程，nginx是异步的，多个连接可以对应一个进程。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-8cd652f4-5a93-4e12-a020-0d90b9379bf2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-8cd652f4-5a93-4e12-a020-0d90b9379bf2.png)
 
 
 ## 什么是动态资源、静态资源分离？
@@ -440,7 +440,7 @@ location的语法能说出来吗？
 
 > 注意：~ 代表自己输入的英文字母
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-8b8c7eeb-5542-43ab-9acc-3c7e51b5a4ac.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-8b8c7eeb-5542-43ab-9acc-3c7e51b5a4ac.png)
 
 
 #### Location正则案例
@@ -561,7 +561,7 @@ server {
 
 漏桶算法思路很简单，我们把水比作是请求，漏桶比作是系统处理能力极限，水先进入到漏桶里，漏桶里的水按一定速率流出，当流出的速率小于流入的速率时，由于漏桶容量有限，后续进入的水直接溢出（拒绝请求），以此实现限流。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-57f54ac6-82fe-403c-af37-728d707d5eca.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-57f54ac6-82fe-403c-af37-728d707d5eca.png)
 
 
 #### 令牌桶算法
@@ -570,7 +570,7 @@ server {
 
 系统会维护一个令牌（token）桶，以一个恒定的速度往桶里放入令牌（token），这时如果有请求进来想要被处理，则需要先从桶里获取一个令牌（token），当桶里没有令牌（token）可取时，则该请求将被拒绝服务。令牌桶算法通过控制桶的容量、发放令牌的速率，来达到对请求的限制。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-4bebeaf2-3853-4bb3-a34d-10316a230854.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-4bebeaf2-3853-4bb3-a34d-10316a230854.png)
 
 
 ## Nginx配置高可用性怎么配置？
@@ -697,17 +697,17 @@ http {
 
 我们可以先来对比下，如果我们没有开启zip压缩之前，我们的对应的文件大小，如下所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-fb46fd48-e596-48ac-8759-0663d29593af.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-fb46fd48-e596-48ac-8759-0663d29593af.png)
 
 
 现在我们开启了gzip进行压缩后的文件的大小，可以看到如下所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-1ee18fd5-1cc1-478a-9fca-d15f85f0f5c7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-1ee18fd5-1cc1-478a-9fca-d15f85f0f5c7.png)
 
 
 并且我们查看响应头会看到gzip这样的压缩，如下所示
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nginx/40-interview-c3c95717-45ee-4f56-b606-d56d2fc3cc57.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nginx/40-interview-c3c95717-45ee-4f56-b606-d56d2fc3cc57.png)
 
 
 gzip压缩前后效果对比：jquery原大小90kb，压缩后只有30kb。
@@ -801,4 +801,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

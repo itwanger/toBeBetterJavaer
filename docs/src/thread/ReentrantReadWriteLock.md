@@ -156,7 +156,7 @@ static int sharedCount(int c)    {
 
 还记得这个问题“读写锁是怎样实现分别记录读写状态的”吗？其示意图如下图所示：
 
-![读写锁的读写状态设计](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ReentrantReadWriteLock-f714bdd6-917a-4d25-ac11-7e85b0ec1b14.png)
+![读写锁的读写状态设计](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ReentrantReadWriteLock-f714bdd6-917a-4d25-ac11-7e85b0ec1b14.png)
 
 好，现在我们回过头来看写锁获取方法 tryAcquire，其主要逻辑为：**当读锁已经被读线程获取或者写锁已经被其他写线程获取，则写锁获取失败；否则，获取成功并支持重入，增加写状态。**
 
@@ -434,4 +434,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

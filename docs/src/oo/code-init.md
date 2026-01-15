@@ -84,7 +84,7 @@ public class Car {
 
 说完这句话，我打开 draw.io，使上了吃奶的劲，画出了下面这幅图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/22-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/22-01.png)
 
 “哦，原来如此啊！”三妹仿佛发现了新大陆，意味深长地说，“编译器把代码初始化块放到了构造方法中，怪不得。”
 
@@ -199,4 +199,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

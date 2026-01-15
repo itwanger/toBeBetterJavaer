@@ -14,7 +14,7 @@ head:
       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
-![面渣逆袭MySQL篇封面图](https://cdn.tobebetterjavaer.com/stutymore/mysql-mianzhanixi-mysql1.jpg)
+![面渣逆袭MySQL篇封面图](https://cdn.paicoding.com/stutymore/mysql-mianzhanixi-mysql1.jpg)
 
 ## 前言
 
@@ -22,7 +22,7 @@ head:
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-![面渣逆袭MySQL篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104843.png)
+![面渣逆袭MySQL篇.pdf第二版](https://cdn.paicoding.com/stutymore/mysql-20250427104843.png)
 
 2025 年 02 月 27 日开始着手第二版更新。
 
@@ -33,25 +33,25 @@ head:
 - 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
-![面渣逆袭已经提交 1457 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427100320.png)
+![面渣逆袭已经提交 1457 次 GitHub 记录](https://cdn.paicoding.com/stutymore/mysql-20250427100320.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 
 更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
-![面渣逆袭MySQL篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427105032.png)
+![面渣逆袭MySQL篇.pdf暗黑版](https://cdn.paicoding.com/stutymore/mysql-20250427105032.png)
 
 ## MySQL 基础
 
@@ -59,7 +59,7 @@ head:
 
 MySQL 是一个开源的关系型数据库，现在隶属于 Oracle 公司。是我们国内使用频率最高的一种数据库，我在本地安装的是最新的 8.3 版本。
 
-![二哥的 Java 进阶之路：MySQL 8.3 最新版本](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250227062838.png)
+![二哥的 Java 进阶之路：MySQL 8.3 最新版本](https://cdn.paicoding.com/stutymore/mysql-20250227062838.png)
 
 #### 怎么删除/创建一张表？
 
@@ -184,7 +184,7 @@ CROSS JOIN B;
 
 MySQL 的连接主要分为内连接和外连接，外连接又可以分为左连接和右连接。
 
-![MySQL 内连接、左连接、右连接-来源菜鸟教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcdaad5f-c50e-4834-9f9a-0b676cc6be83.jpg)
+![MySQL 内连接、左连接、右连接-来源菜鸟教程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcdaad5f-c50e-4834-9f9a-0b676cc6be83.jpg)
 
 内连接可以用来找出两个表中共同的记录，相当于两个数据集的交集。
 
@@ -203,7 +203,7 @@ INNER JOIN comment c ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![技术派实战项目：内连接的结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184454.png)
+![技术派实战项目：内连接的结果](https://cdn.paicoding.com/stutymore/mysql-20240308184454.png)
 
 返回至少有一条评论的文章标题和评论内容（前 20 个字符），只返回符合条件的前 2 条记录。
 
@@ -216,7 +216,7 @@ LEFT JOIN comment c ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![技术派实战项目：做连接查询结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308184901.png)
+![技术派实战项目：做连接查询结果](https://cdn.paicoding.com/stutymore/mysql-20240308184901.png)
 
 返回所有文章的标题和文章评论，即使某些文章没有评论（填充为 NULL）。
 
@@ -229,33 +229,33 @@ RIGHT JOIN article a ON a.id = c.article_id
 LIMIT 2;
 ```
 
-![技术派实战项目：右连接查询结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240308185525.png)
+![技术派实战项目：右连接查询结果](https://cdn.paicoding.com/stutymore/mysql-20240308185525.png)
 
 > 1.  [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯 Java 后端实习一面原题：请说说 MySQL 的内联、左联、右联的区别。
 
 memo：2025 年 2 月 27 日修改至此。给大家看[一条球友的面经](https://t.zsxq.com/1g4gI)，基本上都是面渣逆袭中常见的八股，所以只要能把面渣中的高频题拿下，面试 OC 的概率真的很大，真心话。
 
-![二哥编程星球的球友：小赢科技 OC了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250227084922.png)
+![二哥编程星球的球友：小赢科技 OC了](https://cdn.paicoding.com/stutymore/mysql-20250227084922.png)
 
 ### 3.说一下数据库的三大范式？
 
-![三分恶面渣逆袭：数据库三范式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16e74a6b-a42a-464e-9b10-0252ee7ecc6e.jpg)
+![三分恶面渣逆袭：数据库三范式](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16e74a6b-a42a-464e-9b10-0252ee7ecc6e.jpg)
 
 第一范式，确保表的每一列都是不可分割的基本数据单元，比如说用户地址，应该拆分成省、市、区、详细地址等 4 个字段。
 
-![Ruthless：第一范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093235.png)
+![Ruthless：第一范式](https://cdn.paicoding.com/stutymore/mysql-20240418093235.png)
 
 第二范式，要求表中的每一列都和主键直接相关。比如在订单表中，商品名称、单位、商品价格等字段应该拆分到商品表中。
 
-![Ruthless：不符合第二范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093351.png)
+![Ruthless：不符合第二范式](https://cdn.paicoding.com/stutymore/mysql-20240418093351.png)
 
 然后新建一个订单商品关联表，用订单编号和商品编号进行关联就好了。
 
-![Ruthless：订单商品关联表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418093726.png)
+![Ruthless：订单商品关联表](https://cdn.paicoding.com/stutymore/mysql-20240418093726.png)
 
 第三范式，非主键列应该只依赖于主键列。比如说在设计订单信息表的时候，可以把客户名称、所属公司、联系方式等信息拆分到客户信息表中，然后在订单信息表中用客户编号进行关联。
 
-![Ruthless：第三范式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418094332.png)
+![Ruthless：第三范式](https://cdn.paicoding.com/stutymore/mysql-20240418094332.png)
 
 #### 建表的时候需要考虑哪些问题？
 
@@ -276,7 +276,7 @@ varchar 是可变长度的字符类型，原则上最多可以容纳 65535 个�
 
 >latin1 字符集，且列属性定义为 NOT NULL。
 
-![三分恶面渣逆袭：varchar和 char](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-40f42d59-a295-4543-8a03-43925da4d6d9.jpg)
+![三分恶面渣逆袭：varchar和 char](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-40f42d59-a295-4543-8a03-43925da4d6d9.jpg)
 
 char 是固定长度的字符类型，当定义一个 `CHAR(10)` 字段时，不管实际存储的字符长度是多少，都只会占用 10 个字符的空间。如果插入的数据小于 10 个字符，剩余的部分会用空格填充。
 
@@ -295,7 +295,7 @@ text 用于存储文本数据，比如文章、评论、日志等。
 
 >memo：2025 年 2 月 28 日修改至此。今天有球友反馈拿到了理想汽车的补录 offer， 真的恭喜了！
 
-![别问，问就是给的薪资待遇很 ok](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250301165545.png)
+![别问，问就是给的薪资待遇很 ok](https://cdn.paicoding.com/stutymore/mysql-20250301165545.png)
 
 ### 6.DATETIME 和 TIMESTAMP 有什么区别？
 
@@ -303,11 +303,11 @@ DATETIME 直接存储日期和时间的完整值，与时区无关。
 
 TIMESTAMP 存储的是 Unix 时间戳，1970-01-01 00:00:01 UTC 以来的秒数，受时区影响。
 
-![三分恶面渣逆袭：DATETIME 和 TIMESTAMP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d94e5e1c-2614-4b8b-acdb-efb333032854.jpg)
+![三分恶面渣逆袭：DATETIME 和 TIMESTAMP](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d94e5e1c-2614-4b8b-acdb-efb333032854.jpg)
 
 另外，DATETIME 的默认值为 null，占用 8 个字节；TIMESTAMP 的默认值为当前时间——CURRENT_TIMESTAMP，占 4 个字节，实际开发中更常用，因为可以自动更新。
 
-![二哥的 Java 进阶之路：更新时不用 set 更新时间](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250301170530.png)
+![二哥的 Java 进阶之路：更新时不用 set 更新时间](https://cdn.paicoding.com/stutymore/mysql-20250301170530.png)
 
 ### 7.in和exists的区别？
 
@@ -371,7 +371,7 @@ ALTER TABLE mytable CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 MySQL 8.0 已经默认支持 utf8mb4 字符集，可以通过 `SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';` 查看。
 
-![二哥的 Java 进阶之路：查看 MySQL 的默认字符集](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240418103116.png)
+![二哥的 Java 进阶之路：查看 MySQL 的默认字符集](https://cdn.paicoding.com/stutymore/mysql-20240418103116.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 13 Java 后端二面面试原题：mysql 怎么存 emoji，怎么编码
 
@@ -385,7 +385,7 @@ TRUNCATE 用于清空表中的所有数据，但会保留表结构，不能回�
 
 memo：2025 年 3 月 4 日修改至此。给大家传递一个喜报，一位球友拿到了科大讯飞的 offer，这薪资在合肥真的会很香。
 
-![一位球友拿到了科大讯飞的 offer，春招](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250304161556.png)
+![一位球友拿到了科大讯飞的 offer，春招](https://cdn.paicoding.com/stutymore/mysql-20250304161556.png)
 
 ### 11.UNION 与 UNION ALL 的区别？
 
@@ -445,7 +445,7 @@ INSERT INTO t1 VALUES
 
 因为 id 列没有索引，所以 `select count(*)` 是全表扫描。
 
-![二哥的 Java 进阶之路：count(\*)全表扫描](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305181629.png)
+![二哥的 Java 进阶之路：count(\*)全表扫描](https://cdn.paicoding.com/stutymore/mysql-20250305181629.png)
 
 然后我们给 id 列加上索引。
 
@@ -453,19 +453,19 @@ INSERT INTO t1 VALUES
 alter table t1 add primary key (id);
 ```
 
-![二哥的 Java 进阶之路：修改t1主键](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305181907.png)
+![二哥的 Java 进阶之路：修改t1主键](https://cdn.paicoding.com/stutymore/mysql-20250305181907.png)
 
 再来看一下 `select count(*)`，发现用了索引（MySQL 默认为给主键添加索引）。
 
-![二哥的 Java 进阶之路：count(\*)走了索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305182117.png)
+![二哥的 Java 进阶之路：count(\*)走了索引](https://cdn.paicoding.com/stutymore/mysql-20250305182117.png)
 
 另外，MySQL 8.0 官方手册有明确说明，InnoDB 引擎对 `SELECT COUNT(*)` 和 `SELECT COUNT(1)` 的处理方式完全一致，性能并无差异。
 
-![二哥的 Java 进阶之路：MySQL 8.0 官方手册](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305183220.png)
+![二哥的 Java 进阶之路：MySQL 8.0 官方手册](https://cdn.paicoding.com/stutymore/mysql-20250305183220.png)
 
 memo：2025 年 3 月 5 日修改至此。再晒一个喜报给正在刷八股的你，[一位球友](https://javabetter.cn/zhishixingqiu/)拿到了咪咕的大模型应用开发，很不错的方向，恭喜了！给你也加加好运🍀buff，你也加把劲。
 
-![球友拿到了咪咕的大模型开发实习](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250305183751.png)
+![球友拿到了咪咕的大模型开发实习](https://cdn.paicoding.com/stutymore/mysql-20250305183751.png)
 
 ### 13.SQL 查询语句的执行顺序了解吗？
 
@@ -473,7 +473,7 @@ memo：2025 年 3 月 5 日修改至此。再晒一个喜报给正在刷八股�
 
 WHERE 先执行是为了减少数据量，HAVING 只能过滤聚合数据，ORDER BY 必须在 SELECT 之后排序最终结果，LIMIT 最后执行以减少数据传输。
 
-![博客园数据派：查询语句执行顺序](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250306153200.png)
+![博客园数据派：查询语句执行顺序](https://cdn.paicoding.com/stutymore/mysql-20250306153200.png)
 
 执行顺序|	SQL 关键字|	作用
 ---|---|---
@@ -509,7 +509,7 @@ ORDER BY order_count DESC;
 
 > 2024 年 03 月 13 日增补。
 
-![二哥的 Java 进阶之路：MySQL常用命令](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240313093551.png)
+![二哥的 Java 进阶之路：MySQL常用命令](https://cdn.paicoding.com/stutymore/mysql-20240313093551.png)
 
 MySQL 的常用命令主要包括数据库操作命令、表操作命令、行数据 CRUD 命令、索引和约束的创建修改命令、用户和权限管理的命令、事务控制的命令等。
 
@@ -708,7 +708,7 @@ SELECT CAST('1' AS SIGNED INTEGER) + 1; -- 结果为 2
 
 实际验证结果：
 
-![二哥的 Java 进阶之路：隐式转换](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240425111246.png)
+![二哥的 Java 进阶之路：隐式转换](https://cdn.paicoding.com/stutymore/mysql-20240425111246.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的小公司面经合集同学 1 Java 后端面试原题：说说 SQL 的隐式数据类型转换？
 
@@ -793,7 +793,7 @@ ERROR: Column 'age' is INT, but 'eighteen' is STRING.
 
 memo：2025 年 3 月 7 日 修改至此。再晒一个 offer，一位球友拿到了经纬恒润的实习 offer，并且直言面试了很多场，我说超过 5 次的题目基本上都碰到了，啥都别说了，面渣逆袭 YYDS。
 
-![球友拿到了经纬恒润的实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250308085803.png)
+![球友拿到了经纬恒润的实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250308085803.png)
 
 ## 数据库架构
 
@@ -801,7 +801,7 @@ memo：2025 年 3 月 7 日 修改至此。再晒一个 offer，一位球友拿�
 
 MySQL 采用分层架构，主要包括连接层、服务层、和存储引擎层。
 
-![三分恶面渣逆袭：Redis 的基础架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-77626fdb-d2b0-4256-a483-d1c60e68d8ec.jpg)
+![三分恶面渣逆袭：Redis 的基础架构](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-77626fdb-d2b0-4256-a483-d1c60e68d8ec.jpg)
 
 ①、连接层主要负责客户端连接的管理，包括验证用户身份、权限校验、连接管理等。可以通过数据库连接池来提升连接的处理效率。
 
@@ -819,7 +819,7 @@ binlog 在服务层，负责记录 SQL 语句的变化。它记录了所有对�
 
 当我们执行一条 SELECT 语句时，MySQL 并不会直接去磁盘读取数据，而是经过 6 个步骤来解析、优化、执行，然后再返回结果。
 
-![二哥的 Java 进阶之路：SQL 执行](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415102041.png)
+![二哥的 Java 进阶之路：SQL 执行](https://cdn.paicoding.com/stutymore/mysql-20240415102041.png)
 
 第一步，客户端发送 SQL 查询语句到 MySQL 服务器。
 
@@ -843,7 +843,7 @@ memo：2025 年 3 月 8 日修改至此。
 
 总的来说，一条 UPDATE 语句的执行过程包括读取数据页、加锁解锁、事务提交、日志记录等多个步骤。
 
-![三分恶面渣逆袭：update 执行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-812fb038-39de-4204-ac9f-93d8b7448a18.jpg)
+![三分恶面渣逆袭：update 执行](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-812fb038-39de-4204-ac9f-93d8b7448a18.jpg)
 
 拿 `update test set a=1 where id=2` 举例来说：
 
@@ -875,7 +875,7 @@ memo：2025 年 3 月 9 日修改至此。
 
 MySQL 是以表的形式存储数据的，而表空间的结构则由段、区、页、行组成。
 
-![不要迷恋发哥：段、区、页、行](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240515110034.png)
+![不要迷恋发哥：段、区、页、行](https://cdn.paicoding.com/stutymore/mysql-20240515110034.png)
 
 ①、段：表空间由多个段组成，常见的段有数据段、索引段、回滚段等。
 
@@ -897,7 +897,7 @@ MySQL 8.0 默认的行格式是 DYNAMIC，由COMPACT 演变而来，意味着这
 
 可以通过 `show table status like '%article%'` 查看行格式。
 
-![二哥的 Java 进阶之路：行格式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240515123301.png)
+![二哥的 Java 进阶之路：行格式](https://cdn.paicoding.com/stutymore/mysql-20240515123301.png)
 
 <MZNXQRcodeBanner />    
 
@@ -907,7 +907,7 @@ MySQL 8.0 默认的行格式是 DYNAMIC，由COMPACT 演变而来，意味着这
 
 MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 
-![二哥的 Java 进阶之路：存储引擎](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408073338.png)
+![二哥的 Java 进阶之路：存储引擎](https://cdn.paicoding.com/stutymore/mysql-20240408073338.png)
 
 ---这部分是帮助大家理解 start，面试中可不背---
 
@@ -933,7 +933,7 @@ MySQL 支持多种存储引擎，常见的有 MyISAM、InnoDB、MEMORY 等。
 
 ④、InnoDB 的最小表空间略小于 10M，最大表空间取决于页面大小。
 
-![MySQL 官网：innodb-limits.html](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408074630.png)
+![MySQL 官网：innodb-limits.html](https://cdn.paicoding.com/stutymore/mysql-20240408074630.png)
 
 #### 如何切换 MySQL 的数据引擎？
 
@@ -967,17 +967,17 @@ MEMORY 适合临时表，数据量不大的情况。因为数据都存放在内�
 
 InnoDB 和 MyISAM 的最大区别在于事务支持和锁机制。InnoDB 支持事务、行级锁，适合大多数业务系统；而 MyISAM 不支持事务，用的是表锁，查询快但写入性能差，适合读多写少的场景。
 
-![三分恶面渣逆袭：InnoDB 和 MyISAM 主要有什么区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b7aa040e-a3a7-4133-8c43-baccc3c8d012.jpg)
+![三分恶面渣逆袭：InnoDB 和 MyISAM 主要有什么区别](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b7aa040e-a3a7-4133-8c43-baccc3c8d012.jpg)
 
 另外，从存储结构上来说，MyISAM 用三种格式的文件来存储，.frm 文件存储表的定义；.MYD 存储数据；.MYI 存储索引；而 InnoDB 用两种格式的文件来存储，.frm 文件存储表的定义；.ibd 存储数据和索引。
 
 从索引类型上来说，MyISAM 为非聚簇索引，索引和数据分开存储，索引保存的是数据文件的指针。
 
-![未见初墨：MyIsam](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240403130104.png)
+![未见初墨：MyIsam](https://cdn.paicoding.com/stutymore/mysql-20240403130104.png)
 
 InnoDB 为聚簇索引，索引和数据不分开。
 
-![yangh124：InnoDB](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240403130508.png)
+![yangh124：InnoDB](https://cdn.paicoding.com/stutymore/mysql-20240403130508.png)
 
 更细微的层面上来讲，MyISAM 不支持外键，可以没有主键，表的具体行数存储在表的属性中，查询时可以直接返回；InnoDB 支持外键，必须有主键，具体行数需要扫描整个表才能返回，有索引的情况下会扫描索引。
 
@@ -988,14 +988,14 @@ InnoDB 为聚簇索引，索引和数据不分开。
 InnoDB 的内存区域主要有两块，buffer pool 和 log buffer。
 buffer pool 用于缓存数据页和索引页，提升读写性能；log buffer 用于缓存 redo log，提升写入性能。
 
-![WindWant：InnoDB 存储引擎整体架构图](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250404111739.png)
+![WindWant：InnoDB 存储引擎整体架构图](https://cdn.paicoding.com/stutymore/mysql-20250404111739.png)
 
 
 #### 数据页的结构了解吗？
 
 InnoDB 的数据页由 7 部分组成，其中文件头、页头和文件尾的大小是固定的，分别为 38、56 和 8 个字节，用来标记该页的一些信息。行记录、空闲空间和页目录的大小是动态的，为实际的行记录存储空间。
 
-![nekolr's blog：数据页结构](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250404113446.png)
+![nekolr's blog：数据页结构](https://cdn.paicoding.com/stutymore/mysql-20250404113446.png)
 
 来个表格总结下：
 
@@ -1011,16 +1011,16 @@ File Trailer|	文件尾部|	8|	校验页是否完整
 
 真实的记录会按照指定的行格式存储到 User Records 中。
 
-![GrowthDBA：User Records](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250404115235.png)
+![GrowthDBA：User Records](https://cdn.paicoding.com/stutymore/mysql-20250404115235.png)
 
 每个数据页的 File Header
 都有一个上一页和下一页的编号，所有的数据页会形成一个双向链表。
 
-![GrowthDBA：数据页通过双向链表连接](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250404115048.png)
+![GrowthDBA：数据页通过双向链表连接](https://cdn.paicoding.com/stutymore/mysql-20250404115048.png)
 
 在 InnoDB 中，默认的页大小是 16KB。可以通过 `show variables like 'innodb_page_size';` 查看。
 
-![二哥的 Java 进阶之路：页的大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322135441.png)
+![二哥的 Java 进阶之路：页的大小](https://cdn.paicoding.com/stutymore/mysql-20240322135441.png)
 
 推荐阅读：[MySQL之数据页结构](https://www.modb.pro/db/139052)
 
@@ -1035,11 +1035,11 @@ memo：2025 年 3 月 11 日修改至此。
 
 Buffer Pool 是 InnoDB 存储引擎中的一个内存缓冲区，它会将经常使用的数据页、索引页加载进内存，读的时候先查询 Buffer Pool，如果命中就不用访问磁盘了。
 
-![Nuwan Weerasinhge：MySQL InnoDB Buffer Pool](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312083102.png)
+![Nuwan Weerasinhge：MySQL InnoDB Buffer Pool](https://cdn.paicoding.com/stutymore/mysql-20250312083102.png)
 
 如果没有命中，就从磁盘读取，并加载到 Buffer Pool，此时可能会触发页淘汰，将不常用的页移出 Buffer Pool。
 
-![极客时间：改良的 LRU 算法](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104202752.png)
+![极客时间：改良的 LRU 算法](https://cdn.paicoding.com/stutymore/mysql-20241104202752.png)
 
 写操作时不会直接写入磁盘，而是先修改内存中的页，此时页被标记为脏页，后台线程会定期将脏页刷新到磁盘。
 
@@ -1055,13 +1055,13 @@ SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
 
 另外，在具有 1GB-4GB RAM 的系统上，默认值为系统 RAM 的 25%；在具有超过 4GB RAM 的系统上，默认值为系统 RAM 的 50%，但不超过 4GB。
 
-![二哥的 Java 进阶之路：buffer_pool 的默认大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312084307.png)
+![二哥的 Java 进阶之路：buffer_pool 的默认大小](https://cdn.paicoding.com/stutymore/mysql-20250312084307.png)
 
 #### InnoDB 对 LRU 算法的优化了解吗？
 
 了解，InnoDB 对 LRU 算法进行了改良，最近访问的数据并不直接放到 LRU 链表的头部，而是放在一个叫 midpoiont 的位置。默认情况下，midpoint 位于 LRU 列表的 5/8 处。
 
-![smartkeyerror：InnoDB 的 LRU](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312085209.png)
+![smartkeyerror：InnoDB 的 LRU](https://cdn.paicoding.com/stutymore/mysql-20250312085209.png)
 
 比如 Buffer Pool 有 100 页，新页插入的位置大概是在第 80 页；当页数据被频繁访问后，再将其移动到 young 区，这样做的好处是热点页能长时间保留在内存中，不容易被挤出去。
 
@@ -1069,7 +1069,7 @@ SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
 
 可以通过 `innodb_old_blocks_pct` 参数来调整 Buffer Pool 中 old 和 young 区的比例；通过 `innodb_old_blocks_time` 参数来调整页在 young 区的停留时间。
 
-![二哥的 Java 进阶之路：对 buffer pool 进行调整](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312093325.png)
+![二哥的 Java 进阶之路：对 buffer pool 进行调整](https://cdn.paicoding.com/stutymore/mysql-20250312093325.png)
 
 默认情况下，LRU 链表中 old 区占 37%；同一页再次访问提升的最小时间间隔是 1000 毫秒。
 
@@ -1083,7 +1083,7 @@ SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
 
 memo：2025 年 3 月 12 日修改至此。继续给大家一个喜报，今天[有球友报喜](https://javabetter.cn/zhishixingqiu/)说社招拿到了京东和美团的 offer，后续补充说滴滴也过了，我只能说太强了呀。
 
-![今天有球友拿到京东和美团的 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250312172018.png)
+![今天有球友拿到京东和美团的 offer](https://cdn.paicoding.com/stutymore/mysql-20250312172018.png)
 
 ## 日志
 
@@ -1091,7 +1091,7 @@ memo：2025 年 3 月 12 日修改至此。继续给大家一个喜报，今天[
 
 有 6 大类，其中错误日志用于问题诊断，慢查询日志用于 SQL 性能分析，general log 用于记录所有的 SQL 语句，binlog 用于主从复制和数据恢复，redo log 用于保证事务持久性，undo log 用于事务回滚和 MVCC。
 
-![三分恶面渣逆袭：MySQL的主要日志](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
+![三分恶面渣逆袭：MySQL的主要日志](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c0ef6e68-bb33-48fc-b3a2-b9cdadd8e403.jpg)
 
 ----这部分是帮助大家理解 start，面试中可不背----
 
@@ -1128,7 +1128,7 @@ mysqlbinlog --start-datetime="2025-03-13 14:00:00" --stop-datetime="2025-03-13 1
 
 MySQL 提供了三种格式的 binlog：Statement、Row 和 Mixed，分别对应 SQL 语句级别、行级别和混合级别，默认为行级别。
 
-![二哥的 Java 进阶之路：MySQL 默认的 binlog格式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250313151551.png)
+![二哥的 Java 进阶之路：MySQL 默认的 binlog格式](https://cdn.paicoding.com/stutymore/mysql-20250313151551.png)
 
 从后缀名上来看，binlog 文件分为两类：以 .index 结尾的索引文件，以 .00000\* 结尾的二进制日志文件。
 
@@ -1160,7 +1160,7 @@ sync_binlog=0
 
 `log_bin = mysql-bin` 用于启用 binlog，这样就可以在 MySQL 的数据目录中找到 db-bin.000001、db-bin.000002 等日志文件。
 
-![二哥的 Java 进阶之路：binlog 文件](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417074049.png)
+![二哥的 Java 进阶之路：binlog 文件](https://cdn.paicoding.com/stutymore/mysql-20240417074049.png)
 
 `max_binlog_size=104857600` 用于设置每个 binlog 文件的大小，不建议设置太大，网络传送起来比较麻烦。
 
@@ -1180,7 +1180,7 @@ sync_binlog=0
 
 可以通过 `show variables like '%log_bin%';` 查看 binlog 是否开启。
 
-![二哥的 Java 进阶之路：开启 binlog](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240326102701.png)
+![二哥的 Java 进阶之路：开启 binlog](https://cdn.paicoding.com/stutymore/mysql-20240326102701.png)
 
 #### 有了binlog为什么还要undolog redolog？
 
@@ -1245,7 +1245,7 @@ after:  id=1, age=26
 
 memo：2025 年 3 月 13 日修改至此。有[球友报喜](httpshttps://javabetter.cn/zhishixingqiu/)，字节二面过了，找暑期顺利的不可思议，八股直接吟唱面渣。
 
-![球友报喜字节二面过了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250313170334.png)
+![球友报喜字节二面过了](https://cdn.paicoding.com/stutymore/mysql-20250313170334.png)
 
 #### 说说 redo log 的工作机制？
 
@@ -1255,17 +1255,17 @@ memo：2025 年 3 月 13 日修改至此。有[球友报喜](httpshttps://javabe
 
 这些 Redo Log 首先会被写入内存中的 Redo Log Buffer。
 
-![二哥的 Java 进阶之路： 我本机 MySQL 的 redolog buffer size 为 16M](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314155647.png)
+![二哥的 Java 进阶之路： 我本机 MySQL 的 redolog buffer size 为 16M](https://cdn.paicoding.com/stutymore/mysql-20250314155647.png)
 
 当事务提交时，MySQL 再将 Redo Log Buffer 中的记录刷新到磁盘上的 Redo Log 文件中。
 
 只有当 Redo Log 成功写入磁盘，事务才算真正提交成功。
 
-![greatsql 社区：Redo Log的刷盘策略](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314160523.png)
+![greatsql 社区：Redo Log的刷盘策略](https://cdn.paicoding.com/stutymore/mysql-20250314160523.png)
 
 当 MySQL 崩溃重启时，会先检查 Redo Log。对于已提交的事务，MySQL 会重放 Redo Log 中的记录。
 
-![greatsql 社区：redo log 恢复](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314160157.png)
+![greatsql 社区：redo log 恢复](https://cdn.paicoding.com/stutymore/mysql-20250314160157.png)
 
 对于未提交的事务，MySQL 会通过 Undo Log 回滚这些修改，确保数据恢复到崩溃前的一致性状态。
 
@@ -1273,7 +1273,7 @@ Redo Log 是循环使用的，当文件写满后会覆盖最早的记录。
 
 为避免覆盖未持久化的记录，MySQL 会定期执行 CheckPoint 操作，将内存中的数据页刷新到磁盘，并记录 CheckPoint 点。
 
-![博客园太白金星有点烦：checkpoint](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314161732.png)
+![博客园太白金星有点烦：checkpoint](https://cdn.paicoding.com/stutymore/mysql-20250314161732.png)
 
 重启时，MySQL 只会重放 CheckPoint 之后的 Redo Log，从而提高恢复效率。
 
@@ -1281,15 +1281,15 @@ Redo Log 是循环使用的，当文件写满后会覆盖最早的记录。
 
 redo log 文件是固定大小的，通常配置为一组文件，使用环形方式写入，旧的日志会在空间需要时被覆盖。
 
-![greatsql社区：redo log 文件组](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314161331.png)
+![greatsql社区：redo log 文件组](https://cdn.paicoding.com/stutymore/mysql-20250314161331.png)
 
 命名方式为 `ib_logfile0、iblogfile1、、、iblogfilen`。默认 2 个文件，每个文件大小为 48MB。
 
-![greatsql社区：ib_logfile0和ib_logfile1](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314160340.png)
+![greatsql社区：ib_logfile0和ib_logfile1](https://cdn.paicoding.com/stutymore/mysql-20250314160340.png)
 
 可以通过 `show variables like 'innodb_log_file_size';` 查看 redo log 文件的大小；通过 `show variables like 'innodb_log_files_in_group';` 查看 redo log 文件的数量。
 
-![二哥的 Java 进阶之路：redo log 文件大小](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314155806.png)
+![二哥的 Java 进阶之路：redo log 文件大小](https://cdn.paicoding.com/stutymore/mysql-20250314155806.png)
 
 #### 说说 WAL？
 
@@ -1297,7 +1297,7 @@ redo log 文件是固定大小的，通常配置为一组文件，使用环形�
 
 预写日志是 InnoDB 实现事务持久化的核心机制，它的思想是：先写日志再刷磁盘。
 
-![小许 code：WAL](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314163343.png)
+![小许 code：WAL](https://cdn.paicoding.com/stutymore/mysql-20250314163343.png)
 
 即在修改数据页之前，先将修改记录写入 Redo Log。
 
@@ -1321,13 +1321,13 @@ WAL 的好处是更新时不直接写数据页，而是先写一份变更记录�
 
 memo：2025 年 3 月 14 日修改至此。今天修改简历的时候，碰到一位比赛经历[非常丰富的球友](https://javabetter.cn/zhishixingqiu/)，大家在校期间如果有时间，也可以冲一下。
 
-![球友的竞赛经历](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250314163859.png)
+![球友的竞赛经历](https://cdn.paicoding.com/stutymore/mysql-20250314163859.png)
 
 ### 29.binlog 和 redo log 有什么区别？
 
 binlog 由 MySQL 的 Server 层实现，与存储引擎无关；redo log 由 InnoDB 存储引擎实现。
 
-![连边：binlog 和 redo log](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250315151137.png)
+![连边：binlog 和 redo log](https://cdn.paicoding.com/stutymore/mysql-20250315151137.png)
 
 binlog 记录的是逻辑日志，包括原始的 SQL 语句或者行数据变化，例如“将 id=2 这行数据的 age 字段+1”。
 
@@ -1337,7 +1337,7 @@ binlog 是追加写入的，文件写满后会新建文件继续写入，不会�
 
 另外，为保证两种日志的一致性，innodb 采用了两阶段提交策略，redo log 在事务执行过程中持续写入，并在事务提交前进入 prepare 状态；binlog 在事务提交的最后阶段写入，之后 redo log 会被标记为 commit 状态。
 
-![阿里：MySQL 两阶段提交](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316104456.png)
+![阿里：MySQL 两阶段提交](https://cdn.paicoding.com/stutymore/mysql-20250316104456.png)
 
 可以通过回放 binlog 实现数据同步或者恢复到指定时间点；redo log 用来确保事务提交后即使系统宕机，数据仍然可以通过重放 redo log 恢复。
 
@@ -1347,13 +1347,13 @@ binlog 是追加写入的，文件写满后会新建文件继续写入，不会�
 
 为了保证 redo log 和 binlog 中的数据一致性，防止主从复制和事务状态不一致。
 
-![阿里：MySQL 两阶段提交](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316104456.png)
+![阿里：MySQL 两阶段提交](https://cdn.paicoding.com/stutymore/mysql-20250316104456.png)
 
 #### 为什么 2PC 能保证 redo log 和 binlog 的强⼀致性？
 
 假如 MySQL 在预写 redo log 之后、写入 binlog 之前崩溃。那么 MySQL 重启后 InnoDB 会回滚该事务，因为 redo log 不是提交状态。并且由于 binlog 中没有写入数据，所以从库也不会有该事务的数据。
 
-![阿里：2PC 可以保证redo log 和 binlog 的数据一致性](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316105500.png)
+![阿里：2PC 可以保证redo log 和 binlog 的数据一致性](https://cdn.paicoding.com/stutymore/mysql-20250316105500.png)
 
 假如 MySQL 在写入 binlog 之后、redo log 提交之前崩溃。那么 MySQL 重启后 InnoDB 会提交该事务，因为 redo log 是完整的 prepare 状态。并且由于 binlog 中有写入数据，所以从库也会同步到该事务的数据。
 
@@ -1391,7 +1391,7 @@ end;
 
 XID 是 binlog 中用来标识事务提交的唯一标识符。
 
-![mysql：xid](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250316113030.png)
+![mysql：xid](https://cdn.paicoding.com/stutymore/mysql-20250316113030.png)
 
 在事务提交时，会写入一个 XID_EVENT 到 binlog，表示这个事务真正完成了。
 
@@ -1414,7 +1414,7 @@ memo：2025 年 3 月 16 日修改至此。
 
 InnoDB 会先将 Redo Log 写入内存中的 Redo Log Buffer，之后再以一定的频率刷入到磁盘的 Redo Log File 中。
 
-![三分恶面渣逆袭：redo log 缓冲](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e1f59341-0695-45db-b759-30db73314e39.jpg)
+![三分恶面渣逆袭：redo log 缓冲](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e1f59341-0695-45db-b759-30db73314e39.jpg)
 
 #### 哪些场景会触发 redo log 的刷盘动作？
 
@@ -1422,19 +1422,19 @@ InnoDB 会先将 Redo Log 写入内存中的 Redo Log Buffer，之后再以一�
 
 不过，Redo Log Buffer 刷盘到 Redo Log File 还会涉及到操作系统的磁盘缓存策略，可能不会立即刷盘，而是等待一定时间后才刷盘。
 
-![酷酷博客园：Page Cache](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317160220.png)
+![酷酷博客园：Page Cache](https://cdn.paicoding.com/stutymore/mysql-20250317160220.png)
 
 #### innodb_flush_log_at_trx_commit 参数你了解多少？
 
 innodb_flush_log_at_trx_commit 参数是用来控制事务提交时，Redo Log 的刷盘策略，一共有三种。
 
-![greatsql：innodb_flush_log_at_trx_commit](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317155312.png)
+![greatsql：innodb_flush_log_at_trx_commit](https://cdn.paicoding.com/stutymore/mysql-20250317155312.png)
 
 0 表示事务提交时不刷盘，而是交给后台线程每隔 1 秒执行一次。这种方式性能最好，但是在 MySQL 宕机时可能会丢失一秒内的事务。
 
 1 表示事务提交时会立即刷盘，确保事务提交后数据就持久化到磁盘。这种方式是最安全的，也是 InnoDB 的默认值。
 
-![二哥的 Java 进阶之路：innodb_flush_log_at_trx_commit的默认值](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317160701.png)
+![二哥的 Java 进阶之路：innodb_flush_log_at_trx_commit的默认值](https://cdn.paicoding.com/stutymore/mysql-20250317160701.png)
 
 2 表示事务提交时只把 Redo Log Buffer 写入到 Page Cache，由操作系统决定什么时候刷盘。操作系统宕机时，可能会丢失一部分数据。
 
@@ -1442,7 +1442,7 @@ innodb_flush_log_at_trx_commit 参数是用来控制事务提交时，Redo Log �
 
 InnoDB 有一个后台线程，每隔 1 秒会把 Redo Log Buffer 中的日志写入到文件系统的缓存中，然后调用刷盘操作。
 
-![greatsql：InnoDB 的后台线程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317161008.png)
+![greatsql：InnoDB 的后台线程](https://cdn.paicoding.com/stutymore/mysql-20250317161008.png)
 
 因此，一个没有提交事务的 Redo Log 也可能会被刷新到磁盘中。
 
@@ -1450,17 +1450,17 @@ InnoDB 有一个后台线程，每隔 1 秒会把 Redo Log Buffer 中的日志�
 
 memo：2025 年 3 月 17 日修改至此。已经有[球友发来喜报](https://javabetter.cn/zhishixingqiu/)，暑期实习拿到恒生电子的暑期实习了。
 
-![球友拿到恒生电子的暑期实习了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250317163123.png)
+![球友拿到恒生电子的暑期实习了](https://cdn.paicoding.com/stutymore/mysql-20250317163123.png)
 
 #### Redo Log Buffer 是顺序写还是随机写？
 
 MySQL 在启动后会向操作系统申请一块连续的内存空间作为 Redo Log Buffer，并将其分为若干个连续的 Redo Log Block。
 
-![xyZGHio：Redo Log Block](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318160752.png)
+![xyZGHio：Redo Log Block](https://cdn.paicoding.com/stutymore/mysql-20250318160752.png)
 
 那为了提高写入效率，Redo Log Buffer 采用了顺序写入的方式，会先往前面的 Redo Log Block 中写入，当写满后再往后面的 Block 中写入。
 
-![greatsql：redo log buffer的写入](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318152808.png)
+![greatsql：redo log buffer的写入](https://cdn.paicoding.com/stutymore/mysql-20250318152808.png)
 
 于此同时，InnoDB 还提供了一个全局变量 buf_free，来控制后续的 redo log 记录应该写入到 block 中的哪个位置。
 
@@ -1468,7 +1468,7 @@ MySQL 在启动后会向操作系统申请一块连续的内存空间作为 Redo
 
 buf_next_to_write 指向 Redo Log Buffer 中下一次需要写入硬盘的起始位置。
 
-![xyZGHio：buf_next_to_write](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318180850.png)
+![xyZGHio：buf_next_to_write](https://cdn.paicoding.com/stutymore/mysql-20250318180850.png)
 
 而 buf_free 指向的是 Redo Log Buffer 中空闲区域的起始位置。
 
@@ -1505,17 +1505,17 @@ mtr_commit(&mtr);
 
 多个事务的 Redo Log 会以 MTR 为单位交替写入到 Redo Log Buffer 中，假如事务 1 和事务 2 均有两个 MTR，一旦某个 MTR 结束，就会将其生成的若干条 Redo Log 记录顺序写入到 Redo Log Buffer 中。
 
-![xyZGHio：MTR 与 Redo Log Buffer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318163110.png)
+![xyZGHio：MTR 与 Redo Log Buffer](https://cdn.paicoding.com/stutymore/mysql-20250318163110.png)
 
 也就是说，一个 MTR 会包含一组 Redo Log 记录，是 MySQL 崩溃后恢复事务的最小执行单元。
 
-![xyZGHio：MTR](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318163310.png)
+![xyZGHio：MTR](https://cdn.paicoding.com/stutymore/mysql-20250318163310.png)
 
 #### Redo Log Block 的结构了解吗？
 
 Redo Log Block 由日志头、日志体和日志尾组成，一共占用 512 个字节，其中日志头占用 12 个字节，日志尾占用 4 个字节，剩余的 496 个字节用于存储日志体。
 
-![greatsql：Redo Log Block](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318154904.png)
+![greatsql：Redo Log Block](https://cdn.paicoding.com/stutymore/mysql-20250318154904.png)
 
 日志头包含了当前 Block 的序列号、第一条日志的序列号、类型等信息。
 
@@ -1532,7 +1532,7 @@ LOG_BLOCK_CHECKPOINT_NO| Block 最后被写入时的checkpoint
 
 因为机械硬盘的物理扇区大小通常为 512 字节，Redo Log Block 也设计为同样的大小，就可以确保每次写入都是整数个扇区，减少对齐开销。
 
-![西维蜀黍：Redo Log 工作原理](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318155855.png)
+![西维蜀黍：Redo Log 工作原理](https://cdn.paicoding.com/stutymore/mysql-20250318155855.png)
 
 比如说操作系统的页缓存默认为 4KB，8 个 Redo Log Block 就可以组合成一个页缓存单元，从而提升 Redo Log Buffer 的写入效率。
 
@@ -1542,7 +1542,7 @@ memo：2025 年 3 月 18 日修改至此。
 
 Log Sequence Number 是一个 8 字节的单调递增整数，用来标识事务写入 redo log 的字节总量，存在于 redo log、数据页头部和 checkpoint 中。
 
-![xyZGHio：LSN](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250318181133.png)
+![xyZGHio：LSN](https://cdn.paicoding.com/stutymore/mysql-20250318181133.png)
 
 ----这部分是帮助大家理解 start，面试中可不背----
 
@@ -1577,7 +1577,7 @@ MySQL 在第一次启动时，LSN 的初始值并不为 0，而是 8704；当 My
 
 可以通过 `show engine innodb status;` 查看当前的 LSN 信息。
 
-![二哥的 Java 进阶之路：LSN](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250319161213.png)
+![二哥的 Java 进阶之路：LSN](https://cdn.paicoding.com/stutymore/mysql-20250319161213.png)
 
 - Log sequence number：当前系统最大 LSN（已生成的日志总量）。
 - Log flushed up to：已写入磁盘的 redo log LSN。
@@ -1588,7 +1588,7 @@ MySQL 在第一次启动时，LSN 的初始值并不为 0，而是 8704；当 My
 
 memo：2025 年 3 月 19 日修改至此。今天有读者问怎么付费购买纸质版[面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)，说看到网友有这个，好羡慕啊。说实话，第一眼看到这个封面，真的觉得挺惊艳（虽然是我设计的）。😄
 
-![读者已经把面渣逆袭彩印了，好漂亮啊](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250319163123.png)
+![读者已经把面渣逆袭彩印了，好漂亮啊](https://cdn.paicoding.com/stutymore/mysql-20250319163123.png)
 
 #### Checkpoint 了解多少？
 
@@ -1600,13 +1600,13 @@ MySQL 崩溃恢复时只需要从 Checkpoint 之后开始恢复 redo log 就可�
 
 redo log file 的写入是循环的，其中有两个标记位置非常重要，也就是 Checkpoint 和 write pos。
 
-![三分恶面渣逆袭：checkpoint 和 write pos](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-8d944e76-89ba-4fa6-9066-64ff4f55b532.jpg)
+![三分恶面渣逆袭：checkpoint 和 write pos](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-8d944e76-89ba-4fa6-9066-64ff4f55b532.jpg)
 
 write pos 是 redo log 当前写入的位置，Checkpoint 是可以被覆盖的位置。
 
 当 write pos 追上 Checkpoint 时，表示 redo log 日志已经写满。这时候就要暂停写入并强制刷盘，释放可覆写的日志空间。
 
-![三分恶面渣逆袭：write pos 和 checkpoint](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31a14149-b261-45d9-bd3b-6afaec16e136.jpg)
+![三分恶面渣逆袭：write pos 和 checkpoint](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31a14149-b261-45d9-bd3b-6afaec16e136.jpg)
 
 #### 关于redo log 的调优参数了解多少？
 
@@ -1654,7 +1654,7 @@ innodb_io_capacity|	后台刷盘速度|	限制 checkpoint 刷盘压力
 
 memo：2025 年 3 月 20 日修改至此。[有球友](https://javabetter.cn/zhishixingqiu/)报喜说拿到了滴滴的测开实习 offer，恭喜恭喜！
 
-![球友拿到了滴滴的测开实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250320163641.png)
+![球友拿到了滴滴的测开实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250320163641.png)
 
 ## SQL 优化
 
@@ -1668,7 +1668,7 @@ MySQL 中有一个叫 long_query_time 的参数，原则上执行时间超过该
 
 可通过 `show variables like 'long_query_time';` 查看当前的 long_query_time 的参数值。
 
-![二哥的 Java 进阶之路：long_query_time](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083506.png)
+![二哥的 Java 进阶之路：long_query_time](https://cdn.paicoding.com/stutymore/mysql-20240327083506.png)
 
 ----这部分是帮助大家理解 end，面试中可不背----
 
@@ -1678,7 +1678,7 @@ MySQL 中有一个叫 long_query_time 的参数，原则上执行时间超过该
 
 SQL 的执行过程大致可以分为六个阶段：连接管理、语法解析、语义分析、查询优化、执行器调度、存储引擎读写等。Server 层负责理解和规划 SQL 怎么执行，存储引擎层负责数据的真正读写。
 
-![三个猪皮匠：SQL 执行过程](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327083838.png)
+![三个猪皮匠：SQL 执行过程](https://cdn.paicoding.com/stutymore/mysql-20240327083838.png)
 
 ----这部分是帮助大家理解 start，面试中可不背----
 
@@ -1709,11 +1709,11 @@ SQL 执行过程中，优化器通过成本计算预估出执行效率最高的�
 
 也可以使用 `show processlist;` 命令查看当前正在执行的 SQL 语句，找出执行时间较长的 SQL。
 
-![二哥的java 进阶之路：技术派当前正在执行的 sql](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115145204.png)
+![二哥的java 进阶之路：技术派当前正在执行的 sql](https://cdn.paicoding.com/stutymore/mysql-20241115145204.png)
 
 或者在业务基建中加入对慢 SQL 的监控，常见的方案有字节码插桩、连接池扩展、ORM 框架扩展等。
 
-![二哥的Java 进阶之路：技术派会在日志中记录请求的执行时间](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115145401.png)
+![二哥的Java 进阶之路：技术派会在日志中记录请求的执行时间](https://cdn.paicoding.com/stutymore/mysql-20241115145401.png)
 
 然后，使用 EXPLAIN 查看慢 SQL 的执行计划，看看有没有用索引，大部分情况下，慢 SQL 的原因都是因为没有用到索引。
 
@@ -1754,7 +1754,7 @@ SET GLOBAL long_query_time = 2;
 
 memo：2025 年 3 月 21 日修改至此。今天[有球友报喜](https://javabetter.cn/zhishixingqiu/)说拿到了 wxg 的实习 offer，阿里云和美团也在进行当中，真的 tql。
 
-![球友报喜说拿到了 wxg 的实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250321155611.png)
+![球友报喜说拿到了 wxg 的实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250321155611.png)
 
 ### 33.🌟你知道哪些方法来优化 SQL？
 
@@ -1762,13 +1762,13 @@ SQL 优化的方法非常多，但本质上就一句话：尽可能少地扫描�
 
 最常见的做法就是加索引、改写 SQL 让它用上索引，比如说使用覆盖索引、让联合索引遵守最左前缀原则等。
 
-![沉默王二：SQL 优化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240327104050.png)
+![沉默王二：SQL 优化](https://cdn.paicoding.com/stutymore/mysql-20240327104050.png)
 
 #### 如何利用覆盖索引？
 
 覆盖索引的核心是“查询所需的字段都在同一个索引里”，这样 MySQL 就不需要回表，直接从索引中返回结果。
 
-![梦里花。：回表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250322095940.png)
+![梦里花。：回表](https://cdn.paicoding.com/stutymore/mysql-20250322095940.png)
 
 实际使用中，我会优先考虑把 WHERE 和 SELECT 涉及的字段一起建联合索引，并通过 EXPLAIN 观察结果是否有 Using index，确认命中索引。
 
@@ -1878,7 +1878,7 @@ SELECT * FROM user ORDER BY id LIMIT 100000, 10;
 
 memo：2025 年 3 月 22 日修改至此。今天[有球友说](https://javabetter.cn/zhishixingqiu/)等腾讯云的 HR 面，很着急，但我赌他一定能拿到 offer，等一个后续哈。
 
-![球友进入腾讯云的 HR 面了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250322103527.png)
+![球友进入腾讯云的 HR 面了](https://cdn.paicoding.com/stutymore/mysql-20250322103527.png)
 
 #### JOIN 代替子查询有什么好处？
 
@@ -1947,7 +1947,7 @@ EXPLAIN SELECT o.order_id,
         FROM orders o;
 ```
 
-![二哥的 Java 进阶之路：子查询的执行计划](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250323213511.png)
+![二哥的 Java 进阶之路：子查询的执行计划](https://cdn.paicoding.com/stutymore/mysql-20250323213511.png)
 
 子查询（DEPENDENT SUBQUERY）类型表明其依赖外层查询的每一行，导致重复执行。
 
@@ -1959,7 +1959,7 @@ EXPLAIN SELECT o.order_id,
         FROM orders o;
 ```
 
-![二哥的 Java 进阶之路：JOIN 的执行计划](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250323213756.png)
+![二哥的 Java 进阶之路：JOIN 的执行计划](https://cdn.paicoding.com/stutymore/mysql-20250323213756.png)
 
 JOIN 通过 eq_ref 类型直接利用主键（customers.customer_id）快速关联，减少扫描次数。
 
@@ -1967,13 +1967,13 @@ JOIN 通过 eq_ref 类型直接利用主键（customers.customer_id）快速关�
 
 memo：2025 年 3 月 23 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，通过一晚上的时间，就在星球里学到很多知识，让他这个 7 年经验的 CRUD Boy 受益匪浅。
 
-![球友对星球的一种褒奖](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250323214034.png)
+![球友对星球的一种褒奖](https://cdn.paicoding.com/stutymore/mysql-20250323214034.png)
 
 #### JOIN操作为什么要小表驱动大表？
 
 第一，如果大表的 JOIN 字段有索引，那么小表的每一行都可以通过索引快速匹配大表。
 
-![极客时间：Index Nested-Loop Join](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324121435.png)
+![极客时间：Index Nested-Loop Join](https://cdn.paicoding.com/stutymore/mysql-20250324121435.png)
 
 时间复杂度为小表行数 N 乘以大表索引查找复杂度 log(大表行数 M)，总复杂度为 N\*log(M)。
 
@@ -1981,15 +1981,15 @@ memo：2025 年 3 月 23 日修改至此，今天[有球友说](https://javabett
 
 第二，如果大表没有索引，需要将小表的数据加载到内存，再全表扫描大表进行匹配。
 
-![极客时间：Block Nested-Loop Join](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324121526.png)
+![极客时间：Block Nested-Loop Join](https://cdn.paicoding.com/stutymore/mysql-20250324121526.png)
 
 时间复杂度为小表分段数 K 乘以大表行数 M，其中 K = 小表行数 N / 内存大小 join_buffer_size。
 
-![二哥的 Java 进阶之路：join_buffer_size](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324152505.png)
+![二哥的 Java 进阶之路：join_buffer_size](https://cdn.paicoding.com/stutymore/mysql-20250324152505.png)
 
 显然小表做驱动表的时候 K 的值更小，大表做驱动表的时候需要多次分段。
 
-![贴一段球友对这个问题的分析](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250326213442.png)
+![贴一段球友对这个问题的分析](https://cdn.paicoding.com/stutymore/mysql-20250326213442.png)
 
 ```sql
 -- 小表驱动（高效）
@@ -2009,7 +2009,7 @@ JOIN small_table s ON l.id = s.id;  -- s.id无索引
 
 为了验证这一点，我特意新建了两个表 departments 和 employees。
 
-![二哥的 Java 进阶之路：join 的验证，创建两个表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324155729.png)
+![二哥的 Java 进阶之路：join 的验证，创建两个表](https://cdn.paicoding.com/stutymore/mysql-20250324155729.png)
 
 插入测试数据：
 
@@ -2034,7 +2034,7 @@ INSERT INTO employees VALUES
 
 然后用 explain 查看执行计划：
 
-![二哥的 Java 进阶之路：join 的执行计划](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324155453.png)
+![二哥的 Java 进阶之路：join 的执行计划](https://cdn.paicoding.com/stutymore/mysql-20250324155453.png)
 
 当使用 left join 的时候，第一行是 employees 表，说明左表是驱动表；当使用 right join 的时候，第一行是 departments 表，说明右表是驱动表；当使用 join 的时候，第一行是 departments 表，说明 MySQL 默认选择了小表作为驱动表。
 
@@ -2079,11 +2079,11 @@ JOIN E ON D.id = E.d_id;  -- 5 个表，优化器需评估 5! = 120 种顺序
 
 《[阿里巴巴 Java 开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)》上就规定，不要使用 join 关联太多的表，最多不要超过 3 张表。
 
-![阿里开发手册：MySQL 规约之 JOIN 多表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324163735.png)
+![阿里开发手册：MySQL 规约之 JOIN 多表](https://cdn.paicoding.com/stutymore/mysql-20250324163735.png)
 
 memo：2025 年 3 月 24 日修改至此，今天[有球友反馈说](https://javabetter.cn/zhishixingqiu/)，简历上加了 mydb 项目后，也顺利拿到腾讯的暑期实习 offer。
 
-![球友拿到腾讯的暑期 offer+1](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250324163940.png)
+![球友拿到腾讯的暑期 offer+1](https://cdn.paicoding.com/stutymore/mysql-20250324163940.png)
 
 #### 如何进行排序优化？
 
@@ -2114,7 +2114,7 @@ SELECT * FROM users ORDER BY name, age;
 
 ----这部分是帮助大家理解 start，面试中可不背----
 
-![二哥的 Java 进阶之路：sort 的一些参数](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250326213740.png)
+![二哥的 Java 进阶之路：sort 的一些参数](https://cdn.paicoding.com/stutymore/mysql-20250326213740.png)
 
 - sort_buffer_size：用于控制排序缓冲区的大小，默认为 256KB。也就是说，如果排序的数据量小于 256KB，MySQL 会在内存中直接排序；否则就要在磁盘上进行 filesort。
 - max_length_for_sort_data：单行数据的最大长度，会影响排序算法选择。如果单行数据超过该值，MySQL 会使用双路排序，否则使用单路排序。
@@ -2142,17 +2142,17 @@ SELECT * FROM users WHERE age > last_age ORDER BY age LIMIT 20;  -- 高效（记
 
 当不能使用索引生成排序结果的时候，MySQL 需要自己进行排序，如果数据量比较小，会在内存中进行；如果数据量比较大就需要写临时文件到磁盘再排序，我们将这个过程称为文件排序。
 
-![二哥的 Java 进阶之路：filesort](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250326220036.png)
+![二哥的 Java 进阶之路：filesort](https://cdn.paicoding.com/stutymore/mysql-20250326220036.png)
 
 ----这部分是帮助大家理解 start，面试中可不背----
 
 好，让我们来验证一下 filesort 的情况，建表、插入数据。
 
-![二哥的 Java 进阶之路：验证 filesort](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250326220632.png)
+![二哥的 Java 进阶之路：验证 filesort](https://cdn.paicoding.com/stutymore/mysql-20250326220632.png)
 
 执行 explain 查看执行计划。
 
-![二哥的 Java 进阶之路：filesort 的执行计划](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250326220857.png)
+![二哥的 Java 进阶之路：filesort 的执行计划](https://cdn.paicoding.com/stutymore/mysql-20250326220857.png)
 
 能够看得出来，当 order by id 也就是主键的时候，没有触发 filesort；当 order by age 的时候，由于没有索引，就触发了 filesort。
 
@@ -2160,17 +2160,17 @@ SELECT * FROM users WHERE age > last_age ORDER BY age LIMIT 20;  -- 高效（记
 
 memo：2025 年 3 月 26 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，拿到了阿里云的实习 offer，真的 tql。
 
-![球友拿到阿里云的意向书了](https://cdn.tobebetterjavaer.com/stutymore/mysql-阿里云给意向书了.png)
+![球友拿到阿里云的意向书了](https://cdn.paicoding.com/stutymore/mysql-阿里云给意向书了.png)
 
 #### 全字段排序和 rowid 排序了解多少？
 
 当排序字段是索引字段且满足最左前缀原则时，MySQL 可以直接利用索引的有序性完成排序。
 
-![二哥的 Java 进阶之路：索引排序](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250327164223.png)
+![二哥的 Java 进阶之路：索引排序](https://cdn.paicoding.com/stutymore/mysql-20250327164223.png)
 
 当无法使用索引排序时，MySQL 需要在内存或磁盘中进行排序操作，分为全字段排序和 rowid 排序两种算法。
 
-![极客时间：全字段排序](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250327172128.png)
+![极客时间：全字段排序](https://cdn.paicoding.com/stutymore/mysql-20250327172128.png)
 
 全字段排序会一次性取出满足条件行的所有字段，然后在 sort buffer 中进行排序，排序后直接返回结果，无需回表。
 
@@ -2185,7 +2185,7 @@ memo：2025 年 3 月 26 日修改至此，今天[有球友说](https://javabett
 
 也无法处理包含 text 和 blob 类型的字段。
 
-![极客时间：rowid 排序](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250327171803.png)
+![极客时间：rowid 排序](https://cdn.paicoding.com/stutymore/mysql-20250327171803.png)
 
 rowid 排序分为两个阶段：
 
@@ -2216,18 +2216,18 @@ Sort_merge_passes 是一个状态变量，用于统计 MySQL 在执行排序操�
 
 如果 Sort_merge_passes 在短时间内快速激增，说明排序操作的数据量较大，需要调整 sort_buffer_size 或者优化查询语句。
 
-![二哥的 Java 进阶之路：Sort_merge_passes](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250327173629.png)
+![二哥的 Java 进阶之路：Sort_merge_passes](https://cdn.paicoding.com/stutymore/mysql-20250327173629.png)
 
 MySQL 在执行排序操作时，会经历两个过程：
 
 - 内存排序阶段，MySQL 首先尝试在 sort buffer 中进行排序。如果数据量小于 sort_buffer_size 缓冲区大小，会完全在内存中完成快速排序。
 - 外部排序阶段，如果数据量超过 sort_buffer_size，MySQL 会将数据分成多个块，每块单独排序后写入临时文件，然后对这些已排序的块进行归并排序。每次归并操作都会增加 Sort_merge_passes 的计数。
 
-![一树一溪：归并排序](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250327174147.png)
+![一树一溪：归并排序](https://cdn.paicoding.com/stutymore/mysql-20250327174147.png)
 
 memo：2025 年 3 月 27 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，通过了快手二面，并且 HR 面是不排序的，已经确定了入职时间，恭喜啊。
 
-![有球友拿到快手的 offer 了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250327174927.png)
+![有球友拿到快手的 offer 了](https://cdn.paicoding.com/stutymore/mysql-20250327174927.png)
 
 #### 条件下推你了解多少？
 
@@ -2344,7 +2344,7 @@ select name from test where create_time>='2021-01-01 00:00:00' and create_t
 
 memo：2025 年 3 月 28 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，字节跳动和腾讯的暑期实习都 OC 了，很感谢当时加了二哥的编程星球，看球友们日常的学习分享，以及二哥推荐的轮子。
 
-![球友字节和腾讯都 OC了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250328155527.png)
+![球友字节和腾讯都 OC了](https://cdn.paicoding.com/stutymore/mysql-20250328155527.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 22 暑期实习一面面试原题：查询优化、联合索引、覆盖索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说 SQL 该如何优化
@@ -2360,7 +2360,7 @@ memo：2025 年 3 月 28 日修改至此，今天[有球友说](https://javabett
 
 一共有 10 来个输出参数。
 
-![三分恶面渣逆袭：EXPLAIN](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e234658f-5672-4a8d-9a75-872b305a171d.jpg)
+![三分恶面渣逆袭：EXPLAIN](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e234658f-5672-4a8d-9a75-872b305a171d.jpg)
 
 比如说 `type=ALL,key=NULL` 表示 SQL 正在全表扫描，可以考虑为 where 字段添加索引进行优化；`Extra=Using filesort` 表示 SQL 正在文件排序，可以考虑为 order by 字段添加索引。
 
@@ -2376,7 +2376,7 @@ explain select * from students where name='王二';
 explain format=json select * from students where name='王二';
 ```
 
-![二哥的 Java 进阶之路：explain json 格式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250329103010.png)
+![二哥的 Java 进阶之路：explain json 格式](https://cdn.paicoding.com/stutymore/mysql-20250329103010.png)
 
 #### explain 输出结果中常见的字段含义理解吗？
 
@@ -2466,7 +2466,7 @@ key_len = 4（INT） + 20\*3（utf8） + 2 = 66 字节。
 
 示例：
 
-![二哥的 Java 进阶之路：explain 结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417092646.png)
+![二哥的 Java 进阶之路：explain 结果](https://cdn.paicoding.com/stutymore/mysql-20240417092646.png)
 
 ----这部分是帮助大家理解 end，面试中可不背----
 
@@ -2488,7 +2488,7 @@ ALL 类型表示全表扫描，性能最差，往往不可接受，需要优化�
 
 memo：2025 年 3 月 29 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)美团的 offer 口头 OC 了，真的太棒了。
 
-![球友美团 offer 口头oc 了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250329111600.png)
+![球友美团 offer 口头oc 了](https://cdn.paicoding.com/stutymore/mysql-20250329111600.png)
 
 ## 索引
 
@@ -2496,11 +2496,11 @@ memo：2025 年 3 月 29 日修改至此，今天[有球友说](https://javabett
 
 索引就像一本书的目录，能让 MySQL 快速定位数据，避免全表扫描。
 
-![三分恶面渣逆袭：索引加快查询远离](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-6b9c9901-9bf3-46ed-a5c4-c1b781965c1e.jpg)
+![三分恶面渣逆袭：索引加快查询远离](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-6b9c9901-9bf3-46ed-a5c4-c1b781965c1e.jpg)
 
 它一般是 B+ 树结构，查找效率是 O(log n)，比从头到尾扫一遍数据要快得多。
 
-![MySQL 索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250330123726.png)
+![MySQL 索引](https://cdn.paicoding.com/stutymore/mysql-20250330123726.png)
 
 除了查得快，索引还能加速排序、分组、连接等操作。
 
@@ -2516,19 +2516,19 @@ create index idx_name on students(name);
 
 先上结果，有索引的查询时间是 0.007 秒，没有索引的查询时间是 0.036 秒。
 
-![二哥的 Java 进阶之路：有索引和没有索引的查询效率](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250330124012.png)
+![二哥的 Java 进阶之路：有索引和没有索引的查询效率](https://cdn.paicoding.com/stutymore/mysql-20250330124012.png)
 
 创建数据库和表。
 
-![二哥的 Java 进阶之路：创建 index 的验证表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250330124209.png)
+![二哥的 Java 进阶之路：创建 index 的验证表](https://cdn.paicoding.com/stutymore/mysql-20250330124209.png)
 
 插入 10 万条数据。
 
-![二哥的 Java 进阶之路：插入数据](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250330124250.png)
+![二哥的 Java 进阶之路：插入数据](https://cdn.paicoding.com/stutymore/mysql-20250330124250.png)
 
 然后依次执行 explain 查看没有索引和有索引时的执行计划。
 
-![二哥的 Java 进阶之路：对比有索引和没有索引的差别](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250330124502.png)
+![二哥的 Java 进阶之路：对比有索引和没有索引的差别](https://cdn.paicoding.com/stutymore/mysql-20250330124502.png)
 
 ----这部分是帮助大家理解 end，面试中可不背----
 
@@ -2542,19 +2542,19 @@ create index idx_name on students(name);
 
 memo：2025 年 3 月 30 日修改至此，之前[有球友说](https://javabetter.cn/zhishixingqiu/)拿到了淘天搜索的暑期实习，真的恭喜了。
 
-![球友拿到了淘天的暑期实习](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250330170053.png)
+![球友拿到了淘天的暑期实习](https://cdn.paicoding.com/stutymore/mysql-20250330170053.png)
 
 ### 36.🌟能简单说一下索引的分类吗？
 
 从功能上分类的话，有主键索引、唯一索引、全文索引；从数据结构上分类的话，有 B+ 树索引、哈希索引；从存储内容上分类的话，有聚簇索引、非聚簇索引。
 
-![二哥的 Java 进阶之路：索引类型](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311225809.png)
+![二哥的 Java 进阶之路：索引类型](https://cdn.paicoding.com/stutymore/mysql-20240311225809.png)
 
 #### 你对主键索引了解多少？
 
 主键索引用于唯一标识表中的每条记录，其列值必须唯一且非空。创建主键时，MySQL 会自动生成对应的唯一索引。
 
-![processon：主键索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250331165636.png)
+![processon：主键索引](https://cdn.paicoding.com/stutymore/mysql-20250331165636.png)
 
 每个表只能有一个主键索引，一般是表中的自增 id 字段。
 
@@ -2571,11 +2571,11 @@ CREATE TABLE CountryLanguage (
 
 如果创建表的时候没有指定主键，MySQL 的 InnoDB 存储引擎会优先选择一个非空的唯一索引作为主键；如果没有符合条件的索引，MySQL 会自动生成一个隐藏的 _rowid 列作为主键。
 
-![二哥的 Java 进阶之路：MySQL 官方文档隐藏主键](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250331165053.png)
+![二哥的 Java 进阶之路：MySQL 官方文档隐藏主键](https://cdn.paicoding.com/stutymore/mysql-20250331165053.png)
 
 可以通过 `show index from table_name` 查看索引信息：
 
-![二哥的 Java 进阶之路：索引信息](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312090221.png)
+![二哥的 Java 进阶之路：索引信息](https://cdn.paicoding.com/stutymore/mysql-20240312090221.png)
 
 - `Table` 当前索引所属的表名。
 - `Non_unique` 是否唯一索引，0 表示唯一索引（如主键），1 表示非唯一。
@@ -2616,7 +2616,7 @@ CREATE TABLE user_roles (
 
 主键索引不允许插入 NULL 值，尝试插入 NULL 会报错；唯一索引允许插入多个 NULL 值。
 
-![二哥的 Java 进阶之路：主键索引和唯一索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250331171518.png)
+![二哥的 Java 进阶之路：主键索引和唯一索引](https://cdn.paicoding.com/stutymore/mysql-20250331171518.png)
 
 #### unique key 和 unique index 有什么区别？
 
@@ -2653,7 +2653,7 @@ CREATE UNIQUE INDEX uk_email ON users(email);
 
 通过 `SHOW CREATE TABLE table_name` 查看表结构时，结果都是一样的。
 
-![二哥的 Java 进阶之路：unique key 和 unique index](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250331174044.png)
+![二哥的 Java 进阶之路：unique key 和 unique index](https://cdn.paicoding.com/stutymore/mysql-20250331174044.png)
 
 #### 普通索引和唯一索引有什么区别？
 
@@ -2679,7 +2679,7 @@ CREATE UNIQUE INDEX uk_user_product ON orders(user_id, product_id) WHERE status 
 
 memo：2025 年 3 月 31 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，拿到了淘天暑期实习的 offer，并且再次强调背面渣逆袭的重要性，哈哈。
 
-![球友拿到了淘天的暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-厉害的，恭喜啊.png)
+![球友拿到了淘天的暑期实习 offer](https://cdn.paicoding.com/stutymore/mysql-厉害的，恭喜啊.png)
 
 #### 你对全文索引了解多少？
 
@@ -2753,17 +2753,17 @@ InnoDB 采用的是 full inverted index 的方式实现全文索引。
 
 如果需要处理中文分词的话，一定要记得加上 `WITH PARSER ngram`，否则可能查不出来数据。
 
-![二哥的 Java 进阶之路：中文分词](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250401152220.png)
+![二哥的 Java 进阶之路：中文分词](https://cdn.paicoding.com/stutymore/mysql-20250401152220.png)
 
 不过，对于复杂的中文场景，建议使用 [Elasticsearch 等专业搜索引擎替代](https://javabetter.cn/zhishixingqiu/paicoding.html)，技术派项目中就用了这种方案。
 
-![技术派：ES 实现查询](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250401145923.png)
+![技术派：ES 实现查询](https://cdn.paicoding.com/stutymore/mysql-20250401145923.png)
 
 ---- 这部分是帮助大家理解 end，面试中可不背 ----
 
 memo：2025 年 4 月 1 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，拿到了美团的实习 offer，真的太棒了，18 号一面、25 号二面、30 号 OC，4 月 1 发邮件 offer，节奏拉满了
 
-![二哥编程星球的球友拿到美团实习 offer 了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250401155231.png)
+![二哥编程星球的球友拿到美团实习 offer 了](https://cdn.paicoding.com/stutymore/mysql-20250401155231.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的科大讯飞非凡计划研发类面经原题：聊聊 MySQL 的索引
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 23 QQ 后台技术一面面试原题：MySQL 索引，为什么用 B+树
@@ -2907,11 +2907,11 @@ SELECT * FROM table WHERE column LIKE '%xxx%';
 
 为了验证第四条，我们创建了一个小表，然后分别执行全表扫描和索引查询。
 
-![二哥的 Java 进阶之路：小表的全表扫描比索引会更快](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250402144634.png)
+![二哥的 Java 进阶之路：小表的全表扫描比索引会更快](https://cdn.paicoding.com/stutymore/mysql-20250402144634.png)
 
 得出的结论的确是这样的，全表扫描更快一些。
 
-![二哥的 Java 进阶之路：小表在索引和全表扫描时的结果](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250402144804.png)
+![二哥的 Java 进阶之路：小表在索引和全表扫描时的结果](https://cdn.paicoding.com/stutymore/mysql-20250402144804.png)
 
 原因时当数据量很小时，全表扫描的成本很低，因为所有的数据可能都加载到内存中了，使用索引反而需要先查找索引，再通过索引去找到实际的数据行，增加了额外的 I/O 寻址时间。
 
@@ -3010,7 +3010,7 @@ SELECT user_id, create_time FROM orders WHERE user_id = 100;  -- 覆盖索引生
 
 memo：2025 年 4 月 2 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，拿到了百度的实习 offer，仅用了一个月的时间，可太强了。
 
-![球友拿到了百度的实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250402160141.png)
+![球友拿到了百度的实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250402160141.png)
 
 ### 41.🌟为什么 InnoDB 要使用 B+树作为索引？
 
@@ -3018,7 +3018,7 @@ memo：2025 年 4 月 2 日修改至此，今天[有球友说](https://javabette
 
 因为 B+ 树是一种高度平衡的多路查找树，能有效降低磁盘的 IO 次数，并且支持有序遍历和范围查询。
 
-![用户1260737：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322142950.png)
+![用户1260737：B+树](https://cdn.paicoding.com/stutymore/mysql-20240322142950.png)
 
 查询性能非常高，其结构也适合 MySQL 按照页为单位在磁盘上存储。
 
@@ -3034,7 +3034,7 @@ memo：2025 年 4 月 2 日修改至此，今天[有球友说](https://javabette
 
 B+树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同，B+树的每个节点可以有 m 个子节点，而红黑树和二叉平衡树都只有 2 个。
 
-![William Johnson：b+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104203402.png)
+![William Johnson：b+树](https://cdn.paicoding.com/stutymore/mysql-20241104203402.png)
 
 另外，和 B 树不同，B+树的非叶子节点只存储键值，不存储数据，而叶子节点存储了所有的数据，并且构成了一个有序链表。
 
@@ -3051,11 +3051,11 @@ B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同
 
 换句话说，红黑树、二叉平衡树是细高个，而 B 树是矮胖子。
 
-![二哥的 Java 进阶之路：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322132606.png)
+![二哥的 Java 进阶之路：B 树](https://cdn.paicoding.com/stutymore/mysql-20240322132606.png)
 
 再来说说内存和磁盘的 IO 读写。
 
-![二哥的 Java 进阶之路：IO 读写](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322133650.png)
+![二哥的 Java 进阶之路：IO 读写](https://cdn.paicoding.com/stutymore/mysql-20240322133650.png)
 
 为了提高读写效率，从磁盘往内存中读数据的时候，一次会读取至少一页的数据，如果不满一页，会再多读点。
 
@@ -3071,11 +3071,11 @@ B 树是一种自平衡的多路查找树，和红黑树、二叉平衡树不同
 
 树越高，意味着查找数据时就需要更多的磁盘 IO，因为每一层都可能需要从磁盘加载新的节点。
 
-![用户1260737：二叉树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322140825.png)
+![用户1260737：二叉树](https://cdn.paicoding.com/stutymore/mysql-20240322140825.png)
 
 B 树的节点通常与页的大小对齐，这样每次从磁盘加载一个节点时，正好就是一页的大小。
 
-![用户1260737：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240322141957.png)
+![用户1260737：B 树](https://cdn.paicoding.com/stutymore/mysql-20240322141957.png)
 
 B 树的一个节点通常包括三个部分：
 
@@ -3087,7 +3087,7 @@ B 树的一个节点通常包括三个部分：
 
 于是 B+树就来了，B+树的非叶子节点只存储键值，不存储数据，而叶子节点会存储所有的行数据，并且构成一个有序链表。
 
-![死磕 Java：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250403113413.png)
+![死磕 Java：B+树](https://cdn.paicoding.com/stutymore/mysql-20250403113413.png)
 
 这样做的好处是，非叶子节点由于没有存储数据，就可以存储更多的键值对，树就变得更加矮胖了，于是就更有劲了，每次搬的砖也就更多了（😂）。
 
@@ -3110,7 +3110,7 @@ B+树的叶子节点是通过双向链表连接的，这样可以方便范围查
 
 如果需要在 B+树中从大值向小值进行检索，可以先定位到最右侧节点，找到包含最大值的叶子节点。从根节点开始向右遍历树的方式实现。
 
-![Brand博客园：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250403114455.png)
+![Brand博客园：B+树](https://cdn.paicoding.com/stutymore/mysql-20250403114455.png)
 
 定位到最右侧的叶子节点后，再利用叶节点间的双向链表向左遍历就好了。
 
@@ -3118,11 +3118,11 @@ B+树的叶子节点是通过双向链表连接的，这样可以方便范围查
 
 MongoDB 通常以 JSON 格式存储文档，查询以单键查询（如 `find({_id: 123})`）为主。B 树的“节点既存键又存数据”的特性允许查询在非叶子节点提前终止，从而减少 I/O 次数。
 
-![孤独烟：B树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240516125249.png)
+![孤独烟：B树](https://cdn.paicoding.com/stutymore/mysql-20240516125249.png)
 
 MySQL 的查询通常涉及范围（`WHERE id > 100`）、排序（`ORDER BY`）、连接（`JOIN`）等操作。B+ 树的叶子节点是链表结构，天然支持顺序遍历，无需回溯至根节点或中序遍历，效率远高于 B 树。
 
-![孤独烟：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240516125326.png)
+![孤独烟：B+树](https://cdn.paicoding.com/stutymore/mysql-20240516125326.png)
 
 ---- 这部分是帮助大家理解 start，面试中可不背 ----
 
@@ -3158,7 +3158,7 @@ MySQL 的查询通常涉及范围（`WHERE id > 100`）、排序（`ORDER BY`）
 
 memo：2025 年 4 月 3 日修改至此，今天[有球友说](https://javabetter.cn/zhishixingqiu/)，拿到了美团的实习 offer，恭喜啊。
 
-![球友收到美团 offer 了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250403120541.png)
+![球友收到美团 offer 了](https://cdn.paicoding.com/stutymore/mysql-20250403120541.png)
 
 ### 42.🌟一棵B+树能存储多少条数据呢？
 
@@ -3166,7 +3166,7 @@ memo：2025 年 4 月 3 日修改至此，今天[有球友说](https://javabette
 
 一棵 B+ 树能存多少数据，取决于它的分支因子和高度。在 InnoDB 中，页的默认大小为 16KB，当主键为 bigint 时，3 层 B+ 树通常可以存储约 2000 万条数据。
 
-![清幽之地：B+树存储数据条数](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16f3523d-20b0-4376-908d-ac40b329768f.jpg)
+![清幽之地：B+树存储数据条数](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-16f3523d-20b0-4376-908d-ac40b329768f.jpg)
 
 ---- 这部分是帮助大家理解 start，面试中可不背 ----
 
@@ -3184,7 +3184,7 @@ memo：2025 年 4 月 3 日修改至此，今天[有球友说](https://javabette
 
 ③、页指针大小，InnoDB 源码中设置为 6 字节，4 字节页号 + 2 字节页内偏移。
 
-![二哥的 Java 进阶之路：GitHub源码](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250404125013.png)
+![二哥的 Java 进阶之路：GitHub源码](https://cdn.paicoding.com/stutymore/mysql-20250404125013.png)
 
 所以非叶子节点可以存储 16384/14(键值+指针)=1170 个这样的单元。
 
@@ -3200,7 +3200,7 @@ memo：2025 年 4 月 3 日修改至此，今天[有球友说](https://javabette
 
 对于 2KW 条数据来说，B+树的高度为 3 层就够了。
 
-![yifanSJ：3 层 B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250404105416.png)
+![yifanSJ：3 层 B+树](https://cdn.paicoding.com/stutymore/mysql-20250404105416.png)
 
 推荐阅读：[Innodb 引擎中 B+树一般有几层？能容纳多少数据量？](https://www.cnblogs.com/yifanSJ/p/17662132.html)
 
@@ -3239,13 +3239,13 @@ CREATE TABLE `user` (
 
 memo：2025 年 4 月 4 日修改至此，今天[有球友问](https://javabetter.cn/zhishixingqiu/)，有没有英文版的面渣逆袭，他人在国外留学，国外也开始卷八股了吗，真的离谱。
 
-![球友问英文版的面炸逆袭](https://cdn.tobebetterjavaer.com/stutymore/mysql-请问有英文翻译版的吗.png)
+![球友问英文版的面炸逆袭](https://cdn.paicoding.com/stutymore/mysql-请问有英文翻译版的吗.png)
 
 ### 43.索引为什么用 B+树不用普通二叉树？
 
 普通二叉树的每个节点最多有两个子节点。当数据按顺序递增插入时，二叉树会退化成链表，导致树的高度等于数据量。
 
-![二哥的Java 进阶之路：普通二叉树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115151059.png)
+![二哥的Java 进阶之路：普通二叉树](https://cdn.paicoding.com/stutymore/mysql-20241115151059.png)
 
 此时查找 id=7 就需要 7 次 I/O 操作，相当于全表扫描。而 B+ 树作为多叉平衡树，能将数亿级的数据量控制在 3-4 层的树高，能极大减少磁盘的 I/O 次数。
 
@@ -3253,7 +3253,7 @@ memo：2025 年 4 月 4 日修改至此，今天[有球友问](https://javabette
 
 平衡二叉树虽然解决了普通二叉树的退化问题，但每个节点最多只有两个子节点的问题依然存在。
 
-![二哥的Java 进阶之路：AVL 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115151729.png)
+![二哥的Java 进阶之路：AVL 树](https://cdn.paicoding.com/stutymore/mysql-20241115151729.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的百度面经同学 1 文心一言 25 实习 Java 后端面试原题：MySQL 索引为什么使用 B+树而不是用别的数据结构？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯面经同学 27 云后台技术一面面试原题：为什么不用二叉树？为什么不用AVL树？
@@ -3264,13 +3264,13 @@ B+ 树相比 B 树有 3 个显著优势：
 
 第一，B 树的每个节点既存储键值，又存储数据和指针，导致单节点存储的键值数量较少。
 
-![极客时间：B 树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115614.png)
+![极客时间：B 树](https://cdn.paicoding.com/stutymore/mysql-20240325115614.png)
 
 一个 16KB 的 InnoDB 页，如果数据较大，B 树的非叶子节点只能容纳几十个键值，而 B+ 树的非叶子节点可以容纳上千个键值。
 
 第二，B 树的范围查询需要通过中序遍历逐层回溯；而 B+ 树的叶子节点通过双向链表顺序连接，范围查询只需定位起始点后顺序遍历链表即可，没有回溯开销。
 
-![极客时间：B+树](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240325115641.png)
+![极客时间：B+树](https://cdn.paicoding.com/stutymore/mysql-20240325115641.png)
 
 第三，B 树的数据可能存储在任意节点，假如目标数据恰好位于根节点或上层节点，查询仅需 1-2 次 I/O；但如果数据位于底层节点，则需多次 I/O，导致查询时间波动较大。
 
@@ -3305,7 +3305,7 @@ $$
 
 跳表本质上还是链表结构，只不过把某些节点抽到上层做了索引。
 
-![dunwu：跳表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250405105517.png)
+![dunwu：跳表](https://cdn.paicoding.com/stutymore/mysql-20250405105517.png)
 
 一条数据一个节点，如果需要存放 2000 万条数据，且每次查询都要能达到二分查找的效果，那么跳表的高度大约为 24 层（2 的 24 次方）。
 
@@ -3331,15 +3331,15 @@ B+ 树索引的范围查找主要依赖叶子节点之间的双向链表来完�
 
 比如说在下面这棵 B+ 树上查找 45。
 
-![oi-wiki：查找 45](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241223114806.png)
+![oi-wiki：查找 45](https://cdn.paicoding.com/stutymore/mysql-20241223114806.png)
 
 第一步，从根节点开始，因为比 25 大，所以从右子树开始。因为 45 比 35大，所以和右边的索引比较，右侧的索引也是 45，所以继续往右子树查找。
 
-![oi-wiki：从根节点开始](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241223114907.png)
+![oi-wiki：从根节点开始](https://cdn.paicoding.com/stutymore/mysql-20241223114907.png)
 
 第二步，从叶子节点 45 开始，依次遍历，找到 45。
 
-![oi-wiki：找到 45](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241223115300.png)
+![oi-wiki：找到 45](https://cdn.paicoding.com/stutymore/mysql-20241223115300.png)
 
 ---- 这部分是帮助大家理解 end，面试中可不背 ----
 
@@ -3347,7 +3347,7 @@ B+ 树索引的范围查找主要依赖叶子节点之间的双向链表来完�
 
 快速排序使用分治法将一个序列分为较小和较大的 2 个子序列，然后递归排序两个子序列，由[东尼·霍尔](https://zh.wikipedia.org/wiki/%E6%9D%B1%E5%B0%BC%C2%B7%E9%9C%8D%E7%88%BE)在 1960 年提出。
 
-![维基百科：快速排序](https://cdn.tobebetterjavaer.com/stutymore/mysql-Sorting_quicksort_anim.gif)
+![维基百科：快速排序](https://cdn.paicoding.com/stutymore/mysql-Sorting_quicksort_anim.gif)
 
 其核心思想是：
 
@@ -3398,11 +3398,11 @@ private static void swap(int[] arr, int i, int j) {
 
 B+ 树索引支持范围查询、有序扫描，是 InnoDB 的默认索引结构。
 
-![一颗剽悍的种子：B+树的结构](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312092745.png)
+![一颗剽悍的种子：B+树的结构](https://cdn.paicoding.com/stutymore/mysql-20240312092745.png)
 
 Hash 索引只支持等值查找，速度快但功能弱，常见于 Memory 引擎。
 
-![业余码农：哈希索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312094537.png)
+![业余码农：哈希索引](https://cdn.paicoding.com/stutymore/mysql-20240312094537.png)
 
 稍微详细一点的回答：
 
@@ -3442,7 +3442,7 @@ InnoDB 并不提供直接创建哈希索引的选项，因为 B+ 树索引能够
 
 可通过 `SHOW VARIABLES LIKE 'innodb_adaptive_hash_index';` 查看自适应哈希索引的状态。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240312095811.png)
+![二哥的 Java 进阶之路](https://cdn.paicoding.com/stutymore/mysql-20240312095811.png)
 
 如果返回的值是 ON，说明自适应哈希索引是开启的。
 
@@ -3454,13 +3454,13 @@ InnoDB 并不提供直接创建哈希索引的选项，因为 B+ 树索引能够
 
 聚簇索引的叶子节点存储了完整的数据行，数据和索引是在一起的。InnoDB 的主键索引就是聚簇索引，叶子节点不仅存储了主键值，还存储了其他列的值，因此按照主键进行查询的速度会非常快。
 
-![代码敲上天.：聚簇索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311231652.png)
+![代码敲上天.：聚簇索引](https://cdn.paicoding.com/stutymore/mysql-20240311231652.png)
 
 每个表只能有一个聚簇索引，通常由主键定义。如果没有显式指定主键，InnoDB 会隐式创建一个隐藏的主键索引 row_id。
 
 非聚簇索引的叶子节点只包含了主键值，需要通过回表按照主键去聚簇索引查找其他列的值，唯一索引、普通索引等非主键索引都是非聚簇索引。
 
-![代码敲上天.非聚簇索引，以 age 为索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240311231611.png)
+![代码敲上天.非聚簇索引，以 age 为索引](https://cdn.paicoding.com/stutymore/mysql-20240311231611.png)
 
 每个表都可以创建多个非聚簇索引，如果不想回表的话，可以通过覆盖索引把要查询的字段也放到索引中。
 
@@ -3508,13 +3508,13 @@ idx_age 也是非聚簇索引，叶子节点存的是 age -> id，查整行数�
 
 memo：2025 年 4 月 5 日修改至此，今天[有拿到美团暑期实习的球友说](https://javabetter.cn/zhishixingqiu/)，[简历找二哥修改了两次](https://javabetter.cn/zhishixingqiu/jianli.html)，基本上不卡第一学历的都有面，很棒。
 
-![球友夸二哥的简历修改的好](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250405114505.png)
+![球友夸二哥的简历修改的好](https://cdn.paicoding.com/stutymore/mysql-20250405114505.png)
 
 ### 47.🌟回表了解吗？
 
 当使用非聚簇索引进行查询时，MySQL 需要先通过非聚簇索引找到主键值，然后再根据主键值回到聚簇索引中查找完整数据行，这个过程称为回表。
 
-![梦里花。：InnoDB 回表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406120133.png)
+![梦里花。：InnoDB 回表](https://cdn.paicoding.com/stutymore/mysql-20250406120133.png)
 
 假设现在有一张用户表 users：
 
@@ -3543,7 +3543,7 @@ SELECT * FROM users WHERE name = '王二';
 
 回表通常需要访问额外的数据页，如果数据不在内存中，还需要从磁盘读取，增加 I/O 开销。
 
-![Brand：回表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408110030.png)
+![Brand：回表](https://cdn.paicoding.com/stutymore/mysql-20250408110030.png)
 
 可通过覆盖索引或者联合索引来避免回表。
 
@@ -3579,7 +3579,7 @@ ALTER TABLE users ADD INDEX idx_name_age (name, age);
 
 MRR 是 InnoDB 为了解决回表带来的大量随机 IO 问题而引入的一种优化策略。
 
-![极客时间：MRR](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406125740.png)
+![极客时间：MRR](https://cdn.paicoding.com/stutymore/mysql-20250406125740.png)
 
 它会先把非聚簇索引查到的主键值列表进行排序，再按顺序去主键索引中批量回表，将随机 I/O 转换为顺序 I/O，以减少磁盘寻道时间。
 
@@ -3587,13 +3587,13 @@ MRR 是 InnoDB 为了解决回表带来的大量随机 IO 问题而引入的一�
 
 可通过 `SHOW VARIABLES LIKE 'optimizer_switch';` 查看 MRR 是否启用。
 
-![二哥的 Java 进阶之路：MRR](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406121543.png)
+![二哥的 Java 进阶之路：MRR](https://cdn.paicoding.com/stutymore/mysql-20250406121543.png)
 
 其中 `mrr=on` 表示启用 MRR，`mrr_cost_based=on` 表示基于成本决定使用 MRR。
 
 另外可以通过 `show variables like 'read_rnd_buffer_size';` 查看 MRR 的缓冲区大小，默认是 256KB。
 
-![二哥的 Java 进阶之路：MRR 的缓冲区](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406122130.png)
+![二哥的 Java 进阶之路：MRR 的缓冲区](https://cdn.paicoding.com/stutymore/mysql-20250406122130.png)
 
 我们来创建一个表，插入一些数据，然后执行一个查询来演示 MRR 的效果。
 
@@ -3671,15 +3671,15 @@ AND order_date BETWEEN '2023-03-01' AND '2023-04-01';"
 
 可以看到 MRR 开启时的结果对比：
 
-![二哥的 Java 进阶之路：MRR 开启时的前后对比](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406124955.png)
+![二哥的 Java 进阶之路：MRR 开启时的前后对比](https://cdn.paicoding.com/stutymore/mysql-20250406124955.png)
 
 [Wrap](https://javabetter.cn/gongju/warp.html) 也给出了对应的结果说明：
 
-![二哥的 Java 进阶之路：MRR 的测试结果说明](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406125155.png)
+![二哥的 Java 进阶之路：MRR 的测试结果说明](https://cdn.paicoding.com/stutymore/mysql-20250406125155.png)
 
 也可以在 explain 中确认 MRR 的使用情况。
 
-![二哥的 Java 进阶之路：使用聚簇索引时触发了 MRR](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406141028.png)
+![二哥的 Java 进阶之路：使用聚簇索引时触发了 MRR](https://cdn.paicoding.com/stutymore/mysql-20250406141028.png)
 
 ---- 这部分是帮助大家理解 end，面试中可不背 ----
 
@@ -3688,7 +3688,7 @@ AND order_date BETWEEN '2023-03-01' AND '2023-04-01';"
 
 memo：2025 年 4 月 6 日修改至此，今天[帮球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)的时候，看到有球友写[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)到简历上，很不错，推荐给大家。
 
-![技术派如何写到简历上模板](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250406142139.png)
+![技术派如何写到简历上模板](https://cdn.paicoding.com/stutymore/mysql-20250406142139.png)
 
 ### 48.🌟联合索引了解吗？（补充）
 
@@ -3696,7 +3696,7 @@ memo：2025 年 4 月 6 日修改至此，今天[帮球友修改简历](https://
 
 联合索引就是把多个字段放在一个索引里，但必须遵守“最左前缀”原则，只有从第一个字段开始连续使用，索引才会生效。
 
-![Yxh_blogs：联合索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250407152038.png)
+![Yxh_blogs：联合索引](https://cdn.paicoding.com/stutymore/mysql-20250407152038.png)
 
 联合索引会按字段顺序构建B+树。例如`（age, name）`索引会先按照 age 排序，age 相同则按照 name 排序，若两者都相同则按主键排序，确保叶子节点无重复索引项。
 
@@ -3716,7 +3716,7 @@ ORDER BY create_time DESC
 
 联合索引在底层采用 B+ 树结构进行存储，这一点与单列索引相同。
 
-![好奇的7号：联合索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250407155043.png)
+![好奇的7号：联合索引](https://cdn.paicoding.com/stutymore/mysql-20250407155043.png)
 
 与单列索引不同的是，联合索引的每个节点会存储所有索引列的值，而不仅仅是第一列的值。例如，对于联合索引`(a,b,c)`，每个节点都包含 a、b、c 三列的值。
 
@@ -3733,7 +3733,7 @@ ORDER BY create_time DESC
 
 联合索引属于非聚簇索引，叶子节点存储的是联合索引各列的值和对应行的主键值，而不是完整的数据行。查询非索引字段时，需要通过主键值回表到聚簇索引获取完整数据。
 
-![mutest：联合索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250407160853.png)
+![mutest：联合索引](https://cdn.paicoding.com/stutymore/mysql-20250407160853.png)
 
 例如索引`(a, b)`的叶子节点会完整存储`(a, b)`的值，并按字段顺序排序（如 a 优先，a 相同则按 b 排序）。如果主键是 id，叶子节点会存储 `(a, b, id)` 的组合。
 
@@ -3741,13 +3741,13 @@ ORDER BY create_time DESC
 
 memo：2025 年 04 月 07 日增补至此，今天[有球友反馈](https://javabetter.cn/zhishixingqiu/)说，加了二哥的星球，简历上写了技术派的项目后，拿到了腾讯天美的 offer，真的太强了。
 
-![球友拿到了腾讯天美的后台开发 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408105425.png)
+![球友拿到了腾讯天美的后台开发 offer](https://cdn.paicoding.com/stutymore/mysql-20250408105425.png)
 
 ### 49.🌟覆盖索引了解吗？
 
 覆盖索引指的是：查询所需的字段全部都在索引中，不需要回表，从索引页就能直接返回结果。
 
-![Brand：覆盖索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408110120.png)
+![Brand：覆盖索引](https://cdn.paicoding.com/stutymore/mysql-20250408110120.png)
 
 >empname 和 job 两个字段是一个联合索引，而查询也恰好是这两个字段，这时候单次查询就可以达到目的，不需要回表。
 
@@ -3831,7 +3831,7 @@ SELECT * FROM table WHERE a = 1 AND b > 2 AND c = 3;
 
 因为联合索引在 B+ 树中是按照最左字段优先排序构建的，如果跳过最左字段，MySQL 无法判断查找范围从哪里开始，自然也就无法使用索引。
 
-![三分恶面渣逆袭：联合索引](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e348203c-f00a-42a4-a745-b219d98ea435.jpg)
+![三分恶面渣逆袭：联合索引](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e348203c-f00a-42a4-a745-b219d98ea435.jpg)
 
 比如有一个 user 表，我们给 name 和 age 建立了一个联合索引 `(name, age)`。
 
@@ -3873,7 +3873,7 @@ INSERT INTO ab (a, b) VALUES (1, 2), (1, 3), (2, 1), (3, 3), (2, 2);
 
 执行查询：
 
-![二哥的Java 进阶之路：最左前缀匹配的差异](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241105120556.png)
+![二哥的Java 进阶之路：最左前缀匹配的差异](https://cdn.paicoding.com/stutymore/mysql-20241105120556.png)
 
 通过 explain 可以看到，`WHERE a = 1` 使用了联合索引，而 `WHERE b = 1` 需要全表扫描，依次检查每一行。
 
@@ -3889,15 +3889,15 @@ select * from t where a > 2 and b = 2;
 
 第一条 SQL 语句包含条件 a = 2 和 b = 2，刚好符合联合索引的前两列。
 
-![二哥的 Java 进阶之路：explain中也可以明确看出来用了索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153445.png)
+![二哥的 Java 进阶之路：explain中也可以明确看出来用了索引](https://cdn.paicoding.com/stutymore/mysql-20241115153445.png)
 
 第二条 SQL 语句由于未使用最左前缀中的 a，会触发全表扫描。
 
-![二哥的 Java 进阶之路：rows 为 10 行，说明全表扫描了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153552.png)
+![二哥的 Java 进阶之路：rows 为 10 行，说明全表扫描了](https://cdn.paicoding.com/stutymore/mysql-20241115153552.png)
 
 第三条 SQL 语句在范围条件 `a > 2` 之后，索引后会停止匹配，b = 2 的条件需要额外过滤。
 
-![二哥的 Java 进阶之路：rows 为 9 行说明的确走索引了，但还需要额外过滤](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241115153636.png)
+![二哥的 Java 进阶之路：rows 为 9 行说明的确走索引了，但还需要额外过滤](https://cdn.paicoding.com/stutymore/mysql-20241115153636.png)
 
 #### (A,B,C) 联合索引 `select * from tbn where a=? and b in (?,?) and c>?` 会走索引吗？
 
@@ -3943,7 +3943,7 @@ INSERT INTO tbn VALUES (2, 3, 4, 'Fifth');
 EXPLAIN SELECT * FROM tbn WHERE A=1 AND B IN (2, 3) AND C>3\G
 ```
 
-![二哥的 Java 进阶之路：验证是否走联合索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240315140807.png)
+![二哥的 Java 进阶之路：验证是否走联合索引](https://cdn.paicoding.com/stutymore/mysql-20240315140807.png)
 
 从 `EXPLAIN` 输出结果来看，我们可以得到 MySQL 是如何执行查询的一些关键信息：
 
@@ -3966,7 +3966,7 @@ EXPLAIN SELECT * FROM tbn WHERE A=1 AND B IN (2, 3) AND C>3\G
 EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
 ```
 
-![二哥的 Java 进阶之路：bc没有命中联合索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408092425.png)
+![二哥的 Java 进阶之路：bc没有命中联合索引](https://cdn.paicoding.com/stutymore/mysql-20240408092425.png)
 
 #### 建立联合索引(a,b,c)，where c = 5 是否会用到索引？为什么？
 
@@ -3978,7 +3978,7 @@ EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
 EXPLAIN SELECT * FROM tbn WHERE C=5\G
 ```
 
-![二哥的 Java 进阶之路：c不会命中联合索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240408092646.png)
+![二哥的 Java 进阶之路：c不会命中联合索引](https://cdn.paicoding.com/stutymore/mysql-20240408092646.png)
 
 #### sql中使用like，如果遵循最左前缀匹配，查询是不是一定会用到索引？
 
@@ -3988,15 +3988,15 @@ EXPLAIN SELECT * FROM tbn WHERE C=5\G
 
 如 `age = 18 and name LIKE '%xxx'`，MySQL 会先使用联合索引 age_name 找到 age 符合条件的所有行，然后再全表扫描进行 name 字段的过滤。
 
-![二哥的java 进阶之路：联合索引前缀通配符](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104212447.png)
+![二哥的java 进阶之路：联合索引前缀通配符](https://cdn.paicoding.com/stutymore/mysql-20241104212447.png)
 
 `type: ref` 表示使用索引查找匹配某个值的所有行。
 
-![二哥的java 进阶之路：6 行数据](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104212743.png)
+![二哥的java 进阶之路：6 行数据](https://cdn.paicoding.com/stutymore/mysql-20241104212743.png)
 
 如果是后缀通配符，如 `age = 18 and name LIKE 'xxx%'`，MySQL 会直接使用联合索引 age_name 找到所有符合条件的行。
 
-![二哥的java 进阶之路：联合索引后缀通配符](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241104213135.png)
+![二哥的java 进阶之路：联合索引后缀通配符](https://cdn.paicoding.com/stutymore/mysql-20241104213135.png)
 
 type 为 range，表示 MySQL 使用了索引范围扫描，`filtered 为 100.00%`，表示在扫描的行中，所有的行都满足 WHERE 条件。
 
@@ -4016,7 +4016,7 @@ type 为 range，表示 MySQL 使用了索引范围扫描，`filtered 为 100.00
 
 索引下推是指：MySQL 把 WHERE 条件尽可能“下推”到索引扫描阶段，在存储引擎层提前过滤掉不符合条件的记录。
 
-![Echo Blog：索引下推](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408150326.png)
+![Echo Blog：索引下推](https://cdn.paicoding.com/stutymore/mysql-20250408150326.png)
 
 当查询条件包含索引列但未完全匹配时，ICP 会在存储引擎层过滤非索引列条件，以减少回表次数。
 
@@ -4030,11 +4030,11 @@ type 为 range，表示 MySQL 使用了索引范围扫描，`filtered 为 100.00
 
 MySQL 会使用索引 name 找到所有 `name like '张%'` 的主键，根据这些主键，一条条回表查询整行数据，并在 Server 层过滤掉不符合 `age=10` 的数据行。
 
-![三分恶面渣逆袭：没有使用 ICP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c58f59e0-850b-4dfd-8129-2dfc51cf4768.jpg)
+![三分恶面渣逆袭：没有使用 ICP](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-c58f59e0-850b-4dfd-8129-2dfc51cf4768.jpg)
 
 启用 ICP 后，InnoDB 会通过联合索引直接筛选出符合条件的主键 ID（`name like '张%' and age=10`），然后再回表查询整行数据。
 
-![三分恶面渣逆袭：使用 ICP](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a8525cf3-2d16-49a9-a7da-a19762ed16df.jpg)
+![三分恶面渣逆袭：使用 ICP](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a8525cf3-2d16-49a9-a7da-a19762ed16df.jpg)
 
 换句话说，假设 `name like '张%'` 找到 10000 行数据，`age=10` 只有其中 10 行，没有索引下推的情况下，MySQL 会回表 10000 次，读取 10000 行数据，然后在 Server 层过滤掉 9990 行。
 
@@ -4042,13 +4042,13 @@ MySQL 会使用索引 name 找到所有 `name like '张%'` 的主键，根据这
 
 我们来验证一下。
 
-![二哥的 Java 进阶之路：开启 ICP 和关闭 ICP 的查询语句](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408152401.png)
+![二哥的 Java 进阶之路：开启 ICP 和关闭 ICP 的查询语句](https://cdn.paicoding.com/stutymore/mysql-20250408152401.png)
 
 从结果中我们可以清楚地看到 ICP 的效果。ICP 开启时，Extra 列显示"Using index condition"，表明过滤条件被下推到存储引擎层。
 
 ICP关闭时，Extra 列仅显示"Using where"，表明过滤条件在服务器层执行。
 
-![二哥的 Java 进阶之路：开启 ICP前后的结果对比](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408152547.png)
+![二哥的 Java 进阶之路：开启 ICP前后的结果对比](https://cdn.paicoding.com/stutymore/mysql-20250408152547.png)
 
 ```sql
 -- 开启ICP
@@ -4092,7 +4092,7 @@ SHOW STATUS LIKE 'Handler_read%';"
 
 实际的性能差距也很大。ICP 开启时，实际扫描行数：1,649 行，执行时间：约12.3 毫秒。关闭时，实际扫描行数：19,959 行，执行时间：约 32.1 毫秒。
 
-![二哥的 Java 进阶之路：性能差距](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408153010.png)
+![二哥的 Java 进阶之路：性能差距](https://cdn.paicoding.com/stutymore/mysql-20250408153010.png)
 
 ---- 这部分是帮助大家理解 start，面试中可不背 ----
 
@@ -4110,7 +4110,7 @@ EXPLAIN SELECT * FROM table WHERE column = 'value';
 
 如果使用了索引，结果中的 `key` 值会显示索引的名称。
 
-![二哥的 Java 进阶之路：explain 和索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240417092646.png)
+![二哥的 Java 进阶之路：explain 和索引](https://cdn.paicoding.com/stutymore/mysql-20240417092646.png)
 
 #### 联合索引 abc，a=1,c=1/b=1,c=1/a=1,c=1,b=1 走不走索引？
 
@@ -4130,7 +4130,7 @@ bc 无法使用索引，只能全表扫描，因为不符合最左前缀原则�
 EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1\G
 ```
 
-![二哥的 Java 进阶之路：ac 会用到联合索引的一部分](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131120.png)
+![二哥的 Java 进阶之路：ac 会用到联合索引的一部分](https://cdn.paicoding.com/stutymore/mysql-20240319131120.png)
 
 key 是 idx_abc，表明 a=1,c=1 会使用联合索引。`Extra: Using index condition` 表示 ICP 生效。
 
@@ -4140,7 +4140,7 @@ key 是 idx_abc，表明 a=1,c=1 会使用联合索引。`Extra: Using index con
 EXPLAIN SELECT * FROM tbn WHERE B=1 AND C=1\G
 ```
 
-![二哥的 Java 进阶之路：bc 无法命中索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131245.png)
+![二哥的 Java 进阶之路：bc 无法命中索引](https://cdn.paicoding.com/stutymore/mysql-20240319131245.png)
 
 key 是 NULL，表明 b=1,c=1 不会使用联合索引。这是因为查询条件没有遵循最左前缀原则。
 
@@ -4152,7 +4152,7 @@ EXPLAIN SELECT * FROM tbn WHERE A=1 AND C=1 AND B=1\G
 
 优化器会自动调整条件顺序为 a=1 AND b=1 AND c=1。
 
-![二哥的 Java 进阶之路：acb 会命中索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240319131306.png)
+![二哥的 Java 进阶之路：acb 会命中索引](https://cdn.paicoding.com/stutymore/mysql-20240319131306.png)
 
 key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
 
@@ -4162,7 +4162,7 @@ key 是 idx_abc，表明 a=1,c=1,b=1 会使用联合索引。
 
 memo：2025 年 4 月 8 日修改至此，今天有球友反馈说，拿到了鹅厂和美团的暑期实习 offer，并且都已经 OC，真的恭喜，又是一个值得晒成绩的日子，哈哈。
 
-![球友拿到了腾讯和美团的 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250408155951.png)
+![球友拿到了腾讯和美团的 offer](https://cdn.paicoding.com/stutymore/mysql-20250408155951.png)
 
 ## 锁
 
@@ -4172,17 +4172,17 @@ MySQL 中有多种类型的锁，可以从不同维度来分类，按锁粒度�
 
 按照加锁机制划分的话，有乐观锁和悲观锁。按照兼容性划分的话，有共享锁和排他锁。
 
-![三分恶面渣逆袭：MySQL 中的锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a07e4525-ccc1-4287-aec5-ebf3f277857c.jpg)
+![三分恶面渣逆袭：MySQL 中的锁](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a07e4525-ccc1-4287-aec5-ebf3f277857c.jpg)
 
 ---- 这部分是帮助大家理解 start，面试中可不背 ----
 
 表锁：锁定整个表，资源开销小，加锁快，但并发度低，不会出现死锁；适合查询为主、少量更新的场景（如 MyISAM 引擎）。
 
-![IServise：表级锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411093212.png)
+![IServise：表级锁](https://cdn.paicoding.com/stutymore/mysql-20250411093212.png)
 
 再细分的话，有表共享读锁（S锁）：允许多个事务同时读，但阻塞写操作；表独占写锁（X锁）：独占表，阻塞其他事务的读写。
 
-![Draven：共享锁和独占锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250410121135.png)
+![Draven：共享锁和独占锁](https://cdn.paicoding.com/stutymore/mysql-20250410121135.png)
 
 行锁：锁定单行或多行，开销大、加锁慢，可能出现死锁，但并发度高（InnoDB 默认支持）。
 
@@ -4232,7 +4232,7 @@ UNLOCK TABLES;
 
 表锁常见于 MyISAM 引擎，InnoDB 也可以手动通过 `LOCK TABLES` 加锁。
 
-![周二鸭：表锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250409144701.png)
+![周二鸭：表锁](https://cdn.paicoding.com/stutymore/mysql-20250409144701.png)
 
 适合读多写少、全表扫描或者表结构变更的场景用。
 
@@ -4271,7 +4271,7 @@ UPDATE innodb_table SET name='new' WHERE name='old'; -- 全表扫描，退化为
 
 底层是通过给索引加锁实现的，这就意味着只有通过索引条件检索数据时，InnoDB 才能使用行级锁，否则会退化为表锁。
 
-![周二鸭：行锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250409150234.png)
+![周二鸭：行锁](https://cdn.paicoding.com/stutymore/mysql-20250409150234.png)
 
 行锁又可以细分为记录锁、间隙锁和临键锁三种形式。通过 `SELECT ... FOR UPDATE` 可以加排他锁。
 
@@ -4377,13 +4377,13 @@ COMMIT;
 
 memo：2025 年 4 月 9 日修改至此，今天有[球友反馈说](https://javabetter.cn/zhishixingqiu/)，拿到了美团的暑期实习 offer，并且特意感谢了面渣逆袭，口碑+1。
 
-![球友拿到了美团的暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250409152600.png)
+![球友拿到了美团的暑期实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250409152600.png)
 
 #### 说说记录锁吧？
 
 记录锁是行锁最基本的表现形式，当我们使用唯一索引或者主键索引进行等值查询时，MySQL 会为该记录自动添加排他锁，禁止其他事务读取或者修改锁定记录。
 
-![东平的笔记仓库：记录锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250410114455.png)
+![东平的笔记仓库：记录锁](https://cdn.paicoding.com/stutymore/mysql-20250410114455.png)
 
 例如：
 
@@ -4399,7 +4399,7 @@ UPDATE table SET name = '王二' WHERE id = 1; -- 隐式加X锁
 
 间隙锁用于在范围查询时锁定记录之间的“间隙”，防止其他事务在该范围内插入新记录。仅在可重复读及以上的隔离级别下生效，主要用于防止幻读。
 
-![X1aoHei：间隙锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250410114820.png)
+![X1aoHei：间隙锁](https://cdn.paicoding.com/stutymore/mysql-20250410114820.png)
 
 ---- 这部分是帮助大家理解 start，面试中可不背 ----
 
@@ -4434,7 +4434,7 @@ insert into test_gaplock values(1,1,'张三'),(6,6,'吴老二'),(8,8,'赵四'),(
 - `(1, 6)、(6, 8)、(8, 12)`：记录之间的间隙。
 - `(12, +∞)`：最大记录之后的间隙。
 
-![三分恶面渣逆袭：间隙锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d60f3a42-4b0f-4612-b7ad-65191fecb852.jpg)
+![三分恶面渣逆袭：间隙锁](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-d60f3a42-4b0f-4612-b7ad-65191fecb852.jpg)
 
 假设有两个事务，T1 执行以下语句：
 
@@ -4454,7 +4454,7 @@ T1 会锁住 `(6, 8)` 的间隙，防止其他事务在这个范围内插入新�
 
 T2 在插入 `(7, 7, '王五')` 时，会被阻塞，可以在另外一个会话中执行 `SHOW ENGINE INNODB STATUS` 查看到间隙锁的信息。
 
-![二哥的Java 进阶之路：间隙锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241215095640.png)
+![二哥的Java 进阶之路：间隙锁](https://cdn.paicoding.com/stutymore/mysql-20241215095640.png)
 
 推荐阅读：[六个案例搞懂间隙锁](https://www.51cto.com/article/779551.html)、[MySQL中间隙锁的加锁机制](https://blog.csdn.net/javaanddonet/article/details/111187345)
 
@@ -4479,13 +4479,13 @@ DELETE FROM user WHERE score < 50;
 
 临键锁是记录锁和间隙锁的结合体，锁住的是索引记录和索引记录之间的间隙。
 
-![小徐先生的编程世界：临键锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250410121613.png)
+![小徐先生的编程世界：临键锁](https://cdn.paicoding.com/stutymore/mysql-20250410121613.png)
 
 和间隙锁不同，临键锁的间隙是一个**左开右闭区间**。例如 `(1,3]` 表示锁定大于 1 且小于等于 3 的所有记录。
 
 当 InnoDB 执行一个范围查询时，会使用临键锁来锁定满足条件的行数据以及该范围内的间隙。
 
-![IServise：临键锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411094421.png)
+![IServise：临键锁](https://cdn.paicoding.com/stutymore/mysql-20250411094421.png)
 
 比如说下面这条语句会锁定 id 在 5 到 10 之间的所有记录，以及这些记录之间的间隙。
 
@@ -4497,7 +4497,7 @@ MySQL 默认的行锁类型就是临键锁。当使用唯一索引的等值查�
 
 memo：2025 年 4 月 10 日修改至此，今天[有学院本的球友反馈说](https://javabetter.cn/zhishixingqiu/)，拿到了滴滴的 sp offer，真的无敌啊，太能卷了。
 
-![球友学院本拿到了滴滴的 SP](https://cdn.tobebetterjavaer.com/stutymore/mysql-等一手经验贴分享，发个红包，哈哈.png)
+![球友学院本拿到了滴滴的 SP](https://cdn.paicoding.com/stutymore/mysql-等一手经验贴分享，发个红包，哈哈.png)
 
 ### 57.意向锁是什么知道吗？
 
@@ -4505,7 +4505,7 @@ memo：2025 年 4 月 10 日修改至此，今天[有学院本的球友反馈说
 
 由 InnoDB 自动管理，当事务需要添加行锁时，会先在表上添加意向锁。这样当要添加表锁的时候，可以通过查看表上的意向锁，快速判断是否有冲突，而无需逐行检查，从而提高加锁效率。
 
-![三分恶面渣逆袭：意向锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31f7f49c-1e5a-4d42-b8b3-e022b3ba82ae.jpg)
+![三分恶面渣逆袭：意向锁](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31f7f49c-1e5a-4d42-b8b3-e022b3ba82ae.jpg)
 
 当执行 `SELECT ... LOCK IN SHARE MODE` 时，会自动加意向共享锁；当执行 `SELECT ... FOR UPDATE` 时，会自动加意向排他锁。
 
@@ -4522,7 +4522,7 @@ X锁|	冲突|	冲突|	冲突|	冲突
 
 在没有意向锁的情况下，当事务 A 持有某表的行锁时，如果事务 B 想添加表锁，InnoDB 必须检查表中每一行数据是否被加锁，这种全表扫描的方式效率极低。
 
-![IServise：意向锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411093326.png)
+![IServise：意向锁](https://cdn.paicoding.com/stutymore/mysql-20250411093326.png)
 
 有了意向锁之后，事务在加行锁前，先在表上加对应的意向锁；其他事务加表锁时，只需检查表上的意向锁，无需逐行检查。
 
@@ -4537,21 +4537,21 @@ LOCK TABLES users READ;  -- 发现表上有IX锁，与S锁冲突，直接阻塞�
 
 memo：2025 年 4 月 11 日修改至此，今天[拿到滴滴 offer 的球友反馈](https://javabetter.cn/zhishixingqiu/)，MQ 部分主要看的面渣逆袭，比较全，这不，口碑就来了。
 
-![球友给面渣逆袭上了口碑](https://cdn.tobebetterjavaer.com/stutymore/mysql-主要我看的几个八股都是结合起来的.png)
+![球友给面渣逆袭上了口碑](https://cdn.paicoding.com/stutymore/mysql-主要我看的几个八股都是结合起来的.png)
 
 ### 58.🌟MySQL的乐观锁和悲观锁了解吗？
 
 悲观锁是一种"先上锁再操作"的保守策略，它假设数据被外界访问时必然会产生冲突，因此在数据处理过程中全程加锁，保证同一时间只有一个线程可以访问数据。
 
-![牧小农：悲观锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411092155.png)
+![牧小农：悲观锁](https://cdn.paicoding.com/stutymore/mysql-20250411092155.png)
 
 MySQL 中的行锁和表锁都是悲观锁。
 
-![牧小农：悲观锁的处理思路](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411092536.png)
+![牧小农：悲观锁的处理思路](https://cdn.paicoding.com/stutymore/mysql-20250411092536.png)
 
 乐观锁会假设并发操作不会总发生冲突，属于小概率事件，因此不会在读取数据时加锁，而是在提交更新时才检查数据是否被其他事务修改过。
 
-![牧小农：乐观锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411092610.png)
+![牧小农：乐观锁](https://cdn.paicoding.com/stutymore/mysql-20250411092610.png)
 
 乐观锁并不是 MySQL 内置的锁机制，而是通过程序逻辑实现的，常见的实现方式有版本号机制和时间戳机制。通过在表中增加 version 字段或者 timestamp 字段来实现。
 
@@ -4560,12 +4560,12 @@ MySQL 中的行锁和表锁都是悲观锁。
 
 当事务 A 已经上锁后，事务 B 会一直等待事务 A 释放锁；如果事务 A 长时间不释放锁，事务 B 就会报错 `Lock wait timeout exceeded; try restarting transaction`。
 
-![牧小农：的实现方式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411094551.png)
+![牧小农：的实现方式](https://cdn.paicoding.com/stutymore/mysql-20250411094551.png)
 
 
 事务 A 和事务 B 同时读取同一个主键 ID 的数据，版本号为 0；事务 A 将版本号（version=1）作为条件进行数据更新，同时版本号 +1；事务 B 也将 version=1 作为更新条件，发现版本号不匹配，更新失败。
 
-![牧小农：乐观锁的实现方式](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411094932.png)
+![牧小农：乐观锁的实现方式](https://cdn.paicoding.com/stutymore/mysql-20250411094932.png)
 
 ---- 这部分是帮助大家理解 end，面试中可不背 ----
 
@@ -4675,13 +4675,13 @@ WHERE id=1 AND update_time=旧时间戳;
 
 memo：2025 年 4 月 12 日修改至此，今天[有球友反馈说](https://javabetter.cn/zhishixingqiu/)，京东进入 HR 面了，但加了一个 VP 级别的面试，副总监，等一手他的好消息。当然了，仍然不忘感谢一下面渣逆袭对他的帮助，哈哈。
 
-![球友进入京东的 HR 面了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250411101319.png)
+![球友进入京东的 HR 面了](https://cdn.paicoding.com/stutymore/mysql-20250411101319.png)
 
 ### 59.遇到过MySQL死锁问题吗，你是如何解决的？
 
 遇到过。MySQL 的死锁是由于多个事务持有资源并相互等待引起的。我通过 `SHOW ENGINE INNODB STATUS` 查看死锁信息，定位到是加锁顺序不一致导致的，最后通过调整加锁顺序解决了这个问题。
 
-![draven.co：死锁的发生](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413095712.png)
+![draven.co：死锁的发生](https://cdn.paicoding.com/stutymore/mysql-20250413095712.png)
 
 比如说[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，两个事务分别更新两张表，但是更新顺序不一致。
 
@@ -4713,11 +4713,11 @@ UPDATE account SET balance = balance + 10 WHERE id = 1;
 
 访问相同的资源，但顺序不同，就会导致死锁。
 
-![二哥的 Java 进阶之路：死锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241201101426.png)
+![二哥的 Java 进阶之路：死锁](https://cdn.paicoding.com/stutymore/mysql-20241201101426.png)
 
 解决办法也很简单，先使用 `SHOW ENGINE INNODB STATUS\G;` 确认死锁的具体信息，然后调整资源的访问顺序。
 
-![二哥的 Java 进阶之路：查看死锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241201101704.png)
+![二哥的 Java 进阶之路：查看死锁](https://cdn.paicoding.com/stutymore/mysql-20241201101704.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的虾皮面经同学 13 一面面试原题：遇到过mysql死锁或者数据不安全吗
 
@@ -4729,7 +4729,7 @@ UPDATE account SET balance = balance + 10 WHERE id = 1;
 
 事务是一条或多条 SQL 语句组成的执行单元。四个特性分别是原子性、一致性、隔离性和持久性。原子性保证事务中的操作要么全部执行、要么全部失败；一致性保证数据从事务开始前的一个一致状态转移到结束后的另外一个一致状态；隔离性保证并发事务之间互不干扰；持久性保证事务提交后数据不会丢失。
 
-![北野新津：ACID](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413102346.png)
+![北野新津：ACID](https://cdn.paicoding.com/stutymore/mysql-20250413102346.png)
 
 #### 详细说一下原子性？
 
@@ -4814,7 +4814,7 @@ SELECT * FROM accounts WHERE name='王二';
 ROLLBACK;
 ```
 
-![二哥的 Java 进阶之路：读未提交下出现脏读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413155703.png)
+![二哥的 Java 进阶之路：读未提交下出现脏读](https://cdn.paicoding.com/stutymore/mysql-20250413155703.png)
 
 通过升级隔离级别为读已提交可以解决脏读的问题。
 
@@ -4840,7 +4840,7 @@ ROLLBACK;
 SELECT * FROM accounts WHERE name='王二';
 ```
 
-![二哥的 Java 进阶之路：读已提交可以解决脏读问题](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413160617.png)
+![二哥的 Java 进阶之路：读已提交可以解决脏读问题](https://cdn.paicoding.com/stutymore/mysql-20250413160617.png)
 
 但会出现不可重复读的问题：事务B 第一次读取某行数据值为X，期间事务C修改该数据为Y并提交，事务B 再次读取时发现值变为Y，导致两次读取结果不一致。
 
@@ -4864,7 +4864,7 @@ COMMIT;
 SELECT * FROM accounts WHERE name='王二';
 ```
 
-![二哥的 Java 进阶之路：读已提交会出现不可重复读的问题](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413162654.png)
+![二哥的 Java 进阶之路：读已提交会出现不可重复读的问题](https://cdn.paicoding.com/stutymore/mysql-20250413162654.png)
 
 可以通过升级隔离级别为可重复读来解决不可重复读的问题。
 
@@ -4888,7 +4888,7 @@ COMMIT;
 SELECT * FROM accounts WHERE name='王二';
 ```
 
-![二哥的 Java 进阶之路：可重复读级别解决不可重复读的问题](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413162908.png)
+![二哥的 Java 进阶之路：可重复读级别解决不可重复读的问题](https://cdn.paicoding.com/stutymore/mysql-20250413162908.png)
 
 但可重复读级别下仍然会出现幻读的问题：事务B 第一次查询获得 2条数据，事务C 新增 1条数据并提交后，事务B 再次查询时仍然为 2 条数据，但可以更新新增的数据，再次查询时就发现有 3 条数据了。
 
@@ -4915,7 +4915,7 @@ UPDATE accounts SET balance = 5000 WHERE name='王五';
 SELECT * FROM accounts WHERE balance > 1000;
 ```
 
-![二哥的 Java 进阶之路：可重复读级别下可能出现幻读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413171035.png)
+![二哥的 Java 进阶之路：可重复读级别下可能出现幻读](https://cdn.paicoding.com/stutymore/mysql-20250413171035.png)
 
 可以通过升级隔离级别为串行化来解决幻读的问题。
 
@@ -4935,7 +4935,7 @@ INSERT INTO accounts (name, balance) VALUES ('王五', 4000);
 COMMIT;
 ```
 
-![二哥的 Java 进阶之路：串行化隔离级别下不会出现幻读问题](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413171627.png)
+![二哥的 Java 进阶之路：串行化隔离级别下不会出现幻读问题](https://cdn.paicoding.com/stutymore/mysql-20250413171627.png)
 
 隔离级别|	是否会脏读|	是否会不可重复读|	是否会幻读
 ---|---|---|---
@@ -4954,7 +4954,7 @@ Serializable（可串行化）|	❌ 不会|	❌ 不会|	❌ 不会
 
 MySQL 的持久性是通过 InnoDB 引擎的 redo log 实现的。在事务提交时，InnoDB 会先将修改操作写入 redo log，并刷盘持久化。崩溃后，InnoDB 会通过 redo log 恢复数据，从而保证事务提交成功的数据不会丢失。
 
-![Mayank Sharma：可持久化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413172141.png)
+![Mayank Sharma：可持久化](https://cdn.paicoding.com/stutymore/mysql-20250413172141.png)
 
 简短回答：一旦事务提交，则其所做的修改将永久保存到 MySQL 中。即使发生系统崩溃，修改的数据也不会丢失。
 
@@ -4970,7 +4970,7 @@ MySQL 的持久性是通过 InnoDB 引擎的 redo log 实现的。在事务提�
 
 memo：2025 年 4 月 13 日修改至此，今天给[球友改简历](https://javabetter.cn/zhishixingqiu/)的时候，发现这种彩虹屁真的离谱了，直接配享太庙了，但有一说一这位球友的话是真的甜，简历写的确实也很用心了，确定一个 offer 收割机。
 
-![球友的彩虹屁真的太猛了](https://cdn.tobebetterjavaer.com/stutymore/mysql-二哥您好，麻烦您帮忙改一下简历，二哥真是配享太庙的男人.png)
+![球友的彩虹屁真的太猛了](https://cdn.paicoding.com/stutymore/mysql-二哥您好，麻烦您帮忙改一下简历，二哥真是配享太庙的男人.png)
 
 ### 61.ACID 靠什么保证的呢？
 
@@ -4978,13 +4978,13 @@ memo：2025 年 4 月 13 日修改至此，今天给[球友改简历](https://ja
 
 ACID 中的原子性主要通过 Undo Log 来实现，持久性通过 Redo Log 来实现，隔离性由 MVCC 和锁机制来实现，一致性则由其他三大特性共同保证。
 
-![二哥的 Java 进阶之路：ACID 的保证机制](https://cdn.tobebetterjavaer.com/stutymore/mysql-20230919103025.png)
+![二哥的 Java 进阶之路：ACID 的保证机制](https://cdn.paicoding.com/stutymore/mysql-20230919103025.png)
 
 #### 详细说说如何保证原子性？
 
 事务对数据进行修改前，会记录一份快照到 Undo Log，如果事务中有任何一步执行失败，系统会读取 Undo Log 将所有操作回滚，恢复到事务开始前的状态，从而保证事务要么全部成功，要么全部失败。
 
-![小许 code：undo log保证原子性](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414121841.png)
+![小许 code：undo log保证原子性](https://cdn.paicoding.com/stutymore/mysql-20250414121841.png)
 
 ```sql
 1）BEGIN;
@@ -5010,25 +5010,25 @@ MySQL 的持久性主要由预写 Redo Log、双写机制、两阶段提交以�
 
 当事务提交时，MySQL 会先将事务的修改操作写入 Redo Log，并强制刷盘，然后再将内存中的数据页刷入磁盘。这样即使系统崩溃，重启后也能通过 Redo Log 重放恢复数据。
 
-![小许 code：redo log 的 WAL，Write-Ahead Logging](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414154202.png)
+![小许 code：redo log 的 WAL，Write-Ahead Logging](https://cdn.paicoding.com/stutymore/mysql-20250414154202.png)
 
 在将数据页写入到磁盘时，如果发生崩溃，可能会导致数据页不完整。InnoDB 的数据页大小为16KB，通常大于操作系统的 4KB页大小。
 
 为了解决只写入部分的问题，MySQL 采用了双写机制，脏盘刷页时，先将数据页写入到一个双写缓冲区中，2M 的连续空间，然后再将其写入到磁盘的实际位置。
 
-![BookSea：Doublewrite](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414154539.png)
+![BookSea：Doublewrite](https://cdn.paicoding.com/stutymore/mysql-20250414154539.png)
 
 崩溃恢复时，如果发现数据页不完整，会从双写缓冲区中恢复副本，确保数据页的完整性。
 
 在涉及主从复制时，MySQL 通过两阶段提交保证 Redo Log 和 Binlog 的一致性：第一阶段，写入 Redo Log 并标记为 prepare 状态；第二阶段，写入 Binlog 再提交 Redo Log 为 commit 状态。
 
-![一树一溪：2PC](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414155206.png)
+![一树一溪：2PC](https://cdn.paicoding.com/stutymore/mysql-20250414155206.png)
 
 崩溃恢复时，如果发现 Redo Log 是 prepare 但 Binlog 完整，则会提交事务；反之会回滚，避免主从不一致。
 
 另外，由于 Redo Log 的容量有限，Checkpoint 机制会定期将内存中的脏页刷到磁盘，这样能减少崩溃恢复时需要处理的 Redo Log 数量。
 
-![小许 code：Checkpoint](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414154331.png)
+![小许 code：Checkpoint](https://cdn.paicoding.com/stutymore/mysql-20250414154331.png)
 
 推荐阅读：[深入解析MySQL双写缓冲区](https://cloud.tencent.com/developer/article/2339261)、[MySQL 事务二阶段提交](https://mp.weixin.qq.com/s/kqi_xHErTKA_omwFCfVt_w)
 
@@ -5038,7 +5038,7 @@ MySQL 的持久性主要由预写 Redo Log、双写机制、两阶段提交以�
 
 比如说一个事务正在修改某条数据时，MySQL 会通过临键锁来防止其他事务同时进行修改，避免数据冲突。
 
-![阿里云社区：临键锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414162829.png)
+![阿里云社区：临键锁](https://cdn.paicoding.com/stutymore/mysql-20250414162829.png)
 
 同时，临键锁可以防止幻读现象的发生。比如事务 A 查询 `id > 10` 的记录，那么临键锁不仅会锁住 id=10 的行，还会锁住 10 后面的“间隙”，防止其他事务插入 id=15 的数据。
 
@@ -5054,7 +5054,7 @@ MySQL 的持久性主要由预写 Redo Log、双写机制、两阶段提交以�
 
 MVCC 主要用来优化读操作，通过保存数据的历史版本，让读操作不需要加锁就能直接读取快照，提高读的并发性能。
 
-![小余哥：ReadView](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414171111.png)
+![小余哥：ReadView](https://cdn.paicoding.com/stutymore/mysql-20250414171111.png)
 
 不同的隔离级别对应不同的实现策略，比如说在可重复读隔离级别下，事务第一次查询时会生成一个 Read View，之后所有读操作都复用这个视图，保证多次读取的结果一致。
 
@@ -5070,7 +5070,7 @@ MySQL 的一致性并不是靠某一个机制单独保证的，而是原子性�
 
 可通过 `SELECT @@autocommit;` 查看当前会话的自动提交状态。
 
-![二哥的 Java 进阶之路：@@autocommit](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414171920.png)
+![二哥的 Java 进阶之路：@@autocommit](https://cdn.paicoding.com/stutymore/mysql-20250414171920.png)
 
 如果需要执行多条 SQL 语句，可以将它们放在一个事务中，使用 `START TRANSACTION` 开启事务，执行完所有 SQL 语句后手动提交。
 
@@ -5086,13 +5086,13 @@ COMMIT;
 
 memo：2025 年 4 月 14 日修改至此，昨天有[球友发帖](https://javabetter.cn/zhishixingqiu/)说拿到了字节、美团的暑期实习 offer，双非本末 9 硕，[全文很硬](https://t.zsxq.com/AC5qq)，强烈推荐大家看看，差不多有 3000 多字，详细剖析了自己的准备过程。
 
-![昨天有球友发帖说拿到了字节、美团的暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250414172446.png)
+![昨天有球友发帖说拿到了字节、美团的暑期实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250414172446.png)
 
 ### 62.🌟事务的隔离级别有哪些？
 
 隔离级别定义了一个事务可能受其他事务影响的程度，MySQL 支持四种隔离级别，分别是：读未提交、读已提交、可重复读和串行化。
 
-![draven.co：事务的四个隔离级别](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250413100533.png)
+![draven.co：事务的四个隔离级别](https://cdn.paicoding.com/stutymore/mysql-20250413100533.png)
 
 读未提交会出现脏读，读已提交会出现不可重复读，可重复读是 InnoDB 默认的隔离级别，可以避免脏读和不可重复读，但会出现幻读。不过通过 MVCC 和临键锁，能够防止大多数并发问题。
 
@@ -5102,13 +5102,13 @@ memo：2025 年 4 月 14 日修改至此，昨天有[球友发帖](https://javab
 
 事务可以读取其他未提交事务修改的数据。也就是说，如果未提交的事务一旦回滚，读取到的数据就会变成了“脏数据”，通常不会使用。
 
-![易尘埃：读未提交](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250415152542.png)
+![易尘埃：读未提交](https://cdn.paicoding.com/stutymore/mysql-20250415152542.png)
 
 #### 什么是读已提交？
 
 读已提交避免了脏读，但可能会出现不可重复读，即同一事务内多次读取同一数据结果会不同，因为其他事务提交的修改，对当前事务是可见的。
 
-![易尘埃：读已提交](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250415152926.png)
+![易尘埃：读已提交](https://cdn.paicoding.com/stutymore/mysql-20250415152926.png)
 
 是 Oracle、SQL Server 等数据库的默认隔离级别。
 
@@ -5116,7 +5116,7 @@ memo：2025 年 4 月 14 日修改至此，昨天有[球友发帖](https://javab
 
 可重复读能确保同一事务内多次读取相同数据的结果一致，即使其他事务已提交修改。
 
-![易尘埃：可重复读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250415153434.png)
+![易尘埃：可重复读](https://cdn.paicoding.com/stutymore/mysql-20250415153434.png)
 
 是 MySQL 默认的隔离级别，避免了“脏读”和“不可重复读”，通过 MVCC 和临键锁也能在一定程度上避免幻读。
 
@@ -5141,7 +5141,7 @@ SELECT balance FROM accounts WHERE id=1; --返回600
 
 串行化是最高的隔离级别，通过强制事务串行执行来解决“幻读”问题。
 
-![易尘埃：串行化](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250415153614.png)
+![易尘埃：串行化](https://cdn.paicoding.com/stutymore/mysql-20250415153614.png)
 
 但会导致大量的锁竞争问题，实际应用中很少用。
 
@@ -5164,7 +5164,7 @@ SELECT * FROM accounts WHERE name = '王二' FOR UPDATE;
 -- 会话 C 会被阻塞，直到会话 A 提交或回滚
 ```
 
-![二哥的 Java 进阶之路：快照读和当前读的差别](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250415162326.png)
+![二哥的 Java 进阶之路：快照读和当前读的差别](https://cdn.paicoding.com/stutymore/mysql-20250415162326.png)
 
 #### 怎么更改事务的隔离级别？
 
@@ -5193,11 +5193,11 @@ MySQL 支持通过 SET 语句修改事务隔离级别，包括全局级别、当
 
 读未提交通过行锁共享锁确保一个事务在更新行数据但没有提交的情况下，其他事务不能更新该行数据，但不会阻止脏读，意味着事务2 可以在事务1 提交之前读取到事务1 修改的数据。
 
-![allaroundjava：Read uncommitted](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250416112357.png)
+![allaroundjava：Read uncommitted](https://cdn.paicoding.com/stutymore/mysql-20250416112357.png)
 
 读已提交会在更新数据前加行级排他锁，不允许其他事务写入或者读取未提交的数据，也就意味着事务2 不能在事务 1 提交之前读取到事务1 修改的数据，从而解决脏读的问题。
 
-![allaroundjava：Read committed](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250416114215.png)
+![allaroundjava：Read committed](https://cdn.paicoding.com/stutymore/mysql-20250416114215.png)
 
 另外，读已提交会在每次读取数据前都生成一个新的 ReadView，所以会出现不可重复读的问题。
 
@@ -5205,7 +5205,7 @@ MySQL 支持通过 SET 语句修改事务隔离级别，包括全局级别、当
 
 另外，对于当前读操作，可重复读会通过临键锁来锁住当前行和前间隙，防止其他事务在这个范围内插入数据，从而避免幻读的问题。
 
-![allaroundjava：Repeatable read](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250416115217.png)
+![allaroundjava：Repeatable read](https://cdn.paicoding.com/stutymore/mysql-20250416115217.png)
 
 串行化级别下，事务在读操作时，会先加表级共享锁；在写操作时，会先加表级排他锁。
 
@@ -5217,13 +5217,13 @@ MySQL 支持通过 SET 语句修改事务隔离级别，包括全局级别、当
 
 memo：2025 年 4 月 17 日修改至此，今天有[球友发微信](https://javabetter.cn/zhishixingqiu/)说拿到京东的暑期实习 offer，并且今天 VIP 9 群有球友说今天是晒 offer 日，因为 9 群有好几个球友拿到了大厂 offer，后面我再同步给大家。
 
-![球友拿到了京东的暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250417215132.png)
+![球友拿到了京东的暑期实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250417215132.png)
 
 ### 64.🌟请详细说说幻读呢？
 
 幻读是指在同一个事务中，多次执行相同的范围查询，结果却不同。这种现象通常发生在其他事务在两次查询之间插入或删除了符合当前查询条件的数据。
 
-![Jenny：Phantom read](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250417222847.png)
+![Jenny：Phantom read](https://cdn.paicoding.com/stutymore/mysql-20250417222847.png)
 
 ---- 这部分是帮助大家理解 start，面试中可以不背 ----
 
@@ -5251,7 +5251,7 @@ COMMIT;
 
 然后我们在事务 A 中执行查询 `SELECT * FROM user_info WHERE id > 1;`，在事务 B 中插入数据 `INSERT INTO user_info (name, gender, email) VALUES ('wanger', '女', 'wanger@163.com');`，再在事务 A 中修改刚刚插入的数据 `update user_info set gender='男' where id = 4;`，最后在事务 A 中再次查询 `SELECT * FROM user_info WHERE id > 1;`。
 
-![二哥的 Java 进阶之路：可以发现产生幻读了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250417222448.png)
+![二哥的 Java 进阶之路：可以发现产生幻读了](https://cdn.paicoding.com/stutymore/mysql-20250417222448.png)
 
 ---- 这部分是帮助大家理解 end，面试中可以不背 ----
 
@@ -5269,7 +5269,7 @@ COMMIT;
 
 其他事务在插入数据时，会被阻塞，直到当前事务提交或回滚。
 
-![二哥的 Java 进阶之路：临键锁能防止幻读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250417223640.png)
+![二哥的 Java 进阶之路：临键锁能防止幻读](https://cdn.paicoding.com/stutymore/mysql-20250417223640.png)
 
 ---- 这部分是帮助大家理解 start，面试中可以不背 ----
 
@@ -5279,7 +5279,7 @@ COMMIT;
 
 在范围查询时，InnoDB 不仅会对符合条件的记录加行锁，还会对相邻的索引间隙加间隙锁，从而形成临键锁。
 
-![转转技术：临键锁](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250418102139.png)
+![转转技术：临键锁](https://cdn.paicoding.com/stutymore/mysql-20250418102139.png)
 
 临键锁可以防止其他事务在间隙中插入新数据，从而避免幻读。
 
@@ -5287,7 +5287,7 @@ COMMIT;
 
 比如说在执行查询的事务中，不要尝试去更新其他事务插入/删除的数据，利用快照读来避免幻读。
 
-![二哥的 Java 进阶之路：只用快照读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250417224334.png)
+![二哥的 Java 进阶之路：只用快照读](https://cdn.paicoding.com/stutymore/mysql-20250417224334.png)
 
 ---- 这部分是帮助大家理解 start，面试中可以不背 ----
 
@@ -5295,7 +5295,7 @@ COMMIT;
 
 每个事务在启动时都会生成一个 Read View，用来确定哪些数据对当前事务可见。
 
-![Keep It Simple：Read View](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250418103117.png)
+![Keep It Simple：Read View](https://cdn.paicoding.com/stutymore/mysql-20250418103117.png)
 
 其他事务在当前事务启动后插入的新数据不会被当前事务看到，因此不会出现幻读。
 
@@ -5311,7 +5311,7 @@ COMMIT;
 
 因为更新、删除这些操作，本质上不仅是写操作，还需要在写之前读取数据，然后才能修改或删除。为了保证修改的是最新的数据，并防止并发冲突，InnoDB 必须读取最新版本的数据并加锁，因此 UPDATE 和 DELETE 也属于当前读。
 
-![溪水静幽：当前读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250418102600.png)
+![溪水静幽：当前读](https://cdn.paicoding.com/stutymore/mysql-20250418102600.png)
 
 SQL语句|	是否当前读|	是否加锁
 ---|---|---
@@ -5325,7 +5325,7 @@ SQL语句|	是否当前读|	是否加锁
 
 快照读是 InnoDB 通过 MVCC 实现的一种非阻塞读方式。当事务执行 SELECT 查询时，InnoDB 并不会直接读当前最新的数据，而是根据事务开始时生成的 Read View 去判断每条记录的可见性，从而读取符合条件的历史版本。
 
-![爱吃鱼饼的猫：快照读](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250418105347.png)
+![爱吃鱼饼的猫：快照读](https://cdn.paicoding.com/stutymore/mysql-20250418105347.png)
 
 SQL|	是否快照读？|	说明
 ---|---|---
@@ -5339,13 +5339,13 @@ SQL|	是否快照读？|	说明
 
 memo：2025 年 4 月 18 日修改至此，今天有[球友发帖](https://javabetter.cn/zhishixingqiu/)说拿到了蚂蚁的暑期实习 offer，问前景怎么样，我只能说蚂蚁作为阿里的嫡长子，一直处在战略发展的核心位置，肯定是值得去的。
 
-![球友拿到了蚂蚁暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250418105609.png)
+![球友拿到了蚂蚁暑期实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250418105609.png)
 
 ### 65.🌟MVCC 了解吗？
 
 MVCC 指的是多版本并发控制，每次修改数据时，都会生成一个新的版本，而不是直接在原有数据上进行修改。并且每个事务只能看到在它开始之前已经提交的数据版本。
 
-![天瑕：undo log 版本链和 ReadView](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241215073837.png)
+![天瑕：undo log 版本链和 ReadView](https://cdn.paicoding.com/stutymore/mysql-20241215073837.png)
 
 这样的话，读操作就不会阻塞写操作，写操作也不会阻塞读操作，从而避免加锁带来的性能损耗。
 
@@ -5353,27 +5353,27 @@ MVCC 指的是多版本并发控制，每次修改数据时，都会生成一个
 
 每次修改数据前，先将记录拷贝到Undo Log，并且每条记录会包含三个隐藏列，DB_TRX_ID 用来记录修改该行的事务 ID，DB_ROLL_PTR 用来指向 Undo Log 中的前一个版本，DB_ROW_ID 用来唯一标识该行数据（仅无主键时生成）。
 
-![guozhchun：额外的存储信息](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250419152549.png)
+![guozhchun：额外的存储信息](https://cdn.paicoding.com/stutymore/mysql-20250419152549.png)
 
 每次读取数据时，都会生成一个 ReadView，其中记录了当前活跃事务的 ID 集合、最小事务 ID、最大事务 ID 等信息，通过与 DB_TRX_ID 进行对比，判断当前事务是否可以看到该数据版本。
 
-![luozhiyun：ReadView](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250419152750.png)
+![luozhiyun：ReadView](https://cdn.paicoding.com/stutymore/mysql-20250419152750.png)
 
 #### 请详细说说什么是版本链？
 
 版本链是指 InnoDB 中同一条记录的多个历史版本，通过 DB_ROLL_PTR 字段将它们像链表一样串起来，用来支持 MVCC 的快照读。
 
-![二哥的 Java 进阶之路：版本链](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415084347.png)
+![二哥的 Java 进阶之路：版本链](https://cdn.paicoding.com/stutymore/mysql-20240415084347.png)
 
 假设有一张`hero`表，表中有这样一行记录，name 为张三，city 为帝都，插入这行记录的事务 id 是 80。
 
 此时，`DB_TRX_ID`的值就是 80，`DB_ROLL_PTR`的值就是指向这条 insert undo 日志的指针。
 
-![三分恶面渣逆袭：DB_ROLL_PTR](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-80ebc2b3-ae63-417d-9307-f6a7811f7965.jpg)
+![三分恶面渣逆袭：DB_ROLL_PTR](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-80ebc2b3-ae63-417d-9307-f6a7811f7965.jpg)
 
 接下来，如果有两个`DB_TRX_ID`分别为`100`、`200`的事务对这条记录进行了`update`操作，那么这条记录的版本链就会变成下面这样：
 
-![三分恶面渣逆袭：update 操作](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-bf4ff00d-01bd-4170-a17b-6919f7873ea4.jpg)
+![三分恶面渣逆袭：update 操作](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-bf4ff00d-01bd-4170-a17b-6919f7873ea4.jpg)
 
 也就是说，当更新一行数据时，InnoDB 不会直接覆盖原有数据，而是创建一个新的数据版本，并更新 DB_TRX_ID 和 DB_ROLL_PTR，使它们指向前一个版本和相关的 undo 日志。
 
@@ -5381,13 +5381,13 @@ MVCC 指的是多版本并发控制，每次修改数据时，都会生成一个
 
 由于 undo 日志会记录每一次的 update，并且新插入的行数据会记录上一条 undo 日志的指针，所以可以通过 DB_ROLL_PTR 这个指针找到上一条记录，这样就形成了一个版本链。
 
-![三分恶面渣逆袭：版本链](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-765b3d83-14eb-4b56-8940-9d60bfaf1737.jpg)
+![三分恶面渣逆袭：版本链](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-765b3d83-14eb-4b56-8940-9d60bfaf1737.jpg)
 
 #### 请详细说说什么是ReadView？
 
 ReadView 是 InnoDB 为每个事务创建的一份“可见性视图”，用于判断在执行快照读时，哪些数据版本是当前这个事务可以看到的，哪些不能看到。
 
-![二哥的 Java 进阶之路：ReadView](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415093703.png)
+![二哥的 Java 进阶之路：ReadView](https://cdn.paicoding.com/stutymore/mysql-20240415093703.png)
 
 当事务开始执行时，InnoDB 会为该事务创建一个 ReadView，这个 ReadView 会记录 4 个重要的信息：
 
@@ -5400,7 +5400,7 @@ ReadView 是 InnoDB 为每个事务创建的一份“可见性视图”，用于
 
 会通过三个步骤来判断：
 
-![二哥的 Java 进阶之路：ReadView判断规则](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240415094939.png)
+![二哥的 Java 进阶之路：ReadView判断规则](https://cdn.paicoding.com/stutymore/mysql-20240415094939.png)
 
 ①、如果某个数据版本的 DB_TRX_ID 小于 min_trx_id，则该数据版本在生成 ReadView 之前就已经提交，因此对当前事务是可见的。
 
@@ -5411,7 +5411,7 @@ ReadView 是 InnoDB 为每个事务创建的一份“可见性视图”，用于
 - 不在，表示创建该数据版本的事务在生成 ReadView 之后已经提交，因此对当前事务也是可见的。
 - 在，表示事务仍然活跃，或者在当前事务生成 ReadView 之后才开始，因此是不可见的。
 
-![小许 code：可见性匹配规则](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250419162341.png)
+![小许 code：可见性匹配规则](https://cdn.paicoding.com/stutymore/mysql-20250419162341.png)
 
 举个实际的例子。
 
@@ -5428,7 +5428,7 @@ ReadView 是 InnoDB 为每个事务创建的一份“可见性视图”，用于
 
 可重复读：在第一次读取数据时生成一个 ReadView，这个 ReadView 会一直保持到事务结束，这样可以保证在事务中多次读取同一行数据时，读取到的数据是一致的。
 
-![程序员x：readview 在可重复读和读已提交下的不同](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250419163740.png)
+![程序员x：readview 在可重复读和读已提交下的不同](https://cdn.paicoding.com/stutymore/mysql-20250419163740.png)
 
 读已提交：每次读取数据前都生成一个 ReadView，这样就能保证每次读取的数据都是最新的。
 
@@ -5449,7 +5449,7 @@ ReadView 是 InnoDB 为每个事务创建的一份“可见性视图”，用于
 
 memo：2025 年 4 月 19 日修改至此，今天有[球友发帖](https://javabetter.cn/zhishixingqiu/)说拿到了拼多多的 offer，这下真的是圆满了。
 
-![球友拿到了拼多多的 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250419164013.png)
+![球友拿到了拼多多的 offer](https://cdn.paicoding.com/stutymore/mysql-20250419164013.png)
 
 ## 高可用
 
@@ -5457,7 +5457,7 @@ memo：2025 年 4 月 19 日修改至此，今天有[球友发帖](https://javab
 
 读写分离就是把“写操作”交给主库处理，“读操作”分给多个从库处理，从而提升系统并发性能。
 
-![三分恶面渣逆袭：读写分离](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31df767c-db05-4de4-a05b-a45bcf76c1bf.jpg)
+![三分恶面渣逆袭：读写分离](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-31df767c-db05-4de4-a05b-a45bcf76c1bf.jpg)
 
 应用层通过中间件（如 MyCat、ShardingSphere）自动路由请求，将 INSERT / UPDATE / DELETE 等写操作发送给主库，将 SELECT 查询操作发送给从库。
 
@@ -5475,7 +5475,7 @@ public Order getOrderById(Long id) {
 
 主库将数据变更通过 binlog 同步到从库，从而保持数据一致性。
 
-![轻风博客：主从同步](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250420153404.png)
+![轻风博客：主从同步](https://cdn.paicoding.com/stutymore/mysql-20250420153404.png)
 
 主库 dump_thread 线程通过 TCP 将 binlog 推送给从库，从库 io_thread 线程，接收主库 binlog，写入 relay log，从库 sql_thread 线程读取 relay log，并顺序执行 SQL 语句，更新从库数据。
 
@@ -5483,13 +5483,13 @@ public Order getOrderById(Long id) {
 
 实现读写分离有三种方式：最简单的是在应用层手动控制主从数据源，适用于小型项目；
 
-![三分恶面渣逆袭：业务代码封装](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-771eb01f-3f1a-4437-8e1b-affe4de36ec3.jpg)
+![三分恶面渣逆袭：业务代码封装](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-771eb01f-3f1a-4437-8e1b-affe4de36ec3.jpg)
 
 中等项目是通过 Spring + 多数据源插件、AOP 注解自动路由；
 
 大型系统通常使用中间件，如 ShardingSphere、MyCat，支持自动路由、负载均衡、故障转移等功能。
 
-![三分恶面渣逆袭：数据库中间件](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-f2313613-25bd-4065-8f63-969a4b5757a7.jpg)
+![三分恶面渣逆袭：数据库中间件](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-f2313613-25bd-4065-8f63-969a4b5757a7.jpg)
 
 Mycat 的读写分离功能依赖于 MySQL 的主从复制架构：
 
@@ -5498,7 +5498,7 @@ Mycat 的读写分离功能依赖于 MySQL 的主从复制架构：
 
 正常情况下，Mycat 会将第一个配置的 writeHost 作为默认的写节点。所有的 DML SQL 语句会被发送到此默认写节点执行。
 
-![鲲鹏：Mycat for MySQL 读写分离](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250420160540.png)
+![鲲鹏：Mycat for MySQL 读写分离](https://cdn.paicoding.com/stutymore/mysql-20250420160540.png)
 
 写节点完成数据写入后，通过 MySQL 的主从复制机制，将数据同步到所有从节点，确保主从数据一致性。
 
@@ -5506,7 +5506,7 @@ Mycat 的读写分离功能依赖于 MySQL 的主从复制架构：
 
 MySQL 的主从复制是一种数据同步机制，用于将数据从主数据库复制到一个或多个从数据库。
 
-![三分恶面渣逆袭：主从复制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1bfbfcb5-2392-4f98-be1b-a66204da09e5.jpg)
+![三分恶面渣逆袭：主从复制](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-1bfbfcb5-2392-4f98-be1b-a66204da09e5.jpg)
 
 主库执行事务提交时，将数据变更以事件形式记录到 Binlog。从库通过 I/O 线程从主库的 Binlog 中读取变更事件，并将这些事件写入到本地的中继日志文件中，SQL 线程会实时监控中继日志的内容，按顺序读取并执行这些事件，从而保证从库与主库数据一致。
 
@@ -5546,7 +5546,7 @@ public Object query(String sql) {
 
 第三种解决方案：采用半同步复制，主库在事务提交时，要等至少一个从库确认收到 binlog（但不要求执行完成），才算提交成功。
 
-![骏马金龙：半同步复制](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250420164609.png)
+![骏马金龙：半同步复制](https://cdn.paicoding.com/stutymore/mysql-20250420164609.png)
 
 #### 请说说半同步复制的流程？
 
@@ -5596,17 +5596,17 @@ rpl_semi_sync_slave_enabled = 1
 
 memo：2025 年 4 月 20 日修改至此，今天[给球友修改简历](https://javabetter.cn/zhishixingqiu/jianli.html)时，碰到有球友说，把星球安利给了同门，进来后都说好，口碑+1，很欣慰呢。
 
-![球友已经把星球安利给了同门](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250420170230.png)
+![球友已经把星球安利给了同门](https://cdn.paicoding.com/stutymore/mysql-20250420170230.png)
 
 ### 70.🌟你们一般是怎么分库的呢？
 
 分库的策略有两种，第一种是垂直分库：按照业务模块将不同的表拆分到不同的库中，比如说用户、登录、权限等表放在用户库中，商品、分类、库存放在商品库中，优惠券、满减、秒杀放在活动库中。
 
-![三分恶面渣逆袭：垂直分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2a43af18-617b-4502-b66a-894c2ff4c6c3.jpg)
+![三分恶面渣逆袭：垂直分库](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2a43af18-617b-4502-b66a-894c2ff4c6c3.jpg)
 
 第二种是水平分库：按照一定的策略将一个表中的数据拆分到多个库中，比如哈希分片和范围分片，对用户 id 进行取模运算或者范围划分，将数据分散到不同的库中。
 
-![三分恶面渣逆袭：水平分库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-debe0fb1-d7f7-4ef2-8c99-13c9377138b6.jpg)
+![三分恶面渣逆袭：水平分库](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-debe0fb1-d7f7-4ef2-8c99-13c9377138b6.jpg)
 
 贴一段使用 ShardingSphere 的 inline 算法定义分片规则：
 
@@ -5647,11 +5647,11 @@ rules:
 
 当单表超过 500 万条数据，就可以考虑水平分表了。比如说我们可以将文章表拆分成多个表，如 article_0、article_9999、article_19999 等。
 
-![三分恶面渣逆袭：表拆分](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7cba6ce0-c8bb-4f51-9c3b-e5a44e724c79.jpg)
+![三分恶面渣逆袭：表拆分](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-7cba6ce0-c8bb-4f51-9c3b-e5a44e724c79.jpg)
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们将文章的基本信息和内容详情做了垂直分表处理，因为文章的内容会占用比较大的空间，在只需要查看文章基本信息时把文章详情也带出来的话，就会占用更多的网络 IO 和内存导致查询变慢；而文章的基本信息，如标题、作者、状态等信息占用的空间较小，很适合不需要查询文章详情的场景。
 
-![二哥的 Java 进阶之路：文章和详情垂直分表](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250422152008.png)
+![二哥的 Java 进阶之路：文章和详情垂直分表](https://cdn.paicoding.com/stutymore/mysql-20250422152008.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手面经同学 7 Java 后端技术一面面试原题：分库分表了解吗
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：说说分库分表的准则
@@ -5664,7 +5664,7 @@ rules:
 
 范围分片是根据某个字段的值范围进行水平拆分。适用于分片键具有连续性的场景。
 
-![三分恶面渣逆袭：范围分片](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b3882ca3-1d04-44e2-9015-7e6c867255a0.jpg)
+![三分恶面渣逆袭：范围分片](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-b3882ca3-1d04-44e2-9015-7e6c867255a0.jpg)
 
 比如说将 user_id 作为分片键：
 
@@ -5673,7 +5673,7 @@ rules:
 
 Hash 分片是指通过对分片键的值进行哈希取模，将数据均匀分布到多个库表中，适用于分片键具有离散性的场景。
 
-![三分恶面渣逆袭：Hash 分片](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e01e7757-c337-48c8-95db-2f7cfd2bc036.jpg)
+![三分恶面渣逆袭：Hash 分片](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-e01e7757-c337-48c8-95db-2f7cfd2bc036.jpg)
 
 比如说我们一开始规划好了 4 个表，那么就可以简单地通过取模来实现分表：
 
@@ -5686,7 +5686,7 @@ public String getTableNameByHash(long userId) {
 
 路由分片是通过路由配置来确定数据应该存储在哪个库表，适用于分片键不规律的场景。
 
-![三分恶面渣逆袭：配置路由](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcd34332-d38d-455a-875d-d4afd37cac72.jpg)
+![三分恶面渣逆袭：配置路由](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-fcd34332-d38d-455a-875d-d4afd37cac72.jpg)
 
 比如说我们可以通过 order_router 表来确定订单数据存储在哪个表中：
 
@@ -5701,13 +5701,13 @@ public String getTableNameByHash(long userId) {
 
 memo：2025 年 4 月 22 日修改至此，今天给[拿到蚂蚁暑期实习的球友](https://javabetter.cn/zhishixingqiu/)发了个红包，感谢他在星球的经验贴，这些精华帖也会帮助到下一届的球友们，真的非常感谢。
 
-![拿到蚂蚁 offer 的球友对星球口碑+1 了](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250422153403.png)
+![拿到蚂蚁 offer 的球友对星球口碑+1 了](https://cdn.paicoding.com/stutymore/mysql-20250422153403.png)
 
 ### 73.不停机扩容怎么实现？
 
 第一个阶段：新旧库同时写入，确保数据实时同步；可以借助消息队列实现异步补偿，幂等避免重复写入。读操作仍然走旧库。
 
-![三分恶面渣逆袭：数据同步和校验](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2d4d94c9-e816-47fc-93dd-a835b1318099.jpg)
+![三分恶面渣逆袭：数据同步和校验](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-2d4d94c9-e816-47fc-93dd-a835b1318099.jpg)
 
 代码参考：
 
@@ -5735,7 +5735,7 @@ public List<Order> getOrders(Long userId) {
 
 第三个阶段，在确认新库数据一致性后，逐步将读请求切换到新库，然后下线旧库。
 
-![三分恶面渣逆袭：下线旧库](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a122d6d5-fff2-4ccd-8ddb-a9282eb2e2da.jpg)
+![三分恶面渣逆袭：下线旧库](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/mysql-a122d6d5-fff2-4ccd-8ddb-a9282eb2e2da.jpg)
 
 ### 74.常用的分库分表中间件有哪些？
 
@@ -5743,11 +5743,11 @@ public List<Order> getOrders(Long userId) {
 
 ①、ShardingSphere 最初由当当开源，后来贡献给了 Apache，其子项目 Sharding-JDBC 主要在 Java 的 JDBC 层提供额外的服务。无需额外部署和依赖，可理解为增强版的 JDBC 驱动，完全兼容 JDBC 和各种 ORM 框架。
 
-![AWS：Sharding-JDBC](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241207120214.png)
+![AWS：Sharding-JDBC](https://cdn.paicoding.com/stutymore/mysql-20241207120214.png)
 
 ②、Mycat 是由阿里巴巴的一款产品 Cobar 衍生而来，可以把它看作一个数据库代理。
 
-![piwenfei：mycat](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241207121845.png)
+![piwenfei：mycat](https://cdn.paicoding.com/stutymore/mysql-20241207121845.png)
 
 推荐阅读：[mycat 介绍](https://yanxizhu.com/index.php/archives/113/)
 
@@ -5756,7 +5756,7 @@ public List<Order> getOrders(Long userId) {
 
 第一，跨库事务无法依赖单机 MySQL 的 ACID 特性，需要使用分布式事务解决方案，如 Seata 的 AT 模式、TCC 模式等。
 
-![PmHub 项目中 Seata](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250423110330.png)
+![PmHub 项目中 Seata](https://cdn.paicoding.com/stutymore/mysql-20250423110330.png)
 
 第二，跨库后无法使用 JOIN 联表查询。可以在业务层进行拼接，或者把需要联表查询的数据放到 ES 中。
 
@@ -5770,13 +5770,13 @@ List<Order> orders = orderService.getOrdersByUserId(1);
 
 数据库表被切分后，不能再依赖数据库自身的主键生成机制，所以需要一些手段来保证全局主键唯一。比如说雪花算法、京东的 JD-hotkey。
 
-![京东的 JD-hotkey](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250423111247.png)
+![京东的 JD-hotkey](https://cdn.paicoding.com/stutymore/mysql-20250423111247.png)
 
 #### 你们项目中的分布式主键 id 是怎么生成的？
 
 在[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)项目中，我们在雪花算法的基础上实现了一套自定义的 ID 生成方案，通过更改时间戳单位、ID 长度、workId 与 dataCenterId 的分配比例，ID 生成的延迟降低了 20%；满足了分布式环境下 ID 的唯一性。
 
-![技术派：自定义雪花算法算法](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241223150915.png)
+![技术派：自定义雪花算法算法](https://cdn.paicoding.com/stutymore/mysql-20241223150915.png)
 
 #### 雪花算法具体是怎么实现的？
 
@@ -5787,7 +5787,7 @@ List<Order> orders = orderService.getOrdersByUserId(1);
 - 然后是 10 位的工作机器 ID。
 - 最后是 12 位的序列号，每毫秒最多可生成 4096 个 ID。
 
-![技术派：雪花算法](https://cdn.tobebetterjavaer.com/stutymore/mysql-20241223150351.png)
+![技术派：雪花算法](https://cdn.paicoding.com/stutymore/mysql-20241223150351.png)
 
 大致的实现代码如下所示：
 
@@ -5825,7 +5825,7 @@ public class SnowflakeIdGenerator {
 
 memo：2025 年 4 月 23 日修改至此，今天有[球友反馈](https://javabetter.cn/zhishixingqiu/)说拿到了 vivo 的 offer，也是他第一个暑期实习 offer，真的需要恭喜啦🎉。
 
-![vivo 暑期实习 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250423111757.png)
+![vivo 暑期实习 offer](https://cdn.paicoding.com/stutymore/mysql-20250423111757.png)
 
 ## 运维
 
@@ -5954,13 +5954,13 @@ ALTER TABLE your_table ADD COLUMN new_column datatype;
 
 如果没有指定 `ALGORITHM=INSTANT` 算法，MySQL 会先尝试 INSTANT 算法；如果无法完成，会切换到 INPLACE 算法；如果仍然无法完成，会尝试 COPY 算法。
 
-![截图来自MySQL官网：由腾讯游戏 DBA 团队贡献](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250424114631.png)
+![截图来自MySQL官网：由腾讯游戏 DBA 团队贡献](https://cdn.paicoding.com/stutymore/mysql-20250424114631.png)
 
 ### 78.MySQL 导致 cpu 飙升的话，要怎么处理呢？
 
 我通常先通过 top 命令确认是否是 mysqld 的进程占用。
 
-![top -pid $(pgrep mysqld)](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250424120022.png)
+![top -pid $(pgrep mysqld)](https://cdn.paicoding.com/stutymore/mysql-20250424120022.png)
 
 然后通过 `SHOW PROCESSLIST` 和慢查询日志定位是否存在耗时 SQL，再配合 explain 和 performance_schema 分析 SQL 是否命中索引，是否存在临时表和排序。
 
@@ -5982,7 +5982,7 @@ ANALYZE TABLE table_name;
 
 memo：2025 年 4 月 24 日修改至此，今天有[球友反馈](https://javabetter.cn/zhishixingqiu/)说拿到了小鹏汽车测试岗的 offer，真的恭喜啦🎉。
 
-![球友拿到小鹏汽车的测试 offer](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250424120308.png)
+![球友拿到小鹏汽车的测试 offer](https://cdn.paicoding.com/stutymore/mysql-20250424120308.png)
 
 ## SQL 题
 
@@ -6023,7 +6023,7 @@ SELECT name FROM students WHERE age = 18;
 
 这条 SQL 语句从表中选择`age`等于 18 的所有记录，并返回这些记录的`name`字段。
 
-![二哥的 Java 进阶之路：找出age=18的记录](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240410105325.png)
+![二哥的 Java 进阶之路：找出age=18的记录](https://cdn.paicoding.com/stutymore/mysql-20240410105325.png)
 
 如果可以的话，可以给 age 字段加上索引。
 
@@ -6042,7 +6042,7 @@ GROUP BY class;
 
 这条 SQL 语句先筛选出年龄大于 18 的记录，然后按`class`分组，并通过 `count` 统计每个班的学生数。
 
-![二哥的 Java 进阶之路：找出年龄大于 18 的人](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240410105512.png)
+![二哥的 Java 进阶之路：找出年龄大于 18 的人](https://cdn.paicoding.com/stutymore/mysql-20240410105512.png)
 
 #### 找到每个班年龄排前两名的人？
 
@@ -6061,7 +6061,7 @@ ORDER BY a.class, a.age DESC;
 
 这条 SQL 语句首先从`students`表中选择`class`、`name`和`age`字段，然后使用子查询计算每个班级中年龄排前两名的学生。
 
-![二哥的 Java 进阶之路：排名前两名的学生](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240410105951.png)
+![二哥的 Java 进阶之路：排名前两名的学生](https://cdn.paicoding.com/stutymore/mysql-20240410105951.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的奇安信面经同学 1 Java 技术一面面试原题：一张表：id，name，age，sex，class，sql 语句：所有年龄为 18 的人的名字？找到每个班年龄大于 18 有多少人？找到每个班年龄排前两名的人？
 
@@ -6119,7 +6119,7 @@ CALL insert_data();
 
 总的时间 13.93+0.01+0.01+0.01=13.96 秒。
 
-![二哥的 Java 进阶之路：先索引再插入](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240412083019.png)
+![二哥的 Java 进阶之路：先索引再插入](https://cdn.paicoding.com/stutymore/mysql-20240412083019.png)
 
 接下来，我们再创建一个表，执行插入操作，然后创建索引。
 
@@ -6150,7 +6150,7 @@ CREATE INDEX idx_name_no_index ON test_table_no_index(name);
 
 来看一下总的时间，0.01+0.00+13.08+0.18=13.27 秒。
 
-![二哥的 Java 进阶之路：先插入再索引](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240412083312.png)
+![二哥的 Java 进阶之路：先插入再索引](https://cdn.paicoding.com/stutymore/mysql-20240412083312.png)
 
 先插入数据再创建索引的方式比先创建索引再插入数据要快一点。
 
@@ -6171,7 +6171,7 @@ CREATE INDEX idx_name_no_index ON test_table_no_index(name);
 
 memo：2025 年 4 月 25 日修改至此，今天有家长发来感谢信，说孩子在加入[星球](https://javabetter.cn/zhishixingqiu/)后，整个人明显变得更加积极了。说真的，家长的认可，更让我感到虚荣心得到了极大的满足。
 
-![家长对星球的认可](https://cdn.tobebetterjavaer.com/stutymore/mysql-老师您好，今天孩子和我通话语气都精神起来.png)
+![家长对星球的认可](https://cdn.paicoding.com/stutymore/mysql-老师您好，今天孩子和我通话语气都精神起来.png)
 
 ### 82.什么是深分页，select \* from tbn limit 1000000000 这个有什么问题，如果表大或者表小分别什么问题
 
@@ -6268,7 +6268,7 @@ WHERE ranked.rank <= 10;
 `ORDER BY class, score DESC`|	必须先按班级升序、成绩降序排好，才能保证变量正确打排名
 外层 `WHERE rank <= 10`|	只取每班前十名 ✅
 
-![二哥的 Java 进阶之路：排名前十](https://cdn.tobebetterjavaer.com/stutymore/mysql-20240423113508.png)
+![二哥的 Java 进阶之路：排名前十](https://cdn.paicoding.com/stutymore/mysql-20240423113508.png)
 
 如果是 MySQL 8.0+ 版本，可以使用窗口函数来完成：
 
@@ -6292,35 +6292,35 @@ SQL 用到的技术|	说明
 外层 `WHERE rn <= 10`|	选出每个班排名前 10 的学生
 `ORDER BY score DESC`|	成绩高排前面，符合常规排名逻辑
 
-![二哥的 Java 进阶之路：窗口函数](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250426150253.png)
+![二哥的 Java 进阶之路：窗口函数](https://cdn.paicoding.com/stutymore/mysql-20250426150253.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的腾讯云智面经同学 16 一面面试原题：SQL 题：一个学生成绩表，字段有学生姓名、班级、成绩，求各班前十名
 
 memo：2025 年 4 月 26 日修改至此，今天有[球友发邮件送来喜报](https://javabetter.cn/zhishixingqiu/)，说他拿到了蚂蚁国际的 offer，并且多次感谢星球对他实习的帮助，比身边朋友拿到了更多的面试机会，并且准备阶段只看二哥的专栏，都有一种精神洁癖了，说实话，这种喜报我真的爱看，😄。
 
-![球友拿到蚂蚁国际的 offer 发来的感谢信](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427102433.png)
+![球友拿到蚂蚁国际的 offer 发来的感谢信](https://cdn.paicoding.com/stutymore/mysql-20250427102433.png)
 
 ---
 
 整整两个月，面渣逆袭 MySQL 篇第二版终于整理完了，这一版几乎可以说是重写了，每天耗费了大量的精力在上面，可以说是改头换面，有一种士别俩月，当刮目相看的感觉。
 
-![Java 基础篇、集合框架篇、JVM 篇、并发编程篇、MySQL 篇](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104640.png)
+![Java 基础篇、集合框架篇、JVM 篇、并发编程篇、MySQL 篇](https://cdn.paicoding.com/stutymore/mysql-20250427104640.png)
 
 网上的八股其实不少，有些还是付费的，我觉得是一件好事，可以给大家提供更多的选择，但面渣逆袭的含金量懂的都懂。
 
-![面渣逆袭适合中国宝宝体质哈哈](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104555.png)
+![面渣逆袭适合中国宝宝体质哈哈](https://cdn.paicoding.com/stutymore/mysql-20250427104555.png)
 
 面渣逆袭第二版是在星球嘉宾三分恶的初版基础上，加入了二哥自己的思考，加入了 1000 多份真实面经之后的结果，并且从 24 届到 25 届，再到 26 届，帮助了很多小伙伴。未来的 27、28 届，也将因此受益，从而拿到心仪的 offer。
 
 能帮助到大家，我很欣慰，并且在重制面渣逆袭的过程中，我也成长了很多，很多薄弱的基础环节都得到了加强，因此第二版的面渣逆袭不只是给大家的礼物，也是我在技术上蜕变的记录。
 
-![球友把面渣逆袭推荐给实验室的所有人](https://cdn.tobebetterjavaer.com/stutymore/mysql-我把你推荐给我们实验室的基本所有人了.png)
+![球友把面渣逆袭推荐给实验室的所有人](https://cdn.paicoding.com/stutymore/mysql-我把你推荐给我们实验室的基本所有人了.png)
 
 
-![学院本拿到滴滴 SP 给面渣口碑+1](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104304.png)
+![学院本拿到滴滴 SP 给面渣口碑+1](https://cdn.paicoding.com/stutymore/mysql-20250427104304.png)
 
 
-![市面上的八股看了不少，还是面渣逆袭最舒服](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104416.png)
+![市面上的八股看了不少，还是面渣逆袭最舒服](https://cdn.paicoding.com/stutymore/mysql-20250427104416.png)
 
 很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
 
@@ -6335,20 +6335,20 @@ memo：2025 年 4 月 26 日修改至此，今天有[球友发邮件送来喜报
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 
 更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
 
-![面渣逆袭MySQL篇：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/mysql-20250427104017.png)
+![面渣逆袭MySQL篇：epub 版本](https://cdn.paicoding.com/stutymore/mysql-20250427104017.png)
 
 ---
 

@@ -9,7 +9,7 @@ tag:
 
 大家好，我是二哥呀。不废话，今天来带你一分钟玩转 Spring IoC。Spring 框架是 Java 后端开发中非常重要的基础框架，可以说必不可缺，而 IoC 又是 Spring 体系中最重要的两个概念之一（另外一个是谁呢？）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-dfa5b7d3-43c3-492f-a9f5-59d3bf7b242b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-dfa5b7d3-43c3-492f-a9f5-59d3bf7b242b.jpg)
 
 ## 是何
 
@@ -17,21 +17,21 @@ Spring 全家桶中最重要的几个项目都是基于 Spring Framework 的，�
 
 首先它的右侧有 Github 的链接，另外点到「LEARN」这里，就会看到各个版本的文档。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-ecc7dcc3-678f-4b97-8e2b-42fc0d66f555.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-ecc7dcc3-678f-4b97-8e2b-42fc0d66f555.jpg)
 
 那我们点「Reference Doc」，就能够看到它的一些模块的介绍：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-7ba176c1-5d76-465d-b2b5-5751d6c1ef3b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-7ba176c1-5d76-465d-b2b5-5751d6c1ef3b.jpg)
 
 第一章 Overview，讲述它的历史、设计原理等等；
 
 第二章 Core，包含了 IoC 容器，AOP 等等，那自然是讲 Spring 的核心了，要点进去好好看了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-b068d0cc-8e75-42fc-8391-0cc0e2d84fc8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-b068d0cc-8e75-42fc-8391-0cc0e2d84fc8.jpg)
 
 点进去之后发现了宝贵的学习资料，一切的 what, why, how 都可以在这里找到答案。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-e1f5ad2c-2b1a-453e-8672-dd4b6560eb7a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-e1f5ad2c-2b1a-453e-8672-dd4b6560eb7a.jpg)
 
 这里很好的解释了大名鼎鼎的 IoC - Inversion of Control, 控制反转。
 
@@ -53,7 +53,7 @@ Bean 是 Spring 的主角，有种说法叫 Spring 就是面向 bean 的编程�
 
 既然说容器是 IoC 最重要的部分，那么 Spring 如何设计容器的呢？还是回到官网，第二段有介绍哦：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-c5c48fc9-162b-4e7c-a660-2984bb7fb69a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-c5c48fc9-162b-4e7c-a660-2984bb7fb69a.jpg)
 
 答：使用 `ApplicationContext`，它是 `BeanFactory` 的子类，更好的补充并实现了 `BeanFactory` 的。
 
@@ -66,7 +66,7 @@ Bean 是 Spring 的主角，有种说法叫 Spring 就是面向 bean 的编程�
 
 而 `ApplicationContext` 多了很多功能，因为它继承了多个接口，可称之为“高级容器”。在下文的搭建项目中，我们会使用它。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-ac7721c3-7892-45a7-840a-2093548f13d6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-ac7721c3-7892-45a7-840a-2093548f13d6.jpg)
 
 `ApplicationContext` 的里面有两个具体的实现子类，用来读取配置配件的：
 
@@ -188,9 +188,9 @@ IoC 和 DI 也并非 Spring 框架提出来的，Spring 只是应用了这个设
 
 在项目中，底层的实现都是由很多个对象组成的，对象之间彼此合作实现项目的业务逻辑。但是，很多很多对象紧密结合在一起，一旦有一方出问题了，必然会对其他对象有所影响，所以才有了解藕的这种设计思想。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-2231ebcf-6677-4007-8460-30cb4ed6ac6f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-2231ebcf-6677-4007-8460-30cb4ed6ac6f.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-19cbe7a6-e7ae-43ed-a27a-91b39f05f899.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-19cbe7a6-e7ae-43ed-a27a-91b39f05f899.jpg)
 
 如上图所示，本来 ABCD 是互相关联在一起的，当加入第三方容器的管理之后，每个对象都和第三方法的 IoC 容器关联，彼此之间不再直接联系在一起了，没有了耦合关系，全部对象都交由容器来控制，降低了这些对象的亲密度，就叫“解藕”。
 
@@ -204,7 +204,7 @@ IoC 和 DI 也并非 Spring 框架提出来的，Spring 只是应用了这个设
 
 ### Spring Framework 八大模块
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-02dc5458-7423-44ce-97b4-d199decac2ad.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-02dc5458-7423-44ce-97b4-d199decac2ad.jpg)
 
 模块化的思想是 Spring 中非常重要的思想。
 
@@ -241,15 +241,15 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 下载地址：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-24ce85b8-33b2-4c6e-a39b-0e9233b29d9b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-24ce85b8-33b2-4c6e-a39b-0e9233b29d9b.jpg)
 
 如果你要问我怎么找的，那就还是从刚才 `4.3.26` 版本的 `Reference Doc` 中进去，然后刚开头就有一个 `Distribution Zip Files`，
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-7ddf8503-cfb4-4263-9fb2-f0ac3be66f66.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-7ddf8503-cfb4-4263-9fb2-f0ac3be66f66.jpg)
 
 好奇心带着我打开了它，发现...
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-80b10d48-a976-4d11-9751-76f5c0355452.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-80b10d48-a976-4d11-9751-76f5c0355452.jpg)
 
 发现了仓库地址！
 
@@ -257,7 +257,7 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 我们搜 5.2.3 版的，它在最下面：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-f64e3ddc-e5cf-4540-b7a1-96ce790df2e5.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-f64e3ddc-e5cf-4540-b7a1-96ce790df2e5.jpg)
 
 然后就可以愉快的使用了～
 
@@ -272,11 +272,11 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 答案是：`下载的 docs.zip → spring-framework-reference → images → spring-overview`
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-0bde232f-797f-449a-977f-cbe4efa989c0.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-0bde232f-797f-449a-977f-cbe4efa989c0.jpg)
 
 我们需要导入 Intellij 的 jar 包在哪里呢？Dist.zip → libs
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-75e82791-6bfb-45ac-bc85-dffd6f493191.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-75e82791-6bfb-45ac-bc85-dffd6f493191.jpg)
 
 这里可以看到，每个黑色框对应3个 jar 包，我们要导入 Intellij 的是 `RELEASE.jar`.
 
@@ -286,13 +286,13 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 然后在 External Libraries 中导入我们刚才在模块图里看到的那4个模块所对应的 jar 包，结构如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-d77fa83c-b82a-4fc5-8910-243798d03acb.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-d77fa83c-b82a-4fc5-8910-243798d03acb.jpg)
 
 这样你以为就大功告成了吗？Too young too simple 啊～
 
 来运行一下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-d33302bb-0d2d-403e-95ee-216d0b859952.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-d33302bb-0d2d-403e-95ee-216d0b859952.jpg)
 
 出现了老盆友：`no class def found error`, 就是找不到这个类。
 
@@ -310,7 +310,7 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 官网里都给我们写好了：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-dcef8c4b-f7d3-445e-a809-5a66eab9e1e9.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-dcef8c4b-f7d3-445e-a809-5a66eab9e1e9.jpg)
 
 第一段是一些命名空间及其规范的介绍，
 
@@ -329,11 +329,11 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 我的 service 文件配置如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-6a0894e5-5765-48dd-a04f-29edb9c270fa.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-6a0894e5-5765-48dd-a04f-29edb9c270fa.jpg)
 
 #### 4\. 最后一步，我们再来看它是怎么用的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-f349d1b3-de75-4bb7-98f1-93918cea5aa9.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-f349d1b3-de75-4bb7-98f1-93918cea5aa9.jpg)
 
 这里面并没有直接的 new 这个 service，但是 Spring 容器帮我们创建了这个对象。
 
@@ -343,11 +343,11 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 然后第二行，就是获取具体的 bean 了。这个其实有很多方式，在使用的时候就能看到：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-bbb71e68-a9b0-46d1-b4f8-02cf28130a9c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-bbb71e68-a9b0-46d1-b4f8-02cf28130a9c.jpg)
 
 点进去发现，是在 BeanFactory.class 里定义的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-36952030-7731-4f76-bc34-184d35502df6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-36952030-7731-4f76-bc34-184d35502df6.jpg)
 
 这其中比较常用的是通过
 
@@ -359,7 +359,7 @@ Btw, 这张图在网上有很多，但是在我却没有在最新版的 referenc
 
 照猫画虎，我的 test 文件改动如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-c0551d04-aa95-46c7-badf-b825f58d4694.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-c0551d04-aa95-46c7-badf-b825f58d4694.jpg)
 
 成功运行～～🎉🎉
 
@@ -397,7 +397,7 @@ public class MyTest {
 
 定义一个无参的 constructor，里面打印一句话，然后只 `new ClassPathXmlApplicationContext`，如下图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-f987d03d-1f8a-47b2-b157-b325081f54b0.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-f987d03d-1f8a-47b2-b157-b325081f54b0.jpg)
 
 发现也是可以打印的，所以其实是每次启动容器的时候，就已经创建好容器中的所有对象了。（当然，这在 `scope = "prototype"` 的时候不适用，只是 singleton 的时候。）
 
@@ -419,13 +419,13 @@ public class MyTest {
 
 New Project 的时候要选择从 Maven 构建，而不是一个简单的 Java 项目。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-051637c7-1ae4-4b32-9e7c-ac05d5a8fc38.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-051637c7-1ae4-4b32-9e7c-ac05d5a8fc38.jpg)
 
 建好之后，我们会发现比起刚才的 Java 项目，多了很多东西：
 
 和之前的空项目不太一样，这里有 `main`, `test`，其中 `resources` 是放配置文件的地方，也就是我们刚才的 `service.xml` 应该放在这里，如果没有放对位置是代码找不到哦～
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-773f1aaf-eef1-4fcb-abee-331d31e3e9e2.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-773f1aaf-eef1-4fcb-abee-331d31e3e9e2.jpg)
 
 #### 2\. 添加对应的 pom 依赖，就不用手动导 jar 包了
 
@@ -449,7 +449,7 @@ New Project 的时候要选择从 Maven 构建，而不是一个简单的 Java �
 
 答：`new 的过程`。把 new 的过程交给第三方来创建、管理，这就是「解藕」。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/ioc-1a4f2b12-34a4-4fc1-94be-bd9a1a4c16e8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/ioc-1a4f2b12-34a4-4fc1-94be-bd9a1a4c16e8.jpg)
 
 Spring 也是用的 `set()` 方法，它只不过提供了一套更加完善的实现机制而已。
 
@@ -461,4 +461,4 @@ Spring 也是用的 `set()` 方法，它只不过提供了一套更加完善�
 
 >作者：小齐，转载链接：[https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w](https://mp.weixin.qq.com/s/CcL3cEcQRi-KhwTwmf5A0w)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

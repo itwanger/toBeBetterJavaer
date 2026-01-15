@@ -30,7 +30,7 @@ head:
 
 在 JVM 的[内存区域](https://javabetter.cn/jvm/neicun-jiegou.html)中，除了程序计数器，其他的内存区域都有可能发生内存溢出。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231227111238.png)
 
 大家都知道，Java 堆中存储的都是对象，或者叫对象实例，那只要我们不断地创建对象，并且保证 GC Roots 到对象之间有可达路径来避免垃圾回收机制清除这些对象，那么就一定会产生内存溢出。
 
@@ -51,7 +51,7 @@ public class OOM {
 
 运行结果如下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/oom-20240109190409.png)
+![](https://cdn.paicoding.com/stutymore/oom-20240109190409.png)
 
 我们在讲[运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)的时候也曾讲过。
 
@@ -61,7 +61,7 @@ public class OOM {
 
 简单来说，就是应该被[垃圾回收](https://javabetter.cn/jvm/gc.html)的对象没有回收掉，导致占用的内存越来越多，最终导致内存溢出。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/oom-20240109190934.png)
+![](https://cdn.paicoding.com/stutymore/oom-20240109190934.png)
 
 在上图中：对象 X 引用对象 Y，X 的生命周期比 Y 的生命周期长，Y 生命周期结束的时候，垃圾回收器不会回收对象 Y。
 
@@ -106,13 +106,13 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 于是我们想根据运维之前收集到的内存数据、GC 日志尝试判断哪里出现了问题。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-81051388-0c35-4de6-a3d9-4f546ef4bfec.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-81051388-0c35-4de6-a3d9-4f546ef4bfec.jpg)
 
 结果发现[老年代](https://javabetter.cn/jvm/compile-jdk.html)的内存使用就算是发生 GC 也一直居高不下，而且随着时间推移也越来越高。
 
 结合 [jstat](https://javabetter.cn/jvm/console-tools.html) 的日志发现就算是发生了 FGC，老年代也回收不了，内存已经到顶。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-e79d4da0-fbb1-4918-a8d8-e29d2d64323b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-e79d4da0-fbb1-4918-a8d8-e29d2d64323b.jpg)
 
 甚至有几台应用 FGC 达到了上百次，时间也高的可怕。
 
@@ -134,7 +134,7 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 结果跑了 10 几分钟内存使用并没有什么问题。根据图中可以看出，每一次 GC 内存都能有效的回收，所以并没有复现问题。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-4cf05af0-924f-406b-a8a4-5aa885e38cea.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-4cf05af0-924f-406b-a8a4-5aa885e38cea.jpg)
 
 没法复现问题就很难定位。于是我们就采用了一种古老的方法——review 代码，发现生产的逻辑和我们用 while 循环 Mock 的数据还不太一样。
 
@@ -146,7 +146,7 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 果然不出意外只跑了一分多钟内存就顶不住了，观察下图发现 GC 的频次非常高，但是内存的回收却是相形见拙。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-a6d6c9cd-e79c-4a76-ba97-032cfefefd5f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-a6d6c9cd-e79c-4a76-ba97-032cfefefd5f.jpg)
 
 同时后台也开始打印内存溢出了，这样便复现出了问题。
 
@@ -156,7 +156,7 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 于是便想看看到底是什么对象占用了这么多的内存，利用 VisualVM 的 HeapDump 功能，就可以立即 dump 出当前应用的内存情况。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-49b47ca3-b3e2-49f7-85c9-23f7a3ef6f93.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-49b47ca3-b3e2-49f7-85c9-23f7a3ef6f93.jpg)
 
 结果发现 `com.lmax.disruptor.RingBuffer` 类型的对象占用了将近 50% 的内存。
 
@@ -174,7 +174,7 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 我也做了一个实验，证明确实如此。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-dee49da6-905a-4085-b82e-41e136d422e8.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-dee49da6-905a-4085-b82e-41e136d422e8.jpg)
 
 我设置队列大小为 8 ，从 0~9 往里面写 10 条数据，当写到 8 的时候就会把之前 0 的位置覆盖掉，后面的以此类推（类似于 [HashMap](https://javabetter.cn/collection/hashmap.html) 的取模定位）。
 
@@ -188,7 +188,7 @@ OOM 现象则是随着 Kafka 的消息越多，出现异常的频次就越快。
 
 同样的 128M 内存，也是通过 Kafka 一直源源不断的取出数据。通过监控如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/oom-5529781f-1f68-47a7-a3d2-04eba9e9d52e.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/oom-5529781f-1f68-47a7-a3d2-04eba9e9d52e.jpg)
 
 跑了 20 几分钟系统一切正常，每当一次 GC 都能回收大部分内存，最终呈现锯齿状。
 
@@ -216,4 +216,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

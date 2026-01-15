@@ -27,7 +27,7 @@ head:
 
 方法的声明反映了方法的一些信息，比如说可见性、返回类型、方法名和参数。如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/17-01.png)
 
 **访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://javabetter.cn/oo/access-control.html)：
 
@@ -76,7 +76,7 @@ public class PredefinedMethodDemo {
 
 我们可以通过集成开发工具查看预先定义方法的方法签名，当我们把鼠标停留在 `println()` 方法上面时，就会显示下图中的内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/17-02.png)
 
 `println()` 方法的访问权限修饰符是 public，返回类型为 void，方法名为 println，参数为 `String x`，以及 Javadoc（方法是干嘛的）。
 
@@ -276,4 +276,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

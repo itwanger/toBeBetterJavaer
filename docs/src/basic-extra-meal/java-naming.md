@@ -45,7 +45,7 @@ head:
 - 类名使用 UpperCamelCase（驼峰式命名）风格
 - 尽量不要省略成单词的首字母，但以下情形例外：DO/BO/DTO/VO/AO/PO/UID 等
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/fifteen-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/fifteen-01.png)
 
 另外，如果是抽象类的话，使用 Abstract 或 Base 开头；如果是异常类的话，使用 Exception 结尾；如果是测试类的话，使用 Test 结尾。
 
@@ -162,4 +162,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

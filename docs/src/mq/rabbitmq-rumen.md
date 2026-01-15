@@ -11,7 +11,7 @@ tag:
 
 在 RabbitMQ 入门之前，我已经入门了 [Redis](https://mp.weixin.qq.com/s/NPJkMy5RppyFk9QhzHxhrw)、[Elasticsearch](https://mp.weixin.qq.com/s/ZjsZxle7m_dfmVwVkq2ayg) 和 [MongoDB](https://mp.weixin.qq.com/s/qz0sNOFeS0GTW-H9cdnbJg)，这让我感觉自己富有极客精神，非常良好。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-d416cab5-69bd-46a6-b65c-8cf3b6667136.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-d416cab5-69bd-46a6-b65c-8cf3b6667136.jpg)
 
 小伙伴们在继续阅读之前，我必须要声明一点，我对 RabbitMQ 并没有进行很深入的研究，仅仅是因为要用，就学一下。但作为一名负责任的技术博主，我是动了心的，这篇入门教程，小伙伴们读完后绝对会感到满意，忍不住无情地点赞，以及赤裸裸地转发。
 
@@ -28,7 +28,7 @@ RabbitMQ 的主要特点在于健壮性好、易于使用、高性能、高并�
 
 下图是 RabbitMQ 的消息模型图（来源于网络，侵删），小伙伴们来感受下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-0e8d83f8-fdf0-4755-9131-1f5c775ca010.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-0e8d83f8-fdf0-4755-9131-1f5c775ca010.jpg)
 
 1）P 是 Producer，代表生产者，也就是消息的发送者，可以将消息发送到 X
 
@@ -44,7 +44,7 @@ RabbitMQ 的主要特点在于健壮性好、易于使用、高性能、高并�
 
 咦，怎么不是安装 RabbitMQ 啊？先来看看官方的解释。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-9012f7d7-01bf-437a-ac98-f6a71390105e.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-9012f7d7-01bf-437a-ac98-f6a71390105e.jpg)
 
 英文看不太懂，没关系，我来补充两句人话。RabbitMQ 服务器是用 Erlang 语言编写的，它的安装包里并没有集成 Erlang 的环境，因此需要先安装 Erlang。小伙伴们不要担心，Erlang 安装起来没有任何难度。
 
@@ -55,7 +55,7 @@ Erlang 下载地址如下：
 
 最新的版本是 23.0.1，我选择的是 64 位的版本，104M 左右。下载完就可以双击运行安装，傻瓜式的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-644fafa4-a4bc-45a2-831a-12deda958122.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-644fafa4-a4bc-45a2-831a-12deda958122.jpg)
 
 需要注意的是，我安装的过程中，电脑重启了一次，好像要安装一个什么库，重启之前忘记保存图片了（sorry）。重启后，重新双击运行 otp_win64_23.0.1.exe 文件完成 Erlang 安装。
 
@@ -67,19 +67,19 @@ Erlang 安装成功后，就可以安装 RabbitMQ 了。下载地址如下所示
 
 找到下图中的位置，选择红色框中的文件进行下载。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-43268557-1240-4ed4-9883-de93668f1f04.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-43268557-1240-4ed4-9883-de93668f1f04.jpg)
 
 安装包只有 16.5M 大小，还是非常轻量级的。下载完后直接双击运行 exe 文件就可以傻瓜式地安装了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-b3343075-f9a8-441f-b266-0750df82a1c6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-b3343075-f9a8-441f-b266-0750df82a1c6.jpg)
 
 安装成功后，就可以将 RabbitMQ 作为 Windows 服务启动，可以从“开始”菜单管理 RabbitMQ Windows 服务。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-6f185cbd-b3ab-432a-85df-be3a93450533.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-6f185cbd-b3ab-432a-85df-be3a93450533.jpg)
 
 点击「RabbitMQ Command Prompt (sbin dir)」，进入命令行，输入 `rabbitmqctl.bat status` 可确认 RabbitMQ 的启动状态。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-d9407f52-3585-4c3c-af2f-7b7c4ec45461.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-d9407f52-3585-4c3c-af2f-7b7c4ec45461.jpg)
 
 可以看到 RabbitMQ 一些状态信息：
 
@@ -96,11 +96,11 @@ rabbitmq-plugins enable rabbitmq_management
 
 看到以下信息就可以确认插件启用成功了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-3479f2b1-5089-4d73-a6fa-f673989766b7.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-3479f2b1-5089-4d73-a6fa-f673989766b7.jpg)
 
 在浏览器地址栏输入 [http://localhost:15672/](http://localhost:15672/) 可以进入管理端界面，如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-cbad5128-e675-4da7-a5dd-fe9bb303f5f0.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-cbad5128-e675-4da7-a5dd-fe9bb303f5f0.jpg)
 
 ### 04、在 Java 中使用 RabbitMQ
 
@@ -119,7 +119,7 @@ rabbitmq-plugins enable rabbitmq_management
 
 第二步，我们来模拟一个最简单的场景，一个生产者发送消息到队列中，一个消费者从队列中读取消息并打印。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-3ce8cf20-76f0-4192-88d4-f40d9a23233e.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-3ce8cf20-76f0-4192-88d4-f40d9a23233e.jpg)
 
 官方对 RabbitMQ 有一个很好的解释，我就“拿来主义”的用一下。在我上高中的年代，同学们之间最流行的交流方式不是 QQ、微信，甚至短信这些，而是书信。因为那时候还没有智能手机，况且上学期间学校也是命令禁用手机的，所以书信是情感表达的最好方式。好怀念啊。
 
@@ -232,6 +232,6 @@ DeliverCallback deliverCallback = (consumerTag, delivery) -> {
 在消息发送的过程中，也可以使用 RabbitMQ 的管理面板查看到消息的走势图，如下所示。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/rabbitmq-rumen-0dcb67b3-521f-4d91-9e46-590e93631b35.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/rabbitmq-rumen-0dcb67b3-521f-4d91-9e46-590e93631b35.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

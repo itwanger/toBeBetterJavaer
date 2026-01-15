@@ -14,7 +14,7 @@ shortTitle: MySQL WHERE条件查询（付费）
 SELECT * FROM article WHERE title = '聊聊分库分表';
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224154457.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224154457.png)
 
 这其中的 `WHERE title = '聊聊分库分表'` 就是查询条件，`title` 是字段名，`'聊聊分库分表'` 是字段值。
 
@@ -37,7 +37,7 @@ SELECT * FROM article WHERE title = '聊聊分库分表';
 SELECT title, user_id, create_time FROM article WHERE user_id > 1000;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224155141.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224155141.png)
 
 其他的我就不一一展示了，很简单，大家可以自己试试（也没必要 😂，知道有这么一些比较操作符就行了，用到的时候会用就 OK）
 
@@ -49,7 +49,7 @@ SELECT title, user_id, create_time FROM article WHERE user_id > 1000;
 SELECT title, user_id, create_time FROM article WHERE user_id >= 1000 AND user_id <= 2000;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224155553.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224155553.png)
 
 利用一个 `>=` 和一个 `<=`，配合 `AND` 关键字，就可以实现区间查询。除此之外，MySQL 还提供了 `BETWEEN` 这个关键字，可以更简洁地实现区间查询（字段 user_id 不需要写两次），比如：
 
@@ -57,7 +57,7 @@ SELECT title, user_id, create_time FROM article WHERE user_id >= 1000 AND user_i
 SELECT title, user_id, create_time FROM article WHERE user_id BETWEEN 1000 AND 2000;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224155916.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224155916.png)
 
 配合 `NOT` 关键字，还可以实现区间查询的取反操作，比如说，我们要查询 user_id 不在 1000 到 2000 之间的文章，可以这么写：
 
@@ -75,7 +75,7 @@ SELECT title, user_id, create_time FROM article WHERE user_id IN (1, 2, 3);
 
 只要匹配到枚举中的任意一个值，就会被查询出来。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224160209.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224160209.png)
 
 同样配合 `NOT` 关键字，可以实现枚举查询的取反操作，比如说，我们要查询 user_id 不是 1、2、3 的文章，可以这么写：
 
@@ -113,7 +113,7 @@ SELECT title, short_title, create_time FROM article WHERE short_title IS NOT NUL
 
 当然了，为了简化查询，技术派在设计表的时候，尽量避免了使用 NULL，而是使用空字符串或者 0 来代替。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224162106.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224162106.png)
 
 这样，当我们要查询 short_title 不为空的文章时，就可以这么写：
 
@@ -121,7 +121,7 @@ SELECT title, short_title, create_time FROM article WHERE short_title IS NOT NUL
 SELECT title, short_title, create_time FROM article WHERE short_title != '';
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224162246.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224162246.png)
 
 不然还要在 SQL 层面做一层对前端查询条件的转换，麻烦。
 
@@ -139,7 +139,7 @@ SELECT title, short_title, create_time FROM article WHERE short_title != '';
 SELECT title, user_id, create_time FROM article WHERE user_id != 1 AND title = '聊聊分库分表';
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224162931.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224162931.png)
 
 ### OR 操作符
 
@@ -155,7 +155,7 @@ ADN 和 OR 其实在编程中也是非常常见的，比如说 Java 中的 `&&` 
 SELECT title, user_id, create_time FROM article WHERE user_id = 1 OR title = '聊聊分库分表';
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224163230.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224163230.png)
 
 ### 优先级操作符
 
@@ -167,7 +167,7 @@ SELECT title, user_id, create_time FROM article WHERE user_id != 1 AND (title = 
 
 对比一下有小括号和没有小括号的查询结果，是完全不一样的，因为逻辑的先后顺序不同，这个大家都能懂：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224163722.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224163722.png)
 
 ## 通配符查询
 
@@ -191,7 +191,7 @@ MySQL 支持两种通配符，`%` 和 `_`，其中 `%` 用于匹配任意长度�
 
 我们来执行一下之前提到的模糊查询标题带有“分布式”的文章：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224194056.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224194056.png)
 
 `%` 通配符可以出现在模式的任何位置，比如说，我们要查询标题以“分布式”开头的文章，可以这么写：
 
@@ -207,17 +207,17 @@ SELECT title, user_id, create_time FROM article WHERE title LIKE '%分布式';
 
 不过，还是以出现在模式的两端最常见。在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，我们是通过 MyBatis-Plus 提供的 `like` 方法来实现模糊查询的，它会自动在关键词两端加上 `%`。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224194442.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224194442.png)
 
 源码在 SqlUtils 类的 concatLike 方法中，通过判断通配符的位置来拼接通配符 `%`。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224194714.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224194714.png)
 
 当然了，有些复杂 SQL MyBatis-Plus 也不一定能满足，这时候就需要我们自己写 SQL 了。
 
 通常会在 Mapper.xml 文件中进行 SQL 语句的定义和拼接，比如说技术派的 admin 端在查询文章的时候，就是通过自定义 SQL 来实现模糊查询的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/select-where-20240224202214.png)
+![](https://cdn.paicoding.com/stutymore/select-where-20240224202214.png)
 
 注意看这行 SQL：
 
@@ -267,11 +267,11 @@ select * from user where name = '${name}';
 
 以下内容为[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的付费内容（点击[链接](](https://javabetter.cn/jvm/))可以查看详细介绍和加入方式）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116130809.png)
+![](https://cdn.paicoding.com/stutymore/readme-20240116130809.png)
 
 加入二哥的编程星球后，你不仅可以阅读完整版的《二哥的 MySQL 进阶之路》内容，还可以阅读更多付费专栏，比如说《[技术派付费专栏](https://javabetter.cn/zhishixingqiu/mianshi.html)》、《[二哥的 LeetCode 刷题笔记](https://paicoding.com/column/7/1)》、《编程喵实战项目笔记》、《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》等等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/class-load-vip-20240116135627.png)
+![](https://cdn.paicoding.com/stutymore/class-load-vip-20240116135627.png)
 
 除此之外，还可以为你提供：
 
@@ -284,13 +284,13 @@ select * from user where name = '${name}';
 
 学习的路上最缺的就是清晰的学习路线、优质的学习资料和良好的学习氛围，二哥的编程星球恰好就能给你提供这样的服务。来星球的球友几乎都斩获不错的成绩，有美团、华为等大厂，也有 16k 的双非本、甚至 23k 的大专社招，我随便发几个球友报喜的截图给大家展示下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221211916.png)
+![](https://cdn.paicoding.com/stutymore/readme-20231221211916.png)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20231221213449.png)
+![](https://cdn.paicoding.com/stutymore/readme-20231221213449.png)
 
 《[Java 面试指南](https://javabetter.cn/zhishixingqiu/mianshi.html)》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个付费专栏，和《Java 进阶之路》上的内容可以形成很好的互补，截止到目前，已经更新 48 万字，可以说是满满的干货和诚意。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904113349.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230904113349.png)
 
 一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
@@ -305,40 +305,40 @@ select * from user where name = '${name}';
 
 所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 25+篇内容会系统地引导你该如何做好面试准备。涉及到的主题有：简历、源码、LeetCode、项目经验、开源项目、高并发、证书、和 HR 对线、国企名单、公司投递名单、银行、谈薪等等面试常见问题。
 
-![如何准备面试](https://cdn.tobebetterjavaer.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
+![如何准备面试](https://cdn.paicoding.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
 
 
-![如何写好简历](https://cdn.tobebetterjavaer.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
+![如何写好简历](https://cdn.paicoding.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
 
 
-![秋招投递名单](https://cdn.tobebetterjavaer.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
+![秋招投递名单](https://cdn.paicoding.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
 
 
 ### 02、职场修炼篇
 
 如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？如何赚零花钱？如何达到 30 万+年薪等等，都是大家迫切关心的问题，这 11+篇内容会一一为你揭晓答案。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
+![](https://cdn.paicoding.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
 
 ### 03、技术提升篇
 
 编程能力、技术功底，是我们程序员安身立命之本，是我们求职/工作的最核心的武器。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
+![](https://cdn.paicoding.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
 
 ### 04、面经分享篇
 
 知彼知己，方能百战不殆，我们必须得站在前辈的肩膀上，才能走得更远更快。他们在面试中遇到过哪些经典的问题，我们能不能提前演练一下，对临场发挥有着至关重要的作用。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
+![](https://cdn.paicoding.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
 
 ### 05、场景设计题篇
 
 有些面试官不喜欢问八股文，反而更喜欢结合项目问一些非常经典的场景题，这种场景题没有标准的答案，但却很能考察一名求职者的逻辑思维能力。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
+![](https://cdn.paicoding.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
 
 ## 星球限时优惠
 
@@ -348,11 +348,11 @@ select * from user where name = '${name}';
 
 目前星球已经 5000+ 人了，所以星球也涨价到了 149 元，后续会讲星球的价格调整为 159 元/年，所以想加入的小伙伴一定要趁早。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240521200742.png)
+![](https://cdn.paicoding.com/stutymore/readme-20240521200742.png)
 
 你可以微信扫码或者长按自动识别领取 30 元优惠券，**119/年** 加入，新项目 pmhub 上线后会涨价至 159 元，所以想要加入的话请趁早。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20240116131318.png)
+![](https://cdn.paicoding.com/stutymore/readme-20240116131318.png)
 
 对了，**加入星球后记得花 10 分钟时间看一下星球的两个置顶贴，你会发现物超所值**！
 

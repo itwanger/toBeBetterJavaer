@@ -31,7 +31,7 @@ Java 主要是通过构建 ThreadPoolExecutor 来创建线程池的。接下来�
 
 ThreadPoolExecutor 的构造方法：
 
-![](https://cdn.tobebetterjavaer.com/paicoding/67c2476daef1b7af8d02ef2e62df0bbe.png)
+![](https://cdn.paicoding.com/paicoding/67c2476daef1b7af8d02ef2e62df0bbe.png)
 
 - corePoolSize：线程池中用来工作的核心线程数量。
 - maximumPoolSize：最大线程数，线程池允许创建的最大线程数。
@@ -49,12 +49,12 @@ ThreadPoolExecutor 的构造方法：
 
 线程池刚创建出来是什么样子呢，如下图：
 
-![](https://cdn.tobebetterjavaer.com/paicoding/e9584b3016c511901bb0c8cf8031c34f.png)
+![](https://cdn.paicoding.com/paicoding/e9584b3016c511901bb0c8cf8031c34f.png)
 
 没错，刚创建出来的线程池中只有一个构造时传入的阻塞队列，里面并没有线程，如果想要在执行之前创建好核心线程数，可以调用 prestartAllCoreThreads 方法来实现，默认是没有线程的。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/e0c4439a8b212116ed3de762f8a945ae.png)
+![](https://cdn.paicoding.com/paicoding/e0c4439a8b212116ed3de762f8a945ae.png)
 
 
 当有线程通过 execute 方法提交了一个任务，会发生什么呢？
@@ -63,11 +63,11 @@ ThreadPoolExecutor 的构造方法：
 
 如果小于，那么就直接通过 ThreadFactory 创建一个线程来执行这个任务，如图
 
-![](https://cdn.tobebetterjavaer.com/paicoding/42addd79845c52d724b53a09ab795e36.png)
+![](https://cdn.paicoding.com/paicoding/42addd79845c52d724b53a09ab795e36.png)
 
 当任务执行完之后，线程不会退出，而是会去阻塞队列中获取任务，如下图
 
-![](https://cdn.tobebetterjavaer.com/paicoding/eb88bbf1a27c1ea4a007fb57f3e30c7d.png)
+![](https://cdn.paicoding.com/paicoding/eb88bbf1a27c1ea4a007fb57f3e30c7d.png)
 
 接下来如果又提交了一个任务，也会按照上述的步骤去判断是否小于核心线程数，如果小于，还是会创建线程来执行任务，执行完之后也会从阻塞队列中获取任务。
 
@@ -75,7 +75,7 @@ ThreadPoolExecutor 的构造方法：
 
 如果线程池里的线程数不再小于核心线程数呢？那么此时就会尝试将任务放入阻塞队列中，入队成功之后，如图
 
-![](https://cdn.tobebetterjavaer.com/paicoding/431710628001a446dae2581518460d11.png)
+![](https://cdn.paicoding.com/paicoding/431710628001a446dae2581518460d11.png)
 
 这样，阻塞的线程就可以获取到任务了。
 
@@ -85,7 +85,7 @@ ThreadPoolExecutor 的构造方法：
 
 如果小于最大线程数，那么也会创建非核心线程来执行提交的任务，如图
 
-![](https://cdn.tobebetterjavaer.com/paicoding/69ada97f32215011463ee23b8fc6d5c7.png)
+![](https://cdn.paicoding.com/paicoding/69ada97f32215011463ee23b8fc6d5c7.png)
 
 所以，就算队列中有任务，新创建的线程还是会优先处理这个提交的任务，而不是从队列中获取已有的任务执行，**从这可以看出，先提交的任务不一定先执行**。
 
@@ -93,7 +93,7 @@ ThreadPoolExecutor 的构造方法：
 
 此时就会执行拒绝策略，也就是构造线程池的时候，传入的 RejectedExecutionHandler 对象，来处理这个任务。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/c94f1b6f42ebd3a33ca5b7404eb02dc5.jpg)
+![](https://cdn.paicoding.com/paicoding/c94f1b6f42ebd3a33ca5b7404eb02dc5.jpg)
 
 JDK 自带的 RejectedExecutionHandler 实现有 4 种
 
@@ -151,7 +151,7 @@ public void execute(Runnable command) {
 
 再来另画一张图总结一下 execute 的执行流程
 
-![](https://cdn.tobebetterjavaer.com/paicoding/02ede02b26c85d797a995abf520e08b5.png)
+![](https://cdn.paicoding.com/paicoding/02ede02b26c85d797a995abf520e08b5.png)
 
 ## 四、线程池中线程实现复用的原理
 
@@ -159,7 +159,7 @@ public void execute(Runnable command) {
 
 线程在线程池内部其实被封装成了一个 Worker 对象
 
-![](https://cdn.tobebetterjavaer.com/paicoding/64eca0f0c92bb74b6f428f7a87ccf1cd.png)
+![](https://cdn.paicoding.com/paicoding/64eca0f0c92bb74b6f428f7a87ccf1cd.png)
 
 Worker 继承了 [AQS](https://javabetter.cn/thread/aqs.html)，也就是具有一定锁的特性。
 
@@ -313,7 +313,7 @@ workQueue.take();
 
 整个 getTask 方法以及线程超时退出的机制如图所示
 
-![](https://cdn.tobebetterjavaer.com/paicoding/14e547adfd9dfea589e2e0141ff52718.png)
+![](https://cdn.paicoding.com/paicoding/14e547adfd9dfea589e2e0141ff52718.png)
 
 ## 六、线程池的 5 种状态
 
@@ -341,7 +341,7 @@ private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
 
 最后画个图来总结一下这 5 种状态的流转
 
-![](https://cdn.tobebetterjavaer.com/paicoding/131e1c88a515e066c2e08bd5c6e61ce4.png)
+![](https://cdn.paicoding.com/paicoding/131e1c88a515e066c2e08bd5c6e61ce4.png)
 
 其实，在线程池运行过程中，绝大多数操作执行前都得判断当前线程池处于哪种状态，再来决定是否继续执行该操作。
 
@@ -716,4 +716,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

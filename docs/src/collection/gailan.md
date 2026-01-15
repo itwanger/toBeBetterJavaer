@@ -19,7 +19,7 @@ head:
 
 “好吧。”我只好摊摊手地说，“那我先画张集合框架的结构图等着你。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/gailan-01.png)
 
 “完了没？三妹。”
 
@@ -148,7 +148,7 @@ public synchronized boolean add(E e) {
 
 > 如果不需要线程安全，建议使用 ArrayList 代替 Vector。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/collection//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
 
 Stack 是 Vector 的一个子类，本质上也是由动态数组实现的，只不过还实现了先进后出的功能（在 get、set、add 方法的基础上追加了 pop「返回并移除栈顶的元素」、peek「只返回栈顶元素」等方法），所以叫栈。
 
@@ -369,7 +369,7 @@ Queue，也就是队列，通常遵循先进先出（FIFO）的原则，新元�
 
 这是一个包含了 4 个元素的双端队列，和一个包含了 5 个元素的双端队列。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/gailan-02.png)
 
 head 指向队首的第一个有效的元素，tail 指向队尾第一个可以插入元素的空位，因为是循环数组，所以 head 不一定从是从 0 开始，tail 也不一定总是比 head 大。
 
@@ -764,4 +764,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

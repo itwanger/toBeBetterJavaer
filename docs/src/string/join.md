@@ -150,7 +150,7 @@ class StringConcat {
 
 同样可以来通过 `javap -c StringConcat`看一下字节码指令：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/join-20240103204104.png)
+![](https://cdn.paicoding.com/stutymore/join-20240103204104.png)
 
 从上图中可以看到，`+` 号操作符被编译成了 `StringBuilder` 的 `append()` 方法。
 
@@ -169,7 +169,7 @@ class StringConcat1 {
 
 同样可以来通过 `javap -c StringConcat1`看一下字节码指令：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/join-20240103204403.png)
+![](https://cdn.paicoding.com/stutymore/join-20240103204403.png)
 
 StringBuilder 不见了？这是为什么呢？
 
@@ -433,4 +433,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

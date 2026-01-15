@@ -26,17 +26,17 @@ Java NIO 是 Java 1.4 版本引入的，基于通道（Channel）和缓冲区（
 
 阻塞 I/O（Blocking I/O）：在这种模型中，I/O 操作是阻塞的，即执行 I/O 操作时，线程会被阻塞，直到操作完成。在阻塞 I/O 模型中，每个连接都需要一个线程来处理。因此，对于大量并发连接的场景，阻塞 I/O 模型的性能较差。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408110408.png)
+![](https://cdn.paicoding.com/stutymore/moxing-20230408110408.png)
 
 非阻塞 I/O（Non-blocking I/O）：在这种模型中，I/O 操作不会阻塞线程。当数据尚未准备好时，I/O 调用会立即返回。线程可以继续执行其他任务，然后在适当的时候再次尝试执行 I/O 操作。非阻塞 I/O 模型允许单个线程同时处理多个连接，但可能需要在应用程序级别进行复杂的调度和管理。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408110433.png)
+![](https://cdn.paicoding.com/stutymore/moxing-20230408110433.png)
 
 ### 内核空间和用户空间
 
 在上面的两幅图中，涉及到了两个概念：内核空间和用户空间。我们之前在[介绍非直接缓冲区的时候](https://javabetter.cn/nio/buffer-channel.html)，有这样一副图片。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406182813.png)
+![](https://cdn.paicoding.com/stutymore/buffer-channel-selector-20230406182813.png)
 
 其中的非直接缓冲区（JVM）就是在用户空间中，内核缓冲区（OS）就是在内核空间上。
 
@@ -46,7 +46,7 @@ Java NIO 是 Java 1.4 版本引入的，基于通道（Channel）和缓冲区（
 
 内核空间和用户空间的划分有助于操作系统实现内存保护和权限控制，确保系统运行的稳定性和安全性。当用户程序需要访问系统资源或执行特权操作时，它需要通过系统调用切换到内核空间，由内核代理执行相应的操作。这种设计可以防止恶意或错误的用户程序直接访问内核空间，从而破坏系统的稳定性和安全性。同时，这种划分也提高了操作系统的可扩展性，因为内核空间和用户空间可以独立地进行扩展和优化。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408114300.png)
+![](https://cdn.paicoding.com/stutymore/moxing-20230408114300.png)
 
 
 ### 多路复用、信号驱动、异步 IO
@@ -63,7 +63,7 @@ I/O 多路复用（I/O Multiplexing）模型使用操作系统提供的多路复
 
 - epoll 是 Linux 中的一种高性能 I/O 多路复用技术。它通过在内核中维护一个事件表来避免遍历文件描述符数组的性能问题。当某个文件描述符上的 I/O 事件发生时，内核会将该事件添加到事件表中。应用程序可以使用 epoll_wait 函数来获取已准备好的 I/O 事件，而无需遍历整个文件描述符集。这种方法大大提高了在大量并发连接下的性能。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408115158.png)
+![](https://cdn.paicoding.com/stutymore/moxing-20230408115158.png)
 
 在 Java NIO 中，I/O 多路复用主要通过 Selector 类实现。Selector 能够监控多个 Channel（通道）上的 I/O 事件，如连接、读取和写入。这使得一个线程可以处理多个并发连接，提高了程序的性能和可伸缩性。
 
@@ -128,7 +128,7 @@ if (key.isAcceptable()) {
 
 信号驱动 I/O（Signal-driven I/O）模型中，应用程序可以向操作系统注册一个信号处理函数，当某个 I/O 事件发生时，操作系统会发送一个信号通知应用程序。应用程序在收到信号后处理相应的 I/O 事件。这种模型与非阻塞 I/O 类似，也需要在应用程序级别进行事件管理和调度。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408115251.png)
+![](https://cdn.paicoding.com/stutymore/moxing-20230408115251.png)
 
 多路复用和信号驱动的差别主要在事件通知机制和引用场景上。
 
@@ -147,7 +147,7 @@ Linux 的内核将所有外部设备都看做一个文件来操作，对一个�
 - 同步：在执行 I/O 操作时，应用程序需要等待操作的完成。同步操作会导致线程阻塞，直到操作完成。同步 I/O 包括阻塞 I/O、非阻塞 I/O 和 I/O 多路复用。
 - 异步：在执行 I/O 操作时，应用程序不需要等待操作的完成。异步操作允许应用程序在 I/O 操作进行时继续执行其他任务。异步 I/O 模型包括信号驱动 I/O 和异步 I/O。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/moxing-20230408115328.png)
+![](https://cdn.paicoding.com/stutymore/moxing-20230408115328.png)
 
 假设你现在是个大厨（炖个老母鸡汤，切点土豆丝/姜丝/葱丝）：
 
@@ -174,4 +174,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -25,17 +25,17 @@ and the repository exists.
 
 以为服务器被入侵了，因为我之前操作的时候一直都是 OK 的，并且我看服务器上的 GitHub 密钥也都在。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/port-22-to-443-20240116201634.png)
+![](https://cdn.paicoding.com/stutymore/port-22-to-443-20240116201634.png)
 
 就很奇怪，于是我在 GPT 的帮助下使用 `ssh -vvv git@github.com` 命令诊断了一下，结果如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/port-22-to-443-20240116202017.png)
+![](https://cdn.paicoding.com/stutymore/port-22-to-443-20240116202017.png)
 
 猜测的原因是，GitHub 限制了 22 端口，因为我看了一下服务器上的 22 端口，防火墙下是打开的。
 
 于是我又用这个命令 `ssh -T -p 443 git@ssh.github.com` 测试了一下，结果如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/port-22-to-443-20240116202042.png)
+![](https://cdn.paicoding.com/stutymore/port-22-to-443-20240116202042.png)
 
 表明成功通过端口 443 建立了 SSH 连接到 GitHub，这意味着现在可以使用 SSH 方式进行 Git 操作（如克隆、推送、拉取等）。
 
@@ -47,7 +47,7 @@ and the repository exists.
 git remote -v
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/port-22-to-443-20240116202311.png)
+![](https://cdn.paicoding.com/stutymore/port-22-to-443-20240116202311.png)
 
 然后通过下面的命令修改远程仓库地址：
 
@@ -57,11 +57,11 @@ git remote set-url origin ssh://git@ssh.github.com:443/用户名/仓库名.git
 
 然后就可以看到端口修改成功了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/port-22-to-443-20240116202534.png)
+![](https://cdn.paicoding.com/stutymore/port-22-to-443-20240116202534.png)
 
 再执行 `git pull` 命令，就可以正常拉取代码了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/port-22-to-443-20240116202620.png)
+![](https://cdn.paicoding.com/stutymore/port-22-to-443-20240116202620.png)
 
 
 
@@ -73,4 +73,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

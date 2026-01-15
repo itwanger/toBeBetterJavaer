@@ -36,15 +36,15 @@ public class HelloWorld {
 
 点击 IDEA 工具栏中的锤子按钮（Build Project，编译整个项目，通常情况下，并不需要主动编译，IDEA 会自动帮我们编译），如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-01.png)
 
 这时候，就可以在 src 的同级目录 target 下找到一个名为 HelloWorld.class 的文件。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-02.png)
 
 如果找不到的话，在目录上右键选择「Reload from Disk，从磁盘上重新加载」，如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-03.png)
 
 可以双击打开它，看到如下所示的内容。
 
@@ -112,7 +112,7 @@ public class com/itwanger/five/HelloWorld {
 
 可以通过 IDEA 菜单栏中的「View」→「Show Bytecode」查看，如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-04.png)
 
 这个 bytecode 可以直译为字节码。
 
@@ -120,7 +120,7 @@ public class com/itwanger/five/HelloWorld {
 
 通常情况下，我们只需要安装不同版本的 JDK（Java Development Kit，Java 开发工具包）就行了，它里面包含了 JRE（Java Runtime Environment，Java 运行时环境），而 JRE 又包含了 JVM。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-05.png)
 
 Windows、Linux、MacOS 等操作系统都有相应的 JDK，只要安装好了 JDK 就有了 Java 的运行时环境，就可以把 Java 源代码编译为字节码，然后字节码又可以在不同的操作系统上运行了。
 
@@ -130,19 +130,19 @@ Windows、Linux、MacOS 等操作系统都有相应的 JDK，只要安装好了 
 
 这里给推荐一款查看字节码文件的插件 `jclasslib`，可以在 IDEA 插件市场中安装。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-07.png)
 
 安装完成之后，点击 View -> Show Bytecode With jclasslib 即可查看字节码文件了（点击之前，光标要停留在对应的类文件上），如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-08.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-08.png)
 
 使用 jclasslib 不仅可以直观地查看类对应的字节码，还可以查看类的基本信息、常量池、接口、字段、方法等信息，如下图所示，[后面也会细讲](https://javabetter.cn/jvm/class-file-jiegou.html)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-09.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-09.png)
 
 也就是说，**在编译阶段，Java 会将 Java 源代码文件编译为字节码文件**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/five-10.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/five-10.png)
 
 字节码文件如果用十六进制编辑器（[下一节](https://javabetter.cn/jvm/class-load.html)会讲到）打开的话，内容如下所示（本身是 01 串的二进制），十六进制更容易看懂（虽然肉眼也很难看得懂😂）。
 
@@ -173,7 +173,7 @@ cafe babe 0000 0034 0013 0a00 0400 0f09
 
 JVM 会先通过[类加载器](https://javabetter.cn/jvm/class-load.html)加载字节码文件，然后将字节码加载到 JVM 的运行时数据区，再通过执行引擎转化为机器码最终交给操作系统执行。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231030194039.png)
+![](https://cdn.paicoding.com/stutymore/how-run-java-code-20231030194039.png)
 
 我们使用 [javap](https://javabetter.cn/jvm/bytecode.html)（后面会细讲）来看一下 HelloWorld 的字节码指令序列。
 
@@ -229,13 +229,13 @@ b2 00 02 12 03 b6 00 04 b1
 
 JVM 就是靠解析这些字节码指令来完成程序执行的。常见的执行方式有两种，一种是解释执行，对字节码逐条解释执行；一种是 [JIT](https://javabetter.cn/jvm/jit.html)，也就是即时编译，它会在运行时将热点代码优化并缓存起来，下次再执行的时候直接使用缓存起来的机器码，而不需要再次解释执行。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
 
 这样就可以提高程序的执行效率。
 
 注意，当[类加载器](https://javabetter.cn/jvm/class-load.html)完成字节码数据加载任务后，JVM 划分了专门的内存区域来装载这些字节码数据以及运行时中间数据。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110194325.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20240110194325.png)
 
 其中 PC 寄存器、虚拟机栈以及本地方法栈属于线程私有的，堆以及元空间（方法区的实现）属于共享数据区，不同的线程共享这两部分内存数据。
 
@@ -249,7 +249,7 @@ JVM 就是靠解析这些字节码指令来完成程序执行的。常见的执�
 
 除了 PC 寄存器外，字节码指令的执行流转还需要[虚拟机栈](https://javabetter.cn/jvm/vm-stack-register.html)的参与。我们先来看下虚拟机栈的大致结构，如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231031142106.png)
+![](https://cdn.paicoding.com/stutymore/how-run-java-code-20231031142106.png)
 
 虚拟机栈操作的基本元素就是栈帧，栈帧主要包含了局部变量表、操作数栈、动态连接以及方法返回地址。栈帧是一个先进后出的数据结构，每个方法从调用到执行完成都会对应一个栈帧在虚拟机栈中入栈和出栈。
 
@@ -277,13 +277,13 @@ public class Test {
 
 2、main 线程在执行 main 方法时，JVM 会在虚拟机栈中压入 main 方法对应的栈帧；
 
-![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231031143842.png)
+![](https://cdn.paicoding.com/stutymore/how-run-java-code-20231031143842.png)
 
 3、栈帧的操作数栈中存储了操作的数据，JVM 执行字节码指令的时候会从操作数栈中获取数据，执行计算操作后会将结果再次压入操作数栈中；
 
 4、当进行 calculate 方法调用的时候，虚拟机栈继续压入 calculate 方法对应的栈帧。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/how-run-java-code-20231031144218.png)
+![](https://cdn.paicoding.com/stutymore/how-run-java-code-20231031144218.png)
 
 5、对于 age + 3 这条加法指令，在执行该指令前，JVM 会将操作数栈顶部的两个元素弹出，并将它们相加，然后将结果压入操作数栈中。
 
@@ -315,4 +315,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

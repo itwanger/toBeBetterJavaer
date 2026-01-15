@@ -11,11 +11,11 @@ category:
 
 无论是阅读公众号文章还是刷短视频，现在都有评论功能，而且这些评论基本上都是支持“楼中楼”，也就是文章下面有评论，评论下面有回复，回复下面又有回复，回复还可以继续回复...
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117112803.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117112803.png)
 
 如果数据量不大的话，这个表其实很好设计，一张表就可以搞定，类似省市县表结构：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin/pinglxtsjsl-abbc5067-2e03-40d5-8978-706b3751016c.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin/pinglxtsjsl-abbc5067-2e03-40d5-8978-706b3751016c.jpg)
 
 建表语句：
 
@@ -36,7 +36,7 @@ CREATE TABLE administrative_divisions (
 
 对于这种结构的表，数据量不大的话没问题。[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)目前采用的就是这种表结构。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117114812.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117114812.png)
 
 
 数据量大的话，查询性能和维护都会成为问题。接下来，我们就来讨论下这种评论表如何设计会好一些。
@@ -47,14 +47,14 @@ CREATE TABLE administrative_divisions (
 
 首先在文章下方会先展示一个评论总数：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117112959.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117112959.png)
 
 点开评论区之后，这里也有两个值得关注的信息：
 
 1.  评论区上方会显示总的评论数
 2.  回复的评论不会一次性显示出来，但是会显示有多少条回复，需要用户点击之后才可以看到回复内容。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117113345.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117113345.png)
 
 
 > 需要注意的是，如果回复数量特别多的话，也不会一次性全部展示出来。
@@ -194,7 +194,7 @@ DELIMITER //
 3.  消费者从 MQ 上消费消息，向数据添加评论。
 4.  添加完成后，将添加成功的消息发送给客户端。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117115150.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117115150.png)
 
 > 以上步骤需要确保 MQ 消息可靠性，具体如何确保可靠性，松哥在之前的文章中和大家聊过（[四种策略确保 RabbitMQ 消息发送可靠性](https://mp.weixin.qq.com/s/hj8iqASSOk2AgdtkuLPCCQ)）。
 
@@ -202,11 +202,11 @@ DELIMITER //
 
 [技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)添加评论的代码在这里。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117120823.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117120823.png)
 
 发布评论的通知在这里：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/pinglxtsjsl-20241117120953.png)
+![](https://cdn.paicoding.com/stutymore/pinglxtsjsl-20241117120953.png)
 
 ## 三 查询评论
 

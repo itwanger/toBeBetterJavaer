@@ -15,7 +15,7 @@ head:
 
 我们先来看看操作系统中的线程状态转换。在[操作系统](https://javabetter.cn/xuexiluxian/os.html)中，线程被视为轻量级的进程，所以**线程状态其实和进程状态是一致的**。
 
-![系统进程/线程转换图](https://cdn.tobebetterjavaer.com/stutymore/thread-state-and-method-20230829142956.png)
+![系统进程/线程转换图](https://cdn.paicoding.com/stutymore/thread-state-and-method-20230829142956.png)
 
 操作系统的线程主要有以下三个状态：
 
@@ -231,7 +231,7 @@ t1 等待 10 分钟后，就自动唤醒，拥有了去争夺锁的资格。
 
 根据上面关于线程状态的介绍我们可以得到下面的**线程状态转换图**：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/thread-state-and-method-20230829143200.png)
+![](https://cdn.paicoding.com/stutymore/thread-state-and-method-20230829143200.png)
 
 ### BLOCKED 与 RUNNABLE 状态的转换
 
@@ -284,7 +284,7 @@ private synchronized void testMethod() {
 
 下面是我执行了几次的结果对比：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/thread-state-and-method-20230707215909.png)
+![](https://cdn.paicoding.com/stutymore/thread-state-and-method-20230707215909.png)
 
 这时你可能又会问了，要是我想要打印出 BLOCKED 状态我该怎么处理呢？
 
@@ -307,7 +307,7 @@ public void blockedTest() throws InterruptedException {
 
 运行结果如下所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/thread-state-and-method-20230707220120.png)
+![](https://cdn.paicoding.com/stutymore/thread-state-and-method-20230707220120.png)
 
 在这个例子中两个线程的状态转换如下
 
@@ -414,4 +414,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

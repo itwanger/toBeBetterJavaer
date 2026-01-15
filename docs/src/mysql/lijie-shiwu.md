@@ -44,7 +44,7 @@ head:
 
 > 当一个处在部分提交的状态的事务将修改过的数据都同步到磁盘上之后，我们就可以说该事务处在了提交的状态。
 
-![从根上理解MySQL的事务](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mysql/lijie-shiwu-1689cc94-9c1b-45a2-a132-0815dcc8e3d4.png)
+![从根上理解MySQL的事务](http://cdn.paicoding.com/tobebetterjavaer/images/mysql/lijie-shiwu-1689cc94-9c1b-45a2-a132-0815dcc8e3d4.png)
 
 > 从图中大家也可以看出了，只有当事务处于提交的或者中止的状态时，一个事务的生命周期才算是结束了。对于已经提交的事务来说，该事务对数据库所做的修改将永久生效，对于处于中止状态的事务，该事务对数据库所做的所有修改都会被回滚到没执行该事务之前的状态。
 

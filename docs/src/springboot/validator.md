@@ -20,15 +20,15 @@ Spring Boot 已经内置了 Hibernate Validator 校验框架，这个可以通�
 
 第一步，进入 Spring Boot 官网，点击 learn 这个面板，点击参考文档。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-9585b744-a942-425f-b78b-f92f22909c6c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-9585b744-a942-425f-b78b-f92f22909c6c.png)
 
 第二步，在参考文档页点击「依赖的版本」。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-5b9e4758-27ff-4773-a4b3-809b8dd6546c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-5b9e4758-27ff-4773-a4b3-809b8dd6546c.png)
 
 第三步，在依赖版本页就可以查看到所有的依赖了，包括版本号。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-2b0b00c2-fc10-40dc-bfc7-c615bd87f9c9.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-2b0b00c2-fc10-40dc-bfc7-c615bd87f9c9.png)
 
 PS：如果发现没有起效，可能是依赖版本冲突了，手动把 Hibernate Validator 依赖添加到 pom.xml 文件就可以了。
 
@@ -141,11 +141,11 @@ public class BindingResultAspect {
 
 第四步，访问登录接口，用户名和密码都不传入的情况下，就会返回“用户名不能为空”的提示信息。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-eaf30b98-0a9a-403f-8f2b-a159edc492d6.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-eaf30b98-0a9a-403f-8f2b-a159edc492d6.png)
 
 通过 debug 的形式，体验一下整个工作流程。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-bc9d8ec7-bba6-4306-aaae-b6c66068366a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-bc9d8ec7-bba6-4306-aaae-b6c66068366a.png)
 
 可以看得出，Hibernate Validator 带来的优势有这些：
 
@@ -276,11 +276,11 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
 
 第五步，通过 ApiPost 来测试一下接口，故意把密码输错。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-1dd4607e-689a-4ddf-814a-d92ac6408fc3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-1dd4607e-689a-4ddf-814a-d92ac6408fc3.png)
 
 也可以通过 debug 的形式，体验一下整个工作流程。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-8d673f46-6981-4150-b549-29335bf90cf5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-8d673f46-6981-4150-b549-29335bf90cf5.png)
 
 ### 三、总结
 
@@ -293,8 +293,8 @@ public class UsersServiceImpl extends ServiceImpl<UsersMapper, Users> implements
 >- 编程喵🐱源码地址：[https://github.com/itwanger/coding-more](https://github.com/itwanger/coding-more)
 >- codingmore-validator: [https://github.com/itwanger/codingmore-learning/tree/main/codingmore-validator](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-validator)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/validator-fbd06343-c1ae-4cf6-9b46-bd5c9860b396.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/validator-fbd06343-c1ae-4cf6-9b46-bd5c9860b396.png)
 
 每个类，每个方法基本上都加了注释，可以很容易就看得懂。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

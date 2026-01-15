@@ -197,7 +197,7 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 除了上面提到的这些方法，Objects 还提供了一些其他的方法，比如说 toString，感兴趣的话可以试一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/Objects-83489814-9784-4274-841a-27ee75c046ac.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/Objects-83489814-9784-4274-841a-27ee75c046ac.jpg)
 
 总之，Objects 类提供的这些方法在许多情况下还是非常有用得，可以简化代码并减少出错的可能性。
 
@@ -208,4 +208,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

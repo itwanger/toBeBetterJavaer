@@ -36,11 +36,11 @@ public static void print(String... strs) {
 
 说到可变参数，我想起来[阿里巴巴开发手册](https://javabetter.cn/pdf/ali-java-shouce.html)上有这样一条规约。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/varables-01.png)
 
 意思就是尽量不要使用可变参数，如果要用的话，可变参数必须要在参数列表的最后一位。既然坑位有限，只能在最后，那么可变参数就只能有一个（悠着点，悠着点）。如果可变参数不在最后一位，IDE 就会提示对应的错误，如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/varables-02.png)
 
 可变参数看起来就像是个语法糖，它背后究竟隐藏了什么呢？让我们来一探究竟，在追求真理这条路上我们要执着。
 
@@ -116,7 +116,7 @@ public static void print(Integer... ints) {
 
 这时候，编译器完全不知道该调用哪个 `print()` 方法，`print(String... strs)` 还是 `print(Integer... ints)`，傻傻分不清。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/varables-03.png)
 
 假如真的需要重载带有可变参数的方法，就必须在调用方法的时候给出明确的指示，不要让编译器去猜。
 
@@ -150,4 +150,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -19,7 +19,7 @@ Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供�
 
 Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之后就可以看到它提供的方法了，大致看一下方法名和参数就能知道这个方法是干嘛的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/collections-01.png)
 
 为了节省大家的学习时间，我将这些方法做了一些分类，并列举了一些简单的例子。
 
@@ -113,7 +113,7 @@ System.out.println("填充后的结果：" + list);
 
 [HashMap 是线程不安全](https://javabetter.cn/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/common-tool/collections-02.png)
 
 使用起来也非常的简单：
 
@@ -255,11 +255,11 @@ addAll 后：[沉默王九, 沉默王十, 沉默王二]
 
 目前比较主流的是`Spring`的`org.springframework.util`包下的 CollectionUtils 工具类。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330101919.png)
+![](https://cdn.paicoding.com/stutymore/utils-20230330101919.png)
 
 和`Apache`的`org.apache.commons.collections`包下的 CollectionUtils 工具类。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/utils-20230330103825.png)
+![](https://cdn.paicoding.com/stutymore/utils-20230330103825.png)
 
 Maven 坐标如下：
 
@@ -353,7 +353,7 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 
 

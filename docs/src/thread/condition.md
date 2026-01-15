@@ -19,7 +19,7 @@ head:
 
 Condition 接口一共提供了以下 7 个方法：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230812095915.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230812095915.png)
 
 - `await()`：线程等待直到被通知或者中断。类似于 `Object.wait()`。
 - `awaitUninterruptibly()`：线程等待直到被通知，即使在等待时被中断也不会返回。没有与之对应的 Object 方法。
@@ -31,7 +31,7 @@ Condition 接口一共提供了以下 7 个方法：
 
 我们再来回顾一下 Object 类的主要方法：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230812100450.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230812100450.png)
 
 - `wait()`：线程等待直到被通知或者中断。
 - `wait(long timeout)`：线程等待指定的时间，或被通知，或被中断。
@@ -60,11 +60,11 @@ public class ReentrantLock implements Lock, java.io.Serializable {
 
 前面我们学过，[AQS](https://javabetter.cn/thread/aqs.html) 内部维护了一个先进先出（FIFO）的双端队列，并使用了两个引用 head 和 tail 用于标识队列的头部和尾部。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/aqs-c294b5e3-69ef-49bb-ac56-f825894746ab.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/aqs-c294b5e3-69ef-49bb-ac56-f825894746ab.png)
 
 Condition 内部也使用了同样的方式，内部维护了一个先进先出（FIFO）的单向队列，我们把它称为等待队列。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901101925.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901101925.png)
 
 所有调用 await 方法的线程都会加入到等待队列中，并且线程状态均为等待状态。firstWaiter 指向首节点，lastWaiter 指向尾节点，源码如下：
 
@@ -80,7 +80,7 @@ public class ConditionObject implements Condition, java.io.Serializable {
 
 Node 中的 nextWaiter 指向队列中的下一个节点。并且进入到等待队列的 Node 节点状态都会被设置为 CONDITION（下面的 demo 中可以看得到）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901102502.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901102502.png)
 
 上面提到，Condition 的**等待队列是一个单向队列**，我们用一个 demo 通过 debug 的方式验证下。
 
@@ -104,14 +104,14 @@ public static void main(String[] args) {
 
 这段代码没有任何实际意义，甚至很臭。新建了 10 个线程，没有线程先获取锁，然后调用 condition.await 方法释放锁将当前线程加入到等待队列中，通过 debug 走到第 10 个线程的时候，查看`firstWaiter`即等待队列中的头节点：
 
-![debug模式下情景图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/condition-01.png)
+![debug模式下情景图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/condition-01.png)
 
 从这个图我们可以很清楚的看到这样 2 点：
 
 1. 调用 condition.await 方法后线程依次尾插入到了等待队列中，依次为 Thread-0,Thread-1,Thread-2....Thread-8；
 2. 等待队列是一个单向队列。示意图如下：
 
-![等待队列的示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/condition-02.png)
+![等待队列的示意图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/condition-02.png)
 
 同时还有一点需要注意：我们可以多次调用`newCondition()`方法创建多个 Condition 对象，也就是一个 lock 可以持有多个等待队列。
 
@@ -119,7 +119,7 @@ public static void main(String[] args) {
 
 因此，ReentrantLock 等 AQS 是可以持有一个同步队列和多个等待队列的，new 多个 Condition 就行了。示意图如下：
 
-![AQS持有多个Condition](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/condition-03.png)
+![AQS持有多个Condition](https://cdn.paicoding.com/tobebetterjavaer/images/thread/condition-03.png)
 
 持有多个等待队列的好处是什么呢？我们可以通过下面这个例子来说明：
 
@@ -188,7 +188,7 @@ public class BoundedBuffer<T> {
 
 前面讲过了，Condition 只是一个接口，它的实现类为 ConditionObject，是 AQS 的子类。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901103756.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901103756.png)
 
 ConditionObject 的 await 方法源码如下：
 
@@ -260,11 +260,11 @@ private Node addConditionWaiter() {
 
 如果尾节点为空，则表明队列为空，将首尾节点都指向当前节点。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901142620.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901142620.png)
 
 如果尾节点不为空，表明队列中有其他节点，则将当前尾节点的 nextWaiter 指向当前节点，将当前节点置为尾节点。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901142728.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901142728.png)
 
 简单总结一下，这段代码的作用就是**通过尾插入的方式将当前线程封装的 Node 插入到等待队列中**，同时可以看出，Condtion 的等待队列是一个**不带头节点的链式队列**，之前我们学习 [AQS](https://javabetter.cn/thread/aqs.html) 时知道同步队列**是一个带头节点的链式队列**，这是两者的一个区别。
 
@@ -393,7 +393,7 @@ while (!isOnSyncQueue(node)) {
 
 isOnSyncQueue 方法用于判断当前线程所在的 Node 是否在同步队列中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901154323.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901154323.png)
 
 如果当前节点的 waitStatus=-2，说明它在等待队列中，返回 false；如果当前节点有前驱节点，则证明它在 AQS 队列中，但是前驱节点为空，说明它是头节点，而头节点是不参与锁竞争的，也返回 false。
 
@@ -401,7 +401,7 @@ isOnSyncQueue 方法用于判断当前线程所在的 Node 是否在同步队列
 
 这里有必要给大家看一下同步队列与等待队列的关系图了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230901154346.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230901154346.png)
 
 当线程第一次调用 condition.await 方法时，会进入到这个 while 循环，然后通过 `LockSupport.park(this)` 使当前线程进入等待状态，那么要想退出 await，第一个前提条件就是要先退出这个 while 循环，出口就只两个地方：
 
@@ -416,7 +416,7 @@ isOnSyncQueue 方法用于判断当前线程所在的 Node 是否在同步队列
 
 到目前为止，上文提到的三个问题，我们都通过阅读源码的方式找到了答案，也加深了对 await 方法的理解。await 方法示意图如下：
 
-![await方法示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/condition-04.png)
+![await方法示意图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/condition-04.png)
 
 如图，调用 condition.await 方法的线程必须是已经获得了 lock 的线程，也就是当前线程是同步队列中的头节点。调用该方法后会使得当前线程所封装的 Node 尾插入到等待队列中。
 
@@ -515,7 +515,7 @@ final boolean transferForSignal(Node node) {
 
 signal 执行示意图如下图：
 
-![signal执行示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/condition-05.png)
+![signal执行示意图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/condition-05.png)
 
 > signalAll
 
@@ -541,7 +541,7 @@ private void doSignalAll(Node first) {
 
 await、signal 和 signalAll 方法就像一个开关，控制着线程 A（等待方）和线程 B（通知方）。它们之间的关系可以用下面这幅图来说明，会更贴切：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/condition-20230816114036.png)
+![](https://cdn.paicoding.com/stutymore/condition-20230816114036.png)
 
 线程 awaitThread 先通过 `lock.lock()` 方法获取锁，成功后调用 condition.await 方法进入等待队列，而另一个线程 signalThread 通过 `lock.lock()` 方法获取锁成功后调用了 condition.signal 或者 signalAll 方法，使得线程 awaitThread 能够有机会移入到同步队列中，当其他线程释放 lock 后使得线程 awaitThread 能够有机会获取 lock，从而使得线程 awaitThread 能够从 await 方法中退出并执行后续操作。如果 awaitThread 获取 lock 失败会直接进入到同步队列。
 
@@ -620,4 +620,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

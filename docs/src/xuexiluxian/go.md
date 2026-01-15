@@ -17,7 +17,7 @@ head:
 
 大家好，我是二哥呀！最近又有一个读者来咨询我的建议：**应届生，要求 Java 进去后转 Go，问我咋样？**
 
-![Go语言怎么学](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-1.png)
+![Go语言怎么学](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-1.png)
 
 据我自己的印象，前前后后有十个读者来问过我这个问题了。一方面 Java 就业岗位确实多，薪资也给力；另外一方面，Go 确实很有潜力。
 
@@ -29,7 +29,7 @@ head:
 
 Go 语言诞生于 2009 年，发展到现在，已经 12 岁了（应该没算错吧😭）。
 
-![Go 语言诞生](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-2.png)
+![Go 语言诞生](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-2.png)
 
 很多明星级的开源产品，比如说 Kubernetes、Docker等，都是基于 Go 语言编写的。再加上近些年来微服务架构和云原生技术的普及，也大大的带火了 Go 这门编程语言，使其在 C/C++ 和 Java 中杀出了一条血路。
 
@@ -41,17 +41,17 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 目前，使用 Go 语言的公司越来越多了，阿里、百度、腾讯、小米这些互联网大厂也在积极拥抱。
 
-![o 语言的公司](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-3.png)
+![o 语言的公司](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-3.png)
 
 这使得 Go 工程师的薪资待遇也得到了很大程度上提高。
 
-![Go 工程师的薪资待遇](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-4.png)
+![Go 工程师的薪资待遇](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-4.png)
 
 当然了，目前基本上除了大厂，很少有其他中小型公司用 Go，因为 Go 的生态还比不上 Java，没有 Java 那么丰富健全，中小公司的投入产出比比较低。大厂有人有钱，愿意在 Go 上投入成本。
 
 另外，Go 也没有像外界吹捧的那么牛叉，就编程语言的排行榜上来看，Go 还是个滴滴（Python、C/C++、Java、C# 这些仍然是前排），有待发展。
 
-![Go 语言的排行榜](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-5.jpg)
+![Go 语言的排行榜](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-5.jpg)
 
 ## 二、为什么会要求 Java 转 Go 呢？
 
@@ -69,13 +69,13 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 ## 三、Go 语言该怎么学习呢？
 
-![Go 语言怎么学](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-6.png)
+![Go 语言怎么学](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-6.png)
 
 不管怎么说，Go 语言的确是值得去学习的。如果公司确实需要转 Go 岗，也完全没有必要抗拒。
 
 这里给大家推荐一个 Go 语言的学习路线图，如果你想要成为一名Go语言的开发者的话，可以沿着这张图里面的路径去学习。
 
-![Go 语言的学习路线图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-7.jpg)
+![Go 语言的学习路线图](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-7.jpg)
 
 接下来给大家推荐一些 Go 语言的学习资料，全部免费开源，是我肝了两个大夜精挑细选出来的。
 
@@ -85,7 +85,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 **第一套视频：《Go 编程基础》**，主要面向 Go 语言新手级别的学习者。
 
-![Go 编程基础](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-8.jpg)
+![Go 编程基础](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-8.jpg)
 
 >课程地址：[https://github.com/unknwon/go-fundamental-programming](https://github.com/unknwon/go-fundamental-programming)
 
@@ -93,7 +93,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 虽然尚硅谷是一家培训机构，但在 B 站上公开的一些课程还真的是挺香的，学 Java 的同学可能很大一部分都看过宋红康老师的课，YYDS！
 
-![尚硅谷 Go 入门到实战教程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-9.jpg)
+![尚硅谷 Go 入门到实战教程](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-9.jpg)
 
 >视频地址：[https://www.bilibili.com/video/BV1ME411Y71o](https://www.bilibili.com/video/BV1ME411Y71o)
 
@@ -103,13 +103,13 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 点击右侧的菜单可以快速浏览教程的所有内容，非常方便。
 
-![Go 语言之旅](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-10.jpg)
+![Go 语言之旅](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-10.jpg)
 
 >教程地址：[https://tour.go-zh.org/](https://tour.go-zh.org/)
 
 **第二套教程：LeetCode-Go**，一本 LeetCode 的刷题笔记，代码是用 Go 语言实现的，收录了超过 500 道题的题解思路和代码，代码方案都是效率超高的“标准答案”：
 
-![LeetCode-Go](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-11.jpg)
+![LeetCode-Go](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-11.jpg)
 
 >教程地址：[https://books.halfrost.com/leetcode/](https://books.halfrost.com/leetcode/)
 
@@ -122,7 +122,7 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 几乎覆盖了 Go 语言从编译到运行的方方面面，读完后能对 Go 语言有更加整体和深刻的认识。
 
-![《Go 语言设计与实现》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-12.jpg)
+![《Go 语言设计与实现》](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-12.jpg)
 
 >在线地址：[https://draveness.me/golang/](https://draveness.me/golang/)
 
@@ -132,19 +132,19 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 不过遗憾的是，在线阅读地址挂了，我还提交了一个 issue：
 
-![《玩转 GO》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-13.jpg)
+![《玩转 GO》](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-13.jpg)
 
 不过幸好我备份了一份离线版 PDF，里面的内容还是非常完整的：
 
-![《玩转 GO》 PDF](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-14.jpg)
+![《玩转 GO》 PDF](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-14.jpg)
 
 需要的小伙伴请长按识别/扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**go**」就可以拉取到了。
 
-![扫码关注后回复「go」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「go」关键字](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 **第五套教程：Go标准库文档**，可以查询每个API的具体使用方式，这也是 Go 开发者的必备手册。
 
-![Go标准库文档](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-15.jpg)
+![Go标准库文档](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-15.jpg)
 
 >在线地址：[https://studygolang.com/static/pkgdoc/main.html](https://studygolang.com/static/pkgdoc/main.html)
 
@@ -152,23 +152,23 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 **第一本：Go语言实战**，这本书关注于 Go 语言的规范和实现，涉及的内容包括语法、Go 的类型系统、并发、通道和测试等主题。
 
-![Go语言实战](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-16.jpg)
+![Go语言实战](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-16.jpg)
 
 **第二本：《Go 语言学习笔记》**，上卷专注于语言规范相关细节，下卷专注于对运行时源码做出深度剖析，诸如内存分配、垃圾回收和并发调度等。
 
-![：《Go 语言学习笔记》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-17.jpg)
+![：《Go 语言学习笔记》](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-17.jpg)
 
 **第三本：《Go Web 编程》**，这本书以一个网络论坛作为例子，讲解了如何使用请求处理器、多路复用器、模板引擎、存储系统等核心组件去构建一个 Go 的 Web 应用。
 
-![《Go Web 编程》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-18.jpg)
+![《Go Web 编程》](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-18.jpg)
 
 下面是我根据一位拿到大厂 offer 的师弟菜饼提供的学习资料整理出来的书单，相信对你学习 go 语言会很有帮助的。
 
-![Go的书单](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-4b3b67f3-ebe0-4311-8c7c-7e87f89ccdc7.jpg)
+![Go的书单](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-4b3b67f3-ebe0-4311-8c7c-7e87f89ccdc7.jpg)
 
 需要的小伙伴请长按识别/扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**go**」就可以拉取到了。
 
-![扫码关注后回复「go」关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![扫码关注后回复「go」关键字](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ### 3）实战项目
 
@@ -178,27 +178,27 @@ Google 和字节两家大厂对 Go 的大力投入，在一定程度上又加速
 
 **第二个项目：filebrowser**，GitHub 上星标 13k+，这是一个自带文件浏览器的网盘服务，支持文件浏览、生成分享链接、批量上传、创建文件夹等功能、用户系统。
 
-![filebrowser](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-20.jpg)
+![filebrowser](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-20.jpg)
 
 >地址：[https://github.com/filebrowser/filebrowser](https://github.com/filebrowser/filebrowser)
 
 **第三个项目：redigo**，这是[二哥编程星球](https://javabetter.cn/zhishixingqiu/)里一位球友手写的轮子项目，我看了一下 doc，写的非常好，代码量也不大，适合 Go 语言初学者学习。
 
-![Redigo](https://cdn.tobebetterjavaer.com/stutymore/go-20250717095430.png)
+![Redigo](https://cdn.paicoding.com/stutymore/go-20250717095430.png)
 
 >地址：[https://github.com/inannan423/redigo](https://github.com/inannan423/redigo)
 
-![喜欢的同学可以 star 起来](https://cdn.tobebetterjavaer.com/stutymore/go-20250717095551.png)
+![喜欢的同学可以 star 起来](https://cdn.paicoding.com/stutymore/go-20250717095551.png)
 
 **第四个项目：go-admin**，GitHub 上星标 5k+，基于 Go 语言的一个数据可视化与管理平台，使开发者能在极简短的时间里，用极简短的代码量搭建起一个后台管理。
 
-![go-admin](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-21.jpg)
+![go-admin](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-21.jpg)
 
 >地址：[https://github.com/GoAdminGroup/go-admin](https://github.com/GoAdminGroup/go-admin)
 
 **第五个项目：7天用Go从零实现分布式缓存GeeCache**，每天完成的部分都是可以独立运行和测试的，就像搭积木一样，最终组合在一起就是一个完整的分布式缓存系统。每天的代码在 100 行左右。。
 
-![7天用Go从零实现分布式缓存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/go-22.jpg)
+![7天用Go从零实现分布式缓存](https://cdn.paicoding.com/tobebetterjavaer/images/xuexiluxian/go-22.jpg)
 
 >地址：[https://geektutu.com/post/geecache.html](https://geektutu.com/post/geecache.html)
 
@@ -232,4 +232,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

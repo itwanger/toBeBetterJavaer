@@ -162,7 +162,7 @@ null
 
 第二种：`main()` 方法不在 Person 类中，而在另外一个类中。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/16-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/16-01.png)
 
 实际开发中，我们通常不在当前类中直接创建对象并使用它，而是放在使用对象的类中，比如说上图中的 PersonTest 类。
 
@@ -226,7 +226,7 @@ public class Person {
 
 person 被称为对象 Person 的引用变量，见下图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/16-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/object-class/16-02.png)
 
 通过对象的引用变量，可以直接对字段进行初始化（`person.name = "沉默王二"`），所以以上代码输出结果如下所示：
 
@@ -313,7 +313,7 @@ new Person().initialize("沉默王二", 18, 1);
 
 Object 主要提供了 11 个方法，大致可以分为六类：
 
-![三分恶面渣逆袭：Object类的方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-21.png)
+![三分恶面渣逆袭：Object类的方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-21.png)
 
 #### 对象比较：
 
@@ -465,7 +465,7 @@ com.itwanger.Person
 
 `protected void finalize() throws Throwable`：当垃圾回收器决定回收对象占用的内存时调用此方法。用于清理资源，但 Java 不推荐使用，因为它不可预测且容易导致问题，Java 9 开始已被弃用。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240313085055.png)
+![](https://cdn.paicoding.com/stutymore/javase-20240313085055.png)
 
 ### 06、关于对象一些小知识
 
@@ -503,7 +503,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 API 的提供者（Java 多线程部分的作者 Doug Lea 是被 Java 程序员敬佩的一个大佬），我们这些 Java 语言的使用者，说白了就是 JDK 的调用者。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/object-class-20230410094307.png)
+![](https://cdn.paicoding.com/stutymore/object-class-20230410094307.png)
 
 当然了，假如我们也提供了新的类给其他调用者，我们也就成为了新的创建者。
 
@@ -605,4 +605,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

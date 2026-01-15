@@ -20,83 +20,83 @@ head:
 
 几乎所有大厂都过了简历：
 
-![球友们对修改简历的认可1](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113221.png)
+![球友们对修改简历的认可1](https://cdn.paicoding.com/stutymore/jianli-20240903113221.png)
 
 
 改完简历就拿到了快手的面试，还顺利通过了：
 
-![球友们对修改简历的认可2](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113556.png)
+![球友们对修改简历的认可2](https://cdn.paicoding.com/stutymore/jianli-20240903113556.png)
 
 改完简历就拿到了腾讯提前批的面试，还有双非的球友也拿到了腾讯的面试机会，对二哥的简历修改服务非常认可：
 
-![改完简历球友就拿到了腾讯的面试机会](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250729182613.png)
+![改完简历球友就拿到了腾讯的面试机会](https://cdn.paicoding.com/stutymore/jianli-20250729182613.png)
 
 无独有偶，看看球友对简历修改后的认可程度吧，几乎没有挂过，非常可以。
 
-![二哥修改后的简历每一句都比我的好，质量提高了很多](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250523094211.png)
+![二哥修改后的简历每一句都比我的好，质量提高了很多](https://cdn.paicoding.com/stutymore/jianli-20250523094211.png)
 
-![二哥修改后的简历几乎没有挂过](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250411115244.png)
+![二哥修改后的简历几乎没有挂过](https://cdn.paicoding.com/stutymore/jianli-20250411115244.png)
 
-![修改后的简历很完美了](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514103027.png)
+![修改后的简历很完美了](https://cdn.paicoding.com/stutymore/jianli-20250514103027.png)
 
-![拿到腾讯 offer 的球友发来感谢](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514103135.png)
+![拿到腾讯 offer 的球友发来感谢](https://cdn.paicoding.com/stutymore/jianli-20250514103135.png)
 
-![只要不卡学历的都有面](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514103308.png)
+![只要不卡学历的都有面](https://cdn.paicoding.com/stutymore/jianli-20250514103308.png)
 
-![看一些实习的简历比 7 年的都好](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514103405.png)
+![看一些实习的简历比 7 年的都好](https://cdn.paicoding.com/stutymore/jianli-20250514103405.png)
 
-![简历修改后开始陆陆续续收到面试](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514104117.png)
+![简历修改后开始陆陆续续收到面试](https://cdn.paicoding.com/stutymore/jianli-20250514104117.png)
 
 我每天修改的简历至少在 10 份以上。如果碰到金三银四、金九银十，基本上就是 40 份朝上，所以早发过来早排队早修改。
 
-![3月10号这天收到41封修改简历的邮件](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514103516.png)
+![3月10号这天收到41封修改简历的邮件](https://cdn.paicoding.com/stutymore/jianli-20250514103516.png)
 
-![简历修改计划](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113037.png)
+![简历修改计划](https://cdn.paicoding.com/stutymore/jianli-20240903113037.png)
 
 不像其他人，修改一份简历要 200 以上，甚至 500 以上，我修改简历的前提条件只有一个，就是只要你是[星球会员](https://javabetter.cn/zhishixingqiu/)（优惠完仅需 129 元），就可以免费修改简历。
 
-![同行修改一份简历的价格](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250813163152.png)
+![同行修改一份简历的价格](https://cdn.paicoding.com/stutymore/jianli-20250813163152.png)
 
 并且是不限次数哦，直到改到我满意为止（注意是我，不是你，我的要求会比绝大多数 HR 甚至面试官都高）。
 
-![球友对简历修改建议的认可](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240904095436.png)
+![球友对简历修改建议的认可](https://cdn.paicoding.com/stutymore/jianli-20240904095436.png)
 
 118 份简历，修改建议超过 10 万字，这是多么恐怖的一个概念。
 
-![非常认真负责](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114116.png)
+![非常认真负责](https://cdn.paicoding.com/stutymore/jianli-20240903114116.png)
 
 注意，我修改简历是全方位的，不仅仅是基本信息、教育背景、专业技能、实习经历、项目经历、荣誉奖项，还会包括简历的排版、字体、颜色、行距、段距、对齐、关键字大小写等等细节。
 
-![细节到位](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114211.png)
+![细节到位](https://cdn.paicoding.com/stutymore/jianli-20240903114211.png)
 
 其实能不能捞到面试机会，从发出简历的那一刻就决定了。但很多人是不重视简历的，直到发出去的简历已读不回才意识到问题。
 
-![BOSS 直聘简历已读不回](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250617100539.png)
+![BOSS 直聘简历已读不回](https://cdn.paicoding.com/stutymore/jianli-20250617100539.png)
 
 好的简历其实扫一眼就能感受出来，从基本信息到教育经历，就会让你忍不住想要立刻马上发面试邀请。
 
-![简历模板](https://cdn.tobebetterjavaer.com/paicoding/1e2f9b15ef2c2a4b7b0d8ee6f439ba5d.png)
+![简历模板](https://cdn.paicoding.com/paicoding/1e2f9b15ef2c2a4b7b0d8ee6f439ba5d.png)
 
 截止到目前，累计至少看过 3000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
 
 光去年的修改简历，出好几本书是没问题的。
 
-![二哥的编程星球：简历修改](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
+![二哥的编程星球：简历修改](https://cdn.paicoding.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
 
 我现在基本上能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。星球的小伙伴直接点击【简历修改】菜单就可以看望以往修改的简历信息。
 
-![简历修改菜单](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819152027.png)
+![简历修改菜单](https://cdn.paicoding.com/stutymore/jianli-20240819152027.png)
 
 很多球友在收到简历反馈后都能及时做出调整，每次收到球友们的感谢信，真的非常的开心，能帮大家解决问题，真的很有意义和成就感。
 
-![复旦大学的球友](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133240.png)
+![复旦大学的球友](https://cdn.paicoding.com/stutymore/jianli-20240809133240.png)
 
-![四川大学的球友获得百度实习 offer](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240819151830.png)
+![四川大学的球友获得百度实习 offer](https://cdn.paicoding.com/stutymore/jianli-20240819151830.png)
 
 最近刚好是暑期实习+秋招，星球里最近也是收到了很多球友的简历，几乎每天都要花3-4 个小时的时间在简历修改的服务上面。
 
 
-![每天 40 多份](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809134418.png)
+![每天 40 多份](https://cdn.paicoding.com/stutymore/jianli-20240809134418.png)
 
 但说句实在话，不少球友的简历写的牵强人意，甚至有些还在用七八年前直聘生成的简历模板，看起来不能说考古气息扑面而来吧，至少会替球友感到一些些惋惜。
 
@@ -107,7 +107,7 @@ head:
 
 今天就给大家提供一份我觉得确实简洁大方的简历模板供大家参考。
 
-![优质简历](https://cdn.tobebetterjavaer.com/stutymore/jianli-简历.png)
+![优质简历](https://cdn.paicoding.com/stutymore/jianli-简历.png)
 
 ①、基本信息中电话、邮箱、网站、党员、应届生、求职意向等信息都有。
 
@@ -119,17 +119,17 @@ head:
 
 如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 8400+位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 159 元，我真的不希望你等到 179 元的时候再加入。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/jianli-星球优惠券.png)
+![微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/jianli-星球优惠券.png)
 
 星球还有其他服务（比如说实战项目技术派、mydb、微服务 PmHub、AI 知识库），看看球友们对星球和二哥的口碑，应该能懂得星球的含金量。
 
-![球友们对星球的真实评价](https://cdn.tobebetterjavaer.com/paicoding/378ea370a2f7a378835c50988ba53014.png)
+![球友们对星球的真实评价](https://cdn.paicoding.com/paicoding/378ea370a2f7a378835c50988ba53014.png)
 
 ## 01、专业技能一定要专业
 
 我就随便挑一份简历的专业技能来说，大家看完后可以先感受一下有什么问题，然后我再来说说我的建议。
 
-![很差的专业技能示例](https://cdn.tobebetterjavaer.com/paicoding/714d366ac7d85ea992d9502ece2af459.png)
+![很差的专业技能示例](https://cdn.paicoding.com/paicoding/714d366ac7d85ea992d9502ece2af459.png)
 
 我先列一下我看到的问题点：
 
@@ -148,19 +148,19 @@ head:
 我把我修改过的，觉得非常不错的简历都放到星球这个【[精选简历](https://t.zsxq.com/07eet6DJ1)】的帖子里了，需要的可以[戳链接](https://t.zsxq.com/07eet6DJ1)直达。
 
 
-![二哥编程星球的精选简历](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133859.png)
+![二哥编程星球的精选简历](https://cdn.paicoding.com/stutymore/jianli-20240809133859.png)
 
 我截图大家感受一下。
 
-![精选简历中的专业技能样例](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809133959.png)
+![精选简历中的专业技能样例](https://cdn.paicoding.com/stutymore/jianli-20240809133959.png)
 
-![修改前后的对比，明眼人都能看得出进步](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250604105739.png)
+![修改前后的对比，明眼人都能看得出进步](https://cdn.paicoding.com/stutymore/jianli-20250604105739.png)
 
 ## 02、项目经历一定要扎实
 
 同样先来看反面教材，对于下面这样的项目经历，大家看完后的直观感受是什么样子呢？
 
-![很差的项目经历](https://cdn.tobebetterjavaer.com/paicoding/1c59050f9348b5d7ae46e90c4e5088b0.png)
+![很差的项目经历](https://cdn.paicoding.com/paicoding/1c59050f9348b5d7ae46e90c4e5088b0.png)
 
 我说一下我看到的问题：只有项目的一些描述信息，却没有自己在这个项目中具体的表现，有点本末倒置的感觉。有一股从项目需求文档里直接 copy 出来的味道。
 
@@ -206,7 +206,7 @@ head:
 
 直接给大家展示一份在今年秋招凭借技术派斩获了 4 个中厂 offer 的简历是如何写的。
 
-![我先给一个如何写技术派到简历的模板](https://cdn.tobebetterjavaer.com/paicoding/54355b50174c8ea366af739e93760a25.png)
+![我先给一个如何写技术派到简历的模板](https://cdn.paicoding.com/paicoding/54355b50174c8ea366af739e93760a25.png)
 
 最新版的【[如何把技术派写到简历上？](https://paicoding.com/column/6/16)】的帖子，大家戳👉下面这个链接：
 
@@ -214,7 +214,7 @@ head:
 
 接着来看 [PmHub](https://javabetter.cn/zhishixingqiu/pmhub.html) 的，这是一个微服务分布式的项目，所以主要职责里就涉及到了比较多技术派当中没有涉及到技术栈。
 
-![PmHub如何写到简历上](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240809134727.png)
+![PmHub如何写到简历上](https://cdn.paicoding.com/stutymore/jianli-20240809134727.png)
 
 比如说：
 
@@ -241,43 +241,43 @@ head:
 
 如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 8400+位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 159 元，我真的不希望你等到 179 元的时候再加入。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/jianli-星球优惠券.png)
+![微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/jianli-星球优惠券.png)
 
 ## 03、列一些我修改后的简历效果截图吧
 
-![AI 类项目经历](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514104621.png)
+![AI 类项目经历](https://cdn.paicoding.com/stutymore/jianli-20250514104621.png)
 
-![专业技能 1：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114814.png)
+![专业技能 1：](https://cdn.paicoding.com/stutymore/jianli-20240903114814.png)
 
-![轮子类项目经历](https://cdn.tobebetterjavaer.com/stutymore/jianli-20250514104658.png)
+![轮子类项目经历](https://cdn.paicoding.com/stutymore/jianli-20250514104658.png)
 
-![专业技能 2（前端）：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114851.png)
-
-
-
-![专业技能 3：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114926.png)
+![专业技能 2（前端）：](https://cdn.paicoding.com/stutymore/jianli-20240903114851.png)
 
 
 
-![项目经历 1：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903115012.png)
+![专业技能 3：](https://cdn.paicoding.com/stutymore/jianli-20240903114926.png)
 
 
 
-![项目经历 2：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903115057.png)
+![项目经历 1：](https://cdn.paicoding.com/stutymore/jianli-20240903115012.png)
 
 
 
-![项目经历 3：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903115154.png)
+![项目经历 2：](https://cdn.paicoding.com/stutymore/jianli-20240903115057.png)
 
 
 
-![项目经历 4：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903115226.png)
+![项目经历 3：](https://cdn.paicoding.com/stutymore/jianli-20240903115154.png)
 
 
 
-![荣誉奖项 1：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903115441.png)
+![项目经历 4：](https://cdn.paicoding.com/stutymore/jianli-20240903115226.png)
 
 
 
-![荣誉奖项 2：](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903115501.png)
+![荣誉奖项 1：](https://cdn.paicoding.com/stutymore/jianli-20240903115441.png)
+
+
+
+![荣誉奖项 2：](https://cdn.paicoding.com/stutymore/jianli-20240903115501.png)
 

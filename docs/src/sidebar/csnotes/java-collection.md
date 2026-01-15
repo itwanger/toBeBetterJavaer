@@ -16,11 +16,11 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
 
-![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+![无任何套路](https://cdn.paicoding.com/stutymore/javase-20240605194117.png)
 
 附其他干货笔记下载地址：
 
@@ -35,7 +35,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 容器，也叫集合框架，主要包括 Collection 和 Map，Collection 又细分为 Set、List 和 Queue，Set 不常用，List 也就是列表，Queue 是队列；Map 是键值对集合。
 
-![二哥的 Java 进阶之路-容器概览](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-01.png)
+![二哥的 Java 进阶之路-容器概览](https://cdn.paicoding.com/tobebetterjavaer/images/collection/gailan-01.png)
 
 推荐阅读：[Java集合框架全面解析](https://javabetter.cn/collection/gailan.html)
 
@@ -72,7 +72,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 Collection 继承了 Iterable 接口，其中的 `iterator()` 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。
 
-![CYC2018-迭代器](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606160103.png)
+![CYC2018-迭代器](https://cdn.paicoding.com/stutymore/java-collection-20240606160103.png)
 
 JDK 1.5 之后，可以使用 foreach 来遍历集合，非常方便。
 
@@ -111,7 +111,7 @@ List list = Arrays.asList(1, 2, 3);
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、源码分析
 
@@ -134,7 +134,7 @@ public class ArrayList<E> extends AbstractList<E>
 private static final int DEFAULT_CAPACITY = 10;
 ```
 
-![CYC2018：ArrayList](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606160600.png)
+![CYC2018：ArrayList](https://cdn.paicoding.com/stutymore/java-collection-20240606160600.png)
 
 #### 2. 扩容
 
@@ -408,7 +408,7 @@ CopyOnWriteArrayList 在写操作的同时允许读操作，大大提高了读�
 
 #### 1. 概览
 
-![cyc2018：LinkedList](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606162054.png)
+![cyc2018：LinkedList](https://cdn.paicoding.com/stutymore/java-collection-20240606162054.png)
 
 LinkedList 基于双向链表实现，使用 Node 存储链表节点信息。
 
@@ -444,7 +444,7 @@ ArrayList 基于动态数组实现，LinkedList 基于双向链表实现。Array
 
 HashMap 内部包含了一个 Entry 类型的数组 table。Entry 存储着键值对。它包含了四个字段，从 next 字段我们可以看出 Entry 是一个链表。
 
-![cyc2018：HashMap](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606162421.png)
+![cyc2018：HashMap](https://cdn.paicoding.com/stutymore/java-collection-20240606162421.png)
 
 即数组中的每个位置被当成一个桶，一个桶存放一个链表。HashMap 使用拉链法来解决冲突，同一个链表中存放哈希值和数组长度取模运算结果相同的 Entry。
 
@@ -521,7 +521,7 @@ map.put("K3", "V3");
 
 需要注意到，链表的插入是以头插法方式进行的，例如上面的 &lt;K3,V3\> 不是插在 &lt;K2,V2\> 后面，而是插入在链表头部。
 
-![cyc2018：拉链法](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606162624.png)
+![cyc2018：拉链法](https://cdn.paicoding.com/stutymore/java-collection-20240606162624.png)
 
 查找需要分成两步进行：
 
@@ -829,7 +829,7 @@ static final int tableSizeFor(int cap) {
 
 #### 1. 存储结构
 
-![cyc2018：ConcurrentHashMap](https://cdn.tobebetterjavaer.com/stutymore/java-collection-20240606163737.png)
+![cyc2018：ConcurrentHashMap](https://cdn.paicoding.com/stutymore/java-collection-20240606163737.png)
 
 ```java
 static final class HashEntry<K,V> {
@@ -1161,4 +1161,4 @@ public final class ConcurrentCache<K, V> {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

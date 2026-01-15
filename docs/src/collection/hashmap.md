@@ -108,7 +108,7 @@ public V put(K key, V value) {
 
 为了方便大家直观的感受，我这里画了一副图，16 个方格子（可以把它想象成一个一个桶），每个格子都有一个编号，对应大小为 16 的数组下标（索引）。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/3d8ff1f5dc43cc065edb76902156d02b.png)
+![](https://cdn.paicoding.com/paicoding/3d8ff1f5dc43cc065edb76902156d02b.png)
 
 现在，我们要把 key 为 “chenmo”，value 为“沉默”的键值对放到这 16 个格子中的一个。
 
@@ -120,7 +120,7 @@ public V put(K key, V value) {
 
 答案是 8，也就是说 `map.put("chenmo", "沉默")` 会把 key 为 “chenmo”，value 为“沉默”的键值对放到下标为 8 的位置上（也就是索引为 8 的桶上）。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/fcc9cb8f8252f712d72406f7ffb83a89.png)
+![](https://cdn.paicoding.com/paicoding/fcc9cb8f8252f712d72406f7ffb83a89.png)
 
 这样大家就会对 HashMap 存放键值对（元素）的时候有一个大致的印象。其中的一点是，hash 方法对计算键值对的位置起到了至关重要的作用。
 
@@ -400,7 +400,7 @@ final Node<K,V> getNode(int hash, Object key) {
 
 看下面这个图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hash-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hash-01.png)
 
 某哈希值为 `11111111 11111111 11110000 1110 1010`，将它右移 16 位（h >>> 16），刚好是 `00000000 00000000 11111111 11111111`，再进行异或操作（h ^ (h >>> 16)），结果是 `11111111 11111111 00001111 00010101`
 
@@ -781,7 +781,7 @@ static int indexFor(int h, int length) {
 
 取模运算后，键发生了哈希冲突，都到 `table[1]` 上了。那么扩容前就是这个样子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
 
 数组的容量为 2，key 为 3、7、5 的元素在 `table[1]` 上，需要通过拉链法来解决哈希冲突。
 
@@ -793,7 +793,7 @@ static int indexFor(int h, int length) {
 - key 7 取模（7%4）后是 3，放在 `table[3]` 上的链表头部。
 - key 5 取模（5%4）后是 1，放在 `table[1]` 上。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
 
 7 跑到 3 的前面了，因为 JDK 7 使用的是头插法。
 
@@ -867,11 +867,11 @@ final int hash(Object k) {
 
 神奇吧？
 
-![三分恶面渣逆袭：扩容位置变化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-26.png)
+![三分恶面渣逆袭：扩容位置变化](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/collection-26.png)
 
 也就是说，在 JDK 8 的新 hash 算法下，数组扩容后的索引位置，要么就是原来的索引位置，要么就是“原索引+原来的容量”，遵循一定的规律。
 
-![三分恶面渣逆袭：扩容节点迁移示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
+![三分恶面渣逆袭：扩容节点迁移示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/collection-27.png)
 
 当然了，这个功劳既属于新的哈希算法，也离不开 n 为 2 的整数次幂这个前提，这是它俩通力合作后的结果 `hash & (newCapacity - 1)`。
 
@@ -958,7 +958,7 @@ static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
 具体是用这么一个公式来表示的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-01.png)
 
 等号的左边，P 表示概率，N 表示某种函数关系，t 表示时间，n 表示数量。
 
@@ -1043,35 +1043,35 @@ Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为
 
 于是，n 次事件里面，碰撞为 0 的概率，由上面公式得：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-02.png)
 
 这个概率值需要大于 0.5，我们认为这样的 hashmap 可以提供很低的碰撞率。所以：
 
-![球友 25 号宇宙提醒](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-03.png)
+![球友 25 号宇宙提醒](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-03.png)
 
 这时候，我们对于该公式其实最想求的时候长度 s 的时候，n 为多少次就应该进行扩容了？而负载因子则是$n/s$的值。所以推导如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-04.png)
 
 所以可以得到
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-05.png)
 
 其中
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-06.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-06.png)
 
 这就是一个求 `∞⋅0`函数极限问题，这里我们先令$s = m+1（m \to \infty）$则转化为
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-07.png)
 
 我们再令 $x = \frac{1}{m} （x \to 0）$ 则有，
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-08.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-08.png)
 
 所以
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-09.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-loadfactor-09.png)
 
 考虑到 HashMap 的容量有一个要求：它必须是 2 的 n 次幂。当加载因子选择了 0.75 就可以保证它与容量的乘积为整数。
 
@@ -1172,31 +1172,31 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 扩容前的样子假如是下面这样子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-01.png)
 
 那么正常扩容后就是下面这样子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-02.png)
 
 假设现在有两个线程同时进行扩容，线程 A 在执行到 `e.next = newTable[i]` 被挂起，此时线程 A 中：e=3、next=7、e.next=null
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-03.png)
 
 线程 B 开始执行，并且完成了数据转移。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-04.png)
 
 此时，7 的 next 为 3，3 的 next 为 null。
 
 随后线程 A 获得 CPU 时间片继续执行 `e.next = newTable[i];newTable[i] = e`，将 3 放入新数组对应的位置，执行完此轮循环后线程 A 的情况如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-05.png)
 
 执行下一轮循环，此时 e=7，原本线程 A 中 7 的 next 为 5，但由于 table 是线程 A 和线程 B 共享的，而线程 B 顺利执行完后，7 的 next 变成了 3，那么此时线程 A 中，7 的 next 也为 3 了。
 
 采用头部插入的方式，变成了下面这样子：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-06.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-06.png)
 
 好像也没什么问题，此时 next = 3，e = 3。
 
@@ -1204,13 +1204,13 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 接下来当执行完 `e.next=newTable[i]` 即 3.next=7 后，3 和 7 之间就相互链接了，执行完 `newTable[i]=e` 后，3 被头插法重新插入到链表中，执行结果如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-07.png)
 
 套娃开始，元素 5 也就成了弃婴，惨~~~
 
 这里再插入一名球友小灰飞的分析：“线程A是在8行之后、17行之前挂起”。
 
-![小灰飞](https://cdn.tobebetterjavaer.com/stutymore/hashmap-20241120144833.png)
+![小灰飞](https://cdn.paicoding.com/stutymore/hashmap-20241120144833.png)
 
 不过，JDK 8 时已经修复了这个问题，扩容时会保持链表原来的顺序（嗯，等于说了半天白说了，哈哈，这个面试题确实是这样，很水，但有些面试官又确实比较装逼）。
 
@@ -1218,7 +1218,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 正常情况下，当发生哈希冲突时，HashMap 是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-08.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-08.png)
 
 但多线程同时执行 put 操作时，如果计算出来的索引位置是相同的，那会造成前一个 key 被后一个 key 覆盖，从而导致元素的丢失。
 
@@ -1296,11 +1296,11 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 
 两个线程都执行了 if 语句，假设线程 A 先执行了 ` tab[i] = newNode(hash, key, value, null)`，那 table 是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-09.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-09.png)
 
 接着，线程 B 执行了 ` tab[i] = newNode(hash, key, value, null)`，那 table 是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-10.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-10.png)
 
 3 被干掉了。
 
@@ -1308,7 +1308,7 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 
 线程 1 执行 put 时，因为元素个数超出阈值而导致出现扩容，线程 2 此时执行 get，就有可能出现这个问题。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/collection-20240326085630.png)
+![](https://cdn.paicoding.com/stutymore/collection-20240326085630.png)
 
 因为线程 1 执行完 table = newTab 之后，线程 2 中的 table 此时也发生了变化，此时去 get 的时候当然会 get 到 null 了，因为元素还没有转移。
 
@@ -1353,4 +1353,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

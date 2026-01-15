@@ -24,7 +24,7 @@ JDK 1.5 之前，主要使用`Timer`类来完成定时任务，但是`Timer`有�
 
 于是 JDK 1.5 之后，开发者就抛弃了 `Timer`，开始使用`ScheduledThreadPoolExecutor`。先通过下面这张图感受下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824085609.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824085609.png)
 
 ## 使用案例
 
@@ -159,13 +159,13 @@ public interface ScheduledExecutorService extends ExecutorService {
 
 scheduleAtFixedRate 方法在`initialDelay`时长后第一次执行任务，以后每隔`period`时长再次执行任务。注意，period 是从**任务开始执行算起**的。开始执行任务后，定时器每隔 period 时长**检查该任务是否完成**，如果完成则再次启动任务，否则等该任务结束后才启动任务。看下图：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824090447.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824090447.png)
 
 ### 02、scheduleWithFixDelay
 
 该方法在`initialDelay`时长后第一次执行任务，以后每当任务执行**完成后**，等待`delay`时长，再次执行任务。看下图。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824090513.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824090513.png)
 
 相信大家能体会出来其中的差异。
 
@@ -189,7 +189,7 @@ public ScheduledFuture<?> schedule(Runnable command, long delay, TimeUnit unit) 
 
 我们先看看里面涉及到的几个类和接口的关系图谱：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ScheduledThreadPoolExecutor-cd4cead8-2ce3-4460-8ea3-9534cd4925f2.jpg)
 
 #### Delayed 接口
 
@@ -431,11 +431,11 @@ void ensurePrestart() {
 
 DelayedWorkQueue 是一个无界优先队列，使用数组存储，底层使用堆结构来实现优先队列的功能。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824084212.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824084212.png)
 
 可以转换成如下的数组：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824084245.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824084245.png)
 
 在这种结构中，可以发现有如下特性。假设，索引值从 0 开始，子节点的索引值为 k，父节点的索引值为 p，则：
 
@@ -613,15 +613,15 @@ private void siftUp(int k, RunnableScheduledFuture<?> key) {
 
 1、先将新的节点添加到数组的尾部，这时新节点的索引k为7：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824091455.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824091455.png)
 
 2、计算新父节点的索引：`parent = (k - 1) >>> 1`，parent = 3，那么`queue[3]`的时间间隔值为8，因为 `5 < 8` ，将执行`queue[7] = queue[3]`：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824091531.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824091531.png)
 
 3、这时将k设置为3，继续循环，再次计算parent为1，`queue[1]`的时间间隔为3，因为 `5 > 3` ，这时退出循环，最终k为3：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ScheduledThreadPoolExecutor-20230824091558.png)
+![](https://cdn.paicoding.com/stutymore/ScheduledThreadPoolExecutor-20230824091558.png)
 
 可见，每次新增节点时，只是根据父节点来判断，而不会影响兄弟节点。
 
@@ -643,4 +643,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

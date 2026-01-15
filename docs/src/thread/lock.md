@@ -29,7 +29,7 @@ head:
 
 Java 提供了种类丰富的锁，每种锁因其特性的不同，在适当的场景下能够展现出非常高的效率。我们可以通过特性将锁进行分组归类。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-b2ded433-defd-4535-b767-fd2e5be0b5b9.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-b2ded433-defd-4535-b767-fd2e5be0b5b9.png)
 
 ### 乐观锁 VS 悲观锁
 
@@ -41,7 +41,7 @@ Java 提供了种类丰富的锁，每种锁因其特性的不同，在适当的
 
 乐观锁在 Java 中是通过无锁编程来实现的，最常采用的是[CAS 算法](https://javabetter.cn/thread/cas.html)，[Java 原子类](https://javabetter.cn/thread/atomic.html)的递增操作就通过 CAS 自旋实现的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-840de182-83e2-4639-868a-bd5cc984575f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-840de182-83e2-4639-868a-bd5cc984575f.png)
 
 根据上面的概念描述我们可以发现：
 
@@ -85,7 +85,7 @@ CAS 算法涉及到三个操作数：
 
 之前提到 JUC 包中的原子类，就是通过 CAS 实现的乐观锁，那么我们进入原子类 AtomicInteger 的源码（后面也会细讲，既然讲到了，这里就过一下吧），来看一下 AtomicInteger 的定义：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-86e17b45-2993-48df-b7cd-ee86bb15c922.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-86e17b45-2993-48df-b7cd-ee86bb15c922.png)
 
 根据定义我们可以看出各属性的作用：
 
@@ -142,13 +142,13 @@ CAS 虽然高效，但也存在三大问题，[我们前面也讲过](https://ja
 
 为了让当前线程“稍等一下”，我们需要让当前线程进行自旋，如果在自旋完成后前面锁定同步资源的线程已经释放了锁，那么当前线程就可以不用阻塞而是直接获取同步资源，从而避免切换线程的开销。这就是自旋锁。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-be0964a8-856a-45c9-ab75-ce9505c2e237.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-be0964a8-856a-45c9-ab75-ce9505c2e237.png)
 
 自旋锁本身是有缺点的，它不能代替阻塞。自旋等待虽然避免了线程切换的开销，但它要占用处理器时间。如果锁被占用的时间很短，自旋等待的效果就会非常好。反之，如果锁被占用的时间很长，那么自旋的线程只会白白浪费处理器资源。所以，自旋等待的时间必须要有一定的限度，如果自旋超过了限定次数（默认是 10 次，可以使用`-XX:PreBlockSpin` 来更改）没有成功获得锁，就应当挂起线程。
 
 自旋锁的实现原理同样也是 CAS，AtomicInteger 中调用 unsafe 进行自增操作的源码中的 do-while 循环就是一个自旋操作，如果修改数值失败则通过循环来执行自旋，直至修改成功。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-0756521c-becf-4657-ab42-1973d74e9c73.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-0756521c-becf-4657-ab42-1973d74e9c73.png)
 
 自旋锁在 JDK1.4.2 中引入，使用`-XX:+UseSpinning`来开启。JDK 6 中变为默认开启，并且引入了自适应的自旋锁（适应性自旋锁）。
 
@@ -183,11 +183,11 @@ public class Widget {
 
 还是打水的例子，有多个人在排队打水，此时管理员允许锁和同一个人的多个水桶绑定。这个人用多个水桶打水时，第一个水桶和锁绑定并打完水之后，第二个水桶也可以直接和锁绑定并开始打水，所有的水桶都打完水之后打水人才会将锁还给管理员。这个人的所有打水流程都能够成功执行，后续等待的人也能够打到水。这就是可重入锁。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-35dc49bf-87c9-4133-b68f-269fb0508f75.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-35dc49bf-87c9-4133-b68f-269fb0508f75.png)
 
 但如果是非可重入锁的话，此时管理员只允许锁和同一个人的一个水桶绑定。第一个水桶和锁绑定打完水之后并不会释放锁，导致第二个水桶不能和锁绑定也无法打水。当前线程出现死锁，整个等待队列中的所有线程都无法被唤醒。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-08479ca1-5d43-475c-8592-9f183e52cc26.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-08479ca1-5d43-475c-8592-9f183e52cc26.png)
 
 之前我们说过 ReentrantLock 和 synchronized 都是重入锁，那么我们通过重入锁 ReentrantLock 以及非可重入锁 NonReentrantLock 的源码来对比分析一下为什么非可重入锁在重复调用同步资源时会出现死锁。
 
@@ -199,7 +199,7 @@ public class Widget {
 
 释放锁时，可重入锁同样会先获取当前 status 的值，在当前线程是持有锁的线程的前提下。如果`status-1 == 0`，则表示当前线程所有重复获取锁的操作都已经执行完毕，然后该线程才会真正释放锁。而非可重入锁则是在确定当前线程是持有锁的线程之后，直接将 status 置为 0，将锁释放。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-d6e12a34-c889-45e1-83bf-a4d7e36eedde.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-d6e12a34-c889-45e1-83bf-a4d7e36eedde.png)
 
 ### 公平锁与非公平锁
 
@@ -225,7 +225,7 @@ public class Widget {
 
 下图为 ReentrantReadWriteLock 的部分源码：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-baa93e76-ac90-4955-8955-50dabc6efbdd.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-baa93e76-ac90-4955-8955-50dabc6efbdd.png)
 
 我们看到[ReentrantReadWriteLock](https://javabetter.cn/thread/ReentrantReadWriteLock.html)有两把锁：ReadLock 和 WriteLock，由词知意，一个读锁一个写锁，合称“读写锁”。再进一步观察可以发现 ReadLock 和 WriteLock 是靠内部类 Sync 实现的锁。Sync 是 AQS 的一个子类，这种结构在[CountDownLatch、Semaphore](https://javabetter.cn/thread/CountDownLatch.html)（后面会细讲，戳链接直达）、[ReentrantLock](https://javabetter.cn/thread/reentrantLock.html)（接下来会讲，戳链接直达）里面也都存在。
 
@@ -239,7 +239,7 @@ public class Widget {
 
 于是将 state 变量“按位切割”切分成了两个部分，高 16 位表示读锁状态（读锁个数），低 16 位表示写锁状态（写锁个数）。如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-62e2bf55-452e-4353-9635-0ea368e355dd.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-62e2bf55-452e-4353-9635-0ea368e355dd.png)
 
 了解了概念之后我们再来看代码，先看写锁的加锁源码：
 
@@ -311,7 +311,7 @@ protected final int tryAcquireShared(int unused) {
 
 此时，我们再回头看一下互斥锁 ReentrantLock 中公平锁和非公平锁的加锁源码：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-7fa4ea6b-02ef-4fd4-992d-9ed08e5d4c76.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/other-bukfsdjavassmtjstd-7fa4ea6b-02ef-4fd4-992d-9ed08e5d4c76.png)
 
 我们发现在 ReentrantLock 虽然有公平锁和非公平锁两种，但是它们添加的都是独享锁。根据源码所示，当某一个线程调用 lock 方法获取锁时，如果同步资源没有被其他线程锁住，那么当前线程在使用 CAS 更新 state 成功后就会成功抢占该资源。而如果公共资源被占用且不是被当前线程占用，那么就会加锁失败。所以可以确定 ReentrantLock 无论读操作还是写操作，添加的锁都是都是独享锁。
 
@@ -321,7 +321,7 @@ protected final int tryAcquireShared(int unused) {
 
 众所周知，JDK 中关于并发的类大多都在 JUC 包下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806103310.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230806103310.png)
 
 看名字就知道，locks 包是提供一些并发锁的工具类的。前面我们介绍的 [AQS（AbstractQueuedSynchronizer）](https://javabetter.cn/thread/aqs.html)就是在这个包下。
 
@@ -333,11 +333,11 @@ protected final int tryAcquireShared(int unused) {
 
 AQS 里面的“资源”是用一个`int`类型的数据来表示的，有时候业务需求的资源数超出了`int`的范围，所以在 JDK 1.6 中，多了一个**AQLS**（AbstractQueuedLongSynchronizer）。它的代码跟 AQS 几乎一样，只是把资源的类型变成了`long`类型。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230805213746.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230805213746.png)
 
 AQS 和 AQLS 都继承了一个类叫**AOS**（AbstractOwnableSynchronizer）。这个类也是在 JDK 1.6 中出现的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230805213842.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230805213842.png)
 
 这个类只有几行简单的代码。从源码类上的注释可以知道，它是用于表示锁与持有者之间的关系（独占模式）。可以看一下它的主要方法：
 
@@ -466,7 +466,7 @@ public class Counter {
 
 来看一下最终输出结果：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806103823.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230806103823.png)
 
 ### 读写锁ReentrantReadWriteLock
 
@@ -619,7 +619,7 @@ StampedLock 没有实现 Lock 接口和 ReadWriteLock 接口，但它实现了�
 
 我们来分析一下官方提供的用法（在 JDK 源码类声明的上方或 Javadoc 里可以找到）。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806101251.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230806101251.png)
 
 来看一下。
 
@@ -817,7 +817,7 @@ public class SharedResourceWithStampedLock {
 
 来看一下输出结果的对比。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806105654.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230806105654.png)
 
 1、可重入性：ReentrantReadWriteLock 支持可重入，即在一个线程中可以多次获取读锁或写锁。StampedLock 则不支持可重入。
 
@@ -837,7 +837,7 @@ locks 包下的锁接口和锁类介绍完了，我们这里再讲一些 JUC 包
 
 Semaphore 是一个计数信号量，它的作用是限制可以访问某些资源（物理或逻辑的）的线程数目。Semaphore 的构造方法可以指定信号量的数目，也可以指定是否是公平的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/lock-20230806102650.png)
+![](https://cdn.paicoding.com/stutymore/lock-20230806102650.png)
 
 Semaphore 有两个主要的方法：`acquire()`和`release()`。`acquire()`方法会尝试获取一个信号量，如果获取不到，就会阻塞当前线程，直到有线程释放信号量。`release()`方法会释放一个信号量，释放之后，会唤醒一个等待的线程。
 
@@ -1149,4 +1149,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

@@ -17,7 +17,7 @@ head:
 
 就目前来说，JVM 的垃圾收集器主要分为两大类：**分代收集器**和**分区收集器**，分代收集器的代表是 CMS，分区收集器的代表是 G1 和 ZGC，下面我们来看看这两大类的垃圾收集器。
 
-![分代收集器和分区收集器](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231227143820.png)
+![分代收集器和分区收集器](https://cdn.paicoding.com/stutymore/gc-collector-20231227143820.png)
 
 ## 分代收集器
 
@@ -48,7 +48,7 @@ CMS 垃圾收集器通过三色标记算法，实现了垃圾回收线程与用�
 
 **并发清除**，指的是将标记为垃圾的对象进行清除，该阶段不需要「Stop the World」。 在这个阶段，垃圾回收线程与用户线程可以并发执行，因此并不影响用户的响应时间。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228211056.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231228211056.png)
 
 CMS 的优点是：并发收集、低停顿。但缺点也很明显：
 
@@ -68,7 +68,7 @@ G1（Garbage-First Garbage Collector）在 JDK 1.7 时引入，在 JDK 9 时取�
 
 ①、分代：相信大家还记得我们[上一讲中的年轻代和老年代](https://javabetter.cn/jvm/gc.html)，G1 也是基于这个思想进行设计的。它将堆内存分为多个大小相等的区域（Region），每个区域都可以是 Eden 区、Survivor 区或者 Old 区。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231228213824.png)
 
 可以通过 `-XX:G1HeapRegionSize=n` 来设置 Region 的大小，可以设定为 1M、2M、4M、8M、16M、32M（不能超过）。
 
@@ -84,15 +84,15 @@ G1 会根据各个区域的垃圾回收情况来决定下一次垃圾回收的�
 
 年轻代的垃圾回收（Minor GC）使用复制算法，因为年轻代的对象通常是朝生夕死的。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231230100404.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231230100404.png)
 
 ⑤、STW：G1 也是基于「标记-清除」算法，因此在进行垃圾回收的时候，仍然需要「Stop the World」。不过，G1 在停顿时间上添加了预测机制，用户可以指定期望停顿时间。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213622.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231228213622.png)
 
 G1 中存在三种 GC 模式，分别是 Young GC、Mixed GC 和 Full GC。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228215108.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231228215108.png)
 
 当 Eden 区的内存空间无法支持新对象的内存分配时，G1 会触发 Young GC。
 
@@ -124,7 +124,7 @@ ZGC 的设计目标是：在不超过 10ms 的停顿时间下，支持 TB 级的
 
 ①、标记阶段，从 GC Roots 开始，分析对象可达性，标记出活跃对象。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231230101117.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231230101117.png)
 
 ②、对象转移阶段，把活跃对象复制到新的内存地址上。
 
@@ -134,7 +134,7 @@ ZGC 的设计目标是：在不超过 10ms 的停顿时间下，支持 TB 级的
 
 与 G1 和 CMS 类似，ZGC 也采用了复制算法，只不过做了重大优化，ZGC 在标记、转移和重定位阶段几乎都是并发的，这是 ZGC 实现停顿时间小于 10ms 的关键所在。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231230101805.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231230101805.png)
 
 ZGC 是怎么做到的呢？
 
@@ -155,7 +155,7 @@ ZGC 是怎么做到的呢？
 
 ZGC仅支持64位系统，它把64位虚拟地址空间划分为多个子空间，如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231230104011.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231230104011.png)
 
 
 其中，0-4TB 对应 Java 堆，4TB-8TB 被称为 M0 地址空间，8TB-12TB 被称为 M1 地址空间，12TB-16TB 预留未使用，16TB-20TB 被称为 Remapped 空间。
@@ -164,13 +164,13 @@ ZGC仅支持64位系统，它把64位虚拟地址空间划分为多个子空间�
 
 下图是虚拟地址的空间划分：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231230105830.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231230105830.png)
 
 不过，三个空间在同一时间只有一个空间有效。ZGC 之所以设置这三个虚拟地址，是因为 ZGC 采用的是“空间换时间”的思想，去降低 GC 的停顿时间。
 
 与上述地址空间划分相对应，ZGC实际仅使用64位地址空间的第0-41位，而第42-45位存储元数据，第47-63位固定为0。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231230104802.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20231230104802.png)
 
 由于仅用了第 0~43 位存储对象地址，$2^{44}$ = 16TB，所以 ZGC 最大支持 16TB 的堆。
 
@@ -220,7 +220,7 @@ int i =  obj.FieldB  //无需加入屏障，因为不是对象引用
 
 ZGC 周期由三个 STW 暂停和四个并发阶段组成：标记/重新映射( M/R )、并发引用处理( RP )、并发转移准备( EC ) 和并发转移( RE )。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102140237.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20240102140237.png)
 
 ##### Stop-The-World 暂停阶段
 
@@ -241,11 +241,11 @@ ZGC 周期由三个 STW 暂停和四个并发阶段组成：标记/重新映射(
 4. **并发转移 (RE)** ：在这个阶段，ZGC 将存活的对象从旧位置移动到新位置。由于这一过程是并发执行的，因此应用程序可以在大多数垃圾回收工作进行时继续运行。
 
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102142638.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20240102142638.png)
 
 ZGC 的两个关键技术：指针染色和读屏障，不仅应用在并发转移阶段，还应用在并发标记阶段：将对象设置为已标记，传统的垃圾回收器需要进行一次内存访问，并将对象存活信息放在对象头中；而在ZGC中，只需要设置指针地址的第42-45位即可，并且因为是寄存器访问，所以速度比访问内存更快。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20240102142908.png)
+![](https://cdn.paicoding.com/stutymore/gc-collector-20240102142908.png)
 
 ### 小结
 
@@ -267,4 +267,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

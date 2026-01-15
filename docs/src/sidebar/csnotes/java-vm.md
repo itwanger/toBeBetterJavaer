@@ -16,11 +16,11 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
 
-![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+![无任何套路](https://cdn.paicoding.com/stutymore/javase-20240605194117.png)
 
 附其他干货笔记下载地址：
 
@@ -33,7 +33,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 ## 一、运行时数据区域
 
-![二哥的 Java 进阶之路：JVM 运行时数据区域](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110194325.png)
+![二哥的 Java 进阶之路：JVM 运行时数据区域](https://cdn.paicoding.com/stutymore/neicun-jiegou-20240110194325.png)
 
 ### 程序计数器
 
@@ -43,7 +43,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 每个 Java 方法在执行的同时会创建一个[栈帧](https://javabetter.cn/jvm/stack-frame.html)用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。
 
-![CYC2018：栈帧](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711131037.png)
+![CYC2018：栈帧](https://cdn.paicoding.com/stutymore/java-vm-20240711131037.png)
 
 
 该区域可能抛出以下异常：
@@ -57,7 +57,7 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 本地方法一般是用其它语言（C、C++ 或汇编语言等）编写的，并且被编译为基于本机硬件和操作系统的程序，对待这些方法需要特别处理。
 
-![CYC2018：本地方法](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711131436.png)
+![CYC2018：本地方法](https://cdn.paicoding.com/stutymore/java-vm-20240711131436.png)
 
 ### 堆
 
@@ -140,7 +140,7 @@ Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般
 - 方法区中类静态属性引用的对象
 - 方法区中的常量引用的对象
 
-![二哥的 Java 进阶之路：GC Roots](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227104036.png)
+![二哥的 Java 进阶之路：GC Roots](https://cdn.paicoding.com/stutymore/gc-20231227104036.png)
 
 
 #### 3. 方法区的回收
@@ -211,7 +211,7 @@ obj = null;
 
 #### 1. 标记 - 清除
 
-![CYC2018：标记清除算法](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711133159.png)
+![CYC2018：标记清除算法](https://cdn.paicoding.com/stutymore/java-vm-20240711133159.png)
 
 在标记阶段，程序会检查每个对象是否为活动对象，如果是活动对象，则程序会在对象头部打上标记。
 
@@ -226,7 +226,7 @@ obj = null;
 
 #### 2. 标记 - 整理
 
-![CYC2018：标记整理](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711133310.png)
+![CYC2018：标记整理](https://cdn.paicoding.com/stutymore/java-vm-20240711133310.png)
 
 让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。
 
@@ -236,7 +236,7 @@ obj = null;
 
 #### 3. 复制
 
-![CYC2018：复制](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711133346.png)
+![CYC2018：复制](https://cdn.paicoding.com/stutymore/java-vm-20240711133346.png)
 
 将内存划分为大小相等的两块，每次只使用其中一块，当这一块内存用完了就将还存活的对象复制到另一块上面，然后再把使用过的内存空间进行一次清理。
 
@@ -255,7 +255,7 @@ HotSpot 虚拟机的 Eden 和 Survivor 大小比例默认为 8:1，保证了内�
 
 ### 垃圾收集器
 
-![三分恶面渣逆袭：垃圾收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
+![三分恶面渣逆袭：垃圾收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-28.png)
 
 以上是 HotSpot 虚拟机中的 7 个垃圾收集器，连线表示垃圾收集器可以配合使用。
 
@@ -264,7 +264,7 @@ HotSpot 虚拟机的 Eden 和 Survivor 大小比例默认为 8:1，保证了内�
 
 #### 1. Serial 收集器
 
-![三分恶面渣逆袭：Serial 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
+![三分恶面渣逆袭：Serial 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
 Serial 翻译为串行，也就是说它以串行的方式执行。它是单线程的收集器，只会使用一个线程进行垃圾收集工作。
 
@@ -274,7 +274,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 2. ParNew 收集器
 
-![三分恶面渣逆袭：ParNew 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
+![三分恶面渣逆袭：ParNew 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-30.png)
 
 它是 Serial 收集器的多线程版本。
 
@@ -294,7 +294,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 4. Serial Old 收集器
 
-![三分恶面渣逆袭：Serial 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
+![三分恶面渣逆袭：Serial 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-29.png)
 
 是 Serial 收集器的老年代版本，也是给 Client 场景下的虚拟机使用。如果用在 Server 场景下，它有两大用途：
 
@@ -303,7 +303,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 5. Parallel Old 收集器
 
-![三分恶面渣逆袭：Parallel Old 收集器](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
+![三分恶面渣逆袭：Parallel Old 收集器](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/jvm-32.png)
 
 是 Parallel Scavenge 收集器的老年代版本。
 
@@ -311,7 +311,7 @@ Serial 翻译为串行，也就是说它以串行的方式执行。它是单线�
 
 #### 6. CMS 收集器
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711134313.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/java-vm-20240711134313.png)
 
 CMS（Concurrent Mark Sweep），Mark Sweep 指的是标记 - 清除算法。
 
@@ -336,11 +336,11 @@ G1（Garbage-First），它是一款面向服务端应用的垃圾收集器，�
 
 堆被分为新生代和老年代，其它收集器进行收集的范围都是整个新生代或者老年代，而 G1 可以直接对新生代和老年代一起回收。
 
-![二哥的 Java 进阶之路：新生代和老年代](https://cdn.tobebetterjavaer.com/stutymore/gc-20231227131241.png)
+![二哥的 Java 进阶之路：新生代和老年代](https://cdn.paicoding.com/stutymore/gc-20231227131241.png)
 
 G1 把堆划分成多个大小相等的独立区域（Region），新生代和老年代不再物理隔离。
 
-![有梦想的肥宅：G1](https://cdn.tobebetterjavaer.com/stutymore/gc-collector-20231228213824.png)
+![有梦想的肥宅：G1](https://cdn.paicoding.com/stutymore/gc-collector-20231228213824.png)
 
 通过引入 Region 的概念，从而将原来的一整块内存空间划分成多个的小空间，使得每个小空间可以单独进行垃圾回收。
 
@@ -348,7 +348,7 @@ G1 把堆划分成多个大小相等的独立区域（Region），新生代和�
 
 每个 Region 都有一个 Remembered Set，用来记录该 Region 对象的引用对象所在的 Region。通过使用 Remembered Set，在做可达性分析的时候就可以避免全堆扫描。
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711135443.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/java-vm-20240711135443.png)
 
 如果不计算维护 Remembered Set 的操作，G1 收集器的运作大致可划分为以下几个步骤：
 
@@ -364,7 +364,7 @@ G1 把堆划分成多个大小相等的独立区域（Region），新生代和�
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 三、内存分配与回收策略
 
@@ -440,7 +440,7 @@ G1 把堆划分成多个大小相等的独立区域（Region），新生代和�
 
 ### 类的生命周期
 
-![图片来源于网络](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
+![图片来源于网络](https://cdn.paicoding.com/stutymore/class-load-20231031202641.png)
 
 包括以下 7 个阶段：
 
@@ -612,7 +612,7 @@ System.out.println(ConstClass.HELLOWORLD);
 
 下图展示了类加载器之间的层次关系，称为双亲委派模型（Parents Delegation Model）。该模型要求除了顶层的启动类加载器外，其它的类加载器都要有自己的父类加载器。这里的父子关系一般通过组合关系（Composition）来实现，而不是继承关系（Inheritance）。
 
-![CYC2018：双亲委派模型](https://cdn.tobebetterjavaer.com/stutymore/java-vm-20240711140107.png)
+![CYC2018：双亲委派模型](https://cdn.paicoding.com/stutymore/java-vm-20240711140107.png)
 
 #### 1. 工作过程
 
@@ -736,7 +736,7 @@ CS-Notes，原文档地址：[https://github.com/CyC2018/CS-Notes/](https://gith
 
 最新版更新完成后我会放到网盘中，微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**Java**》即可获取最新的 PDF 版本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 附其他干货笔记下载地址：
 

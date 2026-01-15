@@ -15,21 +15,21 @@ title: Spring Boot 整合 Logback 定制日志框架
 
 1）Logback 非常自然地实现了 SLF4J，不需要像 Log4j 和 JUL 那样加一个适配层。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-67c983bf-101d-48cc-80da-3cb031d7407b.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-67c983bf-101d-48cc-80da-3cb031d7407b.png)
 
 2）Spring Boot 的默认日志框架使用的是 Logback，启动编程喵项目的时候就可以看到 Logback 记录的日志了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-a2cacfa1-484a-4904-bea3-248d12097387.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-a2cacfa1-484a-4904-bea3-248d12097387.png)
 
 怎么看出来是 logback 呢？
 
 说实话，看不出来，哈哈哈，不过可以从 Spring Boot 官网找到证据。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-9ac58c2c-e7f9-4df7-aede-ba7d5c69741c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-9ac58c2c-e7f9-4df7-aede-ba7d5c69741c.png)
 
 还有，通过源码也可以窥见一二。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-7a10bd7b-598a-4c30-9c83-b80689671f41.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-7a10bd7b-598a-4c30-9c83-b80689671f41.png)
 
 3）logback 分为三个模块：
 
@@ -58,7 +58,7 @@ Logger 和 LoggerFactory 都来自 SLF4J，所以如果项目是从 Log4j + SLF4
 
 其他什么也不用做，运行后就可以看到 logback 已经正常工作了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-07c6b600-3667-4113-bbd5-5ec25990e9dc.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-07c6b600-3667-4113-bbd5-5ec25990e9dc.png)
 
 在没有配置文件的情况下，一切都是默认的，Logback 的日志信息会输出到控制台。可以通过 StatusPrinter 来打印 Logback 的内部信息：
 
@@ -69,7 +69,7 @@ StatusPrinter.print(lc);
 
 再次运行测试类，可以在控制台看到以下信息：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-05b134ab-b6e6-4a10-a00c-41b829938618.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-05b134ab-b6e6-4a10-a00c-41b829938618.png)
 
 也就是说，Logback 会在 classpath 路径下先寻找 logback-test.xml 文件，没有找到的话，寻找 logback.xml 文件，都找不到的话，就输出到控制台。
 
@@ -228,7 +228,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 >[https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java](https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/logging/logback/DefaultLogbackConfiguration.java)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-87217069-b756-4c0c-945e-06ecc5785b81.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-87217069-b756-4c0c-945e-06ecc5785b81.png)
 
 
 SizeAndTimeBasedRollingPolicy 比 TimeBasedRollingPolicy 多了一个日志文件大小设定的属性：maxFileSize，其他完全一样。
@@ -238,20 +238,20 @@ totalSizeCap，所有日志文件的大小（可选项）。超出这个大小�
 在Intellij IDEA 中启动项目，我们来查看一下配置后的日志效果（控制台中）。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-1a849206-617e-45d5-b199-50787c12e9bc.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-1a849206-617e-45d5-b199-50787c12e9bc.png)
 
 由于我们加了颜色配置，所以控制台日志看起来对眼睛更友好了一些。
 
 那配置的日志文件在哪里呢？在 `user.home` 下，如果不确定具体值是什么的话，可以通过 `System.getProperty("user.home")` 获取到。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-bdb8558e-2fd0-488e-9a0a-7c78234eae7a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-bdb8558e-2fd0-488e-9a0a-7c78234eae7a.png)
 
 
 顺着这个路径就可以找到生成的日志文件了，并且日志的生成策略也是符合我们的预期的。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-3e5c5534-470b-4ec4-b5fa-cb2a6fbbaee4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-3e5c5534-470b-4ec4-b5fa-cb2a6fbbaee4.png)
 
 ## 使用 lombok 进行日志记录
 
@@ -293,7 +293,7 @@ class CodingmoreLogbackApplicationTests {
 ----
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/logback-cd491159-e48e-4c74-a67f-7962a45e847f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/logback-cd491159-e48e-4c74-a67f-7962a45e847f.png)
 
 ## 源码路径
 
@@ -301,4 +301,4 @@ class CodingmoreLogbackApplicationTests {
 > - Logback 详细配置专用：[https://github.com/itwanger/coding-more](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-logback)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

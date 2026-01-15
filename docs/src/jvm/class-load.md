@@ -15,7 +15,7 @@ head:
 
 [上一节](https://javabetter.cn/jvm/how-run-java-code.html)在讲 JVM 运行 Java 代码的时候，我们提到，JVM 需要将编译后的字节码文件加载到其内部的运行时数据区域中进行执行。这个过程涉及到了 Java 的类加载机制（面试常问的知识点），所以我们来详细地讲一讲。
 
-![Java 的类加载机制](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
+![Java 的类加载机制](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/how-run-java-code-91dac706-1c4e-4775-bc4e-b2104283aa04.png)
 
 字节码我们[上一节](https://javabetter.cn/jvm/how-run-java-code.html)也讲过，它和类的加载机制息息相关，相信大家都还有印象。
 
@@ -45,7 +45,7 @@ public class Test {
 
 这里只说一点，这段字节码中的 `cafe babe` 被称为“魔数”，是 JVM 识别 .class 文件（字节码文件）的标志，相信大家都知道，Java 的 logo 是一杯冒着热气的咖啡，是不是又关联上了？
 
-![Java 的 logo](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/two-02.png)
+![Java 的 logo](https://cdn.paicoding.com/tobebetterjavaer/images/overview/two-02.png)
 
 > 文件格式的定制者可以自由选择魔数值（只要没用过），比如说 .png 文件的魔数是 `8950 4e47`。
 
@@ -55,7 +55,7 @@ public class Test {
 
 知道什么是 Java 字节码后，我们来聊聊 Java 的类加载过程。
 
-![类加载过程](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231031202641.png)
+![类加载过程](https://cdn.paicoding.com/stutymore/class-load-20231031202641.png)
 
 类从被加载到 JVM 开始，到卸载出内存，整个生命周期分为七个阶段，分别是加载、验证、准备、解析、初始化、使用和卸载。其中验证、准备和解析这三个阶段统称为连接。
 
@@ -120,7 +120,7 @@ what？符号引用，直接引用？
 
 下面通过一张简化的图来描述它们的区别：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/class-load-20231110154602.png)
+![](https://cdn.paicoding.com/stutymore/class-load-20231110154602.png)
 
 在上面的例子中：
 
@@ -174,7 +174,7 @@ public String(String original) {
 
 聊完类加载过程，就不得不聊聊类加载器。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030185834.png)
+![](https://cdn.paicoding.com/stutymore/what-is-jvm-20231030185834.png)
 
 一般来说，Java 程序员并不需要直接同类加载器进行交互。JVM 默认的行为就已经足够满足大多数情况的需求了。不过，如果遇到了需要和类加载器进行交互的情况，而对类加载器的机制又不是很了解的话，就不得不花大量的时间去调试
 `ClassNotFoundException` 和 `NoClassDefFoundError` 等[异常](https://javabetter.cn/exception/gailan.html)（前面讲过）。
@@ -310,4 +310,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

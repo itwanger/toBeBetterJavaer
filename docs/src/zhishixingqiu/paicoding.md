@@ -16,11 +16,11 @@ head:
 
 一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的 UI 设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，代码完全开源，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目 👍 。
 
-![技术派首页](https://cdn.tobebetterjavaer.com/images/20230602/d7d341c557e7470d9fb41245e5bb4209.png)
+![技术派首页](https://cdn.paicoding.com/images/20230602/d7d341c557e7470d9fb41245e5bb4209.png)
 
 另外，我需要提醒大家的是，技术派的 AI 助手「**派聪明**」已经正式上线！支持讯飞星火和 OpenAI 双通道供大家学习使用，花了很多钱购买 token，希望能给大家的学习和工作提供一点点便利，无需再花钱购买 OpenAI 的 API（也无需魔法）。
 
-![派聪明 AI 助手](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20250304094737.png)
+![派聪明 AI 助手](https://cdn.paicoding.com/stutymore/paicoding-20250304094737.png)
 
 [二哥编程星球](https://javabetter.cn/zhishixingqiu/)的付费用户绑定星球编号后就可以无限期使用！想体验的小伙伴也可以直接访问下面的网址，白嫖党每日也会有免费的使用次数，第二天重置（笑嘻嘻）。
 
@@ -28,7 +28,7 @@ head:
 
 派聪明 AI 助手属于技术派实战项目的一部分，该项目在 GitHub 上以后收获 2700+ star，品质可以说是有目共睹。
 
-![技术派在 GitHub 上也有 2700+star](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20250729185148.png)
+![技术派在 GitHub 上也有 2700+star](https://cdn.paicoding.com/stutymore/paicoding-20250729185148.png)
 
 
 > - 首页地址：[https://paicoding.com](https://paicoding.com)
@@ -36,25 +36,25 @@ head:
 
 如果你正在参加秋招，并且简历上没有什么亮眼的项目可以写，那么技术派绝对是一个非常优质的选择。星球里已经有不少球友把技术派写到简历上了，并且效果非常好，我这里随便举几个例子。
 
-![技术派如何写到简历上-模板 1](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172107.png)
+![技术派如何写到简历上-模板 1](https://cdn.paicoding.com/stutymore/01.什么是技术派-20240613172107.png)
 
-![技术派如何写到简历上-模板 2](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172634.png)
+![技术派如何写到简历上-模板 2](https://cdn.paicoding.com/stutymore/01.什么是技术派-20240613172634.png)
 
 除了这些，我又追加了很多亮点[供大家把技术派写到简历上](https://paicoding.com/column/6/16)，以解决大家不知道怎么去写简历的痛苦。
 
-![简历上的技术派写法：N 多种](https://cdn.tobebetterjavaer.com/stutymore/01.什么是技术派-20240613172734.png)
+![简历上的技术派写法：N 多种](https://cdn.paicoding.com/stutymore/01.什么是技术派-20240613172734.png)
 
 这是我们目前用到的一些主流技术栈（Spring Boot、MyBatis-Plus、Redis、Caffeine、ES、RabbitMQ、Docker、WebSocket、Kafka、JWT、SpringSecurity 等等），可以说非常强大了，都是互联网开发中主流的技术栈。
 
-![技术派使用到的技术栈](https://cdn.tobebetterjavaer.com/paicoding/5b5a782289c2d4edf99238628fca6803.png)
+![技术派使用到的技术栈](https://cdn.paicoding.com/paicoding/5b5a782289c2d4edf99238628fca6803.png)
 
 我的画图能力一般，但为了画出美观些的架构图，拼了老命了，兄弟姐妹们。
 
-![技术派的架构图](https://cdn.tobebetterjavaer.com/paicoding/6ba4bb5ce5a2ecfa983e99d9162faae4.png)
+![技术派的架构图](https://cdn.paicoding.com/paicoding/6ba4bb5ce5a2ecfa983e99d9162faae4.png)
 
 给大家展示一下[技术派上线当天](https://mp.weixin.qq.com/s/ywJ0v_BG32HeJ3NpkTvk2w)的好评吧，真的是如潮水一般汹涌！
 
-![一些朋友的支持](https://cdn.tobebetterjavaer.com/paicoding/30a8d5bdcfa7e6094dffb1ccb735521f.png)
+![一些朋友的支持](https://cdn.paicoding.com/paicoding/30a8d5bdcfa7e6094dffb1ccb735521f.png)
 
 除此之外，技术派还取得了以下这些小成绩：
 
@@ -62,15 +62,15 @@ head:
 
 2、凭借技术派的 GitHub 仓库，我拿到了[三个 JetBrains 的全家桶账号](https://mp.weixin.qq.com/s/Y3qYe-zlLcljNzpPJEFMYA)，价值 687 英镑，其中一个奖励给了星球的付费会员。
 
-![Intellij IDEA 官方给技术派颁发的激活码](https://cdn.tobebetterjavaer.com/paicoding/faff9fe6fdf939390ee01daa939c7f08.png)
+![Intellij IDEA 官方给技术派颁发的激活码](https://cdn.paicoding.com/paicoding/faff9fe6fdf939390ee01daa939c7f08.png)
 
 3、技术派开始得到越来越多的博主认可，并且他们愿意主动去推荐我们的项目，比如说大家应该都熟知的 JavaGuide 曾说：**技术派是我见过最强大的技术社区实战项目**。
 
-![JavaGuide 友情推荐](https://cdn.tobebetterjavaer.com/paicoding/74cd65baa42709b8ac3b76a997fe34fb.png)
+![JavaGuide 友情推荐](https://cdn.paicoding.com/paicoding/74cd65baa42709b8ac3b76a997fe34fb.png)
 
 4、已经有一些球友把技术派写到简历上，并且拿到了不错的 offer。
 
-![面试当中的一些话术](https://cdn.tobebetterjavaer.com/paicoding/9ab57a97238f9d196fd819eb8027ad01.png)
+![面试当中的一些话术](https://cdn.paicoding.com/paicoding/9ab57a97238f9d196fd819eb8027ad01.png)
 
 ## 01、技术派的界面
 
@@ -84,23 +84,23 @@ head:
 
 1）Admin 统计页
 
-![技术派-Admin统计页](https://cdn.tobebetterjavaer.com/stutymore/README-20230602150500.png)
+![技术派-Admin统计页](https://cdn.paicoding.com/stutymore/README-20230602150500.png)
 
 2）文章管理页：
 
-![技术派-文章管理页](https://cdn.tobebetterjavaer.com/stutymore/README-20230602154026.png)
+![技术派-文章管理页](https://cdn.paicoding.com/stutymore/README-20230602154026.png)
 
 3）专栏配置页：
 
-![技术派-专栏配置页](https://cdn.tobebetterjavaer.com/stutymore/README-20230602154222.png)
+![技术派-专栏配置页](https://cdn.paicoding.com/stutymore/README-20230602154222.png)
 
 4）教程详情页
 
-![技术派网站的教程详情页](https://cdn.tobebetterjavaer.com/paicoding/2e4661c22921b9a716243ed3d2ab95b9.png)
+![技术派网站的教程详情页](https://cdn.paicoding.com/paicoding/2e4661c22921b9a716243ed3d2ab95b9.png)
 
 6）文章留言区
 
-![技术派的文章留言区](https://cdn.tobebetterjavaer.com/paicoding/6c22eb0a573ac5a5ea3c41382e97a402.png)
+![技术派的文章留言区](https://cdn.paicoding.com/paicoding/6c22eb0a573ac5a5ea3c41382e97a402.png)
 
 ## 02、技术派能让你学到什么？
 
@@ -166,15 +166,15 @@ head:
 
 我们希望通过**技术派**这个项目打造一个闭环，既能帮大家提升项目经验、升职加薪，又能提升我们的技术影响力，还能增加我们原创教程的流量（典型的既要又要还要，有没有 😝）。
 
-![技术派的闭环](https://cdn.tobebetterjavaer.com/paicoding/d7c691d9c748ba4980fb14b7132929e8.png)
+![技术派的闭环](https://cdn.paicoding.com/paicoding/d7c691d9c748ba4980fb14b7132929e8.png)
 
 一个开源项目到底值不值得跟，commit 次数是一个很好的参考标准，技术派目前已经提交了 1000 多次。
 
-![技术派的 commit 次数](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20250729185312.png)
+![技术派的 commit 次数](https://cdn.paicoding.com/stutymore/paicoding-20250729185312.png)
 
 只要你本地安装好 JDK 8（以上版本均可），MySQL（5.x/8.x+），配置好 Maven，导入项目源码后，直接运行 main 方法就可以轻松在本地跑起来，你甚至不需要额外手动创建数据库，不用在浏览器地址栏键入 `127.0.0.1:8080`，只要轻轻一点控制台提供的链接就可以访问了。
 
-![技术派的启动页](https://cdn.tobebetterjavaer.com/paicoding/505cf19c993cda5b251b23bbecce2dd0.png)
+![技术派的启动页](https://cdn.paicoding.com/paicoding/505cf19c993cda5b251b23bbecce2dd0.png)
 
 这些琐事我们已经帮你做好了，省心吧？
 
@@ -184,27 +184,27 @@ head:
 
 为此，我们精心策划了 120 篇内容，共计 23 万字。
 
-![技术派教程的质量](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20250729185413.png)
+![技术派教程的质量](https://cdn.paicoding.com/stutymore/paicoding-20250729185413.png)
 
 先是大厂篇，由我们技术派团队的楼仔负责，目前均已完成，从点赞的人数就能看得出来，大家的认可度很高。
 
-![技术派-大厂篇教程](https://cdn.tobebetterjavaer.com/paicoding/f5bb7d73fbe8fb3355852e4e3493a2bc.png)
+![技术派-大厂篇教程](https://cdn.paicoding.com/paicoding/f5bb7d73fbe8fb3355852e4e3493a2bc.png)
 
 然后是基础篇，涉及到多配置文件、MyBatis-Plus、全局异常护理、跨域、过滤器、拦截器、监听器、session、Cookie、AOP、定时任务、邮件发送、事务、事件监听、图片上传、Guava、Caffeine、Redis、JWT 等，由二哥来负责，目前也均已完成。
 
-![技术派-基础篇教程](https://cdn.tobebetterjavaer.com/paicoding/1c5e1c7edfd188399e5a37e4c11afc0f.png)
+![技术派-基础篇教程](https://cdn.paicoding.com/paicoding/1c5e1c7edfd188399e5a37e4c11afc0f.png)
 
 接着是进阶篇，涉及到数据库连接池、公众号自动登录、SQL 执行日志、消息队列、缓存一致性、报警通知、Redis 分布式锁、xxl-job、kafka、ES 等等，由我们技术派团队的一灰和老闫来负责。
 
-![技术派-进阶篇教程](https://cdn.tobebetterjavaer.com/paicoding/5169009341d0acf241b5a546e4f0c077.png)
+![技术派-进阶篇教程](https://cdn.paicoding.com/paicoding/5169009341d0acf241b5a546e4f0c077.png)
 
 还有扩展篇、前端篇、工程篇，把整个 Java 后端的技术栈全部搞定。
 
-![技术派的整体教程思路](https://cdn.tobebetterjavaer.com/paicoding/c21bc3e9d6e64bfc89ed2ebf5e038478.png)
+![技术派的整体教程思路](https://cdn.paicoding.com/paicoding/c21bc3e9d6e64bfc89ed2ebf5e038478.png)
 
 看到这就想迫不及待地解锁技术派的全部教程，请扫下面的优惠券（或者长按自动识别）加入我们吧，[星球](https://javabetter.cn/zhishixingqiu/)目前定价 159 元/年，优惠完只需要 129 元，每天不到 0.35 元，绝对的超值。
 
-![技术派优惠券](https://cdn.tobebetterjavaer.com/stutymore/paicoding-星球优惠券.png)
+![技术派优惠券](https://cdn.paicoding.com/stutymore/paicoding-星球优惠券.png)
 
 超超超低价给到大家，你去其他机构对比一下，这种硬核的教程最起码要价 1999 元，我们现在只要 129 元，算是搞搞人气，另外，星球马上要 10000 人了，也要马上涨价到 169 元了。
 
@@ -221,41 +221,41 @@ head:
 
 1、整体设计草图
 
-![技术派-整体设计草图](https://cdn.tobebetterjavaer.com/paicoding/a2e2af3453a677ac69848d72c632cc16.png)
+![技术派-整体设计草图](https://cdn.paicoding.com/paicoding/a2e2af3453a677ac69848d72c632cc16.png)
 
 2、库表设计
 
-![技术派-库表设计](https://cdn.tobebetterjavaer.com/paicoding/9d8b1b3ff29736a3a8952cefb6c78a33.png)
+![技术派-库表设计](https://cdn.paicoding.com/paicoding/9d8b1b3ff29736a3a8952cefb6c78a33.png)
 
 3、产品方案
 
-![技术派-产品方案](https://cdn.tobebetterjavaer.com/paicoding/a868cfbf17b57a155d809f9f0ad5b304.png)
+![技术派-产品方案](https://cdn.paicoding.com/paicoding/a868cfbf17b57a155d809f9f0ad5b304.png)
 
 4、UI 设计
 
-![技术派-UI设计](https://cdn.tobebetterjavaer.com/paicoding/cc0c36ddc05604671c0ab657837c5ca4.png)
+![技术派-UI设计](https://cdn.paicoding.com/paicoding/cc0c36ddc05604671c0ab657837c5ca4.png)
 
 5、接口文档
 
-![技术派-接口文档](https://cdn.tobebetterjavaer.com/paicoding/976463cffcb46247f6c6c83425bdf454.png)
+![技术派-接口文档](https://cdn.paicoding.com/paicoding/976463cffcb46247f6c6c83425bdf454.png)
 
 6、进度排期
 
-![技术派-进度排期](https://cdn.tobebetterjavaer.com/paicoding/9b09f64bbac80b633da2255896304bfe.png)
+![技术派-进度排期](https://cdn.paicoding.com/paicoding/9b09f64bbac80b633da2255896304bfe.png)
 
 7、bug&优化
 
-![技术派-bug 优化](https://cdn.tobebetterjavaer.com/paicoding/9dce5d6ed0689e82a8119438de4ffcc7.png)
+![技术派-bug 优化](https://cdn.paicoding.com/paicoding/9dce5d6ed0689e82a8119438de4ffcc7.png)
 
 8、年度复盘
 
-![技术派-年度复盘](https://cdn.tobebetterjavaer.com/paicoding/bfbef7833225d5da24ebec60f2f01c9d.png)
+![技术派-年度复盘](https://cdn.paicoding.com/paicoding/bfbef7833225d5da24ebec60f2f01c9d.png)
 
 ## 05、如何学习？
 
 上述这些内容，以及详细的学习文档，都可以在「[星球](https://javabetter.cn/zhishixingqiu/)」的第一个置顶帖「球友必看」中找到语雀地址和密码。
 
-![星球置顶帖球友必看](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20240709101339.png)
+![星球置顶帖球友必看](https://cdn.paicoding.com/stutymore/paicoding-20240709101339.png)
 
 加入[「二哥的编程星球」](https://javabetter.cn/zhishixingqiu/)后，你还可以享受以下专属内容服务：
 
@@ -267,23 +267,23 @@ head:
 
 截止到 2025 年 07 月 29 日，已经有 9000+ 球友加入星球了，很多小伙伴在认真学习项目之后，都成功拿到了心仪的校招或者社招 offer，我就随便举两个例子。
 
-![大二美团、快手、tplink、拼多多](https://cdn.tobebetterjavaer.com/stutymore/readme-20250703180225.png)
+![大二美团、快手、tplink、拼多多](https://cdn.paicoding.com/stutymore/readme-20250703180225.png)
 
-![阿里云、荣耀、字节跳动、阿里国际](https://cdn.tobebetterjavaer.com/stutymore/readme-20250703180738.png)
+![阿里云、荣耀、字节跳动、阿里国际](https://cdn.paicoding.com/stutymore/readme-20250703180738.png)
 
-![度小满、专科生、国企](https://cdn.tobebetterjavaer.com/stutymore/readme-20250708090959.png)
+![度小满、专科生、国企](https://cdn.paicoding.com/stutymore/readme-20250708090959.png)
 
-![华为、小红书、美团](https://cdn.tobebetterjavaer.com/stutymore/readme-20250708090936.png)
+![华为、小红书、美团](https://cdn.paicoding.com/stutymore/readme-20250708090936.png)
 
 目前，技术派这个项目也基本收尾了，大家可以放心冲 😊。并且一次购买不需要额外付费，即可获取星球的所有付费资料，帮助你少走弯路，提高学习的效率。直接微信扫下面这个优惠券即可加入。
 
-![不仅是 2024 年也是 2025 年最大的优惠力度](https://cdn.tobebetterjavaer.com/stutymore/paicoding-星球优惠券.png)
+![不仅是 2024 年也是 2025 年最大的优惠力度](https://cdn.paicoding.com/stutymore/paicoding-星球优惠券.png)
 
 > 步骤 ①：微信扫描上方二维码，点击「加入知识星球」按钮
 
 > 步骤 ②：访问星球置顶帖球友必看：[https://t.zsxq.com/11rEo9Pdu](https://t.zsxq.com/11rEo9Pdu)，获取项目配套文档的语雀访问地址和密码
 
-![星球置顶帖球友必看](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20240709101339.png)
+![星球置顶帖球友必看](https://cdn.paicoding.com/stutymore/paicoding-20240709101339.png)
 
 加入星球需要多少钱呢？星球目前定价 159 元，限时优惠 30 元，目前只需要 129 元就可以加入。
 
@@ -295,21 +295,21 @@ head:
 
 再给大家展示一下技术派教程的部分目录吧，真的是满满的诚意和干货。
 
-![技术派教程-大厂篇](https://cdn.tobebetterjavaer.com/paicoding/ace847e363ed15310788aaf05945769c.png)
+![技术派教程-大厂篇](https://cdn.paicoding.com/paicoding/ace847e363ed15310788aaf05945769c.png)
 
-![技术派教程-基础篇](https://cdn.tobebetterjavaer.com/paicoding/7ee5423074407a14c50df81aff68abb9.png)
+![技术派教程-基础篇](https://cdn.paicoding.com/paicoding/7ee5423074407a14c50df81aff68abb9.png)
 
-![技术派教程-进阶篇](https://cdn.tobebetterjavaer.com/paicoding/c2d68bb128ec2071971330dc2e01f34b.png)
+![技术派教程-进阶篇](https://cdn.paicoding.com/paicoding/c2d68bb128ec2071971330dc2e01f34b.png)
 
 之前就有球友反馈说，“**二哥，你这套教程如果让培训机构来卖，1999 元都算少**！”
 
 讲真心话，129 元这个价格也不会持续很久，星球已经 9000 人了，马上 10000 人会迎来一波新的涨价（169 元），所以早买早享受，不要等，想好了就去冲，错过不能说后悔一辈子，但至少会有遗憾。
 
-![加入过星球的球友评价](https://cdn.tobebetterjavaer.com/paicoding/5c74945cb1c99f8cbabee8565df7ecf0.png)
+![加入过星球的球友评价](https://cdn.paicoding.com/paicoding/5c74945cb1c99f8cbabee8565df7ecf0.png)
 
 我们的代码，严格按照大厂的标准来，无论是整体的架构，还是具体的细节，都是无可挑剔的学习对象。
 
-![技术派的代码风格](https://cdn.tobebetterjavaer.com/stutymore/paicoding-20240428093034.png)
+![技术派的代码风格](https://cdn.paicoding.com/stutymore/paicoding-20240428093034.png)
 
 之前曾有球友问我：“二哥，你的星球怎么不定价 199、299 啊，我感觉星球提供的价值远超这个价格啊。”
 

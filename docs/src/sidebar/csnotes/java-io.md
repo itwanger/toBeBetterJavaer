@@ -16,11 +16,11 @@ GitHub 上有一个很知名的开源知识库《[CS-Notes](https://github.com/C
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 获取方式见下图（我用的 PC 端微信截图，手机端差不多）：
 
-![无任何套路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240605194117.png)
+![无任何套路](https://cdn.paicoding.com/stutymore/javase-20240605194117.png)
 
 附其他干货笔记下载地址：
 
@@ -98,7 +98,7 @@ public static void copyFile(String src, String dist) throws IOException {
 
 Java I/O 使用了装饰者模式来实现。
 
-![cyc2018：InputStream](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606165832.png)
+![cyc2018：InputStream](https://cdn.paicoding.com/stutymore/java-io-20240606165832.png)
 
 以 InputStream 为例：
 
@@ -181,7 +181,7 @@ public static void readFileContent(String filePath) throws IOException {
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 五、对象操作
 
@@ -298,7 +298,7 @@ public static void main(String[] args) throws IOException {
 
 ### Sockets
 
-![cyc2018：服务端和客户端模型](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606170549.png)
+![cyc2018：服务端和客户端模型](https://cdn.paicoding.com/stutymore/java-io-20240606170549.png)
 
 - ServerSocket：服务器端类
 - Socket：客户端类
@@ -366,23 +366,23 @@ I/O 包和 NIO 已经很好地集成了，java.io.\* 已经以 NIO 为基础重�
 
 ① 新建一个大小为 8 个字节的缓冲区，此时 position 为 0，而 limit = capacity = 8。capacity 变量不会改变，下面的讨论会忽略它。
 
-![cyc2018：limit = capacity](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180609.png)
+![cyc2018：limit = capacity](https://cdn.paicoding.com/stutymore/java-io-20240606180609.png)
 
 ② 从输入通道中读取 5 个字节数据写入缓冲区中，此时 position 为 5，limit 保持不变。
 
-![cyc2018：position 不变](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180749.png)
+![cyc2018：position 不变](https://cdn.paicoding.com/stutymore/java-io-20240606180749.png)
 
 ③ 在将缓冲区的数据写到输出通道之前，需要先调用 `flip()` 方法，这个方法将 limit 设置为当前 position，并将 position 设置为 0。
 
-![cyc2018：limit 和 position 重新改变](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180846.png)
+![cyc2018：limit 和 position 重新改变](https://cdn.paicoding.com/stutymore/java-io-20240606180846.png)
 
 ④ 从缓冲区中取 4 个字节到输出缓冲中，此时 position 设为 4。
 
-![cyc2018：读取 4 个字节](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180919.png)
+![cyc2018：读取 4 个字节](https://cdn.paicoding.com/stutymore/java-io-20240606180919.png)
 
 ⑤ 最后需要调用 `clear()` 方法来清空缓冲区，此时 position 和 limit 都被设置为最初位置。
 
-![cyc2018：恢复到初始状态](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606180948.png)
+![cyc2018：恢复到初始状态](https://cdn.paicoding.com/stutymore/java-io-20240606180948.png)
 
 推荐阅读：[详解Java NIO的Buffer缓冲区和Channel通道](https://javabetter.cn/nio/buffer-channel.html)
 
@@ -442,7 +442,7 @@ NIO 实现了 IO 多路复用中的 Reactor 模型，一个线程 Thread 使用�
 
 应该注意的是，只有 SocketChannel 才能配置为非阻塞，FileChannel 不能，为 FileChannel 配置非阻塞也没有意义。
 
-![CYC2018：IO 多路复用](https://cdn.tobebetterjavaer.com/stutymore/java-io-20240606181154.png)
+![CYC2018：IO 多路复用](https://cdn.paicoding.com/stutymore/java-io-20240606181154.png)
 
 #### 1. 创建选择器
 
@@ -645,4 +645,4 @@ NIO 与普通 I/O 的区别主要有以下两点：
 
 > 微信搜索《**沉默王二**》或者微信扫下面的二维码，关注后回复《**java**》即可获取最新的 PDF 版本。
 
-![手机端可以长按识别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![手机端可以长按识别](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

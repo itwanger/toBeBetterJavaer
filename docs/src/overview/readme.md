@@ -12,7 +12,7 @@ head:
       content: Java,Java SE,Java基础,Java教程,二哥的Java进阶之路,Java进阶之路,简介,github,pdf,二哥的Java进阶之路.pdf,Java进阶之路.pdf,java基础
 ---
 
-![](https://cdn.tobebetterjavaer.com/stutymore/README-20240130071411.png)
+![](https://cdn.paicoding.com/stutymore/README-20240130071411.png)
 
 
 以上就是《二哥的 Java 进阶之路》小册的封面了，自我感觉还不错哈，简洁大方，但包含的信息又足够的丰富：
@@ -37,7 +37,7 @@ head:
 
 噢噢噢噢，正是鄙人了，一个英俊潇洒的男人（见下图），你可以通过我的微信公众号“**沉默王二**”了解更多关于我的信息，总之，就是一个非常喜欢王小波的程序员了，写得一手风趣幽默的技术文章，所以被读者“尊称”为二哥就对了。现实中，三妹也是真实存在的哦。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/readme-ece0be3e-d176-447c-bff9-59d9f02c7a65.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/overview/readme-ece0be3e-d176-447c-bff9-59d9f02c7a65.jpg)
 
 《**二哥的 Java 进阶之路**》是我自学 Java 以来所有原创文章和学习资料的大聚合。[在线网站](https://javabetter.cn/)和 [GitHub 仓库](https://github.com/itwanger/toBeBetterJavaer)里的内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发（包括开发/构建/测试、JavaWeb、SSM、Spring Boot、Linux、Nginx、Docker、k8s、微服务&分布式、消息队列等）、Java 面试等核心内容。这也是小册最终版会覆盖的内容。
 
@@ -58,11 +58,11 @@ head:
 
 这里展示一下暗黑版的 PDF 视图，大家先感受一下，手绘图都画得非常用心。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411224013.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230411224013.png)
 
 这是 epub 版本的阅读效果，感觉左右翻动的效果好舒服，一次可以看两页，真的就像在读纸质版书籍一样，体验非常棒。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230412002314.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230412002314.png)
 
 如果你喜欢在线阅读，请戳下面这个网址：
 
@@ -70,11 +70,11 @@ head:
 
 首页见下图，同样简洁、清新、方便沉浸式阅读：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230411102619.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230411102619.png)
 
 你也可以到技术派的[教程栏（戳这里）](https://paicoding.com/column)里阅读，目前正在连载更新中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230410215012.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230410215012.png)
 
 >技术派是一个基于 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等技术栈实现的社区系统，采用主流的互联网技术架构、全新的UI设计、支持一键源码部署，拥有完整的文章&教程发布/搜索/评论/统计流程等，[代码完全开源（可戳）](https://github.com/itwanger/paicoding)，没有任何二次封装，是一个非常适合二次开发/实战的现代化社区项目👍 。
 
@@ -86,17 +86,17 @@ head:
 
 小册分为 3 个版本，暗黑版（适合夜服）、亮白版（适合打印）、epub 版，可以说凝聚了二哥十多年来学习 Java 的心血，33 万+ 字，500+张手绘图，绝对不虚市面上任何一本 Java 实体书！
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-wecom-temp-cbe8e183acdd8daa542c94ab7f4a7eec.png)
+![](https://cdn.paicoding.com/stutymore/readme-wecom-temp-cbe8e183acdd8daa542c94ab7f4a7eec.png)
 
 小册会持续保持**更新**，如果想获得最新版，请在我的微信公众号 **沉默王二** 后台回复 **222** 获取（你懂我的意思吧，我肯定是足够二才有这样的勇气定义这样一个关键字）！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 
 ## 面试指南（配套教程）
 
 《Java 面试指南》是[二哥编程星球的](https://javabetter.cn/zhishixingqiu/)的一个付费专栏，和《Java 进阶之路》上的内容可以形成很好的互补，截止到目前，已经更新 48 万字，可以说是满满的干货和诚意。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/readme-20230904113349.png)
+![](https://cdn.paicoding.com/stutymore/readme-20230904113349.png)
 
 一共分为 6 大板块，对面试、职场、技术、学习都会帮助特别大。
 
@@ -111,46 +111,46 @@ head:
 
 所谓临阵磨枪，不快也光。更何况提前做好充足的准备呢？这 25+篇内容会系统地引导你该如何做好面试准备。涉及到的主题有：简历、源码、LeetCode、项目经验、开源项目、高并发、证书、和 HR 对线、国企名单、公司投递名单、银行、谈薪等等面试常见问题。
 
-![如何准备面试](https://cdn.tobebetterjavaer.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
+![如何准备面试](https://cdn.paicoding.com/paicoding/8f43c95b9c03f786f42e314d84842564.png)
 
 
-![如何写好简历](https://cdn.tobebetterjavaer.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
+![如何写好简历](https://cdn.paicoding.com/paicoding/d2770ebcf6433388f802d5bdd2db83f3.png)
 
 
-![秋招投递名单](https://cdn.tobebetterjavaer.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
+![秋招投递名单](https://cdn.paicoding.com/paicoding/c3e2e95606aa42f520bcffbb89807fbf.png)
 
 
 ### 02、职场修炼篇
 
 如何平滑度过试用期？如何平滑度过 35 岁程序员危机？如何在繁重的工作中持续成长？如何做副业？如何赚零花钱？如何达到 30 万+年薪等等，都是大家迫切关心的问题，这 11+篇内容会一一为你揭晓答案。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
+![](https://cdn.paicoding.com/paicoding/398dad8b63a4d1fe0998187bf02ec8f5.png)
 
 ### 03、技术提升篇
 
 编程能力、技术功底，是我们程序员安身立命之本，是我们求职/工作的最核心的武器。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
+![](https://cdn.paicoding.com/paicoding/0b2b08709ff2bfc7fefaa7d079760381.png)
 
 ### 04、面经分享篇
 
 知彼知己，方能百战不殆，我们必须得站在前辈的肩膀上，才能走得更远更快。他们在面试中遇到过哪些经典的问题，我们能不能提前演练一下，对临场发挥有着至关重要的作用。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
+![](https://cdn.paicoding.com/paicoding/200dac9430e454dafc42551d531c4bb1.png)
 
 ### 05、场景设计题篇
 
 有些面试官不喜欢问八股文，反而更喜欢结合项目问一些非常经典的场景题，这种场景题没有标准的答案，但却很能考察一名求职者的逻辑思维能力。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
+![](https://cdn.paicoding.com/paicoding/3a11266fb00df1b1e2c7e9283a82f0bb.png)
 
 ## 更多优质专栏
 
 除了《Java 面试指南》专栏，[二哥编程星球](https://javabetter.cn/zhishixingqiu/)还提供了：《技术派实战教程》、《编程喵实战笔记》、《二哥的 LeetCode 刷题笔记》、《算法突击 50 题》、《华为 OD 笔试 AB 卷题库》等五个额外的专栏。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/bad32e202fd78ffb5555f2114de01eae.png)
+![](https://cdn.paicoding.com/paicoding/bad32e202fd78ffb5555f2114de01eae.png)
 
 ### 01、技术派实战教程
 
@@ -158,35 +158,35 @@ head:
 
 下面是《技术派教程》部分目录（包括大厂篇、基础篇、进阶篇、工程篇、扩展篇、前端篇，目前已完成 80+篇），很多球友都反馈说光这套教程就值 599 元。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/acdb224f141042a6c1c3990c794f7048.png)
+![](https://cdn.paicoding.com/paicoding/acdb224f141042a6c1c3990c794f7048.png)
 
 ### 02、编程喵实战笔记
 
 编程喵是一套成熟的学习教程网站，包括前台网站内容展示系统，以及后台网站内容管理系统，采用时下最流行的 Spring Boot + Vue 的前后端分离架构。配套的教程可以带你完成从小白到初级工程师的蜕变。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/3e64d96c828c65af6f2b6ea3c8be4b4c.png)
+![](https://cdn.paicoding.com/paicoding/3e64d96c828c65af6f2b6ea3c8be4b4c.png)
 
 
 ### 03、二哥的 LeetCode 刷题笔记
 
 《二哥的 LeetCode 刷题笔记》，不仅有详细地解题思路，还有完整的代码示例，力求教会你举一反三的解题能力。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/65f3dde54f15962b51f5ea4c1ecfea65.png)
+![](https://cdn.paicoding.com/paicoding/65f3dde54f15962b51f5ea4c1ecfea65.png)
 
 ### 04、算法突击 50 题
 
 准备秋招/春招/社招的小伙伴不少，但往往时间比较紧张，很多小伙伴精力有限，所以我这里精选了 50 道高频算法题，作为笔试的重点突击题型，可以在短时间内最大效率地提升你的笔试通过率。
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/2cc34d528c2cddc50f768f1a0774ed59.png)
+![](https://cdn.paicoding.com/paicoding/2cc34d528c2cddc50f768f1a0774ed59.png)
 
 
 ### 05、华为 OD 笔试 AB 卷题库
 
 LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机考使用的是 ACM 模式，也就是需要手动编写输入输出的模式，更贴近机考的真实场景，所以我这里整理了一套完整的 AB 卷题库，帮助大家在最短的时间内快速提升机考的通过率。
 
-![](https://cdn.tobebetterjavaer.com/paicoding/cb1f91b3dd7397052c5e93dba914e140.png)
+![](https://cdn.paicoding.com/paicoding/cb1f91b3dd7397052c5e93dba914e140.png)
 
 ## 星球限时优惠
 
@@ -196,7 +196,7 @@ LeetCode 的模式是你只需要输入核心代码就可以了，华为 OD 机�
 
 目前星球已经 6000+ 人了，所以星球门票也要从 149 元涨价到 159 元，想加入的小伙伴一定要趁早。你可以微信扫码或者长按自动识别领取 30 元优惠券，目前还可以按照最低价 **119/年** 加入。
 
-![微信扫码或者长按识别](https://cdn.tobebetterjavaer.com/stutymore/readme-itwanger-zsxq.png)
+![微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/readme-itwanger-zsxq.png)
 
 对了，**加入星球后记得花 10 分钟时间看一下星球的两个置顶贴，你会发现物超所值**！
 

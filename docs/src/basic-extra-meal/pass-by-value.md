@@ -47,7 +47,7 @@ age 是基本类型，值就保存在变量中，而 name 是引用类型，变�
 
 “画幅图。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/pass-by-value-01.png)
 
 当用 = 赋值运算符改变 age 和 name 的值时。
 
@@ -60,7 +60,7 @@ name = "三妹";
 
 对于引用类型 name，赋值运算符会改变对象引用中保存的地址，原来的地址被覆盖，但原来的对象不会被覆盖。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/pass-by-value-02.png)
 
 “三妹，注意听，接下来，我们来说说基本数据类型的参数传递。”
 
@@ -129,11 +129,11 @@ class ReferenceTypeDemo {
 
 在调用 `modify()` 方法的时候，形参 name1 复制了 name 的地址，指向的是堆中“二哥”的位置。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/pass-by-value-03.png)
 
 当 `modify()` 方法调用结束后，改变了形参 name1 的地址，但 `main()` 方法中 name 并没有发生改变。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/pass-by-value-04.png)
 
 总结：
 
@@ -150,5 +150,5 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
 

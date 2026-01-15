@@ -35,7 +35,7 @@ final int age = 18;
 
 “当尝试将 age 的值修改为 30 的时候，编译器就生气了。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/keywords/23-01.png)
 
 “再来看这段代码。”
 
@@ -63,7 +63,7 @@ final Pig pig = new Pig();
 
 “如果尝试将 pig 重新赋值的话，编译器同样会生气。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/keywords/23-02.png)
 
 “但我们仍然可以去修改 pig 对象的 name。”
 
@@ -75,7 +75,7 @@ System.out.println(pig.getName()); // 特立独行
 
 “另外，final 修饰的成员变量必须有一个默认值，否则编译器将会提醒没有初始化。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/keywords/23-03.png)
 
 “final 和 static 一起修饰的成员变量叫做常量，常量名必须全部大写。”
 
@@ -102,7 +102,7 @@ public class ArgFinalTest {
 
 “如果尝试去修改它的话，编译器会提示以下错误。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/keywords/23-04.png)
 
 ### 02、final 方法
 
@@ -129,7 +129,7 @@ public class Actor {
 
 “当我们想要重写该方法的话，就会出现编译错误。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-05.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/keywords/23-05.png)
 
 
 “三妹，来问你一个问题吧。”正想趁三妹回答问题的时候喝口水。
@@ -190,7 +190,7 @@ public final class Writer {
 
 “尝试去继承它，编译器会提示以下错误，Writer 类是 final 的，无法继承。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/23-06.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/keywords/23-06.png)
 
 “不过，类是 final 的，并不意味着该类的对象是不可变的。”
 
@@ -227,4 +227,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

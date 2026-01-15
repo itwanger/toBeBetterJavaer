@@ -84,7 +84,7 @@ public class TryCatchTest {
 
 我懒得跟他BB，直接开始了 benchmark，跑的结果如下：
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326204136.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326204136.png)
 
 可以看到，两者的性能（数字越大越好）其实差不多：551063.024 VS 551525.861。
 
@@ -109,11 +109,11 @@ public class TryCatchTest {
 
 >第二步，Intellij IDEA 中安装 JMH 插件。
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326200811.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326200811.png)
 
 >第三步，在代码编辑器中点击这个带有时间和运行的图标。然后静静等待结果就可以了，我本机（32G 内存 Intel i7 跑了 16 分钟，贼慢，因为 JMH 比较喜欢追求公平公正😂）
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326200922.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326200922.png)
 
 老王一看傻了：“说好的性能影响呢？怎么没了？”
 
@@ -123,13 +123,13 @@ public class TryCatchTest {
 
 异常表记录的是 0 - 20 行，如果这些行里面的代码出现问题，直接跳到 23 行处理。
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326202911.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326202911.png)
 
 > fortry 的字节码
 
 差别也就是异常表的范围小点，包的是 9-14 行，其它跟 tryfor 都差不多。
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326203005.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326203005.png)
 
 所以从字节码层面来看，没抛错两者的执行效率其实没啥差别。
 
@@ -137,7 +137,7 @@ public class TryCatchTest {
 
 这个说法确实有，在《Effective Java》这本书里就提到了 `try-catch` 性能问题：
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326203449.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326203449.png)
 
 正所谓听话不能听一半，以前读书时候最怕的就是一知半解，因为完全理解选择题能选对，完全不懂蒙可能蒙对，一知半解必定选到错误的选项！
 
@@ -188,7 +188,7 @@ public class TryCatchTest1 {
 
 结果如下：
 
-![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326210303.png)
+![](https://cdn.paicoding.com/studymore/try-catch-xingneng-20230326210303.png)
 
 +-差不多，直接看前面的分数对比，没有 `try-catch` 的性能确实好些，这也和书中说的 `try-catch` 会影响 JVM 一些特定的优化说法吻合，但是具体没有说影响哪些优化，我猜测可能是指令重排之类的。
 
@@ -213,4 +213,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

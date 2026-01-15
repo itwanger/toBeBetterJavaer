@@ -19,7 +19,7 @@ head:
 
 下面是一张简化的网络拓扑图。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/network-base-20230330181204.png)
+![](https://cdn.paicoding.com/stutymore/network-base-20230330181204.png)
 
 - 用户设备：Laptop，用于访问网络资源。
 - 网络交换机：Switch，用于连接局域网内的设备，例如 Laptop 和 Router。
@@ -110,7 +110,7 @@ Address: 47.98.33.223
 
 互联网实际使用的 TCP/IP 模型并不是对应到 OSI 的 7 层模型，而是大致对应 OSI 的 5 层模型：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/network-base-20230330184256.png)
+![](https://cdn.paicoding.com/stutymore/network-base-20230330184256.png)
 
 ### 常用协议
 
@@ -122,11 +122,11 @@ TCP（传输控制协议）和 IP（互联网协议）通常一起使用，被�
 
 TCP/IP 协议栈分为四层：应用层、传输层、网络层和链路层。IP 协议位于网络层，负责将数据包从源主机路由到目标主机；TCP 协议位于传输层，负责在源主机和目标主机之间建立可靠的连接并确保数据的有序传输。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/network-base-20230330185529.png)
+![](https://cdn.paicoding.com/stutymore/network-base-20230330185529.png)
 
 UDP 协议（User Datagram Protocol）是一种数据报文协议，它是无连接协议，不保证可靠传输。因为 UDP 协议在通信前不需要建立连接，因此它的传输效率比 TCP 高，而且 UDP 协议比 TCP 协议要简单得多。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/network-base-20230330190328.png)
+![](https://cdn.paicoding.com/stutymore/network-base-20230330190328.png)
 
 选择 UDP 协议时，传输的数据通常是能容忍丢失的，例如，一些语音视频通信的应用会选择 UDP 协议。
 
@@ -152,4 +152,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

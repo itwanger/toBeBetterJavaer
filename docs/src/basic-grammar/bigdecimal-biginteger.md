@@ -30,7 +30,7 @@ BigDecimal bigDecimal = new BigDecimal("3.1415926");
 
 运行代码进入`Idea`的`Debug`模式后，可以看到如下内容：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin//zhangwbigdecimalxjqyljzjsj-d87c0e82-6ab7-479f-a5fb-6a1c863f5d76.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin//zhangwbigdecimalxjqyljzjsj-d87c0e82-6ab7-479f-a5fb-6a1c863f5d76.jpg)
 
 不难发现，对于`BigDecimal`对象而言其内部有 **「`intVal、scal、precision、stringCache、initCompact`等五个重要属性。」**   进一步，翻开`BigDecimal`源码，可以看到这五个属性各自对应的类型：
 
@@ -51,7 +51,7 @@ public class BigDecimal extends Number implements Comparable<BigDecimal> 
 
 具体来看,**「`intVal`为一个`BigInteger`对象,其主要用于保存超出基本类型的数值。」** 例如：对于`Long`数据类型来看，其最大类型为`0x7fffffffffffffff`即`9223372036854775807`。因此如下的赋值`BigDecimal bigDecimal = new BigDecimal("9223372036854775808")`其已然超出了`Java`中基础类型所能表示的范围，而此时在`bigDecimal`对象中，其内部的`intVal`如下所示，不难发现`9223372036854775808`被赋值给`intVal`。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin//zhangwbigdecimalxjqyljzjsj-5d30da6f-c6a4-44cc-9919-8827d027269c.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin//zhangwbigdecimalxjqyljzjsj-5d30da6f-c6a4-44cc-9919-8827d027269c.jpg)
 
 明白了`BigDecimal`中`intVal`属性的存储规则后，再来看其中的`scale、precision`所标示的含义。**「其中`scale`表示小数点后的位数而`precision`则代表`BigDecimal`中数据的总位数，即包括整数和小数部分。」**
 

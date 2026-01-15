@@ -42,7 +42,7 @@ spring:
 
 第三步，导入 SQL 文件。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-3a1794fa-7c6b-4499-9c7d-a69e088c28fe.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/mybatis-3a1794fa-7c6b-4499-9c7d-a69e088c28fe.png)
 
 
 第四步，新建 User.java 实体类。
@@ -226,7 +226,7 @@ public interface PostMapper {
 
 接口中方法对应的 SQL 直接写在 xml 文件中，具体位置见下图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-cc8515b1-e501-41e2-8dea-7612022e1bb7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/mybatis-cc8515b1-e501-41e2-8dea-7612022e1bb7.png)
 
 
 也可以看文件放在和 PostMapper.java 接口同级的目录下，但是这样会带来一个问题，就是 Maven 打包的时候默认会忽略 xml 文件，所以为了避免这种情况发生，我们需要在 pom.xml 文件中添加配置：
@@ -359,7 +359,7 @@ public class PostTag {
 
 对应的数据库表为 post-tag。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-d4471207-9284-43bf-b1aa-50bbc6001a9f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/mybatis-d4471207-9284-43bf-b1aa-50bbc6001a9f.png)
 
 
 可以看得出，类名 PostTag，字段名 postTagId 和数据库表 post_tag、字段名 post_tag_id 并不一致，但 mp 自动帮我们做了映射关联。
@@ -372,7 +372,7 @@ public interface PostTagMapper extends BaseMapper<PostTag> {}
 
 BaseMapper里提供的方法如下：
 
-![image.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-79ac66eb-25fd-44a0-8668-359d1b95b80d.png)
+![image.png](https://cdn.paicoding.com/tobebetterjavaer/images/springboot/mybatis-79ac66eb-25fd-44a0-8668-359d1b95b80d.png)
 
 
 第三步，在测试类中添加查询方法。
@@ -391,4 +391,4 @@ BaseMapper里提供的方法如下：
 
 ---
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

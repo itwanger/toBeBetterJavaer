@@ -49,11 +49,11 @@ compareAndSetState()
 
 AQS 内部使用了一个先进先出（FIFO）的[双端队列](https://javabetter.cn/collection/arraydeque.html)，并使用了两个引用 head 和 tail 用于标识队列的头部和尾部。其数据结构如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/aqs-c294b5e3-69ef-49bb-ac56-f825894746ab.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/thread/aqs-c294b5e3-69ef-49bb-ac56-f825894746ab.png)
 
 但它并不直接储存线程，而是储存拥有线程的 Node 节点。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/aqs-20230805211157.png)
+![](https://cdn.paicoding.com/stutymore/aqs-20230805211157.png)
 
 ## AQS 的 Node 节点
 
@@ -178,7 +178,7 @@ protected boolean tryAcquire(int arg) {
 
 这里不使用抽象方法的目的是：避免强迫子类中把所有的抽象方法都实现一遍，减少无用功，这样子类只需要实现自己关心的抽象方法即可，比如 [信号 Semaphore](https://javabetter.cn/thread/CountDownLatch.html) 只需要实现 tryAcquire 方法而不用实现其余不需要用到的模版方法：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/aqs-20230805211732.png)
+![](https://cdn.paicoding.com/stutymore/aqs-20230805211732.png)
 
 而 AQS 实现了一系列主要的逻辑。下面我们从源码来分析一下获取和释放资源的主要逻辑：
 
@@ -298,7 +298,7 @@ LockSupport 类是 Java 6 引入的一个类，提供了基本的线程同步原
 
 总结起来的一个流程图：
 
-![acquire流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/aqs-a0689bb2-9b18-419d-9617-6d292fbd439d.jpg)
+![acquire流程](https://cdn.paicoding.com/tobebetterjavaer/images/thread/aqs-a0689bb2-9b18-419d-9617-6d292fbd439d.jpg)
 
 ### 释放资源
 
@@ -429,4 +429,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

@@ -10,7 +10,7 @@ shortTitle: MySQL 表的增删改查
 
 查看当前数据库中的所有表，可以使用 `show tables;` 命令。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127180015.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127180015.png)
 
 由于当前数据库中还没有表，所以输出 `Empty set`。
 
@@ -24,7 +24,7 @@ shortTitle: MySQL 表的增删改查
 show tables from itwanger;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127183044.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127183044.png)
 
 >可以在建表后再尝试哈。
 
@@ -64,11 +64,11 @@ create table article(
 
 执行上述语句后，可以使用 `show tables;` 命令查看当前数据库中的所有表，可以看到，已经创建了一张 article 表。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127180502.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127180502.png)
 
 当然了，实际工作中，我们可能不会直接通过 SQL 语句来创建表，而是通过一些建表的工具，比如说 Navicat、DataGrip 等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127180836.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127180836.png)
 
 以及 PowerDesigner、chiner 这种建模工具，关于工具的使用，可以戳这篇帖子：
 
@@ -106,7 +106,7 @@ create table article(
 
 由于之前 article 表已经创建了，这时候再执行上述语句，就会报错 `Table 'article' already exists`：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127181331.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127181331.png)
 
 为了避免这种情况，我们可以在建表的时候，先判断表是否存在，如果不存在，再创建表，语法如下：
 
@@ -142,7 +142,7 @@ drop table 表名;
 
 同样的，在删表的时候尽量眨眨眼😂，看看自己是不是被坏人给控制了，否则又是“删库跑路”的悲剧。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127181740.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127181740.png)
 
 同样，在删除表的时候也可以加上 `if exists`，语法如下：
 
@@ -164,11 +164,11 @@ drop table if exists 表名;
 
 结果都是一样的，大家可以根据自己的喜好，记住其中的一个就行了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127182413.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127182413.png)
 
 还有一个命令 `show create table 表名;`，可以查看建表语句。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127182525.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127182525.png)
 
 关于[表的数据类型](https://javabetter.cn/mysql/data-type.html)，比如说 int、varchar、datetime 等，这些我们会留到后面的章节来讲。
 
@@ -184,7 +184,7 @@ show create table itwanger.article;
 show create table itwanger.article \G;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127183428.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127183428.png)
 
 ## 改表
 
@@ -212,7 +212,7 @@ alter table 表名 add 列名 数据类型;
 alter table article add update_time datetime;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127195547.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127195547.png)
 
 #### 增加字段的位置
 
@@ -222,7 +222,7 @@ alter table article add update_time datetime;
 alter table article add update_time datetime after create_time;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127195838.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127195838.png)
 
 ### 删除字段
 
@@ -272,7 +272,7 @@ alter table 表名 change 原列名 新列名 数据类型;
 alter table article change title article_title varchar(100);
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127200813.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127200813.png)
 
 ### 修改表名
 
@@ -288,7 +288,7 @@ alter table 原表名 rename 新表名;
 alter table article rename article_info;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127200946.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127200946.png)
 
 ## 技术派的表设计
 
@@ -296,7 +296,7 @@ alter table article rename article_info;
 
 [二哥的原创实战项目技术派详细介绍](https://javabetter.cn/zhishixingqiu/paicoding.html)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127201143.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127201143.png)
 
 整个库表的设计，首先要先厘清楚业务和需求，然后再进行设计，这样才能做到合理、高效。
 
@@ -306,7 +306,7 @@ alter table article rename article_info;
 
 [二哥的原创实战项目技术派详细介绍](https://javabetter.cn/zhishixingqiu/paicoding.html)
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127203938.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127203938.png)
 
 >[Liquibase](https://www.liquibase.org/) 提供了一种结构化和系统化的方法来管理数据库架构的更改。它通过变更日志和变更集来控制数据库的状态变化，确保了数据库架构变更的可追溯性、可重复性和一致性，同时也支持跨团队的协作。适用于持续集成和持续部署的环境。
 
@@ -402,11 +402,11 @@ initializer.afterPropertiesSet();
 
 执行该测试类后，可以在控制台看到对应的日志信息。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127214129.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127214129.png)
 
 然后通过 `show tables;` 命令，可以看到数据库中已经创建了对应的表。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/table-20240127214230.png)
+![](https://cdn.paicoding.com/stutymore/table-20240127214230.png)
 
 源码地址：[技术派的表初始化](https://github.com/itwanger/paicoding/blob/main/paicoding-web/src/test/java/com/github/paicoding/forum/test/mysql1/ForumDataSourceInitializerTest.java)
 
@@ -425,4 +425,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -76,7 +76,7 @@ head:
 
 ### **2.1 服务结构设计**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-cdf44a4a-f648-49f0-bebe-686c4a66d2fd.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-cdf44a4a-f648-49f0-bebe-686c4a66d2fd.jpg)
 
 ### **2.2 优惠券系统设计技术难点**
 
@@ -107,15 +107,15 @@ head:
 
 优惠券的使用有规则和条件限制，比如满100减50券，需要达到门槛金额100元才能使用。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-638df6ed-12f8-4a20-8c58-89051bc9376a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-638df6ed-12f8-4a20-8c58-89051bc9376a.jpg)
 
 **券批次表 coupon\_batch**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-c4d8f639-328b-42b9-94b0-5e15b8eee784.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-c4d8f639-328b-42b9-94b0-5e15b8eee784.jpg)
 
 **规则表 rule：**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-b2383938-ffbc-4686-808c-908ab11e4b2b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-b2383938-ffbc-4686-808c-908ab11e4b2b.jpg)
 
 **规则内容：**
 
@@ -178,9 +178,9 @@ VALUES(“劳斯莱斯5元代金券”, 1010, 10000);
 
 ### **3.3 发券**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-066459b1-1271-468e-9e45-c409b6298144.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-066459b1-1271-468e-9e45-c409b6298144.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-a448c453-8b50-4af8-a913-bda03a6c6f97.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-a448c453-8b50-4af8-a913-bda03a6c6f97.jpg)
 
 ##### **如何给大量用户发券？**
 
@@ -219,11 +219,11 @@ comment '信息表';
 
 **信息表 message**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-19c6ce5d-8e83-4552-902d-5d28cd17a7be.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-19c6ce5d-8e83-4552-902d-5d28cd17a7be.jpg)
 
 **信息内容表 message\_content**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-e04b414f-6b41-4882-8324-208715b52284.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-e04b414f-6b41-4882-8324-208715b52284.jpg)
 
 #### **发一封站内信的步骤**
 
@@ -271,7 +271,7 @@ create table t_message_content
 
 #### **给 10W 用户发券**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-e6134270-a52f-4579-a200-e0c0e4c13c82.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-e6134270-a52f-4579-a200-e0c0e4c13c82.jpg)
 
 有什么问题？重复消费，导致超发！
 
@@ -318,7 +318,7 @@ UPDATE coupon_batch SET total_count = total_count - 1,
 
 用户领券过程中，其实也会出现类似秒杀场景。秒杀场景下会有哪些问题，如何解决？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-8367d61b-2a12-4225-9fc2-586a1baac77d.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-8367d61b-2a12-4225-9fc2-586a1baac77d.jpg)
 
 #### **用户重复领取或多领**
 
@@ -361,7 +361,7 @@ SADD batch_id:1111:user_id 1001
 
 ### **返回可用券**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-182ea6b8-4702-4f01-b3dd-f9636815863f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-182ea6b8-4702-4f01-b3dd-f9636815863f.jpg)
 
 ```
 SELECT batch_id FROM coupon WHERE user_id = 1001 AND status = 0;
@@ -371,11 +371,11 @@ SELECT name, type, rule_content FROM rule WHERE rule_id = 1010;
 
 ### 选择可用券，并返回结果
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-3d50a63e-2c1a-413b-9143-f808dcc4e0da.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-3d50a63e-2c1a-413b-9143-f808dcc4e0da.jpg)
 
 ### **同时操作多个服务，如何保证一致性？**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-3b30f2df-fd77-4265-b655-31a82028505e.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-3b30f2df-fd77-4265-b655-31a82028505e.jpg)
 
 ### **表设计**
 
@@ -411,7 +411,7 @@ TCC，Try-Confirm-Cancel，目前分布式事务主流解决方案。
 
 支付失败/超时或订单关闭情况，将优惠券状态改为 “未使用”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-c6a77fdf-4f4d-4082-92a7-c2cd11aba686.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-c6a77fdf-4f4d-4082-92a7-c2cd11aba686.jpg)
 
 
 ## 4 Scale 扩展
@@ -459,9 +459,9 @@ alter table t_notify_msg
 
 ### **4.2 数据库层面优化 - 索引**
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-9e10c3cb-d0af-4b0e-a2f9-3da2fe7e72f1.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-9e10c3cb-d0af-4b0e-a2f9-3da2fe7e72f1.jpg)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-8df5b954-9e5a-445d-882f-f91616fee662.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-8df5b954-9e5a-445d-882f-f91616fee662.jpg)
 
 ### **4.3 发券接口，限流保护**
 
@@ -469,7 +469,7 @@ alter table t_notify_msg
 
 点击一次后，按钮短时间内置灰
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-d2d8684d-9488-4543-9b2b-8e7559c8e625.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-d2d8684d-9488-4543-9b2b-8e7559c8e625.jpg)
 
 #### **后端限流**
 
@@ -485,4 +485,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

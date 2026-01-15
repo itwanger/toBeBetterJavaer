@@ -45,7 +45,7 @@ private transient volatile Node<E> head;
 private transient volatile Node<E> tail;
 ```
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ConcurrentLinkedQueue-20230817191905.png)
+![](https://cdn.paicoding.com/stutymore/ConcurrentLinkedQueue-20230817191905.png)
 
 说明 ConcurrentLinkedQueue 通过持有头尾两个引用来进行队列管理。当我们调用无参构造方法时，其源码如下：
 
@@ -57,7 +57,7 @@ public ConcurrentLinkedQueue() {
 
 head 和 tail 会指向同一个节点，此时 ConcurrentLinkedQueue 的状态如下图所示：
 
-![ConcurrentLinkedQueue初始化状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-01.png)
+![ConcurrentLinkedQueue初始化状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-01.png)
 
 head 和 tail 指向同一个节点 Node0，该节点的 item 字段为 null，next 字段也为 null。
 
@@ -80,7 +80,7 @@ boolean casNext(Node<E> cmp, Node<E> val) {
 
 可以看出，这些方法实际上调用的是 UNSAFE 的方法：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/ConcurrentLinkedQueue-20230817160523.png)
+![](https://cdn.paicoding.com/stutymore/ConcurrentLinkedQueue-20230817160523.png)
 
 `sun.misc.Unsafe` 是 Java 内部的一个类，它提供了一组可以直接访问底层资源和操作内存的方法。这个类的功能非常强大，因为它允许程序绕过 Java 的访问控制和安全检查，直接执行底层操作。
 
@@ -195,7 +195,7 @@ public boolean offer(E e) {
 
 CAS 操作成功走到第 8 行，此时 p==t，if 判断为 false，直接 return true 返回。如果成功插入 1 的话，此时 ConcurrentLinkedQueue 的状态如下图所示：
 
-![offer 1后队列的状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-02.png)
+![offer 1后队列的状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-02.png)
 
 此时队列的尾节点应该是 Node1，而 tail 指向的节点依然是 Node0，因此可以说明 tail 是延迟更新的。
 
@@ -213,11 +213,11 @@ p = (p != t && t != (t = tail)) ? t : q;
 
 在第一次循环中，p 指向了队列真正的尾节点 Node1，那么在下一次循环中，第 4 行 q 指向的节点为 null，那么第 5 行 if 判断则为 true，第 7 行依然通过 casNext 设置 p 节点的 next 为当前新增的 Node，接下来走到第 8 行，这个时候 p!=t，第 8 行 if 判断为 true，会通过`casTail(t, newNode)`将当前节点 Node 设置为队列的尾节点，此时的队列的状态示意图如下图所示：
 
-![队列offer 2后的状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-03.png)
+![队列offer 2后的状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-03.png)
 
 **tail 指向的节点由 Node0 变为 Node2**，这里的 casTail 是不需要重试的，原因是，offer 主要是通过 p 的 next 节点 q（`Node<E> q = p.next`）决定后面的逻辑走向，casTail 失败时状态示意图如下：
 
-![队列进行入队操作后casTail失败后的状态图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-04.png)
+![队列进行入队操作后casTail失败后的状态图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-04.png)
 
 **如果 casTail 更新 tail 失败，即 tail 还是指向 Node0 节点，无非就是多循环几次，通过第 13 行代码定位到尾节点**。
 
@@ -235,7 +235,7 @@ p = (p != t && t != (t = tail)) ? t : q;
 
 由于 `t != (t = tail)` 这个操作**并非一个原子操作**，所以就有这样一种情况：
 
-![线程A和线程B有可能的执行时序](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-05.png)
+![线程A和线程B有可能的执行时序](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-05.png)
 
 假设线程 A 此时读取了变量 t，线程 B 刚好在这个时候 offer 一个 Node，此时会修改 tail，那么线程 A 再次执行 t=tail 时，t 会指向另外一个节点，很显然线程 A 前后两次读取的变量 t 指向的节点不同，即`t != (t = tail)`为 true，并且由于 t 节点的变化，`p != t`也为 true，此时该行代码的执行结果是：p 和 t 都指向了同一个节点，并且 t 也是队列真正的尾节点。也就是说，现在已经定位到队列真正的尾节点，可以执行 offer 操作了。
 
@@ -323,7 +323,7 @@ public E poll() {
 
 假设 ConcurrentLinkedQueue 初始状态如下图所示：
 
-![队列初始状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-06.png)
+![队列初始状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-06.png)
 
 参数 offer 时的定义，我们将**变量 p 作为要删除的头节点，h（head）并不一定是队列的头节点**。
 
@@ -333,7 +333,7 @@ public E poll() {
 
 若第 4 行执行成功进入到第 5 行代码，此时 p 和 h 都指向 Node1，第 5 行 if 判断为 false，然后直接到第 7 行 return 回 Node1 的数据域 1，方法结束，此时的队列状态如下图所示。
 
-![队列出队操作后的状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-07.png)
+![队列出队操作后的状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-07.png)
 
 继续从队列中 poll，很显然当前 h 和 p 指向的 Node1 的数据为 null，那么第一件事就是要**定位准备删除的头节点（找到数据不为 null 的节点）**。
 
@@ -341,7 +341,7 @@ public E poll() {
 
 定位待删除的头节点的过程为：**如果当前节点的数据为 null，很显然该节点不是待删除的节点，就用当前节点的下一个节点去试探**。经过第一次循环后，此时状态图为下图所示：
 
-![经过一次循环后的状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-08.png)
+![经过一次循环后的状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-08.png)
 
 进行下一次循环，第 4 行的操作同上所述，假设第 4 行中 casItem 设置成功，由于 p 已经指向了 Node2，而 h 依旧指向 Node1，此时第 5 行的 if 判断为 true，然后执行`updateHead(h, ((q = p.next) != null) ? q : p)`，此时 q 指向 Node3，updateHead 方法的源码如下：
 
@@ -354,7 +354,7 @@ final void updateHead(Node<E> h, Node<E> p) {
 
 该方法主要通过`casHead`将队列的 head 指向 Node3，并且通过 `h.lazySetNext`将 Node1 的 next 指向它自己。最后在第 7 行代码返回 Node2 的值。此时队列的状态如下图所示：
 
-![Node2从队列中出队后的状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-09.png)
+![Node2从队列中出队后的状态](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-09.png)
 
 Node1 的 next 指向它自己，head 指向了 Node3。
 
@@ -422,15 +422,15 @@ thread1 先执行到第 8 行代码`if ((q = p.next) == null)`，由于队列为
 
 在 poll 方法的分析中，我们找到了答案，即**当 head 节点的 item 字段为 null 时会寻找真正的头节点，等到待插入的节点插入之后，会更新 head，并且将原 head 节点设置为哨兵节点。** 假设队列初始状态如下图所示：
 
-![offer和poll相互影响分析时队列初始状态.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-10.png)
+![offer和poll相互影响分析时队列初始状态.png](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-10.png)
 
 因此在线程 A 执行 offer 时，线程 B 执行 poll 会存在如下一种情况：
 
-![线程A和线程B可能存在的执行时序](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-11.png)
+![线程A和线程B可能存在的执行时序](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-11.png)
 
 线程 A 的 tail 节点存在 next 节点 Node1，因此会通过 q 往前寻找队列真正的尾节点，当执行到 `if (p == q)` 时，线程 B 执行 poll 操作，对线程 B 来说，head 和 p 指向 Node0，由于 Node0 的 item 字段为 null，同样会往前找队列的真正头节点 Node1，在线程 B 执行完 poll 后，Node0 就会转换为**哨兵节点**，也就意味着队列的 head 发生了改变，此时队列状态为下图所示。
 
-![线程B进行poll后队列的状态图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-12.png)
+![线程B进行poll后队列的状态图](https://cdn.paicoding.com/tobebetterjavaer/images/thread/ConcurrentLinkedQueue-12.png)
 
 线程 A 执行判断 `if (p == q)` 为 true，继续执行 `p = (t != (t = tail)) ? t : head;`，由于 tail 没有发生改变，所以 p 被赋值为 head，重新从 head 开始完成插入操作。
 
@@ -504,4 +504,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

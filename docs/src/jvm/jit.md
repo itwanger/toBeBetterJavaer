@@ -15,11 +15,11 @@ head:
 
 [前面我们讲了](https://javabetter.cn/jvm/what-is-jvm.html)，为了提升 Java 运行时的性能，JVM 引入了 JIT，也就是即时编译（Just In Time）技术。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223155202.png)
+![](https://cdn.paicoding.com/stutymore/what-is-jvm-20231223155202.png)
 
 Java 代码首先被编译为字节码，JVM 在运行时通过解释器执行字节码。当某部分的代码被频繁执行时，JIT 会将这些热点代码编译为机器码，以此来提高程序的执行效率。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/jit-20240105180655.png)
+![](https://cdn.paicoding.com/stutymore/jit-20240105180655.png)
 
 那为什么 JIT 就能提高程序的执行效率呢，解释器不也是将字节码翻译为机器码交给操作系统执行吗？
 
@@ -43,7 +43,7 @@ JVM 中有一个阈值，当方法或者代码块的在一定时间内的调用�
 
 整体的执行过程大致如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-9a62fc02-1a6a-451e-bb2b-19fc086d5be0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-9a62fc02-1a6a-451e-bb2b-19fc086d5be0.png)
 
 这里的 codeCache 让我想起了 [Redis](https://javabetter.cn/redis/rumen.html)，Redis 也是将热点数据存储在内存中，以此来提升访问速度。
 
@@ -172,7 +172,7 @@ C2 编译器在进行编译优化时，会使用一种控制流与数据流结�
 
 Ideal Graph 表示当前程序的数据流向和指令间的依赖关系，依靠这种图结构，某些优化步骤（尤其是涉及浮动代码块的优化步骤）会变得不那么复杂。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-f4d1b763-be02-4bb2-ab0e-45b1f0eb9550.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-f4d1b763-be02-4bb2-ab0e-45b1f0eb9550.png)
 
 解析字节码的时候，C2 会向一个空的 Graph 中添加节点，Graph 中的节点通常对应一个指令块，每个指令块包含多条相关联的指令，JVM 会利用一些优化技术对这些指令进行优化，比如 Global Value Numbering、常量折叠等，解析结束后，还会进行一些死代码剔除的操作。
 
@@ -214,7 +214,7 @@ Java 7 中引入的分层编译（Tiered Compilation）确实是一种结合了 
 
 下图中列举了几种常见的编译路径：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-a6cebc82-ed4d-4b6d-892a-c5b245d227ab.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-a6cebc82-ed4d-4b6d-892a-c5b245d227ab.png)
 
 1）图中第 ① 条路径，代表编译的一般情况，热点方法从解释执行到被 3 层的 C1 编译，最后被 4 层的 C2 编译。
 
@@ -376,7 +376,7 @@ public void DeadCodeElimination{
 
 HIR 是由很多基本块（Basic Block）组成的控制流图结构，每个块包含很多 SSA 形式的指令。基本块的结构如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-037b406d-1040-4bf8-976c-abf14a92402d.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-037b406d-1040-4bf8-976c-abf14a92402d.png)
 
 其中，predecessors 表示前驱基本块，由于前驱可能是多个，所以是 BlockList 结构，由多个 BlockBegin 组成的可扩容数组。
 
@@ -419,7 +419,7 @@ public static int foo(int count) {
 
 对应的 IR 图如下所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-f96da42a-568b-45ba-bed1-f4238ac32e14.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-f96da42a-568b-45ba-bed1-f4238ac32e14.png)
 
 B0 基本块中 0 号 Start 节点是方法入口，B3 中 21 号 Return 节点是方法出口。
 
@@ -454,11 +454,11 @@ public static int bar(boolean flag) {
 
 来看一下 bar 方法的 IR 图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-04ca4a7e-46e7-4782-bb43-333aea31ed57.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-04ca4a7e-46e7-4782-bb43-333aea31ed57.png)
 
 内联后的 IR 图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/jit-4bf4d190-7fd2-4542-b948-0c85ee6963d2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/jit-4bf4d190-7fd2-4542-b948-0c85ee6963d2.png)
 
 内联将被调用方法的 IR 图节点复制到调用者方法的 IR 图中。在这个例子中，bar 方法的 IR 图中的 0 号 Start 节点被复制到了 foo 方法的 IR 图中，从而避免了方法调用的开销。
 
@@ -627,4 +627,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

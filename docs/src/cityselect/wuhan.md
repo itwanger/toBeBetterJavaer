@@ -12,7 +12,7 @@ tag:
 
 ### 字节跳动
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-d32add0e-e704-4d92-a2d2-40630a1b1342.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-d32add0e-e704-4d92-a2d2-40630a1b1342.png)
 
 - **基本情况** ：字节总部在北京，在上海、深圳、杭州、广州、成都等地都有办公室。字节跳动 2018 年来到武汉，近几年的招聘规模非常大，研发人员的数目也越来越多！
 - **业务方向** ：效率工程（Efficiency Engineering）、飞书、aPaaS（对标业内顶级 PaaS 和 SaaS 平台产品）、抖音电商。
@@ -23,7 +23,7 @@ tag:
 
 ### 华为
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-bb572ae0-0f3b-4a19-9d69-46cabda6a276.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-bb572ae0-0f3b-4a19-9d69-46cabda6a276.png)
 
 - **基本情况** ：华为不属于传统意义上的互联网公司，不过算得上是大厂。华为在武汉有一个研究所，规模还是挺大的！
 - **业务方向** ：传接、光产品、消费者（平板、笔记本电脑、音箱等）。
@@ -35,7 +35,7 @@ tag:
 
 ### 腾讯
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-7dac1d41-259d-441a-b9f1-909e8ee6d8f6.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-7dac1d41-259d-441a-b9f1-909e8ee6d8f6.jpg)
 
 - **基本情况** ：腾讯目前在武汉有腾讯武汉研发中心和腾讯云计算（武汉）有限责任公司，前者是分部后者是全资子公司。
 - **业务方向** ：腾讯云主要负责腾讯云后台开发维护及智慧产业相关产品的研发，旗下有腾讯会议、智慧校园、数字政府等产品。
@@ -44,11 +44,11 @@ tag:
 - **面试** ： 面试的话，难度较大。校招的话，一般会先让你做一个笔试。笔试考察的内容比较全面，既有计算机基础又有编程题。实习的话，一般是先进行一波电话面试，主要问你一些比较编程基础相关的问题。
 - **补充** : 全资子公司和腾讯本部还是不一样的，加入之前请慎重考虑。不过，即使是全资子公司的待遇在武汉也是属于非常不错的了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-8f739cdf-83ed-488b-b23d-37d355a872f0.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-8f739cdf-83ed-488b-b23d-37d355a872f0.png)
 
 ### 小米
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-35650ed1-dee8-471d-b6e1-502373d54649.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-35650ed1-dee8-471d-b6e1-502373d54649.png)
 
 - **基本情况** ：雷总是武大的毕业，把小米总部也设立在了武汉。小米在武汉的发展还挺迅速，目前，小米在武汉员工已经超过 2000 人。小米在北京、深圳、上海、武汉、南京都有办公室。
 - **业务方向** ：新零售、国际化、人工智能、互联网金融
@@ -60,7 +60,7 @@ tag:
 
 ### 金山软件
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-32b6e329-7fd2-4e35-a791-3969b4caaed3.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-32b6e329-7fd2-4e35-a791-3969b4caaed3.png)
 
 - **基本情况** ：金山软件（以下简称金山）是国内最早的互联网软件企业之一，2017 年来到武汉，未来将武汉作为重要的研发基地和人才培养基地。
 
@@ -76,7 +76,7 @@ tag:
 
 - **补充** : 部分项目组可能会存在加班情况。
 
-  ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-83867b2a-8216-49d7-878a-8ec756a7d712.png)
+  ![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-83867b2a-8216-49d7-878a-8ec756a7d712.png)
 
 ### 有赞
 
@@ -88,11 +88,11 @@ tag:
 - **面试** ：面试难度中等偏上。一般由 3 轮面试，前 2 面是技术面，最后 1 面是 HR 面。
 - **补充** : 公司技术不错！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-66dd61ad-878d-42e0-a79d-0be2c3cab8bf.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-66dd61ad-878d-42e0-a79d-0be2c3cab8bf.png)
 
 ### 神策数据
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-a334e309-f7da-426a-a6d8-24da4f8b66f6.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-a334e309-f7da-426a-a6d8-24da4f8b66f6.png)
 
 - **基本情况** ：神策数据是国内专业的大数据分析和营销科技服务提供商，为企业提供神策营销云、神策分析云、神策数据根基平台三大产品方案。公司总部在北京，2019 年 4 月 ，神策武汉研发中心正式成立。
 - **业务方向** ：互联网、品牌零售、金融、融合媒体、企业服务、高科技、汽车、互联网+
@@ -102,7 +102,7 @@ tag:
 - **面试** ：面试难度中等偏上。一般由 4 轮面试，前 3 面是技术面，最后 1 面是 HR 面。
 - **补充** : 公司发展比较快，技术氛围不错。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-8702c0b4-97df-4f90-a25a-ae2c7ada60ac.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-8702c0b4-97df-4f90-a25a-ae2c7ada60ac.png)
 
 ### 其他
 
@@ -120,7 +120,7 @@ tag:
 
 ### 远光软件
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-b57eb368-1c42-4400-a5e4-82e2f12d8e63.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-b57eb368-1c42-4400-a5e4-82e2f12d8e63.png)
 
 - **基本情况** ：2011 年远光武汉研发中心成立，2015 年创建全资子公司远光软件（武汉）有限公司。
 - **业务方向** ：集团管理、智慧能源、智能物联、社会互联。
@@ -132,7 +132,7 @@ tag:
 
 ### 烽火通信科技
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-d60cfcc4-da3b-450d-b08a-f6cd23abd7f6.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-d60cfcc4-da3b-450d-b08a-f6cd23abd7f6.png)
 
 - **基本情况** ：烽火通信成立于 1999 年，前身是通讯业内闻明显著的武汉邮电科学研究院，1976 年成功制作出国内第一根光纤。不过，目前的发展情况不行，前景堪忧。
 - **业务方向** ：通信系统设备、光纤及线缆、数据网络产品。
@@ -146,7 +146,7 @@ tag:
 
 ### 众邦银行
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-e6a98f7b-543c-47d1-a0e8-0e1c22f6d452.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-e6a98f7b-543c-47d1-a0e8-0e1c22f6d452.jpg)
 
 - **基本情况** ：专注于服务个人小微的互联网交易银行。
 - **业务方向** ：互联网金融
@@ -157,7 +157,7 @@ tag:
 
 ### 微众银行
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-40ecc5c0-dcc6-4505-b272-4a2e51f91f89.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-40ecc5c0-dcc6-4505-b272-4a2e51f91f89.jpg)
 
 - **基本情况** ：科技驱动的国内首家民营银行、互联网银行。
 - **业务方向** ：微众银行武汉研发中心主要负责承担微众各类业务系统设计、开发、运维等工作，与相关科技部门充分协作，为业务提供高质量且成本可控的系统功能交付，以支持银行业务整体可持续发展。
@@ -168,7 +168,7 @@ tag:
 
 ### 长江证券
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-79a0261a-c2cf-4437-8b00-774d4242a5c3.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-79a0261a-c2cf-4437-8b00-774d4242a5c3.jpg)
 
 - **基本情况** ：武汉本土，总部就设在武汉、业务网络覆盖全国的一家综合类上市证券公司。
 - **业务方向** ：互联网金融
@@ -187,7 +187,7 @@ tag:
 
 ### 斗鱼
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-b4b533d0-7cb1-4b13-859e-8c7bc3280171.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-b4b533d0-7cb1-4b13-859e-8c7bc3280171.png)
 
 - **基本情况** ：斗鱼是武汉比较大的一家本土互联网公司，直播行业的龙头，武汉市第一家“独角兽”级互联网创业公司。目前的话，虎牙和斗鱼已经合并。2019 年 7 月 17 日，斗鱼在美国纳斯达克交易所上市，成为湖北首家海外上市的本土互联网公司。斗鱼的办公环境不错，据说伙食也还可以，最重要的是你还有机会见到一些知名主播。
 - **业务方向** ：直播
@@ -198,7 +198,7 @@ tag:
 
 ### 微派网络
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-cf4db6cd-405d-4304-8ddc-b7c995b61701.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-cf4db6cd-405d-4304-8ddc-b7c995b61701.jpg)
 
 - **基本情况** ：武汉微派网络科技有限公司（WePie Team）成立于 2013 年 8 月，主要致力于移动互联网休闲游戏和社交产品的研发和运营，旗下产品有贪吃蛇大作战、会玩、微派桌游助手、青藤之恋。
 - **业务方向** ：泛娱乐
@@ -207,11 +207,11 @@ tag:
 - **招聘情况**：主要招聘 Go 开发工程师、测试、运维和移动端开发等岗位。
 - **面试** ：难度中等，通常会有两轮技术面试。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-1c05727e-6119-40c2-a07c-25d4840657c0.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-1c05727e-6119-40c2-a07c-25d4840657c0.png)
 
 ### 盛天网络
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-d2a8810a-fd48-4107-bc1e-d6379fe77f5d.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-d2a8810a-fd48-4107-bc1e-d6379fe77f5d.png)
 
 - **基本情况** ：盛天网络早期是靠网吧系统发家的，易乐游就是它家的网吧管理系统，目前已经上市！
 - **业务方向** ：
@@ -234,7 +234,7 @@ tag:
 
 ### ThougtWorks(思特沃克)
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-e69a7526-f595-469a-b2da-65bf2e8337ba.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-e69a7526-f595-469a-b2da-65bf2e8337ba.png)
 
 - **基本情况** ：国内的话，ThougtWorks 在北京、上海、成都、武汉、西安、香港等地都有分部。武汉是 ThougtWorks 在国内的研发总部。据我一位朋友说，在 Thoughtworks 工作是很舒服的，开放式办公、扁平化管理、技术氛围浓厚。
 - **业务方向** ：咨询服务、软件外包
@@ -244,7 +244,7 @@ tag:
 - **面试** ：一般会先给你一个作业让你做，时间是 3 天左右。一定要注意代码质量以及代码的可扩展性！作业通过之后，会进行下一步的面试。面试官通常会让你在作业的基础上做一些功能的增加或者修改，并且，还会问你一些和简历相关的技术性问题。
 - **补充** ：ThougtWorks 的新人培养机制还是很赞的！对于应届生入职 ThougtWorks 的话，在你正式上手做项目之前会有 1 个月左右的培训时间。社招的话，整个流程一般会比较简单点，相关人员带你了解了公司的基本情况后，后面可能就会让你开始上手做项目了。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-4a2120aa-5253-4e73-9f81-9b76dc1a5607.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-4a2120aa-5253-4e73-9f81-9b76dc1a5607.png)
 
 ## 生活
 
@@ -258,7 +258,7 @@ tag:
 
 以下房价数据来源于安居客，可以作为参考。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-3e900a94-5ca9-49ee-acff-4e1d65d70eef.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-3e900a94-5ca9-49ee-acff-4e1d65d70eef.png)
 
 ### 教育
 
@@ -268,7 +268,7 @@ tag:
 
 去武汉大学看看樱花是多少情侣的愿望啊！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-872b6d4b-232a-44c5-862c-d565ae0d6d31.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-872b6d4b-232a-44c5-862c-d565ae0d6d31.jpg)
 
 ### 医疗
 
@@ -280,7 +280,7 @@ tag:
 
 武汉的交通还是非常便利的，地铁线路非常多！
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-5b2bd490-ea00-4833-9a58-4239919a267c.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-5b2bd490-ea00-4833-9a58-4239919a267c.png)
 
 不过，武汉人也多，路上的车也多，上下班堵车是常有的事。
 
@@ -290,7 +290,7 @@ tag:
 
 武汉的包容性比较强，你想吃的在这边基本都能找到，种类非常多。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-f90f2c4f-3e61-496e-81d6-1fd55218197a.jpg)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-f90f2c4f-3e61-496e-81d6-1fd55218197a.jpg)
 
 早饭可以一个月不重样，各种火锅烤肉、川菜粤菜什么的随处可见。
 
@@ -300,10 +300,10 @@ tag:
 
 武汉这边天气状况不好的原因？感觉武汉人脾气差，容易发火，尤其是汉口那边的本土居民。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/cityselect/wuhan-0e245d47-a42d-420a-98d6-5e42f7a21de5.png)
+![](http://cdn.paicoding.com/tobebetterjavaer/images/cityselect/wuhan-0e245d47-a42d-420a-98d6-5e42f7a21de5.png)
 
 光谷这边其实还好，因为光谷这边还是年轻人巨多，很多都是在这边工作的大学生。
 
 >作者：大白，转载链接：[https://github.com/csguide-dabai/Programmer-look-at-China](https://github.com/csguide-dabai/Programmer-look-at-China)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

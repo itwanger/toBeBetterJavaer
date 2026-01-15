@@ -18,7 +18,7 @@ head:
 
 我这里先给大家展示一副传统 IO 和 NIO 的对比图，感受一下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/nio-better-io-20230406180538.png)
+![](https://cdn.paicoding.com/stutymore/nio-better-io-20230406180538.png)
 
 [传统 IO](https://javabetter.cn/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://javabetter.cn/socket/socket.html) 进行网络传输。
 
@@ -118,7 +118,7 @@ public class SimpleFileTransferTest {
 
 然而实际的结果，却会令你大跌眼镜：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-20230331191748.png)
+![](https://cdn.paicoding.com/stutymore/why-20230331191748.png)
 
 文件越大的情况下，竟然普通字节流（传统 IO）的速度更快(当然了，个人测试，或许不是很准)，那还要 NIO 做什么呢？况且 NIO 的学习成本也比传统 IO 要高一些。
 
@@ -322,7 +322,7 @@ public class TestClient {
 
 在这个简单的性能测试中，我们使用固定线程池（10个线程）来模拟客户端并发请求。分别测试 NIO 和传统 IO 服务器处理 10000 个客户端请求所需的时间。来看一下结果。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/why-20230404141335.png)
+![](https://cdn.paicoding.com/stutymore/why-20230404141335.png)
 
 可以看得出，NIO 比 传统 IO 差不多快一倍的时间。当然了，这是放在我本地测试的，如果服务端放在生产环境下，这个结果会有所不同，但我在本地跑了几次，结果差不多是这样的结果。
 
@@ -343,4 +343,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

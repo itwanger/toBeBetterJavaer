@@ -21,7 +21,7 @@ head:
 
 接着使用 `top -Hp pid` 将这个进程的线程显示出来。输入大写 P 可以将线程按照 CPU 使用比例排序，于是得到以下结果。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-e9b35104-fce9-40ea-ae91-8bbb7fd8aa96.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-e9b35104-fce9-40ea-ae91-8bbb7fd8aa96.jpg)
 
 果然，某些线程的 CPU 使用率非常高，99.9% 可不是非常高嘛（😂）。
 
@@ -29,7 +29,7 @@ head:
 
 我在上面 99.9% 的线程中随机选了一个 `pid=194283` 的，转换为 16 进制（2f6eb）后在线程快照中查询：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-f8b051d5-f28d-481e-a0b2-e97151797e3b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-f8b051d5-f28d-481e-a0b2-e97151797e3b.jpg)
 
 > 线程快照中线程 ID 都是16进制的。
 
@@ -39,7 +39,7 @@ head:
 
 为了更加直观的查看线程的状态，我将快照信息上传到了专门的分析平台上：[http://fastthread.io/](http://fastthread.io/)，估计有球友用过。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-d6c9bc1c-9600-47f2-9ff1-d0c9bd8ef849.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-d6c9bc1c-9600-47f2-9ff1-d0c9bd8ef849.jpg)
 
 其中有一项展示了所有消耗 CPU 的线程，我仔细看了下，发现几乎都和上面的堆栈一样。
 
@@ -159,7 +159,7 @@ public static void main(String[] args) throws InterruptedException {
 
 同时发现配置的消费等待策略为 `YieldingWaitStrategy`，这种等待策略会执行 yield 来让出 CPU。代码如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-49840c0d-2c10-4bcb-80c6-1df7553ddb6c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-49840c0d-2c10-4bcb-80c6-1df7553ddb6c.jpg)
 
 初步来看，和等待策略有很大的关系。
 
@@ -169,43 +169,43 @@ public static void main(String[] args) throws InterruptedException {
 
 注意看代码 YieldingWaitStrategy：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-7f3b2fa6-6505-4b67-9f42-0170a236832b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-7f3b2fa6-6505-4b67-9f42-0170a236832b.jpg)
 
 以及事件处理器：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-d597089d-54e0-49ef-a0f9-41798e84de48.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-d597089d-54e0-49ef-a0f9-41798e84de48.jpg)
 
 创建了 15 个 `Disruptor` 队列，同时每个队列都用线程池来往 `Disruptor队列` 里面发送 100W 条数据。消费程序仅仅只是打印一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-97b88b4d-2d81-47ab-9beb-830ac122c282.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-97b88b4d-2d81-47ab-9beb-830ac122c282.jpg)
 
 跑了一段时间，发现 CPU 使用率确实很高。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-c0ee1da2-29af-4581-b0d8-97f6250401e7.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-c0ee1da2-29af-4581-b0d8-97f6250401e7.jpg)
 
 同时 `dump` 线程发现和生产环境中的现象也是一致的：消费线程都处于 `RUNNABLE` 状态，同时都在执行 `yield`。
 
 通过查询 `Disruptor` 官方文档发现：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-de904a90-8b59-4333-82f5-9ec94a6525a0.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-de904a90-8b59-4333-82f5-9ec94a6525a0.jpg)
 
 YieldingWaitStrategy 是一种充分压榨 CPU 的策略，使用`自旋 + yield`的方式来提高性能。当消费线程（Event Handler threads）的数量小于 CPU 核心数时推荐使用该策略。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-3faf6f7e-0d2c-4cfe-8e3a-07e15601485d.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-3faf6f7e-0d2c-4cfe-8e3a-07e15601485d.jpg)
 
 同时查到其他的等待策略，比如说 `BlockingWaitStrategy` （也是默认的策略），使用的是[锁](https://javabetter.cn/thread/lock.html)的机制，对 CPU 的使用率不高。
 
 于是我将等待策略调整为 `BlockingWaitStrategy`。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-12912ce3-a702-4bb2-a19b-816c22f7d43a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-12912ce3-a702-4bb2-a19b-816c22f7d43a.jpg)
 
 运行后的结果如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-b4aad83e-af9d-48fc-bcd0-ad2a42588179.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-b4aad83e-af9d-48fc-bcd0-ad2a42588179.jpg)
 
 和刚才的结果对比，发现 CPU 的使用率有明显的降低；同时 dump 线程后，发现大部分线程都处于 waiting 状态。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-56dc1513-8f10-422f-bb2a-ae5dcfb8413f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-56dc1513-8f10-422f-bb2a-ae5dcfb8413f.jpg)
 
 ### 优化解决
 
@@ -214,11 +214,11 @@ YieldingWaitStrategy 是一种充分压榨 CPU 的策略，使用`自旋 + yield
 
 而现在的使用场景是，消费线程数已经大大的超过了核心 CPU 数，因为我的使用方式是一个 `Disruptor` 队列一个消费者，所以我将队列调整为 1 个又试了试(策略依然是 `YieldingWaitStrategy`)。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-b1cbc2c2-828a-46e8-ba14-86cd0fa660c6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-b1cbc2c2-828a-46e8-ba14-86cd0fa660c6.jpg)
 
 查看运行效果：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/cpu-percent-100-f8fb7682-a61a-407d-923c-890a16bce109.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/cpu-percent-100-f8fb7682-a61a-407d-923c-890a16bce109.jpg)
 
 跑了一分钟，发现 CPU 的使用率一直都比较平稳。
 
@@ -247,4 +247,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

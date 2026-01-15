@@ -49,7 +49,7 @@ private int size;
 
 比如说下图中的数组，值为[a,b,c,a,b,c,b,b]，下标依次为 0、1、2、3、4、5、6、7。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/array-20231213153711.png)
+![](https://cdn.paicoding.com/stutymore/array-20231213153711.png)
 
 数组元素的类型可以是基本数据类型（比如说 int、double），也可以是引用数据类型（比如说 String），包括自定义类型。
 
@@ -308,7 +308,7 @@ public String(char value[], int offset, int count) {
 
 它底层调用的是 `System.arraycopy()` 方法，这个方法是一个 [native 方法](https://javabetter.cn/oo/native-method.html)，它是用 C/C++ 实现的，效率非常高。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/array-20231213160102.png)
+![](https://cdn.paicoding.com/stutymore/array-20231213160102.png)
 
 System.arraycopy 方法的定义如下所示：
 
@@ -390,4 +390,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

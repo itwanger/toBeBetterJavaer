@@ -19,7 +19,7 @@ head:
 
 >作者：RednaxelaFX，整理：沉默王二，链接：[https://www.zhihu.com/question/21574535/answer/18998914](https://www.zhihu.com/question/21574535/answer/18998914)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/instanceof-jvm-b676fee6-bfd4-4ae9-9c7b-e488e345f775.gif)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/instanceof-jvm-b676fee6-bfd4-4ae9-9c7b-e488e345f775.gif)
 
 --------
 
@@ -120,4 +120,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

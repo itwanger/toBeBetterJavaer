@@ -14,7 +14,7 @@ head:
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
-![面渣逆袭Java 基础篇封面图](https://cdn.tobebetterjavaer.com/stutymore/javase-mianzhanixi-javase1.jpg)
+![面渣逆袭Java 基础篇封面图](https://cdn.paicoding.com/stutymore/javase-mianzhanixi-javase1.jpg)
 
 ## 前言
 
@@ -22,7 +22,7 @@ head:
 
 亮白版本更适合拿出来打印，这也是很多学生党喜欢的方式，打印出来背诵的效率会更高。
 
-![面渣逆袭Java 基础篇.pdf第二版](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230173846.png)
+![面渣逆袭Java 基础篇.pdf第二版](https://cdn.paicoding.com/stutymore/javase-20241230173846.png)
 
 2024 年 12 月 23 日开始着手第二版更新。
 
@@ -33,31 +33,31 @@ head:
 - 增加[二哥编程星球](https://javabetter.cn/zhishixingqiu/)的球友们拿到的一些 offer，对面渣逆袭的感谢，以及对简历修改的一些认可，以此来激励大家，给大家更多信心。
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
-![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.tobebetterjavaer.com/stutymore/javase-20241223085158.png)
+![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.paicoding.com/stutymore/javase-20241223085158.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 
 更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
 
-![面渣逆袭Java 基础篇.pdf暗黑版](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230174513.png)
+![面渣逆袭Java 基础篇.pdf暗黑版](https://cdn.paicoding.com/stutymore/javase-20241230174513.png)
 
 ## Java 概述
 
 ### 1.🌟什么是 Java？
 
-![詹姆斯高斯林-下辈子还学 Java，还头秃](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/one-01.png)
+![詹姆斯高斯林-下辈子还学 Java，还头秃](https://cdn.paicoding.com/tobebetterjavaer/images/overview/one-01.png)
 
 Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯·高斯林团队于 1995 年推出。吸收了 C++ 语言中大量的优点，但又抛弃了 C++ 中容易出错的地方，如垃圾回收、指针。
 
@@ -71,11 +71,11 @@ Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯·高斯�
 
 于是就一边学，一边实战，先做了前后端分离的社区项目[技术派](https://javabetter.cn/zhishixingqiu/paicoding.html)，接触到了 Spring Boot、MyBatis-Plus、MySQL、Redis、ElasticSearch、MongoDB、Docker、RabbitMQ 等一系列的 Java 技术栈。
 
-![技术派实战项目](https://cdn.tobebetterjavaer.com/paicoding/bdfa153fc82310f9ab862a1b3db0d0d7.png)
+![技术派实战项目](https://cdn.paicoding.com/paicoding/bdfa153fc82310f9ab862a1b3db0d0d7.png)
 
 后面又做了微服务项目 [pmhub](https://javabetter.cn/zhishixingqiu/pmhub.html)，接触到了 Spring Cloud、Nacos、Sentinel、Seata、SkyWalking 等相关技术栈。
 
-![pmhub](https://cdn.tobebetterjavaer.com/stutymore/1719412227941-391d1ca0-e312-4e81-a958-2eff29dbecd7.png)
+![pmhub](https://cdn.paicoding.com/stutymore/1719412227941-391d1ca0-e312-4e81-a958-2eff29dbecd7.png)
 
 #### 平常用什么编程语言？
 
@@ -83,7 +83,7 @@ Java 是一门面向对象的编程语言，由 Sun 公司的詹姆斯·高斯�
 
 因为它可以做的事情太多了，既可以用它来写 Web 后端服务，也可以用它来造一些轮子，比如 [MYDB](https://t.zsxq.com/0bhcI0Gs6) 这个轮子，就是用 Java 完成的，不进加深了我对 MySQL索引、事务、MVCC 的理解，还让我对 Java 的 NIO、多线程、JVM 有了更深的了解。
 
-![MYDB](https://cdn.tobebetterjavaer.com/stutymore/javase-20241223085416.png)
+![MYDB](https://cdn.paicoding.com/stutymore/javase-20241223085416.png)
 
 #### 平时是怎么学 Java 的？
 
@@ -109,7 +109,7 @@ Java 实现了内存的自动管理，而 C 语言需要使用 malloc 和 free �
 
 ### 2.Java 语言有哪些特点？
 
-![三分恶面渣逆袭：Java语言特点](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-2.png)
+![三分恶面渣逆袭：Java语言特点](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-2.png)
 
 Java 语言的特点有：
 
@@ -123,7 +123,7 @@ Java 语言的特点有：
 
 ### 3.JVM、JDK 和 JRE 有什么区别？
 
-![三分恶面渣逆袭：JDK、JRE、JVM关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
+![三分恶面渣逆袭：JDK、JRE、JVM关系](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-3.png)
 
 **JVM**：也就是 Java 虚拟机，是 Java 实现跨平台的关键所在，不同的操作系统有不同的 JVM 实现。JVM 负责将 Java 字节码转换为特定平台的机器码，并执行。
 
@@ -151,7 +151,7 @@ Java 语言的特点有：
 - **解释**：JVM 执行字节码文件，将字节码翻译成操作系统能识别的机器码
 - **执行**：操作系统执行二进制的机器码
 
-![三分恶面渣逆袭：Java程序执行过程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-4.png)
+![三分恶面渣逆袭：Java程序执行过程](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-4.png)
 
 ### 6.为什么有人说 Java 是“编译与解释并存”的语言？
 
@@ -166,7 +166,7 @@ Java 语言的特点有：
 
 之所以有人说 Java 是“编译与解释并存”的语言，是因为 Java 程序需要先将 Java 源代码文件编译字节码文件，再解释执行。
 
-![三分恶面渣逆袭：编译与解释](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-5.png)
+![三分恶面渣逆袭：编译与解释](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-5.png)
 
 <MZNXQRcodeBanner />
 
@@ -179,7 +179,7 @@ Java 语言的特点有：
 
 Java 的数据类型可以分为两种：**基本数据类型**和**引用数据类型**。
 
-![二哥的 Java 进阶之路：Java数据类型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
+![二哥的 Java 进阶之路：Java数据类型](https://cdn.paicoding.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
 基本数据类型有：
 
@@ -250,7 +250,7 @@ memo：2025 年 8 月 23 日修改至此。 今天在修改简历的时候碰到
 
 >派聪明简历写法：[https://paicoding.com/column/10/2](https://paicoding.com/column/10/2)
 
-![蚂蚁转正的球友对派聪明的认可](https://cdn.tobebetterjavaer.com/stutymore/javase-20250926113204.png)
+![蚂蚁转正的球友对派聪明的认可](https://cdn.paicoding.com/stutymore/javase-20250926113204.png)
 
 ### 8.自动类型转换、强制类型转换了解吗？
 
@@ -258,7 +258,7 @@ memo：2025 年 8 月 23 日修改至此。 今天在修改简历的时候碰到
 
 当把一个范围较小的数值或变量赋给另外一个范围较大的变量时，会进行自动类型转换；反之，需要强制转换。
 
-![三分恶面渣逆袭：Java自动类型转换方向](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-7.png)
+![三分恶面渣逆袭：Java自动类型转换方向](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-7.png)
 
 这就好像，小杯里的水倒进大杯没问题，但大杯的水倒进小杯就可能会溢出。
 
@@ -277,7 +277,7 @@ memo：2025 年 8 月 23 日修改至此。 今天在修改简历的时候碰到
 - **装箱**：将基本数据类型转换为包装类型，例如 int 转换为 Integer。
 - **拆箱**：将包装类型转换为基本数据类型。
 
-![三分恶面渣逆袭:装箱和拆箱](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-8.png)
+![三分恶面渣逆袭:装箱和拆箱](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-8.png)
 
 举例：
 
@@ -321,7 +321,7 @@ Java 5 以前 `switch(expr)` 中，expr 只能是 byte、short、char、int。
 - continue 跳出本次循环，继续执行下次循环(**结束正在执行的循环 进入下一个循环条件**)
 - return 程序返回，不再执行下面的代码(**结束当前的方法 直接返回**)
 
-![break 、continue 、return](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-9.png)
+![break 、continue 、return](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-9.png)
 
 ### 13.用效率最高的方法计算 2 乘以 8？
 
@@ -406,7 +406,7 @@ $$
 
 单精度浮点数占用 4 字节（32 位），这 32 位被分为三个部分：符号位、指数部分和尾数部分。
 
-![kaito：浮点数](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321112428.png)
+![kaito：浮点数](https://cdn.paicoding.com/stutymore/javase-20240321112428.png)
 
 1 位符号位、8 位指数位、23 位尾数位。符号位决定正负，0 表示正数，1 表示负数。指数位存储的是偏置后的指数，实际指数要减去 127。尾数位存储的是小数部分的二进制表示。
 
@@ -418,7 +418,7 @@ $$
 
 符号位 S 是 0，表示正数；指数部分 E 是 4，转换为二进制是 100；尾数部分 M 是 1.001001。
 
-![kaito：25.125](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321113232.png)
+![kaito：25.125](https://cdn.paicoding.com/stutymore/javase-20240321113232.png)
 
 使用浮点数时需要注意，由于精度的限制，进行数学运算时可能会遇到舍入误差，特别是连续运算累积误差可能会变得显著。
 
@@ -428,7 +428,7 @@ $$
 
 memo：2025 年 08 月 23 日更新至此。[星球里其实来了](https://javabetter.cn/zhishixingqiu/)蛮多海外读书的同学，能帮助到大家我真的非常开心。
 
-![海外留学生](https://cdn.tobebetterjavaer.com/stutymore/javase-20250926113917.png)
+![海外留学生](https://cdn.paicoding.com/stutymore/javase-20250926113917.png)
 
 ### 16.讲一下数据准确性高是怎么保证的？（补充）
 
@@ -466,11 +466,11 @@ System.out.println("Total price in cents: " + totalInCents);  // 输出597分
 
 面向对象是以对象为核心，通过对象交互完成任务，程序结构是类和对象组成的模块化结构，代码可以通过继承、组合、多态等方式复用。
 
-![三分恶面渣逆袭：面向对象和面向过程的区别](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-10.png)
+![三分恶面渣逆袭：面向对象和面向过程的区别](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-10.png)
 
 在[技术派实战项目](https://javabetter.cn/zhishixingqiu/paicoding.html)中，像 VO、DTO 都是业务抽象后的对象实体类，而 Service、Controller 则是业务逻辑的实现，这其实就是面向对象的思想。
 
-![技术派实战项目源码截图](https://cdn.tobebetterjavaer.com/stutymore/javase-20241111172421.png)
+![技术派实战项目源码截图](https://cdn.paicoding.com/stutymore/javase-20241111172421.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的快手同学 2 一面面试原题：面向对象和面向过程的区别？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 17 后端技术面试原题：面向对象 项目里有哪些面向对象的案例
@@ -481,7 +481,7 @@ System.out.println("Total price in cents: " + totalInCents);  // 输出597分
 
 面向对象编程有三大特性：封装、继承、多态。
 
-![二哥的 Java 进阶之路：封装继承多态](https://cdn.tobebetterjavaer.com/stutymore/javase-20240330115129.png)
+![二哥的 Java 进阶之路：封装继承多态](https://cdn.paicoding.com/stutymore/javase-20240330115129.png)
 
 #### 封装是什么？
 
@@ -740,7 +740,7 @@ class Wanger {
 
 多态通过动态绑定实现，Java 使用虚方法表存储方法指针，方法调用时根据对象实际类型从虚方法表查找具体实现。
 
-![截图来自博客园的小牛呼噜噜：虚拟方法表](https://cdn.tobebetterjavaer.com/stutymore/javase-20241126104207.png)
+![截图来自博客园的小牛呼噜噜：虚拟方法表](https://cdn.paicoding.com/stutymore/javase-20241126104207.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的华为面经同学 8 技术二面面试原题：多态的目的，解决了什么问题？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 16 暑期实习一面面试原题：请说说多态、重载和重写
@@ -754,7 +754,7 @@ class Wanger {
 
 如果子类具有和父类一样的方法（参数相同、返回类型相同、方法名相同，但方法体不同），我们称之为方法重写。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/21-01.png)
+![二哥的 Java 进阶之路](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/21-01.png)
 
 - 方法重载发生在同一个类中，同名的方法如果有不同的参数（参数类型不同、参数个数不同或者二者都不同）。
 - 方法重写发生在子类与父类之间，要求子类与父类具有相同的返回类型，方法名和参数列表，并且不能比父类的方法声明更多的异常，遵守里氏代换原则。
@@ -763,7 +763,7 @@ class Wanger {
 
 里氏代换原则也被称为李氏替换原则（Liskov Substitution Principle, LSP），其规定任何父类可以出现的地方，子类也一定可以出现。
 
-![里氏替换原则由芭芭拉·利斯科夫提出，照片摄于2010年](https://cdn.tobebetterjavaer.com/stutymore/javase-20240321103119.png)
+![里氏替换原则由芭芭拉·利斯科夫提出，照片摄于2010年](https://cdn.paicoding.com/stutymore/javase-20240321103119.png)
 
 LSP 是继承复用的基石，只有当子类可以替换掉父类，并且单位功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。
 
@@ -865,7 +865,7 @@ class ShapeDrawer {
 
 memo：2025 年 9 月 24 日修改至此，今天[有球友发私信](https://javabetter.cn/zhishixingqiu/)说拿到了招银网络科技的 offer，问还能不能谈薪，总包还可以，但讲真银行谈薪的空间真不大，😄
 
-![拿到了招银的 offer](https://cdn.tobebetterjavaer.com/stutymore/javase-20250924154354.png)
+![拿到了招银的 offer](https://cdn.paicoding.com/stutymore/javase-20250924154354.png)
 
 ### 21.访问修饰符 public、private、protected、以及默认时的区别？
 
@@ -876,7 +876,7 @@ Java 中，可以使用访问控制符来保护对类、变量、方法和构造
 - **public** : 对所有类可见。可以修饰类、接口、变量、方法
 - **protected** : 对同一包内的类和所有子类可见。可以修饰变量、方法。**注意：不能修饰类（外部类）**。
 
-![访问修饰符和可见性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-12.png)
+![访问修饰符和可见性](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-12.png)
 
 ### 22.this 关键字有什么作用？
 
@@ -939,7 +939,7 @@ public class Dog extends Animal {
 
 不能，接口主要用于定义一组方法规范，没有具体的实现细节。
 
-![二哥的 Java 进阶之路：接口不能定义构造方法](https://cdn.tobebetterjavaer.com/stutymore/javase-20240512090855.png)
+![二哥的 Java 进阶之路：接口不能定义构造方法](https://cdn.paicoding.com/stutymore/javase-20240512090855.png)
 
 #### Java支持多继承吗？
 
@@ -1101,7 +1101,7 @@ static 关键字可以用来修饰变量、方法、代码块和内部类，以�
 
 ①、当 final 修饰一个类时，表明这个类不能被继承。比如，String 类、Integer 类和其他包装类都是用 final 修饰的。
 
-![二哥的 Java 进阶之路：final 修饰类](https://cdn.tobebetterjavaer.com/stutymore/javase-20240415111236.png)
+![二哥的 Java 进阶之路：final 修饰类](https://cdn.paicoding.com/stutymore/javase-20240415111236.png)
 
 ②、当 final 修饰一个方法时，表明这个方法不能被重写（Override）。也就是说，如果一个类继承了某个类，并且想要改变父类中被 final 修饰的方法的行为，是不被允许的。
 
@@ -1109,11 +1109,11 @@ static 关键字可以用来修饰变量、方法、代码块和内部类，以�
 
 如果是基本数据类型的变量，其数值一旦在初始化之后就不能更改；如果是引用类型的变量，在对其初始化之后就不能再让其指向另一个对象。
 
-![二哥的 Java 进阶之路：不能更改](https://cdn.tobebetterjavaer.com/stutymore/javase-20240415111725.png)
+![二哥的 Java 进阶之路：不能更改](https://cdn.paicoding.com/stutymore/javase-20240415111725.png)
 
 但是引用指向的对象内容可以改变。
 
-![三分恶面渣逆袭：final修饰变量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-13.png)
+![三分恶面渣逆袭：final修饰变量](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-13.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 2 Java 后端技术一面面试原题：说说 final 关键字
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的 360 面经同学 3 Java 后端技术一面面试原题：final 的用处
@@ -1129,7 +1129,7 @@ static 关键字可以用来修饰变量、方法、代码块和内部类，以�
 
 这个方法在垃圾回收器准备释放对象占用的内存之前被自动调用。我们不能显式地调用 finalize 方法，因为它总是由垃圾回收器在适当的时间自动调用。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/stutymore/javase-20240407165712.png)
+![二哥的 Java 进阶之路](https://cdn.paicoding.com/stutymore/javase-20240407165712.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动面经同学 1 Java 后端技术一面面试原题：final、finally、finalize 的区别？
 
@@ -1153,7 +1153,7 @@ public boolean equals(Object obj) {
 
 然而，`equals()` 方法通常被各种类重写。例如，`String` 类重写了 `equals()` 方法，以便它可以比较两个字符串的字符内容是否完全一样。
 
-![二哥的 Java 进阶之路，String的equals()源码](https://cdn.tobebetterjavaer.com/stutymore/javase-20240425093626.png)
+![二哥的 Java 进阶之路，String的equals()源码](https://cdn.paicoding.com/stutymore/javase-20240425093626.png)
 
 举个例子：
 
@@ -1239,7 +1239,7 @@ Java 是值传递，不是引用传递。
 
 对象是存储在堆中的，所以传递对象的时候，可以理解为把变量存储的对象地址给传递过去。
 
-![三分恶面渣逆袭：Java引用数据值传递示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-14.png)
+![三分恶面渣逆袭：Java引用数据值传递示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-14.png)
 
 #### 引用类型的变量有什么特点？
 
@@ -1254,7 +1254,7 @@ Java 是值传递，不是引用传递。
 
 在 Java 中，深拷贝（Deep Copy）和浅拷贝（Shallow Copy）是两种拷贝对象的方式，它们在拷贝对象的方式上有很大不同。
 
-![三分恶面渣逆袭：浅拷贝和深拷贝示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-15.png)
+![三分恶面渣逆袭：浅拷贝和深拷贝示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-15.png)
 
 浅拷贝会创建一个新对象，但这个新对象的属性（字段）和原对象的属性完全相同。如果属性是基本数据类型，拷贝的是基本数据类型的值；如果属性是引用类型，拷贝的是引用地址，因此新旧对象共享同一个引用对象。
 
@@ -1391,7 +1391,7 @@ public class Main {
 
 ### 32.Java 创建对象有哪几种方式？
 
-![三分恶面渣逆袭：Java创建对象的四种方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-16.png)
+![三分恶面渣逆袭：Java创建对象的四种方式](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-16.png)
 
 Java 有四种创建对象的方式：
 
@@ -1553,7 +1553,7 @@ public class Main {
 - 第一步，先检查字符串字面量 "abc" 是否在字符串常量池中，如果没有则创建一个；如果已经存在，则引用它。
 - 第二步，在堆中再创建一个新的字符串对象，并将其初始化为字符串常量池中 "abc" 的一个副本。
 
-![三分恶面渣逆袭：堆与常量池中的String](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-17.png)
+![三分恶面渣逆袭：堆与常量池中的String](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-17.png)
 
 也就是说：
 
@@ -1605,7 +1605,7 @@ String ab = a + b;
 
 a 和 b 是通过双引号定义的，所以会在字符串常量池中，而 ab 是通过“+”操作符拼接的，所以会在堆中生成一个新的对象。
 
-![三分恶面渣逆袭：jdk1.8之前的字符串拼接](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-18.png)
+![三分恶面渣逆袭：jdk1.8之前的字符串拼接](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-18.png)
 
 Java 8 时，JDK 对“+”号的字符串拼接进行了优化，Java 会在编译期基于 StringBuilder 的 append 方法进行拼接。
 
@@ -1761,7 +1761,7 @@ System.out.println(c.equals(d)); // 输出true
 
 就拿 Integer 的缓存吃来说吧。根据实践发现，大部分的数据操作都集中在值比较小的范围，因此 Integer 搞了个缓存池，默认范围是 -128 到 127。
 
-![二哥的 Java 进阶之路：integer 源码](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323080956.png)
+![二哥的 Java 进阶之路：integer 源码](https://cdn.paicoding.com/stutymore/javase-20240323080956.png)
 
 当我们使用自动装箱来创建这个范围内的 Integer 对象时，Java 会直接从缓存中返回一个已存在的对象，而不是每次都创建一个新的对象。这意味着，对于这个值范围内的所有 Integer 对象，它们实际上是引用相同的对象实例。
 
@@ -1769,7 +1769,7 @@ Integer 缓存的主要目的是优化性能和内存使用。对于小整数的
 
 可以在运行的时候添加 `-Djava.lang.Integer.IntegerCache.high=1000` 来调整缓存池的最大值。
 
-![二哥的 Java 进阶之路：调整缓存池大小](https://cdn.tobebetterjavaer.com/stutymore/javase-20240323082802.png)
+![二哥的 Java 进阶之路：调整缓存池大小](https://cdn.paicoding.com/stutymore/javase-20240323082802.png)
 
 引用是 Integer 类型，= 右侧是 int 基本类型时，会进行自动装箱，调用的其实是 `Integer.valueOf()`方法，它会调用 IntegerCache。
 
@@ -1850,7 +1850,7 @@ public static int parseInt(String s, int radix)
 
 去掉枝枝蔓蔓（当然这些枝枝蔓蔓可以去看看，源码 cover 了很多情况），其实剩下的就是一个简单的字符串遍历计算，不过计算方式有点反常规，是用负的值累减。
 
-![parseInt示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-20.png)
+![parseInt示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-20.png)
 
 <MZNXQRcodeBanner />
 
@@ -1862,7 +1862,7 @@ public static int parseInt(String s, int radix)
 
 Object 主要提供了 11 个方法，大致可以分为六类：
 
-![三分恶面渣逆袭：Object类的方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-21.png)
+![三分恶面渣逆袭：Object类的方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-21.png)
 
 #### 对象比较：
 
@@ -2014,7 +2014,7 @@ com.itwanger.Person
 
 `protected void finalize() throws Throwable`：当垃圾回收器决定回收对象占用的内存时调用此方法。用于清理资源，但 Java 不推荐使用，因为它不可预测且容易导致问题，Java 9 开始已被弃用。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/javase-20240313085055.png)
+![](https://cdn.paicoding.com/stutymore/javase-20240313085055.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的用友金融一面原题：Object 有哪些常用的方法？
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 3 Java 后端技术一面面试原题：object 有哪些方法 hashcode 和 equals 为什么需要一起重写 不重写会导致哪些问题 什么时候会用到重写 hashcode 的场景
@@ -2027,7 +2027,7 @@ com.itwanger.Person
 
 Java 中的异常处理机制用于处理程序运行过程中可能发生的各种异常情况，通常通过 try-catch-finally 语句和 throw 关键字来实现。
 
-![三分恶面渣逆袭：Java异常体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-22.png)
+![三分恶面渣逆袭：Java异常体系](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-22.png)
 
 `Throwable` 是 Java 语言中所有错误和异常的基类。它有两个主要的子类：Error 和 Exception，这两个类分别代表了 Java 异常处理体系中的两个分支。
 
@@ -2053,7 +2053,7 @@ Exception 类代表程序可以处理的异常。它分为两大类：编译时�
 
 ### 42.异常的处理方式？
 
-![三分恶面渣逆袭：异常处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-23.png)
+![三分恶面渣逆袭：异常处理](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-23.png)
 
 ①、遇到异常时可以不处理，直接通过throw 和 throws 抛出异常，交给上层调用者处理。
 
@@ -2125,7 +2125,7 @@ public class Example {
 ```
 
 
-![二哥的Java 进阶之路：catch 和 finally 处理异常](https://cdn.tobebetterjavaer.com/stutymore/javase-20241008095737.png)
+![二哥的Java 进阶之路：catch 和 finally 处理异常](https://cdn.paicoding.com/stutymore/javase-20241008095737.png)
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 8 面试原题：写程序中如何处理异常？ 
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的拼多多面经同学 4 技术一面面试原题：try-catch-finally抛出异常，catch和finally的异常可以同时抛出吗？
@@ -2233,7 +2233,7 @@ Java IO 流的划分可以根据多个维度进行，包括数据流的方向（
 - 字节流（Byte Streams）：以字节为单位读写数据，主要用于处理二进制数据，如音频、图像文件等。
 - 字符流（Character Streams）：以字符为单位读写数据，主要用于处理文本数据。
 
-![二哥的 Java 进阶之路](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-01.png)
+![二哥的 Java 进阶之路](https://cdn.paicoding.com/tobebetterjavaer/images/io/shangtou-01.png)
 
 #### 按功能如何划分？
 
@@ -2245,7 +2245,7 @@ Java IO 流的划分可以根据多个维度进行，包括数据流的方向（
 
 用到了——**装饰器模式**，装饰器模式的核心思想是在不改变原有对象结构的前提下，动态地给对象添加新的功能。
 
-![Java IO流用到装饰器模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-25.png)
+![Java IO流用到装饰器模式](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-25.png)
 
 具体到 Java IO 中，InputStream 和 OutputStream 这些抽象类定义了基本的读写操作，然后通过各种装饰器类来增强功能。比如 BufferedInputStream 给基础的输入流增加了缓冲功能，DataInputStream 增加了读取基本数据类型的能力，它们都是对基础流的装饰和增强。
 
@@ -2263,7 +2263,7 @@ InputStream input = new BufferedInputStream(
 
 memo：2025 年 9 月 19 日修改至此，今天[有球友在 VIP 群里](https://javabetter.cn/zhishixingqiu/)报喜说上岸美团了，恭喜他！9 月份正是一个收获的季节，大家都要加油哦。
 
-![球友拿到美团 offer 了](https://cdn.tobebetterjavaer.com/stutymore/javase-20250919160609.png)
+![球友拿到美团 offer 了](https://cdn.paicoding.com/stutymore/javase-20250919160609.png)
 
 #### Java 缓冲区溢出，如何预防
 
@@ -2337,7 +2337,7 @@ public class ByteBufferExample {
 
 Java 常见的 IO 模型有三种：BIO、NIO 和 AIO。
 
-![二哥的 Java 进阶之路：IO 分类](https://cdn.tobebetterjavaer.com/stutymore/javase-20240404103618.png)
+![二哥的 Java 进阶之路：IO 分类](https://cdn.paicoding.com/stutymore/javase-20240404103618.png)
 
 BIO：采用阻塞式 I/O 模型，线程在执行 I/O 操作时被阻塞，无法处理其他任务，适用于连接数较少的场景。
 
@@ -2351,7 +2351,7 @@ BIO，也就是传统的 IO，基于字节流或字符流（如 FileInputStream�
 
 对于每个连接，都需要创建一个独立的线程来处理读写操作。
 
-![三分恶面渣逆袭：BIO](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-27.png)
+![三分恶面渣逆袭：BIO](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-27.png)
 
 #### 简单说下 NIO？
 
@@ -2361,11 +2361,11 @@ NIO，JDK 1.4 时引入，放在 java.nio 包下，提供了 Channel、Buffer、
 
 NIO 的魅力主要体现在网络编程中，服务器可以用一个线程处理多个客户端连接，通过 Selector 监听多个 Channel 来实现多路复用，极大地提高了网络编程的性能。
 
-![三分恶面渣逆袭：NIO](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-28.png)
+![三分恶面渣逆袭：NIO](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-28.png)
 
 缓冲区 Buffer 也能极大提升一次 IO 操作的效率。
 
-![三分恶面渣逆袭：NIO完整示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-29.png)
+![三分恶面渣逆袭：NIO完整示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-29.png)
 
 #### 简单说下 AIO？
 
@@ -2395,7 +2395,7 @@ while (!result.isDone()) {
 
 反序列化（Deserialization）就是将字节流转换回对象的过程，以便构建原始对象。
 
-![三分恶面渣逆袭：序列化和反序列化](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-30.png)
+![三分恶面渣逆袭：序列化和反序列化](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-30.png)
 
 #### Serializable 接口有什么用？
 
@@ -2483,7 +2483,7 @@ out.writeObject(person);
 
 Java 序列化方式有很多，常见的有三种：
 
-![Java常见序列化方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-31.png)
+![Java常见序列化方式](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-31.png)
 
 - Java 对象序列化 ：Java 原生序列化方法即通过 Java 原生流(InputStream 和 OutputStream 之间的转化)的方式进行转化，一般是对象输出流 `ObjectOutputStream`和对象输入流`ObjectInputStream`。
 - Json 序列化：这个可能是我们最常用的序列化方式，Json 序列化的选择很多，一般会使用 jackson 包，通过 ObjectMapper 类来进行一些操作，比如将对象转化为 byte 数组或者将 json 串转化为对象。
@@ -2499,7 +2499,7 @@ Java 序列化方式有很多，常见的有三种：
 
 Socket 是网络通信的基础，表示两台设备之间通信的一个端点。Socket 通常用于建立 TCP 或 UDP 连接，实现进程间的网络通信。
 
-![二哥的Java 进阶之路：一个简单的 socket 通信](https://cdn.tobebetterjavaer.com/stutymore/socket-20230330192826.png)
+![二哥的Java 进阶之路：一个简单的 socket 通信](https://cdn.paicoding.com/stutymore/socket-20230330192826.png)
 
 一个简单的 TCP 客户端：
 
@@ -2552,7 +2552,7 @@ RPC是一种协议，允许程序调用位于远程服务器上的方法，就�
 
 RPC 框架支持高效的序列化（如 Protocol Buffers）和通信协议（如 HTTP/2），屏蔽了底层网络通信的细节，开发者只需关注业务逻辑即可。
 
-![博客园struggler：经典的 RPC](https://cdn.tobebetterjavaer.com/stutymore/javase-20241128182231.png)
+![博客园struggler：经典的 RPC](https://cdn.paicoding.com/stutymore/javase-20241128182231.png)
 
 常见的 RPC 框架包括：
 
@@ -2581,7 +2581,7 @@ String str = (String) list.get(0);  // 必须强制类型转换
 
 泛型一般有三种使用方式:**泛型类**、**泛型接口**、**泛型方法**。
 
-![泛型类、泛型接口、泛型方法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-32.png)
+![泛型类、泛型接口、泛型方法](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-32.png)
 
 **1.泛型类**：
 
@@ -2694,7 +2694,7 @@ list.add(new Dog());
 
 **Java 注解本质上是一个标记**，可以理解成生活中的一个人的一些小装扮，比如戴什么什么帽子，戴什么眼镜。
 
-![Java注解和帽子](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-33.png)
+![Java注解和帽子](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-33.png)
 
 注解可以标记在类上、方法上、属性上等，标记自身也可以设置一些值，比如帽子颜色是绿色。
 
@@ -2712,13 +2712,13 @@ list.add(new Dog());
 
 像常见的：
 
-![Override注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-34.png)
+![Override注解](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-34.png)
 
 就是给编译器用的，编译器编译的时候检查没问题就 over 了，class 文件里面不会有 Override 这个标记。
 
 再比如 Spring 常见的 Autowired ，就是 RUNTIME 的，所以**在运行的时候可以通过反射得到注解的信息**，还能拿到标记的值 required 。
 
-![Autowired注解](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-35.png)
+![Autowired注解](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-35.png)
 
 ## 反射
 
@@ -2736,7 +2736,7 @@ Person 类的信息在编译时就确定了，那假如在编译期无法确定�
 
 反射功能主要通过 `java.lang.Class` 类及 `java.lang.reflect` 包中的类如 Method, Field, Constructor 等来实现。
 
-![三分恶面渣逆袭：Java反射相关类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-36.png)
+![三分恶面渣逆袭：Java反射相关类](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-36.png)
 
 比如说我们可以动态加载类并创建对象：
 
@@ -2794,7 +2794,7 @@ testMethod.invoke(testInstance);
 
 ④、最常见的是写通用的工具类，比如对象拷贝工具。比如说 BeanUtils、MapStruct 等等，能够自动拷贝两个对象之间的同名属性，就是通过反射来实现的。
 
-![技术派：mapstruct](https://cdn.tobebetterjavaer.com/stutymore/javase-20250927172849.png)
+![技术派：mapstruct](https://cdn.paicoding.com/stutymore/javase-20250927172849.png)
 
 
 #### 反射的原理是什么？
@@ -2819,7 +2819,7 @@ testMethod.invoke(testInstance);
 
 memo：2025 年 9 月 27 日修改至此，今天[在帮球友修改简历](https://javabetter.cn/zhishixingqiu/)的时候，碰到这样一个反馈，很感动：两个月前在特别焦虑迷茫时找过一次二哥，你说了别担心先去做先去投之类的话那次沟通后让我清醒了很多，我开始停止设想坏的结果，照着简历学习八股，投简历，最后收到了面试通知，运气也很好背的八股也派上用场，虽然没有一下子变得特别厉害，但是实打实地感觉自己比以前成熟稳重点了。学习过程中发现自己蛮喜欢软开的，也能获得成就感，所以特别感谢二哥一直以来对大家的帮助。
 
-![球友在星球里的成长](https://cdn.tobebetterjavaer.com/stutymore/javase-20250927172411.png)
+![球友在星球里的成长](https://cdn.paicoding.com/stutymore/javase-20250927172411.png)
 
 ## JDK1.8 新特性
 
@@ -2829,7 +2829,7 @@ JDK 已经出到 17 了，但是你迭代你的版本，我用我的 8。JDK1.8 
 
 JDK 1.8 新增了不少新的特性，如 Lambda 表达式、接口默认方法、Stream API、日期时间 API、Optional 类等。
 
-![三分恶面渣逆袭：JDK1.8主要新特性](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-37.png)
+![三分恶面渣逆袭：JDK1.8主要新特性](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-37.png)
 
 ①、Java 8 允许在接口中添加默认方法和静态方法。
 
@@ -3056,7 +3056,7 @@ reduced.ifPresent(System.out::println);
 
 以上是常见的几种流式操作，还有其它的一些流式操作，可以帮助我们更便捷地处理集合数据。
 
-![Java Stream流](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/javase-38.png)
+![Java Stream流](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-38.png)
 
 >2024 年 12 月 30 日第二版优化结束。
 
@@ -3068,9 +3068,9 @@ reduced.ifPresent(System.out::println);
 
 自认为自己在面渣逆袭的制作上是花了心思的，也确实得到了大家的一些认可，我很欣慰。
 
-![这是我在牛客上看到的](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165717.png)
+![这是我在牛客上看到的](https://cdn.paicoding.com/stutymore/javase-20241230165717.png)
 
-![我觉得都是蛮中肯的评价](https://cdn.tobebetterjavaer.com/stutymore/javase-20241230165749.png)
+![我觉得都是蛮中肯的评价](https://cdn.paicoding.com/stutymore/javase-20241230165749.png)
 
 很多时候，我觉得自己是一个佛系的人，不愿意和别人争个高低，也不愿意去刻意宣传自己的作品。
 
@@ -3085,19 +3085,19 @@ reduced.ifPresent(System.out::println);
 这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
 
 
-![面渣逆袭Java 基础：epub 版本](https://cdn.tobebetterjavaer.com/stutymore/javase-20241231093226.png)
+![面渣逆袭Java 基础：epub 版本](https://cdn.paicoding.com/stutymore/javase-20241231093226.png)
 
 由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
 
 <div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
+    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
 </div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 
 更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
 
-![回复 222](https://cdn.tobebetterjavaer.com/stutymore/collection-20250512160410.png)
+![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
 
 我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 

@@ -46,15 +46,15 @@ NIO 主要有**两个核心部分组成**：
 
 Buffer 是缓冲区的抽象类：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404151539.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404151539.png)
 
 其中 ByteBuffer 是**用得最多的实现类**(在通道中读写字节数据)。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404152253.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404152253.png)
 
 拿到一个缓冲区我们往往会做什么？很简单，就是**读取缓冲区的数据/写数据到缓冲区中**。所以，缓冲区的核心方法就是 put 和 get：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404152445.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404152445.png)
 
 Buffer 类维护了 4 个核心变量来提供**关于其所包含的数组信息**。它们是：
 
@@ -117,7 +117,7 @@ System.out.println("flip()方法之后-->mark--->" + byteBuffer.mark());
 
 再看看 4 个核心属性的值会发生什么变化：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404153844.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404153844.png)
 
 在调用 `flip()` 之后，limit 变为当前 position 的值（12），position 重置为 0。这意味着你可以从缓冲区的开始位置读取刚刚写入的数据，直到 limit 指定的位置。capacity 保持不变（1024）。
 
@@ -151,7 +151,7 @@ capacity = 1024
 
 用一幅图来表示就是。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404155658.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404155658.png)
 
 当切换成读模式之后，我们就可以读取缓冲区的数据了：
 
@@ -172,11 +172,11 @@ System.out.println(new String(bytes, 0, bytes.length));
 
 随后输出一下核心变量的值看看：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404160130.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404160130.png)
 
 **读完如何还想写数据到缓冲区**，那就使用`clear()` 方法，这个方法会“清空”缓冲区，数据没有真正被清空，只是被**遗忘**掉了
 
-![](https://cdn.tobebetterjavaer.com/stutymore/rumen-20230404160412.png)
+![](https://cdn.paicoding.com/stutymore/rumen-20230404160412.png)
 
 ### Channel 通道
 
@@ -325,12 +325,12 @@ public class FileChannelTransferToLoopExampleWithPaths {
 
 ByteBuffer.allocate和ByteBuffer.allocateDirect直接的差异。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406183808.png)
+![](https://cdn.paicoding.com/stutymore/buffer-channel-selector-20230406183808.png)
 
 
 直接缓冲区和非直接缓冲区之间的差异。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/buffer-channel-selector-20230406182921.png)
+![](https://cdn.paicoding.com/stutymore/buffer-channel-selector-20230406182921.png)
 
 非直接缓冲区存储在JVM内部，数据需要从应用程序（Java）复制到非直接缓冲区，再复制到内核缓冲区，最后发送到设备（磁盘/网络）。而对于直接缓冲区，数据可以直接从应用程序（Java）复制到内核缓冲区，无需经过JVM的非直接缓冲区。
 
@@ -508,4 +508,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

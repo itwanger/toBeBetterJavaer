@@ -179,7 +179,7 @@ CAS 是比较并设置的意思，用于在硬件层面上提供原子性操作�
 
 线程竞争偏向锁的过程如下：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/synchronized-20230728110319.png)
+![](https://cdn.paicoding.com/stutymore/synchronized-20230728110319.png)
 
 图中涉及到了 lock record 指针指向当前堆栈中的最近一个 lock record，是轻量级锁按照先来先服务的模式进行了轻量级锁的加锁。
 
@@ -201,7 +201,7 @@ CAS 是比较并设置的意思，用于在硬件层面上提供原子性操作�
 
 下面这个经典的图总结了偏向锁的获得和撤销：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/synchronized-20230728112620.png)
+![](https://cdn.paicoding.com/stutymore/synchronized-20230728112620.png)
 
 ## 轻量级锁
 
@@ -225,7 +225,7 @@ JVM 会为每个线程在当前线程的栈帧中创建用于存储锁记录的�
 
 一张图说明加锁和释放锁的过程：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/synchronized-20230728114101.png)
+![](https://cdn.paicoding.com/stutymore/synchronized-20230728114101.png)
 
 ## 重量级锁
 
@@ -282,4 +282,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

@@ -449,7 +449,7 @@ Externalizable 和 Serializable 都是用于实现 Java 对象的序列化和反
 
 ①、Serializable 是 Java 标准库提供的接口，而 Externalizable 是 Serializable 的子接口；
 
-![](https://cdn.tobebetterjavaer.com/stutymore/Serializbale-20230323161831.png)
+![](https://cdn.paicoding.com/stutymore/Serializbale-20230323161831.png)
 
 
 ②、Serializable 接口不需要实现任何方法，只需要将需要序列化的类标记为 Serializable 即可，而 Externalizable 接口需要实现 writeExternal 和 readExternal 两个方法；
@@ -466,7 +466,7 @@ Externalizable 和 Serializable 都是用于实现 Java 对象的序列化和反
 
 当一个类实现了 `Serializable` 接口后，IDE 就会提醒该类最好产生一个序列化 ID，就像下面这样：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/Serializbale-7a9a05f6-a65c-46b0-b4d7-8b619297f351.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/io/Serializbale-7a9a05f6-a65c-46b0-b4d7-8b619297f351.jpg)
 
 1）添加一个默认版本的序列化 ID：
 
@@ -593,4 +593,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

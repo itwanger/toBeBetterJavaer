@@ -85,15 +85,15 @@ public class LockSupportDemo {
 
 运行，然后再 Run 面板中点击「attach debugger」。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/LockSupport-20230816130537.png)
+![](https://cdn.paicoding.com/stutymore/LockSupport-20230816130537.png)
 
 然后在 debugger 面板中右键选择「export thread」。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/LockSupport-20230816130629.png)
+![](https://cdn.paicoding.com/stutymore/LockSupport-20230816130629.png)
 
 就可以看了 Dump 线程信息了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/LockSupport-20230816130730.png)
+![](https://cdn.paicoding.com/stutymore/LockSupport-20230816130730.png)
 
 **调用 park()方法 dump 线程**：
 
@@ -168,7 +168,7 @@ LockSupport 会为使用它的线程关联一个许可证（permit）状态，pe
 
 来看时间线：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/LockSupport-20230901163159.png)
+![](https://cdn.paicoding.com/stutymore/LockSupport-20230901163159.png)
 
 - 线程 A 执行`LockSupport.park`，发现 permit 为 0，未持有许可证，阻塞线程 A
 - 线程 B 执行`LockSupport.unpark`（入参线程 A），为 A 线程设置许可证，permit 更新为 1，唤醒线程 A
@@ -179,7 +179,7 @@ LockSupport 会为使用它的线程关联一个许可证（permit）状态，pe
 
 经过上面的分析得出结论 unpark 的语义明确为「使线程持有许可证」，park 的语义明确为「消费线程持有的许可」，所以 unpark 与 park 的执行顺序没有强制要求，只要控制好使用的线程即可，`unpark=>park`执行流程如下
 
-![](https://cdn.tobebetterjavaer.com/stutymore/LockSupport-20230901163443.png)
+![](https://cdn.paicoding.com/stutymore/LockSupport-20230901163443.png)
 
 - permit 默认是 0，线程 A 执行 LockSupport.unpark，permit 更新为 1，线程 A 持有许可证
 - 线程 A 执行 LockSupport.park，此时 permit 是 1，消费许可证，permit 更新为 0
@@ -264,4 +264,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

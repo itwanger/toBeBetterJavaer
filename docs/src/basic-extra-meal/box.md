@@ -80,7 +80,7 @@ class Writer {
 
 [技术派实战项目](https://github.com/itwanger/paicoding)当中就有大量 POJO，我截图大家感受下，工作后其实会经常碰到。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/box-20231231071807.png)
+![](https://cdn.paicoding.com/stutymore/box-20231231071807.png)
 
 只不过，我们不再写 setter 和 getter 方法，而是使用 [Lombok](https://javabetter.cn/springboot/lombok.html) 来自动生成。也就是上图当中的 `@Data` 注解。
 
@@ -125,7 +125,7 @@ List<Integer> list = new ArrayList<>();
 
 “作为局部变量时，基本数据类型在栈中直接存储的具体数值，而包装类型则存储的是堆中的引用。”我一边说着，一边打开 [`draw.io`](https://app.diagrams.net/) 画起了图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/box-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/core-points/box-01.png)
 
 >关于堆和栈的知识，我们会在讲 [JVM 运行时数据区](https://javabetter.cn/jvm/neicun-jiegou.html)的时候详细讲解。
 
@@ -375,7 +375,7 @@ System.out.println(t2-t1);
 
 等后面你学了 [javap](https://javabetter.cn/jvm/bytecode.html) 命令之后，就可以通过 `javap -v xxx.class` 命令来查看这段代码的执行过程。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/box-20231231092746.png)
+![](https://cdn.paicoding.com/stutymore/box-20231231092746.png)
 
 从这里面，你应该能看到 `Long.valueOf()` 和 `Long.longValue()` 的身影。它们分别对应了自动装箱和自动拆箱。
 
@@ -398,4 +398,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

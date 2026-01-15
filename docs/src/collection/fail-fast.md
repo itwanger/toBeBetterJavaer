@@ -17,7 +17,7 @@ head:
 
 那天，小二去阿里面试，面试官老王一上来就甩给了他一道面试题：为什么阿里的 Java 开发手册里会强制不要在 foreach 里进行元素的删除操作？
 
-![](https://cdn.tobebetterjavaer.com/stutymore/fail-fast-20230428073517.png)
+![](https://cdn.paicoding.com/stutymore/fail-fast-20230428073517.png)
 
 小二听完这句话就乐了。为什么呢？因为一天前他刚在《[二哥的Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》上看到过这道题的答案。
 
@@ -66,7 +66,7 @@ System.out.println(list);
 
 这段代码看起来没有任何问题，但运行起来就报错了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/fail-fast-01.png)
 
 
 根据错误的堆栈信息，我们可以定位到 ArrayList 的第 901 行代码。
@@ -205,7 +205,7 @@ final void checkForComodification() {
 
 那其实在阿里巴巴的 Java 开发手册里也提到了，不要在 for-each 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator 方式。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/collection/fail-fast-02.png)
 
 那原因其实就是我们上面分析的这些，出于 fail-fast 保护机制。
 
@@ -334,4 +334,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

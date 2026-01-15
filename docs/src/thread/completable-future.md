@@ -14,7 +14,7 @@ head:
 ---
 
 
-![](https://cdn.tobebetterjavaer.com/paicoding/f03e03c886766e6c0f4aaf4602271a0d.jpg)
+![](https://cdn.paicoding.com/paicoding/f03e03c886766e6c0f4aaf4602271a0d.jpg)
 
 ## 一个示例回顾 Future
 
@@ -240,7 +240,7 @@ public void testCompletableGet() throws InterruptedException, ExecutionException
 
 ## 异步回调方法
 
-![](https://cdn.tobebetterjavaer.com/paicoding/7f1a85c3fc14ea3915e154d907351256.jpg)
+![](https://cdn.paicoding.com/paicoding/7f1a85c3fc14ea3915e154d907351256.jpg)
 
 ### 1、thenRun/thenRunAsync
 
@@ -445,7 +445,7 @@ exceptionally中异常：java.lang.RuntimeException: 出错了
 
 ## 多任务组合回调
 
-![](https://cdn.tobebetterjavaer.com/paicoding/2be0942bcbe746228e00b7f87a70c3a4.jpg)
+![](https://cdn.paicoding.com/paicoding/2be0942bcbe746228e00b7f87a70c3a4.jpg)
 
 ### 1、AND 组合关系
 
@@ -673,7 +673,7 @@ public void testCompletableAnyOf() throws ExecutionException, InterruptedExcepti
 
 ## CompletableFuture 使用有哪些注意点
 
-![](https://cdn.tobebetterjavaer.com/paicoding/083cc2035bba7b7ebb6cea27ff197e1f.jpg)
+![](https://cdn.paicoding.com/paicoding/083cc2035bba7b7ebb6cea27ff197e1f.jpg)
 
 CompletableFuture 使我们的异步编程更加便利的、代码更加优雅的同时，我们也要关注下它，使用的一些注意点。
 

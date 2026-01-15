@@ -305,7 +305,7 @@ public class RandomAccessFileDemo {
 
 为了避免中文乱码问题，我们使用 RandomAccessFile 的 writeUTF 和 readUTF 方法，它们将使用 UTF-8 编码处理字符串。大家可以运行一下这段代码，体验一下。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/file-path-20230331193604.png)
+![](https://cdn.paicoding.com/stutymore/file-path-20230331193604.png)
 
 接下来，会详细介绍一下 RandomAccessFile 的构造方法和常用的方法。
 
@@ -466,4 +466,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

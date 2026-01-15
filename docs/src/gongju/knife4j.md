@@ -19,15 +19,15 @@ Knife4j 的前身是 swagger-bootstrap-ui，是 springfox-swagger-ui 的增强 U
 
 springfox-swagger-ui 的界面长这个样子，说实话，确实略显丑陋。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-1.png)
 
 swagger-bootstrap-ui 增强后的样子长下面这样。单纯从直观体验上来看，确实增强了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-2.png)
 
 那改良后的 Knife4j 不仅在界面上更加优雅、炫酷，功能上也更加强大：后端 Java 代码和前端 UI 模块分离了出来，在微服务场景下更加灵活；还提供了专注于 Swagger 的增强解决方案。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-3.png)
 
 官方文档：
 
@@ -157,17 +157,17 @@ public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 >访问地址（和 Swagger 不同）：[http://localhost:8080/doc.html](http://localhost:8080/doc.html)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-0a9eb2b1-bace-4f47-ace9-8a5f9f280279.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-0a9eb2b1-bace-4f47-ace9-8a5f9f280279.png)
 
 是不是比 Swagger 简洁大方多了？如果想测试接口的话，可以直接点击接口，然后点击「测试」，点击发送就可以看到返回结果了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-16b1b553-1667-4222-9f29-2e5dfc8917a0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-16b1b553-1667-4222-9f29-2e5dfc8917a0.png)
 
 ## Knife4j 的功能特点
 
 编程喵🐱实战项目中已经整合好了 Knife4j，在本地跑起来后，就可以查看所有 API 接口了。编程喵中的管理端（codingmore-admin）端口为 9002，启动服务后，在浏览器中输入 [http://localhost:9002/doc.html](http://localhost:9002/doc.html) 就可以访问到了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-3cfbf598-b94a-4081-aab3-06af1eef612c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-3cfbf598-b94a-4081-aab3-06af1eef612c.png)
 
 简单来介绍下 Knife4j 的 功能特点：
 
@@ -176,47 +176,47 @@ public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 
 Knife4j 和 Swagger 一样，也是支持头部登录认证的，点击「authorize」菜单，添加登录后的信息即可保持登录认证的 token。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-6.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-6.png)
 
 如果某个 API 需要登录认证的话，就会把之前填写的信息带过来。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-7.png)
 
 **2）支持 JSON 折叠**
 
 Swagger 是不支持 JSON 折叠的，当返回的信息非常多的时候，界面就会显得非常的臃肿。Knife4j 则不同，可以对返回的 JSON 节点进行折叠。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-8.png)
 
 **3）离线文档**
 
 Knife4j 支持把 API 文档导出为离线文档（支持 markdown 格式、HTML 格式、Word 格式），
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-9.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-9.png)
 
 使用 Typora 打开后的样子如下，非常的大方美观。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-10.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-10.png)
 
 **4）全局参数**
 
 当某些请求需要全局参数时，这个功能就很实用了，Knife4j 支持 header 和 query 两种方式。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-11.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-11.png)
 
 之后进行请求的时候，就会把这个全局参数带过去。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-12.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-12.png)
 
 **5）搜索 API 接口**
 
 Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当需要去找某一个 API 的时候就傻眼了，只能一个个去拖动滚动条去找。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-13.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-13.png)
 
 在文档的右上角，Knife4j 提供了文档搜索功能，输入要查询的关键字，就可以检索筛选了，是不是很方便？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-14.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-14.png)
 
 目前支持搜索接口的地址、名称和描述。
 
@@ -226,7 +226,7 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 
 >[https://doc.xiaominfo.com/knife4j/documentation/enhance.html](https://doc.xiaominfo.com/knife4j/documentation/enhance.html)
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/knife4j-15.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongju/knife4j-15.png)
 
 ----
 
@@ -240,4 +240,4 @@ Swagger 是没有搜索功能的，当要测试的接口有很多的时候，当
 > - codingmore-knife4j：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-knife4j)
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

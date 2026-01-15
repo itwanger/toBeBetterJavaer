@@ -15,7 +15,7 @@ head:
 
 前面我们就讲过，Java 源代码文件经过编译器编译后会生成字节码文件，经过加载器加载完毕后会交给执行引擎执行。在执行的过程中，JVM 会划出来一块空间来存储程序执行期间需要用到的数据，这块空间一般被称为运行时数据区，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-dac0f4c1-8a7e-4309-a599-5664cdaf5016.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/neicun-jiegou-dac0f4c1-8a7e-4309-a599-5664cdaf5016.png)
 
 根据 Java 虚拟机规范的规定，运行时数据区可以分为以下几个部分：
 
@@ -25,7 +25,7 @@ head:
 - 堆（Heap）
 - 方法区（Method Area）
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110194325.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20240110194325.png)
 
 >JDK 8 开始，永久代被彻底移除，取而代之的是元空间。元空间不再是 JVM 内存的一部分，而是通过本地内存（Native Memory）来实现的。也就是说，JDK 8 开始，方法区的实现就是元空间。
 
@@ -86,7 +86,7 @@ Java 虚拟机栈（JVM 栈）中是一个个[栈帧](https://javabetter.cn/jvm/
 
 栈帧包含以下 5 个部分，见下图。我们前面已经详细地讲过[栈帧](https://javabetter.cn/jvm/stack-frame.html)了，忘记的球友可以回头去看一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-4ea2a60a-05df-4ed1-8109-99ae23acefd1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/neicun-jiegou-4ea2a60a-05df-4ed1-8109-99ae23acefd1.png)
 
 
 假设我们有一个简单的 add 方法，如下所示：
@@ -129,21 +129,21 @@ public class StackOverflowErrorTest1 {
 
 默认配置下，堆栈异常出现在 10886 次：
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225143408.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225143408.png)
 
 增加 `-Xss256k` 后，来试试。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225143746.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225143746.png)
 
 1991 次出现了堆栈异常。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225143841.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225143841.png)
 
 这之间存在什么关系呢？
 
 通过 `java -XX:+PrintFlagsFinal -version | grep ThreadStackSize` 这个命令可以查看 JVM 栈的默认大小。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225145929.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225145929.png)
 
 其中 `ThreadStackSize` 的单位是字节，也就是说默认的 JVM 栈大小是 1024 KB，也就是 1M。
 
@@ -159,7 +159,7 @@ public class StackOverflowErrorTest1 {
 
 以前，Java 中“几乎”所有的对象都会在堆中分配，但随着 [JIT](https://javabetter.cn/jvm/jit.html) 编译器的发展和逃逸技术的逐渐成熟，所有的对象都分配到堆上渐渐变得不那么“绝对”了。从 JDK 7 开始，Java 虚拟机已经默认开启逃逸分析了，意味着如果某些方法中的对象引用没有被返回或者未被外面使用（也就是未逃逸出去），那么对象可以直接在栈上分配内存。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225154450.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225154450.png)
 
 栈就是前面提到的 JVM 栈（主要存储局部变量、方法参数、对象引用等），属于线程私有，通常随着方法调用的结束而消失，也就无需进行垃圾收集；堆前面也讲了，属于线程共享的内存区域，几乎所有的对象都在对上分配，生命周期不由单个方法调用所决定，可以在方法调用结束后继续存在，直到不在被任何变量引用，然后被垃圾收集器回收。
 
@@ -167,7 +167,7 @@ public class StackOverflowErrorTest1 {
 
 常见的编译型语言如 C++，通常会把代码直接编译成 CPU 所能理解的机器码来运行。而 Java 为了实现“一次编译，处处运行”的特性，把编译的过程分成两部分，首先它会先由 javac 编译成通用的中间形式——字节码，然后再由解释器逐条将字节码解释为机器码来执行。所以在性能上，Java 可能会干不过 C++ 这类编译型语言。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231223155202.png)
+![](https://cdn.paicoding.com/stutymore/what-is-jvm-20231223155202.png)
 
 为了优化 Java 的性能 ，JVM 在解释器之外引入了 JIT 编译器：当程序运行时，解释器首先发挥作用，代码可以直接执行。随着时间推移，即时编译器逐渐发挥作用，把越来越多的代码编译优化成本地代码，来获取更高的执行效率。解释器这时可以作为编译运行的降级手段，在一些不可靠的编译优化出现问题时，再切换回解释执行，保证程序可以正常运行。
 
@@ -242,17 +242,17 @@ public class HeapSpaceErrorGenerator {
 
 通过 VM 参数设置堆内存大小为 `-Xmx128M`，然后运行程序。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160028.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225160028.png)
 
 可以看到，堆内存溢出发生在 11 个对象后。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160115.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225160115.png)
 
 默认的堆内存大小是多少呢？
 
 通过 `java -XX:+PrintFlagsFinal -version | grep HeapSize` 这个命令可以查看 JVM 堆的默认大小。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225160212.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225160212.png)
 
 也可以通过下面这行代码获取：
 
@@ -272,7 +272,7 @@ System.out.println(Runtime.getRuntime().maxMemory() / 1024.0 / 1024 + "MB");
 
 换句话说，方法区和永久代的关系就像是 Java 中接口和类的关系，类实现了接口，接口还是那个接口，但实现已经完全升级了。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20240110195211.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20240110195211.png)
 
 JDK 7 之前，只有常量池的概念，都在方法区中。
 
@@ -280,7 +280,7 @@ JDK 7 的时候，字符串常量池从方法区中拿出来放到了堆中，�
 
 JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[字符串常量池](https://javabetter.cn/string/constant-pool.html)还在堆中，而运行时常量池跑到了元空间。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231227111238.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231227111238.png)
 
 **为什么要废弃永久代，而使用元空间来进行替换呢？**
 
@@ -292,7 +292,7 @@ JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[�
 
 >可以通过 `java -XX:+PrintFlagsFinal -version | grep HeapSize` 查看 JVM 默认的堆内存大小。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225192753.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225192753.png)
 
 当元空间的数据增长时，JVM 会请求操作系统分配更多的内存。如果内存空间足够，操作系统就会满足 JVM 的请求。那会不会出现元空间溢出的情况呢？
 
@@ -302,23 +302,23 @@ JDK 8 的时候，HotSpot 移除了永久代，取而代之的是元空间。[�
 
 在讲字节码的时候，我们详细的讲过[常量池](https://javabetter.cn/jvm/bytecode.html)，它是字节码文件的资源仓库，先是一个常量池大小，从 1 到 n-1，0 为保留索引，然后是常量池项的集合，包括类信息、字段信息、方法信息、接口信息、字符串常量等。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225183354.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225183354.png)
 
 运行时常量池，顾名思义，就是在运行时期间，JVM 会将字节码文件中的常量池加载到内存中，存放在运行时常量池中。
 
 也就是说，常量池是在字节码文件中，而运行时常量池在元空间当中（JDK 8 及以后），讲的是一个东西，但形态不一样，就好像一个是固态，一个是液态；或者一个是模子，一个是模子里的锅碗瓢盆。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225184358.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225184358.png)
 
 ### 字符串常量池
 
 字符串常量池我们在讲[字符串](https://javabetter.cn/string/constant-pool.html)的时候已经详细讲过了，它的作用是存放字符串常量，也就是我们在代码中写的字符串。依然在堆中。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/neicun-jiegou-20231225184843.png)
+![](https://cdn.paicoding.com/stutymore/neicun-jiegou-20231225184843.png)
 
 OK，方法区（不管是永久代还是元空间的实现）和堆一样，**是线程共享的区域**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/jvm/neicun-jiegou-e33179f3-275b-44c9-87f6-802198f8f360.png)
 
 ## 小结
 
@@ -333,7 +333,7 @@ OK，方法区（不管是永久代还是元空间的实现）和堆一样，**�
 
 在 JVM 启动时，元空间的大小由 MaxMetaspaceSize 参数指定，JVM 在运行时会自动调整元空间的大小，以适应不同的程序需求。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/what-is-jvm-20231030191213.png)
+![](https://cdn.paicoding.com/stutymore/what-is-jvm-20231030191213.png)
 
 
 
@@ -344,4 +344,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

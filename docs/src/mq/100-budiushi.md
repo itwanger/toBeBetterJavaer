@@ -17,7 +17,7 @@ tag:
 以京东系统为例，用户在购买商品时，通常会选择用京豆抵扣一部分的金额，在这个过程中，交易服务和京豆服务通过 MQ 消息队列进行通信。在下单时，交易服务发送“扣减账户 X 100 个京豆”的消息给 MQ 消息队列，而京豆服务则在消费端消费这条命令，实现真正的扣减操作。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/100-budiushi-a5cbe077-5f38-44c6-9ed7-496fe1702cca.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/100-budiushi-a5cbe077-5f38-44c6-9ed7-496fe1702cca.png)
 
 那在这个过程中你会遇到什么问题呢？
 
@@ -50,7 +50,7 @@ tag:
 我们首先来看消息丢失的环节，一条消息从生产到消费完成这个过程，可以划分三个阶段，分别为消息生产阶段，消息存储阶段和消息消费阶段。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/100-budiushi-1d1962fb-cb0f-41d0-8d6d-077ba33b6125.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/100-budiushi-1d1962fb-cb0f-41d0-8d6d-077ba33b6125.png)
 
 **消息生产阶段**： 从消息被生产出来，然后提交给 MQ 的过程中，只要能正常收到 MQ Broker 的 ack 确认响应，就表示发送成功，所以只要处理好返回值和异常，这个阶段是不会出现消息丢失的。
 
@@ -77,7 +77,7 @@ tag:
 我们还是来看扣减京豆的例子，将账户 X 的金豆个数扣减 100 个，在这个例子中，我们可以通过改造业务逻辑，让它具备幂等性。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/100-budiushi-9d864624-2136-4770-942b-9a5f70c2aaf6.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/100-budiushi-9d864624-2136-4770-942b-9a5f70c2aaf6.png)
 
 最简单的实现方案，就是在数据库中建一张消息日志表， 这个表有两个字段：消息 ID 和消息执行状态。这样，我们消费消息的逻辑可以变为：在消息日志表中增加一条消息记录，然后再根据消息记录，异步操作更新用户京豆余额。
 
@@ -88,7 +88,7 @@ tag:
 在分布式系统中，全局唯一 ID 生成的实现方法有数据库自增主键、UUID、Redis，Twitter-Snowflake 算法，我总结了几种方案的特点，你可以参考下。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/mq/100-budiushi-0622a500-83ef-4b8f-96d3-68c649d17311.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mq/100-budiushi-0622a500-83ef-4b8f-96d3-68c649d17311.png)
 
 我提醒你注意，无论哪种方法，如果你想同时满足简单、高可用和高性能，就要有取舍，所以你要站在实际的业务中，说明你的选型所考虑的平衡点是什么。我个人在业务中比较倾向于选择 Snowflake 算法，在项目中也进行了一定的改造，主要是让算法中的 ID 生成规则更加符合业务特点，以及优化诸如时钟回拨等问题。
 
@@ -130,4 +130,4 @@ tag:
 
 >原文链接：http://t.hk.uy/Ue6
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -121,7 +121,7 @@ if(player.getType().equals(Player.PlayerType.BASKETBALL)){};
 
 另外， “==”运算符会在编译时进行检查，如果两侧的类型不匹配，会提示错误，而 `equals()` 方法则不会。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-01.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/enum/enum-01.png)
 
 “枚举还可用于 switch 语句，和基本数据类型的用法一致。”我说。
 
@@ -170,7 +170,7 @@ public enum PlayerType {
 
 “因为 EnumSet 是一个抽象类，所以创建 EnumSet 时不能使用 new 关键字。不过，EnumSet 提供了很多有用的静态工厂方法。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-02.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/enum/enum-02.png)
 
 “来看下面这个例子，我们使用 `noneOf()` 静态工厂方法创建了一个空的 PlayerType 类型的 EnumSet；使用 `allOf()` 静态工厂方法创建了一个包含所有 PlayerType 类型的 EnumSet。”
 
@@ -201,7 +201,7 @@ public class EnumSetTest {
 
 有了 EnumSet 后，就可以使用 Set 的一些方法了，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-03.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/enum/enum-03.png)
 
 “除了 EnumSet，还有 EnumMap，是一个专门针对枚举类型的 Map 接口的实现类，它可以将枚举常量作为键来使用。EnumMap 的效率比 HashMap 还要高，可以直接通过数组下标（枚举的 ordinal 值）访问到元素。”
 
@@ -213,7 +213,7 @@ EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
 
 有了 EnumMap 对象后就可以使用 Map 的一些方法了，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-04.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/enum/enum-04.png)
 
 和 [HashMap](https://javabetter.cn/collection/hashmap.html)（后面会讲）的使用方法大致相同，来看下面的例子。
 
@@ -300,4 +300,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)

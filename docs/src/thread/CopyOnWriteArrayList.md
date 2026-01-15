@@ -170,7 +170,7 @@ CopyOnWrite 容器有很多优点，但是同时也存在两个问题，即内�
 
 假设 COW 的变化如下图所示：
 
-![最终一致性的分析](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/CopyOnWriteArrayList-01.png)
+![最终一致性的分析](https://cdn.paicoding.com/tobebetterjavaer/images/thread/CopyOnWriteArrayList-01.png)
 
 数组中已有数据 1,2,3，现在写线程想往数组中添加数据 4，我们在第 5 行处打上断点，让写线程暂停。
 
@@ -195,4 +195,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 [加入二哥的编程星球](https://javabetter.cn/thread/)，在星球的第二个置顶帖「[知识图谱](https://javabetter.cn/thread/)」里就可以获取 PDF 版本。
 
-![二哥的并发编程进阶之路获取方式](https://cdn.tobebetterjavaer.com/stutymore/mianshi-20240723112714.png)
+![二哥的并发编程进阶之路获取方式](https://cdn.paicoding.com/stutymore/mianshi-20240723112714.png)

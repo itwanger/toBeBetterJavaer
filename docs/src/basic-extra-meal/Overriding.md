@@ -19,7 +19,7 @@ head:
 
 重写带来了一种非常重要的能力，可以让子类重新实现从超类那继承过来的方法。在下面这幅图中，Animal 是父类，Dog 是子类，Dog 重新实现了 `move()` 方法用来和父类进行区分，毕竟狗狗跑起来还是比较有特色的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-1.png)
 
 重写的方法和被重写的方法，不仅方法名相同，参数也相同，只不过，方法体有所不同。
 
@@ -83,7 +83,7 @@ public class Animal {
 
 由于父类 Animal 中的 `move()` 是 final 的，所以子类在尝试重写该方法的时候就出现编译错误了！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
 
 同样的，如果一个方法是 static 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
 
@@ -95,7 +95,7 @@ public class Animal {
 
 重写的目的在于根据对象的类型不同而表现出多态，而静态方法不需要创建对象就可以使用。没有了对象，重写所需要的“对象的类型”也就没有存在的意义了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
 
 ## 04、重写方法的要求
 
@@ -147,7 +147,7 @@ public class Dog extends Animal {
 
 于是就编译出错了（返回类型不兼容）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
 
 ### **规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
 
@@ -175,7 +175,7 @@ public class Dog extends Animal {
 
 如果子类中的方法用了更严格的权限修饰符，编译器就报错了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
 
 ### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
 
@@ -331,4 +331,4 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
