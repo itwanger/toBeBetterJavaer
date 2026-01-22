@@ -36,9 +36,9 @@ export default navbar([
         link: "/pdf/readme.md" 
       },
       { 
-        text: "破解合集",
+        text: "公众号文章",
         icon: "zhongyaotishi",
-        link: "/nice-article/itmind/" 
+        link: "/sidebar/itwanger/" 
       },
       { 
         text: "上交大生存手册",

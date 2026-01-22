@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "^2026.1.14",
+    "mcp-fetch-server": "^1.0.2",
+    "mcp-server-rsshub": "^0.1.11",
+    "rss-reader-mcp": "^1.0.8"
+  }
+}
