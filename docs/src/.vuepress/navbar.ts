@@ -36,9 +36,14 @@ export default navbar([
         link: "/pdf/readme.md" 
       },
       { 
-        text: "公众号文章",
+        text: "求职",
         icon: "zhongyaotishi",
-        link: "/sidebar/itwanger/" 
+        link: "/sidebar/itwanger/qiuzhi/" 
+      },
+      { 
+        text: "AI",
+        icon: "ai",
+        link: "/sidebar/itwanger/ai/" 
       },
       { 
         text: "上交大生存手册",

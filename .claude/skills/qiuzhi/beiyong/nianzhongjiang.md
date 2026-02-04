@@ -1,5 +1,3 @@
-# 工商银行的年终奖。。
-
 大家好，我是二哥呀。
 
 春节前还有 40 天左右的时间，大家的注意力或多或少都会放在年终奖上。至少我就是，瞅了一眼脉脉上曝光的工商银行年终奖，只能说：从夯到拉，人生百态！
@@ -107,6 +105,6 @@
 
 ## ending
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://mp.weixin.qq.com/s/0mIN1eiXshzLhSPsLzqYTw)已经有 11100 多名球友加入了，如果你也需要一个优质的学习环境，[戳链接 🔗](https://mp.weixin.qq.com/s/t1cjjeMVFVSOzvQQwmaxuA) 加入我们吧。这是一个 [简历精修](https://mp.weixin.qq.com/s/n_J69JKJJlZwb5Cu_KO3vQ) + 编程项目实战（[RAG 派聪明 Java 版](https://mp.weixin.qq.com/s/Vo1ggbhIir3L41hOykHDGA)/[Go 版本](https://mp.weixin.qq.com/s/_lwdTcbyBqGuKBqvIl_USw)、[技术派](https://mp.weixin.qq.com/s/No9F6sKhFnEeQ8H-GyzSCA)、[微服务 PmHub](https://mp.weixin.qq.com/s/2H1CgbXlHApOFZcyobVVEg)）+ [Java 面试指南](https://mp.weixin.qq.com/s/BT5GEsiLvagL5bumwF04YA)的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://mp.weixin.qq.com/s/0mIN1eiXshzLhSPsLzqYTw)已经有 11500 多名球友加入了，如果你也需要一个优质的学习环境，[戳链接 🔗](https://mp.weixin.qq.com/s/t1cjjeMVFVSOzvQQwmaxuA) 加入我们吧。这是一个 [简历精修](https://mp.weixin.qq.com/s/n_J69JKJJlZwb5Cu_KO3vQ) + 编程项目实战（[RAG 派聪明 Java 版](https://mp.weixin.qq.com/s/Vo1ggbhIir3L41hOykHDGA)/[Go 版本](https://mp.weixin.qq.com/s/_lwdTcbyBqGuKBqvIl_USw)、[技术派](https://mp.weixin.qq.com/s/No9F6sKhFnEeQ8H-GyzSCA)、[微服务 PmHub](https://mp.weixin.qq.com/s/2H1CgbXlHApOFZcyobVVEg)）+ [Java 面试指南](https://mp.weixin.qq.com/s/BT5GEsiLvagL5bumwF04YA)的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。
 
 最后，把二哥的座右铭送给大家：**没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟**。共勉 💪。

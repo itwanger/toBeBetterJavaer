@@ -1,0 +1,12 @@
+- 这份Claude Code指南火爆全网，已狂飙20k+ Star！
+- Top 10热门Agent Skills，我试了个遍，发现真的能让生产力翻倍
+- 屠榜GitHub，被迫改名！这款AI助手杀疯了！
+- 一文带你看懂，火爆全网的Skills到底是啥
+- 马斯克开源 X 推荐算法，我研究了一天，发现了这些宝藏设计
+- 用 OiiOii 做 AI 漫剧，简直就是起号神器！
+- CodeBuddy Code 2.0：国产Claude Code，有点东西
+- 还得是腾讯，Claude Code迎来最强中国对手！企业Agent有救了～
+- 编程新王Kimi K2.5，审美简直逆天！
+- 不用Claude了！阿里推出国产cowork太猛了，我熬夜测了一圈，直呼太香了！
+- Kimi这波更新，我看是不想给WPS留活路了
+- 阿里杀疯了，桌面端 Agent 强势来袭，自动做 PPT，视频，太牛了。
