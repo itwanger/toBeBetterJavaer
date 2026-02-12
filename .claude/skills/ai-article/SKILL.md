@@ -1,3 +1,8 @@
+---
+name: ai-article
+description: 自动搜集AI领域热点或根据指定选题，按照二哥的写作风格完成AI技术类文章撰写。专注于AI Coding工具实测（Claude Code、Qoder、Cursor、TRAE等）、大模型工程化落地（SpringAI、LangChain、RAG等）、AI Agent和工作流编排、国产大模型评测（GLM、通义千问、DeepSeek、MiniMax、Kimi等）。触发关键词：写一篇AI文章、AI技术文章、大模型测评、AI工具实测、GLM、Claude Code、Qoder、Cursor、TRAE、SpringAI、RAG、Agent、工作流、国产大模型、搜集AI热点、AI选题等。
+---
+
 # AI技术文章生成工作流
 
 ## 环境声明（每次执行前必读）
@@ -19,10 +24,11 @@ date "+%Y年%m月%d日"
 ```
 ai-article/
 ├── SKILL.md          # 本文件，工作流和写作规范
-├── sample/           # 历史文章素材，学习写作风格用
+├── references/       # 历史文章素材，学习写作风格用
 │   ├── glm4-7.md
 │   └── quest-2.md
-└── sucai.md           # 本次写作的参考素材（临时），用户提供的背景资料、数据、截图说明等
+├── biaoti.md        # 标题风格参考
+└── sucai.md         # 本次写作的参考素材（临时），用户提供的背景资料、数据、截图说明等
 ```
 
 ## 工作模式
@@ -45,7 +51,7 @@ ai-article/
 
 ### 步骤3：输出文章
 
-文件格式为 Markdown，字数 2500-3000 字，文件命名用文章标题关键词，保存到 `/Users/itwanger/Documents/GitHub/toBeBetterJavaer/docs/src/sidebar/itwanger/ai/` 目录。
+文件格式为 Markdown，字数 3000-4000 字，文件命名用文章标题关键词，保存到 `/Users/itwanger/Documents/GitHub/toBeBetterJavaer/docs/src/sidebar/itwanger/ai/` 目录。
 
 
 文章头部模板：
@@ -65,7 +71,7 @@ date: # 使用 date 命令获取的实际日期，格式 YYYY-MM-DD
 
 ### 步骤4：撰写文章
 
-参考 `./sample/` 目录下的历史文章学习二哥的写作风格，结合 `./sucai.md` 的素材，按以下写作原则完成文章。
+参考 `./references/` 目录下的历史文章学习二哥的写作风格，结合 `./sucai.md` 的素材，按以下写作原则完成文章。
 
 ## 写作原则
 
