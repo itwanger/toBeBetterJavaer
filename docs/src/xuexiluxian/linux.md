@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最值得收藏的Linux学习路线（建议收藏🔥）
+title: 2026年最值得收藏的Linux学习路线（建议收藏🔥）
 shortTitle: Linux学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: Linux学习资料 | 学习路线 | 注意事项，Linux需要学什么
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

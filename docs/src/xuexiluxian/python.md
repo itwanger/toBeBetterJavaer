@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最值得收藏的Python学习路线（建议收藏🔥）
+title: 2026年最值得收藏的Python学习路线（建议收藏🔥）
 shortTitle: Python学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

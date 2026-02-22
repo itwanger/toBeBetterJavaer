@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最新超详细的 Go 语言学习路线（建议收藏🔥）
+title: 2026年最新超详细的 Go 语言学习路线（建议收藏🔥）
 shortTitle: Go 语言学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: Go 语言越来越火了，这里整理一份 go 语言的超详细学习路线，附学习资源，可下载
-date: 2025-07-17
+date: 2026-07-17
 author: 沉默王二
 head:
   - - meta

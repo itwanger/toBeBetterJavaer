@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最新超详细Java学习路线一条龙版（建议收藏🔥）
+title: 2026年最新超详细Java学习路线一条龙版（建议收藏🔥）
 shortTitle: Java学习路线一条龙
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 2023最新超详细Java学习路线一条龙版，如果想从事Java开发工作，可以参考本文
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

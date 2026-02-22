@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最值得收藏的蓝桥杯学习路线（🔥）
+title: 2026年最值得收藏的蓝桥杯学习路线（🔥）
 shortTitle: 蓝桥杯学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 蓝桥杯攻略大全 | 学习路线 | 注意事项，蓝桥杯需要学什么
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

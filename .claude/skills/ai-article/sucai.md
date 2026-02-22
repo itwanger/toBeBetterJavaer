@@ -1,17 +1,6 @@
-RuoYi 全栈 AI 平台开源了！真香！！
+、现在的 AI 产品有两个痛点：要么纯云端（常遇延迟和断网），要么纯聊天（没法进行深度的交互和操作）。而 LobsterAI 是一个基于 Electron + React 的本地优先 Agent。你只需用自然语言聊天，它就能直接在本地电脑上操作你的文件系统和终端，
+同时支持最全的主流国内外的聊天软件（飞书，钉钉，Telegram，Discord）去远程控制，比别的工具都丰富，内置 memory 长记忆，会记住你的偏好，跨 session 自动复用。
 
-RuoYi-Vue-Plus 基础上扩展 AI 功能的开源项目 —— RuoYi-AI
-
-智能 AI 引擎
-
-Spring AI MCP 集成
-
-本地化 RAG 方案
-
-知识图谱与智能编排
-
-AI 创作工具
-
-GitHub地址：https://github.com/ageerle/ruoyi-ai
-
-官方文档：https://doc.pandarobot.chat/
+1 每天手动刷 HackerNews 并且找有趣的内容比较浪费时间，我让它给我每天早上九点精选 HackerNews 上有趣的十篇文章进行摘要，生成一个list发我钉钉上。
+ 
+2 查看163邮箱，看看都有谁给我发邮件了，如果是修改简历的邮件，但没有带星球编号，就回复它按照要求回复我星球编号。

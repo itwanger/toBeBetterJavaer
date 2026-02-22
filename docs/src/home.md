@@ -65,9 +65,10 @@ head:
 
 新人可免费体验 3 天，不满意可全额退款（只能帮你到这里了😄）。
 
-这是一个 **简历精修 + 编程项目实战 + Java 面试指南 + LeetCode 刷题**的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
+这是一个 **简历精修 + AI/Agent实战项目 + Java 面试指南 + LeetCode 刷题**的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
 - [二哥精修简历服务，让你投了就有笔试&面试✌️](https://javabetter.cn/zhishixingqiu/jianli.html)
+- [二哥的PaiFlow工作流Agent项目派派工作流上线了，Agent时代你必须掌握✌️](https://javabetter.cn/zhishixingqiu/paiflow.html)
 - [二哥的RAG知识库项目派聪明上线了，AI时代你必须拥有的实战项目✌️](https://javabetter.cn/zhishixingqiu/paismart.html)
 - [Go 版本的派聪明RAG知识库项目上线了，学习 Go 语言的小伙伴有福了✌️](https://javabetter.cn/zhishixingqiu/paismart-go.html)
 - [二哥的技术派实战项目更新了，秋招&暑期/日常实习大杀器✌️](https://javabetter.cn/zhishixingqiu/paicoding.html)

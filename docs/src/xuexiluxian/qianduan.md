@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最新超详细的前端学习路线（建议收藏🔥）
+title: 2026年最新超详细的前端学习路线（建议收藏🔥）
 shortTitle: 前端学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 前端学习路线图（roadmap）
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

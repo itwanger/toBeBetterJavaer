@@ -1,12 +1,12 @@
 ---
 star: true
-title: 2025年最值得收藏的JVM学习路线（🔥）
+title: 2026年最值得收藏的JVM学习路线（🔥）
 shortTitle: JVM学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
-date: 2025-01-01
+date: 2026-01-01
 description: JVM 更是面试中不可或缺的一部分，所以我花了几天的时间整理了一条 JVM 的学习路线，希望能帮助到大家
 head:
   - - meta

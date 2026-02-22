@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最新超详细大数据学习路线（建议收藏🔥）
+title: 2026年最新超详细大数据学习路线（建议收藏🔥）
 shortTitle: 大数据学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 如何系统地学习大数据？如何成为一名合格的大数据工程师？我这里给大家准备了一份 GitHub 上星标 12k 的大数据入门指南
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最值得收藏的Redis学习路线（建议收藏🔥）
+title: 2026年最值得收藏的Redis学习路线（建议收藏🔥）
 shortTitle: Redis学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: Redis学习资料 | 学习路线 | 注意事项，Redis需要学什么
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

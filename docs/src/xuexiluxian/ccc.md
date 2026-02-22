@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最值得收藏的C++入门学习路线（🔥）
+title: 2026年最值得收藏的C++入门学习路线（🔥）
 shortTitle: C++学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 非 C++职业选手，但工作中学过一段时间，这篇分享给对 C++ 感兴趣的爱好者，文末有侯捷老师的视频资源可供下载。
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

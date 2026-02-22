@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最新超详细C语言学习路线（建议收藏🔥）
+title: 2026年最新超详细C语言学习路线（建议收藏🔥）
 shortTitle: C语言学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 写这篇文章来给大家讲C语言的学习，当然是希望大家真正的学会、学懂C语言，并能够真正感觉到它的用处。
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords

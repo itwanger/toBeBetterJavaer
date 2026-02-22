@@ -1,13 +1,13 @@
 ---
 star: true
-title: 2025年最值得收藏的Java并发编程学习路线（🔥）
+title: 2026年最值得收藏的Java并发编程学习路线（🔥）
 shortTitle: Java并发编程学习路线
 category:
   - 学习路线
 tag:
   - 学习路线
 description: 这篇文章就来给大家盘点一下 Java 并发到底该如何从入门到精通，Java 并发是 Java 程序员必须懂但又很难懂的一块知识点。
-date: 2025-01-01
+date: 2026-01-01
 head:
   - - meta
     - name: keywords
