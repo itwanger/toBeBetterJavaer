@@ -12,7 +12,7 @@ export default defineUserConfig({
   // 标题
   title: "二哥的Java进阶之路",
   // 描述
-  description: "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路",
+  description: "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、AI应用开发、大模型应用开发、求职面试等核心知识点。学Java/AI，就认准二哥的Java进阶之路",
 
   theme,
 
@@ -37,7 +37,7 @@ export default defineUserConfig({
       {
         name: "keywords",
         content:
-          "Java, Java基础, 并发编程, JVM, 虚拟机, 数据库, MySQL, Spring, Redis, MyBatis, SpringBoot, IDEA, 求职面试, 面渣逆袭, 学习路线",
+          "Java, Java基础, 并发编程, JVM, 虚拟机, 数据库, MySQL, Spring, Redis, MyBatis, SpringBoot, IDEA, 求职面试, 面渣逆袭, 学习路线, AI应用开发, 大模型应用开发, Agent开发",
       },
     ],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
