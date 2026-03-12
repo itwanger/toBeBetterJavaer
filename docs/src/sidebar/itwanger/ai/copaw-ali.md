@@ -1,5 +1,5 @@
 ---
-title: 阿里正式官宣开源，有点猛啊！
+title: 阿里正式官宣开源自家OpenClaw—CoPaw，有点猛啊！
 shortTitle: CoPaw+通义优化README实测
 description: 阿里开源了桌面Agent工具CoPaw，支持钉钉、飞书等平台接入。我用钉钉接入CoPaw，结合通义千问 Coding Plan，把paigit中paicoding项目的README从单调的文本，优化成了带徽章、图标、表格的现代化文档。全程只用了3次对话，效果惊艳。
 tag:
