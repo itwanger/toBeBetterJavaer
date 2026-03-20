@@ -1,10 +1,10 @@
 ---
-title: 讯飞版OpenClaw来了，5分钟搞定同事一辈子的幸福。
+title: AstronClaw来了！我测了一天，这个国产Agent平台真香
 shortTitle: AstronClaw实测
-description: 科大讯飞版“龙虾”AstronClaw上线实测，16.8元/月，支持飞书、钉钉、企业微信，131个技能包秒级部署，沙箱隔离安全又智能。
+description: 科大讯飞AstronClaw Agent平台实测，快速部署、多模型切换、飞书接入全流程体验
 tag:
   - Agent
-  - 科大讯飞
+  - Agent平台
 category:
   - AI
 author: 沉默王二
@@ -31,7 +31,7 @@ date: 2026-03-13
 
 > 幸福不在装与卸之间，而在它能否夹起你碗里的热饭。工具如筷，合手才暖。
 
-![](https://files.mdnice.com/user/3903/735e9fc2-3a05-43f3-8b55-a0924ad3d560.png)
+![](https://cdn.paicoding.com/paicoding/823f19142063970047c82ea4cb755b4d.png)
 
 系好安全带，我们发车。
 
@@ -39,7 +39,7 @@ date: 2026-03-13
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20260312230049.png)
 
-而且讯飞这波诚意给的很足，**即日起到 3 月 20 日 10:00，订阅任一套餐都能享受对话不扣积分、不扣积分、不扣积分**，等于无限畅聊。
+而且讯飞这波诚意给的很足，**即日起到 3 月 20 日 10:00**，订阅任一套餐都能享受对话不扣积分、不扣积分、不扣积分，等于无限畅聊。
 
 选完套餐后点击【立即部署】，只需要 1-2 分钟就可以拥有你自己的虾了，干净又卫生，哦不，安全又智能。
 
@@ -63,11 +63,11 @@ date: 2026-03-13
 
 > 提示词：我现在有另外一个重要的事情交给你。我有一份标书，要你帮我校验，我会告诉你校验的规则，还会发你要校验的标书，你能做到吗？
 
-![](https://files.mdnice.com/user/3903/036c8397-855b-4751-b63f-bbe859e4ac30.png)
+![](https://cdn.paicoding.com/paicoding/2039f9c232ce8e0f83f071709cf9f4a1.png)
 
 好，AstronClaw 已经搞清楚规则了。
 
-![](https://files.mdnice.com/user/3903/18ae4bf5-dd1c-49e4-8398-fcc400bf664a.png)
+![](https://cdn.paicoding.com/paicoding/a10e1292af56743513dda00cdef14e9b.png)
 
 包括：
 
@@ -79,11 +79,11 @@ date: 2026-03-13
 
 然后我们把要校验的标书发给他。
 
-![](https://files.mdnice.com/user/3903/a277a585-41ff-434b-8d0c-3c0ea9869853.png)
+![](https://cdn.paicoding.com/paicoding/5eb8c1feb527241946c0a82bef51f108.png)
 
 很快，校验的结果出来了。
 
-![](https://files.mdnice.com/user/3903/cdabb2de-2da3-4bc1-b3d8-5556bd0fda33.png)
+![](https://cdn.paicoding.com/paicoding/af389c3a1ac4b87ca5ad88f28eabc044.png)
 
 其中签章要求合格、排版要求不合格、标题编号合格、图表要求合格、内容要求合格。
 
@@ -91,25 +91,23 @@ date: 2026-03-13
 
 那我们继续，让 AstronClaw 按照之前的检测报告格式，也给我们生成一份，看看他的学习能力。
 
-![](https://files.mdnice.com/user/3903/31b2c294-03a4-4e32-b7e0-cdf40bbaebef.png)
+![](https://cdn.paicoding.com/paicoding/b3465213a41ee638e30c6acf80e6b141.png)
 
 OK，检测报告也出来了。
 
-![](https://files.mdnice.com/user/3903/69cb744d-9cd4-4d23-8ebd-8f8091a5226f.png)
+![](https://cdn.paicoding.com/paicoding/229969282c0f4bb9ebf935b569af1da7.png)
 
 我发给同事后，评语只有一个：相当可以。能不能批量检测。
 
-![](https://files.mdnice.com/user/3903/f36fe5a5-0dc3-4ca0-817d-3de539514457.png)
+![](https://cdn.paicoding.com/paicoding/9072db4a77c04b0de7b24920b36c425f.png)
 
 那必须是可以的啊。
 
-![](https://files.mdnice.com/user/3903/21ed6c9a-cc6e-42e0-9a56-f2801f3d00fa.jpg)
+![](https://cdn.paicoding.com/paicoding/eacd378a48e9961990fd215d6fe74633.jpg)
 
 全部搞定。
 
-
-![](https://files.mdnice.com/user/3903/2bc8554f-a32a-4728-b5dd-7cd5876045bb.png)
-
+![](https://cdn.paicoding.com/paicoding/8bd2b64924d280a49f29826619fed1b9.png)
 
 ## 02、多模型自动切换
 
@@ -237,7 +235,7 @@ AstronClaw 已经内置连接 ClawHub 生态，能轻松调用 10000+ Skills。
 
 > 每天早上 9 点帮我盯一下 hacknews 上有趣的 AI 讯息，整理几条发给我。
 
-![](https://files.mdnice.com/user/3903/fb1c2478-f0ae-486c-858b-18e95ec5e53f.jpg)
+![](https://cdn.paicoding.com/paicoding/93985a2eddb683a2798155087ace7ca2.jpg)
 
 - AI 人脸识别误判导致无辜女性入狱
 - Anthropic 发布 Claude 可直接生成交互图表/可视化
@@ -256,7 +254,7 @@ AstronClaw 已经内置连接 ClawHub 生态，能轻松调用 10000+ Skills。
 
 > 提示词：我想让你帮我生成一份简历，你那边有简历生成的 Skills 吗
 
-![](https://files.mdnice.com/user/3903/4df9dc40-9068-460f-a4c8-678f35075f5f.jpg)
+![](https://cdn.paicoding.com/paicoding/d660b6e8ccfbf706e2f76969c0f62bd0.jpg)
 
 看到 AstronClaw 回复我们了，说有的，有一个 xfyun-resume 的 Skills 可以用。
 
@@ -264,7 +262,7 @@ AstronClaw 已经内置连接 ClawHub 生态，能轻松调用 10000+ Skills。
 
 > 提示词：我们先从项目经历开始写，好吧
 
-![](https://files.mdnice.com/user/3903/504f062f-976f-4cf5-b388-382d60ce98dc.png)
+![](https://cdn.paicoding.com/paicoding/61aa5883fcf6c91e7331ab60d20f4b3f.png)
 
 那我们就先从项目经历出手，因为这部分是最重要的。
 
@@ -283,28 +281,27 @@ AstronClaw 已经内置连接 ClawHub 生态，能轻松调用 10000+ Skills。
 
 然后 AstronClaw 就开始收集我们的信息并告诉我们还需要填哪些信息。
 
-![](https://files.mdnice.com/user/3903/2a785f2b-9f11-4eba-9ca1-512049709843.jpg)
+![](https://cdn.paicoding.com/paicoding/266e92ff4f5f0dd417dfb55633d16bc0.jpg)
 
 > 提示词：姓名：沉默王二 年龄：18 学校：郑州大学 我是找暑期实习，所以还没有工作经历，专业技能暂时不填，求职意向是 AI 应用开发工程师。
 
-![](https://files.mdnice.com/user/3903/d79ec7e9-db0e-4f9d-a1a2-9a6cb63a295e.png)
+![](https://cdn.paicoding.com/paicoding/29001b9c6d5a6811a2b70be5b3fdcd8e.png)
 
 告诉他，我们的求职意向是 AI 应用开发工程师，然后我们来看看简历的排版，是否满足我们的预期哈。
 
-![](https://files.mdnice.com/user/3903/3660e1da-fa21-45c2-8cf2-136ad0ff38b0.png)
+![](https://cdn.paicoding.com/paicoding/29001b9c6d5a6811a2b70be5b3fdcd8e.png)
 
 不仅有 word 版本，还有 PDF 版本，并且都提供了下载地址。
 
-![](https://files.mdnice.com/user/3903/6728709d-3882-46c0-ab88-0cebb6ae4998.jpg)
+![](https://cdn.paicoding.com/paicoding/8900f29a4b62674c30c8640fcaa3d94d.jpg)
 
 打开看一下。
 
-![](https://files.mdnice.com/user/3903/4539fb59-8685-4bdf-b473-eb10faf57af9.png)
+![](https://cdn.paicoding.com/paicoding/7cfb7c0fc8c381a3adf2eccc54812014.png)
 
 毕业时间没有给，但知道暑期实习是 27 届，还挺有水平的。
 
-![](https://files.mdnice.com/user/3903/3d10ea5c-1fde-412b-9fba-634ccf9435bf.png)
-
+![](https://cdn.paicoding.com/paicoding/ec4a242d855f212032c42aa73ef598f4.png)
 
 ## ending
 
@@ -314,7 +311,7 @@ AI Agent 也会走这条路的。
 
 未来每个人都会有自己的数字助手，不是那种还要自己配置模型、自己写代码的玩具，而是真正能干活的伙伴。
 
-![](https://files.mdnice.com/user/3903/29d192d0-4b7a-4d4f-b17b-5192426651d5.jpg)
+![](https://cdn.paicoding.com/paicoding/54f8cb137d26b0b919a5122bcd0cbb9a.jpg)
 
 16.8 元，一杯咖啡的钱，就能拥有一个懂业务、能扩展、安全可靠的 AI 助手。
 

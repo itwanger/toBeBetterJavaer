@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 文章写作助手"
+  short_description: "按二哥风格完成 AI 选题研究、资料核验和可发布文章写作"
+  default_prompt: "Use $ai-article to research this AI topic, verify current sources, and draft a publish-ready Markdown article in 二哥 style."
