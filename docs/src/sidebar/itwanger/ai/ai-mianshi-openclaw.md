@@ -19,7 +19,7 @@ date: 2026-03-17
 
 全名 Alibaba Token Hub，简称 ATH，下设五个部门，分别是：
 
-![](https://files.mdnice.com/user/3903/e5a9efee-b150-49ac-937e-44a89b260144.png)
+![](https://cdn.paicoding.com/paicoding/0a9cb8c8687ada4aa769c51a4cc4cd00.png)
 
 ①、通义实验室：也就是 Qwen 大模型；②、MaaS 业务线：主要是阿里百炼那一套；③、千问事业部：包括千问 APP 等；④、悟空事业部：主要是钉钉那一套；⑤、AI 创新事业部：探索各类 AI 创新应用。
 
@@ -37,11 +37,11 @@ date: 2026-03-17
 
 一看老王的脸色不太好看，我立马就改口了：“逗逗你的呀，王哥。我订阅了各种 Coding Plan，尤其是 Qoder，我订阅的是 6000 Credits 那个，一个月都不太够用。”
 
-![](https://files.mdnice.com/user/3903/bd354577-4c60-4dbc-83ec-ec2ef5c69165.png)
+![](https://cdn.paicoding.com/paicoding/f5069c18cba844b83cdc14034f29a69b.png)
 
 我接着说：“我昨天刚上架了派聪明 RAG 系统，发现 token 的消耗就有点顶不住。”
 
-![](https://files.mdnice.com/user/3903/4c38ed2b-3fd1-4746-a3a9-3d2b1473b360.png)
+![](https://cdn.paicoding.com/paicoding/dd3290ad3594e26d755db683ede200ee.png)
 
 老王追问：“那你怎么优化 token 消耗？”
 
@@ -67,7 +67,7 @@ date: 2026-03-17
 
 我说：“王哥，不是我不写，是我觉得 AI 相关的内容更能体现我的竞争力。”
 
-![](https://files.mdnice.com/user/3903/ffad60bd-ac69-42a8-abe7-091ddf48c600.png)
+![](https://cdn.paicoding.com/paicoding/afee4ff1030b3ce0ff02d48e5623b0c5.png)
 
 “传统开发我会，Java、Spring Boot、MyBatis 这些八股你随便问，没有我背不出来的，哦不，没有我回答不上来的。但现在是什么时代？AI 时代。HR 和你们这些面试官看简历，第一眼想看的不就是有没有 AI 开发经验？”
 
@@ -75,7 +75,7 @@ date: 2026-03-17
 
 老王追问：“那你觉得传统后端开发和 AI 应用开发最大的区别是什么？”
 
-![](https://files.mdnice.com/user/3903/492c23dc-b471-4651-af8d-1975f5a71e8b.png)
+![](https://cdn.paicoding.com/paicoding/0152c931e971d29b4044c94ecf33a28a.png)
 
 我说：“最大的区别是思维方式。”
 
@@ -95,7 +95,7 @@ date: 2026-03-17
 
 “简单说，就是让大模型在回答问题之前，先去知识库里检索相关信息，然后把检索结果作为上下文，一起送给大模型生成回答。”
 
-![](https://files.mdnice.com/user/3903/5c551d96-b23f-47fd-b51c-b7ce8d1f4d51.jpg)
+![](https://cdn.paicoding.com/paicoding/b25a95659f17afefe754a1ecd98f0ac9.jpg)
 
 “这样做有两个好处：
 
@@ -115,7 +115,7 @@ date: 2026-03-17
 
 第四步，增强生成。把检索到的 chunk 作为上下文，和问题一起送给大模型，生成最终回答。”
 
-![](https://files.mdnice.com/user/3903/08320ca7-444c-44b3-b157-d3782a519d83.png)
+![](https://cdn.paicoding.com/paicoding/0979d68598c7bf19e260d671f0bc417e.png)
 
 老王追问：“RAG 和微调有什么区别？什么时候用 RAG，什么时候用微调？”
 
@@ -143,7 +143,7 @@ date: 2026-03-17
 
 我说：“三个难点。”
 
-![](https://files.mdnice.com/user/3903/afdf3082-e205-4ea9-aec6-087291190303.png)
+![](https://cdn.paicoding.com/paicoding/7abb38621effe31b36f1a10f8575e4fc.png)
 
 “第一，文档格式复杂。采购商上传的文档有 PDF、Word、Excel，还有图片。我们用了 OCR+文档解析，先把各种格式转成文本，再做后续处理。”
 
@@ -175,7 +175,7 @@ date: 2026-03-17
 
 “因为 RAG 系统涉及多个组件：向量数据库、embedding 服务、大模型 API、业务后端。部署起来很麻烦，我整理了一键安装包，把 Docker Compose 配置、环境变量模板、初始化脚本都打包进去。”
 
-![](https://cdn.tobebetterjavaer.com/paicoding/39ddb3b995a6ae984bdd30a1be6206ec.png)
+![](https://cdn.paicoding.com/paicoding/39ddb3b995a6ae984bdd30a1be6206ec.png)
 
 “新环境部署，原来需要一天，现在半小时搞定。”
 
@@ -257,7 +257,7 @@ date: 2026-03-17
 
 “搭项目骨架的时候，我会用 Qoder 的 Quest 模式；读源码我会用 TRAE 的 Gemini；开发任务我会交给 Codex。”
 
-![](https://files.mdnice.com/user/3903/2ae61ba7-acb9-4ccb-bfcb-a79d186c0592.png)
+![](https://cdn.paicoding.com/paicoding/938dd1ec8cab7e64a17c99ca885ac163.png)
 
 “但用得最多的还是 Claude Code。”
 
@@ -283,7 +283,7 @@ date: 2026-03-17
 
 “传统插件只能做代码补全、语法检查这些基础功能。Claude Code 能理解你的意图，参与整个开发流程。”
 
-![](https://files.mdnice.com/user/3903/1e71efea-386c-4bac-9667-c164882b8e94.jpg)
+![](https://cdn.paicoding.com/paicoding/4ea1ef6b9dedaa0cabec703cd251b18d.jpg)
 
 “比如你说‘/github-skill-forge 找 GitHub 上有没有辅助写小说的项目’，它能按照某个 Skills 帮我找出来我想要的源码，然后下载到本地后进行快速的二次开发。”
 
@@ -297,7 +297,7 @@ date: 2026-03-17
 
 “我自己部署了三个 Agent：一个是 gitcode 账号审核助手，一个是技术文档生成助手，还有一个是定时任务监控助手。”
 
-![](https://files.mdnice.com/user/3903/7334ba40-3630-48c3-85d0-536171f95dd7.png)
+![](https://cdn.paicoding.com/paicoding/488948dc1ecbd1063b0f45e155df16a7.png)
 
 “比如 gitcode 审核这个场景，以前我要手动登录后台、搜索用户、添加权限，一个账号要 2 分钟。现在我把流程教给 Agent，它在后台自动执行，20 个账号 1 分钟搞定。”
 
@@ -311,7 +311,7 @@ date: 2026-03-17
 
 “长期记忆，Memory，存储跨对话的重要信息。比如用户偏好、历史结论、关键事实。长期记忆持久化到磁盘，下次对话可以读取。”
 
-![](https://files.mdnice.com/user/3903/8fdb87f1-28fb-4592-94f4-d9603982abf3.jpg)
+![](https://cdn.paicoding.com/paicoding/2724cdce1e3e68b974e1b417969ffb7b.jpg)
 
 “两者的协作方式是：对话过程中，Agent 实时更新短期记忆；当短期记忆接近 Context 上限时，触发 Compaction，把重要信息写入长期记忆；新对话开始时，从长期记忆中检索相关信息，加载到上下文中。”
 
@@ -325,7 +325,7 @@ date: 2026-03-17
 
 我说：“五个核心组件：”
 
-![](https://files.mdnice.com/user/3903/26524d11-3184-4a16-8d42-c653c2f69aac.png)
+![](https://cdn.paicoding.com/paicoding/b89bcbc27b15973b08d6664b03df21ac.png)
 
 “LLM，大语言模型，Agent 的大脑，负责理解指令、规划任务、生成回复。”
 
@@ -341,7 +341,7 @@ date: 2026-03-17
 
 “另外，OpenClaw 还有 8 个配置文件，定义 Agent 的完整人格。AGENTS.md 定义能力边界，SOUL.md 注入灵魂，TOOLS.json 划定禁区，SKILLS.json 配置技能，MEMORY.json 管理记忆，SESSION.json 管理会话，ROUTER.json 配置路由，CONFIG.json 其他配置。”
 
-![](https://files.mdnice.com/user/3903/a3b3e045-7e50-4d66-8f80-4bdd73ba9264.png)
+![](https://cdn.paicoding.com/paicoding/8596f92210b146bebe892eea630a9ba9.png)
 
 老王问：“Agent 是常驻进程吗？”
 
@@ -351,7 +351,7 @@ date: 2026-03-17
 
 “每个对话都是一次完整的加载-执行-销毁循环。用户发起对话时，Agent 加载配置、初始化记忆；对话过程中，Agent 执行任务；对话结束，Agent 保存状态、释放资源。”
 
-![](https://files.mdnice.com/user/3903/cc88b5bc-145f-41fb-a7ce-013ae8c04f7a.png)
+![](https://cdn.paicoding.com/paicoding/965659f5fa17151b995356e6810e8c2b.png)
 
 “这种设计的好处是资源节省，Agent 不用一直占用内存；配置实时生效，每次 run 都会重新读取配置文件。”
 
@@ -367,7 +367,7 @@ date: 2026-03-17
 
 “Compaction，压缩，当 Session 接近 Context 上限时，Agent 把重要信息写入 Memory，然后压缩 Session 内容。”
 
-![](https://files.mdnice.com/user/3903/cb14ad78-2cb1-4ff4-9e95-5c1f53f609d0.png)
+![](https://cdn.paicoding.com/paicoding/7e186a934d1c3cb62c1740b70450a4ca.png)
 
 “Pruning，修剪，在发送给 LLM 之前，临时裁剪旧的 tool 结果。比如搜索返回 100 条结果，但 LLM 只需要前 10 条，后面的就剪掉。”
 
@@ -389,7 +389,7 @@ date: 2026-03-17
 
 “读取阶段，新对话开始时，根据当前对话内容，检索相关的 Memory。检索策略包括关键词匹配、语义相似度、时间衰减。”
 
-![](https://files.mdnice.com/user/3903/d271e600-acf5-44ea-af3c-a74c6150102b.png)
+![](https://cdn.paicoding.com/paicoding/591590aaffad33ffd5660c2ab4738f3d.png)
 
 “关键词匹配就是简单的字符串匹配，适合检索明确的实体，比如用户名、项目名称。”
 
@@ -403,7 +403,7 @@ date: 2026-03-17
 
 老王追问：“如果让你优化 OpenClaw 的 Memory 机制，你会怎么做？”
 
-![](https://files.mdnice.com/user/3903/9f0c1429-ef35-4fee-a2e7-2b1ccb175753.jpg)
+![](https://cdn.paicoding.com/paicoding/51110eb650a5244671240f4d514d0958.jpg)
 
 我说：“有几个优化方向。”
 
