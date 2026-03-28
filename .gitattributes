@@ -1,7 +1,11 @@
-*.md linguist-documentation
+# 让 Markdown 内容计为 Java（项目是 Java 学习指南）
+*.md linguist-language=Java
+
+# 排除前端/构建文件的语言统计
 *.py linguist-vendored
 *.js linguist-vendored
 *.css linguist-vendored
 *.scss linguist-vendored
-*.ts linguist-language=Java
-*.vue linguist-language=Java
+*.ts linguist-vendored
+*.vue linguist-vendored
+*.sh linguist-vendored
