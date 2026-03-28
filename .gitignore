@@ -16,3 +16,5 @@ images
 .claude/
 .codex/
 .qoder/
+.agents/
+plugins/
