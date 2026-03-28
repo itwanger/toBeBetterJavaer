@@ -1,4 +1,7 @@
-* text=java
-*.js linguist-language=java
-*.css linguist-language=java
-*.html linguist-language=java
+*.md linguist-documentation
+*.py linguist-vendored
+*.js linguist-vendored
+*.css linguist-vendored
+*.scss linguist-vendored
+*.ts linguist-language=Java
+*.vue linguist-language=Java

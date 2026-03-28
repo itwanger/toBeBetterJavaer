@@ -13,4 +13,6 @@ images
 .yarn
 *-vip.md
 /.vscode
-.claude/worktrees/ecstatic-cori/
+.claude/
+.codex/
+.qoder/
