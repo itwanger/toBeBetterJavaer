@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "feishu-markdown-uploader": {
+      "type": "stdio",
+      "command": "/bin/bash",
+      "args": [
+        "./scripts/run_server.sh"
+      ],
+      "cwd": ".",
+      "env": {
+        "PYTHONUTF8": "1"
+      }
+    }
+  }
+}
