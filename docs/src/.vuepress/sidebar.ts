@@ -77,6 +77,7 @@ export default sidebar({
     "weifuwu",
     "shejimoshi",
     "linux",
+    "openclaw",
   ],
   "/sidebar/sjtu/": [
     {

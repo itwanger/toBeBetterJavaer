@@ -3,3 +3,20 @@
     // 加一个边框
     border: 1px solid #eee;
 }
+
+.theme-container.sidebar-collapsed-desktop {
+  --sidebar-space: 0px;
+  --content-width: min(960px, calc(100vw - 6rem));
+}
+
+.theme-container.sidebar-collapsed-desktop .vp-sidebar {
+  padding-inline-start: 0;
+  box-shadow: none;
+  transform: translateX(-100%);
+}
+
+@media (min-width: 960px) {
+  .toggle-sidebar-wrapper {
+    display: none;
+  }
+}

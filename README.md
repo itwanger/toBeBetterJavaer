@@ -109,6 +109,7 @@
 - [面渣逆袭（微服务面试题八股文）必看👍](docs/src/sidebar/sanfene/weifuwu.md)
 - [面渣逆袭（设计模式面试题八股文）必看👍](docs/src/sidebar/sanfene/shejimoshi.md)
 - [面渣逆袭（Linux面试题八股文）必看👍](docs/src/sidebar/sanfene/linux.md)
+- [面渣逆袭（OpenClaw面试题八股文）必看👍](docs/src/sidebar/sanfene/openclaw.md)
 
 # Java基础
 

@@ -1,3 +1,19 @@
+---
+title: OpenClaw面试题，54龙虾八股文（1.2万字57张手绘图），面渣逆袭必看👍
+shortTitle: 面渣逆袭-OpenClaw
+description: 下载次数超 1 万次，1.2 万字 57 张手绘图，详解 54 道OpenClaw面试高频题（让天下没有难背的八股），面渣背会这些龙虾八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+author: 沉默王二
+date: 2026-03-29
+category:
+  - 面渣逆袭
+tag:
+  - 面渣逆袭
+head:
+  - - meta
+    - name: keywords
+      content: OpenClaw面试题,操作系统,OpenClaw,龙虾面试题,面试题,八股文
+---
+
 ## 01、卸载龙虾的命令是什么？
 
 “王哥，你这个问题问得好。很多人以为卸载就是跑一条 `npm uninstall -g openclaw`，错。”
@@ -1761,3 +1777,35 @@ memo：更新与3月26日，顺带给大家分享一下[二哥编程星球](http
 
 
 ![社招：智谱拿下](https://cdn.paicoding.com/paicoding/cc699c62dc6f8337cd5b6f83b96e5955.png)
+
+
+---
+
+_没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟_。
+
+**系列内容**：
+
+- [面渣逆袭 Java SE 篇 👍](https://javabetter.cn/sidebar/sanfene/javase.html)
+- [面渣逆袭 Java 集合框架篇 👍](https://javabetter.cn/sidebar/sanfene/javathread.html)
+- [面渣逆袭 Java 并发编程篇 👍](https://javabetter.cn/sidebar/sanfene/collection.html)
+- [面渣逆袭 JVM 篇 👍](https://javabetter.cn/sidebar/sanfene/jvm.html)
+- [面渣逆袭 Spring 篇 👍](https://javabetter.cn/sidebar/sanfene/spring.html)
+- [面渣逆袭 Redis 篇 👍](https://javabetter.cn/sidebar/sanfene/redis.html)
+- [面渣逆袭 MyBatis 篇 👍](https://javabetter.cn/sidebar/sanfene/mybatis.html)
+- [面渣逆袭 MySQL 篇 👍](https://javabetter.cn/sidebar/sanfene/mysql.html)
+- [面渣逆袭操作系统篇 👍](https://javabetter.cn/sidebar/sanfene/os.html)
+- [面渣逆袭计算机网络篇 👍](https://javabetter.cn/sidebar/sanfene/network.html)
+- [面渣逆袭 RocketMQ 篇 👍](https://javabetter.cn/sidebar/sanfene/rocketmq.html)
+- [面渣逆袭分布式篇 👍](https://javabetter.cn/sidebar/sanfene/fenbushi.html)
+- [面渣逆袭微服务篇 👍](https://javabetter.cn/sidebar/sanfene/weifuwu.html)
+- [面渣逆袭设计模式篇 👍](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)
+- [面渣逆袭 Linux 篇 👍](https://javabetter.cn/sidebar/sanfene/linux.html)
+- [面渣逆袭OpenClaw篇 👍](https://javabetter.cn/sidebar/sanfene/openclaw.html)
+
+---
+
+GitHub 上标星 16000+ 的开源知识库《[面渣逆袭](https://github.com/itwanger/toBeBetterJavaer)》第二版 PDF 终于来了！包括 Java基础、Java 集合框架、Java 并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux、OpenClaw 等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[面渣逆袭 2.0 版 PDF 发布，Java后端程序员必背，可能是 2026 年最好的八股文](https://paicoding.com/article/detail/2529100000262147)
+
+微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png)
