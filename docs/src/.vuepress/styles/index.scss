@@ -15,6 +15,94 @@
   transform: translateX(-100%);
 }
 
+body.focus-reading-mode {
+  background:
+    linear-gradient(180deg, #f6f0e6 0%, #fbf7f1 18%, #fcfaf6 100%);
+}
+
+body.focus-reading-mode .vp-notice-wrapper,
+body.focus-reading-mode .desktop-sidebar-toggle,
+body.focus-reading-mode .toggle-sidebar-wrapper,
+body.focus-reading-mode .vp-back-to-top-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-container.focus-reading-mode {
+  --sidebar-space: 0px;
+  --content-width: min(860px, calc(100vw - 4.5rem));
+}
+
+.theme-container.focus-reading-mode .vp-navbar,
+.theme-container.focus-reading-mode .vp-sidebar,
+.theme-container.focus-reading-mode .vp-page > aside:not(.vp-sidebar),
+.theme-container.focus-reading-mode .vp-toc-placeholder,
+.theme-container.focus-reading-mode .vp-page-meta,
+.theme-container.focus-reading-mode .vp-page-nav,
+.theme-container.focus-reading-mode .vp-footer,
+.theme-container.focus-reading-mode .vp-breadcrumb,
+.theme-container.focus-reading-mode .page-info,
+.theme-container.focus-reading-mode .vp-back-to-top-button,
+.theme-container.focus-reading-mode iframe[title="Comments"] {
+  display: none !important;
+}
+
+.theme-container.focus-reading-mode .vp-page {
+  min-height: 100vh;
+  padding-top: clamp(2.25rem, 6vw, 4rem);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.theme-container.focus-reading-mode .theme-hope-content {
+  font-size: 1.08rem;
+  line-height: 1.92;
+  letter-spacing: 0.01em;
+}
+
+.theme-container.focus-reading-mode .theme-hope-content > h1 {
+  margin-bottom: 1.2rem;
+  font-size: clamp(2rem, 4vw, 2.65rem);
+  line-height: 1.18;
+}
+
+.theme-container.focus-reading-mode .theme-hope-content > h2,
+.theme-container.focus-reading-mode .theme-hope-content > h3 {
+  margin-top: 2.6rem;
+}
+
+.theme-container.focus-reading-mode .theme-hope-content p,
+.theme-container.focus-reading-mode .theme-hope-content li {
+  color: rgb(51 65 85 / 96%);
+}
+
+.theme-container.focus-reading-mode .theme-hope-content blockquote,
+.theme-container.focus-reading-mode .theme-hope-content div[class*="hint-container"] {
+  background: rgb(255 255 255 / 72%);
+  border-color: rgb(226 232 240 / 96%);
+  box-shadow: 0 14px 28px rgb(15 23 42 / 5%);
+}
+
+.theme-container.focus-reading-mode .theme-hope-content img {
+  border-color: rgb(226 232 240 / 92%);
+  box-shadow: 0 16px 40px rgb(15 23 42 / 8%);
+}
+
+@media (max-width: 959px) {
+  .theme-container.focus-reading-mode {
+    --content-width: min(100%, calc(100vw - 2rem));
+  }
+
+  .theme-container.focus-reading-mode .vp-page {
+    padding-top: 1.5rem;
+    padding-inline: 1rem;
+  }
+
+  .theme-container.focus-reading-mode .theme-hope-content {
+    font-size: 1rem;
+    line-height: 1.82;
+  }
+}
+
 @media (min-width: 960px) {
   .toggle-sidebar-wrapper {
     display: none;
