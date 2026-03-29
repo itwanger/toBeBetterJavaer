@@ -69,6 +69,7 @@ export default sidebar({
     "collection",
     "javathread",
     "jvm",
+    "openclaw",
     "mybatis",
     "os",
     "network",
@@ -77,7 +78,6 @@ export default sidebar({
     "weifuwu",
     "shejimoshi",
     "linux",
-    "openclaw",
   ],
   "/sidebar/sjtu/": [
     {
