@@ -249,8 +249,10 @@ export default hopeTheme({
     pwa: {
       update: "hint",
       favicon: "https://cdn.paicoding.com/tobebetterjavaer/images/favicon.ico",
-      cacheHTML: true,
-      cacheImage: true,
+      cacheHTML: false,
+      cacheImage: false,
+      maxSize: 512,
+      maxImageSize: 64,
       appendBase: true,
       apple: {
         icon: "/assets/icon/apple-icon-152.png",

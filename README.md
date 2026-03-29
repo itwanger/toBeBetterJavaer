@@ -575,9 +575,7 @@
 
 ![二哥的 Java 进阶之路首页](https://cdn.paicoding.com/stutymore/README-20230829162301.png)
 
-如果想部署服务器，可以执行 `pnpm docs:build` 打包生成 dist 目录，里面就是静态资源文件了。
-
-执行 `zip -r dist.zip dist` 压缩为 dist.zip 包，然后上传到服务器的 Nginx 对应的静态资源目录下。再执行 `unzip dist.zip` 解压即可。
+如果想部署服务器，可以进入 scripts 目录，执行 `./deploy-docs.sh` 脚本，需要先 `cp .env.example .env`，把你的服务器地址、用户名、密钥、远程路径等信息填进去。
 
 # 联系作者
 

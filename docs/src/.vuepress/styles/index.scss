@@ -1,7 +1,138 @@
 // place your custom styles here
+:root {
+  --floating-controls-right: 1.5rem;
+  --floating-controls-bottom: 1.5rem;
+  --floating-controls-gap: 0.75rem;
+  --floating-controls-circle-size: 3.5rem;
+  --floating-controls-collapsed-peek: 1.6rem;
+  --floating-controls-collapsed-shift: calc(
+    var(--floating-controls-circle-size) +
+    var(--floating-controls-right) -
+    var(--floating-controls-collapsed-peek)
+  );
+  --floating-controls-focus-bottom: calc(
+    var(--floating-controls-bottom) +
+    var(--floating-controls-circle-size) +
+    var(--floating-controls-gap)
+  );
+  --floating-controls-update-bottom: calc(
+    var(--floating-controls-focus-bottom) +
+    var(--floating-controls-circle-size) +
+    var(--floating-controls-gap)
+  );
+  --floating-controls-toggle-bottom: calc(
+    var(--floating-controls-update-bottom) +
+    var(--floating-controls-circle-size) +
+    var(--floating-controls-gap)
+  );
+  --floating-controls-border: rgb(226 232 240 / 92%);
+  --floating-controls-bg: rgb(255 255 255 / 92%);
+  --floating-controls-text: rgb(71 85 105 / 92%);
+  --floating-controls-shadow:
+    0 14px 30px rgb(15 23 42 / 10%),
+    0 1px 0 rgb(255 255 255 / 88%) inset;
+}
+
 .theme-hope-content img {
     // 加一个边框
     border: 1px solid #eee;
+}
+
+.pwa-inline-update-control,
+.focus-reading-toggle,
+.floating-controls-toggle,
+.vp-back-to-top-button {
+  right: var(--floating-controls-right) !important;
+  border-color: var(--floating-controls-border);
+  background: var(--floating-controls-bg);
+  color: var(--floating-controls-text);
+  box-shadow: var(--floating-controls-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.pwa-inline-update-control {
+  bottom: var(--floating-controls-update-bottom) !important;
+}
+
+.focus-reading-toggle {
+  bottom: var(--floating-controls-focus-bottom) !important;
+}
+
+.vp-back-to-top-button {
+  bottom: var(--floating-controls-bottom) !important;
+  z-index: 118;
+  width: var(--floating-controls-circle-size);
+  height: var(--floating-controls-circle-size);
+  border: 1px solid var(--floating-controls-border);
+  border-radius: 999px;
+  transition:
+    color var(--color-transition),
+    background var(--color-transition),
+    border-color var(--color-transition),
+    box-shadow var(--color-transition),
+    transform var(--transform-transition);
+}
+
+.pwa-inline-update-control,
+.focus-reading-toggle,
+.floating-controls-toggle,
+.vp-back-to-top-button {
+  width: var(--floating-controls-circle-size);
+  height: var(--floating-controls-circle-size);
+  min-width: var(--floating-controls-circle-size);
+  min-height: var(--floating-controls-circle-size);
+}
+
+.pwa-inline-update-control:hover:not(:disabled),
+.focus-reading-toggle:hover,
+.floating-controls-toggle:hover,
+.vp-back-to-top-button:hover {
+  border-color: rgb(148 163 184 / 84%);
+  color: var(--theme-color);
+  transform: translateY(-1px);
+}
+
+.pwa-inline-update-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border-radius: 999px;
+  font-size: 0 !important;
+}
+
+.pwa-inline-update-control::before {
+  content: "↻";
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.pwa-inline-update-control.is-checking::before,
+.pwa-inline-update-control.is-updating::before {
+  animation: floating-controls-spin 0.9s linear infinite;
+}
+
+.pwa-inline-update-control.is-ready::before {
+  content: "⟳";
+}
+
+.pwa-inline-update-control.is-latest::before {
+  content: "✓";
+  font-size: 1rem;
+}
+
+.pwa-inline-update-control.is-error::before {
+  content: "!";
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.vp-back-to-top-button .vp-scroll-progress {
+  opacity: 0.82;
+}
+
+.vp-back-to-top-button .back-to-top-icon {
+  transform: scale(0.92);
 }
 
 .theme-container.sidebar-collapsed-desktop {
@@ -22,10 +153,28 @@ body.focus-reading-mode {
 
 body.focus-reading-mode .vp-notice-wrapper,
 body.focus-reading-mode .desktop-sidebar-toggle,
+body.focus-reading-mode .pwa-inline-update-control,
+body.focus-reading-mode .floating-controls-toggle,
 body.focus-reading-mode .toggle-sidebar-wrapper,
 body.focus-reading-mode .vp-back-to-top-button {
   opacity: 0;
   pointer-events: none;
+}
+
+body.floating-controls-collapsed .pwa-inline-update-control,
+body.floating-controls-collapsed .focus-reading-toggle,
+body.floating-controls-collapsed .vp-back-to-top-button {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(var(--floating-controls-collapsed-shift), 0, 0)
+    scale(0.92);
+}
+
+body.floating-controls-collapsed .floating-controls-toggle {
+  color: var(--theme-color);
+  --floating-controls-toggle-shift-x: var(--floating-controls-collapsed-shift);
+  border-color: rgb(191 219 254 / 96%);
+  background: rgb(255 255 255 / 96%);
 }
 
 .theme-container.focus-reading-mode {
@@ -88,6 +237,14 @@ body.focus-reading-mode .vp-back-to-top-button {
 }
 
 @media (max-width: 959px) {
+  :root {
+    --floating-controls-right: 1rem;
+    --floating-controls-bottom: 1rem;
+    --floating-controls-gap: 0.75rem;
+    --floating-controls-circle-size: 3.25rem;
+    --floating-controls-collapsed-peek: 1.4rem;
+  }
+
   .theme-container.focus-reading-mode {
     --content-width: min(100%, calc(100vw - 2rem));
   }
@@ -106,5 +263,15 @@ body.focus-reading-mode .vp-back-to-top-button {
 @media (min-width: 960px) {
   .toggle-sidebar-wrapper {
     display: none;
+  }
+}
+
+@keyframes floating-controls-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -148,29 +148,26 @@ watch(
         stroke-width="1.6"
       />
     </svg>
-    <span class="focus-reading-toggle__label">
-      {{ isFocused ? "退出专注" : "专注阅读" }}
-    </span>
   </button>
 </template>
 
 <style scoped>
 .focus-reading-toggle {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  right: var(--floating-controls-right, 1.5rem);
+  bottom: var(--floating-controls-focus-bottom, 6rem);
   z-index: 120;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 0.95rem;
-  border: 1px solid rgb(226 232 240 / 92%);
+  justify-content: center;
+  width: var(--floating-controls-circle-size, 3.5rem);
+  height: var(--floating-controls-circle-size, 3.5rem);
+  padding: 0;
+  border: 1px solid var(--floating-controls-border, rgb(226 232 240 / 92%));
   border-radius: 999px;
-  background: rgb(255 255 255 / 92%);
-  color: rgb(71 85 105 / 92%);
-  box-shadow:
-    0 14px 30px rgb(15 23 42 / 10%),
-    0 1px 0 rgb(255 255 255 / 88%) inset;
+  background: var(--floating-controls-bg, rgb(255 255 255 / 92%));
+  color: var(--floating-controls-text, rgb(71 85 105 / 92%));
+  box-shadow: var(--floating-controls-shadow);
   backdrop-filter: blur(14px);
   cursor: pointer;
   transition:
@@ -195,27 +192,8 @@ watch(
 }
 
 .focus-reading-toggle__icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.05rem;
+  height: 1.05rem;
   flex: none;
-}
-
-.focus-reading-toggle__label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-@media (max-width: 959px) {
-  .focus-reading-toggle {
-    right: 1rem;
-    bottom: 1rem;
-    padding: 0.68rem 0.85rem;
-  }
-
-  .focus-reading-toggle__label {
-    font-size: 0.86rem;
-  }
 }
 </style>
