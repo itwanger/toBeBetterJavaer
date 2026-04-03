@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "title-generator", "runs": [{"id": "eval-0-x-algorithm-with_skill", "prompt": "\u6211\u521a\u5199\u5b8c\u4e00\u7bc7\u5173\u4e8e X \u63a8\u8350\u7b97\u6cd5\u5f00\u6e90\u7684\u6587\u7ae0\uff0c\u5e2e\u6211\u751f\u62105\u4e2a\u6807\u9898\u3002\u6587\u7ae0\u8def\u5f84\uff1adocs/src/sidebar/itwanger/ai/x-recommendation-algorithm.md", "eval_id": 0, "outputs": [{"name": "titles.md", "type": "text", "content": "# X \u63a8\u8350\u7b97\u6cd5\u6587\u7ae0 - 5\u4e2a\u5019\u9009\u6807\u9898\n\n## \u4e3a\u4f60\u751f\u6210\u4e865\u4e2a\u5019\u9009\u6807\u9898\uff1a\n\n1. \u3010\u6570\u636e\u51b2\u51fb\u3011\u72c2\u98d9GitHub\u5f00\u6e90\uff0c\u9a6c\u65af\u514b\u7684X\u63a8\u8350\u7b97\u6cd5\u96f6\u624b\u5de5\u7279\u5f81\u7684\u771f\u76f8\uff0c\u6211\u7814\u7a76\u4e86\u4e00\u5929\n\n2. \u3010\u53e3\u8bed\u53d9\u4e8b\u3011\u6211\u82b1\u4e86\u4e00\u5929\u5543\u5b8cX\u63a8\u8350\u7b97\u6cd5\u6e90\u7801\uff0c\u53d1\u73b0\u4e8614\u4e2a\u5b9d\u85cf\u8bbe\u8ba1\uff0c\u7edd\u4e86\n\n3. \u3010\u60ac\u5ff5\u53cd\u8f6c\u3011\u542c\u8bf4X\u63a8\u8350\u7b97\u6cd5\u5168\u662f\u624b\u5de5\u7279\u5f81\uff1f\u6211\u8bfb\u4e86\u6587\u6863\u4e4b\u540e\u7b11\u4e86\uff0c\u7adf\u7136\u5168\u780d\u4e86\n\n4. \u3010\u7b80\u77ed\u7206\u7834\u3011\u9a6c\u65af\u514b\u5f00\u6e90X\u63a8\u8350\u7b97\u6cd5\uff0c\u8fd9\u5957\u5de5\u4e1a\u7ea7\u7cfb\u7edf\u6709\u70b9\u731b\u554a\n\n5. \u3010\u5229\u76ca\u76f4\u51fb\u3011\u8fd9\u5957X\u63a8\u8350\u7cfb\u7edf\u7684\u8bbe\u8ba1\u601d\u60f3\uff0c\u6211\u7528\u5728\u9879\u76ee\u4e0a\uff0c\u6548\u7387\u76f4\u63a5\u7ffb\u500d\n\n---\n\n## \ud83d\udca1 \u6211\u7684\u63a8\u8350\uff1a\n\n**\u7b2c 4 \u4e2a + \u7b2c 2 \u4e2a**\n\n**\u539f\u56e0\uff1a**\n\n- **\u7b2c 4 \u4e2a\uff08\u7b80\u77ed\u7206\u7834\uff09** \u662f\u9996\u9009\u3002\u53c2\u8003\u6570\u636e\u4e2d\uff0c\"\u963f\u91cc\u6b63\u5f0f\u5b98\u5ba3\u5f00\u6e90\uff0c\u6709\u70b9\u731b\u554a\u3002\"\uff0814\u5b57\uff0c4.27%\uff09\u8fd9\u7c7b\u77ed\u5c0f\u6709\u529b\u7684\u6807\u9898\u8868\u73b0\u6700\u7a33\u5b9a\u3002\u4f60\u7684\u6587\u7ae0\u6838\u5fc3\u5c31\u662f\"\u9a6c\u65af\u514b\u5f00\u6e90\"\u8fd9\u4e2a\u70ed\u70b9\u4e8b\u4ef6\uff0c\u7528\u7b80\u77ed\u6709\u529b\u7684\u8868\u8ff0\u80fd\u6700\u5927\u5316\u5438\u5f15\u529b\u3002\"\u6709\u70b9\u731b\u554a\"\u8fd9\u79cd\u53e3\u8bed\u5316\u8868\u8fbe\u80fd\u589e\u52a0\u4eb2\u8fd1\u611f\uff0c\u662f\u9ad8\u6253\u5f00\u7387\u6807\u9898\u7684\u6807\u914d\u3002\n\n- **\u7b2c 2 \u4e2a\uff08\u53e3\u8bed\u53d9\u4e8b\uff09** \u662f\u6b21\u9009\u3002\"\u6211\u82b1\u4e86\u4e00\u5929\"\u8fd9\u79cd\u7b2c\u4e00\u4eba\u79f0\u53d9\u4e8b\u5728\u53c2\u8003\u6570\u636e\u4e2d\u5c61\u8bd5\u4e0d\u723d\uff08\u89c1\"\u6211\u82b1\u4e86\u4e24\u5929\u6ce8\u518c\u4e8620+\u4e2aAI\u5e73\u53f0\"\uff0c3.18%\uff09\uff0c\u80fd\u5feb\u901f\u5efa\u7acb\u4e0e\u8bfb\u8005\u7684\u4ee3\u5165\u611f\u3002\"\u53d1\u73b0\u4e8614\u4e2a\u5b9d\u85cf\u8bbe\u8ba1\"\u5f3a\u8c03\u4e86\u5177\u4f53\u6536\u83b7\uff0c\"\u7edd\u4e86\"\u8fd9\u79cd\u53e3\u8bed\u611f\u53f9\u8bcd\u80fd\u4f20\u9012\u60c5\u7eea\u5f20\u529b\u3002\n\n**\u4e3a\u4ec0\u4e48\u4e0d\u9009\u5176\u4ed6\u7684\uff1a**\n\n- \u7b2c 1 \u4e2a\uff08\u6570\u636e\u51b2\u51fb\uff09\u867d\u7136\u6709\u5177\u4f53\u6570\u5b57\uff0c\u4f46\"\u72c2\u98d9GitHub\u5f00\u6e90\"\u8fd9\u4e2a\u8868\u8ff0\u7565\u5fae\u5197\u4f59\uff0c\u800c\u4e14\u6570\u5b57\u6ca1\u6709 Star \u6570\u3001\u7528\u6237\u6570\u8fd9\u79cd\u5177\u4f53\u6307\u6807\uff0c\u4e0d\u591f\u786c\n- \u7b2c 3 \u4e2a\uff08\u60ac\u5ff5\u53cd\u8f6c\uff09\u867d\u7136\u6709\u53cd\u8f6c\u8da3\u5473\uff0c\u4f46\u5bf9\u4f60\u8fd9\u7bc7\u504f\u6280\u672f\u6df1\u5ea6\u7684\u6587\u7ae0\u6765\u8bf4\uff0c\u60ac\u5ff5\u611f\u53cd\u800c\u4e0d\u5982\"\u53d1\u73b0\u5b9d\u85cf\"\u6765\u5f97\u76f4\u63a5\n- \u7b2c 5 \u4e2a\uff08\u5229\u76ca\u76f4\u51fb\uff09\u867d\u7136\u6307\u5411\u9879\u76ee\u5e94\u7528\uff0c\u4f46\u8fd9\u7bc7\u6587\u7ae0\u4e3b\u8981\u662f\u6df1\u5ea6\u89e3\u6790\u8bbe\u8ba1\u601d\u60f3\uff0c\u5229\u76ca\u70b9\u4e0d\u591f\u9c9c\u660e\n\n**\u5efa\u8bae\uff1a** \u53ef\u4ee5\u8003\u8651\u7528\u7b2c 4 \u4e2a\u4f5c\u4e3a\u4e3b\u6807\u9898\u53d1\u516c\u4f17\u53f7\uff0c\u7528\u7b2c 2 \u4e2a\u7684\u601d\u8def\u4f5c\u4e3a\u53d8\u4f53\u5728\u8f6c\u53d1\u5230\u5176\u4ed6\u5e73\u53f0\u65f6\u4f7f\u7528\u3002\n"}], "grading": {"eval_id": 0, "run_type": "with_skill", "expectations": [{"text": "\u751f\u6210\u4e86\u6070\u597d5\u4e2a\u6807\u9898", "passed": true, "evidence": "\u8f93\u51fa\u5305\u542b5\u4e2a\u7f16\u53f7\u6807\u9898\uff1a\u6570\u636e\u51b2\u51fb\u3001\u53e3\u8bed\u53d9\u4e8b\u3001\u60ac\u5ff5\u53cd\u8f6c\u3001\u7b80\u77ed\u7206\u7834\u3001\u5229\u76ca\u76f4\u51fb"}, {"text": "\u6bcf\u4e2a\u6807\u9898\u6709\u660e\u786e\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e", "passed": true, "evidence": "\u6bcf\u4e2a\u6807\u9898\u524d\u6709\u3010\u6570\u636e\u51b2\u51fb\u3011\u3010\u53e3\u8bed\u53d9\u4e8b\u3011\u3010\u60ac\u5ff5\u53cd\u8f6c\u3011\u3010\u7b80\u77ed\u7206\u7834\u3011\u3010\u5229\u76ca\u76f4\u51fb\u3011\u6807\u7b7e"}, {"text": "\u6807\u9898\u957f\u5ea6\u5747\u572860\u5b57\u4ee5\u5185", "passed": true, "evidence": "\u6700\u957f\u6807\u9898\u7ea630\u5b57\uff0c\u5168\u90e8\u572860\u5b57\u9650\u5236\u5185"}, {"text": "\u6807\u9898\u4e2d\u5305\u542b\u6587\u7ae0\u7684\u5173\u952e\u4fe1\u606f", "passed": true, "evidence": "\u5305\u542b\u9a6c\u65af\u514b\u3001X\u63a8\u8350\u7b97\u6cd5\u3001\u5f00\u6e90\u3001\u6e90\u7801\u7b49\u5173\u952e\u8bcd"}, {"text": "\u5305\u542b\u63a8\u8350\u7406\u7531\u8bf4\u660e", "passed": true, "evidence": "\u6709\u8be6\u7ec6\u7684\u63a8\u8350\u7406\u7531\uff0c\u5f15\u7528\u4e86\u53c2\u8003\u6570\u636e\u4e2d\u7684\u9ad8\u6253\u5f00\u7387\u6848\u4f8b"}, {"text": "\u6807\u9898\u53e3\u8bed\u5316\u3001\u6709\u4eba\u5473", "passed": true, "evidence": "\u4f7f\u7528\u4e86'\u7edd\u4e86''\u6709\u70b9\u731b\u554a''\u6548\u7387\u76f4\u63a5\u7ffb\u500d'\u7b49\u53e3\u8bed\u8868\u8fbe"}]}}, {"id": "eval-0-x-algorithm-without_skill", "prompt": "\u6211\u521a\u5199\u5b8c\u4e00\u7bc7\u5173\u4e8e X \u63a8\u8350\u7b97\u6cd5\u5f00\u6e90\u7684\u6587\u7ae0\uff0c\u5e2e\u6211\u751f\u62105\u4e2a\u6807\u9898\u3002\u6587\u7ae0\u8def\u5f84\uff1adocs/src/sidebar/itwanger/ai/x-recommendation-algorithm.md", "eval_id": 0, "outputs": [{"name": "titles.md", "type": "text", "content": "# X\u63a8\u8350\u7b97\u6cd5\u5f00\u6e90\u6587\u7ae0 - \u5019\u9009\u6807\u9898\n\n## 5\u4e2a\u5019\u9009\u6807\u9898\n\n### \u6807\u98981\uff1a\u6df1\u5ea6\u89e3\u6790\u9a6c\u65af\u514b\u5f00\u6e90\u7684X\u63a8\u8350\u7b97\u6cd5\uff1a\u96f6\u624b\u5de5\u7279\u5f81\u7684\u5de5\u4e1a\u7ea7\u8bbe\u8ba1\n\n**\u7279\u70b9\uff1a** \u76f4\u63a5\u3001\u5b66\u672f\u611f\u3001\u7a81\u51fa\u6838\u5fc3\u521b\u65b0\u70b9\uff08\u96f6\u624b\u5de5\u7279\u5f81\uff09\n**\u9002\u5408\u573a\u666f\uff1a** \u6280\u672f\u4e13\u4e1a\u4eba\u58eb\u548c\u5f00\u53d1\u8005\n**\u4f18\u52bf\uff1a** \u4fe1\u606f\u91cf\u5927\uff0c\u80fd\u5438\u5f15\u5bf9\u6280\u672f\u7ec6\u8282\u611f\u5174\u8da3\u7684\u8bfb\u8005\n\n---\n\n### \u6807\u98982\uff1a\u6211\u82b1\u4e00\u5929\u7814\u7a76\u4e86X\u63a8\u8350\u7cfb\u7edf\uff0c\u53d1\u73b0\u4e86\u8fd93\u4e2a\u5b9d\u85cf\u8bbe\u8ba1\n\n**\u7279\u70b9\uff1a** \u4e2a\u4eba\u5316\u3001\u6570\u5b57\u5316\u3001\u5236\u9020\u60ac\u5ff5\n**\u9002\u5408\u573a\u666f\uff1a** \u5e7f\u6cdb\u7684\u6280\u672f\u793e\u533a\u8bfb\u8005\n**\u4f18\u52bf\uff1a** \u6613\u5f15\u53d1\u5171\u9e23\uff0c\"\u6211\u82b1\u4e00\u5929\"\u5efa\u7acb\u4e86\u4eb2\u8fd1\u611f\uff0c\"\u5b9d\u85cf\u8bbe\u8ba1\"\u5236\u9020\u5438\u5f15\u529b\n\n---\n\n### \u6807\u98983\uff1a\u4ece\u96f6\u624b\u5de5\u7279\u5f81\u5230Transformer\u6392\u5e8f\uff0cX\u63a8\u8350\u7b97\u6cd5\u5982\u4f55\u6539\u53d8\u6e38\u620f\u89c4\u5219\n\n**\u7279\u70b9\uff1a** \u5bf9\u6bd4\u5f0f\u3001\u6f14\u53d8\u8bba\u8ff0\u3001\u7a81\u51fa\u9769\u65b0\u6027\n**\u9002\u5408\u573a\u666f\uff1a** \u60f3\u4e86\u89e3\u884c\u4e1a\u53d1\u5c55\u8d8b\u52bf\u7684\u8bfb\u8005\n**\u4f18\u52bf\uff1a** \u5c55\u73b0\u4e86\u4ece\u4f20\u7edf\u5230\u73b0\u4ee3\u7684\u8f6c\u53d8\uff0c\u5bb9\u6613\u5f15\u53d1\u8ba8\u8bba\n\n---\n\n### \u6807\u98984\uff1aGrok\u65f6\u4ee3\u7684\u63a8\u8350\u7cfb\u7edf\u600e\u4e48\u505a\uff1fX\u7b97\u6cd5\u544a\u8bc9\u4f60\u7b54\u6848\n\n**\u7279\u70b9\uff1a** \u95ee\u7b54\u5f0f\u3001\u524d\u77bb\u6027\u3001\u76f4\u6307\u5927\u6a21\u578b\u65f6\u4ee3\n**\u9002\u5408\u573a\u666f\uff1a** \u5173\u6ce8AI\u8d8b\u52bf\u7684\u5f00\u53d1\u8005\u548c\u4ea7\u54c1\u7ecf\u7406\n**\u4f18\u52bf\uff1a** \u8d34\u8fd1\u5f53\u4e0b\u70ed\u70b9\uff08\u5927\u6a21\u578b\uff09\uff0c\u95ee\u7b54\u683c\u5f0f\u6613\u5438\u5f15\u70b9\u51fb\n\n---\n\n### \u6807\u98985\uff1a\u9a6c\u65af\u514b\u5f00\u6e90X\u63a8\u8350\u7b97\u6cd5\u6838\u5fc3\u4ee3\u7801\uff0c\u4e3a\u4ec0\u4e48\u8981\u780d\u6389\u6240\u6709\u624b\u5de5\u7279\u5f81\uff1f\n\n**\u7279\u70b9\uff1a** \u65b0\u95fb\u6027\u3001\u7591\u95ee\u5f0f\u3001\u7a81\u51fa\u5927\u80c6\u51b3\u7b56\n**\u9002\u5408\u573a\u666f\uff1a** \u5bfb\u6c42\u7406\u89e3\"\u4e3a\u4ec0\u4e48\"\u7684\u6df1\u5ea6\u8bfb\u8005\n**\u4f18\u52bf\uff1a** \u76f4\u6307\u6700\u5927\u521b\u65b0\u70b9\uff0c\u7528\u7591\u95ee\u5438\u5f15\uff0c\u6fc0\u53d1\u8bfb\u8005\u601d\u8003\n\n---\n\n## \u63a8\u8350\u6307\u6570\n\n| \u6807\u9898 | \u5438\u5f15\u529b | \u70b9\u51fb\u7387\u6f5c\u529b | \u5206\u4eab\u6027 | \u603b\u4f53\u8bc4\u5206 |\n|------|-------|----------|-------|---------|\n| \u6807\u98981 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50 | 9/10 |\n| \u6807\u98982 | \u2b50\u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | 10/10 |\n| \u6807\u98983 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | 9.5/10 |\n| \u6807\u98984 | \u2b50\u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50 | 9.5/10 |\n| \u6807\u98985 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | \u2b50\u2b50\u2b50\u2b50 | 9/10 |\n\n## \u5173\u952e\u8981\u7d20\u63d0\u53d6\n\n**\u6587\u7ae0\u6838\u5fc3\u5356\u70b9\uff1a**\n- \u9a6c\u65af\u514b/xAI \u5f00\u6e90\n- X\u63a8\u8350\u7b97\u6cd5\u5b8c\u5168\u516c\u5f00\n- \u96f6\u624b\u5de5\u7279\u5f81\uff08\u6700\u5927\u521b\u65b0\uff09\n- \u5de5\u4e1a\u7ea7\u7cfb\u7edf\u8bbe\u8ba1\n- Transformer/Grok\u67b6\u6784\n- \u6027\u80fd\u4f18\u5316\u7ec6\u8282\n\n**\u76ee\u6807\u8bfb\u8005\u5fc3\u7406\uff1a**\n- \u5bf9\u5927\u6a21\u578b\u65f6\u4ee3\u611f\u5230\u597d\u5947\n- \u60f3\u5b66\u4e60\u5de5\u4e1a\u7ea7\u7cfb\u7edf\u8bbe\u8ba1\n- \u5173\u5fc3\u6280\u672f\u7ec6\u8282\u548c\u6700\u4f73\u5b9e\u8df5\n- \u60f3\u4e86\u89e3\u5982\u4f55\u5e94\u7528\u5230\u81ea\u5df1\u9879\u76ee\u4e2d\n"}], "grading": {"eval_id": 0, "run_type": "without_skill", "expectations": [{"text": "\u751f\u6210\u4e86\u6070\u597d5\u4e2a\u6807\u9898", "passed": true, "evidence": "\u8f93\u51fa\u5305\u542b5\u4e2a\u6807\u9898"}, {"text": "\u6bcf\u4e2a\u6807\u9898\u6709\u660e\u786e\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e", "passed": false, "evidence": "\u6ca1\u6709\u4f7f\u7528\u7edf\u4e00\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e\uff0c\u53ea\u6709\u81ea\u7531\u63cf\u8ff0\u7684'\u7279\u70b9'"}, {"text": "\u6807\u9898\u957f\u5ea6\u5747\u572860\u5b57\u4ee5\u5185", "passed": true, "evidence": "\u6807\u9898\u957f\u5ea6\u5408\u7406"}, {"text": "\u6807\u9898\u4e2d\u5305\u542b\u6587\u7ae0\u7684\u5173\u952e\u4fe1\u606f", "passed": true, "evidence": "\u5305\u542bX\u63a8\u8350\u7b97\u6cd5\u3001\u9a6c\u65af\u514b\u3001Grok\u7b49\u5173\u952e\u8bcd"}, {"text": "\u5305\u542b\u63a8\u8350\u7406\u7531\u8bf4\u660e", "passed": false, "evidence": "\u4f7f\u7528\u661f\u7ea7\u8bc4\u5206\u8868\u683c\u800c\u975e\u5177\u4f53\u63a8\u8350\u7406\u7531\uff0c\u7f3a\u5c11\u6570\u636e\u652f\u6491"}, {"text": "\u6807\u9898\u53e3\u8bed\u5316\u3001\u6709\u4eba\u5473", "passed": false, "evidence": "\u90e8\u5206\u6807\u9898\u504f\u5b66\u672f\u98ce\u683c\uff0c\u5982'\u6df1\u5ea6\u89e3\u6790\u9a6c\u65af\u514b\u5f00\u6e90\u7684X\u63a8\u8350\u7b97\u6cd5\uff1a\u96f6\u624b\u5de5\u7279\u5f81\u7684\u5de5\u4e1a\u7ea7\u8bbe\u8ba1'"}]}}, {"id": "eval-1-kuaishou-bonus-with_skill", "prompt": "\u5e2e\u6211\u7ed9\u8fd9\u7bc7\u6587\u7ae0\u8d77\u4e2a\u7206\u6b3e\u6807\u9898\uff0c\u6587\u7ae0\u662f\u5199\u5feb\u624b\u5e74\u7ec8\u5956\u7684\uff0cS\u7ee9\u6548\u6700\u9ad815\u4e2a\u6708\uff0c\u6bd4\u963f\u91cc\u5b57\u8282\u65e9\u4e24\u4e2a\u6708\u53d1\u3002\u8def\u5f84\uff1adocs/src/sidebar/itwanger/qiuzhi/kuaishou-year-end-bonus.md", "eval_id": 1, "outputs": [{"name": "titles.md", "type": "text", "content": "# \u5feb\u624b\u5e74\u7ec8\u5956\u7206\u6b3e\u6807\u9898 - 5\u4e2a\u5019\u9009\u65b9\u6848\n\n## \u4e3a\u4f60\u751f\u6210\u4e865\u4e2a\u5019\u9009\u6807\u9898\uff1a\n\n1. \u3010\u6570\u636e\u51b2\u51fb\u3011\u5feb\u624bS\u7ee9\u6548\u6700\u9ad815\u4e2a\u6708\u5e74\u7ec8\u5956\uff0c\u6bd4\u963f\u91cc\u5b57\u8282\u65e9\u53d1\u4e09\u4e2a\u6708\uff0c\u8fd9\u6ce2\u592a\u72e0\u4e86\u3002\n\n2. \u3010\u53e3\u8bed\u53d9\u4e8b\u3011\u6211\u5403\u4e0d\u5230\uff0c\u5c31\u773c\u7741\u7741\u770b\u7740\u5feb\u624b\u63d0\u524d\u4e24\u4e2a\u6708\u53d115\u4e2a\u6708\u5e74\u7ec8\u5956\uff0c\u771f\u7684\u9178\u6b7b\u6211\u4e86\u3002\n\n3. \u3010\u60ac\u5ff5\u53cd\u8f6c\u3011\u5feb\u624b1\u670830\u65e5\u53d1\u5e74\u7ec8\u5956\uff1f\u7b97\u7b97\u65e5\u671f\u4e00\u770b\uff0c\u6211\u76f4\u547c\u88ab\u998b\u574f\u4e86\uff0cS\u7ee9\u654815\u4e2a\u6708\u554a\u3002\n\n4. \u3010\u7b80\u77ed\u7206\u7834\u3011\u5feb\u624b\u63d0\u524d\u53d1\u5e74\u7ec8\u5956\uff0cS\u7ee9\u6548\u6700\u9ad815\u4e2a\u6708\uff0c\u6709\u70b9\u4e1c\u897f\u554a\u3002\n\n5. \u3010\u5bf9\u8bdd\u4f53/\u5229\u76ca\u53cd\u8f6c\u3011\"\u5feb\u624b\u4ec0\u4e48\u65f6\u5019\u53d1\u5e74\u7ec8\u5956\uff1f\"\u6211\u95ee\u3002\u670b\u53cb\u7b11\u4e86\uff1a\"1\u670830\u53f7\uff0c\u6bd4\u4f60\u60f3\u7684\u65e9\u4e09\u4e2a\u6708\u3002\"\u6211\uff1a\u9178\u6b7b\u6211\u4e86\u3002\n\n---\n\n## \ud83d\udca1 \u6211\u7684\u63a8\u8350\uff1a\u7b2c 1 \u4e2a\n\n**\u539f\u56e0\uff1a**\n\n\u6570\u636e\u51b2\u51fb\u578b\u6807\u9898\u5728\u53c2\u8003\u6570\u636e\u4e2d\u8868\u73b0\u6700\u7a33\u5b9a\uff08\u5982\"\u72c2\u63fd33k+Star\"\u6253\u5f00\u73872.11%\u3001\"\u5b57\u8282\u5f00\u6e90\u7684 Harness Agent \u706b\u7206\u5168\u7f51\uff0c\u5df2\u72c2\u98d9 54k+ Star\"\u6253\u5f00\u73873.68%\uff09\u3002\u8fd9\u4e2a\u6807\u9898\u7684\u4f18\u52bf\u5728\u4e8e\uff1a\n\n1. **\u5177\u4f53\u6570\u5b57\u5f00\u7bc7**\uff1a15\u4e2a\u6708\u3001\u4e09\u4e2a\u6708\u8fd9\u4e24\u4e2a\u6570\u5b57\u7ec4\u5408\uff0c\u76f4\u51fb\u6c42\u804c\u8005\u6700\u5173\u5fc3\u7684\"\u5230\u624b\u94b1\"\u548c\"\u53d1\u653e\u901f\u5ea6\"\u4e24\u4e2a\u75db\u70b9\n2. **\u5bf9\u6807\u5927\u5382**\uff1a\u63d0\u5230\u963f\u91cc\u3001\u5b57\u8282\uff0c\u8fd9\u662f\u884c\u4e1a\u85aa\u916c\u7684\u53c2\u7167\u6807\u6746\uff0c\u5f88\u5bb9\u6613\u5f15\u53d1\"\u5feb\u624b\u8fd9\u4e48\u731b\uff1f\"\u7684\u597d\u5947\u5fc3\n3. **\u60c5\u7eea\u8282\u594f**\uff1a\u7ed3\u5c3e\"\u8fd9\u6ce2\u592a\u72e0\u4e86\"\u4e00\u53e5\u8bdd\uff0c\u7528\u53e3\u8bed\u5316\u8bc4\u4ef7\u7edf\u4e00\u6574\u4e2a\u6807\u9898\u7684\u6c14\u573a\uff0c\u8bfb\u8005\u770b\u5230\u8fd9\u4e2a\u6807\u9898\u4f1a\u5fcd\u4e0d\u4f4f\u60f3\u8fdb\u6765\u770b\u66f4\u591a\u7ec6\u8282\n4. **\u957f\u5ea6\u9002\u914d**\uff1a30\u4e2a\u5b57\uff0c\u5728\u6700\u4f18\u7684\u6253\u5f00\u7387\u6807\u9898\u8303\u56f4\u5185\uff08\u53c2\u8003\u6570\u636e\u4e2d\u6700\u9ad8\u6253\u5f00\u7387\u7684\u6807\u9898\u90fd\u572812-30\u5b57\u4e4b\u95f4\uff09\n\n**\u6b21\u4f18\u9009\u62e9\uff1a\u7b2c 2 \u4e2a**\n\n\u53e3\u8bed\u53d9\u4e8b\u578b\u6807\u9898\u53c2\u8003\u6570\u636e\u6253\u5f00\u73873.18%\uff08\"\u6211\u82b1\u4e86\u4e24\u5929\u6ce8\u518c\u4e8620+\u4e2aAI\u5e73\u53f0\uff0c\u628a\u514d\u8d39Token\u5168\u8585\u4e86\u4e00\u904d\uff0c\u771f\u9999\u7684\u5c31\u8fd9\u51e0\u5bb6\"\uff09\uff0c\u8fd9\u4e2a\u6807\u9898\u7528\u4e86\"\u6211\"\u5f00\u5934+\u4e2a\u4eba\u60c5\u611f\uff08\u9178\uff09\uff0c\u66f4\u5bb9\u6613\u4ea7\u751f\u5171\u9e23\uff0c\u7279\u522b\u9002\u5408\u6c42\u804c\u8bdd\u9898\uff0c\u56e0\u4e3a\u8bfb\u8005\u80fd\u4ee3\u5165\u81ea\u5df1\u7684\u7acb\u573a\u3002\n\n---\n\n## \u6570\u636e\u53c2\u8003\n\n- \u6700\u9ad8\u6253\u5f00\u7387\u6807\u9898\u90fd\u5728 12-30 \u5b57\u4e4b\u95f4\n- \u5bf9\u8bdd\u4f53\u6807\u9898\u8fbe\u5230\u8fc7 5.74%\u30015.54% \u7684\u9ad8\u6253\u5f00\u7387\uff08\u53c2\u8003\u6570\u636e\u4e2d\u6392\u540d\u524d\u4e24\u4f4d\uff09\n- \u53e3\u8bed\u53d9\u4e8b + \u5177\u4f53\u6570\u5b57\u7ec4\u5408\u6700\u7a33\u5b9a\uff083%+ \u6253\u5f00\u7387\uff09\n- \u5c0f\u4f17\u54c1\u724c/\u964c\u751f\u516c\u53f8\u4e0d\u5b9c\u9996\u4f4d\u51fa\u73b0\uff0c\u4f46\u5feb\u624b\u4f5c\u4e3a\u4e00\u7ebf\u5927\u5382+\u6c42\u804c\u70ed\u70b9\u516c\u53f8\uff0c\u53ef\u4ee5\u5b89\u5168\u5730\u5f00\u7bc7\u7a81\u51fa\n"}], "grading": {"eval_id": 1, "run_type": "with_skill", "expectations": [{"text": "\u751f\u6210\u4e86\u6070\u597d5\u4e2a\u6807\u9898", "passed": true, "evidence": "5\u4e2a\u7f16\u53f7\u6807\u9898"}, {"text": "\u6bcf\u4e2a\u6807\u9898\u6709\u660e\u786e\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e", "passed": true, "evidence": "\u6709\u6570\u636e\u51b2\u51fb\u3001\u53e3\u8bed\u53d9\u4e8b\u3001\u60ac\u5ff5\u53cd\u8f6c\u3001\u7b80\u77ed\u7206\u7834\u3001\u5bf9\u8bdd\u4f53\u6807\u7b7e"}, {"text": "\u6807\u9898\u957f\u5ea6\u5747\u572860\u5b57\u4ee5\u5185", "passed": true, "evidence": "\u5168\u90e8\u5728\u9650\u5236\u5185"}, {"text": "\u6807\u9898\u4e2d\u5305\u542b\u5173\u952e\u6570\u636e", "passed": true, "evidence": "\u5305\u542b15\u4e2a\u6708\u3001\u5feb\u624b\u3001\u5e74\u7ec8\u5956\u3001\u963f\u91cc\u5b57\u8282\u7b49"}, {"text": "\u5305\u542b\u63a8\u8350\u7406\u7531\u8bf4\u660e", "passed": true, "evidence": "\u6709\u8be6\u7ec6\u63a8\u8350\uff0c\u5f15\u7528\u53c2\u8003\u6570\u636e"}, {"text": "\u6807\u9898\u53e3\u8bed\u5316\u3001\u6709\u4eba\u5473", "passed": true, "evidence": "'\u592a\u72e0\u4e86''\u9178\u6b7b\u6211\u4e86''\u6709\u70b9\u4e1c\u897f\u554a'\u7b49\u53e3\u8bed\u8868\u8fbe"}]}}, {"id": "eval-1-kuaishou-bonus-without_skill", "prompt": "\u5e2e\u6211\u7ed9\u8fd9\u7bc7\u6587\u7ae0\u8d77\u4e2a\u7206\u6b3e\u6807\u9898\uff0c\u6587\u7ae0\u662f\u5199\u5feb\u624b\u5e74\u7ec8\u5956\u7684\uff0cS\u7ee9\u6548\u6700\u9ad815\u4e2a\u6708\uff0c\u6bd4\u963f\u91cc\u5b57\u8282\u65e9\u4e24\u4e2a\u6708\u53d1\u3002\u8def\u5f84\uff1adocs/src/sidebar/itwanger/qiuzhi/kuaishou-year-end-bonus.md", "eval_id": 1, "outputs": [{"name": "titles.md", "type": "text", "content": "# \u5feb\u624b\u5e74\u7ec8\u5956\u6587\u7ae0\u6807\u9898\u5019\u9009\uff085\u4e2a\uff09\n\n## \u6807\u98981\uff1a\u60ca\u7206\uff01\u5feb\u624b\u63d0\u524d\u4e24\u6708\u53d1\u5e74\u7ec8\u5956\uff0cS\u7ee9\u6548\u5458\u5de5\u6700\u9ad8\u62ff15\u4e2a\u6708\n**\u7279\u70b9**\uff1a\"\u60ca\u7206\"\u5438\u5f15\u773c\u7403\uff0c\u7a81\u51fa\"\u63d0\u524d\u4e24\u6708\"\u7684\u7ade\u4e89\u4f18\u52bf\uff0c\u6570\u5b57\u5316\u5c55\u793a\u6700\u9ad8\u798f\u5229\n\n## \u6807\u98982\uff1a\u5feb\u624b\u8fd9\u6ce2\u592a\u72e0\u4e86\u2014\u201415\u4e2a\u6708\u5e74\u7ec8\u5956\uff0c\u7529\u5f00\u963f\u91cc\u5b57\u8282\u4e24\u4e2a\u6708\n**\u7279\u70b9**\uff1a\u5bf9\u6bd4\u5f0f\u6807\u9898\uff0c\u7a81\u51fa\u5feb\u624b\u76f8\u5bf9\u5176\u4ed6\u5927\u5382\u7684\u4f18\u52bf\uff0c\"\u592a\u72e0\u4e86\"\u4f53\u73b0\u884c\u4e1a\u60ca\u4eba\u7a0b\u5ea6\n\n## \u6807\u98983\uff1a\u9178\u4e86\uff01\u5feb\u624b\u5e74\u7ec8\u5956\u6700\u9ad815\u4e2a\u6708\uff0c\u6bd4\u5b57\u8282\u65e9\u53d1\uff0c\u8fd8\u7ed9\u7ee9\u4f18\u5458\u5de5\u52a0\u7801\n**\u7279\u70b9**\uff1a\u60c5\u611f\u5316\u5f00\u573a\uff0c\u7a81\u51fa\u52a0\u7801\u798f\u5229\uff0c\u53cc\u91cd\u60ca\u559c\u70b9\n\n## \u6807\u98984\uff1a\u5feb\u624b\u5b98\u5ba3\uff1a\u5e74\u7ec8\u5956\u6700\u9ad815\u4e2a\u6708 + \u63d0\u524d\u53d1\uff0c\u4e92\u8054\u7f51\u5708\u7f55\u89c1\u7684\u8bda\u610f\n**\u7279\u70b9**\uff1a\u5b98\u5ba3\u611f\u589e\u5f3a\u4fe1\u5ea6\uff0c\"\u7f55\u89c1\u7684\u8bda\u610f\"\u4f53\u73b0\u7a00\u7f3a\u6027\uff0c\u5438\u5f15\u6c42\u804c\u8005\u5173\u6ce8\n\n## \u6807\u98985\uff1a\u6253\u5de5\u4eba\u72c2\u6b22\uff01\u5feb\u624b15\u4e2a\u6708\u5e74\u7ec8\u5956\u79d2\u6740\u5927\u5382\uff0c1\u670830\u65e5\u5f00\u59cb\u53d1\u653e\n**\u7279\u70b9**\uff1a\u4ece\u5458\u5de5\u89d2\u5ea6\u51fa\u53d1\uff0c\"\u72c2\u6b22\"\u5236\u9020\u5171\u9e23\uff0c\u52a0\u5165\u5177\u4f53\u53d1\u653e\u65f6\u95f4\u589e\u52a0\u65f6\u6548\u6027\n"}], "grading": {"eval_id": 1, "run_type": "without_skill", "expectations": [{"text": "\u751f\u6210\u4e86\u6070\u597d5\u4e2a\u6807\u9898", "passed": true, "evidence": "5\u4e2a\u6807\u9898"}, {"text": "\u6bcf\u4e2a\u6807\u9898\u6709\u660e\u786e\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e", "passed": false, "evidence": "\u65e0\u7edf\u4e00\u98ce\u683c\u5206\u7c7b\u6807\u7b7e"}, {"text": "\u6807\u9898\u957f\u5ea6\u5747\u572860\u5b57\u4ee5\u5185", "passed": true, "evidence": "\u957f\u5ea6\u5408\u7406"}, {"text": "\u6807\u9898\u4e2d\u5305\u542b\u5173\u952e\u6570\u636e", "passed": true, "evidence": "\u5305\u542b15\u4e2a\u6708\u3001\u5feb\u624b\u7b49"}, {"text": "\u5305\u542b\u63a8\u8350\u7406\u7531\u8bf4\u660e", "passed": false, "evidence": "\u53ea\u6709\u7b80\u5355\u7684\u7279\u70b9\u63cf\u8ff0\uff0c\u65e0\u6570\u636e\u652f\u6491\u7684\u63a8\u8350\u7406\u7531"}, {"text": "\u6807\u9898\u53e3\u8bed\u5316\u3001\u6709\u4eba\u5473", "passed": false, "evidence": "\u4f7f\u7528\u4e86'\u60ca\u7206\uff01''\u6253\u5de5\u4eba\u72c2\u6b22\uff01'\u7b49\u8fc7\u4e8e\u8425\u9500\u5316\u7684\u8868\u8fbe\uff0c\u504f\u79bb\u81ea\u7136\u53e3\u8bed\u98ce\u683c"}]}}, {"id": "eval-2-wechat-openclaw-with_skill", "prompt": "\u6587\u7ae0\u4e3b\u9898\uff1a\u5fae\u4fe1\u539f\u751f\u652f\u6301\u63a5\u5165OpenClaw\u4e86\uff0c\u63a8\u51fa\u4e86ClawBot\u63d2\u4ef6\uff0ciPhone\u7070\u5ea6\u6d4b\u8bd5\u4e2d\uff0c\u4e0d\u9700\u8981\u4f01\u4e1a\u5fae\u4fe1\u3002\u5e2e\u6211\u60f35\u4e2a\u6807\u9898\u3002", "eval_id": 2, "outputs": [{"name": "titles.md", "type": "text", "content": "# \u5fae\u4fe1 OpenClaw \u63a5\u5165 - \u6807\u9898\u751f\u6210\u7ed3\u679c\n\n## \u4e3a\u4f60\u751f\u6210\u4e865\u4e2a\u5019\u9009\u6807\u9898\uff1a\n\n1. \u3010\u6570\u636e\u51b2\u51fb\u3011\u5fae\u4fe1\u539f\u751f\u5b98\u5ba3 OpenClaw\uff0cClawBot \u63d2\u4ef6\u6765\u4e86\uff0c\u4e0d\u7528\u4f01\u4e1a\u5fae\u4fe1\u4e5f\u80fd\u73a9\u3002\n\n2. \u3010\u53e3\u8bed\u53d9\u4e8b\u3011\u6211\u7ec8\u4e8e\u7b49\u5230\u4e86\uff0c\u5fae\u4fe1\u53ef\u4ee5\u76f4\u63a5\u7528 OpenClaw \u4e86\uff0ciPhone \u7070\u5ea6\u6d4b\u8bd5\u4e2d\uff0c\u6709\u70b9\u731b\u554a\u3002\n\n3. \u3010\u60ac\u5ff5\u53cd\u8f6c\u3011\u5fae\u4fe1\u8bf4 OpenClaw\"\u4e0d\u9002\u914d\"\uff0c\u6211\u4e0d\u542c\uff0ciPhone \u7070\u5ea6\u6d4b\u8bd5\u4e2d\uff0cClawBot \u5df2\u7ecf\u80fd\u7528\u4e86\u3002\n\n4. \u3010\u7b80\u77ed\u7206\u7834\u3011\u5fae\u4fe1\u539f\u751f\u63a5\u5165 OpenClaw\uff0cClawBot \u6765\u4e86\u3002\n\n5. \u3010\u5bf9\u8bdd\u4f53\u3011\u670b\u53cb\uff1a\"\u5fae\u4fe1\u80fd\u7528 OpenClaw \u5417\uff1f\"\u6211\u7b11\u4e86\uff1a\"\u4ece\u4eca\u5929\u8d77\u53ef\u4ee5\u4e86\u3002\"\u4ed6\u4e5f\u7b11\u4e86\uff1a\"\u602a\u4e0d\u5f97\u6211\u7684 iPhone \u4e0a\u6709\u65b0\u7248\u672c\u3002\"\n\n---\n\n## \ud83d\udca1 \u6211\u7684\u63a8\u8350\uff1a\u7b2c 2 \u4e2a\n\n**\u539f\u56e0\uff1a**\n\n\u4ece\u53c2\u8003\u6570\u636e\u770b\uff0c\u6253\u5f00\u7387\u6700\u9ad8\u7684\u6807\u9898\u5177\u6709\u4ee5\u4e0b\u5171\u6027\uff1a\n- \u53e3\u8bed\u5316\u3001\u6709\u4eba\u5473\uff08\"\u6211\u7ec8\u4e8e\u7b49\u5230\u4e86\" \u5236\u9020\u5171\u9e23\uff09\n- \u6709\u60c5\u7eea\u5f20\u529b\uff08\"\u6709\u70b9\u731b\u554a\" \u4f20\u9012\u5174\u594b\u611f\uff09\n- \u5305\u542b\u5177\u4f53\u7684\u4f7f\u7528\u573a\u666f\uff08iPhone \u7070\u5ea6\u6d4b\u8bd5\u3001\u4e0d\u7528\u4f01\u4e1a\u5fae\u4fe1\uff09\n- \u7b80\u6d01\u6709\u529b\uff0c59\u5b57\u4ee5\u5185\n\n\u7b2c2\u4e2a\u6807\u9898\u7ed3\u5408\u4e86\u53c2\u8003\u6570\u636e\u4e2d\"DeepSeek V4\u7070\u5ea6\uff0c\u8fd9\u6ce2\u6211\u771f\u7684\u70ed\u8840\u6cb8\u817e\"\uff083.95%\uff09\u548c\"\u5b57\u8282\u51fa\u624b\uff0c\u6700\u5f3aCoding Plan\u51fa\u7089\uff0cOpenClaw\u53ef\u4ee5\u75db\u5feb\u73a9\"\uff083.12%\uff09\u7684\u9ad8\u6548\u5143\u7d20\uff1a\n- \u7528\"\u6211\u7ec8\u4e8e\u7b49\u5230\u4e86\"\u5f00\u5934\uff0c\u6fc0\u53d1\u8bfb\u8005\u7684\u7b49\u5f85\u548c\u671f\u5f85\u611f\n- \u7a81\u51fa\u5fae\u4fe1\u8fd9\u4e00\u5927\u4f17\u5e94\u7528\u7684\u539f\u751f\u652f\u6301\uff0c\u5f3a\u5316\u4ef7\u503c\u611f\n- \u7528\"\u7070\u5ea6\u6d4b\u8bd5\u4e2d\"\u5236\u9020\u65f6\u6548\u6027\uff0c\u5236\u9020\"\u62a2\u5148\u4f53\u9a8c\"\u7684\u7d27\u8feb\u611f\n- \"\u6709\u70b9\u731b\u554a\"\u6ce8\u5165\u60c5\u7eea\uff0c\u63d0\u5347\u53ef\u8bfb\u6027\n\n\u8fd9\u4e2a\u6807\u9898\u66f4\u5bb9\u6613\u5f15\u53d1\u7528\u6237\u7684\u70b9\u51fb\u6b32\u671b\uff0c\u9884\u8ba1\u6253\u5f00\u7387\u5728 3.5%-4.5% \u4e4b\u95f4\u3002\n"}], "grading": {"eval_id": 2, "run_type": "with_skill", "expectations": [{"text": "\u751f\u6210\u4e86\u6070\u597d5\u4e2a\u6807\u9898", "passed": true, "evidence": "5\u4e2a\u7f16\u53f7\u6807\u9898"}, {"text": "\u6bcf\u4e2a\u6807\u9898\u6709\u660e\u786e\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e", "passed": true, "evidence": "\u6709\u6570\u636e\u51b2\u51fb\u3001\u53e3\u8bed\u53d9\u4e8b\u3001\u60ac\u5ff5\u53cd\u8f6c\u3001\u7b80\u77ed\u7206\u7834\u3001\u5bf9\u8bdd\u4f53\u6807\u7b7e"}, {"text": "\u6807\u9898\u957f\u5ea6\u5747\u572860\u5b57\u4ee5\u5185", "passed": true, "evidence": "\u5168\u90e8\u5728\u9650\u5236\u5185"}, {"text": "\u6807\u9898\u4e2d\u5305\u542b\u7528\u6237\u63d0\u4f9b\u7684\u5173\u952e\u8bcd", "passed": true, "evidence": "\u5305\u542b\u5fae\u4fe1\u3001OpenClaw\u3001ClawBot\u3001\u4f01\u4e1a\u5fae\u4fe1\u7b49"}, {"text": "\u5305\u542b\u63a8\u8350\u7406\u7531\u8bf4\u660e", "passed": true, "evidence": "\u6709\u63a8\u8350\u7406\u7531\u5e76\u5f15\u7528\u53c2\u8003\u6570\u636e"}, {"text": "\u4e0d\u9700\u8981\u8bfb\u53d6\u6587\u4ef6\u5373\u53ef\u57fa\u4e8e\u5173\u952e\u8bcd\u751f\u6210\u6807\u9898", "passed": true, "evidence": "\u4ec5\u57fa\u4e8e\u7528\u6237\u63d0\u4f9b\u7684\u5173\u952e\u8bcd\u751f\u6210\uff0c\u65e0\u9700\u8bfb\u53d6\u6587\u7ae0\u6587\u4ef6"}]}}, {"id": "eval-2-wechat-openclaw-without_skill", "prompt": "\u6587\u7ae0\u4e3b\u9898\uff1a\u5fae\u4fe1\u539f\u751f\u652f\u6301\u63a5\u5165OpenClaw\u4e86\uff0c\u63a8\u51fa\u4e86ClawBot\u63d2\u4ef6\uff0ciPhone\u7070\u5ea6\u6d4b\u8bd5\u4e2d\uff0c\u4e0d\u9700\u8981\u4f01\u4e1a\u5fae\u4fe1\u3002\u5e2e\u6211\u60f35\u4e2a\u6807\u9898\u3002", "eval_id": 2, "outputs": [{"name": "titles.md", "type": "text", "content": "# \u5fae\u4fe1OpenClaw\u652f\u6301\u6587\u7ae0\u6807\u9898\u5019\u9009\uff085\u4e2a\uff09\n\n## 1. \u5fae\u4fe1\u5b98\u5ba3ClawBot\u63d2\u4ef6\uff0ciPhone\u7070\u5ea6\u6d4b\u8bd5\u4e2d\uff0c\u65e0\u9700\u4f01\u4e1a\u5fae\u4fe1\u5c31\u80fd\u7528\n\n**\u7c7b\u578b\uff1a** \u65b0\u95fb\u64ad\u62a5\u5f0f\n**\u7279\u70b9\uff1a** \u76f4\u767d\u70b9\u660e\u6838\u5fc3\u4fe1\u606f\uff08\u5b98\u5ba3\u3001\u65e0\u9700\u4f01\u4e1a\u5fae\u4fe1\uff09\n**\u9002\u5408\u573a\u666f\uff1a** \u5feb\u901f\u6293\u4f4f\u8bfb\u8005\u6ce8\u610f\u529b\n\n---\n\n## 2. \u5fae\u4fe1\u539f\u751f\u652f\u6301OpenClaw\uff0cClawBot\u63d2\u4ef6\u6765\u4e86\uff0c\u4e2a\u4eba\u53f7\u4e5f\u80fd\u63a5\u5165\n\n**\u7c7b\u578b\uff1a** \u5f3a\u8c03\u4eae\u70b9\u5f0f\n**\u7279\u70b9\uff1a** \u7a81\u51fa\"\u4e2a\u4eba\u53f7\u4e5f\u80fd\u7528\"\u7684\u5dee\u5f02\u6027\uff0c\u7834\u9664\u7528\u6237\u8ba4\u77e5\u8bef\u533a\n**\u9002\u5408\u573a\u666f\uff1a** \u5438\u5f15\u4e2d\u5c0f\u5f00\u53d1\u8005\u548c\u5185\u5bb9\u521b\u4f5c\u8005\n\n---\n\n## 3. iPhone\u7528\u6237\u6709\u798f\u4e86\uff0c\u5fae\u4fe1\u6084\u6084\u4e0a\u7ebfClawBot\u63d2\u4ef6\uff0cAI\u80fd\u529b\u518d\u5347\u7ea7\n\n**\u7c7b\u578b\uff1a** \u7528\u6237\u798f\u5229\u5f0f\n**\u7279\u70b9\uff1a** \u4ece\u7ec8\u7aef\u7528\u6237\u89d2\u5ea6\u51fa\u53d1\uff0c\u5f3a\u8c03\u4f53\u9a8c\u5347\u7ea7\n**\u9002\u5408\u573a\u666f\uff1a** \u5f3a\u8c03\u529f\u80fd\u5e26\u6765\u7684\u5b9e\u9645\u4ef7\u503c\n\n---\n\n## 4. \u5fae\u4fe1\u7684AI\u724c\u5c40\uff1aOpenClaw\u539f\u751f\u63a5\u5165+ClawBot\u63d2\u4ef6\uff0c\u65e0\u9700\u4f01\u4e1a\u5fae\u4fe1\u7684\u65b0\u751f\u6001\n\n**\u7c7b\u578b\uff1a** \u751f\u6001\u53d9\u4e8b\u5f0f\n**\u7279\u70b9\uff1a** \u7a81\u51fa\u5fae\u4fe1\u5728AI\u751f\u6001\u4e2d\u7684\u6218\u7565\u610f\u56fe\n**\u9002\u5408\u573a\u666f\uff1a** \u504f\u6280\u672f/\u884c\u4e1a\u89c2\u5bdf\u7684\u53d7\u4f17\n\n---\n\n## 5. ClawBot\u6765\u4e86\uff0c\u5fae\u4fe1\u8fd9\u6ce2AI\u63d2\u4ef6\u5bf9\u6807ChatGPT\uff0ciPhone\u7070\u5ea6\u6d4b\u8bd5\u8fdb\u884c\u4e2d\n\n**\u7c7b\u578b\uff1a** \u7ade\u54c1\u5bf9\u6807\u5f0f\n**\u7279\u70b9\uff1a** \u6fc0\u53d1\u8bfb\u8005\u5bf9\u6bd4\u5174\u8da3\uff0c\u5f3a\u5316\"\u5fae\u4fe1\u4e5f\u5728\u8fdb\u6b65\"\u7684\u611f\u77e5\n**\u9002\u5408\u573a\u666f\uff1a** \u5236\u9020\u8bdd\u9898\u70ed\u5ea6\uff0c\u5f15\u53d1\u8ba8\u8bba\n\n---\n\n## \u5efa\u8bae\n\n- **\u6807\u98981\u30012** \u6700\u76f4\u63a5\uff0c\u4fe1\u606f\u5bc6\u5ea6\u9ad8\uff0c\u9002\u5408\u95e8\u69db\u666e\u901a\u7684\u8bfb\u8005\n- **\u6807\u98983** \u6700\u5bb9\u6613\u83b7\u5f97\u8f6c\u53d1\uff0c\u5f3a\u8c03\u5b9e\u9645\u4ef7\u503c\n- **\u6807\u98984** \u6700\u9002\u5408\u6df1\u5ea6\u5185\u5bb9\uff0c\u9002\u5408\u505a\u540e\u7eed\u5c55\u5f00\n- **\u6807\u98985** \u6700\u5bb9\u6613\u5236\u9020\u8bdd\u9898\uff0c\u4f46\u9700\u8c28\u614e\u907f\u514d\u8fc7\u5ea6\u8425\u9500\n"}], "grading": {"eval_id": 2, "run_type": "without_skill", "expectations": [{"text": "\u751f\u6210\u4e86\u6070\u597d5\u4e2a\u6807\u9898", "passed": true, "evidence": "5\u4e2a\u6807\u9898"}, {"text": "\u6bcf\u4e2a\u6807\u9898\u6709\u660e\u786e\u7684\u98ce\u683c\u5206\u7c7b\u6807\u7b7e", "passed": false, "evidence": "\u65e0\u7edf\u4e00\u98ce\u683c\u5206\u7c7b\u6807\u7b7e\uff0c\u4f7f\u7528\u81ea\u7531\u63cf\u8ff0"}, {"text": "\u6807\u9898\u957f\u5ea6\u5747\u572860\u5b57\u4ee5\u5185", "passed": true, "evidence": "\u957f\u5ea6\u5408\u7406"}, {"text": "\u6807\u9898\u4e2d\u5305\u542b\u7528\u6237\u63d0\u4f9b\u7684\u5173\u952e\u8bcd", "passed": true, "evidence": "\u5305\u542b\u5fae\u4fe1\u3001OpenClaw\u3001ClawBot\u7b49"}, {"text": "\u5305\u542b\u63a8\u8350\u7406\u7531\u8bf4\u660e", "passed": false, "evidence": "\u53ea\u6709\u7b80\u5355\u5efa\u8bae\uff0c\u65e0\u6570\u636e\u652f\u6491"}, {"text": "\u4e0d\u9700\u8981\u8bfb\u53d6\u6587\u4ef6\u5373\u53ef\u57fa\u4e8e\u5173\u952e\u8bcd\u751f\u6210\u6807\u9898", "passed": true, "evidence": "\u57fa\u4e8e\u5173\u952e\u8bcd\u751f\u6210"}]}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "title-generator", "timestamp": "2026-04-02T10:15:00Z", "runs_per_configuration": 3}, "runs": [{"eval_name": "x-algorithm-article-titles", "config": "with_skill", "pass_rate": 1.0, "passed": 6, "total": 6, "time_seconds": 23.2, "tokens": 36213}, {"eval_name": "x-algorithm-article-titles", "config": "without_skill", "pass_rate": 0.5, "passed": 3, "total": 6, "time_seconds": 21.0, "tokens": 31888}, {"eval_name": "kuaishou-bonus-titles", "config": "with_skill", "pass_rate": 1.0, "passed": 6, "total": 6, "time_seconds": 32.2, "tokens": 37925}, {"eval_name": "kuaishou-bonus-titles", "config": "without_skill", "pass_rate": 0.5, "passed": 3, "total": 6, "time_seconds": 15.2, "tokens": 31162}, {"eval_name": "wechat-openclaw-keyword-titles", "config": "with_skill", "pass_rate": 1.0, "passed": 6, "total": 6, "time_seconds": 19.6, "tokens": 31648}, {"eval_name": "wechat-openclaw-keyword-titles", "config": "without_skill", "pass_rate": 0.67, "passed": 4, "total": 6, "time_seconds": 13.9, "tokens": 26958}], "run_summary": {"with_skill": {"mean_pass_rate": 1.0, "stddev_pass_rate": 0.0, "mean_time_seconds": 25.0, "mean_tokens": 35262}, "without_skill": {"mean_pass_rate": 0.56, "stddev_pass_rate": 0.1, "mean_time_seconds": 16.7, "mean_tokens": 30003}, "delta": {"pass_rate": "+0.44", "time_seconds": "+8.3", "tokens": "+5259"}}, "notes": ["with_skill achieved 100% pass rate across all 3 evals", "without_skill consistently failed on: style classification labels, data-backed recommendations, and colloquial tone", "with_skill takes ~50% more time and tokens due to reading reference data, but produces significantly better structured output"]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

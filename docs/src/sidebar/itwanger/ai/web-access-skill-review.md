@@ -294,9 +294,7 @@ MCP/Playwright ✅ → 独立实例，互不影响
 
 ### CDP 的工作流程
 
-```
-
-```
+![](https://cdn.paicoding.com/paicoding/73ed19103effab988ef8fbd5aa484613.png)
 
 理解了 CDP，我们就能理解 web-access 为什么能做到“像人一样浏览网页”，它不是在模拟浏览器，而是在真正地控制 Chrome。
 
