@@ -117,6 +117,7 @@ head:
 - [面渣逆袭（设计模式面试题八股文）必看👍](sidebar/sanfene/shejimoshi.md)
 - [面渣逆袭（Linux面试题八股文）必看👍](sidebar/sanfene/linux.md)
 - [面渣逆袭（OpenClaw面试题八股文）必看👍](sidebar/sanfene/openclaw.md)
+- [面渣逆袭（Skills面试题八股文）必看👍](sidebar/sanfene/skills.md)
 
 ## Java基础
 

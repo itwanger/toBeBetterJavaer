@@ -1,5 +1,5 @@
 ---
-title: 面渣逆袭必看，面试题八股文Java基础、Java 集合框架、Java 并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux、OpenClaw👍
+title: 面渣逆袭必看，面试题八股文Java基础、Java 集合框架、Java 并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux、OpenClaw、Skills👍
 shortTitle: 面渣逆袭
 description: 17 个大的主题，共有 30 多万字，400+张手绘图，可以说是诚意满满。有球友在做面试官的时候偷偷打开面渣逆袭，然后随便挑点问题问。还有球友付费就是为了交面渣逆袭的学费，虽然我不敢说这是市面上最好的八股，但确实对大家应该是有帮助的。
 category:
@@ -9,10 +9,10 @@ tag:
 head:
   - - meta
     - name: keywords
-      content: Java面试题,JavaSE面试题,Java基础面试题,Java集合框架面试题,Java容器面试题,Java虚拟机面试题,JVM面试题,Spring面试题,Redis面试题,MyBatis面试题,MySQL面试题,操作系统面试题,OS面试题,计算机网络面试题,RocketMQ面试题,面试题,八股文,java,springboot,spring,jvm,redis,mybatis,mysql,操作系统,计算机网络,RocketMQ,分布式,微服务,设计模式,Linux,OpenClaw
+      content: Java面试题,JavaSE面试题,Java基础面试题,Java集合框架面试题,Java容器面试题,Java虚拟机面试题,JVM面试题,Spring面试题,Redis面试题,MyBatis面试题,MySQL面试题,操作系统面试题,OS面试题,计算机网络面试题,RocketMQ面试题,面试题,八股文,java,springboot,spring,jvm,redis,mybatis,mysql,操作系统,计算机网络,RocketMQ,分布式,微服务,设计模式,Linux,OpenClaw,Skills,skill
 ---
 
-大家好，我是二哥呀，今天给大家隆重介绍一下面渣逆袭 PDF 2.0 版，共有 30 多万字，400+张手绘图，涵盖了 `Java基础`、`Java集合`、`Java并发`、`JVM`、`Spring`、`MyBatis`、`计算机网络`、`操作系统`、`MySQL`、`Redis`、`RocketMQ`、`分布式`、微服务、设计模式、Linux、OpenClaw 等 17 个大的主题，可以说是诚意满满。
+大家好，我是二哥呀，今天给大家隆重介绍一下面渣逆袭 PDF 2.0 版，共有 30 多万字，400+张手绘图，涵盖了 `Java基础`、`Java集合`、`Java并发`、`JVM`、`Spring`、`MyBatis`、`计算机网络`、`操作系统`、`MySQL`、`Redis`、`RocketMQ`、`分布式`、微服务、设计模式、Linux、OpenClaw、Skills 等 18 个大的主题，可以说是诚意满满。
 
 ![](https://cdn.paicoding.com/paicoding/689744a38afaac9da561338752cd88d9.png)
 
@@ -163,6 +163,7 @@ bing 搜【面渣逆袭】也是排名第一。
 - [面渣逆袭（设计模式面试题八股文）必看 👍](/sidebar/sanfene/shejimoshi.md)
 - [面渣逆袭（Linux 面试题八股文）必看 👍](/sidebar/sanfene/linux.md)
 - [面渣逆袭（OpenClaw 面试题八股文）必看 👍](/sidebar/sanfene/openclaw.md)
+- [面渣逆袭（Skills 面试题八股文）必看 👍](/sidebar/sanfene/skills.md)
 
 ## PDF介绍
 

@@ -70,6 +70,7 @@ export default sidebar({
     "javathread",
     "jvm",
     "openclaw",
+    "skills",
     "mybatis",
     "os",
     "network",
