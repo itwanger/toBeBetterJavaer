@@ -19,3 +19,4 @@ images
 .qoder/
 .agents/
 plugins/
+/.playwright-mcp
