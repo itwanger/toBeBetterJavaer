@@ -20,3 +20,4 @@ images
 .agents/
 plugins/
 /.playwright-mcp
+/docs/src/sidebar/itwanger/wiki

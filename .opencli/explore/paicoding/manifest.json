@@ -1,0 +1,16 @@
+{
+  "site": "paicoding",
+  "target_url": "https://paicoding.com",
+  "final_url": "https://paicoding.com/",
+  "title": "技术派 - Java技术社区 | RAG+Agent实战项目教程+AI助手",
+  "framework": {
+    "nextjs": false,
+    "nuxt": false,
+    "react": true,
+    "vue2": false,
+    "vue3": false
+  },
+  "stores": [],
+  "top_strategy": "public",
+  "explored_at": "2026-04-14T12:48:28.810Z"
+}
