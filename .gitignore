@@ -14,7 +14,9 @@ images
 .yarn
 *-vip.md
 /.vscode
-.claude/
+.claude/*
+!.claude/skills/
+.claude/skills/*/sucai.md
 .codex/
 .qoder/
 .agents/

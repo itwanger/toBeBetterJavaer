@@ -1,0 +1,23 @@
+{
+  "skill_name": "title-generator",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "我刚写完一篇关于 X 推荐算法开源的文章，帮我生成5个标题。文章路径：docs/src/sidebar/itwanger/ai/x-recommendation-algorithm.md",
+      "expected_output": "5个风格各异的候选标题，包含数据冲击、口语叙事、悬念反转、简短爆破等类型",
+      "files": ["docs/src/sidebar/itwanger/ai/x-recommendation-algorithm.md"]
+    },
+    {
+      "id": 1,
+      "prompt": "帮我给这篇文章起个爆款标题，文章是写快手年终奖的，S绩效最高15个月，比阿里字节早两个月发。路径：docs/src/sidebar/itwanger/qiuzhi/kuaishou-year-end-bonus.md",
+      "expected_output": "5个候选标题，突出年终奖金额、快手品牌、时间优势等亮点",
+      "files": ["docs/src/sidebar/itwanger/qiuzhi/kuaishou-year-end-bonus.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "文章主题：微信原生支持接入OpenClaw了，推出了ClawBot插件，iPhone灰度测试中，不需要企业微信。帮我想5个标题。",
+      "expected_output": "5个候选标题，基于用户提供的关键词生成，不需要读取文件",
+      "files": []
+    }
+  ]
+}

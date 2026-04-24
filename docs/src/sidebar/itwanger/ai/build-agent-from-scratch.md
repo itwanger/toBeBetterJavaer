@@ -1095,3 +1095,17 @@ logger.info("[Agent] 工具结果: {}", result);
 
 希望这篇文章对你有帮助，我们下期见。
 
+## 简历怎么写
+
+**PaiCLI Agent 项目（第1期）| 2025.01 - 2025.01 | Agent开发**
+
+**项目描述**：从零实现一个 Java 版 Agent CLI，支持 ReAct 和 Tool Call，能根据自然语言指令完成文件操作、代码生成和命令执行。
+
+**技术栈**：Java 17、Maven、OkHttp、Jackson、GLM-5.1
+
+**核心职责**：
+- 基于 Qoder CLI/Codex/Claude Code从零搭建 Agent CLI 项目，实现 ReAct（思考-行动-观察）核心循环，支持最多 10 轮复杂任务
+- 使用 OkHttp 封装 GLM-5.1 Coding Plan 客户端，实现支持 Tool Call 的消息序列化与解析，能够处理 system/user/assistant/tool 四种消息角色
+- 设计 ToolRegistry 工具注册表，实现 read_file、write_file、list_dir、execute_command、create_project 五个内置工具，支持 JSON Schema 参数定义
+- 实现交互式 CLI 界面，支持 API Key 从 .env 文件和环境变量自动加载，提供 clear、exit 等命令管理对话历史
+
