@@ -10,6 +10,8 @@ author: 沉默王二
 date: 2026-04-24
 ---
 
+
+
 大家好，我是二哥呀。
 
 DeepSeek V4（预览版）终于在四月底来了！
@@ -20,7 +22,7 @@ DeepSeek V4（预览版）终于在四月底来了！
 
 要知道，DeepSeek 的深度思考模式，绝对是当时的大模型第一梯队，甚至是引领者。
 
-![](https://files.mdnice.com/user/3903/b91059a9-1cb1-4ed5-bd5f-c1070cb00538.png)
+![](https://cdn.paicoding.com/paicoding/ba7a96bc54e4afcd9667b6bedaace5b1.png)
 
 从 V3 到 V4，这一步真不容易（我接触到不少小伙伴都不抱期待了）。不管怎么说，总算是来了。
 
@@ -44,12 +46,12 @@ Pro 版改成 `deepseek-v4-pro`，flash 版改成 `deepseek-v4-flash`，`deepsee
 
 讲真，Claude Code+DeepSeek V4 就是国产最强 Agent。
 
-![](https://files.mdnice.com/user/3903/017cdf9c-72f6-4cca-adb1-418f7a09751d.png)
+![](https://cdn.paicoding.com/paicoding/bd6168f1541c0fbab63fd0ea40a6b25a.png)
 
 切换模型很简单，我自己写了个工具 PaiSwitch，销售点一点，Claude Code 的底层模型就切到了 DeepSeek V4 Pro。
 
 
-![](https://files.mdnice.com/user/3903/dd55b1f5-39e1-4c98-af41-f2dc6a109d29.png)
+![](https://cdn.paicoding.com/paicoding/84f831ac4a5d94558d718e336b635191.png)
 
 
 切换底层模型后，重新打开一个终端，输入 `/claude` 启动。
@@ -136,7 +138,7 @@ Claude Code之所以牛X，就是因为。
 
 10 块钱完成一个完整的功能开发，从代码到测试到修 bug，这个成本不算贵。
 
-![](https://files.mdnice.com/user/3903/98a7d4e4-2bee-4a52-b8e7-0d3ac6a81d09.png)
+![](https://cdn.paicoding.com/paicoding/a4cf198e8431f01a6c5d6d9d2a1d2faf.png)
 
 但也不便宜，注意上图中的小子，下半年卡升级后，pro的加个会大幅下调。
 
@@ -148,19 +150,19 @@ Claude Code之所以牛X，就是因为。
 
 所以我第一时间，也是把 Pro 和 Flash 接上去体验了一下。
 
-![](https://files.mdnice.com/user/3903/b3933e7f-5936-4850-8ac6-50cae0269ade.png)
+![](https://cdn.paicoding.com/paicoding/42ba32a56bfa51729316c68b116b6b1f.png)
 
 问了一模一样的问题：「派聪明是什么？」
 
 Flash 的回答是这样的：
 
-![](https://files.mdnice.com/user/3903/e6ce2eb8-6aa9-43f8-8e1b-b71bf445912b.png)
+![](https://cdn.paicoding.com/paicoding/50c83069b09b405150f97e06d962a8cd.png)
 
 派聪明是一个企业级的 RAG（检索增强生成）知识库项目，最初是技术派实战项目中用于和 AI 大模型聊天对话的部分（不含检索增强），后来独立发展并沿用“派聪明”名称，旨在延续正宗的皇家血脉。
 
 Pro 的回答是这样的：
 
-![](https://files.mdnice.com/user/3903/0918b17d-c29f-457a-aa76-7e0805c05548.jpg)
+![](https://cdn.paicoding.com/paicoding/4e912e4f0ab539f961d13cb59b1f4bc5.jpg)
 
 派聪明是一个企业级 RAG（检索增强生成）知识库系统，基于企业文档实现精准的智能问答与知识管理。它最初是技术派实战项目中的 AI 聊天模块（不含检索增强），后独立发展并沿用“派聪明”名称，旨在延续项目的正统性。系统核心能力包括：文档自动解析与分块、豆包 Embedding 向量化、关键词与语义混合检索、基于 DeepSeek 模型的生答、Self-RAG 自验证机制、JWT+RBAC 多租户权限隔离、SSE 流式推送等。通过全链路闭环，它有效解决知识分散与更新滞后问题，避免大模型“幻觉”，可应用于客服、培训、合规审查等场景。派聪明完全开源（MIT 协议），教程托管在技术派平台，支持企业私有化部署与二次扩展。
 
@@ -188,7 +190,7 @@ DeepSeek 的解法是把注意力拆成两种，交替堆叠起来用。
 
 它的逻辑是先把每 4 个 token 的 KV 缓存合并成一条摘要，然后用 Lightning Indexer 快速估算相关性，让每个 query 只从这些摘要里挑出最相关的 top-1024 个去算。
 
-![DeepSeek V4 pro绘图](https://files.mdnice.com/user/3903/0f3e4cfb-f95a-4f08-aa2c-df4fdbaa803f.jpg)
+![DeepSeek V4 pro绘图](https://cdn.paicoding.com/paicoding/e1a6671dc4647a352994116eb4d6efd8.jpg)
 
 第二种叫 HCA，全名 Heavily Compressed Attention，重度压缩注意力。
 
@@ -228,6 +230,7 @@ V4 不是一个完美的模型。
 
 这种实心的线条来布局，有点回到返璞归真的。😄
 
-![](https://files.mdnice.com/user/3903/ca530d81-e917-47e6-863b-6946aa3dfc75.jpg)
+![](https://cdn.paicoding.com/paicoding/44f418df3bafeadc01f7ea4108285d65.jpg)
 
 下一版不急，按你的节奏来。
+

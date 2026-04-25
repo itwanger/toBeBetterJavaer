@@ -22,6 +22,12 @@ date "+%Y年%m月%d日"
 - "SpringAI"、"RAG"、"Agent"、"工作流"等AI技术词
 - "搜集AI热点"、"AI选题"
 
+**AI面试对话类文章** → 读取 `.claude/skills/interview-article/SKILL.md`
+触发关键词：
+- "写一篇面试文章"、"面试对话类"、"老王面试"
+- "AI面试题"、"技术面试"、"面试场景"
+- 涉及 AI 技术栈（Agent、RAG、Spring AI 等）+ 面试/面经的组合
+
 **求职/校招/面试类文章** → 读取 `.claude/skills/job-article/SKILL.md`
 触发关键词：
 - "写一篇求职文章"、"求职类文章"、"校招文章"
@@ -56,6 +62,14 @@ date "+%Y年%m月%d日"
 按照AI文章风格，写一篇Claude Code使用教程
 ```
 
+**AI面试对话类：**
+```
+写一篇面试文章，面试题围绕 Spring AI + Agent
+```
+```
+帮我写一篇老王面试的文章，面试题在sucai.md里
+```
+
 **求职/校招/面试类：**
 ```
 写一篇秋招建议的文章，素材我放到sucai.md里了
@@ -87,11 +101,18 @@ date "+%Y年%m月%d日"
 
 ```
 .claude/skills/
-├── ai-article/            # AI技术文章 Skill
+├── ai-article/            # AI技术文章 Skill（安装教程/产品评测）
 │   ├── SKILL.md           # 工作流和写作规范
 │   ├── biaoti.md          # AI类标题风格参考
 │   ├── sucai.md           # 临时素材文件
 │   ├── references/        # 历史文章风格参考
+│   └── scripts/           # 字数检查脚本
+│
+├── interview-article/     # AI面试对话类文章 Skill
+│   ├── SKILL.md           # 工作流和写作规范
+│   ├── biaoti.md          # 面试类标题风格参考
+│   ├── sucai.md           # 临时素材文件
+│   ├── references/        # 面试对话范文 + 活人语感
 │   └── scripts/           # 字数检查脚本
 │
 ├── job-article/           # 求职/校招/面试类文章 Skill
