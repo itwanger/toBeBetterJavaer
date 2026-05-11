@@ -108,12 +108,11 @@ date "+%Y年%m月%d日"
 │   ├── references/        # 历史文章风格参考
 │   └── scripts/           # 字数检查脚本
 │
-├── interview-article/     # AI面试对话类文章 Skill
-│   ├── SKILL.md           # 工作流和写作规范
+├── interview-article/     # AI面试对话类文章 Skill（继承 ai-article 共享部分）
+│   ├── SKILL.md           # 面试专属规范 + 引用 ai-article 共享内容
 │   ├── biaoti.md          # 面试类标题风格参考
 │   ├── sucai.md           # 临时素材文件
-│   ├── references/        # 面试对话范文 + 活人语感
-│   └── scripts/           # 字数检查脚本
+│   └── references/        # 面试对话范文（human-tone.md 和脚本复用 ai-article 的）
 │
 ├── job-article/           # 求职/校招/面试类文章 Skill
 │   ├── SKILL.md           # 工作流和写作规范
