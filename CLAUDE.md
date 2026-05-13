@@ -14,19 +14,16 @@ date "+%Y年%m月%d日"
 
 ### 第二步：判断任务类型并读取对应 Skill
 
-**AI技术类文章** → 读取 `.claude/skills/ai-article/SKILL.md`
+**AI技术类文章**（含面试对话类）→ 读取 `.claude/skills/ai-article/SKILL.md`
 触发关键词：
 - "写一篇AI文章"、"AI技术文章"
 - "大模型测评"、"AI工具实测"
-- "GLM"、"Claude Code"、"Qoder"、"Cursor"、"TRAE"等AI工具名
+- "GLM"、"Claude Code"、"Qoder"、"TRAE"等AI工具名
 - "SpringAI"、"RAG"、"Agent"、"工作流"等AI技术词
 - "搜集AI热点"、"AI选题"
-
-**AI面试对话类文章** → 读取 `.claude/skills/interview-article/SKILL.md`
-触发关键词：
 - "写一篇面试文章"、"面试对话类"、"老王面试"
 - "AI面试题"、"技术面试"、"面试场景"
-- 涉及 AI 技术栈（Agent、RAG、Spring AI 等）+ 面试/面经的组合
+- 涉及 AI 技术栈 + 面试/面经的组合
 
 **求职/校招/面试类文章** → 读取 `.claude/skills/job-article/SKILL.md`
 触发关键词：
@@ -51,7 +48,7 @@ date "+%Y年%m月%d日"
 
 ### 使用示例
 
-**AI技术类：**
+**AI技术类（安装教程/产品评测/面试对话）：**
 ```
 写一篇关于GLM-4.7实测的AI文章
 ```
@@ -61,8 +58,6 @@ date "+%Y年%m月%d日"
 ```
 按照AI文章风格，写一篇Claude Code使用教程
 ```
-
-**AI面试对话类：**
 ```
 写一篇面试文章，面试题围绕 Spring AI + Agent
 ```
@@ -101,18 +96,12 @@ date "+%Y年%m月%d日"
 
 ```
 .claude/skills/
-├── ai-article/            # AI技术文章 Skill（安装教程/产品评测）
-│   ├── SKILL.md           # 工作流和写作规范
-│   ├── biaoti.md          # AI类标题风格参考
+├── ai-article/            # AI技术文章 Skill（安装教程/产品评测/面试对话）
+│   ├── SKILL.md           # 工作流和写作规范（含面试对话类专属章节）
+│   ├── biaoti.md          # 标题风格参考（含面试类标题）
 │   ├── sucai.md           # 临时素材文件
-│   ├── references/        # 历史文章风格参考
+│   ├── references/        # 历史文章风格参考 + 面试对话范文
 │   └── scripts/           # 字数检查脚本
-│
-├── interview-article/     # AI面试对话类文章 Skill（继承 ai-article 共享部分）
-│   ├── SKILL.md           # 面试专属规范 + 引用 ai-article 共享内容
-│   ├── biaoti.md          # 面试类标题风格参考
-│   ├── sucai.md           # 临时素材文件
-│   └── references/        # 面试对话范文（human-tone.md 和脚本复用 ai-article 的）
 │
 ├── job-article/           # 求职/校招/面试类文章 Skill
 │   ├── SKILL.md           # 工作流和写作规范
