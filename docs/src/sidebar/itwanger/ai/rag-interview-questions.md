@@ -20,7 +20,7 @@ date: 2026-04-20
 
 讲老实话，我每个月的 token 支出已经超过了生活费。大头主要是 Claude 和 Codex，这俩加起来一个月是 350 多刀，主要得益于 OpenAI 提供了 100 刀的选项。
 
-![](https://files.mdnice.com/user/3903/bb95419c-9385-42f9-a5f1-48e307ed6ad3.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/82aafceff161-bb95419c-9385-42f9-a5f1-48e307ed6ad3.png)
 
 剩下还有 TRAE 和 GLM-5.1 的年费订阅，以及 Qoder 的 pro plus 订阅等等。
 
@@ -32,7 +32,7 @@ date: 2026-04-20
 
 之前教大家把 Codex 配到 IntelliJ IDEA，有小伙伴说这种用法很鸡肋，但对于我来讲，还是非常好用，不管是 bug 的修改，还是源码的阅读，IntelliJ IDEA 还是离不开。
 
-![](https://files.mdnice.com/user/3903/2d58db06-d7ae-469c-9fe2-a573642c9ada.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/0459343396d9-2d58db06-d7ae-469c-9fe2-a573642c9ada.png)
 
 当然了，如果你想要用上顶级的 Agent 工具，还不想自掏腰包。
 
@@ -106,7 +106,7 @@ s.rescore(r -> r
 另外还有一道保险——`minScore(0.3d)`，低于 0.3 分的结果直接过滤掉，避免把完全不相关的内容推给用户。
 
 
-![](https://files.mdnice.com/user/3903/fb9447a2-6593-4644-8e02-e51e8becf8e0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/918a5b180d2e-fb9447a2-6593-4644-8e02-e51e8becf8e0.png)
 
 
 老王听完点了点头：“不错，两阶段检索这个思路是对的。那你们的 Embedding 模型是怎么调用的？有没有做批量处理？”
@@ -137,7 +137,7 @@ public List<float[]> embed(List<String> texts, String requesterId, UsageType usa
 Function Calling 的核心思路其实很简单。
 
 
-![](https://files.mdnice.com/user/3903/d00a1ab4-e1ae-4153-933f-6b6672a83a0f.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/9269db0efd92-d00a1ab4-e1ae-4153-933f-6b6672a83a0f.png)
 
 
 给大模型一份“工具清单”，每个工具有名字、描述、参数的 JSON Schema。用户说一句话，模型看看手里有哪些工具可用，判断这句话的意图是不是需要调某个工具，如果是，就返回一个结构化的函数调用请求。
@@ -199,7 +199,7 @@ Spring AI 对 Function Calling 的支持已经很成熟了，实现 `FunctionCal
 在派聪明里，对话记忆存在 Redis 里。
 
 
-![](https://files.mdnice.com/user/3903/21d05026-8629-4343-bdd7-a9c4429c9f86.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/e9ccc0b73de7-21d05026-8629-4343-bdd7-a9c4429c9f86.jpg)
 
 
 每个会话有一个唯一的 `conversationId`，Redis 的 key 是 `conversation:{conversationId}`，value 是一个 JSON 数组，存了所有的历史消息：
@@ -272,7 +272,7 @@ private List<Map<String, String>> buildMessages(String userMessage, String conte
 我说：“我们在 `ParseService` 里做了不少优化，因为文本切割的好坏直接决定了检索质量。”
 
 
-![](https://files.mdnice.com/user/3903/6a042ff1-7156-457c-abd3-b2a74a1c9cee.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/d11bca6bf3a1-6a042ff1-7156-457c-abd3-b2a74a1c9cee.jpg)
 
 
 整体是一个两级切割策略：
@@ -370,7 +370,7 @@ if (history.size() > 20) {
 时效上 Redis key 设了 7 天的 TTL，过期自动清除。同时对话数据也会持久化到 MySQL 的 `conversations` 表里，做长期存档。
 
 
-![](https://files.mdnice.com/user/3903/d69f79f0-0522-4757-a41c-c4e47c635a26.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/02ee7f56353a-d69f79f0-0522-4757-a41c-c4e47c635a26.jpg)
 
 
 老王追问：“截断之后 prompt 会变吗？”
@@ -404,7 +404,7 @@ messages = [system_prompt] + [trimmed_history] + [current_user_message]
 我说：“靠 WebFlux + WebSocket 完成的。”
 
 
-![](https://files.mdnice.com/user/3903/21e8f505-a38c-4409-a8e1-5686a2ede388.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/bfffeda35c38-21e8f505-a38c-4409-a8e1-5686a2ede388.jpg)
 
 
 先说后端调用大模型的部分。`LlmProviderRouter` 里用 Spring WebFlux 的 `WebClient` 发请求，请求体里加上 `{"stream": true}` 里的 `"stream": true`，大模型就不会一次性返回完整响应，而是以 SSE 的格式一段一段地返回数据：
@@ -563,7 +563,7 @@ autoReconnect: {
 测试这块我主要用的是 Qoder 的专家团模式，体验还挺有意思的。它不是一个 Agent 给你干活，而是模拟一个“专家团”——有人负责审代码，有人负责写测试用例，有人负责找漏洞。
 
 
-![](https://files.mdnice.com/user/3903/3763b7cf-0ebd-493a-8d18-87a73217699b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/4b94c16808bb-3763b7cf-0ebd-493a-8d18-87a73217699b.jpg)
 
 不过有一点很重要，我们得能看懂 Agent 生成的代码，知道哪里该改、哪里有坑。
 

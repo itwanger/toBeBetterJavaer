@@ -152,7 +152,7 @@ frontend/
 接下来调用阿里的 Embedding 模型，将文本块转换成 2048 维的向量表示，这些向量能够捕捉文本的深层语义信息。然后，会将所有的向量数据和原始文本存入到 Elasticsearch 中，形成一个强大的知识库索引。
 
 
-![](https://files.mdnice.com/user/3903/ac9a748e-7b90-4d8d-8b66-9aa900d6b3d8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/d7e9743f673f-ac9a748e-7b90-4d8d-8b66-9aa900d6b3d8.png)
 
 
 当用户提出问题后，派聪明会通过 ElasticSearch 进行混合检索：先进行语义的向量搜索，再进行关键词的精排。同时，会根据用户的组织权限，自动过滤出用户有权访问的文档内容。

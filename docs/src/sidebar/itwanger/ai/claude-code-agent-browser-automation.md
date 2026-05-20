@@ -1,6 +1,6 @@
 ---
 title: Top 3热门Claude Code浏览器Agent，我试了个遍，发现真的强得离谱！
-shortTitle: Claude Code 浏览器自动化方案
+shortTitle: Claude Code 浏览器自动化
 description: 本文详细介绍了使用 Claude Code + Agent Browser 实现技术派自动化发文的完整方案，对比了 Agent Browser、DevTools MCP 和 Playwright MCP 三种浏览器自动化方案的优缺点，分享了选择 Agent Browser 的原因以及实战踩坑经验。
 tag:
   - Claude Code

@@ -182,22 +182,6 @@ export default hopeTheme({
       // sandpack: true,
     },
 
-    notice: [
-      {
-        match: /^(?!\/zhishixingqiu\/).*$/,
-        title: "二哥的编程星球",
-        content: "这是一个简历精修 + 编程项目实战 + Java 面试指南 + LeetCode 刷题的私密圈子，已经有 12000+ 名球友加入（即将涨价至 179 元）",
-        actions: [
-          {
-            text: "这就去加入",
-            link: "https://javabetter.cn/zhishixingqiu/",
-            type: "primary",
-          },
-          { text: "简历精修", link: "https://javabetter.cn/zhishixingqiu/jianli.html" },
-        ],
-      },
-    ],
-
     docsearch: {
       appId: "O566AMFNJH",
       apiKey: "d9aebea8bd1a4f1e01201464bbab255f",

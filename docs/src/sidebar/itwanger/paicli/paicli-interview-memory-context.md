@@ -12,315 +12,393 @@ author: 沉默王二
 date: 2026-05-11
 ---
 
-大家好，我是二哥呀。
+老王这次换了副金丝眼镜，像极了某个互联网大厂的 CTO，眼神犀利但嘴角带笑，看起来今天心情不错。
 
-上一篇我们聊了 Agent 核心架构（ReAct、Plan-and-Execute、Multi-Agent），这篇进入第二个高频面试方向：**记忆与上下文工程**。
+老王翻了翻我的简历，“你这个 PaiCLI 写了三层记忆架构、RAG 向量检索、长上下文自适应，挺能吹的啊。”
 
-这块是很多小伙伴在面试里翻车的重灾区。你说你做了 RAG，面试官问“余弦相似度和欧氏距离的区别是什么”、“分块粒度怎么选的”、“长上下文模型出来后 RAG 还有必要吗”——一连串追问，答不上来就尴尬了。
+（内心 OS：王哥你别说吹，这些我一行一行码出来的😤）
 
-PaiCLI 在第 3 期做了 Memory 系统，第 4 期做了 RAG 检索 + 代码库理解，第 12 期做了长上下文工程。这三期的代码分布在 `com.paicli.memory`、`com.paicli.rag`、`com.paicli.context` 三个包里，面试的时候随便抽一个包出来都能讲半小时。
+我说：“王哥，这几块确实是 PaiCLI 的核心。记忆系统做了三期，第 3 期做 Memory、第 4 期做 RAG 代码库理解、第 12 期做长上下文工程。最近还做了两个升级——长期记忆加了项目级隔离，代码检索从 RAG 一把梭改成了精确搜索优先、RAG 语义兜底。”
 
-## 01、Agent 的记忆系统分哪几层
+老王露出感兴趣的表情：“行，那就从记忆系统开始聊。”
 
-典型的 Agent 记忆系统分三层，对应人类认知心理学的工作记忆和长期记忆模型。
+## content
 
-**短期记忆（Working Memory）** 就是当前对话的消息历史。用户输入、LLM 回复、工具调用和结果，每一轮都在追加。PaiCLI 的 `ConversationMemory.java` 负责管理这个消息列表的增删查。生命周期是一次会话，关掉终端就没了。
+### 01、Agent 的记忆系统分哪几层
 
-**长期记忆（Long-term Memory）** 是跨会话持久化的关键事实。用户通过 `/save 这个项目用的是 Java 17` 或自然语言“记一下”触发保存。PaiCLI 的 `LongTermMemory.java` 把记忆条目序列化成 JSON 写到 `~/.paicli/memory/long_term_memory.json`。每次新会话启动时，`MemoryRetriever.java` 从长期记忆里检索和当前对话相关的条目注入上下文。
+老王问：“先说说整体架构，你们的记忆系统是怎么分层的？”
 
-**外部记忆（External Memory）** 是通过 RAG 检索访问的外部知识库。不在对话历史里常驻，按需检索相关片段注入。PaiCLI 的 `CodeRetriever.java` 就是这层的入口——Agent 调用 `search_code` 工具时，背后是向量检索拿到相关代码段。
+我说：“三层。短期记忆、长期记忆、外部记忆。”
 
-【此处插入三层记忆架构图：截图目标：展示短期记忆、长期记忆、外部记忆的层次关系和数据流向；关键词：ConversationMemory、LongTermMemory、CodeRetriever；建议位置：白板/流程图】
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/6bcc655721a1-fbfa2abf-3f82-496e-b08a-1bd8b76444f0.jpg)
 
-### 三层之间是什么关系
+短期记忆就是当前对话的消息历史——用户输入、模型回复、工具调用和结果，每一轮都在追加。生命周期是一次会话，关掉终端就没了。
 
-短期记忆是“当前工作台”，所有活跃信息都在这里。长期记忆是“笔记本”，只存稳定事实，新会话时翻出来参考。外部记忆是“图书馆”，需要的时候去查，不会整本搬到桌上。
+长期记忆是跨会话持久的。
 
-`MemoryManager.java` 是门面类，统一协调三层。Agent 每轮请求 LLM 前，MemoryManager 负责把长期记忆的相关检索结果和 RAG 检索结果拼装到 prompt 里。
+用户说“记一下这个项目用 Java 17”，Agent 就把这条事实写到本地 JSON 文件里。下次开新会话，Agent 从文件里检索和当前对话相关的条目，注入到上下文中。这样跨会话 Agent 也能“记住”用户的偏好和项目背景。
 
-## 02、短期记忆会溢出吗
+外部记忆就是通过检索访问的外部知识库，不在对话历史里常驻，需要的时候按需查。
 
-会。LLM 有上下文窗口限制（GLM-5.1 是 200k，DeepSeek V4 是 1M），对话历史不管理的话，几十轮下来就可能撞墙。特别是工具调用的结果——读一个大文件可能就是好几千 token，`execute_command` 的输出如果不截断也是灾难级别的。
+PaiCLI 的外部记忆有两条路：
 
-PaiCLI 的解决方案在 `com.paicli.memory` 包里：
+- 一条是精确搜索，按关键字或正则实时扫描项目文件树；
+- 另一条是 RAG 向量语义检索，从预建的 Embedding 索引里找相关代码段。
 
-`TokenBudget.java` 实时跟踪当前对话占用的 token 数。当占用接近预算阈值（默认 80% 窗口），触发 `ContextCompressor.java`。
+Agent 优先走精确搜索，只有查询太模糊、关键词难确定的时候才走 RAG。
 
-### 摘要压缩具体怎么做
+老王追问：“三层之间怎么协调？”
 
-`ContextCompressor` 用 Map-Reduce 策略：先把长对话分段，每段用 LLM 生成摘要（Map），再把多段摘要合并成一个总摘要（Reduce），用摘要替代原始的多轮对话。
+我说：“有一个统一的管理者负责协调。每轮请求模型之前，它会做三件事：从长期记忆里检索相关条目，从外部记忆拿到检索结果，然后把这些和短期记忆里的对话历史一起拼装成完整的 prompt 发给模型。三层各司其职，管理者负责‘调度’。”
 
-```
-原始历史：[msg1, msg2, msg3, ..., msg18, msg19, msg20, msg21, msg22]
-                    ↓ 压缩前 18 轮
-压缩后：  [summary_of_1_to_18, msg19, msg20, msg21, msg22]
-```
+### 02、短期记忆会溢出吗
 
-保留最近几轮原始对话是关键设计——LLM 需要看到最新的上下文才能连贯回答。如果把最近几轮也压缩了，LLM 连“用户上一句说了什么”都不知道，回答质量断崖式下跌。
+老王问：“对话聊久了，短期记忆会不会撑爆上下文窗口？”
 
-【此处插入摘要压缩前后对比图：截图目标：展示压缩前的完整历史和压缩后的 summary + 近期原文；关键词：Map-Reduce、summary、保留近期；建议位置：白板/流程图】
+我说：“会。”
 
-另外 `execute_command` 的输出在 PaiCLI 里是有截断的——超过 8KB 只保留首尾部分。这是在源头控制膨胀速度。
+模型有上下文窗口限制，GLM-5.1 是 200k token，DeepSeek V4 是 1M。
 
-## 03、长期记忆什么时候存、什么时候取
+看起来很大，但对话历史不管理的话，几十轮下来就可能满了。特别是工具调用的结果——读一个大文件可能就是好几千 token，命令行输出如果不截断也是灾难级别的。
 
-### 存（写入）
+PaiCLI 的做法是实时跟踪当前对话占用的 token 数。当占用接近窗口的 90%，自动触发摘要压缩。
 
-两个触发路径。用户显式输入 `/save 这个项目用的是 Java 17`，或者用户说“记一下以后用 Maven 不用 Gradle”时 Agent 主动调用 `save_memory` 工具。
+老王追问：“压缩具体怎么做？”
 
-PaiCLI 的设计原则是**只存稳定事实，不存临时信息**。“用户偏好中文回复”可以存，“当前正在改 Main.java 第 42 行”不应该存——后者是短期记忆的事，下次会话不需要知道。
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260420221555.png)
 
-每条记忆是一个 `MemoryEntry`，包含内容、时间戳、来源标记。所有条目序列化成 JSON 数组写入文件。
+我说：“第一套是 Memory 系统里的短期记忆压缩，用的是 Map-Reduce 摘要：旧消息先按片段生成摘要，再把多段摘要合并，最后把摘要写回短期记忆。”
 
-### 取（检索）
-
-每轮对话开始前，`MemoryRetriever.java` 拿用户输入和所有长期记忆做关键词匹配 + 简单相似度评分，取 top-k 条相关记忆注入到 system prompt。
-
-这个方案用的是最朴素的关键词匹配而不是向量检索——因为长期记忆通常就几十条，关键词匹配够用且零依赖。如果记忆量到了几千条，就应该换成向量检索了。
-
-【此处插入长期记忆的存取流程图：截图目标：展示 /save 写入和每轮请求前的检索注入流程；关键词：MemoryEntry、MemoryRetriever、system prompt 注入；建议位置：白板/流程图】
-
-## 04、什么是 RAG
-
-RAG（Retrieval-Augmented Generation）= 检索增强生成。在 LLM 生成回答之前，先从外部知识库检索相关内容，把检索结果塞进 prompt 一起发给 LLM。
-
-### Agent 为什么需要 RAG
-
-LLM 不认识你的代码库。你让 Agent“帮我重构登录模块”，它不知道你的 `LoginService` 在哪个文件、有哪些方法、被谁调用。全量代码塞进上下文？一个中型 Java 项目 10 万行代码，远超任何模型的窗口。
-
-RAG 的做法是**只检索相关的代码片段**。用户问“登录逻辑在哪”，RAG 从向量库里检索出 `LoginService.java` 和 `AuthController.java` 的相关方法，只把这几百行代码喂给 LLM。
-
-PaiCLI 第 4 期的 RAG 全流程在 `com.paicli.rag` 包下：
+“第二套是 `conversationHistory` 压缩，压的是 Agent 真正发给 LLM 的消息列表。它不是 Map-Reduce，而是在调用 LLM 前检查 token，达到阈值后，把 system 后面、最近 3 个 user 轮次之前的旧消息交给 LLM 总结成一段摘要，再重建消息列表。”
 
 ```
-代码库 → CodeChunker 分块 → EmbeddingClient 向量化 → VectorStore 存入 SQLite
-    ↓
-用户查询 → EmbeddingClient 查询向量化 → VectorStore 余弦相似度检索 → Top-K 代码块 → 注入 prompt
+原始 history:
+[system, user1, assistant1(tool_call), tool1, ..., user20, assistant20]
+
+压缩后:
+[system,
+ user("[已压缩的历史对话摘要]\n" + summary),
+ assistant("好的，我已了解之前的上下文，请继续。"),
+ 最近 3 个 user 轮次开始的尾部消息]
 ```
 
-用户执行 `/index` 命令触发索引构建，`/search <查询>` 手动检索，Agent 也可以通过 `search_code` 工具自动检索。
+关键是分割点必须落在 `user message` 边界，不能切断 `assistant tool_call` 和 `tool result` 的配对关系。否则 OpenAI-compatible API 会发现 tool_call_id 找不到对应 tool 消息，轻则模型理解混乱，重则直接 400。
 
-【此处插入 RAG 检索流程图：截图目标：展示从代码库到向量存储到检索返回的完整链路；关键词：CodeChunker、Embedding、VectorStore、余弦相似度；建议位置：白板/流程图】
 
-## 05、代码怎么分块
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/94cfefb093c0-a6b31636-a617-4900-9154-910291f77c4d.jpg)
 
-分块（Chunking）是 RAG 的关键环节。分块太粗，一个文件里有 10 个方法但只有 1 个相关，检索出来夹带大量无关内容。分块太细，一行代码脱离上下文毫无意义。
 
-PaiCLI 的 `CodeChunker.java` 支持三种粒度，不是按固定行数切，而是用 JavaParser 做 AST 解析，按语法结构切分。
+（内心 OS：这个坑我踩过，第一版把所有历史都压缩了，模型回答前言不搭后语，调了一晚上才发现问题🥲）
 
-**文件级**：整个文件一块。适合小文件（< 100 行）。
+### 03、长期记忆什么时候存、什么时候取
 
-**类级**：每个类/接口作为一个 chunk。包含类声明、字段、所有方法。适合中等文件。
+老王说：“聊聊长期记忆，什么时候存、什么时候取？”
 
-**方法级**：每个方法单独成块，附带所属类名和 import 信息。这是默认粒度，精确度最高。
+我说：“先说存。两条路径触发。”
 
-### 为什么不按固定行数切
+第一条是用户显式存，比如输入 `/save 这个项目用的是 Java 17`。
 
-按行数切有个致命问题——会把一个方法从中间劈开。上半截在 chunk A，下半截在 chunk B。检索到 chunk A 时 LLM 看到半个方法，不知道这方法到底在干什么。
+第二条是 Agent 主动存，用户说“记一下以后用 Maven 不用 Gradle”，Agent 判断这是个稳定事实，调用 save_memory 工具自动存。
 
-AST 解析保证每个 chunk 是一个完整的语义单元。JavaParser 从语法树中提取 `ClassOrInterfaceDeclaration` 和 `MethodDeclaration` 节点的起止行号，按节点边界切分。
 
-```java
-// CodeChunker.java 的核心逻辑（简化）
-CompilationUnit cu = JavaParser.parse(sourceCode);
-cu.findAll(MethodDeclaration.class).forEach(method -> {
-    String className = method.findAncestor(ClassOrInterfaceDeclaration.class)
-                             .map(c -> c.getNameAsString()).orElse("Unknown");
-    chunks.add(new CodeChunk(className + "." + method.getNameAsString(), 
-                             method.toString(), filePath));
-});
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/d296fb41dd37-8baf2956-12ec-42b9-8e76-8ee46fec7181.jpg)
+
+
+设计原则是**只存稳定事实，不存临时信息**。
+
+“用户偏好中文回复”可以存，“当前正在改 Main.java 第 42 行”不应该存，后者是短期记忆的事，下次会话不需要知道。
+
+老王追问：“做了 scope 机制？讲讲。”
+
+我说：“对，这是最近的一次重要升级。之前所有长期记忆是不区分项目的。结果出现一个问题：我在 A 项目里存了‘用 Java 17’，切到 B 项目，也就是一个 Python 项目时，Agent 也把这条记忆注入进去了，干扰模型判断。”
+
+所以我们引入了作用域机制，每条记忆分两种 scope。
+
+- **project 级**是默认的，绑定到具体项目路径，只在该项目的会话中可见。
+- **global 级**是跨项目通用的偏好，所有会话都能看到，比如“用户偏好中文回复”“代码注释用英文”。
+
+用户通过 `/save 事实内容` 保存 project 级记忆，`/save --global 偏好内容` 保存 global 级。存的时候会自动把当前项目的绝对路径写进元数据，路径做了标准化处理，防止相对路径和绝对路径指向同一目录却被当成两个项目。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/8ae893558a16-6662ee60-bb99-4e79-8a07-ee324d07c126.jpg)
+
+
+老王又问：“**取的时候怎么过滤？**”
+
+我说：“每轮对话开始前，检索长期记忆的时候多了一层项目可见性过滤。global 级的记忆对所有项目可见，project 级的记忆只对元数据里的项目路径匹配当前项目的会话可见。过滤完可见性之后，才进入关键词匹配和评分排序，取 top-k 条注入 system prompt。”
+
+检索用的是最朴素的关键词匹配，不是向量检索。
+
+因为长期记忆通常就几十条，关键词匹配够用且零依赖。如果记忆量到了几千条，就应该换成向量检索了。
+
+我们还新增了三个管理命令：`/memory list` 查看所有记忆，`/memory search` 按当前项目可见性搜索，`/memory delete` 删除单条。让用户能看到 Agent 到底记住了什么，心里有底。
+
+### 04、什么是 RAG
+
+老王话锋一转：“聊聊 RAG，先说说你的理解。”
+
+我说：“RAG 也就是检索增强生成。核心思路很简单，模型回答之前，先从外部知识库检索相关内容，把检索结果塞进 prompt 一起发给模型。”
+
+**Agent 为什么需要 RAG？**
+
+让 Agent“重构登录模块”，它不知道 LoginService 在哪个文件、有哪些方法、被谁调用。
+
+全量代码塞进上下文？一个 10 万行代码的项目直接就把模型上下文撑爆了。
+
+RAG 的做法是只检索相关的代码片段。用户问“登录逻辑在哪”，RAG 从向量库里检索出 LoginService 和 AuthController 的相关方法，只把这几百行代码喂给模型，精准且省 token。
+
+老王问：“**PaiCLI 的 RAG 全流程是什么样的？**”
+
+我说：“分两步，先建索引后检索。”
+
+建索引的时候，把代码库的源文件拿出来，按语法结构分块，然后每个代码块用 Embedding 模型转成向量，存到 SQLite 数据库里。用户执行 `/index` 命令就能触发这个流程。
+
+检索的时候，把用户的查询也转成向量，和库里所有代码块的向量算余弦相似度，取相似度最高的 Top-K 个代码块注入 prompt。
+
+![](https://cdn.paicoding.com/paicoding/0a494256f19f42765191cb3bb94d252d.jpg)
+
+不过有个重要变化。
+
+PaiCLI 最新版本把 RAG 从“主力检索”降级成了“语义辅助”。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/7c0ba4d4d666-82e6b47a-c4b8-4283-888f-e8e4542a89a3.png)
+
+
+老王来了兴趣：“为什么降级？”
+
+我说：“因为我们新增了两个精确搜索工具，一个按关键字或正则实时搜索代码，一个按文件名 glob 匹配。这两个工具零预处理、零冷启动，对精确符号的定位又快又准。RAG 有冷启动成本，需要先建索引，有 Embedding 延迟，也有向量精度损失。你搜一个类名 UserService，精确搜索一秒出结果，RAG 还得先把查询转向量再算相似度。”
+
+（内心 OS：说白了就是大炮打蚊子，精确匹配的活交给精确工具干😏）
+
+现在的策略是：精确符号、文件名、字符串定位优先走精确搜索，只有查询模糊、关键词难确定、或代码文档混合检索的场景才走 RAG。这个优先级写在 Agent 的系统提示词里，模型会自己判断用哪个工具。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/6d885a19d778-c5045c29-fbb9-43ee-a1a7-223a82f3eaff.jpg)
+
+
+### 05、代码怎么分块
+
+老王问：“你刚才说‘按语法结构分块’，具体怎么做的？”
+
+我说：“分块是 RAG 的关键环节。分块太粗，一个文件里有 10 个方法但只有 1 个相关，检索出来夹带大量无关内容。分块太细，代码脱离上下文毫无意义。”
+
+PaiCLI 不是按固定行数切的，而是用 JavaParser 做 AST 解析，按语法结构切分。
+
+当前实现里有三种 chunk 类型：
+
+![](https://cdn.paicoding.com/paicoding/cab7c86aefca9012ae6d79fd3cd5f836.png)
+
+- 文件级：非 Java 文件或 Java 解析失败时使用；大文件会按行拆成不超过约 2000 字符的多个 file chunk。
+- 类级：JavaParser 解析 Java 文件后，为每个类或接口生成一个 class chunk。当前 class chunk 主要保存类声明开头几行，用来提供类名和结构入口，不是把整个类和所有方法塞进去。
+- 方法级：为每个方法生成一个 method chunk，内容是完整方法源码，名称里带上 `类名.方法签名`，这是回答“某个逻辑怎么实现”时最有价值的粒度。
+
+老王追问：“**为什么不按固定行数切？**”
+
+我说：“按行数切有个致命问题，会把一个方法从中间劈开。上半截在 A 块，下半截在 B 块。检索到 A 的时候模型看到半个方法，不知道这方法到底在干什么。AST 解析保证 Java 方法 chunk 是完整语法单元，从方法声明节点的起止行号提取源码，尽量避免把一个方法从中间截断；非 Java 大文件才会回退到按行分段。”
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/5894c239b46a-e39fbd35-d100-459d-8242-0d2c46fbf6a7.jpg)
+
+
+老王又问：“Python 代码怎么办？”
+
+我说：“PaiCLI 当前只做了 Java 的 AST 分块，其他语言回退到文件级分块。要做通用多语言支持的话，可以用 tree-sitter，它支持几十种语言的语法解析。”
+
+### 06、Embedding 是什么
+
+老王问：“向量化这步，Embedding 你给我解释一下。”
+
+我说：“Embedding 就是把文本映射到高维向量空间。两段语义相近的文本，映射出来的向量距离就近。”
+
+![](https://cdn.paicoding.com/paicoding/1822ad630e147013768245cd38067c6c.jpg)
+
+举个例子。
+
+用户搜“处理用户登录的代码”，关键词匹配只能找到包含“用户”“登录”这些词的文件。但如果代码里写的是 `authenticate()` 和 `SessionManager`，一个都匹配不上。Embedding 能理解语义，“用户登录”和 authenticate + session 在向量空间里距离很近，检索就能命中。
+
+PaiCLI 用的 Embedding 模型是 nomic-embed-text，本地 Ollama 跑，免费但需要本机装 Ollama。生成的是 768 维的浮点数组，存到 SQLite 数据库里。
+
+![](https://cdn.paicoding.com/paicoding/2c798a2cd3ececb90e8663832bf4c7eb.jpg)
+
+### 07、向量检索用的什么算法
+
+老王问：“向量存进去了，检索的时候用什么算法？”
+
+我说：“余弦相似度。公式是 `cos(A, B) = (A · B) / (|A| × |B|)`，就是两个向量的点积除以各自的模长，值域 -1 到 1，越接近 1 越相似。”
+
+老王追问：“**为什么选余弦不选欧氏距离？**”
+
+我说：“两个原因。第一，余弦只看方向不看大小，不受向量长度影响。两段代码的 Embedding 可能因为文本长度不同而模长差异很大，余弦不受干扰。第二，高维空间里欧氏距离有‘维度灾难’的问题，所有点的距离趋于相同，区分度下降，余弦更稳定。”
+
+PaiCLI 没有引入专门的向量数据库，就是在 SQLite 里存向量，检索时 Java 代码逐一算余弦相似度，排序取 Top-K。
+
+暴力检索复杂度是 O(n)，对于几千个代码块的中小型项目完全够用。如果代码库有几百万个块，就需要用 ANN 近似最近邻算法加速了——HNSW、IVF 这些，或者直接上 Milvus、Qdrant 之类的向量数据库。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/a94d716ae4b2-5b6afe01-fb9f-45ae-ba06-d61840c73fd9.jpg)
+
+
+### 08、代码关系图谱是什么
+
+老王问：“你简历上还写了个代码关系图谱，这跟 RAG 有什么关系？”
+
+我说：“这两个是互补的。RAG 回答的是‘哪段代码和登录有关’，是语义检索。图谱回答的是‘LoginService 被谁调用了’‘UserController 依赖哪些类’，是结构查询。”
+
+PaiCLI 用 JavaParser 分析 AST，提取代码元素之间的五种结构关系：继承、接口实现、导入、方法调用、包含。
+
+这些关系存在 SQLite 里，用户输入 `/graph 类名` 就能看到完整的关系链。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/e95ba36649ec-90b4118c-74ff-4f27-848a-52ec9e2b8458.png)
+
+
+### 09、长上下文模型出来后，RAG 还有必要吗
+
+老王突然放了个大招：“现在 DeepSeek V4 都 1M 窗口了，RAG 还有存在的必要吗？”
+
+（内心 OS：经典高频面试题来了，稳住🤣）
+
+我说：“有必要，但角色变了。”
+
+第一是注意力精度。模型对长文本中间部分的信息关注度会下降，这就是 Lost in the Middle 问题。RAG 预先筛选出最相关的内容放在显眼位置，准确率更高。
+
+第二是超大代码库。50 万行代码的仓库，1M 窗口也装不下。
+
+老王问：“那 PaiCLI 怎么处理的？”
+
+当前核心规则是：
+
+| 参数 | 规则 |
+|---|---|
+| 压缩触发线 | `maxContextWindow * 90%` |
+| 短期记忆预算 | `maxContextWindow * 45%` |
+| 长期记忆注入上限 | `min(5000, max(500, window / 200))` |
+| MCP resource 索引 | window ≥ 32k 才开启 |
+
+`search_code` 不再根据窗口自动把 topK 切成 5/10/20。工具默认 `top_k=5`，可以显式传参，最大 30。
+
+让 Agent 优先用 `grep_code` / `glob_files` / `read_file` 精确定位；只有用户描述很模糊、关键词难确定、普通搜索多轮无果，才调用 `search_code` 做语义辅助。
+
+最新版本还有个补充——RAG 不再是代码检索的唯一路径。Agent 拿到查询后，先用精确搜索工具做匹配，只有搞不定的模糊查询才走 RAG。所以即使没有提前建索引，Agent 依然能通过精确搜索理解代码库，RAG 变成了锦上添花而不是必须前置。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/1e60db648578-4742aa15-3b7a-45ee-a17e-843bf5f99750.jpg)
+
+
+### 10、Prompt Caching 是什么
+
+老王问了一个成本相关的问题：“你们有做 Prompt Caching 吗？”
+
+我说：“做了，而且 Agent 场景天然适合 caching。”
+
+Prompt Caching 是模型提供商的服务端优化——如果连续请求的 prompt 前缀相同，服务端可以复用前缀缓存，跳过一部分重复计算。不同供应商的计费规则不一样，PaiCLI 不假设计费折扣，只负责识别和展示响应里的缓存命中 token。
+
+Agent 的请求模式完美契合这个机制。
+
+
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/cdc79ff52e22-bf640b45-4375-47ae-94c7-080890d7c0c1.jpg)
+
+
+system prompt 每轮都一样，是完美的缓存前缀。对话历史是追加式的，新一轮请求等于旧请求加上新消息，大部分前缀都重复。
+
+PaiCLI 组装 prompt 的时候遵循“越稳定的内容越靠前”的原则：系统提示词、人格设定、模式指令这些稳定内容放前面，项目上下文、技能索引、记忆等动态内容放后面。这样更容易让 provider 的前缀缓存命中。
+
+DeepSeek 走 automatic prefix cache；GLM、Kimi、Step 也在 `LlmClient` 里声明了对应的 prompt cache mode。PaiCLI 会从 `cached_tokens`、`prompt_cache_hit_tokens`、`input_cache_hit_tokens` 等字段里解析缓存命中量，并在状态栏展示。
+
+### 11、上下文压缩有哪些策略
+
+老王问：“除了你们用的 Map-Reduce 摘要法，还有其他压缩策略吗？”
+
+我说：“主流的有三种。”
+
+第一种是截断法，最简单粗暴，直接丢弃最早的对话。
+
+第二种是摘要法，就是 PaiCLI 用的这种。用模型对早期对话生成摘要，用摘要替代原文。保留了语义，但摘要本身要消耗一次模型调用。
+
+第三种是选择性保留。只保留 system prompt + 最近 N 轮 + 所有工具调用结果，中间的“闲聊”丢掉。需要判断哪些是“闲聊”，实现比较复杂。
+
+老王又问：“压缩的时机怎么选？”
+
+PaiCLI 里要分清两种压缩，别混在一起讲。
+
+第一种是 Memory 系统里的短期记忆压缩。触发点是在写入短期记忆之后：用户消息、助手回复、工具结果存进去后，都会立刻调用 `compressIfNeeded()`。
+
+判断条件是短期记忆 token 占用达到阈值，当前代码默认是 90%。短期记忆预算又是模型窗口的 45%，所以粗略看：DeepSeek 1M window 下，短期记忆大约到 `450k * 90% = 405k tokens` 才会压缩；GLM 200k 下大约是 `81k tokens`。
+
+第二种，是 **conversationHistory 压缩**。
+
+这是 Agent 真正要发给 LLM 的消息列表，防止上下文窗口爆掉。它的触发时机是在 **每次调用 LLM 之前**，不是任务结束后，也不是报错后才压缩。
+
+ReAct 主循环、Plan 每个 task 的执行循环、Multi-Agent 的 SubAgent 循环，都在发起下一轮 LLM 请求前检查一次。如果当前 conversationHistory 估算 token 达到 `maxContextWindow * 90%`，就触发压缩。
+
+所以按模型算，conversationHistory 的压缩阈值大概是：
+
+- DeepSeek V4：`1,000,000 * 90% = 900,000 tokens`
+- GLM-5.1：`200,000 * 90% = 180,000 tokens`
+- Step / Kimi：`256,000 * 90% = 230,400 tokens`
+
+压缩方式按 `user message` 边界切割，保留最近 3 个用户轮次，把更早的消息交给 LLM 总结成一段摘要，然后重建成：
+
+```
+system
+[已压缩的历史对话摘要]
+assistant: 好的，我已了解之前的上下文，请继续。
+最近 3 个 user 轮次开始的尾部消息
 ```
 
-【此处插入代码分块示意图：截图目标：展示同一个 Java 文件被切成多个方法级 chunk 的效果；关键词：JavaParser、MethodDeclaration、chunk 边界；建议位置：IDE/代码截图】
+这么做是为了避免切断 `assistant tool_call` 和 `tool result` 这种成对协议。否则很容易出现上一条 assistant 说要调用工具，但工具结果被截没了。
 
-面试官可能追问“Python 代码怎么办”。PaiCLI 当前只做了 Java 的 AST 分块，其他语言回退到文件级分块。生产级方案可以用 tree-sitter 做通用的多语言 AST 解析。
+一句话概括就是：**PaiCLI 的压缩不是等模型报超限才处理，而是在每轮 LLM 请求前主动检查。** 当前实现以 90% window 作为统一触发线。
 
-## 06、Embedding 是什么
+### 12、对话历史的消息格式为什么要严格遵循协议
 
-Embedding 是把文本映射到高维向量空间的过程。两段语义相近的文本，映射出来的向量在空间中的距离就近（余弦相似度高）。
+老王问了一个看起来简单但坑很深的问题：“消息格式有什么讲究？”
 
-### 为什么代码检索需要 Embedding
+我说：“模型的聊天 API 对消息格式有严格要求。四种角色，system 是系统指令，user 是用户输入，assistant 是模型回复，可能带工具调用，tool 是工具返回结果，必须带 tool_call_id 和对应的工具调用匹配。”
 
-关键词匹配搞不定语义查询。用户输入“处理用户登录的代码”，关键词匹配只能找到包含“用户”“登录”这些词的文件。但如果代码里写的是 `authenticate()`、`SessionManager`，一个都匹配不上。
+老王问：“不遵循会怎样？”
 
-Embedding 能理解语义——“用户登录”和“authenticate + session”在向量空间里距离很近，检索就能命中。
+我说：“直接报错或者模型理解混乱。tool 消息没有匹配的 tool_call_id？API 返回 400。assistant 和 user 顺序搞乱了？模型分不清谁说了什么。把工具结果塞进 user 消息？”
 
-PaiCLI 的 `EmbeddingClient.java` 支持两种模式：本地 Ollama 运行 `nomic-embed-text` 模型（默认，免费但需要本机 Ollama），或者远程 API。生成的向量存到 `VectorStore.java` 管理的 SQLite 数据库（`~/.paicli/rag/codebase.db`）。
+我说：“做摘要压缩的时候有个特别容易踩的坑。被压缩掉的消息如果包含工具调用和对应的工具结果，压缩后的 assistant 消息不能保留 tool_calls 字段。因为对应的 tool 消息已经被摘要吃掉了，但 tool_calls 还留在 assistant 消息里，API 就会发现有个 tool_call_id 找不到对应的 tool 结果，直接报错。”
 
-向量维度取决于 Embedding 模型——`nomic-embed-text` 是 768 维，每个代码块对应一个 768 维浮点数组。
 
-【此处插入 Embedding 向量空间示意图：截图目标：展示语义相近的代码段在向量空间中距离更近；关键词：nomic-embed-text、768 维、余弦相似度；建议位置：白板/示意图】
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/4519c27159cc-ed358d67-0f31-4532-a5ed-b464758daac3.jpg)
 
-## 07、向量检索用的什么算法
 
-PaiCLI 的 `VectorStore.java` 用余弦相似度（Cosine Similarity）做检索。
+### 13、RAG 检索效果不好怎么优化
 
-### 余弦相似度怎么算
+老王最后一个问题：“如果 RAG 检索出来的结果不准，你怎么优化？”
 
-公式：`cos(A, B) = (A · B) / (|A| × |B|)`
+![](https://cdn.paicoding.com/stutymore/paicli-interview-memory-context-20260518164458.png)
 
-`A · B` 是两个向量的点积（对应元素相乘再求和），`|A|` 和 `|B|` 是各自的模长（元素平方和的开方）。值域 [-1, 1]，越接近 1 越相似。
+我说：“四个方向。”
 
-### 为什么选余弦不选欧氏距离
+第一个是分块策略优化。
 
-两个原因。第一，余弦只看方向不看大小，不受向量长度影响——两段代码的 Embedding 长度可能不同（取决于文本长度），余弦不受干扰。第二，高维空间里欧氏距离有“维度灾难”问题（所有点距离趋于相同），余弦更稳定。
+从固定行数切换到语义分块，按方法、类、段落边界切，保证每个块语义完整。PaiCLI 用 AST 解析做的就是语义分块。还可以在每个块里加上父级上下文，比如所属类名和 import 信息，帮助模型理解代码片段在项目里的位置。
 
-PaiCLI 没有引入专门的向量数据库，而是直接在 SQLite 里存向量（JSON 数组形式），检索时用 Java 代码逐一计算余弦相似度，排序取 Top-K。
+第二个是是用专业的 Embedding 模型。
 
-```java
-// VectorStore.java 检索逻辑（简化）
-public List<CodeChunk> search(float[] queryVector, int topK) {
-    return allChunks.stream()
-        .map(chunk -> new ScoredChunk(chunk, cosineSimilarity(queryVector, chunk.vector())))
-        .sorted(Comparator.comparingDouble(ScoredChunk::score).reversed())
-        .limit(topK)
-        .map(ScoredChunk::chunk)
-        .toList();
-}
-```
+第三个是混合检索。PaiCLI 最新版本就是这个思路的实践，精确搜索工具负责关键词定位，RAG 负责语义兜底。虽然不是传统的单次融合排序，但在 Agent 多轮工具调用的场景下效果是类似的——先精确找，找不到再语义兜底。
 
-这个暴力检索的复杂度是 O(n)。对于几千个 chunk（中小型代码库），完全够用。如果代码库有几百万个 chunk，需要用 ANN（近似最近邻）算法加速——HNSW、IVF 这些，或者直接上 Milvus、Qdrant 这类向量数据库。
+第四个是查询改写。用户的查询往往很口语化，“登录那块代码”改写成“用户认证和会话管理的实现代码”后，Embedding 的语义匹配会精准很多。这个改写可以用一轮轻量模型调用完成。
 
-【此处插入向量检索的 /search 命令输出截图：截图目标：展示语义检索返回的 Top-K 代码块和相似度分数；关键词：search_code、余弦相似度、Top-K；建议位置：终端会话窗口】
+老王合上笔记本，面露悦色：“可以，记忆系统和 RAG 这块你是真做过的，不是纸上谈兵。”
 
-## 08、代码关系图谱是什么
-
-PaiCLI 的 `CodeAnalyzer.java` 用 JavaParser 分析 AST，提取代码元素之间的五种结构关系：extends（继承）、implements（接口实现）、imports（导入）、calls（方法调用）、contains（包含）。关系存到 `CodeRelation` 表里，用户查 `/graph ClassName` 就能看到完整的关系链。
-
-### 和 RAG 有什么关系
-
-两者互补。RAG 回答“哪段代码和登录有关”（语义检索），图谱回答“LoginService 被谁调用了”“UserController 依赖哪些类”（结构查询）。
-
-Agent 重构代码时，光靠 RAG 找到目标代码不够——还要知道改了这个类会影响到哪些调用方。比如你改了 `LoginService.authenticate()` 的签名，图谱能直接告诉你 `AuthController.java` 和 `SecurityFilter.java` 在调用它，这两个文件也需要改。
-
-PaiCLI 的 `/graph` 命令背后就是 `CodeAnalyzer` 的查询。Agent 在 `search_code` 工具返回结果时，也会把相关的图谱关系附带上去，帮 LLM 理解代码上下游。
-
-【此处插入 /graph 命令输出截图：截图目标：展示某个类的继承、实现、调用关系图；关键词：extends、implements、calls、CodeAnalyzer；建议位置：终端会话窗口】
-
-## 09、长上下文模型出来后，RAG 还有必要吗
-
-这道题面试出现频率极高，而且很容易答偏——要么说“完全不需要了”，要么说“当然需要”但说不出为什么。
-
-答案是**有必要，但角色变了**。
-
-### 成本问题
-
-200k token 全填满的 API 调用，费用是只填 10k 的 20 倍。RAG 精准检索只把相关代码塞进去，是天然的成本优化手段。对于按 token 计费的 API，这个差距是真金白银。
-
-### 注意力精度问题
-
-“大海捞针”实验表明，模型对长文本中间部分的信息关注度会下降（Lost in the Middle 问题，Liu et al. 2023）。RAG 预先筛选出最相关的内容放在显眼位置，准确率更高。
-
-### 超大代码库问题
-
-50 万行代码的 monorepo，1M 窗口也装不下。
-
-### PaiCLI 的自适应策略
-
-第 12 期的 `ContextProfile.java` 按模型窗口自动选择策略：
-
-| 窗口 | 模式 | RAG topK | 摘要压缩 |
-|---|---|---|---|
-| < 32k | short | 5 | 激进压缩 |
-| 32k-100k | balanced | 10 | 适度压缩 |
-| ≥ 100k | long | 20 | 跳过压缩 |
-
-长窗口不是不用 RAG，而是多检索一些（topK 从 5 提到 20），给模型更完整的上下文。从“压缩选择”变成了“加速 + 精排”。
-
-【此处插入 /context 命令输出截图：截图目标：展示当前上下文模式、RAG topK、窗口大小；关键词：context mode、topK、window；建议位置：终端会话窗口】
-
-## 10、Prompt Caching 是什么
-
-Prompt Caching 是 LLM 提供商的服务端优化——如果连续请求的 prompt 前缀相同，服务端复用上一次的 KV Cache，跳过重复计算。缓存命中的 token 按原价的 10%-20% 计费。
-
-### 对 Agent 的影响有多大
-
-Agent 的请求模式天然适合 caching。System prompt 每轮都一样——完美的缓存前缀。对话历史是追加式的——新一轮请求 = 旧请求 + 新消息，大部分前缀重复。
-
-PaiCLI 第 19 期的 `PromptAssembler.java` 遵循“volatile content last”原则组装 prompt：`base.md`（几乎不变）→ `personality`（不变）→ `mode`（按模式切，同模式不变）→ 动态内容。前面 60-70% 的 prompt 能持续命中 cache。
-
-`LlmClient` 接口通过 `supportsPromptCaching()` 和 `promptCacheMode()` 声明每个模型的缓存能力。DeepSeek V4 走 automatic prefix cache（无需客户端操作），usage 响应里返回 `cached_tokens`。PaiCLI 在每轮输出里展示缓存命中量。
-
-【此处插入 Token 用量输出截图：截图目标：展示 cached input tokens 和估算成本；关键词：cached、input tokens、估算成本；建议位置：终端会话窗口】
-
-## 11、上下文压缩有哪些策略
-
-### 截断法
-
-最简单，直接丢弃最早的对话。快但粗暴，可能丢掉关键背景。
-
-### 摘要法
-
-用 LLM 对早期对话生成摘要，用摘要替代原文。PaiCLI 的 `ContextCompressor` 用的就是这种（Map-Reduce）。保留语义，但摘要本身消耗一次 LLM 调用。
-
-### 选择性保留
-
-只保留 system prompt + 最近 N 轮 + 所有工具调用结果，中间的“闲聊”丢掉。需要判断哪些是“闲聊”，实现复杂。
-
-### PaiCLI 的选择
-
-摘要法 + 长上下文模式跳过。短窗口（< 100k）用摘要法，长窗口（≥ 100k）直接不压缩，省掉摘要的 LLM 调用成本。两种策略覆盖所有场景，架构简洁。
-
-面试官追问“摘要压缩的时机怎么选”时，回答 `TokenBudget` 实时跟踪 token 数，达到预算的 85% 时触发压缩，留 15% 缓冲区给压缩过程中可能产生的新消息。
-
-## 12、对话历史的消息格式为什么要严格遵循协议
-
-LLM 的聊天 API 对消息格式有严格要求：`system`（系统指令）、`user`（用户输入）、`assistant`（LLM 回复，可能包含 `tool_calls`）、`tool`（工具结果，必须有 `tool_call_id`）。
-
-### 不遵循会怎样
-
-`tool` 消息没有匹配的 `tool_call_id` → API 直接报 400 错误。`assistant` 和 `user` 顺序错乱 → 模型理解混乱。把工具结果塞进 `user` 消息而不是 `tool` 消息 → 模型分不清这是用户说的还是工具返回的。
-
-PaiCLI 的 `ConversationMemory` 严格按协议维护消息列表。做摘要压缩时有个容易踩的坑：被压缩掉的消息如果包含 `tool_calls` 和对应的 `tool` 结果，摘要后的 assistant 消息**不能保留 tool_calls 字段**——因为对应的 tool 消息已经被删了，留着 tool_calls 会导致 id 不匹配报错。
-
-这个坑我在做 PaiCLI 的时候踩过，调了好一会儿才发现是压缩后的消息格式不对。
-
-【此处插入消息历史格式示意图：截图目标：展示 system/user/assistant/tool 消息的正确排列顺序；关键词：role、tool_call_id、消息顺序；建议位置：白板/示意图】
-
-## 13、RAG 检索效果不好怎么优化
-
-这是一道开放题，面试官想看你的优化思路。从四个方向展开。
-
-### 分块策略优化
-
-从固定大小分块切换到语义分块——按方法、类、段落边界切，保证每个 chunk 语义完整。PaiCLI 用 JavaParser AST 解析做的就是语义分块。还可以在 chunk 里加上父级上下文（所属类名、import 信息），帮助 LLM 理解代码片段的位置。
-
-### Embedding 模型选择
-
-`nomic-embed-text` 是通用文本模型，不是专门为代码训练的。换成代码专用的 Embedding 模型（比如 OpenAI 的 `text-embedding-3-large` 或 Voyage 的 `voyage-code-2`）效果通常更好。
-
-### 混合检索
-
-单纯的向量检索可能遗漏关键词完全匹配的情况——用户搜“LoginService”，这是精确类名匹配，向量检索不一定排第一。可以做 Hybrid Search：向量检索 + BM25 关键词检索，两路结果合并去重排序。
-
-### 查询改写
-
-用户的查询往往很口语化。“登录那块代码”改写成“用户认证和会话管理的实现代码”后，Embedding 的语义匹配会更精准。这个改写可以用一轮轻量 LLM 调用完成。
-
-【此处插入 RAG 优化对比截图：截图目标：展示优化前后的检索结果对比；关键词：分块策略、混合检索、查询改写；建议位置：白板/对比图】
 
 ## ending
 
-这 13 道题对应的源码集中在三个包里。
-
-`com.paicli.memory` 里的 `ConversationMemory`、`LongTermMemory`、`ContextCompressor`、`TokenBudget`、`MemoryRetriever`。`com.paicli.rag` 里的 `CodeChunker`、`EmbeddingClient`、`VectorStore`、`CodeAnalyzer`、`CodeRetriever`。`com.paicli.context` 里的 `ContextProfile`、`ContextMode`。
-
-面试聊到 RAG，把 `VectorStore.java` 的余弦相似度计算拿出来讲。聊到记忆系统，把 `MemoryManager.java` 的三层协调逻辑拿出来讲。面试官问“长上下文和 RAG 的关系”，指着 `ContextProfile.java` 里的 topK 自适应代码回答。
-
-下一篇进入**工具系统与安全**——Tool Call 协议、HITL 审批、路径围栏、命令黑名单。
-
-**简历包装**
-
 **项目名称**：PaiCLI — Java Agent CLI（对标 Claude Code）
 
-**项目简介**：从零实现的终端 AI Agent，内置三层记忆架构（短期/长期/RAG 外部记忆）和长上下文自适应策略，支持 200k-1M 窗口模型的上下文工程优化。
+**项目简介**：从零实现的终端 AI Agent，内置三层记忆架构（短期/长期/RAG 外部记忆）、项目级记忆隔离、精确搜索优先 + RAG 语义兜底的分层代码检索策略，支持 200k-1M 窗口模型的长上下文自适应工程。
 
-**技术栈**：Java 17、JavaParser AST 分析、Ollama nomic-embed-text Embedding、SQLite 向量存储 + 余弦相似度检索、Map-Reduce 摘要压缩
+**技术栈**：Java 17、JavaParser AST、Ollama nomic-embed-text Embedding、SQLite、Map-Reduce、NIO FileVisitor
 
 **核心职责**：
 
-1. 设计三层记忆架构：`ConversationMemory` 管理短期对话、`LongTermMemory` 持久化跨会话事实到 JSON 文件、`CodeRetriever` 通过 RAG 向量检索访问代码库，`MemoryManager` 统一协调三层并在每轮 LLM 请求前注入相关上下文
-2. 基于 JavaParser 实现 AST 级代码分块（`CodeChunker`），按方法/类/文件三种粒度切分，保证每个 chunk 语义完整，相比固定行数切分检索准确率显著提升
-3. 实现代码关系图谱（`CodeAnalyzer`），从 AST 中提取 extends/implements/imports/calls/contains 五种关系存入 SQLite，支持 `/graph` 命令查询类的上下游依赖链
-4. 基于 `ContextProfile` 实现长上下文自适应策略（short/balanced/long 三种模式），根据模型 `maxContextWindow()` 自动选择 RAG topK（5/10/20）和摘要压缩策略，适配 200k-1M 窗口
-5. 实现 Map-Reduce 摘要压缩（`ContextCompressor`），在 Token 预算达到 85% 阈值时自动触发，保留近期原始对话 + 压缩早期历史，配合 `TokenBudget` 实时跟踪实现动态上下文管理
+1. 设计三层记忆架构，短期记忆管理对话历史，长期记忆持久跨会话事实到 JSON 文件（支持 project/global 双作用域隔离）
+2. 实现精确搜索优先 + RAG 语义兜底的分层代码检索策略，精确搜索按关键字/正则实时扫描项目文件树做符号定位，文件名匹配按 glob 模式查找，RAG 走 Embedding 向量语义检索处理模糊查询
+3. 基于 JavaParser 实现 AST 级代码分块，按方法/类/文件三种粒度切分，保证每个 chunk 语义完整
+4. 实现两套上下文压缩：对短期记忆做 Map-Reduce 摘要压缩；在每轮 LLM 调用前压缩真实消息历史，按 user 边界保留最近 3 轮，避免切断 tool_call / tool_result 协议

@@ -4,7 +4,7 @@ icon: home
 title: 主页
 heroImage: https://cdn.paicoding.com/tobebetterjavaer/images/logo.png
 heroText: 二哥的Java进阶之路
-tagline: 沉默王二BB：这是一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、Java企业级开发、Java面试等核心知识点。学Java，就认准二哥的Java进阶之路😄
+tagline: 沉默王二BB：这是一份通俗易懂、风趣幽默的AI+Java学习指南，内容涵盖Java企业级开发、Java面试、AI Agent等核心知识点。学Java/AI，就认准二哥的Java进阶之路😄
 actions:
   - text: 立马上路→
     link: /home.md
@@ -18,14 +18,16 @@ footer: |-
 
 ## 推荐阅读 
 
-- [学习路线👉](/xuexiluxian/) : 一份涵盖 Java、MySQL、Redis、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android、.NET、Linux 的全方位编程学习路线！清晰且有效！
-- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础（JavaSE）、Java 集合框架、Java 并发编程（Java 多线程）、Java 虚拟机（JVM）、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux、OpenClaw、Skills 等等，助你拿到心仪 offer！
-- [Java程序员常读书单📚](/pdf/)：超1000本PDF，助力Java 程序员构建最强知识体系，涵盖Java、设计模式、数据库、数据结构与算法、大数据、架构、其他编程语言等等，再也不用辛苦去找下载地址了，这里全都有。
-- [技术派实战项目](https://github.com/itwanger/paicoding) ：⭐️一款好用又强大的开源社区，附详细教程，包括Java、Spring、MySQL、Redis、微服务&分布式、消息队列、操作系统、计算机网络、数据结构与算法等计算机专业核心知识点。学编程，就上技术派😁。
+- [PaiCLI](/zhishixingqiu/paicli.html) ：类 Claude Code 的 Agent CLI，从 ReAct 到 Tool Calling、MCP、多模态、Skill、Memory、RAG、Multi-Agent、Chrome DevTools，适合想把 Agent 底层原理吃透的同学。
+- [PaiAgent/PaiFlow](/zhishixingqiu/paiflow.html) ：PaiFlow 是类 Dify、Coze、n8n 的企业级 AI Agent 工作流编排平台；PaiAgent 是它的 Vibe Coding 版本。
+- [派聪明](/zhishixingqiu/paismart.html) ：企业级 AI 知识库项目，覆盖文档解析、向量化、混合检索、权限过滤、流式问答、文件上传、MinIO、ElasticSearch、Redis、Kafka 和大模型接入。
+- [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础、集合框架、并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux、OpenClaw、Skills 等等，助你拿到心仪 offer。
+- [AI Agent🤖](/sidebar/itwanger/ai/) ：主打 AI 时代的工程化技术栈，覆盖 Claude Code、Codex、OpenClaw、Skills、MCP、RAG、Memory、PaiCLI、PaiAgent、AI 编程工具和大模型应用开发。
+- [学习路线👉](/xuexiluxian/) : 一份涵盖 Java、MySQL、Redis、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android、.NET、Linux 的全方位编程学习路线，清晰且有效。
 
 ## 公众号
 
-GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 10000+ 的 Java 教程](https://javabetter.cn/overview/)
+GitHub 上标星 17000+ 的开源知识库《[二哥的 Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》第一版 PDF 终于来了！包括Java基础语法、数组&字符串、OOP、集合框架、Java IO、异常处理、Java 新特性、网络编程、NIO、并发编程、JVM等等，共计 32 万余字，500+张手绘图，可以说是通俗易懂、风趣幽默……详情戳：[太赞了，GitHub 上标星 17000+ 的 Java 教程](https://javabetter.cn/overview/)
 
 
 微信搜 **沉默王二** 或扫描下方二维码关注二哥的原创公众号沉默王二，回复 **222** 即可免费领取。
@@ -49,6 +51,34 @@ GitHub 上标星 10000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 时间|小伙伴|赞赏金额
 ---|---|---
+2025-07-02|橘子|4元
+2025-06-28|m*u|10元
+2025-06-15|l*y|5元
+2025-05-28|*航|6元
+2025-05-25|*星|10元
+2025-05-25|*（|6.66元
+2025-05-17|*鋈|4元
+2025-05-10|*庆|1元
+2025-05-08|芋*3|10元
+2025-04-17|*南|10元
+2025-03-31|:*D|4元
+2025-03-26|A*.|6.66元
+2025-02-18|R*.|6.66元
+2025-02-08|*金|5元
+2025-01-17|*蓝|8.88元
+2024-12-30|*甜|2元
+2024-12-26|*阳|1元
+2024-12-18|*。|1.5元
+2024-12-06|E*g|5元
+2024-12-04|*佚|0.88元
+2024-12-02|A*g|6.66元
+2024-11-30|1*0|10元
+2024-11-23|W*Z|11元
+2024-11-17|*旺|2元
+2024-11-16|*年|1元
+2024-11-14|*🤖|10元
+2024-11-13|*光|0.1元
+2024-10-25|*陈|1元
 2024-10-06|*天|10元
 2024-10-04|2*2|20元
 2024-09-25|c*l|1元

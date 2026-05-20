@@ -1,6 +1,6 @@
 ---
 title: 我的龙虾二号上岗了：1 个 OpenClaw 养多个 Agent（保姆级教程）
-shortTitle: OpenClaw 接 GPT-5.4 + 多 Agent
+shortTitle: OpenClaw 多 Agent
 description: OpenClaw 升级 GPT-5.4 全流程教程，再创建第二个 Agent 专门对接飞书审核技术派会员申请，手把手带你从单 Agent 走向多 Agent 工作流
 tag:
   - OpenClaw

@@ -24,7 +24,7 @@ date: 2026-05-06
 
 好在我之前肝了一个类似 Claude Code 的 Agent 项目，名叫 PaiCLI。这玩意从第 1 期的 ReAct 循环，到现在第 10 期能连上 Chrome Devtools MCP。
 
-![](https://files.mdnice.com/user/3903/07f4618b-1db8-4703-be26-050e213d35f5.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/513ec5508287-07f4618b-1db8-4703-be26-050e213d35f5.jpg)
 
 已经是一个完整的 Agent CLI 产品，里面的工具调用、决策循环、记忆管理、MCP 集成全部跑通了。
 

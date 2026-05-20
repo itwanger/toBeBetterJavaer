@@ -1,6 +1,6 @@
 ---
 title: 讲真，Claude Code+DeepSeek V4 就是国产最强 Agent。
-shortTitle:
+shortTitle: DeepSeek V4 + Claude Code
 description: DeepSeek V4 + Claude Code 实测，便宜大碗的国产模型配上顶级 Agent 框架能擦出什么火花
 tag:
   - DeepSeek
@@ -233,4 +233,3 @@ V4 不是一个完美的模型。
 ![](https://cdn.paicoding.com/paicoding/44f418df3bafeadc01f7ea4108285d65.jpg)
 
 下一版不急，按你的节奏来。
-

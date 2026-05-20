@@ -1,6 +1,7 @@
 ---
 title: Java面试题之Java集合框架篇（Java容器篇），29道Java集合框架八股文（1.4万字67张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java集合框架
+humanVerify: true
 author: 三分恶
 date: 2026-03-29
 category:
@@ -13,8 +14,6 @@ head:
     - name: keywords
       content: Java,集合框架,Java容器,List,Map,Set,面试题,八股文,java
 ---
-
-![面渣逆袭集合框架篇封面图](https://cdn.paicoding.com/stutymore/collection-mianzhanixi-collection1.jpg)
 
 ## 前言
 
@@ -35,12 +34,6 @@ head:
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
 ![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.paicoding.com/stutymore/javase-20241223085158.png)
-
-由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
-
-<div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
-</div>
 
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。

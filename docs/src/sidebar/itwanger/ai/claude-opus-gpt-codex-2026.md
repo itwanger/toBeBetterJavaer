@@ -1,6 +1,6 @@
 ---
 title: 狭路相逢勇者胜！Claude Opus 4.6和GPT 5.3 Codex同时更新
-shortTitle: Claude Opus 4.6和GPT 5.3 Codex对决
+shortTitle: Opus 4.6和GPT 5.3
 description: 2026年2月5日，AI圈炸了！OpenAI和Anthropic同时发布新一代编程模型，GPT-5.3-Codex在OSWorld基准测试狂飙26个百分点，Claude Opus 4.6带来100万token上下文，两大巨头正面硬刚，到底谁更胜一筹？
 tag:
   - AI

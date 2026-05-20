@@ -92,7 +92,7 @@ head:
 - [PDF：面渣逆袭 Java 基础、集合框架、并发编程、JVM、Spring、MyBatis、MySQL、Redis、操作系统、计算机网络（最新版）](https://t.zsxq.com/oQsTB)
 - [二哥的JVM进阶之路.pdf](https://t.zsxq.com/16bkDmROs)
 - [PDF：二哥的并发编程进阶之路.pdf ](https://t.zsxq.com/12DwOxfyw)
-- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 10000+](https://t.zsxq.com/0dtIIf9AE)
+- [PDF：二哥的 Java 进阶之路（暗黑+亮白+epub）GitHub 星标 17000+](https://t.zsxq.com/0dtIIf9AE)
 - [PDF：jiajin，图灵程序丛书 300 本](https://t.zsxq.com/0dqkRziD4)
 - [PDF：aL 分享的杨一涛操作系统笔记，全彩版](https://t.zsxq.com/09PHnc5Cm)
 - [PDF：阿里 Redis 最佳实践](https://t.zsxq.com/09FXZTVfq)

@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "images:cdn": "node scripts/convert-mdnice-images-to-cdn.js",
+    "sidebar:check": "node scripts/sync-sidebar.js --check",
+    "sidebar:sync": "node scripts/sync-sidebar.js --write"
+  },
   "dependencies": {
     "@modelcontextprotocol/server-filesystem": "^2026.1.14",
     "mcp-fetch-server": "^1.0.2",

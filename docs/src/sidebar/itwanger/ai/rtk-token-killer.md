@@ -212,7 +212,7 @@ mvn test
 RTK 压缩后，输出变成了一个摘要：多少个测试、多少通过、多少失败、耗时多久。如果有失败的测试，会把失败的测试名和错误信息保留下来。
 
 
-![](https://files.mdnice.com/user/3903/5f8b0f1b-699f-47e3-94e8-7280bd9b208a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/06a7b41e8529-5f8b0f1b-699f-47e3-94e8-7280bd9b208a.png)
 
 
 这一单就省了大概 70% 的 Token。

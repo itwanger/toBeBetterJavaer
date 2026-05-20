@@ -140,7 +140,7 @@ head:
 
 当然了，也会遇到赏心悦目的简历，这时候也会忍不住为球友送上满满的祝福，祝福他前程似锦。基本信息 ok、教育背景 ok、项目经历 ok、荣誉证书 ok、专业技能 ok，完全不给挑毛病的机会（🤣）。
 
-![很棒的简历](https://files.mdnice.com/user/3903/a5cfe09b-a18c-4948-ab7b-cc63681b5e09.png)
+![很棒的简历](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/6c15e4ad5135-a5cfe09b-a18c-4948-ab7b-cc63681b5e09.png)
 
 今天就给大家提供一份我觉得确实简洁大方的简历模板供大家参考。
 

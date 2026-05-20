@@ -1,6 +1,6 @@
 ---
 title: 打饭时我问老板：“你说你用Claude，你用的是 CLI，还是 Agent、Opus？”老板懵了：“这有区别吗？不都是Claude”，打饭阿姨听了直摇头。
-shortTitle: Agent与Harness解析
+shortTitle: Claude、CLI、Agent、Opus
 description: 深度剖析 CLI、Agent、Harness、模型之间的关系，搞懂为什么同一个模型在不同工具里表现天差地别
 tag:
   - Agent

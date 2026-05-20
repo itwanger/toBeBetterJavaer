@@ -1,6 +1,6 @@
 ---
 title: Claude Code 源码泄露，我熬了一夜，发现了 6 个神级 Agent 和 Prompt
-shortTitle: Claude Code 源码泄露
+shortTitle: Claude Code 源码分析
 description: 从泄露的 Claude Code 源码中，挖出 6 个内置 Agent、Dream Memory 梦境记忆系统、Security Monitor 安全监控器，读懂 Anthropic 的 Agent 设计哲学
 tag:
   - Claude Code

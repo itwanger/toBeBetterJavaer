@@ -11,25 +11,14 @@ head:
       content: 二哥的Java进阶之路，小白的零基础Java教程，从入门到进阶
 ---
 
-::: center
-<div align="center">
-  <a href="https://javabetter.cn">
-    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/logo.png" width="200px" alt="二哥的Java进阶之路">
-  </a><br>
-  <a href="https://javabetter.cn/blog.html" target="_blank"><img src="https://img.shields.io/badge/博客-在线阅读-green.svg?style=for-the-badge"></a>
-  <a href="#联系方式" target="_blank"><img src="https://img.shields.io/badge/公众号-沉默王二-brightgreen.svg?style=for-the-badge"></a>
-  <a href="https://javabetter.cn/zhishixingqiu/" target="_blank"><img src="https://img.shields.io/badge/学习圈子-立即加入-critical?style=for-the-badge"></a>
-  <a href="https://javabetter.cn/download/java.html" target="_blank"><img src="https://img.shields.io/badge/计算机经典电子书-下载-yellow.svg?style=for-the-badge" alt="无套路下载"></a>
-  <a href="https://github.com/itwanger/toBeBetterJavaer" target="_blank"><img alt="二哥的Java进阶之路" src="https://img.shields.io/github/stars/itwanger/toBeBetterJavaer?style=for-the-badge"></a><br><br>
-<a href="https://github.com/itwanger/toBeBetterJavaer">Github</a> |
-<a href="https://gitee.com/itwanger/toBeBetterJavaer">Gitee</a>
-</div>  
-:::
+<a href="https://javabetter.cn/zhishixingqiu/">
+    <img src="https://cdn.paicoding.com/stutymore/home-zhishixingqiu-1.png" alt="星球服务">
+</a>
 
 
 ## 为什么会有这个开源知识库
 
-知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java，就认准 二哥的Java进阶之路😄。
+知识库取名 **toBeBetterJavaer**，即 **To Be Better Javaer**，意为「成为一名更好的 Java 程序员」，是我自学 Java 以来所有原创文章和学习资料的大聚合。内容包括 Java 基础、Java 并发编程、Java 虚拟机、Java 企业级开发、Java 面试、AI Agent 等核心知识点。据说每一个优秀的 Java 程序员都喜欢她，风趣幽默、通俗易懂。学 Java/AI，就认准 二哥的Java进阶之路😄。
  
  知识库旨在为学习 Java 的小伙伴提供一系列：
  - **优质的原创 Java 教程**
@@ -37,6 +26,7 @@ head:
  - **免费但靠谱的 Java 学习资料**
  - **精选的 Java 岗求职面试指南**
  - **Java 企业级开发所需的必备技术**
+ - **AI Agent 时代需要掌握的工程化技术栈**
 
 赠人玫瑰手有余香。知识库会持续保持**更新**，欢迎收藏品鉴！推荐你通过在线阅读网站进行阅读，体验更好，速度更快！
 
@@ -49,7 +39,7 @@ head:
 
 ## 知识库地图
 
-知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
+知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、AI Agent、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
 ![](https://cdn.paicoding.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
@@ -118,6 +108,130 @@ head:
 - [面渣逆袭（Linux面试题八股文）必看👍](sidebar/sanfene/linux.md)
 - [面渣逆袭（OpenClaw面试题八股文）必看👍](sidebar/sanfene/openclaw.md)
 - [面渣逆袭（Skills面试题八股文）必看👍](sidebar/sanfene/skills.md)
+
+## AI Agent
+
+AI Agent 已经不是尝鲜工具，而是一整套新的工程化技术栈：模型、上下文、工具调用、MCP、Skills、RAG、Memory、多 Agent 协作、工作流编排、浏览器自动化、IDE/CLI 编程助手和 Java AI 项目实践都要系统掌握。
+
+先按 Claude Code、Codex、Harness、IDEA插件、Qoder、Skills、RAG、OpenClaw、LLM、面试篇、AI工具、Token套餐、其他 这几条主线整理。
+
+- [AI Agent 学习路线：后端程序员转型直接抄作业](sidebar/itwanger/ai/ai-agent-xuexiluxian.md)
+
+### Claude Code
+
+- [Claude Code 入门与实战](sidebar/itwanger/ai/learn-claude-code.md)
+- [Claude Code 源码泄露里的 6 个内置 Agent](sidebar/itwanger/ai/claude-code-leak-agents.md)
+- [Claude Code 最佳实践深度测评](sidebar/itwanger/ai/claude-code-best-practice-beta.md)
+- [Claude Code 插件实战](sidebar/itwanger/ai/claude-code-plugin-tutorial.md)
+
+### Codex
+
+- [Codex 桌面版：一人指挥 Agent 军团](sidebar/itwanger/ai/codex-desktop-review.md)
+- [Codex 4 月大版本深度实测](sidebar/itwanger/ai/codex-april-2026-deep-review.md)
+- [手机版 Codex + ChatGPT 实测](sidebar/itwanger/ai/codex-chatgpt-mobile.md)
+- [Codex 更新：Computer Use、浏览器、图像生成、记忆、自动化](sidebar/itwanger/ai/codex-update-2026-04.md)
+- [Codex 插件实测：Markdown 秒传飞书](sidebar/itwanger/ai/codex-feishu-plugin.md)
+- [Codex + Chrome DevTools MCP 调试实录](sidebar/itwanger/ai/codex-gpt54-chrome-devtools-mcp.md)
+
+### Harness
+
+- [CLI、Agent、Harness 和模型到底是什么关系？](sidebar/itwanger/ai/agent-cli-harness-opus.md)
+- [为什么 2026 年我们要拼 Harness Engineering？](sidebar/itwanger/ai/agent-harness-engineering.md)
+- [Harness Engineering 深度测评](sidebar/itwanger/ai/harness-engineering-review.md)
+- [OpenHarness：轻量级 AI Agent 框架复刻 Claude Code](sidebar/itwanger/ai/openharness-review.md)
+- [BMad-METHOD：把敏捷开发团队搬进 AI 的框架](sidebar/itwanger/ai/bmad-method-33k-stars-review.md)
+
+### IDEA插件
+
+- [IDEA Codex 实测](sidebar/itwanger/ai/idea-codex.md)
+- [CC GUI 插件测评](sidebar/itwanger/ai/cc-gui-idea.md)
+- [IntelliJ IDEA AI 升级测评](sidebar/itwanger/ai/intellij-idea-ai-agent-review.md)
+- [飞算 JavaAI 智能体测评](sidebar/itwanger/ai/feisuan-javaai-agent-review.md)
+- [飞算 JavaAI 大纲](sidebar/itwanger/ai/feisuan-javaai-outline.md)
+
+### Qoder
+
+- [Qoder 1.0 实测](sidebar/itwanger/ai/qoder-1-0-quest-review.md)
+- [Qoder Experts Mode 实测](sidebar/itwanger/ai/qoder-experts-mode-ceping.md)
+- [Qoder Experts Mode 深度测评](sidebar/itwanger/ai/qoder-experts-mode-xiaohao.md)
+- [Qoder Skills 实测](sidebar/itwanger/ai/qoder-skills-shice.md)
+- [QoderWork 保姆级教程](sidebar/itwanger/ai/qoderwork-review.md)
+- [QoderWork for Chrome 实测](sidebar/itwanger/ai/qoderwork-chrome-review.md)
+
+### Skills
+
+- [这 6 个 Skills 让我效率翻倍，一次配置 Codex 和 Claude Code 都能用](sidebar/itwanger/ai/6-skills-recommend.md)
+- [Top 10 热门 Agent Skills 实测](sidebar/itwanger/ai/agent-skills-top10.md)
+- [Claude Skills 完全指南：渐进式加载、MCP 区别和实战](sidebar/itwanger/ai/claude-skills-quanwei-jiedu.md)
+- [Skills 原理深度解析：从零开发自己的 Skill](sidebar/itwanger/ai/skills-yuanli-jiaocheng.md)
+
+### RAG
+
+- [Embedding 和 Rerank：RAG 的检索与重排基础](sidebar/itwanger/ai/embedding-rerank-rag.md)
+- [从 RAG 到 Agent：PaiCLI 实战](sidebar/itwanger/ai/rag-to-agent-paicli.md)
+
+### OpenClaw
+
+- [OpenClaw 仓库学习路线](sidebar/itwanger/ai/openclaw-github-study-path.md)
+- [OpenClaw 安装教程：手把手接入飞书](sidebar/itwanger/ai/openclaw-install-feishu.md)
+- [OpenClaw 全平台安装方法](sidebar/itwanger/ai/openclaw-install-all-method.md)
+- [OpenClaw Memory 系统：Agent 记忆怎么做](sidebar/itwanger/ai/openclaw-memory-system.md)
+- [Hermes Agent 上下文压缩实测](sidebar/itwanger/ai/hermes-agent-context.md)
+
+### LLM
+
+- [DeepSeek V4 + Claude Code 实测](sidebar/itwanger/ai/deepseek-v4.md)
+- [DeepSeek V4 测评](sidebar/itwanger/ai/deepseek-v4-review.md)
+- [GLM-5.1 + Claude Code 实测](sidebar/itwanger/ai/glm-5-1-new.md)
+- [GLM-5.1 vs DeepSeek V4 实测](sidebar/itwanger/ai/glm51-vs-deepseekv4.md)
+- [Kimi K2.5 实测](sidebar/itwanger/ai/kimi-k25-shice.md)
+- [千问 3.5 实测](sidebar/itwanger/ai/qwen3-5-plus-review.md)
+
+### 面试篇
+
+- [Claude Agent 工作原理：ReAct、Tool Use、Memory、上下文压缩](sidebar/itwanger/ai/claude-agent-principle.md)
+- [Claude Code 面试题：从 Mythos 拆解 Agent 运行时](sidebar/itwanger/ai/claude-code-mythos.md)
+- [Claude Code 面经：手搓 12 层 Agent 架构](sidebar/itwanger/ai/interviewer-learn-claude-code.md)
+- [阿里 Agent 面试](sidebar/itwanger/ai/agent-mianshi.md)
+- [网易 AI 面试 12 问](sidebar/itwanger/ai/anshui-yin-mianshi.md)
+- [Skills 面试深度解析](sidebar/itwanger/ai/skills-mianshi-hangye.md)
+- [RAG 面试题合集](sidebar/itwanger/ai/rag-interview-questions.md)
+- [派聪明 RAG 实习面试：分片、向量、KNN、BM25、Agent、MCP、Skill](sidebar/itwanger/ai/paismart-rag-interview.md)
+- [PaiAgent 和派聪明 RAG 项目面试实录](sidebar/itwanger/ai/paismart-rag-mianshi.md)
+- [RAG + MySQL 面试实录](sidebar/itwanger/ai/rag-mysql-mianshi.md)
+- [AI 应用开发面试实录：OpenClaw、RAG、LangGraph4j](sidebar/itwanger/ai/ai-mianshi-openclaw.md)
+- [OpenClaw 面试角度测评](sidebar/itwanger/ai/openclaw-interview-uninstall.md)
+- [OpenClaw 核心架构与原理：Agent 部署、Session、Memory、Skills](sidebar/itwanger/ai/openclaw-jiagou-yuanli.md)
+- [OpenClaw Memory 解析：Memory 和 RAG 的区别](sidebar/itwanger/ai/openclaw-memory-review.md)
+- [OpenClaw 多 Agent 协作](sidebar/itwanger/ai/openclaw-multi-agent.md)
+- [LangGraph4j 面试实录](sidebar/itwanger/ai/langgraph4j-interview.md)
+- [LangGraph4J + PaiAgent 实战面试指南](sidebar/itwanger/ai/langgraph4j-paiagent.md)
+- [Agent 进阶 10 题](sidebar/itwanger/ai/paicli-interview-advanced.md)
+
+### AI工具
+
+- [AI 工具梯队盘点](sidebar/itwanger/ai/ai-tools-2026.md)
+- [CLI 热潮解析](sidebar/itwanger/ai/cli-revolution.md)
+- [OpenCLI 实测](sidebar/itwanger/ai/opencli-review.md)
+- [AionUi 测评](sidebar/itwanger/ai/aionui-review.md)
+- [天工 Skywork 桌面版实测](sidebar/itwanger/ai/skywork-desktop-review.md)
+
+### Token套餐
+
+- [免费 Token 全平台汇总测评](sidebar/itwanger/ai/free-token-api-guide.md)
+- [RTK 省 Token 神器实测](sidebar/itwanger/ai/rtk-token-killer.md)
+- [字节 Agent Plan 实测](sidebar/itwanger/ai/agent-plan-paiagent.md)
+- [火山方舟 Coding Plan 实测](sidebar/itwanger/ai/volcano-coding-plan.md)
+
+### 其他
+
+- [我的 8 环节 Agent 工作流](sidebar/itwanger/ai/agent-workflow-8steps.md)
+- [AI Infra 六大方向](sidebar/itwanger/ai/ai-infra-six-keywords.md)
+- [AI 时代新型开源](sidebar/itwanger/ai/ai-opensource-new-era.md)
+- [CDN 证书自动续签](sidebar/itwanger/ai/cdn-cert-auto-renew.md)
+- [Moltbook AI 社会观察](sidebar/itwanger/ai/moltbook-observation.md)
+- [RuoYi AI 测评](sidebar/itwanger/ai/ruoyi-ai-review.md)
+- [X 推荐算法深度剖析](sidebar/itwanger/ai/x-recommendation-algorithm.md)
 
 ## Java基础
 
@@ -564,8 +678,3 @@ head:
 - [我的第一个，10 万(B站视频播放)](about-the-author/bzhan-10wan.md)
 - [我的第一个，一千万！知乎阅读](about-the-author/zhihu-1000wan.md)
 - [我的第二个，一千万！CSDN阅读](about-the-author/csdn-1000wan.md)
-
-
-
-
-

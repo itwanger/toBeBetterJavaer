@@ -1,6 +1,6 @@
 ---
 title: 讲真，这个 34.9k Star 的 Claude Code 仓库比任何提示词教程都有用
-shortTitle: Claude Code最佳实践深度测评
+shortTitle: Claude Code最佳实践
 description: 34.9k Star 的 Claude Code Best Practice 深度测评，10 套工作流横评、16 个 Beta 功能实测、69 条 tips 精选，省下三个晚上的时间。
 tag:
   - AI

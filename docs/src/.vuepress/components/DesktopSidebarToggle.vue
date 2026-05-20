@@ -12,6 +12,7 @@ import { useRoute } from "vuepress/client";
 const STORAGE_KEY = "tobebetterjavaer-desktop-sidebar-collapsed";
 const COLLAPSED_CLASS = "sidebar-collapsed-desktop";
 const DESKTOP_BREAKPOINT = 960;
+const AUTO_EXPAND_BREAKPOINT = 1600;
 const COLLAPSED_HANDLE_OFFSET = 20;
 const FALLBACK_TRANSITION_DURATION = 300;
 
@@ -20,6 +21,7 @@ const route = useRoute();
 const hasSidebar = ref(false);
 const isCollapsed = ref(false);
 const isDesktop = ref(false);
+const isAutoExpandedWide = ref(false);
 const buttonStyle = ref<Record<string, string>>({});
 const lastExpandedLeft = ref<number | null>(null);
 
@@ -34,6 +36,12 @@ const buttonTitle = computed(() =>
 );
 
 const getButtonTop = () => (window.innerWidth >= 1440 ? 220 : 196);
+
+const shouldCollapseSidebar = () =>
+  isDesktop.value &&
+  hasSidebar.value &&
+  isCollapsed.value &&
+  !isAutoExpandedWide.value;
 
 const parseCssTime = (value: string) => {
   const trimmedValue = value.trim();
@@ -79,9 +87,7 @@ const setCollapsedState = () => {
 
   if (!container) return;
 
-  const shouldCollapse =
-    isDesktop.value && hasSidebar.value && isCollapsed.value;
-  container.classList.toggle(COLLAPSED_CLASS, shouldCollapse);
+  container.classList.toggle(COLLAPSED_CLASS, shouldCollapseSidebar());
 };
 
 const setButtonPosition = (left: number) => {
@@ -112,7 +118,9 @@ const getExpandedLeft = () => {
 };
 
 const updateButtonPosition = () => {
-  const targetLeft = isCollapsed.value ? getCollapsedLeft() : getExpandedLeft();
+  const targetLeft = shouldCollapseSidebar()
+    ? getCollapsedLeft()
+    : getExpandedLeft();
 
   if (targetLeft === null) return;
 
@@ -152,6 +160,8 @@ const syncContainerState = async () => {
 };
 
 const toggleSidebar = () => {
+  if (isAutoExpandedWide.value) return;
+
   const expandedLeft = getExpandedLeft();
 
   isCollapsed.value = !isCollapsed.value;
@@ -169,6 +179,7 @@ onMounted(() => {
   isCollapsed.value = localStorage.getItem(STORAGE_KEY) === "true";
   mediaQuery = window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT}px)`);
   isDesktop.value = mediaQuery.matches;
+  isAutoExpandedWide.value = window.innerWidth >= AUTO_EXPAND_BREAKPOINT;
 
   const updateDesktopState = (event: MediaQueryListEvent) => {
     isDesktop.value = event.matches;
@@ -180,6 +191,8 @@ onMounted(() => {
   };
 
   const handleResize = () => {
+    isAutoExpandedWide.value = window.innerWidth >= AUTO_EXPAND_BREAKPOINT;
+    setCollapsedState();
     schedulePositionSync();
   };
 
@@ -214,11 +227,15 @@ watch(
 watch(isDesktop, () => {
   void syncContainerState();
 });
+
+watch(isAutoExpandedWide, () => {
+  void syncContainerState();
+});
 </script>
 
 <template>
   <button
-    v-if="isDesktop && hasSidebar"
+    v-if="isDesktop && hasSidebar && !isAutoExpandedWide"
     :aria-label="buttonTitle"
     :aria-pressed="isCollapsed"
     :class="['desktop-sidebar-toggle', { collapsed: isCollapsed }]"

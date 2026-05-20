@@ -1,6 +1,6 @@
 ---
 title: 字节开源的 Harness Agent 火爆全网，已狂飙49k+ Star
-shortTitle: Harness Engineering测评
+shortTitle: Harness Engineering
 description: Harness Engineering 深度测评，从 Prompt Engineering 到 Agent Harness，AI 工程化的下一个关键转折点字节开源的 DeerFlow 2.0 就是一个典型的 Agent Harness 实现。字节开源的Harness Agent火爆全网，已狂飙49k+ Star！
 tag:
   - Agent

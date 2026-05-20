@@ -35,7 +35,7 @@ date: 2026-02-27
 
 于是就想到了阿里推出的桌面 Agent——QoderWork。对了，听阿里的朋友说，下周一他们还要上 Windows 版本，Windows的小伙伴可以狠狠期待了～
 
-![](https://files.mdnice.com/user/3903/2e889957-94a6-4d95-a316-1e40878d191e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/17355af4ac36-2e889957-94a6-4d95-a316-1e40878d191e.png)
 
 说干就干，选择 document 文件夹，然后给 QoderWork 一个简单的提示词：
 
@@ -43,7 +43,7 @@ date: 2026-02-27
 
 对，就这么一句。
 
-![](https://files.mdnice.com/user/3903/13694ce7-287e-41e7-b335-ac0732142fe0.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/9c83faf507bc-13694ce7-287e-41e7-b335-ac0732142fe0.jpg)
 
 它第一步做的事，是执行 `du -sh ...` 命令，找出当前目录下占用空间最大的前 30 个文件或文件夹。
 
@@ -107,7 +107,7 @@ date: 2026-02-27
 
 剩下的 200G 藏在你看不到的地方。
 
-![](https://files.mdnice.com/user/3903/85a7c4b3-e123-4534-9469-acefec23a6d0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/0979b28b89ac-85a7c4b3-e123-4534-9469-acefec23a6d0.png)
 
 找到目标后，QoderWork 没有直接删除，而是先向我确认。
 

@@ -40,7 +40,7 @@ Nano Banana 2 上线有几天了，大家有尝试吗？
 > 超宽全景照片，展现程序员理想工位。画面从左到右依次是：落地窗（城市夜景）、绿植角（龟背竹和多肉）、升降桌（双显示器、机械键盘、手办展示架）、咖啡角（意式咖啡机、马克杯收藏墙）。整体色调温暖，有生活气息，灯光柔和。摄影级真实感，4K 超清。
 
 
-![](https://files.mdnice.com/user/3903/4ed15e47-5c3c-4ebe-9a17-7ee78a6d05a4.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/8802d19f02fa-4ed15e47-5c3c-4ebe-9a17-7ee78a6d05a4.jpg)
 
 
 ### 提示词二：技术书籍书脊（4:1）
@@ -50,7 +50,7 @@ Nano Banana 2 上线有几天了，大家有尝试吗？
 > 超宽视角的技术书籍书架特写，画面展示一排整齐的技术书籍书脊。书籍包括《Java编程思想》《深入理解JVM》《Spring实战》《Redis设计与实现》等经典技术书籍，书脊采用不同颜色（深蓝、墨绿、酒红、灰色），形成有节奏的视觉排列。整体风格复古学院风，有书香气息。
 
 
-![](https://files.mdnice.com/user/3903/8525ddc1-00a2-4cab-a9cb-de8700f871af.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/058700c18097-8525ddc1-00a2-4cab-a9cb-de8700f871af.jpg)
 
 
 ### 提示词三：代码瀑布（1:4）
@@ -60,7 +60,7 @@ Nano Banana 2 上线有几天了，大家有尝试吗？
 > 超高比例的代码艺术图。画面是一个从上到下的代码瀑布，背景是深邃的黑蓝色渐变。代码采用绿色字符（黑客帝国风格），从顶部倾泻而下，在底部形成漩涡。代码中隐约可见 Java 关键字“public class”“void main”“return”等。中央悬浮着一个发光的“Hello World”，是代码的起点。整体风格科技感强烈，有未来感。
 
 
-![](https://files.mdnice.com/user/3903/f1669e9c-815d-4f38-b703-02b501582169.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/44beb2e63968-f1669e9c-815d-4f38-b703-02b501582169.jpg)
 
 
 
@@ -79,13 +79,13 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 
 
 
-![不完美，名字竟然不叫王二](https://files.mdnice.com/user/3903/ec217eab-dffa-40fc-914b-dfc4ab78ea2d.png)
+![不完美，名字竟然不叫王二](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/ec32493a8d18-ec217eab-dffa-40fc-914b-dfc4ab78ea2d.png)
 
 
-![](https://files.mdnice.com/user/3903/9d9e7743-1415-47da-a3fb-ee847af9802e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/f780c2e85411-9d9e7743-1415-47da-a3fb-ee847af9802e.png)
 
 
-![](https://files.mdnice.com/user/3903/e81d2db1-ad1a-443d-b769-0574a57ff25c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/b11aed19f498-e81d2db1-ad1a-443d-b769-0574a57ff25c.jpg)
 
 
 
@@ -110,24 +110,24 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 整体采用统一的角色形象，暖色调为主，适合职场励志类短剧。
 
 
-![](https://files.mdnice.com/user/3903/245d0495-5460-4a28-8f1f-ec02c3dbc896.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/02ce477f59e0-245d0495-5460-4a28-8f1f-ec02c3dbc896.jpg)
 
 
 
-![](https://files.mdnice.com/user/3903/b32d9ee6-16a8-4e26-8671-3f144ac67a4a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/6e0d03a7cbd1-b32d9ee6-16a8-4e26-8671-3f144ac67a4a.jpg)
 
 
 
-![](https://files.mdnice.com/user/3903/950bea50-9a9a-42ca-aee8-d77f7b4cedcd.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/464d94ec6ea6-950bea50-9a9a-42ca-aee8-d77f7b4cedcd.png)
 
 
-![](https://files.mdnice.com/user/3903/39cb4dac-c0b5-42f0-9b0e-03c130e8d67f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/fcb9a192600e-39cb4dac-c0b5-42f0-9b0e-03c130e8d67f.jpg)
 
 
-![手机拿反了，🤣](https://files.mdnice.com/user/3903/8ff4c2f1-cfbc-4901-94bf-f43d67ff3662.jpg)
+![手机拿反了，🤣](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/99927cfc2e22-8ff4c2f1-cfbc-4901-94bf-f43d67ff3662.jpg)
 
 
-![](https://files.mdnice.com/user/3903/b9da52ed-97bd-4557-97ee-74d45c636a9a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/363e2fbf8b04-b9da52ed-97bd-4557-97ee-74d45c636a9a.jpg)
 
 
 ## 03、电商海报：商业级出图
@@ -141,7 +141,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 高端技术书籍封面设计。画面是一本精装书籍的 45 度角展示，封面采用深蓝色磨砂质感，中央烫金印着“二哥面渣逆袭”书名，字体刚劲有力。书籍周围环绕着发光的代码片段和二进制流光。背景是抽象的电路板纹理，深色调。右上角有“2026 最新版”的金色标签。整体风格专业、权威，适合技术类书籍或课程封面。4K 超清，印刷级品质。
 
 
-![](https://files.mdnice.com/user/3903/1f6d33d0-c3b6-4090-91ff-0201c5d560d8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/bf5746d6a6fe-1f6d33d0-c3b6-4090-91ff-0201c5d560d8.png)
 
 
 ### 提示词二：求职课程宣传
@@ -151,7 +151,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 求职课程宣传海报，现代扁平插画风格。画面主体是一个年轻的程序员形象，背对观众面向巨大的发光屏幕，屏幕上显示着“Offer 来了”的代码界面。人物穿着休闲卫衣，周围漂浮着简历、面试邀请、薪资数字等抽象图标。背景是温暖的渐变色，从淡紫到浅橙。顶部标题“2026 暑期实习冲刺"，底部副标题“二哥带你冲击大厂”。整体氛围积极、专业，适合课程推广。
 
 
-![](https://files.mdnice.com/user/3903/a239850d-8703-4387-8faf-9eb85f64cd30.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/e5172363b223-a239850d-8703-4387-8faf-9eb85f64cd30.png)
 
 
 ### 提示词三：AI 项目封面
@@ -161,7 +161,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > AI 项目宣传主题封面，科技感强烈。画面是一个抽象的 AI 大脑图形，由发光的神经网络节点和连接线组成，中央核心发出耀眼的蓝白色光芒。大脑下方是流动的代码瀑布，隐约可见“PaiFlow”、“派聪明”、“PaiAgent”等项目名称。背景是深邃的黑蓝渐变，带有科技网格纹理。顶部标题“AI 项目 Coding”，采用未来感字体。整体风格酷炫、硬核，适合技术文章配图。
 
 
-![](https://files.mdnice.com/user/3903/cd64031a-8ca4-43fe-bc08-be472a293d48.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/c3a752eb199e-cd64031a-8ca4-43fe-bc08-be472a293d48.jpg)
 
 ## 04、信息图：知识可视化
 
@@ -175,7 +175,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 
 
 
-![](https://files.mdnice.com/user/3903/36e0e36f-f8bf-4f70-80f9-138ab37083de.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/c9e3eddf6cc6-36e0e36f-f8bf-4f70-80f9-138ab37083de.jpg)
 
 
 
@@ -194,7 +194,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 
 
 
-![](https://files.mdnice.com/user/3903/3a33c52e-a8c4-4371-bdae-92e7ac70b339.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/9d3e05b2dfeb-3a33c52e-a8c4-4371-bdae-92e7ac70b339.png)
 
 
 
@@ -215,7 +215,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 每个步骤用圆角矩形框表示，箭头连接，右侧有简短注释。顶部标题“Spring Boot 启动流程”，采用现代无衬线字体。整体配色专业、清晰，适合技术教程配图。
 
 
-![](https://files.mdnice.com/user/3903/32ec4ec2-95a7-4e2d-864b-b40ec9c64c51.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/c8741443d22a-32ec4ec2-95a7-4e2d-864b-b40ec9c64c51.jpg)
 
 
 ## 05、01、超宽横幅
@@ -227,7 +227,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 超宽横幅设计，赛博朋克科技风。画面中央是巨大的中文艺术字“技术派”，采用蓝紫到霓虹青的渐变色，字体如同流动的代码光带，边缘带有数字粒子散射效果。右侧悬浮着咖啡杯剪影和机械键盘的抽象线条。背景是深邃的星空渐变，点缀着发光的二进制代码片段“010101”。左下角小字中文“Java进阶之路”，银灰色极简字体。整体光影层次分明，8K 超清，适合网页头图。
 
 
-![](https://files.mdnice.com/user/3903/92b6aaf7-47b6-4606-a553-9660788aff8a.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/2e0b04da03b0-92b6aaf7-47b6-4606-a553-9660788aff8a.jpg)
 
 这里稍微有点问题，左下角的文字有问题，不过，我们可以直接用橡皮擦擦掉。
 
@@ -239,7 +239,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 现代简约风格的超宽横幅，背景是温暖的晨光渐变，从淡金到浅橙。画面主体是立体感的中文大标题“春招上岸”，采用粗黑体，带有轻微的 3D 厚度感。标题下方是副标题“二哥带你卷Offer”，较小字号。右侧有一个向上的箭头图标和简化的城市天际线剪影。左侧点缀着漂浮的简历图标和代码符号。整体氛围积极向上，适合求职类内容头图。留白充足，构图干净。
 
 
-![](https://files.mdnice.com/user/3903/70a07aeb-a5b2-4424-9c87-254afbd2b4b6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/cdb5a4a08f6f-70a07aeb-a5b2-4424-9c87-254afbd2b4b6.jpg)
 
 
 ### 提示词三：知识星球专属横幅
@@ -249,7 +249,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 > 梦幻星空主题横幅设计。背景是深邃的宇宙星空，带有紫蓝色渐变和星云光晕。画面中央是一颗发光的星球，星球表面有抽象的书本和代码符号纹理。星球周围环绕着金色粒子光环。右侧悬浮着中文标题“二哥的知识星球”，采用优雅的衬线体，发光效果。左下角小字“Java人的成长社区”。整体风格神秘、高级，适合会员制社区宣传。
 
 
-![](https://files.mdnice.com/user/3903/7de3be17-d654-4db8-93ea-58f3c60c5a95.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/180db41a2da6-7de3be17-d654-4db8-93ea-58f3c60c5a95.png)
 
 ## 06、Lovart 使用技巧
 
@@ -260,7 +260,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 在 Lovart 的对话框里，记得切换到 Nano Banana 2 模型。
 
 
-![](https://files.mdnice.com/user/3903/62cb109e-6373-43e3-a036-2a317c08390d.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/47fd4e0b82ca-62cb109e-6373-43e3-a036-2a317c08390d.png)
 
 
 ### 提示词编写技巧
@@ -277,7 +277,7 @@ Nano Banana 2 最大的亮点之一就是角色一致性，这对于做短剧、
 Lovart 最大的优势是生成后可以继续编辑。图片中的元素可以移动，文字可以修改，这个功能对于做商业图来说太实用了。
 
 
-![](https://files.mdnice.com/user/3903/003658c7-8af8-428d-9556-b2fc02d45a0e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/a59a65ef07c3-003658c7-8af8-428d-9556-b2fc02d45a0e.png)
 
 
 ## 07、ending

@@ -16,7 +16,7 @@ date: 2026-04-17
 
 注意几个关键词：不限年纪、核心项目组（包括腾讯混元、微信 AI 生态、腾讯云、腾讯视频、AI+金融等）、薪酬上不封顶。
 
-![](https://files.mdnice.com/user/3903/b2f9034a-93fd-4142-8533-9ae7eb791622.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/cab8784fefc3-b2f9034a-93fd-4142-8533-9ae7eb791622.jpg)
 
 要知道，现在 AI 赛道正处于爆发期，腾讯在这个节骨眼专门为 AI 方向开一条实习通道，说明他们是真的缺人、真的愿意给资源。
 
@@ -24,7 +24,7 @@ date: 2026-04-17
 
 从 3 月份到现在，我这边也有很多读者拿到腾讯的暑期实习 offer，当然也有同时拿到其他互联网大厂的。
 
-![](https://files.mdnice.com/user/3903/431a8803-3c33-4df6-8409-f36a70875d4c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/f8169b6429ad-431a8803-3c33-4df6-8409-f36a70875d4c.png)
 
 但有鹅选鹅的公式在 2026 年依然成立，这些拿到多个 offer 的读者无一例外都优先选择了鹅厂。
 
@@ -32,7 +32,7 @@ date: 2026-04-17
 
 直接把结论摆在这了：**如果你是 2026 年 9 月后毕业的本硕博同学，青云计划绝对是今年最值得去冲的。**
 
-![](https://files.mdnice.com/user/3903/fdef465f-4bf9-40f2-8d77-3c7a3fde519e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/efb8ec73a656-fdef465f-4bf9-40f2-8d77-3c7a3fde519e.png)
 
 base 地参考上图。
 
@@ -42,7 +42,7 @@ base 地参考上图。
 
 2025 年，鹅厂在研发上一共投入了 857.5 亿元，创历史新高。2026 年 AI 方向的投入超过 360 个小目标，同比翻了一倍。
 
-![](https://files.mdnice.com/user/3903/0593d54b-01e8-49c0-8613-01a5b4418fe6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/7df4e7d6eb12-0593d54b-01e8-49c0-8613-01a5b4418fe6.jpg)
 
 再看产品端跑出来的成绩：
 
@@ -78,7 +78,7 @@ base 地参考上图。
 
 先说 W 同学，实习期间以第一作者身份发表了 Hunyuan3D 的论文。
 
-![](https://files.mdnice.com/user/3903/918c51a8-0c26-4869-b863-6539cc516745.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/1e9a3cdb5d65-918c51a8-0c26-4869-b863-6539cc516745.jpg)
 
 他给我的原话是：
 
@@ -88,7 +88,7 @@ base 地参考上图。
 
 还有 Wolf 同学，做原生多模态的技术研究，TokenSet 的提出者。
 
-![](https://files.mdnice.com/user/3903/01c03140-8300-4abe-bb13-8d9fa0508196.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/fbc77de50dd5-01c03140-8300-4abe-bb13-8d9fa0508196.jpg)
 
 他说了一段话让我印象特别深，必须分享给大家：
 
@@ -98,7 +98,7 @@ base 地参考上图。
 
 搞过 AI 训练的同学都知道。假如算力不足，排队抢 GPU 能排到天荒地老，你的产出更是不知道等到猴年马月。
 
-![](https://files.mdnice.com/user/3903/47ee1c09-df14-4675-a5d5-da7ff6dac9f6.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/9bd027e7d503-47ee1c09-df14-4675-a5d5-da7ff6dac9f6.png)
 
 为什么鹅厂的实习生能做到这种程度？
 
@@ -112,7 +112,7 @@ base 地参考上图。
 
 除了微信 bot 外，我迫切地希望，能看到更多微信和 AI 的交互场景，目前这块有很大的想象空间。
 
-![](https://files.mdnice.com/user/3903/298292b8-893b-412e-adb3-cdf22561f951.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/ba3e10092b09-298292b8-893b-412e-adb3-cdf22561f951.png)
 
 我的愿望就交给大家去实现了。
 
@@ -126,7 +126,7 @@ base 地参考上图。
 
 导师阵容由雨哥领衔。我简单给大家科普下，姚顺雨，腾讯首席 AI 科学家，清华姚班本科，普林斯顿 CS 博士，提出了 ReAct（现在全球主流 Agent 框架的底层范式）和 Tree of Thoughts，Google Scholar 引用超 2.7 万次。在 OpenAI 参与过 Deep Research 和 Operator 的研发，加入腾讯后主导发布了混元 3.0。
 
-![](https://files.mdnice.com/user/3903/c3fd35f8-d996-46a2-8ee2-bdedeb452bdb.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/133287354bbe-c3fd35f8-d996-46a2-8ee2-bdedeb452bdb.jpg)
 
 说实话，看到这个名单的时候我口水都流下来了，太顶了。
 
@@ -136,7 +136,7 @@ base 地参考上图。
 
 推荐有意向，有条件的同学参加下青云计划的线下交流活动——可以和一线业务负责人直接面对面沟通，真切感受腾讯的技术氛围。
 
-![](https://files.mdnice.com/user/3903/fe84f809-2d82-4b33-81c5-a9d05b7756fa.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/dd5d9133b50c-fe84f809-2d82-4b33-81c5-a9d05b7756fa.png)
 
 ## 04、在鹅厂薪酬上不封顶
 
@@ -144,17 +144,17 @@ base 地参考上图。
 
 2025 年，全年营收 7517.7 亿元，同比增长 14%。归母净利润率超过 30%，在整个互联网大厂里属于最顶级的水平。
 
-![](https://files.mdnice.com/user/3903/96b777e8-3f9c-4a06-b541-df061d0f6f29.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/e48a75e4ba36-96b777e8-3f9c-4a06-b541-df061d0f6f29.jpg)
 
 说白了就是，有钱，而且舍得花在人身上。
 
 除了薪酬本身，餐饮补贴、住宿补贴、交通补贴这些生活保障也很实在，学习经费给得充足，还能参与顶尖峰会（NeurIPS、ICML、ACL 等等）。
 
-![](https://files.mdnice.com/user/3903/f890799b-3826-4167-8924-ecdcf41e3ca1.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/adfde5dd88c3-f890799b-3826-4167-8924-ecdcf41e3ca1.jpg)
 
 去年秋招有不少读者拿到鹅厂的 offer，SSP 还有股票和签字费，年包算下来真的直接杀死比赛。
 
-![](https://files.mdnice.com/user/3903/e9221919-bd89-4bb1-ad5b-65234f455ad0.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/f3b7c06b3f66-e9221919-bd89-4bb1-ad5b-65234f455ad0.png)
 
 薪酬高，还能接触到真正有技术含量的东西，有个一年半载，你的职场竞争力就会和同龄人拉开很大的差距。
 
@@ -166,7 +166,7 @@ base 地参考上图。
 
 投递入口，浏览器地址栏输入 `join.qq.com`，选择青云计划，选择你擅长的方向，点击【实习生报名】，投递简历就可以了。
 
-![](https://files.mdnice.com/user/3903/9d7c0cdb-8fca-46ac-beb5-b56e6db30c39.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/35d1c2e2cf7c-9d7c0cdb-8fca-46ac-beb5-b56e6db30c39.jpg)
 
 全是最热门的课题方向，就比如说这个微信搜索-大模型 AI 搜索研究与落地。
 
@@ -174,7 +174,7 @@ base 地参考上图。
 
 顺带给大家分享一下，2026 年我们应该重视的核心竞争力，那就是理解系统的复杂性、抽象和结构化思维、驾驭不确定性。
 
-![](https://files.mdnice.com/user/3903/a9df0d79-127a-4115-a4df-fdfaec40fc57.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/dcfc011efdc2-a9df0d79-127a-4115-a4df-fdfaec40fc57.jpg)
 
 这三项能力，也是 Harness Engineering 的底层能力，可以让我们在 AI Agent 时代构建起专属于我们个人的护城河：
 
@@ -196,7 +196,7 @@ base 地参考上图。
 
 特别适合作为职业生涯的“第一站”。有从 0 到 1 的培养体系，有足够大的场景让你练手，有顶级的同事共同成长。底子打好了，后面不管是留下还是出去闯，都会从容得多。
 
-![](https://files.mdnice.com/user/3903/e5c3630f-cfb0-4e1e-b37b-d97ef51d24d4.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/6796582500de-e5c3630f-cfb0-4e1e-b37b-d97ef51d24d4.jpg)
 
 **【浪潮来的时候，我们得先上船。】**
 

@@ -1,6 +1,6 @@
 ---
 title: 网易龙虾开源，实测看看国产Agent距离OpenClaw还有多远。
-shortTitle: 国产小龙虾开源！网易有道开源 LobsterAI
+shortTitle: 网易有道开源 LobsterAI
 description: 实测网易有道 LobsterAI：从纯聊天到真正干活，这个本地 Agent 能自动刷 HackerNews、处理邮件，7x24 小时待命。测评 HackerNews 自动摘要、邮件自动回复等真实场景，看看国产 Agent 距离 OpenClaw 还有多远。
 tag:
   - Agent

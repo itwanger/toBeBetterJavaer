@@ -584,7 +584,7 @@ AI 的实际能力 = 它能调用的工具 + 它拿到的上下文。
 
 就比如说，如果没有飞书 CLI，让大模型帮我们根据多维表格生成词云图，几乎没办法办到。
 
-![](https://files.mdnice.com/user/3903/bebf877b-d2c4-4d0e-953f-33b9933fc61e.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/87840fa36234-bebf877b-d2c4-4d0e-953f-33b9933fc61e.jpg)
 
 “工具好理解，上下文是什么？”老王追问。
 
@@ -612,7 +612,7 @@ AI 的实际能力 = 它能调用的工具 + 它拿到的上下文。
 curl -si https://paicoding.com
 ```
 
-![](https://files.mdnice.com/user/3903/52f26028-3f18-43b8-a8f8-85f1addd0b49.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/4fb577d80f37-52f26028-3f18-43b8-a8f8-85f1addd0b49.jpg)
 
 新一代 CLI 从设计之初就假设调用者是 AI Agent：所有操作通过参数一次性传入，不弹菜单；输出 JSON 格式，AI 直接解析；自带 Skills 说明书；支持 `--dry-run` 预览，让 AI 执行前先看看会发生什么；AI 还能问工具“你有哪些命令？需要什么参数？”不用读完整文档。
 
@@ -666,7 +666,7 @@ lark-cli docs +create --title "面试指南" --file ./interview.md
 
 先解释三个概念。**MCP**是 AI 和外部服务之间的标准通信协议，理解成 AI 世界的 USB 接口。**Skills**是告诉 AI“这个工具怎么用”的说明书。**Plugin**是把工具、协议、说明书打包在一起的可安装扩展，类似手机上的 App。
 
-![](https://files.mdnice.com/user/3903/47e9ae13-b3a1-402a-aa39-fa022b6d16ef.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/0e3e3a338a93-47e9ae13-b3a1-402a-aa39-fa022b6d16ef.png)
 
 飞书 CLI 就是典型：CLI 命令提供执行能力，内置 MCP 服务提供标准通信协议，自带 Skills 文件充当使用说明书。
 
@@ -680,11 +680,11 @@ Claude Code 的 Plugin 只能在 Claude Code 里用。
 
 飞书 CLI 装了以后，Claude Code、Codex、Qoder 都能用。
 
-![](https://files.mdnice.com/user/3903/aeecc039-f392-4f53-9efc-5e78e07d21d8.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/dfb0f7db91d8-aeecc039-f392-4f53-9efc-5e78e07d21d8.png)
 
 并且 CLI 不关心调用它的是哪个模型，它是模型无关的执行层。
 
-![](https://files.mdnice.com/user/3903/44c1cb36-db02-48cc-87eb-dc36a4817918.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/32603f994fc5-44c1cb36-db02-48cc-87eb-dc36a4817918.jpg)
 
 CLI 还有一个很大的优势，就是管道。举个场景：我有一个智能客服系统，每天要生成运营日报。传统做法是：运营人员导出数据、整理 Excel、写分析文字、发邮件。
 
@@ -740,7 +740,7 @@ cs-cli conversations export \
 
 我说：“王哥，这个问题我研究过，有五个关键点。”
 
-![](https://files.mdnice.com/user/3903/13e809d4-6dcd-4864-9d65-d797d9b67ce7.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/9e6861019303-13e809d4-6dcd-4864-9d65-d797d9b67ce7.png)
 
 **第一点：不要弹交互式菜单。** 传统 CLI 喜欢在遇到选择时弹出菜单，让用户上下键选择。
 
@@ -769,11 +769,11 @@ cs-cli conversations export \
 
 我说：“飞书 CLI 开源了，我们可以直接看它的 Skills 目录。”
 
-![](https://files.mdnice.com/user/3903/ddad0576-74e9-4fdc-982b-1c393f12a6c9.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/856888d818a2-ddad0576-74e9-4fdc-982b-1c393f12a6c9.jpg)
 
 飞书 CLI 的 Skills 目录下有 19 个文件，每个对应一个业务领域。比如 `lark-base.md` 是多维表格操作的说明书，`lark-calendar.md` 是日历操作的说明书。每个 Skills 文件都包含：工具概述、可用命令、参数说明、使用示例。格式清晰，AI 读完就知道怎么用。
 
-![](https://files.mdnice.com/user/3903/c748a516-13ff-46f3-b77f-79ca98732b07.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/85d02c646de0-c748a516-13ff-46f3-b77f-79ca98732b07.png)
 
 “而且飞书 CLI 还提供了 skill-template 目录。”我说，“如果你想给自己的产品写 Skills，可以直接复制这个模板，改成自己的内容就行。”
 
@@ -785,7 +785,7 @@ cs-cli conversations export \
 
 “王哥，这个问题我也思考过。有一个很有意思的思路，让 AI 管理自己的工具。”
 
-![](https://files.mdnice.com/user/3903/05ef712b-4023-46cc-bc97-3f198592d53c.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/281f65dd5061-05ef712b-4023-46cc-bc97-3f198592d53c.png)
 
 传统软件思路是：写代码嗅探用户系统装了什么、写 UI 让用户在界面上管理工具、写逻辑检测更新。标准做法，但工作量巨大，而且每个工具的情况都不一样，用代码写死安装逻辑是写不完的。
 
@@ -795,7 +795,7 @@ cs-cli conversations export \
 
 注册工具也一样，给 AI 一个提示词模板，读完 `--help` 自动生成结构化描述，工具能做什么、怎么用、典型场景。
 
-![](https://files.mdnice.com/user/3903/32fe06b0-52ba-4c40-a768-fb4fe3277d7a.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/788e04a41f76-32fe06b0-52ba-4c40-a768-fb4fe3277d7a.png)
 
 “这个思路有意思。”老王眼睛一亮，“等于说 AI 既是工具的使用者，也是工具的管理者。”
 
@@ -839,7 +839,7 @@ cs-cli conversations export \
 
 我用飞书 CLI 让 AI 帮我分析了 600 多条简历数据，生成了词云图，还把 18 篇面渣逆袭文章全部上传到了飞书云文档。整个过程我没写一行代码，没打开飞书网页，全是 AI 通过 CLI 自动完成的。
 
-![](https://files.mdnice.com/user/3903/3d72a247-b36b-489f-a99a-b494a26af3dd.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/525e0b57810f-3d72a247-b36b-489f-a99a-b494a26af3dd.png)
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20260329200620.png)
 

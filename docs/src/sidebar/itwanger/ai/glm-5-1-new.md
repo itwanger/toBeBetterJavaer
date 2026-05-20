@@ -1,6 +1,6 @@
 ---
 title: 有一说一，Claude Code+GLM-5.1 就是最强国产 Agent。
-shortTitle: GLM-5.1实测：2小时零失忆零跑偏
+shortTitle: GLM-5.1实测
 description: GLM-5.1实测：用Claude Code开发派简历项目，2小时从需求到上线，国产开源模型的长程能力到底什么水平？
 tag:
   - AI

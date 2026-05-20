@@ -1,6 +1,6 @@
 ---
 title: 爆肝 1 天，用 Codex 插件把 Markdown 秒传飞书，图片自动转！
-shortTitle: Codex插件实测：Markdown秒传飞书
+shortTitle: Codex插件Markdown秒传飞书
 description: 爆肝1天，用Codex插件开发了一个飞书Markdown上传工具，自动转换图片格式，解决复制粘贴痛点，Codex插件体系深度测评。
 tag:
   - AI

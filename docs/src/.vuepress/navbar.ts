@@ -27,6 +27,11 @@ export default navbar([
     link: "/sidebar/sanfene/nixi.md"
   },
   {
+    text: "AI Agent",
+    icon: "ai",
+    link: "/sidebar/itwanger/ai/"
+  },
+  {
     text: "珍藏资源",
     icon: "youzhi",
     children: [
@@ -39,11 +44,6 @@ export default navbar([
         text: "求职",
         icon: "zhongyaotishi",
         link: "/sidebar/itwanger/qiuzhi/" 
-      },
-      { 
-        text: "AI",
-        icon: "ai",
-        link: "/sidebar/itwanger/ai/" 
       },
       { 
         text: "上交大生存手册",

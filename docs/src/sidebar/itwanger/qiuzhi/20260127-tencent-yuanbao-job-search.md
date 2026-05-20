@@ -22,7 +22,7 @@ date: 2026-01-27
 
 相信大家对腾讯今年的薪资非常感兴趣，我截张图给大家参考下，针对核心研发梯队，base 30k 朝上很普遍。
 
-![截图来自求职青年](https://files.mdnice.com/user/3903/1aa7005b-7527-4653-9f9e-2175758b74c8.png)
+![截图来自求职青年](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/997a53fa3638-1aa7005b-7527-4653-9f9e-2175758b74c8.png)
 
 嗯哼，作为一名人见人爱的求职工具人，我有责任提醒大家一点（认真脸）。
 
@@ -38,7 +38,7 @@ date: 2026-01-27
 
 这次推出的"元宝派"社交玩法，更是把AI能力深度整合进了群聊场景。群成员可以@元宝AI助手，让它总结聊天内容、回答问题、推荐内容，这其实就是微信里@元宝能力的延伸。
 
-![](https://files.mdnice.com/user/3903/eab3c455-9b45-43ae-a158-67f473fa67fe.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/eb742842a1fa-eab3c455-9b45-43ae-a158-67f473fa67fe.jpg)
 
 从技术栈来看，元宝这类AI产品需要的技术能力主要有：
 
@@ -49,7 +49,7 @@ date: 2026-01-27
 
 [就球友们给我的反馈](https://t.zsxq.com/6bnf3)来看，腾讯元宝的HC需求量确实比较大。去年暑期实习就有球友拿到了腾讯元宝的客户端offer，虽然投的是Java岗。
 
-![](https://files.mdnice.com/user/3903/4649ef6c-eaff-4b7b-9106-afa848b344e1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/8c307bdaab74-4649ef6c-eaff-4b7b-9106-afa848b344e1.png)
 
 偷偷说一句：针对这种超级APP，不存在客三消的说法😄
 
@@ -66,11 +66,11 @@ date: 2026-01-27
 
 星球里除了去年7月底上架的[派聪明RAG项目](https://mp.weixin.qq.com/s/Vo1ggbhIir3L41hOykHDGA)，马上要上架一个新的Agent项目，派派工作流（对，我们的实战项目都是和派字有关，元宝搞派算是和我们想到一块了，呵呵）。
 
-![](https://files.mdnice.com/user/3903/4321efac-e7e1-4917-bf2d-1f5b894e755b.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/7c6e4cf3f360-4321efac-e7e1-4917-bf2d-1f5b894e755b.jpg)
 
-![](https://files.mdnice.com/user/3903/5c0f9ea8-5457-4ed8-9804-d01b12282edf.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/659e4ac49ae7-5c0f9ea8-5457-4ed8-9804-d01b12282edf.jpg)
 
-![](https://files.mdnice.com/user/3903/94a2dca1-8ae5-4a51-8e8a-b2cab03399a6.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/7176694a962c-94a2dca1-8ae5-4a51-8e8a-b2cab03399a6.jpg)
 
 还有最后一篇LangGraph4J，写完就可以上架了，别说大家迫不及待，我自己都已经迫不及待了，好吧？
 
@@ -90,7 +90,7 @@ date: 2026-01-27
 
 用过技术派的同学应该注意到，用户选中任意内容，@派聪明 AI助手进行问答，系统会自动封装划线内容+用户评论+全文作为prompt供LLM作为上下文语料，实现RAG检索增强生成。
 
-![](https://files.mdnice.com/user/3903/23fbb190-4eeb-4698-a9c7-2e9a4934dfd3.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/a1a7230a7327-23fbb190-4eeb-4698-a9c7-2e9a4934dfd3.jpg)
 
 这条技术路线和元宝、微信里的@元宝功能是一模一样的。
 

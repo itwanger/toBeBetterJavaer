@@ -1,6 +1,7 @@
 ---
 title: Java面试题之Java基础篇，56道Java基础八股文（2.3万字68张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
+humanVerify: true
 author: 三分恶&沉默王二
 date: 2026-03-29
 category:
@@ -13,8 +14,6 @@ head:
     - name: keywords
       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
-
-![面渣逆袭Java 基础篇封面图](https://cdn.paicoding.com/stutymore/javase-mianzhanixi-javase1.jpg)
 
 ## 前言
 
@@ -34,24 +33,6 @@ head:
 - 优化排版，增加手绘图，重新组织答案，使其更加口语化，从而更贴近面试官的预期。
 
 ![面渣逆袭已经提交 1438 次 GitHub 记录](https://cdn.paicoding.com/stutymore/javase-20241223085158.png)
-
-由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
-
-<div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
-</div>
-
-当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
-
-更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
-
-![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
-
-我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
-
-展示一下暗黑版本的 PDF 吧，排版清晰，字体优雅，更加适合夜服，晚上看会更舒服一点。
-
-![面渣逆袭Java 基础篇.pdf暗黑版](https://cdn.paicoding.com/stutymore/javase-20241230174513.png)
 
 ## Java 概述
 
@@ -167,8 +148,6 @@ Java 语言的特点有：
 之所以有人说 Java 是“编译与解释并存”的语言，是因为 Java 程序需要先将 Java 源代码文件编译字节码文件，再解释执行。
 
 ![三分恶面渣逆袭：编译与解释](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-5.png)
-
-<MZNXQRcodeBanner />
 
 ## 基础语法
 
@@ -456,8 +435,6 @@ System.out.println("Total price in cents: " + totalInCents);  // 输出597分
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 7 Java 后端实习一面的原题：讲一下数据准确性高是怎么保证的？
 
-<MZNXQRcodeBanner />
-
 ## 面向对象
 
 ### 17.⾯向对象和⾯向过程的区别?
@@ -698,7 +675,6 @@ class GreenColor implements Color {
 > 2. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的美团面经同学 4 一面面试原题：Java 面向对象的特点
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的字节跳动同学 20 测开一面的原题：讲一下 JAVA 的特性，什么是多态
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 7 Java 后端技术一面面试原题：面向对象三大特性
-
 
 ### 19.多态解决了什么问题？（补充）
 
@@ -1482,8 +1458,6 @@ public class Main {
 
 > 1. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的京东面经同学 2 后端面试原题：new 子类的时候，子类和父类静态代码块，构造方法的执行顺序
 
-<MZNXQRcodeBanner />
-
 ## String
 
 ### 33.String 是 Java 基本数据类型吗？可以被继承吗？
@@ -1706,8 +1680,6 @@ JDK 源码里已经对这个方法进行了说明：
 - 如果当前字符串内容存在于字符串常量池（即 equals()方法为 true，也就是内容一样），直接返回字符串常量池中的字符串
 - 否则，将此 String 对象添加到池中，并返回 String 对象的引用
 
-<MZNXQRcodeBanner />
-
 ## Integer
 
 ### 38.Integer a= 127，Integer b = 127；Integer c= 128，Integer d = 128；相等吗?
@@ -1851,8 +1823,6 @@ public static int parseInt(String s, int radix)
 去掉枝枝蔓蔓（当然这些枝枝蔓蔓可以去看看，源码 cover 了很多情况），其实剩下的就是一个简单的字符串遍历计算，不过计算方式有点反常规，是用负的值累减。
 
 ![parseInt示意图](https://cdn.paicoding.com/tobebetterjavaer/images/sidebar/sanfene/javase-20.png)
-
-<MZNXQRcodeBanner />
 
 ## Object
 
@@ -2123,7 +2093,6 @@ public class Example {
     }
 }
 ```
-
 
 ![二哥的Java 进阶之路：catch 和 finally 处理异常](https://cdn.paicoding.com/stutymore/javase-20241008095737.png)
 
@@ -2543,7 +2512,6 @@ class TcpServer {
 }
 ```
 
-
 #### RPC框架了解吗？
 
 RPC是一种协议，允许程序调用位于远程服务器上的方法，就像调用本地方法一样。RPC 通常基于 Socket 通信实现。
@@ -2795,7 +2763,6 @@ testMethod.invoke(testInstance);
 ④、最常见的是写通用的工具类，比如对象拷贝工具。比如说 BeanUtils、MapStruct 等等，能够自动拷贝两个对象之间的同名属性，就是通过反射来实现的。
 
 ![技术派：mapstruct](https://cdn.paicoding.com/stutymore/javase-20250927172849.png)
-
 
 #### 反射的原理是什么？
 
@@ -3084,22 +3051,7 @@ reduced.ifPresent(System.out::println);
 
 这次仍然是三个版本，亮白、暗黑和 epub 版本。给大家展示其中一个 epub 版本吧，有些小伙伴很急需这个版本，所以也满足大家了。
 
-
 ![面渣逆袭Java 基础：epub 版本](https://cdn.paicoding.com/stutymore/javase-20241231093226.png)
-
-由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
-
-<div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
-</div>
-
-当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
-
-更别说我付出的时间和精力了，大家觉得有帮助还请给个口碑，让你身边的同事、同学都能受益到。
-
-![回复 222](https://cdn.paicoding.com/stutymore/collection-20250512160410.png)
-
-我把二哥的 Java 进阶之路、JVM 进阶之路、并发编程进阶之路，以及所有面渣逆袭的版本都放进来了，涵盖 Java基础、Java集合、Java并发、JVM、Spring、MyBatis、计算机网络、操作系统、MySQL、Redis、RocketMQ、分布式、微服务、设计模式、Linux 等 16 个大的主题，共有 40 多万字，2000+张手绘图，可以说是诚意满满。
 
 ---
 

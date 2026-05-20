@@ -1,6 +1,6 @@
 ---
 title: 为什么 2026 年我们要拼 Harness？
-shortTitle: Harness 决定 Agent 成败
+shortTitle: Harness 六大核心组件
 description: 从 Prompt Engineering 到 Context Engineering 再到 Harness Engineering，Agent 工程这两三年经历的三次跃迁，为什么 2026 年我们在比拼 Harness。
 tag:
   - Agent

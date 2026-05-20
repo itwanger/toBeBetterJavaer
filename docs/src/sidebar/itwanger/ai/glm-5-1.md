@@ -1,6 +1,6 @@
 ---
 title: 爆肝 2 天，用 GLM-5.1 开发了一个简历 Agent（超nice），已开源！
-shortTitle: GLM-5.1实测：2天开发简历Agent
+shortTitle: GLM-5.1+派简历
 description: 爆肝2天，用GLM-5.1开发了一个简历Agent，通读9份文档+完整重构，2小时零失忆零跑偏，国产开源模型的长任务能力有多强？
 tag:
   - AI
@@ -35,7 +35,7 @@ date: 2026-03-28
 
 编辑 Claude Code 的配置文件，把模型名称调整为 glm-5.1 就可以。
 
-![](https://files.mdnice.com/user/3903/ef31720f-2a11-4f74-af01-dbc3622bb196.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/c680f053527e-ef31720f-2a11-4f74-af01-dbc3622bb196.png)
 
 然后重启 Claude Code。
 
@@ -328,7 +328,7 @@ OK，前端也起来了。
 
 这种不依赖人工干预的自我纠错能力，在长程任务中特别重要。因为人不可能一直盯着，模型得学会自己解决问题。
 
-![](https://files.mdnice.com/user/3903/3dc68379-9111-44a8-83df-048d477f161f.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/30cecbb96e7d-3dc68379-9111-44a8-83df-048d477f161f.jpg)
 
 这个项目体量不算小，但 GLM-5.1 没有失忆、没有跑偏、没有放弃。每一步都知道上一步做了什么，下一步该做什么。这种稳定性，是长程任务最难能可贵的地方。
 

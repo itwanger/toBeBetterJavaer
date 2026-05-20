@@ -1,3 +1,9 @@
+---
+title: Claude Code命令分享推荐
+shortTitle: Claude Code命令技巧
+description: 分享 Claude Code 常用命令和使用技巧，包括 auto 权限模式、斜杠命令、上下文操作和日常编码提效经验。
+---
+
 Claude Code命令分享推荐。
 
 真的要恭喜在大厂的小伙伴，可以无限使用Claude进行编码。
@@ -35,4 +41,3 @@ Claude Code命令分享推荐。
 ![](https://cdn.paicoding.com/stutymore/sucai-20260414175545.png)
 
 ## 04、连续按两次ESC
-

@@ -15,8 +15,6 @@ head:
 ---
 
 
-![面渣逆袭并发编程篇封面图](https://cdn.paicoding.com/stutymore/javathread-mianzhanixi-thread1.jpg)
-
 ## 前言
 
 3.5 万字 145 张手绘图，详解 73 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
@@ -39,11 +37,6 @@ head:
 
 ![面渣逆袭已经提交 1479 次 GitHub 记录](https://cdn.paicoding.com/stutymore/javathread-20250122093837.png)
 
-由于 PDF 没办法自我更新，所以需要最新版的小伙伴，可以微信搜【**沉默王二**】，或者扫描/长按识别下面的二维码，关注二哥的公众号，回复【**222**】即可拉取最新版本。
-
-<div style="text-align: center; margin: 20px 0;">
-    <img src="https://cdn.paicoding.com/tobebetterjavaer/images/gongzhonghao.png" alt="微信扫码或者长按识别，或者微信搜索“沉默王二”" style="max-width: 100%; height: auto;  border-radius: 10px;" />
-</div>
 
 当然了，请允许我的一点点私心，那就是星球的 PDF 版本会比公众号早一个月时间，毕竟星球用户都付费过了，我有必要让他们先享受到一点点福利。相信大家也都能理解，毕竟在线版是免费的，CDN、服务器、域名、OSS 等等都是需要成本的。
 

@@ -1,6 +1,6 @@
 ---
 title: 这份Claude Code指南火爆全网，已狂飙20k+ Star！
-shortTitle: Claude Code 插件实战
+shortTitle: Everything Claude Code
 description: 深入测试 Everything Claude Code 仓库，手把手教你通过插件系统打造专属的 AI 编程助手，提升开发效率 10 倍
 tag:
   - 程序员

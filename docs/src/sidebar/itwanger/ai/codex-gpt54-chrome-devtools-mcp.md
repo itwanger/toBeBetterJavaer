@@ -1,6 +1,6 @@
 ---
 title: GPT-5.4 实测：Codex+Chrome MCP操控浏览器，终于搞定这个难缠的 Bug
-shortTitle: Codex操控浏览器调试PDF Bug实录
+shortTitle: GPT-5.4 实测
 description: 派聪明RAG项目PDF预览Bug调试实录：文字描述和截图搞不定的Bug，让Codex自己控制浏览器测试，GPT-5.4+DevTools MCP真香。
 tag:
   - Codex

@@ -1,6 +1,6 @@
 ---
 title: OpenAI放大招Codex桌面版来了，一人指挥Agent军团，免费哦。
-shortTitle: Codex桌面版测评
+shortTitle: Codex桌面版
 description: OpenAI推出Codex桌面应用，多Agent并行处理、内置worktrees、自动化任务，还能免费使用，这是要硬刚Claude Code？
 tag:
   - AI工具

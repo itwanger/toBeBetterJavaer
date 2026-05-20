@@ -258,7 +258,7 @@ chrome-devtools server 在 capabilities 里声明了 `tools` 能力，PaiCLI 就
 
 并且确实新开了一个 Chrome 去阅读这篇内容。
 
-![](https://files.mdnice.com/user/3903/3c6c6313-e96e-44e2-8c8f-f3c1b18d2449.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/18b3f2c06a7b-3c6c6313-e96e-44e2-8c8f-f3c1b18d2449.png)
 
 第二个提示词是：截图看一下 paicoding.com 的首页
 

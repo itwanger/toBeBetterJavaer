@@ -1,5 +1,5 @@
 ---
-title: 《二哥的JVM进阶之路》小册简介，GitHub星标10000+，共计 10 万余字，100+张手绘图
+title: 《二哥的JVM进阶之路》小册简介，GitHub星标17000+，共计 10 万余字，100+张手绘图
 shortTitle: JVM小册简介
 category:
   - Java核心
@@ -19,7 +19,7 @@ head:
 
 - 小册名字：二哥的JVM进阶之路
 - 小册作者：沉默王二
-- 小册品质：该小册的内容来源于二哥在 GitHub 上开源的知识库《[Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，能在 GitHub 取得 10000+ star 可以说品质是有目共睹，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
+- 小册品质：该小册的内容来源于二哥在 GitHub 上开源的知识库《[Java 进阶之路](https://github.com/itwanger/toBeBetterJavaer)》，能在 GitHub 取得 17000+ star 可以说品质是有目共睹，尤其是国内还有不少小伙伴在访问 GitHub 的时候很不顺利。
 - 小册初衷：面试过小伙伴应该感受比较深，JVM 在 Java 岗的面试中占比挺大，尤其是去一些知名公司的话，像类加载机制、垃圾回收机制、Java运行时数据区、JIT 及时编译、字节码指令、性能优化等内容，都是面试中经常被考察的内容。另外，工作一两年后的初级程序员，如果想进阶为高级程序员，JVM的内容也是完全绕不开的，二哥之所以花大力气整理《[JVM小册](https://javabetter.cn/jvm/)》的原因也在于此，就是希望能帮助大家轻松且深刻地掌握JVM方面的知识。
 - 小册简介：主要针对JVM进行讲解，包括JVM是什么、运行时数据区、类加载机制、垃圾回收、性能优化的面试题等，内容涵盖了 Java 虚拟机的方方面面，是一份非常适合 JVM 的学习资料。
 - 小册说明：小册算是《[二哥的 Java 进阶之路基础篇](https://javabetter.cn/overview/)》、《[二哥的并发编程小册](https://javabetter.cn/thread/)》的姐妹篇，可通过 [GitHub 阅读](https://github.com/itwanger/toBeBetterJavaer)或者[二哥的网站在线阅读](https://javabetter.cn/jvm/)，同时提供 PDF 版本，10 万+字，手绘图 100+张，有亮白版、暗黑版和 epub 三个版本，前后耗费 2 个多月的时间，很不容易，希望你能好好珍惜。

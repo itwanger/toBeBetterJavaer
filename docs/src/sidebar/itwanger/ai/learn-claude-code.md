@@ -1,6 +1,6 @@
 ---
 title: 狂揽35k+Star，从零手搓一个Claude Code，这个开源项目让我热血沸腾！
-shortTitle: learn-claude-code测评
+shortTitle: 手搓一个Claude Code
 description: 从零到一教你构建Agent Harness，12层渐进式架构拆解Claude Code核心原理，35k+Star的硬核开源项目深度实测。
 tag:
   - Claude Code

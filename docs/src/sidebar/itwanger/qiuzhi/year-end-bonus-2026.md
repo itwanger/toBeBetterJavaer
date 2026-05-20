@@ -54,12 +54,12 @@ date: 2026-02-05
 
 接下来再给大家分享一份暑期实习的准备心得，打算年后开始冲刺的 27 届同学可以参考，[这位星球的同学](https://mp.weixin.qq.com/s/0mIN1eiXshzLhSPsLzqYTw)基本上大家熟知的互联网公司都投了个遍，面了个遍，秋招也是拿到了8家互联网大厂的offer。
 
-![](https://files.mdnice.com/user/3903/6a01b826-fa4e-48a1-841b-69c364a33f2e.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/62e56a2584b0-6a01b826-fa4e-48a1-841b-69c364a33f2e.png)
 
 应该对大家蛮有帮助和启发的🤔
 
 
-![](https://files.mdnice.com/user/3903/126d33ad-dd50-4fc8-bd1f-1b4d691179e1.png)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/833bb767717b-126d33ad-dd50-4fc8-bd1f-1b4d691179e1.png)
 
 
 > 原文链接：https://t.zsxq.com/KFCaf
@@ -73,7 +73,7 @@ date: 2026-02-05
 从5月开始的准备就是从JavaWeb开始学的，然后重看mysql、redis、spring、springmvc、springboot、JUC、JVM，项目则是以[技术派为基础](https://mp.weixin.qq.com/s/No9F6sKhFnEeQ8H-GyzSCA)修改的 + SimpleDB（就是星球里的DB项目，但是用golang全部重写了）。
 
 
-![](https://files.mdnice.com/user/3903/30aee6da-a406-4c6a-9c79-b6b8f1df899c.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/f0c42e6c511a-30aee6da-a406-4c6a-9c79-b6b8f1df899c.jpg)
 
 
 目前拿到的是阿里云的offer，进去后面要转golang+k8s做云原生的开发。不过因此也许秋招时会多一条路，同时投传统后端开发+云原生的开发。
@@ -86,7 +86,7 @@ date: 2026-02-05
 
 >https://paicoding.com/column/7/3
 
-![](https://files.mdnice.com/user/3903/cbbc190e-1006-4cad-a3ab-61d40539f1db.jpg)
+![](https://cdn.paicoding.com/tobebetterjavaer/images/mdnice/1ae7184a4100-cbbc190e-1006-4cad-a3ab-61d40539f1db.jpg)
 
 
 项目部分： 在去年的11月把修改后的技术派上线，绑定了备案域名
