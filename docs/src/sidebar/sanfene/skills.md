@@ -1,7 +1,6 @@
 ---
 title: Skills面试题，33道 Skill 八股文（1万字40张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Skills
-humanVerify: true
 description: 下载次数超 1 万次，1 万字 40 张手绘图，详解 33 道Skills面试高频题（让天下没有难背的八股），面渣背会这些 Skill 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
 author: 沉默王二
 date: 2026-03-29

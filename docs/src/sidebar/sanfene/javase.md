@@ -1,7 +1,6 @@
 ---
 title: Java面试题之Java基础篇，56道Java基础八股文（2.3万字68张手绘图），面渣逆袭必看👍
 shortTitle: 面渣逆袭-Java SE
-humanVerify: true
 author: 三分恶&沉默王二
 date: 2026-03-29
 category:

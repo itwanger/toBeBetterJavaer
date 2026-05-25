@@ -10,7 +10,7 @@ type VerifyFrontmatter = {
   humanVerifyQrcode?: string;
 };
 
-const DEFAULT_PERCENT = 5;
+const DEFAULT_PERCENT = 20;
 const DEFAULT_CODE = "888";
 const DEFAULT_KEYWORD = "222";
 const DEFAULT_QRCODE =
