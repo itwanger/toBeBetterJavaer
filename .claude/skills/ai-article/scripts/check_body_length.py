@@ -38,7 +38,7 @@ def main():
         sys.exit(1)
 
     file_path = sys.argv[1]
-    min_chars = 4000
+    min_chars = 5000
 
     # 读取文件
     try:
