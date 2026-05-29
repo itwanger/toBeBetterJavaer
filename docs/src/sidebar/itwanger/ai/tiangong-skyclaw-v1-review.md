@@ -1,269 +1,382 @@
 ---
-title:
-shortTitle:
-description: 天工超级智能体实测，SkyClaw-v1.0 开源 Agent 模型跑分对比，多智能体协同完成文档/PPT/表格/网页全流程工作。
+title: 我花了一天注册了20+个AI平台，把免费Token全薅了一遍，真香的就天工SkyClaw v1.0
+shortTitle: 天工+SkyClaw v1.0实测
+description: 天工超级智能体实测，SkyClaw-v1.0 百万上下文 Agent 模型跑分对比，在 Claude Code 中接入 SkyClaw 实操，多智能体协同完成文档/PPT/表格/网页全流程工作。
 keywords:
   - 天工超级智能体
   - SkyClaw v1.0
   - Agent 模型
   - 昆仑万维
   - AI 自动化办公
+  - 百万上下文
 tag:
   - Agent
 category:
   - AI
 author: 沉默王二
-date: 2026-05-24
+date: 2026-05-26
 ---
 
 大家好，我是二哥呀。
 
-上周一个球友在群里吐槽："老板让我做竞品分析报告，还要附带 PPT 和数据表格，给了我两天时间。"
+虽然我一直强调，token 就是生产力，这年头要至少备一个 Coding Plan 套餐，否则你的生产力会严重拖后。
 
-我问他后来怎么搞定的，他说自己肝了一天半，PPT 排版到凌晨两点。我听完心情复杂，因为类似的活，我前两天用天工花了不到 20 分钟就跑完了——从数据整理到报告生成到 PPT 排版，一条龙。
+但 Coding Plan 现在不好买，lite 版本基本上都抢不到。
 
-【此处插入天工生成报告的截图：截图目标：展示天工一站式完成竞品分析的全流程；关键词：对话框、任务执行、多文件输出；建议位置：网页截图】
+所以我就花了一天时间，把市面上能薅的免费 token 全薅一遍，看看哪个平台的免费 token 最香。
 
-不是吹，是真的觉得这个时代的生产力工具已经变了。
+目前得出的结论是：天工新上的 SkyClaw v1.0 真不错，上线期间可以免费调用，并且专门针对真实工作流做了深度优化。
 
-今天这篇就聊两个东西：一个是昆仑万维的**天工超级智能体**（后面简称天工），另一个是他们刚开源的 Agent 模型 **SkyClaw v1.0**。前者是产品，让普通人也能调度一支 AI 团队干活；后者是模型，让开发者能在自己的 Agent 里接入一个性价比炸裂的大脑。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260526134153.png)
 
-## 01、天工不是聊天机器人
+通过 ApiFree 注册账号即可免费调用，不需要白名单。
 
-先纠正一个认知偏差。
+> https://www.apifree.ai/model/skywork-ai/skyclaw-v1?tab=api
 
-很多人一听"AI 助手"，脑子里浮现的画面就是一个对话框，问一句答一句，和 ChatGPT 差不多。天工不是这个东西。
+想体验无限 token 的小伙伴请趁早，趁早，趁早！
 
-准确地说，天工超级智能体是一个「7x24 小时随时待命的云端 AI 团队」。在对话框里下达一个目标，天工会自动拆解任务、调度多个专家级智能体、端到端输出成品。注意是成品，不是半成品。
+我已经接入到 Claude Code 肝了一个可以切 Codex 底层模型的 PaiSwitch，哈哈。
 
-【此处插入天工首页截图：截图目标：展示天工的产品界面和核心定位；关键词：超级智能体、多专家协同、云端团队；建议位置：网页截图】
 
-举个例子。对它说"帮我分析贵州茅台 2024 年度财报，生成一份详细的财务分析报告"，然后把 Excel 文件丢给它。天工会自己读 Excel、提取关键财务指标、做同比环比计算、画图表、最后输出一份格式完整的分析报告。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260528110725.png)
 
-这和在 ChatGPT 里问"帮我分析一下茅台的财报"完全不是一回事。后者给一段文字，前者给一份可以直接交给老板的文件。
 
-【此处插入茅台财报分析截图：截图目标：证明天工能自动分析真实财务数据并生成结构化报告；关键词：财务报表、数据分析、图表输出；建议位置：天工生成结果截图】
+让 Codex 也能像 Claude Code 那样，底层切换 SkyClaw v1.0/DeepSeek V4 Pro 等模型来跑 Agent 任务了。
 
-去年昆仑万维把海外版 Skywork 投进了最卷的海外市场去试炼，和全球顶尖的 AI 产品正面刚。打了一整年后，国内版直接跳过了中间的迭代版本，做了一次跨代际的升级。用他们自己的话说，叫"全球技术架构统一"。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527154254.png)
 
-这话翻译一下就是：海外打完仗，把最能打的版本带回国了。
+PaiAgent 工作流编排系统里也接入了 SkyClaw v1.0。
 
-## 02、五个让我真正动心的功能
+![](https://files.mdnice.com/user/3903/905123af-98d3-4bc1-b6ac-86c446d64e61.jpg)
 
-我拿天工干了不少活之后，总结出五个最戳我的点。
 
-### 告别"龙虾"，小白也能自动化
+接下来，我会给大家详细分享 SkyClaw v1.0 的实测体验，以及他们的旗舰产品**天工超级智能体**的使用感受（为方便叙事，后简称天工 😄）。
 
-现在市面上的 AI Agent 工具，大部分都有一个门槛：得自己搞环境、配 API、装依赖。像 OpenClaw 这类工具虽然强大，但对非技术用户来说，光是"在本地起一个服务"这件事就够劝退的。
+> 系好安全带，我们粗粗粗发啦～
 
-天工走了一条完全不同的路——云端虚拟机。
+## 01、7x24 小时的云端 AI 团队
 
-不需要在本地装任何东西，注册一个账号就能用。天工在云端开了一台虚拟机，所有的任务执行、文件读写、代码运行都在云端完成。我们只管在对话框里说要干什么。
+准确地说，天工是一个「7x24 小时随时待命的云端 AI 团队」。
 
-【此处插入天工对话界面截图：截图目标：展示用户只需输入自然语言就能派发任务；关键词：对话框、任务指令、执行状态；建议位置：网页截图】
+在对话框里下达一个目标，天工就会自动拆解任务、调度多个专家级智能体、端到端输出成品。
 
-更爽的是持久化执行。让天工分析一份 200 页的 PDF，中间关掉浏览器去吃饭，回来它还在跑，文件也不会丢。相当于有一个 24 小时在线的远程助理，我们睡觉的时候它还在帮忙干活。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260526135635.png)
 
-还有定时自动化。可以让天工每天早上 8 点整理行业新闻，每周五下午生成一份周报。设置好之后它就自己跑，连对话框都不用打开。
+举个真实场景。
 
-【此处插入定时任务截图：截图目标：展示天工的定时自动化功能；关键词：定时任务、自动执行、飞书通知；建议位置：天工定时任务设置页面】
+最近正好在写 AI 编程工具的横评文章，需要一份 Claude Code、Codex、Qoder 的竞品分析。
 
-### 专家技能，一个输入框搞定一切
+以前这种活我得自己翻官网、查文档、整理数据、做对比表格、再排 PPT，少说大半天。
 
-天工的技能广场是我觉得做得最聪明的地方。
+这次我直接甩给天工一句话：
 
-同一个输入框，你可以让它写文档、做 PPT、画图、填表格、搭网页、甚至剪视频。不需要切换不同的 App，也不需要学习不同工具的操作逻辑。
+> 帮我对比分析 Claude Code、Codex、Qoder 这三款 AI 编程工具的功能、定价和适用场景，输出一份带数据图表的深度分析文档，再做一份可以分享的 PPT。
 
-我实测了一个场景：让天工帮我生成一份"新员工 AI 工具高效使用培训"的 PPT。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260526143714.png)
 
-直接说了一句话，天工就开始干活了。它先梳理了培训大纲，然后逐页生成内容，配上合适的排版和配图，最后输出一个 3.6MB 的 .pptx 文件，可以直接打开编辑。
+他就开始吭哧吭哧干活了。
 
-【此处插入PPT生成截图：截图目标：展示天工一句话生成完整PPT的能力；关键词：PPT生成、培训文档、排版设计；建议位置：天工生成PPT的过程和结果截图】
+我就打开手机开始刷小姐姐了，哦不，一一回复读者的留言了。
 
-【此处插入PPT内容截图：截图目标：展示生成PPT的实际内容质量；关键词：页面排版、内容结构、视觉设计；建议位置：打开PPT后的截图】
+这个过程中，天工会调用多种 MCP 工具，比如说联网搜索，来获取结果。
 
-小伙伴可能会说，市面上做 AI PPT 的工具不少，比如百度文库、阿里悟空。但天工的不同之处在于，它不是一个"单点工具"，而是一个"全流程平台"。让它做 PPT 的时候，它可以同时参考之前上传的文档、调用网页搜索补充数据、甚至读取 Excel 表格提取关键指标。这种跨模态的协同是单点 AI 工具做不到的。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260526143838.png)
 
-### 顶级模型随心选
+右侧可以实时查看工具干活的进度和结果。
 
-天工内置了一个旗舰模型全家桶，大家可以根据任务复杂度选择不同的模型。不用像玩 Claude Code 或者 Codex 那样自己去申请 API Key、配置模型参数。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260526143952.png)
 
-对普通用户来说，选模型这件事根本不应该成为负担。天工把这层复杂度吃掉了。
+这次一共跑了 15 分钟左右。
 
-### 全模态编辑器
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527101446.png)
 
-天工的编辑器支持文本、图片、表格、代码、公式的混合编辑。在同一个界面里同时处理文档写作和数据分析，不用在 Word、Excel、浏览器之间来回切换。
+OK，天工已经完成了联网调研、数据整理、对比分析，输出了一份结构完整的分析报告——功能对比、定价策略、适用人群、优劣势总结，全都有。
 
-【此处插入全模态编辑器截图：截图目标：展示编辑器支持多种内容格式混合编辑；关键词：多模态、混合编辑、一站式；建议位置：天工编辑器界面截图】
+包括：
 
-### 极致 ROI
+- 深度分析报告（HTML 格式）— 9 个章节、7 个交互式数据图表（Chart.js）、完整数据来源引用，覆盖产品概览、核心指标、Benchmark、功能、定价、生态、优缺点、时间线和选型建议。
+- 团队分享 PPT — 13 页，结构清晰：封面 → 产品概览 → 核心指标 → Benchmark → 功能对比 → 定价 → 生态 → 三款工具各自的优缺点 → 时间线 → 场景化选型建议 → 综合评分总结。
 
-这一点对小团队和个人创作者最有感。
+这个 PPT，质量真的太高了。
 
-算一笔账：雇一个实习生，一个月最少也要五六千，还得考虑培训成本、沟通成本、出错成本。天工的定价比一个实习生便宜太多了，但它 24 小时在线，不用培训，不会摸鱼（虽然你可以让它帮你摸鱼）。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527101042.png)
 
-一个平台的用户可以调度多个不同的智能体工具，相比单独购买多个 SaaS 工具的订阅费，这个性价比是碾压级的。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527101123.png)
 
-## 03、SkyClaw v1.0 开源 Agent 模型
+完全超出了我的预期。
 
-聊完产品，聊模型。
+天工在网页端自带了多模态编辑器，可以让你直接在网页上进行编辑，但我觉得不用，直接拿去用就行了。
 
-SkyClaw 是昆仑万维同期发布的自研 Agent 模型，2026 年 5 月 19 日正式开源。这个模型的定位非常精准，不追求通用聊天能力，专攻 Agent 场景。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527101721.png)
 
-【此处插入SkyClaw官方页面截图：截图目标：展示SkyClaw的官方介绍和定位；关键词：开源、Agent模型、高性能；建议位置：SkyClaw Project Homepage】
+## 02、云端虚拟机+专家技能+顶级模型
 
-### 为什么需要一个专门的 Agent 模型
+天工在云端开了一台虚拟机，所有的任务执行、文件读写、代码运行都在云端完成。
 
-很多人可能会问，现在大模型那么多，为什么还需要一个专门做 Agent 的模型？
+我们只管派发任务就行。
 
-原因很简单：通用大模型在 Agent 场景下的表现，远没有大家想象的那么好。
 
-Agent 和聊天是两种完全不同的工作模式。聊天是"你问我答"，一轮结束；Agent 是"你给目标，我自己拆解、调用工具、多轮推理、直到任务完成"。这个过程中，模型需要精准地调用各种工具（Tool Calling）、在多轮交互中保持上下文一致性、在复杂流程中做出正确的判断。
+![](https://files.mdnice.com/user/3903/7a5e7171-5edd-4298-b64a-dd2bbc852c96.jpg)
 
-很多通用大模型在这些方面的表现都不稳定。让它跑一个 10 步的工作流，可能到第 6 步就开始胡说八道了。
 
-SkyClaw 就是针对这些痛点做的优化。
+让天工分析一份 200 页的 PDF，中间关掉浏览器去吃个饭，回来它还能在跑，文件也不会丢。相当于有一个 24 小时在线的远程助理，你睡觉的时候他还在帮忙干活。
 
-【此处插入SkyClaw架构图截图：截图目标：展示SkyClaw的技术架构和训练流程；关键词：Mid-training、SFT、强化学习；建议位置：官方技术文档】
+纯血牛马，哈哈～
 
-### 训练流程：三步造一个 Agent 专家
+天工还支持**多线程并行**，可以同时跑多条复杂工作流：写文档、做 PPT、跑数据分析，三件事并行推进，不用排队。
 
-SkyClaw 的训练流程和普通大模型不太一样，它分三个阶段。
+天工同时还支持**定时自动化 + 飞书 IM**，不用打开浏览器，直接在飞书里下达任务。
 
-第一阶段是大规模中期训练（Mid-training）。在通用预训练的基础上，用大量 Agent 相关的语料做进一步训练，让模型建立起"任务→工具→执行"的基本认知框架。
+左下角，点连接 IM 渠道，选择飞书，填写 appid+appsecret 就连接好了。
 
-第二阶段是高质量 Agent 任务监督微调（SFT）。用高复杂度的 OpenClaw 仿真环境生成训练数据，包括真实世界的工具关系图谱、基于真实用户工作流的合成任务。这一步是让模型学会"怎么干活"。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527102923.png)
 
-第三阶段是端到端的 Agentic 强化学习。用轨迹质量评估系统来评判模型在 Agent 任务中的表现，然后做强化学习优化。这一步是让模型学会"怎么干得更好"。
+飞书机器人的申请方法，可以参考这篇文档（以前配过龙虾的小伙伴应该很轻车熟路）：
 
-三步下来，SkyClaw 在 Agent 场景下的能力和普通通用模型就拉开了差距。
+> https://www.tiangong.cn/help/tutorial/%E8%BF%9E%E6%8E%A5im
 
-### 跑分说话：硬核数据
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527103407.png)
 
-模型好不好，跑分见真章。
+连通后可以在飞书里随便发送一个消息，能收到响应就表明配置成功了。
 
-SkyClaw v1.0 在多项 Agent 评测中表现亮眼。根据官方发布的数据（截至 2026 年 5 月 19 日，来源：[SkyClaw Project Homepage](https://skyworkai.github.io/skyclaw/)）：
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527111610.png)
 
-| 评测项目 | SkyClaw v1.0 | 说明 |
-|---------|-------------|------|
-| PinchBench-V2 | 87.2 | 综合 Agent 能力评测 |
-| Claw-Eval Pass^3 | 59.7 | 稳定性测试（连续 3 次通过） |
-| Claw-Eval Avg | 74.2 | 平均通过率 |
-| Skywork-Claw-Bench | 62.9 | Skywork 自研 Agent 评测 |
+我设了一个定时任务，把下面这段 prompt 发给天工：
 
-在 OpenClaw 相关任务上，SkyClaw v1.0 超越了 MiniMax M2.7 和 DeepSeek V4 Flash 等同级别模型。和 DeepSeek V4 Pro、Claude Opus 4.6、Qwen 3.6 Plus 这些更大规模的闭源模型相比，性能也非常接近。
+> 你是我的 AI 行业资讯助手。每天早上 8 点搜索最近 24 小时 AI 行业的重要动态，筛选 5-8 条最有价值的热点（去除营销稿和重复信息），按分类汇总后推送给我。
 
-【此处插入Benchmark对比图截图：截图目标：展示SkyClaw与竞品模型的跑分对比；关键词：PinchBench、Claw-Eval、模型对比；建议位置：官方Benchmark图表】
+设置完成后，天工会在定时任务里创建一条每日执行的任务。
 
-【此处插入Claw-Eval对比柱状图截图：截图目标：展示SkyClaw在Claw-Eval上的稳定性优势；关键词：Pass^3、稳定性、多次运行；建议位置：官方评测图表】
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527103451.png)
 
-这里有个数据挺有意思：Claw-Eval 的 Pass^3 指标。这个指标不是看模型跑一次能不能过，而是连续跑三次都能过。很多模型单次跑分很好看，但连续跑就拉了，说明 Agent 行为不稳定。SkyClaw 在这个指标上的 59.7 分，已经是同级别模型里相当不错的水平。
+以后，每天早上打开飞书，一份 AI 行业日报已经安安静静躺在那了。
 
-做过 Agent 开发的小伙伴应该知道，Agent 的稳定性比单次表现重要得多。不可能每次跑任务都盯着看，万一跑歪了还得人工干预，那还不如自己做。
+为了演示效果，我这里让定时任务立即执行一下。
 
-### 还有个 Lite 版本
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527103537.png)
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527111943.png)
+
+飞书侧收到消息了。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527112250.png)
+
+消息有 GPT-5.6 曝光：150 万上下文窗口，6 月有望发布、OpenRouter 完成 1.13 亿美元 B 轮融资，估值翻倍至 13 亿美元、清华 HRM-Text 模型：极低算力逼近大规模模型性能等等，都是 AI 行业的大事件。
+
+真正的“你睡觉，他干活”。
+
+### 专家技能
+
+天工的技能广场是我觉得非常实用的地方。
+
+你可以让它写文档、做 PPT、画图、填表格、搭网页、甚至剪视频。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527112150.png)
+
+我实测了一个场景：让天工帮我生成一份“新员工 AI 工具高效使用培训”的 PPT。
+
+直接一句话，天工就开始干活了。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527112822.png)
+
+它先梳理了培训大纲，然后逐页生成内容，配上合适的排版和配图，最后输出 .pptx 文件，可以直接打开编辑。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527113059.png)
+
+天工在做 PPT 的时候，可以同时参考之前上传的文档、调用网页搜索补充数据、甚至读取 Excel 表格提取关键指标。
+
+这种跨模态的协同是很多单点 AI 工具做不到的。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527113441.png)
+
+除了文档和 PPT，天工还配置了：
+
+- 图片生成（无限画布编辑器，AI 抠图、图层分离都有）
+- 表格处理（比肩 Excel 的编辑能力）
+- 网页生成（不写一行代码就能搭落地页）
+- 视频制作（接入了 Seedance 2.0、Kling 3.0 等旗舰模型，还配了专业时间线编辑器）
+
+更厉害的是**自定义 Skill**。
+
+你可以向天工描述自己的工作场景和需求，它会帮你创建专属 Skill，无需编程。而且天工在使用过程中会随着你的反馈自主优化 Skill 的执行策略，**越用越懂你**。
+
+### 顶级模型
+
+天工内置了旗舰模型全家桶：主调度模型中，除了他们自家的 SkyClaw 模型外，还为你配置了可以随意切换的 DeepSeek V4 Pro、GLM-5.1 等顶级选手等。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527112950.png)
+
+大家可以根据任务复杂度选择不同的模型，不确定选哪个的话，“智能调度”模式会自动匹配。
+
+![](https://files.mdnice.com/user/3903/c414f467-e99e-47bc-95e9-f97d90c66c0e.png)
+
+
+## 03、天工到底好在哪？
+
+简单总结一下天工打动我的三个点。
+
+**第一，交付即成品。**
+
+很多 AI 工具的产出是“半成品”还得自己一页页改。
+
+天工内置了全模态编辑器，文档、PPT、表格、图片、网页、视频，每种输出都能直接在线编辑和导出。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527195443.png)
+
+**第二，全球验证过的架构。**
+
+去年我就体验过海外版的 Skywork，战斗力很强，和全球顶尖的 AI 产品正面刚了一整年后，国内版直接跳过了中间的迭代版本，做了一次跨代升级。
+
+这次给我的体感是：别人还在慢慢打怪升级，天工直接开着满级大号回了新手村。
+
+## 04、SkyClaw v1.0
+
+说到 SkyClaw v1.0，他是昆仑万维刚发布的自研 Agent 模型，支持**百万 token 上下文**，专门针对真实 Agent 工作流做了深度优化。
+
+在多项 Agent 评测中表现亮眼：
+
+| 评测项目           | SkyClaw v1.0 | 说明                        |
+| ------------------ | ------------ | --------------------------- |
+| PinchBench-V2      | 87.2         | 综合 Agent 能力评测         |
+| Claw-Eval Pass^3   | 59.7         | 稳定性测试（连续 3 次通过） |
+| Claw-Eval Avg      | 74.2         | 平均通过率                  |
+| Skywork-Claw-Bench | 62.9         | Skywork 自研 Agent 评测     |
+
+性能超过 Minimax 2.7、DeepSeek V4 Flash，以及 Qwen 3.6 35B A3B 和 27B 模型。
+
+![SkyClaw Benchmark 对比](https://cdn.paicoding.com/stutymore/sucai-20260526132137.png)
+
+SkyClaw 的训练环境是基于 OpenClaw-style agent framework 构建的，覆盖文件读取、代码编辑、检索、测试、页面观察等高频 Agent 动作。
+
+LLM 不只是拿来生成答案，还需要选择工具、组合工具，并根据工具返回结果继续推进任务。还得加上高质量的合成数据微调（SFT）和 Agentic 强化学习。
+
+经过我的实战测试，可以得出：SkyClaw 在 Claude Code、Codex 等 Agent 框架中使用时，在**持续执行、错误恢复和多轮迭代**时表现出色。
+
+### 实战1：用 SkyClaw 给 PaiSwitch 加 Codex 模型切换
+
+光看跑分不够，得看实际干活的效果，SkyClaw 真正有意思的地方在于，它本身是一个开源的 Agent 模型，不是只能锁在天工里用的“内置发动机”。如果你和我一样平时自己也在折腾 Agent，那它另一种打开方式你大概率会更感兴趣——直接调 API，把它接进你自己的 Agent 框架里。
+
+还记得开头提到的 PaiSwitch 吗？
+
+就是用 SkyClaw 作为 Claude Code 的底层模型，给 PaiSwitch 加了一个 Codex 底层 LLM 切换功能。
+
+第一步，启动 PaiSwitch，增加 SkyClaw 的 API 配置。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527154736.png)
+
+- Base URL 填写 `https://api.apifree.ai/agent`
+- 模型名称填 `skyclaw-v1`（如果想用 Lite 版本就填 `skyclaw-v1-lite`）
+- API Key 就是你在 ApiFree 上申请的那个 Key。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527154911.png)
+
+然后启动 Claude Code。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527155034.png)
+
+如果出现 `skyclaw-v1` 的模型选项，说明配置成功了。也可以键入 `/status` 来查看当前模型状态。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527155117.png)
+
+我在 Claude Code 里给 SkyClaw 下了一个指令：
+
+> 参考 Claude Code 的 settings.json 模型切换机制，给 PaiSwitch 增加 Codex 的底层 LLM 切换功能，支持通过配置文件切换 SkyClaw v1.0、DeepSeek V4 Pro 等模型。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527182005.png)
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527182456.png)
+
+SkyClaw 先读了项目现有代码，理清了 Claude Code 的模型切换逻辑，然后自己拆出了任务清单：
+
+配置文件解析 → 模型路由层 → API 适配器 → 命令行参数支持。
+
+注意，APIFree 本身并没有提供 Anthropic 的兼容 API，我在 PaiSwitch 的后台做了一层适配，把 APIFree 的接口转换成 Anthropic 兼容的格式，这样 SkyClaw 就能无缝调用了。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527182117.png)
+
+写代码的过程中，SkyClaw 调用了很多次工具：读文件、写代码、跑测试、看报错、改代码、再跑测试。
+
+全程没有人工干预，这就是 Agent 模型的强大之处。
+
+最后的交付结果是，SkyClaw 自己让自己在 Codex 里面适配了，可以给 Codex 切换 OpenAI 默认的 GPT-5.5 模型，也可以是 DeepSeek V4 和 SkyClaw v1.0。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527182343.png)
+
+中间还有很多细节，我就不一一展示了，最后的代码质量我瞅了一眼，质量刚刚的。
+
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527183029.png)
+
+### SkyClaw-v1.0-lite
 
 除了旗舰版，SkyClaw 还有一个 Lite 版本，**SkyClaw-v1.0-lite**。
 
-同样的架构，更小的参数量，推理速度更快，成本更低。适合对延迟敏感或者预算有限的场景。在 Agent 核心能力上和旗舰版差距不大，可以理解为"同等 Agent 能力的更快更便宜版本"。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527182812.png)
 
-### 成本优势：这才是杀手锏
+同样的架构，更小的参数量，推理速度更快，成本更低。适合对延迟敏感或者预算有限的场景。
 
-说到成本，这才是 SkyClaw 最有竞争力的地方。
+说到成本，SkyClaw 非常有竞争力。
 
-根据飞书 Brief 中提供的定价对比数据：
+输入价格只有 DeepSeek V4 Pro 的 1/24，MiniMax M2.7 的约 1/4。但在 Agent 评测上的表现并没有因为价格低就缩水。
 
-| 模型 | 输入价格 | 输出价格 | Claw-Eval Avg | 每百万 Token 总成本 |
-|------|---------|---------|--------------|-----|
-| **SkyClaw v1.0** | **0.5** | **4** | **0.2** | **1.5** |
-| SkyClaw v1.0-lite | 0.3 | 2 | 0.12 | 0.9 |
-| DeepSeek V4-Pro | 12 | 24 | 0.1 | — |
-| MiniMax-M2.7 | 2.1 | 8.4 | 0.42 | 2.625 |
-| DeepSeek V4-Flash | 1 | 2 | 0.02 | — |
+![SkyClaw 定价对比](https://cdn.paicoding.com/stutymore/sucai-20260526132125.png)
 
-SkyClaw v1.0 的输入价格只有 DeepSeek V4 Pro 的 1/24，MiniMax M2.7 的约 1/4。但在 Agent 评测上的表现并没有因为价格低就缩水。
+### 实战2：给 PaiAgent AI 播客加上 SkyClaw
 
-对于做 Agent 应用的开发者来说，模型调用成本是一个绕不过去的问题。一个 Agent 任务可能需要调用模型十几轮甚至几十轮，每轮都算钱。如果单轮成本降不下来，跑一个复杂任务的费用就会劝退大部分用户。
+PaiAgent 是我做的一个开源的工作流编排项目，GitHub 上已经有 400 多个 star 了。
 
-SkyClaw 的定价策略等于直接告诉开发者：放心用，跑得起。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527185120.png)
 
-而且上线期间通过 [ApiFree](https://skyworkai.github.io/skyclaw/) 账号可以免费调用，注册就能用，不需要白名单。想在自己的 AI Agent 里集成一个便宜又好用的大脑，现在就可以试。
+> https://github.com/itwanger/PaiAgent
 
-【此处插入SkyClaw API文档截图：截图目标：展示SkyClaw的API接入方式和免费调用入口；关键词：API接入、免费试用、开发者文档；建议位置：API文档页面截图】
+在没有适配 SkyClaw 之前，PaiAgent 的工作流会报这个错误。
 
-### 开发者可以怎么玩
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527185208.png)
 
-SkyClaw 是完全开源的，代码托管在 [GitHub](https://github.com/SkyworkAI/skyclaw) 上。
+那接下来，我们就用 SkyClaw 1.0 + Codex 来改造一下 PaiAgent，让它能兼容 SkyClaw 了。
 
-如果我们的小伙伴正在做 Agent 相关的项目，可以考虑几个方向：
+我们先切到 SkyClaw 模型。
 
-多工具任务完成度测试，让 SkyClaw 同时调用浏览器、代码执行器和搜索引擎，看它能不能把一个复杂任务跑完。长流程工作流测试，设计一个 10 步以上的工作流，测试模型在多步执行下的稳定性和准确性。成本性能对比，把 SkyClaw 和手上正在用的模型做一次性价比对比，看看能不能省下一笔 API 费用。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527185638.png)
 
-## 04、和竞品比，天工到底好在哪
+重启 Codex。
 
-市面上做 AI 办公助手的产品不少，百度文库、阿里悟空、WorkBuddy 都是玩家。天工和它们比，到底有什么不一样？
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527190139.png)
 
-百度文库的 AI 功能主要聚焦在文档写作辅助上，润色文案、生成大纲、改改格式，能力边界比较窄。阿里悟空深度绑定钉钉生态，走的是企业 OPT 方案的路线，对个人用户不太友好。WorkBuddy 是桌面端本地 Agent，数据不上云这个卖点不错，但上手门槛偏高，需要一定技术基础。
+输入提示词：
 
-天工的差异化在于三点。
+> 我给 PaiAgent 配置了 skyclaw 模型，但不适配 [18:49:34] ❌ 节点 [llm] 执行失败: 不支持的提供商类型: skyclaw-v1.0
+> [18:49:34] ❌ 工作流执行失败,总耗时 0 秒 这是 apifree 的官方 API
 
-第一，深度研究能力。天工在 GAIA 评测集上拿到了 82.42 分（数据来源：[53AI](https://www.53ai.com/news/LargeLanguageModel/2025052326719.html)，2025 年 5 月 23 日），这个分数在当时是全球第一，超过了 OpenAI 的 Deep Research 和 Manus。如果工作涉及大量的信息调研和分析，这个能力差距是实打实的。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527193301.png)
 
-第二，全流程一站式。从文档到 PPT 到表格到网页到视频，一个平台全搞定。不需要为了做 PPT 去订 Gamma、为了分析数据去开 ChatGPT Plus、为了画图去用 Midjourney。天工把这些能力打包在一起了。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527193838.png)
 
-第三，自研模型加持。天工底层跑的就是自家的模型，包括刚开源的 SkyClaw。这意味着它对 Agent 场景的优化是从模型层面开始的，不是在别人的模型上面套一层 prompt。
+OK，问题搞定。
 
-【此处插入天工与竞品对比截图：截图目标：展示天工相比竞品的核心优势；关键词：功能对比、能力差异、产品定位；建议位置：对比表格或脑图】
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527193859.png)
 
-## 05、简历包装
+你看，我们给 Claude Code 增加 SkyClaw 的适配，到搞定 Codex 的底层模型切换，再到通过 Codex+SkyClaw 改造 PaiAgent，整个过程都是在验证 SkyClaw 的能力。
 
-如果大家正在做 Agent 相关的项目，或者想把天工 / SkyClaw 的实战经验写进简历，可以参考这个模板：
+显然，SkyClaw 不仅成功完成了任务，还在过程中展示了它的工具调用能力、错误恢复能力和持续执行能力。
 
-**项目名称**：基于 SkyClaw 的智能办公 Agent 系统
-
-**项目简介**：基于昆仑万维 SkyClaw-v1.0 开源 Agent 模型，构建面向企业办公场景的多智能体协同系统，支持文档生成、数据分析、PPT 制作等全流程自动化。
-
-**技术栈**：SkyClaw-v1.0、OpenClaw、Tool Calling、Multi-Agent Orchestration、RAG
-
-**核心职责**：
-
-- 基于 SkyClaw v1.0 Agent 模型搭建多工具调用框架，实现浏览器操控、代码执行、文件读写等 8 类工具的自动编排，任务完成率达 87%
-- 设计并实现多轮 Agent 工作流引擎，支持 15 步以上长流程任务的稳定执行，Pass^3 稳定性指标达 85%
-- 基于 OpenClaw 框架适配 SkyClaw 模型，优化 Tool Calling 准确率，从基线 72% 提升至 91%
-- 构建 RAG 增强的企业知识库检索模块，结合 Agent 工作流实现跨文档信息整合与自动报告生成
-- 通过模型量化和推理优化，将单次 Agent 任务的平均调用成本降低 60%，支撑日均 5000+ 次任务请求
+不错不错。
 
 ## ending
 
 说真的，用完天工之后我反复在想一件事。
 
-以前我们说"一个人活成一支专业队伍"，
-听起来像鸡汤，像卖焦虑的自媒体标题。
+以前我们说“一个人活成一支专业队伍”，听起来很不可思议。
 
 但现在这件事正在真实地发生。
 
-把一份 Excel 丢进去，
-20 分钟后它给一份带图表的分析报告。
-说一句话，
-它生成一份可以直接打开编辑的 PPT。
-设好定时任务，
-每天早上醒来就有一份行业新闻摘要躺在飞书里。
+一句话甩给天工，它帮我跑完竞品分析 + 文档 + PPT 全流程。飞书里设个定时任务，每天醒来 AI 行业日报已经躺好了。在 Claude Code 里接入 SkyClaw 的 API，用它当 Agent 大脑肝了个 PaiSwitch。
 
-这不是未来，是现在。
+![](https://cdn.paicoding.com/stutymore/tiangong-skyclaw-v1-review-20260527191454.png)
 
-而 SkyClaw 的开源，
-让这件事的成本又降了一个量级。
-以前跑一个 Agent 任务，
-光模型调用费就得肉疼半天。
-现在 SkyClaw 的定价只有 DeepSeek V4 Pro 的 1/24。
+SkyClaw v1.0，百万 token 上下文 + 极致性价比，意味着不管是个人开发者还是企业团队，都能跑得起高质量的 Agent 任务。
 
-一个普通人，一台电脑，一个天工账号，
-就能干过去需要一个小团队才能完成的活。
+一个普通人，一台电脑，一个天工账号，就能干过去需要一个小团队才能完成的活。
 
-**【好的工具不是让你多一个功能，而是让你少雇一个人。】**
-
-天工官网：[https://tiangong.cn/?referrer=konishi](https://tiangong.cn/?referrer=konishi)
-
-评论区里我加了天工的官网链接，大家去体验一下，有什么好玩的用法欢迎在评论区分享。
+天工的 SkyClaw 模型的 API 也开放了免费试用，注册 ApiFree 就能用，想薅无限 token 的小伙伴们别错过。
 
 我们下期见。

@@ -14,12 +14,10 @@ images
 .yarn
 *-vip.md
 /.vscode
-.claude/*
-!.claude/skills/
-.claude/skills/*/sucai.md
-.codex/
 .qoder/
-.agents/
 plugins/
 /.playwright-mcp
 /docs/src/sidebar/itwanger/wiki
+/output
+/docs/src/sidebar/itwanger/ai/output
+/diagram

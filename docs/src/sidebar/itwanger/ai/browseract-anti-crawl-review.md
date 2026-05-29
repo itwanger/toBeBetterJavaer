@@ -1,5 +1,5 @@
 ---
-title: Leader说Skills就是Prompt换皮，我不听，花一周给团队写了这个浏览器自动化Skill。他偷偷找我：这个月的绩效你拿A。
+title: Leader 说 Skills 就是 Prompt 换皮，我不信，花一周做了个能自动过验证码的浏览器自动化 Skill，结果他偷偷给我绩效打了 A
 shortTitle:
 description: BrowserAct 实测，专为 AI Agent 打造的浏览器自动化 CLI，stealth-extract 一条命令提取小红书内容，stealth 浏览器通过全部反检测测试。
 keywords:
@@ -43,7 +43,7 @@ date: 2026-05-24
 
 比如说直接在Agent里用知乎搜索 AI Agent 的 TOP10 热门帖子。
 
-【视频】
+![这是正在用知乎搜AI Agent 类内容](https://cdn.paicoding.com/stutymore/browseract-anti-crawl-review-20260524140049.png)
 
 嘎嘎嘎的好用。
 
@@ -296,7 +296,7 @@ BrowserAct 还有一个配套工具叫 **Skill Forge**。
 ```
 
 
-![](https://files.mdnice.com/user/3903/24b942ab-0f41-46d2-b876-e748ed87e166.png)
+![](https://cdn.paicoding.com/paicoding/fb5869abb3e3ea2cb0a8b83f36b8076e.png)
 
 
 然后告诉 Agent 想做什么：
@@ -308,10 +308,10 @@ BrowserAct 还有一个配套工具叫 **Skill Forge**。
 Skill Forge 会自动分析网站结构，尝试找到最合适的方法（比如发现可用 API），结合 DOM 操作，生成标准化的 Skill。
 
 
-![](https://files.mdnice.com/user/3903/0461527b-839c-4be5-bf1e-09f42ececd15.png)
+![](https://cdn.paicoding.com/paicoding/2363cf6cfae92bd503676455b0bf0fcc.png)
 
 
-![](https://files.mdnice.com/user/3903/1f88ede5-49a8-4542-889e-bcc05fd0bacc.jpg)
+![](https://cdn.paicoding.com/paicoding/9540189d8557d6430672573fb861ae50.jpg)
 
 
 而且做好的 Skill 可以分享给同事或团队成员。

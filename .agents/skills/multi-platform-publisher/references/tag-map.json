@@ -1,0 +1,130 @@
+{
+  "default": {
+    "summary_limits": {
+      "csdn": 256,
+      "juejin": 100,
+      "bilibili": 80,
+      "zhihu": 120,
+      "cnblogs": 200
+    }
+  },
+  "csdn": {
+    "category": "编程技术",
+    "column": "AI Agent",
+    "tag_map": {
+      "AI": "AI",
+      "AI工具": "AI工具",
+      "Agent": "Agent",
+      "Codex": "Codex",
+      "Java": "Java",
+      "Skills": "Skills"
+    },
+    "topic_map": {
+      "AI": "AI",
+      "AI工具": "AI工具",
+      "Agent": "AI Agent",
+      "Codex": "AI编程",
+      "Java": "Java",
+      "Skills": "AI Agent"
+    },
+    "activity_map": {
+      "AI": "AI原生应用开发",
+      "AI工具": "AI原生应用开发",
+      "Agent": "AI原生应用开发",
+      "Codex": "AI编程",
+      "Java": "Java技术"
+    },
+    "fallback_topics": [
+      "AI Agent"
+    ],
+    "fallback_activities": [
+      "AI原生应用开发"
+    ]
+  },
+  "juejin": {
+    "category": "开发工具",
+    "column": "AI Agent",
+    "tag_map": {
+      "AI": "人工智能",
+      "AI工具": "人工智能",
+      "Agent": "人工智能",
+      "Codex": "开发工具",
+      "Java": "Java",
+      "Skills": "人工智能"
+    },
+    "fallback_tags": [
+      "人工智能",
+      "开发工具"
+    ]
+  },
+  "bilibili": {
+    "category": "专栏",
+    "collection": "AI Agent",
+    "tag_map": {
+      "AI": "AI",
+      "AI工具": "AI工具",
+      "Agent": "AI",
+      "Codex": "编程",
+      "Java": "Java",
+      "Skills": "AI工具"
+    },
+    "topic_map": {
+      "AI": "AI",
+      "AI工具": "AI工具",
+      "Agent": "AI Agent",
+      "Codex": "AI编程",
+      "Java": "Java",
+      "Skills": "AI Agent"
+    },
+    "fallback_tags": [
+      "AI",
+      "编程"
+    ],
+    "fallback_topics": [
+      "AI Agent"
+    ]
+  },
+  "zhihu": {
+    "column": "AI Agent",
+    "declaration": "包含 AI 辅助创作 作者对内容负责",
+    "title_style": "plain",
+    "tag_map": {
+      "AI": "人工智能",
+      "AI工具": "AI 工具",
+      "Agent": "Agent",
+      "Codex": "AI 编程",
+      "Java": "Java",
+      "Skills": "Agent"
+    },
+    "topic_map": {
+      "AI": "人工智能",
+      "AI工具": "AI 工具",
+      "Agent": "Agent",
+      "Codex": "AI 编程",
+      "Java": "Java",
+      "Skills": "Agent"
+    },
+    "fallback_topics": [
+      "人工智能",
+      "Agent",
+      "智能体",
+      "大模型"
+    ]
+  },
+  "cnblogs": {
+    "category": "AI综合",
+    "personal_category": "AI Agent",
+    "title_style": "plain",
+    "tag_map": {
+      "AI": "AI",
+      "AI工具": "AI工具",
+      "Agent": "Agent",
+      "Codex": "Codex",
+      "Java": "Java",
+      "Skills": "Skills"
+    },
+    "fallback_tags": [
+      "AI工具"
+    ]
+  }
+}

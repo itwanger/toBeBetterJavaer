@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multi Platform Publisher"
+  short_description: "Publish Markdown to CSDN, Juejin, and Bilibili."
+  default_prompt: "Publish this Markdown article to configured platforms and verify each article page."
