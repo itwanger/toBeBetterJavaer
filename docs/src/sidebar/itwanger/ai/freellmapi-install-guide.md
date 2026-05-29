@@ -58,7 +58,6 @@ Windows 建议用 WSL2 或者去 Node.js 官网下载安装包。装完验证一
 
 ```bash
 node -v
-# v22.x.x
 ```
 
 ![](https://cdn.paicoding.com/stutymore/freellmapi-install-guide-20260529191301.png)
