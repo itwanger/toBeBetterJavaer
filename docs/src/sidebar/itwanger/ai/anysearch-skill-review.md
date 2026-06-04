@@ -43,7 +43,7 @@ date: 2026-05-31
 
 AnySearch 做的事情就是用一套方案同时解决这三个问题。
 
-![anySearch 架构示意图](https://cdn.paicoding.com/stutymore/anysearch-skill-review-20260602231019.png)
+![anySearch 架构示意图](https://cdn.paicoding.com/stutymore/anysearch-skill-review-20260604090203.png)
 
 它自建索引，直接穿透金融、法律、学术、代码、安全、能源等 22 个垂直领域的数据源，返回的是结构化的 Markdown 数据，Agent 拿到就能直接用，不需要二次解析。
 
