@@ -125,6 +125,33 @@ date: 2026-06-01
 
 ![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602071234.png)
 
+好，现在AI客服已经成功接入企业微信了，点击【设置】这里还可以修改助手的信息。
+
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260603170201.png)
+
+把这个码发给用户。用户有任何问题，都可以直接在微信里咨询。
+
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260603164706.png)
+
+
+比如说用户问：我家狗狗比较怕生，可以预约吗？
+
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260603164838.png)
+
+AI客服能理解用户的问题，自动回复：狗狗比较怕生的话，建议提前预约，我们可以尽量安排人少、环境更安静的时间段，并预留一点适应时间。
+
+如果狗狗紧张比较明显，也建议带上它熟悉的牵引绳、零食或小毯子，帮助它放松。
+
+非常非常人性化。
+
+有没有？
+
+再比如说用户问：怎么预约今晚 8 点的遛狗服务？
+
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260603165000.png)
+
+解答的也是非常友好，非常礼貌。
+
 传统的 Vibe Coding 工具做不到这样的一条龙服务，码上飞能。
 
 它给我们的是完整的“App + AI 员工 + 管理后台”。区别就在这。
@@ -141,41 +168,31 @@ date: 2026-06-01
 
 ![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602074707.png)
 
-## 02、做一个义乌 AI 小店
+## 02、复刻彦火APP
 
-相信大家对【义乌】这个词都不会感到陌生，哪怕没有做过生意，也会知道它是中国最密集的小商品产业带。
+提示词很简单：“帮我做一个粉丝 APP，功能和界面都模仿胡彦斌的彦火 APP”。
 
-最近，义乌本地知名商家 Molly 就和码上飞搞了个活动，名叫义乌 AI 小店。
+如果还想追加功能，可以继续补充，比如说：
 
-![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602074426.png)
+>1. 核心功能是视频播放、搜索和收藏。2. 视频内容由用户上传提供，需要支持在线播放。3. 支持小程序，iOS和安卓，4、用户通过本软件，可以查看胡彦斌最新演出通告查询
 
-简单说就是：让普通人用 AI 30 秒开一个自己的线上小店。不需要进货，不需要囤货，不需要发货，甚至不需要设计店铺页面。AI 全部帮你搞定。
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602211141.png)
 
-具体怎么玩？
+确认核心功能之后，点击确认，进入开发。
 
-第一步，进入活动页，从义乌真实商家的货盘里选商品。品类很丰富，小商品、日用品、创意礼品都有。
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602211524.png)
 
-![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602080239.png)
+很快，一个和【彦火】APP 功能非常接近的粉丝 APP 就生成好了。
 
-第二步，选完后，30 秒内 AI 自动生成一个小店，商品、售价、展示页、商品详情全部自动搞定。
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602212149.png)
 
-![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602080725.png)
+各个功能都非常完善，比如说粉丝动态、应援攻略，应有尽有。
 
-第三步，把小店分享出去，有人下单了就能赚差价。
+![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602212333.png)
 
-第四步，由义乌商家直接负责发货，不用囤货。
+## 03、Vibe Business
 
-码上飞还给每个用户提供了 200 元试运营额度，首批进货成本由平台承担。相当于零成本就能体验一次“做老板”的感觉。
-
-![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602080057.png)
-
-以前 AI 圈做的事情是生成图片、生成视频、生成网页。
-
-这次不一样，生成的是一个真正能卖东西、能赚钱的小生意。商品是真实的，供应链是现成的，发货由义乌商家负责，客服和售后环节有平台提供的辅助能力。
-
-![](https://cdn.paicoding.com/stutymore/mashangfei-review-20260602075635.png)
-
-从我自己做的宠物寄养平台，到义乌商家的 AI 小店，码上飞把“从想法到生意”的整个流程都打通了。
+从我自己做的宠物寄养平台，到复刻彦火APP，码上飞把“从想法到生意”的整个流程都打通了。
 
 市面上做 Vibe Coding 的工具不少，但大多数还停留在“生成代码”或者“生成页面”这个阶段，部署、运营、获客、客服全得自己来。
 
