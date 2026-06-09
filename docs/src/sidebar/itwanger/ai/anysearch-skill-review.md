@@ -63,7 +63,7 @@ Agent 会自动把 Skill 文件下载到 `.claude/skills/` 目录，配置好之
 
 装好之后我做的第一件事就是拿它跟 WebSearch 做一个对比测试。
 
-我的问题是："OpenAI 2026 年的最新融资情况、API 定价变化、以及 Claude Code 和 Codex 在开发者社区的盲测对比。"
+我的问题是：“OpenAI 2026 年的最新融资情况、API 定价变化、以及 Claude Code 和 Codex 在开发者社区的盲测对比。”
 
 用传统的 WebSearch + WebFetch 组合，Agent 大概花了三四分钟，反复搜了四五次，抓了七八个网页，最后拼出一份摘要。
 
@@ -77,7 +77,7 @@ Agent 会自动把 Skill 文件下载到 `.claude/skills/` 目录，配置好之
 
 然后我把同一个问题丢给了接入 AnySearch 的 Agent。
 
-让我第一次体验到了什么叫"AI 原生搜索"。
+让我第一次体验到了什么叫“AI 原生搜索”。
 
 Agent 在几十秒内完成了检索、清洗和整理，返回了一份结构化的 Markdown 报告。融资金额精确到了每家出资方，API 定价变化按时间线列了出来，Reddit 上 Claude Code 和 Codex 的盲测胜率用表格呈现。
 
@@ -93,21 +93,21 @@ AnySearch 的另一个杀手级功能是垂直领域搜索。
 
 我选了三个领域做了实测。
 
-代码搜索，我让它搜 "Claude Code MCP server 实现 GitHub Python"，指定 `domain: code`。
+代码搜索，我让它搜 “Claude Code MCP server 实现 GitHub Python”，指定 `domain: code`。
 
 搜出来的不仅有github上的推荐项目，还有论坛上的热门文章。我们还可以让 Agent 做的更多，比如进一步筛选出最近三个月还在活跃更新的、Python 写的、跟 MCP 相关的项目等等。
 
 ![代码搜索](https://cdn.paicoding.com/stutymore/anysearch-skill-review-20260603222134.png)
 
-学术搜索，我搜了 "transformer attention mechanism optimization 2025 2026"，指定 `domain: academic`。
+学术搜索，我搜了 “transformer attention mechanism optimization 2025 2026”，指定 `domain: academic`。
 
 返回的是来自 arXiv 和学术数据库的论文列表，有标题、作者、机构、链接等结构化信息。以前做技术调研时，大家往往需要自己去 arXiv 一篇篇翻，现在 Agent 就可以直接帮我们完成初筛。
 
 ![学术搜索](https://cdn.paicoding.com/stutymore/anysearch-skill-review-20260603223126.png)
 
-金融搜索，我搜了 "NVIDIA 2026 Q1 revenue data center growth"，指定 `domain: finance`。
+金融搜索，我搜了 “NVIDIA 2026 Q1 revenue data center growth”，指定 `domain: finance`。
 
-它返回了英伟达最新的季度营收数据，包括数据中心业务增长率、毛利率变化、同比和环比增长率等。数据也精确到了具体数字，而不是模糊的"大幅增长"。
+它返回了英伟达最新的季度营收数据，包括数据中心业务增长率、毛利率变化、同比和环比增长率等。数据也精确到了具体数字，而不是模糊的“大幅增长”。
 
 ![金融搜索](https://cdn.paicoding.com/stutymore/anysearch-skill-review-20260603223445.png)
 
