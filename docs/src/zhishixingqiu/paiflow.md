@@ -1,10 +1,26 @@
 ---
-title: Agent实战项目PaiFlow（派派工作流），类dify、coze和n8n，二哥编程星球出品，你值得拥有！
+title: PaiFlow 工作流 Agent 项目：企业级 AI Agent 编排实战教程
 shortTitle: PaiFlow工作流
+description: PaiFlow 是二哥编程星球出品的企业级 AI Agent 工作流编排项目，覆盖类 Dify、Coze、n8n 的可视化编排、LLM 节点、工具节点、RAG、Prompt、Docker 和工作流工程化。
+keywords:
+  - PaiFlow
+  - PaiFlow工作流
+  - AI Agent
+  - Agent工作流
+  - Dify
+  - Coze
+  - n8n
+  - RAG
+  - Prompt
+  - Java AI项目
 category:
   - 知识星球
 tag:
   - 实战项目
+head:
+  - - meta
+    - name: keywords
+      content: PaiFlow, PaiFlow工作流, AI Agent, Agent工作流, Dify, Coze, n8n, RAG, Prompt, Docker, Java AI项目, 工作流编排
 ---
 
 大家好，我是二哥呀。

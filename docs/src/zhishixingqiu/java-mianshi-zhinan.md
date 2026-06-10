@@ -1,9 +1,22 @@
 ---
-title: 《Java 面试指南》-沉默王二-二哥的Java进阶之路-知识星球
+title: Java 面试指南：面试准备、技术面试与职场修炼专栏
 shortTitle: Java 面试指南
+description: Java 面试指南是二哥编程星球的求职面试专栏，覆盖面试准备、Java 技术面试题、项目面试、简历优化、职场修炼和求职路线规划。
+keywords:
+  - Java面试指南
+  - Java面试
+  - Java面试题
+  - 求职面试
+  - 简历优化
+  - 技术面试
+  - 编程星球
 category: 知识星球
 tag:
   - 知识星球
+head:
+  - - meta
+    - name: keywords
+      content: Java面试指南, Java面试, Java面试题, 求职面试, 简历优化, 技术面试, 职场修炼, 编程星球
 ---
 
 大家好，我是二哥呀。

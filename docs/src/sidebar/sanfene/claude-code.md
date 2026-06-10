@@ -1,3 +1,27 @@
+---
+title: Claude Code 面试题：Agent 循环、工具调用与上下文管理
+shortTitle: 面渣逆袭-Claude Code
+description: 面渣逆袭 Claude Code 篇从 Agent 循环、工具调用、状态管理、上下文维护和命令行执行入手，拆解 Claude Code 类 AI 编程工具的核心原理。
+keywords:
+  - Claude Code面试题
+  - Claude Code
+  - AI Agent
+  - Agent循环
+  - 工具调用
+  - 上下文管理
+  - AI编程工具
+category:
+  - 面渣逆袭
+tag:
+  - 面渣逆袭
+  - Claude Code
+  - AI Agent
+head:
+  - - meta
+    - name: keywords
+      content: Claude Code面试题, Claude Code, AI Agent, Agent循环, 工具调用, 上下文管理, AI编程工具, 命令行Agent
+---
+
 ## 01、Agent 到底是个啥
 
 老王的第一个问题很直接：“你说说，Agent 和普通的聊天机器人有什么区别？”

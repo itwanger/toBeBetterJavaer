@@ -4,7 +4,7 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://tobebetterjavaer.com",
+  hostname: "https://javabetter.cn",
   // 网站图标
 
   author: {
@@ -104,6 +104,10 @@ export default hopeTheme({
 
     components: {
       components: ["Badge", "VPCard"],
+    },
+
+    seo: {
+      canonical: "https://javabetter.cn",
     },
 
     // 此处开启了很多功能用于演示，你应仅保留用到的功能。

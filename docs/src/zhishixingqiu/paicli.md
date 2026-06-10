@@ -1,10 +1,26 @@
 ---
-title: Agent实战项目PaiCLI，类Claude Code，从零手搓Java AI Agent，二哥编程星球出品，你值得拥有！
+title: PaiCLI：Java AI Agent CLI 实战项目，从零手搓类 Claude Code 工具
 shortTitle: PaiCLI派CLI
+description: PaiCLI 是二哥编程星球出品的 Java AI Agent CLI 实战项目，覆盖 ReAct、Tool Calling、MCP、多模型适配、Skill、Memory、RAG、多 Agent 协作和命令行工程化。
+keywords:
+  - PaiCLI
+  - Java AI Agent
+  - Agent CLI
+  - Claude Code
+  - ReAct
+  - Tool Calling
+  - MCP
+  - Skill
+  - Memory
+  - RAG
 category:
   - 知识星球
 tag:
   - 实战项目
+head:
+  - - meta
+    - name: keywords
+      content: PaiCLI, Java AI Agent, Agent CLI, Claude Code, ReAct, Tool Calling, MCP, Skill, Memory, RAG, 多Agent, AI Agent实战项目
 ---
 
 大家好，我是二哥呀。

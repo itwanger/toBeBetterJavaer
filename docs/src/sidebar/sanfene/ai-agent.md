@@ -1,3 +1,26 @@
+---
+title: AI Agent 面试题：RAG、Function Calling 与工作流编排
+shortTitle: 面渣逆袭-AI Agent
+description: 面渣逆袭 AI Agent 篇围绕 AI 应用开发面试，讲解 RAG、Agent、Function Calling、工具调用、LangGraph4j、工作流编排和传统后端转 AI 的核心问题。
+keywords:
+  - AI Agent面试题
+  - RAG
+  - Function Calling
+  - 工具调用
+  - LangGraph4j
+  - 工作流编排
+  - AI应用开发
+category:
+  - 面渣逆袭
+tag:
+  - 面渣逆袭
+  - AI Agent
+head:
+  - - meta
+    - name: keywords
+      content: AI Agent面试题, RAG, Function Calling, 工具调用, LangGraph4j, 工作流编排, AI应用开发, 后端转AI
+---
+
 ## 01、简历上为什么都在写 AI 相关的内容？
 
 老王翻着我的简历：“我看你简历上全是 AI 项目，有派聪明 RAG，有 PaiFlow Agent，传统开发经验怎么没写？”
