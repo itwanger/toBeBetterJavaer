@@ -318,7 +318,7 @@ openclaw logs
 
 我最想要的需求是：
 
->派聪明，帮我给19个技术交流群发个通知，PaiFlow项目上架了，地址是：https://paicoding.com/column/13/1
+>派聪明，帮我给 21 个技术交流群发个通知，PaiFlow项目上架了，地址是：https://paicoding.com/column/13/1
 
 >群里谁谁谁发了问题，暂时还没有得到回复，派聪明主动给出回复。
 

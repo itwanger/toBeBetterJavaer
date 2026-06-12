@@ -43,12 +43,12 @@ head:
 
 ![](https://cdn.paicoding.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
-一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **10000 多名** 球友加入了（马上要涨价到 169 元，抓紧时间趁没涨价前加入吧），如果你也需要一个优质的学习环境，扫描下方的优惠券加入我们吧。
+一个人可以走得很快，但一群人才能走得更远。[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)已经有 **13000 多名** 球友加入了（马上要涨价到 179 元，抓紧时间趁没涨价前加入吧），如果你也需要一个优质的学习环境，扫描下方的优惠券加入我们吧。
 
 <p align="center">
   <a href="https://javabetter.cn/zhishixingqiu/">
     <kbd>
-      <img src="https://cdn.paicoding.com/stutymore/readme-itwanger-zsxq.png" width="400px" alt="星球优惠券">
+      <img src="https://cdn.paicoding.com/stutymore/paiflow-promotion-paiflow.png" width="400px" alt="星球优惠券">
     </kbd>
   </a>
 </p>
@@ -58,6 +58,7 @@ head:
 这是一个 **简历精修 + AI/Agent实战项目 + Java 面试指南 + LeetCode 刷题**的私密圈子，你可以阅读星球专栏、向二哥提问、帮你制定学习计划、和球友一起打卡成长。两个置顶帖「球友必看」和「知识图谱」里已经沉淀了非常多优质的内容，**相信能帮助你走的更快、更稳、更远**。
 
 - [二哥精修简历服务，让你投了就有笔试&面试✌️](https://javabetter.cn/zhishixingqiu/jianli.html)
+- [PaiCLI，一个类似Claude Code和Qoder CLI的 Agent项目，今年秋招无敌了✌️](https://javabetter.cn/zhishixingqiu/paicli.html)
 - [二哥的PaiFlow工作流Agent项目派派工作流上线了，Agent时代你必须掌握✌️](https://javabetter.cn/zhishixingqiu/paiflow.html)
 - [二哥的RAG知识库项目派聪明上线了，AI时代你必须拥有的实战项目✌️](https://javabetter.cn/zhishixingqiu/paismart.html)
 - [Go 版本的派聪明RAG知识库项目上线了，学习 Go 语言的小伙伴有福了✌️](https://javabetter.cn/zhishixingqiu/paismart-go.html)

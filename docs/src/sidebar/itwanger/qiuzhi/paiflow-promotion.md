@@ -247,7 +247,7 @@ LlmResVo llmOutput = modelServiceClient.chatCompletion(req, chatResponse -> {
 
 ![](https://cdn.paicoding.com/stutymore/paiflow-promotion-paiflow.png)
 
-**星球目前已经 11700+ 人了，后面可能要涨价到 179 元/年，想上车的同学，请趁早**。
+**星球目前已经 13000+ 人了，后面可能要涨价到 179 元/年，想上车的同学，请趁早**。
 
 星球只有 100 多的门票，但帮助球友们拿到了包括【腾讯、阿里、蚂蚁、淘天、字节跳动、小红书、快手、京东、美团、华为、荣耀、拼多多、vivo、oppo、小米、携程、得物、深信服、传音控股、美的】等等各大公司的 offer。
 

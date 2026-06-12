@@ -22,7 +22,7 @@ date: 2026-06-02
 
 只是还没有整理成面渣逆袭的风格。
 
-![](https://files.mdnice.com/user/3903/f27abb40-4081-48cd-a7ba-24b483d29705.jpg)
+![](https://cdn.paicoding.com/paicoding/4545daf282ced075d0bf36a4a2947be0.jpg)
 
 先争取每天给大家积累一篇素材，后面再统一整理，Claude Code 的八股应该是不会过时的。这篇我们来讲 Claude Code 的压缩机制。
 
@@ -32,7 +32,7 @@ date: 2026-06-02
 
 为了讲清楚，我花了两天时间把 compact 目录下的十几个源码文件从头到尾读了一遍。从最轻量的规则裁剪，到 LLM 驱动的结构化摘要，再到熔断机制和兜底方案，每一层都有明确的触发条件和退出策略。
 
-![](https://files.mdnice.com/user/3903/d4b30452-cd87-4621-acd1-3c8d75b00f53.png)
+![](https://cdn.paicoding.com/paicoding/50ff3e410287ec896f598e7c47cf868f.png)
 
 >系好安全带，我们粗粗粗发～
 
@@ -49,7 +49,7 @@ Opus 4.6 默认的上下文窗口是 200K token，Opus 4.7/4.8 扩展到了 1M t
 更麻烦的是 Context Rot（上下文退化）。窗口越大，模型的注意力越分散，容易“忘记”早期的关键指令，或者把中间某次失败的尝试和最终的修复方案搞混。
 
 
-![](https://files.mdnice.com/user/3903/d19827e9-e0f2-4bac-9bd2-739d68f236bd.jpg)
+![](https://cdn.paicoding.com/paicoding/3b572e0746b572cd74519a4c678a960c.jpg)
 
 
 所以压缩是必须的，它是保证 Claude Code 在长会话中持续可用的核心机制。
@@ -59,7 +59,7 @@ Opus 4.6 默认的上下文窗口是 200K token，Opus 4.7/4.8 扩展到了 1M t
 我从源码里整理出了完整的流程：
 
 
-![](https://files.mdnice.com/user/3903/08a801af-96dd-4e16-8f62-728a80e1940d.jpg)
+![](https://cdn.paicoding.com/paicoding/45eb9644acd08262ebf99b7b7259deb4.jpg)
 
 
 **第一阶段：微压缩（MicroCompaction）**。静默预处理，规则驱动，不调用 LLM。对工具返回结果做原地裁剪，去掉冗余输出。
@@ -93,7 +93,7 @@ const COMPACTABLE_TOOLS = new Set<string>([
 这些工具的共同特点是返回结果很长。一次文件读取可能返回几百行代码，一次 `grep` 搜索可能匹配几十个文件的上百行结果。但这些结果在模型处理完之后，完整的返回值就没什么用了。模型已经根据搜索结果找到了目标文件，已经根据文件内容做了修改，保留完整的历史输出只会浪费空间。
 
 
-![](https://files.mdnice.com/user/3903/a75b2755-2061-4985-bd85-6d3d4773aedd.jpg)
+![](https://cdn.paicoding.com/paicoding/88a83b07847ffa0a260bb29e51f7fde1.jpg)
 
 
 MicroCompaction 的处理方式是在消息列表中原地替换，把旧的 `tool_result` 内容截断或替换成占位文本 `[Old tool result content cleared]`。模型看不到完整的历史工具输出，但最近的工具结果会保留。
@@ -191,7 +191,7 @@ export const AUTOCOMPACT_BUFFER_TOKENS = 13_000
 **路径一：会话记忆压缩（Session Memory Compact）**。如果开启了会话记忆功能，Claude Code 会在后台持续做增量笔记。压缩时直接用这些笔记作为摘要，而不需要重新让 LLM 通读整段对话。
 
 
-![](https://files.mdnice.com/user/3903/468f3493-0976-4c56-92ad-1608521e25c9.jpg)
+![](https://cdn.paicoding.com/paicoding/e4cb4fc2249e740ce9588e8b30cd94bc.jpg)
 
 
 ```typescript
@@ -213,7 +213,7 @@ export const DEFAULT_SM_COMPACT_CONFIG: SessionMemoryCompactConfig = {
 **路径二：全量对话摘要（Full Conversation Summarization）**。标准路径，也是目前大多数用户实际走的路径。把整段对话发给一个独立的 LLM 实例，让它通读全文后生成一份完整的结构化摘要。这个过程需要一次完整的 API 调用，消耗的 token 数约等于当前对话的全部 token 加上摘要输出的 token。
 
 
-![](https://files.mdnice.com/user/3903/c0958fb8-0837-4a89-81a6-a394870a95b8.jpg)
+![](https://cdn.paicoding.com/paicoding/a140a34e5413e17c9a28d47f175a3bca.jpg)
 
 
 ## 05、压缩提示词
@@ -485,4 +485,5 @@ and also remember the mistakes you made and how you fixed them.
 ```
 
 Compaction Prompt 会自动读取 CLAUDE.md 中的这些指令，作为 `Additional Instructions` 附加到摘要提示词中。
+
 

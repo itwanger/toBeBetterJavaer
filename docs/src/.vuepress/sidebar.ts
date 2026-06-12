@@ -4,6 +4,7 @@ export default sidebar({
   "/zhishixingqiu/": [
     "readme.md",
     "jianli",
+    "paicli",
     "paiflow",
     "paismart",
     "paismart-go",

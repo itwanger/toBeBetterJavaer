@@ -1210,9 +1210,9 @@ public class DemoApplication {
 > 3. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的得物面经同学 9 面试题目原题：Spring源码看过吗？Spring的三级缓存知道吗？
 > 4. [Java 面试指南（付费）](https://javabetter.cn/zhishixingqiu/mianshi.html)收录的阿里云面经同学 22 面经：spring三级缓存解决循环依赖问题
 
-memo：2025 年 7 月 5 日修改至此。今天 [VIP 群](https://javabetter.cn/zhishixingqiu/)来了非常多的球友，不知不觉我们已经 12 群了，也是一个大家庭了，希望大家都能在这里找到自己的归属感，我们一起学习，一起进步。
+memo：2025 年 7 月 5 日修改至此。今天 [VIP 群](https://javabetter.cn/zhishixingqiu/)来了非常多的球友，不知不觉我们已经 21 群了，也是一个大家庭了，希望大家都能在这里找到自己的归属感，我们一起学习，一起进步。
 
-![二哥的编程星球已经 12 群了](https://cdn.paicoding.com/stutymore/spring-20250705072809.png)
+![二哥的编程星球 VIP 群](https://cdn.paicoding.com/stutymore/spring-20250705072809.png)
 
 ### 15.为什么需要三级缓存而不是两级？
 
