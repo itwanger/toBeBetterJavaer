@@ -1,7 +1,7 @@
 ---
 title: PaiCLI：Java AI Agent CLI 实战项目，从零手搓类 Claude Code 工具
 shortTitle: PaiCLI Agent
-description: PaiCLI 是二哥编程星球出品的 Java AI Agent CLI 实战项目，覆盖 ReAct、Tool Calling、MCP、多模型适配、Skill、Memory、RAG、多 Agent 协作和命令行工程化。
+description: PaiCLI 是二哥编程星球出品的 Java AI Agent CLI 实战项目，覆盖 ReAct、Tool Calling、MCP、多模型适配、Skill、Memory、RAG、多 Agent 协作和命令行工程化。面试官：“连Agent项目都没有，谁给你的勇气投腾讯？”，我笑了：“我实现一个Claude Code，看简历”，面试官：“入职细聊。”
 keywords:
   - PaiCLI
   - Java AI Agent
@@ -25,7 +25,13 @@ head:
 
 大家好，我是二哥呀。
 
-AI Agent 的岗位需求量越来越大。
+进阶之路上沉淀了不少Agent、Codex、Claude Code方面的硬核内容，包括 ReAct、Tool Call、MCP、Skill、Memory、RAG 等等。
+
+地址：`https://javabetter.cn/sidebar/itwanger/ai/`
+
+![](https://cdn.paicoding.com/stutymore/paicli-20260613090405.png)
+
+众所周知，AI Agent 的岗位需求量越来越大。
 
 头部的互联网大厂，比如说阿里、字节、腾讯等等都在大量招 Agent 工程师。
 
@@ -41,13 +47,19 @@ AI Agent 的岗位需求量越来越大。
 
 **自己从零手搓一个类 Claude Code 和 Qoder CLI 的 Agent CLI**，再配套一系列教程，不仅能满足大家对 Agent 实战项目的强烈需求，还能真正帮助大家理解 Agent 的核心机制，在激烈的求职竞争中脱颖而出。
 
-经过两个月的努力，我做到了。
+这个项目其实两个月前就在星球里先上架了，不少球友也是凭借这个项目抓住了暑期实习的末班车。
+
+今天正式给大家见面，请允许我花一点时间给大家介绍下。
+
+毕竟这玩意儿就是我的心头肉，倾注了我太多的心血和努力。
 
 从 ReAct，一路肝到 Multi-Agent、MCP、Skill、Memory、RAG、Browser Use，把 PaiCLI 从 0 到1 给搓出来了！
 
 ![](https://cdn.paicoding.com/stutymore/paicli-xuexiluxian-20260603065331.png)
 
 交互体验这块，可以说做到了极致。
+
+如果大家反馈好的话，我就直接开源出来。
 
 讲真，每次收到大家的喜报，我都会举起皮鞭往自己白白净净的屁股抽几鞭子，为的就是早点把项目和教程交付出来，回馈大家对我的支持和信任。
 

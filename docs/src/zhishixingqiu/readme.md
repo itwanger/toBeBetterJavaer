@@ -149,96 +149,7 @@ head:
 
 ![](https://cdn.tobebetterjavaer.com/paicoding/412c661107e0f4c7c1c434ca320c2e2c.jpeg)
 
-## 二、简历修改服务
-
-大家都知道，简历是敲门砖。
-
-![排版精美的派简历](https://cdn.paicoding.com/stutymore/readme-20260611212257.png)
-
-但很多同学在写简历的时候不得要领，看似花费了很多时间和经历，但实际的效果却不尽如人意，看第一眼就会让人失去继续看下去的勇气。
-
-比如说专业技能这样写：非常笼统，拳拳到肉的很少。
-
-![专业技能写的很乱](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303143624.png)
-
-比如说项目经历这样写：全是业务，没有技术栈的应用，没有量化数据。
-
-![项目经历全是业务](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303143651.png)
-
-但经过二哥修改后的简历，都能快速拿到面试机会，甚至 offer 的进程都加快了。
-
-来，直接上证据。😄
-
-这位球友直言，修改后的简历几乎所有大厂都过了初筛，滴滴和腾讯也走完了所有面：
-
-![二哥修改后的简历几乎所有大厂都过了初筛](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan9091-image1774.png)
-
-有球友改完简历，就拿到了快手的面试，还顺利通过了：
-
-![二哥修改后的简历过了简历初筛](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113556.png)
-
-27 届暑期实习的高峰期，我每天都会修改超过 60 份简历，虽然很累，但同时也证明二哥的服务有了口碑。
-
-![这是平常记录的一些](https://cdn.paicoding.com/stutymore/readme-20260611212505.png)
-
-![](https://cdn.paicoding.com/stutymore/readme-20260611212628.png)
-
-但不像其他人，修改一份简历要 299 元（说实话也不贵），甚至 600 元以上，二哥修改简历的前提条件只有一个，就是只要你是[星球会员](https://javabetter.cn/zhishixingqiu/)，就可以免费修改简历。
-
-![299 元修改一次简历](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303150239.png)
-
-并且是不限次数哦，直到改到我满意为止（注意是我，不是你，我的要求会比绝大多数 HR/面试官都高）。看看球友的反馈“请您原谅，您简直太认真负责了，我深感惭愧。”
-
-![球友对简历修改建议的认可](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan6321-image1085.png)
-
-看看 25 届秋招时候修改的 118 份简历，建议超过 10 万字，这是多么恐怖的一个概念。
-
-![2024年 8 月 14日简历修改](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114116.png)
-
-注意，我修改简历是全方位的，不仅仅是基本信息、教育背景、专业技能、实习经历、项目经历、荣誉奖项，还会包括简历的排版、字体、颜色、行距、段距、对齐、关键字大小写等等细节。
-
-![二哥修改简历绝逼到位](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114211.png)
-
-其实能不能捞到面试机会，从发出简历的那一刻就决定了。
-
-好的简历其实扫一眼就能感受出来，从基本信息到教育经历，就会让你忍不住想要立刻马上发面试邀请。
-
-![给大家一个参考](https://cdn.tobebetterjavaer.com/paicoding/1e2f9b15ef2c2a4b7b0d8ee6f439ba5d.png)
-
-截止到目前，累计至少看过至少 10000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
-
-![3000 份精选简历](https://cdn.tobebetterjavaer.com/stutymore/readme-20250703184722.png)
-
-光 2023 年的简历修改建议，出好几本书都没问题。
-
-![二哥的编程星球：简历修改](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
-
-经过这么多年的经验积累， 真有点炉火纯青的感觉，能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。已经加入星球的同学直接点击【简历修改】菜单就可以看到以往修改的简历信息。
-
-![简历修改建议](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan8434-image3664.png)
-
-这里也是要感谢球友们的执行力和及时反馈，每次收到球友们的感谢信，真的非常开心，能帮大家解决问题，内心隐藏的那份虚荣心也是得到了极大的满足。
-
-有复旦大学的球友反馈，修改后的简历解决了他暑期实习的困惑。有四川大学的球友反馈，在二哥的指导下成功入职百度。
-
-
-![复旦大学的球友、四川大学的球友获得百度实习 offer](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan6231-image4123.png)
-
-来看看专业技能修改后的效果：
-
-![来看一下修改后的结果](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303145131.png)
-
-来看看项目经历修改后的效果：
-
-![项目经历修改后的效果](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303151320.png)
-
-说句良心话，单纯简历修改的服务，就能值回票价。
-
-如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 13000+ 位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 169 元，我真的不希望你等到 179、189 元的时候再加入。
-
-![微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/paiflow-promotion-paiflow.png)
-
-## 三、九个高质量的实战项目
+## 二、九个高质量的实战项目
 
 每年一到求职节，很多同学的简历上总是没有亮眼的项目经验可写。虽然 GitHub 和码云上也有不少优秀的开源项目，但大多数没有成熟且体系化的教程，总不能直接下载到本地跑一下 main 方法就算学习了吧？
 
@@ -494,6 +405,95 @@ admin 端星球白名单：
 如果你在准备日常实习/暑期实习/秋招/春招/社招的过程中，缺少项目经历，那这些项目可以说是救命药。可以问问你的直系学长或者学姐，就知道这些项目有多香了。
 
 已经有 13000+ 位球友加入二哥的编程星球了，所以别再犹豫，价格已经从 99 元一路涨到了 169 元，我真的不希望你等到 179 元的时候再加入。
+
+![微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/paiflow-promotion-paiflow.png)
+
+## 三、简历修改服务
+
+大家都知道，简历是敲门砖。
+
+![排版精美的派简历](https://cdn.paicoding.com/stutymore/readme-20260611212257.png)
+
+但很多同学在写简历的时候不得要领，看似花费了很多时间和经历，但实际的效果却不尽如人意，看第一眼就会让人失去继续看下去的勇气。
+
+比如说专业技能这样写：非常笼统，拳拳到肉的很少。
+
+![专业技能写的很乱](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303143624.png)
+
+比如说项目经历这样写：全是业务，没有技术栈的应用，没有量化数据。
+
+![项目经历全是业务](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303143651.png)
+
+但经过二哥修改后的简历，都能快速拿到面试机会，甚至 offer 的进程都加快了。
+
+来，直接上证据。😄
+
+这位球友直言，修改后的简历几乎所有大厂都过了初筛，滴滴和腾讯也走完了所有面：
+
+![二哥修改后的简历几乎所有大厂都过了初筛](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan9091-image1774.png)
+
+有球友改完简历，就拿到了快手的面试，还顺利通过了：
+
+![二哥修改后的简历过了简历初筛](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903113556.png)
+
+27 届暑期实习的高峰期，我每天都会修改超过 60 份简历，虽然很累，但同时也证明二哥的服务有了口碑。
+
+![这是平常记录的一些](https://cdn.paicoding.com/stutymore/readme-20260611212505.png)
+
+![](https://cdn.paicoding.com/stutymore/readme-20260611212628.png)
+
+但不像其他人，修改一份简历要 299 元（说实话也不贵），甚至 600 元以上，二哥修改简历的前提条件只有一个，就是只要你是[星球会员](https://javabetter.cn/zhishixingqiu/)，就可以免费修改简历。
+
+![299 元修改一次简历](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303150239.png)
+
+并且是不限次数哦，直到改到我满意为止（注意是我，不是你，我的要求会比绝大多数 HR/面试官都高）。看看球友的反馈“请您原谅，您简直太认真负责了，我深感惭愧。”
+
+![球友对简历修改建议的认可](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan6321-image1085.png)
+
+看看 25 届秋招时候修改的 118 份简历，建议超过 10 万字，这是多么恐怖的一个概念。
+
+![2024年 8 月 14日简历修改](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114116.png)
+
+注意，我修改简历是全方位的，不仅仅是基本信息、教育背景、专业技能、实习经历、项目经历、荣誉奖项，还会包括简历的排版、字体、颜色、行距、段距、对齐、关键字大小写等等细节。
+
+![二哥修改简历绝逼到位](https://cdn.tobebetterjavaer.com/stutymore/jianli-20240903114211.png)
+
+其实能不能捞到面试机会，从发出简历的那一刻就决定了。
+
+好的简历其实扫一眼就能感受出来，从基本信息到教育经历，就会让你忍不住想要立刻马上发面试邀请。
+
+![给大家一个参考](https://cdn.tobebetterjavaer.com/paicoding/1e2f9b15ef2c2a4b7b0d8ee6f439ba5d.png)
+
+截止到目前，累计至少看过至少 10000 份简历了，真的是“书读百遍其义自见”，我现在也被锻炼成成简历的“老中医”了。
+
+![3000 份精选简历](https://cdn.tobebetterjavaer.com/stutymore/readme-20250703184722.png)
+
+光 2023 年的简历修改建议，出好几本书都没问题。
+
+![二哥的编程星球：简历修改](https://cdn.tobebetterjavaer.com/paicoding/9f7576609340c95bccd824a873f02a01.png)
+
+经过这么多年的经验积累， 真有点炉火纯青的感觉，能快速对症下药，找出简历中亟需改善的地方，并给出针对性的建议。已经加入星球的同学直接点击【简历修改】菜单就可以看到以往修改的简历信息。
+
+![简历修改建议](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan8434-image3664.png)
+
+这里也是要感谢球友们的执行力和及时反馈，每次收到球友们的感谢信，真的非常开心，能帮大家解决问题，内心隐藏的那份虚荣心也是得到了极大的满足。
+
+有复旦大学的球友反馈，修改后的简历解决了他暑期实习的困惑。有四川大学的球友反馈，在二哥的指导下成功入职百度。
+
+
+![复旦大学的球友、四川大学的球友获得百度实习 offer](https://cdn.tobebetterjavaer.com/stutymore/xingqiuwenan6231-image4123.png)
+
+来看看专业技能修改后的效果：
+
+![来看一下修改后的结果](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303145131.png)
+
+来看看项目经历修改后的效果：
+
+![项目经历修改后的效果](https://cdn.tobebetterjavaer.com/stutymore/readme-20250303151320.png)
+
+说句良心话，单纯简历修改的服务，就能值回票价。
+
+如果你也需要二哥帮你修改简历，打造一份投了就有面试，亮瞎 HR 的简历，请扫下面的优惠券付费加入[二哥的编程星球](https://javabetter.cn/zhishixingqiu/)，已经有 13000+ 位球友加入了，所以别再犹豫了，价格已经从 99 元一路涨到了 169 元，我真的不希望你等到 179、189 元的时候再加入。
 
 ![微信扫码或者长按识别](https://cdn.paicoding.com/stutymore/paiflow-promotion-paiflow.png)
 
