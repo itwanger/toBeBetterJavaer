@@ -1,0 +1,28 @@
+name: "🐛 Bug Report / 问题与错误反馈"
+description: "Report a bug or layout error in the Java guide website or textbook scripts"
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out this form to report a bug. / 请填写此表单报告排版或代码执行错误。
+  - type: textarea
+    id: description
+    attributes:
+      label: "Bug Description / 问题描述"
+      description: "A clear description of what the issue is."
+      placeholder: "e.g., Code block fails on chapter X due to Spring Boot version update..."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Reproduction Steps / 复现步骤"
+      description: "How can we reproduce the error?"
+      placeholder: |
+        1. Open chapter...
+        2. Run code block...
+        3. See error...
+    validations:
+      required: true
