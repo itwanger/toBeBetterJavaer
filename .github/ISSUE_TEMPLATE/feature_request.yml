@@ -1,0 +1,17 @@
+name: "🚀 Suggestion / 功能或内容建议"
+description: "Suggest a new topic, section, or website enhancement"
+title: "[Suggestion]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Suggest recommendations for the Java progression guide. / 欢迎为本 Java 进阶之路指南提出改进建议。
+  - type: textarea
+    id: details
+    attributes:
+      label: "Details / 建议详情"
+      description: "What Java features, frameworks, or site pages should be added?"
+      placeholder: "Suggest adding microservice deployment section..."
+    validations:
+      required: true
