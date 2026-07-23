@@ -1,34 +1,21 @@
-标题：为什么腾讯offer含金量永远都这么高？有人为了进腾讯，2年内面试6次。
+标题：面试官皱眉：“让你负责一个生产级 Agent，你会怎么设计？”，我上来就开始背 ReAct、Function Calling、Skills。面试官听完摇头。
 
-相对来说，鹅厂应该是国内互联网公司中大家最青睐的公司（也许没有之一）。
+## content
 
-再加上整体业务的多元化，腾讯的offer含金量自然也就高了。
+- PaiCLI项目中遇到的最大挑战是什么？
+- 我们来聊一下上下文压缩：如果前10轮都变成了总结，那之前的原始上下文就不需要了吗?
+- 用户一个月前说喜欢吃辣，一周前又说不能吃辣，现在怎么判断
+- 记忆存储在向量数据库里，怎么更新已有记忆
+- 上下文压缩会不会丢失关键信息
+- 用户购买商品花了 500 元，压缩后把 500 元丢失了怎么办
+- 如何定义哪些内容属于重要信息
+- API 超时和报错怎么解决
+- 消耗 Token 过快怎么排查
+- Skill 的渐进式披露机制
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260722085217.png)
+## 场景题
 
-另外，腾讯也是目前我所有的技术交流群里，讨论频率最高的关键字。
-
-![](https://cdn.paicoding.com/stutymore/sucai-20260722090633.png)
-
-## 二面
-
-- Agent 怎么处理长文本
-- 上下文记忆的关键是什么
-- 前后指令冲突怎么处理
-- harness 和 loop engineering 是什么
-- skills 为什么适合放 system 层
-- 未来 Agent 的核心能力是什么
-- 对 GLM-5.2、Claude Code、Codex 这类系统有什么理解
-
-## 一面
-
-- RL 前 SFT 怎么做，怎么判断 SFT 到位
-- eward 和 verifier 怎么设计
-- reward hacking 怎么发现
-- badcase 怎么回流
-- PPO 里的 value model / reward model 怎么训练
-- GRPO reward 能不能迁移到 PPO
-- Agent 任务怎么评测
-- Code Agent verifier 怎么设计
+- 现在需要设计智能客服Agent，根据用户的提问来进行尽可能准确的回答，你觉得该如何设计?需要考虑哪些方面？
+- 对于这样的Agent服务，电商大促的时候，流量大，有流量尖刺的情况下，如何解决?
 
 
