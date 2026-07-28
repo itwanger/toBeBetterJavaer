@@ -1,14 +1,22 @@
-你有没有发现，用 Claude Code 写代码，新开一个终端窗口，它居然还记得你的项目用的是 Spring Boot 3、数据库用 PostgreSQL、代码规范是 4 空格缩进？
+# Claude Code的长期记忆是怎么实现的？
 
-上期讲了，长期记忆是存在磁盘上的文件，下次打开会自动加载。那 Claude Code 具体是怎么做的？文件存在哪？长什么样？怎么加载的？
+你想不想知道 Claude Code 的长期记忆是怎么实现的？
 
-我自己用 PaiCLI 实现过一套长期记忆系统，也翻过 Claude Code 的源码，可以自信地、大方地、光明磊落地帮你搞清楚三件事：
+你不想？哦不，你想，你必须想。😄
+
+对于 AI 来说，短期记忆就像是电脑内存里的数据，关机就没了。那聪明的你肯定想到了，长期记忆不会是存在磁盘上的文件吧？每次打开 Claude Code 的时候自动加载？
+
+还真是。
+
+那 Claude Code 具体是怎么做的？文件存在哪？长什么样？怎么加载的？
+
+我自己研究过Claude Code的源码，并从零到一手搓了一个终端Agent，名叫 PaiCLI，就开源在GitHub上，所以可以自信地、大方地、光明磊落地帮你搞清楚这三件事：
 
 - 长期记忆存在哪里，长什么样？
 - 记忆是怎么被记住的？
 - 下次打开新对话，记忆是怎么加载回来的？
 
-【截图：Claude Code 长期记忆架构图；风格：whiteboard；截图目标：展示两层长期记忆——CLAUDE.md（项目根目录，团队共享，注入系统指令）和 memory 文件夹（~/.claude/projects/，个人，MEMORY.md 索引 + 四类记忆文件），以及加载流程（新对话 → 读 MEMORY.md 前 200 行 → 按需加载记忆文件 + CLAUDE.md 注入系统指令）；关键词：CLAUDE.md、MEMORY.md、memory 文件夹、四类记忆、系统指令】
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727150020.png)
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，给你讲清楚 Claude Code 的长期记忆是怎么实现的。
 
@@ -22,7 +30,13 @@ Claude Code 的长期记忆分两层。
 
 第二层是 memory 文件夹。它藏在 `~/.claude/projects/` 下面，是 Claude Code 自动帮你记的，属于你个人，不会提交到 Git。
 
-这个文件夹里有一个 MEMORY.md 索引文件，加上一堆独立的记忆文件。每个记忆文件就是一个 Markdown，开头写标题、描述和类型，下面是具体内容。
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727164027.png)
+
+这个文件夹里有一个 MEMORY.md 索引文件，加上一堆独立的记忆文件。每个记忆文件的开头写标题、描述和类型，下面是具体内容。
+
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727164133.png)
+
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727164326.png)
 
 记忆分四种类型：user，记录你是谁、你的技术栈；feedback，记录你纠正过的做法；project，记录项目当前的状态；reference，记录外部资源的地址。
 
@@ -40,10 +54,18 @@ Claude Code 的长期记忆分两层。
 
 每次新开一个对话，Claude Code 会自动去读 MEMORY.md 这个索引文件，最多读前 200 行。通过索引知道有哪些记忆之后，再按需加载具体的记忆文件。
 
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727164435.png)
+
 CLAUDE.md 更特殊。它直接注入到系统指令里，上下文压缩的时候永远不会被丢掉。所以团队必须遵守的硬规则，一定要写在 CLAUDE.md 里。个人的软偏好，交给 auto memory 就行。
 
 最后简单总结下。
 
-Claude Code 的长期记忆分两层：CLAUDE.md 是你自己写的硬规则，memory 文件夹是 Claude Code 帮你记的软偏好。另外，新项目第一件事建议先写 CLAUDE.md，把技术栈、代码规范、禁忌项写清楚，能省掉后面大量的重复沟通。
+Claude Code 的长期记忆分两层：CLAUDE.md 是你自己写的硬性规则，memory 文件夹是 Claude Code 帮你记的个人偏好。另外，新项目第一件事建议先写 CLAUDE.md，把技术栈、代码规范、禁忌项写清楚，能省掉后面大量的重复沟通。
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
+
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727163648.png)
+
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727163655.png)
+
+![](https://cdn.paicoding.com/stutymore/claude-code-long-term-memory-20260727163701.png)
