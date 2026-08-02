@@ -205,6 +205,34 @@ ReAct 和 Plan-and-Execute 是两种任务推进范式：ReAct 走 Thought→Act
 
 ### 21. 为什么聊着聊着 Agent 就变傻了？
 
+题目答案：why-agent-gets-dumber.md
+
+技术派：https://paicoding.com/why-agent-gets-dumber.md
+
+### 22. Agent 的长期记忆是怎么实现的？
+
+题目答案：agent-long-term-memory.md
+
+技术派：https://paicoding.com/agent-long-term-memory.md
+
+### 23. Claude Code的长期记忆是怎么实现的？
+
+题目答案：claude-code-long-term-memory.md
+
+技术派：https://paicoding.com/claude-code-long-term-memory.md
+
+### 24. CLAUDE.md 到底要怎么写才有用？
+
+题目答案：how-to-write-claudemd.md
+
+技术派：https://paicoding.com/how-to-write-claudemd.md
+
+### 25. Claude Code如何检索长期记忆？
+
+题目答案：claude-code-memory-retrieval.md
+
+技术派：https://paicoding.com/claude-code-memory-retrieval.md
+
 ## 18. 怎么让 LLM 返回结构化内容？比如说和Java对象的字段一一对应？
 
 关键信息：SpringAI 的 .entity()

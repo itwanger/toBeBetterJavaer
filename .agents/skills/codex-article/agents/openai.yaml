@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex AI 文章"
+  short_description: "先调研再按六篇样本方法写中文 AI 文章并生成标题"
+  default_prompt: "使用 $codex-article 根据工作标题和素材先调研，再写完整文章并给出 5 个候选标题。"
