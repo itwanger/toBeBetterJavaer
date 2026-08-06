@@ -160,43 +160,43 @@ ReAct 和 Plan-and-Execute 是两种任务推进范式：ReAct 走 Thought→Act
 
 技术派：https://paicoding.com/what-is-harness-engineering
 
-## 14. 什么是 loop Engineering？
+### 14. 什么是 loop Engineering？
 
 题目答案： what-is-loop-engineering.md
 
 技术派：https://paicoding.com/what-is-loop-engineering
 
-## 15. 为什么LLM没有记忆？
+### 15. 为什么LLM没有记忆？
 
 题目答案： why-llm-has-no-memory.md
 
 技术派：https://paicoding.com/why-llm-has-no-memory
 
-## 16. Agent 的上下文窗口是什么？
+### 16. Agent 的上下文窗口是什么？
 
 题目答案： what-is-context-window.md
 
 技术派：https://paicoding.com/what-is-context-window
 
-## 17. 怎么样才能让Agent拥有记忆？
+### 17. 怎么样才能让Agent拥有记忆？
 
 题目答案：how-to-give-agent-memory.md
 
 技术派：https://paicoding.com/how-to-give-agent-memory
 
-## 18. Agent 的短期记忆怎么实现？
+### 18. Agent 的短期记忆怎么实现？
 
 题目答案：agent-short-term-memory.md
 
 技术派：https://paicoding.com/agent-short-term-memory
 
-## 19. Claude Code的短期记忆是怎么实现的？
+### 19. Claude Code的短期记忆是怎么实现的？
 
 题目答案：claude-code-short-term-memory.md
 
 技术派：https://paicoding.com/claude-code-short-term-memory
 
-## 20. Codex 的短期记忆是怎么实现的？
+### 20. Codex 的短期记忆是怎么实现的？
 
 题目答案：codex-short-term-memory.md
 
@@ -232,6 +232,18 @@ ReAct 和 Plan-and-Execute 是两种任务推进范式：ReAct 走 Thought→Act
 题目答案：claude-code-memory-retrieval.md
 
 技术派：https://paicoding.com/claude-code-memory-retrieval.md
+
+### 26. Codex的长期记忆是怎么实现的？
+
+题目答案：codex-long-term-memory.md
+
+技术派：https://paicoding.com/codex-long-term-memory.md
+
+### 27. DeepSeek V4 Flash 正式版的激活参数比 V4 Pro 小得多，Agent 能力为什么超过了 Pro 预览版？
+
+题目答案：why-post-training-beats-params.md
+
+技术派：https://paicoding.com/why-post-training-beats-params.md
 
 ## 18. 怎么让 LLM 返回结构化内容？比如说和Java对象的字段一一对应？
 

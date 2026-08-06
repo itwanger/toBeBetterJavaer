@@ -24,7 +24,8 @@ description: 调研并撰写中文 AI 公众号文章。用户给出工作标题
 
 - 作者身份：沉默王二（二哥），程序员
 - 开场第一句：`大家好，我是二哥呀。`，独立成段
-- 默认保存目录：`docs/src/sidebar/itwanger/ai/`
+- 默认保存目录：`docs/src/ai/codex/`
+- 除非用户明确指定其他路径，不要把 Codex 文章保存到 `docs/src/sidebar/itwanger/ai/`
 - 默认 Markdown 正文不少于 4000 个中文字符；这是提交底线，不是注水目标
 - 正文以短段落为主，一段表达一个主要信息点；列表只放简短并列信息
 - 二级标题使用 `## 01、标题`，标题只写名称
@@ -101,10 +102,10 @@ description: 调研并撰写中文 AI 公众号文章。用户给出工作标题
 - 技术断言必须有来源，推断必须出现“我的判断”“更可能”“目前无法确认”等边界词
 - 不复制样本作者的公司昵称、固定 CTA、粗口、游戏黑话和标志性口癖
 
-需要配图时，把占位符放在认知转折点，而不是章节末尾：
+默认给文章安排截图与配图占位；用户明确说不需要配图时才跳过。配图前完整读取 `references/screenshot-guide.md`，区分证明事实的证据截图与解释机制的说明配图，把占位符放在对应论点附近，而不是章节末尾：
 
 ```text
-【截图：<名称>；风格：<whiteboard|skill-card|data-board|three-layer|swimlane|checklist-card>；截图目标：<证明什么>；关键词：<关键词>】
+【截图：<名称>；类型：<证据截图|解释配图>；风格：<evidence-crop|whiteboard|skill-card|data-board|three-layer|swimlane|checklist-card>；截图目标：<证明什么>；关键词：<关键词>】
 ```
 
 ## 步骤 5：落盘与自检
@@ -126,10 +127,16 @@ date: # YYYY-MM-DD
 ---
 ```
 
-运行：
+用户明确不要配图时运行：
 
 ```bash
 python3 .agents/skills/codex-article/scripts/check_article.py <文章路径> --min-chars 4000
+```
+
+默认运行：
+
+```bash
+python3 .agents/skills/codex-article/scripts/check_article.py <文章路径> --min-chars 4000 --require-screenshots
 ```
 
 随后人工检查：
@@ -140,6 +147,9 @@ python3 .agents/skills/codex-article/scripts/check_article.py <文章路径> --m
 - 同期发生是否被误写成因果，账号是否被误写成人，员工签署是否被误写成公司表态
 - 评论截图是否被错误扩大成整体舆论
 - 每个核心判断前面是否有证据
+- 每个核心二级章节是否有必要的占位符，是否避免为短小三级、四级标题机械增图
+- 证据截图是否能回到一手页面，解释配图是否只使用当前论点所需信息
+- 截图是否紧邻其证明的事实，是否避免集中堆在章节末尾
 - 素材映射表是否逐项更新为已使用、核验后改写或未使用并说明理由
 
 文末整理关键一手来源和截图来源。交付时附精简版素材覆盖与自检报告。
