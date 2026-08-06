@@ -296,7 +296,7 @@ java.lang.Exception: out()
 
 “瞧，这次不会了，`out()` 的异常堆栈信息打印出来了，并且 `close()` 方法的堆栈信息上加了一个关键字 `Suppressed`，一目了然。”
 
-“三妹，怎么样？是不是感觉 try-with-resources 好用多了！我来简单总结下哈，在处理必须关闭的资源时，始终有限考虑使用 try-with-resources，而不是 try–catch-finally。前者产生的代码更加简洁、清晰，产生的异常信息也更靠谱。”
+“三妹，怎么样？是不是感觉 try-with-resources 好用多了！我来简单总结下哈，在处理必须关闭的资源时，始终优先考虑使用 try-with-resources，而不是 try–catch-finally。前者产生的代码更加简洁、清晰，产生的异常信息也更靠谱。”
 
 “靠谱！”三妹说。
 
