@@ -14,10 +14,6 @@
 - `docs/src/sidebar/itwanger/qiuzhi/` — 求职/面试类文章
 - `docs/src/ai/video/` — AI Agent 面试题的逐题答案文章（兼作视频口播素材）
 
-## 常用命令
-
-- 写作前先运行 `date "+%Y年%m月%d日"` 确认日期
-
 ## 写作工作流
 
 1. 写 AI 文章 → ai-article Skill；口播稿 → video-script Skill

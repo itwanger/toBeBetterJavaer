@@ -59,6 +59,7 @@ description: 为短视频/口播生成或优化脚本。适用于 AI 技术科�
 - "assistant 消息" → "模型回复"
 - "20K token" → "两万个 token"
 - `rg`、`sed` → "重新搜索、重新读取"
+- "few-shot 示例" → 首次出现写"few-shot（示范问答）示例"，后续直接用"few-shot 示例"
 - 英文类型名连发要翻译：message、reasoning、function_call → 普通消息、推理过程、工具调用
 
 **删掉观众不需要知道的细节**：
