@@ -606,7 +606,7 @@ GitHub 上标星 17000+ 的开源知识库《[二哥的 Java 进阶之路](https
     
 ### star趋势图
 
-[![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.dera.page/#itwanger/toBeBetterJavaer&Date)
 
 
 ### 友情链接
