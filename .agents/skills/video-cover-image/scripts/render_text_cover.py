@@ -228,7 +228,12 @@ def render(width, height, title, lines, vertical):
     if len(lines) == 1:
         ys = [int(height * (0.55 if vertical else 0.54))]
     else:
-        top = height * (0.52 if vertical else 0.52)
+        # A wrapped horizontal title extends into the normal yellow-text zone.
+        # Move the keyword block down while preserving the reference spacing.
+        if not vertical and len(title_lines) > 1:
+            top = height * 0.61
+        else:
+            top = height * 0.52
         gap = height * (0.079 if vertical else 0.104)
         ys = [int(top + index * gap) for index in range(len(lines))]
 
