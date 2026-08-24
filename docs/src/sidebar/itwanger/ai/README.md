@@ -14,7 +14,7 @@ title: AI Agent 知识体系
 
 | 文章 | 核心内容 |
 | --- | --- |
-| [AI Agent 面试 258 题合集](ai-agent-top300.md) | Agent/RAG/MCP/LLM 全覆盖 |
+| [AI Agent 面试 288 题合集](/ai/video/) | Agent/RAG/MCP/LLM 全覆盖 |
 | [AI 大模型 333 题备份清单](ai-large-model-333.md) | 大模型高频面试题库 |
 | [AI Agent 学习路线](ai-agent-xuexiluxian.md) | 后端转 AI Agent 的完整学习路径 |
 | [阿里一面：Agent 项目怎么做](agent-mianshi.md) | LangChain、Multi-Agent、A2A |

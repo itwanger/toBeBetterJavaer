@@ -22,7 +22,7 @@ footer: |-
 - [PaiAgent/PaiFlow](/zhishixingqiu/paiflow.html) ：PaiFlow 是类 Dify、Coze、n8n 的企业级 AI Agent 工作流编排平台；PaiAgent 是它的 Vibe Coding 版本。
 - [派聪明](/zhishixingqiu/paismart.html) ：企业级 AI 知识库项目，覆盖文档解析、向量化、混合检索、权限过滤、流式问答、文件上传、MinIO、ElasticSearch、Redis、Kafka 和大模型接入。
 - [面渣逆袭📗](sidebar/sanfene/nixi.md) ：面试前必刷，硬核理解版八股文，包括 Java 基础、集合框架、并发编程、JVM、Spring、Redis、MyBatis、MySQL、操作系统、计算机网络、RocketMQ、分布式、微服务、设计模式、Linux、OpenClaw、Skills 等等，助你拿到心仪 offer。
-- [AI Agent🤖](/sidebar/itwanger/ai/) ：主打 AI 时代的工程化技术栈，覆盖 Claude Code、Codex、OpenClaw、Skills、MCP、RAG、Memory、PaiCLI、PaiAgent、AI 编程工具和大模型应用开发。
+- [Agent八股](/ai/video/) ：重点持续更新 Agent 面试题与对应的视频脚本，覆盖 Agent 基础、上下文与记忆、Harness 与 Skills、RAG知识库、LLM 基础与 API、Claude Code与Codex、DeepSeek专题等核心内容。
 - [学习路线👉](/xuexiluxian/) : 一份涵盖 Java、MySQL、Redis、C 语言、C++、Python、Go、操作系统、前端、数据结构与算法、蓝桥杯、大数据、Android、.NET、Linux 的全方位编程学习路线，清晰且有效。
 
 ## 公众号
@@ -37,7 +37,7 @@ GitHub 上标星 17000+ 的开源知识库《[二哥的 Java 进阶之路](https
 
 ## star趋势图
 
-[![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
+[![Star History Chart](https://api.star-history.com/chart?repos=itwanger/toBeBetterJavaer&type=date&legend=top-left&sealed_token=agDTNu_9IM8oaTieAAgUGVccbrTDqy6BTyiiLD10tQxa3KdJ7MHVR8A-mKLpCUVahwbO1UwpBFGM2Wb6gGrCAMPAd8SuWA-Hbk3xor8yPHq2c0iZVOBihQ)](https://www.star-history.com/)
 
 ## 捐赠鼓励
 

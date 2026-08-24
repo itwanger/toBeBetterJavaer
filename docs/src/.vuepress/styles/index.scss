@@ -871,6 +871,10 @@ body.floating-controls-collapsed .floating-controls-toggle {
   transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
+.agent-interview-page .vp-page-meta .git-info .vp-meta-label {
+  margin-inline-end: 0.55rem;
+}
+
 .agent-interview-page .vp-page-meta .vp-meta-label:hover {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--agent-pixel-ink);
@@ -922,7 +926,7 @@ body.floating-controls-collapsed .floating-controls-toggle {
   background: var(--agent-pixel-blue);
 }
 
-.agent-interview-page .vp-page .giscus-wrapper.input-top {
+.agent-interview-page .vp-page #vp-comment.giscus-wrapper.input-top {
   position: relative;
   box-sizing: border-box;
   width: 780px;
@@ -1103,7 +1107,7 @@ html[data-theme="dark"] .agent-interview-page .vp-footer-wrapper {
     max-width: calc(100% - 3rem);
   }
 
-  .agent-interview-page .vp-page .giscus-wrapper.input-top {
+  .agent-interview-page .vp-page #vp-comment.giscus-wrapper.input-top {
     max-width: calc(100% - 3rem);
     margin-bottom: 4rem !important;
     padding: 3.7rem 0.65rem 1rem !important;
