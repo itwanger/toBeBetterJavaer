@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
 
+import { agentInterviewPlugin } from "./agentInterview.js";
 import theme from "./theme.js";
 
 export default defineUserConfig({
@@ -15,6 +16,8 @@ export default defineUserConfig({
   description: "一份通俗易懂、风趣幽默的Java学习指南，内容涵盖Java基础、Java并发编程、Java虚拟机、AI应用开发、大模型应用开发、求职面试等核心知识点。学Java/AI，就认准二哥的Java进阶之路",
 
   theme,
+
+  plugins: [agentInterviewPlugin()],
 
   // pwa 建议设置为 false
   shouldPrefetch: false,

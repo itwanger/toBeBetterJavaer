@@ -4,8 +4,6 @@
 
 因为 Agent 的工作流程，远不止“调模型、调工具”这么简单。
 
-![](https://cdn.paicoding.com/stutymore/how-agent-works-20260705085838.png)
-
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你走一遍 Agent 处理请求的完整流程。
 
 面试官问这道题主要考察两个层面：第一，Agent 处理请求的全流程你能不能说清楚；第二，循环之间那些隐藏的工作你知不知道。
@@ -33,3 +31,5 @@
 最后送大家一句口诀，Agent 的工作流程是这样的，组装上下文，调模型看信号；tool_use 就继续，end_turn 就收工。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/how-agent-works-20260705085838.png)

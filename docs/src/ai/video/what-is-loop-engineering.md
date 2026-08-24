@@ -1,12 +1,8 @@
-# 什么是 Loop Engineering？
-
 面试官问你：“什么是 Loop Engineering？”如果你回答“不就是 ReAct 循环换了个说法吗？”面试官就只能两手一摊，无语了。
 
 为什么？
 
 因为 ReAct 是 Agent 的内部循环机制。Loop Engineering 管的是定时任务，对，没错，定时任务，让 Agent 能在无人值守的情况下持续工作。就像 Linux 中的 crontab 一样，Loop Engineering 就是 Agent 的调度器。
-
-![](https://cdn.paicoding.com/stutymore/what-is-loop-engineering-20260710095516.png)
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你搞懂 Loop Engineering。
 
@@ -43,3 +39,5 @@ Claude Code 里有两种实现：/goal 和 /loop。
 最后一句口诀——提示词管嘴巴，上下文管大脑，Harness 管手脚，Loop 管心跳——四件齐活，Agent 自己跑。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/what-is-loop-engineering-20260710095516.png)

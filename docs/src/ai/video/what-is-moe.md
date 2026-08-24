@@ -1,5 +1,3 @@
-# DeepSeek V4 技术报告中的 MoE 到底是什么？
-
 你肯定在各个地方见过这组数字，比如 DeepSeek V4 的技术报告里，Flash 版本的总参数是 284B，只激活 13B；Pro 版本的总参数是 1.6T，只激活 49B。
 
 ![](https://cdn.paicoding.com/stutymore/what-is-moe-badf1e308ab44a865761d85f389296bb.png)

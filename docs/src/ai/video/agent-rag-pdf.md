@@ -1,14 +1,10 @@
 面试官问你：Agent 的 RAG 遇到 PDF 怎么办？如果你回答：用 PyPDF 把文字抽出来，切块，喂向量数据库，那么恭喜你，又踩坑了。
 
-![](https://cdn.paicoding.com/stutymore/agent-rag-pdf-bcccfda09ad3b73728c19ec6f5296366.png)
-
 为什么？
 
 因为 PDF 是排版格式，不是数据格式。简单的文本 PDF，抽文本当然可以。可一旦碰到扫描件、表格、图表，纯文本抽取就完蛋了。
 
 哈喽大家好，我是二哥呀。今天继续用 3 分钟，拆一道 Agent 高频面试题。
-
-![](https://cdn.paicoding.com/stutymore/agent-rag-pdf-09033ec0001f5d55f733140fcf6ed05c.png)
 
 面试官问这道题，表面在问方案，实际考三件事：
 
@@ -31,3 +27,7 @@
 最后一句口诀——先看是不是纯文本PDF，如果是就直接提取；否则上 OCR 或者多模态模型。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/agent-rag-pdf-09033ec0001f5d55f733140fcf6ed05c.png)
+
+![](https://cdn.paicoding.com/stutymore/agent-rag-pdf-bcccfda09ad3b73728c19ec6f5296366.png)

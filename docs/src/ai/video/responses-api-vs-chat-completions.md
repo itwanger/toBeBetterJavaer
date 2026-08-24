@@ -1,4 +1,4 @@
-# DeepSeek V4 Pro 正式版支持 Responses API 了，它和 Chat Completions API 到底有什么区别？
+DeepSeek V4 Pro 正式版支持 Responses API 了，它和 Chat Completions API 到底有什么区别？
 
 如果你调用过 DeepSeek 的 API，你一定用过 Chat Completions 协议。发一个 messages 数组，拿回一段文本，简单粗暴。
 

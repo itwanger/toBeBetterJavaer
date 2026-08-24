@@ -449,3 +449,664 @@ body.floating-controls-collapsed .floating-controls-toggle {
     transform: rotate(360deg);
   }
 }
+
+/* Agent 八股：在阅读体验优先的前提下，保留像素游戏的硬边、网格和块状阴影。 */
+.agent-interview-page {
+  --agent-pixel-ink: #17212b;
+  --agent-pixel-paper: #fffdf3;
+  --agent-pixel-yellow: #ffd84d;
+  --agent-pixel-green: #58d68d;
+  --agent-pixel-blue: #6ec8ff;
+  --agent-pixel-pink: #ff8fab;
+  --agent-pixel-muted: #637083;
+  --agent-pixel-grid: rgb(23 33 43 / 5.5%);
+  --agent-pixel-shadow: 5px 5px 0 var(--agent-pixel-ink);
+  background-color: var(--agent-pixel-paper);
+  background-image:
+    linear-gradient(var(--agent-pixel-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--agent-pixel-grid) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.agent-interview-page .vp-navbar {
+  border-bottom: 3px solid var(--agent-pixel-ink);
+  background: rgb(255 253 243 / 94%);
+  box-shadow: 0 4px 0 rgb(23 33 43 / 12%);
+  backdrop-filter: blur(12px);
+}
+
+.agent-interview-page .vp-navbar a[href="/ai/video/"] {
+  position: relative;
+  color: var(--agent-pixel-ink);
+  font-weight: 900;
+}
+
+.agent-interview-page .vp-navbar a[href="/ai/video/"]::after {
+  content: "NEW";
+  position: absolute;
+  top: -0.72rem;
+  right: -1.4rem;
+  padding: 0.08rem 0.25rem;
+  border: 1px solid var(--agent-pixel-ink);
+  background: var(--agent-pixel-pink);
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.56rem;
+  font-weight: 900;
+  line-height: 1.1;
+  box-shadow: 2px 2px 0 var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-sidebar {
+  border-inline-end: 3px solid var(--agent-pixel-ink);
+  background:
+    linear-gradient(rgb(255 255 255 / 78%), rgb(255 255 255 / 78%)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 17px,
+      var(--agent-pixel-grid) 17px,
+      var(--agent-pixel-grid) 18px
+    );
+}
+
+.agent-interview-page .vp-sidebar-group {
+  margin: 0.7rem 0.6rem 1rem;
+}
+
+.agent-interview-page .vp-sidebar-header {
+  padding: 0.52rem 0.62rem;
+  border: 2px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: var(--agent-pixel-yellow);
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  box-shadow: 3px 3px 0 var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-sidebar-link {
+  margin: 0.28rem 0;
+  padding: 0.42rem 0.55rem;
+  border: 2px solid transparent;
+  border-radius: 0;
+  color: #354253;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.agent-interview-page .vp-sidebar-link:hover {
+  border-color: var(--agent-pixel-ink);
+  background: #fff;
+  color: var(--agent-pixel-ink);
+  box-shadow: 2px 2px 0 var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-sidebar-link.active {
+  border-color: var(--agent-pixel-ink);
+  background: var(--agent-pixel-green);
+  color: var(--agent-pixel-ink);
+  font-weight: 800;
+  box-shadow: 3px 3px 0 var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-page {
+  background: transparent;
+}
+
+.agent-interview-page .theme-hope-content {
+  color: var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-page-title > h1,
+.agent-interview-page .theme-hope-content > h1 {
+  position: relative;
+  margin: 1.2rem 0 2rem;
+  padding: clamp(1rem, 3vw, 1.45rem);
+  border: 3px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: var(--agent-pixel-yellow);
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
+  line-height: 1.25;
+  text-wrap: wrap;
+  box-shadow: 7px 7px 0 var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-page-title > h1::before,
+.agent-interview-page .theme-hope-content > h1::before {
+  content: "// 二哥的Agent进阶之路";
+  display: block;
+  margin-bottom: 0.72rem;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  opacity: 0.72;
+}
+
+.agent-interview-page .theme-hope-content h2 {
+  margin-top: 2.5rem;
+  padding: 0.58rem 0.75rem;
+  border: 2px solid var(--agent-pixel-ink);
+  border-inline-start-width: 8px;
+  border-radius: 0;
+  background: #fff;
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  box-shadow: 4px 4px 0 rgb(23 33 43 / 18%);
+}
+
+.agent-interview-page .theme-hope-content h3::before {
+  content: "▸ ";
+  color: #d23f68;
+}
+
+.agent-interview-page .theme-hope-content a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.agent-interview-page .theme-hope-content table,
+.agent-interview-page .theme-hope-content blockquote,
+.agent-interview-page .theme-hope-content div[class*="language-"] {
+  border: 3px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  box-shadow: 5px 5px 0 rgb(23 33 43 / 18%);
+}
+
+.agent-interview-page .theme-hope-content img {
+  border: 1px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 rgb(23 33 43 / 10%);
+}
+
+.agent-interview-page .theme-hope-content blockquote {
+  background: #eef8ff;
+  color: #344255;
+}
+
+.agent-interview-page .theme-hope-content .agent-new-question {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  margin: -0.2rem 0 0.55rem;
+  padding: 0.08rem 0.38rem;
+  border: 1px solid #d23f68;
+  background: rgb(210 63 104 / 6%);
+  color: #b52f55;
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.agent-interview-page .theme-hope-content .agent-new-question span {
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  opacity: 0.82;
+}
+
+.agent-interview-page .theme-hope-content .agent-duplicate-question {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: -0.2rem 0 0.55rem;
+  padding: 0.08rem 0.38rem;
+  border: 1px dashed #9a6a16;
+  background: rgb(207 155 48 / 7%);
+  color: #79510d;
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.agent-interview-page .theme-hope-content .agent-duplicate-question span {
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+  opacity: 0.82;
+}
+
+.agent-interview-page .theme-hope-content :not(pre) > code {
+  border: 1px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: #fff4b8;
+  color: #9f1f47;
+  box-shadow: 1px 1px 0 var(--agent-pixel-ink);
+}
+
+.agent-answer-card {
+  position: relative;
+  margin: 0.8rem 0 2.2rem;
+  padding: clamp(1rem, 3vw, 1.35rem);
+  border: 3px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: #fff;
+  color: var(--agent-pixel-ink);
+  box-shadow: var(--agent-pixel-shadow);
+}
+
+.agent-answer-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background:
+    linear-gradient(90deg, var(--agent-pixel-blue) 50%, transparent 50%),
+    linear-gradient(var(--agent-pixel-pink) 50%, transparent 50%);
+  background-size: 12px 12px;
+}
+
+.agent-answer-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.62rem;
+  border-bottom: 2px dashed var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.agent-answer-card__meta span {
+  padding: 0.2rem 0.4rem;
+  background: var(--agent-pixel-green);
+}
+
+.agent-answer-card__label {
+  margin: 0 0 0.35rem !important;
+  color: #b02250;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.agent-answer-card__summary {
+  margin: 0 !important;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.agent-answer-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  margin-top: 0.9rem;
+}
+
+.agent-answer-card__tags span {
+  padding: 0.22rem 0.45rem;
+  border: 1.5px solid var(--agent-pixel-ink);
+  background: #eaf6ff;
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  box-shadow: 2px 2px 0 var(--agent-pixel-ink);
+}
+
+.agent-video-card {
+  width: min(100%, 760px);
+  margin: -0.7rem auto 2.4rem;
+  border: 3px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: var(--agent-pixel-ink);
+  box-shadow: var(--agent-pixel-shadow);
+}
+
+.agent-video-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--agent-pixel-pink);
+  color: #17212b;
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.agent-interview-page .theme-hope-content .agent-video-card__meta a {
+  color: #17212b;
+  text-decoration: none;
+}
+
+.agent-interview-page .theme-hope-content .agent-video-card__meta a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.agent-video-card__player {
+  position: relative;
+  height: 0;
+  /* 抖音播放器由 16:9 画面和约 35px 的底部控制栏组成。 */
+  padding-bottom: calc(56.25% + 35px);
+  overflow: hidden;
+  background: #0b0f14;
+}
+
+.agent-video-card__player iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.agent-script-card {
+  margin: 0.9rem 0 2.6rem;
+  border: 2px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: rgb(255 255 255 / 88%);
+  box-shadow: 4px 4px 0 rgb(23 33 43 / 16%);
+}
+
+.agent-script-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.58rem 0.75rem;
+  border-bottom: 2px dashed var(--agent-pixel-ink);
+  background: #eaf6ff;
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.agent-script-card__header b {
+  color: var(--agent-pixel-muted);
+  font-size: 0.62rem;
+}
+
+.agent-script-card__body {
+  padding: clamp(1rem, 3vw, 1.4rem);
+}
+
+.agent-script-card__body > :first-child {
+  margin-top: 0;
+}
+
+.agent-script-card__body > :last-child {
+  margin-bottom: 0;
+}
+
+.agent-interview-page .vp-page-meta {
+  margin-top: 2.8rem;
+  padding: 1rem 0 0;
+  border-top: 2px dashed var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-page-meta .edit-link {
+  display: inline-flex;
+}
+
+.agent-interview-page .vp-page-meta .vp-meta-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 0.68rem;
+  border: 2px solid var(--agent-pixel-ink);
+  background: var(--agent-pixel-yellow);
+  color: #17212b;
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 var(--agent-pixel-ink);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.agent-interview-page .vp-page-meta .vp-meta-label:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--agent-pixel-ink);
+}
+
+.agent-interview-page .vp-page .vp-page-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  box-sizing: border-box;
+  width: 780px;
+  max-width: calc(100% - 5rem);
+  margin: 1.5rem auto 0;
+  padding: 0;
+  border-top: 0;
+}
+
+.agent-interview-page .vp-page-nav a {
+  min-width: 0;
+  padding: 0.72rem 0.8rem;
+  border: 2px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: rgb(255 255 255 / 88%);
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 rgb(23 33 43 / 16%);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.agent-interview-page .vp-page-nav a:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgb(23 33 43 / 20%);
+}
+
+.agent-interview-page .vp-page-nav .hint {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  padding: 0.12rem 0.36rem;
+  border: 1px solid var(--agent-pixel-ink);
+  background: var(--agent-pixel-green);
+  color: #17212b;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.agent-interview-page .vp-page-nav .next .hint {
+  background: var(--agent-pixel-blue);
+}
+
+.agent-interview-page .vp-page .giscus-wrapper.input-top {
+  position: relative;
+  box-sizing: border-box;
+  width: 780px;
+  max-width: calc(100% - 5rem);
+  margin: 2.6rem auto 4.5rem !important;
+  padding: 3.8rem 1rem 1.25rem !important;
+  border: 2px solid var(--agent-pixel-ink);
+  background: rgb(255 255 255 / 88%);
+  box-shadow: 4px 4px 0 rgb(23 33 43 / 16%);
+}
+
+.agent-interview-page .giscus-wrapper giscus-widget {
+  display: block;
+}
+
+.agent-interview-page .giscus-wrapper::before {
+  content: "COMMUNITY / 交流区";
+  position: absolute;
+  inset: 0 0 auto;
+  padding: 0.62rem 0.75rem;
+  border-bottom: 2px dashed var(--agent-pixel-ink);
+  background: var(--agent-pixel-blue);
+  color: #17212b;
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.agent-interview-page .giscus-wrapper iframe {
+  display: block;
+  width: 100%;
+}
+
+.agent-interview-page .vp-footer-wrapper {
+  border-top: 3px solid var(--agent-pixel-ink);
+  background: rgb(255 253 243 / 92%);
+  color: var(--agent-pixel-muted);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  box-shadow: inset 0 4px 0 rgb(23 33 43 / 8%);
+}
+
+html[data-theme="dark"] .agent-interview-page {
+  --agent-pixel-ink: #edf5ff;
+  --agent-pixel-paper: #111820;
+  --agent-pixel-yellow: #e7b93f;
+  --agent-pixel-green: #34885d;
+  --agent-pixel-blue: #397eac;
+  --agent-pixel-pink: #b34e70;
+  --agent-pixel-muted: #9aa8b9;
+  --agent-pixel-grid: rgb(237 245 255 / 6%);
+}
+
+html[data-theme="dark"] .agent-interview-page .vp-navbar {
+  background: rgb(17 24 32 / 94%);
+}
+
+html[data-theme="dark"] .agent-interview-page .vp-sidebar {
+  background:
+    linear-gradient(rgb(17 24 32 / 86%), rgb(17 24 32 / 86%)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 17px,
+      var(--agent-pixel-grid) 17px,
+      var(--agent-pixel-grid) 18px
+    );
+}
+
+html[data-theme="dark"] .agent-interview-page .vp-sidebar-link,
+html[data-theme="dark"] .agent-interview-page .theme-hope-content blockquote {
+  color: #cad6e4;
+}
+
+html[data-theme="dark"] .agent-interview-page .vp-sidebar-link:hover,
+html[data-theme="dark"] .agent-interview-page .theme-hope-content h2,
+html[data-theme="dark"] .agent-interview-page .agent-answer-card {
+  background: #18232f;
+}
+
+html[data-theme="dark"] .agent-interview-page .theme-hope-content blockquote {
+  background: #152636;
+}
+
+html[data-theme="dark"] .agent-interview-page .theme-hope-content .agent-new-question {
+  border-color: #d96b8d;
+  background: rgb(217 107 141 / 9%);
+  color: #f0a3ba;
+}
+
+html[data-theme="dark"] .agent-interview-page .theme-hope-content .agent-duplicate-question {
+  border-color: #caa458;
+  background: rgb(202 164 88 / 9%);
+  color: #e7c77f;
+}
+
+html[data-theme="dark"] .agent-interview-page .theme-hope-content :not(pre) > code {
+  background: #493d17;
+  color: #ffd0df;
+}
+
+html[data-theme="dark"] .agent-answer-card__tags span {
+  background: #193149;
+}
+
+html[data-theme="dark"] .agent-script-card {
+  background: rgb(24 35 47 / 92%);
+  box-shadow: 4px 4px 0 rgb(237 245 255 / 12%);
+}
+
+html[data-theme="dark"] .agent-script-card__header {
+  background: #193149;
+}
+
+html[data-theme="dark"] .agent-interview-page .vp-page-nav a,
+html[data-theme="dark"] .agent-interview-page .giscus-wrapper {
+  background: rgb(24 35 47 / 92%);
+  box-shadow: 4px 4px 0 rgb(237 245 255 / 12%);
+}
+
+html[data-theme="dark"] .agent-interview-page .vp-footer-wrapper {
+  background: rgb(17 24 32 / 94%);
+  box-shadow: inset 0 4px 0 rgb(237 245 255 / 8%);
+}
+
+@media (max-width: 719px) {
+  .agent-interview-page .vp-navbar a[href="/ai/video/"]::after {
+    display: none;
+  }
+
+  .agent-interview-page .vp-sidebar {
+    border-inline-end-width: 2px;
+  }
+
+  .agent-interview-page .vp-page-title > h1,
+  .agent-interview-page .theme-hope-content > h1 {
+    margin-top: 0.8rem;
+    box-shadow: 5px 5px 0 var(--agent-pixel-ink);
+  }
+
+  .agent-answer-card {
+    box-shadow: 4px 4px 0 var(--agent-pixel-ink);
+  }
+
+  .agent-video-card {
+    width: min(100%, 372px);
+    margin-top: -0.9rem;
+    box-shadow: 4px 4px 0 var(--agent-pixel-ink);
+  }
+
+  .agent-video-card__player {
+    height: 720px;
+    padding-bottom: 0;
+  }
+
+  .agent-video-card__meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.28rem;
+  }
+
+  .agent-script-card {
+    box-shadow: 3px 3px 0 rgb(23 33 43 / 16%);
+  }
+
+  .agent-script-card__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .agent-script-card__body {
+    padding: 0.9rem;
+  }
+
+  .agent-interview-page .vp-page .vp-page-nav {
+    grid-template-columns: 1fr;
+    max-width: calc(100% - 3rem);
+  }
+
+  .agent-interview-page .vp-page .giscus-wrapper.input-top {
+    max-width: calc(100% - 3rem);
+    margin-bottom: 4rem !important;
+    padding: 3.7rem 0.65rem 1rem !important;
+    box-shadow: 3px 3px 0 rgb(23 33 43 / 16%);
+  }
+}

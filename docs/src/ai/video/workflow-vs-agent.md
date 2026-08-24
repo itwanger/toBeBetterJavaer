@@ -1,5 +1,3 @@
-# 腾讯面试官：Workflow 和 Agent 有什么区别？
-
 面试官问你：“Workflow 和 Agent 有什么区别？”如果你回答“Workflow 就是低代码拖拽，Agent 才是真正的 AI”，那完蛋了，面试官听完就知道你没做过真实项目。
 
 为什么？

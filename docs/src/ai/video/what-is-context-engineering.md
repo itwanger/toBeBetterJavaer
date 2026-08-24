@@ -1,5 +1,3 @@
-# 什么是上下文工程（Context Engineering）？
-
 面试官问你：“什么是上下文工程（Context Engineering）？”如果你回答“就是 Prompt Engineering 换了个高级说法呗”，面试官听完直摇头。
 
 为什么？

@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
+import { getAgentInterviewMeta } from "./agentInterview.js";
 
 // paicoding 上已存在文章的清单（build 前由 scripts/gen-paicoding-canonical.mjs 自动生成）。
 // 命中的文章把 canonical 让给首发的 paicoding；清单缺失时安全降级为全部自指 javabetter。
@@ -128,6 +129,7 @@ export default hopeTheme({
     },
 
     seo: {
+      fallBackImage: "https://cdn.paicoding.com/tobebetterjavaer/images/logo-02.png",
       // canonical 归属策略（同篇内容双发到 paicoding + javabetter，正主统一定为首发的 paicoding）：
       //  1) 自动清单命中（build 前脚本探测 paicoding 上文件名=slug 的文章）→ 让权 paicoding，
       //     新发文章无需任何手动标记；
@@ -144,6 +146,64 @@ export default hopeTheme({
           return paicodingCanonical[page.slug];
         }
         return `https://javabetter.cn${page.path}`;
+      },
+      ogp: (ogp, page) => {
+        const interviewMeta = getAgentInterviewMeta(page);
+        if (!interviewMeta) return ogp;
+
+        return {
+          ...ogp,
+          "og:title": interviewMeta.title,
+          "og:description": interviewMeta.summary,
+          "article:section": "AI Agent 面试",
+          "article:tag": interviewMeta.keywords,
+        };
+      },
+      jsonLd: (jsonLd, page) => {
+        const interviewMeta = getAgentInterviewMeta(page);
+        if (!interviewMeta) return jsonLd;
+
+        return {
+          ...jsonLd,
+          headline: interviewMeta.title,
+          description: interviewMeta.summary,
+          abstract: interviewMeta.summary,
+          keywords: interviewMeta.keywords.join(", "),
+          inLanguage: "zh-CN",
+          educationalLevel: "进阶",
+          audience: {
+            "@type": "EducationalAudience",
+            educationalRole: "AI 开发者与求职者",
+          },
+          isPartOf: {
+            "@type": "CollectionPage",
+            name: "Agent 八股",
+            url: "https://javabetter.cn/ai/video/",
+          },
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://javabetter.cn${page.path}`,
+          },
+        };
+      },
+      customHead: (head, page) => {
+        const interviewMeta = getAgentInterviewMeta(page);
+        if (!interviewMeta) return;
+
+        head.push([
+          "meta",
+          {
+            name: "keywords",
+            content: interviewMeta.keywords.join(", "),
+          },
+        ]);
+        head.push([
+          "meta",
+          {
+            name: "robots",
+            content: "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+          },
+        ]);
       },
     },
 

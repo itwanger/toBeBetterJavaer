@@ -1,6 +1,21 @@
 import { sidebar } from "vuepress-theme-hope";
+import { agentInterviewGroups, agentInterviewMeta } from "./agentInterview.js";
 
 export default sidebar({
+  "/ai/video/": [
+    {
+      text: agentInterviewGroups[0].text,
+      link: "/ai/video/",
+    },
+    ...agentInterviewGroups.slice(1).map((group) => ({
+      text: group.text,
+      collapsible: true,
+      children: group.children.map((slug) => ({
+        text: agentInterviewMeta[slug].shortTitle,
+        link: slug,
+      })),
+    })),
+  ],
   "/zhishixingqiu/": [
     "readme.md",
     "jianli",

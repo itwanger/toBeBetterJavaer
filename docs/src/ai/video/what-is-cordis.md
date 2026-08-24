@@ -1,4 +1,4 @@
-# DeepSeek Harness 是基于 Cordis 插件系统构建的，那 Cordis 到底是个啥？
+DeepSeek Harness 是基于 Cordis 插件系统构建的，那 Cordis 到底是个啥？
 
 DeepSeek Harness 今天正式发布了。你兴冲冲打开 GitHub，翻了翻源码和文档，发现一个词反复出现——Cordis。
 

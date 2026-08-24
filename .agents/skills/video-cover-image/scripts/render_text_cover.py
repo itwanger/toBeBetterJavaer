@@ -119,7 +119,9 @@ def balance_lines(text, font, max_width, line_count):
                     and text[end].isascii()
                     and text[end].isalnum()
                 ):
-                    cost += target_width**2
+                    # Keep English product names and acronyms intact whenever a
+                    # legal break exists, especially on narrow vertical covers.
+                    cost += target_width**2 * 100
                 for term in PROTECTED_TERMS:
                     term_start = text.find(term)
                     while term_start != -1:

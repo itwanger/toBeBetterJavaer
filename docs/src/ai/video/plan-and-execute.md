@@ -1,14 +1,10 @@
 面试官问你：“什么是 Plan-and-Execute 模式？”如果你回答“就是把任务拆成几个步骤然后按顺序执行”，那你只答对了三分之一。
 
-![](https://cdn.paicoding.com/stutymore/plan-and-execute-db29e1afee56e29ab3309d73a6b41c50.png)
-
 为什么？
 
 因为 Plan-and-Execute 的核心不是“按步骤跑”，而是规划和执行的分离。规划用强模型，比如说 Opus，执行用弱模型，比如说 Sonnet。
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你拆解、彻底搞清楚 Plan-and-Execute 这道 Agent 面试题。
-
-![](https://cdn.paicoding.com/stutymore/plan-and-execute-bb3b0159c37077f2d5d57e8380fd90ca.png)
 
 面试官问这道题，考的是三个东西：
 
@@ -52,4 +48,6 @@ Plan-and-Execute 怎么解决？靠三个组件。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116810863153541&bvid=BV1xy7a65EA1&cid=39401422863&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+![](https://cdn.paicoding.com/stutymore/plan-and-execute-bb3b0159c37077f2d5d57e8380fd90ca.png)
+
+![](https://cdn.paicoding.com/stutymore/plan-and-execute-db29e1afee56e29ab3309d73a6b41c50.png)

@@ -69,3 +69,9 @@ Codex 的长期记忆先是 LLM 提炼总结，然后用 SQLite 做中转，再�
 ![](https://cdn.paicoding.com/stutymore/codex-long-term-memory-20260731115233.png)
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
+
+![](https://cdn.paicoding.com/stutymore/codex-long-term-memory-20260824174119.png)
+
+![](https://cdn.paicoding.com/stutymore/codex-long-term-memory-20260824174127.png)
+
+![](https://cdn.paicoding.com/stutymore/codex-long-term-memory-20260824174133.png)

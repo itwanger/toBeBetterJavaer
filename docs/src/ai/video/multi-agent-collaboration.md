@@ -1,14 +1,10 @@
 面试官问你：“Multi-Agent 协作是怎么实现的？”如果你回答“每个 Agent 各干各的，最后合并结果就行了”，那这道送分题，你算浪费了。
 
-![](https://cdn.paicoding.com/stutymore/multi-agent-collaboration-b51988da1509079c45d910beff2b2b6e.png)
-
 为什么？
 
 因为没有协调机制的 Multi-Agent，只会互相打架。
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，拆透 Multi-Agent 协作的实现机制。
-
-![](https://cdn.paicoding.com/stutymore/multi-agent-collaboration-79bcfbae58e55c888ad51fd3c7c1ca88.png)
 
 面试官问这道题，表面问流程，实际考三层：第一，主流协作架构你知道几种；第二，编排器（Orchestrator）模式的实现细节你清不清楚；第三，什么场景该上 Multi-Agent，什么场景单 Agent 就够。
 
@@ -39,3 +35,7 @@ Pipeline 模式——固定链条，A 输出喂 B，B 输出喂 C。适合步骤
 最后一句口诀——调度靠编排器，隔离跑互不扰；简单任务别 Multi，省下 token 是正道。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/multi-agent-collaboration-79bcfbae58e55c888ad51fd3c7c1ca88.png)
+
+![](https://cdn.paicoding.com/stutymore/multi-agent-collaboration-b51988da1509079c45d910beff2b2b6e.png)

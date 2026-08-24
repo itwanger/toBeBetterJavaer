@@ -8,8 +8,6 @@
 
 那现在，你想了，想明白了吗？
 
-![](https://cdn.paicoding.com/stutymore/agent-long-term-memory-20260722194955.png)
-
 我自己用 Python/Go/TypeScript/Java 分别实现过一套完整的终端 Agent，名叫PaiCLI，在 GitHub 上已开源，类似 Claude Code。
 
 ![](https://cdn.paicoding.com/stutymore/paicli-python-launch-20260708161001.png)
@@ -77,3 +75,5 @@
 ![](https://cdn.paicoding.com/stutymore/agent-long-term-memory-20260722195003.png)
 
 ![](https://cdn.paicoding.com/stutymore/agent-long-term-memory-20260722195024.png)
+
+![](https://cdn.paicoding.com/stutymore/agent-long-term-memory-20260722194955.png)

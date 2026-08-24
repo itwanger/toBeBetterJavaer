@@ -1,14 +1,10 @@
 面试官问你：“Agent 的 ReAct 会死循环吗？”如果你回答“不会，ReAct 有终止条件”，那你就只能回家等通知了。
 
-![](https://cdn.paicoding.com/stutymore/react-death-loop-8d506911f78d415e7107af3fab0d039f.png)
-
 为什么？
 
 因为 ReAct 真的会死循环，我今天早上在用 QoderWork 跑无限画布设计 Codex/Claude Code 学习网站的时候，就遇到了，QoderWork 不但跑不出结果，还会莫名其妙挂掉，进程直接没了。重启也不行。
 
 哈喽大家好，我是二哥呀。今天继续用 3 分钟，拆一道 Agent 高频面试题。
-
-![](https://cdn.paicoding.com/stutymore/react-death-loop-3db724841aa70c80e1efd2a867147053.png)
 
 老规矩，先搞清楚面试官在考什么。
 
@@ -47,3 +43,7 @@
 最后一句口诀——ReAct 停不停靠 LLM 自己判断，要想不死循环，得做好 Harness。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/react-death-loop-8d506911f78d415e7107af3fab0d039f.png)
+
+![](https://cdn.paicoding.com/stutymore/react-death-loop-3db724841aa70c80e1efd2a867147053.png)

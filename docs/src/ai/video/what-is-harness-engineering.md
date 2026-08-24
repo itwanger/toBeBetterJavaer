@@ -1,12 +1,8 @@
-# 什么是 Harness Engineering？
-
 面试官问你：“什么是 Harness Engineering？”如果你回答“就是给 Agent 写一份规则文件呗，类似 AGENTS.md”，恭喜你，出门右拐回家等通知吧。
 
 为什么？
 
 因为规则文件只是 Harness 的冰山一角。Harness Engineering 管的是 Agent 的整个运行时环境——能做什么、不能做什么、做错了怎么自我修正。
-
-![](https://cdn.paicoding.com/stutymore/what-is-harness-engineering-20260708213530.png)
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你搞懂 Harness Engineering。
 
@@ -49,3 +45,5 @@ Claude Code 就是一个典型的 Harness。它有权限模型、有 Hooks 系�
 最后一句口诀——提示词管嘴巴，上下文管大脑，Harness 管手脚——三件齐活了，Agent 才靠谱。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/what-is-harness-engineering-20260708213530.png)

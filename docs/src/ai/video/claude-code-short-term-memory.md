@@ -14,8 +14,6 @@
 
 系好安全带，我们粗粗粗出发了～
 
-![](https://cdn.paicoding.com/stutymore/claude-code-short-term-memory-20260720082344.png)
-
 先说第一层，短期记忆到底是什么。
 
 很多人以为大模型是记忆的。
@@ -67,3 +65,5 @@ Claude Code 会起一个子 Agent，把历史消息发给大模型，让它按 9
 短期记忆其实是一个 Message 数组，在触发了上下文窗口上限时，Claude Code 会帮你做一次摘要压缩。当然了，压缩会丢弃一些细枝末节，所以，尽量在一个上下文窗口内处理完一件事。真处理不完，可以手动压缩让模型记住你的核心诉求。
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
+
+![](https://cdn.paicoding.com/stutymore/claude-code-short-term-memory-20260720082344.png)

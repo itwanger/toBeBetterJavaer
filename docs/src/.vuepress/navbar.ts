@@ -12,9 +12,9 @@ export default navbar([
     link: "/sidebar/sanfene/nixi.md"
   },
   {
-    text: "AI进阶",
-    icon: "ai",
-    link: "https://ai.javabetter.cn"
+    text: "Agent八股",
+    icon: "gongju",
+    link: "/ai/video/"
   },
   { 
     text: "知识星球", 
@@ -30,6 +30,11 @@ export default navbar([
     text: "珍藏资源",
     icon: "youzhi",
     children: [
+      {
+        text: "AI进阶",
+        icon: "ai",
+        link: "https://ai.javabetter.cn"
+      },
       {
         text: "AI Agent",
         icon: "gongju",

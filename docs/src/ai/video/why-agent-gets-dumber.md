@@ -1,7 +1,3 @@
-# 为什么聊着聊着 Agent 就变傻了？
-
-关键字：Claude Code/Codex/Memory/摘要压缩/CLAUDE.md
-
 你有没有遇到过这种情况：用 Claude Code 或者 Codex 干活，前面还好好的，后面突然开始犯蠢——明明说过的事它又问你一遍，明明强调的细节它又忘了，明明之前读过的文件它又读一遍？
 
 是 Agent 变傻了吗？

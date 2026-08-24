@@ -1,12 +1,8 @@
-# 什么是 ReAct？和 CoT 有什么区别？
-
 面试官问你：“什么是 ReAct？”如果你回答“就是让大模型先想再做”，面试官追一句“那和 CoT 思维链有什么区别？”你就两手一摊，只能无语了。
 
 为什么？
 
 因为“先想再做”说的其实是 CoT。ReAct 多了一个关键动作——去现实世界里验证。
-
-![](https://cdn.paicoding.com/stutymore/what-is-react-700ef4ae63a9ac0d32983686227c0cc9.png)
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你彻底搞懂 ReAct 和 CoT 的区别。
 
@@ -35,3 +31,5 @@
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
 ![](https://cdn.paicoding.com/stutymore/what-is-react-36730f783de82fef0341ab6dcc9c2cc1.png)
+
+![](https://cdn.paicoding.com/stutymore/what-is-react-700ef4ae63a9ac0d32983686227c0cc9.png)

@@ -4,8 +4,6 @@
 
 因为 ChatBot 加个工具也能干活，但它还是 ChatBot。Agent 比 ChatBot 多的不是一个功能，是三个核心能力。
 
-![](https://cdn.paicoding.com/stutymore/agent-vs-chatbot-20260630092533.png)
-
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你拆透 Agent 和 ChatBot 的本质区别。
 
 面试官问这道题，主要想考察你两个方面：第一，你能不能准确说出 Agent 比 ChatBot 多了哪些核心能力；第二，你能不能给出一条清晰的进化路径——ChatBot 怎么一步步变成 Agent。
@@ -25,5 +23,7 @@
 最后送大家一句口诀——工具给 Agent 手和脚，规划给 Agent 指挥部，记忆让 Agent 认识你，三样齐了才叫 Agent。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/agent-vs-chatbot-20260630092533.png)
 
 ![](https://cdn.paicoding.com/stutymore/agent-vs-chatbot-20260630092603.png)

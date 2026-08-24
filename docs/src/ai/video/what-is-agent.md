@@ -1,14 +1,10 @@
 面试官问你：“什么是 Agent？和直接调大模型 API 有什么本质区别？”如果你回答“Agent 就是加了 system prompt 的大模型调用”，那这道送分题，你又没能稳稳接住。
 
-![](https://cdn.paicoding.com/stutymore/what-is-agent-07614bc4f94d86d8dafdd9352e9072c1.png)
-
 为什么？
 
 因为只加 system prompt 还不能叫 Agent。它只是给模型加了一层行为约束，真正的 Agent 还需要 tool call、ReAct 决策和 Harness 环境。
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你吃透 Agent 和 LLM API 调用的本质区别。
-
-![](https://cdn.paicoding.com/stutymore/what-is-agent-1cfeb82c1e39037e1b8846e83ecac575.png)
 
 拿到这道题，先想清楚面试官考什么。
 
@@ -51,3 +47,7 @@ Agent 通常由 Harness 维护运行状态：当前任务、历史消息、工�
 所以 Agent 和直接调 API 的本质区别，不是有没有 prompt，而是有没有 ReAct。模型根据当前状态决定下一步，Agent 执行动作，把结果再交给模型，直到任务完成。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/what-is-agent-1cfeb82c1e39037e1b8846e83ecac575.png)
+
+![](https://cdn.paicoding.com/stutymore/what-is-agent-07614bc4f94d86d8dafdd9352e9072c1.png)

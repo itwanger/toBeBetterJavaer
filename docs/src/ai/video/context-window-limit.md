@@ -6,8 +6,6 @@
 
 因为限制远不止显存。就算给你无限显存，上下文窗口照样不能无限大。
 
-![](https://cdn.paicoding.com/stutymore/context-window-limit-20260707115535.png)
-
 哈喽大家好，我是二哥呀。今天用 3 分钟，给你讲清楚上下文窗口为什么不能无限大。
 
 面试官问这道题主要考察三个方面：第一，算法层面的 Self-Attention（自注意力机制）你了解不了解；第二，推理时需要付出哪些代价；第三，为什么上下文越长，反而质量下降了。
@@ -37,3 +35,5 @@ FlashAttention 虽然能通过分块计算、减少显存读写，但 token 做�
 核心思路就一句话——让上下文窗口里的每个 Token 都值得。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/context-window-limit-20260707115535.png)

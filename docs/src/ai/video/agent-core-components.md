@@ -4,8 +4,6 @@
 
 因为一个能跑的 Agent，至少需要五大核心组件协作。模型是大脑，工具是手脚，记忆是经验，规划是策略，Harness 是躯干。缺一不可。
 
-![](https://cdn.paicoding.com/stutymore/agent-core-components-agent-core-components-cover-horizontal-4x3.png)
-
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你拆透 Agent 的完整架构。
 
 面试官问这道题，考察两个方面：第一，你能不能清晰列出 Agent 的核心组件；第二，这些组件之间怎么协作，你有没有架构级别的理解。
@@ -37,3 +35,5 @@ Harness 是把前面四个组件串起来的躯干。它管四件事。管循环
 最后送大家一句口诀——模型是脑工具是手，记忆规划各有用；Harness 负责串联，谁也离不开谁。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
+
+![](https://cdn.paicoding.com/stutymore/agent-core-components-agent-core-components-cover-horizontal-4x3.png)
