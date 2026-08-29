@@ -10,7 +10,7 @@
 >
 > 维护提醒：每发一篇，在本文件补一行并打勾。日期为文件 frontmatter 中的 date 字段。
 
-## 一、已发布（14 篇）
+## 一、已发布（16 篇）
 
 - [x] **2026-07-22 腾讯**｜`agent-mianshi-tengxun-2.md`
   为什么腾讯offer含金量永远都这么高？有人为了进腾讯，2年内面试6次（附Agent面试题）
@@ -68,12 +68,20 @@
   DeepSeek 员工：DeepSeek V4 Pro 正式发布，Harness 也进入最后一个内测版本（附Agent面试题）
   面试题角度：Pro vs Flash 激活参数与 Agent 能力、模型路由设计、成本延迟并发权衡、前缀缓存与上下文布局、Preview vs 正式版工程差异、后训练提升 Agent 能力、版本管理与灰度切换、Harness 概念与分层、Harness 工程设施差异、上下文压缩机制、Responses API vs Chat Completions、DeepSeek Harness vs Better Harness
 
+- [x] **2026-08-26 阿里**｜`agent-mianshi-ali-qwen.md`
+  阿里员工：在 Qwen 事业部一个月，周末来公司健身灯都是关的，基本没人加班。最爽的是正式员工每月 200 刀 AI 额度，能感受到踩中 AI 红利的轻松氛围了（附Agent面试题）
+  面试题角度：自我介绍与项目串联、Agent项目架构设计、单Agent/多Agent/Workflow选型、ReAct执行流程与Observation注回、Tool Message设计与tool_call_id绑定、短期长期记忆实现、上下文窗口溢出两层压缩、多模态视觉编码器融合、SFT/RL/Agentic CFT与Observation Mask、Redis会话缓存/语义缓存/分布式锁/速率限制
+
+- [x] **2026-08-27 腾讯**｜`agent-mianshi-tengxun-4.md`
+  腾讯员工：羡慕隔壁组做 WorkBuddy 的，月活1000万+，已经成为AI办公的王牌，感觉晋升和年终奖肯定少不了（附Agent面试题）
+  面试题角度：三级容错恢复（重试/状态持久化/快照回滚）、LangGraph条件边与断点续执行、ReAct同步异步工具调用、多模态RAG两条技术路线、LLM生成描述的信息瓶颈、Recall@K计算与测试集构建、LoRA低秩分解与DPO偏好优化、IVF倒排索引与nprobe调参、游戏NPC Agent三层架构、AI Coding国产替代与Harness方案
+
 ## 二、已覆盖公司统计
 
 | 公司 | 篇数 | 已发布日期 |
 |---|---|---|
-| 腾讯 | 2 | 07-22、08-05 |
-| 阿里巴巴 | 2 | 07-30、08-07 |
+| 腾讯 | 3 | 07-22、08-05、08-27 |
+| 阿里巴巴 | 3 | 07-30、08-07、08-26 |
 | 小米 | 1 | 07-24 |
 | 中兴通讯 | 1 | 07-28 |
 | 比亚迪 | 1 | 07-29 |
@@ -147,10 +155,10 @@
 这些不属于员工系列，但同样带 Agent 面试题，写作时可以参考它们的出题角度。
 
 - [x] 2026-04-17 `agent-mianshi.md`｜阿里一面，我霸气反问：你说你们在做Agent项目，说说langchain、muti-agent、a2a这些你们都是怎么做的？面试官一直在擦汗。。
-- [x] 2026-07-20 `agent-mianshi-kangya.md`｜面试官皱眉："就一个Agent项目也敢来面试？"我气笑了："简历下半页还有一个你倒是看看啊。"面试官："挺能抗压啊你。"
-- [x] 2026-07-21 `agent-mianshi-tengxun.md`｜腾讯面试官："你说你做了一个终端Agent，那说说 LLM 和 Agent的区别，ReAct、MCP、Tool、Memory、Skills？"我信誓旦旦开始背了起来～
-- [x] 2026-07-23 `agent-mianshi-shengchanji.md`｜面试官皱眉："让你负责一个生产级 Agent，你会怎么设计？"，我上来就开始背 ReAct、Function Calling、Skills。面试官听完摇头。
-- [x] 2026-07-27 `agent-mianshi-xiecheng.md`｜面试官："看简历你在做终端 Agent，那你说说Prompt组装、上下文压缩、Tool与Skill区别、多Agent编排、Plan设计？"我心里暗喜，开背～
+- [x] 2026-07-20 `agent-mianshi-kangya.md`｜面试官皱眉：“就一个Agent项目也敢来面试？”我气笑了：“简历下半页还有一个你倒是看看啊。”面试官：“挺能抗压啊你。”
+- [x] 2026-07-21 `agent-mianshi-tengxun.md`｜腾讯面试官：“你说你做了一个终端Agent，那说说 LLM 和 Agent的区别，ReAct、MCP、Tool、Memory、Skills？”我信誓旦旦开始背了起来～
+- [x] 2026-07-23 `agent-mianshi-shengchanji.md`｜面试官皱眉：“让你负责一个生产级 Agent，你会怎么设计？”，我上来就开始背 ReAct、Function Calling、Skills。面试官听完摇头。
+- [x] 2026-07-27 `agent-mianshi-xiecheng.md`｜面试官：“看简历你在做终端 Agent，那你说说Prompt组装、上下文压缩、Tool与Skill区别、多Agent编排、Plan设计？”我心里暗喜，开背～
 
 ## 五、标题写法规律（从已发布 11 篇里总结）
 

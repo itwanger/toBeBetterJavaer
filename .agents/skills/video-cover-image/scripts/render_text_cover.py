@@ -137,6 +137,15 @@ def balance_lines(text, font, max_width, line_count):
 
 
 def fit_multiline_font(text, max_width, start_size, min_size, max_lines):
+    if text.isascii() and " " not in text and "-" in text:
+        # Versioned model identifiers are easier to recognize intact than when
+        # a balanced wrap splits a decimal version or a hyphenated suffix.
+        for size in range(start_size, min_size - 1, -2):
+            font = make_font(size)
+            box = text_bbox(text, font)
+            if box[2] - box[0] <= max_width:
+                return font, [text]
+
     for size in range(start_size, min_size - 1, -2):
         font = make_font(size)
         lines = wrap_text(text, font, max_width)
