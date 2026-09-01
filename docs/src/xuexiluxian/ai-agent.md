@@ -244,7 +244,7 @@ PaiCLI用的是SQLite做本地向量存储——对CLI工具来说SQLite最轻�
 
 你做完项目之后还需要系统整理AI方向的面试八股。传统后端八股（Java基础、MySQL、Redis、Spring Boot、微服务）面渣逆袭里都有，只需要复习巩固。
 
-AI方向的八股是你需要新增的，星球的项目面试篇里都有。
+AI方向的八股是你需要新增的，星球的项目面试篇里都有。免费的部分我整理了一份《[AI Agent 面试 288 题合集](/ai/video/)》，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex 分类，每道题都配了视频讲解，可以直接拿来刷。
 
 ### 第一梯队：必须能流利讲清楚的
 

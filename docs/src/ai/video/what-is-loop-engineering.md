@@ -6,7 +6,11 @@
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，带你搞懂 Loop Engineering。
 
+## 面试官想考察什么
+
 面试官问这道题，考察三个层面：第一，它和 Prompt Engineering、Context Engineering、Harness Engineering 有什么关系；第二，ReAct 和 Loop 有什么区别；第三，/goal 和 /loop 有什么区别。
+
+## 满分回答
 
 好，接下来给你满分回答，照着背就完事了。
 
@@ -17,6 +21,8 @@ Prompt Engineering管“怎么说”，Context Engineering管“知道什么”�
 内循环是 ReAct——推理、行动、观察、重复。这是单次 Agent 运行里的循环，Harness 已经帮我们搞定了。
 
 外循环是 Loop Engineering——设计一个调度系统，让 Agent 按预设的节奏持续工作。全程不需要我们坐在那里逐句输入提示词。
+
+## /goal 和 /loop 的区别
 
 Claude Code 里有两种实现：/goal 和 /loop。
 
@@ -30,11 +36,15 @@ Claude Code 里有两种实现：/goal 和 /loop。
 
 一句话区分：/goal 知道什么时候该停，/loop 一直跑。
 
+## 面试官追问：Loop 和 Harness 怎么区分
+
 面试官如果继续追问：“Loop Engineering 和 Harness Engineering 到底怎么区分？”
 
 拿 Claude Code 来说。Harness 确保你输入一条指令后，Agent 能安全地读文件、改代码、跑测试。Loop 确保你睡觉以后，Agent 还能按预设的节奏持续工作——每完成一个任务自动捡起下一个，卡住了自动重启，跑完了自动停。
 
 两者配合，Agent 才能真正实现无人值守的连续工作。
+
+## 一句话总结
 
 最后一句口诀——提示词管嘴巴，上下文管大脑，Harness 管手脚，Loop 管心跳——四件齐活，Agent 自己跑。
 

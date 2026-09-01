@@ -51,6 +51,7 @@ export default sidebar({
     "jianli",
   ],
   "/xuexiluxian/": [
+    "ai-agent",
     {
       text: "Java学习路线",
       prefix: "java/",

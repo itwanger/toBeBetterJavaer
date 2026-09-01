@@ -1,5 +1,5 @@
 ---
-title: Java、C语言、C++、Python、Go 语言、操作系统、前端、算法和数据结构、蓝桥杯、大数据、Android、MySQL、Redis、.NET、Linux学习路线🔥
+title: AI Agent、Java、C语言、C++、Python、Go 语言、操作系统、前端、算法和数据结构、蓝桥杯、大数据、Android、MySQL、Redis、.NET、Linux学习路线🔥
 shortTitle: 计算机专业&编程语言学习路线（全）
 category:
   - 学习路线
@@ -9,10 +9,11 @@ description: Java、C语言、C++、Python、Go 语言、操作系统、前端�
 head:
   - - meta
     - name: keywords
-      content: CS,学习路线,编程,计算机专业,程序员,Java,C语言,Python,C++,前端,Go 语言,数据结构,算法,蓝桥杯,大数据,操作系统,安卓,android,mysql,redis,.NET,Linux
+      content: CS,学习路线,编程,计算机专业,程序员,AI Agent,Java,C语言,Python,C++,前端,Go 语言,数据结构,算法,蓝桥杯,大数据,操作系统,安卓,android,mysql,redis,.NET,Linux
 ---
 
 
+* [AI Agent学习路线（建议收藏🔥）](ai-agent.md)
 * [Java学习路线一条龙版（建议收藏🔥）](java/yitiaolong.md)
 * [Java并发编程学习路线（建议收藏🔥）](java/thread.md)
 * [Java虚拟机学习路线（建议收藏🔥）](java/jvm.md)

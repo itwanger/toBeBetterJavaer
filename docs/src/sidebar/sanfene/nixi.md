@@ -164,6 +164,8 @@ bing 搜【面渣逆袭】也是排名第一。
 - [面渣逆袭（Linux 面试题八股文）必看 👍](/sidebar/sanfene/linux.md)
 - [面渣逆袭（OpenClaw 面试题八股文）必看 👍](/sidebar/sanfene/openclaw.md)
 - [面渣逆袭（Skills 面试题八股文）必看 👍](/sidebar/sanfene/skills.md)
+- [面渣逆袭（AI Agent 面试题八股文）必看 👍](/sidebar/sanfene/ai-agent.md)
+- [AI Agent 面试 288 题合集（配视频讲解）👍](/ai/video/)
 
 ## PDF介绍
 

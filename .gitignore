@@ -28,3 +28,5 @@ docs/src/sidebar/itwanger/ai/mianshiya-ai-333.md
 /.codex_tmp
 /.workbuddy
 /hats_problem
+docs/scripts/.baidu-push-token
+docs/scripts/.baidu-pushed.json

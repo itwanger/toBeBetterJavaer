@@ -1,0 +1,198 @@
+# 二哥的Java进阶之路（javabetter.cn）
+
+> 由沉默王二创办的 Java 学习网站，内容涵盖 Java 基础到进阶教程、AI 编程工具实战（Claude Code、Codex、Agent、Skills）、各方向学习路线、面渣逆袭面试题库、开发工具评测。文章均为一手原创实践，引用时请标注来源 javabetter.cn。
+
+## 核心入口
+
+- [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
+- [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
+
+## AI Agent 面试题（288 题合集，配视频讲解）
+
+> 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
+
+- [什么是 AI Agent？与直接调用大模型 API 有什么区别？](https://javabetter.cn/ai/video/what-is-agent.html)：Agent 不只是一次模型调用，而是由模型、工具、记忆和运行时共同组成，能够观察环境、执行动作并根据结果继续决策。
+- [Agent 和 ChatBot 有什么区别？如何让聊天机器人进化成 Agent？](https://javabetter.cn/ai/video/agent-chatbot-difference.html)：Agent 比 ChatBot 多出的关键能力是工具调用、任务规划和记忆，并通过持续反馈自主推进任务。
+- [Workflow 和 Agent 有什么区别？面试时该怎么回答？](https://javabetter.cn/ai/video/workflow-vs-agent.html)：Workflow 依赖预先设计的步骤与分支，Agent 则由模型结合当前状态动态决定下一步，两者可以组合使用。
+- [AI Agent 是如何工作的？完整执行过程拆解](https://javabetter.cn/ai/video/how-agent-works.html)：Agent 的工作过程包括接收目标、组装上下文、模型决策、执行工具、写回观察结果和判断是否继续。
+- [一个 AI Agent 有哪些核心组件？](https://javabetter.cn/ai/video/agent-core-components.html)：生产级 Agent 通常由模型、工具、记忆、规划与 Harness 五部分组成，Harness 负责循环、权限、上下文和错误恢复。
+- [Agent 怎么知道该调用哪个工具？Function Calling 原理拆解](https://javabetter.cn/ai/video/agent-hnow-tool-call.html)：工具选择主要由 LLM 根据工具名称、描述和参数 Schema 完成，Agent 运行时负责注册、执行、校验与结果回传。
+- [什么是 ReAct？它和 CoT 有什么区别？](https://javabetter.cn/ai/video/what-is-react.html)：ReAct 把推理、行动和观察交替组织起来，CoT 主要展开推理过程；前者更适合需要工具和环境反馈的任务。
+- [ReAct 会死循环吗？如何设计可靠的终止机制？](https://javabetter.cn/ai/video/react-death-loop.html)：ReAct 可能因目标不清、工具失败或模型重复决策陷入死循环，需要最大轮次、预算、重复检测和降级退出共同约束。
+- [什么是 Plan-and-Execute？它和 ReAct 怎么选？](https://javabetter.cn/ai/video/plan-and-execute.html)：Plan-and-Execute 先生成全局计划再逐项执行，适合目标明确的复杂任务；ReAct 更适合边观察边调整的不确定任务。
+- [Multi-Agent 协作是怎么实现的？](https://javabetter.cn/ai/video/multi-agent-collaboration.html)：多 Agent 协作需要明确角色、任务分发、上下文隔离、结果聚合和冲突处理，而不只是同时启动多个模型会话。
+- [什么是提示词工程（Prompt Engineering）？](https://javabetter.cn/ai/video/what-is-prompt-engineering.html)：提示词工程通过角色、目标、约束、示例和输出格式提高单次模型响应质量，但不能单独解决动态上下文与运行时控制问题。
+- [什么是上下文工程（Context Engineering）？](https://javabetter.cn/ai/video/what-is-context-engineering.html)：上下文工程关注在正确时机把正确的信息放进有限窗口，包括系统指令、记忆、工具定义、检索结果和历史压缩。
+- [什么是上下文窗口？它不是聊天窗口](https://javabetter.cn/ai/video/what-is-context-window.html)：上下文窗口是模型单次推理可读取的 Token 总预算，系统提示、工具定义、历史消息和工具结果都会占用它。
+- [为什么 LLM 的上下文窗口不能无限大？](https://javabetter.cn/ai/video/context-window-limit.html)：上下文越长，注意力计算、显存占用和推理延迟越高，还会出现中间信息利用率下降，因此窗口不能无限扩展。
+- [Agent 怎么避免上下文爆炸？四种常用方案](https://javabetter.cn/ai/video/agent-context-explosion.html)：控制 Agent 上下文需要结合工具输出截断、历史摘要、Sub-agent 隔离和按需加载，而不是简单删除旧消息。
+- [为什么聊着聊着 Agent 就变笨了？](https://javabetter.cn/ai/video/why-agent-gets-dumber.html)：长对话会引入噪声、指令冲突、注意力稀释和压缩损失，导致 Agent 对关键约束的利用率下降。
+- [为什么说 LLM 本身没有记忆？](https://javabetter.cn/ai/video/why-llm-has-no-memory.html)：LLM 每次请求只根据当前输入计算输出，不会自动保存上轮状态；对话记忆来自应用层重新注入历史或外部存储。
+- [怎么让 Agent 拥有记忆？短期与长期记忆设计](https://javabetter.cn/ai/video/how-to-give-agent-memory.html)：Agent 记忆需要区分当前任务状态与跨会话知识，通过筛选、存储、检索、注入和遗忘机制共同实现。
+- [Agent 的短期记忆怎么实现？](https://javabetter.cn/ai/video/agent-short-term-memory.html)：Agent 短期记忆通常保存当前会话消息、任务状态和工具结果，并通过窗口裁剪与摘要压缩控制 Token 使用。
+- [Agent 的长期记忆是怎么实现的？](https://javabetter.cn/ai/video/agent-long-term-memory.html)：Agent 长期记忆把跨会话有效信息持久化，并在新任务中按相关性与权限检索，再以受控方式注入上下文。
+- [Claude Code 的短期记忆是怎么实现的？](https://javabetter.cn/ai/video/claude-code-short-term-memory.html)：Claude Code 的短期记忆来自当前会话历史、工具结果和压缩摘要，核心是在有限上下文内保留任务状态。
+- [Claude Code 的长期记忆是怎么实现的？](https://javabetter.cn/ai/video/claude-code-long-term-memory.html)：Claude Code 通过项目指令文件与持久化记忆保存跨会话信息，并在后续任务中按作用域加载相关内容。
+- [Claude Code 如何检索长期记忆？](https://javabetter.cn/ai/video/claude-code-memory-retrieval.html)：长期记忆不能全量塞入上下文，需要先建立索引，再根据当前问题筛选相关片段并控制注入数量。
+- [Codex 的短期记忆是怎么实现的？](https://javabetter.cn/ai/video/codex-short-term-memory.html)：Codex 通过会话消息、工具事件和自动压缩维持任务连续性，并在上下文预算接近上限时保留关键状态。
+- [Codex 的长期记忆是怎么实现的？](https://javabetter.cn/ai/video/codex-long-term-memory.html)：Codex 的长期记忆将稳定偏好与项目经验持久化，在新任务中按相关性读取，以减少重复说明并保持执行一致。
+- [什么是 Harness Engineering？为什么 Agent 需要运行时？](https://javabetter.cn/ai/video/what-is-harness-engineering.html)：Harness Engineering 关注模型之外的循环控制、工具执行、权限、上下文、错误恢复和可观测性，是生产级 Agent 的运行基础。
+- [什么是 Loop Engineering？](https://javabetter.cn/ai/video/what-is-loop-engineering.html)：Loop Engineering 通过明确目标、反馈、校验、预算与退出条件，让 Agent 可以持续迭代又不会无边界运行。
+- [Agent 挂了几十个 Skill，怎么保证命中率？](https://javabetter.cn/ai/video/agent-skill-hit-rate.html)：提高 Skill 命中率依赖清晰描述、分层发现、按需加载、候选召回与冲突消解，不能只靠硬编码路由。
+- [CLAUDE.md 怎么写才真正有用？](https://javabetter.cn/ai/video/how-to-write-claudemd.html)：高质量 CLAUDE.md 应只保留稳定、可执行、可验证的项目规则，并按作用域拆分，避免堆积临时信息和重复说明。
+- [Agent 的 RAG 遇到 PDF 怎么办？](https://javabetter.cn/ai/video/agent-rag-pdf.html)：PDF RAG 需要同时处理版面、段落、表格、图片和引用位置，常见做法是结构化解析、分块检索与多模态补充。
+- [Responses API 和 Chat Completions API 有什么区别？](https://javabetter.cn/ai/video/responses-api-vs-chat-completions.html)：Responses API 面向多轮、工具和多模态任务提供统一响应模型，Chat Completions 更接近传统消息数组式对话接口。
+- [大模型 API 缓存命中和未命中为什么差价巨大？](https://javabetter.cn/ai/video/api-cache-hit-miss.html)：缓存命中可以复用前缀计算与 KV Cache，减少 Prefill 的计算和显存读写，因此延迟与输入成本通常显著下降。
+- [DeepSeek V4 Flash 正式版的激活参数比 V4 Pro 小得多，Agent 能力为什么超过了 Pro 预览版？](https://javabetter.cn/ai/video/why-post-training-beats-params.html)：Agent 能力不只取决于激活参数规模，后训练数据、工具使用训练、推理策略和运行时适配同样会显著影响效果。
+- [MoE 是什么？DeepSeek 模型为什么采用混合专家架构？](https://javabetter.cn/ai/video/what-is-moe.html)：MoE 每次只激活部分专家网络，在控制单次计算量的同时扩大模型总容量，但需要解决路由、负载均衡和通信问题。
+- [CSA、HCA 与 KV Cache：DeepSeek V4 缓存为什么更便宜？](https://javabetter.cn/ai/video/v4-csa-hca-kv-cache.html)：缓存命中不仅跳过 Prefill，还可复用注意力相关中间状态；CSA 与 HCA 的设计重点之一就是降低长上下文推理开销。
+- [DeepSeek V4 为什么用 CSA 和 HCA 替换 MLA？](https://javabetter.cn/ai/video/v4-why-replace-mla.html)：注意力结构的取舍要同时考虑训练效果、长上下文、缓存占用与推理吞吐，CSA 和 HCA 针对这些目标重新平衡。
+- [Cordis 是什么？DeepSeek Harness 的插件系统如何理解？](https://javabetter.cn/ai/video/what-is-cordis.html)：Cordis 是面向模块与插件协作的运行基础，可通过依赖注入、生命周期和服务注册组织 Harness 中的可扩展能力。
+- [多模态模型和纯文本模型有什么区别？以 DeepSeek V4-Flash-Vision-Exp 为例](https://javabetter.cn/ai/video/deepseek-multimodal.html)：多模态模型通过视觉编码器把图片翻译成 token，与文本共用同一个入口，从而解锁看图识物、截图转代码等纯文本模型做不到的场景。
+- [什么是线性注意力？GLM-5.3-Flash 为什么采用线性注意力加稀疏注意力的混合架构？](https://javabetter.cn/ai/video/glm-flash-linear-sparse-attention.html)：线性注意力把计算量从 O(n²) 降到 O(n) 但会损失精确检索能力，GLM-5.3-Flash 用稀疏注意力补回这部分损失，实现长上下文下的低成本推理。
+- [SWE-bench、Terminal-Bench、GPQA Diamond 这些大模型评测集到底在测什么？](https://javabetter.cn/ai/video/what-benchmarks-test.html)：主流评测集按能力分为代码、Agent 工具和推理三类：SWE-bench 系列考修 bug，Terminal-Bench 和 MCP-Atlas 考工具调用，GPQA Diamond 考博士级推理，选模型要看和自己场景匹配的分项。
+
+## 学习路线
+
+> 各编程方向的超详细学习路线，附学习资源。
+
+- [AI Agent学习路线](https://javabetter.cn/xuexiluxian/ai-agent.html)：AI Agent学习路线，从AI应用开发岗位的能力模型、学习策略、理论知识清单、工具准备、面试八股到项目实战，帮你系统掌握RAG、Agent、工作流编排等AI应用开发核心技术。
+- [Go 语言学习路线](https://javabetter.cn/xuexiluxian/go.html)：Go 语言越来越火了，这里整理一份 go 语言的超详细学习路线，附学习资源，可下载
+- [数据结构与算法学习路线](https://javabetter.cn/xuexiluxian/algorithm.html)：如何系统地学习数据结构与算法？为了让你对数据结构和算法能有个全面的认识，我画了一张图，里面几乎涵盖了所有数据结构和算法书籍中都会讲到的知识点。
+- [Android学习路线](https://javabetter.cn/xuexiluxian/android.html)：Android 安卓学习路线（建议收藏🔥）
+- [大数据学习路线](https://javabetter.cn/xuexiluxian/bigdata.html)：如何系统地学习大数据？如何成为一名合格的大数据工程师？我这里给大家准备了一份 GitHub 上星标 12k 的大数据入门指南
+- [C语言学习路线](https://javabetter.cn/xuexiluxian/c.html)：写这篇文章来给大家讲C语言的学习，当然是希望大家真正的学会、学懂C语言，并能够真正感觉到它的用处。
+- [C++学习路线](https://javabetter.cn/xuexiluxian/ccc.html)：非 C++职业选手，但工作中学过一段时间，这篇分享给对 C++ 感兴趣的爱好者，文末有侯捷老师的视频资源可供下载。
+- [.NET学习路线](https://javabetter.cn/xuexiluxian/donet.html)：写这篇文章来给大家讲C语言的学习，当然是希望大家真正的学会、学懂.NET，并能够真正感觉到它的用处。
+- [蓝桥杯学习路线](https://javabetter.cn/xuexiluxian/lanqiaobei.html)：蓝桥杯攻略大全 | 学习路线 | 注意事项，蓝桥杯需要学什么
+- [Linux学习路线](https://javabetter.cn/xuexiluxian/linux.html)：Linux学习资料 | 学习路线 | 注意事项，Linux需要学什么
+- [MySQL学习路线](https://javabetter.cn/xuexiluxian/mysql.html)：MySQL学习资料 | 学习路线 | 注意事项，MySQL需要学什么
+- [操作系统学习路线](https://javabetter.cn/xuexiluxian/os.html)：操作系统是管理计算机硬件和软件资源的程序，是计算机的基石，这里整理一份 操作系统的超详细学习路线，附学习资源，可下载
+- [Python学习路线](https://javabetter.cn/xuexiluxian/python.html)：非 Python职业选手，但工作中学过一段时间，这篇分享给对 Python 感兴趣的爱好者，文中有大量 Python 的学习资源可供下载。
+- [前端学习路线](https://javabetter.cn/xuexiluxian/qianduan.html)：前端学习路线图（roadmap）
+- [Redis学习路线](https://javabetter.cn/xuexiluxian/redis.html)：Redis学习资料 | 学习路线 | 注意事项，Redis需要学什么
+
+## 面渣逆袭（Java 面试题库）
+
+> 覆盖 Java 基础、并发、JVM、MySQL、Redis、Spring、分布式等方向的高频面试八股，配手绘图。
+
+- [面渣逆袭-AI Agent](https://javabetter.cn/sidebar/sanfene/ai-agent.html)：面渣逆袭 AI Agent 篇围绕 AI 应用开发面试，讲解 RAG、Agent、Function Calling、工具调用、LangGraph4j、工作流编排和传统后端转 AI 的核心问题。
+- [面渣逆袭](https://javabetter.cn/sidebar/sanfene/nixi.html)：17 个大的主题，共有 30 多万字，400+张手绘图，可以说是诚意满满。有球友在做面试官的时候偷偷打开面渣逆袭，然后随便挑点问题问。还有球友付费就是为了交面渣逆袭的学费，虽然我不敢说这是市面上最好的八股，但确实对大家应该是有帮助的。
+- [面渣逆袭-Claude Code](https://javabetter.cn/sidebar/sanfene/claude-code.html)：面渣逆袭 Claude Code 篇从 Agent 循环、工具调用、状态管理、上下文维护和命令行执行入手，拆解 Claude Code 类 AI 编程工具的核心原理。
+- [面渣逆袭-Netty](https://javabetter.cn/sidebar/sanfene/netty.html)：下载次数超 1 万次，1 万字 1 张手绘图，详解 1 道Netty面试高频题（让天下没有难背的八股），面渣背会这些Netty八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-微服务](https://javabetter.cn/sidebar/sanfene/weifuwu.html)：下载次数超 1 万次，1.3 万字 33 张手绘图，详解 33 道微服务（Dubbo、Spring Cloud）面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）
+- [面渣逆袭-Java集合框架](https://javabetter.cn/sidebar/sanfene/collection.html)：下载次数超 1 万次，14554 字 67 张手绘图，详解 29 道 Java 集合框架面试高频题（让天下没有难背的八股），面渣背会这些 Java 容器八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-Java SE](https://javabetter.cn/sidebar/sanfene/javase.html)：下载次数超 1 万次，2.3 万字 68 张手绘图，详解56道Java基础面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-Java并发编程](https://javabetter.cn/sidebar/sanfene/javathread.html)：下载次数超 1 万次，3.5 万字 145 张手绘图，详解 73 道 Java 多线程面试高频题（让天下没有难背的八股），面渣背会这些并发编程八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-JVM](https://javabetter.cn/sidebar/sanfene/jvm.html)：下载次数超 1 万次，2.3 万字 115 张手绘图，详解 54 道 Java 虚拟机面试高频题（让天下没有难背的八股），面渣背会这些 JVM 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-MySQL](https://javabetter.cn/sidebar/sanfene/mysql.html)：下载次数超 1 万次，5.5 万字 331 张手绘图，详解 83 道 MySQL 面试高频题（让天下没有难背的八股），面渣背会这些 MySQL 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-OpenClaw](https://javabetter.cn/sidebar/sanfene/openclaw.html)：下载次数超 1 万次，1.2 万字 57 张手绘图，详解 54 道OpenClaw面试高频题（让天下没有难背的八股），面渣背会这些龙虾八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-Redis](https://javabetter.cn/sidebar/sanfene/redis.html)：下载次数超 1 万次，4.6 万字 286 张手绘图，详解 57 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-Skills](https://javabetter.cn/sidebar/sanfene/skills.html)：下载次数超 1 万次，1 万字 40 张手绘图，详解 33 道Skills面试高频题（让天下没有难背的八股），面渣背会这些 Skill 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-Spring](https://javabetter.cn/sidebar/sanfene/spring.html)：下载次数超 1 万次，3.3 万字 180 张手绘图，详解 41 道 Spring 面试高频题（让天下没有难背的八股），面渣背会这些 Spring 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-RocketMQ](https://javabetter.cn/sidebar/sanfene/rocketmq.html)：下载次数超 1 万次，1.1 万字 45 张手绘图，详解 23 道 RocketMQ 面试高频题（让天下没有难背的八股），面渣背会这些 RocketMQ 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-分布式](https://javabetter.cn/sidebar/sanfene/fenbushi.html)：下载次数超 1 万次，8800 字 25 张手绘图，详解 12 道分布式面试高频题（让天下没有难背的八股），面渣背会这些八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-设计模式](https://javabetter.cn/sidebar/sanfene/shejimoshi.html)：下载次数超 1 万次，3000 字 10 张手绘图，详解 5 道 设计模式 面试高频题（让天下没有难背的八股），面渣背会这些 设计模式 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-计算机网络](https://javabetter.cn/sidebar/sanfene/network.html)：下载次数超 1 万次，2.2 万字 80 张手绘图，详解 63 道计算机网络面试高频题（让天下没有难背的八股），面渣背会这些计算机网络八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-Linux](https://javabetter.cn/sidebar/sanfene/linux.html)：下载次数超 1 万次，1 万字 2 张手绘图，详解 2 道 Linux 面试高频题（让天下没有难背的八股），面渣背会这些 Linux 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-MyBatis](https://javabetter.cn/sidebar/sanfene/mybatis.html)：下载次数超 1 万次，6400 字 30 张手绘图，详解 23 道 MyBatis 面试高频题（让天下没有难背的八股），面渣背会这些 MyBatis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+- [面渣逆袭-操作系统](https://javabetter.cn/sidebar/sanfene/os.html)：下载次数超 1 万次，1 万字 51 张手绘图，详解 34 道操作系统面试高频题（让天下没有难背的八股），面渣背会这些 OS 八股文，这次吊打面试官，我觉得稳了（手动 dog）。
+
+## AI 编程实战
+
+> AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
+
+- [中行Agent面试12问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zhonghang.html)：中行总部员工分享 22 万年薪"很满意"，12 道 Agent 面试题全解：RAG 瓶颈定位与架构优化、Badcase 归因、分布式限流、订单状态机、Vibe Coding 工程实践，附派聪明和 PaiCLI 简历包装。
+- [美团Agent面试14问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-meituan.html)：美团 LongCat 大模型团队员工爆料，14 道 Agent 工程面试题全解：RAG（切块、混合检索、查询改写）、Agent 与 Harness 架构区别、上下文压缩、Prompt Cache、Vibe Coding 与 Spec Coding，附简历包装。
+- [腾讯WorkBuddy Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-tengxun-4.html)：腾讯 WorkBuddy 千万月活背后的 Agent 工程化实力，附 10 道 Agent 面试题全解：容错恢复、LangGraph 工作流、异步工具调用、多模态 RAG、LoRA/DPO 微调、IVF 索引、游戏 NPC Agent。
+- [阿里Qwen事业部Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-ali-qwen.html)：阿里 Qwen 事业部员工分享工作氛围与 AI 红利，附 10 道 Agent 面试题全解：ReAct 执行流程、Tool Message 设计、记忆系统、上下文压缩、多模态融合、Agent 训练、Redis 工程化。
+- [豆包工作 Agent 测评](https://javabetter.cn/sidebar/itwanger/ai/doubao-work-review.html)：豆包工作 Agent 深度测评，字节在 Agent 时代推出的办公 AI 产品，多端同步、云电脑、Skill 调用、Seedance 创作实测
+- [字节Agent面试9问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zijie.html)：字节员工爆料 AI 面试作弊零容忍，9 道 Coding Agent 工程面试题全解：记忆系统、评测体系、容器迁移、行为漂移、Lost in the Middle 原理，附广告投放 Agent 场景设计题。
+- [Ox Alpha 模型面试题](https://javabetter.cn/sidebar/itwanger/ai/ox-alpha-agent-interview.html)：匿名模型 Ox Alpha 上线 OpenRouter 和 OpenCode Zen，支持 100 万 Token 上下文和视频输入。本文通过 10 道 Agent 面试题拆解模型指纹识别、Tokenizer 探针设计、Agent 降级策略和模型适配层架构。
+- [AI行业最值得投递的30家公司](https://javabetter.cn/sidebar/itwanger/ai/ai-30-gongsi-agent-mianshi.html)：综合技术含量、岗位数量、业务落地和履历价值，整理AI行业6大赛道30家公司投递指南，附10道Agent面试题深度解析，覆盖终端Agent工程实现和通用场景设计
+- [DeepSeek V4 Pro 与 Harness Agent面试题](https://javabetter.cn/sidebar/itwanger/ai/deepseek-v4-pro-agent-mianshi.html)：DeepSeek V4 Pro 正式发布，Agent 能力大幅提升，支持 Responses API。12 道 Agent 面试题深入讲解模型路由、上下文工程、Harness 概念和 Responses API 的工程实现
+- [宇树科技Agent面试11问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-yushu.html)：宇树科技员工爆料涨薪58%，11道具身Agent面试题全解：软件Agent与具身Agent区别、VLA模型、世界模型、Skill封装、任务拆解、Memory设计、仿真数据训练、OTA灰度发布，附简历包装模板。
+- [京东Agent面试题](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-jingdong.html)：京东 AI 产品生态与 Agent 面试题，涵盖 JoyCoder、JoyAgent、ReAct、Plan-and-Execute、MCP 工具设计、幂等机制、提示词注入防御、RAG 与工具调用边界等电商履约场景面试高频考点
+- [赛力斯Agent面试11问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-sailis.html)：赛力斯员工爆料绩效被打C，11道座舱Agent面试题全解：端云切分、断网降级、安全边界、延迟预算、鸿蒙跨设备、车规OTA灰度、世界模型边界、Token年预算控制，附简历包装模板。
+- [EvoX 蜂群Agent实测](https://javabetter.cn/sidebar/itwanger/ai/evox-swarm-agent-review.html)：EvoX 蜂群模式实测体验，支持 DeepSeek V4 Flash、GLM-5.2 等多模型底座，多 Agent 并行协作准确率从 26% 提升到 71%，联网自进化让 Agent 第一天就有经验可用
+- [阿里Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-ali-375.html)：阿里375员工爆料加班潜规则，10道Agent工程面试题全解：购物Agent全链路、RAG实时性、MCP封装、工具动态加载、幂等补偿、大促降级策略，附简历包装模板。
+- [DeepSeek Agent面试13问](https://javabetter.cn/sidebar/itwanger/ai/deepseek-harness-agent-mianshi.html)：DeepSeek Harness 内测招募引爆开发者社区，13 道 Agent 工程面试题全解：三路径架构、上下文压缩、混合检索、记忆设计、容错机制、context 管理，附简历包装。
+- [鹅厂Agent面试11问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-tengxun-3.html)：腾讯鹅厂员工靠 AI 赚到钱引发热议，11 道 Agent 工程面试题全解：权限管控、审计记录、幂等性、长任务恢复、重试策略、模型路由、企业 Agent 价值评测，附 WorkBuddy 系统设计。
+- [长鑫存储Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-changxin.html)：长鑫存储疯狂扩招 AI Agent 研发人员，10 道 Agent 面试题全解：Agent Memory 与 DRAM 区别、KV Cache 膨胀原理、推理瓶颈分析、记忆分层设计、上下文压缩、状态持久化与故障恢复。
+- [Agent自进化与评测15问](https://javabetter.cn/sidebar/itwanger/ai/haikang-agent-eval-mianshi.html)：Agent 自进化与评测体系面试 15 问全解：从自进化数据提取到沙箱快照回滚，从评测 Harness 构建到 Go 重写实战，附 PaiCLI 简历模板。
+- [DeepSeek V4 正式版适配 Codex](https://javabetter.cn/sidebar/itwanger/ai/deepseek-v4-flash-0731.html)：DeepSeek V4-Flash 正式版（0731）更新日志逐条拆解，原生支持 Responses API 适配 Codex、九项 Agent 基准、极简 Harness 测试条件、峰谷定价怎么算才不亏。
+- [阿里Agent面试9问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-ali.html)：阿里员工爆料羡慕 Qoder 团队踩中 AI 红利，9 道 Agent 工程面试题全解：双十一级别生产化改造、框架选型、安全护栏、幻觉控制、多模态架构，附 PaiCLI 简历包装。
+- [比亚迪Agent面试13问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-byd.html)：比亚迪员工4年年薪19万引发跳槽讨论，13道Agent工程面试题全解：工具调用失败处理、Memory双层设计、Prompt心得、Badcase分析、Vibe Coding交付，附简历包装。
+- [中兴Agent面试12问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zhongxing.html)：中兴员工爆料从华为跳槽到中兴，12道Agent工程面试题全解：提示词模板组装、单Agent vs 多Agent、分支覆盖率统计原理、代码插桩、Mock自动生成、Skills设计原理、LLM底层输入、Self-Attention计算，附场景题。
+- [携程Agent面试14问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-xiecheng.html)：携程员工爆料4年月薪3万没涨薪但满足，14道Coding Agent面试题全解：Prompt组装、上下文三层压缩、Tool与Skill区别、多Agent编排、Plan设计，附源码级回答。
+- [小米Agent面试12问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-xiaomi.html)：小米员工爆料 AI 成为核心产出，12 道 Agent 工程面试题全解：架构选型、上下文工程、查询改写、并行意图识别、Skills 设计、效果评估、Badcase 定位，附 TUI 设计和 Self-Attention 场景题。
+- [生产级Agent设计12问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-shengchanji.html)：从上下文压缩到记忆管理，从 Token 排查到 Skill 渐进式披露，12 道生产级 Agent 工程设计面试题全解，附 PaiCLI 源码级工程细节和智能客服场景题设计思路。
+- [腾讯Agent岗两轮15问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-tengxun-2.html)：腾讯 Agent 岗真实面经两轮 15 问全解：一面 RL 训练侧（SFT、reward hacking、PPO、GRPO），二面 Agent 工程侧（长文本、上下文记忆、harness、Skill 分层），逐题给出实现级答案。
+- [腾讯Agent面试7问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-tengxun.html)：鹅厂 AI 岗真实面经 7 问全解：LLM 与 Agent 的区别、ReAct 执行流程、Agent 框架模块设计、MCP 与 tool、三层记忆系统、Skill 渐进式披露、输出质量保障，附面试官的学习建议清单。
+- [Agent面试连环11问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-kangya.html)：Agent 面试连环拷问 11 问全解：三层记忆架构、文件事实源、Function Calling、MCP、上下文压缩、多 Agent 协作与状态传递，全部从真实项目的实现层给出答案。
+- [Agent面试拷问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-paicli.html)：拼多多 Agent 岗面经 16 问全解，从推荐系统聊到三层记忆架构、工具调用、MCP 协议、上下文压缩、RAG 检索、多 Agent 协作。
+- [Agent面试12问](https://javabetter.cn/sidebar/itwanger/ai/paicli-agent-mianshi.html)：腾讯Agent开发面试12道硬核问题全解，结合PaiCLI源码讲解SubAgent编排、Skill分层、记忆系统、上下文压缩等Agent工程化核心技术。
+- [Claude Code 爽用 Qwen3.6 阿里版Claude Code发布，夯爆了。阿里版Claude Code发布，爽用 Qwen3.6。阿里版Claude Code发布，Token 不限量。阿里版Claude Code发布，爽用 Qwen 不限量。](https://javabetter.cn/sidebar/itwanger/ai/claude-code-qwen36-maas.html)：手把手教你在 Claude Code 中接入讯飞星辰 MaaS 平台的 Qwen3.6 模型，6 折定价加阶梯返利，企业级调用量越多越划算。
+- [DeepSeek大模型面试17问](https://javabetter.cn/sidebar/itwanger/ai/deepseek-ipo-llm-17.html)：DeepSeek启动IPO筹备估值710亿美元，17道大模型核心面试题全解，覆盖Transformer、Attention、MoE、KV Cache、RLHF等高频考点。
+- [Kaku 终端评测](https://javabetter.cn/sidebar/itwanger/ai/kaku-terminal-review.html)：Kaku 是 Pake 作者 tw93 开源的 AI 终端，基于 WezTerm 深度定制，内置命令修复、自然语言转命令和 AI 聊天面板。实测安装配置，并用同一个提示词让 Fable 5 和 GPT-5.6 分屏对决生成千里江山图。
+- [GPT-5.6 实测](https://javabetter.cn/sidebar/itwanger/ai/gpt-5-6-review.html)：从生图、编码、文本、站点四个真实工作场景实测 GPT-5.6，三只手的 bug、改一个问题几小时的速度、接入知识库的文本表现，数据说话，公平评价。
+- [AI 时代程序员的经验优势](https://javabetter.cn/sidebar/itwanger/ai/gpt56-ai-coding-experience.html)：GPT-5.6 时代程序员的优势是什么？用 GitClear、DORA 报告和 Anthropic 官方最佳实践拆解 AI 时代的经验四件套，上下文、计划、验证、纠偏，附 Claude Code 实操方法。
+- [字节绩效大调整](https://javabetter.cn/sidebar/itwanger/ai/bytedance-performance-ai-agent.html)：字节跳动2026半年绩效调整落地，激励基数从月薪扩到月总包，奖金投入提升35%。拆解字节AI Agent招聘JD，分析技术栈要求，附PaiCLI-Go简历包装模板。
+- [本科生就业城市排行榜](https://javabetter.cn/sidebar/itwanger/ai/best-city-ai-agent-jd.html)：麦可思研究院发布2025届本科生就业报告，十强城市薪资排名出炉。以苏州为例拆解AI Agent岗位JD，分析企业需要什么技术栈，给出AI时代的求职准备路线图。
+- [Hy3 + WorkBuddy 实测](https://javabetter.cn/sidebar/itwanger/ai/hunyuan-hy3-workbuddy.html)：腾讯混元 Hy3 正式版发布，用 WorkBuddy 实测工具使用、规划、长程执行、多源理解四项 Agent 能力，附完整提示词和官方数据。
+- [Claude Code 底层架构拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-architecture-from-source.html)：拆解 Claude Code 的 6 大核心抽象和 7 级权限模式，从 Query Loop 的 async generator 设计到递归 Agent 架构，附 5 个可直接复用的设计模式。
+- [10个Codex视频推荐](https://javabetter.cn/sidebar/itwanger/ai/codex-bilibili-top10.html)：从B站上百个Codex视频中精选10个，覆盖入门教程、实战案例、进阶功能、国内接入、知识管理和行业格局，附评论区高赞避坑经验。
+- [Claude Code隐写术逆向拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-steganography.html)：逆向拆解Claude Code内置隐写术机制，从XOR解码域名黑名单到Unicode字符替换，用源码证据还原Anthropic如何通过系统提示词中的日期字符串秘密标记中国用户。
+- [Qoder 桌面版正式发布](https://javabetter.cn/sidebar/itwanger/ai/qoder-desktop-release.html)：Qoder Desktop 桌面版正式发布评测，Quest 独立视窗实战用 Qwen 3.7 夜间模式开发 PaiCLI TypeScript 版本，附夜间折扣省钱攻略。
+- [DeepSeek 开始摇人了](https://javabetter.cn/sidebar/itwanger/ai/deepseek-hiring-ai-era.html)：从 DeepSeek 最新 36 个在招岗位的 JD 拆解 AI 时代的人才需求变化，逐岗位分析服务端、前端/客户端、测试开发的能力进化方向，附转型准备指南。DeepSeek 开始摇人了，有点猛啊。
+- [QoderWork 速通指南](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-xiaohao.html)：QoderWork CN 速通指南，从安装到实战全流程，覆盖设计工作台、专家套件、浏览器连接器、技能市场、定时任务、IM 频道等核心功能，附宠物寄养平台产品设计实战案例。
+- [Claude Code核心概念拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-core-concepts.html)：从官方文档出发，拆解 Claude Code 五大核心概念：上下文、CLAUDE.md、Hooks、Skills、Subagents 的内部机制，结合 PaiCLI 实战对照，理解 Agent Harness 的设计逻辑。面试官：“你说你用Claude写代码，那你说说你CLAUDE.md、Hooks、Skills、Subagents”，我：“这些是啥？”，面试官：“回去等通知吧！”
+- [QoderWork CN 全面评测](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-review.html)：QoderWork CN 全面评测，阿里 Qoder 桌面 AI 智能体实测，支持 Qwen3.7-Max、GLM-5.2 等多模型自由切换，Quest 架构 + 专家团模式 + 意识功能深度体验。 QoderWork 太顶了，无限画布设计出来的Codex网站，好看啊
+- [Claude Code命令全攻略](https://javabetter.cn/sidebar/itwanger/ai/claude-code-commands-guide.html)：Claude Code 50+ 个斜杠命令、20+ 个快捷键和隐藏关键词全攻略，按使用场景分组实操，附两个宝藏学习网站推荐。
+- [Codex多模型横评实测](https://javabetter.cn/sidebar/itwanger/ai/codex-deepseek-v4-step-3-7-flash.html)：Codex原生支持第三方模型，实测DeepSeek V4 Flash与Step 3.7 Flash在Coding Agent、Search Agent、Tool-use Agent三个场景的表现，对比速度、成本和稳定性。
+- [Agnes AI免费全模态模型体验](https://javabetter.cn/sidebar/itwanger/ai/agnes-ai-free-model-review.html)：Agnes AI 无限期免费开放全模态 API，实测 Agnes-2.0-Flash 文本模型、Agnes-Image-2.1-Flash 图片模型和 Agnes-Video-V2.0 视频模型的接入流程与生成效果。
+- [Loop Engineering 硬核教程](https://javabetter.cn/sidebar/itwanger/ai/loop-engineering-guide.html)：深度拆解 Loop Engineering 六大组件，从定时任务到 Worktree 隔离，实测 Claude Code /loop 和 Codex /goal 命令，附完整 demo 和配置指南。
+- [GLM-5.2+讯飞版Codex，你值得拥有的世界杯AI搭子](https://javabetter.cn/sidebar/itwanger/ai/loomy-worldcup-review.html)：Loomy 世界杯搭子实测，支持 GLM-5.2 自定义模型，三位球星 AI 搭子陪看球，定时任务模板自动推送赛程战报和玄学预测。
+- [微信里爽用Claude Code](https://javabetter.cn/sidebar/itwanger/ai/wechat-claude-code-paicli.html)：基于 wechat-claude-code 开源方案，用 Codex+Claude Code 在 PaiCLI 中实现微信接入 Claude Code，涵盖 Codex 调研、技术方案设计、iLink Bot API 长轮询消息引擎、安全沙箱和输出适配全流程原理。
+- [MiMo Code测评](https://javabetter.cn/sidebar/itwanger/ai/mimo-code-review.html)：MiMo Code 是小米 MiMo 团队开源的终端编程 Agent，针对长程自动化编程任务设计，围绕计算、记忆、进化三大核心，实测安装配置和实战表现。
+- [Claude Code 编程经验实战](https://javabetter.cn/sidebar/itwanger/ai/claude-fable-5-code-correctness.html)：一年 Claude Code 编程经验总结，6 个实战 Case 展示 CLAUDE.md、Skill、Hook、Sub-agent 等核心技巧，附 Fable 5 模型体验。
+- [Codex使用经验](https://javabetter.cn/sidebar/itwanger/ai/codex-usage-tips.html)：从135条真实开发者讨论中提炼 Codex 高效编程的7个核心经验，涵盖上下文管理、Plan模式、需求拆分、测试驱动等实操方法。
+- [红狐数据 Skill](https://javabetter.cn/sidebar/itwanger/ai/redfox-hub-review.html)：基于红狐数据新媒体数据API，搭建AI热点雷达平台，聚合抖音、小红书、公众号三大平台AI热点，LLM分析机会评分，附Codex Skills集成和在线查询实战。
+- [LiteParse OCR 实测](https://javabetter.cn/sidebar/itwanger/ai/liteparse-ocr-review.html)：LiteParse 是 LlamaIndex 开源的本地文档解析工具，内置 Tesseract OCR，可零云依赖解析扫描件 PDF。本文实测 lit 命令行，记录接入派聪明 RAG 的全过程，并接入阿里云 OCR 把中文识别精度再提一档。
+- [AI 大模型 333 题](https://javabetter.cn/sidebar/itwanger/ai/ai-large-model-333.html)：AI 大模型 333 道题目备份清单，用于和本地 AI Agent 面试题单做知识点覆盖对照
+- [Claude Code 压缩机制](https://javabetter.cn/sidebar/itwanger/ai/claude-code-compaction.html)：深入拆解 Claude Code 上下文压缩机制，从 MicroCompact 到 AutoCompact 四阶段管线，源码级分析 Compaction Prompt 的 9 段结构化摘要和断路器设计。
+- [讯飞MaaS免费Qwen3.6实测](https://javabetter.cn/sidebar/itwanger/ai/xfyun-maas-qwen36-free.html)：讯飞星辰 MaaS 平台限时免费开放 Qwen3.6-35B-A3B、Qwen3.5-35B-A3B，本文手把手教你领取免费调用权益，并接入 Claude Code、Codex、PaiCLI 实测代码理解与长文档分析。
+
+## 开发工具
+
+> 程序员常用开发工具的安装配置与使用教程。
+
+- [DBeaver：一款免费的数据库操作工具](https://javabetter.cn/gongju/DBeaver.html)：DBeaver：干掉付费的 Navicat，操作所有数据库就靠它了！
+- [Homebrew：macOS软件管理器](https://javabetter.cn/gongju/brew.html)：Homebrew，GitHub 星标 32.5k+的 macOS 命令行软件管理神器，功能真心强大！
+- [chiner：国人开源的数据库设计工具](https://javabetter.cn/gongju/chiner.html)：chiner：干掉 PowerDesigner，国人开源的数据库设计工具，界面漂亮，功能强大
+- [Chocolatey：Windows软件管理神器](https://javabetter.cn/gongju/choco.html)：chocolatey：一款 GitHub 星标 8.2k+ 的 Windows 命令行软件管理神器，好用到爆！
+- [fastjson：阿里巴巴开源的JSON解析库](https://javabetter.cn/gongju/fastjson.html)
+- [Forest：一款极简的声明式HTTP调用API框架](https://javabetter.cn/gongju/forest.html)
+- [Gson：Google开源的JSON解析库](https://javabetter.cn/gongju/gson.html)
+- [Jackson：GitHub上star数最多的JSON解析库](https://javabetter.cn/gongju/jackson.html)
+- [Junit：一个开源的Java单元测试框架](https://javabetter.cn/gongju/junit.html)
+- [Spring Boot整合Knife4j，美化强化丑陋的Swagger](https://javabetter.cn/gongju/knife4j.html)
+- [Log4j：Java日志框架的鼻祖](https://javabetter.cn/gongju/log4j.html)
+- [Log4j 2：Apache维护的一款高性能日志记录工具](https://javabetter.cn/gongju/log4j2.html)
+- [Logback：Spring Boot内置的日志处理框架](https://javabetter.cn/gongju/logback.html)
+- [SLF4J：阿里巴巴强制使用的日志门面担当](https://javabetter.cn/gongju/slf4j.html)
+- [Tabby：开源终端工具](https://javabetter.cn/gongju/tabby.html)：Tabby：一款逼格更高的开源终端工具，GitHub 星标 50+k
+- [Warp：21世纪终端工具](https://javabetter.cn/gongju/warp.html)：Warp：一款21世纪人用的终端工具，GitHub星标2.8k+，用完爱不释手
+- [WindTerm：新一代终端工具](https://javabetter.cn/gongju/windterm.html)：WindTerm：新一代开源免费的终端工具，GitHub星标6.6k+，太酷了！
+
+## 面经
+
+> 真实校招/社招面试复盘。
+
+- [社招，深漂6 年回西安](https://javabetter.cn/mianjing/chengxyspnhxagzl.html)：深漂 6 年了，回西安的一波面经总结✌️
+- [二本读者两年经验社招上岸10家大厂](https://javabetter.cn/mianjing/huanxgzl.html)：社招两年半10个公司28轮面试面经
+- [去字节了！SSP顶薪](https://javabetter.cn/mianjing/quzjlsspdx.html)：没有什么使我停留——除了目的，纵然岸旁有玫瑰、有绿荫、有宁静的港湾，我是不系之舟。
+- [硕士读者春招上岸阿里云](https://javabetter.cn/mianjing/shanganaliyun.html)：春招斩获深圳腾讯 PCG 和杭州阿里云
+- [本科读者一年经验社招上岸阿里](https://javabetter.cn/mianjing/shezynmjfxhelmtttjddd.html)：本科读者小公司一年工作经验社招拿下阿里美团头条京东滴滴等 offer✌️
+- [非科班读者社招上岸阿里](https://javabetter.cn/mianjing/xuelybdzheloffer.html)：他本人学历一般，三非背景（非 985 / 非 211 / 非理工科) ，但凭借自己的努力，历经 6 轮面试，最终还是拿到了阿里的 Offer
+- [双非学弟收割大厂offer附大学经验总结](https://javabetter.cn/mianjing/zheisnylzldhzd.html)：双非学弟收割阿里、字节、B站校招 offer，附大学四年经验总结，硬核！

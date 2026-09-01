@@ -253,6 +253,24 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "Cordis 是面向模块与插件协作的运行基础，可通过依赖注入、生命周期和服务注册组织 Harness 中的可扩展能力。",
     ["Cordis", "DeepSeek Harness", "插件系统", "依赖注入"],
   ),
+  "deepseek-multimodal": meta(
+    "多模态模型和纯文本模型有什么区别？以 DeepSeek V4-Flash-Vision-Exp 为例",
+    "多模态与纯文本的区别",
+    "多模态模型通过视觉编码器把图片翻译成 token，与文本共用同一个入口，从而解锁看图识物、截图转代码等纯文本模型做不到的场景。",
+    ["多模态", "DeepSeek V4-Flash-Vision-Exp", "视觉编码器", "纯文本模型"],
+  ),
+  "glm-flash-linear-sparse-attention": meta(
+    "什么是线性注意力？GLM-5.3-Flash 为什么采用线性注意力加稀疏注意力的混合架构？",
+    "线性注意力与混合架构",
+    "线性注意力把计算量从 O(n²) 降到 O(n) 但会损失精确检索能力，GLM-5.3-Flash 用稀疏注意力补回这部分损失，实现长上下文下的低成本推理。",
+    ["线性注意力", "稀疏注意力", "GLM-5.3-Flash", "长上下文"],
+  ),
+  "what-benchmarks-test": meta(
+    "SWE-bench、Terminal-Bench、GPQA Diamond 这些大模型评测集到底在测什么？",
+    "大模型评测集在测什么",
+    "主流评测集按能力分为代码、Agent 工具和推理三类：SWE-bench 系列考修 bug，Terminal-Bench 和 MCP-Atlas 考工具调用，GPQA Diamond 考博士级推理，选模型要看和自己场景匹配的分项。",
+    ["SWE-bench", "Terminal-Bench", "GPQA Diamond", "大模型评测"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -308,6 +326,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "responses-api-vs-chat-completions",
       "api-cache-hit-miss",
       "what-is-moe",
+      "glm-flash-linear-sparse-attention",
+      "what-benchmarks-test",
     ],
   },
   {
@@ -328,6 +348,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "v4-csa-hca-kv-cache",
       "v4-why-replace-mla",
       "what-is-cordis",
+      "deepseek-multimodal",
     ],
   },
 ];

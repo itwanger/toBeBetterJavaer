@@ -6,6 +6,8 @@
 
 哈喽大家好，我是二哥呀。今天继续用 3 分钟，拆一道 Agent 高频面试题。
 
+## Skill 和 Tool Call 的选择机制不同
+
 先搞清楚一件事：Skill 和 Tool Call 不是一回事。
 
 Tool Call 是 Function Calling 协议，LLM 根据 JSON Schema 选函数、填参数，走的是结构化匹配。
@@ -13,6 +15,8 @@ Tool Call 是 Function Calling 协议，LLM 根据 JSON Schema 选函数、填�
 Skill 是什么？Skill 是一组打包好的能力，由一个 SKILL.md 文件定义，里面写着名称、描述、触发场景和执行流程。Agent 启动时，把所有 Skill 的 description 注入到 system prompt 里。用户说一句话，LLM 读所有 description，自己判断该不该触发、触发哪个。
 
 换句话说，Skill 的选择机制是自然语言级别的语义匹配，不是 JSON Schema 级别的结构匹配。
+
+## 提高 Skill 命中率的四招
 
 搞清楚了机制，再来看怎么提高 Skill 的命中率。四招。
 
@@ -24,9 +28,13 @@ Skill 是什么？Skill 是一组打包好的能力，由一个 SKILL.md 文件�
 
 第四招，用 disable-model-invocation 兜底。有些 Skill 只在用户主动输入斜杠命令时才该触发，不应该被 LLM 自动匹配。这类 Skill 在 SKILL.md 里把 disable-model-invocation 设成 true，LLM 就不会自作主张去触发它。这一招专门用来治理 Skill 误触。
 
+## 面试官追问：Skill 数量继续膨胀怎么办
+
 面试官如果追问："Skill 数量继续膨胀怎么办？"
 
 告诉他——短期靠 description 质量兜底，中期靠 Skill 分组，把 Skill 按业务领域归类，做两阶段匹配。但说到底，Skill 的命中率取决于 LLM 自身的语义理解能力。所以不要盲目堆 Skill 数量，够用就好，每加一个都要问自己：它的 description 能和现有 Skill 清晰区分吗？
+
+## 一句话总结
 
 最后一句口诀——描述一定要清晰，职责一定要单一。
 

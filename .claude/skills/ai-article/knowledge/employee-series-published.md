@@ -10,7 +10,7 @@
 >
 > 维护提醒：每发一篇，在本文件补一行并打勾。日期为文件 frontmatter 中的 date 字段。
 
-## 一、已发布（16 篇）
+## 一、已发布（17 篇）
 
 - [x] **2026-07-22 腾讯**｜`agent-mianshi-tengxun-2.md`
   为什么腾讯offer含金量永远都这么高？有人为了进腾讯，2年内面试6次（附Agent面试题）
@@ -76,6 +76,14 @@
   腾讯员工：羡慕隔壁组做 WorkBuddy 的，月活1000万+，已经成为AI办公的王牌，感觉晋升和年终奖肯定少不了（附Agent面试题）
   面试题角度：三级容错恢复（重试/状态持久化/快照回滚）、LangGraph条件边与断点续执行、ReAct同步异步工具调用、多模态RAG两条技术路线、LLM生成描述的信息瓶颈、Recall@K计算与测试集构建、LoRA低秩分解与DPO偏好优化、IVF倒排索引与nprobe调参、游戏NPC Agent三层架构、AI Coding国产替代与Harness方案
 
+- [x] **2026-08-31 美团**｜`agent-mianshi-meituan.md`
+  美团员工：羡慕隔壁 LongCat 团队的兄弟，作为公司 AI 战略的王牌，已经成为 C 端小团小美和 B 端 NoCode 等产品基座（附Agent面试题）
+  面试题角度：智能运维Agent动机与架构、RAG vs 大上下文窗口、RAG vs Agent grep、切块粒度与混合检索权重、无标题Markdown切分、短query与长chunk嵌入差异、HyDE查询扩展、长query处理、LLM-as-Judge错误检测与引用核验、Agent与Harness区别与职责、两层上下文压缩、Prompt Cache前缀命中、Vibe Coding与Spec Coding
+
+- [x] **2026-09-01 中国银行**｜`agent-mianshi-zhonghang.md`
+  中行总部员工：211硕士毕业刚满一年，在软件中心做研发，转正之后第一个完整年拿了22万左右，很满意（附Agent面试题）
+  面试题角度：RAG瓶颈定位（Embedding rate limit/KNN扫描/LLM串行）、架构优化（查询改写/语义缓存/动态权重）、Badcase归因打标与Golden Set回归、海量异步任务耗时统计（滑动窗口/T-Digest）、Vibe Coding设计分布式限流（令牌桶/Redis Lua）、分布式限流一致性与降级、全自动流水线可靠性、订单分页（OFFSET vs Keyset）、支付回执时间切面、token传递防串号、对账超时归并优化、状态机防回退、Vibe Coding工程实践
+
 ## 二、已覆盖公司统计
 
 | 公司 | 篇数 | 已发布日期 |
@@ -91,6 +99,8 @@
 | DeepSeek | 2 | 08-06、08-13 |
 | 赛力斯 | 1 | 08-10 |
 | 宇树科技 | 1 | 08-12 |
+| 美团 | 1 | 08-31 |
+| 中国银行 | 1 | 09-01 |
 
 ## 三、公司池里尚未写过的（候选）
 
@@ -100,7 +110,7 @@
 
 - [ ] 百度
 - [ ] 华为
-- [ ] 美团
+- [x] 美团
 - [ ] 京东
 - [ ] 网易
 - [ ] 快手

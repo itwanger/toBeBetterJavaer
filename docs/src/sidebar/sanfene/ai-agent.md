@@ -21,6 +21,8 @@ head:
       content: AI Agent面试题, RAG, Function Calling, 工具调用, LangGraph4j, 工作流编排, AI应用开发, 后端转AI
 ---
 
+> 推荐搭配《[AI Agent 面试 288 题合集](/ai/video/)》一起刷，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex 分类整理，每道题都配了视频讲解。
+
 ## 01、简历上为什么都在写 AI 相关的内容？
 
 老王翻着我的简历：“我看你简历上全是 AI 项目，有派聪明 RAG，有 PaiFlow Agent，传统开发经验怎么没写？”

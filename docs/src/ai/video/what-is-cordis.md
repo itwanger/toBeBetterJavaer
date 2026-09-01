@@ -18,6 +18,8 @@ DeepSeek Harness 今天正式发布了。你兴冲冲打开 GitHub，翻了翻�
 
 系好安全带，我们粗粗粗出发了～
 
+## Cordis：构建框架的框架
+
 先说第一件事，Cordis 到底是什么。
 
 一句话：构建框架的框架。
@@ -34,6 +36,8 @@ DeepSeek Harness 今天正式发布了。你兴冲冲打开 GitHub，翻了翻�
 
 ![](https://cdn.paicoding.com/stutymore/what-is-cordis-20260813230007-9520fcf1.png)
 
+## 核心能力：可逆副作用
+
 那聪明的你肯定想到了：插件系统到处都是，Cordis 凭什么能当 DeepSeek Harness 的基架？
 
 靠一个核心能力——可逆副作用。
@@ -47,6 +51,8 @@ Cordis 用的是无痕挂钩。
 ![](https://cdn.paicoding.com/stutymore/what-is-cordis-20260813230305-dec363df.png)
 
 这就是为什么 Cordis 能做到真正的热重载——改一个插件，不用重启整个应用，旧的副作用自动清理，新的插件直接加载。
+
+## 插件协作靠依赖声明
 
 那聪明的你肯定又要问了：光能装能卸还不够，插件之间怎么协作？
 
@@ -63,6 +69,8 @@ Cordis 用的是无痕挂钩。
 标准模式全套工具拉满，Code 模式只加载编码相关的插件，Mini 模式只留一个终端和文件编辑器。切换模式，就是换一组插件组合。底层都是同一个 Cordis 内核在调度。
 
 ![](https://cdn.paicoding.com/stutymore/what-is-cordis-20260813225425.png)
+
+## 一句话总结
 
 最后简单总结下。
 

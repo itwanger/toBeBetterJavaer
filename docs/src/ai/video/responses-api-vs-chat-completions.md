@@ -20,6 +20,8 @@ DeepSeek V4 Pro 正式版支持 Responses API 了，它和 Chat Completions API 
 
 系好安全带，我们粗粗粗出发了～
 
+## 第一个区别：输入输出格式类型化
+
 先说第一个区别，输入输出的格式变了。
 
 Chat Completions 协议里，所有的东西都是 message。你输入的是 user message，模型回复的是 assistant message，工具返回的结果是 tool message。不管什么类型的内容，都塞在同一种 message 数组里。
@@ -38,6 +40,8 @@ Responses API 像飞书工作台，文档、审批、日程、视频会议，每
 
 ![](https://cdn.paicoding.com/stutymore/responses-api-vs-chat-completions-20260814081405.png)
 
+## 第二个区别：状态管理和内置工具
+
 那聪明的你肯定想到了：光改个格式，就值得专门出一套新 API 吗？
 
 当然不止这些。还有更关键的——状态管理和内置工具。
@@ -52,6 +56,8 @@ Responses API 给了一个新的选项：previous_response_id。你只需要告�
 
 ![](https://cdn.paicoding.com/stutymore/responses-api-vs-chat-completions-20260814081422.png)
 
+## DeepSeek V4 Pro 支持后的实际意义
+
 那聪明的你肯定又要问了：DeepSeek V4 Pro 支持 Responses API，有什么实际意义？
 
 最直接的好处——你可以把 DeepSeek V4 Pro 直接接入到 Codex 里用。
@@ -61,6 +67,8 @@ Responses API 给了一个新的选项：previous_response_id。你只需要告�
 以前你想在 Codex 里用国产模型，中间得加一层代理进行格式转换。现在 DeepSeek V4 Pro 原生支持了，改一下 base_url 就能直接用，不用再做任何适配。
 
 更伟大的是，Responses API 不再是 OpenAI 的专属格式。DeepSeek V4 正式版支持了，其他模型厂商迟早也会跟上。它正在成为 Agent 时代的行业标准——就像当年 Chat Completions 的 messages 格式成为聊天 API 的行业标准一样。
+
+## 一句话总结
 
 最后简单总结下。
 
