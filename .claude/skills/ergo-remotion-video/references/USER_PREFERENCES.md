@@ -1,6 +1,6 @@
 # 二哥呀视频用户偏好速查表
 
-> 这是从 B19 → B27 迭代中沉淀出的用户偏好血泪教训。
+> 这是从 B19 → B42 迭代中沉淀出的用户偏好血泪教训。
 > Claude 每次开工前**必须先读这份**，避免重复踩坑。
 
 ## 🚨 B27 最新沉淀（挨骂过 · 优先级最高）
@@ -46,7 +46,7 @@
 **用户原话**："在 remotion 打开，你怎么直接渲染了，我还没有逐章验证。"
 
 - 每章做完立刻起 `npx remotion studio` 让用户在 `http://localhost:3000` 逐 beat 走
-- 起 Studio 用 `cmd.exe /c npx remotion studio > studio.log 2>&1` · **不要用 Start-Process powershell**
+- 起 Studio 直接 `npx remotion studio > studio.log 2>&1 &`（macOS/Linux）
 - 用户明确回复"继续" / "chX 通过"才做下一章
 - **绝对不能自己 render mp4 交差**（除非用户明确说"渲染"）
 
@@ -73,7 +73,7 @@
 - ❌ 不要为了"情绪起伏"往稿子里硬塞语气词（啊/嘞/你猜）、反问、破折号、感叹号
 - ❌ 不要按"情绪曲线"改写陈述句
 - TTS 自己会处理朗读，加戏反而不自然
-- 调 TTS 时只传 text + speaker + speed_ratio，不传 emotion 参数
+- 调 TTS 时只传 text + speaker（+ 恒为 1.0 的 speed_ratio），不传 emotion 参数
 
 ### 3. 设计要克制，不要花哨
 用户原话："**设计的不行呀！**" —— 通常是因为：
@@ -139,8 +139,8 @@ font-weight: 900
 - 头像：`public/ergo-avatar.jpg`（真实照片）
 - 自介台词：`哈喽，我是二哥！`（不要 `HOST · 二哥呀`）
 - 语气：口语化、轻松、略带"抖机灵"
-- **语速：`speed_ratio: 1.15`（B27 起 · 从 1.10 升级）**
-- **音色：`S_JcYEwo792`（B27 起默认 · 从 S_7F8Gwo792 升级）**
+- **语速：ffmpeg `atempo=1.10`（B29 起）——注意克隆音色的 TTS `speed_ratio` 参数无效，必须后期变速**
+- **音色：`S_ZqvEwo792`（B29 起默认 · B42 再次确认；早期 `S_7F8Gwo792` / `S_JcYEwo792` 均已弃用）**
 
 ## 🎬 5 章模板（可按文本长度调整）
 

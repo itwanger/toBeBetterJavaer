@@ -89,12 +89,12 @@ B39 里合并的片段：
 同样，字幕强制分行时给 `<Beat>` 传 `subtitleLines`（每行文本）+ `subtitleLineFrames`（每行帧数，用能量检测测），
 不要依赖自动宽度切分来对齐多句台词。
 
-## 4. Windows / 编码坑
+## 4. 跨平台 / 编码坑
 
 - **PowerShell 5.1 的 `Set-Content -Encoding utf8` 会加 BOM**，导致 package.json 解析失败（JSONError: Unexpected token '锘'）。
-  写 JSON/配置文件一律用 Write 工具（无 BOM），不要用 PowerShell 重定向。
-- 内联多行 Python 代码（`python -c "..."`）在 PowerShell 里引号会被吃掉，写成临时 `.py` 文件再跑。
-- TTS 合成输出加 `$env:PYTHONIOENCODING="utf-8"` 避免中文打印乱码。
+  写 JSON/配置文件一律用 Write 工具（无 BOM），不要用 shell 重定向。
+- 多行 Python 代码写成临时 `.py` 文件再跑，不要内联 `python -c "..."`（引号容易被 shell 吃掉）。
+- TTS 合成输出中文乱码时加 `PYTHONIOENCODING=utf-8`（macOS/Linux）。
 
 ## 5. 素材驱动：用户给截图就用截图
 
@@ -113,13 +113,13 @@ Cordis 来源手绘图、卸载对比图、模式下拉菜单）。规律：
 
 ## 7. 这次的最终成片配置（可作默认值参考）
 
-- 音色 `S_ZqvEwo792`，`speed_ratio 1.10`
+- 音色 `S_ZqvEwo792`，TTS 原速合成 + ffmpeg `atempo=1.10`（克隆音色 speed_ratio 无效，B41/B42 实测）
 - 3 分 46 秒，6837 帧，40 个 beat
-- 渲染：`npx remotion render B39 out.mp4`，约 3-4 分钟，输出 30MB
+- 渲染：`npx remotion render B39 out.mp4`，多核约 3-4 分钟，输出 30MB
 - 字幕：底部黑底白字胶囊，38px，单行 nowrap，破折号 `——` 会被剔除（splitToLines 逻辑）
 
 ## 相关
-- SKILL.md 主工作流
-- templates/align_words.py（本次新增的对齐脚本）
-- references/USER_PREFERENCES.md
-- references/VOLCENGINE_TTS_GUIDE.md
+- [SKILL.md](../SKILL.md) 主工作流
+- [templates/align_words.py](../templates/align_words.py)（本次新增的对齐脚本）
+- [references/USER_PREFERENCES.md](USER_PREFERENCES.md)
+- [references/VOLCENGINE_TTS_GUIDE.md](VOLCENGINE_TTS_GUIDE.md)

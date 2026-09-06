@@ -5,18 +5,21 @@ gen_audio.py · TTS 1.0 原速合成 → ffmpeg atempo 后期变速
 的字节），所以语速不能靠 TTS 参数，必须 TTS 原速合成后用 ffmpeg atempo 后期变速。
 atempo 在 1.2 以内音质无损、保持音高。B41/B42 已验证。
 
+前置：API Key 从环境变量读取，切勿硬编码进文件（本仓库是公开仓库）
+  export VOLC_TTS_API_KEY="你的火山 API Key"
+
 用法：
   python gen_audio.py            # 只合成缺失的 raw，再 atempo
   python gen_audio.py --force    # TTS 全部重合成 + atempo
   python gen_audio.py --retempo  # 只重跑 atempo，不调 TTS（调完 ATEMPO 用这个）
   python gen_audio.py --only 5 12
 """
-import json, base64, uuid, argparse, shutil, subprocess
+import json, base64, uuid, argparse, shutil, subprocess, os, sys
 from pathlib import Path
 import requests
 
 # ─── 配置区 ───────────────────────────────────────
-API_KEY     = "21d267c1-b3f4-4cc5-b844-1a96c9f45c93"
+API_KEY     = os.environ.get("VOLC_TTS_API_KEY", "")
 SPEAKER_ID  = "S_ZqvEwo792"   # 二哥克隆音色（B29 起默认 · B42 再次确认）
 SPEED       = 1.0             # TTS speed_ratio 对克隆音色无效，保持 1.0
 ATEMPO      = 1.10            # 后期 ffmpeg atempo 变速（SKILL 当前最佳：1.10）
@@ -108,6 +111,10 @@ def main():
     ap.add_argument("--only", type=int, nargs="+")
     args = ap.parse_args()
 
+    if not args.retempo and not API_KEY:
+        sys.exit("X 未设置环境变量 VOLC_TTS_API_KEY，无法调用 TTS。\n"
+                 "  export VOLC_TTS_API_KEY=\"你的火山 API Key\"")
+
     OUT_DIR.mkdir(exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     beats = load_beats()
@@ -123,7 +130,8 @@ def main():
 
     for b in todo:
         bid = b["id"]
-        text = b["text"]
+        # ttsText 优先：为发音加的停顿逗号只进 TTS，字幕仍用原文 text（B39）
+        text = b.get("ttsText") or b["text"]
         raw = RAW_DIR / f"beat_{bid:02d}.mp3"
         out = OUT_DIR / f"beat_{bid:02d}.mp3"
 
