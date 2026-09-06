@@ -3,6 +3,16 @@
 项目：DeepSeek Harness / Cordis 源码解读，3 分 46 秒，40 个 beat，5 章。
 这是继 B27 后对工作流的重要补强，重点解决了**音画逐词对齐**和**跨 beat 连续画面**两个老问题。
 
+## 目录
+
+- [1. 音画对齐：用能量检测，不要用分句合成估算](#1-音画对齐用能量检测不要用分句合成估算)
+- [2. 跨 beat 连续画面：合并成一个 Sequence，不要用 noExit](#2-跨-beat-连续画面合并成一个-sequence不要用-noexit)
+- [3. 字幕分行：text 与 ttsText 分离](#3-字幕分行text-与-ttstext-分离)
+- [4. 跨平台 / 编码坑](#4-跨平台--编码坑)
+- [5. 素材驱动：用户给截图就用截图](#5-素材驱动用户给截图就用截图)
+- [6. 数字滚动 / 计数器](#6-数字滚动--计数器)
+- [7. 这次的最终成片配置（可作默认值参考）](#7-这次的最终成片配置可作默认值参考)
+
 ## 1. 音画对齐：用能量检测，不要用分句合成估算
 
 ### 问题
@@ -81,7 +91,7 @@ B39 里合并的片段：
 ### 正确做法
 `beats.json` 里一个 beat 可以有两个字段：
 - `text`：字幕显示文本（= 原文）
-- `ttsText`：TTS 朗读文本（可含为发音加的停顿逗号）
+- `ttsText`：TTS 朗读文本（可含发音停顿或用户指定的读法；评论口令 `222` 的规则见 [USER_PREFERENCES.md#B](USER_PREFERENCES.md#anchor-B)）
 
 `gen_audio.py` 合成时优先用 `b.get("ttsText", b["text"])`；
 `gen_cues.py` 把 `text` 写进 cues.ts 给字幕用。音频文件不变，字幕显示原文，两全。
@@ -113,7 +123,7 @@ Cordis 来源手绘图、卸载对比图、模式下拉菜单）。规律：
 
 ## 7. 这次的最终成片配置（可作默认值参考）
 
-- 音色 `S_ZqvEwo792`，TTS 原速合成 + ffmpeg `atempo=1.10`（克隆音色 speed_ratio 无效，B41/B42 实测）
+- 音色 / atempo：见 `config/video.config.json`（B44 起统一从该文件读；B29-B43 用 `S_ZqvEwo792`），TTS 原速合成 + ffmpeg `atempo=1.10`（克隆音色 speed_ratio 无效，B41/B42 实测）
 - 3 分 46 秒，6837 帧，40 个 beat
 - 渲染：`npx remotion render B39 out.mp4`，多核约 3-4 分钟，输出 30MB
 - 字幕：底部黑底白字胶囊，38px，单行 nowrap，破折号 `——` 会被剔除（splitToLines 逻辑）

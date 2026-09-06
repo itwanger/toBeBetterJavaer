@@ -8,6 +8,8 @@
 
 ![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-mechanism-20260905103627-f9db2b24.png)![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-20260905204300.png)
 
+在这梳理了一份 AI Agent 开发学习路线和 288 道配套八股，需要的可以来个222。
+
 我翻了 Transformer 的底层实现、vLLM 的推理优化源码，可以自信地、大方地、光明磊落地帮你搞清楚这三件事：
 
 - 什么是 KV Cache？为什么没有它大模型推理会卡死？

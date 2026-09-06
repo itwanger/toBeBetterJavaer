@@ -1,0 +1,17 @@
+{
+  "_comment": "ergo-remotion-video 全局配置（单点维护）。改这里，全仓生效。敏感信息（API Key）走环境变量，不入库。",
+  "tts": {
+    "speakerId": "S_lm3eqlje2",
+    "resourceId": "seed-icl-2.0",
+    "apiBase": "https://openspeech.bytedance.com/api/v3/tts/unidirectional/sse",
+    "speedRatio": 1.0,
+    "audio": {
+      "format": "mp3",
+      "sampleRate": 24000
+    },
+    "atempo": 1.15
+  },
+  "volc": {
+    "apiKeyEnv": "VOLC_TTS_API_KEY"
+  }
+}

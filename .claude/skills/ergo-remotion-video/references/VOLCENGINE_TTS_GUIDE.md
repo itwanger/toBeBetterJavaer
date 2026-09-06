@@ -9,12 +9,12 @@
 | 字段 | 示例 | 说明 |
 |---|---|---|
 | `API_KEY` | 从环境变量 `VOLC_TTS_API_KEY` 读取 | 火山**新版**控制台 → 声音复刻 2.0 → API Key（单键鉴权，不再需要 App ID / Access Key）。**禁止硬编码进文件**，本仓库是公开仓库 |
-| `SPEAKER_ID` | **`S_ZqvEwo792`（B29 起默认 · B32 再次确认）** / `S_JcYEwo792`（B27 短期用过，已弃用）/ `S_7F8Gwo792`（B25 老音色） | 在新版控制台训练好的克隆音色 ID（永远 `S_` 开头，**无后缀**） |
+| `SPEAKER_ID` | **从 `config/video.config.json` 的 `tts.speakerId` 读**（B44 起单点维护，默认 `S_tGhhqlje2`） / 历史音色：`S_ZqvEwo792`（B29-B43 默认）、`S_JcYEwo792`（B27 短期用过，已弃用）、`S_7F8Gwo792`（B25 及之前老音色） | 在新版控制台训练好的克隆音色 ID（永远 `S_` 开头，**无后缀**） |
 | `RESOURCE_ID` | `seed-icl-2.0` | 固定值，对应"声音复刻 2.0" |
 
 ## ⚠️ 语速：speed_ratio 对克隆音色无效，必须用 ffmpeg atempo
 
-**B41/B42 实测**：克隆音色 `S_ZqvEwo792` 传任何 `speed_ratio`，API 返回的音频字节与 1.0 **完全相同**。
+**B41/B42 实测**：克隆音色（如 `S_tGhhqlje2` / 旧 `S_ZqvEwo792`）传任何 `speed_ratio`，API 返回的音频字节与 1.0 **完全相同**。
 所以语速**不能**靠 TTS 参数，只能：
 
 1. TTS 原速合成（`speed_ratio: 1.0`）→ `audio/raw/beat_XX.mp3`
@@ -49,7 +49,7 @@ Content-Type:      application/json
   "namespace": "BidirectionalTTS",
   "req_params": {
     "text": "要合成的文本",
-    "speaker": "S_ZqvEwo792",
+    "speaker": "<从 config/video.config.json:tts.speakerId 读>",
     "speed_ratio": 1.0,
     "audio_params": {"format": "mp3", "sample_rate": 24000}
   }
@@ -64,7 +64,7 @@ Content-Type:      application/json
 import json, base64, uuid, os, requests
 
 API_KEY     = os.environ["VOLC_TTS_API_KEY"]   # export VOLC_TTS_API_KEY="..."
-SPEAKER_ID  = "S_ZqvEwo792"                     # 二哥克隆音色（B29 起默认）
+SPEAKER_ID  = "见 config/video.config.json"          # tts.speakerId 字段，单点维护
 TEXT        = "哈喽，我是二哥！"
 OUT_FILE    = "out.mp3"
 
@@ -95,7 +95,9 @@ with open(OUT_FILE, "wb") as f:
         if not line or not line.startswith(b"data:"):
             continue
         j = json.loads(line[5:].strip())
-        chunk = j.get("data", {}).get("data")
+        if j.get("code") == 20000000:   # 末尾结束包
+            break
+        chunk = j.get("data")            # 正常授权时 data 直接是 base64 字符串
         if chunk:
             f.write(base64.b64decode(chunk))
 
@@ -122,6 +124,45 @@ print(f"✅ 写入 {OUT_FILE}")
 ### 坑 3 · 老克隆（1.0 训的）用 2.0 端点不通
 
 只能用旧版 API 调，或者在新版控制台重训一个。
+
+### 坑 4 · code 45000030 `requested resource not granted`（B44 配置单点化时实测）
+
+```
+{"code": 45000030, "message": "[resource_id=volc.seedicl.default] requested resource not granted"}
+```
+
+**含义**：你的 `X-Api-Key` 鉴权通过了，但这个 key 没被授权用 `seed-icl-2.0`（`volc.seedicl.default`）资源。
+
+**常见原因**：
+- key 是在“豆包大模型”/“方舟 ARK”那边创建的，跟声音复刻 2.0 不是同一套权限
+- 主账号下“声音复刻 2.0”没点“开通服务”
+- key 跟账号不在同一个项目/子账号下
+
+**排查**：
+1. 进 https://console.volcengine.com/ → 产品 → “声音复刻 2.0”→ 看是否已“开通”
+2. 同一个页面的“API Key 管理”里看这个 key 是不是在这里创建的；不是就**新建一个** 2.0 专属 key
+3. 用 2.0 控制台新建的 key 再跑
+
+**验证脚本**：`templates/../test_tts.py`（环境变量 `VOLC_TTS_API_KEY`、走 `seed-icl-2.0` + 你的 `S_xxx` 音色）
+
+### 坑 5 · 响应结构：data 字段是 base64 字符串，不是嵌套字典（B44 配置单点化时实测）
+
+guide 早期版本写的 `j["data"]["data"]` 是错的。**实际响应**：
+
+- **正常授权**：`{"code": 0, "data": "SUQzB...base64..."}`，每段一个数据包，`data` **直接是** base64 编码的音频片段（不是 `{"data": "..."}` 嵌套结构）
+- **末尾结束**：`{"code": 20000000, "message": "OK", "data": null}`
+- **鉴权/资源错误**：第一包就是 `{"code": 45000030, "message": "..."}`，`data` 为 `null`
+
+正确解析：
+
+```python
+j = json.loads(line[5:])
+if j.get("code") == 20000000:
+    break
+chunk = j.get("data")
+if isinstance(chunk, str) and chunk:
+    f.write(base64.b64decode(chunk))
+```
 
 ## 🎛️ 可选参数
 

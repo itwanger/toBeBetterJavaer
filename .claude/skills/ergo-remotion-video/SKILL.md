@@ -1,6 +1,6 @@
 ---
 name: ergo-remotion-video
-description: 二哥呀风格的音频驱动 Remotion 动画视频工作流 — 把文章 / 口播稿做成带二哥克隆音色的短视频 mp4（1920×1080 · 30fps · 1-6 分钟均可）。流程：原始文章 → beats.json（按意群拆 beat，数量由文本长度决定）→ 火山豆包 TTS 逐 beat 原速合成 mp3（seed-icl-2.0 · **S_ZqvEwo792**）→ **ffmpeg atempo=1.10 后期变速（speed_ratio 对克隆音色无效）** → ffprobe 测时长生成 cues.ts → 拼接 voiceover.mp3 → Remotion 逐章开发（每 beat 一个 React 组件按 cues 定位）→ **必起 Remotion Studio 让用户逐章验收** → 全部通过后才渲染 mp4。视觉体系：冷白背景 #ededed + 红蓝绿橙灰 5 色 + 顶部章节条 ChapterStrip + **底部单行字幕（长句按视觉宽度自动断行 · 数字按原文显示）** + 二哥头像 ErgoHero + 微信对话行 WeChatRow + LLM/Agent 圆方双图标 + 4 色 messages 消息卡（system 灰 · user 蓝 · assistant 绿 · tool 橙）+ 白底黑边框卡片（金句容器）+ **液压压缩机 Press 组件（黑压板+红箭头，替代 🗜️ emoji）**。核心原则：动画 > 文字（只有金句 / 对话 / 术语允许全屏字）· 设计克制不要花哨 · 风格统一 · 视觉密度重于单个元素炫技 · **文本即最终念法，TTS 念原文（不做数字中文转换、不加情绪戏）** · **逐格填入 > 整块 stagger（跨 beat 无缝动画需绕过 wrapWithTransition）**。适用场景：技术科普口播、Agent 面试题拆解、程序员向短视频、B 站 / 视频号讲解片。
+description: 二哥呀风格的音频驱动 Remotion 动画视频工作流 — 把文章 / 口播稿做成带二哥克隆音色的短视频 mp4（1920×1080 · 30fps · 1-6 分钟均可）。流程：原始文章 → beats.json（按意群拆 beat，数量由文本长度决定）→ 火山豆包 TTS 逐 beat 原速合成 mp3（seed-icl-2.0 · 音色见 `config/video.config.json`）→ **ffmpeg atempo=1.10 后期变速（speed_ratio 对克隆音色无效）** → ffprobe 测时长生成 cues.ts → 拼接 voiceover.mp3 → Remotion 逐章开发（每 beat 一个 React 组件按 cues 定位）→ **必起 Remotion Studio 让用户逐章验收** → 全部通过后才渲染 mp4。视觉体系：冷白背景 #ededed + 红蓝绿橙灰 5 色 + 顶部章节条 ChapterStrip + **底部单行字幕** + 二哥头像 ErgoHero + 微信对话行 WeChatRow + LLM/Agent 圆方双图标 + 4 色 messages 消息卡 + 白底黑边框卡片（金句容器） + 液压压缩机 Press 组件。**核心原则索引详见 [SKILL.md#核心原则] / [USER_PREFERENCES.md] / [B39_LESSONS.md]**。适用场景：技术科普口播、Agent 面试题拆解、程序员向短视频、B 站 / 视频号讲解片。
 ---
 
 # Ergo-Style Remotion Audio-Driven Video
@@ -28,21 +28,40 @@ description: 二哥呀风格的音频驱动 Remotion 动画视频工作流 — �
 
 ## ⚙️ 核心原则（贯穿始终）
 
-1. **动画 > 文字** — 只有金句 / 对话 / 术语（如 `messages` / `stateless`）允许全屏中文字，其它全部用图形表达
-2. **设计克制** — 不要花哨、不要 emoji 大脑级的 kitsch，简洁 + 一点巧思
-3. **风格统一** — 白底黑边框卡片是通用金句容器，所有卡片一致
-4. **视觉密度 > 元素炫技** — 单个字号服从整体版面，不能挤占其他元素呼吸空间
-5. **音画同步靠 cues.ts** — 动画时长服从音频真实长度，不是反过来对齐
-6. **迭代找边界** — 一个 beat 常常要做 2-3 版才知道用户想要什么，不要一次到位
-7. **音频正常合成，不加戏** — 稿子写什么就念什么，不要为了"情绪起伏"硬塞语气词 / 反问 / 破折号 / 感叹号，TTS 自己会朗读（2026-08-15 用户明确纠正）
-8. **字幕单行** — `whiteSpace: nowrap`，长句按视觉宽度（中文 1 / 英文 0.58）自动断行依次显示（数字按原文显示，不做中文↔阿拉伯转换；`——` 破折号从字幕剔除，音频保留）
-9. **文本即最终念法** — 稿子写什么 TTS 就念什么，不做数字中文读法转换（1M 就念 1M）、不改写、不加情绪戏（2026-08-15 用户两次明确：不加情绪 + 数字按原文）
-10. **【B27 新增】逐格填入 > 整块 stagger** — "9 个维度"这类枚举，先只讲数字（不出容器），再让空骨架出现，然后**按音频节拍一格一格填 label**（跨 beat 无缝动画时后一 beat 要绕过 `wrapWithTransition`）
-11. **【B27 新增】机械动画不用 emoji** — 压缩机 / 齿轮 / 分割线 / 箭头 都用 SVG 或 div 硬画（如 `Press` 组件：黑压板 + 红箭头 + 被挤中间卡）
-12. **【硬节点纪律】** — 每章开发完必须起 `npx remotion studio` 让用户在 `http://localhost:3000` 逐 beat 验收，用户回复"继续"/"chX 通过"才做下一章 · **绝对不能自己 render mp4 交差**
-13. **【B39 新增】音画逐词对齐靠能量检测** — 逐格填入/单词弹入必须对真实 beat 音频做 RMS 能量包络分析（`templates/align_words.py`），**不要用"分句单独合成测时长累加"**（分句带句末停顿，整句连读停顿不同，会整体偏早/偏晚）；元素还要**提前 4-6 帧 + stiffness≥200 快弹簧**，念到时已就位
-14. **【B39 新增】跨 beat 连续画面要合并成一个 Sequence** — 一张图配多句相邻台词时，把几个 beat 合成一个组件/Sequence，内部用帧分界切字幕，图片只挂载一次；靠 `noExit/noEnter` 无法消除两个实例交接的闪白
-15. **【B39 新增】text 与 ttsText 分离** — 为发音加的停顿逗号存在 `ttsText`（TTS 用），`text` 保持原文（字幕用）；字幕分行传 `subtitleLines`+`subtitleLineFrames`
+> 所有原则的**详细规则和示例**都在 `references/` 下的文档里；本节只列一句话 + 引用，作为索引。**不要在这里写详情，避免多处不一致**。
+
+0. **配置单点维护** — 所有 TTS 参数（音色 / resource / atempo / 音频格式）从 `config/video.config.json` 读；改一次全仓生效（[config/README.md](config/README.md)）。API Key 走环境变量 `VOLC_TTS_API_KEY`。
+
+**默认人物素材**：使用本 Skill 的 [assets/ergo-avatar.jpg](assets/ergo-avatar.jpg)，复制到当前视频的 `remotion/public/images/ergo-avatar.jpg`。用户为当前视频指定的图片优先；更换与同步规则见 [USER_PREFERENCES.md 的二哥人设](references/USER_PREFERENCES.md#二哥人设)。
+
+### 设计原则（详见 [USER_PREFERENCES.md](references/USER_PREFERENCES.md#anchor-1)）
+
+1. **动画 > 文字** — 详见 [USER_PREFERENCES.md#1](references/USER_PREFERENCES.md#anchor-1)
+2. **设计克制** — 详见 [USER_PREFERENCES.md#3](references/USER_PREFERENCES.md#anchor-3)
+3. **风格统一** — 详见 [USER_PREFERENCES.md#5](references/USER_PREFERENCES.md#anchor-5)
+4. **视觉密度 > 元素炫技** — 详见 [USER_PREFERENCES.md#视觉细节铁律](references/USER_PREFERENCES.md#anchor-detail)
+5. **迭代找边界** — 详见 [USER_PREFERENCES.md#4](references/USER_PREFERENCES.md#anchor-4)
+
+### 念法 / 字幕 / 节奏
+
+6. **音频正常合成，不加戏** — 详见 [USER_PREFERENCES.md#2](references/USER_PREFERENCES.md#anchor-2)
+7. **字幕永远单行** — 详见 [USER_PREFERENCES.md#A](references/USER_PREFERENCES.md#anchor-A)
+8. **默认原文念法；指定数字读法写入 ttsText** — 详见 [USER_PREFERENCES.md#B](references/USER_PREFERENCES.md#anchor-B)
+9. **「3 分钟」是宣传话术** — 详见 [USER_PREFERENCES.md#C](references/USER_PREFERENCES.md#anchor-C)
+10. **音画同步靠 cues.ts** — 详见 [B39_LESSONS.md#1](references/B39_LESSONS.md#1-音画对齐用能量检测不要用分句合成估算)
+
+### 动画细节
+
+11. **逐格填入 > 整块 stagger** — 详见 [USER_PREFERENCES.md#D](references/USER_PREFERENCES.md#anchor-D)
+12. **机械动画不用 emoji** — 详见 [USER_PREFERENCES.md#E](references/USER_PREFERENCES.md#anchor-E)
+
+### 流程纪律
+
+13. **硬节点纪律** — 每章开发完必须起 `npx remotion studio` 让用户逐 beat 验收，详细规则见 [USER_PREFERENCES.md#F](references/USER_PREFERENCES.md#anchor-F)
+13a. **项目路径 = 当前项目目录** — 稿子/音频/Remotion 代码都在项目目录里，不另开 ~/Documents/video-projects/，详见 [USER_PREFERENCES.md#H](references/USER_PREFERENCES.md#anchor-H)
+14. **音画逐词对齐靠能量检测** — 详见 [B39_LESSONS.md#1](references/B39_LESSONS.md#1-音画对齐用能量检测不要用分句合成估算)
+15. **跨 beat 连续画面合并 Sequence** — 详见 [B39_LESSONS.md#2](references/B39_LESSONS.md#2-跨-beat-连续画面合并成一个-sequence不要用-noexit)
+16. **text 与 ttsText 分离** — 详见 [B39_LESSONS.md#3](references/B39_LESSONS.md#3-字幕分行text-与-ttstext-分离)
 
 ## 🏗️ 工作流总览
 
@@ -54,7 +73,7 @@ Phase 1   内容分析 · 一次性产出
 [Checkpoint · 稿子对齐]     ← 必须停。用户确认口播稿 / 拆 beat 结果
    ▼
 Phase 2   音频合成（豆包 TTS · seed-icl-2.0）
-   2.0  export VOLC_TTS_API_KEY="..."
+   2.0  export VOLC_TTS_API_KEY="..."（key 在环境变量里；音色/atempo 在 config/video.config.json）
    2.1  逐 beat 调火山 TTS 原速合成 → audio/raw/beat_XX.mp3
    2.2  ffmpeg atempo=1.10 后期变速 → audio/beat_XX.mp3（speed_ratio 对克隆音色无效）
    2.3  ffprobe 测时长 → cues.ts / cues.json；ffmpeg 拼接 → voiceover.mp3
@@ -80,7 +99,7 @@ B_XX/
 ├── article.md              # 原始文章（保留，视觉信息源）
 ├── script.md               # 口播稿（决定节拍）
 ├── beats.json              # N 个 beat 的 machine-readable schema
-│                           #   text（字幕原文）/ ttsText（可选·为发音加的停顿）
+│                           #   text（字幕原文）/ ttsText（可选·发音停顿或指定读法）
 ├── OUTLINE.md              # 视觉规划文档
 ├── chapters.json           # 章节切分
 ├── cues.json / cues.ts     # 每 beat 的绝对帧号
@@ -94,7 +113,7 @@ B_XX/
 └── remotion/               # Remotion 项目
     ├── package.json
     ├── public/audio/voiceover.mp3
-    ├── public/ergo-avatar.jpg
+    ├── public/images/ergo-avatar.jpg  # 从 Skill 的 assets/ergo-avatar.jpg 复制
     └── src/
         ├── Root.tsx        # 主 Composition + 各章 ChapterPreview
         ├── constants.ts    # COLORS / WIDTH / HEIGHT / FPS
@@ -147,10 +166,10 @@ COLORS = {
 
 - 端点：`POST https://openspeech.bytedance.com/api/v3/tts/unidirectional/sse`
 - Header：`X-Api-Key` + `X-Api-Resource-Id: seed-icl-2.0` + `X-Api-Connect-Id`
-- Body：`event: 100` + `namespace: BidirectionalTTS` + `req_params.speaker: S_ZqvEwo792`
+- Body：`event: 100` + `namespace: BidirectionalTTS` + `req_params.speaker: <见 config/video.config.json:tts.speakerId>`
 - **API Key 从环境变量 `VOLC_TTS_API_KEY` 读，绝不硬编码**（本仓库公开）
-- **二哥克隆音色 ID（B29 起默认 · B42 再次确认）：`S_ZqvEwo792`**（新版控制台声音复刻 2.0）
-- 历史音色：`S_JcYEwo792`（B27 短期用过，已弃用）、`S_7F8Gwo792`（B25 及之前老音色，保留）
+- **音色 / 资源 ID / atempo / 音频格式**统一在 `config/video.config.json` 维护，单点修改全仓生效（详见 [config/README.md](config/README.md)）
+- 历史音色：`S_ZqvEwo792`（B29-B43 默认）、`S_JcYEwo792`（B27 短期用过，已弃用）、`S_7F8Gwo792`（B25 及之前老音色，保留）
 - 🚨 **语速不能靠 `speed_ratio`**——B41/B42 实测克隆音色对该参数完全无响应（返回字节与 1.0 相同）。
   正确做法：TTS 原速合成 → `ffmpeg -filter:a atempo=1.10` 后期变速（atempo ≤ 1.2 音质无损且保音高）
 - **当前最佳 `ATEMPO = 1.10`**（写在 gen_audio.py 配置区）
@@ -187,15 +206,15 @@ COLORS = {
 
 - 二哥自介：❌ `HOST · 二哥呀` → ✅ `哈喽，我是二哥！`
 - **TTS 正常合成即可，不要为情绪加戏**：稿子写什么念什么，别硬塞语气词/反问/破折号（2026-08-15 用户明确）
-- **B29 起 atempo 1.10 是当前最佳节奏**（音色 `S_ZqvEwo792`；B27 曾短期用 1.15 + S_JcYEwo792，已弃用）
-- **文本即最终念法**：稿子写什么 TTS 就念什么，数字/单位按原文，不做中文读法转换（2026-08-15 用户明确）
+- **B29 起 atempo 1.10 是当前最佳节奏**（默认从 `config/video.config.json` 的 `tts.atempo` 读；B27 曾短期用 1.15 + S_JcYEwo792，已弃用）
+- **默认按原文朗读**：不批量转换数字/单位；评论口令 `222` 通过 `ttsText` 指定读作「二二二」，数量 `288 道` 指定读作「二百八十八道」；字幕均保留原文数字。规则与示例见 [USER_PREFERENCES.md#B](references/USER_PREFERENCES.md#anchor-B)。
 
 ### 字幕
 
 - **画面只显示一行**（`whiteSpace: nowrap`）
 - 长句按视觉宽度自动断行（中文 1 单位 / 英文 0.58 单位，阈值 42），按行宽比例分配停留时间
 - 字幕忠实音频原文（不改写文字、数字按原文显示；仅 `——` 破折号从字幕剔除，音频保留做停顿）
-- 为发音加的停顿逗号写进 `ttsText` 字段，`text` 保持原文（B39）
+- 发音停顿和用户指定的读法写进 `ttsText` 字段，`text` 保持原文；评论口令例外见 [USER_PREFERENCES.md#B](references/USER_PREFERENCES.md#anchor-B)。
 - 实现：参考 B36 `shared.tsx` 的 `Subtitle` 组件（visualWidth + splitToLines，无需 numeralToArabic 数字转换）
 
 ### 动画流控（B27 血泪）
@@ -245,8 +264,8 @@ npx remotion render <CompositionId> out/<name>.mp4
 
 - "帮我把这篇文章做成二哥呀风格的视频"
 - "用二哥的声音做一个 X 分钟的讲解视频"
-- "做个 Remotion 视频，用二哥克隆音色 S_ZqvEwo792"
-- "启动 B43 项目"（自动匹配 B 系列命名）
+- "做个 Remotion 视频，用二哥克隆音色（音色 ID 在 config/video.config.json 改）"
+- "启动 kv-cache 项目"（项目按主题名命名，不用 B_NN 编号）
 - `/ergo-remotion-video` 或 `/ergo-video`
 
 ## 🎯 用户默认调用提示词模板
@@ -264,15 +283,15 @@ npx remotion render <CompositionId> out/<name>.mp4
 主题：<3-5 字概括，比如"Agent 短期记忆">
 目标时长：<3-4 分钟>
 风格基调：<hook + 打脸 / 纯科普 / 面试题拆解>
-项目名：<比如 B43>
-输出目录：~/Documents/video-projects/<项目名>
+项目名：<比如 kv-cache>
+输出目录：**项目当前目录**（如 `docs/src/ai/script/<slug>/`）— 所有产物（稿子 / 音频 / Remotion 代码）都在这里，不另开工作区
 
 原文：
 <粘贴 article.md 内容>
 
 要求：
 - 沿用 B19-B39 视觉体系（冷白背景 + 红蓝绿橙灰 + 白底黑边框卡片）
-- 用二哥克隆音色 S_ZqvEwo792 · seed-icl-2.0 · TTS 原速合成后 ffmpeg atempo 1.10
+- 用二哥克隆音色（见 `config/video.config.json`）· seed-icl-2.0 · TTS 原速合成后 ffmpeg atempo（atempo 也从 config 读）
 - 逐章验收，每章做完停下等我确认再继续
 - 严格执行"动画 > 文字"，只有金句 / 对话 / 术语允许全屏中文字
 ```

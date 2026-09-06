@@ -1,11 +1,15 @@
 """
 gen_audio.py · TTS 1.0 原速合成 → ffmpeg atempo 后期变速
 
-🚨 火山克隆音色 S_ZqvEwo792 的顶层 speed_ratio 参数【不生效】（API 返回与 1.0 完全相同
-的字节），所以语速不能靠 TTS 参数，必须 TTS 原速合成后用 ffmpeg atempo 后期变速。
+TTS 参数（speakerId / resourceId / atempo / 音频格式）全部从 ../config/video.config.json 读。
+改音色只改 config, 不改本文件。
+敏感 key 走环境变量 VOLC_TTS_API_KEY。
+
+🚨 火山克隆音色的顶层 speed_ratio 参数【不生效】（API 返回与 1.0 完全相同的字节），
+所以语速不能靠 TTS 参数，必须 TTS 原速合成后用 ffmpeg atempo 后期变速。
 atempo 在 1.2 以内音质无损、保持音高。B41/B42 已验证。
 
-前置：API Key 从环境变量读取，切勿硬编码进文件（本仓库是公开仓库）
+前置：
   export VOLC_TTS_API_KEY="你的火山 API Key"
 
 用法：
@@ -18,18 +22,44 @@ import json, base64, uuid, argparse, shutil, subprocess, os, sys
 from pathlib import Path
 import requests
 
-# ─── 配置区 ───────────────────────────────────────
-API_KEY     = os.environ.get("VOLC_TTS_API_KEY", "")
-SPEAKER_ID  = "S_ZqvEwo792"   # 二哥克隆音色（B29 起默认 · B42 再次确认）
-SPEED       = 1.0             # TTS speed_ratio 对克隆音色无效，保持 1.0
-ATEMPO      = 1.10            # 后期 ffmpeg atempo 变速（SKILL 当前最佳：1.10）
-SAMPLE_RATE = 24000
+# ─── 加载全局配置（单点维护）────────────────────
+# gen_audio.py 会被 cp 到 B_XX/ 目录独立运行，所以要支持多种路径:
+#  1. <skill>/templates/gen_audio.py → ../config/        (skill 内部跑)
+#  2. B_XX/gen_audio.py           → ./config/           (项目里手 copy 了 config/)
+#  3. B_XX/gen_audio.py           → ../../config/       (项目里 link 到 skill 的 config)
+_HERE = Path(__file__).resolve().parent
+_candidates = [
+    _HERE / "config" / "config_loader.py",                  # ./config/        (项目里 copy 了 config/)
+    _HERE.parent / "config" / "config_loader.py",           # ../config/      (项目与 skill 平级)
+    _HERE.parent.parent / "config" / "config_loader.py",    # ../../config/   (项目在 skill 子目录下)
+    _HERE.parent.parent.parent / "config" / "config_loader.py",  # ../../../config/
+]
+_loader_dir = None
+for _c in _candidates:
+    if _c.exists():
+        _loader_dir = _c.parent
+        break
+if _loader_dir is None:
+    sys.exit("❌ 找不到 config/config_loader.py。\n"
+             "   请把 skill 根目录的 config/ 一起放到项目里，或在 skill 根目录跑。")
+sys.path.insert(0, str(_loader_dir))
+from config_loader import load_tts_config, load_volc_key  # noqa: E402
+
+# ─── 业务参数（从 config 读，单点维护）───────────
+_tts        = load_tts_config()
+SPEAKER_ID  = _tts["speakerId"]
+RESOURCE_ID = _tts["resourceId"]
+URL         = _tts["apiBase"]
+SPEED       = _tts.get("speedRatio", 1.0)   # 克隆音色无效, 保持 1.0
+ATEMPO      = _tts.get("atempo", 1.10)
+SAMPLE_RATE = _tts["audio"]["sampleRate"]
+AUDIO_FMT   = _tts["audio"]["format"]
+API_KEY     = ""                             # 默认空, main() 里按需加载
+
 OUT_DIR     = Path("./audio")
 RAW_DIR     = Path("./audio/raw")
 BEATS_FILE  = Path("./beats.json")
 # ─────────────────────────────────────────────────
-
-URL = "https://openspeech.bytedance.com/api/v3/tts/unidirectional/sse"
 
 
 def _find_ffmpeg() -> str:
@@ -46,7 +76,7 @@ def _find_ffmpeg() -> str:
 def synth(text: str, out_path: Path) -> bool:
     headers = {
         "X-Api-Key":         API_KEY,
-        "X-Api-Resource-Id": "seed-icl-2.0",
+        "X-Api-Resource-Id": RESOURCE_ID,
         "X-Api-Connect-Id":  str(uuid.uuid4()),
         "Content-Type":      "application/json",
     }
@@ -58,7 +88,7 @@ def synth(text: str, out_path: Path) -> bool:
             "text":         text,
             "speaker":      SPEAKER_ID,
             "speed_ratio":  SPEED,
-            "audio_params": {"format": "mp3", "sample_rate": SAMPLE_RATE},
+            "audio_params": {"format": AUDIO_FMT, "sample_rate": SAMPLE_RATE},
         },
     }
     r = requests.post(URL, headers=headers, json=body, stream=True, timeout=90)
@@ -111,9 +141,10 @@ def main():
     ap.add_argument("--only", type=int, nargs="+")
     args = ap.parse_args()
 
-    if not args.retempo and not API_KEY:
-        sys.exit("X 未设置环境变量 VOLC_TTS_API_KEY，无法调用 TTS。\n"
-                 "  export VOLC_TTS_API_KEY=\"你的火山 API Key\"")
+    # --retempo 不需要 key; 其他场景按需加载
+    if not args.retempo:
+        global API_KEY
+        API_KEY = load_volc_key()
 
     OUT_DIR.mkdir(exist_ok=True)
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -121,7 +152,7 @@ def main():
 
     ffmpeg = _find_ffmpeg()
     print(f"ffmpeg: {ffmpeg}")
-    print(f"atempo: {ATEMPO}")
+    print(f"speaker: {SPEAKER_ID}  resource: {RESOURCE_ID}  atempo: {ATEMPO}")
 
     todo = beats
     if args.only:
@@ -130,7 +161,7 @@ def main():
 
     for b in todo:
         bid = b["id"]
-        # ttsText 优先：为发音加的停顿逗号只进 TTS，字幕仍用原文 text（B39）
+        # ttsText 优先：发音停顿和指定读法只进 TTS，字幕仍用原文 text。
         text = b.get("ttsText") or b["text"]
         raw = RAW_DIR / f"beat_{bid:02d}.mp3"
         out = OUT_DIR / f"beat_{bid:02d}.mp3"
