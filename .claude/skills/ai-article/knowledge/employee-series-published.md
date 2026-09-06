@@ -10,7 +10,7 @@
 >
 > 维护提醒：每发一篇，在本文件补一行并打勾。日期为文件 frontmatter 中的 date 字段。
 
-## 一、已发布（17 篇）
+## 一、已发布（18 篇）
 
 - [x] **2026-07-22 腾讯**｜`agent-mianshi-tengxun-2.md`
   为什么腾讯offer含金量永远都这么高？有人为了进腾讯，2年内面试6次（附Agent面试题）
@@ -84,6 +84,10 @@
   中行总部员工：211硕士毕业刚满一年，在软件中心做研发，转正之后第一个完整年拿了22万左右，很满意（附Agent面试题）
   面试题角度：RAG瓶颈定位（Embedding rate limit/KNN扫描/LLM串行）、架构优化（查询改写/语义缓存/动态权重）、Badcase归因打标与Golden Set回归、海量异步任务耗时统计（滑动窗口/T-Digest）、Vibe Coding设计分布式限流（令牌桶/Redis Lua）、分布式限流一致性与降级、全自动流水线可靠性、订单分页（OFFSET vs Keyset）、支付回执时间切面、token传递防串号、对账超时归并优化、状态机防回退、Vibe Coding工程实践
 
+- [x] **2026-09-02 英伟达**｜`agent-mianshi-nvidia.md`
+  英伟达员工：我们组的Bug都不够AI修了，今天在找Bug中再次输给了Claude Fable 5.1，听说当电工比当程序员简单？（附Agent面试题）
+  面试题角度：Coding Agent 找 Bug 工具链（grep/read/execute 截断与超时）、修复验证（FAIL_TO_PASS/PASS_TO_PASS、exit code、测试写保护）、Side-Git 快照回滚、命令黑名单与 HITL 审批、工具并行与 Sub-agent 异步回报、1M 窗口下的 compaction/context editing/memory、Fable 5.1 三个 breaking change 与 append-only 历史、effort 档位与 task budget、Prompt Caching 前缀与 mid-conversation system message、KV cache 公式与 WORM 负载、KV-aware 路由与 disaggregated serving、KV cache 卸载、Terminal-Bench 评测方法与分数偏差来源、Golden Set/验证器/位置平衡裁判三层评测
+
 ## 二、已覆盖公司统计
 
 | 公司 | 篇数 | 已发布日期 |
@@ -101,6 +105,7 @@
 | 宇树科技 | 1 | 08-12 |
 | 美团 | 1 | 08-31 |
 | 中国银行 | 1 | 09-01 |
+| 英伟达 | 1 | 09-02 |
 
 ## 三、公司池里尚未写过的（候选）
 

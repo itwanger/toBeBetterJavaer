@@ -283,7 +283,7 @@ date: # YYYY-MM-DD
 
 ### 步骤 8：落盘
 
-文件命名用主题关键词，保存到 `docs/src/sidebar/itwanger/ai/`，同时存草稿到 `./drafts/`。
+文件命名用主题关键词，保存到 `docs/src/sidebar/itwanger/ai/`。
 
 保存后整理截图来源链接清单：
 
