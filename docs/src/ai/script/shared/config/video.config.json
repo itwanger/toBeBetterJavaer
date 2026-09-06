@@ -1,7 +1,7 @@
 {
   "_comment": "新项目默认配置。初始化时复制到 project.json；已有项目使用自己的配置。密钥只从环境变量读取。",
   "tts": {
-    "speakerId": "S_lm3eqlje2",
+    "speakerId": "S_j97bqlje2",
     "resourceId": "seed-icl-2.0",
     "apiBase": "https://openspeech.bytedance.com/api/v3/tts/unidirectional/sse",
     "speedRatio": 1.0,
@@ -9,7 +9,7 @@
       "format": "mp3",
       "sampleRate": 24000
     },
-    "atempo": 1.15
+    "atempo": 1.10
   },
   "volc": {
     "apiKeyEnv": "VOLC_TTS_API_KEY"

@@ -6,7 +6,7 @@
 
 因为大模型是自回归逐字生成的。每次生成新词，新产生的提问是 Q，所有已经处理过的词是 K 和 V。当前这轮算完，Q 就彻底作废了，但之前的 K 和 V，后面每一个新词生成时都还得翻一遍。
 
-![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-mechanism-20260905103627-f9db2b24.png)![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-20260905204300.png)
+![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-mechanism-20260905103627-f9db2b24.png)
 
 在这梳理了一份 AI Agent 开发学习路线和 288 道配套八股，需要的可以来个222。
 
@@ -17,8 +17,6 @@
 - 既然它这么好，各大模型为什么还要拼了命压缩它？
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，给你彻底讲透大模型推理的核心秘密——KV Cache。
-
-系好安全带，我们粗粗粗出发了～
 
 先说第一件事，**什么是 KV Cache**。
 

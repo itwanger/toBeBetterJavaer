@@ -10,6 +10,7 @@ script/
 ├── shared/
 │   ├── config/video.config.json      新项目默认配置，无密钥
 │   ├── assets/ergo-avatar.jpg        默认人物原图
+│   ├── assets/interview/             可选面试头像及来源记录
 │   ├── tools/                       通用 Python / Node 命令
 │   └── remotion/
 │       ├── components/              无主题数据的公共组件
@@ -17,7 +18,7 @@ script/
 └── <topic>/
     ├── project.json                 项目信息、输出名、完整配置快照
     ├── article.md / script.md        原文快照 / 确认后的口播稿
-    ├── beats.json / OUTLINE.md       配音单元与章节定义 / 分镜规划
+    ├── beats.json / OUTLINE.md       beat 与章节定义 / 分镜规划
     ├── assets/images/               本视频实际采用的图片和人物副本
     ├── assets/references/            按需保存的参考材料
     ├── audio/raw/                   TTS 原始 MP3
@@ -51,18 +52,37 @@ python3 docs/src/ai/script/shared/tools/doctor.py --project docs/src/ai/script/w
 
 初始化拒绝覆盖现有目录，复制原文和默认头像，生成完整项目配置及草稿骨架，不调用 TTS。草稿只有 `DraftPreview`，确认口播稿后再实现真实章节与总 Composition。
 
-## 内容和配音单元
+初始化复制的文章仅为整理起点。第一阶段按 Skill 的内容规则清理项目 `article.md`：文末公众号推广尾段从起点删至末尾，后续图片及其素材清单条目一起删除，不以完整快照或排除条目的形式留在视频项目中。原始源文章另行保留，项目用稿可能与源文章不同，检查记录应分别保存来源哈希与用稿哈希。
+
+## 面试开场素材
+
+选择面试头像开场模式时，从 `shared/assets/interview/` 复制 `doubao-facing-right.png` 与 `ergo-facing-left.png` 到本项目 `assets/images/`，并在分镜记录素材来源。初始化工具仍只复制默认头像，普通视频不自动引入豆包或面试情节。
+
+新项目尚无这些文件时，从仓库根目录执行（将 `<topic>` 替换成当前项目目录名）：
+
+```bash
+cp -n docs/src/ai/script/shared/assets/interview/doubao-facing-right.png docs/src/ai/script/<topic>/assets/images/doubao-facing-right.png
+cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/ai/script/<topic>/assets/images/ergo-facing-left.png
+```
+
+如果项目已有同名图片，先确认是否为用户指定版本，不覆盖。画面用 `staticFile('images/doubao-facing-right.png')` 等地址读取项目副本；共享头像组件从 `shared/remotion/components/InterviewAvatar.tsx` 导入，只负责头像、角色标注和高亮，不含具体主题、音色或固定时间轴。该目录的 `sources.json` 保留图片来源，原始二哥头像不变。
+
+## 内容和 beat 拆分
 
 `beats.json` 保留如下输入结构，数量由实际内容决定：
 
 ```json
 {
   "chapters": [{"id": "ch1", "title": "章节标题"}],
-  "beats": [{"id": 1, "chapter": "ch1", "text": "确认后的完整意群。", "ttsText": "确认后的完整意群。"}]
+  "beats": [{"id": 1, "chapter": "ch1", "text": "确认后的 beat 台词。", "ttsText": "确认后的 beat 台词。"}]
 }
 ```
 
-数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的单元连续排列。`ttsText` 可省略；字幕与配音分别保留。新项目优先按完整意群合成，不机械按空行，也不固定 69 段或 5 章。字幕切换和动画动作在音频内部定位，不要求一动作一音频。现有 KV Cache 的 69 段原样保留。
+数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略；字幕与配音分别保留。按意群拆 beat，数量由文本长度决定 · 参考 3–4 分钟 ≈ 55–75 beat。逐 beat 合成配音，再依据真实音频定位动画。相邻 beat 需要连续画面时合并 Sequence，不因此合并配音。迁移旧项目不自动重拆或重合成。
+
+`OUTLINE.md` 同时维护正文配图的使用映射：来源 URL、项目文件、场景、beat 范围、预览检查状态。每张保留的正文图都要有明确去向；未采用则记录原因。素材清单只登记下载路径不能代替分镜。逐章检查要覆盖实际配图帧和主要动画场景，确认图片完整可读、字幕切换时图像保持连续。
+
+正文导航复用 `shared/remotion/components` 的 `ChapterStrip`，传入本项目品牌、章节名称和当前章。面试模式的特殊顶部布局仅限对话开场。用户指定旧版为视觉基准时，在本项目 `preview/` 保存对照帧与检查记录；恢复版式和场景组织，时间轴仍以本次真实音频为准。
 
 ## 配音与时间轴
 

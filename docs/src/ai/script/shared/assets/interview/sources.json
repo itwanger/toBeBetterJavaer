@@ -1,0 +1,27 @@
+{
+  "scope": "Optional interview opening; copy selected assets into each video project.",
+  "assets": [
+    {
+      "file": "doubao-avatar.png",
+      "role": "interviewer",
+      "sourcePage": "https://www.doubao.com/about",
+      "sourceImage": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/favicon/192x192.png",
+      "note": "User selected the official Doubao avatar for humorous interview openings; unchanged source image.",
+      "sha256": "294018352651acadf0a9a189e253ababdd0902381494d7c37398ac4e503c8c10"
+    },
+    {
+      "file": "ergo-facing-left.png",
+      "role": "candidate",
+      "reference": "../ergo-avatar.jpg",
+      "note": "Generated left-facing derivative of the user-provided Ergo portrait; original reference is retained.",
+      "sha256": "a916b3464c561953a09d5137c30539e3c3524d7ad43c637e35b1dd24c3157bf4"
+    },
+    {
+      "file": "doubao-facing-right.png",
+      "role": "interviewer-facing-right",
+      "reference": "doubao-avatar.png",
+      "note": "Generated right-facing edit requested by user; derived from official Doubao avatar, not an official alternate asset. Original retained.",
+      "sha256": "a2bbf26c81e0fd407d627f6f70bc442d423ec3b23f399a667e534a3db356b2cd"
+    }
+  ]
+}
