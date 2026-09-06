@@ -1,135 +1,34 @@
-# B39 经验沉淀 · 长科普片工作流（2026-08）
+# 音画对齐与连续场景
 
-项目：DeepSeek Harness / Cordis 源码解读，3 分 46 秒，40 个 beat，5 章。
-这是继 B27 后对工作流的重要补强，重点解决了**音画逐词对齐**和**跨 beat 连续画面**两个老问题。
+## 以真实音频定位
 
-## 目录
+独立合成一个分句得到的时长，不代表它在完整意群中的位置。合成后的真实音频才是字幕和动作的依据。
 
-- [1. 音画对齐：用能量检测，不要用分句合成估算](#1-音画对齐用能量检测不要用分句合成估算)
-- [2. 跨 beat 连续画面：合并成一个 Sequence，不要用 noExit](#2-跨-beat-连续画面合并成一个-sequence不要用-noexit)
-- [3. 字幕分行：text 与 ttsText 分离](#3-字幕分行text-与-ttstext-分离)
-- [4. 跨平台 / 编码坑](#4-跨平台--编码坑)
-- [5. 素材驱动：用户给截图就用截图](#5-素材驱动用户给截图就用截图)
-- [6. 数字滚动 / 计数器](#6-数字滚动--计数器)
-- [7. 这次的最终成片配置（可作默认值参考）](#7-这次的最终成片配置可作默认值参考)
-
-## 1. 音画对齐：用能量检测，不要用分句合成估算
-
-### 问题
-逐格填入（"模型、工具、技能… 全是插件"）、英文词逐个弹出（Plugin/Context/Service/inject/Events）这类动画，
-元素必须在音频念到那个词的**瞬间**出现。之前用"把每个分句单独合成 TTS、测时长、累加"的办法，
-**总是对不齐**——因为分句单独合成带句末停顿，整句连读时停顿不同，累加出来的词边界整体偏早/偏晚，用户反复说"没同频"。
-
-### 正确做法（B39 验证有效）
-直接分析**真实 beat 音频文件**的能量包络：
+从仓库根目录运行：
 
 ```bash
-python templates/align_words.py audio/beat_27.mp3
+python3 docs/src/ai/script/shared/tools/align_words.py --project docs/src/ai/script/what-is-kv-cache --id 69
 ```
 
-1. ffmpeg 把 mp3 转 16kHz 单声道 wav
-2. 按 20ms 窗口算 RMS 能量
-3. 阈值 0.10 + 最短静音 2-3 块，切出每个发声段
-4. 把发声段（含多音节拆段）映射到词，得到每个词的真实起点秒数
-5. 秒 × 30 = 帧，填进组件的 `start` 数组
+工具读取项目 `audio/processed/beat_69.mp3`，解码后按 20ms 窗口分析能量，不在终端 cwd 写临时 WAV。输出发声区间只是候选边界；中文连读未必有静音，英文缩写也可能被拆成多段。结合试听、截段 ASR 定位短语，不把 ASR 拼写误差当作音频必然读错。
 
-脚本模板见 `templates/align_words.py`。
+元素可在确认的起音点之前约 4–6 帧开始快速入场，避免等词念完才完全出现。时点保存在主题分镜或组件里，不写进共享组件。
 
-### 动画侧关键：提前 + 快弹簧
-光时间对了还不够。如果在词起点才 `spring` 从 0 弹起，要 10+ 帧才到位，等于词念完才出现。
-- 每个元素**提前 4-6 帧**触发
-- 弹簧用 `stiffness: 200-300, damping: 18`，约 4 帧就位
-- 这样音频念到词时，元素已经稳稳显示
+## 连续画面共用一个 Sequence
 
-```ts
-const pop = spring({ frame: frame - (wordStartFrame - 6), fps: FPS,
-                     config: { damping: 18, stiffness: 300 } });
-```
+相邻配音段讲同一画面时，将它们组合为一个场景 Sequence。组件只挂载一次，内部按局部 frame 改变状态。图片也保持同一实例，避免闪白或重新入场。
 
-## 2. 跨 beat 连续画面：合并成一个 Sequence，不要用 noExit
+Sequence 内的 `useCurrentFrame()` 是局部帧；不要再次减去全片绝对 startFrame。外层用 `build/cues.ts` 的绝对帧定位，章节预览再减去章节起始帧。
 
-### 问题
-"一张截图配两句相邻的台词"（如 beat2+3 同一张 GitHub 图、beat6+7 三连问、beat22-24 回滚热重载、beat34+35 对比图），
-如果每个 beat 是独立 `<Sequence>` + `<Beat>` 包裹，交接处组件卸载/重挂载，图片重新解码，会**闪白/重播入场**。
-即使给前一个 beat 加 `noExit`、后一个加 `noEnter`，两个组件实例仍然不同，闪白依旧。
+## 文本和生成文件
 
-### 正确做法（B39 验证有效）
-把连续的多个 beat **合并成一个 React 组件、一个 Sequence**：
-- 组件内部用 `useCurrentFrame()` 判断当前在哪个 beat
-- 字幕在内部按 `D22`/`D23` 分界手动切换（用 `BeatSubtitle` 直接渲染）
-- 图片只挂载一次，全程不重渲染，画面绝对连续
-- 组件内用相对帧（0 开始），Sequence 的 `durationInFrames` = 几个 beat 之和
+- `beats.json` 的 `text` 保留字幕原文，`ttsText` 仅调整明确指定的朗读。
+- `build/cues.json`、`build/chapters.json`、`build/cues.ts`、`build/voiceover.wav` 来自同一批解码采样，不分别估算。
+- 字幕和动画可以细分，配音单元无需同步切碎；不要照抄既有 beat 数量。
+- 时间轴由共享工具生成，不手改生成文件。修改配音后重新生成并验证连续帧边界。
 
-```tsx
-const D22 = dur(22), D23 = dur(23);
-const B22to24 = () => {
-  const frame = useCurrentFrame();
-  let sub, local;
-  if (frame < D22) { sub = CUES[21].text; local = frame; }
-  else if (frame < D22+D23) { ... }
-  return <AbsoluteFill>
-    <Scene>{/* 一张图，全程不重挂 */}</Scene>
-    <BeatSubtitle text={sub} localFrame={local} durationFrames={...} />
-  </AbsoluteFill>;
-};
-// 导出时一个 Sequence 包住 D22+D23+D24
-```
+## 导出检查
 
-B39 里合并的片段：
-- Ch1 B23（beat2+3 GitHub 截图）
-- Ch1 B67（beat6+7 三连问）
-- Ch3 B21to24（beat21-24 无痕挂钩→回滚→热重载）
-- Ch4 B28to29（依赖图）、B31to32（三模式）
-- Ch5 B34to35（对比图）
+曾观察到 Remotion 导出的 AAC 音轨比原音频晚约 42.667ms。共享 render 入口保留渲染视频流、从原 WAV 编码音轨并封装最终文件。仍需运行共享 `verify_export.py` 比较实际波形及完整解码，不能凭文件存在宣告完成。
 
-## 3. 字幕分行：text 与 ttsText 分离
-
-### 问题
-为了让 TTS 读对英文词（Cordis 夹在中文中间会连读走样），需要在 Cordis 前加逗号停顿，
-但用户要求**字幕忠实原文**，不能把为朗读加的逗号显示出来。
-
-### 正确做法
-`beats.json` 里一个 beat 可以有两个字段：
-- `text`：字幕显示文本（= 原文）
-- `ttsText`：TTS 朗读文本（可含发音停顿或用户指定的读法；评论口令 `222` 的规则见 [USER_PREFERENCES.md#B](USER_PREFERENCES.md#anchor-B)）
-
-`gen_audio.py` 合成时优先用 `b.get("ttsText", b["text"])`；
-`gen_cues.py` 把 `text` 写进 cues.ts 给字幕用。音频文件不变，字幕显示原文，两全。
-
-同样，字幕强制分行时给 `<Beat>` 传 `subtitleLines`（每行文本）+ `subtitleLineFrames`（每行帧数，用能量检测测），
-不要依赖自动宽度切分来对齐多句台词。
-
-## 4. 跨平台 / 编码坑
-
-- **PowerShell 5.1 的 `Set-Content -Encoding utf8` 会加 BOM**，导致 package.json 解析失败（JSONError: Unexpected token '锘'）。
-  写 JSON/配置文件一律用 Write 工具（无 BOM），不要用 shell 重定向。
-- 多行 Python 代码写成临时 `.py` 文件再跑，不要内联 `python -c "..."`（引号容易被 shell 吃掉）。
-- TTS 合成输出中文乱码时加 `PYTHONIOENCODING=utf-8`（macOS/Linux）。
-
-## 5. 素材驱动：用户给截图就用截图
-
-B39 用户在验收过程中陆续提供了真实截图（公众号发布图、GitHub 仓库页、Harness 论文页、
-Cordis 来源手绘图、卸载对比图、模式下拉菜单）。规律：
-- **beat 配真实截图时，自制图形一律让位**——删掉原来画的卡片/图标，直接 `Img` 展示截图
-- 截图统一展示样式：宽 ~1180、5px 黑边框、borderRadius 16、深阴影 `0 24px 80px rgba(0,0,0,0.4)`
-- 弹簧入场（`stiffness 110, damping 16`），**不要加扫光/旋转/退场**，除非用户要——
-  B39 用户明确说过"图片出入场不要加特效，正常出现、音频结束一起消失"
-- 截图尺寸用百分比/固定宽度，不要让它撑满全屏
-
-## 6. 数字滚动 / 计数器
-
-"3000+ 插件"这类用 `interpolate(spring(...), [0,1], [0, target])` 做滚动，
-触发时机同样要跟音频对齐（用能量检测或分句分界）。
-
-## 7. 这次的最终成片配置（可作默认值参考）
-
-- 音色 / atempo：见 `config/video.config.json`（B44 起统一从该文件读；B29-B43 用 `S_ZqvEwo792`），TTS 原速合成 + ffmpeg `atempo=1.10`（克隆音色 speed_ratio 无效，B41/B42 实测）
-- 3 分 46 秒，6837 帧，40 个 beat
-- 渲染：`npx remotion render B39 out.mp4`，多核约 3-4 分钟，输出 30MB
-- 字幕：底部黑底白字胶囊，38px，单行 nowrap，破折号 `——` 会被剔除（splitToLines 逻辑）
-
-## 相关
-- [SKILL.md](../SKILL.md) 主工作流
-- [templates/align_words.py](../templates/align_words.py)（本次新增的对齐脚本）
-- [references/USER_PREFERENCES.md](USER_PREFERENCES.md)
-- [references/VOLCENGINE_TTS_GUIDE.md](VOLCENGINE_TTS_GUIDE.md)
+路径、输出位置及调用命令统一见 [共享工作流](../../../../docs/src/ai/script/shared/WORKFLOW.md)。

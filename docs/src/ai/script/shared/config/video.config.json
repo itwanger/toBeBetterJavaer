@@ -1,5 +1,5 @@
 {
-  "_comment": "ergo-remotion-video 全局配置（单点维护）。改这里，全仓生效。敏感信息（API Key）走环境变量，不入库。",
+  "_comment": "新项目默认配置。初始化时复制到 project.json；已有项目使用自己的配置。密钥只从环境变量读取。",
   "tts": {
     "speakerId": "S_lm3eqlje2",
     "resourceId": "seed-icl-2.0",
@@ -13,5 +13,10 @@
   },
   "volc": {
     "apiKeyEnv": "VOLC_TTS_API_KEY"
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
   }
 }

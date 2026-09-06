@@ -30,4 +30,8 @@ docs/src/sidebar/itwanger/ai/mianshiya-ai-333.md
 /hats_problem
 docs/scripts/.baidu-push-token
 docs/scripts/.baidu-pushed.json
-/docs/src/ai/script
+/docs/src/ai/script/*
+!/docs/src/ai/script/shared/
+!/docs/src/ai/script/README.md
+!/docs/src/ai/script/package.json
+!/docs/src/ai/script/package-lock.json
