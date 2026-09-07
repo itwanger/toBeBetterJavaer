@@ -7,6 +7,8 @@ description: 将文章或口播稿制作成二哥风格的音频驱动 Remotion 
 
 本 Skill 维护制作规则，实际工具与默认配置由仓库中的 `docs/src/ai/script/shared/` 维护。不要再把 Python 工具、默认配置或公共组件复制到每条视频里。
 
+员工第一次使用请先看[图文操作手册](../../../docs/src/ai/script/README.md)：包含环境与配音配置、可复制的 AI 指令、Studio 截图、验收和交付步骤。
+
 ## 先定位路径
 
 1. 从当前仓库根目录定位 `docs/src/ai/script/`；不把终端 cwd 当作视频项目目录。下文命令示例均从仓库根目录运行；其他目录执行时，为工具和 `--project` 传绝对路径。

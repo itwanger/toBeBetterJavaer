@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-07",
+  "images": [
+    {
+      "file": "example-interview.png",
+      "source": "what-is-kv-cache-v2/preview/export-check/interview.png",
+      "captureType": "frame extracted from final MP4",
+      "sha256": "7a35432687711238c134d578b185d1fd10b82eb77d28e1d5b9cb2d8ca27af0d6"
+    },
+    {
+      "file": "example-library.png",
+      "source": "what-is-kv-cache-v2/preview/export-check/library.png",
+      "captureType": "frame extracted from final MP4",
+      "sha256": "6dba1e671c59b50f1201a435f3de1242aa58d7f51c61cbd76a6a814a58efac78"
+    },
+    {
+      "file": "example-memory-wall.png",
+      "source": "what-is-kv-cache-v2/preview/export-check/memory-wall.png",
+      "captureType": "frame extracted from final MP4",
+      "sha256": "5083cf7e8a98378dd57b1fb857d3b1a2b8e69651f1cc94aca0cfc1ad40c7d444"
+    },
+    {
+      "file": "example-outro.png",
+      "source": "what-is-kv-cache-v2/preview/export-check/outro.png",
+      "captureType": "frame extracted from final MP4",
+      "sha256": "275feb0593b9a469928afdcf671f5c98b447467fdf4043e4f722015440fd6622"
+    },
+    {
+      "file": "studio-chapter.png",
+      "source": "http://localhost:3003/Chapter5Preview",
+      "captureType": "browser screenshot",
+      "sha256": "1e508e1c10f26b82e38170df5a527d78db39a182cbbeaebedcb21c1fccec42ba"
+    },
+    {
+      "file": "studio-full.png",
+      "source": "http://localhost:3003/KvCacheV2",
+      "captureType": "browser screenshot",
+      "sha256": "ae1ee4cdcdd601d1ea628e7c0bdd2e5c3033b734a9ce76f022b4f1ef4a339a49"
+    },
+    {
+      "file": "studio-switcher.png",
+      "source": "Chapter5Preview Quick Switcher dialog",
+      "captureType": "browser screenshot",
+      "sha256": "fdc5962ce611f93bf06fb8057019c147a4bbd0a87e13dfef702668d6c95448b7"
+    }
+  ],
+  "note": "Actual local Studio screenshots and exported video frames. No credential pages captured."
+}
