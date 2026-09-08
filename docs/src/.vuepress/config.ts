@@ -9,6 +9,9 @@ export default defineUserConfig({
   // HTML 目录
   dest: "./dist",
 
+  // ai/script 是 Remotion 视频工程目录，里面的 OUTLINE/article/script 和嵌套 node_modules 不是站点页面
+  pagePatterns: ["**/*.md", "!.vuepress", "!**/node_modules/**", "!ai/script/**"],
+
   lang: "zh-CN",
   // 标题
   title: "二哥的Java进阶之路",

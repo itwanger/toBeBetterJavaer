@@ -1,4 +1,6 @@
-# Claude、ChatGPT、Grok全崩，你的中转却正常Fable，真的本地部署了GPT？
+---
+title: Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？真的本地部署了 GPT？
+---
 
 9月3日晚，你是不是也经历了？正用着 Claude Code 跑任务，突然断连。打开 ChatGPT，404。打开 Grok，也挂了。
 

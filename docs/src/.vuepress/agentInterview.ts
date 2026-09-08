@@ -26,9 +26,9 @@ const meta = (
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   readme: meta(
-    "AI Agent 面试 288 题：从基础原理到项目实战",
-    "Agent 面试 288 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调分类整理 288 道高频面试题。",
+    "AI Agent 面试 294 题：从基础原理到项目实战",
+    "Agent 面试 294 题",
+    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调分类整理 294 道高频面试题。",
     ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(
@@ -271,6 +271,36 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "主流评测集按能力分为代码、Agent 工具和推理三类：SWE-bench 系列考修 bug，Terminal-Bench 和 MCP-Atlas 考工具调用，GPQA Diamond 考博士级推理，选模型要看和自己场景匹配的分项。",
     ["SWE-bench", "Terminal-Bench", "GPQA Diamond", "大模型评测"],
   ),
+  "what-is-kv-cache": meta(
+    "KV Cache 是什么？为什么只缓存 K 和 V，不缓存 Q？",
+    "什么是 KV Cache",
+    "大模型自回归生成时，每个新 Token 都要和历史 Token 的 K、V 重新做注意力计算，而当前 Token 的 Q 用完即弃，所以只把 K 和 V 存进显存，用空间换时间。",
+    ["KV Cache", "自回归生成", "注意力机制", "推理优化"],
+  ),
+  "what-is-prefix-caching": meta(
+    "Prefix Caching（前缀缓存）是什么？和 KV Cache 是什么关系？",
+    "什么是 Prefix Caching",
+    "KV Cache 只在单次请求内复用，Prefix Caching 把公共前缀的 KV 数据跨请求共享，靠 Token 分块和 Radix Tree 前缀树匹配，开头改一个字整条缓存链就会失效。",
+    ["Prefix Caching", "前缀缓存", "Radix Tree", "vLLM"],
+  ),
+  "what-is-prompt-caching": meta(
+    "DeepSeek 的 Prompt Caching 为什么能全自动生效，Claude 为什么要手动加 cache_control？",
+    "DeepSeek 与 Claude 的 Prompt Caching",
+    "DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。",
+    ["Prompt Caching", "提示词缓存", "DeepSeek", "cache_control"],
+  ),
+  "gpt-6-astra": meta(
+    "GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？",
+    "GPT-6 Astra 解读",
+    "GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。",
+    ["GPT-6 Astra", "ARC-AGI-3", "世界模型", "Agentic Computer Use"],
+  ),
+  "why-relay-still-works": meta(
+    "Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？",
+    "官网全崩中转为什么还能用",
+    "官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂；中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。",
+    ["AI 宕机", "API 中转", "Cloudflare", "OpenAI 兼容协议"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -325,6 +355,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     children: [
       "responses-api-vs-chat-completions",
       "api-cache-hit-miss",
+      "what-is-kv-cache",
+      "what-is-prefix-caching",
+      "what-is-prompt-caching",
       "what-is-moe",
       "glm-flash-linear-sparse-attention",
       "what-benchmarks-test",
@@ -350,6 +383,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "what-is-cordis",
       "deepseek-multimodal",
     ],
+  },
+  {
+    text: "HOT / 模型与行业热点",
+    children: ["gpt-6-astra", "why-relay-still-works"],
   },
 ];
 

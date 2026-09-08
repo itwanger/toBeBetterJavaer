@@ -7,7 +7,7 @@
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
 - [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
 
-## AI Agent 面试题（288 题合集，配视频讲解）
+## AI Agent 面试题（294 题合集，配视频讲解）
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
@@ -51,6 +51,11 @@
 - [多模态模型和纯文本模型有什么区别？以 DeepSeek V4-Flash-Vision-Exp 为例](https://javabetter.cn/ai/video/deepseek-multimodal.html)：多模态模型通过视觉编码器把图片翻译成 token，与文本共用同一个入口，从而解锁看图识物、截图转代码等纯文本模型做不到的场景。
 - [什么是线性注意力？GLM-5.3-Flash 为什么采用线性注意力加稀疏注意力的混合架构？](https://javabetter.cn/ai/video/glm-flash-linear-sparse-attention.html)：线性注意力把计算量从 O(n²) 降到 O(n) 但会损失精确检索能力，GLM-5.3-Flash 用稀疏注意力补回这部分损失，实现长上下文下的低成本推理。
 - [SWE-bench、Terminal-Bench、GPQA Diamond 这些大模型评测集到底在测什么？](https://javabetter.cn/ai/video/what-benchmarks-test.html)：主流评测集按能力分为代码、Agent 工具和推理三类：SWE-bench 系列考修 bug，Terminal-Bench 和 MCP-Atlas 考工具调用，GPQA Diamond 考博士级推理，选模型要看和自己场景匹配的分项。
+- [KV Cache 是什么？为什么只缓存 K 和 V，不缓存 Q？](https://javabetter.cn/ai/video/what-is-kv-cache.html)：大模型自回归生成时，每个新 Token 都要和历史 Token 的 K、V 重新做注意力计算，而当前 Token 的 Q 用完即弃，所以只把 K 和 V 存进显存，用空间换时间。
+- [Prefix Caching（前缀缓存）是什么？和 KV Cache 是什么关系？](https://javabetter.cn/ai/video/what-is-prefix-caching.html)：KV Cache 只在单次请求内复用，Prefix Caching 把公共前缀的 KV 数据跨请求共享，靠 Token 分块和 Radix Tree 前缀树匹配，开头改一个字整条缓存链就会失效。
+- [DeepSeek 的 Prompt Caching 为什么能全自动生效，Claude 为什么要手动加 cache_control？](https://javabetter.cn/ai/video/what-is-prompt-caching.html)：DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。
+- [GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？](https://javabetter.cn/ai/video/gpt-6-astra.html)：GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。
+- [Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？](https://javabetter.cn/ai/video/why-relay-still-works.html)：官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂；中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。
 
 ## 学习路线
 
@@ -102,6 +107,8 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [豆包开学季送3个月会员](https://javabetter.cn/sidebar/itwanger/ai/doubao-kaixueji.html)：大学生用豆包工作生成秋招两个月冲刺计划 PPT，附免费领3个月会员教程
+- [亚信科技Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/yaxin-keji-agent-mianshi.html)：亚信科技与月之暗面签署登月计划合作协议，10 道 Agent 工程面试题全解：PaiCLI 架构设计、MySQL 索引失效、消息队列、多模态模型、Redis 缓存、RAG 混合检索、ReAct 实现、Agent 训练、记忆机制。
 - [中行Agent面试12问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zhonghang.html)：中行总部员工分享 22 万年薪"很满意"，12 道 Agent 面试题全解：RAG 瓶颈定位与架构优化、Badcase 归因、分布式限流、订单状态机、Vibe Coding 工程实践，附派聪明和 PaiCLI 简历包装。
 - [美团Agent面试14问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-meituan.html)：美团 LongCat 大模型团队员工爆料，14 道 Agent 工程面试题全解：RAG（切块、混合检索、查询改写）、Agent 与 Harness 架构区别、上下文压缩、Prompt Cache、Vibe Coding 与 Spec Coding，附简历包装。
 - [腾讯WorkBuddy Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-tengxun-4.html)：腾讯 WorkBuddy 千万月活背后的 Agent 工程化实力，附 10 道 Agent 面试题全解：容错恢复、LangGraph 工作流、异步工具调用、多模态 RAG、LoRA/DPO 微调、IVF 索引、游戏 NPC Agent。
@@ -160,8 +167,6 @@
 - [红狐数据 Skill](https://javabetter.cn/sidebar/itwanger/ai/redfox-hub-review.html)：基于红狐数据新媒体数据API，搭建AI热点雷达平台，聚合抖音、小红书、公众号三大平台AI热点，LLM分析机会评分，附Codex Skills集成和在线查询实战。
 - [LiteParse OCR 实测](https://javabetter.cn/sidebar/itwanger/ai/liteparse-ocr-review.html)：LiteParse 是 LlamaIndex 开源的本地文档解析工具，内置 Tesseract OCR，可零云依赖解析扫描件 PDF。本文实测 lit 命令行，记录接入派聪明 RAG 的全过程，并接入阿里云 OCR 把中文识别精度再提一档。
 - [AI 大模型 333 题](https://javabetter.cn/sidebar/itwanger/ai/ai-large-model-333.html)：AI 大模型 333 道题目备份清单，用于和本地 AI Agent 面试题单做知识点覆盖对照
-- [Claude Code 压缩机制](https://javabetter.cn/sidebar/itwanger/ai/claude-code-compaction.html)：深入拆解 Claude Code 上下文压缩机制，从 MicroCompact 到 AutoCompact 四阶段管线，源码级分析 Compaction Prompt 的 9 段结构化摘要和断路器设计。
-- [讯飞MaaS免费Qwen3.6实测](https://javabetter.cn/sidebar/itwanger/ai/xfyun-maas-qwen36-free.html)：讯飞星辰 MaaS 平台限时免费开放 Qwen3.6-35B-A3B、Qwen3.5-35B-A3B，本文手把手教你领取免费调用权益，并接入 Claude Code、Codex、PaiCLI 实测代码理解与长文档分析。
 
 ## 开发工具
 

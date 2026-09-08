@@ -109,7 +109,7 @@ const lines = [
 
 const agentItems = collectAgentInterview();
 if (agentItems.length) {
-  lines.push("", "## AI Agent 面试题（288 题合集，配视频讲解）", "", "> 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。", "");
+  lines.push("", "## AI Agent 面试题（294 题合集，配视频讲解）", "", "> 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。", "");
   for (const it of agentItems) lines.push(`- [${it.title}](${it.url})：${it.desc}`);
 }
 
