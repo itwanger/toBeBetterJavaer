@@ -1,5 +1,5 @@
 ---
-title: 5张图搞清楚前缀缓存Prefix Caching？
+title: Prefix Caching（前缀缓存）到底是什么？
 ---
 
 你在使用DeepSeek Harness的时候，有没有发现一个反直觉的现象：
