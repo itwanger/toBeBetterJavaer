@@ -1,7 +1,7 @@
 ---
-title: AI Agent 面试 294 题合集
-shortTitle: AI Agent 面试 294 题
-description: AI Agent 面试 294 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调分类整理
+title: AI Agent 面试 296 题合集
+shortTitle: AI Agent 面试 296 题
+description: AI Agent 面试 296 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调分类整理
 tag:
   - 面试
 category:
@@ -24,7 +24,7 @@ date: 2026-05-20
 
 ![跟着王二讲Agent：通过完整题目系统学习，建立Agent时代的完整知识体系](https://cdn.paicoding.com/stutymore/agent-learning-completeness-20260908231154-003540aa.png)
 
-这套题库一共 294 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
+这套题库一共 296 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
 
 每道题都不是孤立的概念解释，而是串联到三个实战项目来回答。
 
@@ -1104,9 +1104,9 @@ Cordis 通过依赖注入、生命周期和服务注册组织可扩展能力，�
 
 完整答案：[查看图文解析](./deepseek-multimodal.md)
 
-## 热点解读（2 篇，不计入题数）
+## 热点解读（2 题）
 
-模型发布和行业事件的快速拆解，不算面试题，但面试聊到最新动态时用得上。
+模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
 
 ### GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？
 
@@ -1425,7 +1425,7 @@ Agent 这一轮变化和以往不太一样。以前的技术迭代，学一门�
 
 Alan Kay 说过一句话，「预测未来最好的办法就是去创造它」。我觉得这话放在今天特别合适。与其等着被 Agent 浪潮推着走，不如自己先把原理搞透，把项目跑通，把面试里会被问到的每一个点都准备好。
 
-所以我们选择了最笨但最扎实的方式。294 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
+所以我们选择了最笨但最扎实的方式。296 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
 
 我始终相信一件事，技术的价值不在于它有多新，而在于你是否真正理解它、用过它、能把它讲清楚。这套题库要做的就是帮你到达这个状态。
 
