@@ -35,3 +35,4 @@ docs/scripts/.baidu-pushed.json
 !/docs/src/ai/script/README.md
 !/docs/src/ai/script/package.json
 !/docs/src/ai/script/package-lock.json
+/.tmp-browseract-home

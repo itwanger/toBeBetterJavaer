@@ -1,13 +1,11 @@
 ---
 name: ergo-remotion-video
-description: 将文章或口播稿制作成二哥风格的音频驱动 Remotion 视频。使用 script/shared 的共用工具、配置和素材，各视频独立保存内容与产物；逐章预览验收，用户明确要求出片后导出带配音 MP4。
+description: 将口播稿制作成二哥风格的 Remotion 视频。使用 script/shared 的共用工具、配置和素材，各视频独立保存内容与产物；逐章预览验收，用户明确要求出片后导出带配音 MP4。
 ---
 
 # 二哥风格 Remotion 视频
 
 本 Skill 维护制作规则，实际工具与默认配置由仓库中的 `docs/src/ai/script/shared/` 维护。不要再把 Python 工具、默认配置或公共组件复制到每条视频里。
-
-员工第一次使用请先看[图文操作手册](../../../docs/src/ai/script/README.md)：包含环境与配音配置、可复制的 AI 指令、Studio 截图、验收和交付步骤。
 
 ## 先定位路径
 

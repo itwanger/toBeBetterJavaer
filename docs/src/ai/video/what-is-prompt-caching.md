@@ -18,6 +18,8 @@ title: DeepSeek 为什么能让 Prompt Caching 自动成本爆降 90%，而 Clau
 
 ![](https://cdn.paicoding.com/stutymore/what-is-prompt-caching-disk-20260908094648-db9378c9.png)
 
+在这梳理了一份 AI Agent 开发学习路线和 288 道配套八股，需要的可以来个222。
+
 哈喽大家好，我是二哥呀。今天用 3 分钟，给你讲清楚 DeepSeek 的提示词缓存到底有多牛。
 
 先说第一件事，DeepSeek 的缓存到底颠覆在哪里。
