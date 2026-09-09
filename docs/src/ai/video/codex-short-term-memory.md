@@ -64,6 +64,6 @@ Codex 的 GitHub 源码里甚至有这样一行警告：多次压缩可能会降
 
 Codex 的短期记忆和 Claude Code 一样，靠每次重发聊天记录来实现。但压缩方式不同：Claude Code 生成明文摘要，Codex 走加密压缩。另外，建议一个线程干一件事，别让它又改 bug 又写文档又跑测试。
 
-这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
+这个知识点你学会了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
 ![](https://cdn.paicoding.com/stutymore/codex-short-term-memory-20260720185346.png)

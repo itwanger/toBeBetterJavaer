@@ -369,8 +369,6 @@ description: 为短视频/口播生成或优化脚本。适用于 AI 技术科�
 
 ## 选题库
 
-`references/desktop-agent-topics.md` — 桌面端 Agent（WorkBuddy / 豆包工作 / 千问办公）20 个选题，含时间线、能力对照表、五条硬数据、三条表述纪律、以及每个选题的三层提问与干货锚点。
-
 写新稿前先查 `docs/src/ai/video/readme.md` 确认哪些题目已挂 B 站链接（即已发布），避免撞车。
 
 ## 参考稿件
@@ -379,6 +377,5 @@ description: 为短视频/口播生成或优化脚本。适用于 AI 技术科�
 
 - `docs/src/ai/video/codex-short-term-memory.md`：**最新模板** — Codex 短期记忆拆解，与 Claude Code 形成姊妹篇（展开观众猜测的钩子写法、幽默递进信任建立、技术段落拆段、幽默短评调节节奏、源码翻译成可操作建议）
 - `docs/src/ai/video/claude-code-short-term-memory.md`：Claude Code 短期记忆的源码级拆解（五段式结构、"那聪明的你"串联、生活化举例、总结 + 实用建议收束）
-- `docs/src/ai/video/agent-hnow-tool-call.md`：Agent 怎么知道该调用哪个工具（Tool Call 机制）
 - `docs/src/ai/video/agent-skill-hit-rate.md`：Skill 过多如何保证命中率（Skill 语义匹配机制）
-- `docs/src/ai/video/what-is-react.md`：什么是 ReAct——类比式案例的标杆（闭卷考试 vs 开卷考试）
+- `docs/src/ai/video/chatgpt-images-2-5.md.md`：热点稿件
