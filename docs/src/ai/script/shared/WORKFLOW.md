@@ -120,6 +120,29 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 `verify_export.py` 完整解码、核对尺寸帧率帧数、比较原配音与导出声音的同位置波形，生成每章截图与 `preview/export-check/report.json`。类型检查和截图通过不等于用户已验收，也不等于已发布。
 
+## 成片版本管理
+
+每条视频的 `output/` 顶层只保存 `project.outputName` 指定的最终音画合成 MP4，保留原文件名。试做、章节预览和无音轨中间文件放 `preview/`，旧版放 `output/legacy/`。共享 render 临时封装的 `*.tmp.mp4` 继续忽略，成功后才改名为最终文件。
+
+根 `.gitignore` 用固定规则放行所有项目的最终成片，新视频无需追加规则。下面规则应放在通用的依赖、密钥和缓存忽略规则之前；工作区 `package-lock.json` 的例外保留在通用 `package-lock.json` 规则之后。
+
+```gitignore
+/docs/src/ai/script/**
+!/docs/src/ai/script/*/
+!/docs/src/ai/script/*/output/
+!/docs/src/ai/script/*/output/*.mp4
+/docs/src/ai/script/*/output/*.tmp.mp4
+!/docs/src/ai/script/shared/**
+!/docs/src/ai/script/README.md
+!/docs/src/ai/script/package.json
+```
+
+验收后用 `git status --short --untracked-files=all -- docs/src/ai/script/` 确认待提交 MP4 都是各项目配置指定的最终文件，并用 `git check-ignore` 抽查预览、配音、临时文件及旧版仍被忽略。规则只按目录和文件名匹配，不会判断视频是否通过验收，因此必须在提交前完成成片检查。提交前检查文件大小；遇到远端大小限制时再选择 Git LFS 或 Release 附件，不自动转换整个仓库的 MP4 存储方式。
+
+整理已有项目时，遍历 `docs/src/ai/script/*/project.json`，以每个配置的 `outputName` 定位最终文件；跳过尚未生成成片的项目。核实 `output/` 顶层其他 MP4 的用途，将试做版本或历史文件移入 `preview/` 或 `output/legacy/`。移动前后比较哈希，禁止覆盖同名文件；已有引用随实际用途更新。
+
+最终成片出现在 Git 待提交列表中不代表已上传。仅在用户明确要求时执行 commit/push，成功后再报告已上传 GitHub。
+
 ## 维护与验证
 
 - 工具只通过 `--project` 选择输入输出位置；相对路径解析不依赖工具文件被复制到视频目录。

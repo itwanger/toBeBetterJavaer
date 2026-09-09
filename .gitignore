@@ -1,3 +1,14 @@
+# 视频项目只收录 output 顶层的最终成片；shared 保留源码。
+# 放在通用忽略规则之前，避免放行 shared 下的依赖、密钥或缓存。
+/docs/src/ai/script/**
+!/docs/src/ai/script/*/
+!/docs/src/ai/script/*/output/
+!/docs/src/ai/script/*/output/*.mp4
+/docs/src/ai/script/*/output/*.tmp.mp4
+!/docs/src/ai/script/shared/**
+!/docs/src/ai/script/README.md
+!/docs/src/ai/script/package.json
+
 node_modules
 .env
 .cache
@@ -30,9 +41,5 @@ docs/src/sidebar/itwanger/ai/mianshiya-ai-333.md
 /hats_problem
 docs/scripts/.baidu-push-token
 docs/scripts/.baidu-pushed.json
-/docs/src/ai/script/*
-!/docs/src/ai/script/shared/
-!/docs/src/ai/script/README.md
-!/docs/src/ai/script/package.json
 !/docs/src/ai/script/package-lock.json
 /.tmp-browseract-home

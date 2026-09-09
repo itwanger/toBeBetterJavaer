@@ -9,7 +9,7 @@
       "format": "mp3",
       "sampleRate": 24000
     },
-    "atempo": 1.0
+    "atempo": 1.10
   },
   "volc": {
     "apiKeyEnv": "VOLC_TTS_API_KEY"
