@@ -91,6 +91,12 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "多 Agent 协作需要明确角色、任务分发、上下文隔离、结果聚合和冲突处理，而不只是同时启动多个模型会话。",
     ["Multi-Agent", "多智能体协作", "Sub-agent", "任务分发"],
   ),
+  "agent-planning": meta(
+    "Agent 的 Planning 模块有哪些实现方式？从单步到动态 Replan",
+    "Agent 规划模块",
+    "Agent 任务规划涵盖单步反应式、一次性全局规划和动态 Replan，结合 DAG 拓扑排序与状态注入实现稳定执行。",
+    ["Agent Planning", "任务规划", "Replan", "拓扑排序"],
+  ),
   "what-is-prompt-engineering": meta(
     "什么是提示词工程（Prompt Engineering）？",
     "提示词工程",
@@ -321,6 +327,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "react-death-loop",
       "plan-and-execute",
       "multi-agent-collaboration",
+      "agent-planning",
     ],
   },
   {

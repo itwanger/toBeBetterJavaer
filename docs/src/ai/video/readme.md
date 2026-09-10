@@ -147,9 +147,12 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1AjTK6GE6z/)
 🟡 进阶 | `→ PaiCLI` | 字节、阿里云、蚂蚁、小红书
 
 ### 11. Agent 的 Planning 模块有哪些实现方式？
-主流两种：Step-by-step（走一步看一步，类似 ReAct）和 Plan-and-execute（先出完整计划再逐步执行）。更高级的还有 Plan→Execute→Replan 循环，执行过程中发现计划不对就重新规划。PaiCLI 的 Plan-and-Execute 模式就支持动态重新规划。
 
-🟡 进阶 | `→ PaiCLI`
+常见方式包括根据工具结果逐步决策（如 ReAct）、先规划后执行（Plan-and-Execute），以及根据执行反馈调整剩余任务（Plan-Execute-Replan）。这些方式可以组合；需要程序调度时，还可以把任务表示成带依赖的 DAG。工具界面上的 Plan 模式主要组织规划与审阅，具体操作的权限限制要看独立的沙箱和审批实现。
+
+完整答案：[查看图文解析](./agent-plan-modes.md)
+
+🟡 进阶 | `→ PaiCLI` | 字节、阿里、腾讯
 
 ### 12. Agent 的反思机制是什么？为什么需要反思？
 反思就是让 Agent 评估自己的输出质量，发现错误就自我修正。没有反思的 Agent 犯了错只会一条路走到黑。

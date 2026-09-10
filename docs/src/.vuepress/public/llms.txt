@@ -21,6 +21,7 @@
 - [ReAct 会死循环吗？如何设计可靠的终止机制？](https://javabetter.cn/ai/video/react-death-loop.html)：ReAct 可能因目标不清、工具失败或模型重复决策陷入死循环，需要最大轮次、预算、重复检测和降级退出共同约束。
 - [什么是 Plan-and-Execute？它和 ReAct 怎么选？](https://javabetter.cn/ai/video/plan-and-execute.html)：Plan-and-Execute 先生成全局计划再逐项执行，适合目标明确的复杂任务；ReAct 更适合边观察边调整的不确定任务。
 - [Multi-Agent 协作是怎么实现的？](https://javabetter.cn/ai/video/multi-agent-collaboration.html)：多 Agent 协作需要明确角色、任务分发、上下文隔离、结果聚合和冲突处理，而不只是同时启动多个模型会话。
+- [Agent 的 Planning 模块有哪些实现方式？从单步到动态 Replan](https://javabetter.cn/ai/video/agent-planning.html)：Agent 任务规划涵盖单步反应式、一次性全局规划和动态 Replan，结合 DAG 拓扑排序与状态注入实现稳定执行。
 - [什么是提示词工程（Prompt Engineering）？](https://javabetter.cn/ai/video/what-is-prompt-engineering.html)：提示词工程通过角色、目标、约束、示例和输出格式提高单次模型响应质量，但不能单独解决动态上下文与运行时控制问题。
 - [什么是上下文工程（Context Engineering）？](https://javabetter.cn/ai/video/what-is-context-engineering.html)：上下文工程关注在正确时机把正确的信息放进有限窗口，包括系统指令、记忆、工具定义、检索结果和历史压缩。
 - [什么是上下文窗口？它不是聊天窗口](https://javabetter.cn/ai/video/what-is-context-window.html)：上下文窗口是模型单次推理可读取的 Token 总预算，系统提示、工具定义、历史消息和工具结果都会占用它。
@@ -107,6 +108,7 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [DeepSeek V4.1 Flash 测评](https://javabetter.cn/sidebar/itwanger/ai/deepseek-v41-flash-review.html)：DeepSeek V4.1 Flash 实测 6 个 case，鹈鹕骑车、涂鸦 FPS、锦鲤池、流体模拟、暴力摩托、3D 玩具房，提示词全部开源
 - [豆包开学季送3个月会员](https://javabetter.cn/sidebar/itwanger/ai/doubao-kaixueji.html)：大学生用豆包工作生成秋招两个月冲刺计划 PPT，附免费领3个月会员教程
 - [亚信科技Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/yaxin-keji-agent-mianshi.html)：亚信科技与月之暗面签署登月计划合作协议，10 道 Agent 工程面试题全解：PaiCLI 架构设计、MySQL 索引失效、消息队列、多模态模型、Redis 缓存、RAG 混合检索、ReAct 实现、Agent 训练、记忆机制。
 - [中行Agent面试12问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zhonghang.html)：中行总部员工分享 22 万年薪"很满意"，12 道 Agent 面试题全解：RAG 瓶颈定位与架构优化、Badcase 归因、分布式限流、订单状态机、Vibe Coding 工程实践，附派聪明和 PaiCLI 简历包装。
@@ -166,7 +168,6 @@
 - [Codex使用经验](https://javabetter.cn/sidebar/itwanger/ai/codex-usage-tips.html)：从135条真实开发者讨论中提炼 Codex 高效编程的7个核心经验，涵盖上下文管理、Plan模式、需求拆分、测试驱动等实操方法。
 - [红狐数据 Skill](https://javabetter.cn/sidebar/itwanger/ai/redfox-hub-review.html)：基于红狐数据新媒体数据API，搭建AI热点雷达平台，聚合抖音、小红书、公众号三大平台AI热点，LLM分析机会评分，附Codex Skills集成和在线查询实战。
 - [LiteParse OCR 实测](https://javabetter.cn/sidebar/itwanger/ai/liteparse-ocr-review.html)：LiteParse 是 LlamaIndex 开源的本地文档解析工具，内置 Tesseract OCR，可零云依赖解析扫描件 PDF。本文实测 lit 命令行，记录接入派聪明 RAG 的全过程，并接入阿里云 OCR 把中文识别精度再提一档。
-- [AI 大模型 333 题](https://javabetter.cn/sidebar/itwanger/ai/ai-large-model-333.html)：AI 大模型 333 道题目备份清单，用于和本地 AI Agent 面试题单做知识点覆盖对照
 
 ## 开发工具
 

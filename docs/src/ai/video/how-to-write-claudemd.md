@@ -12,10 +12,6 @@
 
 哈喽大家好，我是二哥呀。今天用 3 分钟，给你讲清楚 CLAUDE.md 到底怎么写才有用。
 
-系好安全带，我们粗粗粗出发了～
-
-## 什么样的规则才能真正生效
-
 先说第一件事，什么样的规则才能真正生效。
 
 很多人的 CLAUDE.md 可能只写了这些内容：“使用 Java 17”、“遵循分层架构”、“保持代码整洁”。
@@ -50,8 +46,6 @@ arXiv 上有一篇论文专门测了这件事：给模型同时塞 500 条指令
 
 每一条，不说清楚 Claude Code 就一定会搞错。Claude Code 不可能猜到要用 mvn clean package，也不会默认跳过测试，也不可能知道改一个斜杠命令要同步四个地方。
 
-## Anthropic 的六板块写法
-
 那聪明的你肯定想到了：那到底该写哪些内容？
 
 我翻了 Anthropic 自己的 claude-code-action 仓库，他们的 CLAUDE.md 分六个板块。
@@ -72,8 +66,6 @@ arXiv 上有一篇论文专门测了这件事：给模型同时塞 500 条指令
 
 一句话总结：把 CLAUDE.md 当新员工入职须知来写。
 
-## 规则太多就拆进 .claude/rules
-
 那聪明的你肯定又要问了：按这个模板写，规则多了怎么办？
 
 Anthropic 的建议是，CLAUDE.md 控制在 80 行以内，只放最核心的规则。其余按主题拆到 `.claude/rules/` 目录里，每个文件是一份独立的规则集。
@@ -88,47 +80,38 @@ Anthropic 的建议是，CLAUDE.md 控制在 80 行以内，只放最核心的�
 
 ---
 
-## 参考：CLAUDE.md 官方模板
-
 以下模板参考 Anthropic 的 claude-code-action 仓库结构，结合工程实践整理，可以直接复制到你的项目里改：
 
 ```markdown
 # CLAUDE.md
 
-## Commands
 - 构建：mvn clean package -DskipTests
 - 测试：mvn test
 - 单个测试：mvn test -Dtest=XxxTest
 - 代码检查：mvn spotbugs:check
 - 格式化：mvn spotless:apply
 
-## What This Is
 一句话说清楚项目是什么。
 比如：PaiCLI 是一个纯 Java 实现的终端 Agent，不依赖 Spring AI/LangGraph4J。
 
-## How It Runs
 - 入口：Main.java → CliCommandParser 分发命令
 - Agent 循环：AgentLoop.java，工具注册在 ToolRegistry
 - 不要动 agent/core/ 下的接口定义，下游工具全部依赖它们
 
-## Key Concepts
 - Agent 循环：用户输入 → LLM 决策 → 工具执行 → 结果回填 → 下一轮
 - 工具注册：所有工具实现 Tool 接口，在 ToolRegistry 统一注册
 - 记忆系统：MemoryManager 基于文件持久化
 
-## Things That Will Bite You
 - search_code 是 RAG 辅助，不是主要的代码定位方式，优先用 grep
 - 改了命令入口 → 必须同步 Main.java + CliCommandParser + 测试 + 文档
 - FileUtils 的路径处理有沙箱限制，不要绕过它自己拼路径
 - 测试里的 API Key 全部用 mock，禁止提交真实 Key
 
-## Code Conventions
 - 日志用 SLF4J，不用 System.out
 - 异常不要吞掉，至少 log.warn
 - 所有 public API 返回统一的 Result 包装类
 - 新工具必须实现 Tool 接口并在 ToolRegistry 注册
 
-## Don't
 - 不要在业务代码里直接 new Thread，用 ExecutorService
 - 不要改 .env.example 的格式，CI 依赖它
 ```

@@ -1,12 +1,12 @@
 ---
-title: Hy4 preview发布，SWE-bench、Terminal-Bench、GPQA Diamond 这些评测集到底在测什么？
+title: SWE-bench、Terminal-Bench、GPQA Diamond 这些评测集到底在测什么？
 ---
 
 每次有新模型发布，你一定见过这样一张成绩单。
 
 ![](https://cdn.paicoding.com/stutymore/what-benchmarks-test-20260831150354.png)
 
-就拿腾讯刚刚发布的 Hy4 preview 来说。SWE-bench Multilingual 82.9、Terminal-Bench 85.4、GPQA Diamond 92.3。。。。。。
+就拿 Hy4 preview 来说。SWE-bench Multilingual 82.9、Terminal-Bench 85.4、GPQA Diamond 92.3。。。。。。
 
 ![](https://cdn.paicoding.com/stutymore/what-benchmarks-test-20260831150542.png)
 
@@ -20,13 +20,13 @@ title: Hy4 preview发布，SWE-bench、Terminal-Bench、GPQA Diamond 这些评�
 - 为什么不能只看一个分数就判断模型好不好？
 - 看懂成绩单之后，怎么帮我们选模型？
 
-哈喽大家好，我是二哥呀。今天用 3 分钟，带你看懂大模型的成绩单。系好安全带，我们粗粗粗出发了～
+在这梳理了一份 AI Agent 开发学习路线和 295 道配套八股，需要的可以来个 111。
+
+哈喽大家好，我是二哥呀。今天用 3 分钟，带你看懂大模型的成绩单。
 
 ![](https://cdn.paicoding.com/stutymore/what-benchmarks-test-20260831145556-0f555230.png)
 
 主流的评测主要有 8 个：SWE-bench Multilingual、SWE-bench Pro、DeepSWE、Terminal-Bench、MCP-Atlas、Toolathlon-Verified、CyberGym、GPQA Diamond。我按能力类型把它们分成三大类，代码能力、Agent 工具能力和推理能力。一个一个来解释。
-
-## 代码能力：SWE-bench 考模型修 bug
 
 先说代码能力。SWE-bench Multilingual、SWE-bench Pro、DeepSWE，考的都是同一件事，模型修 bug 的能力。
 
@@ -41,8 +41,6 @@ SWE-bench 是由普林斯顿大学 NLP 团队推出的一款专门用于评估�
 SWE-bench 的项目动不动就是几万行，模型得先读懂架构，再精准找到 bug 在哪里，改完还不能引入新的 bug。
 
 ![](https://cdn.paicoding.com/stutymore/what-benchmarks-test-20260831145814-769b9641.png)
-
-## SWE-bench 的三个升级方向
 
 诞生之初的 SWE-bench 只有 2294 道题，且全部局限于 Python 语言。为了紧跟大模型能力的进化，它随后往三个方向进行了升级。
 
@@ -61,8 +59,6 @@ DeepSWE 包含的 113 道题全部是从零编写的，从根源上杜绝了数�
 ![](https://cdn.paicoding.com/stutymore/what-benchmarks-test-20260831154450.png)
 
 Hy4 preview 的成绩单是，SWE-bench Multilingual 82.9、SWE-bench Pro 65.7、DeepSWE 64.3。
-
-## Agent 工具能力：模型自己动手干活
 
 那聪明的你肯定想到了，光会改代码还不够，模型自己动手干活的能力呢？
 
@@ -85,8 +81,6 @@ Toolathlon-Verified 由香港科技大学 NLP 团队提出，更贴近真实的�
 CyberGym 考查的是模型的安全攻防能力，覆盖 1507 个真实漏洞，模型要写出能复现漏洞的概念验证代码（PoC），才算通过。
 
 Hy4 preview 的成绩是，Terminal-Bench 85.4、MCP-Atlas 83.7、Toolathlon-Verified 74.1、CyberGym 78.4。整体表现不错。
-
-## 推理能力：GPQA Diamond
 
 那聪明的你肯定又要问了，怎么衡量模型在需要深度推理和领域专业知识问题上的能力呢？
 
