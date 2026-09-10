@@ -1,7 +1,7 @@
 """Synthesize project audio units, then apply the project's tempo. Use --dry-run to inspect without TTS."""
 import argparse,base64,json,shutil,subprocess,uuid,urllib.request
 from pathlib import Path
-from project_paths import project_path,load_config,load_volc_key,load_beats,read_json,write_json,request_hash,sha256
+from project_paths import project_path,load_config,load_volc_key,load_beats,read_json,write_json,request_hash,sha256,find_tool
 
 def synth(text,out_path,tts,key):
     headers={'X-Api-Key':key,'X-Api-Resource-Id':tts['resourceId'],'X-Api-Connect-Id':str(uuid.uuid4()),'Content-Type':'application/json'}
@@ -39,7 +39,7 @@ def main():
         beats=[b for b in beats if b['id'] in args.only]
     if not beats:raise ValueError('No confirmed audio units in beats.json')
     record=root/'build/audio-generation.json';records=read_json(record) if record.exists() else {'units':{}}
-    ffmpeg=shutil.which('ffmpeg');key=None;counts={'synthesize':0,'process':0,'reuse':0}
+    ffmpeg=find_tool('ffmpeg');key=None;counts={'synthesize':0,'process':0,'reuse':0}
     for b in beats:
         raw=root/'audio/raw'/f"beat_{b['id']:02d}.mp3";out=root/'audio/processed'/raw.name;text=b.get('ttsText') or b['text'];fingerprint=request_hash(text,tts);old=records['units'].get(str(b['id']),{})
         valid_raw=raw.exists() and old.get('requestHash')==fingerprint and old.get('rawSha256')==sha256(raw)

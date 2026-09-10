@@ -12,8 +12,19 @@ const action=positionals[0];
 if(!['studio','still','render','typecheck'].includes(action)||!values.project)throw new Error('Usage: remotion.mjs studio|still|render|typecheck --project <directory> [--dry-run]');
 const project=path.resolve(values.project),meta=JSON.parse(fs.readFileSync(path.join(project,'project.json'),'utf8')),cwd=path.join(project,'remotion');
 const cli=path.join(path.dirname(require.resolve('@remotion/cli/package.json')),'remotion-cli.js');
-const chrome=process.env.REMOTION_BROWSER_EXECUTABLE||(['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'].find(p=>fs.existsSync(p)));
+// Common install locations per platform; REMOTION_BROWSER_EXECUTABLE always wins.
+const chromeCandidates=process.platform==='win32'
+  ?[path.join(process.env.LOCALAPPDATA??'','Google/Chrome/Application/chrome.exe'),
+    path.join(process.env.PROGRAMFILES??'','Google/Chrome/Application/chrome.exe'),
+    path.join(process.env['PROGRAMFILES(X86)']??'','Google/Chrome/Application/chrome.exe'),
+    path.join(process.env.LOCALAPPDATA??'','Microsoft/Edge/Application/msedge.exe'),
+    path.join(process.env['PROGRAMFILES(X86)']??'','Microsoft/Edge/Application/msedge.exe')]
+  :['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'];
+const chrome=process.env.REMOTION_BROWSER_EXECUTABLE||chromeCandidates.find(p=>p&&fs.existsSync(p));
 const browser=chrome?[`--browser-executable=${chrome}`]:[];
+// Local patch: prefer the repo-bundled ffmpeg so render works before PATH refreshes.
+const bundledFfmpeg=path.join(workspace,'.tools','ffmpeg','ffmpeg.exe');
+const ffmpeg=process.platform==='win32'&&fs.existsSync(bundledFfmpeg)?bundledFfmpeg:'ffmpeg';
 let args;
 const raw=path.join(project,'preview/render/remotion-raw.mp4');
 if(action==='typecheck')args=[require.resolve('typescript/bin/tsc'),'--noEmit','-p',path.join(cwd,'tsconfig.json')];
@@ -29,6 +40,6 @@ if(action==='render'){
   const output=path.join(project,'output',meta.outputName),temp=output.replace(/\.mp4$/,'.tmp.mp4');
   if(!output.endsWith('.mp4')||path.dirname(output)!==path.join(project,'output'))throw new Error('outputName must be a plain MP4 filename');
   fs.mkdirSync(path.dirname(output),{recursive:true});run(process.execPath,args);
-  run('ffmpeg',['-y','-v','error','-i',raw,'-i',path.join(project,'build/voiceover.wav'),'-map','0:v:0','-map','1:a:0','-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-af','apad','-t',String(duration),'-movflags','+faststart',temp]);
+  run(ffmpeg,['-y','-v','error','-i',raw,'-i',path.join(project,'build/voiceover.wav'),'-map','0:v:0','-map','1:a:0','-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-af','apad','-t',String(duration),'-movflags','+faststart',temp]);
   fs.renameSync(temp,output);console.log(`Final MP4: ${output}`);
 }else run(process.execPath,args);

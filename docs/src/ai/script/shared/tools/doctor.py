@@ -1,7 +1,7 @@
 """Read-only checks for project paths, public links, audio inputs and generated timing."""
 import argparse,json,re
 from pathlib import Path
-from project_paths import SHARED,WORKSPACE,project_path,load_config,read_json,load_beats,sha256,request_hash
+from project_paths import SHARED,WORKSPACE,project_path,load_config,read_json,load_beats,sha256,request_hash,is_public_link
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True,type=project_path);args=ap.parse_args();p=args.project;cfg=load_config(p);meta=read_json(p/'project.json');data,beats=load_beats(p);checks=[]
@@ -11,11 +11,11 @@ def main():
     for relative in ['assets/images','audio/raw','audio/processed','build','preview','output','remotion/src','article.md','script.md','OUTLINE.md']:
         check((p/relative).exists(),relative)
     for name,target in [('audio','build'),('images','assets/images')]:
-        path=p/'remotion/public'/name;check(path.is_symlink() and path.resolve()==(p/target).resolve(),f'public/{name} -> {target}')
+        path=p/'remotion/public'/name;check(is_public_link(path) and path.resolve()==(p/target).resolve(),f'public/{name} -> {target}')
     check((SHARED/'assets/ergo-avatar.jpg').is_file(),'shared default avatar')
     check((WORKSPACE/'node_modules/@remotion/cli/package.json').exists(),'shared Remotion dependency resolves')
     for file in (p/'remotion/src').rglob('*.tsx'):
-        for asset in re.findall(r"staticFile\(['\"]([^'\"]+)['\"]\)",file.read_text()):
+        for asset in re.findall(r"staticFile\(['\"]([^'\"]+)['\"]\)",file.read_text(encoding='utf-8')):
             if beats or not asset.startswith('audio/'):
                 check((p/'remotion/public'/asset).is_file(),f'{file.name}: {asset}')
     if beats:

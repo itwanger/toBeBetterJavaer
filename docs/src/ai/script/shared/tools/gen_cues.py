@@ -2,7 +2,7 @@
 Decode each MP3 once; all cue boundaries and the WAV use these same PCM samples.
 """
 import argparse
-from project_paths import project_path, load_config, link_public, load_beats, read_json, request_hash, sha256
+from project_paths import project_path, load_config, link_public, load_beats, read_json, request_hash, sha256, find_tool
 import hashlib
 import json
 import math
@@ -20,7 +20,7 @@ def main():
     args=parser.parse_args();ROOT=args.project;cfg=load_config(ROOT)
     SAMPLE_RATE=cfg["tts"]["audio"]["sampleRate"];FPS=cfg["video"]["fps"]
     BUILD=ROOT/"build"
-    ffmpeg = shutil.which('ffmpeg')
+    ffmpeg = find_tool('ffmpeg')
     if not ffmpeg:
         raise RuntimeError('ffmpeg is required')
     metadata,beats=load_beats(ROOT)
@@ -77,11 +77,11 @@ def main():
                          'startSec': rows[0]['startSec'],
                          'durationSec': sum(r['durationSec'] for r in rows)})
     def write(name, value):
-        (BUILD / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+        (BUILD / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     write('cues.json', cues)
     write('chapters.json', chapters)
     write('durations.json', durations)
-    previous=json.loads((BUILD/'timeline-manifest.json').read_text()) if (BUILD/'timeline-manifest.json').exists() else {}
+    previous=json.loads((BUILD/'timeline-manifest.json').read_text(encoding='utf-8')) if (BUILD/'timeline-manifest.json').exists() else {}
     write('timeline-manifest.json', {**previous, 'config':cfg, 'speakerId':cfg['tts']['speakerId'], 'atempo':cfg['tts']['atempo'], 'sampleRate': SAMPLE_RATE, 'totalSamples': samples,
           'durationSec': samples / SAMPLE_RATE, 'playbackOrder': [b['id'] for b in beats],
           'audioSource': 'build/voiceover.wav', 'inputs': hashes,
@@ -90,11 +90,11 @@ def main():
         + f'export const FPS = {FPS};\n'
         + f'export const TOTAL_FRAMES = {chapters[-1]["endFrame"]};\n'
         + 'export const CUES = ' + json.dumps(cues, ensure_ascii=False) + ';\n'
-        + 'export const CHAPTERS = ' + json.dumps(chapters, ensure_ascii=False) + ';\n')
+        + 'export const CHAPTERS = ' + json.dumps(chapters, ensure_ascii=False) + ';\n', encoding='utf-8')
     metadata['pendingAudioBeatIds'] = []
     metadata['targetDurationSec'] = samples / SAMPLE_RATE
     metadata['targetDurationNote'] = f'{len(beats)} 段实际解码音频累计时长；时间轴与 voiceover.wav 使用同一份 PCM。'
-    (ROOT/'beats.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
+    (ROOT/'beats.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n', encoding='utf-8')
     print(f'{len(cues)} beats, {samples / SAMPLE_RATE:.3f}s, {chapters[-1]["endFrame"]} frames')
     for c in chapters:
         print(c['id'], f"{c['durationSec']:.3f}s", c['startFrame'], c['endFrame'])

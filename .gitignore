@@ -43,3 +43,5 @@ docs/scripts/.baidu-push-token
 docs/scripts/.baidu-pushed.json
 !/docs/src/ai/script/package-lock.json
 /.tmp-browseract-home
+/docs/src/ai/script
+/docs/src/ai/script

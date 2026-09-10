@@ -16,7 +16,7 @@
 ## 写作工作流
 
 1. 写 AI 文章 → ai-article Skill；口播稿 → video-script Skill
-2. 抓取微信公众号等需登录/动态渲染页面：用 Chrome DevTools MCP 或 web-access Skill，不用 WebFetch
+2. 抓取微信公众号等需登录/动态渲染页面：用浏览器自动化（`browser-act` Skill）打开页面获取内容，不用 WebFetch
 
 ## 表达原则（所有文字输出生效，包括回复用户）
 

@@ -1,10 +1,13 @@
 """Verify an exported MP4 against this project's timeline and original voiceover."""
 import argparse,array,json,math,subprocess
-from project_paths import project_path,read_json,write_json,sha256,load_config
+from project_paths import project_path,read_json,write_json,sha256,load_config,find_tool
+
+FFMPEG=find_tool('ffmpeg') or 'ffmpeg'
+FFPROBE=find_tool('ffprobe') or 'ffprobe'
 
 def run(args):return subprocess.run(args,check=True,capture_output=True)
 def pcm(path,rate):
-    a=array.array('f');a.frombytes(run(['ffmpeg','-v','error','-i',str(path),'-vn','-ac','1','-ar',str(rate),'-f','f32le','-']).stdout);return a
+    a=array.array('f');a.frombytes(run([FFMPEG,'-v','error','-i',str(path),'-vn','-ac','1','-ar',str(rate),'-f','f32le','-']).stdout);return a
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True,type=project_path);ap.add_argument('--video');ap.add_argument('--dry-run',action='store_true');args=ap.parse_args()
