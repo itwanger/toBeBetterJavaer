@@ -1,5 +1,6 @@
 // Project-aware Remotion entry point. Rendering is invoked only after user authorization.
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseArgs} from 'node:util';
@@ -17,7 +18,7 @@ const browser=chrome?[`--browser-executable=${chrome}`]:[];
 let args;
 const raw=path.join(project,'preview/render/remotion-raw.mp4');
 if(action==='typecheck')args=[require.resolve('typescript/bin/tsc'),'--noEmit','-p',path.join(cwd,'tsconfig.json')];
-else if(action==='studio')args=[cli,'studio','src/Root.tsx',...(values.port?[`--port=${values.port}`]:[])];
+else if(action==='studio')args=[cli,'studio','src/Root.tsx','--no-open',...(values.port?[`--port=${values.port}`]:[])];
 else if(action==='still')args=[cli,'still','src/Root.tsx',values.composition||meta.compositionId,path.join(project,'preview/path-check.png'),`--frame=${values.frame||0}`,...browser];
 else args=[cli,'render','src/Root.tsx',meta.compositionId,raw,'--codec=h264','--crf=18','--pixel-format=yuv420p','--audio-codec=aac','--audio-bitrate=192k',...browser];
 if(values['dry-run']){console.log(JSON.stringify({cwd,action,args,finalOutput:action==='render'?path.join(project,'output',meta.outputName):undefined}));process.exit(0);}
@@ -28,7 +29,16 @@ if(action==='render'){
   const duration=chapters.at(-1).endFrame/meta.config.video.fps;
   const output=path.join(project,'output',meta.outputName),temp=output.replace(/\.mp4$/,'.tmp.mp4');
   if(!output.endsWith('.mp4')||path.dirname(output)!==path.join(project,'output'))throw new Error('outputName must be a plain MP4 filename');
+  const narration=path.join(project,'build/voiceover.wav');
+  let deliveryAudio=narration;
+  if(meta.deliveryAudio){
+    deliveryAudio=path.resolve(project,meta.deliveryAudio);
+    if(path.dirname(deliveryAudio)!==path.join(project,'build')||!deliveryAudio.endsWith('.wav'))throw new Error('deliveryAudio must be a WAV directly inside project build/');
+    const mix=JSON.parse(fs.readFileSync(path.join(project,'build/sound-mix.json'),'utf8'));
+    const hash=(file)=>createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+    if(mix.sourceSha256!==hash(narration)||mix.outputSha256!==hash(deliveryAudio)||mix.planSha256!==hash(path.join(project,'assets/references/sound-plan.json')))throw new Error('Stale sound mix; run shared/tools/mix_effects.py before rendering');
+  }
   fs.mkdirSync(path.dirname(output),{recursive:true});run(process.execPath,args);
-  run('ffmpeg',['-y','-v','error','-i',raw,'-i',path.join(project,'build/voiceover.wav'),'-map','0:v:0','-map','1:a:0','-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-af','apad','-t',String(duration),'-movflags','+faststart',temp]);
+  run('ffmpeg',['-y','-v','error','-i',raw,'-i',deliveryAudio,'-map','0:v:0','-map','1:a:0','-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-af','apad','-t',String(duration),'-movflags','+faststart',temp]);
   fs.renameSync(temp,output);console.log(`Final MP4: ${output}`);
 }else run(process.execPath,args);

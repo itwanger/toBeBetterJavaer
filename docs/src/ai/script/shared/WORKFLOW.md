@@ -107,7 +107,11 @@ node docs/src/ai/script/shared/tools/remotion.mjs studio --project docs/src/ai/s
 node docs/src/ai/script/shared/tools/remotion.mjs still --project docs/src/ai/script/what-is-kv-cache --composition Chapter5Preview --frame 250
 ```
 
-优先继续使用已经运行的正确 Studio；端口按实际情况选择，不关闭其他项目服务。macOS 有本机 Chrome 时共享入口自动使用；其他环境可设置 `REMOTION_BROWSER_EXECUTABLE`，否则遵循 Remotion 默认浏览器行为。
+优先继续使用已经运行的正确 Studio；端口按实际情况选择，不关闭其他项目服务。共享 Studio 入口带 `--no-open`，只启动服务，不自动打开外部浏览器。在 Codex 中制作视频时，默认在 Codex 内置浏览器打开服务实际输出的预览 URL，并复用当前项目已有的预览标签；可通过 `mcp__codex_app__open_in_codex` 展示，通过可用的内置浏览器控制工具检查画面。不要默认另起 Chrome 或 agent-browser。内置浏览器不可用或遇到实际兼容问题时，说明原因后再使用外部浏览器。
+
+看完预览后暂停播放。临时自动化浏览器在检查完成、失败或取消时关闭本次会话；不要留下循环播放，也不要批量终止其他任务的浏览器。遇到无法自动息屏时，用 `pmset -g assertions` 核对是否仍有本次进程持有 `Video Wake Lock`。
+
+`still` / `render` 所需的后台渲染浏览器与 Studio 预览分开处理，不能用内置预览标签替代。macOS 有本机 Chrome 时共享入口为这两种操作自动使用；其他环境可设置 `REMOTION_BROWSER_EXECUTABLE`，否则遵循 Remotion 默认渲染浏览器行为。
 
 只有用户明确授权「出片 / 渲染」后执行：
 
@@ -116,7 +120,7 @@ node docs/src/ai/script/shared/tools/remotion.mjs render --project docs/src/ai/s
 python3 docs/src/ai/script/shared/tools/verify_export.py --project docs/src/ai/script/what-is-kv-cache
 ```
 
-render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频流，用 `build/voiceover.wav` 重新编码 AAC、按总帧数截定时长，写到 `output/<project.outputName>`。这样处理已有导出中观察到的统一音频延迟；仍需实际验证。失败时不替换已有最终 MP4。
+render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频流，用项目 `deliveryAudio` 指定的混音（未设置时使用 `build/voiceover.wav`）重新编码 AAC、按总帧数截定时长，写到 `output/<project.outputName>`。这样处理已有导出中观察到的统一音频延迟；仍需实际验证。失败时不替换已有最终 MP4。
 
 `verify_export.py` 完整解码、核对尺寸帧率帧数、比较原配音与导出声音的同位置波形，生成每章截图与 `preview/export-check/report.json`。类型检查和截图通过不等于用户已验收，也不等于已发布。
 
@@ -149,3 +153,14 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 - 不恢复 Skill 下的 `config/`、`templates/gen_audio.py` 或项目根目录的 Python 副本。
 - 修改目录后跑 `doctor`、配音 dry-run、时间轴 dry-run、类型检查和一张实际 still；另在一个临时新项目验证初始化命令，避免只兼容已有 KV Cache。
 - 迁移已有视频时核对成片及配音哈希，不能因整理目录而重合成或重新出片。
+
+
+## 增强效果与音效混音
+
+新制章节按 Skill 的轻量增强规则选择效果，旧项目保持现有设置。共享 `Enhancements.tsx` 提供短入场转场与概念图标；品牌素材来源记入 `shared/assets/brands/`。本期的事件时点保存在项目 `assets/references/sound-plan.json`，每个事件指定 `beatId`、`offsetFrames`、`sound`、`peakDbfs` 与用途。
+
+```bash
+python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/script/what-is-agent-reflection
+```
+
+混音保持原始 `build/voiceover.wav` 和采样长度不变，生成 `build/voiceover-with-effects.wav`、`build/sound-mix.json`。预览读取混音文件；项目显式设置 `deliveryAudio: "build/voiceover-with-effects.wav"` 后，导出入口也采用该音轨。音效计划、配音或混音文件发生变化时，导出入口校验哈希并拒绝过期混音；每次重新生成配音时间轴后必须重新混音。未设置 deliveryAudio 的旧项目仍按原有方式封装。第一章认可样片提供效果参考，不固定每章数量。提示音参考峰值约 -35 至 -31 dBFS、长度约 75–160ms，按实际配音与试听调整；不是响度保证。检查音效窗外配音采样一致、长度不变且无削波。
