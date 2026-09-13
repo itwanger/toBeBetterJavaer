@@ -160,7 +160,9 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1AjTK6GE6z/)
 🟡 进阶 | `→ PaiCLI`
 
 ### 13. 为什么你选择手搓 Agent 而不用框架？
-框架（LangChain、LlamaIndex）封装太重。
+现有框架（如 LangChain、LlamaIndex、Spring AI）为了兼顾通用场景，封装了过多的抽象层，容易形成不可控的黑盒；而在真实生产级 Agent 落地中，子进程超时控制、高危命令审批、思考过程流式回显、上下文动态压缩与规则保留等硬核工程细节，需要极强的定制与底层控制力。手搓不仅能看清 ReAct 循环的底层本质，还能在面试和工程实践中建立起极高的技术壁垒。
+
+完整答案：[查看图文解析](./why-handcraft-agent-not-framework.md)
 
 🟡 进阶 | `→ PaiCLI`
 
