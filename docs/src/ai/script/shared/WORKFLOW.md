@@ -88,6 +88,8 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 
 ## 配音与时间轴
 
+遇到术语读音纠错时，按 [术语读音与局部修复](../../../../../.claude/skills/ergo-remotion-video/references/VOLCENGINE_TTS_GUIDE.md#术语读音与局部修复) 核对出处、调整 `ttsText` 并局部重生成；ASR 正确拼写不等于读音通过。
+
 ```bash
 python3 docs/src/ai/script/shared/tools/gen_audio.py --project docs/src/ai/script/what-is-kv-cache --dry-run
 python3 docs/src/ai/script/shared/tools/gen_audio.py --project docs/src/ai/script/what-is-kv-cache
@@ -158,6 +160,15 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 ## 增强效果与音效混音
 
 新制章节按 Skill 的轻量增强规则选择效果，旧项目保持现有设置。共享 `Enhancements.tsx` 提供短入场转场与概念图标；品牌素材来源记入 `shared/assets/brands/`。本期的事件时点保存在项目 `assets/references/sound-plan.json`，每个事件指定 `beatId`、`offsetFrames`、`sound`、`peakDbfs` 与用途。
+
+品牌图标使用前查看 `shared/assets/brands/<name>.source.json`，核对来源及素材哈希，再将图片复制到本项目 `assets/images/`，来源记录复制到 `assets/references/`。
+
+|产品|共享素材|已核实来源|
+|---|---|---|
+|Claude Code|`shared/assets/brands/claude-code.png`|Anthropic 官方 VS Code 扩展；详情见同名 `.source.json`|
+|Codex|`shared/assets/brands/codex.png`|OpenAI 官方 VS Code 扩展中的 Codex 应用图标；详情见同名 `.source.json`|
+
+小图标用于自制卡片、项目标题等需要识别产品的位置，原稿整图保持原样。同排图标等比缩放，按视觉大小协调容器和名称间距；尺寸随版面确定，不固定为某期的像素值。新增官方图标经来源与预览核验后补入共享库和本清单。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/script/what-is-agent-reflection
