@@ -28,7 +28,7 @@ Claude Code 的做法是这样的，Reviewer 说有 bug，必须复现 bug 并�
 
 而在 DeepSeek Harness 里，质检任务是有前置依赖锁的，Worker 没提交代码前，Reviewer 连任务都领不了。审查时，必须针对具体的代码变动（Diff）就事论事；否则就由主 Agent 主动介入，把分歧告知用户。
 
-【截图：物证驱动与依赖约束质检流程；风格：skill-card；截图目标：可复现物证驱动的打回判据、任务依赖约束与 Lead 手动熔断；关键词：物证验证、依赖约束、Lead 中断、升级给人】
+![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-03-review-20260915134308-db6864c6.png)
 
 **那聪明的你肯定要问了：如果是两个并发的 Worker，方案产生了冲突该怎么办？**
 
@@ -38,8 +38,14 @@ Claude Code 的做法是这样的，Reviewer 说有 bug，必须复现 bug 并�
 
 DeepSeek Harness 在团队协作上更严格。任务底层采用了 CAS 乐观锁，Worker 提交变更时必须携带版本号，版本过时直接抛出异常拒绝；两个 Worker 抢同一个任务直接抛认领冲突。同时配合路径重叠检测算法，只要两个任务触及重叠目录就会立刻发出冲突警告。
 
-【截图：单写者调度与 CAS 乐观锁防冲突架构；风格：data-board；截图目标：Claude Code 单写者串行与 DeepSeek Harness 任务板 CAS 乐观锁对比；关键词：单写者模式、CAS 乐观锁、写作用域、沙箱分支】
+![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-04-concurrency-20260915134456-2f3486ce.png)
 
 最后简单总结下。面试官问你 Harness 如何解决 Multi-Agent 冲突，这样回答他：主从分歧靠主 Agent 全局裁决；质检对抗靠单测物证与 DAG 依赖；并发分歧靠串行或者 CAS 乐观锁。
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
+
+![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-cover-16x9-20260915134626-6a9f6b47.png)
+
+![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-cover-4x3-20260915134626-65456128.png)
+
+![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-cover-3x4-20260915134627-e64a55f0.png)
