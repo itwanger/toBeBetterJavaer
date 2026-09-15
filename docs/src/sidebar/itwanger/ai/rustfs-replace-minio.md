@@ -1,5 +1,5 @@
 ---
-title: 给 MinIO 说再见，最强 AI 存储 RustFS 开源了。
+title: 给 MinIO 说再见，最强 AI 存储 RustFS 发布正式版了！
 shortTitle: RustFS 替换 MinIO 实战
 description: MinIO 社区版归档后，RustFS 成为最受关注的替代方案。本文从产品评测到 Docker 部署、Spring Boot 对接、数据迁移，用派聪明 RAG 项目的真实代码走完全程。
 keywords: RustFS, MinIO替代, 对象存储, S3兼容, RAG存储
@@ -21,11 +21,11 @@ date: 2026-09-12
 
 但是。
 
-MinIO 继 4 月 25 日归档主仓库之后，于 7 月 15 日再次归档了 mc（MinIO Client）仓库，同时还归档了 Dockerhub 上的 mc 镜像仓库。
+MinIO 继 4 月 25 日归档主仓库之后，于 7 月 15 日再次归档了 mc（MinIO Client）仓库，同时还删除了 Dockerhub 上的 mc 镜像仓库。
 
 用过的同学应该都清楚，mc 是 MinIO 提供的一款命令行工具，可以对 S3 兼容的对象存储系统进行操作，实现对存储桶、对象以及集群等的管理。
 
-归档后，意味着我们没办法获取 mc 的最新版本以及安全补丁，因此需要一个平替。
+归档后，意味着我们没办法获取 mc 的最新版本以及安全补丁。不管是 mc 还是 minio，市场都需要一个平替。
 
 RustFS 正是这样一个完美的平替。
 
@@ -71,7 +71,9 @@ RustFS 是一个用 Rust 语言从零构建的高性能分布式对象存储系�
 
 ![](https://cdn.paicoding.com/stutymore/rustfs-replace-minio-20260912193255.png)
 
-截至 2026 年 9 月，RustFS 在 DockerHub 上的下载量超过 220 万次。最新版本是 1.0.0-rc.6，每周发一个 RC 版本，正在快速逼近 GA。
+截至 2026 年 9 月，RustFS 在 DockerHub 上的下载量超过 1000 万次。从最开始的 alpha 到 beta 再到 rc，最近正式发布了 GA，也就是 1.0.0 版本。也就是意味着，这是告诉大家伙：放心大胆在生产环境上使用 RustFS 吧。
+
+RustFS 从 2025 年 7 月开源，到今天，在 GitHub 上的 Stars 已经超过了 32k，这个增长在开源项目中也算是顶流了。
 
 MinIO 用 Go 语言写的。Go 有垃圾回收机制（GC），在高并发写入小对象的场景下，GC 暂停会带来延迟抖动。MinIO 的官方测试数据里也提到过，极端情况下 GC 暂停可以达到 340ms。
 
@@ -81,7 +83,9 @@ Rust 没有 GC。内存安全在编译期保证，运行时不会出现 stop-the
 
 但我也得说句公道话。
 
-GitHub issue #73 里有独立测试显示，在大文件顺序读取（20 MiB 对象）场景下，MinIO 的吞吐量（约 53 Gbps）明显高于 RustFS（约 23 Gbps）。RustFS 团队已经确认这个差距，正在把大文件优化加到路线图里。
+GitHub issue #73 里有独立测试显示，在大文件顺序读取（20 MiB 对象）场景下，MinIO 的吞吐量（约 53 Gbps）明显高于 RustFS（约 23 Gbps）。RustFS 团队已经确认这个差距，目前测试看，RustFS 在大文件上的性能也已经追上了 MinIO。
+
+![](https://cdn.paicoding.com/stutymore/rustfs-replace-minio-bcb11a4e0e1614e5db10eb173a9fe712.jpg)
 
 所以 RustFS 的性能优势主要在小对象和资源受限的环境。AI 训练场景下，需要大量小文件并发读写，正好是 RustFS 的甜点区。
 
@@ -100,8 +104,8 @@ GitHub issue #73 里有独立测试显示，在大文件顺序读取（20 MiB �
 - IAM / OIDC / SSO 认证
 - Web 控制台（Vue.js 3，开源可用，不像 MinIO 锁在企业版后面）
 - Prometheus + Grafana 可观测性
-- Kubernetes Helm Charts
-- FTPS / WebDAV / SFTP 多协议支持
+- Kubernetes Helm Charts 和 Operator
+- S3、MCP / FTPS / WebDAV / SFTP 多协议支持
 
 许可证是 Apache 2.0，嵌入商业产品、提供托管服务、二次开发都没有问题。
 
@@ -172,14 +176,10 @@ FROM rag_chunks;
 如果只是想快速体验，一条命令就能跑起来。
 
 ```bash
-mkdir -p data logs
-docker run -d -p 9000:9000 -p 9001:9001 \
-  -v $(pwd)/data:/data \
-  -v $(pwd)/logs:/logs \
-  rustfs/rustfs:latest
+docker run -d -p 9000:9000 -p 9001:9001 \  -e RUSTFS_ACCESS_KEY=rustfs@test \  -e RUSTFS_SECRET_KEY=rustfs@test \  -e RUSTFS_VOLUMES="/data/rustfs/ga/snsd" \  -e RUSTFS_ADDRESS=":9000" \  -e RUSTFS_CONSOLE_ADDRESS=":9001" \  -e RUSTFS_CONSOLE_ENABLE=true \  -e RUSTFS_OBS_LOGGER_LEVEL=error \  -e RUSTFS_OBS_LOG_DIRECTORY="/var/log/rustfs/" \  -v $(pwd)/data:/data \  -v $(pwd)/logs:/logs \  rustfs/rustfs:latest
 ```
 
-默认用户名和密码都是 `rustfsadmin`，打开 `http://localhost:9001` 就能看到控制台。
+使用上一步指定的 `RUSTFS_ACCESS_KEY` 和 `RUSTFS_SECRET_KEY` 的值，打开 `http://localhost:9001` 就能看到控制台。
 
 ![](https://cdn.paicoding.com/stutymore/rustfs-replace-minio-20260912195017.png)
 

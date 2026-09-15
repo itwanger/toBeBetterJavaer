@@ -172,8 +172,10 @@ Skill
 
 🔴 深入 | `→ PaiCLI`
 
-### 15. 多 Agent 协作时意见冲突怎么统一？
-常见方案有投票机制（少数服从多数）、裁判 Agent（专门做最终决策）、层级委派（上级 Agent 拍板）。
+### 15. Multi-Agent 协作时意见冲突怎么办？
+如果从 Harness 架构设计出发，冲突主要分为三层：主 Agent 与 Sub-agent 的主从分歧、Worker 与 Reviewer 的质检对抗，以及多个并发 Worker 的写代码冲突。主从分歧依靠主 Agent 绝对裁决与沙箱隔离，如 Claude Code 的单向汇报与 DeepSeek Harness 的权限锁死加 Cordis 可逆回滚；质检对抗不搞裁判 Agent，而是把裁判权交给确定性的物理环境与任务 DAG，用能跑崩环境的复现单测作为客观物证，超限则安全熔断；并发 Worker 则通过单写者串行调度与 CAS 版本乐观锁在源头杜绝写冲突，而非依赖主观投票。
+
+完整答案：[查看图文解析](./multi-agent-conflict-resolution.md)
 
 🔴 深入 | `→ PaiCLI` | 字节、阿里
 
