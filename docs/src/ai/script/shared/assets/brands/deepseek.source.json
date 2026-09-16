@@ -1,0 +1,12 @@
+{
+  "asset": "deepseek.png",
+  "source": "DeepSeek official homepage favicon (225x225)",
+  "publisher": "DeepSeek",
+  "reference": "https://www.deepseek.com/",
+  "downloadUrl": "https://www.deepseek.com/favicon.ico",
+  "originalAsset": "deepseek.ico",
+  "originalSha256": "30a4420e6e4dcb17fd7de560c5004346c2bc8cd971d2d5f5ee15326603e51321",
+  "sha256": "16e31ee06484990ede956b204491bf6ad53bc6f083eb4cd31580c30e19037021",
+  "conversion": "ICO decoded to PNG without resizing or editing artwork",
+  "rights": "DeepSeek trademark retained; used to identify the discussed product, no licence assertion."
+}

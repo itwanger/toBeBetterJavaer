@@ -167,6 +167,7 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |---|---|---|
 |Claude Code|`shared/assets/brands/claude-code.png`|Anthropic 官方 VS Code 扩展；详情见同名 `.source.json`|
 |Codex|`shared/assets/brands/codex.png`|OpenAI 官方 VS Code 扩展中的 Codex 应用图标；详情见同名 `.source.json`|
+|DeepSeek|`shared/assets/brands/deepseek.png`|DeepSeek 官网 `favicon.ico` 小鲸鱼；无缩放转为 PNG，原 ICO 与同名 `.source.json` 一并保留|
 
 小图标用于自制卡片、项目标题等需要识别产品的位置，原稿整图保持原样。同排图标等比缩放，按视觉大小协调容器和名称间距；尺寸随版面确定，不固定为某期的像素值。新增官方图标经来源与预览核验后补入共享库和本清单。
 

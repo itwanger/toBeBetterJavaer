@@ -173,7 +173,7 @@ Skill
 🔴 深入 | `→ PaiCLI`
 
 ### 15. Multi-Agent 协作时意见冲突怎么办？
-如果从 Harness 架构设计出发，冲突主要分为三层：主 Agent 与 Sub-agent 的主从分歧、Worker 与 Reviewer 的质检对抗，以及多个并发 Worker 的写代码冲突。主从分歧依靠主 Agent 绝对裁决与沙箱隔离，如 Claude Code 的单向汇报与 DeepSeek Harness 的权限锁死加 Cordis 可逆回滚；质检对抗不搞裁判 Agent，而是把裁判权交给确定性的物理环境与任务 DAG，用能跑崩环境的复现单测作为客观物证，超限则安全熔断；并发 Worker 则通过单写者串行调度与 CAS 版本乐观锁在源头杜绝写冲突，而非依赖主观投票。
+从 Harness 架构设计出发，冲突分三层。主 Agent 与 Sub-agent 的主从分歧，靠主 Agent 最终裁决与上下文隔离，如 Claude Code 的 Sub-agent 只返回摘要由主 Agent 综合，DeepSeek Harness 内核 Cordis 的可逆效应。Worker 与 Reviewer 的质检对抗，不搞裁判 Agent，把裁判权交给确定性环境，审查用全新上下文的 Sub-agent，问题过验证环节，单测全绿才放行，超过 max_turns 交给人类。并发 Worker 靠 worktree 隔离、文件分工和 DeepSeek Harness 的 expectedRevision 版本号乐观锁在源头杜绝写冲突，而非依赖投票。
 
 完整答案：[查看图文解析](./multi-agent-conflict-resolution.md)
 
