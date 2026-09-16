@@ -91,11 +91,35 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "多 Agent 协作需要明确角色、任务分发、上下文隔离、结果聚合和冲突处理，而不只是同时启动多个模型会话。",
     ["Multi-Agent", "多智能体协作", "Sub-agent", "任务分发"],
   ),
-  "agent-planning": meta(
-    "Agent 的 Planning 模块有哪些实现方式？从单步到动态 Replan",
-    "Agent 规划模块",
-    "Agent 任务规划涵盖单步反应式、一次性全局规划和动态 Replan，结合 DAG 拓扑排序与状态注入实现稳定执行。",
-    ["Agent Planning", "任务规划", "Replan", "拓扑排序"],
+  "agent-plan-modes": meta(
+    "Agent 的 Plan 模式有哪些实现方式？",
+    "Agent Plan 模式",
+    "AI Agent 有四类规划方案：Plan-and-Execute、图状多路径搜索规划、反思式规划和状态机规划。不同任务场景对应不同方案，这道题考的是工程落地时的选型权衡。",
+    ["Agent Planning", "Plan-and-Execute", "Graph Planning", "状态机规划"],
+  ),
+  "what-is-agent-reflection": meta(
+    "Agent 的反思机制是什么？Self-Refine 和 Reflexion 有什么区别？",
+    "Agent 反思机制",
+    "反思就是让 Agent 评估自己的输出质量，发现错误就自我修正。Self-Refine 和 Reflexion 两篇论文给出了两条路线，Claude Code 源码和 PaiCLI 的反思模块是它们在工程里的落地。",
+    ["Agent 反思", "Self-Refine", "Reflexion", "自我修正"],
+  ),
+  "why-handcraft-agent-not-framework": meta(
+    "为什么选择手搓 Agent 而不用 LangChain 这种框架？",
+    "为什么手搓 Agent",
+    "框架为了兼顾通用场景封装了过多抽象层，容易变成不可控的黑盒。生产级 Agent 需要的子进程超时控制、高危命令审批、流式回显和上下文压缩，都要求对底层有完全的控制力，手搓才能看清 ReAct 循环的本质。",
+    ["手搓 Agent", "LangChain", "过度封装", "ReAct 循环"],
+  ),
+  "how-agent-accumulates-experience": meta(
+    "Agent 怎么做经验积累和自我学习？",
+    "Agent 经验积累",
+    "Agent 的自我学习不靠运行时微调参数。经验可以沉淀到四种载体：知识文档、Prompt 或 Skill、程序与 Harness、模型参数。Claude Code、Codex 和 OpenClaw 都是把经验持久化归档，再在需要时检索出来。",
+    ["经验积累", "自我学习", "AutoDream", "记忆归档"],
+  ),
+  "multi-agent-conflict-resolution": meta(
+    "Multi-Agent 协作时意见冲突怎么办？",
+    "Multi-Agent 冲突处理",
+    "冲突分三层。主 Agent 与 Sub-agent 的分歧靠主 Agent 裁决和上下文隔离，Worker 与 Reviewer 的对抗把裁判权交给单测这类确定性环境，并发 Worker 靠 worktree 隔离、文件分工和版本号乐观锁在源头杜绝写冲突。",
+    ["Multi-Agent", "冲突处理", "Sub-agent", "乐观锁"],
   ),
   "what-is-prompt-engineering": meta(
     "什么是提示词工程（Prompt Engineering）？",
@@ -295,6 +319,12 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。",
     ["Prompt Caching", "提示词缓存", "DeepSeek", "cache_control"],
   ),
+  "chatgpt-images-2-5": meta(
+    "GPT Images 2.5 一手实测，OpenAI 越来越有水平啦",
+    "GPT Images 2.5 实测",
+    "OpenAI 发布 Images 2.5，生成速度比 Images 2.0 快一倍，新增 Sketch 草图功能，可以直接在对话框里画草图让 AI 照着生成图片。这期带你过一遍升级点和用法。",
+    ["GPT Images 2.5", "OpenAI", "AI 绘图", "Sketch"],
+  ),
   "gpt-6-astra": meta(
     "GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？",
     "GPT-6 Astra 解读",
@@ -327,7 +357,11 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "react-death-loop",
       "plan-and-execute",
       "multi-agent-collaboration",
-      "agent-planning",
+      "agent-plan-modes",
+      "what-is-agent-reflection",
+      "why-handcraft-agent-not-framework",
+      "how-agent-accumulates-experience",
+      "multi-agent-conflict-resolution",
     ],
   },
   {
@@ -393,7 +427,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   },
   {
     text: "HOT / 模型与行业热点",
-    children: ["gpt-6-astra", "why-relay-still-works"],
+    children: ["chatgpt-images-2-5", "gpt-6-astra", "why-relay-still-works"],
   },
 ];
 
@@ -432,6 +466,20 @@ const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> =
   "why-post-training-beats-params": "7670027713771621658",
   "what-is-moe": "7670768776341753122",
   "what-is-cordis": "7674857729629900038",
+  "multi-agent-conflict-resolution": "7685693822096985385",
+  "how-agent-accumulates-experience": "7685237612898045190",
+  "why-handcraft-agent-not-framework": "7684942306939954856",
+  "what-is-agent-reflection": "7684519824176712998",
+  "agent-plan-modes": "7684156376783899945",
+  "chatgpt-images-2-5": "7683756814344703266",
+  "what-is-prompt-caching": "7683417600369397033",
+  "what-is-prefix-caching": "7683112468356386063",
+  "what-is-kv-cache": "7682646844794539298",
+  "glm-flash-linear-sparse-attention": "7681542417195011366",
+  "deepseek-multimodal": "7680432993629949220",
+  "v4-csa-hca-kv-cache": "7679479739840466202",
+  "v4-why-replace-mla": "7678962200215571731",
+  "codex-long-term-memory": "7678302786009746734",
 };
 
 const getSlugFromFilePath = (filePath?: string): string | null => {

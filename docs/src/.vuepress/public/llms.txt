@@ -21,7 +21,11 @@
 - [ReAct 会死循环吗？如何设计可靠的终止机制？](https://javabetter.cn/ai/video/react-death-loop.html)：ReAct 可能因目标不清、工具失败或模型重复决策陷入死循环，需要最大轮次、预算、重复检测和降级退出共同约束。
 - [什么是 Plan-and-Execute？它和 ReAct 怎么选？](https://javabetter.cn/ai/video/plan-and-execute.html)：Plan-and-Execute 先生成全局计划再逐项执行，适合目标明确的复杂任务；ReAct 更适合边观察边调整的不确定任务。
 - [Multi-Agent 协作是怎么实现的？](https://javabetter.cn/ai/video/multi-agent-collaboration.html)：多 Agent 协作需要明确角色、任务分发、上下文隔离、结果聚合和冲突处理，而不只是同时启动多个模型会话。
-- [Agent 的 Planning 模块有哪些实现方式？从单步到动态 Replan](https://javabetter.cn/ai/video/agent-planning.html)：Agent 任务规划涵盖单步反应式、一次性全局规划和动态 Replan，结合 DAG 拓扑排序与状态注入实现稳定执行。
+- [Agent 的 Plan 模式有哪些实现方式？](https://javabetter.cn/ai/video/agent-plan-modes.html)：AI Agent 有四类规划方案：Plan-and-Execute、图状多路径搜索规划、反思式规划和状态机规划。不同任务场景对应不同方案，这道题考的是工程落地时的选型权衡。
+- [Agent 的反思机制是什么？Self-Refine 和 Reflexion 有什么区别？](https://javabetter.cn/ai/video/what-is-agent-reflection.html)：反思就是让 Agent 评估自己的输出质量，发现错误就自我修正。Self-Refine 和 Reflexion 两篇论文给出了两条路线，Claude Code 源码和 PaiCLI 的反思模块是它们在工程里的落地。
+- [为什么选择手搓 Agent 而不用 LangChain 这种框架？](https://javabetter.cn/ai/video/why-handcraft-agent-not-framework.html)：框架为了兼顾通用场景封装了过多抽象层，容易变成不可控的黑盒。生产级 Agent 需要的子进程超时控制、高危命令审批、流式回显和上下文压缩，都要求对底层有完全的控制力，手搓才能看清 ReAct 循环的本质。
+- [Agent 怎么做经验积累和自我学习？](https://javabetter.cn/ai/video/how-agent-accumulates-experience.html)：Agent 的自我学习不靠运行时微调参数。经验可以沉淀到四种载体：知识文档、Prompt 或 Skill、程序与 Harness、模型参数。Claude Code、Codex 和 OpenClaw 都是把经验持久化归档，再在需要时检索出来。
+- [Multi-Agent 协作时意见冲突怎么办？](https://javabetter.cn/ai/video/multi-agent-conflict-resolution.html)：冲突分三层。主 Agent 与 Sub-agent 的分歧靠主 Agent 裁决和上下文隔离，Worker 与 Reviewer 的对抗把裁判权交给单测这类确定性环境，并发 Worker 靠 worktree 隔离、文件分工和版本号乐观锁在源头杜绝写冲突。
 - [什么是提示词工程（Prompt Engineering）？](https://javabetter.cn/ai/video/what-is-prompt-engineering.html)：提示词工程通过角色、目标、约束、示例和输出格式提高单次模型响应质量，但不能单独解决动态上下文与运行时控制问题。
 - [什么是上下文工程（Context Engineering）？](https://javabetter.cn/ai/video/what-is-context-engineering.html)：上下文工程关注在正确时机把正确的信息放进有限窗口，包括系统指令、记忆、工具定义、检索结果和历史压缩。
 - [什么是上下文窗口？它不是聊天窗口](https://javabetter.cn/ai/video/what-is-context-window.html)：上下文窗口是模型单次推理可读取的 Token 总预算，系统提示、工具定义、历史消息和工具结果都会占用它。
@@ -55,6 +59,7 @@
 - [KV Cache 是什么？为什么只缓存 K 和 V，不缓存 Q？](https://javabetter.cn/ai/video/what-is-kv-cache.html)：大模型自回归生成时，每个新 Token 都要和历史 Token 的 K、V 重新做注意力计算，而当前 Token 的 Q 用完即弃，所以只把 K 和 V 存进显存，用空间换时间。
 - [Prefix Caching（前缀缓存）是什么？和 KV Cache 是什么关系？](https://javabetter.cn/ai/video/what-is-prefix-caching.html)：KV Cache 只在单次请求内复用，Prefix Caching 把公共前缀的 KV 数据跨请求共享，靠 Token 分块和 Radix Tree 前缀树匹配，开头改一个字整条缓存链就会失效。
 - [DeepSeek 的 Prompt Caching 为什么能全自动生效，Claude 为什么要手动加 cache_control？](https://javabetter.cn/ai/video/what-is-prompt-caching.html)：DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。
+- [GPT Images 2.5 一手实测，OpenAI 越来越有水平啦](https://javabetter.cn/ai/video/chatgpt-images-2-5.html)：OpenAI 发布 Images 2.5，生成速度比 Images 2.0 快一倍，新增 Sketch 草图功能，可以直接在对话框里画草图让 AI 照着生成图片。这期带你过一遍升级点和用法。
 - [GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？](https://javabetter.cn/ai/video/gpt-6-astra.html)：GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。
 - [Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？](https://javabetter.cn/ai/video/why-relay-still-works.html)：官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂；中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。
 
@@ -108,6 +113,11 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [Skills 清理指南](https://javabetter.cn/sidebar/itwanger/ai/rethinking-skills-prompts-astra.html)：OpenAI 官方发布 Astra 时代提示词清理指南，逐条拆解四个核心方向，附可复制的审查提示词，覆盖 Claude Code 和 Codex 两个生态
+- [Seed2.1 Pro 升级实测](https://javabetter.cn/sidebar/itwanger/ai/seed21-pro-upgrade-review.html)：字节 Seed2.1 Pro 升级实测，4 个 Case 从 SVG 动画到仙剑 RPG，看看豆包工作的底层模型到底强了多少
+- [本地Coding Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/xiaomi-coding-agent-mianshi.html)：10 道本地 Coding Agent 工程面试题全解：完整链路、多模型后端、工具系统、上下文压缩与记忆治理，基于自研项目源码深度解析。
+- [RustFS 替换 MinIO 实战](https://javabetter.cn/sidebar/itwanger/ai/rustfs-replace-minio.html)：MinIO 社区版归档后，RustFS 成为最受关注的替代方案。本文从产品评测到 Docker 部署、Spring Boot 对接、数据迁移，用派聪明 RAG 项目的真实代码走完全程。
+- [字节AI测试面试10问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zijie-aitest.html)：字节 AI 测试开发面试 10 问全解：Agent 任务拆解、人机协作、版权风险应对、合并有序数组从测试到百万级优化、大模型训练全阶段、SWE-bench 评测基准、AI 测试岗位理解。
 - [DeepSeek V4.1 Flash 测评](https://javabetter.cn/sidebar/itwanger/ai/deepseek-v41-flash-review.html)：DeepSeek V4.1 Flash 实测 6 个 case，鹈鹕骑车、涂鸦 FPS、锦鲤池、流体模拟、暴力摩托、3D 玩具房，提示词全部开源
 - [豆包开学季送3个月会员](https://javabetter.cn/sidebar/itwanger/ai/doubao-kaixueji.html)：大学生用豆包工作生成秋招两个月冲刺计划 PPT，附免费领3个月会员教程
 - [亚信科技Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/yaxin-keji-agent-mianshi.html)：亚信科技与月之暗面签署登月计划合作协议，10 道 Agent 工程面试题全解：PaiCLI 架构设计、MySQL 索引失效、消息队列、多模态模型、Redis 缓存、RAG 混合检索、ReAct 实现、Agent 训练、记忆机制。
@@ -163,11 +173,6 @@
 - [Loop Engineering 硬核教程](https://javabetter.cn/sidebar/itwanger/ai/loop-engineering-guide.html)：深度拆解 Loop Engineering 六大组件，从定时任务到 Worktree 隔离，实测 Claude Code /loop 和 Codex /goal 命令，附完整 demo 和配置指南。
 - [GLM-5.2+讯飞版Codex，你值得拥有的世界杯AI搭子](https://javabetter.cn/sidebar/itwanger/ai/loomy-worldcup-review.html)：Loomy 世界杯搭子实测，支持 GLM-5.2 自定义模型，三位球星 AI 搭子陪看球，定时任务模板自动推送赛程战报和玄学预测。
 - [微信里爽用Claude Code](https://javabetter.cn/sidebar/itwanger/ai/wechat-claude-code-paicli.html)：基于 wechat-claude-code 开源方案，用 Codex+Claude Code 在 PaiCLI 中实现微信接入 Claude Code，涵盖 Codex 调研、技术方案设计、iLink Bot API 长轮询消息引擎、安全沙箱和输出适配全流程原理。
-- [MiMo Code测评](https://javabetter.cn/sidebar/itwanger/ai/mimo-code-review.html)：MiMo Code 是小米 MiMo 团队开源的终端编程 Agent，针对长程自动化编程任务设计，围绕计算、记忆、进化三大核心，实测安装配置和实战表现。
-- [Claude Code 编程经验实战](https://javabetter.cn/sidebar/itwanger/ai/claude-fable-5-code-correctness.html)：一年 Claude Code 编程经验总结，6 个实战 Case 展示 CLAUDE.md、Skill、Hook、Sub-agent 等核心技巧，附 Fable 5 模型体验。
-- [Codex使用经验](https://javabetter.cn/sidebar/itwanger/ai/codex-usage-tips.html)：从135条真实开发者讨论中提炼 Codex 高效编程的7个核心经验，涵盖上下文管理、Plan模式、需求拆分、测试驱动等实操方法。
-- [红狐数据 Skill](https://javabetter.cn/sidebar/itwanger/ai/redfox-hub-review.html)：基于红狐数据新媒体数据API，搭建AI热点雷达平台，聚合抖音、小红书、公众号三大平台AI热点，LLM分析机会评分，附Codex Skills集成和在线查询实战。
-- [LiteParse OCR 实测](https://javabetter.cn/sidebar/itwanger/ai/liteparse-ocr-review.html)：LiteParse 是 LlamaIndex 开源的本地文档解析工具，内置 Tesseract OCR，可零云依赖解析扫描件 PDF。本文实测 lit 命令行，记录接入派聪明 RAG 的全过程，并接入阿里云 OCR 把中文识别精度再提一档。
 
 ## 开发工具
 

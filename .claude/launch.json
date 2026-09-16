@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "docs-dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vuepress-vite", "dev", "src"],
+      "cwd": "docs",
+      "port": 8080
+    }
+  ]
+}
