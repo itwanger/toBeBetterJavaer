@@ -161,4 +161,10 @@ date: 2026-09-17
 
 我自己用下来，最大的感受就是省心。以前想搞自动化，光是配环境、写脚本就得折腾半天。现在操作一遍，Skill 就生成了。
 
+网页搜索「**豆包工作**」就能下载电脑端，新用户可以免费领 30 天订阅权益，够你把手头的重复流程都跑一遍了。
+
+>https://www.doubao.com/work
+
+![](https://cdn.paicoding.com/stutymore/doubao-work-browser-skill-20260917113323.png)
+
 我们下期见。

@@ -58,7 +58,7 @@ python3 docs/src/ai/script/shared/tools/doctor.py --project docs/src/ai/script/w
 
 ## 面试开场素材
 
-选择面试头像开场模式时，从 `shared/assets/interview/` 复制 `doubao-facing-right.png` 与 `ergo-facing-left.png` 到本项目 `assets/images/`，并在分镜记录素材来源。初始化工具仍只复制默认头像，普通视频不自动引入豆包或面试情节。
+选择面试头像开场模式，或科普场景需要用二哥和豆包表示学习者与老师时，从 `shared/assets/interview/` 复制 `doubao-facing-right.png` 与 `ergo-facing-left.png` 到本项目 `assets/images/`，将所用素材的 `sources.json` 条目保存到项目 `assets/references/` 并在分镜记录用途。初始化工具仍只复制默认头像；科普中的角色复用不自动引入面试情节，角色映射见 Skill 的“视觉与人物”。
 
 新项目尚无这些文件时，从仓库根目录执行（将 `<topic>` 替换成当前项目目录名）：
 
@@ -68,6 +68,12 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 ```
 
 如果项目已有同名图片，先确认是否为用户指定版本，不覆盖。画面用 `staticFile('images/doubao-facing-right.png')` 等地址读取项目副本；共享头像组件从 `shared/remotion/components/InterviewAvatar.tsx` 导入，只负责头像、角色标注和高亮，不含具体主题、音色或固定时间轴。该目录的 `sources.json` 保留图片来源，原始二哥头像不变。
+
+## Harness 马匹素材复用
+
+按用户要求，已认可的两张马匹图保存在 [二哥 Remotion Skill 的 assets/harness](../../../../../.claude/skills/ergo-remotion-video/assets/harness/)：`horse-bare.png` 为无马具版，`horse-with-tack.png` 为相同姿势的带马具版。两张均为 1536×1024 透明 PNG，来源、生成提示词和哈希在同目录 `sources.json`。
+
+新视频讲 Harness 的马具比喻时，从该目录复制两张 PNG 到本项目 `assets/images/`，复制 `sources.json` 到 `assets/references/harness-horse-sources.json`。保持同位置、同缩放，在本项目配音讲到缰绳和马鞍时切换或短淡化；无需重新生成，也不从旧视频目录取素材。原图只有马，不自带文字、人物或轨道，场景按当前口播组织。
 
 ## 内容和 beat 拆分
 
@@ -80,11 +86,11 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 }
 ```
 
-数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略；字幕与配音分别保留。按意群拆 beat，数量由文本长度决定 · 参考 3–4 分钟 ≈ 55–75 beat。逐 beat 合成配音，再依据真实音频定位动画。相邻 beat 需要连续画面时合并 Sequence，不因此合并配音。迁移旧项目不自动重拆或重合成。
+数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略。beat 按完整句子或自然意群划分，不以字幕长度或目标段数决定合成次数；一个 beat 内可切换多组字幕和动画。连续画面共用 Sequence；用户反馈配音断句过多时，可合并相关意群重新合成，并在项目中保存旧短语到新配音单元的映射。短语时点必须从新音频定位，不能继续把已移除的 beat ID 当作 cues 查询。具体见 [配音单元与字幕短语分开](../../../../../.claude/skills/ergo-remotion-video/references/B39_LESSONS.md#配音单元与字幕短语分开)。迁移旧项目不自动重拆或重合成。
 
 `OUTLINE.md` 同时维护正文配图的使用映射：来源 URL、项目文件、场景、beat 范围、预览检查状态。每张保留的正文图都要有明确去向；未采用则记录原因。素材清单只登记下载路径不能代替分镜。逐章检查要覆盖实际配图帧和主要动画场景，确认图片完整可读、字幕切换时图像保持连续。
 
-正文导航复用 `shared/remotion/components` 的 `ChapterStrip`，传入本项目品牌、章节名称和当前章。面试模式的特殊顶部布局仅限对话开场。用户指定旧版为视觉基准时，在本项目 `preview/` 保存对照帧与检查记录；恢复版式和场景组织，时间轴仍以本次真实音频为准。
+正文导航复用 `shared/remotion/components` 的 `ChapterStrip`，传入本项目品牌、章节名称和当前章。视频画面不绘制章节或整片播放进度条；复用旧场景时移除相应元素。面试模式的特殊顶部布局仅限对话开场。用户指定旧版为视觉基准时，在本项目 `preview/` 保存对照帧与检查记录；恢复版式和场景组织，时间轴仍以本次真实音频为准。
 
 ## 配音与时间轴
 

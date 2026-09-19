@@ -6,6 +6,8 @@
 
 我翻了 Manus 官方博客里 Context Engineering 长文、GitHub 上泄露的完整系统提示词、还有 OpenManus 的源码，可以自信地、大方地、光明磊落地帮你搞清楚这三件事。
 
+>Manus 的架构图和 Agent 实战学习路线，我也整理了速查导图放在了最后，方便你对照参考。
+
 **先说第一件事，Manus 是什么，它做对了什么。**
 
 Manus 是一个通用的 AI Agent。你给它一个目标，比如“帮我做一份竞品分析报告”，它会自己打开浏览器搜索资料，自己写 Python 脚本拉数据，自己生成图表，最后交给你一份带封面的 PDF 报告。全程自主规划、自主执行、自主交付。
@@ -57,6 +59,10 @@ AutoGPT，AI Agent 领域的开山鼻祖，也是 GAIA 基准测试的共同开�
 OpenHands，和 Manus 类似的沙盒加 Agent ReAct 架构，专注代码开发场景。想自己搭一个编码 Agent，从它的架构开始学效率最高。
 
 OWL，GAIA 开源排行榜第一名，多 Agent 协作框架。想搞清楚多个 Agent 怎么协同工作，学它就对了。
+
+我把 Manus 的架构图和Agent学习路线，还有这五个项目都整理好了。大家可以暂停截图带走，照着学能少走不少弯路。
+
+![](https://cdn.paicoding.com/stutymore/what-is-manus-04-architecture-roadmap-20260917122629-73ed6170.png)
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
