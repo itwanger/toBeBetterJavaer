@@ -4,9 +4,26 @@
     {
       "name": "docs-dev",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["vuepress-vite", "dev", "src"],
+      "runtimeArgs": [
+        "vuepress-vite",
+        "dev",
+        "src"
+      ],
       "cwd": "docs",
       "port": 8080
+    },
+    {
+      "name": "remotion-agent-checkpoint",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/what-is-agent-checkpoint",
+        "--port",
+        "3001"
+      ],
+      "port": 3001
     }
   ]
 }
