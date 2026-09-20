@@ -183,7 +183,7 @@ DeepSeek V4 Pro 则善于提炼主要矛盾，用简洁的图表和清楚的结�
 
 不过，我们的要求更高一点。
 
-我让Step 5 Preview先生成了一些美术素材，再配合编码，出来的效果是不是就高级多了？
+我先生成了一些美术素材，再配合编码，出来的效果是不是就高级多了？
 
 ![](https://cdn.paicoding.com/stutymore/step5-preview-vs-deepseek-20260920103337.png)
 

@@ -8,7 +8,7 @@ import {spawnSync} from 'node:child_process';
 import {createRequire} from 'node:module';
 const workspace=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const require=createRequire(path.join(workspace,'package.json'));
-const {values,positionals}=parseArgs({allowPositionals:true,options:{project:{type:'string'},port:{type:'string'},composition:{type:'string'},frame:{type:'string'},'dry-run':{type:'boolean',default:false}}});
+const {values,positionals}=parseArgs({allowPositionals:true,options:{project:{type:'string'},port:{type:'string'},composition:{type:'string'},frame:{type:'string'},out:{type:'string'},detach:{type:'boolean',default:false},'dry-run':{type:'boolean',default:false}}});
 const action=positionals[0];
 if(!['studio','still','render','typecheck'].includes(action)||!values.project)throw new Error('Usage: remotion.mjs studio|still|render|typecheck --project <directory> [--dry-run]');
 const project=path.resolve(values.project),meta=JSON.parse(fs.readFileSync(path.join(project,'project.json'),'utf8')),cwd=path.join(project,'remotion');
@@ -18,11 +18,19 @@ const browser=chrome?[`--browser-executable=${chrome}`]:[];
 let args;
 const raw=path.join(project,'preview/render/remotion-raw.mp4');
 if(action==='typecheck')args=[require.resolve('typescript/bin/tsc'),'--noEmit','-p',path.join(cwd,'tsconfig.json')];
-else if(action==='studio')args=[cli,'studio','src/Root.tsx','--no-open',...(values.port?[`--port=${values.port}`]:[])];
-else if(action==='still')args=[cli,'still','src/Root.tsx',values.composition||meta.compositionId,path.join(project,'preview/path-check.png'),`--frame=${values.frame||0}`,...browser];
-else args=[cli,'render','src/Root.tsx',meta.compositionId,raw,'--codec=h264','--crf=18','--pixel-format=yuv420p','--audio-codec=aac','--audio-bitrate=192k',...browser];
+if(action==='studio')args=[cli,'studio','src/Root.tsx','--no-open',...(values.port?[`--port=${values.port}`]:[])];
+const stillOut=values.out?path.resolve(values.out):path.join(project,'preview/path-check.png');
+if(action==='still')fs.mkdirSync(path.dirname(stillOut),{recursive:true});
+if(action==='still')args=[cli,'still','src/Root.tsx',values.composition||meta.compositionId,stillOut,`--frame=${values.frame||0}`,...browser];
+if(action==='render')args=[cli,'render','src/Root.tsx',meta.compositionId,raw,'--codec=h264','--crf=18','--pixel-format=yuv420p','--audio-codec=aac','--audio-bitrate=192k',...browser];
 if(values['dry-run']){console.log(JSON.stringify({cwd,action,args,finalOutput:action==='render'?path.join(project,'output',meta.outputName):undefined}));process.exit(0);}
 fs.mkdirSync(path.join(project,'preview/render'),{recursive:true});
+if(action==='render'&&values.detach){
+  const {spawn}=await import('node:child_process');
+  const log=path.join(project,'preview/render/render.log');const fd=fs.openSync(log,'w');
+  const child=spawn(process.execPath,[fileURLToPath(import.meta.url),'render','--project',project],{detached:true,stdio:['ignore',fd,fd]});
+  child.unref();console.log(JSON.stringify({detached:true,pid:child.pid,log,finalOutput:path.join(project,'output',meta.outputName)}));process.exit(0);
+}
 const run=(cmd,argv)=>{const r=spawnSync(cmd,argv,{cwd,stdio:'inherit'});if(r.error)throw r.error;if(r.status!==0)process.exit(r.status||1);};
 if(action==='render'){
   const chapters=JSON.parse(fs.readFileSync(path.join(project,'build/chapters.json'),'utf8'));

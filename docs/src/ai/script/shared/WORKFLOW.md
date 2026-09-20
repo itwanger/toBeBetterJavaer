@@ -103,9 +103,34 @@ python3 docs/src/ai/script/shared/tools/gen_cues.py --project docs/src/ai/script
 python3 docs/src/ai/script/shared/tools/align_words.py --project docs/src/ai/script/what-is-kv-cache --id 69
 ```
 
+密钥只在 `~/.zshrc` 里 export 时，`zsh -lc` 不会加载它；从 Agent 里调用配音要用 `zsh -ic 'python3 …/gen_audio.py …'`。
+
 `--dry-run` 不读取密钥、不联网、不写音频；先检查动作数量再决定是否执行。`--only <id...>` 只处理指定单元；`--force` 明确重合成；`--retempo` 复用参数匹配的 raw，仅重新处理倍率。文本、音色和请求参数或文件哈希变化都会使旧 raw 失效；不是仅检查文件存在。
 
 `gen_cues.py` 使用 `audio/processed` 中的实际解码采样生成时间轴和 WAV。输出在 `build/`，当前项目的 `remotion/src` 从 `../../build/cues` 导入。生成文件不要手改；音频变化后重新生成。生成记录也在 `build/`，不要硬编码某条视频的 ID、总帧数或时长。
+
+## 音频复核与时点生成
+
+配音生成后，先对全部单元跑一次 ASR 与逐词强制对齐，后面每章直接用；局部重生成后用 `--only` 只更新受影响的单元。脚本依赖 mlx_audio，它装在 uv 独立环境（`~/.local/share/uv/tools/mlx-audio/bin/python`），模型在 `~/.cache/mlx-models`；脚本会自动切换到该解释器，也可用 `MLX_AUDIO_PYTHON` 指定。
+
+```bash
+python3 docs/src/ai/script/shared/tools/review_audio.py --project docs/src/ai/script/<topic>            # 全部章节
+python3 docs/src/ai/script/shared/tools/review_audio.py --project docs/src/ai/script/<topic> --only 25 30
+python3 docs/src/ai/script/shared/tools/asr_slice.py --project docs/src/ai/script/<topic> 25:5.6:7.4    # 对可疑词做切片二次转写
+```
+
+输出在 `preview/chapter<N>-asr.json`（含与朗读文本的归一化差异）和 `preview/ch<N>-forced-alignment.json`。差异多为转写归一化（Claude 写成 Cloud、“地”写成“的”、数字写成汉字），只有同一位置多次出现多余或缺失音节才值得处理。ASR 一致不等于读音验收。
+
+每章的字幕分组和动画锚点写在 `assets/references/ch<N>-spec.json`，格式见 `build_timing.py` 的说明：字幕短语必须原样拼接成原文（保留空格），单行宽度不超过 34 个单位；字幕与朗读不一致时（87% 读“百分之八十七”、路径读“点 agent 斜杠”）用 `[字幕, 朗读锚点]`。事件锚点为 null（单元起点）、"end" 或朗读文本中的片段，附偏移帧数（入场常用 -5）。
+
+```bash
+python3 docs/src/ai/script/shared/tools/build_timing.py --project docs/src/ai/script/<topic> --chapter ch2
+python3 docs/src/ai/script/shared/tools/chapter_pipeline.py --project docs/src/ai/script/<topic> --chapter ch2 --still term:60 --still figure:640
+```
+
+`chapter_pipeline.py` 依次执行时点生成、混音（存在 sound-plan.json 时）、类型检查、关键帧输出到 `preview/chapter<N>/<label>-<frame>.png`，任一步失败即停止。提示音偏移依赖新事件时，先跑一次得到时点，写好 sound-plan 后再跑一次。
+
+顺序约定：**先生成 `ch<N>-phrase-timing.json`，再写或改 `Chapter<N>.tsx`**。反过来会让 Studio 热更新记下“找不到模块”的错误，也可能让关键帧从旧包渲染。改动组件后如有疑问，重渲染关键帧核对，不以浏览器累计的控制台日志判断当前状态，用 Studio 服务端日志。
 
 ## 预览与导出
 
@@ -115,7 +140,11 @@ node docs/src/ai/script/shared/tools/remotion.mjs studio --project docs/src/ai/s
 node docs/src/ai/script/shared/tools/remotion.mjs still --project docs/src/ai/script/what-is-kv-cache --composition Chapter5Preview --frame 250
 ```
 
+`still` 默认写到 `preview/path-check.png`，传 `--out <路径>` 可直接写到目标文件，多张关键帧不必逐张复制。
+
 优先继续使用已经运行的正确 Studio；端口按实际情况选择，不关闭其他项目服务。共享 Studio 入口带 `--no-open`，只启动服务，不自动打开外部浏览器。在 Codex 中制作视频时，默认在 Codex 内置浏览器打开服务实际输出的预览 URL，并复用当前项目已有的预览标签；可通过 `mcp__codex_app__open_in_codex` 展示，通过可用的内置浏览器控制工具检查画面。不要默认另起 Chrome 或 agent-browser。内置浏览器不可用或遇到实际兼容问题时，说明原因后再使用外部浏览器。
+
+在 Claude Code 内置浏览器里操作 Studio：空格键不会触发播放，点底部的 Play 按钮；回到某一帧点左下角的帧数按钮输入数字回车；用页面里 audio 元素的 currentTime 是否前进判断音频真的在播。
 
 看完预览后暂停播放。临时自动化浏览器在检查完成、失败或取消时关闭本次会话；不要留下循环播放，也不要批量终止其他任务的浏览器。遇到无法自动息屏时，用 `pmset -g assertions` 核对是否仍有本次进程持有 `Video Wake Lock`。
 
@@ -126,6 +155,12 @@ node docs/src/ai/script/shared/tools/remotion.mjs still --project docs/src/ai/sc
 ```bash
 node docs/src/ai/script/shared/tools/remotion.mjs render --project docs/src/ai/script/what-is-kv-cache
 python3 docs/src/ai/script/shared/tools/verify_export.py --project docs/src/ai/script/what-is-kv-cache
+```
+
+整片渲染通常超过 10 分钟（本机约 4.5 分钟成片需 12 分钟），超过 Agent 单条命令的上限，必须加 `--detach`：入口会脱离会话启动子进程，打印 pid 与日志路径 `preview/render/render.log`，之后轮询日志或 `pgrep -f 'remotion-cli.js render'` 等待完成。macOS 没有 setsid，不要手写 nohup 组合。
+
+```bash
+node docs/src/ai/script/shared/tools/remotion.mjs render --project docs/src/ai/script/<topic> --detach
 ```
 
 render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频流，用项目 `deliveryAudio` 指定的混音（未设置时使用 `build/voiceover.wav`）重新编码 AAC、按总帧数截定时长，写到 `output/<project.outputName>`。这样处理已有导出中观察到的统一音频延迟；仍需实际验证。失败时不替换已有最终 MP4。
@@ -154,6 +189,14 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 整理已有项目时，遍历 `docs/src/ai/script/*/project.json`，以每个配置的 `outputName` 定位最终文件；跳过尚未生成成片的项目。核实 `output/` 顶层其他 MP4 的用途，将试做版本或历史文件移入 `preview/` 或 `output/legacy/`。移动前后比较哈希，禁止覆盖同名文件；已有引用随实际用途更新。
 
 最终成片出现在 Git 待提交列表中不代表已上传。仅在用户明确要求时执行 commit/push，成功后再报告已上传 GitHub。
+
+## 命令执行注意
+
+- 不在 Bash 里 `cd`：工作目录会跨调用漂移，之后的相对路径全错。一律从仓库根目录用相对路径，或给工具传绝对路径。
+- Python heredoc 含中文时加 `# -*- coding: utf-8 -*-` 并设 `LC_ALL=en_US.UTF-8`，否则在某些工作目录下会报非 UTF-8 编码错误。
+- zsh 通配符无匹配会直接报错并中断整条命令；扫描文件用 `find` 或 bash。
+- 多步命令用 `set -o pipefail` 和 `&&` 串联，一步失败必须停下，不要让后面的步骤在坏输入上继续。
+- `doctor.py` 在稿子已确认、配音未生成时输出 `awaiting-audio` 状态和缺失单元，不再抛异常；`ready` 才表示时间轴完整。
 
 ## 维护与验证
 
