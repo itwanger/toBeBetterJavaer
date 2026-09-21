@@ -18,8 +18,6 @@
 - 它和传统 LLM、传统分类模型有什么本质区别？
 - 做 Agent 开发的你，该不该用？
 
-![](https://cdn.paicoding.com/stutymore/what-is-jev-timeline-20260921164112-7ec0e41c.png)
-
 哈喽大家好，我是二哥呀。今天用 3 分钟，给你讲清楚最近爆火的 Jev 到底是什么。
 
 **先说第一件事，Jev 是什么。**
