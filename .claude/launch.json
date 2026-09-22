@@ -50,6 +50,19 @@
         "3003"
       ],
       "port": 3003
+    },
+    {
+      "name": "remotion-jev-replicas",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/open-source-jev-replicas",
+        "--port",
+        "3004"
+      ],
+      "port": 3004
     }
   ]
 }

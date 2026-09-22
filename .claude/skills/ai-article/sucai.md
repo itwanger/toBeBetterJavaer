@@ -1,6 +1,6 @@
-标题：我用飞书+豆包工作，找到了最邪修的用法。
+标题：为什么越来越多人放弃 Claude Code 转而用 Pi？
 
-参考文章：https://mp.weixin.qq.com/s/9m8vV_VX-fYiDIMurtt_1g
+参考文章：https://mp.weixin.qq.com/s/8KB9H19wTmV9Ttsls2ZQOQ
 
 我们的共同点是，打造一个AI时代的最佳知识库，只是完全不同的形式。
 
