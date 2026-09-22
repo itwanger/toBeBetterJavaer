@@ -62,6 +62,14 @@
 - [GPT Images 2.5 一手实测，OpenAI 越来越有水平啦](https://javabetter.cn/ai/video/chatgpt-images-2-5.html)：OpenAI 发布 Images 2.5，生成速度比 Images 2.0 快一倍，新增 Sketch 草图功能，可以直接在对话框里画草图让 AI 照着生成图片。这期带你过一遍升级点和用法。
 - [GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？](https://javabetter.cn/ai/video/gpt-6-astra.html)：GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。
 - [Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？](https://javabetter.cn/ai/video/why-relay-still-works.html)：官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂；中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。
+- [Harness 的五要素是什么？](https://javabetter.cn/ai/video/harness-five-elements.html)：上下文管理、工具接口、约束、验证、纠正。前两项构成最小 Harness，生产系统再加上后三项保障，Agent = Model + Harness 是同一个 Agent 在生产形态下的展开。
+- [如果只能给 Agent 增加一项能力，更强的 LLM，更长的 Context，还是更多的 Tool？](https://javabetter.cn/ai/video/llm-context-or-tool.html)：如果只能给 Agent 增加一项能力，更强的 LLM，更长的 Context，还是更多的 Tool？答案取决于瓶颈在哪，很多看似需要更强模型的问题其实是接口问题。
+- [了解 Agent 的 Checkpoint 机制吗？](https://javabetter.cn/ai/video/what-is-agent-checkpoint.html)：Checkpoint 是运行时内存与工作环境状态的持久化存档点，至少覆盖任务规划、对话历史、文件系统、进程状态和环境配置，Claude Code、Codex、Devin 各有实现。
+- [Agent 的沙箱（Sandbox）你了解吗？](https://javabetter.cn/ai/video/what-is-agent-sandbox.html)：命令黑名单挡不住动态生成的代码，合格的沙箱要在文件系统、网络、进程空间和资源配额四个层面隔离，Claude Code、Codex、Devin 在隔离强度和启动成本之间各有取舍。
+- [什么是 Manus？说说你对它的了解](https://javabetter.cn/ai/video/what-is-manus.html)：Manus 把 Deep Research、Coding、Computer Use 三条独立路线放进同一个 Agent，虚拟浏览器扩大了观察空间，文件系统、代码执行和命令行扩大了动作空间。
+- [大模型预训练完了，为什么还要做强化学习？](https://javabetter.cn/ai/video/what-is-reinforcement-learning.html)：预训练靠自监督学习积累知识，强化学习让模型和环境互动、靠奖励和惩罚试错调整策略，DeepSeek-R1-Zero 纯靠 RL 涌现出推理和反思。
+- [不生成文本的 Jev，为什么让 14 万开发者排队？](https://javabetter.cn/ai/video/what-is-jev.html)：Jev 是 TypeSafe AI 发布的 System One 模型，不生成文本只做判断，一次前向计算直接在选项上分配校准过的概率，适合 Agent 里的高频小决策。
+- [推荐 5 个复刻 Jev 的开源项目](https://javabetter.cn/ai/video/open-source-jev-replicas.html)：开源社区用轻量决策头加 LoRA 微调复刻了 Jev，Kev、Nimble、Laya、Open-Jev 各有看家本领，可以在本地跑起自己的决策模型。
 
 ## 学习路线
 
@@ -113,6 +121,12 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [Codex + Jev 实测](https://javabetter.cn/sidebar/itwanger/ai/codex-jev.html)：在 Codex 中安装 Jev 判断模型实测，Agent 决策比 LLM 快 40-200 倍，便宜 40-400 倍，输出 Token 免费
+- [飞书+豆包工作知识库](https://javabetter.cn/sidebar/itwanger/ai/feishu-doubao-knowledge-base.html)：用飞书+豆包工作把 300 多篇文章变成可查询的 AI 知识库，从上传到跨库检索到邪修用法的完整实测记录
+- [又一款国产大模型，性价比拉满。](https://javabetter.cn/sidebar/itwanger/ai/step5-preview-vs-deepseek.html)：Step 5 Preview vs DeepSeek V4 Pro 三场景同题实测，用 Kimi Code 做统一 Harness，看八分之一 Opus 5 价格的国产旗舰模型到底能打多少成
+- [MiniMax Code 测评](https://javabetter.cn/sidebar/itwanger/ai/minimax-code-cli.html)：MiniMax Code CLI v0.4.12 开源测评，从安装配置到源码架构拆解，分析 Turn Loop、工具系统、扩展注册等设计模式，为 PaiCLI 偷师
+- [Kimi Code 实测](https://javabetter.cn/sidebar/itwanger/ai/kimi-code-shice.html)：Kimi Code 桌面版深度实测，用 K3 做赛博朋克像素街区和鹈鹕骑自行车动画，K2.7 和 K3 的实际差距一试便知
+- [豆包工作录制回放](https://javabetter.cn/sidebar/itwanger/ai/doubao-work-browser-skill.html)：豆包工作浏览器录制与回放 Skill 实测，把抖音评论采集到飞书多维表格，录一次操作自动生成可复用 Skill
 - [Skills 清理指南](https://javabetter.cn/sidebar/itwanger/ai/rethinking-skills-prompts-astra.html)：OpenAI 官方发布 Astra 时代提示词清理指南，逐条拆解四个核心方向，附可复制的审查提示词，覆盖 Claude Code 和 Codex 两个生态
 - [Seed2.1 Pro 升级实测](https://javabetter.cn/sidebar/itwanger/ai/seed21-pro-upgrade-review.html)：字节 Seed2.1 Pro 升级实测，4 个 Case 从 SVG 动画到仙剑 RPG，看看豆包工作的底层模型到底强了多少
 - [本地Coding Agent面试10问](https://javabetter.cn/sidebar/itwanger/ai/xiaomi-coding-agent-mianshi.html)：10 道本地 Coding Agent 工程面试题全解：完整链路、多模型后端、工具系统、上下文压缩与记忆治理，基于自研项目源码深度解析。
@@ -167,12 +181,6 @@
 - [QoderWork 速通指南](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-xiaohao.html)：QoderWork CN 速通指南，从安装到实战全流程，覆盖设计工作台、专家套件、浏览器连接器、技能市场、定时任务、IM 频道等核心功能，附宠物寄养平台产品设计实战案例。
 - [Claude Code核心概念拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-core-concepts.html)：从官方文档出发，拆解 Claude Code 五大核心概念：上下文、CLAUDE.md、Hooks、Skills、Subagents 的内部机制，结合 PaiCLI 实战对照，理解 Agent Harness 的设计逻辑。面试官：“你说你用Claude写代码，那你说说你CLAUDE.md、Hooks、Skills、Subagents”，我：“这些是啥？”，面试官：“回去等通知吧！”
 - [QoderWork CN 全面评测](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-review.html)：QoderWork CN 全面评测，阿里 Qoder 桌面 AI 智能体实测，支持 Qwen3.7-Max、GLM-5.2 等多模型自由切换，Quest 架构 + 专家团模式 + 意识功能深度体验。 QoderWork 太顶了，无限画布设计出来的Codex网站，好看啊
-- [Claude Code命令全攻略](https://javabetter.cn/sidebar/itwanger/ai/claude-code-commands-guide.html)：Claude Code 50+ 个斜杠命令、20+ 个快捷键和隐藏关键词全攻略，按使用场景分组实操，附两个宝藏学习网站推荐。
-- [Codex多模型横评实测](https://javabetter.cn/sidebar/itwanger/ai/codex-deepseek-v4-step-3-7-flash.html)：Codex原生支持第三方模型，实测DeepSeek V4 Flash与Step 3.7 Flash在Coding Agent、Search Agent、Tool-use Agent三个场景的表现，对比速度、成本和稳定性。
-- [Agnes AI免费全模态模型体验](https://javabetter.cn/sidebar/itwanger/ai/agnes-ai-free-model-review.html)：Agnes AI 无限期免费开放全模态 API，实测 Agnes-2.0-Flash 文本模型、Agnes-Image-2.1-Flash 图片模型和 Agnes-Video-V2.0 视频模型的接入流程与生成效果。
-- [Loop Engineering 硬核教程](https://javabetter.cn/sidebar/itwanger/ai/loop-engineering-guide.html)：深度拆解 Loop Engineering 六大组件，从定时任务到 Worktree 隔离，实测 Claude Code /loop 和 Codex /goal 命令，附完整 demo 和配置指南。
-- [GLM-5.2+讯飞版Codex，你值得拥有的世界杯AI搭子](https://javabetter.cn/sidebar/itwanger/ai/loomy-worldcup-review.html)：Loomy 世界杯搭子实测，支持 GLM-5.2 自定义模型，三位球星 AI 搭子陪看球，定时任务模板自动推送赛程战报和玄学预测。
-- [微信里爽用Claude Code](https://javabetter.cn/sidebar/itwanger/ai/wechat-claude-code-paicli.html)：基于 wechat-claude-code 开源方案，用 Codex+Claude Code 在 PaiCLI 中实现微信接入 Claude Code，涵盖 Codex 调研、技术方案设计、iLink Bot API 长轮询消息引擎、安全沙箱和输出适配全流程原理。
 
 ## 开发工具
 
