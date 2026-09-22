@@ -26,9 +26,9 @@ const meta = (
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   readme: meta(
-    "AI Agent 面试 294 题：从基础原理到项目实战",
-    "Agent 面试 294 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI 和模型微调分类整理 294 道高频面试题。",
+    "AI Agent 面试 350 题：从基础原理到项目实战",
+    "Agent 面试 350 题",
+    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 350 道高频面试题。",
     ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(
@@ -337,6 +337,54 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂；中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。",
     ["AI 宕机", "API 中转", "Cloudflare", "OpenAI 兼容协议"],
   ),
+  "harness-five-elements": meta(
+    "Harness 的五要素是什么？",
+    "Harness 五要素",
+    "上下文管理、工具接口、约束、验证、纠正。前两项构成最小 Harness，生产系统再加上后三项保障，Agent = Model + Harness 是同一个 Agent 在生产形态下的展开。",
+    ["Harness", "Agent 架构", "约束验证纠正", "Model + Harness"],
+  ),
+  "llm-context-or-tool": meta(
+    "如果只能给 Agent 增加一项能力，更强的 LLM，更长的 Context，还是更多的 Tool？",
+    "LLM、Context 还是 Tool",
+    "如果只能给 Agent 增加一项能力，更强的 LLM，更长的 Context，还是更多的 Tool？答案取决于瓶颈在哪，很多看似需要更强模型的问题其实是接口问题。",
+    ["LLM", "Context", "Tool", "Agent 能力"],
+  ),
+  "what-is-agent-checkpoint": meta(
+    "了解 Agent 的 Checkpoint 机制吗？",
+    "Agent Checkpoint",
+    "Checkpoint 是运行时内存与工作环境状态的持久化存档点，至少覆盖任务规划、对话历史、文件系统、进程状态和环境配置，Claude Code、Codex、Devin 各有实现。",
+    ["Checkpoint", "状态回滚", "Claude Code", "Devin"],
+  ),
+  "what-is-agent-sandbox": meta(
+    "Agent 的沙箱（Sandbox）你了解吗？",
+    "Agent 沙箱",
+    "命令黑名单挡不住动态生成的代码，合格的沙箱要在文件系统、网络、进程空间和资源配额四个层面隔离，Claude Code、Codex、Devin 在隔离强度和启动成本之间各有取舍。",
+    ["Sandbox", "沙箱隔离", "Bubblewrap", "Firecracker"],
+  ),
+  "what-is-manus": meta(
+    "什么是 Manus？说说你对它的了解",
+    "什么是 Manus",
+    "Manus 把 Deep Research、Coding、Computer Use 三条独立路线放进同一个 Agent，虚拟浏览器扩大了观察空间，文件系统、代码执行和命令行扩大了动作空间。",
+    ["Manus", "通用 Agent", "观察空间", "动作空间"],
+  ),
+  "what-is-reinforcement-learning": meta(
+    "大模型预训练完了，为什么还要做强化学习？",
+    "什么是强化学习",
+    "预训练靠自监督学习积累知识，强化学习让模型和环境互动、靠奖励和惩罚试错调整策略，DeepSeek-R1-Zero 纯靠 RL 涌现出推理和反思。",
+    ["强化学习", "RL", "DeepSeek R1", "后训练"],
+  ),
+  "what-is-jev": meta(
+    "不生成文本的 Jev，为什么让 14 万开发者排队？",
+    "Jev 是什么",
+    "Jev 是 TypeSafe AI 发布的 System One 模型，不生成文本只做判断，一次前向计算直接在选项上分配校准过的概率，适合 Agent 里的高频小决策。",
+    ["Jev", "System One", "决策模型", "TypeSafe AI"],
+  ),
+  "open-source-jev-replicas": meta(
+    "推荐 5 个复刻 Jev 的开源项目",
+    "Jev 开源复刻",
+    "开源社区用轻量决策头加 LoRA 微调复刻了 Jev，Kev、Nimble、Laya、Open-Jev 各有看家本领，可以在本地跑起自己的决策模型。",
+    ["Jev", "Kev", "Nimble", "开源模型"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -362,6 +410,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "why-handcraft-agent-not-framework",
       "how-agent-accumulates-experience",
       "multi-agent-conflict-resolution",
+      "harness-five-elements",
+      "llm-context-or-tool",
+      "what-is-agent-checkpoint",
+      "what-is-agent-sandbox",
     ],
   },
   {
@@ -427,7 +479,21 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   },
   {
     text: "HOT / 模型与行业热点",
-    children: ["chatgpt-images-2-5", "gpt-6-astra", "why-relay-still-works"],
+    children: [
+      "chatgpt-images-2-5",
+      "gpt-6-astra",
+      "why-relay-still-works",
+      "what-is-jev",
+      "open-source-jev-replicas",
+    ],
+  },
+  {
+    text: "11 / 模型训练与微调",
+    children: ["what-is-reinforcement-learning"],
+  },
+  {
+    text: "12 / Agent 产品与框架演进",
+    children: ["what-is-manus"],
   },
 ];
 

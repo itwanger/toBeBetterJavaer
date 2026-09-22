@@ -1,7 +1,7 @@
 ---
-title: AI Agent 面试 347 题合集
-shortTitle: AI Agent 面试 347 题
-description: AI Agent 面试 347 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
+title: AI Agent 面试 350 题合集
+shortTitle: AI Agent 面试 350 题
+description: AI Agent 面试 350 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
 tag:
   - 面试
 category:
@@ -24,7 +24,7 @@ date: 2026-05-20
 
 ![跟着王二讲Agent：通过完整题目系统学习，建立Agent时代的完整知识体系](https://cdn.paicoding.com/stutymore/agent-learning-completeness-20260908231154-003540aa.png)
 
-这套题库一共 347 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
+这套题库一共 350 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
 
 每道题都不是孤立的概念解释，而是串联到三个实战项目来回答。
 
@@ -1351,7 +1351,7 @@ V4-Flash 和 V4-Flash-Vision-Exp 只差一个视觉编码器。大模型的入�
 
 完整答案：[查看图文解析](./deepseek-multimodal.md) · [B站视频](https://www.bilibili.com/video/BV1nPYs6pEYU/)
 
-## 热点解读（2 题）
+## 热点解读（4 题）
 
 模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
 
@@ -1366,6 +1366,18 @@ GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加
 官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂。中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。文中给了三个验证中转到底在调谁的方法。
 
 完整内容：[查看图文解析](./why-relay-still-works.md)
+
+### 不生成文本的 Jev，为什么让 14 万开发者排队？
+
+Jev 是 TypeSafe AI 9 月 15 日发布的 System One 模型，不生成文本，只做判断。给它一段应用状态和一个预定义的结构化问题，它用一次前向计算直接在选项上分配概率，支持是否、单选、打分三种决策。它用 RLCD 训练校准过的置信度，比同类 LLM 快 40 到 200 倍，便宜 40 到 400 倍。Agent 里意图路由、审核、风控初筛这类高频小决策交给它，复杂推理仍然交给大模型。
+
+完整内容：[查看图文解析](./what-is-jev.md)
+
+### 推荐 5 个复刻 Jev 的开源项目
+
+开源社区在 48 小时内复刻出了 Jev，思路是扔掉全量语言模型头，换成轻量决策头，冻结底层参数只挂 LoRA 微调，块因果掩码让单次前向并发完成多项决策。文中盘点 Kev（Qwen3.5 基座，兼容官方 SDK，本地首选）、Nimble（对比数据构建，准确率 90.1%）、Laya（ModernBERT 双向编码器，单次 33 毫秒）、Open-Jev（截流下一个 token 的概率对数）四个项目，以及意图路由、工具护栏、历史剪枝三个落地入口。
+
+完整内容：[查看图文解析](./open-source-jev-replicas.md)
 
 ## 08、Prompt 工程（16 题）
 
@@ -1637,84 +1649,94 @@ PaiCLI 实现了一套完整的安全机制：HITL（Human-in-the-Loop）人工�
 ### 305. 如何保证 LangChain 应用的输出质量和一致性？
 🔴 困难 | `LangChain / 质量保证` | → PaiAgent 框架选型对比
 
-## 11、模型训练与微调（31 题）
+## 11、模型训练与微调（32 题）
 
 聚焦预训练、SFT、RLHF、DPO、LoRA、PEFT、量化、蒸馏、数据集与训练资源。
 
-### 306. 大模型是怎么训练出来的？预训练→SFT→RLHF 三阶段讲一下？
+### 306. 大模型预训练完了，为什么还要做强化学习？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+预训练是自监督学习，模型靠遮住词自己猜来刷题，学到的是知识。强化学习没有老师也没有教材，模型直接和环境互动，答对给奖励，答错给惩罚，靠试错调整策略。DeepSeek-R1-Zero 没用任何标注数据，纯靠 RL 让模型自己学会了推理，训练中涌现出「等一下，让我重新想想」这样的反思。各家往 RL 砸钱，是因为高质量预训练数据快用完了，RL 只需要一个能判断对错的奖励信号。小米 MiMo-V2.6 的 RL 训练每步约 20 亿 token，4 万多个沙箱并行。
+
+完整答案：[查看图文解析](./what-is-reinforcement-learning.md)
+
+🟢 基础 | `→ DeepSeek R1 / MiMo`
+
+### 307. 大模型是怎么训练出来的？预训练→SFT→RLHF 三阶段讲一下？
 预训练（在海量无标注文本上学语言能力）→ SFT（用人工标注的指令-回答对微调，学会“听话”）→ RLHF（用人类偏好反馈做价值观校准，学会“说人话”）。三阶段花费依次降低但重要性递增。
 
 🟡 进阶 | 字节、腾讯
 
-### 307. 大模型微调有哪些方案？LoRA 的原理是什么？
+### 308. 大模型微调有哪些方案？LoRA 的原理是什么？
 全量微调（改所有参数，贵）、LoRA（冻结原始权重，只训练低秩分解矩阵，参数量减少 99%+）、QLoRA（量化 + LoRA，更省显存）、Adapter（在层间插入小模块）、Prefix Tuning（只调前缀向量）。LoRA 是目前性价比最高的方案。
 
 🟡 进阶 | 字节、阿里
 
-### 308. SFT 之后还有哪些 Post-Training？RLHF、DPO、GRPO 什么关系？
+### 309. SFT 之后还有哪些 Post-Training？RLHF、DPO、GRPO 什么关系？
 SFT 让模型学会格式和基本能力，Post-Training 让模型学会“什么样的回答更好”。RLHF 用奖励模型 + PPO 训练，DPO 去掉奖励模型直接用偏好对训练，GRPO 去掉 Critic 网络用组内相对比较。进化路径是越来越简化训练流程。
 
 🔴 深入 | 作业帮、腾讯
 
-### 309. DPO 和 PPO 的区别是什么？
+### 310. DPO 和 PPO 的区别是什么？
 PPO 需要先训一个奖励模型，再用奖励模型的分数做策略梯度优化，流程复杂。DPO 直接用偏好数据对（好回答 vs 坏回答）优化策略，把奖励模型隐式地融入到损失函数里，训练更简单稳定。
 
 🔴 深入 | 腾讯、三七互娱
 
-### 310. 大模型量化是什么？INT8/INT4/AWQ/GPTQ 怎么选？
+### 311. 大模型量化是什么？INT8/INT4/AWQ/GPTQ 怎么选？
 把模型参数从 FP16 压缩到 INT8/INT4，显存占用直接减半或减四分之三。GPTQ 是训后量化（快但精度损失稍大），AWQ（Activation-aware）考虑激活值分布做量化（精度更好），INT4 省显存最多但精度损失最大。实际选型看你的显卡显存和精度要求。
 
 🟡 进阶
 
-### 311. 微调中常用的优化器有哪些？
+### 312. 微调中常用的优化器有哪些？
 🟡 中等 | `大模型 / AI / 微调 / 优化器` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 312. 微调的过拟合风险如何通过正则化缓解？
+### 313. 微调的过拟合风险如何通过正则化缓解？
 🔴 困难 | `大模型 / AI / 微调` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 313. 在多模态微调（如图文生成）中，如何确保文本和图像数据的对齐质量？
+### 314. 在多模态微调（如图文生成）中，如何确保文本和图像数据的对齐质量？
 🔴 困难 | `大模型 / AI / 微调 / 多模` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 314. 参数高效微调（PEFT）如何减少计算成本？
+### 315. 参数高效微调（PEFT）如何减少计算成本？
 🔴 困难 | `大模型 / AI / 微调` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 315. 冻结层在微调中的作用是什么？
+### 316. 冻结层在微调中的作用是什么？
 🔴 困难 | `大模型 / AI / 微调` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 316. 为什么需要混合精度训练？
+### 317. 为什么需要混合精度训练？
 🔴 困难 | `大模型 / AI / 微调` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 317. 模型输出重复和幻觉如何微调解决？
+### 318. 模型输出重复和幻觉如何微调解决？
 🔴 困难 | `大模型 / AI / 微调` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 318. 微调大模型需要什么样的硬件？7B 和 70B 模型分别需要多少显存？
+### 319. 微调大模型需要什么样的硬件？7B 和 70B 模型分别需要多少显存？
 🟢 简单 | `大模型 / 微调 / 显存评估` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 319. 2026 年主流的微调工具有哪些？Unsloth、Axolotl、TRL 各有什么特点？
+### 320. 2026 年主流的微调工具有哪些？Unsloth、Axolotl、TRL 各有什么特点？
 🟢 简单 | `大模型 / 微调工具 / Unsloth / Axolotl / TRL` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 320. LoRA 的超参数应该怎么设置？有什么经验法则？
+### 321. LoRA 的超参数应该怎么设置？有什么经验法则？
 🟢 简单 | `大模型 / LoRA / 超参数` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 321. 对比 LoRA、QLoRA、DoRA 和全量微调，在不同场景下应该如何选择？
+### 322. 对比 LoRA、QLoRA、DoRA 和全量微调，在不同场景下应该如何选择？
 🟢 简单 | `大模型 / LoRA / QLoRA / DoRA / 全量微调` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 322. ORPO 是什么？它如何将指令微调和偏好对齐合二为一？
+### 323. ORPO 是什么？它如何将指令微调和偏好对齐合二为一？
 🟢 简单 | `大模型 / ORPO / 偏好对齐` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 323. 如何构建高质量的 SFT 微调数据集？数据质量和数量哪个更重要？
+### 324. 如何构建高质量的 SFT 微调数据集？数据质量和数量哪个更重要？
 🟢 简单 | `大模型 / SFT / 数据集构建` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 324. 什么是模型蒸馏（Knowledge Distillation）？它和模型量化有什么区别？
+### 325. 什么是模型蒸馏（Knowledge Distillation）？它和模型量化有什么区别？
 🟢 简单 | `大模型 / 模型蒸馏 / 模型量化` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 325. 大模型的训练和推理分别是什么？它们在计算资源需求上有什么区别？
+### 326. 大模型的训练和推理分别是什么？它们在计算资源需求上有什么区别？
 🟢 简单 | `大模型 / 训练 / 推理 / 资源评估` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 326. 什么是大模型的参数量？参数量和模型能力之间是什么关系？
+### 327. 什么是大模型的参数量？参数量和模型能力之间是什么关系？
 🟢 简单 | `大模型 / 参数量 / 模型能力` | → PaiAgent / PaiCLI 模型工程面试扩展
 
-### 327. Mid-training 是什么？
+### 328. Mid-training 是什么？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1722,7 +1744,7 @@ Mid-training 沿用预训练的下一个词目标，把数据分布收窄到目�
 
 🔴 深入 | `→ PaiCLI`
 
-### 328. SFT 和 RL 的本质区别是什么？
+### 329. SFT 和 RL 的本质区别是什么？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1730,7 +1752,7 @@ SFT 在数学上和预训练是同一个任务，都是预测下一个词，区�
 
 🟡 进阶 | `→ PaiCLI`
 
-### 329. 怎么判断该做 Mid-training、SFT 还是 RL？
+### 330. 怎么判断该做 Mid-training、SFT 还是 RL？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1738,7 +1760,7 @@ SFT 在数学上和预训练是同一个任务，都是预测下一个词，区�
 
 🔴 深入 | `→ PaiCLI`
 
-### 330. 结果奖励和过程奖励怎么选？
+### 331. 结果奖励和过程奖励怎么选？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1746,7 +1768,7 @@ SFT 在数学上和预训练是同一个任务，都是预测下一个词，区�
 
 🔴 深入 | `→ PaiCLI`
 
-### 331. 什么是 RLVP？
+### 332. 什么是 RLVP？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1754,7 +1776,7 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 🔴 深入 | `→ PaiCLI`
 
-### 332. 什么是在轨蒸馏（On-Policy Distillation）？
+### 333. 什么是在轨蒸馏（On-Policy Distillation）？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1762,7 +1784,7 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 🔴 深入 | `→ PaiCLI`
 
-### 333. 编辑文件经常失败，该改 Harness 还是后训练？
+### 334. 编辑文件经常失败，该改 Harness 还是后训练？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1770,7 +1792,7 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 🔴 深入 | `→ PaiCLI`
 
-### 334. Coding Agent 过早结束，怎么用后训练修？
+### 335. Coding Agent 过早结束，怎么用后训练修？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1778,7 +1800,7 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 🔴 深入 | `→ PaiCLI`
 
-### 335. 微调时怎么缓解灾难性遗忘？
+### 336. 微调时怎么缓解灾难性遗忘？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1786,7 +1808,7 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 🟡 进阶 | `→ PaiCLI`
 
-### 336. 在多模态微调中，如何确保文本和图像数据的对齐质量？有哪些技术挑战？
+### 337. 在多模态微调中，如何确保文本和图像数据的对齐质量？有哪些技术挑战？
 
 <p class="agent-duplicate-question"><span>REVIEW</span> 疑似重复 · 待确认：与同分类的「如何确保文本和图像数据的对齐质量？」内容重合</p>
 🟢 简单 | `大模型 / 多模态微调 / 数据对齐` | → PaiAgent / PaiCLI 模型工程面试扩展
@@ -1795,11 +1817,11 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 从 AutoGPT 到 Manus、OpenManus，再到 OpenClaw，这些产品和框架本身已经不是热点，但每一个都代表 Agent 发展的一个阶段。这一类题不考「它是什么」，考的是它当时解决了什么问题、为什么后来被替代、留下了哪些至今还在用的设计。一条主线可以贯穿全部，产品能力的演进就是观察空间和动作空间的演进。拿 OpenClaw 当 Harness 案例的设计题仍然放在「03、Harness 与 Skills」。
 
-### 337. AutoGPT 如何实现自主决策？
+### 338. AutoGPT 如何实现自主决策？
 AutoGPT 是最早把「让模型在循环里自己决定下一步」做成产品的项目之一，靠提示词让模型输出思考、计划和下一条命令，再把执行结果喂回去。它当年暴露的问题，循环停不下来、token 消耗失控，至今仍是 Agent 工程的核心问题。当年靠提示词硬撑的规划和工具选择，现在已经被模型内化成原生能力。
 🔴 困难 | `大模型 / AI / Agent / AutoGPT` | → PaiCLI / PaiAgent Agent 范式对比
 
-### 338. 什么是 Manus？说说你对它的了解
+### 339. 什么是 Manus？说说你对它的了解
 
 Manus 不是聊天机器人，而是能动手干活的 AI Agent，ChatGPT 是参谋，Manus 是执行者。它底层用 Claude，没有自研模型，通用靠的是把 Deep Research、Coding 和 Computer Use 三条路线放进同一个 Agent，用虚拟浏览器扩大观察空间，用代码执行和命令行扩大动作空间。爆火靠邀请码稀缺、GAIA 榜单成绩和“套壳”争议，技术门槛不高，工程化的差距才是壁垒。
 
@@ -1807,22 +1829,22 @@ Manus 不是聊天机器人，而是能动手干活的 AI Agent，ChatGPT 是参
 
 🟢 简单 | `AI / 大模型 / Manus` | → PaiAgent / PaiCLI
 
-### 339. 什么是 OpenManus？它的实现原理是什么？
+### 340. 什么是 OpenManus？它的实现原理是什么？
 OpenManus 是 MetaGPT 团队在 Manus 发布后很快开源的复现项目，价值在于用很少的代码把通用 Agent 的骨架摆在明面上，一个 ReAct 循环，加上浏览器、代码执行、文件读写几类工具。面试时重点讲这个骨架和 Manus 的差距在哪，差的不是循环，是 Harness 里的约束、验证和纠正。
 🔴 困难 | `后端` | → PaiAgent / PaiCLI
 
-### 340. 最近 OpenClaw 这么火，你知道它的原理吗？
+### 341. 最近 OpenClaw 这么火，你知道它的原理吗？
 OpenClaw 把接口延伸到了用户的数字生活。它通过 WhatsApp、Telegram、Slack、Discord、iMessage 这些用户已经在用的消息渠道接收任务和返回结果，用本地 Gateway 连接 Google Drive、Notion 和本地文件系统，本地优先，常驻运行。内核仍然是 Coding Agent，文件系统是记忆、知识和能力的中枢，长期记忆存在 MEMORY.md 和按日期归档的 Markdown 日志里。
 🟢 简单 | `AI / OpenClaw / 大模型应用开发 / Agent 开发 / AI 应用开发` | → PaiAgent / PaiCLI
 
-### 341. 市面上有哪些主流的 LLM Agent 框架？各自的特点是什么？
+### 342. 市面上有哪些主流的 LLM Agent 框架？各自的特点是什么？
 可以按编排模式和开发方式来分。Codex Harness 和 Claude Agent SDK 是模型厂商开放的自主 Agent 运行时，LangChain / LangGraph 是工作流加自主的通用框架，n8n 和 Dify 走低代码，CrewAI 做角色化多 Agent 编排，DeepSeek Harness 走一切皆插件。框架更迭很快，选型的关键不是框架本身有多完整，而是它能不能用尽量少的抽象层让你专注业务逻辑。
 🟢 简单 | `大模型 / AI / Agent` | → PaiAgent / PaiCLI
 
-### 342. 什么是 Google ADK？
+### 343. 什么是 Google ADK？
 🟢 简单 | `AI / 大模型` | → PaiAgent / PaiCLI
 
-### 343. 用感知、行动、策略三个维度分析一个 AI 产品
+### 344. 用感知、行动、策略三个维度分析一个 AI 产品
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1830,7 +1852,7 @@ Coding Agent 感知需求、代码片段、目录和终端输出，行动是代�
 
 🟡 进阶 | `→ PaiCLI`
 
-### 344. 为什么说 Coding 是通用 Agent 的核心能力？
+### 345. 为什么说 Coding 是通用 Agent 的核心能力？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1838,7 +1860,7 @@ Manus、OpenClaw 这类通用 Agent 把 Deep Research、Computer Use 和 Coding 
 
 🟡 进阶 | `→ PaiCLI`
 
-### 345. OpenClaw 是什么？它要解决什么问题？它的核心能力有哪些？
+### 346. OpenClaw 是什么？它要解决什么问题？它的核心能力有哪些？
 
 <p class="agent-duplicate-question"><span>REVIEW</span> 疑似重复 · 待确认：与「最近 OpenClaw 这么火，你知道它的原理吗？」内容重合</p>
 🟢 简单 | `AI / OpenClaw / 大模型应用开发 / AI应用开发 / Agent开发` | → PaiAgent / PaiCLI
@@ -1851,7 +1873,7 @@ Agent 这一轮变化和以往不太一样。以前的技术迭代，学一门�
 
 Alan Kay 说过一句话，「预测未来最好的办法就是去创造它」。我觉得这话放在今天特别合适。与其等着被 Agent 浪潮推着走，不如自己先把原理搞透，把项目跑通，把面试里会被问到的每一个点都准备好。
 
-所以我们选择了最笨但最扎实的方式。347 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
+所以我们选择了最笨但最扎实的方式。350 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
 
 我始终相信一件事，技术的价值不在于它有多新，而在于你是否真正理解它、用过它、能把它讲清楚。这套题库要做的就是帮你到达这个状态。
 
