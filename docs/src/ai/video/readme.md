@@ -129,7 +129,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1g8jZ6dEWV/)
 
 ### 9. 什么是 Plan-and-Execute？
 
-Plan-and-Execute 的核心不是按步骤跑，而是规划和执行的分离。ReAct 没有全局规划，下一步只能看上一步的结果，任务一复杂就容易跑偏。Plan-and-Execute 靠三个组件解决。Planner 用强模型做一次性全局规划，输出任务清单，只动脑子不调工具。Executor 逐步执行，可以用便宜得多的小尺寸模型，这正是省 token 的核心逻辑。Replanner 检查每步结果，判断继续、修改计划还是结束。
+Plan-and-Execute 的核心是把规划和执行分开。Planner 先生成任务清单；Executor 逐项执行，每个任务仍可能多轮调用模型和工具；需要调整计划时，规划器还会再次请求模型。规划器和执行器可以使用不同模型来控制费用，但这不保证总 Token 或调用次数少于 ReAct。PaiCLI 当前的规划器和执行器使用同一个 `LlmClient`。
 
 完整答案：[查看图文解析](./plan-and-execute.md)
 

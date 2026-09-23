@@ -21,29 +21,32 @@ PaiCLI 的第 1 期我们已经实现了，一个基础的 ReAct Agent，能一�
 
 ![](https://cdn.paicoding.com/paicoding/7128dac401f41d2b2ede4c193e240e9d.png)
 
-一共要调用 5 次 LLM，每次都要等网络往返。
+图中是 ReAct 多轮调用的示意，调用次数取决于模型是否继续使用工具，不能据此推断另一种模式只调用一次模型。
 
-第 2 期，我们来实现 **Plan-and-Execute** 模式：先让 LLM 制定完整计划，然后按步骤执行，中间不再反复询问 LLM。
+第 2 期，我们来实现 **Plan-and-Execute** 模式：先生成任务计划，再让执行器逐项完成。这里的“规划一次”只描述首次生成计划；执行每个任务仍会调用 LLM，任务中使用工具后还可能继续调用，失败或用户补充要求时也可能重新规划。
 
 ## 01、Plan-and-Execute 的核心思想
 
-Plan-and-Execute 模式来自论文《Plan-and-Solve Prompting》。
+Plan-and-Execute 的核心是把任务规划与逐项执行分开。
 
-![](https://cdn.paicoding.com/paicoding/023298e2b4d373933a405816bb7cc729.png)
+规划器决定任务及其依赖，执行器根据任务结果调用模型和工具；它们的调用次数不能混为一谈。
 
-核心思想是**规划和执行分离**。
-
-
-![](https://cdn.paicoding.com/paicoding/81e521d5e99bf9ab4c0e16792eb823bf.jpg)
+```text
+复杂目标 → Planner（首次规划：1 次 LLM 调用）→ 任务 DAG
+                                      ├─ 任务 1：至少 1 次 LLM 调用，可能调用工具并继续询问模型
+                                      ├─ 任务 2：至少 1 次 LLM 调用，可能调用工具并继续询问模型
+                                      └─ 任务 3：至少 1 次 LLM 调用，可能调用工具并继续询问模型
+用户补充要求或执行失败 → 可能重新规划，产生额外的 LLM 调用
+```
 
 这样做的好处有：
 
-1. **减少 LLM 调用次数**：规划一次，执行多次
+1. **提前安排任务**：先明确步骤和依赖，再逐项执行；LLM 调用次数不一定比 ReAct 少
 2. **可预测性更强**：提前知道整个执行流程
 3. **支持并行执行**：识别无依赖的任务并行处理
-4. **失败可重试**：某步失败可以单独重试，不用从头来
+4. **失败可处理**：任务失败后可以依据已完成的结果重新规划；是否需要重做步骤取决于新计划
 
-代价是灵活性降低，如果执行过程中发现计划有问题，需要重新规划。
+代价是规划本身增加了一次模型请求和等待时间。如果执行中发现计划有问题，还可能再次请求模型重规划；能否节省 Token 和时间，要看任务数、每个任务的执行轮数及并行程度。
 
 ## 02、任务建模
 
@@ -286,21 +289,21 @@ public boolean hasFailed() {
 
 ## 03、规划器实现
 
-规划器负责把用户输入的复杂任务分解成可执行的计划。
+规划器负责把用户输入的复杂任务分解成可执行的计划。下面是省略流式输出和校验的示意代码；当前项目的 `Planner.createPlan` 还会先判断是否能生成无需模型规划的单步计划。
 
 ```java
 public class Planner {
-    private final GLMClient llmClient;
+    private final LlmClient llmClient;
 
     public ExecutionPlan createPlan(String goal) throws IOException {
         // 1. 构建规划提示
-        List<Message> messages = Arrays.asList(
-            Message.system(PLANNING_PROMPT),
-            Message.user("请为以下任务制定执行计划：\n" + goal)
+        List<LlmClient.Message> messages = Arrays.asList(
+            LlmClient.Message.system(PLANNING_PROMPT),
+            LlmClient.Message.user("请为以下任务制定执行计划：\n" + goal)
         );
 
         // 2. 调用 LLM 生成计划
-        ChatResponse response = llmClient.chat(messages, null);
+        LlmClient.ChatResponse response = llmClient.chat(messages, null);
 
         // 3. 解析 JSON 计划
         return parsePlan(goal, response.content());
@@ -398,7 +401,7 @@ private ExecutionPlan parsePlan(String goal, String planJson) throws IOException
 
 ### 重新规划
 
-如果执行过程中某个步骤失败了，可以基于已完成的进度重新规划：
+如果执行过程中某个步骤失败了，可以基于已完成的进度重新规划。下面的代码省略了上下文拼接细节，仅说明重新调用规划器：
 
 ```java
 public ExecutionPlan replan(ExecutionPlan failedPlan, String failureReason) {
@@ -410,7 +413,7 @@ public ExecutionPlan replan(ExecutionPlan failedPlan, String failureReason) {
 }
 ```
 
-这样即使中途出错，也不用从头开始，已完成的任务可以保留。
+当前实现会把已完成任务的描述写进重新规划的上下文，供模型参考；新生成的 `ExecutionPlan` **不会自动继承**旧计划的完成状态或执行产物。因此不能保证失败后只重做失败步骤，执行前仍要检查新计划是否重复操作。
 
 ## 04、PlanExecuteAgent
 
@@ -418,7 +421,7 @@ public ExecutionPlan replan(ExecutionPlan failedPlan, String failureReason) {
 
 ```java
 public class PlanExecuteAgent {
-    private final GLMClient llmClient;
+    private final LlmClient llmClient;
     private final ToolRegistry toolRegistry;
     private final Planner planner;
 
@@ -441,23 +444,11 @@ public class PlanExecuteAgent {
 }
 ```
 
-### 智能模式切换
+这段只展示了调度骨架，省略了 `executeTask` 内部的模型与工具循环。当前 PaiCLI 的实际流程是：`Planner.createPlan` 对复杂任务发起首次规划请求；`PlanExecuteAgent.executeTaskWithPolicy` 对每个任务至少请求一次模型，模型返回工具调用时执行工具并把结果交回模型，直到任务结束或达到预算上限。用户补充计划要求或任务失败触发重规划时，`Planner` 还会再次请求模型。比如 3 个任务各用一轮模型完成，复杂任务至少是 **1 次规划 + 3 次执行 = 4 次 LLM 调用**；工具调用和重规划会增加次数。
 
-简单任务不需要规划。我们加一个启发式判断：
+### 简单任务跳过模型规划
 
-```java
-private boolean shouldPlan(String input) {
-    // 包含多个动作关键词或长度超过50字符，需要规划
-    String[] keywords = {"创建", "写", "读", "执行", "然后", "接着"};
-    int actionCount = 0;
-    for (String keyword : keywords) {
-        if (input.contains(keyword)) actionCount++;
-    }
-    return actionCount >= 3 || input.length() > 50;
-}
-```
-
-简单任务用 ReAct，复杂任务用 Plan-and-Execute，自动选择最优模式。
+用户输入 `/plan <任务>` 时，PaiCLI 会进入 Plan-and-Execute 模式。该模式内部有简单任务判断：符合条件时跳过首次 LLM 规划，生成单步计划，但执行这个任务仍需调用模型。它不是根据输入长度自动在 ReAct 和 Plan-and-Execute 两种模式之间切换。
 
 ## 05、计划可视化
 
@@ -506,9 +497,9 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 
 | 特性         | ReAct            | Plan-and-Execute   |
 | ------------ | ---------------- | ------------------ |
-| LLM 调用次数 | 多（每步都调）   | 少（只调规划）     |
-| 执行速度     | 慢（网络往返多） | 快（本地执行多）   |
-| Token 消耗   | 高               | 低                 |
+| LLM 调用次数 | 由行动和观察轮数决定 | 首次规划、每个任务的执行及必要的重规划都会调用；不保证更少 |
+| 执行速度     | 取决于行动轮数       | 增加规划耗时；独立任务并行时可能缩短总耗时               |
+| Token 消耗   | 取决于对话历史       | 取决于计划、任务上下文和执行轮数；不保证更低             |
 | 灵活性       | 高（随时调整）   | 低（按 plan 执行） |
 | 可预测性     | 低               | 高                 |
 | 错误恢复     | 容易（随时改）   | 需要重规划         |
@@ -542,11 +533,11 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 3. 如果某步失败，用 ReAct 分析原因并决定是重试还是重规划
 ```
 
-这种混合模式兼顾了效率和灵活性，Claude Code 和 Codex 内部都是类似的架构。
+PaiCLI 当前的任务执行就是多轮模型与工具循环。其他产品的内部实现不能仅凭表面行为推断。
 
 ## 08、进阶：并行执行
 
-当前实现是顺序执行，但 DAG 中无依赖的任务可以并行。
+PaiCLI 当前会按 DAG 的依赖关系分批执行；同一批互不依赖的任务可以并行，每个任务内部仍可能多轮调用模型和工具。下面的代码仅用于说明并行调度的思路。
 
 ```java
 // 获取所有可执行的任务（依赖都已完成）
@@ -597,7 +588,7 @@ CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
 
 ### 更智能的规划
 
-当前的规划器只调用一次 LLM，生成完整计划。但复杂任务往往需要**分层规划**：
+当前 `Planner.createPlan` 在处理复杂目标时，首次生成计划通常调用一次 LLM；这不包括后续任务执行和可能的重规划。复杂任务还可以考虑**分层规划**：
 
 ```
 第一层规划：确定主要阶段
@@ -653,5 +644,5 @@ if (successRate < 0.5) {
 - 设计 Task 任务模型，实现 6 种任务类型和 5 种状态流转，支持任务依赖双向追踪和 DAG 有向无环图表示
 - 实现基于 DFS 的拓扑排序算法，将任务 DAG 转换为线性执行顺序，能自动检测循环依赖并报错，确保任务按顺序执行；并使用线程池并发执行无依赖的多项任务，相比串行执行效率大幅提升
 - 开发 Planner 规划器，使用 LLM 将复杂任务分解为 5-10 个可执行子任务，通过 JSON 格式输出计划，实现 ID 映射和前向引用处理
-- 实现 PlanExecuteAgent，支持根据任务复杂度自动切换 ReAct 和 Plan-and-Execute 两种模式
+- 实现 PlanExecuteAgent，在显式计划模式中按 DAG 执行任务；简单目标可跳过模型规划并生成单步计划
 - 集成 JLine3 实现交互式命令行界面，支持命令历史（上下箭头）、Tab 自动补全、行编辑和语法高亮，用户体验接近原生 Shell

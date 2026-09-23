@@ -904,10 +904,10 @@ Plan:
 3. 写主类
 4. 写测试类
 
-然后按顺序执行每一步，不再反复询问 LLM。
+然后逐项执行。执行器可能在每一步调用 LLM，也可能在工具返回后继续调用。
 ```
 
-这种模式效率更高，因为减少了 LLM 调用次数。但缺点是灵活性差，如果某一步出错，需要重新制定计划。
+这种模式提前确定步骤和依赖，便于调度与查看进度；规划本身增加模型调用，不能保证比 ReAct 更快或更省 Token。某一步出错时，可以根据已完成的任务重新规划。
 
 **Reflexion**：在 ReAct 基础上增加了自我反思。Agent 会回顾自己的行动，总结成功经验和失败教训，保存到记忆中。下次遇到类似任务，就能做得更好。
 
@@ -1108,4 +1108,3 @@ logger.info("[Agent] 工具结果: {}", result);
 - 使用 OkHttp 封装 GLM-5.1 Coding Plan 客户端，实现支持 Tool Call 的消息序列化与解析，能够处理 system/user/assistant/tool 四种消息角色
 - 设计 ToolRegistry 工具注册表，实现 read_file、write_file、list_dir、execute_command、create_project 五个内置工具，支持 JSON Schema 参数定义
 - 实现交互式 CLI 界面，支持 API Key 从 .env 文件和环境变量自动加载，提供 clear、exit 等命令管理对话历史
-
