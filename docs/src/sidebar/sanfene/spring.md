@@ -2966,12 +2966,12 @@ protected TransactionAttribute computeTransactionAttribute(Method method,
 
 ```java
 public class UserService {
-    @Transactional
+    
     public void createUser(User user) {
         // 直接调用本类的另一个方法，事务不会生效
         saveUser(user);
     }
-
+	@Transactional
     private void saveUser(User user) {
         // 保存用户逻辑
     }
