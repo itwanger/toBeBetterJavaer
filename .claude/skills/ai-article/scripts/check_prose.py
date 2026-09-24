@@ -234,6 +234,8 @@ def mask_non_prose(text: str) -> str:
         re.compile(r"\]\([^\n)]*\)"),
         re.compile(r"https?://[^\s)>]+"),
         re.compile(r"<[^>\n]+>"),
+        # 截图占位符格式本身要求冒号和分号，不算正文
+        re.compile(r"【截图[^】\n]*】"),
     )
     masked = text
     for pattern in patterns:
@@ -377,6 +379,30 @@ def opener_counts(paragraphs: list[Paragraph]):
                 examples.setdefault(opener, paragraph.position)
                 break
     return counts, examples
+
+
+ENUMERATION_PATTERN = re.compile(
+    r"第[一二三四五六][步层类种]|第[一二三四五六]个(?:是|方向|手段|办法|问题是)"
+    r"|一类是|另一类|一个是|另一个是|一是|二是|首先|其次"
+    r"|分[两二三四五六](?:类|层|步|种|个方面|个维度)"
+    r"|[两三四五](?:种情况|个节点|个方面|个维度|个层面|个步骤)"
+)
+SECTION_HEADING = re.compile(r"^#{2,3} .*$", re.MULTILINE)
+ENUMERATION_SECTION_LIMIT = 3
+
+
+def enumeration_sections(text: str, prose: str):
+    """按 ## / ### 章节统计列举式分类词，返回 [(标题行号, 标题, 命中词列表)]。"""
+    headings = list(SECTION_HEADING.finditer(text))
+    results = []
+    for index, heading in enumerate(headings):
+        start = heading.end()
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(prose)
+        body = re.sub(r"【截图[^】]*】", "", prose[start:end])
+        hits = [match.group() for match in ENUMERATION_PATTERN.finditer(body)]
+        if hits:
+            results.append((line_number(text, heading.start()), heading.group().lstrip("# "), hits))
+    return results
 
 
 def read_text(path: str) -> str:
@@ -599,6 +625,22 @@ def main() -> int:
         warnings.append(
             f"段落开场重复，从第 {line_number(text, first_position)} 行附近开始。{details}。"
         )
+
+    enumerated = enumeration_sections(text, prose)
+    if len(enumerated) > ENUMERATION_SECTION_LIMIT:
+        samples = "；".join(
+            f"第 {line} 行「{excerpt(title, 20)}」{'、'.join(dict.fromkeys(hits))}"
+            for line, title, hits in enumerated[:6]
+        )
+        failures.append(
+            f"列举式结构出现在 {len(enumerated)} 个章节，上限 {ENUMERATION_SECTION_LIMIT} 个。{samples}。"
+            "改成每段回答上一段留下的问题，打乱段落顺序就读不通才算连贯。"
+        )
+    elif enumerated:
+        samples = "；".join(
+            f"第 {line} 行{'、'.join(dict.fromkeys(hits))}" for line, _, hits in enumerated
+        )
+        warnings.append(f"列举式分类词出现在 {len(enumerated)} 个章节。{samples}。确认不是在用分类代替推进。")
 
     metaphors = metaphor_cluster(prose)
     if metaphors:
