@@ -194,6 +194,33 @@ LLM 返回 `tool_calls` 的时候是有顺序的，Agent 需要按照同样的�
 
 `invokeAll` 保证 `futures` 列表和 `tasks` 列表的顺序完全一致。
 
+### 只有只读工具并行
+
+这一节是 2026 年 9 月补的。第 7 期上线时，同一批次的所有工具都丢进线程池并行跑，后来代码审查发现一个问题：模型在同一轮对同一个文件发起多次 `edit_file`，每次编辑都是“读文件、改一处、整文件写回”，并行执行时后写的会把先写的改动盖掉。实测 50 轮里有 49 轮丢了改动，工具却都报告成功。
+
+现在的规则是按工具性质区分。`read_file`、`list_dir`、`glob_files`、`grep_code`、`search_code`、`web_search`、`web_fetch`、`load_skill` 这些只读工具放进白名单，可以并行；写文件、执行命令、MCP 调用、写记忆、回滚以及不在白名单里的工具，一律按模型给出的顺序逐个执行：
+
+```java
+List<ToolExecutionResult> results = new ArrayList<>(invocations.size());
+List<ToolInvocation> readOnlyRun = new ArrayList<>();
+for (ToolInvocation invocation : invocations) {
+    if (isParallelSafeTool(invocation.name())) {
+        readOnlyRun.add(invocation);
+        continue;
+    }
+    results.addAll(flushReadOnlyRun(readOnlyRun));
+    results.addAll(executeSerially(List.of(invocation)));
+}
+results.addAll(flushReadOnlyRun(readOnlyRun));
+return results;
+```
+
+连续的只读调用组成一段并行，遇到有副作用的调用，先等前面那段跑完，再单独执行它，后面的只读调用再组成新的一段。这样“先读、再改、再读”的顺序不会被打乱，结果也仍然按原始顺序返回。
+
+![](https://cdn.paicoding.com/stutymore/paicli-async-parallel-20260924180920-0ebb6c51.png)
+
+没有选择按文件路径加锁，是因为 `execute_command` 里一行 shell 命令会写哪些文件根本解析不出来，MCP 工具更是黑盒。按“有没有副作用”统一处理，损失的只是写操作之间的并行度，而同一轮里的写操作本来就不多。
+
 ## 03、Agent.java 怎么接入并行
 
 `Agent.java` 里的 ReAct 循环，改动很小。
@@ -257,7 +284,9 @@ Agent 不需要知道工具是串行跑的还是并行跑的，它只关心“�
 如果工具之间有依赖关系，请分多轮调用。
 ```
 
-告诉大模型“你可以一次返回多个工具调用，我们会并行跑”。同时也提醒它“有依赖的工具别放在同一轮”。大模型的指令遵循能力在这件事上还是靠谱的。
+告诉大模型“你可以一次返回多个工具调用，我们会并行跑”。同时也提醒它“有依赖的工具别放在同一轮”。
+
+光靠这句提示词不够，上一节讲的同文件并发编辑就是反例，模型会认为“改同一个文件的不同位置互不影响”。所以现在提示词和 README 的说法都改成了“只并行执行只读工具，有副作用的调用按顺序执行”，代码层面兜住，不再依赖模型自觉。
 
 ## 04、Plan-and-Execute 的 DAG 并行
 
@@ -304,6 +333,8 @@ task_5（依赖 task_3, task_4）
 ```
 
 拆成三个批次：`[task_1, task_2]` → `[task_3, task_4]` → `[task_5]`。第一批两个任务同时跑，等都完成了再同时跑第二批，最后跑第三批。
+
+需要校正一点，`getExecutionBatches()` 现在只给计划审阅时的摘要用，用来显示“并行批次数、首批执行、最终收敛”。真正的调度是执行器每一轮调用 `isExecutable` 取出依赖都已完成的任务，这一轮全部结束再算下一轮，效果和上面的分批一致。
 
 
 ![](https://cdn.paicoding.com/paicoding/443ceb04c4e59663b43fbf002821e6d4.jpg)
@@ -677,4 +708,3 @@ Multi-Agent 模式更明显。`/team` 模式下，编排器发现两个独立步
 2. 将 ReAct、Plan-and-Execute、Multi-Agent 三条执行路径的工具调用统一接入并行引擎
 3. 在 Plan-and-Execute 模式中实现 DAG 批次调度，按依赖层级将独立任务并行执行，通过 `ByteArrayOutputStream` 缓冲实现并行输出的有序展示
 4. 使用 `BlockingQueue` 实现 Multi-Agent Worker 池化分配，保证同一 Worker 不被并发占用，Reviewer 按步骤独立创建避免对话历史竞争
-

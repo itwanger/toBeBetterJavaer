@@ -317,6 +317,7 @@ export default sidebar({
     },
   ],
   "/sidebar/itwanger/paicli/": [
+    "paicli-agentbench",
     "paicli-interview-productization",
     "paicli-interview-tool-security",
     "paicli-interview-prompt-skill",

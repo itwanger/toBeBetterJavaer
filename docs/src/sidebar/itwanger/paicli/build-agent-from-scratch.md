@@ -275,13 +275,16 @@ LLM 不直接执行任务，而是通过工具调用来“行动”，然后观�
 
 ## 04、工具注册表
 
-Agent 要能干实事，得有一套工具。我们实现几个最基础的工具：
+Agent 要能干实事，得有一套工具。第 1 期先实现几个最基础的工具：
 
 - `read_file`：读取文件
-- `write_file`：写入文件
+- `write_file`：新建文件或整文件覆盖写入
+- `edit_file`：精确替换已有文件里的一处文本
 - `list_dir`：列出目录
 - `execute_command`：执行 Shell 命令
 - `create_project`：创建项目结构
+
+`edit_file` 是 2026 年 9 月才补上的，第 1 期上线时只有 `write_file`。到本文校正时，PaiCLI 的内置工具已经有 17 个，后面几期陆续加了代码搜索、联网、浏览器、记忆和回滚类工具，另外还有 MCP 动态注册进来的工具。
 
 ```java
 public class ToolRegistry {
@@ -380,9 +383,7 @@ tools.put("execute_command", new Tool(
 
 这里用 `ProcessBuilder` 执行命令，捕获标准输出和错误码。Agent 能根据错误码判断命令是否成功，根据输出决定下一步行动。
 
-每个工具包含三部分：**名字**、**描述**、**参数定义**、**执行逻辑**。描述和参数定义会传给 LLM，让 LLM 知道什么时候该用这个工具。
-
-比如 `write_file` 工具的定义：
+描述和参数定义会传给 LLM，让 LLM 知道什么时候该用这个工具。比如 `write_file` 工具的定义（第 1 期的简化版）：
 
 ```java
 tools.put("write_file", new Tool(
@@ -406,6 +407,33 @@ tools.put("write_file", new Tool(
 
 
 工具执行的结果会作为 `tool` 消息返回给 LLM，LLM 根据结果决定下一步行动。
+
+### 局部修改用 edit_file
+
+`write_file` 有个明显的问题。模型只想把一行 `Hello World` 改成 `Hello PaiCLI`，也得把整个文件重新输出一遍。文件一长，输出 Token 多、速度慢，模型重写时还可能顺手改掉别的地方。
+
+`edit_file` 只让模型给出要替换的那一段原文和新文本：
+
+```java
+tools.put("edit_file", new Tool(
+        "edit_file",
+        "精确替换项目内已有文件的一处文本；old_text 必须恰好匹配一次，模型无需输出整个文件",
+        createParameters(
+                new Param("path", "string", "已有文件路径", true),
+                new Param("old_text", "string", "要替换的原文片段，必须唯一匹配", true),
+                new Param("new_text", "string", "替换后的文本；空字符串表示删除原文片段", true)
+        ),
+        this::editFile
+));
+```
+
+`old_text` 必须在文件里恰好出现一次。找不到就报“old_text 在文件中不存在”，出现多次就报“old_text 在文件中出现多次，请提供更长的上下文”。唯一匹配这条规则很重要，模型给的片段太短、在文件里撞了好几处时，工具宁可拒绝，也不去猜它想改哪一处。报错信息本身就告诉了模型下一步该怎么做。
+
+![](https://cdn.paicoding.com/stutymore/build-agent-from-scratch-20260924181655-9a4ccc35.png)
+
+它只能改已有的普通文件，新建文件仍然用 `write_file`。两者的安全约束一样，路径必须在项目根目录以内，编辑后文件不能超过 5MB，都会触发人工审批、审计日志、diff 展示和写入后的语法诊断。
+
+还有两个细节是后来修的。Windows 风格的 CRLF 文件，模型给出的片段通常只带 `\n`，字面匹配会失败；现在匹配不到时会把片段转成 CRLF 再试一次，替换后保留文件原来的换行风格。同一轮模型返回多个 `edit_file` 时，旧代码会并行执行，改同一个文件会互相覆盖；现在写类工具一律按顺序串行，只有读文件、搜索这类只读工具才并行。
 
 ### 参数定义的生成
 
@@ -437,7 +465,7 @@ private JsonNode createParameters(Param... params) {
 
 现在的工具是硬编码的，实际可以做成动态注册。比如从配置文件加载、从插件系统加载、甚至让 Agent 自己定义工具。
 
-动态注册的核心是统一的接口：
+下面的 `ToolProvider` 是一种设计思路的示意，PaiCLI 源码里没有这个接口。动态注册的核心是统一的接口：
 
 ```java
 public interface ToolProvider {
@@ -469,7 +497,17 @@ public class AnnotationToolProvider implements ToolProvider {
 }
 ```
 
-这种设计让工具系统变得可扩展。Claude Code 的 Skills 系统本质上就是动态工具注册的一种实现。
+这种设计让工具系统变得可扩展。PaiCLI 后来真正用上的动态注册来自 MCP，第 10 期接入 MCP 协议后，每个 MCP server 暴露的工具都会以 `mcp__{server}__{tool}` 的名字注册进工具表：
+
+```java
+public synchronized void registerMcpTool(McpToolDescriptor descriptor, Function<String, String> invoker) {
+    Objects.requireNonNull(descriptor, "descriptor");
+    Objects.requireNonNull(invoker, "invoker");
+    registerMcpToolOutput(descriptor, args -> ToolOutput.text(invoker.apply(args)));
+}
+```
+
+server 断开或工具列表变化时，对应的工具会被整体替换。第 15 期的 Skill 系统走的是另一条路，`load_skill` 把技能说明注入到下一轮对话里，不注册新工具。
 
 ## 05、Agent 核心：ReAct 循环
 
@@ -834,12 +872,13 @@ Agent 识别出你的意图是创建项目，调用了 `create_project` 工具�
        }
    }
 
-🔧 执行工具: write_file
+🔧 执行工具: edit_file
    参数: {
      "path": "demo/src/main/java/com/example/Hello.java",
-     "content": "package com.example;\n\npublic class Hello {\n    public static void main(String[] args) {\n        System.out.println(\"Hello PaiCLI\");\n    }\n}"
+     "old_text": "System.out.println(\"Hello World\");",
+     "new_text": "System.out.println(\"Hello PaiCLI\");"
    }
-   结果: 文件已写入: demo/src/main/java/com/example/Hello.java
+   结果: 文件已编辑: demo/src/main/java/com/example/Hello.java
 
 📊 Token使用: 输入=523, 输出=234
 
@@ -850,7 +889,11 @@ Agent 识别出你的意图是创建项目，调用了 `create_project` 工具�
 ![](https://cdn.paicoding.com/paicoding/7513669e3ada75edd4e56ddd2d926207.png)
 
 
-这个任务有两步：先读取，再修改。Agent 自动规划了执行顺序，先调 `read_file` 获取内容，再调 `write_file` 写入修改后的内容。
+这个任务有两步，先读取，再修改。Agent 先调 `read_file` 拿到原文，再调 `edit_file` 只替换输出语句那一行，不用把整个类重新输出一遍。
+
+上面的日志格式是第 1 期的样子，截图也是当时用 `write_file` 整文件覆盖拍的。现在的界面会先弹出中危操作的审批框（开启 HITL 时），编辑成功后折叠显示“✏️ 编辑 1 个文件”和一段 diff。
+
+![](https://cdn.paicoding.com/stutymore/build-agent-from-scratch-20260924181809-71e906ad.png)
 
 ### 示例 4：执行命令
 

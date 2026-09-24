@@ -116,6 +116,30 @@ public class ApprovalPolicy {
 
 这个等级信息后面会展示在审批框里，让用户一眼看出当前操作的危险指数。
 
+### 后续演进
+
+上面是第 6 期刚上线时的教学代码。之后几期陆续加了新工具，到 2026 年 9 月，需要审批的名单变成了这样：
+
+```java
+private static final Set<String> DANGEROUS_TOOLS = Set.of(
+        "write_file",
+        "edit_file",
+        "execute_command",
+        "create_project",
+        "revert_turn"
+);
+
+public static boolean requiresApproval(String toolName) {
+    return DANGEROUS_TOOLS.contains(toolName) || isMcpTool(toolName);
+}
+```
+
+新增的两个内置工具里，`edit_file` 精确替换已有文件的一处文本，和 `write_file` 一样是中危，风险说明是“将替换文件中唯一匹配的原文片段”；`revert_turn` 会按 Side-Git 快照批量恢复工作区文件，可能覆盖当前还没保存的修改，定为高危。第 10 期接入 MCP 之后，所有 `mcp__` 开头的工具也默认要审批，等级显示为“🟡 MCP”。
+
+只读工具的名单也变长了，`glob_files`、`grep_code` 这些代码搜索工具同样不需要审批。需要注意的是，放行了 `write_file` 不等于放行了 `edit_file`，“全部放行”按工具名生效，两个工具要分别确认。
+
+![](https://cdn.paicoding.com/stutymore/paicli-hitl-20260924181548-582f017a.png)
+
 ## 03、审批请求怎么设计
 
 审批请求是 HITL 系统里用户感知最强的一环——它决定了用户看到什么，进而决定用户能不能做出合理的判断。

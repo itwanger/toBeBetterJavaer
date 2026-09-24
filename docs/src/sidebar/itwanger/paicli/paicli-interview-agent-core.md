@@ -108,7 +108,7 @@ PaiCLI 早期 `execute_command` 的描述写得太简洁，LLM 经常用 `cat` �
 
 PaiCLI 源码里有四层防护：
 
-第一层是 **Token 预算**。`AgentBudget` 根据当前模型的 `maxContextWindow()` 动态计算预算（默认取窗口的 80%），对话历史接近预算就触发摘要压缩或强制终止。
+第一层是 **循环预算和停滞检测**。`AgentBudget` 管三个上限：轮数、Token 和停滞。早期版本写死最多 5 轮，复杂任务可能做不完，现在默认不限轮数和 Token，只开停滞检测，连续 3 轮工具名和参数完全相同就判定原地打转。轮数和 Token 上限可以在 CI、微信无人值守这类场景里显式配置。任何一项触发后，程序关掉工具再调一次模型，让它基于已有结果收尾，返回“⚠️ 部分完成”，已经做的工作不会丢。
 
 ![](https://cdn.paicoding.com/paicoding/aa9afe01d55f108a917f6bc376076322.jpg)
 
@@ -116,9 +116,11 @@ PaiCLI 源码里有四层防护：
 
 第三层是 **用户取消**。运行中按 ESC 或输入 `/cancel` 可以请求取消当前 Agent run。ReAct、Plan、Team 三条路径在边界处都会检查取消信号。
 
-第四层是 **摘要压缩兜底**。`ContextCompressor` 在对话历史膨胀到临界点时介入，把早期对话压缩成摘要释放空间。但如果压缩速度追不上膨胀速度（工具结果太大），最终还是会触发预算上限终止。
+第四层是 **上下文压缩**。它不直接防死循环，但能防止循环跑久了把上下文撑爆。每次调用模型前检查一次，超大工具结果落盘、旧工具结果清理、摘要三档依次生效，第 10 题展开。
 
-面试时说到这四层，面试官通常会追问“哪层最关键”。答案是 Token 预算——它是唯一一个和上下文窗口直接挂钩的约束。超时只管单个工具，用户取消依赖人的反应速度，摘要压缩有延迟。
+面试时说到这四层，面试官通常会追问“哪层最关键”。我的回答是停滞检测，它是唯一一个直接识别“在打转”的机制。超时只管单个工具，用户取消依赖人的反应速度，压缩只管长度。
+
+它也有盲区，最好主动说出来。停滞检测只认“连续完全相同”的调用，模型在两个调用之间来回切换，或者每次把参数改一点点，都能绕过去。更稳妥的做法是检测周期性重复、先把参数规范化再比较，再配一个默认的轮数上限，到了就停下来问用户要不要继续。
 
 ## 04、什么是 Plan-and-Execute 模式？
 
@@ -136,9 +138,10 @@ Planner 生成计划:
   task_2: 读取 pom.xml（依赖 task_1）
   task_3: 验证项目结构（依赖 task_2）
     ↓
-用户确认（回车执行 / ESC 取消 / I 补充要求）
+用户确认（回车执行 / Ctrl+O 展开 / ESC 取消 / I 补充要求）
     ↓
-按依赖顺序执行每个子任务（每个子任务内部走 ReAct 循环）
+按轮执行：每轮取出依赖都已完成的任务，同一轮的任务并行
+（每个子任务内部是一个独立的模型与工具循环）
 ```
 
 ### 它比 ReAct 好在哪?
@@ -149,7 +152,9 @@ Planner 生成计划:
 
 Plan-and-Execute 是“先想清楚再动手”——用户在 Agent 动手之前就能看到完整计划，觉得不对可以取消或修改。可预测性是最大的优势。
 
-PaiCLI 的 `PlanReviewInputParser.java` 实现了计划确认交互：回车执行、ESC 取消、按 I 输入补充要求让 Planner 重新规划。这个确认机制是受 Claude Code 启发——Claude Code 在执行高风险操作前也会暂停等用户确认。
+PaiCLI 在执行前加了计划审阅：回车执行、Ctrl+O 展开完整计划、ESC 取消、按 I 输入补充要求。补充要求会拼到目标后面，让 Planner 整份重新规划，原计划不支持逐条编辑。
+
+每个子任务内部的工具循环是 `PlanExecuteAgent` 自己实现的，不复用 ReAct 的 `Agent` 类。任务有独立的消息历史，只拿到直接依赖任务的完整结果。
 
 当然代价是多了一轮 Planner 的 LLM 调用。
 
@@ -157,11 +162,13 @@ PaiCLI 的 `PlanReviewInputParser.java` 实现了计划确认交互：回车执�
 
 ## 05、Plan-and-Execute 里的 DAG 是怎么工作的？
 
-DAG（Directed Acyclic Graph，有向无环图）用来管理子任务之间的依赖关系。每个子任务声明自己依赖哪些前置任务（`depends_on` 字段），形成一个有向图。
+DAG（Directed Acyclic Graph，有向无环图）用来管理子任务之间的依赖关系。每个子任务声明自己依赖哪些前置任务（`dependencies` 字段），形成一个有向图。
+
+Planner 解析计划时做严格校验，id 重复、依赖引用了没声明的任务、依赖有环，都直接判定计划无效，不会悄悄删掉一条边接着跑。
 
 ![](https://cdn.paicoding.com/paicoding/7ec21fcc8f1031ffef6704fd6c9d8586.png)
 
-PaiCLI 的 `ExecutionPlan.java` 持有任务列表和 DAG 关系，`PlanExecuteAgent` 执行时用拓扑排序把任务分成批次：
+PaiCLI 的 `ExecutionPlan.java` 持有任务列表和 DAG 关系。执行时不预先算批次，每一轮用 `isExecutable` 取出依赖都已完成的任务，这一轮全部结束再算下一轮。拓扑序只用来给同一轮的任务排先后。效果上相当于下面这样分批：
 
 ```
 批次1: task_1, task_2（无依赖，可并行）
@@ -169,17 +176,17 @@ PaiCLI 的 `ExecutionPlan.java` 持有任务列表和 DAG 关系，`PlanExecuteA
 批次3: task_5（依赖 task_3 和 task_4）
 ```
 
-同一批次内的任务通过第 7 期的并行调度器并行执行，不同批次之间严格串行。
+同一批次内的任务由 `PlanExecuteAgent` 自己的线程池并行执行，并发度是本批任务数和 4 取小，不同批次之间严格串行。第 7 期的并行调度器管的是另一层，同一个任务内部一轮返回的多个工具调用。
 
 ### 某个任务失败了怎么办
 
-失败处理的策略也在 `PlanExecuteAgent` 里：
+失败处理的策略也在 `PlanExecuteAgent` 里，先看计划完成了多少。
 
-- 失败的任务标记为 `FAILED`
-- 所有直接或间接依赖它的下游任务自动标记为 `SKIPPED`——不执行，因为前置条件不满足
-- 和它没有依赖关系的其他任务不受影响，继续执行
+完成度低于一半时，Planner 基于已完成的任务重新规划，默认最多 2 次，可以用 `PAICLI_PLAN_MAX_REPLANS` 调整。到了上限就不再启动新任务，剩下的全部标 `SKIPPED`。
 
-这个设计是参考了 CI/CD 流水线的做法——GitHub Actions 里一个 job 失败，依赖它的后续 job 会跳过，但其他并行 job 不受影响。
+完成度不低于一半时，失败的任务标 `FAILED`，所有直接或间接依赖它的下游任务标 `SKIPPED`，和它没有依赖关系的其他任务继续执行。效果和 GitHub Actions 里一个 job 失败、依赖它的 job 被跳过差不多。
+
+最后的汇总会先列已完成任务的结果，再列失败和跳过的原因。这几条是 2026 年 9 月才补齐的，之前下游任务会一直停在 `PENDING`，重规划也没有次数上限。
 
 面试官可能追问“有没有重试机制”。
 
@@ -267,7 +274,7 @@ for (int i = 0; i < futures.size(); i++) {
 
 ### 并行执行的性能提升有多大
 
-I/O 密集型操作提升最明显。3 个文件读取各 100ms，串行 300ms，并行约 100ms。对于 `execute_command` 这种可能要几秒的操作，多个并行更有意义。
+I/O 密集型操作提升最明显。3 个文件读取各 100ms，串行 300ms，并行约 100ms。读文件、搜索代码、联网搜索这类只读工具才会并行，写文件、执行命令这类有副作用的调用按顺序串行，原因见下一题。
 
 ![](https://cdn.paicoding.com/paicoding/5c41dc997f0efd4c3952f3e3ea431284.jpg)
 
@@ -279,11 +286,11 @@ ReAct、Plan-and-Execute、Multi-Agent Worker 三条路径都复用了同一套�
 
 两个工具同时写同一个文件、一个读文件一个改同一个文件，都是冲突场景。
 
-PaiCLI 的处理策略比较简单直接：**不做细粒度锁，靠 LLM 不犯错 + 工程兜底**。
+PaiCLI 早期的处理策略是“不做锁，靠提示词引导加工程兜底”。`base.md` 里写了“如果工具之间有依赖关系，模型应分多轮调用”，然后就指望模型别在同一轮写同一个文件。
 
-LLM 如果在同一轮返回两个写同一文件的 tool_calls，那是 system prompt 没写好——应该在 prompt 里引导 LLM 把有依赖关系的操作分到不同轮次。
+后来代码审查时实测了一下，同一轮对同一个文件发起多次 `edit_file`，50 轮里有 49 轮丢了改动，而且每个工具都报告成功。每次编辑都是“读文件、改一处、整文件写回”，并行执行时后写的把先写的盖掉了。模型觉得“改的是同一个文件的不同位置，互不影响”，从它的角度看这个判断并没有错。
 
-PaiCLI 的 `base.md` 里写了“如果工具之间有依赖关系，模型应分多轮调用”。
+现在按工具性质区分：`read_file`、`list_dir`、`glob_files`、`grep_code`、`search_code`、`web_search`、`web_fetch`、`load_skill` 这些只读工具可以并行；写文件、执行命令、MCP 调用、写记忆、回滚以及不认识的工具，一律按模型给出的顺序串行。连续的只读调用组成一段并行，遇到有副作用的调用，先等前面那段结束，再单独执行它。
 
 ![](https://cdn.paicoding.com/paicoding/e72cfb8440ac847194b110e10f45fa9d.jpg)
 
@@ -291,7 +298,7 @@ PaiCLI 的 `base.md` 里写了“如果工具之间有依赖关系，模型应�
 
 每个工具有独立超时，单个卡死不阻塞其他的。某个工具执行失败只返回该工具的错误给 LLM，不影响同批次其他工具的结果。
 
-Claude Code、Cursor 这些产品也是同样的思路。真正做文件级锁的成本很高（要分析工具参数里的文件路径再做锁管理），收益有限（LLM 同轮写冲突的概率本身不高）。
+为什么不按文件路径加锁？路径锁要解析每个工具的参数，`execute_command` 里的一行 shell 命令会写哪些文件根本解析不出来，MCP 工具更是黑盒。按“有没有副作用”统一处理，规则简单，损失的只是写操作之间的并行度，而写操作本来就不多。
 
 ## 10、Token 预算是怎么管理的?
 
@@ -299,19 +306,19 @@ LLM 有上下文窗口限制，GLM-5.1 是 200k token，DeepSeek V4 是 1M。Age
 
 ![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260420222204.png)
 
-PaiCLI 的 Token 预算管理在 `com.paicli.context` 和 `com.paicli.memory` 两个包里：
+PaiCLI 的上下文预算在 `com.paicli.context` 和 `com.paicli.memory` 两个包里。每次调用模型前，Agent 估算当前对话历史的 Token 数，达到阈值就交给自动压缩模块。
 
-`AgentBudget` 按当前模型动态计算可用预算。公式是 `maxContextWindow × 80%`。剩下 20% 留给 LLM 的输出。
+阈值参考 Claude Code 的做法，给摘要输出和安全缓冲各留一块，公式是 `window - min(20000, window/4) - min(13000, window/8)`。200K 窗口大约 167K 触发，1M 窗口大约 967K 触发，128K 窗口是 95K。
 
-具体到一轮请求，可用空间 = 总预算 - system_prompt_tokens - tools_definition_tokens - 当前对话历史 tokens。
+![](https://cdn.paicoding.com/stutymore/paicli-interview-agent-core-20260924181151-f8ef8a13.png)
 
-`TokenBudget` 实时跟踪对话历史的 token 数。`ContextCompressor` 在接近阈值时做 Map-Reduce 摘要压缩——先把长对话分段摘要（Map），再合并成一个总摘要（Reduce），用摘要替代原始历史释放空间。
+压缩按代价从小到大分三档。单个工具结果超过 32000 字符先落盘，上下文只留路径和首尾预览；越过清理阈值（默认 100K 和摘要阈值 60% 取小）后，较早的工具结果换成占位说明；还不够才做摘要，按 user 边界切分，保留最近 3 轮，旧消息按 60000 字符分段摘要再合并，要求四个固定栏目。
 
-![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260420221555.png)
+第 12 期曾经有过一个 long 模式，窗口不小于 100K 的模型直接跳过摘要压缩。8 月底这个设计去掉了，所有窗口都保留自动压缩。长对话里工具结果累积得很快，1M 窗口也会满，没有压缩的话，满了只能报错。
 
-第 12 期的长上下文工程对这套机制做了一次大升级：窗口 ≥ 100k 的模型进入 long 模式，直接跳过摘要压缩。原因很简单——200k 窗口的模型，80% 预算就是 160k，日常开发的对话很难用到这么多，不压缩体验更好。
+估算用的是字符数折算，中文 1.5 个字、其他字符 4 个一个 Token。它没有计入工具 schema 和思考模型回传的 reasoning 内容，所以偏小，这是已知的待改进点。
 
-![](https://cdn.paicoding.com/paicoding/058a5498db80a8988e055d0b6a4232c0.png)
+![](https://cdn.paicoding.com/stutymore/paicli-interview-agent-core-20260924181306-93cf8cd8.png)
 
 ## 11、ReAct、Plan-and-Execute、Multi-Agent 三种模式怎么选?
 
@@ -325,13 +332,13 @@ PaiCLI 的 Token 预算管理在 `com.paicli.context` 和 `com.paicli.memory` �
 
 PaiCLI 的设计是默认 ReAct，`/plan` 或 `/team` 显式切换，执行完自动回到 ReAct。
 
-日常使用中 80% 的交互 ReAct 就能搞定。
+日常使用中大部分交互 ReAct 就能搞定。
 
 面试官可能追问“能不能让 Agent 自己判断用哪种模式”。
 
 答案是可以。
 
-但我不会把这个判断完全交给大模型自由发挥，而是做一个“模式路由层”。
+但我不会把这个判断完全交给大模型自由发挥，我会做一个“模式路由层”。这是我的设计设想，PaiCLI 目前还没有实现，现在只有用户显式输入 `/plan` 或 `/team` 才会切换。
 
 用户输入进来后，先判断任务特征：是不是简单问答、是否需要工具调用、是否涉及多文件修改、是否有明显步骤依赖、是否适合并行拆分、风险是不是比较高。简单任务走 ReAct；有明确步骤和依赖的走 Plan-and-Execute；能拆成多个相对独立子任务的，再升级到 Multi-Agent。
 
@@ -381,8 +388,8 @@ PaiCLI 的设计是默认 ReAct，`/plan` 或 `/team` 显式切换，执行完�
 
 **核心职责**：
 
-1. 基于 ReAct 模式实现 Agent 核心循环（Thought-Action-Observation），通过 `ToolRegistry` 动态注册 9 个内置工具 + 60+ MCP 外部工具，工具选择由 LLM Function Calling 驱动
-2. 实现 Plan-and-Execute 模式，通过 DAG 拓扑排序管理子任务依赖，同批次任务并行执行，单任务失败时下游依赖自动 SKIP 不阻塞独立任务
+1. 基于 ReAct 模式实现 Agent 核心循环（Thought-Action-Observation），通过 `ToolRegistry` 注册 17 个内置工具并动态接入 MCP 外部工具，工具选择由 LLM Function Calling 驱动
+2. 实现 Plan-and-Execute 模式，严格校验计划 DAG，按轮并行执行依赖已满足的任务，单任务失败时下游依赖自动跳过，完成度不足一半时有上限地重新规划
 3. 设计 Multi-Agent 三角色协作架构（Planner/Worker/Reviewer），Reviewer 审查不通过时带反馈重试（最多 2 次），编排器 `AgentOrchestrator` 统一管理角色生命周期
-4. 实现并行工具调用机制，同一轮多个 tool_calls 通过 `ExecutorService` 并行执行，按原始顺序回灌结果保证 LLM 协议兼容，ReAct/Plan/Team 三条路径复用同一套调度器
-5. 基于 `AgentBudget` 实现动态 Token 预算管理（80% × maxContextWindow），配合 Map-Reduce 摘要压缩和长上下文模式自适应切换，支持 200k-1M 窗口模型
+4. 实现并行工具调用机制，只读工具并行、写类工具按序串行，解决同一文件并发编辑丢更新的问题，结果按原始顺序返回保证 LLM 协议兼容，ReAct/Plan/Team 三条路径复用同一套调度器
+5. 实现循环预算与停滞检测，触发后关闭工具做一次部分完成收尾；上下文按窗口计算阈值，依次执行工具结果落盘、旧工具结果清理和结构化摘要三档压缩，支持 128K-1M 窗口模型
