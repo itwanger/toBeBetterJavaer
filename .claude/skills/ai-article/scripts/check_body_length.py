@@ -39,6 +39,12 @@ def main():
 
     file_path = sys.argv[1]
     min_chars = 4000
+    if '--min' in sys.argv:
+        try:
+            min_chars = int(sys.argv[sys.argv.index('--min') + 1])
+        except (IndexError, ValueError):
+            print("错误：--min 后面要跟一个整数，比如 --min 3000")
+            sys.exit(1)
 
     # 读取文件
     try:

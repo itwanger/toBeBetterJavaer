@@ -1,6 +1,6 @@
 ---
 name: ai-article
-description: AI 类文章撰写。四种风格：安装教程、产品评测、面试八股、深度拆解。覆盖 AI Coding 工具实测、AI 开发框架应用、大模型测评、Agent/Skills/RAG 技术讲解。
+description: AI 类文章和项目教程的撰写与重构优化。支持新写和重构优化（结合最新源码重写已有文章）两种输入模式，四种风格：安装教程、产品评测、面试八股、深度拆解。覆盖 AI Coding 工具实测、AI 开发框架应用、大模型测评、Agent/Skills/RAG 技术讲解，以及 JobClaw 等实战项目的教程。
 ---
 
 # AI 技术文章写作
@@ -127,6 +127,15 @@ description: AI 类文章撰写。四种风格：安装教程、产品评测、�
 
 ## 工作流程
 
+### 步骤 0：确定输入模式和所在项目
+
+先看当前在哪个项目里（toBeBetterJavaer、JobClaw 或其他），再判断输入模式：
+
+- **新写**：从 `./sucai.md` 出发写一篇新文章，走完整流程
+- **重构优化**：用户指定一篇已有文章，结合最新源码和业界方案重写。步骤 1 的素材就是原文加上源码调研结果。先通读原文，分出三类内容：可保留的（真实截图、准确的架构图和代码）、需校正的（和最新实现对不上的代码、流程、说法）、需删除的（AI 味段落、绕弯的废话、堆砌的类名）。原文的章节顺序不是默认保留项，读者的问题链和原文目录对不上时，以问题链为准重组
+
+JobClaw 的教程以重构优化为主，其他项目默认新写。
+
 ### 步骤 1：读素材 + 选题质检
 
 精读 `./sucai.md`，提取关键信息、数据、观点、截图。用 IKR 三维度快速评估：
@@ -174,6 +183,7 @@ description: AI 类文章撰写。四种风格：安装教程、产品评测、�
 **第二步：选参考文章**。风格确定后，列出所有可选的参考文章，推荐最合适的一篇，但由用户最终决定。可选参考文章：
 
 - `references/agent-mianshi-xiaomi.md` — 面试对话体，直问直答节奏，Agent工程化方向，读者高赞验证
+- `references/anshui-yin-mianshi.md` — 面试对话体，网易 AI 应用开发岗 12 问，从暗水印聊到 Transformer
 - `references/claude-code-grep-vs-rag.md` — 深度拆解体，证据-解读交织，读者高赞验证
 - `references/deepseek-tui-review.md` — 产品评测体，有观点有数据
 - `references/deepseek-v4.md` — 产品评测体，实测对比
@@ -204,7 +214,7 @@ description: AI 类文章撰写。四种风格：安装教程、产品评测、�
 
 写之前先看一遍 `references/human-tone.md`，找找语感。扫一眼 `inbox.md` 看有没有能用的素材。
 
-文件格式 Markdown，正文目标 4400 字（给删改留余量），最终不少于 4000 字。面试文章每道题的回答目标就一个：回答清楚，让面试官认可，不限字数。
+文件格式 Markdown，正文目标 4400 字（给删改留余量），最终不少于 4000 字。JobClaw 这类项目教程下限是 3000 字。面试文章每道题的回答目标就一个：回答清楚，让面试官认可，不限字数。
 
 头部模板：
 ```yaml
@@ -241,8 +251,8 @@ date: # YYYY-MM-DD
 #### P0：必须通过（不通过不保存）
 
 **机械检查**（跑脚本或 grep）：
-- `./scripts/check_body_length.py` 检查字数 ≥ 4000
-- `python3 ./scripts/check_prose.py <稿件路径>` 检查翻案腔、破折号、冒号、连词密度、句子长短变化、名词化动词、列举式结构等（失败的必须修，警告的自己判断）
+- `python3 <Skill 目录>/scripts/check_body_length.py <稿件路径>` 检查字数 ≥ 4000，项目教程加 `--min 3000`
+- `python3 <Skill 目录>/scripts/check_prose.py <稿件路径>` 检查翻案腔、破折号、冒号、连词密度、句子长短变化、名词化动词、列举式结构等（失败的必须修，警告的自己判断）
 - grep `references/human-tone.md`「词语」里的禁用词
 - grep 正文半角双引号（代码块除外），必须为 0
 
@@ -285,7 +295,9 @@ date: # YYYY-MM-DD
 
 ### 步骤 8：落盘
 
-文件命名用主题关键词，保存到 `docs/src/sidebar/itwanger/ai/`。
+- **toBeBetterJavaer 新写**：文件命名用主题关键词，保存到 `docs/src/sidebar/itwanger/ai/`
+- **JobClaw 新写**：按主题放进 `docs/` 对应的章节目录（如 `docs/04、SpringAI篇/`），拿不准就问用户
+- **重构优化**：覆盖原文件，保留原文件名和序号前缀
 
 保存后整理截图来源链接清单：
 
@@ -313,5 +325,6 @@ date: # YYYY-MM-DD
   - 派聪明（`PaiSmart`）— 基于 ES 混合搜索的 RAG 知识库
   - PaiFlow（`PaiFlow`）— 可视化 AI Agent 工作流编排平台，类 Dify/Coze/n8n
   - PmHub（`pmhub`）— 基于 SpringCloud & LLM 的智能项目管理系统
+  - 求职派（`JobClaw`）— OpenClaw 风格的多 Agent 求职系统，教程在仓库的 `docs/` 下
 
 ---
