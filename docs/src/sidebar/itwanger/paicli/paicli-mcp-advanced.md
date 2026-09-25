@@ -23,7 +23,7 @@ MCP Server 除了暴露工具，还能暴露数据。比如一个文件系统 Se
 
 这一期我们就来补齐 MCP 的高级能力：resources 读取、@-mention 语法、被动通知和运行中取消。我尽量用大白话来讲，把每个概念拆到最小。
 
-【此处插入PaiCLI v11运行截图：截图目标：展示banner升级到v11和MCP-Native标语；关键词：v11.0.0、MCP-Native Agent CLI；建议位置：命令行】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924202625-69346d26.png)
 
 ## 01、先看效果
 
@@ -45,7 +45,7 @@ PaiCLI 会在提交给 Agent 之前，自动把 `@filesystem:file://README.md` �
 
 还有两个 CLI 小命令：`/mcp resources <server>` 查看 Server 有哪些资源，`/mcp prompts <server>` 查看 Server 有哪些 Prompt 模板。
 
-【此处插入@-mention展开效果截图：截图目标：展示用户输入@语法后Agent收到展开内容；关键词：@filesystem、resource标签、文件内容；建议位置：命令行】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924202805-6ce28b81.png)
 
 这四个能力加在一起，PaiCLI 对 MCP 协议的实现就从"能用"进化到"好用"了。上一期只有 Tools，这一期补齐了 Resources 和 Notifications，MCP 协议三大核心概念（Tools、Resources、Prompts）我们已经覆盖了两个半（Prompts 只做了查看，还没做注入）。
 
@@ -67,7 +67,7 @@ MCP 协议里 Resources 有自己的 URI 体系，格式跟我们熟悉的 URL �
 
 PaiCLI 实现 Resources 用了"双轨"的方式。
 
-【此处插入MCP资源概念图：截图目标：对比Tool和Resource的区别；关键词：Tool是动作、Resource是数据、URI体系；建议位置：白板/画图】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924203109-760960a9.png)
 
 ### 工具层：自动注册虚拟工具
 
@@ -82,7 +82,7 @@ PaiCLI 在启动 MCP Server 的时候，会检查 Server 在 `initialize` 握手
 
 这两个虚拟工具跟普通 MCP 工具一样，受 HITL 人工审批管理，也会被 AuditLog 记录。Agent 在执行任务时，如果觉得需要了解 Server 有什么资源，就会自动调用 `list_resources`；如果想读某个具体资源，就调 `read_resource`。
 
-【此处插入McpResourceTool源码截图：截图目标：展示虚拟工具的schema定义和invoker实现；关键词：descriptors、LIST_RESOURCES、READ_RESOURCE；建议位置：IDE】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924203317-a5c0bce2.png)
 
 代码在 `McpResourceTool.java` 里，核心逻辑不到 80 行。`descriptors()` 方法定义了两个工具的 schema，`invoker()` 方法返回一个 `Function<String, String>`，接收 JSON 格式的参数，内部就是转发到 McpClient 的 `listResources()` 和 `readResource(uri)`。
 
@@ -102,7 +102,7 @@ PaiCLI 在启动 MCP Server 的时候，会检查 Server 在 `initialize` 握手
 
 缓存用 `ConcurrentHashMap` 存储，线程安全。stale 标记也用的是 `ConcurrentHashMap.newKeySet()`，本质是一个并发安全的 Set。因为通知可能从任意线程推过来（NotificationRouter 的 executor 线程），而资源读取可能在 Agent 的执行线程里发生，两个线程同时操作缓存，必须保证线程安全。
 
-【此处插入McpResourceCache源码截图：截图目标：展示stale标记和invalidate逻辑；关键词：staleServers、staleUrisByServer、invalidateServer；建议位置：IDE】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924203545-69a38f46.png)
 
 ## 03、@-mention 怎么用
 
@@ -128,7 +128,7 @@ PaiCLI 在把用户输入提交给 Agent 之前，会先经过 `AtMentionExpande
 
 `AtMentionParser` 负责解析，用正则 `@([a-zA-Z][\w-]*):([a-z]+)://([^\s@]+)` 匹配。有个细节值得说一下：它会跳过引号内的 @-mention。如果用户写的是 `"@filesystem:file://test.txt"`，引号里的不会被展开。这个设计是为了兼容代码片段里可能出现的 @ 符号。
 
-【此处插入AtMentionParser源码截图：截图目标：展示正则匹配和引号跳过逻辑；关键词：RESOURCE_PATTERN、isInsideQuotes、MentionToken；建议位置：IDE】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924205836-e080b306.png)
 
 `AtMentionExpander` 展开时还有一个 20 万字符的截断保护。如果某个资源内容超过 200,000 字符，会截断并在末尾加上 `[resource truncated by PaiCLI at 200000 chars]`。这是为了防止一个巨大的资源把上下文撑爆。
 
@@ -138,7 +138,7 @@ PaiCLI 在把用户输入提交给 Agent 之前，会先经过 `AtMentionExpande
 
 另外，@-mention 只在用户输入里识别，不识别模型输出。这个限制是故意的，防止模型在回复中构造 @-mention 来偷偷读取资源。Plan 模式和 Team 模式的单键交互也不接 @-mention 的自动补全，避免干扰 ESC 和 Ctrl+O 这些快捷键。
 
-【此处插入@-mention自动补全截图：截图目标：展示输入@后的补全候选列表；关键词：@filesystem、@db、补全列表；建议位置：命令行】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924203838-ef3f5e66.png)
 
 ## 04、被动通知
 
@@ -157,7 +157,7 @@ MCP 协议是双向的，这一点很多人忽略了。Client 可以调 Server �
 
 为什么？因为 handler 内部可能需要发 JSON-RPC 请求。比如收到 `tools/list_changed`，handler 要调 `tools/list` 重拉工具列表。如果 handler 在 reader 线程里同步执行，那它发出 `tools/list` 请求后，需要等 reader 线程来读取响应。但 reader 线程正在执行 handler，被阻塞了，读不到响应。自己等自己，这就是经典的死锁。
 
-【此处插入NotificationRouter源码截图：截图目标：展示异步派发设计和注释中的死锁说明；关键词：dispatcher、daemon线程、避免死锁；建议位置：IDE】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924204040-63fb198e.png)
 
 解决方案是用一个单线程的 daemon executor 来异步派发 handler。reader 线程收到通知后只做一件事：往 executor 的队列里丢一个任务，然后立刻返回继续读下一条消息。handler 在 executor 线程里执行，不阻塞 reader。
 
@@ -194,7 +194,7 @@ executor 线程：从队列取出 handler → 调 tools/list → reader 线程�
 
 `CancellationContext` 是一个全局的上下文管理器，用 `InheritableThreadLocal` + `AtomicReference` 双轨存储当前运行的 Token。为什么要用 InheritableThreadLocal？因为 Agent 的执行可能会跨线程，比如 Multi-Agent 的子任务会在线程池里执行，子线程需要能感知到父线程的取消信号。
 
-【此处插入CancellationContext源码截图：截图目标：展示双轨存储和线程继承设计；关键词：InheritableThreadLocal、AtomicReference、startRun；建议位置：IDE】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924204148-95be6f6d.png)
 
 ReAct 循环、Plan-and-Execute 的任务分发、Multi-Agent 编排、工具批量执行，这些执行入口都在循环边界处加了 `CancellationContext.isCancelled()` 检查。一旦检测到取消信号，就跳出循环，不再继续执行后续步骤。
 
@@ -202,7 +202,7 @@ ReAct 循环、Plan-and-Execute 的任务分发、Multi-Agent 编排、工具批
 
 所以 PaiCLI 的取消策略是"两道防线"：第一道是 Thread.interrupt()，尝试中断底层 IO；第二道是 CancellationToken 的 flag 检查，即使 interrupt 没生效，下一个循环边界也会检测到 flag 然后退出。两道防线至少有一道会生效，确保 Agent 不会在用户明确取消之后继续执行高风险操作，比如写文件或者执行命令。
 
-【此处插入/cancel执行效果截图：截图目标：展示输入/cancel后Agent停止执行；关键词：/cancel、任务已取消、停止执行；建议位置：命令行】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924204247-430919c9.png)
 
 ## 06、/mcp prompts 和 /mcp resources
 
@@ -247,7 +247,7 @@ runtime/           ← 取消上下文和 Token
 - 实现 CancellationToken + CancellationContext 协作取消机制，通过 InheritableThreadLocal 跨线程传播取消信号，支持 ReAct/Plan/Multi-Agent 等多种执行模式的 best-effort 中断
 - 新增 @-mention 解析器，正则匹配 `@server:protocol://path` 格式并自动跳过引号内文本，展开时对超过 200K 字符的资源做截断保护，防止上下文溢出
 
-【此处插入PaiCLI测试通过截图：截图目标：展示336个测试全部通过；关键词：336 tests、0 failures、BUILD SUCCESS；建议位置：命令行】
+![](https://cdn.paicoding.com/stutymore/paicli-mcp-advanced-20260924204405-2196af6f.png)
 
 ## ending
 

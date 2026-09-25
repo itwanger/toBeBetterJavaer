@@ -1,7 +1,7 @@
 ---
 title: AI Agent 面试题第一弹：ReAct、Plan-and-Execute、Multi-Agent 核心架构 13 题
 shortTitle: 面试题：Agent 核心架构
-description: 围绕 PaiCLI 21 期实战源码，精选 13 道 AI Agent 核心架构面试题，覆盖 ReAct 循环、Plan-and-Execute、Multi-Agent 协作、DAG 任务调度和并行工具调用，每道题结合源码深度拆解。
+description: 围绕 PaiCLI 23 期实战源码，精选 13 道 AI Agent 核心架构面试题，覆盖 ReAct 循环、Plan-and-Execute、Multi-Agent 协作、DAG 任务调度和并行工具调用，每道题结合源码深度拆解。
 tag:
   - Agent
   - 面试题
@@ -56,7 +56,7 @@ ReAct 的突破在于加了 Action 和 Observation 两个环节。LLM 想到“�
 
 PaiCLI 的 LLM 响应里也有 `reasoning_content`（思考过程），这个其实就是 CoT 的部分。
 
-ReAct 不是替代 CoT，而是在 CoT 的基础上加了行动能力。PaiCLI 的源码里，`reasoning_content` 只写日志不进下一轮对话历史，避免思考过程占用 Token 预算。
+ReAct 在 CoT 的基础上加了行动能力，推理之后可以真的去调用工具、拿到观察结果再接着推理。思考内容怎么处理要看模型：DeepSeek V4、GLM-5.3、混元 Hy4 和 Kimi 的思考模式要求带工具调用的那条 assistant 消息，必须把 `reasoning_content` 原样带回下一轮请求，这是这几家接口在思考模式下的约定，PaiCLI 组装请求时会把这个字段补回去；其他 provider 的思考内容 PaiCLI 只写日志和展示，不进对话历史。
 
 ## 02、Agent 怎么知道该调用哪个工具？
 
@@ -200,27 +200,37 @@ PaiCLI 第 5 期实现了三个角色的 Multi-Agent 架构。
 
 三个角色分工明确：**Planner（规划者）** 拆解任务分配工作，**Worker（执行者）** 实际执行子任务，**Reviewer（检查者）** 审查 Worker 的执行结果。
 
-编排器 `AgentOrchestrator.java` 是总调度，协调三个角色的交互。每个角色都是一个 `SubAgent` 实例，有独立的 system prompt 和角色定义，但共享同一套 `ToolRegistry` 和 `MemoryManager`。
+编排器 `AgentOrchestrator.java` 是总调度，协调三个角色的交互。实际运行时有 1 个 Planner、2 个 Worker（`worker-1`、`worker-2`）和 1 个 Reviewer，每个都是一个 `SubAgent` 实例，有独立的 system prompt 和各自的消息历史。它们共享同一个 `ToolRegistry`，所以工具、人工审批和联网授权规则是同一套。
+
+`MemoryManager` 由编排器持有，只用来保存用户要求记住的事实，以及任务完成后的自动提取。SubAgent 执行时不检索长期记忆，这一点和 ReAct、Plan 两种模式不一样。
+
+Planner 输出的 JSON 计划由 `TeamPlanParser` 严格校验，规则和 Plan 模式一致：唯一的非空 id、依赖必须引用已声明的步骤、不能有环。步骤统一重编号成 `step_N`，计划不合法就直接返回“❌ 规划失败”，不会带着一份残缺的计划往下跑。
 
 ```
 用户输入 "/team 重构登录模块"
     ↓
-Planner 拆解:
-  task_1: 分析现有登录代码
-  task_2: 重构 LoginService（依赖 task_1）
-  task_3: 更新单元测试（依赖 task_2）
+Planner 拆解（JSON，严格校验）:
+  step_1: 分析现有登录代码
+  step_2: 梳理调用方（依赖 step_1）
+  step_3: 重构 LoginService（依赖 step_1、step_2）
     ↓
-Worker 执行 task_1 → Reviewer 审查
-                          ↓
-                    通过 → Worker 执行 task_2
-                    不通过 → Worker 重做（带反馈，最多 2 次）
+按批执行：每批取出依赖都已完成的步骤
+  批次 1: step_1          → worker-1 执行 → Reviewer 审查
+  批次 2: step_2          → 同上
+  批次 3: step_3          → 同上
+  （一批里有多个独立步骤时，两个 Worker 并行，输出先缓冲，再按步骤顺序打印）
+    ↓
+审查通过 → 进入下一批
+审查不通过 → Worker 带反馈重做，最多 2 次
 ```
+
+每个步骤只拿到直接依赖步骤的结果作为上下文。Worker 执行出错或者交回空结果，这个步骤就标记失败，所有依赖它的后续步骤会被跳过，终端提示“因前置步骤失败被跳过”。
 
 ### 各角色的 system prompt 有什么不同?
 
 这个问题能体现你对实现细节的理解。
 
-Planner 的 prompt 侧重**任务拆解和依赖分析**，要求输出结构化的 JSON 任务列表。Worker 的 prompt 侧重**工具使用和执行**，有完整的工具使用指导。Reviewer 的 prompt 侧重**质量标准和反馈格式**，要求给出“通过/不通过 + 具体原因”。
+Planner 的 prompt 侧重**任务拆解和依赖分析**，要求输出结构化的 JSON 步骤列表。Worker 的 prompt 侧重**工具使用和执行**，有完整的工具使用指导。Reviewer 的 prompt 侧重**质量标准和反馈格式**，要求只输出一个 JSON 对象，包含布尔字段 `approved`，以及 `summary`、`issues`、`suggestions`。
 
 ![](https://cdn.paicoding.com/paicoding/dcdf473f5e04f99cdcd610d8a849fa87.jpg)
 
@@ -228,7 +238,11 @@ Planner 的 prompt 侧重**任务拆解和依赖分析**，要求输出结构化
 
 ## 07、Reviewer 审查不通过怎么处理?
 
-Reviewer 给出“不通过 + 反馈”后，`AgentOrchestrator` 把反馈内容拼接到原始任务里，再交给 Worker 重做。Worker 带着反馈重新执行，执行结果再交给 Reviewer 审查。最多重试 2 次，超过直接标记为完成并带警告。
+先说怎么判定“不通过”。编排器只读 Reviewer 回复里的 `approved` 字段，而且只有 JSON 布尔值 `true` 才算通过。回复不是单个 JSON 对象、缺少这个字段、写成字符串 `"true"`，或者干脆是一段文字，一律按不通过处理。早期版本宽松得多：`approved` 写成字符串 `"true"` 也会被当成通过；回复解析不了 JSON 时，还会退回到关键词判断，文字里有“通过”、又没出现“不通过”“有问题”这几个否定词，就算批准。这两条兜底现在都去掉了。
+
+不通过之后，`AgentOrchestrator` 把 Reviewer 给的问题拼到上下文后面，格式是“之前的执行结果被审查拒绝，原因：……”，再交给同一个 Worker 重做。重做的结果再交给 Reviewer 审查。每个步骤最多重试 2 次（`MAX_RETRIES_PER_STEP = 2`），重试时 Worker 出错或交回空结果，也算用掉一次。两次都没通过，就保留最后一次的结果，把步骤标记为完成，终端提示“超过最大重试次数，保留当前结果”。
+
+这里有一个我得主动交代的不一致。审查结论的解析很严格，审查调用本身出错却是放行的：Reviewer 那次 LLM 调用失败时，编排器会保留当前结果，直接把步骤标记为完成。面试时我会把这点说出来，改进方向是审查出错时把步骤标成“未审查”，或者先重试一次审查，而不是默认通过。
 
 这里有个容易被忽略的细节：**每次重试都消耗一轮完整的 LLM 调用**。
 
@@ -238,11 +252,11 @@ Worker 执行一次 + Reviewer 审查一次 = 至少 2 次 LLM 调用。重试 2
 
 面试官可能问“为什么不把 Reviewer 的反馈直接塞给 LLM 让它一次改对”。
 
-答案是：我们就是这么做的——反馈作为上下文传给 Worker，Worker 能看到具体哪里不行。但 LLM 不是确定性系统，看到反馈也不保证一次改对，所以要有重试上限。
+我们就是这么做的，反馈作为上下文传给 Worker，Worker 能看到具体哪里不行。但 LLM 不是确定性系统，看到反馈也不保证一次改对，所以要有重试上限。
 
 ### 这个模式和 Code Review 有什么关系
 
-本质上就是自动化的 Code Review。
+可以把它看成自动化的 Code Review。
 
 Planner 是 Tech Lead 分任务，Worker 是开发写代码，Reviewer 是审查者提 comment。审查不通过就打回重写。
 
@@ -362,7 +376,7 @@ PaiCLI 的设计是默认 ReAct，`/plan` 或 `/team` 显式切换，执行完�
 
 ## 13、面试中怎么介绍你的 Agent 项目（1 分钟版本）
 
-“我从零开始用 Java 实现了一个 AI Agent CLI，叫 PaiCLI，对标 Claude Code，分 21 期从 ReAct 循环做到了完整产品。
+“我从零开始用 Java 实现了一个 AI Agent CLI，叫 PaiCLI，对标 Claude Code，分 23 期从 ReAct 循环做到了完整产品。
 
 核心架构方面，实现了 ReAct、Plan-and-Execute、Multi-Agent 三种模式。ReAct 是默认的，Plan-and-Execute 加了 DAG 拓扑排序支持任务并行，Multi-Agent 是 Planner-Worker-Reviewer 三角色协作。
 
@@ -372,11 +386,11 @@ PaiCLI 的设计是默认 ReAct，`/plan` 或 `/team` 显式切换，执行完�
 
 产品化方面做了 Claude Code 风格的 inline TUI、LSP 诊断注入、Git Side-History 快照回滚、HTTP Runtime API。
 
-整个项目从第一期的 400 行代码演进到 21 期的完整产品形态，我最大的收获是理解了 Agent 从原理到产品的全链路——什么时候该用简单方案，什么时候必须加复杂度。“
+整个项目从第一期的 400 行代码演进到 23 期的完整产品形态，我最大的收获是理解了 Agent 从原理到产品的整个过程——什么时候该用简单方案，什么时候必须加复杂度。“
 
 ## ending
 
-面试不是背答案，是带着源码讲故事。
+面试时带着源码讲，比背答案管用得多。
 
 【面试说到 ReAct，打开 Agent.java 指给面试官看那个 while 循环。说到 Plan，指 ExecutionPlan.java 的任务依赖图。说到 Multi-Agent，指 SubAgent.java 的角色定义和 prompt 文件。代码和回答能对上，面试官就知道你是真做过的。】
 

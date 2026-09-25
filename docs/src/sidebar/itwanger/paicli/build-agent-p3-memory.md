@@ -51,7 +51,7 @@ MemoryManager no longer duplicates Agent message history
 
 现在 PaiCLI 的仓库说明里有一条硬规则，当前短期上下文只有各 Agent 实际发给 LLM 的 `conversationHistory`，不要再维护影子消息副本。
 
-【截图：新旧 Memory 架构对比；风格：whiteboard；截图目标：说明旧设计压缩的是副本，新设计直接压缩发给模型的历史；关键词：影子副本、conversationHistory、自动压缩】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924183516-c2cad630.png)
 
 拆完之后，职责重新分成了三块。短期记忆就是每个执行单元自己的对话历史，由自动压缩模块在每次调用模型前检查。长期记忆是一份本地 JSON 文件，负责跨会话保存稳定事实。门面类只剩下长期记忆的读写、检索注入、自动提取和 Token 统计，不再碰任何一条对话消息。
 
@@ -97,7 +97,7 @@ private static int autoCompactTriggerTokens(int window) {
 
 表里第四列是下一节要讲的清理阈值，它总是低于摘要阈值，所以清理一定先于摘要发生。
 
-【截图：/context 命令输出的上下文占用；风格：data-board；截图目标：展示当前 Token 估算和压缩阈值；关键词：/context、ctx 百分比、摘要阈值】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924183618-1f5c7f5b.png)
 
 还有一份东西容易和短期记忆搞混，就是原始会话账本。它把每条消息原样追加写进 `~/.paicli/history/raw/` 下的 JSONL 文件，压缩和 `/clear` 只会往里面追加一条边界事件。这份账本只用来审计和排查，不会回放给模型，也不能当成模型能自己找回的记忆。
 
@@ -122,7 +122,7 @@ sb.append("[工具输出过大，完整内容已卸载到会话文件]\n")
 
 `execute_command` 单独处理。命令输出超过 8000 个字符就整段落盘，以前是直接截断丢掉后半截，现在编译报错堆栈最后几行这类关键信息也能找回来。
 
-【截图：工具输出落盘后的上下文说明；风格：checklist-card；截图目标：展示落盘提示、文件路径和首尾预览；关键词：tool-outputs、read_file、offset】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924183749-cc89d083.png)
 
 为了避免“落盘、读回、再落盘”的循环，带 offset 或 limit 的 `read_file`，以及读取落盘目录本身的请求都不再触发落盘。
 
@@ -146,7 +146,7 @@ public int triggerTokens(int compactionTriggerTokens) {
 
 只换正文有个好处，`tool_call_id` 和消息条数都不变，assistant 发起的工具调用和对应的 tool 结果仍然一一配对。OpenAI 兼容接口对这种配对查得很严，少一条 tool 消息就会直接返回 400。
 
-【截图：旧工具结果清理前后的消息对比；风格：swimlane；截图目标：说明只替换正文，tool_call_id 保持不变；关键词：清理阈值、占位说明、配对】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924200207-70088af3.png)
 
 最近 3 条工具结果、短于 400 个字符的结果和已经清理过的结果都会跳过。system prompt 里也告诉了模型，看到占位说明就重新调用工具或者按路径读回，不要凭印象补全。
 
@@ -176,7 +176,7 @@ public int triggerTokens(int compactionTriggerTokens) {
 
 模型漏了栏目，程序会让它按要求重新整理一次；还是不合格，这次就不压缩，原始历史保持不动。摘要重建之后估算 Token 没有下降，也同样放弃。
 
-【截图：完整摘要的切点与四个栏目；风格：three-layer；截图目标：展示 system、摘要、确认消息和保留尾部的重建结构；关键词：user 边界、四个栏目、/compact】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924200355-e9d7a132.png)
 
 重建后的历史结构如下。
 
@@ -201,7 +201,7 @@ static List<LlmClient.Message> rebuildWithSummary(
 
 另一条实验路径叫 Session Memory，要设置 `PAICLI_SESSION_MEMORY_COMPACTION_ENABLED=true` 才会打开。对话占用到摘要阈值的 60% 时，它在后台线程里提前生成摘要，之后只把新增部分交给模型做增量更新，新增不足 4000 Token 就不更新。真到了阈值，如果提前生成的摘要还能用，就直接拿来重建，省掉一次同步等待；用不了就回退到完整摘要。
 
-【截图：Session Memory 提前生成摘要的时间线；风格：swimlane；截图目标：说明后台预生成和阈值时直接使用的关系；关键词：Session Memory、增量更新、回退】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924200555-08a4d836.png)
 
 ## 06、长期记忆怎么存
 
@@ -225,7 +225,7 @@ public class MemoryEntry {
 
 写入有三个入口。用户输入 `/save 事实` 或 `/save --global 偏好`；用户说“记一下”“记住”时，模型调用 `save_memory` 工具；还有下文要讲的自动提取。
 
-【截图：/memory list 列出的项目级和全局记忆；风格：data-board；截图目标：展示作用域、写入日期和核实状态；关键词：/memory list、project、global】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924200739-823ce7d0.png)
 
 同一个文件会被好几个实例同时读写。ReAct、Plan、Team 各有一个长期记忆实例，用户还可能在两个终端里各开一个 PaiCLI。旧实现每次变更都在自己的内存里改完再整文件覆盖写盘，后写的实例会用它手里的旧快照把别人刚存的记忆盖掉。我写了个测试，两个实例交替存三条记忆，旧代码跑完只剩两条，中间那条被后写的实例盖掉了。
 
@@ -271,7 +271,7 @@ boolean isConflict(MemoryEntry existing, MemoryEntry incoming) {
 
 两种情况算冲突。一种是两条内容只有数字或版本号不同，“项目用 Java 17”和“项目用 Java 21”就属于这种；另一种是字符二元组的 Dice 相似度达到 0.8。冲突时新内容不写入，也不覆盖旧条目，程序把新旧两条都列出来交给用户选。
 
-【截图：保存冲突记忆时的三个选项；风格：checklist-card；截图目标：展示冲突提示和 replace、--force 两种处理方式；关键词：冲突检测、/memory replace、/save --force】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924200928-43735cbb.png)
 
 用户可以用 `/memory replace <id> <新事实>` 替换旧条目，也可以用 `/save --force` 两条都保留，什么都不做就保持原样。模型走 `save_memory` 时同理，只有用户明确选择之后，模型才能带 `replace_id` 或 `keep_both` 重新调用。
 
@@ -289,7 +289,7 @@ system prompt 里还专门有一段记忆策略。记忆是线索不是事实，
 
 触发时机是顶层任务正常完成之后，ReAct、Plan、Team 三种模式都一样。预算耗尽的部分完成和用户取消都不触发。`/clear` 现在也不再提取事实，只清空会话状态。
 
-【截图：自动提取的过滤流程；风格：swimlane；截图目标：展示长度过滤、敏感句剔除、关键词初筛、模型挑选和逐字校验；关键词：自动提取、逐字出现、待核实】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924201338-f2f4bc51.png)
 
 调用模型之前，程序先过滤一轮。输入短于 5 个字符或长于 4000 个字符直接跳过；含密码、密钥、token、手机号、邮箱这类词的句子整句剔除，不发给模型；剩下的内容还得命中“我、项目、团队、偏好、默认、技术栈、以后”这类关键词，才值得花一次模型调用。
 
@@ -319,7 +319,7 @@ PaiCLI 仓库里有一份评测记录，用 18 条合成输入测过这套提取
 
 打分规则比较朴素。记忆内容包含整句查询，直接给 1.0；否则按命中词数除以查询词数，再乘一个时间衰减系数。
 
-【截图：检索打分与注入流程；风格：three-layer；截图目标：展示可见性过滤、jieba 分词打分和 Token 上限截断；关键词：jieba、时间衰减、Project Context】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924201809-64dd2ab0.png)
 
 取分数最高的 10 条，按 Token 上限截断。上限随窗口变化，公式是 `max(500, min(5000, window / 200))`，200K 窗口是 1000，1M 窗口是 5000。
 
@@ -361,9 +361,9 @@ Plan 模式是用任务描述作查询，把检索结果追加在任务的 user 
 
 ![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260420223145.png)
 
-【截图：新版 /memory list 输出；风格：data-board；截图目标：展示条目 id、作用域、写入与核实日期、待核实标记；关键词：/memory list、待核实、可能已过时】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924202006-7f047640.png)
 
-【截图：新版 /context 输出；风格：data-board；截图目标：展示上下文估算、清理阈值和摘要阈值；关键词：/context、清理阈值、摘要阈值】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924202155-6c3c0377.png)
 
 记忆相关的命令现在多了不少：
 
@@ -382,7 +382,7 @@ Plan 模式是用任务描述作查询，把检索结果追加在任务的 user 
 
 第三处是注入位置不一致。ReAct 放在 system prompt，Plan 放在任务的 user 输入。另外 ReAct 每轮按查询重建整个 system prompt，前缀缓存每轮都会失效，更好的做法是让 system 只放稳定内容，本轮检索到的记忆附在本轮 user 消息后面。
 
-【截图：待改进项清单；风格：checklist-card；截图目标：列出估算偏小、打分失效、注入位置不一致、自动提取阻塞四项；关键词：Token 估算、时间衰减、前缀缓存】
+![](https://cdn.paicoding.com/stutymore/build-agent-p3-memory-20260924202358-eb1db67d.png)
 
 第四处是自动提取的开销。它在每轮任务完成后同步调用一次主模型，用户要等它结束才能输入下一句。换成后台异步、用小尺寸模型来做会更合适。
 

@@ -223,7 +223,7 @@ private boolean topologicalSort(Task task, Set<String> visited, Set<String> visi
 
 旧版文章的代码在最后多写了一行 `Collections.reverse(executionOrder)`。沿依赖方向做后序遍历，结果本来就是依赖在前，再反转一次顺序就错了，源码里也没有这一行。同一节开头还讲了“找入度为 0 的节点”，那是 Kahn 算法的思路，PaiCLI 的 Plan 模式没有用它，只有 Team 模式的计划解析用入度法检测环。
 
-【截图：DFS 后序遍历得到拓扑序的过程；风格：whiteboard；截图目标：展示 visiting 检测环、visited 去重和后序加入结果；关键词：DFS、后序、环检测】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924182251-1c5c3b96.png)
 
 算法用两个集合来跟踪状态，`visiting` 是当前递归栈中的节点，用于检测环；`visited` 是已处理完的节点，用于避免重复处理。
 
@@ -306,7 +306,7 @@ public ExecutionPlan createPlan(String goal) throws IOException {
 
 第 5、7、8 条是后来加的，针对的是简单任务被拆得过细、为了保存中间结果额外建读写任务这两种情况。
 
-【截图：planner.md 提示词的 8 条规则；风格：checklist-card；截图目标：展示输出格式、任务类型和约束规则；关键词：planner.md、任务类型、最短计划】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924182401-d5181230.png)
 
 ### 解析 LLM 输出
 
@@ -346,7 +346,7 @@ if (!plan.computeExecutionOrder()) {
 
 两遍扫描保留了下来。LLM 可能先定义 task_2，再定义 task_1，而 task_2 依赖 task_1。第一遍先登记所有 id，第二遍再建立依赖，前向引用就不会出问题。不管模型给的 id 叫什么，最终都按数组顺序重新编号成 `task_1` 到 `task_N`。
 
-【截图：计划解析的严格校验项；风格：checklist-card；截图目标：列出空回复、非对象、重复 id、未知依赖、环等失败条件；关键词：严格校验、重复 id、循环依赖】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924182549-5438f8da.png)
 
 只有任务类型是宽松的，写错或缺失都按 `ANALYSIS` 处理。解析失败时没有自动重试，也不会退回 ReAct，整次 `/plan` 直接返回“❌ 执行失败”和具体原因。我的判断是，计划形状都不对的时候，与其猜模型想干什么，不如让用户看到错误重新描述一遍。
 
@@ -413,7 +413,7 @@ while (true) {
 
 每一轮取出当前所有可执行的任务，整轮执行完，再重新计算下一轮。它不是事件驱动的调度器，某个任务的依赖提前完成了，也要等这一轮其他任务全部结束才会启动。
 
-【截图：按轮执行的主循环；风格：swimlane；截图目标：展示取可执行任务、并行执行、收集结果、进入下一轮的循环；关键词：isExecutable、按轮执行、屏障】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924182704-ec070123.png)
 
 每个任务内部是一个独立的工具循环。任务有自己的消息列表，system 是任务执行提示词，user 是任务上下文；模型返回工具调用就执行工具，把结果交回模型，直到模型不再调用工具为止。
 
@@ -446,7 +446,7 @@ context.append("请执行此任务。如果是ANALYSIS或VERIFICATION类型，�
 
 依赖结果原样拼进来，不截断也不做摘要。上游读了一个大文件、下游又依赖了好几个上游时，这条消息会很长，好在任务内部也有上一期讲的自动压缩兜底。上下文后面还会追加和任务描述相关的长期记忆。
 
-【截图：下游任务收到的任务上下文；风格：three-layer；截图目标：展示总目标、当前任务、直接依赖结果三段结构；关键词：任务上下文、直接依赖、依赖结果】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924182820-c5b9ffbb.png)
 
 联网权限也按依赖关系传递。每个任务从本轮的工具策略复制一份自己的副本，并行的兄弟任务之间不共享新发现的 URL。上游任务通过 `web_search` 拿到的可信 URL，只会传给 DAG 里声明依赖它的下游；上游回复正文里写的网址不算数，下游想抓取也会被拒绝。这样一个任务读到的网页内容再怎么诱导，也没法让另一个分支去访问它指定的地址。
 
@@ -484,7 +484,7 @@ context.append("请执行此任务。如果是ANALYSIS或VERIFICATION类型，�
 
 Ctrl+O 展开的是带状态图标的完整任务图。旧版文章说“执行过程中实时更新状态图标”，现在的代码没有这个功能，执行期间只有逐行日志，比如“▶️ 执行任务”“⚡ 本轮并行执行 N 个任务”“✅ 完成”“❌ 失败”。
 
-【截图：计划审阅的折叠摘要和展开视图；风格：data-board；截图目标：展示摘要字段和 Ctrl+O 展开后的任务图；关键词：计划审阅、Ctrl+O、补充要求】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924182939-aa5b4d92.png)
 
 按 I 输入的补充要求会拼到目标后面，整份重新规划，原计划不支持逐条编辑或删除任务。补充里如果写了“不要联网”，工具策略也会跟着收紧。终端读不到单键时会退回行模式，直接回车执行，输入 `/view` 展开，输入 `cancel` 取消，其他文字当作补充要求。
 
@@ -519,7 +519,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 
 整个流程清晰可见，每一步都知道在做什么。
 
-【截图：新版审阅界面实拍；风格：data-board；截图目标：展示当前版本的折叠摘要与按键提示；关键词：/plan、审阅、回车执行】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924183055-961d1c17.png)
 
 ## 07、和 ReAct 的对比
 
@@ -564,7 +564,7 @@ ExecutorService executor = Executors.newFixedThreadPool(Math.min(executableTasks
 
 输出交错的处理最直接。每个并行任务的输出先写进自己的缓冲区，整轮结束后按任务顺序一次性打印。代价是并行任务执行期间，终端看不到它们的流式输出。
 
-【截图：并行任务的缓冲输出；风格：swimlane；截图目标：展示并行执行时各任务输出先缓冲、整轮结束后按顺序打印；关键词：paicli-plan-executor、缓冲区、按序输出】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924183208-2fe0d6d3.png)
 
 写入冲突分两层看。计划层面，两个并行任务写同一个文件目前没有专门的锁，要靠规划时把它们设计成有依赖关系。工具层面，9 月 24 日修了一个更常见的问题，同一轮模型返回多个 `edit_file`，旧代码会并行执行，它们各自读文件、改一处、整文件写回，后写的会把先写的改动盖掉。代码审查时实测过同一个文件的并发编辑，50 轮里有 49 轮丢了改动，工具却都报告成功。现在只有读文件、搜索这类只读工具才并行，写文件、执行命令、MCP 调用一律按模型给出的顺序串行。
 
@@ -609,7 +609,7 @@ ExecutorService executor = Executors.newFixedThreadPool(Math.min(executableTasks
 任务 task_5 已跳过: 依赖的任务 task_3 失败
 ```
 
-【截图：失败时的部分完成汇总；风格：checklist-card；截图目标：展示已完成结果、失败原因和跳过说明同时出现；关键词：部分完成、SKIPPED、失败汇总】
+![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20260924183403-4e7044a4.png)
 
 已经流式显示过的任务结果不会重复打印。到达重规划上限的情况，汇总里会多一行“已达到重新规划上限（2 次），停止执行剩余任务”。
 
