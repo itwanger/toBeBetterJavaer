@@ -327,6 +327,7 @@ body.focus-reading-mode {
 
 body.focus-reading-mode .vp-notice-wrapper,
 body.focus-reading-mode .desktop-sidebar-toggle,
+body.focus-reading-mode .desktop-toc-toggle,
 body.focus-reading-mode .pwa-inline-update-control,
 body.focus-reading-mode .floating-controls-toggle,
 body.focus-reading-mode .toggle-sidebar-wrapper,
@@ -1113,4 +1114,64 @@ html[data-theme="dark"] .agent-interview-page .vp-footer-wrapper {
     padding: 3.7rem 0.65rem 1rem !important;
     box-shadow: 3px 3px 0 rgb(23 33 43 / 16%);
   }
+}
+
+/* 右侧「此页内容」目录：
+   主题默认要窗口 ≥1440px 才把它放到正文右侧（hope-config.$pc），窄一点就收成正文上方的折叠条。
+   这里不新设门槛，直接复用主题已有的桌面断点（≥960px 出现左侧栏的那条线），把目录做成固定在右侧的浮窗：
+     - 目录脱离文档流，不再挤占正文，因此任何桌面宽度都能显示；
+     - 给 .vp-page 加 13.5rem 右内边距预留槽位。注意不能靠收窄 --content-width 来腾地方：
+       正文在剩余空间里是居中的，一收窄就会左右对半分，右侧反而没让出来。 */
+@media (min-width: 960px) and (max-width: 1439px) {
+  /* toc-panel-desktop 由 DesktopTocToggle 在「目录确实存在且未收起」时挂上，
+     避免没有小标题的页面白留一条空槽 */
+  .theme-container.toc-panel-desktop .vp-page {
+    padding-inline-end: 13.5rem;
+  }
+
+  .vp-toc-placeholder {
+    top: calc(var(--navbar-height) + 2rem);
+  }
+
+  #toc {
+    position: fixed;
+    top: calc(var(--navbar-height) + 2rem);
+    inset-inline-end: 0.75rem;
+    min-width: 10rem;
+    max-width: 12rem;
+    margin-bottom: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .vp-toc-header {
+    padding-top: 0;
+    font-size: 0.875rem;
+  }
+
+  .vp-toc-header .arrow {
+    display: none;
+  }
+
+  .vp-toc-header .print-button {
+    display: inline-block;
+  }
+
+  .vp-toc-wrapper {
+    height: auto;
+    max-height: 75vh;
+  }
+
+  .vp-toc-marker {
+    display: block;
+  }
+
+  .vp-toc-item {
+    padding: 0 0.5rem;
+  }
+}
+
+/* 右侧目录的收起状态，由 DesktopTocToggle 切换并记忆 */
+.theme-container.toc-collapsed-desktop #toc {
+  display: none;
 }
