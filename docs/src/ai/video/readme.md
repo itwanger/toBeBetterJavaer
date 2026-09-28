@@ -309,7 +309,7 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 
 🟢 基础 | `→ PaiCLI`
 
-### 23. Agent 系统里有哪些反复出现的设计模式？
+### 23. Pi Agent 系统里有哪些反复出现的设计模式？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
