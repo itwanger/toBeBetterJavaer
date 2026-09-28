@@ -184,7 +184,7 @@ PaiCLI 会在终端里显示一条提示：`[已附加图片: ./shot.png, mimeTy
 @image:</Users/itwanger/Desktop/中文截图.png>           # 中文路径
 ```
 
-当然了，如果是纯文本模型比如 DeepSeek V4，是不支持的。
+2026-09-25 更新：PaiCLI 默认的 DeepSeek 已升级为 V4.1 Flash（`deepseek-flash`），支持图片输入，使用 `/model deepseek-flash` 即可切换。旧 Flash 别名也由官方转到新版；DeepSeek V4 Pro、混元 Hy4 等文本模型仍会把图片替换成文字提示。下面的截图记录的是旧版文本模型行为。
 
 ![](https://cdn.paicoding.com/paicoding/da97740869e11ce5c116328d0af8433d.png)
 

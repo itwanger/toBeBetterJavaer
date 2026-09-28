@@ -64,4 +64,6 @@ Claude Code 会起一个子 Agent，把历史消息发给大模型，让它按 9
 
 这个知识点你学会了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/claude-code-short-term-memory-20260720082344.png)
+<!-- video-covers:end -->

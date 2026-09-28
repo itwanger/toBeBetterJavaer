@@ -42,4 +42,6 @@ LLM 是无状态的，每次调用从零开始。所谓的“记忆”，是因�
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/agent-short-term-memory-f0dbc81ed43292737114dff5fc5910a2.png)
+<!-- video-covers:end -->

@@ -78,11 +78,13 @@ DeepSeek 靠上下文硬盘缓存技术，把提示词缓存做到了全自动�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-prompt-caching-20260908111651.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-prompt-caching-20260908111658.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-prompt-caching-20260908111704.png)
+<!-- video-covers:end -->
 
 这个公众号历史发布过很多有趣的 Agent 知识点，如果你懒得翻文章一个个找，你直接关注微信公众号：二哥狗腿子 ，后台对话聊天就行了：
 

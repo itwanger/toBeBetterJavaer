@@ -450,13 +450,13 @@ PaiCLI 提供了一组 `/mcp` 命令来管理 MCP server：
 /mcp enable <name>    重新启用某个 server
 ```
 
-`/mcp` 会输出一张状态表，包含每个 server 的名称、状态（● ready / ✗ error / ○ disabled）、传输方式、工具数量、运行时长、进程 PID（stdio 类型才有）。
+`/mcp` 会输出一张状态表，包含每个 server 的名称、状态（● 就绪 / … 启动中 / ✗ 失败 / ○ 停用）、传输方式、工具数量、运行时长、进程 PID（stdio 类型才有）。
 
 
 ![](https://cdn.paicoding.com/paicoding/e201d1b1cb3a4e0205274b315ea72c85.png)
 
 
-比如 filesystem 启动成功后你会看到 `● ready | stdio | 11 tools | 3m | PID 12345`，zread 是 `● ready | http | 3 tools | 3m`。如果某个 server 挂了会显示 `✗ error` 并附带错误原因。
+列表采用与模型、Skill 列表相同的轻分隔线表格，服务名、状态、连接、工具数和运行信息各占一列。中文按显示宽度对齐，窄屏下移运行信息或改为纵向条目。失败时显示 `✗ 失败`，具体原因放在表格下方。
 
 `/mcp logs filesystem` 可以查看 filesystem server 的 stderr 输出，最多保留最近 200 行。npx 冷启动时的下载日志、server 内部的调试信息都能在这里看到，排查问题很方便。
 

@@ -88,8 +88,10 @@ Laya 包含了 421M 参数的 ModernBERT 英文模型和支持百种语言的 mm
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/open-source-jev-replicas-cover-20260922163541-1fd68951.png)
 
 ![](https://cdn.paicoding.com/stutymore/open-source-jev-replicas-cover-20260922163549-9f71c842.png)
 
 ![](https://cdn.paicoding.com/stutymore/open-source-jev-replicas-cover-20260922163548-f4c69c6d.png)
+<!-- video-covers:end -->

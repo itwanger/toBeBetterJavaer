@@ -1,4 +1,4 @@
-标题：为什么越来越多人放弃 Claude Code 转而用 Pi？
+标题：万众期待，DeepSeek Harness桌面版终于来了。
 
 参考文章：https://mp.weixin.qq.com/s/8KB9H19wTmV9Ttsls2ZQOQ
 

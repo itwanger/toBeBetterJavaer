@@ -84,8 +84,10 @@ Embedding 一般都会针对这种问题做专项训练的，所以不用担心�
 
 这道题你学会了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-semantic-caching-20260909182314.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-semantic-caching-20260909182245.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-semantic-caching-20260909182256.png)
+<!-- video-covers:end -->

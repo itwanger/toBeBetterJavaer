@@ -24,6 +24,8 @@
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/agent-vs-chatbot-20260630092533.png)
 
 ![](https://cdn.paicoding.com/stutymore/agent-vs-chatbot-20260630092603.png)
+<!-- video-covers:end -->

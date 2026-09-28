@@ -44,6 +44,8 @@
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/react-death-loop-8d506911f78d415e7107af3fab0d039f.png)
 
 ![](https://cdn.paicoding.com/stutymore/react-death-loop-3db724841aa70c80e1efd2a867147053.png)
+<!-- video-covers:end -->

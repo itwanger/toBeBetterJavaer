@@ -755,6 +755,7 @@ body.floating-controls-collapsed .floating-controls-toggle {
 }
 
 .agent-video-card {
+  box-sizing: border-box;
   width: min(100%, 760px);
   margin: -0.7rem auto 2.4rem;
   border: 3px solid var(--agent-pixel-ink);
@@ -790,9 +791,8 @@ body.floating-controls-collapsed .floating-controls-toggle {
 
 .agent-video-card__player {
   position: relative;
-  height: 0;
-  /* 抖音播放器由 16:9 画面和约 35px 的底部控制栏组成。 */
-  padding-bottom: calc(56.25% + 35px);
+  /* Stable 720×440 player viewport: 16:9 video plus its 35px control bar. */
+  aspect-ratio: 720 / 440;
   overflow: hidden;
   background: #0b0f14;
 }
@@ -801,9 +801,62 @@ body.floating-controls-collapsed .floating-controls-toggle {
   position: absolute;
   inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 720px;
+  height: 440px;
+  max-width: none;
+  transform-origin: top left;
   border: 0;
+}
+
+.agent-video-card__player[data-load-state="unavailable"] {
+  aspect-ratio: auto;
+  min-height: 190px;
+}
+
+.agent-video-card__status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  background: #0b0f14;
+  color: #eef5ff;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.agent-video-card__actions,
+.agent-video-card__help {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agent-video-card__actions button,
+.agent-video-card__actions a,
+.agent-video-card__help button {
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.agent-video-card__help {
+  padding: 0.45rem 0.75rem;
+  background: #0b0f14;
+  color: #eef5ff;
+  font-size: 0.8rem;
+  line-height: 1.5;
 }
 
 .agent-script-card {
@@ -1072,14 +1125,8 @@ html[data-theme="dark"] .agent-interview-page .vp-footer-wrapper {
   }
 
   .agent-video-card {
-    width: min(100%, 372px);
     margin-top: -0.9rem;
     box-shadow: 4px 4px 0 var(--agent-pixel-ink);
-  }
-
-  .agent-video-card__player {
-    height: 720px;
-    padding-bottom: 0;
   }
 
   .agent-video-card__meta {

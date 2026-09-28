@@ -60,8 +60,10 @@ CRIU 是 Linux 基金会的项目，做的是进程级 Checkpoint，能把运行
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![Agent Checkpoint 16:9 封面](https://cdn.paicoding.com/stutymore/what-is-agent-checkpoint-cover-horizontal-16x9-20260920155115-c286f59b.png)
 
 ![Agent Checkpoint 4:3 封面](https://cdn.paicoding.com/stutymore/what-is-agent-checkpoint-cover-horizontal-4x3-20260920155122-059bc5fa.png)
 
 ![Agent Checkpoint 3:4 封面](https://cdn.paicoding.com/stutymore/what-is-agent-checkpoint-cover-vertical-3x4-20260920155136-fbe67c6f.png)
+<!-- video-covers:end -->

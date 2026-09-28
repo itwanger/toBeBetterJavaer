@@ -44,7 +44,9 @@ DECSTBM 全称是 DEC Set Top and Bottom Margins，是 VT100 终端定义的转�
 
 ![](https://cdn.paicoding.com/stutymore/paicli-interview-productization-20260529080844.png)
 
-PaiCLI 的做法是把终端底部留出 2 行不参与滚动。主内容在上方正常滚动输出，底部 2 行始终固定显示状态信息。
+PaiCLI 通过 JLine `Status` 在终端底部保留两行状态和一行分隔线。主内容在上方滚动输出。
+
+滚动区域只能约束滚动，不能阻止“清除到屏幕底部”的 ANSI 指令擦掉状态栏。代码块折叠和 Ctrl+O 重绘因此只逐行清理自身占用的区域。如果直接清屏到底，JLine 的显示缓存还以为模型名等内容存在，下一次只重画变化的数据，就会出现右侧统计还在、左侧模型名空白的现象。
 
 第一行是核心状态，包括 HITL 审批开关、MCP Server 连接数、Skill 加载数。
 

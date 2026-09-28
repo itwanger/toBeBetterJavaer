@@ -28,6 +28,8 @@
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/agent-rag-pdf-09033ec0001f5d55f733140fcf6ed05c.png)
 
 ![](https://cdn.paicoding.com/stutymore/agent-rag-pdf-bcccfda09ad3b73728c19ec6f5296366.png)
+<!-- video-covers:end -->

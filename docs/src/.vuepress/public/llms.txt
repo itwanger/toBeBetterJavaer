@@ -14,6 +14,7 @@
 - [什么是 AI Agent？与直接调用大模型 API 有什么区别？](https://javabetter.cn/ai/video/what-is-agent.html)：Agent 不只是一次模型调用，而是由模型、工具、记忆和运行时共同组成，能够观察环境、执行动作并根据结果继续决策。
 - [Agent 和 ChatBot 有什么区别？如何让聊天机器人进化成 Agent？](https://javabetter.cn/ai/video/agent-chatbot-difference.html)：Agent 比 ChatBot 多出的关键能力是工具调用、任务规划和记忆，并通过持续反馈自主推进任务。
 - [Workflow 和 Agent 有什么区别？面试时该怎么回答？](https://javabetter.cn/ai/video/workflow-vs-agent.html)：Workflow 依赖预先设计的步骤与分支，Agent 则由模型结合当前状态动态决定下一步，两者可以组合使用。
+- [订机票客服该用工作流还是自主 Agent？](https://javabetter.cn/ai/video/workflow-vs-agent-flight-booking.html)：订机票客服可以结合工作流与自主 Agent：身份核验、付款和预订按确定流程执行，复杂意图理解与异常处理交给 Agent，并在关键操作前确认。
 - [AI Agent 是如何工作的？完整执行过程拆解](https://javabetter.cn/ai/video/how-agent-works.html)：Agent 的工作过程包括接收目标、组装上下文、模型决策、执行工具、写回观察结果和判断是否继续。
 - [一个 AI Agent 有哪些核心组件？](https://javabetter.cn/ai/video/agent-core-components.html)：生产级 Agent 通常由模型、工具、记忆、规划与 Harness 五部分组成，Harness 负责循环、权限、上下文和错误恢复。
 - [Agent 怎么知道该调用哪个工具？Function Calling 原理拆解](https://javabetter.cn/ai/video/agent-hnow-tool-call.html)：工具选择主要由 LLM 根据工具名称、描述和参数 Schema 完成，Agent 运行时负责注册、执行、校验与结果回传。
@@ -59,6 +60,8 @@
 - [KV Cache 是什么？为什么只缓存 K 和 V，不缓存 Q？](https://javabetter.cn/ai/video/what-is-kv-cache.html)：大模型自回归生成时，每个新 Token 都要和历史 Token 的 K、V 重新做注意力计算，而当前 Token 的 Q 用完即弃，所以只把 K 和 V 存进显存，用空间换时间。
 - [Prefix Caching（前缀缓存）是什么？和 KV Cache 是什么关系？](https://javabetter.cn/ai/video/what-is-prefix-caching.html)：KV Cache 只在单次请求内复用，Prefix Caching 把公共前缀的 KV 数据跨请求共享，靠 Token 分块和 Radix Tree 前缀树匹配，开头改一个字整条缓存链就会失效。
 - [DeepSeek 的 Prompt Caching 为什么能全自动生效，Claude 为什么要手动加 cache_control？](https://javabetter.cn/ai/video/what-is-prompt-caching.html)：DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。
+- [到底什么是语义缓存？](https://javabetter.cn/ai/video/what-is-semantic-caching.html)：语义缓存保存完整问答，通过 Embedding 和相似度检索复用已有答案。它适合高频重复问题，需要关注时间、用户身份和业务条件变化带来的误命中风险。
+- [构建有效 Agent 有哪三个核心原则？](https://javabetter.cn/ai/video/building-effective-agents-principles.html)：保持简单、保持透明、精心设计 Agent-Computer Interface：从最简单的方案开始，展示真实执行过程，并通过工具接口设计减少误用。
 - [GPT Images 2.5 一手实测，OpenAI 越来越有水平啦](https://javabetter.cn/ai/video/chatgpt-images-2-5.html)：OpenAI 发布 Images 2.5，生成速度比 Images 2.0 快一倍，新增 Sketch 草图功能，可以直接在对话框里画草图让 AI 照着生成图片。这期带你过一遍升级点和用法。
 - [GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？](https://javabetter.cn/ai/video/gpt-6-astra.html)：GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。
 - [Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？](https://javabetter.cn/ai/video/why-relay-still-works.html)：官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂；中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。
@@ -70,6 +73,8 @@
 - [大模型预训练完了，为什么还要做强化学习？](https://javabetter.cn/ai/video/what-is-reinforcement-learning.html)：预训练靠自监督学习积累知识，强化学习让模型和环境互动、靠奖励和惩罚试错调整策略，DeepSeek-R1-Zero 纯靠 RL 涌现出推理和反思。
 - [不生成文本的 Jev，为什么让 14 万开发者排队？](https://javabetter.cn/ai/video/what-is-jev.html)：Jev 是 TypeSafe AI 发布的 System One 模型，不生成文本只做判断，一次前向计算直接在选项上分配校准过的概率，适合 Agent 里的高频小决策。
 - [推荐 5 个复刻 Jev 的开源项目](https://javabetter.cn/ai/video/open-source-jev-replicas.html)：开源社区用轻量决策头加 LoRA 微调复刻了 Jev，Kev、Nimble、Laya、Open-Jev 各有看家本领，可以在本地跑起自己的决策模型。
+- [模型越来越强，Harness 会不会被模型「吃掉」？](https://javabetter.cn/ai/video/will-model-eat-harness.html)：模型可以逐步内化格式修正与工具调用适配等能力，但文件和网络权限、危险操作确认、审计与业务规则仍需在模型外执行。
+- [MiMo-V3 的 HySparse2 和混合滑动窗口注意力有什么区别？](https://javabetter.cn/ai/video/mimo-v3-hysparse2.html)：HySparse2 结合 Self-Decoder、Cross-Decoder、KV Reuse 与 KV Bridging，让后半段复用或从前半段计算 KV Cache，减少长输入的 Prefill 计算。
 
 ## 学习路线
 
@@ -121,6 +126,7 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [华为AgentRAG面试题](https://javabetter.cn/sidebar/itwanger/ai/huawei-agent-rag-mianshi.html)：Agent面试题 RAG面试题 记忆污染 上下文压缩 提示词注入 混合检索 BM25 知识库 幻觉控制 MinIO上传
 - [Codex + Jev 实测](https://javabetter.cn/sidebar/itwanger/ai/codex-jev.html)：在 Codex 中安装 Jev 判断模型实测，Agent 决策比 LLM 快 40-200 倍，便宜 40-400 倍，输出 Token 免费
 - [飞书+豆包工作知识库](https://javabetter.cn/sidebar/itwanger/ai/feishu-doubao-knowledge-base.html)：用飞书+豆包工作把 300 多篇文章变成可查询的 AI 知识库，从上传到跨库检索到邪修用法的完整实测记录
 - [又一款国产大模型，性价比拉满。](https://javabetter.cn/sidebar/itwanger/ai/step5-preview-vs-deepseek.html)：Step 5 Preview vs DeepSeek V4 Pro 三场景同题实测，用 Kimi Code 做统一 Harness，看八分之一 Opus 5 价格的国产旗舰模型到底能打多少成
@@ -180,7 +186,6 @@
 - [DeepSeek 开始摇人了](https://javabetter.cn/sidebar/itwanger/ai/deepseek-hiring-ai-era.html)：从 DeepSeek 最新 36 个在招岗位的 JD 拆解 AI 时代的人才需求变化，逐岗位分析服务端、前端/客户端、测试开发的能力进化方向，附转型准备指南。DeepSeek 开始摇人了，有点猛啊。
 - [QoderWork 速通指南](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-xiaohao.html)：QoderWork CN 速通指南，从安装到实战全流程，覆盖设计工作台、专家套件、浏览器连接器、技能市场、定时任务、IM 频道等核心功能，附宠物寄养平台产品设计实战案例。
 - [Claude Code核心概念拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-core-concepts.html)：从官方文档出发，拆解 Claude Code 五大核心概念：上下文、CLAUDE.md、Hooks、Skills、Subagents 的内部机制，结合 PaiCLI 实战对照，理解 Agent Harness 的设计逻辑。面试官：“你说你用Claude写代码，那你说说你CLAUDE.md、Hooks、Skills、Subagents”，我：“这些是啥？”，面试官：“回去等通知吧！”
-- [QoderWork CN 全面评测](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-review.html)：QoderWork CN 全面评测，阿里 Qoder 桌面 AI 智能体实测，支持 Qwen3.7-Max、GLM-5.2 等多模型自由切换，Quest 架构 + 专家团模式 + 意识功能深度体验。 QoderWork 太顶了，无限画布设计出来的Codex网站，好看啊
 
 ## 开发工具
 

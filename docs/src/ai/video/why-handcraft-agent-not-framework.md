@@ -48,8 +48,10 @@ Anthropic 官方博客就曾给出这样的答案，“框架为了通用，需�
 
 这道题你学会了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/why-handcraft-agent-not-framework-cover-16x9-20260913114925-c241620d.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-handcraft-agent-not-framework-cover-4x3-20260913114925-d6d0cadb.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-handcraft-agent-not-framework-cover-3x4-20260913114925-27e98ad6.png)
+<!-- video-covers:end -->

@@ -64,6 +64,7 @@ firecracker 是 AWS 开源的轻量微型虚拟机技术，也是类似 Devin �
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ## 视频封面
 
 ![竖版封面](https://cdn.paicoding.com/stutymore/what-is-agent-sandbox-cover-portrait-20260921203920-5a513939.png)
@@ -71,3 +72,4 @@ firecracker 是 AWS 开源的轻量微型虚拟机技术，也是类似 Devin �
 ![宽屏横版封面](https://cdn.paicoding.com/stutymore/what-is-agent-sandbox-cover-wide-20260921203920-6fa98e6c.png)
 
 ![标准横版封面](https://cdn.paicoding.com/stutymore/what-is-agent-sandbox-cover-standard-20260921203921-5ca6a54e.png)
+<!-- video-covers:end -->

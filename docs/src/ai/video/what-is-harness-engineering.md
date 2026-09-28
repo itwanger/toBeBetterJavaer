@@ -46,4 +46,6 @@ Claude Code 就是一个典型的 Harness。它有权限模型、有 Hooks 系�
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-harness-engineering-20260708213530.png)
+<!-- video-covers:end -->

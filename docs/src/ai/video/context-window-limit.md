@@ -38,4 +38,6 @@ FlashAttention 虽然能通过分块计算、减少显存读写，但 token 做�
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/context-window-limit-20260707115535.png)
+<!-- video-covers:end -->

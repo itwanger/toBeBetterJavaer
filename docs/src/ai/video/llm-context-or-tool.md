@@ -59,6 +59,7 @@ Context 承载运行时的全部信息，Tool 是主动获取上下文的探针�
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ## 视频封面
 
 ![竖版封面](https://cdn.paicoding.com/stutymore/llm-context-or-tool-cover-portrait-20260919110021-ba618228.png)
@@ -66,3 +67,4 @@ Context 承载运行时的全部信息，Tool 是主动获取上下文的探针�
 ![宽屏横版封面](https://cdn.paicoding.com/stutymore/llm-context-or-tool-cover-wide-20260919110022-9f90a5fd.png)
 
 ![标准横版封面](https://cdn.paicoding.com/stutymore/llm-context-or-tool-cover-standard-20260919110023-5e5eda7a.png)
+<!-- video-covers:end -->

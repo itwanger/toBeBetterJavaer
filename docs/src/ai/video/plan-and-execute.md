@@ -48,6 +48,8 @@ Plan-and-Execute 怎么解决？靠三个组件。
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/plan-and-execute-bb3b0159c37077f2d5d57e8380fd90ca.png)
 
 ![](https://cdn.paicoding.com/stutymore/plan-and-execute-db29e1afee56e29ab3309d73a6b41c50.png)
+<!-- video-covers:end -->

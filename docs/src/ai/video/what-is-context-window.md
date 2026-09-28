@@ -44,4 +44,6 @@ token 是什么？是模型处理文本的最小单位。按照 DeepSeek 官方�
 
 这道题你学废了吗？下一期讲短期记忆和长期记忆——LLM 怎么“记住”跨对话的信息？点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-context-window-20260712085936.png)
+<!-- video-covers:end -->

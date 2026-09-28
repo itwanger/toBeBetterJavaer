@@ -84,8 +84,10 @@ MoE 说人话就是“不用所有专家都同时上班”。256 个专家代表
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-moe-20260805102351.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-moe-20260805102401.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-moe-20260805102408.png)
+<!-- video-covers:end -->

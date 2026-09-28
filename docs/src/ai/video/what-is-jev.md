@@ -88,8 +88,10 @@ AI 圈的一位大佬曾说过这样一句话：
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![Jev 16:9 封面](https://cdn.paicoding.com/stutymore/what-is-jev-cover-horizontal-16x9-20260921164143-a73ddd69.png)
 
 ![Jev 4:3 封面](https://cdn.paicoding.com/stutymore/what-is-jev-cover-horizontal-4x3-20260921164143-8f6a894c.png)
 
 ![Jev 3:4 封面](https://cdn.paicoding.com/stutymore/what-is-jev-cover-vertical-3x4-20260921164143-f2938f14.png)
+<!-- video-covers:end -->

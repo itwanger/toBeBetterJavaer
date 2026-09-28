@@ -66,8 +66,10 @@ KV Cache 是大模型用空间换时间的核心机制。Q 是一次性提问用
 
 ![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-20260905210106.png)
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-20260905204359.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-20260905204412.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-kv-cache-20260905204421.png)
+<!-- video-covers:end -->

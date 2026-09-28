@@ -36,4 +36,6 @@ Harness 是把前面四个组件串起来的躯干。它管四件事。管循环
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/agent-core-components-agent-core-components-cover-horizontal-4x3.png)
+<!-- video-covers:end -->

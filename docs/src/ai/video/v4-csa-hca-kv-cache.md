@@ -57,8 +57,10 @@ HCA 的每一份都装着一小段原文的大意，8000 份拼起来，整篇�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/v4-csa-hca-kv-cache-20260824193759.png)
 
 ![](https://cdn.paicoding.com/stutymore/v4-csa-hca-kv-cache-20260824193808.png)
 
 ![](https://cdn.paicoding.com/stutymore/v4-csa-hca-kv-cache-20260824193814.png)
+<!-- video-covers:end -->

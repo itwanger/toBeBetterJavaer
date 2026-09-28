@@ -61,8 +61,10 @@ Context 和 Tools 是 Harness 最基本的两项要素，Guardrails、Evaluation
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
 
+<!-- video-covers:start -->
 ![竖版封面](https://cdn.paicoding.com/stutymore/harness-five-elements-cover-portrait-20260917162710-4b83fef1.png)
 
 ![宽屏横版封面](https://cdn.paicoding.com/stutymore/harness-five-elements-cover-wide-20260917162711-80fef6e7.png)
 
 ![标准横版封面](https://cdn.paicoding.com/stutymore/harness-five-elements-cover-standard-20260917162711-11e14789.png)
+<!-- video-covers:end -->

@@ -54,8 +54,10 @@ Agent 变傻不是 bug，是压缩带来的信息损耗。记住三条：一个�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/why-agent-gets-dumber-20260722115337.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-agent-gets-dumber-20260722115359.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-agent-gets-dumber-20260722115349.png)
+<!-- video-covers:end -->

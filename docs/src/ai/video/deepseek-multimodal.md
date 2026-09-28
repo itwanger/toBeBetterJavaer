@@ -74,8 +74,10 @@ V4-Flash 和 V4-Flash-Vision-Exp 的核心区别就一个：视觉编码器。�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/deepseek-multimodal-20260825202245.png)
 
 ![](https://cdn.paicoding.com/stutymore/deepseek-multimodal-20260825202251.png)
 
 ![](https://cdn.paicoding.com/stutymore/deepseek-multimodal-20260825202256.png)
+<!-- video-covers:end -->

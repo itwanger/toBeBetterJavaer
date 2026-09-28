@@ -62,8 +62,10 @@ MLA 的贡献是把每份笔记压薄了，让 V2 和 V3 在 128K 上下文上�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/v4-why-replace-mla-20260824191000.png)
 
 ![](https://cdn.paicoding.com/stutymore/v4-why-replace-mla-20260824191013.png)
 
 ![](https://cdn.paicoding.com/stutymore/v4-why-replace-mla-20260824191021.png)
+<!-- video-covers:end -->

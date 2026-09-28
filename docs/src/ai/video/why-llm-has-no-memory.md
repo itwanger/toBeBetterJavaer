@@ -54,4 +54,6 @@
 
 这道题你学废了吗？下一期拆上下文窗口——LLM 一次到底能“看到”多少内容？点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/why-llm-has-no-memory-20260711101304.png)
+<!-- video-covers:end -->

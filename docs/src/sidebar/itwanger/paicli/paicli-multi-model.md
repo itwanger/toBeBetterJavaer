@@ -10,7 +10,15 @@ author: 沉默王二
 date: 2026-04-25
 ---
 
+> 2026-09-25 更新：PaiCLI 的 DeepSeek 默认模型已升级为 `deepseek-flash`（V4.1 Flash），支持 1M 上下文、思考模式、工具调用和图片输入。已有配置可用 `/model deepseek-flash` 切换并保存；旧 Flash 别名继续兼容。正文中的 V4 发布数据和运行记录保留为历史背景，当前模型与价格以[官方文档](https://api-docs.deepseek.com/zh-cn/quick_start/pricing/)为准。
 
+模型列表按供应商分组，用表格展示模型 ID、上下文（如 `1M`）、输入能力和状态，`●` 标记当前选择。模板、思考模式等配置可用 `/model info [模型ID]` 查看。窄终端会下移状态列或转成纵向条目。
+
+启动时明确配置的模型优先：环境变量 → 项目 `.env` → 用户 `.env` → 上次保存的模型 → 客户端默认值。因此 `.env` 中的 `DEEPSEEK_MODEL=deepseek-flash` 会覆盖以前保存的旧 Flash 名称。启动页和底部状态栏显示 `DeepSeek V4.1 Flash`，实际请求参数仍为 `deepseek-flash`。会话内 `/model` 切换立即生效并保存；如果下次启动仍有环境配置，会再次优先使用环境配置。
+
+当前版本还支持手动维护模型：`/model list deepseek` 查看列表，`/model refresh deepseek` 从供应商获取并追加新 ID；没有列表接口时，可以用 `/model add deepseek <新模型ID> --like deepseek-flash` 沿用已有协议，再通过 `--context`、`--vision` 等选项覆盖能力。添加和刷新不会自动切换，执行 `/model deepseek/<新模型ID>` 后才生效。新发现模型只登记 ID，默认按 128k 文本处理，实际能力需要核实后配置。
+
+当前 DeepSeek 内置列表只列官方推荐的 `deepseek-flash`（V4.1 Flash）和 `deepseek-v4-pro`；两个旧 Flash 名称是官方继续接受的兼容入口，原模型已下线，请求由 V4.1 Flash 提供服务。刷新不会把旧名重新登记成独立模型，也不会改写已有选择。已有配置里的旧名会标注“兼容旧名 → deepseek-flash”，可用 `/model deepseek-flash` 切换并保存。新增 0 个时，只说明没有新增模型，不再提示新模型能力待配置。
 
 大家好，我是二哥呀。
 
@@ -160,7 +168,7 @@ if (trimmed.regionMatches(true, 0, "/model ", 0, 7)) {
 
 第一，通过工厂创建新的 LlmClient。如果目标 provider 没有配置 API Key，直接报错，不会把当前可用的模型搞丢。
 
-第二，更新默认 provider 并持久化到 config.json。下次启动 PaiCLI 的时候会自动用上次选择的模型。
+第二，更新默认 provider 并持久化到 config.json。下次启动未显式配置环境模型时，会使用上次保存的选择。
 
 第三，通过 `setLlmClient()` 热替换 Agent 内部的模型客户端。注意这里不是重建 Agent，而是原地替换——对话历史、工具注册表、记忆管理器全部保留。这样大家在用 GLM 跑到一半觉得不够好，可以直接切到 DeepSeek 继续，新模型能看到之前的对话上下文。想要干净的对比，手动 `/clear` 一下就行。
 
@@ -324,6 +332,6 @@ V4 的技术报告给基础设施单独写了一整章，这在大模型报告�
 
 1. 基于策略模式设计 `LlmClient` 统一接口，将 `GLMClient` 的内部类型（Message、ToolCall、ChatResponse）提升为接口级公共类型，实现 Agent 层与模型实现层的完全解耦
 2. 使用模板方法模式实现 `AbstractOpenAiCompatibleClient` 基类，共享 SSE 流式解析、请求构建和工具调用增量合并逻辑，新增模型适配只需 20 行子类代码
-3. 通过工厂模式 `LlmClientFactory` 封装客户端创建，结合三层配置回退（config.json → 环境变量 → .env 文件），支持运行时 `/model` 命令一键切换 GLM-5.1 和 DeepSeek V4
+3. 通过工厂模式 `LlmClientFactory` 封装客户端创建，结合启动模型配置优先级（环境变量 → .env 文件 → config.json 保存值 → 默认值），支持运行时 `/model` 命令一键切换 GLM-5.1 和 DeepSeek V4
 4. 在 Agent 执行循环中集成 Token 消耗统计，累计每轮 LLM 调用的输入/输出 token 数和耗时，方便不同模型间的成本和性能对比
 

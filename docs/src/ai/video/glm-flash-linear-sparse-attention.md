@@ -96,8 +96,10 @@ GLM-5.3-Flash 把注意力的计算量从 O(n²) 降低到了 O(n) ，通过线�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/glm-flash-linear-sparse-attention-20260828133551.png)
 
 ![](https://cdn.paicoding.com/stutymore/glm-flash-linear-sparse-attention-20260828133601.png)
 
 ![](https://cdn.paicoding.com/stutymore/glm-flash-linear-sparse-attention-20260828133607.png)
+<!-- video-covers:end -->

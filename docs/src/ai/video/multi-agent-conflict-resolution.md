@@ -48,8 +48,10 @@ DeepSeek Harness 在团队协作上更严格。任务底层采用了 CAS 乐观�
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-cover-16x9-20260915134626-6a9f6b47.png)
 
 ![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-cover-4x3-20260915134626-65456128.png)
 
 ![](https://cdn.paicoding.com/stutymore/multi-agent-conflict-resolution-cover-3x4-20260915134627-e64a55f0.png)
+<!-- video-covers:end -->

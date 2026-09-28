@@ -73,7 +73,7 @@ PaiCLI Agent 会自动调用 `web_search` 工具，通过智谱搜索 API 获取
 
 ## 02、Agent 联网搜索的整体架构
 
-PaiCLI 的联网模块放在 `com.paicli.web` 包下，一共 8 个类，分工明确。
+PaiCLI 的联网模块放在 `com.paicli.web` 包下，按搜索 Provider、网页抓取、正文提取和安全策略分工。
 
 ![](https://cdn.paicoding.com/paicoding/de3b6df47b9531be44835c9c06831fd5.jpg)
 
@@ -95,7 +95,7 @@ PaiCLI 的联网模块放在 `com.paicli.web` 包下，一共 8 个类，分工�
 
 第二个，搜索引擎做了 Provider 抽象。
 
-三个实现类各有特点：智谱的联网搜索可以和 LLM 共用 API Key 零额外配置，SerpAPI 付费但开箱即用，SearXNG 开源免费但需要自己部署。
+四个实现类各有特点：智谱提供独立搜索 API，DeepSeek 通过一次独立模型请求执行原生搜索，两者都能复用各自的模型 API Key；SerpAPI 付费但开箱即用，SearXNG 开源免费但需要自己部署。
 
 通过工厂模式自动选择。
 
@@ -134,7 +134,7 @@ public interface SearchProvider {
 
 ### 智谱搜索
 
-智谱搜索是我给 PaiCLI 选的默认 Provider，原因很简单：PaiCLI 主要面向国内 GLM 用户，智谱的搜索 API 和 LLM 推理共用同一个 `GLM_API_KEY`，不需要额外注册、额外付费、额外配置。
+智谱搜索是 PaiCLI 最早接入的默认 Provider。已有 `GLM_API_KEY` 时，搜索和 GLM 推理可以共用这个 Key，不需要额外注册或配置；搜索费用按智谱搜索服务规则计收。现在主模型默认使用 DeepSeek，但为兼容已有配置，自动选择搜索服务时仍优先检查 GLM Key。
 
 调用方式是 POST 请求到 `https://open.bigmodel.cn/api/paas/v4/tools/web_search`，请求体长这样：
 
@@ -155,6 +155,16 @@ payload.put("content_size", "medium");
 默认用 `search_std` 就够了，一次搜索一分钱，比 SerpAPI 便宜 5 到 10 倍。
 
 返回结果的解析从 `search_result` 数组里提取 title、link、content 三个字段，封装成 `SearchResult` 返回。
+
+### DeepSeek 原生搜索
+
+DeepSeek 也能用自己的 API Key 搜索，但接法和智谱不同。`DeepSeekSearchProvider` 向 `https://api.deepseek.com/anthropic/v1/messages` 发一次独立模型请求，在 `tools` 中声明 `web_search_20250305`。这次请求只包含搜索关键词，不携带当前会话历史。
+
+返回值里，`web_search_tool_result` 中的 `web_search_result` 提供标题和 URL，文本块引用里的 `cited_text` 提供对应 URL 的摘要。适配器只认可结构化结果中的 URL，再去重、编号，并按 `top_k` 截断；模型正文或单独引用里的链接不能扩充搜索来源。没有摘要的来源保留空摘要，没有结果块或搜索工具报错则明确失败，不能把模型直接回答当作搜索成功。
+
+因为包含一次模型请求，搜索会产生额外 Token 费用。默认搜索模型是 `deepseek-flash`，可通过 `DEEPSEEK_SEARCH_MODEL` 修改，与 `/model` 选择的对话模型独立。请求最多生成 4096 Token、使用 5 次服务端搜索，120 秒总超时，不自动重试，也不跟随重定向。`top_k` 只控制本地返回数量，不是服务端搜索次数。
+
+请求协议参考 [DeepSeek 官方搜索说明](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code/#using-web-search-in-claude-code)和 [官方 Harness 搜索适配器](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/web/web-search-deepseek/README.md)。
 
 ### SerpAPI
 
@@ -196,20 +206,21 @@ SEARXNG_URL=http://localhost:8888
 
 ```java
 static String pickProvider(String explicit, String glmKey,
-                           String serpKey, String searxngUrl) {
+                           String serpKey, String searxngUrl, String deepseekKey) {
     if (explicit != null && !explicit.isBlank()) {
         return explicit.trim().toLowerCase(Locale.ROOT);
     }
     if (glmKey != null && !glmKey.isBlank()) return "zhipu";
     if (serpKey != null && !serpKey.isBlank()) return "serpapi";
     if (searxngUrl != null && !searxngUrl.isBlank()) return "searxng";
+    if (deepseekKey != null && !deepseekKey.isBlank()) return "deepseek";
     return "zhipu"; // 默认占位
 }
 ```
 
-优先看有没有显式指定 `SEARCH_PROVIDER`，没有的话按 GLM → SerpAPI → SearXNG 的顺序检测哪个的 Key 已经配好。
+优先看有没有显式指定 `SEARCH_PROVIDER`，没有的话按 GLM → SerpAPI → SearXNG → DeepSeek 的顺序检测 Key 或 URL，保留已有搜索配置的优先级。
 
-因为 PaiCLI 用户大概率已经配了 `GLM_API_KEY`（用来调模型的），所以智谱搜索是零额外配置就能用的。
+已有 GLM Key 时继续用智谱；只配置了 DeepSeek Key 时，自动用 DeepSeek 原生搜索。显式指定后不会因为 Key 缺失而偷偷换服务，调用时会提示补齐对应 Key。
 
 工厂还会从三个地方读环境变量：系统环境变量、Java 系统属性、`.env` 文件（当前目录和 home 目录各找一次）。这样不管你是直接 export、还是写在 .env 里、还是用 IDE 的 VM Options，都能读到。
 
@@ -385,6 +396,17 @@ GLM_API_KEY=你的智谱API密钥
 
 ![](https://cdn.paicoding.com/paicoding/4a2a50944e7fbce57038b23b6aba40a5.jpg)
 
+只配置了 `DEEPSEEK_API_KEY` 的用户也不需要额外配置。若同时配了 GLM 等搜索服务，希望使用 DeepSeek，就显式指定：
+
+```dotenv
+SEARCH_PROVIDER=deepseek
+DEEPSEEK_API_KEY=你的DeepSeek密钥
+# 可选，独立于对话模型
+DEEPSEEK_SEARCH_MODEL=deepseek-flash
+```
+
+修改后重启 PaiCLI，让缓存的搜索 Provider 重新读取配置。当前对话模型是 `step-3.7-flash*` 且 StepSearch 已就绪时，仍会优先使用 StepSearch；这里配置的是普通搜索 Provider。
+
 ### 切换搜索引擎
 
 如果你想用 SerpAPI（国际搜索能力更强），在 `.env` 里加两行：
@@ -433,7 +455,7 @@ SEARXNG_URL=http://localhost:8888
 - **项目简介**：从零构建的生产级 Java Agent 命令行工具，支持联网搜索、网页抓取、RAG 检索、多 Agent 协作等能力
 - **技术栈**：Java 21、OkHttp、Jsoup、GLM-5.1/DeepSeek V4、策略模式、工厂模式
 - **核心职责**：
-  - 基于策略模式设计了 SearchProvider 搜索引擎抽象层，支持智谱/SerpAPI/SearXNG，可在运行时自动选择和热切换
+  - 基于策略模式设计了 SearchProvider 搜索引擎抽象层，支持智谱/SerpAPI/SearXNG/DeepSeek，首次使用时按配置选择并缓存；修改环境配置后重启生效
   - 实现了基于 Jsoup 的 Readability 正文提取算法，通过语义标签优先+链接密度评分的两阶段策略准确提取网页正文
   - 设计 NetworkPolicy 网络安全策略，包括 SSRF 防护（scheme 白名单+host 黑名单+DNS 解析校验）和令牌桶限流
   - 基于工厂模式实现了 SearchProviderFactory，支持从环境变量、系统属性、.env 文件三级回退读取配置，实现零额外配置的开箱即用体验

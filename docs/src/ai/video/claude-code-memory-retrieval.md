@@ -68,8 +68,10 @@ Claude Code 靠模型注意力检索，简单但有 200 行上限。OpenClaw 靠
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/claude-code-memory-retrieval-20260729154153.png)
 
 ![](https://cdn.paicoding.com/stutymore/claude-code-memory-retrieval-20260729154204.png)
 
 ![](https://cdn.paicoding.com/stutymore/claude-code-memory-retrieval-20260729154214.png)
+<!-- video-covers:end -->

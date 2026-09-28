@@ -48,6 +48,8 @@ Agent 通常由 Harness 维护运行状态：当前任务、历史消息、工�
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-agent-1cfeb82c1e39037e1b8846e83ecac575.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-agent-07614bc4f94d86d8dafdd9352e9072c1.png)
+<!-- video-covers:end -->

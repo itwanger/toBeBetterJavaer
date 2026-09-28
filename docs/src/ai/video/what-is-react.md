@@ -30,6 +30,8 @@
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-react-36730f783de82fef0341ab6dcc9c2cc1.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-react-700ef4ae63a9ac0d32983686227c0cc9.png)
+<!-- video-covers:end -->

@@ -66,8 +66,10 @@ Chat Completions 为聊天而生，Responses API 为 Agent 而生。核心区别
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/responses-api-vs-chat-completions-20260814081105.png)
 
 ![](https://cdn.paicoding.com/stutymore/responses-api-vs-chat-completions-20260814081123.png)
 
 ![](https://cdn.paicoding.com/stutymore/responses-api-vs-chat-completions-20260814081137.png)
+<!-- video-covers:end -->

@@ -105,6 +105,7 @@ python3 .agents/skills/video-cover-image/scripts/render_text_cover.py \
    - Show the `3:4`, `16:9`, and `4:3` images with Markdown image tags.
    - Include absolute generated file paths and dimensions.
    - Do not move images into the repo unless the user explicitly asks.
+   - When authorized to save cover links into a `toBeBetterJavaer/docs/src/ai/video/` script, put the cover heading and images inside `<!-- video-covers:start -->` / `<!-- video-covers:end -->`. These are video-production assets: preserve their source links, but exclude the entire section from the rendered 进阶之路 article and every Feishu answer. Keep explanatory illustrations outside this section. The repository's `feishu-question-bank-sync` Skill owns export and verification rules.
 
 ## Default Style
 

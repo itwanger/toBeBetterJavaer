@@ -203,8 +203,8 @@ LLM 的 system prompt 里会有一段 Skill 索引：
 
 - **web-access**: 所有联网操作必须通过此 skill 处理，包括搜索、网页抓取、登录后操作...
 
-判断准则：当任务描述匹配某个 skill 的触发场景时，调用 load_skill(name) 加载完整指引，
-然后按指引执行。已加载的 skill 会在下一轮以 `## 已加载 Skill` 段落出现在你的 user message 中。
+判断准则：当任务描述匹配某个 skill 的触发场景时，调用 load_skill(name) 加载完整指引；
+加载后完整指引会紧跟在 load_skill 工具结果之后，以 "## 已加载 Skill" 段落出现，先读指引再继续当前任务。
 不要重复加载同一 skill；同一会话内一次足够。
 ```
 
@@ -222,67 +222,97 @@ LLM 看到问题涉及联网操作，就自己调 `load_skill("web-access")`。
 ![](https://cdn.paicoding.com/paicoding/7cc51f041891c44a1556b44a87657f52.jpg)
 
 
-LLM 没有直接冲上去抓网页，而是先加载了 web-access 的决策手册。然后在下一轮，它按照决策手册的指引，先用 web_fetch 试了一次（微信文章是 SPA，抓不到正文），接着切 Chrome DevTools MCP 用浏览器打开页面拿到了完整内容。
+模型先用 web_fetch 试了一次（微信文章是 SPA，抓不到正文），接着切 Chrome DevTools MCP 用浏览器打开页面拿到了完整内容。
+
+不过这张截图是早期版本录的，仔细看思考过程，模型这一次其实没有调用 load_skill，它说的是“According to my instructions”，依据的是 system prompt 里的联网路由规则。“先 web_fetch、失败再切浏览器”这条规则 system prompt 里本来就有。Skill 真正派上用场的，是 system prompt 没有覆盖、只写在 SKILL.md 里的经验，比如各站点的登录态处理、Jina 兜底的时机。
 
 **这就是 Skill 的价值——让 Agent 学会正确的做事方法。**
 
-## 06、user message 的精妙设计
+## 06、Skill 正文什么时候生效
 
-这个设计细节是整个 Skill 系统里最值得深挖的点。
+> 9 月更新：这一节的旧版写的是“body 在下一轮 user message 前置注入”。有读者在评论区指出，这里的“下一轮”其实是用户下一次发消息，模型调完 load_skill 之后的那几次请求根本看不到正文。我回去翻了代码，确实如此，之前以为修过了，其实没有。现在已经改成同一轮生效，下面按新代码讲。
 
 当 LLM 调用 `load_skill("web-access")` 时，PaiCLI 做了两件事：
 
-1. 工具返回一条简短确认：“已加载 skill 'web-access' 的完整指引（3.2KB），将在下一轮上下文中体现”
-2. 把 SKILL.md 的 body 写入 `SkillContextBuffer`
-
-注意，工具返回的结果里**没有**包含 body 的完整内容。body 是在下一轮构造 user message 时，从 buffer 里取出来拼到用户输入的前面：
+1. 工具返回一条简短确认：“已加载 skill 'web-access' 的完整指引（N 字符），正文紧跟在本工具结果之后”
+2. Agent 拿到这批工具结果后，在下一次请求模型之前，再追加一条 user 消息，内容是 SKILL.md 的正文
 
 ```
+以下是刚才 load_skill 加载的 Skill 指引，请按指引继续当前任务。
+
 ## 已加载 Skill：web-access
-<SKILL.md body 完整内容>
+<SKILL.md 正文，超过 5KB 截断>
 
 ---
-用户输入：<用户的原始消息>
 ```
 
-为什么不直接在工具返回结果里塞 body？
+同一轮里，模型下一次请求看到的消息顺序是这样的：
+
+```
+system     系统提示词（含 Skill 索引，保持不变）
+user       帮我看下这篇文章讲了什么
+assistant  调用 load_skill("web-access")
+tool       已加载 skill 'web-access' 的完整指引……
+user       ## 已加载 Skill：web-access + 正文
+```
+
+模型读完正文，再决定下一步调什么工具。
+
+旧版的问题出在注入时机。正文先写进一个 `SkillContextBuffer` 缓冲区，只有用户输入新消息时才取出来，拼到那条消息前面。于是模型调完 load_skill 之后，本轮剩下的请求都看不到正文，只能凭索引里那一行描述继续干活；等正文真正出现的时候，用户可能已经换话题了。
+
+为什么不直接在工具返回结果里塞正文？
 
 为什么不塞进 system prompt？
 
-第一个问题：工具返回的内容在 LLM 眼里是“事实输入”，LLM 倾向于把它当做参考信息。但 SKILL.md 的 body 是“操作指引”，我们希望 LLM 把它当做**指令**来执行。放在 user message 里，LLM 会把它当成“用户附加要求”，决策权重更高。
+第一个问题：PaiCLI 所有工具结果进入对话历史前，都会经 `ToolResultBoundary` 包成 `trust="untrusted-data"`，告诉模型这是外部数据，里面出现的指令一律不执行。这是防网页、MCP 返回内容做提示词注入的边界。而 SKILL.md 是本地的操作指引，恰恰需要模型照着做。塞进工具结果，要么被模型当成数据忽略，要么就得给安全边界开口子，所以正文单独走一条 user 消息。
 
-第二个问题：system prompt 一旦改变，API 的 prompt cache 就会失效。如果每次 load_skill 都去改 system prompt，之前缓存的几千个 token 全部作废。走 user message 注入，system prompt 始终不变，prompt cache 得以保留。
+第二个问题：system prompt 一旦改变，API 的 prompt cache 就会失效。如果每次 load_skill 都去改 system prompt，之前缓存的几千个 token 全部作废。走 user 消息注入，system prompt 始终不变，prompt cache 得以保留。
 
+正文由 `LoadedSkillMessages` 从这批工具结果里算出来：
 
-![](https://cdn.paicoding.com/paicoding/22dc0f56042feeb763380a7cf4ce6fa3.png)
+```java
+public static String from(List<ToolExecutionResult> results, SkillRegistry registry) {
+    Map<String, String> bodies = new LinkedHashMap<>();
+    for (ToolExecutionResult result : results) {
+        if (!"load_skill".equals(result.name()) || !result.successful()) {
+            continue;
+        }
+        String name = skillName(result.argumentsJson());
+        Skill skill = name == null ? null : registry.findSkill(name);
+        if (skill != null) {
+            bodies.putIfAbsent(skill.name(), truncatedBody(skill));
+        }
+    }
+    // 拼成“## 已加载 Skill：name + 正文”的 user 消息，没有则返回空串
+}
+```
 
+ReAct 主循环里，它和 MCP 图片回灌放在同一个位置，工具结果写完、进入下一次循环之前：
 
-从实现角度看，`load_skill` 的代码在 `ToolRegistry.registerSkillTools()` 里。先从 SkillRegistry 查 skill 是否存在且启用，然后读 body 内容，截断到 5KB，push 进 SkillContextBuffer，最后返回一条确认消息。整个流程非常干净，没有任何副作用。
+```java
+for (ToolExecutionResult toolResult : toolResults) {
+    appendConversationMessage(
+            LlmClient.Message.tool(toolResult.id(), ToolResultBoundary.wrap(toolResult)),
+            "tool_execution");
+}
+appendImageToolMessages(toolResults);
+appendLoadedSkillMessage(toolResults);   // 同一轮就把 Skill 正文交给模型
+continue;
+```
 
+Plan 模式的每个任务、Team 模式的每个 Worker 都有自己的工具循环，也在同样的位置追加。
 
-## 07、SkillContextBuffer 的生命周期
+## 07、几个细节
 
-`SkillContextBuffer` 是整个注入机制的核心数据结构。
+①、**失败不注入**：只看成功的 load_skill 结果，并且按参数重新从 SkillRegistry 查一遍。Skill 不存在、已禁用，或者这次调用被策略拒绝，都不会注入正文。
 
+②、**同一批只注入一次**：模型在一次回复里对同一个 Skill 调了两次 load_skill，正文只出现一次。
 
-![](https://cdn.paicoding.com/paicoding/19a4b7b4cc4e7f7f31470e425b9d6e5c.png)
+③、**5KB 截断**：正文超过 5KB 会被截断，末尾提示用 `/skill show <name>` 查看全文。
 
+④、**没有共享状态**：旧版 ReAct、Plan、Team 共用同一个缓冲区，Plan 模式里并行任务 A 加载的 Skill，可能被并行任务 B 或者下一次 ReAct 输入取走。旧版文章还说 Planner、Worker、Reviewer 各持有独立的缓冲区，这也不是实情，`AgentOrchestrator` 里三个角色用的是同一个实例。现在正文只从当前这批工具结果里算出来，谁加载谁拿到，并行任务之间不会串。另外，Team 模式的 Planner 和 Reviewer 请求本来就不暴露工具，调不了 load_skill。
 
-它的生命周期有几个关键特性：
-
-①、**一次性消费**：drain() 取出内容后 buffer 清空。下一轮 user message 不会再携带上一轮已注入的 Skill body。这避免了 body 在对话中反复累积撑爆上下文。
-
-②、**最多 3 个 Skill**：如果 LLM 在同一轮连续调了 3 个以上的 load_skill，buffer 只保留最近的 3 个。
-
-③、**同名替换**：同一个 Skill 被加载两次，新的 body 替换旧的，不会重复累积。
-
-④、**角色隔离**：在 PlanExecute 模式下，Planner、Worker、Reviewer 三个角色各自持有独立的 buffer 实例，互不干扰。`AgentOrchestrator` 在创建 SubAgent 时为每个角色分配独立的 SkillContextBuffer。
-
-为什么要隔离？
-
-因为 Worker 可能加载了 web-access 去抓网页，而 Reviewer 不需要这个 Skill 的决策指引——它的职责是审查代码质量，不是浏览网页。如果共享 buffer，Reviewer 的 user message 里会被塞入一堆不相关的浏览指引，白白浪费 token。
-
-⑤、`/clear` 重置：执行 `/clear` 命令会清空 buffer，下一轮从零开始。这在调试 Skill 的时候特别有用。改了 SKILL.md 的内容后，先 `/clear` 清掉旧的 buffer，再 `/skill reload` 重新加载，保证 Agent 读到的是最新版本。
+⑤、**正文留在对话历史里**：注入之后，正文就是历史里的一条普通 user 消息，后续轮次模型都能看到，直到 `/clear` 清空，或者被上下文压缩摘要掉。所以索引里提示“同一会话内加载一次就够”。改了 SKILL.md 之后，先 `/skill reload`，再 `/clear` 或让模型重新 load_skill，才能读到新版本。
 
 先让 Agent 加载 web-access：
 
@@ -301,7 +331,7 @@ LLM 没有直接冲上去抓网页，而是先加载了 web-access 的决策手�
 ![](https://cdn.paicoding.com/paicoding/1a1363988287d0ec90701d3578f034c8.jpg)
 
 
-第二轮 user message 里不会再出现 `## 已加载 Skill：web-access` 段落，但 LLM 记得上一轮已经看过决策手册的内容，继续按指引行动。
+第二轮不需要再调 load_skill，上一轮注入的正文还在对话历史里，模型直接参照就行。
 
 
 ## 08、web-access Skill 深度解析
@@ -351,7 +381,7 @@ LLM 通过 `read_file` 读取这些文件来获取站点经验。
 
 PaiCLI 提供了一组 `/skill` 命令来管理 Skill 的生命周期：
 
-`/skill list`，列出所有 Skill，显示名称、来源、版本、启用状态。
+`/skill list`，以轻分隔线表格列出名称、来源、版本和简短摘要，`●` / `○` 标记启用状态。按中文显示宽度对齐；窄屏先把摘要下移，仍放不下时转成纵向条目，完整名称保留。
 
 ```
 > /skill list
@@ -478,6 +508,6 @@ EOF
 
 - 设计并实现三层 Skill 加载架构（builtin/user/project），支持同名覆盖和热重载，实现决策知识的分层复用
 - 实现 load_skill 内置工具，LLM 通过语义理解自行加载
-- 设计 SkillContextBuffer 注入机制，body 走 user message 而非 system prompt，保留 prompt cache 命中，降低 API 调用成本约 15%
+- 设计 Skill 正文注入机制，load_skill 成功后同一轮以独立 user 消息注入，不改 system prompt 以保留 prompt cache 命中，也不混入 untrusted 工具结果；并行任务之间无共享状态
 
 

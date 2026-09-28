@@ -116,8 +116,10 @@ Anthropic 的建议是，CLAUDE.md 控制在 80 行以内，只放最核心的�
 - 不要改 .env.example 的格式，CI 依赖它
 ```
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/how-to-write-claudemd-20260728173811.png)
 
 ![](https://cdn.paicoding.com/stutymore/how-to-write-claudemd-20260728173819.png)
 
 ![](https://cdn.paicoding.com/stutymore/how-to-write-claudemd-20260728173826.png)
+<!-- video-covers:end -->

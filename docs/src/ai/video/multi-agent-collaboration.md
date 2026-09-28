@@ -36,6 +36,8 @@ Pipeline 模式——固定链条，A 输出喂 B，B 输出喂 C。适合步骤
 
 这道题你学废了吗？想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/multi-agent-collaboration-79bcfbae58e55c888ad51fd3c7c1ca88.png)
 
 ![](https://cdn.paicoding.com/stutymore/multi-agent-collaboration-b51988da1509079c45d910beff2b2b6e.png)
+<!-- video-covers:end -->

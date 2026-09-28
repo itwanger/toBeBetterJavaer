@@ -72,8 +72,10 @@ Flash 每百万 token 输入是 Pro 的三分之一。而 Agent 任务一跑就�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/why-post-training-beats-params-20260803110207.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-post-training-beats-params-20260803110215.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-post-training-beats-params-20260803110221.png)
+<!-- video-covers:end -->

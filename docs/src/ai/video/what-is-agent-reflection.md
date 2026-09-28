@@ -58,8 +58,10 @@
 
 这道题你学会了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-agent-reflection-20260912074504.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-agent-reflection-20260912074516.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-agent-reflection-20260912074524.png)
+<!-- video-covers:end -->

@@ -64,8 +64,10 @@ system prompt、工具定义、few-shot 示例——不变的放 prompt 最前�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/api-cache-hit-miss-20260806114024.png)
 
 ![](https://cdn.paicoding.com/stutymore/api-cache-hit-miss-20260806114037.png)
 
 ![](https://cdn.paicoding.com/stutymore/api-cache-hit-miss-20260806114044.png)
+<!-- video-covers:end -->

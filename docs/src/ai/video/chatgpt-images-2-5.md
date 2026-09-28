@@ -64,11 +64,13 @@ Images 2.5 不是那种让你“哇”一声的大更新。2.0 的时候我真�
 
 想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/chatgpt-images-2-5-20260909151128.png)
 
 ![](https://cdn.paicoding.com/stutymore/chatgpt-images-2-5-20260909151135.png)
 
 ![](https://cdn.paicoding.com/stutymore/chatgpt-images-2-5-20260909151141.png)
+<!-- video-covers:end -->
 
 这个公众号历史发布过很多有趣的 Agent 知识点，如果你懒得翻文章一个个找，你直接关注微信公众号：二哥狗腿子 ，后台对话聊天就行了：
 

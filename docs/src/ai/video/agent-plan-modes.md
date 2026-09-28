@@ -60,8 +60,10 @@ SOP 和状态机规划的核心逻辑是，用确定性的工程骨架，去约�
 
 想解锁更多 Agent 面试题的源码级拆解，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/sucai-20260911111102.png)
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20260911111109.png)
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20260911111116.png)
+<!-- video-covers:end -->

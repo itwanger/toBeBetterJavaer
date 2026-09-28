@@ -66,8 +66,10 @@ OpenAI 的 Dan Roberts 就曾在 2025 年 5 月说过这样一句话，“RL 的
 
 这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![竖版封面](https://cdn.paicoding.com/stutymore/what-is-reinforcement-learning-cover-portrait-20260918101400-430609ee.png)
 
 ![宽屏横版封面](https://cdn.paicoding.com/stutymore/what-is-reinforcement-learning-cover-wide-20260918101400-b745b4cf.png)
 
 ![标准横版封面](https://cdn.paicoding.com/stutymore/what-is-reinforcement-learning-cover-standard-20260918101401-fdbeaa6f.png)
+<!-- video-covers:end -->

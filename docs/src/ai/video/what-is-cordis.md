@@ -72,8 +72,10 @@ Cordis 是构建插件系统的元框架，从 3000 多个插件的实战中打�
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/what-is-cordis-20260813233038.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-cordis-20260813233047.png)
 
 ![](https://cdn.paicoding.com/stutymore/what-is-cordis-20260813233054.png)
+<!-- video-covers:end -->

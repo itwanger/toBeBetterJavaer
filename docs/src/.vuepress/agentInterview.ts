@@ -49,6 +49,12 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "Workflow 依赖预先设计的步骤与分支，Agent 则由模型结合当前状态动态决定下一步，两者可以组合使用。",
     ["AI Workflow", "Agent 工作流", "智能体编排", "自主决策"],
   ),
+  "workflow-vs-agent-flight-booking": meta(
+    "订机票客服该用工作流还是自主 Agent？",
+    "订机票：工作流还是 Agent",
+    "订机票客服可以结合工作流与自主 Agent：身份核验、付款和预订按确定流程执行，复杂意图理解与异常处理交给 Agent，并在关键操作前确认。",
+    ["Workflow", "自主 Agent", "订机票客服", "人机协作"],
+  ),
   "how-agent-works": meta(
     "AI Agent 是如何工作的？完整执行过程拆解",
     "Agent 如何工作",
@@ -319,6 +325,18 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。",
     ["Prompt Caching", "提示词缓存", "DeepSeek", "cache_control"],
   ),
+  "what-is-semantic-caching": meta(
+    "到底什么是语义缓存？",
+    "什么是语义缓存",
+    "语义缓存保存完整问答，通过 Embedding 和相似度检索复用已有答案。它适合高频重复问题，需要关注时间、用户身份和业务条件变化带来的误命中风险。",
+    ["Semantic Caching", "语义缓存", "Embedding", "GPTCache"],
+  ),
+  "building-effective-agents-principles": meta(
+    "构建有效 Agent 有哪三个核心原则？",
+    "构建 Agent 的三个原则",
+    "保持简单、保持透明、精心设计 Agent-Computer Interface：从最简单的方案开始，展示真实执行过程，并通过工具接口设计减少误用。",
+    ["Building effective agents", "ACI", "Pi", "Agent 设计"],
+  ),
   "chatgpt-images-2-5": meta(
     "GPT Images 2.5 一手实测，OpenAI 越来越有水平啦",
     "GPT Images 2.5 实测",
@@ -385,6 +403,18 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "开源社区用轻量决策头加 LoRA 微调复刻了 Jev，Kev、Nimble、Laya、Open-Jev 各有看家本领，可以在本地跑起自己的决策模型。",
     ["Jev", "Kev", "Nimble", "开源模型"],
   ),
+  "will-model-eat-harness": meta(
+    "模型越来越强，Harness 会不会被模型「吃掉」？",
+    "模型会吃掉 Harness 吗",
+    "模型可以逐步内化格式修正与工具调用适配等能力，但文件和网络权限、危险操作确认、审计与业务规则仍需在模型外执行。",
+    ["Harness", "模型能力", "权限边界", "Agent 安全"],
+  ),
+  "mimo-v3-hysparse2": meta(
+    "MiMo-V3 的 HySparse2 和混合滑动窗口注意力有什么区别？",
+    "MiMo-V3 与 HySparse2",
+    "HySparse2 结合 Self-Decoder、Cross-Decoder、KV Reuse 与 KV Bridging，让后半段复用或从前半段计算 KV Cache，减少长输入的 Prefill 计算。",
+    ["MiMo-V3", "HySparse2", "KV Cache", "Prefill"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -414,6 +444,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "llm-context-or-tool",
       "what-is-agent-checkpoint",
       "what-is-agent-sandbox",
+      "will-model-eat-harness",
+      "workflow-vs-agent-flight-booking",
+      "building-effective-agents-principles",
     ],
   },
   {
@@ -451,6 +484,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "what-is-kv-cache",
       "what-is-prefix-caching",
       "what-is-prompt-caching",
+      "what-is-semantic-caching",
       "what-is-moe",
       "glm-flash-linear-sparse-attention",
       "what-benchmarks-test",
@@ -485,6 +519,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "why-relay-still-works",
       "what-is-jev",
       "open-source-jev-replicas",
+      "mimo-v3-hysparse2",
     ],
   },
   {
@@ -546,6 +581,17 @@ const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> =
   "v4-csa-hca-kv-cache": "7679479739840466202",
   "v4-why-replace-mla": "7678962200215571731",
   "codex-long-term-memory": "7678302786009746734",
+  "harness-five-elements": "7686445668923231538",
+  "llm-context-or-tool": "7687137647629765915",
+  "what-is-agent-checkpoint": "7687551756691098921",
+  "what-is-agent-sandbox": "7688214970668043539",
+  "will-model-eat-harness": "7689042782064774415",
+  "workflow-vs-agent-flight-booking": "7689782163608194313",
+  "what-is-jev": "7687944233659026722",
+  "open-source-jev-replicas": "7688302955489021238",
+  "mimo-v3-hysparse2": "7689435090677402895",
+  "what-is-reinforcement-learning": "7686739151072365839",
+  "what-is-manus": "7686062250951445801",
 };
 
 const getSlugFromFilePath = (filePath?: string): string | null => {
@@ -655,16 +701,13 @@ const renderDouyinVideo = (
   if (!videoId) return "";
 
   const videoUrl = `https://www.douyin.com/video/${videoId}`;
-  const playerUrl = `https://open.douyin.com/player/video?vid=${videoId}`;
 
   return `<section class="agent-video-card" aria-label="本题视频讲解">
   <div class="agent-video-card__meta">
     <span>WATCH / 抖音视频</span>
     <a href="${videoUrl}" target="_blank" rel="noopener noreferrer">在抖音打开</a>
   </div>
-  <div class="agent-video-card__player">
-    <iframe src="${playerUrl}" title="${escapeHtml(item.shortTitle)}的视频讲解" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  </div>
+  <DouyinPlayer video-id="${videoId}" title="${escapeHtml(item.shortTitle)}的视频讲解" />
 </section>`;
 };
 
@@ -682,6 +725,18 @@ export const agentInterviewPlugin = (): PluginObject => ({
   name: "agent-interview-pages",
 
   extendsMarkdown: (markdown): void => {
+    // Keep production cover assets in the source, outside the reading body.
+    markdown.core.ruler.before("normalize", "agent-video-covers", (state): void => {
+      const slug = getSlugFromFilePath(state.env.filePathRelative);
+      if (!slug || slug === "readme") return;
+      state.src = state.src.replace(
+        /<!-- video-covers:start -->[\s\S]*?<!-- video-covers:end -->/g,
+        "",
+      );
+      if (/<!-- video-covers:(?:start|end) -->/.test(state.src)) {
+        throw new Error(`Unclosed video cover section: ${slug}`);
+      }
+    });
     markdown.core.ruler.push("agent-interview-answer-card", (state): void => {
       const filePathRelative = state.env.filePathRelative as string | undefined;
       const slug = getSlugFromFilePath(filePathRelative);

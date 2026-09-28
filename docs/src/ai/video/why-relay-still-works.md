@@ -78,8 +78,10 @@ Stanford 2026 AI Index 报告（今年 4 月发布）里有一组数据。MMLU �
 
 这个知识点你学废了吗？想解锁更多 AI 硬核知识，点赞关注，我是二哥，咱们下期见！
 
+<!-- video-covers:start -->
 ![](https://cdn.paicoding.com/stutymore/why-relay-still-works-20260904114253.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-relay-still-works-20260904114303.png)
 
 ![](https://cdn.paicoding.com/stutymore/why-relay-still-works-20260904114309.png)
+<!-- video-covers:end -->
