@@ -11,11 +11,16 @@ script/
 ├── package.json / package-lock.json  共用 Node 依赖与锁定版本
 ├── shared/
 │   ├── config/video.config.json      新项目默认配置，无密钥
+│   ├── config/pronunciations.json    配音读法词典（按音色生效）
 │   ├── assets/ergo-avatar.jpg        默认人物原图
-│   ├── assets/interview/             可选面试头像及来源记录
+│   ├── assets/interview/             面试头像及来源记录
+│   ├── assets/brands/                已核实来源的产品图标
+│   ├── assets/harness/               Harness 马具比喻的马匹图
+│   ├── assets/sfx/                   提示音
 │   ├── tools/                       通用 Python / Node 命令
 │   └── remotion/
 │       ├── components/              无主题数据的公共组件
+│       ├── examples/                章节骨架示例，不参与编译
 │       └── templates/               初始化后成为项目自身的动画骨架
 └── <topic>/
     ├── project.json                 项目信息、输出名、完整配置快照
@@ -54,11 +59,24 @@ python3 docs/src/ai/script/shared/tools/doctor.py --project docs/src/ai/script/w
 
 初始化拒绝覆盖现有目录，复制原文和默认头像，生成完整项目配置及草稿骨架，不调用 TTS。草稿只有 `DraftPreview`，确认口播稿后再实现真实章节与总 Composition。
 
-初始化复制的文章仅为整理起点。第一阶段按 Skill 的内容规则清理项目 `article.md`：文末公众号推广尾段从起点删至末尾，后续图片及其素材清单条目一起删除，不以完整快照或排除条目的形式留在视频项目中。原始源文章另行保留，项目用稿可能与源文章不同，检查记录应分别保存来源哈希与用稿哈希。
+初始化默认开启提示音：`project.json` 写入 `deliveryAudio: "build/voiceover-with-effects.wav"`，并创建空的 `assets/references/sound-plan.json`。事件为空时混音与原配音一致，逐章制作时再加事件。用户不要提示音时，初始化加 `--no-effects`；已初始化的项目删除 `deliveryAudio`，章节音频改读 `build/voiceover.wav`。
+
+初始化复制的文章仅为整理起点，按 Skill 的内容规则整理项目 `article.md`，原始源文章不改。项目用稿可能与源文章不同，检查记录分别保存来源哈希与用稿哈希。
+
+## 制作进度
+
+新项目的 `project.json` 带 `progress` 字段，记录用户已经认可到哪一步。阶段依次为 `script`、`audio`、各章节 ID、`render`、`verified`。只在对应的用户回复或工具结果出现后标记，后续会话据此判断授权范围。
+
+```bash
+python3 docs/src/ai/script/shared/tools/progress.py --project docs/src/ai/script/<topic>              # 查看当前阶段与下一步
+python3 docs/src/ai/script/shared/tools/progress.py --project docs/src/ai/script/<topic> --mark ch2    # 用户认可第二章后
+```
+
+`doctor.py` 的输出也带同样的进度摘要。没有 `progress` 字段的旧项目显示为未跟踪，按项目文件与用户最新指令判断，不补记历史。
 
 ## 面试开场素材
 
-选择面试头像开场模式，或科普场景需要用二哥和豆包表示学习者与老师时，从 `shared/assets/interview/` 复制 `doubao-facing-right.png` 与 `ergo-facing-left.png` 到本项目 `assets/images/`，将所用素材的 `sources.json` 条目保存到项目 `assets/references/` 并在分镜记录用途。初始化工具仍只复制默认头像；科普中的角色复用不自动引入面试情节，角色映射见 Skill 的“视觉与人物”。
+选择面试头像开场模式，或科普场景需要用二哥和豆包表示学习者与老师时，从 `shared/assets/interview/` 复制 `doubao-facing-right.png` 与 `ergo-facing-left.png` 到本项目 `assets/images/`，将所用素材的 `sources.json` 条目保存到项目 `assets/references/` 并在分镜记录用途。初始化工具只复制默认头像。
 
 新项目尚无这些文件时，从仓库根目录执行（将 `<topic>` 替换成当前项目目录名）：
 
@@ -67,13 +85,13 @@ cp -n docs/src/ai/script/shared/assets/interview/doubao-facing-right.png docs/sr
 cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/ai/script/<topic>/assets/images/ergo-facing-left.png
 ```
 
-如果项目已有同名图片，先确认是否为用户指定版本，不覆盖。画面用 `staticFile('images/doubao-facing-right.png')` 等地址读取项目副本；共享头像组件从 `shared/remotion/components/InterviewAvatar.tsx` 导入，只负责头像、角色标注和高亮，不含具体主题、音色或固定时间轴。该目录的 `sources.json` 保留图片来源，原始二哥头像不变。
+如果项目已有同名图片，先确认是否为用户指定版本，不覆盖。面试开场直接用 `Scenes.tsx` 的 `InterviewStage`，它按上面两个文件名读取项目副本；只需要头像时用 `InterviewAvatar.tsx`。
 
 ## Harness 马匹素材复用
 
-按用户要求，已认可的两张马匹图保存在 [二哥 Remotion Skill 的 assets/harness](../../../../../.claude/skills/ergo-remotion-video/assets/harness/)：`horse-bare.png` 为无马具版，`horse-with-tack.png` 为相同姿势的带马具版。两张均为 1536×1024 透明 PNG，来源、生成提示词和哈希在同目录 `sources.json`。
+用户认可的两张马匹图在 [assets/harness](assets/harness/)。`horse-bare.png` 是无马具版，`horse-with-tack.png` 是同一匹马、同一姿势的带马具版，均为朝右侧视的 1536×1024 透明 PNG，来源、生成提示词和哈希在同目录 `sources.json`。
 
-新视频讲 Harness 的马具比喻时，从该目录复制两张 PNG 到本项目 `assets/images/`，复制 `sources.json` 到 `assets/references/harness-horse-sources.json`。保持同位置、同缩放，在本项目配音讲到缰绳和马鞍时切换或短淡化；无需重新生成，也不从旧视频目录取素材。原图只有马，不自带文字、人物或轨道，场景按当前口播组织。
+讲 Harness 的“野马套上缰绳和马鞍”比喻时，把两张 PNG 复制到本项目 `assets/images/`，`sources.json` 复制为 `assets/references/harness-horse-sources.json`。两张图保持相同位置和缩放，先显示无马具版，配音讲到缰绳、马鞍时短淡入带马具版，可小幅右移一次后稳定展示。时点按本项目真实音频定位，不重新生成，也不用手写几何 SVG 马替代。只提到 Harness、没有马具比喻时不插入马匹。
 
 ## 内容和 beat 拆分
 
@@ -90,11 +108,18 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 
 `OUTLINE.md` 同时维护正文配图的使用映射：来源 URL、项目文件、场景、beat 范围、预览检查状态。每张保留的正文图都要有明确去向；未采用则记录原因。素材清单只登记下载路径不能代替分镜。逐章检查要覆盖实际配图帧和主要动画场景，确认图片完整可读、字幕切换时图像保持连续。
 
-正文导航复用 `shared/remotion/components` 的 `ChapterStrip`，传入本项目品牌、章节名称和当前章。视频画面不绘制章节或整片播放进度条；复用旧场景时移除相应元素。面试模式的特殊顶部布局仅限对话开场。用户指定旧版为视觉基准时，在本项目 `preview/` 保存对照帧与检查记录；恢复版式和场景组织，时间轴仍以本次真实音频为准。
+正文导航由 `ChapterShell` 内的 `ChapterStrip` 渲染，传入本项目品牌、章节名称和当前章。面试模式的特殊顶部布局仅限对话开场。用户指定旧版为视觉基准时，在本项目 `preview/` 保存对照帧与检查记录；恢复版式和场景组织，时间轴仍以本次真实音频为准。
 
 ## 配音与时间轴
 
-遇到术语读音纠错时，按 [术语读音与局部修复](../../../../../.claude/skills/ergo-remotion-video/references/VOLCENGINE_TTS_GUIDE.md#术语读音与局部修复) 核对出处、调整 `ttsText` 并局部重生成；ASR 正确拼写不等于读音通过。
+口播稿确认后、第一次合成前，先套用读音词典 [pronunciations.json](config/pronunciations.json)。`rules` 写入 `ttsText`，字幕 `text` 不变；`watch` 只列出要复听的 beat。已有音频的 beat 默认跳过，避免旧项目被动重合成。
+
+```bash
+python3 docs/src/ai/script/shared/tools/pronunciations.py --project docs/src/ai/script/<topic>            # 只报告
+python3 docs/src/ai/script/shared/tools/pronunciations.py --project docs/src/ai/script/<topic> --write    # 写入 ttsText
+```
+
+规则按 `speakers` 限定音色，换音色后不生效，需要重新验证后再加。`status` 为 `candidate` 的规则写入后仍要复听。用户确认某个读法，或新发现一个误读，就更新词典条目，不在文档里追加案例。判断误读和局部修复的方法见 [TTS 使用约定](../../../../../.claude/skills/ergo-remotion-video/references/VOLCENGINE_TTS_GUIDE.md#判断是否读错)。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/gen_audio.py --project docs/src/ai/script/what-is-kv-cache --dry-run
@@ -105,7 +130,7 @@ python3 docs/src/ai/script/shared/tools/align_words.py --project docs/src/ai/scr
 
 密钥只在 `~/.zshrc` 里 export 时，`zsh -lc` 不会加载它；从 Agent 里调用配音要用 `zsh -ic 'python3 …/gen_audio.py …'`。
 
-`--dry-run` 不读取密钥、不联网、不写音频；先检查动作数量再决定是否执行。`--only <id...>` 只处理指定单元；`--force` 明确重合成；`--retempo` 复用参数匹配的 raw，仅重新处理倍率。文本、音色和请求参数或文件哈希变化都会使旧 raw 失效；不是仅检查文件存在。
+`--dry-run` 不读取密钥、不联网、不写音频；先检查动作数量再决定是否执行。输出里的 `pronunciation` 列出尚未写入的词典规则和待复听的 beat。`--only <id...>` 只处理指定单元；`--force` 明确重合成；`--retempo` 复用参数匹配的 raw，仅重新处理倍率。文本、音色和请求参数或文件哈希变化都会使旧 raw 失效；不是仅检查文件存在。
 
 `gen_cues.py` 使用 `audio/processed` 中的实际解码采样生成时间轴和 WAV。输出在 `build/`，当前项目的 `remotion/src` 从 `../../build/cues` 导入。生成文件不要手改；音频变化后重新生成。生成记录也在 `build/`，不要硬编码某条视频的 ID、总帧数或时长。
 
@@ -142,9 +167,12 @@ node docs/src/ai/script/shared/tools/remotion.mjs still --project docs/src/ai/sc
 
 `still` 默认写到 `preview/path-check.png`，传 `--out <路径>` 可直接写到目标文件，多张关键帧不必逐张复制。
 
-优先继续使用已经运行的正确 Studio；端口按实际情况选择，不关闭其他项目服务。共享 Studio 入口带 `--no-open`，只启动服务，不自动打开外部浏览器。在 Codex 中制作视频时，默认在 Codex 内置浏览器打开服务实际输出的预览 URL，并复用当前项目已有的预览标签；可通过 `mcp__codex_app__open_in_codex` 展示，通过可用的内置浏览器控制工具检查画面。不要默认另起 Chrome 或 agent-browser。内置浏览器不可用或遇到实际兼容问题时，说明原因后再使用外部浏览器。
+### 预览浏览器
 
-在 Claude Code 内置浏览器里操作 Studio：空格键不会触发播放，点底部的 Play 按钮；回到某一帧点左下角的帧数按钮输入数字回车；用页面里 audio 元素的 currentTime 是否前进判断音频真的在播。
+优先继续使用已经运行的正确 Studio；端口按实际情况选择，不关闭其他项目服务。共享 Studio 入口带 `--no-open`，只启动服务，不自动打开外部浏览器。预览默认用宿主的内置浏览器打开服务实际输出的 URL，并复用当前项目已有的预览标签；不要默认另起 Chrome 或 agent-browser。内置浏览器不可用或确有兼容问题时，说明原因后再用外部浏览器。
+
+- **Claude Code**：用内置浏览器（`mcp__Claude_Browser__*`）打开。空格键不会触发播放，点底部的 Play 按钮；回到某一帧，点左下角的帧数按钮输入数字后回车；用页面里 audio 元素的 `currentTime` 是否前进判断音频真的在播。
+- **Codex**：通过 `mcp__codex_app__open_in_codex` 展示，用可用的内置浏览器控制工具检查画面。
 
 看完预览后暂停播放。临时自动化浏览器在检查完成、失败或取消时关闭本次会话；不要留下循环播放，也不要批量终止其他任务的浏览器。遇到无法自动息屏时，用 `pmset -g assertions` 核对是否仍有本次进程持有 `Video Wake Lock`。
 
@@ -206,6 +234,24 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 - 迁移已有视频时核对成片及配音哈希，不能因整理目录而重合成或重新出片。
 
 
+## 共享场景组件
+
+从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 复制起步。旧项目保留自己的写法，不批量迁移。
+
+|组件|文件|用途|
+|---|---|---|
+|`ChapterShell`|`Scenes.tsx`|背景、章节音频、`ChapterStrip` 导航、底部单行字幕|
+|`SceneChain`|`Scenes.tsx`|按起点列表挂载场景，每个场景持续到下一个场景开始，不再手算 `durationInFrames`|
+|`subtitleAt`|`Scenes.tsx`|取某个章节局部帧上的字幕|
+|`FigureCard`|`Scenes.tsx`|原稿配图的中央大卡片，`contain` 完整显示，`dark` 用于终端截图|
+|`HostCard`|`Scenes.tsx`|圆形头像、红色细边、黑色姓名胶囊，用于自介和结尾|
+|`InterviewStage`|`Scenes.tsx`|左侧豆包面试官、右侧二哥求职者、中央插槽，`candidateExit` 控制离场|
+|`SceneEntrance`、`ConceptIcon`|`Enhancements.tsx`|短入场转场；paper、terminal、feedback、error 四个概念图标|
+|`CheckpointIcon` 等 10 个|`Icons.tsx`|检查点、对话、依赖包、分块、发出邮件、回滚、齿轮、法槌、概率、哨子|
+|`C`、`card`、`Popped`、`Arrow`|`index.tsx`|配色、卡片样式、入场、箭头|
+
+两期以上重复手写的场景或图标，确认不含主题数据后提升到这里，并在本表登记。修改共享组件保持向后兼容，旧项目的成片不重新渲染。
+
 ## 增强效果与音效混音
 
 新制章节按 Skill 的轻量增强规则选择效果，旧项目保持现有设置。共享 `Enhancements.tsx` 提供短入场转场与概念图标；品牌素材来源记入 `shared/assets/brands/`。本期的事件时点保存在项目 `assets/references/sound-plan.json`，每个事件指定 `beatId`、`offsetFrames`、`sound`、`peakDbfs` 与用途。
@@ -218,10 +264,12 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |Codex|`shared/assets/brands/codex.png`|OpenAI 官方 VS Code 扩展中的 Codex 应用图标；详情见同名 `.source.json`|
 |DeepSeek|`shared/assets/brands/deepseek.png`|DeepSeek 官网 `favicon.ico` 小鲸鱼；无缩放转为 PNG，原 ICO 与同名 `.source.json` 一并保留|
 
+讲到 DeepSeek 或 DeepSeek Harness 的自制标题和卡片时，名称旁优先放官方小鲸鱼，不用通用机器人图形代替品牌标识。
+
 小图标用于自制卡片、项目标题等需要识别产品的位置，原稿整图保持原样。同排图标等比缩放，按视觉大小协调容器和名称间距；尺寸随版面确定，不固定为某期的像素值。新增官方图标经来源与预览核验后补入共享库和本清单。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/script/what-is-agent-reflection
 ```
 
-混音保持原始 `build/voiceover.wav` 和采样长度不变，生成 `build/voiceover-with-effects.wav`、`build/sound-mix.json`。预览读取混音文件；项目显式设置 `deliveryAudio: "build/voiceover-with-effects.wav"` 后，导出入口也采用该音轨。音效计划、配音或混音文件发生变化时，导出入口校验哈希并拒绝过期混音；每次重新生成配音时间轴后必须重新混音。未设置 deliveryAudio 的旧项目仍按原有方式封装。第一章认可样片提供效果参考，不固定每章数量。提示音参考峰值约 -35 至 -31 dBFS、长度约 75–160ms，按实际配音与试听调整；不是响度保证。检查音效窗外配音采样一致、长度不变且无削波。
+混音保持原始 `build/voiceover.wav` 和采样长度不变，生成 `build/voiceover-with-effects.wav`、`build/sound-mix.json`。`chapter_pipeline.py` 在存在 sound-plan 时自动混音。预览读取混音文件；项目设置 `deliveryAudio: "build/voiceover-with-effects.wav"` 后（新项目初始化时默认写入），导出入口也采用该音轨。音效计划、配音或混音文件发生变化时，导出入口校验哈希并拒绝过期混音；每次重新生成配音时间轴后必须重新混音。未设置 deliveryAudio 的旧项目仍按原有方式封装。第一章认可样片提供效果参考，不固定每章数量。提示音参考峰值约 -35 至 -31 dBFS、长度约 75–160ms，按实际配音与试听调整；不是响度保证。检查音效窗外配音采样一致、长度不变且无削波。

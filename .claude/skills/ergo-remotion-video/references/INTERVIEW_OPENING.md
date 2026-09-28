@@ -26,16 +26,17 @@
 
 共享素材位于 [shared/assets/interview](../../../../docs/src/ai/script/shared/assets/interview/)，使用前按 [WORKFLOW.md](../../../../docs/src/ai/script/shared/WORKFLOW.md) 的“面试开场素材”约定复制到当前项目 `assets/images/`。来源及用途见素材目录的 `sources.json`。不依赖旧视频目录中的素材或试听文件；不把配音放进 Skill。
 
-头像组件为 [InterviewAvatar.tsx](../../../../docs/src/ai/script/shared/remotion/components/InterviewAvatar.tsx)，只接收图片地址、名称、角色、强调色与高亮状态。例如项目 `remotion/src/` 中：
+面试开场用 [Scenes.tsx](../../../../docs/src/ai/script/shared/remotion/components/Scenes.tsx) 的 `InterviewStage`。它负责左右头像、高亮和求职者离场，中央动画作为子元素由项目传入。例如项目 `remotion/src/` 中：
 
 ```tsx
-import {InterviewAvatar} from '../../../shared/remotion/components/InterviewAvatar';
-// staticFile 来自 remotion；高亮状态来自本项目真实时间轴。
-<InterviewAvatar src={staticFile('images/doubao-facing-right.png')}
-  name="豆包" role="面试官" active={interviewerSpeaking} accent="#3665e8" />
+import {InterviewStage} from '../../../shared/remotion/components/Scenes';
+// 高亮和离场进度来自本项目真实时间轴。
+<InterviewStage title="Pi 源码 · 面试现场" interviewerActive={!guess} candidateActive={guess} candidateExit={exit}>
+  {/* 中央语义动画，放在 x 470–1450 之间 */}
+</InterviewStage>
 ```
 
-父场景负责左右位置、中央动画与进退场，公共组件不加载某个项目的配置或台词。
+只需要单个头像时用 [InterviewAvatar.tsx](../../../../docs/src/ai/script/shared/remotion/components/InterviewAvatar.tsx)。公共组件不加载某个项目的配置或台词。
 
 ## 音频和验收
 

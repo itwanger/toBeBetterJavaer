@@ -2,6 +2,7 @@
 import argparse,json,re
 from pathlib import Path
 from project_paths import SHARED,WORKSPACE,project_path,load_config,read_json,load_beats,sha256,request_hash
+from progress import summarize
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True,type=project_path);args=ap.parse_args();p=args.project;cfg=load_config(p);meta=read_json(p/'project.json');data,beats=load_beats(p);checks=[]
@@ -22,7 +23,7 @@ def main():
             if audio_ready or not asset.startswith('audio/'):
                 check((p/'remotion/public'/asset).is_file(),f'{file.name}: {asset}')
     if beats and not audio_ready:
-        print(json.dumps({'project':str(p),'status':'awaiting-audio','checksPassed':len(checks),'audioUnits':len(beats),'missingProcessed':missing_audio,'next':'gen_audio.py then gen_cues.py'},ensure_ascii=False,indent=2));return
+        print(json.dumps({'project':str(p),'status':'awaiting-audio','checksPassed':len(checks),'audioUnits':len(beats),'missingProcessed':missing_audio,'next':'gen_audio.py then gen_cues.py','progress':summarize(meta,[c['id'] for c in data['chapters']])},ensure_ascii=False,indent=2));return
     if beats:
         cues=read_json(p/'build/cues.json');chapters=read_json(p/'build/chapters.json');manifest=read_json(p/'build/timeline-manifest.json')
         check([b['id'] for b in beats]==[b['id'] for b in cues],'audio unit order matches cues')
@@ -40,5 +41,5 @@ def main():
         check(chapter_cursor==cursor,'chapter and cue totals match')
         check((p/manifest['audioSource']).is_file(),'manifest voiceover path')
     check(cfg['tts']['atempo']>0 and cfg['video']['fps']>0,'project configuration')
-    print(json.dumps({'project':str(p),'status':'ready' if beats else 'draft','checksPassed':len(checks),'audioUnits':len(beats),'speakerId':cfg['tts']['speakerId'],'atempo':cfg['tts']['atempo'],'output':str(p/'output'/meta['outputName'])},ensure_ascii=False,indent=2))
+    print(json.dumps({'project':str(p),'status':'ready' if beats else 'draft','checksPassed':len(checks),'audioUnits':len(beats),'speakerId':cfg['tts']['speakerId'],'atempo':cfg['tts']['atempo'],'output':str(p/'output'/meta['outputName']),'progress':summarize(meta,[c['id'] for c in data['chapters']])},ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

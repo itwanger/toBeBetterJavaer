@@ -4,7 +4,7 @@ from pathlib import Path
 from project_paths import SHARED,WORKSPACE,read_json,write_json,link_public
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--source',required=True,type=Path);ap.add_argument('--title');args=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--source',required=True,type=Path);ap.add_argument('--title');ap.add_argument('--no-effects',action='store_true',help='skip the default cue sounds');args=ap.parse_args()
     project=Path(args.project).expanduser().resolve();source=args.source.expanduser().resolve();slug=project.name
     if project.exists():raise ValueError(f'Will not overwrite existing project: {project}')
     if project.parent!=WORKSPACE:raise ValueError(f'Project must be a direct child of {WORKSPACE}')
@@ -15,12 +15,17 @@ def main():
     project.mkdir()
     for d in ['assets/images','audio/raw','audio/processed','build','preview','output']:(project/d).mkdir(parents=True)
     shutil.copy2(source,project/'article.md');shutil.copy2(SHARED/'assets/ergo-avatar.jpg',project/'assets/images/ergo-avatar.jpg')
-    write_json(project/'project.json',{'schemaVersion':1,'slug':slug,'title':title,'compositionId':composition,'outputName':slug+'.mp4','sourceArticle':os.path.relpath(source,project),'config':cfg,'audioUnitMode':'meaning-groups'})
+    meta={'schemaVersion':1,'slug':slug,'title':title,'compositionId':composition,'outputName':slug+'.mp4','sourceArticle':os.path.relpath(source,project),'config':cfg,'audioUnitMode':'meaning-groups','progress':{}}
+    if not args.no_effects:
+        # Cue sounds are on by default: preview and export both read the mix; events are added per chapter.
+        meta['deliveryAudio']='build/voiceover-with-effects.wav'
+        write_json(project/'assets/references/sound-plan.json',{'events':[]})
+    write_json(project/'project.json',meta)
     write_json(project/'beats.json',{'chapters':[],'beats':[]})
     (project/'script.md').write_text(f'# {title}\n\n待整理并确认口播稿。\n')
     (project/'OUTLINE.md').write_text(f'# {title} · 分镜规划\n\n待确认口播稿后规划，章节和动画数量由内容决定。\n')
     shutil.copytree(SHARED/'remotion/templates',project/'remotion')
     # The public directory exposes project-owned artifacts; no duplicate audio/image copies.
     link_public(project)
-    print(json.dumps({'project':str(project),'compositionId':composition,'status':'draft; no TTS requested'},ensure_ascii=False))
+    print(json.dumps({'project':str(project),'compositionId':composition,'status':'draft; no TTS requested','effects':not args.no_effects},ensure_ascii=False))
 if __name__=='__main__':main()

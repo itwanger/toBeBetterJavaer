@@ -1,94 +1,64 @@
 ---
 name: ergo-remotion-video
-description: 将口播稿制作成二哥风格的 Remotion 视频。使用 script/shared 的共用工具、配置和素材，各视频独立保存内容与产物；逐章预览验收，用户明确要求出片后导出带配音 MP4。
+description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视频用稿、火山 TTS 配音、音画对齐、逐章动画预览和导出带配音的 MP4。用户说“做视频”“口播稿转视频”“Remotion”“继续做下一章”“出片”“渲染”“改读音”“配音读错了”，或给出 docs/src/ai/video/ 下的稿子要做成视频时使用。共享工具、配置和素材在 docs/src/ai/script/shared/，每条视频在 docs/src/ai/script/<topic>/ 独立保存。
 ---
 
 # 二哥风格 Remotion 视频
 
-本 Skill 维护制作规则，实际工具与默认配置由仓库中的 `docs/src/ai/script/shared/` 维护。不要再把 Python 工具、默认配置或公共组件复制到每条视频里。
+本 Skill 只记流程节点和禁令。目录、命令、组件清单和素材清单统一在 [共享工作流](../../../docs/src/ai/script/shared/WORKFLOW.md)，维护 Skill 时同步更新该文件并实际跑一遍命令。
 
-## 先定位路径
+## 定位项目
 
-1. 从当前仓库根目录定位 `docs/src/ai/script/`；不把终端 cwd 当作视频项目目录。下文命令示例均从仓库根目录运行；其他目录执行时，为工具和 `--project` 传绝对路径。
-2. 共用资源：`docs/src/ai/script/shared/`。项目：`docs/src/ai/script/<topic>/`。
-3. 继续旧项目先读 `project.json`、`script.md`、`beats.json`、`OUTLINE.md` 和当前检查记录，核实本轮授权到哪一步。
-4. 初始化或迁移后运行路径检查；禁止通过增加另一套配置、依赖或生成目录掩盖找不到路径的问题。
+1. 从仓库根目录定位 `docs/src/ai/script/`，不把终端 cwd 当作视频项目目录。工具的 `--project` 传项目目录。
+2. 继续旧项目，先运行 `doctor.py`，看输出里的 `progress`，再读 `script.md`、`beats.json`、`OUTLINE.md`。没有 `progress` 的旧项目，以项目文件和用户最新指令判断授权范围。
+3. 找不到路径时修正路径，不新增另一套配置、依赖或生成目录。
 
-详细布局及新建、配音、预览命令见 [项目布局与执行约定](../../../docs/src/ai/script/shared/WORKFLOW.md)。维护 Skill 或目录时同时更新该文件并验证其命令。
+## 流程节点
 
-## 配置和素材
+每个节点完成并得到对应的用户回复后，用 `progress.py --mark` 记录，后续会话据此判断走到了哪一步。
 
-- 新项目默认值：[shared/config/video.config.json](../../../docs/src/ai/script/shared/config/video.config.json)。初始化时复制为项目 `project.json` 中的完整 `config`。已有视频只读项目配置，不随默认值改变。
-- 用户指定音色或语速时，修改对应项目配置；只有用户要求修改默认值时才改共享配置。不要从历史示例恢复旧音色或固定倍率。
-- 密钥只从 `config.volc.apiKeyEnv` 指定的环境变量读取（默认 `VOLC_TTS_API_KEY`），不写进项目、Skill、日志或命令参数。
-- 默认人物：[shared/assets/ergo-avatar.jpg](../../../docs/src/ai/script/shared/assets/ergo-avatar.jpg)。初始化复制到项目 `assets/images/ergo-avatar.jpg`。用户指定素材优先；修改默认头像不批量替换旧视频。
-- 主题配图放在项目 `assets/images/`，参考材料放 `assets/references/`。保留正文中的原稿配图是视频素材，不只是参考：在 `OUTLINE.md` 中逐张映射到场景及 beat 范围，原样展示；不自行用简化图形替换或重新生成。未采用时记录具体原因。下载成功不等于已用于画面。
-- `remotion/public/images`、`remotion/public/audio` 是指向本项目 `assets/images`、`build` 的相对软链接，由初始化工具创建。组件继续用 `staticFile('images/...')` 和 `staticFile('audio/voiceover.wav')`；不要重复拷贝媒体。
+1. **整理用稿**。写项目 `article.md`、`script.md`、`beats.json`、`OUTLINE.md`。文末公众号推广尾段从起点删到文件末尾，连同后面的图片，项目内所有清单同步删除，不留“不使用”的标记。正文里的资料领取（288 道、222）和视频结尾的点赞关注保留。源文章不改。用户要求保留公众号引导时以用户为准。
+2. **用户确认口播稿**，标记 `script`。确认前不合成配音。
+3. **配音**。先跑 `pronunciations.py --write` 套用读音词典，再 `gen_audio.py`、`gen_cues.py`、`review_audio.py`。词典的 watch 项和 candidate 规则列入复听清单。标记 `audio`。
+4. **逐章制作**。每章先写 `ch<N>-spec.json` 并生成时点，再写 `Chapter<N>.tsx`，然后跑 `chapter_pipeline.py` 出关键帧，并在 Studio 里预览。抽查配图帧、主要场景和转场中间帧，试听提示音。用户回复“继续”或明确认可后标记该章，再做下一章。
+5. **出片**。只有用户明确说“渲染”或“出片”才标记 `render` 并导出，已经授权过的不重复询问。整片渲染加 `--detach`，轮询日志等待完成。
+6. **成片检查**。跑 `verify_export.py`，核对完整解码、尺寸、帧率、帧数、音频同步和各章截图，通过后标记 `verified`。交付的是 `output/<outputName>`，不能把 Studio 预览或旧版称作本次成片。
+7. **纳入 Git**。`output/` 顶层只放最终 MP4，试做放 `preview/`，旧版放 `output/legacy/`，细则见 [成片版本管理](../../../docs/src/ai/script/shared/WORKFLOW.md#成片版本管理)。commit 和 push 只按用户明确指令执行。
 
-## 流程与验收
+## 禁令
 
-1. **文章与稿子**：整理项目视频用稿 `article.md`、口播 `script.md`、`beats.json` 与 `OUTLINE.md`。默认从文末微信公众号推广尾段的起点截到文件末尾，文字和后续图片全部移除；同步清理项目 `article.md`、口播、配音清单、分镜及图片引用清单，不能仅标记“不使用”却仍保留。KV Cache 的明确截断点为“这个公众号历史发布过很多有趣的 Agent 知识点”，该句本身也删除。正文学习资料领取（如 288 道 / 222）和视频点赞关注结尾保留；用户明确要求保留公众号引导时再覆盖此默认规则。源文章文件不因整理项目用稿自动改写。稿子确认后才合成配音。
-2. **拆分与配音**：按完整句子或自然意群拆 beat，不按字幕长度、每个逗号或目标段数切碎配音。一个配音单元可以承载多组字幕和多个动画时点；字幕换行或换屏不要求另起一段 TTS。用户反馈停顿过多时，优先合并被拆开的完整意群重新合成，保持原文和项目语速。迁移旧项目不自动重拆或重合成。
-3. **逐 beat 动画**：`beats.json` 保存有稳定 ID 的配音单元，字幕与动画按该单元内短语的实际起音定位。合并配音后保留短语映射，避免动画继续查找已移除的 beat；具体见 [音画对齐](references/B39_LESSONS.md)。相邻短语需要连续画面时共用一个场景 Sequence。
-4. **真实时间轴**：原速 TTS → 项目倍率处理 → 解码累计采样数，生成 `build/cues.json`、`build/chapters.json`、`build/cues.ts`、`build/voiceover.wav`。动画读取这些生成文件，不手改生成的时间轴，也不按字数估计最终时长。 配音生成后先对全部单元运行共享 `review_audio.py`（ASR 加逐词对齐），字幕与事件时点由 `build_timing.py` 从 `assets/references/ch<N>-spec.json` 生成；每章先生成时点文件，再写章节组件，不反过来。
-5. **逐章动画**：共享视觉组件从 `shared/remotion/components` 引入，主题动画留在项目 `remotion/src/`。连续场景合并 Sequence，避免每句卸载重挂。
-6. **逐章预览**：每章完成后运行类型检查、抽查各类场景及配图的关键帧并打开 Studio；核对素材映射是否实际出现、图片可读性和连续展示。用户指定旧版为视觉基准时，对照实际视频截图检查，而非只读旧代码。已有 Studio 可继续使用；先核实端口和项目，默认端口不是固定占用要求。用户回复「继续」或明确通过后制作下一章。
-7. **完整导出**：只有用户明确说「渲染」或「出片」才调用 render。已有明确授权不重复询问。输出在项目 `output/`，使用共享渲染入口处理音轨封装。 整片渲染用 `--detach` 脱离会话运行并轮询日志，不在单条命令里等待。
-8. **成片检查**：检查完整解码、尺寸、帧率、帧数、音频同步和导出关键帧。交付真正位于 `output/` 的 MP4，不能把旧版或仅 Studio 预览称作本次成片。
-9. **成片纳入 Git**：项目 `output/` 顶层只保存 `project.outputName` 指定的最终音画合成 MP4；试做、预览放 `preview/`，旧版放 `output/legacy/`。仓库通用规则自动放行 `*/output/*.mp4`，排除 `*.tmp.mp4`，新增视频无需追加 `.gitignore`。验收后按 [成片版本管理](../../../docs/src/ai/script/shared/WORKFLOW.md#成片版本管理) 核对待提交文件；commit/push 按用户明确指令执行。
+- 密钥只从 `config.volc.apiKeyEnv` 指定的环境变量读取，不写进项目、Skill、日志或命令参数。
+- 不手改 `build/` 下的生成文件，不按字数估算时长。配音变化后重新生成时间轴和混音。
+- 用户指定音色或语速时只改当前项目配置，用户要求改默认值时才改共享配置，不从历史项目恢复旧音色或旧倍率。
+- 已有视频只读自己的 `project.json` 配置。修改共享默认值、共享组件或读音词典，不批量重做旧视频的配音和成片。
+- 配音按确认稿朗读，不自动加语气词、情绪指令或反问。`text` 是字幕原文，`ttsText` 只写读法调整。
+- ASR 识别正确不等于读音正确。没有实际试听，不宣称读音已验收。用户认可某个词，只代表这一项通过。
+- 原稿配图原样展示，不用简化图形替换，也不重新生成。
+- 不伪造品牌标志。没有官方图标时，用通用概念图标。
 
-用户要求整理所有已有最终视频时，扫描各项目配置的 `outputName`，逐项目核对成片和检查结果。混放在 `output/` 顶层的其他 MP4 先确认用途，再移入 `preview/` 或 `output/legacy/`，保持文件内容不变且不覆盖同名文件。
+## 音画规则
 
-## Codex 预览浏览器
+- **配音单元**。beat 按完整句子或自然意群拆分，不为字幕换行另起一段 TTS。一个 beat 里可以切换多组字幕和多个动画时点。用户觉得停顿太多时，合并被拆开的意群重新合成。细节见 [音画对齐](references/B39_LESSONS.md)。
+- **读音**。先查 [读音词典](../../../docs/src/ai/script/shared/config/pronunciations.json)，新发现的误读和用户确认的读法都更新到词典里。争议术语先核对作者或官方的一手来源。判断和局部修复的方法见 [TTS 使用约定](references/VOLCENGINE_TTS_GUIDE.md)。
+- **动画时点**。元素在术语起音前 4 到 6 帧开始入场，之后稳定显示，不循环脉动。讲同一画面的相邻 beat 共用一个场景，字幕切换不等于切换场景。
+- **原稿配图**。在 `OUTLINE.md` 里把每张图对应到场景和 beat 范围，逐章预览时确认图片确实出现且可读。不采用的图要写明原因。
+- **提示音**。新项目默认开启。只标记少量有意义的变化，比如错误出现、结果返回、资料场景切入，放在短停顿处，音量低于配音。用户说不要时关闭。
+- **时长**。“3 分钟”按稿子保留，实际时长以配音为准，不为凑时长删内容。
 
-在 Codex 中制作视频时，Studio 通过共享入口以 `--no-open` 启动，默认使用 Codex 内置浏览器打开实际预览 URL，复用当前项目已有标签。不要默认另起 Chrome 或 agent-browser；只有内置浏览器不可用或确有兼容问题时才说明原因并使用外部浏览器。预览结束暂停播放，临时自动化浏览器在完成、失败或取消时关闭本次会话。`still` / `render` 继续使用 Remotion 所需的后台渲染浏览器。具体操作见 [预览与导出](../../../docs/src/ai/script/shared/WORKFLOW.md#预览与导出)。
+视觉版式、字幕分组、人物角色见 [用户偏好](references/USER_PREFERENCES.md)。稿子里有“面试官问你”、求职者回答或面试追问时，读 [面试头像开场](references/INTERVIEW_OPENING.md)。普通科普稿不加面试剧情。
 
-## 音画与风格
+## 组件和素材
 
-- 配音读已确认的稿子，不自动加语气词或情绪指令。`text` 是字幕原文，`ttsText` 只承载明确的读法调整；没有 `ttsText` 时读 `text`。
-- 括号中的独立补充说明与主句之间要有听得出的语义边界，避免“来学习（特点是……）”连成“学习特点”。可在 `ttsText` 中用句号引导短停顿，仍按完整意群合成；不把所有括号或逗号机械拆开。案例与复核方法见 [补充说明的断句](references/VOLCENGINE_TTS_GUIDE.md#补充说明的断句)。
-- 技术名词、缩写或多音字读法不确定、被用户指出异常时，先核对作者或官方一手来源，再用 `ttsText` 明确读法；搜索摘要和 AI 答案不能直接作为官方依据。ASR 识别出正确拼写不代表发音正确，需复听该词及前后衔接；无法试听时如实记录，不能标记读音验收通过。SQLite 读法、Git /ɡɪt/ 与 get 的纠音经验及局部修复流程见 [TTS 使用约定](references/VOLCENGINE_TTS_GUIDE.md#术语读音与局部修复)。
-- 已知中文误读：“超长”应读 **chāo cháng**，“超”不能读成 **zhao**。后续稿子出现“超长输出”等表述时，列入配音复听项；具体错误记录见上述 TTS 使用约定。
-- 本项目音色的术语约定：`Pi` 全文统一用 `ttsText`「派」引导单音节读法，字幕仍写 `Pi`；`LangGraph4J` 遇到连写误读时，优先试用 `ttsText`「Lang Graph four J」，字幕保留原拼写。两项均需复听，当前记录不等于用户已验收；使用条件和全文一致性检查见 [Pi 与 LangGraph4J](references/VOLCENGINE_TTS_GUIDE.md#pi-与-langgraph4j)。
-- 评论口令 `222` 的指定读法是「二二二」，数量 `288 道` 的指定读法是「二百八十八道」；字幕仍保留数字。不要推广为全部数字自动转换。
-- 先合成用户确认的音色，再按项目 `atempo` 调整；不要承诺变速无损。修改倍率后重建处理音频与时间轴。音色变化需要重合成相关配音。
-- 配音负责讲述、字幕承载原文，画面呈现关系、动作和结果。原稿信息图中的解释文字完整保留；自制图形保留理解所需的对象、标签、箭头和中间步骤，不能为少文字而退化成几个术语方块。对话避免大段台词和底部字幕重复；字幕切换不等于切换场景。
-- 视觉表达优先于长段文字堆屏：原稿大图与语义动画互补，按内容安排独立场景，不把“动画为主”理解成持续运动或替换原稿配图。金句和术语强调可用大字整屏；机械结构用 SVG/div，不用 emoji 替代。
-- 科普场景已经需要学习者、老师等人物时，优先用二哥代表学习者、豆包代表老师或讲解者，复用共享头像，用户指定角色优先。按场景调整朝向与尺寸，保留清楚的角色标签；不因此新增人物、对话或面试剧情。细节见 [视觉与人物](references/USER_PREFERENCES.md#视觉与人物)。
-- 正文默认采用冷白背景、红蓝绿橙灰、白底黑边圆角卡片、完整章节胶囊导航 `ChapterStrip`、底部单行字幕。视频画面不绘制章节或整片播放进度条，播放进度由平台播放器展示。当前章节黑底白字，已过章节弱化；章节名称和数量随内容变化，不用当前章节编号替代完整导航。具体版式见 [用户偏好](references/USER_PREFERENCES.md)。共享组件调整应兼容旧项目，主题文字和字幕时点不得写进公共组件。
-- 长字幕按语义分组，一次只显示一行；优先保留完整术语解释、修饰语与后续动作，不在“地”等连接处机械切开。通过真实音频、试听及必要的逐词对齐核验切换点；能量检测和 ASR 转写不等于精确起音证明。具体示例见 [字幕偏好](references/USER_PREFERENCES.md#字幕)。
-- 元素在术语起音前约 4–6 帧开始快速入场，之后稳定显示，避免循环脉动和频繁重复入场。
-- 「3 分钟」保留用户稿子的表述；实际时长由配音决定，不为凑时长删内容。
+- 先用共享组件：`ChapterShell`、`SceneChain`、`FigureCard`、`HostCard`、`InterviewStage`、`Icons`。清单见 [共享场景组件](../../../docs/src/ai/script/shared/WORKFLOW.md#共享场景组件)，新章节从 `shared/remotion/examples/Chapter.example.tsx` 复制起步。
+- 同一个场景或图标在两期以上重复手写，且不含主题数据时，提升到共享组件并登记。
+- 产品图标、Harness 马匹、面试头像、提示音都在 `shared/assets/`，用前复制到项目 `assets/images/`，来源记录复制到 `assets/references/`。
+- 组件代码按 JSX 元素换行，单行不超过约 160 个字符，样式常量放在文件顶部，便于用户按坐标改版。
 
-进一步规则：[用户偏好](references/USER_PREFERENCES.md)、[音画对齐](references/B39_LESSONS.md)、[TTS 使用约定](references/VOLCENGINE_TTS_GUIDE.md)。
-
-## 转场、提示音与图标
-
-新制章节沿用用户已认可的轻量增强风格，旧项目不批量改版。场景切换可用短淡入、轻位移或展开，元素在起音前入场后稳定显示；连续讲解中的字幕切换不重复触发转场。按语义需要安排，不以每章固定次数填满效果。原稿配图仍完整展示，转场不改配音长度或字幕时点。
-
-提示音只标记少量有意义的变化，如错误出现、反馈落点、资料场景切入；优先放在短停顿，轻于配音，不给每个词配音效。图标优先帮助识别对象：产品使用可核实的官方素材并记录来源，概念使用统一线条的 SVG；没有官方图标时用通用概念图标，不伪造品牌标志。保留原图署名。
-
-产品名称需要图标辅助识别时，先查共享品牌素材库，复用已核实来源的 Claude Code、Codex、DeepSeek 小鲸鱼等官方图标；同一排图标按视觉大小统一容器与文图间距，保留各自比例。讲到 DeepSeek / DeepSeek Harness 的自制产品标题或卡片时，优先在名称旁使用官方小鲸鱼标识，不用通用机器人图形代替品牌标识。新增并确认的品牌素材连同来源记录纳入共享库，供后续视频复用，具体清单见下方执行约定。
-
-共享组件、图标及音效工具的调用见 [增强效果执行约定](../../../docs/src/ai/script/shared/WORKFLOW.md#增强效果与音效混音)。逐章预览同时抽查转场中间帧、图标布局和提示音；原配音、字幕、整图可读性仍是主要验收项。学习资料领取与二哥自介按内容分场景，避免画面领取提示与字幕整句重复。
-
-## Harness 马具比喻素材
-
-讲解 Harness 的“野马套上缰绳和马鞍”比喻时，优先复用用户认可的 [无马具马匹](assets/harness/horse-bare.png) 和 [带马具马匹](assets/harness/horse-with-tack.png)。这是同一匹朝右侧视的马，1536×1024 透明 PNG；来源、生成提示词和哈希见 [sources.json](assets/harness/sources.json)。不要再用临时手写的几何 SVG 马替代这组素材。
-
-将两张图复制到当前项目 `assets/images/`，通过 `staticFile` 使用；保持相同尺寸、位置、缩放与透明通道。先显示无马具版，再在实际配音讲到“缰绳、马鞍”时短淡入带马具版，可小幅向右移动一次后稳定展示。按本项目真实音频定位，不复用旧视频帧数。仅提及 Harness、没有马具比喻时，不必插入马匹画面。
-
-## 面试对话开场（按稿子选用）
-
-稿子实际包含“面试官问你”、求职者回答或面试追问时，先读 [面试头像开场](references/INTERVIEW_OPENING.md)。采用豆包面试官与二哥求职者的头像对话、中央语义动画和底部字幕；人物在左右相对的位置，不画两个并排朝观众坐的全身人物。普通科普稿不自动增加面试剧情。
-
-该模式只约束面试对话范围，不扩散为后续正文的改版；面试结束后回到正文的完整章节导航、配图和语义动画。复用共享头像与头像组件，主题分镜和实际音频时点留在本项目；不复用 KV Cache 样片的固定台词、帧数、音色 ID 或语速。
-
-## 最短执行示例
+## 最短示例
 
 ```bash
 python3 docs/src/ai/script/shared/tools/init_project.py --project docs/src/ai/script/what-is-prefix-caching --source docs/src/ai/video/what-is-prefix-caching.md --title 'Prefix Caching'
 python3 docs/src/ai/script/shared/tools/doctor.py --project docs/src/ai/script/what-is-prefix-caching
 ```
 
-初始化只建草稿骨架，不调用 TTS、不创建成片。随后按稿子确认、配音、章节验收的实际进度执行；不能把草稿 `DraftPreview` 当成已制作的视频。
+初始化只建草稿骨架，不调用 TTS，不生成成片。`DraftPreview` 不能当成已经制作的视频。

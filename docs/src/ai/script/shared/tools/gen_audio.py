@@ -2,6 +2,7 @@
 import argparse,base64,json,shutil,subprocess,uuid,urllib.request
 from pathlib import Path
 from project_paths import project_path,load_config,load_volc_key,load_beats,read_json,write_json,request_hash,sha256
+from pronunciations import report as pronunciation_report
 
 def synth(text,out_path,tts,key):
     headers={'X-Api-Key':key,'X-Api-Resource-Id':tts['resourceId'],'X-Api-Connect-Id':str(uuid.uuid4()),'Content-Type':'application/json'}
@@ -56,5 +57,10 @@ def main():
         if need_process:retempo(raw,out,ffmpeg,tts['atempo'],tts['audio']['sampleRate'])
         records['units'][str(b['id'])]={'requestHash':fingerprint,'rawSha256':sha256(raw),'processedSha256':sha256(out),'atempo':tts['atempo']}
         records['speakerId']=tts['speakerId'];write_json(record,records)
-    print(json.dumps({'project':str(root),'speakerId':tts['speakerId'],'atempo':tts['atempo'],'dryRun':args.dry_run,'units':len(beats),'actions':counts},ensure_ascii=False))
+    summary={'project':str(root),'speakerId':tts['speakerId'],'atempo':tts['atempo'],'dryRun':args.dry_run,'units':len(beats),'actions':counts}
+    if args.dry_run:
+        # Lexicon rules not yet written to ttsText, plus beats that need listening; see pronunciations.py.
+        lex=pronunciation_report(root,tts['speakerId'],beats)
+        summary['pronunciation']={'unappliedRules':{c['id']:c['rules'] for c in lex['changes']},'watch':[[w['id'],w['watch']] for w in lex['watch']]}
+    print(json.dumps(summary,ensure_ascii=False))
 if __name__=='__main__':main()
