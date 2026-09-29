@@ -1,108 +1,144 @@
-标题：再见了 WebUI，DeepSeek 桌面版真不错。
+标题：豆包工作升级，Agent干活新姿势。
 
-从藏师傅那里看到了DeepSeek Harness桌面版的安装地址，顺手就装上了。
+最近一个月，我把豆包工作当成了我的主力桌面Agent，通过不断试探它的能力边界，我又找到了一个好玩的功能。
 
-并且装上的那一刻，会自动升级到v0.1.7-rc.2 版本。
+直接用豆包工作操作我的生产服务器，完成项目的部署和发布。
 
-![](https://cdn.paicoding.com/paicoding/5ff8f2c816cfe6b964c6c97886e9cccc.png)
+我们直接开整。
 
-这样就再也不用在Chrome浏览器里使用WebUI版本了，爽啊。
+第一步，先试探一下豆包工作能否通过SSH连上生产服务器。
 
-对于一套Harness来说，终端里跑起来，再在浏览器里使用，总有点不爽的感觉。
-
-![](https://cdn.paicoding.com/stutymore/sucai-20260928102439.png)
-
-如果你还没有的话，我把 Windows和 macOS 的下载链接放到这个链接了（官方毕竟还没有公开，所以不喜欢尝鲜的小伙伴可以暂时跳过，不着急）。
-
->https://paicoding.com/dsh-desktop-download
-
-还支持登录。
-
-![](https://cdn.paicoding.com/stutymore/sucai-20260928102544.png)
-
-这样的话，未来不知道会不会有云端的版本。
-
-一些不需要在本地工作的，可能就真的可以移动端、桌面端、云端同步。
-
-想想还是挺期待的。
-
-说一说我的AI员工吧。
-
-编程主力仍然是Codex+GPT-6 Astra，包括绘图做视频。
-
-文本主力是Claude Code+Opus 5.5。
-
-三号员工就是DeepSeek Harness+DeepSeek V4.1 Flash了。
-
-我个人还是喜欢DeepSeek，性价比高，还不用买Token plan，用多少算多少，关键是速度贼快。
-
-文本能力和编程能力也都在线，作为三号员工，是绰绰有余！
-
-接下来，再给大家推荐几个官方都认可的DeepSeek Harness插件。
-
-①、DSH-better-sidebar
-
-为 DeepSeek Harness 添加了侧边栏、底边栏、分栏、可浮动栏等 UI 定制化能力。
-
-属于为其他插件提供基础能力的底座插件。
-
-![](https://cdn.paicoding.com/stutymore/sucai-20260928103824.png)
-
-安装方法也很简单。
+提示词参考：
 
 ```
-帮我安装 dsh-better-sidebar 插件，地址：https://github.com/omdsh-dev/DSH-better-sidebar
+请验证你能否通过本机 SSH 访问我的派聪明服务器。
+执行下面的只读命令：
+ssh -i /Users/your/Desktop/your.pem \
+  -o BatchMode=yes -o ConnectTimeout=10 \
+  root@xx.xxx.xx.xx \
+  'hostname; whoami; cd /home/www/your && git log -1 --oneline'
+密钥仅供 SSH 使用，不要读取或输出密钥内容。
+本次只检查连接，不修改文件、不部署、不重启。
+请展示实际命令结果；如果受权限限制，请说明具体限制。
 ```
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928104111.png)
+这里简单解释一下：
 
-虽然官方的安装方法只支持WebUI版本，但DeepSeek V4.1 Flash显然有桌面版安装的能力，直接就自己搞定了。
+- 你需要从生产服务器上导出一份 pem，放到你本地，这个相当于生产环境的登录凭证，一定要保存好。
+- xx.xxx.xx.xx 为你的服务器IP地址
+- /home/www/your 为你的项目根目录
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928104750.png)
+![](https://cdn.paicoding.com/stutymore/sucai-20260929170139.png)
 
-打开设置也能看到插件安装成功了。
+假如豆包工作提示 SSH 连接成功，那就说明我们可以通过豆包工作远程操作生产服务器了。
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928104924.png)
+换成以前，我们得用 Tabby、WindTerm 这样的工具去远程链接，操作起来还是很麻烦的，尤其是当一些命令不是那么熟悉的情况下，就很麻烦。
 
-我们还可以在右侧重新打开一个窗口，左侧窗口的上下文是会自动注入的。
+我有尝试在 Tabby 中配置AI助手，但非常难用，明明API key 是对的，但聊天服务依然报错。
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928105057.png)
+![](https://cdn.paicoding.com/stutymore/sucai-20260929171254.png)
 
-喜欢开多窗口工作的小伙伴可以体验一下，我个人还是非常喜欢这个插件的。
+以至于我都准备卸载 Tabby 了。
 
-②、dsh-TUI
+豆包工作让我找到了新的舒适区。
 
-内测期就一直跟版本打磨的终端界面，补的是官方缺的 TUI。喜欢键盘、SSH、远程、不想开浏览器的小伙伴，这个比一堆皮肤更有用。
+这样排查项目问题，也都可以直接通过豆包工作来完成。
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928105401.png)
+```
+请为派聪明 RAG 更新线上版本做好部署准备。
 
->https://dshtui.com/
+本地仓库：/Users/your/Documents/GitHub/your
+远程后端：/home/www/your
+远程前端：/home/www/your-Front/dist
+网站：https://smart.paicoding.com
+SSH 沿用刚才验证成功的连接配置。
 
-而且更新速度也能跟得上官方的速度。
+请先阅读本地 AGENTS.md、CLAUDE.md，以及服务器 deploy.md、launch.sh 和本地 deploy-front.sh。
 
-装上之后，像素鲸鱼顶栏、实时工作状态行、思考流式展开、终端图片预览（Sixel / Kitty）、双击 Esc 时间回溯、蓝白上下文进度条 + TPS 仪表，就都有了。
+完成以下准备：
+1. 核对本地、远程仓库和线上运行版本，确定本次要部署的提交。
+2. 检查新增配置、数据库结构和 Elasticsearch 索引兼容性。
+3. 完成必要测试及前后端构建，记录构建对应的提交。
+4. 准备备份、替换、启动、验收和回滚的具体命令。
 
-安装方法也很简单。
+保留线上 .env，不用本地配置覆盖；不要输出密码或密钥。
+旧后端脚本会先停服务再编译，请调整为构建成功后再切换。
+不要自动提交或推送代码。
 
->帮我安装这个：https://dshtui.com/
+本轮完成检查、构建和部署方案后汇报，暂不停止线上服务或替换线上文件。
+```
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928105717.png)
+这里再简单解释下。
 
-官方提供了多种安装方式，DSH 会自动帮我们做出最优选择。
+- 本地仓库也就是你本地的代码仓库目录
+- 远程前端就是你项目前端放在生产环境中的目录
+- 远程后端就是后端的目录
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928105937.png)
+![](https://cdn.paicoding.com/stutymore/sucai-20260929171912.png)
 
-整体设计我觉得还是挺漂亮的，是我喜欢的风格。
+然后豆包工作就会建立一个任务清单，比如说核对本地和 Git 的状态、本次部署的变更、默认开启的新行为等等。
 
-③、DeepSeek Harness 插件库
+细节到ElasticSearch的的字段核查、MySQL数据表的新建、Nginx 的配置等。
 
-如果你还想尝试更多，可以试试这个 `https://deepseek-harness-plugin.com/zh-CN/`
+![](https://cdn.paicoding.com/stutymore/sucai-20260929172237.png)
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260928110615.png)
+讲良心话，这些步骤以前你至少得找个专业的运维工程师，否则很容易出错。
 
-当然了，对于插件，我个人觉得也没必要装太多，够用就行了，太花里胡哨也就偏离了 Agent 的本质。
+但现在有了豆包工作这类Agent，就可以放心地把这部分工作交给AI，让他来帮我们搞定。
 
-随着模型能力的提升，一部分Skills、MCP、插件能力都会被吃掉。
+关键是，Agent 的细心程度，就连我一个老登工程师都为之惊叹。
 
-就像 Memory 这块，我认为官方的做法一定就是最优解，就千万别装什么第三方的 Memory 插件。
+![](https://cdn.paicoding.com/stutymore/sucai-20260929172724.png)
+
+他竟然会自己做集成测试，有哪些通过，哪些失败，一目了然。
+
+部署完成后还会提供一份报告供我们校对。
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929172907.png)
+
+比如说hybrid RRF+rerank 搜索、RAG 评测与文档冲突检测、上下文检索 + 父子检索等等这些重要的版本更新都会告知我们。
+
+MySQL、ElasticSearch、application.yml 的细节，也都会清清楚楚告诉我们。
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929173112.png)
+
+甚至还主动帮我们优化了部署脚本，把打包放到了 kill 旧进程之前，这样停服的窗口期只有不到1分钟，而我们原来需要 3-5分钟。
+
+我滴妈呀，豆包工作，你也太强，太贴心了。
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929173218.png)
+
+确认豆包工作提供的部署方案没有问题后，我们就可以进行发布工作了。
+
+```
+现在直接执行，不再修改脚本、不提交或推送代码。先阅读 scripts/DEPLOY.md 了解新入口。8 项部署测试已通过，线上只读预检通过，执行： cd /Users/yours/Documents/GitHub/your DRY_RUN=0 bash scripts/deploy-release.sh all 请确保进程有足够执行时间，不用 head/tail 管道截断命令，不因等待就杀任务。脚本会上传、备份数据库及旧产物、校验、切换、验证，失败会自动回滚。保留线上 .env 和历史数据。不要额外安装软件、修改权限策略或重建 ES。若返回失败，报告准确状态与脱敏错误，不自行改脚本或重复 all；交给我处理。成功后报告 RELEASE VERIFIED、发布 ID、PID、哈希和备份位置。
+```
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929174847.png)
+
+刚好豆包工作不是有 Computer Use 和 Chrome Use 功能吗，我们就直接让豆包工作控制浏览器帮我们测试一下，好了。
+
+```
+现在请直接控制我的浏览器，对线上派聪明 https://smart.paicoding.com 做一轮真实用户流程验收。在可见浏览器里完成： 1. 检查首页、知识库、聊天、聊天历史。若需登录使用已有授权账号，不改账户或权限。 2. 自己编写一份小型虚构测试文档，文件名含 Doubao-QA 和时间，包含独特编号及两三条可核对的事实；通过网页上传为私有文档，观察解析和向量化完成，不上传用户其他文件。 3. 网页创建测试对话，针对独特事实提问并追问，核对答案，点击来源检查预览和定位。格式不支持页码则如实注明，另用已有 PDF 只读核对预览和页码。 4. 刷新、切换历史会话，核对问题、答案、来源保留情况，检查加载、提示和布局。 5. 记录相关网络状态、控制台错误，必要时只读查看服务日志。不能用 API 测试替代浏览器操作。 报告逐项列出通过/失败/受阻、实际步骤、截图和复现证据，保存到 /Users/yours/Documents/GitHub/your/target/releases/1e36fa56-20260929-release1/browser-qa.md。保留本次测试文档和会话供复核并注明名称；不删除已有数据，不改代码、生产配置、模型或索引，不提交推送。浏览器控制若受阻，报告具体阻碍，不要猜测通过或改成仅跑 curl。现在开始执行。
+```
+
+Embedding 验证：
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929181144.png)
+
+聊天服务测试：
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929181938.png)
+
+RAG 也正常：
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929182505.png)
+
+测试报告来了。
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929183657.png)
+
+太细了，我只能说。
+
+![](https://cdn.paicoding.com/stutymore/sucai-20260929183827.png)
 
