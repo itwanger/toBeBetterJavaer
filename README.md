@@ -38,6 +38,37 @@
 >
 > 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](docs/src/overview/readme.md)
 
+# 王二讲Agent：AI Agent 面试题 363 道（Agent八股+视频讲解）
+
+> 大厂面试里 Agent 相关的题越来越多，「你做过 Agent 项目吗」「RAG 检索怎么做的」「MCP 协议了解吗」几乎每家都会问。我把牛客、星球和各大厂真实面经里的高频题整理成了一套 Agent 八股，一共 363 道，还在持续更新。每道题都有简答，重点题配图文详解和视频讲解，答案会串到 PaiCLI、PaiFlow、派聪明这几个实战项目里讲。
+
+**👉 [在线阅读：AI Agent 面试题 363 道](https://javabetter.cn/ai/video/)**
+
+| 分类 | 题数 | 分类 | 题数 |
+| --- | --- | --- | --- |
+| Agent 基础 | 43 | Prompt 工程 | 16 |
+| 上下文与记忆 | 22 | MCP 与工具调用 | 26 |
+| Harness 与 Skills | 42 | LangChain 与 Spring AI | 21 |
+| RAG 知识库 | 43 | 模型训练与微调 | 32 |
+| LLM 基础与 API | 82 | Agent 产品与框架演进 | 9 |
+| Claude Code 与 Codex | 17 | DeepSeek 专题 | 5 |
+| 热点解读 | 5 | | |
+
+高频题精选（图文详解）：
+
+- [Harness 的五要素是什么？](https://javabetter.cn/ai/video/harness-five-elements.html)
+- [什么是 Loop Engineering？](https://javabetter.cn/ai/video/what-is-loop-engineering.html)
+- [Agent 挂了几十个 Skill，怎么保证命中率？](https://javabetter.cn/ai/video/agent-skill-hit-rate.html)
+- [怎么让 Agent 拥有记忆？短期与长期记忆设计](https://javabetter.cn/ai/video/how-to-give-agent-memory.html)
+- [Agent 的长期记忆是怎么实现的？](https://javabetter.cn/ai/video/agent-long-term-memory.html)
+- [为什么聊着聊着 Agent 就变笨了？](https://javabetter.cn/ai/video/why-agent-gets-dumber.html)
+- [KV Cache 是什么？为什么只缓存 K 和 V，不缓存 Q？](https://javabetter.cn/ai/video/what-is-kv-cache.html)
+- [到底什么是语义缓存？](https://javabetter.cn/ai/video/what-is-semantic-caching.html)
+- [CLAUDE.md 怎么写才真正有用？](https://javabetter.cn/ai/video/how-to-write-claudemd.html)
+- [MoE 是什么？DeepSeek 模型为什么采用混合专家架构？](https://javabetter.cn/ai/video/what-is-moe.html)
+
+视频讲解同步更新在 [B 站「王二讲Agent」](https://space.bilibili.com/402000160) 和 [抖音「王二讲Agent」](https://www.douyin.com/user/MS4wLjABAAAAxdUFFflycLY13_3btQv8eE41gaifL36eotb0FLA7ASOSdwkV8CF89-Wh_L7_Rt1X)，每天 3 分钟，带你吃透 Agent。
+
 # 知识库地图
 
 > 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。

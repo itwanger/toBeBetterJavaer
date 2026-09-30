@@ -1,5 +1,5 @@
 ---
-title: AI Agent 面试 363 题合集
+title: AI Agent 面试题 363 道（Agent八股+视频讲解）｜王二讲Agent
 shortTitle: AI Agent 面试 363 题
 description: AI Agent 面试 363 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
 tag:
@@ -10,9 +10,9 @@ author: 沉默王二
 date: 2026-05-20
 ---
 
-2025 年开始，大厂面试出现了一个明显的转向。传统的八股文比重在降，取而代之的是 Agent 相关的问题。字节、阿里、腾讯、蚂蚁、快手、小红书，几乎每一家都在问「你做过 Agent 项目吗」「RAG 检索怎么做的」「MCP 协议了解吗」。不光是面试，整个行业的技术栈也在往 Agent 方向迁移。Claude Code、Codex 这些产品已经不是概念验证了，它们在真实的生产环境里跑着，每天帮我们写代码、改 bug、做 Code Review。
+从 2025 年开始，到现在的 2026年，大厂面试出现了一个明显的转向。传统的八股文比重在降，取而代之的是 Agent 相关的问题。字节、阿里、腾讯、蚂蚁、快手、小红书，几乎每一家都在问「你做过 Agent 项目吗」「RAG 检索怎么做的」「MCP 协议了解吗」。不光是面试，整个行业的技术栈也在往 Agent 方向迁移。Claude Code、Codex 这些产品已经不是概念验证了，它们在真实的生产环境里跑着，每天帮我们写代码、改 bug、做 Code Review。
 
-甚至今年（2026年）下半年涌现了一大批桌面Agent，包括WorkBuddy、豆包工作、千问办公等的。
+甚至今年下半年涌现了一大批桌面Agent，包括WorkBuddy、豆包工作、千问办公等的。
 
 模型也在不断升级，DeepSeek V4、Kimi K3、GLM-5.3、Fable 5、GPT-6 Astra 等等。
 
@@ -58,7 +58,7 @@ date: 2026-05-20
 
 从 Pi 的源码可以看出三个典型模式：策略模式让工具切换本地与 SSH 等执行环境；适配器模式把不同厂商的请求和流式事件转换为统一接口；责任链模式让多个扩展依次检查工具调用，并在需要时终止执行。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnj2EEl0InIUEqd4iapUSvSh) · [查看图文解析](./pi-agent-design-patterns.md)
+完整答案：[阅读全文《Pi Agent 设计模式》](./pi-agent-design-patterns.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnj2EEl0InIUEqd4iapUSvSh)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7690524611271789850)
 
@@ -70,7 +70,7 @@ date: 2026-05-20
 
 来自 Anthropic 的《Building effective agents》。保持简单，直接的 API 调用优于复杂框架，每多一层抽象都是以后调试的盲区。保持透明，明确显示规划步骤、执行日志和决策轨迹。设计好 Agent-Computer Interface，从 Agent 的视角而不是程序员的视角设计工具，容易误用的地方从设计上让错误无法发生。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8M39jcB1nMcPGFUUaXoMbf) · [查看图文解析](./building-effective-agents-principles.md)
+完整答案：[阅读全文《构建 Agent 的三个原则》](./building-effective-agents-principles.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8M39jcB1nMcPGFUUaXoMbf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7690200053318749440)
 
@@ -82,7 +82,7 @@ date: 2026-05-20
 
 先看能不能用单次调用解决，不行再考虑工作流，只有需要动态决策时才上自主 Agent。核实身份、付款、预订这类顺序不能乱的合规步骤用工作流写死，改签、航班取消这类预设流程覆盖不到的情况交给自主 Agent。混合的另一种做法是先由自主 Agent 把工作流写出来，再由工作流去执行，执行阶段就回到了确定性。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn4Xj62wttu84JOayF64XE5e) · [查看图文解析](./workflow-vs-agent-flight-booking.md)
+完整答案：[阅读全文《订机票：工作流还是 Agent》](./workflow-vs-agent-flight-booking.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn4Xj62wttu84JOayF64XE5e)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7689782163608194313)
 
@@ -94,7 +94,7 @@ date: 2026-05-20
 
 要区分“补短板”和“划边界”。格式修正、工具调用适配等补短板能力，会随着模型变强逐步被内化；文件和网络权限、危险操作确认、审计与业务规则，则仍需 Harness 在模型外执行。模型不能保证永不犯错，也无法替用户决定哪些操作被授权，所以模型越强，越需要可靠的执行边界。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnMMPBCnz0NuDqSG09hh0rfb) · [查看图文解析](./will-model-eat-harness.md)
+完整答案：[阅读全文《模型会吃掉 Harness 吗》](./will-model-eat-harness.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnMMPBCnz0NuDqSG09hh0rfb)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7689042782064774415)
 
@@ -106,7 +106,7 @@ date: 2026-05-20
 
 命令黑名单在动态生成的代码与复杂的系统调用面前形同虚设，随便用 base64 编码、管道拼接或临时脚本即可绕过，更防不住模型幻觉误操作。合格的沙箱绝不是在恶意命令表面贴创可贴，而是必须在系统底层筑牢文件系统读写、网络出入站、进程空间与硬件资源配额四道防线。一线工程在隔离强度和启动成本之间各有取舍：Claude Code 采用 Git Worktree 隔离工作区并结合抽象语法树（AST）解析命令，Codex 在操作系统层依托 Bubblewrap 命名空间与 Seatbelt 规则锁死未授权读写与网络，Devin 则在云端直接拉起具备硬件级隔离的独立微型虚拟机。对于轻量本地 Agent，通常通过前置物理路径围栏、危险指令快速熔断、人机协同（HITL）审批以及系统原生沙箱包装来逐层设防，开源实现可参考 bubblewrap、E2B 与 Firecracker。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnZC5yZKQOj4HrZ3Fc5TK8lL) · [查看图文解析](./what-is-agent-sandbox.md)
+完整答案：[阅读全文《Agent 沙箱》](./what-is-agent-sandbox.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnZC5yZKQOj4HrZ3Fc5TK8lL)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7688214970668043539)
 
@@ -118,7 +118,7 @@ date: 2026-05-20
 
 Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本质上是任务执行过程中的自动存档点，用于在崩溃、暂停或回滚时恢复状态，而不仅仅是存储对话历史。一个合格的 Checkpoint 至少需要覆盖任务规划、对话历史、文件系统、进程状态和环境配置五个维度。在工程落地层面，保存有序的工具调用日志比只存最终快照更有利于还原前后的因果决策关系；业界实践中，Claude Code 采用本地影子快照与三层比对实现每轮自动存档，Codex 区分会话状态与文件差异进行分层撤销，Devin 则在微型虚拟机底层基于写时复制（Copy-on-Write）实现毫秒级磁盘快照。对于发送外部通知或支付等不可逆操作，则需要结合交互确认或状态补偿机制予以兜底。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnzlWdlwqjUdkDh7dx9OHXad) · [查看图文解析](./what-is-agent-checkpoint.md)
+完整答案：[阅读全文《Agent Checkpoint》](./what-is-agent-checkpoint.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnzlWdlwqjUdkDh7dx9OHXad)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687551756691098921)
 
@@ -130,7 +130,7 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 
 优先用 Tool 主动丰富动态 Context。被动把 Context 窗口拉到上百万 Token 不仅昂贵迟钝，塞满的全是静态死数据；在生产级 Agent 里，绝大多数 Tool 的核心目的，恰恰是作为探针主动把运行时报错与代码现场捞进 Context 变成活信息，比如 Claude Code 和 Codex 靠轻量探针与终端命令把原本不可解的重构任务直接跑通。只有当现场信息已经给足，但面对二十轮以上的长程长周期任务发生规划迷航、或在复杂多重堆栈前无法归因时，升级更强的 LLM 才具有真正不可替代的价值。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnxzhVZg2S2xYovphICB4itf) · [查看图文解析](./llm-context-or-tool.md)
+完整答案：[阅读全文《LLM、Context 还是 Tool》](./llm-context-or-tool.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnxzhVZg2S2xYovphICB4itf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687137647629765915)
 
@@ -142,7 +142,7 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 
 上下文管理、工具接口、约束、验证、纠正。前两项就是「Agent = LLM + 上下文 + 工具」里的上下文和工具，构成最小 Harness，生产系统再加上后三项保障。所以两个公式不是两套划分，Agent = Model + Harness 是同一个 Agent 在生产形态下的展开，LLM 对应 Model。两个公式都只描述 Agent 边界之内，不包含它交互的环境。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn04lNtwlF7lWeirrfVMoxIg) · [查看图文解析](./harness-five-elements.md)
+完整答案：[阅读全文《Harness 五要素》](./harness-five-elements.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn04lNtwlF7lWeirrfVMoxIg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7686445668923231538)
 
@@ -152,7 +152,7 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 
 Multi-Agent 冲突不能靠投票或裁判 Agent 解决，同源模型会集体盲从。主 Agent 与 Sub-agent 分歧时由主 Agent 裁决，但要把反对意见当事实重新评估，超出权限交给用户。Worker 与 Reviewer 对抗，审查 Agent 不能改代码，必须附上实际执行的命令和输出，任务依赖保证审查和编码不同时跑。并发 Worker 的写冲突靠写操作串行、git worktree 隔离或 CAS 乐观锁。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTWPOrLFYRSabyfYlVRsHEg) · [查看图文解析](./multi-agent-conflict-resolution.md)
+完整答案：[阅读全文《Multi-Agent 冲突处理》](./multi-agent-conflict-resolution.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTWPOrLFYRSabyfYlVRsHEg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7685693822096985385)
 
@@ -162,7 +162,7 @@ Multi-Agent 冲突不能靠投票或裁判 Agent 解决，同源模型会集体�
 
 Agent 的自我学习不能靠运行时微调参数，权重实时更新算力顶不住，还会引发灾难性遗忘。经验积累靠上下文工程搭建的外挂认知系统。遇到报错或用户纠错时先反思提炼教训，再归档到外部存储，比如 Claude Code 写入 memory 目录，Codex 写入本地 SQLite，新任务到来时再检索注入给模型。记忆越积越多，Claude Code 的 AutoDream 会在后台合并重复经验、淘汰过时策略，沉淀出精炼的长期记忆。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnOtemdMrrbvEMvI5EwSraQb) · [查看图文解析](./how-agent-accumulates-experience.md)
+完整答案：[阅读全文《Agent 经验积累》](./how-agent-accumulates-experience.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnOtemdMrrbvEMvI5EwSraQb)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7685237612898045190)
 
@@ -174,7 +174,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1SThe6sEEW/)
 
 框架的问题在于过度封装和版本频繁变动，一次文本生成要过好几层类才送达 LLM，业务逻辑没变代码却得跟着升级改。Anthropic 官方建议直接调用 API，Octomind 也因为无法控制 Agent 的中间状态，用了一年多后换成手搓。手搓的价值在于掌控 Harness 细节，模型每一步调了什么工具、返回值合不合理都能实时拦截修正，上下文能做前缀感知与动态压缩，只读并发、写操作串行的调度也能自己设计。框架只在快速验证原型时有价值。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcneFlfTiWtgj1lYJSa12BEjg) · [查看图文解析](./why-handcraft-agent-not-framework.md)
+完整答案：[阅读全文《为什么手搓 Agent》](./why-handcraft-agent-not-framework.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcneFlfTiWtgj1lYJSa12BEjg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7684942306939954856)
 
@@ -186,7 +186,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1awhe6ZEVD/)
 
 反思和重试的区别在于有没有反馈信号，重试是闭着眼睛重来一遍，反思是带着诊断去修改。Self-Refine 让同一个 LLM 生成初稿后自己当裁判挑毛病，再带着修改意见重新生成，没有外部反馈，只在一次任务内修正。Reflexion 则由 Evaluator 通过测试用例和外部工具判定对错，失败后由 Self-Reflection 分析失败轨迹写成反思总结存入记忆库，教训能跨轮次指导下一次尝试。两者的差别就在反馈依据、作用范围和记忆机制上。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnw3l2FCN5eu8d1RDO0Qw0od) · [查看图文解析](./what-is-agent-reflection.md)
+完整答案：[阅读全文《Agent 反思机制》](./what-is-agent-reflection.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnw3l2FCN5eu8d1RDO0Qw0od)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7684519824176712998)
 
@@ -198,7 +198,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1Tghe6pEZ3/)
 
 Plan-and-Execute 把规划与执行解耦，比 ReAct 多了全局视角，适合确定性强的长任务。Reflective Planning 在每步执行后对比结果与预期，偏离就重排剩余步骤，适合易出错的开放任务。Graph-based Planning 则给出多条路径，由评估器选胜率最高的分支推演，适合数学推导和代码生成。企业级合规场景下，SOP 和状态机规划用确定性的工程骨架把大模型限定在给定分支和节点间做选择。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnG2svBNlN9qJA0mpFRu2m1c) · [查看图文解析](./agent-plan-modes.md)
+完整答案：[阅读全文《Agent Plan 模式》](./agent-plan-modes.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnG2svBNlN9qJA0mpFRu2m1c)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7684156376783899945)
 
@@ -210,7 +210,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1Qkhe6hE2U/)
 
 Agent 处理一次请求分四步。先组装上下文，把系统提示词、工具定义列表、CLAUDE.md 项目规范、对话历史和用户消息拼在一起，这才是模型真正看到的输入。然后调用模型，关键信号是 stop_reason，返回 tool_use 就调工具、循环继续，返回 end_turn 则任务完成。接着执行工具，先检查权限再执行。最后把结果包装成 tool_result 追加到对话历史。不同 Agent 核心逻辑相同，差异在 Harness 层。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTv8brpZ3tp9POX7jp0plqb) · [查看图文解析](./how-agent-works.md)
+完整答案：[阅读全文《Agent 如何工作》](./how-agent-works.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTv8brpZ3tp9POX7jp0plqb)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7659293535715298587)
 
@@ -222,7 +222,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1C6TX63EQK/)
 
 一个能跑的 Agent 至少需要五大核心组件协作。模型负责推理、决策、选工具、填参数，但只会想不会动手。工具带名称、描述和参数的 JSON Schema 注册到工具表，模型返回 tool_calls 后由 Harness 找到函数执行。记忆分短期和长期，规划有 ReAct 和 Plan-and-Execute 两种。Harness 是把前四者串起来的躯干，管循环、权限、上下文压缩和错误恢复，它不做思考，但没有它其余组件只是散装零件。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8vObghTJvLJ644l8hVWglf) · [查看图文解析](./agent-core-components.md)
+完整答案：[阅读全文《Agent 核心组件》](./agent-core-components.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8vObghTJvLJ644l8hVWglf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7658925498893929769)
 
@@ -234,7 +234,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1PmMM6QEhe/)
 
 CoT 是让 LLM 一步步推理再给答案，全程在脑子里完成，不查任何外部数据，所以它记得的数据可能过时或编造，自己不知道。ReAct 全称 Reasoning + Acting，由姚顺雨作为第一作者和 Google 联合提出，核心是 Thought、Action、Observation 三步循环，每一步推理都有真实数据兜底。CoT 是闭卷考试，ReAct 是开卷考试。ReAct 里每个 Thought 本身就是 CoT，两者是组合关系。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnThyfSUHEVygtI0DFrMnlme) · [查看图文解析](./what-is-react.md)
+完整答案：[阅读全文《什么是 ReAct》](./what-is-react.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnThyfSUHEVygtI0DFrMnlme)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7658189484642651426)
 
@@ -246,7 +246,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1BFTx69EBT/)
 
 Workflow 和 Agent 的核心区别只有一个问题，谁控制流程。Workflow 由开发者提前定好流程，LLM 在节点里干活但不决定下一步往哪走，Agent 则由 LLM 自己决定下一步干什么、调什么工具、什么时候停。判断方法是任务开始前能不能画出完整流程图，能画出来就用 Workflow。Dify 的可视化画布和 Claude Code 里编排多个 Sub-agent，控制权都在开发者手里。步骤无法提前确定的才交给 Agent。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn4DpCM7lpCayPYujvuEC7wd) · [查看图文解析](./workflow-vs-agent.md)
+完整答案：[阅读全文《Workflow 与 Agent》](./workflow-vs-agent.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn4DpCM7lpCayPYujvuEC7wd)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7657820250913639730)
 
@@ -260,7 +260,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1cHT76qEtr/)
 
 落到 PaiCLI，就是 Plan-and-Execute 负责任务拆解，Memory 管理上下文和长期信息，MCP 接入外部工具，ReAct 循环把工具结果反馈回来继续决策。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcntMoKHbYdFEqblEcXKf7gcf) · [查看图文解析](./agent-chatbot-difference.md)
+完整答案：[阅读全文《Agent 与 ChatBot》](./agent-chatbot-difference.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcntMoKHbYdFEqblEcXKf7gcf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7657431432612039982)
 
@@ -272,7 +272,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1qqTY6rEPc/)
 
 Agent 不是加了 system prompt 的大模型调用，而是 Model 加 Harness。直接调 API 是一问一答，下一步由业务代码写死，每次调用相互独立。Agent 的核心是一个 ReAct 循环，LLM 决定下一步做什么并返回 tool_calls，Harness 执行工具、把真实结果喂回模型，并维护任务状态。所以本质区别不在有没有 prompt，而在有没有这个决策循环，RAG 每一步都写死，因此不算 Agent。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnNxArKASbufKCfFXzGqSnNf) · [查看图文解析](./what-is-agent.md)
+完整答案：[阅读全文《什么是 Agent》](./what-is-agent.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnNxArKASbufKCfFXzGqSnNf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7656663165568044324)
 
@@ -284,7 +284,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV13dT562Eqr/)
 
 没有协调机制的 Multi-Agent 只会互相打架。生产环境最主流的是编排器（Orchestrator）模式，一个主 Agent 拆任务、派活、收结果。编排器先调 LLM 把需求拆成子任务，再按子 Agent 的角色描述做语义匹配分配，每个子 Agent 在独立的上下文窗口里执行，彼此不直接通信，全部通过编排器中转，最后返回结构化 JSON 由编排器综合。跨领域知识单个 context 装不下才上 Multi-Agent。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcniC8iXEsYpRmubsk6ymah8d) · [查看图文解析](./multi-agent-collaboration.md)
+完整答案：[阅读全文《Multi-Agent 协作》](./multi-agent-collaboration.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcniC8iXEsYpRmubsk6ymah8d)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7656328223348821248)
 
@@ -296,7 +296,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1AjTK6GE6z/)
 
 Plan-and-Execute 的核心是把规划和执行分开。Planner 先生成任务清单；Executor 逐项执行，每个任务仍可能多轮调用模型和工具；需要调整计划时，规划器还会再次请求模型。规划器和执行器可以使用不同模型来控制费用，但这不保证总 Token 或调用次数少于 ReAct。PaiCLI 当前的规划器和执行器使用同一个 `LlmClient`。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnChsaiHuZspmzbM3WkB6u2d) · [查看图文解析](./plan-and-execute.md)
+完整答案：[阅读全文《Plan-and-Execute》](./plan-and-execute.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnChsaiHuZspmzbM3WkB6u2d)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7655306519898017074)
 
@@ -308,7 +308,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1xy7a65EA1/)
 
 ReAct 真的会死循环，因为 Thought、Action、Observation 循环什么时候停，取决于 LLM 的判断。有三种情况，一是重复调用，ReAct 没有原生的去重机制。二是上下文混乱，LLM 对长上下文的注意力分布是 U 型的，中间的内容会被遗忘。三是错误重试，工具报错后用同样的方式重试，直到耗尽 Token。生产环境靠三道防线兜底，硬性迭代上限，LangChain 默认最多跑 15 轮。循环检测，同样的调用指纹连续出现 3 次就判定卡死。还有上下文压缩。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnSFxF2niG5HzfJhRET7xyVf) · [查看图文解析](./react-death-loop.md)
+完整答案：[阅读全文《ReAct 死循环》](./react-death-loop.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnSFxF2niG5HzfJhRET7xyVf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7655196193752010027)
 
@@ -319,7 +319,7 @@ B站视频：[观看本集视频](https://www.bilibili.com/video/BV1g8jZ6dEWV/)
 
 Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所有工具注册成一张列表，每个工具带名称、描述和参数的 JSON Schema。Agent 把对话历史和全量工具定义塞进 LLM 接口的 tools 字段，模型自己读描述判断调哪个、参数填什么，并返回 tool_calls 数组，这就是 Function Calling 协议。LLM 返回不存在的工具名时，ToolRegistry 兜底报错让模型修正。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9rIl9b694aSTLupaEUzzne) · [查看图文解析](./agent-hnow-tool-call.md) · [B站视频](https://www.bilibili.com/video/BV1m9j16DEmv/)
+完整答案：[阅读全文《Agent 如何选工具》](./agent-hnow-tool-call.md) · [B站视频](https://www.bilibili.com/video/BV1m9j16DEmv/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9rIl9b694aSTLupaEUzzne)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7654443885439094042)
 
@@ -329,7 +329,7 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 
 说对了一半。2026 年 9 月 24 日 Ayman Nadeem 发表《Plan mode is dead》，在 Hacker News 上引发了大量讨论，Claude Code 团队的 Boris Cherny 也在讨论里表示，plan mode 以前有用，现在已经没那么有用了，因为当前的模型基本能准确理解意图。他还提到，Claude Code 的 plan mode 只是在每条消息里追加一句“先不要写代码”的提醒，并不改动工具集，因为改动工具集会让 Prompt Cache 失效。死掉的是“先出计划、等人审批、再执行”这个强制阶段，它原本是为了弥补模型猜不准意图而存在的，现在模型在推理过程中自己规划，进度交给 todo 或任务工具跟踪。Pi 的作者 Mario Zechner 更早就不内置 plan mode，主张把计划写进文件，需要时再用扩展实现。规划本身没有死，只是换了地方。方向不确定、要改很多文件、走错代价高时，先只读探索再给方案依然值得；长任务和并行的 Sub-agent 需要一份写成文件的 Spec 作为共同依据。Claude Code 官方最佳实践给了一条简单的判断标准，如果一句话就能说清要改什么，就跳过计划。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnFfp79IQELzGJcJBZU2AZng) · [查看图文解析](./is-plan-mode-dead.md)
+完整答案：[阅读全文《Plan 模式已经死了吗》](./is-plan-mode-dead.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnFfp79IQELzGJcJBZU2AZng)
 
 🟡 进阶 | `→ PaiCLI`
 
@@ -338,6 +338,8 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
 默认传结构化的中间结果，不传完整对话。主 Agent 派活时写清任务目标、已知约束、输入数据和期望的输出格式，子 Agent 在自己独立的上下文里执行，最后只把结论和关键证据以 JSON 或摘要的形式交回，中间的试错过程留在自己的上下文里。传完整对话看起来不丢信息，实际会把无关的工具输出和失败尝试一起灌给下游，上下文越传越长，还会让下游把上游的错误判断当成事实继承下来。大块数据不走消息，写进共享文件系统或存储，只传路径或 ID。Claude Code 的 Sub-agent 就是这样，只拿到主 Agent 写的任务描述，结束时只把一段总结返回给主 Agent。
+
+完整答案：[阅读全文《多 Agent 上下文传递》](./multi-agent-context-passing.md)
 
 🟡 进阶 | `→ PaiCLI / PaiAgent`
 
@@ -489,7 +491,7 @@ LangChain 在 2025 年 10 月的博客《Agent Frameworks, Runtimes, and Harness
 
 短期记忆是内存，退出 Codex 或 Claude Code 就清空。长期记忆是磁盘，存成文件，下次打开 Agent 会自动加载进上下文。实现分四步，提取是从对话里识别关键信息，存储是写到磁盘，Claude Code 存成 Markdown 文件，检索是新开对话时找出相关记忆，这一步最难，注入是把记忆塞进系统指令。记忆存多了靠记忆反思更新过时、合并重复、修正矛盾。项目规则建议主动写进 CLAUDE.md 或 AGENTS.md。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnvSWLyxhrSu8ABf0xg7n0mc) · [查看图文解析](./agent-long-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1yR3k6REFM/)
+完整答案：[阅读全文《Agent 长期记忆》](./agent-long-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1yR3k6REFM/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnvSWLyxhrSu8ABf0xg7n0mc)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7667739270735514930)
 
@@ -498,7 +500,7 @@ LangChain 在 2025 年 10 月的博客《Agent Frameworks, Runtimes, and Harness
 
 Agent 变傻不是 bug，是压缩带来的信息损耗。短期记忆靠重发聊天记录实现，记录越长注意力越分散，这叫 Context Rot。窗口快满时会自动把旧记录压成摘要，但压缩有损，Claude Code 会丢掉工具返回的长结果，Codex 连文件内容都可能丢，压得越多丢得越多。少忘事有三条办法，一个线程只干一件事，用 /compact 主动压缩并说明保留什么，重要规则写进 CLAUDE.md 或 AGENTS.md，系统指令不会被压缩。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnEYwC5iilJnLiTF6E6S5vgf) · [查看图文解析](./why-agent-gets-dumber.md) · [B站视频](https://www.bilibili.com/video/BV1TH3j6pEno/)
+完整答案：[阅读全文《Agent 为什么变笨》](./why-agent-gets-dumber.md) · [B站视频](https://www.bilibili.com/video/BV1TH3j6pEno/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnEYwC5iilJnLiTF6E6S5vgf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7666746723645148442)
 
@@ -507,7 +509,7 @@ Agent 变傻不是 bug，是压缩带来的信息损耗。短期记忆靠重发�
 
 Agent 的短期记忆就是 messages 数组。LLM 无状态，Agent 按顺序存下 system、user、assistant、tool 四种角色的消息，每次调 API 全量发给模型，模型才“知道”前面说过什么。上下文窗口有上限，而且模型对中间内容关注度低。窗口不够用有三种策略，滑动窗口只保留最近 N 轮，摘要压缩用 LLM 把早期对话压成摘要，混合策略旧消息压缩、近期留原文，生产环境最常用。短对话选滑动窗口，长对话选混合策略。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcniYPzxujHzdtQHs63Tl089g) · [查看图文解析](./agent-short-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1fGKA6pEcv/)
+完整答案：[阅读全文《Agent 短期记忆》](./agent-short-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1fGKA6pEcv/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcniYPzxujHzdtQHs63Tl089g)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7663725283039563044)
 
@@ -516,7 +518,7 @@ Agent 的短期记忆就是 messages 数组。LLM 无状态，Agent 按顺序存
 
 LLM 无状态，把上下文窗口开大只能得到临时的短期记忆，新开窗口就消失，Agent 的记忆要在工程层面维护短期记忆和长期记忆。短期记忆解决一次对话内的问题，靠滑动窗口只保留最近 N 轮，或者用 LLM 把早期对话压缩成摘要塞回窗口。长期记忆解决跨对话的问题，分提取、存储、检索、注入四步，把关键信息写进外部文件或数据库，下次新开对话检索出来注入 system prompt。记忆存多了过时了，靠记忆反思更新过时信息、合并重复、修正矛盾。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnnJt0rsirTTgaM5IgJdlwih) · [查看图文解析](./how-to-give-agent-memory.md) · [B站视频](https://www.bilibili.com/video/BV1bWKH6ZE9J/)
+完整答案：[阅读全文《让 Agent 拥有记忆》](./how-to-give-agent-memory.md) · [B站视频](https://www.bilibili.com/video/BV1bWKH6ZE9J/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnnJt0rsirTTgaM5IgJdlwih)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7663380317411003690)
 
@@ -525,7 +527,7 @@ LLM 无状态，把上下文窗口开大只能得到临时的短期记忆，新�
 
 上下文窗口是 LLM 一次能看到的全部文本容量，计量单位是 token 而不是字数。窗口装的不只是聊天记录，system prompt、工具定义、历史对话、当前输入和模型回复五样东西共用一个窗口。就像考试的草稿纸，写满了只能擦掉最早的内容腾地方，所以 Agent 聊到后面会忘事，不是不聪明，是内容被挤出了窗口。窗口也不是越大越好，越大越慢越贵，加上 Lost in the Middle 的 U 型记忆，关键信息要放在开头或结尾。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn39TorBrCHEtAluji3yn45c) · [查看图文解析](./what-is-context-window.md) · [B站视频](https://www.bilibili.com/video/BV1oGKG65E6G/)
+完整答案：[阅读全文《什么是上下文窗口》](./what-is-context-window.md) · [B站视频](https://www.bilibili.com/video/BV1oGKG65E6G/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn39TorBrCHEtAluji3yn45c)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7663057047717547283)
 
@@ -534,7 +536,7 @@ LLM 无状态，把上下文窗口开大只能得到临时的短期记忆，新�
 
 LLM 是无状态的，每一次请求都是独立的，前后两次对话之间模型不保留任何信息。模型“知道”的东西来自两处。参数记忆是训练阶段压缩进权重的知识，训练结束权重冻结，知识停在训练截止日期。上下文记忆是系统每次把之前所有聊天记录全部打包发给模型，让模型从头读一遍。所以 ChatGPT 记得上一轮的话，不是模型记住了，是系统帮它复习了一遍。记忆功能也只是把关键信息存进外部数据库再注入 system prompt，记忆在模型外面。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnvPCy6B7P15uSwB3HX7Ursh) · [查看图文解析](./why-llm-has-no-memory.md)
+完整答案：[阅读全文《LLM 为什么没记忆》](./why-llm-has-no-memory.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnvPCy6B7P15uSwB3HX7Ursh)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7662685584615427371)
 
@@ -543,7 +545,7 @@ LLM 是无状态的，每一次请求都是独立的，前后两次对话之间�
 
 Prompt Engineering 只管写好一句提示词，上下文工程要让 LLM 在正确的时间以正确的格式拿到正确的信息和工具。按卡帕西的类比，LLM 是 CPU，上下文窗口是内存，开发者是决定加载什么数据的操作系统。上下文包含 System Prompt、用户输入、历史记录、长期记忆、RAG、工具定义和结构化输出七大组件，每次请求动态组装。Agent 的差距不在模型能力而在信息供给，但上下文并非越多越好，否则会中毒、干扰、混淆、冲突。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnJrQhlTuliKjca0G3k62Zmc) · [查看图文解析](./what-is-context-engineering.md) · [B站视频](https://www.bilibili.com/video/BV1RHM768EjW/)
+完整答案：[阅读全文《上下文工程》](./what-is-context-engineering.md) · [B站视频](https://www.bilibili.com/video/BV1RHM768EjW/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnJrQhlTuliKjca0G3k62Zmc)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7660389232246050083)
 
@@ -552,7 +554,7 @@ Prompt Engineering 只管写好一句提示词，上下文工程要让 LLM 在�
 
 窗口不能无限大，限制远不止显存。Self-Attention 要每个 token 和所有 token 做点积，复杂度 O(n²)，128K 扩到 1M 计算量暴增 61 倍。推理时还要缓存 KV Cache，70B 模型在 1M tokens 下就要 310GB。Lost in the Middle 更证明文档放中间准确率暴跌。百万 token 靠压缩存储、稀疏注意力、多卡分工和 RAG 做到，核心是让每个 token 都值得。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnGcMZXUNTHhZZviILTGOIDH) · [查看图文解析](./context-window-limit.md) · [B站视频](https://www.bilibili.com/video/BV1UbMi6BEet/)
+完整答案：[阅读全文《上下文为何有限》](./context-window-limit.md) · [B站视频](https://www.bilibili.com/video/BV1UbMi6BEet/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnGcMZXUNTHhZZviILTGOIDH)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7660013204101254406)
 
@@ -561,7 +563,7 @@ Prompt Engineering 只管写好一句提示词，上下文工程要让 LLM 在�
 
 避免上下文爆炸的核心不是删旧对话，而是在不丢关键信息的前提下控制长度。窗口大小固定且 LLM 注意力呈 U 型分布，Agent 每一轮 ReAct 循环都往窗口里追加内容，读日志、读源码、跑测试几轮就撑爆。解法四招，工具输出只留摘要和指向原始数据的指针，旧对话做语义摘要，复杂任务交给 Sub-agent 在全新窗口干完只返回结论，工具和 Skill 按需加载。压缩太狠会丢关键信息，上下文占到 60% 到 75% 时就该手动压缩。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcny08ajrgNV50S35f7VvB9Fc) · [查看图文解析](./agent-context-explosion.md) · [B站视频](https://www.bilibili.com/video/BV1oqMt6FEEH/)
+完整答案：[阅读全文《避免上下文爆炸》](./agent-context-explosion.md) · [B站视频](https://www.bilibili.com/video/BV1oqMt6FEEH/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcny08ajrgNV50S35f7VvB9Fc)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7659664856261348642)
 
@@ -660,7 +662,7 @@ FIFO 最大的坑是把重要但不常用的记忆淘汰掉了。
 
 ReAct 是 Agent 的内循环，推理、行动、观察、重复。Loop Engineering 是外循环，像 crontab 一样调度，让 Agent 按预设节奏无人值守工作。Claude Code 有两种实现，/goal 设定完成条件，独立评估器每轮检查，满足就停，适合一次性任务；/loop 设定时间间隔重复执行，不自动停，适合持续巡检，但很烧 Token。Harness 管单条指令执行安全，Loop 管你睡觉后 Agent 还在跑。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnWfRMnCDmT5qTzs5SHqN6Mb) · [查看图文解析](./what-is-loop-engineering.md) · [B站视频](https://www.bilibili.com/video/BV1q5NQ6pEPg/)
+完整答案：[阅读全文《Loop Engineering》](./what-is-loop-engineering.md) · [B站视频](https://www.bilibili.com/video/BV1q5NQ6pEPg/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnWfRMnCDmT5qTzs5SHqN6Mb)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7662238546815634729)
 
@@ -669,7 +671,7 @@ ReAct 是 Agent 的内循环，推理、行动、观察、重复。Loop Engineer
 
 提示词工程管“怎么说”，上下文工程管“知道什么”，Harness Engineering 管“能做什么、不能做什么”，即 Agent 的运行时环境和安全边界。Harness 有四个核心组件，验证循环让 Agent 写完代码先跑测试再修复，错误恢复处理调错工具和死循环，权限控制让危险操作经人工确认，状态管理让 Agent 挂了能从断点恢复。Agent = 模型 + Harness，模型只管思考和生成，Harness 管剩下的所有事。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcngtGwUyQUg7o2wi3kMo0ISc) · [查看图文解析](./what-is-harness-engineering.md) · [B站视频](https://www.bilibili.com/video/BV185NC6nEho/)
+完整答案：[阅读全文《Harness Engineering》](./what-is-harness-engineering.md) · [B站视频](https://www.bilibili.com/video/BV185NC6nEho/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcngtGwUyQUg7o2wi3kMo0ISc)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7661856429820661007)
 
@@ -678,7 +680,7 @@ ReAct 是 Agent 的内循环，推理、行动、观察、重复。Loop Engineer
 
 Skill 的选择不走路由，走 LLM 语义匹配。Agent 启动时把所有 description 注入 system prompt，LLM 自己判断触发哪个，命中率全看 description 怎么写。所以要写具体场景和触发关键词，一个 Skill 只干一件事，语义重叠的 Skill 要么合并要么划清边界，只该由斜杠命令触发的设 disable-model-invocation 防误触。数量膨胀就分组做两阶段匹配，别盲目堆。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnaDBJAyXHsrp5vuODpWY3RS) · [查看图文解析](./agent-skill-hit-rate.md) · [B站视频](https://www.bilibili.com/video/BV1Lfjy6bEKY/)
+完整答案：[阅读全文《Skill 命中率》](./agent-skill-hit-rate.md) · [B站视频](https://www.bilibili.com/video/BV1Lfjy6bEKY/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnaDBJAyXHsrp5vuODpWY3RS)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7654468095473356070)
 
@@ -887,7 +889,7 @@ Skill 是把某个专业领域的最佳实践封装成结构化知识包，Agent
 
 PDF 是排版格式不是数据格式，纯文本抽取碰到扫描件、表格、图表就失效。解析先判断类型，电子 PDF 用 PyMuPDF、pdfplumber 拿文字和坐标，扫描件和复杂表格上 OCR 或多模态模型，表格转成 Markdown Table 或 JSON 单独存。分块按标题层级、段落、表格来分。Agent 场景把读上一页、查原始表格封装成 Tool，让 LLM 自己判断证据够不够。延迟靠入库时缓存解析结果，证据不足才让多模态模型精读。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn34x2K9IbUl7Mu67r9YXLkg) · [查看图文解析](./agent-rag-pdf.md) · [B站视频](https://www.bilibili.com/video/BV1FSKZ62ETR/)
+完整答案：[阅读全文《RAG 处理 PDF》](./agent-rag-pdf.md) · [B站视频](https://www.bilibili.com/video/BV1FSKZ62ETR/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn34x2K9IbUl7Mu67r9YXLkg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7657063729804152074)
 
@@ -1082,7 +1084,7 @@ Word2Vec（静态词向量，不考虑上下文）、BERT 类（双向编码，�
 
 DeepSeek 的提示词缓存不用改代码，后台自动缓存重复前缀，命中的输入每百万 Token 一毛五，未命中四块五。Claude 则要手动写 cache_control 字段。全自动的底气是上下文硬盘缓存，把算好的 KV Cache 从显存转到分布式硬盘阵列，配合 MLA 压缩，按请求结束、公共前缀、固定 Token 间隔三种时机落盘。命中要从第 0 个 Token 起逐字匹配，所以系统提示词放前面，动态内容放末尾。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnzEFpioJpoNkVcCzavzpAbg) · [查看图文解析](./what-is-prompt-caching.md) · [B站视频](https://www.bilibili.com/video/BV1dYeE6wEAE/)
+完整答案：[阅读全文《DeepSeek 与 Claude 的 Prompt Caching》](./what-is-prompt-caching.md) · [B站视频](https://www.bilibili.com/video/BV1dYeE6wEAE/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnzEFpioJpoNkVcCzavzpAbg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7683417600369397033)
 
@@ -1091,7 +1093,7 @@ DeepSeek 的提示词缓存不用改代码，后台自动缓存重复前缀，�
 
 传统推理里 KV Cache 是单次请求专用的，回答结束就被清空，下一个请求再相似也要从头算。Prefix Caching 把公共前缀对应的 KV 数据存进共享缓存池跨请求复用，命中后直接跳过 Prefill 阶段，首字延迟从几秒缩到几十毫秒。引擎把文本切成固定大小的 Token 块，按哈希组成 Radix Tree 前缀树来比对。命中要求从第一个 Token 起完全匹配，所以静态内容放开头，时间戳等动态变量放最后。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnPPt7IXmMunkjY9DLZpTDHh) · [查看图文解析](./what-is-prefix-caching.md) · [B站视频](https://www.bilibili.com/video/BV1PmY66uEpN/)
+完整答案：[阅读全文《什么是 Prefix Caching》](./what-is-prefix-caching.md) · [B站视频](https://www.bilibili.com/video/BV1PmY66uEpN/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnPPt7IXmMunkjY9DLZpTDHh)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7683112468356386063)
 
@@ -1100,7 +1102,7 @@ DeepSeek 的提示词缓存不用改代码，后台自动缓存重复前缀，�
 
 大模型自回归生成，每吐出一个新词都要回头看前面所有的词，没有缓存就得把历史从头重算。KV Cache 用空间换时间，把前面所有词的中间结果存进显存，每次只算新词。注意力里 Q 是当前这一轮的提问，算完就作废，而 K 和 V 在后面每个新词生成时都还要翻看，所以只缓存 K 和 V。代价是 KV Cache 随上下文长度和并发数增长，显存占用可能超过模型权重，所以 PagedAttention、GQA 和 MLA 都在压缩它。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn3pvBVguRI7Y0mCAJByAqmf) · [查看图文解析](./what-is-kv-cache.md) · [B站视频](https://www.bilibili.com/video/BV1nJYY65E6y/)
+完整答案：[阅读全文《什么是 KV Cache》](./what-is-kv-cache.md) · [B站视频](https://www.bilibili.com/video/BV1nJYY65E6y/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn3pvBVguRI7Y0mCAJByAqmf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7682646844794539298)
 
@@ -1109,7 +1111,7 @@ DeepSeek 的提示词缓存不用改代码，后台自动缓存重复前缀，�
 
 标准注意力要算 Q 乘以 K 的转置这个 N×N 矩阵再做 softmax，计算量是 O(n²)。线性注意力去掉 softmax，利用矩阵连乘的结合律先算 K 的转置乘以 V 得到 d×d 的小矩阵，再用 Q 去乘，计算量降到 O(n)。代价是它推理时等价于 RNN，状态矩阵大小固定，序列开头容易被覆盖。GLM-5.3-Flash 大部分层用线性注意力管近处，每隔几层插一层稀疏注意力 DSA，只挑最相关的 Token 做远程检索。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnox4sQt5KwkjkeFv78rC1ee) · [查看图文解析](./glm-flash-linear-sparse-attention.md) · [B站视频](https://www.bilibili.com/video/BV1QrY26iE8X/)
+完整答案：[阅读全文《线性注意力与混合架构》](./glm-flash-linear-sparse-attention.md) · [B站视频](https://www.bilibili.com/video/BV1QrY26iE8X/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnox4sQt5KwkjkeFv78rC1ee)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7681542417195011366)
 
@@ -1118,7 +1120,7 @@ DeepSeek 的提示词缓存不用改代码，后台自动缓存重复前缀，�
 
 Responses API 为 Agent 而生，Chat Completions 为聊天而生。Chat Completions 把所有内容塞进 message 数组靠 role 区分，每轮都要重发完整聊天记录。Responses API 把文本、推理、工具调用拆成独立类型，用 previous_response_id 让服务端存上下文，内置联网搜索、代码执行、文件检索。DeepSeek V4 Pro 支持后能直接接入 Codex。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnpRdlCjeHNKVWNWT7XaJxvg) · [查看图文解析](./responses-api-vs-chat-completions.md) · [B站视频](https://www.bilibili.com/video/BV11H8n6CEBs/)
+完整答案：[阅读全文《Responses API 对比》](./responses-api-vs-chat-completions.md) · [B站视频](https://www.bilibili.com/video/BV11H8n6CEBs/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnpRdlCjeHNKVWNWT7XaJxvg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7675690881772506414)
 
@@ -1127,7 +1129,7 @@ Responses API 为 Agent 而生，Chat Completions 为聊天而生。Chat Complet
 
 推理分两步，Prefill 阶段把输入 token 并行做矩阵运算，算出 K 和 V 向量存进显存，最烧 GPU 算力；Decode 阶段逐个生成输出 token，直接读显存里的 K 和 V，即 KV Cache。缓存命中指前缀和上次相同，服务端就跳过 Prefill，DeepSeek V4 Flash 缓存命中 0.02 元、未命中 1 元，差 50 倍。要多命中，把 system prompt、工具定义放前面，用户输入放后面。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9HS04kcsI1uOogJee6Rpne) · [查看图文解析](./api-cache-hit-miss.md) · [B站视频](https://www.bilibili.com/video/BV1WAuZ6fEXP/)
+完整答案：[阅读全文《API 缓存命中》](./api-cache-hit-miss.md) · [B站视频](https://www.bilibili.com/video/BV1WAuZ6fEXP/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9HS04kcsI1uOogJee6Rpne)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7672403032797154601)
 
@@ -1136,7 +1138,7 @@ Responses API 为 Agent 而生，Chat Completions 为聊天而生。Chat Complet
 
 MoE 把 Transformer 每层的前馈网络拆成 256 个路由专家和 1 个共享专家。路由器给每个 Token 打分，按 Top-K 挑出 6 个路由专家，加上共享专家共 7 个。总参数按全部专家数算，激活参数按激活的专家数算，所以 DeepSeek V4 Flash 总参数 284B 只激活 13B，剩下的参数不是闲着，是还没轮到。DeepSeek 用 MoE，训练时靠大参数学知识，推理时只花小计算量，速度快成本低。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn1l2PQEs5bqd3ia9y4Rctab) · [查看图文解析](./what-is-moe.md) · [B站视频](https://www.bilibili.com/video/BV1EKuJ6VEkc/)
+完整答案：[阅读全文《什么是 MoE》](./what-is-moe.md) · [B站视频](https://www.bilibili.com/video/BV1EKuJ6VEkc/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn1l2PQEs5bqd3ia9y4Rctab)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7670768776341753122)
 
@@ -1145,7 +1147,7 @@ MoE 把 Transformer 每层的前馈网络拆成 256 个路由专家和 1 个共�
 
 评测分三类。代码能力看 SWE-bench 系列，给模型真实 GitHub Issue 和整个仓库，自己定位 bug 写补丁并跑通测试，Pro 版平均要改 170 行，DeepSWE 全部从零出题。Agent 工具能力看 Terminal-Bench 在沙箱里敲命令，MCP-Atlas 考跨服务器调用 MCP，CyberGym 要写出复现漏洞的 PoC。推理能力看 GPQA Diamond，考生物、物理、化学的研究生级推理。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnLkdAVAplpILlAVtk2NdJdJ) · [查看图文解析](./what-benchmarks-test.md)
+完整答案：[阅读全文《大模型评测集在测什么》](./what-benchmarks-test.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnLkdAVAplpILlAVtk2NdJdJ)
 
 ### 159. 什么是大语言模型？和传统 NLP 模型有什么区别？
 传统 NLP 模型（LSTM、CRF）针对特定任务训练，换任务就得重新训练。大语言模型通过海量数据预训练获得通用语言能力，一个模型能处理翻译、摘要、问答、代码生成等各种任务，靠 Prompt 引导就行。
@@ -1441,7 +1443,7 @@ KV Cache 缓存已计算的 Key/Value 矩阵，避免每生成一个新 token �
 
 Codex 在开新任务时后台处理旧任务，派 Sub-agent 读历史对话，优先读用户消息和工具结果，只留能让 Agent 表现更好的内容，脱敏后写入 SQLite。每条记忆带 usage_count 和 last_usage，按使用频率和时效排序淘汰，不用 Embedding。再由权限很小的 Sub-agent 把它们整理成记忆总结、操作手册、任务证据和 skills 四层，存在 ~/.codex/memories/ 目录。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTyCH6r6WOmdLde3EcOA56g) · [查看图文解析](./codex-long-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1A34U65ED6/)
+完整答案：[阅读全文《Codex 长期记忆》](./codex-long-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1A34U65ED6/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTyCH6r6WOmdLde3EcOA56g)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7678302786009746734)
 
@@ -1450,7 +1452,7 @@ Codex 在开新任务时后台处理旧任务，派 Sub-agent 读历史对话，
 
 Claude Code 检索长期记忆不用向量检索，也不用数据库。新开对话时它读 MEMORY.md 索引文件的前 200 行或 25KB，不做筛选，全部塞进上下文，交给大模型靠注意力自己判断哪些相关。前提是 MEMORY.md 控制在 200 行以内，所以索引要精简到一条记忆一行摘要。OpenClaw 走另一条路，Markdown 负责存，SQLite 存向量负责找，再加关键词匹配，代价是要额外跑 embedding 模型，速度慢。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnJpZqKQG90JIS1IJbUTF3ZK) · [查看图文解析](./claude-code-memory-retrieval.md) · [B站视频](https://www.bilibili.com/video/BV1C8gH6tE5B/)
+完整答案：[阅读全文《Claude Code 记忆检索》](./claude-code-memory-retrieval.md) · [B站视频](https://www.bilibili.com/video/BV1C8gH6tE5B/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnJpZqKQG90JIS1IJbUTF3ZK)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7673366479827504384)
 
@@ -1459,7 +1461,7 @@ Claude Code 检索长期记忆不用向量检索，也不用数据库。新开�
 
 CLAUDE.md 里写“使用 Java 17”“保持代码整洁”等于没写，因为 Claude 自己能推断，或者没有标准无法执行。有效的规则一句话写完，只写 Claude 推断不出来的，有明确的行动指导。Anthropic 的 claude-code-action 仓库分六个板块，从构建命令到踩坑清单，当新员工入职须知来写，控制在 80 行以内，其余拆进 .claude/rules/ 按 paths 字段按需加载。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnHNfCZEpnCc3gcvF9vQmscd) · [查看图文解析](./how-to-write-claudemd.md) · [B站视频](https://www.bilibili.com/video/BV1Z13X6rEk5/)
+完整答案：[阅读全文《CLAUDE.md 写法》](./how-to-write-claudemd.md) · [B站视频](https://www.bilibili.com/video/BV1Z13X6rEk5/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnHNfCZEpnCc3gcvF9vQmscd)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7669281306200165659)
 
@@ -1468,7 +1470,7 @@ CLAUDE.md 里写“使用 Java 17”“保持代码整洁”等于没写，因�
 
 Claude Code 的长期记忆分两层，一层是 CLAUDE.md，由用户写在项目根目录，提交到 Git 供团队共享。另一层是 memory 文件夹，在 ~/.claude/projects/ 下，由 Claude Code 自动记录，不提交 Git，里面是 MEMORY.md 索引和记忆文件，自动或手动写入。新开对话时先读 MEMORY.md 前 200 行再按需加载，CLAUDE.md 则直接注入系统指令，压缩时永远不会丢。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnxi4G68vUv4yvaA2ajH2cSh) · [查看图文解析](./claude-code-long-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV18wGN68E3Q/)
+完整答案：[阅读全文《Claude Code 长期记忆》](./claude-code-long-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV18wGN68E3Q/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnxi4G68vUv4yvaA2ajH2cSh)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7668673990940003625)
 
@@ -1477,7 +1479,7 @@ Claude Code 的长期记忆分两层，一层是 CLAUDE.md，由用户写在项�
 
 大模型本身没有记忆，Codex 和 Claude Code 一样，靠每次调用重新发送完整聊天记录实现短期记忆。Codex 基于 Responses API 维护一个混合列表，每次请求开头和上一次保持一致，以便命中 Prompt Caching。上下文快满时，Codex 把完整上下文交给 OpenAI 服务端压缩，返回的是只有模型能读的加密数据。压缩后系统指令和工具定义会重新注入，读过的文件内容却可能丢失，所以一个线程只做一件事。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnXXi0EUgF0VbQuT1DZjNKKg) · [查看图文解析](./codex-short-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1QnKY6bELM/)
+完整答案：[阅读全文《Codex 短期记忆》](./codex-short-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1QnKY6bELM/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnXXi0EUgF0VbQuT1DZjNKKg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7665302340374629675)
 
@@ -1486,7 +1488,7 @@ Claude Code 的长期记忆分两层，一层是 CLAUDE.md，由用户写在项�
 
 Claude Code 的短期记忆是一个 Messages 数组，用户、模型和工具的消息依次追加，每次调大模型时把整个数组重新发一遍。上下文窗口有上限，autoCompact 估算 Token 总量接近上限时，起一个 Sub-agent 按 9 个维度把历史消息压成摘要，再重新注入最近读过的 5 个文件和工具 schema，并插入 Boundary Marker，之后只发送标记后的消息。压缩会丢细节，尽量在一个上下文窗口内做完一件事。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9L5KrN4sqBfskeMat3Bmsd) · [查看图文解析](./claude-code-short-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1XrK16YEWe/)
+完整答案：[阅读全文《Claude Code 短期记忆》](./claude-code-short-term-memory.md) · [B站视频](https://www.bilibili.com/video/BV1XrK16YEWe/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9L5KrN4sqBfskeMat3Bmsd)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7664489707128016134)
 
@@ -1548,7 +1550,7 @@ CLI 形态（PaiCLI、Claude Code）：不依赖特定 IDE，跨平台通用，�
 
 V4-Flash 和 V4-Flash-Vision-Exp 只差一个视觉编码器。大模型的入口只有 token，视觉编码器把图片切成大小相同的方块，编码成离散的 token，一张图最多算 384 个 token。它是前置模块，视觉 token 和文字 token 走同一个模型、同一套参数，文本能力不变差，多模态 Agent 任务则纯文本模型比不了。升级只需把 model 改成 deepseek-v4-flash-vision-exp。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8cD90EnF2852WzviG84Xuc) · [查看图文解析](./deepseek-multimodal.md) · [B站视频](https://www.bilibili.com/video/BV1nPYs6pEYU/)
+完整答案：[阅读全文《多模态与纯文本的区别》](./deepseek-multimodal.md) · [B站视频](https://www.bilibili.com/video/BV1nPYs6pEYU/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8cD90EnF2852WzviG84Xuc)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7680432993629949220)
 
@@ -1557,7 +1559,7 @@ V4-Flash 和 V4-Flash-Vision-Exp 只差一个视觉编码器。大模型的入�
 
 V4 缓存命中便宜，不只因为跳过了 Prefill 计算，更因为 KV Cache 显存被压到了 V3 的 7%。MLA 只压薄每个 token 的 KV，100 万个 token 仍要存 100 万份。V4 直接减少份数，CSA 把每 4 个相邻 token 合并成 1 份，再用索引器只挑最相关的 512 条计算，HCA 每 128 个 token 合并成 1 份。一张卡能服务十几个请求，V4 才敢把上下文窗口开到 100 万。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnul8TsagD0czS2szbOPvYOf) · [查看图文解析](./v4-csa-hca-kv-cache.md) · [B站视频](https://www.bilibili.com/video/BV1d5tq6vEeE/)
+完整答案：[阅读全文《CSA HCA 与缓存》](./v4-csa-hca-kv-cache.md) · [B站视频](https://www.bilibili.com/video/BV1d5tq6vEeE/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnul8TsagD0czS2szbOPvYOf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7679479739840466202)
 
@@ -1566,7 +1568,7 @@ V4 缓存命中便宜，不只因为跳过了 Prefill 计算，更因为 KV Cach
 
 MLA 用投影矩阵把每个词元的 K 和 V 压缩成低维 latent 向量，即把每份笔记压薄，V2 和 V3 在 128K 上下文又快又省全靠它。但 V4 把上下文扩到 1M，token 数翻了 8 倍，每个词元仍要记一份，百万 token 请求的 KV Cache 能吃满一张顶配 GPU 卡，只能服务一个请求，并发上不去，API 就贵。所以 V4 从份数下手，把相邻多个词元合并成一份共享笔记，由 CSA 和 HCA 两个机制实现。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnPYD3DIQnTrvM7LMRoJUVGd) · [查看图文解析](./v4-why-replace-mla.md) · [B站视频](https://www.bilibili.com/video/BV1Y3tg6XEbT/)
+完整答案：[阅读全文《V4 为何替换 MLA》](./v4-why-replace-mla.md) · [B站视频](https://www.bilibili.com/video/BV1Y3tg6XEbT/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnPYD3DIQnTrvM7LMRoJUVGd)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7678962200215571731)
 
@@ -1575,7 +1577,7 @@ MLA 用投影矩阵把每个词元的 K 和 V 压缩成低维 latent 向量，�
 
 Cordis 是构建框架的框架，不是应用框架，而是给框架开发者用的底层基座。它由 DeepSeek 的 Shigma 创建，是从聊天机器人框架 Koishi 抽出来的插件内核。核心能力是可逆副作用，每个副作用在创建时就记录了撤销方式，卸载时一键回滚，不留内存泄漏，因此能真正热重载。插件之间靠依赖声明协作，依赖的服务就绪后才启动插件。DeepSeek Harness 里模型、工具、技能、沙箱全是插件，切换运行模式就是换一组插件组合。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcniNS8ZJCamhb5L1iMWUR5wg) · [查看图文解析](./what-is-cordis.md) · [B站视频](https://www.bilibili.com/video/BV1h1bY6QEWF/)
+完整答案：[阅读全文《什么是 Cordis》](./what-is-cordis.md) · [B站视频](https://www.bilibili.com/video/BV1h1bY6QEWF/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcniNS8ZJCamhb5L1iMWUR5wg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7674857729629900038)
 
@@ -1584,7 +1586,7 @@ Cordis 是构建框架的框架，不是应用框架，而是给框架开发者�
 
 DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没改，只重做了后训练，9 项 Agent 测试全面超过 Pro 预览版。后训练分 SFT、偏好优化和强化学习三步，用 GRPO 让模型在 Agent 任务里反复试错。这能弥补参数差距，因为 Agent 需要的规划、工具调用、错误恢复和长程追踪能力，预训练“预测下一个词”的目标几乎学不到。所以选模型先看 Agent 专项跑分，参数量排最后。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnmLUKj4aXQ2OAktp0sqIkQb) · [查看图文解析](./why-post-training-beats-params.md) · [B站视频](https://www.bilibili.com/video/BV1K7uF6PEKD/)
+完整答案：[阅读全文《后训练为何重要》](./why-post-training-beats-params.md) · [B站视频](https://www.bilibili.com/video/BV1K7uF6PEKD/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnmLUKj4aXQ2OAktp0sqIkQb)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7670027713771621658)
 
@@ -1596,7 +1598,7 @@ DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没�
 
 HySparse2 将模型分成 Self-Decoder 和 Cross-Decoder：前半段保留全注意力与滑动窗口，后半段结合全注意力与稀疏注意力。通过模块内部 KV Reuse 和跨段 KV Bridging，让后半段复用或从前半段计算 KV Cache，使 Prefill 提前结束，减少长输入和工具返回内容带来的计算成本。
 
-完整内容：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8ifqMip2ndBgZX8vEnj6pf) · [查看图文解析](./mimo-v3-hysparse2.md)
+完整内容：[阅读全文《MiMo-V3 与 HySparse2》](./mimo-v3-hysparse2.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8ifqMip2ndBgZX8vEnj6pf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7689435090677402895)
 
@@ -1604,7 +1606,7 @@ HySparse2 将模型分成 Self-Decoder 和 Cross-Decoder：前半段保留全注
 
 开源社区在 48 小时内复刻出了 Jev，思路是扔掉全量语言模型头，换成轻量决策头，冻结底层参数只挂 LoRA 微调，块因果掩码让单次前向并发完成多项决策。文中盘点 Kev（Qwen3.5 基座，兼容官方 SDK，本地首选）、Nimble（对比数据构建，准确率 90.1%）、Laya（ModernBERT 双向编码器，单次 33 毫秒）、Open-Jev（截流下一个 token 的概率对数）四个项目，以及意图路由、工具护栏、历史剪枝三个落地入口。
 
-完整内容：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnCCyZe87o2bYZAKoURy0dPf) · [查看图文解析](./open-source-jev-replicas.md)
+完整内容：[阅读全文《Jev 开源复刻》](./open-source-jev-replicas.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnCCyZe87o2bYZAKoURy0dPf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7688302955489021238)
 
@@ -1612,7 +1614,7 @@ HySparse2 将模型分成 Self-Decoder 和 Cross-Decoder：前半段保留全注
 
 Jev 是 TypeSafe AI 9 月 15 日发布的 System One 模型，不生成文本，只做判断。给它一段应用状态和一个预定义的结构化问题，它用一次前向计算直接在选项上分配概率，支持是否、单选、打分三种决策。它用 RLCD 训练校准过的置信度，比同类 LLM 快 40 到 200 倍，便宜 40 到 400 倍。Agent 里意图路由、审核、风控初筛这类高频小决策交给它，复杂推理仍然交给大模型。
 
-完整内容：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8m4NWZ9CZdeWUmjS9OOEab) · [查看图文解析](./what-is-jev.md)
+完整内容：[阅读全文《Jev 是什么》](./what-is-jev.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8m4NWZ9CZdeWUmjS9OOEab)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687944233659026722)
 
@@ -1620,13 +1622,13 @@ Jev 是 TypeSafe AI 9 月 15 日发布的 System One 模型，不生成文本，
 
 GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness。它能直接操作电脑，网络安全等级首次达到 Critical。模型越强，Harness 的设计就越关键。
 
-完整内容：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnp9S8C6LB632Cn2gMicQp5d) · [查看图文解析](./gpt-6-astra.md)
+完整内容：[阅读全文《GPT-6 Astra 解读》](./gpt-6-astra.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnp9S8C6LB632Cn2gMicQp5d)
 
 ### Claude、ChatGPT、Grok 全崩，你的中转为什么还能用？
 
 官网和 API 共用 Cloudflare 做流量入口，入口挂了就全挂。中转还能跑，是因为 OpenAI 兼容协议让切换模型零成本，而各家模型的能力和风格已经趋同到难以分辨。文中给了三个验证中转到底在调谁的方法。
 
-完整内容：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnRxRSfq7atYGxxjXecbYBcb) · [查看图文解析](./why-relay-still-works.md)
+完整内容：[阅读全文《官网全崩中转为什么还能用》](./why-relay-still-works.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnRxRSfq7atYGxxjXecbYBcb)
 
 ## 08、Prompt 工程（16 题）
 
@@ -1637,7 +1639,7 @@ GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加
 
 提示词工程是一门有具体方法论的技术学科，同一个任务，提示词不同，输出质量天差地别。三大核心技术是零样本提示、少样本提示和思维链。零样本提示不给示例，重点是任务描述足够具体。少样本提示给 2 到 5 个输入输出示例，示例要有代表性。思维链要求模型先展示推理过程再给结论。实战上还有角色设定和结构化输出。模型再聪明，提示词工程也不会被淘汰，它现在是上下文工程的一个子集，管的是这句话怎么说，上下文工程管的是该给模型提供哪些信息。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnitJR9Bq0Ts9hcZqTUonvQe) · [查看图文解析](./what-is-prompt-engineering.md) · [B站视频](https://www.bilibili.com/video/BV1zhNE6aEGH/)
+完整答案：[阅读全文《提示词工程》](./what-is-prompt-engineering.md) · [B站视频](https://www.bilibili.com/video/BV1zhNE6aEGH/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnitJR9Bq0Ts9hcZqTUonvQe)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7660769784925097231)
 
@@ -1910,7 +1912,7 @@ PaiCLI 实现了一套完整的安全机制：HITL（Human-in-the-Loop）人工�
 
 预训练是自监督学习，模型靠遮住词自己猜来刷题，学到的是知识。强化学习没有老师也没有教材，模型直接和环境互动，答对给奖励，答错给惩罚，靠试错调整策略。DeepSeek-R1-Zero 没用任何标注数据，纯靠 RL 让模型自己学会了推理，训练中涌现出「等一下，让我重新想想」这样的反思。各家往 RL 砸钱，是因为高质量预训练数据快用完了，RL 只需要一个能判断对错的奖励信号。小米 MiMo-V2.6 的 RL 训练每步约 20 亿 token，4 万多个沙箱并行。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnOs8QKsBv0mgLOfyzmILLse) · [查看图文解析](./what-is-reinforcement-learning.md)
+完整答案：[阅读全文《什么是强化学习》](./what-is-reinforcement-learning.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnOs8QKsBv0mgLOfyzmILLse)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7686739151072365839)
 
@@ -2074,7 +2076,7 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 
 Manus 不是聊天机器人，而是能动手干活的 AI Agent，ChatGPT 是参谋，Manus 是执行者。它底层用 Claude，没有自研模型，通用靠的是把 Deep Research、Coding 和 Computer Use 三条路线放进同一个 Agent，用虚拟浏览器扩大观察空间，用代码执行和命令行扩大动作空间。爆火靠邀请码稀缺、GAIA 榜单成绩和“套壳”争议，技术门槛不高，工程化的差距才是壁垒。
 
-完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnYHJvikUcf81knvhheKDtFg) · [查看图文解析](./what-is-manus.md)
+完整答案：[阅读全文《什么是 Manus》](./what-is-manus.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnYHJvikUcf81knvhheKDtFg)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7686062250951445801)
 

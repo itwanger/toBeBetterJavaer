@@ -26,9 +26,9 @@ const meta = (
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   readme: meta(
-    "AI Agent 面试 350 题：从基础原理到项目实战",
-    "Agent 面试 350 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 350 道高频面试题。",
+    "AI Agent 面试题 363 道（Agent八股+视频讲解）｜王二讲Agent",
+    "AI Agent 面试 363 题",
+    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 363 道高频面试题。",
     ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(

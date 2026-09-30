@@ -7,7 +7,7 @@
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
 - [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
 
-## AI Agent 面试题（294 题合集，配视频讲解）
+## AI Agent 面试题（363 题合集，配视频讲解）
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
@@ -61,6 +61,8 @@
 - [Prefix Caching（前缀缓存）是什么？和 KV Cache 是什么关系？](https://javabetter.cn/ai/video/what-is-prefix-caching.html)：KV Cache 只在单次请求内复用，Prefix Caching 把公共前缀的 KV 数据跨请求共享，靠 Token 分块和 Radix Tree 前缀树匹配，开头改一个字整条缓存链就会失效。
 - [DeepSeek 的 Prompt Caching 为什么能全自动生效，Claude 为什么要手动加 cache_control？](https://javabetter.cn/ai/video/what-is-prompt-caching.html)：DeepSeek 把 KV Cache 落盘到分布式硬盘并按前缀单元自动命中，Claude 需要用 cache_control 字段手动标记缓存断点，两者都要求前缀从第一个 Token 起逐字匹配。
 - [到底什么是语义缓存？](https://javabetter.cn/ai/video/what-is-semantic-caching.html)：语义缓存保存完整问答，通过 Embedding 和相似度检索复用已有答案。它适合高频重复问题，需要关注时间、用户身份和业务条件变化带来的误命中风险。
+- [Pi Agent 里有哪些反复出现的设计模式？](https://javabetter.cn/ai/video/pi-agent-design-patterns.html)：从 Pi 源码理解策略、适配器和责任链模式：工具如何切换执行环境，模型协议如何统一，工具调用如何被扩展拦截。
+- [Plan 模式已经死了吗？](https://javabetter.cn/ai/video/is-plan-mode-dead.html)：区分规划动作与独立 Plan 模式：模型能力提升后，何时直接执行，何时先探索，何时用 Spec 协调长任务。
 - [构建有效 Agent 有哪三个核心原则？](https://javabetter.cn/ai/video/building-effective-agents-principles.html)：保持简单、保持透明、精心设计 Agent-Computer Interface：从最简单的方案开始，展示真实执行过程，并通过工具接口设计减少误用。
 - [GPT Images 2.5 一手实测，OpenAI 越来越有水平啦](https://javabetter.cn/ai/video/chatgpt-images-2-5.html)：OpenAI 发布 Images 2.5，生成速度比 Images 2.0 快一倍，新增 Sketch 草图功能，可以直接在对话框里画草图让 AI 照着生成图片。这期带你过一遍升级点和用法。
 - [GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？](https://javabetter.cn/ai/video/gpt-6-astra.html)：GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。
@@ -126,6 +128,9 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [Opus 5.5 焚诀](https://javabetter.cn/sidebar/itwanger/ai/claude-opus-5-5-prompting-guide.html)：拆解 Claude 官方的 Opus 5.5 使用指南，面向 Claude Code 用户讲清楚 effort 档位怎么选、提示词怎么写终点线、长任务怎么不中途停下、Sub-agent 怎么拆活、被切到旧模型怎么办，附可直接使用的 CLAUDE.md 规则和提示词。
+- [豆包工作SSH部署](https://javabetter.cn/sidebar/itwanger/ai/doubao-work-ssh-deploy.html)：豆包工作实测，通过 SSH 登录 Linux 生产服务器，完成派聪明 RAG 项目的部署准备、正式发布、失败回滚和浏览器验收，附四轮完整提示词
+- [DeepSeek Harness 桌面版实测](https://javabetter.cn/sidebar/itwanger/ai/deepseek-harness-desktop.html)：DeepSeek Harness 桌面版实测，源码拆解桌面版和 WebUI 的区别、自动更新与登录机制，讲清 DSH 一切皆插件的插件机制，并推荐 better-sidebar、dsh-TUI 等插件。
 - [华为AgentRAG面试题](https://javabetter.cn/sidebar/itwanger/ai/huawei-agent-rag-mianshi.html)：Agent面试题 RAG面试题 记忆污染 上下文压缩 提示词注入 混合检索 BM25 知识库 幻觉控制 MinIO上传
 - [Codex + Jev 实测](https://javabetter.cn/sidebar/itwanger/ai/codex-jev.html)：在 Codex 中安装 Jev 判断模型实测，Agent 决策比 LLM 快 40-200 倍，便宜 40-400 倍，输出 Token 免费
 - [飞书+豆包工作知识库](https://javabetter.cn/sidebar/itwanger/ai/feishu-doubao-knowledge-base.html)：用飞书+豆包工作把 300 多篇文章变成可查询的 AI 知识库，从上传到跨库检索到邪修用法的完整实测记录
@@ -183,9 +188,6 @@
 - [10个Codex视频推荐](https://javabetter.cn/sidebar/itwanger/ai/codex-bilibili-top10.html)：从B站上百个Codex视频中精选10个，覆盖入门教程、实战案例、进阶功能、国内接入、知识管理和行业格局，附评论区高赞避坑经验。
 - [Claude Code隐写术逆向拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-steganography.html)：逆向拆解Claude Code内置隐写术机制，从XOR解码域名黑名单到Unicode字符替换，用源码证据还原Anthropic如何通过系统提示词中的日期字符串秘密标记中国用户。
 - [Qoder 桌面版正式发布](https://javabetter.cn/sidebar/itwanger/ai/qoder-desktop-release.html)：Qoder Desktop 桌面版正式发布评测，Quest 独立视窗实战用 Qwen 3.7 夜间模式开发 PaiCLI TypeScript 版本，附夜间折扣省钱攻略。
-- [DeepSeek 开始摇人了](https://javabetter.cn/sidebar/itwanger/ai/deepseek-hiring-ai-era.html)：从 DeepSeek 最新 36 个在招岗位的 JD 拆解 AI 时代的人才需求变化，逐岗位分析服务端、前端/客户端、测试开发的能力进化方向，附转型准备指南。DeepSeek 开始摇人了，有点猛啊。
-- [QoderWork 速通指南](https://javabetter.cn/sidebar/itwanger/ai/qoderwork-cn-xiaohao.html)：QoderWork CN 速通指南，从安装到实战全流程，覆盖设计工作台、专家套件、浏览器连接器、技能市场、定时任务、IM 频道等核心功能，附宠物寄养平台产品设计实战案例。
-- [Claude Code核心概念拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-core-concepts.html)：从官方文档出发，拆解 Claude Code 五大核心概念：上下文、CLAUDE.md、Hooks、Skills、Subagents 的内部机制，结合 PaiCLI 实战对照，理解 Agent Harness 的设计逻辑。面试官：“你说你用Claude写代码，那你说说你CLAUDE.md、Hooks、Skills、Subagents”，我：“这些是啥？”，面试官：“回去等通知吧！”
 
 ## 开发工具
 
