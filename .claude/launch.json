@@ -63,6 +63,32 @@
         "3004"
       ],
       "port": 3004
+    },
+    {
+      "name": "remotion-context-passing",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/multi-agent-context-passing",
+        "--port",
+        "3010"
+      ],
+      "port": 3010
+    },
+    {
+      "name": "remotion-gemini-4-argon",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/gemini-4-argon",
+        "--port",
+        "3011"
+      ],
+      "port": 3011
     }
   ]
 }

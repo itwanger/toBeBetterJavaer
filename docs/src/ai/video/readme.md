@@ -52,6 +52,30 @@ date: 2026-05-20
 
 聚焦 Agent 的定义、工作方式、规划、反思和多 Agent 协作。部分新增题目参考了开源书《深入理解 AI Agent：设计原理与工程实践》（[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)）的章节结构和各章思考题。
 
+### 25. 多 Agent 之间怎么传递上下文？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+默认传结构化的中间结果，不传完整对话。主 Agent 派活时写清任务目标、已知约束、输入数据和期望的输出格式，子 Agent 在自己独立的上下文里执行，最后只把结论和关键证据以 JSON 或摘要的形式交回，中间的试错过程留在自己的上下文里。传完整对话看起来不丢信息，实际会把无关的工具输出和失败尝试一起灌给下游，上下文越传越长，还会让下游把上游的错误判断当成事实继承下来。大块数据不走消息，写进共享文件系统或存储，只传路径或 ID。Claude Code 的 Sub-agent 就是这样，只拿到主 Agent 写的任务描述，结束时只把一段总结返回给主 Agent。
+
+完整答案：[阅读全文《多 Agent 上下文传递》](./multi-agent-context-passing.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnpancPe9ZXTRi5V5Zw1wqne)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7691235788905893158)
+
+🟡 进阶 | `→ PaiCLI / PaiAgent`
+
+### 24. Plan 模式已经死了吗？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+说对了一半。2026 年 9 月 24 日 Ayman Nadeem 发表《Plan mode is dead》，在 Hacker News 上引发了大量讨论，Claude Code 团队的 Boris Cherny 也在讨论里表示，plan mode 以前有用，现在已经没那么有用了，因为当前的模型基本能准确理解意图。他还提到，Claude Code 的 plan mode 只是在每条消息里追加一句“先不要写代码”的提醒，并不改动工具集，因为改动工具集会让 Prompt Cache 失效。死掉的是“先出计划、等人审批、再执行”这个强制阶段，它原本是为了弥补模型猜不准意图而存在的，现在模型在推理过程中自己规划，进度交给 todo 或任务工具跟踪。Pi 的作者 Mario Zechner 更早就不内置 plan mode，主张把计划写进文件，需要时再用扩展实现。规划本身没有死，只是换了地方。方向不确定、要改很多文件、走错代价高时，先只读探索再给方案依然值得；长任务和并行的 Sub-agent 需要一份写成文件的 Spec 作为共同依据。Claude Code 官方最佳实践给了一条简单的判断标准，如果一句话就能说清要改什么，就跳过计划。
+
+完整答案：[阅读全文《Plan 模式已经死了吗》](./is-plan-mode-dead.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnFfp79IQELzGJcJBZU2AZng)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7690807740213529882)
+
+🟡 进阶 | `→ PaiCLI`
+
 ### 23. Pi Agent 系统里有哪些反复出现的设计模式？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
@@ -153,6 +177,8 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 Multi-Agent 冲突不能靠投票或裁判 Agent 解决，同源模型会集体盲从。主 Agent 与 Sub-agent 分歧时由主 Agent 裁决，但要把反对意见当事实重新评估，超出权限交给用户。Worker 与 Reviewer 对抗，审查 Agent 不能改代码，必须附上实际执行的命令和输出，任务依赖保证审查和编码不同时跑。并发 Worker 的写冲突靠写操作串行、git worktree 隔离或 CAS 乐观锁。
 
 完整答案：[阅读全文《Multi-Agent 冲突处理》](./multi-agent-conflict-resolution.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTWPOrLFYRSabyfYlVRsHEg)
+
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1hBaL65Edo/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7685693822096985385)
 
@@ -323,31 +349,13 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7654443885439094042)
 
-### 24. Plan 模式已经死了吗？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-说对了一半。2026 年 9 月 24 日 Ayman Nadeem 发表《Plan mode is dead》，在 Hacker News 上引发了大量讨论，Claude Code 团队的 Boris Cherny 也在讨论里表示，plan mode 以前有用，现在已经没那么有用了，因为当前的模型基本能准确理解意图。他还提到，Claude Code 的 plan mode 只是在每条消息里追加一句“先不要写代码”的提醒，并不改动工具集，因为改动工具集会让 Prompt Cache 失效。死掉的是“先出计划、等人审批、再执行”这个强制阶段，它原本是为了弥补模型猜不准意图而存在的，现在模型在推理过程中自己规划，进度交给 todo 或任务工具跟踪。Pi 的作者 Mario Zechner 更早就不内置 plan mode，主张把计划写进文件，需要时再用扩展实现。规划本身没有死，只是换了地方。方向不确定、要改很多文件、走错代价高时，先只读探索再给方案依然值得；长任务和并行的 Sub-agent 需要一份写成文件的 Spec 作为共同依据。Claude Code 官方最佳实践给了一条简单的判断标准，如果一句话就能说清要改什么，就跳过计划。
-
-完整答案：[阅读全文《Plan 模式已经死了吗》](./is-plan-mode-dead.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnFfp79IQELzGJcJBZU2AZng)
-
-🟡 进阶 | `→ PaiCLI`
-
-### 25. 多 Agent 之间怎么传递上下文？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-默认传结构化的中间结果，不传完整对话。主 Agent 派活时写清任务目标、已知约束、输入数据和期望的输出格式，子 Agent 在自己独立的上下文里执行，最后只把结论和关键证据以 JSON 或摘要的形式交回，中间的试错过程留在自己的上下文里。传完整对话看起来不丢信息，实际会把无关的工具输出和失败尝试一起灌给下游，上下文越传越长，还会让下游把上游的错误判断当成事实继承下来。大块数据不走消息，写进共享文件系统或存储，只传路径或 ID。Claude Code 的 Sub-agent 就是这样，只拿到主 Agent 写的任务描述，结束时只把一段总结返回给主 Agent。
-
-完整答案：[阅读全文《多 Agent 上下文传递》](./multi-agent-context-passing.md)
-
-🟡 进阶 | `→ PaiCLI / PaiAgent`
-
 ### 26. Agent 的意图路由怎么设计？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
 按成本分层。第一层用规则和关键词拦截确定性高的请求，比如“查订单”直接进入订单 Agent；第二层用小尺寸模型或 Embedding 分类器做意图分类，输出固定的枚举值和置信度；置信度低于阈值或者同时命中多个意图时，再交给主模型判断，主模型也判断不了就反问用户。路由的输出必须是结构化的枚举，不能让模型自由发挥。路由错了要有兜底，子 Agent 发现任务不属于自己时返回“不匹配”，由主 Agent 重新分发，同时限制重新分发的次数，避免子 Agent 之间互相推诿。效果用标注好的测试集评估，按意图分别统计准确率和召回率。
+
+完整答案：[查看图文解析](./agent-intent-routing.md)
 
 🟡 进阶 | `→ PaiAgent`
 
@@ -2077,6 +2085,8 @@ RLVP（Reinforcement Learning with Verified Penalty）的原则是奖励结果�
 Manus 不是聊天机器人，而是能动手干活的 AI Agent，ChatGPT 是参谋，Manus 是执行者。它底层用 Claude，没有自研模型，通用靠的是把 Deep Research、Coding 和 Computer Use 三条路线放进同一个 Agent，用虚拟浏览器扩大观察空间，用代码执行和命令行扩大动作空间。爆火靠邀请码稀缺、GAIA 榜单成绩和“套壳”争议，技术门槛不高，工程化的差距才是壁垒。
 
 完整答案：[阅读全文《什么是 Manus》](./what-is-manus.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnYHJvikUcf81knvhheKDtFg)
+
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1niaZ62E6w/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7686062250951445801)
 

@@ -243,7 +243,8 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |`ChapterShell`|`Scenes.tsx`|背景、章节音频、`ChapterStrip` 导航、底部单行字幕|
 |`SceneChain`|`Scenes.tsx`|按起点列表挂载场景，每个场景持续到下一个场景开始，不再手算 `durationInFrames`|
 |`subtitleAt`|`Scenes.tsx`|取某个章节局部帧上的字幕|
-|`FigureCard`|`Scenes.tsx`|原稿配图的中央大卡片，`contain` 完整显示，`dark` 用于终端截图|
+|`FigureCard`|`Scenes.tsx`|原稿配图，`contain` 完整显示。新视频加 `plain`，去掉黑框、阴影和白底；不加时保持旧的卡片样式，旧项目不受影响。`dark` 用于终端截图|
+|`CoverFrame`|`Scenes.tsx`|整片第 0 帧显示原稿 16:9 封面，之后 `fadeFrames`（默认 6）帧内淡出，不平移时间轴。只放在整片 Composition 的最上层，章节预览不加|
 |`HostCard`|`Scenes.tsx`|圆形头像、红色细边、黑色姓名胶囊，用于自介和结尾|
 |`InterviewStage`|`Scenes.tsx`|左侧豆包面试官、右侧二哥求职者、中央插槽，`candidateExit` 控制离场|
 |`SceneEntrance`、`ConceptIcon`|`Enhancements.tsx`|短入场转场；paper、terminal、feedback、error 四个概念图标|

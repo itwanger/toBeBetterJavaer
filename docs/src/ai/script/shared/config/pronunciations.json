@@ -21,7 +21,9 @@
       "id": "rl",
       "match": "(?<![A-Za-z])RL(?![A-Za-z])",
       "replace": "R L",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "status": "confirmed",
       "note": "2026-09-18 what-is-reinforcement-learning，用户确认「RL 的发音正确了」。"
     },
@@ -29,7 +31,9 @@
       "id": "paicli",
       "match": "PaiCLI",
       "replace": "派 C L I",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "status": "candidate",
       "note": "what-is-agent-reflection 使用。"
     },
@@ -37,7 +41,9 @@
       "id": "pi",
       "match": "(?<![A-Za-z])Pi(?![A-Za-z])",
       "replace": "派",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "status": "candidate",
       "note": "2026-09-27 起全文统一读单音节。Pi 官方文档没有给出音标，这是本频道的配音约定，不是官方读法。"
     },
@@ -45,7 +51,9 @@
       "id": "langgraph4j",
       "match": "LangGraph4J",
       "replace": "Lang Graph four J",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "status": "candidate",
       "note": "连写时误读。ASR 转写为 LangGraph for J，for 和 four 的差异要靠复听判断。"
     },
@@ -53,7 +61,9 @@
       "id": "sqlite",
       "match": "SQLite",
       "replace": "S Q L ite",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "status": "candidate",
       "note": "作者 Richard Hipp 在访谈中读 S-Q-L-ite（https://changelog.com/podcast/201）。提示文本不保证发音。"
     },
@@ -70,32 +80,50 @@
     {
       "id": "chaochang",
       "match": "超长",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "note": "应读 chāo cháng。harness-five-elements 第 64 段把「超」读成 zhao。尚无验证有效的 ttsText 写法，只能整句重生成后复听。"
     },
     {
       "id": "git",
       "match": "(?i)(?<![A-Za-z])git(?![A-Za-z])",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "note": "目标读音 /ɡɪt/，曾被读成 get。ttsText 可试 gitt，但同一视频里 gitt 也出现过被识别成「D 操作」，每一处单独复听。"
     },
     {
       "id": "letter-hyphen",
       "match": "(?<=[A-Za-z])-(?=[A-Za-z])",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "note": "file-history 曾被读出「杠」。多数连字符词读音正常，只在复听有问题时把 ttsText 里的连字符换成空格。"
     },
     {
       "id": "jev",
       "match": "(?<![A-Za-z])Jev(?![A-Za-z])",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "note": "what-is-jev 写成 Jeff，open-source-jev-replicas 写成 Jef，两期不一致。再出现时先和用户确定读法，确定后移入 rules。"
     },
     {
       "id": "llm",
       "match": "(?<![A-Za-z])LLM(?![A-Za-z])",
-      "speakers": ["S_j97bqlje2"],
+      "speakers": [
+        "S_j97bqlje2"
+      ],
       "note": "29 个 beat 里有 10 个写成 L L M，其余保持原样。连读不清时再改。"
+    },
+    {
+      "id": "zuihou-summary",
+      "match": "最后简单总结",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "note": "2026-09-30 multi-agent-context-passing beat 50，用户听出“最后”读音异常，ASR 仍转写为“最后”。原文不变整句重合成一次，新读音待用户复听。这句是多数视频的总结开头，每期都要单独听。"
     }
   ]
 }

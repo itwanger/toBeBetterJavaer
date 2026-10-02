@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Img, Sequence, staticFile} from 'remotion';
+import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {C, FONT, card, ChapterStrip} from './index';
 import {SceneEntrance} from './Enhancements';
 import {InterviewAvatar} from './InterviewAvatar';
@@ -86,18 +86,27 @@ export interface FigureCardProps {
   /** Dark frame for terminal screenshots. */
   dark?: boolean;
   box?: {left: number; top: number; width: number; height: number};
+  /** No black border, shadow or white backing; the figure sits directly on the background. */
+  plain?: boolean;
 }
 
-const FIGURE_BOX = {left: 285, top: 157, width: 1350, height: 760};
+export const FIGURE_BOX = {left: 285, top: 157, width: 1350, height: 760};
 
-/** Original article figure, shown whole (contain) in the central card between strip and subtitle. */
-export const FigureCard: React.FC<FigureCardProps> = ({file, dark = false, box = FIGURE_BOX}) => (
+/**
+ * Original article figure, shown whole (contain) in the central area between strip and subtitle.
+ * New videos use `plain`; the framed card stays the default so older projects render unchanged.
+ */
+export const FigureCard: React.FC<FigureCardProps> = ({file, dark = false, box = FIGURE_BOX, plain = false}) => (
   <SceneEntrance>
     <div
-      style={{
-        ...card, ...box, position: 'absolute', boxSizing: 'border-box', borderWidth: 3,
-        overflow: 'hidden', background: dark ? '#050505' : 'white',
-      }}
+      style={
+        plain
+          ? {...box, position: 'absolute'}
+          : {
+            ...card, ...box, position: 'absolute', boxSizing: 'border-box', borderWidth: 3,
+            overflow: 'hidden', background: dark ? '#050505' : 'white',
+          }
+      }
     >
       <Img src={staticFile(file)} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
     </div>
@@ -180,3 +189,25 @@ export const InterviewStage: React.FC<InterviewStageProps> = ({
     {children}
   </>
 );
+
+export interface CoverFrameProps {
+  /** 16:9 cover under public/, e.g. 'images/cover-16x9.png'. */
+  file: string;
+  /** Frames over which the cover fades out after frame 0; keep it before the first spoken word. */
+  fadeFrames?: number;
+}
+
+/**
+ * Shows the article's 16:9 cover on frame 0 of the full video, then fades it out. Players that show
+ * the first frame as a poster (a bare <video> without poster) display the cover. Timeline is unchanged.
+ */
+export const CoverFrame: React.FC<CoverFrameProps> = ({file, fadeFrames = 6}) => {
+  const frame = useCurrentFrame();
+  const opacity = interpolate(frame, [1, 1 + fadeFrames], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  if (opacity <= 0) return null;
+  return (
+    <AbsoluteFill style={{zIndex: 100, opacity}}>
+      <Img src={staticFile(file)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+    </AbsoluteFill>
+  );
+};

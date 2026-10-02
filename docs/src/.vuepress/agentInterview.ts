@@ -343,6 +343,12 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "区分规划动作与独立 Plan 模式：模型能力提升后，何时直接执行，何时先探索，何时用 Spec 协调长任务。",
     ["Plan Mode", "Claude Code", "Codex", "Pi", "Spec"],
   ),
+  "multi-agent-context-passing": meta(
+    "多 Agent 之间怎么传递上下文？",
+    "多 Agent 上下文传递",
+    "结合 Claude Code 与 Codex 的实现，理解任务简报、fork 对话继承、最终答案回传，以及长结果通过文件引用传递的边界。",
+    ["Multi-Agent", "上下文", "Claude Code", "Codex", "Fork"],
+  ),
   "building-effective-agents-principles": meta(
     "构建有效 Agent 有哪三个核心原则？",
     "构建 Agent 的三个原则",
@@ -437,6 +443,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "multi-agent-context-passing",
+      "is-plan-mode-dead",
       "pi-agent-design-patterns",
       "building-effective-agents-principles",
       "workflow-vs-agent-flight-booking",
@@ -460,7 +468,6 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "plan-and-execute",
       "react-death-loop",
       "agent-hnow-tool-call",
-      "is-plan-mode-dead",
     ],
   },
   {
@@ -547,6 +554,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "multi-agent-context-passing": "7691235788905893158",
+  "is-plan-mode-dead": "7690807740213529882",
   "pi-agent-design-patterns": "7690524611271789850",
   "building-effective-agents-principles": "7690200053318749440",
 

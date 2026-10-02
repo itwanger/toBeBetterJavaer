@@ -28,7 +28,8 @@ const Opening: React.FC = () => {
   );
 };
 
-const Figure: React.FC = () => <FigureCard file="images/figure-1.png" />;
+// 原稿配图不套黑框和阴影，直接放在背景上。
+const Figure: React.FC = () => <FigureCard file="images/figure-1.png" plain />;
 
 export const Chapter1: React.FC = () => {
   const f = useCurrentFrame();

@@ -27,4 +27,4 @@
 ## 约束
 
 - 文件名：小写字母 + 连字符，如 `my-tutorial.md`
-- 模型相关数据以当前一代（Opus 5.5 / GPT-6 Astra）为准，禁止引用过时模型数据
+- 模型相关数据以当前一代为准（Anthropic：Fable 5.1、Opus 5.5、Sonnet 5.5；OpenAI：GPT-6 Astra、GPT-6 Luna），禁止引用过时模型数据

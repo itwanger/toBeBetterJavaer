@@ -17,10 +17,10 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 
 每个节点完成并得到对应的用户回复后，用 `progress.py --mark` 记录，后续会话据此判断走到了哪一步。
 
-1. **整理用稿**。写项目 `article.md`、`script.md`、`beats.json`、`OUTLINE.md`。文末公众号推广尾段从起点删到文件末尾，连同后面的图片，项目内所有清单同步删除，不留“不使用”的标记。正文里的资料领取（288 道、222）和视频结尾的点赞关注保留。源文章不改。用户要求保留公众号引导时以用户为准。
+1. **整理用稿**。写项目 `article.md`、`script.md`、`beats.json`、`OUTLINE.md`。文末公众号推广尾段从起点删到文件末尾，连同后面的图片，项目内所有清单同步删除，不留“不使用”的标记。正文里的资料领取（288 道、222）和视频结尾的点赞关注保留。源文章不改。用户要求保留公众号引导时以用户为准。原稿“视频封面”区块的 16:9 封面下载为 `assets/images/cover-16x9.png`，做整片首帧。
 2. **用户确认口播稿**，标记 `script`。确认前不合成配音。
 3. **配音**。先跑 `pronunciations.py --write` 套用读音词典，再 `gen_audio.py`、`gen_cues.py`、`review_audio.py`。词典的 watch 项和 candidate 规则列入复听清单。标记 `audio`。
-4. **逐章制作**。每章先写 `ch<N>-spec.json` 并生成时点，再写 `Chapter<N>.tsx`，然后跑 `chapter_pipeline.py` 出关键帧，并在 Studio 里预览。抽查配图帧、主要场景和转场中间帧，试听提示音。用户回复“继续”或明确认可后标记该章，再做下一章。
+4. **逐章制作**。每章先写 `ch<N>-spec.json` 并生成时点，再写 `Chapter<N>.tsx`，然后跑 `chapter_pipeline.py` 出关键帧，并在 Studio 里预览。抽查配图帧、主要场景和转场中间帧，试听提示音。用户回复“继续”或明确认可后标记该章，再做下一章。最后一章同样先给 `Chapter<N>Preview`，用户认可后再切到整片 Composition 连看。
 5. **出片**。只有用户明确说“渲染”或“出片”才标记 `render` 并导出，已经授权过的不重复询问。整片渲染加 `--detach`，轮询日志等待完成。
 6. **成片检查**。跑 `verify_export.py`，核对完整解码、尺寸、帧率、帧数、音频同步和各章截图，通过后标记 `verified`。交付的是 `output/<outputName>`，不能把 Studio 预览或旧版称作本次成片。
 7. **纳入 Git**。`output/` 顶层只放最终 MP4，试做放 `preview/`，旧版放 `output/legacy/`，细则见 [成片版本管理](../../../docs/src/ai/script/shared/WORKFLOW.md#成片版本管理)。commit 和 push 只按用户明确指令执行。
