@@ -34,6 +34,7 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 - 配音按确认稿朗读，不自动加语气词、情绪指令或反问。`text` 是字幕原文，`ttsText` 只写读法调整。
 - ASR 识别正确不等于读音正确。没有实际试听，不宣称读音已验收。用户认可某个词，只代表这一项通过。
 - 原稿配图原样展示，不用简化图形替换，也不重新生成。
+- 画面不写字幕已有的整句、问句和台词，骂人的话不上画面。讲到产品的使用就画产品界面操作，讲到模型就写当代具体型号。
 - 不伪造品牌标志。没有官方图标时，用通用概念图标。
 
 ## 音画规则
@@ -45,11 +46,11 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 - **提示音**。新项目默认开启。只标记少量有意义的变化，比如错误出现、结果返回、资料场景切入，放在短停顿处，音量低于配音。用户说不要时关闭。
 - **时长**。“3 分钟”按稿子保留，实际时长以配音为准，不为凑时长删内容。
 
-视觉版式、字幕分组、人物角色见 [用户偏好](references/USER_PREFERENCES.md)。稿子里有“面试官问你”、求职者回答或面试追问时，读 [面试头像开场](references/INTERVIEW_OPENING.md)。普通科普稿不加面试剧情。
+画面构成先读 [画面规范](../../../docs/src/ai/script/shared/VISUAL_STYLE.md)：画面靠动画不靠文字、一章一个连续画面、去框、产品和型号写具体。这份规范与 Codex 共用，迭代画面经验时只改它。字幕分组、人物角色、闯关稿等补充见 [用户偏好](references/USER_PREFERENCES.md)。稿子里有“面试官问你”、求职者回答或面试追问时，读 [面试头像开场](references/INTERVIEW_OPENING.md)。普通科普稿不加面试剧情。
 
 ## 组件和素材
 
-- 先用共享组件：`ChapterShell`、`SceneChain`、`FigureCard`、`HostCard`、`InterviewStage`、`Icons`。清单见 [共享场景组件](../../../docs/src/ai/script/shared/WORKFLOW.md#共享场景组件)，新章节从 `shared/remotion/examples/Chapter.example.tsx` 复制起步。
+- 先用共享组件：`ChapterShell`、`FigureCard`、`HostCard`、`InterviewStage`、`Icons`，连续画面用 `Stage.tsx` 的 `track`、`Actor`、`Spotlight`，产品界面用 `ProductWindows.tsx`。清单见 [共享场景组件](../../../docs/src/ai/script/shared/WORKFLOW.md#共享场景组件)，新章节从 `shared/remotion/examples/Stage.example.tsx` 复制起步。
 - 同一个场景或图标在两期以上重复手写，且不含主题数据时，提升到共享组件并登记。
 - 产品图标、Harness 马匹、面试头像、提示音都在 `shared/assets/`，用前复制到项目 `assets/images/`，来源记录复制到 `assets/references/`。
 - 组件代码按 JSX 元素换行，单行不超过约 160 个字符，样式常量放在文件顶部，便于用户按坐标改版。

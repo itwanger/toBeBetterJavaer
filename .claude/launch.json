@@ -89,6 +89,32 @@
         "3011"
       ],
       "port": 3011
+    },
+    {
+      "name": "remotion-intent-routing",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/agent-intent-routing",
+        "--port",
+        "3012"
+      ],
+      "port": 3012
+    },
+    {
+      "name": "remotion-nine-prompting",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/nine-prompting-techniques-for-better-llm",
+        "--port",
+        "3014"
+      ],
+      "port": 3014
     }
   ]
 }

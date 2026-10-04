@@ -10,6 +10,7 @@
 script/
 ├── package.json / package-lock.json  共用 Node 依赖与锁定版本
 ├── shared/
+│   ├── VISUAL_STYLE.md               画面规范，Claude Code 与 Codex 共用
 │   ├── config/video.config.json      新项目默认配置，无密钥
 │   ├── config/pronunciations.json    配音读法词典（按音色生效）
 │   ├── assets/ergo-avatar.jpg        默认人物原图
@@ -236,7 +237,7 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 ## 共享场景组件
 
-从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 复制起步。旧项目保留自己的写法，不批量迁移。
+从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Stage.example.tsx](remotion/examples/Stage.example.tsx) 复制起步，画面要求见 [VISUAL_STYLE.md](VISUAL_STYLE.md)；[examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 是按场景切换的旧写法，旧项目维护时参考。旧项目保留自己的写法，不批量迁移。
 
 |组件|文件|用途|
 |---|---|---|
@@ -249,6 +250,9 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |`InterviewStage`|`Scenes.tsx`|左侧豆包面试官、右侧二哥求职者、中央插槽，`candidateExit` 控制离场|
 |`SceneEntrance`、`ConceptIcon`|`Enhancements.tsx`|短入场转场；paper、terminal、feedback、error 四个概念图标|
 |`CheckpointIcon` 等 10 个|`Icons.tsx`|检查点、对话、依赖包、分块、发出邮件、回滚、齿轮、法槌、概率、哨子|
+|`LevelStairs`、`QuizBoard`|`Quest.tsx`|闯关段位台阶、按配音入场的选项卡与答案揭晓；题目示意图、选项图标和时点由项目传入|
+|`track`、`life`、`Actor`、`Spotlight`|`Stage.tsx`|连续画面：关键帧插值、入场淡出透明度、按中心点定位的元素、背景点阵与跟随焦点的柔光|
+|`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意：输入框打字、思考标记、回复逐行出现、`/model` 菜单；需要项目 `images/claude-code.png`、`images/codex.png`|
 |`C`、`card`、`Popped`、`Arrow`|`index.tsx`|配色、卡片样式、入场、箭头|
 
 两期以上重复手写的场景或图标，确认不含主题数据后提升到这里，并在本表登记。修改共享组件保持向后兼容，旧项目的成片不重新渲染。

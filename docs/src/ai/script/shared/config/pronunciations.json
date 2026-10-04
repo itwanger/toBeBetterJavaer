@@ -74,6 +74,84 @@
       "speakers": "*",
       "status": "candidate",
       "note": "cache_control、tool_call 这类字段名，下划线换成空格，避免念出「下划线」。"
+    },
+    {
+      "id": "jev",
+      "match": "(?<![A-Za-z])Jev(?![A-Za-z])",
+      "replace": "Jeff",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "confirmed",
+      "note": "2026-10-02 agent-intent-routing，用户指定读 Jeff，统一此前 Jeff / Jef 两种写法。"
+    },
+    {
+      "id": "http-400-error",
+      "match": "(?<!\\d)400(?=\\s*(?:错误|报错|状态码|响应码))",
+      "replace": "四零零",
+      "speakers": "*",
+      "status": "confirmed",
+      "note": "2026-10-03 agent-tool-failure-timeout beat 11，用户指定「直接报 400 错误」读「四零零」。限定错误码语境，不将数量 400 转成逐位读法；本次重生成听感待复听。"
+    },
+    {
+      "id": "retry-after-sixty-seconds",
+      "match": "(?i)(\\bRetry\\s+after\\s+)60(\\s+seconds\\b)",
+      "replace": "\\1sixty\\2",
+      "speakers": "*",
+      "status": "confirmed",
+      "note": "2026-10-03 agent-tool-failure-timeout beat 13，用户指定 Retry after 60 seconds 中的 60 读英文 sixty。原稿与字幕保持数字，本次重生成听感待复听。"
+    },
+    {
+      "id": "http-429-error",
+      "match": "(?<!\\d)429(?=\\s*(?:限流|错误|报错|状态码|响应码))",
+      "replace": "四二九",
+      "speakers": "*",
+      "status": "candidate",
+      "note": "2026-10-03 agent-tool-failure-timeout 第三章，依据用户要求错误码 400 读四零零，同类状态码 429 按逐位读法处理；尚待本章复听，原文字幕保留数字，不转换数量。"
+    },
+    {
+      "id": "http-529-error",
+      "match": "(?<!\\d)529(?=\\s*(?:过载|错误|报错|状态码|响应码))",
+      "replace": "五二九",
+      "speakers": "*",
+      "status": "candidate",
+      "note": "2026-10-03 agent-tool-failure-timeout 第三章，依据用户要求错误码 400 读四零零，同类状态码 529 按逐位读法处理；尚待本章复听，原文字幕保留数字，不转换数量。"
+    },
+    {
+      "id": "sigkill",
+      "match": "(?i)(?<![A-Za-z])(?:sigg? ?kill|S I G kill)(?![A-Za-z])",
+      "replace": "sigg kill",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-03 用户要求按发音调研修正。本期采用 sig kill，目标 /sɪɡ kɪl/，SIG 读音节、KILL 读单词。此为用户选用的口播方式，非官方唯一发音；替代之前逐字母 S I G K I L L 的临时候选，新音频待复听。依据见 agent-tool-failure-timeout/assets/references/pronunciation-killpg-sigkill.md。 本期重新合成采用 sigg kill 提示硬音 /ɡ/，sigg 不是源码拼写。整句识别 SIGKILL、切片识别 CQ；实际读音待用户实听，ASR 不作发音验收。"
+    },
+    {
+      "id": "exit-code-124",
+      "match": "(?<=成 )124(?!\\d)",
+      "replace": "一二四",
+      "speakers": "*",
+      "status": "candidate",
+      "note": "2026-10-03 agent-tool-failure-timeout beat 35，退出码 124 逐位读一二四，与错误码读法一致；当前匹配该句语境，听感待复听。"
+    },
+    {
+      "id": "timeout-ten-thousand-ms",
+      "match": "(?i)(\\bafter\\s+)10000(\\s+milliseconds\\b)",
+      "replace": "\\1ten thousand\\2",
+      "speakers": "*",
+      "status": "candidate",
+      "note": "2026-10-03 agent-tool-failure-timeout beat 35，英文超时报错中的 10000 用 ten thousand 提示；沿用用户英文句子中数字用英文读法的要求，字幕原文不变，听感待复听。"
+    },
+    {
+      "id": "killpg",
+      "match": "(?i)(?<![A-Za-z])killpg(?![A-Za-z])",
+      "replace": "kill P G",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-03 用户要求按发音调研修正。本期采用 kill pee gee，目标 /kɪl piː dʒiː/，kill 读单词，P/G 读字母。此为用户选用的口播方式，非官方唯一发音；替代之前逐字母 K I L L P G 的临时候选，新音频待复听。依据见 agent-tool-failure-timeout/assets/references/pronunciation-killpg-sigkill.md。 本期重新合成采用 kill P G 提示（整句识别为 kill，切片识别为 QPG），不是逐字母拼 K I L L；P/G 待用户实听。"
     }
   ],
   "watch": [
@@ -100,14 +178,6 @@
         "S_j97bqlje2"
       ],
       "note": "file-history 曾被读出「杠」。多数连字符词读音正常，只在复听有问题时把 ttsText 里的连字符换成空格。"
-    },
-    {
-      "id": "jev",
-      "match": "(?<![A-Za-z])Jev(?![A-Za-z])",
-      "speakers": [
-        "S_j97bqlje2"
-      ],
-      "note": "what-is-jev 写成 Jeff，open-source-jev-replicas 写成 Jef，两期不一致。再出现时先和用户确定读法，确定后移入 rules。"
     },
     {
       "id": "llm",
