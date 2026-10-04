@@ -25,10 +25,23 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "agent-intent-routing": meta(
+    "Agent 的意图路由怎么设计？",
+    "Agent 意图路由",
+    "结合规则、向量比对、决策模型与大模型分层路由，理解 Handoff、低置信度澄清、错误回退和分类评估。",
+    ["意图路由", "Handoff", "semantic-router", "决策模型"],
+  ),
+  "gemini-4-argon": meta(
+    "Gemini 4 Argon 发布，100 万 Token 输出意味着什么？",
+    "Gemini 4 Argon 解读",
+    "从 Prefill、Decode 和 KV Cache 理解长输出的工程难点，拆解代码修改、安全攻防与 CodeMender。",
+    ["Gemini 4", "Argon", "长输出", "CodeMender"],
+  ),
+
   readme: meta(
-    "AI Agent 面试题 363 道（Agent八股+视频讲解）｜王二讲Agent",
-    "AI Agent 面试 363 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 363 道高频面试题。",
+    "AI Agent 面试题 364 道（Agent八股+视频讲解）｜王二讲Agent",
+    "AI Agent 面试 364 题",
+    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 364 道高频面试题。",
     ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(
@@ -468,6 +481,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "plan-and-execute",
       "react-death-loop",
       "agent-hnow-tool-call",
+      "agent-intent-routing",
     ],
   },
   {
@@ -535,6 +549,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "gemini-4-argon",
       "mimo-v3-hysparse2",
       "open-source-jev-replicas",
       "what-is-jev",
@@ -554,6 +569,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "gemini-4-argon": "7691703611381894415",
   "multi-agent-context-passing": "7691235788905893158",
   "is-plan-mode-dead": "7690807740213529882",
   "pi-agent-design-patterns": "7690524611271789850",

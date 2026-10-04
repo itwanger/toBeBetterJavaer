@@ -7,10 +7,12 @@
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
 - [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
 
-## AI Agent 面试题（363 题合集，配视频讲解）
+## AI Agent 面试题（364 题合集，配视频讲解）
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
+- [Agent 的意图路由怎么设计？](https://javabetter.cn/ai/video/agent-intent-routing.html)：结合规则、向量比对、决策模型与大模型分层路由，理解 Handoff、低置信度澄清、错误回退和分类评估。
+- [Gemini 4 Argon 发布，100 万 Token 输出意味着什么？](https://javabetter.cn/ai/video/gemini-4-argon.html)：从 Prefill、Decode 和 KV Cache 理解长输出的工程难点，拆解代码修改、安全攻防与 CodeMender。
 - [什么是 AI Agent？与直接调用大模型 API 有什么区别？](https://javabetter.cn/ai/video/what-is-agent.html)：Agent 不只是一次模型调用，而是由模型、工具、记忆和运行时共同组成，能够观察环境、执行动作并根据结果继续决策。
 - [Agent 和 ChatBot 有什么区别？如何让聊天机器人进化成 Agent？](https://javabetter.cn/ai/video/agent-chatbot-difference.html)：Agent 比 ChatBot 多出的关键能力是工具调用、任务规划和记忆，并通过持续反馈自主推进任务。
 - [Workflow 和 Agent 有什么区别？面试时该怎么回答？](https://javabetter.cn/ai/video/workflow-vs-agent.html)：Workflow 依赖预先设计的步骤与分支，Agent 则由模型结合当前状态动态决定下一步，两者可以组合使用。
@@ -63,6 +65,7 @@
 - [到底什么是语义缓存？](https://javabetter.cn/ai/video/what-is-semantic-caching.html)：语义缓存保存完整问答，通过 Embedding 和相似度检索复用已有答案。它适合高频重复问题，需要关注时间、用户身份和业务条件变化带来的误命中风险。
 - [Pi Agent 里有哪些反复出现的设计模式？](https://javabetter.cn/ai/video/pi-agent-design-patterns.html)：从 Pi 源码理解策略、适配器和责任链模式：工具如何切换执行环境，模型协议如何统一，工具调用如何被扩展拦截。
 - [Plan 模式已经死了吗？](https://javabetter.cn/ai/video/is-plan-mode-dead.html)：区分规划动作与独立 Plan 模式：模型能力提升后，何时直接执行，何时先探索，何时用 Spec 协调长任务。
+- [多 Agent 之间怎么传递上下文？](https://javabetter.cn/ai/video/multi-agent-context-passing.html)：结合 Claude Code 与 Codex 的实现，理解任务简报、fork 对话继承、最终答案回传，以及长结果通过文件引用传递的边界。
 - [构建有效 Agent 有哪三个核心原则？](https://javabetter.cn/ai/video/building-effective-agents-principles.html)：保持简单、保持透明、精心设计 Agent-Computer Interface：从最简单的方案开始，展示真实执行过程，并通过工具接口设计减少误用。
 - [GPT Images 2.5 一手实测，OpenAI 越来越有水平啦](https://javabetter.cn/ai/video/chatgpt-images-2-5.html)：OpenAI 发布 Images 2.5，生成速度比 Images 2.0 快一倍，新增 Sketch 草图功能，可以直接在对话框里画草图让 AI 照着生成图片。这期带你过一遍升级点和用法。
 - [GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？](https://javabetter.cn/ai/video/gpt-6-astra.html)：GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加有状态的 Harness，它能直接操作电脑，网络安全等级也首次达到 Critical。
@@ -128,6 +131,7 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [小米MiMo全梳理](https://javabetter.cn/sidebar/itwanger/ai/luofuli-xiaomi-mimo.html)：31 岁的罗福莉晋升小米 22 级。本文梳理小米 MiMo 从 MiMo-7B 到 MiMo-V2.6 的模型迭代、V2.6 的 RL 训练、下一代架构 HySparse2，以及 MiMo Code 和 MiMo Desktop 两款产品。
 - [Opus 5.5 焚诀](https://javabetter.cn/sidebar/itwanger/ai/claude-opus-5-5-prompting-guide.html)：拆解 Claude 官方的 Opus 5.5 使用指南，面向 Claude Code 用户讲清楚 effort 档位怎么选、提示词怎么写终点线、长任务怎么不中途停下、Sub-agent 怎么拆活、被切到旧模型怎么办，附可直接使用的 CLAUDE.md 规则和提示词。
 - [豆包工作SSH部署](https://javabetter.cn/sidebar/itwanger/ai/doubao-work-ssh-deploy.html)：豆包工作实测，通过 SSH 登录 Linux 生产服务器，完成派聪明 RAG 项目的部署准备、正式发布、失败回滚和浏览器验收，附四轮完整提示词
 - [DeepSeek Harness 桌面版实测](https://javabetter.cn/sidebar/itwanger/ai/deepseek-harness-desktop.html)：DeepSeek Harness 桌面版实测，源码拆解桌面版和 WebUI 的区别、自动更新与登录机制，讲清 DSH 一切皆插件的插件机制，并推荐 better-sidebar、dsh-TUI 等插件。
@@ -187,7 +191,6 @@
 - [Claude Code 底层架构拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-architecture-from-source.html)：拆解 Claude Code 的 6 大核心抽象和 7 级权限模式，从 Query Loop 的 async generator 设计到递归 Agent 架构，附 5 个可直接复用的设计模式。
 - [10个Codex视频推荐](https://javabetter.cn/sidebar/itwanger/ai/codex-bilibili-top10.html)：从B站上百个Codex视频中精选10个，覆盖入门教程、实战案例、进阶功能、国内接入、知识管理和行业格局，附评论区高赞避坑经验。
 - [Claude Code隐写术逆向拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-steganography.html)：逆向拆解Claude Code内置隐写术机制，从XOR解码域名黑名单到Unicode字符替换，用源码证据还原Anthropic如何通过系统提示词中的日期字符串秘密标记中国用户。
-- [Qoder 桌面版正式发布](https://javabetter.cn/sidebar/itwanger/ai/qoder-desktop-release.html)：Qoder Desktop 桌面版正式发布评测，Quest 独立视窗实战用 Qwen 3.7 夜间模式开发 PaiCLI TypeScript 版本，附夜间折扣省钱攻略。
 
 ## 开发工具
 

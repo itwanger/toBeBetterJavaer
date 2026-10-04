@@ -1,7 +1,7 @@
 ---
-title: AI Agent 面试题 363 道（Agent八股+视频讲解）｜王二讲Agent
-shortTitle: AI Agent 面试 363 题
-description: AI Agent 面试 363 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
+title: AI Agent 面试题 364 道（Agent八股+视频讲解）｜王二讲Agent
+shortTitle: AI Agent 面试 364 题
+description: AI Agent 面试 364 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
 tag:
   - 面试
 category:
@@ -24,7 +24,7 @@ date: 2026-05-20
 
 ![跟着王二讲Agent：通过完整题目系统学习，建立Agent时代的完整知识体系](https://cdn.paicoding.com/stutymore/agent-learning-completeness-20260908231154-003540aa.png)
 
-这套题库一共 363 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
+这套题库一共 364 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
 
 每道题都不是孤立的概念解释，而是串联到三个实战项目来回答。
 
@@ -167,6 +167,8 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 上下文管理、工具接口、约束、验证、纠正。前两项就是「Agent = LLM + 上下文 + 工具」里的上下文和工具，构成最小 Harness，生产系统再加上后三项保障。所以两个公式不是两套划分，Agent = Model + Harness 是同一个 Agent 在生产形态下的展开，LLM 对应 Model。两个公式都只描述 Agent 边界之内，不包含它交互的环境。
 
 完整答案：[阅读全文《Harness 五要素》](./harness-five-elements.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn04lNtwlF7lWeirrfVMoxIg)
+
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV114aZ6QEwC/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7686445668923231538)
 
@@ -355,7 +357,7 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 
 按成本分层。第一层用规则和关键词拦截确定性高的请求，比如“查订单”直接进入订单 Agent；第二层用小尺寸模型或 Embedding 分类器做意图分类，输出固定的枚举值和置信度；置信度低于阈值或者同时命中多个意图时，再交给主模型判断，主模型也判断不了就反问用户。路由的输出必须是结构化的枚举，不能让模型自由发挥。路由错了要有兜底，子 Agent 发现任务不属于自己时返回“不匹配”，由主 Agent 重新分发，同时限制重新分发的次数，避免子 Agent 之间互相推诿。效果用标注好的测试集评估，按意图分别统计准确率和召回率。
 
-完整答案：[查看图文解析](./agent-intent-routing.md)
+完整答案：[查看图文解析](./agent-intent-routing.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9EwvtD7jxyddtu6vp7pwG9)
 
 🟡 进阶 | `→ PaiAgent`
 
@@ -1598,9 +1600,19 @@ DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没�
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7670027713771621658)
 
-## 热点解读（5 题）
+## 热点解读（6 题）
 
 模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
+
+### Gemini 4 Argon 发布，100 万 Token 输出意味着什么？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+从 Prefill、Decode 和 KV Cache 的成本差异，理解百万 Token 输出的工程难点；结合长代码修改、安全攻防和 CodeMender 的工作方式，拆解 Gemini 4 Argon 的能力与使用边界。
+
+完整内容：[阅读全文《Gemini 4 Argon 解读》](./gemini-4-argon.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnqR0RwJxlmp9OctEP11Vuhf)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7691703611381894415)
 
 ### MiMo-V3 的 HySparse2 和混合滑动窗口注意力有什么区别？
 
@@ -2140,7 +2152,7 @@ Agent 这一轮变化和以往不太一样。以前的技术迭代，学一门�
 
 Alan Kay 说过一句话，「预测未来最好的办法就是去创造它」。我觉得这话放在今天特别合适。与其等着被 Agent 浪潮推着走，不如自己先把原理搞透，把项目跑通，把面试里会被问到的每一个点都准备好。
 
-所以我们选择了最笨但最扎实的方式。363 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
+所以我们选择了最笨但最扎实的方式。364 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
 
 我始终相信一件事，技术的价值不在于它有多新，而在于你是否真正理解它、用过它、能把它讲清楚。这套题库要做的就是帮你到达这个状态。
 
