@@ -4,6 +4,16 @@ from pathlib import Path
 from project_paths import SHARED,WORKSPACE,project_path,load_config,read_json,load_beats,sha256,request_hash
 from progress import summarize
 
+def cover_status(p,meta):
+    """原稿有视频封面区块时，报告首帧封面是否就绪；没有区块返回 none。原稿可能中途补封面，每次都重新读。"""
+    src=meta.get('sourceArticle');source=(p/src).resolve() if src else None
+    if not source or not source.is_file():return 'no-source'
+    text=source.read_text(encoding='utf-8')
+    if not re.search(r'video-covers:start|##\s*视频封面',text):return 'none'
+    root=p/'remotion/src/Root.tsx'
+    ok=(p/'assets/images/cover-16x9.png').is_file() and root.is_file() and 'CoverFrame' in root.read_text(encoding='utf-8')
+    return 'ready' if ok else 'missing: 原稿有视频封面区块，需下载约 16:9 的封面为 assets/images/cover-16x9.png 并在整片加 CoverFrame'
+
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True,type=project_path);args=ap.parse_args();p=args.project;cfg=load_config(p);meta=read_json(p/'project.json');data,beats=load_beats(p);checks=[]
     def check(ok,label):
@@ -23,7 +33,7 @@ def main():
             if audio_ready or not asset.startswith('audio/'):
                 check((p/'remotion/public'/asset).is_file(),f'{file.name}: {asset}')
     if beats and not audio_ready:
-        print(json.dumps({'project':str(p),'status':'awaiting-audio','checksPassed':len(checks),'audioUnits':len(beats),'missingProcessed':missing_audio,'next':'gen_audio.py then gen_cues.py','progress':summarize(meta,[c['id'] for c in data['chapters']])},ensure_ascii=False,indent=2));return
+        print(json.dumps({'project':str(p),'status':'awaiting-audio','checksPassed':len(checks),'audioUnits':len(beats),'missingProcessed':missing_audio,'cover':cover_status(p,meta),'next':'gen_audio.py then gen_cues.py','progress':summarize(meta,[c['id'] for c in data['chapters']])},ensure_ascii=False,indent=2));return
     if beats:
         cues=read_json(p/'build/cues.json');chapters=read_json(p/'build/chapters.json');manifest=read_json(p/'build/timeline-manifest.json')
         check([b['id'] for b in beats]==[b['id'] for b in cues],'audio unit order matches cues')
@@ -41,5 +51,5 @@ def main():
         check(chapter_cursor==cursor,'chapter and cue totals match')
         check((p/manifest['audioSource']).is_file(),'manifest voiceover path')
     check(cfg['tts']['atempo']>0 and cfg['video']['fps']>0,'project configuration')
-    print(json.dumps({'project':str(p),'status':'ready' if beats else 'draft','checksPassed':len(checks),'audioUnits':len(beats),'speakerId':cfg['tts']['speakerId'],'atempo':cfg['tts']['atempo'],'output':str(p/'output'/meta['outputName']),'progress':summarize(meta,[c['id'] for c in data['chapters']])},ensure_ascii=False,indent=2))
+    print(json.dumps({'project':str(p),'status':'ready' if beats else 'draft','checksPassed':len(checks),'audioUnits':len(beats),'speakerId':cfg['tts']['speakerId'],'atempo':cfg['tts']['atempo'],'output':str(p/'output'/meta['outputName']),'cover':cover_status(p,meta),'progress':summarize(meta,[c['id'] for c in data['chapters']])},ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

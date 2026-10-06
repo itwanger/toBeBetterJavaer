@@ -25,6 +25,18 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "agent-tool-failure-timeout": meta(
+    "Agent 调用工具失败或者超时了怎么办？",
+    "工具失败与超时",
+    "区分瞬时错误和确定性错误，结合错误结果回传、退避重试、进程接管和幂等设计处理工具故障。",
+    ["工具调用", "错误恢复", "超时", "幂等"],
+  ),
+  "nine-prompting-techniques-for-better-llm": meta(
+    "9个让Agent提高输出质量的提示词技巧",
+    "9 个提示词技巧",
+    "通过少样本提示、结构化输出、推理强度、规则检查和言语化采样改善 Agent 的输出质量。",
+    ["提示词工程", "Structured Outputs", "ARQ", "言语化采样"],
+  ),
   "agent-intent-routing": meta(
     "Agent 的意图路由怎么设计？",
     "Agent 意图路由",
@@ -456,6 +468,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "agent-tool-failure-timeout",
+      "agent-intent-routing",
       "multi-agent-context-passing",
       "is-plan-mode-dead",
       "pi-agent-design-patterns",
@@ -481,7 +495,6 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "plan-and-execute",
       "react-death-loop",
       "agent-hnow-tool-call",
-      "agent-intent-routing",
     ],
   },
   {
@@ -559,6 +572,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
+    text: "08 / Prompt 工程",
+    children: ["nine-prompting-techniques-for-better-llm"],
+  },
+  {
     text: "11 / 模型训练与微调",
     children: ["what-is-reinforcement-learning"],
   },
@@ -569,6 +586,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "nine-prompting-techniques-for-better-llm": "7692668076902468879",
+  "agent-tool-failure-timeout": "7692321158200331555",
+  "agent-intent-routing": "7691947967841864960",
   "gemini-4-argon": "7691703611381894415",
   "multi-agent-context-passing": "7691235788905893158",
   "is-plan-mode-dead": "7690807740213529882",

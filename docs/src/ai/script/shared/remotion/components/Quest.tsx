@@ -140,7 +140,8 @@ export type QuizOption = { key: string; label: string; icon: React.ReactNode; at
  * `prompt` fills the card area while the question is asked and fades out just before the first option.
  */
 export const QuizBoard: React.FC<{
-  number: number;
+  /** 旧项目的“第 N 题”标签；新视频不传。 */
+  number?: number;
   options: QuizOption[];
   offset: number;
   answers?: string[];
@@ -157,9 +158,12 @@ export const QuizBoard: React.FC<{
   const promptOpacity = 1 - fadeIn(f, options[0].at - 6, 6);
   return (
     <SceneEntrance>
-      <div style={{ position: 'absolute', left: 0, right: 0, top: 200, textAlign: 'center' }}>
-        <span style={{ ...tag, fontSize: 34, padding: '10px 30px', background: C.ink, color: 'white' }}>第 {number} 题</span>
-      </div>
+      {/* 新视频不传 number，不显示“第 N 题”（2026-10-05 用户要求删掉）；旧项目传了 number，保持原样。 */}
+      {number !== undefined && (
+        <div style={{ position: 'absolute', left: 0, right: 0, top: 200, textAlign: 'center' }}>
+          <span style={{ ...tag, fontSize: 34, padding: '10px 30px', background: C.ink, color: 'white' }}>第 {number} 题</span>
+        </div>
+      )}
       {prompt && promptOpacity > 0 && <div style={{ position: 'absolute', inset: 0, opacity: promptOpacity }}>{prompt}</div>}
       {options.map((o, i) => {
         const right = revealed && answers.includes(o.key);

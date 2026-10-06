@@ -1,0 +1,15 @@
+{
+  "publisher": "Z.ai / 智谱",
+  "brand": "GLM",
+  "usage": "GLM-5.3 官方模型仓库使用的 Z.ai 标志；用于 GLM 品牌识别，具体模型版本由旁边的名称标签表达。",
+  "retrievedOn": "2026-10-06",
+  "artworkModified": false,
+  "assets": [
+    {
+      "asset": "glm-logo.svg",
+      "downloadUrl": "https://raw.githubusercontent.com/zai-org/GLM-5/main/resources/logo.svg",
+      "reference": "https://github.com/zai-org/GLM-5",
+      "sha256": "e60742a0b37f805e654249dedb7b6ca11c785a60a2dd9ae33864668dce217693"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "_comment": "配音读法词典。rules 由 apply_pronunciations.py 写入 beats.json 的 ttsText，字幕 text 不变；watch 只列出待复听的 beat。speakers 为 * 表示与音色无关，否则只对列出的音色生效。status: confirmed=用户复听认可；candidate=已在成片中使用并做过 ASR 检查，尚无用户对听感的明确确认。",
+  "_comment": "配音读法词典。rules 由 pronunciations.py 写入 beats.json 的 ttsText，字幕 text 不变；watch 只列出待复听的 beat。speakers 为 * 表示与音色无关，否则只对列出的音色生效。status: confirmed=用户明确指定读法或复听认可，具体依据见 note，重生成音频仍需单独复听；candidate=读法候选，尚无用户对该读法的明确确认。",
   "rules": [
     {
       "id": "comment-222",
@@ -152,6 +152,64 @@
       ],
       "status": "candidate",
       "note": "2026-10-03 用户要求按发音调研修正。本期采用 kill pee gee，目标 /kɪl piː dʒiː/，kill 读单词，P/G 读字母。此为用户选用的口播方式，非官方唯一发音；替代之前逐字母 K I L L P G 的临时候选，新音频待复听。依据见 agent-tool-failure-timeout/assets/references/pronunciation-killpg-sigkill.md。 本期重新合成采用 kill P G 提示（整句识别为 kill，切片识别为 QPG），不是逐字母拼 K I L L；P/G 待用户实听。"
+    },
+    {
+      "id": "sigterm",
+      "match": "(?i)(?<![A-Za-z])SIGTERM(?![A-Za-z])",
+      "replace": "sigg term",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-05 agent-task-cancellation，参照 sigkill 规则的读法（SIG 读音节、TERM 读单词），待复听。"
+    },
+    {
+      "id": "qwen-3-8-before-zhexie",
+      "match": "Qwen3\\.8(?=\\s*这些)",
+      "replace": "Qwen 三点八",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-06 aleph-alpha-kolibri beat 17，整句和两段局部转写均出现 Qwen 三月八日。限定 Qwen3.8 这些开源模型的上下文，用三点八提示型号。新配音需复核，听感尚待用户复听，字幕不变。"
+    },
+    {
+      "id": "parameters-78b",
+      "match": "(?<!\\d)78\\s*B(?![A-Za-z0-9])",
+      "replace": "七十八 B",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "confirmed",
+      "note": "2026-10-06 aleph-alpha-kolibri，用户明确要求总参数读七十八 B，避免七八 B。当前项目包含 beat 2 和 beat 9 两处，字幕保留 78B；重生成配音仍需实际复听。"
+    },
+    {
+      "id": "qwen-chinese-name",
+      "match": "(?i)(?<![A-Za-z])Qwen(?![A-Za-z])",
+      "replace": "千问 ",
+      "speakers": "*",
+      "status": "confirmed",
+      "note": "2026-10-06 aleph-alpha-kolibri，用户明确要求 Qwen 直接读千问；字幕保留英文拼写。重生成音频仍待实际复听。"
+    },
+    {
+      "id": "qwen-version-3-8",
+      "match": "千问\\s*3\\.8",
+      "replace": "千问 三点八",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-06 aleph-alpha-kolibri，型号 3.8 用三点八提示，避免日期读法；字幕保留数字，新音频待实际复听。"
+    },
+    {
+      "id": "qwen-version-3-6",
+      "match": "千问\\s*3\\.6",
+      "replace": "千问 三点六",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-06 aleph-alpha-kolibri，型号 3.6 用三点六提示；字幕保留数字，新音频待实际复听。"
     }
   ],
   "watch": [

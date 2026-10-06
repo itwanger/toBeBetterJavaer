@@ -10,7 +10,7 @@
 script/
 ├── package.json / package-lock.json  共用 Node 依赖与锁定版本
 ├── shared/
-│   ├── VISUAL_STYLE.md               画面规范，Claude Code 与 Codex 共用
+│   ├── VISUAL_STYLE.md               画面规范入口，Claude Code 与 Codex 共用
 │   ├── config/video.config.json      新项目默认配置，无密钥
 │   ├── config/pronunciations.json    配音读法词典（按音色生效）
 │   ├── assets/ergo-avatar.jpg        默认人物原图
@@ -105,7 +105,7 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 }
 ```
 
-数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略。beat 按完整句子或自然意群划分，不以字幕长度或目标段数决定合成次数；一个 beat 内可切换多组字幕和动画。连续画面共用 Sequence；用户反馈配音断句过多时，可合并相关意群重新合成，并在项目中保存旧短语到新配音单元的映射。短语时点必须从新音频定位，不能继续把已移除的 beat ID 当作 cues 查询。具体见 [配音单元与字幕短语分开](../../../../../.claude/skills/ergo-remotion-video/references/B39_LESSONS.md#配音单元与字幕短语分开)。迁移旧项目不自动重拆或重合成。
+数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略。beat 按完整句子或自然意群划分，不以字幕长度或目标段数决定合成次数；一个 beat 内可切换多组字幕和动画。讲同一画面的相邻 beat 共用 Sequence；用户反馈配音断句过多时，可合并相关意群重新合成，并在项目中保存旧短语到新配音单元的映射。短语时点必须从新音频定位，不能继续把已移除的 beat ID 当作 cues 查询。具体见 [配音单元与字幕短语分开](../../../../../.claude/skills/ergo-remotion-video/references/AV_SYNC.md#配音单元与字幕短语分开)。迁移旧项目不自动重拆或重合成。
 
 `OUTLINE.md` 同时维护正文配图的使用映射：来源 URL、项目文件、场景、beat 范围、预览检查状态。每张保留的正文图都要有明确去向；未采用则记录原因。素材清单只登记下载路径不能代替分镜。逐章检查要覆盖实际配图帧和主要动画场景，确认图片完整可读、字幕切换时图像保持连续。
 
@@ -121,6 +121,8 @@ python3 docs/src/ai/script/shared/tools/pronunciations.py --project docs/src/ai/
 ```
 
 规则按 `speakers` 限定音色，换音色后不生效，需要重新验证后再加。`status` 为 `candidate` 的规则写入后仍要复听。用户确认某个读法，或新发现一个误读，就更新词典条目，不在文档里追加案例。判断误读和局部修复的方法见 [TTS 使用约定](../../../../../.claude/skills/ergo-remotion-video/references/VOLCENGINE_TTS_GUIDE.md#判断是否读错)。
+
+用户指定读法时直接采用，扫描当前项目全部章节，字幕 `text` 保持不变；数字按数量、错误码或型号的实际语义处理。修正已有配音先运行 `pronunciations.py` 查看范围，再用 `--write --include-voiced` 写入并核对，仅重生成受影响的完整意群。词典的用户指定状态与新音频的复听验收分开记录；具体方法见 [局部修复](../../../../../.claude/skills/ergo-remotion-video/references/VOLCENGINE_TTS_GUIDE.md#局部修复)。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/gen_audio.py --project docs/src/ai/script/what-is-kv-cache --dry-run
@@ -148,6 +150,8 @@ python3 docs/src/ai/script/shared/tools/asr_slice.py --project docs/src/ai/scrip
 输出在 `preview/chapter<N>-asr.json`（含与朗读文本的归一化差异）和 `preview/ch<N>-forced-alignment.json`。差异多为转写归一化（Claude 写成 Cloud、“地”写成“的”、数字写成汉字），只有同一位置多次出现多余或缺失音节才值得处理。ASR 一致不等于读音验收。
 
 每章的字幕分组和动画锚点写在 `assets/references/ch<N>-spec.json`，格式见 `build_timing.py` 的说明：字幕短语必须原样拼接成原文（保留空格），单行宽度不超过 34 个单位；字幕与朗读不一致时（87% 读“百分之八十七”、路径读“点 agent 斜杠”）用 `[字幕, 朗读锚点]`。事件锚点为 null（单元起点）、"end" 或朗读文本中的片段，附偏移帧数（入场常用 -5）。
+
+修正读音后，字幕起点和事件锚点都对照新 `ttsText` 检查；品牌英文改读中文时尤其不能继续用英文查询起音。重新对齐、生成时点并同步提示音后，按章节顺序交付全部修改处的上下文试听。Studio 未成功加载并播放新资源时，明确记录播放未验证。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/build_timing.py --project docs/src/ai/script/<topic> --chapter ch2
@@ -191,6 +195,8 @@ python3 docs/src/ai/script/shared/tools/verify_export.py --project docs/src/ai/s
 ```bash
 node docs/src/ai/script/shared/tools/remotion.mjs render --project docs/src/ai/script/<topic> --detach
 ```
+
+渲染前入口会重新读原稿：有“视频封面”区块时必须已有 `assets/images/cover-16x9.png`，且 `Root.tsx` 用了 `CoverFrame`，否则报错退出；用户明确不要首帧封面时加 `--no-cover`。`doctor.py` 输出的 `cover` 字段同样报告 `ready`、`missing`、`none`。
 
 render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频流，用项目 `deliveryAudio` 指定的混音（未设置时使用 `build/voiceover.wav`）重新编码 AAC、按总帧数截定时长，写到 `output/<project.outputName>`。这样处理已有导出中观察到的统一音频延迟；仍需实际验证。失败时不替换已有最终 MP4。
 
@@ -237,11 +243,11 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 ## 共享场景组件
 
-从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Stage.example.tsx](remotion/examples/Stage.example.tsx) 复制起步，画面要求见 [VISUAL_STYLE.md](VISUAL_STYLE.md)；[examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 是按场景切换的旧写法，旧项目维护时参考。旧项目保留自己的写法，不批量迁移。
+从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 复制起步，画面要求见 [VISUAL_STYLE.md](VISUAL_STYLE.md)。旧项目保留自己的写法，不批量迁移。
 
 |组件|文件|用途|
 |---|---|---|
-|`ChapterShell`|`Scenes.tsx`|背景、章节音频、`ChapterStrip` 导航、底部单行字幕|
+|`ChapterShell`|`Scenes.tsx`|背景、章节音频、`ChapterStrip` 导航、底部单行字幕；传 `progress={CHAPTERS}` 时在字幕下方画按章节分段的进度条（`ChapterProgress`），不传时保持旧版式|
 |`SceneChain`|`Scenes.tsx`|按起点列表挂载场景，每个场景持续到下一个场景开始，不再手算 `durationInFrames`|
 |`subtitleAt`|`Scenes.tsx`|取某个章节局部帧上的字幕|
 |`FigureCard`|`Scenes.tsx`|原稿配图，`contain` 完整显示。新视频加 `plain`，去掉黑框、阴影和白底；不加时保持旧的卡片样式，旧项目不受影响。`dark` 用于终端截图|
@@ -251,8 +257,10 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |`SceneEntrance`、`ConceptIcon`|`Enhancements.tsx`|短入场转场；paper、terminal、feedback、error 四个概念图标|
 |`CheckpointIcon` 等 10 个|`Icons.tsx`|检查点、对话、依赖包、分块、发出邮件、回滚、齿轮、法槌、概率、哨子|
 |`LevelStairs`、`QuizBoard`|`Quest.tsx`|闯关段位台阶、按配音入场的选项卡与答案揭晓；题目示意图、选项图标和时点由项目传入|
-|`track`、`life`、`Actor`、`Spotlight`|`Stage.tsx`|连续画面：关键帧插值、入场淡出透明度、按中心点定位的元素、背景点阵与跟随焦点的柔光|
-|`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意：输入框打字、思考标记、回复逐行出现、`/model` 菜单；需要项目 `images/claude-code.png`、`images/codex.png`|
+|`AgentBot`、`UserIcon`、`UserBubble`|`Figures.tsx`|Agent 机器人头、用户头像、用户消息气泡；从 agent-intent-routing 提升，标签和颜色由项目传入|
+|`FigureFocus`、`focusAt`、`FocusNote`、`FocusRing`|`FigureFocus.tsx`|原稿配图镜头聚焦：按关键帧在原图上平移放大、拉回全图；`FocusRing` 在整图上圈出当前栏（多栏信息图用它，不放大）；`fitBox` 取和原图同宽高比的取景框，带边框的配图必须用；children 叠加的标记随镜头移动；`FOCUS_BOX` + `FOCUS_GUIDE` 为左图右说明列布局，`FOCUS_BOX_WIDE` 为居中取景|
+|`track`、`life`、`Actor`、`Spotlight`|`Stage.tsx`|连续画面试验版（2026-10 停用），只有 nine-prompting-techniques-for-better-llm 使用，新视频不用|
+|`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意，同属连续画面试验版；稿子确实在演示产品操作时可以单独使用|
 |`C`、`card`、`Popped`、`Arrow`|`index.tsx`|配色、卡片样式、入场、箭头|
 
 两期以上重复手写的场景或图标，确认不含主题数据后提升到这里，并在本表登记。修改共享组件保持向后兼容，旧项目的成片不重新渲染。
@@ -261,6 +269,10 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 新制章节按 Skill 的轻量增强规则选择效果，旧项目保持现有设置。共享 `Enhancements.tsx` 提供短入场转场与概念图标；品牌素材来源记入 `shared/assets/brands/`。本期的事件时点保存在项目 `assets/references/sound-plan.json`，每个事件指定 `beatId`、`offsetFrames`、`sound`、`peakDbfs` 与用途。
 
+### 品牌素材复用
+
+具体模型和产品优先使用共享库中的官方标志；未收录时先查官网或官方模型仓库，确认没有可用官方素材后才采用带明确名称的通用概念图形。
+
 品牌图标使用前查看 `shared/assets/brands/<name>.source.json`，核对来源及素材哈希，再将图片复制到本项目 `assets/images/`，来源记录复制到 `assets/references/`。
 
 |产品|共享素材|已核实来源|
@@ -268,10 +280,36 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |Claude Code|`shared/assets/brands/claude-code.png`|Anthropic 官方 VS Code 扩展；详情见同名 `.source.json`|
 |Codex|`shared/assets/brands/codex.png`|OpenAI 官方 VS Code 扩展中的 Codex 应用图标；详情见同名 `.source.json`|
 |DeepSeek|`shared/assets/brands/deepseek.png`|DeepSeek 官网 `favicon.ico` 小鲸鱼；无缩放转为 PNG，原 ICO 与同名 `.source.json` 一并保留|
+|Kolibri|`shared/assets/brands/kolibri-logo-banner.webp`、`kolibri-wordmark.svg`|Aleph Alpha 官网公告横幅的蜂鸟与字标、导航白色字标；见 `kolibri.source.json`|
+|GLM / Z.ai|`shared/assets/brands/glm-logo.svg`|GLM-5.3 官方模型仓库使用的 Z.ai 标志；见 `glm.source.json`|
+|Qwen|`shared/assets/brands/qwen-logo.png`|Qwen 官网的 80×80 图标；见 `qwen.source.json`|
+|Aleph Alpha|`shared/assets/brands/aleph-alpha-logo.svg`|Aleph Alpha 官网黑色字标；见 `aleph-alpha.source.json`|
+
+Kolibri 横幅原图为 1920×660，蜂鸟与字标视窗为 `[660, 213, 1260, 423]`（原图像素）。只调整显示窗口，保留原文件；窗口随版面等比缩放，不切掉蜂鸟或文字。白色 `kolibri-wordmark.svg` 配深色背景，黑色 Aleph Alpha 字标配浅色背景。GLM 与 Qwen 的版本号由旁边的文字标签表达，不把共用品牌标志称为某个版本的专属标志。
+
+例如复用 Qwen 素材与来源：
+
+```bash
+cp docs/src/ai/script/shared/assets/brands/qwen-logo.png docs/src/ai/script/aleph-alpha-kolibri/assets/images/
+cp docs/src/ai/script/shared/assets/brands/qwen.source.json docs/src/ai/script/aleph-alpha-kolibri/assets/references/
+```
+
+其他项目替换命令中的项目目录；Kolibri 复制两个素材文件和 `kolibri.source.json`。来源记录保存下载地址、官方引用页、获取日期与 SHA256，便于核对和后续更新。
 
 讲到 DeepSeek 或 DeepSeek Harness 的自制标题和卡片时，名称旁优先放官方小鲸鱼，不用通用机器人图形代替品牌标识。
 
 小图标用于自制卡片、项目标题等需要识别产品的位置，原稿整图保持原样。同排图标等比缩放，按视觉大小协调容器和名称间距；尺寸随版面确定，不固定为某期的像素值。新增官方图标经来源与预览核验后补入共享库和本清单。
+
+### 硬件产品图复用
+
+讲具体 GPU 型号时优先用官方产品图。素材位于 `shared/assets/hardware/`，原始文件、产品形态、官方引用页、下载地址、日期、尺寸和 SHA256 一起保存；用前将图片复制到项目 `assets/images/`，对应 `.source.json` 复制到 `assets/references/`。原图使用 `objectFit: contain` 等比完整显示，不用通用双风扇显卡冒充数据中心 GPU，不重绘 NVIDIA 标志。
+
+|产品|共享素材|官方来源与形态|
+|---|---|---|
+|NVIDIA A100|`hardware/nvidia-a100-sxm.jpg`、`nvidia-a100.source.json`|NVIDIA A100 产品页的 A100 for HGX，SXM 模块|
+|NVIDIA H100|`hardware/nvidia-h100-sxm.jpg`、`nvidia-h100.source.json`|NVIDIA Hopper Architecture In-Depth 图 1，SXM5 模块|
+
+SXM、PCIe、NVL 的外观不同，图旁标清所用形态，不用 SXM 图指代 PCIe 外形。型号为替代选择时写清“或”；“2 张 A100 或 H100”配分别标注的型号图，不把一张 A100 加一张 H100 画成推荐混装。H100 官网横幅另存 `hardware/nvidia-h100-banner.jpg` 及来源记录，只用于需要横幅的场景。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/script/what-is-agent-reflection

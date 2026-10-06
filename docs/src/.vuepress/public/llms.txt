@@ -11,6 +11,8 @@
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
+- [Agent 调用工具失败或者超时了怎么办？](https://javabetter.cn/ai/video/agent-tool-failure-timeout.html)：区分瞬时错误和确定性错误，结合错误结果回传、退避重试、进程接管和幂等设计处理工具故障。
+- [9个让Agent提高输出质量的提示词技巧](https://javabetter.cn/ai/video/nine-prompting-techniques-for-better-llm.html)：通过少样本提示、结构化输出、推理强度、规则检查和言语化采样改善 Agent 的输出质量。
 - [Agent 的意图路由怎么设计？](https://javabetter.cn/ai/video/agent-intent-routing.html)：结合规则、向量比对、决策模型与大模型分层路由，理解 Handoff、低置信度澄清、错误回退和分类评估。
 - [Gemini 4 Argon 发布，100 万 Token 输出意味着什么？](https://javabetter.cn/ai/video/gemini-4-argon.html)：从 Prefill、Decode 和 KV Cache 理解长输出的工程难点，拆解代码修改、安全攻防与 CodeMender。
 - [什么是 AI Agent？与直接调用大模型 API 有什么区别？](https://javabetter.cn/ai/video/what-is-agent.html)：Agent 不只是一次模型调用，而是由模型、工具、记忆和运行时共同组成，能够观察环境、执行动作并根据结果继续决策。

@@ -1,0 +1,15 @@
+{
+  "publisher": "Aleph Alpha",
+  "brand": "Aleph Alpha",
+  "usage": "Aleph Alpha 官网黑色字标，适合浅色背景，保持原比例。",
+  "retrievedOn": "2026-10-06",
+  "artworkModified": false,
+  "assets": [
+    {
+      "asset": "aleph-alpha-logo.svg",
+      "downloadUrl": "https://aleph-alpha.com/_astro/logo-wbm.BbZZsjJT_2eFLy7.svg",
+      "reference": "https://aleph-alpha.com/en/",
+      "sha256": "8b7e64fbc3e94899852c6478a83924cc7e5d73d002d5fe0f0bfc70270568bb0c"
+    }
+  ]
+}

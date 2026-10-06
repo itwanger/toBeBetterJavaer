@@ -40,7 +40,7 @@ date: 2026-05-20
 
 [飞书题库入口](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb)：按分类浏览题目和详细答案，展开左上角目录即可切换阅读。
 
-> 分类与排序说明：前 7 个分类与网站侧边栏保持一致，后 5 个分类为 README 独有专项，中间的「热点解读」是模型发布和行业事件的拆解。每类已发布视频的题目按发布顺序倒序排列，新视频优先；尚未发布视频的题目保留在后面。原题号作为固定编号保留，不随展示顺序改变；疑似重复题仍保留，确认前暂不删除。
+> 分类与排序说明：题目按知识主题分类，网站侧边栏收录已完成的脚本；「热点解读」用于拆解模型发布和行业事件。每类已发布视频的题目按发布顺序倒序排列，新视频优先；尚未发布视频的题目保留在后面。原题号作为固定编号保留，不随展示顺序改变；疑似重复题仍保留，确认前暂不删除。
 
 你也可以加我的微信【备注AI】，小助理会拉你进AI交流群的。
 
@@ -51,6 +51,30 @@ date: 2026-05-20
 ## 01、Agent 基础（43 题）
 
 聚焦 Agent 的定义、工作方式、规划、反思和多 Agent 协作。部分新增题目参考了开源书《深入理解 AI Agent：设计原理与工程实践》（[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)）的章节结构和各章思考题。
+
+### 27. 工具调用失败或超时怎么处理？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+先分类再处理。网络抖动、限流这类瞬时错误，在工具内部做有限次数的指数退避重试，对模型透明；参数错误、业务校验失败这类确定性错误不要盲目重试，把错误原因和修改建议作为工具结果返回给模型，让模型换参数重新调用；超时要真正取消底层操作，而不是只丢掉返回值。模型输出非法 JSON 时，先尝试修复，修复不了就把解析错误返回给模型重新生成，并限制次数。有副作用的工具必须保证幂等，用请求 ID 去重，否则一次重试就可能重复扣款。同一步连续失败超过阈值，就停止当前任务，交给用户或人工处理。
+
+完整答案：[查看图文解析](./agent-tool-failure-timeout.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnA6B9PeymaJVRbbmhqnq4rc)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7692321158200331555)
+
+🟡 进阶 | `→ PaiCLI / PaiAgent`
+
+### 26. Agent 的意图路由怎么设计？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+按成本分层。第一层用规则和关键词拦截确定性高的请求，比如“查订单”直接进入订单 Agent；第二层用小尺寸模型或 Embedding 分类器做意图分类，输出固定的枚举值和置信度；置信度低于阈值或者同时命中多个意图时，再交给主模型判断，主模型也判断不了就反问用户。路由的输出必须是结构化的枚举，不能让模型自由发挥。路由错了要有兜底，子 Agent 发现任务不属于自己时返回“不匹配”，由主 Agent 重新分发，同时限制重新分发的次数，避免子 Agent 之间互相推诿。效果用标注好的测试集评估，按意图分别统计准确率和召回率。
+
+完整答案：[查看图文解析](./agent-intent-routing.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9EwvtD7jxyddtu6vp7pwG9)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7691947967841864960)
+
+🟡 进阶 | `→ PaiAgent`
 
 ### 25. 多 Agent 之间怎么传递上下文？
 
@@ -146,6 +170,8 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687551756691098921)
 
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1qyaZ6gEW2/)
+
 🟡 进阶 | `→ Claude Code / Codex / PaiCLI`
 
 ### 17. 如果只能给 Agent 增加一项能力，更强的 LLM，更长的 Context，还是更多的 Tool？
@@ -157,6 +183,8 @@ Checkpoint 是运行时内存与工作环境状态的持久化保存机制，本
 完整答案：[阅读全文《LLM、Context 还是 Tool》](./llm-context-or-tool.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnxzhVZg2S2xYovphICB4itf)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687137647629765915)
+
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1WbaZ6JEpP/)
 
 🟡 进阶 | `→ PaiCLI`
 
@@ -350,24 +378,6 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 完整答案：[阅读全文《Agent 如何选工具》](./agent-hnow-tool-call.md) · [B站视频](https://www.bilibili.com/video/BV1m9j16DEmv/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9rIl9b694aSTLupaEUzzne)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7654443885439094042)
-
-### 26. Agent 的意图路由怎么设计？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-按成本分层。第一层用规则和关键词拦截确定性高的请求，比如“查订单”直接进入订单 Agent；第二层用小尺寸模型或 Embedding 分类器做意图分类，输出固定的枚举值和置信度；置信度低于阈值或者同时命中多个意图时，再交给主模型判断，主模型也判断不了就反问用户。路由的输出必须是结构化的枚举，不能让模型自由发挥。路由错了要有兜底，子 Agent 发现任务不属于自己时返回“不匹配”，由主 Agent 重新分发，同时限制重新分发的次数，避免子 Agent 之间互相推诿。效果用标注好的测试集评估，按意图分别统计准确率和召回率。
-
-完整答案：[查看图文解析](./agent-intent-routing.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9EwvtD7jxyddtu6vp7pwG9)
-
-🟡 进阶 | `→ PaiAgent`
-
-### 27. 工具调用失败或超时怎么处理？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-先分类再处理。网络抖动、限流这类瞬时错误，在工具内部做有限次数的指数退避重试，对模型透明；参数错误、业务校验失败这类确定性错误不要盲目重试，把错误原因和修改建议作为工具结果返回给模型，让模型换参数重新调用；超时要真正取消底层操作，而不是只丢掉返回值。模型输出非法 JSON 时，先尝试修复，修复不了就把解析错误返回给模型重新生成，并限制次数。有副作用的工具必须保证幂等，用请求 ID 去重，否则一次重试就可能重复扣款。同一步连续失败超过阈值，就停止当前任务，交给用户或人工处理。
-
-🟡 进阶 | `→ PaiCLI / PaiAgent`
 
 ### 28. Human-in-the-loop 怎么设计？
 
@@ -1654,6 +1664,17 @@ GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加
 
 聚焦系统提示词、Few-shot、自洽性、提示词评测、注入防护，以及 Prompt Engineering 的实践方法。
 
+### 270. 如何写好 Prompt？分享下 Prompt 工程的实践经验？
+
+<p class="agent-duplicate-question">
+核心原则：角色设定（“你是一个资深Java工程师”）、明确任务（具体描述要做什么）、输出格式约束（JSON/Markdown）、Few-shot 示例（给几个例子）、约束条件（不要做什么）。PaiCLI 做了一套 Prompt 分层设计，从系统级到 Skill 级，层级越高优先级越高。
+
+完整答案：[查看图文解析《9 个提示词技巧》](./nine-prompting-techniques-for-better-llm.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnf6Xkp0w5bQ8zphEVzWesOd)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7692668076902468879)
+
+🟡 进阶 | `→ PaiCLI Prompt 分层覆盖机制`
+
 ### 255. 什么是提示词工程（Prompt Engineering）？
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
 
@@ -1714,13 +1735,6 @@ GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加
 
 ### 269. 什么是思维树 Tree of Thoughts？它相比 CoT 有什么优势？
 🔴 困难 | `Prompt / 思维树` | → PaiCLI / PaiAgent
-
-### 270. 如何写好 Prompt？分享下 Prompt 工程的实践经验？
-
-<p class="agent-duplicate-question"><span>REVIEW</span> 疑似重复 · 待确认：与「什么是提示词工程（Prompt Engineering）？」内容重合</p>
-核心原则：角色设定（“你是一个资深Java工程师”）、明确任务（具体描述要做什么）、输出格式约束（JSON/Markdown）、Few-shot 示例（给几个例子）、约束条件（不要做什么）。PaiCLI 做了一套 Prompt 分层设计，从系统级到 Skill 级，层级越高优先级越高。
-
-🟡 进阶 | `→ PaiCLI Prompt 分层覆盖机制`
 
 ## 09、MCP 与工具调用（26 题）
 
@@ -1933,6 +1947,8 @@ PaiCLI 实现了一套完整的安全机制：HITL（Human-in-the-Loop）人工�
 预训练是自监督学习，模型靠遮住词自己猜来刷题，学到的是知识。强化学习没有老师也没有教材，模型直接和环境互动，答对给奖励，答错给惩罚，靠试错调整策略。DeepSeek-R1-Zero 没用任何标注数据，纯靠 RL 让模型自己学会了推理，训练中涌现出「等一下，让我重新想想」这样的反思。各家往 RL 砸钱，是因为高质量预训练数据快用完了，RL 只需要一个能判断对错的奖励信号。小米 MiMo-V2.6 的 RL 训练每步约 20 亿 token，4 万多个沙箱并行。
 
 完整答案：[阅读全文《什么是强化学习》](./what-is-reinforcement-learning.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnOs8QKsBv0mgLOfyzmILLse)
+
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1A8aZ6DERC/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7686739151072365839)
 

@@ -1,0 +1,13 @@
+{
+  "product": "NVIDIA H100",
+  "officialPage": "https://www.nvidia.com/en-us/data-center/h100/",
+  "downloadUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/gtcs22/data-center/h100/hopper-h100-kv-bb460_420-d.jpg",
+  "downloadedAt": "2026-10-06",
+  "file": "nvidia-h100-banner.jpg",
+  "size": [
+    2560,
+    460
+  ],
+  "sha256": "a444235ed69de0ffec661155387351d31392f505961dd93064babe24ae47b469",
+  "use": "Official product render. Preserve original image and use contain. Product variants must be identified from source."
+}

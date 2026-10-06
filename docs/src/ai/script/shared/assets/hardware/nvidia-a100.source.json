@@ -1,0 +1,13 @@
+{
+  "product": "NVIDIA A100 SXM module for HGX",
+  "officialPage": "https://www.nvidia.com/en-us/data-center/a100/",
+  "downloadUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/nvidia-a100-hgx-3qtr-front-left-2c50-d@2x.jpg",
+  "downloadedAt": "2026-10-06",
+  "file": "nvidia-a100-sxm.jpg",
+  "size": [
+    1260,
+    709
+  ],
+  "sha256": "e20ef3ca6c970709b816f38c5c689bc1f2fb1ba1a12cd6eec0a92c044931ea1e",
+  "use": "Official A100 for HGX product render. Preserve complete source and use contain. This is an SXM module, not a PCIe card."
+}

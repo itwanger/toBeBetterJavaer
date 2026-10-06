@@ -44,14 +44,46 @@ export interface ChapterShellProps {
   audio: {src: string; startFrom: number; endAt: number};
   /** Hide the chapter strip, e.g. while an interview opening uses the top area. */
   showStrip?: boolean;
+  /**
+   * All chapters' absolute frame ranges (CHAPTERS from build/cues). When given, a segmented progress bar
+   * is drawn under the subtitle and the subtitle moves up to make room. Omitted: old layout, no bar.
+   */
+  progress?: ChapterRange[];
   background?: string;
   children: React.ReactNode;
 }
 
+export type ChapterRange = {startFrame: number; endFrame: number};
+
+const PROGRESS = {bottom: 30, height: 6, gap: 10, side: 96};
+
+/**
+ * Segmented progress bar, one segment per chapter, widths proportional to chapter length. Past chapters
+ * are full, the current one fills with `globalFrame`, later ones stay grey.
+ */
+export const ChapterProgress: React.FC<{chapters: ChapterRange[]; globalFrame: number; active: number}> = ({chapters, globalFrame, active}) => {
+  const total = chapters[chapters.length - 1].endFrame - chapters[0].startFrame;
+  return (
+    <div style={{position: 'absolute', left: PROGRESS.side, right: PROGRESS.side, bottom: PROGRESS.bottom, height: PROGRESS.height, zIndex: 30,
+      display: 'flex', gap: PROGRESS.gap}}>
+      {chapters.map((c, i) => {
+        const fill = i < active ? 1 : i > active ? 0 : Math.min(1, Math.max(0, (globalFrame - c.startFrame) / (c.endFrame - c.startFrame)));
+        return (
+          <div key={i} style={{flex: `${(c.endFrame - c.startFrame) / total} 1 0`, height: '100%', borderRadius: 3, background: '#d6dbe2', overflow: 'hidden'}}>
+            <div style={{width: `${fill * 100}%`, height: '100%', background: i === active ? C.blue : '#8fa6d8'}} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 /** Background, chapter audio, chapter strip and single-line subtitle shared by every chapter. */
 export const ChapterShell: React.FC<ChapterShellProps> = ({
-  index, chapters, brand, subtitle, audio, showStrip = true, background = '#f3f5f7', children,
-}) => (
+  index, chapters, brand, subtitle, audio, showStrip = true, progress, background = '#f3f5f7', children,
+}) => {
+  const frame = useCurrentFrame();
+  return (
   <AbsoluteFill style={{background, color: C.ink, fontFamily: FONT}}>
     <Audio src={audio.src} startFrom={audio.startFrom} endAt={audio.endAt} />
     {children}
@@ -66,7 +98,7 @@ export const ChapterShell: React.FC<ChapterShellProps> = ({
       </div>
     )}
     {subtitle && (
-      <div style={{position: 'absolute', bottom: 42, left: 72, right: 72, zIndex: 30, display: 'flex', justifyContent: 'center'}}>
+      <div style={{position: 'absolute', bottom: progress ? 58 : 42, left: 72, right: 72, zIndex: 30, display: 'flex', justifyContent: 'center'}}>
         <div
           style={{
             background: C.ink, color: 'white', padding: '15px 30px', borderRadius: 18,
@@ -77,8 +109,10 @@ export const ChapterShell: React.FC<ChapterShellProps> = ({
         </div>
       </div>
     )}
+    {progress && <ChapterProgress chapters={progress} globalFrame={progress[index].startFrame + frame} active={index} />}
   </AbsoluteFill>
-);
+  );
+};
 
 export interface FigureCardProps {
   /** Path under public/, e.g. 'images/figure-1.png'. */

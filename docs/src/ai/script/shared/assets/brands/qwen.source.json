@@ -1,0 +1,15 @@
+{
+  "publisher": "Qwen / Alibaba",
+  "brand": "Qwen",
+  "usage": "Qwen 官网图标，80×80 PNG；等比缩放，具体版本写在名称标签中。",
+  "retrievedOn": "2026-10-06",
+  "artworkModified": false,
+  "assets": [
+    {
+      "asset": "qwen-logo.png",
+      "downloadUrl": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
+      "reference": "https://qwen.ai/",
+      "sha256": "cd9390bc4209c319121d111f3a1f535b3c7dd909b8f860d41acc9744138d58df"
+    }
+  ]
+}

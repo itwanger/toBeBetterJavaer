@@ -1,0 +1,13 @@
+{
+  "product": "NVIDIA H100 SXM5 module",
+  "officialPage": "https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/",
+  "downloadUrl": "https://developer-blogs.nvidia.com/wp-content/uploads/2022/03/SXM5-White-4-NEW-FINAL.jpg",
+  "downloadedAt": "2026-10-06",
+  "file": "nvidia-h100-sxm.jpg",
+  "size": [
+    892,
+    415
+  ],
+  "sha256": "5e75ac8e4b02d1c532dd8f6b738858a44d64ed8eefdf9825b13908dde27380fa",
+  "use": "Official Figure 1 product render. Preserve complete source and use contain. This is SXM5, not PCIe or NVL."
+}

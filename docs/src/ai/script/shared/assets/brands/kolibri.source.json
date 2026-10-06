@@ -1,0 +1,33 @@
+{
+  "publisher": "Aleph Alpha",
+  "brand": "Kolibri",
+  "usage": "蜂鸟与字标取自官方公告横幅；白色 SVG 字标用于深色背景。原始素材保持不变。",
+  "display": {
+    "asset": "kolibri-logo-banner.webp",
+    "width": 1920,
+    "height": 660,
+    "logoViewport": [
+      660,
+      213,
+      1260,
+      423
+    ],
+    "note": "等比显示该原图视窗即可完整包含蜂鸟和字标；不要重绘，白色字标不要直接放白底。"
+  },
+  "retrievedOn": "2026-10-06",
+  "artworkModified": false,
+  "assets": [
+    {
+      "asset": "kolibri-logo-banner.webp",
+      "downloadUrl": "https://aleph-alpha.com/_astro/00-cover.Du35XCGh_ZBjCLW.webp",
+      "reference": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/",
+      "sha256": "fb08a438d03eb61242a5f6824306026cf2f74032d53e41ca1004d78938a28373"
+    },
+    {
+      "asset": "kolibri-wordmark.svg",
+      "downloadUrl": "https://aleph-alpha.com/_astro/kolibri-wordmark.DbgoRlGl_Z1vxpGV.svg",
+      "reference": "https://aleph-alpha.com/en/kolibri/",
+      "sha256": "6addf92371faa0eaa9ca6bc5f4e49b9835b26f654925706dca4303c0276db13e"
+    }
+  ]
+}

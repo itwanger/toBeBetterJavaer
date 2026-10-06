@@ -8,7 +8,7 @@ import {spawnSync} from 'node:child_process';
 import {createRequire} from 'node:module';
 const workspace=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const require=createRequire(path.join(workspace,'package.json'));
-const {values,positionals}=parseArgs({allowPositionals:true,options:{project:{type:'string'},port:{type:'string'},composition:{type:'string'},frame:{type:'string'},out:{type:'string'},detach:{type:'boolean',default:false},'dry-run':{type:'boolean',default:false}}});
+const {values,positionals}=parseArgs({allowPositionals:true,options:{project:{type:'string'},port:{type:'string'},composition:{type:'string'},frame:{type:'string'},out:{type:'string'},detach:{type:'boolean',default:false},'dry-run':{type:'boolean',default:false},'no-cover':{type:'boolean',default:false}}});
 const action=positionals[0];
 if(!['studio','still','render','typecheck'].includes(action)||!values.project)throw new Error('Usage: remotion.mjs studio|still|render|typecheck --project <directory> [--dry-run]');
 const project=path.resolve(values.project),meta=JSON.parse(fs.readFileSync(path.join(project,'project.json'),'utf8')),cwd=path.join(project,'remotion');
@@ -16,6 +16,18 @@ const cli=path.join(path.dirname(require.resolve('@remotion/cli/package.json')),
 const chrome=process.env.REMOTION_BROWSER_EXECUTABLE||(['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'].find(p=>fs.existsSync(p)));
 const browser=chrome?[`--browser-executable=${chrome}`]:[];
 let args;
+// 首帧封面闸门：原稿有“视频封面”区块时，整片必须先放 cover-16x9.png 并在 Root.tsx 用 CoverFrame，否则拒绝渲染。
+// 原稿可能在制作中途才补上封面，所以每次渲染都重新读原稿；用户明确不要首帧封面时传 --no-cover。
+if(action==='render'&&!values['no-cover']&&meta.sourceArticle){
+  const source=path.resolve(project,meta.sourceArticle);
+  const text=fs.existsSync(source)?fs.readFileSync(source,'utf8'):'';
+  if(/video-covers:start|##\s*视频封面/.test(text)){
+    const missing=[];
+    if(!fs.existsSync(path.join(project,'assets/images/cover-16x9.png')))missing.push('assets/images/cover-16x9.png');
+    if(!/CoverFrame/.test(fs.readFileSync(path.join(cwd,'src/Root.tsx'),'utf8')))missing.push('src/Root.tsx 中的 <CoverFrame />');
+    if(missing.length)throw new Error(`原稿有视频封面区块，首帧封面未就绪：${missing.join('、')}。下载宽高比约 16:9 的那张封面后再渲染；确实不要首帧封面时加 --no-cover`);
+  }
+}
 const raw=path.join(project,'preview/render/remotion-raw.mp4');
 if(action==='typecheck')args=[require.resolve('typescript/bin/tsc'),'--noEmit','-p',path.join(cwd,'tsconfig.json')];
 if(action==='studio')args=[cli,'studio','src/Root.tsx','--no-open',...(values.port?[`--port=${values.port}`]:[])];
