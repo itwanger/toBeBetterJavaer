@@ -10,6 +10,9 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from wording_rules import COMPILED_FAIL, COMPILED_WARN, find_hits  # noqa: E402
+
 
 HARD_STOPS = (
     "说白了",
@@ -126,19 +129,6 @@ NOMINALIZATION_PATTERNS = (
     re.compile(r"具有[^。，！？\n]{0,10}(?:意义|价值)"),
 )
 
-CONJUNCTIONS = (
-    "因为",
-    "所以",
-    "但是",
-    "然而",
-    "同时",
-    "此外",
-    "而且",
-    "并且",
-    "因此",
-    "不仅",
-)
-
 ROAD_SIGN_PATTERNS = (
     re.compile(
         rf"(?:^|[。！？!?]\s*){re.escape(ROAD_SIGNS[0])}[^。！？!?\n]{{0,24}}",
@@ -181,12 +171,6 @@ REPEATED_OPENERS = (
     "问题是",
     "更重要的是",
     "说到这里",
-)
-
-LEFT_BRANCH_PATTERNS = (
-    re.compile(r"(?:^|[。！？]\s*)在[^，。！？\n]{12,70}(?:以后|之后|之前|以前|过程中|情况下|背景下)，"),
-    re.compile(r"(?:^|[。！？]\s*)那些[^，。！？\n]{10,60}的[^，。！？\n]{2,30}[，。]"),
-    re.compile(r"(?:^|[。！？]\s*)(?:真正|最终|最后)让[^，。！？\n]{8,70}的，是"),
 )
 
 METAPHOR_FIELDS = {
@@ -263,18 +247,6 @@ def all_matches(text: str, patterns: tuple[re.Pattern[str], ...]):
     return sorted(matches, key=lambda match: match.start())
 
 
-def heavy_de_sentences(text: str):
-    """找出主干可能被多个“的”压到后面的长句。"""
-
-    matches = []
-    pattern = re.compile(r"[^。！？!?\n]+(?:[。！？!?]|$)")
-    for match in pattern.finditer(text):
-        value = match.group()
-        if han_count(value) >= 38 and value.count("的") >= 4:
-            matches.append(match)
-    return matches
-
-
 def anaphora_runs(text: str, minimum: int = 3):
     """找出同一句里三个以上小句用同一个开头的排比。"""
 
@@ -297,23 +269,6 @@ def anaphora_runs(text: str, minimum: int = 3):
             else:
                 run = 1
     return matches
-
-
-def sentence_length_cv(text: str):
-    """句长变异系数。人写的长短句差距大，模型的句长彼此接近。"""
-
-    lengths = [
-        han_count(match.group())
-        for match in re.finditer(r"[^。！？!?\n]+[。！？!?]", text)
-        if han_count(match.group()) >= 4
-    ]
-    if len(lengths) < 12:
-        return None
-    mean = sum(lengths) / len(lengths)
-    if mean == 0:
-        return None
-    variance = sum((value - mean) ** 2 for value in lengths) / len(lengths)
-    return (variance ** 0.5) / mean, len(lengths)
 
 
 def bracket_highlights(text: str):
@@ -454,6 +409,21 @@ def main() -> int:
             f"引出原话的冒号 {len(quote_colons)} 处，第 {lines} 行。确认引号里确实是原话，且不是提示性用法。"
         )
 
+    wording_fails = find_hits(prose, COMPILED_FAIL)
+    for position, hit, suggestion in wording_fails:
+        failures.append(
+            f"用词不完整，第 {line_number(text, position)} 行，“{hit}”改成“{suggestion}”。"
+        )
+    wording_warns = find_hits(prose, COMPILED_WARN)
+    if wording_warns:
+        samples = "；".join(
+            f"第 {line_number(text, position)} 行“{excerpt(prose[position:position + 12].strip(), 12)}”→{suggestion}"
+            for position, _, suggestion in wording_warns[:12]
+        )
+        warnings.append(
+            f"可能缺字或用词不准 {len(wording_warns)} 处。{samples}。逐条确认。"
+        )
+
     stop_matches = non_overlapping_terms(prose, HARD_STOPS)
     for position, phrase in stop_matches:
         failures.append(f"硬停词，第 {line_number(text, position)} 行，{phrase}")
@@ -541,32 +511,12 @@ def main() -> int:
             f"“{excerpt(match.group(), 36)}”。还原成直接的动词。"
         )
 
-    conjunction_hits = non_overlapping_terms(prose, CONJUNCTIONS)
-    if total_han >= 600 and len(conjunction_hits) * 1000 / total_han > 7:
-        samples = "、".join(
-            f"{term} {count} 次"
-            for term, count in collections.Counter(
-                term for _, term in conjunction_hits
-            ).most_common(4)
-        )
-        warnings.append(
-            f"连词密度偏高，每千字 {len(conjunction_hits) * 1000 // total_han} 个。{samples}。"
-            "中文小句靠语序和事理相接，删掉一半试试。"
-        )
-
     highlights = bracket_highlights(prose)
     highlight_limit = max(3, total_han // 700)
     if len(highlights) > highlight_limit:
         samples = "、".join(dict.fromkeys(match.group() for match in highlights[:6]))
         warnings.append(
             f"「」括起的短语共 {len(highlights)} 处。{samples}。太密说明在批量造金句。"
-        )
-
-    cv_result = sentence_length_cv(prose)
-    if cv_result and cv_result[0] < 0.42:
-        warnings.append(
-            f"全文 {cv_result[1]} 个句子长度过于接近（变异系数 {cv_result[0]:.2f}）。"
-            "人写的段落里十个字的句子会挨着四十个字的句子，放开几句，压短几句。"
         )
 
     marker_matches = non_overlapping_terms(prose, SOFT_MARKERS)
@@ -576,28 +526,6 @@ def main() -> int:
         warnings.append(
             f"洞察路标共 {len(marker_matches)} 处，当前提醒线为 {marker_limit} 处。"
             f"重点检查 {samples}。"
-        )
-
-    left_branches = all_matches(prose, LEFT_BRANCH_PATTERNS)
-    left_limit = max(2, total_han // 1200)
-    if len(left_branches) > left_limit:
-        samples = "；".join(
-            f"第 {line_number(text, match.start())} 行“{excerpt(match.group(), 44)}”"
-            for match in left_branches[:4]
-        )
-        warnings.append(
-            f"长前置成分共 {len(left_branches)} 处，可能让主干来得太晚。{samples}"
-        )
-
-    dense_de = heavy_de_sentences(prose)
-    dense_de_limit = max(1, total_han // 1500)
-    if len(dense_de) > dense_de_limit:
-        samples = "；".join(
-            f"第 {line_number(text, match.start())} 行“{excerpt(match.group(), 44)}”"
-            for match in dense_de[:4]
-        )
-        warnings.append(
-            f"有 {len(dense_de)} 个长句包含四个以上的“的”，可能要先交代人和动作。{samples}"
         )
 
     paragraphs = prose_paragraphs(prose)
@@ -658,7 +586,7 @@ def main() -> int:
         f"黑话 {len(jargon_matches)}，硬停词 {len(stop_matches)}，"
         f"模型路标 {len(road_signs)}，需辨语境词 {len(context_jargon_matches)}，"
         f"抒情词 {len(lyric_matches)}，洞察路标 {len(marker_matches)}，"
-        f"长前置成分 {len(left_branches)}，重定语句 {len(dense_de)}"
+        f"用词不完整 {len(wording_fails)}"
     )
 
     if failures:

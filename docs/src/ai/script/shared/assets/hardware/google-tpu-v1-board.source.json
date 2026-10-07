@@ -1,0 +1,13 @@
+{
+  "product": "Google TPU v1",
+  "officialPage": "https://cloud.google.com/blog/products/ai-machine-learning/google-supercharges-machine-learning-tasks-with-custom-chip",
+  "downloadUrl": "https://storage.googleapis.com/gweb-cloudblog-publish/images/tpuoyof.max-700x700.PNG",
+  "file": "google-tpu-v1-board.png",
+  "downloadedAt": "2026-10-07",
+  "size": [
+    700,
+    538
+  ],
+  "sha256": "cd38167f67d43cec612777671cb0a768de2d120c66c9cfd28568bd828c9f9b61",
+  "use": "Official original TPU v1 hardware photo. Preserve complete source."
+}

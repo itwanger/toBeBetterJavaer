@@ -7,10 +7,12 @@
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
 - [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
 
-## AI Agent 面试题（364 题合集，配视频讲解）
+## AI Agent 面试题（365 题合集，配视频讲解）
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
+- [用户中途取消，Agent 任务怎么停下来？](https://javabetter.cn/ai/video/agent-task-cancellation.html)：取消信号逐层传播，停止整个工具进程组，修复被打断的会话历史，并区分取消与 Steering 插话。
+- [Kolibri 如何蒸馏 GLM-5.3 和 Qwen3.8？](https://javabetter.cn/ai/video/aleph-alpha-kolibri.html)：拆解 Kolibri 的混合专家、滑动窗口注意力、合成训练数据，以及代码与 Agent 任务的能力边界。
 - [Agent 调用工具失败或者超时了怎么办？](https://javabetter.cn/ai/video/agent-tool-failure-timeout.html)：区分瞬时错误和确定性错误，结合错误结果回传、退避重试、进程接管和幂等设计处理工具故障。
 - [9个让Agent提高输出质量的提示词技巧](https://javabetter.cn/ai/video/nine-prompting-techniques-for-better-llm.html)：通过少样本提示、结构化输出、推理强度、规则检查和言语化采样改善 Agent 的输出质量。
 - [Agent 的意图路由怎么设计？](https://javabetter.cn/ai/video/agent-intent-routing.html)：结合规则、向量比对、决策模型与大模型分层路由，理解 Handoff、低置信度澄清、错误回退和分类评估。

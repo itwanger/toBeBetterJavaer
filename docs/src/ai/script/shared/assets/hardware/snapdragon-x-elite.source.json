@@ -1,0 +1,13 @@
+{
+  "product": "Snapdragon X Elite",
+  "officialPage": "https://www.qualcomm.com/laptops/products/snapdragon-x-elite",
+  "downloadUrl": "https://www.qualcomm.com/etc.clientlibs/qcomm-martech/clientlibs/clientlib-react/resources/static/media/Snapdragon-Black-Gold.png.CzWKv7wk.png",
+  "file": "snapdragon-x-elite.png",
+  "size": [
+    2283,
+    2300
+  ],
+  "downloadedAt": "2026-10-07",
+  "sha256": "4e762007d81c7cd23c9ab2e00a238795baf9c281433567d7ab1ed35d3e6a983d",
+  "use": "Official laptop SoC product image; contains Hexagon NPU. Do not label as a standalone NPU photo."
+}

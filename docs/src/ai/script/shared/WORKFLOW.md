@@ -308,6 +308,15 @@ cp docs/src/ai/script/shared/assets/brands/qwen.source.json docs/src/ai/script/a
 |---|---|---|
 |NVIDIA A100|`hardware/nvidia-a100-sxm.jpg`、`nvidia-a100.source.json`|NVIDIA A100 产品页的 A100 for HGX，SXM 模块|
 |NVIDIA H100|`hardware/nvidia-h100-sxm.jpg`、`nvidia-h100.source.json`|NVIDIA Hopper Architecture In-Depth 图 1，SXM5 模块|
+|Intel Xeon 6|`hardware/intel-xeon6.jpg`、`intel-xeon6.source.json`|Intel Newsroom，CPU 封装正反面实物图|
+|第六代骁龙 8 至尊版|`hardware/snapdragon-8-elite-gen6.png`、同名 `.source.json`|小米 18 Pro 官网芯片产品图；SoC 内含 Hexagon NPU|
+|Snapdragon X Elite|`hardware/snapdragon-x-elite.png`、同名 `.source.json`|高通电脑芯片官网产品图；SoC 内含 Hexagon NPU|
+|Google TPU v1|`hardware/google-tpu-v1-board.png`、同名 `.source.json`|Google Cloud 首代 TPU 发布文章的板卡实物图|
+|Apple M5 Pro / M5 Max|`hardware/apple-m5-pro-max.jpg`、同名 `.source.json`|Apple Newsroom，官方 SoC 产品图|
+|小米 18 Pro|`hardware/xiaomi-18-pro-colors.png`、同名 `.source.json`|小米产品官网，四款配色完整产品图|
+|MacBook Pro|`hardware/macbook-pro-14-16.png`、同名 `.source.json`|Apple 产品官网，14 / 16 英寸完整产品图|
+
+CPU、GPU、TPU 的封装和板卡图可用于对应概念的产品实例。手机和电脑的 NPU 通常集成在 SoC 内；使用骁龙、Apple 芯片图时标清“内含 NPU”或实际部件名称，不把整个 SoC 的产品图称为独立 NPU 实拍。电脑算力场景使用电脑端 SoC，手机场景使用与手机相符的 SoC。官方产品渲染图与实物照片分别按来源标注。
 
 SXM、PCIe、NVL 的外观不同，图旁标清所用形态，不用 SXM 图指代 PCIe 外形。型号为替代选择时写清“或”；“2 张 A100 或 H100”配分别标注的型号图，不把一张 A100 加一张 H100 画成推荐混装。H100 官网横幅另存 `hardware/nvidia-h100-banner.jpg` 及来源记录，只用于需要横幅的场景。
 

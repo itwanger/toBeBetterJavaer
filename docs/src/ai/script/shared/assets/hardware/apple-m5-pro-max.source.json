@@ -1,0 +1,13 @@
+{
+  "product": "Apple M5 Pro and M5 Max SoCs",
+  "officialPage": "https://www.apple.com/newsroom/2026/03/apple-introduces-macbook-pro-with-all-new-m5-pro-and-m5-max/",
+  "downloadUrl": "https://www.apple.com/newsroom/images/2026/03/apple-introduces-macbook-pro-with-all-new-m5-pro-and-m5-max/article/Apple-MacBook-Pro-M5-Pro-and-M5-Max-chips-260303_big.jpg.large_2x.jpg",
+  "file": "apple-m5-pro-max.jpg",
+  "size": [
+    1960,
+    1104
+  ],
+  "downloadedAt": "2026-10-07",
+  "sha256": "add0ae521daa18ead6e4ed54d1beb2381b5a4fe1fbeaba5afe35acf1f912bbb4",
+  "use": "Whole SoC product render; CPU is integrated, not standalone CPU package."
+}

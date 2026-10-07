@@ -25,6 +25,18 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "agent-task-cancellation": meta(
+    "用户中途取消，Agent 任务怎么停下来？",
+    "Agent 任务取消",
+    "取消信号逐层传播，停止整个工具进程组，修复被打断的会话历史，并区分取消与 Steering 插话。",
+    ["任务取消", "AbortController", "CancellationToken", "Steering"],
+  ),
+  "aleph-alpha-kolibri": meta(
+    "Kolibri 如何蒸馏 GLM-5.3 和 Qwen3.8？",
+    "Kolibri 模型解读",
+    "拆解 Kolibri 的混合专家、滑动窗口注意力、合成训练数据，以及代码与 Agent 任务的能力边界。",
+    ["Kolibri", "MoE", "模型蒸馏", "合成数据"],
+  ),
   "agent-tool-failure-timeout": meta(
     "Agent 调用工具失败或者超时了怎么办？",
     "工具失败与超时",
@@ -51,9 +63,9 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   ),
 
   readme: meta(
-    "AI Agent 面试题 364 道（Agent八股+视频讲解）｜王二讲Agent",
-    "AI Agent 面试 364 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 364 道高频面试题。",
+    "AI Agent 面试题 365 道（Agent八股+视频讲解）｜王二讲Agent",
+    "AI Agent 面试 365 题",
+    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 365 道高频面试题。",
     ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(
@@ -468,6 +480,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "agent-task-cancellation",
       "agent-tool-failure-timeout",
       "agent-intent-routing",
       "multi-agent-context-passing",
@@ -562,6 +575,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "aleph-alpha-kolibri",
       "gemini-4-argon",
       "mimo-v3-hysparse2",
       "open-source-jev-replicas",
@@ -586,6 +600,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "aleph-alpha-kolibri": "7693484001561972019",
+  "agent-task-cancellation": "7693089537089604874",
   "nine-prompting-techniques-for-better-llm": "7692668076902468879",
   "agent-tool-failure-timeout": "7692321158200331555",
   "agent-intent-routing": "7691947967841864960",

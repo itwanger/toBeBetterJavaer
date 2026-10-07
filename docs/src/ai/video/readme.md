@@ -1,7 +1,7 @@
 ---
-title: AI Agent 面试题 364 道（Agent八股+视频讲解）｜王二讲Agent
-shortTitle: AI Agent 面试 364 题
-description: AI Agent 面试 364 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
+title: AI Agent 面试题 365 道（Agent八股+视频讲解）｜王二讲Agent
+shortTitle: AI Agent 面试 365 题
+description: AI Agent 面试 365 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
 tag:
   - 面试
 category:
@@ -24,7 +24,7 @@ date: 2026-05-20
 
 ![跟着王二讲Agent：通过完整题目系统学习，建立Agent时代的完整知识体系](https://cdn.paicoding.com/stutymore/agent-learning-completeness-20260908231154-003540aa.png)
 
-这套题库一共 364 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
+这套题库一共 365 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
 
 每道题都不是孤立的概念解释，而是串联到三个实战项目来回答。
 
@@ -51,6 +51,18 @@ date: 2026-05-20
 ## 01、Agent 基础（43 题）
 
 聚焦 Agent 的定义、工作方式、规划、反思和多 Agent 协作。部分新增题目参考了开源书《深入理解 AI Agent：设计原理与工程实践》（[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)）的章节结构和各章思考题。
+
+### 31. 用户中途取消，Agent 任务怎么停下来？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+取消分两层。第一层是 Agent Loop，每一轮调用模型和执行工具之前都检查取消信号，收到就不再发起新的一步。第二层是正在执行的操作，模型的流式请求要中断连接，工具要能响应取消，比如 Java 里用 Future.cancel 配合线程中断，命令行进程要结束整个进程组。取消之后要给进行中的工具调用补一条“已被用户取消”的结果再写回会话，否则下一轮请求里会出现没有结果的工具调用，Anthropic 这类 API 会直接报错。前端断开 SSE 连接时，后端也要感知到并真正停止推理，不然 Token 还在继续消耗。如果用户只是补充要求而不是取消，更好的做法是把新消息排队，在当前这一步结束后注入上下文，Pi 的 steer 就是这样设计的。
+
+完整答案：[查看图文解析](./agent-task-cancellation.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnPfoDMGpArCPZ2fpjkFdqnb)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7693089537089604874)
+
+🟡 进阶 | `→ PaiCLI`
 
 ### 27. 工具调用失败或超时怎么处理？
 
@@ -402,14 +414,6 @@ Agent 的幻觉比模型的幻觉危害更大，因为它会依据幻觉去执�
 按 Agent 要完成的任务来设计工具，而不是把后端接口一对一暴露出去。Anthropic 在 2025 年 9 月的《Writing effective tools for agents》里举过例子，与其提供 list_users、list_events、create_event 三个工具，不如提供一个 schedule_event。参数尽量少且类型明确，能用枚举就不用自由文本。描述写清什么时候用、什么时候不用，以及和相似工具的区别。返回结果只给高信息量的字段，过长就分页或截断，Claude Code 默认把工具返回限制在 25000 个 Token 以内。错误信息要告诉模型下一步怎么改，而不是只给一个错误码。权限不能交给模型判断，参数合法但业务非法的请求，比如查询别人的订单，由工具根据当前登录用户在内部校验。
 
 🟢 基础 | `→ PaiCLI`
-
-### 31. 用户中途取消，Agent 任务怎么停下来？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-取消分两层。第一层是 Agent Loop，每一轮调用模型和执行工具之前都检查取消信号，收到就不再发起新的一步。第二层是正在执行的操作，模型的流式请求要中断连接，工具要能响应取消，比如 Java 里用 Future.cancel 配合线程中断，命令行进程要结束整个进程组。取消之后要给进行中的工具调用补一条“已被用户取消”的结果再写回会话，否则下一轮请求里会出现没有结果的工具调用，Anthropic 这类 API 会直接报错。前端断开 SSE 连接时，后端也要感知到并真正停止推理，不然 Token 还在继续消耗。如果用户只是补充要求而不是取消，更好的做法是把新消息排队，在当前这一步结束后注入上下文，Pi 的 steer 就是这样设计的。
-
-🟡 进阶 | `→ PaiCLI`
 
 ### 32. 用户需求模糊时 Agent 怎么澄清？
 
@@ -1610,9 +1614,19 @@ DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没�
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7670027713771621658)
 
-## 热点解读（6 题）
+## 热点解读（7 题）
 
 模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
+
+### Kolibri 如何蒸馏 GLM-5.3 和 Qwen3.8？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+Kolibri 用 78B 总参数、3.46B 激活参数降低每次推理的计算量，结合混合专家和滑动窗口注意力控制开销；后训练数据由 GLM-5.3、Qwen3.8 等模型生成，文章拆解其训练方法、跑分和使用边界。
+
+完整内容：[阅读全文《Kolibri 解读》](./aleph-alpha-kolibri.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn6e2SW7YQEFrvYi1Yc8aGih)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7693484001561972019)
 
 ### Gemini 4 Argon 发布，100 万 Token 输出意味着什么？
 
@@ -1638,6 +1652,8 @@ HySparse2 将模型分成 Self-Decoder 和 Cross-Decoder：前半段保留全注
 
 完整内容：[阅读全文《Jev 开源复刻》](./open-source-jev-replicas.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnCCyZe87o2bYZAKoURy0dPf)
 
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1zzaZ6CEbM/)
+
 抖音视频：[观看本集视频](https://www.douyin.com/video/7688302955489021238)
 
 ### 不生成文本的 Jev，为什么让 14 万开发者排队？
@@ -1645,6 +1661,8 @@ HySparse2 将模型分成 Self-Decoder 和 Cross-Decoder：前半段保留全注
 Jev 是 TypeSafe AI 9 月 15 日发布的 System One 模型，不生成文本，只做判断。给它一段应用状态和一个预定义的结构化问题，它用一次前向计算直接在选项上分配概率，支持是否、单选、打分三种决策。它用 RLCD 训练校准过的置信度，比同类 LLM 快 40 到 200 倍，便宜 40 到 400 倍。Agent 里意图路由、审核、风控初筛这类高频小决策交给它，复杂推理仍然交给大模型。
 
 完整内容：[阅读全文《Jev 是什么》](./what-is-jev.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn8m4NWZ9CZdeWUmjS9OOEab)
+
+B站视频：[观看本集视频](https://www.bilibili.com/video/BV1eUaZ6qEDR/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687944233659026722)
 
@@ -1666,7 +1684,6 @@ GPT-6 Astra 在 ARC-AGI-3 上拿到 99.9%，靠的是紧凑符号世界模型加
 
 ### 270. 如何写好 Prompt？分享下 Prompt 工程的实践经验？
 
-<p class="agent-duplicate-question">
 核心原则：角色设定（“你是一个资深Java工程师”）、明确任务（具体描述要做什么）、输出格式约束（JSON/Markdown）、Few-shot 示例（给几个例子）、约束条件（不要做什么）。PaiCLI 做了一套 Prompt 分层设计，从系统级到 Skill 级，层级越高优先级越高。
 
 完整答案：[查看图文解析《9 个提示词技巧》](./nine-prompting-techniques-for-better-llm.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnf6Xkp0w5bQ8zphEVzWesOd)
@@ -2168,7 +2185,7 @@ Agent 这一轮变化和以往不太一样。以前的技术迭代，学一门�
 
 Alan Kay 说过一句话，「预测未来最好的办法就是去创造它」。我觉得这话放在今天特别合适。与其等着被 Agent 浪潮推着走，不如自己先把原理搞透，把项目跑通，把面试里会被问到的每一个点都准备好。
 
-所以我们选择了最笨但最扎实的方式。364 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
+所以我们选择了最笨但最扎实的方式。365 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
 
 我始终相信一件事，技术的价值不在于它有多新，而在于你是否真正理解它、用过它、能把它讲清楚。这套题库要做的就是帮你到达这个状态。
 

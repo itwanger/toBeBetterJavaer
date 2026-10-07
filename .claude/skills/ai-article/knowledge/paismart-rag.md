@@ -170,3 +170,20 @@ rate-limit.embedding-batch.day-max: 2000
 ## 九、查询改写
 
 派聪明**没有**显式的查询改写模块。查询优化由 LLM 在 ReAct 循环中隐式完成——模型根据上下文决定用什么 query 去检索。工具描述中强调“保留用户原话中的核心实体、缩写和限定词”。
+
+---
+
+## 十、上传 / Kafka / 解析 / 限流（2026-10-06 增量调研，HEAD c168e269）
+
+- 分片：Redis bitmap `upload:{userId}:{fileMd5}`（无 TTL）+ chunk_info 表 UNIQUE(file_md5, chunk_index)（不含 userId）+ MinIO `uploads/chunks/{md5}/{idx}`
+- 文件记录幂等键：UNIQUE(file_md5, user_id)；合并防重：`UPDATE ... SET status=MERGING WHERE id=? AND status=UPLOADING`（FileUploadRepository.updateStatusIfCurrent），失败 CAS 回滚；无分布式锁；最终 COMPLETED 是普通 save
+- 合并后立刻删分片对象、chunk_info、bitmap；无定时清理（全项目无 @Scheduled）
+- Kafka：acks=all、幂等、事务前缀 file-upload-tx-（消费端未设 read_committed）；消息无 key；消费者 FixedBackOff(3s, 4 次) → DLT file-processing-dlt（无人消费）
+- ES 文档 ID = fileMd5_chunkId；UPLOAD_PROCESS 路径不先删旧数据（MySQL document_vectors 会重复），REINDEX 路径会先删
+- 无卡住任务恢复、无重试计数列
+- 解析：Tika + 8KB BufferedInputStream + StringBuilder 攒约 1048576 字符父块；PDF 走 LiteParse 外部进程，300s 超时；向量化分页 10 条
+- 背压（commit 4aa8f3df）：删除 System.gc 阈值检查；解析信号量 2，tryAcquire 120s；堆 ≥80% 暂停 Kafka 消费、≤70% 恢复，暂停 300s 强制恢复
+- 限流：Redis INCR+EXPIRE 固定窗口（非原子）；chat 30/min/用户；Token 预算三层（用户日配额 + 全局分钟 + 全局天）；yml 里 rate-limit.llm-request / embedding-batch 是死配置
+- 线程池：searchRecallExecutor 8/32/200 CallerRuns 等，见 AsyncExecutorConfig
+- Embedding 重试是固定 1s × 3 次（不是指数退避）；LLM 流式无重试；无熔断、无自动切换供应商；Embedding 失败降级纯文本，rerank 失败保留 RRF 顺序
+- 供应商：LLM deepseek/zhipu，Embedding aliyun/zhipu，管理员切换
