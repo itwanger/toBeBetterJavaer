@@ -1,0 +1,15 @@
+{
+  "publisher": "Lenovo",
+  "brand": "Lenovo",
+  "usage": "lenovo.com 页头红底白字标志，124×40 矢量 SVG（含白色外框底板）；等比缩放，不改色。",
+  "retrievedOn": "2026-10-07",
+  "artworkModified": false,
+  "assets": [
+    {
+      "asset": "lenovo-logo.svg",
+      "downloadUrl": "https://p3-ofp.static.pub/fes/cms/2023/03/22/8hjmcte754uauw07ypikjkjtx0m5ib450914.svg",
+      "reference": "https://www.lenovo.com/us/en/",
+      "sha256": "422f42f97bc8d3d17313dff4781262115246e060b385b6f53ece2ac1ee99a68a"
+    }
+  ]
+}

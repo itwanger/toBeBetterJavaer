@@ -46,7 +46,7 @@ export interface ChapterShellProps {
   showStrip?: boolean;
   /**
    * All chapters' absolute frame ranges (CHAPTERS from build/cues). When given, a segmented progress bar
-   * is drawn under the subtitle and the subtitle moves up to make room. Omitted: old layout, no bar.
+   * is drawn under the subtitle and the subtitle moves up to make room.
    */
   progress?: ChapterRange[];
   background?: string;
@@ -69,8 +69,8 @@ export const ChapterProgress: React.FC<{chapters: ChapterRange[]; globalFrame: n
       {chapters.map((c, i) => {
         const fill = i < active ? 1 : i > active ? 0 : Math.min(1, Math.max(0, (globalFrame - c.startFrame) / (c.endFrame - c.startFrame)));
         return (
-          <div key={i} style={{flex: `${(c.endFrame - c.startFrame) / total} 1 0`, height: '100%', borderRadius: 3, background: '#d6dbe2', overflow: 'hidden'}}>
-            <div style={{width: `${fill * 100}%`, height: '100%', background: i === active ? C.blue : '#8fa6d8'}} />
+          <div key={i} style={{flex: `${(c.endFrame - c.startFrame) / total} 1 0`, height: '100%', background: C.line, overflow: 'hidden'}}>
+            <div style={{width: `${fill * 100}%`, height: '100%', background: i === active ? C.blue : C.soft}} />
           </div>
         );
       })}
@@ -80,7 +80,7 @@ export const ChapterProgress: React.FC<{chapters: ChapterRange[]; globalFrame: n
 
 /** Background, chapter audio, chapter strip and single-line subtitle shared by every chapter. */
 export const ChapterShell: React.FC<ChapterShellProps> = ({
-  index, chapters, brand, subtitle, audio, showStrip = true, progress, background = '#f3f5f7', children,
+  index, chapters, brand, subtitle, audio, showStrip = true, progress, background = C.bg, children,
 }) => {
   const frame = useCurrentFrame();
   return (
@@ -120,7 +120,7 @@ export interface FigureCardProps {
   /** Dark frame for terminal screenshots. */
   dark?: boolean;
   box?: {left: number; top: number; width: number; height: number};
-  /** No black border, shadow or white backing; the figure sits directly on the background. */
+  /** Default: no card, the figure sits directly on the background. false wraps it in a card. */
   plain?: boolean;
 }
 
@@ -128,17 +128,17 @@ export const FIGURE_BOX = {left: 285, top: 157, width: 1350, height: 760};
 
 /**
  * Original article figure, shown whole (contain) in the central area between strip and subtitle.
- * New videos use `plain`; the framed card stays the default so older projects render unchanged.
+ * Shown plain by default; `dark` puts terminal screenshots on a dark card.
  */
-export const FigureCard: React.FC<FigureCardProps> = ({file, dark = false, box = FIGURE_BOX, plain = false}) => (
+export const FigureCard: React.FC<FigureCardProps> = ({file, dark = false, box = FIGURE_BOX, plain = !dark}) => (
   <SceneEntrance>
     <div
       style={
         plain
           ? {...box, position: 'absolute'}
           : {
-            ...card, ...box, position: 'absolute', boxSizing: 'border-box', borderWidth: 3,
-            overflow: 'hidden', background: dark ? '#050505' : 'white',
+            ...card, ...box, position: 'absolute',
+            overflow: 'hidden', background: dark ? '#050505' : C.card,
           }
       }
     >
@@ -155,7 +155,7 @@ export interface HostCardProps {
   top: number;
 }
 
-/** Round avatar with a thin red ring and a black name capsule, for self-intro and outro scenes. */
+/** Round avatar with a thin rust ring and a dark name capsule, for self-intro and outro scenes. */
 export const HostCard: React.FC<HostCardProps> = ({
   name = '二哥', src = 'images/ergo-avatar.jpg', size = 340, left, top,
 }) => (
@@ -163,7 +163,7 @@ export const HostCard: React.FC<HostCardProps> = ({
     <Img
       src={staticFile(src)}
       style={{
-        width: size, height: size, borderRadius: '50%', border: `4px solid ${C.red}`,
+        width: size, height: size, borderRadius: '50%', border: `4px solid ${C.rust}`,
         objectFit: 'cover', objectPosition: 'center top', boxSizing: 'border-box',
       }}
     />
@@ -217,7 +217,7 @@ export const InterviewStage: React.FC<InterviewStageProps> = ({
         name={candidate.name ?? '二哥'}
         role={candidate.role ?? '求职者'}
         active={candidateActive}
-        accent={C.orange}
+        accent={C.rust}
       />
     </div>
     {children}

@@ -1,0 +1,25 @@
+{
+  "publisher": "Microsoft",
+  "brand": "Microsoft",
+  "usage": "microsoft-logo.png 为 microsoft.com 页头的四色方块加 Microsoft 字标组合，216×46 PNG，透明底，灰色字标适合浅色背景；microsoft-symbol.svg 为 Microsoft Learn 页头的四色方块矢量标志，原样保存路径与颜色，仅补 xmlns 便于独立使用。不改色、不拉伸、不自行拼接字标。",
+  "retrievedOn": "2026-10-07",
+  "artworkModified": false,
+  "assets": [
+    {
+      "asset": "microsoft-logo.png",
+      "downloadUrl": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+      "reference": "https://www.microsoft.com/en-us",
+      "size": [
+        216,
+        46
+      ],
+      "sha256": "112fec798b78aa02e102a724b5cb1990c0f909bc1d8b7b1fa256eab41bbc0960"
+    },
+    {
+      "asset": "microsoft-symbol.svg",
+      "downloadUrl": "inline <svg itemprop=\"logo\"> in the Microsoft link of the site header",
+      "reference": "https://learn.microsoft.com/en-us/",
+      "sha256": "5a5c312c8e2894b5c95163a19bc88798fda925d20c8a14b1235c88524353daae"
+    }
+  ]
+}

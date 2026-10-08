@@ -1,17 +1,10 @@
 // Shared rank staircase and timed quiz cards; callers provide topic icons, labels and audio anchors.
 import React from 'react';
 import { Img, interpolate, staticFile, useCurrentFrame } from 'remotion';
-import { C, Popped } from './index';
+import { C, Popped, card } from './index';
 import { SceneEntrance } from './Enhancements';
 
-const panel: React.CSSProperties = {
-  position: 'absolute',
-  background: 'white',
-  border: `3px solid ${C.ink}`,
-  borderRadius: 12,
-  boxSizing: 'border-box',
-};
-const tag: React.CSSProperties = { fontSize: 28, fontWeight: 850, padding: '9px 24px', borderRadius: 999 };
+const panel: React.CSSProperties = { ...card, position: 'absolute' };
 const fadeIn = (f: number, at: number, frames = 6) =>
   interpolate(f, [at, at + frames], [0, 1], {
     extrapolateLeft: 'clamp',
@@ -24,7 +17,7 @@ const AVATAR = 132;
 
 const stepTop = (i: number) => STEP.base - (i + 1) * STEP.rise;
 
-const TrophyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 90, color = C.orange }) => (
+const TrophyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 90, color = C.rust }) => (
   <svg
     width={size}
     height={size}
@@ -57,7 +50,7 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
     <SceneEntrance>
       {levels.map((label, i) => {
         const done = i <= level;
-        const color = i === levels.length - 1 ? C.orange : C.blue;
+        const color = i === levels.length - 1 ? C.rust : C.blue;
         return (
           <div
             key={label}
@@ -67,16 +60,15 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
               top: stepTop(i),
               width: STEP.width - 12,
               height: (i + 1) * STEP.rise,
-              borderRadius: '12px 12px 0 0',
               boxSizing: 'border-box',
-              border: `3px ${done ? 'solid' : 'dashed'} ${done ? color : '#b9c0ca'}`,
+              border: `3px ${done ? 'solid' : 'dashed'} ${done ? color : C.faint}`,
               background: done ? `${color}18` : 'transparent',
               display: 'flex',
               justifyContent: 'center',
               paddingTop: 18,
             }}
           >
-            <div style={{ fontSize: 44, fontWeight: 900, color: done ? color : '#b9c0ca' }}>{label}</div>
+            <div style={{ fontSize: 44, fontWeight: 900, color: done ? color : C.faint }}>{label}</div>
           </div>
         );
       })}
@@ -92,7 +84,7 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
           opacity: level === levels.length - 1 ? 1 : 0.35,
         }}
       >
-        <TrophyIcon size={96} color={level === levels.length - 1 ? C.orange : '#b9c0ca'} />
+        <TrophyIcon size={96} color={level === levels.length - 1 ? C.rust : C.faint} />
       </div>
       <Img
         src={staticFile('images/ergo-avatar.jpg')}
@@ -103,7 +95,7 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
           width: AVATAR,
           height: AVATAR,
           borderRadius: '50%',
-          border: `4px solid ${C.red}`,
+          border: `4px solid ${C.rust}`,
           objectFit: 'cover',
           objectPosition: 'center top',
           boxSizing: 'border-box',
@@ -120,7 +112,7 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
               width: 6,
               height: 30,
               borderRadius: 3,
-              background: C.orange,
+              background: C.rust,
               opacity: cheer,
               transform: `rotate(${deg}deg)`,
               transformOrigin: '50% 100%',
@@ -140,8 +132,6 @@ export type QuizOption = { key: string; label: string; icon: React.ReactNode; at
  * `prompt` fills the card area while the question is asked and fades out just before the first option.
  */
 export const QuizBoard: React.FC<{
-  /** 旧项目的“第 N 题”标签；新视频不传。 */
-  number?: number;
   options: QuizOption[];
   offset: number;
   answers?: string[];
@@ -149,7 +139,7 @@ export const QuizBoard: React.FC<{
   danmu?: string[];
   danmuAt?: number;
   prompt?: React.ReactNode;
-}> = ({ number, options, offset, answers = [], answerAt, danmu = [], danmuAt, prompt }) => {
+}> = ({ options, offset, answers = [], answerAt, danmu = [], danmuAt, prompt }) => {
   const f = useCurrentFrame() + offset;
   const width = options.length > 3 ? 360 : 460;
   const gap = 40;
@@ -158,12 +148,6 @@ export const QuizBoard: React.FC<{
   const promptOpacity = 1 - fadeIn(f, options[0].at - 6, 6);
   return (
     <SceneEntrance>
-      {/* 新视频不传 number，不显示“第 N 题”（2026-10-05 用户要求删掉）；旧项目传了 number，保持原样。 */}
-      {number !== undefined && (
-        <div style={{ position: 'absolute', left: 0, right: 0, top: 200, textAlign: 'center' }}>
-          <span style={{ ...tag, fontSize: 34, padding: '10px 30px', background: C.ink, color: 'white' }}>第 {number} 题</span>
-        </div>
-      )}
       {prompt && promptOpacity > 0 && <div style={{ position: 'absolute', inset: 0, opacity: promptOpacity }}>{prompt}</div>}
       {options.map((o, i) => {
         const right = revealed && answers.includes(o.key);
@@ -180,7 +164,7 @@ export const QuizBoard: React.FC<{
               width,
               height: 420,
               borderWidth: right ? 5 : 3,
-              borderColor: right ? C.green : C.ink,
+              borderColor: right ? C.green : C.blue,
               opacity: dim ? 0.4 : 1,
               display: 'flex',
               flexDirection: 'column',
@@ -193,7 +177,7 @@ export const QuizBoard: React.FC<{
                 width: 84,
                 height: 84,
                 borderRadius: '50%',
-                background: right ? C.green : C.ink,
+                background: right ? C.green : C.blue,
                 color: 'white',
                 fontSize: 48,
                 fontWeight: 900,
@@ -226,7 +210,7 @@ export const QuizBoard: React.FC<{
                 padding: '8px 22px',
                 borderRadius: 999,
                 background: 'white',
-                border: `2px solid ${i % 2 ? C.orange : C.blue}`,
+                border: `2px solid ${i % 2 ? C.rust : C.blue}`,
                 fontSize: 28,
                 fontWeight: 800,
               }}

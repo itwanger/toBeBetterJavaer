@@ -13,7 +13,7 @@ import {CHAPTERS} from '../../build/cues';
 const INDEX = 0;
 const E = timing.events as Record<string, number>;
 
-const panel: React.CSSProperties = {...card, position: 'absolute', boxSizing: 'border-box'};
+const panel: React.CSSProperties = {...card, position: 'absolute'};
 const heading: React.CSSProperties = {position: 'absolute', left: 150, top: 178, fontSize: 57, fontWeight: 900};
 
 // 场景内的 useCurrentFrame() 是 Sequence 局部帧；加上场景起点后才能和 E 里的章节帧比较。
@@ -29,8 +29,8 @@ const Opening: React.FC = () => {
   );
 };
 
-// 原稿配图整图静态展示时不套黑框和阴影，直接放在背景上。
-const Figure: React.FC = () => <FigureCard file="images/figure-1.png" plain />;
+// 原稿配图整图静态展示时不套卡片，直接放在背景上。
+const Figure: React.FC = () => <FigureCard file="images/figure-1.png" />;
 
 // 局部有细节的配图做镜头聚焦：先全图，再按配音依次放大到各块，最后拉回全图；右侧说明卡随焦点入场。
 // 并列多栏的信息图不放大，整图展示，用 FocusRing 圈出当前栏。
@@ -46,7 +46,7 @@ const FocusFigure: React.FC = () => {
       <FigureFocus file="images/figure-2.png" imgW={1672} imgH={941} box={fitBox(1672, 941, FOCUS_BOX)} focus={focusAt(keys, f)} />
       <div style={{position: 'absolute', ...FOCUS_GUIDE}}>
         <FocusNote title="第一块" opacity={clamp(f, E.partA - 5, E.partA + 7)}>要点短语</FocusNote>
-        <FocusNote title="第二块" color={C.orange} opacity={clamp(f, E.partB - 5, E.partB + 7)}>要点短语</FocusNote>
+        <FocusNote title="第二块" color={C.rust} opacity={clamp(f, E.partB - 5, E.partB + 7)}>要点短语</FocusNote>
       </div>
     </>
   );

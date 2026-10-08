@@ -1,15 +1,24 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, spring, useVideoConfig} from 'remotion';
-export const C = {bg:'#ededed', ink:'#0a0a0a', red:'#c02020', blue:'#2d5be3', green:'#16a34a', orange:'#e07b12', gray:'#8a8a8a'};
+// 全片色调：暖米色背景，蓝色主色，铁锈橙强调，绿色只表示正确或通过，深色写正文，灰色写次要信息。
+export const C = {
+  bg:'#f7f2e8', card:'#fefdf9', ink:'#232838', blue:'#2150b4', rust:'#b8532a', green:'#2f7d4f', gray:'#6b6f7d', faint:'#a9aeba',
+  line:'#d8d1c3', shadow:'#dcdee0', track:'#e6e9f0', soft:'#a7b6db', select:'#dce4f6',
+};
 export const FONT = '"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif';
-export const card: React.CSSProperties = {background:'white', border:`4px solid ${C.ink}`, borderRadius:32, boxShadow:'12px 12px 0 rgba(10,10,10,.14)'};
+export const MONO = 'ui-monospace, "SF Mono", Menlo, "PingFang SC", monospace';
+export const SERIF = '"Times New Roman", "Songti SC", serif';
+// 卡片：直角、3px 蓝色细边、无模糊的灰色偏移阴影，底色比背景更白。
+export const card: React.CSSProperties = {
+  background:C.card, border:`3px solid ${C.blue}`, borderRadius:0, boxShadow:`16px 16px 0 ${C.shadow}`, boxSizing:'border-box', color:C.ink,
+};
 export const enter = (frame:number, fps=30) => spring({frame: Math.max(0,frame), fps, config:{damping:20,stiffness:210}});
 export const clamp = (frame:number,a:number,b:number) => interpolate(frame,[a,b],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
 export const Label: React.FC<{children:React.ReactNode;color?:string}> = ({children,color=C.ink}) => <div style={{fontSize:25,fontWeight:700,letterSpacing:2,color}}>{children}</div>;
 export const Stage:React.FC<{children:React.ReactNode}> = ({children}) => <AbsoluteFill style={{background:C.bg,fontFamily:FONT,color:C.ink}}>{children}</AbsoluteFill>;
 export const ChapterStrip:React.FC<{active?:number;brand:React.ReactNode;chapters:string[]}> = ({active=0,brand,chapters}) => <div style={{position:'absolute',top:48,left:96,right:96,display:'flex',gap:14,alignItems:'center'}}>
   <div style={{fontSize:27,fontWeight:900,marginRight:'auto',letterSpacing:-1}}>{brand}</div>
-  {chapters.map((name,i)=><div key={name} style={{fontSize:23,fontWeight:700,padding:'13px 25px',border:`2px solid ${i===active?C.ink:'#ccc'}`,borderRadius:999,background:i===active?C.ink:'transparent',color:i===active?'white':i<active?C.gray:'#555'}}>{String(i+1).padStart(2,'0')}　{name}</div>)}
+  {chapters.map((name,i)=><div key={name} style={{fontSize:23,fontWeight:700,padding:'13px 25px',border:`2px solid ${i===active?C.ink:C.line}`,borderRadius:999,background:i===active?C.ink:'transparent',color:i===active?'white':i<active?C.faint:C.gray}}>{String(i+1).padStart(2,'0')}　{name}</div>)}
 </div>;
 export const widthOf = (text:string) => [...text].reduce((sum,ch)=>sum+(/[\x00-\x7F]/.test(ch)?0.58:1),0);
 export function subtitleLines(text:string):string[]{

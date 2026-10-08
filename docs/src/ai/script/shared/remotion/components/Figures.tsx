@@ -28,7 +28,7 @@ export const UserIcon: React.FC<{size?: number; color?: string}> = ({size = 80, 
 export const UserBubble: React.FC<{text: string; width?: number; color?: string}> = ({text, width = 330, color = C.blue}) => (
   <div style={{display: 'flex', alignItems: 'center', gap: 14, width}}>
     <UserIcon size={70} color={color} />
-    <div style={{flex: 1, background: 'white', border: `3px solid ${color}`, borderRadius: 18, padding: '14px 20px', fontSize: 30, fontWeight: 800}}>
+    <div style={{flex: 1, background: C.card, border: `3px solid ${color}`, borderRadius: 18, padding: '14px 20px', fontSize: 30, fontWeight: 800}}>
       {text}
     </div>
   </div>

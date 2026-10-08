@@ -35,6 +35,7 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 - ASR 识别正确不等于读音正确。没有实际试听，不宣称读音已验收。用户认可某个词，只代表这一项通过。
 - 原稿配图原样展示，不用简化图形替换，也不重新生成。
 - 配图要么不加边框，要么边框紧贴图片：带边框时取景框和图片宽高比一致（`fitBox`），推近时图片也铺满边框，边框里上下左右都不能露出空白。
+- 颜色只从共享色板 `C` 取，自制卡片只用共享 `card` 或 `Card`，不在章节里另写配色和卡片样式。
 - 不伪造品牌标志。具体模型或产品先查共享官方素材库，未收录时先查官网或官方仓库；确实没有可用官方标志时才用通用概念图标并写清名称。
 - 具体硬件型号使用官方产品图，标清 SXM、PCIe 等形态；不让通用双风扇显卡冒充 A100/H100。素材与来源见 [硬件产品图复用](../../../docs/src/ai/script/shared/WORKFLOW.md#硬件产品图复用)。
 
@@ -47,11 +48,11 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 - **提示音**。新项目默认开启。只标记少量有意义的变化，比如错误出现、结果返回、资料场景切入，放在短停顿处，音量低于配音。用户说不要时关闭。
 - **时长**。“3 分钟”按稿子保留，实际时长以配音为准，不为凑时长删内容。
 
-视觉版式、原稿配图聚焦、字幕分组、人物角色、闯关稿见 [用户偏好](references/USER_PREFERENCES.md)，Codex 制作视频也读这份文件，入口见 [画面规范](../../../docs/src/ai/script/shared/VISUAL_STYLE.md)。稿子里有“面试官问你”、求职者回答或面试追问时，读 [面试头像开场](references/INTERVIEW_OPENING.md)。普通科普稿不加面试剧情。
+色调与卡片、视觉版式、原稿配图聚焦、字幕分组、人物角色、闯关稿见 [用户偏好](references/USER_PREFERENCES.md)，Codex 制作视频也读这份文件，入口见 [画面规范](../../../docs/src/ai/script/shared/VISUAL_STYLE.md)。稿子里有“面试官问你”、求职者回答或面试追问时，读 [面试头像开场](references/INTERVIEW_OPENING.md)。普通科普稿不加面试剧情。
 
 ## 组件和素材
 
-- 先用共享组件：`ChapterShell`、`SceneChain`、`FigureCard`、`FigureFocus`、`HostCard`、`InterviewStage`、`Icons`。清单见 [共享场景组件](../../../docs/src/ai/script/shared/WORKFLOW.md#共享场景组件)，新章节从 `shared/remotion/examples/Chapter.example.tsx` 复制起步。
+- 先用共享组件：`ChapterShell`、`SceneChain`、`FigureCard`、`FigureFocus`、`HostCard`、`InterviewStage`、`Icons`，卡内元素用 `Cards.tsx`。清单见 [共享场景组件](../../../docs/src/ai/script/shared/WORKFLOW.md#共享场景组件)，新章节从 `shared/remotion/examples/Chapter.example.tsx` 复制起步，卡片和色调的样张是同目录的 `Cards.example.tsx`。
 - 同一个场景或图标在两期以上重复手写，且不含主题数据时，提升到共享组件并登记。
 - 产品图标、Harness 马匹、面试头像、提示音都在 `shared/assets/`，用前复制到项目 `assets/images/`，来源记录复制到 `assets/references/`。Kolibri、GLM/Z.ai、Qwen、Aleph Alpha 的官方素材已保存，版本标签、背景和蜂鸟横幅视窗见 [品牌素材复用](../../../docs/src/ai/script/shared/WORKFLOW.md#品牌素材复用)。
 - 组件代码按 JSX 元素换行，单行不超过约 160 个字符，样式常量放在文件顶部，便于用户按坐标改版。

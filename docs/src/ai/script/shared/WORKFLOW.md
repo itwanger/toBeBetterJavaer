@@ -21,7 +21,7 @@ script/
 │   ├── tools/                       通用 Python / Node 命令
 │   └── remotion/
 │       ├── components/              无主题数据的公共组件
-│       ├── examples/                章节骨架示例，不参与编译
+│       ├── examples/                章节骨架和卡片样张，不参与项目编译
 │       └── templates/               初始化后成为项目自身的动画骨架
 └── <topic>/
     ├── project.json                 项目信息、输出名、完整配置快照
@@ -39,15 +39,13 @@ script/
     └── output/                      交付 MP4
 ```
 
-已有 KV Cache 项目的 `auditions/` 保留历史试听记录，`output/legacy/` 保留旧版成片。这些记录不作为新项目的模板或当前路径依据。
-
 共享目录和依赖声明入库；视频目录继续按仓库既有策略留在本地。新克隆仓库需要初始化视频项目。当前机器复用仓库已有 `remotion-project/node_modules` 安装，`script/node_modules` 为相对链接，不下载第二套依赖。新环境在 `script/` 下按锁文件安装依赖；不要在每个视频目录重复安装。
 
 ## 配置约定
 
-`project.json.config` 是完整快照，包含 `tts`、`video`、`volc` 三部分。所有生成工具只读取项目快照，不运行时合并全局默认值。初始化复制默认值，之后用户修改默认音色不会改变旧视频。
+`project.json.config` 是完整快照，包含 `tts`、`video`、`volc` 三部分。所有生成工具只读取项目快照，不运行时合并全局默认值。初始化时复制默认值，之后改共享默认值不影响已建项目。
 
-API Key 只读取 `config.volc.apiKeyEnv` 对应的环境变量。不要存进 JSON、命令参数或报告。公共组件不得依赖某视频的 beats、标题或字幕时点；更新组件保持兼容，重大视觉升级先验收旧视频预览。
+API Key 只读取 `config.volc.apiKeyEnv` 对应的环境变量。不要存进 JSON、命令参数或报告。公共组件不得依赖某视频的 beats、标题或字幕时点。
 
 ## 项目选择与初始化
 
@@ -73,7 +71,7 @@ python3 docs/src/ai/script/shared/tools/progress.py --project docs/src/ai/script
 python3 docs/src/ai/script/shared/tools/progress.py --project docs/src/ai/script/<topic> --mark ch2    # 用户认可第二章后
 ```
 
-`doctor.py` 的输出也带同样的进度摘要。没有 `progress` 字段的旧项目显示为未跟踪，按项目文件与用户最新指令判断，不补记历史。
+`doctor.py` 的输出也带同样的进度摘要。
 
 ## 面试开场素材
 
@@ -105,15 +103,15 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 }
 ```
 
-数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略。beat 按完整句子或自然意群划分，不以字幕长度或目标段数决定合成次数；一个 beat 内可切换多组字幕和动画。讲同一画面的相邻 beat 共用 Sequence；用户反馈配音断句过多时，可合并相关意群重新合成，并在项目中保存旧短语到新配音单元的映射。短语时点必须从新音频定位，不能继续把已移除的 beat ID 当作 cues 查询。具体见 [配音单元与字幕短语分开](../../../../../.claude/skills/ergo-remotion-video/references/AV_SYNC.md#配音单元与字幕短语分开)。迁移旧项目不自动重拆或重合成。
+数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略。beat 按完整句子或自然意群划分，不以字幕长度或目标段数决定合成次数；一个 beat 内可切换多组字幕和动画。讲同一画面的相邻 beat 共用 Sequence；用户反馈配音断句过多时，可合并相关意群重新合成，并在项目中保存旧短语到新配音单元的映射。短语时点必须从新音频定位，不能继续把已移除的 beat ID 当作 cues 查询。具体见 [配音单元与字幕短语分开](../../../../../.claude/skills/ergo-remotion-video/references/AV_SYNC.md#配音单元与字幕短语分开)。
 
 `OUTLINE.md` 同时维护正文配图的使用映射：来源 URL、项目文件、场景、beat 范围、预览检查状态。每张保留的正文图都要有明确去向；未采用则记录原因。素材清单只登记下载路径不能代替分镜。逐章检查要覆盖实际配图帧和主要动画场景，确认图片完整可读、字幕切换时图像保持连续。
 
-正文导航由 `ChapterShell` 内的 `ChapterStrip` 渲染，传入本项目品牌、章节名称和当前章。面试模式的特殊顶部布局仅限对话开场。用户指定旧版为视觉基准时，在本项目 `preview/` 保存对照帧与检查记录；恢复版式和场景组织，时间轴仍以本次真实音频为准。
+正文导航由 `ChapterShell` 内的 `ChapterStrip` 渲染，传入本项目品牌、章节名称和当前章。面试模式的特殊顶部布局仅限对话开场。
 
 ## 配音与时间轴
 
-口播稿确认后、第一次合成前，先套用读音词典 [pronunciations.json](config/pronunciations.json)。`rules` 写入 `ttsText`，字幕 `text` 不变；`watch` 只列出要复听的 beat。已有音频的 beat 默认跳过，避免旧项目被动重合成。
+口播稿确认后、第一次合成前，先套用读音词典 [pronunciations.json](config/pronunciations.json)。`rules` 写入 `ttsText`，字幕 `text` 不变；`watch` 只列出要复听的 beat。已有音频的 beat 默认跳过，不会被动重合成。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/pronunciations.py --project docs/src/ai/script/<topic>            # 只报告
@@ -221,8 +219,6 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 验收后用 `git status --short --untracked-files=all -- docs/src/ai/script/` 确认待提交 MP4 都是各项目配置指定的最终文件，并用 `git check-ignore` 抽查预览、配音、临时文件及旧版仍被忽略。规则只按目录和文件名匹配，不会判断视频是否通过验收，因此必须在提交前完成成片检查。提交前检查文件大小；遇到远端大小限制时再选择 Git LFS 或 Release 附件，不自动转换整个仓库的 MP4 存储方式。
 
-整理已有项目时，遍历 `docs/src/ai/script/*/project.json`，以每个配置的 `outputName` 定位最终文件；跳过尚未生成成片的项目。核实 `output/` 顶层其他 MP4 的用途，将试做版本或历史文件移入 `preview/` 或 `output/legacy/`。移动前后比较哈希，禁止覆盖同名文件；已有引用随实际用途更新。
-
 最终成片出现在 Git 待提交列表中不代表已上传。仅在用户明确要求时执行 commit/push，成功后再报告已上传 GitHub。
 
 ## 命令执行注意
@@ -237,37 +233,47 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 - 工具只通过 `--project` 选择输入输出位置；相对路径解析不依赖工具文件被复制到视频目录。
 - 不恢复 Skill 下的 `config/`、`templates/gen_audio.py` 或项目根目录的 Python 副本。
-- 修改目录后跑 `doctor`、配音 dry-run、时间轴 dry-run、类型检查和一张实际 still；另在一个临时新项目验证初始化命令，避免只兼容已有 KV Cache。
-- 迁移已有视频时核对成片及配音哈希，不能因整理目录而重合成或重新出片。
+- 修改目录后跑 `doctor`、配音 dry-run、时间轴 dry-run、类型检查和一张实际 still，另在一个临时新项目验证初始化命令。
+- 修改共享组件后渲染 [examples/Cards.example.tsx](remotion/examples/Cards.example.tsx) 的样张，核对卡片和色调。
 
 
 ## 共享场景组件
 
-从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 复制起步，画面要求见 [VISUAL_STYLE.md](VISUAL_STYLE.md)。旧项目保留自己的写法，不批量迁移。
+从项目 `remotion/src/` 引入，路径前缀为 `../../../shared/remotion/components/`。组件只负责版式，标题、字幕、图片路径和帧数都由项目传入。新章节从 [examples/Chapter.example.tsx](remotion/examples/Chapter.example.tsx) 复制起步，画面要求见 [VISUAL_STYLE.md](VISUAL_STYLE.md)。颜色只从 `C` 取，自制卡片用 `card` 或 `Card`，不在章节里另写卡片样式。
 
 |组件|文件|用途|
 |---|---|---|
-|`ChapterShell`|`Scenes.tsx`|背景、章节音频、`ChapterStrip` 导航、底部单行字幕；传 `progress={CHAPTERS}` 时在字幕下方画按章节分段的进度条（`ChapterProgress`），不传时保持旧版式|
+|`ChapterShell`|`Scenes.tsx`|背景、章节音频、`ChapterStrip` 导航、底部单行字幕；传 `progress={CHAPTERS}` 时在字幕下方画按章节分段的进度条（`ChapterProgress`）|
 |`SceneChain`|`Scenes.tsx`|按起点列表挂载场景，每个场景持续到下一个场景开始，不再手算 `durationInFrames`|
 |`subtitleAt`|`Scenes.tsx`|取某个章节局部帧上的字幕|
-|`FigureCard`|`Scenes.tsx`|原稿配图，`contain` 完整显示。新视频加 `plain`，去掉黑框、阴影和白底；不加时保持旧的卡片样式，旧项目不受影响。`dark` 用于终端截图|
+|`FigureCard`|`Scenes.tsx`|原稿配图，`contain` 完整显示，默认不套卡片直接放在背景上；`dark` 把终端截图放进深色卡片|
 |`CoverFrame`|`Scenes.tsx`|整片第 0 帧显示原稿 16:9 封面，之后 `fadeFrames`（默认 6）帧内淡出，不平移时间轴。只放在整片 Composition 的最上层，章节预览不加|
-|`HostCard`|`Scenes.tsx`|圆形头像、红色细边、黑色姓名胶囊，用于自介和结尾|
+|`HostCard`|`Scenes.tsx`|圆形头像、铁锈橙细边、深色姓名胶囊，用于自介和结尾|
 |`InterviewStage`|`Scenes.tsx`|左侧豆包面试官、右侧二哥求职者、中央插槽，`candidateExit` 控制离场|
 |`SceneEntrance`、`ConceptIcon`|`Enhancements.tsx`|短入场转场；paper、terminal、feedback、error 四个概念图标|
 |`CheckpointIcon` 等 10 个|`Icons.tsx`|检查点、对话、依赖包、分块、发出邮件、回滚、齿轮、法槌、概率、哨子|
 |`LevelStairs`、`QuizBoard`|`Quest.tsx`|闯关段位台阶、按配音入场的选项卡与答案揭晓；题目示意图、选项图标和时点由项目传入|
 |`AgentBot`、`UserIcon`、`UserBubble`|`Figures.tsx`|Agent 机器人头、用户头像、用户消息气泡；从 agent-intent-routing 提升，标签和颜色由项目传入|
-|`FigureFocus`、`focusAt`、`FocusNote`、`FocusRing`|`FigureFocus.tsx`|原稿配图镜头聚焦：按关键帧在原图上平移放大、拉回全图；`FocusRing` 在整图上圈出当前栏（多栏信息图用它，不放大）；`fitBox` 取和原图同宽高比的取景框，带边框的配图必须用；children 叠加的标记随镜头移动；`FOCUS_BOX` + `FOCUS_GUIDE` 为左图右说明列布局，`FOCUS_BOX_WIDE` 为居中取景|
-|`track`、`life`、`Actor`、`Spotlight`|`Stage.tsx`|连续画面试验版（2026-10 停用），只有 nine-prompting-techniques-for-better-llm 使用，新视频不用|
-|`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意，同属连续画面试验版；稿子确实在演示产品操作时可以单独使用|
-|`C`、`card`、`Popped`、`Arrow`|`index.tsx`|配色、卡片样式、入场、箭头|
+|`FigureFocus`、`focusAt`、`FocusNote`、`FocusRing`|`FigureFocus.tsx`|原稿配图镜头聚焦：按关键帧在原图上平移放大、拉回全图；`FocusRing` 在整图上用直角框框出当前栏，可带小标签（多栏信息图用它，不放大）；`fitBox` 取和原图同宽高比的取景框，带边框的配图必须用；children 叠加的标记随镜头移动；`FOCUS_BOX` + `FOCUS_GUIDE` 为左图右说明列布局，`FOCUS_BOX_WIDE` 为居中取景|
+|`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意，稿子在演示产品操作时使用|
+|`C`、`card`、`MONO`、`SERIF`、`Popped`、`Arrow`|`index.tsx`|全片色板、卡片样式（直角、3px 蓝色细边、无模糊灰色偏移阴影）、等宽和衬线字体、入场、箭头|
+|`Card`、`Kicker`、`SYNTAX`、`typed`、`Caret`、`Selected`|`Cards.tsx`|可倾斜的卡片、等宽小标签、卡内代码配色、打字机与光标、选中态|
+|`SegmentBar`、`segmentsAt`|`Cards.tsx`|分格进度条：首次请求逐格填满，缓存命中这类瞬间完成的场景直接满格|
+|`RankTable`、`NoteCard`|`Cards.tsx`|排行表：逐行错峰入场、条形从 0 长出，到时点后指定行加蓝框、其余行变淡；便签式结论卡：略微倾斜，大号衬线结论、等宽来源、铁锈橙收尾|
 
-两期以上重复手写的场景或图标，确认不含主题数据后提升到这里，并在本表登记。修改共享组件保持向后兼容，旧项目的成片不重新渲染。
+卡片和色调的样张在 [examples/Cards.example.tsx](remotion/examples/Cards.example.tsx)，可直接渲染，渲染命令写在文件开头。
+
+两期以上重复手写的场景或图标，确认不含主题数据后提升到这里，并在本表登记。
 
 ## 增强效果与音效混音
 
-新制章节按 Skill 的轻量增强规则选择效果，旧项目保持现有设置。共享 `Enhancements.tsx` 提供短入场转场与概念图标；品牌素材来源记入 `shared/assets/brands/`。本期的事件时点保存在项目 `assets/references/sound-plan.json`，每个事件指定 `beatId`、`offsetFrames`、`sound`、`peakDbfs` 与用途。
+新制章节按 Skill 的轻量增强规则选择效果。共享 `Enhancements.tsx` 提供短入场转场与概念图标；品牌素材来源记入 `shared/assets/brands/`。本期的事件时点保存在项目 `assets/references/sound-plan.json`，每个事件指定 `beatId`、`offsetFrames`、`sound`、`peakDbfs` 与用途。
+
+```bash
+python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/script/what-is-agent-reflection
+```
+
+混音保持原始 `build/voiceover.wav` 和采样长度不变，生成 `build/voiceover-with-effects.wav`、`build/sound-mix.json`。`chapter_pipeline.py` 在存在 sound-plan 时自动混音。预览读取混音文件；项目设置 `deliveryAudio: "build/voiceover-with-effects.wav"` 后（新项目初始化时默认写入），导出入口也采用该音轨。音效计划、配音或混音文件发生变化时，导出入口校验哈希并拒绝过期混音；每次重新生成配音时间轴后必须重新混音。第一章认可样片提供效果参考，不固定每章数量。提示音参考峰值约 -35 至 -31 dBFS、长度约 75–160ms，按实际配音与试听调整；不是响度保证。检查音效窗外配音采样一致、长度不变且无削波。
 
 ### 品牌素材复用
 
@@ -284,6 +290,8 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |GLM / Z.ai|`shared/assets/brands/glm-logo.svg`|GLM-5.3 官方模型仓库使用的 Z.ai 标志；见 `glm.source.json`|
 |Qwen|`shared/assets/brands/qwen-logo.png`|Qwen 官网的 80×80 图标；见 `qwen.source.json`|
 |Aleph Alpha|`shared/assets/brands/aleph-alpha-logo.svg`|Aleph Alpha 官网黑色字标；见 `aleph-alpha.source.json`|
+|Microsoft|`shared/assets/brands/microsoft-logo.png`、`microsoft-symbol.svg`|microsoft.com 页头的四色方块加字标组合（216×46 PNG，灰字适合浅色背景）；Microsoft Learn 页头的四色方块矢量标志；见 `microsoft.source.json`|
+|Lenovo|`shared/assets/brands/lenovo-logo.svg`|lenovo.com 页头红底白字矢量标志；见 `lenovo.source.json`|
 
 Kolibri 横幅原图为 1920×660，蜂鸟与字标视窗为 `[660, 213, 1260, 423]`（原图像素）。只调整显示窗口，保留原文件；窗口随版面等比缩放，不切掉蜂鸟或文字。白色 `kolibri-wordmark.svg` 配深色背景，黑色 Aleph Alpha 字标配浅色背景。GLM 与 Qwen 的版本号由旁边的文字标签表达，不把共用品牌标志称为某个版本的专属标志。
 
@@ -319,9 +327,3 @@ cp docs/src/ai/script/shared/assets/brands/qwen.source.json docs/src/ai/script/a
 CPU、GPU、TPU 的封装和板卡图可用于对应概念的产品实例。手机和电脑的 NPU 通常集成在 SoC 内；使用骁龙、Apple 芯片图时标清“内含 NPU”或实际部件名称，不把整个 SoC 的产品图称为独立 NPU 实拍。电脑算力场景使用电脑端 SoC，手机场景使用与手机相符的 SoC。官方产品渲染图与实物照片分别按来源标注。
 
 SXM、PCIe、NVL 的外观不同，图旁标清所用形态，不用 SXM 图指代 PCIe 外形。型号为替代选择时写清“或”；“2 张 A100 或 H100”配分别标注的型号图，不把一张 A100 加一张 H100 画成推荐混装。H100 官网横幅另存 `hardware/nvidia-h100-banner.jpg` 及来源记录，只用于需要横幅的场景。
-
-```bash
-python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/script/what-is-agent-reflection
-```
-
-混音保持原始 `build/voiceover.wav` 和采样长度不变，生成 `build/voiceover-with-effects.wav`、`build/sound-mix.json`。`chapter_pipeline.py` 在存在 sound-plan 时自动混音。预览读取混音文件；项目设置 `deliveryAudio: "build/voiceover-with-effects.wav"` 后（新项目初始化时默认写入），导出入口也采用该音轨。音效计划、配音或混音文件发生变化时，导出入口校验哈希并拒绝过期混音；每次重新生成配音时间轴后必须重新混音。未设置 deliveryAudio 的旧项目仍按原有方式封装。第一章认可样片提供效果参考，不固定每章数量。提示音参考峰值约 -35 至 -31 dBFS、长度约 75–160ms，按实际配音与试听调整；不是响度保证。检查音效窗外配音采样一致、长度不变且无削波。
