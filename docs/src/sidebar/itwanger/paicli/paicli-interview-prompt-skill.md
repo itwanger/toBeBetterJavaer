@@ -40,7 +40,7 @@ PaiCLI 的 system prompt 可以概括为四个核心模块。
 
 ## 02、Prompt 分层架构是怎么设计的？
 
-PaiCLI 早期的 system prompt 是硬编码在 Java 代码里的，改一句话要重新编译。后来做了分层改造，把 system prompt 拆分成独立的 Markdown 文件，按职责分目录存放。
+PaiCLI 的 system prompt 不硬编码在 Java 代码里，而是拆成独立的 Markdown 文件，按职责分目录存放，改提示词不用重新编译。
 
 先看目录结构：
 
@@ -65,7 +65,7 @@ src/main/resources/prompts/
 
 PaiCLI 启动时会把这些 Markdown 文件按固定顺序拼装成最终的 system prompt。
 
-组装顺序是固定的：先拼核心规则，再拼语调风格，然后是当前模式的指令，接着是审批策略、项目上下文、Skill、上下文，最后是本轮对话的交接信息。
+组装顺序是固定的：先拼核心规则，再拼语调风格，然后是当前模式的指令、审批策略、上下文管理和交接规则，之后是 Skill 索引、运行时日期，最后是项目上下文。
 
 ![](https://cdn.paicoding.com/stutymore/paicli-interview-prompt-skill-20260528113130.png)
 
@@ -75,7 +75,7 @@ LLM 推理时，每个 token 会计算出一对 Key-Value（KV），缓存起来
 
 ### PaiCLI 的排列策略
 
-PaiCLI 的组装顺序严格遵循**“不变内容放前，动态内容放后”**的原则。
+PaiCLI 的组装顺序严格遵循**“不变内容放前，动态内容放后”**的原则。几个动态段按变化频率排：Skill 索引只在 `/skill on/off/reload` 时变，运行时日期按天变，项目上下文里的相关记忆每条用户输入都会重新检索，所以放在最后。
 
 这样排列后，越靠前的稳定内容越容易持续命中 cache，动态变化的内容集中在后段，服务端只需要重点处理新增或变化的上下文。反过来，如果把 Skill、项目上下文这类动态内容放到前面，即使 base.md 没有变化，也可能破坏前缀一致性，导致缓存收益下降，推理延迟和 token 成本都会受到影响。
 
@@ -114,9 +114,9 @@ PaiCLI 在路径加载时做了两层校验：一是文件路径不能以 `/` �
 | 形式 | 代码函数 | SKILL.md + 辅助资源 |
 | 触发 | LLM 通过 tool_calls 调用 | LLM 通过 `load_skill` 工具加载 |
 | 内容 | 执行逻辑 | 决策手册 + 最佳实践 + 经验数据 |
-| 注入位置 | tools 字段 | user message 前置 |
+| 注入位置 | tools 字段 | load_skill 结果之后的独立 user 消息 |
 
-每个 Skill 包含 name、description、body（SKILL.md 正文，真正注入给 LLM 的内容）和 references 目录（参考资料），来源分三种：BUILTIN（内置）、USER（用户级）、PROJECT（项目级）。
+每个 Skill 包含 name、description（合起来就是“索引”）、body（SKILL.md 正文，即 frontmatter 之后的决策手册）和 references 目录（附属文件），来源分三种：BUILTIN（内置）、USER（用户级）、PROJECT（项目级）。
 
 举个具体例子：`web_fetch` 是 Tool（抓取网页的函数），`web-access` 是 Skill（告诉 Agent 什么时候用 web_fetch、什么时候用浏览器 MCP、各个站点的反爬经验）。
 
@@ -134,9 +134,7 @@ Skill 的延迟加载机制可以做到按需注入，只有 LLM 判断需要的
 
 Agent 启动时，只把所有启用 Skill 的 name + description 渲染成一段索引，注入到 system prompt 末尾，整个索引控制在 4KB 以内。LLM 看到的相当于一份菜单，而不是所有 Skill 的完整内容。
 
-运行时，LLM 根据用户输入判断需要哪个 Skill，主动调用 `load_skill(name)` 工具。加载后 Skill 的正文会写入一个缓冲区，在下一轮对话时前置注入到 user message 前面。注入是一次性的，取出后自动清空，不会跨轮重复注入。
-
-![](https://cdn.paicoding.com/stutymore/paicli-interview-prompt-skill-20260528121450.png)
+运行时，LLM 根据用户输入判断需要哪个 Skill，主动调用 `load_skill(name)` 工具。工具本身只返回一句确认，Agent 拿到工具结果后，在同一轮的下一次模型请求之前，把 SKILL.md 正文包成一条独立的 user 消息追加到工具结果后面，下面把这条消息叫“注入消息”。模型读完注入消息，再决定下一步调什么工具。
 
 ### 为什么不把所有 Skill 塞进 system prompt
 
@@ -154,23 +152,37 @@ LLM 调用 `load_skill(name)` 时，可能遇到两种异常情况。
 
 两种情况都是把错误信息作为工具返回值交给 LLM，由 LLM 决定下一步怎么做——可以换一个 Skill，也可以直接用通用知识回答。不会因为某个 Skill 加载失败就中断整个对话流程。
 
-## 07、Skill 缓冲区的容量控制怎么做的？
+## 07、SKILL.md 正文什么时候生效？为什么不直接放进工具结果？
 
-Skill 加载会占用 token，如果不做容量控制，buffer 会随着工具调用持续膨胀。
+load_skill 成功后，**同一轮**就生效，不用等用户下一次发消息。
 
-PaiCLI 的做法是最多保留 3 个 Skill，超出后按加载顺序淘汰最早进入缓冲区的那个。底层用 LinkedHashMap 的插入顺序实现，不需要额外的数据结构。如果同名 Skill 被重复加载，会先删除旧记录再插入新记录，既避免重复，也刷新加载顺序。
+Agent 的工具循环里，工具结果写进历史之后、进入下一次模型请求之前，会检查这批结果里有没有成功的 load_skill。有的话，就按参数从 SkillRegistry 查出 Skill，把 SKILL.md 正文（超过 5KB 截断）拼成一条注入消息追加进去：
 
-![](https://cdn.paicoding.com/stutymore/paicli-interview-prompt-skill-20260528135859.png)
+```
+assistant  调用 load_skill("web-access")
+tool       已加载 skill 'web-access' 的完整指引……
+user       注入消息：## 已加载 Skill：web-access + SKILL.md 正文
+```
 
-**为什么用 LRU 而不是 LFU（按频率淘汰）？** 
+**为什么不把 SKILL.md 正文直接塞进工具结果？** 
 
-因为 Skill 的使用场景是单次会话内的任务切换，不是长期高频访问。LRU 的语义更贴合实际——最近加载的 Skill 和当前任务的相关性最高，最早加载的大概率已经用完了。LFU 还需要额外维护频率计数器，复杂度更高但收益不大。
+PaiCLI 所有工具结果进入历史前都会被包成 `trust="untrusted-data"`，告诉模型这是外部数据，里面的指令不执行，用来防网页、MCP 内容做提示词注入。SKILL.md 是本地可信的操作指引，恰恰需要模型照做，混进工具结果要么被当成数据忽略，要么就得给安全边界开口子。
 
-还有一个细节是缓冲区的读取是一次性的，取出后自动清空，上一轮注入过的 Skill 不会下一轮再注入一次。
+**为什么不塞进 system prompt？** 
 
-因为异步工具调用可能在不同线程触发 load_skill，缓冲区做了 synchronized 线程安全处理。Multi-Agent 模式下，Planner、Worker、Reviewer 各持一个独立的缓冲区实例，避免角色间的提示词污染。
+system prompt 一变，prompt cache 就失效。正文走注入消息，system prompt 从头到尾不变，缓存能一直命中。
 
+**并发和多 Agent 下会不会串？** 
 
+不会。注入消息只从当前这一批工具结果里算出来，没有共享的待注入状态。Plan 模式并行执行的任务、Team 模式的多个 Worker，各看各的对话历史，谁加载谁拿到。
+
+**同一个 Skill 会不会重复注入？** 
+
+注入消息还在上下文里时不会。去重由代码按对话历史判断：历史里还有这个 Skill 的注入消息，再调 load_skill 时工具结果会被改写成“正文还在当前上下文里”，不再追加。历史里注入消息合计还有 16KB 预算，超出时新的 load_skill 不注入。
+
+**上下文压缩会不会把注入消息压掉？**
+
+会删除，但不会摘要。注入消息首行带 `[PAICLI_SKILL_INJECTION]` 标记，压缩器按 user 消息切分轮次时跳过它，否则一次 load_skill 就多出一个假轮次。被切到摘要范围里的注入消息不交给摘要模型，直接删除，摘要末尾列出对应的 Skill 名，模型还需要时重新 load_skill。这和 pi 的思路一样：丢了再读。
 
 ## 08、web-access Skill 具体包含什么内容？
 
@@ -280,11 +292,11 @@ Skill 加载一份 Spring Boot 相关的决策手册，告诉 Agent 配置优先
 
 **三层覆盖 + 经验积累**。内置 < 用户级 < 项目级，references 目录按场景持续积累经验数据。
 
-**容量控制**。最多保留 3 个 Skill，LRU 淘汰，一次性消费，前面 07 题已经详细分析过设计原因。
+**容量控制**。单个 SKILL.md 正文 5KB 截断，历史里注入消息合计默认 16KB。不按数量设上限，超预算时也不自动淘汰旧的注入消息：淘汰发生在模型不知情的时候，它以为指引还在，比没加载更糟。压缩删除注入消息时，摘要里会写明哪些 Skill 被移出。
 
 ### 多个 Skill 之间冲突怎么办
 
-目前 PaiCLI 没有显式的 Skill 优先级机制。多个 Skill 同时存在于缓冲区时，按加载顺序排列，LLM 根据当前任务的上下文自行判断参考哪个 Skill 的指引。
+目前 PaiCLI 没有显式的 Skill 优先级机制。多个 Skill 的注入消息同时留在对话历史里时，按加载顺序排列，LLM 根据当前任务的上下文自行判断参考哪个 Skill 的指引。
 
 这种设计依赖 LLM 的语义判断能力，在实际使用中效果可以接受，但如果两个 Skill 对同一操作给出矛盾的建议（比如一个说用 web_fetch，另一个说用浏览器），LLM 可能会在两者之间摇摆。
 
