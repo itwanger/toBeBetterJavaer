@@ -1,7 +1,7 @@
 ---
-title: AI Agent 面试题 365 道（Agent八股+视频讲解）｜王二讲Agent
-shortTitle: AI Agent 面试 365 题
-description: AI Agent 面试 365 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
+title: AI Agent 面试题 367 道（Agent八股+视频讲解）｜王二讲Agent
+shortTitle: AI Agent 面试 367 题
+description: AI Agent 面试 367 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
 tag:
   - 面试
 category:
@@ -24,7 +24,7 @@ date: 2026-05-20
 
 ![跟着王二讲Agent：通过完整题目系统学习，建立Agent时代的完整知识体系](https://cdn.paicoding.com/stutymore/agent-learning-completeness-20260908231154-003540aa.png)
 
-这套题库一共 365 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
+这套题库一共 367 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
 
 每道题都不是孤立的概念解释，而是串联到三个实战项目来回答。
 
@@ -166,7 +166,7 @@ date: 2026-05-20
 
 命令黑名单在动态生成的代码与复杂的系统调用面前形同虚设，随便用 base64 编码、管道拼接或临时脚本即可绕过，更防不住模型幻觉误操作。合格的沙箱绝不是在恶意命令表面贴创可贴，而是必须在系统底层筑牢文件系统读写、网络出入站、进程空间与硬件资源配额四道防线。一线工程在隔离强度和启动成本之间各有取舍：Claude Code 采用 Git Worktree 隔离工作区并结合抽象语法树（AST）解析命令，Codex 在操作系统层依托 Bubblewrap 命名空间与 Seatbelt 规则锁死未授权读写与网络，Devin 则在云端直接拉起具备硬件级隔离的独立微型虚拟机。对于轻量本地 Agent，通常通过前置物理路径围栏、危险指令快速熔断、人机协同（HITL）审批以及系统原生沙箱包装来逐层设防，开源实现可参考 bubblewrap、E2B 与 Firecracker。
 
-完整答案：[阅读全文《Agent 沙箱》](./what-is-agent-sandbox.md) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnZC5yZKQOj4HrZ3Fc5TK8lL)
+完整答案：[阅读全文《Agent 沙箱》](./what-is-agent-sandbox.md) · [B站视频](https://www.bilibili.com/video/BV1FBaZ6LEAb/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnZC5yZKQOj4HrZ3Fc5TK8lL)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7688214970668043539)
 
@@ -1614,9 +1614,19 @@ DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没�
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7670027713771621658)
 
-## 热点解读（7 题）
+## 热点解读（9 题）
 
 模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
+
+### CPU、GPU、NPU 到底有什么区别？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+从 Codex 的本机执行、云端 LLM 推理和端侧 AI 三个场景，理解 CPU 的调度能力、GPU 的并行计算与显存带宽，以及 NPU 的低功耗推理。区分 Prefill 和 Decode，也说明 TOPS 为什么不能直接代表实际使用体验。
+
+完整内容：[阅读全文《CPU、GPU、NPU 的区别》](./cpu-gpu-npu-difference.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnEQp2HuPJVzfYbflqUpCfpg)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7693854535088868643)
 
 ### Kolibri 如何蒸馏 GLM-5.3 和 Qwen3.8？
 
@@ -1665,6 +1675,14 @@ Jev 是 TypeSafe AI 9 月 15 日发布的 System One 模型，不生成文本，
 B站视频：[观看本集视频](https://www.bilibili.com/video/BV1eUaZ6qEDR/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687944233659026722)
+
+### Claude Haiku 5.5 怎么在成本和智能之间做选择？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+结合推理档位、上下文窗口、自适应思考和缓存，拆解 Haiku 5.5 的成本与能力取舍，以及在 Claude Code 中承担摘要、压缩、分类、路由和子 Agent 任务的用法。
+
+完整内容：[阅读全文《Claude Haiku 5.5 解读》](./claude-haiku-5-5.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnoAiq8fR9jVWeczNVjGoQie)
 
 ### GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？
 
@@ -2185,7 +2203,7 @@ Agent 这一轮变化和以往不太一样。以前的技术迭代，学一门�
 
 Alan Kay 说过一句话，「预测未来最好的办法就是去创造它」。我觉得这话放在今天特别合适。与其等着被 Agent 浪潮推着走，不如自己先把原理搞透，把项目跑通，把面试里会被问到的每一个点都准备好。
 
-所以我们选择了最笨但最扎实的方式。365 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
+所以我们选择了最笨但最扎实的方式。367 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
 
 我始终相信一件事，技术的价值不在于它有多新，而在于你是否真正理解它、用过它、能把它讲清楚。这套题库要做的就是帮你到达这个状态。
 

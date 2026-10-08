@@ -128,6 +128,19 @@
         "3015"
       ],
       "port": 3015
+    },
+    {
+      "name": "remotion-claude-haiku-5-5",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/claude-haiku-5-5",
+        "--port",
+        "3016"
+      ],
+      "port": 3016
     }
   ]
 }

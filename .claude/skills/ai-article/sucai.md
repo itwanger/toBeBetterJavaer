@@ -1,4 +1,6 @@
-标题：31岁罗福莉，晋升小米最高职级22级
+标题：轻量开源版 Muse 来了！
+
+https://github.com/CopilotKit/openmuse
 
 
 

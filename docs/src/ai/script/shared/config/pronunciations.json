@@ -210,6 +210,14 @@
       ],
       "status": "candidate",
       "note": "2026-10-06 aleph-alpha-kolibri，型号 3.6 用三点六提示；字幕保留数字，新音频待实际复听。"
+    },
+    {
+      "id": "nvidia-cn",
+      "match": "\\s*(?<![A-Za-z])NVIDIA(?![A-Za-z])\\s*",
+      "replace": "英伟达",
+      "speakers": "*",
+      "status": "confirmed",
+      "note": "2026-10-07 cpu-gpu-npu-difference，用户指定 NVIDIA 直接读“英伟达”。字幕保留 NVIDIA，只改 ttsText；本期第 20、26 段已按此重合成，新音频待用户复听。"
     }
   ],
   "watch": [
@@ -252,6 +260,14 @@
         "S_j97bqlje2"
       ],
       "note": "2026-09-30 multi-agent-context-passing beat 50，用户听出“最后”读音异常，ASR 仍转写为“最后”。原文不变整句重合成一次，新读音待用户复听。这句是多数视频的总结开头，每期都要单独听。"
+    },
+    {
+      "id": "quiz-option-a-start",
+      "match": "^A，",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "note": "2026-10-07 cpu-gpu-npu-difference：选择题选项“A，…”单独成一个配音单元时，A 在句首读音异常，B、C 在句中正常。试过 A。/A、/诶，/A ， /Ａ， 都不理想，用户选定的做法是把问句和选项合成一个配音单元，让 A 处在句中，字幕照常分组。新项目拆 beat 时问句与选项放在同一单元；命中本条说明选项仍单独成段，需复听。"
     }
   ]
 }

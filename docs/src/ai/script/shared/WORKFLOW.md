@@ -284,6 +284,7 @@ python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/scr
 |产品|共享素材|已核实来源|
 |---|---|---|
 |Claude Code|`shared/assets/brands/claude-code.png`|Anthropic 官方 VS Code 扩展；详情见同名 `.source.json`|
+|Claude|`shared/assets/brands/claude.png`|claude.ai 的 Claude 官方应用图标（338×338，米色底铁锈橙标志）；用于 Claude 模型系列，Claude Code 产品仍用 `claude-code.png`；见 `claude.source.json`|
 |Codex|`shared/assets/brands/codex.png`|OpenAI 官方 VS Code 扩展中的 Codex 应用图标；详情见同名 `.source.json`|
 |DeepSeek|`shared/assets/brands/deepseek.png`|DeepSeek 官网 `favicon.ico` 小鲸鱼；无缩放转为 PNG，原 ICO 与同名 `.source.json` 一并保留|
 |Kolibri|`shared/assets/brands/kolibri-logo-banner.webp`、`kolibri-wordmark.svg`|Aleph Alpha 官网公告横幅的蜂鸟与字标、导航白色字标；见 `kolibri.source.json`|

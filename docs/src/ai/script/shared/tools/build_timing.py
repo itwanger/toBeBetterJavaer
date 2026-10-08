@@ -51,6 +51,14 @@ class Unit:
         return self.local_start + round(self.starts[pos] * self.fps), pos + len(key)
 
 
+def phrase_onset(unit: 'Unit', phrase: str, cursor: int):
+    """Locate a phrase by its first 6 spoken characters; 3 alone can hit an earlier repeat of a short term (TPU)."""
+    key = norm(phrase)
+    if unit.joined.find(key[:6], cursor) >= 0:
+        return unit.onset_frame(key[:6], cursor)
+    return unit.onset_frame(key[:3], cursor)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--project', required=True, type=project_path)
@@ -79,7 +87,7 @@ def main() -> None:
                 raise SystemExit(f'unit {unit_id}: subtitle too wide ({width_of(phrase):.1f} > {MAX_WIDTH}): {phrase}')
         starts = [unit.local_start]; cursor = 0
         for phrase, anchor in zip(phrases[1:], anchors[1:]):
-            frame, cursor = unit.onset_frame(anchor if anchor else norm(phrase)[:3], cursor)
+            frame, cursor = unit.onset_frame(anchor, cursor) if anchor else phrase_onset(unit, phrase, cursor)
             starts.append(frame)
         for i, phrase in enumerate(phrases):
             end = starts[i + 1] if i + 1 < len(phrases) else unit.local_end

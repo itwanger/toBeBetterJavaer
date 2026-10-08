@@ -25,6 +25,18 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "cpu-gpu-npu-difference": meta(
+    "CPU、GPU、NPU 到底有什么区别？",
+    "CPU、GPU 与 NPU",
+    "从本机 Agent 调度、云端 LLM 推理和端侧 AI，理解 CPU、GPU、NPU 的分工，以及 Prefill、Decode 和内存带宽。",
+    ["CPU", "GPU", "NPU", "Prefill", "Decode"],
+  ),
+  "claude-haiku-5-5": meta(
+    "Claude Haiku 5.5 怎么在成本和智能之间做选择？",
+    "Claude Haiku 5.5",
+    "理解推理档位、自适应思考与缓存，结合 Claude Code 的子 Agent 配置选择适合高频任务的模型。",
+    ["Claude Haiku 5.5", "effort", "adaptive thinking", "Sub-agent"],
+  ),
   "agent-task-cancellation": meta(
     "用户中途取消，Agent 任务怎么停下来？",
     "Agent 任务取消",
@@ -63,9 +75,9 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   ),
 
   readme: meta(
-    "AI Agent 面试题 365 道（Agent八股+视频讲解）｜王二讲Agent",
-    "AI Agent 面试 365 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 365 道高频面试题。",
+    "AI Agent 面试题 367 道（Agent八股+视频讲解）｜王二讲Agent",
+    "AI Agent 面试 367 题",
+    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 367 道高频面试题。",
     ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(
@@ -575,12 +587,14 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "cpu-gpu-npu-difference",
       "aleph-alpha-kolibri",
       "gemini-4-argon",
       "mimo-v3-hysparse2",
       "open-source-jev-replicas",
       "what-is-jev",
       "chatgpt-images-2-5",
+      "claude-haiku-5-5",
       "gpt-6-astra",
       "why-relay-still-works",
     ],
@@ -600,6 +614,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "cpu-gpu-npu-difference": "7693854535088868643",
   "aleph-alpha-kolibri": "7693484001561972019",
   "agent-task-cancellation": "7693089537089604874",
   "nine-prompting-techniques-for-better-llm": "7692668076902468879",

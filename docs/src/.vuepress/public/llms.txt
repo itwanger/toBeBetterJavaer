@@ -7,10 +7,12 @@
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
 - [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
 
-## AI Agent 面试题（365 题合集，配视频讲解）
+## AI Agent 面试题（367 题合集，配视频讲解）
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
+- [CPU、GPU、NPU 到底有什么区别？](https://javabetter.cn/ai/video/cpu-gpu-npu-difference.html)：从本机 Agent 调度、云端 LLM 推理和端侧 AI，理解 CPU、GPU、NPU 的分工，以及 Prefill、Decode 和内存带宽。
+- [Claude Haiku 5.5 怎么在成本和智能之间做选择？](https://javabetter.cn/ai/video/claude-haiku-5-5.html)：理解推理档位、自适应思考与缓存，结合 Claude Code 的子 Agent 配置选择适合高频任务的模型。
 - [用户中途取消，Agent 任务怎么停下来？](https://javabetter.cn/ai/video/agent-task-cancellation.html)：取消信号逐层传播，停止整个工具进程组，修复被打断的会话历史，并区分取消与 Steering 插话。
 - [Kolibri 如何蒸馏 GLM-5.3 和 Qwen3.8？](https://javabetter.cn/ai/video/aleph-alpha-kolibri.html)：拆解 Kolibri 的混合专家、滑动窗口注意力、合成训练数据，以及代码与 Agent 任务的能力边界。
 - [Agent 调用工具失败或者超时了怎么办？](https://javabetter.cn/ai/video/agent-tool-failure-timeout.html)：区分瞬时错误和确定性错误，结合错误结果回传、退避重试、进程接管和幂等设计处理工具故障。
@@ -135,6 +137,7 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [派聪明RAG+PaiCLI面试9问](https://javabetter.cn/sidebar/itwanger/ai/paismart-paicli-mianshi.html)：围绕派聪明 RAG 和 PaiCLI 终端 Agent 的 9 道面试题，讲透 Kafka 异步解析与重复消费、分片合并幂等、CompletableFuture 编排、线程池无界队列、分布式限流、任务恢复、大文件流式解析和多供应商熔断降级。
 - [小米MiMo全梳理](https://javabetter.cn/sidebar/itwanger/ai/luofuli-xiaomi-mimo.html)：31 岁的罗福莉晋升小米 22 级。本文梳理小米 MiMo 从 MiMo-7B 到 MiMo-V2.6 的模型迭代、V2.6 的 RL 训练、下一代架构 HySparse2，以及 MiMo Code 和 MiMo Desktop 两款产品。
 - [Opus 5.5 焚诀](https://javabetter.cn/sidebar/itwanger/ai/claude-opus-5-5-prompting-guide.html)：拆解 Claude 官方的 Opus 5.5 使用指南，面向 Claude Code 用户讲清楚 effort 档位怎么选、提示词怎么写终点线、长任务怎么不中途停下、Sub-agent 怎么拆活、被切到旧模型怎么办，附可直接使用的 CLAUDE.md 规则和提示词。
 - [豆包工作SSH部署](https://javabetter.cn/sidebar/itwanger/ai/doubao-work-ssh-deploy.html)：豆包工作实测，通过 SSH 登录 Linux 生产服务器，完成派聪明 RAG 项目的部署准备、正式发布、失败回滚和浏览器验收，附四轮完整提示词
@@ -194,7 +197,6 @@
 - [Hy3 + WorkBuddy 实测](https://javabetter.cn/sidebar/itwanger/ai/hunyuan-hy3-workbuddy.html)：腾讯混元 Hy3 正式版发布，用 WorkBuddy 实测工具使用、规划、长程执行、多源理解四项 Agent 能力，附完整提示词和官方数据。
 - [Claude Code 底层架构拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-architecture-from-source.html)：拆解 Claude Code 的 6 大核心抽象和 7 级权限模式，从 Query Loop 的 async generator 设计到递归 Agent 架构，附 5 个可直接复用的设计模式。
 - [10个Codex视频推荐](https://javabetter.cn/sidebar/itwanger/ai/codex-bilibili-top10.html)：从B站上百个Codex视频中精选10个，覆盖入门教程、实战案例、进阶功能、国内接入、知识管理和行业格局，附评论区高赞避坑经验。
-- [Claude Code隐写术逆向拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-steganography.html)：逆向拆解Claude Code内置隐写术机制，从XOR解码域名黑名单到Unicode字符替换，用源码证据还原Anthropic如何通过系统提示词中的日期字符串秘密标记中国用户。
 
 ## 开发工具
 
