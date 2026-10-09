@@ -141,6 +141,19 @@
         "3016"
       ],
       "port": 3016
+    },
+    {
+      "name": "remotion-human-in-the-loop",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/agent-human-in-the-loop",
+        "--port",
+        "3017"
+      ],
+      "port": 3017
     }
   ]
 }

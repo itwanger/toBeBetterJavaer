@@ -213,6 +213,7 @@ export const QuizBoard: React.FC<{
                 border: `2px solid ${i % 2 ? C.rust : C.blue}`,
                 fontSize: 28,
                 fontWeight: 800,
+                whiteSpace: 'nowrap',
               }}
             >
               {text}
