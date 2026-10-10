@@ -7,7 +7,7 @@ category:
 tag:
   - 学习路线
 description: Go 语言越来越火了，这里整理一份 go 语言的超详细学习路线，附学习资源，可下载
-date: 2026-07-17
+date: 2026-04-17
 author: 沉默王二
 head:
   - - meta
