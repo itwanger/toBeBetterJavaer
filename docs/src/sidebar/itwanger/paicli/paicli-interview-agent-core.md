@@ -270,21 +270,23 @@ Planner 是 Tech Lead 分任务，Worker 是开发写代码，Reviewer 是审查
 
 当 LLM 认为当前步骤需要同时做多件事（比如同时读 3 个文件），会在一次响应里返回多个 `tool_calls`。
 
-PaiCLI 第 7 期在 `Agent.java` 里实现了并行工具调用。
+并行逻辑在 `ToolRegistry.executeTools` 里，三种执行方式都调它。
 
-代码的核心路径是：从 LLM 响应解析出所有 `tool_calls` → 提交到 `ExecutorService` 线程池并行执行 → 等待全部完成（有统一的超时保护）→ 按原始 `tool_call` 顺序拼装结果 → 一起塞回消息历史。
+代码的核心路径是：从 LLM 响应解析出所有 `tool_calls` → 只读工具组成的一段交给线程池并行执行（最多同时 4 个），有副作用的按顺序一个一个执行 → 并行的那段用 `invokeAll` 统一等待，整批超时 90 秒 → 按原始 `tool_call` 顺序拼装结果 → 一起塞回消息历史。
 
 ```java
-// 简化后的并行执行逻辑
-List<Future<ToolResult>> futures = new ArrayList<>();
-for (ToolCall call : toolCalls) {
-    futures.add(executor.submit(() -> 
-        toolRegistry.executeTool(call.name(), call.arguments())
-    ));
-}
-// 等待所有工具完成，按原始顺序收集结果
+// ToolRegistry.executeInParallel，简化后
+ExecutorService executor = Executors.newFixedThreadPool(Math.min(invocations.size(), MAX_PARALLEL_TOOLS));
+List<Future<ToolExecutionResult>> futures =
+        executor.invokeAll(tasks, toolBatchTimeoutSeconds, TimeUnit.SECONDS);
+// 按原始顺序收集结果：到点还没跑完的记为超时，抛异常的只记这一项失败
 for (int i = 0; i < futures.size(); i++) {
-    results.add(futures.get(i).get(timeout, TimeUnit.SECONDS));
+    Future<ToolExecutionResult> future = futures.get(i);
+    if (future.isCancelled()) {
+        results.add(ToolExecutionResult.timedOut(invocations.get(i), toolBatchTimeoutSeconds));
+        continue;
+    }
+    results.add(future.get());
 }
 ```
 
@@ -314,7 +316,7 @@ PaiCLI 早期的处理策略是“不做锁，靠提示词引导加工程保护�
 
 工程保护层面：
 
-每个工具有独立超时，单个卡死不阻塞其他的。某个工具执行失败只返回该工具的错误给 LLM，不影响同批次其他工具的结果。
+并行的一段共用一个整批超时（默认 90 秒），到点还没跑完的工具记为超时，已经完成的结果照常返回。某个工具执行失败只返回该工具的错误给 LLM，不影响同批次其他工具的结果。
 
 为什么不按文件路径加锁？路径锁要解析每个工具的参数，`execute_command` 里的一行 shell 命令会写哪些文件根本解析不出来，MCP 工具更是黑盒。按“有没有副作用”统一处理，规则简单，损失的只是写操作之间的并行度，而写操作本来就不多。
 

@@ -77,6 +77,7 @@ Java 这块用 JavaParser，CodeChunker 里的核心逻辑是这样：
 ```java
 public List<CodeChunk> chunkFile(Path filePath) throws IOException {
     String content = Files.readString(filePath);
+    String relativePath = filePath.toString();
 
     // 非 Java 文件：按大小分段
     if (!relativePath.endsWith(".java")) {
@@ -84,11 +85,11 @@ public List<CodeChunk> chunkFile(Path filePath) throws IOException {
     }
 
     // Java 文件：AST 解析分块
-    return chunkJavaFile(filePath, content);
+    return chunkJavaFile(filePath, content, JavaSourceParser.parse(content));
 }
 ```
 
-JavaParser 可以把语言级别设到 JAVA_17，text block、record、sealed class 这些新语法都能正常解析。
+解析统一走 `JavaSourceParser`，语言级别设到 JAVA_17，text block、record、sealed class 这些新语法都能正常解析。解析结果作为参数传给 `chunkJavaFile`，是因为建索引时分块和调用关系分析要共用同一棵语法树，一个文件只解析一次。
 
 万一遇到语法错误，可以自动回退到按大小分段，不会因为一个文件解析失败就漏掉整块代码。
 
@@ -172,6 +173,8 @@ MAX_INPUT_CHARS 卡在 2000，中文密集的文本大概对应 4000~6000 token�
 响应格式两家也不一样。
 
 Ollama 把向量放在 `embedding` 字段，是平铺数组；OpenAI 兼容格式塞在 `data[0].embedding` 里。
+
+`embed` 一次只处理一条，用在 `/search` 把问题转成向量这种场景。建索引时要处理上万个代码块，一条一个 HTTP 请求就太慢了，所以 `/index` 走的是 `embedAll`：跨文件攒够一批（默认 32 条，`EMBEDDING_BATCH_SIZE` 可调）再请求一次，Ollama 用 `/api/embed` 的数组输入，OpenAI 兼容接口用数组形式的 `input`，返回的向量按 `index` 字段放回原位。本地 Ollama 跑 nomic-embed-text 实测，逐条大约 16ms 一条，10 条一批降到 8ms 一条。
 
 在客户端里统一转成 `float[]`，上层就不用知道底下是哪一家。
 
@@ -445,15 +448,19 @@ RAG 这一堆功能，最后通过三条 CLI 命令交到用户手上。
 
 `/index` 也支持指定路径，比如 `/index /Users/xxx/my-project`，可以索引任意目录的代码库。
 
-索引过程每 10 个文件打一次进度，单个文件解析失败只会打 warn，不会中断整体流程。
+索引过程每 10 个文件打一次进度，单个文件解析失败只会打 warn，不会中断整体流程。读文件和解析放在 4 个线程里并行（`PAICLI_INDEX_THREADS` 可调）。JavaParser 的实例不是线程安全的，所以每个线程用自己的一份；线程也不是越多越好，实测 5000 多个 Java 文件，4 线程最快，8 线程反而慢，解析时分配的内存太多，GC 压力上来了。超过 1MB 的文件直接跳过，这类文件多半是生成代码或者压缩过的 JS，索引了也搜不出有用的东西。
 
 最后再输出一行统计——多少代码块、多少条关系，一眼就知道这次索引的质量怎么样。
 
 ### 代码库更新了怎么办？
 
-重新执行 /index 就行。
+重新执行 /index 就行，而且只会处理变了的文件。
 
-CodeIndex 会先清掉旧数据再写新数据，保证向量库和代码库始终对齐，不会出现“代码已经改了，搜出来还是老版本”那种灵异现象。
+CodeIndex 给每个文件记了一个内容指纹（SHA-256）和当时用的 Embedding 模型，存在 `indexed_files` 表里。再次索引时，内容和模型都没变的文件直接跳过；改过的文件先删掉它旧的代码块和关系，再写入新的；已经删掉的文件，索引也跟着清掉。换了 Embedding 模型，所有文件都会重新向量化，因为不同模型产出的向量不能放在一起比相似度。
+
+实测一个 1800 多个文件的 Java 项目，第一次完整索引两分钟左右，什么都没改再跑一次不到 1 秒。
+
+为什么不每次清空重建？一是慢，大部分时间都花在 Embedding 上，没改的文件没必要再算一遍；二是脆弱，Embedding 服务一旦挂了，清空之后什么都写不进去，整个索引就没了。现在是一批文件放在一个事务里写，某一批 Embedding 失败，这些文件保留原来的索引、也不记新指纹，下次 `/index` 自动补上。
 
 `/search` 在没建索引的情况下会友好提示“代码库尚未索引，请先使用 `/index` 命令”，不会直接抛异常糊脸。检索过程出错也会捕获异常打日志，CLI 不会直接崩掉。
 
@@ -493,9 +500,9 @@ pom.xml 里这一期新增了三个依赖：sqlite-jdbc 管向量持久化，jav
 
 **核心职责**：
 
-- 基于 JavaParser AST 实现代码多粒度分块（文件/类/方法），非 Java 文件按大小分段，检索召回显著提升
-- 统一封装 Ollama 本地模型和 OpenAI 兼容远程 API，通过环境变量丝滑切换 provider，支持文本自动截断防止 API 超限
-- 基于 SQLite 实现轻量级向量存储，向量以 JSON 数组持久化，通过在内存中计算余弦相似度，单项目千行级代码块检索耗时 < 100ms
-- 实现混合检索策略：语义检索打底 + jieba 分词加权 + 代码类型加分 + 同文件限流，Top5 准确率达到可用生产级别
+- 基于 JavaParser AST 实现代码多粒度分块（文件/类/方法），非 Java 文件按大小分段，一个块对应一个完整的语义单元
+- 统一封装 Ollama 本地模型和 OpenAI 兼容远程 API，通过环境变量切换 provider，跨文件攒批调用 Embedding（默认 32 条一批），实测单条耗时从 16.4ms 降到 8.1ms
+- 基于 SQLite 实现轻量级向量存储，向量以 JSON 数组持久化，在内存中计算余弦相似度，不依赖外部向量库；按文件 SHA-256 做增量索引，1892 个文件的项目无改动重跑 0.8 秒
+- 实现混合检索策略：语义检索打底 + jieba 分词加权 + 代码类型加分 + 同文件限流
 - 基于 AST 提取代码关系图谱（extends/implements/imports/calls/contains），支持通过自然语言查询类的调用链
 - 将 RAG 封装为 search_code 工具注册到 Agent 工具，通过 LLM 系统提示词引导自动触发检索，ReAct 和 Plan-and-Execute 双模式均支持代码库理解
