@@ -1,0 +1,22 @@
+{
+  "publisher": "earendil-works",
+  "brand": "Pi（coding agent）",
+  "usage": "Pi 官方标志：4×4 像素格，珊瑚色、蓝色、黄色三色。官方仓库只在终端里用半块字符绘制，没有发布图片文件；本 SVG 按 pi-logo.ts 注释里的格子和 RGB 原样转写，用 shape-rendering=crispEdges，显示时加 imageRendering: pixelated，不要平滑缩放。",
+  "retrievedOn": "2026-10-09",
+  "artworkModified": false,
+  "derivation": "按官方源码定义的像素格与品牌色转写为 SVG，除格子外没有任何重绘或改色。",
+  "colors": {
+    "coral": "rgb(228,138,122)",
+    "blue": "rgb(79,142,179)",
+    "yellow": "rgb(234,182,93)"
+  },
+  "assets": [
+    {
+      "asset": "pi-logo.svg",
+      "sourceFile": "https://github.com/earendil-works/pi/blob/6f7551516b84278eb9da1c340c8e7bc66be1a6ba/packages/coding-agent/src/modes/interactive/components/pi-logo.ts",
+      "reference": "https://github.com/earendil-works/pi",
+      "sourceSha256": "120664ae4e5982b4b1325da5cfffd35ea8ffd201cde6ce566d9383b9a6813c4e",
+      "sha256": "f8b0d6e9635c436dcd33970e706e1fc0c08fa15a5ce237f19f4e80aa673a265c"
+    }
+  ]
+}

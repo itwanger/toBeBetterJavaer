@@ -139,7 +139,7 @@ Skill 加载后注入下一轮用户消息的上下文，和 Claude Code 的机�
 
 **联网搜索**。web_search 工具按优先级依次尝试 SearXNG → SerpAPI → DuckDuckGo HTML 解析。
 
-SearXNG 是自部署搜索引擎，隐私性最好。SerpAPI 是商用搜索服务，结果最稳定。DuckDuckGo 是纯 HTML 解析兜底，不需要任何 API Key，直接解析搜索结果页面的 DOM 提取标题、链接和摘要。三个方案覆盖了从“什么都没配”到“全配齐”的所有场景。web_fetch 工具还做了安全过滤，屏蔽 file://、回环地址和私有网段的请求，防止 SSRF。
+SearXNG 是自部署搜索引擎，隐私性最好。SerpAPI 是商用搜索服务，结果最稳定。DuckDuckGo 是最后的备用方案，纯 HTML 解析，不需要任何 API Key，直接解析搜索结果页面的 DOM 提取标题、链接和摘要。三个方案覆盖了从“什么都没配”到“全配齐”的所有场景。web_fetch 工具还做了安全过滤，屏蔽 file://、回环地址和私有网段的请求，防止 SSRF。
 
 ## 03、如何把 PaiCLI 写到简历上
 

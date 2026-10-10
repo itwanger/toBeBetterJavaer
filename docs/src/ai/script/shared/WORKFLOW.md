@@ -293,6 +293,7 @@ python3 docs/src/ai/script/shared/tools/mix_effects.py --project docs/src/ai/scr
 |Aleph Alpha|`shared/assets/brands/aleph-alpha-logo.svg`|Aleph Alpha 官网黑色字标；见 `aleph-alpha.source.json`|
 |Microsoft|`shared/assets/brands/microsoft-logo.png`、`microsoft-symbol.svg`|microsoft.com 页头的四色方块加字标组合（216×46 PNG，灰字适合浅色背景）；Microsoft Learn 页头的四色方块矢量标志；见 `microsoft.source.json`|
 |Lenovo|`shared/assets/brands/lenovo-logo.svg`|lenovo.com 页头红底白字矢量标志；见 `lenovo.source.json`|
+|Pi|`shared/assets/brands/pi-logo.svg`|官方仓库 earendil-works/pi 的 `pi-logo.ts` 定义的 4×4 像素格与三色品牌色，原样转写为 SVG；显示时加 `imageRendering: pixelated`；见 `pi.source.json`|
 
 Kolibri 横幅原图为 1920×660，蜂鸟与字标视窗为 `[660, 213, 1260, 423]`（原图像素）。只调整显示窗口，保留原文件；窗口随版面等比缩放，不切掉蜂鸟或文字。白色 `kolibri-wordmark.svg` 配深色背景，黑色 Aleph Alpha 字标配浅色背景。GLM 与 Qwen 的版本号由旁边的文字标签表达，不把共用品牌标志称为某个版本的专属标志。
 

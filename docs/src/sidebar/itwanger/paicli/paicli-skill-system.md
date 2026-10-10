@@ -12,7 +12,7 @@
 
 比如说，让 PaiCLI 抓一篇未知的 URL。
 
-合理的决策是：先用 web_fetch 试试能不能直接抓到文章内容，抓不到就切 Chrome DevTools MCP 上浏览器，浏览器也抓不到就走 Jina Reader 兜底。
+合理的决策是：先用 web_fetch 试试能不能直接抓到文章内容，抓不到就切 Chrome DevTools MCP 上浏览器，浏览器也抓不到，最后再用 Jina Reader 试一次。
 
 
 ![](https://cdn.paicoding.com/paicoding/93e5d621981c12922ebb6ee6ef02fa0f.png)
@@ -224,7 +224,7 @@ LLM 看到问题涉及联网操作，就自己调 `load_skill("web-access")`。
 
 模型先用 web_fetch 试了一次（微信文章是 SPA，抓不到文章内容），接着切 Chrome DevTools MCP 用浏览器打开页面拿到了完整内容。
 
-不过仔细看思考过程，模型这一次其实没有调用 load_skill，它说的是“According to my instructions”，依据的是 system prompt 里的联网路由规则。“先 web_fetch、失败再切浏览器”这条规则 system prompt 里本来就有。Skill 真正派上用场的，是 system prompt 没有覆盖、只写在 SKILL.md 里的经验，比如各站点的登录态处理、Jina 兜底的时机。
+不过仔细看思考过程，模型这一次其实没有调用 load_skill，它说的是“According to my instructions”，依据的是 system prompt 里的联网路由规则。“先 web_fetch、失败再切浏览器”这条规则 system prompt 里本来就有。Skill 真正派上用场的，是 system prompt 没有覆盖、只写在 SKILL.md 里的经验，比如各站点的登录态处理、什么时候改用 Jina。
 
 **这就是 Skill 的价值——让 Agent 学会正确的做事方法。**
 
@@ -360,7 +360,7 @@ web-access 的 SKILL.md 大致分这几个板块：
 
 ①、**浏览哲学**，四步法则：明确目标（要拿什么信息）→ 选择起点（用最轻量的方式尝试）→ 过程校验（拿到的内容是否符合预期）→ 完成判断（信息是否充分）。
 
-②、**工具选择表**，不同场景对应不同工具。搜索用 `web_search`，已知 URL 用 `web_fetch`，SPA 动态渲染站点用 Chrome DevTools MCP 的 `navigate_page` + `take_snapshot`，`web_fetch` 和浏览器都搞不定的用 Jina Reader（`curl https://r.jina.ai/<url>`）兜底。
+②、**工具选择表**，不同场景对应不同工具。搜索用 `web_search`，已知 URL 用 `web_fetch`，SPA 动态渲染站点用 Chrome DevTools MCP 的 `navigate_page` + `take_snapshot`，`web_fetch` 和浏览器都搞不定的最后交给 Jina Reader（`curl https://r.jina.ai/<url>`）。
 
 ③、**浏览器优先级**，这是决策手册最精华的部分。渐进式升级策略：先 `web_fetch` 试一把（成本最低，token 最少）→ 失败了切 Chrome DevTools isolated 模式（独立实例）→ 需要登录态的切 shared 模式（复用你的 Chrome）。
 
@@ -389,7 +389,7 @@ LLM 通过 `load_skill` 的 `file` 参数读取这些文件。`read_file` 受路
 
 比如它准备抓微信公众号文章时，会先 `load_skill(name="web-access", file="references/site-patterns")` 看有哪些站点，再 `load_skill(name="web-access", file="references/site-patterns/mp.weixin.qq.com.md")`，看到“SPA 渲染、web_fetch 无效、必须 CDP”这些信息，然后做出正确的工具选择。
 
-⑤、**经验写回**。站点经验不能只靠内置的 6 个文件，用得越多，模型踩到的新坑越多，应该能沉淀下来。PaiCLI 给了一个专门的写回工具：
+⑤、**经验写回**。站点经验不能只靠内置的 6 个文件，用得越多，模型踩到的新坑越多，应该能保存下来。PaiCLI 给了一个专门的写回工具：
 
 ```
 save_skill_reference(name="web-access", file="references/site-patterns/example.com.md", content="## 已知陷阱\n- ...")

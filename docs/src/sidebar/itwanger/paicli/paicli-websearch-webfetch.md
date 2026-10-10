@@ -181,7 +181,7 @@ HttpUrl url = HttpUrl.parse(ENDPOINT).newBuilder()
         .build();
 ```
 
-解析结果从 `organic_results` 数组取。如果没有自然搜索结果（比如搜的是计算题），会降级到 `answer_box`（Google 精选摘要）兜底。
+解析结果从 `organic_results` 数组取。如果没有自然搜索结果（比如搜的是计算题），会降级到 `answer_box`（Google 精选摘要）作为备用。
 
 ### SearXNG
 
@@ -234,7 +234,7 @@ static String pickProvider(String explicit, String glmKey,
 
 `WebFetcher` 负责第一步，用 OkHttp 发 GET 请求，拿回原始 HTML 字符串。几个关键参数：
 
-响应体上限 5MB，超出会被截断。30 秒整体超时。字符集优先从 Content-Type 的 charset 参数获取，全失败用 UTF-8 兜底。
+响应体上限 5MB，超出会被截断。30 秒整体超时。字符集优先从 Content-Type 的 charset 参数获取，都拿不到就默认用 UTF-8。
 
 ```java
 public RawResponse fetch(String url) throws IOException {
@@ -294,7 +294,7 @@ HTML 里充斥着导航栏、广告、评论区、页脚这些噪声。直接把
 
 **第二步，找主语义容器**。优先找 `<article>`、`<main>`、`[role=main]` 这些语义化标签。大部分博客和文档站都有这些标签，找到就能直接定位到正文区域。
 
-**第三步，打分兜底**。如果页面没有语义化标签（很多老网站就是一堆 div 嵌套），就给所有 block 元素打分。打分公式很简洁：`文本长度 × (1 - 链接密度惩罚)`。文本越多、链接占比越低的元素，越可能是正文。
+**第三步，找不到就打分**。如果页面没有语义化标签（很多老网站就是一堆 div 嵌套），就给所有 block 元素打分。打分公式很简洁：`文本长度 × (1 - 链接密度惩罚)`。文本越多、链接占比越低的元素，越可能是正文。
 
 **第四步，转 Markdown**。把选中的正文容器递归遍历，h1-h6 转标题、p 转段落、strong 转粗体、a 转链接、pre/code 转代码块、table 转 Markdown 表格。
 

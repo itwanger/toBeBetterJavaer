@@ -218,3 +218,16 @@ MCP 动态工具：运行时通过 MCP 协议注册，命名格式 mcp__{server}
 
 - 来源：PAI.md → .paicli/PAI.md → PAI.local.md → .paicli/PAI.local.md
 - 按文件优先级加载，后加载的覆盖前面的
+
+---
+
+## 九、2026-10-09 增量调研（HEAD 4ae374d，海康面试题）
+
+- 工具注册表：两张 ConcurrentHashMap（全部工具 / MCP 工具）；内置工具 Schema 由 createParameters 手拼，只有 type/description/required；MCP Schema 经 McpSchemaSanitizer 清洗（删 $ref/$id、anyOf/oneOf 降级 object、描述超 1000 字截断）
+- 参数：readTree 后全部 asText() 成字符串，无通用 Schema 校验；PathGuard 规范化 + 最近存在祖先 toRealPath 防软链逃逸；数值 clamp（grep 1..200、read_file ≤2000 行）；写入上限 5MB
+- 兜底：未知工具/未开放/异常/策略拒绝都转成工具结果文本；命令 60s 超时 destroyForcibly；只读工具白名单并行最多 4 个、批次 90s（串行路径无批次超时）；输出 >32000 字符卸载到 .paicli/tool-outputs，留头 2000 尾 800；结果包 trust="untrusted-data" 标签；RunawayGuard 同类错误 3 次提醒一次
+- MCP stdio：ProcessBuilder 继承父进程全部 env + 配置 env；按行 JSON；stdout 读线程 try/catch 在循环外（一行坏 JSON 读线程即退出）；stderr 200 行环形缓冲；server 主动请求被丢弃；list_changed 交给 NotificationRouter 单线程避免死锁；启动线程池 min(n,8)、CLI 最多等 8s；initialize 60s；关闭 stdin→1s→destroy→2s→destroyForcibly，无 shutdown 通知；无退出检测/自动重启/进程树清理；项目级 .paicli/mcp.json 直接执行
+- JavaParser 3.28.0：实例 + JAVA_17；CodeChunker 类/方法切块（非 Java 或失败按 2000 字符）；CodeAnalyzer 提取 imports/extends/implements/contains/calls（无符号解析）；LspManager 写文件后语法诊断，最多 20 条注入下一轮；索引全量重建、单线程、无增量；SQLite 存向量 JSON，检索全表扫描；Embedding 每 chunk 一次 HTTP
+- LLM：共享 OkHttp，connect 60s / read 300s / call 600s；重试最多 3 次，500ms 起指数退避 ±20% 抖动，最长 30s，有输出后不重试；运行时无跨供应商切换和熔断
+- 内存：请求体每轮 toString 成完整字符串；无 JVM 启动参数；ToolResultClearer 保留最近 3 条工具结果
+- 实测数据见 paicli/docs/interview-upgrade-plan.md「实测记录」

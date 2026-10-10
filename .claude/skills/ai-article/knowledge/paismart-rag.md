@@ -187,3 +187,18 @@ rate-limit.embedding-batch.day-max: 2000
 - 线程池：searchRecallExecutor 8/32/200 CallerRuns 等，见 AsyncExecutorConfig
 - Embedding 重试是固定 1s × 3 次（不是指数退避）；LLM 流式无重试；无熔断、无自动切换供应商；Embedding 失败降级纯文本，rerank 失败保留 RRF 顺序
 - 供应商：LLM deepseek/zhipu，Embedding aliyun/zhipu，管理员切换
+
+---
+
+## 十一、2026-10-09 增量调研（HEAD 521369a8）
+
+以下内容覆盖第十节中已过时的部分：
+
+- 投递：outbox（同事务写状态 + outbox，afterCommit 异步发，@Scheduled 5s 补发，指数退避封顶 300s）；消息 key = fileMd5；消费端 read_committed；DLT 有专门消费者落库并 [ALERT]
+- 消费：每实例 1 个消费线程；max.poll.records / max.poll.interval.ms 未配置；FixedBackOff(3s, 4)
+- 幂等：VectorizationLeaseService 条件更新认领（processing_started_at 为凭证，心跳/完成/失败都带它）→ clearIndexedData 先删 → ES id 覆盖 → document_vectors UNIQUE(file_md5, chunk_id)
+- 恢复：FileProcessingRecoveryJob 每 60s，心跳超时 600s 重投（上限 3 次）；无 processing_started_at 的历史任务直接 FAILED；余额不足（InsufficientBalanceException）不重试不进 DLT；DocumentStatusNotifier 经 Redis 频道 + WebSocket 推状态
+- 解析：父块 1048576 字符（只有 @Value 默认值，yml 未配，选值无文档理由），父块边界无重叠；子块逐条 save；Embedding 批 10 对应百炼 text-embedding-v4 单次最多 10 条
+- 模型调用：ModelWebClientFactory（connect 5s、responseTimeout 60s）；总超时 LLM 流式 180s / 非流式 90s / embedding 30s；ModelRetryPolicy 最多 2 次、500ms 起封顶 8s、全抖动、遵守 Retry-After；RetryBudget 10%；Resilience4j 熔断 + 按供应商限制并发数（LLM 50、embedding 20、maxWait 0；正文禁用“舱壁”）；Lua 令牌桶；LLM 供应商切换（首包前）；embedding 不切换
+- 问答：ChatHandler ReAct 最多 4 轮、8 次工具调用，每轮 120s 超时（非请求级）；轮次用完注入“不要再调用工具”消息；ReAct 在 chatMonitorExecutor 执行，满了返回“系统繁忙”
+- JVM：launch.sh.example `-Xms1g -Xmx1g -Xmn256m`、HeapDumpOnOOM、ExitOnOOM、G1PeriodicGCInterval=30000

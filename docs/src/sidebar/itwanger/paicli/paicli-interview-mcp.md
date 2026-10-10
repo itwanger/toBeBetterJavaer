@@ -72,7 +72,7 @@ Streamable HTTP 走的是网络。Host 通过 HTTP POST 发 JSON-RPC 请求，Se
 
 核心就是一个 ConcurrentHashMap，key 是自增的请求 id，value 是 CompletableFuture。
 
-发请求时用自增 id 注册一个 Future，收到响应时按 id 找到对应的 Future 把结果填进去就完成配对了。同时还有超时兜底，超过一定时间没收到响应就自动报超时异常，防止 Future 永远挂着。
+发请求时用自增 id 注册一个 Future，收到响应时按 id 找到对应的 Future 把结果填进去就完成配对了。同时还有超时保护，超过一定时间没收到响应就自动报超时异常，防止 Future 永远挂着。
 
 完整的通信生命周期长这样：
 
@@ -118,7 +118,7 @@ PaiCLI 给每个 MCP 工具注册的时候，用的是 `mcp__server名__tool名`
 
 ### 06、MCP Server 启动失败或超时怎么处理
 
-这个问题实际开发中真的经常遇到，PaiCLI 做了好几层兜底。
+这个问题实际开发中真的经常遇到，PaiCLI 做了好几层保护。
 
 首先，initialize 设了 60 秒超时，不能让一个 Server 卡住把整个 Agent 的启动流程都堵了。
 
@@ -194,7 +194,7 @@ MCP 是工具提供方的协议，解决的是"工具从哪来、长什么样、
 
 ![](https://cdn.paicoding.com/stutymore/paicli-interview-mcp-20260525190446.png)
 
-一句话总结：**MCP 管"工具从哪来"，Function Calling 管"LLM 怎么选"**。两个协议各管一段，合在一起才是完整的工具调用链路。
+一句话总结：**MCP 管"工具从哪来"，Function Calling 管"LLM 怎么选"**。两个协议各管一段，合在一起才是完整的工具调用过程。
 
 ### 12、MCP 的 schema 清洗是什么，为什么需要
 

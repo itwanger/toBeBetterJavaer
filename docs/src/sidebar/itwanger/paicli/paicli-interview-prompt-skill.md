@@ -200,7 +200,7 @@ web-access 是 PaiCLI 的首个内置 Skill，也是最能体现 Skill 设计理
 
 第三块规定了浏览器操作的优先级，`take_snapshot`（DOM 文本）优先于 `take_screenshot`（截图），因为文本更省 token，LLM 也更容易理解。
 
-第四块是 Jina 兜底方案，web_fetch 和浏览器都失败时，通过 `execute_command` 调用 `r.jina.ai` 做最后的抓取尝试。
+第四块是 Jina 备用方案，web_fetch 和浏览器都失败时，通过 `execute_command` 调用 `r.jina.ai` 做最后的抓取尝试。
 
 **references 目录**是按站点积累的实战经验，覆盖微信公众号的文章链接格式和反爬特征、知乎专栏的页面结构、GitHub 不同页面的 DOM 差异、小红书的动态加载特点。
 

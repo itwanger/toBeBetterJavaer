@@ -54,7 +54,7 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 
 - 先用共享组件：`ChapterShell`、`SceneChain`、`FigureCard`、`FigureFocus`、`HostCard`、`InterviewStage`、`Icons`，卡内元素用 `Cards.tsx`。清单见 [共享场景组件](../../../docs/src/ai/script/shared/WORKFLOW.md#共享场景组件)，新章节从 `shared/remotion/examples/Chapter.example.tsx` 复制起步，卡片和色调的样张是同目录的 `Cards.example.tsx`。
 - 同一个场景或图标在两期以上重复手写，且不含主题数据时，提升到共享组件并登记。
-- 产品图标、Harness 马匹、面试头像、提示音都在 `shared/assets/`，用前复制到项目 `assets/images/`，来源记录复制到 `assets/references/`。Kolibri、GLM/Z.ai、Qwen、Aleph Alpha 的官方素材已保存，版本标签、背景和蜂鸟横幅视窗见 [品牌素材复用](../../../docs/src/ai/script/shared/WORKFLOW.md#品牌素材复用)。
+- 产品图标、Harness 马匹、面试头像、提示音都在 `shared/assets/`，用前复制到项目 `assets/images/`，来源记录复制到 `assets/references/`。Kolibri、GLM/Z.ai、Qwen、Aleph Alpha、Pi 的官方素材已保存，版本标签、背景和蜂鸟横幅视窗见 [品牌素材复用](../../../docs/src/ai/script/shared/WORKFLOW.md#品牌素材复用)。
 - 组件代码按 JSX 元素换行，单行不超过约 160 个字符，样式常量放在文件顶部，便于用户按坐标改版。
 
 ## 最短示例

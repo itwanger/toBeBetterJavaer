@@ -238,7 +238,7 @@ end run
 
 `«class PNGf»` 是 macOS 剪贴板里 PNG 数据的 Apple Event 类型。截图工具放进剪贴板的就是这个格式。
 
-但有些应用比如 Preview 和部分 Office 软件，往剪贴板里放的是 TIFF。所以 PaiCLI 有个兜底：PNG 抓不到就试 `«class TIFF»`，抓到 TIFF 后用系统自带的 `/usr/bin/sips` 转成 PNG。
+但有些应用比如 Preview 和部分 Office 软件，往剪贴板里放的是 TIFF。所以 PaiCLI 有个备用方案：PNG 抓不到就试 `«class TIFF»`，抓到 TIFF 后用系统自带的 `/usr/bin/sips` 转成 PNG。
 
 Java 侧通过 `ProcessBuilder` 调用 osascript，脚本从 stdin 传入（不落临时文件），8 秒超时保护。整个冷启动大概 30ms，用户几乎无感知。
 
@@ -270,7 +270,7 @@ Linux 和 Windows 走的是 AWT 的标准 `Clipboard.getData(DataFlavor.imageFla
 
 ![](https://cdn.paicoding.com/paicoding/238e344ff23f99efa863eae684a501fb.jpg)
 
-这个链路的实现涉及三个组件的协作。
+这个流程的实现涉及三个组件的协作。
 
 首先是 `McpCallToolResult`。
 
@@ -397,6 +397,6 @@ API 传输的是 base64 编码后的字符串，base64 会把每 3 字节变成 
 - **核心职责**：
   - 升级 LlmClient.Message 协议，将 content 从 String 扩展为 List\<ContentPart\>，兼容 text/image_base64/image_url 三种类型
   - 设计并实现 `@image:` / `@clipboard` 图片输入协议，支持 file://、绝对路径、相对路径、尖括号包裹等多种路径格式
-  - 实现 macOS 原生剪贴板图片抓取（AppleScript + osascript），支持 PNG / TIFF 双格式兜底和 sips 格式转换，冷启动 30ms
-  - 实现 MCP 工具 image content 到 LLM 图片输入的注入链路，通过 tool message + user image message 的消息序列解决 tool role 不支持 content array 的协议限制
+  - 实现 macOS 原生剪贴板图片抓取（AppleScript + osascript），支持 PNG / TIFF 双格式互为备用和 sips 格式转换，冷启动 30ms
+  - 实现 MCP 工具 image content 到 LLM 图片输入的注入流程，通过 tool message + user image message 的消息序列解决 tool role 不支持 content array 的协议限制
 
