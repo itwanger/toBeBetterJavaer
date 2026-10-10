@@ -7,6 +7,8 @@ export const C = {
 };
 export const FONT = '"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif';
 export const MONO = 'ui-monospace, "SF Mono", Menlo, "PingFang SC", monospace';
+// 小标签字体：英文数字用 Arial，中文回落苹方。不用等宽字体排中文，避免字距发散。
+export const LABEL_FONT = 'Arial, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif';
 export const SERIF = '"Times New Roman", "Songti SC", serif';
 // 卡片：直角、3px 蓝色细边、无模糊的灰色偏移阴影，底色比背景更白。
 export const card: React.CSSProperties = {
@@ -18,7 +20,7 @@ export const Label: React.FC<{children:React.ReactNode;color?:string}> = ({child
 export const Stage:React.FC<{children:React.ReactNode}> = ({children}) => <AbsoluteFill style={{background:C.bg,fontFamily:FONT,color:C.ink}}>{children}</AbsoluteFill>;
 export const ChapterStrip:React.FC<{active?:number;brand:React.ReactNode;chapters:string[]}> = ({active=0,brand,chapters}) => <div style={{position:'absolute',top:48,left:96,right:96,display:'flex',gap:14,alignItems:'center'}}>
   <div style={{fontSize:27,fontWeight:900,marginRight:'auto',letterSpacing:-1}}>{brand}</div>
-  {chapters.map((name,i)=><div key={name} style={{fontSize:23,fontWeight:700,padding:'13px 25px',border:`2px solid ${i===active?C.ink:C.line}`,borderRadius:999,background:i===active?C.ink:'transparent',color:i===active?'white':i<active?C.faint:C.gray}}>{String(i+1).padStart(2,'0')}　{name}</div>)}
+  {chapters.map((name,i)=><div key={name} style={{fontSize:23,fontWeight:700,padding:'13px 25px',border:`2px solid ${i===active?C.blue:C.line}`,borderRadius:999,background:i===active?C.blue:'transparent',color:i===active?'white':i<active?C.faint:C.gray}}>{String(i+1).padStart(2,'0')}　{name}</div>)}
 </div>;
 export const widthOf = (text:string) => [...text].reduce((sum,ch)=>sum+(/[\x00-\x7F]/.test(ch)?0.58:1),0);
 export function subtitleLines(text:string):string[]{

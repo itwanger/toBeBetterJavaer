@@ -1,7 +1,7 @@
 // 卡片内的常用元素：等宽小标签、代码配色、打字机、分格进度条、排行表、便签式结论卡。卡片样式和配色都来自 index 的 card 与 C。
 import React from 'react';
 import {Easing, interpolate} from 'remotion';
-import {C, MONO, SERIF, card} from './index';
+import {C, LABEL_FONT, MONO, SERIF, card} from './index';
 
 /** 卡片代码里的配色：方法和选中值用蓝，键名和字符串用铁锈橙，标点用正文色，注释用灰。 */
 export const SYNTAX = {method: C.blue, key: C.rust, string: C.rust, punct: C.ink, note: C.gray};
@@ -14,9 +14,9 @@ export const Card: React.FC<{style?: React.CSSProperties; tilt?: number; childre
   <div style={{...card, ...style, transform: `${style?.transform ?? ''} rotate(${tilt}deg)`}}>{children}</div>
 );
 
-/** 卡片顶部的等宽小标签，比如“MARKDOWN · 第 1 页”。 */
+/** 卡片顶部的小标签，比如“Markdown · 第 1 页”。英文数字用 Arial，中文用苹方，按原文大小写显示。 */
 export const Kicker: React.FC<{color?: string; style?: React.CSSProperties; children: React.ReactNode}> = ({color = C.gray, style, children}) => (
-  <div style={{fontFamily: MONO, fontSize: 22, letterSpacing: 3, textTransform: 'uppercase', color, ...style}}>{children}</div>
+  <div style={{fontFamily: LABEL_FONT, fontSize: 22, fontWeight: 600, letterSpacing: 1, color, ...style}}>{children}</div>
 );
 
 /** 打字机：从 `start` 帧起每 `perChar` 帧打出一个字符。 */

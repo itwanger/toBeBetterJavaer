@@ -12,8 +12,12 @@ const fadeIn = (f: number, at: number, frames = 6) =>
   });
 
 const DEFAULT_LEVELS = ['30%', '50%', '70%', '90%', '99%'];
-const STEP = { left: 330, base: 880, width: 252, rise: 105 };
+// 台阶整体水平居中：5 级时左边距正好是 330，级数随稿子里实际出现的百分比变化。
+const STEP = { base: 880, width: 252, rise: 105 };
+const stairsLeft = (count: number) => (1920 - count * STEP.width) / 2;
 const AVATAR = 132;
+// 弹幕：画面上方两条轨道，错峰出场，每条从右往左匀速飘过一次，慢到能看清字。
+const DANMU = { lanes: [150, 225], stagger: 24, frames: 210, from: 1920, to: -320 };
 
 const stepTop = (i: number) => STEP.base - (i + 1) * STEP.rise;
 
@@ -32,17 +36,21 @@ const TrophyIcon: React.FC<{ size?: number; color?: string }> = ({ size = 90, co
   </svg>
 );
 
-/** Staircase of five ranks; the host avatar climbs from the previous step onto `level`, sparks appear at `cheerAt`. */
+/**
+ * Staircase of ranks, centred horizontally. Defaults to five ranks; pass `levels` with the percentages the script actually uses.
+ * The host avatar climbs from the previous step onto `level`, sparks appear at `cheerAt`.
+ */
 export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: string[] }> = ({
   level,
   cheerAt,
   levels = DEFAULT_LEVELS,
 }) => {
   const f = useCurrentFrame();
+  const left0 = stairsLeft(levels.length);
   const climb = interpolate(f, [4, 22], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const fromTop = level === 0 ? STEP.base : stepTop(level - 1);
-  const fromLeft = STEP.left + Math.max(level - 1, 0) * STEP.width;
-  const toLeft = STEP.left + level * STEP.width;
+  const fromLeft = left0 + Math.max(level - 1, 0) * STEP.width;
+  const toLeft = left0 + level * STEP.width;
   const avatarLeft = fromLeft + (toLeft - fromLeft) * climb + (STEP.width - AVATAR) / 2;
   const avatarTop = fromTop + (stepTop(level) - fromTop) * climb - AVATAR - 8;
   const cheer = cheerAt === undefined ? 0 : fadeIn(f, cheerAt, 6);
@@ -56,7 +64,7 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
             key={label}
             style={{
               position: 'absolute',
-              left: STEP.left + i * STEP.width,
+              left: left0 + i * STEP.width,
               top: stepTop(i),
               width: STEP.width - 12,
               height: (i + 1) * STEP.rise,
@@ -78,8 +86,8 @@ export const LevelStairs: React.FC<{ level: number; cheerAt?: number; levels?: s
           position: 'absolute',
           left:
             level === levels.length - 1
-              ? STEP.left + levels.length * STEP.width + 10
-              : STEP.left + (levels.length - 1) * STEP.width + (STEP.width - 102) / 2,
+              ? left0 + levels.length * STEP.width + 10
+              : left0 + (levels.length - 1) * STEP.width + (STEP.width - 102) / 2,
           top: stepTop(levels.length - 1) - 112,
           opacity: level === levels.length - 1 ? 1 : 0.35,
         }}
@@ -128,7 +136,7 @@ export type QuizOption = { key: string; label: string; icon: React.ReactNode; at
 
 /**
  * Quiz card row. Options pop in at their own frames; cards listed in `answers` turn green at `answerAt`.
- * `danmu` chips drift across below the cards from `danmuAt`, suggesting viewers answer in the comments.
+ * `danmu` chips drift once from right to left in two lanes above the cards from `danmuAt`, suggesting viewers answer in the comments.
  * `prompt` fills the card area while the question is asked and fades out just before the first option.
  */
 export const QuizBoard: React.FC<{
@@ -196,7 +204,9 @@ export const QuizBoard: React.FC<{
       {danmuAt !== undefined &&
         f >= danmuAt &&
         danmu.map((text, i) => {
-          const x = interpolate(f, [danmuAt + i * 7, danmuAt + i * 7 + 120], [1920, -300], {
+          const start = danmuAt + i * DANMU.stagger;
+          if (f < start || f > start + DANMU.frames) return null;
+          const x = interpolate(f, [start, start + DANMU.frames], [DANMU.from, DANMU.to], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
           });
@@ -206,7 +216,7 @@ export const QuizBoard: React.FC<{
               style={{
                 position: 'absolute',
                 left: x,
-                top: 790 + (i % 2) * 64,
+                top: DANMU.lanes[i % DANMU.lanes.length],
                 padding: '8px 22px',
                 borderRadius: 999,
                 background: 'white',

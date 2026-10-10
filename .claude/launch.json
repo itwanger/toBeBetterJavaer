@@ -154,6 +154,19 @@
         "3017"
       ],
       "port": 3017
+    },
+    {
+      "name": "remotion-hallucination",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/agent-hallucination-governance",
+        "--port",
+        "3018"
+      ],
+      "port": 3018
     }
   ]
 }
