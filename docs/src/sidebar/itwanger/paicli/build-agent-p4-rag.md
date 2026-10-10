@@ -174,7 +174,7 @@ MAX_INPUT_CHARS 卡在 2000，中文密集的文本大概对应 4000~6000 token�
 
 Ollama 把向量放在 `embedding` 字段，是平铺数组；OpenAI 兼容格式塞在 `data[0].embedding` 里。
 
-`embed` 一次只处理一条，用在 `/search` 把问题转成向量这种场景。建索引时要处理上万个代码块，一条一个 HTTP 请求就太慢了，所以 `/index` 走的是 `embedAll`：跨文件攒够一批（默认 32 条，`EMBEDDING_BATCH_SIZE` 可调）再请求一次，Ollama 用 `/api/embed` 的数组输入，OpenAI 兼容接口用数组形式的 `input`，返回的向量按 `index` 字段放回原位。本地 Ollama 跑 nomic-embed-text 实测，逐条大约 16ms 一条，10 条一批降到 8ms 一条。
+`embed` 一次只处理一条，用在 `/search` 把问题转成向量这种场景。建索引时要处理上万个代码块，一条一个 HTTP 请求就太慢了，所以 `/index` 走的是 `embedAll`：跨文件累积到一批（默认 32 条，`EMBEDDING_BATCH_SIZE` 可调）再请求一次，Ollama 用 `/api/embed` 的数组输入，OpenAI 兼容接口用数组形式的 `input`，返回的向量按 `index` 字段放回原位。本地 Ollama 跑 nomic-embed-text 实测，逐条大约 16ms 一条，10 条一批降到 8ms 一条。
 
 在客户端里统一转成 `float[]`，上层就不用知道底下是哪一家。
 
@@ -501,7 +501,7 @@ pom.xml 里这一期新增了三个依赖：sqlite-jdbc 管向量持久化，jav
 **核心职责**：
 
 - 基于 JavaParser AST 实现代码多粒度分块（文件/类/方法），非 Java 文件按大小分段，一个块对应一个完整的语义单元
-- 统一封装 Ollama 本地模型和 OpenAI 兼容远程 API，通过环境变量切换 provider，跨文件攒批调用 Embedding（默认 32 条一批），实测单条耗时从 16.4ms 降到 8.1ms
+- 统一封装 Ollama 本地模型和 OpenAI 兼容远程 API，通过环境变量切换 provider，跨文件批量调用 Embedding（默认 32 条一批），实测单条耗时从 16.4ms 降到 8.1ms
 - 基于 SQLite 实现轻量级向量存储，向量以 JSON 数组持久化，在内存中计算余弦相似度，不依赖外部向量库；按文件 SHA-256 做增量索引，1892 个文件的项目无改动重跑 0.8 秒
 - 实现混合检索策略：语义检索打底 + jieba 分词加权 + 代码类型加分 + 同文件限流
 - 基于 AST 提取代码关系图谱（extends/implements/imports/calls/contains），支持通过自然语言查询类的调用链

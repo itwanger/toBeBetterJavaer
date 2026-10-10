@@ -279,7 +279,7 @@ Planner 是 Tech Lead 分任务，Worker 是开发写代码，Reviewer 是审查
 ExecutorService executor = Executors.newFixedThreadPool(Math.min(invocations.size(), MAX_PARALLEL_TOOLS));
 List<Future<ToolExecutionResult>> futures =
         executor.invokeAll(tasks, toolBatchTimeoutSeconds, TimeUnit.SECONDS);
-// 按原始顺序收集结果：到点还没跑完的记为超时，抛异常的只记这一项失败
+// 按原始顺序收集结果：到点还没执行完的记为超时，抛异常的只记这一项失败
 for (int i = 0; i < futures.size(); i++) {
     Future<ToolExecutionResult> future = futures.get(i);
     if (future.isCancelled()) {
@@ -316,7 +316,7 @@ PaiCLI 早期的处理策略是“不做锁，靠提示词引导加工程保护�
 
 工程保护层面：
 
-并行的一段共用一个整批超时（默认 90 秒），到点还没跑完的工具记为超时，已经完成的结果照常返回。某个工具执行失败只返回该工具的错误给 LLM，不影响同批次其他工具的结果。
+并行的一段共用一个整批超时（默认 90 秒），到点还没执行完的工具记为超时，已经完成的结果照常返回。某个工具执行失败只返回该工具的错误给 LLM，不影响同批次其他工具的结果。
 
 为什么不按文件路径加锁？路径锁要解析每个工具的参数，`execute_command` 里的一行 shell 命令会写哪些文件根本解析不出来，MCP 工具更是黑盒。按“有没有副作用”统一处理，规则简单，损失的只是写操作之间的并行度，而写操作本来就不多。
 
