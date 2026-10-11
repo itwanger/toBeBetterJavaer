@@ -52,6 +52,30 @@ date: 2026-05-20
 
 聚焦 Agent 的定义、工作方式、规划、反思和多 Agent 协作。部分新增题目参考了开源书《深入理解 AI Agent：设计原理与工程实践》（[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)）的章节结构和各章思考题。
 
+### 29. Agent 的幻觉怎么治理？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+Agent 的幻觉比模型的幻觉危害更大，因为它会依据幻觉去执行动作，比如调用不存在的工具、编造参数、声称测试已经通过。治理的核心是让每个结论都有来自环境的证据。调用前用 Schema 校验工具名和参数，调用后以工具的真实返回为准；最终回答要引用工具结果或检索片段的出处，没有出处的结论不输出；关键结论交给独立的 Critic，或者用测试、查询去验证，不让同一个 Agent 审查自己。多 Agent 场景下，下游会把上游的幻觉当成事实继续推理，所以 Agent 之间传递结论时要带上证据。涉及资损的操作，最后一步必须由确定性代码校验。
+
+完整答案：[阅读全文《Agent 幻觉治理》](./agent-hallucination-governance.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnTP43YR0y4aIucI80vkLDVe)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7694985391278984486)
+
+🟡 进阶 | `→ PaiCLI / PaiAgent`
+
+### 28. Human-in-the-loop 怎么设计？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+按操作的风险和可逆性决定在哪里设审批点。只读操作自动执行，可回滚的写操作事后通知，不可逆或者涉及资金、权限、对外发送的操作必须事前审批。审批不能只问一句“是否继续”，要展示将要执行的具体参数和影响范围，比如完整的命令、要修改的文件 diff、订单金额。降低人工成本靠两点，一是记住授权，同一类操作在会话内批准过就不再重复询问；二是把规则前置，能用规则判定安全的就不打扰人。实现上 Agent 在审批点挂起并保存 Checkpoint，等人的决定回来再恢复执行，人也要能随时中断。要求全流程自动化的场景，就用沙箱、权限白名单和事后审计代替事前审批。
+
+完整答案：[阅读全文《Human-in-the-loop》](./agent-human-in-the-loop.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn5gtHLcuCCzcoQkKP8NOZ0b)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7694555091273010495)
+
+🟡 进阶 | `→ PaiCLI / PaiAgent`
+
 ### 31. 用户中途取消，Agent 任务怎么停下来？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
@@ -390,22 +414,6 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 完整答案：[阅读全文《Agent 如何选工具》](./agent-hnow-tool-call.md) · [B站视频](https://www.bilibili.com/video/BV1m9j16DEmv/) · [飞书版](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn9rIl9b694aSTLupaEUzzne)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7654443885439094042)
-
-### 28. Human-in-the-loop 怎么设计？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-按操作的风险和可逆性决定在哪里设审批点。只读操作自动执行，可回滚的写操作事后通知，不可逆或者涉及资金、权限、对外发送的操作必须事前审批。审批不能只问一句“是否继续”，要展示将要执行的具体参数和影响范围，比如完整的命令、要修改的文件 diff、订单金额。降低人工成本靠两点，一是记住授权，同一类操作在会话内批准过就不再重复询问；二是把规则前置，能用规则判定安全的就不打扰人。实现上 Agent 在审批点挂起并保存 Checkpoint，等人的决定回来再恢复执行，人也要能随时中断。要求全流程自动化的场景，就用沙箱、权限白名单和事后审计代替事前审批。
-
-🟡 进阶 | `→ PaiCLI / PaiAgent`
-
-### 29. Agent 的幻觉怎么治理？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-Agent 的幻觉比模型的幻觉危害更大，因为它会依据幻觉去执行动作，比如调用不存在的工具、编造参数、声称测试已经通过。治理的核心是让每个结论都有来自环境的证据。调用前用 Schema 校验工具名和参数，调用后以工具的真实返回为准；最终回答要引用工具结果或检索片段的出处，没有出处的结论不输出；关键结论交给独立的 Critic，或者用测试、查询去验证，不让同一个 Agent 审查自己。多 Agent 场景下，下游会把上游的幻觉当成事实继续推理，所以 Agent 之间传递结论时要带上证据。涉及资损的操作，最后一步必须由确定性代码校验。
-
-🟡 进阶 | `→ PaiCLI / PaiAgent`
 
 ### 30. Tool 的设计原则是什么？
 
@@ -1618,6 +1626,16 @@ DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没�
 
 模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
 
+### Claude Haiku 5.5 怎么在成本和智能之间做选择？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+结合推理档位、上下文窗口、自适应思考和缓存，拆解 Haiku 5.5 的成本与能力取舍，以及在 Claude Code 中承担摘要、压缩、分类、路由和子 Agent 任务的用法。
+
+完整内容：[阅读全文《Claude Haiku 5.5 解读》](./claude-haiku-5-5.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnoAiq8fR9jVWeczNVjGoQie)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7694223913370258729)
+
 ### CPU、GPU、NPU 到底有什么区别？
 
 <p class="agent-new-question"><span>NEW</span> 新增题目</p>
@@ -1675,14 +1693,6 @@ Jev 是 TypeSafe AI 9 月 15 日发布的 System One 模型，不生成文本，
 B站视频：[观看本集视频](https://www.bilibili.com/video/BV1eUaZ6qEDR/)
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7687944233659026722)
-
-### Claude Haiku 5.5 怎么在成本和智能之间做选择？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-结合推理档位、上下文窗口、自适应思考和缓存，拆解 Haiku 5.5 的成本与能力取舍，以及在 Claude Code 中承担摘要、压缩、分类、路由和子 Agent 任务的用法。
-
-完整内容：[阅读全文《Claude Haiku 5.5 解读》](./claude-haiku-5-5.md) · [飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnoAiq8fR9jVWeczNVjGoQie)
 
 ### GPT-6 Astra 全量上线，为什么 OpenAI 敢说 AGI 时代来了？
 

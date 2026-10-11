@@ -167,6 +167,19 @@
         "3018"
       ],
       "port": 3018
+    },
+    {
+      "name": "remotion-personal-agent",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/what-is-personal-agent",
+        "--port",
+        "3019"
+      ],
+      "port": 3019
     }
   ]
 }

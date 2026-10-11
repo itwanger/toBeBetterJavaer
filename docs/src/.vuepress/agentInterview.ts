@@ -482,6 +482,18 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "HySparse2 结合 Self-Decoder、Cross-Decoder、KV Reuse 与 KV Bridging，让后半段复用或从前半段计算 KV Cache，减少长输入的 Prefill 计算。",
     ["MiMo-V3", "HySparse2", "KV Cache", "Prefill"],
   ),
+  "agent-hallucination-governance": meta(
+    "Agent 出现幻觉怎么治理？",
+    "Agent 幻觉治理",
+    "用真实工具结果校验动作、核对压缩与长期记忆，并以测试和完成证据约束 Agent 的最终结论。",
+    ["Agent 幻觉", "工具校验", "上下文压缩", "完成证据"],
+  ),
+  "agent-human-in-the-loop": meta(
+    "怎么设计 Agent 的 Human-in-the-loop？",
+    "Human-in-the-loop",
+    "按风险与可逆性设置审批点，记住授权、前置规则，并通过状态存档恢复暂停的 Agent 任务。",
+    ["Human-in-the-loop", "权限审批", "Checkpoint", "任务恢复"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -492,6 +504,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "agent-hallucination-governance",
+      "agent-human-in-the-loop",
       "agent-task-cancellation",
       "agent-tool-failure-timeout",
       "agent-intent-routing",
@@ -587,6 +601,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "claude-haiku-5-5",
       "cpu-gpu-npu-difference",
       "aleph-alpha-kolibri",
       "gemini-4-argon",
@@ -594,7 +609,6 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "open-source-jev-replicas",
       "what-is-jev",
       "chatgpt-images-2-5",
-      "claude-haiku-5-5",
       "gpt-6-astra",
       "why-relay-still-works",
     ],
@@ -614,6 +628,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "agent-hallucination-governance": "7694985391278984486",
+  "agent-human-in-the-loop": "7694555091273010495",
+  "claude-haiku-5-5": "7694223913370258729",
   "cpu-gpu-npu-difference": "7693854535088868643",
   "aleph-alpha-kolibri": "7693484001561972019",
   "agent-task-cancellation": "7693089537089604874",
