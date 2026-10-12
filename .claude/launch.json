@@ -180,6 +180,19 @@
         "3019"
       ],
       "port": 3019
+    },
+    {
+      "name": "remotion-user-interjection",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "docs/src/ai/script/shared/tools/remotion.mjs",
+        "studio",
+        "--project",
+        "docs/src/ai/script/agent-user-interjection",
+        "--port",
+        "3020"
+      ],
+      "port": 3020
     }
   ]
 }

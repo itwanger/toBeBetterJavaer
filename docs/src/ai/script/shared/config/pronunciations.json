@@ -218,6 +218,32 @@
       "speakers": "*",
       "status": "confirmed",
       "note": "2026-10-07 cpu-gpu-npu-difference，用户指定 NVIDIA 直接读“英伟达”。字幕保留 NVIDIA，只改 ttsText；本期第 20、26 段已按此重合成，新音频待用户复听。"
+    },
+    {
+      "id": "esc-key",
+      "match": "(?<![A-Za-z])Esc(?![A-Za-z])",
+      "replace": "E S C",
+      "speakers": [
+        "S_j97bqlje2"
+      ],
+      "status": "candidate",
+      "note": "2026-10-12 agent-user-interjection beat 40，“派的 Esc 更保守”连写三次被转写成 SC、S K、SP；改写 E S C 后转写为 ESC。同期 beat 39“按下 Esc”原文转写正常，未改。听感待复听。"
+    },
+    {
+      "id": "version-0-32-0",
+      "match": "(?<![\\d.])0\\.32\\.0(?![\\d.])",
+      "replace": "零点三二点零",
+      "speakers": "*",
+      "status": "confirmed",
+      "note": "2026-10-12 agent-user-interjection beat 15，用户指定版本号逐位读“零点三二点零”，不读“零点三十二点零”。其他版本号同样逐位读，按此格式新增条目。"
+    },
+    {
+      "id": "version-0-58-4",
+      "match": "(?<![\\d.])0\\.58\\.4(?![\\d.])",
+      "replace": "零点五八点四",
+      "speakers": "*",
+      "status": "confirmed",
+      "note": "2026-10-12 agent-user-interjection beat 16，用户指定“零点五八点四”，不读“零点五十八点四”。"
     }
   ],
   "watch": [

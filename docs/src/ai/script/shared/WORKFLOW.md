@@ -156,7 +156,9 @@ python3 docs/src/ai/script/shared/tools/build_timing.py --project docs/src/ai/sc
 python3 docs/src/ai/script/shared/tools/chapter_pipeline.py --project docs/src/ai/script/<topic> --chapter ch2 --still term:60 --still figure:640
 ```
 
-`chapter_pipeline.py` 依次执行时点生成、混音（存在 sound-plan.json 时）、类型检查、关键帧输出到 `preview/chapter<N>/<label>-<frame>.png`，任一步失败即停止。提示音偏移依赖新事件时，先跑一次得到时点，写好 sound-plan 后再跑一次。
+`chapter_pipeline.py` 依次执行时点生成、混音（存在 sound-plan.json 时）、类型检查、关键帧输出到 `preview/chapter<N>/<label>-<frame>.png`，最后做开口帧检查，任一步失败即停止。
+
+开口帧检查默认开启：用 `render_frames.mjs` 一次打包，给本章每个 beat 渲染第一个字起音后约 0.4 秒的画面到 `preview/chapter<N>/onset/`，统计主体区（导航之下、字幕之上）的非背景像素，低于 2% 输出 `WARNING beat N`。这类画面是场景在等句中的关键词，句子已经开口；手挑的关键帧往往落在内容出齐之后，看不出来。警告处理掉再交给用户，确实需要留白时在 OUTLINE 写明原因。`--skip-onset` 只在反复调同一处画面时临时关闭。提示音偏移依赖新事件时，先跑一次得到时点，写好 sound-plan 后再跑一次。
 
 顺序约定：**先生成 `ch<N>-phrase-timing.json`，再写或改 `Chapter<N>.tsx`**。反过来会让 Studio 热更新记下“找不到模块”的错误，也可能让关键帧从旧包渲染。改动组件后如有疑问，重渲染关键帧核对，不以浏览器累计的控制台日志判断当前状态，用 Studio 服务端日志。
 
@@ -256,6 +258,7 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |`AgentBot`、`UserIcon`、`UserBubble`|`Figures.tsx`|Agent 机器人头、用户头像、用户消息气泡；从 agent-intent-routing 提升，标签和颜色由项目传入|
 |`FigureFocus`、`focusAt`、`FocusNote`、`FocusRing`|`FigureFocus.tsx`|原稿配图镜头聚焦：按关键帧在原图上平移放大、拉回全图；`FocusRing` 在整图上用直角框框出当前栏，可带小标签（多栏信息图用它，不放大）；`fitBox` 取和原图同宽高比的取景框，带边框的配图必须用；children 叠加的标记随镜头移动；`FOCUS_BOX` + `FOCUS_GUIDE` 为左图右说明列布局，`FOCUS_BOX_WIDE` 为居中取景|
 |`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意，稿子在演示产品操作时使用|
+|`ClaudeCodeTerminal`、`RecordingBadge`、`StatusRow`|`TuiRecording.tsx`|真实终端录制的还原：按 `record_tui.py` 录到的文字逐行出现，排队插话、输入框打字、Interrupted、完成行；录制标签（真实录制蓝色、对照录制铁锈橙）；终端旁状态栏的文件行。首用 agent-user-interjection 第一章|
 |`C`、`card`、`MONO`、`SERIF`、`Popped`、`Arrow`|`index.tsx`|全片色板、卡片样式（直角、3px 蓝色细边、无模糊灰色偏移阴影）、等宽和衬线字体、入场、箭头|
 |`Card`、`Kicker`、`SYNTAX`、`typed`、`Caret`、`Selected`|`Cards.tsx`|可倾斜的卡片、等宽小标签、卡内代码配色、打字机与光标、选中态|
 |`SegmentBar`、`segmentsAt`|`Cards.tsx`|分格进度条：首次请求逐格填满，缓存命中这类瞬间完成的场景直接满格|
@@ -264,6 +267,34 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 卡片和色调的样张在 [examples/Cards.example.tsx](remotion/examples/Cards.example.tsx)，可直接渲染，渲染命令写在文件开头。
 
 两期以上重复手写的场景或图标，确认不含主题数据后提升到这里，并在本表登记。
+
+## 真实录制演示
+
+稿子讲到 Agent 产品的具体交互（插话、取消、审批、排队、压缩……），优先真实跑一次再还原到画面上，不用示意图代替，也不把同一张原稿截图再放一遍。首例是 agent-user-interjection 第一章：Claude Code 中途插话一次、按 Esc 停掉一次，两次录制对照。
+
+录制在临时目录里进行，被录的 Agent 会真的运行、真的改文件，不能指向用户的项目仓库。先写步骤文件，再录：
+
+```bash
+python3 docs/src/ai/script/shared/tools/record_tui.py --project docs/src/ai/script/<topic> --name steer --cwd /tmp/<demo> --cmd 'claude --permission-mode acceptEdits' --steps /tmp/<demo>/steps.json
+python3 docs/src/ai/script/shared/tools/record_tui.py --project docs/src/ai/script/<topic> --name steer --extract-only
+```
+
+步骤文件是 JSON 数组：`sleep`、`type`（只打字不回车）、`key`（Enter、Escape、Up 等 tmux 键名）、`waitFor`（正则在屏幕上出现 `count` 次，带 `timeout`）、`mark`。例如中途插话：
+
+```json
+[{"sleep": 7}, {"type": "重构 order 模块……"}, {"key": "Enter"},
+ {"waitFor": "⎿  (Added|Wrote) ", "count": 2, "timeout": 120}, {"type": "顺便把单元测试也补上"}, {"key": "Enter"},
+ {"waitFor": "(Brewed|Cooked|Baked|Churned|Worked) for", "timeout": 300}]
+```
+
+输出在 `assets/references/recordings/<name>/`：`frames/` 每 0.25 秒一帧（`.ans` 带颜色、`.t` 是秒数），`events.json` 记每一步的时刻，`timeline.json` 列出每一行文字第一次和最后一次出现的秒数。
+
+- 首次在新目录启动 Claude Code 会弹出信任目录确认，那是刚建的临时目录，步骤里先 `Down`、`Enter` 确认。
+- 任务太简单会在插话前就做完，插话变成下一轮，演示不出效果。任务要有多个文件改动，插话用 `waitFor` 卡在第二个改动之后。
+- Claude Code 全屏重绘，tmux 回滚里留不下完整对话，只能从逐帧截屏里取文字；滚得太快的行可能没截到，没截到就不显示。
+- 录完在同一个临时仓库实测结果（编译、测试），画面上的结论用实测输出，记进 `recordings/README.md`。
+- 需要真实调用一次大模型 API（复现报错、演示请求）时用 DeepSeek，不调用 Anthropic API；key 从本机已有配置读取，画面上标明是 DeepSeek 接口。
+- 画面用 `TuiRecording.tsx` 还原：左侧终端，右侧状态栏（文件改动 N/6、测试），按配音压缩时间，文字、顺序、行数照录制。另一次会话的结果用对照录制标签单独展示，不和主线拼在一起。
 
 ## 增强效果与音效混音
 

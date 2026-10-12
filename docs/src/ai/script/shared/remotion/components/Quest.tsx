@@ -16,8 +16,9 @@ const DEFAULT_LEVELS = ['30%', '50%', '70%', '90%', '99%'];
 const STEP = { base: 880, width: 252, rise: 105 };
 const stairsLeft = (count: number) => (1920 - count * STEP.width) / 2;
 const AVATAR = 132;
-// 弹幕：画面上方两条轨道，错峰出场，每条从右往左匀速飘过一次，慢到能看清字。
-const DANMU = { lanes: [150, 225], stagger: 24, frames: 210, from: 1920, to: -320 };
+// 弹幕：画面上方两条轨道。30 fps 下每帧位移超过约 6 像素，播放时文字会重影看不清（暂停时正常），
+// 所以固定每帧 4 像素匀速左移、坐标取整；问答场景往往只剩几秒，出现时就错开铺在轨道上，逐条淡入。
+const DANMU = { lanes: [150, 225], speed: 4, fadeFrames: 8, stagger: 5, firstX: 1500, spacing: 330 };
 
 const stepTop = (i: number) => STEP.base - (i + 1) * STEP.rise;
 
@@ -136,7 +137,8 @@ export type QuizOption = { key: string; label: string; icon: React.ReactNode; at
 
 /**
  * Quiz card row. Options pop in at their own frames; cards listed in `answers` turn green at `answerAt`.
- * `danmu` chips drift once from right to left in two lanes above the cards from `danmuAt`, suggesting viewers answer in the comments.
+ * `danmu` chips appear staggered across two lanes above the cards from `danmuAt` and drift left at a slow constant speed
+ * (whole pixels per frame, so they stay readable during playback), suggesting viewers answer in the comments.
  * `prompt` fills the card area while the question is asked and fades out just before the first option.
  */
 export const QuizBoard: React.FC<{
@@ -205,11 +207,10 @@ export const QuizBoard: React.FC<{
         f >= danmuAt &&
         danmu.map((text, i) => {
           const start = danmuAt + i * DANMU.stagger;
-          if (f < start || f > start + DANMU.frames) return null;
-          const x = interpolate(f, [start, start + DANMU.frames], [DANMU.from, DANMU.to], {
-            extrapolateLeft: 'clamp',
-            extrapolateRight: 'clamp',
-          });
+          if (f < start) return null;
+          // 同一条轨道上相邻两条相隔 2 × spacing，另一条轨道错开半格。
+          const x = Math.round(DANMU.firstX - i * DANMU.spacing - (f - danmuAt) * DANMU.speed);
+          if (x < -400) return null;
           return (
             <div
               key={text}
@@ -217,6 +218,7 @@ export const QuizBoard: React.FC<{
                 position: 'absolute',
                 left: x,
                 top: DANMU.lanes[i % DANMU.lanes.length],
+                opacity: fadeIn(f, start, DANMU.fadeFrames),
                 padding: '8px 22px',
                 borderRadius: 999,
                 background: 'white',
