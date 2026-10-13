@@ -1,9 +1,0 @@
-{
-  "name": "ergo-video-project",
-  "private": true,
-  "scripts": {
-    "studio": "node ../../shared/tools/remotion.mjs studio --project ..",
-    "render": "node ../../shared/tools/remotion.mjs render --project ..",
-    "typecheck": "tsc --noEmit"
-  }
-}

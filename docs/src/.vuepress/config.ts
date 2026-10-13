@@ -9,8 +9,9 @@ export default defineUserConfig({
   // HTML 目录
   dest: "./dist",
 
-  // ai/script 是 Remotion 视频工程目录，里面的 OUTLINE/article/script 和嵌套 node_modules 不是站点页面
-  pagePatterns: ["**/*.md", "!.vuepress", "!**/node_modules/**", "!ai/script/**"],
+  // ai 是指向 ai-better 仓库的软链接；ai/script 是 Remotion 视频工程目录，里面的 OUTLINE/article/script 和嵌套 node_modules 不是站点页面
+  // ai/README.md 是 ai-better 仓库自己的说明，不作为站点页面
+  pagePatterns: ["**/*.md", "!.vuepress", "!**/node_modules/**", "!ai/script/**", "!ai/README.md"],
 
   lang: "zh-CN",
   // 标题
