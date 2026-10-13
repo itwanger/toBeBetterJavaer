@@ -105,7 +105,7 @@ cp -n docs/src/ai/script/shared/assets/interview/ergo-facing-left.png docs/src/a
 
 数组顺序就是播放顺序，ID 保持稳定且唯一，同一章节的 beat 连续排列。`ttsText` 可省略。beat 按完整句子或自然意群划分，不以字幕长度或目标段数决定合成次数；一个 beat 内可切换多组字幕和动画。讲同一画面的相邻 beat 共用 Sequence；用户反馈配音断句过多时，可合并相关意群重新合成，并在项目中保存旧短语到新配音单元的映射。短语时点必须从新音频定位，不能继续把已移除的 beat ID 当作 cues 查询。具体见 [配音单元与字幕短语分开](../../../../../.claude/skills/ergo-remotion-video/references/AV_SYNC.md#配音单元与字幕短语分开)。
 
-`OUTLINE.md` 同时维护正文配图的使用映射：来源 URL、项目文件、场景、beat 范围、预览检查状态。每张保留的正文图都要有明确去向；未采用则记录原因。素材清单只登记下载路径不能代替分镜。逐章检查要覆盖实际配图帧和主要动画场景，确认图片完整可读、字幕切换时图像保持连续。
+`OUTLINE.md` 写章节场景安排和正文配图映射（来源 URL、项目文件、场景、beat 范围、聚焦顺序），未采用的图写原因。只记计划和用户提过的调整，不写制作日志。
 
 正文导航由 `ChapterShell` 内的 `ChapterStrip` 渲染，传入本项目品牌、章节名称和当前章。面试模式的特殊顶部布局仅限对话开场。
 
@@ -145,11 +145,11 @@ python3 docs/src/ai/script/shared/tools/review_audio.py --project docs/src/ai/sc
 python3 docs/src/ai/script/shared/tools/asr_slice.py --project docs/src/ai/script/<topic> 25:5.6:7.4    # 对可疑词做切片二次转写
 ```
 
-输出在 `preview/chapter<N>-asr.json`（含与朗读文本的归一化差异）和 `preview/ch<N>-forced-alignment.json`。差异多为转写归一化（Claude 写成 Cloud、“地”写成“的”、数字写成汉字），只有同一位置多次出现多余或缺失音节才值得处理。ASR 一致不等于读音验收。
+输出在 `preview/chapter<N>-asr.json` 和 `preview/ch<N>-forced-alignment.json`，后者是字幕和动画定时的依据。ASR 差异只处理同一位置明显多字、缺字的情况。
 
 每章的字幕分组和动画锚点写在 `assets/references/ch<N>-spec.json`，格式见 `build_timing.py` 的说明：字幕短语必须原样拼接成原文（保留空格），单行宽度不超过 34 个单位；字幕与朗读不一致时（87% 读“百分之八十七”、路径读“点 agent 斜杠”）用 `[字幕, 朗读锚点]`。事件锚点为 null（单元起点）、"end" 或朗读文本中的片段，附偏移帧数（入场常用 -5）。
 
-修正读音后，字幕起点和事件锚点都对照新 `ttsText` 检查；品牌英文改读中文时尤其不能继续用英文查询起音。重新对齐、生成时点并同步提示音后，按章节顺序交付全部修改处的上下文试听。Studio 未成功加载并播放新资源时，明确记录播放未验证。
+修正读音后，字幕起点和事件锚点对照新 `ttsText` 改，重新对齐、生成时点并同步提示音。
 
 ```bash
 python3 docs/src/ai/script/shared/tools/build_timing.py --project docs/src/ai/script/<topic> --chapter ch2
@@ -158,9 +158,9 @@ python3 docs/src/ai/script/shared/tools/chapter_pipeline.py --project docs/src/a
 
 `chapter_pipeline.py` 依次执行时点生成、混音（存在 sound-plan.json 时）、类型检查、关键帧输出到 `preview/chapter<N>/<label>-<frame>.png`，最后做开口帧检查，任一步失败即停止。
 
-开口帧检查默认开启：用 `render_frames.mjs` 一次打包，给本章每个 beat 渲染第一个字起音后约 0.4 秒的画面到 `preview/chapter<N>/onset/`，统计主体区（导航之下、字幕之上）的非背景像素，低于 2% 输出 `WARNING beat N`。这类画面是场景在等句中的关键词，句子已经开口；手挑的关键帧往往落在内容出齐之后，看不出来。警告处理掉再交给用户，确实需要留白时在 OUTLINE 写明原因。`--skip-onset` 只在反复调同一处画面时临时关闭。提示音偏移依赖新事件时，先跑一次得到时点，写好 sound-plan 后再跑一次。
+开口帧检查默认开启：用 `render_frames.mjs` 一次打包，给本章每个 beat 渲染第一个字起音后约 0.4 秒的画面到 `preview/chapter<N>/onset/`，统计主体区（导航之下、字幕之上）的非背景像素，低于 2% 输出 `WARNING beat N`。警告处理掉再交给用户。`--skip-onset` 只在反复调同一处画面时临时关闭。提示音偏移依赖新事件时，先跑一次得到时点，写好 sound-plan 后再跑一次。
 
-顺序约定：**先生成 `ch<N>-phrase-timing.json`，再写或改 `Chapter<N>.tsx`**。反过来会让 Studio 热更新记下“找不到模块”的错误，也可能让关键帧从旧包渲染。改动组件后如有疑问，重渲染关键帧核对，不以浏览器累计的控制台日志判断当前状态，用 Studio 服务端日志。
+顺序约定：**先生成 `ch<N>-phrase-timing.json`，再写或改 `Chapter<N>.tsx`**。反过来会让 Studio 热更新记下“找不到模块”的错误，也可能让关键帧从旧包渲染。
 
 ## 预览与导出
 
@@ -174,14 +174,9 @@ node docs/src/ai/script/shared/tools/remotion.mjs still --project docs/src/ai/sc
 
 ### 预览浏览器
 
-优先继续使用已经运行的正确 Studio；端口按实际情况选择，不关闭其他项目服务。共享 Studio 入口带 `--no-open`，只启动服务，不自动打开外部浏览器。预览默认用宿主的内置浏览器打开服务实际输出的 URL，并复用当前项目已有的预览标签；不要默认另起 Chrome 或 agent-browser。内置浏览器不可用或确有兼容问题时，说明原因后再用外部浏览器。
+继续使用已经运行的 Studio，端口按实际情况选择，不关闭其他项目服务。共享 Studio 入口带 `--no-open`；Claude Code 用内置浏览器（`mcp__Claude_Browser__*`）打开实际 URL，Codex 用 `mcp__codex_app__open_in_codex`。打开后交给用户看，不用自动化播放核对音频。
 
-- **Claude Code**：用内置浏览器（`mcp__Claude_Browser__*`）打开。空格键不会触发播放，点底部的 Play 按钮；回到某一帧，点左下角的帧数按钮输入数字后回车；用页面里 audio 元素的 `currentTime` 是否前进判断音频真的在播。
-- **Codex**：通过 `mcp__codex_app__open_in_codex` 展示，用可用的内置浏览器控制工具检查画面。
-
-看完预览后暂停播放。临时自动化浏览器在检查完成、失败或取消时关闭本次会话；不要留下循环播放，也不要批量终止其他任务的浏览器。遇到无法自动息屏时，用 `pmset -g assertions` 核对是否仍有本次进程持有 `Video Wake Lock`。
-
-`still` / `render` 所需的后台渲染浏览器与 Studio 预览分开处理，不能用内置预览标签替代。macOS 有本机 Chrome 时共享入口为这两种操作自动使用；其他环境可设置 `REMOTION_BROWSER_EXECUTABLE`，否则遵循 Remotion 默认渲染浏览器行为。
+`still` / `render` 的后台渲染浏览器与 Studio 预览分开：macOS 有本机 Chrome 时共享入口自动使用，其他环境设 `REMOTION_BROWSER_EXECUTABLE`。
 
 只有用户明确授权「出片 / 渲染」后执行：
 
@@ -235,8 +230,7 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 - 工具只通过 `--project` 选择输入输出位置；相对路径解析不依赖工具文件被复制到视频目录。
 - 不恢复 Skill 下的 `config/`、`templates/gen_audio.py` 或项目根目录的 Python 副本。
-- 修改目录后跑 `doctor`、配音 dry-run、时间轴 dry-run、类型检查和一张实际 still，另在一个临时新项目验证初始化命令。
-- 修改共享组件后渲染 [examples/Cards.example.tsx](remotion/examples/Cards.example.tsx) 的样张，核对卡片和色调。
+- 修改共享工具或组件后，在正在做的项目上跑一次 `chapter_pipeline.py` 确认能用，不额外做全套回归。
 
 
 ## 共享场景组件
@@ -251,12 +245,13 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 |`FigureCard`|`Scenes.tsx`|原稿配图，`contain` 完整显示，默认不套卡片直接放在背景上；`dark` 把终端截图放进深色卡片|
 |`CoverFrame`|`Scenes.tsx`|整片第 0 帧显示原稿 16:9 封面，之后 `fadeFrames`（默认 6）帧内淡出，不平移时间轴。只放在整片 Composition 的最上层，章节预览不加|
 |`HostCard`|`Scenes.tsx`|圆形头像、铁锈橙细边、深色姓名胶囊，用于自介和结尾|
+|`LikeFollow`|`Scenes.tsx`|结尾的点赞（铁锈橙）、关注（蓝）一行，讲到“点赞关注”时淡入|
 |`InterviewStage`|`Scenes.tsx`|左侧豆包面试官、右侧二哥求职者、中央插槽，`candidateExit` 控制离场|
 |`SceneEntrance`、`ConceptIcon`|`Enhancements.tsx`|短入场转场；paper、terminal、feedback、error 四个概念图标|
-|`CheckpointIcon` 等 10 个|`Icons.tsx`|检查点、对话、依赖包、分块、发出邮件、回滚、齿轮、法槌、概率、哨子|
+|`CheckpointIcon` 等 12 个|`Icons.tsx`|检查点、对话、依赖包、分块、发出邮件、回滚、齿轮、法槌、概率、哨子、点赞、关注|
 |`LevelStairs`、`QuizBoard`|`Quest.tsx`|闯关段位台阶、按配音入场的选项卡与答案揭晓；题目示意图、选项图标和时点由项目传入|
 |`AgentBot`、`UserIcon`、`UserBubble`|`Figures.tsx`|Agent 机器人头、用户头像、用户消息气泡；从 agent-intent-routing 提升，标签和颜色由项目传入|
-|`FigureFocus`、`focusAt`、`FocusNote`、`FocusRing`|`FigureFocus.tsx`|原稿配图镜头聚焦：按关键帧在原图上平移放大、拉回全图；`FocusRing` 在整图上用直角框框出当前栏，可带小标签（多栏信息图用它，不放大）；`fitBox` 取和原图同宽高比的取景框，带边框的配图必须用；children 叠加的标记随镜头移动；`FOCUS_BOX` + `FOCUS_GUIDE` 为左图右说明列布局，`FOCUS_BOX_WIDE` 为居中取景|
+|`FigureFocus`、`focusAt`、`FocusNote`、`FocusRing`、`FigureRings`|`FigureFocus.tsx`|原稿配图镜头聚焦：按关键帧在原图上平移放大、拉回全图；`FocusRing` 在整图上用直角框框出当前栏，可带小标签（多栏信息图用它，不放大）；`fitBox` 取和原图同宽高比的取景框，带边框的配图必须用；children 叠加的标记随镜头移动；`FOCUS_BOX` + `FOCUS_GUIDE` 为左图右说明列布局，`FOCUS_BOX_WIDE` 为居中取景；`FigureRings` 是整图加按时点依次框选的常用组合（可选 `keys` 推近、`until` 让多个框同时保留）|
 |`ClaudeCodeWindow`、`CodexWindow`|`ProductWindows.tsx`|产品界面示意，稿子在演示产品操作时使用|
 |`ClaudeCodeTerminal`、`RecordingBadge`、`StatusRow`|`TuiRecording.tsx`|真实终端录制的还原：按 `record_tui.py` 录到的文字逐行出现，排队插话、输入框打字、Interrupted、完成行；录制标签（真实录制蓝色、对照录制铁锈橙）；终端旁状态栏的文件行。首用 agent-user-interjection 第一章|
 |`C`、`card`、`MONO`、`SERIF`、`Popped`、`Arrow`|`index.tsx`|全片色板、卡片样式（直角、3px 蓝色细边、无模糊灰色偏移阴影）、等宽和衬线字体、入场、箭头|
@@ -270,7 +265,7 @@ render 先输出 `preview/render/remotion-raw.mp4`，再复制其 H.264 视频�
 
 ## 真实录制演示
 
-稿子讲到 Agent 产品的具体交互（插话、取消、审批、排队、压缩……），优先真实跑一次再还原到画面上，不用示意图代替，也不把同一张原稿截图再放一遍。首例是 agent-user-interjection 第一章：Claude Code 中途插话一次、按 Esc 停掉一次，两次录制对照。
+稿子讲到 Agent 产品的具体交互（插话、取消、审批、排队……）时，可以提议真实跑一次再还原到画面上，用户同意后再录。样板是 agent-user-interjection 第一章：Claude Code 中途插话一次、按 Esc 停掉一次，两次录制对照。
 
 录制在临时目录里进行，被录的 Agent 会真的运行、真的改文件，不能指向用户的项目仓库。先写步骤文件，再录：
 

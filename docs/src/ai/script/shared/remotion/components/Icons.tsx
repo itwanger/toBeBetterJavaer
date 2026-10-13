@@ -44,3 +44,11 @@ export const ProbIcon: React.FC<IconProps> = ({size = 56, color = 'currentColor'
 export const WhistleIcon: React.FC<IconProps> = ({size = 56, color = 'currentColor'}) => (
   <svg {...base(size, color)}><path d="M18 22h16l8-4v10a10 10 0 1 1-20-3zM34 18v-6"/><circle cx="20" cy="31" r="3"/></svg>
 );
+/** Thumbs up for the outro "like" call. */
+export const ThumbIcon: React.FC<IconProps> = ({size = 56, color = 'currentColor'}) => (
+  <svg {...base(size, color)}><path d="M14 22v20H6V22zM14 22l8-16c4 0 6 3 5 7l-2 7h13c3 0 5 3 4 6l-4 13c-1 2-3 3-5 3H14"/></svg>
+);
+/** Circled plus for the outro "follow" call. */
+export const PlusIcon: React.FC<IconProps> = ({size = 56, color = 'currentColor'}) => (
+  <svg {...base(size, color)}><circle cx="24" cy="24" r="18"/><path d="M24 15v18M15 24h18"/></svg>
+);

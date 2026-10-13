@@ -244,6 +244,14 @@
       "speakers": "*",
       "status": "confirmed",
       "note": "2026-10-12 agent-user-interjection beat 16，用户指定“零点五八点四”，不读“零点五十八点四”。"
+    },
+    {
+      "id": "port-9222",
+      "match": "(?<!\\d)9222(?!\\d)",
+      "replace": "9222",
+      "speakers": "S_j97bqlje2",
+      "status": "confirmed",
+      "note": "端口号 9222 用户指定连读“九二二二”。ttsText 保留阿拉伯数字 9222 即连读四位；写成汉字“九二二二”会吞掉一个“二”，写成“九二，二二”会断开。"
     }
   ],
   "watch": [

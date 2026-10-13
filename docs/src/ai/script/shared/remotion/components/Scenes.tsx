@@ -3,6 +3,7 @@ import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentF
 import {C, FONT, card, ChapterStrip} from './index';
 import {SceneEntrance} from './Enhancements';
 import {InterviewAvatar} from './InterviewAvatar';
+import {PlusIcon, ThumbIcon} from './Icons';
 
 /**
  * Reusable scene shells. They carry layout only: titles, subtitles, media paths and frame
@@ -245,3 +246,11 @@ export const CoverFrame: React.FC<CoverFrameProps> = ({file, fadeFrames = 6}) =>
     </AbsoluteFill>
   );
 };
+
+/** Outro call to action: rust "点赞" and blue "关注", side by side. Fade it in at the spoken phrase. */
+export const LikeFollow: React.FC<{opacity?: number; style?: React.CSSProperties}> = ({opacity = 1, style}) => (
+  <div style={{display: 'flex', gap: 40, opacity, ...style}}>
+    <div style={{display: 'flex', alignItems: 'center', gap: 14, fontSize: 40, fontWeight: 900, color: C.rust}}><ThumbIcon color={C.rust} />点赞</div>
+    <div style={{display: 'flex', alignItems: 'center', gap: 14, fontSize: 40, fontWeight: 900, color: C.blue}}><PlusIcon color={C.blue} />关注</div>
+  </div>
+);

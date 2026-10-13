@@ -1,7 +1,7 @@
 // 原稿配图的镜头聚焦：在原图上平移、放大到正在讲的局部，讲完再拉回全图。
 // 原图不裁剪、不重绘，只移动取景窗口；焦点用原图的归一化坐标 [左, 上, 右, 下] 表示，0–1。
 import React from 'react';
-import { Img, interpolate, staticFile, Easing } from 'remotion';
+import { Img, interpolate, staticFile, Easing, useCurrentFrame } from 'remotion';
 import { C, MONO, card } from './index';
 
 export type Focus = [number, number, number, number];
@@ -112,3 +112,26 @@ export const FocusNote: React.FC<{ color?: string; title: string; children?: Rea
     {children && <div style={{ fontSize: 26, fontWeight: 700, marginTop: 12, lineHeight: 1.45 }}>{children}</div>}
   </div>
 );
+
+/**
+ * 整图加框选：原稿配图套卡片外框（取景框按原图比例从 `box` 范围里取），按事件帧依次框出各块。
+ * 每个框持续到下一个框出现，最后一个框到 `end` 撤掉；第 4 项给出时持续到该帧，用于几个框同时保留。
+ * `keys` 给出时按关键帧推近，框随镜头一起移动；`children` 叠加鼠标指针这类标记。帧号都是章节帧，`start` 是场景起点。
+ */
+export type RingStep = [at: number, area: Focus, color: string, until?: number];
+export const FigureRings: React.FC<{
+  file: string; imgW: number; imgH: number; start: number; end: number; rings: RingStep[];
+  keys?: FocusKey[]; box?: { left: number; top: number; width: number; height: number }; children?: React.ReactNode;
+}> = ({ file, imgW, imgH, start, end, rings, keys, box = FOCUS_BOX_WIDE, children }) => {
+  const f = useCurrentFrame() + start;
+  const fade = (a: number, b: number) => interpolate(f, [a, b], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  return (
+    <FigureFocus file={file} imgW={imgW} imgH={imgH} focus={keys ? focusAt(keys, f) : FULL} box={fitBox(imgW, imgH, box)}>
+      {rings.map(([at, area, color, hold], i) => {
+        const until = hold ?? (i + 1 < rings.length ? rings[i + 1][0] : end);
+        return <FocusRing key={i} area={area} color={color} opacity={fade(at - 5, at + 5) * (1 - fade(until - 5, until + 3))} />;
+      })}
+      {children}
+    </FigureFocus>
+  );
+};
