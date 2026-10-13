@@ -24,7 +24,8 @@ description: 把「王二讲Agent」的 B 站视频链接同步到 docs/src/ai/v
 3. 看缺口：`python3 .claude/skills/video-sync/scripts/video_sync.py status`，输出 readme 里缺 B 站链接的题目和映射表里缺抖音 ID 的脚本，缺 meta 的会单独标出来。
 4. 人工配对：按视频标题和简介对到脚本文件名，写成两个 TSV 映射文件，每行 `脚本名<TAB>BV号` 或 `脚本名<TAB>抖音视频ID`。只配缺口里的条目。
 5. 写入：`python3 .claude/skills/video-sync/scripts/video_sync.py apply --bili B站映射.tsv --douyin 抖音映射.tsv`。脚本幂等，重复跑不会重复追加；缺 meta 的脚本会被跳过并提示。
-6. 汇报三类剩余：readme 有题但两边都没视频的、视频有但没脚本的、两边有视频但 readme 没题的。这三类由用户决定要不要补。
+6. 同步 GitHub 首页：readme 有改动时运行 `node docs/src/ai/scripts/gen-readme.mjs`，更新 ai-better 仓库 README 的统计表和题目目录，和 readme 一起在 ai-better 提交。
+7. 汇报三类剩余：readme 有题但两边都没视频的、视频有但没脚本的、两边有视频但 readme 没题的。这三类由用户决定要不要补。
 
 ## 禁令
 
