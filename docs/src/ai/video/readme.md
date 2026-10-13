@@ -993,9 +993,9 @@ Word2Vec（静态词向量，不考虑上下文）、BERT 类（双向编码，�
 🟡 进阶 | `→ 派聪明 ES 8.10 + dense_vector` | 字节、快手
 
 ### 120. 向量检索和关键词检索的混合搜索怎么做？
-派聪明的 HybridSearchService 先用 KNN 做向量召回，召回窗口是 topK×30；同时用 textContent match 做关键词约束，并叠加 userId、public、orgTag 权限过滤，最后通过 BM25 rescore 做第二阶段排序。纯向量搜索容易漏掉精确关键词，纯关键词又缺语义理解，混合搜索两头都兼顾了。
+纯向量检索懂语义但会漏掉错误码、型号这类精确字面，BM25 认得准字面却不认识同义说法，所以要两路一起召回。两路分数不能直接加权相加，余弦相似度在固定区间内，BM25 分数没有上界。派聪明的 HybridSearchService 让 BM25 和 KNN 并行召回，每路 min(topK×30, 300) 条，KNN 内部用 userId、orgTag、public 做权限预过滤；再用 RRF 按名次融合，得分为 1/(60+名次) 之和；最后取 RRF 前 50 条交给 gte-rerank-v2 精排，保留 0.1 分以上的结果。阈值从 0.2 降到 0.1 后，分块级 Recall@5 从 56.5% 升到 76.1%。一路召回失败时用另一路继续融合，Rerank 失败时按 RRF 顺序加阈值返回。
 
-🟡 进阶 | `→ 派聪明 HybridSearchService KNN + BM25` | 快手、字节
+🟡 进阶 | `→ 派聪明 HybridSearchService BM25 + KNN + RRF + Rerank` | 快手、字节
 
 ### 121. 什么是 Query Rewrite？为什么需要改写用户查询？
 用户提问偏口语化、模糊、有歧义。Query Rewrite 把用户原始问题改写成更适合检索的形式，比如补全指令、拆分意图、扩展同义词等。派聪明当前是查询向量化 + KNN/BM25 混合检索，Query Rewrite 可以作为检索增强点继续接入。

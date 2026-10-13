@@ -218,3 +218,19 @@ rate-limit.embedding-batch.day-max: 2000
 - 降级：向量生成失败→纯文本；任一路召回异常/超时→整体 TEXT_ONLY，不保留另一路结果
 - 离线评测：POST /api/v1/admin/eval/run，RetrievalMetrics（Recall@K 命中率口径、MRR、文档覆盖率），无 NDCG；测试集 eval/paismart-eval-v1.jsonl 50 题；docs/eval/reports 归档：阈值 0.2 → chunkRecall@5 0.5652 / MRR 0.4645 / 空检索 13/50；阈值 0.1 → 0.7609 / 0.5902 / 0；yml 注释：口语化提问的正确分块 rerank 分只有 0.14~0.19
 - 差距（写进 PaiSmart/docs/interview-upgrade-plan.md）：分数不归一化且三种量纲混用；RRF 兜底无阈值；单路失败两路全丢；RRF 不加权；BM25 未调；阈值全局固定未校准；无 NDCG、召回/精排阶段未分开评估
+
+---
+
+## 十一、离线评测与测评集（2026-10-13 增量，HEAD 951edd22）
+
+> 一手来源：本人在 PaiSmart 仓库实跑，数据见 `docs/eval/reports/README.md`。注意第一节“BM25 重排序”已过时，现在是 BM25 + KNN 双路召回 → RRF 融合 → gte-rerank-v2 重排序 → 分数阈值过滤。
+
+- 测评集 `src/main/resources/eval/paismart-eval-v1.jsonl`：50 题，7 类（fact 21 / para 8 / multi 6 / conflict 2 / rustfs 5 / resume 4 / neg 4），46 道带 `expectedEvidence` 分块级证据短语；知识库是派聪明介绍 PDF（96 分块）、RustFS 知识卡（2 分块）、二哥 AI 简历（21 分块）+ 3 份干扰文档
+- 评测链路：管理员身份走线上混合检索 → 父块扩展后生成 → 另一次 LLM 调用当评委（参考答案 + 证据，输出 score/correct/reason）→ 归因（RETRIEVAL_MISS / PROMPT_OR_MODEL / MISS_BUT_CORRECT …）；生成和评委模型 deepseek-v4-pro
+- 指标口径：Recall@K 实为 Hit@K；分块级要求命中分块含证据短语（NFKC + 去空白，兼容 PDF 康熙部首），文件级另记 docRecallAtK（RetrievalMetrics.java:29/46/107）
+- rerank 阈值 0.2 → 0.1（HybridSearchService.java:184，application.yml:350）：分块级 Recall@5 56.5% → 76.1%，MRR 0.46 → 0.59，空检索 13 → 0，评委准确率 65.3% → 86.0%；口语化提问正确分块 rerank 分 0.14~0.19，无答案题 top1 0.18~0.30，两者重叠，阈值不能承担拒答
+- 阈值 0 与 0.1 指标相同，但 0.1 仍会挡掉前五内的低分噪声（RustFS 题 0.1 下返回 2 条，0 下多 3 条 0.06~0.09 的无关分块）
+- 文件级 vs 分块级：同批结果文件级 Recall 100%、分块级 76.1%；文件级标注时 5~7 道被归因 PROMPT_OR_MODEL，分块级后归 0
+- 推理模型思考 token 计入 max_tokens：默认 4000/2000，空输出重试一次、length 时翻倍（RagEvalCaseRunner.java:203）；3 轮复现准确率均 86.0%，0 失败
+- 人工校准：分层抽 15 题（A 评委判错 7 全选 / B MISS_BUT_CORRECT 4 全选 / C 随机 4），勾选版要点核对；一致率 80%、kappa 0.61、分差 0.53；A 7/7、B 1/4、C 4/4。AI 交叉评审 vs 评委 kappa 0.87，vs 人工 0.73 → 模型同向偏宽松；MISS_BUT_CORRECT 现一律进人工复核（HumanReviewSampler.java:39）
+- 踩坑：评测检索计入管理员 Embedding 查询限流，超限静默降级 TEXT_ONLY；`.env` 在 test profile 下曾覆盖 H2 数据源（已修）
