@@ -1,7 +1,7 @@
 ---
-title: AI Agent 面试题 367 道（Agent八股+视频讲解）｜王二讲Agent
-shortTitle: AI Agent 面试 367 题
-description: AI Agent 面试 367 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
+title: AI Agent 面试题 368 道（Agent八股+视频讲解）｜王二讲Agent
+shortTitle: AI Agent 面试 368 题
+description: AI Agent 面试 368 题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理
 tag:
   - 面试
 category:
@@ -24,7 +24,7 @@ date: 2026-05-20
 
 ![跟着王二讲Agent：通过完整题目系统学习，建立Agent时代的完整知识体系](https://cdn.paicoding.com/stutymore/agent-learning-completeness-20260908231154-003540aa.png)
 
-这套题库一共 367 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
+这套题库一共 368 道（还会持续追加），覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进。题目来源是牛客、星球、各大厂真实面经，按出现频次和难度权重筛选，随着视频更新持续补充。
 
 每道题都不是孤立的概念解释，而是串联到三个实战项目来回答。
 
@@ -51,6 +51,18 @@ date: 2026-05-20
 ## 01、Agent 基础（43 题）
 
 聚焦 Agent 的定义、工作方式、规划、反思和多 Agent 协作。部分新增题目参考了开源书《深入理解 AI Agent：设计原理与工程实践》（[bojieli/ai-agent-book](https://github.com/bojieli/ai-agent-book)）的章节结构和各章思考题。
+
+### 36. Agent 执行过程中，用户插话怎么处理？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+这种做法叫 Steering。不能直接打断当前这一步，也不能等整个任务结束再处理，而是先把用户的新消息放进队列，等当前这一轮模型输出和工具调用完成后再注入上下文，模型在下一轮就能看到并调整方向。之所以不立刻插入，是因为模型 API 要求每个工具调用后面紧跟对应的结果，半路塞进一条用户消息会破坏消息顺序。Pi 把这件事拆成两个队列，steer 在当前这一轮结束后注入，followUp 等 Agent 本来要停下时才执行，适合“做完这个再做那个”。和取消的区别在于，插话保留已有进展，只修正方向。
+
+完整答案：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcnERGiklXSowgevZpUxIIkcb) · [查看图文解析](./agent-user-interjection.md)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7695711462815223083)
+
+🟡 进阶 | `→ PaiCLI`
 
 ### 29. Agent 的幻觉怎么治理？
 
@@ -454,14 +466,6 @@ Agent 本身不做工具选择，选择权在 LLM 手里。ToolRegistry 把所�
 权限模式决定 Agent 执行动作之前要不要先问人。它和沙箱是一对，沙箱限制 Agent 能碰到什么，权限模式决定碰之前要不要审批。Claude Code 有六种模式，default 只有读操作不询问；acceptEdits 自动放行文件编辑和 mkdir、mv 这类常见文件命令；plan 只读分析、不改文件；auto 由另一个模型作为分类器在后台审查每个动作；dontAsk 只允许预先批准的工具，其余一律拒绝，适合 CI；bypassPermissions 全部放行，只应该在隔离的容器或虚拟机里使用。从 v2.1.283 开始，auto 成为终端和 VS Code 交互会话的默认模式。Codex 把这件事拆成两个独立的配置，审批策略有 untrusted、on-request、never 等，沙箱模式有 read-only、workspace-write、danger-full-access。模式只是基线，deny 规则在任何模式下都生效，包括 bypassPermissions。
 
 🟡 进阶 | `→ Claude Code / Codex / PaiCLI`
-
-### 36. Agent 执行过程中，用户插话怎么处理？
-
-<p class="agent-new-question"><span>NEW</span> 新增题目</p>
-
-这种做法叫 Steering。不能直接打断当前这一步，也不能等整个任务结束再处理，而是先把用户的新消息放进队列，等当前这一轮模型输出和工具调用完成后再注入上下文，模型在下一轮就能看到并调整方向。之所以不立刻插入，是因为模型 API 要求每个工具调用后面紧跟对应的结果，半路塞进一条用户消息会破坏消息顺序。Pi 把这件事拆成两个队列，steer 在当前这一轮结束后注入，followUp 等 Agent 本来要停下时才执行，适合“做完这个再做那个”。和取消的区别在于，插话保留已有进展，只修正方向。
-
-🟡 进阶 | `→ PaiCLI`
 
 ### 37. Agent 的 Todo List 有什么用？
 
@@ -1622,9 +1626,20 @@ DeepSeek V4 Flash 正式版只有 13B 激活参数，V4 Pro 有 49B，架构没�
 
 抖音视频：[观看本集视频](https://www.douyin.com/video/7670027713771621658)
 
-## 热点解读（9 题）
+## 热点解读（10 题）
 
 模型发布和行业事件的快速拆解，面试聊到最新动态时用得上。
+
+### 最近爆火的 Personal Agent 到底是什么？
+
+<p class="agent-new-question"><span>NEW</span> 新增题目</p>
+
+从 Grok Bot、Muse、Cue、dots 四款产品，理解 Personal Agent 的持续记忆、执行环境、用户身份和权限边界，以及它和聊天助手、Coding Agent 的区别。
+
+完整内容：[飞书详细答案](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb#doxcn3FTN6yR5TNRgnucNhfyXYf) · [阅读全文《Personal Agent》](./what-is-personal-agent.md)
+
+抖音视频：[观看本集视频](https://www.douyin.com/video/7695348838801886499)
+
 
 ### Claude Haiku 5.5 怎么在成本和智能之间做选择？
 
@@ -2213,7 +2228,7 @@ Agent 这一轮变化和以往不太一样。以前的技术迭代，学一门�
 
 Alan Kay 说过一句话，「预测未来最好的办法就是去创造它」。我觉得这话放在今天特别合适。与其等着被 Agent 浪潮推着走，不如自己先把原理搞透，把项目跑通，把面试里会被问到的每一个点都准备好。
 
-所以我们选择了最笨但最扎实的方式。367 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
+所以我们选择了最笨但最扎实的方式。368 道题，每道题录视频讲，每道题写图文解析，每道题映射到真实项目的真实代码。没有速成，没有捷径，就是一道一道地拆，一个知识点一个知识点地过。
 
 我始终相信一件事，技术的价值不在于它有多新，而在于你是否真正理解它、用过它、能把它讲清楚。这套题库要做的就是帮你到达这个状态。
 

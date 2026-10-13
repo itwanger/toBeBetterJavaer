@@ -494,6 +494,18 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "按风险与可逆性设置审批点，记住授权、前置规则，并通过状态存档恢复暂停的 Agent 任务。",
     ["Human-in-the-loop", "权限审批", "Checkpoint", "任务恢复"],
   ),
+  "agent-user-interjection": meta(
+    "Agent执行过程中，用户插话怎么处理？",
+    "用户插话与 Steering",
+    "把用户补充放入队列，在工具结果写回后、下一次模型请求前注入上下文，保留已有进展并调整执行方向。",
+    ["Steering", "消息队列", "工具调用", "上下文"],
+  ),
+  "what-is-personal-agent": meta(
+    "最近爆火的 Personal Agent 到底是什么？",
+    "Personal Agent 是什么",
+    "结合 Grok Bot、Muse、Cue、dots，理解持续记忆、执行环境、用户身份与权限边界。",
+    ["Personal Agent", "Grok Bot", "Muse", "Cue", "dots"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -504,6 +516,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "agent-user-interjection",
       "agent-hallucination-governance",
       "agent-human-in-the-loop",
       "agent-task-cancellation",
@@ -601,6 +614,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "what-is-personal-agent",
       "claude-haiku-5-5",
       "cpu-gpu-npu-difference",
       "aleph-alpha-kolibri",
@@ -628,6 +642,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "agent-user-interjection": "7695711462815223083",
+  "what-is-personal-agent": "7695348838801886499",
   "agent-hallucination-governance": "7694985391278984486",
   "agent-human-in-the-loop": "7694555091273010495",
   "claude-haiku-5-5": "7694223913370258729",

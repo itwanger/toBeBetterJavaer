@@ -10,7 +10,7 @@
 >
 > 维护提醒：每发一篇，在本文件补一行并打勾。日期为文件 frontmatter 中的 date 字段。
 
-## 一、已发布（18 篇）
+## 一、已发布（19 篇）
 
 - [x] **2026-07-22 腾讯**｜`agent-mianshi-tengxun-2.md`
   为什么腾讯offer含金量永远都这么高？有人为了进腾讯，2年内面试6次（附Agent面试题）
@@ -88,6 +88,10 @@
   英伟达员工：我们组的Bug都不够AI修了，今天在找Bug中再次输给了Claude Fable 5.1，听说当电工比当程序员简单？（附Agent面试题）
   面试题角度：Coding Agent 找 Bug 工具链（grep/read/execute 截断与超时）、修复验证（FAIL_TO_PASS/PASS_TO_PASS、exit code、测试写保护）、Side-Git 快照回滚、命令黑名单与 HITL 审批、工具并行与 Sub-agent 异步回报、1M 窗口下的 compaction/context editing/memory、Fable 5.1 三个 breaking change 与 append-only 历史、effort 档位与 task budget、Prompt Caching 前缀与 mid-conversation system message、KV cache 公式与 WORM 负载、KV-aware 路由与 disaggregated serving、KV cache 卸载、Terminal-Bench 评测方法与分数偏差来源、Golden Set/验证器/位置平衡裁判三层评测
 
+- [x] **2026-10-13 字节跳动**｜`agent-mianshi-zijie-compiler.md`
+  宇宙厂员工：不打算往上爬的话，苟在2-2/3性价比最高，尽量多存款多靠近AI，再往上，过程累、成功率30%左右（附Agent面试题）
+  面试题角度：AI 项目串联、RAG 混合检索相关性计算（cosine 与 RRF k=60）、BM25 三因子与 ik 分词粒度、三种降级模式下分数的值域与阈值扫描、AI 编译器岗位内容与字节开源（ByteIR/Flux/Triton-distributed）、CPU 与 GPU 架构区别、GPU 存储层级与 TMA/线程块簇/Tensor Memory、LLVM 与 MLIR 渐进式 lowering 与 Triton 四级 IR、AI/GPU DSL 生态与国产路线
+
 ## 二、已覆盖公司统计
 
 | 公司 | 篇数 | 已发布日期 |
@@ -97,7 +101,7 @@
 | 小米 | 1 | 07-24 |
 | 中兴通讯 | 1 | 07-28 |
 | 比亚迪 | 1 | 07-29 |
-| 字节跳动 | 1 | 07-31 |
+| 字节跳动 | 2 | 07-31、10-13 |
 | 海康威视 | 1 | 08-03 |
 | 长鑫存储 | 1 | 08-04 |
 | DeepSeek | 2 | 08-06、08-13 |

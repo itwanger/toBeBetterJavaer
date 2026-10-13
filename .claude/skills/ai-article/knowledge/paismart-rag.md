@@ -202,3 +202,19 @@ rate-limit.embedding-batch.day-max: 2000
 - 模型调用：ModelWebClientFactory（connect 5s、responseTimeout 60s）；总超时 LLM 流式 180s / 非流式 90s / embedding 30s；ModelRetryPolicy 最多 2 次、500ms 起封顶 8s、全抖动、遵守 Retry-After；RetryBudget 10%；Resilience4j 熔断 + 按供应商限制并发数（LLM 50、embedding 20、maxWait 0；正文禁用“舱壁”）；Lua 令牌桶；LLM 供应商切换（首包前）；embedding 不切换
 - 问答：ChatHandler ReAct 最多 4 轮、8 次工具调用，每轮 120s 超时（非请求级）；轮次用完注入“不要再调用工具”消息；ReAct 在 chatMonitorExecutor 执行，满了返回“系统繁忙”
 - JVM：launch.sh.example `-Xms1g -Xmx1g -Xmn256m`、HeapDumpOnOOM、ExitOnOOM、G1PeriodicGCInterval=30000
+
+---
+
+## 十二、2026-10-13 增量调研：检索打分（HEAD 0e005a9f）
+
+覆盖第一节“BM25 重排序，KNN 0.2 / BM25 1.0”的旧描述（commit 4aa8f3df 已换成 RRF + rerank）：
+
+- 链路：BM25 与 KNN 并行召回（CompletableFuture，searchRecallExecutor），每路 window = min(topK×30, 300)，topK=5 时 150 条；超时取 10s 与请求剩余时间较小者（HybridSearchService.java:129-161）
+- KNN：k=window，num_candidates=window×2（上限 10000），权限过滤放在 knn 内部预过滤；mapping vector `dense_vector` 2048 维 `similarity: cosine`（es-mappings/knowledge_base.json:27-32）；项目不读 KNN 的 _score
+- BM25：textContent `ik_max_word` 建索引、`ik_smart` 查询；默认单字段 match，开启 contextual-retrieval（默认关）后用 combined_fields（BM25F）拼 chunkContext；k1/b 用 ES 默认 1.2/0.75；无 minimum_should_match/boost/短语/文件名字段（文件名检索后从 MySQL 补）
+- 融合：Java 手写 RRF（RrfFusion.java:48 `1/(k+rank)`），k=60，两路权重都为 1；值域：两路都第 1 = 2/61≈0.0328，单路上限 1/61≈0.0164，下限 1/210≈0.0048
+- Rerank：DashScope gte-rerank-v2，输入 RRF 前 max(50, topK) 条，每条截断 2000 字符，top_n=全部；按 relevance_score ≥ 0.1 过滤再取 topK（HybridSearchService.java:183-187）；阈值由 0.2 降到 0.1（commit bba1e88d）；剩余时间 <2000ms / 关闭 / 异常时退回 RRF 顺序，标记 HYBRID_RRF，无阈值
+- 最终 score：HYBRID=rerank 分（约 0~1）、HYBRID_RRF=RRF 分、TEXT_ONLY=BM25 原始分（min_score 0.3）；不归一化，原样写进给 LLM 的 `score=%.4f`（AgentToolRegistry.java:290）和引用映射（ChatHandler.java:1108）
+- 降级：向量生成失败→纯文本；任一路召回异常/超时→整体 TEXT_ONLY，不保留另一路结果
+- 离线评测：POST /api/v1/admin/eval/run，RetrievalMetrics（Recall@K 命中率口径、MRR、文档覆盖率），无 NDCG；测试集 eval/paismart-eval-v1.jsonl 50 题；docs/eval/reports 归档：阈值 0.2 → chunkRecall@5 0.5652 / MRR 0.4645 / 空检索 13/50；阈值 0.1 → 0.7609 / 0.5902 / 0；yml 注释：口语化提问的正确分块 rerank 分只有 0.14~0.19
+- 差距（写进 PaiSmart/docs/interview-upgrade-plan.md）：分数不归一化且三种量纲混用；RRF 兜底无阈值；单路失败两路全丢；RRF 不加权；BM25 未调；阈值全局固定未校准；无 NDCG、召回/精排阶段未分开评估
