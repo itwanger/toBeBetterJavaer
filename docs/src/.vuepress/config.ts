@@ -10,8 +10,24 @@ export default defineUserConfig({
   dest: "./dist",
 
   // ai 是指向 ai-better 仓库的软链接；ai/script 是 Remotion 视频工程目录，里面的 OUTLINE/article/script 和嵌套 node_modules 不是站点页面
-  // ai/README.md 是 ai-better 仓库自己的说明，不作为站点页面
-  pagePatterns: ["**/*.md", "!.vuepress", "!**/node_modules/**", "!ai/script/**", "!ai/README.md"],
+  // ai/sucai.md 是选题素材，不公开
+  pagePatterns: ["**/*.md", "!.vuepress", "!**/node_modules/**", "!ai/script/**", "!ai/sucai.md"],
+
+  // ai/README.md 同时是 ai-better 仓库的 GitHub 首页，不能写 frontmatter（GitHub 会渲染成表格），标题等元信息在这里补
+  extendsPageOptions: (options) => {
+    if (!options.filePath?.replace(/\\/g, "/").endsWith("/src/ai/README.md")) return;
+    options.frontmatter = {
+      title: "王二讲Agent：AI Agent 面试题逐题讲透",
+      shortTitle: "王二讲Agent",
+      description: "沉默王二的 AI Agent 面试题库，每道题都有简答，高频题配图文详解和口播视频，答案串到 PaiCLI、PaiFlow、派聪明三个实战项目",
+      author: "沉默王二",
+      isOriginal: true,
+      article: false,
+      // 头图和徽章都是外链，外链箭头会挤在图片后面
+      externalLinkIcon: false,
+      ...options.frontmatter,
+    };
+  },
 
   lang: "zh-CN",
   // 标题
