@@ -44,6 +44,8 @@
 
 **👉 [在线阅读：AI Agent 面试题 367 道](https://javabetter.cn/ai/video/)**
 
+题库、图文详解和每条视频的 Remotion 工程，单独放在了 GitHub 仓库 [itwanger/ai-better](https://github.com/itwanger/ai-better)，欢迎 Star 关注更新。
+
 | 分类 | 题数 | 分类 | 题数 |
 | --- | --- | --- | --- |
 | Agent 基础 | 43 | Prompt 工程 | 16 |
