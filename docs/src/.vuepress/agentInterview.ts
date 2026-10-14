@@ -588,6 +588,23 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
+    text: "HOT / 模型与行业热点",
+    children: [
+      "rea-deepseek-harness-tutorial",
+      "what-is-personal-agent",
+      "claude-haiku-5-5",
+      "cpu-gpu-npu-difference",
+      "aleph-alpha-kolibri",
+      "gemini-4-argon",
+      "mimo-v3-hysparse2",
+      "open-source-jev-replicas",
+      "what-is-jev",
+      "chatgpt-images-2-5",
+      "gpt-6-astra",
+      "why-relay-still-works",
+    ],
+  },
+  {
     text: "02 / 上下文与记忆",
     children: [
       "agent-long-term-memory",
@@ -612,7 +629,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   },
   {
     text: "04 / RAG知识库",
-    children: ["rag-hybrid-search", "agent-rag-pdf"],
+    children: ["agent-rag-pdf", "rag-hybrid-search"],
   },
   {
     text: "05 / LLM 基础与 API",
@@ -650,23 +667,6 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "HOT / 模型与行业热点",
-    children: [
-      "rea-deepseek-harness-tutorial",
-      "what-is-personal-agent",
-      "claude-haiku-5-5",
-      "cpu-gpu-npu-difference",
-      "aleph-alpha-kolibri",
-      "gemini-4-argon",
-      "mimo-v3-hysparse2",
-      "open-source-jev-replicas",
-      "what-is-jev",
-      "chatgpt-images-2-5",
-      "gpt-6-astra",
-      "why-relay-still-works",
-    ],
-  },
-  {
     text: "08 / Prompt 工程",
     children: ["nine-prompting-techniques-for-better-llm"],
   },
@@ -681,6 +681,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "rea-deepseek-harness-tutorial": "7696102369058196736",
   "agent-user-interjection": "7695711462815223083",
   "what-is-personal-agent": "7695348838801886499",
   "agent-hallucination-governance": "7694985391278984486",
