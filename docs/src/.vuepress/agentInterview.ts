@@ -1,4 +1,30 @@
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import type { Page, PageOptions, PluginObject } from "vuepress/core";
+
+// 题库总数以 readme.md 里的题目标题（### 开头）为准，和 gen-llms-txt.mjs 口径一致。
+// 找不到 readme 时直接报错，避免把“0 道”发布到标题里。
+const countAgentQuestions = (): number => {
+  const candidates = [
+    resolve(process.cwd(), "src/ai/video/readme.md"),
+    resolve(process.cwd(), "docs/src/ai/video/readme.md"),
+    resolve(process.cwd(), "ai/video/readme.md"),
+  ];
+  const readmePath = candidates.find((p) => existsSync(p));
+  if (!readmePath) throw new Error("agentInterview: 找不到 ai/video/readme.md，无法统计题数");
+  return (readFileSync(readmePath, "utf-8").match(/^### /gm) ?? []).length;
+};
+
+const agentQuestionCount = countAgentQuestions();
+
+// 同一套题库的三个入口：网站是主站，GitHub 存源文件和视频工程，飞书只做分发
+export const agentInterviewChannels = {
+  name: "王二讲Agent：AI Agent 面试题",
+  site: "https://javabetter.cn/ai/video/",
+  github: "https://github.com/itwanger/ai-better",
+  githubSource: "https://github.com/itwanger/ai-better/blob/main/video",
+  feishu: "https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb",
+} as const;
 
 export interface AgentInterviewMeta {
   title: string;
@@ -25,6 +51,18 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "rag-hybrid-search": meta(
+    "RAG 怎么做向量和关键词的混合检索？",
+    "RAG 混合检索",
+    "向量相似度最高只有 1，BM25 分数没有固定上限，两路分数不能直接加权相加。结合派聪明源码，讲清 BM25 与 KNN 并行召回、RRF 按名次融合、Rerank 精排和阈值评测。",
+    ["RAG", "混合检索", "BM25", "RRF", "Rerank"],
+  ),
+  "rea-deepseek-harness-tutorial": meta(
+    "REA 保姆级教程：DeepSeek Harness 实操",
+    "REA 接入 DeepSeek Harness",
+    "REA 把反汇编器、浏览器调试和安卓反编译打包成 MCP 工具。用 cordis.patch.yml 给 DeepSeek Harness 接入 REA 的 MCP 和 Skill，再跑通官方的恐龙游戏逆向案例。",
+    ["REA", "DeepSeek Harness", "MCP", "逆向工程"],
+  ),
   "cpu-gpu-npu-difference": meta(
     "CPU、GPU、NPU 到底有什么区别？",
     "CPU、GPU 与 NPU",
@@ -75,10 +113,10 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   ),
 
   readme: meta(
-    "AI Agent 面试题 367 道（Agent八股+视频讲解）｜王二讲Agent",
-    "AI Agent 面试 367 题",
-    "按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理 367 道高频面试题。",
-    ["Agent 八股", "Harness 面试", "RAG 面试", "Claude Code 面试"],
+    `AI Agent 面试题 ${agentQuestionCount} 道（Agent八股+视频讲解）｜王二讲Agent`,
+    `AI Agent 面试 ${agentQuestionCount} 题`,
+    `${agentQuestionCount} 道 Agent 面试题合集，按 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek、Prompt、MCP、LangChain、Spring AI、模型微调和 Agent 产品演进分类整理，配视频讲解。`,
+    ["Agent 八股", "Agent 面试题", "Harness 面试", "RAG 面试", "Claude Code 面试"],
   ),
   "what-is-agent": meta(
     "什么是 AI Agent？与直接调用大模型 API 有什么区别？",
@@ -275,8 +313,8 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
   "what-is-loop-engineering": meta(
     "什么是 Loop Engineering？",
     "Loop Engineering",
-    "Loop Engineering 通过明确目标、反馈、校验、预算与退出条件，让 Agent 可以持续迭代又不会无边界运行。",
-    ["Loop Engineering", "Agent Loop", "反馈循环", "终止条件"],
+    "Loop Engineering 是 Agent 的外循环设计，用调度机制让 Agent 在无人值守时按完成条件或时间间隔持续工作。ReAct 是单次运行里的内循环，Claude Code 的 /goal 达成条件就停，/loop 按间隔一直跑。",
+    ["Loop Engineering", "外循环", "/goal", "/loop", "ReAct"],
   ),
   "agent-skill-hit-rate": meta(
     "Agent 挂了几十个 Skill，怎么保证命中率？",
@@ -574,7 +612,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   },
   {
     text: "04 / RAG知识库",
-    children: ["agent-rag-pdf"],
+    children: ["rag-hybrid-search", "agent-rag-pdf"],
   },
   {
     text: "05 / LLM 基础与 API",
@@ -614,6 +652,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "rea-deepseek-harness-tutorial",
       "what-is-personal-agent",
       "claude-haiku-5-5",
       "cpu-gpu-npu-difference",
@@ -847,6 +886,50 @@ const renderScriptCardOpen = (): string => `<article class="agent-script-card" a
 const renderScriptCardClose = (): string => `  </div>
 </article>`;
 
+// 手动指定的相关题，排在同组相邻题前面，用来给 GSC 里缺内链、迟迟不编入索引的页面补入口
+const relatedOverrides: Partial<Record<string, string[]>> = {
+  "plan-and-execute": ["is-plan-mode-dead", "agent-plan-modes"],
+  "agent-plan-modes": ["is-plan-mode-dead", "plan-and-execute"],
+  "workflow-vs-agent": ["workflow-vs-agent-flight-booking"],
+  "what-is-harness-engineering": ["what-is-loop-engineering", "harness-five-elements"],
+  "harness-five-elements": ["what-is-harness-engineering", "what-is-loop-engineering"],
+  "what-is-kv-cache": ["v4-csa-hca-kv-cache", "cpu-gpu-npu-difference"],
+  "v4-csa-hca-kv-cache": ["what-is-kv-cache"],
+  "gemini-4-argon": ["cpu-gpu-npu-difference", "what-is-kv-cache"],
+  "cpu-gpu-npu-difference": ["what-is-kv-cache", "gemini-4-argon"],
+};
+
+const RELATED_LIMIT = 5;
+
+const getRelatedSlugs = (slug: string): string[] => {
+  const siblings = agentInterviewGroups.find((group) => group.children.includes(slug))?.children ?? [];
+  const index = siblings.indexOf(slug);
+  const nearest = siblings
+    .map((sibling, i) => ({ sibling, distance: Math.abs(i - index) }))
+    .sort((a, b) => a.distance - b.distance)
+    .map(({ sibling }) => sibling);
+
+  return [...new Set([...(relatedOverrides[slug] ?? []), ...nearest])]
+    .filter((related) => related !== slug && related !== "readme" && agentInterviewMeta[related])
+    .slice(0, RELATED_LIMIT);
+};
+
+const renderRelatedCard = (slug: string): string => {
+  const related = getRelatedSlugs(slug);
+  if (!related.length) return "";
+
+  const links = related
+    .map((item) => `<li><a href="/ai/video/${item}.html">${escapeHtml(agentInterviewMeta[item].title)}</a></li>`)
+    .join("\n    ");
+
+  return `<nav class="agent-related-card" aria-label="相关面试题">
+  <div class="agent-related-card__meta"><span>NEXT / 相关面试题</span><a href="/ai/video/">全部 ${agentQuestionCount} 道 Agent 面试题</a></div>
+  <ul>
+    ${links}
+  </ul>
+</nav>`;
+};
+
 export const agentInterviewPlugin = (): PluginObject => ({
   name: "agent-interview-pages",
 
@@ -886,6 +969,13 @@ export const agentInterviewPlugin = (): PluginObject => ({
         const closingToken = new state.Token("html_block", "", 0);
         closingToken.content = `${renderScriptCardClose()}\n`;
         state.tokens.push(closingToken);
+      }
+
+      const relatedCard = slug === "readme" ? "" : renderRelatedCard(slug);
+      if (relatedCard) {
+        const relatedToken = new state.Token("html_block", "", 0);
+        relatedToken.content = `${relatedCard}\n`;
+        state.tokens.push(relatedToken);
       }
     });
   },

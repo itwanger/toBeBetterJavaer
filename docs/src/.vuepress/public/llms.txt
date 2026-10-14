@@ -5,12 +5,17 @@
 ## 核心入口
 
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
-- [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
+- [王二讲Agent：AI Agent 面试题](https://javabetter.cn/ai/video/)：Agent八股逐题图文详解与视频讲解，源文件在 GitHub itwanger/ai-better。
 
-## AI Agent 面试题（368 题合集，配视频讲解）
+## AI Agent 面试题（369 题合集，配视频讲解）
 
-> 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
+> 王二讲Agent 题库，覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。同一份内容在三个入口同步：网站为主站，GitHub 存 Markdown 源文件与视频工程，飞书知识库用于分发。
 
+- [题库总览](https://javabetter.cn/ai/video/)：全部题目、分类与图文详解入口
+- [GitHub 仓库 itwanger/ai-better](https://github.com/itwanger/ai-better)：题库与每篇图文的 Markdown 源文件，以及每条视频的 Remotion 工程
+- [飞书知识库](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb)：同一份题库的飞书版
+- [RAG 怎么做向量和关键词的混合检索？](https://javabetter.cn/ai/video/rag-hybrid-search.html)：向量相似度最高只有 1，BM25 分数没有固定上限，两路分数不能直接加权相加。结合派聪明源码，讲清 BM25 与 KNN 并行召回、RRF 按名次融合、Rerank 精排和阈值评测。
+- [REA 保姆级教程：DeepSeek Harness 实操](https://javabetter.cn/ai/video/rea-deepseek-harness-tutorial.html)：REA 把反汇编器、浏览器调试和安卓反编译打包成 MCP 工具。用 cordis.patch.yml 给 DeepSeek Harness 接入 REA 的 MCP 和 Skill，再跑通官方的恐龙游戏逆向案例。
 - [CPU、GPU、NPU 到底有什么区别？](https://javabetter.cn/ai/video/cpu-gpu-npu-difference.html)：从本机 Agent 调度、云端 LLM 推理和端侧 AI，理解 CPU、GPU、NPU 的分工，以及 Prefill、Decode 和内存带宽。
 - [Claude Haiku 5.5 怎么在成本和智能之间做选择？](https://javabetter.cn/ai/video/claude-haiku-5-5.html)：理解推理档位、自适应思考与缓存，结合 Claude Code 的子 Agent 配置选择适合高频任务的模型。
 - [用户中途取消，Agent 任务怎么停下来？](https://javabetter.cn/ai/video/agent-task-cancellation.html)：取消信号逐层传播，停止整个工具进程组，修复被打断的会话历史，并区分取消与 Steering 插话。
@@ -51,7 +56,7 @@
 - [Codex 的短期记忆是怎么实现的？](https://javabetter.cn/ai/video/codex-short-term-memory.html)：Codex 通过会话消息、工具事件和自动压缩维持任务连续性，并在上下文预算接近上限时保留关键状态。
 - [Codex 的长期记忆是怎么实现的？](https://javabetter.cn/ai/video/codex-long-term-memory.html)：Codex 的长期记忆将稳定偏好与项目经验持久化，在新任务中按相关性读取，以减少重复说明并保持执行一致。
 - [什么是 Harness Engineering？为什么 Agent 需要运行时？](https://javabetter.cn/ai/video/what-is-harness-engineering.html)：Harness Engineering 关注模型之外的循环控制、工具执行、权限、上下文、错误恢复和可观测性，是生产级 Agent 的运行基础。
-- [什么是 Loop Engineering？](https://javabetter.cn/ai/video/what-is-loop-engineering.html)：Loop Engineering 通过明确目标、反馈、校验、预算与退出条件，让 Agent 可以持续迭代又不会无边界运行。
+- [什么是 Loop Engineering？](https://javabetter.cn/ai/video/what-is-loop-engineering.html)：Loop Engineering 是 Agent 的外循环设计，用调度机制让 Agent 在无人值守时按完成条件或时间间隔持续工作。ReAct 是单次运行里的内循环，Claude Code 的 /goal 达成条件就停，/loop 按间隔一直跑。
 - [Agent 挂了几十个 Skill，怎么保证命中率？](https://javabetter.cn/ai/video/agent-skill-hit-rate.html)：提高 Skill 命中率依赖清晰描述、分层发现、按需加载、候选召回与冲突消解，不能只靠硬编码路由。
 - [CLAUDE.md 怎么写才真正有用？](https://javabetter.cn/ai/video/how-to-write-claudemd.html)：高质量 CLAUDE.md 应只保留稳定、可执行、可验证的项目规则，并按作用域拆分，避免堆积临时信息和重复说明。
 - [Agent 的 RAG 遇到 PDF 怎么办？](https://javabetter.cn/ai/video/agent-rag-pdf.html)：PDF RAG 需要同时处理版面、段落、表格、图片和引用位置，常见做法是结构化解析、分块检索与多模态补充。

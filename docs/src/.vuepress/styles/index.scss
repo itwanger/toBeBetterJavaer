@@ -899,6 +899,40 @@ body.floating-controls-collapsed .floating-controls-toggle {
   margin-bottom: 0;
 }
 
+.agent-related-card {
+  margin: 0 0 2.6rem;
+  border: 2px solid var(--agent-pixel-ink);
+  border-radius: 0;
+  background: rgb(255 255 255 / 88%);
+  box-shadow: 4px 4px 0 rgb(23 33 43 / 16%);
+}
+
+.agent-related-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.58rem 0.75rem;
+  border-bottom: 2px dashed var(--agent-pixel-ink);
+  background: #eaf6ff;
+  color: var(--agent-pixel-ink);
+  font-family: "SFMono-Regular", Consolas, "Microsoft YaHei", monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.agent-related-card ul {
+  margin: 0 !important;
+  padding: 0.8rem 1rem 0.8rem 2.2rem;
+}
+
+.agent-related-card li {
+  margin: 0.3rem 0;
+  line-height: 1.7;
+}
+
 .agent-interview-page .vp-page-meta {
   margin-top: 2.8rem;
   padding: 1rem 0 0;
@@ -1091,6 +1125,15 @@ html[data-theme="dark"] .agent-script-card {
 }
 
 html[data-theme="dark"] .agent-script-card__header {
+  background: #193149;
+}
+
+html[data-theme="dark"] .agent-related-card {
+  background: rgb(24 35 47 / 92%);
+  box-shadow: 4px 4px 0 rgb(237 245 255 / 12%);
+}
+
+html[data-theme="dark"] .agent-related-card__meta {
   background: #193149;
 }
 

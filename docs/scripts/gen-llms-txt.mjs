@@ -48,7 +48,7 @@ const SECTIONS = [
 
 const STATIC_LINKS = [
   ["Java 核心教程总览", `${HOST}/overview/`, "从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。"],
-  ["AI Agent 面试题精讲", `${HOST}/ai/video/`, "AI Agent 高频面试题的逐题精讲。"],
+  ["王二讲Agent：AI Agent 面试题", `${HOST}/ai/video/`, "Agent八股逐题图文详解与视频讲解，源文件在 GitHub itwanger/ai-better。"],
 ];
 
 // 只取 frontmatter 里的单行标量字段，够用且不引第三方 yaml 依赖
@@ -116,7 +116,16 @@ const lines = [
 
 const agentItems = collectAgentInterview();
 if (agentItems.length) {
-  lines.push("", `## AI Agent 面试题（${countAgentQuestions()} 题合集，配视频讲解）`, "", "> 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。", "");
+  lines.push(
+    "",
+    `## AI Agent 面试题（${countAgentQuestions()} 题合集，配视频讲解）`,
+    "",
+    "> 王二讲Agent 题库，覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。同一份内容在三个入口同步：网站为主站，GitHub 存 Markdown 源文件与视频工程，飞书知识库用于分发。",
+    "",
+    `- [题库总览](${HOST}/ai/video/)：全部题目、分类与图文详解入口`,
+    "- [GitHub 仓库 itwanger/ai-better](https://github.com/itwanger/ai-better)：题库与每篇图文的 Markdown 源文件，以及每条视频的 Remotion 工程",
+    "- [飞书知识库](https://my.feishu.cn/wiki/AcJywdpZ9ioWSOkNTnVcuQ7enMb)：同一份题库的飞书版",
+  );
   for (const it of agentItems) lines.push(`- [${it.title}](${it.url})：${it.desc}`);
 }
 

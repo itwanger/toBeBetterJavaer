@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
-import { getAgentInterviewMeta } from "./agentInterview.js";
+import { agentInterviewChannels, getAgentInterviewMeta } from "./agentInterview.js";
 
 // paicoding 上已存在文章的清单（build 前由 scripts/gen-paicoding-canonical.mjs 自动生成）。
 // 命中的文章把 canonical 让给首发的 paicoding；清单缺失时安全降级为全部自指 javabetter。
@@ -163,6 +163,10 @@ export default hopeTheme({
         const interviewMeta = getAgentInterviewMeta(page);
         if (!interviewMeta) return jsonLd;
 
+        // 网站、GitHub、飞书是同一套题库：每页声明 GitHub 上的源文件，总页再用 sameAs 关联另外两个入口
+        const isIndex = page.slug === "readme";
+        const channels = agentInterviewChannels;
+
         return {
           ...jsonLd,
           headline: interviewMeta.title,
@@ -177,9 +181,11 @@ export default hopeTheme({
           },
           isPartOf: {
             "@type": "CollectionPage",
-            name: "Agent 八股",
-            url: "https://javabetter.cn/ai/video/",
+            name: channels.name,
+            url: channels.site,
           },
+          isBasedOn: `${channels.githubSource}/${page.slug}.md`,
+          ...(isIndex && { sameAs: [channels.github, channels.feishu] }),
           mainEntityOfPage: {
             "@type": "WebPage",
             "@id": `https://javabetter.cn${page.path}`,

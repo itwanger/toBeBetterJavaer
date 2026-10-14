@@ -38,11 +38,11 @@
 >
 > 如果你更喜欢离线的 PDF 版本，戳这个链接获取[👍二哥的 Java 进阶之路.pdf](docs/src/overview/readme.md)
 
-# 王二讲Agent：AI Agent 面试题 368 道（Agent八股+视频讲解）
+# 王二讲Agent：AI Agent 面试题 369 道（Agent八股+视频讲解）
 
-> 大厂面试里 Agent 相关的题越来越多，「你做过 Agent 项目吗」「RAG 检索怎么做的」「MCP 协议了解吗」几乎每家都会问。我把牛客、星球和各大厂真实面经里的高频题整理成了一套 Agent 八股，一共 368 道，还在持续更新。每道题都有简答，重点题配图文详解和视频讲解，答案会串到 PaiCLI、PaiFlow、派聪明这几个实战项目里讲。
+> 大厂面试里 Agent 相关的题越来越多，「你做过 Agent 项目吗」「RAG 检索怎么做的」「MCP 协议了解吗」几乎每家都会问。我把牛客、星球和各大厂真实面经里的高频题整理成了一套 Agent 八股，一共 369 道，还在持续更新。每道题都有简答，重点题配图文详解和视频讲解，答案会串到 PaiCLI、PaiFlow、派聪明这几个实战项目里讲。
 
-**👉 [在线阅读：AI Agent 面试题 368 道](https://javabetter.cn/ai/video/)**
+**👉 [在线阅读：AI Agent 面试题 369 道](https://javabetter.cn/ai/video/)**
 
 题库、图文详解和每条视频的 Remotion 工程，单独放在了 GitHub 仓库 [itwanger/ai-better](https://github.com/itwanger/ai-better)，各分类的题数统计和完整题目目录也在那里随题库同步更新，欢迎 Star 关注。
 
