@@ -7,7 +7,7 @@
 - [Java 核心教程总览](https://javabetter.cn/overview/)：从 Java 基础语法到集合框架、并发编程、JVM 的成体系教程目录。
 - [AI Agent 面试题精讲](https://javabetter.cn/ai/video/)：AI Agent 高频面试题的逐题精讲。
 
-## AI Agent 面试题（367 题合集，配视频讲解）
+## AI Agent 面试题（368 题合集，配视频讲解）
 
 > 覆盖 Agent 基础、上下文与记忆、Harness、RAG、LLM、Claude Code、Codex、DeepSeek 等方向的高频面试题精讲。
 
@@ -86,6 +86,10 @@
 - [推荐 5 个复刻 Jev 的开源项目](https://javabetter.cn/ai/video/open-source-jev-replicas.html)：开源社区用轻量决策头加 LoRA 微调复刻了 Jev，Kev、Nimble、Laya、Open-Jev 各有看家本领，可以在本地跑起自己的决策模型。
 - [模型越来越强，Harness 会不会被模型「吃掉」？](https://javabetter.cn/ai/video/will-model-eat-harness.html)：模型可以逐步内化格式修正与工具调用适配等能力，但文件和网络权限、危险操作确认、审计与业务规则仍需在模型外执行。
 - [MiMo-V3 的 HySparse2 和混合滑动窗口注意力有什么区别？](https://javabetter.cn/ai/video/mimo-v3-hysparse2.html)：HySparse2 结合 Self-Decoder、Cross-Decoder、KV Reuse 与 KV Bridging，让后半段复用或从前半段计算 KV Cache，减少长输入的 Prefill 计算。
+- [Agent 出现幻觉怎么治理？](https://javabetter.cn/ai/video/agent-hallucination-governance.html)：用真实工具结果校验动作、核对压缩与长期记忆，并以测试和完成证据约束 Agent 的最终结论。
+- [怎么设计 Agent 的 Human-in-the-loop？](https://javabetter.cn/ai/video/agent-human-in-the-loop.html)：按风险与可逆性设置审批点，记住授权、前置规则，并通过状态存档恢复暂停的 Agent 任务。
+- [Agent执行过程中，用户插话怎么处理？](https://javabetter.cn/ai/video/agent-user-interjection.html)：把用户补充放入队列，在工具结果写回后、下一次模型请求前注入上下文，保留已有进展并调整执行方向。
+- [最近爆火的 Personal Agent 到底是什么？](https://javabetter.cn/ai/video/what-is-personal-agent.html)：结合 Grok Bot、Muse、Cue、dots，理解持续记忆、执行环境、用户身份与权限边界。
 
 ## 学习路线
 
@@ -137,6 +141,12 @@
 
 > AI Coding 工具实测、Agent 开发、Skills 配置、大模型评测与面试题，一手实践经验。
 
+- [字节Agent面试9问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zijie-compiler copy.html)：字节 AI 岗 9 道面试题全解，RAG 混合检索的相关性怎么算、BM25 关键词打分、RRF 融合与 rerank 精排的分数值域，以及 AI 编译器岗位的工作内容、CPU 与 GPU 架构区别、GPU 存储层级、LLVM 与 MLIR、主流 AI/GPU DSL。
+- [字节RAG面试4问](https://javabetter.cn/sidebar/itwanger/ai/agent-mianshi-zijie-compiler.html)：字节 AI 岗 4 道 RAG 面试题全解，混合检索为什么要两路召回、相关性分数怎么算、BM25 的三个因子与中文分词、RRF 倒数排名融合与 rerank 精排的分工，以及三种降级模式下分数的值域和阈值怎么定。
+- [豆包工作无限画布](https://javabetter.cn/sidebar/itwanger/ai/doubao-work-canvas.html)：豆包工作无限画布实测，从一张宣传海报到 Logo 替换、分图层微调、横版延展，再到用 Remotion Skill 生成宣传视频，附完整提示词
+- [派聪明RAG测评集实战](https://javabetter.cn/sidebar/itwanger/ai/paismart-rag-eval-set.html)：派聪明 RAG 测评集实战拆解，从 50 道题怎么出、Recall@K 和 MRR 怎么算，到重排序阈值调参、分块级标注和 LLM 评委人工校准，附真实评测数据和面试答法。
+- [海康Agent面试7问](https://javabetter.cn/sidebar/itwanger/ai/haikang-robot-agent-mianshi.html)：海康机器人 Agent 岗 7 道面试题全解：Tool Registry 参数校验与异常兜底、串行调用大模型的超时控制、MCP stdio 子进程风险与生命周期、JavaParser 代码解析实测、Agent 频繁 GC、Kafka 削峰与重复消费、黑盒生产者的队列设计。
+- [OpenMuse 源码实测](https://javabetter.cn/sidebar/itwanger/ai/openmuse-review.html)：OpenMuse 是 CopilotKit 开源的自托管个人 Agent，对标 Meta Muse。本文用 DeepSeek V4.1 Flash 在本地运行 OpenMuse，并结合源码拆解持久任务的租约与检查点、外部写操作的哈希审批、只读浏览器和断网终端的安全设计。
 - [派聪明RAG+PaiCLI面试9问](https://javabetter.cn/sidebar/itwanger/ai/paismart-paicli-mianshi.html)：围绕派聪明 RAG 和 PaiCLI 终端 Agent 的 9 道面试题，讲透 Kafka 异步解析与重复消费、分片合并幂等、CompletableFuture 编排、线程池无界队列、分布式限流、任务恢复、大文件流式解析和多供应商熔断降级。
 - [小米MiMo全梳理](https://javabetter.cn/sidebar/itwanger/ai/luofuli-xiaomi-mimo.html)：31 岁的罗福莉晋升小米 22 级。本文梳理小米 MiMo 从 MiMo-7B 到 MiMo-V2.6 的模型迭代、V2.6 的 RL 训练、下一代架构 HySparse2，以及 MiMo Code 和 MiMo Desktop 两款产品。
 - [Opus 5.5 焚诀](https://javabetter.cn/sidebar/itwanger/ai/claude-opus-5-5-prompting-guide.html)：拆解 Claude 官方的 Opus 5.5 使用指南，面向 Claude Code 用户讲清楚 effort 档位怎么选、提示词怎么写终点线、长任务怎么不中途停下、Sub-agent 怎么拆活、被切到旧模型怎么办，附可直接使用的 CLAUDE.md 规则和提示词。
@@ -191,12 +201,6 @@
 - [DeepSeek大模型面试17问](https://javabetter.cn/sidebar/itwanger/ai/deepseek-ipo-llm-17.html)：DeepSeek启动IPO筹备估值710亿美元，17道大模型核心面试题全解，覆盖Transformer、Attention、MoE、KV Cache、RLHF等高频考点。
 - [Kaku 终端评测](https://javabetter.cn/sidebar/itwanger/ai/kaku-terminal-review.html)：Kaku 是 Pake 作者 tw93 开源的 AI 终端，基于 WezTerm 深度定制，内置命令修复、自然语言转命令和 AI 聊天面板。实测安装配置，并用同一个提示词让 Fable 5 和 GPT-5.6 分屏对决生成千里江山图。
 - [GPT-5.6 实测](https://javabetter.cn/sidebar/itwanger/ai/gpt-5-6-review.html)：从生图、编码、文本、站点四个真实工作场景实测 GPT-5.6，三只手的 bug、改一个问题几小时的速度、接入知识库的文本表现，数据说话，公平评价。
-- [AI 时代程序员的经验优势](https://javabetter.cn/sidebar/itwanger/ai/gpt56-ai-coding-experience.html)：GPT-5.6 时代程序员的优势是什么？用 GitClear、DORA 报告和 Anthropic 官方最佳实践拆解 AI 时代的经验四件套，上下文、计划、验证、纠偏，附 Claude Code 实操方法。
-- [字节绩效大调整](https://javabetter.cn/sidebar/itwanger/ai/bytedance-performance-ai-agent.html)：字节跳动2026半年绩效调整落地，激励基数从月薪扩到月总包，奖金投入提升35%。拆解字节AI Agent招聘JD，分析技术栈要求，附PaiCLI-Go简历包装模板。
-- [本科生就业城市排行榜](https://javabetter.cn/sidebar/itwanger/ai/best-city-ai-agent-jd.html)：麦可思研究院发布2025届本科生就业报告，十强城市薪资排名出炉。以苏州为例拆解AI Agent岗位JD，分析企业需要什么技术栈，给出AI时代的求职准备路线图。
-- [Hy3 + WorkBuddy 实测](https://javabetter.cn/sidebar/itwanger/ai/hunyuan-hy3-workbuddy.html)：腾讯混元 Hy3 正式版发布，用 WorkBuddy 实测工具使用、规划、长程执行、多源理解四项 Agent 能力，附完整提示词和官方数据。
-- [Claude Code 底层架构拆解](https://javabetter.cn/sidebar/itwanger/ai/claude-code-architecture-from-source.html)：拆解 Claude Code 的 6 大核心抽象和 7 级权限模式，从 Query Loop 的 async generator 设计到递归 Agent 架构，附 5 个可直接复用的设计模式。
-- [10个Codex视频推荐](https://javabetter.cn/sidebar/itwanger/ai/codex-bilibili-top10.html)：从B站上百个Codex视频中精选10个，覆盖入门教程、实战案例、进阶功能、国内接入、知识管理和行业格局，附评论区高赞避坑经验。
 
 ## 开发工具
 
