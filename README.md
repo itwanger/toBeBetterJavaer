@@ -44,17 +44,7 @@
 
 **👉 [在线阅读：AI Agent 面试题 368 道](https://javabetter.cn/ai/video/)**
 
-题库、图文详解和每条视频的 Remotion 工程，单独放在了 GitHub 仓库 [itwanger/ai-better](https://github.com/itwanger/ai-better)，欢迎 Star 关注更新。
-
-| 分类 | 题数 | 分类 | 题数 |
-| --- | --- | --- | --- |
-| Agent 基础 | 43 | Prompt 工程 | 16 |
-| 上下文与记忆 | 22 | MCP 与工具调用 | 26 |
-| Harness 与 Skills | 42 | LangChain 与 Spring AI | 21 |
-| RAG 知识库 | 43 | 模型训练与微调 | 32 |
-| LLM 基础与 API | 82 | Agent 产品与框架演进 | 9 |
-| Claude Code 与 Codex | 17 | DeepSeek 专题 | 5 |
-| 热点解读 | 10 | | |
+题库、图文详解和每条视频的 Remotion 工程，单独放在了 GitHub 仓库 [itwanger/ai-better](https://github.com/itwanger/ai-better)，各分类的题数统计和完整题目目录也在那里随题库同步更新，欢迎 Star 关注。
 
 高频题精选（图文详解）：
 
