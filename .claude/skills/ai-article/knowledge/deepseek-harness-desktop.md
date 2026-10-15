@@ -1,5 +1,7 @@
 # DeepSeek Harness (DSH) Desktop and Plugin System: Source Research
 
+> 调研日期：2026-09-28｜commit 21638c56｜版本 0.1.7-rc.2。上游已发布到 0.2.1-alpha.3，官方可选 bundle 从 4 个增加到 10 个以上，session_search 的结论已过时，引用前先拉取上游再核对。
+
 > Research date: 2026-09-28. Read at `origin/master` commit `21638c56315ae6a2b552d6091945d3144c9af32e` (2026-09-27), which is 3 days after tag `dsh-v0.1.7-rc.2` (`477b4f4205`, 2026-09-24). The root `package.json` version is `0.1.7-rc.2`. Between rc.2 and this commit, the only doc changes in the files cited below are small ones: plugin page skeleton and refresh polish, desktop product analytics, and update-copy wording. These are marked "post-rc.2" where they come up. Line numbers refer to the commit above. Items marked **(inference)** are my own reading and are not stated in the source.
 
 ## 0. Key terms

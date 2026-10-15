@@ -15,7 +15,6 @@ from wording_rules import COMPILED_FAIL, COMPILED_WARN, find_hits  # noqa: E402
 
 
 HARD_STOPS = (
-    "说白了",
     "说穿了",
     "先说结论",
 )
@@ -83,7 +82,6 @@ ROAD_SIGNS = (
     "更微妙的是",
     "还有一层",
     "只说对了一半",
-    "值得注意的是",
     "需要指出的是",
     "从某种意义上说",
 )
@@ -156,18 +154,9 @@ SOFT_MARKERS = (
     "不可否认",
     "核心是",
     "关键在于",
-    "这意味着",
 )
 
 REPEATED_OPENERS = (
-    "其实",
-    "不过",
-    "当然",
-    "所以",
-    "但是",
-    "后来",
-    "当时",
-    "很多人",
     "问题是",
     "更重要的是",
     "说到这里",
@@ -225,6 +214,27 @@ def mask_non_prose(text: str) -> str:
     for pattern in patterns:
         masked = pattern.sub(mask, masked)
     return masked
+
+
+LIST_MARKER = re.compile(r"^\s*(?:[-+*]|\d+[.、])\s+")
+
+
+def colon_allowed(text: str, position: int) -> bool:
+    """SKILL.md 允许的三种冒号：简历字段名、列表项的“术语：解释”、列表引导句。"""
+    line_start = text.rfind("\n", 0, position) + 1
+    line_end = text.find("\n", position)
+    line_end = len(text) if line_end == -1 else line_end
+    head = text[line_start:position]
+    if re.fullmatch(r"\s*(?:[-+*]\s+)?\*\*[^*\n]{1,20}\*\*", head):
+        return True
+    marker = LIST_MARKER.match(head)
+    if marker and han_count(head[marker.end():]) <= 12 and not re.search(r"[，。！？]", head):
+        return True
+    if not text[position + 1 : line_end].strip():
+        following = text[line_end:].lstrip("\n")
+        if LIST_MARKER.match(following):
+            return True
+    return False
 
 
 def non_overlapping_terms(text: str, terms: tuple[str, ...]):
@@ -393,6 +403,8 @@ def main() -> int:
             hard = []
             for match in matches:
                 tail = prose[match.end() : match.end() + 2].lstrip()
+                if colon_allowed(text, match.start()):
+                    continue
                 if tail[:1] in ("「", "『", "“", "‘", '"'):
                     quote_colons.append(match)
                 else:
@@ -408,6 +420,13 @@ def main() -> int:
         warnings.append(
             f"引出原话的冒号 {len(quote_colons)} 处，第 {lines} 行。确认引号里确实是原话，且不是提示性用法。"
         )
+
+    half_quotes = list(re.finditer('"', prose))
+    if half_quotes:
+        lines = "、".join(
+            dict.fromkeys(str(line_number(text, match.start())) for match in half_quotes[:12])
+        )
+        failures.append(f"半角双引号共 {len(half_quotes)} 个，出现在第 {lines} 行。改成全角“”。")
 
     wording_fails = find_hits(prose, COMPILED_FAIL)
     for position, hit, suggestion in wording_fails:

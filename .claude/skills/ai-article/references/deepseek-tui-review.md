@@ -32,7 +32,7 @@ date: 2026-05-09
 
 如果有小伙伴正在寻求一款 CLI Agent，或者本身就是 DeepSeek V4 的重度用户，那可以体验一下。
 
-最大的优点是：和 DeepSeek 融为一体，上层任务默认用 DeepSeek V4 pro，一些简单认为会切到 DeepSeek V4 flash，token 上能省则省。
+最大的优点是和 DeepSeek 融为一体，上层任务默认用 DeepSeek V4 pro，一些简单任务会切换到 DeepSeek V4 flash，token 上能省则省。
 
 之前卡神说 Claude Code 和 DeepSeek V4 的适配不是特别丝滑，虽然我个人并没有这种感受。
 
@@ -150,7 +150,7 @@ DeepSeek TUI 有一个非常贴心的小功能，支持右键，比如说鼠标�
 
 【截图】
 
-让我比较惊喜的是，DeepSeek TUI 在拿到任务后，先进入了一段比较长的思考过程，然后拆出了技术选型、目录结构、页面设计三个子任务，自己一步步推进。
+让我比较惊喜的是，DeepSeek TUI 在拿到任务后，先进入了一段比较长的思考过程，然后拆分出了技术选型、目录结构、页面设计三个子任务，自己一步步推进。
 
 【截图】
 
@@ -176,7 +176,7 @@ Claude Code 是 TypeScript 写的，Codex 也是 TypeScript，DeepSeek TUI 用�
 
 更有意思的是它的双二进制设计。
 
-项目编译出来两个可执行文件：`deepseek` 和 `deepseek-tui`。
+项目编译出来两个可执行文件，`deepseek` 和 `deepseek-tui`。
 
 - `deepseek` 是调度器，负责解析命令行参数、管理配置、分发任务；
 - `deepseek-tui` 是运行时，负责终端界面渲染和 Agent 逻辑执行。
@@ -189,7 +189,7 @@ Claude Code 是 TypeScript 写的，Codex 也是 TypeScript，DeepSeek TUI 用�
 - 文件操作负责读写编辑
 - Git 做版本控制
 - 网络搜索做在线检索
-- 子代理负责任务分发
+- Sub-agent 负责任务分发
 - MCP 连接外部服务器
 - RLM 做并行推理。
 
@@ -201,17 +201,17 @@ Claude Code 是 TypeScript 写的，Codex 也是 TypeScript，DeepSeek TUI 用�
 
 `handle_deepseek_turn()` 这个函数有 600 多行，是整个 Agent 的心脏。
 
-每一轮循环的流程是这样的：
+每一轮循环的流程是这样的。
 
 【截图】
 
 先检查用户有没有取消或者插入新指令，然后判断上下文是不是快撑爆了需要压缩，接着做容量护栏检查，构建请求发给 LLM，解析流式返回的 SSE 事件（分 thinking、text、tool_calls 三种），执行工具拿到结果，注入回对话历史，进入下一轮。
 
-这个循环里藏了一个特别巧妙的设计：流式透明重试。
+这个循环里藏了一个特别巧妙的设计，叫流式透明重试。
 
 当 HTTP/2 连接中途断开，但还没有返回任何 content 的时候，DeepSeek TUI 会自动重发请求，最多重试 3 次，用户完全无感知。
 
-还有一个细节值得一提：循环防护机制 LoopGuard。
+还有一个细节值得一提，就是循环防护机制 LoopGuard。
 
 它会检测连续相同的 tool call，防止模型陷入死循环。比如模型反复执行同一条命令拿到相同结果，LoopGuard 会介入决定是否终止。
 
@@ -233,11 +233,11 @@ DeepSeek TUI 在容量接近上限时会自动压缩历史记录，压缩策略�
 
 这就意味着，同样一个长会话，DeepSeek TUI 通过精心设计的压缩策略，能把 API 费用控制在一个比较合理的水平。
 
-## 06、RLM 并行子代理
+## 06、RLM 并行 Sub-agent
 
 RLM 是 DeepSeek TUI 自己造的一个概念，全称是 Reinforced Language Model 并行推理。
 
-简单说就是一个主 Agent 可以同时召唤 1 到 16 个子 Agent，每个子 Agent 跑的是更便宜的 DeepSeek V4-Flash 模型，大家并行干活，最后主 Agent 汇总结果。
+简单说就是一个主 Agent 可以同时召唤 1 到 16 个子 Agent，每个子 Agent 运行的是更便宜的 DeepSeek V4-Flash 模型，大家并行执行任务，最后主 Agent 汇总结果。
 
 【截图】
 
@@ -245,11 +245,11 @@ V4-Flash 的输出成本大约是 V4-Pro 的三分之一。
 
 ## 07、三档交互模式
 
-DeepSeek TUI 的交互模式分三档：Plan、Agent、YOLO。
+DeepSeek TUI 的交互模式分三档，Plan、Agent、YOLO。
 
 Plan 模式是只读的。模型可以分析代码、读取文件、搜索内容，但不能执行命令、不能修改文件、不能写入任何东西。
 
-Agent 模式是默认状态，所有涉及修改的操作都需要人工确认。这和 Claude Code 的默认行为基本一致，每次写文件、跑命令前都会停下来等你按回车。
+Agent 模式是默认状态，所有涉及修改的操作都需要人工确认。这和 Claude Code 的默认行为基本一致，每次写文件、执行命令前都会停下来等你按回车。
 
 YOLO 模式最刺激。在受信任的工作区内，所有操作自动执行，不需要逐条审批。
 
@@ -281,7 +281,7 @@ MCP 方面也是标准实现，通过 stdio 传输协议连接各类 MCP 服务�
 
 文件写入偶尔卡死，长任务稳定性还需要打磨。
 
-但它也有让我眼前一亮的东西——界面交互耳目一新。
+但它也有让我眼前一亮的东西，界面交互耳目一新。
 
 【截图】
 

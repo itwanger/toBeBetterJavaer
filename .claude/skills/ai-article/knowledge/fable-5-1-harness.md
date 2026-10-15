@@ -1,6 +1,7 @@
 # Claude Fable 5.1 Harness 适配知识库
 
 > 调研日期：2026-09-02
+> 注意：本文里的 Opus 5、Sonnet 5 是上一代模型，当前一代是 Fable 5.1、Opus 5.5、Sonnet 5.5、Haiku 5.5；价格表和 fallback 目标需要按当前模型重新核对。来源路径在 /private/tmp 下，已经不能复核行号。
 > 来源：Anthropic 官方 claude-api skill 文档（`/private/tmp/claude-501/bundled-skills/2.1.255/f98be30a5a4ecb8a5de0423fbcbb9db9/claude-api/`），主要文件 `shared/model-migration.md`、`shared/prompt-caching.md`、`shared/agent-design.md`、`shared/tool-use-concepts.md`、`shared/cost-optimization.md`、`shared/models.md`
 > 用途：Fable 5.1 一代模型发布后，Agent 的 Harness 要改什么
 
