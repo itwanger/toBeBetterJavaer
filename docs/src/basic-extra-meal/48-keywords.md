@@ -83,7 +83,7 @@ byte minByte = -128;
 byte maxByte = 127;
 ```
 
-在这个示例中，我们声明了三个 byte 类型的变量：minByte、maxByte，并分别赋予了不同的值。
+在这个示例中，我们声明了两个 byte 类型的变量：minByte、maxByte，并分别赋予了不同的值。
 
 ## 5、case：
 
