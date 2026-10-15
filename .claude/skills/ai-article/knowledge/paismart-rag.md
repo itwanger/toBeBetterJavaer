@@ -6,6 +6,7 @@
 - 本文件只依据 main 分支已提交内容（c6889244，main 与 origin/main 一致）。调研时工作区有未提交的评测改动（`service/eval/*`、`eval/paismart-eval-v1.jsonl`、`docs/*`），没有采用。RustFS 分支的内容也没有采用。
 - 路径约定：Java 文件相对 `src/main/java/com/yizhaoqi/smartpai/`；“yml”指 `src/main/resources/application.yml`；“计划文档”指 `docs/interview-upgrade-plan.md`。
 - 写稿时如果 `git log --since` 有新提交，先看提交说明和改动文件，再决定补哪一节。
+- 之后的 c2b3f839（2026-10-15，按上传者隔离索引数据、统一公开字段名）已并入 3.3、5.1、5.2、6.3、第七节和演进记录 11；其余各节的行号仍以 c6889244 为准。
 
 ---
 
@@ -66,8 +67,8 @@
   - 上传任务已 COMPLETED 直接跳过；重建任务（REINDEX）不跳过。
   - 认领条件：状态不是 PROCESSING，或心跳为空，或心跳早于 600 秒前。认领时写 `processing_started_at = heartbeat_at = now`。
   - `processing_started_at` 是持有凭证：心跳、完成、失败都带它做条件更新。心跳更新 0 行抛 `VectorizationLeaseLostException`，旧消费者主动放弃，消息正常提交。
-- 清旧数据：`clearIndexedData` 对 ES 别名 `knowledge_base` 按 `fileMd5` delete-by-query，再删 `document_vectors`；ES 删除失败直接抛出让任务重试（service/DocumentService.java:265-275）。
-- 覆盖写：ES 文档 id = `fileMd5_chunkId`（service/VectorizationService.java:184）；`document_vectors` 唯一键 `uk_document_vectors_md5_chunk(file_md5, chunk_id)`（model/DocumentVector.java:17）。
+- 清旧数据：`clearIndexedData(fileMd5, userId)` 对 ES 别名 `knowledge_base` 按 fileMd5 + userId delete-by-query，再删这个上传者的 `document_vectors`；ES 删除失败直接抛出让任务重试。userId 取认领到的上传记录的上传者（c2b3f839 起；之前只按 fileMd5 删，见演进记录 11）。
+- 覆盖写：ES 文档 id = `fileMd5_userId_chunkId`（entity/EsDocument.java:76）；`document_vectors` 唯一键 `uk_document_vectors_md5_user_chunk(file_md5, user_id, chunk_id)`（model/DocumentVector.java:18）。
 - 异常分流（FileProcessingConsumer.java:97-122）：租约丢失吞掉；`InsufficientBalanceException`（余额不足，继承 `RateLimitExceededException`）标记失败后直接返回，不走 Kafka 重试和死信；其他异常标记失败并抛出，走重试 → 死信。
 - 死信消费者按 (topic, partition, offset) 唯一键幂等落库 `file_processing_dead_letter` 并打 `[ALERT]`，用独立监听器工厂（consumer/FileProcessingDeadLetterConsumer.java:36-65；model/FileProcessingDeadLetter.java:16-19）。
 
@@ -118,6 +119,7 @@
 - 从 MySQL 按 chunkId 分页读，每页 10 条（`embedding.api.batch-size`，yml:422），embedding 后立刻 bulk 写 ES，一批一个请求（:49-50,93-107,199）。EmbeddingClient 自身 `@Value` 默认 100，靠 yml 改成 10（client/EmbeddingClient.java:36）。
 - 每个文件开始时固定一次供应商，`modelVersion = provider:model:dimension`，如 `aliyun:text-embedding-v4:2048`（:85-87；EmbeddingClient.java:210-212）。
 - 写入 ES 的 fileName 取上传者最新的上传记录，没有再取该 MD5 最新记录（:148-156,198）。
+- ES 文档 ID 是 `fileMd5_userId_chunkId`（entity/EsDocument.java:76 `idOf`），`document_vectors` 唯一键是 `(file_md5, user_id, chunk_id)`（model/DocumentVector.java:18）。同一文件被几个用户上传就有几份分块和索引，各自带自己的 userId、orgTag、public（c2b3f839）。
 - 默认 Embedding：阿里云百炼 OpenAI 兼容接口 `text-embedding-v4`，2048 维，`encoding_format: float`；备选智谱 `embedding-3`（EmbeddingClient.java:149-178；service/ModelProviderConfigService.java:47-56,271-274）。Embedding 不切换供应商，不同模型的向量不能混用。
 
 ### 5.2 ES 索引
@@ -127,7 +129,7 @@
   - `fileName`、`textContent`、`chunkContext`：text，`ik_max_word` 建索引、`ik_smart` 查询。
   - `vector`：dense_vector 2048 维，`similarity: cosine`。
   - `fileMd5`、`modelVersion`、`userId`、`orgTag`：keyword；`chunkId`、`pageNumber`：integer；`anchorText`：不建索引。
-- 公开标记字段名：模板里声明的是 `isPublic`，但 `EsDocument` 用 Lombok `boolean isPublic`，默认 Jackson 序列化成 `public`，权限过滤查的也是 `public`（entity/EsDocument.java:25；config/EsConfig.java:74；HybridSearchService.java:408；测试断言见 HybridSearchServiceTest.java:362）。模板里的 `isPublic` 实际没被写入。
+- 公开标记字段名统一为 `public`：模板声明 `public`（boolean），`EsDocument` 用 `@JsonProperty(EsDocument.FIELD_PUBLIC)` 固定写入字段名，权限过滤也用同一个常量（entity/EsDocument.java:28,32；HybridSearchService.java:409）。c2b3f839 之前模板声明的是 `isPublic`，而 Lombok `boolean isPublic` 生成的 `isPublic()` 让 Jackson 实际写成 `public`，模板里的 `isPublic` 从没被写入，`public` 靠动态映射建成 boolean。
 - 启动初始化 `EsIndexInitializer`（@Order(2)）：别名存在就补齐模板字段；没有就按当前 Embedding 供应商建版本化索引并挂别名（config/EsIndexInitializer.java:86-133）。
 - 文件名回填 `FileNameIndexBackfill`（@Order(3)，后台线程）：对缺 `fileName` 的旧分块按 fileMd5 `update_by_query` 补写，可重复执行（service/index/FileNameIndexBackfill.java:26-92，commit 6b730153）。
 
@@ -182,7 +184,7 @@
 - 跳过 rerank 的三种情况：rerank 关闭、请求剩余时间 < 2000ms、rerank 调用异常（:242-248,266-269）。这三种都走 `rrfTopK`：
   - 按 RRF 阈值过滤再取 topK，模式加后缀 `_RRF`（如 `HYBRID_RRF`）（:275-287）。
   - 阈值 `rrf-score-threshold` 默认 0.028（约等于两路平均名次 11 名以内）；只有一路召回时阈值自动减半为 0.014（:277-278；yml:342）。
-  - HybridSearchProperties.java:61 的注释写“关闭后不做阈值截断”，和代码不符，以代码为准。
+  - HybridSearchProperties.java:61 的注释原来写“关闭后不做阈值截断”，和代码不符，c2b3f839 已改成与代码一致。
 - `thresholdDroppedInTopK`：排在前 topK 名却因低于阈值被丢掉的条数，供评测看阈值有没有误伤（:261-262,285）。
 
 ### 6.4 出口分数
@@ -222,6 +224,7 @@
 - 两路召回都带同一个过滤：BM25 放在 bool filter，KNN 放在 knn.filter 预过滤（:316-328,393-396）。
 - 资源级访问 `OrgTagAuthorizationFilter`：公开、无标签、DEFAULT 标签放行；所有者、ADMIN 放行；`PRIVATE_` 开头的私人空间拒绝；其余要求 JWT 里的组织标签直接包含资源标签，这里没有层级继承（config/OrgTagAuthorizationFilter.java:148-189,317-323）。
 - 上传只能传到自己的 `PRIVATE_{username}` 空间或自己所属的组织，管理员身份不额外放宽（commit e4d77b59，`UserService.validateUploadOrganization`）。
+- 同一文件多人上传按上传者隔离（c2b3f839）：消费前清理、重建、删除都按 fileMd5 + userId（DocumentService.java:117,283；ElasticsearchService `fileOwnerQuery`），消费端以认领到的上传记录的 userId 为准，旧消息没有 userId 也能处理（consumer/FileProcessingConsumer.java:73）。MinIO 合并文件按 MD5 共用一份，最后一个上传者删除时才删（DocumentService.java:158）。用户对几份副本都有权限时，检索按 `fileMd5#chunkId` 去重，RRF 和 TEXT_ONLY 降级都只保留排名最靠前的一份（HybridSearchService.java:177,452,464）。
 
 ---
 
@@ -420,6 +423,12 @@
     - 原来 ES 没有文件名字段，文件名检索后从 MySQL 关联，不参与打分；新增 IK 字段 `fileName` 并回填。评测：所有组合最终 Recall@5 都是 76.1%（最终顺序由 rerank 决定），差异只在 BM25 一路；`minimum_should_match` 30% 让 3 道口语化长问句的相关分块掉出 BM25 前 50，召回阶段 Recall@50 从 100% 降到 97.8%，默认不开；短语加分 1.5 没有可测量的影响；文件名权重 2 时 BM25 MRR 0.591 → 0.560（本地文件名 paismart.pdf 这类不具描述性，加权会把同一文件所有分块一起抬高），取 0.5（BM25 MRR 0.587）。
     - 评测新增 NDCG@K、Precision@K、分阶段指标和 `retrievalOnly`。
     - 局限：评测集里没有“按标题找文档”的问题，文件名加分的收益没法量化；本地开发库旧索引里的 `fileName` 早先被动态映射成标准分词，本地评测是在标准分词上做的（计划文档:146）。
+11. **同一文件多用户上传按上传者隔离（c2b3f839，2026-10-15）**：
+    - 原来 ES 文档 ID 是 `fileMd5_chunkId`，`document_vectors` 唯一键是 `(file_md5, chunk_id)`，`clearIndexedData` 只按 fileMd5 删。第二个用户处理同一文件时，会先删掉第一个用户的分块和索引，再用自己的 userId、orgTag、public 写一份，第一个用户的文档从检索里消失。任何一个用户删除文档，也会把所有用户的 ES 数据、`document_vectors`、`chunk_info`、`file_upload` 记录和 MinIO 合并文件一起删掉。
+    - 选的是按上传者隔离，没有选引用计数共享一份索引：共享方案要把 userId、orgTag 改成多值字段，并在每个上传者增删、改权限时重算整份文件的权限，还要处理并发；隔离方案的代价是同一文件存几份分块、算几次 embedding，每个上传者各自付自己那份的费用。
+    - 改法：ES 文档 ID 带 userId，唯一键加 user_id，消费、重建、重试、删除、启动导入、上下文检索、父块扩展、冲突检测、全量重建都按 fileMd5 + userId 读写；MinIO 合并文件改成最后一个上传者删除时才删；检索按 `fileMd5#chunkId` 去重；重建、重试接口优先取请求者自己那份上传记录，原来取的是该 MD5 最新的记录，后上传的人会让先上传的人没法重建。
+    - 迁移（`docs/databases/migrations/2026-10-15-per-user-index-isolation.sql`）：启动时 ddl-auto 建新唯一键，`LegacySchemaMigration` 在新键建好后删旧键；用脚本查出“上传已完成但没有自己分块”的记录（升级前被别人覆盖的），标成向量化失败，由上传者或管理员点重试重新入库。ES 不用迁数据，旧 ID 的文档按查询删除同样能清掉，想统一 ID 格式可以跑一次全量重建。
+    - 同一提交把 mapping 的 `isPublic` 改成实际写入的 `public`。旧索引里 `public` 早已由动态映射建成 boolean，不用迁数据。
 
 ---
 
@@ -433,12 +442,10 @@
 4. **rerank 不在统一治理里**：RerankClient 每次新建 WebClient，没有重试、熔断、并发上限、QPS 限流（client/RerankClient.java:63-73）；失败只能退到 RRF。`DeepSeekClient.summarize`（`generate_summary` 工具）同样不走 `ModelCallGuard`，也没接请求截止时间（client/DeepSeekClient.java:47-54,106-165,212）。
 5. **rerank 后的效果还不如 RRF**：RRF 兜底分块级 Recall@5 80.4%，rerank 后 76.1%；精排 NDCG@5 0.545，召回阶段 Recall@50 已经 100%（10.4）。阈值 0.1 全局固定，无答案题 rerank 分 0.18 到 0.30 与口语化正确分块 0.14 到 0.19 重叠，拒答只能靠提示词。
 6. **RRF 不加权、BM25 参数未调**：两路权重固定为 1（RrfFusion.java:48）；k1、b 用 ES 默认值；mapping 里没有自定义 similarity。
-7. **同一文件多用户共享索引数据**：ES 文档 id 是 `fileMd5_chunkId`（VectorizationService.java:184），`document_vectors` 唯一键是 `(file_md5, chunk_id)`（DocumentVector.java:17），`clearIndexedData` 按 fileMd5 删（DocumentService.java:269-271），都不带 userId。两个用户上传同一个文件时，后处理的一方会覆盖 ES 里的 userId、orgTag、public。`deleteDocument` 也按 fileMd5 删除所有用户的 ES 数据、`document_vectors`、`chunk_info` 和 `file_upload` 记录（DocumentService.java:118-184），计划文档:89 记为未改。
-8. **Token 配额计数器仍是非原子固定窗口**（请求限流和模型 QPS 已换成 Lua 令牌桶，这两处没换）：全局 Token 预算 `reserveGlobalRollingTokens` 是 INCR → 首次 EXPIRE → 超限再 INCR 负数回滚（service/UsageQuotaService.java:317-343）；每日配额 `reserveDailyTokens` 同理（:303-315）。余额模式只做 GET 检查、结算时扣减，并发下余额可能为负（UserTokenService.java:130-178）。
-9. **Kafka 重试与客户端重试叠加**：消费端 3 秒 × 4 次的任务级重试不区分模型错误，最坏一批分块调 5 × 3 次模型（KafkaConfig.java:169；计划文档:88）。
-10. **单消费线程、单分区**：每实例 1 个消费线程、topic 默认 1 个分区（KafkaConfig.java:159-175；yml:58），大文件解析会阻塞后续文件，521369a8 的事故就是这个原因放大的。
-11. **切块按字符不按 token**：512 / 100 / 100 都是 `String.length()`，入库分块可能超过 512（第四节）；子块逐条 save；父块大小 1048576 只在 `@Value` 默认值里，非 PDF 父块之间没有重叠（ParseService.java:57,205,296）。
-12. **上下文检索、引用校验、冲突 LLM 确认默认都关**（yml:260,288,443），评测数据都是在关闭状态下跑的。
-13. **没有独立的查询改写模块**：没有 HyDE、多查询改写或查询分解，全靠模型在 ReAct 里构造 query（6.7）。
-14. **ES mapping 的 `isPublic` 与实际字段 `public` 不一致**：模板声明 `isPublic`，文档实际写入 `public` 并靠动态映射（第五节 5.2）。
-15. **资源访问没有组织层级继承**：检索时子组织成员能看上级组织文档，但 `OrgTagAuthorizationFilter` 对单个资源只认 JWT 里直接包含的标签（config/OrgTagAuthorizationFilter.java:317-323），两处规则不一致。
+7. **Token 配额计数器仍是非原子固定窗口**（请求限流和模型 QPS 已换成 Lua 令牌桶，这两处没换）：全局 Token 预算 `reserveGlobalRollingTokens` 是 INCR → 首次 EXPIRE → 超限再 INCR 负数回滚（service/UsageQuotaService.java:317-343）；每日配额 `reserveDailyTokens` 同理（:303-315）。余额模式只做 GET 检查、结算时扣减，并发下余额可能为负（UserTokenService.java:130-178）。
+8. **Kafka 重试与客户端重试叠加**：消费端 3 秒 × 4 次的任务级重试不区分模型错误，最坏一批分块调 5 × 3 次模型（KafkaConfig.java:169；计划文档:88）。
+9. **单消费线程、单分区**：每实例 1 个消费线程、topic 默认 1 个分区（KafkaConfig.java:159-175；yml:58），大文件解析会阻塞后续文件，521369a8 的事故就是这个原因放大的。
+10. **切块按字符不按 token**：512 / 100 / 100 都是 `String.length()`，入库分块可能超过 512（第四节）；子块逐条 save；父块大小 1048576 只在 `@Value` 默认值里，非 PDF 父块之间没有重叠（ParseService.java:57,205,296）。
+11. **上下文检索、引用校验、冲突 LLM 确认默认都关**（yml:260,288,443），评测数据都是在关闭状态下跑的。
+12. **没有独立的查询改写模块**：没有 HyDE、多查询改写或查询分解，全靠模型在 ReAct 里构造 query（6.7）。
+13. **资源访问没有组织层级继承**：检索时子组织成员能看上级组织文档，但 `OrgTagAuthorizationFilter` 对单个资源只认 JWT 里直接包含的标签（config/OrgTagAuthorizationFilter.java:317-323），两处规则不一致。
