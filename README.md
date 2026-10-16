@@ -590,8 +590,7 @@
 - [给域名配置HTTPS证书](docs/src/szjy/https-domain.md)
 - [使用docsify+Git+GitHub+码云+阿里云服务器搭建知识库网站](docs/src/szjy/tobebetterjavaer-wangzhan-shangxian.md)
 
-本知识库使用 VuePress 搭建，并基于[VuePress Theme Hope](https://theme-hope.vuejs.press/zh/)主题，你可以把[仓库](https://github.com/itwanger/toBeBetterJavaer)拉到本地后直接通过 `pnpm docs:clean-dev` 跑起来。
-
+本知识库使用 VuePress 搭建，并基于[VuePress Theme Hope](https://theme-hope.vuejs.press/zh/)主题，你可以把[仓库](https://github.com/itwanger/toBeBetterJavaer)拉到本地后，先进入 `docs` 目录，再通过 `pnpm docs:clean-dev` 跑起来。
 >前提是你已经安装好 node.js 和 pnpm 环境。
 
 ![pnpm 部署进阶之路](https://cdn.paicoding.com/stutymore/README-20241106103513.png)
