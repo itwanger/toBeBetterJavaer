@@ -544,6 +544,12 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "结合 Grok Bot、Muse、Cue、dots，理解持续记忆、执行环境、用户身份与权限边界。",
     ["Personal Agent", "Grok Bot", "Muse", "Cue", "dots"],
   ),
+  "what-is-permission-mode": meta(
+    "Agent的权限模式（Permission Mode）了解吗？",
+    "权限模式 Permission Mode",
+    "结合 DeepSeek Harness、Claude Code 和 Pi，理解权限审批、deny 规则与沙箱的职责和边界。",
+    ["Permission Mode", "权限审批", "auto", "沙箱"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -554,6 +560,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "what-is-permission-mode",
       "agent-user-interjection",
       "agent-hallucination-governance",
       "agent-human-in-the-loop",
@@ -681,6 +688,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "what-is-permission-mode": "7696477886903110927",
   "rea-deepseek-harness-tutorial": "7696102369058196736",
   "agent-user-interjection": "7695711462815223083",
   "what-is-personal-agent": "7695348838801886499",

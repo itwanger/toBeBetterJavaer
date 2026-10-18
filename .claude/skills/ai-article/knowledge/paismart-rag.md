@@ -343,7 +343,7 @@
 
 ### 10.1 测评集与知识库
 
-- `src/main/resources/eval/paismart-eval-v1.jsonl`：50 题，按 id 前缀分 7 类：fact 21（单点事实）、para 8（口语化同义改写，关键词不在原文）、multi 6（多跳）、conflict 2（资料前后矛盾）、rustfs 5（私有文档，只有上传者能检索）、resume 4（跨文档，有其他简历干扰）、neg 4（无答案或前提错误，不标期望文档）。
+- `src/main/resources/eval/paismart-eval-v1.jsonl`：50 题，按 id 前缀分 7 类：fact 21（单点事实）、para 8（口语化同义改写，关键词不在原文）、multi 6（跨段落汇总，答案分散在几个分块里）、conflict 2（资料前后矛盾）、rustfs 5（私有文档，只有上传者能检索）、resume 4（跨文档，有其他简历干扰）、neg 4（无答案或前提错误，不标期望文档）。
 - 46 道带 `expectedEvidence`（答案分块里一定出现的短语）；期望文档按文件名匹配，忽略大小写。用短语不用分块编号，是为了调整切块策略后标注仍然有效（数据集文件头注释）。
 - 知识库：派聪明介绍 PDF（96 个分块）、RustFS 实战知识卡（2 个分块）、一份 AI 应用开发简历（21 个分块），另有几份干扰文档（docs/eval/reports/README.md:7）。
 

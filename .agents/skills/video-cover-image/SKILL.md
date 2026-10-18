@@ -29,8 +29,14 @@ For every illustrated cover, use this image as the canonical presenter reference
 
 - Preserve the same black spiky hairstyle, large black rectangular glasses, youthful face, large brown eyes, yellow shirt, black tie, head-to-body ratio, and bright Chinese knowledge-cover rendering style.
 - The presenter is a fixed visual identity. Do not redraw him from a real portrait, infer a new face, switch to a mature realistic caricature, change the hairstyle, reduce the eye size, or substitute another male or female character.
-- Adapt only the expression, gaze, hand gesture, and pose to the script topic.
+- Adapt expression, gaze, action, pose, viewing angle, framing, and placement to the script topic; preserve the recognizable identity rather than copying the reference pose.
 - Pass the canonical reference image to `image_gen` for every generated ratio. When regenerating or editing an existing cover, this reference takes priority over the character appearance in any other cover reference.
+
+## Presenter Variety Across Videos
+
+Different videos should visibly vary the presenter to prevent visual fatigue. Keep 二哥 recognizable while deliberately changing expression, action, pose, gaze, viewing angle, framing, and placement. Do not mechanically reuse the reference's “point at an icon while touching glasses” pose or always place him on the right. Choose a topic-related action, such as operating a switch, inspecting a result, comparing alternatives, or presenting an object.
+
+Before generating, choose the current video's presenter treatment and state it in the prompt. When a recent cover is already available in the current conversation, avoid repeating its overall pose and composition; do not import its technical content or search unrelated chats for references. The three ratios for one video may share a treatment, with composition adapted to each canvas. A later explicit appearance request takes priority.
 
 ## Workflow
 
@@ -46,6 +52,7 @@ For every illustrated cover, use this image as the canonical presenter reference
    - Secondary hook: omit it by default. Add at most one short mechanism keyword only when the user explicitly requests a label or the title cannot state the topic clearly on its own.
    - Visual metaphor: one self-explanatory mechanism scene that previews the answer without relying on labels, such as many message cards being compressed into one summary card.
    - Presenter expression: match the topic while keeping the same 二哥 character. Use confident/focused for architecture and collaboration, serious/alert for pitfalls and bugs, excited/energetic for tutorials and capability reveals, and skeptical/surprised for wrong-answer interview hooks.
+   - Presenter treatment: apply Presenter Variety Across Videos; choose the action, angle, framing, and placement for this video instead of inheriting the reference pose.
 
 3. Select the cover mode.
    - Use pure-text reference mode when the user asks for a text-only cover, provides a black/gray reference card, or corrects toward "one white title line plus yellow keyword lines".
@@ -73,13 +80,13 @@ python3 .agents/skills/video-cover-image/scripts/render_text_cover.py \
 
 6. For default illustrated mode, generate the vertical cover first with `image_gen`.
    - Ratio: `3:4`, target size similar to `1086 x 1448`.
-   - Composition: dominant question title, one compact visual cue, and presenter in lower/right area.
+   - Composition: dominant question title, one compact visual cue, and presenter placed according to this video's selected treatment and available space.
    - Apply the default high-impact blue-sky knowledge-cover style.
    - Always include `references/itwanger-cover-character.png` as the presenter reference.
 
 7. Generate the `16:9` widescreen cover with `image_gen`.
    - Ratio: `16:9`, target size similar to `1920 x 1080` or `1600 x 900`.
-   - Composition: dominant question title, one compact visual cue, and center/right presenter.
+   - Composition: dominant question title, one compact visual cue, and presenter recomposed for widescreen using this video's selected treatment.
    - Reuse the same title, visual cue, character, color system, and topic framing as the vertical cover.
    - Include the same canonical presenter reference; do not rely on the vertical output alone to preserve identity.
 
@@ -97,6 +104,7 @@ python3 .agents/skills/video-cover-image/scripts/render_text_cover.py \
    - Chinese text has no obvious garbling in the large title/punch lines.
    - In pure-text mode: black/gray textured background, one bold white title, one or two large yellow keyword lines, no blue background, no icon, no presenter, no outer white UI frame.
    - In default illustrated mode: the presenter visibly matches `references/itwanger-cover-character.png`, including black spiky hair, large black glasses, large brown eyes, youthful face, yellow shirt, and black tie.
+   - Presenter variety: the chosen expression, action, angle, framing, and placement are visible; when a recent different video's cover is available in context, this cover should not repeat its overall pose and composition. If it does, revise the presenter treatment before delivery.
    - No female avatar, no unrelated fantasy costume, no real brand logo unless explicitly requested.
    - No copyright signature, watermark, corner mark, or small `©️沉默王二` label unless explicitly requested.
    - No outer frame, no rounded screenshot container, no dense small text.
@@ -114,7 +122,7 @@ python3 .agents/skills/video-cover-image/scripts/render_text_cover.py \
 - No secondary hook or bottom tag by default; add one only when explicitly requested.
 - Use one compact visual cue. When it is a brand/app logo, keep it small: roughly 14-18% of canvas width on vertical covers and 8-12% on horizontal covers, so it remains an identifier rather than a main visual block.
 - 二哥 cartoon presenter: match `references/itwanger-cover-character.png` exactly in identity and rendering style: Q-version big head, black spiky hair, large black rectangular glasses, large brown eyes, youthful face, yellow shirt, and black tie.
-- Presenter expression, gaze, hand gesture, and pose may change with the topic, but the face, hair, glasses, proportions, clothing, and overall illustration style stay fixed. Avoid mature realistic caricatures, softened side-parted hair, small eyes, exaggerated meme faces, angry faces, horror expressions, or changing the presenter into a different person.
+- Preserve the face, hair, glasses, proportions, clothing, and overall illustration style, while actively varying expression, gaze, action, pose, angle, framing, and placement across videos as described above. Avoid mature realistic caricatures, softened side-parted hair, small eyes, exaggerated meme faces, angry faces, horror expressions, or changing the presenter into a different person.
 - No copyright signature or watermark on video covers by default.
 - Knowledge-zone feel: normal, clean, platform-ready, not neon cyberpunk, not overly AI-looking.
 
@@ -133,7 +141,7 @@ Use this style when matching a text-only reference card:
 
 ## Prompt Pattern
 
-Build two prompts from the same extracted payload.
+Build three prompts from the same extracted payload and selected presenter treatment.
 
 Vertical prompt outline:
 
@@ -142,7 +150,7 @@ Vertical prompt outline:
 主题来自口播稿：{topic}
 核心关键词：{keywords}
 画面风格：高冲击中文知识封面，明亮蓝色天空和云层背景，速度线和光效，厚重立体字。
-主视觉：严格参考 `references/itwanger-cover-character.png` 的固定二哥形象：黑色刺发、大号黑框眼镜、大棕眼、青年动漫脸、黄色衬衫、黑色领带；只把表情调整为 {expression}，并调整手势指向 {visual_icon}，不要改变脸型、发型、眼睛比例、服装和画风。
+主视觉：严格参考 `references/itwanger-cover-character.png` 的二哥身份：黑色刺发、大号黑框眼镜、大棕眼、青年动漫脸、黄色衬衫、黑色领带。人物表现：{presenter_treatment}，包含表情、动作、视线、角度、取景和位置，并与 {visual_icon} 自然互动；保留身份与画风，不照搬参考图的姿势，不默认“指图标并扶眼镜”。
 封面文字必须少而大，默认只保留一块：
 主标题（完整问题句，可分 2-3 行）：{main_title}
 要求：不要自动添加副标题、底部标签或额外关键词；文字清楚，人物脸不被挡，安全边距足够，不要白底，不要外层边框，不要密集小字。
@@ -156,7 +164,7 @@ Horizontal `16:9` prompt outline:
 主题来自口播稿：{topic}
 核心关键词：{keywords}
 画面风格：延续竖版同一套风格，明亮蓝色天空和云层背景，速度线和放射光效。
-横版构图：左侧 {visual_icon}，中间偏右放严格匹配 `references/itwanger-cover-character.png` 的固定二哥形象，只根据主题把表情设为 {expression} 并调整姿势；顶部或右侧放完整问题式主标题。
+横版构图：按 {presenter_treatment} 安排匹配 `references/itwanger-cover-character.png` 身份的人物，并与 {visual_icon} 自然互动；根据横版空间重排标题、图标和人物，不固定人物在右侧，不照搬参考图姿势。保留本视频选定的表情、动作和角度。
 封面文字必须少而大，默认只保留一块：
 主标题（完整问题句，可分 2-3 行）：{main_title}
 要求：不要自动添加副标题、底部标签或额外关键词；中文清楚，人物脸不被挡，横版安全区充足，不要白底，不要外层边框，不要密集小字。
@@ -170,7 +178,7 @@ Horizontal `4:3` prompt outline:
 主题来自口播稿：{topic}
 核心关键词：{keywords}
 画面风格：延续同组封面的明亮蓝色天空、云层、速度线和放射光效。
-4:3 构图：重新安排标题、{visual_icon} 和严格匹配 `references/itwanger-cover-character.png` 的固定二哥形象，不要机械裁切 16:9 图片，不要重新设计人物。
+4:3 构图：按 {presenter_treatment} 重新安排标题、{visual_icon} 和匹配 `references/itwanger-cover-character.png` 身份的人物；保留本视频选定的表情、动作和角度，不机械裁切 16:9 图片，不照搬参考图姿势。
 封面文字默认只保留一块：
 主标题（完整问题句，可分 2-3 行）：{main_title}
 要求：不要自动添加副标题、底部标签或额外关键词；中文清楚，人物脸不被挡，安全区充足，不要白底，不要外层边框，不要密集小字。
