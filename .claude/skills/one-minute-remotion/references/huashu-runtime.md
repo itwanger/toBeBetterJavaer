@@ -24,6 +24,12 @@ python3 "$MINUTE_SKILL/scripts/install_huashu.py" --project "$PROJECT"
 
 适配器不提供完整 `PAINT/KIT` 的画材通道，不能调用依赖它们的 `DG.hand / board`。需要 y3 手绘笔触、其他艺术配方时，读取所选语法卡和对应依赖，从同一固定版本补齐模块或用上游完整引擎出画面轨；不能因依赖缺失降级成卡片翻页。
 
+## 二哥色系与文字
+
+直接导入视频仓库 `shared/remotion/components` 导出的 `C`，或者按项目需要保存一份有出处与哈希的色板快照；不重新凭感觉挑近似色。Canvas 的背景、描边、填充、公式与字幕都从 `C` 取色，检查上游默认白字、硬编码黑底和 rgba 数值，避免只换最外层背景。字幕用 `C.ink` 深底、`C.card` 浅字。原始上游库与语法卡保留原样，二哥配色在本条场景层映射，用户风格优先于示范黑底。
+
+主画面逐场剔除与字幕同义的整句问答或结论，保留图解标签和计算公式；不是把所有术语与数字一律删光。不因配色与文字返修重写已认可的时间函数、路径和形变。
+
 ## 接到 Remotion
 
 Canvas 尺寸按 1920×1080，`useCurrentFrame()/fps` 是唯一时间源。每次帧变化在 `useLayoutEffect` 重绘，保证任意跳帧结果相同。只画同步图形时无需浏览器定时器；字体用 `FontFace` 从 `staticFile('huashu-fonts/...')` 加载，在首次绘制前通过 Remotion `delayRender/continueRender` 等待，失败要报错。中文使用思源黑体 GB2312 子集，数学用 CMU；新增生僻字检查覆盖，不能静默缺字。
