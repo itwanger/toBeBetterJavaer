@@ -1,0 +1,106 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.14 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>CHAPTER 04 · ONE-PAGE RESUME</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="820" height="46">
+      <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>派简历：把两个项目写成一页直投 PDF</p>
+      </content>
+    </shape>
+    <line startX="48" startY="178" endX="180" endY="178">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 三个要点 -->
+    <shape type="rect" topLeftX="48" topLeftY="200" width="272" height="58">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="66" topLeftY="200" width="240" height="58">
+      <content textType="body" fontSize="14" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" verticalAlign="middle" lineSpacing="multiple:1.5">
+        <p>一页可直投 PDF，当天拿到可投递状态</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="344" topLeftY="200" width="272" height="58">
+      <fill><fillColor color="rgb(255,79,135)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="362" topLeftY="200" width="240" height="58">
+      <content textType="body" fontSize="14" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" verticalAlign="middle" lineSpacing="multiple:1.5">
+        <p>派聪明 + PaiCLI 写进项目经历</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="640" topLeftY="200" width="272" height="58">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="658" topLeftY="200" width="240" height="58">
+      <content textType="body" fontSize="14" fontFamily="寒蝉端黑体" color="rgb(241,165,27)" verticalAlign="middle" lineSpacing="multiple:1.5">
+        <p>量化指标包装，职责成果分栏陈述</p>
+      </content>
+    </shape>
+
+    <!-- 两图并排 -->
+    <img src="HMS2bsjyUoNNNAxw9nHcMkTPnEf" topLeftX="48" topLeftY="286" width="392" height="202"/>
+    <shape type="rect" topLeftX="48" topLeftY="286" width="392" height="202">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="494" width="392" height="16">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" wrap="false">
+        <p>FIG.03 · 优质简历列表（派简历）</p>
+      </content>
+    </shape>
+
+    <img src="Fsq1bJNlvobFHNx0kKncOxoan8e" topLeftX="480" topLeftY="286" width="330" height="186"/>
+    <shape type="rect" topLeftX="480" topLeftY="286" width="330" height="186">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="480" topLeftY="478" width="330" height="16">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" wrap="false">
+        <p>FIG.04 · 项目经历三栏 + 量化指标排版</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>CHAPTER 04 · RESUME</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第二天用派简历把前面两个项目写成一份一页可直投的 PDF。派聪明和 PaiCLI 分别作为两段项目经历，按职责、技术栈、量化成果分栏陈述，不堆空话。走完这一步，大家离开教室时手里就有一份能直接投出去的简历。</p>
+    </content>
+  </note>
+</slide>

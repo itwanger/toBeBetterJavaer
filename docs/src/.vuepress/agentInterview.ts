@@ -550,6 +550,30 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "结合 DeepSeek Harness、Claude Code 和 Pi，理解权限审批、deny 规则与沙箱的职责和边界。",
     ["Permission Mode", "权限审批", "auto", "沙箱"],
   ),
+  "agent-requirement-clarification": meta(
+    "用户需求模糊时 Agent 怎么澄清？",
+    "用户需求澄清",
+    "先用只读工具查清代码库中的事实，再带着选项询问用户偏好，把澄清作为可挂起和恢复的工具调用。",
+    ["需求澄清", "AskUserQuestion", "Agent Loop", "工具调用"],
+  ),
+  "deepseek-outage-agent-fallback": meta(
+    "DeepSeek 宕机 5 小时赔付 7 天账单，如何应对 API 的单点依赖？",
+    "模型 API 容灾与降级",
+    "结合 DeepSeek 服务故障，理解模型网关的重试、熔断和 Fallback，以及跨厂商协议、流式中断和缓存成本。",
+    ["DeepSeek", "Fallback", "模型网关", "容灾"],
+  ),
+  "what-is-model-distillation": meta(
+    "Vibe知识大赏：蒸馏到底是什么？",
+    "模型蒸馏是什么",
+    "比较黑盒、白盒和在轨蒸馏，区分蒸馏、量化和 SFT，并说明蒸馏授权和数据来源的边界。",
+    ["模型蒸馏", "Knowledge Distillation", "量化", "SFT"],
+  ),
+  "deepseek-v4-1-flash-1017": meta(
+    "DeepSeek-V4.1-Flash-1017 真来了，这次是真滴强。",
+    "DeepSeek 1017 更新",
+    "拆解 1017 的后训练更新、基准对比、许愿式编程和三个本地案例，以及 Search & Fetch 的接入信息。",
+    ["DeepSeek", "1017", "后训练", "许愿式编程"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -560,6 +584,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "agent-requirement-clarification",
       "what-is-permission-mode",
       "agent-user-interjection",
       "agent-hallucination-governance",
@@ -597,6 +622,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "deepseek-v4-1-flash-1017",
       "rea-deepseek-harness-tutorial",
       "what-is-personal-agent",
       "claude-haiku-5-5",
@@ -629,6 +655,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "03 / Harness 与 Skills",
     children: [
+      "deepseek-outage-agent-fallback",
       "what-is-loop-engineering",
       "what-is-harness-engineering",
       "agent-skill-hit-rate",
@@ -679,7 +706,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   },
   {
     text: "11 / 模型训练与微调",
-    children: ["what-is-reinforcement-learning"],
+    children: [
+      "what-is-model-distillation",
+      "what-is-reinforcement-learning",
+    ],
   },
   {
     text: "12 / Agent 产品与框架演进",
@@ -688,6 +718,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "agent-requirement-clarification": "7696859780668755234",
+  "deepseek-outage-agent-fallback": "7697192412568980763",
+  "what-is-model-distillation": "7697583864511761698",
+  "deepseek-v4-1-flash-1017": "7697933506416037146",
   "what-is-permission-mode": "7696477886903110927",
   "rea-deepseek-harness-tutorial": "7696102369058196736",
   "agent-user-interjection": "7695711462815223083",

@@ -1,0 +1,88 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.07 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="90" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>CHAPTER 02 · PAISMART RAG</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="124" width="340" height="48">
+      <content textType="title" fontSize="32" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>RAG，不止切碎</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="172" width="340" height="48">
+      <content textType="title" fontSize="32" fontFamily="寒蝉端黑体" color="rgb(22,70,184)" wrap="false">
+        <p>文档算向量</p>
+      </content>
+    </shape>
+    <line startX="48" startY="238" endX="150" endY="238">
+      <border color="rgb(23,21,18)" width="3"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="262" width="320" height="150">
+      <content textType="body" fontSize="15" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.9" textAlign="justify">
+        <p>很多人以为 RAG 就是把文档切碎、算出向量存起来，提问时比一比相似度再拼进提示词。面试只讲到这一层，追问大文件怎么防重、异步解析崩溃怎么恢复、专业术语搜不出来怎么办，很容易卡壳。</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="48" topLeftY="430" width="320" height="52">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="430" width="288" height="52">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(241,165,27)" verticalAlign="middle" lineSpacing="multiple:1.6">
+        <p>Spring Boot 3 · ES · Kafka · Redis · MinIO · MySQL · Tika · SSE</p>
+      </content>
+    </shape>
+
+    <!-- 右侧派聪明界面截图 -->
+    <img src="KnZ3btkmrooX8jxrt3PcxTsWnmh" topLeftX="408" topLeftY="120" width="504" height="301"/>
+    <shape type="rect" topLeftX="408" topLeftY="120" width="504" height="301">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="408" topLeftY="430" width="504" height="40">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.5">
+        <p>派聪明 PaiSmart 企业级知识库：每条回答都附「来源#编号: 文件名 | 第X页」精确引用，可溯源。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>CHAPTER 02 · RAG</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第一阶段拆派聪明企业级 RAG。它不是玩具 demo，大厂小厂都能落地。先打破一个误解：RAG 远不止切碎文档算向量。真正能面试加分的是工程可靠性——大文件分片防重、异步消息不丢、宕机恢复、权限过滤、混合检索重排、带页码引用。先看界面，每条回答都能点回原文第几页。</p>
+    </content>
+  </note>
+</slide>

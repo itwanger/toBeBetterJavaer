@@ -1,0 +1,118 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.09 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>02-B · ATOMIC &amp; RECOVERABLE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="820" height="46">
+      <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>异步投递不丢，消费宕机可恢复</p>
+      </content>
+    </shape>
+    <line startX="48" startY="178" endX="180" endY="178">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 左栏 投递 -->
+    <shape type="rect" topLeftX="48" topLeftY="204" width="410" height="296">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="70" topLeftY="224" width="366" height="26">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" wrap="false">
+        <p>生产端 · Outbox 本地消息表</p>
+      </content>
+    </shape>
+    <line startX="70" startY="262" endX="150" endY="262">
+      <border color="rgb(241,165,27)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="70" topLeftY="280" width="366" height="56">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>① 同事务落表</strong>：改文件状态为待处理，同时写入一条待发送记录，提交即一致。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="70" topLeftY="348" width="366" height="56">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>② 异步投递</strong>：事务提交后由线程池投递到 Kafka，不阻塞上传主链路。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="70" topLeftY="416" width="366" height="64">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>③ 失败补发</strong>：线程池满或网络抖动，每 5 秒定时任务指数退避扫描补发，封顶 300 秒。</p>
+      </content>
+    </shape>
+
+    <!-- 右栏 消费 -->
+    <shape type="rect" topLeftX="502" topLeftY="204" width="410" height="296">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="524" topLeftY="224" width="366" height="26">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,165,27)" wrap="false">
+        <p>消费端 · 租约认领与超时恢复</p>
+      </content>
+    </shape>
+    <line startX="524" startY="262" endX="604" endY="262">
+      <border color="rgb(255,79,135)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="524" topLeftY="280" width="366" height="44">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>① 条件更新认领</strong>：拿到 600 秒处理租约，写入起始时间与心跳。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="524" topLeftY="330" width="366" height="44">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>② 清旧索引</strong>：按文件 MD5 + 上传者 ID 精确清理旧向量。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="524" topLeftY="380" width="366" height="56">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>③ 解析切块</strong>：PDF 走 LiteParse 保页码；其余 21 种格式走 Apache Tika（22 种白名单）。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="524" topLeftY="442" width="366" height="48">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.7">
+        <p><strong>④ 心跳与恢复</strong>：每批写 ES 回调心跳；超 600 秒由每 60 秒扫描放回队列，最多重试 3 次。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>02-B · RELIABILITY</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页讲可靠性，也是面试最爱追问的点。生产端用 Outbox 模式：改状态和写待发送记录在同一个数据库事务里，提交后线程池投 Kafka；万一线程池满或网络抖了，每 5 秒定时任务指数退避补发，封顶 300 秒。消费端条件更新认领 600 秒租约，先按 MD5 和上传者 ID 清旧索引，PDF 用 LiteParse 保留页码，其他格式用 Tika 切块，每写一批向量到 ES 就更新心跳；实例宕机心跳超 600 秒，每 60 秒的恢复任务把它放回队列，最多重试 3 次。</p>
+    </content>
+  </note>
+</slide>

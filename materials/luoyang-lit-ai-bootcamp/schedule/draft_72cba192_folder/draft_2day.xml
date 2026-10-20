@@ -1,0 +1,277 @@
+<title>洛阳理工AI实训 · 两天16节课排课表（每天8节·每节40分钟）</title>
+
+<p>本实训共两天，每天 8 节课，合计 16 节讲完。每天早上 8:00 开始、下午 14:30 上课，每节 40 分钟，相邻课间休息 10 分钟，中午 12:00 至 14:30 为午休。每天按上午 5 节（8:00–12:00）、下午 3 节（14:30–16:50）排布。内容取自本次实训 PPT：第一天做开放解疑并讲透派聪明 RAG 全链路，第二天讲 PaiCLI 工程细节、带学生完成派简历，最后开放 AI Agent 闲谈。每节不要求从头讲到尾，按"讲一段、做一段、问一段"分配讲练。</p>
+
+<h1>一、两天时间轴总表</h1>
+
+<p>两天作息相同，上午 5 节、下午 3 节，课间 10 分钟。</p>
+
+<table>
+<colgroup><col width="70"/><col width="70"/><col width="100"/><col width="210"/><col width="100"/><col width="170"/></colgroup>
+<thead>
+<tr>
+<th background-color="light-gray"><p>天次</p></th>
+<th background-color="light-gray"><p>节次</p></th>
+<th background-color="light-gray"><p>时间</p></th>
+<th background-color="light-gray"><p>课题</p></th>
+<th background-color="light-gray"><p>课型</p></th>
+<th background-color="light-gray"><p>讲 / 练 / 问配比</p></th>
+</tr>
+</thead>
+<tbody>
+<tr><td rowspan="8"><p>第一天<br/>开放解疑 + 派聪明RAG</p></td><td><p>第1节</p></td><td><p>8:00–8:40</p></td><td><p>介绍本次讲课内容（开场与课堂约定）</p></td><td><p>开场 / 理论</p></td><td><p>讲18′ · 互动12′ · 答疑5′</p></td></tr>
+<tr><td><p>第2节</p></td><td><p>8:50–9:30</p></td><td><p>AI发展与趁手工具盘点</p></td><td><p>理论 + 轻实操</p></td><td><p>讲18′ · 跟做12′ · 答疑5′</p></td></tr>
+<tr><td><p>第3节</p></td><td><p>9:40–10:20</p></td><td><p>开放解疑（上）：问题集中解答</p></td><td><p>答疑辅导</p></td><td><p>答疑28′ · 汇总7′</p></td></tr>
+<tr><td><p>第4节</p></td><td><p>10:30–11:10</p></td><td><p>派聪明RAG引题，最容易落地的AI应用场景</p></td><td><p>理论 + 演示</p></td><td><p>讲20′ · 演示8′ · 答疑7′</p></td></tr>
+<tr><td><p>第5节</p></td><td><p>11:20–12:00</p></td><td><p>大文件分片上传与三处核验</p></td><td><p>工程讲授 + 跟做</p></td><td><p>讲22′ · 跟做10′ · 答疑3′</p></td></tr>
+<tr><td><p>第6节</p></td><td><p>14:30–15:10</p></td><td><p>异步可靠送达：Outbox与Kafka</p></td><td><p>工程讲授 + 跟做</p></td><td><p>讲22′ · 跟做10′ · 答疑3′</p></td></tr>
+<tr><td><p>第7节</p></td><td><p>15:20–16:00</p></td><td><p>消费租约、多格式解析与崩溃恢复</p></td><td><p>工程讲授 + 跟做</p></td><td><p>讲22′ · 跟做10′ · 答疑3′</p></td></tr>
+<tr><td><p>第8节</p></td><td><p>16:10–16:50</p></td><td><p>混合检索、ReAct问答与第一天小结</p></td><td><p>讲授 + 答疑</p></td><td><p>讲18′ · 演示8′ · 答疑10′</p></td></tr>
+<tr><td rowspan="8"><p>第二天<br/>PaiCLI + 派简历</p></td><td><p>第1节</p></td><td><p>8:00–8:40</p></td><td><p>第一天回顾与PaiCLI引题</p></td><td><p>理论 + 演示</p></td><td><p>讲18′ · 演示12′ · 答疑5′</p></td></tr>
+<tr><td><p>第2节</p></td><td><p>8:50–9:30</p></td><td><p>PaiCLI：ReAct、plan、Team模式</p></td><td><p>理论 + 演示</p></td><td><p>讲18′ · 演示12′ · 答疑5′</p></td></tr>
+<tr><td><p>第3节</p></td><td><p>9:40–10:20</p></td><td><p>9层提示词拼接与前缀缓存</p></td><td><p>讲授 + 跟做</p></td><td><p>讲20′ · 跟做12′ · 答疑3′</p></td></tr>
+<tr><td><p>第4节</p></td><td><p>10:30–11:10</p></td><td><p>手写MCP客户端与渐进式Skill加载</p></td><td><p>讲授 + 跟做</p></td><td><p>讲20′ · 跟做12′ · 答疑3′</p></td></tr>
+<tr><td><p>第5节</p></td><td><p>11:20–12:00</p></td><td><p>失控守卫、安全边界与Git回滚</p></td><td><p>实操动手</p></td><td><p>讲12′ · 跟做21′ · 答疑5′</p></td></tr>
+<tr><td><p>第6节</p></td><td><p>14:30–15:10</p></td><td><p>派简历：派聪明项目条目包装</p></td><td><p>实操动手</p></td><td><p>讲10′ · 跟做22′ · 答疑5′</p></td></tr>
+<tr><td><p>第7节</p></td><td><p>15:20–16:00</p></td><td><p>派简历：PaiCLI条目与一页直投PDF</p></td><td><p>实操动手</p></td><td><p>讲10′ · 跟做22′ · 答疑5′</p></td></tr>
+<tr><td><p>第8节</p></td><td><p>16:10–16:50</p></td><td><p>作业布置与AI Agent时代闲谈</p></td><td><p>总结开放</p></td><td><p>讲10′ · 闲谈22′ · 答疑5′</p></td></tr>
+</tbody>
+</table>
+
+<h1>二、单节40分钟通用节奏模板</h1>
+
+<p>多数课节按下面五段走，讲授拆成两段、每讲 7–8 分钟停一次，不连续讲满；跟做段由学员动手，老师走下来个别指点，这段不需要自己一直开口。</p>
+
+<table>
+<colgroup><col width="120"/><col width="90"/><col width="440"/></colgroup>
+<thead>
+<tr><th background-color="light-gray"><p>环节</p></th><th background-color="light-gray"><p>时长</p></th><th background-color="light-gray"><p>做什么</p></th></tr>
+</thead>
+<tbody>
+<tr><td><p>回顾导入</p></td><td><p>3′</p></td><td><p>一句话接上节、抛出本节要解决的问题，不长篇。</p></td></tr>
+<tr><td><p>讲授演示</p></td><td><p>15′</p></td><td><p>拆成两段讲，每 7–8 分钟停一次，边讲边演示，留出缓冲。</p></td></tr>
+<tr><td><p>跟做 / 练习</p></td><td><p>15′</p></td><td><p>学员动手或对照源码，老师巡场个别答疑，老师这段以听和看为主。</p></td></tr>
+<tr><td><p>互动答疑</p></td><td><p>5′</p></td><td><p>集中处理跟做里暴露的问题，抽 1–2 人反馈。</p></td></tr>
+<tr><td><p>小结衔接</p></td><td><p>2′</p></td><td><p>收束 1–2 个要点，说清下一节做什么。</p></td></tr>
+</tbody>
+</table>
+
+<p>不同课型把比例调换即可：理论讲授型讲 20′、练 10′、答 7′、结 3′；实操动手型讲 10′、练 22′、答 6′、导入小结各 1′；答疑辅导型 3′ 列问题清单、28′ 逐个答疑或分组辅导、7′ 汇总共性问题。</p>
+
+<h1>三、第一天：开放解疑 + 派聪明RAG</h1>
+
+<h2>第1节　8:00–8:40　介绍本次讲课内容（开场与课堂约定）</h2>
+<p><b>本节目标：</b>建立信任、立开放规矩、讲清两天路线，收集第一批问题。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>欢迎开场，说明这是完全开放、没有距离感的技术交流，听课中随时可以打断。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>18′</p></td><td><p>自我介绍（笔名沉默王二，国内头部技术博主）；立课堂规矩：技术、求职、人生规划甚至恋爱问题都可以问，答不上的交给 Gemini 回答。建立信任：飞书多维表格归档千余份改过的简历，985、211（除清华本科外）都辅导过，大厂 offer 多来自私信反馈；开源"二哥的Java进阶之路"GitHub 1.7 万多 star，"王二讲Agent"知识库一周 3000 多阅读，抖音账号每月百万级播放。给出两天路线：第一天开放解疑 + 派聪明RAG，第二天 PaiCLI + 派简历 + Agent 闲谈。</p></td></tr>
+<tr><td><p>互动摸底</p></td><td><p>12′</p></td><td><p>举手统计关注公众号、用过哪些 AI 工具，现场收集第一批问题，老师快速记录共性问题。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>回应举手提出的问题，回答不了的先记下，交给工具补答。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>过渡到工具盘点，预告第一个解疑环节。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第2节　8:50–9:30　AI发展与趁手工具盘点</h2>
+<p><b>本节目标：</b>让每人至少锁定一个趁手工具，建立"从问答到嵌入工作流"的认知，引出两个实战项目。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>提问"大家平时都用哪个 AI 工具，国产还是海外"，摸底现状。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>18′</p></td><td><p>盘点 DeepSeek Harness、Codex/ChatGPT、Claude Code、Gemini、豆包工作/WorkBuddy；工具无高下，先有一个趁手的再谈 Agent；AI 正从"问问题"走向嵌入真实开发工作流。预告两个重点项目：类 Claude Code 的终端 Agent PaiCLI（Java 版，另有 Go/TypeScript/Python 版）、可落地的企业级知识库派聪明 RAG；另可共享 JobClaw、PmHub、技术派、PaiFlow/PaiAgent。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>12′</p></td><td><p>每人打开自己常用的 AI 工具，试一个与本课相关的问题，同桌交流结果差异。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>解答工具选择、模型差异的疑问。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>进入开放解疑环节。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第3节　9:40–10:20　开放解疑（上）：问题集中解答</h2>
+<p><b>本节目标：</b>把收集到的技术、求职、人生问题逐个答透，建立课堂信任与参与感。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>列清单</p></td><td><p>3′</p></td><td><p>把前两节收集的问题板书归类为技术、求职、人生规划三组，排好回答顺序。</p></td></tr>
+<tr><td><p>逐个答疑</p></td><td><p>28′</p></td><td><p>老师主答，按三组轮换；答不上的交给 Gemini 现场补答。技术问题讲思路，求职问题讲简历与面试，人生问题给真实经验，不端着。</p></td></tr>
+<tr><td><p>汇总共性</p></td><td><p>7′</p></td><td><p>归纳高频问题，点出"只靠问答不够，要动手做一个能写进简历的真实项目"，自然过渡到派聪明 RAG。</p></td></tr>
+<tr><td><p>衔接</p></td><td><p>2′</p></td><td><p>预告下一节进入派聪明 RAG。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第4节　10:30–11:10　派聪明RAG引题，最容易落地的AI应用场景</h2>
+<p><b>本节目标：</b>纠正 RAG 浅层认知，建立企业级 RAG 全景链路。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>提问"RAG 是不是把文档切碎算出向量、提问时查相似度拼进提示词"，引出误区。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>20′</p></td><td><p>破除误区：面试只讲到切碎算向量这层，被追问大文件上传怎么防重、异步解析崩溃怎么恢复、专业术语搜不出来怎么办就会卡壳。产品定位：面向企业内部私密文档管理与精准问答的检索增强生成系统。讲清总链路：分片上传 → 多格式异步解析向量化 → 双路混合检索重排 → 带页码引用的 ReAct 流式问答。</p></td></tr>
+<tr><td><p>演示</p></td><td><p>8′</p></td><td><p>现场在产品里提问，观察带文件名与页码的流式回答。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>7′</p></td><td><p>回应 RAG 概念、检索原理相关疑问。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>预告下一节拆第一步：大文件分片上传。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第5节　11:20–12:00　大文件分片上传与三处核验</h2>
+<p><b>本节目标：</b>讲清 5MB 分片、三处核验与条件更新合并。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>抛出面试常问：大文件上传怎么做防重、断传怎么续。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>22′</p></td><td><p>前端按固定 5MB 切分上传，后端三处记录分片进度：Redis 位图（key 为 upload:{userId}:{fileMd5}，48 小时过期）、MySQL 分片信息表唯一键、MinIO 对象存储里的分片文件；Redis 缓存缺失时自动从数据库回填。全部分片到齐后，用数据库条件更新把状态从上传中改为合并中，调用 MinIO 合并到 merged/{fileMd5} 路径，合并状态更新成功才清理临时分片。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>10′</p></td><td><p>对照源码看分片表唯一键、Redis 位图与条件更新合并的关键类。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>3′</p></td><td><p>解答防重、幂等、断点续传相关问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>上午收口，午休后讲合并任务怎么可靠送达。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第6节　14:30–15:10　异步可靠送达：Outbox与Kafka</h2>
+<p><b>本节目标：</b>讲清本地消息表、事务一致性与指数退避补发。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>抛出问题：文件合并完成后，怎样保证后续解析向量化任务一条都不丢。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>22′</p></td><td><p>采用本地消息表 Outbox 模式：同一个数据库事务内把文件状态改为待处理并写入一条待发送记录，事务提交后由异步线程池投递到 Kafka；避免"先改库再发消息"造成的不一致。线程池满或网络抖动时，后台每 5 秒运行一次的定时任务按指数退避策略扫描认领并自动补发，封顶 300 秒。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>10′</p></td><td><p>对照源码看 Outbox 待发送记录表结构、同事务写入与补发定时任务。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>3′</p></td><td><p>解答事务一致性、消息重复、补发上限相关问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>承接到消费端：任务拿到后怎么处理、宕机怎么恢复。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第7节　15:20–16:00　消费租约、多格式解析与崩溃恢复</h2>
+<p><b>本节目标：</b>讲清 600 秒租约、心跳、多格式解析与超时恢复。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>抛出问题：消费实例跑到一半宕机，任务怎么不被卡死、不被重复处理。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>22′</p></td><td><p>Kafka 消费端先通过数据库条件更新认领 600 秒处理租约；从 MinIO 读取合并文件，先按文件 MD5 与上传者 ID 清理旧索引；PDF 调用 LiteParse 解析以保留版面页码，其余 21 种格式（共 22 种白名单）调用 Apache Tika 解析切块；每写入一批向量到 Elasticsearch 就回调一次数据库更新心跳。某实例心跳超 600 秒未更新，每 60 秒运行一次的恢复任务自动把任务放回待处理队列，最多重试 3 次。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>10′</p></td><td><p>对照源码看租约条件更新、心跳续期与 60 秒恢复任务。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>3′</p></td><td><p>解答租约、重试次数、格式白名单相关问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>承接到用户提问阶段的检索。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第8节　16:10–16:50　混合检索、ReAct问答与第一天小结</h2>
+<p><b>本节目标：</b>讲清双路检索与重排，收口第一天、集中答疑。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>讲授</p></td><td><p>18′</p></td><td><p>检索前先注入当前登录用户的组织标签与公开属性做权限过滤，只检索权限内文档；并行发起 Elasticsearch 的 BM25 关键词检索与 KNN 向量余弦检索，两路结果用 RRF 倒数排名融合，再经 gte-rerank-v2 模型重排序、分数阈值过滤，把命中的子分块扩展为含完整上下文的父分块交给大模型。大模型经 ReAct 循环自主调用 search_knowledge，最多 4 轮、8 次工具调用；SSE 流式输出，每处结论附带 (来源#编号: 文件名 | 第X页) 引用标记。</p></td></tr>
+<tr><td><p>演示</p></td><td><p>8′</p></td><td><p>现场提一个专业问题，观察双路召回、重排排序与页码引用。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>10′</p></td><td><p>集中处理第一天积累的问题，分组回答未覆盖的点。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>4′</p></td><td><p>串讲"分片上传 → 异步解析 → 混合检索 → 带引用问答"整条 RAG 链路，布置第二天预习 PaiCLI。</p></td></tr>
+</tbody>
+</table>
+
+<h1>四、第二天：PaiCLI + 派简历 + Agent闲谈</h1>
+
+<h2>第1节　8:00–8:40　第一天回顾与PaiCLI引题</h2>
+<p><b>本节目标：</b>回顾 RAG 链路，认识会操作代码环境的终端 Agent。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>回顾第一天 RAG 链路，指出它"会查知识库"，今天转去看"会读代码、改文件、执行命令"的终端 Agent。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>18′</p></td><td><p>PaiCLI 对标 Claude Code 与 Codex，用 Java 21 实现（另有 Go/TypeScript/Python 版）；具备读代码、改文件、执行终端命令、MCP 协议扩展与浏览器自动化能力。讲清它与 RAG 的区别：一个面向文档问答，一个面向代码环境自主操作。</p></td></tr>
+<tr><td><p>演示</p></td><td><p>12′</p></td><td><p>现场跑一条任务，看终端 Agent 理解需求、调工具、给结果的完整交互。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>解答终端 Agent 与 RAG 定位差异的疑问。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>预告下一节讲三条执行路径。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第2节　8:50–9:30　三条执行路径：ReAct、plan、Team模式</h2>
+<p><b>本节目标：</b>讲清 ReAct、Plan-and-Execute、Multi-Agent 三条路径的适用场景。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>提问：同一个任务，让模型边想边做和先出计划再做，差别在哪。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>18′</p></td><td><p>三条核心执行路径：默认 ReAct 循环（想一步做一步）；/plan 命令或 Shift+Tab 切换的 Plan-and-Execute（先规划后执行）；/team 触发的 Multi-Agent 团队协作，含拆解任务的 Planner、并行执行的 Worker、审查结果的 Reviewer。三条路径底层复用同一套工具注册表、长期记忆管理器、回合快照服务与对话账本。</p></td></tr>
+<tr><td><p>演示</p></td><td><p>12′</p></td><td><p>同一任务分别走默认 ReAct、规划执行、多 Agent，对比过程与产出差异。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>解答路径选择、角色分工相关问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>进入工程细节：先讲提示词怎么组织。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第3节　9:40–10:20　9层提示词拼接与前缀缓存</h2>
+<p><b>本节目标：</b>读懂分层提示词与工具排序对缓存命中率的作用。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>抛出问题：长对话里提示词越堆越长，怎样省上下文、提高缓存命中。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>20′</p></td><td><p>系统提示词按稳定度从高到低分 9 层依次拼接：基础策略、性格、模式、审批、上下文规范、技能索引、运行时日期、动态项目记忆等；18 个内置工具定义按名称排序发送，最大化大模型前缀缓存命中率。每次调用模型前依次注入待发的 LSP 诊断、按需压缩历史上下文、检查预算与停滞状态。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>12′</p></td><td><p>对照源码读提示词分层组装与工具排序，观察改动顺序对提示词的影响。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>3′</p></td><td><p>解答前缀缓存、上下文压缩相关问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>承接到外部工具怎么挂载。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第4节　10:30–11:10　手写MCP客户端与渐进式Skill加载</h2>
+<p><b>本节目标：</b>读懂 MCP 协议挂载与按需加载技能，节省上下文窗口。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>3′</p></td><td><p>抛出问题：第三方工具和技能怎么动态接进来，又不把上下文塞满。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>20′</p></td><td><p>基于标准输入输出（stdio）与流式 HTTP（Streamable HTTP）手写 MCP 客户端协议，实现外部工具动态挂载；设计渐进式 Skill 加载机制，提示词只保留技能摘要，模型调用 load_skill 工具时同轮注入完整指令正文，大幅节省上下文窗口开销。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>12′</p></td><td><p>对照源码看 MCP 连接建立与 load_skill 按需注入的实现。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>3′</p></td><td><p>解答 MCP 传输方式、技能懒加载相关问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>2′</p></td><td><p>上午收口，下午讲安全守卫与简历。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第5节　11:20–12:00　失控守卫、安全边界与Git回滚</h2>
+<p><b>本节目标：</b>读懂停滞检测、防注入、权限策略与快照回滚，跟着触发一次守卫。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>1′</p></td><td><p>说明本节以读源码、跟动手为主，老师少讲。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>12′</p></td><td><p>失控提醒守卫与停滞检测：模型连续 3 步重复相同工具参数，或连续 3 步命中 8 类正则错误时自动注入换思路提醒；连续 5 轮工具调用签名完全相同时强制中止工具执行，仅允许一次无工具收尾调用如实汇报已完成与未完成事项。所有工具返回结果包裹在 untrusted-data 非信任数据边界内防止提示词注入；根据用户每轮原始输入构造当轮工具权限策略；结合 Git 快照服务支持任意回合代码变更一键回滚。技术栈：Java 21、DeepSeek API、MCP、CompletableFuture、Git 快照、JLine/Lanterna。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>21′</p></td><td><p>对照源码读守卫、权限策略与 Git 快照模块，跟着构造一次重复调用触发停滞提醒并观察，老师巡场个别指导。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>集中解答源码阅读中卡住的点。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>1′</p></td><td><p>过渡到下午把两个项目写进简历。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第6节　14:30–15:10　派简历：派聪明项目条目包装</h2>
+<p><b>本节目标：</b>把派聪明写成简历上可量化的项目条目。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>2′</p></td><td><p>说明简历四段式：项目名称、项目简介、技术栈、核心职责。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>10′</p></td><td><p>项目名"派聪明（PaiSmart）企业级多源异构 RAG 知识库"，面向企业私密文档管理与精准问答；技术栈 Spring Boot 3、Elasticsearch、Kafka、Redis、MinIO、MySQL、Apache Tika、SSE。核心职责对应五条：5MB 分片三处校验防重合并、Outbox 同事务 + Kafka 指数退避补发、600 秒租约心跳与超时恢复、22 种格式解析（PDF 走 LiteParse 保页码）、BM25+KNN 经 RRF 与 gte-rerank-v2 重排的混合检索。量化数字落到条目。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>22′</p></td><td><p>现场写出派聪明项目条目，老师逐个看、改表达，把数字和结果写具体。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>解答简历措辞、量化包装、岗位匹配问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>1′</p></td><td><p>下午下一节写 PaiCLI 条目并合成一页。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第7节　15:20–16:00　派简历：PaiCLI条目与一页直投PDF</h2>
+<p><b>本节目标：</b>写出 PaiCLI 条目，与派聪明合成一页可直投 PDF。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>2′</p></td><td><p>说明本节目标：带走一页当天就能投递的简历。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>10′</p></td><td><p>项目名"PaiCLI 终端自主编程 Agent"，对标 Claude Code 与 Codex；技术栈 Java 21、DeepSeek API、MCP（stdio/Streamable HTTP）、CompletableFuture、Git 快照、JLine/Lanterna。核心职责对应：三条执行路径、9 层提示词与前缀缓存、手写 MCP 客户端与渐进式 Skill、失控守卫与 untrusted-data 防注入、Git 快照一键回滚，同样量化落条。</p></td></tr>
+<tr><td><p>跟做</p></td><td><p>22′</p></td><td><p>写出 PaiCLI 条目，与派聪明条目合成一页 PDF 排版，老师逐个改，形成当天可投递状态。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>解答两条项目如何取舍、篇幅控制问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>1′</p></td><td><p>收尾节开放闲谈。</p></td></tr>
+</tbody>
+</table>
+
+<h2>第8节　16:10–16:50　作业布置与AI Agent时代闲谈</h2>
+<p><b>本节目标：</b>布置作业，开放 AI Agent 时代话题自由交流并收尾。</p>
+<table>
+<colgroup><col width="110"/><col width="80"/><col width="460"/></colgroup>
+<tbody>
+<tr><td><p>导入</p></td><td><p>2′</p></td><td><p>汇总两天两个项目在简历中的位置，说明课后要巩固的点。</p></td></tr>
+<tr><td><p>讲授</p></td><td><p>10′</p></td><td><p>布置课后作业：完善两项目简历条目、本地跑通 PaiCLI 与派聪明 demo、整理个人疑问清单。点明 AI Agent 是无法避开的话题，以后做什么都可能用到。</p></td></tr>
+<tr><td><p>开放闲谈</p></td><td><p>22′</p></td><td><p>AI Agent 时代自由交流，DeepSeek、Gemini、OpenAI 都可谈，技术走向、求职准备、发展方向由学生提问、老师回应。</p></td></tr>
+<tr><td><p>答疑</p></td><td><p>5′</p></td><td><p>补答两天遗留问题。</p></td></tr>
+<tr><td><p>小结</p></td><td><p>1′</p></td><td><p>收尾寄语，结束实训。</p></td></tr>
+</tbody>
+</table>
+
+<h1>五、排节提醒</h1>
+<ul>
+<li>每天新内容放在状态最好的第1、第2节和午休后的第6节；每天第5节临午饭、第8节临放学，安排小结、答疑、写简历这类轻内容。</li>
+<li>讲工程原理的第5、6、7节用"讲22′ + 跟做10′"，写简历的两节用"讲10′ + 跟做22′"，第3节纯答疑。</li>
+<li>每两节之间的 10 分钟不拖堂，让大脑换口气；讲 7–8 分钟就停一次，跟做段老师以巡场和个别指导为主。</li>
+<li>技术细节以源码和现场演示为准，讲不清的先记录、课后补答，不在一节里硬撑满。</li>
+</ul>

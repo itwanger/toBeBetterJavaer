@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "issues": "{\"schema_version\": \"2.0\", \"tool\": \"xml_lint\", \"file\": null, \"slide_size\": {\"width\": 960, \"height\": 540}, \"summary\": {\"slide_count\": 1, \"error_count\": 0, \"warning_count\": 1, \"info_count\": 0, \"status\": \"needs_screenshot_review\", \"release_ready\": true, \"screenshot_review_required\": true}, \"document\": {\"errors\": [], \"warnings\": [], \"infos\": []}, \"slides\": [{\"slide_number\": 1, \"status\": \"needs_screenshot_review\", \"element_count\": 28, \"errors\": [], \"warnings\": [{\"level\": \"warning\", \"code\": \"text_color_contrast\", \"elements\": [\"data/shape[13]\"], \"target\": {\"slide_number\": 1, \"xml_path\": \"data/shape[13]\"}, \"message\": \"对象：PAISMART RAG；问题：文字与背景对比度不足，可能影响可读性；依据：文字为 rgba(243, 204, 185, 1)，背景为 rgba(255, 79, 135, 1)，背景来自页面元素底色；动作：调整文字或其底色后复检。\", \"hint\": \"Adjust the text or its XML-resolvable background, then rerun xml_lint.\", \"schema_version\": \"2.0\"}], \"infos\": [], \"issues\": [{\"level\": \"warning\", \"code\": \"text_color_contrast\", \"elements\": [\"data/shape[13]\"], \"target\": {\"slide_number\": 1, \"xml_path\": \"data/shape[13]\"}, \"message\": \"对象：PAISMART RAG；问题：文字与背景对比度不足，可能影响可读性；依据：文字为 rgba(243, 204, 185, 1)，背景为 rgba(255, 79, 135, 1)，背景来自页面元素底色；动作：调整文字或其底色后复检。\", \"hint\": \"Adjust the text or its XML-resolvable background, then rerun xml_lint.\", \"schema_version\": \"2.0\"}]}]}",
+    "revision_id": 6,
+    "slide_id": "pQe",
+    "xml_presentation_id": "QCvzsUnA5li2W6dEqkAc7v5Anyf"
+  }
+}

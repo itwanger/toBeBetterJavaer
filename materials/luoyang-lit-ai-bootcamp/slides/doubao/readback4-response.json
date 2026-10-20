@@ -1,0 +1,1022 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "content_saved": true,
+    "issues": {
+      "document": {
+        "errors": [],
+        "infos": [],
+        "warnings": []
+      },
+      "file": null,
+      "schema_version": "2.0",
+      "slide_size": {
+        "height": 540,
+        "width": 960
+      },
+      "slides": [
+        {
+          "element_count": 21,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 1,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 16,
+          "errors": [],
+          "infos": [],
+          "issues": [
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bjU",
+                "bjK",
+                "bjB",
+                "bjO",
+                "bjL"
+              ],
+              "elements": [
+                "bjU",
+                "bjK",
+                "bjB",
+                "bjO",
+                "bjL"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 109440,
+                "content_coverage_ratio": 0.131,
+                "content_element_count": 4,
+                "visible_content_area": 14330.976
+              },
+              "message": "large card bjU content coverage 13.1% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 380,
+                    "width": 288,
+                    "x": 624,
+                    "y": 92
+                  },
+                  "element_id": "bjU",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[2]/data/shape[8]"
+                },
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 240,
+                    "x": 648,
+                    "y": 120
+                  },
+                  "element_id": "bjK",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[2]/data/shape[9]"
+                },
+                {
+                  "bbox": {
+                    "height": 180,
+                    "width": 240,
+                    "x": 648,
+                    "y": 220
+                  },
+                  "element_id": "bjB",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[2]/data/shape[10]"
+                },
+                {
+                  "bbox": {
+                    "height": 24,
+                    "width": 240,
+                    "x": 648,
+                    "y": 428
+                  },
+                  "element_id": "bjO",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[2]/data/shape[11]"
+                },
+                {
+                  "bbox": {
+                    "height": 0,
+                    "width": 72.00694410957874,
+                    "x": 648,
+                    "y": 418
+                  },
+                  "element_id": "bjL",
+                  "kind": "line",
+                  "type": "line",
+                  "xml_path": "slide[2]/data/line[3]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 380,
+                  "width": 288,
+                  "x": 624,
+                  "y": 92
+                },
+                "container_id": "bjU",
+                "container_type": "rect",
+                "container_xml_path": "slide[2]/data/shape[8]",
+                "slide_number": 2
+              }
+            }
+          ],
+          "slide_number": 2,
+          "status": "needs_screenshot_review",
+          "warnings": [
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bjU",
+                "bjK",
+                "bjB",
+                "bjO",
+                "bjL"
+              ],
+              "elements": [
+                "bjU",
+                "bjK",
+                "bjB",
+                "bjO",
+                "bjL"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 109440,
+                "content_coverage_ratio": 0.131,
+                "content_element_count": 4,
+                "visible_content_area": 14330.976
+              },
+              "message": "large card bjU content coverage 13.1% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 380,
+                    "width": 288,
+                    "x": 624,
+                    "y": 92
+                  },
+                  "element_id": "bjU",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[2]/data/shape[8]"
+                },
+                {
+                  "bbox": {
+                    "height": 80,
+                    "width": 240,
+                    "x": 648,
+                    "y": 120
+                  },
+                  "element_id": "bjK",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[2]/data/shape[9]"
+                },
+                {
+                  "bbox": {
+                    "height": 180,
+                    "width": 240,
+                    "x": 648,
+                    "y": 220
+                  },
+                  "element_id": "bjB",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[2]/data/shape[10]"
+                },
+                {
+                  "bbox": {
+                    "height": 24,
+                    "width": 240,
+                    "x": 648,
+                    "y": 428
+                  },
+                  "element_id": "bjO",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[2]/data/shape[11]"
+                },
+                {
+                  "bbox": {
+                    "height": 0,
+                    "width": 72.00694410957874,
+                    "x": 648,
+                    "y": 418
+                  },
+                  "element_id": "bjL",
+                  "kind": "line",
+                  "type": "line",
+                  "xml_path": "slide[2]/data/line[3]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 380,
+                  "width": 288,
+                  "x": 624,
+                  "y": 92
+                },
+                "container_id": "bjU",
+                "container_type": "rect",
+                "container_xml_path": "slide[2]/data/shape[8]",
+                "slide_number": 2
+              }
+            }
+          ]
+        },
+        {
+          "element_count": 22,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 3,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 22,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 4,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 28,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 5,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 25,
+          "errors": [],
+          "infos": [],
+          "issues": [
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bta",
+                "btd",
+                "bRb"
+              ],
+              "elements": [
+                "bta",
+                "btd",
+                "bRb"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 25200,
+                "content_coverage_ratio": 0.123,
+                "content_element_count": 2,
+                "visible_content_area": 3092.688
+              },
+              "message": "large card bta content coverage 12.3% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 168,
+                    "x": 48,
+                    "y": 300
+                  },
+                  "element_id": "bta",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[8]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 140,
+                    "x": 64,
+                    "y": 324
+                  },
+                  "element_id": "btd",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[9]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 140,
+                    "x": 64,
+                    "y": 362
+                  },
+                  "element_id": "bRb",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[10]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 168,
+                  "x": 48,
+                  "y": 300
+                },
+                "container_id": "bta",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[8]",
+                "slide_number": 6
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bRk",
+                "bRZ",
+                "bRM"
+              ],
+              "elements": [
+                "bRk",
+                "bRZ",
+                "bRM"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 25200,
+                "content_coverage_ratio": 0.139,
+                "content_element_count": 2,
+                "visible_content_area": 3515.184
+              },
+              "message": "large card bRk content coverage 13.9% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 168,
+                    "x": 226,
+                    "y": 300
+                  },
+                  "element_id": "bRk",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[11]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 140,
+                    "x": 242,
+                    "y": 324
+                  },
+                  "element_id": "bRZ",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[12]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 140,
+                    "x": 242,
+                    "y": 362
+                  },
+                  "element_id": "bRM",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[13]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 168,
+                  "x": 226,
+                  "y": 300
+                },
+                "container_id": "bRk",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[11]",
+                "slide_number": 6
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bRG",
+                "bRD",
+                "bRN"
+              ],
+              "elements": [
+                "bRG",
+                "bRD",
+                "bRN"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 25200,
+                "content_coverage_ratio": 0.112,
+                "content_element_count": 2,
+                "visible_content_area": 2828.736
+              },
+              "message": "large card bRG content coverage 11.2% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 168,
+                    "x": 582,
+                    "y": 300
+                  },
+                  "element_id": "bRG",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[17]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 140,
+                    "x": 598,
+                    "y": 324
+                  },
+                  "element_id": "bRD",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[18]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 140,
+                    "x": 598,
+                    "y": 362
+                  },
+                  "element_id": "bRN",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[19]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 168,
+                  "x": 582,
+                  "y": 300
+                },
+                "container_id": "bRG",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[17]",
+                "slide_number": 6
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "btj",
+                "btV",
+                "btR"
+              ],
+              "elements": [
+                "btj",
+                "btV",
+                "btR"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 22800,
+                "content_coverage_ratio": 0.121,
+                "content_element_count": 2,
+                "visible_content_area": 2764.8
+              },
+              "message": "large card btj content coverage 12.1% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 152,
+                    "x": 760,
+                    "y": 300
+                  },
+                  "element_id": "btj",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[20]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 124,
+                    "x": 776,
+                    "y": 324
+                  },
+                  "element_id": "btV",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[21]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 124,
+                    "x": 776,
+                    "y": 362
+                  },
+                  "element_id": "btR",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[22]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 152,
+                  "x": 760,
+                  "y": 300
+                },
+                "container_id": "btj",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[20]",
+                "slide_number": 6
+              }
+            }
+          ],
+          "slide_number": 6,
+          "status": "needs_screenshot_review",
+          "warnings": [
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bta",
+                "btd",
+                "bRb"
+              ],
+              "elements": [
+                "bta",
+                "btd",
+                "bRb"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 25200,
+                "content_coverage_ratio": 0.123,
+                "content_element_count": 2,
+                "visible_content_area": 3092.688
+              },
+              "message": "large card bta content coverage 12.3% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 168,
+                    "x": 48,
+                    "y": 300
+                  },
+                  "element_id": "bta",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[8]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 140,
+                    "x": 64,
+                    "y": 324
+                  },
+                  "element_id": "btd",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[9]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 140,
+                    "x": 64,
+                    "y": 362
+                  },
+                  "element_id": "bRb",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[10]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 168,
+                  "x": 48,
+                  "y": 300
+                },
+                "container_id": "bta",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[8]",
+                "slide_number": 6
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bRk",
+                "bRZ",
+                "bRM"
+              ],
+              "elements": [
+                "bRk",
+                "bRZ",
+                "bRM"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 25200,
+                "content_coverage_ratio": 0.139,
+                "content_element_count": 2,
+                "visible_content_area": 3515.184
+              },
+              "message": "large card bRk content coverage 13.9% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 168,
+                    "x": 226,
+                    "y": 300
+                  },
+                  "element_id": "bRk",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[11]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 140,
+                    "x": 242,
+                    "y": 324
+                  },
+                  "element_id": "bRZ",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[12]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 140,
+                    "x": 242,
+                    "y": 362
+                  },
+                  "element_id": "bRM",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[13]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 168,
+                  "x": 226,
+                  "y": 300
+                },
+                "container_id": "bRk",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[11]",
+                "slide_number": 6
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "bRG",
+                "bRD",
+                "bRN"
+              ],
+              "elements": [
+                "bRG",
+                "bRD",
+                "bRN"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 25200,
+                "content_coverage_ratio": 0.112,
+                "content_element_count": 2,
+                "visible_content_area": 2828.736
+              },
+              "message": "large card bRG content coverage 11.2% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 168,
+                    "x": 582,
+                    "y": 300
+                  },
+                  "element_id": "bRG",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[17]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 140,
+                    "x": 598,
+                    "y": 324
+                  },
+                  "element_id": "bRD",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[18]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 140,
+                    "x": 598,
+                    "y": 362
+                  },
+                  "element_id": "bRN",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[19]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 168,
+                  "x": 582,
+                  "y": 300
+                },
+                "container_id": "bRG",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[17]",
+                "slide_number": 6
+              }
+            },
+            {
+              "code": "sparse_container_content",
+              "element_ids": [
+                "btj",
+                "btV",
+                "btR"
+              ],
+              "elements": [
+                "btj",
+                "btV",
+                "btR"
+              ],
+              "hint": "Locate via related_objects[].xml_path. Review the rendered screenshot; add or enlarge meaningful content if the whitespace is not intentional.",
+              "level": "warning",
+              "measurement": {
+                "container_area": 22800,
+                "content_coverage_ratio": 0.121,
+                "content_element_count": 2,
+                "visible_content_area": 2764.8
+              },
+              "message": "large card btj content coverage 12.1% is below 15.0%",
+              "related_objects": [
+                {
+                  "bbox": {
+                    "height": 150,
+                    "width": 152,
+                    "x": 760,
+                    "y": 300
+                  },
+                  "element_id": "btj",
+                  "kind": "shape",
+                  "type": "rect",
+                  "xml_path": "slide[6]/data/shape[20]"
+                },
+                {
+                  "bbox": {
+                    "height": 28,
+                    "width": 124,
+                    "x": 776,
+                    "y": 324
+                  },
+                  "element_id": "btV",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[21]"
+                },
+                {
+                  "bbox": {
+                    "height": 66,
+                    "width": 124,
+                    "x": 776,
+                    "y": 362
+                  },
+                  "element_id": "btR",
+                  "kind": "shape",
+                  "type": "text",
+                  "xml_path": "slide[6]/data/shape[22]"
+                }
+              ],
+              "rule": {
+                "comparison": "content_coverage_ratio \u003c threshold",
+                "id": "sparse_container_content",
+                "name": "large_container_visible_content_coverage",
+                "threshold": 0.15
+              },
+              "schema_version": "2.0",
+              "target": {
+                "bbox": {
+                  "height": 150,
+                  "width": 152,
+                  "x": 760,
+                  "y": 300
+                },
+                "container_id": "btj",
+                "container_type": "rect",
+                "container_xml_path": "slide[6]/data/shape[20]",
+                "slide_number": 6
+              }
+            }
+          ]
+        },
+        {
+          "element_count": 16,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 7,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 22,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 8,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 22,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 9,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 20,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 10,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 16,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 11,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 26,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 12,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 27,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 13,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 21,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 14,
+          "status": "passed",
+          "warnings": []
+        },
+        {
+          "element_count": 12,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 15,
+          "status": "passed",
+          "warnings": []
+        }
+      ],
+      "summary": {
+        "error_count": 0,
+        "info_count": 0,
+        "release_ready": true,
+        "screenshot_review_required": true,
+        "slide_count": 15,
+        "status": "needs_screenshot_review",
+        "warning_count": 5
+      },
+      "tool": "xml_lint"
+    },
+    "path": "/Users/itwanger/Documents/GitHub/toBeBetterJavaer/luoyang-lit-ai-bootcamp-ppt/readback4.xml",
+    "revision_id": 23,
+    "scope": "presentation",
+    "size": 101200,
+    "xml_presentation_id": "QCvzsUnA5li2W6dEqkAc7v5Anyf"
+  }
+}

@@ -1,0 +1,110 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.10 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>02-C · HYBRID RETRIEVAL &amp; REACT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="820" height="46">
+      <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>双路混合检索，ReAct 循环带页码作答</p>
+      </content>
+    </shape>
+    <line startX="48" startY="178" endX="180" endY="178">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 左图 -->
+    <img src="DaWsbtHUkouuEbxvBpQcPqYEnHe" topLeftX="48" topLeftY="204" width="456" height="257"/>
+    <shape type="rect" topLeftX="48" topLeftY="204" width="456" height="257">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="472" width="456" height="20">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>FIG.02 · 混合检索与 ReAct 问答手绘</p>
+      </content>
+    </shape>
+
+    <!-- 右侧管线五步 -->
+    <shape type="text" topLeftX="548" topLeftY="204" width="364" height="22">
+      <content textType="body" fontSize="15" fontFamily="寒蝉端黑体" color="rgb(22,70,184)" wrap="false">
+        <p>search_knowledge 检索管线</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="548" topLeftY="238" width="364" height="34">
+      <content textType="body" fontSize="13" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.5">
+        <p><strong>1 权限过滤</strong>：注入组织标签与公开属性，只召回本人可见文档</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="548" topLeftY="282" width="364" height="34">
+      <content textType="body" fontSize="13" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.5">
+        <p><strong>2 双路并行</strong>：BM25 关键词 + KNN 向量余弦同时召回</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="548" topLeftY="326" width="364" height="34">
+      <content textType="body" fontSize="13" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.5">
+        <p><strong>3 RRF 融合</strong>：倒数排名合并两路结果，避免单一打分偏差</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="548" topLeftY="370" width="364" height="34">
+      <content textType="body" fontSize="13" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.5">
+        <p><strong>4 重排过滤</strong>：gte-rerank-v2 重排序，按分数阈值过滤</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="548" topLeftY="414" width="364" height="34">
+      <content textType="body" fontSize="13" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.5">
+        <p><strong>5 扩父分块</strong>：子分块扩为完整父块，SSE 流式输出带页码引用</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="548" topLeftY="458" width="364" height="38">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="458" width="332" height="38">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(241,165,27)" verticalAlign="middle" wrap="false">
+        <p>最多 4 轮 · 8 次工具调用 · (来源#编号: 文件名 | 第X页)</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>02-C · RETRIEVAL</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>提问阶段是 ReAct 循环，大模型自己决定调 search_knowledge。先注入当前用户的组织标签和公开属性做权限过滤，不同部门只能看到自己权限内的文档；然后 BM25 关键词和 KNN 向量余弦并行召回，用 RRF 倒数排名融合，再交给 gte-rerank-v2 重排、按阈值过滤，把子分块扩展成完整父分块交给大模型。最后 SSE 流式输出，每句都带 (来源#编号: 文件名 | 第X页)，最多 4 轮 8 次工具调用。</p>
+    </content>
+  </note>
+</slide>

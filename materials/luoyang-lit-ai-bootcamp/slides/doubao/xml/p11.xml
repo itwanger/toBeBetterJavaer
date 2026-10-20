@@ -1,0 +1,88 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.11 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="90" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>CHAPTER 03 · PAICLI</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="120" width="360" height="48">
+      <content textType="title" fontSize="40" fontFamily="Anton" color="rgb(23,21,18)" wrap="false">
+        <p>PaiCLI</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="182" width="356" height="36">
+      <content textType="title" fontSize="22" fontFamily="寒蝉端黑体" color="rgb(22,70,184)" wrap="false">
+        <p>终端命令行里的 Agent 工具</p>
+      </content>
+    </shape>
+    <line startX="48" startY="232" endX="150" endY="232">
+      <border color="rgb(23,21,18)" width="3"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="260" width="330" height="150">
+      <content textType="body" fontSize="15" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.9" textAlign="justify">
+        <p>一个跑在命令行里的 Agent 工具，Java 21 实现，另有 Go、TypeScript、Python 版本。它能编辑文件、检索代码、执行终端命令、接入 MCP 协议并扩展浏览器自动化，是 AI 时代最容易上手、也最受面试官青睐的项目之一。</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="48" topLeftY="428" width="330" height="54">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="428" width="300" height="54">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(241,165,27)" verticalAlign="middle" lineSpacing="multiple:1.6">
+        <p>Java 21 · DeepSeek API · MCP · CompletableFuture · Git 快照 · JLine · Lanterna</p>
+      </content>
+    </shape>
+
+    <!-- 终端截图 -->
+    <img src="GnUobHX2bo1u2IxN2AQcIWI0nkg" topLeftX="412" topLeftY="120" width="500" height="335"/>
+    <shape type="rect" topLeftX="412" topLeftY="120" width="500" height="335">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="412" topLeftY="466" width="500" height="24">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)">
+        <p>终端中 PaiCLI 调用 DeepSeek V4.1 Flash，展示 ReAct 思考与工具调用过程。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>CHAPTER 03 · PAICLI</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第三个项目 PaiCLI，对标 Claude Code 和 Codex，是一个命令行 Agent。Java 21 写的，另外还有 Go、TypeScript、Python 版本。能力包括文件编辑、代码检索、终端执行、MCP 协议扩展和浏览器自动化。技术栈是 Java 21、DeepSeek API、MCP、CompletableFuture、Git 快照、JLine、Lanterna。先看它在终端里怎么思考、怎么调工具。</p>
+    </content>
+  </note>
+</slide>

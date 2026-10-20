@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "document": {
+      "content": "<title id=\"DEB3dfX4lohPbfxR4LhcSfdgn7d\">洛阳理工AI实训 · 两天16节课排课表（每天8节·每节40分钟）</title>",
+      "document_id": "DEB3dfX4lohPbfxR4LhcSfdgn7d",
+      "revision_id": 31,
+      "title": "洛阳理工AI实训 · 两天16节课排课表（每天8节·每节40分钟）",
+      "url": "https://my.feishu.cn/docx/DEB3dfX4lohPbfxR4LhcSfdgn7d"
+    }
+  },
+  "citations": [
+    "<document reference_id=\"https://my.feishu.cn/docx/DEB3dfX4lohPbfxR4LhcSfdgn7d\"><title>洛阳理工AI实训 · 两天16节课排课表（每天8节·每节40分钟）</title><source_type>2</source_type><url>https://my.feishu.cn/docx/DEB3dfX4lohPbfxR4LhcSfdgn7d</url></document>"
+  ]
+}

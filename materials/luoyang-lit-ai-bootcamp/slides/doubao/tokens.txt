@@ -1,0 +1,11 @@
+author=Lq0ObJJxloP9EHxGQUJcTiptnkb
+resumes=UQoLb17kkoboB4xG5BicJFL9nOd
+offers=UtqlbhYZBo3Lt0xIxjPcLqQrnPh
+paicli=GnUobHX2bo1u2IxN2AQcIWI0nkg
+paismart=KnZ3btkmrooX8jxrt3PcxTsWnmh
+stats=VdCBbJaVEoUaBfxYC4Fc3wmznBc
+stats2=G2ENbqd1DovlOXxJ034cPiXpnsg
+resume-tool=HMS2bsjyUoNNNAxw9nHcMkTPnEf
+upload-swimlane=IhLub5LBDozE9cxXPx6cuPTPnBf
+hybrid-retrieval=DaWsbtHUkouuEbxvBpQcPqYEnHe
+resume-layout=Fsq1bJNlvobFHNx0kKncOxoan8e

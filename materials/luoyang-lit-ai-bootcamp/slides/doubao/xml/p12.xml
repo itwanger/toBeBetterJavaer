@@ -1,0 +1,136 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.12 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>03-A · THREE EXECUTION PATHS</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="820" height="46">
+      <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>三条执行路径，同一套工具注册表</p>
+      </content>
+    </shape>
+    <line startX="48" startY="178" endX="180" endY="178">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 卡1 ReAct -->
+    <shape type="rect" topLeftX="48" topLeftY="210" width="272" height="286">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="72" topLeftY="232" width="224" height="44">
+      <content textType="title" fontSize="34" fontFamily="Anton" color="rgb(241,226,194)" wrap="false">
+        <p>REACT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="72" topLeftY="288" width="224" height="26">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,165,27)" wrap="false">
+        <p>默认循环路径</p>
+      </content>
+    </shape>
+    <line startX="72" startY="328" endX="132" endY="328">
+      <border color="rgb(241,165,27)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="72" topLeftY="344" width="224" height="140">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.8">
+        <p>模型边思考边调工具，一步一观察、一观察一再思考，直到完成任务。适合日常单步编码与问答。</p>
+      </content>
+    </shape>
+
+    <!-- 卡2 Plan-and-Execute -->
+    <shape type="rect" topLeftX="344" topLeftY="210" width="272" height="286">
+      <fill><fillColor color="rgb(255,79,135)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="368" topLeftY="232" width="224" height="44">
+      <content textType="title" fontSize="28" fontFamily="Anton" color="rgb(241,226,194)" wrap="false">
+        <p>PLAN-EXEC</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="368" topLeftY="288" width="224" height="26">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" wrap="false">
+        <p>先规划，后执行</p>
+      </content>
+    </shape>
+    <line startX="368" startY="328" endX="428" endY="328">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="368" topLeftY="344" width="224" height="30">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(23,21,18)" wrap="false">
+        <p>触发：/plan 或 Shift+Tab</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="368" topLeftY="384" width="224" height="100">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.8">
+        <p>先产出完整计划，再按步执行与核对。适合多步骤、跨文件的复杂改造任务。</p>
+      </content>
+    </shape>
+
+    <!-- 卡3 Multi-Agent -->
+    <shape type="rect" topLeftX="640" topLeftY="210" width="272" height="286">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="664" topLeftY="232" width="224" height="44">
+      <content textType="title" fontSize="28" fontFamily="Anton" color="rgb(241,165,27)" wrap="false">
+        <p>TEAM</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="664" topLeftY="288" width="224" height="26">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" wrap="false">
+        <p>多 Agent 团队协作</p>
+      </content>
+    </shape>
+    <line startX="664" startY="328" endX="724" endY="328">
+      <border color="rgb(255,79,135)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="664" topLeftY="344" width="224" height="30">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(241,226,194,0.8)" wrap="false">
+        <p>触发：/team</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="664" topLeftY="384" width="224" height="100">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.8">
+        <p>Planner 拆解任务，Worker 并行执行，Reviewer 审查结果，角色分工完成大任务。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>03-A · PATHS</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>PaiCLI 提供三条核心执行路径，底层复用同一套工具注册表、长期记忆、回合快照和对话账本。默认是 ReAct 循环，边想边调工具；输入 /plan 或按 Shift+Tab 进入先规划后执行，适合复杂改造；输入 /team 触发多 Agent，Planner 拆解、Worker 并行、Reviewer 审查，把大任务分给三个角色。</p>
+    </content>
+  </note>
+</slide>

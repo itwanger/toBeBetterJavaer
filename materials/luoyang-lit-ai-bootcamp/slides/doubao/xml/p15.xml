@@ -1,0 +1,75 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(23,21,18)"/>
+    </fill>
+  </style>
+  <data>
+    <!-- 顶部刊名栏（黑底改浅色） -->
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(241,226,194,0.7)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(241,226,194,0.7)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(241,226,194,0.7)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.15 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgba(241,226,194,0.35)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="118" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>FINALE · AI AGENTS TALK</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="46" topLeftY="172" width="860" height="72">
+      <content textType="title" fontSize="58" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" wrap="false">
+        <p>工具会换代，</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="252" width="860" height="72">
+      <content textType="title" fontSize="58" fontFamily="寒蝉端黑体" color="rgb(241,165,27)" wrap="false">
+        <p>做过的项目不会。</p>
+      </content>
+    </shape>
+
+    <line startX="48" startY="360" endX="200" endY="360">
+      <border color="rgb(255,79,135)" width="3"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="382" width="720" height="96">
+      <content textType="body" fontSize="16" fontFamily="思源黑体" color="rgba(241,226,194,0.9)" lineSpacing="multiple:1.9">
+        <p>AI Agent 是这个时代绕不开的话题，DeepSeek、Gemini、OpenAI 都可以谈。两天之后，希望你带着一份可直投的简历离场，而不是只记住几个名词。</p>
+      </content>
+    </shape>
+
+    <!-- 底部署名条 -->
+    <shape type="rect" topLeftX="48" topLeftY="470" width="864" height="2">
+      <fill><fillColor color="rgba(241,226,194,0.3)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="486" width="500" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(241,226,194,0.7)" letterSpacing="1" wrap="false">
+        <p>沉默王二 · PAICODING · 技术派星球</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="612" topLeftY="486" width="300" height="20">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241,226,194,0.7)" textAlign="right" wrap="false">
+        <p>END · 谢谢聆听</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>最后聊聊 AI Agent，这是这个时代绕不开的话题，以后不管做什么都可能用得上，想拿到不错的工作也得掌握它。DeepSeek、Gemini、OpenAI 都可以谈。两天下来，希望大家带走的是一份能直接投的简历和两个能讲透的项目，而不是一堆记不住的名词。谢谢大家。</p>
+    </content>
+  </note>
+</slide>

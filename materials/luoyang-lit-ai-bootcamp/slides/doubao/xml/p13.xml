@@ -1,0 +1,159 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.13 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>03-B · ENGINEERING DETAILS</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="820" height="46">
+      <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>PaiCLI 的六个工程细节</p>
+      </content>
+    </shape>
+    <line startX="48" startY="178" endX="180" endY="178">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 01 -->
+    <shape type="text" topLeftX="48" topLeftY="206" width="60" height="40">
+      <content textType="title" fontSize="32" fontFamily="Anton" color="rgb(22,70,184)" wrap="false">
+        <p>01</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="116" topLeftY="206" width="342" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>9 层系统提示词 + 前缀缓存</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="116" topLeftY="234" width="342" height="56">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>按稳定度从高到低拼接基础策略、性格、模式、审批、上下文规范、技能索引、运行时日期、动态记忆；18 个内置工具按名称排序发送，提升缓存命中。</p>
+      </content>
+    </shape>
+
+    <!-- 02 -->
+    <shape type="text" topLeftX="502" topLeftY="206" width="60" height="40">
+      <content textType="title" fontSize="32" fontFamily="Anton" color="rgb(22,70,184)" wrap="false">
+        <p>02</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="570" topLeftY="206" width="342" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>手写 MCP 客户端</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="570" topLeftY="234" width="342" height="56">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>基于 stdio 与 Streamable HTTP 手写协议，外部工具可动态挂载，不依赖现成 SDK。</p>
+      </content>
+    </shape>
+
+    <!-- 03 -->
+    <shape type="text" topLeftX="48" topLeftY="312" width="60" height="40">
+      <content textType="title" fontSize="32" fontFamily="Anton" color="rgb(255,79,135)" wrap="false">
+        <p>03</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="116" topLeftY="312" width="342" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>渐进式 Skill 加载</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="116" topLeftY="340" width="342" height="56">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>提示词只留技能摘要，模型调 load_skill 时同轮注入完整正文，大幅节省上下文窗口。</p>
+      </content>
+    </shape>
+
+    <!-- 04 -->
+    <shape type="text" topLeftX="502" topLeftY="312" width="60" height="40">
+      <content textType="title" fontSize="32" fontFamily="Anton" color="rgb(255,79,135)" wrap="false">
+        <p>04</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="570" topLeftY="312" width="342" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>失控守卫与停滞检测</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="570" topLeftY="340" width="342" height="56">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>连续 3 步重复参数或命中 8 类正则错误就提醒换思路；连续 5 轮工具签名相同则强制中止，只留一次无工具收尾汇报。</p>
+      </content>
+    </shape>
+
+    <!-- 05 -->
+    <shape type="text" topLeftX="48" topLeftY="418" width="60" height="40">
+      <content textType="title" fontSize="32" fontFamily="Anton" color="rgb(23,21,18)" wrap="false">
+        <p>05</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="116" topLeftY="418" width="342" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>权限策略与防注入边界</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="116" topLeftY="446" width="342" height="48">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>按每轮原始输入构造权限策略；工具结果包进非信任数据边界标签，防止提示词注入。</p>
+      </content>
+    </shape>
+
+    <!-- 06 -->
+    <shape type="text" topLeftX="502" topLeftY="418" width="60" height="40">
+      <content textType="title" fontSize="32" fontFamily="Anton" color="rgb(23,21,18)" wrap="false">
+        <p>06</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="570" topLeftY="418" width="342" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>Git 快照一键回滚</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="570" topLeftY="446" width="342" height="48">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>结合 Git 快照服务，任意回合的代码变更都能一键回滚，改坏了随时退。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>03-B · DETAILS</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页是 PaiCLI 最能体现工程深度的六点：9 层提示词分层加前缀缓存；手写 MCP 客户端；渐进式 Skill 加载省上下文；失控守卫和 5 轮停滞检测；按原始输入做权限策略、工具结果包进非信任边界防注入；Git 快照一键回滚。这些都是简历里能展开讲、面试能追问的细节。</p>
+    </content>
+  </note>
+</slide>

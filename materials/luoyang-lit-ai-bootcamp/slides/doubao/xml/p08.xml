@@ -1,0 +1,119 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.08 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="320" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>02-A · UPLOAD &amp; MERGE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="820" height="46">
+      <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>5MB 固定分片，三处核验，条件更新合并</p>
+      </content>
+    </shape>
+    <line startX="48" startY="178" endX="180" endY="178">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 左侧手绘流程图 -->
+    <img src="IhLub5LBDozE9cxXPx6cuPTPnBf" topLeftX="48" topLeftY="204" width="456" height="257"/>
+    <shape type="rect" topLeftX="48" topLeftY="204" width="456" height="257">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="472" width="456" height="20">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>FIG.01 · 分片上传与异步消费全链路手绘</p>
+      </content>
+    </shape>
+
+    <!-- 右侧三处核验 -->
+    <shape type="text" topLeftX="548" topLeftY="204" width="364" height="24">
+      <content textType="body" fontSize="16" fontFamily="寒蝉端黑体" color="rgb(22,70,184)" wrap="false">
+        <p>三处记录分片进度，缺一不可</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="548" topLeftY="238" width="364" height="76">
+      <fill><fillColor color="rgba(22,70,184,0.08)"/></fill>
+      <border color="rgb(22,70,184)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="248" width="332" height="22">
+      <content textType="body" fontSize="14" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>Redis 位图（48h 过期，缺失自动回填）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="278" width="332" height="26">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(23,21,18)" wrap="false">
+        <p>key = upload:{userId}:{fileMd5}</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="548" topLeftY="318" width="364" height="70">
+      <fill><fillColor color="rgba(22,70,184,0.08)"/></fill>
+      <border color="rgb(22,70,184)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="330" width="332" height="22">
+      <content textType="body" fontSize="14" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>MySQL 分片信息表</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="356" width="332" height="24">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" wrap="false">
+        <p>唯一键校验分片完整性，作为最终事实来源</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="548" topLeftY="398" width="364" height="82">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="410" width="332" height="22">
+      <content textType="body" fontSize="14" fontFamily="寒蝉端黑体" color="rgb(241,165,27)" wrap="false">
+        <p>MinIO 对象存储 + 条件更新合并</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="564" topLeftY="438" width="332" height="34">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.5">
+        <p>全部到齐后条件更新「上传中→合并中」，合并到 merged/{fileMd5}，成功才清临时分片</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>02-A · UPLOAD</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>大文件怎么传？前端按固定 5MB 切片上传，后端同时在三个地方记进度：Redis 位图 key 是 upload:{userId}:{fileMd5}，48 小时过期，缓存没了自动从数据库回填；MySQL 分片表用唯一键保证完整；MinIO 存分片本体。全部到齐后用数据库条件更新把状态从上传中改成合并中，合并到 merged/{fileMd5}，合并成功才清理临时分片，防止重复上传和半成品合并。</p>
+    </content>
+  </note>
+</slide>

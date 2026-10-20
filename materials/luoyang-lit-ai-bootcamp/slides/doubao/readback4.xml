@@ -1,0 +1,1747 @@
+<presentation id="QCvzsUnA5li2W6dEqkAc7v5Anyf" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>洛阳理工两天开放式AI实训 · 杂志风讲义</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pQQ">
+    <style>
+      <fill id="fQQ">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bdF">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bdx">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bdT">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.01 / 15</p>
+        </content>
+      </shape>
+      <line id="bdb" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="216" height="28" topLeftX="48" topLeftY="92" presetHandlers="0" type="rect" id="bdQ">
+        <fill>
+          <fillColor color="rgba(255, 79, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="196" height="28" topLeftX="60" topLeftY="92" type="text" id="bdL">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 1)" letterSpacing="1.5" wrap="false">
+          <p>ISSUE NO.01 · SPECIAL</p>
+        </content>
+      </shape>
+      <shape width="560" height="76" topLeftX="44" topLeftY="142" type="text" id="bdO">
+        <content textType="title" fontSize="46" fontFamily="Anton" color="rgba(22, 70, 184, 1)" bold="true" letterSpacing="2" wrap="false">
+          <p>THE AI BOOTCAMP</p>
+        </content>
+      </shape>
+      <shape width="128" height="8" topLeftX="48" topLeftY="246" presetHandlers="0" type="rect" id="bdH">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="62" topLeftX="46" topLeftY="272" type="text" id="bdf">
+        <content textType="title" fontSize="46" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>在洛阳理工的两天</p>
+        </content>
+      </shape>
+      <shape width="600" height="72" topLeftX="46" topLeftY="336" type="text" id="bdm">
+        <content textType="title" fontSize="52" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>开放式 AI 实训</p>
+        </content>
+      </shape>
+      <shape width="560" height="26" topLeftX="48" topLeftY="428" type="text" id="bdY">
+        <content fontSize="17" fontFamily="思源黑体" color="rgba(22, 70, 184, 1)" wrap="false">
+          <p>派聪明 RAG · PaiCLI · 派简历 · AI Agent</p>
+        </content>
+      </shape>
+      <line id="bdg" startX="48" startY="466" endX="360.0016025599869" endY="466">
+        <border color="rgba(23, 21, 18, 1)" width="1"/>
+      </line>
+      <shape width="560" height="24" topLeftX="48" topLeftY="476" type="text" id="bdU">
+        <content textType="caption" fontSize="13" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>LECTURER / 沉默王二　·　2026.10.18　·　HENAN LUOYANG</p>
+        </content>
+      </shape>
+      <img id="bdK" src="Lq0ObJJxloP9EHxGQUJcTiptnkb" width="316" height="151" topLeftX="596" topLeftY="150">
+        <crop type="rect" leftOffset="0" rightOffset="0" topOffset="0.1958174904943064" bottomOffset="0.195817490494278"/>
+      </img>
+      <shape width="316" height="151" topLeftX="596" topLeftY="150" presetHandlers="0" type="rect" id="bdB">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="105.99999999999999" height="25.999999999999996" topLeftX="806" topLeftY="115.99999999999997" rotation="3" presetHandlers="0" type="rect" id="bdP">
+        <fill>
+          <fillColor color="rgba(241, 165, 27, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="95.99999999999999" height="25.999999999999996" topLeftX="812.0000000000001" topLeftY="115.99999999999996" rotation="3" type="text" id="bdS">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>GUEST SPEAKER</p>
+        </content>
+      </shape>
+      <shape width="316" height="150" topLeftX="596" topLeftY="330" presetHandlers="0" type="rect" id="bdc">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="272" height="100" topLeftX="620" topLeftY="356" type="text" id="bdE">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.6">
+          <p>没有距离感的技术交流，</p>
+          <p>问题随时打断，现场一一回答。</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bdn">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bdz">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>SILENCE WANG-ER</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bji">
+      <content>
+        <p>开场先自我介绍：我是沉默王二，这两天的课是一场完全开放、没有距离感的技术交流。大家在听课过程中，不管是技术、找工作还是人生规划的问题，随时可以打断我。今天这期杂志式讲义，会带大家走完派聪明 RAG、PaiCLI 和派简历三条主线。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQH">
+    <style>
+      <fill id="fQH">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bjF">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bjx">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bjT">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.02 / 15</p>
+        </content>
+      </shape>
+      <line id="bjb" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="220" height="24" topLeftX="48" topLeftY="92" type="text" id="bjS">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>EDITOR&apos;S NOTE · 卷首语</p>
+        </content>
+      </shape>
+      <shape width="520" height="56" topLeftX="46" topLeftY="132" type="text" id="bjc">
+        <content textType="title" fontSize="40" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>没有距离感的</p>
+        </content>
+      </shape>
+      <shape width="520" height="56" topLeftX="46" topLeftY="190" type="text" id="bjE">
+        <content textType="title" fontSize="40" fontFamily="寒蝉端黑体" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>开放式技术交流</p>
+        </content>
+      </shape>
+      <line id="bjn" startX="48" startY="268" endX="180.00378782444088" endY="268">
+        <border color="rgba(23, 21, 18, 1)" width="3"/>
+      </line>
+      <shape width="524" height="200" topLeftX="48" topLeftY="292" type="text" id="bjg">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.9" textAlign="justify">
+          <p>这两天的课，是一场完全开放、没有任何距离感的技术交流。大家在听课过程中，有任何关于技术、关于找工作、关于人生规划的疑问，随时可以打断我。</p>
+          <p>技术的问题、人生的问题、求职的问题，甚至谈恋爱的问题都可以。当场回答不了的，我会让 Gemini 现场替我回答大家。</p>
+        </content>
+      </shape>
+      <shape width="288" height="380" topLeftX="624" topLeftY="92" presetHandlers="0" type="rect" id="bjU">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="80" topLeftX="648" topLeftY="120" type="text" id="bjK">
+        <content textType="title" fontSize="72" fontFamily="Playfair Display" color="rgba(241, 165, 27, 1)" bold="true" wrap="false">
+          <p>“</p>
+        </content>
+      </shape>
+      <shape width="240" height="180" topLeftX="648" topLeftY="220" type="text" id="bjB">
+        <content fontSize="22" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.8">
+          <p>问题随时打断，</p>
+          <p>现场一一回答。</p>
+        </content>
+      </shape>
+      <line id="bjL" startX="648" startY="418" endX="720.0069441095787" endY="418">
+        <border color="rgba(241, 165, 27, 1)"/>
+      </line>
+      <shape width="240" height="24" topLeftX="648" topLeftY="428" type="text" id="bjO">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.749)" letterSpacing="1" wrap="false">
+          <p>OPEN FLOOR · TWO DAYS</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bjH">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bjf">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>EDITOR&apos;S NOTE</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bjQ">
+      <content>
+        <p>先把课堂规矩讲清楚：这两天没有距离感，技术、求职、人生规划甚至恋爱问题都可以随时打断我。我答不上来的，现场让 Gemini 补位。先把气氛放开，后面讲项目大家才敢问。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQZ">
+    <style>
+      <fill id="fQZ">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bjC">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bjr">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bsa">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.03 / 15</p>
+        </content>
+      </shape>
+      <line id="bsd" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="260" height="24" topLeftX="48" topLeftY="86" type="text" id="bjm">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>TRACK RECORD · 战绩</p>
+        </content>
+      </shape>
+      <shape width="620" height="52" topLeftX="46" topLeftY="118" type="text" id="bjA">
+        <content textType="title" fontSize="38" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>改过的简历，拿到的 offer</p>
+        </content>
+      </shape>
+      <line id="bjv" startX="48" startY="184" endX="180.00378782444088" endY="184">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <shape width="180" height="56" topLeftX="48" topLeftY="204" type="text" id="bjy">
+        <content textType="title" fontSize="48" fontFamily="Anton" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>1095</p>
+        </content>
+      </shape>
+      <shape width="210" height="36" topLeftX="48" topLeftY="268" type="text" id="bsX">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.4">
+          <p>份简历归档在飞书多维表格，985、211 占比很高</p>
+        </content>
+      </shape>
+      <shape width="200" height="56" topLeftX="300" topLeftY="204" type="text" id="bse">
+        <content textType="title" fontSize="40" fontFamily="Anton" color="rgba(255, 79, 135, 1)" bold="true" wrap="false">
+          <p>985/211</p>
+        </content>
+      </shape>
+      <shape width="210" height="36" topLeftX="300" topLeftY="268" type="text" id="bjJ">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.4">
+          <p>院校覆盖很广，除清华大学本科外都有辅导过</p>
+        </content>
+      </shape>
+      <shape width="352" height="36" topLeftX="560" topLeftY="206" type="text" id="bjD">
+        <content textType="title" fontSize="24" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>大厂转正与 offer 记录</p>
+        </content>
+      </shape>
+      <shape width="352" height="36" topLeftX="560" topLeftY="268" type="text" id="bjN">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.4">
+          <p>京东 · 腾讯 · 美团 · 字节 · 蚂蚁 · 拼多多 · 快手，均来自学员私信反馈</p>
+        </content>
+      </shape>
+      <img id="bsj" src="UQoLb17kkoboB4xG5BicJFL9nOd" width="289" height="188" topLeftX="48" topLeftY="312">
+        <crop type="rect" leftOffset="0.10429447852760632" rightOffset="0.10429447852760632" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="289" height="188" topLeftX="48" topLeftY="312" presetHandlers="0" type="rect" id="bsV">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <img id="bsR" src="UtqlbhYZBo3Lt0xIxjPcLqQrnPh" width="239" height="188.00000000000003" topLeftX="372" topLeftY="312">
+        <crop type="rect" leftOffset="0" rightOffset="-2.842170943040401e-14" topOffset="0.1643109540635237" bottomOffset="0.16431095406360896"/>
+      </img>
+      <shape width="239" height="188" topLeftX="372" topLeftY="312" presetHandlers="0" type="rect" id="bjG">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="256" height="188" topLeftX="656" topLeftY="312" presetHandlers="0" type="rect" id="bjZ">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="216" height="22" topLeftX="676" topLeftY="328" type="text" id="bjM">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 165, 27, 1)" letterSpacing="1" wrap="false">
+          <p>OFFER BOARD</p>
+        </content>
+      </shape>
+      <shape width="216" height="130" topLeftX="676" topLeftY="360" type="text" id="bss">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.85">
+          <p>京东转正</p>
+          <p>腾讯转正</p>
+          <p>美团转正</p>
+          <p>字节转正 · 蚂蚁转正</p>
+          <p>拼多多 / 快手意向</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bsI">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bst">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>TRACK RECORD</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bjk">
+      <content>
+        <p>先说成绩，不然大家可能提不起兴趣。我这些年改过的简历有 1095 份，归档在飞书多维表格里，985、211 的同学非常多，除了清华大学本科没有辅导过，其余院校基本都覆盖。拿到互联网大厂 offer 和转正的同学也很多，京东、腾讯、美团、字节、蚂蚁、拼多多、快手都有记录，这些都是学员私信发我的反馈。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQc">
+    <style>
+      <fill id="fQc">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bsO">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bsH">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bsW">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.04 / 15</p>
+        </content>
+      </shape>
+      <line id="bsY" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="280" height="24" topLeftX="48" topLeftY="86" type="text" id="bsw">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>REACH · 内容影响力</p>
+        </content>
+      </shape>
+      <shape width="700" height="52" topLeftX="46" topLeftY="118" type="text" id="bsQ">
+        <content textType="title" fontSize="36" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>开源与内容，也是战绩的一部分</p>
+        </content>
+      </shape>
+      <line id="bsF" startX="48" startY="184" endX="180.00378782444088" endY="184">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <shape width="220" height="60" topLeftX="48" topLeftY="206" type="text" id="bsx">
+        <content textType="title" fontSize="52" fontFamily="Anton" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>17.8k</p>
+        </content>
+      </shape>
+      <shape width="220" height="36" topLeftX="48" topLeftY="272" type="text" id="bsp">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.4">
+          <p>GitHub「二哥的 Java 进阶之路」star，另有 2.5k forks</p>
+        </content>
+      </shape>
+      <shape width="260" height="60" topLeftX="360" topLeftY="206" type="text" id="bso">
+        <content textType="title" fontSize="52" fontFamily="Anton" color="rgba(255, 79, 135, 1)" bold="true" wrap="false">
+          <p>122.66万</p>
+        </content>
+      </shape>
+      <shape width="260" height="36" topLeftX="360" topLeftY="272" type="text" id="bsl">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.4">
+          <p>抖音账号近 30 日播放量（09.13–10.10），月均百万级</p>
+        </content>
+      </shape>
+      <shape width="224" height="60" topLeftX="688" topLeftY="206" type="text" id="bsz">
+        <content textType="title" fontSize="52" fontFamily="Anton" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>3000+</p>
+        </content>
+      </shape>
+      <shape width="224" height="36" topLeftX="688" topLeftY="272" type="text" id="bsS">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.4">
+          <p>「王二讲 Agent」飞书知识库单周阅读量</p>
+        </content>
+      </shape>
+      <img id="bsc" src="VdCBbJaVEoUaBfxYC4Fc3wmznBc" width="370" height="178" topLeftX="48" topLeftY="322">
+        <crop type="rect" leftOffset="0.22902796271637982" rightOffset="0.2290279627163727" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="370" height="178" topLeftX="48" topLeftY="322" presetHandlers="0" type="rect" id="bsu">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <img id="bsi" src="G2ENbqd1DovlOXxJ034cPiXpnsg" width="298" height="172" topLeftX="470" topLeftY="328">
+        <crop type="rect" leftOffset="0.12765957446811171" rightOffset="0.12765957446805487" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="298" height="172" topLeftX="470" topLeftY="328" presetHandlers="0" type="rect" id="bsP">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="116" height="172" topLeftX="796" topLeftY="328" presetHandlers="0" type="rect" id="bsg">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="92" height="20" topLeftX="810" topLeftY="344" type="text" id="bsU">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(241, 165, 27, 1)" letterSpacing="1" wrap="false">
+          <p>MORE</p>
+        </content>
+      </shape>
+      <shape width="92" height="110" topLeftX="810" topLeftY="376" type="text" id="bsK">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.8">
+          <p>JobClaw</p>
+          <p>PmHub</p>
+          <p>技术派</p>
+          <p>PaiFlow / PaiAgent</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bsh">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bsq">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>REACH</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bsL">
+      <content>
+        <p>除了简历辅导，我还开源了「二哥的 Java 进阶之路」，GitHub 上 1.7 万多 star；「王二讲 Agent」飞书知识库一周就有 3000 多阅读；抖音短视频账号每个月有 100 多万播放，近 30 日是 122.66 万。这些是大家信任这门课的背景，接下来我会把星球里的实战项目无私分享给大家，不需要付费。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQe">
+    <style>
+      <fill id="fQe">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bRQ">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bRx">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bRo">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.05 / 15</p>
+        </content>
+      </shape>
+      <line id="bRz" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="200" height="24" topLeftX="48" topLeftY="84" type="text" id="bRc">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>CONTENTS · 本期目录</p>
+        </content>
+      </shape>
+      <shape width="500" height="52" topLeftX="46" topLeftY="114" type="text" id="bRi">
+        <content textType="title" fontSize="40" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>两天，五条线索</p>
+        </content>
+      </shape>
+      <shape width="800" height="54" topLeftX="80" topLeftY="180" presetHandlers="0" type="rect" id="bRP">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="90" height="54" topLeftX="104" topLeftY="180" type="text" id="bRU">
+        <content textType="title" fontSize="34" fontFamily="Anton" color="rgba(241, 226, 194, 1)" bold="true" wrap="false">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="430" height="54" topLeftX="210" topLeftY="180" type="text" id="bRh">
+        <content fontSize="21" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>开放解疑：随时打断</p>
+        </content>
+      </shape>
+      <shape width="200" height="54" topLeftX="660" topLeftY="180" type="text" id="bRY">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.8)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>OPEN Q&amp;A FLOOR</p>
+        </content>
+      </shape>
+      <shape width="800" height="54" topLeftX="80" topLeftY="244" presetHandlers="0" type="rect" id="bRO">
+        <fill>
+          <fillColor color="rgba(255, 79, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="90" height="54" topLeftX="104" topLeftY="244" type="text" id="bRf">
+        <content textType="title" fontSize="34" fontFamily="Anton" color="rgba(241, 226, 194, 1)" bold="true" wrap="false">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="430" height="54" topLeftX="210" topLeftY="244" type="text" id="bRp">
+        <content fontSize="21" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>派聪明企业级 RAG 知识库实战拆解</p>
+        </content>
+      </shape>
+      <shape width="200" height="54" topLeftX="660" topLeftY="244" type="text" id="bRw">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>PAISMART RAG</p>
+        </content>
+      </shape>
+      <shape width="800" height="54" topLeftX="80" topLeftY="308" presetHandlers="0" type="rect" id="bRF">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="90" height="54" topLeftX="104" topLeftY="308" type="text" id="bRT">
+        <content textType="title" fontSize="34" fontFamily="Anton" color="rgba(241, 165, 27, 1)" bold="true" wrap="false">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="430" height="54" topLeftX="210" topLeftY="308" type="text" id="bRu">
+        <content fontSize="21" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>PaiCLI：对标 Claude Code 的终端</p>
+        </content>
+      </shape>
+      <shape width="200" height="54" topLeftX="660" topLeftY="308" type="text" id="bRl">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.8)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>TERMINAL AGENT</p>
+        </content>
+      </shape>
+      <shape width="800" height="54" topLeftX="80" topLeftY="372" presetHandlers="0" type="rect" id="bRS">
+        <fill>
+          <fillColor color="rgba(241, 165, 27, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="90" height="54" topLeftX="104" topLeftY="372" type="text" id="bRE">
+        <content textType="title" fontSize="34" fontFamily="Anton" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>04</p>
+        </content>
+      </shape>
+      <shape width="430" height="54" topLeftX="210" topLeftY="372" type="text" id="bRt">
+        <content fontSize="21" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>派简历：两个项目写成一页 PDF</p>
+        </content>
+      </shape>
+      <shape width="200" height="54" topLeftX="660" topLeftY="372" type="text" id="bRq">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.749)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>ONE-PAGE RESUME</p>
+        </content>
+      </shape>
+      <shape width="800" height="54" topLeftX="80" topLeftY="436" presetHandlers="0" type="rect" id="bRg">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 0.08)"/>
+        </fill>
+        <border color="rgba(22, 70, 184, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="90" height="54" topLeftX="104" topLeftY="436" type="text" id="bRK">
+        <content textType="title" fontSize="34" fontFamily="Anton" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>05</p>
+        </content>
+      </shape>
+      <shape width="430" height="54" topLeftX="210" topLeftY="436" type="text" id="bRR">
+        <content fontSize="21" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>AI Agent：工具、趋势与择业闲谈</p>
+        </content>
+      </shape>
+      <shape width="200" height="54" topLeftX="660" topLeftY="436" type="text" id="bRL">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(22, 70, 184, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>AGENTS TALK</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bRH">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bRW">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>CONTENTS</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bsn">
+      <content>
+        <p>这两天一共五条线索：先开放解疑；然后重点拆两个经典项目——派聪明企业级 RAG 和 PaiCLI 终端 Agent，它们最容易被面试官和 HR 青睐；第二天用派简历把这两个项目写成一页可直投的 PDF；最后聊聊 AI Agent 时代的工具和趋势。其他星球项目有需要也可以共享。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQr">
+    <style>
+      <fill id="fQr">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bRv">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bRy">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="btX">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.06 / 15</p>
+        </content>
+      </shape>
+      <line id="bte" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="300" height="220" topLeftX="620" topLeftY="80" type="text" id="bRm">
+        <content textType="title" fontSize="200" fontFamily="Anton" color="rgba(22, 70, 184, 0.102)" bold="true" textAlign="right" wrap="false">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="300" height="24" topLeftX="48" topLeftY="100" type="text" id="bRA">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>CHAPTER 01 · TOOL WALL</p>
+        </content>
+      </shape>
+      <shape width="560" height="56" topLeftX="46" topLeftY="138" type="text" id="bRC">
+        <content textType="title" fontSize="42" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>先趁手，再谈 Agent</p>
+        </content>
+      </shape>
+      <shape width="540" height="52" topLeftX="48" topLeftY="210" type="text" id="bRr">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.7">
+          <p>工具没有标准答案，DeepSeek、Gemini、OpenAI 都可以聊，选自己顺手的那一把。</p>
+        </content>
+      </shape>
+      <shape width="168" height="150" topLeftX="48" topLeftY="300" presetHandlers="0" type="rect" id="bta">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="140" height="28" topLeftX="64" topLeftY="324" type="text" id="btd">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>DeepSeek</p>
+        </content>
+      </shape>
+      <shape width="140" height="66" topLeftX="64" topLeftY="362" type="text" id="bRb">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241, 226, 194, 0.902)" lineSpacing="multiple:1.6">
+          <p>近期主力 Harness</p>
+        </content>
+      </shape>
+      <shape width="168" height="150" topLeftX="226" topLeftY="300" presetHandlers="0" type="rect" id="bRk">
+        <fill>
+          <fillColor color="rgba(255, 79, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="140" height="28" topLeftX="242" topLeftY="324" type="text" id="bRZ">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>Codex · GPT</p>
+        </content>
+      </shape>
+      <shape width="140" height="66" topLeftX="242" topLeftY="362" type="text" id="bRM">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.6">
+          <p>编码与对话生态</p>
+        </content>
+      </shape>
+      <shape width="168" height="150" topLeftX="404" topLeftY="300" presetHandlers="0" type="rect" id="bts">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="140" height="28" topLeftX="420" topLeftY="324" type="text" id="btI">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 165, 27, 1)" wrap="false">
+          <p>Claude Code</p>
+        </content>
+      </shape>
+      <shape width="140" height="66" topLeftX="420" topLeftY="362" type="text" id="bRn">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.6">
+          <p>PaiCLI 对标的终端</p>
+        </content>
+      </shape>
+      <shape width="168" height="150" topLeftX="582" topLeftY="300" presetHandlers="0" type="rect" id="bRG">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 0.12)"/>
+        </fill>
+        <border color="rgba(22, 70, 184, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="140" height="28" topLeftX="598" topLeftY="324" type="text" id="bRD">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(22, 70, 184, 1)" wrap="false">
+          <p>Gemini</p>
+        </content>
+      </shape>
+      <shape width="140" height="66" topLeftX="598" topLeftY="362" type="text" id="bRN">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>答不上来现场补位</p>
+        </content>
+      </shape>
+      <shape width="152" height="150" topLeftX="760" topLeftY="300" presetHandlers="0" type="rect" id="btj">
+        <fill>
+          <fillColor color="rgba(255, 79, 135, 0.12)"/>
+        </fill>
+        <border color="rgba(255, 79, 135, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="124" height="28" topLeftX="776" topLeftY="324" type="text" id="btV">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>豆包工作</p>
+        </content>
+      </shape>
+      <shape width="124" height="66" topLeftX="776" topLeftY="362" type="text" id="btR">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>办公侧趁手工具</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bRB">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bRJ">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>CHAPTER 01</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXj">
+      <content>
+        <p>正式讲项目前先盘工具。我最近在用 DeepSeek Harness，市面上还有 Codex、ChatGPT、Claude Code、Gemini、豆包工作等等。工具没有高下，DeepSeek、Gemini、OpenAI 都可以聊，先挑顺手的用起来，后面讲的 PaiCLI 正是对标 Claude Code 做的。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQW">
+    <style>
+      <fill id="fQW">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bao">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="baw">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="baQ">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.07 / 15</p>
+        </content>
+      </shape>
+      <line id="baS" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="90" type="text" id="bai">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>CHAPTER 02 · PAISMART RAG</p>
+        </content>
+      </shape>
+      <shape width="340" height="48" topLeftX="46" topLeftY="124" type="text" id="bal">
+        <content textType="title" fontSize="32" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>RAG，不止切碎</p>
+        </content>
+      </shape>
+      <shape width="340" height="48" topLeftX="46" topLeftY="172" type="text" id="baz">
+        <content textType="title" fontSize="32" fontFamily="寒蝉端黑体" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>文档算向量</p>
+        </content>
+      </shape>
+      <line id="bag" startX="48" startY="238" endX="150.0049018429997" endY="238">
+        <border color="rgba(23, 21, 18, 1)" width="3"/>
+      </line>
+      <shape width="320" height="150" topLeftX="48" topLeftY="262" type="text" id="bah">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.9" textAlign="justify">
+          <p>很多人以为 RAG 就是把文档切碎、算出向量存起来，提问时比一比相似度再拼进提示词。面试只讲到这一层，追问大文件怎么防重、异步解析崩溃怎么恢复、专业术语搜不出来怎么办，很容易卡壳。</p>
+        </content>
+      </shape>
+      <shape width="320" height="52" topLeftX="48" topLeftY="430" presetHandlers="0" type="rect" id="baq">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="288" height="52" topLeftX="64" topLeftY="430" type="text" id="baP">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 165, 27, 1)" lineSpacing="multiple:1.6">
+          <p>Spring Boot 3 · ES · Kafka · Redis · MinIO · MySQL · Tika · SSE</p>
+        </content>
+      </shape>
+      <img id="bap" src="KnZ3btkmrooX8jxrt3PcxTsWnmh" width="504" height="301" topLeftX="408" topLeftY="120">
+        <crop type="rect" leftOffset="0.318181818181813" rightOffset="0.318181818181813" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="504" height="301" topLeftX="408" topLeftY="120" presetHandlers="0" type="rect" id="baW">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="504" height="40" topLeftX="408" topLeftY="430" type="text" id="baY">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p>派聪明 PaiSmart 企业级知识库：每条回答都附「来源#编号: 文件名 | 第X页」精确引用，可溯源。</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="baL">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="baF">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>CHAPTER 02 · RAG</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bau">
+      <content>
+        <p>第一阶段拆派聪明企业级 RAG。它不是玩具 demo，大厂小厂都能落地。先打破一个误解：RAG 远不止切碎文档算向量。真正能面试加分的是工程可靠性——大文件分片防重、异步消息不丢、宕机恢复、权限过滤、混合检索重排、带页码引用。先看界面，每条回答都能点回原文第几页。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQV">
+    <style>
+      <fill id="fQV">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bXw">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bXQ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bXa">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.08 / 15</p>
+        </content>
+      </shape>
+      <line id="bXd" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="86" type="text" id="bXu">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>02-A · UPLOAD &amp; MERGE</p>
+        </content>
+      </shape>
+      <shape width="820" height="46" topLeftX="46" topLeftY="118" type="text" id="bXi">
+        <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>5MB 固定分片，三处核验，条件更新合并</p>
+        </content>
+      </shape>
+      <line id="bXl" startX="48" startY="178" endX="180.00378782444088" endY="178">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <img id="bXz" src="IhLub5LBDozE9cxXPx6cuPTPnBf" width="456.00000000000006" height="257" topLeftX="48" topLeftY="204">
+        <crop type="rect" leftOffset="0.32306057385761733" rightOffset="0.3230605738575605" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="456" height="257" topLeftX="48" topLeftY="204" presetHandlers="0" type="rect" id="bXs">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="456" height="20" topLeftX="48" topLeftY="472" type="text" id="bXI">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>FIG.01 · 分片上传与异步消费全链路手绘</p>
+        </content>
+      </shape>
+      <shape width="364" height="24" topLeftX="548" topLeftY="204" type="text" id="bXt">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(22, 70, 184, 1)" wrap="false">
+          <p>三处记录分片进度，缺一不可</p>
+        </content>
+      </shape>
+      <shape width="364" height="76" topLeftX="548" topLeftY="238" presetHandlers="0" type="rect" id="bXq">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 0.08)"/>
+        </fill>
+        <border color="rgba(22, 70, 184, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="332" height="22" topLeftX="564" topLeftY="248" type="text" id="bXP">
+        <content fontSize="14" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>Redis 位图（48h 过期，缺失自动回填）</p>
+        </content>
+      </shape>
+      <shape width="332" height="26" topLeftX="564" topLeftY="278" type="text" id="bXV">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>key = upload:{userId}:{fileMd5}</p>
+        </content>
+      </shape>
+      <shape width="364" height="70" topLeftX="548" topLeftY="318" presetHandlers="0" type="rect" id="bXR">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 0.08)"/>
+        </fill>
+        <border color="rgba(22, 70, 184, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="332" height="22" topLeftX="564" topLeftY="330" type="text" id="bXh">
+        <content fontSize="14" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>MySQL 分片信息表</p>
+        </content>
+      </shape>
+      <shape width="332" height="24" topLeftX="564" topLeftY="356" type="text" id="bXW">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>唯一键校验分片完整性，作为最终事实来源</p>
+        </content>
+      </shape>
+      <shape width="364" height="82" topLeftX="548" topLeftY="398" presetHandlers="0" type="rect" id="bXY">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="332" height="22" topLeftX="564" topLeftY="410" type="text" id="bXL">
+        <content fontSize="14" fontFamily="寒蝉端黑体" color="rgba(241, 165, 27, 1)" wrap="false">
+          <p>MinIO 对象存储 + 条件更新合并</p>
+        </content>
+      </shape>
+      <shape width="332" height="34" topLeftX="564" topLeftY="438" type="text" id="bXX">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)">
+          <p>全部到齐后条件更新「上传中→合并中」，合并到 merged/{fileMd5}，成功才清临时分片</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bXe">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bXp">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>02-A · UPLOAD</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXo">
+      <content>
+        <p>大文件怎么传？前端按固定 5MB 切片上传，后端同时在三个地方记进度：Redis 位图 key 是 upload:{userId}:{fileMd5}，48 小时过期，缓存没了自动从数据库回填；MySQL 分片表用唯一键保证完整；MinIO 存分片本体。全部到齐后用数据库条件更新把状态从上传中改成合并中，合并到 merged/{fileMd5}，合并成功才清理临时分片，防止重复上传和半成品合并。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQi">
+    <style>
+      <fill id="fQi">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bXK">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bXb">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bXk">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.09 / 15</p>
+        </content>
+      </shape>
+      <line id="bXC" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="86" type="text" id="bXg">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>02-B · ATOMIC &amp; RECOVERABLE</p>
+        </content>
+      </shape>
+      <shape width="820" height="46" topLeftX="46" topLeftY="118" type="text" id="bXc">
+        <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>异步投递不丢，消费宕机可恢复</p>
+        </content>
+      </shape>
+      <line id="bXE" startX="48" startY="178" endX="180.00378782444088" endY="178">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <shape width="410" height="296" topLeftX="48" topLeftY="204" presetHandlers="0" type="rect" id="bXm">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="366" height="26" topLeftX="70" topLeftY="224" type="text" id="bXA">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>生产端 · Outbox 本地消息表</p>
+        </content>
+      </shape>
+      <line id="bXS" startX="70" startY="262" endX="150.00624975587843" endY="262">
+        <border color="rgba(241, 165, 27, 1)"/>
+      </line>
+      <shape width="366" height="56" topLeftX="70" topLeftY="280" type="text" id="bXx">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>① 同事务落表</strong>：改文件状态为待处理，同时写入一条待发送记录，提交即一致。</p>
+        </content>
+      </shape>
+      <shape width="366" height="56" topLeftX="70" topLeftY="348" type="text" id="bXT">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>② 异步投递</strong>：事务提交后由线程池投递到 Kafka，不阻塞上传主链路。</p>
+        </content>
+      </shape>
+      <shape width="366" height="64" topLeftX="70" topLeftY="416" type="text" id="bXB">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>③ 失败补发</strong>：线程池满或网络抖动，每 5 秒定时任务指数退避扫描补发，封顶 300 秒。</p>
+        </content>
+      </shape>
+      <shape width="410" height="296" topLeftX="502" topLeftY="204" presetHandlers="0" type="rect" id="bXJ">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="366" height="26" topLeftX="524" topLeftY="224" type="text" id="bXD">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 165, 27, 1)" wrap="false">
+          <p>消费端 · 租约认领与超时恢复</p>
+        </content>
+      </shape>
+      <line id="bXF" startX="524" startY="262" endX="604.0062497558785" endY="262">
+        <border color="rgba(255, 79, 135, 1)"/>
+      </line>
+      <shape width="366" height="44" topLeftX="524" topLeftY="280" type="text" id="bXH">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>① 条件更新认领</strong>：拿到 600 秒处理租约，写入起始时间与心跳。</p>
+        </content>
+      </shape>
+      <shape width="366" height="44" topLeftX="524" topLeftY="330" type="text" id="bXf">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>② 清旧索引</strong>：按文件 MD5 + 上传者 ID 精确清理旧向量。</p>
+        </content>
+      </shape>
+      <shape width="366" height="56" topLeftX="524" topLeftY="380" type="text" id="bXn">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>③ 解析切块</strong>：PDF 走 LiteParse 保页码；其余 21 种格式走 Apache Tika（22 种白名单）。</p>
+        </content>
+      </shape>
+      <shape width="366" height="48" topLeftX="524" topLeftY="442" type="text" id="bXG">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.7">
+          <p><strong>④ 心跳与恢复</strong>：每批写 ES 回调心跳；超 600 秒由每 60 秒扫描放回队列，最多重试 3 次。</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bXZ">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bXO">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>02-B · RELIABILITY</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXU">
+      <content>
+        <p>这一页讲可靠性，也是面试最爱追问的点。生产端用 Outbox 模式：改状态和写待发送记录在同一个数据库事务里，提交后线程池投 Kafka；万一线程池满或网络抖了，每 5 秒定时任务指数退避补发，封顶 300 秒。消费端条件更新认领 600 秒租约，先按 MD5 和上传者 ID 清旧索引，PDF 用 LiteParse 保留页码，其他格式用 Tika 切块，每写一批向量到 ES 就更新心跳；实例宕机心跳超 600 秒，每 60 秒的恢复任务把它放回队列，最多重试 3 次。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQG">
+    <style>
+      <fill id="fQG">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bXy">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bVX">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bVe">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.10 / 15</p>
+        </content>
+      </shape>
+      <line id="bVp" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="86" type="text" id="bVW">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>02-C · HYBRID RETRIEVAL &amp; REACT</p>
+        </content>
+      </shape>
+      <shape width="820" height="46" topLeftX="46" topLeftY="118" type="text" id="bXr">
+        <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>双路混合检索，ReAct 循环带页码作答</p>
+        </content>
+      </shape>
+      <line id="bVa" startX="48" startY="178" endX="180.00378782444088" endY="178">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <img id="bVd" src="DaWsbtHUkouuEbxvBpQcPqYEnHe" width="456.00000000000006" height="257" topLeftX="48" topLeftY="204">
+        <crop type="rect" leftOffset="0.32306057385761733" rightOffset="0.3230605738575605" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="456" height="257" topLeftX="48" topLeftY="204" presetHandlers="0" type="rect" id="bVu">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="456" height="20" topLeftX="48" topLeftY="472" type="text" id="bVo">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>FIG.02 · 混合检索与 ReAct 问答手绘</p>
+        </content>
+      </shape>
+      <shape width="364" height="22" topLeftX="548" topLeftY="204" type="text" id="bXM">
+        <content fontSize="15" fontFamily="寒蝉端黑体" color="rgba(22, 70, 184, 1)" wrap="false">
+          <p>search_knowledge 检索管线</p>
+        </content>
+      </shape>
+      <shape width="364" height="34" topLeftX="548" topLeftY="238" type="text" id="bVs">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p><strong>1 权限过滤</strong>：注入组织标签与公开属性，只召回本人可见文档</p>
+        </content>
+      </shape>
+      <shape width="364" height="34" topLeftX="548" topLeftY="282" type="text" id="bVI">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p><strong>2 双路并行</strong>：BM25 关键词 + KNN 向量余弦同时召回</p>
+        </content>
+      </shape>
+      <shape width="364" height="34" topLeftX="548" topLeftY="326" type="text" id="bVt">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p><strong>3 RRF 融合</strong>：倒数排名合并两路结果，避免单一打分偏差</p>
+        </content>
+      </shape>
+      <shape width="364" height="34" topLeftX="548" topLeftY="370" type="text" id="bVi">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p><strong>4 重排过滤</strong>：gte-rerank-v2 重排序，按分数阈值过滤</p>
+        </content>
+      </shape>
+      <shape width="364" height="34" topLeftX="548" topLeftY="414" type="text" id="bXN">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p><strong>5 扩父分块</strong>：子分块扩为完整父块，SSE 流式输出带页码引用</p>
+        </content>
+      </shape>
+      <shape width="364" height="38" topLeftX="548" topLeftY="458" presetHandlers="0" type="rect" id="bVj">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="332" height="38" topLeftX="564" topLeftY="458" type="text" id="bVV">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(241, 165, 27, 1)" wrap="false">
+          <p>最多 4 轮 · 8 次工具调用 · (来源#编号: 文件名 | 第X页)</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bVR">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bVh">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>02-C · RETRIEVAL</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXv">
+      <content>
+        <p>提问阶段是 ReAct 循环，大模型自己决定调 search_knowledge。先注入当前用户的组织标签和公开属性做权限过滤，不同部门只能看到自己权限内的文档；然后 BM25 关键词和 KNN 向量余弦并行召回，用 RRF 倒数排名融合，再交给 gte-rerank-v2 重排、按阈值过滤，把子分块扩展成完整父分块交给大模型。最后 SSE 流式输出，每句都带 (来源#编号: 文件名 | 第X页)，最多 4 轮 8 次工具调用。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQF">
+    <style>
+      <fill id="fQF">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="btu">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="btW">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="btY">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.11 / 15</p>
+        </content>
+      </shape>
+      <line id="btQ" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="90" type="text" id="btt">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>CHAPTER 03 · PAICLI</p>
+        </content>
+      </shape>
+      <shape width="360" height="48" topLeftX="46" topLeftY="120" type="text" id="bto">
+        <content textType="title" fontSize="40" fontFamily="Anton" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>PaiCLI</p>
+        </content>
+      </shape>
+      <shape width="356" height="36" topLeftX="48" topLeftY="182" type="text" id="btw">
+        <content textType="title" fontSize="22" fontFamily="寒蝉端黑体" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>终端命令行里的 Agent 工具</p>
+        </content>
+      </shape>
+      <line id="btz" startX="48" startY="232" endX="150.0049018429997" endY="232">
+        <border color="rgba(23, 21, 18, 1)" width="3"/>
+      </line>
+      <shape width="330" height="150" topLeftX="48" topLeftY="260" type="text" id="bth">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.9" textAlign="justify">
+          <p>一个跑在命令行里的 Agent 工具，Java 21 实现，另有 Go、TypeScript、Python 版本。它能编辑文件、检索代码、执行终端命令、接入 MCP 协议并扩展浏览器自动化，是 AI 时代最容易上手、也最受面试官青睐的项目之一。</p>
+        </content>
+      </shape>
+      <shape width="330" height="54" topLeftX="48" topLeftY="428" presetHandlers="0" type="rect" id="bti">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="300" height="54" topLeftX="64" topLeftY="428" type="text" id="btl">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241, 165, 27, 1)" lineSpacing="multiple:1.6">
+          <p>Java 21 · DeepSeek API · MCP · CompletableFuture · Git 快照 · JLine · Lanterna</p>
+        </content>
+      </shape>
+      <img id="btP" src="GnUobHX2bo1u2IxN2AQcIWI0nkg" width="500.00000000000006" height="335" topLeftX="412" topLeftY="120">
+        <crop type="rect" leftOffset="0.3579881656804673" rightOffset="0.3579881656804105" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="500" height="335" topLeftX="412" topLeftY="120" presetHandlers="0" type="rect" id="btg">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="500" height="24" topLeftX="412" topLeftY="466" type="text" id="btp">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)">
+          <p>终端中 PaiCLI 调用 DeepSeek V4.1 Flash，展示 ReAct 思考与工具调用过程。</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="btq">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="btL">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>CHAPTER 03 · PAICLI</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bVH">
+      <content>
+        <p>第三个项目 PaiCLI，对标 Claude Code 和 Codex，是一个命令行 Agent。Java 21 写的，另外还有 Go、TypeScript、Python 版本。能力包括文件编辑、代码检索、终端执行、MCP 协议扩展和浏览器自动化。技术栈是 Java 21、DeepSeek API、MCP、CompletableFuture、Git 快照、JLine、Lanterna。先看它在终端里怎么思考、怎么调工具。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQK">
+    <style>
+      <fill id="fQK">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bVN">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bIj">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bIV">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.12 / 15</p>
+        </content>
+      </shape>
+      <line id="bVB" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="86" type="text" id="bVJ">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>03-A · THREE EXECUTION PATHS</p>
+        </content>
+      </shape>
+      <shape width="820" height="46" topLeftX="46" topLeftY="118" type="text" id="bVA">
+        <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>三条执行路径，同一套工具注册表</p>
+        </content>
+      </shape>
+      <line id="bVv" startX="48" startY="178" endX="180.00378782444088" endY="178">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <shape width="272" height="286" topLeftX="48" topLeftY="210" presetHandlers="0" type="rect" id="bVy">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="224" height="44" topLeftX="72" topLeftY="232" type="text" id="bIX">
+        <content textType="title" fontSize="34" fontFamily="Anton" color="rgba(241, 226, 194, 1)" bold="true" wrap="false">
+          <p>REACT</p>
+        </content>
+      </shape>
+      <shape width="224" height="26" topLeftX="72" topLeftY="288" type="text" id="bIe">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 165, 27, 1)" wrap="false">
+          <p>默认循环路径</p>
+        </content>
+      </shape>
+      <line id="bVf" startX="72" startY="328" endX="132.00833275470998" endY="328">
+        <border color="rgba(241, 165, 27, 1)"/>
+      </line>
+      <shape width="224" height="140" topLeftX="72" topLeftY="344" type="text" id="bVm">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.8">
+          <p>模型边思考边调工具，一步一观察、一观察一再思考，直到完成任务。适合日常单步编码与问答。</p>
+        </content>
+      </shape>
+      <shape width="272" height="286" topLeftX="344" topLeftY="210" presetHandlers="0" type="rect" id="bVk">
+        <fill>
+          <fillColor color="rgba(255, 79, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="224" height="44" topLeftX="368" topLeftY="232" type="text" id="bVC">
+        <content textType="title" fontSize="28" fontFamily="Anton" color="rgba(241, 226, 194, 1)" bold="true" wrap="false">
+          <p>PLAN-EXEC</p>
+        </content>
+      </shape>
+      <shape width="224" height="26" topLeftX="368" topLeftY="288" type="text" id="bVr">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>先规划，后执行</p>
+        </content>
+      </shape>
+      <line id="bIa" startX="368" startY="328" endX="428.00833275470995" endY="328">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="224" height="30" topLeftX="368" topLeftY="344" type="text" id="bId">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>触发：/plan 或 Shift+Tab</p>
+        </content>
+      </shape>
+      <shape width="224" height="100" topLeftX="368" topLeftY="384" type="text" id="bVT">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.8">
+          <p>先产出完整计划，再按步执行与核对。适合多步骤、跨文件的复杂改造任务。</p>
+        </content>
+      </shape>
+      <shape width="272" height="286" topLeftX="640" topLeftY="210" presetHandlers="0" type="rect" id="bVb">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="224" height="44" topLeftX="664" topLeftY="232" type="text" id="bVG">
+        <content textType="title" fontSize="28" fontFamily="Anton" color="rgba(241, 165, 27, 1)" bold="true" wrap="false">
+          <p>TEAM</p>
+        </content>
+      </shape>
+      <shape width="224" height="26" topLeftX="664" topLeftY="288" type="text" id="bVZ">
+        <content fontSize="18" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" wrap="false">
+          <p>多 Agent 团队协作</p>
+        </content>
+      </shape>
+      <line id="bVM" startX="664" startY="328" endX="724.00833275471" endY="328">
+        <border color="rgba(255, 79, 135, 1)"/>
+      </line>
+      <shape width="224" height="30" topLeftX="664" topLeftY="344" type="text" id="bIs">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.8)" wrap="false">
+          <p>触发：/team</p>
+        </content>
+      </shape>
+      <shape width="224" height="100" topLeftX="664" topLeftY="384" type="text" id="bII">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(241, 226, 194, 1)" lineSpacing="multiple:1.8">
+          <p>Planner 拆解任务，Worker 并行执行，Reviewer 审查结果，角色分工完成大任务。</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bVE">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bVn">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>03-A · PATHS</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bVD">
+      <content>
+        <p>PaiCLI 提供三条核心执行路径，底层复用同一套工具注册表、长期记忆、回合快照和对话账本。默认是 ReAct 循环，边想边调工具；输入 /plan 或按 Shift+Tab 进入先规划后执行，适合复杂改造；输入 /team 触发多 Agent，Planner 拆解、Worker 并行、Reviewer 审查，把大任务分给三个角色。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQS">
+    <style>
+      <fill id="fQS">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bdI">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bdi">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bIC">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.13 / 15</p>
+        </content>
+      </shape>
+      <line id="bda" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="86" type="text" id="bdu">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>03-B · ENGINEERING DETAILS</p>
+        </content>
+      </shape>
+      <shape width="820" height="46" topLeftX="46" topLeftY="118" type="text" id="bdw">
+        <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>PaiCLI 的六个工程细节</p>
+        </content>
+      </shape>
+      <line id="bIv" startX="48" startY="178" endX="180.00378782444088" endY="178">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <shape width="60" height="40" topLeftX="48" topLeftY="206" type="text" id="bdX">
+        <content textType="title" fontSize="32" fontFamily="Anton" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="342" height="24" topLeftX="116" topLeftY="206" type="text" id="bdp">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>9 层系统提示词 + 前缀缓存</p>
+        </content>
+      </shape>
+      <shape width="342" height="56" topLeftX="116" topLeftY="234" type="text" id="bID">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>按稳定度从高到低拼接基础策略、性格、模式、审批、上下文规范、技能索引、运行时日期、动态记忆；18 个内置工具按名称排序发送，提升缓存命中。</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="502" topLeftY="206" type="text" id="bdj">
+        <content textType="title" fontSize="32" fontFamily="Anton" color="rgba(22, 70, 184, 1)" bold="true" wrap="false">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="342" height="24" topLeftX="570" topLeftY="206" type="text" id="bdR">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>手写 MCP 客户端</p>
+        </content>
+      </shape>
+      <shape width="342" height="56" topLeftX="570" topLeftY="234" type="text" id="bdq">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>基于 stdio 与 Streamable HTTP 手写协议，外部工具可动态挂载，不依赖现成 SDK。</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="48" topLeftY="312" type="text" id="bIZ">
+        <content textType="title" fontSize="32" fontFamily="Anton" color="rgba(255, 79, 135, 1)" bold="true" wrap="false">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="342" height="24" topLeftX="116" topLeftY="312" type="text" id="bds">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>渐进式 Skill 加载</p>
+        </content>
+      </shape>
+      <shape width="342" height="56" topLeftX="116" topLeftY="340" type="text" id="bdt">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>提示词只留技能摘要，模型调 load_skill 时同轮注入完整正文，大幅节省上下文窗口。</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="502" topLeftY="312" type="text" id="bdl">
+        <content textType="title" fontSize="32" fontFamily="Anton" color="rgba(255, 79, 135, 1)" bold="true" wrap="false">
+          <p>04</p>
+        </content>
+      </shape>
+      <shape width="342" height="24" topLeftX="570" topLeftY="312" type="text" id="bIr">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>失控守卫与停滞检测</p>
+        </content>
+      </shape>
+      <shape width="342" height="56" topLeftX="570" topLeftY="340" type="text" id="bdd">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>连续 3 步重复参数或命中 8 类正则错误就提醒换思路；连续 5 轮工具签名相同则强制中止，只留一次无工具收尾汇报。</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="48" topLeftY="418" type="text" id="bdo">
+        <content textType="title" fontSize="32" fontFamily="Anton" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>05</p>
+        </content>
+      </shape>
+      <shape width="342" height="24" topLeftX="116" topLeftY="418" type="text" id="bIA">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>权限策略与防注入边界</p>
+        </content>
+      </shape>
+      <shape width="342" height="48" topLeftX="116" topLeftY="446" type="text" id="bIy">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>按每轮原始输入构造权限策略；工具结果包进非信任数据边界标签，防止提示词注入。</p>
+        </content>
+      </shape>
+      <shape width="60" height="40" topLeftX="502" topLeftY="418" type="text" id="bde">
+        <content textType="title" fontSize="32" fontFamily="Anton" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>06</p>
+        </content>
+      </shape>
+      <shape width="342" height="24" topLeftX="570" topLeftY="418" type="text" id="bdW">
+        <content fontSize="16" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" wrap="false">
+          <p>Git 快照一键回滚</p>
+        </content>
+      </shape>
+      <shape width="342" height="48" topLeftX="570" topLeftY="446" type="text" id="bIN">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" lineSpacing="multiple:1.6">
+          <p>结合 Git 快照服务，任意回合的代码变更都能一键回滚，改坏了随时退。</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bdV">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bdh">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>03-B · DETAILS</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bIM">
+      <content>
+        <p>这一页是 PaiCLI 最能体现工程深度的六点：9 层提示词分层加前缀缓存；手写 MCP 客户端；渐进式 Skill 加载省上下文；失控守卫和 5 轮停滞检测；按原始输入做权限策略、工具结果包进非信任边界防注入；Git 快照一键回滚。这些都是简历里能展开讲、面试能追问的细节。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQR">
+    <style>
+      <fill id="fQR">
+        <fillColor color="rgba(241, 226, 194, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bIB">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bIJ">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(23, 21, 18, 1)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bIg">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 1)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.14 / 15</p>
+        </content>
+      </shape>
+      <line id="bIU" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(23, 21, 18, 1)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="86" type="text" id="bIc">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>CHAPTER 04 · ONE-PAGE RESUME</p>
+        </content>
+      </shape>
+      <shape width="820" height="46" topLeftX="46" topLeftY="118" type="text" id="bIE">
+        <content textType="title" fontSize="30" fontFamily="寒蝉端黑体" color="rgba(23, 21, 18, 1)" bold="true" wrap="false">
+          <p>派简历：把两个项目写成一页直投 PDF</p>
+        </content>
+      </shape>
+      <line id="bIn" startX="48" startY="178" endX="180.00378782444088" endY="178">
+        <border color="rgba(22, 70, 184, 1)" width="3"/>
+      </line>
+      <shape width="272" height="58" topLeftX="48" topLeftY="200" presetHandlers="0" type="rect" id="bIG">
+        <fill>
+          <fillColor color="rgba(22, 70, 184, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="58" topLeftX="66" topLeftY="200" type="text" id="bIz">
+        <content fontSize="14" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)">
+          <p>一页可直投 PDF，当天拿到可投递状态</p>
+        </content>
+      </shape>
+      <shape width="272" height="58" topLeftX="344" topLeftY="200" presetHandlers="0" type="rect" id="bIS">
+        <fill>
+          <fillColor color="rgba(255, 79, 135, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="58" topLeftX="362" topLeftY="200" type="text" id="bIx">
+        <content fontSize="14" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)">
+          <p>派聪明 + PaiCLI 写进项目经历</p>
+        </content>
+      </shape>
+      <shape width="272" height="58" topLeftX="640" topLeftY="200" presetHandlers="0" type="rect" id="bIT">
+        <fill>
+          <fillColor color="rgba(23, 21, 18, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="58" topLeftX="658" topLeftY="200" type="text" id="bIb">
+        <content fontSize="14" fontFamily="寒蝉端黑体" color="rgba(241, 165, 27, 1)">
+          <p>量化指标包装，职责成果分栏陈述</p>
+        </content>
+      </shape>
+      <img id="bIk" src="HMS2bsjyUoNNNAxw9nHcMkTPnEf" width="392" height="202" topLeftX="48" topLeftY="286">
+        <crop type="rect" leftOffset="0.14861460957177997" rightOffset="0.14861460957177997" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="392" height="202" topLeftX="48" topLeftY="286" presetHandlers="0" type="rect" id="bIQ">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="392" height="16" topLeftX="48" topLeftY="494" type="text" id="bIF">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" wrap="false">
+          <p>FIG.03 · 优质简历列表（派简历）</p>
+        </content>
+      </shape>
+      <img id="bIH" src="Fsq1bJNlvobFHNx0kKncOxoan8e" width="330" height="186" topLeftX="480" topLeftY="286">
+        <crop type="rect" leftOffset="0.24548352816151464" rightOffset="0.24548352816157148" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="330" height="186" topLeftX="480" topLeftY="286" presetHandlers="0" type="rect" id="bIf">
+        <border color="rgba(23, 21, 18, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="330" height="16" topLeftX="480" topLeftY="478" type="text" id="bIm">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" wrap="false">
+          <p>FIG.04 · 项目经历三栏 + 量化指标排版</p>
+        </content>
+      </shape>
+      <shape width="400" height="16" topLeftX="48" topLeftY="512" type="text" id="bIL">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" wrap="false">
+          <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+        </content>
+      </shape>
+      <shape width="200" height="16" topLeftX="712" topLeftY="512" type="text" id="bIO">
+        <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23, 21, 18, 0.6)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>CHAPTER 04 · RESUME</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bIK">
+      <content>
+        <p>第二天用派简历把前面两个项目写成一份一页可直投的 PDF。派聪明和 PaiCLI 分别作为两段项目经历，按职责、技术栈、量化成果分栏陈述，不堆空话。走完这一步，大家离开教室时手里就有一份能直接投出去的简历。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pQL">
+    <style>
+      <fill id="fQL">
+        <fillColor color="rgba(23, 21, 18, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="320" height="18" topLeftX="48" topLeftY="26" type="text" id="bIu">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.702)" letterSpacing="1.5" wrap="false">
+          <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+        </content>
+      </shape>
+      <shape width="300" height="18" topLeftX="330" topLeftY="26" type="text" id="bIh">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(241, 226, 194, 0.702)" textAlign="center" wrap="false">
+          <p>洛阳理工学院 · 两天开放式实训</p>
+        </content>
+      </shape>
+      <shape width="92" height="18" topLeftX="820" topLeftY="26" type="text" id="bIo">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.702)" letterSpacing="1" textAlign="right" wrap="false">
+          <p>P.15 / 15</p>
+        </content>
+      </shape>
+      <line id="bIq" startX="48" startY="52" endX="912.0005787035097" endY="52">
+        <border color="rgba(241, 226, 194, 0.35)"/>
+      </line>
+      <shape width="320" height="24" topLeftX="48" topLeftY="118" type="text" id="bIw">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(255, 79, 135, 1)" letterSpacing="2" wrap="false">
+          <p>FINALE · AI AGENTS TALK</p>
+        </content>
+      </shape>
+      <shape width="860" height="72" topLeftX="46" topLeftY="172" type="text" id="bIP">
+        <content textType="title" fontSize="58" fontFamily="寒蝉端黑体" color="rgba(241, 226, 194, 1)" bold="true" wrap="false">
+          <p>工具会换代，</p>
+        </content>
+      </shape>
+      <shape width="860" height="72" topLeftX="46" topLeftY="252" type="text" id="bIt">
+        <content textType="title" fontSize="58" fontFamily="寒蝉端黑体" color="rgba(241, 165, 27, 1)" bold="true" wrap="false">
+          <p>做过的项目不会。</p>
+        </content>
+      </shape>
+      <line id="bIp" startX="48" startY="360" endX="200.00328943809077" endY="360">
+        <border color="rgba(255, 79, 135, 1)" width="3"/>
+      </line>
+      <shape width="720" height="96" topLeftX="48" topLeftY="382" type="text" id="bIi">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(241, 226, 194, 0.902)" lineSpacing="multiple:1.9">
+          <p>AI Agent 是这个时代绕不开的话题，DeepSeek、Gemini、OpenAI 都可以谈。两天之后，希望你带着一份可直投的简历离场，而不是只记住几个名词。</p>
+        </content>
+      </shape>
+      <shape width="864" height="2" topLeftX="48" topLeftY="470" presetHandlers="0" type="rect" id="bIW">
+        <fill>
+          <fillColor color="rgba(241, 226, 194, 0.3)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="500" height="20" topLeftX="48" topLeftY="486" type="text" id="bIl">
+        <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(241, 226, 194, 0.702)" letterSpacing="1" wrap="false">
+          <p>沉默王二 · PAICODING · 技术派星球</p>
+        </content>
+      </shape>
+      <shape width="300" height="20" topLeftX="612" topLeftY="486" type="text" id="bIY">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241, 226, 194, 0.702)" textAlign="right" wrap="false">
+          <p>END · 谢谢聆听</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bIR">
+      <content>
+        <p>最后聊聊 AI Agent，这是这个时代绕不开的话题，以后不管做什么都可能用得上，想拿到不错的工作也得掌握它。DeepSeek、Gemini、OpenAI 都可以谈。两天下来，希望大家带走的是一份能直接投的简历和两个能讲透的项目，而不是一堆记不住的名词。谢谢大家。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>

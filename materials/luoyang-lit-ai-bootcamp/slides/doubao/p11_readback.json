@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "content_saved": true,
+    "issues": {
+      "document": {
+        "errors": [],
+        "infos": [],
+        "warnings": []
+      },
+      "file": null,
+      "schema_version": "2.0",
+      "slide_size": {
+        "height": 540,
+        "width": 960
+      },
+      "slides": [
+        {
+          "element_count": 16,
+          "errors": [],
+          "infos": [],
+          "issues": [],
+          "slide_number": 1,
+          "status": "passed",
+          "warnings": []
+        }
+      ],
+      "summary": {
+        "error_count": 0,
+        "info_count": 0,
+        "release_ready": true,
+        "screenshot_review_required": false,
+        "slide_count": 1,
+        "status": "passed",
+        "warning_count": 0
+      },
+      "tool": "xml_lint"
+    },
+    "path": "/Users/itwanger/Documents/GitHub/toBeBetterJavaer/luoyang-lit-ai-bootcamp-ppt/p11_readback.xml",
+    "revision_id": 20,
+    "scope": "slide",
+    "size": 5261,
+    "slide_id": "pQF",
+    "xml_presentation_id": "QCvzsUnA5li2W6dEqkAc7v5Anyf"
+  }
+}

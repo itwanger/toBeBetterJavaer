@@ -1,0 +1,139 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.06 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <!-- 右侧淡水印巨号 -->
+    <shape type="text" topLeftX="620" topLeftY="80" width="300" height="220">
+      <content textType="title" fontSize="200" fontFamily="Anton" color="rgba(22,70,184,0.10)" textAlign="right" wrap="false">
+        <p>01</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="100" width="300" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>CHAPTER 01 · TOOL WALL</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="138" width="560" height="56">
+      <content textType="title" fontSize="42" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>先趁手，再谈 Agent</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="210" width="540" height="52">
+      <content textType="body" fontSize="15" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.7">
+        <p>工具没有标准答案，DeepSeek、Gemini、OpenAI 都可以聊，选自己顺手的那一把。</p>
+      </content>
+    </shape>
+
+    <!-- 工具墙五块 -->
+    <shape type="rect" topLeftX="48" topLeftY="300" width="168" height="150">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="324" width="140" height="28">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" wrap="false">
+        <p>DeepSeek</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="362" width="140" height="66">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(241,226,194,0.9)" lineSpacing="multiple:1.6">
+        <p>近期主力 Harness</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="226" topLeftY="300" width="168" height="150">
+      <fill><fillColor color="rgb(255,79,135)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="242" topLeftY="324" width="140" height="28">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" wrap="false">
+        <p>Codex · GPT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="242" topLeftY="362" width="140" height="66">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.6">
+        <p>编码与对话生态</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="404" topLeftY="300" width="168" height="150">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="420" topLeftY="324" width="140" height="28">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,165,27)" wrap="false">
+        <p>Claude Code</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="420" topLeftY="362" width="140" height="66">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.6">
+        <p>PaiCLI 对标的终端</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="582" topLeftY="300" width="168" height="150">
+      <fill><fillColor color="rgba(22,70,184,0.12)"/></fill>
+      <border color="rgb(22,70,184)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="598" topLeftY="324" width="140" height="28">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(22,70,184)" wrap="false">
+        <p>Gemini</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="598" topLeftY="362" width="140" height="66">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>答不上来现场补位</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="760" topLeftY="300" width="152" height="150">
+      <fill><fillColor color="rgba(255,79,135,0.12)"/></fill>
+      <border color="rgb(255,79,135)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="776" topLeftY="324" width="124" height="28">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>豆包工作</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="776" topLeftY="362" width="124" height="66">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.6">
+        <p>办公侧趁手工具</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>CHAPTER 01</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>正式讲项目前先盘工具。我最近在用 DeepSeek Harness，市面上还有 Codex、ChatGPT、Claude Code、Gemini、豆包工作等等。工具没有高下，DeepSeek、Gemini、OpenAI 都可以聊，先挑顺手的用起来，后面讲的 PaiCLI 正是对标 Claude Code 做的。</p>
+    </content>
+  </note>
+</slide>

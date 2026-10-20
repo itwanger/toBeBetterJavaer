@@ -1,0 +1,120 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <!-- 顶部刊名栏家具 -->
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.01 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <!-- 粉色期号标签 -->
+    <shape type="rect" topLeftX="48" topLeftY="92" width="216" height="28">
+      <fill><fillColor color="rgb(255,79,135)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="92" width="196" height="28">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(241,226,194)" verticalAlign="middle" letterSpacing="1.5" wrap="false">
+        <p>ISSUE NO.01 · SPECIAL</p>
+      </content>
+    </shape>
+
+    <!-- 英文巨刊头 -->
+    <shape type="text" topLeftX="44" topLeftY="142" width="560" height="76">
+      <content textType="title" fontSize="46" fontFamily="Anton" color="rgb(22,70,184)" letterSpacing="2" wrap="false">
+        <p>THE AI BOOTCAMP</p>
+      </content>
+    </shape>
+
+    <!-- 短粗色条 -->
+    <shape type="rect" topLeftX="48" topLeftY="246" width="128" height="8">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+
+    <!-- 中文主标题 -->
+    <shape type="text" topLeftX="46" topLeftY="272" width="600" height="62">
+      <content textType="title" fontSize="46" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>在洛阳理工的两天</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="336" width="600" height="72">
+      <content textType="title" fontSize="52" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>开放式 AI 实训</p>
+      </content>
+    </shape>
+
+    <!-- 副标题 -->
+    <shape type="text" topLeftX="48" topLeftY="428" width="560" height="26">
+      <content textType="body" fontSize="17" fontFamily="思源黑体" color="rgb(22,70,184)" wrap="false">
+        <p>派聪明 RAG · PaiCLI · 派简历 · AI Agent</p>
+      </content>
+    </shape>
+    <line startX="48" startY="466" endX="360" endY="466">
+      <border color="rgb(23,21,18)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="48" topLeftY="476" width="560" height="24">
+      <content textType="caption" fontSize="13" fontFamily="Roboto Mono" color="rgb(23,21,18)" wrap="false">
+        <p>LECTURER / 沉默王二　·　2026.10.18　·　HENAN LUOYANG</p>
+      </content>
+    </shape>
+
+    <!-- 右侧作者名片截图块 -->
+    <img src="Lq0ObJJxloP9EHxGQUJcTiptnkb" topLeftX="596" topLeftY="150" width="316" height="151"/>
+    <shape type="rect" topLeftX="596" topLeftY="150" width="316" height="151">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <!-- 倾斜贴角标签 -->
+    <shape type="rect" topLeftX="806" topLeftY="116" width="106" height="26" rotation="3">
+      <fill><fillColor color="rgb(241,165,27)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="812" topLeftY="116" width="96" height="26" rotation="3">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(23,21,18)" verticalAlign="middle" textAlign="center" wrap="false">
+        <p>GUEST SPEAKER</p>
+      </content>
+    </shape>
+
+    <!-- 右下蓝色色块引言 -->
+    <shape type="rect" topLeftX="596" topLeftY="330" width="316" height="150">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="620" topLeftY="356" width="272" height="100">
+      <content textType="body" fontSize="18" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.6">
+        <p>没有距离感的技术交流，</p>
+        <p>问题随时打断，现场一一回答。</p>
+      </content>
+    </shape>
+
+    <!-- 底部家具 -->
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>SILENCE WANG-ER</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>开场先自我介绍：我是沉默王二，这两天的课是一场完全开放、没有距离感的技术交流。大家在听课过程中，不管是技术、找工作还是人生规划的问题，随时可以打断我。今天这期杂志式讲义，会带大家走完派聪明 RAG、PaiCLI 和派简历三条主线。</p>
+    </content>
+  </note>
+</slide>

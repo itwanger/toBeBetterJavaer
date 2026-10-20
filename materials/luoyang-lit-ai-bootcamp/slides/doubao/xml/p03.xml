@@ -1,0 +1,119 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.03 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="260" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>TRACK RECORD · 战绩</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="620" height="52">
+      <content textType="title" fontSize="38" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>改过的简历，拿到的 offer</p>
+      </content>
+    </shape>
+    <line startX="48" startY="184" endX="180" endY="184">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 数字带三项 -->
+    <shape type="text" topLeftX="48" topLeftY="204" width="180" height="56">
+      <content textType="title" fontSize="48" fontFamily="Anton" color="rgb(22,70,184)" wrap="false">
+        <p>1095</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="268" width="210" height="36">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.4">
+        <p>份简历归档在飞书多维表格，985、211 占比很高</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="300" topLeftY="204" width="200" height="56">
+      <content textType="title" fontSize="40" fontFamily="Anton" color="rgb(255,79,135)" wrap="false">
+        <p>985/211</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="300" topLeftY="268" width="210" height="36">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.4">
+        <p>院校覆盖很广，除清华大学本科外都有辅导过</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="560" topLeftY="206" width="352" height="36">
+      <content textType="title" fontSize="24" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>大厂转正与 offer 记录</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="560" topLeftY="268" width="352" height="36">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.4">
+        <p>京东 · 腾讯 · 美团 · 字节 · 蚂蚁 · 拼多多 · 快手，均来自学员私信反馈</p>
+      </content>
+    </shape>
+
+    <!-- 下部三栏：两张截图 + 名单黑块 -->
+    <img src="UQoLb17kkoboB4xG5BicJFL9nOd" topLeftX="48" topLeftY="312" width="289" height="188"/>
+    <shape type="rect" topLeftX="48" topLeftY="312" width="289" height="188">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <img src="UtqlbhYZBo3Lt0xIxjPcLqQrnPh" topLeftX="372" topLeftY="312" width="239" height="188"/>
+    <shape type="rect" topLeftX="372" topLeftY="312" width="239" height="188">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+
+    <shape type="rect" topLeftX="656" topLeftY="312" width="256" height="188">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="676" topLeftY="328" width="216" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(241,165,27)" letterSpacing="1" wrap="false">
+        <p>OFFER BOARD</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="676" topLeftY="360" width="216" height="130">
+      <content textType="body" fontSize="14" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.85">
+        <p>京东转正</p>
+        <p>腾讯转正</p>
+        <p>美团转正</p>
+        <p>字节转正 · 蚂蚁转正</p>
+        <p>拼多多 / 快手意向</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>TRACK RECORD</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>先说成绩，不然大家可能提不起兴趣。我这些年改过的简历有 1095 份，归档在飞书多维表格里，985、211 的同学非常多，除了清华大学本科没有辅导过，其余院校基本都覆盖。拿到互联网大厂 offer 和转正的同学也很多，京东、腾讯、美团、字节、蚂蚁、拼多多、快手都有记录，这些都是学员私信发我的反馈。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,118 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.04 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="86" width="280" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>REACH · 内容影响力</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="118" width="700" height="52">
+      <content textType="title" fontSize="36" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>开源与内容，也是战绩的一部分</p>
+      </content>
+    </shape>
+    <line startX="48" startY="184" endX="180" endY="184">
+      <border color="rgb(22,70,184)" width="3"/>
+    </line>
+
+    <!-- 三组大数字 -->
+    <shape type="text" topLeftX="48" topLeftY="206" width="220" height="60">
+      <content textType="title" fontSize="52" fontFamily="Anton" color="rgb(22,70,184)" wrap="false">
+        <p>17.8k</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="48" topLeftY="272" width="220" height="36">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.4">
+        <p>GitHub「二哥的 Java 进阶之路」star，另有 2.5k forks</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="360" topLeftY="206" width="260" height="60">
+      <content textType="title" fontSize="52" fontFamily="Anton" color="rgb(255,79,135)" wrap="false">
+        <p>122.66万</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="360" topLeftY="272" width="260" height="36">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.4">
+        <p>抖音账号近 30 日播放量（09.13–10.10），月均百万级</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="688" topLeftY="206" width="224" height="60">
+      <content textType="title" fontSize="52" fontFamily="Anton" color="rgb(23,21,18)" wrap="false">
+        <p>3000+</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="688" topLeftY="272" width="224" height="36">
+      <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.4">
+        <p>「王二讲 Agent」飞书知识库单周阅读量</p>
+      </content>
+    </shape>
+
+    <!-- 下排两图 -->
+    <img src="VdCBbJaVEoUaBfxYC4Fc3wmznBc" topLeftX="48" topLeftY="322" width="370" height="178"/>
+    <shape type="rect" topLeftX="48" topLeftY="322" width="370" height="178">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+    <img src="G2ENbqd1DovlOXxJ034cPiXpnsg" topLeftX="470" topLeftY="328" width="298" height="172"/>
+    <shape type="rect" topLeftX="470" topLeftY="328" width="298" height="172">
+      <border color="rgb(23,21,18)" width="2"/>
+    </shape>
+
+    <shape type="rect" topLeftX="796" topLeftY="328" width="116" height="172">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="810" topLeftY="344" width="92" height="20">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(241,165,27)" letterSpacing="1" wrap="false">
+        <p>MORE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="810" topLeftY="376" width="92" height="110">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.8">
+        <p>JobClaw</p>
+        <p>PmHub</p>
+        <p>技术派</p>
+        <p>PaiFlow / PaiAgent</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>REACH</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>除了简历辅导，我还开源了「二哥的 Java 进阶之路」，GitHub 上 1.7 万多 star；「王二讲 Agent」飞书知识库一周就有 3000 多阅读；抖音短视频账号每个月有 100 多万播放，近 30 日是 122.66 万。这些是大家信任这门课的背景，接下来我会把星球里的实战项目无私分享给大家，不需要付费。</p>
+    </content>
+  </note>
+</slide>

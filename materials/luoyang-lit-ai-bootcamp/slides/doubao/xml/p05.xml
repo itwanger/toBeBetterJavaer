@@ -1,0 +1,155 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.05 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <shape type="text" topLeftX="48" topLeftY="84" width="200" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>CONTENTS · 本期目录</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="114" width="500" height="52">
+      <content textType="title" fontSize="40" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>两天，五条线索</p>
+      </content>
+    </shape>
+
+    <!-- 纸条 01 蓝 -->
+    <shape type="rect" topLeftX="80" topLeftY="180" width="800" height="54">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="104" topLeftY="180" width="90" height="54">
+      <content textType="title" fontSize="34" fontFamily="Anton" color="rgb(241,226,194)" verticalAlign="middle" wrap="false">
+        <p>01</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="210" topLeftY="180" width="430" height="54">
+      <content textType="body" fontSize="21" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" verticalAlign="middle" wrap="false">
+        <p>开放解疑：随时打断</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="660" topLeftY="180" width="200" height="54">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241,226,194,0.8)" verticalAlign="middle" textAlign="right" letterSpacing="1" wrap="false">
+        <p>OPEN Q&amp;A FLOOR</p>
+      </content>
+    </shape>
+
+    <!-- 纸条 02 粉 -->
+    <shape type="rect" topLeftX="80" topLeftY="244" width="800" height="54">
+      <fill><fillColor color="rgb(255,79,135)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="104" topLeftY="244" width="90" height="54">
+      <content textType="title" fontSize="34" fontFamily="Anton" color="rgb(241,226,194)" verticalAlign="middle" wrap="false">
+        <p>02</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="210" topLeftY="244" width="430" height="54">
+      <content textType="body" fontSize="21" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" verticalAlign="middle" wrap="false">
+        <p>派聪明企业级 RAG 知识库实战拆解</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="660" topLeftY="244" width="200" height="54">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(241,226,194)" verticalAlign="middle" textAlign="right" letterSpacing="1" wrap="false">
+        <p>PAISMART RAG</p>
+      </content>
+    </shape>
+
+    <!-- 纸条 03 墨黑 -->
+    <shape type="rect" topLeftX="80" topLeftY="308" width="800" height="54">
+      <fill><fillColor color="rgb(23,21,18)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="104" topLeftY="308" width="90" height="54">
+      <content textType="title" fontSize="34" fontFamily="Anton" color="rgb(241,165,27)" verticalAlign="middle" wrap="false">
+        <p>03</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="210" topLeftY="308" width="430" height="54">
+      <content textType="body" fontSize="21" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" verticalAlign="middle" wrap="false">
+        <p>PaiCLI：对标 Claude Code 的终端</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="660" topLeftY="308" width="200" height="54">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241,226,194,0.8)" verticalAlign="middle" textAlign="right" letterSpacing="1" wrap="false">
+        <p>TERMINAL AGENT</p>
+      </content>
+    </shape>
+
+    <!-- 纸条 04 橙黄 -->
+    <shape type="rect" topLeftX="80" topLeftY="372" width="800" height="54">
+      <fill><fillColor color="rgb(241,165,27)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="104" topLeftY="372" width="90" height="54">
+      <content textType="title" fontSize="34" fontFamily="Anton" color="rgb(23,21,18)" verticalAlign="middle" wrap="false">
+        <p>04</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="210" topLeftY="372" width="430" height="54">
+      <content textType="body" fontSize="21" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" verticalAlign="middle" wrap="false">
+        <p>派简历：两个项目写成一页 PDF</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="660" topLeftY="372" width="200" height="54">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(23,21,18,0.75)" verticalAlign="middle" textAlign="right" letterSpacing="1" wrap="false">
+        <p>ONE-PAGE RESUME</p>
+      </content>
+    </shape>
+
+    <!-- 纸条 05 蓝描边空心 -->
+    <shape type="rect" topLeftX="80" topLeftY="436" width="800" height="54">
+      <fill><fillColor color="rgba(22,70,184,0.08)"/></fill>
+      <border color="rgb(22,70,184)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="104" topLeftY="436" width="90" height="54">
+      <content textType="title" fontSize="34" fontFamily="Anton" color="rgb(22,70,184)" verticalAlign="middle" wrap="false">
+        <p>05</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="210" topLeftY="436" width="430" height="54">
+      <content textType="body" fontSize="21" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" verticalAlign="middle" wrap="false">
+        <p>AI Agent：工具、趋势与择业闲谈</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="660" topLeftY="436" width="200" height="54">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgb(22,70,184)" verticalAlign="middle" textAlign="right" letterSpacing="1" wrap="false">
+        <p>AGENTS TALK</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>CONTENTS</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这两天一共五条线索：先开放解疑；然后重点拆两个经典项目——派聪明企业级 RAG 和 PaiCLI 终端 Agent，它们最容易被面试官和 HR 青睐；第二天用派简历把这两个项目写成一页可直投的 PDF；最后聊聊 AI Agent 时代的工具和趋势。其他星球项目有需要也可以共享。</p>
+    </content>
+  </note>
+</slide>

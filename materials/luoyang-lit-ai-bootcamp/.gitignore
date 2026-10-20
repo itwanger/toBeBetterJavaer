@@ -1,0 +1,3 @@
+# 延续迁移前 /outputs 和 /output 内文件的本地忽略状态。
+/slides/local/
+/courseware/

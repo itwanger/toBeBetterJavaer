@@ -1,0 +1,95 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(241,226,194)"/>
+    </fill>
+  </style>
+  <data>
+    <!-- 顶部刊名栏家具 -->
+    <shape type="text" topLeftX="48" topLeftY="26" width="320" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" letterSpacing="1.5" wrap="false">
+        <p>THE AI BOOTCAMP · LUOYANG LIT</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="330" topLeftY="26" width="300" height="18">
+      <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgb(23,21,18)" textAlign="center" wrap="false">
+        <p>洛阳理工学院 · 两天开放式实训</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="820" topLeftY="26" width="92" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgb(23,21,18)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>P.02 / 15</p>
+      </content>
+    </shape>
+    <line startX="48" startY="52" endX="912" endY="52">
+      <border color="rgb(23,21,18)" width="2"/>
+    </line>
+
+    <!-- 左栏 -->
+    <shape type="text" topLeftX="48" topLeftY="92" width="220" height="24">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgb(255,79,135)" letterSpacing="2" wrap="false">
+        <p>EDITOR'S NOTE · 卷首语</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="132" width="520" height="56">
+      <content textType="title" fontSize="40" fontFamily="寒蝉端黑体" color="rgb(23,21,18)" wrap="false">
+        <p>没有距离感的</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="46" topLeftY="190" width="520" height="56">
+      <content textType="title" fontSize="40" fontFamily="寒蝉端黑体" color="rgb(22,70,184)" wrap="false">
+        <p>开放式技术交流</p>
+      </content>
+    </shape>
+    <line startX="48" startY="268" endX="180" endY="268">
+      <border color="rgb(23,21,18)" width="3"/>
+    </line>
+    <shape type="text" topLeftX="48" topLeftY="292" width="524" height="200">
+      <content textType="body" fontSize="16" fontFamily="思源黑体" color="rgb(23,21,18)" lineSpacing="multiple:1.9" textAlign="justify">
+        <p>这两天的课，是一场完全开放、没有任何距离感的技术交流。大家在听课过程中，有任何关于技术、关于找工作、关于人生规划的疑问，随时可以打断我。</p>
+        <p>技术的问题、人生的问题、求职的问题，甚至谈恋爱的问题都可以。当场回答不了的，我会让 Gemini 现场替我回答大家。</p>
+      </content>
+    </shape>
+
+    <!-- 右侧蓝色引言块 -->
+    <shape type="rect" topLeftX="624" topLeftY="92" width="288" height="380">
+      <fill><fillColor color="rgb(22,70,184)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="648" topLeftY="120" width="240" height="80">
+      <content textType="title" fontSize="72" fontFamily="Playfair Display" color="rgb(241,165,27)" wrap="false">
+        <p>“</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="648" topLeftY="220" width="240" height="180">
+      <content textType="body" fontSize="22" fontFamily="寒蝉端黑体" color="rgb(241,226,194)" lineSpacing="multiple:1.8">
+        <p>问题随时打断，</p>
+        <p>现场一一回答。</p>
+      </content>
+    </shape>
+    <line startX="648" startY="418" endX="720" endY="418">
+      <border color="rgb(241,165,27)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="648" topLeftY="428" width="240" height="24">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(241,226,194,0.75)" letterSpacing="1" wrap="false">
+        <p>OPEN FLOOR · TWO DAYS</p>
+      </content>
+    </shape>
+
+    <!-- 底部家具 -->
+    <shape type="text" topLeftX="48" topLeftY="512" width="400" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" letterSpacing="1" wrap="false">
+        <p>VOL.01 · 2026.10 · PAICODING CAMP ZINE</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="712" topLeftY="512" width="200" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(23,21,18,0.6)" textAlign="right" letterSpacing="1" wrap="false">
+        <p>EDITOR'S NOTE</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>先把课堂规矩讲清楚：这两天没有距离感，技术、求职、人生规划甚至恋爱问题都可以随时打断我。我答不上来的，现场让 Gemini 补位。先把气氛放开，后面讲项目大家才敢问。</p>
+    </content>
+  </note>
+</slide>
