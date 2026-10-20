@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/alchaincyf/huashu-art-motion",
+  "commit": "8a0d7d72ca65fcce6f8ba82c4a6c8dfe35b8422c",
+  "sha256": {
+    "LICENSE": "6d6a2a9caf2e6d2b76974050427053b2892d8aa4c33fd168ce63a537fcee9d96",
+    "camera.js": "53ddc95e972900abfb49bfea704a2b77897b9237836ee653aeed966d39ceeec5",
+    "diagram.js": "98b15ba5f883dd95eca2ff52ba1d768c10a5bea7862bd13aee6d84b875e2b8c5",
+    "fonts/LICENSES.md": "00b5f86c4d5162e6fee6d600b527c052933eb2884a61a5fab0f89fa4d4656ecd",
+    "fonts/NotoSansSC-500.woff": "928d841b1ec663ebce82593568cbc19749fe652f88b8ec960723b7d87b551512",
+    "fonts/OFL.txt": "67c5d5206b96f8340b95fabd02ae60701e0b20ce2594d976216f1065e5aa3822",
+    "fonts/cmunrm.woff": "32115abbbfb231586813333bfa5a234f4dc7f28b27df7260f42f81146ccd9097",
+    "fonts/cmunti.woff": "d9a02b7b67874c62f47f9c9a0914c115972ab77d43e82a163baf0888eb5d4a2d",
+    "motion.js": "22762a3691464b7504da562b3761edc70f7c138721618639697df3a5a93c1b97",
+    "util.js": "a2092233bbca337a29b00ce261d81a5c7b6baa020c9e301916ebe4a997450b9d"
+  }
+}
