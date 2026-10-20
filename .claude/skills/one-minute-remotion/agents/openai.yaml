@@ -1,0 +1,4 @@
+interface:
+  display_name: "一分钟科普视频"
+  short_description: "生成一分钟科普视频，覆盖文字稿、二哥声音配音、分镜动画、字幕和出片"
+  default_prompt: "用 $one-minute-remotion 制作一分钟科普视频，读取现有进度，每次只完成下一个阶段；已有文字稿就生成完整配音并停下让我试听，保留全文和二哥声音，超时不删减。"
