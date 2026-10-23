@@ -574,6 +574,30 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "拆解 1017 的后训练更新、基准对比、许愿式编程和三个本地案例，以及 Search & Fetch 的接入信息。",
     ["DeepSeek", "1017", "后训练", "许愿式编程"],
   ),
+  "tool-design-principles": meta(
+    "字节面试：说说 Agent 中 Tool 的设计原则？",
+    "Tool 设计原则",
+    "从工具边界、参数校验、并发控制和输出截断，理解面向模型的工具接口设计。",
+    ["Tool", "JSON Schema", "参数校验", "上下文"],
+  ),
+  "multi-agent-file-conflict": meta(
+    "多个 Agent 同时改一个文件怎么办？",
+    "多 Agent 文件冲突",
+    "比较 Claude Code 的 worktree 隔离和 Pi 的文件变更队列，区分进程内串行、跨进程覆盖与合并后的语义冲突。",
+    ["Multi-Agent", "worktree", "文件变更队列", "语义冲突"],
+  ),
+  "deepseek-open-source-deepinfer": meta(
+    "真正的 OpenAI！DeepSeek 开源内部推理框架 DeepInfer",
+    "DeepInfer 开源",
+    "拆解 DeepInfer 的分离部署、KV Cache 存储、投机解码与异步调度，以及 deepseek-recipe 的协议转换和流式工具解析。",
+    ["DeepSeek", "DeepInfer", "KV Cache", "推理框架"],
+  ),
+  "agent-todo-list": meta(
+    "Agent 的 Todo List 有什么用？",
+    "Agent Todo List",
+    "结合 DeepSeek Harness 源码，理解 Todo List 的全量覆写、状态校验、会话投影和上下文压缩后的任务保留。",
+    ["Todo List", "todo_write", "DeepSeek Harness", "上下文工程"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -584,6 +608,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "agent-todo-list",
+      "multi-agent-file-conflict",
+      "tool-design-principles",
       "agent-requirement-clarification",
       "what-is-permission-mode",
       "agent-user-interjection",
@@ -622,6 +649,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "HOT / 模型与行业热点",
     children: [
+      "deepseek-open-source-deepinfer",
       "deepseek-v4-1-flash-1017",
       "rea-deepseek-harness-tutorial",
       "what-is-personal-agent",
@@ -718,6 +746,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "agent-todo-list": "7699452593226960137",
+  "deepseek-open-source-deepinfer": "7699074728060816667",
+  "tool-design-principles": "7698329222099520768",
+  "multi-agent-file-conflict": "7698743831088467241",
   "agent-requirement-clarification": "7696859780668755234",
   "deepseek-outage-agent-fallback": "7697192412568980763",
   "what-is-model-distillation": "7697583864511761698",

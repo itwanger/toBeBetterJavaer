@@ -224,6 +224,8 @@ chrome-devtools server 在 capabilities 里声明了 `tools` 能力，PaiCLI 就
 
 这些工具跟内置工具和之前注册的其他 MCP 工具在同一个 Registry 里统一管理，HITL 审批、AuditLog 记录一个都不少。
 
+当前 auto 模式可以直接新建页面、导航、列出/选择标签页、等待、读取页面快照和截图（不带输出文件路径），不必先切到 ask。执行前仍检查网址来源和共享标签页归属，自动放行记为 `auto-browser`。点击、填表、执行网页脚本等操作仍按原有确认流程处理；ask 模式下浏览器操作都要确认。
+
 有一点值得说：chrome-devtools-mcp 的浏览器不是连接时就启动的。
 
 它是在 Agent 第一次调用浏览器相关工具时，才会自动拉起 Chrome 实例。这意味着如果用户只是启动了 PaiCLI 但没让 Agent 操作浏览器，Chrome 进程是不会出现的，不占用资源。

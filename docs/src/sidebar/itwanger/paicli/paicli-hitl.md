@@ -136,6 +136,8 @@ public static boolean requiresApproval(String toolName) {
 
 新增的两个内置工具里，`edit_file` 精确替换已有文件的一处文本，和 `write_file` 一样是中危，风险说明是“将替换文件中唯一匹配的原文片段”；`revert_turn` 会按 Side-Git 快照批量恢复工作区文件，可能覆盖当前还没保存的修改，定为高危。第 10 期接入 MCP 之后，所有 `mcp__` 开头的工具也默认要审批，等级显示为“🟡 MCP”。
 
+当前 auto 模式对 Chrome 导航和页面读取有明确例外：新建页面、导航、列出/选择标签页、等待、页面快照和截图（不带输出文件路径）直接执行，记录 `auto-browser` 审计信息。网址来源和共享标签页归属仍要检查；点击、填表、执行网页脚本及其他 MCP 操作仍需确认。ask 模式下浏览器操作照常确认。
+
 只读工具的名单也变长了，`glob_files`、`grep_code` 这些代码搜索工具同样不需要审批。需要注意的是，放行了 `write_file` 不等于放行了 `edit_file`，“全部放行”按工具名生效，两个工具要分别确认。
 
 ![](https://cdn.paicoding.com/stutymore/paicli-hitl-20260924181548-582f017a.png)

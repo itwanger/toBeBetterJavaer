@@ -31,7 +31,7 @@ date: 2026-10-20
 
 ## 01、梳理杂志风PPT
 
-备课的起点是让豆包工作帮我梳理一份 PPT，作为这两天讲课的总大纲。脚本 `luoyang-lit-ai-bootcamp.md` 是我提前在本地写好的，操作的时候只需要在豆包工作的输入框里用斜杠加载一下内置的 PPT Skill，提示词很简单。
+备课的起点是让豆包工作帮我梳理一份 PPT，作为这两天讲课的总大纲。脚本 `luoyang-lit-ai-bootcamp.md` 是我提前在本地写好的，操作的时候只需要在豆包工作的输入框里用斜杠加载一下内置的 PPT Skill（技能），提示词很简单。
 
 > 帮我按照 docs/src/sidebar/itwanger/ai/luoyang-lit-ai-bootcamp.md 这个制作一份 PPT，杂志风。
 
@@ -166,7 +166,5 @@ date: 2026-10-20
 就看你学习能力和创新能力。
 
 **这里提醒一下，网页搜索「豆包工作」下载电脑端，限时领取 30 天会员权益**。
-
-> https://www.doubao.com/work
 
 我们下期见。

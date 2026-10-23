@@ -1,5 +1,5 @@
-> 调研日期：2026-10-15｜仓库：/Users/itwanger/Documents/GitHub/paicli（main）｜commit：78786aa
-`git -C /Users/itwanger/Documents/GitHub/paicli log --oneline --since=2026-10-15`
+> 调研日期：2026-10-23｜仓库：/Users/itwanger/Documents/GitHub/paicli（main）｜commit：8c19e2d
+`git -C /Users/itwanger/Documents/GitHub/paicli log --oneline --since=2026-10-23`
 
 # PaiCLI 架构知识库
 
@@ -136,9 +136,9 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 ### 两档确认（hitl/HitlToolRegistry.java:51-75）
 
 - ask 模式（`/hitl on`）：`DANGEROUS_TOOLS` 和 MCP 全部弹确认
-- auto 模式（`/hitl default`，启动默认，`cli/Main.java:246-248`）：读写文件直接执行；`execute_command` 交给 `LlmApprovalClassifier` 审查（`HitlToolRegistry.java:82-121`，`AUTO_REVIEWED_TOOLS` 只有它，`:124`）
+- auto 模式（`/hitl default`，启动默认，`cli/Main.java:246-248`）：读写文件直接执行；Chrome 的新建页面、导航、列出/选择标签页、等待、页面快照和截图（不带输出文件路径）直接执行，写 `auto-browser` 审计记录，仍检查本轮网址来源和共享标签页归属（8c19e2d）；`execute_command` 交给 `LlmApprovalClassifier` 审查（`HitlToolRegistry.java:82-121`，`AUTO_REVIEWED_TOOLS` 只有它，`:124`）
   - 放行：写一条 auto-classifier 审计后执行，PathGuard、CommandGuard 照常生效（`:93-100`）
-  - 不放行、审查失败、MCP 工具、`revert_turn`、敏感页面改写：以 `[AUTO] 自动审查未放行：...` 失败结果交回模型，不弹框（`:103-120`）
+  - 不放行、审查失败、其余 MCP 工具、`revert_turn`、敏感页面改写：以 `[AUTO] 自动审查未放行：...` 失败结果交回模型，不弹框（`:103-120`）
   - 同一轮连续被拦 3 次（`AUTO_ESCALATE_AFTER`，`:28`）才转人工确认；放行一次或新一轮输入清零（`:40-43`，`Main.java:992-993`）
 - 交互式 CLI 没有“全部放行”档，`/hitl off` 已删除（`CliCommandParser.java:138-156` 只认 on/default；`HitlHandler.java:62-84`）
 - 终端确认选项：`y/Enter` 批准、`a` 本会话同工具全部放行（MCP 可选按 server 放行）、`n` 拒绝、`s` 跳过、`m` 修改参数（`hitl/TerminalHitlHandler.java:20`、`:114`、`:134-196`）；拒绝和跳过返回 `[HITL] 操作已被拒绝/跳过`（`HitlToolRegistry.java:140-153`）

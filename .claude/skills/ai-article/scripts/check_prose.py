@@ -556,7 +556,10 @@ def main() -> int:
                 f"可识别段落中有 {ratio:.0%} 只有一句话，可能形成统一的短段鼓点。"
             )
 
-    streak = short_streak(paragraphs)
+    ending_match = re.search(r"^##\s+ending\b", text, re.MULTILINE | re.IGNORECASE)
+    ending_pos = ending_match.start() if ending_match else len(text)
+    body_paragraphs = [p for p in paragraphs if p.position < ending_pos]
+    streak = short_streak(body_paragraphs)
     if streak:
         first = streak[0]
         warnings.append(

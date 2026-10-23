@@ -21,7 +21,7 @@ description: 口播稿，适用于 AI 技术科普、Agent/Skill/RAG、LLM 等�
 | **模式 B：技术科普** | 所有人 | 全篇不出现面试官，从观众用过的东西讲起 | `responses-api-vs-chat-completions.md` |
 | **模式 C：热点稿** | 所有人 | 从热点事件或反直觉现象切入，讲清是什么、凭什么火、和你有什么关系 | `what-is-prefix-caching.md`、`what-is-jev.md` |
 
-时长 3-5 分钟，字数 950-1800。汉字加英文单词，不含标点、图片、frontmatter 和数字。统计命令：
+字数 1800。汉字加英文单词，不含标点、图片、frontmatter 和数字。统计命令：
 
 ```bash
 python3 -c "import re,sys;t=open(sys.argv[1],encoding='utf-8').read();t=re.sub(r'^---\n.*?\n---\n','',t,flags=re.S);t=t.split('这个公众号历史发布过')[0];t=re.sub(r'!\[[^\]]*\]\([^)]*\)|【[^】]*】','',t);print(len(re.findall(r'[一-鿿]',t))+len(re.findall(r'[A-Za-z]+',t)))" docs/src/ai/video/<文件名>.md
