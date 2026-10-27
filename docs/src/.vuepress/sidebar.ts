@@ -7,14 +7,14 @@ export default sidebar({
       text: agentInterviewGroups[0].text,
       link: "/ai/video/",
     },
-    ...agentInterviewGroups.slice(1).map((group) => ({
+    ...agentInterviewGroups.slice(1).map((group) => group.children.length ? ({
       text: group.text,
       collapsible: true,
       children: group.children.map((slug) => ({
         text: agentInterviewMeta[slug].shortTitle,
         link: slug,
       })),
-    })),
+    }) : ({ text: group.text, link: group.link })),
   ],
   "/zhishixingqiu/": [
     "readme.md",

@@ -147,6 +147,7 @@ public ExecutionPlan createPlan(String goal) throws IOException {
 private ExecutionPlan requestPlan(String goal, String planningRequest) throws IOException {
     List<LlmClient.Message> messages = Arrays.asList(
             LlmClient.Message.system(promptAssembler.assemble(PromptMode.PLANNER, PromptContext.builder()
+                    .toolsEnabled(false)
                     .projectMemoryContext(buildProjectMemoryContext())
                     .build())),
             LlmClient.Message.user(planningRequest));
@@ -156,6 +157,8 @@ private ExecutionPlan requestPlan(String goal, String planningRequest) throws IO
 ```
 
 规划请求只有两条消息。system 消息是拼装好的规划提示词，user 消息是“请为以下任务制定执行计划”加上用户的目标。`chat` 的第二个参数传 `null`，表示规划请求不带任何工具。终端上流式显示模型的思考过程，JSON 正文不直接输出。
+
+只把工具参数设成 `null` 还不够。提示词也要通过 `toolsEnabled(false)` 去掉工具清单和工具使用规则，否则模型可能觉得自己仍然能搜索代码，先返回一段工具调用。DeepSeek 有时会把调用写成以 `<｜｜DSML｜｜ calls>` 开头的文本，拿它当 JSON 解析就会报 `Unexpected character ('<')`。现在规划提示词明确要求把调查操作写成计划里的前置任务；回复里仍有工具调用时，直接提示“工具调用未执行”，不执行，也不自动重试。
 
 ### 规划提示词
 

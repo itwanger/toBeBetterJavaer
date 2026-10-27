@@ -1,13 +1,4 @@
-标题：携程员工：在互联网大厂里面算是比较 WLB 的，还可以爽用 Cursor 等。十点多上班，七八点下班，每周一天居家（附Agent面试题）
+标题：
 
-![](https://cdn.paicoding.com/stutymore/sucai-20261023094637.png)
-
-
-## content
-
-1. Agent 如何组合多个原子能力？这个组合场景的使用规模和价值有多大？
-2. 当前 Agent 如何保留短期对话上下文？
-3. 超出最近几轮的历史上下文如何处理？
-4. 什么时候触发上下文压缩？压缩窗口使用什么指标和阈值？
-5. Agent 的写操作权限通常如何控制？
+https://mp.weixin.qq.com/s/kJW4zJ8RCco9lajBGumj_Q
 

@@ -202,8 +202,11 @@ def mask_non_prose(text: str) -> str:
 
     patterns = (
         re.compile(r"\A---\s*\n.*?\n---\s*(?:\n|\Z)", re.DOTALL),
+        re.compile(r"<!--\s*video-covers:start\s*-->.*?<!--\s*video-covers:end\s*-->", re.DOTALL),
+        re.compile(r"<!--.*?-->", re.DOTALL),
         re.compile(r"```.*?```", re.DOTALL),
         re.compile(r"`[^`\n]*`"),
+        re.compile(r"!\[[^\n\]]*\]\([^\n)]*\)"),
         re.compile(r"\]\([^\n)]*\)"),
         re.compile(r"https?://[^\s)>]+"),
         re.compile(r"<[^>\n]+>"),

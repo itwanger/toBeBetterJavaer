@@ -35,6 +35,7 @@ export interface AgentInterviewMeta {
 
 export interface AgentInterviewGroup {
   text: string;
+  link?: string;
   children: string[];
 }
 
@@ -598,6 +599,24 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "结合 DeepSeek Harness 源码，理解 Todo List 的全量覆写、状态校验、会话投影和上下文压缩后的任务保留。",
     ["Todo List", "todo_write", "DeepSeek Harness", "上下文工程"],
   ),
+  "what-is-browser-use": meta(
+    "说说 Browser Use 的原理",
+    "Browser Use 原理",
+    "结合 DeepSeek Harness 的实现，理解无障碍树快照、短引用编号、Browser Use 插件，以及 launch/attach 模式下的会话隔离与页面验收。",
+    ["Browser Use", "Accessibility Tree", "CDP", "DeepSeek Harness"],
+  ),
+  "kimi-k3-1-pro": meta(
+    "Kimi K3.1 Pro 正式发布，国产模型的审美新巅峰。",
+    "Kimi K3.1 Pro",
+    "拆解大规模联合强化学习、动态工具加载与保留式思考，以及模型定价和前缀缓存的工程用法。",
+    ["Kimi K3.1 Pro", "联合强化学习", "动态工具加载", "Preserved Thinking"],
+  ),
+  "kimi-k3-1-preview": meta(
+    "太惊艳了吧？Kimi K3.1 真要来了？",
+    "Kimi K3.1 预告",
+    "从官方预告、Arena 匿名盲测和推理框架适配线索，梳理 Kimi K3.1 的发布前信息与开发者关注点。",
+    ["Kimi K3.1", "Kibitz", "Arena", "KDA"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -608,6 +627,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "what-is-browser-use",
       "agent-todo-list",
       "multi-agent-file-conflict",
       "tool-design-principles",
@@ -647,8 +667,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "HOT / 模型与行业热点",
+    text: "02 / 热点解读（15/100）",
     children: [
+      "kimi-k3-1-pro",
+      "kimi-k3-1-preview",
       "deepseek-open-source-deepinfer",
       "deepseek-v4-1-flash-1017",
       "rea-deepseek-harness-tutorial",
@@ -666,7 +688,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 上下文与记忆",
+    text: "03 / 上下文与记忆",
     children: [
       "agent-long-term-memory",
       "why-agent-gets-dumber",
@@ -681,20 +703,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "03 / Harness 与 Skills",
-    children: [
-      "deepseek-outage-agent-fallback",
-      "what-is-loop-engineering",
-      "what-is-harness-engineering",
-      "agent-skill-hit-rate",
-    ],
-  },
-  {
-    text: "04 / RAG知识库",
-    children: ["agent-rag-pdf", "rag-hybrid-search"],
-  },
-  {
-    text: "05 / LLM 基础与 API",
+    text: "04 / LLM 基础与 API",
     children: [
       "what-is-prompt-caching",
       "what-is-prefix-caching",
@@ -705,6 +714,13 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
       "what-is-moe",
       "what-is-semantic-caching",
       "what-benchmarks-test",
+    ],
+  },
+  {
+    text: "05 / 模型训练与微调",
+    children: [
+      "what-is-model-distillation",
+      "what-is-reinforcement-learning",
     ],
   },
   {
@@ -733,19 +749,38 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     children: ["nine-prompting-techniques-for-better-llm"],
   },
   {
-    text: "11 / 模型训练与微调",
+    text: "09 / Harness 与 Skills",
     children: [
-      "what-is-model-distillation",
-      "what-is-reinforcement-learning",
+      "deepseek-outage-agent-fallback",
+      "what-is-loop-engineering",
+      "what-is-harness-engineering",
+      "agent-skill-hit-rate",
     ],
   },
   {
-    text: "12 / Agent 产品与框架演进",
+    text: "10 / MCP 与工具调用",
+    link: "/ai/video/#_10、mcp-与工具调用-26-题",
+    children: [],
+  },
+  {
+    text: "11 / RAG知识库",
+    children: ["agent-rag-pdf", "rag-hybrid-search"],
+  },
+  {
+    text: "12 / LangChain 与 Spring AI",
+    link: "/ai/video/#_12、langchain-与-spring-ai-21-题",
+    children: [],
+  },
+  {
+    text: "13 / Agent 产品演进",
     children: ["what-is-manus"],
   },
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "what-is-browser-use": "7700568507443842367",
+  "kimi-k3-1-pro": "7700177876540230975",
+  "kimi-k3-1-preview": "7699856703231151410",
   "agent-todo-list": "7699452593226960137",
   "deepseek-open-source-deepinfer": "7699074728060816667",
   "tool-design-principles": "7698329222099520768",
