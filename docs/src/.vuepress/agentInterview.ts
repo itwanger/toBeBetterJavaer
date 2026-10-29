@@ -52,6 +52,18 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "what-is-computer-use": meta(
+    "Computer Use 是什么？说说它的原理",
+    "Computer Use 原理",
+    "结合 Codex 的 cua_repl，理解脚本编排桌面操作、应用权限、动作审批与截图证据审查。",
+    ["Computer Use", "cua_repl", "桌面 Agent", "权限审批"],
+  ),
+  "gpt-6-1-terra": meta(
+    "GPT-6.1 Terra 发布，Codex 藏了哪三个大招？",
+    "GPT-6.1 Terra 解读",
+    "结合 Codex 源码，拆解工具并发编排、原图上下文与跨窗口接力、推理档位和长期记忆整理。",
+    ["GPT-6.1 Terra", "Codex", "Code Mode", "上下文接力"],
+  ),
   "rag-hybrid-search": meta(
     "RAG 怎么做向量和关键词的混合检索？",
     "RAG 混合检索",
@@ -627,6 +639,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "01 / Agent 基础",
     children: [
+      "what-is-computer-use",
       "what-is-browser-use",
       "agent-todo-list",
       "multi-agent-file-conflict",
@@ -667,8 +680,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 热点解读（15/100）",
+    text: "02 / 热点解读（17/100）",
     children: [
+      "gpt-6-1-terra",
       "kimi-k3-1-pro",
       "kimi-k3-1-preview",
       "deepseek-open-source-deepinfer",
@@ -778,6 +792,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "what-is-computer-use": "7700961195594976575",
+  "gpt-6-1-terra": "7701366090923904282",
   "what-is-browser-use": "7700568507443842367",
   "kimi-k3-1-pro": "7700177876540230975",
   "kimi-k3-1-preview": "7699856703231151410",

@@ -6,14 +6,18 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@react-three/fiber": "9.8.2",
     "@remotion/cli": "4.0.521",
+    "@remotion/tailwind-v4": "4.0.521",
+    "@remotion/three": "4.0.521",
     "@remotion/zod-types": "4.0.521",
+    "@types/three": "0.186.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.521",
-    "zod": "4.5.4",
-    "@remotion/tailwind-v4": "4.0.521",
-    "tailwindcss": "4.0.0"
+    "tailwindcss": "4.0.0",
+    "three": "0.186.1",
+    "zod": "4.5.4"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.521",

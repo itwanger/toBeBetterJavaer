@@ -6,7 +6,8 @@
 
 - endpoint、音色、resourceId、采样率都从项目配置读取。
 - 当前是 SSE TTS：headers 为 `X-Api-Key`、`X-Api-Resource-Id`、`X-Api-Connect-Id`；请求体包含 `event: 100`、`namespace: BidirectionalTTS` 和 `req_params`（`text`、`speaker`、`speed_ratio`、`audio_params`）。
-- 历史实测中，克隆音色对 `speed_ratio` 没有明显响应。现在的做法是原速合成，再用 `ffmpeg atempo` 按项目倍率变速。变速可能影响音质和自然度，不称为无损。修改倍率后重建处理音频和时间轴；换音色要重新合成。
+- 2026-10-28 用户试听后确认：后续新视频默认沿用本人复刻音色，使用表现力增强版 `seed-tts-2.0-expressive` 并保持原速。共享默认值为 `model: seed-tts-2.0-expressive`、`speedRatio: 1.0`、`speechRate: 0`、`atempo: 1.0`。合成脚本将项目的 `model` 发送到 `req_params.model`，将 `speechRate` 发送到 `audio_params.speech_rate`；旧项目没有配置这两个字段时不补发，不切换模型，不改项目配置或重做音频。
+- 历史实测中，克隆音色对 `speed_ratio` 没有明显响应。旧项目仍按自己的 `atempo` 配置处理，新项目默认不提速。变速可能影响音质和自然度，不称为无损。用户要求修改某个项目的倍率时，再重建该项目处理音频和时间轴；换音色要重新合成。
 - 服务或 API 变化时，先核实官方文档和实际返回，再改共享实现。
 
 ## 术语读音
