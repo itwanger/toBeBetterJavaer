@@ -52,6 +52,16 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "why-not-timestamp-in-system-prompt": meta(
+    "为什么不能在 System Prompt 里放时间戳？", "系统提示词与时间戳",
+    "结合 Prompt Cache 前缀匹配，理解动态时间戳对缓存命中、延迟和账单的影响。",
+    ["System Prompt", "时间戳", "Prompt Cache"],
+  ),
+  "context-compaction-vs-kv-cache": meta(
+    "上下文压缩会不会和 KV Cache 冲突？", "上下文压缩与 KV Cache",
+    "理解只追加消息、压缩阈值、工具结果清理和前缀复用如何配合缓存。",
+    ["上下文压缩", "KV Cache", "Prompt Cache"],
+  ),
   "what-is-computer-use": meta(
     "Computer Use 是什么？说说它的原理",
     "Computer Use 原理",
@@ -704,6 +714,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "03 / 上下文与记忆",
     children: [
+      "context-compaction-vs-kv-cache",
+      "why-not-timestamp-in-system-prompt",
       "agent-long-term-memory",
       "why-agent-gets-dumber",
       "agent-short-term-memory",
@@ -792,6 +804,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "context-compaction-vs-kv-cache": "7702055929176526090",
+  "why-not-timestamp-in-system-prompt": "7701937297377332480",
   "what-is-computer-use": "7700961195594976575",
   "gpt-6-1-terra": "7701366090923904282",
   "what-is-browser-use": "7700568507443842367",
