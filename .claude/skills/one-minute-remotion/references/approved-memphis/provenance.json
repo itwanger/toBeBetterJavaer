@@ -1,0 +1,39 @@
+{
+  "approvedDate": "2026-11-01",
+  "scope": "User-approved Memphis visual design. Stills reproduced from the public silent adaptation, not a final voiced MP4.",
+  "project": "video/pythagorean-demo",
+  "composition": "PythagoreanMemphisDemo",
+  "component": "remotion/src/Chapter1Memphis.tsx",
+  "componentSha256": "bb3cbc60fcc00dfc90d39bf7d86c35fc9c4128b56f51cdffc67a829fe30048ae",
+  "narrationIncluded": false,
+  "frames": [
+    {
+      "file": "opening.png",
+      "frame": 0,
+      "sha256": "e260bbc23fcfd90701f7ba335921691b1fcc99bab138fa9b33ad04dfaeb1dd88",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "triangle-labels.png",
+      "frame": 300,
+      "sha256": "04b17c4edc2e7403f004b7da88ce6ca0c012d1ef8d8ec936f9fa2da7deb4eb16",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "area-transfer.png",
+      "frame": 1167,
+      "sha256": "c9c08760d1a3028011f3973db073cc0c3c6a7b0201880fee2009bf5063016052",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "area-comparison.png",
+      "frame": 2000,
+      "sha256": "b6738bd11ae6cbe738d1f03013db80fd960ef71507454c1caf9e403012b53641",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

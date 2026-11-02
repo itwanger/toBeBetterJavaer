@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lock full narration/voice; report duration against a 60-second target.
+"""Lock full narration/voice; report duration against the locked target (default 120 seconds).
 
 Standard library only; check uses the existing ffprobe installation. No TTS,
 network, media editing, dependency installation, or source modification.
@@ -14,6 +14,7 @@ import sys
 
 
 VOICE_KEYS = ("speakerId", "resourceId", "apiBase", "speedRatio", "atempo", "audio")
+DEFAULT_TARGET_SEC = 120
 
 
 def read_json(path):
@@ -61,7 +62,7 @@ def lock(args):
         "projectionSha256": hashlib.sha256(projection(text).encode("utf-8")).hexdigest(),
         "projectionRule": "remove CR and LF only; retain every other Unicode character",
         "voiceExpected": voice_snapshot(read_json(project / "project.json")),
-        "targetDurationSec": 60,
+        "targetDurationSec": args.target_sec,
     }
     out.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return {"status": "locked", "path": str(out), "spokenCharacters": len(projection(text))}, 0
@@ -78,8 +79,10 @@ def probe(path):
 def check(args):
     project = args.project.expanduser().resolve()
     errors, pending, warnings = [], [], []
-    result = {"project": str(project), "stage": "export" if args.media else "audio", "targetDurationSec": 60}
     locked = read_json(project / "narration-lock.json")
+    # Older locks recorded their own target; keep the value each project was locked with.
+    target = float(locked.get("targetDurationSec", DEFAULT_TARGET_SEC))
+    result = {"project": str(project), "stage": "export" if args.media else "audio", "targetDurationSec": target}
     meta = read_json(project / "project.json")
     for label in ("source", "spoken"):
         path = Path(locked[label + "Path"])
@@ -120,8 +123,8 @@ def check(args):
                 boundary = end
             timeline_duration = boundary / fps
             result["timelineDurationSec"] = timeline_duration
-            if timeline_duration > 60 + 1e-9:
-                warnings.append("Composition exceeds the 60-second target; keep full narration")
+            if timeline_duration > target + 1e-9:
+                warnings.append("Composition exceeds the duration target; keep full narration")
             if [row["id"] for row in cues] != ids:
                 errors.append("Cue order does not match narration beats")
             if [row["text"] for row in cues] != [row["text"] for row in rows]:
@@ -143,8 +146,8 @@ def check(args):
         if not math.isfinite(seconds) or seconds <= 0:
             errors.append("Audio has an invalid duration")
         result["audioDurationSec"] = seconds
-        if seconds > 60 + 1e-9:
-            warnings.append("Voiceover exceeds the 60-second target; preserve full text, audio and speed")
+        if seconds > target + 1e-9:
+            warnings.append("Voiceover exceeds the duration target; preserve full text, audio and speed")
         if timeline_duration is not None and abs(seconds - timeline_duration) > 1 / fps + 0.002:
             errors.append("Voiceover and composition differ by more than one frame")
     else:
@@ -160,8 +163,8 @@ def check(args):
             result["exportDurationSec"] = seconds
             if not math.isfinite(seconds) or seconds <= 0:
                 errors.append("Exported media is empty or has an invalid duration")
-            elif seconds > 60 + 0.001:
-                warnings.append("Export exceeds the 60-second target; report its full actual duration")
+            elif seconds > target + 0.001:
+                warnings.append("Export exceeds the duration target; report its full actual duration")
             streams = data["streams"]
             if not any(s["codec_type"] == "audio" for s in streams):
                 errors.append("Final MP4 has no narration audio track")
@@ -180,9 +183,9 @@ def check(args):
                 num, den = video["r_frame_rate"].split("/")
                 if abs(float(num) / float(den) - fps) > 1e-6:
                     errors.append("Export frame rate differs from project configuration")
-    durations = {key: max(0.0, result[key] - 60) for key in
+    durations = {key: max(0.0, result[key] - target) for key in
                  ("timelineDurationSec", "audioDurationSec", "exportDurationSec")
-                 if key in result and math.isfinite(result[key]) and result[key] > 60}
+                 if key in result and math.isfinite(result[key]) and result[key] > target}
     result.update(
         status="failed" if errors else ("pending" if pending else "passed"),
         errors=errors, pending=pending, warnings=warnings, overTargetSec=durations,
@@ -199,6 +202,8 @@ def main():
     p.add_argument("--source", required=True, type=Path)
     p.add_argument("--spoken", required=True, type=Path)
     p.add_argument("--replace", action="store_true", help="Replace only after an approved script/config revision")
+    p.add_argument("--target-sec", type=float, default=DEFAULT_TARGET_SEC,
+                   help="Duration target in seconds; exceeding it only warns")
     p = commands.add_parser("check", help="Check actual audio or final exported MP4")
     p.add_argument("--project", required=True, type=Path)
     p.add_argument("--media", type=Path)

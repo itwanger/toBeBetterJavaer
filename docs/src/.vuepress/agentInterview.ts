@@ -52,6 +52,16 @@ const meta = (
 });
 
 export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
+  "agent-memory-compaction-methods": meta(
+    "说说 DeepSeek Harness 的上下文压缩原理", "DeepSeek Harness 上下文压缩",
+    "理解工具结果裁剪、磁盘回读、结构化摘要和近期对话保留。",
+    ["上下文压缩", "DeepSeek Harness", "Agent 记忆"],
+  ),
+  "xiaomi-ocr-0": meta(
+    "Xiaomi-OCR-0 开源：本地 OCR 怎么用？", "Xiaomi-OCR-0 解读",
+    "了解 Xiaomi-OCR-0 的本地部署、区域识别、模型训练和 MCP 接入。",
+    ["Xiaomi-OCR-0", "OCR", "本地部署", "MCP"],
+  ),
   "why-not-timestamp-in-system-prompt": meta(
     "为什么不能在 System Prompt 里放时间戳？", "系统提示词与时间戳",
     "结合 Prompt Cache 前缀匹配，理解动态时间戳对缓存命中、延迟和账单的影响。",
@@ -690,8 +700,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 热点解读（17/100）",
+    text: "02 / 热点解读（18/100）",
     children: [
+      "xiaomi-ocr-0",
       "gpt-6-1-terra",
       "kimi-k3-1-pro",
       "kimi-k3-1-preview",
@@ -714,6 +725,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "03 / 上下文与记忆",
     children: [
+      "agent-memory-compaction-methods",
       "context-compaction-vs-kv-cache",
       "why-not-timestamp-in-system-prompt",
       "agent-long-term-memory",
@@ -804,6 +816,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "xiaomi-ocr-0": "7702772455210896674",
+  "agent-memory-compaction-methods": "7702426892510448931",
   "context-compaction-vs-kv-cache": "7702055929176526090",
   "why-not-timestamp-in-system-prompt": "7701937297377332480",
   "what-is-computer-use": "7700961195594976575",

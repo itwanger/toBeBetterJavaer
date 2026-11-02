@@ -1,0 +1,48 @@
+{
+  "approvedDate": "2026-10-31",
+  "scope": "User-approved Studio preview, not a rendered/published MP4. Images copied unchanged from the current episode.",
+  "project": "ai-better/script/one-minute-what-is-pythagorean-theorem",
+  "composition": "PythagoreanV2",
+  "frames": [
+    {
+      "file": "opening.png",
+      "source": "preview/mobile-review/design-230.png",
+      "designFrame": 230,
+      "audioFrame": 230,
+      "sha256": "7a57079699b89f094712176205cc8e9d6cf907101436be00e0788e0d8eb3e987",
+      "width": 2190,
+      "height": 1232,
+      "modified": false
+    },
+    {
+      "file": "area-transfer.png",
+      "source": "preview/mobile-review/design-1198.png",
+      "designFrame": 1198,
+      "audioFrame": 1167,
+      "sha256": "33bccbc354fd82e4f686af2adc583a25df19bd47754c9ee2f3b977b84778263a",
+      "width": 2190,
+      "height": 1232,
+      "modified": false
+    },
+    {
+      "file": "puzzle-moving.png",
+      "source": "preview/mobile-review/design-1730.png",
+      "designFrame": 1730,
+      "audioFrame": 1696,
+      "sha256": "e95df42e4ece34e5bf8778c6b3cbd2cd1a03f9ce98c5664f0a62cd288887cc48",
+      "width": 2190,
+      "height": 1232,
+      "modified": false
+    },
+    {
+      "file": "area-comparison.png",
+      "source": "preview/mobile-review/design-2150.png",
+      "designFrame": 2150,
+      "audioFrame": 2105,
+      "sha256": "c749493a3bf4e70d8dc59f57a56780638348fb13438a4b6c68f6661ff8890945",
+      "width": 2190,
+      "height": 1232,
+      "modified": false
+    }
+  ]
+}
