@@ -29,6 +29,12 @@
 - **英文音素修正**：multi-agent-file-conflict 的 beat 22、23 使用单元级 SSML CMU 音素 `G IH1 T`，用户已于 2026-10-20 实际试听认可；不据此推广到全部句子或音色。当前接口支持 [SSML](https://docs.volcengine.com/docs/DoubaoVoice/SSMLmarkuplanguage?lang=zh) 时，可在该单元的 `ttsSsml` 用 `<speak>…<phoneme alphabet="cmu" ph="G IH1 T">Git</phoneme>…</speak>` 指定音素；`ttsText` 保留对应的纯文本供对齐，SSML 去标签后必须逐字一致。共享工具会发送 `req_params.ssml` 和 `disable_markdown_filter=false`，并把 SSML 纳入缓存指纹；只对显式配置的单元生效。接口成功和 ASR 正常不等于新句子已通过发音试听。
 - **复检**：逐处核对单音节、硬 g、短 /ɪ/ 和尾音 t；同一期每处 Git 都要复听，ASR 写出 Git / get 不能单独证明发音正确。用户认可的旧音频保留；修复已配音项目时按下方局部修复流程，仅重做有问题的完整意群。
 
+### 硬核读音执行
+
+- 用户已指定“硬核”读 **yìng hé（ying4 he2）**，不得重新询问目标读法。当前本人音色 `S_j97bqlje2` 按读音词典 `yinghe-hardcore.ssmlFragment`，在完整意群的 `ttsSsml` 中分别给“硬”“核”指定 `py` 音素；原稿、字幕及朗读纯文本仍保留“硬核”，不用中文谐音替换。
+- 每次生成或复用包含该词的音频，都检查单元 SSML 和生成记录。词典 `watch` 仅用于报告，`pronunciations.py --write` 不会应用其中的音素提示，不能据此跳过。缺少提示的已误读单元只重生成该完整意群，再重建对齐、字幕时点和混音。
+- 目标读法已指定与新音频已试听是两件事。SSML 请求成功、ASR 写出“硬核”都不等于试听通过；保留新音频的实际复听状态，不批量重做其他项目或已认可音频。
+
 ## 判断是否读错
 
 用户指出误读或指定读法时，直接按要求修。没人指出时，只处理 `review_audio.py` 在同一位置明显多字、缺字的情况（比如句首“派”被吞），转写归一化（Claude 写成 Cloud、数字写成汉字）不用管。
