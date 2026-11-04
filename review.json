@@ -1,0 +1,71 @@
+{
+  "project": "one-minute-archimedes-principle",
+  "chapter": 1,
+  "status": "audible Studio preview delivered; waiting for user approval",
+  "composition": "Chapter1Preview",
+  "range": {
+    "startFrame": 0,
+    "endFrameExclusive": 814,
+    "fps": 30,
+    "durationSec": 27.133333,
+    "beats": [1, 2, 3, 4, 5]
+  },
+  "studio": {
+    "url": "http://localhost:3125/Chapter1Preview",
+    "pid": 39972,
+    "log": "preview/studio/studio.log",
+    "httpStatus": 200,
+    "leftPausedAtFrame": 0,
+    "audioMuted": false
+  },
+  "checks": {
+    "typecheck": "passed",
+    "timeline": "41 subtitle groups across the full internal ch1; Chapter1Preview uses the groups for beats1-5; 12 real forced-alignment events drive the animation",
+    "fullChapterPlayback": "played from frame0 through audio time 27.11895 seconds and reached the Studio loop point; subtitles advanced with narration",
+    "actualAudioSignal": {
+      "method": "Web Audio AnalyserNode on the playing preview audio element",
+      "contextState": "running",
+      "muted": false,
+      "meanRms": 0.0987213785191269,
+      "maxSample": 0.7612712979316711,
+      "nonZeroRatio": 0.9195402298850575,
+      "sampleWindowSec": [0, 8.075314]
+    },
+    "keyFrames": [
+      "start-0.png",
+      "enter-65.png",
+      "mid-enter-95.png",
+      "scale-drop-120.png",
+      "uplift-212.png",
+      "named-248.png",
+      "relation-380.png",
+      "immersed-520.png",
+      "moving-604.png",
+      "displaced-635.png",
+      "f-symbol-676.png",
+      "g-symbol-743.png",
+      "formula-779.png",
+      "formula-mid-795.png",
+      "end-813.png"
+    ],
+    "smallSizeReview": [
+      "relation-390.png: longest principle subtitle remains inside the bottom safe area",
+      "end-390.png: formula, object labels and final subtitle remain readable without clipping",
+      "moving-740.png: moving displaced water stays within the main scene and does not enter subtitles",
+      "end-740.png: formula and force labels have clear separation"
+    ]
+  },
+  "visualNotes": [
+    "The first frame already contains the dynamometer, metal block, tank and gravity arrow.",
+    "The reading bar shortens while the gravity arrow remains unchanged.",
+    "The displaced water moves on a horizontal path and does not cross the formula or subtitles.",
+    "The moving translucent water briefly overlaps the metal-block label during the intended handoff; the settled frame is fully clear.",
+    "No full sentence from the subtitles is repeated in the main scene."
+  ],
+  "notDone": [
+    "No chapter2-4 animation has been implemented.",
+    "No chapter or preview MP4 has been exported.",
+    "The automated playback check is not a substitute for the user's visual and listening review.",
+    "Chapter1 is not marked approved; full-film preview and export have not been authorized."
+  ]
+}

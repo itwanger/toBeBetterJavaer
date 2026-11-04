@@ -51,7 +51,7 @@ date: 2026-11-02
 
 切换到字段提取页签，输入你想抽取的字段名，模型就会从购物小票或发票里把对应的值抽出来拼成 JSON；切换到图像问答页签，还能针对图表或票据上的细节提问。
 
-【截图：在线工作台解析实测；风格：data-board；截图目标：展示上传文档或票据后生成的 Markdown 预览、HTML 表格与 JSON 字段抽取结果；关键词：Xiaomi-OCR-0、文档解析、JSON抽取】
+![](https://cdn.paicoding.com/stutymore/xiaomi-ocr-0-review-online-kie-20261102165225-c4968262.png)
 
 ### 本地部署
 
@@ -125,7 +125,7 @@ payload = {
 }
 ```
 
-【截图：整页模式与区域模式执行流程对比；风格：swimlane；截图目标：展示整页模式单次推理与区域模式 PP-DocLayoutV3 切块并发推理再按阅读顺序组装的流程差异；关键词：PP-DocLayoutV3、并发识别、阅读顺序】
+![](https://cdn.paicoding.com/stutymore/xiaomi-ocr-0-review-page-region-20261102164948-0ddb184d.png)
 
 在整页模式下，代码会把整张图片配上一段提示词发给模型，要求模型忽略页眉页脚，按阅读顺序把正文提取为 Markdown、表格转成 OTSL、公式转成 LaTeX。
 
@@ -166,7 +166,7 @@ OTSL 则是一套精简的单元格标记语言，一共只有 `6` 个标签：
 
 模型只需要按网格顺序找出这几个短标签和单元格文字，`otsl.py` 拿到输出后，先用 `pad_rows()` 把每一行的列数补齐成规整的矩形网格，再扫描 `<lcel>` 和 `<ucel>` 算出每个起始单元格的 `colspan` 与 `rowspan` 数值，最后拼成合法的 HTML `<table>` 嵌回 Markdown。
 
-【截图：OTSL 紧凑标记转 HTML 表格示意；风格：whiteboard；截图目标：展示包含合并单元格的表格如何表示为 fcel、lcel、ucel 标签并还原为带 rowspan 和 colspan 的 HTML；关键词：OTSL、合并单元格、HTML表格】
+![](https://cdn.paicoding.com/stutymore/xiaomi-ocr-0-review-otsl-html-20261102165453-955cfc0f.png)
 
 除了表格转换，`postprocess/document.py` 里的 `finalize_document()` 还做了一道兜底保护。
 
@@ -178,7 +178,7 @@ OTSL 则是一套精简的单元格标记语言，一共只有 `6` 个标签：
 
 放到真实复杂场景的 Real5-OmniDocBench 上，它拿到了 `95.24` 分的全榜第一；在公式识别基准 UniMER-Test 上拿到 `97.84` 分，表格识别基准 PubTabNet 拿到 `92.27` 分；在五项 OCR 视觉问答基准（DocVQA、InfoVQA、ChartQA、OCRBench、TextVQA）上拿到 `83.2` 的平均分，以 `0.8B` 的体量跨级跑赢了 `Qwen3.5-2B`（`80.9` 分）。
 
-【截图：OmniDocBench 与 VQA 核心跑分对比；风格：data-board；截图目标：展示 Xiaomi-OCR-0 与 PaddleOCR-VL-1.6、MinerU2.5-Pro、GLM-OCR、Qwen3.5-2B 的参数量与得分对比；关键词：OmniDocBench、96.83分、参数效率】
+![](https://cdn.paicoding.com/stutymore/xiaomi-ocr-0-review-official-benchmarks-20261102165330-eb7d5a2e.png)
 
 `Xiaomi-OCR-0` 的底座是 `Qwen3.5-0.8B-Base`。
 
@@ -257,7 +257,7 @@ XIAOMI_OCR_MODEL=longwayxu/xiaomi-ocr-0:bf16 \
 bash skills/xiaomi-ocr/install.sh --agent=codex
 ```
 
-【截图：Agent 安装 Skill 与调用 MCP 工具实测；风格：skill-card；截图目标：展示在 Codex 或 Claude Code 中挂载 xiaomi-ocr MCP 后调用 ocr_image、kie_image 等工具的实际交互画面；关键词：Agent Skill、MCP服务、工具调用】
+![](https://cdn.paicoding.com/stutymore/xiaomi-ocr-0-review-codex-mcp-20261102165351-84add727.png)
 
 注册完成后，你的 Agent 就多了四个本地视觉工具：
 

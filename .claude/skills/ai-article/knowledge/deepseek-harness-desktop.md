@@ -1,6 +1,6 @@
-# DeepSeek Harness (DSH) Desktop and Plugin System: Source Research
+# DeepSeek Harness (DSH) Desktop, Plugin System, and Mode Architecture: Source Research
 
-> 调研日期：2026-09-28｜commit 21638c56｜版本 0.1.7-rc.2。上游已发布到 0.2.1-alpha.3，官方可选 bundle 从 4 个增加到 10 个以上，session_search 的结论已过时，引用前先拉取上游再核对。
+> 调研日期：2026-11-03｜commit 8bd073392e｜版本 0.2.2-alpha.3（基线 2026-09-28 commit 21638c56 为 0.1.7-rc.2；第 6 节新增 0.2.2-alpha.3 的 Mode / Agent Preset / Creator Mode / 个性化推荐与 Team Mode 完整源码拆解）。
 
 > Research date: 2026-09-28. Read at `origin/master` commit `21638c56315ae6a2b552d6091945d3144c9af32e` (2026-09-27), which is 3 days after tag `dsh-v0.1.7-rc.2` (`477b4f4205`, 2026-09-24). The root `package.json` version is `0.1.7-rc.2`. Between rc.2 and this commit, the only doc changes in the files cited below are small ones: plugin page skeleton and refresh polish, desktop product analytics, and update-copy wording. These are marked "post-rc.2" where they come up. Line numbers refer to the commit above. Items marked **(inference)** are my own reading and are not stated in the source.
 
@@ -217,3 +217,155 @@ There is no CHANGELOG file. From `git log dsh-v0.1.5-rc.1..dsh-v0.1.7-rc.2`: 2,4
 - Creator progressive skills (09-21)
 
 **Post-rc.2 on master**: Schedule became an optional bundle; Desktop OTel product analytics; the whale-tail running animation.
+
+
+## 6. Modes, Agent Presets, and Creator Mode (`8bd073392e`, `0.2.2-alpha.3`, 2026-11-03)
+
+Between `21638c56` (2026-09-28, `0.1.7-rc.2`) and `8bd073392e` (2026-11-03, `0.2.2-alpha.3`), 4,745 commits landed. Below is the exact architecture of "Modes" (Agent Presets), "Creator mode" / "Create Mode", conversational preset/plugin authoring, Personalized Recommendations, and Subagent/Team modes at `8bd073392e`.
+
+### 6.1 What is a "Mode" in DeepSeek Harness?
+
+In DeepSeek Harness, a user-facing **Mode** (中文 UI 称「模式」或「Agent 预设」) is an **Agent Preset**: a declarative Cordis plugin composition declared by `@deepseek-ai/dsh-agent-preset` (`packages/preset/agent-preset/src/index.ts:13-30`) and managed at runtime by `@deepseek-ai/dsh-agent-preset-registry` (`packages/preset/agent-preset-registry/src/index.ts:54-414`, service key `ctx.agentPresets`).
+
+As the built-in guide explains (`packages/client/ui-agent-preset/src/client/guide-locales.ts:58-60, 136-137`):
+> "A plugin adds capabilities to DSH, such as a tool, a service connection, or a UI entry. A mode is an agent preset that selects tools and defines how the agent works in a task. A plugin can be included in a custom preset."
+> （"插件为 DSH 增加能力，例如工具、服务连接或界面入口。模式是一份 Agent 预设，用来选择任务可用的工具，并约定 Agent 的工作方式。自定义模式中也可以使用自己开发的插件。"）
+
+Key architectural division (`packages/bundle/web-app/cordis.patch.yml:478-601`, `.agents/notes/implemented/architecture/2026-08-10-host-plane-ownership-after-presets.md`):
+- **Host plane (shared across all sessions)**: LLM adapters, tool/prompt/skill registries, the `core/agent-loop`, session JSONL persistence, background job registry (`jobs-local`), schedule service (`dsh-schedule`), token meter, sandbox policy, and subagent backends. In `packages/bundle/web-app/cordis.patch.yml:495-593`, process-wide per-agent tool rows inherited from `dsh-base` are explicitly `disabled: true` so that each Web/Desktop session mounts its own preset instead.
+- **Preset plane (per-preset revision scope)**:
+  - **Persona (`@deepseek-ai/dsh-persona`)**: `packages/preset/persona/src/index.ts:30-75`. Registers `deployment:persona-prefix` (order `0`) and `deployment:persona-suffix` (order `10200`) in the preset's scope, shadowing the global `system-prompt` persona for sessions using this mode. Supports `complete: true` (makes `prefix` the entire system prompt and suppresses all other sections) and `includeRuntimeContext: false` (suppresses optional runtime context).
+  - **Scoped Tools & Policies**: `tool-bash`, `tool-pwsh`, `tool-fs`, `tool-fs-search`, `tool-jobs`, `tool-schedule`, `tool-skill`, `tool-goal`, `tool-ask-user`, `tool-todo`, `tool-web`, `tool-present`, `tool-plugin-manager`, `tool-cordis`, `tool-executor-ptc`, etc.
+  - **Isolated Service Groups (`cordis:group` + `isolate`)**: Any preset child plugin that provides a Cordis service must isolate the provider and its consumers inside a `cordis:group` with `isolate: { <service>: true }` (`packages/preset/agent-preset-registry/src/mount.ts:59-83, 211-213`). If a preset leaks a service into the root realm, `leakedServices()` catches it and fails the preset mount with `Preset services require isolate realms: ...`.
+
+### 6.2 How Presets Are Defined, Loaded, and Bound to Sessions
+
+1. **Declaration Schema** (`packages/preset/agent-preset/src/index.ts:16-23`, `packages/preset/agent-preset-registry/src/definition.ts:5-11`):
+   ```yaml
+   - id: preset-review
+     name: '@deepseek-ai/dsh-agent-preset'
+     config:
+       id: review
+       name: Review
+       description: Reviews changes with the shell only.
+       order: 10
+       plugins:
+         - id: persona
+           name: '@deepseek-ai/dsh-persona'
+           config:
+             prefix: You review software changes.
+         - id: tool-bash
+           name: '@deepseek-ai/dsh-tool-bash'
+   ```
+   `AgentPreset` sets `static readonly [EntryGroup.key] = true` (`packages/preset/agent-preset/src/index.ts:15`) so child `!!js` expressions are preserved until the preset's own Loader tree activates them.
+2. **Eager Activation & Reference-Counted Revisions (`Generation`)** (`packages/preset/agent-preset-registry/src/index.ts:33-47, 97-168` and `src/mount.ts:204-216`):
+   - When a `@deepseek-ai/dsh-agent-preset` row activates, `ctx.agentPresets.register(config)` eagerly creates a detached `Scope` (`createScope(this.owner, key)`) and mounts an in-memory `PresetTree` (`mountPreset()`).
+   - `auditRows(tree)` (`mount.ts:134-158`) checks every enabled child row for import/activation errors or missing injected services, and `leakedServices()` checks for un-isolated services. If any check fails, `record.broken` stores the diagnostic string; the preset remains visible in the Settings roster with a `Failed to load` (`加载失败`) badge, without crashing the app.
+   - Each live revision is tracked as a `Generation { scope, key, mount, users, retired }`. When a preset definition is updated or unloaded, the old `Generation` is marked `retired = true`, but its scope is disposed only when `users === 0` (`collect()`). Thus, running Agents and their subagents keep the exact tool/prompt composition they started with (`KV Cache` prefix stability), while new sessions bind to the new revision.
+3. **Session Binding & First-Turn Lock** (`packages/preset/agent-preset-registry/src/index.ts:266-383`, `src/session.ts:30-46`):
+   - An Agent binds its scope parent to the selected `Generation.key` via `bindScopeParent(key, generation.key)` (`index.ts:282`).
+   - While a session is still **blank** (`boundary.openTurnStartSeq === null && boundary.lastTurn === 0`), calling `@Remote('select')` (`index.ts:364-383`) recomposes the blank Agent (`recompose()`) and appends `{ type: 'agent-preset/selected', data: { agentPreset } }` to the session JSONL log.
+   - Once the first turn starts, `select` throws `RemoteError('agent-preset/locked', 'This session has already started')` (`index.ts:368-370`).
+
+### 6.3 The 4 Built-in Modes (Presets)
+
+Shipped in `packages/bundle/web-app/presets/*.patch.yml` (localized names/descriptions resolved via `packages/preset/agent-preset-registry/src/display.ts:40-73` and `packages/client/ui-agent-preset/src/client/locales.ts:50-62, 95-103`):
+
+1. **Standard mode / 标准模式 (`id: standard`, `order: 1`, default)** — `packages/bundle/web-app/presets/standard.patch.yml:1-130`:
+   - Persona: `You are a coding agent powered by the {{model}} model.`
+   - Includes: `agent-instructions` (64 KiB budget), `time-context`, `tool-bash`/`tool-pwsh`, `tool-fs` (`applyPatch: false`), `tool-fs-search`, `tool-jobs`, `tool-schedule`, `skill-filesystem` + `tool-skill`, `command-goal` + `tool-goal`, `planning` group (`plan-mode`), `compaction` group (`compaction-basic`, `command-compact`, `tool-result-pruner` at 8192 chars), `delegation` group (`tool-subagent-control`, `tool-subagent` spawn, `tool-subagent-fork` fork, `workflow-ptc`, `tool-workflow`), `tool-ask-user`, `tool-todo`, `tool-web`, `present` (`dsh-tool-present`), and `tool-plugin-manager` (enabled when `profileContext` is present; note that in `0.2.1+`, Standard mode also has `plugin_manager` enabled!).
+2. **PTC mode / PTC 模式 (`id: ptc`, `order: 2`)** — `packages/bundle/web-app/presets/ptc.patch.yml:1-134`:
+   - Programmatic Tool Calling. Mounts `@deepseek-ai/dsh-tool-executor-ptc` (`ptc.patch.yml:125-126`), which gives the model `run_code` to write TypeScript programs calling tools through a generated SDK in a sandboxed runtime (`dsh-ptc-runtime-node`), filtering/aggregating results before returning to the model.
+   - Disables `workflow-ptc`, `tool-workflow`, `tool-plugin-manager`, and `tool-plugin-market`.
+   - Hidden when "Coding Tools" (代码工作工具) is turned off in General Settings (`packages/client/ui-agent-preset/src/client/settings-store.ts:53-55`).
+3. **Minimal mode / 极简模式 (`id: minimal`, `order: 3`)** — `packages/bundle/web-app/presets/minimal.patch.yml:1-78`:
+   - Persona: `prefix: You are a helpful software engineer assistant.`, `complete: true`, `includeRuntimeContext: false` (`minimal.patch.yml:11-16`). Suppresses all other system prompt sections and optional runtime context!
+   - Mounts only: `tool-fs` with `read: false, readImage: true, write: false, edit: false` (`read_image` only), `compaction` group (`compaction-basic` + `/compact`), and `persistent-shell` group (`dsh-terminal`, `dsh-terminal-bash`, `dsh-tool-bash-persistent` / `dsh-tool-pwsh-persistent` with 300s timeout).
+   - Used for baseline benchmarking and A/B comparisons. Also gated behind the "Coding Tools" switch.
+4. **Creator mode / 创造模式 (`id: cordis`, `order: 4`)** — `packages/bundle/web-app/presets/cordis.patch.yml:1-138`:
+   - Everything in Standard mode, **plus**:
+     - `tool-cordis` (`@deepseek-ai/dsh-tool-cordis`, `cordis.patch.yml:122-123`): provides `cordis_inspect_list` and `cordis_inspect_query` (`packages/extensions/tool-cordis/src/index.ts:22-73`) to inspect live Host and Client Services, Events, mounted plugin `Config` JSON Schemas (`Config.listConfigs`), live Tool schemas, theme tokens, and the live React UI `Slots` tree (`Slots.listSubTree`).
+     - `skill-filesystem` with `customSkillDirs` pointing to `@deepseek-ai/dsh-agent-preset/skills` (`cordis.patch.yml:124-128`), mounting 4 specialized skills:
+       1. `agent-experience`
+       2. `cordis-plugin-development` (with `references/host-plugin.md`, `ui-plugin.md`, `mcp-bundle.md`, `practices.md`, `user-actions.md`, `verification.md`, and copyable `templates/decoration` and `templates/mcp`)
+       3. `editing-cordis-compositions` (how to create or override Agent Presets / Modes as bundles)
+       4. `cordis-composition-reference` (Loader YAML dialect + generated `references/packages.md` catalog of all ~140 Cordis plugin packages)
+     - `tool-plugin-manager` (`@deepseek-ai/dsh-plugin-manager/tools`) and `tool-plugin-market` (`@deepseek-ai/dsh-plugin-market/tools`, active when the custom plugin index bundle is enabled).
+   - **Important change since `0.2.0-rc.1` (`3c26fdd204`, `3c17f569da`)**: Creator mode (`cordis`) and custom presets are **no longer gated behind Coding Tools**! Even with Coding Tools off in General Settings, Standard, Creator, and Custom modes remain available (`packages/client/ui-agent-preset/README.md:30`, `settings-store.ts:53-55`).
+
+### 6.4 How "Create Mode" (Creating a Custom Mode or Plugin) Works Under the Hood
+
+In `0.2.2-alpha.3`, **there is no manual YAML text editor in the Web UI and no `agent_preset` write tool anymore** (removed in `#4569` `d1e22a7e24`, restored as read-only viewer in `2426d398b5` and Creator button in `d52227c135`). Instead, **all Mode (Agent Preset) and Plugin creation is conversational through Creator Mode (`cordis`)**, backed by bundle installation (`plugin_manager`).
+
+#### A. Five Entry Points to Create a Mode or Plugin in the UI
+1. **New-Session Mode Chip (`AgentPresetSeat`)**: `packages/client/ui-agent-preset/src/client/AgentPresetSeat.tsx:81-221` (slot `conversation.hero.agentPreset`, beside the workspace picker on the blank new-session screen). Users click the chip and select **Creator mode（创造模式）** or any custom mode before the first turn starts.
+2. **Settings → Agent presets → "Let the agent help me create a preset"（让 Agent 帮我创建预设模式）**: `packages/client/ui-agent-preset/src/client/AgentPresetSection.tsx:85-100`. In the **Custom（自定义）** group of `Settings → Agent presets`, a `+ Let the agent help me create a preset` button invokes `startCreatorDraft()` (`packages/client/ui-agent-preset/src/client/index.ts:216-222`):
+   ```ts
+   const startCreatorDraft = () => {
+     const listed = mainBlank()?.projectionValues?.agentPreset
+     if (typeof listed !== 'string' || listed === 'cordis') (mainBlankSeat() ?? unboundSeat).stage('cordis', true)
+     scope.uiWorkspace.startSession(undefined, { clearPreviousDraft: false, agentPreset: 'cordis' })
+   }
+   ```
+   When triggered from Settings, `stage('cordis', true)` sets `introduce: true`, which plays a character-by-character staggered fade-in animation on the `AgentPresetSeat` hero chip (`AgentPresetSeat.tsx:52-68, 122-160`) to visually announce that the new task switched to Creator mode!
+3. **Plugins Page → Add plugin dropdown → "Let the agent create a plugin"（让 Agent 创建插件）**: `packages/client/ui-agent-preset/src/client/CreatePluginMenuItem.tsx:27-50` (registered in slot `plugins.add.actions`), which calls the same `startCreatorDraft()`.
+4. **Three Region "More" Menus → "Create your plugin"（创建你的插件）**: `packages/client/ui-entry-customization/src/client/index.ts` & `locales.ts:6-20` (added in `#6247` `5ff29190ed`). Clicking `More` in the left sidebar (`sidebar.panellist.actions`), `More conversation views` in the session header (`conversation.session.header.views.actions`), or `More tools` in the right sidebar guide (`sidebar.right.tab.guide.actions`) and choosing **Create your plugin** opens a Creator mode session (`agentPreset: 'cordis'`) and pre-fills the composer draft (without auto-sending) with a region-specific prompt:
+   - Left sidebar: `"创建一个带左侧栏入口的 DSH 插件。"` (`Create a DSH plugin with a left sidebar entry.`)
+   - Conversation view: `"创建一个 DSH 会话视图插件。"` (`Create a DSH conversation view plugin.`)
+   - Right sidebar: `"创建一个带右侧栏入口的 DSH 插件。"` (`Create a DSH plugin with a right sidebar entry.`)
+5. **Experimental: Personalized Recommendations Action Card ("Create" button below an answer)**: `@deepseek-ai/dsh-personalized-recommendations` (`packages/experimental/creation-recommendations/src/index.ts:91-327`). When enabled, if the user asks for or implies a reusable view/page/tracker, the Agent loads the `personalized-pages` skill and calls `propose_action` (`action: 'create_personalized_page'`) in the same turn. Below the answer, an interactive card lets the user pick a location (`Right sidebar`, `Session tab`, `Global page`, or `Write your own`) and click **Create**. Clicking **Create** spawns a background subagent running the `cordis` (Creator) preset (`startActivation({ provider: 'spawn', agentPreset: 'cordis', cwd: sourceDirectory, ... })`, `index.ts:269-294`) that writes the plugin into `.dsh-created-plugins/<uuid>`, returns `structured_output({ ready: true })`, and the Host validates, copies to `$DSH_PROFILE_DIR/created-plugins/<uuid>`, and installs it via `ctx.pluginManager.installBundle(directory)` with one-click **Undo** and **Restore**!
+
+#### B. Step-by-Step: How Creator Mode Authors and Installs a Custom Mode
+When a user in Creator mode asks to create a custom mode (e.g., *"基于标准模式创建「代码审查」模式…保存成可选择的预设"*), the agent follows `packages/preset/agent-preset/skills/editing-cordis-compositions/SKILL.md:16-84`:
+1. **Inspect existing presets/packages**: Uses `cordis_inspect_query` (`Config.listConfigs`) or reads `packages/bundle/web-app/presets/standard.patch.yml` and loads `cordis-composition-reference` to see all available plugin packages and their `Config` schemas.
+2. **Write a 2-file Bundle in the workspace** (plus optional `locale/*.json` and `icon.svg` per `host-plugin.md`):
+   - `<mode-dir>/package.json`:
+     ```json
+     {
+       "name": "@local/dsh-review-preset",
+       "version": "1.0.0",
+       "private": true,
+       "type": "module",
+       "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+     }
+     ```
+   - `<mode-dir>/cordis.patch.yml`:
+     - To **add a new custom mode**, use `- insert:` with a `@deepseek-ai/dsh-agent-preset` row (`id: preset-<id>`):
+       ```yaml
+       - insert:
+           - id: preset-review
+             name: '@deepseek-ai/dsh-agent-preset'
+             config:
+               id: review
+               name: Review
+               description: Reviews changes with the shell only.
+               order: 10
+               plugins:
+                 - id: persona
+                   name: '@deepseek-ai/dsh-persona'
+                   config:
+                     prefix: You review software changes.
+                 - id: tool-bash
+                   name: '@deepseek-ai/dsh-tool-bash'
+       ```
+     - To **override a built-in mode** (e.g. `standard`), target its Loader row id (`preset-standard`) without `insert` (replaces `config` wholesale).
+3. **Install via `plugin_manager` tool**: Calls `plugin_manager` with `action: "install_bundle"` and `target: "<absolute-path-to-bundle-dir>"`.
+   - `PluginManager` links/installs the package into `$DSH_HOME/profiles/<profile>`, adds `"@local/dsh-review-preset"` to `dsh.profile.bundles` in the profile's `package.json`, and hot-reloads the profile Loader tree (`dsh-hmr`).
+   - `AgentPreset` activates immediately (`AgentPreset[Service.init]`), calling `ctx.agentPresets.register(this.config)`, which mounts the new `PresetTree` and adds `review` to the live preset roster!
+4. **Verify**: The agent checks the `install_bundle` result (`application: "applied"`) and `cordis_inspect_query` / `list_plugins`. The new mode immediately appears under **Custom（自定义）** in `Settings → Agent presets` and in the new-session mode picker chip!
+
+### 6.5 Subagent Preset Selection & Agent Teams Mode (`0.2.1` – `0.2.2`)
+
+Two additional "Mode" mechanisms landed in recent releases:
+1. **Subagent Preset Selection (`allowedAgentPresets` & `agentPreset`)**:
+   - `packages/subagent/tool-subagent/src/preset-selection.ts:5-72` and `docs/upgrade-guide/v0.2.1-alpha.1/subagent-preset-composition/guide.md`.
+   - Previously, `dsh-tool-subagent` configured child agents with inline `persona` and `toolFilter`. Those fields were removed! Now, an in-process `spawn` subagent tool row can configure `agentPreset: '<default-preset-id>'` and `allowedAgentPresets: ['reviewer', 'researcher', ...]` (`snapshots/session/subagent-agent-preset/cordis.yml:28-34`).
+   - That exposes an `agent_preset` enum parameter on the `subagent` tool so the parent Agent can dynamically spawn specialist subagents running different custom Modes!
+2. **Session Team Mode (`@deepseek-ai/dsh-agent-team` & `@deepseek-ai/dsh-tool-agent-team`)**:
+   - `docs/upgrade-guide/v0.2.1-rc.2/session-team-mode/guide.md` and `docs/upgrade-guide/v0.2.1-rc.3/team-mode-menu/guide.md`.
+   - Agent Teams moved out of `experimental` into `packages/team/` and is mounted by default in `dsh-base` and `dsh-web-app`.
+   - Users toggle **Use Agent Teams** per root Session directly inside the conversation's model and reasoning menu (`remote.agentTeams.setEnabled(rootSessionId, enabled)`), or set `agent-team.defaultEnabled: true` in Cordis config (`e180fce05a`). When enabled, the root session and its subagent tree get shared DAG task board tools (`task_create`, `task_update`, `task_list`, `task_wait`, etc.) and a live shared task board under the Subagent header panel.
+3. **Plan Mode (`/plan` & `@deepseek-ai/dsh-plan-mode`)**:
+   - Mounted inside `standard`, `ptc`, and `cordis` presets inside an isolated `planning` group (`standard.patch.yml:48-68`), gated by `exit_plan_mode` review while keeping the tool catalog identical for KV-cache stability.
+4. **Permission Presets (`@deepseek-ai/dsh-permission-presets`)**:
+   - Separate from Agent Presets: bundles sandbox mode (`read-only`, `workspace-write`, `danger-full-access`) and approval policy (`auto`, etc.), selectable via `/permission` or the composer permission seat.

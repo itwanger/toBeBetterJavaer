@@ -649,6 +649,21 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "从官方预告、Arena 匿名盲测和推理框架适配线索，梳理 Kimi K3.1 的发布前信息与开发者关注点。",
     ["Kimi K3.1", "Kibitz", "Arena", "KDA"],
   ),
+  "what-is-super-agent": meta(
+    "DeepSeek Super-agent 是什么？", "DeepSeek Super-agent 解读",
+    "理解 Router 和 Worker 的分工、异步任务执行与 Watchdog 巡检。",
+    ["Super-agent", "DeepSeek Harness", "多 Agent", "Watchdog"],
+  ),
+  "what-is-llm": meta(
+    "什么是大语言模型？和传统 NLP 模型有什么区别？", "什么是 LLM",
+    "理解 Token 预测、模型规模、预训练与后训练，以及幻觉和工程应用。",
+    ["LLM", "大语言模型", "Transformer", "预训练"],
+  ),
+  "longcat-2-5": meta(
+    "美团 LongCat-2.5 正式版发布，有哪些新能力？", "LongCat-2.5 解读",
+    "了解 LongCat-2.5 的国产算力训练、原生多模态及 DeepSeek Harness 接入。",
+    ["LongCat-2.5", "多模态", "DeepSeek Harness"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -700,8 +715,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 热点解读（18/100）",
+    text: "02 / 热点解读（20/100）",
     children: [
+      "longcat-2-5",
+      "what-is-super-agent",
       "xiaomi-ocr-0",
       "gpt-6-1-terra",
       "kimi-k3-1-pro",
@@ -743,6 +760,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "04 / LLM 基础与 API",
     children: [
+      "what-is-llm",
       "what-is-prompt-caching",
       "what-is-prefix-caching",
       "what-is-kv-cache",
@@ -816,6 +834,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "longcat-2-5": "7703895292533329206",
+  "what-is-llm": "7703584792914267419",
+  "what-is-super-agent": "7703197849411996970",
   "xiaomi-ocr-0": "7702772455210896674",
   "agent-memory-compaction-methods": "7702426892510448931",
   "context-compaction-vs-kv-cache": "7702055929176526090",

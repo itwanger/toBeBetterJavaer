@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "slug": "one-minute-archimedes-principle",
+  "title": "阿基米德原理",
+  "compositionId": "OneMinuteArchimedesPrinciple",
+  "outputName": "one-minute-archimedes-principle.mp4",
+  "sourceArticle": "../../one-minute/archimedes-principle.md",
+  "config": {
+    "tts": {
+      "speakerId": "S_j97bqlje2",
+      "resourceId": "seed-icl-2.0",
+      "model": "seed-tts-2.0-expressive",
+      "apiBase": "https://openspeech.bytedance.com/api/v3/tts/unidirectional/sse",
+      "speedRatio": 1.0,
+      "speechRate": 0,
+      "audio": {
+        "format": "mp3",
+        "sampleRate": 24000
+      },
+      "atempo": 1.0
+    },
+    "volc": {
+      "apiKeyEnv": "VOLC_TTS_API_KEY"
+    },
+    "video": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30
+    }
+  },
+  "audioUnitMode": "meaning-groups",
+  "progress": {
+    "script": "2026-11-04",
+    "audio": "2026-11-04"
+  },
+  "deliveryAudio": "build/voiceover-with-effects.wav"
+}

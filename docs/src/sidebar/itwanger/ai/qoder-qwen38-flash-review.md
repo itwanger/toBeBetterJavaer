@@ -1,9 +1,9 @@
 ---
-title: 绝了，Qoder 积分可以无限白嫖了
-shortTitle: Qoder CN 福利与实测
-description: Qoder CN 深度实测，详解 Qwen3.8-Flash 限时 0.0x 免费使用、每日签到领 100 Credits 与专属邀请码 800 Credits 领取流程，实战站点托管、一分钟科普视频、Three.js 机械表、西湖古塔代码建模与 WebGL 捏脸交互。
+title: 阿里版Codex，再次惊艳到我了。
+shortTitle: QoderCN 福利与实测
+description: QoderCN 深度实测，详解 Qwen3.8-Flash 限时 0.0x 免费使用、专属邀请码 2QLFUW 领 800 积分、每日签到领 100+ 积分与双十一 19.9 元首购礼等福利，实战站点托管、一分钟科普视频、Three.js 机械表、西湖古塔代码建模与 WebGL 捏脸交互。
 keywords:
-  - Qoder CN
+  - QoderCN
   - Qwen3.8-Flash
   - AI编程
   - Three.js
@@ -18,65 +18,59 @@ date: 2026-11-02
 
 大家好，我是二哥呀。
 
-每天上午 10 点只要你登录 Qoder，就能领取 100 Credits，这可是实实在在的赛博鸡蛋啊。
+每天上午 10 点只要你登录 QoderCN，就能领取 100 Credits，这可是实实在在的赛博鸡蛋啊。
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261101173841.png)
 
 领，必须得领。
 
-甚至你可以用 Qoder 做成自动化，让 Qoder 自己帮你领，方法很简单，文末会告诉你怎么做。
+甚至你可以用 QoderCN 做成自动化，让 QoderCN 自己帮你领，方法很简单，文末会告诉你怎么做。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102153833.png)
 
-还有，`Qwen3.8-Flash` 在 Qoder 里可以免费用，限时 `0` 额度消耗且不限量哦。我滴乖乖，必须狠狠蹬起来。
+我滴乖乖，必须狠狠蹬起来。
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261101174512.png)
 
-当然了，光有额度还不够，能不能把想法变成可落地的产品，还得看 Agent 自身的工程能力给不给力。来看看我用 Qoder + `Qwen3.8-Flash` 完成的第一个 Case，用孟菲斯风格的动画演示冰球滑行与伽利略斜面实验，直观讲清楚牛顿第一定律，是不是很惊艳？
+当然了，光有额度还不够，能不能把想法变成可落地的产品，还得看 Agent 自身的工程能力给不给力。来看看我用 QoderCN + `Qwen3.8-Flash` 完成的第一个 Case，用孟菲斯风格的动画演示冰球滑行与伽利略斜面实验，直观讲清楚牛顿第一定律，是不是很惊艳？
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102144032.png)
 
 如果觉得截图不过瘾，我还录了屏，大家可以一睹为快。
 
-【视频】
+【视频：02-牛顿第一定律-孟菲斯动画.mp4】
 
 是不是瞬间觉得很香？
 
-来吧，一起把 Qoder 的羊毛薅起来。大多数时候，只要我们配好恰当的 Skill 和目标清晰的提示词，国产 Agent 加国产模型跑出来的交付效果照样很顶。
+来吧，一起把 QoderCN 的羊毛薅起来。大多数时候，只要我们配好恰当的 Skill 和目标清晰的提示词，国产 Agent 加国产模型跑出来的交付效果照样很顶。
 
-## 01、安装 Qoder 与站点
-
-先把 Qoder 这波福利给大家盘明白。Qoder 的新用户默认有 14 天的 Pro 试用期，自带 300 Credits，通过我的专属邀请链接注册，还会额外赠送 500 Credits，合计到手 800 Credits。
-
-> 专属领取地址：https://qoder.cn/activities?referral_code=0slcG8OQZw5rJZzPiIEi1SyuOIwyUDff
+## 01、安装 QoderCN 与站点
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261102111758.png)
 
-领完新手礼包，后面还有 `Qwen3.8-Flash` 限时 `0.0x` 免费使用和每天 10 点签到领 100 Credits 两项福利。
-
-下载并把客户端安装好之后，我建议先体验一下【站点】这个功能，直观感受一下 Qoder 帮你生成线上站点的工程能力。
+下载并把客户端安装好之后，我建议先体验一下【站点】这个功能，直观感受一下 QoderCN 帮你生成线上站点的工程能力。
 
 操作方法很简单，点击页面左下角的“站点”按钮，再点击右上角的【添加站点】。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261101210505.png)
 
-接着把我们的开源项目、专栏和作品集告诉 Qoder，让它帮我们搭建一个个人作品展示站点。
+接着把我们的开源项目、专栏和作品集告诉 QoderCN，让它帮我们搭建一个个人作品展示站点。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261101211130.png)
 
-Qoder 拿到需求后，会在本地生成包含 `index.html`、`styles.css`、`app.js` 和图片素材的完整网页工程，启动本地预览检查电脑端和手机端的排版，确认没问题后一键发布到 `qoder.zone` 线上域名。看看 Qoder 为我生成的个人站点，是不是很 nice？
+QoderCN 拿到需求后，会在本地生成包含 `index.html`、`styles.css`、`app.js` 和图片素材的完整网页工程，启动本地预览检查电脑端和手机端的排版，确认没问题后一键发布到 `qoder.zone` 线上域名。看看 QoderCN 为我生成的个人站点，是不是很 nice？
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261102112415.png)
 
 同样我也录了一个屏，大家可以感受下。
 
-【录屏】
+【录屏：01-Qoder站点-个人作品集演示.mp4】
 
-## 02、Qoder 制作 Vibe 视频
+## 02、QoderCN 制作 Vibe 视频
 
-看完了站点功能，接下来看第一个 Case。我用自己开源的 `one-minute-remotion` Skill，让 Qoder 驱动 `Qwen3.8-Flash` 制作一条“牛顿第一定律”的 Vibe 科普视频。
+看完了站点功能，接下来看第一个 Case。我用自己开源的 `one-minute-remotion` Skill，让 QoderCN 驱动 `Qwen3.8-Flash` 制作一条“牛顿第一定律”的 Vibe 科普视频。
 
-【录屏 1】
+【录屏 1：02-牛顿第一定律-孟菲斯动画.mp4】
 
 是不是瞬间感觉学习物理没那么枯燥了？
 
@@ -90,7 +84,7 @@ Qoder 拿到需求后，会在本地生成包含 `index.html`、`styles.css`、`
 4. 本地预览与导出验证：启动 Remotion Studio 本地预览服务，在浏览器里检查画面和字幕没有遮挡后，导出带二哥配音的 MP4 成片。
 ```
 
-打开 Qoder 输入这段提示词后，Qoder 处理多步骤任务的能力就体现出来了。
+打开 QoderCN 输入这段提示词后，QoderCN 处理多步骤任务的能力就体现出来了。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261102131112.png)
 
@@ -122,7 +116,7 @@ title: 牛顿第一定律
 现实中的物体总会受到力，只要合力为零，效果就和不受力一样，运动状态保持不变；合力不为零，运动状态才会改变。冰球能滑出去很远，靠的就是惯性，冰面摩擦越小，冰球的速度越接近不变。
 ```
 
-口播稿确定后，Qoder 先编写了 `OUTLINE.md` 分镜脚本，把整条视频划分为速度与合力、伽利略双斜面实验、惯性对比等 11 个场景，再编写 `remotion/src/Chapter1.tsx` 和 `remotion/src/ThreeScenes.tsx` 动画组件，采用浅色纸张背景、粉彩几何色块和深蓝色轮廓线的孟菲斯风格把各个物理场景画出来。
+口播稿确定后，QoderCN 先编写了 `OUTLINE.md` 分镜脚本，把整条视频划分为速度与合力、伽利略双斜面实验、惯性对比等 11 个场景，再编写 `remotion/src/Chapter1.tsx` 和 `remotion/src/ThreeScenes.tsx` 动画组件，采用浅色纸张背景、粉彩几何色块和深蓝色轮廓线的孟菲斯风格把各个物理场景画出来。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102144522.png)
 
@@ -138,19 +132,19 @@ title: 牛顿第一定律
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102144702.png)
 
-代码编写完成后，Qoder 自动启动了本地 `3121` 端口的 Remotion Studio 预览服务，逐帧检查画面与底部字幕没有重叠。
+代码编写完成后，QoderCN 自动启动了本地 `3121` 端口的 Remotion Studio 预览服务，逐帧检查画面与底部字幕没有重叠。
 
 确认没有问题之后，再出片。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102144945.png)
 
-## 03、Qoder 制作 3D 机械表
+## 03、QoderCN 制作 3D 机械表
 
-第一个视频任务还在后台运行，我们接着在 Qoder 左侧任务栏新建第二个任务，让 Qoder 驱动 `Qwen3.8-Flash` 做一个可拆解的 3D 机械表网页。
+第一个视频任务还在后台运行，我们接着在 QoderCN 左侧任务栏新建第二个任务，让 QoderCN 驱动 `Qwen3.8-Flash` 做一个可拆解的 3D 机械表网页。
 
-【录屏 2】
+【录屏 2：03-3D机械表-交互演示.mp4】
 
-完整提示词如下，大家可以复制到 Qoder 里复现。
+完整提示词如下，大家可以复制到 QoderCN 里复现。
 
 ```text
 请使用 Vite + Three.js 构建一个可交互的“3D 机械表机芯实验室（The Mechanical Watch）”网页应用，不依赖外部 3D 模型文件，全部用代码构建 29 个三维零件并实现联动：
@@ -165,7 +159,7 @@ title: 牛顿第一定律
    - 阶段 7：加速模拟 24 小时运转和动力消耗过程。
 ```
 
-来看看 Qoder 任务列表多任务并行执行的状态。
+来看看 QoderCN 任务列表多任务并行执行的状态。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261102134845.png)
 
@@ -177,27 +171,21 @@ title: 牛顿第一定律
 
 ![](https://cdn.paicoding.com/stutymore/qoder-cn-qwen38-flash-review-20261102135113.png)
 
-这个 Case 把 Qoder 拆分代码和管理多文件项目的能力展现得淋漓尽致。
+这个 Case 把 QoderCN 拆分代码和管理多文件项目的能力展现得淋漓尽致。
 
-Qoder 在本地工作区自动初始化了标准的 Vite 项目，把代码拆分成四个职责清楚的文件。`src/geometry.js` 定义齿轮、发条和表壳的 3D 几何形状，`src/parts.js` 把 29 个零件按从下到上的 7 层结构组装成完整机芯，`src/watch.js` 控制发条和表针转动，`src/main.js` 绑定页面左侧的 7 个按钮来控制镜头切换与数据面板刷新。
+QoderCN 在本地工作区自动初始化了标准的 Vite 项目，把代码拆分成四个职责清楚的文件。`src/geometry.js` 定义齿轮、发条和表壳的 3D 几何形状，`src/parts.js` 把 29 个零件按从下到上的 7 层结构组装成完整机芯，`src/watch.js` 控制发条和表针转动，`src/main.js` 绑定页面左侧的 7 个按钮来控制镜头切换与数据面板刷新。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102145237.png)
 
-代码写完后，Qoder 自动在终端执行 `npm run build` 验证项目能否正常打包，随后启动本地 `5182` 端口的开发服务器预览三维渲染效果。
+代码写完后，QoderCN 自动在终端执行 `npm run build` 验证项目能否正常打包，随后启动本地 `5182` 端口的开发服务器预览三维渲染效果。
 
 点击左侧按钮切换阶段时，无论是翻转表身、拖动表冠上发条，还是把 29 个零件分成 7 层展开，画面过渡都很流畅。
 
-![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102145329.png)
+## 04、QoderCN 制作工程蓝图
 
-做完这个包含多个源码文件的 3D 项目，看一眼 Qoder 左下角的用量统计，因为 `Qwen3.8-Flash` 处于 `0.0x` 免费活动期，消耗的 Credits 为 0。
+测完机械表，我们接着在 QoderCN 里新建了第三个任务来复刻一个新 Case，让 QoderCN 驱动 `Qwen3.8-Flash` 用代码给杭州西湖的保俶塔和雷峰塔做一套可交互的 3D 建筑蓝图。
 
-这种不用担心 Token 用量，狠狠蹬的感觉真好啊。
-
-## 04、Qoder 制作工程蓝图
-
-测完机械表，我们接着在 Qoder 里新建了第三个任务来复刻一个新 Case，让 Qoder 驱动 `Qwen3.8-Flash` 用代码给杭州西湖的保俶塔和雷峰塔做一套可交互的 3D 建筑蓝图。
-
-【录屏 3】
+【录屏 3：04-西湖双塔-工程蓝图.mp4】
 
 用代码给古建筑建模，难点在于准确还原八角塔身、飞檐和塔顶的比例，同时保证左上角的二维立面图与中间的 3D 模型尺寸一致。完整提示词如下，同样可以复制复现。
 
@@ -221,9 +209,9 @@ Qoder 在本地工作区自动初始化了标准的 Vite 项目，把代码拆�
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102145448.png)
 
-这个 Case 体现了 Qoder 在前端项目设计上的严谨性。
+这个 Case 体现了 QoderCN 在前端项目设计上的严谨性。
 
-页面左上角需要绘制古塔的二维立面图，中间需要渲染 3D 古塔模型。如果两个模块各自在代码里写死尺寸，修改时很容易出现二维图纸与 3D 模型高度不一致的问题。因此，Qoder 单独创建了一个 `src/specs.js` 配置文件，集中定义雷峰塔与保俶塔的总高、层高和各层宽度。
+页面左上角需要绘制古塔的二维立面图，中间需要渲染 3D 古塔模型。如果两个模块各自在代码里写死尺寸，修改时很容易出现二维图纸与 3D 模型高度不一致的问题。因此，QoderCN 单独创建了一个 `src/specs.js` 配置文件，集中定义雷峰塔与保俶塔的总高、层高和各层宽度。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102145641.png)
 
@@ -233,11 +221,11 @@ Qoder 在本地工作区自动初始化了标准的 Vite 项目，把代码拆�
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102145723.png)
 
-## 05、Qoder 重新设计个人网站
+## 05、QoderCN 重新设计个人网站
 
-第四个 Case，我们继续复刻一个有趣的网页交互效果，让 Qoder 驱动 `Qwen3.8-Flash` 为我的开源知识库网站《Java 进阶之路》（`javabetter.cn`）制作一个可以用鼠标拖拽捏脸的首页交互原型。
+第四个 Case，我们继续复刻一个有趣的网页交互效果，让 QoderCN 驱动 `Qwen3.8-Flash` 为我的开源知识库网站《Java 进阶之路》（`javabetter.cn`）制作一个可以用鼠标拖拽捏脸的首页交互原型。
 
-【录屏 4】
+【录屏 4：05-个人网站-WebGL捏脸演示.mp4】
 
 要在不引入第三方物理引擎的前提下实现这种弹力捏脸效果，需要用原生 WebGL 将头像图片划分为细密的网格，并通过物理公式计算网格顶点的拉伸与回弹。完整提示词如下，替换成你自己的头像图片就能运行。
 
@@ -250,7 +238,7 @@ Qoder 在本地工作区自动初始化了标准的 Vite 项目，把代码拆�
    - 在片元着色器中根据网格变形程度实时计算明暗与高光，增强皮肤拉伸时的立体感，并提供柔软度与阻尼调节滑块。
 ```
 
-来看看 Qoder 在本地工作区写完代码后，在浏览器里按住二哥鼻子往右拖拽的实测画面。
+来看看 QoderCN 在本地工作区写完代码后，在浏览器里按住二哥鼻子往右拖拽的实测画面。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102145842.png)
 
@@ -258,36 +246,30 @@ Qoder 在本地工作区自动初始化了标准的 Vite 项目，把代码拆�
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102150021.png)
 
-在这个 Case 中，Qoder 将项目拆分为 `js/plushie.js` 和 `js/main.js` 两个核心文件。`js/plushie.js` 负责编写 WebGL 着色器、划分 `72×72` 的图像网格，并在每一帧计算网格节点的拉伸位移与回弹速度；`js/main.js` 则负责合成拖拽音效、切换亮暗主题以及处理页面搜索交互。
+在这个 Case 中，QoderCN 将项目拆分为 `js/plushie.js` 和 `js/main.js` 两个核心文件。`js/plushie.js` 负责编写 WebGL 着色器、划分 `72×72` 的图像网格，并在每一帧计算网格节点的拉伸位移与回弹速度；`js/main.js` 则负责合成拖拽音效、切换亮暗主题以及处理页面搜索交互。
 
-除了编写核心代码，Qoder 还会通过内置预览排查页面布局问题。
+除了编写核心代码，QoderCN 还会通过内置预览排查页面布局问题。
 
-为了让头像可以被拉出橙色圆形背景之外，WebGL 画布的尺寸比圆形背景更大，四周留出了透明边距。Qoder 在浏览器预览时发现，扩大后的透明画布挡住了页面顶部的主题切换按钮，并且在手机窄屏下会导致页面出现横向滚动条，随后主动调整了画布的点击穿透属性与页面宽度样式，解决了按钮无法点击和手机端出现横向滚动条的问题。
+为了让头像可以被拉出橙色圆形背景之外，WebGL 画布的尺寸比圆形背景更大，四周留出了透明边距。QoderCN 在浏览器预览时发现，扩大后的透明画布挡住了页面顶部的主题切换按钮，并且在手机窄屏下会导致页面出现横向滚动条，随后主动调整了画布的点击穿透属性与页面宽度样式，解决了按钮无法点击和手机端出现横向滚动条的问题。
 
 ## ending
 
-我最大的感受是，免费且不限量的 `Qwen3.8-Flash` 大幅降低了日常尝试复杂创意的成本，而 Qoder 的工程能力则决定了这些创意能否转化为结构清晰、可维护的完整项目。
+我最大的感受是，`Qwen3.8-Flash` + QoderCN 大幅降低了日常尝试复杂创意的成本，而 QoderCN 的工程能力则决定了这些创意能否转化为结构清晰、可维护的完整项目。
 
-无论是读取 Skill 自动完成配音合成与孟菲斯动画渲染，还是将复杂的 3D 机械表、西湖古塔拆分为职责明确的多个源码文件，并通过浏览器预览自动排查页面遮挡与移动端排版问题，Qoder 展现出的都是成熟的项目开发与交付能力。
+无论是读取 Skill 自动完成配音合成与孟菲斯动画渲染，还是将复杂的 3D 机械表、西湖古塔拆分为职责明确的多个源码文件，并通过浏览器预览自动排查页面遮挡与移动端排版问题，QoderCN 展现出的都是成熟的项目开发与交付能力。
 
 ![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102150916.png)
 
-文中每个 Case 的提示词都已经整理好了。趁着目前新用户注册赠送 800 Credits、每天上午 10 点签到领取 100 Credits，以及 `Qwen3.8-Flash` 限时 `0.0x` 免费使用，不妨下载 Qoder 亲手体验一下。
+文中每个 Case 的提示词都已经整理好了。
 
->https://qoder.cn/activities?referral_code=0slcG8OQZw5rJZzPiIEi1SyuOIwyUDff
+如果担心平时工作学习比较忙、忘记每天上午 10 点领取 100 Credits，可以使用 QoderCN 的定时任务功能。
 
-如果担心平时工作学习比较忙、忘记每天上午 10 点领取 100 Credits，可以使用 Qoder 的定时任务功能。
+在定时任务面板中输入“每天上午 10 点整提醒我登录 QoderCN 领取 100 每日积分并打开活动页面”，再做成自动化，就可以直接每天到点自动帮你领取。
 
-在定时任务面板中输入“每天上午 10 点整提醒我登录 Qoder 领取 100 每日积分并打开活动页面”，再做成自动化，就可以直接每天到点自动帮你领取。
+![这就是 QoderCN 帮我自动领的](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102153220.png)
 
-![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102153220.png)
+自己控制自己，完美啊。不过这个需要给足权限，QoderCN 会提示你，及时授权就行。
 
-参考：
-
-![](https://cdn.paicoding.com/stutymore/qoder-qwen38-flash-review-20261102154024.png)
-
-自己控制自己，完美啊。不过这个需要给足权限，Qoder 会提示你，及时授权就行。
-
-另外，如果你手里有其他厂商的 API Key，从 Qoder 0.1.8 版本开始，个人版在“设置 → 模型”里还支持 BYOK（自带 Key），预置了阿里云百炼、DeepSeek、智谱、Kimi、MiniMax、小米 MIMO，也支持填写 OpenAI 或 Anthropic 兼容的自定义接口地址，走自己的 Key 跑任务不占 Qoder Credits（Repo Wiki 除外）。
+另外，如果你手里有其他厂商的 API Key，从 QoderCN 0.1.8 版本开始，个人版在“设置 → 模型”里还支持 BYOK（自带 Key），预置了阿里云百炼、DeepSeek、智谱、Kimi、MiniMax、小米 MIMO，也支持填写 OpenAI 或 Anthropic 兼容的自定义接口地址，走自己的 Key 跑任务不占 QoderCN Credits（Repo Wiki 除外）。
 
 我们下期见。
