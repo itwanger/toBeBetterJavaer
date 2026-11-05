@@ -25,9 +25,18 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 
 ## 定位项目
 
-1. 从仓库根目录定位 `docs/src/ai/script/`，工具的 `--project` 传项目目录。
+1. 从仓库根目录定位 `docs/src/ai/script/<视频项目>/` 并解析为绝对路径；工具的 `--project` 传该路径，输出位置遵守下方文件存放规则。
 2. 继续旧项目先跑 `doctor.py` 看 `progress`，再读 `script.md`、`beats.json`、`OUTLINE.md`。
 3. 找不到路径时修正路径，不新增另一套配置、依赖或生成目录。
+
+## 视频制作文件存放
+
+视频素材和制作产物不得直接写入仓库根目录，执行命令的工作目录不是产物目录。
+
+- 开始前确认当前视频项目的绝对路径：`docs/src/ai/script/<视频项目>/`，本机通过软链接对应 `ai-better/script/<视频项目>/`。生成、复制、下载、截图和渲染均显式指定项目内输出路径；工具的 `--project` 使用已确认的绝对路径，不依赖当前工作目录或工具的默认输出位置。
+- 配音放入项目的 `audio/` 或 `build/`，素材放入 `assets/`，截图、录屏、检查记录与临时文件放入 `preview/`，Remotion 源码放入 `remotion/src/`，成片放入 `output/`；`project.json`、`OUTLINE.md`、`PROGRESS.md` 等也只写在该视频项目内。源稿仍使用本 Skill 原有的稿件目录。
+- 额外交付副本放入仓库的 `outputs/<视频项目>/`，保留必要的目录层级；不把音频、JSON、TSX、截图或进度文件拍平复制到仓库根目录。
+- 每次阶段交付前检查仓库根目录及 Git 变更。发现误写文件先核对归属、内容和引用，再归档或归位；不覆盖正式项目中的较新版本，不清理其他任务的文件。
 
 ## 流程节点
 
@@ -52,7 +61,7 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 - 没有实际试听，不说读音已验收。
 - 使用原稿配图时保持原样，不用简化图形替换，也不重新生成；事实镜头优先采用对应的一手素材。带边框时用 `fitBox` 按整图或完整目标区域的实际比例取景，边框里不露空白。
 - 自制画面的颜色只从共享色板 `C` 取，卡片只用共享 `card` 或 `Card`；真实截图、论文与官方图表保留原色。
-- 录制还原的界面文字、顺序和数字只取自录制，没录到的不补，两次录制不拼成一次。录制只在临时目录里跑。
+- 录制还原的界面文字、顺序和数字只取自录制，没录到的不补，两次录制不拼成一次。录制使用项目 `preview/` 下的临时目录。
 - 录制、调用 API、翻安装包或源码核对这类实操验证，先问用户。需要调 API 时用 DeepSeek，不调用 Anthropic API。
 - 不伪造品牌标志和硬件产品图，先用共享素材库，见 [品牌素材复用](../../../docs/src/ai/script/shared/WORKFLOW.md#品牌素材复用)。
 
@@ -97,6 +106,8 @@ description: 把口播稿做成二哥风格的 Remotion 视频，包括整理视
 ## 最短示例
 
 ```bash
-python3 docs/src/ai/script/shared/tools/init_project.py --project docs/src/ai/script/<topic> --source docs/src/ai/video/<topic>.md --title '<标题>'
-python3 docs/src/ai/script/shared/tools/doctor.py --project docs/src/ai/script/<topic>
+VIDEO_REPO="$(cd docs/src/ai && pwd -P)"
+VIDEO_PROJECT="$VIDEO_REPO/script/<topic>"
+python3 "$VIDEO_REPO/script/shared/tools/init_project.py" --project "$VIDEO_PROJECT" --source "$VIDEO_REPO/video/<topic>.md" --title '<标题>'
+python3 "$VIDEO_REPO/script/shared/tools/doctor.py" --project "$VIDEO_PROJECT"
 ```
