@@ -1,0 +1,75 @@
+{
+  "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/dba1be0a40aa45a94ad051997016db3960a90277/tokenizer.json",
+  "tokenizerSha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+  "utf8": [
+    {
+      "text": "人",
+      "bytes": [
+        "E4",
+        "BA",
+        "BA"
+      ]
+    },
+    {
+      "text": "工",
+      "bytes": [
+        "E5",
+        "B7",
+        "A5"
+      ]
+    },
+    {
+      "text": "智",
+      "bytes": [
+        "E6",
+        "99",
+        "BA"
+      ]
+    },
+    {
+      "text": "能",
+      "bytes": [
+        "E8",
+        "83",
+        "BD"
+      ]
+    }
+  ],
+  "examples": {
+    "人工智能": {
+      "ids": [
+        33574
+      ],
+      "parts": [
+        "人工智能"
+      ]
+    },
+    "unhelpful": {
+      "ids": [
+        371,
+        18799,
+        1518
+      ],
+      "parts": [
+        "un",
+        "help",
+        "ful"
+      ]
+    },
+    "tokenCountCache": {
+      "ids": [
+        33912,
+        8420,
+        36807
+      ],
+      "parts": [
+        "token",
+        "Count",
+        "Cache"
+      ]
+    }
+  },
+  "figure": "https://cdn.paicoding.com/stutymore/what-is-tokenizer-splits-20261107175546-79e92c01.png",
+  "scope": "整词词表为无回退的教学构造。字节场景以每字节一项对照；注意力方阵展示位置对的数量级，未给出模型运行时间。真实分词器示例从锁定的 DeepSeek-V4.1-Flash tokenizer.json 运行得到。",
+  "baseVocabulary": 128000
+}

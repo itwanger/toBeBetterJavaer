@@ -42,6 +42,10 @@ Vibe 知识大赏之欧姆定理，是不是很 nice？
 
 ![](https://cdn.paicoding.com/stutymore/hy4-review-bench-table-20261104141314-294e3d04.png)
 
+从 Agent Arena 的评测数据来看，Hy4 在产出和成本之间取得了不错的平衡，处在“帕累托前沿”上，性价比很高。注意看下图，纵轴是评测得分，越高越好；横轴是每个任务的中位数，越往右越便宜。基于全球用户的 8500 多次真实长程 Agent 任务，Hy4 每个任务成本 0.55 刀，比 Kimi K3.1 Pro 的 1.46 刀低约 62%。
+
+![](https://cdn.paicoding.com/stutymore/hunyuan-hy4-review-20261105161720.png)
+
 目前 Hy4 正式版已经在腾讯云和 OpenRouter 上线，WorkBuddy、CodeBuddy、元宝和 ima 都能直接用。
 
 当然了，光看跑分不够直观，跟着我的脚步，一起来欣赏一下混元 Hy4 正式版的能力，提示词我都全部都整理好了，相信你也可以复刻。
@@ -78,7 +82,7 @@ Vibe 知识大赏之欧姆定理，是不是很 nice？
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261103213107.png)
 
-说真心话，每天和 AI 对话，最怕的就是 AI 味，混元 Hy4 正式版这次真的人味拉满，仿佛我对面的不再是一个冷冰冰的 AI，真的就是情绪价值拉满的 Personal Agent。
+说真心话，每天和 AI 对话，最怕的就是 AI 味，混元 Hy4 这次真的人味拉满，仿佛我对面的不再是一个冷冰冰的 AI，真的就是情绪价值拉满的 Personal Agent。
 
 很快，文字稿就有了，感觉质量很高啊。
 
@@ -118,13 +122,13 @@ Vibe 知识大赏之欧姆定理，是不是很 nice？
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261103223628.png)
 
-第一章的视频也出来了，整体看起来很不错，视觉上挺舒服的。完全没有抽卡，一遍出，我只能说混元 Hy4 正式版在制作视频方面有一手啊。
+第一章的视频也出来了，整体看起来很不错，视觉上挺舒服的。完全没有抽卡，一遍出，我只能说混元 Hy4 在指挥制作视频方面有一手啊。
 
 唯一的瑕疵是一节电池的时候，不应该给两节电池预留位置，否则电路是不通的。
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261103224610.png)
 
-我们直接截图发给 WorkBuddy，试一下混元 Hy4 正式版的多模态理解能力。
+我们直接截图发给 WorkBuddy，试一下混元 Hy4 的多模态理解能力。
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261103224914.png)
 
@@ -260,7 +264,7 @@ WorkBuddy 识别出截图里淡紫色的空电池槽和断开的导线后，把�
 
 前面我们已经做好了欧姆定律的视频预览，对吧，但视频还没有出片。
 
-接下来，我们就通过 WorkBuddy + 混元 Hy4 正式版的 Computer Use 能力来控制 DeepSeek Harness 帮我们出片。
+接下来，我们就通过 WorkBuddy + 混元 Hy4 的 Computer Use 能力来控制 DeepSeek Harness 帮我们出片。
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20261104094405.png)
 
@@ -296,9 +300,15 @@ OK，WorkBuddy 这边也返回了。
 
 ## ending
 
-肉眼可见，国产模型的能力在提升，并且提升的幅度很大。
+肉眼可见，国产模型的能力在提升，并且提升的幅度很可观。Agent Arena 发布的测评数据显示，Hy4 排在总榜的第 14位，和Kimi K3.1 Pro 并列开源模型第一。
 
-混元 Hy4 正式版给我的惊喜就是，不论哪一种类型的 Case，完成度都很高。
+![](https://cdn.paicoding.com/stutymore/hunyuan-hy4-review-20261105161752.png)
+
+另外，国际权威大模型评测机构 Artifical Analysis 发布的评测数据显示，腾讯混元 Hy4 得分 35，与 Grok 4.7 并列，在国产模型中仅次于 Kimi K3.1 Pro。
+
+![](https://cdn.paicoding.com/stutymore/hunyuan-hy4-review-1.png)
+
+混元 Hy4 给我的惊喜就是，不论哪一种类型的 Case，完成度都很高。
 
 更让我惊喜的是，每次对话，你会感觉一个活生生的人在你面前，【马上，比外卖快】这种小细节不知道是哪个产品经理设计的，我特别喜欢。
 

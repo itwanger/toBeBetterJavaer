@@ -1,0 +1,31 @@
+{
+  "approvalDate": "2026-11-07",
+  "composition": "Chapter1Preview",
+  "frames": 663,
+  "fps": 30,
+  "canvas": [
+    1920,
+    1080
+  ],
+  "scope": "Tokenizer 第一章有声预览",
+  "spriteSources": {
+    "walk, carry, release": "ai-better/script/one-minute/ohms-law/codex/super-mario-v1/assets/characters/ergo-chibi-v3/；按 atlas 裁为八格等宽透明图",
+    "sit": "使用同一人物的 release 图集生成坐姿，再裁为 106×204；臀部锚点 (45,163)"
+  },
+  "audioSource": "ai-better/script/shared/tools/sfx_designs.py",
+  "files": {
+    "assets/pixel-actor/pixel-ergo-carry.png": "1e5709c37ad76d2f605f79103a1bc1da63f4333c2532a259db50f940e4a4bfc5",
+    "assets/pixel-actor/pixel-ergo-release.png": "5bf74ee587ffe9fc81ac773213c12a8f96f356a667f22c0f92c6f374cfae8ae0",
+    "assets/pixel-actor/pixel-ergo-sit.png": "9023e9182b9b42bc7e2af063e79e5359023652f5d1c19f94c714e019765fe9a0",
+    "assets/pixel-actor/pixel-ergo-walk.png": "fb77c716d6564b91749929c10b664b09ff102ce5c315e37e05d97a5d59c24906",
+    "assets/pixel-sfx/pixel_follow.wav": "a61430666787aadb0506a583e399083adcf5277a5b42b67becc5fc66b13a6f55",
+    "assets/pixel-sfx/pixel_like.wav": "7e03b18605e19c450e27be92d23a20681890a3f293d8768108688711b529e992",
+    "references/approved-pixel-ch1/billing-61.png": "696767b8da35cb69f57dec17d258cfd54a29623c5f51817cdf601bcbaf6a5592",
+    "references/approved-pixel-ch1/ch1-usage-4x.png": "206f77e3487f626bb628a3cfff1e0c5a1784bfea58384fa438ef7cde45ce90bc",
+    "references/approved-pixel-ch1/flag-course.jpg": "8857d4d07e9fd6ff4b9f803f4eec7450b53eac2a5e222a1cb7997816ebebea6a",
+    "references/approved-pixel-ch1/sit-540.png": "32850725527bf0aab14a6a837cc23141e30f3ed059edf0908be8b7dea1ea89fd",
+    "references/approved-pixel-ch1/sound-plan.json": "cb2dbe0476d901e47fe00a0207db52fec2486a07a7215a903471cb00f0d35a13",
+    "references/approved-pixel-ch1/storyboard.jpg": "d7da82532aa7ae9962a854c4ee4b1982c430bcaf21fb13e76e6d0ac93f9176e6",
+    "references/approved-pixel-ch1/tokenizer-source.json": "bbff332b0e6aabbfe8bf04f6a3fda2f5912891f7268e67d368aeaf4944ab1a65"
+  }
+}

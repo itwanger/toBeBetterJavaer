@@ -1,0 +1,58 @@
+{
+  "approved": "2026-11-07",
+  "referenceSheet": "opening-layout.jpg",
+  "closeups": {
+    "official": {
+      "file": "billing-4x.png",
+      "source": "preview/reference/token-usage-official-4x.png",
+      "sha256": "3f71616afe0818c062147d25d4f2e3b7f19b7a74142593c9cfcebbaaa3b6d467",
+      "sourcePage": "https://api-docs.deepseek.com/quick_start/token_usage"
+    },
+    "result": {
+      "file": "token-result-4x.png",
+      "source": "../approved-pixel-ch1/ch1-usage-4x.png",
+      "cropXYWHpx": [
+        2740,
+        880,
+        2172,
+        1112
+      ],
+      "sha256": "8d841816331b62d8bd2bf2392493ce9b1da078d44aa56f49319b7f75f0691b18",
+      "caseProject": "agent-llm-case/what-is-tokenizer/index.html"
+    },
+    "visibleMargins": {
+      "1920x1080 outer": [
+        27,
+        27
+      ],
+      "settled screenshot ink at F61 and F114": [
+        181,
+        181
+      ]
+    }
+  },
+  "logo": {
+    "publisher": "DeepSeek",
+    "original": "https://www.deepseek.com/favicon.ico",
+    "sourceSha256": "16e31ee06484990ede956b204491bf6ad53bc6f083eb4cd31580c30e19037021",
+    "file": "deepseek-pixel.png",
+    "grid": [
+      48,
+      48
+    ],
+    "conversion": "Official cached PNG downsampled by nearest neighbor; display at integer scale to identify the receiving model.",
+    "sha256": "d265132416e6254a95a89c10ef4337958ebd8bbc7a222edbd01a0665c6ace832"
+  },
+  "input": "大模型",
+  "verifiedCase": {
+    "ids": [
+      547,
+      8842
+    ],
+    "tokens": [
+      "大",
+      "模型"
+    ]
+  },
+  "tokenizerSource": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/dba1be0a40aa45a94ad051997016db3960a90277/tokenizer.json"
+}

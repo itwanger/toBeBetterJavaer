@@ -1,0 +1,76 @@
+{
+  "events": [
+    {
+      "beatId": 1,
+      "offsetFrames": 104,
+      "sound": "focus_air",
+      "peakDbfs": -31
+    },
+    {
+      "beatId": 2,
+      "offsetFrames": 0,
+      "sound": "page",
+      "peakDbfs": -30
+    },
+    {
+      "beatId": 2,
+      "offsetFrames": 69,
+      "sound": "data_pluck",
+      "peakDbfs": -30
+    },
+    {
+      "beatId": 3,
+      "offsetFrames": 25,
+      "sound": "soft_click",
+      "peakDbfs": -28
+    },
+    {
+      "beatId": 4,
+      "offsetFrames": 0,
+      "sound": "focus_air",
+      "peakDbfs": -29
+    },
+    {
+      "beatId": 4,
+      "offsetFrames": 94,
+      "sound": "soft_pop",
+      "peakDbfs": -32
+    },
+    {
+      "beatId": 5,
+      "offsetFrames": 5,
+      "sound": "soft_whoosh",
+      "peakDbfs": -25
+    },
+    {
+      "beatId": 5,
+      "offsetFrames": 44,
+      "sound": "soft_whoosh",
+      "peakDbfs": -34
+    },
+    {
+      "beatId": 5,
+      "offsetFrames": 67,
+      "sound": "success_pair",
+      "peakDbfs": -31
+    },
+    {
+      "beatId": 5,
+      "offsetFrames": 109,
+      "sound": "soft_click",
+      "peakDbfs": -34
+    },
+    {
+      "beatId": 6,
+      "offsetFrames": 10,
+      "sound": "pixel_like",
+      "peakDbfs": -22
+    },
+    {
+      "beatId": 6,
+      "offsetFrames": 20,
+      "sound": "pixel_follow",
+      "peakDbfs": -23
+    }
+  ]
+}

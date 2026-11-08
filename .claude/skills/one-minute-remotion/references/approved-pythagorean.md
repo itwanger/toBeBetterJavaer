@@ -48,6 +48,6 @@
 
 ## 本机工程证据
 
-- 工程：`ai-better/script/one-minute-what-is-pythagorean-theorem/`，默认Composition为`PythagoreanV2`，原版组件保留用于对照。
-- [V2源码](../../../../docs/src/ai/script/one-minute-what-is-pythagorean-theorem/remotion/src/Chapter1V2.tsx)、[分镜](../../../../docs/src/ai/script/one-minute-what-is-pythagorean-theorem/OUTLINE-V2.md)、[审片记录](../../../../docs/src/ai/script/one-minute-what-is-pythagorean-theorem/review.json)、[英文C样本记录](../../../../docs/src/ai/script/one-minute-what-is-pythagorean-theorem/preview/pronunciation-c/sample.json)。本机路径用于复核，打包的四张成帧可独立查看。
+- 工程：`ai-better/script/one-minute/pythagorean-theorem/codex/warm-geometry/`，默认Composition为`PythagoreanV2`，原版组件保留用于对照。
+- [V2源码](../../../../docs/src/ai/script/one-minute/pythagorean-theorem/codex/warm-geometry/remotion/src/Chapter1V2.tsx)、[分镜](../../../../docs/src/ai/script/one-minute/pythagorean-theorem/codex/warm-geometry/OUTLINE-V2.md)、[审片记录](../../../../docs/src/ai/script/one-minute/pythagorean-theorem/codex/warm-geometry/review.json)、[英文C样本记录](../../../../docs/src/ai/script/one-minute/pythagorean-theorem/codex/warm-geometry/preview/pronunciation-c/sample.json)。本机路径用于复核，打包的四张成帧可独立查看。
 - 成帧来源和哈希见[图片记录](approved-pythagorean/provenance.json)。来源文件的design帧号属于原设计时间轴，不是新音频的播放帧号，勿据文件名推断时码。

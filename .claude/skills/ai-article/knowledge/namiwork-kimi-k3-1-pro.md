@@ -1,7 +1,7 @@
 # 纳米Work + Kimi K3.1 Pro 调研缓存
 
 - 调研日期：2026-11-04
-- 仓库路径：`/Users/itwanger/Documents/GitHub/agent-llm-case`、`/Users/itwanger/Documents/GitHub/toBeBetterJavaer/docs/src/ai/script/one-minute-archimedes-principle-memphis`、`/Users/itwanger/.namiwork`
+- 仓库路径：`/Users/itwanger/Documents/GitHub/agent-llm-case`、`/Users/itwanger/Documents/GitHub/toBeBetterJavaer/docs/src/ai/script/one-minute/archimedes-principle/namiwork/memphis`、`/Users/itwanger/.namiwork`
 - Commit：`agent-llm-case` 本地工作区（2026-11-04 实测版本）
 
 ## 1. 纳米Work 与 Kimi K3.1 Pro 核心定位
@@ -14,7 +14,7 @@
 
 ## 2. 实测 Case 1：Vibe 知识大赏之阿基米德原理
 
-- 工程路径：`/Users/itwanger/Documents/GitHub/toBeBetterJavaer/docs/src/ai/script/one-minute-archimedes-principle-memphis/`
+- 工程路径：`/Users/itwanger/Documents/GitHub/toBeBetterJavaer/docs/src/ai/script/one-minute/archimedes-principle/namiwork/memphis/`
 - 制作流程：
   1. 确认加载本地一分钟视频 Skill（`ergo-remotion-video`）。
   2. 输入提示词 `今天我们的主题是阿基米德原理，先出稿吧` 生成口播稿，针对“同体积水团等效替换金属块”的物理表述进行人工润色校对，定稿保存为 `spoken.txt`。

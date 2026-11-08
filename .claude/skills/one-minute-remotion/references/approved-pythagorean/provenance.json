@@ -1,7 +1,7 @@
 {
   "approvedDate": "2026-10-31",
   "scope": "User-approved Studio preview, not a rendered/published MP4. Images copied unchanged from the current episode.",
-  "project": "ai-better/script/one-minute-what-is-pythagorean-theorem",
+  "project": "ai-better/script/one-minute/pythagorean-theorem/codex/warm-geometry",
   "composition": "PythagoreanV2",
   "frames": [
     {

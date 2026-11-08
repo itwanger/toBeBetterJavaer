@@ -1,0 +1,63 @@
+{
+  "figure": {
+    "url": "https://cdn.paicoding.com/stutymore/what-is-tokenizer-algorithms-20261107175548-d6a7b4af.png",
+    "path": "assets/images/ch4-algorithms.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "sha256": "06a32d29c66f452ef469a676eb6eb76957091bd26fb74176b54aefb2f54aaed1"
+  },
+  "training": {
+    "corpus": {
+      "ing": 3,
+      "in": 2,
+      "ig": 1
+    },
+    "base": [
+      "i",
+      "n",
+      "g"
+    ],
+    "wordBoundaries": "每个样本内作相邻对计数，样本之间隔开。",
+    "targetSize": 5,
+    "rounds": [
+      {
+        "i + n": 5,
+        "n + g": 3,
+        "i + g": 1
+      },
+      {
+        "in + g": 3,
+        "i + g": 1
+      }
+    ],
+    "scope": "自建教学小语料。目标词表大小为 5，不是任何真实模型的词表规模。"
+  },
+  "unigram": {
+    "toyProbabilities": {
+      "i": 0.1,
+      "n": 0.2,
+      "g": 0.1,
+      "in": 0.12,
+      "ing": 0.03
+    },
+    "segmentations": {
+      "i | n | g": 0.002,
+      "in | g": 0.012,
+      "ing": 0.03
+    },
+    "scope": "只展示示例词表里与 ing 有关的片段。每种切法的分数为片段概率乘积，不是模型实测。"
+  },
+  "sources": {
+    "BPE训练与应用": "https://aclanthology.org/P16-1162/",
+    "GPT": "https://github.com/openai/tiktoken",
+    "DeepSeek": "ch2-examples.json",
+    "Qwen": "https://github.com/QwenLM/Qwen/blob/main/tokenization_note.md",
+    "WordPiece / BERT": "https://github.com/google-research/bert/blob/master/tokenization.py",
+    "Unigram": "https://aclanthology.org/P18-1007/",
+    "SentencePiece": "https://github.com/google/sentencepiece",
+    "Llama 2": "https://arxiv.org/abs/2307.09288",
+    "早期 Gemma": "https://huggingface.co/google/gemma-2b/blob/main/tokenizer_config.json"
+  }
+}

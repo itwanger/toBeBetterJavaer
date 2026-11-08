@@ -1,0 +1,63 @@
+{
+  "model": "DeepSeek-V4.1-Flash",
+  "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/dba1be0a40aa45a94ad051997016db3960a90277/tokenizer.json",
+  "sha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+  "pretokenizer": {
+    "type": "ByteLevel",
+    "add_prefix_space": false,
+    "trim_offsets": true,
+    "use_regex": false
+  },
+  "modelType": "BPE",
+  "cases": {
+    "大模型": {
+      "ids": [
+        547,
+        8842
+      ],
+      "tokens": [
+        "大",
+        "模型"
+      ]
+    },
+    "王二讲 Agent 开源了吗？": {
+      "ids": [
+        2158,
+        1304,
+        3486,
+        33988,
+        223,
+        83649,
+        20889,
+        1148
+      ],
+      "tokens": [
+        "王",
+        "二",
+        "讲",
+        " Agent",
+        " ",
+        "开源",
+        "了吗",
+        "？"
+      ]
+    }
+  },
+  "usageSource": "https://api-docs.deepseek.com/quick_start/token_usage",
+  "articleImage": "https://cdn.paicoding.com/stutymore/what-is-tokenizer-usage-20261107175543-0af86be2.png",
+  "highResolutionUsage": {
+    "page": "https://api-docs.deepseek.com/zh-cn/quick_start/token_usage/",
+    "caseProject": "agent-llm-case/what-is-tokenizer/index.html",
+    "devicePixelRatio": 4,
+    "officialCropPx": [
+      2784,
+      1316
+    ],
+    "caseCapturePx": [
+      5120,
+      2288
+    ],
+    "file": "assets/images/ch1-usage-4x.png",
+    "sha256": "206f77e3487f626bb628a3cfff1e0c5a1784bfea58384fa438ef7cde45ce90bc"
+  }
+}

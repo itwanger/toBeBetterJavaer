@@ -664,6 +664,26 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "了解 LongCat-2.5 的国产算力训练、原生多模态及 DeepSeek Harness 接入。",
     ["LongCat-2.5", "多模态", "DeepSeek Harness"],
   ),
+  "hunyuan-hy4": meta(
+    "混元 Hy4 正式版结合 WorkBuddy 有哪些能力？", "混元 Hy4 与 WorkBuddy",
+    "结合 WorkBuddy 实测，了解混元 Hy4 的多模态视觉、Computer Use 和应用。",
+    ["混元 Hy4", "WorkBuddy", "多模态", "Computer Use"],
+  ),
+  "what-is-transformer": meta(
+    "讲讲 Transformer 的基本架构？Encoder 和 Decoder 分别干什么？", "Transformer 架构",
+    "理解 Transformer 的自注意力、前馈网络和 Encoder、Decoder 分工。",
+    ["Transformer", "自注意力", "Encoder", "Decoder"],
+  ),
+  "what-is-tokenizer": meta(
+    "分词器是什么？", "DeepSeek 分词器",
+    "理解 Token 编码、子词切分和 DeepSeek 使用的字节级 BPE。",
+    ["Tokenizer", "DeepSeek", "BPE", "Token"],
+  ),
+  "how-deepseek-supports-1m-context": meta(
+    "DeepSeek 是怎么撑起 1M 上下文的？", "DeepSeek 1M 上下文",
+    "理解 MLA、CSA、HCA 和 Flash Attention 如何降低长上下文开销。",
+    ["DeepSeek", "上下文窗口", "KV Cache", "MLA"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -715,8 +735,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 热点解读（20/100）",
+    text: "02 / 热点解读（21/100）",
     children: [
+      "hunyuan-hy4",
       "longcat-2-5",
       "what-is-super-agent",
       "xiaomi-ocr-0",
@@ -760,6 +781,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "04 / LLM 基础与 API",
     children: [
+      "what-is-tokenizer",
+      "how-deepseek-supports-1m-context",
+      "what-is-transformer",
       "what-is-llm",
       "what-is-prompt-caching",
       "what-is-prefix-caching",
@@ -834,6 +858,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "what-is-tokenizer": "7705453048864328975",
+  "how-deepseek-supports-1m-context": "7705036086988393738",
+  "what-is-transformer": "7704649100112710912",
+  "hunyuan-hy4": "7704303050290171179",
   "longcat-2-5": "7703895292533329206",
   "what-is-llm": "7703584792914267419",
   "what-is-super-agent": "7703197849411996970",

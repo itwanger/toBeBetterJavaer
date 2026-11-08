@@ -1,6 +1,6 @@
 ---
 name: video-cover-image
-description: Generate matched 3:4, 16:9, and 4:3 short-video cover images from toBeBetterJavaer video scripts or AI/Java technical topics. Use when the user asks for 视频封面, 封面图, 横版和竖版, 小红书/抖音/B站/快手封面, pure-text covers with 白色大字+黄色小字, reference-image-matched covers, or wants a repeatable cover workflow for Markdown scripts under docs/src/ai/video/.
+description: Generate matched 3:4, 16:9, and 4:3 short-video covers from scripts or technical topics, including blue-sky illustrated, pure-text, and 二哥 pixel-game styles. Use for 视频封面, 封面图, platform aspect ratios, or matching a specified cover style.
 ---
 
 # Video Cover Image
@@ -15,15 +15,23 @@ Create a matched three-cover set for one technical short-video script:
 
 By default, generate all three covers as one matched set. Generate fewer ratios only when the user explicitly says only/只要/单独生成 specific ratios.
 
-Use the `itwanger-image` style rules when available. Keep prompt context isolated: use only the target script, user-provided reference images, and this skill's rules. Do not pull in unrelated browser/editor/window/history content.
+Use the `wanger-image` style rules when available. Keep prompt context isolated: use only the target script, user-provided reference images, and this skill's rules. Do not pull in unrelated browser/editor/window/history content.
 
-If the user provides a reference image or asks for `纯文本`, `白色大字+黄色小字`, `黑色/黑灰背景`, or `参考图这种布局`, use the pure-text reference style below instead of the default illustrated style. Use deterministic rendering for this mode so Chinese text stays exact.
+There are three selectable modes; a user-selected style or reference takes priority:
+
+| Style | Selection | Appearance and method |
+| --- | --- | --- |
+| 天空风 | Default; also `天空风` or `蓝天封面` | Blue sky, 二哥 cartoon presenter and a compact mechanism illustration; generate with `image_gen`. |
+| 黑底风 | `黑底`, `纯文字`, `白色大字+黄色小字`, or a black/gray text-only reference | Dark background, white title and yellow keyword lines, no presenter; render with `scripts/render_text_cover.py`. |
+| 像素风 | Explicit `像素风`, `pixel`, `像素游戏风`, or 二哥 Remotion pixel style | Warm pixel-game world and pixel presenter; read `itwanger-pixel-image` and apply the cover-specific rules below, then generate with `image_gen`. |
+
+Other references are interpreted according to their actual content, not automatically as pure text. Pixel mode is selected only when explicitly requested. For a video cover, its proportions, minimal text and no-signature rule take precedence over the pixel article-illustration defaults; its six article layouts are not mandatory for a cover.
 
 For video covers, do not add copyright signatures, watermarks, corner marks, or small `©️沉默王二` labels unless the user explicitly asks for them. This cover-specific rule overrides any lower-level image-skill signature preference.
 
 ## Fixed Presenter Reference
 
-For every illustrated cover, use this image as the canonical presenter reference:
+For blue-sky illustrated covers, use this image as the canonical presenter reference:
 
 `references/itwanger-cover-character.png`
 
@@ -49,17 +57,18 @@ Before generating, choose the current video's presenter treatment and state it i
 2. Extract cover material from the script.
    - Topic: the exact subject and the mechanism, conflict, or question the script explains.
    - Main title: prefer one complete, click-driving question that names the subject and makes the video topic explicit, such as `Claude Code 的短期记忆是如何实现的？`. Avoid vague noun-only titles such as `短期记忆` or `自动压缩`.
-   - Secondary hook: omit it by default. Add at most one short mechanism keyword only when the user explicitly requests a label or the title cannot state the topic clearly on its own.
+   - Secondary hook: for illustrated modes omit it by default. Black-background mode normally uses one or two concise yellow keyword lines.
    - Visual metaphor: one self-explanatory mechanism scene that previews the answer without relying on labels, such as many message cards being compressed into one summary card.
    - Presenter expression: match the topic while keeping the same 二哥 character. Use confident/focused for architecture and collaboration, serious/alert for pitfalls and bugs, excited/energetic for tutorials and capability reveals, and skeptical/surprised for wrong-answer interview hooks.
    - Presenter treatment: apply Presenter Variety Across Videos; choose the action, angle, framing, and placement for this video instead of inheriting the reference pose.
 
 3. Select the cover mode.
+   - Use pixel-game mode when requested; follow the Pixel Game Style section below.
    - Use pure-text reference mode when the user asks for a text-only cover, provides a black/gray reference card, or corrects toward "one white title line plus yellow keyword lines".
    - Use default illustrated mode for normal knowledge-zone covers with presenter, icon, and blue-sky energy.
 
 4. Keep text short enough for image generation.
-   - Prefer exactly 1 visible text block: one dominant question-style main title. Add one short secondary hook only when explicitly requested.
+   - For illustrated modes prefer one dominant question-style title; add a short secondary hook only when requested. In black-background mode use one white title and one or two concise yellow keyword lines.
    - Let the main title wrap to 2-3 large lines when needed; do not shorten it into an ambiguous keyword pile.
    - Avoid dense labels, small body text, repeated keywords, bottom tags, and multiple equal-weight slogans.
    - Apply the thumbnail test: when viewed small, the title alone must state what the video explains, while the illustration should hint at the answer and create curiosity.
@@ -71,39 +80,40 @@ Before generating, choose the current video's presenter treatment and state it i
    - Example command:
 
 ```bash
-python3 .agents/skills/video-cover-image/scripts/render_text_cover.py \
+python3 /Users/itwanger/.codex/skills/video-cover-image/scripts/render_text_cover.py \
   --title "什么是 ReAct?" \
   --line "Thought、Action、Observation" \
   --line "CoT、工具调用、外部验证" \
-  --prefix "what-is-react-cover"
+  --prefix "what-is-react-cover" \
+  --out-dir /absolute/path/to/output
 ```
 
-6. For default illustrated mode, generate the vertical cover first with `image_gen`.
+6. For illustrated modes, generate the vertical cover first with `image_gen`. In pixel-game mode apply its references and style rules instead of the blue-sky character and background instructions in steps 6–8.
    - Ratio: `3:4`, target size similar to `1086 x 1448`.
    - Composition: dominant question title, one compact visual cue, and presenter placed according to this video's selected treatment and available space.
-   - Apply the default high-impact blue-sky knowledge-cover style.
-   - Always include `references/itwanger-cover-character.png` as the presenter reference.
+   - In blue-sky mode apply the high-impact blue-sky knowledge-cover style.
+   - For blue-sky mode include `references/itwanger-cover-character.png` as the presenter reference.
 
 7. Generate the `16:9` widescreen cover with `image_gen`.
    - Ratio: `16:9`, target size similar to `1920 x 1080` or `1600 x 900`.
    - Composition: dominant question title, one compact visual cue, and presenter recomposed for widescreen using this video's selected treatment.
    - Reuse the same title, visual cue, character, color system, and topic framing as the vertical cover.
-   - Include the same canonical presenter reference; do not rely on the vertical output alone to preserve identity.
+   - Include the mode's presenter reference; do not rely on the vertical output alone to preserve identity.
 
 8. Generate the `4:3` horizontal cover with `image_gen`.
    - Ratio: `4:3`, target size similar to `1440 x 1080` or `1600 x 1200`.
    - Recompose for the less-wide canvas; do not crop the `16:9` image mechanically.
    - Reuse the same title, visual cue, character, color system, and topic framing as the other covers.
-   - Include the same canonical presenter reference; do not reinterpret the character for the new canvas.
+   - Include the mode's presenter reference; do not reinterpret the character for the new canvas.
 
 9. Run a quick visual quality gate before final response.
    - Aspect ratio is correct for each image.
    - The main title names the exact subject and question; the video topic is obvious from the title alone at thumbnail size.
    - The illustration previews the mechanism or answer instead of adding unrelated decoration.
-   - There is no keyword pile or bottom tag: only the main title appears unless the user explicitly requested a secondary hook.
+   - There is no keyword pile or bottom tag. Illustrated modes normally show only the main title; black-background mode may include its yellow keyword lines.
    - Chinese text has no obvious garbling in the large title/punch lines.
    - In pure-text mode: black/gray textured background, one bold white title, one or two large yellow keyword lines, no blue background, no icon, no presenter, no outer white UI frame.
-   - In default illustrated mode: the presenter visibly matches `references/itwanger-cover-character.png`, including black spiky hair, large black glasses, large brown eyes, youthful face, yellow shirt, and black tie.
+   - In default illustrated mode: the presenter visibly matches `references/itwanger-cover-character.png`, including black spiky hair, large black glasses, large brown eyes, youthful face, yellow shirt, and black tie. In pixel-game mode use the pixel character reference instead and check the pixel-game criteria below.
    - Presenter variety: the chosen expression, action, angle, framing, and placement are visible; when a recent different video's cover is available in context, this cover should not repeat its overall pose and composition. If it does, revise the presenter treatment before delivery.
    - No female avatar, no unrelated fantasy costume, no real brand logo unless explicitly requested.
    - No copyright signature, watermark, corner mark, or small `©️沉默王二` label unless explicitly requested.
@@ -114,6 +124,17 @@ python3 .agents/skills/video-cover-image/scripts/render_text_cover.py \
    - Include absolute generated file paths and dimensions.
    - Do not move images into the repo unless the user explicitly asks.
    - When authorized to save cover links into a `toBeBetterJavaer/docs/src/ai/video/` script, put the cover heading and images inside `<!-- video-covers:start -->` / `<!-- video-covers:end -->`. These are video-production assets: preserve their source links, but exclude the entire section from the rendered 进阶之路 article and every Feishu answer. Keep explanatory illustrations outside this section. The repository's `feishu-question-bank-sync` Skill owns export and verification rules.
+
+## Pixel Game Style
+
+Read `/Users/itwanger/.codex/skills/itwanger-pixel-image/SKILL.md` for the pixel palette and character conventions, adapting its article-illustration instructions to this cover-specific workflow. Adapt the approved 二哥 Remotion pixel world into a static, immediately legible cover. The user approved [this 16:9 cover example](references/approved-pixel-cover.png): retain its warm pixel-world treatment, readable oversized title, and character interacting with a topic-specific mechanism. Do not carry its tokenizer content into other topics. For each generated ratio pass these two references to `image_gen`:
+
+- Cover style, palette and hierarchy: `references/approved-pixel-cover.png`. For additional context on the underlying Remotion world, inspect `/Users/itwanger/Documents/GitHub/toBeBetterJavaer/.agents/skills/ergo-remotion-video/references/approved-pixel-ch1/flag-course.jpg` when useful; do not add a third image to the generation call by default.
+- Presenter identity: `/Users/itwanger/Documents/GitHub/toBeBetterJavaer/.agents/skills/ergo-remotion-video/assets/pixel-actor/pixel-ergo-carry.png`. The sheet contains multiple poses; render one character, with an action suited to the current subject. Preserve the glasses, yellow shirt and black tie.
+
+Use warm apricot sky and cream backgrounds, dark ink outlines, teal stable structures, gold for emphasis, and limited flat colors. Use crisp stepped edges, a consistent pixel grid, and an original side-scrolling-game feel. A platform is optional when it supports the scene; do not copy unrelated game UI, flags, subtitles or the reference topic. Do not use commercial game characters or logos. Keep one compact topic-specific mechanism scene and a dominant complete question title. Set Chinese and numbers in clear, full-resolution bold type if pixel lettering impairs legibility; the illustration remains pixel art. No watermark or corner mark.
+
+Recompose each requested ratio independently with the same title, subject and character. Inspect the complete image and at approximately 390 px width: title must remain readable, the character and mechanism distinguishable, and the pixel edges intentional. If generated text is wrong, regenerate or use a deterministic text overlay. This style is an optional third mode; it does not replace either existing mode or authorize replacing an existing article cover without a separate request.
 
 ## Default Style
 
@@ -139,9 +160,9 @@ Use this style when matching a text-only reference card:
 - Keep the overall composition concentrated in the middle/upper-middle. Do not fill every corner; the reference layout relies on negative space.
 - Prefer concise keyword lines extracted from the script, such as `Thought、Action、Observation` and `CoT、工具调用、外部验证`.
 
-## Prompt Pattern
+## Blue-Sky Prompt Pattern
 
-Build three prompts from the same extracted payload and selected presenter treatment.
+For blue-sky mode, build three prompts from the same extracted payload and selected presenter treatment. Pixel mode uses its own references and palette above; black-background mode uses the rendering script.
 
 Vertical prompt outline:
 

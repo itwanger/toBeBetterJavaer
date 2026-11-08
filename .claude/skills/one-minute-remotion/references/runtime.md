@@ -6,7 +6,7 @@
 
 本机已核实：
 
-- 视频仓库为 `/Users/itwanger/Documents/GitHub/ai-better`，项目位于 `script/<topic>/`，共享工具为 `script/shared/tools/`。
+- 视频仓库为 `/Users/itwanger/Documents/GitHub/ai-better`，本系列项目位于 `script/one-minute/<topic>/<tool>/<variant>/`，共享工具为 `script/shared/tools/`。
 - `toBeBetterJavaer/docs/src/ai` 是该仓库的相对软链接。原 Skill 位于 `toBeBetterJavaer/.claude/skills/ergo-remotion-video/`。
 - 配置入口是 `script/shared/config/video.config.json`；初始化会把它完整复制到项目 `project.json.config`。共享配置变化不自动改变旧项目。
 
@@ -20,21 +20,21 @@
 
 文字稿统一保存到 `toBeBetterJavaer/docs/src/ai/one-minute/<topic>.md`。本机该目录通过软链接对应 `ai-better/one-minute/`，两者是同一份文件，不要重复创建互不相干的稿件目录。先保存完整文字稿，再初始化制作项目；原稿与已有同名稿件均不得无提示覆盖。
 
-以下是参数化示例，实际使用时先设置正确的 `SOURCE`、`TOPIC`、`TITLE`，并将 `MINUTE_SKILL` 设置为本次实际加载的技能包目录。本机共享目录如下；导入到其他位置或换机器时使用实际位置，不依赖 Codex 专有环境变量。这些不是要自动制作的样片。
+以下是参数化示例，实际使用时先设置正确的 `SOURCE`、`TOPIC`、`TOOL`、`VARIANT`、`TITLE`，并将 `MINUTE_SKILL` 设置为本次实际加载的技能包目录。本机共享目录如下；导入到其他位置或换机器时使用实际位置，不依赖 Codex 专有环境变量。这些不是要自动制作的样片。
 
 ```bash
 VIDEO_REPO="${AI_BETTER_REPO:-/Users/itwanger/Documents/GitHub/ai-better}"
 SHARED_VIDEO="$VIDEO_REPO/script/shared"
 MINUTE_SKILL="$HOME/.agents/skills/one-minute-remotion"
 SOURCE="$VIDEO_REPO/one-minute/$TOPIC.md"
-PROJECT="$VIDEO_REPO/script/one-minute-$TOPIC"
+PROJECT="$VIDEO_REPO/script/one-minute/$TOPIC/$TOOL/$VARIANT"
 
 python3 "$SHARED_VIDEO/tools/init_project.py" \
   --project "$PROJECT" --source "$SOURCE" --title "$TITLE"
 python3 "$SHARED_VIDEO/tools/doctor.py" --project "$PROJECT"
 ```
 
-初始化不会调用TTS，不覆盖已有项目。已有 `one-minute-<topic>` 时先检查内容和进度，续做或采用新版本目录，不能覆盖用户改动。
+初始化不会调用TTS，不覆盖已有项目。`TOPIC` 是知识点，`TOOL` 是实际制作或接手工具（无法确认用 `unattributed`），`VARIANT` 是画风或版本；三者使用小写英文与连字符。先查看主题 README 与 `catalog.json`，沿用现有分类，避免将接力项目重复复制为各工具的一份。已有同主题/工具/版本时先检查内容和进度，续做或采用新版本目录，不能覆盖用户改动。
 
 将统一目录中的稿件完整快照为项目 `script.md`；`SOURCE` 和锁文件源路径仍指向统一目录中的稿件。明确提取可朗读正文为 `spoken.txt`；创建 `beats.json`，按完整意群拆分。先完成完整配音并确认，再按实际音频设计约30秒的审片章节；工具内部章与审片章节的映射见[逐章有声预览](chapter-preview.md)，不要求画面展示多章导航。
 
@@ -97,7 +97,7 @@ ID占位符换为实际整数列表，不直接执行示例。共享工具负责
 
 先根据实际对齐生成当前内部章的 `ch<N>-spec.json` 与时点，再按已确认审片范围写场景。下方命令的 `ch1` 仅是已有内部章ID示例，按实际项目替换；旧工程保持单个 `ch1` 时，在同一时间轴上实现各审片章节的预览范围，不擅自改音频结构。保留共享字幕与音轨接口，外层Stage可按短片需要定制，取消长片多章导航。无需复制旧片的主题数据、台词、封面或头像；素材使用和版式按当前内容决定。
 
-画面用 `useCurrentFrame()` 读取帧，按真实语音事件编排。主题、字号和字幕安全区按[视觉规范](visual-style.md)在项目内统一定义；自定义字幕至少保留底部约180px，按实际字面与阴影检查48–64px阅读间距。字幕单行48px，长句在当前内部章的spec中按完整语义重新分组并重新运行`build_timing.py`；每个beat的字幕拼接必须严格等于原文，分组不要求重新合成配音。屏幕文字与字幕分离；图片有需要时按 `$itwanger-image`，只提供当前分镜关键词和用户参考图。
+画面用 `useCurrentFrame()` 读取帧，按真实语音事件编排。主题、字号和字幕安全区按[视觉规范](visual-style.md)在项目内统一定义；自定义字幕至少保留底部约180px，按实际字面与阴影检查48–64px阅读间距。字幕单行48px，长句在当前内部章的spec中按完整语义重新分组并重新运行`build_timing.py`；每个beat的字幕拼接必须严格等于原文，分组不要求重新合成配音。屏幕文字与字幕分离；图片有需要时按 `$wanger-image`，只提供当前分镜关键词和用户参考图。
 
 ```bash
 python3 "$SHARED_VIDEO/tools/build_timing.py" --project "$PROJECT" --chapter ch1

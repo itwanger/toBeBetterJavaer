@@ -12,7 +12,7 @@
 python3 "$MINUTE_SKILL/scripts/install_huashu.py" --project "$PROJECT"
 ```
 
-生成 `remotion/src/huashu/runtime.ts` 和 `public/huashu-fonts/`。适配只隔离原来的浏览器全局变量并提供十六进制颜色桥接，不修改形变、公式、描画或相机算法。不要手改生成的库；需要改动时修改适配器并记录。
+本系列项目会自动复用 `script/one-minute/shared/huashu/<上游提交>-<适配代码哈希>/`，在 `remotion/src/huashu` 与 `remotion/public/huashu-fonts` 创建相对软链接；重复安装只核对并复用。外部独立工程仍安装本地副本。已修改过的副本拒绝覆盖，升级使用新版本目录，不能直接改动旧片引用的共享文件。适配只隔离原来的浏览器全局变量并提供十六进制颜色桥接，不修改形变、公式、描画或相机算法。不要手改生成的库；需要改动时修改适配器并记录。
 
 可直接导入 `MO, DG, CAM`：
 
@@ -26,7 +26,7 @@ python3 "$MINUTE_SKILL/scripts/install_huashu.py" --project "$PROJECT"
 
 ## 二哥色系与文字
 
-默认画风直接导入视频仓库 `shared/remotion/components` 导出的 `C`，或者按项目需要保存一份有出处与哈希的色板快照；不重新凭感觉挑近似色。Canvas 的背景、描边、填充、公式与字幕都从所选色板取色，检查上游默认白字、硬编码黑底和 rgba 数值，避免只换最外层背景。默认字幕用 `C.ink` 深底、`C.card` 浅字。用户选择[孟菲斯](style-memphis.md)时，复制其独立色板到当前项目并在场景层使用，字幕可用其深靛色底配`C.card`浅字；不修改共享`C`、原始上游库或语法卡。
+默认画风直接导入视频仓库 `shared/remotion/components` 导出的 `C`，或者按项目需要保存一份有出处与哈希的色板快照；不重新凭感觉挑近似色。Canvas 的背景、描边、填充、公式与字幕都从所选色板取色，检查上游默认白字、硬编码黑底和 rgba 数值，避免只换最外层背景。默认字幕用 `C.ink` 深底、`C.card` 浅字。用户选择[孟菲斯](style-memphis.md)时，本系列项目引用 `script/one-minute/shared/styles/memphis-v1.ts`，通过项目内导出入口和覆盖值在场景层使用；外部独立工程可复制随包色板，字幕可用其深靛色底配`C.card`浅字；不修改共享`C`、原始上游库或语法卡。 用户选择[超级玛丽](style-super-mario.md)时，引用`script/one-minute/shared/styles/super-mario-v1.ts`（外部工程可复制随包色板），按该风格卡编排像素角色与连续状态；可复用`MO/DG/CAM`的时间、路径与相机函数，字幕用独立清晰文字层。该风格尚未提供完整像素角色渲染器，不把色板安装说成场景组件已实现。
 
 主画面逐场剔除与字幕同义的整句问答或结论，保留图解标签和计算公式；不是把所有术语与数字一律删光。不因配色与文字返修重写已认可的时间函数、路径和形变。
 

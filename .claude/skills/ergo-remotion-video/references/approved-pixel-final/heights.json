@@ -1,0 +1,42 @@
+[
+  {
+    "percent": 30,
+    "foot": 588,
+    "rise": 268,
+    "apex": 532,
+    "seat": 540,
+    "flagTop": 626
+  },
+  {
+    "percent": 50,
+    "foot": 511,
+    "rise": 345,
+    "apex": 1960,
+    "seat": 1969,
+    "flagTop": 558
+  },
+  {
+    "percent": 70,
+    "foot": 435,
+    "rise": 421,
+    "apex": 2264,
+    "seat": 2272,
+    "flagTop": 490
+  },
+  {
+    "percent": 90,
+    "foot": 358,
+    "rise": 498,
+    "apex": 1627,
+    "seat": 1634,
+    "flagTop": 422
+  },
+  {
+    "percent": 99,
+    "foot": 281,
+    "rise": 575,
+    "apex": 2812,
+    "seat": 2821,
+    "flagTop": 354
+  }
+]

@@ -1,5 +1,5 @@
-> 调研日期：2026-10-23｜仓库：/Users/itwanger/Documents/GitHub/paicli（main）｜commit：8c19e2d
-`git -C /Users/itwanger/Documents/GitHub/paicli log --oneline --since=2026-10-23`
+> 调研日期：2026-11-07｜仓库：/Users/itwanger/Documents/GitHub/paicli（main）｜commit：09c57e6
+`git -C /Users/itwanger/Documents/GitHub/paicli log --oneline --since=2026-11-07`
 
 # PaiCLI 架构知识库
 
@@ -226,18 +226,22 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 
 ## 十一、代码索引与检索（RAG）
 
-- 切块 `rag/CodeChunker.java`：Java 按类/方法切，其余或解析失败按 2000 字符分段（`:22-23`、`:53-70`）
-- 关系 `rag/CodeAnalyzer.java`：imports、extends、implements、contains、calls；calls 只记方法名，不做符号解析（`:25`、`:55-98`）
-- JavaParser 按线程 `ThreadLocal` 持有，语言级别 Java 17（`rag/JavaSourceParser.java:16-17`）
-- 增量索引（6f0eb28）：`rag/CodeIndex.java:70-79`
-  - 按文件内容 SHA-256 + Embedding 模型判断，二者都没变就跳过（`:183-187`）；指纹存 `indexed_files` 表（`rag/VectorStore.java:122`）
-  - 删除或超过 1MB 的文件清出索引（`:36`、`:320`）
-  - 默认 4 线程并行解析，`PAICLI_INDEX_THREADS` 可调（`:34`、`:269-277`）
-  - Embedding 跨文件攒批，默认 32 条一批（`EMBEDDING_BATCH_SIZE`），Ollama 走 `/api/embed`，老版本 404 后回退逐条（`rag/EmbeddingClient.java:29`、`:37`、`:49`、`:125`、`:205`）
-  - 一批文件一个事务，Embedding 失败保留旧索引下次重试
-  - 提交说明实测 pmhub 1892 个文件：全量 218.9 秒 → 128.7 秒，无改动重跑 0.8 秒；更多数据见 paicli `docs/interview-upgrade-plan.md` 的“实测记录”
-- 检索：`search_code` 走 `CodeRetriever.hybridSearch`（`ToolRegistry.java:728-767`，默认 top_k 5，上限 30）；语义部分在 Java 里对当前项目全部 chunk 逐条反序列化 JSON 向量算余弦（`VectorStore.java:268-295`），关键词部分是 SQLite `LIKE`（`:301-315`），合并时关键词命中加 0.1 到 0.5 分、method/class 类型加分（`rag/CodeRetriever.java:50-115`）
-- 提示词定位：精确符号优先 `grep_code`/`glob_files`，`search_code` 只做语义辅助（`base.md:35-38`）
+- 切块 `rag/CodeChunker.java`（`CodeChunk` 为 record，`toEmbeddingText` 拼成 `[%s:%s] %s`）：Java 遍历 `ClassOrInterfaceDeclaration`，类级保留 `classStart` 至 `Math.min(classStart + 5, classEnd)` 最多 6 行，方法级用 `getDeclarationAsString(false, false, false)` 取简短签名加完整方法体；非 Java、AST 解析失败或未解析出类/接口（如顶层 record/enum）按 `MAX_CHUNK_CHARS = 2000` 字符按行累加分段（`:22-23`、`:53-128`）
+- 关系 `rag/CodeAnalyzer.java`：imports（只排除 `java.` 和 `javax.`）、extends、implements、contains、calls（`findParentMethod` 沿父节点回溯到 `MethodDeclaration`）；calls 只记方法名，不做跨文件符号解析（`:25`、`:55-113`）
+- JavaParser 按线程 `ThreadLocal` 持有，语言级别 Java 17（`rag/JavaSourceParser.java:16-17`），分块与关系分析共用同一个 `Optional<CompilationUnit>`
+- 增量索引（6f0eb28）：`rag/CodeIndex.java:82-264`
+  - 按文件内容 SHA-256 + `provider:model` 判断，二者都没变就跳过（`:183-187`）；指纹存 `indexed_files` 表（`rag/VectorStore.java:68-76`）
+  - 删除或超过 1MB（`MAX_FILE_BYTES`）的文件通过 `removeFiles` 清出索引（`:36`、`:104-109`、`:320`）；支持 18 种源码与配置后缀
+  - 默认 4 线程并行解析，`PAICLI_INDEX_THREADS` 可调（`:34`、`:269-277`），滑动窗口 `Deque<Future<ParsedFile>>` 上限 `threads * 4`（默认 16 个文件，`:167`）控内存
+  - Embedding 跨文件批量调用，默认 32 条一批（`EMBEDDING_BATCH_SIZE`，`MAX_INPUT_CHARS = 2000`），Ollama 优先走 `/api/embed`，仅当 404 含 `"page not found"` 时置位 `ollamaBatchUnsupported` 回退 `/api/embeddings` 逐条（`404 model not found` 直接抛错）；OpenAI/智谱批量响应按 `data[].index` 归位（`rag/EmbeddingClient.java:49-178`）
+  - 一批文件调 `VectorStore.replaceFiles` 在单个事务里先删旧记录再批量插入，整批 Embedding 抛 `IOException` 时退化为单文件重试，失败文件保留旧索引下次重试（`CodeIndex.java:218-246`、`VectorStore.java:140-166`）
+  - 提交说明实测 pmhub 1892 个文件：全量 218.9 秒 → 128.7 秒，无改动重跑 0.8 秒；5874 个 Java 文件 AST 解析单线程 4.6 秒、4 线程 1.9 秒、8 线程 2.3 秒；Ollama `nomic-embed-text` 逐条 16.4ms/条、10 条一批 8.1ms/条、50 条一批 7.2ms/条（`docs/interview-upgrade-plan.md:79-86`）
+- 检索：`search_code` 走 `CodeRetriever.hybridSearch`（`ToolRegistry.java:728-762`，默认 top_k 5，上限 30）
+  - 语义召回 `Math.max(topK * 2, 10)` 条，在 Java 内存里对当前项目全部 chunk 反序列化 JSON 向量算余弦（`VectorStore.java:268-295`）
+  - `RagQueryTokenizer` 用 jieba 分词 + 正则 `[A-Za-z][A-Za-z0-9_.$-]{1,}` 提取代码标识符，过滤单字符和 11 个停用词（`RagQueryTokenizer.java:21-74`）
+  - 关键词走 SQLite `LIKE ... ESCAPE '\'`，基础分 `0.3`，按命中位置累加：类名/方法名 `+0.3`、文件路径 `+0.1`、正文 `+0.1`（单关键词最高 `0.8`）；同一块重复命中时取高分并加一次 `+0.1` 双重命中奖励；再按块类型加分（`method` `+0.15`、`class` `+0.10`）；最后 `limitPerFile` 限制单文件最多 2 条（`rag/CodeRetriever.java:50-147`）
+  - `SearchResultFormatter`：CLI 截取 120 字符，Tool 截取 180 字符，顶部附规则生成的 3 句检索摘要（最相关入口、集中文件、排序依据）
+- 提示词定位：精确符号优先 `glob_files` / `grep_code` / `read_file`（4 路并行只读，`grep_code` 优先 ripgrep、8 秒超时、两层截断并附最多 3 条 `suggested_reads`），`search_code` 只做模糊语义辅助（`base.md:35-38`）
 
 ## 十二、Plan-and-Execute
 
@@ -249,12 +253,12 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 
 ## 十三、Multi-Agent（Team）与 Sub-agent
 
-- 角色三种：PLANNER、WORKER、REVIEWER（`agent/AgentRole.java:6-10`）；实例固定 4 个：planner、worker-1、worker-2、reviewer（`agent/AgentOrchestrator.java:121-126`），并行批次里每步另建一个独立 reviewer（`:425-426`）
-- 只有 WORKER 拿工具，planner 和 reviewer 的请求不带工具（`agent/SubAgent.java:532-537`、`:312`）；这是评测审计的约定（`AGENTS.md:123`）
-- 流程 `AgentOrchestrator.java:207-344`：planner 出计划 → `TeamPlanParser` 严格校验（a0fd238，非空 steps、id 唯一、依赖必须已声明、无环，`agent/TeamPlanParser.java:5-12`、`:38-131`）→ 按依赖分批，单步批次串行流式输出，多步批次 `min(批大小, 2)` 并行，每步输出写独立缓冲、完成后按顺序刷出（`:283-327`、`:397-485`）→ 每步 reviewer 审查，不通过带反馈重试，最多 2 次（`:51`、`:570-617`）
-- Reviewer 结论 fail-closed（42bf855）：只认 JSON 布尔 `approved: true`，字符串 `"true"`、缺字段、非 JSON 都算不通过，没有关键词兜底（`agent/TeamReviewVerdict.java:7-30`）
-- 上下文隔离：每个 SubAgent 有自己的 `conversationHistory`，步骤结束 `clearHistory()`（`AgentOrchestrator.java:309`、`:444`）；共享 `ToolRegistry`（含同一个 HITL 审批器）、`LlmClient`、`MemoryManager`
-- 下游步骤上下文只放依赖步骤结果的前 500 字符（`:626-641`）
+- 角色三种：PLANNER、WORKER、REVIEWER（`agent/AgentRole.java:6-10`）；消息 7 种：TASK、RESULT、PARTIAL、FEEDBACK、APPROVAL、REJECTION、ERROR（`agent/AgentMessage.java:21-29`）；实例固定 4 个：planner、worker-1、worker-2、reviewer（`agent/AgentOrchestrator.java:125-130`），并行批次里每步另建一个独立 reviewer 防止并发污染 `conversationHistory`（`:431-434`）
+- 只有 WORKER 拿工具，planner 和 reviewer 的请求不带工具（`agent/SubAgent.java:317-319`、`:549-551`），`PromptAssembler` 对无工具角色自动剥掉 `base.md` 的工具段并注入 `## Tool Availability` 说明（`prompt/PromptAssembler.java:127-138`）；误发结构化 `tool_calls` 或正文残留 DSML 工具调用时拒绝执行并提示用户（`SubAgent.java:337-344`、`:390-392`），这是职责隔离与评测审计的约定（`AGENTS.md:128`）
+- 流程 `AgentOrchestrator.java:211-344`：planner 出计划 → `TeamPlanParser` 配合 `TeamStructuredReply`（禁用重复键与尾随字符，只剥离整段外层 `json` 围栏）严格校验（非空 steps、id 唯一非空字符串、重编号为 `step_1..step_N`、依赖必须已声明、Kahn 拓扑排序环检测，`agent/TeamPlanParser.java:30-133`）→ 按依赖分批，单步批次串行流式输出，多步批次 `min(批大小, 2)` 通过 `ExecutorService` + `BlockingQueue<SubAgent>` 并行，每步输出写独立 `ByteArrayOutputStream`、整批完成后按 `step_id` 顺序刷出（`:286-324`、`:404-486`）→ Worker 交付经 `TeamWorkerReport` 校验 → Reviewer 审查，不通过带反馈重试，最多 2 次（`:51`、`:515-602`）
+- Worker 结构化完成协议（09c57e6）：`agent/TeamWorkerReport.java:8-35` 要求最终回复为单个 JSON 对象，`status="completed"` 须带非空 `result` 且不能带 `reason`；`status="blocked"` 须带非空 `reason`（可选附部分 `result`），直接标 `StepStatus.BLOCKED` 并跳过审查与下游步骤；无法解析或预算耗尽返回 `PARTIAL` 一律标 `StepStatus.FAILED`（`AgentOrchestrator.java:535-568`）
+- Reviewer 结论 fail-closed（42bf855 / 09c57e6）：`agent/TeamReviewVerdict.java:14-63` 只认单个合法 JSON 对象里的布尔值 `approved: true`，字符串 `"true"`、缺字段、非 JSON 均算未通过；按 `issues -> suggestions -> summary -> 默认文案` 提取反馈；Reviewer 调用异常或重试 2 次仍未通过时，保留已有产出（`retainedResult`）并将当前步骤标 `StepStatus.FAILED`，依赖它的下游步骤保持 `PENDING` 并在收尾时跳过（`AgentOrchestrator.java:579-602`、`:326-331`）
+- 上下文与安全边界隔离：每个 SubAgent 有自己的 `conversationHistory`、`AgentBudget`、`RunawayGuard`、`AutoCompactionManager`；同一步骤重试期间 Worker 保留历史，步骤彻底结束或每次 Reviewer 审完后调用 `clearHistory()` 并写入账本 `history_clear` 事件（`SubAgent.java:507-519`）；下游步骤上下文包含已完成依赖步骤结果的前 500 字符预览，以及依赖分支经 `web_search` 验证的 `trustedDependencyUrls`（`AgentOrchestrator.java:613-660`）；并行分支通过 `turnToolPolicy.forkWithTrustedUrls(dependencyUrls)` 隔离网址授权
 - ReAct 主 Agent 没有派生 Sub-agent 的工具（`ToolRegistry` 18 个内置工具里没有），Sub-agent 只存在于 `/team` 的固定角色中
 
 ## 十四、Side-Git 快照
@@ -304,12 +308,13 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 | e074207 | 10-10 | `readTree` 后全部 `asText()`，没有通用 Schema 校验，MCP 参数原样发给 server | `ToolArgumentValidator` 执行前校验，字段级错误回给模型；HITL 前置校验 |
 | 966deed | 10-10 | `McpSchemaSanitizer` 把 anyOf/oneOf 一律改成 `type: object`，`Optional[str]` 被标成 object | 按真实类型收起，复杂选项只写进 description；校验仍用原始 Schema |
 | 6f0eb28 | 10-10 | `/index` 每次清空全量重建、单线程、每个 chunk 一次 HTTP；请求体每轮 `toString()` 成整串 | SHA-256 增量、4 线程解析、32 条一批 Embedding、失败保留旧索引；`JsonRequestBody` 直接写出 |
+| 09c57e6 | 11-07 | Team Worker 自由文本交付；Reviewer 异常或重试耗尽后仍算完成并放行下游 | 新增 `TeamWorkerReport`（completed/blocked 协议）与 `TeamStructuredReply`；Reviewer 异常或重试耗尽时保留产出但标 `FAILED`，阻断依赖下游；`AgentMessage` 新增 `PARTIAL` |
 
 ## 现有差距（面试答案可能要超出源码的地方）
 
-- Sub-agent：ReAct 没有派生 Sub-agent 的工具，Team 是固定 1 planner + 2 worker + reviewer，并行度上限 2（`AgentOrchestrator.java:121-126`、`:402`）
-- Team 下游只看到依赖结果前 500 字符（`AgentOrchestrator.java:635-638`）
-- Team reviewer 不带工具，只看 worker 的文字结果；reviewer 的 LLM 调用出错时直接保留结果算完成，重试轮出错时按通过处理（`AgentOrchestrator.java:541-549`、`:600-607`）
+- Sub-agent：ReAct 没有派生 Sub-agent 的工具，Team 是固定 1 planner + 2 worker + reviewer，并行度上限 2（`AgentOrchestrator.java:125-130`、`:408`）
+- Team 下游只看到依赖结果前 500 字符（`AgentOrchestrator.java:623-625`）
+- Team reviewer 不带工具，只看 worker 的文字结果（`SubAgent.java:549-551`）；`SubAgent` 拼装提示词时加载了 `PAI.md`，但未检索 `LongTermMemory`（`docs/interview-upgrade-plan.md:152-154`）
 - 向量检索没有 ANN 索引，每次查询全表扫描当前项目的 chunk 并在 Java 里算余弦（`VectorStore.java:268-295`）；calls 关系没有符号解析（`CodeAnalyzer.java:90-98`）
 - 长期记忆检索是关键词打分，没有向量召回（`MemoryRetriever.java:65-74`）
 - 审批提示词始终是 `approvals/suggest.md`，没有随 auto/ask 模式切换（`PromptAssembler.java:55-65`）
