@@ -24,7 +24,7 @@ date: 2026-04-22
 
 解决这两个问题的工程做法是拆分角色，引入主从结构的 Multi-Agent 协作。我们把原本大包大揽的单 Agent 拆分为规划者（Planner）、执行者（Worker）和检查者（Reviewer）三类子 Agent（Sub-agent），由编排器统一调度，规划者不碰工具只管拆解任务图，多个执行者从池子里领任务并行干活，检查者用独立的干净上下文逐一验收，不合格就退回重做。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-01_single_vs_multi-20261107234649-dbbaa3b7.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-01-20261108090159-9e5ff98d.jpg)
 
 这一期我们对照 PaiCLI 的最新源码，把这套 Multi-Agent 与 Sub-agent 并发协作的机制从头到尾讲清楚：
 
@@ -46,7 +46,7 @@ date: 2026-04-22
 
 PaiCLI 选择了主从架构（Orchestrator-SubAgent）。编排器 `AgentOrchestrator` 是唯一的指挥中心，各个 `SubAgent` 只对编排器负责。子 Agent 之间不发生点对点通信，所有的任务下发、结果收集、审查打回和依赖流转都由编排器集中路由。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-02_orchestrator_arch-20261107234650-795f2702.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-02-20261108090200-da3b930d.jpg)
 
 在这个主从结构下，`AgentRole` 枚举定义了三类专职角色：
 
@@ -87,7 +87,7 @@ public record AgentMessage(
 
 这里的 `Type` 枚举覆盖了协作全流程的七种状态。`TASK` 是编排器派发给子 Agent 的任务指令，`RESULT` 是子 Agent 正常完成后的输出，`PARTIAL` 表示执行者在预算或轮数耗尽时收尾保留的部分产出，`FEEDBACK`、`APPROVAL` 和 `REJECTION` 用于承载审查阶段的反馈与结论，`ERROR` 则代表模型调用失败或违规调用工具等错误。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-03_classes_messages_v4-20261107235244-1a911433.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-03-20261108090200-a32be9e9.jpg)
 
 围绕这套主从模型，`agent/` 包下的八个核心类分工如下：
 
@@ -158,7 +158,7 @@ private String getSystemPrompt() {
 
 这种把静态规则放开头、动态上下文放末尾的排布方式，能让同一个 Sub-agent 在多轮工具调用或多次重试时，前面一大段提示词字节保持一致，稳定命中大模型服务端的前缀缓存（Prefix Caching）。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-04_tools_prompts-20261107234651-c27ebd2d.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-04-20261108090201-9dc8153b.jpg)
 
 三份角色模式文件各自规定了严密的输出契约。
 
@@ -252,7 +252,7 @@ private static void requireAcyclic(List<AgentOrchestrator.ExecutionStep> steps) 
 
 队列清空后，如果访问过的节点数 `visited` 不等于总步骤数 `steps.size()`，说明图里存在入度永远降不到 `0` 的环（无论是自己依赖自己的自环，还是两步互相依赖的互环），立即判定计划不合法并终止流程。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-05_plan_dag_valid_v6-20261107235245-15ac8033.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-05-20261108090202-a4f4a900.jpg)
 
 ## 04、按依赖分批调度与 Worker 池化并发
 
@@ -295,7 +295,7 @@ List<ExecutionStep> getExecutableSteps(List<ExecutionStep> steps) {
 
 如果 `getExecutableSteps` 返回空列表，说明所有能跑的步骤都跑完了，循环结束。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-06_dag_batch_sched_v2-20261107235246-1c754d4f.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-06-20261108090202-21563303.jpg)
 
 如果当前批次只有 `1` 个可执行步骤，编排器就走单步串行路径，用轮询游标 `singleStepCursor % workers.size()` 在 `worker-1` 和 `worker-2` 之间轮流挑一个执行，流式输出实时打印到终端 `out` 上，保持流畅的打字机观感。
 
@@ -360,7 +360,7 @@ private void runBatchParallel(List<ExecutionStep> batch, List<ExecutionStep> ste
 
 针对第三个问题，编排器在提交线程任务前，先为批次里的每个步骤分配一个独立的内存字节流 `ByteArrayOutputStream`，包装成 `PrintStream stepOut` 传给 `runStep`。并发执行期间，各个 Worker 和 Reviewer 的流式输出都写进各自步骤的内存缓冲区里。等 `futures` 列表里的所有任务都执行完毕后，主线程再按 `batch` 里的 `step_id` 顺序遍历 `buffers`，把每个步骤的完整输出一次性刷到终端 `out` 上。这样既拿到了多线程并发的速度，用户在终端上看到的日志又是按 `step_1`、`step_2` 整整齐齐排列的。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-07_parallel_isolation-20261107234727-3455a1ff.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-07-20261108090203-921b9896.jpg)
 
 ## 05、执行者的内部循环、上下文传递与交付协议
 
@@ -454,7 +454,7 @@ record TeamWorkerReport(String result, String blockedReason) {
 - `blocked` 状态：必须提供非空的 `reason` 说明缺少什么输入或权限（已做的部分工作可放在 `result` 里保留），编排器收到后将该步骤标记为 `StepStatus.BLOCKED`，跳过审查，也不触发无意义的重试
 - 非法状态或格式错误：回复无法解析成合法 JSON，或者 `status` 既不是 `completed` 也不是 `blocked` 时，编排器捕获 `IOException`，将该步骤标记为 `StepStatus.FAILED` 并立即终止该步骤
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-08_worker_react-20261107234653-44b634de.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-08-20261108090204-5b6ff699.jpg)
 
 ## 06、检查者的闭合失败判定与带反馈重试
 
@@ -492,7 +492,7 @@ record TeamReviewVerdict(boolean approved, String feedback) {
 
 只有当检查者的回复是单个合法的 JSON 对象，并且其中的 `approved` 字段是 JSON 布尔类型的 `true` 时，才算审查通过。空回复、自然语言段落、JSON 语法错误、缺少 `approved` 字段，哪怕是把布尔值写成了字符串 `"true"` 或数字 `1`，`approvedNode.isBoolean()` 都会返回 `false`，一律按未通过处理。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-09_fail_closed_rev_v2-20261107235248-92562676.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-09-20261108090205-0f76c85c.jpg)
 
 判定为未通过时，`feedbackOf` 会按固定优先级从 JSON 里提取打回原因，先取 `issues` 数组拼成列表，如果 `issues` 为空再取 `suggestions` 数组，还没有就取 `summary` 字段，全都拿不到则使用默认文案“审查未通过，请改进执行结果”。
 
@@ -546,7 +546,7 @@ public void clearHistory() {
 }
 ```
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-10_retry_clear_hist_v2-20261107235249-157d3b25.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-10-20261108090205-52d2a842.jpg)
 
 如果检查者自身的模型调用发生异常（`review.type() != AgentMessage.Type.RESULT`），或者 Worker 重试满 `2` 次仍未通过审查，编排器都不会把有隐患的结果当成 `COMPLETED` 放行，而是将已有产出保存在 `retainedResult` 中供用户查看，同时把当前步骤状态更新为 `StepStatus.FAILED`。
 

@@ -38,10 +38,6 @@ Vibe 知识大赏之欧姆定理，是不是很 nice？
 
 从官方公布的基准测试来看，Hy4 正式版在多个维度都有增强。在 Agentic Coding 方向，Terminal-Bench 4.0 从 preview 的 `26.3` 提升到了 `44.4`，考察网页生成的 WebCraftBench 从 `52.7` 提升到了 `78.9`，三维代码建模 3DArena-Modeling 从 `23.4` 涨到了 `37.1`，和腾讯 IEG 联合打磨的 GameDev 与 GameLogic 评测也分别提升了 `19.1%` 和 `9.8%`。
 
-视觉与电脑操作是这次正式版补齐的两块关键能力，由此带来的提示是，Hy4 在 OSWorld 2.1 拿到了 `78.9` 分，在多模态理解基准 MMMU-Pro 上拿到了 `78.6` 分，带工具的视觉问答 BuddyVQA Atlas 达到了 `81.0` 分。而在真实办公与金融任务中，自建测试的幻觉率从 preview 的 `15.76%` 降到了 `5.45%`，并在 213 位专家参与的 579 个金融任务里拿到了 `3.04` 分，排在开源模型的第一位。
-
-![](https://cdn.paicoding.com/stutymore/hy4-review-bench-table-20261104141314-294e3d04.png)
-
 从 Agent Arena 的评测数据来看，Hy4 在产出和成本之间取得了不错的平衡，处在“帕累托前沿”上，性价比很高。注意看下图，纵轴是评测得分，越高越好；横轴是每个任务的中位数，越往右越便宜。基于全球用户的 8500 多次真实长程 Agent 任务，Hy4 每个任务成本 0.55 刀，比 Kimi K3.1 Pro 的 1.46 刀低约 62%。
 
 ![](https://cdn.paicoding.com/stutymore/hunyuan-hy4-review-20261105161720.png)
