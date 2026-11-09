@@ -1,7 +1,7 @@
 ---
-title: 手搓 Java 终端 Agent 第 5 期，主从 Multi-Agent 编排、Sub-agent 池化并发与闭合失败审查
+title: 手搓 Java 终端 Agent 第 5 期，主从 Multi-Agent 编排、Sub-agent 池化并发与默认拒绝审查
 shortTitle: Java Multi-Agent 协作与并发
-description: PaiCLI 第 5 期，基于最新源码拆解 Multi-Agent 与 Sub-agent 并发协作实现，涵盖主从三角色分工、无工具角色权限隔离、Kahn 拓扑计划校验、BlockingQueue 执行池并发与防交错缓冲、结构化交付协议以及闭合失败审查重试。
+description: PaiCLI 第 5 期，基于最新源码拆解 Multi-Agent 与 Sub-agent 并发协作的实现，涵盖主从结构下的三角色分工、无工具角色的权限隔离、基于 Kahn 拓扑排序的计划校验、BlockingQueue 执行池并发与防输出交错的缓冲、结构化交付协议以及默认拒绝（Fail-Closed）的审查重试。
 keywords: Multi-Agent, Sub-agent, Java Agent, 任务编排, PaiCLI
 tag:
   - Agent
@@ -14,45 +14,49 @@ date: 2026-04-22
 
 大家好，我是二哥呀。
 
-前四期我们给 PaiCLI 搭好了 ReAct 循环、Plan-and-Execute 调度、三级上下文记忆和本地 RAG 代码检索。现在的单 Agent 已经能看懂项目结构、定位源码行号、动手改代码并跑命令验证了。
+前四期我们给 PaiCLI 实现了 ReAct 循环、Plan-and-Execute、上下文管理和 RAG。
 
-但只要把一个跨模块的大任务交给同一个 Agent 独立跑完，很容易遇到两个棘手的问题。
+但如果把一个跨多个模块的大任务交给同一个 Agent 从头做到尾，很容易遇到两个问题。
 
-第一个问题是角色串味。同一个模型既要拆解全局计划，又要盯着单步工具报错改代码，经常在规划阶段就一头扎进某个文件的细节里，写出来的计划顾头不顾尾。
+第一个问题是职责乱。同一个模型既要拆解计划，又要根据工具的报错信息去修改代码，很容易在规划阶段就陷入某个细节不能自拔，导致 Plan 考虑不全面，前后步骤也对不上。
 
-第二个问题是自己审自己的代码容易放水。模型刚顺着自己的思路写完一段逻辑，紧接着让它在同一个上下文里检查有没有漏洞，它往往顺着刚才的假设往下看，把只完成了一半或者缺了边界校验的结果当成合格交付。
+第二个问题是自己检查自己写的代码，标准容易主观。模型按自己的思路写完一段逻辑，紧接着在同一个上下文里检查这段逻辑有没有漏洞，它往往会沿用刚才的假设，把只完成了一半、或者缺少边界校验的结果判定为合格的。
 
-解决这两个问题的工程做法是拆分角色，引入主从结构的 Multi-Agent 协作。我们把原本大包大揽的单 Agent 拆分为规划者（Planner）、执行者（Worker）和检查者（Reviewer）三类子 Agent（Sub-agent），由编排器统一调度，规划者不碰工具只管拆解任务图，多个执行者从池子里领任务并行干活，检查者用独立的干净上下文逐一验收，不合格就退回重做。
+解决这两个问题的常见做法是拆分角色，引入主从结构的 Multi-Agent 协作。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-01-20261108090159-9e5ff98d.jpg)
+把原来什么都做的单个 Agent 拆分成规划者（Planner）、执行者（Worker）和检查者（Reviewer）三个子 Agent（Sub-agent），由编排器统一调度。
+
+规划者不调用工具，只负责把任务拆分成带依赖关系的步骤；多个执行者从 Worker 池中领取步骤并行执行；检查者在一个不带历史对话的独立上下文里逐个验收步骤，不合格就退回重做。
+
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-roles-20261109101939-adafd552.png)
 
 这一期我们对照 PaiCLI 的最新源码，把这套 Multi-Agent 与 Sub-agent 并发协作的机制从头到尾讲清楚：
 
-- 为什么选主从编排架构，三类角色和七种通信消息怎么配合；
-- 怎么隔离三类 Sub-agent 的工具权限，按变化频率组装角色提示词；
-- 规划阶段怎么剥离代码块围栏，用拓扑排序拦截未知依赖和循环依赖；
-- 执行阶段怎么用阻塞队列池化 Worker 并行干活，并用独立内存缓冲防止终端输出乱序；
-- Worker 怎么传递上下文与已授权网址，Reviewer 怎么执行闭合失败（Fail-Closed）审查与带反馈重试。
+- 为什么选择主从编排架构，三类角色和七种消息类型怎么配合；
+- 怎么隔离 Sub-agent 的工具权限，怎么按内容的变化频率组装各角色的提示词；
+- 规划阶段怎么去掉 JSON 外层的代码块标记，怎么用拓扑排序拦截未知依赖和循环依赖；
+- 执行阶段怎么用阻塞队列管理一组 Worker 并行执行，怎么用各自独立的内存缓冲区防止终端输出混在一起；
+- Worker 之间怎么传递上下文和已授权的网址，Reviewer 怎么按默认拒绝（Fail-Closed）策略审查，以及审查不通过时怎么带着反馈重试。
 
-## 01、为什么需要主从架构与三角色分工
+## 01、为什么需要主从架构
 
-市面上的 Multi-Agent 协作大致分两条路线。
+目前主流的 Multi-Agent 协作方式大致分为两种。
 
-一条是像微软 AutoGen（57.3K Star）那样的对等对话路线，多个 Agent 围绕同一个议题互相发消息协商，适合开放式头脑风暴。另一条是像 CrewAI（49.5K Star）那样的主从委派路线，先明确定义每个角色的职责边界，再按固定流程分发任务和验收结果。
+一种是微软 AutoGen（57.3K Star）采用的对等对话方式，多个 Agent 围绕同一个议题互相发消息、协商结论，适合开放式的讨论。另一种是 CrewAI（49.5K Star）采用的主从委派方式，先明确每个角色的职责范围，再按固定流程分发任务、验收结果。
 
 ![](https://cdn.paicoding.com/paicoding/3e1ab7812e7a2ea7a5dd956880405a59.jpg)
 
-如果让终端里的多个子 Agent 自由点对点对话，调用链很容易演变成网状结构，不仅难以预测还要消耗多少轮 Token，出现死循环时也不好排查。
+如果让终端里的多个子 Agent 两两之间自由对话，它们之间的调用关系很容易变成网状结构，既无法预估总共要进行多少轮对话、消耗多少 Token，出现死循环时也很难排查。
 
-PaiCLI 选择了主从架构（Orchestrator-SubAgent）。编排器 `AgentOrchestrator` 是唯一的指挥中心，各个 `SubAgent` 只对编排器负责。子 Agent 之间不发生点对点通信，所有的任务下发、结果收集、审查打回和依赖流转都由编排器集中路由。
+PaiCLI 选择了主从架构（Orchestrator-SubAgent）。编排器 `AgentOrchestrator` 是唯一的调度中心，每个 `SubAgent` 只和编排器交互。子 Agent 之间不直接通信，任务下发、结果收集、审查退回以及把上游结果传给下游，都由编排器统一处理。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-02-20261108090200-da3b930d.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-routing-20261109101939-d663996c.png)
 
-在这个主从结构下，`AgentRole` 枚举定义了三类专职角色：
+在这个主从结构下，`AgentRole` 枚举定义了三类角色。
 
-- `PLANNER`（规划者）：接收用户的原始需求，将其拆解为带类型和依赖关系的步骤列表，只输出结构化计划，不执行任何具体操作
-- `WORKER`（执行者）：接收单个步骤描述与前置依赖上下文，调用文件读写、代码检索和终端命令等工具完成实操，按约定格式汇报交付状态
-- `REVIEWER`（检查者）：对照步骤原始要求与执行者提交的产出独立验收，通过则放行下游步骤，不通过则给出具体问题列表打回重做
+- `PLANNER`（规划者）：接收用户的原始需求，把需求拆解为带类型和依赖关系的步骤；只输出结构化的计划，不执行任何具体操作
+- `WORKER`（执行者）：接收单个步骤的描述以及前置步骤的结果，调用文件读写、代码检索和终端命令等工具完成这个步骤，再按约定格式汇报完成情况
+- `REVIEWER`（检查者）：对照步骤的原始要求，独立验收执行者提交的结果；验收通过后，依赖这个步骤的下游才能执行，验收不通过则列出具体问题，退回给执行者重做
 
 ```java
 // src/main/java/com/paicli/agent/AgentRole.java
@@ -63,7 +67,7 @@ public enum AgentRole {
 }
 ```
 
-编排器与三类子 Agent 之间交互的数据载体是 `AgentMessage`，用 Java 17 的 `record` 定义，包含发送方名称 `fromAgent`、发送方角色 `fromRole`、消息正文 `content` 和消息类型 `type`。
+编排器和三类子 Agent 之间传递的消息对象是 `AgentMessage`，它用 Java 17 的 `record` 定义，包含发送方名称 `fromAgent`、发送方角色 `fromRole`、消息正文 `content` 和消息类型 `type` 四个字段。
 
 ```java
 // src/main/java/com/paicli/agent/AgentMessage.java
@@ -85,24 +89,30 @@ public record AgentMessage(
 }
 ```
 
-这里的 `Type` 枚举覆盖了协作全流程的七种状态。`TASK` 是编排器派发给子 Agent 的任务指令，`RESULT` 是子 Agent 正常完成后的输出，`PARTIAL` 表示执行者在预算或轮数耗尽时收尾保留的部分产出，`FEEDBACK`、`APPROVAL` 和 `REJECTION` 用于承载审查阶段的反馈与结论，`ERROR` 则代表模型调用失败或违规调用工具等错误。
+这里的 `Type` 枚举覆盖了协作全流程中的七种消息类型。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-03-20261108090200-a32be9e9.jpg)
+- `TASK` 是编排器派发给子 Agent 的任务；
+- `RESULT` 是子 Agent 正常完成后的输出；
+- `PARTIAL` 表示执行者在 Token 预算或对话轮数用完时提前结束，只交回了部分结果；
+- `FEEDBACK`、`APPROVAL` 和 `REJECTION` 分别表示审查阶段的反馈、通过和不通过；
+- `ERROR` 表示模型调用失败、或者在不允许的情况下调用了工具等错误。
 
-围绕这套主从模型，`agent/` 包下的八个核心类分工如下：
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-messages-20261109101939-c44455d6.png)
 
-- `AgentRole`：定义规划者、执行者、检查者三类角色枚举
-- `AgentMessage`：封装主从通信的不可变消息对象与七种状态类型
-- `SubAgent`：子 Agent 实例，维护独立的角色提示词、对话历史与上下文压缩器，共享底层工具注册表和模型客户端
-- `AgentOrchestrator`：主控编排器，串联规划、DAG 分批并发执行、审查重试与结果汇总
-- `TeamStructuredReply`：三类角色最终回复的严格 JSON 读取器，负责剥离外层代码块围栏并拦截重复键与尾随文本
-- `TeamPlanParser`：校验规划者输出的 JSON 计划，执行步骤重编号、未知依赖拦截与 Kahn 拓扑排序环检测
-- `TeamWorkerReport`：解析执行者的结构化交付报告，区分已完成（`completed`）与受阻（`blocked`）
-- `TeamReviewVerdict`：解析检查者的审查结论，执行闭合失败判定并按优先级提取打回原因
+围绕这套主从结构，`agent/` 包下的八个核心类分工如下。
 
-## 02、三类 Sub-agent 的工具边界与提示词组装
+- `AgentRole`：定义规划者、执行者、检查者三类角色
+- `AgentMessage`：编排器和子 Agent 之间传递的不可变消息对象，带有七种消息类型
+- `SubAgent`：子 Agent 实例，各自维护角色提示词、对话历史和上下文压缩，共用同一个工具注册表和模型客户端
+- `AgentOrchestrator`：编排器，按顺序完成规划、按 DAG 分批并发执行、审查重试和结果汇总
+- `TeamStructuredReply`：按严格规则把三类角色的最终回复解析成 JSON，负责去掉外层的代码块标记，并拒绝重复的键和 JSON 后面多余的文字
+- `TeamPlanParser`：校验规划者输出的 JSON 计划，负责给步骤重新编号、拦截未知依赖，并用 Kahn 拓扑排序检测循环依赖
+- `TeamWorkerReport`：解析执行者的结构化交付报告，区分已完成（`completed`）和受阻（`blocked`）两种状态
+- `TeamReviewVerdict`：解析检查者的审查结论，按默认拒绝原则判定是否通过，并按优先级提取退回原因
 
-虽然规划者、执行者和检查者都是 `SubAgent` 类的实例，但它们在工具使用权限和系统提示词上有着严格的隔离。
+## 02、三类 Sub-agent
+
+规划者、执行者和检查者虽然都是 `SubAgent` 类的实例，但它们能使用的工具和系统提示词是严格区分开的。
 
 在 `SubAgent.shouldUseTools` 中，只有角色为 `WORKER` 的实例才会返回 `true`。
 
@@ -113,13 +123,13 @@ private boolean shouldUseTools() {
 }
 ```
 
-当 `SubAgent` 向大模型发起请求时，会先根据 `shouldUseTools()` 判断要不要挂载工具定义。对于 `PLANNER` 和 `REVIEWER`，传给 `llmClient.chat` 的工具列表是 `null`。
+`SubAgent` 向大模型发起请求时，会先根据 `shouldUseTools()` 判断请求里要不要带上工具定义。对于 `PLANNER` 和 `REVIEWER`，传给 `llmClient.chat` 的工具列表是 `null`。
 
-如果允许规划者在制定计划阶段顺手调用 `read_file` 或 `execute_command`，它一旦开始自己读文件跑命令，就会退化成边做边拆的混合角色，丧失全局视角；同样，检查者如果能调用写文件工具，就可能越俎代庖去替执行者改代码。此外，评测审计（`TeamRequestAudit`）也要求规划与审查请求在协议层不能暴露任何工具 Schema。
+如果允许规划者在制定计划时调用 `read_file` 或 `execute_command`，就会变成一边执行一边拆解，很难再从整体上安排步骤；同样，检查者如果能调用写文件工具，就可能直接修改执行者的代码，做不属于自己职责的事。此外，评测审计测试 `TeamRequestAudit` 也会检查，发给规划者和检查者的请求里，不能包含任何工具 Schema。
 
-万一底层模型不守规矩，在没有挂载工具的情况下依然在响应里硬塞了 `tool_calls`，或者在正文里残留了类似 `<｜DSML｜function_calls>` 的未执行工具调用标签，怎么处理？
+如果底层模型没有遵守约定，请求里明明没有提供工具，响应里却依然带有 `tool_calls`，或者在正文里留下了 `<｜DSML｜function_calls>` 这类没有被执行的工具调用标签，该怎么处理？
 
-`SubAgent` 在响应返回后做了拦截。只要检测到 `!shouldUseTools() && response.hasToolCalls()`，立刻终止当前调用，向终端打印“本角色不提供工具，工具调用未执行”，并返回 `AgentMessage.error` 让编排器按失败处理；对于正文里残留的未执行工具标签，则通过 `llmClient.looksLikeUnexecutedToolCall` 识别并提示用户，随后由 JSON 解析器拒绝这团非结构化文本。
+`SubAgent` 会在收到响应后进行检查。只要满足 `!shouldUseTools() && response.hasToolCalls()`，就立即结束本次调用，在终端打印“本角色不提供工具，工具调用未执行”，并返回 `AgentMessage.error`，让编排器按失败处理。对于正文里残留的工具调用标签，则先通过 `llmClient.looksLikeUnexecutedToolCall` 进行识别并提示用户，随后这段不符合格式的文本会被 JSON 解析器拒绝。
 
 ```java
 // src/main/java/com/paicli/agent/SubAgent.java
@@ -133,7 +143,9 @@ if (response.hasToolCalls() && !shouldUseTools()) {
 }
 ```
 
-工具边界划清之后，还要通过系统提示词给每个角色立规矩。`SubAgent.getSystemPrompt` 不会把提示词硬编码在 Java 字符串里，而是根据当前角色映射到 `PromptMode` 中的 `TEAM_PLANNER`、`TEAM_WORKER` 或 `TEAM_REVIEWER`，统一交给 `PromptAssembler.assemble` 组装。
+划清工具权限之后，还要通过系统提示词约束每个角色的行为。
+
+`SubAgent.getSystemPrompt` 没有把提示词硬编码在 Java 字符串里，而是先把当前角色对应到 `PromptMode` 中的 `TEAM_PLANNER`、`TEAM_WORKER` 或 `TEAM_REVIEWER`，再统一交给 `PromptAssembler.assemble` 组装。
 
 ```java
 // src/main/java/com/paicli/agent/SubAgent.java
@@ -147,42 +159,74 @@ private String getSystemPrompt() {
 }
 ```
 
-`PromptAssembler` 在拼接提示词时，如果发现当前角色的 `toolsEnabled` 为 `false`，会先调用 `stripToolSections` 把基础提示词 `base.md` 里的 `## Tools` 和 `## Tool Policy` 两节删掉，再紧接着补上一节 `## Tool Availability`，明确告知规划者“把需要读取文件、执行命令等操作写成计划步骤，交给执行者”，告知检查者“根据收到的任务与执行结果进行审查，证据不足时在 issues 中说明”。
+`PromptAssembler` 拼接提示词时，如果当前角色的 `toolsEnabled` 为 `false`，会先调用 `stripToolSections`，删掉基础提示词 `base.md` 里的 `## Tools` 和 `## Tool Policy` 两节，再补上一节 `## Tool Availability`，告诉规划者“把需要读取文件、执行命令等操作写成计划步骤，交给执行者”，告诉检查者“根据收到的任务与执行结果进行审查，证据不足时在 issues 中说明”。
 
-整份系统提示词按照内容变化频率从低到高排列：
+整份系统提示词按内容变化的频率从低到高依次排列。
 
-- 最前面是会话期间固定不变的 `base.md`、性格设定 `calm.md`、角色模式文件（`team-planner.md` / `team-worker.md` / `team-reviewer.md`）、审批规则、上下文管理说明和输出格式说明
-- 往后是仅向 Worker 注入的 `## Skills` 索引，只在启停 Skill 时变化
-- 再往后是按天变化的 `## Runtime Context`（当前日期与时区）
-- 最后是 `## Project Context`，依次放入项目的 `PAI.md` 规范、相关长期记忆与 MCP 资源索引
+- 最前面是整个会话期间都不变的内容：`base.md`、性格设定 `calm.md`、角色模式文件（`team-planner.md` / `team-worker.md` / `team-reviewer.md`）、审批规则、上下文管理说明和输出格式说明
+- 其次是只提供给 Worker 的 `## Skills` 索引，只有在启用或停用 Skill 时才会变化
+- 系统提示词中的 `## Project Context` 放 PAI.md 等文件里的项目规范。可用的 Skill 目录排在项目规范后面；如果模型窗口足够大，而且外部服务提供了资源，末尾还会附上 MCP 资源索引。
+- 日期和时区放在本轮任务的开头。
 
-这种把静态规则放开头、动态上下文放末尾的排布方式，能让同一个 Sub-agent 在多轮工具调用或多次重试时，前面一大段提示词字节保持一致，稳定命中大模型服务端的前缀缓存（Prefix Caching）。
+把不变的规则放在开头、经常变化的上下文放在末尾，同一个 Sub-agent 在多轮工具调用或多次重试时，提示词的前半部分就能保持逐字节一致，从而命中大模型服务端的前缀缓存（Prefix Caching），减少重复计算的时间和费用。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-04-20261108090201-9dc8153b.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-tool-boundaries-20261109102216-7aa22123.png)
 
-三份角色模式文件各自规定了严密的输出契约。
+三份角色模式文件分别规定了严格的输出格式。
 
-`prompts/modes/team-planner.md` 要求规划者只输出一个包含 `summary` 和 `steps` 数组的 JSON 对象，简单任务拆 `1` 到 `3` 步，复杂任务拆 `5` 到 `10` 步。遇到可以独立完成的步骤时，保持 `dependencies` 为空，方便编排器并行分给多个 Worker；同时把用户限定的工具、交付结果和验收条件写进相关步骤描述里。
+发给模型的提示词大概是这样的。
 
-`prompts/modes/team-worker.md` 规定执行者查代码时优先使用 `glob_files`、`grep_code` 和 `read_file` 现用现查，语义模糊时才用 `search_code`。完成工具调用后，给编排器的最后一条回复必须是单个 JSON 对象，交付成功返回 `completed`，缺少必要条件返回 `blocked`。
+```
+【系统消息】
 
-`prompts/modes/team-reviewer.md` 则要求检查者按步骤要求的交付物逐项核对，只输出包含布尔值 `approved`、`summary`、`issues` 和 `suggestions` 的 JSON 对象。
+基础规则、执行者职责、审批规则、上下文管理和输出要求……
 
-## 03、规划阶段的严格 JSON 解析与 DAG 校验
+## Project Context
+项目规范（来自 PAI.md）
+- 项目使用 Java 17。
+- 修改配置后运行对应测试。
 
-规划者返回一段文本后，编排器不能拿正则表达式随便抠一个 JSON 出来就往下跑。
+## Skills
+……执行者可用的技能目录……
 
-在实际调用中，大模型返回的结构化内容经常在 JSON 外面套一层 Markdown 代码块围栏，或者在闭合大括号后面顺手加两句解释文字；更麻烦的是在计划里写出重复的步骤 ID、引用根本不存在的前置步骤，甚至写出 `step_1` 依赖 `step_2`、`step_2` 又依赖 `step_1` 的循环依赖。
+## MCP Resources 索引（仅 URI / 描述，不含正文）
+- @docs:demo://config-guide — 项目配置说明
 
-如果解析器对未知依赖睁一只眼闭一只眼，保留了一条指向不存在步骤的依赖边，后面执行阶段检查前置步骤是否完成时，这个步骤就会永远处于等待状态，导致整个工作流卡死。
+【本轮任务消息】
 
-为了把这些问题拦在执行之前，PaiCLI 先用 `TeamStructuredReply.parseObject` 做严格的 JSON 语法解析，再用 `TeamPlanParser.parse` 校验任务图的拓扑结构。
+<paicli-turn-context>
+当前日期: 2026-11-09
+当前时区: Asia/Taipei
+</paicli-turn-context>
 
-`TeamStructuredReply` 内部维护了一个开启了严格校验开关的 Jackson `ObjectMapper`：
+总任务上下文：检查项目配置是否符合团队规范。
 
-- 开启 `STRICT_DUPLICATE_DETECTION`，只要 JSON 对象里出现同名重复键（比如两个 `"approved"` 字段），立刻抛异常拒绝
-- 开启 `FAIL_ON_TRAILING_TOKENS`，JSON 闭合大括号后面只要跟着任何多余的解释文字，立刻报错
-- 调用 `unwrapWholeFence` 处理代码块围栏，只有当整段回复从头到尾被单个无标记或 `json` 标记的 Markdown 围栏包裹时，才剥掉最外层围栏；如果步骤描述字符串内部包含 `bash` 等代码片段，则原样保留，绝不破坏内部内容
+当前任务：读取配置文件，核对 Java 版本。
+```
+
+`prompts/modes/team-planner.md` 要求规划者只输出一个包含 `summary` 和 `steps` 数组的 JSON 对象。简单任务拆成 `1` 到 `3` 步，复杂任务拆成 `5` 到 `10` 步。可以独立完成的步骤，`dependencies` 保持为空，这样编排器就能把它们同时分给多个 Worker 并行执行；用户指定的工具、交付结果和验收条件，也要写进对应步骤的描述里。
+
+`prompts/modes/team-worker.md` 规定执行者查代码时，优先用 `glob_files`、`grep_code` 和 `read_file` 在需要时直接查找，只有无法用关键词精确定位、需要按语义检索时才用 `search_code`。工具调用全部完成后，执行者发给编排器的最后一条回复必须是单个 JSON 对象，顺利完成就返回 `completed`，缺少必要条件就返回 `blocked`。
+
+`prompts/modes/team-reviewer.md` 要求检查者对照步骤要求的交付物逐项核对，只输出一个包含布尔值 `approved` 以及 `summary`、`issues`、`suggestions` 字段的 JSON 对象。
+
+## 03、规划阶段的 JSON 解析与 DAG 校验
+
+规划者返回一段文本后，编排器不能用正则表达式从中随便截取一段 JSON 就继续执行。
+
+在实际调用中，大模型返回的 JSON 经常被包在一层 Markdown 代码块标记里，或者在 JSON 结尾的右大括号后面多写几句解释。
+
+更麻烦的是计划内容本身的出错，步骤 ID 重复，引用了根本不存在的前置步骤，甚至出现 `step_1` 依赖 `step_2`、`step_2` 又依赖 `step_1` 的循环依赖。
+
+如果解析器没有拦截未知依赖，保留了一条指向不存在步骤的依赖关系，那么在执行阶段检查前置步骤是否完成时，这个步骤会一直处于等待状态，整个流程也就无法继续推进。
+
+为了在执行之前拦住这些问题，PaiCLI 先用 `TeamStructuredReply.parseObject` 做严格的 JSON 语法解析，再用 `TeamPlanParser.parse` 校验任务图的结构。
+
+`TeamStructuredReply` 内部持有一个开启了严格校验选项的 Jackson `ObjectMapper`。
+
+- 开启 `STRICT_DUPLICATE_DETECTION`：只要 JSON 对象里出现同名的重复键（比如两个 `"approved"` 字段），就抛出异常
+- 开启 `FAIL_ON_TRAILING_TOKENS`：JSON 结尾的右大括号后面只要还有多余的文字，就报错
+- 调用 `unwrapWholeFence` 处理代码块标记：只有当整段回复从头到尾被一个 Markdown 代码块包住，并且这个代码块没有标注语言或者标注为 `json` 时，才去掉最外层的代码块标记；如果步骤描述的字符串里包含 `bash` 等代码片段，则原样保留，不会改动其中的内容
 
 ```java
 // src/main/java/com/paicli/agent/TeamStructuredReply.java
@@ -207,13 +251,13 @@ static JsonNode parseObject(String reply) throws IOException {
 }
 ```
 
-拿到干净的 `JsonNode` 后，`TeamPlanParser.parse` 接手校验任务图（DAG，有向无环图）的合法性。
+得到格式正确的 `JsonNode` 后，再由 `TeamPlanParser.parse` 校验任务图（DAG，有向无环图）是否合法。
 
-它先读取 `steps` 数组（兼容读取 `tasks` 字段），如果数组为空就抛异常。接着遍历每个步骤节点，检查 `id` 必须是非空字符串，并按出现顺序统一重编号为 `step_1`、`step_2` 直到 `step_N`，放进 `idMapping` 映射表。遇到重复的原始 `id` 时，`idMapping.putIfAbsent` 返回非空，立刻报错拒绝。
+它先读取 `steps` 数组（没有 `steps` 时也兼容读取 `tasks` 字段），数组为空就抛出异常。然后遍历每个步骤，检查 `id` 是否为非空字符串，并按出现顺序把步骤重新编号为 `step_1`、`step_2`……`step_N`，原始 ID 和新编号的对应关系存进 `idMapping`。如果某个原始 `id` 重复出现，`idMapping.putIfAbsent` 会返回非空值，解析器随即报错。
 
-接着解析每个步骤的 `dependencies` 数组。解析器拿着每个依赖项去 `idMapping` 里查对应的重编号 ID，只要查不到（`mapped == null`），说明模型引用了一个未声明的步骤 ID，立即抛出 `IOException("计划依赖必须引用已声明的步骤 id: ...")`，绝不静默丢弃或猜测别名。
+接下来解析每个步骤的 `dependencies` 数组。解析器用每个依赖项去 `idMapping` 里查找对应的新编号，只要查不到（`mapped == null`），就说明模型引用了一个计划里没有的步骤 ID，解析器会立即抛出 `IOException("计划依赖必须引用已声明的步骤 id: ...")`。它既不会悄悄丢掉这条依赖，也不会去猜这个 ID 可能指的是哪个步骤。
 
-最后一步是调用 `requireAcyclic` 做环检测，用的是经典的 Kahn 拓扑排序算法。
+最后调用 `requireAcyclic` 检测循环依赖，使用的是经典的 Kahn 拓扑排序算法。
 
 ```java
 // src/main/java/com/paicli/agent/TeamPlanParser.java
@@ -248,17 +292,17 @@ private static void requireAcyclic(List<AgentOrchestrator.ExecutionStep> steps) 
 }
 ```
 
-算法先统计每个步骤的入度（也就是它依赖多少个前置步骤），放进 `pendingDeps`，同时用 `dependents` 记录每个步骤被哪些下游步骤依赖。先把所有入度为 `0` 的无依赖步骤放进队列 `ready`，每次从队列里取出一个步骤，`visited` 计数加 `1`，并把依赖它的下游步骤入度减 `1`；一旦某个下游步骤的入度降到 `0`，就加入 `ready` 队列。
+算法先统计每个步骤的入度（也就是它依赖几个前置步骤），存进 `pendingDeps`，同时用 `dependents` 记录每个步骤被哪些下游步骤依赖。然后把所有入度为 `0` 的步骤（没有任何依赖的步骤）放进队列 `ready`。每次从队列里取出一个步骤，`visited` 计数加 `1`，并把依赖它的下游步骤的入度减 `1`；某个下游步骤的入度一旦降到 `0`，就把它加入 `ready` 队列。
 
-队列清空后，如果访问过的节点数 `visited` 不等于总步骤数 `steps.size()`，说明图里存在入度永远降不到 `0` 的环（无论是自己依赖自己的自环，还是两步互相依赖的互环），立即判定计划不合法并终止流程。
+队列清空后，如果处理过的步骤数 `visited` 不等于总步骤数 `steps.size()`，说明有些步骤的入度永远降不到 `0`，也就是图里存在环。不管是一个步骤依赖它自己，还是两个步骤互相依赖，都会被检测出来。这时解析器判定计划不合法，流程随之终止。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-05-20261108090202-a4f4a900.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-plan-validation-20261109102216-beb7e5f7.png)
 
 ## 04、按依赖分批调度与 Worker 池化并发
 
-计划通过拓扑校验后，就交由 `AgentOrchestrator` 启动执行循环。
+计划通过校验后，`AgentOrchestrator` 开始执行。
 
-编排器在构造时默认初始化 `1` 个规划者、`2` 个执行者（`worker-1` 和 `worker-2`）以及 `1` 个检查者。所有子 Agent 共享同一个模型客户端 `llmClient`、工具注册表 `toolRegistry` 和只追加会话账本 `conversationLedger`。
+编排器在构造时默认创建 `1` 个规划者、`2` 个执行者（`worker-1` 和 `worker-2`）和 `1` 个检查者。所有子 Agent 共用同一个模型客户端 `llmClient`、同一个工具注册表 `toolRegistry`，以及同一个会话记录 `conversationLedger`。会话记录只能在末尾追加，不能修改已经写入的内容。
 
 ```java
 // src/main/java/com/paicli/agent/AgentOrchestrator.java
@@ -270,9 +314,9 @@ this.workers = List.of(
 this.reviewer = new SubAgent("reviewer", AgentRole.REVIEWER, llmClient, toolRegistry);
 ```
 
-进入执行阶段后，`runObserved` 开启一个 `while (true)` 循环，每轮调用 `getExecutableSteps(steps)` 找出当前这一批可以启动的步骤。
+进入执行阶段后，`runObserved` 开始 `while (true)` 循环，每一轮调用 `getExecutableSteps(steps)`，找出当前这一批可以开始执行的步骤。
 
-怎么判断一个步骤现在能不能跑？同时满足两个条件即可：
+一个步骤要现在就能执行，需要同时满足两个条件：
 
 - 该步骤当前的状态是 `StepStatus.PENDING`（待执行）
 - 它在 `dependencies` 里声明的所有前置步骤，状态全部是 `StepStatus.COMPLETED`（已完成并通过审查）
@@ -293,21 +337,25 @@ List<ExecutionStep> getExecutableSteps(List<ExecutionStep> steps) {
 }
 ```
 
-如果 `getExecutableSteps` 返回空列表，说明所有能跑的步骤都跑完了，循环结束。
+如果 `getExecutableSteps` 返回了空列表，说明已经没有可以执行的步骤。要么所有步骤都执行完了，要么剩下的步骤所依赖的前置步骤失败或受阻。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-06-20261108090202-21563303.jpg)
+这时循环结束。
 
-如果当前批次只有 `1` 个可执行步骤，编排器就走单步串行路径，用轮询游标 `singleStepCursor % workers.size()` 在 `worker-1` 和 `worker-2` 之间轮流挑一个执行，流式输出实时打印到终端 `out` 上，保持流畅的打字机观感。
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-dag-20261109102238-09c8e354.gif)
 
-如果当前批次筛出了多个互不依赖的步骤（`executable.size() > 1`），比如 `step_1` 是读取后端配置文件、`step_2` 是扫描前端目录结构，两边没有任何依赖关系，编排器就调用 `runBatchParallel` 让它们多线程并行执行。
+如果当前批次只有 `1` 个可执行步骤，编排器就按单步顺序执行。
 
-把多个 Sub-agent 放到多线程里并发跑，立刻会碰上三个并发工程问题：
+用计数器 `singleStepCursor % workers.size()` 在 `worker-1` 和 `worker-2` 之间轮流选一个来执行，模型的流式输出直接打印到终端，用户能实时看到逐字输出的效果。
 
-- 两个线程如果同时抢到同一个 `worker-1` 实例，它们的对话历史 `conversationHistory` 就会混在一起
-- 并发步骤跑完后如果同时找同一个 `this.reviewer` 实例做审查，检查者的 `conversationHistory` 同样会发生并发读写冲突，甚至一个线程刚把审查请求放进去，另一个线程审完调 `clearHistory()` 把它的上下文给清空了
-- 多个 Worker 同时往终端 `System.out` 流式打印思考过程和工具调用日志，屏幕上的文字会一行 `worker-1`、一行 `worker-2` 地交错穿插，根本没法看
+如果当前批次有多个互不依赖的步骤（`executable.size() > 1`），比如 `step_1` 是读取后端配置文件、`step_2` 是扫描前端目录结构，两者之间没有依赖关系，编排器就调用 `runBatchParallel`，用多个线程并行执行它们。
 
-我们来看看 `runBatchParallel` 是怎么一次性解决这三个问题的。
+让多个 Sub-agent 在多个线程里同时执行，会遇到三个并发问题：
+
+- 如果两个线程同时拿到了同一个 `worker-1` 实例，两个步骤的对话历史 `conversationHistory` 就混在了一起
+- 如果多个并发步骤执行完后，同时交给同一个 `this.reviewer` 实例审查，检查者的 `conversationHistory` 同样会出现并发读写冲突；甚至可能出现一个线程刚把审查请求写进去，另一个线程审查完调用 `clearHistory()`，把前一个线程的上下文清空了
+- 多个 Worker 同时向终端 `System.out` 流式打印思考过程和工具调用日志，屏幕上 `worker-1` 和 `worker-2` 的输出会交错在一起，很难阅读
+
+下面来看 `runBatchParallel` 是怎么同时解决这三个问题的。
 
 ```java
 // src/main/java/com/paicli/agent/AgentOrchestrator.java
@@ -354,28 +402,30 @@ private void runBatchParallel(List<ExecutionStep> batch, List<ExecutionStep> ste
 }
 ```
 
-针对第一个问题，我们把 `workers` 放进一个线程安全的阻塞队列 `LinkedBlockingQueue<SubAgent>`，做成一个简易对象池。每个并行任务启动后，先调 `workerPool.take()` 租借一个空闲的 Worker；如果当前批次有 3 个并行步骤而池子里只有 2 个 Worker，第 3 个步骤就会在队列上阻塞等待；等某个步骤在 `finally` 块里调完 `worker.clearHistory()` 清空对话历史，再调 `workerPool.offer(worker)` 把实例归还入池，下一个步骤才能拿走复用。这样同一个 Worker 实例在同一时刻最多只会被一个线程持有。
+针对第一个问题，编排器把 `workers` 放进线程安全的阻塞队列 `LinkedBlockingQueue<SubAgent>`，作为一个简单的对象池。
 
-针对第二个问题，并行路径不去争抢成员变量 `this.reviewer`，而是在每个并行任务内部单独创建一个局部的检查者实例 `new SubAgent("reviewer-" + step.id(), AgentRole.REVIEWER, ...)`，绑定相同的外部上下文提供器和会话账本。每个步骤独享自己的检查者实例，审查过程互不干扰。
+每个并行任务启动后，先调用 `workerPool.take()` 从队列里取出一个空闲的 Worker。如果当前批次有 3 个并行步骤，而队列里只有 2 个 Worker，第 3 个步骤就会阻塞等待。某个步骤执行完后，会在 `finally` 块里先调用 `worker.clearHistory()` 清空对话历史，再调用 `workerPool.offer(worker)` 把实例放回队列，等待中的步骤这时才能取出它继续使用。这样，同一个 Worker 实例在同一时刻最多只会被一个线程使用。
 
-针对第三个问题，编排器在提交线程任务前，先为批次里的每个步骤分配一个独立的内存字节流 `ByteArrayOutputStream`，包装成 `PrintStream stepOut` 传给 `runStep`。并发执行期间，各个 Worker 和 Reviewer 的流式输出都写进各自步骤的内存缓冲区里。等 `futures` 列表里的所有任务都执行完毕后，主线程再按 `batch` 里的 `step_id` 顺序遍历 `buffers`，把每个步骤的完整输出一次性刷到终端 `out` 上。这样既拿到了多线程并发的速度，用户在终端上看到的日志又是按 `step_1`、`step_2` 整整齐齐排列的。
+针对第二个问题，并行执行时不再共用成员变量 `this.reviewer`，而是在每个并行任务内部单独创建一个局部的检查者实例 `new SubAgent("reviewer-" + step.id(), AgentRole.REVIEWER, ...)`，并为它设置相同的外部上下文和会话记录。每个步骤使用自己的检查者实例，审查过程互不影响。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-07-20261108090203-921b9896.jpg)
+针对第三个问题，编排器在提交线程任务之前，先为批次里的每个步骤创建一个独立的内存字节流 `ByteArrayOutputStream`，包装成 `PrintStream stepOut` 传给 `runStep`。并发执行期间，Worker 和 Reviewer 的流式输出都写进所属步骤的内存缓冲区，而不是直接写到终端。等 `futures` 列表里的所有任务都执行完毕，主线程再按 `batch` 里的步骤顺序遍历 `buffers`，把每个步骤的完整输出依次打印到终端 `out` 上。这样既保留了多线程并发的速度，用户在终端上看到的日志也是按 `step_1`、`step_2` 的顺序整齐排列的。
 
-## 05、执行者的内部循环、上下文传递与交付协议
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-worker-pool-20261109102216-e9d21892.png)
 
-当某个 Worker 领到一个具体步骤后，它在内部是怎么把这个步骤跑完的？
+## 05、执行者的上下文传递与任务交付
 
-打开 `SubAgent.executeObserved` 可以看到，每个 Worker 内部运行的是一套完整的 ReAct 循环，并且复用了主 Agent 的全套安全阀与上下文管理基础设施：
+一个 Worker 分配到具体步骤后，内部是怎么完成这个步骤的？
 
-- 每次迭代前检查取消信号 `CancellationContext.isCancelled()`，支持用户随时按 ESC 中断多 Agent 任务
-- 每个步骤独立持有 `AgentBudget` 和 `RunawayGuard`。当同一个工具调用或同一类错误连续出现 `3` 步时，`RunawayGuard` 会往当前 Worker 的对话里注入一条 `[runaway guard]` 提醒换思路；如果连续 `5` 步调用签名一模一样触发停滞检测，或者达到了显式配置的 Token 与轮数上限，就调用 `finalizePartialResult` 关掉工具做一次收尾整理，返回 `AgentMessage.Type.PARTIAL`
-- 每次调用模型前，先通过 `injectPendingLspDiagnostics` 把修改 Java 文件后产生的语法诊断信息注入对话，再调用 `AutoCompactionManager.compactIfNeeded` 按需执行旧工具结果清理或生成结构化摘要
-- 工具调用统一走 `activeToolPolicy.execute`，返回结果全部用 `ToolResultBoundary.wrap` 包上 `trust="untrusted-data"` 不可信数据标签；如果调用了 `load_skill`，Skill 正文也会在同一轮紧跟工具结果注入当前 Worker 的对话历史
+打开 `SubAgent.executeObserved` 可以看到，每个 Worker 内部运行的都是一套完整的 ReAct 循环，并且复用了主 Agent 的全部安全保护机制和上下文管理功能：
 
-除了单步内部的循环，多步协作还需要解决上下游怎么交接信息的问题。如果下一步需要用到上一步查出来的配置或者搜索到的网页地址，Worker 从哪拿？
+- 每次迭代前检查取消信号 `CancellationContext.isCancelled()`，用户随时可以按 ESC 中断多 Agent 任务
+- 每个步骤都有自己的 `AgentBudget` 和 `RunawayGuard`。当同一个工具调用或同一类错误连续出现 `3` 次时，`RunawayGuard` 会在当前 Worker 的对话里加入一条 `[runaway guard]` 提醒，要求模型换一种做法；如果连续 `5` 次的调用签名完全相同，触发了停滞检测，或者达到了配置的 Token 上限或轮数上限，就调用 `finalizePartialResult`，在不提供工具的情况下让模型做最后一次总结，并返回 `AgentMessage.Type.PARTIAL`
+- 每次调用模型之前，先通过 `injectPendingLspDiagnostics` 把修改 Java 文件后产生的语法诊断信息加入对话，再调用 `AutoCompactionManager.compactIfNeeded`，在上下文过长时清理旧的工具结果，或者生成结构化摘要
+- 所有工具调用都通过 `activeToolPolicy.execute` 执行，返回结果统一用 `ToolResultBoundary.wrap` 加上 `trust="untrusted-data"` 标签，标明这是不可信的数据；如果调用的是 `load_skill`，Skill 的正文也会在同一轮里紧跟在工具结果之后，加入当前 Worker 的对话历史
 
-编排器通过 `buildStepContext` 和 `TurnToolPolicy` 沿着 DAG 依赖边向后传递结果预览与可信网址。
+除了单个步骤内部的循环，多个步骤协作时还要解决上下游之间传递信息的问题。如果下一步要用到上一步查到的配置，或者上一步搜索到的网页地址，Worker 从哪里获取这些信息呢？
+
+编排器通过 `buildStepContext` 和 `TurnToolPolicy`，沿着 DAG 中的依赖关系，把上游步骤的结果预览和可信网址传给下游步骤。
 
 ```java
 // src/main/java/com/paicli/agent/AgentOrchestrator.java
@@ -411,17 +461,19 @@ private String buildStepContext(List<ExecutionStep> steps, ExecutionStep current
 }
 ```
 
-在拼接文本上下文时，`buildStepContext` 只挑出当前步骤在 `dependencies` 里显式声明、且状态已经是 `COMPLETED` 的上游步骤，把它们的步骤描述和执行结果拼进“总任务上下文”。为了防止上游步骤读了一个大文件把下游 Worker 的上下文窗口撑满，每个上游结果超过 `500` 个字符时，只截取前 `500` 个字符加省略号。
+拼接上下文时，`buildStepContext` 只选取两类条件都满足的上游步骤。
 
-光传文本还不够，如果上游步骤搜出了几个网页，下游步骤要用 `web_fetch` 抓取，还会遇到网址访问权限的传递问题。PaiCLI 的安全策略规定，`web_fetch` 和浏览器只能访问用户本轮亲手输入的网址，或者本次执行分支里 `web_search` 返回的结构化结果 `discoveredUrls`。为此，编排器维护了一张 `stepTrustedUrls` 映射表。
+当前步骤在 `dependencies` 里明确声明依赖它，并且它的状态已经是 `COMPLETED`。这些上游步骤的描述和执行结果会被拼进“总任务上下文”。为了防止上游步骤读取了一个大文件、占满下游 Worker 的上下文窗口，每个上游结果超过 `500` 个字符时，只保留前 `500` 个字符，再加上省略号。
 
-当某个步骤通过检查者验收并调用 `markStepCompleted` 时，编排器才会把该步骤策略里的 `trustedUrlContext()` 存进映射表。下游步骤启动前，通过 `dependencyTrustedUrls` 收集它所依赖的上游步骤留下的可信网址，再调用 `turnToolPolicy.forkWithTrustedUrls(dependencyUrls)` 派生出当前步骤专属的策略副本，同时把这些网址列在 `buildStepContext` 末尾告诉 Worker。
+只传递文本还不够。如果上游步骤搜索到了几个网页，下游步骤要用 `web_fetch` 抓取这些网页，还涉及网址访问权限的传递。PaiCLI 的安全策略规定，`web_fetch` 和浏览器只能访问两类网址：用户本轮直接输入的网址，以及本次执行分支中 `web_search` 返回的结构化结果 `discoveredUrls`。为此，编排器维护了一张映射表 `stepTrustedUrls`。
 
-这样一来，只有声明了 DAG 依赖的下游步骤，才能合法抓取上游搜出来的网页；两个没有依赖关系的并行步骤之间策略相互隔离，而且上游输出的文字内容本身不能产生新的网址授权，防住了跨步骤的提示词注入。
+只有当某个步骤通过检查者验收、编排器调用 `markStepCompleted` 时，才会把该步骤策略中的 `trustedUrlContext()` 存进这张映射表。下游步骤启动前，编排器通过 `dependencyTrustedUrls` 收集它所依赖的上游步骤留下的可信网址，再调用 `turnToolPolicy.forkWithTrustedUrls(dependencyUrls)` 复制出一份只属于当前步骤的策略，同时把这些网址列在 `buildStepContext` 生成的上下文末尾，告诉 Worker 可以访问。
 
-当 Worker 跑完工具循环、准备向编排器交差时，如果任由它返回一段自由格式的自然语言，就会出现一个麻烦，当某个必需的输入文件根本不存在，或者某项操作被权限策略拦住时，Worker 写了一段“因为找不到 xxx 文件，所以我没法继续”的说明文字，编排器却分不清这是正常交付的产出还是遇到了阻碍，照样把它送给检查者去审。
+这样一来，只有声明了依赖关系的下游步骤，才能访问上游步骤搜索到的网页；两个没有依赖关系的并行步骤，各自的策略互不影响。而且，上游输出的文字里即使出现了某个网址，这个网址也不会因此获得访问权限。这就防止了攻击者通过网页内容跨步骤进行提示词注入。
 
-所以最新源码引入了 `TeamWorkerReport`，强制执行者在最后一条回复里按结构化协议汇报状态。
+Worker 完成所有工具调用、准备向编排器提交结果时，如果允许它返回一段任意格式的自然语言，就会出现问题。当某个必需的输入文件不存在，或者某项操作被权限策略拦截时，Worker 会写一段“因为找不到 xxx 文件，所以无法继续”的说明，编排器却分不清这是正常的交付结果还是遇到了阻碍，仍然把它交给检查者审查。
+
+所以最新源码引入了 `TeamWorkerReport`，要求执行者在最后一条回复里按结构化格式汇报状态。
 
 ```java
 // src/main/java/com/paicli/agent/TeamWorkerReport.java
@@ -448,25 +500,25 @@ record TeamWorkerReport(String result, String blockedReason) {
 }
 ```
 
-编排器拿到解析结果后按状态分流：
+编排器拿到解析结果后，按状态分别处理：
 
-- `completed` 状态：必须提供非空的 `result` 字符串，且不能同时带有 `reason` 阻塞原因，通过后把 `result` 送交检查者验收
-- `blocked` 状态：必须提供非空的 `reason` 说明缺少什么输入或权限（已做的部分工作可放在 `result` 里保留），编排器收到后将该步骤标记为 `StepStatus.BLOCKED`，跳过审查，也不触发无意义的重试
-- 非法状态或格式错误：回复无法解析成合法 JSON，或者 `status` 既不是 `completed` 也不是 `blocked` 时，编排器捕获 `IOException`，将该步骤标记为 `StepStatus.FAILED` 并立即终止该步骤
+- `completed` 状态：必须提供非空的 `result` 字符串，并且不能同时带有阻塞原因 `reason`；校验通过后，编排器把 `result` 交给检查者验收
+- `blocked` 状态：必须提供非空的 `reason`，说明缺少什么输入或权限（已经完成的部分工作可以放在 `result` 里保留）；编排器收到后把该步骤标记为 `StepStatus.BLOCKED`，跳过审查，也不会进行没有意义的重试
+- 状态非法或格式错误：如果回复无法解析成合法的 JSON，或者 `status` 既不是 `completed` 也不是 `blocked`，编排器会捕获 `IOException`，把该步骤标记为 `StepStatus.FAILED`，并立即结束这个步骤
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-08-20261108090204-5b6ff699.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-worker-report-20261109102536-db117c98.png)
 
-## 06、检查者的闭合失败判定与带反馈重试
+## 06、检查者的拒绝策略与反馈重试
 
-当执行者正常提交了 `completed` 报告后，就轮到检查者 `Reviewer` 把关了。
+执行者正常提交 `completed` 报告后，就轮到检查者 `Reviewer` 验收了。
 
-编排器调用 `reviewer.review(step.description(), retainedResult, out, reviewCall)`，把这一步的原始任务描述和执行者提交的产出一起发给检查者，然后把检查者返回的文本交给 `TeamReviewVerdict.parse` 解析。
+编排器调用 `reviewer.review(step.description(), retainedResult, out, reviewCall)`，把这一步的任务描述和执行者提交的结果一起发给检查者，再把检查者返回的文本交给 `TeamReviewVerdict.parse` 解析。
 
-当检查者返回的文本格式不规范（比如没按要求输出 JSON，而是写了一段自然语言评价）时，应该算通过还是算不通过？
+如果检查者返回的文本格式不规范，比如没有按要求输出 JSON，而是写了一段评价，这时应该算通过还是不通过？
 
-如果用“包含‘通过’且不含‘不通过’”这类关键词匹配做兜底，模型一旦写出“虽然前置检查通过，但核心配置项依然缺失”这样的句子，关键词匹配或者松散判断就很容易误判放行。一步错放过去，依赖它的所有下游步骤都会基于错误产物继续往下跑。
+假设用关键词匹配来判断，规则是“包含‘通过’并且不包含‘不通过’就算通过”。当模型写出“虽然前置检查通过，但核心配置项依然缺失”这样的句子时，这句话包含“通过”、不包含“不通过”，就会被误判为通过。一个步骤被误判为通过后，所有依赖它的下游都会基于错误的结果继续执行。
 
-因此，`TeamReviewVerdict` 采用了严格的闭合失败（Fail-Closed）策略。
+因此，`TeamReviewVerdict` 采用了严格的默认拒绝（Fail-Closed）策略，只要审查结论不明确，就一律按不通过处理。
 
 ```java
 // src/main/java/com/paicli/agent/TeamReviewVerdict.java
@@ -490,13 +542,13 @@ record TeamReviewVerdict(boolean approved, String feedback) {
 }
 ```
 
-只有当检查者的回复是单个合法的 JSON 对象，并且其中的 `approved` 字段是 JSON 布尔类型的 `true` 时，才算审查通过。空回复、自然语言段落、JSON 语法错误、缺少 `approved` 字段，哪怕是把布尔值写成了字符串 `"true"` 或数字 `1`，`approvedNode.isBoolean()` 都会返回 `false`，一律按未通过处理。
+只有当检查者的回复是单个合法的 JSON 对象，并且其中的 `approved` 字段是布尔类型的 `true` 时，才算审查通过。空回复、JSON 语法错误、缺少 `approved` 字段，都按未通过处理；即使 `approved` 写成了字符串 `"true"` 或数字 `1`，`approvedNode.isBoolean()` 也会返回 `false`，同样按未通过处理。
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-09-20261108090205-0f76c85c.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-verdict-20261109102536-0becad10.png)
 
-判定为未通过时，`feedbackOf` 会按固定优先级从 JSON 里提取打回原因，先取 `issues` 数组拼成列表，如果 `issues` 为空再取 `suggestions` 数组，还没有就取 `summary` 字段，全都拿不到则使用默认文案“审查未通过，请改进执行结果”。
+判定为未通过时，`feedbackOf` 会按固定的优先级从 JSON 里提取退回原因：先把 `issues` 数组拼成问题列表；`issues` 为空时取 `suggestions` 数组；`suggestions` 也为空时取 `summary` 字段；这些都没有时，使用默认文案“审查未通过，请改进执行结果”。
 
-拿到反馈后，`runStepWithPolicy` 启动带反馈重试循环，单步最多重试 `MAX_RETRIES_PER_STEP = 2` 次（即首次执行加最多 `2` 次重做）。
+得到反馈后，`runStepWithPolicy` 进入带反馈的重试循环。每个步骤最多重试 `MAX_RETRIES_PER_STEP = 2` 次，也就是首次执行之后，最多再重做 `2` 次。
 
 ```java
 // src/main/java/com/paicli/agent/AgentOrchestrator.java
@@ -523,11 +575,11 @@ updateStep(steps, step.id(), step.withFailed(reason, retainedResult));
 
 重试过程中，两个角色调用 `clearHistory()` 清空对话历史的时机并不相同。
 
-`reviewer.review` 每次调用结束后，都会在紧跟着的 `finally` 块里立刻执行 `reviewer.clearHistory()`，确保检查者每次验收都是不带历史包袱的独立判断。而 `worker.clearHistory()` 则放在整个步骤执行结束的 `runObserved` 或 `runBatchParallel` 的外层 `finally` 块里。
+每次 `reviewer.review` 调用结束后，紧跟着的 `finally` 块会立即执行 `reviewer.clearHistory()`，保证检查者每次验收都是独立判断，不受之前审查内容的影响。而 `worker.clearHistory()` 则放在外层的 `finally` 块里（位于 `runObserved` 或 `runBatchParallel` 中），等整个步骤执行结束后才调用。
 
-也就是说，在同一个步骤的第 `2` 次、第 `3` 次重试期间，Worker 保留着前一次尝试的完整对话历史。它既能看到自己上一轮调了什么工具、改了哪几行代码，又能看到本轮新注入的审查拒绝原因，顺着上次的现场把问题修好，不用从头再把所有文件读一遍。
+也就是说，在同一个步骤的第 `2` 次、第 `3` 次执行期间，Worker 保留着之前几次尝试的完整对话历史。它既能看到自己上一次调用了哪些工具、改了哪几行代码，又能看到这一次新加入的不通过原因，可以在上一次的基础上直接修正问题，不用从头把所有文件再读一遍。
 
-等这一步最终通过审查，或者重试 `2` 次后依然没通过时，外层的 `finally` 块才会调用 `worker.clearHistory()`，保留 `conversationHistory.get(0)` 的系统提示词，清空其余消息，并往 `ConversationLedger` 账本里写一条 `history_clear` 事件，干干净净地去接下一个步骤。
+等这一步最终通过审查，或者重试 `2` 次后仍然没有通过，外层的 `finally` 块才会调用 `worker.clearHistory()`。保留 `conversationHistory.get(0)` 中的系统提示词，清空其余消息，并在 `ConversationLedger` 会话记录里写入一条 `history_clear` 事件，然后这个 Worker 才去处理下一个步骤。
 
 ```java
 // src/main/java/com/paicli/agent/SubAgent.java
@@ -546,11 +598,11 @@ public void clearHistory() {
 }
 ```
 
-![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-wanger-10-20261108090205-52d2a842.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-multi-agent-retry-20261109102536-aa8285e9.gif)
 
-如果检查者自身的模型调用发生异常（`review.type() != AgentMessage.Type.RESULT`），或者 Worker 重试满 `2` 次仍未通过审查，编排器都不会把有隐患的结果当成 `COMPLETED` 放行，而是将已有产出保存在 `retainedResult` 中供用户查看，同时把当前步骤状态更新为 `StepStatus.FAILED`。
+如果检查者自身的模型调用出现异常（`review.type() != AgentMessage.Type.RESULT`），或者 Worker 重试 `2` 次后仍未通过审查，编排器都不会把可能有问题的结果标记为 `COMPLETED`，而是把已有的结果保存在 `retainedResult` 中供用户查看，同时把当前步骤的状态更新为 `StepStatus.FAILED`。
 
-一旦某个步骤停在 `FAILED` 或 `BLOCKED` 状态，外层调度循环里的 `getExecutableSteps` 就会自动拦住所有依赖它的下游步骤（不影响其他独立分支继续执行）。等主循环退出后，编排器遍历所有还停留在 `PENDING` 状态的残留步骤，逐一打印跳过提示。
+某个步骤一旦处于 `FAILED` 或 `BLOCKED` 状态，外层里的 `getExecutableSteps` 就不会再选出依赖它的下游步骤，但不影响其他不相关的步骤继续执行。主循环退出后，编排器遍历所有仍处于 `PENDING` 状态的步骤，逐个打印跳过提示。
 
 ```java
 // src/main/java/com/paicli/agent/AgentOrchestrator.java
@@ -564,14 +616,14 @@ for (ExecutionStep step : steps) {
 
 ## 07、跑起来看看
 
-把代码编译打包，启动 PaiCLI 实测一下 `/team` 模式下的多角色协作。
+编译打包代码，启动 PaiCLI，实际测试一下 `/team` 模式下的多角色协作。
 
 ```bash
 mvn clean package
 java -jar target/paicli-1.0-SNAPSHOT.jar
 ```
 
-在命令行里可以先单独输入 `/team` 切换模式，再输入任务描述；也可以在 `/team` 后面跟上任务内容，一条命令启动协作。
+在命令行里，可以先单独输入 `/team` 切换模式，再输入任务描述；也可以直接在 `/team` 后面写上任务内容，用一条命令启动协作。
 
 ```text
 👤 你: /team 创建一个 Spring Boot 项目，写一个 HelloController，然后验证项目结构
@@ -579,7 +631,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 
 ![](https://cdn.paicoding.com/paicoding/2b332fc673ae441984874893e0d77e1c.jpg)
 
-终端上会依次打印出规划阶段和执行阶段的完整推进过程。
+终端会依次打印规划阶段和执行阶段的完整过程。
 
 ```text
 📋 第一阶段：规划
@@ -612,46 +664,46 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 
 ![](https://cdn.paicoding.com/paicoding/eeee47f81292aac089b4c57631275daf.png)
 
-可以看到，规划者先把需求拆分为四步并标明依赖关系；接着 `worker-1` 和 `worker-2` 按拓扑批次接手步骤调用工具，每跑完一步都交由检查者独立验收。
+可以看到，规划者先把需求拆成四个步骤，并标明了步骤之间的依赖关系；接着 `worker-1` 和 `worker-2` 按依赖顺序分批领取步骤，调用工具完成任务，每完成一步都交给检查者独立验收。
 
 ![](https://cdn.paicoding.com/paicoding/63f44a7feaf8685ed9842deabc6ae637.jpg)
 
 ![](https://cdn.paicoding.com/paicoding/3985913a13cb50d0c8e28561937051df.jpg)
 
-所有步骤执行完毕后，`buildFinalResult` 会生成一份简明汇总。因为每个步骤的详细输出在执行阶段已经流式打印过了，汇总阶段会把每个步骤的 `result` 截取前 `120` 个字符作为预览，按 `✅`（已完成）、`❌`（失败，附保留产出与原因）、`⛔`（受阻，附缺少的条件）和 `⏭️`（因前置未完成而跳过）四类图标清晰列出。
+所有步骤执行完毕后，`buildFinalResult` 会生成一份简短的汇总。由于每个步骤的详细输出在执行阶段已经打印过，汇总时只截取每个步骤 `result` 的前 `120` 个字符作为预览，并用四种图标标明状态：`✅`（已完成）、`❌`（失败，附上保留的结果和失败原因）、`⛔`（受阻，附上缺少的条件）和 `⏭️`（前置步骤未完成，因此被跳过）。
 
-整个协作过程中，编排器和各个 Sub-agent 收发的每条消息、每次工具调用、每次上下文压缩与清空历史事件，都会以 `mode="team"` 并带上各自的角色实例名（如 `planner`、`worker-1`、`reviewer-step_2`）追加写进 `~/.paicli/history/raw/<session>.jsonl` 会话账本。当所有步骤全部 `COMPLETED` 且任务未被取消时，编排器还会在收尾阶段调用 `memoryManager.extractFactsFromUserTurn`，从用户本轮原话里自动提取长期记忆事实。
+在整个协作过程中，编排器和各个 Sub-agent 收发的每条消息、每次工具调用、每次上下文压缩和清空历史的事件，都会标记为 `mode="team"`，并带上各自的实例名（如 `planner`、`worker-1`、`reviewer-step_2`），追加写入会话记录 `~/.paicli/history/raw/<session>.jsonl`。如果所有步骤都是 `COMPLETED` 状态，并且任务没有被取消，编排器在最后还会调用 `memoryManager.extractFactsFromUserTurn`，从用户本轮的输入中自动提取需要长期记住的信息。
 
-一次 `/team` 任务跑完后，会话会自动回到默认的 ReAct 模式，不需要手动切回。
+一次 `/team` 任务执行完后，会话会自动回到默认的 ReAct 模式，不需要手动切换。
 
 ![](https://cdn.paicoding.com/paicoding/aa8f91f2ba8399fec220183264cff8d4.png)
 
-我们也针对这套主从协作机制编写了完整的单元测试与评测审计测试，覆盖拓扑校验、15 种畸形计划拦截、双 Worker 并发峰值验证、闭合失败审查、受阻分支隔离以及可信网址沿 DAG 传递等场景，可以用下面的命令一键跑通验证。
+我们还为这套主从协作机制编写了单元测试和评测审计测试，覆盖拓扑校验、15 种格式错误计划的拦截、两个 Worker 是否真正并发执行、默认拒绝审查、受阻步骤不影响其他分支，以及可信网址沿 DAG 依赖传递等场景。用下面的命令可以一次运行全部测试。
 
 ```bash
 mvn test -Dtest=AgentRoleTest,AgentMessageTest,SubAgentTest,TeamPlanParserTest,TeamReviewVerdictTest,AgentOrchestratorTest,TeamExecutionObservationTest,TeamRequestAuditTest -DskipTests=false
 ```
 
-到这里，PaiCLI 的三条核心执行路径就全部齐备了，它们共享同一套 `ToolRegistry`、`MemoryManager`、`SnapshotService` 和 `ConversationLedger` 底座，按任务复杂度分工配合：
+到这里，PaiCLI 的三种核心执行模式就全部实现了。它们共用同一套 `ToolRegistry`、`MemoryManager`、`SnapshotService` 和 `ConversationLedger` 基础组件，适用于不同复杂度的任务：
 
-- 默认 ReAct 模式：适合单步或探索性强的日常问答、代码定位与小幅修改
-- `/plan`（Plan-and-Execute 模式）：适合步骤较多、需要先审阅修改计划再按 DAG 推进的任务
-- `/team`（Multi-Agent 模式）：适合跨模块、要求执行与验收严格分离、每一步都需要独立审查把关的复杂工程任务
+- 默认 ReAct 模式：适合需要边查边做的日常问答、代码定位和小范围修改
+- `/plan`（Plan-and-Execute 模式）：适合步骤较多、需要用户先审阅和修改计划，再按 DAG 依次执行的任务
+- `/team`（Multi-Agent 模式）：适合跨多个模块、要求执行和验收严格分开、每一步都需要独立审查的复杂工程任务
 
-下一期我们将接入 HITL（Human-in-the-Loop）人工确认与安全策略体系，给 Agent 的高危命令和文件操作装上多层安全护栏。
+下一期我们将接入 HITL（Human-in-the-Loop）人工确认和安全策略，为 Agent 执行高危命令和文件操作增加多层安全防护。
 
 ## PaiCLI 如何写到简历上？
 
 **项目名称**：PaiCLI（Java 终端 Coding Agent，第 5 期）
 
-**项目简介**：设计并实现基于主从架构的 Multi-Agent 协作与 Sub-agent 并发调度引擎，支持 Planner、Worker、Reviewer 三角色权限隔离、DAG 拓扑分批并发、结构化交付协议与闭合失败审查重试。
+**项目简介**：设计并实现基于主从架构的 Multi-Agent 与 Sub-agent 并发调度引擎，支持 Planner、Worker、Reviewer 三个角色的权限隔离、按 DAG 依赖分批执行、结构化交付。
 
-**技术栈**：Java 17、Jackson、ExecutorService、LinkedBlockingQueue、Kahn 拓扑排序、ByteArrayOutputStream、Prefix Caching
+**技术栈**：Java 17、Jackson、ExecutorService、LinkedBlockingQueue、Kahn、ByteArrayOutputStream、Prefix Caching
 
 **核心职责**：
 
-- 基于主从编排模式实现 `/team` 多 Agent 协作引擎，划分规划者、执行者、检查者 3 类 Sub-agent 角色与 7 种消息状态，在协议层剥离无工具角色的工具 Schema 并拦截违规工具调用。
-- 基于 Jackson 严格模式（开启重复键检测与尾随字符报错）与 Kahn 拓扑排序实现任务图校验，拦截未知依赖边与循环依赖，覆盖 15 类畸形计划单测，消除非法依赖引发的下游死锁。
-- 基于 `ExecutorService + LinkedBlockingQueue` 实现 Worker 池化并发调度，并行批次为每步分配独立 Reviewer 实例与 `ByteArrayOutputStream` 缓冲并按步骤顺序刷出，解决上下文并发污染与终端输出交错问题。
-- 基于 DAG 依赖关系实现跨步骤上下文与可信网址传递，注入上游已完成步骤前 500 字符预览并派生网址授权副本，通过结构化 JSON 交付协议区分已完成（`completed`）与受阻（`blocked`）以跳过受阻下游分支。
-- 基于闭合失败（Fail-Closed）原则实现独立审查与重试机制，仅放行合法 JSON 布尔值 `approved: true`，拒绝时按优先级提取问题列表注入上下文驱动最多 2 次带历史重试，重试耗尽时保留已有产出并阻断依赖分支。
+- 基于主从编排模式实现 `/team` 多 Agent 协作引擎，划分规划者、执行者、检查者 3 类 Sub-agent 角色；仅向 Worker 提供 Tool Schema。并将固定角色指令放在提示词前面的部分，便于多轮执行时复用相同前缀。
+- 基于 Jackson 严格模式（开启重复键检测和尾随内容报错）与 Kahn 拓扑排序实现任务图校验，拦截未知依赖和循环依赖，单元测试覆盖 15 类格式错误的计划，避免非法依赖导致下游步骤永远等待。
+- 基于 `ExecutorService + LinkedBlockingQueue` 实现 Worker 池化并发调度，并行批次为每个步骤分配独立的 Reviewer 实例和 `ByteArrayOutputStream` 缓冲区，执行结束后按步骤顺序输出，解决对话历史并发混用和终端输出交错的问题。
+- 基于 DAG 依赖关系实现跨步骤的上下文和可信网址传递，向下游注入上游已完成步骤结果的前 500 字符，并为每个步骤复制独立的网址授权策略；通过结构化 JSON 交付协议区分已完成（`completed`）和受阻（`blocked`），受阻时跳过依赖它的下游步骤。
+- 基于默认拒绝（Fail-Closed）原则实现独立审查与重试机制，只有合法 JSON 中的布尔值 `approved: true` 才算通过；不通过时按优先级提取问题列表加入 Worker 上下文，保留对话历史最多重试 2 次，重试用完后保留已有结果，并阻止依赖它的下游步骤执行。

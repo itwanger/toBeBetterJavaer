@@ -1,5 +1,7 @@
 # 火山 TTS 使用约定
 
+作者及插件专名以用户确认读法为准。本期「归藏」读 guī zàng；归藏设计和 dsh-guizang-design 的口播展开均检查 gui1 zang4。只作用于该专名，不替换其他“藏”。遇到尚不确定的多音字，把原句和词发给用户确认。拼音记录与 ASR 均不等同于实际试听认可。
+
 实现在 [shared/tools/gen_audio.py](../../../../docs/src/ai/script/shared/tools/gen_audio.py)，项目配置来自 `project.json.config`，新项目初始值来自 [video.config.json](../../../../docs/src/ai/script/shared/config/video.config.json)。具体词的读法记在 [读音词典](../../../../docs/src/ai/script/shared/config/pronunciations.json)，本文件只写方法。
 
 ## 请求方式

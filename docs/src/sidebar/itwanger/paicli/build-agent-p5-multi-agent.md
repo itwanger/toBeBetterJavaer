@@ -258,7 +258,7 @@ private static void requireAcyclic(List<AgentOrchestrator.ExecutionStep> steps) 
 
 计划通过拓扑校验后，就交由 `AgentOrchestrator` 启动执行循环。
 
-编排器在构造时默认初始化 `1` 个规划者、`2` 个执行者（`worker-1` 和 `worker-2`）以及 `1` 个检查者。所有子 Agent 共享同一个模型客户端 `llmClient`、工具注册表 `toolRegistry` 和只追加会话账本 `conversationLedger`。
+编排器在构造时默认初始化 `1` 个规划者、`2` 个执行者（`worker-1` 和 `worker-2`）以及 `1` 个检查者。所有子 Agent 共享同一个模型客户端 `llmClient`、工具注册表 `toolRegistry` 和只追加的会话记录 `conversationLedger`。
 
 ```java
 // src/main/java/com/paicli/agent/AgentOrchestrator.java
@@ -356,7 +356,7 @@ private void runBatchParallel(List<ExecutionStep> batch, List<ExecutionStep> ste
 
 针对第一个问题，我们把 `workers` 放进一个线程安全的阻塞队列 `LinkedBlockingQueue<SubAgent>`，做成一个简易对象池。每个并行任务启动后，先调 `workerPool.take()` 租借一个空闲的 Worker；如果当前批次有 3 个并行步骤而池子里只有 2 个 Worker，第 3 个步骤就会在队列上阻塞等待；等某个步骤在 `finally` 块里调完 `worker.clearHistory()` 清空对话历史，再调 `workerPool.offer(worker)` 把实例归还入池，下一个步骤才能拿走复用。这样同一个 Worker 实例在同一时刻最多只会被一个线程持有。
 
-针对第二个问题，并行路径不去争抢成员变量 `this.reviewer`，而是在每个并行任务内部单独创建一个局部的检查者实例 `new SubAgent("reviewer-" + step.id(), AgentRole.REVIEWER, ...)`，绑定相同的外部上下文提供器和会话账本。每个步骤独享自己的检查者实例，审查过程互不干扰。
+针对第二个问题，并行路径不去争抢成员变量 `this.reviewer`，而是在每个并行任务内部单独创建一个局部的检查者实例 `new SubAgent("reviewer-" + step.id(), AgentRole.REVIEWER, ...)`，绑定相同的外部上下文提供器和会话记录。每个步骤独享自己的检查者实例，审查过程互不干扰。
 
 针对第三个问题，编排器在提交线程任务前，先为批次里的每个步骤分配一个独立的内存字节流 `ByteArrayOutputStream`，包装成 `PrintStream stepOut` 传给 `runStep`。并发执行期间，各个 Worker 和 Reviewer 的流式输出都写进各自步骤的内存缓冲区里。等 `futures` 列表里的所有任务都执行完毕后，主线程再按 `batch` 里的 `step_id` 顺序遍历 `buffers`，把每个步骤的完整输出一次性刷到终端 `out` 上。这样既拿到了多线程并发的速度，用户在终端上看到的日志又是按 `step_1`、`step_2` 整整齐齐排列的。
 
@@ -527,7 +527,7 @@ updateStep(steps, step.id(), step.withFailed(reason, retainedResult));
 
 也就是说，在同一个步骤的第 `2` 次、第 `3` 次重试期间，Worker 保留着前一次尝试的完整对话历史。它既能看到自己上一轮调了什么工具、改了哪几行代码，又能看到本轮新注入的审查拒绝原因，顺着上次的现场把问题修好，不用从头再把所有文件读一遍。
 
-等这一步最终通过审查，或者重试 `2` 次后依然没通过时，外层的 `finally` 块才会调用 `worker.clearHistory()`，保留 `conversationHistory.get(0)` 的系统提示词，清空其余消息，并往 `ConversationLedger` 账本里写一条 `history_clear` 事件，干干净净地去接下一个步骤。
+等这一步最终通过审查，或者重试 `2` 次后依然没通过时，外层的 `finally` 块才会调用 `worker.clearHistory()`，保留 `conversationHistory.get(0)` 的系统提示词，清空其余消息，并往 `ConversationLedger` 会话记录里写一条 `history_clear` 事件，干干净净地去接下一个步骤。
 
 ```java
 // src/main/java/com/paicli/agent/SubAgent.java
@@ -620,7 +620,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 
 所有步骤执行完毕后，`buildFinalResult` 会生成一份简明汇总。因为每个步骤的详细输出在执行阶段已经流式打印过了，汇总阶段会把每个步骤的 `result` 截取前 `120` 个字符作为预览，按 `✅`（已完成）、`❌`（失败，附保留产出与原因）、`⛔`（受阻，附缺少的条件）和 `⏭️`（因前置未完成而跳过）四类图标清晰列出。
 
-整个协作过程中，编排器和各个 Sub-agent 收发的每条消息、每次工具调用、每次上下文压缩与清空历史事件，都会以 `mode="team"` 并带上各自的角色实例名（如 `planner`、`worker-1`、`reviewer-step_2`）追加写进 `~/.paicli/history/raw/<session>.jsonl` 会话账本。当所有步骤全部 `COMPLETED` 且任务未被取消时，编排器还会在收尾阶段调用 `memoryManager.extractFactsFromUserTurn`，从用户本轮原话里自动提取长期记忆事实。
+整个协作过程中，编排器和各个 Sub-agent 收发的每条消息、每次工具调用、每次上下文压缩与清空历史事件，都会以 `mode="team"` 并带上各自的角色实例名（如 `planner`、`worker-1`、`reviewer-step_2`）追加写进 `~/.paicli/history/raw/<session>.jsonl` 会话记录文件。当所有步骤全部 `COMPLETED` 且任务未被取消时，编排器还会在收尾阶段调用 `memoryManager.extractFactsFromUserTurn`，从用户本轮原话里自动提取长期记忆事实。
 
 一次 `/team` 任务跑完后，会话会自动回到默认的 ReAct 模式，不需要手动切回。
 

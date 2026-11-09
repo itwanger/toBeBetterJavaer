@@ -60,22 +60,53 @@ function banner(f: number, E: FlagFrames) {
   return { edge: grid(drop), give, seatY: grid(drop) + give };
 }
 
+// Collision and artwork share these tread edges. The summit has room for both feet.
+const stair = {left:408, width:92, rise:48, count:4, lip:828};
+const summit = FLOOR - stair.count * stair.rise;
+const lastX = stair.left + (stair.count - .5) * stair.width;
+
+function Staircase() {
+  return <g shapeRendering="crispEdges">
+    {Array.from({length:stair.count},(_,i)=>{
+      const x=stair.left+i*stair.width, top=FLOOR-(i+1)*stair.rise;
+      const width=i===stair.count-1 ? stair.lip+26-x : stair.width;
+      return <g key={i}>
+        <rect x={x} y={top} width={width} height={FLOOR-top} fill="#b86341" stroke={C.ink} strokeWidth={6}/>
+        <path d={`M${x+3} ${top+5}h${width-6}`} stroke="#f9be78" strokeWidth={8}/>
+        {Array.from({length:i},(_,j)=><path key={j} d={`M${x+3} ${top+48*(j+1)}h${width-6}m${-(j%2?32:56)} 0v40`}
+          fill="none" stroke="#844331" strokeWidth={4}/>)}
+      </g>;
+    })}
+  </g>;
+}
+
 function body(f: number, E: FlagFrames) {
-  if (f < E.jump)
-    return {
-      x: lerp(390, 822, progress(f, E.run, E.jump)),
-      foot: FLOOR,
-      sheet: 'walk',
-      pose: Math.floor((f - E.run) / 4) % 8,
-    };
+  if (f < E.jump) {
+    const u=progress(f,E.run,E.jump);
+    const walk={sheet:'walk',pose:Math.floor((f-E.run)/3)%8};
+    if (u<.20) return {...walk,x:lerp(142,stair.left-52,u/.20),foot:FLOOR};
+    if (u<.84) {
+      const steps=Math.min(3.99999,(u-.20)/.64*stair.count);
+      const i=Math.floor(steps), phase=steps-i, lift=Math.min(1,phase/.72);
+      const x0=i===0?stair.left-52:stair.left+(i-.5)*stair.width;
+      const x1=stair.left+(i+.5)*stair.width;
+      const y0=FLOOR-i*stair.rise;
+      // Rise before crossing the riser, settle on each tread, then push off again.
+      const foot=lerp(y0,y0-stair.rise,lift)-34*Math.sin(Math.PI*lift);
+      return {...walk,x:lerp(x0,x1,lift),foot};
+    }
+    return {...walk,x:lerp(lastX,stair.lip-12,Math.min(1,(u-.84)/.12)),foot:summit};
+  }
   if (f < E.seat) {
-    const t = progress(f, E.jump, E.seat);
-    const { top, arc } = jumpFor(E.percent);
+    const t=progress(f,E.jump,E.seat);
+    const {top,arc}=jumpFor(E.percent);
+    const target=top+TOE_DROP;
+    // A ballistic arc with a controlled apex: even the 99-point pose clears the HUD.
+    const apex=Math.min(summit,target)-Math.round(arc*.37);
+    const a=Math.sqrt(summit-apex), b=Math.sqrt(target-apex);
     return {
-      x: lerp(822, SEAT_X, t),
-      foot: lerp(FLOOR, top + TOE_DROP, t) - 4 * arc * t * (1 - t),
-      sheet: f >= E.seat - 3 ? 'sit' : 'carry',
-      pose: 2,
+      x:lerp(stair.lip-12,SEAT_X,t),foot:apex+((a+b)*t-a)**2,
+      sheet:f>=E.seat-3?'sit':'carry',pose:2,
     };
   }
   if (f <= E.bottom) return { x: SEAT_X, foot: banner(f, E).seatY + TOE_DROP, sheet: 'sit', pose: 0 };
@@ -155,6 +186,7 @@ export function FlagCourse({ f, frames: E, percent }: RunnerProps & { percent?: 
     <>
       <path d="M31 856h1858v58H31Z" fill={C.teal} stroke={C.ink} strokeWidth="8" />
       <path d="M35 863h1850" stroke={C.mint} strokeWidth="10" />
+      <Staircase/>
       <g transform="translate(1512 0)">
         <path
           d="M0 856V680h16v-36h22v-22h168v22h22v36h16v176Z"

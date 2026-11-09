@@ -26,10 +26,10 @@ python3 "$SKILL_DIR/scripts/install_pixel_assets.py" --project "$VIDEO_PROJECT"
 | [PixelWorld.tsx](../assets/PixelWorld.tsx) | 讲解用 `diagram`，关卡用 `platform`。传 `topic={{title, term}}`、累计金币数 `coins` 和对齐字幕。常规字幕 `captionStyle="plaque"`，关卡可用 `"band"`。人物和图片窗放在 `foreground`，机制图形放在 SVG 子节点。 |
 | [PixelImageWindow.tsx](../assets/PixelImageWindow.tsx) | `file` 相对项目 public；`sourceWidth/sourceHeight` 为原页面 CSS 尺寸，`camera={{cx,cy,scale}}` 在同一套坐标中取景。角色与标注可作子节点，在图内一起变换。 |
 | [WorldWipe.tsx](../assets/WorldWipe.tsx) | 传当前章帧 `f` 和切换世界的帧 `change`；放在世界前景之上、状态栏和字幕之下，`change` 同时用作提示音锚点。 |
-| [FlagCourse.tsx](../assets/FlagCourse.tsx) | `FlagCourse` 放入舞台 SVG，`FlagRunner` 放入前景，两者共用 `f` 和 `frames`；把百分比放在共用的 `frames.percent` 中。旗面尺寸和臀部支撑点已配好。 |
+| [FlagCourse.tsx](../assets/FlagCourse.tsx) | `FlagCourse` 放入舞台 SVG，`FlagRunner` 放入前景，两者共用 `f` 和 `frames`；把百分比放在共用的 `frames.percent` 中。新版自带四级砖阶；在助跑与起跳之间给登阶和站稳留出时间。 |
 | [LikeFollowTiles.tsx](../assets/LikeFollowTiles.tsx) | 可随旗面出场，也可独立放入 SVG；传 `frames={{like,follow,go}}`。按钮按下在各自起音后 3 帧，`go` 为按钮退完的时点。 |
 | [人物精灵](../assets/pixel-actor/) | walk、carry、release 各为 1088×200 的八姿势横排图集，每格 136×200。sit 为 106×204 独立坐姿，臀部支撑点在图内 (45,163)。文件来自本期原创人物与已有的欧姆定律项目，坐姿依本期人物补绘。 |
-| [像素音效](../assets/pixel-sfx/) | 两个原创 WAV 可单独试听。共用混音器按 `pixel_like`、`pixel_follow` 从[音效库](../../../../docs/src/ai/script/shared/assets/sfx/SOURCES.md)合成，再按 `sound-plan.json` 的 `beatId` 和 `offsetFrames` 加入旁白。本期分别为 −22 和 −23 dBFS。 |
+| [像素音效](../assets/pixel-sfx/) | 按钮、换景和起跳的原创 WAV 可单独试听（换景用 pixel_wipe，离阶用 pixel_jump）。共用混音器按 `pixel_like`、`pixel_follow` 从[音效库](../../../../docs/src/ai/script/shared/assets/sfx/SOURCES.md)合成，再按 `sound-plan.json` 的 `beatId` 和 `offsetFrames` 加入旁白。本期分别为 −22 和 −23 dBFS。 |
 
 旗面帧参数为章节局部帧，依次为助跑 `run`、起跳 `jump`、落座 `seat`、开始下降 `descend`、降到底 `bottom`、回到地面 `land`、走向入口 `go`、章节结束 `end`（不含该帧）。给落座停留和离旗落地各留可读的时间。只有稿中出现点赞、自介时传 `response: {like, follow, greet}`。本例用 540、593、603 帧对齐落座声与两次按钮声；换稿后按真实起音重新推导。
 

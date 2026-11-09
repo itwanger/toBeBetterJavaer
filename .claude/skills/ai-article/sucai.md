@@ -1,13 +1,16 @@
-标题：最适合 Agent 编程的显示器， 惊艳到我了。
+标题：Qoder 匿名模型 Qoduck 干活猛猛滴，Token 不限量。
 
-这是我之前写的一篇：https://mp.weixin.qq.com/s/bMCs7RyIVSI96qcQ7ZUBag
+兄弟姐妹们，该说不说，这跑分确实无敌。
 
-【京东】https://3.cn/3-4fl8fG?jkl=@F29MlDLAUA@ CA3576 「RD320U 31.5寸4K 编程爱眼」
-点击链接直接打开 或者复制文案打开京东
+![](https://cdn.paicoding.com/stutymore/sucai-20261109105936.png)
 
-![](https://cdn.paicoding.com/stutymore/sucai-1bdba485a9469b48a3b2dc4946423c7b.jpg)
+我心目中的神 Opus 5.5 只有 47.2 分，Qwen 4-Flash-Early Max 竟然高了 2.7 分。
 
-甲方的需求：file:///Users/itwanger/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_hsuza6yx3y1c22_48ec/msg/file/2026-10/RD320U%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D-KOL.%E6%9B%B4%E6%96%B0%E7%89%88.pdf
+甚至很多人都认为，Qoder 上线的匿名模型 Qoduck 就是 Qwen 4。
 
-产品介绍：file:///Users/itwanger/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_hsuza6yx3y1c22_48ec/msg/file/2026-10/%E6%98%8E%E5%9F%BA%E7%BC%96%E7%A8%8B%E6%98%BE%E7%A4%BA%E5%99%A8%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D.pdf
+![](https://cdn.paicoding.com/stutymore/sucai-20261109110139.png)
+
+并且目前是 free，可以猛猛地蹬啊，Token 自由，就在此刻，不蹬白不蹬，蹬了享大福。
+
+
 

@@ -684,6 +684,11 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "理解 MLA、CSA、HCA 和 Flash Attention 如何降低长上下文开销。",
     ["DeepSeek", "上下文窗口", "KV Cache", "MLA"],
   ),
+  "deepseek-temperature-top-p": meta(
+    "DeepSeek API 中的 Temperature、Top-P 有什么用？", "Temperature 与 Top-P",
+    "理解温度、核采样及 Coding Agent 对采样参数的处理。",
+    ["DeepSeek", "Temperature", "Top-P", "采样"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -781,6 +786,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "04 / LLM 基础与 API",
     children: [
+      "deepseek-temperature-top-p",
       "what-is-tokenizer",
       "how-deepseek-supports-1m-context",
       "what-is-transformer",
@@ -858,6 +864,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "deepseek-temperature-top-p": "7705758773213744393",
   "what-is-tokenizer": "7705453048864328975",
   "how-deepseek-supports-1m-context": "7705036086988393738",
   "what-is-transformer": "7704649100112710912",
