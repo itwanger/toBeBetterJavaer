@@ -37,6 +37,10 @@
 
 构造图片生成提示词时，只使用当前图片占位符、用户明确提供的参考图和 `wanger-image` Skill 规则；不要把无关窗口、历史聊天、浏览器状态、编辑器内容或当前文章全文自动带入图片生成 prompt。确实需要参考文章内容时，只抽取与当前占位符直接相关的少量关键词。
 
+### 视频 Skill
+
+本仓库的新视频默认使用 [wanger-pixel-remotion](.agents/skills/wanger-pixel-remotion/SKILL.md)。调用语为「用二哥像素风视频 Skill 制作 xxx.md」。用户点名「用小超视频 Skill 制作 xxx.md」时使用独立的 [chao-remotion](https://github.com/itwanger/chao-remotion)。
+
 ### 视频制作文件存放
 
 视频素材和制作产物不得直接写入仓库根目录。开始执行前先确认具体视频项目的绝对路径，所有生成、复制、下载和渲染命令都显式指定项目内的输出位置，不依赖当前工作目录。

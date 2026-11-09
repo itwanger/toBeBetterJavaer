@@ -15,7 +15,7 @@
 按主流程选定像素风并初始化项目后，在主仓库根目录运行：
 
 ```bash
-SKILL_DIR="$PWD/.agents/skills/ergo-remotion-video"
+SKILL_DIR="$PWD/.agents/skills/wanger-pixel-remotion"
 python3 "$SKILL_DIR/scripts/install_pixel_assets.py" --project "$VIDEO_PROJECT"
 ```
 

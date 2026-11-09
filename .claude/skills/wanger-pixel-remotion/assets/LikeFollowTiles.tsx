@@ -43,13 +43,13 @@ function Tile({ f, at, follow }: { f: number; at: number; follow?: boolean }) {
   );
 }
 
-export function LikeFollowTiles({ f, frames: E }: { f: number; frames: ButtonFrames }) {
+export function LikeFollowTiles({ f, frames: E, transform = "translate(1240 452) scale(1.30)" }: { f: number; frames: ButtonFrames; transform?: string }) {
   if (f < E.like || f >= E.go) return null;
   const moving = step(f, E.follow - 4, 4);
   const click = f >= E.follow ? E.follow : E.like;
   const pointerY = f >= click + 3 && f < click + 7 ? 58 : 65;
   return (
-    <g transform="translate(1240 452) scale(1.30)" opacity={1 - step(f, E.go - 4, 4)}>
+    <g transform={transform} opacity={1 - step(f, E.go - 4, 4)}>
       <Tile f={f} at={E.like} />
       <Tile f={f} at={E.follow} follow />
       {f < E.follow + 10 && (
