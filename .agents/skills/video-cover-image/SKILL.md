@@ -15,7 +15,7 @@ Create a matched three-cover set for one technical short-video script:
 
 By default, generate all three covers as one matched set. Generate fewer ratios only when the user explicitly says only/只要/单独生成 specific ratios.
 
-Use the `wanger-image` style rules when available. Keep prompt context isolated: use only the target script, user-provided reference images, and this skill's rules. Do not pull in unrelated browser/editor/window/history content.
+For hand-drawn covers use `wanger-hand-drawn-image`; for pixel covers use `wanger-pixel-image`. Keep prompt context isolated: use only the target script, user-provided reference images, and this skill's rules. Do not pull in unrelated browser/editor/window/history content.
 
 There are three selectable modes; a user-selected style or reference takes priority:
 
@@ -23,7 +23,7 @@ There are three selectable modes; a user-selected style or reference takes prior
 | --- | --- | --- |
 | 天空风 | Default; also `天空风` or `蓝天封面` | Blue sky, 二哥 cartoon presenter and a compact mechanism illustration; generate with `image_gen`. |
 | 黑底风 | `黑底`, `纯文字`, `白色大字+黄色小字`, or a black/gray text-only reference | Dark background, white title and yellow keyword lines, no presenter; render with `scripts/render_text_cover.py`. |
-| 像素风 | Explicit `像素风`, `pixel`, `像素游戏风`, or 二哥 Remotion pixel style | Warm pixel-game world and pixel presenter; read `itwanger-pixel-image` and apply the cover-specific rules below, then generate with `image_gen`. |
+| 像素风 | Explicit `像素风`, `pixel`, `像素游戏风`, or 二哥 Remotion pixel style | Warm pixel-game world and pixel presenter; read `wanger-pixel-image` and apply the cover-specific rules below, then generate with `image_gen`. |
 
 Other references are interpreted according to their actual content, not automatically as pure text. Pixel mode is selected only when explicitly requested. For a video cover, its proportions, minimal text and no-signature rule take precedence over the pixel article-illustration defaults; its six article layouts are not mandatory for a cover.
 
@@ -127,7 +127,7 @@ python3 /Users/itwanger/.codex/skills/video-cover-image/scripts/render_text_cove
 
 ## Pixel Game Style
 
-Read `/Users/itwanger/.codex/skills/itwanger-pixel-image/SKILL.md` for the pixel palette and character conventions, adapting its article-illustration instructions to this cover-specific workflow. Adapt the approved 二哥 Remotion pixel world into a static, immediately legible cover. The user approved [this 16:9 cover example](references/approved-pixel-cover.png): retain its warm pixel-world treatment, readable oversized title, and character interacting with a topic-specific mechanism. Do not carry its tokenizer content into other topics. For each generated ratio pass these two references to `image_gen`:
+Read `/Users/itwanger/.codex/skills/wanger-pixel-image/SKILL.md` for the pixel palette and character conventions, adapting its article-illustration instructions to this cover-specific workflow. Adapt the approved 二哥 Remotion pixel world into a static, immediately legible cover. The user approved [this 16:9 cover example](references/approved-pixel-cover.png): retain its warm pixel-world treatment, readable oversized title, and character interacting with a topic-specific mechanism. Do not carry its tokenizer content into other topics. For each generated ratio pass these two references to `image_gen`:
 
 - Cover style, palette and hierarchy: `references/approved-pixel-cover.png`. For additional context on the underlying Remotion world, inspect `/Users/itwanger/Documents/GitHub/toBeBetterJavaer/.agents/skills/ergo-remotion-video/references/approved-pixel-ch1/flag-course.jpg` when useful; do not add a third image to the generation call by default.
 - Presenter identity: `/Users/itwanger/Documents/GitHub/toBeBetterJavaer/.agents/skills/ergo-remotion-video/assets/pixel-actor/pixel-ergo-carry.png`. The sheet contains multiple poses; render one character, with an action suited to the current subject. Preserve the glasses, yellow shirt and black tie.

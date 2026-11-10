@@ -704,6 +704,8 @@ mvn test -Dtest=AgentRoleTest,AgentMessageTest,SubAgentTest,TeamPlanParserTest,T
 
 - 基于主从编排模式实现 `/team` 多 Agent 协作引擎，划分规划者、执行者、检查者 3 类 Sub-agent 角色；仅向 Worker 提供 Tool Schema。并将固定角色指令放在提示词前面的部分，便于多轮执行时复用相同前缀。
 - 基于 Jackson 严格模式（开启重复键检测和尾随内容报错）与 Kahn 拓扑排序实现任务图校验，拦截未知依赖和循环依赖，单元测试覆盖 15 类格式错误的计划，避免非法依赖导致下游步骤永远等待。
-- 基于 `ExecutorService + LinkedBlockingQueue` 实现 Worker 池化并发调度，并行批次为每个步骤分配独立的 Reviewer 实例和 `ByteArrayOutputStream` 缓冲区，执行结束后按步骤顺序输出，解决对话历史并发混用和终端输出交错的问题。
-- 基于 DAG 依赖关系实现跨步骤的上下文和可信网址传递，向下游注入上游已完成步骤结果的前 500 字符，并为每个步骤复制独立的网址授权策略；通过结构化 JSON 交付协议区分已完成（`completed`）和受阻（`blocked`），受阻时跳过依赖它的下游步骤。
-- 基于默认拒绝（Fail-Closed）原则实现独立审查与重试机制，只有合法 JSON 中的布尔值 `approved: true` 才算通过；不通过时按优先级提取问题列表加入 Worker 上下文，保留对话历史最多重试 2 次，重试用完后保留已有结果，并阻止依赖它的下游步骤执行。
+- 在派发任务前，使用 Jackson 解析 Planner 返回的 JSON，拒绝重复字段和末尾内容，再通过 Kahn 拓扑排序检测循环依赖。使用 15 组 Case 进行压测，避免 Worker 等待永远无法完成的前置步骤。
+- 基于 `ExecutorService + LinkedBlockingQueue` 实现 Worker 池化，批次为每个步骤分配独立的 Reviewer 实例和 `ByteArrayOutputStream` 缓冲区，执行结束后按步骤顺序输出，解决对话历史并发混用和终端输出交错的问题。
+- 使用 ExecutorService 线程池调度依赖，通过 LinkedBlockingQueue 管理 Worker。为每个步骤分配独立的 Reviewer，并用 ByteArrayOutputStream 缓冲输出，待整批结束后按计划顺序展示。
+- Worker 使用结构化 JSON 交付结果，返回 completed 时提交产出供 Reviewer 审查，返回 blocked 时说明缺少的输入或权限。对每个已通过审查的依赖，向下游 Worker 提供最多 500 字符的结果预览，并将上游搜索工具发现的网址加入该步骤的访问策略。
+- 基于默认的 Fail-Closed 策略实现独立审查与重试机制，只有合法 JSON 中的布尔值才算通过；不通过时按优先级提取问题列表加入 Worker 上下文，保留对话历史最多重试 2 次，重试用完后保留已有结果，并阻止依赖它的下游执行。

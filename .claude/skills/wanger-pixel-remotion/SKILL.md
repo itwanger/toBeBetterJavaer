@@ -17,6 +17,16 @@ description: 用二哥像素风视频 Skill 制作 xxx.md。把中文 Markdown �
 
 ## 可复用的镜头
 
+下一期挑组件、动效或转场时，先看[第一章像素镜头库](references/HARNESS_CH1_LIBRARY.md)。它收录《DeepSeek Harness 四个插件》认可版的手机折线、插件集市、四卡重排、镜头交接与登阶跳旗，附可安装代码和实际成帧。
+
+拍工作台实测时，看[第二章工作台镜头库](references/HARNESS_CH2_LIBRARY.md)。按镜头需要取用固定全景、输入框原位放大、从左栏输入定位到右栏结果。
+
+介绍插件、展示网页与讲字体打包时，看[第三章归藏设计镜头库](references/HARNESS_CH3_LIBRARY.md)。可直接取用全景上的插件署名、整页与原文双栏、字形收进 HTML 的动效。
+
+依次指认多个入口，或从实测记录解释占比时，看[第四章上下文洞察镜头库](references/HARNESS_CH4_LIBRARY.md)。
+
+读论文图表、演示公式和制作知识蘑菇片尾时，看[第五章素材、动效、转场与声音库](references/HARNESS_CH5_LIBRARY.md)，其中有原始页面、可安装组件、认可成帧和实际声音落点。
+
 - [开场与安装](references/APPROVED_PIXEL_CH1.md)、[第二、三章的排版与运镜](references/APPROVED_PIXEL_CH2_CH3.md)、[完整串片与过关](references/APPROVED_PIXEL_FINAL.md)。
-- 得分段按口播登阶、起跳、上旗杆；问句和告别用独立片尾。下一期可试用[知识蘑菇片尾](assets/PowerUpOutro.tsx)，按本期实配重新定位收取、按钮和挥手时点。
+- 得分段按口播登阶、起跳、上旗杆；问句和告别用独立片尾。使用[知识蘑菇片尾](assets/PowerUpOutro.tsx)时，按本期实配重新定位收取、按钮和挥手时点。
 - 产品证据使用真实屏幕或原文。讲机制时让操作或数据发生在原对象上。演员、视窗、转场、色板、趋势图、声音的细节以[像素规范](references/PIXEL_STYLE.md)为准。
