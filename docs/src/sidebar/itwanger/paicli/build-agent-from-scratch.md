@@ -430,7 +430,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 
 启动后默认使用 DeepSeek，没配 DeepSeek 的 Key 时，会按顺序找 GLM、混元、Kimi 等其他已配置的模型，运行中也可以用 `/model` 切换。
 
-![](https://cdn.paicoding.com/stutymore/build-agent-from-scratch-20260925111214.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-ch01-startup-20261110133400-49b4a97f.png)
 
 先试试第 01 节的例子，让它读一个文件再改一行。
 
@@ -438,7 +438,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 读取 demo/src/main/java/com/example/Hello.java，把输出改成 Hello PaiCLI
 ```
 
-![](https://cdn.paicoding.com/stutymore/build-agent-from-scratch-20260925111239.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-ch01-edit-20261110133401-4754df5b.png)
 
 再让它编译运行，看它怎么根据命令输出判断成功没有。
 
@@ -446,7 +446,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 进入 demo 目录，编译并运行 Hello.java
 ```
 
-![](https://cdn.paicoding.com/stutymore/build-agent-from-scratch-20260925185052.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-ch01-compile-20261110133402-4f150377.png)
 
 ## 简历怎么写
 

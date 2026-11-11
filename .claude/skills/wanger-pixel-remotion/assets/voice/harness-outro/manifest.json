@@ -1,0 +1,27 @@
+{
+  "source": "deepseek-harness-four-plugins",
+  "speakerId": "S_j97bqlje2",
+  "units": {
+    "48": {
+      "text": "这个知识点你学会了吗？",
+      "requestHash": "f3bbbd556e3d94057b083f0c21caff6a88d17b613ce5cce101af1fb284a0ebbc",
+      "rawSha256": "e4622adc30f312381ee8c828e538ff52c5488e476c34b2fae261ff0256a88383",
+      "processedSha256": "96250dd2baaf0d7200014997cd2c08b5f4c36c60a764b7e95c30007000a91ee9",
+      "atempo": 1.0
+    },
+    "49": {
+      "text": "想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！",
+      "requestHash": "c0d88b948ef6c9d90c3ff250c12cdceeead66fb9a01b9f150feb903ad6f270fc",
+      "rawSha256": "8031eea536c97c4d8848249e4d187af2a975e480ab1ae4628771124c522be38d",
+      "processedSha256": "224fff088fa5e674077a62601e0035645757cc690a2f7299247c7362452f9ef6",
+      "atempo": 1.0
+    }
+  },
+  "whole": {
+    "text": "这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！",
+    "requestHash": "5bacd824dd5b2dc136d3f50a8245fd2ea09109ff406ea70fc7c1b75509996dce",
+    "atempo": 1.0,
+    "rawSha256": "f8e4a1ba053f493c9aa65d1318d71b72b3ff704a9f7d630d6ad472c3eeb0045e",
+    "processedSha256": "1b5a827846ae0ecd1d3810de06a8d71c2ceeded49ae138ff22b9202c66ada3f0"
+  }
+}

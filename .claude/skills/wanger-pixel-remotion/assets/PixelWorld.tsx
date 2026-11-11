@@ -1,5 +1,6 @@
 import React, { type ReactNode } from 'react';
 import { AbsoluteFill } from 'remotion';
+import { PixelReviewProbe } from './PixelReviewProbe';
 
 export const pixelColors = {
   ink: '#25263b',
@@ -38,15 +39,18 @@ type WorldProps = {
   topic?: { title: string; term?: string };
   highlight?: RegExp;
   coins?: number;
+  hearts?: number;
   ground?: boolean;
   children: ReactNode;
   foreground?: ReactNode;
   sign?: { badge: string; title: string };
 };
 
-function StatusBar({ coins }: { coins: number }) {
+export const heartPath = "M2 8h4V4h8v4h4V4h8v4h4v10h-4v4h-4v4h-4v4h-4v-4h-4v-4H6v-4H2Z";
+
+function StatusBar({ coins, hearts }: { coins: number; hearts: number }) {
   return (
-    <div
+    <div data-pixel-id="status" data-pixel-role="hud" data-pixel-hearts={hearts}
       style={{
         position: 'absolute',
         top: 17,
@@ -63,13 +67,15 @@ function StatusBar({ coins }: { coins: number }) {
         fontSize: 38,
       }}
     >
-      <svg width="106" height="32" viewBox="0 0 106 32" aria-label="三颗红心">
-        {[0, 36, 72].map((x) => (
+      <svg width="106" height="32" viewBox="0 0 106 32" aria-label={`生命值 ${hearts}/3`}>
+        {[0, 36, 72].map((x, index) => (
           <path
             key={x}
             transform={`translate(${x} 0)`}
-            d="M2 8h4V4h8v4h4V4h8v4h4v10h-4v4h-4v4h-4v4h-4v-4h-4v-4H6v-4H2Z"
-            fill="#ef6658"
+            d={heartPath}
+            fill={index < hearts ? "#ef6658" : "#39394b"}
+            stroke={index < hearts ? undefined : "#846e78"}
+            strokeWidth={2}
           />
         ))}
       </svg>
@@ -100,6 +106,7 @@ export function PixelWorld({
   topic,
   highlight,
   coins,
+  hearts = 3,
   ground = mode === 'platform',
   children,
   foreground,
@@ -107,7 +114,7 @@ export function PixelWorld({
 }: WorldProps) {
   const c = pixelColors;
   return (
-    <AbsoluteFill style={{ background: c.cream, fontFamily: "'PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <AbsoluteFill data-pixel-world="true" style={{ background: c.cream, fontFamily: "'PingFang SC','Microsoft YaHei',sans-serif" }}>
       <svg width="1920" height="1080" viewBox="0 0 1920 1080" style={{ position: 'absolute' }}>
         {mode === 'platform' && (
           <g>
@@ -158,9 +165,9 @@ export function PixelWorld({
         )}
       </svg>
       {foreground}
-      {coins !== undefined && <StatusBar coins={coins} />}
+      {coins !== undefined && <StatusBar coins={coins} hearts={hearts} />}
       {topic && (
-        <div
+        <div data-pixel-id="topic" data-pixel-role="hud"
           style={{
             position: 'absolute',
             left: 24,
@@ -185,7 +192,7 @@ export function PixelWorld({
         </div>
       )}
       {captionStyle === 'band' && caption && (
-        <div
+        <div data-pixel-id="subtitle" data-pixel-role="subtitle"
           style={{
             position: 'absolute',
             left: 0,
@@ -204,7 +211,7 @@ export function PixelWorld({
         </div>
       )}
       {captionStyle === 'plaque' && caption && (
-        <div
+        <div data-pixel-id="subtitle" data-pixel-role="subtitle"
           style={{
             position: 'absolute',
             bottom: 36,
@@ -232,6 +239,7 @@ export function PixelWorld({
             : caption}
         </div>
       )}
+      <PixelReviewProbe/>
     </AbsoluteFill>
   );
 }

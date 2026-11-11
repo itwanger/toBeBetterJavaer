@@ -1,5 +1,6 @@
 """Copy the pixel kit into an initialized video project. Keep existing customizations."""
 import argparse
+import json
 import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
@@ -15,6 +16,7 @@ def install(project):
         **{project / "assets/images" / p.name: p for p in (ASSETS / "pixel-actor").glob("*.png")},
         **{project / "assets/sfx" / p.name: p for p in (ASSETS / "pixel-sfx").glob("*.wav")},
     }
+    files.update({project / "assets/voice/harness-outro" / p.name: p for p in (ASSETS / "voice/harness-outro").iterdir() if p.is_file()})
     pending = []
     conflicts = []
     for dest, src in files.items():
@@ -37,7 +39,18 @@ def install(project):
             except FileExistsError:
                 if not dest.is_file() or dest.read_bytes() != src.read_bytes():
                     raise SystemExit(f"Project file changed during installation: {dest}")
+    # Per-project configuration is bootstrapped once; never overwrite authored scenes/events.
+    for name, content in [('pixel-review.json', {'schemaVersion': 1, 'chapters': {}}),
+                          ('pixel-actions.json', {'schemaVersion': 1, 'events': []})]:
+        target = project / 'assets/references' / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with target.open('x') as stream:
+                stream.write(json.dumps(content, ensure_ascii=False, indent=2) + '\n')
+        except FileExistsError:
+            pass
     print(f"Copied {len(pending)} of {len(files)} pixel assets into {project}")
+    print('Next: declare this chapter in assets/references/pixel-review.json; chapter_pipeline.py checks it automatically.')
 
 
 if __name__ == "__main__":

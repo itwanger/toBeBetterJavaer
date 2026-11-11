@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二哥像素视频 · 代码固化验收</title>
+<style>body{background:#fff2d4;color:#25263b;font:17px -apple-system,sans-serif;max-width:860px;margin:24px auto;padding:0 12px;line-height:1.7}h1{font-size:26px}h2{font-size:20px}a{color:#128175}video{width:390px;max-width:100%;display:block;background:#25263b}li{margin:10px 0}</style>
+<h1>第一轮代码固化 · 验收入口</h1>
+<p>29 个实际渲染帧回归，覆盖旧问题复现、修正布局，以及两期认可构图的组件复用。旧问题卡片故意保留报错，用来证明检查能命中。</p>
+<ul>
+<li><a href="history/index.html">6 张历史原帧：问题与定稿对照</a>（人工观察、来源与哈希留档）</li>
+<li><a href="review/index.html">29 帧自动边界检查</a>（可切换主体边界）</li>
+<li><a href="preview/ch1-pixel-review/index.html">自动审片：先铺开，再让位</a></li>
+<li><a href="preview/ch3-pixel-review/index.html">自动审片：落水、扣心、顶砖与补心</a></li>
+</ul>
+<h2>布局测试短片</h2><p>这是公共布局接口的诊断画面，用于验证连续让位，不替换原片设计。</p>
+<video controls preload="metadata" src="preview/ch1-pixel-review/motion-0.mp4"></video>
+<h2>动作与提示音测试</h2><p>复用认可的机关桥。此测试仅有提示音；落水扣心，顶砖响奖励音，心到 HUD 再恢复。</p>
+<video controls preload="metadata" src="preview/ch3-pixel-review/motion-0.mp4"></video>
+<p>代码只检查已标记的对象和声明的时段。叙事、素材真实性、读音与美感仍需有声审片。本轮没有修改两期定稿。</p>
+</html>

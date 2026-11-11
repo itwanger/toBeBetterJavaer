@@ -317,6 +317,8 @@ export default sidebar({
     },
   ],
   "/sidebar/itwanger/paicli/": [
+    "paiwarp-creator-desktop",
+    "build-paiwarp-dsh",
     "paicli-agentbench",
     "paicli-interview-productization",
     "paicli-interview-tool-security",

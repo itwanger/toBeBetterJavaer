@@ -487,7 +487,7 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 /plan 创建一个 Java 项目叫 demo，写一个 Hello 类输出 Hello World，然后编译运行
 ```
 
-![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20261001075734.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-01-serial-plan-20261110180153-1a3598ee.png)
 
 再来一个能并行的。
 
@@ -501,15 +501,15 @@ java -jar target/paicli-1.0-SNAPSHOT.jar
 要求：前 4 个任务彼此独立并行执行，最后 1 个任务依赖前 4 个任务。
 ```
 
-![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20261001075905.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-02-parallel-plan-20261110180153-ead4c1ba.png)
 
 审阅时按 I，输入“汇总时用表格输出”，看模型怎么在原计划上修改。
 
-![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20261001075941.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-03-revised-plan-20261110180153-cb49dd42.png)
 
 最后按 Shift+Tab 切到 plan 模式，直接输入一条普通任务，不用再敲 `/plan`。
 
-![](https://cdn.paicoding.com/stutymore/build-agent-p2-plan-execute-20261001080217.png)
+![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-04-plan-mode-task-20261110180153-53516c58.png)
 
 ## 简历怎么写
 

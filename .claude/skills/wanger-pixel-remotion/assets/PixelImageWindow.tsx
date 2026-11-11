@@ -29,8 +29,32 @@ export function PixelImageWindow({
   const scale = Math.max(camera.scale, w / sourceWidth, h / sourceHeight);
   const cropX = Math.min(sourceWidth - w / scale, Math.max(0, camera.cx - w / scale / 2));
   const cropY = Math.min(sourceHeight - h / scale, Math.max(0, camera.cy - h / scale / 2));
+  return <PixelMediaWindow width={w} height={h} top={top} left={left}>
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: sourceWidth,
+            height: sourceHeight,
+            transformOrigin: '0 0',
+            transform: `translate(${-cropX * scale}px,${-cropY * scale}px) scale(${scale})`,
+          }}
+        >
+          <Img
+            src={staticFile(file)}
+            style={{ display: 'block', width: sourceWidth, height: sourceHeight }}
+          />
+          {children}
+        </div>
+  </PixelMediaWindow>;
+}
+
+export function PixelMediaWindow({width:w,height:h,top=94,left,children}:{
+ width:number;height:number;top?:number;left?:number;children:ReactNode
+}){
   return (
-    <div
+    <div data-pixel-role="frame"
       style={{
         position: 'absolute',
         left: left ?? (1920 - w - 8) / 2,
@@ -59,23 +83,7 @@ export function PixelImageWindow({
         ))}
       </div>
       <div style={{ position: 'relative', width: w, height: h, overflow: 'hidden' }}>
-        <div
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: sourceWidth,
-            height: sourceHeight,
-            transformOrigin: '0 0',
-            transform: `translate(${-cropX * scale}px,${-cropY * scale}px) scale(${scale})`,
-          }}
-        >
-          <Img
-            src={staticFile(file)}
-            style={{ display: 'block', width: sourceWidth, height: sourceHeight }}
-          />
-          {children}
-        </div>
+        {children}
       </div>
     </div>
   );

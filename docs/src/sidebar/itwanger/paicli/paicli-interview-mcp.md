@@ -142,9 +142,9 @@ Chrome DevTools MCP 是 Google 官方出的 MCP Server，一口气提供了 28 �
 
 #### 已经有 web_fetch 了，为什么还要Chrome DevTools MCP
 
-web_fetch 本质就是一个 HTTP 请求，只能拿到静态 HTML。碰到 SPA、JS 渲染的页面、有防爬的站点，就彻底抓瞎了。浏览器 MCP 不一样，它是真正跑了一个 Chrome 实例，JavaScript 照跑，登录态照保，什么页面都拿得到。
+`web_fetch` 适合读已知网址的正文。默认的 DeepSeek 抓取接口直接返回 Markdown，使用智谱等其他普通搜索服务时，PaiCLI 在本机下载网页并提取正文。
 
-PaiCLI 在 system prompt 里有一张决策表，LLM 会根据任务特征自己判断走哪条路：静态页面走 web_fetch，便宜又快；SPA 和 JS 渲染走浏览器的 take_snapshot；防爬站点也走浏览器；需要登录的页面走浏览器加 CDP 会话复用；需要填表提交的走 fill_form + click。
+如果抓到的是登录提示、验证码或空壳页面，就需要浏览器了。Chrome DevTools MCP 可以打开网页，运行页面上的 JavaScript，再用 `take_snapshot` 读取渲染后的内容。需要登录态时可以复用用户已登录的浏览器；需要填表时可以调用 `fill_form` 和 `click`。
 
 ### 08、CDP 会话复用是怎么实现的
 

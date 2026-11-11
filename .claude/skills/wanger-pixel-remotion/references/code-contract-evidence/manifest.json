@@ -1,0 +1,44 @@
+[
+  {
+    "file": "harness-input-before.png",
+    "source": "/Users/itwanger/Documents/GitHub/ai-better/script/deepseek-harness-four-plugins/preview/chapter2-redesign/frames/chat-238.png",
+    "sha256": "c78f7d51446ed4217178f7963775f715d24f4241b478e575789b89bb3b1df816",
+    "title": "Harness · 输入框旧版",
+    "observation": "输入框右边超过窗口边界，发送按钮不可见。自动复现对应 ClippedInput。"
+  },
+  {
+    "file": "harness-input-approved.png",
+    "source": "/Users/itwanger/Documents/GitHub/ai-better/script/deepseek-harness-four-plugins/preview/chapter2-layers/frames/input-209.png",
+    "sha256": "d4171574fe07310d9a9dd52454c7c8680805a4e25852b9bd23825bcd7e4b0ce2",
+    "title": "Harness · 输入框定稿",
+    "observation": "完整工作台保留在底层；原位放大的输入框含左右工具栏和发送按钮。"
+  },
+  {
+    "file": "fable-space-before.png",
+    "source": "/var/folders/d9/l76cbj_n5dl7db2dtlfxr95h0000gn/T/codex-clipboard-ac52b345-35d1-4928-937d-2ca5aab03b2b.png",
+    "sha256": "31606db82e1f1add388b556313b61644ff514fa8158654ed1252e17beed2d55a",
+    "title": "Fable · 提前留位旧版",
+    "observation": "参数尚未让位就提前空出下部，主体占幅偏小。自动复现对应 ReservedSpace。"
+  },
+  {
+    "file": "fable-space-approved.png",
+    "source": "/Users/itwanger/Documents/GitHub/ai-better/script/claude-fable-5-2/preview/chapter1-reflow/stills/specs-315.png",
+    "sha256": "805a9447cfcde134ea267e821404704bb34e4dc56d62642a39404cd65fd2cad5",
+    "title": "Fable · 让位定稿",
+    "observation": "此时模型、基座和规格占据主体区，后续能力出现时才移动收拢。"
+  },
+  {
+    "file": "fable-frames-before.png",
+    "source": "/var/folders/d9/l76cbj_n5dl7db2dtlfxr95h0000gn/T/codex-clipboard-4077d2a2-991e-4a88-af96-4a8692fe79d3.png",
+    "sha256": "ddd53d9b6351b64d7e9ea094e58be8e57c9e1826f608cd7e89bc11d42995276c",
+    "title": "Fable · 套框旧版",
+    "observation": "外层大面板再包内层窗口；自动复现对应 DoubleFrame。"
+  },
+  {
+    "file": "fable-heart-approved.png",
+    "source": "/Users/itwanger/Documents/GitHub/ai-better/script/claude-fable-5-2/preview/chapter3-v8/stills/dock-472.png",
+    "sha256": "ef54df1278c4727411d80ea38f1b0c9e4c92d93e6e077641b79412b42965ab83",
+    "title": "Fable · 补心定稿",
+    "observation": "第 472 帧抵达 HUD 才恢复第三颗心；奖励双音在此前第 453 帧顶砖时响起。"
+  }
+]

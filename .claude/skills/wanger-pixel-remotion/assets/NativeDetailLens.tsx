@@ -37,7 +37,7 @@ export function NativeDetailLens({
   const imageStyle: React.CSSProperties = {position: 'absolute', left: -x, top: -y, width: sourceWidth, height: sourceHeight, maxWidth: 'none'};
   return <>
     <div style={{ position: 'absolute', inset: 0, background: `rgba(9,10,16,${backdropOpacity * t})` }} />
-    <div style={{
+    <div data-pixel-id="native-detail" data-pixel-role="control" data-pixel-required="true" style={{
       position: 'absolute', left: (x - mat) * (1 - t) + endX * t, top: (y - mat) * (1 - t) + endY * t,
       width: outerWidth * scale, height: outerHeight * scale, overflow: 'hidden',
       background: '#151517', opacity: Math.min(1, t * 4), boxShadow: '0 8px 24px #0008',

@@ -101,7 +101,7 @@ PaiCLI 的 ToolRegistry 维护了工具名到执行函数的映射表，LLM 说�
 
 老王话题一转：“你们有联网工具，搜索和抓取是怎么分的？”
 
-我说：“web_search 负责搜索引擎查询，返回的是结构化结果，包括标题、摘要和 URL。背后接了智谱 Web Search、SerpAPI、SearXNG 和 DeepSeek 原生搜索。已有 GLM Key 时优先用智谱，只有 DeepSeek Key 时也能直接搜索，还可以用 SEARCH_PROVIDER 显式指定。DeepSeek 搜索会产生一次独立模型请求，只从结构化搜索结果提取 URL。web_fetch 负责抓取页面内容，用 Jsoup 做正文提取，返回干净的 Markdown 格式文本。”
+我说：“web_search 负责搜索引擎查询，返回的是结构化结果，包括标题、摘要和 URL。背后接了智谱 Web Search、SerpAPI、SearXNG 和 DeepSeek 原生搜索。如果同时配了 DeepSeek 和 GLM 的 Key，默认用 DeepSeek，想用智谱可以设置 SEARCH_PROVIDER=zhipu。DeepSeek 搜索只从结构化结果里取网址。web_fetch 负责读指定的网页，DeepSeek 可以直接返回 Markdown，走本机抓取时则用 Jsoup 提取正文。”
 
 web_fetch 能抓哪些 URL 是有限制的。URL 只能来自用户本轮亲手输入的原文，或者本轮 web_search 返回的结构化结果。网页正文里的链接、模型自己拼出来的地址、工具报错信息里的网址，都不能作为抓取的依据。
 

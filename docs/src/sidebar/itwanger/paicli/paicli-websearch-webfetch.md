@@ -31,7 +31,7 @@ date: 2026-04-27
 
 在终端里输入提示词：“搜一下沉默王二是谁”。
 
-PaiCLI Agent 会自动调用 `web_search` 工具，通过智谱搜索 API 获取相关信息。
+这次演示配置了智谱，PaiCLI Agent 调用 `web_search` 从智谱搜索 API 获取结果。
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20260427142551.png)
 
@@ -95,7 +95,7 @@ PaiCLI 的联网模块放在 `com.paicli.web` 包下，按搜索 Provider、网�
 
 第二个，搜索引擎做了 Provider 抽象。
 
-四个实现类各有特点：智谱提供独立搜索 API，DeepSeek 通过一次独立模型请求执行原生搜索，两者都能复用各自的模型 API Key；SerpAPI 付费但开箱即用，SearXNG 开源免费但需要自己部署。
+四个实现类各有特点：智谱提供独立搜索 API，DeepSeek 提供独立搜索和抓取接口，两者都能复用各自的模型 API Key；SerpAPI 付费但开箱即用，SearXNG 开源免费但需要自己部署。
 
 通过工厂模式自动选择。
 
@@ -134,7 +134,7 @@ public interface SearchProvider {
 
 ### 智谱搜索
 
-智谱搜索是 PaiCLI 最早接入的默认 Provider。已有 `GLM_API_KEY` 时，搜索和 GLM 推理可以共用这个 Key，不需要额外注册或配置；搜索费用按智谱搜索服务规则计收。现在主模型默认使用 DeepSeek，但为兼容已有配置，自动选择搜索服务时仍优先检查 GLM Key。
+智谱搜索是 PaiCLI 最早接入的默认 Provider。已有 `GLM_API_KEY` 时，搜索和 GLM 推理可以共用这个 Key，不需要额外注册或配置；搜索费用按智谱搜索服务规则计收。现在同时配了两家的 Key 时，默认用 DeepSeek。想继续用智谱，在 .env 里写 `SEARCH_PROVIDER=zhipu`。
 
 调用方式是 POST 请求到 `https://open.bigmodel.cn/api/paas/v4/tools/web_search`，请求体长这样：
 
@@ -158,13 +158,9 @@ payload.put("content_size", "medium");
 
 ### DeepSeek 原生搜索
 
-DeepSeek 也能用自己的 API Key 搜索，但接法和智谱不同。`DeepSeekSearchProvider` 向 `https://api.deepseek.com/anthropic/v1/messages` 发一次独立模型请求，在 `tools` 中声明 `web_search_20250305`。这次请求只包含搜索关键词，不携带当前会话历史。
+用 DeepSeek 对话的那把 Key 就能联网。`web_search` 把关键词和需要的条数发给 `/v1/tools/search`，一次最多取 50 条。接口直接返回结果，每条都有标题、摘要和网址。PaiCLI 只登记结果里 `url` 字段指向的网页，摘要里提到的其他链接没有访问权限。
 
-返回值里，`web_search_tool_result` 中的 `web_search_result` 提供标题和 URL，文本块引用里的 `cited_text` 提供对应 URL 的摘要。适配器只认可结构化结果中的 URL，再去重、编号，并按 `top_k` 截断；模型正文或单独引用里的链接不能扩充搜索来源。没有摘要的来源保留空摘要，没有结果块或搜索工具报错则明确失败，不能把模型直接回答当作搜索成功。
-
-因为包含一次模型请求，搜索会产生额外 Token 费用。默认搜索模型是 `deepseek-flash`，可通过 `DEEPSEEK_SEARCH_MODEL` 修改，与 `/model` 选择的对话模型独立。请求最多生成 4096 Token、使用 5 次服务端搜索，120 秒总超时，不自动重试，也不跟随重定向。`top_k` 只控制本地返回数量，不是服务端搜索次数。
-
-请求协议参考 [DeepSeek 官方搜索说明](https://api-docs.deepseek.com/quick_start/agent_integrations/claude_code/#using-web-search-in-claude-code)和 [官方 Harness 搜索适配器](https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/web/web-search-deepseek/README.md)。
+拿到网址后，`web_fetch` 可以把它发给 `/v1/tools/fetch`。接口直接返回标题和 Markdown 正文，代码块、列表和链接可以原样传给模型。这两个请求都不用传对话记录和模型名，按成功请求计费。[DeepSeek 官方搜索与抓取说明](https://api-docs.deepseek.com/zh-cn/guides/search/)
 
 ### SerpAPI
 
@@ -210,17 +206,15 @@ static String pickProvider(String explicit, String glmKey,
     if (explicit != null && !explicit.isBlank()) {
         return explicit.trim().toLowerCase(Locale.ROOT);
     }
+    if (deepseekKey != null && !deepseekKey.isBlank()) return "deepseek";
     if (glmKey != null && !glmKey.isBlank()) return "zhipu";
     if (serpKey != null && !serpKey.isBlank()) return "serpapi";
     if (searxngUrl != null && !searxngUrl.isBlank()) return "searxng";
-    if (deepseekKey != null && !deepseekKey.isBlank()) return "deepseek";
-    return "zhipu"; // 默认占位
+    return "deepseek"; // 没有 Key 时给出配置提示
 }
 ```
 
-优先看有没有显式指定 `SEARCH_PROVIDER`，没有的话按 GLM → SerpAPI → SearXNG → DeepSeek 的顺序检测 Key 或 URL，保留已有搜索配置的优先级。
-
-已有 GLM Key 时继续用智谱；只配置了 DeepSeek Key 时，自动用 DeepSeek 原生搜索。显式指定后不会因为 Key 缺失而偷偷换服务，调用时会提示补齐对应 Key。
+显式指定了 `SEARCH_PROVIDER` 就用它，否则依次检查 DeepSeek、GLM、SerpAPI 和 SearXNG。显式指定的搜索服务缺少 Key 时，PaiCLI 提示补齐配置。
 
 工厂还会从三个地方读环境变量：系统环境变量、Java 系统属性、`.env` 文件（当前目录和 home 目录各找一次）。这样不管你是直接 export、还是写在 .env 里、还是用 IDE 的 VM Options，都能读到。
 
@@ -228,11 +222,11 @@ static String pickProvider(String explicit, String glmKey,
 
 搜索引擎找到了链接，但很多时候还需要看完整内容。`web_fetch` 工具就是干这个的。
 
-整个抓取流程分三步：HTTP 请求拿原始 HTML → 安全检查 → 正文提取转 Markdown。
+抓取前先检查网址和访问频率。选用 DeepSeek 且有 Key 时，直接取回 Markdown。选用其他普通搜索服务或没有 DeepSeek Key 时，走下面的本机抓取流程。
 
-### HTTP 抓取
+### 本机 HTTP 抓取
 
-`WebFetcher` 负责第一步，用 OkHttp 发 GET 请求，拿回原始 HTML 字符串。几个关键参数：
+`WebFetcher` 用 OkHttp 发 GET 请求，拿回原始 HTML 字符串。几个关键参数：
 
 响应体上限 5MB，超出会被截断。30 秒整体超时。字符集优先从 Content-Type 的 charset 参数获取，都拿不到就默认用 UTF-8。
 
@@ -384,26 +378,15 @@ private synchronized SearchProvider searchProvider() {
 
 ### 最简配置（推荐）
 
-如果你已经有 `GLM_API_KEY`（用来跑 GLM-5.1 模型的），恭喜你，不需要任何额外配置。
-
-PaiCLI 会自动检测到 GLM_API_KEY，用智谱搜索作为默认搜索引擎。
-
-在项目根目录的 `.env` 文件里确认一下有这行就行：
-
-```
-GLM_API_KEY=你的智谱API密钥
-```
-
-![](https://cdn.paicoding.com/paicoding/4a2a50944e7fbce57038b23b6aba40a5.jpg)
-
-只配置了 `DEEPSEEK_API_KEY` 的用户也不需要额外配置。若同时配了 GLM 等搜索服务，希望使用 DeepSeek，就显式指定：
+在项目根目录的 `.env` 里配好 DeepSeek Key，就可以用默认对话模型、网页搜索和抓取：
 
 ```dotenv
-SEARCH_PROVIDER=deepseek
 DEEPSEEK_API_KEY=你的DeepSeek密钥
-# 可选，独立于对话模型
-DEEPSEEK_SEARCH_MODEL=deepseek-flash
 ```
+
+如果手上只有智谱的 Key，填 `GLM_API_KEY` 就能搜索，网页正文由 PaiCLI 在本机提取。同时配置了两家的 Key，想继续用智谱，可以加一行 `SEARCH_PROVIDER=zhipu`。
+
+![](https://cdn.paicoding.com/paicoding/4a2a50944e7fbce57038b23b6aba40a5.jpg)
 
 修改后重启 PaiCLI，让缓存的搜索 Provider 重新读取配置。当前对话模型是 `step-3.7-flash*` 且 StepSearch 已就绪时，仍会优先使用 StepSearch；这里配置的是普通搜索 Provider。
 
