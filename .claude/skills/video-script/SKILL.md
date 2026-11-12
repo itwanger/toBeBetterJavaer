@@ -54,9 +54,9 @@ description: 口播稿，适用于 AI 技术科普、Agent/Skill/RAG、LLM 等�
 
 ## 正向表达规范（与 `ai-article` 共用，详见 `.claude/skills/ai-article/references/human-tone.md`）
 
-1. **主语直接用产品名或组件名，准确把握 Agent 定位**：直接写“Codex 会读取 `title`”“翻开 DeepSeek Harness 的源码”。Claude Code、DeepSeek Harness、Codex 统称为 Agent，既能在终端运行，也能在桌面端运行；除了写代码，还能写教程、做 PPT、做视频、处理各类工作，口播切入时不要把它们局限于“写代码”。
+1. **主语直接用产品名或组件名，准确把握 Agent 定位与专业交互表述**：直接写“Codex 会读取 `title`”“翻开 DeepSeek Harness 的源码”。Claude Code、DeepSeek Harness、Codex 统称为 Agent，既能在终端运行，也能在桌面端运行，能调用工具、检索 RAG、联网搜索、执行命令、写教程、做 PPT、做视频、处理各类工作。口播切入时不要把它们局限于“写代码”，更不要停留在聊天机器人时代写“发出一句提问”“向大模型提问”“聊天窗口”，统一写“发送提示词”“输入提示词”“下达任务”“会话界面”。
 2. **动词干脆直接，一步到位**：用直白的动作词串起执行流程（如“挂载、暴露、读取、折叠、设定、挂起、放行、切换、跑、切到、查、塞进”），讲完动作本身即止（如“拼接到报错末尾”“切换为同步阻塞”“保护 KV Cache”“点错了再撤销”）。
-3. **只用约定俗成的公共术语，把底层机制转化为通俗因果逻辑**：只保留观众有概念的公共技术词汇（如 `KV Cache`、`Prefix Caching`、`Prefill`、`TTL`、`tool_result`、`Sub-agent`、`MCP`）和有直观对比意义的代表性数据（如 `80%`、`5` 分钟、`1` 个小时）；技术状态用准确平实的中文表达（如“达到上下文窗口的阈值”“缓存未过期/缓存过期”“消息内容一变”）。重点用通俗清楚的因果逻辑把“为什么这么设计、底层怎么运作”讲明白。
+3. **只用约定俗成的公共术语，把底层机制转化为通俗因果逻辑**：只保留观众有概念的公共技术词汇（如 `KV Cache`、`Prefix Caching`、`Prefill`、`TTL`、`tool_result`、`Sub-agent`、`MCP`）和有直观对比意义的代表性数据（如 `80%`、`5` 分钟、`1` 个小时）；技术状态用准确平实的中文表达（如“达到上下文窗口的阈值”“缓存未过期/缓存过期”“消息内容一变”）。出现术语时自然使用（如“就是 CoT 思维链”），不要刻意写“英文叫……，中文叫……”这类中英文对照强调句。重点用通俗清楚的因果逻辑把“为什么这么设计、底层怎么运作”讲明白。
 4. **问句短促直接**：只问核心问题（如“Codex 怎么防止大模型被劫持？”“那第二个大招是什么？”），把触发条件和实现细节留给正文回答。
 5. **用单一强有力的数据或案例说话**：每次论证只选最有代表性的一个高分或一个实测现象（如“拿到了 60 的高分，反超了自家的 GPT-6.1 Sol，58.6 分”），紧接“为什么？”进入源码拆解。
 6. **数字与单位贴合日常听感**：容量写 `8 M`、`16 G`，状态分值写 `0`、`1`。
@@ -75,11 +75,13 @@ description: 口播稿，适用于 AI 技术科普、Agent/Skill/RAG、LLM 等�
 2. **优化已有稿件**：通读稿件，对照标杆稿件的追问节奏与正向表达标准做局部优化，保留用户校对过的句子。
 
 ### 步骤 2：调研与白话转译（强制）
-1. 启用 Sub-agent 调研 **Claude Code、Codex、DeepSeek Harness 和 Pi Agent** 的源码、官方文档或一手公告，收到结果后立即停止 Sub-agent。本地源码路径：
-   - Claude Code：`/Users/itwanger/Documents/GitHub/claude-code-source-code`
-   - Codex：`/Users/itwanger/Documents/GitHub/codex`
-   - DeepSeek Harness：`/Users/itwanger/Documents/GitHub/deepseek-harness`
-   - Pi Agent：`/Users/itwanger/Documents/GitHub/pi`
+1. **先查知识缓存，再同时核对后端协议层与前端 UI 层**：
+   - 动笔前先读取 `.agents/skills/ai-article/knowledge/` 下的项目知识缓存（如 `deepseek-harness-desktop.md`、`paicli-architecture.md` 等），掌握已沉淀的桌面端/终端真实交互形态与架构事实。
+   - 启用 Sub-agent 调研 **Claude Code、Codex、DeepSeek Harness 和 Pi Agent** 的源码、官方文档或一手公告，收到结果后立即停止 Sub-agent。**涉及界面体感或操作入口时，严禁凭通用网页聊天框的印象猜测（如臆造“开启思考模式的开关按钮”或“大段弹出的灰色框”），必须同时查验后端协议层（如 `packages/llm/`）和前端客户端 UI 层（如 `packages/client/ui-chat/`、`ui-model-selection/` 及 `locale.ts` 中文词典），确认真实的菜单名称、折叠层级、流式预览与默认行为**。新查清的源码事实同步沉淀回 `.agents/skills/ai-article/knowledge/` 对应缓存文件。本地源码路径：
+     - Claude Code：`/Users/itwanger/Documents/GitHub/claude-code-source-code`
+     - Codex：`/Users/itwanger/Documents/GitHub/codex`
+     - DeepSeek Harness：`/Users/itwanger/Documents/GitHub/deepseek-harness`
+     - Pi Agent：`/Users/itwanger/Documents/GitHub/pi`
 2. **源码事实转白话隔离层**：拿到 Sub-agent 调研结果后，只提炼机制原理，把源码里的私有函数名、内部变量名、缓冲常数转化为“日常痛点是什么 → 怎么处理的 → 哪部分受益、哪部分付出什么代价”的白话因果链。
 
 ### 步骤 3：列大纲

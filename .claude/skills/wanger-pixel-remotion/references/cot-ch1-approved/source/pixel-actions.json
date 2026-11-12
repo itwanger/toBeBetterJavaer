@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "id": "send",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 43
+      },
+      "kind": "send",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "expand",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 48
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "collapse",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 271
+      },
+      "kind": "collapse",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "recall",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 374
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -26
+      }
+    },
+    {
+      "id": "name",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 530
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "flag-run",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 0
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "flag-jump",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 48
+      },
+      "kind": "jump",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "flag-seat",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 67
+      },
+      "kind": "reward",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "analysis-open",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 0
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "recall-analysis",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 389
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -26
+      }
+    },
+    {
+      "id": "recall-thought",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 405
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -26
+      }
+    },
+    {
+      "id": "focus-status",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 102
+      },
+      "kind": "focus"
+    },
+    {
+      "id": "focus-analysis",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 162
+      },
+      "kind": "focus"
+    },
+    {
+      "id": "complete",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 218
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "definition",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 439
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "typing-0",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 6
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "typing-1",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 18
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "typing-2",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 30
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "native-entry",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 84
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    }
+  ]
+}

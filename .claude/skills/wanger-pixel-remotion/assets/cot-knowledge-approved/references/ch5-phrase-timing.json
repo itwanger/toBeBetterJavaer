@@ -1,0 +1,365 @@
+{
+  "method": "mlx-community/Qwen3-ForcedAligner-0.6B-4bit forced alignment on current audio; subtitles switch at phrase onset; events at anchor onset plus offset",
+  "chapterStartFrame": 4981,
+  "chapterEndFrame": 7886,
+  "chapterFrames": 2905,
+  "audioSha256": {
+    "18": "c188d3de0ffa9658ec5aa0c285722570192fce52592ab604903f9a3021053de1",
+    "19": "21a6fe26afb079b1e77f4e1dc13ac232396610eeaaa44ecf6617afdf0ae48d3f",
+    "20": "b6db47ac7d0678a99ffd1b52bfcdfb0b777c236a1aa4ab015d9fbe70400b16da",
+    "21": "742807e6c0ac6ff7e60aaa934bed21ec351f1b73a10cc22e9ff4b0f8582bad9d",
+    "22": "541f407571a6fc5c793085c111afd30b53fa4a8325fa9bdb8cce5943368fc0c4",
+    "23": "4c88628f0549cff4c4caf6d41e6aeedb6bd6163c7078cb346c51b793e37959a1",
+    "24": "ba0cb1c41311a1d54023a34129c2babbd70120fdd24079478d8d1a149265778a",
+    "25": "a3fb18296f32e3c836319a65954b7b0788bbaf420ee09b73b6021e3a05c0963c",
+    "26": "96250dd2baaf0d7200014997cd2c08b5f4c36c60a764b7e95c30007000a91ee9",
+    "27": "224fff088fa5e674077a62601e0035645757cc690a2f7299247c7362452f9ef6"
+  },
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 53,
+      "text": "最后聪明的你还会问，",
+      "beatId": 18
+    },
+    {
+      "startFrame": 53,
+      "endFrame": 115,
+      "text": "在多轮对话和上下文压缩时，",
+      "beatId": 18
+    },
+    {
+      "startFrame": 115,
+      "endFrame": 193,
+      "text": "DeepSeek Harness 怎么处理历史消息里的思维链？",
+      "beatId": 18
+    },
+    {
+      "startFrame": 193,
+      "endFrame": 227,
+      "text": "分三种情况，",
+      "beatId": 19
+    },
+    {
+      "startFrame": 227,
+      "endFrame": 272,
+      "text": "同一模型下的多轮对话、",
+      "beatId": 19
+    },
+    {
+      "startFrame": 272,
+      "endFrame": 337,
+      "text": "中途切换模型和上下文压缩。",
+      "beatId": 19
+    },
+    {
+      "startFrame": 337,
+      "endFrame": 363,
+      "text": "第一种，",
+      "beatId": 20
+    },
+    {
+      "startFrame": 363,
+      "endFrame": 428,
+      "text": "服务端以流式返回思考块时，",
+      "beatId": 20
+    },
+    {
+      "startFrame": 428,
+      "endFrame": 495,
+      "text": "会下发一个加密签名 signature，",
+      "beatId": 20
+    },
+    {
+      "startFrame": 495,
+      "endFrame": 539,
+      "text": "DeepSeek Harness 在后台",
+      "beatId": 20
+    },
+    {
+      "startFrame": 539,
+      "endFrame": 606,
+      "text": "把这些片段拼成完整的签名。",
+      "beatId": 20
+    },
+    {
+      "startFrame": 606,
+      "endFrame": 651,
+      "text": "发送下一轮请求时，",
+      "beatId": 20
+    },
+    {
+      "startFrame": 651,
+      "endFrame": 738,
+      "text": "DeepSeek Harness 会把 assistant 消息里的思考块",
+      "beatId": 20
+    },
+    {
+      "startFrame": 738,
+      "endFrame": 795,
+      "text": "连同签名原样发回服务端，",
+      "beatId": 20
+    },
+    {
+      "startFrame": 795,
+      "endFrame": 841,
+      "text": "同时过滤掉 user 消息",
+      "beatId": 20
+    },
+    {
+      "startFrame": 841,
+      "endFrame": 896,
+      "text": "和工具返回结果里的思考块。",
+      "beatId": 20
+    },
+    {
+      "startFrame": 896,
+      "endFrame": 949,
+      "text": "原样发回有两个好处，",
+      "beatId": 21
+    },
+    {
+      "startFrame": 949,
+      "endFrame": 1002,
+      "text": "一是模型连续调用工具时，",
+      "beatId": 21
+    },
+    {
+      "startFrame": 1002,
+      "endFrame": 1057,
+      "text": "能看到上一步的推理过程；",
+      "beatId": 21
+    },
+    {
+      "startFrame": 1057,
+      "endFrame": 1146,
+      "text": "二是历史消息对应的 Token 序列保持不变，",
+      "beatId": 21
+    },
+    {
+      "startFrame": 1146,
+      "endFrame": 1221,
+      "text": "服务端可以继续复用已经缓存的 KV Cache。",
+      "beatId": 21
+    },
+    {
+      "startFrame": 1221,
+      "endFrame": 1247,
+      "text": "第二种，",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1247,
+      "endFrame": 1348,
+      "text": "比如从 deepseek-v4-pro 切换到 deepseek-flash。",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1348,
+      "endFrame": 1423,
+      "text": "加密签名与生成它的模型是绑定的，",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1423,
+      "endFrame": 1502,
+      "text": "换了模型，签名就无法通过校验。",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1502,
+      "endFrame": 1581,
+      "text": "因此，DeepSeek Harness 在组装请求前，",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1581,
+      "endFrame": 1636,
+      "text": "会检查每条消息的来源模型",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1636,
+      "endFrame": 1703,
+      "text": "和当前要调用的模型是否一致。",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1703,
+      "endFrame": 1783,
+      "text": "如果不一致，就丢弃这些思考块的签名，",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1783,
+      "endFrame": 1853,
+      "text": "只发送思考内容，避免接口报错。",
+      "beatId": 22
+    },
+    {
+      "startFrame": 1853,
+      "endFrame": 1879,
+      "text": "第三种，",
+      "beatId": 23
+    },
+    {
+      "startFrame": 1879,
+      "endFrame": 1966,
+      "text": "DeepSeek Harness 会把较早的历史消息发给模型，",
+      "beatId": 23
+    },
+    {
+      "startFrame": 1966,
+      "endFrame": 2007,
+      "text": "让它生成一份摘要。",
+      "beatId": 23
+    },
+    {
+      "startFrame": 2007,
+      "endFrame": 2071,
+      "text": "这次调用返回的思考块会被丢弃，",
+      "beatId": 23
+    },
+    {
+      "startFrame": 2071,
+      "endFrame": 2160,
+      "text": "只有摘要正文会放进 <compacted-summary> 标签",
+      "beatId": 23
+    },
+    {
+      "startFrame": 2160,
+      "endFrame": 2196,
+      "text": "并写入检查点，",
+      "beatId": 23
+    },
+    {
+      "startFrame": 2196,
+      "endFrame": 2247,
+      "text": "这样生成摘要时的思考内容",
+      "beatId": 23
+    },
+    {
+      "startFrame": 2247,
+      "endFrame": 2310,
+      "text": "就不会占用后续对话的上下文空间。",
+      "beatId": 23
+    },
+    {
+      "startFrame": 2310,
+      "endFrame": 2375,
+      "text": "恭喜你升到王者段位了，",
+      "beatId": 24
+    },
+    {
+      "startFrame": 2375,
+      "endFrame": 2450,
+      "text": "成功击败 99% 的学习者。",
+      "beatId": 24
+    },
+    {
+      "startFrame": 2450,
+      "endFrame": 2498,
+      "text": "最后简单总结一下。",
+      "beatId": 25
+    },
+    {
+      "startFrame": 2498,
+      "endFrame": 2592,
+      "text": "CoT 思维链就是把上下文窗口当成草稿纸，",
+      "beatId": 25
+    },
+    {
+      "startFrame": 2592,
+      "endFrame": 2654,
+      "text": "让模型先输出中间的推理步骤，",
+      "beatId": 25
+    },
+    {
+      "startFrame": 2654,
+      "endFrame": 2710,
+      "text": "再基于这些步骤得出最终答案。",
+      "beatId": 25
+    },
+    {
+      "startFrame": 2710,
+      "endFrame": 2765,
+      "text": "这个知识点你学会了吗？",
+      "beatId": 26
+    },
+    {
+      "startFrame": 2765,
+      "endFrame": 2827,
+      "text": "想解锁更多 Agent 硬核知识，",
+      "beatId": 27
+    },
+    {
+      "startFrame": 2827,
+      "endFrame": 2851,
+      "text": "点赞关注，",
+      "beatId": 27
+    },
+    {
+      "startFrame": 2851,
+      "endFrame": 2875,
+      "text": "我是二哥，",
+      "beatId": 27
+    },
+    {
+      "startFrame": 2875,
+      "endFrame": 2905,
+      "text": "咱们下期见！",
+      "beatId": 27
+    }
+  ],
+  "events": {
+    "overview": 193,
+    "sameOption": 227,
+    "switchOption": 272,
+    "compactOption": 308,
+    "same": 337,
+    "stream": 363,
+    "signature": 450,
+    "assemble": 539,
+    "assembled": 567,
+    "nextRequest": 606,
+    "assistant": 687,
+    "replay": 757,
+    "filter": 795,
+    "filterTool": 846,
+    "benefits": 896,
+    "tools": 966,
+    "previous": 1014,
+    "prefix": 1057,
+    "cache": 1203,
+    "cross": 1221,
+    "pro": 1262,
+    "flash": 1312,
+    "bind": 1348,
+    "mismatch": 1449,
+    "prepare": 1547,
+    "compareSource": 1612,
+    "compareTarget": 1641,
+    "strip": 1727,
+    "sendText": 1783,
+    "compact": 1853,
+    "sendHistory": 1923,
+    "summary": 1973,
+    "discard": 2007,
+    "body": 2071,
+    "checkpoint": 2165,
+    "free": 2249,
+    "run": 2310,
+    "seat": 2399,
+    "recap": 2450,
+    "paper": 2536,
+    "steps": 2620,
+    "answer": 2690,
+    "outro": 2710,
+    "unlock": 2772,
+    "like": 2827,
+    "follow": 2837,
+    "name": 2851,
+    "bye": 2875,
+    "end": 2905
+  }
+}

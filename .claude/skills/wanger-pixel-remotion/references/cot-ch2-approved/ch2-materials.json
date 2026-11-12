@@ -1,0 +1,133 @@
+{
+  "nativeUsage": {
+    "source": "DeepSeek Harness desktop, existing CoT conversation 17:06",
+    "files": [
+      "assets/images/ch2-usage/closed.png",
+      "assets/images/ch2-usage/open.png"
+    ],
+    "sourceSize": [
+      2560,
+      1640
+    ],
+    "observed": {
+      "totalTokens": 157667,
+      "uncachedInput": 273,
+      "cacheRead": 156544,
+      "cacheWrite": 0,
+      "output": 850
+    },
+    "note": "Native screenshots captured through CUA, opening real per-turn usage popup. No text changes. Total is not output count.",
+    "camera": {
+      "left": 351,
+      "top": 774,
+      "width": 1858,
+      "viewport": [
+        1858,
+        806
+      ]
+    },
+    "focus": {
+      "buttonZoom": 2.5,
+      "panelZoom": 1.65,
+      "sourceTextUnchanged": true,
+      "anchor": "native control position, clamped within viewport",
+      "panelSourceRect": [
+        868,
+        848,
+        641,
+        413
+      ],
+      "panelSourceRadius": 24,
+      "panelDim": 0.58,
+      "panelBackdropBlur": 4,
+      "buttonDim": 0.38,
+      "buttonBackdropBlur": 2
+    }
+  },
+  "mechanism": {
+    "approach": "DSH sends one request through the model entry. Compute and cache stay inside the model. Generated fragments and the final reply return through the exit and are displayed in DSH. Internal autoregression is intentionally not visualized.",
+    "reasoningSource": "assets/references/ch2-reasoning.json",
+    "reasoningPolicy": "Verbatim visible third-party model reasoning; no fabricated Chinese thought text. Animated timing does not represent live capture.",
+    "articleGif": "assets/images/02-cot-flow.gif",
+    "articleDerivedFrames": {
+      "write.png": "0 seconds",
+      "cache.png": "4 seconds",
+      "read.png": "8 seconds"
+    },
+    "onScreenProductionLabels": false,
+    "tokenSchematic": "Beveled pixel data tiles symbolize transmitted fragments, not token IDs. Paired cells symbolize K/V cache. No T1/T2, numerical matrices or K/V lettering.",
+    "layoutRevision": "Fixed DSH 680x620 at (24,210); fixed model 916x824.4 with right edge 1890. Only client contents scale/reflow. Distinct boundary ports connect across the gap.",
+    "answerContrast": {
+      "prompt": "了解 CoT 思维链吗？",
+      "wrongMarkFrame": 649,
+      "correctMarkFrame": 1048,
+      "provenance": "Authored correctness illustration using standalone pixel cross/check symbols, not an observed DeepSeek failure or fabricated response text. Marks appear with existing error/success sounds on receipt.",
+      "wrongEmissionFrame": 631,
+      "wrongArrivalFrame": 649,
+      "note": "Wrong answer arrives together with the red cross and error sound, never held as an unmarked response.",
+      "incorrectSymbol": "assets/images/pixel-symbols/wrong.svg",
+      "correctSymbol": "assets/images/pixel-symbols/correct.svg",
+      "onScreenAnswerText": false
+    },
+    "typographySource": "claude-fable-5-2/remotion/src/Ch2Stage.tsx Txt: fontWeight 680; ClaudeTerminal: title 31×2=62, main 33×2=66, body 25–27×2=50–54. Shared Chapter2Design.ts applies these values to the authored Chapter2 scenes; native images retain source typography.",
+    "componentIdentity": {
+      "client": "DSH + pixel whale in title bar. Gold prompt symbol, folded draft with animated pencil for thought fragments, separate pixel cross/check for final correctness.",
+      "model": "DeepSeek 模型 in title bar. Matrix panels pulse; cache pairs remain when a read copy leaves. Generated fragments return to DSH; no internal autoregression loop.",
+      "sprite": "assets/images/dsh/pixel-whale-v1.png",
+      "layout": "DSH x24/y210, width680/height620; model x974/y107.8, width916/height824.4. Client/model title fonts52/64.12; centered vertically at520."
+    },
+    "routing": {
+      "request": "DSH right edge y380 to model left-edge entry, teal; distinct from response.",
+      "response": "Model left-edge exit to DSH right edge y660, orange; outside both windows.",
+      "computation": "Inside model from entry through matrix row to exit; no internal input/output text boxes or recurrence.",
+      "cacheWrite": "Small pairs travel between occupied columns and expand only inside their target slot.",
+      "cacheRead": "Copy leaves retained cache and travels along a separate right-side route to calculation.",
+      "geometry": "GenerationRoutes.ts drives both drawn paths and packet positions.",
+      "timing": "Existing emissions and audio unchanged."
+    }
+  },
+  "exchangeFocus": {
+    "component": "HarnessExchangeStage.tsx",
+    "scope": "All Chapter 2 mechanism shots",
+    "layout": "Fixed client and model windows; content-only reflow. Request/response transport connects distinct boundary ports outside the model.",
+    "content": "Prompt symbol + folded draft paper + colored lines + pencil. Add rows only on receipt; keep three visible rows and scroll thereafter. Token symbols replace paper-item icons. No full prompt text, English prose, or T IDs in the mechanism UI.",
+    "source": "ch2-reasoning.json",
+    "clientPaperReference": "assets/references/dsh-paper-user-reference.png",
+    "clientComponent": "PixelThoughtDraft.tsx",
+    "symbols": {
+      "component": "PixelSymbols.tsx",
+      "prompt": "assets/images/pixel-symbols/prompt.svg",
+      "token": "assets/images/pixel-symbols/token.svg",
+      "meaning": "Gold pixel >_ speech bubble = prompt; mint beveled data tile = Token. Same silhouette in DSH, transport, and draft rows. Fragment color may vary; no T IDs.",
+      "wrong": "assets/images/pixel-symbols/wrong.svg",
+      "correct": "assets/images/pixel-symbols/correct.svg"
+    },
+    "boundaryLabels": false,
+    "lineStyle": {
+      "connectionWidthPx": 14,
+      "arrowWidthPx": 12,
+      "portWidthPx": 20,
+      "idleExternalOpacity": 0.85,
+      "idleInternalOpacity": 0.7
+    },
+    "clientSize": [
+      680,
+      620
+    ],
+    "clientPosition": [
+      24,
+      210
+    ],
+    "promptSizeRange": [
+      112,
+      224
+    ],
+    "paperWidth": 616
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-11",
+    "scope": "Chapter 2",
+    "userStatement": "好了，第二章就这样吧，整体的经验习得一下"
+  }
+}

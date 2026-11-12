@@ -689,6 +689,21 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "理解温度、核采样及 Coding Agent 对采样参数的处理。",
     ["DeepSeek", "Temperature", "Top-P", "采样"],
   ),
+  "what-is-cot": meta(
+    "什么是 CoT（思维链）？", "CoT 思维链",
+    "结合 DeepSeek Harness 理解思维链的展示、思考深度与上下文处理。",
+    ["CoT", "思维链", "DeepSeek Harness"],
+  ),
+  "claude-fable-5-2": meta(
+    "Claude Fable 5.2 和 Mythos 5.2 发布，有哪些新能力？", "Claude Fable 5.2",
+    "了解 Claude Fable 5.2 与 Mythos 5.2 的能力和实际应用。",
+    ["Claude", "Fable 5.2", "Mythos 5.2"],
+  ),
+  "deepseek-harness-four-plugins": meta(
+    "DeepSeek Harness 有哪些值得用的插件？", "DeepSeek Harness 四款插件",
+    "了解 DeepSeek Harness 插件架构及四款插件的用途。",
+    ["DeepSeek Harness", "插件", "Cordis"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -740,8 +755,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 热点解读（21/100）",
+    text: "02 / 热点解读（23/100）",
     children: [
+      "claude-fable-5-2",
+      "deepseek-harness-four-plugins",
       "hunyuan-hy4",
       "longcat-2-5",
       "what-is-super-agent",
@@ -786,6 +803,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "04 / LLM 基础与 API",
     children: [
+      "what-is-cot",
       "deepseek-temperature-top-p",
       "what-is-tokenizer",
       "how-deepseek-supports-1m-context",
@@ -864,6 +882,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "what-is-cot": "7707112014115540233",
+  "claude-fable-5-2": "7706555517623176463",
+  "deepseek-harness-four-plugins": "7706142531712470313",
   "deepseek-temperature-top-p": "7705758773213744393",
   "what-is-tokenizer": "7705453048864328975",
   "how-deepseek-supports-1m-context": "7705036086988393738",

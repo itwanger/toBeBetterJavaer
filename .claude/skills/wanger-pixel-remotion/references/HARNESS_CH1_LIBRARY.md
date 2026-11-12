@@ -37,7 +37,7 @@ const items = [
   checkFrame={cues.installed} dockFrame={cues.prompt} />
 ```
 
-折线图先量原图。每个点用 `[x, y]` 表示，连续曲线的采样点只描述路径；标签只填写原图能读到的值。将下面的图层作为 `PixelImageWindow` 的子元素，`sourceWidth` 和 `sourceHeight` 与外窗传入的原图尺寸一致。终点标签可传 `endLabel={{text, x, y}}`，用原图坐标避开曲线和坐标轴。以 390px 宽度核对亮点、读数和字幕。
+折线图先量原图。每个点用 `[x, y]` 表示，连续曲线的采样点只描述路径；标签只填写原图能读到的值。将下面的图层作为 `PixelImageWindow` 的子元素，`sourceWidth` 和 `sourceHeight` 与外窗传入的原图尺寸一致。终点标签可传 `endLabel={{text, x, y}}`，用原图坐标避开曲线和坐标轴。亮点、读数与字幕需在手机播放比例下可辨，复用已有检查帧核对。
 
 ```tsx
 <ChartLineTrace points={points} sourceWidth={sourceWidth} sourceHeight={sourceHeight}

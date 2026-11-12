@@ -1,0 +1,136 @@
+{
+  "method": "mlx-community/Qwen3-ForcedAligner-0.6B-4bit forced alignment on current audio; subtitles switch at phrase onset; events at anchor onset plus offset",
+  "chapterStartFrame": 4057,
+  "chapterEndFrame": 4981,
+  "chapterFrames": 924,
+  "audioSha256": {
+    "14": "4549633f645e2eb5feba3d86927ae15ee10f8b36ed107a99dc2aefe812d2ba13",
+    "15": "50a0d156fdc855c072e17a33e10e7216a67ce8a0c811101ebae0f428fe8e26c1",
+    "16": "80417ad59d3cceb4d65e5ab81400a03b600e59ed6d7c8b876ff5c0e040e3bc52",
+    "17": "17ef36a20db2240d7a12e8d514686abfdcef3005c8b4e0e419d151ba6fe302bb"
+  },
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 53,
+      "text": "聪明的你可能会继续问，",
+      "beatId": 14
+    },
+    {
+      "startFrame": 53,
+      "endFrame": 128,
+      "text": "DeepSeek Harness 是怎么控制模型思考深度的？",
+      "beatId": 14
+    },
+    {
+      "startFrame": 128,
+      "endFrame": 214,
+      "text": "点击显示模型名称和当前等级的位置，",
+      "beatId": 15
+    },
+    {
+      "startFrame": 214,
+      "endFrame": 253,
+      "text": "再点「推理等级」，",
+      "beatId": 15
+    },
+    {
+      "startFrame": 253,
+      "endFrame": 301,
+      "text": "就能看到可选档位。",
+      "beatId": 15
+    },
+    {
+      "startFrame": 301,
+      "endFrame": 363,
+      "text": "官方适配器按从低到高的顺序",
+      "beatId": 15
+    },
+    {
+      "startFrame": 363,
+      "endFrame": 411,
+      "text": "定义了四档推理等级：",
+      "beatId": 15
+    },
+    {
+      "startFrame": 411,
+      "endFrame": 459,
+      "text": "Off、Low、High 和 Max，",
+      "beatId": 15
+    },
+    {
+      "startFrame": 459,
+      "endFrame": 490,
+      "text": "默认是 High。",
+      "beatId": 15
+    },
+    {
+      "startFrame": 490,
+      "endFrame": 557,
+      "text": "选择 Low、High 或 Max 时，",
+      "beatId": 16
+    },
+    {
+      "startFrame": 557,
+      "endFrame": 612,
+      "text": "请求会把 thinking 设为 enabled，",
+      "beatId": 16
+    },
+    {
+      "startFrame": 612,
+      "endFrame": 701,
+      "text": "并通过 output_config 把对应等级传给模型；",
+      "beatId": 16
+    },
+    {
+      "startFrame": 701,
+      "endFrame": 732,
+      "text": "选择 Off 时，",
+      "beatId": 16
+    },
+    {
+      "startFrame": 732,
+      "endFrame": 815,
+      "text": "请求会发送 thinking: disabled 关闭思考。",
+      "beatId": 16
+    },
+    {
+      "startFrame": 815,
+      "endFrame": 858,
+      "text": "恭喜看到这里的你，",
+      "beatId": 17
+    },
+    {
+      "startFrame": 858,
+      "endFrame": 924,
+      "text": "成功击败 90% 的学习者了。",
+      "beatId": 17
+    }
+  ],
+  "events": {
+    "desktop": 128,
+    "modelClick": 200,
+    "effortClick": 226,
+    "options": 253,
+    "ascending": 330,
+    "offMention": 411,
+    "lowMention": 421,
+    "highMention": 430,
+    "maxMention": 445,
+    "default": 459,
+    "selectLow": 509,
+    "selectHigh": 521,
+    "selectMax": 538,
+    "request": 557,
+    "thinking": 574,
+    "enabled": 596,
+    "output": 627,
+    "transfer": 670,
+    "selectOff": 701,
+    "disabled": 776,
+    "closed": 795,
+    "run": 815,
+    "seat": 877,
+    "end": 924
+  }
+}

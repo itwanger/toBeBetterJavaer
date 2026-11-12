@@ -1,0 +1,177 @@
+{
+  "method": "mlx-community/Qwen3-ForcedAligner-0.6B-4bit forced alignment on current audio; subtitles switch at phrase onset; events at anchor onset plus offset",
+  "chapterStartFrame": 2756,
+  "chapterEndFrame": 4057,
+  "chapterFrames": 1301,
+  "audioSha256": {
+    "9": "886b900918e0e6e091f9a814f5b533e6952595a3d192a396b3f24160d3759b45",
+    "10": "49081c6c3bf581b3dcced39e914aef0777de4569cd3c638ec0bd9464d6ee6acc",
+    "11": "bede91ef741945ec79a096a8a32a8a2e85935142fcaf8a35e3db9f81108a647c",
+    "12": "ca02154e611843e6a3f790ead8156ad567d484f5d9034ba6eb02b649e8ba0adf",
+    "13": "e8761ad11264725ffef6f74563f16cd42a80efaddda464cfc4c1d6aebb72daf5"
+  },
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 55,
+      "text": "那聪明的你肯定会继续问，",
+      "beatId": 9
+    },
+    {
+      "startFrame": 55,
+      "endFrame": 108,
+      "text": "在 DeepSeek Harness 桌面端里，",
+      "beatId": 9
+    },
+    {
+      "startFrame": 108,
+      "endFrame": 157,
+      "text": "思维链是以什么形式呈现的？",
+      "beatId": 9
+    },
+    {
+      "startFrame": 157,
+      "endFrame": 241,
+      "text": "早期的大模型没有专门训练过推理能力，",
+      "beatId": 10
+    },
+    {
+      "startFrame": 241,
+      "endFrame": 282,
+      "text": "需要在提示词末尾加一句",
+      "beatId": 10
+    },
+    {
+      "startFrame": 282,
+      "endFrame": 315,
+      "text": "“让我们一步步思考”，",
+      "beatId": 10
+    },
+    {
+      "startFrame": 315,
+      "endFrame": 371,
+      "text": "引导模型输出推导步骤。",
+      "beatId": 10
+    },
+    {
+      "startFrame": 371,
+      "endFrame": 390,
+      "text": "这样的话，",
+      "beatId": 10
+    },
+    {
+      "startFrame": 390,
+      "endFrame": 459,
+      "text": "推导步骤和最终答案就混在一起。",
+      "beatId": 10
+    },
+    {
+      "startFrame": 459,
+      "endFrame": 524,
+      "text": "现在的 DeepSeek 在后训练阶段",
+      "beatId": 10
+    },
+    {
+      "startFrame": 524,
+      "endFrame": 587,
+      "text": "通过强化学习获得了推理能力，",
+      "beatId": 10
+    },
+    {
+      "startFrame": 587,
+      "endFrame": 642,
+      "text": "就会先提出假设、再验算，",
+      "beatId": 10
+    },
+    {
+      "startFrame": 642,
+      "endFrame": 703,
+      "text": "发现思路走不通就推翻重来。",
+      "beatId": 10
+    },
+    {
+      "startFrame": 703,
+      "endFrame": 773,
+      "text": "从 DeepSeek Harness 的源码可以看到，",
+      "beatId": 11
+    },
+    {
+      "startFrame": 773,
+      "endFrame": 823,
+      "text": "它在协议层把模型的输出",
+      "beatId": 11
+    },
+    {
+      "startFrame": 823,
+      "endFrame": 876,
+      "text": "拆成了两种独立的内容：",
+      "beatId": 11
+    },
+    {
+      "startFrame": 876,
+      "endFrame": 944,
+      "text": "text 文本块和 reasoning 思考块。",
+      "beatId": 11
+    },
+    {
+      "startFrame": 944,
+      "endFrame": 1030,
+      "text": "DeepSeek Harness 把思考过程分三层折叠，",
+      "beatId": 12
+    },
+    {
+      "startFrame": 1030,
+      "endFrame": 1100,
+      "text": "最外层是「已完成，用时×秒」，",
+      "beatId": 12
+    },
+    {
+      "startFrame": 1100,
+      "endFrame": 1148,
+      "text": "点开后是「已完成分析」，",
+      "beatId": 12
+    },
+    {
+      "startFrame": 1148,
+      "endFrame": 1192,
+      "text": "再展开是具体的「思考」。",
+      "beatId": 12
+    },
+    {
+      "startFrame": 1192,
+      "endFrame": 1235,
+      "text": "恭喜看到这里的你，",
+      "beatId": 13
+    },
+    {
+      "startFrame": 1235,
+      "endFrame": 1301,
+      "text": "成功击败 70% 的学习者了。",
+      "beatId": 13
+    }
+  ],
+  "events": {
+    "early": 157,
+    "append": 241,
+    "step": 282,
+    "derive": 315,
+    "mixed": 371,
+    "modern": 459,
+    "learned": 524,
+    "hypothesis": 594,
+    "verify": 623,
+    "reject": 642,
+    "retry": 678,
+    "protocol": 703,
+    "split": 823,
+    "text": 876,
+    "reasoning": 912,
+    "folds": 944,
+    "outer": 1030,
+    "middle": 1100,
+    "inner": 1148,
+    "run": 1192,
+    "seat": 1254,
+    "end": 1301
+  }
+}

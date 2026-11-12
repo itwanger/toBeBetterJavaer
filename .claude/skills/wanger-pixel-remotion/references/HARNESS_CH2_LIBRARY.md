@@ -20,7 +20,7 @@ const screen = {file: empty, nextFile: typed, nextOpacity: typing, sourceWidth: 
 </WorkspaceOverview>
 ```
 
-在 390px 宽成帧检查放大中段和停稳帧。此例把镜心略往下移，让窗口标题保持完整；输入框右边仍有一段空隙，发送按钮在空框和打字状态都看得见。
+按协作规则，在必要检查帧中确认重点可读和边界完整。此例把镜心略往下移，让窗口标题保持完整；输入框右边仍有一段空隙，发送按钮在空框和打字状态都看得见。
 
 ## 左侧输入到右侧结果
 

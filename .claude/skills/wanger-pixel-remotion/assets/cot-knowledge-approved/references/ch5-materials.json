@@ -1,0 +1,44 @@
+{
+  "status": "chapter5-first-cut-awaiting-user",
+  "frames": 2905,
+  "fps": 30,
+  "scope": "Chapter 5 including recap and approved fixed outro; chapters 1–4 frozen",
+  "sourceEvidence": [
+    {
+      "file": "/Users/itwanger/Documents/GitHub/deepseek-harness/packages/llm/llm-deepseek/src/translate.ts",
+      "lines": "70–81",
+      "claim": "Thinking text and signature deltas are accumulated separately; signature deltas do not emit visible reasoning text."
+    },
+    {
+      "file": "/Users/itwanger/Documents/GitHub/deepseek-harness/packages/llm/llm-deepseek/src/serialize.ts",
+      "lines": "26–39, 65–67",
+      "claim": "Assistant thinking with valid replay signature is serialized; reasoning in user/tool-result bodies is filtered without deleting ordinary text/results or durable history."
+    },
+    {
+      "file": "/Users/itwanger/Documents/GitHub/deepseek-harness/packages/llm/llm-deepseek/src/replay.ts",
+      "lines": "39–64",
+      "claim": "Replay metadata requires matching source provider and model. A target-model mismatch omits replay signature from the outbound copy."
+    },
+    {
+      "file": "/Users/itwanger/Documents/GitHub/deepseek-harness/packages/compaction/compaction-basic/src/summarizer.ts",
+      "lines": "22–23, 210–226",
+      "claim": "Summary output collects text blocks only and uses compacted-summary wrapping."
+    }
+  ],
+  "articleImage": {
+    "file": "assets/images/05-thinking-history.png",
+    "use": "Intact image in a tightly fitting Mac frame with camera focus; not decomposed or repainted."
+  },
+  "authoredUI": "Authored mechanism animation using the shared PixelWorld palette. Paper represents thinking; orange lock represents signature; gold page represents summary. No new recording or model call.",
+  "semanticBoundaries": [
+    "Archive and outbound request copy are separate. Removing a signature does not delete the durable stored history.",
+    "Discarded reasoning during compaction belongs to the summary-generation call; task summary text remains.",
+    "Task goal, progress and todo rows illustrate summary roles, not verbatim model output.",
+    "Cache pairing is a conceptual visualization of prefix reuse, not measured hit rate or guaranteed reuse.",
+    "Signature fragments and token symbols are schematic; no actual signature bytes or token counts are claimed.",
+    "Display uses deepseek-pro short model name at user request; the unchanged narration’s deepseek-v4-pro names the same source-model example, not the default selection."
+  ],
+  "audio": "Original aligned voice reused; fixed outro uses the installed Harness approved dry voice, no TTS request. 39 chapter actions added; first 4981 frames PCM unchanged.",
+  "preview": "preview/ch5-unified/chapter5-preview.mp4",
+  "revision": "Equal client/model dimensions, attached icon-label pairs, immediate first option, content-driven row/signature/tool/cache layout. No standalone phase headings. Audio unchanged."
+}

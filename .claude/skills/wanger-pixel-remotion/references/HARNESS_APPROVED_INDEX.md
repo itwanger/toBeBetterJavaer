@@ -72,7 +72,7 @@ python3 .agents/skills/wanger-pixel-remotion/scripts/install_pixel_assets.py --p
 
 本期片尾四个声音可作校准示例：顶砖 **F2276**、接蘑菇 **F2319**、点赞 **F2350**、关注 **F2360**，均为第五章局部帧。下一期按自己的动作接触帧写声音表，单章预览与整期用同一条混音。用量与响度看[本期声音表][sounds]，不要把表里的意群偏移误当成章内帧。
 
-**需要参数或接法时再按章查：** [① 折线、集市、四卡与跳旗](HARNESS_CH1_LIBRARY.md) · [② 工作台与跨栏](HARNESS_CH2_LIBRARY.md) · [③ 署名、读原文与 HTML](HARNESS_CH3_LIBRARY.md) · [④ 入口与占比](HARNESS_CH4_LIBRARY.md) · [⑤ 读论文与知识蘑菇](HARNESS_CH5_LIBRARY.md)。换好素材和时点后，以 390 px 宽检查动作中段、文字末端与控件边缘，再开声按 1 倍速连播。
+**需要参数或接法时再按章查：** [① 折线、集市、四卡与跳旗](HARNESS_CH1_LIBRARY.md) · [② 工作台与跨栏](HARNESS_CH2_LIBRARY.md) · [③ 署名、读原文与 HTML](HARNESS_CH3_LIBRARY.md) · [④ 入口与占比](HARNESS_CH4_LIBRARY.md) · [⑤ 读论文与知识蘑菇](HARNESS_CH5_LIBRARY.md)。换素材后关注动作、文字和完整边界；检查频率与手机可读性核对统一按 [COLLABORATION.md](COLLABORATION.md) 执行。
 
 [install]: ../scripts/install_pixel_assets.py
 [motion]: ../../../../docs/src/ai/script/shared/remotion/components/MotionSceneChain.tsx

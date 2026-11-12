@@ -1,5 +1,5 @@
-> 调研日期：2026-11-07｜仓库：/Users/itwanger/Documents/GitHub/paicli（main）｜commit：09c57e6
-`git -C /Users/itwanger/Documents/GitHub/paicli log --oneline --since=2026-11-07`
+> 调研日期：2026-11-12｜仓库：/Users/itwanger/Documents/GitHub/paicli（main）｜commit：bd9a283
+`git -C /Users/itwanger/Documents/GitHub/paicli log --oneline --since=2026-11-12`
 
 # PaiCLI 架构知识库
 
@@ -283,7 +283,20 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 - LSP：写文件后 JavaParser 语法诊断，下一轮以 user 消息注入，细节见 `paicli-bugfix-loop.md`
 - 评测：`eval/LlmJudge`、`eval/PositionBalancedPairwiseJudge`、`eval/benchmark/`，细节见 `paicli-bugfix-loop.md`
 - Better Harness：`/better-harness` 命令，三个只读证据专家并行收集，lead 模型汇总，Java 代码渲染报告，方法改编自 QoderAI/better-harness（`harness/BetterHarnessRunner.java:32-45`；内置 Skill `skills/better-harness/SKILL.md`）
-- 联网：搜索服务按 `SEARCH_PROVIDER` 或 Key 自动选择（智谱、SerpAPI、SearXNG、DeepSeek，`AGENTS.md:109`）；`web_fetch` 默认 8000 字符（`ToolRegistry.java:91`、`:780-790`）
+- 联网（`web/` + `tool/ToolRegistry.java` + `tool/TurnToolPolicy.java`）：
+  - 搜索抽象 `web/SearchProvider.java:18-42`（`name`、`isReady`、`unavailableHint`、`search(query, topK)`）与结果记录 `web/SearchResult.java:9-30`（`position` 从 1 起、`title`、`url`、`snippet`、从 URL 提取 host 的 `source`）
+  - 工厂 `web/SearchProviderFactory.java:16-91`：三级读取 `System.getenv` → `System.getProperty` → `./.env` 与 `~/.env`（`:61-90`）；显式指定 `SEARCH_PROVIDER` 优先，否则按 `deepseek` → `zhipu` → `serpapi` → `searxng` 顺序自动选择，默认占位 `"deepseek"`（`:41-59`）
+  - 四个 Provider 实现：
+    - `web/DeepSeekSearchProvider.java:22-181`（同时实现 `SearchProvider` 与 `PageFetcher`）：共用 `DEEPSEEK_API_KEY`，直连 `POST https://api.deepseek.com/v1/tools/search`（`query` 1~128 码点，`count` 默认 10、上限 50，只保留无凭证的 `http/https` URL 并去重）与 `POST https://api.deepseek.com/v1/tools/fetch`（`url` <=8192 码点，直接返回标题和 Markdown）；超时 connect 10s / read 60s / call 60s，关闭重定向与连接重试，请求体 `isOneShot()=true` 防 503 重放计费请求（`:46-51`、`:155-180`），响应上限 5MB
+    - `web/ZhipuSearchProvider.java:41-157`：共用 `GLM_API_KEY`，`POST https://open.bigmodel.cn/api/paas/v4/web_search`，支持 `search_std`（默认，0.01 元/次）、`search_pro`（0.03 元/次）、`search_pro_sogou`、`search_pro_quark`（0.05 元/次），`count` 上限 50，`content_size="medium"`，connect 10s / read 20s
+    - `web/SerpApiSearchProvider.java:22-127`：`GET https://serpapi.com/search.json`（需 `SERPAPI_KEY`，`hl=zh-cn`，`num` 默认 5、上限 10），优先 `organic_results`，为空时用 `answer_box` 兜底
+    - `web/SearxngSearchProvider.java:35-125`：`GET {baseUrl}/search?q=...&format=json&language=zh`（需 `SEARXNG_URL`，免费自托管，默认 5、上限 10，UA `paicli-web-search/1.0`）
+  - 网页抓取接口 `web/PageFetcher.java:6-8` 与结果 `web/FetchResult.java:12-36`（`markdown` 为空时 `bodyEmpty=true`，提示 `"未提取到正文。可能是 JS 渲染或防爬墙；本期范围内不再重试。"`）。`ToolRegistry.webFetcher()`（`:1087-1093`）在 `searchProvider()` 实现 `PageFetcher` 且 `isReady()` 时复用 `DeepSeekSearchProvider`，否则用本机 `WebFetcher`
+  - 本机抓取 `web/WebFetcher.java:30-123`：OkHttp connect 10s / read 30s / call 30s，UA `Mozilla/5.0 (compatible; paicli-web-fetch/1.0)`，`readBounded` 以 8KB 缓冲流式读取，5MB（`DEFAULT_MAX_BYTES`）封顶防 OOM；字符集优先 `Content-Type charset`，回退 UTF-8
+  - 正文提取 `web/HtmlExtractor.java:31-260`：Jsoup 清理 12 类噪声标签（`script`/`style`/`nav`/`aside`/`header`/`footer`/`form`/`iframe` 等）与 18 个广告/侧栏关键词 class/id → 优先选文本长度 >80 的 `article, main, [role=main]` → 否则对块元素按 `textLen * (1.0 - min(linkRatio * 2.0, 1.0))` 打分（`textLen < 80` 得 0 分）→ 递归渲染标题、段落、粗斜体、代码块、引用、列表、超链接和表格为 Markdown
+  - 网络安全策略 `web/NetworkPolicy.java:22-130`：每次 `webFetch` 先调 `checkUrl`（仅允许 `http/https`，禁 `localhost`/`*.localhost`/`0.0.0.0`，`InetAddress.getAllByName` 拦截环回、未指定、链路本地、站内地址防 SSRF）与 `acquire`（60 秒窗口最多 30 次）
+  - StepSearch 分流：当 `currentProvider="step"` 且模型以 `step-3.7-flash` 开头、同时 `step_search` MCP 已就绪时，`web_search`/`web_fetch` 优先转给 `mcp__step_search__*`，失败回退内置实现（`ToolRegistry.java:1110-1122`、`:1207-1227`）
+  - Built-in Skill `skills/web-access/SKILL.md`：定义“确认可信 URL → `web_fetch` → Chrome DevTools MCP isolated 快照 → `/browser connect` shared 登录态 → `r.jina.ai` 兜底”的四步流水线，并支持把验证过的站点模式通过 `save_skill_reference` 写回 `~/.paicli/skills/web-access/references/`
 - 图片输入、TUI（Lanterna）、微信 iLink 文本通道、Runtime API 分别在 `image/`、`tui/`、`wechat/`、`runtime/`
 
 ---
@@ -309,6 +322,7 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 | 966deed | 10-10 | `McpSchemaSanitizer` 把 anyOf/oneOf 一律改成 `type: object`，`Optional[str]` 被标成 object | 按真实类型收起，复杂选项只写进 description；校验仍用原始 Schema |
 | 6f0eb28 | 10-10 | `/index` 每次清空全量重建、单线程、每个 chunk 一次 HTTP；请求体每轮 `toString()` 成整串 | SHA-256 增量、4 线程解析、32 条一批 Embedding、失败保留旧索引；`JsonRequestBody` 直接写出 |
 | 09c57e6 | 11-07 | Team Worker 自由文本交付；Reviewer 异常或重试耗尽后仍算完成并放行下游 | 新增 `TeamWorkerReport`（completed/blocked 协议）与 `TeamStructuredReply`；Reviewer 异常或重试耗尽时保留产出但标 `FAILED`，阻断依赖下游；`AgentMessage` 新增 `PARTIAL` |
+| 6c5548d | 11-10 | `DeepSeekSearchProvider` 走 `/anthropic/v1/messages` 发起带工具的独立模型请求；自动选择优先智谱；`web_fetch` 始终走本机 `WebFetcher` | 改走独立接口 `POST /v1/tools/search` 与 `/v1/tools/fetch`；新增 `PageFetcher` 接口，DeepSeek 就绪时 `web_fetch` 直连远端返回 Markdown；默认搜索优先级改为 DeepSeek 第一 |
 
 ## 现有差距（面试答案可能要超出源码的地方）
 
@@ -325,3 +339,9 @@ SubAgent（`agent/SubAgent.java:294-309`）和 Plan 任务执行器（`agent/Pla
 - LLM：没有跨供应商故障切换和熔断
 - Side-Git 快照没有自动删除旧快照（`SideGitManager.java:86`、`:132`）
 - 会话模式只接了 inline CLI，Lanterna 全屏界面没接（`AGENTS.md:95`）
+- Web / 联网模块：
+  - `WebFetcher` 未关闭 HTTP 自动重定向且未对 30x 跳转目标再次执行 `NetworkPolicy.checkUrl`；`NetworkPolicy.checkHost` 与 OkHttp 连接存在二次 DNS 解析窗口（DNS Rebinding），且未拦截 `isMulticastAddress()` 和 IPv6 唯一本地地址 `fc00::/7`（`WebFetcher.java:44-48`、`NetworkPolicy.java:98-128`）
+  - `NetworkPolicy.acquire()` 是双 `AtomicLong` 的固定窗口计数而非令牌桶，多线程并行 `web_fetch` 在窗口切换边界有竞态（`NetworkPolicy.java:81-96`）
+  - `HtmlExtractor.cleanNoise` 对 `[class],[id]` 做子串匹配且未豁免 `html`/`body`/`main`/`article`，`<body class="with-sidebar">` 会被整棵删空，`"ads"` 会误删 `loads`/`threads`/`downloads`（`HtmlExtractor.java:38-42`、`:68-83`）
+  - `StepSearch` MCP 分支返回 `ToolOutput.text` 未填充 `discoveredUrls`，导致 `step-3.7-flash` 下 `TurnToolPolicy` 无法为搜出的链接开放 `web_fetch`（`ToolRegistry.java:1110-1122`）
+  - `WebFetcher` 未校验非文本 `Content-Type`（如 PDF/图片），且 `fetchPage()` 构造 `FetchResult` 时丢弃了 5MB 字节截断标记 `raw.truncated()`（`WebFetcher.java:57-61`、`:83-89`）

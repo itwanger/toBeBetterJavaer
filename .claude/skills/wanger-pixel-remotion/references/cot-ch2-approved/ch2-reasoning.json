@@ -1,0 +1,9 @@
+{
+  "source": "assets/images/desktop-wide/reopen-thought.png",
+  "prompt": "了解 CoT 思维链吗？",
+  "type": "Verbatim visible third-party model reasoning, transcribed from the Chapter 1 native screenshot. The reveal timing and simplified window are animated, not a new model call.",
+  "paragraphs": [
+    "The user is asking in Chinese: \"了解 CoT 思维链吗？\" — \"Do you know about CoT, chain of thought?\"",
+    "This is a simple knowledge question, no tools needed. I should answer directly in Chinese, explaining CoT (Chain of Thought). Keep it concise but informative. No need for tool calls."
+  ]
+}

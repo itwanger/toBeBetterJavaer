@@ -16,7 +16,7 @@
 - `TerminalRace` 接收两个 `lanes`，每侧传模型名、可选模式、相对速率、读数标签和费用。两边共用 `prompt`、最多四行的 `output`、输出起点 `outputAt`、基准耗时 `baselineFrames`。用 `billAt` 和 `costUnit` 控制账单，费用来自相同的计量口径。需要说实测耗时，用本次运行的数据；本章按公告上限绘制。
 - `RewardTickets` 接收 `title`、短券名 `ticket` 和一至三组 `tiers`。每组传实际门槛 `label`、张数 `count`（1 至 3）、出现帧 `at` 及色值 `tint`。组内每张相隔 6 帧进场。有声样片的 Fast 开关用 soft_click，发券用 success_pair，素材在[提示音库](../assets/pixel-sfx/)。
 
-手机试片选三个时刻：右侧刚写完而左侧还在写、案例的两项验收结果同屏、第三张券落定。以 390 px 宽确认这些变化能直接读出来。图标和人物保留像素边缘；遇到细小中文，先用同一帧比较字号和字重。[字号试样][font]是独立对照，定稿画面以样片为准。
+这些动作应在手机播放比例下可辨：两侧写入进度差异、两项验收结果、第三张券落定。只对本次改动涉及的状态按协作规则核对。图标和人物保留像素边缘；遇到细小中文，先用同一帧比较字号和字重。[字号试样][font]是独立对照，定稿画面以样片为准。
 
 [movie]: ../../../../docs/src/ai/script/claude-fable-5-2/preview/chapter5-v3/chapter5-preview.mp4
 [prices]: ../../../../docs/src/ai/script/claude-fable-5-2/remotion/src/PriceLab.tsx

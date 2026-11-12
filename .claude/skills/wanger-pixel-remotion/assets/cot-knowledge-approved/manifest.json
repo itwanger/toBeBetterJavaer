@@ -1,0 +1,68 @@
+{
+  "approvedOn": "2026-11-12",
+  "status": "approved-source-snapshot",
+  "sourceProject": "/Users/itwanger/Documents/GitHub/ai-better/script/what-is-cot",
+  "entry": "source/HistoryMechanism.tsx",
+  "standalone": false,
+  "reuseGuide": "../../references/COT_CH5_APPROVED.md",
+  "files": {
+    "source/HistoryMechanism.tsx": {
+      "source": "remotion/src/HistoryMechanism.tsx",
+      "sha256": "d53d9fca304b581d421476161f95baa2acb5b30afdc56916bc14dff2a2f9ce6a"
+    },
+    "source/Chapter5.tsx": {
+      "source": "remotion/src/Chapter5.tsx",
+      "sha256": "2e634f3cf6b57b7026bdd8e4f2d8bac005fbcc3a1257f5d50eb096246421625c"
+    },
+    "source/Chapter4.tsx": {
+      "source": "remotion/src/Chapter4.tsx",
+      "sha256": "d418390e75dc55c680565373ba272619dd8874fe04e857ee32729285c6158d17"
+    },
+    "source/PixelSymbols.tsx": {
+      "source": "remotion/src/PixelSymbols.tsx",
+      "sha256": "8c14c6de6a63a06f4c980c83e81340b5d58eeeda65419dbe0711b4f0b8da7fae"
+    },
+    "source/PixelImageWindow.tsx": {
+      "source": "remotion/src/PixelImageWindow.tsx",
+      "sha256": "66763e254e54bf67bd1f2f371f617702ebf26ad4fbc03532c8496dd873c100b9"
+    },
+    "source/Chapter2Design.ts": {
+      "source": "remotion/src/Chapter2Design.ts",
+      "sha256": "556494ddee536569fee054e35afc79e0ae9aef807d772d53d91b611a9166c4a7"
+    },
+    "images/pixel-whale-v1.png": {
+      "source": "assets/images/dsh/pixel-whale-v1.png",
+      "sha256": "d38c79c7a4a2d2da3244d7232eff5d60aeed4c009d1f32e82004c904c3e96d23"
+    },
+    "previews/dynamic-gap.mp4": {
+      "source": "preview/ch5-gap/dynamic-gap.mp4",
+      "sha256": "bd1baab5db152dd016a90d14ca262a34ff9fc38892c6d7f601bc7a4f9c2abee3"
+    },
+    "previews/recap-layout.mp4": {
+      "source": "preview/ch5-recap/recap-layout.mp4",
+      "sha256": "7c79d2415e74712584824992a5b6713add009d6dadd3e48dc297e6859efaf14c"
+    },
+    "references/ch4-phrase-timing.json": {
+      "source": "assets/references/ch4-phrase-timing.json",
+      "sha256": "b461e1e1f4fc881f6cec3e7d5427fb653c72fbd7f671205e2753107b4ccbcbd1"
+    },
+    "references/ch5-phrase-timing.json": {
+      "source": "assets/references/ch5-phrase-timing.json",
+      "sha256": "c5aa15a94e7c00db1be77a2d2f00f26626c4526f15bfa94d5d15628882a29db6"
+    },
+    "references/ch4-materials.json": {
+      "source": "assets/references/ch4-materials.json",
+      "sha256": "6575b6562cf1b41f72725e74e164f2acce09ce630d33b01be8f1f31d7706320e"
+    },
+    "references/ch5-materials.json": {
+      "source": "assets/references/ch5-materials.json",
+      "sha256": "d95177ecb356f79f0f400f29d0c3170274967906263e332f7491786984420c8a"
+    },
+    "references/pixel-actions.json": {
+      "source": "assets/references/pixel-actions.json",
+      "sha256": "173e0f21c4729b38aea30bb6b832db2291478cc54ba5167bd7d5fd34207134b2"
+    }
+  },
+  "fullPreview": "preview/ch5-unified/chapter5-preview.mp4",
+  "fullPreviewNote": "Predates dynamic-gap and recap revisions; final source and included excerpts take precedence."
+}

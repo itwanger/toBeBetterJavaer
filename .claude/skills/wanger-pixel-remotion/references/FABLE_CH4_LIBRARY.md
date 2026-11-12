@@ -16,7 +16,7 @@
 - `LiveScoreOverlay` 接收 `frame`、最多四个 `rows`（`name/score/color`）、两项的数组索引 `compare`、标题与范围 `title/subtitle`，以及四个词头 `timing.show/focus/second/ratio`。条长共用 `maxValue`，默认 100；`unit` 默认 %。分母为正数才显示比值。底层只挂一次 `Sequence + OffthreadVideo`，在有效原片长度内选播放速率。各项入场只改变图层，底片时间继续向前。
 - 转场沿用共享 `MotionHandoffs` 在**不同场景**间移交主体。同张图的读轴、同段录像的成绩变化就在各自图层完成。点名、终点命中和跳旗可从[已有提示音](../assets/pixel-sfx)里取，音量和词头重按新配音定。第四章在合入路径点亮时用了 `soft_click`，公布软件读数和两倍比较时用了 `data_pluck`，到达 Max 点用了 `soft_pop`；场景切到 CAD 时用 `soft_whoosh`，进入模拟成绩时用 `focus_air`。跳旗沿用 `pixel_wipe / pixel_jump / success_pair`。实机视频默音，口播和提示音从同一条章节混音播放。[定稿声音接法][cues]
 
-在 390 px 宽度看横轴中途、纵轴中途、追线中途、终点四帧，检查亮点、真实刻度与读数对应。实机在成绩出现前、四项全貌、双条比较、比值出现后，都应能对回原录像的**不同时刻**。数据的评测范围、档位、原片与对应关系留在[来源记录][sources]。
+涉及追线改动时，按协作规则选必要状态核对亮点、真实刻度与读数对应，兼顾手机可读性。实机在成绩出现前、四项全貌、双条比较、比值出现后，都应能对回原录像的**不同时刻**。数据的评测范围、档位、原片与对应关系留在[来源记录][sources]。
 
 [movie]: ../../../../docs/src/ai/script/claude-fable-5-2/preview/chapter4-v2/chapter4-preview.mp4
 [shots]: ../../../../docs/src/ai/script/claude-fable-5-2/remotion/src/BenchLab.tsx

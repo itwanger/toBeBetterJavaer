@@ -1,0 +1,19 @@
+{
+  "starts": [
+    433,
+    455,
+    488
+  ],
+  "end": 519,
+  "labels": [
+    "拆解问题",
+    "分析条件",
+    "不同思路"
+  ],
+  "source": "ch1-forced-alignment.json unit 2; startFrame 301 + word start_time * 30",
+  "wordOnsetsSeconds": [
+    4.4,
+    5.12,
+    6.24
+  ]
+}

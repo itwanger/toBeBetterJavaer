@@ -1,0 +1,1687 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "id": "send",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 43
+      },
+      "kind": "send",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "expand",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 48
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "collapse",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 271
+      },
+      "kind": "collapse",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "recall",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 374
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -26
+      }
+    },
+    {
+      "id": "name",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 530
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "flag-run",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 0
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "flag-jump",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 48
+      },
+      "kind": "jump",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "flag-seat",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 67
+      },
+      "kind": "reward",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "analysis-open",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 0
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "recall-analysis",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 389
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -26
+      }
+    },
+    {
+      "id": "recall-thought",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 405
+      },
+      "kind": "expand",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -26
+      }
+    },
+    {
+      "id": "focus-status",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 102
+      },
+      "kind": "focus"
+    },
+    {
+      "id": "focus-analysis",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 162
+      },
+      "kind": "focus"
+    },
+    {
+      "id": "complete",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 218
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "definition",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 439
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "typing-0",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 6
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "typing-1",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 18
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "typing-2",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 30
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "native-entry",
+      "chapter": "ch1",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 84
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "usage",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 7,
+        "offsetFrames": 101
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "panel",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 7,
+        "offsetFrames": 245
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "flag-run",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 8,
+        "offsetFrames": 0
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "flag-jump",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 8,
+        "offsetFrames": 55
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "flag-seat",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 8,
+        "offsetFrames": 74
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "thought-stream-0",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 4,
+        "offsetFrames": 14
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -36
+      }
+    },
+    {
+      "id": "thought-stream-1",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 4,
+        "offsetFrames": 48
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -36
+      }
+    },
+    {
+      "id": "thought-stream-2",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 4,
+        "offsetFrames": 82
+      },
+      "kind": "type",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -36
+      }
+    },
+    {
+      "id": "article-entry",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 374
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "context-return",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 487
+      },
+      "kind": "transition",
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "remote-enter",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 43
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "input-send",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 72
+      },
+      "kind": "send",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "token-receive-0",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 130
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-1",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 172
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-2",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 214
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-3",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 312
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-4",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 56
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-5",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 108
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-6",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 160
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-7",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 212
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-8",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 264
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-9",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 526
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-10",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 568
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-11",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 7,
+        "offsetFrames": 40
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "token-receive-12",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 7,
+        "offsetFrames": 82
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "first-layer",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 211
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -33
+      }
+    },
+    {
+      "id": "last-layer",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 247
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -33
+      }
+    },
+    {
+      "id": "matrix",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 264
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -33
+      }
+    },
+    {
+      "id": "cache",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 166
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -33
+      }
+    },
+    {
+      "id": "read",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 298
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -33
+      }
+    },
+    {
+      "id": "cot-start",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "answer-receive",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 336
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -25
+      }
+    },
+    {
+      "id": "article-focus",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 398
+      },
+      "kind": "focus",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "answer-error",
+      "chapter": "ch2",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 533
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "error",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "early",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "append",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 84
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "typing1",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 125
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -35
+      }
+    },
+    {
+      "id": "derive",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 158
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "mixed",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 214
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "modern",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 302
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "learned",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 367
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "verify",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 466
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "reject",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 485
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "error",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "retry",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 535
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "protocol",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 11,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "split",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 11,
+        "offsetFrames": 120
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "text",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 11,
+        "offsetFrames": 173
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "reasoning",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 11,
+        "offsetFrames": 209
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "folds",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 12,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "middle",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 12,
+        "offsetFrames": 156
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "inner",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 12,
+        "offsetFrames": 204
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "thought",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 12,
+        "offsetFrames": 214
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "flag-run",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 13,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "flag-jump",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 13,
+        "offsetFrames": 43
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "flag-seat",
+      "chapter": "ch3",
+      "at": {
+        "beatId": 13,
+        "offsetFrames": 62
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "desktop",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 15,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "model-menu",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 15,
+        "offsetFrames": 72
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "effort-menu",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 15,
+        "offsetFrames": 98
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "options",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 15,
+        "offsetFrames": 125
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "default",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 15,
+        "offsetFrames": 331
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "choose-low",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 19
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "choose-high",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 31
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "choose-max",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 48
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "request",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 67
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "thinking",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 84
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "config",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 137
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "send",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 180
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "choose-off",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 211
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "disabled",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 231
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "flag-run",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 17,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "flag-jump",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 17,
+        "offsetFrames": 43
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "flag-seat",
+      "chapter": "ch4",
+      "at": {
+        "beatId": 17,
+        "offsetFrames": 62
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "overview",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "same",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "stream",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 26
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "signature",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 113
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "assembled",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 230
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "request-copy",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 269
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "replay",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 420
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "filter",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 458
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "filter-user",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 476
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "filter-tool",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 20,
+        "offsetFrames": 527
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "benefits",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "tool-one",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 70
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "tool-result-one",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 94
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "tool-two",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 108
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "tool-result-two",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 132
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "prefix",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 161
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "cache",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 307
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "cross",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "model-change",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 91
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "mismatch",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 228
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "error",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "prepare",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 326
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "compare",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 420
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "strip",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 506
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "send-text",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 562
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "received",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 22,
+        "offsetFrames": 602
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "compact",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 23,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "send-history",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 23,
+        "offsetFrames": 70
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -33
+      }
+    },
+    {
+      "id": "summary",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 23,
+        "offsetFrames": 120
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "discard",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 23,
+        "offsetFrames": 172
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "checkpoint",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 23,
+        "offsetFrames": 312
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "flag-run",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 24,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "flag-jump",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 24,
+        "offsetFrames": 70
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "flag-seat",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 24,
+        "offsetFrames": 89
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -24
+      }
+    },
+    {
+      "id": "recap",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 25,
+        "offsetFrames": 0
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "answer",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 25,
+        "offsetFrames": 240
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "outro-jump",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 26,
+        "offsetFrames": 50
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "outro-pickup",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 27,
+        "offsetFrames": 38
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "like",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 27,
+        "offsetFrames": 62
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_like",
+        "peakDbfs": -18
+      }
+    },
+    {
+      "id": "follow",
+      "chapter": "ch5",
+      "at": {
+        "beatId": 27,
+        "offsetFrames": 72
+      },
+      "kind": "reveal",
+      "sound": {
+        "name": "pixel_follow",
+        "peakDbfs": -18
+      }
+    }
+  ]
+}

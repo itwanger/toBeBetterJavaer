@@ -1,0 +1,221 @@
+{
+  "method": "mlx-community/Qwen3-ForcedAligner-0.6B-4bit forced alignment on current audio; subtitles switch at phrase onset; events at anchor onset plus offset",
+  "chapterStartFrame": 1004,
+  "chapterEndFrame": 2756,
+  "chapterFrames": 1752,
+  "audioSha256": {
+    "4": "674c620a027baf71b231b396184e2ba863fa4c27733f2464150bb0ddbf81cd82",
+    "5": "f59df022c039d1207372d532db4a066f145ba5ca18bfd222554d95617f77c7c1",
+    "6": "7ba275d98b9ff20b8bfaf7d3bc87d6a617d47b8f57eacad1ca41aa9215d4317f",
+    "7": "eeff7c9d50e076be37f47577adc3fabb2d88926f3ea9a23becc94995eb853e15",
+    "8": "4b15f6671ae5116cea88bcc79da71c5285e8bd6bdfb404a90c8b6de149e5b1f0"
+  },
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 48,
+      "text": "那聪明的你一定会问，",
+      "beatId": 4
+    },
+    {
+      "startFrame": 48,
+      "endFrame": 116,
+      "text": "为什么要让模型先输出思考过程？",
+      "beatId": 4
+    },
+    {
+      "startFrame": 116,
+      "endFrame": 159,
+      "text": "前几期我们讲过，",
+      "beatId": 5
+    },
+    {
+      "startFrame": 159,
+      "endFrame": 234,
+      "text": "大模型采用自回归的方式生成内容，",
+      "beatId": 5
+    },
+    {
+      "startFrame": 234,
+      "endFrame": 291,
+      "text": "一个 Token 接一个 Token 地输出。",
+      "beatId": 5
+    },
+    {
+      "startFrame": 291,
+      "endFrame": 327,
+      "text": "每生成一个 Token，",
+      "beatId": 5
+    },
+    {
+      "startFrame": 327,
+      "endFrame": 380,
+      "text": "模型经过的 Transformer 层数",
+      "beatId": 5
+    },
+    {
+      "startFrame": 380,
+      "endFrame": 438,
+      "text": "和矩阵运算量都是固定的。",
+      "beatId": 5
+    },
+    {
+      "startFrame": 438,
+      "endFrame": 493,
+      "text": "如果要求模型输出的第一个 Token ",
+      "beatId": 5
+    },
+    {
+      "startFrame": 493,
+      "endFrame": 543,
+      "text": "就是一道复杂数学题的答案，",
+      "beatId": 5
+    },
+    {
+      "startFrame": 543,
+      "endFrame": 610,
+      "text": "就相当于要求它在一个 Token 的计算量里",
+      "beatId": 5
+    },
+    {
+      "startFrame": 610,
+      "endFrame": 649,
+      "text": "完成多步推导。",
+      "beatId": 5
+    },
+    {
+      "startFrame": 649,
+      "endFrame": 712,
+      "text": "计算量不够，答案就很容易出错。",
+      "beatId": 5
+    },
+    {
+      "startFrame": 712,
+      "endFrame": 806,
+      "text": "如果模型先把中间的推理步骤逐字输出，",
+      "beatId": 6
+    },
+    {
+      "startFrame": 806,
+      "endFrame": 878,
+      "text": "这些步骤就会进入上下文窗口，",
+      "beatId": 6
+    },
+    {
+      "startFrame": 878,
+      "endFrame": 962,
+      "text": "对应的 K 和 V 向量也会存入 KV Cache。",
+      "beatId": 6
+    },
+    {
+      "startFrame": 962,
+      "endFrame": 1010,
+      "text": "等到生成最终答案时，",
+      "beatId": 6
+    },
+    {
+      "startFrame": 1010,
+      "endFrame": 1086,
+      "text": "自注意力机制可以读取这些中间结论。",
+      "beatId": 6
+    },
+    {
+      "startFrame": 1086,
+      "endFrame": 1110,
+      "text": "简单来说，",
+      "beatId": 6
+    },
+    {
+      "startFrame": 1110,
+      "endFrame": 1199,
+      "text": "思维链就是把上下文窗口当成草稿纸，",
+      "beatId": 6
+    },
+    {
+      "startFrame": 1199,
+      "endFrame": 1282,
+      "text": "用更多的输出 Token 换来更多的推理计算量。",
+      "beatId": 6
+    },
+    {
+      "startFrame": 1282,
+      "endFrame": 1330,
+      "text": "当然，草稿越多，",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1330,
+      "endFrame": 1383,
+      "text": "消耗的 Token 就越多。",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1383,
+      "endFrame": 1426,
+      "text": "在 DeepSeek Harness 中，",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1426,
+      "endFrame": 1484,
+      "text": "每轮回复底部都有一个显示「用量」",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1484,
+      "endFrame": 1527,
+      "text": "和 tok 数值的按钮，",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1527,
+      "endFrame": 1587,
+      "text": "点开后会弹出「本轮用量」面板，",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1587,
+      "endFrame": 1631,
+      "text": "可以查看「输出」等数据。",
+      "beatId": 7
+    },
+    {
+      "startFrame": 1631,
+      "endFrame": 1677,
+      "text": "恭喜看到这里的你，",
+      "beatId": 8
+    },
+    {
+      "startFrame": 1677,
+      "endFrame": 1752,
+      "text": "已经成功击败 50% 的学习者了。",
+      "beatId": 8
+    }
+  ],
+  "events": {
+    "question": 0,
+    "autoregressive": 116,
+    "tokens": 234,
+    "layers": 291,
+    "fixed": 414,
+    "direct": 438,
+    "multi": 620,
+    "error": 649,
+    "scratch": 712,
+    "context": 806,
+    "kv": 878,
+    "cache": 923,
+    "answer": 962,
+    "read": 1010,
+    "paper": 1086,
+    "more": 1199,
+    "cost": 1282,
+    "usage": 1383,
+    "button": 1474,
+    "panel": 1527,
+    "output": 1587,
+    "run": 1631,
+    "seat": 1705,
+    "end": 1752
+  }
+}

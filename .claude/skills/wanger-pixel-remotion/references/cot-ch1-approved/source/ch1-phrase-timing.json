@@ -1,0 +1,126 @@
+{
+  "method": "mlx-community/Qwen3-ForcedAligner-0.6B-4bit forced alignment on current audio; subtitles switch at phrase onset; events at anchor onset plus offset",
+  "chapterStartFrame": 0,
+  "chapterEndFrame": 1004,
+  "chapterFrames": 1004,
+  "audioSha256": {
+    "1": "9f3f18ad6e41224fcad71d7bc0cf573ced4fb027b6583fcf86521b8eac5e070d",
+    "2": "76ce41a3b3d0ad5735fb9e2e5e1d2153d7b6f5957dd3c4410d7508b61aa86a00",
+    "3": "edd9ebe3e90cb286d0d7697711b7ac5a0cf87171ec77e4f65e0ee173bcb3cf2a"
+  },
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 84,
+      "text": "在 DeepSeek Harness 里发送一条提示词后，",
+      "beatId": 1
+    },
+    {
+      "startFrame": 84,
+      "endFrame": 156,
+      "text": "界面会显示“深度求索中”和计时，",
+      "beatId": 1
+    },
+    {
+      "startFrame": 156,
+      "endFrame": 233,
+      "text": "上方“正在分析请求”这一行会不断刷新，",
+      "beatId": 1
+    },
+    {
+      "startFrame": 233,
+      "endFrame": 301,
+      "text": "显示模型正在生成的推理片段。",
+      "beatId": 1
+    },
+    {
+      "startFrame": 301,
+      "endFrame": 349,
+      "text": "展开「正在分析请求」，",
+      "beatId": 2
+    },
+    {
+      "startFrame": 349,
+      "endFrame": 387,
+      "text": "再点开里面的「思考」，",
+      "beatId": 2
+    },
+    {
+      "startFrame": 387,
+      "endFrame": 455,
+      "text": "就能实时看到模型怎样拆解问题、",
+      "beatId": 2
+    },
+    {
+      "startFrame": 455,
+      "endFrame": 519,
+      "text": "分析条件、尝试不同的思路。",
+      "beatId": 2
+    },
+    {
+      "startFrame": 519,
+      "endFrame": 546,
+      "text": "回答结束后，",
+      "beatId": 2
+    },
+    {
+      "startFrame": 546,
+      "endFrame": 596,
+      "text": "这部分内容会默认收起，",
+      "beatId": 2
+    },
+    {
+      "startFrame": 596,
+      "endFrame": 675,
+      "text": "变成一条“已完成，用时×秒”的折叠条，",
+      "beatId": 2
+    },
+    {
+      "startFrame": 675,
+      "endFrame": 740,
+      "text": "需要回看时逐层展开即可。",
+      "beatId": 2
+    },
+    {
+      "startFrame": 740,
+      "endFrame": 831,
+      "text": "这里展示的、由模型一步一步生成的推理过程，",
+      "beatId": 2
+    },
+    {
+      "startFrame": 831,
+      "endFrame": 896,
+      "text": "就是 CoT 思维链（Chain of Thought）。",
+      "beatId": 2
+    },
+    {
+      "startFrame": 896,
+      "endFrame": 937,
+      "text": "恭喜看到这里的你，",
+      "beatId": 3
+    },
+    {
+      "startFrame": 937,
+      "endFrame": 1004,
+      "text": "已经成功击败 30% 的学习者。",
+      "beatId": 3
+    }
+  ],
+  "events": {
+    "send": 43,
+    "thinking": 102,
+    "analyzing": 162,
+    "refresh": 209,
+    "screen": 301,
+    "expand": 349,
+    "reason": 429,
+    "complete": 519,
+    "collapse": 572,
+    "recall": 675,
+    "definition": 740,
+    "name": 831,
+    "run": 896,
+    "seat": 963,
+    "end": 1004
+  }
+}

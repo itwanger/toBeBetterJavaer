@@ -1,6 +1,6 @@
 # DeepSeek Harness (DSH) Desktop, Plugin System, and Mode Architecture: Source Research
 
-> 调研日期：2026-11-03｜commit 8bd073392e｜版本 0.2.2-alpha.3（基线 2026-09-28 commit 21638c56 为 0.1.7-rc.2；第 6 节新增 0.2.2-alpha.3 的 Mode / Agent Preset / Creator Mode / 个性化推荐与 Team Mode 完整源码拆解）。
+> 调研日期：2026-11-11｜仓库：`/Users/itwanger/Documents/GitHub/deepseek-harness`｜commit fcc0ad4621（基线 2026-09-28 commit 21638c56 为 0.1.7-rc.2；第 6 节为 Mode / Agent Preset / Creator Mode / Team Mode 源码拆解；第 7 节新增 CoT 思维链 / Reasoning 在桌面端 UI 的真实呈现、推理等级控制、多轮回放签名与压缩机制）。
 
 > Research date: 2026-09-28. Read at `origin/master` commit `21638c56315ae6a2b552d6091945d3144c9af32e` (2026-09-27), which is 3 days after tag `dsh-v0.1.7-rc.2` (`477b4f4205`, 2026-09-24). The root `package.json` version is `0.1.7-rc.2`. Between rc.2 and this commit, the only doc changes in the files cited below are small ones: plugin page skeleton and refresh polish, desktop product analytics, and update-copy wording. These are marked "post-rc.2" where they come up. Line numbers refer to the commit above. Items marked **(inference)** are my own reading and are not stated in the source.
 
@@ -369,3 +369,83 @@ Two additional "Mode" mechanisms landed in recent releases:
    - Mounted inside `standard`, `ptc`, and `cordis` presets inside an isolated `planning` group (`standard.patch.yml:48-68`), gated by `exit_plan_mode` review while keeping the tool catalog identical for KV-cache stability.
 4. **Permission Presets (`@deepseek-ai/dsh-permission-presets`)**:
    - Separate from Agent Presets: bundles sandbox mode (`read-only`, `workspace-write`, `danger-full-access`) and approval policy (`auto`, etc.), selectable via `/permission` or the composer permission seat.
+
+---
+
+## 7. CoT / Reasoning (Thinking) Architecture, Desktop UI Presentation, Effort Control & Replay (`fcc0ad4621`)
+
+> **核心避坑提醒**：DeepSeek Harness 桌面端**没有**单独的“开启/关闭思考模式”开关按钮，思考过程在聊天窗口里也**不是**一上来就大段展开的灰色折叠框。写文章或口播稿时，严禁把网页版聊天框的刻板印象套到 DeepSeek Harness 桌面端上。
+
+### 7.1 桌面端如何控制思考开关与深度：模型菜单中的「推理等级」
+- **UI 入口**（`packages/client/ui-model-selection/src/client/locales.ts:21-25`、`README.zh.md:34-44`）：在输入框（Composer）右下角点击模型触发器（或输入 `/model`），根菜单包含「模型」（`menu.model`）和「推理等级」（`menu.effort`）两项。
+- **四档递增推理等级**（`packages/llm/llm-deepseek/src/model-info.ts:6-31`）：官方 `llm-deepseek` 适配器按从低到高顺序公布四个等级：
+  - `off`（`Off`）：Use for simple tasks that do not need reasoning.
+  - `low`（`Low`）：Prefer for routine or latency-sensitive tasks.
+  - `high`（`High`，**默认值**）：The default balance for most tasks.
+  - `max`（`Max`）：Reserve for the hardest quality-first tasks.
+- **底层序列化映射**（`packages/llm/llm-deepseek/src/serialize.ts:147-156`）：
+  - 当选择 `low`、`high` 或 `max` 时，请求体发送 `thinking: { type: 'enabled' }` 并附带 `output_config: { effort: 'low' | 'high' | 'max' }`。
+  - 只有当把「推理等级」切换到 `off` 时，请求体才发送 `thinking: { type: 'disabled' }` 并省略 `output_config`。
+  - 若部署配置了 `thinking: 'disabled'`，则模型仅公开 `off` 一档，传入其他档位直接抛 `UNSUPPORTED_REASONING_EFFORT`。
+- **为什么强制要求适配器的 `efforts` 从低到高排列？**
+  - 因为轻量后台任务需要自动选最低推理等级。例如首轮提示词生成会话标题插件 `@deepseek-ai/dsh-session-title-first-prompt-llm`（`packages/session/session-title-first-prompt-llm/src/index.ts:75-76`）定义了 `selectReasoningEffort = (model) => model.reasoning?.efforts[0]?.id`，直接取第 `0` 项（即 `off` 或最低档），省去后台生成 `10` 个汉字以内标题时的思考耗时与 Token。
+  - 同时在 `packages/bundle/base/cordis.patch.yml:73-76` 中，会话标题插件将 `maxOutputTokens` 设为 `4096`（注释明确说明：`reasoning a model cannot switch off also counts as output`），留出充足余量防止不可关闭的思考 Token 耗尽额度导致标题正文被截断。
+
+### 7.2 桌面端聊天视图（`ui-chat`）中 CoT 思维链的真实呈现形式
+- **协议层内容块与流式分流**（`packages/llm/llm-deepseek/src/translate.ts:50-81`、`docs/subsystems/llm-streaming.zh.md:167-226`）：
+  - 服务端返回的 `thinking` 内容块在 Harness 内部被译为 `{ type: 'reasoning', text }`，与普通文本块 `{ type: 'text', text }` 完全独立。
+  - 流式传输时，`thinking_delta` 转为 `reasoning-delta` 事件发往前端；而 `signature_delta` 仅在后台累加到 `block.replay.signature` 中，不向 UI 发射分片。
+  - `AssistantStreamAccumulator` 将同一思考块的连续 `reasoning-delta` 压缩为单条带时间戳间隔的紧凑记录，并分别统计 `runFirstTokenTime`（首个思考 Token 到达时间）与 `runFirstVisibleTime`（首个正文可见 Token 到达时间）。
+- **三层过程折叠体系**（`packages/client/ui-chat/src/client/conversation-nodes/README.zh.md:25-65, 115-198`）：
+  - 显隐从外向内分三层：**整轮过程控件（Whole Turn） → 过程组（Process Group） → 单个「思考」行（`ReasoningRow`）或工具行**。
+  - **运行中状态**：会话底部显示动态摆尾的小鲸鱼图标（APNG 遮罩）与蓝色高光文字 `深度求索中，用时 X秒 ···`（`locale.ts:96-97`）。相邻的思考和工具调用（如思考 → `read` → `bash`）被归入同一个过程组；阶段回复或最终回答会截断过程组，且回复本身留在折叠范围外保持可见。當没有工具正在运行、模型正在思考时，过程组标题显示 `正在分析请求`，在桌面端默认的「标准（`standard`）」工作步骤展示模式下，组标题后用 ` · ` 追加最近一个非空推理段落（剥离 `**` 并限长 160 字素簇）。
+  - **单个「思考」行的默认收起与首行流光预览**（`packages/client/ui-chat/src/client/chat/ReasoningRow.tsx:12-111`、`reasoning-text.ts:8-24`）：
+    - 哪怕在流式输出期间，单个「思考」行（图标 `IconThinkOutlineRegular` + 标题 `思考`）初始也是**收起**状态（`open={expanded}` 默认为 `false`）。
+    - 收起状态下，流式期间调用 `latestCompletedParagraphFirstLine(text)`：只预览**最新一个首行已经以换行符结束的段落的第一行**（尚未换行的半截单行不预览，该段落后续文字也不改变该首行预览），剥离 `**` 标记与开头的 `<signature>...</signature>` 标签后，用 `TextShimmer` 渲染从左到右扫过的流光高光。
+    - 思考块结算完成后，在「标准」「详细」「完全展开」模式下保留第一行预览，「简洁（`compact`）」模式下隐藏预览。用户手动点击该行后，才通过 `conversation.chat.reasoning.body` 插槽以紧凑 Markdown 排版展开完整的思考正文。
+  - **整轮结束后的自动收起与用量明细**：
+    - 轮次正常结束后（默认「回答结束后」收起时机），整轮过程默认自动收起为顶部的 `已完成，用时 X秒` 折叠条，将所有过程组、思考行和工具调用一并隐藏，界面上只保留干净的 Assistant 回复。
+    - 点击轮次底部的「本轮用量」（`locale.ts:189-198`），在「输出」项旁会专门展示 `（其中推理 {tokens}）`（`reasoningTokens` 已包含在 `outputTokens` 内，不重复累加）。
+
+### 7.3 多轮对话回放、跨模型签名降级与上下文压缩
+- **同模型多轮回放与 KV Cache 保护**（`packages/llm/llm-deepseek/src/serialize.ts:26-39, 65-67`、`README.zh.md:175-184`）：
+  - 序列化历史消息时，此前 `assistant` 轮次的 `reasoning` 块会被还原为 `{ type: 'thinking', thinking: block.text, signature }` 原样传回（无论该轮是否调用了工具）；而 `user` 消息和 `tool_result` 中的 `reasoning` 块会被直接省略过滤。
+  - 原样保留历史 `assistant` 思考块不仅让模型在连续工具调用中保持推理连贯，而且保证了已组装的历史 Token 前缀完全不变，从而命中服务端的 `KV Cache`（在 `usage.cacheReadTokens` 中上报）。
+- **跨模型切换时的签名校验与无损降级**（`packages/llm/llm-deepseek/src/replay.ts:39-64`）：
+  - 每个助手消息在 `source.replayState` 中保存了 `{ response: { kind: 'deepseek-messages', version: 1, model }, blocks }`。
+  - 下次组装请求调用 `readReplay(message, targetModel)` 时，会严格校验 `response.model === model` 以及块数量和类型是否对齐。如果用户在会话中途切换了模型（例如从 `deepseek-v4-pro` 切到 `deepseek-flash`），`readReplay` 返回 `undefined`，序列化时自动剥离旧模型绑定的 `signature`，只把 `{ type: 'thinking', thinking: block.text }` 明文发出去，避免因跨模型签名不匹配导致请求报错失败。
+- **流式中断与上下文压缩处理**：
+  - 流式中途取消时，`BlockAssembler.interruptedBlocks()`（`docs/subsystems/llm-streaming.zh.md:403-409`）会安全固化已输出的非空白文本和 `reasoning` 前缀，并丢弃未派发的半截工具调用。
+  - 触发自动上下文压缩（`packages/compaction/compaction-basic/README.md:129, 198, 258`）时，摘要请求设置 `purpose: 'compaction'`，模型返回的 `reasoning` 思考块会被直接剔除，只有总结出的纯文本进入 `<compacted-summary>` 检查点，避免总结时的思考草稿污染并占用主会话上下文。
+
+
+---
+
+## 8. LLM Protocols in DeepSeek Harness, Pi Agent, Claude Code & Codex (`fcc0ad4621`)
+
+### 8.1 双适配器架构与 UI 配置入口
+- **双适配器设计**（`packages/llm/README.zh.md:25-35`、`.agents/notes/implemented/architecture/2026-06-13-twin-llm-adapters.zh.md:13-29`）：
+  1. `@deepseek-ai/dsh-llm-deepseek`（`packages/llm/llm-deepseek/`）：服务于 `deepseek-official` 和 `deepseek-account`，用原生 `fetch` 直接调用 **Anthropic Messages API（`/v1/messages`）** 与 **Files API（`/v1/files`）**，默认端点 `https://api.deepseek.com/anthropic`（`README.zh.md:57,83`）。DSH 在 2026-09-19 归档移除了 `llm-deepseek` 中的 OpenAI Chat Completions 传输实现，官方路线固定走 Anthropic Messages 协议（`README.zh.md:118`）。
+  2. `@deepseek-ai/dsh-llm-pi-ai`（`packages/llm/llm-pi-ai/src/provider.ts:47-51`）：服务于内置第三方供应商目录和用户自定义供应商，支持三种协议：`openai-completions`（`/v1/chat/completions`）、`openai-responses`（`/v1/responses`）、`anthropic-messages`（`/v1/messages`）。
+- **UI 模型设置入口**（`packages/client/ui-settings-models/src/client/locales.ts:148-272`、`ModelsSection.tsx:575-593`、`CustomProviderCard.tsx:218-291`、`protocol-label.ts:10-14`）：
+  - 侧栏进入「模型」→ 点击「添加模型提供商」→ 切换「第三方模型提供商」或「自定义模型 API」。
+  - 在「自定义模型 API」中，「API 协议」下拉框提供三个选项：`OpenAI Chat Completions`、`OpenAI Responses`、`Anthropic Messages`。
+  - 选择 OpenAI 两种协议时，「API 地址」占位符为 `https://gateway.example/v1`；切换为 `Anthropic Messages` 时占位符变为 `https://gateway.example`（适配器自动拼接 `/v1/messages`）。编辑 DeepSeek 官方提供商时，占位符为 `https://api.deepseek.com/anthropic（默认使用环境 DEEPSEEK_BASE_URL）`，提示 `请填写兼容 Anthropic Messages 协议的 API 地址。`。
+
+### 8.2 OpenAI Chat Completions / Responses 与 Anthropic Messages 核心协议差异
+1. **消息结构、System Prompt 与工具调用/返回**：
+   - **OpenAI Chat Completions（`/v1/chat/completions`）**：`system`（或推理模型的 `developer`）放在 `messages` 数组内；`assistant` 文本在 `content`，工具调用拆到独立的 `tool_calls` 字段（`arguments` 为 JSON 字符串）；每个工具返回拆成一条独立的 `role: "tool"` 消息（不支持图片块，工具返回图片时 Pi 适配器需在末尾追加一条合成 `role: "user"` 图片消息，`pi/packages/ai/src/api/openai-completions.ts:1416-1460`）。
+   - **Anthropic Messages（`/v1/messages`）**：首部系统提示词提取到顶层 `system` 字段（支持带 `cache_control` 的文本块数组）；`messages` 仅由 `user` 和 `assistant` 交替组成，统一采用 `content` 内容块数组——`assistant` 按顺序放入 `thinking`、`text`、`tool_use`（`input` 为解析后的 JSON 对象），工具返回则作为 `role: "user"` 消息里的 `tool_result` 块（原生支持嵌套文本和图片，配合 `/v1/files` 可传 `file_id` 避免每轮重传 Base64，且同一条 `user` 消息合并时 `tool_result` 块必须排在普通 `text`/`image` 块前面，`llm-deepseek/src/serialize.ts:125-146`）。
+   - **OpenAI Responses（`/v1/responses`）**：顶层 `instructions` 传系统指令，`input` 为扁平 Item 流（`reasoning`、`message`、`function_call`、`function_call_output` 各自作为独立顶层项）；Codex 还支持 WebSocket `response.create` 携带 `previous_response_id` 只传单轮新增 `input` 项（`codex-rs/codex-api/src/endpoint/responses_websocket.rs:159-186`）。
+2. **思维链（Thinking）与多轮回放签名**：
+   - **OpenAI Chat Completions**：各厂商方言碎片化（`reasoning_effort`、`enable_thinking`、`thinking` 等近 10 种写法，流式增量分散在 `reasoning_content` / `reasoning` / `reasoning_text`），DeepSeek 的 Chat Completions 接口在思考模式下还要求回放历史 `assistant` 消息时必须显式携带 `reasoning_content`（哪怕为空字符串 `""`）。
+   - **Anthropic Messages**：流式通过 `content_block_start`（`thinking`）→ `thinking_delta` → `signature_delta` 下发思考文本与加密签名；多轮工具调用时，客户端把 `{ type: "thinking", thinking, signature }`（或安全脱敏的 `redacted_thinking`）按原顺序放在 `assistant.content` 中原样带回。
+   - **OpenAI Responses**：无状态模式下请求需传 `include: ["reasoning.encrypted_content"]`，服务端在 `reasoning` 项下发 `encrypted_content`，下一轮原样塞回 `input`。
+3. **SSE 流式事件与 Token 计费口径**：
+   - **OpenAI Chat Completions**：无事件名的 `data: {...}` 分片流，需显式传 `stream_options: { include_usage: true }` 才会在最后一个 chunk 返回 `usage`（中途取消则拿不到任何 Token 统计）；`prompt_tokens` 包含 `cached_tokens`（算未缓存输入需做减法）。
+   - **Anthropic Messages**：强类型状态机事件流，`message_start` 第一帧就返回 `input_tokens`、`cache_read_input_tokens`、`cache_creation_input_tokens`（中途取消也能记账，且 `input_tokens` 仅代表未缓存新增部分，总输入需相加）；`content_block_stop` 显式标记块结束（适配器只需在此时 `JSON.parse` 一次工具参数，避免每帧 `partialParse` 的 $O(n^2)$ 开销）；`message_delta` 返回 `output_tokens` 与 `stop_reason`。
+4. **提示词缓存（KV Cache）与中途动态更新**：
+   - **OpenAI**：服务端自动前缀匹配，客户端传 `prompt_cache_key` 辅助路由粘性。
+   - **Anthropic Messages**：显式在 `system`、`tools` 末尾和最后一条 `user` 消息块上打 `cache_control: { type: "ephemeral" }` 断点；DeepSeek 的 Messages 接口还支持 `anthropic-beta: mid-conversation-tool-changes-2026-07-01`，允许在对话历史中途追加 `role: "system"` 更新和 `tool_addition` / `tool_removal` 块而不改动顶层 `system` 与 `tools`，守住已有的 KV Cache 前缀（`llm-deepseek/src/serialize.ts:83-116`）。
+5. **跨协议切换模型的清洗与非破坏性投影**（`pi/packages/ai/src/api/transform-messages.ts:64-235`、`llm-pi-ai/src/replay.ts:152-259`）：
+   - 会话中途切换协议/模型时，剥离异构模型的 `thinkingSignature`，将历史 `thinking` 块降级为普通 `text` 块，丢弃无法解密的 `redacted_thinking`；同步重写并映射 `tool_call_id`（Anthropic 限 64 字符 `^[a-zA-Z0-9_-]+$`，Chat Completions 限 40 字符超长取 SHA-256 短哈希）；补齐中断轮次悬空的 `tool_result`。DSH 只在请求的瞬态副本上做转换，本地会话日志完整保留原模型的 `ReplayEnvelope`。

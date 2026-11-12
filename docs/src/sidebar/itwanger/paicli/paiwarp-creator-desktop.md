@@ -206,15 +206,11 @@ export default function apply(ctx, config = {}) {
 
 把 `schema` 明确声明为 `{ type: 'string' }`，再提供一个 `render` 函数，每次工具调用返回的 JSON 字符串就能原样交给 DeepSeek Harness。
 
-此外，`host.js` 还通过 `ctx.prompts.register` 注册了一段编号为 `paiwarp-creator:chapter-two` 的系统提示词。
+此外，`host.js` 还通过 `ctx.prompts.register` 注册了一段编号为 `paiwarp-creator:chapter-two` 的系统提示词。用户输入提示词“用 PaiWarp 创造版复跑第二章”时，DeepSeek Harness 会先调用 1 次 `paiwarp_creator_run_chapter_two` 启动伪终端，然后严格按照每次返回值里的 `nextExpectedInput` 字段，连续调用 12 次 `paiwarp_creator_terminal_input`，依次完成这 12 步：编译、启动、串行计划、回车执行、并行 DAG、按 `I` 修订、输入表格要求、回车执行、`Shift+Tab` 切换模式、输入不带 `/plan` 的提示词、回车执行、`/exit` 退出。
 
-用户输入提示词“用 PaiWarp 创造版复跑第二章”时，DeepSeek Harness 会先调用 1 次 `paiwarp_creator_run_chapter_two` 启动伪终端，然后严格按照每次返回值里的 `nextExpectedInput` 字段，连续调用 12 次 `paiwarp_creator_terminal_input`，依次完成：编译、启动、计划、回车、并行 DAG、按 `I` 修订、输入要求、回车执行、`Shift+Tab` 切换模式、输入不带 `/plan` 的提示词、回车执行、`/exit` 退出。
+## 04、伪终端怎么处理多行粘贴和单键操作
 
-## 04、伪终端怎么处理多行粘贴
-
-DeepSeek Harness 每调用一次 `paiwarp_creator_terminal_input`，`host.js` 就会通过标准输入，把这一步要输入的内容交给 `plugins/paiwarp-creator/creator_runner.py`。
-
-第 1 期只需要输入单行命令，而第 2 期在控制伪终端时有三个难点：
+DeepSeek Harness 每调用一次 `paiwarp_creator_terminal_input`，`host.js` 就会通过标准输入，把这一步要输入的内容交给 `plugins/paiwarp-creator/creator_runner.py`。第 1 期只需要输入单行命令，而第 2 期在控制伪终端时有三个难点：
 
 1. 启动时自动生成的退出码文件会干扰构建是否完成的判断；
 2. 多行提示词会在第一个换行符处被提前提交；
@@ -241,17 +237,13 @@ with tempfile.TemporaryDirectory(prefix="paiwarp-creator-ch02-") as tmp_work, \
         raise RuntimeError(f"mvn clean package 失败，退出码 {build_exit}，产物存在={jar_path.is_file()}")
 ```
 
-插件需要知道每条 Shell 命令的退出码，同时又不能打断正在交互的 Bash。
+插件需要知道每条 Shell 命令的退出码，同时又不能打断正在交互的 Bash。为此，启动 Bash 时设置了环境变量 `PROMPT_COMMAND="echo $? > .paiwarp-creator-last-status"`。Bash 每次显示提示符 `paiwarp-creator $ ` 之前，都会先执行这条命令，把上一条命令的退出码写进 `.paiwarp-creator-last-status` 文件。
 
-为此，启动 Bash 时设置了环境变量 `PROMPT_COMMAND="echo $? > .paiwarp-creator-last-status"`。Bash 每次显示提示符 `paiwarp-creator $ ` 之前，都会先执行这条命令，把上一条命令的退出码写进 `.paiwarp-creator-last-status` 文件。
+问题出在 Bash 刚启动的时候：显示第一个提示符之前，Bash 也会执行一次 `PROMPT_COMMAND`，生成一个内容为 `0` 的状态文件。如果不把这个文件删掉，下一步输入 `mvn clean package` 后，`wait_shell_ready` 会在 Maven 刚开始编译时就读到这个旧的 `0`，以为编译已经完成。紧接着执行 `java -jar`，就会报找不到 Jar 包的错误。
 
-问题出在 Bash 刚启动的时候。显示第一个提示符之前，Bash 也会执行一次 `PROMPT_COMMAND`，生成一个内容为 `0` 的状态文件。如果不把这个文件删掉，下一步输入 `mvn clean package` 后，`wait_shell_ready` 会在 Maven 刚开始编译时就读到这个旧的 `0`，以为编译已经完成。紧接着执行 `java -jar`，就会报找不到 Jar 包的错误。
+所以 `creator_runner.py` 的处理顺序是：先用 `wait_shell_ready` 确认第一个提示符和状态文件都已出现，再调用 `stamp.unlink(missing_ok=True)` 删掉状态文件，然后才发送 `mvn clean package`。编译结束后，同时检查退出码 `build_exit` 是否为 0、`paicli-1.0-SNAPSHOT.jar` 文件是否存在，两项都满足才算构建成功。
 
-所以 `creator_runner.py` 的处理顺序是，先用 `wait_shell_ready` 确认第一个提示符和状态文件都已出现，再调用 `stamp.unlink(missing_ok=True)` 删掉状态文件，然后才发送 `mvn clean package`。编译结束后，同时检查退出码 `build_exit` 是否为 0、`paicli-1.0-SNAPSHOT.jar` 文件是否存在，两项都满足才算构建成功。
-
-再看第二个难点。
-
-第 2 期教程里的并行 DAG 测试提示词是一条 7 行的 `/plan` 指令，中间有 6 个换行符 `\n`。PaiCLI 用 JLine3 读取用户输入。如果像打字一样把这段文本逐字写进伪终端，JLine3 读到第一行末尾的换行符，就会认为用户按了回车，只把第一行 `/plan 请把任务拆成可并行的 DAG：` 提交给规划器，后面 6 行子任务和依赖要求会被当成另外几次输入。
+再看第二个难点。第 2 期教程里的并行 DAG 测试提示词是一条 7 行的 `/plan` 指令，中间有 6 个换行符 `\n`。PaiCLI 用 JLine3（一个 Java 命令行输入库）读取用户输入。如果像打字一样把这段文本逐字写进伪终端，JLine3 读到第一行末尾的换行符，就会认为用户按了回车，只把第一行 `/plan 请把任务拆成可并行的 DAG：` 提交给规划器，后面 6 行子任务和依赖要求则被当成另外几次零散的输入。
 
 打开 `plugins/paiwarp-creator/creator_terminal.py`，看看 `enter` 和 `input_mode` 两个方法是怎么解决这个问题的。
 
@@ -292,9 +284,7 @@ def input_mode(self, text: str) -> str:
 
 这段代码把 DeepSeek Harness 发来的内容分成 5 种输入方式。
 
-遇到包含 `\n` 的多行文本，`input_mode` 会返回 `bracketed-paste`（括号粘贴模式）。插件在整段文本的开头加上终端控制序列 `\x1b[200~`，结尾加上 `\x1b[201~`，然后一次性写入伪终端。
-
-这两个控制序列告诉 JLine3，中间的内容是一次粘贴进来的多行文本，遇到换行符不要提交。等待 `0.15` 秒、粘贴内容全部进入输入缓冲区之后，插件再单独发送一个回车符 `\r`，把整段内容一起提交。
+遇到包含 `\n` 的多行文本，`input_mode` 会返回 `bracketed-paste`（括号粘贴模式）。插件在整段文本的开头加上终端控制序列 `\x1b[200~`，结尾加上 `\x1b[201~`，然后一次性写入伪终端。这两个控制序列告诉 JLine3：中间的内容是一次粘贴进来的多行文本，遇到换行符不要提交。等待 `0.15` 秒、粘贴内容全部进入输入缓冲区之后，插件再单独发送一个回车符 `\r`，把整段内容一起提交。
 
 遇到计划审阅和模式切换用到的按键时，`enter` 方法不会调用逐字输入的 `type_text`，而是直接发送这个按键对应的字节：
 
@@ -304,13 +294,9 @@ def input_mode(self, text: str) -> str:
 
 为了让测试内容始终和教程保持一致，`plugins/paiwarp-creator/creator_chapter2.py` 里的 `chapter_goals` 函数没有把串行计划和并行 DAG 的提示词直接写死在 Python 代码里，而是从 `docs/articles/build-agent-p2-plan-execute.md` 第 09 节“跑起来看看”中读取两个 `text` 代码块。这样一来，测试时输入的每一个字都和教程原文相同。
 
-更重要的是，`creator_terminal.py` 和 `creator_runner.py` 都不依赖具体的某一章。
+更重要的是，`creator_terminal.py` 和 `creator_runner.py` 都不依赖具体的某一章。`creator_terminal.py` 负责伪终端、无头浏览器截图和视频编码；`creator_runner.py` 负责隔离运行环境，并和 DeepSeek Harness 一问一答地推进每一步。第二章跑通以后，无论是测试第 3 期的 `/save`、`/memory`、`/compact` 记忆压缩，第 4 期的代码语义检索，第 5 期的 `/team` 多智能体审查，还是第 6 期的 `/mode ask` 人工确认，伪终端驱动代码和 `paiwarp_creator_terminal_input` 的调用约定都不用改。只需要让创造模式照着第二章的写法，读取对应章节的 Markdown 原文，写好那一章每一步的预期结果和会话日志检查项，就能把后续所有章节的终端测试、截图和录屏都自动化。
 
-`creator_terminal.py` 负责伪终端、无头浏览器截图和视频编码；`creator_runner.py` 负责隔离运行环境，并和 DeepSeek Harness 推进每一步。
-
-第二章跑通以后，无论是测试第 3 期的 `/save`、`/memory`、`/compact` 记忆压缩，第 4 期的代码语义检索，第 5 期的 `/team` 多智能体审查，还是第 6 期的 `/mode ask` 人工确认，伪终端驱动代码和 `paiwarp_creator_terminal_input` 的调用约定都不用改。
-
-## 05、安装插件
+## 05、安装插件并查看 DeepSeek Harness 与 PaiCLI 的运行画面
 
 了解完插件的底层实现，回到 DeepSeek Harness 的“插件”页面，点击右上角的“添加插件”，在弹出的文件选择窗口里选中创造模式生成的 `/Users/itwanger/Documents/GitHub/paicli/plugins/paiwarp-creator` 目录。
 
@@ -320,7 +306,7 @@ def input_mode(self, text: str) -> str:
 
 ![](https://cdn.paicoding.com/stutymore/paiwarp-creator-05-installed-20261110174744-03410942.jpg)
 
-接下来新建一个对话窗口。在输入框里输入下面这句提示词并发送。
+接下来新建一个对话窗口。这一次是测试已经装好的插件，所以输入框上方不能有橙色的“创造模式”标签，只保留左下角紫色的 `paicli` 项目目录标签即可。在输入框里输入下面这句提示词并发送。
 
 ```text
 用 PaiWarp 创造版复跑第二章。
@@ -335,20 +321,9 @@ def input_mode(self, text: str) -> str:
 对照这张截图，看看左右两边分别在做什么：
 
 - 左侧会话区运行的是 DeepSeek Harness。它的作用相当于测试人员，按照插件注册的系统提示词，一步一步调用 `paiwarp_creator_terminal_input` 向终端输入内容；
-- 右侧是 `plugins/paiwarp-creator/client.js` 绘制的实时监控面板。面板左边显示 10 个阶段的进度和 18 项检查的状态；右边定时读取本次运行目录里的状态文件和终端画面截图，实时显示伪终端里 PaiCLI 的运行画面。
+- 右侧是 `plugins/paiwarp-creator/client.js` 绘制的实时监控面板。面板左栏显示 10 个阶段的进度和 18 项检查的状态；右栏定时读取本次运行目录里的状态文件和终端画面截图，实时显示伪终端里 PaiCLI 的运行画面。
 
-截图这一刻，DeepSeek Harness 刚刚用 `bracketed-paste` 方式把 7 行的并行 DAG 提示词粘贴进终端。
-
-运行在伪终端里的 PaiCLI，它的 `Planner` 已经把任务拆成了 4 个互不依赖、可以并行的读取任务，和 1 个依赖前 4 个任务的汇总任务 `task-5`。
-
-4 个读取任务分别是：
-
-- `task-1` 读取 `pom.xml`，
-- `task-2` 列出 `src/main/java`，
-- `task-3` 列出 `src/test/java`，
-- `task-4` 读取 `README.md` 的前 80 行。
-
-终端下方显示了审阅提示，`Enter：开始执行  Ctrl+O：展开详情  I：输入补充要求  ESC：取消计划`。
+截图这一刻，DeepSeek Harness 刚刚用 `bracketed-paste` 方式把 7 行的并行 DAG 提示词粘贴进终端。运行在伪终端里的 PaiCLI，它的 `Planner` 已经把任务拆成了 4 个互不依赖、可以并行的读取任务，和 1 个依赖前 4 个任务的汇总任务 `task-5`。4 个读取任务分别是：`task-1` 读取 `pom.xml`，`task-2` 列出 `src/main/java`，`task-3` 列出 `src/test/java`，`task-4` 读取 `README.md` 的前 80 行。终端下方显示了审阅提示：`Enter：开始执行  Ctrl+O：展开详情  I：输入补充要求  ESC：取消计划`。
 
 打开本次运行的输入记录文件 `cases/paiwarp-creator/runs/2026-11-10T09-58-27-843Z-2e79d6e8/harness-inputs.json`，可以核对 DeepSeek Harness 在这 3 分多钟里先后发出的 13 次工具调用。
 
@@ -372,23 +347,19 @@ def input_mode(self, text: str) -> str:
 
 从序号 `21` 启动会话，到序号 `93` 发送 `/exit` 退出 PaiCLI，每一次工具调用都有记录，整个过程没有人工操作。
 
-## 06、怎么核对 18 项检查
+## 06、怎么核对 18 项检查，并推广到后续章节
 
-DeepSeek Harness 发出第 12 步 `/exit` 之后，`creator_chapter2.py` 会自动读取临时用户目录下 `.paicli/history/raw/` 里的会话日志（这次共 36 条事件记录），对第 2 期的整个运行过程做 18 项检查。
-
-然后把 4 张终端截图、1 段完整的 MP4 录屏、检查报告 `result.json` 和一份教程副本，全部写进 `cases/paiwarp-creator/runs/2026-11-10T09-58-27-843Z-2e79d6e8/` 目录。
+DeepSeek Harness 发出第 12 步 `/exit` 之后，`creator_chapter2.py` 会自动读取临时用户目录下 `.paicli/history/raw/` 里的会话日志（这次共 36 条事件记录），对第 2 期的整个运行过程做 18 项检查。然后把 4 张终端截图、1 段完整的 MP4 录屏、检查报告 `result.json` 和一份教程副本，全部写进 `cases/paiwarp-creator/runs/2026-11-10T09-58-27-843Z-2e79d6e8/` 目录。
 
 ![](https://cdn.paicoding.com/stutymore/paiwarp-creator-verified-recording-20261110180307-80965c6c.jpg)
 
-上图是运行完成时的界面。右侧面板的 18 项检查都已经变成绿色的 `true`，视频播放器里也加载好了时长 `194.12` 秒的完整录屏 `paiwarp-creator-chapter2-demo.mp4`。
+上图是运行完成时的界面。右侧面板的 18 项检查都已经变成绿色的 `true`，视频播放器里也加载好了时长 `194.12` 秒（约 3 分 14 秒）的完整录屏 `paiwarp-creator-chapter2-demo.mp4`。下面结合插件自动截取的 4 张图，逐一核对第 2 期教程的四个测试场景。
 
-下面结合插件自动截取的 4 张图，逐一核对第 2 期教程的四个测试场景。
-
-第一张图 `p2-01-serial-plan.png` 截取于串行 `/plan` 计划生成之后。PaiCLI 的 `Planner` 把“创建 `demo` 项目、编写 `Hello.java`、编译并运行”拆成了 3 个前后依赖的步骤。按回车执行后，插件还会到临时工作区里检查两件事，`demo/src/main/java/com/example/Hello.java` 源文件和编译出的 `Hello.class` 文件确实存在，并且终端输出里有 `Hello World`。
+第一张图 `p2-01-serial-plan.png` 截取于串行 `/plan` 计划生成之后。PaiCLI 的 `Planner` 把“创建 `demo` 项目、编写 `Hello.java`、编译并运行”拆成了 3 个前后依赖的步骤。按回车执行后，插件还会到临时工作区里检查两件事：`demo/src/main/java/com/example/Hello.java` 源文件和编译出的 `Hello.class` 文件确实存在，并且终端输出里有 `Hello World`。
 
 ![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-01-serial-plan-20261110180153-1a3598ee.png)
 
-第二张图 `p2-02-parallel-plan.png` 截取于并行 DAG 提示词以 `bracketed-paste` 方式提交之后。终端里清楚地显示了 `1. 并行（4 个任务）` 这一组下面的 4 个互相独立的读取任务，以及 `2.` 下面依赖 `[task-1, task-2, task-3, task-4]` 的汇总任务 `task-5`。
+第二张图 `p2-02-parallel-plan.png` 截取于 7 行并行 DAG 提示词以 `bracketed-paste` 方式提交之后。终端里清楚地显示了 `1. 并行（4 个任务）` 这一组下面的 4 个互相独立的读取任务，以及 `2.` 下面依赖 `[task-1, task-2, task-3, task-4]` 的汇总任务 `task-5`。
 
 ![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-02-parallel-plan-20261110180153-ead4c1ba.png)
 
@@ -396,7 +367,7 @@ DeepSeek Harness 发出第 12 步 `/exit` 之后，`creator_chapter2.py` 会自�
 
 ![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-03-revised-plan-20261110180153-cb49dd42.png)
 
-第四张图 `p2-04-plan-mode-task.png` 截取于 DeepSeek Harness 发送 `SHIFT_TAB` 切换到 `PLAN` 模式、并输入提示词“读取 README.md 的前 5 行，原样发给我”之后。终端底部的状态栏已经变成 `PLAN shift+tab to cycle`。这句虽然没有 `/plan` 前缀，PaiCLI 仍然先生成计划、进入了计划审阅界面。
+第四张图 `p2-04-plan-mode-task.png` 截取于 DeepSeek Harness 发送 `SHIFT_TAB` 切换到 `PLAN` 模式、并输入提示词“读取 README.md 的前 5 行，原样发给我”之后。终端底部的状态栏已经变成 `PLAN shift+tab to cycle`。这句话前面虽然没有 `/plan` 前缀，PaiCLI 仍然先生成计划、进入了计划审阅界面。
 
 ![](https://cdn.paicoding.com/stutymore/paiwarp-creator-p2-04-plan-mode-task-20261110180153-53516c58.png)
 
@@ -422,6 +393,16 @@ def replace_article_copy(root, output):
     }
 ```
 
-这套流程可以概括为五步。
+函数的执行过程是这样的：先读取 `docs/articles/build-agent-p2-plan-execute.md` 的原始内容；只把第 09 节里 4 张图片的路径换成本次新截的图，写入运行目录下的 `build-agent-p2-plan-execute.paiwarp-creator.md`；写完以后，再读一次原文件，和最初读到的内容逐字节比较，并计算 SHA-256 哈希值。`creator_runner.py` 会根据哈希值是否一致，在 `result.json` 里记录 `articleOriginalUnchanged: true`，证明原教程没有被改动。我们确认 4 张新截图没有问题后，再把它们上传到图床、更新到正式教程里，原教程在这个过程中不会被误改。
 
-从教程原文提取测试内容 → DeepSeek Harness 一步步操作伪终端 → 截图并合成录屏 → 用 `.paicli/history/raw` 会话日志核对运行结果 → 生成换好截图的教程副本。
+这套流程可以概括为五步：从教程原文提取测试内容 → DeepSeek Harness 一步步操作伪终端 → 截图并合成录屏 → 用 `.paicli/history/raw` 会话日志核对运行结果 → 生成换好截图的教程副本。它同样适用于后续所有章节。以后 PaiCLI 改了界面，或者我们要重写后面的教程（第 3 期记忆与上下文压缩、第 4 期代码检索、第 5 期多智能体协作、第 6 期人工审批，以及联网、MCP、Skill 和图片输入等章节），只需要在 DeepSeek Harness 的创造模式里让插件为对应章节新增一个测试脚本，指定要读取的 `docs/articles/*.md` 文件和截图时机，DeepSeek Harness 就能逐章自动完成终端测试，并换好整套教程的配图。
+
+## PaiCLI 与 PaiWarp 创造版怎么写进简历？
+
+如果你想把 PaiCLI 的核心功能，和这套用 DeepSeek Harness 创造模式开发、可以跨章节使用的自动化测试插件一起写进简历，可以参考下面 5 条职责描述。
+
+1. 参与终端编程助手 PaiCLI 的规划执行引擎，以及桌面端自动化测试插件 `PaiWarp 创造版` 的开发。借助 DeepSeek Harness 创造模式由桌面端 Agent 生成插件，覆盖第 2 期（串行规划、DAG 并行执行、交互式计划修订、会话模式切换）及后续全部教程章节的端到端无人值守回归测试与自动换图。
+2. 基于 Cordis 框架设计“启动 + 逐步输入”两段式工具协议：注册章节启动工具和 `paiwarp_creator_terminal_input` 逐步输入工具，将工具输出 Schema 定为字符串类型，并通过注册系统提示词，引导桌面端 Agent 按顺序完成多章节的复杂终端交互。
+3. 基于 Python `pty` 与 `pyte` 实现通用伪终端模拟模块：采用 `\x1b[200~...\x1b[201~` Bracketed Paste 协议发送多行文本，解决 JLine3 在换行符处提前提交多行指令的问题；支持 `ENTER`、`I` 单键修订与 `SHIFT_TAB`（`\x1b[Z`）模式切换等按键的精确发送，并等待终端出现预期画面后再进入下一步。
+4. 使用工作目录与用户目录两个临时目录（`tmp_work` 与 `tmp_home`）隔离测试环境，通过 Shell 退出码文件同步命令执行状态；在伪终端初始化阶段删除 `PROMPT_COMMAND` 首次生成的状态文件，避免构建完成的误判，并同时校验 Maven 构建退出码与目标 Jar 包是否存在。
+5. 基于 Playwright Chromium 与 `ffmpeg` 实现终端画面实时采样、关键节点截图与 H.264 视频合成流程；结合 `.paicli/history/raw` 会话日志完成 18 项自动化检查（包括 DAG 依赖关系、并行工具调用批次、计划修订记录，以及通过 SHA-256 确认教程原文未被修改），实现多章节教程配图的批量自动更新。

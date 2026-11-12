@@ -1,0 +1,32 @@
+{
+  "status": "chapter4-first-cut-awaiting-user",
+  "frames": 924,
+  "fps": 30,
+  "scope": "Chapter 4 only; chapters 1–3 approved and frozen",
+  "sourceEvidence": [
+    {
+      "file": "/Users/itwanger/Documents/GitHub/deepseek-harness/packages/llm/llm-deepseek/src/model-info.ts",
+      "claim": "Four ordered efforts and default High for standard configuration"
+    },
+    {
+      "file": "/Users/itwanger/Documents/GitHub/deepseek-harness/packages/llm/llm-deepseek/src/serialize.ts",
+      "lines": "147–156",
+      "claim": "thinking type enabled/disabled; output_config omitted for off"
+    },
+    {
+      "file": "assets/images/reasoning-menu.png",
+      "claim": "Observed composer menu and ordered effort options"
+    }
+  ],
+  "articleImage": {
+    "file": "assets/images/04-reasoning-levels.png",
+    "use": "Intact image with camera focus; not split/repainted"
+  },
+  "authoredUI": "Simplified animated menu and request inspector; not a new recording or model call",
+  "excludedClaims": [
+    "No latency or answer quality comparisons",
+    "No generated-token counts or precision benchmarks"
+  ],
+  "preview": "preview/ch5-boundaries/chapter4-preview.mp4",
+  "revision": "At mechanism phase, DSH desktop shrinks to left selector only; DeepSeek model/request parameters shown as independent sibling. Default selector uses deepseek-flash."
+}

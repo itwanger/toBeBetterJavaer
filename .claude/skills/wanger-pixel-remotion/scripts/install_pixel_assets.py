@@ -17,6 +17,7 @@ def install(project):
         **{project / "assets/sfx" / p.name: p for p in (ASSETS / "pixel-sfx").glob("*.wav")},
     }
     files.update({project / "assets/voice/harness-outro" / p.name: p for p in (ASSETS / "voice/harness-outro").iterdir() if p.is_file()})
+    files.update({project / "assets/images/ergo-typing-v1" / p.name: p for p in (ASSETS / "ergo-typing-v1").iterdir() if p.is_file()})
     pending = []
     conflicts = []
     for dest, src in files.items():

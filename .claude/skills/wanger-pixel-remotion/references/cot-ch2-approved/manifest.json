@@ -1,0 +1,55 @@
+{
+  "status": "approved",
+  "date": "2026-11-11",
+  "userStatement": "好了，第二章就这样吧，整体的经验习得一下",
+  "project": "/Users/itwanger/Documents/GitHub/ai-better/script/what-is-cot",
+  "composition": "Chapter2Preview",
+  "chapterFrames": 1752,
+  "fps": 30,
+  "sample": {
+    "path": "exchange.mp4",
+    "fromFrame": 188,
+    "toFrame": 1085,
+    "fullChapter": false
+  },
+  "sourceSnapshotScope": "Reference components, not a standalone runnable project. Chapter wrapper, shared PixelWorld, WorldWipe, assets and Remotion runtime stay in source project. Retiming is required for reuse.",
+  "dependencies": {
+    "runtime": [
+      "React",
+      "Remotion"
+    ],
+    "shared": [
+      "PixelWorld.tsx",
+      "WorldWipe.tsx"
+    ],
+    "assets": [
+      "assets/images/dsh/pixel-whale-v1.png",
+      "assets/images/ch2-usage/closed.png",
+      "assets/images/ch2-usage/open.png",
+      "assets/images/article-flow/read.png"
+    ],
+    "sourceRecords": [
+      "ch2-materials.json",
+      "ch2-reasoning.json",
+      "ch2-phrase-timing.json"
+    ]
+  },
+  "sha256": {
+    "ch2-materials.json": "54cf468dcda267f6593f5bc3bd859ce60dd502eceba4780aed74b62afec43bb7",
+    "ch2-phrase-timing.json": "3712bbfa01f0bf9b393a0655841df0c06b6aab682f2f14ef5d4e26ffb3976a6f",
+    "ch2-reasoning.json": "8e7b47249b894ca8b6576d00071cede3143f0418f1b086efcc72fb99ab141595",
+    "exchange.mp4": "aa1aaa37a048edf07ea1920a1a6c790b1b5438259dddff5d7386c3e39dded8b0",
+    "source/AnchoredNativeControl.tsx": "aa4eaaee43c41cde3cf3cad1059f2dbe95bbecd03e0f110fee88451ea3ea6d26",
+    "source/Chapter2Design.ts": "556494ddee536569fee054e35afc79e0ae9aef807d772d53d91b611a9166c4a7",
+    "source/CotTokenContext.tsx": "937a75be730463aa55c69c32196659ebd177b33be1a4d1fd520673ab904b6fae",
+    "source/CotUsage.tsx": "7290c1508649304a3155ad7e9286af9ef331172d80adac41e1d0221b501a49ac",
+    "source/DeepSeekIdentity.tsx": "757000e07ae96e357379edb133fd3dc79cda6f7ab770ab39b07a5edfa82b99c5",
+    "source/GenerationMaterials.tsx": "4f2bbf75d9421328f1df6f1a002ef2cdc525674c23d994cfceaa3b880d5cc4b7",
+    "source/GenerationRoutes.ts": "9652aaf2d799d0d75db181127924cf7079cef13bd43c27feea75b1882b4b7805",
+    "source/HarnessContextModel.tsx": "996936c4a551f9468614a5eb8e2d1c1662c25ae625dac45ba908350f89cefcff",
+    "source/HarnessExchangeStage.tsx": "d9b011f8b09b58d6a71336ccab68b5f67753ac822a851ecb1b26416ec072e2fa",
+    "source/PixelImageWindow.tsx": "66763e254e54bf67bd1f2f371f617702ebf26ad4fbc03532c8496dd873c100b9",
+    "source/PixelSymbols.tsx": "8c14c6de6a63a06f4c980c83e81340b5d58eeeda65419dbe0711b4f0b8da7fae",
+    "source/PixelThoughtDraft.tsx": "e5786ef1ca1a7478c64c75ef6b541a78e804f2771ea1714e74f9203f54e43121"
+  }
+}

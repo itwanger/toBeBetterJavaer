@@ -1,0 +1,56 @@
+{
+  "approvedDate": "2026-11-11",
+  "sourceProject": "docs/src/ai/script/what-is-cot",
+  "composition": "Chapter1Preview",
+  "frames": 1004,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "scope": "software input, generation, native evidence, anchored focus, reasoning keywords and dynamic reflow",
+  "latestUserRefinements": [
+    "remove production notes from video",
+    "keyword overlays follow spoken onsets"
+  ],
+  "mobileFontGate": false,
+  "productionNotesOnScreen": false,
+  "keywordFrames": [
+    433,
+    455,
+    488
+  ],
+  "sourceAndAnimationBoundaries": "See source project assets/references/desktop-wide/provenance.json; UI streaming timings are illustrative, thought block captured after completion.",
+  "artifactSha256": {
+    "input.mp4": "8cc4ec6d1b479419d4fa7542966ebca04f2fe7b672e7fa94bc97b6f21f249caf",
+    "completed.mp4": "cae26769e7b38b57ef14d55b5cf989afce55579960515b3a4043aad3664efbef",
+    "streaming.mp4": "0bfdf75bddc187fd307bad4f31a062705d35714c9054a2273b71121457fc4596",
+    "keyframes.jpg": "48c1195c1bd85c766df698b043c2a19716ba95508014c904d3d44c75b52e93ad",
+    "keywords.mp4": "4b88921fd593fc0e663612e85f9509fcf4097e3381b46d4395c6ad7c40da084b",
+    "source/HarnessReal.tsx": "43d4fe3442c4ca2595dc54d03a96b39b91497d5d19f4e8fb850285f2eca23f97",
+    "source/ReasoningKeywords.tsx": "1b02c0dcb611f347f5992dbf5a67c1b80cfe9a8a0689f8c6c84e139e696b15ac",
+    "source/Chapter1.tsx": "f00dbf8d0c332daa70165104cb45fdfad747b238b24dfa2eb63b4b9db2d91220",
+    "source/ch1-phrase-timing.json": "e71e0a0cb4bc52c47ad5b519f180aa334d7a1619531d7b82a7d9f85c5db4aea0",
+    "source/pixel-actions.json": "40867650e8e34a89f2c551f8a42ab6a02a8bdbf8deffa8797b84d8b969185b67",
+    "source/reasoning-keywords.json": "860562e2b74c2aa9cc5dc60fd231881ca5d8671f95e9b29fcf4831aa6f11318b",
+    "source/PixelTypingOpening.tsx": "188c5205dd8386ba58d98ce60c63586b632060a66375f80ded67ea43c7d03591"
+  },
+  "reusableAssets": [
+    "HarnessTypingOpening.tsx",
+    "HarnessAnalysisStream.tsx",
+    "AnchoredNativeControl.tsx",
+    "ReasoningKeywords.tsx",
+    "ergo-typing-v1/ergo-typing.gif"
+  ],
+  "validation": {
+    "skill": "passed",
+    "typescript": "passed",
+    "existingContractTests": 6,
+    "anchorBoundaryCases": 81,
+    "approvedKeyframes": 8,
+    "errors": 0,
+    "warnings": 0,
+    "installerFiles": 81,
+    "videoClips": "each shorter than 12 seconds; no full export"
+  }
+}

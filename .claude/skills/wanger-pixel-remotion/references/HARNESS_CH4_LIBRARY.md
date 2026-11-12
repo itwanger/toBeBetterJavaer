@@ -11,7 +11,7 @@
 
 用 [WorkspaceOverview](../assets/WorkspaceOverview.tsx) 显示完整工作台，在相同源坐标内放置清单和 [NativeDetailLens](../assets/NativeDetailLens.tsx)。传入有序的 `routes`，每项用 `place` 写位置、`name` 写读给观众的名字。初次显示用 `active=-1`，随后用同一帧号驱动清单的索引和控件放大。清单的 `left`、`top` 可随新界面挪动。
 
-本期在 F468、F522、F585、F682 依次点亮跨会话总览、Context、Fleet 和 /context。最后一个入口的取景矩形为 [451, 440, 804, 186]，涵盖候选项、已输入命令、发送按钮。换素材时重新量整个控件，按 390 px 宽复查清单与输入框之间的空隙。
+本期在 F468、F522、F585、F682 依次点亮跨会话总览、Context、Fleet 和 /context。最后一个入口的取景矩形为 [451, 440, 804, 186]，涵盖候选项、已输入命令、发送按钮。换素材时重新量整个控件，留足清单与输入框之间的空隙；按协作规则选择必要状态核对。
 
 ## 让观众看清占比的分母
 

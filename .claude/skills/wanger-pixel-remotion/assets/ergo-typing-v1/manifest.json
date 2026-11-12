@@ -1,0 +1,29 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "../pixel-ergo-sit.png",
+  "source": "spritesheet.png",
+  "sourceSize": [
+    1254,
+    1254
+  ],
+  "grid": [
+    2,
+    2
+  ],
+  "frameSize": [
+    627,
+    627
+  ],
+  "frameCount": 4,
+  "durationsMs": [
+    130,
+    140,
+    130,
+    130
+  ],
+  "loop": 0,
+  "alpha": true,
+  "sourceSha256": "7a245d416388ada3f91a363028f115e67234d5d8c05ed6d12866db8593f39afb",
+  "remotion": "PNG frames selected by floor(frame/4)%4; freeze frame 3 on send",
+  "scope": "Original pixel character at a compact laptop desk; natural bent arms; four typing poses; no app UI generated"
+}
