@@ -1,0 +1,668 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "id": "product-name",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 185
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "star",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 254
+      },
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "computer",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 57
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "typing",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "happy",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 58
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "approval",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 5,
+        "offsetFrames": 135
+      },
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "jump",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 37
+      },
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "reward",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 63
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "wipe-download",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "wipe-local",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 2,
+        "offsetFrames": 199
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "wipe-pets",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 4,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "wipe-run",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 6,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "opening-read",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 8
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "opening-group",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 20
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -34
+      }
+    },
+    {
+      "id": "opening-result",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 1,
+        "offsetFrames": 56
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "host-menu",
+      "chapter": "ch1",
+      "kind": "cue",
+      "at": {
+        "beatId": 3,
+        "offsetFrames": 12
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "wipe-kit",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "wipe-storage",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 15,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "wipe-remote",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 17,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "wipe-run",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "pixel_wipe",
+        "peakDbfs": -30
+      }
+    },
+    {
+      "id": "ubuntu",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 43
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "node",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 57
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "python",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 79
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "pnpm",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 96
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "dsh",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 115
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "toggle",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 13,
+        "offsetFrames": 71
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "choose",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 17,
+        "offsetFrames": 87
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "compactOn",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 26
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "stop",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 8,
+        "offsetFrames": 102
+      },
+      "sound": {
+        "name": "error",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "fallback",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 14,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "error",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "pack",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 9,
+        "offsetFrames": 141
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "return",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 14,
+        "offsetFrames": 111
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "summary",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 174
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "seat",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 75
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -28
+      }
+    },
+    {
+      "id": "rewrite",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 11,
+        "offsetFrames": 67
+      },
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "relay",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 18,
+        "offsetFrames": 124
+      },
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "transfer",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 202
+      },
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "jump",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 21,
+        "offsetFrames": 47
+      },
+      "sound": {
+        "name": "pixel_jump",
+        "peakDbfs": -27
+      }
+    },
+    {
+      "id": "launch-app",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 7,
+        "offsetFrames": 26
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "depends-focus",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 7,
+        "offsetFrames": 60
+      },
+      "sound": {
+        "name": "focus_air",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "page-files",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 10,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "page-settings",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 13,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "soft_whoosh",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "model-reveal",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 0
+      },
+      "sound": {
+        "name": "focus_air",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "model-request",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 17
+      },
+      "sound": {
+        "name": "data_pluck",
+        "peakDbfs": -31
+      }
+    },
+    {
+      "id": "model-received",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 16,
+        "offsetFrames": 59
+      },
+      "sound": {
+        "name": "soft_pop",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "encrypted-connect",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 17,
+        "offsetFrames": 168
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -29
+      }
+    },
+    {
+      "id": "records-focus",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 64
+      },
+      "sound": {
+        "name": "focus_air",
+        "peakDbfs": -32
+      }
+    },
+    {
+      "id": "extract-category",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 134
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -35
+      }
+    },
+    {
+      "id": "extract-total",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 150
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -35
+      }
+    },
+    {
+      "id": "extract-files",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 166
+      },
+      "sound": {
+        "name": "soft_click",
+        "peakDbfs": -35
+      }
+    },
+    {
+      "id": "summary-received",
+      "chapter": "ch2",
+      "kind": "cue",
+      "at": {
+        "beatId": 19,
+        "offsetFrames": 226
+      },
+      "sound": {
+        "name": "success_pair",
+        "peakDbfs": -28
+      }
+    }
+  ]
+}

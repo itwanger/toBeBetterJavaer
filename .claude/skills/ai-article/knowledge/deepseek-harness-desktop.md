@@ -449,3 +449,36 @@ Two additional "Mode" mechanisms landed in recent releases:
    - **Anthropic Messages**：显式在 `system`、`tools` 末尾和最后一条 `user` 消息块上打 `cache_control: { type: "ephemeral" }` 断点；DeepSeek 的 Messages 接口还支持 `anthropic-beta: mid-conversation-tool-changes-2026-07-01`，允许在对话历史中途追加 `role: "system"` 更新和 `tool_addition` / `tool_removal` 块而不改动顶层 `system` 与 `tools`，守住已有的 KV Cache 前缀（`llm-deepseek/src/serialize.ts:83-116`）。
 5. **跨协议切换模型的清洗与非破坏性投影**（`pi/packages/ai/src/api/transform-messages.ts:64-235`、`llm-pi-ai/src/replay.ts:152-259`）：
    - 会话中途切换协议/模型时，剥离异构模型的 `thinkingSignature`，将历史 `thinking` 块降级为普通 `text` 块，丢弃无法解密的 `redacted_thinking`；同步重写并映射 `tool_call_id`（Anthropic 限 64 字符 `^[a-zA-Z0-9_-]+$`，Chat Completions 限 40 字符超长取 SHA-256 短哈希）；补齐中断轮次悬空的 `tool_result`。DSH 只在请求的瞬态副本上做转换，本地会话日志完整保留原模型的 `ReplayEnvelope`。
+
+
+---
+
+## 9. Structured Outputs in DeepSeek Harness, Codex, Claude Code & Pi Agent (`fcc0ad4621`)
+
+### 9.1 五种主流结构化输出路线与工程代价边界
+1. **提示词约束 + 客户端容错解析（Prompt + Client-side Repair/Parse）**：在提示词中声明 JSON 或 XML 标签格式，返回后剥离 Markdown 代码块或截取 `{...}`，再做词法修复与 Schema 校验。无首包语法编译延迟，兼容所有模型与思考模式，但无法在采样层杜绝格式错误。
+2. **JSON Mode（`response_format: { type: "json_object" }`）**：保证输出是合法 JSON 对象，但不校验字段名与类型，且要求提示词中显式包含 `"JSON"` 字样（否则报 400）。
+3. **原生 JSON Schema 受限解码（Structured Outputs / Constrained Decoding）**：
+   - 协议字段：OpenAI Chat Completions 用 `response_format: { type: "json_schema", json_schema: { name, strict: true, schema } }`；OpenAI Responses API 用 `text: { format: { type: "json_schema", name, strict: true, schema } }`；Anthropic Messages API 用 `output_config: { format: { type: "json_schema", schema } }`（配合 Beta Header `structured-outputs-2025-11-13`）。
+   - 机理与代价：服务端把 JSON Schema 编译为上下文无关文法（CFG）或有限状态机（FSM），在每步生成 Token 时计算当前合法的后续 Token 集合，把违规 Token 的分数掩码设为 $-\infty$。三大代价：一是首次见到新 Schema 时需编译文法掩码，增加首字延迟（TTFT）；二是 `strict: true` 仅支持 JSON Schema 子集，要求所有 `object` 设 `additionalProperties: false`、所有属性列入 `required`（可选字段必须改写为 `anyOf: [schema, { type: "null" }]`），不支持 `oneOf`/`patternProperties` 等复杂关键字；三是若因 `max_tokens` 不足触发长度截断（`stop_reason === "max_tokens"`），掩码无法阻止 JSON 在半途截断。
+4. **工具调用参数结构化与合成终结工具（Tool Calling + `tool_choice` / Synthetic Output Tool）**：
+   - 单轮提取：挂载单个工具并设 `tool_choice: { type: "tool", name: "..." }`，直接读取 `tool_use.input` 或 `tool_call.arguments`（注意 Anthropic 开启 `thinking` 时禁止强制 `tool_choice`，否则报 400）。
+   - 多轮 Agent 终结提取：多轮 Agent 需要先调 `bash`、`read`、`edit` 等工具，不能在第一轮就把文本输出锁死为目标 JSON Schema。因此动态注册一个名为 `structured_output` 或 `StructuredOutput` 的合成终结工具，让 Agent 干完活后调用该工具提交结构化结果，配合校验失败喂回 `is_error: true` 的 `tool_result` 驱动同轮自愈重试。
+
+### 9.2 四个 Agent 项目的源码实现对照
+- **DeepSeek Harness (`packages/subagent/subagent/src/structured.ts`, `packages/experimental/auto-review/src/index.ts`)**：
+  - 协议层 `GenerateOptions` 不暴露厂商私有的 `response_format` 或 `tool_choice`。
+  - **子 Agent 结构化输出**：当父 Agent 传入 `outputSchema` 启动进程内子 Agent 时，`attachStructuredRuntime` 动态注册 `structured_output` 工具并追加系统提示词指令。模型调用时先经 `validateJsonSchemaValue(schema, args)` 校验；失败则抛 `ToolArgsError` 作为 `isError: true` 工具结果让模型重调；成功则采用两阶段提交（暂存 `staged`、调用 `exec.concludeTurn()` 并用 `tools.guard` 拦截同批次后续工具调用，等 `tools/result` 后写入 `SubagentOutput.structured`）。
+  - **自动权限审批（Auto Review）**：不挂工具，设 `temperature: 0`，提示词要求输出单行 JSON `{"risk":...,"decision":...}`。兼容思考模式：允许前面有 `0..N` 个 `reasoning` 块，要求最后一个块是唯一的 `text` 块；解析时除了 `JSON.parse`，还通过词法扫描 `topLevelMemberCount(text)` 检查顶层键数量，防止重复键名覆盖导致安全绕过。
+  - **截断保护**：`BlockAssembler.assembled()` 在 `reason.kind === 'max-tokens'` 时直接丢弃未闭合的 `tool-call` 块。
+- **Codex (`codex-rs/codex-api/src/common.rs`, `codex-rs/ext/guardian-reviewer/src/assessment.rs`, `codex-rs/memories/write/src/phase1_output.rs`)**：
+  - 原生支持 Responses API 的 `text.format`（`type: "json_schema"`）。
+  - **记忆抽取与标题生成（`strict: true`）**：`phase1_output.rs` 将所有字段列入 `required`、设 `additionalProperties: false`，可空字段写为 `"type": ["string", "null"]`。
+  - **Guardian 权限审查（`strict: false` 取舍）**：`guardian_output_schema()` 定义了 4 个字段，但为了省 Token 让低风险操作只需输出 `{"outcome":"allow"}`，`"required"` 仅設 `["outcome"]`。因不满足 OpenAI `strict: true` 全字段必填要求，`turn.rs:1601` 显式对 Guardian 基础会话设 `output_schema_strict: false`，并在客户端 `parse_guardian_assessment` 中做两级容错（先直接 `serde_json::from_str`，失败则用 `find('{')` 和 `rfind('}')` 截取大括号子串再解析并填充默认值）。
+- **Claude Code (`src/services/api/claude.ts`, `src/tools/SyntheticOutputTool/SyntheticOutputTool.ts`, `src/utils/permissions/yoloClassifier.ts`)**：
+  - **单轮 `sideQuery`**：对支持的官方模型注入 Beta Header `structured-outputs-2025-11-13` 与 `output_config.format`（用于记忆筛选、会话标题、分支名生成、Prompt 钩子）。
+  - **多轮 `--json-schema`**：创建合成工具 `StructuredOutput`，用 `Ajv` 校验输入；注册 `Stop` 钩子 `registerStructuredOutputEnforcement`，若模型未调用 `StructuredOutput` 就想结束对话，钩子直接拦住并注入提示词逼模型补调；最多重试 `5` 次（`MAX_STRUCTURED_OUTPUT_RETRIES`）。
+  - **Auto Mode 分类器（解决 Thinking 与 `tool_choice` / `max_tokens` 冲突）**：因开启 `thinking` 时不能用强制 `tool_choice`，且自适应思考模型不能关 `thinking`，默认采用两阶段 XML + `stop_sequences: ['</block>']`，并为自适应思考模型额外增加 `thinkingPadding = 2048` 的 `max_tokens` 预算，防止思考耗尽额度导致正文被截断。
+- **Pi Agent (`packages/ai/src/api/constrained-sampling.ts`, `packages/ai/src/utils/json-parse.ts`, `packages/ai/src/utils/validation.ts`)**：
+  - **跨厂商自动严苛化转换（`makeStrictJsonSchema`）**：核心工具 `read`/`bash`/`edit`/`write` 默认开启 `constrainedSampling: { type: "json_schema", strict: "prefer" }`。发送前自动把可选属性改写为 `anyOf: [prop, { type: "null" }]` 并列入 `required`，若遇不支持的 Schema 关键字则静默回退；收到模型返回的 `null` 后，再由 `normalizeOptionalNulls` 对照原始 Schema 删掉 `null` 还原为 `undefined`，并用 TypeBox 做弱类型转换（如 `"42"` 转 `42`）。
+  - **流式增量修复（`parseStreamingJson`）**：按 `JSON.parse` → `repairJson`（转义裸换行/制表符与非法反斜杠） → `partialParse`（补全未闭合括号）四级回退实时解析流式参数。

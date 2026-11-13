@@ -1,0 +1,121 @@
+{
+  "approvedOn": "2026-11-13",
+  "status": "visual-approved-with-authorized-sound-polish",
+  "sourceProject": "/Users/itwanger/Documents/GitHub/ai-better/script/dsh-go",
+  "entry": "source/Chapter2.tsx",
+  "standalone": false,
+  "reuseGuide": "../../../references/DSH_GO_CH2_APPROVED.md",
+  "approvalScope": "用户已认可第二章整体视觉；本轮按授权补两处转场、十二处提示音并调整原声音，未声称用户已逐项试听补充声音。",
+  "sharedWhale": "../../cot-knowledge-approved/images/pixel-whale-v1.png",
+  "sharedSounds": "项目 assets/sfx 与 script/shared/tools/sfx_designs.py；不重复保存 WAV。",
+  "files": {
+    "source/Chapter2.tsx": {
+      "source": "remotion/src/Chapter2.tsx",
+      "sha256": "789e3c93159e28d953d614888da04e31099df3947f66802c9b7c600b53d71c60"
+    },
+    "source/RuntimeExperience.tsx": {
+      "source": "remotion/src/RuntimeExperience.tsx",
+      "sha256": "98920fcfa0dcfc95b2c682733b9360b442d5b785169e01c6146265514828f890"
+    },
+    "source/RuntimeNetwork.tsx": {
+      "source": "remotion/src/RuntimeNetwork.tsx",
+      "sha256": "07db1350e9fbdc231b8603094312ba98fd7a0d55c57ca590b9ad05bf2ad7ddc0"
+    },
+    "source/RuntimeSummary.tsx": {
+      "source": "remotion/src/RuntimeSummary.tsx",
+      "sha256": "566663b2fa11b947459272466f8192cf2ae16f63ceaa7b47609eb5975bec4fcf"
+    },
+    "source/RuntimeDesign.tsx": {
+      "source": "remotion/src/RuntimeDesign.tsx",
+      "sha256": "38282b0517c406d6ef5a45c6bf87d2742cda5bc213914198f3d81c6d355ed230"
+    },
+    "source/DshDesign.tsx": {
+      "source": "remotion/src/DshDesign.tsx",
+      "sha256": "14cc3c04163039b070e33520f44514f3dd9e495417dca0ea66524ff4f46d84e5"
+    },
+    "source/Typography.ts": {
+      "source": "remotion/src/Typography.ts",
+      "sha256": "c1591cb8313a31c48b353c63a45817416d514e35297dac779e59163aad544b6a"
+    },
+    "source/GoTask.tsx": {
+      "source": "remotion/src/GoTask.tsx",
+      "sha256": "f14e2f64a73152ebf295c5de2267dffac3a21e550f4d17f820547b1a948aa50b"
+    },
+    "source/PixelPageWipe.tsx": {
+      "source": "remotion/src/PixelPageWipe.tsx",
+      "sha256": "27fa78e656559e8adf394956879d7e79c3d13c082a917392d1b5ced05fb8cb87"
+    },
+    "source/WorldWipe.tsx": {
+      "source": "remotion/src/WorldWipe.tsx",
+      "sha256": "69f6e98ce77e6acd7c510004e857f3b454619b58a70835084ba743e7fcb0f8c3"
+    },
+    "references/ch2-phrase-timing.json": {
+      "source": "assets/references/ch2-phrase-timing.json",
+      "sha256": "04c339f1cc6e15d9323ec5dbfbca534ed2f4cbfb17810d921888f135e61e8526"
+    },
+    "references/ch2-spec.json": {
+      "source": "assets/references/ch2-spec.json",
+      "sha256": "38aab06f735c1fd8bd8816fe4ad04ff6cc8efcef3283a0340be08c3873e9c742"
+    },
+    "references/pixel-actions.json": {
+      "source": "assets/references/pixel-actions.json",
+      "sha256": "9a62f50fa6f53079842bca0569c48f40b55e5c588c3080f2399e397b4fe6852f"
+    },
+    "references/sound-plan.json": {
+      "source": "assets/references/sound-plan.json",
+      "sha256": "5fbba501967e8ce9ba5e0ba4b64d430dd8983ac6002647937b72814c2937ca06"
+    },
+    "references/ch2-source-notes.md": {
+      "source": "assets/references/ch2-source-notes.md",
+      "sha256": "8dff544be29d1bfa20ac9a2fe5ee36aaa81e718cc9afd921acad63dd406ecc6e"
+    },
+    "previews/deps-115.png": {
+      "source": "preview/chapter2/deps-115.png",
+      "sha256": "5efdbb021d86230a6d4cc469f510ba784fee35d90d23eec7971bcae4428961cb"
+    },
+    "previews/model-peer-1548.png": {
+      "source": "preview/chapter2/model-peer-1548.png",
+      "sha256": "41c6bbf8e40072485c0eed11132b8e42fec1114c055c54bf69c952a05f9ee31f"
+    },
+    "previews/relay-1965.png": {
+      "source": "preview/chapter2/relay-1965.png",
+      "sha256": "eb5f1b1f5c24bfa6c5ab30149f2b3f563e5d9e484060469744cae2607eada365"
+    },
+    "previews/summary-ready-2175.png": {
+      "source": "preview/chapter2/summary-ready-2175.png",
+      "sha256": "7e01e9c0f01bcdaec0778852fd877e15bbf300d2c9e4c65f613731faace7fcb9"
+    },
+    "previews/summary-phone-2255.png": {
+      "source": "preview/chapter2/summary-phone-2255.png",
+      "sha256": "213eba1c603576d92260fdef057a781478b31eb37a614d5e87bbe08ef52a6364"
+    },
+    "images/runtime/pnpm.svg": {
+      "source": "assets/images/runtime/pnpm.svg",
+      "sha256": "c6285a2d1fa28b8d6c42cd7f7edf360434371ff6f15744425c4444e41fed812b"
+    },
+    "images/runtime/linux.svg": {
+      "source": "assets/images/runtime/linux.svg",
+      "sha256": "7e55f2779ae11a83c9dad2d0414a65d8ca7867d0716ce58bfe41ed299ae1447f"
+    },
+    "images/runtime/android.svg": {
+      "source": "assets/images/runtime/android.svg",
+      "sha256": "ff571c5e21163f07dd7176d4670411344f55409d36eb6346b402210ad7c02c4b"
+    },
+    "images/runtime/python.svg": {
+      "source": "assets/images/runtime/python.svg",
+      "sha256": "a90c00fd441482b4867ad5d7fa68db56aab4891f1b1e6879fe1ea3b355cf378f"
+    },
+    "images/runtime/nodedotjs.svg": {
+      "source": "assets/images/runtime/nodedotjs.svg",
+      "sha256": "021851b758cde7d3e04819c3ac02047d0ff281c712e8387afa0c76a6dac6db6c"
+    },
+    "images/runtime/ubuntu.svg": {
+      "source": "assets/images/runtime/ubuntu.svg",
+      "sha256": "b0aca674c881a07bb60b26afbcee07093ae419e29ee38e376f938817fa66ae03"
+    },
+    "images/tile.svg": {
+      "source": "assets/images/tile.svg",
+      "sha256": "69900d4bb5620edfc5164b63991e4934a3f33ed336911fae7057992bfffe6619"
+    }
+  }
+}

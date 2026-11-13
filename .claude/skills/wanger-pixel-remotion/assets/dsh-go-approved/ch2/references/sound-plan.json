@@ -1,0 +1,412 @@
+{
+  "events": [
+    {
+      "id": "ch1:opening-read",
+      "origin": "pixel-actions",
+      "beatId": 1,
+      "offsetFrames": 8,
+      "sound": "soft_click",
+      "peakDbfs": -34
+    },
+    {
+      "id": "ch1:opening-group",
+      "origin": "pixel-actions",
+      "beatId": 1,
+      "offsetFrames": 20,
+      "sound": "soft_click",
+      "peakDbfs": -34
+    },
+    {
+      "id": "ch1:opening-result",
+      "origin": "pixel-actions",
+      "beatId": 1,
+      "offsetFrames": 56,
+      "sound": "success_pair",
+      "peakDbfs": -30
+    },
+    {
+      "id": "ch1:product-name",
+      "origin": "pixel-actions",
+      "beatId": 1,
+      "offsetFrames": 185,
+      "sound": "soft_pop",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch1:star",
+      "origin": "pixel-actions",
+      "beatId": 1,
+      "offsetFrames": 254,
+      "sound": "data_pluck",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch1:wipe-download",
+      "origin": "pixel-actions",
+      "beatId": 2,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch1:wipe-local",
+      "origin": "pixel-actions",
+      "beatId": 2,
+      "offsetFrames": 199,
+      "sound": "pixel_wipe",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch1:host-menu",
+      "origin": "pixel-actions",
+      "beatId": 3,
+      "offsetFrames": 12,
+      "sound": "soft_pop",
+      "peakDbfs": -30
+    },
+    {
+      "id": "ch1:computer",
+      "origin": "pixel-actions",
+      "beatId": 3,
+      "offsetFrames": 57,
+      "sound": "soft_click",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch1:wipe-pets",
+      "origin": "pixel-actions",
+      "beatId": 4,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch1:typing",
+      "origin": "pixel-actions",
+      "beatId": 5,
+      "offsetFrames": 0,
+      "sound": "soft_click",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch1:happy",
+      "origin": "pixel-actions",
+      "beatId": 5,
+      "offsetFrames": 58,
+      "sound": "success_pair",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch1:approval",
+      "origin": "pixel-actions",
+      "beatId": 5,
+      "offsetFrames": 135,
+      "sound": "data_pluck",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch1:wipe-run",
+      "origin": "pixel-actions",
+      "beatId": 6,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch1:jump",
+      "origin": "pixel-actions",
+      "beatId": 6,
+      "offsetFrames": 37,
+      "sound": "pixel_jump",
+      "peakDbfs": -27
+    },
+    {
+      "id": "ch1:reward",
+      "origin": "pixel-actions",
+      "beatId": 6,
+      "offsetFrames": 63,
+      "sound": "success_pair",
+      "peakDbfs": -27
+    },
+    {
+      "id": "ch2:launch-app",
+      "origin": "pixel-actions",
+      "beatId": 7,
+      "offsetFrames": 26,
+      "sound": "soft_click",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch2:depends-focus",
+      "origin": "pixel-actions",
+      "beatId": 7,
+      "offsetFrames": 60,
+      "sound": "focus_air",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:stop",
+      "origin": "pixel-actions",
+      "beatId": 8,
+      "offsetFrames": 102,
+      "sound": "error",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:wipe-kit",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -30
+    },
+    {
+      "id": "ch2:ubuntu",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 43,
+      "sound": "soft_pop",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:node",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 57,
+      "sound": "soft_pop",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:python",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 79,
+      "sound": "soft_pop",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:pnpm",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 96,
+      "sound": "soft_pop",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:dsh",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 115,
+      "sound": "soft_pop",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:pack",
+      "origin": "pixel-actions",
+      "beatId": 9,
+      "offsetFrames": 141,
+      "sound": "success_pair",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch2:page-files",
+      "origin": "pixel-actions",
+      "beatId": 10,
+      "offsetFrames": 0,
+      "sound": "soft_whoosh",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:rewrite",
+      "origin": "pixel-actions",
+      "beatId": 11,
+      "offsetFrames": 67,
+      "sound": "soft_whoosh",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:page-settings",
+      "origin": "pixel-actions",
+      "beatId": 13,
+      "offsetFrames": 0,
+      "sound": "soft_whoosh",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:toggle",
+      "origin": "pixel-actions",
+      "beatId": 13,
+      "offsetFrames": 71,
+      "sound": "soft_click",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch2:fallback",
+      "origin": "pixel-actions",
+      "beatId": 14,
+      "offsetFrames": 0,
+      "sound": "error",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:return",
+      "origin": "pixel-actions",
+      "beatId": 14,
+      "offsetFrames": 111,
+      "sound": "success_pair",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch2:wipe-storage",
+      "origin": "pixel-actions",
+      "beatId": 15,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -30
+    },
+    {
+      "id": "ch2:model-reveal",
+      "origin": "pixel-actions",
+      "beatId": 16,
+      "offsetFrames": 0,
+      "sound": "focus_air",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:model-request",
+      "origin": "pixel-actions",
+      "beatId": 16,
+      "offsetFrames": 17,
+      "sound": "data_pluck",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:model-received",
+      "origin": "pixel-actions",
+      "beatId": 16,
+      "offsetFrames": 59,
+      "sound": "soft_pop",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch2:wipe-remote",
+      "origin": "pixel-actions",
+      "beatId": 17,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -30
+    },
+    {
+      "id": "ch2:choose",
+      "origin": "pixel-actions",
+      "beatId": 17,
+      "offsetFrames": 87,
+      "sound": "soft_click",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch2:encrypted-connect",
+      "origin": "pixel-actions",
+      "beatId": 17,
+      "offsetFrames": 168,
+      "sound": "soft_click",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch2:relay",
+      "origin": "pixel-actions",
+      "beatId": 18,
+      "offsetFrames": 124,
+      "sound": "soft_whoosh",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:compactOn",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 26,
+      "sound": "soft_click",
+      "peakDbfs": -29
+    },
+    {
+      "id": "ch2:records-focus",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 64,
+      "sound": "focus_air",
+      "peakDbfs": -32
+    },
+    {
+      "id": "ch2:extract-category",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 134,
+      "sound": "soft_click",
+      "peakDbfs": -35
+    },
+    {
+      "id": "ch2:extract-total",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 150,
+      "sound": "soft_click",
+      "peakDbfs": -35
+    },
+    {
+      "id": "ch2:extract-files",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 166,
+      "sound": "soft_click",
+      "peakDbfs": -35
+    },
+    {
+      "id": "ch2:summary",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 174,
+      "sound": "success_pair",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch2:transfer",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 202,
+      "sound": "soft_whoosh",
+      "peakDbfs": -31
+    },
+    {
+      "id": "ch2:summary-received",
+      "origin": "pixel-actions",
+      "beatId": 19,
+      "offsetFrames": 226,
+      "sound": "success_pair",
+      "peakDbfs": -28
+    },
+    {
+      "id": "ch2:wipe-run",
+      "origin": "pixel-actions",
+      "beatId": 21,
+      "offsetFrames": 0,
+      "sound": "pixel_wipe",
+      "peakDbfs": -30
+    },
+    {
+      "id": "ch2:jump",
+      "origin": "pixel-actions",
+      "beatId": 21,
+      "offsetFrames": 47,
+      "sound": "pixel_jump",
+      "peakDbfs": -27
+    },
+    {
+      "id": "ch2:seat",
+      "origin": "pixel-actions",
+      "beatId": 21,
+      "offsetFrames": 75,
+      "sound": "success_pair",
+      "peakDbfs": -28
+    }
+  ]
+}

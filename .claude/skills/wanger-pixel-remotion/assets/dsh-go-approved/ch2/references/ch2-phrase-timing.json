@@ -1,0 +1,297 @@
+{
+  "method": "mlx-community/Qwen3-ForcedAligner-0.6B-4bit forced alignment on current audio; subtitles switch at phrase onset; events at anchor onset plus offset",
+  "chapterStartFrame": 1078,
+  "chapterEndFrame": 3504,
+  "chapterFrames": 2426,
+  "audioSha256": {
+    "7": "245fba42988d04475b226efc2e3d47c869c5fb50800967b28820d321b99c7227",
+    "8": "83a5d8873f5ed70a033dfcf2c93f36f20956da74ec91ad2403f89aa731e20937",
+    "9": "0d29af4394a85045bacaa5795dd99cc0c43538e6c3014b73cfeac0b51ff5b5a1",
+    "10": "397c99cf731852952122dbbd03610d2a40673d9e26776514d970ea31c5649028",
+    "11": "07bcbda0d29e12409b6ffaad73765d48bdc472d29b4382aad646c1f338d1dcf0",
+    "12": "3884a6dbeda83ec065c59a3490546272347f456a869f1ebc63592b04f8ea9816",
+    "13": "ff94ab5cbf663a37c874d6741755c2cecd5c49ad93e4ef9577d6d95c6d98cd3e",
+    "14": "29501a7ac21eb3c654a6b47acbeb29055bc4979a1fc9aecdcf049de90969e59f",
+    "15": "c03b69a52591dccc5ba21080c29d9623dec2f6b90d50d7d14996f1f951f16508",
+    "16": "0a570d82d905d52acb6843dead48be5ee76a103e71194de1f9dfb27b11027127",
+    "17": "8cf499c9f4d0dcae6797f4fd003a3233cbfc5dff06c2c280e962554ae25418cc",
+    "18": "3bab2a22fa91f24966b2fc316405c79e87b4ba6f1bab54ad4b380605f9ae8246",
+    "19": "c45678c34c0c1327f8342f4e7aa6de9d5b7de7a1dd8fd720ae158cbbc4eb8a37",
+    "20": "9c8bdc53218704ea4ce593e4e9784a84570028a7595e61cc4814c08ef9a51400",
+    "21": "451b1c7ef981a3bff608bd47213bde0041ee8d58d82eb4410c7626ffc28f6fd2"
+  },
+  "subtitles": [
+    {
+      "startFrame": 0,
+      "endFrame": 48,
+      "text": "那聪明的你一定会问，",
+      "beatId": 7
+    },
+    {
+      "startFrame": 48,
+      "endFrame": 122,
+      "text": "DSH 依赖 Node.js 和 Linux 环境，",
+      "beatId": 7
+    },
+    {
+      "startFrame": 122,
+      "endFrame": 152,
+      "text": "手机怎么跑起来？",
+      "beatId": 7
+    },
+    {
+      "startFrame": 152,
+      "endFrame": 229,
+      "text": "普通 App 直接调用系统命令时，",
+      "beatId": 8
+    },
+    {
+      "startFrame": 229,
+      "endFrame": 280,
+      "text": "会被 Android 的权限拦下来。",
+      "beatId": 8
+    },
+    {
+      "startFrame": 280,
+      "endFrame": 364,
+      "text": "DSH Go 的做法是把 Ubuntu、Node.js、",
+      "beatId": 9
+    },
+    {
+      "startFrame": 364,
+      "endFrame": 417,
+      "text": "Python、pnpm 和 DSH",
+      "beatId": 9
+    },
+    {
+      "startFrame": 417,
+      "endFrame": 472,
+      "text": " 一起打包成一套内置的运行环境。",
+      "beatId": 9
+    },
+    {
+      "startFrame": 472,
+      "endFrame": 542,
+      "text": "默认是以 PRoot 模式兼容启动。",
+      "beatId": 10
+    },
+    {
+      "startFrame": 542,
+      "endFrame": 600,
+      "text": "PRoot 是一个运行在用户态的工具，",
+      "beatId": 10
+    },
+    {
+      "startFrame": 600,
+      "endFrame": 667,
+      "text": "它会拦截访问文件的系统调用，",
+      "beatId": 11
+    },
+    {
+      "startFrame": 667,
+      "endFrame": 734,
+      "text": "把路径改写到 App 自己的私有目录里，",
+      "beatId": 11
+    },
+    {
+      "startFrame": 734,
+      "endFrame": 773,
+      "text": "所以不需要 Root 权限",
+      "beatId": 11
+    },
+    {
+      "startFrame": 773,
+      "endFrame": 824,
+      "text": "也能运行完整的 Linux 环境。",
+      "beatId": 11
+    },
+    {
+      "startFrame": 824,
+      "endFrame": 906,
+      "text": "不过，由于这种方式需要在系统调用时",
+      "beatId": 12
+    },
+    {
+      "startFrame": 906,
+      "endFrame": 956,
+      "text": "做一次路径转换，速度偏慢。",
+      "beatId": 12
+    },
+    {
+      "startFrame": 956,
+      "endFrame": 992,
+      "text": "如果你嫌慢的话，",
+      "beatId": 13
+    },
+    {
+      "startFrame": 992,
+      "endFrame": 1062,
+      "text": "可以在开发者选项里打开直接启动，",
+      "beatId": 13
+    },
+    {
+      "startFrame": 1062,
+      "endFrame": 1107,
+      "text": "改由 Node 的预加载模块",
+      "beatId": 13
+    },
+    {
+      "startFrame": 1107,
+      "endFrame": 1168,
+      "text": "负责路径映射和 DNS 解析。",
+      "beatId": 13
+    },
+    {
+      "startFrame": 1168,
+      "endFrame": 1257,
+      "text": "如果直接启动被 Android 的系统限制拦截，",
+      "beatId": 14
+    },
+    {
+      "startFrame": 1257,
+      "endFrame": 1320,
+      "text": "DSH Go 会自动退回兼容启动。",
+      "beatId": 14
+    },
+    {
+      "startFrame": 1320,
+      "endFrame": 1421,
+      "text": "这套本机环境大约要占用 1 GB 存储空间。",
+      "beatId": 15
+    },
+    {
+      "startFrame": 1421,
+      "endFrame": 1495,
+      "text": "需要注意，手机上运行的只是 Agent 引擎，",
+      "beatId": 15
+    },
+    {
+      "startFrame": 1495,
+      "endFrame": 1563,
+      "text": "大模型推理仍然需要联网。",
+      "beatId": 16
+    },
+    {
+      "startFrame": 1563,
+      "endFrame": 1618,
+      "text": "如果手机剩余空间不足，",
+      "beatId": 17
+    },
+    {
+      "startFrame": 1618,
+      "endFrame": 1693,
+      "text": "可以在安装后直接选择远程主机，",
+      "beatId": 17
+    },
+    {
+      "startFrame": 1693,
+      "endFrame": 1765,
+      "text": "通过 SSH 隧道或端到端加密的",
+      "beatId": 17
+    },
+    {
+      "startFrame": 1765,
+      "endFrame": 1816,
+      "text": " DSH Remote 连接电脑。",
+      "beatId": 17
+    },
+    {
+      "startFrame": 1816,
+      "endFrame": 1907,
+      "text": "DSH Remote 会优先尝试局域网直连",
+      "beatId": 18
+    },
+    {
+      "startFrame": 1907,
+      "endFrame": 1943,
+      "text": "或 P2P 直连，",
+      "beatId": 18
+    },
+    {
+      "startFrame": 1943,
+      "endFrame": 1991,
+      "text": "连不上再走中继服务器。",
+      "beatId": 18
+    },
+    {
+      "startFrame": 1991,
+      "endFrame": 2058,
+      "text": "你还可以打开“精简历史”开关，",
+      "beatId": 19
+    },
+    {
+      "startFrame": 2058,
+      "endFrame": 2154,
+      "text": "让电脑先把早期工具调用的参数和长输出",
+      "beatId": 19
+    },
+    {
+      "startFrame": 2154,
+      "endFrame": 2220,
+      "text": "压缩成简短摘要，再传给手机，",
+      "beatId": 19
+    },
+    {
+      "startFrame": 2220,
+      "endFrame": 2305,
+      "text": "这样上下文不会中断，也能节省流量。",
+      "beatId": 20
+    },
+    {
+      "startFrame": 2305,
+      "endFrame": 2348,
+      "text": "恭喜看到这里的你，",
+      "beatId": 21
+    },
+    {
+      "startFrame": 2348,
+      "endFrame": 2426,
+      "text": "已经成功击败 50% 的学习者了。",
+      "beatId": 21
+    }
+  ],
+  "events": {
+    "question": 0,
+    "depends": 60,
+    "blocked": 152,
+    "stop": 254,
+    "kit": 280,
+    "ubuntu": 323,
+    "node": 337,
+    "python": 359,
+    "pnpm": 376,
+    "dsh": 395,
+    "pack": 421,
+    "proot": 472,
+    "userland": 574,
+    "call": 600,
+    "rewrite": 667,
+    "noroot": 737,
+    "slow": 824,
+    "direct": 956,
+    "toggle": 1027,
+    "preload": 1076,
+    "dns": 1136,
+    "fallback": 1168,
+    "return": 1279,
+    "storage": 1320,
+    "engine": 1469,
+    "cloud": 1495,
+    "remote": 1563,
+    "choose": 1650,
+    "ssh": 1695,
+    "encrypted": 1731,
+    "routing": 1816,
+    "p2p": 1911,
+    "relay": 1940,
+    "compact": 1991,
+    "compactOn": 2017,
+    "records": 2055,
+    "summary": 2165,
+    "transfer": 2193,
+    "continuity": 2220,
+    "run": 2305,
+    "seat": 2380,
+    "end": 2426
+  }
+}

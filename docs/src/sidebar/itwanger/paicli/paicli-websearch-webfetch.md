@@ -1,5 +1,5 @@
 ---
-title: 手搓 Java 终端 Agent 第 9 期，联网搜索、双通道抓取与四层防注入安全边界
+title: DeepSeek WebSearch 和 WebFetch
 shortTitle: Agent联网搜索与抓取
 description: PaiCLI 第 9 期，基于最新源码拆解 Agent 的 WebSearch 与 WebFetch 联网实现，涵盖多搜索源的策略抽象与三级配置回退、DeepSeek 远端抓取与本机 8KB 分块限量抓取、基于 Jsoup 链接密度评分把网页提取成 Markdown，以及防 SSRF、防访问未授权 URL 与防网页提示词注入的安全机制。
 keywords: Agent联网搜索, WebSearch, WebFetch, SSRF防护, 提示词注入防御
@@ -39,9 +39,9 @@ PaiCLI 默认配置的是 DeepSeek，就会调用 DeepSeek 的 `web_search` 工�
 
 拿到搜索返回的标题、摘要和来源链接后，模型把这些信息整理成了一段人物介绍。
 
-> 沉默王二 是一位知名的技术博主、程序员，真实身份与笔名一致，活跃于技术社区和自媒体领域。
+> 沉默王二是国内一位知名的 Java 技术博主、自媒体作者。
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260427142705.png)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-live-person-20261112223911-be5e8e62.png)
 
 搜索摘要里的个人座右铭“没有什么可以使我停留，除了目的，纵然岸边有绿荫，有宁静的港湾，我是不系之舟”也被一并提取了出来。
 
@@ -55,15 +55,11 @@ Agent 从首页出发，依次读取了教程页、文章列表页和站点地�
 
 ![](https://cdn.paicoding.com/stutymore/sucai-20260427142942.png)
 
-读完之后，模型找到站内最新的一篇文章是前一天发布的《DeepSeek V4 来了，这波我真的上头（附技术拆解报告）》。
+这次实测（2026 年 11 月 12 日）中，`web_fetch` 只返回了部分首页内容，模型又通过浏览器读取首页，列出了 Transformer、MCP、RAG、Agent Skills 等 9 篇文章。结果仅覆盖首页第一页，模型给出了以下观察：
 
-![](https://cdn.paicoding.com/stutymore/sucai-20260427143049.png)
+> 这 9 篇的时间戳完全一致（16:09），作者都是「管理员」，阅读数只有十几、评论和点赞均为 0，更像是一次性批量上架，而不是零散发布。
 
-最后，模型综合抓取到的多个页面，给出了当天的更新情况和近期文章的主题汇总。
-
-> 今天（4 月 27 日）暂无新文章发布，最近的一篇是昨天（4 月 26 日）关于 DeepSeek V4 的深度技术拆解文章。该站近期更新频率很高，几乎每隔 1-2 天就有新内容，主要集中在 PaiCLI、AI Agent、RAG、DeepSeek 等前沿 AI 技术方向。
-
-![](https://cdn.paicoding.com/stutymore/sucai-20260427143149.png)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-live-updates-20261112223912-b2886cfd.png)
 
 整个过程不用离开终端去开浏览器，也不用手动复制粘贴网页内容。接下来我们拆解这套机制的源码设计。
 
@@ -81,7 +77,7 @@ Agent 从首页出发，依次读取了教程页、文章列表页和站点地�
 
 拆开之后，模型可以先看摘要，挑出最相关的一两个链接，真有必要再去读全文。
 
-![](https://cdn.paicoding.com/paicoding/0ac38175199657dc04feda963dee6552.png)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-handdrawn-1-20261112224823-21816479.png)
 
 另外，这两个工具都只读、不改任何东西，所以被加进了并行白名单。模型可以同时查三个库的版本，或者同时抓几个已知网址，PaiCLI 会用最多 4 个线程并发执行，再按原来的顺序把结果交回给模型。
 
@@ -220,7 +216,7 @@ private double score(Element el) {
 
 所以公式先算出链接文字占全部文字的比例，比例乘以 2 作为扣分。链接文字一旦占到一半，扣分就到顶了，得分直接归零。说白了，**字越多、链接越少，越像正文。**
 
-![](https://cdn.paicoding.com/paicoding/409e05aed4443e9ca55b36479145b1c4.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-handdrawn-2-20261112224824-5174aed4.png)
 
 选出正文后，再把标题、段落、代码、列表、表格逐一转成对应的 Markdown 格式，默认最多保留 8000 个字。
 
@@ -240,7 +236,7 @@ SSRF 说白了就是借刀杀人，攻击者自己访问不到某个内部地址
 
 假如某个网页诱导 Agent 去抓 `http://localhost:8080/actuator/shutdown`、`http://192.168.1.1/admin`，或者云服务器的元数据地址 `http://169.254.169.254/latest/meta-data/`。这些请求是从你自己的电脑或服务器内部发出的，外网防火墙根本拦不住，轻则内网服务被关掉，重则云主机的凭证被泄露。
 
-![](https://cdn.paicoding.com/paicoding/c6964820c2340eccc8539fd75151bba8.png)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-handdrawn-4-20261112224825-47caba62.png)
 
 所以每次 `web_fetch` 发请求之前，都要先过 `NetworkPolicy` 这一关：
 
@@ -286,7 +282,7 @@ private String checkHost(String host) {
 
 最后还有一道限流，默认 60 秒内最多抓 30 次，防止模型出错后对同一个网站反复请求，把你的 IP 送进对方的黑名单。
 
-![](https://cdn.paicoding.com/paicoding/21112a859fb3a7cc2bd05272d0cc30c5.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-handdrawn-3-20261112224824-b853d29d.png)
 
 ## 06、怎么防网页提示词注入和记忆污染
 
@@ -385,11 +381,11 @@ SEARXNG_URL=http://localhost:8888
 
 用的时候不用手动指定工具，模型会自己判断：
 
-- 问“Java 21 有什么新特性”，没有现成网址，模型调用 `web_search`；
+- 问“Java 21 有什么新特性”，这次模型直接凭已有知识回答，没有调用联网工具；
 - 问“帮我看看 https://paicoding.com 首页有什么内容”，网址是你亲手给的，直接进可信名单，模型调用 `web_fetch`；
 - 问“搜一下 Spring Boot 3.4 的 release notes，然后帮我总结要点”，模型先用 `web_search` 找到官方发布页，下一轮再用 `web_fetch` 读全文、做总结。
 
-![](https://cdn.paicoding.com/paicoding/db39a18bacdf59bf3358e5e21d63c74f.jpg)
+![](https://cdn.paicoding.com/stutymore/paicli-websearch-live-java21-20261112223913-b2c2c064.png)
 
 ![](https://cdn.paicoding.com/stutymore/paicli-webfetch-after-fix-homepage-20261112222746-c17ea293.png)
 

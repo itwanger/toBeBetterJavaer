@@ -2,7 +2,7 @@
 
 以 2026-11-10 确认的[五章整期定稿][film]为准（4:12.23，30 fps），包括最后 6.5 秒的知识蘑菇片尾。想先看效果，可以打开[定稿抽帧][sheet]；要挑一个镜头，从下面五类按用途找。每行的「看」指向认可样例，「取」指向能带进下一期的实现。
 
-将本期做法用到新题材时，先按口播判断该借哪一种镜头。发布视频铺底、模型卡让位和 Sub-agent 工坊的跨期用法，见 [Fable 第一章定稿组件与动效](FABLE_CH1_LIBRARY.md)、[第二章的分工、验收与剖面](FABLE_CH2_LIBRARY.md)、[第三章的机制关卡、读图与终端](FABLE_CH3_LIBRARY.md)、[第四章的双轴读图与实机叠分](FABLE_CH4_LIBRARY.md)、[第五章的同题对跑、评测实例与发券](FABLE_CH5_LIBRARY.md)和[首版选镜与同帧对照](FIRST_CUT.md)。
+将本期做法用到新题材时，先按口播判断该借哪一种镜头。发布视频铺底、模型卡让位和 Sub-agent 工坊的跨期用法，见 [Fable 第一章定稿组件与动效](FABLE_CH1_LIBRARY.md)、[第二章的分工、验收与剖面](FABLE_CH2_LIBRARY.md)、[第三章的机制关卡、读图与终端](FABLE_CH3_LIBRARY.md)、[第四章的双轴读图与实机叠分](FABLE_CH4_LIBRARY.md)、[第五章的同题对跑、评测实例与发券](FABLE_CH5_LIBRARY.md)和[共享选镜与观察点](SHOT_LIBRARY.md)。首版落地沿用[共用自审](FIRST_CUT.md)。
 
 **新项目怎么取：** 初始化项目后，从仓库根目录执行下面的命令，把末尾路径换成新项目的绝对路径。[安装脚本][install]会把 TSX 放进 `remotion/src/`，人物 PNG 放进 `assets/images/`，提示音 WAV 放进 `assets/sfx/`；遇到已有的不同版本会报告冲突。横移、上移和推近直接引用工作区的[共享转场][motion]。
 
