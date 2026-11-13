@@ -35,3 +35,21 @@ docs/scripts/.baidu-push-token
 docs/scripts/.baidu-pushed.json
 /.tmp-browseract-home
 /.claude/skills/feishu-question-bank-sync
+
+# 本机配置、运行状态和网站探索记录（共享 Skill 继续同步）
+/.claude/settings.local.json
+/.claude/worktrees/
+/.codebuddy/settings.local.json
+/.opencli/explore/
+.env.*
+!.env.example
+!.env.*.example
+
+# Python 运行缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 根目录的独立演示：保留本地，不随文档仓库同步
+/remotion-project/
+/neo-brutalism.html
