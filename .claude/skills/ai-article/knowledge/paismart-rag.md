@@ -1,12 +1,12 @@
-> 调研日期：2026-10-15｜仓库：/Users/itwanger/Documents/GitHub/PaiSmart（main）｜commit：c6889244
+> 调研日期：2026-11-14｜仓库：/Users/itwanger/Documents/GitHub/PaiSmart（main + 工作区 DeepSeek 应用能力接入）｜commit：c2b3f839
 `git -C /Users/itwanger/Documents/GitHub/PaiSmart log --oneline --since=2026-10-15`
 
 # 派聪明 RAG 源码知识库
 
-- 本文件只依据 main 分支已提交内容（c6889244，main 与 origin/main 一致）。调研时工作区有未提交的评测改动（`service/eval/*`、`eval/paismart-eval-v1.jsonl`、`docs/*`），没有采用。RustFS 分支的内容也没有采用。
+- 本文件依据 main 分支已提交内容（c2b3f839）及 2026-11-14 工作区 DeepSeek 全家桶应用 API 接入改动（详见第十二节与 `docs/deepseek-apps.md`）。
 - 路径约定：Java 文件相对 `src/main/java/com/yizhaoqi/smartpai/`；“yml”指 `src/main/resources/application.yml`；“计划文档”指 `docs/interview-upgrade-plan.md`。
 - 写稿时如果 `git log --since` 有新提交，先看提交说明和改动文件，再决定补哪一节。
-- 之后的 c2b3f839（2026-10-15，按上传者隔离索引数据、统一公开字段名）已并入 3.3、5.1、5.2、6.3、第七节和演进记录 11；其余各节的行号仍以 c6889244 为准。
+- 之后的 c2b3f839（2026-10-15，按上传者隔离索引数据、统一公开字段名）已并入 3.3、5.1、5.2、6.3、第七节和演进记录 11；2026-11-14 新增 DeepSeek 应用能力（联网搜索 `/v1/tools/search`、网页阅读 `/v1/tools/fetch`、临时附件 `/files`、OCR `/v1/tools/ocr`、知识库视觉证据与原图核实、内容安全 `safety_check`、增量版本与工具解析账单）已并入第十二节。
 
 ---
 
@@ -449,3 +449,29 @@
 11. **上下文检索、引用校验、冲突 LLM 确认默认都关**（yml:260,288,443），评测数据都是在关闭状态下跑的。
 12. **没有独立的查询改写模块**：没有 HyDE、多查询改写或查询分解，全靠模型在 ReAct 里构造 query（6.7）。
 13. **资源访问没有组织层级继承**：检索时子组织成员能看上级组织文档，但 `OrgTagAuthorizationFilter` 对单个资源只认 JWT 里直接包含的标签（config/OrgTagAuthorizationFilter.java:317-323），两处规则不一致。
+
+---
+
+## 十三、DeepSeek 全家桶应用 API 接入（2026-11-14 工作区改动，详见 `docs/deepseek-apps.md`）
+
+1. **接入范围与架构选型**：
+   - 采用独立工具接口（`/v1/tools/search`、`/v1/tools/fetch`、`/v1/tools/ocr`、`/files`）+ 在线问答模型（`deepseek-flash` + `/chat/completions` + `safety_check: {"level": "high"}`）组合接入，将 `web_search` 与 `read_url` 注册进派聪明自身的 ReAct 循环（`AgentToolRegistry.java:80-114`），替换原有的阿里云 OCR SDK（已删除 `AliyunOcrService.java`）。ASR、TTS 不在本次范围。
+   - `DeepSeekAppsClient`（`client/DeepSeekAppsClient.java:26-163`）用 `Semaphore(8)` 控制全局并发工具请求上限为 8；`validatePublicUrl` 拦截非 http/https、非 80/443 端口、回环/私网/链路本地/多播 IP 及 `.local`/`.internal` 域名。
+2. **联网搜索（`web_search`）与网页阅读（`read_url`）**：
+   - `DeepSeekWebService`（`service/DeepSeekWebService.java:18-75`）用 Redis Lua 脚本对 `deepseek:apps:attempts:<UTC日期>:<userId>:web|upload` 原子计数，每日搜索与网页读取合计上限默认 200 次，临时附件上传每日上限 20 次。
+   - `search` 固定 `count=5, need_content=false`，只取 `summary` 或 `snippet`（标记 `summaryOnly=true`，截断上限 1200 字），需要细节时模型再调 `read_url` 调 `/v1/tools/fetch`（正文截断上限 `maxPageChars=16000`）。
+   - 网页来源与知识库引用共用递增编号 `1, 2, ...`（`retrievalMode="WEB"`），前端 `chat-message.vue` 渲染网页来源卡并提供「存入知识库」按钮，将抓取快照走 `/upload/chunk` + `/upload/merge` 归档入库。
+3. **会话临时附件问答（Files API）**：
+   - `ChatAttachmentService`（`service/ChatAttachmentService.java:17-101`）限制单会话最多 5 个附件、单文件最大 20 MB、有效期 24 小时（`expires_after[seconds]=86400`）。`txt/md/csv/json/xlsx/xls` 走 `purpose="user_data"`（免费），其余 PDF/Office/图片走 `purpose="rich_layout_recognition"`（默认）或 `"text_recognition"`。
+   - 因 Files API 不回传页数，`AttachmentPagePreparer`（`service/parse/AttachmentPagePreparer.java:15-61`）在本地精确计页（PDF 用 PDFBox，Office 调 LibreOffice `soffice --headless` 转 PDF，多帧图片逐帧校验像素不超过 1 亿后合成 PDF 计页），在付费调用前拦截超限或加密文件。
+   - `ChatHandler.runReActLoop`（`service/ChatHandler.java:295-308`）注入防提示词注入的 system 提示词，并将临时附件拼成 `{"type": "file", "file_id": a.getRemoteFileId()}` 挂入 user 消息，前端 `view()` 隐去 `remoteFileId`。
+4. **内容安全审核（`safety_check`）与流式内存暂存**：
+   - `LlmProviderRouter.streamAppReActTurn`（`service/LlmProviderRouter.java:264-317`）在 `useApps=true` 时锁定 `deepseek-flash` 并携带 `"safety_check": Map.of("level", "high")`。
+   - 开启安全审核时，SSE 流式生成期间将文本暂存在服务端内存 `accumulator.content`，不实时写入 WebSocket 或 Redis；流结束校验 `finishReason` 属于 `stop`/`length`/`tool_calls`/`content_filter`，审核通过才一次性下发；若收到 `content_filter` 或 HTTP 400 `"Content Exists Risk"`（`:368-383`），`ChatHandler.replaceWithRefusal`（`:608-617`）清空文本与引用映射，向前端发送 `type="replace"` 拒答提示。
+5. **DeepSeek OCR 坐标转换与知识库原图视觉证据**：
+   - `ParseService`（`service/ParseService.java:125-144, 381-490`）将 LiteParse 的 `--ocr-server-url` 指向本地 `/api/v1/internal/ocr/liteparse?token=<临时令牌>`，任意一页回调失败则整份 PDF 解析明确失败。
+   - `LiteParseOcrAdapterService`（`service/LiteParseOcrAdapterService.java:14-57`）调 `/v1/tools/ocr`（`purpose="text_recognition"`），解析 `<｜ref｜>...<｜/ref｜><｜box｜>[[x1,y1,x2,y2]]<｜/box｜>` 的 0–1000 归一化坐标并按图片实际宽高换算为像素 `bbox`。
+   - `KnowledgeDocumentParser`（`service/parse/KnowledgeDocumentParser.java:26-304`）通过 PDFBox `PDFStreamParser` 检测含 `Do/re/l/c/sh/BI` 绘图指令的页面，渲染 PNG 后调 `deepseek-flash` 生成 `VISUAL_DESCRIPTION` 分块；检索命中视觉分块时，`ChatHandler.attachRetrievedVisuals`（`:479-495`）最多取 3 张 PNG 原图转 base64 注入上下文供模型核实，前端提供带鉴权的「查看原图」弹窗（`GET /api/v1/documents/visual-evidence`）。
+6. **增量版本更新与工具解析账单**：
+   - `DocumentComputationCache` 与 `DocumentVersionService` 按 `computed/<owner>/<fingerprint>/` 缓存 OCR 页面、视觉描述与分块向量，更新文档版本（`replacesMd5`）时跨版本复用未变更页的付费计算结果，同事务切换新旧版本状态。
+   - `AppToolBillingService`、`DocumentBillingService`、`DocumentChargeSettlement` 按 DeepSeek 官方价格（搜索/抓取 5 元/千次、OCR/附件解析 1.5 元/千页、Flash 视觉按峰谷 Token 单价）及用户套餐最优折算率（如 9.9 元套餐每元折算 27 万 LLM Token，搜索/抓取每次扣 1350 Token，OCR/附件解析每页扣 405 Token），先写 `app_tool_calls` 预写日志与 `document_tool_usage` 账单，再用 Redis Lua 脚本原子扣减 `user:token:llm:<userId>` 并写永久幂等收据 `document:charge:<id>`；客户端中断时通过 `DocumentChargeRecovery` 查 `GET /files` 对账恢复。

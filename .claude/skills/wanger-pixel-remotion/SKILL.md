@@ -28,7 +28,7 @@ description: 用二哥像素风视频 Skill 制作 xxx.md。把中文 Markdown �
 
 下方项目管理、配音、逐章制作与导出流程，以及现有的[像素画面规范](references/PIXEL_STYLE.md)、[首版共用自审](references/FIRST_CUT.md)、[声画同步](references/AV_SYNC.md)、[协作与检查](references/COLLABORATION.md)和[代码契约](references/CODE_CONTRACT.md)，是两类共用的维护入口。导演规则只规定各自的叙事决策与内容验收，不复制色板、组件、配音或检查流程；通用反馈修共享入口，题材反馈修对应导演规则。
 
-像素系列统一复用认可的PixelWorld色板：奶油底、深青、金黄、薄荷绿、橙色，配深色描边和硬阴影。新章节不要自行另起浅灰绿、紫色等整套配色。图标与必要短名称成对贴附；删除无对象依附的解释标题。当前对象使用当前空间，新对象出现时才连续让位；窗口内部也不能预留未来签名、卡片或缓存的空槽。
+像素系列统一复用认可的PixelWorld色板：奶油底、深青、金黄、薄荷绿、橙色，配深色描边和硬阴影。新章节不要自行另起浅灰绿、紫色等整套配色。图标与必要短名称成对贴附；删除无对象依附的解释标题。当前对象使用当前空间，新对象出现时才连续让位；这同时约束横向宽度和纵向高度，窗口内部也不能预留未来签名、卡片或缓存的空槽。逐项淡入不等于动态让位：按[代码契约](references/CODE_CONTRACT.md#1-先铺开出现新信息时再让位)分配当前布局，并按[首版自审](references/FIRST_CUT.md)检查新对象出现之前的画面。
 
 [认可镜头与素材索引](references/SHOT_LIBRARY.md)集中保留 CoT、Fable、Harness、Tokenizer 等方案及原素材入口，两类均可按语义取用，不各建一套素材库。新增认可方案归到原有对应索引或此索引，导演规则引用即可。
 
@@ -36,12 +36,12 @@ description: 用二哥像素风视频 Skill 制作 xxx.md。把中文 Markdown �
 
 每个项目维护一份短的 `DIRECTOR.md`：当前目标/授权章节、用户有效要求、设计参数与认可参考入口、全片视觉走向、当前实现和下一步。开始制作、换章或压缩恢复后，先读它，再读 `OUTLINE.md` 当前章与实际组件。缺失时用当前用户反馈和可核实项目状态建立，不猜已认可结论。最新反馈更新对应条目，不叠加多份“当前方案”；`PROGRESS.md` 只记录当前进度与下一步。被替代的分镜、规则和待审旧方案直接移除；Skill 只沉淀有效规则与用户认可的可复用方案，不以“历史参考”继续加载冲突内容。
 
-字体、画布、安全区等可复用参数落实到项目共享设计组件；总控引用该入口，避免各镜头另定一套。每章先规划完整视觉过程和对象接续，再做代表镜头并扩展，无须增加审批。具体维护方法见[协作与精简检查](references/COLLABORATION.md#只维护当前有效方案)。项目 `AGENTS.md` 只需指向该总控，不重复整套规则。总控是可重新读取的文件，不宣称会话上下文会永久保留。
+所有可编辑文字统一从 [Typography.ts](assets/Typography.ts) 接入，对齐 Fable 5.2 认可的双字体分工：中文标题、界面标签、正文和字幕使用 `UI_FONT`（`'PingFang SC', 'Microsoft YaHei', sans-serif`），代码片段、API 字段、网址、模型名、窗口顶栏标题、HUD 英文徽章、金币计数及核心得分使用 `MONO_FONT`（`'Menlo, monospace'`）。禁止注入 `* { font-family: ... !important }` 抹掉等宽字体，禁止加 `-webkit-font-smoothing: antialiased` 把笔画削细致缩放断笔。保留角色层级：场景主体与代码 `680`（`UI_WEIGHT` / `CODE_WEIGHT`）、左上主题牌 `650`（`HUD_WEIGHT`）、字幕与状态栏常规文字 `400`（`CAPTION_WEIGHT`）；像素风只作用于图形，禁止像素字体。`Typography.ts` 的 `FONT_CSS` 同步解除 Remotion Studio `Fit` 外层容器的行内 `will-change: transform` 位图降采样锁，布局坐标与动态字号用 `Math.round` 对齐整数像素，`MotionPlane` 仅在转场帧挂载 3D `perspective`。具体接法与实帧验收见[画面规范](references/PIXEL_STYLE.md#美术和-remotion-落地)。字体、画布、安全区等可复用参数落实到项目共享设计组件；总控引用该入口，避免各镜头另定一套。每章先规划完整视觉过程和对象接续，再做代表镜头并扩展，无须增加审批。具体维护方法见[协作与精简检查](references/COLLABORATION.md#只维护当前有效方案)。项目 `AGENTS.md` 只需指向该总控，不重复整套规则。总控是可重新读取的文件，不宣称会话上下文会永久保留。
 
 ## 从稿件到有声预览
 
 1. 确认稿件和项目的绝对路径。工作区为仓库的 `docs/src/ai/script`，每条视频的配音、素材、预览、源码与成片均归入本期目录。读[共享工作流](../../../docs/src/ai/script/shared/WORKFLOW.md)与[像素画面规范](references/PIXEL_STYLE.md)。旧项目先用 `shared/tools/doctor.py --project <项目>` 读取状态。新项目初始化后用 `python3 scripts/install_pixel_assets.py --project <项目>` 安装本 Skill 的组件、人物与提示音，已有项目先核对差异。
-2. 按原文整理 `script.md`、`beats.json` 和 `OUTLINE.md`。出现固定片尾「这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！」，直接使用 Harness 定稿干声，禁止为它发起 TTS 请求，包括强制重配。优先在问号处分成两段；原稿为一段时用同一对干声连成的版本。素材缺失或损坏先恢复，禁止回退合成。其余意群按项目配置合成。多音字、人名和包名先查词典，仍不确定就把词与原句给用户定音。按[实际音频](references/AV_SYNC.md)生成字幕与动作帧。读音修正参照[TTS 指南](references/VOLCENGINE_TTS_GUIDE.md)。每次修正后重算受影响的时点与混音。
+2. 按原文整理 `script.md`、`beats.json` 和 `OUTLINE.md`。出现固定片尾「这个知识点你学会了吗？想解锁更多 Agent 硬核知识，点赞关注，我是二哥，咱们下期见！」，直接使用 Harness 定稿干声，禁止为它发起 TTS 请求，包括强制重配。优先在问号处分成两段；原稿为一段时用同一对干声连成的版本。素材缺失或损坏先恢复，禁止回退合成。知识蘑菇片尾同时按[片尾声音契约](references/CODE_CONTRACT.md#知识蘑菇片尾按钮与声音成套接入)声明点赞/关注预设，自动生成专用按下声并检查混音；复用干声不等于带上音效。其余意群按项目配置合成。多音字、人名和包名先查词典，仍不确定就把词与原句给用户定音。按[实际音频](references/AV_SYNC.md)生成字幕与动作帧。读音修正参照[TTS 指南](references/VOLCENGINE_TTS_GUIDE.md)。每次修正后重算受影响的时点与混音。
 3. 每次制作一章。先在 `OUTLINE.md` 写清口播动词、画面主体和认可镜头来源，按当前导演规则安排叙事，从[认可镜头索引](references/SHOT_LIBRARY.md)选同类拍法，并用[首版共用自审](references/FIRST_CUT.md)落实画面。新题材先把最能代表风格和交互的 5–8 秒做进 Studio，再沿用到本章；不要先套旧章模板铺满。用户可边看边反馈，无须新增确认流程。截图中的操作沿同一输入拍到结果，原位放大整个控件。见[插件实测](references/PLUGIN_WALKTHROUGH.md)。
 4. 按[协作与精简检查](references/COLLABORATION.md)执行：用户逐画面审美验收，制作者负责运行正确、素材对应和改动处的关键边界。代码修改后做一次类型检查；必要时只取改动片段的 2–3 个关键帧或一段短片，二者不默认都做。新章首次交付、声画时点变化时核对相关声音，局部视觉修改不反复全章连播。`chapter_pipeline.py` 默认只类型检查及显式指定帧；配音/时点/音效变化才加 `--update-audio`，密集抽帧与批量短片需显式 `--full-review`。构图时兼顾手机观看；改动处可从已抽取的关键帧做一次手机横向播放比例的快速核对，不另开密集审片，不用字号阈值驱动画面硬放大。保留必要对象裁切、HUD/字幕碰撞、边框/阴影安全区和素材语义检查，技术接法见[代码契约](references/CODE_CONTRACT.md)。交付 `ChapterNPreview`，用户认可本章再开始下一章。
 5. 明确要求“出片”或“导出”时，从共享工作区运行 `node shared/tools/remotion.mjs render --project <项目> --detach`，完成后运行 `python3 shared/tools/verify_export.py --project <项目>`，从最终 MP4 抽帧核对封面、接缝和片尾。收到提交或推送指令时处理对应 Git 仓库。

@@ -1,7 +1,8 @@
 import React from "react";
 import { pixelColors as C } from "./PixelWorld";
+import { CODE_WEIGHT, MONO_FONT, UI_FONT, UI_WEIGHT } from "./Typography";
 const ivory = C.paper,
-  mono = "Menlo,monospace";
+  mono = MONO_FONT;
 export function move(f: number, start: number, length = 18) {
   const t = Math.max(0, Math.min(1, (f - start) / length));
   return t * t * (3 - 2 * t);
@@ -15,7 +16,7 @@ export const Svg = ({ children }: { children: React.ReactNode }) => (
     style={{
       position: "absolute",
       inset: 0,
-      fontFamily: "PingFang SC,sans-serif",
+      fontFamily: UI_FONT,
     }}
   >
     {children}
@@ -45,7 +46,7 @@ export function Txt({
       textAnchor={anchor}
       fontFamily={code ? mono : undefined}
       fontSize={size}
-      fontWeight={680}
+      fontWeight={code ? CODE_WEIGHT : UI_WEIGHT}
       fill={fill}
     >
       {children}

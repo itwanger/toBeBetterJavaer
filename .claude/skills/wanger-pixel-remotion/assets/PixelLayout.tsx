@@ -32,7 +32,13 @@ export function revealSlots(frame:number, items:readonly RevealItem[],area:Pixel
   let cursor=axis==='row'?area.x:area.y;
   return active.map(({item,p},i)=>{
     cursor+=gaps[i]; const size=extent*p*(item.weight??1)/total;
-    const box={x:axis==='row'?cursor:area.x,y:axis==='column'?cursor:area.y,width:axis==='row'?size:area.width,height:axis==='column'?size:area.height};cursor+=size;
+    const box={
+      x:Math.round(axis==='row'?cursor:area.x),
+      y:Math.round(axis==='column'?cursor:area.y),
+      width:Math.round(axis==='row'?size:area.width),
+      height:Math.round(axis==='column'?size:area.height),
+    };
+    cursor+=size;
     return {id:item.id,progress:p,...box};
   });
 }

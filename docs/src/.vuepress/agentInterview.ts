@@ -704,6 +704,16 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "了解 DeepSeek Harness 插件架构及四款插件的用途。",
     ["DeepSeek Harness", "插件", "Cordis"],
   ),
+  "openai-vs-anthropic-protocol": meta(
+    "OpenAI 和 Anthropic 协议有什么区别？", "OpenAI 与 Anthropic 协议",
+    "比较消息格式、工具调用、思考内容、流式输出和缓存处理。",
+    ["OpenAI", "Anthropic", "API 协议", "工具调用"],
+  ),
+  "dsh-go": meta(
+    "DSH Go 如何在手机上运行 DeepSeek Harness？", "DSH Go 手机版",
+    "了解 DSH Go 的本地运行环境、远程模式和手机操作能力。",
+    ["DSH Go", "DeepSeek Harness", "Android", "Agent"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -712,7 +722,36 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     children: ["readme"],
   },
   {
-    text: "01 / Agent 基础",
+    text: "01 / 热点解读（24/100）",
+    children: [
+      "dsh-go",
+      "claude-fable-5-2",
+      "deepseek-harness-four-plugins",
+      "hunyuan-hy4",
+      "longcat-2-5",
+      "what-is-super-agent",
+      "xiaomi-ocr-0",
+      "gpt-6-1-terra",
+      "kimi-k3-1-pro",
+      "kimi-k3-1-preview",
+      "deepseek-open-source-deepinfer",
+      "deepseek-v4-1-flash-1017",
+      "rea-deepseek-harness-tutorial",
+      "what-is-personal-agent",
+      "claude-haiku-5-5",
+      "cpu-gpu-npu-difference",
+      "aleph-alpha-kolibri",
+      "gemini-4-argon",
+      "mimo-v3-hysparse2",
+      "open-source-jev-replicas",
+      "what-is-jev",
+      "chatgpt-images-2-5",
+      "gpt-6-astra",
+      "why-relay-still-works",
+    ],
+  },
+  {
+    text: "02 / Agent 基础",
     children: [
       "what-is-computer-use",
       "what-is-browser-use",
@@ -755,34 +794,6 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     ],
   },
   {
-    text: "02 / 热点解读（23/100）",
-    children: [
-      "claude-fable-5-2",
-      "deepseek-harness-four-plugins",
-      "hunyuan-hy4",
-      "longcat-2-5",
-      "what-is-super-agent",
-      "xiaomi-ocr-0",
-      "gpt-6-1-terra",
-      "kimi-k3-1-pro",
-      "kimi-k3-1-preview",
-      "deepseek-open-source-deepinfer",
-      "deepseek-v4-1-flash-1017",
-      "rea-deepseek-harness-tutorial",
-      "what-is-personal-agent",
-      "claude-haiku-5-5",
-      "cpu-gpu-npu-difference",
-      "aleph-alpha-kolibri",
-      "gemini-4-argon",
-      "mimo-v3-hysparse2",
-      "open-source-jev-replicas",
-      "what-is-jev",
-      "chatgpt-images-2-5",
-      "gpt-6-astra",
-      "why-relay-still-works",
-    ],
-  },
-  {
     text: "03 / 上下文与记忆",
     children: [
       "agent-memory-compaction-methods",
@@ -803,6 +814,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "04 / LLM 基础与 API",
     children: [
+      "openai-vs-anthropic-protocol",
       "what-is-cot",
       "deepseek-temperature-top-p",
       "what-is-tokenizer",
@@ -882,6 +894,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "dsh-go": "7707955151327317290",
+  "openai-vs-anthropic-protocol": "7707510476745231626",
   "what-is-cot": "7707112014115540233",
   "claude-fable-5-2": "7706555517623176463",
   "deepseek-harness-four-plugins": "7706142531712470313",

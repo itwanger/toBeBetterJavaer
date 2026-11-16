@@ -13,6 +13,7 @@ def install(project):
         raise SystemExit("Expected an initialized video project with project.json and remotion/src/")
     files = {
         **{project / "remotion/src" / p.name: p for p in ASSETS.glob("*.tsx")},
+        project / "remotion/src/Typography.ts": ASSETS / "Typography.ts",
         **{project / "assets/images" / p.name: p for p in (ASSETS / "pixel-actor").glob("*.png")},
         **{project / "assets/sfx" / p.name: p for p in (ASSETS / "pixel-sfx").glob("*.wav")},
     }

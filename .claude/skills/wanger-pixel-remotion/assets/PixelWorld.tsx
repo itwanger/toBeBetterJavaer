@@ -1,3 +1,4 @@
+import {FONT_CSS, UI_FONT, MONO_FONT, UI_WEIGHT, CAPTION_WEIGHT, HUD_WEIGHT, UI_TEXT_STYLE} from './Typography';
 import React, { type ReactNode } from 'react';
 import { AbsoluteFill } from 'remotion';
 import { PixelReviewProbe } from './PixelReviewProbe';
@@ -41,7 +42,7 @@ type WorldProps = {
   coins?: number;
   hearts?: number;
   ground?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
   foreground?: ReactNode;
   sign?: { badge: string; title: string };
 };
@@ -81,7 +82,7 @@ function StatusBar({ coins, hearts }: { coins: number; hearts: number }) {
       </svg>
       <span
         style={{
-          fontFamily: 'Menlo,monospace',
+          fontFamily: MONO_FONT,
           color: pixelColors.gold,
           display: 'flex',
           alignItems: 'center',
@@ -114,7 +115,8 @@ export function PixelWorld({
 }: WorldProps) {
   const c = pixelColors;
   return (
-    <AbsoluteFill data-pixel-world="true" style={{ background: c.cream, fontFamily: "'PingFang SC','Microsoft YaHei',sans-serif" }}>
+    <AbsoluteFill data-pixel-world="true" style={{ background: c.cream, ...UI_TEXT_STYLE }}>
+      <style>{FONT_CSS}</style>
       <svg width="1920" height="1080" viewBox="0 0 1920 1080" style={{ position: 'absolute' }}>
         {mode === 'platform' && (
           <g>
@@ -134,14 +136,14 @@ export function PixelWorld({
           </g>
         )}
         {sign && (
-          <g fontWeight="bold">
+          <g fontWeight={UI_WEIGHT}>
             <rect x="64" y="60" width="118" height="75" fill={c.ink} />
             <text
               x="123"
               y="111"
               textAnchor="middle"
               fontSize="43"
-              fontFamily="Menlo,monospace"
+              fontFamily={MONO_FONT}
               fill={c.gold}
             >
               {sign.badge}
@@ -180,14 +182,14 @@ export function PixelWorld({
             background: c.ink,
             color: c.paper,
             border: `3px solid ${c.paper}`,
-            fontFamily: "'PingFang SC',sans-serif",
+            fontFamily: UI_FONT,
             fontSize: 37,
-            fontWeight: 650,
+            fontWeight: HUD_WEIGHT,
           }}
         >
           {topic.title}{' '}
           {topic.term && (
-            <span style={{ color: c.gold, fontFamily: 'Menlo,monospace', fontSize: 31 }}>{topic.term}</span>
+            <span style={{ color: c.gold, fontFamily: MONO_FONT, fontSize: 31 }}>{topic.term}</span>
           )}
         </div>
       )}
@@ -201,8 +203,9 @@ export function PixelWorld({
             height: 138,
             background: c.navy,
             color: c.paper,
-            fontFamily: "'PingFang SC',sans-serif",
+            fontFamily: UI_FONT,
             fontSize: 51,
+            fontWeight: CAPTION_WEIGHT,
             display: 'grid',
             placeItems: 'center',
           }}

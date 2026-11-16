@@ -13,7 +13,13 @@ const slots = revealSlots(frame, [
 ], stageArea(), 'column');
 ```
 
-`scoreAt` 之前只有工作台，取得整个可用区域；之后连续缩小腾出下方读数空间。左右对照用 `row`。不要先固定最终宽高、再把后来的对象设成透明。第一个常驻对象用 `at: -18`，从开场即有主体。给新对象的文字设置可读的出现时点，不能把长句挤进刚开始展开的小槽。
+`scoreAt` 之前只有工作台，取得整个可用区域；之后连续缩小腾出下方读数空间。左右对照用 `row`，窗口内逐项出现的内容用 `column`。第一个常驻对象用 `at: -18`，从开场即有主体。
+
+**显隐与布局分开处理。** `opacity`、淡入或条件渲染只决定是否看得见，不保证空间归还。固定最终行高、`minHeight`、空白网格行、预留侧栏以及提前计入的 `gap` 都可能继续占位。布局计算只纳入当前已出现或正在进入的对象；未出现对象的尺寸与间距贡献为零。入场时先连续分配空间，再在可读宽高下显露文字，避免窄槽里挤出断字或长期留下若隐若现的内容。退出或删除时，同步收回尺寸和间距，让保留对象重新排布。
+
+**主角也要变化。** 不能只把背景色块或外框拉满，主体仍以最终小字号、小图标贴在顶部。当前独占的提问、模型或记录应按现有空间调整位置、图形尺度和文字排布；新内容到来时才连续缩小、上移或侧移。真实软件的外窗可保持稳定，动态分配发生在窗内；原生截图用原位聚焦保留上下文，不为填满而拉伸。
+
+例如“问题 → 搜索结果 → 引用”：只有问题时以大主体居中，搜索到来才让出结果区，引用到来再调整两者高度。“响应记录 → 空正文字段 → signature”遵循同样的出现顺序；删去历史思考和搜索块后，保留的读链接记录随即重新铺开。不要先排好所有最终槽位再依次显示。
 
 完整主体用 `PixelSubject` 或 `FitPixelSubject`，`bounds` 包含描边、阴影、尺寸标注；默认等比完整放入舞台。原图窄时保持比例。截图要放大输入控件时继续用 `WorkspaceOverview + NativeDetailLens`，完整背景保持在底层。`stageArea('platform')` 把脚下道路留出来，配 `captionStyle="band"`。舞台数值是默认起点，不是要把所有图拉伸铺满。
 
@@ -33,6 +39,26 @@ const slots = revealSlots(frame, [
 这些帧只是回归样例，下一期从自己的配音重新取。流水线调用 `pixel_events.py`，输出 `build/pixel-events.json` 和带 `origin: pixel-actions` 的声音计划。只替换自己生成的声音项；与旧项重复会报错，不能悄悄叠加。落水必须扣一心并有声音，收心必须加一心。沿用第三章时，顶砖 hit 发奖励双音，心飞到 HUD 的 collect 只补心，不能再响一次。
 
 动画导入同一个生成文件，使用 `actionAt(events,'splash')`、`actionProgress()` 与 `heartsAt()`。给 `RetryBridge` 的 timing 也从这些事件取得 splash/hit/collect，声音不再另写时间。源事件更新后先重跑编译，重新混音、检查接触帧，不能只改 HUD。固定告别词继续走已有的干声复用流程。
+
+### 知识蘑菇片尾：按钮与声音成套接入
+
+使用 `PowerUpOutro` 时，在 `pixel-actions.json` 声明当前章的时点文件，不手填点赞、关注声音：
+
+```json
+"powerUpOutros": [
+  {"chapter": "ch6", "timing": "assets/references/ch6-phrase-timing.json"}
+]
+```
+
+`pixel_events.py` 从该文件的 `like/follow` 词头自动生成 **各 +3 帧的按钮按下声**，对应 `LikeFollowTiles` 的下压动作。默认沿用 Harness 定稿的 `pixel_like` / `pixel_follow` 和 -25.19 dBFS 峰值；不要换成通用 `soft_click`，也不要把相同事件再写一遍。动画仍从同一份时点文件取词头；如果改变按钮的下压延迟，应同步修改 `outro_audio.py` 的 `PRESS_DELAY`。
+
+章节入口检测到 `PowerUpOutro` 却没有声明时会报错。流水线混音后运行 `outro_audio.py`：核对当前音轨哈希、两次按下帧、音色和电平，并从实际混音 WAV 减去干声，核实音效确实写进了采样。不能以事件表存在、类型检查通过、浏览器音频可播放代替这项检查。报告保留音效与同窗人声的 RMS 差值，提示可能被掩盖；数值检查不等于听感验收，最后单独开声检查点赞关注几秒即可。调整只动提示音，不重新合成固定告别或改动人声响度。
+
+```bash
+python3 shared/tools/chapter_pipeline.py --project <项目> --chapter ch6 --update-audio
+# 只查已混音的片尾，不重新生成：
+python3 shared/tools/outro_audio.py --project <项目> --chapter ch6
+```
 
 ## 3. 以实际渲染边界审片
 
