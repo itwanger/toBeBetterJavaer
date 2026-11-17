@@ -482,3 +482,17 @@ Two additional "Mode" mechanisms landed in recent releases:
 - **Pi Agent (`packages/ai/src/api/constrained-sampling.ts`, `packages/ai/src/utils/json-parse.ts`, `packages/ai/src/utils/validation.ts`)**：
   - **跨厂商自动严苛化转换（`makeStrictJsonSchema`）**：核心工具 `read`/`bash`/`edit`/`write` 默认开启 `constrainedSampling: { type: "json_schema", strict: "prefer" }`。发送前自动把可选属性改写为 `anyOf: [prop, { type: "null" }]` 并列入 `required`，若遇不支持的 Schema 关键字则静默回退；收到模型返回的 `null` 后，再由 `normalizeOptionalNulls` 对照原始 Schema 删掉 `null` 还原为 `undefined`，并用 TypeBox 做弱类型转换（如 `"42"` 转 `42`）。
   - **流式增量修复（`parseStreamingJson`）**：按 `JSON.parse` → `repairJson`（转义裸换行/制表符与非法反斜杠） → `partialParse`（补全未闭合括号）四级回退实时解析流式参数。
+
+
+---
+
+## 10. Model Providers & Qwen / Custom API Configuration (`fcc0ad4621`)
+
+- **UI 入口与双模式卡片**（`packages/client/ui-settings-models/src/client/locales.ts:151-275`、`ModelsSection.tsx`、`docs/user/guide/providers.zh.md`）：
+  - 入口为 **设置 → 模型**，点击 **添加模型提供商**。
+  - 卡片顶部提供两种 **添加方式**：
+    1. **第三方模型提供商**（内置目录）：下拉选取内置提供商 ID，填入只写的 **API 密钥** 点击 **保存** 即可。内置目录中已包含千问 Token Plan 路由（`packages/llm/llm-pi-ai/src/provider-data.generated.ts:38-40`）：`qwen-token-plan-cn`（默认地址 `https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`，环境变量 `QWEN_TOKEN_PLAN_CN_API_KEY`）、`qwen-token-plan`（新加坡节点）与 `qwen-token-plan-individual`。
+    2. **自定义模型 API**（连接兼容网关或标准按量接口）：需填写小写永久 **Provider ID**、**显示名称**、**API 地址**、**API 协议**（下拉三选一：`OpenAI Chat Completions` 对应 `openai-completions`、`OpenAI Responses` 对应 `openai-responses`、`Anthropic Messages` 对应 `anthropic-messages`）、**API 密钥**，以及至少一个模型。
+- **模型目录与模型选项**（`ModelListEditor.tsx`、`ModelRow.tsx`）：
+  - 在 **模型目录** 中可点击 **获取可用模型** 探测端点并勾选 **更新列表**，也可点击 **添加模型** 手动录入 **模型 ID**、**显示名称**。
+  - 展开单行模型的 **模型选项**，可配置 **上下文窗口**、**最大输出 token 数**、**输入类型**（复选框：**文本**、**图片**，保存为 `input: [text, image]`）；自定义模型 API 提供商还支持在界面开启 **推理等级**，添加 **档位** 与对应的 **API 参数值**（如 `low`、`high`、`xhigh` 写入请求的 `reasoning_effort`），然后在会话输入框的模型选择器二级菜单中按模型切换档位。
