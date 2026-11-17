@@ -1,4 +1,0 @@
-interface:
-  display_name: "视频封面图"
-  short_description: "从口播稿生成3:4、16:9和4:3三种比例的视频封面"
-  default_prompt: "Use $video-cover-image to generate matched 3:4, 16:9, and 4:3 cover images from this video script."

@@ -39,7 +39,7 @@
 
 ### 视频 Skill
 
-本仓库的新视频默认使用 [wanger-pixel-remotion](.agents/skills/wanger-pixel-remotion/SKILL.md)。调用语为「用二哥像素风视频 Skill 制作 xxx.md」。用户点名「用小超视频 Skill 制作 xxx.md」时使用独立的 [chao-remotion](https://github.com/itwanger/chao-remotion)。
+本仓库的新视频默认使用 [wanger-pixel-remotion](https://github.com/itwanger/wanger-pixel-skills/tree/main/skills/wanger-pixel-remotion)。调用语为「用二哥像素风视频 Skill 制作 xxx.md」。用户点名「用小超视频 Skill 制作 xxx.md」时使用独立的 [chao-remotion](https://github.com/itwanger/chao-remotion)。
 
 ### 视频制作文件存放
 
@@ -54,3 +54,7 @@
 
 - 优先采用通畅连贯的段落式文本叙述，避免机械堆叠过多的 Markdown 标题、层级列表或符号排版，保持阅读体验平实自然。
 
+
+## 独立像素 Skill 入口
+
+像素配图、视频封面、二哥像素视频及其图床/GIF 工具统一由私有仓库 `itwanger/wanger-pixel-skills` 维护，全局入口位于 `~/.codex/skills/` 与 `~/.agents/skills/`。本仓库对应兼容入口仅链接全局安装；更新规则、人物素材、参考镜头与共享运行时应修改独立仓库。使用独立像素视频 Skill 新建项目时，以它的 `video/<slug>/` 工作区为准，不要求本仓库或 `docs/src/ai` 存在；已有项目保持原位置。
