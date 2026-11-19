@@ -53,7 +53,7 @@ description: 口播稿，适用于 AI 技术科普、Agent/Skill/RAG、LLM 等�
 
 ---
 
-## 正向表达规范（与 `ai-article` 共用，详见 `.claude/skills/ai-article/references/human-tone.md`）
+## 正向表达规范（与写作 Skill 共用，详见 `~/.agents/skills/wanger-article-opus4.6/references/human-tone.md`）
 
 1. **主语直接用产品名或组件名，准确把握 Agent 定位与专业交互表述**：直接写“Codex 会读取 `title`”“翻开 DeepSeek Harness 的源码”。Claude Code、DeepSeek Harness、Codex 统称为 Agent，既能在终端运行，也能在桌面端运行，能调用工具、检索 RAG、联网搜索、执行命令、写教程、做 PPT、做视频、处理各类工作。口播切入时不要把它们局限于“写代码”，更不要停留在聊天机器人时代写“发出一句提问”“向大模型提问”“聊天窗口”，统一写“发送提示词”“输入提示词”“下达任务”“会话界面”。
 2. **动词干脆直接，一步到位**：用直白的动作词串起执行流程（如“挂载、暴露、读取、折叠、设定、挂起、放行、切换、跑、切到、查、塞进”），讲完动作本身即止（如“拼接到报错末尾”“切换为同步阻塞”“保护 KV Cache”“点错了再撤销”）。
@@ -82,8 +82,8 @@ description: 口播稿，适用于 AI 技术科普、Agent/Skill/RAG、LLM 等�
 
 ### 步骤 2：调研与白话转译（强制）
 1. **先查知识缓存，再同时核对后端协议层与前端 UI 层**：
-   - 动笔前先读取 `.agents/skills/ai-article/knowledge/` 下的项目知识缓存（如 `deepseek-harness-desktop.md`、`paicli-architecture.md` 等），掌握已沉淀的桌面端/终端真实交互形态与架构事实。
-   - 启用 Sub-agent 调研 **Claude Code、Codex、DeepSeek Harness 和 Pi Agent** 的源码、官方文档或一手公告，收到结果后立即停止 Sub-agent。**涉及界面体感或操作入口时，严禁凭通用网页聊天框的印象猜测（如臆造“开启思考模式的开关按钮”或“大段弹出的灰色框”），必须同时查验后端协议层（如 `packages/llm/`）和前端客户端 UI 层（如 `packages/client/ui-chat/`、`ui-model-selection/` 及 `locale.ts` 中文词典），确认真实的菜单名称、折叠层级、流式预览与默认行为**。新查清的源码事实同步沉淀回 `.agents/skills/ai-article/knowledge/` 对应缓存文件。本地源码路径：
+   - 动笔前先读取 `~/.agents/skills/wanger-article-opus4.6/knowledge/` 下的项目知识缓存（如 `deepseek-harness-desktop.md`、`paicli-architecture.md` 等），掌握已沉淀的桌面端/终端真实交互形态与架构事实。
+   - 启用 Sub-agent 调研 **Claude Code、Codex、DeepSeek Harness 和 Pi Agent** 的源码、官方文档或一手公告，收到结果后立即停止 Sub-agent。**涉及界面体感或操作入口时，严禁凭通用网页聊天框的印象猜测（如臆造“开启思考模式的开关按钮”或“大段弹出的灰色框”），必须同时查验后端协议层（如 `packages/llm/`）和前端客户端 UI 层（如 `packages/client/ui-chat/`、`ui-model-selection/` 及 `locale.ts` 中文词典），确认真实的菜单名称、折叠层级、流式预览与默认行为**。新查清的源码事实同步沉淀回 `~/.agents/skills/wanger-article-opus4.6/knowledge/` 对应缓存文件。本地源码路径：
      - Claude Code：`/Users/itwanger/Documents/GitHub/claude-code-source-code`
      - Codex：`/Users/itwanger/Documents/GitHub/codex`
      - DeepSeek Harness：`/Users/itwanger/Documents/GitHub/deepseek-harness`

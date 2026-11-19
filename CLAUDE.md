@@ -17,7 +17,7 @@
 
 ## 写作工作流
 
-1. 写 AI 文章 → ai-article Skill；口播稿 → video-script Skill
+1. 写 AI 文章 → Codex / Claude Code 使用全局 `wanger-article-opus4.6` Skill，Gemini 使用全局 `wanger-article-gemini` Skill（独立私有仓库 `itwanger/wanger-article-skills` 维护）；口播稿 → `video-script` Skill
 2. 抓取微信公众号等需登录/动态渲染页面：用 Chrome DevTools MCP 或 web-access Skill，不用 WebFetch
 
 ## 表达原则（所有文字输出生效，包括回复用户）
