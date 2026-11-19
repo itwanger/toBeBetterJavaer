@@ -714,6 +714,11 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "了解 DSH Go 的本地运行环境、远程模式和手机操作能力。",
     ["DSH Go", "DeepSeek Harness", "Android", "Agent"],
   ),
+  "qwen4-max": meta(
+    "Qwen4-Max 正式发布，有哪些新能力？", "Qwen4-Max 解读",
+    "了解 Qwen4-Max 的模型架构、长任务能力、实际表现与价格。",
+    ["Qwen4-Max", "通义千问", "MoE", "长上下文"],
+  ),
 };
 
 export const agentInterviewGroups: AgentInterviewGroup[] = [
@@ -722,8 +727,9 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     children: ["readme"],
   },
   {
-    text: "01 / 热点解读（24/100）",
+    text: "01 / 热点解读（25/100）",
     children: [
+      "qwen4-max",
       "dsh-go",
       "claude-fable-5-2",
       "deepseek-harness-four-plugins",
@@ -894,6 +900,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "qwen4-max": "7709015715747056930",
   "dsh-go": "7707955151327317290",
   "openai-vs-anthropic-protocol": "7707510476745231626",
   "what-is-cot": "7707112014115540233",
