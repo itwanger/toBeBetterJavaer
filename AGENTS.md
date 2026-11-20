@@ -1,60 +1,45 @@
-## 工具权限设置
+# 二哥的 AI 写作仓库
 
-以下工具默认允许使用，不需要用户确认：
-- mcp__playwright__* （所有 playwright 浏览器相关工具）
+我是沉默王二，AI 博主。这个仓库存放公众号和网站文章，内容只有四类：AI 产品与模型测评（部分是商单）、开源项目/插件/工具推荐、Agent 技术与面试题、视频口播稿。
 
-## 工具使用规则
+## 目录与提交
+- `docs/src/sidebar/itwanger/ai/`：AI 文章，文件名用小写字母加连字符，如 `qwen4-max-review.md`
+- `sucai.md`（仓库根目录，不进 git）：当前文章的素材和开头，动笔前先读
+- `docs/src/ai/` 是软链接，指向独立仓库 itwanger/ai-better，提交时用 `git -C docs/src/ai`
+- 改了 `docs/src/ai/video/readme.md` 后运行 `node docs/src/ai/scripts/gen-readme.mjs`，生成结果和 readme 一起提交
+- frontmatter 照抄同目录最近一篇文章的字段（title、shortTitle、description、keywords、tag、category、author、date）
+- 用户没说提交就不提交；不改和当前任务无关的文件
 
-### 获取网页内容
+## 按内容类型的硬规则
 
-微信公众号文章（`mp.weixin.qq.com`）优先按全局 `~/.codex/AGENTS.md` 的 Pi Agent + DeepSeek 流程读取：使用 `/Users/itwanger/.local/bin/pi-web-read '完整URL' '当前问题'`，显式固定 DeepSeek；只有读取失败、正文不完整或需要图片/交互信息时再用 `mcp__playwright` 补读，无需询问。
+**测评**
+- 写"实测"必须真的跑过，提示词和关键输出原样保留
+- 跑分、价格、上下文长度等数字只引用官方页面或自己的实测结果，并写明出处；查不到的写"未公开"，不能估
 
-遇到以下情况时，**直接使用 `mcp__playwright` 工具打开浏览器获取内容**，不要询问用户：
+**商单**（用户说明是合作稿时适用）
+- 写法和普通文章一样，不单独标注
+- 品牌方提供的数据写成"官方称……"，不能当成二哥的实测结论
+- 不写"最强""第一""吊打"这类绝对化用语，不点名贬低竞品
 
-- 微信文章经 Pi + DeepSeek 读取后仍需浏览器补读
-- 需要登录才能访问的页面
-- WebFetch 返回错误或超时的页面
-- 动态渲染的页面内容
+**开源项目 / 插件 / 工具推荐**
+- 写稿当天核实：仓库地址、Star 数、许可证、是否还在维护
+- 安装和使用命令必须实际跑通
+- 说清楚它解决什么问题、和同类工具相比有什么不同
 
-**使用方式：**
-```
-1. mcp__playwright__browser_navigate 打开目标URL
-2. mcp__playwright__browser_snapshot 获取页面内容
-3. mcp__playwright__browser_close 关闭本次临时浏览器会话（必须收尾；连接用户已有浏览器时仅清理本次标签并断开）
-```
+**口播稿**：用 video-script Skill。要点：短句、口语、一句一个意思；按每分钟约 220 字估算时长；不出现读不出来的符号、表格和长链接。
 
-这是默认行为，不需要再询问用户是否使用浏览器。
+## 核实资料
+- 一手资料优先：官方博客、文档、GitHub、原帖。搜索摘要和二手转述不能直接当事实写
+- 读网页、公众号、X 原帖时用 pi-web-read Skill；读不到时说明是哪个链接，再换浏览器补读
+- 模型名称和版本以写作当天的官方信息为准；和旧版本对比时注明是哪一代
 
-### 打开网页 / 演示
+## 表达原则（文章和回复用户都适用）
+- 不生造比喻，只用大家日常都说过的比喻
+- 主语、宾语、指代写全，不让读者靠上下文猜
+- 技术部分用书面语，概念和数字准确
+- 回复用户用连贯的段落，少堆标题和列表
 
-需要打开网页、本地预览或演示页面时，默认用内部浏览器（`agent-browser --session <任务名>`）打开，并用截图或录制把结果带回对话；不要再用 `open` 拉起系统默认浏览器占用户的标签页。只有用户明确要求“用我自己的浏览器”时才用 `open`。
-
-内部浏览器会话用完按 Skill 要求 `agent-browser --session <任务名> close` 收尾；用户明确要边看边聊时，说明保留原因和关闭时机。
-
-### 图片生成 / 文章配图
-
-文章配图默认用 `wanger-hand-drawn-image` 生成二哥手绘风。用户或占位符明确指定像素风或 `pixel` 时，直接使用本机独立的 `wanger-pixel-image`。两者均默认精简版，可点名详解版，支持相同六种排版，按上下文自动选择静态图或循环 GIF。
-
-构造图片生成提示词时，只使用当前图片占位符、用户明确提供的参考图和所选配图 Skill 的规则；不要把无关窗口、历史聊天、浏览器状态、编辑器内容或当前文章全文自动带入图片生成 prompt。确实需要参考文章内容时，只抽取与当前占位符直接相关的少量关键词。
-
-### 视频 Skill
-
-本仓库的新视频默认使用 [wanger-pixel-remotion](https://github.com/itwanger/wanger-pixel-skills/tree/main/skills/wanger-pixel-remotion)。调用语为「用二哥像素风视频 Skill 制作 xxx.md」。用户点名「用小超视频 Skill 制作 xxx.md」时使用独立的 [chao-remotion](https://github.com/itwanger/chao-remotion)。
-
-### 视频制作文件存放
-
-视频素材和制作产物不得直接写入仓库根目录。开始执行前先确认具体视频项目的绝对路径，所有生成、复制、下载和渲染命令都显式指定项目内的输出位置，不依赖当前工作目录。
-
-- 普通视频项目放在 `docs/src/ai/script/<视频项目>/`；一分钟及两分钟科普系列统一放在 `docs/src/ai/script/one-minute/<主题>/<工具>/<版本>/`，先按主题归档，再在主题内按制作工具与版本分类；协作来源写入主题说明，工具不明时标注 `unattributed`；公共动画库、字体和基础色板放在 `script/one-minute/shared/`，配音、时间轴和场景仍归各版本，不再散放在 `script/` 第一层。`docs/src/ai/` 通过软链接对应 `ai-better/`。
-- 配音放入项目的 `audio/` 或 `build/`，素材放入 `assets/`，截图与检查记录放入 `preview/`，Remotion 源码放入 `remotion/src/`，成片放入 `output/`；项目配置、分镜和进度文件也只放在该视频项目内。
-- 如需额外交付副本，放在仓库的 `outputs/<视频项目>/`；不要把目录层级拍平后复制到根目录。
-- 收尾检查仓库根目录及 Git 变更；发现误写文件先核对归属与内容，再归档或归位，不覆盖正式项目中的较新版本。
-
-## 回复风格偏好
-
-- 优先采用通畅连贯的段落式文本叙述，避免机械堆叠过多的 Markdown 标题、层级列表或符号排版，保持阅读体验平实自然。
-
-
-## 独立像素 Skill 入口
-
-像素配图、视频封面、二哥像素视频及其图床/GIF 工具统一由私有仓库 `itwanger/wanger-pixel-skills` 维护，全局入口位于 `~/.codex/skills/` 与 `~/.agents/skills/`。本仓库对应兼容入口仅链接全局安装；更新规则、人物素材、参考镜头与共享运行时应修改独立仓库。使用独立像素视频 Skill 新建项目时，以它的 `video/<slug>/` 工作区为准，不要求本仓库或 `docs/src/ai` 存在；已有项目保持原位置。
+## 其他工作流（细节在各自的 Skill 里）
+- 配图：wanger-hand-drawn-image，指定像素风时用 wanger-pixel-image
+- 视频：wanger-pixel-remotion，点名小超时用 chao-remotion；产物只放进视频项目目录，不写到仓库根目录
+- 知识星球、题库同步、视频链接同步：用对应的 zsxq-*、feishu-question-bank-sync、video-sync Skill
