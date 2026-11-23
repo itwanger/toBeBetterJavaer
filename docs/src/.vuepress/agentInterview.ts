@@ -714,6 +714,26 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "了解 DSH Go 的本地运行环境、远程模式和手机操作能力。",
     ["DSH Go", "DeepSeek Harness", "Android", "Agent"],
   ),
+  "claude-riemann-hypothesis": meta(
+    "Claude 如何参与黎曼猜想的形式化证明？", "Claude 与黎曼猜想",
+    "看 Levent Alpöge 如何与 Claude 协作，以及独立团队怎样用 Lean 内核复核提交的证明。",
+    ["Claude", "黎曼猜想", "Lean"],
+  ),
+  "gemini-4-neon": meta(
+    "Gemini 4 Neon 如何用 Orchestrator 调度模型？", "Gemini 4 Neon",
+    "结合编程实测，了解 Gemini 4 Neon 的能力、Orchestrator 的模型调度方式及用量成本。",
+    ["Gemini 4 Neon", "Orchestrator", "模型调度"],
+  ),
+  "gpt-6-2-astra": meta(
+    "GPT-6.2 Astra 和 Sol 有哪些变化？", "GPT-6.2 Astra 与 Sol",
+    "从 Codex 中的实际任务看 Astra 与 Sol 的定位，以及修改历史消息对缓存和费用的影响。",
+    ["GPT-6.2", "Astra", "Sol", "Codex"],
+  ),
+  "how-llm-is-trained": meta(
+    "大模型是怎么训练出来的？预训练→SFT→RLHF 三阶段讲一下？", "DeepSeek 是怎么训练出来的？",
+    "以 DeepSeek 为例，讲解预训练、中训练、监督微调和强化学习各自解决的问题。",
+    ["DeepSeek", "预训练", "SFT", "强化学习"],
+  ),
   "qwen4-max": meta(
     "Qwen4-Max 正式发布，有哪些新能力？", "Qwen4-Max 解读",
     "了解 Qwen4-Max 的模型架构、长任务能力、实际表现与价格。",
@@ -727,8 +747,11 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     children: ["readme"],
   },
   {
-    text: "01 / 热点解读（25/100）",
+    text: "01 / 热点解读（28/100）",
     children: [
+      "claude-riemann-hypothesis",
+      "gemini-4-neon",
+      "gpt-6-2-astra",
       "qwen4-max",
       "dsh-go",
       "claude-fable-5-2",
@@ -841,6 +864,7 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
   {
     text: "05 / 模型训练与微调",
     children: [
+      "how-llm-is-trained",
       "what-is-model-distillation",
       "what-is-reinforcement-learning",
     ],
@@ -900,6 +924,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "claude-riemann-hypothesis": "7710553065287421234",
+  "gemini-4-neon": "7709852766541204776",
+  "gpt-6-2-astra": "7709474439645121842",
+  "how-llm-is-trained": "7710191572628852002",
   "qwen4-max": "7709015715747056930",
   "dsh-go": "7707955151327317290",
   "openai-vs-anthropic-protocol": "7707510476745231626",
