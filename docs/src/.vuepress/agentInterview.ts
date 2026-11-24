@@ -714,6 +714,16 @@ export const agentInterviewMeta: Record<string, AgentInterviewMeta> = {
     "了解 DSH Go 的本地运行环境、远程模式和手机操作能力。",
     ["DSH Go", "DeepSeek Harness", "Android", "Agent"],
   ),
+  "glm-5-4": meta(
+    "GLM-5.4 的视觉能力在 ZCode 里怎么用？", "GLM-5.4 与 ZCode",
+    "从设计稿、浏览器截图和 PDF 三个场景，看看 GLM-5.4 如何在 ZCode 中读取图像，以及它与 GLM-5.3 的区别。",
+    ["GLM-5.4", "ZCode", "视觉输入"],
+  ),
+  "gemini-4-neon-riemann-hypothesis": meta(
+    "Gemini 4 Neon 如何用动画讲清楚黎曼猜想？", "用 Gemini 4 Neon 看懂黎曼猜想",
+    "用 Gemini 4 Neon 制作的交互动画，从质数方阵看到泽塔函数的非平凡零点，理解临界线为什么关系到质数的分布。",
+    ["Gemini 4 Neon", "黎曼猜想", "质数分布"],
+  ),
   "claude-riemann-hypothesis": meta(
     "Claude 如何参与黎曼猜想的形式化证明？", "Claude 与黎曼猜想",
     "看 Levent Alpöge 如何与 Claude 协作，以及独立团队怎样用 Lean 内核复核提交的证明。",
@@ -747,8 +757,10 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
     children: ["readme"],
   },
   {
-    text: "01 / 热点解读（28/100）",
+    text: "01 / 热点解读（30/100）",
     children: [
+      "glm-5-4",
+      "gemini-4-neon-riemann-hypothesis",
       "claude-riemann-hypothesis",
       "gemini-4-neon",
       "gpt-6-2-astra",
@@ -924,6 +936,8 @@ export const agentInterviewGroups: AgentInterviewGroup[] = [
 ];
 
 const douyinVideoIds: Partial<Record<keyof typeof agentInterviewMeta, string>> = {
+  "glm-5-4": "7711348161897336073",
+  "gemini-4-neon-riemann-hypothesis": "7710966151303466274",
   "claude-riemann-hypothesis": "7710553065287421234",
   "gemini-4-neon": "7709852766541204776",
   "gpt-6-2-astra": "7709474439645121842",
