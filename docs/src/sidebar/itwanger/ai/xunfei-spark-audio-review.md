@@ -1,7 +1,7 @@
 ---
 title: 真人感拉满，讯飞语音大模型表现令人惊喜。
 shortTitle: 讯飞语音大模型测评与 PaiAgent 接入指南
-description: 以客服工单和会议录音实测讯飞听写 V2.0、实时字幕与极速转写，对照本地 Qwen3-ASR 的识别结果，结合官方白皮书与 PaiAgent 接入代码，讨论企业语音 API 的选型和用量预算。
+description: 以 5 条客服直播听写、9 路并发批量视频配音和 64 秒多角色会议实测，对比本地 Qwen3-ASR 与讯飞听写 V2.0、实时字幕、极速转写及超拟人合成，给出 PaiAgent 接入方案、底层架构解析与企业年终预算账。
 keywords:
   - SparkAudio 1.0
   - Spark-ASR-2.0
@@ -55,7 +55,7 @@ date: 2026-11-24
 
 如果团队本来就有采购计划，不管是把未来一年的语音和 AI 能力用量一次配齐，还是先用充 700 得 1000 的不限期礼品储值卡备一些额度，赶在活动期内下单都能省下一笔预算。
 
->活动链接：https://www.xfyun.cn/activities/promotion
+>活动链接：https://t.xfyun.cn/1Xw1UE
 
 ![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261124164308.png)
 
@@ -75,39 +75,35 @@ PaiAgent 我已经开源在 GitHub 上，目前也有 728 个 star 了，有需�
 
 >https://github.com/itwanger/PaiAgent
 
-[播放会议改期的实时听写演示](https://cdn.paicoding.com/stutymore/xf-spark-07-dictation-20261124161946-1a3279f6.mp4)
+先拿一条 5 秒的客服工单热个身。
 
-试听一下，可以说识别得非常准确：
-
->请把明天下午三点的产品评审，改到四点半。
-
-另外，「语音听写大模型（中英）V2.0」还支持传入上下文。拿客服派单里最容易出错的同音人名来说吧，把讯飞听写 V2.0 和我本机的 Qwen3-ASR-1.7B（4-bit 量化版）拉出来比一比。
-
-```text
-请把派聪明的工单转给徐杨，周四下午三点回访。
-```
-
-在 PaiAgent 的「实时听写」里选「客服派单对照 · 上传 WAV」，就能找到这段 5.16 秒的原声，也可以换成你自己的 WAV。
-
-点「运行三组对照」，看这三个结果里工单分别派给了谁。
-
-[看三组对照的有声录屏](https://cdn.paicoding.com/stutymore/xf-spark-03c-ticket-comparison-20261124170522-18940eda.mp4)
-
-本地的 Qwen3-ASR-1.7B 不传业务名单，返回的是“请把派聪明的工单转给徐阳，周四下午三点回访。”
-
-讯飞听写 V2.0 不传上下文时，返回的是“请把派聪明的工单转给徐阳，周四下午3:00回访。”
-
-讯飞听写 V2.0 传入上下文以后，返回的是“请把派聪明的工单转给徐杨，周四下午3:00回访。”
-
-![](https://cdn.paicoding.com/stutymore/xf-spark-03b-ticket-20261124151431-a61833af.png)
-
-第三组只改了首帧参数。
-
-在「排班与工单背景」填入“本组处理派聪明产品的工单，值班同事叫徐杨。”，会话热词填“派聪明，徐杨”，“定向替换”保持关闭。
-
-展开「查看 WebSocket 首帧参数」，可以看到这两项序列化后写入了 `parameter.iat.context`。
+录音里说的是“请把派聪明的工单转给徐杨，周四下午三点回访”。这里面最容易翻车的是人名，本机 Qwen3-ASR-1.7B（4-bit）默认写成了“徐阳”。
 
 ![](https://cdn.paicoding.com/stutymore/xf-spark-03c-ticket-comparison-20261124170522-5f23c69e.png)
+
+在 PaiAgent 的「客服派单对照」里，我给讯飞加了一句排班背景“值班同事叫徐杨”，再把“派聪明，徐杨”填进会话热词。同一段原声，这次返回的是“请把派聪明的工单转给徐杨，周四下午3:00回访。”展开「查看 WebSocket 首帧参数」，能看到这两项都放进了 `parameter.iat.context`。
+
+### 客服派单上线评审会
+
+我给产品、客服和研发拉到了一个群聊，做了一场 **4 分 51 秒、20 轮发言**的模拟会议。
+
+<audio controls preload="none" aria-label="三人模拟客服派单上线评审会，4 分 51 秒完整 WAV" src="https://cdn.paicoding.com/stutymore/xf-spark-03d-dispatch-review-20261125085836-7718a7f6.wav" style="width:100%"></audio>
+
+在 PaiAgent 的「实时听写」里选「多人会议」，点「听写整场会议」就能实时把会议转写成文字。
+
+**1 分 41 秒**，客服问群里报了 36 张退单，为什么报表只有 29 张。讯飞把 36、29、差出的 7 张都记对了。
+
+![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261125091157.png)
+
+**3 分 53 秒**产品先提原计划，再当场改口。讯飞写下的是“原定周四下午3:00直接上线，现在改了周四下午3:00只做演练，周五上午10:00才开两家门店。”
+
+![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261125091251.png)
+
+点议题就能定位原声，旁边保留了这次实测原文，展开「对照模拟台词」还能逐句核对。
+
+![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261125091444.png)
+
+识别非常准确，完全没有误差，对于线上多人会议这种场景，「语音听写大模型（中英）V2.0」还是太权威了。
 
 ## 02、超拟人语音合成
 
@@ -149,7 +145,57 @@ PaiAgent 我已经开源在 GitHub 上，目前也有 728 个 star 了，有需�
 
 <video controls playsinline preload="none" aria-label="沉默王二本人原声与讯飞复刻对照，第 13 秒切换到合成台词" poster="https://cdn.paicoding.com/stutymore/xf-spark-04e-own-voice-comparison-20261124185627-6cbd7be0.png" src="https://cdn.paicoding.com/stutymore/xf-spark-04e-own-voice-comparison-20261124185627-86764bb1.mp4" style="width:100%;height:auto"></video>
 
-## 04、接入 PaiAgent
+## 04、企业批量实战
+
+企业团队采购语音接口时，更关心这套能力能不能稳定地跑在批量视频生产和会议直播的工作流里。
+
+打开 PaiAgent 顶栏的「企业实战」，可以直接翻看上次实测的音频和字幕，也可以改文案重新跑一批。
+
+![](https://cdn.paicoding.com/stutymore/xf-spark-11c-studio-clone-20261125093029-0a4f0d3a.png)
+
+### 批量生产短视频配音
+
+做 MCN 矩阵、教培课程或者市场部产品宣发时，每周要给几十、上百条短视频配音，改稿后还得重配，这部分往往最耗人力。
+
+先选「本人音色批量配音」，把版本发布、客服派单、直播场控、研发解说和采购提醒五条文案放进同一个队列，选已经训练好的「我的声音」，点「批量生成」。
+
+![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261125093623.png)
+
+这次是 **5 条文案、285 个字符、2 路并发**。从点按钮到最后一条可以播放，页面计时 **5.80 秒**，五段音频加起来 **55.61 秒**。
+
+<audio controls preload="none" aria-label="PaiAgent 批量生成的本人音色发版播报" src="https://cdn.paicoding.com/stutymore/xf-spark-11a-studio-clone-20261125093029-b8d73a76.mp3" style="width:100%;max-width:32rem"></audio>
+
+切到「多角色批量配音」，分别是客服安抚、发布会、直播口播和新人培训，用聆玉昭、聆飞逸、聆小璇、聆小玥四个音色并发合成。
+
+![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261125093722.png)
+
+这批 **224 个字符，5.45 秒**全部生成，成品总时长 **45.29 秒**。
+
+下面这条是聆玉昭给异常订单客户的回电承诺，大家可以试听。
+
+<audio controls preload="none" aria-label="PaiAgent 多角色配音队列中的聆玉昭客服安抚音频" src="https://cdn.paicoding.com/stutymore/xf-spark-11b-studio-tts-20261125093029-7422e52e.mp3" style="width:100%;max-width:32rem"></audio>
+
+按讯飞超拟人合成的 650 万字符套餐来算，年终七折是 `700` 元，新客六折券后 `600` 元，套餐默认给到 `100` 路并发。
+
+折算到每条 60 字左右的企业口播，单条音频成本约 `0.0055` 到 `0.0065` 元；就算团队一个月批量生产 `1000` 条短视频配音，花在合成接口上的费用大约是 `5.5` 到 `6.5` 元。
+
+### 直播的实时字幕与会议纪要
+
+接着测企业里的版本评审会、内部培训和直播场景，这类场景要求会议中能实时出字幕，会后能把整段录音快速归档并抽取待办清单。
+
+![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261125094017.png)
+
+为了让大家也能用同一份输入复测，我用前面实测通过的聆玉昭、聆飞逸和聆小璇三个超拟人发音人，分别扮演产品经理、后端负责人和测试负责人，中间插入 `0.4` 秒停顿，拼接出一段 `64.09` 秒（`513 KB` MP3）的多角色版本评审会录音。
+
+<audio controls preload="none" aria-label="64秒三角色模拟版本评审会录音" src="https://cdn.paicoding.com/stutymore/xf-spark-12a-meeting-20261125082839-985b4e84.mp3" style="width:100%;max-width:32rem"></audio>
+
+在「字幕与纪要」里点「运行会议流程」。录音开始播放，左侧的「实时字幕」跟着出字。这次从开始连接到看到第一个字用了 **1.46 秒**，整段字幕跑完 **66.55 秒**。录音结束后，页面把同一份 MP3 提交给极速转写，从提交到拿到归档文字用了 **3.71 秒**。
+
+![](https://cdn.paicoding.com/stutymore/xf-spark-12b-studio-minutes-20261125093030-8b2f6d3f.png)
+
+右边这份纪要用的是实时字幕。PaiAgent 把字幕交给 DeepSeek 工作流，**9.36 秒**后拿到决议和待办。
+
+## 05、接入 PaiAgent
 
 拿【实时听写】来演示一遍如何接入。
 
@@ -157,7 +203,7 @@ PaiAgent 我已经开源在 GitHub 上，目前也有 728 个 star 了，有需�
 
 登录讯飞开放平台，进入「语音听写大模型（中英）V2.0」产品页。
 
-在「产品价格」里找到「个人认证免费包」，完成个人认证后，点卡片底部的「免费领取」。这次我领的是 2 万次，有效期 90 天。
+在「产品价格」里找到「个人认证免费包」，完成个人认证后，点卡片底部的「免费领取」。这次我领的是 2 万次，有效期 90 天。如果是企业团队做批量压测，切到「企业认证免费包」可以领到 20 万次听写，录音文件转写大模型版企业免费包也有 50 小时，足够先拿一批真实工单和会议录音跑通流程。
 
 >https://www.xfyun.cn/services/spark_asr_zh_en_v2.0#anchor5
 
@@ -183,7 +229,7 @@ XFYUN_IAT_API_SECRET=你的APISecret
 
 ![](https://cdn.paicoding.com/stutymore/xunfei-spark-audio-review-20261124175459.png)
 
-## 05、为什么这么强？
+## 06、为什么这么强？
 
 举一个客服质检的例子。
 
@@ -215,7 +261,7 @@ XFYUN_IAT_API_SECRET=你的APISecret
 
 ![](https://cdn.paicoding.com/stutymore/xf-spark-09c-streaming-20261124154949-b121891a.png)
 
-## 06、年终活动怎么买更划算
+## 07、年终活动怎么买更划算
 
 提醒需要的企业和开发者一下。
 
@@ -223,9 +269,7 @@ XFYUN_IAT_API_SECRET=你的APISecret
 
 如果团队年底正好在排明年的预算，可以把接下来一年预计要用的能力一起算一算，会比平时按原价零散续费省一些。
 
->https://www.xfyun.cn/activities/promotion#promotion-products
-
-![](https://cdn.paicoding.com/stutymore/xf-spark-10-promotion-desktop-20261124180945-dc7003c9.png)
+>https://t.xfyun.cn/1Xw1UE
 
 拿前面测过的客服听写算一笔账。假设每天有 4000 条工单，一年按 250 个工作日算，正好是 100 万次。听写 V2.0 的一年包原价 2000 元，活动价 1400 元，按这个用量能省 600 元。
 

@@ -125,7 +125,7 @@ date: 2026-11-24
 以导出的实际像素画面验收。独立生成模型、纹理和地形，参考图只用于观察，不嵌入运行页面。
 ```
 
-![](https://cdn.paicoding.com/stutymore/glm-5-4-review-11-town-refined-20261124102719-4ea9d62b.gif)
+![](https://cdn.paicoding.com/stutymore/glm-5-4-review-11-town-refined-20261125102104-3eb7c9be.gif)
 
 ## 03、雷霆大思考
 
